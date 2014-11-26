@@ -21,6 +21,7 @@ from horizon import exceptions
 from horizon import forms
 from horizon import tables
 from horizon import tabs
+from horizon.utils import memoized
 
 from django.views.generic.base import TemplateView
 
@@ -111,3 +112,60 @@ class DetailApplicationView(TemplateView):
         context['callbackURL'] = application.redirect_uris[0]
         context['application_name'] = application.name
         return context
+
+class MultiFormView(TemplateView):
+    template_name = 'idm/myApplications/edit.html'
+
+    @memoized.memoized_method
+    def get_object(self):
+        try:
+            return fiware_api.keystone.application_get(self.request, self.kwargs['application_id'])
+        except Exception:
+            redirect = reverse("horizon:idm:myApplications:index")
+            exceptions.handle(self.request, _('Unable to update application'), redirect=redirect)
+
+    def get_context_data(self, **kwargs):
+        context = super(MultiFormView, self).get_context_data(**kwargs)
+        application = self.get_object()
+        context['application'] = application
+
+        #Existing data from organizations
+        initial_data = {
+            "appID": application.id,
+            "name": application.name,
+            "description": application.description,
+            "callbackurl": application.redirect_uris[0],
+            "url": application.extra['url']
+            # "img": application.extra['img']
+        }
+        #Create forms
+        info = application_forms.InfoForm(self.request, initial=initial_data)
+        avatar = application_forms.AvatarForm(self.request, initial=initial_data)
+        cancel = application_forms.CancelForm(self.request, initial=initial_data)
+
+        #Actions and titles
+        info.action = 'info/'
+        info.title = 'Information'
+        avatar.action = "avatar/"
+        avatar.title = 'Avatar Update'
+        cancel.action = "cancel/"
+        cancel.title = 'Cancel'
+
+        context['form'] = [info, avatar, cancel]       
+        return context
+
+class HandleForm(forms.ModalFormView):
+    template_name = ''
+    http_method_not_allowed = ['get']
+
+
+class InfoFormView(HandleForm):    
+    form_class = application_forms.InfoForm
+
+   
+class AvatarFormView(forms.ModalFormView):
+    form_class = application_forms.AvatarForm
+
+
+class CancelFormView(forms.ModalFormView):
+    form_class = application_forms.CancelForm
