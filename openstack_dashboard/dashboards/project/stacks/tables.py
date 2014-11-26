@@ -83,13 +83,17 @@ class StacksUpdateRow(tables.Row):
 
     def get_data(self, request, stack_id):
         try:
-            return api.heat.stack_get(request, stack_id)
-        except exc.HTTPNotFound:
-            # returning 404 to the ajax call removes the
-            # row from the table on the ui
-            raise Http404
+            stack = api.heat.stack_get(request, stack_id)
+            if stack.stack_status == 'DELETE_COMPLETE':
+                # returning 404 to the ajax call removes the
+                # row from the table on the ui
+                raise Http404
+            return stack
+        except Http404:
+            raise
         except Exception as e:
             messages.error(request, e)
+            raise
 
 
 class StacksTable(tables.DataTable):
