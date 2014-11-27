@@ -90,7 +90,10 @@ def register_user(name, email, password):
     keystone = fiwareclient()
     domain = getattr(settings, 'OPENSTACK_KEYSTONE_ADMIN_CREDENTIALS')['DOMAIN']
     default_domain = keystone.domains.get(domain)
-    default_project = keystone.projects.create(name, domain=default_domain)
+    extra = {
+        'is_default' : True
+    }
+    default_project = keystone.projects.create(name, domain=default_domain, extra=extra)
     new_user = keystone.users.create(name,
                                     domain=default_domain,
                                     password=password,

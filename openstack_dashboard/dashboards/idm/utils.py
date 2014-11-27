@@ -10,11 +10,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-def filter_own_tenant(user, tenants):
-    """ Remove from a list the automated created tenant for a user. This tenant
+def filter_default_organizations(projects):
+    """ Remove from a list the automated created project for a user. This project
     is created during the user registration step and is needed for the user to be
     able to perform operations in the cloud, as a work around the Keystone-OpenStack
-    tenant behaviour. We don't want the user to be able to do any operations to this 
-    tenant nor even notice it exists.
+    project behaviour. We don't want the user to be able to do any operations to this 
+    project nor even notice it exists.
     """
-    return [tenant for tenant in tenants if tenant.name != user.username]
+    return [p for p in projects 
+        if not hasattr(p, 'extra') or getattr(p.extra, 'is_default', False)]

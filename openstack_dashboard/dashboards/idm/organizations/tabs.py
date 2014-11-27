@@ -49,7 +49,7 @@ class TenantsTab(tabs.TableTab):
             exceptions.handle(self.request,
                               _("Unable to retrieve organization list. \
                                     Error message: {0}".format(e)))
-        return idm_utils.filter_own_tenant(self.request.user, tenants)
+        return idm_utils.filter_default_organizations(tenants)
         # if policy.check((("idm", "idm:list_organizations"),),
         #                 self.request):
         #     try:
@@ -80,7 +80,7 @@ class TenantsTab(tabs.TableTab):
         #     msg = \
         #         _("Insufficient privilege level to view organization information.")
         #     messages.info(self.request, msg)
-        # return idm_utils.filter_own_tenant(self.request.user, tenants)
+        # return idm_utils.filter_default_organizations(self.request.user, tenants)
 
 
 class MyTenantsTab(tabs.TableTab):
@@ -109,7 +109,7 @@ class MyTenantsTab(tabs.TableTab):
             self._more = False
             exceptions.handle(self.request,
                               _("Unable to retrieve organization information."))
-        return idm_utils.filter_own_tenant(self.request.user, tenants)
+        return idm_utils.filter_default_organizations(tenants)
 
 
 class PanelTabs(tabs.TabGroup):

@@ -46,7 +46,7 @@ class IndexView(tables.MultiTableView):
             exceptions.handle(self.request,
                               _("Unable to retrieve project information."))
     
-        return idm_utils.filter_own_tenant(self.request.user, tenants)
+        return idm_utils.filter_default_organizations(tenants)
 
     def get_applications_data(self):
         applications = []
