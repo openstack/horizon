@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Notify" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_domain_page_header.html" %}
+{% endblock page_header %}
+
+{% block main %}
+
+<form accept-charset="UTF-8" action="/notifications" class="form-group" id="new_notification" method="post">
+  <div class="form-group">
+    <label class="control-label"  for="notification_subject">Subject</label>
+     <input class="form-control"  id="notification_subject" name="notification[subject]" size="30" type="text" value="">
+  </div>
+  <div class="form-group">
+    <label class="control-label" for="notification_body">Body</label>
+    <div class="form-control summernote"></div>
+  </div>
+  <input  class="btn btn-primary pull-right" data-loading-text="Sending notification..." name="commit" type="submit" value="Send notification">
+</form>
+
+{% endblock %}

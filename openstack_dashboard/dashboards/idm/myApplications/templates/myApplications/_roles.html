@@ -1,0 +1,22 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}{% endblock %}
+{% block form_action %}{% url 'horizon:idm:myApplications:roles' %}{% endblock %}
+
+{% block modal_id %}upload_image_modal{% endblock %}
+{% block modal-header %}
+	{% include "idm/myApplications/_step-3.html" %}
+{% endblock %}
+
+{% block modal-body %}
+
+{% endblock %}
+
+{% block modal-footer %}
+    <button type="submit" class="btn btn-primary">{% trans "Finish" %}</button>
+{% endblock %}
+
+
+

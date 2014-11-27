@@ -8,18 +8,18 @@
   @media (max-width: $screen-sm-min){
     position: relative;
     margin-bottom: 0;
-    border-bottom: 1px solid #E0E0E0;
+    border-bottom: 1px solid $border-color;
   }
   @media (max-width: $screen-xs-min){
     position: relative;
     margin: 0;
-    border-bottom: 1px solid #E0E0E0;
+    border-bottom: 1px solid $border-color;
   }
   h5{
     font-size: 19px;
     font-family: $corporate-font-family-sans-serif-Regular;
     color: #CCC;
-    border-bottom: 2px solid #CCC;
+    border-bottom: 1px solid $border-color;
     padding-bottom: 8px;
     letter-spacing: 1px;
     @media (min-width: 1200px){
@@ -67,7 +67,7 @@
         font-size: 1.3rem;
         @media (max-width: $screen-sm-min){
           float: left;
-          border-right: 1px solid $gray-light;
+          border-right: 1px solid $border-color;
           padding-right: 15px;
           font-size: 12px;
           &:first-child{
