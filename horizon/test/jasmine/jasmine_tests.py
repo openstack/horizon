@@ -10,9 +10,12 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from django.utils import unittest
+
 from horizon.test import helpers as test
 
 
+@unittest.skip("Temporarily disabled, see bug #1396954")
 class ServicesTests(test.JasmineTests):
     sources = [
         'horizon/js/horizon.js',
