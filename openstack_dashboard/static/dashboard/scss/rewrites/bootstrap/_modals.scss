@@ -3,7 +3,7 @@
 }
 .modal-header {
   padding: 0px 0px 5px;
-  border-bottom: 1px solid $gray-lighter;
+  border-bottom: 1px solid $border-color;
 }
 
 .modal-body {
@@ -12,5 +12,5 @@
 
 .modal-footer {
   padding: 15px 0;
-  border-top: 1px solid $gray-lighter;
+  border-top: 1px solid $border-color;
 }

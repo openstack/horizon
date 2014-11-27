@@ -26,7 +26,7 @@ $text-color: #5B5B5F;
 $link-color: $brand-primary;
 $link-hover-color: darken($link-color, 15%);
 
-$border-color: #dddddd;
+$border-color: #ccc;
 
 $headings-color: $gray-dark;
 
@@ -391,7 +391,7 @@ $panel-inner-border:          $gray !default;
 $panel-footer-bg:             $gray-lighter !default;
 
 $panel-default-text:          $gray-darker !default;
-$panel-default-border:        #e2e2e2 !default;
+$panel-default-border:        $border-color !default;
 $panel-default-heading-bg:    $gray-lighter !default;
 
 $panel-primary-text:          $white !default;

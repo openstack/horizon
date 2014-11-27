@@ -12,14 +12,14 @@
   font-family: "Verdana", Arial, sans-serif;
   color: #000000;
   background-color: #FFFFFF;
-  border: 1px solid #f9f9f9;
+  border: 1px solid $border-color;
   line-height: 2;
 }
 
 
 .navbar .divider-vertical {
-  background-color: #f9f9f9;
-  border-right: 1px solid #f9f9f9;
+  background-color: $border-color;
+  border-right: 1px solid $border-color;
   border: none;
 }
 

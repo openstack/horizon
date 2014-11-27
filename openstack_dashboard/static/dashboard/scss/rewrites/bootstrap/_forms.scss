@@ -2,12 +2,12 @@
   height: 34px;
   padding: 8px 6px;
   box-shadow: none;
-  background-color: #f1f1f2;
+  background-color: #ccc;
   @include border-top-radius (0);
   @include border-bottom-radius (0);
-  border: 1px solid #f1f1f2;
+  border: 1px solid $border-color;
 }
 
 .form-control-feedback {
-top: 34px;
+  top: 34px;
 }

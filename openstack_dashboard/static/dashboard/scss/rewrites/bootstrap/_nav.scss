@@ -6,7 +6,7 @@
 }
 .nav-tabs {
   clear: both;
-  border-bottom: 1px solid $nav-tabs-border-color;
+  border-bottom: 1px solid $border-color;
   margin-bottom: 10px;
 }
 
@@ -24,7 +24,7 @@
 .nav-tabs > li > a:hover,.nav-tabs > li > a:focus{
   background-color: transparent !important;
   border: none;
-  border-bottom: 3px solid $gray;
+  border-bottom: 3px solid $border-color;
   color: $gray-dark;
 }          
 
