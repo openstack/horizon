@@ -45,7 +45,6 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
         default_domain = api.keystone.get_default_domain(request)
         try:
             desc = data['description']
-            import pdb; pdb.set_trace()
             self.object = api.keystone.tenant_create(request,
                                                 name=data['name'],
                                                 description=desc,
