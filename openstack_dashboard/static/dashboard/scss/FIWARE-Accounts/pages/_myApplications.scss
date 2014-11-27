@@ -1,36 +1,64 @@
 #create_application_modal,
+#create_application_roles,
 #upload_image_modal{
-   @extend .well;
-  .modal-header{
-    padding: 0;
-    margin-bottom: 15px;
-    h3{
-      margin: 0;
-      .steps-group div{
-        display: inline-block;
-        margin-right: 100px;
-        border-bottom: 5px solid $gray-light;
-        color: $gray-light;
-        padding-bottom: 3px;
-        font-size: 2rem;
-        &:last-child{
-          margin-right: 0px;
-        }
-      }
-      .steps-group .completed{
-        color: darken($gray-light, 20%);
-        border-bottom: 5px solid darken($gray-light, 20%);
-      }
-      div.active {
-        border-bottom: 5px solid $brand-secundary;
-        color: $brand-primary;
-      }
-    }
-  }
+  @extend .well;
   textarea {
     min-height: 40px;
   }
+  .modal-header{
+    padding: 0;
+    min-height: 32px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid transparent;
+    h3{
+      margin: 0;
+      position: absolute;
+
+      .steps-group {
+        position: relative;
+        z-index: 100;
+        .step{
+          display: inline-block;
+          background-color: $white;
+          margin-right: 100px;
+          border: 2px solid $gray-light;
+          color: $gray-light;
+          padding: 6px 0 0;
+          height: 28px;
+          width: 28px;
+          text-align: center;
+          font-size: 14px;
+          @include border-top-radius (27px);
+          @include border-bottom-radius (27px);
+          position: relative;
+          z-index: 2;
+          &:last-child{
+            margin-right: 0px;
+          }
+        }
+        .line{
+          position: relative;
+          z-index: 1;
+          height: 2px;
+          margin-top: -15px;
+          width: 293px;
+          background-color: $gray-light;
+          position: relative;
+          z-index: 1;
+        }
+      }
+      .steps-group .completed{
+        color: darken($gray-light, 20%) !important;
+        border: 2px solid darken($gray-light, 20%) !important;
+      }
+      div.active {
+        border: 2px solid $brand-secundary !important;
+        color: $brand-primary !important;
+      }
+    }
+  }
 }
+
 
 
 
@@ -43,7 +71,7 @@
   padding: 25px 0 0px;
   margin: 0 0 20px;
 }
-.site-client-roles{  
+.site-client-roles{
   .list-group-item{
     min-height: 46px !important;
     margin-left: 0;
@@ -83,11 +111,27 @@
     }
   }
 }
-#new_permission{
+
+.site-client-roles{
+  .data{
+    float: left;
+  }
   .btn-link{
     float: right;
-    clear: both;
-  } 
+    border: rgba(0, 0, 0, 0);
+    &:hover{
+      border: transparent;
+      color: $brand-secundary;
+    }
+  }
+  .panel-title {
+    margin-bottom: 0;
+    text-align: right;
+    font-size: 15px;
+    padding-top: 10px;
+    color: inherit;
+    border-top: 1px solid #DDD;
+  }
 }
 #add_permission{
   .modal-content{
@@ -101,7 +145,7 @@
 .relation_list{
   @include make-sm-column(5, $gutter: $grid-gutter-width);
   @include make-md-column(5, $gutter: $grid-gutter-width);
-  @include make-lg-column(5, $gutter: $grid-gutter-width); 
+  @include make-lg-column(5, $gutter: $grid-gutter-width);
   @media (max-width: $screen-sm-min){
     padding-left: 0;
     padding-right: 0;

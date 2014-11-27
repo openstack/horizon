@@ -4,7 +4,10 @@
 
 {% block main %}
   <div id="create_application_roles">
+    <div class="modal-header"><h3>
     {% include "idm/myApplications/_step-3.html" %}
+    </h3>
+    </div>
     <div class="site-client-roles">
       <section id="relation_list" class="relation_list">
         <h4>{{ roles_table.name }}</h4>
@@ -41,4 +44,233 @@
 {% endblock %}
 
 
+<!-- esto es el HTML que envió kique con algún cambio en el html
 
+NO BORRAR -- Si molesta dejar comentado hasta que pueda verlo bien desde el dit
+
+
+
+<div class="site-client-roles">
+
+  <section id="relation_list" class="relation_list">
+    <h4>roles</h4>
+
+    <form action="/idm/myApplications/roles/" method="POST"><input type='hidden' name='csrfmiddlewaretoken' value='iiBsfCYQSDfZfw5n1IRVzHX4z5gBtvzY' />
+      <div class="list-group" id="roles">
+
+        <div class="list-group-item">
+          <div  class="inline_edit_available sortable normal_column" data-cell-name="name" data-update-url="/idm/myApplications/roles/?action=cell_update&amp;table=roles&amp;cell_name=name&amp;obj_id=3bae556e2d9f4b91b7a9c53f9956073f">
+
+
+            <div class="data">
+              role1
+            </div>
+            <button class="ajax-inline-edit btn btn-link"><span class="fa fa-pencil"></span></button>
+            <div class="inline-edit-status"></div>
+          </div>
+
+
+          <div  class="actions_column">
+            <div class="description"  class="actions_column">
+              <button  class="btn btn-default btn-sm btn-link" id="roles__row_3bae556e2d9f4b91b7a9c53f9956073f__action_delete" name="action" value="roles__delete__3bae556e2d9f4b91b7a9c53f9956073f" type="submit"><span class="fa fa-remove"></span></button>
+            </div>  
+          </div>
+        </div>
+        <div class="list-group-item">
+          <div  class="inline_edit_available sortable normal_column" data-cell-name="name" data-update-url="/idm/myApplications/roles/?action=cell_update&amp;table=roles&amp;cell_name=name&amp;obj_id=be7e983176fa4884ae7f04f69f5b9a26">
+
+            <div class="data">
+              role2
+            </div>
+            <button class="ajax-inline-edit btn btn-link"><span class="fa fa-pencil"></span></button>
+            <div class="inline-edit-status"></div>
+          </div>
+          <div  class="actions_column">
+            <div class="description"  class="actions_column">
+              <button  class="btn btn-default btn-sm btn-link" id="roles__row_be7e983176fa4884ae7f04f69f5b9a26__action_delete" name="action" value="roles__delete__be7e983176fa4884ae7f04f69f5b9a26" type="submit"><span class="fa fa-remove"></span></button>
+            </div>
+          </div>
+        </div>
+        <div class="list-group-item">
+        <div  class="inline_edit_available sortable normal_column" data-cell-name="name" data-update-url="/idm/myApplications/roles/?action=cell_update&amp;table=roles&amp;cell_name=name&amp;obj_id=3df92db0c0ad443fa1e4c281bf6bd21b">
+          <div class="data">
+            role3
+          </div>
+          <button class="ajax-inline-edit btn btn-link"><span class="fa fa-pencil"></span></button>
+          <div class="inline-edit-status"></div>
+        </div>
+        <div  class="actions_column">
+          <div class="description"  class="actions_column">
+            <button  class="btn btn-default btn-sm btn-link" id="roles__row_3df92db0c0ad443fa1e4c281bf6bd21b__action_delete" name="action" value="roles__delete__3df92db0c0ad443fa1e4c281bf6bd21b" type="submit"><span class="fa fa-remove"></span></button>
+          </div>
+        </div>
+        </div>
+      </div>
+    </form>
+
+
+    <div>
+      <h4  id="headingOne" role="tab" class="panel-title">
+        <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          + New role
+        </a>
+      </h4>
+      <div id="collapseOne" class="form-group collapse" role="tabpanel">    
+        <div id=""class="static_page">
+          <div class="">
+            <div class="">
+              <div class="modal-header">
+
+                <h3></h3>
+              </div>
+
+
+              <form id="create_role_form" ng-controller="DummyCtrl" name="" autocomplete="off" class="ajax-inline-create" action="/idm/myApplications/roles/create/" method="POST" enctype="" data-add-to-field="roles" ><input type='hidden' name='csrfmiddlewaretoken' value='iiBsfCYQSDfZfw5n1IRVzHX4z5gBtvzY' />
+                <div class="modal-body clearfix">
+                  <div class="fake_credentials" style="display: none">
+                    <input type="text" name="fake_email" value="" />
+                    <input type="password" name="fake_password" value="" />
+                  </div>
+
+                  <div class="form-group required">
+                    <label class="control-label  required" for="id_name">Role Name</label>
+                    <div class=" ">
+                      <input class="form-control" id="id_name" maxlength="255" name="name" type="text" />
+                    </div>
+                  </div>
+                </div>
+                <div class="panel-footer">
+                  <input class="btn btn-primary pull-right ajax-inline-create always-enabled" 
+                  type="button" 
+                  value="Save" />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+    <section id="permissions_list" class="permissions_list">
+      <h4>permissions</h4>
+
+
+      <form action="/idm/myApplications/roles/" method="POST"><input type='hidden' name='csrfmiddlewaretoken' value='iiBsfCYQSDfZfw5n1IRVzHX4z5gBtvzY' />
+
+        <div class="list-group" id="permissions">
+          <div class="list-group-item">
+            <div  class="inline_edit_available sortable normal_column" data-cell-name="name" data-update-url="/idm/myApplications/roles/?action=cell_update&amp;table=permissions&amp;cell_name=name&amp;obj_id=c2437f731de346378e65429a846e6d51">
+              <div class="data">
+                permission1
+              </div>
+              <button class="ajax-inline-edit btn btn-link"><span class="fa fa-pencil"></span></button>
+              <div class="inline-edit-status"></div>
+
+            </div>
+
+            <div  class="actions_column">
+              <div class="description"  class="actions_column">
+                <button  class="btn btn-default btn-sm btn-link" id="permissions__row_c2437f731de346378e65429a846e6d51__action_delete" name="action" value="permissions__delete__c2437f731de346378e65429a846e6d51" type="submit"><span class="fa fa-remove"></span></button>
+
+              </div> 
+            </div>      
+          </div>
+        </div>
+
+        <div class="list-group-item">
+          <div  class="inline_edit_available sortable normal_column" data-cell-name="name" data-update-url="/idm/myApplications/roles/?action=cell_update&amp;table=permissions&amp;cell_name=name&amp;obj_id=0d2566c3fb1d46a6bc3969402f1c51d5">
+            <div class="data">
+              permission2
+            </div>
+            <button class="ajax-inline-edit btn btn-link"><span class="fa fa-pencil"></span></button>
+            <div class="inline-edit-status"></div>
+          </div>
+
+          <div  class="actions_column">
+
+            <div class="description"  class="actions_column">
+
+              <button  class="btn btn-default btn-sm btn-link" id="permissions__row_0d2566c3fb1d46a6bc3969402f1c51d5__action_delete" name="action" value="permissions__delete__0d2566c3fb1d46a6bc3969402f1c51d5" type="submit"><span class="fa fa-remove"></span></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="list-group-item">
+          <div  class="inline_edit_available sortable normal_column" data-cell-name="name" data-update-url="/idm/myApplications/roles/?action=cell_update&amp;table=permissions&amp;cell_name=name&amp;obj_id=43b2e8005e264441b07a8146762d0ac9">
+
+            <div class="data">
+              permission3
+            </div>
+            <button class="ajax-inline-edit btn btn-link"><span class="fa fa-pencil"></span></button>
+            <div class="inline-edit-status"></div>
+          </div>
+
+          <div  class="actions_column">
+            <div class="description"  class="actions_column">
+              <button  class="btn btn-default btn-sm btn-link" id="permissions__row_43b2e8005e264441b07a8146762d0ac9__action_delete" name="action" value="permissions__delete__43b2e8005e264441b07a8146762d0ac9" type="submit"><span class="fa fa-remove"></span></button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+
+      <div>
+        <h4  id="headingOne" role="tab" class="panel-title">
+          <a data-toggle="collapse" href="#collapse_permissions" aria-expanded="true" aria-controls="collapse_permissions">
+            + New permission
+          </a>
+        </h4>
+
+        <div id="collapse_permissions" class="form-group collapse" role="tabpanel">    
+          <div id=""
+          class="static_page">
+            <div class="">
+              <div class="">
+                <div class="modal-header">
+
+                  <h3></h3>
+                </div>
+                <form id="create_permission_form"
+                ng-controller="DummyCtrl"
+                name=""
+                autocomplete="off"
+                class="ajax-inline-create"
+                action="/idm/myApplications/permissions/create/"
+                method="POST"
+                enctype=""
+
+                data-add-to-field="permissions" ><input type='hidden' name='csrfmiddlewaretoken' value='iiBsfCYQSDfZfw5n1IRVzHX4z5gBtvzY' />
+                  <div class="modal-body clearfix">
+
+
+                    <div class="fake_credentials" style="display: none">
+                      <input type="text" name="fake_email" value="" />
+                      <input type="password" name="fake_password" value="" />
+                    </div>
+
+                    <div class="form-group required">
+
+
+                      <label class="control-label  required" for="id_name">Permission Name</label>
+
+
+
+                      <div class=" ">
+                        <input class="form-control" id="id_name" maxlength="255" name="name" type="text" />
+
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+-->

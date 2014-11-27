@@ -17,6 +17,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 import os
+import logging
+
 
 from django import shortcuts
 from django.conf import settings
@@ -32,6 +34,9 @@ from openstack_dashboard import api
 
 from PIL import Image
 
+LOG = logging.getLogger('idm_logger')
+
+
 DEFAULT_AVATAR = os.path.abspath(os.path.join(settings.ROOT_PATH, '..', 'openstack_dashboard/static/dashboard/img/logos/original/group.png'))
 
 class CreateOrganizationForm(forms.SelfHandlingForm):
@@ -44,12 +49,16 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
         #create organization
         default_domain = api.keystone.get_default_domain(request)
         try:
+            extra = {
+                'img': "/static/dashboard/img/logos/small/group.png"
+            }
             desc = data['description']
             self.object = api.keystone.tenant_create(request,
                                                 name=data['name'],
                                                 description=desc,
                                                 enabled=data['enabled'],
-                                                domain=default_domain)
+                                                domain=default_domain,
+                                                extra=extra)
         except Exception:
             exceptions.handle(request, ignore=True)
             return False
@@ -139,15 +148,23 @@ class AvatarForm(forms.SelfHandlingForm):
             y2 = int(y2)
 
             output_img = img.crop((x1, y1, x2, y2))
-        else:
-
-            output_img = Image.open(DEFAULT_AVATAR)
-
-        imageName = self.data['name']
+            imageName = self.data['orgID']
         
-        output_img.save(settings.MEDIA_ROOT + "/" + "OrganizationAvatar/" + imageName, 'JPEG')
+            output_img.save(settings.MEDIA_ROOT + "/" + "OrganizationAvatar/" + imageName, 'JPEG')
+            organization = api.keystone.tenant_get(request, data['orgID'])
+            # extra= organization.extra
+            # extra['img']=settings.MEDIA_URL+'OrganizationAvatar/'+imageName
+            # api.keystone.tenant_update(request, data['orgID'], extra=extra)
+            LOG.debug('organization updated' )
+            messages.success(request, _("Organization deleted successfully."))
+        else:
+            #(sorube13) Esto hay que arreglarlo con el extra
+            response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])
+            # output_img = Image.open(DEFAULT_AVATAR)
 
-        messages.success(request, _("Organization deleted successfully."))
+        
+
+        
         response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])
         return response
         

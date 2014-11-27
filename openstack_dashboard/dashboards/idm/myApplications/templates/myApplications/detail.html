@@ -7,46 +7,48 @@
 {% block main %}
 <div id="detailApplication">
     <header>
-        <h3 class="name">
+        <h4 class="name">
             {{ application_name }} <a href="{% url 'horizon:idm:myApplications:edit' application_id %}" class="small"><i class="fa fa-edit"></i>edit</a>
-        </h3>
+        </h4>
         <!--crear la carga de la imagen -->
         <div class="logo">
-            <img alt="application logo" src="{{ STATIC_URL }}dashboard/img/logos/original/group.png">
+
+            <img alt="application logo" src="{{ image }}">
+
         </div> 
     </header>
-	<div class="panel panel-default">
-        <div class="description">
-            <h4 class="panel-heading">
-                Description
-            </h4>               
-    		<div class="panel-body">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="description">
+                <h5>
+                    Description
+                </h5>
                 <p>{{ description }}</p>
             </div>
-        </div>
 
-        <div class="url">
-            <h4 class="panel-heading">
-                URL
-            </h4>               
-            <div class="panel-body">
+            <div class="url">
+                <h5>
+                    URL
+                </h5>      
                 <p>{{ url }}</p>
             </div>
-        </div>
 
-        <div class="callback_url">
-            <h4 class="panel-heading">
-                Callback URL
-            </h4>               
-            <div class="panel-body">
+            <div class="callback_url">
+                <h4 class="panel-heading">
+                    Callback URL
+                </h4>               
                 <p>{{ callbackURL }}</p>
             </div>
         </div>
-
-           
-	</div>
-
-
+    </div>
+    <div class="panel panel-default members">
+        <div class="panel-heading">
+            Authorized Members {{ members_table.name }}
+        </div>
+        <div class="panel-body">
+            {{ members_table.render}}
+        </div>
+    </div>
 </div>
 {% endblock %}
 

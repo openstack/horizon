@@ -13,7 +13,7 @@
         <!--crear la carga de la imagen -->
         <div class="logo">
             <img alt="organization logo" src="{{ STATIC_URL }}dashboard/img/logos/original/group.png">
-        </div> 
+        </div>
     </header>
 	<div class="panel panel-default">
 		<div class="panel-body">
@@ -37,23 +37,22 @@
 	<div class="panel panel-default members">
         <div class="panel-heading">
                 {{ members_table.name }}
-        </div> 
+        </div>
         <div class="panel-body">
             {{ members_table.render}}
-        </div>   
+        </div>
     </div>
 
     <div class="panel panel-default applications">
         <div class="panel-heading">
             {{ applications_table.name }}
-        </div> 
+        </div>
         <div class="panel-body">
             {{ applications_table.render}}
             <!-- texto que debe aparecer cuando no haya nada -->
-            <p class="empty"> {{organization_name}} does not have any applications.</p>
-        </div>   
+            <p class="alert alert-info empty"> {{organization_name}} does not have any applications.</p>
+        </div>
     </div>
 
 </div>
 {% endblock %}
-
