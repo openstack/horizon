@@ -412,13 +412,14 @@ class SetInstanceDetailsAction(workflows.Action):
         return choices
 
     def populate_volume_id_choices(self, request, context):
+        volumes = []
         try:
-            volumes = [self._get_volume_display_name(v)
-                       for v in cinder.volume_list(self.request)
-                       if (v.status == api.cinder.VOLUME_STATE_AVAILABLE
-                           and v.bootable == 'true')]
+            if base.is_service_enabled(request, 'volume'):
+                volumes = [self._get_volume_display_name(v)
+                           for v in cinder.volume_list(self.request)
+                           if (v.status == api.cinder.VOLUME_STATE_AVAILABLE
+                               and v.bootable == 'true')]
         except Exception:
-            volumes = []
             exceptions.handle(self.request,
                               _('Unable to retrieve list of volumes.'))
         if volumes:
@@ -428,12 +429,13 @@ class SetInstanceDetailsAction(workflows.Action):
         return volumes
 
     def populate_volume_snapshot_id_choices(self, request, context):
+        snapshots = []
         try:
-            snapshots = cinder.volume_snapshot_list(self.request)
-            snapshots = [self._get_volume_display_name(s) for s in snapshots
-                         if s.status == api.cinder.VOLUME_STATE_AVAILABLE]
+            if base.is_service_enabled(request, 'volume'):
+                snaps = cinder.volume_snapshot_list(self.request)
+                snapshots = [self._get_volume_display_name(s) for s in snaps
+                             if s.status == api.cinder.VOLUME_STATE_AVAILABLE]
         except Exception:
-            snapshots = []
             exceptions.handle(self.request,
                               _('Unable to retrieve list of volume '
                                 'snapshots.'))
