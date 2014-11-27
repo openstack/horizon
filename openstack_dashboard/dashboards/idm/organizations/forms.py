@@ -53,7 +53,6 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
                 'img': "/static/dashboard/img/logos/small/group.png"
             }
             desc = data['description']
-            import pdb; pdb.set_trace()
             self.object = api.keystone.tenant_create(request,
                                                 name=data['name'],
                                                 description=desc,
