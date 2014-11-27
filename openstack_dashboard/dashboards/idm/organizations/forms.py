@@ -148,20 +148,23 @@ class AvatarForm(forms.SelfHandlingForm):
             y2 = int(y2)
 
             output_img = img.crop((x1, y1, x2, y2))
-        # else:
-
-        #     output_img = Image.open(DEFAULT_AVATAR)
-
-        imageName = self.data['orgID']
+            imageName = self.data['orgID']
         
-        output_img.save(settings.MEDIA_ROOT + "/" + "OrganizationAvatar/" + imageName, 'JPEG')
-        organization = api.keystone.tenant_get(request, data['orgID'])
-        # extra= organization.extra
-        # extra['img']=settings.MEDIA_URL+'OrganizationAvatar/'+imageName
-        # api.keystone.tenant_update(request, data['orgID'], extra=extra)
-        LOG.debug('organization updated' )
+            output_img.save(settings.MEDIA_ROOT + "/" + "OrganizationAvatar/" + imageName, 'JPEG')
+            organization = api.keystone.tenant_get(request, data['orgID'])
+            # extra= organization.extra
+            # extra['img']=settings.MEDIA_URL+'OrganizationAvatar/'+imageName
+            # api.keystone.tenant_update(request, data['orgID'], extra=extra)
+            LOG.debug('organization updated' )
+            messages.success(request, _("Organization deleted successfully."))
+        else:
+            #(sorube13) Esto hay que arreglarlo con el extra
+            response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])
+            # output_img = Image.open(DEFAULT_AVATAR)
 
-        messages.success(request, _("Organization deleted successfully."))
+        
+
+        
         response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])
         return response
         
