@@ -14,6 +14,7 @@ import json
 
 from django import forms
 from django.core.urlresolvers import reverse_lazy
+from django.core.urlresolvers import reverse
 from django.http import HttpResponse
 from django.utils.translation import ugettext_lazy as _
 
@@ -38,7 +39,6 @@ class IndexView(tabs.TabbedTableView):
     tab_group_class = application_tabs.PanelTabs
     template_name = 'idm/myApplications/index.html'
 
-
   
 class CreateView(forms.ModalFormView):
     form_class = application_forms.CreateApplicationForm
@@ -48,6 +48,7 @@ class CreateView(forms.ModalFormView):
 class UploadImageView(forms.ModalFormView):
     form_class = application_forms.UploadImageForm
     template_name = 'idm/myApplications/upload.html'
+
     
 # NOTE(garcianavalon) from horizon.forms.views
 ADD_TO_FIELD_HEADER = "HTTP_X_HORIZON_ADD_TO_FIELD"
@@ -109,6 +110,7 @@ class DetailApplicationView(TemplateView):
         application = fiware_api.keystone.application_get(self.request, application_id)
         context['description'] = application.description
         context['url'] = application.extra['url']
+        context['image'] = application.extra['img']
         if application.redirect_uris:
             context['callbackURL'] = application.redirect_uris[0]
         else:
@@ -131,6 +133,7 @@ class MultiFormView(TemplateView):
         context = super(MultiFormView, self).get_context_data(**kwargs)
         application = self.get_object()
         context['application'] = application
+        context['image'] = application.extra['img']
 
         #Existing data from organizations
         initial_data = {
@@ -138,9 +141,9 @@ class MultiFormView(TemplateView):
             "name": application.name,
             "description": application.description,
             "callbackurl": application.redirect_uris[0],
-            "url": application.extra['url']
-            # "img": application.extra['img']
+            "url": application.extra.get('url', None)
         }
+        
         #Create forms
         info = application_forms.InfoForm(self.request, initial=initial_data)
         avatar = application_forms.AvatarForm(self.request, initial=initial_data)

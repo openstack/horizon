@@ -221,7 +221,7 @@ def application_get(request, application_id):
     return manager.get(application_id)
 
 def application_update(request, consumer_id, name=None, description=None, client_type=None, 
-                redirect_uris=[], grant_type=None, scopes=[], **kwargs):
+                redirect_uris=None, grant_type=None, scopes=None, **kwargs):
     manager = fiwareclient().oauth2.consumers
     return manager.update(consumer=consumer_id,
                         name=name,

@@ -1,7 +1,12 @@
 {% if row.table.show_avatar %}
   <div class="avatar">
-     <img id="{{ row.datum.name }}-avatar" src="/static/dashboard/img/logos/small/user.png">
+  	{% if row.table.name == "purchased_table" or row.table.name == "providing_table" or row.table.name == "applications" %}
+     <img id="{{ row.datum.name }}-avatar" src="{{ row.datum.extra.img }}">
+     {% else %}
+     <img id="{{ row.datum.name }}-avatar" src="/static/dashboard/img/logos/small/group.png">
+     {% endif %}
   </div>
+  {{ row.datum.extra.img }}
 
 {% endif %}
 
