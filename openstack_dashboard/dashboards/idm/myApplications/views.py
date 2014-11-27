@@ -109,7 +109,10 @@ class DetailApplicationView(TemplateView):
         application = fiware_api.keystone.application_get(self.request, application_id)
         context['description'] = application.description
         context['url'] = application.extra['url']
-        context['callbackURL'] = application.redirect_uris[0]
+        if application.redirect_uris:
+            context['callbackURL'] = application.redirect_uris[0]
+        else:
+            context['callbackURL'] = ''
         context['application_name'] = application.name
         return context
 
