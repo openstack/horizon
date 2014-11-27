@@ -110,7 +110,7 @@ class DetailApplicationView(TemplateView):
         application = fiware_api.keystone.application_get(self.request, application_id)
         context['description'] = application.description
         context['url'] = application.extra['url']
-        context['image'] = application.extra['img']
+        context['image'] = application.extra.get('img', 'Image not present in extra')
         if application.redirect_uris:
             context['callbackURL'] = application.redirect_uris[0]
         else:
@@ -133,7 +133,7 @@ class MultiFormView(TemplateView):
         context = super(MultiFormView, self).get_context_data(**kwargs)
         application = self.get_object()
         context['application'] = application
-        context['image'] = application.extra['img']
+        context['image'] = application.extra.get('img', 'Image not present in extra')
 
         #Existing data from organizations
         initial_data = {
