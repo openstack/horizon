@@ -14,12 +14,15 @@ from selenium.webdriver.common import by
 
 from openstack_dashboard.test.integration_tests import basewebobject
 from openstack_dashboard.test.integration_tests.pages import pageobject
+from openstack_dashboard.test.integration_tests.regions import bars
+from openstack_dashboard.test.integration_tests.regions import messages
 
 
 class BasePage(pageobject.PageObject):
     """Base class for all dashboard page objects."""
 
-    _heading_locator = (by.By.CSS_SELECTOR, "div.page-header > h2")
+    _heading_locator = (by.By.CSS_SELECTOR, 'div.page-header > h2')
+    _error_msg_locator = (by.By.CSS_SELECTOR, 'div.alert-danger.alert')
 
     @property
     def heading(self):
@@ -27,7 +30,7 @@ class BasePage(pageobject.PageObject):
 
     @property
     def topbar(self):
-        return BasePage.TopBarRegion(self.driver, self.conf)
+        return bars.TopBarRegion(self.driver, self.conf)
 
     @property
     def is_logged_in(self):
@@ -36,6 +39,13 @@ class BasePage(pageobject.PageObject):
     @property
     def navaccordion(self):
         return BasePage.NavigationAccordionRegion(self.driver, self.conf)
+
+    def error_message(self):
+        src_elem = self._get_element(*self._error_msg_locator)
+        return messages.ErrorMessageRegion(self.driver, self.conf, src_elem)
+
+    def is_error_message_present(self):
+        return self._is_element_present(*self._error_msg_locator)
 
     def go_to_login_page(self):
         self.driver.get(self.login_url)
@@ -51,50 +61,6 @@ class BasePage(pageobject.PageObject):
     def go_to_help_page(self):
         self.topbar.user_dropdown_menu.click()
         self.topbar.help_link.click()
-
-    class TopBarRegion(basewebobject.BaseWebObject):
-        _user_dropdown_menu_locator = (by.By.CSS_SELECTOR,
-                                       'div#profile_editor_switcher'
-                                       ' > button')
-        _settings_link_locator = (by.By.CSS_SELECTOR,
-                                  'a[href*="/settings/"]')
-        _help_link_locator = (by.By.CSS_SELECTOR,
-                              'ul#editor_list li:nth-of-type(2) > a')
-        _logout_link_locator = (by.By.CSS_SELECTOR,
-                                'a[href*="/auth/logout/"]')
-        _openstack_brand_locator = (by.By.CSS_SELECTOR, 'a[href*="/home/"]')
-
-        @property
-        def user(self):
-            return self._get_element(*self._user_dropdown_menu_locator)
-
-        @property
-        def brand(self):
-            return self._get_element(*self._openstack_brand_locator)
-
-        @property
-        def logout_link(self):
-            return self._get_element(*self._logout_link_locator)
-
-        @property
-        def user_dropdown_menu(self):
-            return self._get_element(*self._user_dropdown_menu_locator)
-
-        @property
-        def settings_link(self):
-            return self._get_element(*self._settings_link_locator)
-
-        @property
-        def help_link(self):
-            return self._get_element(*self._help_link_locator)
-
-        @property
-        def is_logout_visible(self):
-            return self._is_element_visible(*self._logout_link_locator)
-
-        @property
-        def is_logged_in(self):
-            return self._is_element_visible(*self._user_dropdown_menu_locator)
 
     class NavigationAccordionRegion(basewebobject.BaseWebObject):
         # TODO(sunlim): change Xpath to CSS

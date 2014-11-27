@@ -22,20 +22,23 @@ class BaseWebObject(object):
 
     def _is_element_present(self, *locator):
         try:
-            self.driver.find_element(*locator)
+            self._get_element(*locator)
             return True
         except Exceptions.NoSuchElementException:
             return False
 
     def _is_element_visible(self, *locator):
         try:
-            return self.driver.find_element(*locator).is_displayed()
+            return self._get_element(*locator).is_displayed()
         except (Exceptions.NoSuchElementException,
                 Exceptions.ElementNotVisibleException):
             return False
 
     def _get_element(self, *locator):
         return self.driver.find_element(*locator)
+
+    def _get_elements(self, *locator):
+        return self.driver.find_elements(*locator)
 
     def _fill_field_element(self, data, field_element):
         field_element.clear()
