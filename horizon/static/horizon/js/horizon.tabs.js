@@ -97,3 +97,5 @@ horizon.addInitFunction(horizon.tabs.init = function () {
     }
   });
 });
+
+horizon.tabs.addTabLoadFunction(horizon.inline_edit.init);
