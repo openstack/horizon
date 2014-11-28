@@ -237,7 +237,7 @@ def application_delete(request, application_id):
 
 # OAUTH2 FLOW
 def request_authorization_for_application(request, application, 
-                                        redirect_uri, scope, state=None):
+                                        redirect_uri, scope='all_info', state=None):
     """ Sends the consumer/client credentials to the authorization server to ask
     a resource owner for authorization in a certain scope.
 
@@ -246,7 +246,7 @@ def request_authorization_for_application(request, application,
     """
     LOG.debug('Requesting authorization for application: {0} with redirect_uri: {1} \
         and scope: {2}'.format(application, redirect_uri, scope))
-    manager = fiwareclient().oauh2.authorization_codes
+    manager = fiwareclient().oauth2.authorization_codes
     response_dict = manager.request_authorization(consumer=application, 
                                     redirect_uri=redirect_uri, 
                                     scope=scope, 

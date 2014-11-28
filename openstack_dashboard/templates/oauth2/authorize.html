@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Login" %}{% endblock %}
+
+{% block body_id %}base{% endblock %}
+
+{% block content %}
+  {% include '_header.html' %}
+  <div id="frontpage" class="container-fluid wrap">
+    <div class="row">
+      {% include 'oauth2/_application_info.html' %}
+      {% include 'auth/_login.html' %}
+    </div>
+  </div>
+{% endblock %}
