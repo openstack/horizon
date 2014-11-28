@@ -64,7 +64,7 @@ class CreateApplicationForm(forms.SelfHandlingForm):
         return response
     
 class UploadImageForm(forms.SelfHandlingForm):
-    # appID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
+    appID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
     image = forms.ImageField(required=False)
     x1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
     y1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)

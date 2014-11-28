@@ -49,14 +49,20 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
         #create organization
         default_domain = api.keystone.get_default_domain(request)
         try:
-            img = "/static/dashboard/img/logos/small/group.png"        
+            img = "/static/dashboard/img/logos/small/group.png" 
+            city = ""
+            email = ""
+            website = ""       
             desc = data['description']
             self.object = api.keystone.tenant_create(request,
                                                 name=data['name'],
                                                 description=desc,
                                                 enabled=data['enabled'],
                                                 domain=default_domain,
-                                                img=img)
+                                                img=img,
+                                                city=city,
+                                                email=email,
+                                                website=website)
         except Exception:
             exceptions.handle(request, ignore=True)
             return False
@@ -102,7 +108,7 @@ class InfoForm(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            api.keystone.tenant_update(request, data['orgID'], name=data['name'], description=data['description'])
+            api.keystone.tenant_update(request, data['orgID'], name=data['name'], description=data['description'], city=data['city'])
             messages.success(request, _("Organization updated successfully."))
             response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])
             return response
@@ -116,6 +122,8 @@ class ContactForm(forms.SelfHandlingForm):
     website = forms.URLField(label=_("Website"), required=False)
 
     def handle(self, request, data):
+        api.keystone.tenant_update(request, data['orgID'], email=data['email'], website=data['website'])
+        messages.success(request, _("Organization updated successfully."))
         response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])
         return response
 
