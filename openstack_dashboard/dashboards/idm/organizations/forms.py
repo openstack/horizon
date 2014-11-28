@@ -49,16 +49,14 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
         #create organization
         default_domain = api.keystone.get_default_domain(request)
         try:
-            extra = {
-                'img': "/static/dashboard/img/logos/small/group.png"
-            }
+            img = "/static/dashboard/img/logos/small/group.png"        
             desc = data['description']
             self.object = api.keystone.tenant_create(request,
                                                 name=data['name'],
                                                 description=desc,
                                                 enabled=data['enabled'],
                                                 domain=default_domain,
-                                                extra=extra)
+                                                img=img)
         except Exception:
             exceptions.handle(request, ignore=True)
             return False
@@ -152,19 +150,11 @@ class AvatarForm(forms.SelfHandlingForm):
         
             output_img.save(settings.MEDIA_ROOT + "/" + "OrganizationAvatar/" + imageName, 'JPEG')
             organization = api.keystone.tenant_get(request, data['orgID'])
-            # extra= organization.extra
-            # extra['img']=settings.MEDIA_URL+'OrganizationAvatar/'+imageName
-            # api.keystone.tenant_update(request, data['orgID'], extra=extra)
+            img=settings.MEDIA_URL+'OrganizationAvatar/'+imageName
+            api.keystone.tenant_update(request, data['orgID'], img=img)
             LOG.debug('organization updated' )
             messages.success(request, _("Organization deleted successfully."))
-        else:
-            #(sorube13) Esto hay que arreglarlo con el extra
-            response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])
-            # output_img = Image.open(DEFAULT_AVATAR)
 
-        
-
-        
         response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])
         return response
         
@@ -173,11 +163,14 @@ class CancelForm(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), widget=forms.HiddenInput(), required=False)
 
     def handle(self, request, data):
+        #(sorube13) TODO: Delete image from OrganizationAvatar folder
         organization = data['orgID']
         api.keystone.tenant_delete(request, organization)
         messages.success(request, _("Organization deleted successfully."))
         response = shortcuts.redirect('horizon:idm:organizations:index')
         return response
+
+
         
 
 

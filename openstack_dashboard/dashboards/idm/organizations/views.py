@@ -84,6 +84,8 @@ class DetailOrganizationView(tables.MultiTableView):
         context['contact_info'] = organization.description
         context['organization.id'] = organization.id
         context['organization_name'] = organization.name
+        context['image'] = organization.img
+        context['memberImage'] = '/static/dashboard/img/logos/small/group.png'
         return context
 
 
@@ -127,7 +129,8 @@ class MultiFormView(TemplateView):
         cancel.action = "cancel/"
         cancel.title = 'Cancel'
 
-        context['form'] = [info, contact, avatar, cancel]       
+        context['form'] = [info, contact, avatar, cancel]      
+        context['image'] = organization.img 
         return context
 
 class HandleForm(forms.ModalFormView):
