@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-27 12:23-0600\n"
-"PO-Revision-Date: 2014-11-26 11:58+0000\n"
+"POT-Creation-Date: 2014-11-28 09:18-0600\n"
+"PO-Revision-Date: 2014-11-28 15:18+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: English (Australia) (http://www.transifex.com/projects/p/horizon/language/en_AU/)\n"
 "MIME-Version: 1.0\n"
@@ -2162,7 +2162,7 @@ msgstr "Unable to retrieve host information."
 #: dashboards/admin/instances/views.py:177
 #: dashboards/project/databases/views.py:146
 #: dashboards/project/instances/views.py:208
-#: dashboards/project/instances/views.py:344
+#: dashboards/project/instances/views.py:347
 msgid "Unable to retrieve instance details."
 msgstr "Unable to retrieve instance details."
 
@@ -7670,7 +7670,7 @@ msgstr[1] ""
 #: dashboards/project/databases/tables.py:222
 #: dashboards/project/instances/tables.py:802
 #: dashboards/project/instances/tables.py:809
-#: dashboards/project/instances/views.py:358
+#: dashboards/project/instances/views.py:361
 #: dashboards/project/instances/templates/instances/_detail_overview.html:60
 #: dashboards/project/instances/templates/instances/_detail_overview.html:96
 msgid "Not available"
@@ -9299,8 +9299,7 @@ msgid "Failed to launch instance \"%s\""
 msgstr "Failed to launch instance \"%s\""
 
 #: dashboards/project/instances/tables.py:650
-#: dashboards/project/instances/views.py:301
-#: dashboards/project/instances/views.py:355
+#: dashboards/project/instances/views.py:358
 #, python-format
 msgid "Unable to retrieve flavor information for instance \"%s\"."
 msgstr ""
@@ -9753,20 +9752,27 @@ msgstr "Unable to retrieve details for instance \"%s\"."
 
 #: dashboards/project/instances/views.py:293
 #, python-format
-msgid "Unable to retrieve volume list for instance \"%s\"."
+msgid "Unable to retrieve volume list for instance \"%(name)s\" (%(id)s)."
 msgstr ""
 
-#: dashboards/project/instances/views.py:309
+#: dashboards/project/instances/views.py:302
 #, python-format
-msgid "Unable to retrieve security groups for instance \"%s\"."
+msgid "Unable to retrieve flavor information for instance \"%(name)s\" (%(id)s)."
 msgstr ""
 
-#: dashboards/project/instances/views.py:318
+#: dashboards/project/instances/views.py:311
 #, python-format
-msgid "Unable to retrieve IP addresses from Neutron for instance \"%s\"."
-msgstr "Unable to retrieve IP addresses from Neutron for instance \"%s\"."
+msgid "Unable to retrieve security groups for instance \"%(name)s\" (%(id)s)."
+msgstr ""
 
-#: dashboards/project/instances/views.py:369
+#: dashboards/project/instances/views.py:319
+#, python-format
+msgid ""
+"Unable to retrieve IP addresses from Neutron for instance \"%(name)s\" "
+"(%(id)s)."
+msgstr ""
+
+#: dashboards/project/instances/views.py:372
 msgid "Unable to retrieve flavors."
 msgstr "Unable to retrieve flavors."
 
