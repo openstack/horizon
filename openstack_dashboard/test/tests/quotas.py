@@ -73,11 +73,14 @@ class QuotaTests(test.APITestCase):
             .AndReturn(True)
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(self.floating_ips.list())
-        api.nova.server_list(IsA(http.HttpRequest)) \
+        search_opts = {'tenant_id': self.request.user.tenant_id}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts,
+                             all_tenants=True) \
             .AndReturn([servers, False])
-        cinder.volume_list(IsA(http.HttpRequest)) \
+        opts = {'alltenants': 1, 'tenant_id': self.request.user.tenant_id}
+        cinder.volume_list(IsA(http.HttpRequest), opts) \
             .AndReturn(self.volumes.list())
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
+        cinder.volume_snapshot_list(IsA(http.HttpRequest), opts) \
             .AndReturn(self.snapshots.list())
         cinder.tenant_quota_get(IsA(http.HttpRequest), '1') \
             .AndReturn(self.cinder_quotas.first())
@@ -112,7 +115,9 @@ class QuotaTests(test.APITestCase):
             .AndReturn(True)
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(self.floating_ips.list())
-        api.nova.server_list(IsA(http.HttpRequest)) \
+        search_opts = {'tenant_id': self.request.user.tenant_id}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts,
+                             all_tenants=True) \
             .AndReturn([servers, False])
 
         self.mox.ReplayAll()
@@ -147,7 +152,10 @@ class QuotaTests(test.APITestCase):
             .AndReturn(True)
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn([])
-        api.nova.server_list(IsA(http.HttpRequest)).AndReturn([[], False])
+        search_opts = {'tenant_id': self.request.user.tenant_id}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts,
+                             all_tenants=True) \
+            .AndReturn([[], False])
 
         self.mox.ReplayAll()
 
@@ -189,11 +197,14 @@ class QuotaTests(test.APITestCase):
             .AndReturn(True)
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(self.floating_ips.list())
-        api.nova.server_list(IsA(http.HttpRequest)) \
+        search_opts = {'tenant_id': self.request.user.tenant_id}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts,
+                             all_tenants=True) \
             .AndReturn([servers, False])
-        cinder.volume_list(IsA(http.HttpRequest)) \
+        opts = {'alltenants': 1, 'tenant_id': self.request.user.tenant_id}
+        cinder.volume_list(IsA(http.HttpRequest), opts) \
             .AndReturn(self.volumes.list())
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
+        cinder.volume_snapshot_list(IsA(http.HttpRequest), opts) \
             .AndReturn(self.snapshots.list())
         cinder.tenant_quota_get(IsA(http.HttpRequest), '1') \
             .AndReturn(self.cinder_quotas.first())
@@ -231,11 +242,14 @@ class QuotaTests(test.APITestCase):
             .AndReturn(self.quotas.first())
         api.network.floating_ip_supported(IsA(http.HttpRequest)) \
             .AndReturn(False)
-        api.nova.server_list(IsA(http.HttpRequest)) \
+        search_opts = {'tenant_id': self.request.user.tenant_id}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts,
+                             all_tenants=True) \
             .AndReturn([servers, False])
-        cinder.volume_list(IsA(http.HttpRequest)) \
+        opts = {'alltenants': 1, 'tenant_id': self.request.user.tenant_id}
+        cinder.volume_list(IsA(http.HttpRequest), opts) \
             .AndReturn(self.volumes.list())
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
+        cinder.volume_snapshot_list(IsA(http.HttpRequest), opts) \
             .AndReturn(self.snapshots.list())
         cinder.tenant_quota_get(IsA(http.HttpRequest), '1') \
             .AndReturn(self.cinder_quotas.first())
