@@ -15,9 +15,16 @@ footer.footer-main {
   /* Set the fixed height of the footer here */
   height: 50px;
   font-size: 12px;
-  border-top: 1px solid $gray-lighter;
-  padding-top: 16px;
+  border-top: 1px solid $brand-secundary;
+  padding-top: 1px;
   margin: 0;
+  .footer-content{
+    border-top: 1px solid $brand-primary;
+    .container-fluid{
+      border-top: 1px solid #F2E826;
+      padding-top: 12px;
+    }
+  }
   a{
     text-decoration: underline;
   }

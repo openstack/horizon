@@ -8,6 +8,21 @@
     }
   }
 }
+#detailApplication,
+#detailOrganization{
+  .panel-body{
+    padding: 7px 15px;
+  }
+}
+#detailOrganization {
+  margin-top: 8px;
+}
+#detailApplication{ 
+  margin-top: 13px;
+  header{
+    margin-bottom: 2px;
+  }
+}
 .edit_organization_modal{
   textarea {
     min-height: 40px;

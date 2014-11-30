@@ -34,10 +34,32 @@
             </div>
 
             <div class="callback_url">
-                <h5 class="panel-heading">
+                <h5>
                     Callback URL
                 </h5>               
                 <p>{{ callbackURL }}</p>
+            </div>
+            <div class="description">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse_oauth2_credentials" aria-expanded="true" aria-controls="collapse_oauth2_credentials">
+                    OAuth2 Credentials
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse_oauth2_credentials" class="form-group collapse" role="tabpanel">
+                <div>
+                    <h5>
+                        Client ID
+                    </h5>               
+                    <p>{{ application_id }}</p>
+                </div>
+                <div>
+                    <h5>
+                        Client Secret <button class="btn btn-link fa fa-refresh pull-right"></button>
+                    </h5>               
+                    <p>{{ application_secret }}</p>
+                </div>
+              </div>
             </div>
         </div>
     </div>
