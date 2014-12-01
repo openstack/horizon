@@ -2014,22 +2014,6 @@ label.log-length {
     .delete {
       padding-right: 0;
       text-align: right;
-      .btn {
-        &:before {
-          content:"Delete ";
-        }
-        &.deleting:before {
-          content:"Deleting ";
-        }
-      }
-      .btn.instance {
-        &:before {
-          content:"Terminate ";
-        }
-        &.deleting:before {
-          content:"Terminating ";
-        }
-      }
     }
   }
   table.detailInfoTable {
@@ -2072,12 +2056,6 @@ label.log-length {
     }
     .btn {
       line-height: 1.4;
-    }
-    .btn:before {
-      content:"Delete ";
-    }
-    .btn.deleting:before {
-      content:"Deleting ";
     }
   }
   font-size: 11px;
