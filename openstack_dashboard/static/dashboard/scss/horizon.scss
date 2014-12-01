@@ -43,6 +43,11 @@
 
 body {
   background-color: $body-bg;
+  &:not(#splash) {
+    background-image: url('../img/sidebar_bg.png');
+    background-repeat: repeat-y;
+    background-position: -200px top;
+  }
   color: $text-color;
   min-width: 900px;
 }
@@ -142,12 +147,14 @@ h2 {
 
 .sidebar {
   background-color: $sidebar-background-color;
-  border-width: 0 6px 5px 0;
-  border-color: $border-color;
-  border-style: solid;
-  border-radius: 0 0 5px 0;
-  float: left;
-  min-width: 236px;
+  padding-top: 20px;
+  margin-left: -$sidebar-width;
+  left: $sidebar-width;
+  width: $sidebar-width;
+  position: absolute;
+  z-index: 0;
+  -webkit-box-shadow:inset -3px 2px 6px -2px #C7C7C7, inset -1px 0 0 0 #cccccc;
+  box-shadow:inset -3px 2px 6px -2px #C7C7C7, inset -1px 0 0 0 #cccccc;
 }
 
 .sidebar h4 {
@@ -1063,8 +1070,8 @@ tr.terminated {
 }
 
 #content_body {
-  padding-left: 255px;
-  padding-right: 25px;
+  padding-left: $sidebar-width + 15px;
+  padding-right: 15px;
 }
 
 .tab_wrapper {
@@ -1236,10 +1243,6 @@ div .flavor_table {
   text-align: left;
   padding: 7px 12px 7px 7px;
   width: 160px;
-}
-
-#main_content .row {
-  margin: 10px 0 20px;
 }
 
 #main_content .row:last-child {

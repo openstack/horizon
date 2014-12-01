@@ -79,7 +79,7 @@ horizon.addInitFunction(function() {
   });
 
   // panel selection
-  $('.nav_accordion > dd > ul > li > a').click(function() {
+  $('.nav_accordion > dd > div > ul > li > a').click(function() {
     horizon.modals.modal_spinner(gettext("Loading"));
   });
 

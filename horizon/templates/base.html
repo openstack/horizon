@@ -26,8 +26,12 @@
             {% include 'horizon/common/_sidebar.html' %}
           {% endblock %}
           <div id='content_body'>
-            {% block page_header %}{% endblock %}
-            {% block main %}{% endblock %}
+            <div class="row">
+              <div class="col-xs-12">
+                {% block page_header %}{% endblock %}
+                {% block main %}{% endblock %}
+              </div>
+            </div>
           </div>
         </div>
       </div>
