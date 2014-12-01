@@ -49,3 +49,8 @@ class PanelGroupPluginTests(test.PluginTestCase):
         dashboard = horizon.get_dashboard("admin")
         self.assertIn(plugin_panel.PluginPanel,
                       [p.__class__ for p in dashboard.get_panels()])
+
+    def test_unregistered_panel_group(self):
+          dashboard = horizon.get_dashboard("admin")
+          self.assertIsNone(dashboard.get_panel_group("nonexistent_panel"))
+
