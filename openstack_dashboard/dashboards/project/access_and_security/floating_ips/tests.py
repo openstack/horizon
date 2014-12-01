@@ -298,7 +298,9 @@ class FloatingIpNeutronViewTests(FloatingIpViewTests):
             .AndReturn(self.quotas.first())
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.server_list(IsA(http.HttpRequest)) \
+        search_opts = {'tenant_id': self.request.user.tenant_id}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts,
+                             all_tenants=True) \
             .AndReturn([servers, False])
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest), 'security-group').AndReturn(True)

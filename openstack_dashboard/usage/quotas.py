@@ -254,7 +254,12 @@ def get_disabled_quotas(request):
 
 @memoized
 def tenant_quota_usages(request, tenant_id=None):
-    """Get our quotas and construct our usage object."""
+    """Get our quotas and construct our usage object.
+    If no tenant_id is provided, a the request.user.project_id
+    is assumed to be used
+    """
+    if not tenant_id:
+        tenant_id = request.user.project_id
 
     disabled_quotas = get_disabled_quotas(request)
 
