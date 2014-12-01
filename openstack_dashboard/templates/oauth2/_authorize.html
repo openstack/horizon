@@ -1,0 +1,27 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}{% endblock %}
+{% block form_action %}{% url 'fiware_oauth2_authorize' %}{% endblock %}
+
+{% block modal_id %}authorize_application_modal{% endblock %}
+{% block modal-header %}
+  <span>The application {{ consumer.name }} will be able to:</span>
+  <ul>
+    <li>
+      Read your public information
+    </li>
+  </ul>
+{% endblock %}
+
+{% block modal-body %}
+  <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+  </fieldset>
+{% endblock %}
+
+{% block modal-footer %}
+  <button type="submit" class="btn btn-primary">{% trans "Accept" %}</button>
+  <a href="{% url 'fiware_oauth2_cancel_authorize' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}

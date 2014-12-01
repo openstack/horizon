@@ -1,3 +1,4 @@
+# Copyright (C) 2014 Universidad Politecnica de Madrid
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -237,7 +238,7 @@ def application_delete(request, application_id):
 
 # OAUTH2 FLOW
 def request_authorization_for_application(request, application, 
-                                        redirect_uri, scope='all_info', state=None):
+                                        redirect_uri, scope=['all_info'], state=None):
     """ Sends the consumer/client credentials to the authorization server to ask
     a resource owner for authorization in a certain scope.
 
@@ -253,7 +254,7 @@ def request_authorization_for_application(request, application,
                                     state=state)
     return  response_dict
 
-def authorize_application(request, user, application, scopes, redirect=False):
+def authorize_application(request, application, scopes=['all_info'], redirect=False):
     """ Give authorization from a resource owner to the consumer/client on the 
     requested scopes.
 
@@ -265,9 +266,9 @@ def authorize_application(request, user, application, scopes, redirect=False):
     :returns: an authorization_code object, following the same pattern as other 
         keystoneclient objects
     """
-    LOG.debug('Authorizing application: {0} by user: {1}'.format(application, user))
-    manager = fiwareclient().oauth2.authorization_codes
-    authorization_code = manager.authorize(user=user, 
+    LOG.debug('Authorizing application: {0} by user: {1}'.format(application, request.user))
+    manager = api.keystone.keystoneclient(request, admin=True).oauth2.authorization_codes
+    authorization_code = manager.authorize(
                                     consumer=application, 
                                     scopes=scopes, 
                                     redirect=redirect)

@@ -12,19 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from django.conf.urls import patterns
-from django.conf.urls import url
+from django import forms
 
-from openstack_dashboard.fiware_oauth2 import views
-
-
-# NOTE(garcianavalon) following 
-# https://github.com/ging/fi-ware-idm/wiki/Using-the-FI-LAB-instance
-
-urlpatterns = patterns(
-    'fiware_oauth2.views',
-    url(r"^authorize/$", views.AuthorizeView.as_view(), 
-                            name='fiware_oauth2_authorize'),
-    url(r"^authorize/cancel/$", views.cancel_authorize, 
-                            name='fiware_oauth2_cancel_authorize'),
-)
+# NOTE(garcianavalon) in case one day we want support for different scopes or more features
+class AuthorizeForm(forms.Form):
+    pass
