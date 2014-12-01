@@ -13,7 +13,7 @@
 from openstack_dashboard.test.integration_tests.pages import basepage
 
 
-class AdminPage(basepage.BasePage):
+class OverviewPage(basepage.BasePage):
     def __init__(self, driver, conf):
-        super(AdminPage, self).__init__(driver, conf)
+        super(OverviewPage, self).__init__(driver, conf)
         self._page_title = "Usage Overview"

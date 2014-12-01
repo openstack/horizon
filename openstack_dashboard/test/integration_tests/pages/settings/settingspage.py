@@ -13,8 +13,9 @@
 from selenium.webdriver.common import by
 
 from openstack_dashboard.test.integration_tests.pages import basepage
-from openstack_dashboard.test.integration_tests.pages import changepasswordpage
 from openstack_dashboard.test.integration_tests.pages import pageobject
+from openstack_dashboard.test.integration_tests.pages.settings import \
+    changepasswordpage
 
 
 class SettingsPage(basepage.BasePage):

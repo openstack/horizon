@@ -11,22 +11,23 @@
 #    under the License.
 from selenium.webdriver.common import by
 
-from openstack_dashboard.test.integration_tests.pages import accesssecuritypage
 from openstack_dashboard.test.integration_tests.pages import basepage
-from openstack_dashboard.test.integration_tests.pages import settingspage
+from openstack_dashboard.test.integration_tests.pages.project.compute.\
+    access_and_security import accesssecuritypage
+from openstack_dashboard.test.integration_tests.pages.settings import \
+    settingspage
 from openstack_dashboard.test.integration_tests.regions import forms
 from openstack_dashboard.test.integration_tests.regions import tables
 
 
-class ProjectPage(basepage.BasePage):
-
+class OverviewPage(basepage.BasePage):
     _usage_table_locator = (by.By.CSS_SELECTOR, 'table#project_usage')
     _date_form_locator = (by.By.CSS_SELECTOR, 'form#date_form')
 
     USAGE_TABLE_ACTIONS = ("download_csv",)
 
     def __init__(self, driver, conf):
-        super(ProjectPage, self).__init__(driver, conf)
+        super(OverviewPage, self).__init__(driver, conf)
         self._page_title = 'Instance Overview'
 
     def go_to_settings_page(self):
