@@ -13,9 +13,9 @@
 from selenium.webdriver.common import by
 
 from openstack_dashboard.test.integration_tests.pages import basepage
-from openstack_dashboard.test.integration_tests.pages import pageobject
 from openstack_dashboard.test.integration_tests.pages.settings import \
     changepasswordpage
+from openstack_dashboard.test.integration_tests.regions import forms
 
 
 class SettingsPage(basepage.BasePage):
@@ -28,6 +28,9 @@ class SettingsPage(basepage.BasePage):
         "pagesize": DEFAULT_PAGESIZE
     }
 
+    SETTINGS_FORM_FIELDS = ("language", "timezone", "pagesize")
+
+    _settings_form_locator = (by.By.CSS_SELECTOR, 'div#user_settings_modal')
     _change_password_tab_locator = (by.By.CSS_SELECTOR,
                                     'a[href*="/settings/password/"]')
 
@@ -36,8 +39,10 @@ class SettingsPage(basepage.BasePage):
         self._page_title = "User Settings"
 
     @property
-    def modal(self):
-        return SettingsPage.UserSettingsModal(self.driver, self.conf)
+    def settings_form(self):
+        src_elem = self._get_element(*self._settings_form_locator)
+        return forms.FormRegion(self.driver, self.conf, src_elem,
+                                self.SETTINGS_FORM_FIELDS)
 
     @property
     def changepassword(self):
@@ -48,18 +53,16 @@ class SettingsPage(basepage.BasePage):
         return self._get_element(*self._change_password_tab_locator)
 
     def change_language(self, lang=DEFAULT_LANGUAGE):
-        self._select_dropdown_by_value(lang,
-                                       self.modal.language_selection)
-        self.modal.click_on_save_button()
+        self.settings_form.language.value = lang
+        self.settings_form.submit.click()
 
     def change_timezone(self, timezone=DEFAULT_TIMEZONE):
-        self._select_dropdown_by_value(timezone,
-                                       self.modal.timezone_selection)
-        self.modal.click_on_save_button()
+        self.settings_form.timezone.value = timezone
+        self.settings_form.submit.click()
 
     def change_pagesize(self, size=DEFAULT_PAGESIZE):
-        self._fill_field_element(size, self.modal.pagesize)
-        self.modal.click_on_save_button()
+        self.settings_form.pagesize.value = size
+        self.settings_form.submit.click()
 
     def return_to_default_settings(self):
         self.change_language()
@@ -69,32 +72,3 @@ class SettingsPage(basepage.BasePage):
     def go_to_change_password_page(self):
         self.change_password_tab.click()
         return changepasswordpage.ChangePasswordPage(self.driver, self.conf)
-
-    class UserSettingsModal(pageobject.PageObject):
-        _language_selection_locator = (by.By.CSS_SELECTOR,
-                                       'select#id_language')
-        _timezone_selection_locator = (by.By.CSS_SELECTOR,
-                                       'select#id_timezone')
-        _items_per_page_input_locator = (by.By.CSS_SELECTOR,
-                                         'input#id_pagesize')
-        _save_submit_button_locator = (by.By.CSS_SELECTOR,
-                                       'div.modal-footer button.btn')
-
-        @property
-        def language_selection(self):
-            return self._get_element(*self._language_selection_locator)
-
-        @property
-        def timezone_selection(self):
-            return self._get_element(*self._timezone_selection_locator)
-
-        @property
-        def pagesize(self):
-            return self._get_element(*self._items_per_page_input_locator)
-
-        @property
-        def save_button(self):
-            return self._get_element(*self._save_submit_button_locator)
-
-        def click_on_save_button(self):
-            self.save_button.click()

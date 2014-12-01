@@ -16,62 +16,54 @@
 from selenium.webdriver.common import by
 
 from openstack_dashboard.test.integration_tests.pages import basepage
+from openstack_dashboard.test.integration_tests.regions import forms
+from openstack_dashboard.test.integration_tests.regions import tables
 
 
 class KeypairPage(basepage.BasePage):
 
-    _keypair_create_button_locator = (by.By.CSS_SELECTOR,
-                                      '#keypairs__action_create')
-    _keypair_name_field_locator = (by.By.CSS_SELECTOR, '#id_name')
-    _keypair_submit_button_locator = (by.By.CSS_SELECTOR,
-                                      '.btn.btn-primary.pull-right')
-    _keypair_delete_cnf_button_locator = (by.By.CSS_SELECTOR,
-                                          '.btn.btn-primary')
+    _key_pairs_table_locator = (by.By.CSS_SELECTOR, 'table#keypairs')
+
+    KEY_PAIRS_TABLE_ACTIONS = ("create_key_pair", "import_key_pair",
+                               "delete_key_pair")
+    KEY_PAIRS_TABLE_ROW_ACTION = "delete_key_pair"
+    KEY_PAIRS_TABLE_NAME_COLUMN_INDEX = 0
+
+    CREATE_KEY_PAIR_FORM_FIELDS = ('name',)
 
     def __init__(self, driver, conf):
         super(KeypairPage, self).__init__(driver, conf)
         self._page_title = "Access & Security"
 
-    @property
-    def keypair_create(self):
-        return self._get_element(*self._keypair_create_button_locator)
+    def _get_row_with_keypair_name(self, name):
+        return self.keypairs_table.get_row(
+            self.KEY_PAIRS_TABLE_NAME_COLUMN_INDEX, name)
 
     @property
-    def keypair_name_field(self):
-        return self._get_element(*self._keypair_name_field_locator)
+    def keypairs_table(self):
+        src_elem = self._get_element(*self._key_pairs_table_locator)
+        return tables.SimpleActionsTableRegion(self.driver, self.conf,
+                                               src_elem,
+                                               self.KEY_PAIRS_TABLE_ACTIONS,
+                                               self.KEY_PAIRS_TABLE_ROW_ACTION)
 
     @property
-    def keypair_submit_button(self):
-        return self._get_element(*self._keypair_submit_button_locator)
+    def create_keypair_form(self):
+        return forms.FormRegion(self.driver, self.conf, None,
+                                self.CREATE_KEY_PAIR_FORM_FIELDS)
 
     @property
-    def keypair_delete_cnf_button(self):
-        return self._get_element(*self._keypair_delete_cnf_button_locator)
+    def delete_keypair_form(self):
+        return forms.BaseFormRegion(self.driver, self.conf, None)
 
-    def _click_on_keypair_create(self):
-        self.keypair_create.click()
-
-    def _click_on_keypair_submit_button(self):
-        self.keypair_submit_button.click()
-
-    def _click_on_keypair_delete_cnf_button(self):
-        self.keypair_delete_cnf_button.click()
-
-    def get_keypair_status(self, keypair_name):
-        keypair_locator = (by.By.CSS_SELECTOR,
-                           '#keypairs__row__%s' % keypair_name)
-        keypair_status = self._is_element_present(*keypair_locator)
-        return keypair_status
+    def is_keypair_present(self, name):
+        return bool(self._get_row_with_keypair_name(name))
 
     def create_keypair(self, keypair_name):
-        self._click_on_keypair_create()
-        self.keypair_name_field.send_keys(keypair_name)
-        self._click_on_keypair_submit_button()
+        self.keypairs_table.create_key_pair.click()
+        self.create_keypair_form.name.text = keypair_name
+        self.create_keypair_form.submit.click()
 
-    def delete_keypair(self, keypair_name):
-        keypair_delete_check_locator = (
-            by.By.CSS_SELECTOR,
-            "#keypairs__row_%s__action_delete" % keypair_name)
-        self.driver.find_element(
-            *keypair_delete_check_locator).click()
-        self._click_on_keypair_delete_cnf_button()
+    def delete_keypair(self, name):
+        self._get_row_with_keypair_name(name).delete_key_pair.click()
+        self.delete_keypair_form.submit.click()

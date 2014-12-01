@@ -16,12 +16,9 @@ from openstack_dashboard.test.integration_tests import helpers
 class TestUserSettings(helpers.TestCase):
 
     def verify_user_settings_change(self, changed_settings):
-        language = self.settings_page.modal.language_selection.\
-            get_attribute("value")
-        timezone = self.settings_page.modal.timezone_selection.\
-            get_attribute("value")
-        pagesize = self.settings_page.modal.pagesize.\
-            get_attribute("value")
+        language = self.settings_page.settings_form.language.value
+        timezone = self.settings_page.settings_form.timezone.value
+        pagesize = self.settings_page.settings_form.pagesize.value
 
         user_settings = (("Language", changed_settings["language"], language),
                          ("Timezone", changed_settings["timezone"], timezone),

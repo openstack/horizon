@@ -52,3 +52,9 @@ class BaseWebObject(object):
     def _select_dropdown_by_value(self, value, element):
         select = Support.Select(element)
         select.select_by_value(value)
+
+    def _turn_off_implicit_wait(self):
+        self.driver.implicitly_wait(0)
+
+    def _turn_on_implicit_wait(self):
+        self.driver.implicitly_wait(self.conf.dashboard.page_timeout)
