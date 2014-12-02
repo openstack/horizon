@@ -1,14 +1,12 @@
 #detailApplication{
-  header .name{
-    color: $gray;
-  }
   .logo{
     margin-top: -7px !important;
   }
 }
-#detailOrganization{
+#detailOrganization
+#detailApplication,{
   header .name{
-    color: $brand-secundary;
+    color: $gray-dark;
   }
 }
 #detailOrganization,
@@ -39,9 +37,10 @@
 .panel-body{
   min-height: 52px;
   h5{
-    border-bottom: 1px solid $brand-secundary;
+    border-bottom: 1px solid #D5D5D5;
     margin-top: 10px;
     margin-bottom: 6px;
+    color: $brand-secundary;
   }
   p{
     margin-bottom: 17px; 
