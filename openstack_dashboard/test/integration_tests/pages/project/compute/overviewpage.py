@@ -31,8 +31,7 @@ class OverviewPage(basepage.BasePage):
         self._page_title = 'Instance Overview'
 
     def go_to_settings_page(self):
-        self.topbar.user_dropdown_menu.click()
-        self.topbar.settings_link.click()
+        self.topbar.user_dropdown_menu.click_on_settings()
         return settingspage.SettingsPage(self.driver, self.conf)
 
     def go_to_accesssecurity_page(self):
