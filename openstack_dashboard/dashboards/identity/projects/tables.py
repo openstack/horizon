@@ -48,7 +48,7 @@ class RescopeTokenToProject(tables.LinkAction):
 
 class UpdateMembersLink(tables.LinkAction):
     name = "users"
-    verbose_name = _("Modify Users")
+    verbose_name = _("Manage Members")
     url = "horizon:identity:projects:update"
     classes = ("ajax-modal",)
     icon = "pencil"

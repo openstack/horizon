@@ -88,7 +88,7 @@ class DeleteGroupsAction(tables.DeleteAction):
 
 class ManageUsersLink(tables.LinkAction):
     name = "users"
-    verbose_name = _("Modify Users")
+    verbose_name = _("Manage Members")
     url = constants.GROUPS_MANAGE_URL
     icon = "pencil"
     policy_rules = (("identity", "identity:get_group"),

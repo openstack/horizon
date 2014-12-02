@@ -35,7 +35,7 @@ LOG = logging.getLogger(__name__)
 
 class UpdateUsersLink(tables.LinkAction):
     name = "users"
-    verbose_name = _("Modify Users")
+    verbose_name = _("Manage Members")
     url = "horizon:identity:domains:update"
     classes = ("ajax-modal",)
     policy_rules = (("identity", "identity:list_users"),
