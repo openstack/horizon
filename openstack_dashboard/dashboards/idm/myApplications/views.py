@@ -134,6 +134,8 @@ class DetailApplicationView(TemplateView):
         else:
             context['callbackURL'] = ''
         context['application_name'] = application.name
+        context['application_id'] = application_id
+        context['application_secret'] = application.secret
         return context
 
 class MultiFormView(TemplateView):
