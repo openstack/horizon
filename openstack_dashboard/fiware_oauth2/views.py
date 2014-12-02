@@ -14,7 +14,7 @@
 
 import logging
 
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse_lazy, reverse
 from django.shortcuts import redirect
 from django.views.generic.edit import FormView
 
@@ -42,48 +42,59 @@ class AuthorizeView(FormView):
     """
     template_name = 'oauth2/authorize.html'
     form_class = forms.AuthorizeForm
-    
-    def dispatch(self, request, *args, **kwargs):
+    application_credentials = {}
+    application = None
+    success_url = reverse_lazy('horizon:user_home')
+    oauth_data = {}
+
+    def dispatch(self, request, *args, **kwargs):     
+        self.application_credentials = request.session.get('application_credentials', {})
+        # save the credentials in case we have to redirect
+        if not self.application_credentials:
+            self._store_credentials(request)
+
         if request.user.is_authenticated():
-            if not request.session.get('requesting_application', None):
-                self._request_authorization(request)
             return super(AuthorizeView, self).dispatch(request, *args, **kwargs)
         else:
-            # login logic
-            context = self._request_authorization(request)
+            # redirect to the login page but showing some info about the application
+            context = {
+                'next':reverse('fiware_oauth2_authorize'),
+                'show_consumer_details':True,
+                'application':'TODO(garcianvalon)',
+            }
             return auth_views.login(request, 
                                 extra_context=context, 
                                 **kwargs)
 
-    def _request_authorization(self, request):
+    def _store_credentials(self, request):
         # TODO(garcianavalon) check it's set to code
-        response_type = request.GET.get('response_type')
+        self.application_credentials = {     
+            'response_type':request.GET.get('response_type'),
+            'application_id':request.GET.get('client_id'),
+            'redirect_uri':request.GET.get('redirect_uri'),
+            'state':request.GET.get('state'),
+        }
+        request.session['application_credentials'] = self.application_credentials
+
+    def _request_authorization(self, request, credentials):
         # forward the request to the keystone server to store the credentials
         try:
             # register consumer credentials
             self.oauth_data = fiware_api.keystone.request_authorization_for_application(
                                 request,
-                                request.GET.get('client_id'),
-                                request.GET.get('redirect_uri'),
-                                state=request.GET.get('state'))
-            request.session['requesting_application'] = self.oauth_data['data']['consumer']['id']
+                                credentials.get('application_id'),
+                                credentials.get('redirect_uri'),
+                                state=credentials.get('state', None))
         except Exception as e:
             # TODO(garcianavalon) finner exception handling
             self.oauth_data = {
                 'error': e
             }
-        context = {
-            'data':self.oauth_data.get('data'),
-            'error':self.oauth_data.get('error'),
-            'next':reverse('fiware_oauth2_authorize'),
-            'show_consumer_details':True,
-        }
-        return context
 
     def get(self, request, *args, **kwargs):
-        application_id = request.session.get('requesting_application', None)
-        if application_id:
-            self.consumer = fiware_api.keystone.application_get(request, application_id)
+        """Show a form with info about the scopes and the application to the user"""
+        if self.application_credentials:
+            self._request_authorization(request, self.application_credentials)
             return super(AuthorizeView, self).get(request, *args, **kwargs)
         else:
             # there is no pending authorization request, redirect to index
@@ -91,12 +102,12 @@ class AuthorizeView(FormView):
 
     def get_context_data(self, **kwargs):
         context = super(AuthorizeView, self).get_context_data(**kwargs)
-        context['consumer'] = getattr(self, 'consumer', None)
+        context['oauth_data'] = self.oauth_data
+        context['application_credentials'] = self.application_credentials
         return context
 
     def post(self, request, *args, **kwargs):
-        # Pass request to get_form for per-request
-        # form control.
+        # Pass request to get_form
         form_class = self.get_form_class()
         form = self.get_form(form_class)
         if form.is_valid():
@@ -106,16 +117,21 @@ class AuthorizeView(FormView):
             return self.form_invalid(form)
 
     def form_valid(self, request, form):
-        import pdb; pdb.set_trace()
         authorization_code = fiware_api.keystone.authorize_application(
-            request,
-            application=request.session.pop('requesting_application'))
+             request,
+            application=self.application_credentials['application_id'])
         # TODO(garcianavalon) logic to send the authorization code to the application
-        import pdb; pdb.set_trace()
+        
+        return super(AuthorizeView, self).form_valid(form)
+
+    def form_invalid(self, form):
+        # NOTE(garcianavalon) there is no case right now where this form would be
+        # invalid, because is an empty form. In the future we might use a more complex
+        # form (multiple choice scopes for example)
+        pass
         
 
 def cancel_authorize(request, **kwargs):
-    # make sure we clear the session variable
-    request.session['requesting_application'] = None
+    # make sure we clear the session variables
+    request.session['application_credentials'] = None
     return redirect('horizon:user_home')
-

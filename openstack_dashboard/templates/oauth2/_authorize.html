@@ -7,15 +7,15 @@
 
 {% block modal_id %}authorize_application_modal{% endblock %}
 {% block modal-header %}
-  <span>The application {{ consumer.name }} will be able to:</span>
-  <ul>
-    <li>
-      Read your public information
-    </li>
-  </ul>
+Credentials: {{ application_credentials }}
+<br>
+Data: {{ oauth_data.data }}
+<br>
+Error: {{ oauth_data.error }}
 {% endblock %}
 
 {% block modal-body %}
+
   <fieldset>
     {% include "horizon/common/_form_fields.html" %}
   </fieldset>

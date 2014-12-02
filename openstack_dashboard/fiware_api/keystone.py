@@ -246,8 +246,8 @@ def request_authorization_for_application(request, application,
         a nice form for the user, for example.
     """
     LOG.debug('Requesting authorization for application: {0} with redirect_uri: {1} \
-        and scope: {2}'.format(application, redirect_uri, scope))
-    manager = fiwareclient().oauth2.authorization_codes
+        and scope: {2} by user {3}'.format(application, redirect_uri, scope, request.user))
+    manager = api.keystone.keystoneclient(request, admin=True).oauth2.authorization_codes
     response_dict = manager.request_authorization(consumer=application, 
                                     redirect_uri=redirect_uri, 
                                     scope=scope, 

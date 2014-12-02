@@ -1,14 +1,10 @@
 <div class="presentation">  
   <section class="media">
     <h3 class="media-heading">
-      {{ data.consumer.id }} {# TODO(garcianavalon) set to name #}
+      {{ application.id }} {# TODO(garcianavalon) set to name #}
     </h3>
     <span>
-      {{ data.consumer.description }} {# TODO(garcianavalon) add it in the keystone extension #}
+      {{ application.description }} {# TODO(garcianavalon) add it in the keystone extension #}
     </span>
-    {% if error %}
-      <p>{{ error.error }}</p>
-      <p>{{ error.description }}</p>
-    {% endif %}
   </section>  
 </div>
