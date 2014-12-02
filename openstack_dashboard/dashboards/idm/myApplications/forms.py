@@ -28,9 +28,7 @@ from openstack_dashboard import fiware_api
 
 LOG = logging.getLogger('idm_logger')
 
-DEFAULT_AVATAR = os.path.abspath(os.path.join(settings.ROOT_PATH, '..', 
-            'openstack_dashboard/static/dashboard/img/logos/original/app.png'))
-
+AVATAR = settings.MEDIA_ROOT+"/"+"ApplicationAvatar/"
 
 class CreateApplicationForm(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), required=True)
@@ -199,16 +197,16 @@ class AvatarForm(forms.SelfHandlingForm):
 
         #     output_img = Image.open(DEFAULT_AVATAR)
 
-        imageName = data['appID']
+            imageName = data['appID']
        
-        output_img.save(settings.MEDIA_ROOT + "/" + "ApplicationAvatar/" + imageName, 'JPEG')
-        application = fiware_api.keystone.application_get(request, data['appID'])
-        extra= application.extra
-        extra['img']=settings.MEDIA_URL+'ApplicationAvatar/'+imageName
-        fiware_api.keystone.application_update(request, data['appID'], extra=extra)
-        messages.success(request, _("Application upddated successfully."))
-        LOG.debug('Imagen guardada')
-        LOG.debug(application.extra)
+            output_img.save(settings.MEDIA_ROOT + "/" + "ApplicationAvatar/" + imageName, 'JPEG')
+            application = fiware_api.keystone.application_get(request, data['appID'])
+            extra= application.extra
+            extra['img']=settings.MEDIA_URL+'ApplicationAvatar/'+imageName
+            fiware_api.keystone.application_update(request, data['appID'], extra=extra)
+            messages.success(request, _("Application upddated successfully."))
+            LOG.debug('Imagen guardada')
+            LOG.debug(application.extra)
         response = shortcuts.redirect('horizon:idm:myApplications:detail', data['appID'])
         return response
         
@@ -217,8 +215,13 @@ class CancelForm(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), widget=forms.HiddenInput(), required=False)
 
     def handle(self, request, data):
-        application = data['appID']
-        fiware_api.keystone.application_delete(request, application)
-        LOG.info('Application {0} deleted'.format(application))
+        application = fiware_api.keystone.application_get(request, data['appID'])
+        image = application.extra['img']
+        if "AvatarAvatar" in image:
+            os.remove(AVATAR + application.id)       
+
+        fiware_api.keystone.application_delete(request, application.id)
+        LOG.info('Application {0} deleted'.format(application.id))
+        messages.success(request, _("Application deleted successfully."))
         response = shortcuts.redirect('horizon:idm:myApplications:index')
         return response

@@ -36,8 +36,7 @@ from PIL import Image
 
 LOG = logging.getLogger('idm_logger')
 
-
-DEFAULT_AVATAR = os.path.abspath(os.path.join(settings.ROOT_PATH, '..', 'openstack_dashboard/static/dashboard/img/logos/original/group.png'))
+AVATAR = settings.MEDIA_ROOT+"/"+"OrganizationAvatar/"
 
 class CreateOrganizationForm(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), max_length=64, required=True)
@@ -171,14 +170,17 @@ class CancelForm(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), widget=forms.HiddenInput(), required=False)
 
     def handle(self, request, data):
-        #(sorube13) TODO: Delete image from OrganizationAvatar folder
-        organization = data['orgID']
+        
+        organization = api.keystone.tenant_get(request, data['orgID'])
+        image = organization.img
+        if "OrganizationAvatar" in image:
+            os.remove(AVATAR + organization.id)
         api.keystone.tenant_delete(request, organization)
+        LOG.info('Organization {0} deleted'.format(organization.id))
         messages.success(request, _("Organization deleted successfully."))
         response = shortcuts.redirect('horizon:idm:organizations:index')
         return response
 
 
-        
-
+       
 
