@@ -121,12 +121,13 @@ class IndexView(tables.DataTableView):
         return instances
 
     def get_filters(self, filters):
-        filter_field = self.table.get_filter_field()
         filter_action = self.table._meta._filter_action
-        if filter_action.is_api_filter(filter_field):
-            filter_string = self.table.get_filter_string()
-            if filter_field and filter_string:
-                filters[filter_field] = filter_string
+        if filter_action:
+            filter_field = self.table.get_filter_field()
+            if filter_action.is_api_filter(filter_field):
+                filter_string = self.table.get_filter_string()
+                if filter_field and filter_string:
+                    filters[filter_field] = filter_string
         return filters
 
 
