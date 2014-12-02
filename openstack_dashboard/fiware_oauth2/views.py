@@ -50,11 +50,6 @@ class AuthorizeView(FormView):
 
     def dispatch(self, request, *args, **kwargs):
         self.application_credentials = request.session.get('application_credentials', {})
-        if (not self.application_credentials
-            and request.method == 'POST'):
-            # something went horribly wrong again ;_;
-            # TODO(garcianavalon) this is for debug
-            raise Exception
         # save the credentials in case we have to redirect
         if not self.application_credentials:
             self._store_credentials(request)
@@ -62,6 +57,7 @@ class AuthorizeView(FormView):
         if request.user.is_authenticated():
             return super(AuthorizeView, self).dispatch(request, *args, **kwargs)
         else:
+            LOG.debug('OAUTH2: Login page with consumer details')
             # redirect to the login page but showing some info about the application
             context = {
                 'next':reverse('fiware_oauth2_authorize'),
@@ -71,13 +67,12 @@ class AuthorizeView(FormView):
                                     self.application_credentials['application_id'],
                                     use_idm_account=True),
             }
-            # NOTE(garcianavalon) I dont know why when I get the application it deletes the other
-            # session variables, I guess it has to do with the request object somehow... 
             return auth_views.login(request, 
                                 extra_context=context, 
                                 **kwargs)
 
     def _store_credentials(self, request):
+        LOG.debug('OAUTH2: Storing credentials in session')
         # TODO(garcianavalon) check it's set to code
         self.application_credentials = {     
             'response_type':request.GET.get('response_type'),
@@ -97,6 +92,7 @@ class AuthorizeView(FormView):
                                 credentials.get('redirect_uri'),
                                 state=credentials.get('state', None))
         except Exception as e:
+            LOG.warning('OAUTH2: exception when requesting authorization {0}'.format(e))
             # TODO(garcianavalon) finner exception handling
             self.oauth_data = {
                 'error': e
@@ -108,7 +104,7 @@ class AuthorizeView(FormView):
             self._request_authorization(request, self.application_credentials)
             return super(AuthorizeView, self).get(request, *args, **kwargs)
         else:
-            # there is no pending authorization request, redirect to index
+            LOG.debug('OAUTH2: there is no pending authorization request, redirect to index')
             return redirect('horizon:user_home')
 
     def get_context_data(self, **kwargs):
@@ -132,7 +128,7 @@ class AuthorizeView(FormView):
              request,
             application=self.application_credentials['application_id'])
         # TODO(garcianavalon) logic to send the authorization code to the application
-        
+        LOG.debug('OAUTH2: Authorization Code obtained {0}'.format(authorization_code))
         return super(AuthorizeView, self).form_valid(form)
 
     def form_invalid(self, form):
@@ -144,5 +140,6 @@ class AuthorizeView(FormView):
 
 def cancel_authorize(request, **kwargs):
     # make sure we clear the session variables
+    LOG.debug('OAUTH2: authorization request dennied, clear variables and redirect to login')
     request.session['application_credentials'] = None
     return redirect('horizon:user_home')
