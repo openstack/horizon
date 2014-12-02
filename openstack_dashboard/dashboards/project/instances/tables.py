@@ -658,6 +658,7 @@ class UpdateRow(tables.Row):
 
 class StartInstance(policy.PolicyTargetMixin, tables.BatchAction):
     name = "start"
+    classes = ('btn-confirm',)
     policy_rules = (("compute", "compute:start"),)
 
     @staticmethod
@@ -677,7 +678,8 @@ class StartInstance(policy.PolicyTargetMixin, tables.BatchAction):
         )
 
     def allowed(self, request, instance):
-        return instance.status in ("SHUTDOWN", "SHUTOFF", "CRASHED")
+        return ((instance is None) or
+                (instance.status in ("SHUTDOWN", "SHUTOFF", "CRASHED")))
 
     def action(self, request, obj_id):
         api.nova.server_start(request, obj_id)
@@ -707,9 +709,9 @@ class StopInstance(policy.PolicyTargetMixin, tables.BatchAction):
         )
 
     def allowed(self, request, instance):
-        return ((get_power_state(instance)
-                in ("RUNNING", "SUSPENDED"))
-                and not is_deleting(instance))
+        return ((instance is None)
+                or ((get_power_state(instance) in ("RUNNING", "SUSPENDED"))
+                    and not is_deleting(instance)))
 
     def action(self, request, obj_id):
         api.nova.server_stop(request, obj_id)
@@ -991,8 +993,8 @@ class InstancesTable(tables.DataTable):
         verbose_name = _("Instances")
         status_columns = ["status", "task"]
         row_class = UpdateRow
-        table_actions = (LaunchLink, SoftRebootInstance, TerminateInstance,
-                         InstancesFilterAction)
+        table_actions_menu = (StartInstance, StopInstance, SoftRebootInstance)
+        table_actions = (LaunchLink, TerminateInstance, InstancesFilterAction)
         row_actions = (StartInstance, ConfirmResize, RevertResize,
                        CreateSnapshot, SimpleAssociateIP, AssociateIP,
                        SimpleDisassociateIP, EditInstance,
