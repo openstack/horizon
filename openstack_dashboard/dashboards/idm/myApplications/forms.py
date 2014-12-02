@@ -62,6 +62,7 @@ class CreateApplicationForm(forms.SelfHandlingForm):
 class UploadImageForm(forms.SelfHandlingForm):
     appID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
     image = forms.ImageField(required=False)
+    nextredir = forms.CharField(widget=forms.HiddenInput(), required=False)
     x1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
     y1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
     x2 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
@@ -96,7 +97,10 @@ class UploadImageForm(forms.SelfHandlingForm):
             extra['img']=settings.MEDIA_URL+'ApplicationAvatar/'+imageName
             fiware_api.keystone.application_update(request, application.id, extra=extra)
             LOG.debug(application)
-        response = shortcuts.redirect('horizon:idm:myApplications:roles_index')
+        if nextredir!=None:
+            response = shortcuts.redirect('horizon:idm:myApplications:detail', data['appID']) 
+        else:
+            response = shortcuts.redirect('horizon:idm:myApplications:roles_index')
         return response
 
 
@@ -164,51 +168,6 @@ class InfoForm(forms.SelfHandlingForm):
             LOG.error(e)
             response = shortcuts.redirect('horizon:idm:myApplications:detail', data['appID'])
             return response
-
-
-class AvatarForm(forms.SelfHandlingForm):
-    appID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
-    image = forms.ImageField(required=False)
-    x1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
-    y1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
-    x2 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
-    y2 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
-
-    
-    def handle(self, request, data):
-        if request.FILES:
-
-            x1 = self.cleaned_data['x1'] 
-            x2 = self.cleaned_data['x2']
-            y1 = self.cleaned_data['y1']
-            y2 = self.cleaned_data['y2']
-                    
-            image = request.FILES['image'] 
-
-            img = Image.open(image)
-
-            x1 = int(x1)
-            x2 = int(x2)
-            y1 = int(y1)
-            y2 = int(y2)
-
-            output_img = img.crop((x1, y1, x2, y2))
-        # else:
-
-        #     output_img = Image.open(DEFAULT_AVATAR)
-
-            imageName = data['appID']
-       
-            output_img.save(settings.MEDIA_ROOT + "/" + "ApplicationAvatar/" + imageName, 'JPEG')
-            application = fiware_api.keystone.application_get(request, data['appID'])
-            extra= application.extra
-            extra['img']=settings.MEDIA_URL+'ApplicationAvatar/'+imageName
-            fiware_api.keystone.application_update(request, data['appID'], extra=extra)
-            messages.success(request, _("Application upddated successfully."))
-            LOG.debug('Imagen guardada')
-            LOG.debug(application.extra)
-        response = shortcuts.redirect('horizon:idm:myApplications:detail', data['appID'])
-        return response
         
 class CancelForm(forms.SelfHandlingForm):
     appID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())

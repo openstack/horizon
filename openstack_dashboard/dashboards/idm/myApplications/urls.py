@@ -29,7 +29,7 @@ urlpatterns = patterns('',
     url(r'^(?P<application_id>[^/]+)/upload/$', views.UploadImageView.as_view(), name='upload'),
     url(r'^(?P<application_id>[^/]+)/edit/$', views.MultiFormView.as_view(), name='edit'), 
     url(r'^(?P<application_id>[^/]+)/edit/info/$', views.InfoFormView.as_view(), name='info'),
-    url(r'^(?P<application_id>[^/]+)/edit/avatar/$', views.AvatarFormView.as_view(), name='avatar'),
+    url(r'^(?P<application_id>[^/]+)/edit/avatar/$', views.UploadImageView.as_view(), name='avatar'),
     url(r'^(?P<application_id>[^/]+)/edit/cancel/$', views.CancelFormView.as_view(), name='cancel'),
     url(r'^(?P<application_id>[^/]+)/$', views.DetailApplicationView.as_view(), name='detail'),
 )

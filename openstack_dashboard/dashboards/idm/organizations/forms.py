@@ -128,7 +128,6 @@ class ContactForm(forms.SelfHandlingForm):
 
 class AvatarForm(forms.SelfHandlingForm):
     orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
-    name = forms.CharField(label=_("Name"), widget=forms.HiddenInput(), required=False)
     image = forms.ImageField(required=False)
     x1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
     y1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)

@@ -63,6 +63,7 @@ class UploadImageView(forms.ModalFormView):
         context = super(UploadImageView, self).get_context_data(**kwargs)
         application = fiware_api.keystone.application_get(self.request, self.kwargs['application_id'])
         context['application'] = application
+        context['image'] = getattr(application, 'img', '/static/dashboard/img/logos/small/app.png')
         return context
 
 
@@ -161,12 +162,13 @@ class MultiFormView(TemplateView):
             "name": application.name,
             "description": application.description,
             "callbackurl": application.redirect_uris[0],
-            "url": application.extra.get('url', None)
+            "url": application.extra.get('url', None),
+            "nextredir": "avatar/"
         }
         
         #Create forms
         info = application_forms.InfoForm(self.request, initial=initial_data)
-        avatar = application_forms.AvatarForm(self.request, initial=initial_data)
+        avatar = application_forms.UploadImageForm(self.request, initial=initial_data)
         cancel = application_forms.CancelForm(self.request, initial=initial_data)
 
         #Actions and titles
@@ -187,11 +189,6 @@ class HandleForm(forms.ModalFormView):
 
 class InfoFormView(HandleForm):    
     form_class = application_forms.InfoForm
-
-   
-class AvatarFormView(forms.ModalFormView):
-    form_class = application_forms.AvatarForm
-
 
 class CancelFormView(forms.ModalFormView):
     form_class = application_forms.CancelForm
