@@ -119,6 +119,10 @@ class Server(base.APIResourceWrapper):
     def availability_zone(self):
         return getattr(self, 'OS-EXT-AZ:availability_zone', "")
 
+    @property
+    def host_server(self):
+        return getattr(self, 'OS-EXT-SRV-ATTR:host', '')
+
 
 class Hypervisor(base.APIDictWrapper):
     """Simple wrapper around novaclient.hypervisors.Hypervisor."""
