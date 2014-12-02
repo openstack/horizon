@@ -26,7 +26,6 @@ from django.conf.urls import patterns
 from django.conf.urls.static import static  # noqa
 from django.conf.urls import url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns  # noqa
-from openstack_dashboard.sessioner import views as sessioner_views
 
 import horizon
 
@@ -34,7 +33,6 @@ import horizon
 urlpatterns = patterns(
     '',
     url(r'^$', 'openstack_dashboard.views.splash', name='splash'),
-    url(r'session', sessioner_views.SimpleSessionObjectView.as_view(), name='simple_session'),
     url(r'^auth/', include('openstack_auth.urls')),
     url(r'', include(horizon.urls)),
     url(r'', include('fiware_auth.urls')),
