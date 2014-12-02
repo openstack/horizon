@@ -9,8 +9,8 @@
   {% include '_header.html' %}
   <div id="frontpage" class="container-fluid wrap">
     <div class="row">
-      {% if show_consumer_details %}
-        {% include 'oauth2/_application_info.html' with data=data error=error %}
+      {% if show_application_details %}
+        {% include 'oauth2/_application_info.html' with application=application %}
       {% else %}
         {% include 'auth/_presentation.html' %}
       {% endif %}

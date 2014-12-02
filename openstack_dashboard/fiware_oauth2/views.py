@@ -14,6 +14,7 @@
 
 import logging
 
+from django.contrib import auth
 from django.core.urlresolvers import reverse_lazy, reverse
 from django.shortcuts import redirect
 from django.views.generic.edit import FormView
@@ -47,8 +48,13 @@ class AuthorizeView(FormView):
     success_url = reverse_lazy('horizon:user_home')
     oauth_data = {}
 
-    def dispatch(self, request, *args, **kwargs):     
+    def dispatch(self, request, *args, **kwargs):
         self.application_credentials = request.session.get('application_credentials', {})
+        if (not self.application_credentials
+            and request.method == 'POST'):
+            # something went horribly wrong again ;_;
+            # TODO(garcianavalon) this is for debug
+            raise Exception
         # save the credentials in case we have to redirect
         if not self.application_credentials:
             self._store_credentials(request)
@@ -59,9 +65,14 @@ class AuthorizeView(FormView):
             # redirect to the login page but showing some info about the application
             context = {
                 'next':reverse('fiware_oauth2_authorize'),
-                'show_consumer_details':True,
-                'application':'TODO(garcianvalon)',
+                'redirect_field_name': auth.REDIRECT_FIELD_NAME,
+                'show_application_details':True,
+                'application':fiware_api.keystone.application_get(request,
+                                    self.application_credentials['application_id'],
+                                    use_idm_account=True),
             }
+            # NOTE(garcianavalon) I dont know why when I get the application it deletes the other
+            # session variables, I guess it has to do with the request object somehow... 
             return auth_views.login(request, 
                                 extra_context=context, 
                                 **kwargs)

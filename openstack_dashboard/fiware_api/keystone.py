@@ -215,8 +215,11 @@ def application_list(request, user=None):
     manager = api.keystone.keystoneclient(request, admin=True).oauth2.consumers
     return manager.list(user=user)
 
-def application_get(request, application_id):
-    manager = api.keystone.keystoneclient(request, admin=True).oauth2.consumers
+def application_get(request, application_id, use_idm_account=False):
+    if use_idm_account:
+        manager = fiwareclient().oauth2.consumers
+    else:
+        manager = api.keystone.keystoneclient(request, admin=True).oauth2.consumers
     return manager.get(application_id)
 
 def application_update(request, consumer_id, name=None, description=None, client_type=None, 
