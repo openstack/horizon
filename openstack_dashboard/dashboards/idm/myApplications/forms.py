@@ -49,7 +49,7 @@ class CreateApplicationForm(forms.SelfHandlingForm):
                 'url':data['url'],
                 'img': "/static/dashboard/img/logos/small/app.png"
             }
-            new_application = fiware_api.keystone.application_create(request,
+            application = fiware_api.keystone.application_create(request,
                                                 name=data['name'],
                                                 description=data['description'],
                                                 redirect_uris=[data['callbackurl']],
@@ -57,10 +57,8 @@ class CreateApplicationForm(forms.SelfHandlingForm):
         except Exception:
             exceptions.handle(request, _('Unable to register the application.'))
             return False
-
-
-        setattr(request, 'application', new_application)
-        response = shortcuts.redirect('horizon:idm:myApplications:upload')
+        
+        response = shortcuts.redirect('horizon:idm:myApplications:upload', application.id)
         return response
     
 class UploadImageForm(forms.SelfHandlingForm):
@@ -73,10 +71,6 @@ class UploadImageForm(forms.SelfHandlingForm):
 
 
     def handle(self, request, data):
-        # import pdb
-        # pdb.set_trace()
-        # app = getattr(request,'application', None)
-
         if request.FILES:
         # if request.FILES and app:
             x1 = self.cleaned_data['x1'] 
@@ -85,8 +79,9 @@ class UploadImageForm(forms.SelfHandlingForm):
             y2 = self.cleaned_data['y2']
 
             image = request.FILES['image'] 
-            imageName = image.name
-            # imageName = app.id
+            imageName = data['appID']
+            LOG.debug('An image exists with id: '+ imageName)
+
             
             img = Image.open(image)
 
@@ -97,21 +92,12 @@ class UploadImageForm(forms.SelfHandlingForm):
 
             output_img = img.crop((x1, y1, x2, y2))
             output_img.save(settings.MEDIA_ROOT+"/"+"ApplicationAvatar/"+imageName, 'JPEG')
-            # extra= app.extra
-            # extra['img']=settings.MEDIA_URL+'ApplicationAvatar/'+imageName
-            # fiware_api.keystone.application_update(request, app.id, extra=extra)
-        # else:
-        #     output_img = Image.open(DEFAULT_AVATAR)
-        #     imageName = 'avatarApp'
-
-        
-        
-            
-        
-        # application = fiware_api.keystone.application_get(appID)
-        # extra = application.extra
-        # fiware_api.keystone.application_update(application, extra )
-
+            LOG.debug('Image saved')
+            application = fiware_api.keystone.application_get(request, data['appID'])
+            extra= application.extra
+            extra['img']=settings.MEDIA_URL+'ApplicationAvatar/'+imageName
+            fiware_api.keystone.application_update(request, application.id, extra=extra)
+            LOG.debug(application)
         response = shortcuts.redirect('horizon:idm:myApplications:roles_index')
         return response
 
@@ -184,13 +170,13 @@ class InfoForm(forms.SelfHandlingForm):
 
 class AvatarForm(forms.SelfHandlingForm):
     appID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
-    name = forms.CharField(label=_("Name"), widget=forms.HiddenInput(), required=False)
     image = forms.ImageField(required=False)
     x1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
     y1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
     x2 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
     y2 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
 
+    
     def handle(self, request, data):
         if request.FILES:
 
@@ -209,11 +195,11 @@ class AvatarForm(forms.SelfHandlingForm):
             y2 = int(y2)
 
             output_img = img.crop((x1, y1, x2, y2))
-        else:
+        # else:
 
-            output_img = Image.open(DEFAULT_AVATAR)
+        #     output_img = Image.open(DEFAULT_AVATAR)
 
-        imageName = self.data['appID']
+        imageName = data['appID']
        
         output_img.save(settings.MEDIA_ROOT + "/" + "ApplicationAvatar/" + imageName, 'JPEG')
         application = fiware_api.keystone.application_get(request, data['appID'])

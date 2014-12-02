@@ -10,6 +10,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import logging
 import json
 
 from django import forms
@@ -34,6 +35,8 @@ from openstack_dashboard.dashboards.idm.myApplications \
 from openstack_dashboard.dashboards.idm.myApplications \
             import forms as application_forms
 
+LOG = logging.getLogger('idm_logger')
+
 
 class IndexView(tabs.TabbedTableView):
     tab_group_class = application_tabs.PanelTabs
@@ -48,6 +51,21 @@ class CreateView(forms.ModalFormView):
 class UploadImageView(forms.ModalFormView):
     form_class = application_forms.UploadImageForm
     template_name = 'idm/myApplications/upload.html'
+
+    def get_initial(self):
+        application = fiware_api.keystone.application_get(self.request, self.kwargs['application_id'])
+        initial_data = {
+            "appID": application.id,
+        }
+        return initial_data
+
+    def get_context_data(self, **kwargs):
+        context = super(UploadImageView, self).get_context_data(**kwargs)
+        application = fiware_api.keystone.application_get(self.request, self.kwargs['application_id'])
+        context['application'] = application
+        return context
+
+
 
     
 # NOTE(garcianavalon) from horizon.forms.views
