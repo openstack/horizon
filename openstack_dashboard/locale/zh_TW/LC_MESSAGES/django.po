@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-28 09:18-0600\n"
-"PO-Revision-Date: 2014-11-28 15:18+0000\n"
+"POT-Creation-Date: 2014-12-02 18:21-0600\n"
+"PO-Revision-Date: 2014-12-03 00:21+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -271,11 +271,11 @@ msgstr "能量"
 msgid "Power consumption"
 msgstr "能源消耗"
 
-#: api/cinder.py:46
+#: api/cinder.py:46 dashboards/admin/volumes/volume_types/forms.py:32
 msgid "back-end"
 msgstr "後端"
 
-#: api/cinder.py:47
+#: api/cinder.py:47 dashboards/admin/volumes/volume_types/forms.py:30
 msgid "front-end"
 msgstr "前端"
 
@@ -411,8 +411,10 @@ msgstr "管理員"
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:7
 #: dashboards/admin/volumes/snapshots/tables.py:59
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:10
-#: dashboards/admin/volumes/volume_types/tables.py:71
-#: dashboards/admin/volumes/volume_types/tables.py:147
+#: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:11
+#: dashboards/admin/volumes/volume_types/forms.py:24
+#: dashboards/admin/volumes/volume_types/tables.py:107
+#: dashboards/admin/volumes/volume_types/tables.py:188
 #: dashboards/admin/volumes/volumes/forms.py:29
 #: dashboards/admin/volumes/volumes/forms.py:88
 #: dashboards/admin/volumes/volumes/tables.py:41
@@ -519,7 +521,7 @@ msgstr "名稱"
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:22
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:19
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:46
-#: dashboards/project/instances/tables.py:972
+#: dashboards/project/instances/tables.py:974
 #: dashboards/project/instances/templates/instances/_detail_overview.html:16
 #: dashboards/project/instances/workflows/create_instance.py:78
 #: dashboards/project/volumes/volumes/forms.py:90
@@ -781,6 +783,7 @@ msgstr "加入或移除主機時出錯。"
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:18
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:18
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:18
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:18
 #: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:18
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:19
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:19
@@ -869,6 +872,7 @@ msgstr "主機聚合以分組主機的方式劃分一個可用區域至邏輯單
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:35
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:37
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:34
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:39
 #: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:29
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:26
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:26
@@ -1015,7 +1019,7 @@ msgstr "虛擬 CPU 數"
 #: dashboards/project/databases/templates/databases/index.html:3
 #: dashboards/project/databases/templates/databases/index.html:6
 #: dashboards/project/instances/panel.py:23
-#: dashboards/project/instances/tables.py:991
+#: dashboards/project/instances/tables.py:993
 #: dashboards/project/instances/templates/instances/index.html:3
 #: dashboards/project/instances/templates/instances/index.html:6
 #: dashboards/project/network_topology/instances/tables.py:23
@@ -1046,7 +1050,7 @@ msgstr "儲存空間"
 
 #: dashboards/admin/defaults/tables.py:48
 #: dashboards/admin/defaults/workflows.py:53
-#: dashboards/admin/volumes/tabs.py:93
+#: dashboards/admin/volumes/tabs.py:112
 #: dashboards/admin/volumes/snapshots/tables.py:69
 #: dashboards/identity/projects/workflows.py:54
 #: dashboards/project/volumes/tabs.py:76
@@ -1090,7 +1094,7 @@ msgstr "浮動 IP"
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:42
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:115
 #: dashboards/project/instances/templates/instances/_detail_overview.html:81
-#: dashboards/project/instances/workflows/create_instance.py:499
+#: dashboards/project/instances/workflows/create_instance.py:501
 #: dashboards/project/instances/workflows/update_instance.py:80
 #: usage/quotas.py:70 usage/quotas.py:82
 msgid "Security Groups"
@@ -1525,8 +1529,8 @@ msgstr ""
 #: dashboards/admin/hypervisors/tables.py:70
 #: dashboards/project/databases/tables.py:248
 #: dashboards/project/databases/workflows/create_instance.py:35
-#: dashboards/project/instances/tables.py:933
-#: dashboards/project/instances/tables.py:955
+#: dashboards/project/instances/tables.py:935
+#: dashboards/project/instances/tables.py:957
 #: dashboards/project/instances/workflows/create_instance.py:81
 #: dashboards/project/overview/views.py:32 usage/tables.py:75
 msgid "Instance Name"
@@ -1683,7 +1687,7 @@ msgstr "區域"
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
 #: dashboards/project/images/images/tables.py:233
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
-#: dashboards/project/instances/tables.py:967
+#: dashboards/project/instances/tables.py:969
 #: dashboards/project/instances/templates/instances/_detail_overview.html:14
 #: dashboards/project/loadbalancers/tables.py:277
 #: dashboards/project/loadbalancers/tables.py:311
@@ -1801,7 +1805,7 @@ msgstr "映像檔名稱 ="
 
 #: dashboards/admin/images/tables.py:62
 #: dashboards/admin/instances/tables.py:98
-#: dashboards/project/instances/tables.py:934
+#: dashboards/project/instances/tables.py:936
 msgid "Status ="
 msgstr "狀態 ="
 
@@ -1820,7 +1824,7 @@ msgstr "最大容量（GB）"
 #: dashboards/admin/images/tables.py:71
 #: dashboards/admin/instances/tables.py:130
 #: dashboards/project/images/images/tables.py:227
-#: dashboards/project/instances/tables.py:957
+#: dashboards/project/instances/tables.py:959
 #: dashboards/project/instances/templates/instances/_detail_overview.html:110
 #: dashboards/project/instances/workflows/create_instance.py:105
 #: dashboards/project/volumes/volumes/forms.py:540
@@ -2075,12 +2079,12 @@ msgid "IPv6 Address ="
 msgstr "IPv6 位址 ="
 
 #: dashboards/admin/instances/tables.py:99
-#: dashboards/project/instances/tables.py:935
+#: dashboards/project/instances/tables.py:937
 msgid "Image ID ="
 msgstr "映像檔識別號 ="
 
 #: dashboards/admin/instances/tables.py:100
-#: dashboards/project/instances/tables.py:936
+#: dashboards/project/instances/tables.py:938
 msgid "Flavor ID ="
 msgstr "虛擬硬體樣板識別號 ="
 
@@ -2088,7 +2092,7 @@ msgstr "虛擬硬體樣板識別號 ="
 #: dashboards/project/access_and_security/floating_ips/tables.py:192
 #: dashboards/project/access_and_security/floating_ips/workflows.py:33
 #: dashboards/project/access_and_security/floating_ips/workflows.py:40
-#: dashboards/project/instances/tables.py:959
+#: dashboards/project/instances/tables.py:961
 #: dashboards/project/loadbalancers/tables.py:302
 msgid "IP Address"
 msgstr "IP 位址"
@@ -2101,7 +2105,7 @@ msgstr "IP 位址"
 #: dashboards/project/databases/tables.py:255
 #: dashboards/project/images/images/tables.py:247
 #: dashboards/project/images/templates/images/images/_detail_overview.html:46
-#: dashboards/project/instances/tables.py:962
+#: dashboards/project/instances/tables.py:964
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:6
 #: dashboards/project/volumes/backups/tables.py:112
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:37
@@ -2112,17 +2116,17 @@ msgid "Size"
 msgstr "容量"
 
 #: dashboards/admin/instances/tables.py:146
-#: dashboards/project/instances/tables.py:974
+#: dashboards/project/instances/tables.py:976
 msgid "Task"
 msgstr "任務"
 
 #: dashboards/admin/instances/tables.py:153
-#: dashboards/project/instances/tables.py:981
+#: dashboards/project/instances/tables.py:983
 msgid "Power State"
 msgstr "電源狀態"
 
 #: dashboards/admin/instances/tables.py:156
-#: dashboards/project/instances/tables.py:984 usage/tables.py:78
+#: dashboards/project/instances/tables.py:986 usage/tables.py:78
 msgid "Time since created"
 msgstr "已過時間"
 
@@ -2621,13 +2625,13 @@ msgid ""
 msgstr "在虛擬區域網路裡，識別虛擬網路於實體網路上的虛擬區域網路虛擬 ID。有效的虛擬區域網路識別號從 %(vlan_min)s 到 %(vlan_max)s。若是 GRE 或 VXLAN 網路，則是通道識別號。GRE 網路有效的通道識別號從 %(gre_min)s 到 %(gre_max)s。在 VXLAN 網路，從 %(vxlan_min)s 到 %(vxlan_max)s。"
 
 #: dashboards/admin/networks/forms.py:145
-#: dashboards/project/instances/workflows/create_instance.py:697
+#: dashboards/project/instances/workflows/create_instance.py:699
 #: dashboards/project/networks/workflows.py:61
 msgid "Select a profile"
 msgstr "選擇一個基本資料"
 
 #: dashboards/admin/networks/forms.py:155
-#: dashboards/project/instances/workflows/create_instance.py:707
+#: dashboards/project/instances/workflows/create_instance.py:709
 #: dashboards/project/networks/workflows.py:71
 #: dashboards/router/nexus1000v/views.py:52
 msgid "Network Profiles could not be retrieved."
@@ -2676,7 +2680,7 @@ msgstr "更新網路 %s 時失敗"
 #: dashboards/admin/networks/templates/networks/index.html:6
 #: dashboards/identity/projects/workflows.py:71
 #: dashboards/project/databases/workflows/create_instance.py:131
-#: dashboards/project/instances/workflows/create_instance.py:650
+#: dashboards/project/instances/workflows/create_instance.py:652
 #: dashboards/project/networks/panel.py:23
 #: dashboards/project/networks/tables.py:159
 #: dashboards/project/networks/templates/networks/index.html:3
@@ -3232,7 +3236,7 @@ msgid "Router Overview: %(router_name)s"
 msgstr ""
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:8
-#: dashboards/admin/volumes/volume_types/forms.py:50
+#: dashboards/admin/volumes/volume_types/forms.py:87
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:11
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:11
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:14
@@ -3354,13 +3358,13 @@ msgstr "路由器詳細資訊"
 msgid "Update Router"
 msgstr "更新路由器"
 
-#: dashboards/admin/volumes/tabs.py:50 dashboards/admin/volumes/tabs.py:119
+#: dashboards/admin/volumes/tabs.py:50 dashboards/admin/volumes/tabs.py:138
 #: dashboards/admin/volumes/snapshots/tables.py:52
 msgid "Unable to retrieve volume project information."
 msgstr "無法取回儲存空間專案的資訊。"
 
 #: dashboards/admin/volumes/tabs.py:65
-#: dashboards/admin/volumes/volume_types/tables.py:84
+#: dashboards/admin/volumes/volume_types/tables.py:124
 msgid "Volume Types"
 msgstr "儲存空間類型"
 
@@ -3368,11 +3372,15 @@ msgstr "儲存空間類型"
 msgid "Unable to retrieve volume types"
 msgstr "無法取回儲存空間的類型"
 
-#: dashboards/admin/volumes/tabs.py:87
+#: dashboards/admin/volumes/tabs.py:85
+msgid "Unable to retrieve volume type encryption information."
+msgstr ""
+
+#: dashboards/admin/volumes/tabs.py:106
 msgid "Unable to retrieve QoS specs"
 msgstr ""
 
-#: dashboards/admin/volumes/tabs.py:111 dashboards/project/volumes/tabs.py:90
+#: dashboards/admin/volumes/tabs.py:130 dashboards/project/volumes/tabs.py:90
 #: dashboards/project/volumes/volumes/forms.py:204
 msgid "Unable to retrieve volume snapshots."
 msgstr "無法取回儲存空間即時存檔。"
@@ -3460,7 +3468,7 @@ msgstr "儲存空間"
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:30
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_index.html:7
-#: dashboards/admin/volumes/volume_types/tables.py:150
+#: dashboards/admin/volumes/volume_types/tables.py:191
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:36
 #: dashboards/project/databases/templates/databases/_detail_overview.html:23
 #: dashboards/project/images/templates/images/images/_detail_overview.html:43
@@ -3551,7 +3559,7 @@ msgstr "聯結"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:9
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_qos_spec.html:3
-#: dashboards/admin/volumes/volume_types/tables.py:108
+#: dashboards/admin/volumes/volume_types/tables.py:149
 msgid "Create QoS Spec"
 msgstr ""
 
@@ -3594,7 +3602,7 @@ msgstr "新增"
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:9
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:33
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_volume_type.html:3
-#: dashboards/admin/volumes/volume_types/tables.py:24
+#: dashboards/admin/volumes/volume_types/tables.py:25
 msgid "Create Volume Type"
 msgstr "新增儲存空間的類型"
 
@@ -3610,6 +3618,45 @@ msgid ""
 "      pair(s) for that volume type.\n"
 "     "
 msgstr "\n      儲存空間類型是一個可以在儲存空間被新增在 OpenStack 裡時的類別或標籤。\n      它常映射到一組用於此儲存空間的後端儲存硬碟能力。例如：\n      「高效能」、「SSD」、「備份」等等。這相當於\n      <tt>cinder type-create</tt> 指令。當第一次新增儲存空間類型時，\n      點擊「檢視額外的規格」按鈕來為儲存空間類型設定額外的規格鍵值對。\n      "
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:9
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:38
+msgid "Create Volume Type Encryption"
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:20
+msgid ""
+"Creating encryption for a volume type causes all volumes with that volume "
+"type to be encrypted.  Encryption information cannot be added to a volume "
+"type if volumes are currently in use with that volume type."
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:23
+msgid ""
+"The <strong>Provider</strong> is the class providing encryption support "
+"(e.g. LuksEncryptor)."
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:26
+msgid ""
+"The <strong>Control Location</strong> is the notional service where "
+"encryption is performed (e.g., front-end=Nova). The default value is 'front-"
+"end.'"
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:29
+msgid ""
+"The <strong>Cipher</strong> is the encryption algorithm/mode to use (e.g., "
+"aes-xts-plain64). If the field is left empty, the provider default will be "
+"used."
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:32
+msgid ""
+"The <strong>Key Size</strong> is the size of the encryption key, in bits "
+"(e.g., 128, 256). If the field is left empty, the provider default will be "
+"used."
+msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:9
 msgid "Edit Consumer of QoS Spec"
@@ -3628,6 +3675,41 @@ msgstr ""
 msgid "Modify Consumer"
 msgstr "更改規範對象"
 
+#: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:4
+msgid "Volume Type Encryption Overview"
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:8
+msgid "Info"
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:13
+#: dashboards/admin/volumes/volume_types/forms.py:27
+#: dashboards/project/loadbalancers/tables.py:273
+#: dashboards/project/loadbalancers/workflows.py:42
+#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:26
+msgid "Provider"
+msgstr "提供者"
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:15
+#: dashboards/admin/volumes/volume_types/forms.py:28
+msgid "Control Location"
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:17
+#: dashboards/admin/volumes/volume_types/forms.py:34
+msgid "Cipher"
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:19
+#: dashboards/admin/volumes/volume_types/forms.py:35
+msgid "Key Size (bits)"
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:25
+msgid "Volume Type is Unencrypted."
+msgstr ""
+
 #: dashboards/admin/volumes/templates/volumes/volume_types/associate_qos_spec.html:3
 msgid "Associate QoS Spec"
 msgstr ""
@@ -3640,9 +3722,22 @@ msgstr ""
 msgid "Create a Volume Type"
 msgstr "新增一個新的儲存空間類型"
 
+#: dashboards/admin/volumes/templates/volumes/volume_types/create_volume_type_encryption.html:3
+msgid "Create Encrypted Volume Type"
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/create_volume_type_encryption.html:6
+msgid "Create an Encrypted Volume Type"
+msgstr ""
+
 #: dashboards/admin/volumes/templates/volumes/volume_types/edit_qos_spec_consumer.html:3
 #: dashboards/admin/volumes/templates/volumes/volume_types/edit_qos_spec_consumer.html:6
 msgid "Edit QoS Spec Consumer"
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/volume_encryption_type_detail.html:3
+#: dashboards/admin/volumes/templates/volumes/volume_types/volume_encryption_type_detail.html:6
+msgid "Volume Type Encryption Details"
 msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:10
@@ -3761,112 +3856,141 @@ msgstr "儲存空間的詳細資訊："
 msgid "Volume Details:"
 msgstr "儲存空間的詳細資訊："
 
-#: dashboards/admin/volumes/volume_types/forms.py:25
+#: dashboards/admin/volumes/volume_types/forms.py:51
+#, python-format
+msgid "Successfully created encryption for volume type: %s"
+msgstr ""
+
+#: dashboards/admin/volumes/volume_types/forms.py:56
+msgid "Unable to create encrypted volume type."
+msgstr ""
+
+#: dashboards/admin/volumes/volume_types/forms.py:62
 msgid "QoS Spec to be associated"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/forms.py:26
+#: dashboards/admin/volumes/volume_types/forms.py:63
 msgid "Choose associated QoS Spec."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/forms.py:71
+#: dashboards/admin/volumes/volume_types/forms.py:108
 msgid ""
 "New associated QoS Spec must be different than the current associated QoS "
 "Spec."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/forms.py:103
+#: dashboards/admin/volumes/volume_types/forms.py:140
 msgid "Successfully updated QoS Spec association."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/forms.py:107
+#: dashboards/admin/volumes/volume_types/forms.py:144
 msgid "Error updating QoS Spec association."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/forms.py:113
+#: dashboards/admin/volumes/volume_types/forms.py:150
 msgid "QoS Spec Consumer"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/forms.py:115
+#: dashboards/admin/volumes/volume_types/forms.py:152
 msgid "Choose consumer for this QoS Spec."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/forms.py:131
+#: dashboards/admin/volumes/volume_types/forms.py:168
 msgid ""
 "QoS Spec consumer value must be different than the current consumer value."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/forms.py:145
+#: dashboards/admin/volumes/volume_types/forms.py:182
 msgid "Successfully modified QoS Spec consumer."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/forms.py:148
+#: dashboards/admin/volumes/volume_types/forms.py:185
 msgid "Error editing QoS Spec consumer."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:33
+#: dashboards/admin/volumes/volume_types/tables.py:34
 msgid "View Extra Specs"
 msgstr "檢視額外的規格"
 
-#: dashboards/admin/volumes/volume_types/tables.py:41
+#: dashboards/admin/volumes/volume_types/tables.py:42
 msgid "Manage QoS Spec Association"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:52
+#: dashboards/admin/volumes/volume_types/tables.py:53
 msgid "Delete Volume Type"
 msgid_plural "Delete Volume Types"
 msgstr[0] ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:60
+#: dashboards/admin/volumes/volume_types/tables.py:61
 msgid "Deleted Volume Type"
 msgid_plural "Deleted Volume Types"
 msgstr[0] ""
 
 #: dashboards/admin/volumes/volume_types/tables.py:73
+msgid "Create Encryption"
+msgstr ""
+
+#: dashboards/admin/volumes/volume_types/tables.py:92
+msgid "Unable to determine if volume type encryption is supported."
+msgstr ""
+
+#: dashboards/admin/volumes/volume_types/tables.py:109
 msgid "Associated QoS Spec"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:94
+#: dashboards/admin/volumes/volume_types/tables.py:111
+msgid "Encryption"
+msgstr ""
+
+#: dashboards/admin/volumes/volume_types/tables.py:135
 msgid "Manage Specs"
 msgstr "管理規格"
 
-#: dashboards/admin/volumes/volume_types/tables.py:119
+#: dashboards/admin/volumes/volume_types/tables.py:160
 msgid "Delete QoS Spec"
 msgid_plural "Delete QoS Specs"
 msgstr[0] ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:127
+#: dashboards/admin/volumes/volume_types/tables.py:168
 msgid "Deleted QoS Spec"
 msgid_plural "Deleted QoS Specs"
 msgstr[0] ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:139
+#: dashboards/admin/volumes/volume_types/tables.py:180
 msgid "Edit Consumer"
 msgstr "編輯規範用戶"
 
-#: dashboards/admin/volumes/volume_types/tables.py:148
+#: dashboards/admin/volumes/volume_types/tables.py:189
 #: dashboards/admin/volumes/volumes/forms.py:89
 msgid "Consumer"
 msgstr "規範用戶"
 
-#: dashboards/admin/volumes/volume_types/tables.py:163
+#: dashboards/admin/volumes/volume_types/tables.py:204
 msgid "QoS Specs"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:69
+#: dashboards/admin/volumes/volume_types/views.py:66
+msgid "Unable to retrieve volume type encryption details."
+msgstr ""
+
+#: dashboards/admin/volumes/volume_types/views.py:88
+msgid "Unable to retrieve volume type name."
+msgstr ""
+
+#: dashboards/admin/volumes/volume_types/views.py:134
 msgid "Unable to retrieve QoS Spec details."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:101
+#: dashboards/admin/volumes/volume_types/views.py:166
 #: dashboards/admin/volumes/volume_types/extras/views.py:36
 msgid "Unable to retrieve volume type details."
 msgstr "無法取回儲存空間類型詳細資訊。"
 
-#: dashboards/admin/volumes/volume_types/views.py:111
+#: dashboards/admin/volumes/volume_types/views.py:176
 msgid "Unable to retrieve QoS Specs."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:131
+#: dashboards/admin/volumes/volume_types/views.py:196
 msgid "Unable to retrieve QoS Spec association."
 msgstr ""
 
@@ -4035,8 +4159,8 @@ msgstr "地域"
 #: dashboards/identity/domains/tables.py:38
 #: dashboards/identity/groups/tables.py:91
 #: dashboards/identity/projects/tables.py:51
-msgid "Modify Users"
-msgstr "更改使用者"
+msgid "Manage Members"
+msgstr ""
 
 #: dashboards/identity/domains/tables.py:54
 #: dashboards/identity/projects/tables.py:67
@@ -4684,7 +4808,7 @@ msgstr "無可用的專案"
 
 #: dashboards/identity/users/forms.py:66
 #: dashboards/project/instances/forms.py:92
-#: dashboards/project/instances/workflows/create_instance.py:548
+#: dashboards/project/instances/workflows/create_instance.py:550
 #: dashboards/settings/password/forms.py:50
 msgid "Passwords do not match."
 msgstr "密碼沒有相配。"
@@ -4863,7 +4987,7 @@ msgid "Data Processing"
 msgstr "資料處理"
 
 #: dashboards/project/access_and_security/panel.py:24
-#: dashboards/project/instances/workflows/create_instance.py:506
+#: dashboards/project/instances/workflows/create_instance.py:508
 msgid "Access & Security"
 msgstr "存取權以及安全性"
 
@@ -5678,7 +5802,7 @@ msgid "Unable to create container."
 msgstr "無法新增容器。"
 
 #: dashboards/project/containers/forms.py:84
-#: dashboards/project/instances/workflows/create_instance.py:575
+#: dashboards/project/instances/workflows/create_instance.py:577
 #: dashboards/project/stacks/forms.py:57
 msgid "File"
 msgstr "檔案"
@@ -7312,7 +7436,7 @@ msgstr "工作離開後依然保持叢集"
 #: dashboards/project/data_processing/jobs/workflows/launch.py:416
 #: dashboards/project/databases/workflows/create_instance.py:273
 #: dashboards/project/images/images/tables.py:35
-#: dashboards/project/instances/workflows/create_instance.py:793
+#: dashboards/project/instances/workflows/create_instance.py:795
 #: dashboards/project/stacks/templates/stacks/_create.html:24
 msgid "Launch"
 msgstr "發動"
@@ -7543,7 +7667,7 @@ msgstr "無法套用反共鳴處理行程。"
 
 #: dashboards/project/data_processing/utils/neutron_support.py:32
 #: dashboards/project/databases/workflows/create_instance.py:161
-#: dashboards/project/instances/workflows/create_instance.py:693
+#: dashboards/project/instances/workflows/create_instance.py:695
 msgid "Unable to retrieve networks."
 msgstr "無法取回網路。"
 
@@ -7598,8 +7722,8 @@ msgstr[0] ""
 #: dashboards/project/databases/tables.py:199
 #: dashboards/project/databases/tables.py:216
 #: dashboards/project/databases/tables.py:222
-#: dashboards/project/instances/tables.py:802
-#: dashboards/project/instances/tables.py:809
+#: dashboards/project/instances/tables.py:804
+#: dashboards/project/instances/tables.py:811
 #: dashboards/project/instances/views.py:361
 #: dashboards/project/instances/templates/instances/_detail_overview.html:60
 #: dashboards/project/instances/templates/instances/_detail_overview.html:96
@@ -7750,14 +7874,14 @@ msgstr "已排程備份「%(name)s」。"
 
 #: dashboards/project/database_backups/workflows/create_backup.py:85
 #: dashboards/project/databases/workflows/create_instance.py:275
-#: dashboards/project/instances/workflows/create_instance.py:795
+#: dashboards/project/instances/workflows/create_instance.py:797
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "無法發動名為「%(name)s」%(count)s 個。"
 
 #: dashboards/project/database_backups/workflows/create_backup.py:95
 #: dashboards/project/databases/workflows/create_instance.py:291
-#: dashboards/project/instances/workflows/create_instance.py:812
+#: dashboards/project/instances/workflows/create_instance.py:814
 msgid "instance"
 msgstr "執行實例"
 
@@ -7834,7 +7958,7 @@ msgstr "刪除執行實例上的資料庫出錯。"
 #: dashboards/project/databases/workflows/create_instance.py:272
 #: dashboards/project/instances/tables.py:305
 #: dashboards/project/instances/tables.py:333
-#: dashboards/project/instances/workflows/create_instance.py:792
+#: dashboards/project/instances/workflows/create_instance.py:794
 #: dashboards/project/network_topology/templates/network_topology/index.html:28
 msgid "Launch Instance"
 msgstr "發動執行實例"
@@ -8111,22 +8235,22 @@ msgid "Select datastore type and version"
 msgstr "選擇資料倉庫類型和版本"
 
 #: dashboards/project/databases/workflows/create_instance.py:135
-#: dashboards/project/instances/workflows/create_instance.py:654
+#: dashboards/project/instances/workflows/create_instance.py:656
 msgid "At least one network must be specified."
 msgstr "最少要指定一組網路。"
 
 #: dashboards/project/databases/workflows/create_instance.py:137
-#: dashboards/project/instances/workflows/create_instance.py:656
+#: dashboards/project/instances/workflows/create_instance.py:658
 msgid "Launch instance with these networks"
 msgstr "以這些網路發動執行實例"
 
 #: dashboards/project/databases/workflows/create_instance.py:147
-#: dashboards/project/instances/workflows/create_instance.py:678
+#: dashboards/project/instances/workflows/create_instance.py:680
 msgid "Networking"
 msgstr "正在網路連線"
 
 #: dashboards/project/databases/workflows/create_instance.py:149
-#: dashboards/project/instances/workflows/create_instance.py:680
+#: dashboards/project/instances/workflows/create_instance.py:682
 msgid "Select networks for your instance."
 msgstr "為您的執行實例選擇網路。"
 
@@ -8171,7 +8295,7 @@ msgid "Unable to find backup!"
 msgstr "無法找到備份！"
 
 #: dashboards/project/databases/workflows/create_instance.py:274
-#: dashboards/project/instances/workflows/create_instance.py:794
+#: dashboards/project/instances/workflows/create_instance.py:796
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "已發動名為「%(name)s」%(count)s 個。"
@@ -9010,7 +9134,7 @@ msgid "Confirm Rebuild Password"
 msgstr "確認重建密碼"
 
 #: dashboards/project/instances/forms.py:53
-#: dashboards/project/instances/workflows/create_instance.py:739
+#: dashboards/project/instances/workflows/create_instance.py:741
 msgid "Disk Partition"
 msgstr "硬碟分割"
 
@@ -9020,18 +9144,18 @@ msgid "No images available"
 msgstr "無可用的映像檔"
 
 #: dashboards/project/instances/forms.py:78
-#: dashboards/project/instances/workflows/create_instance.py:757
+#: dashboards/project/instances/workflows/create_instance.py:759
 msgid "Automatic"
 msgstr "自動"
 
 #: dashboards/project/instances/forms.py:79
-#: dashboards/project/instances/workflows/create_instance.py:758
+#: dashboards/project/instances/workflows/create_instance.py:760
 msgid "Manual"
 msgstr "手動"
 
 #: dashboards/project/instances/forms.py:82
 #: dashboards/project/instances/workflows/create_instance.py:165
-#: dashboards/project/instances/workflows/create_instance.py:767
+#: dashboards/project/instances/workflows/create_instance.py:769
 msgid "Unable to retrieve extensions information."
 msgstr "無法取回擴充套件的資訊。"
 
@@ -9211,387 +9335,387 @@ msgstr "發動執行實例「%s」時失敗"
 msgid "Unable to retrieve flavor information for instance \"%s\"."
 msgstr ""
 
-#: dashboards/project/instances/tables.py:666
+#: dashboards/project/instances/tables.py:667
 msgid "Start Instance"
 msgid_plural "Start Instances"
 msgstr[0] ""
 
-#: dashboards/project/instances/tables.py:674
+#: dashboards/project/instances/tables.py:675
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] ""
 
-#: dashboards/project/instances/tables.py:695
+#: dashboards/project/instances/tables.py:697
 msgctxt "Action to perform (the instance is currently running)"
 msgid "Shut Off Instance"
 msgid_plural "Shut Off Instances"
 msgstr[0] ""
 
-#: dashboards/project/instances/tables.py:704
+#: dashboards/project/instances/tables.py:706
 msgctxt "Past action (the instance is currently already Shut Off)"
 msgid "Shut Off Instance"
 msgid_plural "Shut Off Instances"
 msgstr[0] ""
 
-#: dashboards/project/instances/tables.py:725
+#: dashboards/project/instances/tables.py:727
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
 msgstr[0] ""
 
-#: dashboards/project/instances/tables.py:733
+#: dashboards/project/instances/tables.py:735
 msgid "Locked Instance"
 msgid_plural "Locked Instances"
 msgstr[0] ""
 
-#: dashboards/project/instances/tables.py:756
+#: dashboards/project/instances/tables.py:758
 msgid "Unlock Instance"
 msgid_plural "Unlock Instances"
 msgstr[0] ""
 
-#: dashboards/project/instances/tables.py:764
+#: dashboards/project/instances/tables.py:766
 msgid "Unlocked Instance"
 msgid_plural "Unlocked Instances"
 msgstr[0] ""
 
-#: dashboards/project/instances/tables.py:793
+#: dashboards/project/instances/tables.py:795
 #, python-format
 msgid "%s GB"
 msgstr "%s GB"
 
-#: dashboards/project/instances/tables.py:817
-#: dashboards/project/instances/tables.py:839
+#: dashboards/project/instances/tables.py:819
+#: dashboards/project/instances/tables.py:841
 msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "已刪除"
 
-#: dashboards/project/instances/tables.py:818
+#: dashboards/project/instances/tables.py:820
 msgctxt "Current status of an Instance"
 msgid "Active"
 msgstr "活躍"
 
-#: dashboards/project/instances/tables.py:819
+#: dashboards/project/instances/tables.py:821
 msgctxt "Current status of an Instance"
 msgid "Shutoff"
 msgstr "關機"
 
-#: dashboards/project/instances/tables.py:821
+#: dashboards/project/instances/tables.py:823
 msgctxt "Current status of an Instance"
 msgid "Suspended"
 msgstr "已停止"
 
-#: dashboards/project/instances/tables.py:822
+#: dashboards/project/instances/tables.py:824
 msgctxt "Current status of an Instance"
 msgid "Paused"
 msgstr "已暫停"
 
-#: dashboards/project/instances/tables.py:823
+#: dashboards/project/instances/tables.py:825
 msgctxt "Current status of an Instance"
 msgid "Error"
 msgstr "錯誤"
 
-#: dashboards/project/instances/tables.py:825
+#: dashboards/project/instances/tables.py:827
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
 msgstr "更改容量中/轉移中"
 
-#: dashboards/project/instances/tables.py:827
+#: dashboards/project/instances/tables.py:829
 msgctxt "Current status of an Instance"
 msgid "Confirm or Revert Resize/Migrate"
 msgstr "等待確認或還原更改容量/轉移"
 
-#: dashboards/project/instances/tables.py:829
+#: dashboards/project/instances/tables.py:831
 msgctxt "Current status of an Instance"
 msgid "Revert Resize/Migrate"
 msgstr "還原更改容量/轉移"
 
-#: dashboards/project/instances/tables.py:830
+#: dashboards/project/instances/tables.py:832
 msgctxt "Current status of an Instance"
 msgid "Reboot"
 msgstr "重開機中"
 
-#: dashboards/project/instances/tables.py:832
+#: dashboards/project/instances/tables.py:834
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr "強制重開機中"
 
-#: dashboards/project/instances/tables.py:833
+#: dashboards/project/instances/tables.py:835
 msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "產生密碼"
 
-#: dashboards/project/instances/tables.py:834
+#: dashboards/project/instances/tables.py:836
 msgctxt "Current status of an Instance"
 msgid "Rebuild"
 msgstr "重建中"
 
-#: dashboards/project/instances/tables.py:836
+#: dashboards/project/instances/tables.py:838
 msgctxt "Current status of an Instance"
 msgid "Migrating"
 msgstr "正在轉移"
 
-#: dashboards/project/instances/tables.py:837
+#: dashboards/project/instances/tables.py:839
 msgctxt "Current status of an Instance"
 msgid "Build"
 msgstr "建立中"
 
-#: dashboards/project/instances/tables.py:838
+#: dashboards/project/instances/tables.py:840
 msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr "救援中"
 
-#: dashboards/project/instances/tables.py:841
+#: dashboards/project/instances/tables.py:843
 msgctxt "Current status of an Instance"
 msgid "Soft Deleted"
 msgstr "已刪除"
 
-#: dashboards/project/instances/tables.py:842
+#: dashboards/project/instances/tables.py:844
 msgctxt "Current status of an Instance"
 msgid "Shelved"
 msgstr "已擱置"
 
-#: dashboards/project/instances/tables.py:844
+#: dashboards/project/instances/tables.py:846
 msgctxt "Current status of an Instance"
 msgid "Shelved Offloaded"
 msgstr "已擱置卸載"
 
-#: dashboards/project/instances/tables.py:850
+#: dashboards/project/instances/tables.py:852
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "正在排程"
 
-#: dashboards/project/instances/tables.py:852
+#: dashboards/project/instances/tables.py:854
 msgctxt "Task status of an Instance"
 msgid "Block Device Mapping"
 msgstr "正在映射區塊裝置"
 
-#: dashboards/project/instances/tables.py:854
+#: dashboards/project/instances/tables.py:856
 msgctxt "Task status of an Instance"
 msgid "Networking"
 msgstr "正在網路連線"
 
-#: dashboards/project/instances/tables.py:855
+#: dashboards/project/instances/tables.py:857
 msgctxt "Task status of an Instance"
 msgid "Spawning"
 msgstr "正在生成"
 
-#: dashboards/project/instances/tables.py:857
+#: dashboards/project/instances/tables.py:859
 msgctxt "Task status of an Instance"
 msgid "Snapshotting"
 msgstr "正在儲存即時存檔"
 
-#: dashboards/project/instances/tables.py:859
+#: dashboards/project/instances/tables.py:861
 msgctxt "Task status of an Instance"
 msgid "Image Snapshot Pending"
 msgstr "正在等待儲存映像檔即時存檔"
 
-#: dashboards/project/instances/tables.py:861
+#: dashboards/project/instances/tables.py:863
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
 msgstr "正在等待映像檔上傳"
 
-#: dashboards/project/instances/tables.py:863
+#: dashboards/project/instances/tables.py:865
 msgctxt "Task status of an Instance"
 msgid "Image Uploading"
 msgstr "正在上傳映像檔"
 
-#: dashboards/project/instances/tables.py:865
+#: dashboards/project/instances/tables.py:867
 msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "映像檔備份"
 
-#: dashboards/project/instances/tables.py:867
+#: dashboards/project/instances/tables.py:869
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "正在更新密碼"
 
-#: dashboards/project/instances/tables.py:869
+#: dashboards/project/instances/tables.py:871
 msgctxt "Task status of an Instance"
 msgid "Preparing Resize or Migrate"
 msgstr "正在準備更改容量或轉移"
 
-#: dashboards/project/instances/tables.py:871
+#: dashboards/project/instances/tables.py:873
 msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "正在更改容量或轉移"
 
-#: dashboards/project/instances/tables.py:873
+#: dashboards/project/instances/tables.py:875
 msgctxt "Task status of an Instance"
 msgid "Resized or Migrated"
 msgstr "已更改容量或轉移"
 
-#: dashboards/project/instances/tables.py:875
+#: dashboards/project/instances/tables.py:877
 msgctxt "Task status of an Instance"
 msgid "Finishing Resize or Migrate"
 msgstr "正在完成更改容量或轉移"
 
-#: dashboards/project/instances/tables.py:877
+#: dashboards/project/instances/tables.py:879
 msgctxt "Task status of an Instance"
 msgid "Reverting Resize or Migrate"
 msgstr "正在還原更改容量或轉移"
 
-#: dashboards/project/instances/tables.py:879
+#: dashboards/project/instances/tables.py:881
 msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "正在確認更改容量或轉移"
 
-#: dashboards/project/instances/tables.py:880
+#: dashboards/project/instances/tables.py:882
 msgctxt "Task status of an Instance"
 msgid "Rebooting"
 msgstr "正在重開機"
 
-#: dashboards/project/instances/tables.py:882
+#: dashboards/project/instances/tables.py:884
 msgctxt "Task status of an Instance"
 msgid "Rebooting Hard"
 msgstr "正在強制重開機"
 
-#: dashboards/project/instances/tables.py:883
+#: dashboards/project/instances/tables.py:885
 msgctxt "Task status of an Instance"
 msgid "Pausing"
 msgstr "正在暫停"
 
-#: dashboards/project/instances/tables.py:884
-#: dashboards/project/instances/tables.py:887
+#: dashboards/project/instances/tables.py:886
+#: dashboards/project/instances/tables.py:889
 msgctxt "Task status of an Instance"
 msgid "Resuming"
 msgstr "正在回復"
 
-#: dashboards/project/instances/tables.py:886
+#: dashboards/project/instances/tables.py:888
 msgctxt "Task status of an Instance"
 msgid "Suspending"
 msgstr "正在停止"
 
-#: dashboards/project/instances/tables.py:889
+#: dashboards/project/instances/tables.py:891
 msgctxt "Task status of an Instance"
 msgid "Powering Off"
 msgstr "正在關機"
 
-#: dashboards/project/instances/tables.py:891
+#: dashboards/project/instances/tables.py:893
 msgctxt "Task status of an Instance"
 msgid "Powering On"
 msgstr "正在開機"
 
-#: dashboards/project/instances/tables.py:892
+#: dashboards/project/instances/tables.py:894
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "正在救援"
 
-#: dashboards/project/instances/tables.py:894
+#: dashboards/project/instances/tables.py:896
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "正在取消救援"
 
-#: dashboards/project/instances/tables.py:896
+#: dashboards/project/instances/tables.py:898
 msgctxt "Task status of an Instance"
 msgid "Rebuilding"
 msgstr "正在重建"
 
-#: dashboards/project/instances/tables.py:898
+#: dashboards/project/instances/tables.py:900
 msgctxt "Task status of an Instance"
 msgid "Rebuild Block Device Mapping"
 msgstr "重建區塊裝置映射"
 
-#: dashboards/project/instances/tables.py:900
+#: dashboards/project/instances/tables.py:902
 msgctxt "Task status of an Instance"
 msgid "Rebuild Spawning"
 msgstr "重建生成"
 
-#: dashboards/project/instances/tables.py:901
+#: dashboards/project/instances/tables.py:903
 msgctxt "Task status of an Instance"
 msgid "Migrating"
 msgstr "正在轉移"
 
-#: dashboards/project/instances/tables.py:902
+#: dashboards/project/instances/tables.py:904
 msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr "正在刪除"
 
-#: dashboards/project/instances/tables.py:904
+#: dashboards/project/instances/tables.py:906
 msgctxt "Task status of an Instance"
 msgid "Soft Deleting"
 msgstr "正在刪除"
 
-#: dashboards/project/instances/tables.py:905
+#: dashboards/project/instances/tables.py:907
 msgctxt "Task status of an Instance"
 msgid "Restoring"
 msgstr "正在恢復"
 
-#: dashboards/project/instances/tables.py:906
+#: dashboards/project/instances/tables.py:908
 msgctxt "Task status of an Instance"
 msgid "Shelving"
 msgstr "正在擱置"
 
-#: dashboards/project/instances/tables.py:908
+#: dashboards/project/instances/tables.py:910
 msgctxt "Task status of an Instance"
 msgid "Shelving Image Pending Upload"
 msgstr "正在擱置映像檔上傳的等待"
 
-#: dashboards/project/instances/tables.py:910
+#: dashboards/project/instances/tables.py:912
 msgctxt "Task status of an Instance"
 msgid "Shelving Image Uploading"
 msgstr "正在擱置映像檔上傳"
 
-#: dashboards/project/instances/tables.py:912
+#: dashboards/project/instances/tables.py:914
 msgctxt "Task status of an Instance"
 msgid "Shelving Offloading"
 msgstr "正在擱置卸載"
 
-#: dashboards/project/instances/tables.py:914
+#: dashboards/project/instances/tables.py:916
 msgctxt "Task status of an Instance"
 msgid "Unshelving"
 msgstr "取消擱置"
 
-#: dashboards/project/instances/tables.py:918
+#: dashboards/project/instances/tables.py:920
 msgctxt "Power state of an Instance"
 msgid "No State"
 msgstr "沒有狀態"
 
-#: dashboards/project/instances/tables.py:919
+#: dashboards/project/instances/tables.py:921
 msgctxt "Power state of an Instance"
 msgid "Running"
 msgstr "正在執行"
 
-#: dashboards/project/instances/tables.py:920
+#: dashboards/project/instances/tables.py:922
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr "已故障"
 
-#: dashboards/project/instances/tables.py:921
+#: dashboards/project/instances/tables.py:923
 msgctxt "Power state of an Instance"
 msgid "Paused"
 msgstr "已暫停"
 
-#: dashboards/project/instances/tables.py:922
+#: dashboards/project/instances/tables.py:924
 msgctxt "Power state of an Instance"
 msgid "Shut Down"
 msgstr "關機中"
 
-#: dashboards/project/instances/tables.py:923
+#: dashboards/project/instances/tables.py:925
 msgctxt "Power state of an Instance"
 msgid "Shut Off"
 msgstr "已關機"
 
-#: dashboards/project/instances/tables.py:924
+#: dashboards/project/instances/tables.py:926
 msgctxt "Power state of an Instance"
 msgid "Crashed"
 msgstr "已崩潰"
 
-#: dashboards/project/instances/tables.py:925
+#: dashboards/project/instances/tables.py:927
 msgctxt "Power state of an Instance"
 msgid "Suspended"
 msgstr "已停止"
 
-#: dashboards/project/instances/tables.py:926
+#: dashboards/project/instances/tables.py:928
 msgctxt "Power state of an Instance"
 msgid "Failed"
 msgstr "已失敗"
 
-#: dashboards/project/instances/tables.py:927
+#: dashboards/project/instances/tables.py:929
 msgctxt "Power state of an Instance"
 msgid "Building"
 msgstr "正在建立"
 
-#: dashboards/project/instances/tables.py:964
-#: dashboards/project/instances/workflows/create_instance.py:484
+#: dashboards/project/instances/tables.py:966
+#: dashboards/project/instances/workflows/create_instance.py:486
 msgid "Key Pair"
 msgstr "密鑰對"
 
@@ -10085,143 +10209,143 @@ msgstr "選擇執行實例即時存檔"
 msgid "No snapshots available"
 msgstr "無可用的即時存檔"
 
-#: dashboards/project/instances/workflows/create_instance.py:423
+#: dashboards/project/instances/workflows/create_instance.py:424
 #: dashboards/project/volumes/volumes/forms.py:291
 msgid "Unable to retrieve list of volumes."
 msgstr "無法取回儲存空間列表。"
 
-#: dashboards/project/instances/workflows/create_instance.py:425
+#: dashboards/project/instances/workflows/create_instance.py:426
 #: dashboards/project/volumes/backups/forms.py:69
 msgid "Select Volume"
 msgstr "選擇儲存空間"
 
-#: dashboards/project/instances/workflows/create_instance.py:427
+#: dashboards/project/instances/workflows/create_instance.py:428
 msgid "No volumes available"
 msgstr "無可用的儲存空間"
 
-#: dashboards/project/instances/workflows/create_instance.py:438
+#: dashboards/project/instances/workflows/create_instance.py:440
 msgid "Unable to retrieve list of volume snapshots."
 msgstr "無法取回儲存空間的即時存檔列表。"
 
-#: dashboards/project/instances/workflows/create_instance.py:441
+#: dashboards/project/instances/workflows/create_instance.py:443
 msgid "Select Volume Snapshot"
 msgstr "選擇儲存空間的即時存檔"
 
-#: dashboards/project/instances/workflows/create_instance.py:443
+#: dashboards/project/instances/workflows/create_instance.py:445
 msgid "No volume snapshots available"
 msgstr "無可用的儲存空間的即時存檔"
 
-#: dashboards/project/instances/workflows/create_instance.py:486
+#: dashboards/project/instances/workflows/create_instance.py:488
 msgid "Key pair to use for authentication."
 msgstr "用於認證的密鑰對。"
 
-#: dashboards/project/instances/workflows/create_instance.py:490
+#: dashboards/project/instances/workflows/create_instance.py:492
 msgid "Admin Password"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:496
+#: dashboards/project/instances/workflows/create_instance.py:498
 msgid "Confirm Admin Password"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:502
+#: dashboards/project/instances/workflows/create_instance.py:504
 msgid "Launch instance in these security groups."
 msgstr "在這些安全性群組中發動執行實例。"
 
-#: dashboards/project/instances/workflows/create_instance.py:507
+#: dashboards/project/instances/workflows/create_instance.py:509
 msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
 msgstr "從密鑰對、安全性群組及其他機制控制存取您的執行實例。"
 
-#: dashboards/project/instances/workflows/create_instance.py:523
+#: dashboards/project/instances/workflows/create_instance.py:525
 msgid "Unable to retrieve key pairs."
 msgstr "無法取回密鑰對。"
 
-#: dashboards/project/instances/workflows/create_instance.py:527
+#: dashboards/project/instances/workflows/create_instance.py:529
 msgid "Select a key pair"
 msgstr "選擇一組密鑰對"
 
-#: dashboards/project/instances/workflows/create_instance.py:529
+#: dashboards/project/instances/workflows/create_instance.py:531
 msgid "No key pairs available"
 msgstr "無可用的密鑰對"
 
-#: dashboards/project/instances/workflows/create_instance.py:538
+#: dashboards/project/instances/workflows/create_instance.py:540
 msgid "Unable to retrieve list of security groups"
 msgstr "無法取回安全性群組列表"
 
-#: dashboards/project/instances/workflows/create_instance.py:570
+#: dashboards/project/instances/workflows/create_instance.py:572
 msgid "Post-Creation"
 msgstr "前置作業"
 
-#: dashboards/project/instances/workflows/create_instance.py:574
+#: dashboards/project/instances/workflows/create_instance.py:576
 #: dashboards/project/stacks/forms.py:58
 msgid "Direct Input"
 msgstr "直接輸入"
 
-#: dashboards/project/instances/workflows/create_instance.py:578
+#: dashboards/project/instances/workflows/create_instance.py:580
 msgid "Customization Script Source"
 msgstr "客製化腳本來源"
 
-#: dashboards/project/instances/workflows/create_instance.py:582
+#: dashboards/project/instances/workflows/create_instance.py:584
 msgid ""
 "A script or set of commands to be executed after the instance has been built"
 " (max 16kb)."
 msgstr "會在建立執行實例後執行的一份腳本或一套指令（最大 16kb）。"
 
-#: dashboards/project/instances/workflows/create_instance.py:586
-#: dashboards/project/instances/workflows/create_instance.py:591
+#: dashboards/project/instances/workflows/create_instance.py:588
+#: dashboards/project/instances/workflows/create_instance.py:593
 msgid "Script File"
 msgstr "腳本檔案"
 
-#: dashboards/project/instances/workflows/create_instance.py:595
-#: dashboards/project/instances/workflows/create_instance.py:600
+#: dashboards/project/instances/workflows/create_instance.py:597
+#: dashboards/project/instances/workflows/create_instance.py:602
 msgid "Script Data"
 msgstr "腳本資料"
 
-#: dashboards/project/instances/workflows/create_instance.py:627
+#: dashboards/project/instances/workflows/create_instance.py:629
 msgid "File exceeds maximum size (16kb)"
 msgstr "檔案超過最大容量（16kb）"
 
-#: dashboards/project/instances/workflows/create_instance.py:635
+#: dashboards/project/instances/workflows/create_instance.py:637
 #: dashboards/project/stacks/forms.py:187
 #, python-format
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr "解析 %(prefix)s 時出了問題：%(error)s"
 
-#: dashboards/project/instances/workflows/create_instance.py:662
+#: dashboards/project/instances/workflows/create_instance.py:664
 msgid "Policy Profiles"
 msgstr "政策基本資料"
 
-#: dashboards/project/instances/workflows/create_instance.py:665
+#: dashboards/project/instances/workflows/create_instance.py:667
 msgid "Launch instance with this policy profile"
 msgstr "以這個政策基本資料發動執行實例"
 
-#: dashboards/project/instances/workflows/create_instance.py:740
+#: dashboards/project/instances/workflows/create_instance.py:742
 msgid ""
 "Automatic: The entire disk is a single partition and automatically resizes. "
 "Manual: Results in faster build times but requires manual partitioning."
 msgstr "自動：全部的硬碟是同一個分割並會自動地更改容量。手動：較快建立但需要手動分割硬碟。"
 
-#: dashboards/project/instances/workflows/create_instance.py:744
+#: dashboards/project/instances/workflows/create_instance.py:746
 msgid "Configuration Drive"
 msgstr "設置硬碟"
 
-#: dashboards/project/instances/workflows/create_instance.py:745
+#: dashboards/project/instances/workflows/create_instance.py:747
 msgid ""
 "Configure OpenStack to write metadata to a special configuration drive that "
 "attaches to the instance when it boots."
 msgstr "設置 OpenStack 來寫入描述資料到一個特別設置在執行實例一開機會附加的硬碟。"
 
-#: dashboards/project/instances/workflows/create_instance.py:771
+#: dashboards/project/instances/workflows/create_instance.py:773
 msgid "Advanced Options"
 msgstr "進階選項"
 
-#: dashboards/project/instances/workflows/create_instance.py:809
+#: dashboards/project/instances/workflows/create_instance.py:811
 #, python-format
 msgid "%s instances"
 msgstr "%s 個執行實例"
 
-#: dashboards/project/instances/workflows/create_instance.py:869
+#: dashboards/project/instances/workflows/create_instance.py:871
 #, python-format
 msgid "Port not created for profile-id (%s)."
 msgstr "沒有為基本資料識別號（%s）新增接口。"
@@ -10552,12 +10676,6 @@ msgstr "取回健康監視器時失敗。"
 #: dashboards/project/loadbalancers/workflows.py:729
 msgid "Disassociate Monitor"
 msgstr "解除監視器聯結"
-
-#: dashboards/project/loadbalancers/tables.py:273
-#: dashboards/project/loadbalancers/workflows.py:42
-#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:26
-msgid "Provider"
-msgstr "提供者"
 
 #: dashboards/project/loadbalancers/tables.py:275
 #: dashboards/project/loadbalancers/workflows.py:43
@@ -14110,7 +14228,7 @@ msgstr "無效的日期格式：預設使用今日。"
 msgid "Unable to retrieve network quota information."
 msgstr "無法取回網路配額資訊。"
 
-#: usage/base.py:186 usage/quotas.py:367
+#: usage/base.py:186 usage/quotas.py:372
 msgid "Unable to retrieve volume limit information."
 msgstr "無法取回儲存空間限制資訊。"
 
@@ -14137,7 +14255,7 @@ msgstr "無效的時段。您從未來要求的資料還不存在。"
 msgid "Injected File Path Bytes"
 msgstr "已注入的資料路徑位元組"
 
-#: usage/quotas.py:353
+#: usage/quotas.py:358
 msgid "Unable to retrieve compute limit information."
 msgstr "無法取回運算限制資訊。"
 
