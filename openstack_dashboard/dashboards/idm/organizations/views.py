@@ -88,6 +88,9 @@ class DetailOrganizationView(tables.MultiTableView):
         context['organization.id'] = organization.id
         context['organization_name'] = organization.name
         context['image'] = getattr(organization, 'img', '/static/dashboard/img/logos/small/group.png')
+        context['city'] = getattr(organization, 'city', '')
+        context['email'] = getattr(organization, 'email', '')
+        context['website'] = getattr(organization, 'website', '')
         return context
 
 
