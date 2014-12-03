@@ -70,6 +70,8 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
         organization_id = self.object.id
         user_id = request.user.id
 
+        LOG.debug('Organization {0} created'.format(organization_id))
+
         #Find default role id
         try:
             default_role = api.keystone.get_default_role(self.request)
@@ -78,6 +80,7 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
                                     "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
                 msg = _('Could not find default role "%s" in Keystone') % \
                         default
+                LOG.debug(msg)
                 raise exceptions.NotFound(msg)
         except Exception as e:
             exceptions.handle(self.request, 
@@ -89,6 +92,7 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
                                             project=organization_id,
                                             user=user_id,
                                             role=default_role.id)
+            LOG.debug('Added user {0} and organization {1} to role {2}'.format(user_id, organization_id, default_role.id))
         except Exception:
             exceptions.handle(request,
                                     _('Failed to add %s organization to list')
@@ -108,6 +112,7 @@ class InfoForm(forms.SelfHandlingForm):
     def handle(self, request, data):
         try:
             api.keystone.tenant_update(request, data['orgID'], name=data['name'], description=data['description'], city=data['city'])
+            LOG.debug('Organization {0} updated'.format(data['orgID']))
             messages.success(request, _("Organization updated successfully."))
             response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])
             return response
@@ -122,13 +127,13 @@ class ContactForm(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         api.keystone.tenant_update(request, data['orgID'], email=data['email'], website=data['website'])
+        LOG.debug('Organization {0} updated'.format(data['orgID']))
         messages.success(request, _("Organization updated successfully."))
         response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])
         return response
 
 class AvatarForm(forms.SelfHandlingForm):
     orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
-    name = forms.CharField(label=_("Name"), widget=forms.HiddenInput(), required=False)
     image = forms.ImageField(required=False)
     x1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
     y1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
@@ -159,8 +164,8 @@ class AvatarForm(forms.SelfHandlingForm):
             organization = api.keystone.tenant_get(request, data['orgID'])
             img=settings.MEDIA_URL+'OrganizationAvatar/'+imageName
             api.keystone.tenant_update(request, data['orgID'], img=img)
-            LOG.debug('organization updated' )
-            messages.success(request, _("Organization deleted successfully."))
+            LOG.debug('Organization {0} image updated'.format(organization.id))
+            messages.success(request, _("Organization updated successfully."))
 
         response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])
         return response
@@ -175,6 +180,7 @@ class CancelForm(forms.SelfHandlingForm):
         image = organization.img
         if "OrganizationAvatar" in image:
             os.remove(AVATAR + organization.id)
+            LOG.debug('{0} deleted'.format(image))
         api.keystone.tenant_delete(request, organization)
         LOG.info('Organization {0} deleted'.format(organization.id))
         messages.success(request, _("Organization deleted successfully."))
