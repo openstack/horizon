@@ -14,13 +14,13 @@
     <dt>{% trans "Status" %}</dt>
     <dd>{{ instance.status_label|title }}</dd>
     <dt>{% trans "Availability Zone" %}</dt>
-    <dd>{{ instance.availability_zone|default:"-" }}</dd>
+    <dd>{{ instance.availability_zone|default:_("-") }}</dd>
     <dt>{% trans "Created" %}</dt>
     <dd>{{ instance.created|parse_isotime }}</dd>
     <dt>{% trans "Uptime" %}</dt>
     <dd>{{ instance.created|parse_isotime|timesince }}</dd>
     <dt>{% trans "Host" %}</dt>
-    <dd>{{ instance.host_server|default:"-" }}</dd>
+    <dd>{{ instance.host_server|default:_("-") }}</dd>
   </dl>
 </div>
 

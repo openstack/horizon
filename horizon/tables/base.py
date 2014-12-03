@@ -302,7 +302,7 @@ class Column(html.HTMLElement):
         self.allowed_data_types = allowed_data_types
         self.hidden = hidden
         self.status = status
-        self.empty_value = empty_value or '-'
+        self.empty_value = empty_value or _('-')
         self.filters = filters or []
         self.truncate = truncate
         self.wrap_list = wrap_list

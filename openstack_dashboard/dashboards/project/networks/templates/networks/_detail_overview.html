@@ -9,7 +9,7 @@
     <dt>{% trans "ID" %}</dt>
     <dd>{{ network.id|default:_("None") }}</dd>
     <dt>{% trans "Project ID" %}</dt>
-    <dd>{{ network.tenant_id|default:"-" }}</dd>
+    <dd>{{ network.tenant_id|default:_("-") }}</dd>
     <dt>{% trans "Status" %}</dt>
     <dd>{{ network.status|default:_("Unknown") }}</dd>
     <dt>{% trans "Admin State" %}</dt>
@@ -21,8 +21,8 @@
     {% if network.provider__network_type %}
     <dt>{% trans "Provider Network" %}</dt>
     <dd>{% trans "Network Type:" %} {{ network.provider__network_type|default:_("Unknown") }}</dd>
-    <dd>{% trans "Physical Network:" %} {{ network.provider__physical_network|default:"-" }}</dd>
-    <dd>{% trans "Segmentation ID:" %} {{ network.provider__segmentation_id|default:"-" }}</dd>
+    <dd>{% trans "Physical Network:" %} {{ network.provider__physical_network|default:_("-") }}</dd>
+    <dd>{% trans "Segmentation ID:" %} {{ network.provider__segmentation_id|default:_("-") }}</dd>
     {% endif %}
   </dl>
 </div>
