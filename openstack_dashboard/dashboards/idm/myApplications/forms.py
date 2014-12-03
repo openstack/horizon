@@ -63,16 +63,18 @@ class CreateApplicationForm(forms.SelfHandlingForm):
             response = shortcuts.redirect('horizon:idm:myApplications:upload', application.id)
 
         else:
-            extra = {
-                'url': data['url']
-            }
             try:
+                application = fiware_api.keystone.application_get(request, data['appID'])
                 LOG.debug('updating application {0}'.format(data['appID']))
                 redirect_uris = [data['callbackurl'],]
+                extra = application.extra
+                extra['url'] = data['url'] 
                 fiware_api.keystone.application_update(request, data['appID'], name=data['name'], description=data['description'],
                         redirect_uris=redirect_uris, extra=extra)
+                LOG.debug('image {0}'.format(application.id))
                 msg = 'Application updated successfully.'
                 messages.success(request, _(msg))
+                LOG.debug('image {0}'.format(application.id))
                 LOG.debug(msg)
                 response = shortcuts.redirect('horizon:idm:myApplications:detail', data['appID'])
                 return response
