@@ -10,6 +10,13 @@
 }
 #detailApplication,
 #detailOrganization{
+  .logo{ 
+    img{
+      width: 60px;
+      @include border-top-radius ($border-radius-base);
+      @include border-bottom-radius ($border-radius-base);
+    }
+  }
   .panel-body{
     padding: 7px 15px;
   }

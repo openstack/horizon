@@ -53,7 +53,9 @@ textarea {
     float: left;    
     margin-right: 15px;
     img{
-      width: 36px;      
+      width: 36px;   
+      @include border-top-radius (2px);
+      @include border-bottom-radius (2px);   
     }
   }
   .data{
@@ -87,6 +89,20 @@ textarea {
   .panel-heading{
     padding: 0;
     .nav-tabs{ margin-bottom: 0; border-bottom: 0;}
+  }
+}
+
+#avatar-update{
+  width: 60px;
+  @include border-top-radius ($border-radius-base);
+  @include border-bottom-radius ($border-radius-base);
+}
+
+#edit{
+  .modal-footer{
+    a.panel-title{
+      float: left;
+    }
   }
 }
 

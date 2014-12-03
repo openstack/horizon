@@ -16,6 +16,12 @@
 <div>
 	<img id="avatar-update" src="{{ image }}" alt="your image"   />
 </div>
+{% elif form.title == ' ' %}
+<a class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#destroy_application" class="panel-heading">
+        Are you sure you want to delete the organization?
+      </a>
+
+
 {% endif %}
 <div >
   <fieldset>
@@ -27,8 +33,14 @@
 
 
 {% block modal-footer %}
-{% if form.title == 'Cancel'%}
-    <button type="submit" class="btn btn-primary">{% trans "Delete Application" %} </button>
+{% if form.title == ' '%}
+<div id="destroy_application" class="panel-collapse collapse">
+
+    
+<button type="submit" class="btn btn-primary">{% trans "Delete Application" %} </button>
+
+    </div>  
+
 {% else %}
 <button type="submit" class="btn btn-primary">{% trans "Update Application" %} </button>
 {% endif %}
