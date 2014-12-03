@@ -17,9 +17,11 @@
 	<img id="avatar-update" src="{{ image }}" alt="your image"   />
 </div>
 {% elif form.title == ' ' %}
-<a class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#destroy_application" class="panel-heading">
-        Are you sure you want to delete the organization?
-      </a>
+<a class="modal-header panel-title" data-toggle="collapse" data-parent="#accordion" href="#destroy_application" class="panel-heading">
+    <h3>
+      Are you sure you want to delete the organization?
+    </h3>
+</a>
 
 
 {% endif %}
