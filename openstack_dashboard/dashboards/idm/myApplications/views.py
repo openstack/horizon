@@ -46,6 +46,13 @@ class IndexView(tabs.TabbedTableView):
 class CreateView(forms.ModalFormView):
     form_class = application_forms.CreateApplicationForm
     template_name = 'idm/myApplications/create.html'
+
+    def get_initial(self):
+        initial_data = {
+            "appID" : "",
+            "nextredir": 'create',
+        }
+        return initial_data
     
 
 class UploadImageView(forms.ModalFormView):
@@ -68,8 +75,6 @@ class UploadImageView(forms.ModalFormView):
         return context
 
 
-
-    
 # NOTE(garcianavalon) from horizon.forms.views
 ADD_TO_FIELD_HEADER = "HTTP_X_HORIZON_ADD_TO_FIELD"
 class RolesView(tables.MultiTableView):
@@ -164,11 +169,11 @@ class MultiFormView(TemplateView):
             "description": application.description,
             "callbackurl": application.redirect_uris[0],
             "url": application.extra.get('url', None),
-            "nextredir": "update"
+            "nextredir": "update" 
         }
         
         #Create forms
-        info = application_forms.InfoForm(self.request, initial=initial_data)
+        info = application_forms.CreateApplicationForm(self.request, initial=initial_data)
         avatar = application_forms.UploadImageForm(self.request, initial=initial_data)
         cancel = application_forms.CancelForm(self.request, initial=initial_data)
 
@@ -183,13 +188,6 @@ class MultiFormView(TemplateView):
         context['form'] = [info, avatar, cancel]       
         return context
 
-class HandleForm(forms.ModalFormView):
-    template_name = ''
-    http_method_not_allowed = ['get']
-
-
-class InfoFormView(HandleForm):    
-    form_class = application_forms.InfoForm
-
 class CancelFormView(forms.ModalFormView):
     form_class = application_forms.CancelForm
+    http_method_not_allowed = ['get']

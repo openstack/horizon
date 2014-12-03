@@ -31,6 +31,8 @@ LOG = logging.getLogger('idm_logger')
 AVATAR = settings.MEDIA_ROOT+"/"+"ApplicationAvatar/"
 
 class CreateApplicationForm(forms.SelfHandlingForm):
+    appID = forms.CharField(label=_("ID"), widget=forms.HiddenInput(), required=False)
+    nextredir = forms.CharField(widget=forms.HiddenInput(), required=False)
     name = forms.CharField(label=_("Name"), required=True)
     description = forms.CharField(label=_("Description"), 
                                 widget=forms.Textarea, 
@@ -41,23 +43,43 @@ class CreateApplicationForm(forms.SelfHandlingForm):
     def handle(self, request, data):
         #create application
         #default_domain = api.keystone.get_default_domain(request)
-        try:
+        if data['nextredir'] == "create":
+            try:
 
+                extra = {
+                    'url':data['url'],
+                    'img': "/static/dashboard/img/logos/small/app.png"
+                }
+                application = fiware_api.keystone.application_create(request,
+                                                    name=data['name'],
+                                                    description=data['description'],
+                                                    redirect_uris=[data['callbackurl']],
+                                                    extra=extra)
+                LOG.debug('Application {0} created'.format(application.name))
+            except Exception:
+                exceptions.handle(request, _('Unable to register the application.'))
+                return False
+            
+            response = shortcuts.redirect('horizon:idm:myApplications:upload', application.id)
+
+        else:
             extra = {
-                'url':data['url'],
-                'img': "/static/dashboard/img/logos/small/app.png"
+                'url': data['url']
             }
-            application = fiware_api.keystone.application_create(request,
-                                                name=data['name'],
-                                                description=data['description'],
-                                                redirect_uris=[data['callbackurl']],
-                                                extra=extra)
-            LOG.debug('Application {0} created'.format(application.name))
-        except Exception:
-            exceptions.handle(request, _('Unable to register the application.'))
-            return False
-        
-        response = shortcuts.redirect('horizon:idm:myApplications:upload', application.id)
+            try:
+                LOG.debug('updating application {0}'.format(data['appID']))
+                redirect_uris = [data['callbackurl'],]
+                fiware_api.keystone.application_update(request, data['appID'], name=data['name'], description=data['description'],
+                        redirect_uris=redirect_uris, extra=extra)
+                msg = 'Application updated successfully.'
+                messages.success(request, _(msg))
+                LOG.debug(msg)
+                response = shortcuts.redirect('horizon:idm:myApplications:detail', data['appID'])
+                return response
+            except Exception as e:
+                LOG.error(e)
+                response = shortcuts.redirect('horizon:idm:myApplications:detail', data['appID'])
+
         return response
     
 class UploadImageForm(forms.SelfHandlingForm):
@@ -71,8 +93,9 @@ class UploadImageForm(forms.SelfHandlingForm):
 
 
     def handle(self, request, data):
+        application = fiware_api.keystone.application_get(request, data['appID'])
         if request.FILES:
-        # if request.FILES and app:
+
             x1 = self.cleaned_data['x1'] 
             x2 = self.cleaned_data['x2']
             y1 = self.cleaned_data['y1']
@@ -92,7 +115,6 @@ class UploadImageForm(forms.SelfHandlingForm):
 
             output_img = img.crop((x1, y1, x2, y2))
             output_img.save(settings.MEDIA_ROOT+"/"+"ApplicationAvatar/"+imageName, 'JPEG')
-            application = fiware_api.keystone.application_get(request, data['appID'])
             extra= application.extra
             extra['img']=settings.MEDIA_URL+'ApplicationAvatar/'+imageName
             fiware_api.keystone.application_update(request, application.id, extra=extra)
@@ -145,31 +167,6 @@ class CreatePermissionForm(forms.SelfHandlingForm):
         except Exception:
             exceptions.handle(request, _('Unable to create permission.'))
 
-class InfoForm(forms.SelfHandlingForm):
-    appID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
-    name = forms.CharField(label=_("Name"), max_length=64, required=True)
-    description = forms.CharField(label=_("Description"), widget=forms.widgets.Textarea, required=True)
-    url = forms.CharField(label=_("URL"),required=True)
-    callbackurl = forms.CharField(label=_("Callback URL"), required=True)
-
-    def handle(self, request, data):
-        extra = {
-            'url': data['url']
-        }
-        try:
-            LOG.debug('updating application {0}'.format(data['appID']))
-            redirect_uris = [data['callbackurl'],]
-            fiware_api.keystone.application_update(request, data['appID'], name=data['name'], description=data['description'],
-                    redirect_uris=redirect_uris, extra=extra)
-            msg = 'Application updated successfully.'
-            messages.success(request, _(msg))
-            LOG.debug(msg)
-            response = shortcuts.redirect('horizon:idm:myApplications:detail', data['appID'])
-            return response
-        except Exception as e:
-            LOG.error(e)
-            response = shortcuts.redirect('horizon:idm:myApplications:detail', data['appID'])
-            return response
         
 class CancelForm(forms.SelfHandlingForm):
     appID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
@@ -178,9 +175,10 @@ class CancelForm(forms.SelfHandlingForm):
     def handle(self, request, data):
         application = fiware_api.keystone.application_get(request, data['appID'])
         image = application.extra['img']
-        if "AvatarAvatar" in image:
-            os.remove(AVATAR + application.id)       
-
+        LOG.debug(image)
+        if "ApplicationAvatar" in image:
+            os.remove(AVATAR + application.id)
+            LOG.debug('Avatar deleted from server')    
         fiware_api.keystone.application_delete(request, application.id)
         LOG.info('Application {0} deleted'.format(application.id))
         messages.success(request, _("Application deleted successfully."))

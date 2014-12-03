@@ -80,6 +80,7 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
                                     "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
                 msg = _('Could not find default role "%s" in Keystone') % \
                         default
+                LOG.debug(msg)
                 raise exceptions.NotFound(msg)
         except Exception as e:
             exceptions.handle(self.request, 
@@ -91,6 +92,7 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
                                             project=organization_id,
                                             user=user_id,
                                             role=default_role.id)
+            LOG.debug('Added user {0} and organization {1} to role {2}'.format(user_id, organization_id, default_role.id))
         except Exception:
             exceptions.handle(request,
                                     _('Failed to add %s organization to list')
