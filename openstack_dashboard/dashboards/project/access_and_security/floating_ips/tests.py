@@ -256,7 +256,7 @@ class FloatingIpViewTests(test.TestCase):
                                  "Quota exceeded")
         expected_string = ("<a href='%s' title='%s' class='%s disabled' "
                            "id='floating_ips__action_allocate'>"
-                           "<span class='fa fa-download'>"
+                           "<span class='fa fa-link'>"
                            "</span>%s</a>"
                            % (url, link_name, " ".join(classes), link_name))
         self.assertContains(res, expected_string, html=True,

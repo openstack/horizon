@@ -42,7 +42,7 @@ class AllocateIP(tables.LinkAction):
     name = "allocate"
     verbose_name = _("Allocate IP To Project")
     classes = ("ajax-modal",)
-    icon = "download"
+    icon = "link"
     url = "horizon:project:access_and_security:floating_ips:allocate"
 
     def single(self, data_table, request, *args):
@@ -72,7 +72,7 @@ class AllocateIP(tables.LinkAction):
 class ReleaseIPs(tables.BatchAction):
     name = "release"
     classes = ('btn-danger',)
-    icon = "arrow-up"
+    icon = "unlink"
 
     @staticmethod
     def action_present(count):
@@ -129,6 +129,7 @@ class DisassociateIP(tables.Action):
     name = "disassociate"
     verbose_name = _("Disassociate")
     classes = ("btn-disassociate", "btn-danger")
+    icon = "unlink"
 
     def allowed(self, request, fip):
         if api.base.is_service_enabled(request, "network"):
