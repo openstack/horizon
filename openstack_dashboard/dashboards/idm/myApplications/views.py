@@ -56,6 +56,7 @@ class UploadImageView(forms.ModalFormView):
         application = fiware_api.keystone.application_get(self.request, self.kwargs['application_id'])
         initial_data = {
             "appID": application.id,
+            "nextredir": 'create',
         }
         return initial_data
 
@@ -163,7 +164,7 @@ class MultiFormView(TemplateView):
             "description": application.description,
             "callbackurl": application.redirect_uris[0],
             "url": application.extra.get('url', None),
-            "nextredir": "avatar/"
+            "nextredir": "update"
         }
         
         #Create forms

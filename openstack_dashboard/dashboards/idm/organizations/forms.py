@@ -70,6 +70,8 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
         organization_id = self.object.id
         user_id = request.user.id
 
+        LOG.debug('Organization {0} created'.format(organization_id))
+
         #Find default role id
         try:
             default_role = api.keystone.get_default_role(self.request)
@@ -108,6 +110,7 @@ class InfoForm(forms.SelfHandlingForm):
     def handle(self, request, data):
         try:
             api.keystone.tenant_update(request, data['orgID'], name=data['name'], description=data['description'], city=data['city'])
+            LOG.debug('Organization {0} updated'.format(data['orgID']))
             messages.success(request, _("Organization updated successfully."))
             response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])
             return response
@@ -122,6 +125,7 @@ class ContactForm(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         api.keystone.tenant_update(request, data['orgID'], email=data['email'], website=data['website'])
+        LOG.debug('Organization {0} updated'.format(data['orgID']))
         messages.success(request, _("Organization updated successfully."))
         response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])
         return response
@@ -158,8 +162,8 @@ class AvatarForm(forms.SelfHandlingForm):
             organization = api.keystone.tenant_get(request, data['orgID'])
             img=settings.MEDIA_URL+'OrganizationAvatar/'+imageName
             api.keystone.tenant_update(request, data['orgID'], img=img)
-            LOG.debug('organization updated' )
-            messages.success(request, _("Organization deleted successfully."))
+            LOG.debug('Organization {0} image updated'.format(organization.id))
+            messages.success(request, _("Organization updated successfully."))
 
         response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])
         return response
@@ -174,6 +178,7 @@ class CancelForm(forms.SelfHandlingForm):
         image = organization.img
         if "OrganizationAvatar" in image:
             os.remove(AVATAR + organization.id)
+            LOG.debug('{0} deleted'.format(image))
         api.keystone.tenant_delete(request, organization)
         LOG.info('Organization {0} deleted'.format(organization.id))
         messages.success(request, _("Organization deleted successfully."))

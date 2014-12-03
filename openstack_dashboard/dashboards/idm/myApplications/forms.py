@@ -52,6 +52,7 @@ class CreateApplicationForm(forms.SelfHandlingForm):
                                                 description=data['description'],
                                                 redirect_uris=[data['callbackurl']],
                                                 extra=extra)
+            LOG.debug('Application {0} created'.format(application.name))
         except Exception:
             exceptions.handle(request, _('Unable to register the application.'))
             return False
@@ -91,16 +92,17 @@ class UploadImageForm(forms.SelfHandlingForm):
 
             output_img = img.crop((x1, y1, x2, y2))
             output_img.save(settings.MEDIA_ROOT+"/"+"ApplicationAvatar/"+imageName, 'JPEG')
-            LOG.debug('Image saved')
             application = fiware_api.keystone.application_get(request, data['appID'])
             extra= application.extra
             extra['img']=settings.MEDIA_URL+'ApplicationAvatar/'+imageName
             fiware_api.keystone.application_update(request, application.id, extra=extra)
             LOG.debug(application)
-        if nextredir!=None:
+        if data['nextredir'] == "update":
             response = shortcuts.redirect('horizon:idm:myApplications:detail', data['appID']) 
+            LOG.debug('Avatar for application {0} updated'.format(application.id))
         else:
             response = shortcuts.redirect('horizon:idm:myApplications:roles_index')
+            LOG.debug('Avatar for application {0} saved'.format(application.id))
         return response
 
 

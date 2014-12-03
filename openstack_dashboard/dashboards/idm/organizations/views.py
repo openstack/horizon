@@ -16,6 +16,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 import os
+import logging
 
 from django.conf import settings
 from django.core.urlresolvers import reverse
@@ -41,6 +42,8 @@ from openstack_dashboard.dashboards.idm.organizations \
     import tabs as organization_tabs
 from openstack_dashboard.dashboards.idm.organizations \
     import forms as organization_forms
+
+LOG = logging.getLogger('idm_logger')
 
 AVATAR_ROOT = os.path.abspath(os.path.join(settings.MEDIA_ROOT, 'OrganizationAvatar'))
 
