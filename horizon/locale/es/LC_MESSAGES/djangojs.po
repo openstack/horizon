@@ -3,14 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Akihiro Motoki <amotoki@gmail.com>, 2014
 # Marian Tort <marian.tort@gmail.com>, 2014
+# Victoria Martínez de la Cruz <vickymsee@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-05 14:55+0000\n"
-"PO-Revision-Date: 2014-10-02 22:40+0000\n"
-"Last-Translator: Marian Tort <marian.tort@gmail.com>\n"
+"POT-Creation-Date: 2014-12-02 00:51-0600\n"
+"PO-Revision-Date: 2014-12-02 23:48+0000\n"
+"Last-Translator: Victoria Martínez de la Cruz <vickymsee@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -95,34 +97,58 @@ msgstr "Trabajando"
 msgid "There was an error submitting the form. Please try again."
 msgstr "Ha ocurrido un error al enviar el formulario. Inténtelo de nuevo."
 
-#: static/horizon/js/horizon.networktopology.js:535
+#: static/horizon/js/horizon.networktopology.js:511
+#: static/horizon/js/horizon.networktopology.js:517
+msgid "None"
+msgstr "Ninguno"
+
+#: static/horizon/js/horizon.networktopology.js:530
+msgid "Delete"
+msgstr "Eliminar"
+
+#: static/horizon/js/horizon.networktopology.js:533
 msgid "STATUS"
 msgstr "ESTADO"
 
-#: static/horizon/js/horizon.networktopology.js:536
+#: static/horizon/js/horizon.networktopology.js:534
 msgid "ID"
 msgstr "ID"
 
-#: static/horizon/js/horizon.networktopology.js:537
+#: static/horizon/js/horizon.networktopology.js:535
 msgid "Interfaces"
 msgstr "Interfaces"
 
+#: static/horizon/js/horizon.networktopology.js:536
+msgid "Delete Interface"
+msgstr "Eliminar interfaz"
+
+#: static/horizon/js/horizon.networktopology.js:537
+msgid "Open Console"
+msgstr "Abrir consola"
+
 #: static/horizon/js/horizon.networktopology.js:538
-msgid "Interface"
-msgstr "Interfaz"
+msgid "View Details"
+msgstr "Ver detalles"
 
-#: static/horizon/js/horizon.networktopology.js:539
-msgid "open console"
-msgstr "abrir consola"
+#: static/horizon/js/horizon.networktopology.js:541
+msgid "Delete Router"
+msgstr "Eliminar router"
 
-#: static/horizon/js/horizon.networktopology.js:540
-#, c-format
-msgid "view %s details"
-msgstr "ver %s detalles"
+#: static/horizon/js/horizon.networktopology.js:542
+msgid "View Router Details"
+msgstr "Ver detalles del router"
 
 #: static/horizon/js/horizon.networktopology.js:545
 msgid "Add Interface"
 msgstr "Añadir interfaz"
+
+#: static/horizon/js/horizon.networktopology.js:551
+msgid "Terminate Instance"
+msgstr "Terminar instancia"
+
+#: static/horizon/js/horizon.networktopology.js:552
+msgid "View Instance Details"
+msgstr "Ver detalles de la instancia"
 
 #: static/horizon/js/horizon.tables.js:39
 #: static/horizon/js/horizon.tables.js:377

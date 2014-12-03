@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-05 14:55+0000\n"
-"PO-Revision-Date: 2014-10-09 01:40+0000\n"
+"POT-Creation-Date: 2014-12-02 00:51-0600\n"
+"PO-Revision-Date: 2014-11-26 09:52+0000\n"
 "Last-Translator: ykatabam <ykatabam@redhat.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -62,15 +62,15 @@ msgstr "VHD"
 msgid "VMDK"
 msgstr "VMDK"
 
-#: settings.py:298
+#: settings.py:296
 msgid "All TCP"
 msgstr "All TCP"
 
-#: settings.py:304
+#: settings.py:302
 msgid "All UDP"
 msgstr "All UDP"
 
-#: settings.py:310
+#: settings.py:308
 msgid "All ICMP"
 msgstr "All ICMP"
 
@@ -312,22 +312,22 @@ msgstr "ユーザー %s はこのプロジェクトではロールが定義さ�
 msgid "Password changed. Please log in again to continue."
 msgstr "パスワードが変更されました。続行するには、再度ログインしてください。"
 
-#: api/neutron.py:206
+#: api/neutron.py:207
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
-#: api/neutron.py:852
+#: api/neutron.py:853
 msgid "Unable to connect to Neutron."
 msgstr "Neutron に接続できません。"
 
-#: api/neutron.py:889
+#: api/neutron.py:890
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "IPアドレス %s のパースに失敗しました。"
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1022
+#: api/neutron.py:1029
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -335,14 +335,14 @@ msgid ""
 msgstr "要求された機能 \"'%(feature)s' が不明です。FEATURE_MAP で定義されている機能名を指定してください。"
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1040
+#: api/neutron.py:1047
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
 "invalid. It should be one of %(allowed)s"
 msgstr "get_dvr_permission '%(feature)s' の 'operation' パラメーターが無効です。 %(allowed)s のいずれかでなければいけません。"
 
-#: api/neutron.py:1055
+#: api/neutron.py:1062
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr "Neutron が '%s' 拡張に対応しているか確認できませんでした。"
@@ -2213,7 +2213,7 @@ msgstr "ホスト情報を取得できません。"
 #: dashboards/admin/instances/views.py:167
 #: dashboards/project/databases/views.py:138
 #: dashboards/project/instances/views.py:208
-#: dashboards/project/instances/views.py:318
+#: dashboards/project/instances/views.py:326
 msgid "Unable to retrieve instance details."
 msgstr "インスタンスの詳細を取得できません。"
 
@@ -5793,7 +5793,7 @@ msgid ""
 "Object Storage, the data is stored as-is (no compression or encryption) and "
 "consists of a location (container), the object's name, and any metadata "
 "consisting of key/value pairs."
-msgstr "オブジェクトは、基本的なストレージエンティティー、および OpenStack Object Storage システムに保存するファイルを表現するあらゆるオプションのメタデータです。OpenStack Object Storage にデータをアップロードするとき、データはそのまま（圧縮や暗号化はしない）で保存されます。そして、保存場所（コンテナー）、オブジェクトの名前、キー・バリュー組のあらゆるメタデータから構成されます。"
+msgstr "オブジェクトは、基本的なストレージエンティティー、および OpenStack Object Storage システムに保存するファイルを表現するあらゆるオプションのメタデータです。OpenStack Object Storage にデータをアップロードするとき、データはそのまま（圧縮や暗号化はしない）で保存されます。そして、保存場所（コンテナー）、オブジェクトの名前、キーと値のペアである任意のメタデータから構成されます。"
 
 #: dashboards/project/containers/templates/containers/_update.html:22
 msgid "A new uploaded file will replace the content of the current object"
@@ -7911,7 +7911,7 @@ msgstr "ユーザーを作成する場合、パスワードを指定しなけれ
 
 #: dashboards/project/databases/workflows/create_instance.py:216
 msgid "You must specify at least one database if you create a user."
-msgstr "ユーザーを作成する場合、少なくともひとつデータベースをしなければいけません。"
+msgstr "ユーザーを作成する場合、少なくとも 1 つデータベースを指定しなければいけません。"
 
 #: dashboards/project/databases/workflows/create_instance.py:230
 msgid "Select a backup to restore"
@@ -9383,17 +9383,17 @@ msgstr "インスタンス \"%s\" の SPICE コンソールを取得できませ
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "インスタンス \"%s\" の RDP コンソールを取得できません。"
 
-#: dashboards/project/instances/views.py:275
+#: dashboards/project/instances/views.py:283
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "インスタンス \"%s\" の詳細を取り出せません。"
 
-#: dashboards/project/instances/views.py:286
+#: dashboards/project/instances/views.py:294
 #, python-format
 msgid "Unable to retrieve IP addresses from Neutron for instance \"%s\"."
 msgstr "Neutron からインスタンス \"%s\" の IP アドレスを取得できません。"
 
-#: dashboards/project/instances/views.py:330
+#: dashboards/project/instances/views.py:338
 msgid "Unable to retrieve flavors."
 msgstr "フレーバーの一覧を取得できません。"
 
@@ -10617,7 +10617,7 @@ msgid ""
 "Choose one or more listed instances to be added to the pool as member(s). Assign a numeric weight and port number for the selected member(s) to operate(s) on; e.g., 80. \n"
 "\n"
 "Only one port can be associated with each instance."
-msgstr "選択したプールにメンバーを追加します。\n\nメンバーとしてプールに追加するインスタンスを一覧から選択してください (複数可)。このメンバーに対する重みを指定してください。メンバーが使用するポート番号を指定してください（例: 80）。\n\n1 つのインスタンスに関連付けられるポート番号はひとつだけです。"
+msgstr "選択したプールにメンバーを追加します。\n\nメンバーとしてプールに追加するインスタンスを一覧から選択してください (複数可)。このメンバーに対する重みを指定してください。メンバーが使用するポート番号を指定してください（例: 80）。\n\n1 つのインスタンスに関連付けられるポート番号は 1 つだけです。"
 
 #: dashboards/project/loadbalancers/workflows.py:426
 msgid "Added member(s)."
@@ -11655,7 +11655,7 @@ msgstr "テンプレート URL"
 
 #: dashboards/project/stacks/forms.py:80
 msgid "An external (HTTP) URL to load the template from."
-msgstr "テンプレートを読み込む外部 (HTTP) URL。"
+msgstr "テンプレートを読み込む外部 (HTTP) URL"
 
 #: dashboards/project/stacks/forms.py:87 dashboards/project/stacks/forms.py:89
 msgid "Template Data"

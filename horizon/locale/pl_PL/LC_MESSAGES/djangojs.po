@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-05 14:55+0000\n"
-"PO-Revision-Date: 2014-10-02 22:40+0000\n"
+"POT-Creation-Date: 2014-12-02 00:51-0600\n"
+"PO-Revision-Date: 2014-12-02 17:51+0000\n"
 "Last-Translator: Łukasz Jernaś <deejay1@srem.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -95,34 +95,58 @@ msgstr "Praca"
 msgid "There was an error submitting the form. Please try again."
 msgstr "Wystąpił błąd podczas wysyłania formularza. Proszę spróbować ponownie."
 
-#: static/horizon/js/horizon.networktopology.js:535
+#: static/horizon/js/horizon.networktopology.js:511
+#: static/horizon/js/horizon.networktopology.js:517
+msgid "None"
+msgstr "Brak"
+
+#: static/horizon/js/horizon.networktopology.js:530
+msgid "Delete"
+msgstr "Usuń"
+
+#: static/horizon/js/horizon.networktopology.js:533
 msgid "STATUS"
 msgstr "STATUS"
 
-#: static/horizon/js/horizon.networktopology.js:536
+#: static/horizon/js/horizon.networktopology.js:534
 msgid "ID"
 msgstr "ID"
 
-#: static/horizon/js/horizon.networktopology.js:537
+#: static/horizon/js/horizon.networktopology.js:535
 msgid "Interfaces"
 msgstr "Interfejsy"
 
+#: static/horizon/js/horizon.networktopology.js:536
+msgid "Delete Interface"
+msgstr "Usuń interfejs"
+
+#: static/horizon/js/horizon.networktopology.js:537
+msgid "Open Console"
+msgstr "Otwórz konsolę"
+
 #: static/horizon/js/horizon.networktopology.js:538
-msgid "Interface"
-msgstr "Interfejs"
+msgid "View Details"
+msgstr "Wyświetl szczegóły"
 
-#: static/horizon/js/horizon.networktopology.js:539
-msgid "open console"
-msgstr "otwórz konsolę"
+#: static/horizon/js/horizon.networktopology.js:541
+msgid "Delete Router"
+msgstr "Usuń router"
 
-#: static/horizon/js/horizon.networktopology.js:540
-#, c-format
-msgid "view %s details"
-msgstr "wyświetl szczegóły %s"
+#: static/horizon/js/horizon.networktopology.js:542
+msgid "View Router Details"
+msgstr "Wyświetl szczegóły routera"
 
 #: static/horizon/js/horizon.networktopology.js:545
 msgid "Add Interface"
 msgstr "Dodaj interfejs"
+
+#: static/horizon/js/horizon.networktopology.js:551
+msgid "Terminate Instance"
+msgstr "Zniszcz instancję"
+
+#: static/horizon/js/horizon.networktopology.js:552
+msgid "View Instance Details"
+msgstr "Wyświetl szczegóły instancji"
 
 #: static/horizon/js/horizon.tables.js:39
 #: static/horizon/js/horizon.tables.js:377

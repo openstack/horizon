@@ -39,8 +39,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-05 14:55+0000\n"
-"PO-Revision-Date: 2014-10-08 14:31+0000\n"
+"POT-Creation-Date: 2014-12-02 00:51-0600\n"
+"PO-Revision-Date: 2014-11-26 09:52+0000\n"
 "Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -89,15 +89,15 @@ msgstr "VHD"
 msgid "VMDK"
 msgstr "VMDK"
 
-#: settings.py:298
+#: settings.py:296
 msgid "All TCP"
 msgstr "Tout TCP"
 
-#: settings.py:304
+#: settings.py:302
 msgid "All UDP"
 msgstr "Tout UDP"
 
-#: settings.py:310
+#: settings.py:308
 msgid "All ICMP"
 msgstr "All ICMP"
 
@@ -339,22 +339,22 @@ msgstr "L'utilisateur %s n'a pas de rôle défini pour ce projet."
 msgid "Password changed. Please log in again to continue."
 msgstr "Mot de passe modifié. Connectez-vous à nouveau pour poursuivre."
 
-#: api/neutron.py:206
+#: api/neutron.py:207
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "AUTORISER %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
-#: api/neutron.py:852
+#: api/neutron.py:853
 msgid "Unable to connect to Neutron."
 msgstr "Impossible de se connecter à Neutron"
 
-#: api/neutron.py:889
+#: api/neutron.py:890
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "Impossible d'analyser l'adresse IP %s"
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1022
+#: api/neutron.py:1029
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -362,14 +362,14 @@ msgid ""
 msgstr "La fonctionnalité demandée '%(feature)s' est inconnue. Veuillez spécifier une fonctionnalité définie dans FEATURE_MAP."
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1040
+#: api/neutron.py:1047
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
 "invalid. It should be one of %(allowed)s"
 msgstr "Le paramètre 'operation' pour get_feature_permission '%(feature)s' est invalide. Il doit être choisi parmi %(allowed)s"
 
-#: api/neutron.py:1055
+#: api/neutron.py:1062
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr "Echec de la vérification de la validité de l'extension Neutron '%s'"
@@ -1040,12 +1040,12 @@ msgstr "Mettre à jour les valeurs par défaut"
 #: dashboards/admin/defaults/tables.py:41
 #: dashboards/admin/defaults/workflows.py:31 usage/quotas.py:66
 msgid "Injected File Content Bytes"
-msgstr "Taille en octets des fichiers injectés "
+msgstr "Taille en octets du fichier injecté"
 
 #: dashboards/admin/defaults/tables.py:42
 #: dashboards/admin/defaults/workflows.py:32
 msgid "Length of Injected File Path"
-msgstr "Longueur du chemin du fichier injecté"
+msgstr "Longueur du nom complet du fichier injecté"
 
 #: dashboards/admin/defaults/tables.py:43
 #: dashboards/admin/defaults/workflows.py:36
@@ -2246,7 +2246,7 @@ msgstr "Impossible de récupérer les information sur l’hôte."
 #: dashboards/admin/instances/views.py:167
 #: dashboards/project/databases/views.py:138
 #: dashboards/project/instances/views.py:208
-#: dashboards/project/instances/views.py:318
+#: dashboards/project/instances/views.py:326
 msgid "Unable to retrieve instance details."
 msgstr "Impossible de récupérer les détails de l'instance."
 
@@ -2399,7 +2399,7 @@ msgstr "Générer un rapport"
 #: dashboards/admin/metering/templates/metering/index.html:3
 #: dashboards/admin/metering/templates/metering/index.html:6
 msgid "Resources Usage Overview"
-msgstr "Vue d'ensemble de l'usage des Ressources"
+msgstr "Vue d'ensemble de l'usage des ressources"
 
 #: dashboards/admin/metering/templates/metering/report.html:4
 msgid "Usage Report"
@@ -3602,11 +3602,11 @@ msgid ""
 "      click the \"View Extra Specs\" button to set up extra specs key-value\n"
 "      pair(s) for that volume type.\n"
 "     "
-msgstr "\n      Type de volume est un type ou un label qui peut être choisit au moment de la création du volume dans OpenStack. \nIl correspond habituellement aux fonctionnalités du pilote de stockage qui sera utilisé pour ce volume. Exemples : \"Performance\", \"SSD\", \"Sauvegarde\", etc. \nCeci est l'équivalent de la commande <tt>cinder type-create</tt>. Une fois le type de volume créé, cliquez sur le bouton \"Voir les Spécifications Supplémentaires\" pour mettre en place les spécificités supplémentaires pour les paires de clés de valeurs ce type de volume."
+msgstr "\nType de volume est un type ou un label qui peut être choisi au moment de la création du volume dans OpenStack. \nIl correspond habituellement aux fonctionnalités du pilote de stockage à utiliser pour ce volume. Exemples : \"Performance\", \"SSD\", \"Sauvegarde\", etc. \nCeci est l'équivalent de la commande <tt>cinder type-create</tt>. Une fois le type de volume créé, cliquez sur le bouton \"Voir les Spécifications Supplémentaires\" pour mettre en place les paires clé-valeur des spécifications supplémentaires de ce type de volume."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:9
 msgid "Edit Consumer of QOS Spec"
-msgstr "Éditer le consommateur de la Spécification QOS"
+msgstr "Éditer le consommateur de la spécification QOS"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:19
 msgid ""
@@ -3623,11 +3623,11 @@ msgstr "Modifier le consommateur"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/associate_qos_spec.html:3
 msgid "Associate QOS Spec"
-msgstr "Associer la Spécification QOS"
+msgstr "Associer la spécification QOS"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_qos_spec.html:6
 msgid "Create a QOS Spec"
-msgstr "Créer une Spécification QOS"
+msgstr "Créer une spécification QOS"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_volume_type.html:6
 msgid "Create a Volume Type"
@@ -3636,12 +3636,12 @@ msgstr "Créer un type de volume"
 #: dashboards/admin/volumes/templates/volumes/volume_types/edit_qos_spec_consumer.html:3
 #: dashboards/admin/volumes/templates/volumes/volume_types/edit_qos_spec_consumer.html:6
 msgid "Edit QOS Spec Consumer"
-msgstr "Éditer l'utilisateur de la Spécification QOS"
+msgstr "Éditer le consommateur de la spécification QOS"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:10
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/create.html:4
 msgid "Create Volume Type Extra Spec"
-msgstr "Créer une Spécification Supplémentaire pour le Type de Volume"
+msgstr "Créer une spécification supplémentaire pour le type de volume"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:20
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
@@ -3659,7 +3659,7 @@ msgstr "Mise à jour de la valeur \"extra spec\" pour \"%(key)s\""
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_index.html:6
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/index.html:4
 msgid "Volume Type Extra Specs"
-msgstr "Spécificités Supplémentaires du Type de Volume"
+msgstr "Spécifications supplémentaires du type de volume"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_index.html:13
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_index.html:14
@@ -3677,12 +3677,12 @@ msgstr "Type de Volume"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/edit.html:4
 msgid "Edit Volume Type Extra Spec"
-msgstr "Modifier les Spécificités Supplémentaires du Type de Volume"
+msgstr "Editer les spécifications supplémentaires du type de volume"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_create.html:10
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/create.html:4
 msgid "Create Spec"
-msgstr "Créer une Spécification"
+msgstr "Créer une spécification"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_create.html:20
 #, python-format
@@ -3705,7 +3705,7 @@ msgstr "Spécification"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/edit.html:4
 msgid "Edit Spec"
-msgstr "Éditer Spécification"
+msgstr "Éditer la spécification"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/edit.html:7
 msgid "QOS Spec: "
@@ -3748,11 +3748,11 @@ msgstr "Détails du volume:"
 
 #: dashboards/admin/volumes/volume_types/forms.py:25
 msgid "QOS Spec to be associated"
-msgstr "Spécification QOS associées avec"
+msgstr "Spécification QOS à associer"
 
 #: dashboards/admin/volumes/volume_types/forms.py:26
 msgid "Choose associated QOS Spec."
-msgstr "Choisir la Spécification QOS associée."
+msgstr "Choisir la spécification QOS associée."
 
 #: dashboards/admin/volumes/volume_types/forms.py:71
 msgid ""
@@ -3815,13 +3815,13 @@ msgstr "Spécification QOS associée"
 
 #: dashboards/admin/volumes/volume_types/tables.py:93
 msgid "Manage Specs"
-msgstr "Gérer les Spécifications"
+msgstr "Gérer les spécifications"
 
 #: dashboards/admin/volumes/volume_types/tables.py:118
 msgid "Delete QOS Spec"
 msgid_plural "Delete QOS Specs"
 msgstr[0] "Supprimer la Spécification QOS"
-msgstr[1] "Supprimer les Spécifications QOS"
+msgstr[1] "Supprimer les spécifications QOS"
 
 #: dashboards/admin/volumes/volume_types/tables.py:126
 msgid "Deleted QOS Spec"
@@ -3844,7 +3844,7 @@ msgstr "Spécifications QOS"
 
 #: dashboards/admin/volumes/volume_types/views.py:69
 msgid "Unable to retrieve QOS Spec details."
-msgstr "Incapable de récupérer les détails de la Spécification QOS."
+msgstr "Impossible de récupérer les détails de la spécification QOS."
 
 #: dashboards/admin/volumes/volume_types/views.py:101
 #: dashboards/admin/volumes/volume_types/extras/views.py:36
@@ -3853,11 +3853,11 @@ msgstr "Impossible de récupérer les détails du type de volume."
 
 #: dashboards/admin/volumes/volume_types/views.py:111
 msgid "Unable to retrieve QOS Specs."
-msgstr "Incapable de récupérer les Spécifications QOS."
+msgstr "Impossible de récupérer les spécifications QOS."
 
 #: dashboards/admin/volumes/volume_types/views.py:130
 msgid "Unable to retrieve QOS Spec association."
-msgstr "Incapable de récupérer l'association de Spécification QOS."
+msgstr "Impossible de récupérer l'association de la spécification QOS."
 
 #: dashboards/admin/volumes/volume_types/extras/forms.py:23
 #: dashboards/admin/volumes/volume_types/extras/tables.py:69
@@ -3916,7 +3916,7 @@ msgstr "Impossible de récupérer la liste des spécifications supplémentaires.
 
 #: dashboards/admin/volumes/volume_types/extras/views.py:90
 msgid "Unable to retrieve volume type extra spec details."
-msgstr "Impossible de récupérer les détails des spécificités supplémentaires du type de volume."
+msgstr "Impossible de récupérer les détails des spécifications supplémentaires du type de volume."
 
 #: dashboards/admin/volumes/volume_types/qos_specs/forms.py:37
 #, python-format
@@ -3925,20 +3925,20 @@ msgstr "Spécification \"%s\" créée."
 
 #: dashboards/admin/volumes/volume_types/qos_specs/forms.py:42
 msgid "Unable to create spec."
-msgstr "Incapable de créer une spécification."
+msgstr "Impossible de créer la spécification."
 
 #: dashboards/admin/volumes/volume_types/qos_specs/forms.py:64
 #, python-format
 msgid "Saved spec \"%s\"."
-msgstr "Spécification sauvegardée \"%s\"."
+msgstr "Spécification \"%s\" enregistrée."
 
 #: dashboards/admin/volumes/volume_types/qos_specs/forms.py:69
 msgid "Unable to edit spec."
-msgstr "Incapable d'éditer la spécification."
+msgstr "Impossible d'éditer la spécification."
 
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:63
 msgid "Key-Value Pairs"
-msgstr "Paires de clé-valeur"
+msgstr "Paires Clé-Valeur"
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:48
 msgid "undefined"
@@ -3946,11 +3946,11 @@ msgstr "Indéfini"
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:64
 msgid "Unable to retrieve QOS spec list."
-msgstr "Incapable de récupérer la liste de spécifications QOS."
+msgstr "Impossible de récupérer la liste de spécifications QOS."
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:100
 msgid "Unable to retrieve QOS spec details."
-msgstr "Incapable de récupérer les détails de spécifications QOS."
+msgstr "Impossible de récupérer les détails de spécification QOS."
 
 #: dashboards/admin/volumes/volumes/forms.py:36
 #, python-format
@@ -3963,7 +3963,7 @@ msgstr "Impossible de créer le type de volume."
 
 #: dashboards/admin/volumes/volumes/forms.py:53
 msgid "Attaching"
-msgstr "Assignation"
+msgstr "Attachement en cours"
 
 #: dashboards/admin/volumes/volumes/forms.py:57
 #: dashboards/project/volumes/volumes/tables.py:383
@@ -3977,12 +3977,12 @@ msgstr "En cours d'utilisation"
 #: dashboards/admin/volumes/volumes/forms.py:77
 #, python-format
 msgid "Successfully updated volume status to \"%s\"."
-msgstr "Etat du volume actualisé avec succès à \"%s\"."
+msgstr "Statut du volume actualisé avec succès à \"%s\"."
 
 #: dashboards/admin/volumes/volumes/forms.py:82
 #, python-format
 msgid "Unable to update volume status to \"%s\"."
-msgstr "Impossible d'actualiser l'état du volume à '%s\"."
+msgstr "Impossible d'actualiser le statut du volume à '%s\"."
 
 #: dashboards/admin/volumes/volumes/forms.py:97
 #, python-format
@@ -3991,7 +3991,7 @@ msgstr "Spécification QOS créée avec succès : %s"
 
 #: dashboards/admin/volumes/volumes/forms.py:102
 msgid "Unable to create QOS Spec."
-msgstr "Incapable de créer la Spécification QOS."
+msgstr "Impossible de créer la spécification QOS."
 
 #: dashboards/admin/volumes/volumes/views.py:61
 #: dashboards/project/volumes/volumes/views.py:62
@@ -4014,18 +4014,18 @@ msgstr "Domaines"
 #: dashboards/identity/groups/tables.py:76
 #: dashboards/identity/projects/tables.py:29
 msgid "Modify Users"
-msgstr "Editer les Utilisateurs"
+msgstr "Modifier les utilisateurs"
 
 #: dashboards/identity/domains/tables.py:53
 #: dashboards/identity/projects/tables.py:45
 msgid "Modify Groups"
-msgstr "Editer les Groupes"
+msgstr "Modifier les groupes"
 
 #: dashboards/identity/domains/tables.py:67
 #: dashboards/identity/domains/workflows.py:252
 #: dashboards/identity/domains/workflows.py:253
 msgid "Create Domain"
-msgstr "Créer un Domaine"
+msgstr "Créer un domaine"
 
 #: dashboards/identity/domains/tables.py:91
 msgid "Domain"
@@ -4043,7 +4043,7 @@ msgstr "Définir le contexte du domaine"
 #: dashboards/identity/domains/tables.py:156
 #, python-format
 msgid "Domain Context updated to Domain %s."
-msgstr "Le contexte du domaine a été mis à jour pour le domaine %s."
+msgstr "Contexte du domaine mis à jour pour le domaine %s."
 
 #: dashboards/identity/domains/tables.py:160
 msgid "Unable to set Domain Context."
@@ -4089,7 +4089,7 @@ msgstr "Informations du domaine"
 msgid ""
 "Domains provide separation between users and infrastructure used by "
 "different organizations."
-msgstr "Les domaines fournissent des séparations entre les utilisateurs et l'infrastructure utilisée par les différentes organisations."
+msgstr "Les domaines fournissent des séparations entre les utilisateurs et l'infrastructure utilisées par les différentes organisations."
 
 #: dashboards/identity/domains/workflows.py:71
 #: dashboards/identity/domains/workflows.py:170
@@ -4118,7 +4118,7 @@ msgstr "Impossible de récupérer la liste des rôles."
 
 #: dashboards/identity/domains/workflows.py:114
 msgid "Unable to retrieve user domain role assignments."
-msgstr "Incapable de récupérer le domaine utilisateur d'affectation des rôles."
+msgstr "Impossible de récupérer le domaine utilisateur d'affectation des rôles."
 
 #: dashboards/identity/domains/workflows.py:126
 #: dashboards/identity/domains/workflows.py:133
@@ -4244,11 +4244,11 @@ msgstr "Groupes"
 #: dashboards/identity/groups/templates/groups/create.html:3
 #: dashboards/identity/groups/templates/groups/create.html:6
 msgid "Create Group"
-msgstr "Créer un Groupe"
+msgstr "Créer un groupe"
 
 #: dashboards/identity/groups/tables.py:50
 msgid "Edit Group"
-msgstr "Editer un Groupe"
+msgstr "Editer le groupe"
 
 #: dashboards/identity/groups/tables.py:62
 msgid "Group"
@@ -4313,11 +4313,11 @@ msgstr "E-mail"
 #: dashboards/identity/users/tables.py:177
 #: dashboards/project/instances/audit_tables.py:28
 msgid "User ID"
-msgstr "ID d'Utilisateur"
+msgstr "ID Utilisateur"
 
 #: dashboards/identity/groups/tables.py:177
 msgid "Group Members"
-msgstr "Membres du Groupe"
+msgstr "Membres du groupe"
 
 #: dashboards/identity/groups/tables.py:183
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:27
@@ -4380,7 +4380,7 @@ msgstr "Les groupes sont utilisés pour gérer les accès et attribuer des rôle
 #: dashboards/identity/groups/templates/groups/update.html:3
 #: dashboards/identity/groups/templates/groups/update.html:6
 msgid "Update Group"
-msgstr "Mettre à jour un Groupe"
+msgstr "Mettre à jour le groupe"
 
 #: dashboards/identity/groups/templates/groups/_update.html:18
 msgid ""
@@ -4465,7 +4465,7 @@ msgstr "Quota"
 
 #: dashboards/identity/projects/workflows.py:89
 msgid "Set maximum quotas for the project."
-msgstr "Positionner les quotas maximum pour le projet."
+msgstr "Définir les quotas maximum pour le projet."
 
 #: dashboards/identity/projects/workflows.py:99
 #, python-format
@@ -4592,7 +4592,7 @@ msgstr "Utilisation du projet"
 #: dashboards/identity/roles/forms.py:25 dashboards/identity/roles/forms.py:38
 #: dashboards/identity/roles/tables.py:67
 msgid "Role Name"
-msgstr "Nom de Rôle"
+msgstr "Nom de rôle"
 
 #: dashboards/identity/roles/forms.py:30
 msgid "Role created successfully."
@@ -4624,7 +4624,7 @@ msgstr "Rôles"
 #: dashboards/identity/roles/templates/roles/create.html:3
 #: dashboards/identity/roles/templates/roles/create.html:7
 msgid "Create Role"
-msgstr "Créer un Rôle"
+msgstr "Créer un rôle"
 
 #: dashboards/identity/roles/tables.py:47
 #: dashboards/identity/users/forms.py:96
@@ -4633,7 +4633,7 @@ msgstr "Rôle"
 
 #: dashboards/identity/roles/tables.py:68
 msgid "Role ID"
-msgstr "ID de Rôle"
+msgstr "ID de rôle"
 
 #: dashboards/identity/roles/views.py:46
 msgid "Unable to retrieve roles list."
@@ -4641,7 +4641,7 @@ msgstr "Impossible de récupérer la liste des rôles."
 
 #: dashboards/identity/roles/views.py:48
 msgid "Insufficient privilege level to view role information."
-msgstr "Niveau de privilèges insuffisants pour voir les informations du rôle."
+msgstr "Privilèges insuffisants pour voir les informations du rôle."
 
 #: dashboards/identity/roles/templates/roles/_create.html:18
 msgid "Create a new role."
@@ -4770,24 +4770,24 @@ msgstr "Impossible de mettre à jour l'utilisateur."
 
 #: dashboards/identity/users/views.py:136
 msgid "Unable to retrieve user roles."
-msgstr "Impossible de récupérer les rôles utilisateur."
+msgstr "Impossible de récupérer les rôles de l'utilisateur."
 
 #: dashboards/identity/users/templates/users/_create.html:18
 msgid ""
 "Create a new user and set related properties including the Primary Project "
 "and Role."
-msgstr "Créer un nouvel utilisateur et définir les propriétés liées en incluant le Projet Primaire et le Rôle. "
+msgstr "Créer un nouvel utilisateur et définir les propriétés liées y compris le Projet Primaire et le Rôle. "
 
 #: dashboards/identity/users/templates/users/_update.html:8
 #: dashboards/identity/users/templates/users/_update.html:33
 #: dashboards/identity/users/templates/users/update.html:3
 #: dashboards/identity/users/templates/users/update.html:7
 msgid "Update User"
-msgstr "Mettre à jour un Utilisateur"
+msgstr "Mettre à jour l'Utilisateur"
 
 #: dashboards/identity/users/templates/users/_update.html:18
 msgid "Edit the user's details, including the Primary Project and Role."
-msgstr "Éditer les détails de l'utilisateur, en incluant le Projet Primaire et le Rôle."
+msgstr "Éditer les détails de l'Utilisateur, y compris le Projet Primaire et le Rôle."
 
 #: dashboards/project/dashboard.py:22
 msgid "Compute"
@@ -5018,7 +5018,7 @@ msgstr "Aucune instance disponible"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:136
 msgid "Manage Floating IP Associations"
-msgstr "Gérer les Associations d'IP flottantes"
+msgstr "Gérer les associations d'IP flottantes"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:138
 #, python-format
@@ -5034,7 +5034,7 @@ msgstr "Impossible d'associer l'adresse IP %s."
 msgid ""
 "Key pair name may only contain letters, numbers, underscores, spaces and "
 "hyphens."
-msgstr "Le nom des paires de clés ne peut contenir que des lettres, des chiffres, des caractères de soulignement et des traits d'union."
+msgstr "Le nom d'une paire de clés ne peut contenir que des lettres, des chiffres, des caractères de soulignement, des espaces et des traits d'union."
 
 #: dashboards/project/access_and_security/keypairs/forms.py:41
 #: dashboards/project/access_and_security/keypairs/forms.py:51
@@ -5059,8 +5059,8 @@ msgstr "Impossible d'importer la paire de clés."
 #: dashboards/project/access_and_security/keypairs/tables.py:31
 msgid "Delete Key Pair"
 msgid_plural "Delete Key Pairs"
-msgstr[0] "Supprimer la Paire de Clé"
-msgstr[1] "Supprimer les Paires de Clé"
+msgstr[0] "Supprimer la paire de clés"
+msgstr[1] "Supprimer les paires de clés"
 
 #: dashboards/project/access_and_security/keypairs/tables.py:39
 msgid "Deleted Key Pair"
@@ -5177,12 +5177,12 @@ msgstr "Entrer un entier entre 1 et 65535."
 #: dashboards/project/access_and_security/security_groups/forms.py:147
 #: dashboards/project/access_and_security/security_groups/forms.py:154
 msgid "From Port"
-msgstr "Du Port"
+msgstr "Du port"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:158
 #: dashboards/project/access_and_security/security_groups/forms.py:165
 msgid "To Port"
-msgstr "Au Port"
+msgstr "Au port"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:171
 msgid "Enter a value for ICMP type in the range (-1: 255)"
@@ -5252,7 +5252,7 @@ msgstr "Règle ICMP personnalisée"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:257
 msgid "Other Protocol"
-msgstr "Autre Protocole"
+msgstr "Autre protocole"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:262
 #: dashboards/project/access_and_security/security_groups/tables.py:213
@@ -5286,7 +5286,7 @@ msgstr "Le port spécifié est invalide."
 
 #: dashboards/project/access_and_security/security_groups/forms.py:320
 msgid "The \"from\" port number is invalid."
-msgstr "Le numéro de port \"origine\" est invalide."
+msgstr "Le numéro de port \"source\" est invalide."
 
 #: dashboards/project/access_and_security/security_groups/forms.py:323
 msgid "The \"to\" port number is invalid."
@@ -5296,7 +5296,7 @@ msgstr "Le numéro de port \"destination\" est invalide."
 msgid ""
 "The \"to\" port number must be greater than or equal to the \"from\" port "
 "number."
-msgstr "Le numéro de port \"destination\" doit être supérieur ou égal au numéro de port \"origine\"."
+msgstr "Le numéro de port \"destination\" doit être supérieur ou égal au numéro de port \"source\"."
 
 #: dashboards/project/access_and_security/security_groups/forms.py:359
 msgid "CIDR must be specified."
@@ -5341,7 +5341,7 @@ msgstr "Editer le groupe de sécurité"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:107
 msgid "Manage Rules"
-msgstr "Gérer les Règles"
+msgstr "Gérer les règles"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:137
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:8
@@ -5391,11 +5391,11 @@ msgstr "Allouer une IP flottante"
 
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:19
 msgid "Allocate a floating IP from a given floating IP pool."
-msgstr "Allouer une IP flottante depuis un pool d'IP."
+msgstr "Allouer une IP flottante depuis un pool d'IP flottantes."
 
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:21
 msgid "Project Quotas"
-msgstr "Quotas de projet"
+msgstr "Quotas du projet"
 
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:23
 msgid "Floating IP"
@@ -5403,14 +5403,14 @@ msgstr "IP flottantes"
 
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:42
 msgid "Allocate IP"
-msgstr "Allocation d'IP"
+msgstr "Allouer  l'IP"
 
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_create.html:18
 msgid ""
 "Key pairs are ssh credentials which are injected into images when they are "
 "launched. Creating a new key pair registers the public key and downloads the"
 " private key (a .pem file)."
-msgstr "Les paires de clés sont des identifiants SSH injectés dans les images lors de leur lancement. L'action de créer une nouvelle paire de clés enregistre la clé publique et télécharge la clé privée (fichier .pem)"
+msgstr "Les paires de clés sont des identifiants SSH injectés dans les images lors de leur lancement. La création d'une nouvelle paire de clés enregistre la clé publique et télécharge la clé privée (fichier .pem)"
 
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_create.html:19
 msgid "Protect and use the key as you would any normal ssh private key."
@@ -5445,14 +5445,14 @@ msgstr "Après le lancement d'une instance, vous vous connectez à l'aide de la 
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:4
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:7
 msgid "Download Key Pair"
-msgstr "Téléchargement de la paire de clés."
+msgstr "Télécharger la paire de clés."
 
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:12
 #, python-format
 msgid ""
 "The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
 "not use the link below."
-msgstr "La paire de clés &quot;%(keypair_name)s&quot; doit se télécharger automatiquement. Si ce n'est pas le cas, utiliser le lien ci-dessous."
+msgstr "La paire de clés &quot;%(keypair_name)s&quot; doit se télécharger automatiquement. Si ce n'est pas le cas, utilisez le lien ci-dessous."
 
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:16
 #, python-format
@@ -5481,7 +5481,7 @@ msgid ""
 " of ports. Selecting the \"Port Range\" option will provide you with space "
 "to provide both the starting and ending ports for the range. For ICMP rules "
 "you instead specify an ICMP type and code in the spaces provided."
-msgstr "Pour les règles TCP et UDP, vous pouvez choisir d'ouvrir soit un seul port, soit une plage de ports. En sélectionnant l'option \"plage de ports\", vous aurez l'espace pour fournir le port de début et le port de fin pour la plage concernée. Pour les règles ICMP, vous devez en revanche fournir un type ICMP et un code dans les espaces proposés."
+msgstr "Pour les règles TCP et UDP, vous pouvez choisir d'ouvrir soit un seul port, soit une plage de ports. En sélectionnant l'option \"Plage de ports\", vous pourrez préciser le port de début et le port de fin de la plage. Pour les règles ICMP, vous devez en revanche fournir un type et un code ICMP."
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:22
 msgid ""
@@ -5490,7 +5490,7 @@ msgid ""
 "group (Security Group). Selecting a security group as the source will allow "
 "any other instance in that security group access to any other instance via "
 "this rule."
-msgstr "Vous devez spécifier la source du trafic autorisé par cette règle. Vous pouvez faire cela soit sous la forme d'un bloc d'adresses IP (CIDR), soit sous la forme d'un groupe source (groupe de sécurité). Choisir un groupe de sécurité comme source autorise n'importe quelle instance de ce groupe à accéder à n'importe quelle autre instance au travers de cette règle."
+msgstr "Vous devez spécifier la source du trafic autorisé par cette règle. Vous pouvez faire cela soit sous la forme d'un bloc d'adresses IP (CIDR), soit sous la forme d'un groupe source (groupe de sécurité). Choisir un groupe de sécurité comme source autorise n'importe quelle instance de ce groupe à accéder à n'importe quelle autre instance grâce à cette règle."
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_create.html:19
 msgid ""
@@ -5524,7 +5524,7 @@ msgstr "Conteneur"
 
 #: dashboards/project/containers/forms.py:34
 msgid "Slash is not an allowed character."
-msgstr "Le caractère Slash ('/')  n'est pas autorisé."
+msgstr "Le caractère slash n'est pas autorisé."
 
 #: dashboards/project/containers/forms.py:41
 #: dashboards/project/containers/templates/containers/_container_detail.html:18
@@ -5537,12 +5537,12 @@ msgstr "Privé"
 #: dashboards/project/containers/templates/containers/_container_detail.html:10
 #: dashboards/project/volumes/backups/forms.py:39
 msgid "Container Name"
-msgstr "Nom du Conteneur"
+msgstr "Nom du conteneur"
 
 #: dashboards/project/containers/forms.py:51
 #: dashboards/project/containers/templates/containers/_container_detail.html:12
 msgid "Container Access"
-msgstr "Accès Conteneurs"
+msgstr "Accès du conteneur"
 
 #: dashboards/project/containers/forms.py:63
 msgid "Container created successfully."
@@ -5566,12 +5566,12 @@ msgstr "Fichier"
 #: dashboards/project/containers/forms.py:88
 #: dashboards/project/containers/tables.py:443
 msgid "Object Name"
-msgstr "Nom d'Objet"
+msgstr "Nom de l'objet"
 
 #: dashboards/project/containers/forms.py:89
 msgid ""
 "Slashes are allowed, and are treated as pseudo-folders by the Object Store."
-msgstr "Les caractères Slash ('/') sont autorisées et sont traités comme des pseudo-dossiers par le Stockage d'Objet."
+msgstr "Les caractères slash sont autorisés et sont considérés comme des pseudo-dossiers par le magasin d'objets."
 
 #: dashboards/project/containers/forms.py:120
 msgid "Object was successfully uploaded."
@@ -5591,11 +5591,11 @@ msgstr "Impossible de mettre à jour l'objet."
 
 #: dashboards/project/containers/forms.py:161
 msgid "Pseudo-folder Name"
-msgstr "Nom du Pseudo-dossier"
+msgstr "Nom du pseudo-dossier"
 
 #: dashboards/project/containers/forms.py:179
 msgid "Pseudo-folder was successfully created."
-msgstr "Le Pseudo-dossier a été créé avec succès."
+msgstr "Le pseudo-dossier a été créé avec succès."
 
 #: dashboards/project/containers/forms.py:183
 msgid "Unable to create pseudo-folder."
@@ -5659,13 +5659,13 @@ msgstr "L'accès au conteneur a été rendu privé"
 #: dashboards/project/containers/tables.py:110
 msgid "Delete Container"
 msgid_plural "Delete Containers"
-msgstr[0] "Supprimer le Conteneur"
-msgstr[1] "Supprimer les Conteneurs"
+msgstr[0] "Supprimer le conteneur"
+msgstr[1] "Supprimer les conteneurs"
 
 #: dashboards/project/containers/tables.py:118
 msgid "Deleted Container"
 msgid_plural "Deleted Containers"
-msgstr[0] "Conteneur Supprimé"
+msgstr[0] "Conteneur supprimé"
 msgstr[1] "Conteneurs supprimés"
 
 #: dashboards/project/containers/tables.py:132
@@ -5678,11 +5678,11 @@ msgstr "Impossible de supprimer le conteneur."
 #: dashboards/project/containers/templates/containers/create.html:3
 #: dashboards/project/containers/templates/containers/create.html:6
 msgid "Create Container"
-msgstr "Créer un Conteneur"
+msgstr "Créer un conteneur"
 
 #: dashboards/project/containers/tables.py:157
 msgid "View Container"
-msgstr "Voir le Conteneur"
+msgstr "Voir le conteneur"
 
 #: dashboards/project/containers/tables.py:169
 #: dashboards/project/containers/templates/containers/create_pseudo_folder.html:3
@@ -5694,26 +5694,26 @@ msgstr "Créer un pseudo-dossier"
 #: dashboards/project/containers/templates/containers/_upload.html:26
 #: dashboards/project/containers/templates/containers/upload.html:3
 msgid "Upload Object"
-msgstr "Télécharger un Objet"
+msgstr "Télécharger un objet"
 
 #: dashboards/project/containers/tables.py:267
 #: dashboards/project/containers/templates/containers/_container_detail.html:5
 #: dashboards/project/containers/templates/containers/container_detail.html:3
 #: dashboards/project/containers/templates/containers/container_detail.html:6
 msgid "Container Details"
-msgstr "Détails du Conteneur"
+msgstr "Détails du conteneur"
 
 #: dashboards/project/containers/tables.py:333
 msgid "Delete Object"
 msgid_plural "Delete Objects"
-msgstr[0] "Supprimer l'Objet"
-msgstr[1] "Supprimer les Objets"
+msgstr[0] "Supprimer l'objet"
+msgstr[1] "Supprimer les objets"
 
 #: dashboards/project/containers/tables.py:341
 msgid "Deleted Object"
 msgid_plural "Deleted Objects"
-msgstr[0] "Objet Supprimé"
-msgstr[1] "Objets Supprimés"
+msgstr[0] "Objet supprimé"
+msgstr[1] "Objets supprimés"
 
 #: dashboards/project/containers/tables.py:368
 msgid "Copy"
@@ -5759,11 +5759,11 @@ msgstr "URL publique"
 
 #: dashboards/project/containers/templates/containers/_container_detail.html:20
 msgid "Object Count"
-msgstr "Nombre d'Objets"
+msgstr "Nombre d'objets"
 
 #: dashboards/project/containers/templates/containers/_container_metadata.html:3
 msgid "Object Count: "
-msgstr "Nombre d'objets:"
+msgstr "Nombre d'objets :"
 
 #: dashboards/project/containers/templates/containers/_container_metadata.html:4
 msgid "Size: "
@@ -5778,7 +5778,7 @@ msgstr "Accès:"
 #: dashboards/project/containers/templates/containers/copy.html:3
 #: dashboards/project/containers/templates/containers/copy.html:6
 msgid "Copy Object"
-msgstr "Copier l'Objet"
+msgstr "Copier l'objet"
 
 #: dashboards/project/containers/templates/containers/_copy.html:18
 msgid ""
@@ -5796,13 +5796,13 @@ msgid ""
 " nested. You can, however, create an unlimited number of containers within "
 "your account. Data must be stored in a container so you must have at least "
 "one container defined in your account prior to uploading data."
-msgstr "Un conteneur est un compartiment de stockage pour vos données et vous fournit une façon de les organiser. Vous pouvez imaginer un conteneur comme un dossier Windows &reg; ou comme un répertoire UNIX &reg;. La différence principale entre un conteneur et ces concepts de systèmes de fichiers réside dans l'impossibilité d'imbriquer des conteneurs. Cependant, vous pouvez créer un nombre illimité de conteneurs dans votre compte. Les données doivent être stockées dans un conteneur, ainsi vous devez avoir au moins un conteneur défini dans votre compte avant de télécharger des données."
+msgstr "Un conteneur est un compartiment de stockage pour vos données et vous fournit une façon de les organiser. Vous pouvez imaginer un conteneur comme un dossier Windows &reg; ou comme un répertoire UNIX &reg;. La différence principale entre un conteneur et ces autres concepts de systèmes de fichiers réside dans l'impossibilité d'imbriquer des conteneurs. Cependant, vous pouvez créer un nombre illimité de conteneurs dans votre compte. Les données doivent être stockées dans un conteneur, ainsi vous devez avoir au moins un conteneur défini dans votre compte avant de télécharger des données."
 
 #: dashboards/project/containers/templates/containers/_create.html:19
 msgid ""
 "Note: A Public Container will allow anyone with the Public URL to gain "
 "access to your objects in the container."
-msgstr "Remarque: Un conteneur publique permettra à quiconque avec l'URL publique d'accéder à vos objets dans le conteneur."
+msgstr "Remarque : un conteneur public permettra à quiconque muni de l'URL publique d'accéder à vos objets dans le conteneur."
 
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:8
 msgid "Create pseudo-folder in container"
@@ -5821,7 +5821,7 @@ msgid ""
 "exception that they are virtual collections defined by a common prefix on "
 "the object's name. A slash (/) character is used as the delimiter for "
 "pseudo-folders in the Object Store."
-msgstr "A l'intérieur d'un conteneur vous pouvez grouper des objets dans des pseudo-dossiers, qui se comportent de manière identique aux dossiers du bureau de votre système d'exploitation personnel, à l'exception près qu'ils sont des ensembles virtuels définis par un préfixe commun sur le nom de l'objet. Un caractère slash (/) est utilisé comme délimiteur pour les pseudo-dossiers dans le Magasin d'Objets."
+msgstr "A l'intérieur d'un conteneur vous pouvez grouper vos objets dans des pseudo-dossiers, qui se comportent de manière identique aux dossiers du bureau de votre système d'exploitation personnel, à la différence près qu'ils sont des ensembles virtuels définis par un préfixe commun sur le nom de l'objet. Un caractère slash (/) est utilisé comme délimiteur des pseudo-dossiers dans le magasin d'objets."
 
 #: dashboards/project/containers/templates/containers/_object_detail.html:5
 #: dashboards/project/containers/templates/containers/object_detail.html:3
@@ -5835,11 +5835,11 @@ msgstr "Hash"
 
 #: dashboards/project/containers/templates/containers/_object_detail.html:14
 msgid "Content Type"
-msgstr "Type de Contenu"
+msgstr "Type de contenu"
 
 #: dashboards/project/containers/templates/containers/_object_detail.html:16
 msgid "Last Modified"
-msgstr "Dernière Modification"
+msgstr "Dernière modification"
 
 #: dashboards/project/containers/templates/containers/_update.html:11
 msgid "Edit Object"
@@ -5858,25 +5858,25 @@ msgid ""
 "Object Storage, the data is stored as-is (no compression or encryption) and "
 "consists of a location (container), the object's name, and any metadata "
 "consisting of key/value pairs."
-msgstr "Un objet est l'entité de stockage de base qui représente un fichier dans le système de Stockage d'Objet d'OpenStack. Quand vous téléchargez des données dans le système de Stockage d'Objet, les données sont stockées telles que, sans compression ni chiffrement, et sont représentées par un emplacement (conteneur), le nom de l'objet et les métadonnées associées (paires clés/valeurs)."
+msgstr "Un objet est l'entité de stockage de base qui représente un fichier dans le système de Stockage d'Objet d'OpenStack. Quand vous téléchargez des données dans le système de Stockage d'Objet, les données sont stockées telles que (sans compression ni chiffrement) et sont représentées par un emplacement (conteneur), le nom de l'objet et les métadonnées associées (paires clé/valeur)."
 
 #: dashboards/project/containers/templates/containers/_update.html:22
 msgid "A new uploaded file will replace the content of the current object"
-msgstr "Un nouveau fichier téléchargé va remplacer le contenu de l’objet courant."
+msgstr "Un nouveau fichier téléchargé remplacera le contenu de l’objet courant."
 
 #: dashboards/project/containers/templates/containers/_update.html:27
 #: dashboards/project/containers/templates/containers/update.html:3
 #: dashboards/project/containers/templates/containers/update.html:6
 msgid "Update Object"
-msgstr "Mise à jour de l'objet"
+msgstr "Mettre à  jour l'objet"
 
 #: dashboards/project/containers/templates/containers/_upload.html:10
 msgid "Upload Object To Container"
-msgstr "Charger un Objet dans un Conteneur"
+msgstr "Charger un objet dans un conteneur"
 
 #: dashboards/project/containers/templates/containers/upload.html:6
 msgid "Upload Objects"
-msgstr "Charger des Objets"
+msgstr "Charger des objets"
 
 #: dashboards/project/data_processing/cluster_templates/forms.py:31
 msgid "Cluster Template Name"
@@ -5891,7 +5891,7 @@ msgstr "Modèle"
 
 #: dashboards/project/data_processing/cluster_templates/forms.py:57
 msgid "Unable to upload cluster template file"
-msgstr "Impossible de téléverser le fichier modèle de cluster"
+msgstr "Impossible de télécharger le fichier modèle de cluster"
 
 #: dashboards/project/data_processing/cluster_templates/panel.py:22
 #: dashboards/project/data_processing/cluster_templates/tables.py:127
@@ -5958,7 +5958,7 @@ msgstr "Configurer le modèle de Cluster"
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:6
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:24
 msgid "Plugin"
-msgstr "Composant enfichable"
+msgstr "Plugin"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:117
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:16
@@ -6036,7 +6036,7 @@ msgstr "L'objet modèle de cluste doit spécifier la liste des processus dans le
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_create_general_help.html:3
 msgid "Select a plugin and Hadoop version for a new Cluster template."
-msgstr "Sélection un composant et la version d'Hadoop pour un nouveau modèle de cluster"
+msgstr "Sélectionner un plugin et la version d'Hadoop pour un nouveau modèle de cluster."
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:3
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:3
@@ -6079,7 +6079,7 @@ msgstr "Group de noeud"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:8
 msgid "Nodes Count"
-msgstr "Compteur de noeuds"
+msgstr "Nombre de noeuds"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:11
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:14
@@ -6168,16 +6168,16 @@ msgstr "Impossible de trouver le modèle à copier"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:49
 msgid "Unable to fetch plugin list."
-msgstr "Impossible de trouver la list des composants"
+msgstr "Impossible de récupérer la liste des plugins."
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:53
 #: dashboards/project/data_processing/jobs/workflows/launch.py:354
 msgid "Plugin name"
-msgstr "Nom du composant"
+msgstr "Nom du plugin"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:69
 msgid "Select plugin and hadoop version for cluster template"
-msgstr "Sélectionner le composant et la version pour le modèle de cluster"
+msgstr "Sélectionner le plugin et la version Hadoop pour le modèle de cluster"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:83
 #: dashboards/project/data_processing/jobs/workflows/launch.py:408
@@ -6265,7 +6265,7 @@ msgstr " "
 
 #: dashboards/project/data_processing/clusters/tabs.py:174
 msgid "Unable to fetch instance details."
-msgstr "Impossible de charger les détails de l'instance"
+msgstr "Impossible de récupérer les détails de l'instance."
 
 #: dashboards/project/data_processing/clusters/views.py:47
 msgid "Unable to fetch cluster list"
@@ -6356,11 +6356,11 @@ msgstr "Quelle paire de clés utiliser pour l'authentification."
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:125
 msgid "Unable to fetch image choices."
-msgstr "Impossible de charger les choix d'image."
+msgstr "Impossible de récupérer les choix d'image."
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:134
 msgid "Unable to fetch keypair choices."
-msgstr "Echec de la récupération du choix de paires de clés."
+msgstr "Impossible de récupérer les choix de paires de clés."
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:136
 msgid "No keypair"
@@ -6397,7 +6397,7 @@ msgstr "Echec lors de la mise à l'échelle du cluster"
 
 #: dashboards/project/data_processing/data_image_registry/forms.py:45
 msgid "Successfully updated image."
-msgstr "Image mise à jour avec succès"
+msgstr "Image mise à jour avec succès."
 
 #: dashboards/project/data_processing/data_image_registry/forms.py:50
 msgid "Failed to update image."
@@ -6507,7 +6507,7 @@ msgstr "Le Nom d'Utilisateur Spécifié sera utilisé par le Traitement de Donn�
 msgid ""
 "Tags are used for filtering images suitable for each plugin and each Data Processing version.\n"
 "        To add required tags, select a plugin and a Data Processing version and click &quot;Add plugin tags&quot; button."
-msgstr "Les balises sont utilisées pour filtrer les images appropriées pour chaque greffon et chaque version de traitement de données en cours.\nPour ajouter les balises requises, sélectionner un greffon et une version de traitement de données et cliquer sur le bouton &quot;Add plugin tags&quot;."
+msgstr "Les balises sont utilisées pour filtrer les images appropriées pour chaque plugin et chaque version de traitement de données en cours.\nPour ajouter les balises requises, sélectionner un greffon et une version de traitement de données et cliquer sur le bouton &quot;Add plugin tags&quot;."
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:16
 msgid "You may also add any custom tag."
@@ -6551,7 +6551,7 @@ msgstr "Versions supportées"
 
 #: dashboards/project/data_processing/data_plugins/tabs.py:39
 msgid "Unable to retrieve plugin."
-msgstr "Impossible de retrouver le plugin"
+msgstr "Impossible de récupérer le plugin."
 
 #: dashboards/project/data_processing/data_plugins/views.py:40
 msgid "Unable to retrieve data processing plugins."
@@ -6673,11 +6673,11 @@ msgstr "Type de stockage"
 
 #: dashboards/project/data_processing/job_binaries/forms.py:55
 msgid "Internal binary"
-msgstr "binaire Interne"
+msgstr "Binaire interne"
 
 #: dashboards/project/data_processing/job_binaries/forms.py:58
 msgid "Upload File"
-msgstr "Téléverser un fichier"
+msgstr "Télécharger un fichier"
 
 #: dashboards/project/data_processing/job_binaries/forms.py:61
 msgid "Script name"
@@ -6693,7 +6693,7 @@ msgstr "Nom d'utilisateur"
 
 #: dashboards/project/data_processing/job_binaries/forms.py:98
 msgid "Failed to get list of internal binaries."
-msgstr "Impossible d'obtenir la liste des fichiers binaires internes."
+msgstr "Echec de la récupération de la liste des binaires internes."
 
 #: dashboards/project/data_processing/job_binaries/forms.py:128
 #: dashboards/project/data_processing/job_binaries/forms.py:171
@@ -6763,17 +6763,17 @@ msgstr "<b>Important</b> : le nom que vous donnez à votre binaire de tâche ser
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:8
 msgid "Select the storage type for your job binary."
-msgstr "Sélectionner le type de stockage pour votre binaire de tâche."
+msgstr "Sélectionner le type de stockage pour votre binaire de tâche :"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:10
 msgid "Data Processing internal database"
-msgstr "Base de donnée interne du Traitement des Données"
+msgstr "Base de données interne du Traitement des Données"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:15
 msgid ""
 "For Data Processing internal job binaries, you may choose from the "
 "following:"
-msgstr "Pour les binaires de Traitement de Donnée internes, vous pouvez choisir parmi les suivants:"
+msgstr "Pour les binaires internes des tâches de traitement de donnée, vous pouvez choisir parmi :"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:17
 msgid "Choose an existing file"
@@ -6781,11 +6781,11 @@ msgstr "Choisir un fichier existant"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:18
 msgid "Upload a new file"
-msgstr "Téléverser un nouveau fichier"
+msgstr "Télécharger un nouveau fichier"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:19
 msgid "Create a script to be uploaded dynamically"
-msgstr "Créer un script qui sera téléverser dynamiquement"
+msgstr "Créer un script qui sera téléchargé dynamiquement"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:23
 msgid "For Object Store job binaries, you must:"
@@ -7017,13 +7017,13 @@ msgstr "Choisissez ou créez votre binaire principal. Les bibliothèques additio
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:20
 msgid "For Spark jobs, only a main is required, \"libs\" are optional."
-msgstr "Pour les travaux Spark, seulement l'attribut 'main' est nécessaire, 'libs' est facultatif."
+msgstr "Pour les tâches Spark, seul l'attribut 'main' est nécessaire, 'libs' est facultatif."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:23
 msgid ""
 "For MapReduce or Java Action jobs, \"mains\" are not applicable.  You are required to add one\n"
 "  or more \"libs\" for these jobs."
-msgstr "Pour les tâches MapReduce ou Action Java, \"binaire principal\" ne s'applique pas. Vous devez ajouter une ou plusieurs \"libs\" pour ces tâches."
+msgstr "Pour les tâches MapReduce ou Java Action , \"binaire principal\" ne s'applique pas. Vous devez ajouter une ou plusieurs \"libs\" pour ces tâches."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:27
 msgid "You may also enter an optional description for your job."
@@ -7037,7 +7037,7 @@ msgstr "Ajouter des bibliothèques à votre tâche."
 msgid ""
 "Choose from the list of binaries and click \"choose\" to add the library to "
 "your job.  This can be repeated for additional libraries."
-msgstr "Choisissez dans la liste des binaires et cliquez sur \"choisir\"  pour ajouter la bibliothèque à votre tâche. Ceci peut être répété pour des bibliothèques additionnelles."
+msgstr "Choisissez dans la liste des binaires et cliquez sur \"Choisir\"  pour ajouter la bibliothèque à votre tâche. Ceci peut être répété pour ajouter d'autres bibliothèques."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:12
 msgid "Mains"
@@ -7099,7 +7099,7 @@ msgstr "Bibliothèques choisies"
 
 #: dashboards/project/data_processing/jobs/workflows/create.py:31
 msgid "Choose libraries"
-msgstr "Choisissez les bibliothèques"
+msgstr "Choisir les bibliothèques"
 
 #: dashboards/project/data_processing/jobs/workflows/create.py:43
 #: dashboards/project/data_processing/jobs/workflows/create.py:82
@@ -7112,11 +7112,11 @@ msgstr "Type de tâche"
 
 #: dashboards/project/data_processing/jobs/workflows/create.py:59
 msgid "Choose a main binary"
-msgstr "Choisissez le binaire principal"
+msgstr "Choisir le binaire principal"
 
 #: dashboards/project/data_processing/jobs/workflows/create.py:61
 msgid "Choose the binary which should be used in this Job."
-msgstr "Choisissez le binaire qui pourra être utilisé pour cette Tâche."
+msgstr "Choisissez le binaire qui devra être utilisé pour cette tâche."
 
 #: dashboards/project/data_processing/jobs/workflows/create.py:73
 msgid "Streaming MapReduce"
@@ -8922,8 +8922,8 @@ msgstr "Impossible de récupérer le mot de passe de l'instance."
 #: dashboards/project/instances/tables.py:90
 msgid "Terminate Instance"
 msgid_plural "Terminate Instances"
-msgstr[0] "Terminer une Instance"
-msgstr[1] "Terminer les Instances"
+msgstr[0] "Terminer l'instance"
+msgstr[1] "Terminer les instances"
 
 #: dashboards/project/instances/tables.py:98
 msgid "Scheduled termination of Instance"
@@ -8934,8 +8934,8 @@ msgstr[1] "Expiration prévue des Instances"
 #: dashboards/project/instances/tables.py:119
 msgid "Hard Reboot Instance"
 msgid_plural "Hard Reboot Instances"
-msgstr[0] "Instance redémarrer matériellement"
-msgstr[1] "Instances redémarrer matériellement"
+msgstr[0] "Redémarrer l'instance matériellement"
+msgstr[1] "Redémarrer les instances matériellement"
 
 #: dashboards/project/instances/tables.py:127
 msgid "Hard Rebooted Instance"
@@ -9009,7 +9009,7 @@ msgstr "Voir le journal"
 #: dashboards/project/instances/tables.py:433
 #: dashboards/project/instances/workflows/resize_instance.py:88
 msgid "Resize Instance"
-msgstr "Redimensionner une instance"
+msgstr "Redimensionner l'instance"
 
 #: dashboards/project/instances/tables.py:457
 msgid "Confirm Resize/Migrate"
@@ -9487,17 +9487,17 @@ msgstr "Impossible d'obtenir la console SPICE pour l'instance \"%s\"."
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "Impossible d'obtenir la console RDP pour l'instance \"%s\"."
 
-#: dashboards/project/instances/views.py:275
+#: dashboards/project/instances/views.py:283
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "Impossible de récupérer les détails de l'instance \"%s\"."
 
-#: dashboards/project/instances/views.py:286
+#: dashboards/project/instances/views.py:294
 #, python-format
 msgid "Unable to retrieve IP addresses from Neutron for instance \"%s\"."
 msgstr "Impossible de récupérer les adresses IP de Neutron pour l'instance \"%s\"."
 
-#: dashboards/project/instances/views.py:330
+#: dashboards/project/instances/views.py:338
 msgid "Unable to retrieve flavors."
 msgstr "Impossible de récupérer les gabarits."
 
@@ -12383,17 +12383,17 @@ msgstr "Nombre d'instantanés"
 #: dashboards/project/volumes/templates/volumes/volumes/update.html:6
 #: dashboards/project/volumes/volumes/tables.py:226
 msgid "Edit Volume"
-msgstr "Modifier le volume"
+msgstr "Editer le volume"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_update.html:19
 msgid "Modify name and description of a volume."
-msgstr "Modifier le nom et la description du volume."
+msgstr "Modifier le nom et la description d'un volume."
 
 #: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:9
 #: dashboards/project/volumes/templates/volumes/volumes/upload_to_image.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/upload_to_image.html:6
 msgid "Upload Volume to Image"
-msgstr "Télécharger le Volume dans l'Image"
+msgstr "Télécharger le volume vers l'image"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:19
 msgid ""
@@ -12401,7 +12401,7 @@ msgid ""
 "        Upload the volume to the Image Service as an image.\n"
 "        This is equivalent to the <tt>cinder upload-to-image</tt> command.\n"
 "       "
-msgstr "\nTélécharger le volume dans le Service Image comme une image.\nCeci est équivalent à la commande <tt>cinder upload-to-image</tt>."
+msgstr "\nTélécharger le volume vers le service Image en tant qu'image.\nCeci est équivalent à la commande <tt>cinder upload-to-image</tt>."
 
 #: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:24
 msgid ""
@@ -12409,7 +12409,7 @@ msgid ""
 "        Choose \"Disk Format\" for the image. The volume images are created with\n"
 "        the QEMU disk image utility.\n"
 "       "
-msgstr "\nChoisir \"Format de Disque\" pour l'image. Les image de volume sont créées avec\nl'utilitaire d'image disque QEMU."
+msgstr "\nChoisir \"Format de disque\" pour l'image. Les image de volume sont créées avec\nl'utilitaire d'image disque de QEMU."
 
 #: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:30
 msgid ""
@@ -12417,11 +12417,11 @@ msgid ""
 "          When the volume status is \"in-use\", you can use \"Force\" to upload the\n"
 "          volume to an image.\n"
 "         "
-msgstr "\nQuand le statut du volume est \"en cours d'utilisation, vous pouvez utiliser \"Force\" pour télécharger le\nvolume dans une image."
+msgstr "\nQuand le statut du volume est \"in-use\", vous pouvez utiliser \"Force\" pour télécharger le\nvolume dans une image."
 
 #: dashboards/project/volumes/templates/volumes/volumes/create.html:6
 msgid "Create a Volume"
-msgstr "Créer un Volume"
+msgstr "Créer un volume"
 
 #: dashboards/project/volumes/templates/volumes/volumes/create_snapshot.html:6
 msgid "Create a Volume Snapshot"
@@ -12459,14 +12459,14 @@ msgstr "Impossible de charger l'instantané spécifié."
 #: dashboards/project/volumes/volumes/forms.py:138
 #, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
-msgstr "La taille du volume doit être égale ou supérieure à la taille de l'image (%s)"
+msgstr "La taille du volume doit être égale ou supérieure à celle de l'image (%s)"
 
 #: dashboards/project/volumes/volumes/forms.py:146
 #, python-format
 msgid ""
 "Volume size must be equal to or greater than the image minimum disk size "
 "(%sGB)"
-msgstr "La taille du volume doit être égal ou supérieur à la taille de l'image disque minimum (%sGB)"
+msgstr "La taille du volume doit être égale ou supérieure à la taille disque minimale de l'image (%sGo)"
 
 #: dashboards/project/volumes/volumes/forms.py:157
 #, python-format
@@ -12482,7 +12482,7 @@ msgstr "Impossible de charger le volume spécifié : %s"
 #, python-format
 msgid ""
 "Volume size must be equal to or greater than the origin volume size (%s)"
-msgstr "La taille du volume doit être égale ou supérieure à la taille originale du volume (%s)"
+msgstr "La taille du volume doit être égale ou supérieure à celle du volume d'origine  (%s)"
 
 #: dashboards/project/volumes/volumes/forms.py:195
 msgid "Choose a snapshot"
@@ -12494,7 +12494,7 @@ msgstr "Choisir une image"
 
 #: dashboards/project/volumes/volumes/forms.py:220
 msgid "Choose a volume"
-msgstr "Choisissez un volume"
+msgstr "Choisir un volume"
 
 #: dashboards/project/volumes/volumes/forms.py:229
 msgid "No source, empty volume"
@@ -12524,12 +12524,12 @@ msgstr "La taille du volume ne peut pas être inférieure à celle de l'instanta
 #: dashboards/project/volumes/volumes/forms.py:323
 #, python-format
 msgid "The volume size cannot be less than the image size (%s)"
-msgstr "La taille du volume ne peut pas être inférieure à celle de l'image (%sGo)"
+msgstr "La taille du volume ne peut pas être inférieure à celle de l'image (%s)"
 
 #: dashboards/project/volumes/volumes/forms.py:330
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGB)"
-msgstr "La taille de volume ne peut pas être inférieure à la taille d'image disque minimum (%sGB)"
+msgstr "La taille du volume ne peut pas être inférieure à la taille disque minimale de l'image (%sGo)"
 
 #: dashboards/project/volumes/volumes/forms.py:340
 #, python-format
@@ -12619,7 +12619,7 @@ msgstr "Envoi réussi de la requête pour télécharger le volume dans l'image p
 #: dashboards/project/volumes/volumes/forms.py:582
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
-msgstr "Incapable de télécharger le volume dans l'image pour le volume : \"%s\""
+msgstr "Impossible de télécharger le volume dans l'image pour le volume : \"%s\""
 
 #: dashboards/project/volumes/volumes/forms.py:608
 msgid "New size must be greater than current size."
@@ -12635,7 +12635,7 @@ msgstr "Le volume ne peut être agrandi à %(req)iGo car vous n'avez que %(avail
 #: dashboards/project/volumes/volumes/forms.py:628
 #, python-format
 msgid "Extending volume: \"%s\""
-msgstr "Volume étendu: \"%s\""
+msgstr "Extension du volume : \"%s\""
 
 #: dashboards/project/volumes/volumes/forms.py:634
 msgid "Unable to extend volume."
@@ -12667,12 +12667,12 @@ msgstr "Le nouveau type du volume doit être différent du type de volume d'orig
 msgid ""
 "Successfully sent the request to change the volume type to \"%(vtype)s\" for"
 " volume: \"%(name)s\""
-msgstr "Envoi réussit de la requête pour changer le type de volume à \"%(vtype)s\" pour le volume : \"%(name)s\""
+msgstr "Requête pour passer à \"%(vtype)s\" le type du volume \"%(name)s\" envoyée avec succès"
 
 #: dashboards/project/volumes/volumes/forms.py:696
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
-msgstr "Incapable de changer le type de volume pour le volume : \"%s\""
+msgstr "Impossible de changer le type du volume : \"%s\""
 
 #: dashboards/project/volumes/volumes/tables.py:43
 msgid "Launch as Instance"
@@ -12687,8 +12687,8 @@ msgstr[1] "Supprimer les volumes"
 #: dashboards/project/volumes/volumes/tables.py:75
 msgid "Scheduled deletion of Volume"
 msgid_plural "Scheduled deletion of Volumes"
-msgstr[0] "Suppression du Volume planifiée"
-msgstr[1] "Suppression des Volumes planifiée"
+msgstr[0] "Suppression du volume planifiée"
+msgstr[1] "Suppression des volumes planifiée"
 
 #: dashboards/project/volumes/volumes/tables.py:88
 #, python-format
@@ -12701,7 +12701,7 @@ msgstr "Editer les attachements"
 
 #: dashboards/project/volumes/volumes/tables.py:183
 msgid "Unable to retrieve tenant limits."
-msgstr "Incapable de récupérer les limites du tenant."
+msgstr "Impossible de récupérer les limites du tenant."
 
 #: dashboards/project/volumes/volumes/tables.py:210
 msgid "Upload to Image"
@@ -12880,7 +12880,7 @@ msgstr "La politique IKE %s a été mise à jour avec succès."
 #: dashboards/project/vpn/forms.py:131
 #, python-format
 msgid "Failed to update IKE Policy %s"
-msgstr "Impossible de mettre à jour la politique IKE %s."
+msgstr "Echec lors de la mise à jour de la politique IKE %s"
 
 #: dashboards/project/vpn/forms.py:150 dashboards/project/vpn/workflows.py:216
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:21
@@ -13238,7 +13238,7 @@ msgstr "Impossible de récupérer les détails de la connexion IPSec de site %s"
 #: dashboards/project/vpn/workflows.py:36
 #: dashboards/project/vpn/workflows.py:422
 msgid "The state to start in."
-msgstr "Etat au démarrage."
+msgstr "L'état au démarrage."
 
 #: dashboards/project/vpn/workflows.py:57
 msgid "Select a Router"
