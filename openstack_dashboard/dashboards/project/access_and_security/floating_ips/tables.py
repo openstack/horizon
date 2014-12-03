@@ -194,11 +194,9 @@ class FloatingIPsTable(tables.DataTable):
                        attrs={'data-type': "ip"})
     fixed_ip = tables.Column(get_instance_info,
                              link=get_instance_link,
-                             verbose_name=_("Mapped Fixed IP Address"),
-                             empty_value=_("-"))
+                             verbose_name=_("Mapped Fixed IP Address"))
     pool = tables.Column("pool_name",
-                         verbose_name=_("Pool"),
-                         empty_value=_("-"))
+                         verbose_name=_("Pool"))
     status = tables.Column("status",
                            verbose_name=_("Status"),
                            status=True,

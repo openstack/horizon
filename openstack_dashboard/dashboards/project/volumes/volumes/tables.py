@@ -352,8 +352,7 @@ class VolumesTable(VolumesTableBase):
                          verbose_name=_("Name"),
                          link="horizon:project:volumes:volumes:detail")
     volume_type = tables.Column(get_volume_type,
-                                verbose_name=_("Type"),
-                                empty_value=_("-"))
+                                verbose_name=_("Type"))
     attachments = AttachmentColumn("attachments",
                                    verbose_name=_("Attached To"))
     availability_zone = tables.Column("availability_zone",
