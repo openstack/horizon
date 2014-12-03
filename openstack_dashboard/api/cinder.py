@@ -395,6 +395,19 @@ def volume_type_get(request, volume_type_id):
     return cinderclient(request).volume_types.get(volume_type_id)
 
 
+def volume_encryption_type_create(request, volume_type_id, data):
+    return cinderclient(request).volume_encryption_types.create(volume_type_id,
+                                                                specs=data)
+
+
+def volume_encryption_type_get(request, volume_type_id):
+    return cinderclient(request).volume_encryption_types.get(volume_type_id)
+
+
+def volume_encryption_type_list(request):
+    return cinderclient(request).volume_encryption_types.list()
+
+
 def volume_type_extra_get(request, type_id, raw=False):
     vol_type = volume_type_get(request, type_id)
     extras = vol_type.get_keys()

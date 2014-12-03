@@ -76,6 +76,25 @@ class VolumeTypesTab(tabs.TableTab, volumes_tabs.VolumeTableMixIn):
             exceptions.handle(self.request,
                               _("Unable to retrieve volume types"))
 
+        # Gather volume type encryption information
+        try:
+            vol_type_enc_list = cinder.volume_encryption_type_list(
+                self.request)
+        except Exception:
+            vol_type_enc_list = []
+            msg = _('Unable to retrieve volume type encryption information.')
+            exceptions.handle(self.request, msg)
+
+        vol_type_enc_dict = SortedDict([(e.volume_type_id, e) for e in
+                                        vol_type_enc_list])
+        for volume_type in volume_types:
+            vol_type_enc = vol_type_enc_dict.get(volume_type.id, None)
+            if vol_type_enc is not None:
+                volume_type.encryption = vol_type_enc
+                volume_type.encryption.name = volume_type.name
+            else:
+                volume_type.encryption = None
+
         return volume_types
 
     def get_qos_specs_data(self):
