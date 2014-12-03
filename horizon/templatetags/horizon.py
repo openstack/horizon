@@ -116,7 +116,10 @@ def horizon_dashboard_nav(context):
                     panel.can_access(context)):
                 allowed_panels.append(panel)
         if allowed_panels:
-            non_empty_groups.append((group.name, allowed_panels))
+            if group.name is None:
+                non_empty_groups.append((dashboard.name, allowed_panels))
+            else:
+                non_empty_groups.append((group.name, allowed_panels))
 
     return {'components': SortedDict(non_empty_groups),
             'user': context['request'].user,
