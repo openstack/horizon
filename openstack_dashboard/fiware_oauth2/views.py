@@ -26,11 +26,11 @@ from openstack_dashboard.fiware_oauth2 import forms
 LOG = logging.getLogger('idm_logger')
 
 # HPCM
-# Client ID
-# b5652024cfe54a41909692892dfca345
-# Client Secret
-# b0ab404b1314411293911a68661c49d8
-# authorize/?response_type=code&client_id=b5652024cfe54a41909692892dfca345&state=xyz&redirect_uri=https%3A%2F%2Flocalhost%2Flogin
+#Client ID
+# 2ecca274851f471c88f08c1e77b40c6e
+#Client Secret
+# 138bf4fd906f47c1bf0439a43c54d740
+# authorize/?response_type=code&client_id=2ecca274851f471c88f08c1e77b40c6e&state=xyz&redirect_uri=https%3A%2F%2Flocalhost%2Flogin
 # LOCALHOST
 # Client ID
 # 009e60a5d785415fbd3cef3a3b7b2d35
@@ -44,7 +44,6 @@ class AuthorizeView(FormView):
     template_name = 'oauth2/authorize.html'
     form_class = forms.AuthorizeForm
     application_credentials = {}
-    application = None
     success_url = reverse_lazy('horizon:user_home')
     oauth_data = {}
 
@@ -124,12 +123,12 @@ class AuthorizeView(FormView):
             return self.form_invalid(form)
 
     def form_valid(self, request, form):
-        authorization_code = fiware_api.keystone.authorize_application(
-             request,
-            application=self.application_credentials['application_id'])
-        # TODO(garcianavalon) logic to send the authorization code to the application
-        LOG.debug('OAUTH2: Authorization Code obtained {0}'.format(authorization_code))
-        return super(AuthorizeView, self).form_valid(form)
+        authorization_code = fiware_api.keystone.authorize_application(request,
+                        application=self.application_credentials['application_id'])
+        LOG.debug('OAUTH2: Authorization Code obtained {0}'.format(authorization_code.code))
+        # redirect resource owner to client with the authorization code
+        LOG.debug('OAUTH2: Redirecting user back to {0}'.format(authorization_code.redirect_uri))
+        return redirect(authorization_code.redirect_uri, permanent=True)
 
     def form_invalid(self, form):
         # NOTE(garcianavalon) there is no case right now where this form would be
