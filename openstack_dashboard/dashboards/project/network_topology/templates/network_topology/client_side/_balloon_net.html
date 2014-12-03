@@ -1,43 +1,37 @@
 {% extends "horizon/client_side/template.html" %}
 {% load horizon %}
 
-{% block id %}balloon_port{% endblock %}
+{% block id %}balloon_net{% endblock %}
 
 {% block template %}
 {% jstemplate %}
 <div class="portTableHeader">
-  <div class="title">[[interfaces_label]]</div>
+  <div class="title">[[subnets_label]]</div>
   <div class="action">
-    <a class="add-interface btn btn-default btn-xs ajax-modal [[type]]" href="[[add_interface_url]]">
+    <a class="add-subnet btn btn-default btn-xs ajax-modal [[type]]" href="[[add_subnet_url]]">
       <span class="fa fa-plus"></span>
-      [[add_interface_label]]
+      [[add_subnet_label]]
     </a>
   </div>
 </div>
 <table class="detailInfoTable">
   <caption></caption>
   <tbody>
-    [[#port]]
+    [[#subnet]]
     <tr>
       <th>
         <span title="[[id]]">
           <a href="[[url]]">[[id]]</a>
         </span>
       </th>
-      <td>[[ip_address]]</td>
-      <td>[[device_owner]]</td>
-      <td>
-        <span class="[[port_status_class]]">[[port_status]]</span>
-      </td>
+      <td>[[cidr]]</td>
       <td class="delete">
-        [[#is_interface]]
         <button class="delete-port btn btn-danger btn-xs"
           data-router-id="[[router_id]]" data-network-id="[[network_id]]"
-          data-port-id="[[id]]">[[delete_interface_label]]</button>
-        [[/is_interface]]
+          data-port-id="[[id]]">[[delete_subnet_label]]</button>
       </td>
     </tr>
-    [[/port]]
+    [[/subnet]]
   </tbody>
 </table>
 {% endjstemplate %}

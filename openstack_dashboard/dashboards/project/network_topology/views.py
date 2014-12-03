@@ -33,10 +33,14 @@ from openstack_dashboard.usage import quotas
 
 from openstack_dashboard.dashboards.project.network_topology.instances \
     import tables as instances_tables
+from openstack_dashboard.dashboards.project.network_topology.networks \
+    import tables as networks_tables
 from openstack_dashboard.dashboards.project.network_topology.ports \
     import tables as ports_tables
 from openstack_dashboard.dashboards.project.network_topology.routers \
     import tables as routers_tables
+from openstack_dashboard.dashboards.project.network_topology.subnets \
+    import tables as subnets_tables
 
 from openstack_dashboard.dashboards.project.instances import\
     console as i_console
@@ -44,12 +48,31 @@ from openstack_dashboard.dashboards.project.instances import\
     views as i_views
 from openstack_dashboard.dashboards.project.instances.workflows import\
     create_instance as i_workflows
+from openstack_dashboard.dashboards.project.networks.subnets import\
+    views as s_views
+from openstack_dashboard.dashboards.project.networks.subnets import\
+    workflows as s_workflows
 from openstack_dashboard.dashboards.project.networks import\
     views as n_views
 from openstack_dashboard.dashboards.project.networks import\
     workflows as n_workflows
+from openstack_dashboard.dashboards.project.routers.ports import\
+    views as p_views
 from openstack_dashboard.dashboards.project.routers import\
     views as r_views
+
+
+class NTAddInterfaceView(p_views.AddInterfaceView):
+    success_url = "horizon:project:network_topology:index"
+    failure_url = "horizon:project:network_topology:index"
+
+    def get_success_url(self):
+        return reverse("horizon:project:network_topology:index")
+
+    def get_context_data(self, **kwargs):
+        context = super(NTAddInterfaceView, self).get_context_data(**kwargs)
+        context['form_url'] = 'horizon:project:network_topology:interface'
+        return context
 
 
 class NTCreateRouterView(r_views.CreateView):
@@ -78,6 +101,18 @@ class NTLaunchInstanceView(i_views.LaunchInstanceView):
     workflow_class = NTLaunchInstance
 
 
+class NTCreateSubnet(s_workflows.CreateSubnet):
+    def get_success_url(self):
+        return reverse("horizon:project:network_topology:index")
+
+    def get_failure_url(self):
+        return reverse("horizon:project:network_topology:index")
+
+
+class NTCreateSubnetView(s_views.CreateView):
+    workflow_class = NTCreateSubnet
+
+
 class InstanceView(i_views.IndexView):
     table_class = instances_tables.InstancesTable
     template_name = 'project/network_topology/iframe.html'
@@ -88,12 +123,22 @@ class RouterView(r_views.IndexView):
     template_name = 'project/network_topology/iframe.html'
 
 
+class NetworkView(n_views.IndexView):
+    table_class = networks_tables.NetworksTable
+    template_name = 'project/network_topology/iframe.html'
+
+
 class RouterDetailView(r_views.DetailView):
     table_classes = (ports_tables.PortsTable, )
     template_name = 'project/network_topology/iframe.html'
 
     def get_interfaces_data(self):
         pass
+
+
+class NetworkDetailView(n_views.DetailView):
+    table_classes = (subnets_tables.SubnetsTable, )
+    template_name = 'project/network_topology/iframe.html'
 
 
 class NetworkTopologyView(views.HorizonTemplateView):
@@ -197,14 +242,18 @@ class JSONView(View):
                 request.user.tenant_id)
         except Exception:
             neutron_networks = []
-        networks = [{'name': network.name,
-                     'id': network.id,
-                     'subnets': [{'cidr': subnet.cidr}
-                                 for subnet in network.subnets],
-                     'router:external': network['router:external']}
-                    for network in neutron_networks]
-        self.add_resource_url('horizon:project:networks:detail',
-                              networks)
+        networks = []
+        for network in neutron_networks:
+            obj = {'name': network.name,
+                   'id': network.id,
+                   'subnets': [{'id': subnet.id,
+                                'cidr': subnet.cidr}
+                               for subnet in network.subnets],
+                   'status': network.status,
+                   'router:external': network['router:external']}
+            self.add_resource_url('horizon:project:networks:subnets:detail',
+                                  obj['subnets'])
+            networks.append(obj)
 
         # Add public networks to the networks list
         if self.is_router_enabled:
@@ -219,15 +268,24 @@ class JSONView(View):
                 if publicnet.id in my_network_ids:
                     continue
                 try:
-                    subnets = [{'cidr': subnet.cidr}
-                               for subnet in publicnet.subnets]
+                    subnets = []
+                    for subnet in publicnet.subnets:
+                        snet = {'id': subnet.id,
+                                'cidr': subnet.cidr}
+                        self.add_resource_url(
+                            'horizon:project:networks:subnets:detail', snet)
+                        subnets.append(snet)
                 except Exception:
                     subnets = []
                 networks.append({
                     'name': publicnet.name,
                     'id': publicnet.id,
                     'subnets': subnets,
+                    'status': publicnet.status,
                     'router:external': publicnet['router:external']})
+
+        self.add_resource_url('horizon:project:networks:detail',
+                              networks)
 
         return sorted(networks,
                       key=lambda x: x.get('router:external'),

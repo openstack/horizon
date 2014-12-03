@@ -8,7 +8,7 @@
   </head>
   <body>
     {% include "horizon/_messages.html" %}
-    {% firstof  table.render  interfaces_table.render tab_group.render %}
+    {% firstof subnets_table.render table.render interfaces_table.render tab_group.render %}
     {% include "project/network_topology/_post_massage.html" %}
   </body>
 </html>
