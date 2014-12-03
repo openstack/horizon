@@ -13,6 +13,7 @@
 # limitations under the License.
 
 import logging
+import requests
 
 from django.conf import settings
 from openstack_dashboard import api
@@ -287,6 +288,9 @@ def obtain_access_token(request, consumer_id, consumer_secret, code,
 
     :returns: an access_token object
     """
+    # NOTE(garcianavalon) right now this method has no use because is a wrapper for a
+    # method intented to be use by the client/consumer. For the IdM is much more 
+    # convenient to simply forward the request, see forward_access_token_request method
     LOG.debug('Exchanging code: {0} by application: {1}'.format(code, consumer_id))
     manager = fiwareclient().oauth2.access_tokens
     access_token = manager.create(consumer_id=consumer_id, 
@@ -294,6 +298,21 @@ def obtain_access_token(request, consumer_id, consumer_secret, code,
                                 authorization_code=code,
                                 redirect_uri=redirect_uri)
     return access_token
+
+def forward_access_token_request(request):
+    """ Forwards the request to the keystone backend."""
+    # TODO(garcianavalon) figure out if this method belongs to keystone client or if
+    # there is a better way to do it/structure this
+    headers = {
+        'Authorization': request.META['HTTP_AUTHORIZATION'],
+        'Content-Type': request.META['CONTENT_TYPE'],
+    }
+    body = request.body
+    keystone_url = getattr(settings, 'OPENSTACK_KEYSTONE_URL') + '/OS-OAUTH2/access_token'
+    LOG.debug('API_KEYSTONE: POST to {0} with body {1} and headers {2}'.format(keystone_url,
+                                                                            body, headers))
+    response = requests.post(keystone_url, data=body, headers=headers)
+    return response
 
 def login_with_oauth(request, access_token, project=None):
     """ Use an OAuth2 access token to obtain a keystone token, scoped for

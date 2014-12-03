@@ -17,26 +17,17 @@ import logging
 from django.contrib import auth
 from django.core.urlresolvers import reverse_lazy, reverse
 from django.shortcuts import redirect
+from django.views.decorators.csrf import csrf_exempt
+from django.views.generic import View
 from django.views.generic.edit import FormView
 
 from openstack_auth import views as auth_views
 from openstack_dashboard import fiware_api
 from openstack_dashboard.fiware_oauth2 import forms
 
+
 LOG = logging.getLogger('idm_logger')
 
-# HPCM
-#Client ID
-# 2ecca274851f471c88f08c1e77b40c6e
-#Client Secret
-# 138bf4fd906f47c1bf0439a43c54d740
-# authorize/?response_type=code&client_id=2ecca274851f471c88f08c1e77b40c6e&state=xyz&redirect_uri=https%3A%2F%2Flocalhost%2Flogin
-# LOCALHOST
-# Client ID
-# 009e60a5d785415fbd3cef3a3b7b2d35
-# Client Secret
-# 0508b01b7d0748b19f306f72ca25c42e
-# authorize/?response_type=code&client_id=009e60a5d785415fbd3cef3a3b7b2d35&state=xyz&redirect_uri=https%3A%2F%2Flocalhost%2Flogin
 class AuthorizeView(FormView):
     """ Shows the user info about the application requesting authorization. If its the first
     time (the user has never authorized this application before)
@@ -142,3 +133,21 @@ def cancel_authorize(request, **kwargs):
     LOG.debug('OAUTH2: authorization request dennied, clear variables and redirect to login')
     request.session['application_credentials'] = None
     return redirect('horizon:user_home')
+
+
+class AccessTokenView(View):
+    """ Handles the access token request form the clients (applications). Forwards the 
+    request to the Keystone backend.
+    """
+    @csrf_exempt
+    def dispatch(self, request, *args, **kwargs):
+        return super(AccessTokenView, self).dispatch(request, *args, **kwargs)
+   
+    def post(self, request, *args, **kwargs):
+        # NOTE(garcianavalon) Instead of using the client we simply redirect the request 
+        # because is simpler than extracting all the data to make the exact same request 
+        # again from it
+        LOG.debug('OAUTH2: forwading the access_token request')
+        response = fiware_api.keystone.forward_access_token_request(request)
+        import pdb; pdb.set_trace()
+        return response

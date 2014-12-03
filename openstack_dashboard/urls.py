@@ -36,7 +36,7 @@ urlpatterns = patterns(
     url(r'^auth/', include('openstack_auth.urls')),
     url(r'', include(horizon.urls)),
     url(r'', include('fiware_auth.urls')),
-    url(r'', include('fiware_oauth2.urls')),
+    url(r'oauth2/', include('fiware_oauth2.urls')),
 )
 
 # Development static app and project media serving using the staticfiles app.

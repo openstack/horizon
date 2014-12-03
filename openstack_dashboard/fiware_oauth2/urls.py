@@ -27,4 +27,6 @@ urlpatterns = patterns(
                             name='fiware_oauth2_authorize'),
     url(r"^authorize/cancel/$", views.cancel_authorize, 
                             name='fiware_oauth2_cancel_authorize'),
+    url(r"^token$", views.AccessTokenView.as_view(), 
+                            name='fiware_oauth2_access_token'),
 )
