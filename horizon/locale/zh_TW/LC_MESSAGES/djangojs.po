@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-05 14:55+0000\n"
-"PO-Revision-Date: 2014-10-02 22:40+0000\n"
+"POT-Creation-Date: 2014-12-02 00:51-0600\n"
+"PO-Revision-Date: 2014-12-02 08:24+0000\n"
 "Last-Translator: Zhang Xiaowei <zero00072@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -95,34 +95,58 @@ msgstr "運作中"
 msgid "There was an error submitting the form. Please try again."
 msgstr "提交表單時有錯誤。請再試一次。"
 
-#: static/horizon/js/horizon.networktopology.js:535
+#: static/horizon/js/horizon.networktopology.js:511
+#: static/horizon/js/horizon.networktopology.js:517
+msgid "None"
+msgstr "無"
+
+#: static/horizon/js/horizon.networktopology.js:530
+msgid "Delete"
+msgstr "刪除"
+
+#: static/horizon/js/horizon.networktopology.js:533
 msgid "STATUS"
 msgstr "狀態"
 
-#: static/horizon/js/horizon.networktopology.js:536
+#: static/horizon/js/horizon.networktopology.js:534
 msgid "ID"
 msgstr "識別號"
 
-#: static/horizon/js/horizon.networktopology.js:537
+#: static/horizon/js/horizon.networktopology.js:535
 msgid "Interfaces"
 msgstr "網路卡介面"
 
+#: static/horizon/js/horizon.networktopology.js:536
+msgid "Delete Interface"
+msgstr "刪除網路卡介面"
+
+#: static/horizon/js/horizon.networktopology.js:537
+msgid "Open Console"
+msgstr "開啟終端機"
+
 #: static/horizon/js/horizon.networktopology.js:538
-msgid "Interface"
-msgstr "網路卡介面"
+msgid "View Details"
+msgstr "檢視詳細資訊"
 
-#: static/horizon/js/horizon.networktopology.js:539
-msgid "open console"
-msgstr "打開主控臺"
+#: static/horizon/js/horizon.networktopology.js:541
+msgid "Delete Router"
+msgstr "刪除路由器"
 
-#: static/horizon/js/horizon.networktopology.js:540
-#, c-format
-msgid "view %s details"
-msgstr "檢視 %s 的詳細資訊"
+#: static/horizon/js/horizon.networktopology.js:542
+msgid "View Router Details"
+msgstr "檢視路由器詳細資訊"
 
 #: static/horizon/js/horizon.networktopology.js:545
 msgid "Add Interface"
 msgstr "加入網路卡介面"
+
+#: static/horizon/js/horizon.networktopology.js:551
+msgid "Terminate Instance"
+msgstr "中止執行實例"
+
+#: static/horizon/js/horizon.networktopology.js:552
+msgid "View Instance Details"
+msgstr "檢視執行實例詳細資訊"
 
 #: static/horizon/js/horizon.tables.js:39
 #: static/horizon/js/horizon.tables.js:377

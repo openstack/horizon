@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-05 14:55+0000\n"
-"PO-Revision-Date: 2014-10-09 12:51+0000\n"
+"POT-Creation-Date: 2014-12-02 00:51-0600\n"
+"PO-Revision-Date: 2014-11-26 09:52+0000\n"
 "Last-Translator: Rajesh Ranjan <rranjan@redhat.com>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -59,15 +59,15 @@ msgstr "VHD"
 msgid "VMDK"
 msgstr "VMDK"
 
-#: settings.py:298
+#: settings.py:296
 msgid "All TCP"
 msgstr "सभी TCP"
 
-#: settings.py:304
+#: settings.py:302
 msgid "All UDP"
 msgstr "सभी UDP"
 
-#: settings.py:310
+#: settings.py:308
 msgid "All ICMP"
 msgstr "सभी ICMP"
 
@@ -309,40 +309,40 @@ msgstr " इस परियोजना के लिए उपयोगकर�
 msgid "Password changed. Please log in again to continue."
 msgstr "कूटशब्द बदल गया. जारी रखने के लिए फिर से लॉग इन करें."
 
-#: api/neutron.py:206
+#: api/neutron.py:207
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "अनुमति दें %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
-#: api/neutron.py:852
+#: api/neutron.py:853
 msgid "Unable to connect to Neutron."
 msgstr "न्यूट्रॉन से जुड़ नहीं सका."
 
-#: api/neutron.py:889
+#: api/neutron.py:890
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "IP पता %s के विश्लेषण में असमर्थ"
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1022
+#: api/neutron.py:1029
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
 "a feature defined in FEATURE_MAP."
-msgstr ""
+msgstr "अनुरोधित सुविधा  '%(feature)s' अज्ञात है. कृपया सुनिश्चित करें कि FEATURE_MAP में परिभाषित सुविधा निर्दिष्ट हैं "
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1040
+#: api/neutron.py:1047
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
 "invalid. It should be one of %(allowed)s"
-msgstr ""
+msgstr "get_feature_permission '%(feature)s' के लिए 'संचालन' पैरामीटर अवैध हैं.  यह %(allowed)s में से एक होना चाहिए."
 
-#: api/neutron.py:1055
+#: api/neutron.py:1062
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
-msgstr ""
+msgstr "समर्थित Neutron '%s' एक्सटेंशन की जांच करने में विफल"
 
 #: api/nova.py:211
 #, python-format
@@ -367,7 +367,7 @@ msgstr "इंस्टेंस %s के लिए मौजूदा सु�
 #, python-format
 msgid ""
 "Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
-msgstr ""
+msgstr "%(num_groups_to_modify)d इंस्टेंस सुरक्षा समूह को संशोधित करने में विफल: %(err)s"
 
 #: api/nova.py:331
 #, python-format
@@ -382,7 +382,7 @@ msgstr "नाम: %(name)s ID: %(uuid)s"
 #: api/nova.py:757
 #, python-format
 msgid "Failed to evacuate instances: %s"
-msgstr ""
+msgstr "इंस्टेंस को खाली करने में असफल: %s"
 
 #: api/swift.py:204
 msgid "The container cannot be deleted since it's not empty."
@@ -659,7 +659,7 @@ msgid ""
 "Host aggregates divide an availability zone into logical units by grouping "
 "together hosts. Create a host aggregate then select the hosts contained in "
 "it."
-msgstr ""
+msgstr "होस्ट समुच्चय एक उपलब्धि क्षेत्र को होस्ट्स समूह द्वारा तार्किक इकाइयों में विभाजित करता हैं.  होस्ट समुच्चय बनायें उसके बाद इसमें निहित होस्ट्स का चयन करें।"
 
 #: dashboards/admin/aggregates/workflows.py:44
 msgid "Unable to get host aggregate list"
@@ -682,7 +682,7 @@ msgstr "सकल में मेजबान प्रबंधित कर�
 
 #: dashboards/admin/aggregates/workflows.py:139
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
-msgstr ""
+msgstr "इस समुच्चय में होस्ट को जोड़ें. होस्ट कई समुच्चय में हो सकता है."
 
 #: dashboards/admin/aggregates/workflows.py:141
 msgid "All available hosts"
@@ -704,7 +704,7 @@ msgstr "कोई होस्ट चुना नहीं गया."
 msgid ""
 "Add hosts to this aggregate or remove hosts from it. Hosts can be in "
 "multiple aggregates."
-msgstr ""
+msgstr "इस समुच्चय में होस्ट को जोड़ें या इसमें से होस्ट्स हटा दें. होस्ट कई समुच्चय में हो सकता है."
 
 #: dashboards/admin/aggregates/workflows.py:159
 msgid "All Available Hosts"
@@ -763,7 +763,7 @@ msgstr "सकल अद्यतन किया गया था."
 
 #: dashboards/admin/aggregates/workflows.py:231
 msgid "Error when adding or removing hosts."
-msgstr ""
+msgstr "होस्ट जोड़ने या हटाने में त्रुटि."
 
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:18
 #: dashboards/admin/images/templates/images/_update.html:18
@@ -889,7 +889,7 @@ msgstr "विवरण"
 msgid ""
 "Host aggregates divide an availability zone into logical units by grouping "
 "together hosts. Edit the aggregate host to select hosts contained in it."
-msgstr ""
+msgstr "होस्ट समुच्चय एक उपलब्धि क्षेत्र को होस्ट्स समूह द्वारा तार्किक इकाइयों में विभाजित करता हैं. इसमें निहित होस्ट्स चुनने के लिए  समुच्चय होस्ट को संपादित करें."
 
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:25
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:24
@@ -1205,7 +1205,7 @@ msgstr "डिफ़ॉल्ट कोटा मान प्राप्त �
 
 #: dashboards/admin/defaults/workflows.py:68
 msgid "From here you can update the default quotas (max limits)."
-msgstr ""
+msgstr "यहाँ से आप डिफ़ॉल्ट कोटा (अधिकतम सीमा) अपडेट कर सकते हैं."
 
 #: dashboards/admin/defaults/workflows.py:79
 msgid "Update Default Quotas"
@@ -1417,7 +1417,7 @@ msgstr "फ्लेवर जानकारी"
 msgid ""
 "Flavors define the sizes for RAM, disk, number of cores, and other resources"
 " and can be selected when users deploy instances."
-msgstr ""
+msgstr "फ्लेवर रैम, डिस्क, कोर की संख्या, और अन्य संसाधनों के लिए आकार को परिभाषित करता हैं और चयनित किया जा सकता है उपयोगकर्ता इंस्टेंस को संस्थापित करता हैं "
 
 #: dashboards/admin/flavors/workflows.py:72
 #: dashboards/admin/flavors/workflows.py:237
@@ -1447,7 +1447,7 @@ msgstr "फ्लेवर अभिगम "
 msgid ""
 "Select the projects where the flavors will be used. If no projects are "
 "selected, then the flavor will be available in all projects."
-msgstr ""
+msgstr "परियोजनाओं का चयन करें जहां Flavors का उपयोग किया गया हैं। अगर कोई परियोजनाओं का चयन नहीं किया गया है तो सभी परियोजनाओं में Flavors उपलब्ध हो जाएगा."
 
 #: dashboards/admin/flavors/workflows.py:159
 msgid "All Projects"
@@ -1489,7 +1489,7 @@ msgid ""
 "Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
 "cores, and other resources. Flavors are selected when users deploy "
 "instances."
-msgstr ""
+msgstr "फ्लेवर विवरण संपादित करें. फ्लेवर रैम, डिस्क, कोर की संख्या, और अन्य संसाधनों के लिए आकार को परिभाषित करता हैं. फ्लेवर चयनित किया जा सकता है जब उपयोगकर्ता इंस्टेंस को संस्थापित करता हैं "
 
 #: dashboards/admin/flavors/workflows.py:265
 #, python-format
@@ -1631,7 +1631,7 @@ msgstr "कोई  होस्ट उपलब्ध नहीं."
 #: dashboards/admin/hypervisors/compute/forms.py:60
 #, python-format
 msgid "Starting evacuation from %(current)s to %(target)s."
-msgstr ""
+msgstr "%(current)s से %(target)s तक निकासी शुरू है"
 
 #: dashboards/admin/hypervisors/compute/forms.py:66
 #, python-format
@@ -1833,7 +1833,7 @@ msgstr "वर्णनः"
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:18
 msgid ""
 "Evacuate the servers from the selected down host to an active target host."
-msgstr ""
+msgstr "सक्रिय लक्ष्य होस्ट करने के लिए नीचे चयनित होस्ट से सर्वर को खाली करें."
 
 #: dashboards/admin/images/forms.py:65
 msgid "Unable to update the image metadata."
@@ -2216,7 +2216,7 @@ msgstr "मेजबान में सूचना को प्राप्�
 #: dashboards/admin/instances/views.py:167
 #: dashboards/project/databases/views.py:138
 #: dashboards/project/instances/views.py:208
-#: dashboards/project/instances/views.py:318
+#: dashboards/project/instances/views.py:326
 msgid "Unable to retrieve instance details."
 msgstr "इंस्टेंस विवरण को पुनः प्राप्त करने में असमर्थ."
 
@@ -9254,7 +9254,7 @@ msgstr "आकार बदलने या माइग्रेट करन�
 #: dashboards/project/instances/tables.py:810
 msgctxt "Task status of an Instance"
 msgid "Rebooting"
-msgstr ""
+msgstr "पुनः प्रारंभ करें"
 
 #: dashboards/project/instances/tables.py:812
 msgctxt "Task status of an Instance"
@@ -9457,17 +9457,17 @@ msgstr "\"%s\" इंस्टेंस के लिए SPICE कंसोल �
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "\"%s\" इंस्टेंस के लिए RDp कंसोल प्राप्त करने में असमर्थ"
 
-#: dashboards/project/instances/views.py:275
+#: dashboards/project/instances/views.py:283
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "इंस्टेंस के लिए जानकारी प्राप्त करने में असमर्थ \"%s\"."
 
-#: dashboards/project/instances/views.py:286
+#: dashboards/project/instances/views.py:294
 #, python-format
 msgid "Unable to retrieve IP addresses from Neutron for instance \"%s\"."
 msgstr " \"%s\" इंस्टेंस के लिए न्यूट्रॉन से आईपी पते को पुनः प्राप्त करने में असमर्थ"
 
-#: dashboards/project/instances/views.py:330
+#: dashboards/project/instances/views.py:338
 msgid "Unable to retrieve flavors."
 msgstr "फ्लेवर को पुनः प्राप्त करने में असमर्थ."
 

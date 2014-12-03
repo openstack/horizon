@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Tom Fifield <tom@openstack.org>, 2014
+# Ying Chun Guo <daisy.ycguo@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-05 14:55+0000\n"
-"PO-Revision-Date: 2014-10-02 22:40+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-12-02 00:51-0600\n"
+"PO-Revision-Date: 2014-12-02 09:05+0000\n"
+"Last-Translator: Ying Chun Guo <daisy.ycguo@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -95,34 +96,58 @@ msgstr "进行中"
 msgid "There was an error submitting the form. Please try again."
 msgstr "在提交表单的时候出现错误，请再次尝试"
 
-#: static/horizon/js/horizon.networktopology.js:535
+#: static/horizon/js/horizon.networktopology.js:511
+#: static/horizon/js/horizon.networktopology.js:517
+msgid "None"
+msgstr "无"
+
+#: static/horizon/js/horizon.networktopology.js:530
+msgid "Delete"
+msgstr "删除"
+
+#: static/horizon/js/horizon.networktopology.js:533
 msgid "STATUS"
 msgstr "状态"
 
-#: static/horizon/js/horizon.networktopology.js:536
+#: static/horizon/js/horizon.networktopology.js:534
 msgid "ID"
 msgstr "ID"
 
-#: static/horizon/js/horizon.networktopology.js:537
+#: static/horizon/js/horizon.networktopology.js:535
 msgid "Interfaces"
 msgstr "接口"
 
-#: static/horizon/js/horizon.networktopology.js:538
-msgid "Interface"
-msgstr "接口"
+#: static/horizon/js/horizon.networktopology.js:536
+msgid "Delete Interface"
+msgstr "删除接口"
 
-#: static/horizon/js/horizon.networktopology.js:539
-msgid "open console"
+#: static/horizon/js/horizon.networktopology.js:537
+msgid "Open Console"
 msgstr "打开控制台"
 
-#: static/horizon/js/horizon.networktopology.js:540
-#, c-format
-msgid "view %s details"
-msgstr "查看 %s 详情"
+#: static/horizon/js/horizon.networktopology.js:538
+msgid "View Details"
+msgstr "查看详情"
+
+#: static/horizon/js/horizon.networktopology.js:541
+msgid "Delete Router"
+msgstr "删除路由"
+
+#: static/horizon/js/horizon.networktopology.js:542
+msgid "View Router Details"
+msgstr "查看路由详情"
 
 #: static/horizon/js/horizon.networktopology.js:545
 msgid "Add Interface"
 msgstr "增加接口"
+
+#: static/horizon/js/horizon.networktopology.js:551
+msgid "Terminate Instance"
+msgstr "终止实例"
+
+#: static/horizon/js/horizon.networktopology.js:552
+msgid "View Instance Details"
+msgstr "查看实例详情"
 
 #: static/horizon/js/horizon.tables.js:39
 #: static/horizon/js/horizon.tables.js:377

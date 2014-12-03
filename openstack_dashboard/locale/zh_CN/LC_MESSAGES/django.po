@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-05 14:55+0000\n"
-"PO-Revision-Date: 2014-10-04 04:45+0000\n"
-"Last-Translator: Ying Chun Guo <daisy.ycguo@gmail.com>\n"
+"POT-Creation-Date: 2014-12-02 00:51-0600\n"
+"PO-Revision-Date: 2014-11-26 09:52+0000\n"
+"Last-Translator: LIU Yulong <dragon889@163.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -62,15 +62,15 @@ msgstr "VHD"
 msgid "VMDK"
 msgstr "VMDK"
 
-#: settings.py:298
+#: settings.py:296
 msgid "All TCP"
 msgstr "所有TCP协议"
 
-#: settings.py:304
+#: settings.py:302
 msgid "All UDP"
 msgstr "所有UDP协议"
 
-#: settings.py:310
+#: settings.py:308
 msgid "All ICMP"
 msgstr "所有ICMP协议"
 
@@ -312,22 +312,22 @@ msgstr "在这一项目中用户 %s 尚未定义角色。"
 msgid "Password changed. Please log in again to continue."
 msgstr "密码已更改。请重新登录。"
 
-#: api/neutron.py:206
+#: api/neutron.py:207
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "允许 %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
-#: api/neutron.py:852
+#: api/neutron.py:853
 msgid "Unable to connect to Neutron."
 msgstr "无法连接到Neutron."
 
-#: api/neutron.py:889
+#: api/neutron.py:890
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "无法解析IP地址 %s."
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1022
+#: api/neutron.py:1029
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -335,14 +335,14 @@ msgid ""
 msgstr "请求特性'%(feature)s'未知。确保指定FEATURE_MAP定义的特性。"
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1040
+#: api/neutron.py:1047
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
 "invalid. It should be one of %(allowed)s"
 msgstr "get_feature_permission '%(feature)s'的参数'operation'无效。应该是%(allowed)s中的一个。"
 
-#: api/neutron.py:1055
+#: api/neutron.py:1062
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr "检查Neutron '%s'失败，扩展不被支持。"
@@ -1972,7 +1972,7 @@ msgstr "系统信息"
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:53
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:63
 msgid "Enabled"
-msgstr "激活"
+msgstr "启用"
 
 #: dashboards/admin/info/tables.py:27 dashboards/admin/info/tables.py:158
 #: dashboards/admin/networks/agents/tables.py:82
@@ -2007,12 +2007,12 @@ msgstr "块存储服务"
 #: dashboards/admin/info/tables.py:163
 #: dashboards/admin/networks/agents/tables.py:87
 msgid "Up"
-msgstr "向上"
+msgstr "正常"
 
 #: dashboards/admin/info/tables.py:165
 #: dashboards/admin/networks/agents/tables.py:88
 msgid "Down"
-msgstr "向下"
+msgstr "停止"
 
 #: dashboards/admin/info/tables.py:186 dashboards/admin/info/tabs.py:82
 msgid "Network Agents"
@@ -2213,7 +2213,7 @@ msgstr "无法获取主机信息。"
 #: dashboards/admin/instances/views.py:167
 #: dashboards/project/databases/views.py:138
 #: dashboards/project/instances/views.py:208
-#: dashboards/project/instances/views.py:318
+#: dashboards/project/instances/views.py:326
 msgid "Unable to retrieve instance details."
 msgstr "无法获取云主机详情。"
 
@@ -2591,7 +2591,7 @@ msgstr "无法获取网络配置概要"
 #: dashboards/admin/networks/forms.py:183
 #, python-format
 msgid "Network %s was successfully created."
-msgstr "成果创建 %s 网络。"
+msgstr "成功创建 %s 网络。"
 
 #: dashboards/admin/networks/forms.py:189
 #, python-format
@@ -9383,17 +9383,17 @@ msgstr "无法获得云主机 \"%s\"SPICE控制台"
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "无法获得云主机 \"%s\"RDP控制台"
 
-#: dashboards/project/instances/views.py:275
+#: dashboards/project/instances/views.py:283
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "无法获取云主机 \"%s\" 的详情。"
 
-#: dashboards/project/instances/views.py:286
+#: dashboards/project/instances/views.py:294
 #, python-format
 msgid "Unable to retrieve IP addresses from Neutron for instance \"%s\"."
 msgstr "无法从Neutron获取云主机 \"%s\" 的IP地址。"
 
-#: dashboards/project/instances/views.py:330
+#: dashboards/project/instances/views.py:338
 msgid "Unable to retrieve flavors."
 msgstr "无法获取云主机类型列表。"
 
@@ -13391,7 +13391,7 @@ msgstr "输入参数(例如GRE)"
 #: dashboards/router/nexus1000v/forms.py:162
 #, python-format
 msgid "Network Profile %s was successfully created."
-msgstr "成果创建 %s 网络配置概要。"
+msgstr "成功创建 %s 网络配置概要。"
 
 #: dashboards/router/nexus1000v/forms.py:169
 #, python-format
