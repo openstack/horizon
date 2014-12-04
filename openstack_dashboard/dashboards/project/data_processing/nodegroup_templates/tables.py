@@ -56,6 +56,13 @@ class CopyTemplate(tables.LinkAction):
     classes = ("ajax-modal", )
 
 
+class EditTemplate(tables.LinkAction):
+    name = "edit"
+    verbose_name = _("Edit Template")
+    url = "horizon:project:data_processing.nodegroup_templates:edit"
+    classes = ("ajax-modal", )
+
+
 class DeleteTemplate(tables.DeleteAction):
     @staticmethod
     def action_present(count):
@@ -98,5 +105,6 @@ class NodegroupTemplatesTable(tables.DataTable):
                          ConfigureNodegroupTemplate,
                          DeleteTemplate,
                          NodeGroupTemplatesFilterAction,)
-        row_actions = (CopyTemplate,
-                       DeleteTemplate,)
+        row_actions = (EditTemplate,
+                       CopyTemplate,
+                       DeleteTemplate)

@@ -189,3 +189,85 @@ class DataProcessingNodeGroupTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
         self.assertMessageCount(success=1)
+
+    @test.create_stubs({api.sahara: ('client',
+                                     'nodegroup_template_create',
+                                     'nodegroup_template_update',
+                                     'nodegroup_template_get',
+                                     'plugin_get_version_details'),
+                        api.network: ('floating_ip_pools_list',
+                                      'security_group_list'),
+                        api.nova: ('flavor_list',),
+                        api.cinder: ('extension_supported',
+                                     'availability_zone_list')})
+    def test_update(self):
+        flavor = self.flavors.first()
+        ngt = self.nodegroup_templates.first()
+        configs = self.plugins_configs.first()
+        new_name = ngt.name + '-updated'
+        UPDATE_URL = reverse(
+            'horizon:project:data_processing.nodegroup_templates:edit',
+            kwargs={'template_id': ngt.id})
+        self.mox.StubOutWithMock(
+            workflow_helpers, 'parse_configs_from_context')
+
+        api.cinder.extension_supported(IsA(http.HttpRequest),
+                                       'AvailabilityZones') \
+            .AndReturn(True)
+        api.cinder.availability_zone_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.availability_zones.list())
+        api.nova.flavor_list(IsA(http.HttpRequest)).AndReturn([flavor])
+        api.sahara.plugin_get_version_details(IsA(http.HttpRequest),
+                                              ngt.plugin_name,
+                                              ngt.hadoop_version) \
+            .MultipleTimes().AndReturn(configs)
+        api.network.floating_ip_pools_list(IsA(http.HttpRequest)) \
+            .AndReturn([])
+        api.network.security_group_list(IsA(http.HttpRequest)) \
+            .AndReturn([])
+        workflow_helpers.parse_configs_from_context(
+            IgnoreArg(), IgnoreArg()).AndReturn({})
+        api.sahara.nodegroup_template_get(IsA(http.HttpRequest),
+                                          ngt.id) \
+            .AndReturn(ngt)
+        api.sahara.nodegroup_template_update(
+            request=IsA(http.HttpRequest),
+            ngt_id=ngt.id,
+            name=new_name,
+            plugin_name=ngt.plugin_name,
+            hadoop_version=ngt.hadoop_version,
+            flavor_id=flavor.id,
+            description=ngt.description,
+            volumes_per_node=None,
+            volumes_size=None,
+            volumes_availability_zone=None,
+            node_processes=['namenode'],
+            node_configs={},
+            floating_ip_pool=None,
+            security_groups=[],
+            auto_security_group=True,
+            availability_zone=None).AndReturn(True)
+
+        self.mox.ReplayAll()
+
+        res = self.client.post(
+            UPDATE_URL,
+            {'ng_id': ngt.id,
+             'nodegroup_name': new_name,
+             'plugin_name': ngt.plugin_name,
+             ngt.plugin_name + '_version': '1.2.1',
+             'hadoop_version': ngt.hadoop_version,
+             'description': ngt.description,
+             'flavor': flavor.id,
+             'availability_zone': None,
+             'storage': 'ephemeral_drive',
+             'volumes_per_node': 0,
+             'volumes_size': 0,
+             'volumes_availability_zone': None,
+             'floating_ip_pool': None,
+             'security_autogroup': True,
+             'processes': 'HDFS:namenode'})
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+        self.assertMessageCount(success=1)

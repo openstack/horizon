@@ -29,12 +29,13 @@ class CopyNodegroupTemplate(create_flow.ConfigureNodegroupTemplate):
     success_message = _("Node Group Template copy %s created")
 
     def __init__(self, request, context_seed, entry_point, *args, **kwargs):
-        template_id = context_seed["template_id"]
-        template = saharaclient.nodegroup_template_get(request, template_id)
-        self._set_configs_to_copy(template.node_configs)
+        self.template_id = context_seed["template_id"]
+        self.template = saharaclient.nodegroup_template_get(request,
+                                                            self.template_id)
+        self._set_configs_to_copy(self.template.node_configs)
 
-        plugin = template.plugin_name
-        hadoop_version = template.hadoop_version
+        plugin = self.template.plugin_name
+        hadoop_version = self.template.hadoop_version
 
         request.GET = request.GET.copy()
         request.GET.update(
@@ -52,33 +53,38 @@ class CopyNodegroupTemplate(create_flow.ConfigureNodegroupTemplate):
             if isinstance(step, create_flow.SecurityConfig):
                 s_fields = step.action.fields
 
-        g_fields["nodegroup_name"].initial = template.name + "-copy"
-        g_fields["description"].initial = template.description
-        g_fields["flavor"].initial = template.flavor_id
+        g_fields["nodegroup_name"].initial = self.template.name + "-copy"
+        g_fields["description"].initial = self.template.description
+        g_fields["flavor"].initial = self.template.flavor_id
 
-        if hasattr(template, "availability_zone"):
-            g_fields["availability_zone"].initial = template.availability_zone
+        if hasattr(self.template, "availability_zone"):
+            g_fields["availability_zone"].initial = (
+                self.template.availability_zone)
 
-        if hasattr(template, "volumes_availability_zone"):
+        if hasattr(self.template, "volumes_availability_zone"):
             g_fields["volumes_availability_zone"].initial = \
-                template.volumes_availability_zone
+                self.template.volumes_availability_zone
 
-        storage = "cinder_volume" if template.volumes_per_node > 0 \
+        storage = "cinder_volume" if self.template.volumes_per_node > 0 \
             else "ephemeral_drive"
-        volumes_per_node = template.volumes_per_node
-        volumes_size = template.volumes_size
+        volumes_per_node = self.template.volumes_per_node
+        volumes_size = self.template.volumes_size
         g_fields["storage"].initial = storage
         g_fields["volumes_per_node"].initial = volumes_per_node
         g_fields["volumes_size"].initial = volumes_size
+        g_fields["volumes_availability_zone"].initial = \
+            self.template.volumes_availability_zone
 
-        if template.floating_ip_pool:
-            g_fields['floating_ip_pool'].initial = template.floating_ip_pool
+        if self.template.floating_ip_pool:
+            g_fields['floating_ip_pool'].initial = (
+                self.template.floating_ip_pool)
 
-        s_fields["security_autogroup"].initial = template.auto_security_group
+        s_fields["security_autogroup"].initial = (
+            self.template.auto_security_group)
 
-        if template.security_groups:
+        if self.template.security_groups:
             s_fields["security_groups"].initial = dict(
-                [(sg, sg) for sg in template.security_groups])
+                [(sg, sg) for sg in self.template.security_groups])
 
         processes_dict = dict()
         try:
@@ -91,7 +97,7 @@ class CopyNodegroupTemplate(create_flow.ConfigureNodegroupTemplate):
             plugin_node_processes = dict()
             exceptions.handle(request,
                               _("Unable to fetch plugin details."))
-        for process in template.node_processes:
+        for process in self.template.node_processes:
             # need to know the service
             _service = None
             for service, processes in plugin_node_processes.items():
