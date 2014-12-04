@@ -12,6 +12,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import logging
+
 from django.conf import settings
 from django.forms import ValidationError  # noqa
 from django import http
@@ -25,6 +27,8 @@ from horizon.utils import functions as utils
 from horizon.utils import validators
 
 from openstack_dashboard import api
+
+LOG = logging.getLogger('idm_logger')
 
 
 class PasswordForm(forms.SelfHandlingForm):
@@ -63,6 +67,7 @@ class PasswordForm(forms.SelfHandlingForm):
                                                       data['new_password'])
                 response = http.HttpResponseRedirect(settings.LOGOUT_URL)
                 msg = _("Password changed. Please log in again to continue.")
+                LOG.info(msg)
                 utils.add_logout_reason(request, response, msg)
                 return response
             except Exception:

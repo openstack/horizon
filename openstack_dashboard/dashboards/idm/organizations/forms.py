@@ -83,8 +83,7 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
                 LOG.debug(msg)
                 raise exceptions.NotFound(msg)
         except Exception as e:
-            exceptions.handle(self.request, 
-                                e.error,
+            exceptions.handle(self.request,
                                 redirect=reverse('horizon:idm:organizations:index'))
             return False
         try:
