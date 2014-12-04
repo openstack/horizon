@@ -131,7 +131,7 @@ class AuthorizeView(FormView):
 
 def cancel_authorize(request, **kwargs):
     # make sure we clear the session variables
-    LOG.debug('OAUTH2: authorization request dennied, clear variables and redirect to login')
+    LOG.debug('OAUTH2: authorization request dennied, clear variables and redirect to home')
     request.session['application_credentials'] = None
     return redirect('horizon:user_home')
 
