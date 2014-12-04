@@ -15,7 +15,7 @@
     <dt>{% trans "Network ID" %}</dt>
     <dd><a href="{{ network_url }}">{{ port.network_id|default:_("None") }}</a></dd>
     <dt>{% trans "Project ID" %}</dt>
-    <dd>{{ port.tenant_id|default:"-" }}</dd>
+    <dd>{{ port.tenant_id|default:_("-") }}</dd>
     <dt>{% trans "Fixed IP" %}</dt>
     <dd>
       {% if port.fixed_ips.items|length > 1 %}
@@ -40,7 +40,7 @@
     <dt>{% trans "Attached Device" %}</dt>
     {% if port.device_id|length > 1 or port.device_owner %}
       <dd><b>{% trans "Device Owner" %}</b>: {{ port.device_owner|default:_("None") }}</dd>
-      <dd><b>{% trans "Device ID" %}</b>: {{ port.device_id|default:"-" }}</dd>
+      <dd><b>{% trans "Device ID" %}</b>: {{ port.device_id|default:_("-") }}</dd>
     {% else %}
       <dd>{% trans "No attached device" %}</dd>
     {% endif %}

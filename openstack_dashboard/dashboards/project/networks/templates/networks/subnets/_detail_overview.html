@@ -14,7 +14,7 @@
     <dt>{% trans "Network ID" %}</dt>
     <dd><a href="{{ network_url }}">{{ subnet.network_id|default:_("None") }}</a></dd>
     <dt>{% trans "IP version" %}</dt>
-    <dd>{{ subnet.ipver_str|default:"-" }}</dd>
+    <dd>{{ subnet.ipver_str|default:_("-") }}</dd>
     <dt>{% trans "CIDR" %}</dt>
     <dd>{{ subnet.cidr|default:_("None") }}</dd>
     <dt>{% trans "IP allocation pool" %}</dt>
@@ -25,7 +25,7 @@
       {% endfor %}
     </dd>
     <dt>{% trans "Gateway IP" %}</dt>
-    <dd>{{ subnet.gateway_ip|default:"-" }}</dd>
+    <dd>{{ subnet.gateway_ip|default:_("-") }}</dd>
     <dt>{% trans "DHCP Enable" %}<dt>
     <dd>{{ subnet.enable_dhcp|yesno|capfirst }}</dd>
     {% if subnet.ip_version == 6 %}

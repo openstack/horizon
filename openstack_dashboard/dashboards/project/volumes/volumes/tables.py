@@ -304,7 +304,7 @@ def get_volume_type(volume):
 
 def get_encrypted_value(volume):
     if not hasattr(volume, 'encrypted') or volume.encrypted is None:
-        return "-"
+        return _("-")
     elif volume.encrypted is False:
         return _("No")
     else:
@@ -353,7 +353,7 @@ class VolumesTable(VolumesTableBase):
                          link="horizon:project:volumes:volumes:detail")
     volume_type = tables.Column(get_volume_type,
                                 verbose_name=_("Type"),
-                                empty_value="-")
+                                empty_value=_("-"))
     attachments = AttachmentColumn("attachments",
                                    verbose_name=_("Attached To"))
     availability_zone = tables.Column("availability_zone",

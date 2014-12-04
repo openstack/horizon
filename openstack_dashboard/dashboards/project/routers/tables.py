@@ -179,7 +179,7 @@ def get_external_network(router):
     if router.external_gateway_info:
         return router.external_gateway_info['network']
     else:
-        return "-"
+        return _("-")
 
 
 class RoutersTable(tables.DataTable):

@@ -99,7 +99,7 @@ class Server(base.APIResourceWrapper):
         from openstack_dashboard.api import glance  # noqa
 
         if not self.image:
-            return "-"
+            return _("-")
         if hasattr(self.image, 'name'):
             return self.image.name
         if 'name' in self.image:
@@ -109,7 +109,7 @@ class Server(base.APIResourceWrapper):
                 image = glance.image_get(self.request, self.image['id'])
                 return image.name
             except glance_exceptions.ClientException:
-                return "-"
+                return _("-")
 
     @property
     def internal_name(self):
