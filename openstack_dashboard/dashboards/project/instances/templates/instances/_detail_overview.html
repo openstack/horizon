@@ -19,6 +19,8 @@
     <dd>{{ instance.created|parse_isotime }}</dd>
     <dt>{% trans "Uptime" %}</dt>
     <dd>{{ instance.created|parse_isotime|timesince }}</dd>
+    <dt>{% trans "Host" %}</dt>
+    <dd>{{ instance.host_server|default:"-" }}</dd>
   </dl>
 </div>
 
