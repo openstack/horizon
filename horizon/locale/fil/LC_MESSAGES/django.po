@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-28 19:13-0500\n"
-"PO-Revision-Date: 2014-10-28 22:51+0000\n"
+"POT-Creation-Date: 2014-12-03 20:48-0600\n"
+"PO-Revision-Date: 2014-12-04 02:48+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Filipino (http://www.transifex.com/projects/p/horizon/language/fil/)\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Language: fil\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: base.py:480
+#: base.py:483 templates/horizon/common/_modal_form_update_metadata.html:38
 msgid "Other"
 msgstr "Iba"
 
@@ -73,11 +73,11 @@ msgstr "Maling bersyon para sa IP address"
 msgid "Invalid subnet mask"
 msgstr "Maling subnet mask"
 
-#: forms/views.py:81 templates/horizon/common/_usage_summary.html:16
+#: forms/views.py:102 templates/horizon/common/_usage_summary.html:16
 msgid "Submit"
 msgstr "Submit"
 
-#: forms/views.py:82
+#: forms/views.py:103
 #: templates/horizon/common/_modal_form_update_metadata.html:236
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
@@ -86,6 +86,8 @@ msgstr "Ikansela"
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:16
 #: templates/horizon/common/_data_table_table_actions.html:26
+#: templates/horizon/common/_modal_form_update_metadata.html:28
+#: templates/horizon/common/_modal_form_update_metadata.html:98
 #: templates/horizon/common/_workflow_step_update_members.html:12
 #: templates/horizon/common/_workflow_step_update_members.html:21
 msgid "Filter"
@@ -103,61 +105,65 @@ msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:788 tables/base.py:1552
+#: tables/actions.py:794 tables/base.py:1565
 msgid "N/A"
 msgstr "N/A"
 
-#: tables/actions.py:817
+#: tables/actions.py:823
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "Wala kang pahintulot sa %(action)s: %(objs)s"
 
-#: tables/actions.py:824
+#: tables/actions.py:830
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "Hindi magawa ang %(action)s: %(objs)s"
 
-#: tables/actions.py:830
+#: tables/actions.py:836
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:900
+#: tables/actions.py:906
 msgid "Delete"
 msgstr "Alisin"
 
-#: tables/actions.py:902
+#: tables/actions.py:908
 msgid "Deleted"
 msgstr "Naalis na"
 
-#: tables/actions.py:933
+#: tables/actions.py:939
 msgid "Update"
 msgstr "I-update"
 
-#: tables/actions.py:934
+#: tables/actions.py:940
 msgid "Updated"
 msgstr "Nai-update"
+
+#: tables/base.py:305
+msgid "-"
+msgstr ""
 
 #: tables/base.py:361
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "Ang katangian %(attr)s ay hindi umiiral sa %(obj)s."
 
-#: tables/base.py:973
+#: tables/base.py:985
 msgid "No items to display."
 msgstr "Walang mga items na ipapakita."
 
-#: tables/base.py:1082
+#: tables/base.py:1094
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr "Mga Aksyon"
 
-#: tables/base.py:1311
+#: tables/base.py:1324
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Walang tugma para sa id na \"%s\"."
 
-#: tables/base.py:1468
+#: tables/base.py:1481
 msgid "Please select a row before taking that action."
 msgstr "Mangyaring pumili ng isang hilera bago simulan ang aksiyon."
 
@@ -213,22 +219,22 @@ msgstr "Tagumpay:"
 msgid "Error: "
 msgstr "May Pagkakamali:"
 
-#: templates/horizon/common/_data_table.html:61
+#: templates/horizon/common/_data_table.html:63
 msgid "Summary"
 msgstr "Buod"
 
-#: templates/horizon/common/_data_table.html:70
+#: templates/horizon/common/_data_table.html:72
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: templates/horizon/common/_data_table.html:75
+#: templates/horizon/common/_data_table.html:77
 msgid "&laquo;&nbsp;Prev"
 msgstr "&laquo;&nbsp;Nakaraan"
 
-#: templates/horizon/common/_data_table.html:78
+#: templates/horizon/common/_data_table.html:80
 msgid "Next&nbsp;&raquo;"
 msgstr ""
 
@@ -403,11 +409,11 @@ msgstr "Susunod"
 msgid "Horizon"
 msgstr "Horizon"
 
-#: templatetags/horizon.py:130 templatetags/horizon.py:141
+#: templatetags/horizon.py:133 templatetags/horizon.py:144
 msgid "No Limit"
 msgstr "Walang Limitasyon"
 
-#: templatetags/horizon.py:133 templatetags/horizon.py:135
+#: templatetags/horizon.py:136 templatetags/horizon.py:138
 msgid "Available"
 msgstr "Magagamit"
 

@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-30 03:30-0500\n"
-"PO-Revision-Date: 2014-11-04 00:13+0000\n"
-"Last-Translator: Andi Chandler <andi@gowling.com>\n"
+"POT-Creation-Date: 2014-12-03 20:48-0600\n"
+"PO-Revision-Date: 2014-12-04 03:01+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/horizon/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: base.py:480 templates/horizon/common/_modal_form_update_metadata.html:38
+#: base.py:483 templates/horizon/common/_modal_form_update_metadata.html:38
 msgid "Other"
 msgstr "Other"
 
@@ -74,11 +74,11 @@ msgstr "Invalid version for IP address"
 msgid "Invalid subnet mask"
 msgstr "Invalid subnet mask"
 
-#: forms/views.py:81 templates/horizon/common/_usage_summary.html:16
+#: forms/views.py:102 templates/horizon/common/_usage_summary.html:16
 msgid "Submit"
 msgstr "Submit"
 
-#: forms/views.py:82
+#: forms/views.py:103
 #: templates/horizon/common/_modal_form_update_metadata.html:236
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
@@ -106,61 +106,65 @@ msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:788 tables/base.py:1552
+#: tables/actions.py:794 tables/base.py:1565
 msgid "N/A"
 msgstr "N/A"
 
-#: tables/actions.py:817
+#: tables/actions.py:823
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "You are not allowed to %(action)s: %(objs)s"
 
-#: tables/actions.py:824
+#: tables/actions.py:830
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "Unable to %(action)s: %(objs)s"
 
-#: tables/actions.py:830
+#: tables/actions.py:836
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:900
+#: tables/actions.py:906
 msgid "Delete"
 msgstr "Delete"
 
-#: tables/actions.py:902
+#: tables/actions.py:908
 msgid "Deleted"
 msgstr "Deleted"
 
-#: tables/actions.py:933
+#: tables/actions.py:939
 msgid "Update"
 msgstr "Update"
 
-#: tables/actions.py:934
+#: tables/actions.py:940
 msgid "Updated"
 msgstr "Updated"
+
+#: tables/base.py:305
+msgid "-"
+msgstr "-"
 
 #: tables/base.py:361
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "The attribute %(attr)s does not exist on %(obj)s."
 
-#: tables/base.py:973
+#: tables/base.py:985
 msgid "No items to display."
 msgstr "No items to display."
 
-#: tables/base.py:1082
+#: tables/base.py:1094
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr "Actions"
 
-#: tables/base.py:1311
+#: tables/base.py:1324
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "No match returned for the id \"%s\"."
 
-#: tables/base.py:1468
+#: tables/base.py:1481
 msgid "Please select a row before taking that action."
 msgstr "Please select a row before taking that action."
 
@@ -216,22 +220,22 @@ msgstr "Success: "
 msgid "Error: "
 msgstr "Error: "
 
-#: templates/horizon/common/_data_table.html:61
+#: templates/horizon/common/_data_table.html:63
 msgid "Summary"
 msgstr "Summary"
 
-#: templates/horizon/common/_data_table.html:70
+#: templates/horizon/common/_data_table.html:72
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
 msgstr[0] "Displaying %(counter)s item"
 msgstr[1] "Displaying %(counter)s items"
 
-#: templates/horizon/common/_data_table.html:75
+#: templates/horizon/common/_data_table.html:77
 msgid "&laquo;&nbsp;Prev"
 msgstr "&laquo;&nbsp;Prev"
 
-#: templates/horizon/common/_data_table.html:78
+#: templates/horizon/common/_data_table.html:80
 msgid "Next&nbsp;&raquo;"
 msgstr "Next&nbsp;&raquo;"
 
@@ -406,11 +410,11 @@ msgstr "Next"
 msgid "Horizon"
 msgstr "Horizon"
 
-#: templatetags/horizon.py:130 templatetags/horizon.py:141
+#: templatetags/horizon.py:133 templatetags/horizon.py:144
 msgid "No Limit"
 msgstr "No Limit"
 
-#: templatetags/horizon.py:133 templatetags/horizon.py:135
+#: templatetags/horizon.py:136 templatetags/horizon.py:138
 msgid "Available"
 msgstr "Available"
 

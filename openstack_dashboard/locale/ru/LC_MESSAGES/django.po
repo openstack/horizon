@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-02 18:21-0600\n"
-"PO-Revision-Date: 2014-12-03 00:21+0000\n"
+"POT-Creation-Date: 2014-12-03 20:48-0600\n"
+"PO-Revision-Date: 2014-12-04 03:01+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -343,42 +343,78 @@ msgstr "The 'operation' parameter for get_feature_permission '%(feature)s' is in
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr "Невозможно проверить отсутствие поддержки расширения Neutron '%s'"
 
-#: api/nova.py:211
+#: api/nova.py:102 api/nova.py:112
+#: dashboards/project/access_and_security/floating_ips/tables.py:198
+#: dashboards/project/access_and_security/floating_ips/tables.py:201
+#: dashboards/project/databases/tables.py:230
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:8
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:11
+#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:8
+#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:11
+#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:27
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:8
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:11
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:43
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:48
+#: dashboards/project/instances/templates/instances/_detail_overview.html:17
+#: dashboards/project/instances/templates/instances/_detail_overview.html:23
+#: dashboards/project/loadbalancers/tables.py:327
+#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:10
+#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:13
+#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:23
+#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:47
+#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:59
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:10
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:13
+#: dashboards/project/networks/templates/networks/_detail_overview.html:12
+#: dashboards/project/networks/templates/networks/_detail_overview.html:24
+#: dashboards/project/networks/templates/networks/_detail_overview.html:25
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:18
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:43
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:17
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:28
+#: dashboards/project/routers/tables.py:182
+#: dashboards/project/volumes/volumes/tables.py:307
+#: dashboards/project/volumes/volumes/tables.py:356
+msgid "-"
+msgstr "-"
+
+#: api/nova.py:215
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(group)s"
 msgstr "ALLOW %(from)s:%(to)s для %(group)s"
 
-#: api/nova.py:216
+#: api/nova.py:220
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
 msgstr "ALLOW %(from)s:%(to)s для %(cidr)s"
 
-#: api/nova.py:292
+#: api/nova.py:296
 msgid "Couldn't get security group list."
 msgstr "Не удалось получить список групп безопасности."
 
-#: api/nova.py:299
+#: api/nova.py:303
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
 msgstr "Невозможно получить текущую группу безопасности для машины %s."
 
-#: api/nova.py:316
+#: api/nova.py:320
 #, python-format
 msgid ""
 "Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
 msgstr "Не удалось изменить %(num_groups_to_modify)d групп безопасности инстанса: %(err)s"
 
-#: api/nova.py:331
+#: api/nova.py:335
 #, python-format
 msgid "Failed to modify %d instance security groups"
 msgstr "Не удалось изменить %d групп безопасности инстанса"
 
-#: api/nova.py:758
+#: api/nova.py:762
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr "Имя: %(name)s ID: %(uuid)s"
 
-#: api/nova.py:763
+#: api/nova.py:767
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr "Не удалось эвакуировать инстанс: %s"
@@ -615,7 +651,7 @@ msgstr "Узлы"
 
 #: dashboards/admin/aggregates/tables.py:136
 #: dashboards/admin/flavors/tables.py:141
-#: dashboards/project/instances/templates/instances/_detail_overview.html:102
+#: dashboards/project/instances/templates/instances/_detail_overview.html:104
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:46
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:68
 msgid "Metadata"
@@ -981,29 +1017,29 @@ msgstr "По умолчанию"
 msgid "Update Defaults"
 msgstr "Обновить параметры по умолчанию"
 
-#: dashboards/admin/defaults/tables.py:41
+#: dashboards/admin/defaults/tables.py:42
 #: dashboards/admin/defaults/workflows.py:31 usage/quotas.py:66
 msgid "Injected File Content Bytes"
 msgstr "Объём загруженного файла (байт)"
 
-#: dashboards/admin/defaults/tables.py:42
+#: dashboards/admin/defaults/tables.py:43
 #: dashboards/admin/defaults/workflows.py:32
 msgid "Length of Injected File Path"
 msgstr "Протяженность пути загруженного файла"
 
-#: dashboards/admin/defaults/tables.py:43
+#: dashboards/admin/defaults/tables.py:44
 #: dashboards/admin/defaults/workflows.py:36
 #: dashboards/identity/projects/workflows.py:46 usage/quotas.py:62
 msgid "Metadata Items"
 msgstr "Элементы метаданных"
 
-#: dashboards/admin/defaults/tables.py:44
+#: dashboards/admin/defaults/tables.py:45
 #: dashboards/admin/defaults/workflows.py:47
 #: dashboards/admin/flavors/tables.py:122
 #: dashboards/admin/flavors/workflows.py:46
 #: dashboards/admin/overview/views.py:33
 #: dashboards/identity/projects/workflows.py:47
-#: dashboards/project/instances/templates/instances/_detail_overview.html:51
+#: dashboards/project/instances/templates/instances/_detail_overview.html:53
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:10
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:4
 #: dashboards/project/overview/views.py:32 usage/quotas.py:63
@@ -1011,7 +1047,7 @@ msgstr "Элементы метаданных"
 msgid "VCPUs"
 msgstr "ВЦПУ"
 
-#: dashboards/admin/defaults/tables.py:45
+#: dashboards/admin/defaults/tables.py:46
 #: dashboards/admin/defaults/workflows.py:42
 #: dashboards/admin/hypervisors/tables.py:57
 #: dashboards/admin/instances/panel.py:27
@@ -1032,13 +1068,13 @@ msgstr "ВЦПУ"
 msgid "Instances"
 msgstr "Машины"
 
-#: dashboards/admin/defaults/tables.py:46
+#: dashboards/admin/defaults/tables.py:47
 #: dashboards/admin/defaults/workflows.py:46
 #: dashboards/identity/projects/workflows.py:50 usage/quotas.py:65
 msgid "Injected Files"
 msgstr "Загруженные файлы"
 
-#: dashboards/admin/defaults/tables.py:47
+#: dashboards/admin/defaults/tables.py:48
 #: dashboards/admin/defaults/workflows.py:54
 #: dashboards/admin/volumes/panel.py:21 dashboards/admin/volumes/tabs.py:35
 #: dashboards/admin/volumes/templates/volumes/index.html:3
@@ -1053,7 +1089,7 @@ msgstr "Загруженные файлы"
 msgid "Volumes"
 msgstr "Диски"
 
-#: dashboards/admin/defaults/tables.py:48
+#: dashboards/admin/defaults/tables.py:49
 #: dashboards/admin/defaults/workflows.py:53
 #: dashboards/admin/volumes/tabs.py:112
 #: dashboards/admin/volumes/snapshots/tables.py:69
@@ -1063,13 +1099,13 @@ msgstr "Диски"
 msgid "Volume Snapshots"
 msgstr "Снимки дисков"
 
-#: dashboards/admin/defaults/tables.py:49
+#: dashboards/admin/defaults/tables.py:50
 #: dashboards/admin/defaults/workflows.py:52
 #: dashboards/identity/projects/workflows.py:56 usage/quotas.py:76
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "Общий размер дисков и снимков (ГБ)"
 
-#: dashboards/admin/defaults/tables.py:50
+#: dashboards/admin/defaults/tables.py:51
 #: dashboards/admin/defaults/workflows.py:37
 #: dashboards/admin/flavors/workflows.py:48
 #: dashboards/admin/overview/views.py:33
@@ -1078,17 +1114,17 @@ msgstr "Общий размер дисков и снимков (ГБ)"
 msgid "RAM (MB)"
 msgstr "ОЗУ (МБ)"
 
-#: dashboards/admin/defaults/tables.py:51
+#: dashboards/admin/defaults/tables.py:52
 #: dashboards/admin/defaults/workflows.py:38
 #: dashboards/identity/projects/workflows.py:58
 #: dashboards/identity/projects/workflows.py:70
 #: dashboards/project/access_and_security/tabs.py:80
-#: dashboards/project/access_and_security/floating_ips/tables.py:222
+#: dashboards/project/access_and_security/floating_ips/tables.py:223
 #: usage/quotas.py:68 usage/quotas.py:81
 msgid "Floating IPs"
 msgstr "Назначаемые IP"
 
-#: dashboards/admin/defaults/tables.py:52
+#: dashboards/admin/defaults/tables.py:53
 #: dashboards/admin/defaults/workflows.py:49
 #: dashboards/identity/projects/workflows.py:61
 #: dashboards/identity/projects/workflows.py:67
@@ -1098,14 +1134,14 @@ msgstr "Назначаемые IP"
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:32
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:42
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:115
-#: dashboards/project/instances/templates/instances/_detail_overview.html:81
+#: dashboards/project/instances/templates/instances/_detail_overview.html:83
 #: dashboards/project/instances/workflows/create_instance.py:501
 #: dashboards/project/instances/workflows/update_instance.py:80
 #: usage/quotas.py:70 usage/quotas.py:82
 msgid "Security Groups"
 msgstr "Группы безопасности"
 
-#: dashboards/admin/defaults/tables.py:53
+#: dashboards/admin/defaults/tables.py:54
 #: dashboards/admin/defaults/workflows.py:44
 #: dashboards/identity/projects/workflows.py:63
 #: dashboards/identity/projects/workflows.py:69
@@ -1114,7 +1150,7 @@ msgstr "Группы безопасности"
 msgid "Security Group Rules"
 msgstr "Правила групп безопасности"
 
-#: dashboards/admin/defaults/tables.py:54
+#: dashboards/admin/defaults/tables.py:55
 #: dashboards/admin/defaults/workflows.py:39
 #: dashboards/project/access_and_security/tabs.py:63
 #: dashboards/project/access_and_security/keypairs/tables.py:90
@@ -1122,7 +1158,7 @@ msgstr "Правила групп безопасности"
 msgid "Key Pairs"
 msgstr "Пары ключей"
 
-#: dashboards/admin/defaults/tables.py:55
+#: dashboards/admin/defaults/tables.py:56
 #: dashboards/admin/networks/ports/tables.py:94
 #: dashboards/admin/routers/ports/tables.py:29
 #: dashboards/identity/projects/workflows.py:59
@@ -1131,31 +1167,31 @@ msgstr "Пары ключей"
 msgid "Fixed IPs"
 msgstr "Фиксированные IP-адреса"
 
-#: dashboards/admin/defaults/tables.py:56
+#: dashboards/admin/defaults/tables.py:57
 msgid "LUKS Volumes"
 msgstr "Диски LUKS"
 
-#: dashboards/admin/defaults/tables.py:57
+#: dashboards/admin/defaults/tables.py:58
 msgid "LUKS Volume Snapshots"
 msgstr "Снимки дисков LUKS"
 
-#: dashboards/admin/defaults/tables.py:59
+#: dashboards/admin/defaults/tables.py:60
 msgid "Total Size of LUKS Volumes and Snapshots (GB)"
 msgstr "Общий размер дисков и снимков LUKS (ГБ)"
 
-#: dashboards/admin/defaults/tables.py:60
+#: dashboards/admin/defaults/tables.py:61
 msgid "dm-crypt"
 msgstr "dm-crypt"
 
-#: dashboards/admin/defaults/tables.py:66
+#: dashboards/admin/defaults/tables.py:67
 msgid "Quota Name"
 msgstr "Имя квоты"
 
-#: dashboards/admin/defaults/tables.py:67
+#: dashboards/admin/defaults/tables.py:68
 msgid "Limit"
 msgstr "Ограничение"
 
-#: dashboards/admin/defaults/tables.py:74
+#: dashboards/admin/defaults/tables.py:75
 msgid "Quotas"
 msgstr "Квоты"
 
@@ -1253,7 +1289,7 @@ msgstr "Имя схемы"
 
 #: dashboards/admin/flavors/tables.py:124
 #: dashboards/project/databases/templates/databases/_detail_overview.html:28
-#: dashboards/project/instances/templates/instances/_detail_overview.html:49
+#: dashboards/project/instances/templates/instances/_detail_overview.html:51
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:14
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:5
 #: usage/tables.py:37
@@ -1266,7 +1302,7 @@ msgid "Root Disk"
 msgstr "Основной диск"
 
 #: dashboards/admin/flavors/tables.py:130
-#: dashboards/project/instances/templates/instances/_detail_overview.html:56
+#: dashboards/project/instances/templates/instances/_detail_overview.html:58
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:12
 msgid "Ephemeral Disk"
 msgstr "Временный диск"
@@ -1277,7 +1313,7 @@ msgstr "Диск подкачки"
 
 #: dashboards/admin/flavors/tables.py:135
 #: dashboards/admin/flavors/workflows.py:41
-#: dashboards/admin/networks/agents/tables.py:89
+#: dashboards/admin/networks/agents/tables.py:90
 #: dashboards/admin/networks/templates/networks/ports/_update.html:13
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:9
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:12
@@ -1612,7 +1648,7 @@ msgstr "Не удалось эвакуировать хост: %s"
 #: dashboards/admin/info/tables.py:66 dashboards/admin/info/tables.py:95
 #: dashboards/admin/info/tables.py:119 dashboards/admin/info/tables.py:171
 #: dashboards/admin/instances/tables.py:124
-#: dashboards/admin/networks/agents/tables.py:90
+#: dashboards/admin/networks/agents/tables.py:91
 #: dashboards/admin/volumes/snapshots/tables.py:64
 #: dashboards/admin/volumes/volumes/tables.py:43
 #: dashboards/project/databases/tables.py:253
@@ -1621,6 +1657,7 @@ msgstr "Не удалось эвакуировать хост: %s"
 #: dashboards/project/databases/templates/databases/_detail_overview_mongodb.html:10
 #: dashboards/project/databases/templates/databases/_detail_overview_mysql.html:10
 #: dashboards/project/databases/templates/databases/_detail_overview_redis.html:10
+#: dashboards/project/instances/templates/instances/_detail_overview.html:22
 msgid "Host"
 msgstr "Узел"
 
@@ -1678,14 +1715,14 @@ msgstr "Зона"
 #: dashboards/admin/info/tables.py:121 dashboards/admin/info/tables.py:172
 #: dashboards/admin/instances/tables.py:141
 #: dashboards/admin/networks/tables.py:95
-#: dashboards/admin/networks/agents/tables.py:91
+#: dashboards/admin/networks/agents/tables.py:92
 #: dashboards/admin/networks/ports/tables.py:97
 #: dashboards/admin/routers/ports/tables.py:30
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:13
 #: dashboards/admin/volumes/snapshots/forms.py:33
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/admin/volumes/volumes/forms.py:46
-#: dashboards/project/access_and_security/floating_ips/tables.py:202
+#: dashboards/project/access_and_security/floating_ips/tables.py:203
 #: dashboards/project/data_processing/clusters/tables.py:109
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:12
 #: dashboards/project/data_processing/job_executions/tables.py:150
@@ -1739,7 +1776,7 @@ msgid "State"
 msgstr "Состояние"
 
 #: dashboards/admin/hypervisors/compute/tables.py:99
-#: dashboards/admin/networks/agents/tables.py:94
+#: dashboards/admin/networks/agents/tables.py:95
 msgid "Updated At"
 msgstr "Обновлено"
 
@@ -1838,7 +1875,7 @@ msgstr "Максимальный размер (МБ)"
 #: dashboards/admin/instances/tables.py:130
 #: dashboards/project/images/images/tables.py:227
 #: dashboards/project/instances/tables.py:959
-#: dashboards/project/instances/templates/instances/_detail_overview.html:110
+#: dashboards/project/instances/templates/instances/_detail_overview.html:112
 #: dashboards/project/instances/workflows/create_instance.py:105
 #: dashboards/project/volumes/volumes/forms.py:540
 msgid "Image Name"
@@ -1925,7 +1962,7 @@ msgid "System Information"
 msgstr "Системная информация"
 
 #: dashboards/admin/info/tables.py:26 dashboards/admin/info/tables.py:156
-#: dashboards/admin/networks/agents/tables.py:78
+#: dashboards/admin/networks/agents/tables.py:79
 #: dashboards/identity/domains/tables.py:202
 #: dashboards/identity/domains/workflows.py:39
 #: dashboards/identity/groups/tables.py:195
@@ -1943,7 +1980,7 @@ msgid "Enabled"
 msgstr "Разрешено"
 
 #: dashboards/admin/info/tables.py:27 dashboards/admin/info/tables.py:158
-#: dashboards/admin/networks/agents/tables.py:79
+#: dashboards/admin/networks/agents/tables.py:80
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:65
 msgid "Disabled"
 msgstr "Выключено"
@@ -1974,12 +2011,12 @@ msgid "Block Storage Services"
 msgstr "Блок хранения услуг"
 
 #: dashboards/admin/info/tables.py:163
-#: dashboards/admin/networks/agents/tables.py:84
+#: dashboards/admin/networks/agents/tables.py:85
 msgid "Up"
 msgstr "Запущено"
 
 #: dashboards/admin/info/tables.py:165
-#: dashboards/admin/networks/agents/tables.py:85
+#: dashboards/admin/networks/agents/tables.py:86
 msgid "Down"
 msgstr "Остановлено"
 
@@ -2106,7 +2143,7 @@ msgid "Flavor ID ="
 msgstr "Схема ID ="
 
 #: dashboards/admin/instances/tables.py:132
-#: dashboards/project/access_and_security/floating_ips/tables.py:192
+#: dashboards/project/access_and_security/floating_ips/tables.py:193
 #: dashboards/project/access_and_security/floating_ips/workflows.py:33
 #: dashboards/project/access_and_security/floating_ips/workflows.py:40
 #: dashboards/project/instances/tables.py:961
@@ -2570,7 +2607,7 @@ msgstr "ID сегмента"
 #: dashboards/admin/networks/forms.py:79
 #: dashboards/admin/networks/forms.py:238
 #: dashboards/admin/networks/tables.py:97
-#: dashboards/admin/networks/agents/tables.py:92
+#: dashboards/admin/networks/agents/tables.py:93
 #: dashboards/admin/networks/ports/forms.py:44
 #: dashboards/admin/networks/ports/tables.py:99
 #: dashboards/admin/routers/ports/tables.py:34
@@ -2762,7 +2799,7 @@ msgid "Subnets Associated"
 msgstr "Ассоциированные подсети"
 
 #: dashboards/admin/networks/tables.py:92
-#: dashboards/admin/networks/agents/tables.py:100
+#: dashboards/admin/networks/agents/tables.py:101
 msgid "DHCP Agents"
 msgstr "DHCP агенты"
 
@@ -3282,8 +3319,8 @@ msgstr ""
 #: dashboards/project/images/templates/images/images/_detail_overview.html:16
 #: dashboards/project/images/templates/images/images/_detail_overview.html:49
 #: dashboards/project/images/templates/images/images/_detail_overview.html:51
-#: dashboards/project/instances/templates/instances/_detail_overview.html:106
-#: dashboards/project/instances/templates/instances/_detail_overview.html:115
+#: dashboards/project/instances/templates/instances/_detail_overview.html:108
+#: dashboards/project/instances/templates/instances/_detail_overview.html:117
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:45
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:51
 #: dashboards/project/networks/templates/networks/_detail_overview.html:8
@@ -3490,7 +3527,7 @@ msgid "Information"
 msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:20
-#: dashboards/project/instances/templates/instances/_detail_overview.html:140
+#: dashboards/project/instances/templates/instances/_detail_overview.html:142
 #: dashboards/project/instances/workflows/create_instance.py:99
 #: dashboards/project/instances/workflows/create_instance.py:373
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:23
@@ -3505,7 +3542,7 @@ msgstr "Диск"
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:36
 #: dashboards/project/databases/templates/databases/_detail_overview.html:23
 #: dashboards/project/images/templates/images/images/_detail_overview.html:43
-#: dashboards/project/instances/templates/instances/_detail_overview.html:43
+#: dashboards/project/instances/templates/instances/_detail_overview.html:45
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:34
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:34
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:24
@@ -3514,8 +3551,8 @@ msgstr "Specs"
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:34
 #: dashboards/project/database_backups/templates/database_backups/details.html:35
-#: dashboards/project/instances/templates/instances/_detail_overview.html:54
-#: dashboards/project/instances/templates/instances/_detail_overview.html:57
+#: dashboards/project/instances/templates/instances/_detail_overview.html:56
+#: dashboards/project/instances/templates/instances/_detail_overview.html:59
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:11
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:12
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:13
@@ -3539,7 +3576,7 @@ msgstr "Гб"
 #: dashboards/project/databases/templates/databases/_detail_overview.html:34
 #: dashboards/project/images/templates/images/images/_detail_overview.html:27
 #: dashboards/project/instances/templates/instances/_detail_overview.html:18
-#: dashboards/project/instances/templates/instances/_detail_overview.html:36
+#: dashboards/project/instances/templates/instances/_detail_overview.html:38
 #: dashboards/project/stacks/tables.py:104
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:22
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:39
@@ -3714,7 +3751,7 @@ msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:8
 msgid "Info"
-msgstr ""
+msgstr "Информация"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:13
 #: dashboards/admin/volumes/volume_types/forms.py:27
@@ -5142,7 +5179,7 @@ msgid "Unable to get EC2 credentials"
 msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/forms.py:31
-#: dashboards/project/access_and_security/floating_ips/tables.py:199
+#: dashboards/project/access_and_security/floating_ips/tables.py:200
 #: dashboards/project/loadbalancers/forms.py:79
 #: dashboards/project/loadbalancers/forms.py:172
 #: dashboards/project/loadbalancers/tables.py:310
@@ -5197,42 +5234,42 @@ msgstr[2] ""
 msgid "Disassociate"
 msgstr "Снять назначение"
 
-#: dashboards/project/access_and_security/floating_ips/tables.py:149
+#: dashboards/project/access_and_security/floating_ips/tables.py:150
 #, python-format
 msgid "Successfully disassociated Floating IP: %s"
 msgstr "Успешно снято назначение IP: %s"
 
-#: dashboards/project/access_and_security/floating_ips/tables.py:153
+#: dashboards/project/access_and_security/floating_ips/tables.py:154
 #: dashboards/project/instances/tables.py:613
 msgid "Unable to disassociate floating IP."
 msgstr "Невозможно снять назначение IP."
 
-#: dashboards/project/access_and_security/floating_ips/tables.py:159
+#: dashboards/project/access_and_security/floating_ips/tables.py:160
 #, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
 
-#: dashboards/project/access_and_security/floating_ips/tables.py:163
+#: dashboards/project/access_and_security/floating_ips/tables.py:164
 #, python-format
 msgid "Load Balancer VIP %s"
 msgstr "Балансировщик нагрузки VIP %s"
 
-#: dashboards/project/access_and_security/floating_ips/tables.py:179
+#: dashboards/project/access_and_security/floating_ips/tables.py:180
 msgctxt "Current status of a Floating IP"
 msgid "Active"
 msgstr "Активный"
 
-#: dashboards/project/access_and_security/floating_ips/tables.py:180
+#: dashboards/project/access_and_security/floating_ips/tables.py:181
 msgctxt "Current status of a Floating IP"
 msgid "Down"
 msgstr "Остановлено"
 
-#: dashboards/project/access_and_security/floating_ips/tables.py:181
+#: dashboards/project/access_and_security/floating_ips/tables.py:182
 msgctxt "Current status of a Floating IP"
 msgid "Error"
 msgstr "Ошибка"
 
-#: dashboards/project/access_and_security/floating_ips/tables.py:196
+#: dashboards/project/access_and_security/floating_ips/tables.py:197
 msgid "Mapped Fixed IP Address"
 msgstr "Сопоставлен фиксированный IP-адрес"
 
@@ -5469,7 +5506,7 @@ msgstr "Введите значение для типа ICMP из диапазо
 
 #: dashboards/project/access_and_security/security_groups/forms.py:184
 #: dashboards/project/access_and_security/security_groups/forms.py:191
-#: dashboards/project/instances/templates/instances/_detail_overview.html:32
+#: dashboards/project/instances/templates/instances/_detail_overview.html:34
 msgid "Code"
 msgstr "Код"
 
@@ -6449,7 +6486,7 @@ msgstr "Подсчет узлов"
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:14
 #: dashboards/project/databases/templates/databases/_detail_overview.html:26
 #: dashboards/project/databases/workflows/create_instance.py:36
-#: dashboards/project/instances/templates/instances/_detail_overview.html:46
+#: dashboards/project/instances/templates/instances/_detail_overview.html:48
 #: dashboards/project/instances/workflows/create_instance.py:84
 msgid "Flavor"
 msgstr "Схема"
@@ -6557,7 +6594,7 @@ msgstr "Имя шаблона"
 #: dashboards/project/data_processing/data_plugins/tabs.py:26
 #: dashboards/project/database_backups/workflows/create_backup.py:43
 #: dashboards/project/databases/workflows/create_instance.py:47
-#: dashboards/project/instances/templates/instances/_detail_overview.html:34
+#: dashboards/project/instances/templates/instances/_detail_overview.html:36
 #: dashboards/project/instances/workflows/create_instance.py:135
 #: dashboards/project/loadbalancers/tables.py:337
 msgid "Details"
@@ -7866,8 +7903,8 @@ msgstr[2] ""
 #: dashboards/project/instances/tables.py:804
 #: dashboards/project/instances/tables.py:811
 #: dashboards/project/instances/views.py:361
-#: dashboards/project/instances/templates/instances/_detail_overview.html:60
-#: dashboards/project/instances/templates/instances/_detail_overview.html:96
+#: dashboards/project/instances/templates/instances/_detail_overview.html:62
+#: dashboards/project/instances/templates/instances/_detail_overview.html:98
 msgid "Not available"
 msgstr "Не доступен"
 
@@ -8133,27 +8170,6 @@ msgstr "Не назначено"
 #, python-format
 msgid "%(name)s | %(RAM)s RAM"
 msgstr "%(name)s | %(RAM)s RAM"
-
-#: dashboards/project/databases/tables.py:230
-#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:8
-#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:11
-#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:8
-#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:11
-#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:27
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:8
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:11
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:43
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:48
-#: dashboards/project/loadbalancers/tables.py:327
-#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:10
-#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:13
-#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:23
-#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:47
-#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:59
-#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:10
-#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:13
-msgid "-"
-msgstr "-"
 
 #: dashboards/project/databases/tables.py:258
 #: dashboards/project/databases/templates/databases/_detail_overview.html:31
@@ -9275,7 +9291,7 @@ msgid "Start Time"
 msgstr "Время начала"
 
 #: dashboards/project/instances/audit_tables.py:29
-#: dashboards/project/instances/templates/instances/_detail_overview.html:30
+#: dashboards/project/instances/templates/instances/_detail_overview.html:32
 msgid "Message"
 msgstr "Сообщение"
 
@@ -10075,49 +10091,49 @@ msgstr "Посмотреть весь лог"
 msgid "Uptime"
 msgstr "Время работы"
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:27
+#: dashboards/project/instances/templates/instances/_detail_overview.html:29
 msgid "Fault"
 msgstr "Ошибка"
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:52
+#: dashboards/project/instances/templates/instances/_detail_overview.html:54
 msgid "VCPU"
 msgstr "ВЦПУ"
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:53
+#: dashboards/project/instances/templates/instances/_detail_overview.html:55
 #: usage/tables.py:34
 msgid "Disk"
 msgstr "Диск"
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:66
+#: dashboards/project/instances/templates/instances/_detail_overview.html:68
 msgid "IP Addresses"
 msgstr "IP-адреса"
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:91
+#: dashboards/project/instances/templates/instances/_detail_overview.html:93
 msgid "No rules defined."
 msgstr "Нет заданных правил."
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:105
+#: dashboards/project/instances/templates/instances/_detail_overview.html:107
 msgid "Key Name"
 msgstr "Имя ключа"
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:118
+#: dashboards/project/instances/templates/instances/_detail_overview.html:120
 #: dashboards/project/loadbalancers/tables.py:274
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:27
 msgid "N/A"
 msgstr "Н/Д"
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:128
+#: dashboards/project/instances/templates/instances/_detail_overview.html:130
 msgid "Volumes Attached"
 msgstr "Подключенные диски"
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:132
+#: dashboards/project/instances/templates/instances/_detail_overview.html:134
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:47
 #: dashboards/project/volumes/volumes/tables.py:358
 msgid "Attached To"
 msgstr "Подключено к"
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:135
+#: dashboards/project/instances/templates/instances/_detail_overview.html:137
 #, python-format
 msgid ""
 "\n"
@@ -10125,7 +10141,7 @@ msgid ""
 "            "
 msgstr ""
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:141
+#: dashboards/project/instances/templates/instances/_detail_overview.html:143
 msgid "No volumes attached."
 msgstr "Нет подключенных дисков."
 
