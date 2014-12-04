@@ -1479,6 +1479,10 @@ label.log-length {
   }
 
   /* Member lists */
+  .update_members_filterable {
+    overflow-y: auto;
+    height: 500px;
+  }
   .member {
     text-align: left;
     line-height: 32px;
