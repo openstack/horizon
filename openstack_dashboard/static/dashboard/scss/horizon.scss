@@ -860,7 +860,7 @@ td.select {
   white-space: nowrap;
   padding: 10px;
   position: relative;
-  width: 200px;
+  width: 1em;
   background-clip: padding-box;
 }
 
@@ -870,7 +870,11 @@ form.actions_column {
 }
 
 .actions_column .btn-group {
-  display: inline-block;
+  display: inline-flex;
+  display: -ms-inline-flexbox;
+  -ms-flex-direction: row;
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
 }
 
 .actions_column .row_actions a,
