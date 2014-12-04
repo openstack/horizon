@@ -54,14 +54,22 @@ class IndexView(tables.DataTableView):
 
 
 class CreateView(forms.ModalFormView):
-    form_class = project_forms.CreateGroupForm
     template_name = constants.GROUPS_CREATE_VIEW_TEMPLATE
+    modal_header = _("Create Group")
+    form_id = "create_group_form"
+    form_class = project_forms.CreateGroupForm
+    submit_url = "horizon:identity:groups:create"
+    submit_label = _("Create Group")
     success_url = reverse_lazy(constants.GROUPS_INDEX_URL)
 
 
 class UpdateView(forms.ModalFormView):
-    form_class = project_forms.UpdateGroupForm
     template_name = constants.GROUPS_UPDATE_VIEW_TEMPLATE
+    modal_header = _("Update Group")
+    form_id = "update_group_form"
+    form_class = project_forms.UpdateGroupForm
+    submit_url = "horizon:identity:groups:update"
+    submit_label = _("Update Group")
     success_url = reverse_lazy(constants.GROUPS_INDEX_URL)
 
     @memoized.memoized_method
@@ -77,7 +85,8 @@ class UpdateView(forms.ModalFormView):
 
     def get_context_data(self, **kwargs):
         context = super(UpdateView, self).get_context_data(**kwargs)
-        context['group'] = self.get_object()
+        args = (self.get_object().id,)
+        context['submit_url'] = reverse(self.submit_url, args=args)
         return context
 
     def get_initial(self):
