@@ -322,3 +322,16 @@ def login_with_oauth(request, access_token, project=None):
     # TODO(garcianavalon) find out if we need this method
     # session = _oauth2_session(access_token, project_id=project)
     # return fiwareclient(session=session,request=request)
+
+# FIWARE-IdM API CALLS
+
+def forward_validate_token_request(request):
+    """ Forwards the request to the keystone backend."""
+    # TODO(garcianavalon) figure out if this method belongs to keystone client or if
+    # there is a better way to do it/structure this
+    keystone_url = getattr(settings, 'OPENSTACK_KEYSTONE_URL')
+    endpoint = '/access-tokens/{0}'.format(request.GET.get('access_token'))
+    url = keystone_url + endpoint
+    LOG.debug('API_KEYSTONE: GET to {0}'.format(url))
+    response = requests.get(url)
+    return response

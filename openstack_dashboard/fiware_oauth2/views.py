@@ -16,6 +16,7 @@ import logging
 
 from django.contrib import auth
 from django.core.urlresolvers import reverse_lazy, reverse
+from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import View
@@ -149,5 +150,22 @@ class AccessTokenView(View):
         # again from it
         LOG.debug('OAUTH2: forwading the access_token request')
         response = fiware_api.keystone.forward_access_token_request(request)
-        import pdb; pdb.set_trace()
-        return response
+        return HttpResponse(content=response.content, 
+                            content_type=response.headers['content-type'], 
+                            status=response.status_code, 
+                            reason=response.reason)
+
+class UserInfoView(View):
+    """ Forwards to the Keystone backend the validate token request (access the user info).
+    """
+
+    def get(self, request, *args, **kwargs):
+        # NOTE(garcianavalon) Instead of using the client we simply redirect the request 
+        # because is simpler than extracting all the data to make the exact same request 
+        # again from it
+        LOG.debug('OAUTH2: forwading the user info (validate token) request')
+        response = fiware_api.keystone.forward_validate_token_request(request)
+        return HttpResponse(content=response.content, 
+                            content_type=response.headers['content-type'], 
+                            status=response.status_code, 
+                            reason=response.reason)

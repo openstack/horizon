@@ -23,10 +23,12 @@ from openstack_dashboard.fiware_oauth2 import views
 
 urlpatterns = patterns(
     'fiware_oauth2.views',
-    url(r"^authorize/$", views.AuthorizeView.as_view(), 
+    url(r"^oauth2/authorize/$", views.AuthorizeView.as_view(), 
                             name='fiware_oauth2_authorize'),
-    url(r"^authorize/cancel/$", views.cancel_authorize, 
+    url(r"^oauth2/authorize/cancel/$", views.cancel_authorize, 
                             name='fiware_oauth2_cancel_authorize'),
-    url(r"^token$", views.AccessTokenView.as_view(), 
+    url(r"^oauth2/token$", views.AccessTokenView.as_view(), 
                             name='fiware_oauth2_access_token'),
+    url(r"^user", views.UserInfoView.as_view(), 
+                            name='fiware_oauth2_user_info'),
 )
