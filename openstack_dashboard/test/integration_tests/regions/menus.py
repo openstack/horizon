@@ -42,6 +42,7 @@ class DropDownMenuRegion(baseregion.BaseRegion):
     """Drop down menu region."""
 
     _menu_items_locator = (by.By.CSS_SELECTOR, 'ul.dropdown-menu > li > *')
+    _menu_first_child_locator = (by.By.CSS_SELECTOR, '*')
 
     @property
     def menu_items(self):
@@ -54,9 +55,9 @@ class DropDownMenuRegion(baseregion.BaseRegion):
         return "open" in self.src_elem.get_attribute('class')
 
     def open(self):
-        """Opens menu."""
+        """Opens menu by clicking on the first child of the source element."""
         if self.is_open() is False:
-            self.src_elem.click()
+            self._get_element(*self._menu_first_child_locator).click()
 
 
 class UserDropDownMenuRegion(DropDownMenuRegion):
