@@ -96,7 +96,7 @@ merged to the master repository and it's time to celebrate!
 .. _`OpenStack Contributor License Agreement`: http://wiki.openstack.org/CLA
 .. _`OpenStack Contributors`: https://launchpad.net/~openstack-cla
 .. _`Horizon Developers`: https://launchpad.net/~horizon
-.. _`instructions for setting up git-review`: http://wiki.openstack.org/GerritWorkflow
+.. _`instructions for setting up git-review`: http://docs.openstack.org/infra/manual/developers.html#development-workflow
 
 Etiquette
 =========
