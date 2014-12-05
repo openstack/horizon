@@ -124,22 +124,24 @@ def _normalize_information(value, unit):
 
 
 def _normalize_time(value, unit):
+    # Normalize time by converting to next higher unit when value is
+    # at least 2 units
     value, unit = convert(value, unit, 's')
 
-    if value >= 60:
+    if value >= 120:
         value, unit = convert(value, 's', 'min')
 
-        if value >= 60:
+        if value >= 120:
             value, unit = convert(value, 'min', 'hr')
 
-            if value >= 24:
+            if value >= 48:
                 value, unit = convert(value, 'hr', 'day')
 
-                if value >= 365:
+                if value >= 730:
                     value, unit = convert(value, 'day', 'year')
-                elif value >= 31:
+                elif value >= 62:
                     value, unit = convert(value, 'day', 'month')
-                elif value >= 7:
+                elif value >= 14:
                     value, unit = convert(value, 'day', 'week')
 
     return functions.format_value(value), unit
