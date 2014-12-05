@@ -252,32 +252,7 @@ def get_disabled_quotas(request):
     return disabled_quotas
 
 
-@memoized
-def tenant_quota_usages(request, tenant_id=None):
-    """Get our quotas and construct our usage object.
-    If no tenant_id is provided, a the request.user.project_id
-    is assumed to be used
-    """
-    if not tenant_id:
-        tenant_id = request.user.project_id
-
-    disabled_quotas = get_disabled_quotas(request)
-
-    usages = QuotaUsage()
-    for quota in get_tenant_quota_data(request,
-                                       disabled_quotas=disabled_quotas,
-                                       tenant_id=tenant_id):
-        usages.add_quota(quota)
-
-    # Get our usages.
-    floating_ips = []
-    try:
-        if network.floating_ip_supported(request):
-            floating_ips = network.tenant_floating_ip_list(request)
-    except Exception:
-        pass
-    flavors = dict([(f.id, f) for f in nova.flavor_list(request)])
-
+def _get_tenant_compute_usages(request, usages, disabled_quotas, tenant_id):
     if tenant_id:
         instances, has_more = nova.server_list(
             request, search_opts={'tenant_id': tenant_id}, all_tenants=True)
@@ -285,6 +260,7 @@ def tenant_quota_usages(request, tenant_id=None):
         instances, has_more = nova.server_list(request)
 
     # Fetch deleted flavors if necessary.
+    flavors = dict([(f.id, f) for f in nova.flavor_list(request)])
     missing_flavors = [instance.flavor['id'] for instance in instances
                        if instance.flavor['id'] not in flavors]
     for missing in missing_flavors:
@@ -296,6 +272,25 @@ def tenant_quota_usages(request, tenant_id=None):
                 exceptions.handle(request, ignore=True)
 
     usages.tally('instances', len(instances))
+
+    # Sum our usage based on the flavors of the instances.
+    for flavor in [flavors[instance.flavor['id']] for instance in instances]:
+        usages.tally('cores', getattr(flavor, 'vcpus', None))
+        usages.tally('ram', getattr(flavor, 'ram', None))
+
+    # Initialise the tally if no instances have been launched yet
+    if len(instances) == 0:
+        usages.tally('cores', 0)
+        usages.tally('ram', 0)
+
+
+def _get_tenant_network_usages(request, usages, disabled_quotas, tenant_id):
+    floating_ips = []
+    try:
+        if network.floating_ip_supported(request):
+            floating_ips = network.tenant_floating_ip_list(request)
+    except Exception:
+        pass
     usages.tally('floating_ips', len(floating_ips))
 
     if 'security_group' not in disabled_quotas:
@@ -322,6 +317,8 @@ def tenant_quota_usages(request, tenant_id=None):
             routers = filter(lambda rou: rou.tenant_id == tenant_id, routers)
         usages.tally('routers', len(routers))
 
+
+def _get_tenant_volume_usages(request, usages, disabled_quotas, tenant_id):
     if 'volumes' not in disabled_quotas:
         if tenant_id:
             opts = {'alltenants': 1, 'tenant_id': tenant_id}
@@ -334,15 +331,28 @@ def tenant_quota_usages(request, tenant_id=None):
         usages.tally('volumes', len(volumes))
         usages.tally('snapshots', len(snapshots))
 
-    # Sum our usage based on the flavors of the instances.
-    for flavor in [flavors[instance.flavor['id']] for instance in instances]:
-        usages.tally('cores', getattr(flavor, 'vcpus', None))
-        usages.tally('ram', getattr(flavor, 'ram', None))
 
-    # Initialise the tally if no instances have been launched yet
-    if len(instances) == 0:
-        usages.tally('cores', 0)
-        usages.tally('ram', 0)
+@memoized
+def tenant_quota_usages(request, tenant_id=None):
+    """Get our quotas and construct our usage object.
+    If no tenant_id is provided, a the request.user.project_id
+    is assumed to be used
+    """
+    if not tenant_id:
+        tenant_id = request.user.project_id
+
+    disabled_quotas = get_disabled_quotas(request)
+    usages = QuotaUsage()
+
+    for quota in get_tenant_quota_data(request,
+                                       disabled_quotas=disabled_quotas,
+                                       tenant_id=tenant_id):
+        usages.add_quota(quota)
+
+    # Get our usages.
+    _get_tenant_compute_usages(request, usages, disabled_quotas, tenant_id)
+    _get_tenant_network_usages(request, usages, disabled_quotas, tenant_id)
+    _get_tenant_volume_usages(request, usages, disabled_quotas, tenant_id)
 
     return usages
 

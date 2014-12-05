@@ -29,6 +29,7 @@ from django.views.decorators.debug import sensitive_variables  # noqa
 from horizon import exceptions
 from horizon import forms
 from horizon.utils import functions
+from horizon.utils import memoized
 from horizon.utils import validators
 from horizon import workflows
 
@@ -170,28 +171,9 @@ class SetInstanceDetailsAction(workflows.Action):
                  _("Boot from volume snapshot (creates a new volume)")))
         self.fields['source_type'].choices = source_type_choices
 
-    def clean(self):
-        cleaned_data = super(SetInstanceDetailsAction, self).clean()
-
-        count = cleaned_data.get('count', 1)
-        # Prevent launching more instances than the quota allows
-        usages = quotas.tenant_quota_usages(self.request)
-        available_count = usages['instances']['available']
-        if available_count < count:
-            error_message = ungettext_lazy('The requested instance '
-                                           'cannot be launched as you only '
-                                           'have %(avail)i of your quota '
-                                           'available. ',
-                                           'The requested %(req)i instances '
-                                           'cannot be launched as you only '
-                                           'have %(avail)i of your quota '
-                                           'available.',
-                                           count)
-            params = {'req': count,
-                      'avail': available_count}
-            raise forms.ValidationError(error_message % params)
+    @memoized.memoized_method
+    def _get_flavor(self, flavor_id):
         try:
-            flavor_id = cleaned_data.get('flavor')
             # We want to retrieve details for a given flavor,
             # however flavor_list uses a memoized decorator
             # so it is used instead of flavor_get to reduce the number
@@ -200,6 +182,43 @@ class SetInstanceDetailsAction(workflows.Action):
             flavor = [x for x in flavors if x.id == flavor_id][0]
         except IndexError:
             flavor = None
+        return flavor
+
+    @memoized.memoized_method
+    def _get_image(self, image_id):
+        try:
+            # We want to retrieve details for a given image,
+            # however get_available_images uses a cache of image list,
+            # so it is used instead of image_get to reduce the number
+            # of API calls.
+            images = image_utils.get_available_images(
+                self.request,
+                self.context.get('project_id'),
+                self._images_cache)
+            image = [x for x in images if x.id == image_id][0]
+        except IndexError:
+            image = None
+        return image
+
+    def _check_quotas(self, cleaned_data):
+        count = cleaned_data.get('count', 1)
+
+        # Prevent launching more instances than the quota allows
+        usages = quotas.tenant_quota_usages(self.request)
+        available_count = usages['instances']['available']
+        if available_count < count:
+            error_message = ungettext_lazy(
+                'The requested instance cannot be launched as you only '
+                'have %(avail)i of your quota available. ',
+                'The requested %(req)i instances cannot be launched as you '
+                'only have %(avail)i of your quota available.',
+                count)
+            params = {'req': count,
+                      'avail': available_count}
+            raise forms.ValidationError(error_message % params)
+
+        flavor_id = cleaned_data.get('flavor')
+        flavor = self._get_flavor(flavor_id)
 
         count_error = []
         # Validate cores and ram.
@@ -227,91 +246,114 @@ class SetInstanceDetailsAction(workflows.Action):
             else:
                 self._errors['count'] = self.error_class([msg])
 
+    def _check_flavor_for_image(self, cleaned_data):
+        # Prevents trying to launch an image needing more resources.
+        image_id = cleaned_data.get('image_id')
+        image = self._get_image(image_id)
+        flavor_id = cleaned_data.get('flavor')
+        flavor = self._get_flavor(flavor_id)
+        if not image or not flavor:
+            return
+        props_mapping = (("min_ram", "ram"), ("min_disk", "disk"))
+        for iprop, fprop in props_mapping:
+            if getattr(image, iprop) > 0 and \
+                    getattr(image, iprop) > getattr(flavor, fprop):
+                msg = (_("The flavor '%(flavor)s' is too small "
+                         "for requested image.\n"
+                         "Minimum requirements: "
+                         "%(min_ram)s MB of RAM and "
+                         "%(min_disk)s GB of Root Disk.") %
+                       {'flavor': flavor.name,
+                        'min_ram': image.min_ram,
+                        'min_disk': image.min_disk})
+                self._errors['image_id'] = self.error_class([msg])
+                break  # Not necessary to continue the tests.
+
+    def _check_volume_for_image(self, cleaned_data):
+        image_id = cleaned_data.get('image_id')
+        image = self._get_image(image_id)
+        volume_size = cleaned_data.get('volume_size')
+        if not image or not volume_size:
+            return
+        volume_size = int(volume_size)
+        img_gigs = functions.bytes_to_gigabytes(image.size)
+        smallest_size = max(img_gigs, image.min_disk)
+        if volume_size < smallest_size:
+            msg = (_("The Volume size is too small for the"
+                     " '%(image_name)s' image and has to be"
+                     " greater than or equal to "
+                     "'%(smallest_size)d' GB.") %
+                   {'image_name': image.name,
+                    'smallest_size': smallest_size})
+            self._errors['volume_size'] = self.error_class([msg])
+
+    def _check_source_image(self, cleaned_data):
+        if not cleaned_data.get('image_id'):
+            msg = _("You must select an image.")
+            self._errors['image_id'] = self.error_class([msg])
+        else:
+            self._check_flavor_for_image(cleaned_data)
+
+    def _check_source_volume_image(self, cleaned_data):
+        volume_size = self.data.get('volume_size', None)
+        if not volume_size:
+            msg = _("You must set volume size")
+            self._errors['volume_size'] = self.error_class([msg])
+        if float(volume_size) <= 0:
+            msg = _("Volume size must be greater than 0")
+            self._errors['volume_size'] = self.error_class([msg])
+        if not cleaned_data.get('image_id'):
+            msg = _("You must select an image.")
+            self._errors['image_id'] = self.error_class([msg])
+            return
+        else:
+            self._check_flavor_for_image(cleaned_data)
+            self._check_volume_for_image(cleaned_data)
+
+    def _check_source_instance_snapshot(self, cleaned_data):
+        # using the array form of get blows up with KeyError
+        # if instance_snapshot_id is nil
+        if not cleaned_data.get('instance_snapshot_id'):
+            msg = _("You must select a snapshot.")
+            self._errors['instance_snapshot_id'] = self.error_class([msg])
+
+    def _check_source_volume(self, cleaned_data):
+        if not cleaned_data.get('volume_id'):
+            msg = _("You must select a volume.")
+            self._errors['volume_id'] = self.error_class([msg])
+        # Prevent launching multiple instances with the same volume.
+        # TODO(gabriel): is it safe to launch multiple instances with
+        # a snapshot since it should be cloned to new volumes?
+        count = cleaned_data.get('count', 1)
+        if count > 1:
+            msg = _('Launching multiple instances is only supported for '
+                    'images and instance snapshots.')
+            raise forms.ValidationError(msg)
+
+    def _check_source_volume_snapshot(self, cleaned_data):
+        if not cleaned_data.get('volume_snapshot_id'):
+            msg = _("You must select a snapshot.")
+            self._errors['volume_snapshot_id'] = self.error_class([msg])
+
+    def _check_source(self, cleaned_data):
         # Validate our instance source.
         source_type = self.data.get('source_type', None)
+        source_check_methods = {
+            'image_id': self._check_source_image,
+            'volume_image_id': self._check_source_volume_image,
+            'instance_snapshot_id': self._check_source_instance_snapshot,
+            'volume_id': self._check_source_volume,
+            'volume_snapshot_id': self._check_source_volume_snapshot
+        }
+        check_method = source_check_methods.get(source_type)
+        if check_method:
+            check_method(cleaned_data)
 
-        if source_type in ('image_id', 'volume_image_id'):
-            if source_type == 'volume_image_id':
-                volume_size = self.data.get('volume_size', None)
-                if not volume_size:
-                    msg = _("You must set volume size")
-                    self._errors['volume_size'] = self.error_class([msg])
-                if float(volume_size) <= 0:
-                    msg = _("Volume size must be greater than 0")
-                    self._errors['volume_size'] = self.error_class([msg])
-            if not cleaned_data.get('image_id'):
-                msg = _("You must select an image.")
-                self._errors['image_id'] = self.error_class([msg])
-            else:
-                # Prevents trying to launch an image needing more resources.
-                try:
-                    image_id = cleaned_data.get('image_id')
-                    # We want to retrieve details for a given image,
-                    # however get_available_images uses a cache of image list,
-                    # so it is used instead of image_get to reduce the number
-                    # of API calls.
-                    images = image_utils.get_available_images(
-                        self.request,
-                        self.context.get('project_id'),
-                        self._images_cache)
-                    image = [x for x in images if x.id == image_id][0]
-                except IndexError:
-                    image = None
+    def clean(self):
+        cleaned_data = super(SetInstanceDetailsAction, self).clean()
 
-                if image and flavor:
-                    props_mapping = (("min_ram", "ram"), ("min_disk", "disk"))
-                    for iprop, fprop in props_mapping:
-                        if getattr(image, iprop) > 0 and \
-                                getattr(image, iprop) > getattr(flavor, fprop):
-                            msg = (_("The flavor '%(flavor)s' is too small "
-                                     "for requested image.\n"
-                                     "Minimum requirements: "
-                                     "%(min_ram)s MB of RAM and "
-                                     "%(min_disk)s GB of Root Disk.") %
-                                   {'flavor': flavor.name,
-                                    'min_ram': image.min_ram,
-                                    'min_disk': image.min_disk})
-                            self._errors['image_id'] = self.error_class([msg])
-                            break  # Not necessary to continue the tests.
-
-                    volume_size = cleaned_data.get('volume_size')
-                    if volume_size and source_type == 'volume_image_id':
-                        volume_size = int(volume_size)
-                        img_gigs = functions.bytes_to_gigabytes(image.size)
-                        smallest_size = max(img_gigs, image.min_disk)
-                        if volume_size < smallest_size:
-                            msg = (_("The Volume size is too small for the"
-                                     " '%(image_name)s' image and has to be"
-                                     " greater than or equal to "
-                                     "'%(smallest_size)d' GB.") %
-                                   {'image_name': image.name,
-                                    'smallest_size': smallest_size})
-                            self._errors['volume_size'] = self.error_class(
-                                [msg])
-
-        elif source_type == 'instance_snapshot_id':
-            # using the array form of get blows up with KeyError
-            # if instance_snapshot_id is nil
-            if not cleaned_data.get('instance_snapshot_id'):
-                msg = _("You must select a snapshot.")
-                self._errors['instance_snapshot_id'] = self.error_class([msg])
-
-        elif source_type == 'volume_id':
-            if not cleaned_data.get('volume_id'):
-                msg = _("You must select a volume.")
-                self._errors['volume_id'] = self.error_class([msg])
-            # Prevent launching multiple instances with the same volume.
-            # TODO(gabriel): is it safe to launch multiple instances with
-            # a snapshot since it should be cloned to new volumes?
-            if count > 1:
-                msg = _('Launching multiple instances is only supported for '
-                        'images and instance snapshots.')
-                raise forms.ValidationError(msg)
-
-        elif source_type == 'volume_snapshot_id':
-            if not cleaned_data.get('volume_snapshot_id'):
-                msg = _("You must select a snapshot.")
-                self._errors['volume_snapshot_id'] = self.error_class([msg])
+        self._check_quotas(cleaned_data)
+        self._check_source(cleaned_data)
 
         return cleaned_data
 

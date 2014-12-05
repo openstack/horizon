@@ -24,6 +24,7 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
+from horizon.utils import memoized
 from horizon import workflows
 
 from openstack_dashboard import api
@@ -396,22 +397,21 @@ class CreateProject(workflows.Workflow):
     def format_status_message(self, message):
         return message % self.context.get('name', 'unknown project')
 
-    def handle(self, request, data):
+    def _create_project(self, request, data):
         # create the project
         domain_id = data['domain_id']
         try:
             desc = data['description']
-            self.object = api.keystone.tenant_create(request,
-                                                     name=data['name'],
-                                                     description=desc,
-                                                     enabled=data['enabled'],
-                                                     domain=domain_id)
+            return api.keystone.tenant_create(request,
+                                              name=data['name'],
+                                              description=desc,
+                                              enabled=data['enabled'],
+                                              domain=domain_id)
         except Exception:
             exceptions.handle(request, ignore=True)
-            return False
+            return
 
-        project_id = self.object.id
-
+    def _update_project_members(self, request, data, project_id):
         # update project members
         users_to_add = 0
         try:
@@ -445,36 +445,37 @@ class CreateProject(workflows.Workflow):
                               % {'users_to_add': users_to_add,
                                  'group_msg': group_msg})
 
-        if PROJECT_GROUP_ENABLED:
-            # update project groups
-            groups_to_add = 0
-            try:
-                available_roles = api.keystone.role_list(request)
-                member_step = self.get_step(PROJECT_GROUP_MEMBER_SLUG)
+    def _update_project_groups(self, request, data, project_id):
+        # update project groups
+        groups_to_add = 0
+        try:
+            available_roles = api.keystone.role_list(request)
+            member_step = self.get_step(PROJECT_GROUP_MEMBER_SLUG)
 
-                # count how many groups are to be added
-                for role in available_roles:
-                    field_name = member_step.get_member_field_name(role.id)
-                    role_list = data[field_name]
-                    groups_to_add += len(role_list)
-                # add new groups to project
-                for role in available_roles:
-                    field_name = member_step.get_member_field_name(role.id)
-                    role_list = data[field_name]
-                    groups_added = 0
-                    for group in role_list:
-                        api.keystone.add_group_role(request,
-                                                    role=role.id,
-                                                    group=group,
-                                                    project=project_id)
-                        groups_added += 1
-                    groups_to_add -= groups_added
-            except Exception:
-                exceptions.handle(request,
-                                  _('Failed to add %s project groups '
-                                    'and update project quotas.')
-                                  % groups_to_add)
+            # count how many groups are to be added
+            for role in available_roles:
+                field_name = member_step.get_member_field_name(role.id)
+                role_list = data[field_name]
+                groups_to_add += len(role_list)
+            # add new groups to project
+            for role in available_roles:
+                field_name = member_step.get_member_field_name(role.id)
+                role_list = data[field_name]
+                groups_added = 0
+                for group in role_list:
+                    api.keystone.add_group_role(request,
+                                                role=role.id,
+                                                group=group,
+                                                project=project_id)
+                    groups_added += 1
+                groups_to_add -= groups_added
+        except Exception:
+            exceptions.handle(request,
+                              _('Failed to add %s project groups '
+                                'and update project quotas.')
+                              % groups_to_add)
 
+    def _update_project_quota(self, request, data, project_id):
         # Update the project quota.
         nova_data = dict(
             [(key, data[key]) for key in quotas.NOVA_QUOTA_FIELDS])
@@ -500,6 +501,16 @@ class CreateProject(workflows.Workflow):
                                                 **neutron_data)
         except Exception:
             exceptions.handle(request, _('Unable to set project quotas.'))
+
+    def handle(self, request, data):
+        project = self._create_project(request, data)
+        if not project:
+            return False
+        project_id = project.id
+        self._update_project_members(request, data, project_id)
+        if PROJECT_GROUP_ENABLED:
+            self._update_project_groups(request, data, project_id)
+        self._update_project_quota(request, data, project_id)
         return True
 
 
@@ -550,34 +561,90 @@ class UpdateProject(workflows.Workflow):
     def format_status_message(self, message):
         return message % self.context.get('name', 'unknown project')
 
-    def handle(self, request, data):
-        # FIXME(gabriel): This should be refactored to use Python's built-in
-        # sets and do this all in a single "roles to add" and "roles to remove"
-        # pass instead of the multi-pass thing happening now.
+    @memoized.memoized_method
+    def _get_available_roles(self, request):
+        return api.keystone.role_list(request)
 
-        project_id = data['project_id']
-        domain_id = ''
+    def _update_project(self, request, data):
         # update project info
         try:
-            project = api.keystone.tenant_update(
+            project_id = data['project_id']
+            return api.keystone.tenant_update(
                 request,
                 project_id,
                 name=data['name'],
                 description=data['description'],
                 enabled=data['enabled'])
-            # Use the domain_id from the project if available
-            domain_id = getattr(project, "domain_id", None)
         except Exception:
             exceptions.handle(request, ignore=True)
+            return
+
+    def _add_roles_to_users(self, request, data, project_id, user,
+                            current_roles, available_roles):
+        member_step = self.get_step(PROJECT_USER_MEMBER_SLUG)
+        current_role_ids = [role.id for role in current_roles]
+
+        for role in available_roles:
+            field_name = member_step.get_member_field_name(role.id)
+            # Check if the user is in the list of users with this role.
+            if user.id in data[field_name]:
+                # Add it if necessary
+                if role.id not in current_role_ids:
+                    # user role has changed
+                    api.keystone.add_tenant_user_role(
+                        request,
+                        project=project_id,
+                        user=user.id,
+                        role=role.id)
+                else:
+                    # User role is unchanged, so remove it from the
+                    # remaining roles list to avoid removing it later.
+                    index = current_role_ids.index(role.id)
+                    current_role_ids.pop(index)
+
+        return current_role_ids
+
+    def _remove_roles_from_user(self, request, project_id, user,
+                                current_role_ids):
+        for id_to_delete in current_role_ids:
+            api.keystone.remove_tenant_user_role(
+                request,
+                project=project_id,
+                user=user.id,
+                role=id_to_delete)
+
+    def _is_removing_self_admin_role(self, request, project_id, user,
+                                     current_roles, current_role_ids):
+        is_current_user = user.id == request.user.id
+        is_current_project = project_id == request.user.tenant_id
+        admin_roles = [role for role in current_roles
+                       if role.name.lower() == 'admin']
+        if len(admin_roles):
+            removing_admin = any([role.id in current_role_ids
+                                  for role in admin_roles])
+        else:
+            removing_admin = False
+
+        if is_current_user and is_current_project and removing_admin:
+            # Cannot remove "admin" role on current(admin) project
+            msg = _('You cannot revoke your administrative privileges '
+                    'from the project you are currently logged into. '
+                    'Please switch to another project with '
+                    'administrative privileges or remove the '
+                    'administrative role manually via the CLI.')
+            messages.warning(request, msg)
+            return True
+        else:
             return False
 
+    def _update_project_members(self, request, data, project_id):
         # update project members
         users_to_modify = 0
         # Project-user member step
         member_step = self.get_step(PROJECT_USER_MEMBER_SLUG)
         try:
             # Get our role options
-            available_roles = api.keystone.role_list(request)
+            available_roles = self._get_available_roles(request)
             # Get the users currently associated with this project so we
             # can diff against it.
             project_members = api.keystone.user_list(request,
@@ -587,56 +654,18 @@ class UpdateProject(workflows.Workflow):
             for user in project_members:
                 # Check if there have been any changes in the roles of
                 # Existing project members.
-                current_roles = api.keystone.roles_for_user(self.request,
-                                                            user.id,
-                                                            project_id)
-                current_role_ids = [role.id for role in current_roles]
-
-                for role in available_roles:
-                    field_name = member_step.get_member_field_name(role.id)
-                    # Check if the user is in the list of users with this role.
-                    if user.id in data[field_name]:
-                        # Add it if necessary
-                        if role.id not in current_role_ids:
-                            # user role has changed
-                            api.keystone.add_tenant_user_role(
-                                request,
-                                project=project_id,
-                                user=user.id,
-                                role=role.id)
-                        else:
-                            # User role is unchanged, so remove it from the
-                            # remaining roles list to avoid removing it later.
-                            index = current_role_ids.index(role.id)
-                            current_role_ids.pop(index)
-
+                current_roles = api.keystone.roles_for_user(
+                    self.request, user.id, project_id)
+                current_role_ids = self._add_roles_to_users(
+                    request, data, project_id, user,
+                    current_roles, available_roles)
                 # Prevent admins from doing stupid things to themselves.
-                is_current_user = user.id == request.user.id
-                is_current_project = project_id == request.user.tenant_id
-                admin_roles = [role for role in current_roles
-                               if role.name.lower() == 'admin']
-                if len(admin_roles):
-                    removing_admin = any([role.id in current_role_ids
-                                          for role in admin_roles])
-                else:
-                    removing_admin = False
-                if is_current_user and is_current_project and removing_admin:
-                    # Cannot remove "admin" role on current(admin) project
-                    msg = _('You cannot revoke your administrative privileges '
-                            'from the project you are currently logged into. '
-                            'Please switch to another project with '
-                            'administrative privileges or remove the '
-                            'administrative role manually via the CLI.')
-                    messages.warning(request, msg)
-
+                removing_admin = self._is_removing_self_admin_role(
+                    request, project_id, user, current_roles, current_role_ids)
                 # Otherwise go through and revoke any removed roles.
-                else:
-                    for id_to_delete in current_role_ids:
-                        api.keystone.remove_tenant_user_role(
-                            request,
-                            project=project_id,
-                            user=user.id,
-                            role=id_to_delete)
+                if not removing_admin:
+                    self._remove_roles_from_user(request, project_id, user,
+                                                 current_role_ids)
                 users_to_modify -= 1
 
             # Grant new roles on the project.
@@ -655,6 +684,7 @@ class UpdateProject(workflows.Workflow):
                                                           role=role.id)
                     users_added += 1
                 users_to_modify -= users_added
+            return True
         except Exception:
             if PROJECT_GROUP_ENABLED:
                 group_msg = _(", update project groups")
@@ -668,78 +698,81 @@ class UpdateProject(workflows.Workflow):
                                  'group_msg': group_msg})
             return False
 
-        if PROJECT_GROUP_ENABLED:
-            # update project groups
-            groups_to_modify = 0
-            member_step = self.get_step(PROJECT_GROUP_MEMBER_SLUG)
-            try:
-                # Get the groups currently associated with this project so we
-                # can diff against it.
-                project_groups = api.keystone.group_list(request,
-                                                         domain=domain_id,
-                                                         project=project_id)
-                groups_to_modify = len(project_groups)
-                for group in project_groups:
-                    # Check if there have been any changes in the roles of
-                    # Existing project members.
-                    current_roles = api.keystone.roles_for_group(
-                        self.request,
-                        group=group.id,
-                        project=project_id)
-                    current_role_ids = [role.id for role in current_roles]
-                    for role in available_roles:
-                        # Check if the group is in the list of groups with
-                        # this role.
-                        field_name = member_step.get_member_field_name(role.id)
-                        if group.id in data[field_name]:
-                            # Add it if necessary
-                            if role.id not in current_role_ids:
-                                # group role has changed
-                                api.keystone.add_group_role(
-                                    request,
-                                    role=role.id,
-                                    group=group.id,
-                                    project=project_id)
-                            else:
-                                # Group role is unchanged, so remove it from
-                                # the remaining roles list to avoid removing it
-                                # later.
-                                index = current_role_ids.index(role.id)
-                                current_role_ids.pop(index)
-
-                    # Revoke any removed roles.
-                    for id_to_delete in current_role_ids:
-                        api.keystone.remove_group_role(request,
-                                                       role=id_to_delete,
-                                                       group=group.id,
-                                                       project=project_id)
-                    groups_to_modify -= 1
-
-                # Grant new roles on the project.
+    def _update_project_groups(self, request, data, project_id, domain_id):
+        # update project groups
+        groups_to_modify = 0
+        member_step = self.get_step(PROJECT_GROUP_MEMBER_SLUG)
+        try:
+            available_roles = self._get_available_roles(request)
+            # Get the groups currently associated with this project so we
+            # can diff against it.
+            project_groups = api.keystone.group_list(request,
+                                                     domain=domain_id,
+                                                     project=project_id)
+            groups_to_modify = len(project_groups)
+            for group in project_groups:
+                # Check if there have been any changes in the roles of
+                # Existing project members.
+                current_roles = api.keystone.roles_for_group(
+                    self.request,
+                    group=group.id,
+                    project=project_id)
+                current_role_ids = [role.id for role in current_roles]
                 for role in available_roles:
+                    # Check if the group is in the list of groups with
+                    # this role.
                     field_name = member_step.get_member_field_name(role.id)
-                    # Count how many groups may be added for error handling.
-                    groups_to_modify += len(data[field_name])
-                for role in available_roles:
-                    groups_added = 0
-                    field_name = member_step.get_member_field_name(role.id)
-                    for group_id in data[field_name]:
-                        if not filter(lambda x: group_id == x.id,
-                                      project_groups):
-                            api.keystone.add_group_role(request,
-                                                        role=role.id,
-                                                        group=group_id,
-                                                        project=project_id)
-                        groups_added += 1
-                    groups_to_modify -= groups_added
-            except Exception:
-                exceptions.handle(request,
-                                  _('Failed to modify %s project '
-                                    'members, update project groups '
-                                    'and update project quotas.')
-                                  % groups_to_modify)
-                return False
+                    if group.id in data[field_name]:
+                        # Add it if necessary
+                        if role.id not in current_role_ids:
+                            # group role has changed
+                            api.keystone.add_group_role(
+                                request,
+                                role=role.id,
+                                group=group.id,
+                                project=project_id)
+                        else:
+                            # Group role is unchanged, so remove it from
+                            # the remaining roles list to avoid removing it
+                            # later.
+                            index = current_role_ids.index(role.id)
+                            current_role_ids.pop(index)
 
+                # Revoke any removed roles.
+                for id_to_delete in current_role_ids:
+                    api.keystone.remove_group_role(request,
+                                                   role=id_to_delete,
+                                                   group=group.id,
+                                                   project=project_id)
+                groups_to_modify -= 1
+
+            # Grant new roles on the project.
+            for role in available_roles:
+                field_name = member_step.get_member_field_name(role.id)
+                # Count how many groups may be added for error handling.
+                groups_to_modify += len(data[field_name])
+            for role in available_roles:
+                groups_added = 0
+                field_name = member_step.get_member_field_name(role.id)
+                for group_id in data[field_name]:
+                    if not filter(lambda x: group_id == x.id,
+                                  project_groups):
+                        api.keystone.add_group_role(request,
+                                                    role=role.id,
+                                                    group=group_id,
+                                                    project=project_id)
+                    groups_added += 1
+                groups_to_modify -= groups_added
+            return True
+        except Exception:
+            exceptions.handle(request,
+                              _('Failed to modify %s project '
+                                'members, update project groups '
+                                'and update project quotas.')
+                              % groups_to_modify)
+            return False
+
+    def _update_project_quota(self, request, data, project_id):
         # update the project quota
         nova_data = dict(
             [(key, data[key]) for key in quotas.NOVA_QUOTA_FIELDS])
@@ -771,3 +804,32 @@ class UpdateProject(workflows.Workflow):
                                          'members, but unable to modify '
                                          'project quotas.'))
             return False
+
+    def handle(self, request, data):
+        # FIXME(gabriel): This should be refactored to use Python's built-in
+        # sets and do this all in a single "roles to add" and "roles to remove"
+        # pass instead of the multi-pass thing happening now.
+
+        project = self._update_project(request, data)
+        if not project:
+            return False
+
+        project_id = data['project_id']
+        # Use the domain_id from the project if available
+        domain_id = getattr(project, "domain_id", '')
+
+        ret = self._update_project_members(request, data, project_id)
+        if not ret:
+            return False
+
+        if PROJECT_GROUP_ENABLED:
+            ret = self._update_project_groups(request, data,
+                                              project_id, domain_id)
+            if not ret:
+                return False
+
+        ret = self._update_project_quota(request, data, project_id)
+        if not ret:
+            return False
+
+        return True
