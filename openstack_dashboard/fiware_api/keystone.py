@@ -258,6 +258,20 @@ def request_authorization_for_application(request, application,
                                     state=state)
     return  response_dict
 
+def check_authorization_for_application(request, application, 
+                                        redirect_uri, scope=['all_info']):
+    """ Checks if the requesting application already got authorized by the user, so we don't
+    need to make all the steps again. 
+
+        The logic is that if the application already has a (valid) access token for that
+    user and the scopes and redirect uris are registered then we can issue a new token for
+    it.
+    """
+    LOG.debug('Checking if application {0} was already authorized by user {1}'.format(
+                                                                application, request.user))
+    manager = api.keystone.keystoneclient(request, admin=True).oauth2.access_tokens
+    # FIXME(garcianavalon) the keystoneclient is not ready yet
+
 def authorize_application(request, application, scopes=['all_info'], redirect=False):
     """ Give authorization from a resource owner to the consumer/client on the 
     requested scopes.

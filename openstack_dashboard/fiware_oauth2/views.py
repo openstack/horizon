@@ -89,9 +89,25 @@ class AuthorizeView(FormView):
                 'error': e
             }
 
+    def _already_authorized(self, request, credentials):
+        # check if the user already authorized the app for that redirect uri
+        # FIXME(garcianvalon) the api and keystoneclient layers are not ready yet
+        return False
+        try:
+            fiware_api.keystone.check_authorization_for_application(request,
+                                                credentials.get('application_id'),
+                                                credentials.get('redirect_uri'))
+        except Exception as e:
+             LOG.warning('OAUTH2: exception when checking if already authorized {0}'.format(e))
+            # TODO(garcianavalon) finner exception handling
+
     def get(self, request, *args, **kwargs):
         """Show a form with info about the scopes and the application to the user"""
         if self.application_credentials:
+            # check if user already authorized this app
+            if self._already_authorized(request, self.application_credentials):
+                return redirect()
+            # if not, request authorization
             self._request_authorization(request, self.application_credentials)
             return super(AuthorizeView, self).get(request, *args, **kwargs)
         else:
