@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-03 20:48-0600\n"
-"PO-Revision-Date: 2014-12-04 03:01+0000\n"
+"PO-Revision-Date: 2014-12-04 22:20+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -2757,7 +2757,7 @@ msgid "Deleted Network"
 msgid_plural "Deleted Networks"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Удаленные сети"
 
 #: dashboards/admin/networks/tables.py:56
 #: dashboards/project/networks/tables.py:78
@@ -2878,14 +2878,14 @@ msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Удалить DHCP агентов"
 
 #: dashboards/admin/networks/agents/tables.py:44
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Удаленные DHCP агенты"
 
 #: dashboards/admin/networks/agents/tables.py:57
 #, python-format
@@ -2971,14 +2971,14 @@ msgid "Delete Port"
 msgid_plural "Delete Ports"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Удалить порты"
 
 #: dashboards/admin/networks/ports/tables.py:44
 msgid "Deleted Port"
 msgid_plural "Deleted Ports"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Удаленные порты"
 
 #: dashboards/admin/networks/ports/tables.py:55
 #, python-format
