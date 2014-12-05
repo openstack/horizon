@@ -75,10 +75,7 @@ class VolumeTests(test.BaseAdminViewTests):
         cinder.volume_encryption_type_list(IsA(http.HttpRequest))\
             .AndReturn(encryption_list)
         cinder.extension_supported(IsA(http.HttpRequest),
-                                   'VolumeTypeEncryption')\
-            .AndReturn(True)
-        cinder.extension_supported(IsA(http.HttpRequest),
-                                   'VolumeTypeEncryption')\
+                                   'VolumeTypeEncryption').MultipleTimes()\
             .AndReturn(True)
 
         self.mox.ReplayAll()
