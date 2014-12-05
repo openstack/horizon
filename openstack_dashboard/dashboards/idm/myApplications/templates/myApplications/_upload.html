@@ -3,7 +3,7 @@
 {% load url from future %}
 
 {% block form_id %}{% endblock %}
-{% block form_action %}{% url 'horizon:idm:myApplications:upload' %}{% endblock %}
+{% block form_action %}{% url 'horizon:idm:myApplications:upload' application.id %}{% endblock %}
 {% block form_enctype %}multipart/form-data{% endblock %}
 
 {% block modal_id %}upload_image_modal{% endblock %}
@@ -13,8 +13,12 @@
 
 {% block modal-body %}
 
+	{{ form.nextredir }}
+
+	{{ form.appID }}
+
 	<fieldset>
-	<img id="avatar-update" src="/static/dashboard/img/logos/original/app.png" alt="your image"   />
+	<img id="avatar-update" src="{{ image }}" alt="your image"   />
 		<div class="fieldWrapper" id="imgInp">
 			{{ form.image }} 
 			<!-- El id del input es 'id_image' -->

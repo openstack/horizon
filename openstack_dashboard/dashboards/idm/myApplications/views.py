@@ -10,6 +10,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import logging
 import json
 
 from django import forms
@@ -34,6 +35,8 @@ from openstack_dashboard.dashboards.idm.myApplications \
 from openstack_dashboard.dashboards.idm.myApplications \
             import forms as application_forms
 
+LOG = logging.getLogger('idm_logger')
+
 
 class IndexView(tabs.TabbedTableView):
     tab_group_class = application_tabs.PanelTabs
@@ -43,13 +46,35 @@ class IndexView(tabs.TabbedTableView):
 class CreateView(forms.ModalFormView):
     form_class = application_forms.CreateApplicationForm
     template_name = 'idm/myApplications/create.html'
+
+    def get_initial(self):
+        initial_data = {
+            "appID" : "",
+            "nextredir": 'create',
+        }
+        return initial_data
     
 
 class UploadImageView(forms.ModalFormView):
     form_class = application_forms.UploadImageForm
     template_name = 'idm/myApplications/upload.html'
 
-    
+    def get_initial(self):
+        application = fiware_api.keystone.application_get(self.request, self.kwargs['application_id'])
+        initial_data = {
+            "appID": application.id,
+            "nextredir": 'create',
+        }
+        return initial_data
+
+    def get_context_data(self, **kwargs):
+        context = super(UploadImageView, self).get_context_data(**kwargs)
+        application = fiware_api.keystone.application_get(self.request, self.kwargs['application_id'])
+        context['application'] = application
+        context['image'] = getattr(application, 'img', '/static/dashboard/img/logos/small/app.png')
+        return context
+
+
 # NOTE(garcianavalon) from horizon.forms.views
 ADD_TO_FIELD_HEADER = "HTTP_X_HORIZON_ADD_TO_FIELD"
 class RolesView(tables.MultiTableView):
@@ -143,12 +168,13 @@ class MultiFormView(TemplateView):
             "name": application.name,
             "description": application.description,
             "callbackurl": application.redirect_uris[0],
-            "url": application.extra.get('url', None)
+            "url": application.extra.get('url', None),
+            "nextredir": "update" 
         }
         
         #Create forms
-        info = application_forms.InfoForm(self.request, initial=initial_data)
-        avatar = application_forms.AvatarForm(self.request, initial=initial_data)
+        info = application_forms.CreateApplicationForm(self.request, initial=initial_data)
+        avatar = application_forms.UploadImageForm(self.request, initial=initial_data)
         cancel = application_forms.CancelForm(self.request, initial=initial_data)
 
         #Actions and titles
@@ -162,18 +188,6 @@ class MultiFormView(TemplateView):
         context['form'] = [info, avatar, cancel]       
         return context
 
-class HandleForm(forms.ModalFormView):
-    template_name = ''
-    http_method_not_allowed = ['get']
-
-
-class InfoFormView(HandleForm):    
-    form_class = application_forms.InfoForm
-
-   
-class AvatarFormView(forms.ModalFormView):
-    form_class = application_forms.AvatarForm
-
-
 class CancelFormView(forms.ModalFormView):
     form_class = application_forms.CancelForm
+    http_method_not_allowed = ['get']

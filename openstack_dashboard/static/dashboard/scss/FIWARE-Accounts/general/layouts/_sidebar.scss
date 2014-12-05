@@ -18,7 +18,7 @@
   h5{
     font-size: 19px;
     font-family: $corporate-font-family-sans-serif-Regular;
-    color: #CCC;
+    color: #DDDDDD;
     border-bottom: 1px solid $border-color;
     padding-bottom: 8px;
     letter-spacing: 1px;
@@ -118,7 +118,7 @@
         width: 1px;
         height: 45px;
         clear: none;
-        border-left: 2px solid #E2E2E2;
+        border-left: 2px solid $border-color;
       }
     }
   }

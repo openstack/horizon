@@ -151,6 +151,52 @@
     padding-right: 0;
   }
 }
+.permissions_list,
+.relation_list{
+  .list-group-item{
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+    .normal_column{
+      .data{
+        margin-top: 5px;
+        margin-left: 2px;
+      }
+    }
+    .ajax-inline-edit{ 
+      @extend .btn;
+      @extend .btn-default;
+      position: absolute;
+      right: 27px;
+      top: 9px;
+    }
+    .inline-edit-form{
+      margin-top: -1px;
+      input{
+        &[type="text"]{
+          width: 100% !important;
+          height: 30px !important;
+          position: absolute !important;
+        }
+      }
+    }
+    .inline-edit-actions{
+      margin-right: 30px;
+      position: absolute;
+      right: -3px;
+    }
+    .actions_column{
+      position: absolute;
+      right: 0;
+      top: 9px;
+    }
+  }
+  .collapse{
+    .modal-header{
+      display: none;
+    }
+  }
+}
 
 .permissions_list{
   @include make-sm-column(6, $gutter: $grid-gutter-width);
@@ -165,5 +211,10 @@
   }
   .alert{
     margin-top: 10px;
+  }
+}
+#collapse_oauth2_credentials {
+  .btn-link{
+    margin-top: -6px;
   }
 }

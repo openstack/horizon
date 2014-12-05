@@ -1,10 +1,17 @@
 {% if row.table.show_avatar %}
   <div class="avatar">
-  	{% if row.table.name == "purchased_table" or row.table.name == "providing_table" or row.table.name == "applications" %}
-     <img id="{{ row.datum.name }}-avatar" src="{{ row.datum.extra.img }}">
-     {% else %}
-     <img id="{{ row.datum.name }}-avatar" src="/static/dashboard/img/logos/small/group.png">
-     {% endif %}
+  	{% if row.table.name == 'members' %}
+  		<img id="{{ row.datum.name }}-avatar" src="/static/dashboard/img/logos/small/user.png">
+  	{% else %}
+	  	{% if row.datum.extra.img %}
+	  		<img id="{{ row.datum.name }}-avatar" src="{{ row.datum.extra.img }}">
+	     {% elif row.datum.img %}
+	     	<img id="{{ row.datum.name }}-avatar" src="{{ row.datum.img }}">
+	     {% else %}
+	     	<img id="{{ row.datum.name }}-avatar" src="/static/dashboard/img/logos/small/group.png">
+	     {% endif %}
+	{% endif %}
+
   </div>
 
 {% endif %}

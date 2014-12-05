@@ -21,6 +21,9 @@
   .applications,
   .tenants {
     padding: 0;
+    .panel-heading{
+      font-family: $corporate-font-family-sans-serif-Regular;
+    }
     .sortable{
       @extend .data;
     }

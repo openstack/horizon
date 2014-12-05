@@ -15,17 +15,17 @@
 {% endblock %}
 
 {% block modal-body %}
+
+{% if form.title == 'Avatar Update'%}
+<div>
+	<img id="avatar-update" src="{{ image }}" alt="your image"   />
+</div>
+{% endif %}
 <div >
   <fieldset>
     {% include "horizon/common/_form_fields.html" %}
   </fieldset>
 </div>
-{% if form.title == 'Avatar Update'%}
-<div>
-	<img id="avatar-update" src="/static/dashboard/img/logos/original/group.png" alt="your image"   />
-</div>
-{% endif %}
-
 {% endblock %}
 
 

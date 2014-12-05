@@ -10,13 +10,17 @@ li{
 
 .page-header h2 {
 	font-family: $corporate-font-family-sans-serif-Regular;
-	color: $brand-primary;
+	color: $brand-secundary;
 	text-align: right;
 }
 
 .page-header {
 	border: none;
 	margin: 3px 0 8px;
+    .btn{
+        float: left;
+        margin-top: 2px;
+    }
 }
 
 a{

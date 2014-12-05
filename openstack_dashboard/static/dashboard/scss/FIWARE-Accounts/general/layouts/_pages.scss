@@ -11,10 +11,15 @@
   }
 }
 
-.page-header{
-  .btn{
-    float: left;
-    margin-top: 2px;
+#edit{
+  .modal-header{
+    margin-bottom: 10px;
+    border-bottom: 1px solid transparent !important;
+    h3{
+      margin: 14px 0 0;
+      font-size: 17px !important;
+      color: $brand-secundary;
+    }
   }
 }
 

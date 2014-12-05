@@ -12,7 +12,7 @@
     font-size: 12px;
   }
   .media{
-    background-color: $gray-lighter;
+    background-color: $border-color;
     font-size: 12px;
     margin-top: 0px;
     padding: 15px;
@@ -55,7 +55,7 @@
 
   div{
     padding: 5px 10px;
-    background-color: $gray-lighter;
+    background-color: $border-color;
   }
   header{
     padding: 5px 10px 4px 10px;
@@ -130,7 +130,7 @@
 
 .control-label{
   font-weight: normal;
-  color: $gray-light;
+  color: #C6C6C7;
   margin-bottom: 4px;
 }
 

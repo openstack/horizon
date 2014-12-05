@@ -12,7 +12,7 @@
         </h3>
         <!--crear la carga de la imagen -->
         <div class="logo">
-            <img alt="organization logo" src="{{ STATIC_URL }}dashboard/img/logos/original/group.png">
+            <img alt="organization logo" src="{{ image }}">        
         </div>
     </header>
 	<div class="panel panel-default">
@@ -20,6 +20,11 @@
             <h5>
               Contact us
             </h5>
+            <div>
+                <p>{{ city }}</p>
+                <p>{{ email }}</p>
+                <p>{{ website }}</p>
+            </div>
             <!-- div que contiene la información de la org, cuando no esté relleno este campo ocultar -->
             <div class="description">
                 <h4 class="panel-title">
