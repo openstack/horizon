@@ -178,6 +178,7 @@ class MultiFormView(TemplateView):
         cancel = application_forms.CancelForm(self.request, initial=initial_data)
 
         #Actions and titles
+        # TODO(garcianavalon) quizas es mejor meterlo en el __init__ del form
         info.action = 'info/'
         info.title = 'Information'
         avatar.action = "avatar/"
@@ -185,7 +186,8 @@ class MultiFormView(TemplateView):
         cancel.action = "cancel/"
         cancel.title = ' '
 
-        context['form'] = [info, avatar, cancel]       
+        context['forms'] = [info, avatar]
+        context['cancel_form'] = cancel
         return context
 
 class CancelFormView(forms.ModalFormView):
