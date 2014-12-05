@@ -117,8 +117,8 @@ class UploadImageForm(forms.SelfHandlingForm):
 
             output_img = img.crop((x1, y1, x2, y2))
             output_img.save(settings.MEDIA_ROOT+"/"+"ApplicationAvatar/"+imageName, 'JPEG')
-            extra= application.extra
-            extra['img']=settings.MEDIA_URL+'ApplicationAvatar/'+imageName
+            extra = application.extra
+            extra['img'] = settings.MEDIA_URL+'ApplicationAvatar/'+imageName
             fiware_api.keystone.application_update(request, application.id, extra=extra)
             LOG.debug(application)
         if data['nextredir'] == "update":
