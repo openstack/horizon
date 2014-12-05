@@ -21,13 +21,14 @@ import horizon
 class Settings(horizon.Dashboard):
     name = _("Settings")
     slug = "settings"
-    panels = ('user', 'password', 'useremail','cancelaccount')
+    panels = ('user', 'password', 'useremail', 'cancelaccount')
     default_panel = 'user'
 
     def nav(self, context):
-        dash = context['request'].horizon.get('dashboard', None)
-        if dash and dash.slug == self.slug:
-            return True
+        # NOTE(garcianavalon) hide it always for the IdM
+        # dash = context['request'].horizon.get('dashboard', None)
+        # if dash and dash.slug == self.slug:
+        #     return True
         return False
 
 
