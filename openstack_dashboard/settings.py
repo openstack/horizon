@@ -24,6 +24,8 @@ import warnings
 from django.utils.translation import ugettext_lazy as _
 import xstatic.main
 import xstatic.pkg.angular
+import xstatic.pkg.angular_bootstrap
+import xstatic.pkg.angular_smart_table
 import xstatic.pkg.bootstrap_datepicker
 import xstatic.pkg.bootstrap_scss
 import xstatic.pkg.d3
@@ -151,6 +153,10 @@ STATICFILES_FINDERS = (
 STATICFILES_DIRS = [
     ('horizon/lib/angular',
         xstatic.main.XStatic(xstatic.pkg.angular).base_dir),
+    ('horizon/lib/angular',
+        xstatic.main.XStatic(xstatic.pkg.angular_bootstrap).base_dir),
+    ('horizon/lib/smart-table',
+        xstatic.main.XStatic(xstatic.pkg.angular_smart_table).base_dir),
     ('horizon/lib/bootstrap_datepicker',
         xstatic.main.XStatic(xstatic.pkg.bootstrap_datepicker).base_dir),
     ('bootstrap',
