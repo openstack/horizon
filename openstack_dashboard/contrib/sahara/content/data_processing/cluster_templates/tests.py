@@ -10,6 +10,10 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import base64
+import copy
+import json
+
 from django.core.urlresolvers import reverse
 from django import http
 
@@ -93,6 +97,69 @@ class DataProcessingClusterTemplateTests(test.TestCase):
 
         form_data = {'action': 'cluster_templates__delete__%s' % ct.id}
         res = self.client.post(INDEX_URL, form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+        self.assertMessageCount(success=1)
+
+    @test.create_stubs({api.sahara: ('cluster_template_get',
+                                     'cluster_template_update',
+                                     'plugin_get_version_details',
+                                     'nodegroup_template_find')})
+    def test_update(self):
+        ct = self.cluster_templates.first()
+        ngts = self.nodegroup_templates.list()
+        configs = self.plugins_configs.first()
+        new_name = "UpdatedName"
+        new_ct = copy.copy(ct)
+        new_ct.name = new_name
+
+        api.sahara.cluster_template_get(IsA(http.HttpRequest), ct.id) \
+            .AndReturn(ct)
+        api.sahara.plugin_get_version_details(IsA(http.HttpRequest),
+                                              ct.plugin_name,
+                                              ct.hadoop_version) \
+            .MultipleTimes().AndReturn(configs)
+        api.sahara.nodegroup_template_find(IsA(http.HttpRequest),
+                                           plugin_name=ct.plugin_name,
+                                           hadoop_version=ct.hadoop_version) \
+            .MultipleTimes().AndReturn(ngts)
+        api.sahara.cluster_template_update(request=IsA(http.HttpRequest),
+                                           ct_id=ct.id,
+                                           name=new_name,
+                                           plugin_name=ct.plugin_name,
+                                           hadoop_version=ct.hadoop_version,
+                                           description=ct.description,
+                                           cluster_configs=ct.cluster_configs,
+                                           node_groups=ct.node_groups,
+                                           anti_affinity=ct.anti_affinity)\
+            .AndReturn(new_ct)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:data_processing.cluster_templates:edit',
+                      args=[ct.id])
+
+        res = self.client.post(
+            url,
+            {'ct_id': ct.id,
+             'cluster_template_name': new_name,
+             'plugin_name': ct.plugin_name,
+             'hadoop_version': ct.hadoop_version,
+             'description': ct.description,
+             'hidden_configure_field': "",
+             'template_id_0': ct.node_groups[0]['node_group_template_id'],
+             'group_name_0': ct.node_groups[0]['name'],
+             'count_0': 1,
+             'serialized_0': base64.urlsafe_b64encode(
+                 json.dumps(ct.node_groups[0])),
+             'template_id_1': ct.node_groups[1]['node_group_template_id'],
+             'group_name_1': ct.node_groups[1]['name'],
+             'count_1': 2,
+             'serialized_1': base64.urlsafe_b64encode(
+                 json.dumps(ct.node_groups[1])),
+             'forms_ids': "[0,1]",
+             'anti-affinity': ct.anti_affinity,
+             })
 
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)

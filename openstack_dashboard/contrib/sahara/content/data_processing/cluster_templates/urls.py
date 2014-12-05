@@ -37,4 +37,7 @@ urlpatterns = patterns('',
                            name='details'),
                        url(r'^(?P<template_id>[^/]+)/copy$',
                            views.CopyClusterTemplateView.as_view(),
-                           name='copy'))
+                           name='copy'),
+                       url(r'^(?P<template_id>[^/]+)/edit$',
+                           views.EditClusterTemplateView.as_view(),
+                           name='edit'))
