@@ -3,7 +3,7 @@
 {% block title %}{% trans "Volume Details" %}{% endblock %}
 
 {% block page_header %}
-  {% include "horizon/common/_page_header.html" with title=_("Volume Details: ")|add:volume.name|default:_("Volume Details:") %}
+  {% include "horizon/common/_page_header.html" with title=page_title %}
 {% endblock page_header %}
 
 {% block main %}

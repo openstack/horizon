@@ -3,7 +3,7 @@
 {% block title %}{% trans "Volume Backup Details" %}{% endblock %}
 
 {% block page_header %}
-  {% include "horizon/common/_page_header.html" with title=_("Volume Backup Details: ")|add:backup.name|default:_("Volume Backup Details:") %}
+  {% include "horizon/common/_page_header.html" with title=page_title %}
 {% endblock page_header %}
 {% block main %}
 <div class="row">

@@ -50,6 +50,10 @@ class DetailView(tabs.TabView):
         context["volume"] = volume
         context["url"] = self.get_redirect_url()
         context["actions"] = table.render_row_actions(volume)
+        context["page_title"] = _("Volume Details: "
+                                  "%(volume_name)s") % {'volume_name':
+                                                        volume.name}
+
         return context
 
     @memoized.memoized_method

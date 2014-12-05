@@ -101,6 +101,9 @@ class DetailView(horizon_tabs.TabbedTableView):
         context["instance"] = instance
         context["url"] = self.get_redirect_url()
         context["actions"] = table.render_row_actions(instance)
+        context["page_title"] = _("Instance Details: "
+                                  "%(instance_name)s") % {'instance_name':
+                                                          instance.name}
         return context
 
     @memoized.memoized_method
