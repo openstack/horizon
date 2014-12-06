@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-03 20:48-0600\n"
-"PO-Revision-Date: 2014-12-04 03:01+0000\n"
+"POT-Creation-Date: 2014-12-05 20:04-0600\n"
+"PO-Revision-Date: 2014-12-05 23:08+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -342,10 +342,7 @@ msgstr "給 get_feature_permission 「%(feature)s」的「作業」參數無效�
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr "檢查 Neutron「%s」擴充套件是否支援時失敗"
 
-#: api/nova.py:102 api/nova.py:112
-#: dashboards/project/access_and_security/floating_ips/tables.py:198
-#: dashboards/project/access_and_security/floating_ips/tables.py:201
-#: dashboards/project/databases/tables.py:230
+#: api/nova.py:102 api/nova.py:112 dashboards/project/databases/tables.py:230
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:8
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:11
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:8
@@ -374,7 +371,6 @@ msgstr "檢查 Neutron「%s」擴充套件是否支援時失敗"
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:28
 #: dashboards/project/routers/tables.py:182
 #: dashboards/project/volumes/volumes/tables.py:307
-#: dashboards/project/volumes/volumes/tables.py:356
 msgid "-"
 msgstr "-"
 
@@ -460,7 +456,7 @@ msgstr "管理員"
 #: dashboards/identity/groups/forms.py:56
 #: dashboards/identity/groups/tables.py:115
 #: dashboards/identity/projects/tables.py:214
-#: dashboards/identity/projects/workflows.py:141
+#: dashboards/identity/projects/workflows.py:142
 #: dashboards/project/access_and_security/security_groups/forms.py:37
 #: dashboards/project/access_and_security/security_groups/forms.py:66
 #: dashboards/project/access_and_security/security_groups/tables.py:132
@@ -559,11 +555,11 @@ msgstr "名稱"
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:46
 #: dashboards/project/instances/tables.py:974
 #: dashboards/project/instances/templates/instances/_detail_overview.html:16
-#: dashboards/project/instances/workflows/create_instance.py:78
+#: dashboards/project/instances/workflows/create_instance.py:79
 #: dashboards/project/volumes/volumes/forms.py:90
 #: dashboards/project/volumes/volumes/forms.py:95
 #: dashboards/project/volumes/volumes/forms.py:96
-#: dashboards/project/volumes/volumes/tables.py:360
+#: dashboards/project/volumes/volumes/tables.py:359
 msgid "Availability Zone"
 msgstr "可用區域"
 
@@ -786,7 +782,7 @@ msgstr "加入/移除主機到聚合中"
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:25
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:25
 #: dashboards/identity/domains/workflows.py:300
-#: dashboards/identity/projects/workflows.py:528
+#: dashboards/identity/projects/workflows.py:539
 #: dashboards/identity/users/templates/users/_update.html:33
 #: dashboards/project/instances/workflows/update_instance.py:133
 #: dashboards/project/networks/subnets/workflows.py:161
@@ -1024,7 +1020,7 @@ msgstr "已注入的資料路徑長度"
 
 #: dashboards/admin/defaults/tables.py:44
 #: dashboards/admin/defaults/workflows.py:36
-#: dashboards/identity/projects/workflows.py:46 usage/quotas.py:62
+#: dashboards/identity/projects/workflows.py:47 usage/quotas.py:62
 msgid "Metadata Items"
 msgstr "描述資料的項目"
 
@@ -1033,7 +1029,7 @@ msgstr "描述資料的項目"
 #: dashboards/admin/flavors/tables.py:122
 #: dashboards/admin/flavors/workflows.py:46
 #: dashboards/admin/overview/views.py:33
-#: dashboards/identity/projects/workflows.py:47
+#: dashboards/identity/projects/workflows.py:48
 #: dashboards/project/instances/templates/instances/_detail_overview.html:53
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:10
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:4
@@ -1048,7 +1044,7 @@ msgstr "虛擬 CPU 數"
 #: dashboards/admin/instances/panel.py:27
 #: dashboards/admin/instances/tables.py:163
 #: dashboards/admin/instances/templates/instances/index.html:3
-#: dashboards/identity/projects/workflows.py:48
+#: dashboards/identity/projects/workflows.py:49
 #: dashboards/project/data_processing/clusters/tabs.py:149
 #: dashboards/project/databases/panel.py:23
 #: dashboards/project/databases/tables.py:269
@@ -1065,7 +1061,7 @@ msgstr "執行實例"
 
 #: dashboards/admin/defaults/tables.py:47
 #: dashboards/admin/defaults/workflows.py:46
-#: dashboards/identity/projects/workflows.py:50 usage/quotas.py:65
+#: dashboards/identity/projects/workflows.py:51 usage/quotas.py:65
 msgid "Injected Files"
 msgstr "已注入的資料"
 
@@ -1075,12 +1071,12 @@ msgstr "已注入的資料"
 #: dashboards/admin/volumes/templates/volumes/index.html:3
 #: dashboards/admin/volumes/templates/volumes/index.html:6
 #: dashboards/admin/volumes/volumes/tables.py:48
-#: dashboards/identity/projects/workflows.py:53
+#: dashboards/identity/projects/workflows.py:54
 #: dashboards/project/volumes/panel.py:23
 #: dashboards/project/volumes/tabs.py:62
 #: dashboards/project/volumes/templates/volumes/index.html:3
 #: dashboards/project/volumes/templates/volumes/index.html:6
-#: dashboards/project/volumes/volumes/tables.py:369 usage/quotas.py:74
+#: dashboards/project/volumes/volumes/tables.py:368 usage/quotas.py:74
 msgid "Volumes"
 msgstr "儲存空間"
 
@@ -1088,7 +1084,7 @@ msgstr "儲存空間"
 #: dashboards/admin/defaults/workflows.py:53
 #: dashboards/admin/volumes/tabs.py:112
 #: dashboards/admin/volumes/snapshots/tables.py:69
-#: dashboards/identity/projects/workflows.py:54
+#: dashboards/identity/projects/workflows.py:55
 #: dashboards/project/volumes/tabs.py:76
 #: dashboards/project/volumes/snapshots/tables.py:147 usage/quotas.py:75
 msgid "Volume Snapshots"
@@ -1096,7 +1092,7 @@ msgstr "儲存空間即時存檔"
 
 #: dashboards/admin/defaults/tables.py:50
 #: dashboards/admin/defaults/workflows.py:52
-#: dashboards/identity/projects/workflows.py:56 usage/quotas.py:76
+#: dashboards/identity/projects/workflows.py:57 usage/quotas.py:76
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "儲存空間與即時存檔的全部容量（GB）"
 
@@ -1104,25 +1100,25 @@ msgstr "儲存空間與即時存檔的全部容量（GB）"
 #: dashboards/admin/defaults/workflows.py:37
 #: dashboards/admin/flavors/workflows.py:48
 #: dashboards/admin/overview/views.py:33
-#: dashboards/identity/projects/workflows.py:57
+#: dashboards/identity/projects/workflows.py:58
 #: dashboards/project/overview/views.py:32 usage/quotas.py:67
 msgid "RAM (MB)"
 msgstr "隨機存取記憶體（MB）"
 
 #: dashboards/admin/defaults/tables.py:52
 #: dashboards/admin/defaults/workflows.py:38
-#: dashboards/identity/projects/workflows.py:58
-#: dashboards/identity/projects/workflows.py:70
+#: dashboards/identity/projects/workflows.py:59
+#: dashboards/identity/projects/workflows.py:71
 #: dashboards/project/access_and_security/tabs.py:80
-#: dashboards/project/access_and_security/floating_ips/tables.py:223
+#: dashboards/project/access_and_security/floating_ips/tables.py:221
 #: usage/quotas.py:68 usage/quotas.py:81
 msgid "Floating IPs"
 msgstr "浮動 IP"
 
 #: dashboards/admin/defaults/tables.py:53
 #: dashboards/admin/defaults/workflows.py:49
-#: dashboards/identity/projects/workflows.py:61
-#: dashboards/identity/projects/workflows.py:67
+#: dashboards/identity/projects/workflows.py:62
+#: dashboards/identity/projects/workflows.py:68
 #: dashboards/project/access_and_security/tabs.py:43
 #: dashboards/project/access_and_security/security_groups/tables.py:140
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:29
@@ -1130,7 +1126,7 @@ msgstr "浮動 IP"
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:42
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:115
 #: dashboards/project/instances/templates/instances/_detail_overview.html:83
-#: dashboards/project/instances/workflows/create_instance.py:501
+#: dashboards/project/instances/workflows/create_instance.py:543
 #: dashboards/project/instances/workflows/update_instance.py:80
 #: usage/quotas.py:70 usage/quotas.py:82
 msgid "Security Groups"
@@ -1138,8 +1134,8 @@ msgstr "安全性群組"
 
 #: dashboards/admin/defaults/tables.py:54
 #: dashboards/admin/defaults/workflows.py:44
-#: dashboards/identity/projects/workflows.py:63
-#: dashboards/identity/projects/workflows.py:69
+#: dashboards/identity/projects/workflows.py:64
+#: dashboards/identity/projects/workflows.py:70
 #: dashboards/project/access_and_security/security_groups/tables.py:268
 #: usage/quotas.py:71 usage/quotas.py:83
 msgid "Security Group Rules"
@@ -1156,7 +1152,7 @@ msgstr "密鑰對"
 #: dashboards/admin/defaults/tables.py:56
 #: dashboards/admin/networks/ports/tables.py:94
 #: dashboards/admin/routers/ports/tables.py:29
-#: dashboards/identity/projects/workflows.py:59
+#: dashboards/identity/projects/workflows.py:60
 #: dashboards/project/networks/ports/tables.py:57
 #: dashboards/project/routers/ports/tables.py:97 usage/quotas.py:69
 msgid "Fixed IPs"
@@ -1533,7 +1529,7 @@ msgstr "主機名稱"
 #: dashboards/project/volumes/volumes/forms.py:81
 #: dashboards/project/volumes/volumes/forms.py:86
 #: dashboards/project/volumes/volumes/forms.py:87
-#: dashboards/project/volumes/volumes/forms.py:648
+#: dashboards/project/volumes/volumes/forms.py:660
 #: dashboards/project/volumes/volumes/tables.py:355
 msgid "Type"
 msgstr "類型"
@@ -1567,7 +1563,7 @@ msgstr ""
 #: dashboards/project/databases/workflows/create_instance.py:35
 #: dashboards/project/instances/tables.py:935
 #: dashboards/project/instances/tables.py:957
-#: dashboards/project/instances/workflows/create_instance.py:81
+#: dashboards/project/instances/workflows/create_instance.py:82
 #: dashboards/project/overview/views.py:32 usage/tables.py:75
 msgid "Instance Name"
 msgstr "執行實例名稱"
@@ -1709,7 +1705,7 @@ msgstr "區域"
 #: dashboards/admin/volumes/snapshots/forms.py:33
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/admin/volumes/volumes/forms.py:46
-#: dashboards/project/access_and_security/floating_ips/tables.py:203
+#: dashboards/project/access_and_security/floating_ips/tables.py:201
 #: dashboards/project/data_processing/clusters/tables.py:109
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:12
 #: dashboards/project/data_processing/job_executions/tables.py:150
@@ -1863,8 +1859,8 @@ msgstr "最大容量（GB）"
 #: dashboards/project/images/images/tables.py:227
 #: dashboards/project/instances/tables.py:959
 #: dashboards/project/instances/templates/instances/_detail_overview.html:112
-#: dashboards/project/instances/workflows/create_instance.py:105
-#: dashboards/project/volumes/volumes/forms.py:540
+#: dashboards/project/instances/workflows/create_instance.py:106
+#: dashboards/project/volumes/volumes/forms.py:552
 msgid "Image Name"
 msgstr "映像檔名稱"
 
@@ -1955,8 +1951,8 @@ msgstr "系統資訊"
 #: dashboards/identity/groups/tables.py:195
 #: dashboards/identity/projects/tables.py:224
 #: dashboards/identity/projects/tables.py:226
-#: dashboards/identity/projects/workflows.py:147
-#: dashboards/identity/projects/workflows.py:507
+#: dashboards/identity/projects/workflows.py:148
+#: dashboards/identity/projects/workflows.py:518
 #: dashboards/identity/users/tables.py:178
 #: dashboards/project/firewalls/forms.py:70
 #: dashboards/project/firewalls/tables.py:216
@@ -2095,7 +2091,7 @@ msgstr "即時轉移執行實例"
 #: dashboards/admin/volumes/volumes/tables.py:44
 #: dashboards/project/dashboard.py:75
 #: dashboards/project/images/images/tables.py:151
-#: dashboards/project/instances/workflows/create_instance.py:51
+#: dashboards/project/instances/workflows/create_instance.py:52
 #: dashboards/router/nexus1000v/forms.py:119
 #: dashboards/router/nexus1000v/forms.py:177
 #: dashboards/router/nexus1000v/tables.py:73
@@ -2193,9 +2189,9 @@ msgid "Unable to retrieve host information."
 msgstr "無法取回主機資訊。"
 
 #: dashboards/admin/instances/views.py:177
-#: dashboards/project/databases/views.py:146
+#: dashboards/project/databases/views.py:149
 #: dashboards/project/instances/views.py:208
-#: dashboards/project/instances/views.py:347
+#: dashboards/project/instances/views.py:350
 msgid "Unable to retrieve instance details."
 msgstr "無法取回執行實例的詳細資訊。"
 
@@ -2300,7 +2296,7 @@ msgstr "量測器"
 #: dashboards/identity/groups/forms.py:59
 #: dashboards/identity/groups/tables.py:117
 #: dashboards/identity/projects/tables.py:218
-#: dashboards/identity/projects/workflows.py:145
+#: dashboards/identity/projects/workflows.py:146
 #: dashboards/project/access_and_security/security_groups/forms.py:44
 #: dashboards/project/access_and_security/security_groups/forms.py:73
 #: dashboards/project/access_and_security/security_groups/tables.py:133
@@ -2354,8 +2350,8 @@ msgstr "量測器"
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:15
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:15
 #: dashboards/project/volumes/volumes/forms.py:52
-#: dashboards/project/volumes/volumes/forms.py:476
-#: dashboards/project/volumes/volumes/forms.py:517
+#: dashboards/project/volumes/volumes/forms.py:488
+#: dashboards/project/volumes/volumes/forms.py:529
 #: dashboards/project/volumes/volumes/tables.py:326
 #: dashboards/project/vpn/forms.py:36 dashboards/project/vpn/forms.py:70
 #: dashboards/project/vpn/forms.py:142 dashboards/project/vpn/forms.py:213
@@ -2662,13 +2658,13 @@ msgid ""
 msgstr "在虛擬區域網路裡，識別虛擬網路於實體網路上的虛擬區域網路虛擬 ID。有效的虛擬區域網路識別號從 %(vlan_min)s 到 %(vlan_max)s。若是 GRE 或 VXLAN 網路，則是通道識別號。GRE 網路有效的通道識別號從 %(gre_min)s 到 %(gre_max)s。在 VXLAN 網路，從 %(vxlan_min)s 到 %(vxlan_max)s。"
 
 #: dashboards/admin/networks/forms.py:145
-#: dashboards/project/instances/workflows/create_instance.py:699
+#: dashboards/project/instances/workflows/create_instance.py:741
 #: dashboards/project/networks/workflows.py:61
 msgid "Select a profile"
 msgstr "選擇一個基本資料"
 
 #: dashboards/admin/networks/forms.py:155
-#: dashboards/project/instances/workflows/create_instance.py:709
+#: dashboards/project/instances/workflows/create_instance.py:751
 #: dashboards/project/networks/workflows.py:71
 #: dashboards/router/nexus1000v/views.py:52
 msgid "Network Profiles could not be retrieved."
@@ -2715,9 +2711,9 @@ msgstr "更新網路 %s 時失敗"
 #: dashboards/admin/networks/tables.py:101
 #: dashboards/admin/networks/templates/networks/index.html:3
 #: dashboards/admin/networks/templates/networks/index.html:6
-#: dashboards/identity/projects/workflows.py:71
+#: dashboards/identity/projects/workflows.py:72
 #: dashboards/project/databases/workflows/create_instance.py:131
-#: dashboards/project/instances/workflows/create_instance.py:652
+#: dashboards/project/instances/workflows/create_instance.py:694
 #: dashboards/project/networks/panel.py:23
 #: dashboards/project/networks/tables.py:159
 #: dashboards/project/networks/templates/networks/index.html:3
@@ -2981,7 +2977,7 @@ msgid "Mac Learning State"
 msgstr "Mac 學習狀態"
 
 #: dashboards/admin/networks/ports/tables.py:105
-#: dashboards/identity/projects/workflows.py:72
+#: dashboards/identity/projects/workflows.py:73
 #: dashboards/project/networks/ports/tables.py:70 usage/quotas.py:79
 msgid "Ports"
 msgstr "接口"
@@ -3066,7 +3062,7 @@ msgid "Gateway IP"
 msgstr "閘道 IP"
 
 #: dashboards/admin/networks/subnets/tables.py:116
-#: dashboards/identity/projects/workflows.py:74
+#: dashboards/identity/projects/workflows.py:75
 #: dashboards/project/networks/subnets/tables.py:150 usage/quotas.py:78
 msgid "Subnets"
 msgstr "子網域"
@@ -3211,7 +3207,7 @@ msgstr ""
 #: dashboards/admin/routers/panel.py:24 dashboards/admin/routers/tables.py:46
 #: dashboards/admin/routers/templates/routers/index.html:3
 #: dashboards/admin/routers/templates/routers/index.html:6
-#: dashboards/identity/projects/workflows.py:73
+#: dashboards/identity/projects/workflows.py:74
 #: dashboards/project/network_topology/routers/tables.py:27
 #: dashboards/project/routers/panel.py:24
 #: dashboards/project/routers/tables.py:219
@@ -3418,7 +3414,7 @@ msgid "Unable to retrieve QoS specs"
 msgstr ""
 
 #: dashboards/admin/volumes/tabs.py:130 dashboards/project/volumes/tabs.py:90
-#: dashboards/project/volumes/volumes/forms.py:204
+#: dashboards/project/volumes/volumes/forms.py:200
 msgid "Unable to retrieve volume snapshots."
 msgstr "無法取回儲存空間即時存檔。"
 
@@ -3461,10 +3457,10 @@ msgstr "更新狀態"
 #: dashboards/project/volumes/backups/tables.py:120
 #: dashboards/project/volumes/snapshots/tables.py:142
 #: dashboards/project/volumes/volumes/forms.py:48
-#: dashboards/project/volumes/volumes/forms.py:513
-#: dashboards/project/volumes/volumes/forms.py:537
-#: dashboards/project/volumes/volumes/forms.py:597
-#: dashboards/project/volumes/volumes/forms.py:645
+#: dashboards/project/volumes/volumes/forms.py:525
+#: dashboards/project/volumes/volumes/forms.py:549
+#: dashboards/project/volumes/volumes/forms.py:609
+#: dashboards/project/volumes/volumes/forms.py:657
 msgid "Volume Name"
 msgstr "儲存空間名稱"
 
@@ -3495,11 +3491,11 @@ msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/instances/templates/instances/_detail_overview.html:142
-#: dashboards/project/instances/workflows/create_instance.py:99
-#: dashboards/project/instances/workflows/create_instance.py:373
+#: dashboards/project/instances/workflows/create_instance.py:100
+#: dashboards/project/instances/workflows/create_instance.py:415
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:23
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
-#: dashboards/project/volumes/volumes/forms.py:221
+#: dashboards/project/volumes/volumes/forms.py:217
 msgid "Volume"
 msgstr "儲存空間"
 
@@ -3883,16 +3879,6 @@ msgstr "\n    一般來說，儲存空間的狀態會被自動地管理。\n    
 msgid "Volume Details"
 msgstr "儲存空間的詳細資訊"
 
-#: dashboards/admin/volumes/templates/volumes/volumes/detail.html:6
-#: dashboards/project/volumes/templates/volumes/volumes/detail.html:6
-msgid "Volume Details: "
-msgstr "儲存空間的詳細資訊："
-
-#: dashboards/admin/volumes/templates/volumes/volumes/detail.html:6
-#: dashboards/project/volumes/templates/volumes/volumes/detail.html:6
-msgid "Volume Details:"
-msgstr "儲存空間的詳細資訊："
-
 #: dashboards/admin/volumes/volume_types/forms.py:51
 #, python-format
 msgid "Successfully created encryption for volume type: %s"
@@ -4177,8 +4163,14 @@ msgstr ""
 msgid "Unable to create QoS Spec."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/views.py:61
-#: dashboards/project/volumes/volumes/views.py:66
+#: dashboards/admin/volumes/volumes/views.py:34
+#: dashboards/project/volumes/volumes/views.py:53
+#, python-format
+msgid "Volume Details: %(volume_name)s"
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/views.py:69
+#: dashboards/project/volumes/volumes/views.py:70
 msgid "Unable to retrieve volume details."
 msgstr "無法取回儲存空間詳細資訊。"
 
@@ -4247,7 +4239,7 @@ msgid "Domain Context cleared."
 msgstr "已清除地域環境。"
 
 #: dashboards/identity/domains/tables.py:201
-#: dashboards/identity/projects/workflows.py:135
+#: dashboards/identity/projects/workflows.py:136
 #: dashboards/identity/users/forms.py:75
 #: dashboards/identity/users/forms.py:154
 msgid "Domain ID"
@@ -4282,8 +4274,8 @@ msgstr "地域提供了在不同組織間從底層結構中抽離出使用者。
 
 #: dashboards/identity/domains/workflows.py:72
 #: dashboards/identity/domains/workflows.py:171
-#: dashboards/identity/projects/workflows.py:195
-#: dashboards/identity/projects/workflows.py:293
+#: dashboards/identity/projects/workflows.py:196
+#: dashboards/identity/projects/workflows.py:294
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr "在 Keystone 裡不能找到預設的角色「%s」"
@@ -4293,7 +4285,7 @@ msgid "Unable to find default role."
 msgstr "無法找到預設的角色。"
 
 #: dashboards/identity/domains/workflows.py:89
-#: dashboards/identity/projects/workflows.py:265
+#: dashboards/identity/projects/workflows.py:266
 #: dashboards/identity/users/views.py:56
 msgid "Unable to retrieve user list."
 msgstr "無法取回使用者列表。"
@@ -4301,7 +4293,7 @@ msgstr "無法取回使用者列表。"
 #: dashboards/identity/domains/workflows.py:98
 #: dashboards/identity/domains/workflows.py:145
 #: dashboards/identity/domains/workflows.py:242
-#: dashboards/identity/projects/workflows.py:363
+#: dashboards/identity/projects/workflows.py:364
 msgid "Unable to retrieve role list."
 msgstr "無法取回角色列表。"
 
@@ -4315,22 +4307,22 @@ msgid "Domain Members"
 msgstr "地域成員"
 
 #: dashboards/identity/domains/workflows.py:133
-#: dashboards/identity/projects/workflows.py:254
+#: dashboards/identity/projects/workflows.py:255
 msgid "All Users"
 msgstr "所有的使用者"
 
 #: dashboards/identity/domains/workflows.py:135
-#: dashboards/identity/projects/workflows.py:256
+#: dashboards/identity/projects/workflows.py:257
 msgid "No users found."
 msgstr "找不到任何使用者。"
 
 #: dashboards/identity/domains/workflows.py:136
-#: dashboards/identity/projects/workflows.py:257
+#: dashboards/identity/projects/workflows.py:258
 msgid "No users."
 msgstr "沒有使用者。"
 
 #: dashboards/identity/domains/workflows.py:161
-#: dashboards/identity/projects/workflows.py:279
+#: dashboards/identity/projects/workflows.py:280
 msgid "Unable to retrieve group list. Please try again later."
 msgstr "無法取回群組列表。請稍後再試一次。"
 
@@ -4340,17 +4332,17 @@ msgid "Domain Groups"
 msgstr "地域群組"
 
 #: dashboards/identity/domains/workflows.py:230
-#: dashboards/identity/projects/workflows.py:352
+#: dashboards/identity/projects/workflows.py:353
 msgid "All Groups"
 msgstr "所有的群組"
 
 #: dashboards/identity/domains/workflows.py:232
-#: dashboards/identity/projects/workflows.py:354
+#: dashboards/identity/projects/workflows.py:355
 msgid "No groups found."
 msgstr "找不到任何群組。"
 
 #: dashboards/identity/domains/workflows.py:233
-#: dashboards/identity/projects/workflows.py:355
+#: dashboards/identity/projects/workflows.py:356
 msgid "No groups."
 msgstr "沒有群組。"
 
@@ -4519,11 +4511,16 @@ msgstr "權限的等級不足以檢視群組資訊。"
 msgid "Unable to update group."
 msgstr "無法更新群組。"
 
-#: dashboards/identity/groups/views.py:126
+#: dashboards/identity/groups/views.py:119
+#, python-format
+msgid "Group Management: %(group_name)s"
+msgstr ""
+
+#: dashboards/identity/groups/views.py:130
 msgid "Unable to retrieve group users."
 msgstr "無法取回群組使用者。"
 
-#: dashboards/identity/groups/views.py:147
+#: dashboards/identity/groups/views.py:151
 msgid "Unable to retrieve users."
 msgstr "無法取回使用者。"
 
@@ -4558,10 +4555,6 @@ msgstr "加入使用者到群組裡"
 msgid "Group Management"
 msgstr "群組管理"
 
-#: dashboards/identity/groups/templates/groups/manage.html:6
-msgid "Group Management: "
-msgstr "群組管理："
-
 #: dashboards/identity/projects/panel.py:27
 #: dashboards/identity/projects/tables.py:232
 #: dashboards/identity/projects/templates/projects/index.html:3
@@ -4579,13 +4572,13 @@ msgid "View Usage"
 msgstr "檢視使用量"
 
 #: dashboards/identity/projects/tables.py:96
-#: dashboards/identity/projects/workflows.py:374
 #: dashboards/identity/projects/workflows.py:375
+#: dashboards/identity/projects/workflows.py:376
 msgid "Create Project"
 msgstr "新增專案"
 
 #: dashboards/identity/projects/tables.py:108
-#: dashboards/identity/projects/workflows.py:527
+#: dashboards/identity/projects/workflows.py:538
 msgid "Edit Project"
 msgstr "編輯專案"
 
@@ -4630,65 +4623,65 @@ msgstr "無法取回專案地域。"
 msgid "Unable to retrieve project details."
 msgstr "無法取回專案的詳細資訊。"
 
-#: dashboards/identity/projects/workflows.py:44
+#: dashboards/identity/projects/workflows.py:45
 msgid "Injected File Content (Bytes)"
 msgstr "已注入的資料內容（位元組）"
 
-#: dashboards/identity/projects/workflows.py:97
+#: dashboards/identity/projects/workflows.py:98
 #, python-format
 msgid "%(used)s %(key)s used"
 msgstr "已使用 %(used)s 個 %(key)s"
 
-#: dashboards/identity/projects/workflows.py:102
+#: dashboards/identity/projects/workflows.py:103
 #, python-format
 msgid "Quota value(s) cannot be less than the current usage value(s): %s."
 msgstr "配額數值不能小於目前已用掉的數值：%s。"
 
-#: dashboards/identity/projects/workflows.py:109
-#: dashboards/identity/projects/workflows.py:116
+#: dashboards/identity/projects/workflows.py:110
+#: dashboards/identity/projects/workflows.py:117
 msgid "Quota"
 msgstr "配額"
 
-#: dashboards/identity/projects/workflows.py:111
-#: dashboards/identity/projects/workflows.py:118
+#: dashboards/identity/projects/workflows.py:112
+#: dashboards/identity/projects/workflows.py:119
 msgid "Set maximum quotas for the project."
 msgstr "為專案設定最大配額。"
 
-#: dashboards/identity/projects/workflows.py:138
+#: dashboards/identity/projects/workflows.py:139
 #: dashboards/identity/users/forms.py:78
 #: dashboards/identity/users/forms.py:157
 msgid "Domain Name"
 msgstr "地域名稱"
 
-#: dashboards/identity/projects/workflows.py:162
-#: dashboards/identity/projects/workflows.py:510
+#: dashboards/identity/projects/workflows.py:163
+#: dashboards/identity/projects/workflows.py:521
 msgid "Project Information"
 msgstr "專案資訊"
 
-#: dashboards/identity/projects/workflows.py:163
+#: dashboards/identity/projects/workflows.py:164
 msgid "Create a project to organize users."
 msgstr "新增一個專案以組織使用者。"
 
-#: dashboards/identity/projects/workflows.py:181
+#: dashboards/identity/projects/workflows.py:182
 msgid "Unable to retrieve user list. Please try again later."
 msgstr "無法取回使用者列表。請稍後再試一次。"
 
-#: dashboards/identity/projects/workflows.py:248
-#: dashboards/identity/projects/workflows.py:255
+#: dashboards/identity/projects/workflows.py:249
+#: dashboards/identity/projects/workflows.py:256
 msgid "Project Members"
 msgstr "專案成員"
 
-#: dashboards/identity/projects/workflows.py:346
-#: dashboards/identity/projects/workflows.py:353
+#: dashboards/identity/projects/workflows.py:347
+#: dashboards/identity/projects/workflows.py:354
 msgid "Project Groups"
 msgstr "專案群組"
 
-#: dashboards/identity/projects/workflows.py:376
+#: dashboards/identity/projects/workflows.py:377
 #, python-format
 msgid "Created new project \"%s\"."
 msgstr "已新增新的專案「%s」。"
 
-#: dashboards/identity/projects/workflows.py:377
+#: dashboards/identity/projects/workflows.py:378
 #, python-format
 msgid "Unable to create project \"%s\"."
 msgstr "無法新增專案「%s」。"
@@ -4709,50 +4702,50 @@ msgstr "加入 %(users_to_add)s 專案成員%(group_msg)s以及設定專案配�
 msgid "Failed to add %s project groups and update project quotas."
 msgstr "加入 %s 專案群組和更新專案配額時失敗。"
 
-#: dashboards/identity/projects/workflows.py:502
+#: dashboards/identity/projects/workflows.py:503
 msgid "Unable to set project quotas."
 msgstr "無法設定專案的配額。"
 
-#: dashboards/identity/projects/workflows.py:512
+#: dashboards/identity/projects/workflows.py:523
 msgid "Edit the project details."
 msgstr "編輯專案的詳細資訊。"
 
-#: dashboards/identity/projects/workflows.py:529
+#: dashboards/identity/projects/workflows.py:540
 #, python-format
 msgid "Modified project \"%s\"."
 msgstr "已更改專案「%s」。"
 
-#: dashboards/identity/projects/workflows.py:530
+#: dashboards/identity/projects/workflows.py:541
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr "無法更改專案「%s」。"
 
-#: dashboards/identity/projects/workflows.py:625
+#: dashboards/identity/projects/workflows.py:630
 msgid ""
 "You cannot revoke your administrative privileges from the project you are "
 "currently logged into. Please switch to another project with administrative "
 "privileges or remove the administrative role manually via the CLI."
 msgstr "您不能從此專案裡撤銷您目前已登入的管理員權限。請以管理員權限交換到其他專案或者用命令列介面手動移除管理員角色。"
 
-#: dashboards/identity/projects/workflows.py:660
+#: dashboards/identity/projects/workflows.py:690
 msgid ", update project groups"
 msgstr "、更新專案群組"
 
-#: dashboards/identity/projects/workflows.py:664
+#: dashboards/identity/projects/workflows.py:694
 #, python-format
 msgid ""
 "Failed to modify %(users_to_modify)s project members%(group_msg)s and update"
 " project quotas."
 msgstr "更改 %(users_to_modify)s 專案成員%(group_msg)s以及更新專案配額時失敗。"
 
-#: dashboards/identity/projects/workflows.py:737
+#: dashboards/identity/projects/workflows.py:769
 #, python-format
 msgid ""
 "Failed to modify %s project members, update project groups and update "
 "project quotas."
 msgstr "更改 %s 專案成員、更新專案群組以及更新專案配額時失敗。"
 
-#: dashboards/identity/projects/workflows.py:770
+#: dashboards/identity/projects/workflows.py:803
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
@@ -4845,7 +4838,7 @@ msgstr "無可用的專案"
 
 #: dashboards/identity/users/forms.py:66
 #: dashboards/project/instances/forms.py:92
-#: dashboards/project/instances/workflows/create_instance.py:550
+#: dashboards/project/instances/workflows/create_instance.py:592
 #: dashboards/settings/password/forms.py:50
 msgid "Passwords do not match."
 msgstr "密碼沒有相配。"
@@ -5024,12 +5017,12 @@ msgid "Data Processing"
 msgstr "資料處理"
 
 #: dashboards/project/access_and_security/panel.py:24
-#: dashboards/project/instances/workflows/create_instance.py:508
+#: dashboards/project/instances/workflows/create_instance.py:550
 msgid "Access & Security"
 msgstr "存取權以及安全性"
 
 #: dashboards/project/access_and_security/tabs.py:57
-#: dashboards/project/access_and_security/security_groups/views.py:120
+#: dashboards/project/access_and_security/security_groups/views.py:124
 #: usage/base.py:116
 msgid "Unable to retrieve security groups."
 msgstr "無法取回安全性群組。"
@@ -5098,7 +5091,7 @@ msgid "Unable to get EC2 credentials"
 msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/forms.py:31
-#: dashboards/project/access_and_security/floating_ips/tables.py:200
+#: dashboards/project/access_and_security/floating_ips/tables.py:199
 #: dashboards/project/loadbalancers/forms.py:79
 #: dashboards/project/loadbalancers/forms.py:172
 #: dashboards/project/loadbalancers/tables.py:310
@@ -5194,7 +5187,7 @@ msgstr "無可用的浮動 IP 倉庫"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:37
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:196
-#: dashboards/project/volumes/volumes/tables.py:421
+#: dashboards/project/volumes/volumes/tables.py:420
 msgid "Instance"
 msgstr "執行實例"
 
@@ -5224,7 +5217,7 @@ msgid "Select a port"
 msgstr "選擇一個接口"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:110
-#: dashboards/project/volumes/volumes/forms.py:441
+#: dashboards/project/volumes/volumes/forms.py:453
 msgid "Select an instance"
 msgstr "選擇一個執行實例"
 
@@ -5233,7 +5226,7 @@ msgid "No ports available"
 msgstr "無可用的接口"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:116
-#: dashboards/project/volumes/volumes/forms.py:443
+#: dashboards/project/volumes/volumes/forms.py:455
 msgid "No instances available"
 msgstr "無可用的執行實例"
 
@@ -5491,50 +5484,50 @@ msgstr "入口"
 msgid "Egress"
 msgstr "出口"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:297
+#: dashboards/project/access_and_security/security_groups/forms.py:286
 msgid "The ICMP type is invalid."
 msgstr "ICMP 類型是無效的。"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:300
+#: dashboards/project/access_and_security/security_groups/forms.py:289
 msgid "The ICMP code is invalid."
 msgstr "ICMP 代碼是無效的"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:303
+#: dashboards/project/access_and_security/security_groups/forms.py:292
 msgid "The ICMP type not in range (-1, 255)"
 msgstr "ICMP 類型沒有在範圍裡（-1 到 255）"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:306
+#: dashboards/project/access_and_security/security_groups/forms.py:295
 msgid "The ICMP code not in range (-1, 255)"
 msgstr "ICMP 代碼沒有在範圍裡（-1 到 255）"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:319
+#: dashboards/project/access_and_security/security_groups/forms.py:314
 msgid "The specified port is invalid."
 msgstr "指定的埠口是無效的。"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:324
+#: dashboards/project/access_and_security/security_groups/forms.py:319
 msgid "The \"from\" port number is invalid."
 msgstr "「從」埠口號是無效的。"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:327
+#: dashboards/project/access_and_security/security_groups/forms.py:322
 msgid "The \"to\" port number is invalid."
 msgstr "「到」埠口號是無效的。"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:330
+#: dashboards/project/access_and_security/security_groups/forms.py:325
 msgid ""
 "The \"to\" port number must be greater than or equal to the \"from\" port "
 "number."
 msgstr "「到」埠口號必須大於等於「從」埠口號。"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:363
+#: dashboards/project/access_and_security/security_groups/forms.py:374
 msgid "CIDR must be specified."
 msgstr "必須指定 CIDR。"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:386
+#: dashboards/project/access_and_security/security_groups/forms.py:397
 #, python-format
 msgid "Successfully added rule: %s"
 msgstr "已成功加入規則：%s"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:392
+#: dashboards/project/access_and_security/security_groups/forms.py:403
 msgid "Unable to add rule to security group."
 msgstr "無法加入規則到安全性群組。"
 
@@ -5598,11 +5591,16 @@ msgid "Any"
 msgstr "任意"
 
 #: dashboards/project/access_and_security/security_groups/views.py:52
-#: dashboards/project/access_and_security/security_groups/views.py:79
+#: dashboards/project/access_and_security/security_groups/views.py:83
 msgid "Unable to retrieve security group."
 msgstr "無法取回安全性群組。"
 
-#: dashboards/project/access_and_security/security_groups/views.py:127
+#: dashboards/project/access_and_security/security_groups/views.py:66
+#, python-format
+msgid "Manage Security Group Rules: %(security_group)s"
+msgstr ""
+
+#: dashboards/project/access_and_security/security_groups/views.py:131
 #, python-format
 msgid "%s (current)"
 msgstr "%s（目前）"
@@ -5791,10 +5789,6 @@ msgstr "安全性群組是套用於給虛擬機器的網路設定的 IP 篩選�
 msgid "Manage Security Group Rules"
 msgstr "管理安全性群組規則"
 
-#: dashboards/project/access_and_security/templates/access_and_security/security_groups/detail.html:6
-msgid "Manage Security Group Rules: "
-msgstr "管理安全性群組規則："
-
 #: dashboards/project/containers/browsers.py:24
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:11
 msgid "Swift"
@@ -5839,7 +5833,7 @@ msgid "Unable to create container."
 msgstr "無法新增容器。"
 
 #: dashboards/project/containers/forms.py:84
-#: dashboards/project/instances/workflows/create_instance.py:577
+#: dashboards/project/instances/workflows/create_instance.py:619
 #: dashboards/project/stacks/forms.py:57
 msgid "File"
 msgstr "檔案"
@@ -6378,7 +6372,7 @@ msgstr "節點計數"
 #: dashboards/project/databases/templates/databases/_detail_overview.html:26
 #: dashboards/project/databases/workflows/create_instance.py:36
 #: dashboards/project/instances/templates/instances/_detail_overview.html:48
-#: dashboards/project/instances/workflows/create_instance.py:84
+#: dashboards/project/instances/workflows/create_instance.py:85
 msgid "Flavor"
 msgstr "虛擬硬體樣板"
 
@@ -6486,7 +6480,7 @@ msgstr "樣板名稱"
 #: dashboards/project/database_backups/workflows/create_backup.py:43
 #: dashboards/project/databases/workflows/create_instance.py:47
 #: dashboards/project/instances/templates/instances/_detail_overview.html:36
-#: dashboards/project/instances/workflows/create_instance.py:135
+#: dashboards/project/instances/workflows/create_instance.py:136
 #: dashboards/project/loadbalancers/tables.py:337
 msgid "Details"
 msgstr "詳細資訊"
@@ -6719,14 +6713,14 @@ msgstr "更新映像檔時失敗。"
 #: dashboards/project/data_processing/data_image_registry/forms.py:59
 #: dashboards/project/data_processing/data_image_registry/tables.py:73
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:58
-#: dashboards/project/volumes/volumes/forms.py:209
+#: dashboards/project/volumes/volumes/forms.py:205
 msgid "Image"
 msgstr "映像檔"
 
 #: dashboards/project/data_processing/data_image_registry/forms.py:71
 #: dashboards/project/instances/forms.py:39
 #: dashboards/project/instances/forms.py:64
-#: dashboards/project/instances/workflows/create_instance.py:395
+#: dashboards/project/instances/workflows/create_instance.py:437
 msgid "Select Image"
 msgstr "選擇映像檔"
 
@@ -7473,7 +7467,7 @@ msgstr "工作離開後依然保持叢集"
 #: dashboards/project/data_processing/jobs/workflows/launch.py:416
 #: dashboards/project/databases/workflows/create_instance.py:273
 #: dashboards/project/images/images/tables.py:35
-#: dashboards/project/instances/workflows/create_instance.py:795
+#: dashboards/project/instances/workflows/create_instance.py:837
 #: dashboards/project/stacks/templates/stacks/_create.html:24
 msgid "Launch"
 msgstr "發動"
@@ -7704,7 +7698,7 @@ msgstr "無法套用反共鳴處理行程。"
 
 #: dashboards/project/data_processing/utils/neutron_support.py:32
 #: dashboards/project/databases/workflows/create_instance.py:161
-#: dashboards/project/instances/workflows/create_instance.py:695
+#: dashboards/project/instances/workflows/create_instance.py:737
 msgid "Unable to retrieve networks."
 msgstr "無法取回網路。"
 
@@ -7761,7 +7755,7 @@ msgstr[0] ""
 #: dashboards/project/databases/tables.py:222
 #: dashboards/project/instances/tables.py:804
 #: dashboards/project/instances/tables.py:811
-#: dashboards/project/instances/views.py:361
+#: dashboards/project/instances/views.py:364
 #: dashboards/project/instances/templates/instances/_detail_overview.html:62
 #: dashboards/project/instances/templates/instances/_detail_overview.html:98
 msgid "Not available"
@@ -7805,6 +7799,11 @@ msgstr "無法取回備份的詳細資訊：%s"
 msgid "Unable to retrieve details for parent backup: %s"
 msgstr "無法取回母體備份的詳細資訊：%s"
 
+#: dashboards/project/database_backups/views.py:106
+#, python-format
+msgid "Backup Details: %(backup_name)s"
+msgstr ""
+
 #: dashboards/project/database_backups/templates/database_backups/_backup_details_help.html:3
 msgid "Specify the details for the database backup."
 msgstr "為資料庫備份指定詳細資料。"
@@ -7825,10 +7824,6 @@ msgstr "備份資料庫"
 #: dashboards/project/database_backups/templates/database_backups/details.html:3
 msgid "Backup Details"
 msgstr "備份的詳細資訊"
-
-#: dashboards/project/database_backups/templates/database_backups/details.html:6
-msgid "Backup Details: "
-msgstr "備份的詳細資訊："
 
 #: dashboards/project/database_backups/templates/database_backups/details.html:12
 msgid "Backup Overview"
@@ -7911,14 +7906,14 @@ msgstr "已排程備份「%(name)s」。"
 
 #: dashboards/project/database_backups/workflows/create_backup.py:85
 #: dashboards/project/databases/workflows/create_instance.py:275
-#: dashboards/project/instances/workflows/create_instance.py:797
+#: dashboards/project/instances/workflows/create_instance.py:839
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "無法發動名為「%(name)s」%(count)s 個。"
 
 #: dashboards/project/database_backups/workflows/create_backup.py:95
 #: dashboards/project/databases/workflows/create_instance.py:291
-#: dashboards/project/instances/workflows/create_instance.py:814
+#: dashboards/project/instances/workflows/create_instance.py:856
 msgid "instance"
 msgstr "執行實例"
 
@@ -7927,12 +7922,12 @@ msgid "Error creating database backup."
 msgstr "新增資料庫備份出錯。"
 
 #: dashboards/project/databases/forms.py:28
-#: dashboards/project/volumes/volumes/forms.py:602
+#: dashboards/project/volumes/volumes/forms.py:614
 msgid "Current Size (GB)"
 msgstr "目前容量（GB）"
 
 #: dashboards/project/databases/forms.py:32
-#: dashboards/project/volumes/volumes/forms.py:606
+#: dashboards/project/volumes/volumes/forms.py:618
 msgid "New Size (GB)"
 msgstr "新容量（GB）"
 
@@ -7995,7 +7990,7 @@ msgstr "刪除執行實例上的資料庫出錯。"
 #: dashboards/project/databases/workflows/create_instance.py:272
 #: dashboards/project/instances/tables.py:305
 #: dashboards/project/instances/tables.py:333
-#: dashboards/project/instances/workflows/create_instance.py:794
+#: dashboards/project/instances/workflows/create_instance.py:836
 #: dashboards/project/network_topology/templates/network_topology/index.html:28
 msgid "Launch Instance"
 msgstr "發動執行實例"
@@ -8062,7 +8057,13 @@ msgstr "無法取回資料庫容量資訊。"
 msgid "Unable to retrieve database instances."
 msgstr "無法取回資料庫執行實例。"
 
-#: dashboards/project/databases/views.py:114
+#: dashboards/project/databases/views.py:104
+#: dashboards/project/instances/views.py:261
+#, python-format
+msgid "Instance Details: %(instance_name)s"
+msgstr ""
+
+#: dashboards/project/databases/views.py:117
 #, python-format
 msgid "Unable to retrieve details for database instance: %s"
 msgstr "無法取回資料庫執行實例的詳細資訊：%s"
@@ -8209,11 +8210,6 @@ msgstr "<strong>請留意：</strong>新值必須大於已存在的儲存空間�
 msgid "Instance Details"
 msgstr "執行實例詳細資訊"
 
-#: dashboards/project/databases/templates/databases/detail.html:6
-#: dashboards/project/instances/templates/instances/detail.html:6
-msgid "Instance Details: "
-msgstr "執行實例詳細資訊："
-
 #: dashboards/project/databases/templates/databases/launch.html:6
 msgid "Launch Database"
 msgstr "發動資料庫"
@@ -8226,7 +8222,7 @@ msgid "Edit Instance"
 msgstr "編輯執行實例"
 
 #: dashboards/project/databases/workflows/create_instance.py:37
-#: dashboards/project/instances/workflows/create_instance.py:85
+#: dashboards/project/instances/workflows/create_instance.py:86
 msgid "Size of image to launch."
 msgstr "要發動的映像檔容量。"
 
@@ -8251,22 +8247,22 @@ msgid "Select datastore type and version"
 msgstr "選擇資料倉庫類型和版本"
 
 #: dashboards/project/databases/workflows/create_instance.py:135
-#: dashboards/project/instances/workflows/create_instance.py:656
+#: dashboards/project/instances/workflows/create_instance.py:698
 msgid "At least one network must be specified."
 msgstr "最少要指定一組網路。"
 
 #: dashboards/project/databases/workflows/create_instance.py:137
-#: dashboards/project/instances/workflows/create_instance.py:658
+#: dashboards/project/instances/workflows/create_instance.py:700
 msgid "Launch instance with these networks"
 msgstr "以這些網路發動執行實例"
 
 #: dashboards/project/databases/workflows/create_instance.py:147
-#: dashboards/project/instances/workflows/create_instance.py:680
+#: dashboards/project/instances/workflows/create_instance.py:722
 msgid "Networking"
 msgstr "正在網路連線"
 
 #: dashboards/project/databases/workflows/create_instance.py:149
-#: dashboards/project/instances/workflows/create_instance.py:682
+#: dashboards/project/instances/workflows/create_instance.py:724
 msgid "Select networks for your instance."
 msgstr "為您的執行實例選擇網路。"
 
@@ -8311,7 +8307,7 @@ msgid "Unable to find backup!"
 msgstr "無法找到備份！"
 
 #: dashboards/project/databases/workflows/create_instance.py:274
-#: dashboards/project/instances/workflows/create_instance.py:796
+#: dashboards/project/instances/workflows/create_instance.py:838
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "已發動名為「%(name)s」%(count)s 個。"
@@ -8547,18 +8543,21 @@ msgid_plural "Scheduled deletion of Firewalls"
 msgstr[0] ""
 
 #: dashboards/project/firewalls/tables.py:119
+#: dashboards/project/firewalls/views.py:129
 #: dashboards/project/firewalls/templates/firewalls/_updaterule.html:8
 #: dashboards/project/firewalls/templates/firewalls/updaterule.html:3
 msgid "Edit Rule"
 msgstr "編輯規則"
 
 #: dashboards/project/firewalls/tables.py:131
+#: dashboards/project/firewalls/views.py:168
 #: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:8
 #: dashboards/project/firewalls/templates/firewalls/updatepolicy.html:3
 msgid "Edit Policy"
 msgstr "編輯政策"
 
 #: dashboards/project/firewalls/tables.py:143
+#: dashboards/project/firewalls/views.py:202
 #: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:8
 #: dashboards/project/firewalls/templates/firewalls/updatefirewall.html:3
 msgid "Edit Firewall"
@@ -8623,7 +8622,7 @@ msgid "Firewall Rule Details"
 msgstr "防火牆規則詳細資訊"
 
 #: dashboards/project/firewalls/tabs.py:105
-#: dashboards/project/firewalls/views.py:142
+#: dashboards/project/firewalls/views.py:146
 msgid "Unable to retrieve rule details."
 msgstr "無法取回規則詳細資訊。"
 
@@ -8632,9 +8631,9 @@ msgid "Firewall Policy Details"
 msgstr "防火牆政策詳細資訊"
 
 #: dashboards/project/firewalls/tabs.py:122
-#: dashboards/project/firewalls/views.py:177
-#: dashboards/project/firewalls/views.py:243
-#: dashboards/project/firewalls/views.py:277
+#: dashboards/project/firewalls/views.py:183
+#: dashboards/project/firewalls/views.py:251
+#: dashboards/project/firewalls/views.py:285
 msgid "Unable to retrieve policy details."
 msgstr "無法取回政策詳細資訊。"
 
@@ -8643,7 +8642,7 @@ msgid "Firewall Details"
 msgstr "防火牆詳細資訊"
 
 #: dashboards/project/firewalls/tabs.py:139
-#: dashboards/project/firewalls/views.py:210
+#: dashboards/project/firewalls/views.py:218
 msgid "Unable to retrieve firewall details."
 msgstr "無法取回防火牆詳細資訊。"
 
@@ -8676,6 +8675,21 @@ msgstr "已刪除防火牆 %s"
 #, python-format
 msgid "Unable to delete firewall. %s"
 msgstr "無法刪除防火牆。%s"
+
+#: dashboards/project/firewalls/views.py:132
+#, python-format
+msgid "Edit Rule %(rule_name)s"
+msgstr ""
+
+#: dashboards/project/firewalls/views.py:171
+#, python-format
+msgid "Edit Policy %s"
+msgstr ""
+
+#: dashboards/project/firewalls/views.py:205
+#, python-format
+msgid "Edit Firewall %s"
+msgstr ""
 
 #: dashboards/project/firewalls/workflows.py:73
 msgid "AddRule"
@@ -8861,18 +8875,6 @@ msgstr "加入新的政策"
 msgid "Add New Rule"
 msgstr "加入新的規則"
 
-#: dashboards/project/firewalls/templates/firewalls/updatefirewall.html:6
-msgid "Edit Firewall "
-msgstr "編輯防火牆"
-
-#: dashboards/project/firewalls/templates/firewalls/updatepolicy.html:6
-msgid "Edit Policy "
-msgstr "編輯政策"
-
-#: dashboards/project/firewalls/templates/firewalls/updaterule.html:6
-msgid "Edit Rule "
-msgstr "編輯網路"
-
 #: dashboards/project/images/utils.py:43
 msgid "Unable to retrieve public images."
 msgstr "無法取回公用的映像檔。"
@@ -9013,13 +9015,18 @@ msgstr "與我分享"
 msgid "Unable to retrieve image."
 msgstr "無法取回映像檔。"
 
-#: dashboards/project/images/images/views.py:106
+#: dashboards/project/images/images/views.py:94
+#, python-format
+msgid "Image Details: %(image_name)s"
+msgstr ""
+
+#: dashboards/project/images/images/views.py:109
 msgid "Unable to retrieve image details."
 msgstr "無法取回映像檔詳細資訊。"
 
 #: dashboards/project/images/snapshots/forms.py:33
 #: dashboards/project/volumes/snapshots/forms.py:25
-#: dashboards/project/volumes/volumes/forms.py:473
+#: dashboards/project/volumes/volumes/forms.py:485
 msgid "Snapshot Name"
 msgstr "即時存檔名稱"
 
@@ -9071,7 +9078,7 @@ msgid "Container Format"
 msgstr "容器格式"
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:50
-#: dashboards/project/volumes/volumes/forms.py:541
+#: dashboards/project/volumes/volumes/forms.py:553
 msgid "Disk Format"
 msgstr "硬碟格式"
 
@@ -9090,14 +9097,6 @@ msgstr "自訂屬性"
 #: dashboards/project/images/templates/images/images/detail.html:4
 msgid "Image Details"
 msgstr "映像檔詳細資訊"
-
-#: dashboards/project/images/templates/images/images/detail.html:7
-msgid "Image Details: "
-msgstr "映像檔詳細資訊："
-
-#: dashboards/project/images/templates/images/images/detail.html:7
-msgid "Image Details:"
-msgstr "映像檔詳細資訊："
 
 #: dashboards/project/images/templates/images/snapshots/_create.html:9
 #: dashboards/project/images/templates/images/snapshots/_create.html:24
@@ -9150,28 +9149,28 @@ msgid "Confirm Rebuild Password"
 msgstr "確認重建密碼"
 
 #: dashboards/project/instances/forms.py:53
-#: dashboards/project/instances/workflows/create_instance.py:741
+#: dashboards/project/instances/workflows/create_instance.py:783
 msgid "Disk Partition"
 msgstr "硬碟分割"
 
 #: dashboards/project/instances/forms.py:66
-#: dashboards/project/instances/workflows/create_instance.py:397
+#: dashboards/project/instances/workflows/create_instance.py:439
 msgid "No images available"
 msgstr "無可用的映像檔"
 
 #: dashboards/project/instances/forms.py:78
-#: dashboards/project/instances/workflows/create_instance.py:759
+#: dashboards/project/instances/workflows/create_instance.py:801
 msgid "Automatic"
 msgstr "自動"
 
 #: dashboards/project/instances/forms.py:79
-#: dashboards/project/instances/workflows/create_instance.py:760
+#: dashboards/project/instances/workflows/create_instance.py:802
 msgid "Manual"
 msgstr "手動"
 
 #: dashboards/project/instances/forms.py:82
-#: dashboards/project/instances/workflows/create_instance.py:165
-#: dashboards/project/instances/workflows/create_instance.py:769
+#: dashboards/project/instances/workflows/create_instance.py:166
+#: dashboards/project/instances/workflows/create_instance.py:811
 msgid "Unable to retrieve extensions information."
 msgstr "無法取回擴充套件的資訊。"
 
@@ -9346,7 +9345,7 @@ msgid "Failed to launch instance \"%s\""
 msgstr "發動執行實例「%s」時失敗"
 
 #: dashboards/project/instances/tables.py:650
-#: dashboards/project/instances/views.py:358
+#: dashboards/project/instances/views.py:361
 #, python-format
 msgid "Unable to retrieve flavor information for instance \"%s\"."
 msgstr ""
@@ -9731,7 +9730,7 @@ msgid "Building"
 msgstr "正在建立"
 
 #: dashboards/project/instances/tables.py:966
-#: dashboards/project/instances/workflows/create_instance.py:486
+#: dashboards/project/instances/workflows/create_instance.py:528
 msgid "Key Pair"
 msgstr "密鑰對"
 
@@ -9784,34 +9783,34 @@ msgstr "無法獲得執行實例「%s」的 SPICE 主控臺。"
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "無法獲得執行實例「%s」的 RDP 主控臺。"
 
-#: dashboards/project/instances/views.py:272
+#: dashboards/project/instances/views.py:275
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "無法取回執行實例「%s」的詳細資訊。"
 
-#: dashboards/project/instances/views.py:293
+#: dashboards/project/instances/views.py:296
 #, python-format
 msgid "Unable to retrieve volume list for instance \"%(name)s\" (%(id)s)."
 msgstr ""
 
-#: dashboards/project/instances/views.py:302
+#: dashboards/project/instances/views.py:305
 #, python-format
 msgid "Unable to retrieve flavor information for instance \"%(name)s\" (%(id)s)."
 msgstr ""
 
-#: dashboards/project/instances/views.py:311
+#: dashboards/project/instances/views.py:314
 #, python-format
 msgid "Unable to retrieve security groups for instance \"%(name)s\" (%(id)s)."
 msgstr ""
 
-#: dashboards/project/instances/views.py:319
+#: dashboards/project/instances/views.py:322
 #, python-format
 msgid ""
 "Unable to retrieve IP addresses from Neutron for instance \"%(name)s\" "
 "(%(id)s)."
 msgstr ""
 
-#: dashboards/project/instances/views.py:372
+#: dashboards/project/instances/views.py:375
 msgid "Unable to retrieve flavors."
 msgstr "無法取回虛擬硬體樣板。"
 
@@ -9926,7 +9925,7 @@ msgstr "已附加儲存空間"
 #: dashboards/project/instances/templates/instances/_detail_overview.html:134
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:47
-#: dashboards/project/volumes/volumes/tables.py:358
+#: dashboards/project/volumes/volumes/tables.py:357
 msgid "Attached To"
 msgstr "附加到"
 
@@ -10035,90 +10034,90 @@ msgstr "您可以在重建執行實例時選填一組密碼。"
 msgid "Instance Admin Password"
 msgstr "執行實例管理員密碼"
 
-#: dashboards/project/instances/workflows/create_instance.py:52
+#: dashboards/project/instances/workflows/create_instance.py:53
 msgid "User"
 msgstr "使用者"
 
-#: dashboards/project/instances/workflows/create_instance.py:66
+#: dashboards/project/instances/workflows/create_instance.py:67
 msgid "Project & User"
 msgstr "專案與使用者"
 
-#: dashboards/project/instances/workflows/create_instance.py:87
+#: dashboards/project/instances/workflows/create_instance.py:88
 msgid "Instance Count"
 msgstr "執行實例數量"
 
-#: dashboards/project/instances/workflows/create_instance.py:90
+#: dashboards/project/instances/workflows/create_instance.py:91
 msgid "Number of instances to launch."
 msgstr "要發動的執行實例數量。"
 
-#: dashboards/project/instances/workflows/create_instance.py:92
+#: dashboards/project/instances/workflows/create_instance.py:93
 msgid "Instance Boot Source"
 msgstr "執行實例開機來源"
 
-#: dashboards/project/instances/workflows/create_instance.py:93
+#: dashboards/project/instances/workflows/create_instance.py:94
 msgid "Choose Your Boot Source Type."
 msgstr "選擇您要開機的來源類型"
 
-#: dashboards/project/instances/workflows/create_instance.py:96
+#: dashboards/project/instances/workflows/create_instance.py:97
 msgid "Instance Snapshot"
 msgstr "執行實例即時存檔"
 
-#: dashboards/project/instances/workflows/create_instance.py:101
+#: dashboards/project/instances/workflows/create_instance.py:102
 msgid "Volume Snapshot"
 msgstr "儲存空間即時存檔"
 
-#: dashboards/project/instances/workflows/create_instance.py:112
+#: dashboards/project/instances/workflows/create_instance.py:113
 msgid "Device size (GB)"
 msgstr "裝置容量（GB）"
 
-#: dashboards/project/instances/workflows/create_instance.py:116
+#: dashboards/project/instances/workflows/create_instance.py:117
 msgid "Volume size in gigabytes (integer value)."
 msgstr "儲存空間的 GB 容量（整數值）。"
 
-#: dashboards/project/instances/workflows/create_instance.py:119
-#: dashboards/project/volumes/volumes/forms.py:406
+#: dashboards/project/instances/workflows/create_instance.py:120
+#: dashboards/project/volumes/volumes/forms.py:418
 msgid "Device Name"
 msgstr "裝置名稱"
 
-#: dashboards/project/instances/workflows/create_instance.py:122
+#: dashboards/project/instances/workflows/create_instance.py:123
 msgid ""
 "Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank"
 " to let the system choose a device name for you."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:128
+#: dashboards/project/instances/workflows/create_instance.py:129
 msgid "Delete on Terminate"
 msgstr "終止並刪除"
 
-#: dashboards/project/instances/workflows/create_instance.py:131
+#: dashboards/project/instances/workflows/create_instance.py:132
 msgid "Delete volume on instance terminate"
 msgstr "在執行實例終止時刪除儲存空間"
 
-#: dashboards/project/instances/workflows/create_instance.py:151
+#: dashboards/project/instances/workflows/create_instance.py:152
 msgid "Select source"
 msgstr "選擇來源"
 
-#: dashboards/project/instances/workflows/create_instance.py:152
+#: dashboards/project/instances/workflows/create_instance.py:153
 msgid "Boot from image"
 msgstr "從映像檔開機"
 
-#: dashboards/project/instances/workflows/create_instance.py:153
+#: dashboards/project/instances/workflows/create_instance.py:154
 msgid "Boot from snapshot"
 msgstr "從即時存檔開機"
 
-#: dashboards/project/instances/workflows/create_instance.py:156
+#: dashboards/project/instances/workflows/create_instance.py:157
 msgid "Boot from volume"
 msgstr "從儲存空間開機"
 
-#: dashboards/project/instances/workflows/create_instance.py:163
+#: dashboards/project/instances/workflows/create_instance.py:164
 msgid "Boot from image (creates a new volume)"
 msgstr "從映像檔開機（新增一個新的儲存空間）"
 
-#: dashboards/project/instances/workflows/create_instance.py:170
+#: dashboards/project/instances/workflows/create_instance.py:171
 msgid "Boot from volume snapshot (creates a new volume)"
 msgstr "從儲存空間的即時存檔開機（新增一個新的儲存空間）"
 
-#: dashboards/project/instances/workflows/create_instance.py:181
+#: dashboards/project/instances/workflows/create_instance.py:211
 #, python-format
 msgid ""
 "The requested instance cannot be launched as you only have %(avail)i of your"
@@ -10128,240 +10127,241 @@ msgid_plural ""
 "%(avail)i of your quota available."
 msgstr[0] ""
 
-#: dashboards/project/instances/workflows/create_instance.py:208
+#: dashboards/project/instances/workflows/create_instance.py:227
 #, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
 msgstr "核心數（可用：%(avail)s、已請求：%(req)s）"
 
-#: dashboards/project/instances/workflows/create_instance.py:215
+#: dashboards/project/instances/workflows/create_instance.py:234
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "隨機存取記憶體（可用：%(avail)s、已請求：%(req)s）"
 
-#: dashboards/project/instances/workflows/create_instance.py:222
+#: dashboards/project/instances/workflows/create_instance.py:241
 #, python-format
 msgid ""
 "The requested instance cannot be launched. The following requested "
 "resource(s) exceed quota(s): %s."
 msgstr "不能發動所請求的執行實例。以下所請求的資源已超過配額了：%s。"
 
-#: dashboards/project/instances/workflows/create_instance.py:237
-msgid "You must set volume size"
-msgstr "您必須設定儲存空間容量"
-
-#: dashboards/project/instances/workflows/create_instance.py:240
-msgid "Volume size must be greater than 0"
-msgstr "儲存空間容量必須大於 0"
-
-#: dashboards/project/instances/workflows/create_instance.py:243
-msgid "You must select an image."
-msgstr "您必須選擇一個映像檔。"
-
-#: dashboards/project/instances/workflows/create_instance.py:266
+#: dashboards/project/instances/workflows/create_instance.py:261
 #, python-format
 msgid ""
 "The flavor '%(flavor)s' is too small for requested image.\n"
 "Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
 msgstr "虛擬硬體樣板「%(flavor)s」對所要求的映像檔太小。\n最低需求：%(min_ram)s MB 記憶體及 %(min_disk)s GB 根硬碟。"
 
-#: dashboards/project/instances/workflows/create_instance.py:283
+#: dashboards/project/instances/workflows/create_instance.py:282
 #, python-format
 msgid ""
 "The Volume size is too small for the '%(image_name)s' image and has to be "
 "greater than or equal to '%(smallest_size)d' GB."
 msgstr "儲存空間容量對映像檔「%(image_name)s」太小，要大於等於「%(smallest_size)d」GB。"
 
-#: dashboards/project/instances/workflows/create_instance.py:296
-#: dashboards/project/instances/workflows/create_instance.py:313
+#: dashboards/project/instances/workflows/create_instance.py:292
+#: dashboards/project/instances/workflows/create_instance.py:306
+msgid "You must select an image."
+msgstr "您必須選擇一個映像檔。"
+
+#: dashboards/project/instances/workflows/create_instance.py:300
+msgid "You must set volume size"
+msgstr "您必須設定儲存空間容量"
+
+#: dashboards/project/instances/workflows/create_instance.py:303
+msgid "Volume size must be greater than 0"
+msgstr "儲存空間容量必須大於 0"
+
+#: dashboards/project/instances/workflows/create_instance.py:317
+#: dashboards/project/instances/workflows/create_instance.py:335
 msgid "You must select a snapshot."
 msgstr "您必須選擇一個即時存檔。"
 
-#: dashboards/project/instances/workflows/create_instance.py:301
+#: dashboards/project/instances/workflows/create_instance.py:322
 msgid "You must select a volume."
 msgstr "您必須選擇一個儲存空間。"
 
-#: dashboards/project/instances/workflows/create_instance.py:307
+#: dashboards/project/instances/workflows/create_instance.py:329
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
 msgstr "只提供映像檔和執行實例的即時存檔發動多個執行實例。"
 
-#: dashboards/project/instances/workflows/create_instance.py:330
-#: dashboards/project/volumes/volumes/forms.py:273
+#: dashboards/project/instances/workflows/create_instance.py:372
+#: dashboards/project/volumes/volumes/forms.py:285
 msgid "Unable to retrieve availability zones."
 msgstr "無法取回可用區域。"
 
-#: dashboards/project/instances/workflows/create_instance.py:336
-#: dashboards/project/volumes/volumes/forms.py:276
+#: dashboards/project/instances/workflows/create_instance.py:378
+#: dashboards/project/volumes/volumes/forms.py:288
 msgid "No availability zones found"
 msgstr "找不到可用區域"
 
-#: dashboards/project/instances/workflows/create_instance.py:338
-#: dashboards/project/volumes/volumes/forms.py:278
+#: dashboards/project/instances/workflows/create_instance.py:380
+#: dashboards/project/volumes/volumes/forms.py:290
 msgid "Any Availability Zone"
 msgstr "任何可用區域"
 
-#: dashboards/project/instances/workflows/create_instance.py:360
+#: dashboards/project/instances/workflows/create_instance.py:402
 #: dashboards/project/instances/workflows/resize_instance.py:76
 #: usage/base.py:237
 msgid "Unable to retrieve quota information."
 msgstr "無法取回配額資訊。"
 
-#: dashboards/project/instances/workflows/create_instance.py:370
-#: dashboards/project/volumes/volumes/forms.py:196
+#: dashboards/project/instances/workflows/create_instance.py:412
+#: dashboards/project/volumes/volumes/forms.py:192
 msgid "Snapshot"
 msgstr "即時存檔"
 
-#: dashboards/project/instances/workflows/create_instance.py:375
+#: dashboards/project/instances/workflows/create_instance.py:417
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB（%(label)s）"
 
-#: dashboards/project/instances/workflows/create_instance.py:409
+#: dashboards/project/instances/workflows/create_instance.py:451
 msgid "Select Instance Snapshot"
 msgstr "選擇執行實例即時存檔"
 
-#: dashboards/project/instances/workflows/create_instance.py:411
+#: dashboards/project/instances/workflows/create_instance.py:453
 msgid "No snapshots available"
 msgstr "無可用的即時存檔"
 
-#: dashboards/project/instances/workflows/create_instance.py:424
-#: dashboards/project/volumes/volumes/forms.py:291
+#: dashboards/project/instances/workflows/create_instance.py:466
+#: dashboards/project/volumes/volumes/forms.py:303
 msgid "Unable to retrieve list of volumes."
 msgstr "無法取回儲存空間列表。"
 
-#: dashboards/project/instances/workflows/create_instance.py:426
+#: dashboards/project/instances/workflows/create_instance.py:468
 #: dashboards/project/volumes/backups/forms.py:69
 msgid "Select Volume"
 msgstr "選擇儲存空間"
 
-#: dashboards/project/instances/workflows/create_instance.py:428
+#: dashboards/project/instances/workflows/create_instance.py:470
 msgid "No volumes available"
 msgstr "無可用的儲存空間"
 
-#: dashboards/project/instances/workflows/create_instance.py:440
+#: dashboards/project/instances/workflows/create_instance.py:482
 msgid "Unable to retrieve list of volume snapshots."
 msgstr "無法取回儲存空間的即時存檔列表。"
 
-#: dashboards/project/instances/workflows/create_instance.py:443
+#: dashboards/project/instances/workflows/create_instance.py:485
 msgid "Select Volume Snapshot"
 msgstr "選擇儲存空間的即時存檔"
 
-#: dashboards/project/instances/workflows/create_instance.py:445
+#: dashboards/project/instances/workflows/create_instance.py:487
 msgid "No volume snapshots available"
 msgstr "無可用的儲存空間的即時存檔"
 
-#: dashboards/project/instances/workflows/create_instance.py:488
+#: dashboards/project/instances/workflows/create_instance.py:530
 msgid "Key pair to use for authentication."
 msgstr "用於認證的密鑰對。"
 
-#: dashboards/project/instances/workflows/create_instance.py:492
+#: dashboards/project/instances/workflows/create_instance.py:534
 msgid "Admin Password"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:498
+#: dashboards/project/instances/workflows/create_instance.py:540
 msgid "Confirm Admin Password"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:504
+#: dashboards/project/instances/workflows/create_instance.py:546
 msgid "Launch instance in these security groups."
 msgstr "在這些安全性群組中發動執行實例。"
 
-#: dashboards/project/instances/workflows/create_instance.py:509
+#: dashboards/project/instances/workflows/create_instance.py:551
 msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
 msgstr "從密鑰對、安全性群組及其他機制控制存取您的執行實例。"
 
-#: dashboards/project/instances/workflows/create_instance.py:525
+#: dashboards/project/instances/workflows/create_instance.py:567
 msgid "Unable to retrieve key pairs."
 msgstr "無法取回密鑰對。"
 
-#: dashboards/project/instances/workflows/create_instance.py:529
+#: dashboards/project/instances/workflows/create_instance.py:571
 msgid "Select a key pair"
 msgstr "選擇一組密鑰對"
 
-#: dashboards/project/instances/workflows/create_instance.py:531
+#: dashboards/project/instances/workflows/create_instance.py:573
 msgid "No key pairs available"
 msgstr "無可用的密鑰對"
 
-#: dashboards/project/instances/workflows/create_instance.py:540
+#: dashboards/project/instances/workflows/create_instance.py:582
 msgid "Unable to retrieve list of security groups"
 msgstr "無法取回安全性群組列表"
 
-#: dashboards/project/instances/workflows/create_instance.py:572
+#: dashboards/project/instances/workflows/create_instance.py:614
 msgid "Post-Creation"
 msgstr "前置作業"
 
-#: dashboards/project/instances/workflows/create_instance.py:576
+#: dashboards/project/instances/workflows/create_instance.py:618
 #: dashboards/project/stacks/forms.py:58
 msgid "Direct Input"
 msgstr "直接輸入"
 
-#: dashboards/project/instances/workflows/create_instance.py:580
+#: dashboards/project/instances/workflows/create_instance.py:622
 msgid "Customization Script Source"
 msgstr "客製化腳本來源"
 
-#: dashboards/project/instances/workflows/create_instance.py:584
+#: dashboards/project/instances/workflows/create_instance.py:626
 msgid ""
 "A script or set of commands to be executed after the instance has been built"
 " (max 16kb)."
 msgstr "會在建立執行實例後執行的一份腳本或一套指令（最大 16kb）。"
 
-#: dashboards/project/instances/workflows/create_instance.py:588
-#: dashboards/project/instances/workflows/create_instance.py:593
+#: dashboards/project/instances/workflows/create_instance.py:630
+#: dashboards/project/instances/workflows/create_instance.py:635
 msgid "Script File"
 msgstr "腳本檔案"
 
-#: dashboards/project/instances/workflows/create_instance.py:597
-#: dashboards/project/instances/workflows/create_instance.py:602
+#: dashboards/project/instances/workflows/create_instance.py:639
+#: dashboards/project/instances/workflows/create_instance.py:644
 msgid "Script Data"
 msgstr "腳本資料"
 
-#: dashboards/project/instances/workflows/create_instance.py:629
+#: dashboards/project/instances/workflows/create_instance.py:671
 msgid "File exceeds maximum size (16kb)"
 msgstr "檔案超過最大容量（16kb）"
 
-#: dashboards/project/instances/workflows/create_instance.py:637
+#: dashboards/project/instances/workflows/create_instance.py:679
 #: dashboards/project/stacks/forms.py:187
 #, python-format
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr "解析 %(prefix)s 時出了問題：%(error)s"
 
-#: dashboards/project/instances/workflows/create_instance.py:664
+#: dashboards/project/instances/workflows/create_instance.py:706
 msgid "Policy Profiles"
 msgstr "政策基本資料"
 
-#: dashboards/project/instances/workflows/create_instance.py:667
+#: dashboards/project/instances/workflows/create_instance.py:709
 msgid "Launch instance with this policy profile"
 msgstr "以這個政策基本資料發動執行實例"
 
-#: dashboards/project/instances/workflows/create_instance.py:742
+#: dashboards/project/instances/workflows/create_instance.py:784
 msgid ""
 "Automatic: The entire disk is a single partition and automatically resizes. "
 "Manual: Results in faster build times but requires manual partitioning."
 msgstr "自動：全部的硬碟是同一個分割並會自動地更改容量。手動：較快建立但需要手動分割硬碟。"
 
-#: dashboards/project/instances/workflows/create_instance.py:746
+#: dashboards/project/instances/workflows/create_instance.py:788
 msgid "Configuration Drive"
 msgstr "設置硬碟"
 
-#: dashboards/project/instances/workflows/create_instance.py:747
+#: dashboards/project/instances/workflows/create_instance.py:789
 msgid ""
 "Configure OpenStack to write metadata to a special configuration drive that "
 "attaches to the instance when it boots."
 msgstr "設置 OpenStack 來寫入描述資料到一個特別設置在執行實例一開機會附加的硬碟。"
 
-#: dashboards/project/instances/workflows/create_instance.py:773
+#: dashboards/project/instances/workflows/create_instance.py:815
 msgid "Advanced Options"
 msgstr "進階選項"
 
-#: dashboards/project/instances/workflows/create_instance.py:811
+#: dashboards/project/instances/workflows/create_instance.py:853
 #, python-format
 msgid "%s instances"
 msgstr "%s 個執行實例"
 
-#: dashboards/project/instances/workflows/create_instance.py:871
+#: dashboards/project/instances/workflows/create_instance.py:913
 #, python-format
 msgid "Port not created for profile-id (%s)."
 msgstr "沒有為基本資料識別號（%s）新增接口。"
@@ -11318,6 +11318,11 @@ msgstr ""
 msgid "Unable to retrieve network details."
 msgstr "無法取回網路詳細資訊。"
 
+#: dashboards/project/networks/views.py:145
+#, python-format
+msgid "Network Detail: %(network_name)s"
+msgstr ""
+
 #: dashboards/project/networks/workflows.py:50
 msgid "The state to start the network in."
 msgstr "網路一開始的狀態。"
@@ -11656,10 +11661,6 @@ msgstr "上一頁"
 #: dashboards/project/stacks/templates/stacks/_select_template.html:25
 msgid "Next"
 msgstr "下一步"
-
-#: dashboards/project/networks/templates/networks/detail.html:6
-msgid "Network Detail: "
-msgstr "網路詳細資訊："
 
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:4
 msgid "Port Overview"
@@ -12376,19 +12377,29 @@ msgstr "無法取回機櫃列表。"
 
 #: dashboards/project/stacks/views.py:113
 #: dashboards/project/stacks/views.py:190
-#: dashboards/project/stacks/views.py:218
+#: dashboards/project/stacks/views.py:221
 msgid "Unable to retrieve stack."
 msgstr "無法取回機櫃。"
 
-#: dashboards/project/stacks/views.py:229
+#: dashboards/project/stacks/views.py:207
+#, python-format
+msgid "Stack Detail: %(stack_name)s"
+msgstr ""
+
+#: dashboards/project/stacks/views.py:232
 msgid "Unable to retrieve stack template."
 msgstr ""
 
-#: dashboards/project/stacks/views.py:262
+#: dashboards/project/stacks/views.py:255
+#, python-format
+msgid "Resource Detail: %s"
+msgstr ""
+
+#: dashboards/project/stacks/views.py:267
 msgid "Unable to retrieve resource."
 msgstr "無法取回資源。"
 
-#: dashboards/project/stacks/views.py:275
+#: dashboards/project/stacks/views.py:280
 msgid "Unable to retrieve metadata."
 msgstr "無法取回描述資料。"
 
@@ -12477,17 +12488,9 @@ msgstr "變更樣板"
 msgid "Stack Detail"
 msgstr "機櫃詳細資訊"
 
-#: dashboards/project/stacks/templates/stacks/detail.html:6
-msgid "Stack Detail: "
-msgstr "機櫃詳細資訊："
-
 #: dashboards/project/stacks/templates/stacks/resource.html:3
 msgid "Resource Detail"
 msgstr "資源詳細資訊"
-
-#: dashboards/project/stacks/templates/stacks/resource.html:6
-msgid "Resource Detail: "
-msgstr "資源詳細資訊："
 
 #: dashboards/project/stacks/templates/stacks/update.html:6
 msgid "Update Stack"
@@ -12553,9 +12556,14 @@ msgid "Scheduled deletion of %(data_type)s"
 msgstr "已排程%(data_type)s的刪除"
 
 #: dashboards/project/volumes/backups/tabs.py:41
-#: dashboards/project/volumes/backups/views.py:67
+#: dashboards/project/volumes/backups/views.py:70
 msgid "Unable to retrieve backup details."
 msgstr "無法取回備份詳細資訊。"
+
+#: dashboards/project/volumes/backups/views.py:56
+#, python-format
+msgid "Volume Backup Details: %(backup_name)s"
+msgstr ""
 
 #: dashboards/project/volumes/snapshots/forms.py:39
 #, python-format
@@ -12585,9 +12593,14 @@ msgid "Edit Snapshot"
 msgstr "編輯即時存檔"
 
 #: dashboards/project/volumes/snapshots/tabs.py:36
-#: dashboards/project/volumes/snapshots/views.py:83
+#: dashboards/project/volumes/snapshots/views.py:86
 msgid "Unable to retrieve snapshot details."
 msgstr "無法取回即時存檔詳細資訊。"
+
+#: dashboards/project/volumes/snapshots/views.py:72
+#, python-format
+msgid "Volume Snapshot Details: %(snapshot_name)s"
+msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:9
 #: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:24
@@ -12646,14 +12659,6 @@ msgstr "新增一個儲存空間備份"
 msgid "Volume Backup Details"
 msgstr "儲存空間備份的詳細資訊"
 
-#: dashboards/project/volumes/templates/volumes/backups/detail.html:6
-msgid "Volume Backup Details: "
-msgstr "儲存空間備份的詳細資訊："
-
-#: dashboards/project/volumes/templates/volumes/backups/detail.html:6
-msgid "Volume Backup Details:"
-msgstr "儲存空間備份的詳細資訊："
-
 #: dashboards/project/volumes/templates/volumes/backups/restore_backup.html:6
 msgid "Restore a Volume Backup"
 msgstr "恢復一個儲存空間備份"
@@ -12665,14 +12670,6 @@ msgstr "更改即時存檔的名稱和描述。"
 #: dashboards/project/volumes/templates/volumes/snapshots/detail.html:3
 msgid "Volume Snapshot Details"
 msgstr "儲存空間即時存檔的詳細資訊"
-
-#: dashboards/project/volumes/templates/volumes/snapshots/detail.html:6
-msgid "Volume Snapshot Details: "
-msgstr "儲存空間即時存檔的詳細資訊："
-
-#: dashboards/project/volumes/templates/volumes/snapshots/detail.html:6
-msgid "Volume Snapshot Details:"
-msgstr "儲存空間即時存檔的詳細資訊："
 
 #: dashboards/project/volumes/templates/volumes/volumes/_attach.html:10
 #: dashboards/project/volumes/templates/volumes/volumes/attach.html:3
@@ -12703,7 +12700,7 @@ msgid "Volume Overview"
 msgstr "儲存空間概觀"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:35
-#: dashboards/project/volumes/volumes/tables.py:442
+#: dashboards/project/volumes/volumes/tables.py:441
 msgid "Attachments"
 msgstr "附件"
 
@@ -12865,233 +12862,233 @@ msgstr "以儲存空間為來源"
 msgid "Size (GB)"
 msgstr "容量（GB）"
 
-#: dashboards/project/volumes/volumes/forms.py:101
-msgid "No volume type"
-msgstr "無儲存空間類型"
-
-#: dashboards/project/volumes/volumes/forms.py:121
+#: dashboards/project/volumes/volumes/forms.py:114
 #, python-format
 msgid "Volume size must be equal to or greater than the snapshot size (%sGB)"
 msgstr "儲存空間容量必須大於等於即時存檔容量（%sGB）"
 
-#: dashboards/project/volumes/volumes/forms.py:129
+#: dashboards/project/volumes/volumes/forms.py:122
 msgid "Unable to load the specified snapshot."
 msgstr "無法讀取指定的即時存檔。"
 
-#: dashboards/project/volumes/volumes/forms.py:140
+#: dashboards/project/volumes/volumes/forms.py:134
 #, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "儲存空間容量必須大於等於映像檔容量（%s）"
 
-#: dashboards/project/volumes/volumes/forms.py:148
+#: dashboards/project/volumes/volumes/forms.py:142
 #, python-format
 msgid ""
 "Volume size must be equal to or greater than the image minimum disk size "
 "(%sGB)"
 msgstr "儲存空間容量必須大於等於映像檔最小硬碟容量（%sGB）"
 
-#: dashboards/project/volumes/volumes/forms.py:159
+#: dashboards/project/volumes/volumes/forms.py:153
 #, python-format
 msgid "Unable to load the specified image. %s"
 msgstr "無法讀取指定的映像檔。%s"
 
-#: dashboards/project/volumes/volumes/forms.py:168
+#: dashboards/project/volumes/volumes/forms.py:163
 #, python-format
 msgid "Unable to load the specified volume. %s"
 msgstr "無法讀取指定的儲存空間。%s"
 
-#: dashboards/project/volumes/volumes/forms.py:175
+#: dashboards/project/volumes/volumes/forms.py:170
 #, python-format
 msgid ""
 "Volume size must be equal to or greater than the origin volume size (%s)"
 msgstr "儲存空間容量必須大於等於原始的儲存空間容量（%s）"
 
-#: dashboards/project/volumes/volumes/forms.py:197
+#: dashboards/project/volumes/volumes/forms.py:193
 msgid "Choose a snapshot"
 msgstr "選擇一個即時存檔"
 
-#: dashboards/project/volumes/volumes/forms.py:210
+#: dashboards/project/volumes/volumes/forms.py:206
 msgid "Choose an image"
 msgstr "選擇一個映像檔"
 
-#: dashboards/project/volumes/volumes/forms.py:222
+#: dashboards/project/volumes/volumes/forms.py:218
 msgid "Choose a volume"
 msgstr "選擇一個儲存空間"
 
-#: dashboards/project/volumes/volumes/forms.py:231
+#: dashboards/project/volumes/volumes/forms.py:227
 msgid "No source, empty volume"
 msgstr "無來源，空的儲存空間"
 
-#: dashboards/project/volumes/volumes/forms.py:242
+#: dashboards/project/volumes/volumes/forms.py:236
+msgid "No volume type"
+msgstr "無儲存空間類型"
+
+#: dashboards/project/volumes/volumes/forms.py:254
 msgid "Image source must be specified"
 msgstr "必須指定映像檔來源"
 
-#: dashboards/project/volumes/volumes/forms.py:246
+#: dashboards/project/volumes/volumes/forms.py:258
 msgid "Snapshot source must be specified"
 msgstr "必須指定即時存檔來源"
 
-#: dashboards/project/volumes/volumes/forms.py:250
+#: dashboards/project/volumes/volumes/forms.py:262
 msgid "Volume source must be specified"
 msgstr "必須指定儲存空間來源"
 
-#: dashboards/project/volumes/volumes/forms.py:259
+#: dashboards/project/volumes/volumes/forms.py:271
 msgid "Unable to determine if availability zones extension is supported."
 msgstr "無法偵測已支援的可用區域擴充套件。"
 
-#: dashboards/project/volumes/volumes/forms.py:313
+#: dashboards/project/volumes/volumes/forms.py:325
 #, python-format
 msgid "The volume size cannot be less than the snapshot size (%sGB)"
 msgstr "儲存空間容量不能小於即時存檔容量（%sGB）"
 
-#: dashboards/project/volumes/volumes/forms.py:326
+#: dashboards/project/volumes/volumes/forms.py:338
 #, python-format
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "儲存空間容量不能小於映像檔容量（%s）"
 
-#: dashboards/project/volumes/volumes/forms.py:334
+#: dashboards/project/volumes/volumes/forms.py:346
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGB)"
 msgstr "儲存空間容量不能小於映像檔最小硬碟容量（%sGB）"
 
-#: dashboards/project/volumes/volumes/forms.py:345
+#: dashboards/project/volumes/volumes/forms.py:357
 #, python-format
 msgid "The volume size cannot be less than the source volume size (%sGB)"
 msgstr "儲存空間容量不能小於來源的儲存空間容量（%sGB）"
 
-#: dashboards/project/volumes/volumes/forms.py:354
+#: dashboards/project/volumes/volumes/forms.py:366
 #, python-format
 msgid ""
 "A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your"
 " quota available."
 msgstr "您只擁有 %(avail)iGB 配額可用以致於您不能新增一個 %(req)iGB 儲存空間。"
 
-#: dashboards/project/volumes/volumes/forms.py:361
+#: dashboards/project/volumes/volumes/forms.py:373
 msgid "You are already using all of your available volumes."
 msgstr "您已經用掉您所有可用的儲存空間了。"
 
-#: dashboards/project/volumes/volumes/forms.py:377
+#: dashboards/project/volumes/volumes/forms.py:389
 #, python-format
 msgid "Creating volume \"%s\""
 msgstr "正在新增儲存空間「%s」"
 
-#: dashboards/project/volumes/volumes/forms.py:385
+#: dashboards/project/volumes/volumes/forms.py:397
 msgid "Unable to create volume."
 msgstr "無法新增儲存空間。"
 
-#: dashboards/project/volumes/volumes/forms.py:402
+#: dashboards/project/volumes/volumes/forms.py:414
 msgid "Attach to Instance"
 msgstr "附加到執行實例"
 
-#: dashboards/project/volumes/volumes/forms.py:403
+#: dashboards/project/volumes/volumes/forms.py:415
 msgid "Select an instance to attach to."
 msgstr "選擇一個執行實例來附加。"
 
-#: dashboards/project/volumes/volumes/forms.py:410
+#: dashboards/project/volumes/volumes/forms.py:422
 msgid ""
 "Actual device name may differ due to hypervisor settings. If not specified, "
 "then hypervisor will select a device name."
 msgstr "實際的裝置名稱可能由於虛擬機器管理程式的設定而有所不同。若未指定，虛擬機器管理程式會自己選擇裝置名稱。"
 
-#: dashboards/project/volumes/volumes/forms.py:449
+#: dashboards/project/volumes/volumes/forms.py:461
 msgid "Unknown instance (None)"
 msgstr "未知的執行實例（無）"
 
-#: dashboards/project/volumes/volumes/forms.py:459
+#: dashboards/project/volumes/volumes/forms.py:471
 #, python-format
 msgid "Attaching volume %(vol)s to instance %(inst)s on %(dev)s."
 msgstr "附加儲存空間 %(vol)s 到執行實例 %(inst)s 上的 %(dev)s。"
 
-#: dashboards/project/volumes/volumes/forms.py:468
+#: dashboards/project/volumes/volumes/forms.py:480
 msgid "Unable to attach volume."
 msgstr "無法附加儲存空間。"
 
-#: dashboards/project/volumes/volumes/forms.py:492
+#: dashboards/project/volumes/volumes/forms.py:504
 #, python-format
 msgid "Creating volume snapshot \"%s\"."
 msgstr "正在新增儲存空間即時存檔「%s」。"
 
-#: dashboards/project/volumes/volumes/forms.py:495
+#: dashboards/project/volumes/volumes/forms.py:507
 #, python-format
 msgid "Forcing to create snapshot \"%s\" from attached volume."
 msgstr "正在強制從附加的儲存空間新增即時存檔「%s」。"
 
-#: dashboards/project/volumes/volumes/forms.py:508
+#: dashboards/project/volumes/volumes/forms.py:520
 msgid "Unable to create volume snapshot."
 msgstr "無法新增儲存空間即時存檔。"
 
-#: dashboards/project/volumes/volumes/forms.py:526
+#: dashboards/project/volumes/volumes/forms.py:538
 #, python-format
 msgid "Updating volume \"%s\""
 msgstr "正在更新儲存空間「%s」"
 
-#: dashboards/project/volumes/volumes/forms.py:532
+#: dashboards/project/volumes/volumes/forms.py:544
 msgid "Unable to update volume."
 msgstr "無法更新儲存空間。"
 
-#: dashboards/project/volumes/volumes/forms.py:546
+#: dashboards/project/volumes/volumes/forms.py:558
 msgctxt "Force upload volume in in-use status to image"
 msgid "Force"
 msgstr "強制"
 
-#: dashboards/project/volumes/volumes/forms.py:581
+#: dashboards/project/volumes/volumes/forms.py:593
 #, python-format
 msgid "Successfully sent the request to upload volume to image for volume: \"%s\""
 msgstr "已成功為儲存空間傳送上傳儲存空間到映像檔的請求給：「%s」"
 
-#: dashboards/project/volumes/volumes/forms.py:588
+#: dashboards/project/volumes/volumes/forms.py:600
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "無法為儲存空間上傳儲存空間到映像檔：「%s」"
 
-#: dashboards/project/volumes/volumes/forms.py:614
+#: dashboards/project/volumes/volumes/forms.py:626
 msgid "New size must be greater than current size."
 msgstr "新容量必須大於目前的容量。"
 
-#: dashboards/project/volumes/volumes/forms.py:620
+#: dashboards/project/volumes/volumes/forms.py:632
 #, python-format
 msgid ""
 "Volume cannot be extended to %(req)iGB as you only have %(avail)iGB of your "
 "quota available."
 msgstr "您只擁有 %(avail)iGB 配額可用以致於您不能擴充儲存空間到 %(req)iGB。"
 
-#: dashboards/project/volumes/volumes/forms.py:634
+#: dashboards/project/volumes/volumes/forms.py:646
 #, python-format
 msgid "Extending volume: \"%s\""
 msgstr "正在擴充儲存空間：「%s」"
 
-#: dashboards/project/volumes/volumes/forms.py:640
+#: dashboards/project/volumes/volumes/forms.py:652
 msgid "Unable to extend volume."
 msgstr "無法擴充儲存空間。"
 
-#: dashboards/project/volumes/volumes/forms.py:649
+#: dashboards/project/volumes/volumes/forms.py:661
 msgid "Never"
 msgstr "永不"
 
-#: dashboards/project/volumes/volumes/forms.py:650
+#: dashboards/project/volumes/volumes/forms.py:662
 msgid "On Demand"
 msgstr "必要時轉移"
 
-#: dashboards/project/volumes/volumes/forms.py:651
+#: dashboards/project/volumes/volumes/forms.py:663
 msgid "Migration Policy"
 msgstr "轉移政策"
 
-#: dashboards/project/volumes/volumes/forms.py:668
+#: dashboards/project/volumes/volumes/forms.py:680
 msgid "Unable to retrieve the volume type list."
 msgstr "無法取回儲存空間類型列表。"
 
-#: dashboards/project/volumes/volumes/forms.py:677
+#: dashboards/project/volumes/volumes/forms.py:689
 #, python-format
 msgid "New volume type must be different from the original volume type \"%s\"."
 msgstr "新的儲存空間類型必須不同於原來的儲存空間類型「%s」。"
 
-#: dashboards/project/volumes/volumes/forms.py:693
+#: dashboards/project/volumes/volumes/forms.py:705
 #, python-format
 msgid ""
 "Successfully sent the request to change the volume type to \"%(vtype)s\" for"
 " volume: \"%(name)s\""
 msgstr "已成功為儲存空間傳送變更儲存空間類型至「%(vtype)s」的請求：「%(name)s」"
 
-#: dashboards/project/volumes/volumes/forms.py:702
+#: dashboards/project/volumes/volumes/forms.py:714
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "無法為儲存空間變更儲存空間類型：「%s」"
@@ -13128,7 +13125,7 @@ msgid "Upload to Image"
 msgstr "上傳至映像檔"
 
 #: dashboards/project/volumes/volumes/tables.py:270
-#: dashboards/project/volumes/volumes/views.py:248
+#: dashboards/project/volumes/volumes/views.py:252
 msgid "Unable to retrieve attachment information."
 msgstr "無法取回附件資訊。"
 
@@ -13145,52 +13142,52 @@ msgstr "否"
 msgid "Yes"
 msgstr "是"
 
-#: dashboards/project/volumes/volumes/tables.py:362
+#: dashboards/project/volumes/volumes/tables.py:361
 msgid "Bootable"
 msgstr "可用於開機"
 
-#: dashboards/project/volumes/volumes/tables.py:365
+#: dashboards/project/volumes/volumes/tables.py:364
 msgid "Encrypted"
 msgstr "已加密"
 
-#: dashboards/project/volumes/volumes/tables.py:386
+#: dashboards/project/volumes/volumes/tables.py:385
 msgid "Detach Volume"
 msgid_plural "Detach Volumes"
 msgstr[0] ""
 
-#: dashboards/project/volumes/volumes/tables.py:395
+#: dashboards/project/volumes/volumes/tables.py:394
 msgid "Detaching Volume"
 msgid_plural "Detaching Volumes"
 msgstr[0] ""
 
-#: dashboards/project/volumes/volumes/tables.py:423
+#: dashboards/project/volumes/volumes/tables.py:422
 msgid "Device"
 msgstr "裝置"
 
-#: dashboards/project/volumes/volumes/tables.py:432
+#: dashboards/project/volumes/volumes/tables.py:431
 #, python-format
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr "儲存空間 %(volume_name)s 於執行實例 %(instance_name)s 上"
 
-#: dashboards/project/volumes/volumes/views.py:105
-#: dashboards/project/volumes/volumes/views.py:148
-#: dashboards/project/volumes/volumes/views.py:231
+#: dashboards/project/volumes/volumes/views.py:109
+#: dashboards/project/volumes/volumes/views.py:152
+#: dashboards/project/volumes/volumes/views.py:235
 msgid "Unable to retrieve volume information."
 msgstr "無法取回儲存空間資訊。"
 
-#: dashboards/project/volumes/volumes/views.py:139
+#: dashboards/project/volumes/volumes/views.py:143
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
 msgstr "此儲存空間目前正被附加到一個執行實例。某些狀況下，從一個附加的儲存空間新增一個即時存檔會損毀即時存檔。"
 
-#: dashboards/project/volumes/volumes/views.py:167
-#: dashboards/project/volumes/volumes/views.py:297
+#: dashboards/project/volumes/volumes/views.py:171
+#: dashboards/project/volumes/volumes/views.py:301
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
 msgstr "無法為儲存空間取回儲存空間資訊：「%s」"
 
-#: dashboards/project/volumes/volumes/views.py:200
+#: dashboards/project/volumes/volumes/views.py:204
 msgid "Unable to retrieve volume."
 msgstr "無法取回儲存空間。"
 
@@ -14244,7 +14241,7 @@ msgstr "無效的日期格式：預設使用今日。"
 msgid "Unable to retrieve network quota information."
 msgstr "無法取回網路配額資訊。"
 
-#: usage/base.py:186 usage/quotas.py:372
+#: usage/base.py:186 usage/quotas.py:382
 msgid "Unable to retrieve volume limit information."
 msgstr "無法取回儲存空間限制資訊。"
 
@@ -14271,7 +14268,7 @@ msgstr "無效的時段。您從未來要求的資料還不存在。"
 msgid "Injected File Path Bytes"
 msgstr "已注入的資料路徑位元組"
 
-#: usage/quotas.py:358
+#: usage/quotas.py:368
 msgid "Unable to retrieve compute limit information."
 msgstr "無法取回運算限制資訊。"
 
