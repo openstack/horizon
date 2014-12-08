@@ -32,6 +32,8 @@ ACTIVE_STATES = ("ACTIVE",)
 
 
 class TerminateInstance(tables.BatchAction):
+    help_text = _("Terminated instances are not recoverable.")
+
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
@@ -57,6 +59,9 @@ class TerminateInstance(tables.BatchAction):
 
 
 class RestartInstance(tables.BatchAction):
+    help_text = _("Restarted instances will lose any data not"
+                  " saved in persistent storage.")
+
     @staticmethod
     def action_present(count):
         return ungettext_lazy(

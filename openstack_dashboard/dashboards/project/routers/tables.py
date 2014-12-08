@@ -125,6 +125,9 @@ class SetGateway(policy.PolicyTargetMixin, tables.LinkAction):
 
 
 class ClearGateway(policy.PolicyTargetMixin, tables.BatchAction):
+    help_text = _("You may reset the gateway later by using the"
+                  " set gateway action, but the gateway IP may change.")
+
     @staticmethod
     def action_present(count):
         return ungettext_lazy(

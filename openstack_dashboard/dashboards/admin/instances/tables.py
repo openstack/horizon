@@ -34,6 +34,7 @@ class MigrateInstance(policy.PolicyTargetMixin, tables.BatchAction):
     name = "migrate"
     classes = ("btn-migrate", "btn-danger")
     policy_rules = (("compute", "compute_extension:admin_actions:migrate"),)
+    help_text = _("Migrating instances may cause some unrecoverable results.")
 
     @staticmethod
     def action_present(count):

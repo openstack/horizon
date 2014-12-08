@@ -440,6 +440,9 @@ class DetachVolume(tables.BatchAction):
     name = "detach"
     classes = ('btn-danger', 'btn-detach')
     policy_rules = (("compute", "compute:detach_volume"),)
+    help_text = _("The data will remain in the volume and another instance"
+                  " will be able to access the data if you attach"
+                  " this volume to it.")
 
     @staticmethod
     def action_present(count):
