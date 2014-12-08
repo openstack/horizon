@@ -3,13 +3,13 @@ you must follow the steps documented at:
 
    http://docs.openstack.org/developer/horizon/contributing.html
 
-   or https://wiki.openstack.org/wiki/How_To_Contribute#If_you.27re_a_developer
+   or http://docs.openstack.org/infra/manual/developers.html#development-workflow
 
 Once those steps have been completed, changes to OpenStack
 should be submitted for review via the Gerrit tool, following
 the workflow documented at:
 
-   https://wiki.openstack.org/GerritWorkflow
+   http://docs.openstack.org/infra/manual/developers.html#development-workflow
 
 Pull requests submitted through GitHub will be ignored.
 
