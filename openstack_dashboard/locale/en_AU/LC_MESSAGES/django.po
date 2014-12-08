@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Tom Fifield <tom@openstack.org>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-05 20:04-0600\n"
-"PO-Revision-Date: 2014-12-05 23:08+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"PO-Revision-Date: 2014-12-08 02:01+0000\n"
+"Last-Translator: Tom Fifield <tom@openstack.org>\n"
 "Language-Team: English (Australia) (http://www.transifex.com/projects/p/horizon/language/en_AU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -592,14 +593,14 @@ msgstr "Host Aggregates"
 #: dashboards/admin/aggregates/tables.py:29
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Delete Host Aggregate"
+msgstr[1] "Delete Host Aggregates"
 
 #: dashboards/admin/aggregates/tables.py:37
 msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Deleted Host Aggregate"
+msgstr[1] "Deleted Host Aggregates"
 
 #: dashboards/admin/aggregates/tables.py:48
 #: dashboards/admin/aggregates/workflows.py:176
@@ -1232,14 +1233,14 @@ msgstr "Flavours"
 #: dashboards/admin/flavors/tables.py:34
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Delete Flavour"
+msgstr[1] "Delete Flavours"
 
 #: dashboards/admin/flavors/tables.py:42
 msgid "Deleted Flavor"
 msgid_plural "Deleted Flavors"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Deleted Flavour"
+msgstr[1] "Deleted Flavours"
 
 #: dashboards/admin/flavors/tables.py:53
 #: dashboards/admin/flavors/workflows.py:178
@@ -1556,11 +1557,11 @@ msgstr "RAM (total)"
 
 #: dashboards/admin/hypervisors/tables.py:47
 msgid "Local Storage (used)"
-msgstr ""
+msgstr "Local Storage (used)"
 
 #: dashboards/admin/hypervisors/tables.py:52
 msgid "Local Storage (total)"
-msgstr ""
+msgstr "Local Storage (total)"
 
 #: dashboards/admin/hypervisors/tables.py:70
 #: dashboards/project/databases/tables.py:248
@@ -1659,12 +1660,12 @@ msgstr "Reason"
 #: dashboards/admin/hypervisors/compute/forms.py:86
 #, python-format
 msgid "Disabled compute service for host: %s."
-msgstr ""
+msgstr "Disabled compute service for host: %s."
 
 #: dashboards/admin/hypervisors/compute/forms.py:91
 #, python-format
 msgid "Failed to disable compute service for host: %s."
-msgstr ""
+msgstr "Failed to disable compute service for host: %s."
 
 #: dashboards/admin/hypervisors/compute/tables.py:26
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:8
@@ -1680,19 +1681,19 @@ msgstr "Evacuate Host"
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/disable_service.html:3
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/disable_service.html:6
 msgid "Disable Service"
-msgstr ""
+msgstr "Disable Service"
 
 #: dashboards/admin/hypervisors/compute/tables.py:63
 msgid "Enable Service"
 msgid_plural "Enable Services"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Enable Service"
+msgstr[1] "Enable Services"
 
 #: dashboards/admin/hypervisors/compute/tables.py:71
 msgid "Enabled Service"
 msgid_plural "Enabled Services"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Enabled Service"
+msgstr[1] "Enabled Services"
 
 #: dashboards/admin/hypervisors/compute/tables.py:95
 #: dashboards/admin/info/tables.py:96 dashboards/admin/info/tables.py:120
@@ -1813,11 +1814,11 @@ msgstr "Memory Usage"
 
 #: dashboards/admin/hypervisors/templates/hypervisors/index.html:29
 msgid "Local Disk Usage"
-msgstr ""
+msgstr "Local Disk Usage"
 
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_disable_service.html:18
 msgid "Disable the compute service."
-msgstr ""
+msgstr "Disable the compute service."
 
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:18
 msgid ""
@@ -2032,7 +2033,7 @@ msgstr "Unable to retrieve version information."
 #: dashboards/admin/info/templates/info/_cell_status.html:4
 #, python-format
 msgid "Reason: %(disabled_reason)s"
-msgstr ""
+msgstr "Reason: %(disabled_reason)s"
 
 #: dashboards/admin/info/templates/info/index.html:14
 #, python-format
@@ -2074,14 +2075,14 @@ msgstr "Failed to live migrate instance to host \"%s\"."
 #: dashboards/admin/instances/tables.py:41
 msgid "Migrate Instance"
 msgid_plural "Migrate Instances"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Migrate Instance"
+msgstr[1] "Migrate Instances"
 
 #: dashboards/admin/instances/tables.py:49
 msgid "Scheduled migration (pending confirmation) of Instance"
 msgid_plural "Scheduled migration (pending confirmation) of Instances"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Scheduled migration (pending confirmation) of Instance"
+msgstr[1] "Scheduled migration (pending confirmation) of Instances"
 
 #: dashboards/admin/instances/tables.py:66
 #: dashboards/admin/instances/templates/instances/_live_migrate.html:23
@@ -2734,8 +2735,8 @@ msgstr "Networks"
 #: dashboards/project/networks/tables.py:48
 msgid "Delete Network"
 msgid_plural "Delete Networks"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Delete Network"
+msgstr[1] "Delete Networks"
 
 #: dashboards/admin/networks/tables.py:45
 #: dashboards/project/networks/tables.py:56

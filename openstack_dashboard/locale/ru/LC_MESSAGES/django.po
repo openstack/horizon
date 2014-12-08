@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-05 20:04-0600\n"
-"PO-Revision-Date: 2014-12-05 23:08+0000\n"
+"PO-Revision-Date: 2014-12-06 09:41+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -595,14 +595,14 @@ msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Удалить агрегации узлов"
 
 #: dashboards/admin/aggregates/tables.py:37
 msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Агрегации узлов удалены"
 
 #: dashboards/admin/aggregates/tables.py:48
 #: dashboards/admin/aggregates/workflows.py:176
@@ -1237,14 +1237,14 @@ msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Удалить схемы"
 
 #: dashboards/admin/flavors/tables.py:42
 msgid "Deleted Flavor"
 msgid_plural "Deleted Flavors"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Схемы удалены"
 
 #: dashboards/admin/flavors/tables.py:53
 #: dashboards/admin/flavors/workflows.py:178
@@ -3042,7 +3042,7 @@ msgid "Delete Subnet"
 msgid_plural "Delete Subnets"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Удалить подсети"
 
 #: dashboards/admin/networks/subnets/tables.py:46
 #: dashboards/project/networks/subnets/tables.py:69
@@ -3050,7 +3050,7 @@ msgid "Deleted Subnet"
 msgid_plural "Deleted Subnets"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Подсети удалены"
 
 #: dashboards/admin/networks/subnets/tables.py:57
 #: dashboards/project/networks/subnets/tables.py:80
@@ -10330,7 +10330,7 @@ msgid_plural ""
 "%(avail)i of your quota available."
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "%(req)i запрошенных машин не могут быть запущены из-за наличия только %(avail)i доступных ресурсов. "
 
 #: dashboards/project/instances/workflows/create_instance.py:227
 #, python-format
@@ -13672,7 +13672,7 @@ msgstr "начать заново"
 
 #: dashboards/project/vpn/forms.py:248
 msgid "restart-by-peer"
-msgstr ""
+msgstr "перезапуск-пиром"
 
 #: dashboards/project/vpn/forms.py:251 dashboards/project/vpn/workflows.py:409
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:56
