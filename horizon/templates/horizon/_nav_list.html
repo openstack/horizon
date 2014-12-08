@@ -1,7 +1,7 @@
 {% load horizon i18n %}
 
 <div class='clearfix'>
-  <ul class="nav nav-tabs">
+  <ul class="nav nav-tabs" role="tablist">
     {% for component in components %}
       {% if user|has_permissions:component %}
         <li{% if current.slug == component.slug %} class="active"{% endif %}>

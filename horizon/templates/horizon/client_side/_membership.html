@@ -4,19 +4,19 @@
 {% block id %}membership_template{% endblock %}
 
 {% block template %}{% spaceless %}{% jstemplate %}
-<ul class="nav nav-pills btn-group">
+<ul class="nav nav-pills btn-group btn-group-sm">
   <li class="member" data-[[step_slug]]-id="[[data_id]]">
     <span class="display_name">[[display_name]]</span>
   </li>
   <li class="active"><a class="btn btn-primary" href="#add_remove">[[text]]</a></li>
   <li class="dropdown role_options">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+    <a class="dropdown-toggle btn btn-default" data-toggle="dropdown" href="#">
       <span class="roles_display">[[roles_label]]</span>
-      <b class="caret"></b>
+      <span class="caret"></span>
     </a>
     <ul class="dropdown-menu role_dropdown clearfix">
       [[#roles]]
-      <li data-role-id="[[role_id]]"><i class="icon-ok"></i>  [[role_name]]</li>
+      <li data-role-id="[[role_id]]"><i class="fa fa-check"></i>  [[role_name]]</li>
       [[/roles]]
     </ul>
   </li>

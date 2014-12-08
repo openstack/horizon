@@ -747,25 +747,16 @@ form label {
 }
 
 .static_page {
-  float: left;
+  float: left; //should be removed (jtomasek)
+  background-color: $body-bg; //should be removed (jtomasek)
   > form {
     margin-bottom: 0;
   }
 }
 
-.left {
-    float: left;
-    width: 342px;
-    margin-right: 15px;
-}
-
-.left form {
-  margin: 0;
-}
-
-.right {
-  float: left;
-  width: 342px;
+// should be removed and replaced by row + col-sm-6 in template
+.left, .right {
+  @extend .col-sm-6;
 }
 
 .clear {
@@ -1071,6 +1062,7 @@ tr.terminated {
   border-left: 0 none;
   border-right: 0 none;
   border-bottom: 0 none;
+  padding-top: 10px;
 }
 
 #content_body {
@@ -1249,10 +1241,6 @@ div .flavor_table {
   width: 160px;
 }
 
-#main_content .row:last-child {
-  margin-bottom: 0;
-}
-
 .version_label {
   position: relative;
   text-align: right;
@@ -1425,97 +1413,80 @@ label.log-length {
 .membership {
   min-height: 200px;
 
-    /* Buttons */
-  .btn-group {
-    margin-left:0px;
-    padding: 3px 10px;
-    margin-bottom: 0px;
-    border: 1px solid $gray-light;
-    border-bottom: none;
-  }
-  .btn-group .active {
-    float: right;
-  }
-  a.btn-primary:hover {
-    background-color: $link-hover-color;
-  }
-
   /* Header */
   .help_text {
-    margin-left: 5px;
     margin-bottom: 15px;
-    width: 650px;
   }
-  .members_title {
-    color: $gray;
-    font-weight: bold;
-    float: left;
-    line-height: 30px;
-    width: 160px;
-  }
-  input[type="text"]:disabled + span.search-icon {
-    color: $gray-light;
-  }
+
   .fake_table_header {
-    background-color: $body-bg;
-    padding: 10px;
+    padding: 8px;
     border: 1px solid $table-border-color;
     border-bottom: none;
     overflow: hidden;
   }
 
-    /* 'Fake table' body */
-  .fake_table {
-    > ul {
-      padding: 0;
-      &.no_results {
-        border: 1px solid $table-border-color;
-        padding: 10px;
+  .members_title {
+    color: $gray;
+    font-weight: bold;
+    float: left;
+    padding: 6px 0;
+  }
+
+  input.filter {
+    width: 120px;
+    float: right;
+    &[type="text"]:disabled {
+      background-color: $gray-lighter;
+      & + span.search-icon {
+        color: $gray-light;
       }
     }
-    ul.btn-group:hover {
-        background-color: $border-color;
-    }
+  }
+
+  .form-control-feedback { top: 0; }
+  .no_results {
+    border: 1px solid $table-border-color;
+    padding: 9px 10px 8px 10px;
+    opacity: 0.5;
   }
 
   /* Member lists */
-  .update_members_filterable {
-    overflow-y: auto;
-    height: 500px;
-  }
-  .member {
-    text-align: left;
-    line-height: 32px;
-  }
-
-  .members ul.btn-group,
-  .available_members ul.btn-group {
-    display: block;
-    &.nav-pills > li > a {
-      padding: 6px 11px;
+  .members, .available_members {
+    padding: 0;
+    // reset nav-pills display to block
+    ul.nav-pills {
+      display: block;
+    }
+    ul.btn-group {
+      margin-left:0px;
+      padding: 3px;
+      margin-bottom: 0px;
+      border: 1px solid $gray-light;
+      border-bottom: none;
+      &.last_stripe {
+        border-bottom: 1px solid $table-border-color;
+      }
+      &.light_stripe {
+        background-color: white;
+      }
+      &.dark_stripe {
+        background-color: $table-bg-odd;
+      }
+      &:hover {
+        background-color: $border-color;
+      }
+      li.member {
+        padding: 6px 10px 5px 10px;
+      }
+      li.active {
+        float: right;
+        a:hover {
+          background-color: $link-hover-color;
+        }
+      }
     }
   }
-  .dark_stripe {
-    background-color: $table-bg-odd;
-  }
-  .light_stripe {
-    background-color: white;
-  }
-  .last_stripe {
-    border-bottom: 1px solid $table-border-color;
-  }
-  .has-feedback {
-    display: inline-block;
-    float: right;
-    margin-bottom: 0;
-  }
-  /* List filtering */
-  .filter {
-    width: 130px;
-  }
-  .form-control-feedback {
-    top:0;
-  }
+
   /* Role dropdown menus */
   .role_dropdown li {
     cursor: pointer;
@@ -1529,18 +1500,11 @@ label.log-length {
     border: 0 none;
     @include box-shadow(none);
     z-index: 99999;
-    i {
-      @extend .glyphicon;
-      &:before { content: "\e013"; }
-      opacity: 0;
-      display: inline-block;
-      width: 14px;
-      font-size: 12px;
-      line-height: 14px;
-      vertical-align: text-top;
-    }
     &:hover {
       background-color: #cdcdcd;
+    }
+    i {
+      opacity: 0;
     }
     &.selected i {
       opacity: 1;
@@ -1552,7 +1516,6 @@ label.log-length {
   }
   .nav .role_options {
     float: right;
-    padding-right: 5px;
   }
 }
 

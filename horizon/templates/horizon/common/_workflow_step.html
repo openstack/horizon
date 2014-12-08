@@ -1,13 +1,9 @@
 <noscript><h3>{{ step }}</h3></noscript>
-<table class="table-fixed">
-  <tbody>
-    <tr>
-      <td class="actions">
-          {% include "horizon/common/_form_fields.html" %}
-      </td>
-      <td class="help_text">
-          {{ step.get_help_text }}
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="row">
+  <div class="col-sm-6">
+    {% include "horizon/common/_form_fields.html" %}
+  </div>
+  <div class="col-sm-6">
+    {{ step.get_help_text }}
+  </div>
+</div>
