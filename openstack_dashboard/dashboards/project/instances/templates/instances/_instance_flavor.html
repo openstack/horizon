@@ -7,7 +7,11 @@
 </table>
 " data-original-title="{% blocktrans %}Flavor Details: {{ name }}">{{ name }}{% endblocktrans %}</a>
 <script type="text/javascript" charset="utf-8">
-$(function ()
-    { $("#flavor_details_{{ id }}").popover({html:true});
+$(function () {
+  var $flavor = $("#flavor_details_{{ id }}");
+  // NOTE(tsufiev): check this in case this template is used in network topology -> terminate instance
+  if ( $flavor.popover ) {
+    $flavor.popover({html:true});
+  }
 });
 </script>
