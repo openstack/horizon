@@ -601,8 +601,7 @@ class SimpleDisassociateIP(policy.PolicyTargetMixin, tables.Action):
             # off the first one.
             if fips:
                 fip = fips.pop()
-                api.network.floating_ip_disassociate(request,
-                                                     fip.id, fip.port_id)
+                api.network.floating_ip_disassociate(request, fip.id)
                 messages.success(request,
                                  _("Successfully disassociated "
                                    "floating IP: %s") % fip.ip)

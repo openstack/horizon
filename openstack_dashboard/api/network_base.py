@@ -90,12 +90,8 @@ class FloatingIpManager(object):
         pass
 
     @abc.abstractmethod
-    def disassociate(self, floating_ip_id, port_id):
-        """Disassociates the floating IP from the port.
-
-        port_id is a fixed IP of a instance (Nova) or
-        a port_id attached to a VNIC of a instance.
-        """
+    def disassociate(self, floating_ip_id):
+        """Disassociates the floating IP specified."""
         pass
 
     @abc.abstractmethod
