@@ -46,6 +46,7 @@ class BackupVolumeNameColumn(tables.Column):
 
 
 class DeleteBackup(tables.DeleteAction):
+    help_text = _("Deleted volume backups are not recoverable.")
     policy_rules = (("volume", "backup:delete"),)
 
     @staticmethod
