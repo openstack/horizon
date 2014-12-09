@@ -16,6 +16,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import views
 
+from openstack_dashboard import api
 from openstack_dashboard.dashboards.settings.cancelaccount import forms \
                                                             as cancelaccount_forms
 from openstack_dashboard.dashboards.settings.password import forms as password_forms
@@ -24,18 +25,25 @@ from openstack_dashboard.dashboards.settings.useremail import forms as useremail
 
 class MultiFormView(views.APIView):
     template_name = 'settings/multisettings/index.html'
-
+    
     def get_context_data(self, **kwargs):
         context = super(MultiFormView, self).get_context_data(**kwargs)
+
+        # Initial data
+        user_id = self.request.user.id
+        user = api.keystone.user_get(self.request, user_id, admin=False)
+        initial_email = {
+            'email': user.email
+        }
         
         #Create forms
         cancel = cancelaccount_forms.BasicCancelForm(self.request)
         password = password_forms.PasswordForm(self.request)
-        email = useremail_forms.EmailForm(self.request)
+        email = useremail_forms.EmailForm(self.request, initial=initial_email)
 
         #Actions and titles
         # TODO(garcianavalon) quizas es mejor meterlo en el __init__ del form
-        email.action = 'email/'
+        email.action = 'useremail/'
         password.action = "password/"
         cancel.action = "cancelaccount/"
         email.description = _('Change your email')
