@@ -21,8 +21,8 @@ import horizon
 class Settings(horizon.Dashboard):
     name = _("Settings")
     slug = "settings"
-    panels = ('user', 'password', 'useremail', 'cancelaccount')
-    default_panel = 'user'
+    panels = ('multisettings', 'password', 'useremail', 'cancelaccount')
+    default_panel = 'multisettings'
 
     def nav(self, context):
         # NOTE(garcianavalon) hide it always for the IdM
