@@ -42,8 +42,12 @@
     <dt>{% trans "Security Groups" %}</dt>
     <dd>
         <ul class="list-bullet">
-            {% for group in template.security_groups %}
-                <li>{{ group }}</li>
+            {% for group in security_groups %}
+                {% if group.id %}
+                    <li><a href="{% url 'horizon:project:access_and_security:security_groups:detail' group.id %}">{{ group.name }}</a></li>
+                {% else %}
+                    <li>{{ group.name }}</li>
+                {% endif %}
             {% endfor %}
         </ul>
     </dd>

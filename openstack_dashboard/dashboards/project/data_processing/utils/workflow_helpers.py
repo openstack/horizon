@@ -11,10 +11,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import logging
+
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import forms
 from horizon import workflows
+
+from openstack_dashboard.api import network
+
+LOG = logging.getLogger(__name__)
 
 
 class Parameter(object):
@@ -140,6 +146,20 @@ def safe_call(func, *args, **kwargs):
         return func(*args, **kwargs)
     except Exception:
         return None
+
+
+def get_security_groups(request, security_group_ids):
+    security_groups = []
+    for group in security_group_ids or []:
+        try:
+            security_groups.append(network.security_group_get(
+                request, group))
+        except Exception:
+            LOG.info(_('Unable to retrieve security group %(group)s.') %
+                     {'group': group})
+            security_groups.append({'name': group})
+
+    return security_groups
 
 
 def get_plugin_and_hadoop_version(request):
