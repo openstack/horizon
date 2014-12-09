@@ -44,49 +44,52 @@ class CopyNodegroupTemplate(create_flow.ConfigureNodegroupTemplate):
                                                     entry_point, *args,
                                                     **kwargs)
 
+        g_fields = None
+        s_fields = None
         for step in self.steps:
-            if not isinstance(step, create_flow.GeneralConfig):
-                continue
-            fields = step.action.fields
+            if isinstance(step, create_flow.GeneralConfig):
+                g_fields = step.action.fields
+            if isinstance(step, create_flow.SecurityConfig):
+                s_fields = step.action.fields
 
-            fields["nodegroup_name"].initial = template.name + "-copy"
-            fields["description"].initial = template.description
-            fields["flavor"].initial = template.flavor_id
-            fields["availability_zone"].initial = template.availability_zone
+        g_fields["nodegroup_name"].initial = template.name + "-copy"
+        g_fields["description"].initial = template.description
+        g_fields["flavor"].initial = template.flavor_id
+        g_fields["availability_zone"].initial = template.availability_zone
 
-            storage = "cinder_volume" if template.volumes_per_node > 0 \
-                else "ephemeral_drive"
-            volumes_per_node = template.volumes_per_node
-            volumes_size = template.volumes_size
-            fields["storage"].initial = storage
-            fields["volumes_per_node"].initial = volumes_per_node
-            fields["volumes_size"].initial = volumes_size
+        storage = "cinder_volume" if template.volumes_per_node > 0 \
+            else "ephemeral_drive"
+        volumes_per_node = template.volumes_per_node
+        volumes_size = template.volumes_size
+        g_fields["storage"].initial = storage
+        g_fields["volumes_per_node"].initial = volumes_per_node
+        g_fields["volumes_size"].initial = volumes_size
 
-            if template.floating_ip_pool:
-                fields['floating_ip_pool'].initial = template.floating_ip_pool
+        if template.floating_ip_pool:
+            g_fields['floating_ip_pool'].initial = template.floating_ip_pool
 
-            fields["autogroup"].initial = template.auto_security_group
+        s_fields["security_autogroup"].initial = template.auto_security_group
 
-            fields["groups"].initial = dict(
-                [(sg, sg) for sg in template.security_groups])
+        s_fields["security_groups"].initial = dict(
+            [(sg, sg) for sg in template.security_groups])
 
-            processes_dict = dict()
-            try:
-                plugin_details = saharaclient.plugin_get_version_details(
-                    request,
-                    plugin,
-                    hadoop_version)
-                plugin_node_processes = plugin_details.node_processes
-            except Exception:
-                plugin_node_processes = dict()
-                exceptions.handle(request,
-                                  _("Unable to fetch plugin details."))
-            for process in template.node_processes:
-                # need to know the service
-                _service = None
-                for service, processes in plugin_node_processes.items():
-                    if process in processes:
-                        _service = service
-                        break
-                processes_dict["%s:%s" % (_service, process)] = process
-            fields["processes"].initial = processes_dict
+        processes_dict = dict()
+        try:
+            plugin_details = saharaclient.plugin_get_version_details(
+                request,
+                plugin,
+                hadoop_version)
+            plugin_node_processes = plugin_details.node_processes
+        except Exception:
+            plugin_node_processes = dict()
+            exceptions.handle(request,
+                              _("Unable to fetch plugin details."))
+        for process in template.node_processes:
+            # need to know the service
+            _service = None
+            for service, processes in plugin_node_processes.items():
+                if process in processes:
+                    _service = service
+                    break
+            processes_dict["%s:%s" % (_service, process)] = process
+        g_fields["processes"].initial = processes_dict

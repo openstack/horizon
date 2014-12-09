@@ -103,22 +103,6 @@ class GeneralConfigAction(workflows.Action):
                 choices=pool_choices,
                 required=False)
 
-        self.fields["autogroup"] = forms.BooleanField(
-            label=_("Auto Security Group"),
-            widget=forms.CheckboxInput(),
-            help_text=_("Create security group for this Node Group."),
-            required=False,
-            initial=True)
-
-        groups = network.security_group_list(request)
-        security_group_list = [(sg.id, sg.name) for sg in groups]
-        self.fields["groups"] = forms.MultipleChoiceField(
-            label=_("Security Groups"),
-            widget=forms.CheckboxSelectMultiple(),
-            help_text=_("Launch instances in these security groups."),
-            choices=security_group_list,
-            required=False)
-
         self.fields["processes"] = forms.MultipleChoiceField(
             label=_("Processes"),
             widget=forms.CheckboxSelectMultiple(),
@@ -168,6 +152,37 @@ class GeneralConfigAction(workflows.Action):
             "/_configure_general_help.html")
 
 
+class SecurityConfigAction(workflows.Action):
+    def __init__(self, request, *args, **kwargs):
+        super(SecurityConfigAction, self).__init__(request, *args, **kwargs)
+
+        self.fields["security_autogroup"] = forms.BooleanField(
+            label=_("Auto Security Group"),
+            widget=forms.CheckboxInput(),
+            help_text=_("Create security group for this Node Group."),
+            required=False,
+            initial=True)
+
+        try:
+            groups = network.security_group_list(request)
+        except Exception:
+            exceptions.handle(request,
+                              _("Unable to get security group list."))
+            raise
+
+        security_group_list = [(sg.id, sg.name) for sg in groups]
+        self.fields["security_groups"] = forms.MultipleChoiceField(
+            label=_("Security Groups"),
+            widget=forms.CheckboxSelectMultiple(),
+            help_text=_("Launch instances in these security groups."),
+            choices=security_group_list,
+            required=False)
+
+    class Meta:
+        name = _("Security")
+        help_text = _("Control access to instances of the node group.")
+
+
 class GeneralConfig(workflows.Step):
     action_class = GeneralConfigAction
     contributes = ("general_nodegroup_name", )
@@ -183,6 +198,11 @@ class GeneralConfig(workflows.Step):
         return context
 
 
+class SecurityConfig(workflows.Step):
+    action_class = SecurityConfigAction
+    contributes = ("security_autogroup", "security_groups")
+
+
 class ConfigureNodegroupTemplate(workflow_helpers.ServiceParametersWorkflow,
                                  workflow_helpers.StatusFormatMixin):
     slug = "configure_nodegroup_template"
@@ -191,7 +211,7 @@ class ConfigureNodegroupTemplate(workflow_helpers.ServiceParametersWorkflow,
     success_message = _("Created Node Group Template %s")
     name_property = "general_nodegroup_name"
     success_url = "horizon:project:data_processing.nodegroup_templates:index"
-    default_steps = (GeneralConfig,)
+    default_steps = (GeneralConfig, SecurityConfig)
 
     def __init__(self, request, context_seed, entry_point, *args, **kwargs):
         hlps = helpers.Helpers(request)
@@ -272,8 +292,8 @@ class ConfigureNodegroupTemplate(workflow_helpers.ServiceParametersWorkflow,
                 node_processes=processes,
                 node_configs=configs_dict,
                 floating_ip_pool=context.get("general_floating_ip_pool"),
-                security_groups=context["general_groups"],
-                auto_security_group=context["general_autogroup"],
+                security_groups=context["security_groups"],
+                auto_security_group=context["security_autogroup"],
                 availability_zone=context["general_availability_zone"])
             return True
         except api_base.APIException as e:
