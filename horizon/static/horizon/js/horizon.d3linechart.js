@@ -180,9 +180,9 @@ Rickshaw.Graph.Renderer.StaticAxes = Rickshaw.Class.create( Rickshaw.Graph.Rende
     }
     // If x axis wants to have static range, not based on data
     if (this.xMin !== undefined && this.xMax !== undefined){
-      xMin = d3.time.format('%Y-%m-%dT%H:%M:%S').parse(this.xMin);
+      xMin = d3.time.format.utc('%Y-%m-%dT%H:%M:%S').parse(this.xMin);
       xMin = xMin.getTime() / 1000;
-      xMax = d3.time.format('%Y-%m-%dT%H:%M:%S').parse(this.xMax);
+      xMax = d3.time.format.utc('%Y-%m-%dT%H:%M:%S').parse(this.xMax);
       xMax = xMax.getTime() / 1000;
 
       ret.x = [xMin, xMax];
@@ -426,7 +426,7 @@ horizon.d3_line_chart = {
         serie.color = last_point_color = self.color(serie.name);
         $.map(serie.data, function (statistic) {
           // need to parse each date
-          statistic.x = d3.time.format('%Y-%m-%dT%H:%M:%S').parse(statistic.x);
+          statistic.x = d3.time.format.utc('%Y-%m-%dT%H:%M:%S').parse(statistic.x);
           statistic.x = statistic.x.getTime() / 1000;
           last_point = statistic;
           last_point.color = serie.color;
@@ -477,7 +477,16 @@ horizon.d3_line_chart = {
         var hoverDetail = new Rickshaw.Graph.HoverDetail({
           graph: graph,
           formatter: function(series, x, y) {
-            var date = '<span class="date">' + new Date(x * 1000).toUTCString() + '</span>';
+            var d = new Date(x * 1000);
+            // Convert datetime to YYYY-MM-DD HH:MM:SS GMT
+            var datetime_string = d.getUTCFullYear() + "-" +
+              ("00" + (d.getUTCMonth() + 1)).slice(-2) + "-" +
+              ("00" + d.getUTCDate()).slice(-2) + " " +
+              ("00" + d.getUTCHours()).slice(-2) + ":" +
+              ("00" + d.getUTCMinutes()).slice(-2) + ":" +
+              ("00" + d.getUTCSeconds()).slice(-2) + " GMT";
+
+            var date = '<span class="date">' + datetime_string + '</span>';
             var swatch = '<span class="detail_swatch" style="background-color: ' + series.color + '"></span>';
             var content = swatch + series.name + ': ' + parseFloat(y).toFixed(2) + ' ' + series.unit + '<br>' + date;
             return content;
