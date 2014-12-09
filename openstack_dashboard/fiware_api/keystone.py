@@ -1,3 +1,4 @@
+# Copyright (C) 2014 Universidad Politecnica de Madrid
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -12,6 +13,7 @@
 # limitations under the License.
 
 import logging
+import requests
 
 from django.conf import settings
 from openstack_dashboard import api
@@ -214,8 +216,11 @@ def application_list(request, user=None):
     manager = api.keystone.keystoneclient(request, admin=True).oauth2.consumers
     return manager.list(user=user)
 
-def application_get(request, application_id):
-    manager = api.keystone.keystoneclient(request, admin=True).oauth2.consumers
+def application_get(request, application_id, use_idm_account=False):
+    if use_idm_account:
+        manager = fiwareclient().oauth2.consumers
+    else:
+        manager = api.keystone.keystoneclient(request, admin=True).oauth2.consumers
     return manager.get(application_id)
 
 def application_update(request, consumer_id, name=None, description=None, client_type=None, 
@@ -237,7 +242,7 @@ def application_delete(request, application_id):
 
 # OAUTH2 FLOW
 def request_authorization_for_application(request, application, 
-                                        redirect_uri, scope, state=None):
+                                        redirect_uri, scope=['all_info'], state=None):
     """ Sends the consumer/client credentials to the authorization server to ask
     a resource owner for authorization in a certain scope.
 
@@ -245,15 +250,29 @@ def request_authorization_for_application(request, application,
         a nice form for the user, for example.
     """
     LOG.debug('Requesting authorization for application: {0} with redirect_uri: {1} \
-        and scope: {2}'.format(application, redirect_uri, scope))
-    manager = fiwareclient().oauh2.authorization_codes
+        and scope: {2} by user {3}'.format(application, redirect_uri, scope, request.user))
+    manager = api.keystone.keystoneclient(request, admin=True).oauth2.authorization_codes
     response_dict = manager.request_authorization(consumer=application, 
                                     redirect_uri=redirect_uri, 
                                     scope=scope, 
                                     state=state)
     return  response_dict
 
-def authorize_application(request, user, application, scopes, redirect=False):
+def check_authorization_for_application(request, application, 
+                                        redirect_uri, scope=['all_info']):
+    """ Checks if the requesting application already got authorized by the user, so we don't
+    need to make all the steps again. 
+
+        The logic is that if the application already has a (valid) access token for that
+    user and the scopes and redirect uris are registered then we can issue a new token for
+    it.
+    """
+    LOG.debug('Checking if application {0} was already authorized by user {1}'.format(
+                                                                application, request.user))
+    manager = api.keystone.keystoneclient(request, admin=True).oauth2.access_tokens
+    # FIXME(garcianavalon) the keystoneclient is not ready yet
+
+def authorize_application(request, application, scopes=['all_info'], redirect=False):
     """ Give authorization from a resource owner to the consumer/client on the 
     requested scopes.
 
@@ -265,9 +284,9 @@ def authorize_application(request, user, application, scopes, redirect=False):
     :returns: an authorization_code object, following the same pattern as other 
         keystoneclient objects
     """
-    LOG.debug('Authorizing application: {0} by user: {1}'.format(application, user))
-    manager = fiwareclient().oauth2.authorization_codes
-    authorization_code = manager.authorize(user=user, 
+    LOG.debug('Authorizing application: {0} by user: {1}'.format(application, request.user))
+    manager = api.keystone.keystoneclient(request, admin=True).oauth2.authorization_codes
+    authorization_code = manager.authorize(
                                     consumer=application, 
                                     scopes=scopes, 
                                     redirect=redirect)
@@ -283,6 +302,9 @@ def obtain_access_token(request, consumer_id, consumer_secret, code,
 
     :returns: an access_token object
     """
+    # NOTE(garcianavalon) right now this method has no use because is a wrapper for a
+    # method intented to be use by the client/consumer. For the IdM is much more 
+    # convenient to simply forward the request, see forward_access_token_request method
     LOG.debug('Exchanging code: {0} by application: {1}'.format(code, consumer_id))
     manager = fiwareclient().oauth2.access_tokens
     access_token = manager.create(consumer_id=consumer_id, 
@@ -290,6 +312,21 @@ def obtain_access_token(request, consumer_id, consumer_secret, code,
                                 authorization_code=code,
                                 redirect_uri=redirect_uri)
     return access_token
+
+def forward_access_token_request(request):
+    """ Forwards the request to the keystone backend."""
+    # TODO(garcianavalon) figure out if this method belongs to keystone client or if
+    # there is a better way to do it/structure this
+    headers = {
+        'Authorization': request.META['HTTP_AUTHORIZATION'],
+        'Content-Type': request.META['CONTENT_TYPE'],
+    }
+    body = request.body
+    keystone_url = getattr(settings, 'OPENSTACK_KEYSTONE_URL') + '/OS-OAUTH2/access_token'
+    LOG.debug('API_KEYSTONE: POST to {0} with body {1} and headers {2}'.format(keystone_url,
+                                                                            body, headers))
+    response = requests.post(keystone_url, data=body, headers=headers)
+    return response
 
 def login_with_oauth(request, access_token, project=None):
     """ Use an OAuth2 access token to obtain a keystone token, scoped for
@@ -299,3 +336,16 @@ def login_with_oauth(request, access_token, project=None):
     # TODO(garcianavalon) find out if we need this method
     # session = _oauth2_session(access_token, project_id=project)
     # return fiwareclient(session=session,request=request)
+
+# FIWARE-IdM API CALLS
+
+def forward_validate_token_request(request):
+    """ Forwards the request to the keystone backend."""
+    # TODO(garcianavalon) figure out if this method belongs to keystone client or if
+    # there is a better way to do it/structure this
+    keystone_url = getattr(settings, 'OPENSTACK_KEYSTONE_URL')
+    endpoint = '/access-tokens/{0}'.format(request.GET.get('access_token'))
+    url = keystone_url + endpoint
+    LOG.debug('API_KEYSTONE: GET to {0}'.format(url))
+    response = requests.get(url)
+    return response
