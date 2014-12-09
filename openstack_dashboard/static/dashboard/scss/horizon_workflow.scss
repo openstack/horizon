@@ -39,7 +39,7 @@
           right: -$workflow-size-tab-arrow;
           z-index: 2;
           display: block;
-          border: $workflow-size-tab-arrow solid transparent;
+          border: $workflow-size-tab-arrow inset transparent;
           border-right: 0;
           border-left: $workflow-size-tab-arrow solid $workflow-color-tab-incomplete-bg;
           content: '';
@@ -51,7 +51,7 @@
           right: -($workflow-size-tab-arrow + $workflow-size-tab-border);
           z-index: 1;
           display: block;
-          border: ($workflow-size-tab-arrow + $workflow-size-tab-border) solid transparent;
+          border: ($workflow-size-tab-arrow + $workflow-size-tab-border) inset transparent;
           border-right: 0;
           border-left: ($workflow-size-tab-arrow + $workflow-size-tab-border) solid $workflow-color-tab-border;
           content: '';
