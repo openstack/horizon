@@ -93,7 +93,6 @@ textarea {
 }
 
 #avatar-update{
-  width: 60px;
   @include border-top-radius ($border-radius-base);
   @include border-bottom-radius ($border-radius-base);
 }
@@ -102,6 +101,58 @@ textarea {
   .modal-footer{
     a.panel-title{
       float: left;
+    }
+  }
+}
+
+.panel-cancel{
+  &:hover{
+    border-color: $brand-danger !important;
+    h3{
+      color: $brand-danger !important;
+    }
+  }
+  
+  a{
+    color: $brand-danger !important;
+    width: 100%;
+  
+    h3{
+      margin-top: -16px !important;
+    }
+  }
+  .modal-footer{
+    border-top: none;
+    #destroy_application{
+      border-top: 1px solid #EAEAEC;
+      padding-top: 15px;
+      .btn-primary{
+        @extend .btn-danger;
+      }
+    }
+  }
+}
+
+.cancel_account,
+.destroy_organization{
+  &:hover{
+    border-color: $brand-danger !important;
+    h4{
+      color: $brand-danger !important;
+    }
+  }
+  h4{
+    margin-top: 3px !important;
+    padding: 0px 15px;
+  }
+  a{
+    color: $brand-danger !important;
+  }
+  .panel-body{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    a{
+      color: $brand-danger !important;
     }
   }
 }
