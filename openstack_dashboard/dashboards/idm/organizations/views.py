@@ -138,7 +138,7 @@ class MultiFormView(TemplateView):
         avatar.action = "avatar/"
         avatar.title = 'Avatar Update'
         cancel.action = "cancel/"
-        cancel.title = 'Cancel'
+        cancel.title = ' '
 
         context['forms'] = [info, contact, avatar]
         context['cancel_form'] = cancel
