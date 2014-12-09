@@ -157,7 +157,12 @@ textarea {
   }
 }
 
-
+#authorize_application_modal{
+  @extend .well;
+  .modal-body{
+    padding: 10px 0;
+  }
+}
 //.alert{
 //  position: absolute;
 //  bottom: 35px;

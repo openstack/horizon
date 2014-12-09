@@ -226,6 +226,7 @@ INSTALLED_APPS = [
     'horizon',
     'openstack_auth',
     'fiware_auth',
+    'fiware_oauth2',
     'captcha',
 ]
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
