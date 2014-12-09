@@ -114,7 +114,7 @@ class SwiftTests(test.TestCase):
 
         self.assertEqual(unicode(list(req._messages)[0].message),
                          u"The container cannot be deleted "
-                         u"since it's not empty.")
+                         u"since it is not empty.")
 
     def test_create_container_get(self):
         res = self.client.get(reverse('horizon:project:containers:create'))

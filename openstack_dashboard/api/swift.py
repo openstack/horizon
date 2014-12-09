@@ -200,8 +200,8 @@ def swift_delete_container(request, name):
     # be done in swiftclient instead of Horizon.
     objects, more = swift_get_objects(request, name)
     if objects:
-        error_msg = unicode(_("The container cannot be deleted "
-                              "since it's not empty."))
+        error_msg = _("The container cannot be deleted "
+                      "since it is not empty.")
         exc = exceptions.Conflict(error_msg)
         exc._safe_message = error_msg
         raise exc
@@ -307,6 +307,21 @@ def swift_create_pseudo_folder(request, container_name, pseudo_folder_name):
 
 
 def swift_delete_object(request, container_name, object_name):
+    objects, more = swift_get_objects(request, container_name,
+                                      prefix=object_name)
+    # In case the given object is pseudo folder,
+    # it can be deleted only if it is empty.
+    # swift_get_objects will return at least
+    # one object (i.e container_name) even if the
+    # given pseudo folder is empty. So if swift_get_objects
+    # returns more than one object then only it will be
+    # considered as non empty folder.
+    if len(objects) > 1:
+        error_msg = _("The pseudo folder cannot be deleted "
+                      "since it is not empty.")
+        exc = exceptions.Conflict(error_msg)
+        exc._safe_message = error_msg
+        raise exc
     swift_api(request).delete_object(container_name, object_name)
     return True
 
