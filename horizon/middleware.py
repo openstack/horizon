@@ -90,16 +90,18 @@ class HorizonMiddleware(object):
         request.horizon = {'dashboard': None,
                            'panel': None,
                            'async_messages': []}
+        if not hasattr(request, "user") or not request.user.is_authenticated():
+            # proceed no further if the current request is already known
+            # not to be authenticated
+            # it is CRITICAL to perform this check as early as possible
+            # to avoid creating too many sessions
+            return None
 
         # Check for session timeout if user is (or was) authenticated.
         has_timed_out, timestamp = self._check_has_timed_timeout(request)
         if has_timed_out:
             return self._logout(request, request.path, _("Session timed out."))
 
-        if not hasattr(request, "user") or not request.user.is_authenticated():
-            # proceed no further if the current request is already known
-            # not to be authenticated
-            return None
         if request.is_ajax():
             # if the request is Ajax we do not want to proceed, as clients can
             #  1) create pages with constant polling, which can create race
