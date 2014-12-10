@@ -406,7 +406,8 @@ class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
         secgroup = self.api_q_secgroups.list()[1]
         body = {'security_group':
                 {'name': secgroup['name'],
-                 'description': secgroup['description']}}
+                 'description': secgroup['description'],
+                 'tenant_id': self.request.user.project_id}}
         self.qclient.create_security_group(body) \
             .AndReturn({'security_group': copy.deepcopy(secgroup)})
         self.mox.ReplayAll()
@@ -637,7 +638,8 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
         ext_net = ext_nets[0]
         fip = self.api_q_floating_ips.first()
         self.qclient.create_floatingip(
-            {'floatingip': {'floating_network_id': ext_net['id']}}) \
+            {'floatingip': {'floating_network_id': ext_net['id'],
+                            'tenant_id': self.request.user.project_id}}) \
             .AndReturn({'floatingip': fip})
         self.mox.ReplayAll()
 

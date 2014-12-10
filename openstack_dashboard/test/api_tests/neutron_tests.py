@@ -51,7 +51,8 @@ class NeutronApiTests(test.APITestCase):
         network = {'network': self.api_networks.first()}
 
         neutronclient = self.stub_neutronclient()
-        form_data = {'network': {'name': 'net1'}}
+        form_data = {'network': {'name': 'net1',
+                                 'tenant_id': self.request.user.project_id}}
         neutronclient.create_network(body=form_data).AndReturn(network)
         self.mox.ReplayAll()
 
@@ -231,7 +232,8 @@ class NeutronApiTests(test.APITestCase):
         router = {'router': self.api_routers.first()}
 
         neutronclient = self.stub_neutronclient()
-        form_data = {'router': {'name': 'router1'}}
+        form_data = {'router': {'name': 'router1',
+                                'tenant_id': self.request.user.project_id}}
         neutronclient.create_router(body=form_data).AndReturn(router)
         self.mox.ReplayAll()
 
