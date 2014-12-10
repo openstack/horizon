@@ -5,7 +5,7 @@
 </a>
 <div id="collapse-{{ forloop.counter0 }}" class="panel-collapse collapse">
   <div class="panel-body">
-    <form accept-charset="UTF-8" action="{{ form.action }}" method="post">{% csrf_token %}
+    <form class="edit_user" accept-charset="UTF-8" action="{{ form.action }}" method="post">{% csrf_token %}
       {% for field in form %}
         <div class="form-group">
           <label class="control-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
