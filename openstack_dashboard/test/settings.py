@@ -49,6 +49,7 @@ INSTALLED_APPS = (
     'openstack_dashboard.dashboards.identity',
     'openstack_dashboard.dashboards.settings',
     'openstack_dashboard.dashboards.router',
+    'openstack_dashboard.dashboards.idm',
     'openstack_dashboard.fiware_auth',
 )
 
@@ -57,7 +58,7 @@ AUTHENTICATION_BACKENDS = ('openstack_auth.backend.KeystoneBackend',)
 SITE_BRANDING = 'OpenStack'
 
 HORIZON_CONFIG = {
-    'dashboards': ('project', 'admin', 'identity', 'settings', 'router',),
+    'dashboards': ('project', 'admin', 'identity', 'settings', 'router','idm',),
     'default_dashboard': 'project',
     "password_validator": {
         "regex": '^.{8,18}$',

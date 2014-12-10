@@ -11,6 +11,7 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+import logging
 
 from django.utils.translation import ugettext_lazy as _
 from django import shortcuts
@@ -20,6 +21,8 @@ from horizon import forms
 from horizon import messages
 
 from openstack_dashboard import api
+
+LOG = logging.getLogger('idm_logger')
 
 
 class BasicCancelForm(forms.SelfHandlingForm):
@@ -31,13 +34,15 @@ class BasicCancelForm(forms.SelfHandlingForm):
                 user_id = request.user.id
                 api.keystone.user_update_enabled(request, user_id, enabled=False)
                 msg = _("Account canceled succesfully")
+                LOG.info(msg)
                 messages.success(request, msg)
                 # Log the user out
                 response = shortcuts.redirect('logout') 
                 return response
-            except Exception:   
+            except Exception as e:   
                 exceptions.handle(request,
                                   _('Unable to cancel account.'))
+                LOG.error(e)
                 return False
         else:
             messages.error(request, _('Account canceling is not supported.'))

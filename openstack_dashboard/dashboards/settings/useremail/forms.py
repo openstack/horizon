@@ -10,6 +10,7 @@
 # implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+import logging
 
 from django import shortcuts
 from django.conf import settings
@@ -25,6 +26,7 @@ from horizon.utils import functions as utils
 from openstack_dashboard import api
 from openstack_auth import exceptions as auth_exceptions
 
+LOG = logging.getLogger('idm_logger')
 
 class EmailForm(forms.SelfHandlingForm):
     email = forms.EmailField(
@@ -66,20 +68,25 @@ class EmailForm(forms.SelfHandlingForm):
                 api.keystone.user_update(request, user_id, email=data['email'],
                                         password=None)
                 
-                # redirect user to home
-                response = shortcuts.redirect(request.build_absolute_uri())
+                # redirect user to settings home
+                response = shortcuts.redirect('horizon:settings:multisettings:index')
+                #response = shortcuts.redirect(request.build_absolute_uri())
                 #response = shortcuts.redirect(horizon.get_user_home(request.user))
                 msg = _("Email changed succesfully")
+                LOG.debug(msg)
                 messages.success(request, msg)
                 return response
 
             except auth_exceptions.KeystoneAuthException as exc:
                 messages.error(request, _('Invalid password'))
+                LOG.error(exc)
                 return False
             except Exception as e:
                 exceptions.handle(request,
                                   _('Unable to change email.'))
+                LOG.error(e)
                 return False
         else:
             messages.error(request, _('Changing email is not supported.'))
+            LOG.debug("Changing email is not supported")
             return False
