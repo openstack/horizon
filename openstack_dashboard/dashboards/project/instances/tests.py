@@ -47,6 +47,9 @@ from openstack_dashboard.usage import quotas
 INDEX_URL = reverse('horizon:project:instances:index')
 SEC_GROUP_ROLE_PREFIX = \
     workflows.update_instance.INSTANCE_SEC_GROUP_SLUG + "_role_"
+AVAILABLE = api.cinder.VOLUME_STATE_AVAILABLE
+VOLUME_SEARCH_OPTS = dict(status=AVAILABLE, bootable=1)
+SNAPSHOT_SEARCH_OPTS = dict(status=AVAILABLE)
 
 
 class InstanceTests(helpers.TestCase):
@@ -1360,10 +1363,12 @@ class InstanceTests(helpers.TestCase):
         api.nova.extension_supported('BlockDeviceMappingV2Boot',
                                      IsA(http.HttpRequest)) \
             .AndReturn(block_device_mapping_v2)
-        cinder.volume_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.volumes.list())
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.volumes.list())
+        cinder.volume_list(IsA(http.HttpRequest),
+                           search_opts=VOLUME_SEARCH_OPTS) \
+            .AndReturn([])
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=SNAPSHOT_SEARCH_OPTS) \
+            .AndReturn([])
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'is_public': True, 'status': 'active'}) \
@@ -1569,10 +1574,14 @@ class InstanceTests(helpers.TestCase):
         api.nova.extension_supported('BlockDeviceMappingV2Boot',
                                      IsA(http.HttpRequest)) \
             .AndReturn(block_device_mapping_v2)
-        cinder.volume_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.volumes.list())
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.volumes.list())
+        volumes = [v for v in self.volumes.list()
+                   if (v.status == AVAILABLE and v.bootable == 'true')]
+        cinder.volume_list(IsA(http.HttpRequest),
+                           search_opts=VOLUME_SEARCH_OPTS) \
+            .AndReturn(volumes)
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=SNAPSHOT_SEARCH_OPTS) \
+            .AndReturn([])
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'is_public': True, 'status': 'active'}) \
@@ -1714,9 +1723,12 @@ class InstanceTests(helpers.TestCase):
             .AndReturn(disk_config)
         api.nova.extension_supported(
             'ConfigDrive', IsA(http.HttpRequest)).AndReturn(config_drive)
-        cinder.volume_list(IsA(http.HttpRequest)) \
+        cinder.volume_list(IsA(http.HttpRequest),
+                           search_opts=VOLUME_SEARCH_OPTS) \
             .AndReturn([])
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=SNAPSHOT_SEARCH_OPTS) \
+            .AndReturn([])
         if disk_config:
             disk_config_value = u'AUTO'
         else:
@@ -1858,9 +1870,14 @@ class InstanceTests(helpers.TestCase):
             .AndReturn(True)
         api.nova.extension_supported('ConfigDrive',
                                      IsA(http.HttpRequest)).AndReturn(True)
-        cinder.volume_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.volumes.list())
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+        volumes = [v for v in self.volumes.list()
+                   if (v.status == AVAILABLE and v.bootable == 'true')]
+        cinder.volume_list(IsA(http.HttpRequest),
+                           search_opts=VOLUME_SEARCH_OPTS) \
+            .AndReturn(volumes)
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=SNAPSHOT_SEARCH_OPTS) \
+            .AndReturn([])
         api.nova.server_create(IsA(http.HttpRequest),
                                server.name,
                                '',
@@ -1989,9 +2006,14 @@ class InstanceTests(helpers.TestCase):
             .AndReturn(True)
         api.nova.extension_supported('ConfigDrive',
                                      IsA(http.HttpRequest)).AndReturn(True)
-        cinder.volume_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.volumes.list())
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+        volumes = [v for v in self.volumes.list()
+                   if (v.status == AVAILABLE and v.bootable == 'true')]
+        cinder.volume_list(IsA(http.HttpRequest),
+                           search_opts=VOLUME_SEARCH_OPTS) \
+            .AndReturn(volumes)
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=SNAPSHOT_SEARCH_OPTS) \
+            .AndReturn([])
         quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
             .AndReturn(quota_usages)
 
@@ -2109,9 +2131,12 @@ class InstanceTests(helpers.TestCase):
             .AndReturn(self.security_groups.list())
         api.nova.availability_zone_list(IsA(http.HttpRequest)) \
             .AndReturn(self.availability_zones.list())
-        cinder.volume_list(IsA(http.HttpRequest)) \
+        cinder.volume_list(IsA(http.HttpRequest),
+                           search_opts=VOLUME_SEARCH_OPTS) \
             .AndReturn([])
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=SNAPSHOT_SEARCH_OPTS) \
+            .AndReturn([])
         quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
             .AndReturn(quota_usages)
 
@@ -2201,9 +2226,11 @@ class InstanceTests(helpers.TestCase):
         api.nova.extension_supported('ConfigDrive',
                                      IsA(http.HttpRequest)).AndReturn(True)
 
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
-
-        cinder.volume_list(IsA(http.HttpRequest)) \
+        cinder.volume_list(IsA(http.HttpRequest),
+                           search_opts=VOLUME_SEARCH_OPTS) \
+            .AndReturn([])
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=SNAPSHOT_SEARCH_OPTS) \
             .AndReturn([])
 
         quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
@@ -2250,10 +2277,12 @@ class InstanceTests(helpers.TestCase):
         api.nova.extension_supported('BlockDeviceMappingV2Boot',
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
-        cinder.volume_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.volumes.list())
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.volumes.list())
+        cinder.volume_list(IsA(http.HttpRequest),
+                           search_opts=VOLUME_SEARCH_OPTS) \
+            .AndReturn([])
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=SNAPSHOT_SEARCH_OPTS) \
+            .AndReturn([])
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'is_public': True, 'status': 'active'}) \
@@ -2332,8 +2361,16 @@ class InstanceTests(helpers.TestCase):
         api.nova.extension_supported('BlockDeviceMappingV2Boot',
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.volumes.list())
+        volumes = [v for v in self.volumes.list()
+                   if (v.status == AVAILABLE and v.bootable == 'true')]
+        cinder.volume_list(IsA(http.HttpRequest),
+                           search_opts=VOLUME_SEARCH_OPTS) \
+            .AndReturn(volumes)
+        volumes = [v for v in self.volumes.list()
+                   if (v.status == AVAILABLE)]
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=SNAPSHOT_SEARCH_OPTS) \
+            .AndReturn(volumes)
         api.nova.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
         api.nova.keypair_list(IgnoreArg()).AndReturn(self.keypairs.list())
         api.network.security_group_list(IsA(http.HttpRequest)) \
@@ -2373,7 +2410,6 @@ class InstanceTests(helpers.TestCase):
             .AndReturn(True)
         api.nova.extension_supported('ConfigDrive',
                                      IsA(http.HttpRequest)).AndReturn(True)
-        cinder.volume_list(IgnoreArg()).AndReturn(self.volumes.list())
         api.nova.server_create(IsA(http.HttpRequest),
                                server.name,
                                image.id,
@@ -2491,9 +2527,14 @@ class InstanceTests(helpers.TestCase):
             .AndReturn(True)
         api.nova.extension_supported('ConfigDrive',
                                      IsA(http.HttpRequest)).AndReturn(True)
-        cinder.volume_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.volumes.list())
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+        volumes = [v for v in self.volumes.list()
+                   if (v.status == AVAILABLE and v.bootable == 'true')]
+        cinder.volume_list(IsA(http.HttpRequest),
+                           search_opts=VOLUME_SEARCH_OPTS) \
+            .AndReturn(volumes)
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=SNAPSHOT_SEARCH_OPTS) \
+            .AndReturn([])
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
@@ -2593,9 +2634,14 @@ class InstanceTests(helpers.TestCase):
             .AndReturn(True)
         api.nova.extension_supported('ConfigDrive',
                                      IsA(http.HttpRequest)).AndReturn(True)
-        cinder.volume_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.volumes.list())
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+        volumes = [v for v in self.volumes.list()
+                   if (v.status == AVAILABLE and v.bootable == 'true')]
+        cinder.volume_list(IsA(http.HttpRequest),
+                           search_opts=VOLUME_SEARCH_OPTS) \
+            .AndReturn(volumes)
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=SNAPSHOT_SEARCH_OPTS) \
+            .AndReturn([])
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
@@ -2712,9 +2758,14 @@ class InstanceTests(helpers.TestCase):
             .AndReturn(True)
         api.nova.extension_supported('ConfigDrive',
                                      IsA(http.HttpRequest)).AndReturn(True)
-        cinder.volume_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.volumes.list())
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+        volumes = [v for v in self.volumes.list()
+                   if (v.status == AVAILABLE and v.bootable == 'true')]
+        cinder.volume_list(IsA(http.HttpRequest),
+                           search_opts=VOLUME_SEARCH_OPTS) \
+            .AndReturn(volumes)
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=SNAPSHOT_SEARCH_OPTS) \
+            .AndReturn([])
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
@@ -2838,9 +2889,14 @@ class InstanceTests(helpers.TestCase):
             'DiskConfig', IsA(http.HttpRequest)).AndReturn(True)
         api.nova.extension_supported(
             'ConfigDrive', IsA(http.HttpRequest)).AndReturn(True)
-        cinder.volume_list(
-            IsA(http.HttpRequest)).AndReturn(self.volumes.list())
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+        volumes = [v for v in self.volumes.list()
+                   if (v.status == AVAILABLE and v.bootable == 'true')]
+        cinder.volume_list(IsA(http.HttpRequest),
+                           search_opts=VOLUME_SEARCH_OPTS) \
+            .AndReturn(volumes)
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=SNAPSHOT_SEARCH_OPTS) \
+            .AndReturn([])
         api.nova.flavor_list(
             IsA(http.HttpRequest)).AndReturn(self.flavors.list())
         api.nova.tenant_absolute_limits(
@@ -2956,9 +3012,14 @@ class InstanceTests(helpers.TestCase):
             .AndReturn(True)
         api.nova.extension_supported('ConfigDrive',
                                      IsA(http.HttpRequest)).AndReturn(True)
-        cinder.volume_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.volumes.list())
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+        volumes = [v for v in self.volumes.list()
+                   if (v.status == AVAILABLE and v.bootable == 'true')]
+        cinder.volume_list(IsA(http.HttpRequest),
+                           search_opts=VOLUME_SEARCH_OPTS) \
+            .AndReturn(volumes)
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=SNAPSHOT_SEARCH_OPTS) \
+            .AndReturn([])
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
@@ -3135,9 +3196,14 @@ class InstanceTests(helpers.TestCase):
             .AndReturn(True)
         api.nova.extension_supported('ConfigDrive',
                                      IsA(http.HttpRequest)).AndReturn(True)
-        cinder.volume_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.volumes.list())
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)).AndReturn([])
+        volumes = [v for v in self.volumes.list()
+                   if (v.status == AVAILABLE and v.bootable == 'true')]
+        cinder.volume_list(IsA(http.HttpRequest),
+                           search_opts=VOLUME_SEARCH_OPTS) \
+            .AndReturn(volumes)
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=SNAPSHOT_SEARCH_OPTS) \
+            .AndReturn([])
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
@@ -3235,10 +3301,12 @@ class InstanceTests(helpers.TestCase):
                                                 test_with_profile=False):
         keypair = self.keypairs.first()
 
-        cinder.volume_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.volumes.list())
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.volumes.list())
+        cinder.volume_list(IsA(http.HttpRequest),
+                           search_opts=VOLUME_SEARCH_OPTS) \
+            .AndReturn([])
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=SNAPSHOT_SEARCH_OPTS) \
+            .AndReturn([])
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'is_public': True, 'status': 'active'}) \

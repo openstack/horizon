@@ -184,9 +184,9 @@ class CreateForm(forms.SelfHandlingForm):
             self.availability_zones(request)
 
         try:
-            snapshot_list = cinder.volume_snapshot_list(request)
-            snapshots = [s for s in snapshot_list
-                         if s.status == 'available']
+            available = api.cinder.VOLUME_STATE_AVAILABLE
+            snapshots = cinder.volume_snapshot_list(
+                request, search_opts=dict(status=available))
             if snapshots:
                 source_type_choices.append(("snapshot_source",
                                             _("Snapshot")))
@@ -294,10 +294,9 @@ class CreateForm(forms.SelfHandlingForm):
     def get_volumes(self, request):
         volumes = []
         try:
-            volume_list = cinder.volume_list(self.request)
-            if volume_list is not None:
-                volumes = [v for v in volume_list
-                           if v.status == api.cinder.VOLUME_STATE_AVAILABLE]
+            available = api.cinder.VOLUME_STATE_AVAILABLE
+            volumes = cinder.volume_list(self.request,
+                                         search_opts=dict(status=available))
         except Exception:
             exceptions.handle(request,
                               _('Unable to retrieve list of volumes.'))
