@@ -171,7 +171,7 @@ class AvatarForm(forms.SelfHandlingForm):
         
 class CancelForm(forms.SelfHandlingForm):
     orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
-    name = forms.CharField(label=_("Name"), widget=forms.HiddenInput(), required=False)
+    # name = forms.CharField(label=_("Name"), widget=forms.HiddenInput(), required=False)
 
     def handle(self, request, data):
         
