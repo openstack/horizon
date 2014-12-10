@@ -68,8 +68,9 @@ class EmailForm(forms.SelfHandlingForm):
                 api.keystone.user_update(request, user_id, email=data['email'],
                                         password=None)
                 
-                # redirect user to home
-                response = shortcuts.redirect(request.build_absolute_uri())
+                # redirect user to settings home
+                response = shortcuts.redirect('horizon:settings:multisettings:index')
+                #response = shortcuts.redirect(request.build_absolute_uri())
                 #response = shortcuts.redirect(horizon.get_user_home(request.user))
                 msg = _("Email changed succesfully")
                 LOG.debug(msg)

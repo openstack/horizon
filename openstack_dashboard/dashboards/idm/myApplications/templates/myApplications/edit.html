@@ -3,14 +3,18 @@
 
 {% block main %}
 
-{% for form in form %}
-<div class="panel panel-default">
-	<div class="panel-body">
+  {% for form in forms %}
+    <div class="panel panel-default">
+      <div class="panel-body">
+        {% include "idm/myApplications/_edit.html" %}
+  	   </div>
+    </div>
+  {% endfor%}
 
-{% include "idm/myApplications/_edit.html" %}
-	</div>
+<div class="panel panel-default panel-cancel">
+  <div class="panel-body">
+    {% include "idm/myApplications/_edit.html" with form=cancel_form%}
+  </div>
 </div>
-{% endfor%}
-
 
 {% endblock %}

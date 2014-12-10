@@ -1,0 +1,34 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}{% endblock %}
+{% block form_action %}{% url 'fiware_oauth2_authorize' %}{% endblock %}
+
+{% block modal_id %}authorize_application_modal{% endblock %}
+{% block modal-header %}
+<h4>
+  nombre de esto
+</h4>
+{% endblock %}
+
+{% block modal-body %}
+  <p>
+    <b>Credentials:</b> {{ application_credentials }}
+  </p>
+  <p>
+	<b>Data:</b> {{ oauth_data.data }}
+  </p>
+  <p>
+	<b>Error:</b> {{ oauth_data.error }}
+  </p>
+  <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+  </fieldset>
+{% endblock %}
+
+{% block modal-footer %}
+  <a href="{% url 'fiware_oauth2_cancel_authorize' %}" class="secondary cancel btn btn-danger">{% trans "Cancel" %}</a>
+  <button type="submit" class="btn btn-primary">{% trans "Accept" %}</button>
+  
+{% endblock %}

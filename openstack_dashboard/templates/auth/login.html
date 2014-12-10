@@ -9,7 +9,11 @@
   {% include '_header.html' %}
   <div id="frontpage" class="container-fluid wrap">
     <div class="row">
-      {% include 'auth/_presentation.html' %}
+      {% if show_application_details %}
+        {% include 'oauth2/_application_info.html' with application=application %}
+      {% else %}
+        {% include 'auth/_presentation.html' %}
+      {% endif %}
       {% include 'auth/_login.html' %}
     </div>
   </div>

@@ -1,0 +1,28 @@
+<a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ forloop.counter0 }}" class="panel-heading">
+  <h4 class="panel-title">
+    {{ form.description }}
+  </h4>
+</a>
+<div id="collapse-{{ forloop.counter0 }}" class="panel-collapse collapse">
+  <div class="panel-body">
+    <form accept-charset="UTF-8" action="{{ form.action }}" method="post">{% csrf_token %}
+      <fieldset>
+        <legend></legend>
+        {% include "horizon/common/_form_fields.html" %}
+      </fieldset>
+      {% comment %}
+        {% for field in form %}
+          <div class="form-group">
+            <label class="control-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+          </div>
+        {% endfor %}
+      {% endcomment %}
+      {% if forloop.last %}
+         Unhappy? <a href="{{ form.action }}" class="ajax-modal" rel="nofollow">Cancel my account</a>
+      {% else %}
+        <input class="btn btn-primary" type="submit" value="Update">
+      {% endif %}
+    </form>
+  </div>
+</div>

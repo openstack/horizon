@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% endblock %}
+
+{% block page_header %}
+{% endblock page_header %}
+
+{% block main %}
+<div class="panel-group settings" id="accordion">
+
+ {% for form in forms %}
+    <div class="panel panel-default {% if forloop.last %}cancel_account{% endif %}">
+        {% include 'settings/multisettings/_collapse_form.html' %}
+    </div>
+  {% endfor %}
+
+{% endblock %}
+
+
