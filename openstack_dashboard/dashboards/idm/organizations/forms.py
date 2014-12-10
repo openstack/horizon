@@ -40,9 +40,9 @@ AVATAR = settings.MEDIA_ROOT+"/"+"OrganizationAvatar/"
 
 class CreateOrganizationForm(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), max_length=64, required=True)
-    description = forms.CharField(label=_("Description"), widget=forms.widgets.Textarea, required=True)
-    enabled = forms.BooleanField(label=_("Enabled"), required=False, initial=True, widget=forms.HiddenInput())
-    
+    description = forms.CharField(label=_("Description"), 
+                                widget=forms.widgets.Textarea, 
+                                required=True) 
 
     def handle(self, request, data):
         #create organization
@@ -51,12 +51,11 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
             img = "/static/dashboard/img/logos/small/group.png" 
             city = ""
             email = ""
-            website = ""       
-            desc = data['description']
+            website = ""
             self.object = api.keystone.tenant_create(request,
                                                 name=data['name'],
-                                                description=desc,
-                                                enabled=data['enabled'],
+                                                description=data['description'],
+                                                enabled=True,
                                                 domain=default_domain,
                                                 img=img,
                                                 city=city,
@@ -104,13 +103,20 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
 
 class InfoForm(forms.SelfHandlingForm):
     orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
-    name = forms.CharField(label=_("Name"), max_length=64, required=False)
-    description = forms.CharField(label=_("Description"), widget=forms.widgets.Textarea, required=False)
+    name = forms.CharField(label=_("Name"), max_length=64, required=True)
+    description = forms.CharField(label=_("Description"), 
+                                widget=forms.widgets.Textarea, 
+                                required=True)
     city = forms.CharField(label=_("City"), max_length=64, required=False)
 
     def handle(self, request, data):
         try:
-            api.keystone.tenant_update(request, data['orgID'], name=data['name'], description=data['description'], city=data['city'])
+            api.keystone.tenant_update(request, 
+                                    data['orgID'], 
+                                    name=data['name'], 
+                                    description=data['description'], 
+                                    city=data['city'])
+
             LOG.debug('Organization {0} updated'.format(data['orgID']))
             messages.success(request, _("Organization updated successfully."))
             response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])

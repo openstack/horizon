@@ -145,14 +145,15 @@ class MultiFormView(TemplateView):
         context['image'] = getattr(organization, 'img', '/static/dashboard/img/logos/small/group.png')
         return context
 
+
 class HandleForm(forms.ModalFormView):
     template_name = ''
     http_method_not_allowed = ['get']
 
-
 class InfoFormView(HandleForm):    
     form_class = organization_forms.InfoForm
     http_method_not_allowed = ['get']
+
 
 class ContactFormView(HandleForm):
     form_class = organization_forms.ContactForm
