@@ -38,7 +38,7 @@ class CreateSubnetInfoAction(network_workflows.CreateSubnetInfoAction):
         name = _("Subnet")
         help_text = _('Create a subnet associated with the network. '
                       'Advanced configuration is available by clicking on the '
-                      '"Subnet Detail" tab.')
+                      '"Subnet Details" tab.')
 
     def clean(self):
         cleaned_data = workflows.Action.clean(self)
@@ -116,7 +116,7 @@ class UpdateSubnetInfoAction(CreateSubnetInfoAction):
         name = _("Subnet")
         help_text = _('Update a subnet associated with the network. '
                       'Advanced configuration are available at '
-                      '"Subnet Detail" tab.')
+                      '"Subnet Details" tab.')
 
     def clean(self):
         cleaned_data = workflows.Action.clean(self)
@@ -147,7 +147,7 @@ class UpdateSubnetDetailAction(network_workflows.CreateSubnetDetailAction):
         self.fields['ipv6_modes'].required = False
 
     class Meta:
-        name = _("Subnet Detail")
+        name = _("Subnet Details")
         help_text = _('Specify additional attributes for the subnet.')
 
 

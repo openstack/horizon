@@ -252,7 +252,7 @@ class CreateSubnetDetailAction(workflows.Action):
         required=False)
 
     class Meta:
-        name = _("Subnet Detail")
+        name = _("Subnet Details")
         help_text = _('Specify additional attributes for the subnet.')
 
     def populate_ipv6_modes_choices(self, request, context):

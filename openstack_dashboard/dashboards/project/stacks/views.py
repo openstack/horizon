@@ -204,7 +204,7 @@ class DetailView(tabs.TabView):
         context["stack"] = stack
         context["url"] = self.get_redirect_url()
         context["actions"] = table.render_row_actions(stack)
-        context["page_title"] = _("Stack Detail: "
+        context["page_title"] = _("Stack Details: "
                                   "%(stack_name)s") % {'stack_name':
                                                        stack.stack_name}
         return context
@@ -252,7 +252,7 @@ class ResourceView(tabs.TabView):
         resource = self.get_data(self.request, **kwargs)
         context["resource"] = resource
         context["metadata"] = self.get_metadata(self.request, **kwargs)
-        context["page_title"] = _("Resource Detail: %s") % resource
+        context["page_title"] = _("Resource Details: %s") % resource
         return context
 
     @memoized.memoized_method
