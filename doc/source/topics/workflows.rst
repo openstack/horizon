@@ -8,7 +8,7 @@ aims to bring that capability within everyday reach.
 
   .. seealso::
 
-    For a detailed API information check out the :doc:`Workflows Reference
+    For detailed API information refer to the :doc:`Workflows Reference
     Guide </ref/workflows>`.
 
 Workflows
@@ -18,10 +18,10 @@ Workflows are complex forms with tabs, each workflow must consist of classes
 extending the :class:`~horizon.workflows.Workflow`,
 :class:`~horizon.workflows.Step` and :class:`~horizon.workflows.Action`
 
-Complex example of workflow
-----------------------------
+Complex example of a workflow
+------------------------------
 
-The following is a complex example of how data are exchanged between
+The following is a complex example of how data is exchanged between
 urls, views, workflows and templates:
 
 #. In ``urls.py``, we have the named parameter. E.g. ``resource_class_id``. ::
