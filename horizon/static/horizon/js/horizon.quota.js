@@ -219,12 +219,18 @@ horizon.Quota = {
   },
 
   // Returns the flavor object for the selected flavor in the form.
+  // also find out if there is old_flavor
   getSelectedFlavor: function() {
     if(this.is_flavor_quota) {
       this.selected_flavor = $.grep(this.flavors, function(flavor) {
         return flavor.id === $("#id_flavor").children(":selected").val();
       })[0];
+
+      this.old_flavor = $.grep(this.flavors, function(flavor) {
+        return flavor.name === $('#id_old_flavor_name').val();
+      })[0];
     } else {
+      this.old_flavor = null;
       this.selected_flavor = null;
     }
 
@@ -254,6 +260,14 @@ horizon.Quota = {
       $("#flavor_disk_total").text(disk_total_display);
       $("#flavor_ram").text(ram);
     }
+    else {//if change to nothing selected
+      $("#flavor_name").html('');
+      $("#flavor_vcpus").text('');
+      $("#flavor_disk").text('');
+      $("#flavor_ephemeral").text('');
+      $("#flavor_disk_total").text('');
+      $("#flavor_ram").text('');
+    }
   },
 
   /*
@@ -261,7 +275,7 @@ horizon.Quota = {
    progress bars associated with the flavor quota usage.
    */
   updateFlavorUsage: function() {
-    if(!this.is_flavor_quota) { return; }
+    if (!this.is_flavor_quota) { return; }
 
     var scope = this;
     var instance_count = (parseInt($("#id_count").val(), 10) || 1);
@@ -273,10 +287,34 @@ horizon.Quota = {
       var element_id = $(element).attr('id');
       var progress_stat = element_id.match(/^quota_(.+)/)[1];
 
-      if(progress_stat === undefined) {
+      if (!progress_stat) {
         return;
-      } else if(progress_stat === 'instances') {
-        update_amount = instance_count;
+      } else if (progress_stat === 'resize_instance') {
+        // There is no instance added for resize.
+        update_amount = 0;
+      } else if (progress_stat === 'instances') {
+          update_amount = instance_count;
+      } else if (progress_stat === 'vcpus' &&
+                 scope.old_flavor &&
+                 scope.selected_flavor) {
+        // Dealing with resizing instance where update_amount should be the
+        // difference of old and new vcpus.
+        var old_vcpus = scope.old_flavor.vcpus;
+        var new_vcpus = scope.selected_flavor.vcpus;
+        // If the user changes to a smaller flavor, it will not make any change
+        // in the progress bar.
+        // The default kvm doesn't seem to support downgrading to a smaller
+        // flavor. Same comments apply to changing ram.
+        update_amount =
+              (new_vcpus - old_vcpus < 0) ? 0 : (new_vcpus - old_vcpus);
+      } else if (progress_stat === 'ram' &&
+                 scope.old_flavor &&
+                 scope.selected_flavor) {
+        // Dealing with resizing instance where update_amount should be the
+        // difference of old and new ram.
+        old_ram = scope.old_flavor.ram;
+        new_ram = scope.selected_flavor.ram;
+        update_amount = (new_ram - old_ram < 0) ? 0 : (new_ram - old_ram);
       } else if (scope.selected_flavor) {
         update_amount = (scope.selected_flavor[progress_stat] * instance_count);
       }

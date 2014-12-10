@@ -71,6 +71,7 @@ class SetFlavorChoiceAction(workflows.Action):
             flavors = json.dumps([f._info for f in
                                   instance_utils.flavor_list(self.request)])
             extra['flavors'] = flavors
+            extra['resize_instance'] = True
         except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve quota information."))
