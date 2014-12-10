@@ -26,6 +26,7 @@ CREATE_URL = reverse('horizon:idm:organizations:create')
 BUG = 'BUG on https://trello.com/c/0idWSvhv/2-crear-tests-para-todo-lo-que-llevamos'
 
 class BaseOrganizationsTests(test.TestCase):
+
     def _get_project_info(self, project):
         project_info = {
             "name": unicode(project.name),
@@ -40,23 +41,35 @@ class BaseOrganizationsTests(test.TestCase):
         }
         return project_info
 
+
 class IndexTests(BaseOrganizationsTests):
-    # @test.create_stubs({api.keystone: ('tenant_list',)})
 
-    # def test_index(self):
-    #   api.keystone.tenant_list(IsA(http.HttpRequest),
-    #                          domain=None,
-    #                          paginate=True,
-    #                          marker=None) \
-    #     .AndReturn([self.tenants.list(), False])
-    #     self.mox.ReplayAll()
+    @unittest.skip('not finished')
+    @test.create_stubs({api.keystone: ('tenant_list',)})
+    def test_index(self):
+        # FIXME(garcianavalon) self.tenants.list() is giving me a lazy loaded
+        # list
+        all_organizations = self.tenants.list()
+        user_organizations = all_organizations[len(all_organizations)/2:]
 
-    #     res = self.client.get(INDEX_URL)
-    #     self.assertTemplateUsed(res, 'idm/organizations/index.html')
-    #     self.assertItemsEqual(res.context['table'].data, self.tenants.list())
-    pass
+        # Owned organizations mockup
+        api.keystone.tenant_list(IsA(http.HttpRequest),
+                                user=self.user.id,
+                                admin=False).AndReturn((user_organizations, False))
+        # Other organizations mockup
+        api.keystone.tenant_list(IsA(http.HttpRequest),
+                                admin=False).AndReturn((all_organizations, False))
+        api.keystone.tenant_list(IsA(http.HttpRequest),
+                                user=self.user.id,
+                                admin=False).AndReturn((user_organizations, False))
+        self.mox.ReplayAll()
+
+        response = self.client.get(INDEX_URL)
+        self.assertTemplateUsed(response, 'idm/organizations/index.html')
+        self.assertItemsEqual(response.context['table'].data, all_organizations)
 
 class CreateTests(BaseOrganizationsTests):
+
     @test.create_stubs({api.keystone: ('tenant_create',)})
     def test_create_organization(self):
         project = self.tenants.first()
@@ -91,6 +104,7 @@ class CreateTests(BaseOrganizationsTests):
     
 
 class UpdateInfoTests(BaseOrganizationsTests):
+
     @test.create_stubs({api.keystone: ('tenant_update',)})
     def test_update_info(self):
         project = self.tenants.first()
@@ -137,6 +151,7 @@ class UpdateInfoTests(BaseOrganizationsTests):
 
 
 class UpdateContactTests(BaseOrganizationsTests):
+
     @test.create_stubs({api.keystone: ('tenant_update',)})
     def test_update_contact(self):
         project = self.tenants.first()
@@ -178,6 +193,7 @@ class UpdateContactTests(BaseOrganizationsTests):
         self.assertNoMessages() 
 
 class DeleteTests(BaseOrganizationsTests):
+
     #Test not working: doesn't call tenant_delete in post
     # @test.create_stubs({api.keystone: ('tenant_delete',)})
     # def test_delete_organization(self):
@@ -202,6 +218,7 @@ class DeleteTests(BaseOrganizationsTests):
     pass
 
 class UpdateAvatarTests(BaseOrganizationsTests):
+
     #Test not working: doesn't call tenant_update in post
     # @test.create_stubs({api.keystone: ('tenant_update',)})
     # def test_update_avatar(self):

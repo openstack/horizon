@@ -95,15 +95,11 @@ class MyTenantsTab(tabs.TableTab):
 
     def get_mytenants_data(self):
         tenants = []
-        marker = self.request.GET.get(
-            organization_tables.MyTenantsTable._meta.pagination_param, None)
-        domain_context = self.request.session.get('domain_context', None)
+        #domain_context = self.request.session.get('domain_context', None)
         try:
             tenants, self._more = api.keystone.tenant_list(
                 self.request,
                 user=self.request.user.id,
-                paginate=True,
-                marker=marker,
                 admin=False)
         except Exception:
             self._more = False
