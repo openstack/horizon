@@ -21,14 +21,7 @@
     }
   }
 }
-.settings{
-  input{
-    &[type="password"],
-    &[type="email"]{
-      @extend .form-control
-    }
-  }
-}
+
 .cancel_account,
 .destroy_organization{
   &:hover{
