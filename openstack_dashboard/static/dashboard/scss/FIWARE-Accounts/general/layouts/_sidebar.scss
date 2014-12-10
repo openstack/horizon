@@ -38,7 +38,7 @@
     @media (max-width: $screen-xs-min){
       width: 100%;
     }
-    li{
+    a{
       line-height: 42px;
       @media (max-width: $screen-xs-min){
         line-height: 37px;
@@ -53,12 +53,12 @@
         float: left;
         margin: 0 1rem;
       }
-      h2,
+      h4,
       i{
         color: #8E8E8E;
       }
       &:hover{
-        h2,
+        h4,
         i{
           color: $brand-secundary;
         }
@@ -79,39 +79,43 @@
         }
       }
 
-      h2{
-        display: inline;
-        font-size: 15px;
-        margin-left: 10px;
-        @extend .hidden-xs;
-        @extend .hidden-sm;
-        @media (max-width: $screen-sm-min){
-          i{
-            padding-right: 8px;
+      h4{
+        margin-bottom: 12px;
+        span{
+          display: inline;
+          font-size: 15px;
+          margin-left: 10px;
+          @extend .hidden-xs;
+          @extend .hidden-sm;
+          @media (max-width: $screen-sm-min){
+            i{
+              padding-right: 8px;
+            }
           }
         }
       }
-      a.active{
-        h2,
+      h4.active{
+        span,
         i{
           color: $brand-primary;
         }
         &:hover{
-          h2,
+          span,
           i{
-            color: $brand-secundary;
+            color: $brand-primary;
           }
         }
       }
     }
-    li.myApplications{
-      a {
+    a.myApplications{
+      h4 {
         @include text-overflow;
+        margin-bottom: 0px;
       }
     }
 
     hr{
-      margin: 10px 0;
+      margin: 16px 0;
       @media (max-width: $screen-sm-min){
         float: left;
         margin: 0 15px;
@@ -124,8 +128,8 @@
   }
 }
 
-li.home i{@extend .fa-home;}
-li.myApplications i{@extend .fa-cube;}
-li.organizations i, li.members i{@extend .fa-group;}
-li.notify i{@extend .fa-comment;}
-li.administrators i{@extend .fa-wrench;}
+a.home i{@extend .fa-home;}
+a.myApplications i{@extend .fa-cube;}
+a.organizations i, li.members i{@extend .fa-group;}
+a.notify i{@extend .fa-comment;}
+a.administrators i{@extend .fa-wrench;}

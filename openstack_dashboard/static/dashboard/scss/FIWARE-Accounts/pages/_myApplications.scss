@@ -8,7 +8,6 @@
   .modal-header{
     padding: 0;
     min-height: 32px;
-    margin-bottom: 15px;
     border-bottom: 1px solid transparent;
     h3{
       font-size: 17px !important;
@@ -35,16 +34,22 @@
           &:last-child{
             margin-right: 0px;
           }
+          @media (max-width: $screen-xs-min){
+            margin-right: 45px;
+          }
         }
         .line{
           position: relative;
           z-index: 1;
           height: 2px;
           margin-top: -15px;
-          width: 293px;
+          width: 291px;
           background-color: $gray-light;
           position: relative;
           z-index: 1;
+          @media (max-width: $screen-xs-min){
+            width: 175px;
+          }
         }
       }
       .steps-group .completed{

@@ -57,3 +57,17 @@
     @extend .data;
   }
 }
+
+.extra{
+  .panel-title{
+    a{
+      color: $brand-secundary;
+    }
+  }
+  .panel-heading {
+    padding: 0;
+    margin-bottom: 7px;
+    border-bottom: 1px solid #D5D5D5;
+    color: $brand-secundary;
+  }
+}
