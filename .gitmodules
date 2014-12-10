@@ -1,3 +1,0 @@
-[submodule "fiwareclient"]
-	path = fiwareclient
-	url = https://github.com/ging/python-keystoneclient
