@@ -40,7 +40,10 @@ class VolumeTab(tabs.TableTab, volumes_tabs.VolumeTableMixIn):
     def get_volumes_data(self):
         volumes = self._get_volumes(search_opts={'all_tenants': True})
         instances = self._get_instances(search_opts={'all_tenants': True})
-        self._set_attachments_string(volumes, instances)
+        volume_ids_with_snapshots = self._get_volumes_ids_with_snapshots(
+            search_opts={'all_tenants': True})
+        self._set_volume_attributes(
+            volumes, instances, volume_ids_with_snapshots)
 
         # Gather our tenants to correlate against IDs
         try:

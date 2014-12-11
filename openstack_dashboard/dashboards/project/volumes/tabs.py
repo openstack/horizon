@@ -49,9 +49,30 @@ class VolumeTableMixIn(object):
                                 "attachment information"))
             return []
 
-    def _set_attachments_string(self, volumes, instances):
+    def _get_volumes_ids_with_snapshots(self, search_opts=None):
+        try:
+            volume_ids = []
+            snapshots = api.cinder.volume_snapshot_list(
+                self.request, search_opts=search_opts)
+            if snapshots:
+                # extract out the volume ids
+                volume_ids = set([(s.volume_id) for s in snapshots])
+        except Exception:
+            exceptions.handle(self.request,
+                              _("Unable to retrieve snapshot list."))
+
+        return volume_ids
+
+    # set attachment string and if volume has snapshots
+    def _set_volume_attributes(self,
+                               volumes,
+                               instances,
+                               volume_ids_with_snapshots):
         instances = SortedDict([(inst.id, inst) for inst in instances])
         for volume in volumes:
+            if volume_ids_with_snapshots:
+                if volume.id in volume_ids_with_snapshots:
+                    setattr(volume, 'has_snapshot', True)
             for att in volume.attachments:
                 server_id = att.get('server_id', None)
                 att['instance'] = instances.get(server_id, None)
@@ -67,7 +88,9 @@ class VolumeTab(tabs.TableTab, VolumeTableMixIn):
     def get_volumes_data(self):
         volumes = self._get_volumes()
         instances = self._get_instances()
-        self._set_attachments_string(volumes, instances)
+        volume_ids_with_snapshots = self._get_volumes_ids_with_snapshots()
+        self._set_volume_attributes(
+            volumes, instances, volume_ids_with_snapshots)
         return volumes
 
 

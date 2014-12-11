@@ -819,41 +819,28 @@ class VolumeViewTests(test.TestCase):
         self.assertIn("Scheduled deletion of Volume: Volume name",
                       [m.message for m in res.context['messages']])
 
-    @test.create_stubs({cinder: ('tenant_absolute_limits',
-                                 'volume_list',
-                                 'volume_backup_supported',
-                                 'volume_delete',),
-                        api.nova: ('server_list',)})
-    def test_delete_volume_error_existing_snapshot(self):
-        volume = self.cinder_volumes.first()
-        volumes = self.cinder_volumes.list()
-        formData = {'action':
-                    'volumes__delete__%s' % volume.id}
-        exc = self.exceptions.cinder.__class__(400,
-                                               "error: dependent snapshots")
+    @test.create_stubs({cinder: ('volume_get',
+                                 'tenant_absolute_limits')})
+    def test_delete_volume_with_snap_no_action_item(self):
+        volume = self.cinder_volumes.get(name='Volume name')
+        setattr(volume, 'has_snapshot', True)
+        limits = self.cinder_limits['absolute']
 
-        cinder.volume_backup_supported(IsA(http.HttpRequest)). \
-            MultipleTimes().AndReturn(True)
-        cinder.volume_list(IsA(http.HttpRequest), search_opts=None).\
-            AndReturn(volumes)
-        cinder.volume_delete(IsA(http.HttpRequest), volume.id).\
-            AndRaise(exc)
-        api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
-            AndReturn([self.servers.list(), False])
-        cinder.volume_list(IsA(http.HttpRequest), search_opts=None).\
-            AndReturn(volumes)
-        api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
-            AndReturn([self.servers.list(), False])
-        cinder.tenant_absolute_limits(IsA(http.HttpRequest)).MultipleTimes().\
-            AndReturn(self.cinder_limits['absolute'])
+        cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
+        cinder.tenant_absolute_limits(IsA(http.HttpRequest)). \
+            MultipleTimes('limits').AndReturn(limits)
+
         self.mox.ReplayAll()
 
-        url = VOLUME_INDEX_URL
-        res = self.client.post(url, formData, follow=True)
-        self.assertEqual(list(res.context['messages'])[0].message,
-                         u'Unable to delete volume "%s". '
-                         u'One or more snapshots depend on it.' %
-                         volume.name)
+        url = (VOLUME_INDEX_URL +
+               "?action=row_update&table=volumes&obj_id=" + volume.id)
+
+        res = self.client.get(url, {}, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+
+        self.assertEqual(res.status_code, 200)
+
+        self.assertNotContains(res, 'Delete Volume')
+        self.assertNotContains(res, 'delete')
 
     @test.create_stubs({cinder: ('volume_get',), api.nova: ('server_list',)})
     @override_settings(OPENSTACK_HYPERVISOR_FEATURES={'can_set_mount_point':
