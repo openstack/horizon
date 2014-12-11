@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-09 21:09-0600\n"
-"PO-Revision-Date: 2014-12-09 09:39+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-12-10 22:10-0600\n"
+"PO-Revision-Date: 2014-12-11 00:40+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2675,13 +2675,13 @@ msgid ""
 msgstr "Für VLAN Netzwerke die VLAN ID auf dem physischen Netzwerk, das die VLANs realisiert. Gültige VLAN IDs sind %(vlan_min)s bis %(vlan_max)s. Für GRE oder VXLAN Netzwerke die Tunnel ID. Gültige Tunnel IDs für GRE Netzwerke sind %(gre_min)s bis %(gre_max)s, für VXLAN Netzwerke %(vxlan_min)s bis %(vxlan_max)s."
 
 #: dashboards/admin/networks/forms.py:145
-#: dashboards/project/instances/workflows/create_instance.py:741
+#: dashboards/project/instances/workflows/create_instance.py:743
 #: dashboards/project/networks/workflows.py:61
 msgid "Select a profile"
 msgstr "Profil auswählen"
 
 #: dashboards/admin/networks/forms.py:155
-#: dashboards/project/instances/workflows/create_instance.py:751
+#: dashboards/project/instances/workflows/create_instance.py:753
 #: dashboards/project/networks/workflows.py:71
 #: dashboards/router/nexus1000v/views.py:52
 msgid "Network Profiles could not be retrieved."
@@ -2730,7 +2730,7 @@ msgstr "Das Netzwerk %s konnte nicht aktualisiert werden."
 #: dashboards/admin/networks/templates/networks/index.html:6
 #: dashboards/identity/projects/workflows.py:72
 #: dashboards/project/databases/workflows/create_instance.py:131
-#: dashboards/project/instances/workflows/create_instance.py:694
+#: dashboards/project/instances/workflows/create_instance.py:696
 #: dashboards/project/networks/panel.py:23
 #: dashboards/project/networks/tables.py:159
 #: dashboards/project/networks/templates/networks/index.html:3
@@ -4220,7 +4220,7 @@ msgstr "Domänen"
 #: dashboards/identity/groups/tables.py:91
 #: dashboards/identity/projects/tables.py:51
 msgid "Manage Members"
-msgstr ""
+msgstr "Mitglieder verwalten"
 
 #: dashboards/identity/domains/tables.py:54
 #: dashboards/identity/projects/tables.py:67
@@ -5655,7 +5655,7 @@ msgstr "Sicherheitsgruppe kann nicht abgerufen werden."
 #: dashboards/project/access_and_security/security_groups/views.py:66
 #, python-format
 msgid "Manage Security Group Rules: %(security_group)s"
-msgstr ""
+msgstr "Sicherheitsgruppenregeln verwalten: %(security_group)s"
 
 #: dashboards/project/access_and_security/security_groups/views.py:131
 #, python-format
@@ -5890,7 +5890,7 @@ msgid "Unable to create container."
 msgstr "Container konnte nicht erstellt werden. "
 
 #: dashboards/project/containers/forms.py:84
-#: dashboards/project/instances/workflows/create_instance.py:619
+#: dashboards/project/instances/workflows/create_instance.py:620
 #: dashboards/project/stacks/forms.py:57
 msgid "File"
 msgstr "Datei"
@@ -7545,7 +7545,7 @@ msgstr "Cluster nach Beendigung der Aufgabe bestehen lassen."
 #: dashboards/project/data_processing/jobs/workflows/launch.py:416
 #: dashboards/project/databases/workflows/create_instance.py:273
 #: dashboards/project/images/images/tables.py:35
-#: dashboards/project/instances/workflows/create_instance.py:837
+#: dashboards/project/instances/workflows/create_instance.py:839
 #: dashboards/project/stacks/templates/stacks/_create.html:24
 msgid "Launch"
 msgstr "Start"
@@ -7711,7 +7711,7 @@ msgstr "OpenStack Variante"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:47
 msgid "Launch instances in this availability zone."
-msgstr ""
+msgstr "Instanzen in dieser Verfügbarkeitszone starten"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:53
 msgid "Storage location"
@@ -7776,7 +7776,7 @@ msgstr "Anti-Affinität Prozesse können nicht bestückt werden."
 
 #: dashboards/project/data_processing/utils/neutron_support.py:32
 #: dashboards/project/databases/workflows/create_instance.py:161
-#: dashboards/project/instances/workflows/create_instance.py:737
+#: dashboards/project/instances/workflows/create_instance.py:739
 msgid "Unable to retrieve networks."
 msgstr "Netzwerke können nicht abgerufen werden."
 
@@ -7986,14 +7986,14 @@ msgstr "Geplante Sicherung \"%(name)s\"."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:85
 #: dashboards/project/databases/workflows/create_instance.py:275
-#: dashboards/project/instances/workflows/create_instance.py:839
+#: dashboards/project/instances/workflows/create_instance.py:841
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "Außerstande %(count)s mal \"%(name)s\" zu starten."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:95
 #: dashboards/project/databases/workflows/create_instance.py:291
-#: dashboards/project/instances/workflows/create_instance.py:856
+#: dashboards/project/instances/workflows/create_instance.py:858
 msgid "instance"
 msgstr "Instanz"
 
@@ -8029,8 +8029,8 @@ msgstr "Größenänderung des Datenträgers fehlgeschlagen. %s"
 #: dashboards/project/instances/tables.py:90
 msgid "Terminate Instance"
 msgid_plural "Terminate Instances"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Instanz terminieren"
+msgstr[1] "Instanzen terminieren"
 
 #: dashboards/project/databases/tables.py:45
 #: dashboards/project/instances/tables.py:98
@@ -8076,7 +8076,7 @@ msgstr "Fehler beim Löschen der Datenbank auf Instanz."
 #: dashboards/project/databases/workflows/create_instance.py:272
 #: dashboards/project/instances/tables.py:305
 #: dashboards/project/instances/tables.py:333
-#: dashboards/project/instances/workflows/create_instance.py:836
+#: dashboards/project/instances/workflows/create_instance.py:838
 #: dashboards/project/network_topology/templates/network_topology/index.html:28
 msgid "Launch Instance"
 msgstr "Instanz starten"
@@ -8147,7 +8147,7 @@ msgstr "Liste der Datenbankinstanzen kann nicht abgerufen werden."
 #: dashboards/project/instances/views.py:262
 #, python-format
 msgid "Instance Details: %(instance_name)s"
-msgstr ""
+msgstr "Instanzdetails: %(instance_name)s"
 
 #: dashboards/project/databases/views.py:117
 #, python-format
@@ -8333,22 +8333,22 @@ msgid "Select datastore type and version"
 msgstr "Typ und Version des Datenspeichers wählen"
 
 #: dashboards/project/databases/workflows/create_instance.py:135
-#: dashboards/project/instances/workflows/create_instance.py:698
+#: dashboards/project/instances/workflows/create_instance.py:700
 msgid "At least one network must be specified."
 msgstr "Es muss mindestens ein Netzwerk angegeben werden."
 
 #: dashboards/project/databases/workflows/create_instance.py:137
-#: dashboards/project/instances/workflows/create_instance.py:700
+#: dashboards/project/instances/workflows/create_instance.py:702
 msgid "Launch instance with these networks"
 msgstr "Instanz mit diesen Netzwerken starten"
 
 #: dashboards/project/databases/workflows/create_instance.py:147
-#: dashboards/project/instances/workflows/create_instance.py:722
+#: dashboards/project/instances/workflows/create_instance.py:724
 msgid "Networking"
 msgstr "Netzwerk"
 
 #: dashboards/project/databases/workflows/create_instance.py:149
-#: dashboards/project/instances/workflows/create_instance.py:724
+#: dashboards/project/instances/workflows/create_instance.py:726
 msgid "Select networks for your instance."
 msgstr "Wählen Sie die Netzwerke für Ihre Instanz."
 
@@ -8393,7 +8393,7 @@ msgid "Unable to find backup!"
 msgstr "Sicherungskopie kann nicht gefunden werden!"
 
 #: dashboards/project/databases/workflows/create_instance.py:274
-#: dashboards/project/instances/workflows/create_instance.py:838
+#: dashboards/project/instances/workflows/create_instance.py:840
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "%(count)s mal \"%(name)s\" gestartet."
@@ -8770,7 +8770,7 @@ msgstr "Firewall %s kann nicht gelöscht werden."
 #: dashboards/project/firewalls/views.py:132
 #, python-format
 msgid "Edit Rule %(rule_name)s"
-msgstr ""
+msgstr "Regel %(rule_name)s bearbeiten"
 
 #: dashboards/project/firewalls/views.py:171
 #, python-format
@@ -9242,7 +9242,7 @@ msgid "Confirm Rebuild Password"
 msgstr "Bestätige Passwort erneuern"
 
 #: dashboards/project/instances/forms.py:53
-#: dashboards/project/instances/workflows/create_instance.py:783
+#: dashboards/project/instances/workflows/create_instance.py:785
 msgid "Disk Partition"
 msgstr "Festplattenpartition"
 
@@ -9252,18 +9252,18 @@ msgid "No images available"
 msgstr "Keine Abbilder verfügbar"
 
 #: dashboards/project/instances/forms.py:78
-#: dashboards/project/instances/workflows/create_instance.py:801
+#: dashboards/project/instances/workflows/create_instance.py:803
 msgid "Automatic"
 msgstr "Automatisch"
 
 #: dashboards/project/instances/forms.py:79
-#: dashboards/project/instances/workflows/create_instance.py:802
+#: dashboards/project/instances/workflows/create_instance.py:804
 msgid "Manual"
 msgstr "Manuell"
 
 #: dashboards/project/instances/forms.py:82
 #: dashboards/project/instances/workflows/create_instance.py:166
-#: dashboards/project/instances/workflows/create_instance.py:811
+#: dashboards/project/instances/workflows/create_instance.py:813
 msgid "Unable to retrieve extensions information."
 msgstr "Informationen zu Erweiterungen können nicht abgerufen werden."
 
@@ -9380,7 +9380,7 @@ msgid "View Log"
 msgstr "Log anzeigen"
 
 #: dashboards/project/instances/tables.py:435
-#: dashboards/project/instances/workflows/resize_instance.py:88
+#: dashboards/project/instances/workflows/resize_instance.py:89
 msgid "Resize Instance"
 msgstr "Instanzgröße ändern"
 
@@ -9469,15 +9469,15 @@ msgstr[1] "Gestartete Instanzen"
 msgctxt "Action to perform (the instance is currently running)"
 msgid "Shut Off Instance"
 msgid_plural "Shut Off Instances"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Instanz ausschalten"
+msgstr[1] "Instanzen ausschalten"
 
 #: dashboards/project/instances/tables.py:705
 msgctxt "Past action (the instance is currently already Shut Off)"
 msgid "Shut Off Instance"
 msgid_plural "Shut Off Instances"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Instanz ausschalten"
+msgstr[1] "Instanzen ausschalten"
 
 #: dashboards/project/instances/tables.py:726
 msgid "Lock Instance"
@@ -10314,7 +10314,7 @@ msgid "Any Availability Zone"
 msgstr "Irgendeine Verfügbarkeitszone"
 
 #: dashboards/project/instances/workflows/create_instance.py:402
-#: dashboards/project/instances/workflows/resize_instance.py:76
+#: dashboards/project/instances/workflows/resize_instance.py:77
 #: usage/base.py:237
 msgid "Unable to retrieve quota information."
 msgstr "Kontingent Informationen können nicht abgerufen werden."
@@ -10406,74 +10406,78 @@ msgid "Post-Creation"
 msgstr "Nach Erstellung"
 
 #: dashboards/project/instances/workflows/create_instance.py:618
+msgid "Select Script Source"
+msgstr "Skriptquelle auswählen"
+
+#: dashboards/project/instances/workflows/create_instance.py:619
 #: dashboards/project/stacks/forms.py:58
 msgid "Direct Input"
 msgstr "Direkteingabe"
 
-#: dashboards/project/instances/workflows/create_instance.py:622
+#: dashboards/project/instances/workflows/create_instance.py:623
 msgid "Customization Script Source"
 msgstr "Anpassungsskript Quelle"
 
-#: dashboards/project/instances/workflows/create_instance.py:626
+#: dashboards/project/instances/workflows/create_instance.py:628
 msgid ""
 "A script or set of commands to be executed after the instance has been built"
 " (max 16kb)."
 msgstr "Ein Skript oder eine Folge von Kommandos, die nach dem Neubau einer Instanz ausgeführt werden (max 16kb)."
 
-#: dashboards/project/instances/workflows/create_instance.py:630
-#: dashboards/project/instances/workflows/create_instance.py:635
+#: dashboards/project/instances/workflows/create_instance.py:632
+#: dashboards/project/instances/workflows/create_instance.py:637
 msgid "Script File"
 msgstr "Skript-Datei"
 
-#: dashboards/project/instances/workflows/create_instance.py:639
-#: dashboards/project/instances/workflows/create_instance.py:644
+#: dashboards/project/instances/workflows/create_instance.py:641
+#: dashboards/project/instances/workflows/create_instance.py:646
 msgid "Script Data"
 msgstr "Skript-Daten"
 
-#: dashboards/project/instances/workflows/create_instance.py:671
+#: dashboards/project/instances/workflows/create_instance.py:673
 msgid "File exceeds maximum size (16kb)"
 msgstr "Dateigröße übersteigt die Maximalgröße (16kb)"
 
-#: dashboards/project/instances/workflows/create_instance.py:679
+#: dashboards/project/instances/workflows/create_instance.py:681
 #: dashboards/project/stacks/forms.py:187
 #, python-format
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr "Es gab einb Problem beim analysieren von %(prefix)s: %(error)s"
 
-#: dashboards/project/instances/workflows/create_instance.py:706
+#: dashboards/project/instances/workflows/create_instance.py:708
 msgid "Policy Profiles"
 msgstr "Datenschutz Profile"
 
-#: dashboards/project/instances/workflows/create_instance.py:709
+#: dashboards/project/instances/workflows/create_instance.py:711
 msgid "Launch instance with this policy profile"
 msgstr "Instanz mit diesen Datenschutz Profilen starten"
 
-#: dashboards/project/instances/workflows/create_instance.py:784
+#: dashboards/project/instances/workflows/create_instance.py:786
 msgid ""
 "Automatic: The entire disk is a single partition and automatically resizes. "
 "Manual: Results in faster build times but requires manual partitioning."
 msgstr "Automatisch: die komplette Platte ist eine einzige Partition und passt sich automatisch mit der Größe an. Manuell: ergibt schnellere Bauzeiten aber erfordert manuelle Partitionierung."
 
-#: dashboards/project/instances/workflows/create_instance.py:788
+#: dashboards/project/instances/workflows/create_instance.py:790
 msgid "Configuration Drive"
 msgstr "Konfigurationslaufwerk"
 
-#: dashboards/project/instances/workflows/create_instance.py:789
+#: dashboards/project/instances/workflows/create_instance.py:791
 msgid ""
 "Configure OpenStack to write metadata to a special configuration drive that "
 "attaches to the instance when it boots."
 msgstr "Konfigurieren Sie OpenStack, um Metadaten auf ein spezielles Konfigurationslaufwerk zu schreiben, das beim Start einer Instanz mit ihr verbunden wird."
 
-#: dashboards/project/instances/workflows/create_instance.py:815
+#: dashboards/project/instances/workflows/create_instance.py:817
 msgid "Advanced Options"
 msgstr "Weitergehende Optionen"
 
-#: dashboards/project/instances/workflows/create_instance.py:853
+#: dashboards/project/instances/workflows/create_instance.py:855
 #, python-format
 msgid "%s instances"
 msgstr "%s Instanzen"
 
-#: dashboards/project/instances/workflows/create_instance.py:913
+#: dashboards/project/instances/workflows/create_instance.py:915
 #, python-format
 msgid "Port not created for profile-id (%s)."
 msgstr "Port nicht angelegt für Profile-ID (%s)."
@@ -10506,16 +10510,16 @@ msgstr "Neue Variante auswählen"
 msgid "No flavors available"
 msgstr "Keine Varianten verfügbar"
 
-#: dashboards/project/instances/workflows/resize_instance.py:89
+#: dashboards/project/instances/workflows/resize_instance.py:90
 msgid "Resize"
 msgstr "Größe ändern"
 
-#: dashboards/project/instances/workflows/resize_instance.py:90
+#: dashboards/project/instances/workflows/resize_instance.py:91
 #, python-format
 msgid "Scheduled resize of instance \"%s\"."
 msgstr "Geplante Größenänderung der Instanz \"%s\"."
 
-#: dashboards/project/instances/workflows/resize_instance.py:91
+#: dashboards/project/instances/workflows/resize_instance.py:92
 #, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "Größe der Instanz \"%s\" kann nicht geändert werden."
@@ -11359,7 +11363,7 @@ msgstr "Typ: %(persistence_type)s"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:47
 #, python-format
 msgid "Cookie Name: %(cookie_name)s"
-msgstr ""
+msgstr "Cookiename: %(cookie_name)s"
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/details_tabs.html:3
 #: dashboards/project/loadbalancers/templates/loadbalancers/details_tabs.html:6
