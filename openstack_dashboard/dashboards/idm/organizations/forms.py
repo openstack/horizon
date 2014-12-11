@@ -1,24 +1,20 @@
-# Copyright 2012 United States Government as represented by the
-# Administrator of the National Aeronautics and Space Administration.
-# All Rights Reserved.
+# Copyright (C) 2014 Universidad Politecnica de Madrid
 #
-# Copyright 2012 OpenStack Foundation
-# Copyright 2012 Nebula, Inc.
+# Licensed under the Apache License, Version 2.0 (the "License"); you may
+# not use this file except in compliance with the License. You may obtain
+# a copy of the License at
 #
-#    Licensed under the Apache License, Version 2.0 (the "License"); you may
-#    not use this file except in compliance with the License. You may obtain
-#    a copy of the License at
+#      http://www.apache.org/licenses/LICENSE-2.0
 #
-#         http://www.apache.org/licenses/LICENSE-2.0
-#
-#    Unless required by applicable law or agreed to in writing, software
-#    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-#    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-#    License for the specific language governing permissions and limitations
-#    under the License.
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+
 import os
 import logging
-
+from PIL import Image
 
 from django import shortcuts
 from django.conf import settings
@@ -32,10 +28,8 @@ from horizon import messages
 from horizon.utils import functions as utils
 from openstack_dashboard import api
 
-from PIL import Image
 
 LOG = logging.getLogger('idm_logger')
-
 AVATAR = settings.MEDIA_ROOT+"/"+"OrganizationAvatar/"
 
 class CreateOrganizationForm(forms.SelfHandlingForm):
@@ -131,7 +125,10 @@ class ContactForm(forms.SelfHandlingForm):
     website = forms.URLField(label=_("Website"), required=False)
 
     def handle(self, request, data):
-        api.keystone.tenant_update(request, data['orgID'], email=data['email'], website=data['website'])
+        api.keystone.tenant_update(request, 
+                                data['orgID'], 
+                                email=data['email'], 
+                                website=data['website'])
         LOG.debug('Organization {0} updated'.format(data['orgID']))
         messages.success(request, _("Organization updated successfully."))
         response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])

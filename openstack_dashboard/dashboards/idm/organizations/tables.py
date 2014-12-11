@@ -1,3 +1,5 @@
+# Copyright (C) 2014 Universidad Politecnica de Madrid
+#
 # Licensed under the Apache License, Version 2.0 (the "License"); you may
 # not use this file except in compliance with the License. You may obtain
 # a copy of the License at
@@ -10,18 +12,10 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.core.exceptions import ValidationError  # noqa
-from django.core.urlresolvers import reverse
-from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
 
-from horizon import exceptions
 from horizon import forms
 from horizon import tables
-from keystoneclient.exceptions import Conflict  # noqa
-
-from openstack_dashboard import api
-from openstack_dashboard import policy
 
 
 class TenantsTable(tables.DataTable):
