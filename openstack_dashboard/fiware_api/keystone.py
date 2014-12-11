@@ -30,7 +30,7 @@ else:
     from keystoneclient import session
     from keystoneclient.auth.identity import v3
     from keystoneclient.v3 import client
-    from keystoneclient.v3.contrib.oauth2 import auth
+    from keystoneclient.v3.contrib.oauth2 import auth as oauth2_auth
 
 LOG = logging.getLogger('idm_logger')
 
@@ -51,7 +51,7 @@ def fiwareclient(session=None, request=None):# TODO(garcianavalon) use this
     return keystone
         
 def _oauth2_session(access_token_id):
-    auth = auth.OAuth2(access_token=access_token_id)
+    auth = oauth2_auth.OAuth2(access_token=access_token_id)
     return session.Session(auth=auth)
 
 def _password_session():

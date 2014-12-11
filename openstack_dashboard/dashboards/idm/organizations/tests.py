@@ -19,7 +19,9 @@ from django import http
 from django.core.urlresolvers import reverse
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.idm.organizations.forms import ImageCropMixin
 from openstack_dashboard.test import helpers as test
+
 
 INDEX_URL = reverse('horizon:idm:organizations:index')
 CREATE_URL = reverse('horizon:idm:organizations:create')
@@ -44,18 +46,43 @@ class BaseOrganizationsTests(test.TestCase):
 
 class IndexTests(BaseOrganizationsTests):
 
-    @unittest.skip('not finished')
     @test.create_stubs({api.keystone: ('tenant_list',)})
     def test_index(self):
-        # FIXME(garcianavalon) self.tenants.list() is giving me a lazy loaded
-        # list
-        all_organizations = self.tenants.list()
-        user_organizations = all_organizations[len(all_organizations)/2:]
+        user_organizations = self.tenants.list()
+        # NOTE(garcianavalon) self.tenants.list() is giving me a lazy loaded
+        # list, hack initializaes the elements. 
+        # TODO(garcianavalon) Find a better way to do this...
+        for org in user_organizations:
+            try:
+                getattr(org, 'is_default', False)
+            except Exception:
+                pass
 
         # Owned organizations mockup
+        # Only calls the default/first tab, no need to mock the others tab
         api.keystone.tenant_list(IsA(http.HttpRequest),
                                 user=self.user.id,
                                 admin=False).AndReturn((user_organizations, False))
+        self.mox.ReplayAll()
+
+        response = self.client.get(INDEX_URL)
+        self.assertTemplateUsed(response, 'idm/organizations/index.html')
+        self.assertItemsEqual(response.context['table'].data, user_organizations)
+        self.assertNoMessages() 
+
+    @test.create_stubs({api.keystone: ('tenant_list',)})
+    def test_other_organizations_tab(self):
+        all_organizations = self.tenants.list()
+        # NOTE(garcianavalon) self.tenants.list() is giving me a lazy loaded
+        # list, hack initializaes the elements. 
+        # TODO(garcianavalon) Find a better way to do this...
+        for org in all_organizations:
+            try:
+                getattr(org, 'is_default', False)
+            except Exception:
+                pass
+        user_organizations = all_organizations[len(all_organizations)/2:]
+        other_organizations = all_organizations[:len(all_organizations)/2]
         # Other organizations mockup
         api.keystone.tenant_list(IsA(http.HttpRequest),
                                 admin=False).AndReturn((all_organizations, False))
@@ -64,9 +91,46 @@ class IndexTests(BaseOrganizationsTests):
                                 admin=False).AndReturn((user_organizations, False))
         self.mox.ReplayAll()
 
-        response = self.client.get(INDEX_URL)
+        response = self.client.get(INDEX_URL + '?tab=panel_tabs__tenants_tab')
         self.assertTemplateUsed(response, 'idm/organizations/index.html')
-        self.assertItemsEqual(response.context['table'].data, all_organizations)
+        self.assertItemsEqual(response.context['table'].data, other_organizations)
+        self.assertNoMessages() 
+
+    def test_owned_organizations_exceptions(self):
+        pass
+
+    def test_other_organizations_exceptions(self):
+        pass
+
+class DetailTests(BaseOrganizationsTests):
+
+    @test.create_stubs({
+        api.keystone: (
+            'tenant_get',
+            'user_list',
+        )
+    })
+    def test_detail(self):
+        project = self.tenants.first()
+        setattr(project, 'img', '')
+        setattr(project, 'city', '')
+        setattr(project, 'email', '')
+        setattr(project, 'website', '')
+        users = self.users.list()
+
+        api.keystone.user_list(IsA(http.HttpRequest), 
+                                project=project.id).AndReturn(users)
+        api.keystone.tenant_get(IsA(http.HttpRequest), 
+                                project.id,
+                                admin=True).AndReturn(project)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:idm:organizations:detail', args=[project.id])
+        response = self.client.get(url)
+        self.assertTemplateUsed(response, 'idm/organizations/detail.html')
+        self.assertItemsEqual(response.context['members_table'].data, users)
+        self.assertNoMessages() 
+
 
 class CreateTests(BaseOrganizationsTests):
 
@@ -177,13 +241,12 @@ class UpdateContactTests(BaseOrganizationsTests):
         response = self.client.post(url, form_data)
         self.assertNoFormErrors(response)
 
-    @unittest.skip(BUG)
     def test_update_contact_required_fields(self):
         project = self.tenants.first()
 
         form_data = {
             'method': 'ContactForm',
-            'orgID':'',
+            'orgID':project.id,
             'email': '',
             'website': '',
         }
@@ -194,53 +257,58 @@ class UpdateContactTests(BaseOrganizationsTests):
 
 class DeleteTests(BaseOrganizationsTests):
 
-    #Test not working: doesn't call tenant_delete in post
-    # @test.create_stubs({api.keystone: ('tenant_delete',)})
-    # def test_delete_organization(self):
-    #     project = self.tenants.first()
-    #     project_details = self._get_project_info(project)
+    @test.create_stubs({
+        api.keystone: (
+            'tenant_delete',
+            'tenant_get',
+        ),
+    })
+    def test_delete_organization(self):
+        project = self.tenants.first()
+        setattr(project, 'img', '')
 
-    #     api.keystone.tenant_delete(IsA(http.HttpRequest), project.id) \
-    #         .AndReturn(None)
+        api.keystone.tenant_get(IsA(http.HttpRequest), project.id).AndReturn(project)
+        api.keystone.tenant_delete(IsA(http.HttpRequest), project).AndReturn(None)
+        self.mox.ReplayAll()
 
-    #     self.mox.ReplayAll()
+        form_data = {
+            'method': 'CancelForm',
+            'orgID': project.id,
+        }
 
-    #     form_data = {
-    #         'method': 'CancelForm',
-    #         'orgID':project.id,
-    #         # 'name': updated_project["name"],
-    #     }
-
-    #     url = reverse('horizon:idm:organizations:cancel',
-    #                   args=[project.id])
-    #     response = self.client.post(url, form_data)
-    #     self.assertNoFormErrors(response)
-    pass
+        url = reverse('horizon:idm:organizations:cancel', args=[project.id])
+        response = self.client.post(url, form_data)
+        self.assertNoFormErrors(response)
 
 class UpdateAvatarTests(BaseOrganizationsTests):
+    # https://docs.djangoproject.com/en/1.7/topics/testing/tools/#django.test.Client.post
+    # https://code.google.com/p/pymox/wiki/MoxDocumentation
+    @unittest.skip('not ready')
+    @test.create_stubs({
+        api.keystone: (
+            'tenant_update',
+        ),
+    })
+    def test_update_avatar(self):
+        project = self.tenants.first()
 
-    #Test not working: doesn't call tenant_update in post
-    # @test.create_stubs({api.keystone: ('tenant_update',)})
-    # def test_update_avatar(self):
-    #     project = self.tenants.first()
-    #     project_details = self._get_project_info(project)
+        mock_file = self.mox.CreateMock(file)
 
-    #     updated_project = {"image": 'image',}
+        updated_project = {"image": 'image',}
 
-    #     api.keystone.tenant_update(IsA(http.HttpRequest), project.id, **updated_project) \
-    #         .AndReturn(project)
+        api.keystone.tenant_update(IsA(http.HttpRequest), 
+                                    project.id, 
+                                    **updated_project).AndReturn(project)
 
-    #     self.mox.ReplayAll()
+        self.mox.ReplayAll()
 
-    #     form_data = {
-    #         'method': 'AvatarForm',
-    #         'orgID':project.id,
-    #         'image': updated_project["image"],
-    #     }
+        form_data = {
+            'method': 'AvatarForm',
+            'orgID':project.id,
+            'image': updated_project["image"],  
+        }
 
-    #     url = reverse('horizon:idm:organizations:avatar',
-    #                   args=[project.id])
-    #     response = self.client.post(url, form_data)
-    #     self.assertNoFormErrors(response)
-    pass
+        url = reverse('horizon:idm:organizations:avatar', args=[project.id])
+        response = self.client.post(url, form_data)
+        self.assertNoFormErrors(response)
 

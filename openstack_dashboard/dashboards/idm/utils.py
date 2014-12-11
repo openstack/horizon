@@ -17,5 +17,4 @@ def filter_default_organizations(projects):
     project behaviour. We don't want the user to be able to do any operations to this 
     project nor even notice it exists.
     """
-    import pdb; pdb.set_trace()
     return [p for p in projects if not getattr(p, 'is_default', False)]

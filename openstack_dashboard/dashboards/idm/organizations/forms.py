@@ -137,50 +137,52 @@ class ContactForm(forms.SelfHandlingForm):
         response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])
         return response
 
-class AvatarForm(forms.SelfHandlingForm):
-    orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
-    image = forms.ImageField(required=False)
+
+class ImageCropMixin(object):
     x1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
     y1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
     x2 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
     y2 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
 
+    def crop(self, image):
+        x1 = int(self.cleaned_data['x1'])
+        x2 = int(self.cleaned_data['x2'])
+        y1 = int(self.cleaned_data['y1'])
+        y2 = int(self.cleaned_data['y2'])
+
+        img = Image.open(image)
+        output_img = img.crop((x1, y1, x2, y2))
+
+        return output_img
+
+
+class AvatarForm(forms.SelfHandlingForm, ImageCropMixin):
+    orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
+    image = forms.ImageField(required=False)
+
     def handle(self, request, data):
         if request.FILES:
-
-            x1 = self.cleaned_data['x1'] 
-            x2 = self.cleaned_data['x2']
-            y1 = self.cleaned_data['y1']
-            y2 = self.cleaned_data['y2']
-                    
             image = request.FILES['image'] 
-
-            img = Image.open(image)
-
-            x1 = int(x1)
-            x2 = int(x2)
-            y1 = int(y1)
-            y2 = int(y2)
-
-            output_img = img.crop((x1, y1, x2, y2))
+            output_img = self.crop(image)
+            
             imageName = self.data['orgID']
         
             output_img.save(settings.MEDIA_ROOT + "/" + "OrganizationAvatar/" + imageName, 'JPEG')
-            organization = api.keystone.tenant_get(request, data['orgID'])
-            img=settings.MEDIA_URL+'OrganizationAvatar/'+imageName
+            
+            img = settings.MEDIA_URL+'OrganizationAvatar/'+imageName
             api.keystone.tenant_update(request, data['orgID'], img=img)
-            LOG.debug('Organization {0} image updated'.format(organization.id))
+
+            LOG.debug('Organization {0} image updated'.format(data['orgID']))
             messages.success(request, _("Organization updated successfully."))
 
         response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])
         return response
-        
+
+             
 class CancelForm(forms.SelfHandlingForm):
     orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
-    # name = forms.CharField(label=_("Name"), widget=forms.HiddenInput(), required=False)
 
     def handle(self, request, data):
-        
         organization = api.keystone.tenant_get(request, data['orgID'])
         image = organization.img
         if "OrganizationAvatar" in image:
@@ -191,7 +193,3 @@ class CancelForm(forms.SelfHandlingForm):
         messages.success(request, _("Organization deleted successfully."))
         response = shortcuts.redirect('horizon:idm:organizations:index')
         return response
-
-
-       
-

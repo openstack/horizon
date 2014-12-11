@@ -64,16 +64,16 @@ class DetailOrganizationView(tables.MultiTableView):
                      organization_tables.ApplicationsTable)
     
     def get_members_data(self):        
-        user = []
-        user_id = self.request.user.id
+        users = []
         try:
-            user_info = api.keystone.user_get(self.request, self.request.user.id)
-            user.append(user_info)
-            
+            #user_info = api.keystone.user_get(self.request, self.request.user.id)
+            #user.append(user_info)
+            users = api.keystone.user_list(self.request,
+                                         project=self.kwargs['organization_id'])
         except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve member information."))
-        return user
+        return users
 
     def get_applications_data(self):
         applications = []
