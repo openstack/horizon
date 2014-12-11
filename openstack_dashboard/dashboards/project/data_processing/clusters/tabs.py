@@ -102,9 +102,10 @@ class NodeGroupsTab(tabs.Tab):
                         self._get_floating_ip_pool_name(
                             request, ng["floating_ip_pool"]))
 
-                ng["node_group_template"] = helpers.safe_call(
-                    sahara.node_group_templates.get,
-                    ng.get("node_group_template_id", None))
+                if ng.get("node_group_template_id", None):
+                    ng["node_group_template"] = helpers.safe_call(
+                        sahara.node_group_templates.get,
+                        ng["node_group_template_id"])
         except Exception:
             cluster = {}
             exceptions.handle(request,
