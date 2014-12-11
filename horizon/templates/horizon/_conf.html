@@ -30,7 +30,7 @@
  * should be aware of.
  */
 
-horizonApp
+angular.module('hz')
   .config(['hzConfig', function (hzConfig) {
     hzConfig.debug = {{ debug|yesno:"true,false" }};
     hzConfig.static_url = "{{ STATIC_URL }}";

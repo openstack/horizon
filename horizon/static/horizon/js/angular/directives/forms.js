@@ -1,8 +1,7 @@
-/*globals horizonApp*/
 (function () {
   'use strict';
-  horizonApp.
-    directive('notBlank', function () {
+  angular.module('hz')
+    .directive('notBlank', function () {
       return {
         require: 'ngModel',
         link: function (scope, elm, attrs, ctrl) {
