@@ -96,11 +96,6 @@ class IndexTests(BaseOrganizationsTests):
         self.assertItemsEqual(response.context['table'].data, other_organizations)
         self.assertNoMessages() 
 
-    def test_owned_organizations_exceptions(self):
-        pass
-
-    def test_other_organizations_exceptions(self):
-        pass
 
 class DetailTests(BaseOrganizationsTests):
 
