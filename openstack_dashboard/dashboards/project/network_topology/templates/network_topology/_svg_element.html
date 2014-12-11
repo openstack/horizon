@@ -19,6 +19,10 @@ svg#topology_canvas .network-cidr {
   font-size: 11px;
   text-anchor: end;
 }
+svg#topology_canvas text.network-type {
+  font-family: FontAwesome;
+  text-anchor: end;
+}
 svg#topology_canvas .port_text {
   font-size: 9px;
   fill: #666;
@@ -169,6 +173,8 @@ svg#topology_canvas g.loading .instance_normal .icon_bg {
     <rect rx="7" ry="7" width="15" height="200" style="fill: #8541B5;" class="network-rect"></rect>
     <text x="250" y="-3" class="network-name" transform="rotate(90 0 0)" pointer-events="none">Network</text>
     <text x="0" y="-20" class="network-cidr" transform="rotate(90 0 0)">0.0.0.0</text>
+    <text x="0" y="-20" class="network-type" transform="rotate(90 0 0)"
+          data-toggle="tooltip" data-placement="bottom" title="{% trans 'External Network' %}"></text>
   </g>
   <g class="router_normal device_body">
     <g class="ports" pointer-events="none"></g>
@@ -210,5 +216,7 @@ svg#topology_canvas g.loading .instance_normal .icon_bg {
     <rect rx="9" ry="9" width="17" height="500" style="fill: #8541B5;" class="network-rect"></rect>
     <text x="250" y="-4" class="network-name" transform="rotate(90 0 0)" pointer-events="none">Network</text>
     <text x="490" y="-20" class="network-cidr" transform="rotate(90 0 0)">0.0.0.0</text>
+    <text x="490" y="-20" class="network-type" transform="rotate(90 0 0)"
+          data-toggle="tooltip" data-placement="bottom" title="{% trans 'External Network' %}"></text>
   </g>
 </svg>
