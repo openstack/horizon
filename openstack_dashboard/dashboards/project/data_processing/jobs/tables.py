@@ -105,4 +105,4 @@ class JobsTable(tables.DataTable):
         verbose_name = _("Jobs")
         table_actions = (CreateJob,
                          DeleteJob)
-        row_actions = (ChoosePlugin, LaunchJobExistingCluster, DeleteJob,)
+        row_actions = (LaunchJobExistingCluster, ChoosePlugin, DeleteJob,)
