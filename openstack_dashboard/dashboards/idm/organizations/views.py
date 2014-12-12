@@ -85,10 +85,10 @@ class BaseOrganizationsMultiFormView(idm_views.BaseMultiFormView):
     template_name = 'idm/organizations/edit.html'
     forms_classes = [InfoForm, ContactForm, AvatarForm, CancelForm]
     enpoints = {
-        InfoForm: reverse_lazy('info'),
-        ContactForm: reverse_lazy('contact'),
-        AvatarForm: reverse_lazy('avatar'),
-        CancelForm: reverse_lazy('cancel'),
+        InfoForm: reverse_lazy('horizon:idm:organizations:info'),
+        ContactForm: reverse_lazy('horizon:idm:organizations:contact'),
+        AvatarForm: reverse_lazy('horizon:idm:organizations:avatar'),
+        CancelForm: reverse_lazy('horizon:idm:organizations:cancel'),
     }
     def get_object(self):
         try:
