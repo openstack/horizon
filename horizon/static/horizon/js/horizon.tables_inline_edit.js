@@ -213,8 +213,11 @@ horizon.inline_edit = {
 };
 
 
-horizon.addInitFunction(horizon.inline_edit.init = function() {
-  $('table').on('click', '.ajax-inline-edit', function (evt) {
+horizon.addInitFunction(horizon.inline_edit.init = function(parent) {
+  parent = parent || document;
+  var $table = $(parent).find('table');
+
+  $table.on('click', '.ajax-inline-edit', function (evt) {
     var $this = $(this);
     var td_element = $this.parents('td').first();
 
@@ -236,17 +239,17 @@ horizon.addInitFunction(horizon.inline_edit.init = function() {
     evt.preventDefault();
   };
 
-  $('table').on('click', '.inline-edit-submit', function (evt) {
+  $table.on('click', '.inline-edit-submit', function (evt) {
     submit_form(evt, this);
   });
 
-  $('table').on('keypress', '.inline-edit-form', function (evt) {
+  $table.on('keypress', '.inline-edit-form', function (evt) {
     if (evt.which === 13 && !evt.shiftKey) {
       submit_form(evt, this);
     }
   });
 
-  $('table').on('click', '.inline-edit-cancel', function (evt) {
+  $table.on('click', '.inline-edit-cancel', function (evt) {
     var $cancel = $(this);
     var td_element = $cancel.parents('td').first();
 
@@ -256,11 +259,11 @@ horizon.addInitFunction(horizon.inline_edit.init = function() {
     evt.preventDefault();
   });
 
-  $('table').on('mouseenter', '.inline_edit_available', function (evt) {
+  $table.on('mouseenter', '.inline_edit_available', function (evt) {
     $(this).find(".table_cell_action").fadeIn(100);
   });
 
-  $('table').on('mouseleave', '.inline_edit_available', function (evt) {
+  $table.on('mouseleave', '.inline_edit_available', function (evt) {
     $(this).find(".table_cell_action").fadeOut(200);
   });
 });
