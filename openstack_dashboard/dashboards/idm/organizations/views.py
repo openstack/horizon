@@ -16,9 +16,8 @@ import os
 import logging
 
 from django.conf import settings
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse, reverse_lazy
 from django.utils.translation import ugettext_lazy as _
-from django.views.generic.base import TemplateView
 
 from horizon import exceptions
 from horizon import tables
@@ -27,13 +26,13 @@ from horizon import tabs
 from horizon import forms
 
 from openstack_dashboard import api
-
+from openstack_dashboard.dashboards.idm import views as idm_views
 from openstack_dashboard.dashboards.idm.organizations \
     import tables as organization_tables
 from openstack_dashboard.dashboards.idm.organizations \
     import tabs as organization_tabs
-from openstack_dashboard.dashboards.idm.organizations \
-    import forms as organization_forms
+from openstack_dashboard.dashboards.idm.organizations.forms \
+    import  InfoForm, ContactForm, AvatarForm, CancelForm, CreateOrganizationForm
 
 
 LOG = logging.getLogger('idm_logger')
@@ -45,7 +44,7 @@ class IndexView(tabs.TabbedTableView):
 
 
 class CreateOrganizationView(forms.ModalFormView):
-    form_class = organization_forms.CreateOrganizationForm
+    form_class = CreateOrganizationForm
     template_name = 'idm/organizations/create.html'
 
 
@@ -82,10 +81,15 @@ class DetailOrganizationView(tables.MultiTableView):
         return context
 
 
-class MultiFormView(TemplateView):
+class BaseOrganizationsMultiFormView(idm_views.BaseMultiFormView):
     template_name = 'idm/organizations/edit.html'
-
-    @memoized.memoized_method
+    forms_classes = [InfoForm, ContactForm, AvatarForm, CancelForm]
+    enpoints = {
+        InfoForm: reverse_lazy('info'),
+        ContactForm: reverse_lazy('contact'),
+        AvatarForm: reverse_lazy('avatar'),
+        CancelForm: reverse_lazy('cancel'),
+    }
     def get_object(self):
         try:
             return api.keystone.tenant_get(self.request, self.kwargs['organization_id'])
@@ -94,61 +98,33 @@ class MultiFormView(TemplateView):
             exceptions.handle(self.request, 
                     _('Unable to update organization'), redirect=redirect)
 
-    def get_context_data(self, **kwargs):
-        context = super(MultiFormView, self).get_context_data(**kwargs)
-        organization = self.get_object()
-        context['organization'] = organization
-
+    def get_initial(self, form_class):
+        initial = super(BaseOrganizationsMultiFormView, self).get_initial(form_class)  
         #Existing data from organizations
-           
-        initial_data = {
-            "orgID": organization.id,
-            "name": organization.name,
-            "description": organization.description,    
-            "city": getattr(organization, 'city', ''),
-            "email": getattr(organization, 'email', ''),
-            "website":getattr(organization, 'website', ''),
-        }
-       
-        #Create forms
-        info = organization_forms.InfoForm(self.request, initial=initial_data)
-        contact = organization_forms.ContactForm(self.request, initial=initial_data)
-        avatar = organization_forms.AvatarForm(self.request, initial=initial_data)
-        cancel = organization_forms.CancelForm(self.request, initial=initial_data)
+        initial.update({
+            "orgID": self.object.id,
+            "name": self.object.name,
+            "description": self.object.description,    
+            "city": getattr(self.object, 'city', ''),
+            "email": getattr(self.object, 'email', ''),
+            "website":getattr(self.object, 'website', ''),
+        })
+        return initial
 
-        #Actions and titles
-        # TODO(garcianavalon) quizas es mejor meterlo en el __init__ del form
-        info.action = 'info/'
-        info.title = 'Information'
-        contact.action = "contact/"
-        contact.title = 'Contact Information'
-        avatar.action = "avatar/"
-        avatar.title = 'Avatar Update'
-        cancel.action = "cancel/"
-        cancel.title = 'Cancel'
-
-        context['forms'] = [info, contact, avatar]
-        context['cancel_form'] = cancel
-        context['image'] = getattr(organization, 'img', '/static/dashboard/img/logos/small/group.png')
+    def get_context_data(self, **kwargs):
+        context = super(BaseOrganizationsMultiFormView, self).get_context_data(**kwargs)
+        context['image'] = getattr(self.object, 'img', 
+                            '/static/dashboard/img/logos/small/group.png')
         return context
 
+class InfoFormHandleView(BaseOrganizationsMultiFormView):    
+    form_to_handle_class = InfoForm
 
-class HandleForm(forms.ModalFormView):
-    template_name = ''
-    http_method_not_allowed = ['get']
-
-class InfoFormView(HandleForm):    
-    form_class = organization_forms.InfoForm
-    http_method_not_allowed = ['get']
-
-
-class ContactFormView(HandleForm):
-    form_class = organization_forms.ContactForm
-
+class ContactFormHandleView(BaseOrganizationsMultiFormView):
+    form_to_handle_class = ContactForm
    
-class AvatarFormView(forms.ModalFormView):
-    form_class = organization_forms.AvatarForm
+class AvatarFormHandleView(BaseOrganizationsMultiFormView):
+    form_to_handle_class = AvatarForm
 
-
-class CancelFormView(forms.ModalFormView):
-    form_class = organization_forms.CancelForm
+class CancelFormHandleView(BaseOrganizationsMultiFormView):
+    form_to_handle_class = CancelForm

@@ -36,7 +36,7 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), max_length=64, required=True)
     description = forms.CharField(label=_("Description"), 
                                 widget=forms.widgets.Textarea, 
-                                required=True) 
+                                required=True)
 
     def handle(self, request, data):
         #create organization
@@ -102,6 +102,7 @@ class InfoForm(forms.SelfHandlingForm):
                                 widget=forms.widgets.Textarea, 
                                 required=True)
     city = forms.CharField(label=_("City"), max_length=64, required=False)
+    title = 'Information'
 
     def handle(self, request, data):
         try:
@@ -123,6 +124,7 @@ class ContactForm(forms.SelfHandlingForm):
     orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
     email = forms.EmailField(label=_("E-mail"), required=False)
     website = forms.URLField(label=_("Website"), required=False)
+    title = 'Contact Information'
 
     def handle(self, request, data):
         api.keystone.tenant_update(request, 
@@ -156,6 +158,7 @@ class ImageCropMixin(object):
 class AvatarForm(forms.SelfHandlingForm, ImageCropMixin):
     orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
     image = forms.ImageField(required=False)
+    title = 'Avatar Update'
 
     def handle(self, request, data):
         if request.FILES:
@@ -178,7 +181,8 @@ class AvatarForm(forms.SelfHandlingForm, ImageCropMixin):
              
 class CancelForm(forms.SelfHandlingForm):
     orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
-
+    title = 'Cancel'
+    
     def handle(self, request, data):
         organization = api.keystone.tenant_get(request, data['orgID'])
         image = organization.img
