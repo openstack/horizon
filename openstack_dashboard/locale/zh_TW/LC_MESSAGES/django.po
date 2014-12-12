@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-10 22:10-0600\n"
-"PO-Revision-Date: 2014-12-11 00:12+0000\n"
+"POT-Creation-Date: 2014-12-11 21:40-0600\n"
+"PO-Revision-Date: 2014-12-12 03:41+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -370,7 +370,7 @@ msgstr "檢查 Neutron「%s」擴充套件是否支援時失敗"
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:17
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:28
 #: dashboards/project/routers/tables.py:182
-#: dashboards/project/volumes/volumes/tables.py:307
+#: dashboards/project/volumes/volumes/tables.py:300
 msgid "-"
 msgstr "-"
 
@@ -468,7 +468,7 @@ msgstr "管理員"
 #: dashboards/project/data_processing/cluster_templates/tables.py:108
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:6
 #: dashboards/project/data_processing/clusters/tables.py:105
-#: dashboards/project/data_processing/clusters/tabs.py:134
+#: dashboards/project/data_processing/clusters/tabs.py:135
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:6
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:9
 #: dashboards/project/data_processing/data_sources/tables.py:57
@@ -533,8 +533,8 @@ msgstr "管理員"
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:12
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:10
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:10
-#: dashboards/project/volumes/volumes/tables.py:323
-#: dashboards/project/volumes/volumes/tables.py:352
+#: dashboards/project/volumes/volumes/tables.py:316
+#: dashboards/project/volumes/volumes/tables.py:345
 #: dashboards/project/vpn/forms.py:31 dashboards/project/vpn/forms.py:65
 #: dashboards/project/vpn/forms.py:137 dashboards/project/vpn/forms.py:208
 #: dashboards/project/vpn/tables.py:230 dashboards/project/vpn/tables.py:260
@@ -563,7 +563,7 @@ msgstr "名稱"
 #: dashboards/project/volumes/volumes/forms.py:90
 #: dashboards/project/volumes/volumes/forms.py:95
 #: dashboards/project/volumes/volumes/forms.py:96
-#: dashboards/project/volumes/volumes/tables.py:359
+#: dashboards/project/volumes/volumes/tables.py:352
 msgid "Availability Zone"
 msgstr "可用區域"
 
@@ -1049,7 +1049,7 @@ msgstr "虛擬 CPU 數"
 #: dashboards/admin/instances/tables.py:163
 #: dashboards/admin/instances/templates/instances/index.html:3
 #: dashboards/identity/projects/workflows.py:49
-#: dashboards/project/data_processing/clusters/tabs.py:149
+#: dashboards/project/data_processing/clusters/tabs.py:150
 #: dashboards/project/databases/panel.py:23
 #: dashboards/project/databases/tables.py:269
 #: dashboards/project/databases/templates/databases/index.html:3
@@ -1077,19 +1077,19 @@ msgstr "已注入的資料"
 #: dashboards/admin/volumes/volumes/tables.py:48
 #: dashboards/identity/projects/workflows.py:54
 #: dashboards/project/volumes/panel.py:23
-#: dashboards/project/volumes/tabs.py:62
+#: dashboards/project/volumes/tabs.py:83
 #: dashboards/project/volumes/templates/volumes/index.html:3
 #: dashboards/project/volumes/templates/volumes/index.html:6
-#: dashboards/project/volumes/volumes/tables.py:368 usage/quotas.py:74
+#: dashboards/project/volumes/volumes/tables.py:361 usage/quotas.py:74
 msgid "Volumes"
 msgstr "儲存空間"
 
 #: dashboards/admin/defaults/tables.py:49
 #: dashboards/admin/defaults/workflows.py:53
-#: dashboards/admin/volumes/tabs.py:112
+#: dashboards/admin/volumes/tabs.py:115
 #: dashboards/admin/volumes/snapshots/tables.py:69
 #: dashboards/identity/projects/workflows.py:55
-#: dashboards/project/volumes/tabs.py:76
+#: dashboards/project/volumes/tabs.py:99
 #: dashboards/project/volumes/snapshots/tables.py:147 usage/quotas.py:75
 msgid "Volume Snapshots"
 msgstr "儲存空間即時存檔"
@@ -1269,7 +1269,7 @@ msgstr "%sMB"
 #: dashboards/admin/flavors/tables.py:109
 #: dashboards/admin/flavors/tables.py:113
 #: dashboards/project/volumes/backups/tables.py:95
-#: dashboards/project/volumes/volumes/tables.py:257
+#: dashboards/project/volumes/volumes/tables.py:250
 #, python-format
 msgid "%sGB"
 msgstr "%sGB"
@@ -1534,7 +1534,7 @@ msgstr "主機名稱"
 #: dashboards/project/volumes/volumes/forms.py:86
 #: dashboards/project/volumes/volumes/forms.py:87
 #: dashboards/project/volumes/volumes/forms.py:660
-#: dashboards/project/volumes/volumes/tables.py:355
+#: dashboards/project/volumes/volumes/tables.py:348
 msgid "Type"
 msgstr "類型"
 
@@ -1749,7 +1749,7 @@ msgstr "區域"
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:20
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:18
-#: dashboards/project/volumes/volumes/tables.py:333
+#: dashboards/project/volumes/volumes/tables.py:326
 #: dashboards/project/vpn/tables.py:240 dashboards/project/vpn/tables.py:267
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:71
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:38
@@ -2148,7 +2148,7 @@ msgstr "IP 位址"
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:37
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:37
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:27
-#: dashboards/project/volumes/volumes/tables.py:329
+#: dashboards/project/volumes/volumes/tables.py:322
 msgid "Size"
 msgstr "容量"
 
@@ -2356,7 +2356,7 @@ msgstr "量測器"
 #: dashboards/project/volumes/volumes/forms.py:52
 #: dashboards/project/volumes/volumes/forms.py:488
 #: dashboards/project/volumes/volumes/forms.py:529
-#: dashboards/project/volumes/volumes/tables.py:326
+#: dashboards/project/volumes/volumes/tables.py:319
 #: dashboards/project/vpn/forms.py:36 dashboards/project/vpn/forms.py:70
 #: dashboards/project/vpn/forms.py:142 dashboards/project/vpn/forms.py:213
 #: dashboards/project/vpn/tables.py:262 dashboards/project/vpn/workflows.py:28
@@ -3153,8 +3153,8 @@ msgstr "更新接口"
 #: dashboards/admin/networks/templates/networks/subnets/index.html:3
 #: dashboards/admin/networks/templates/networks/subnets/index.html:6
 #: dashboards/project/networks/templates/networks/detail.html:3
-msgid "Network Detail"
-msgstr "網路詳細資訊"
+msgid "Network Details"
+msgstr ""
 
 #: dashboards/admin/overview/views.py:34
 #: dashboards/project/overview/views.py:33
@@ -3379,13 +3379,10 @@ msgid "You may update the editable properties of your router here."
 msgstr "您將在這更新您的路由器上可供編輯的屬性。"
 
 #: dashboards/admin/routers/templates/routers/detail.html:3
+#: dashboards/admin/routers/templates/routers/detail.html:6
 #: dashboards/project/routers/templates/routers/detail.html:3
 #: dashboards/project/routers/templates/routers/detail.html:6
 msgid "Router Details"
-msgstr "路由器詳細資訊"
-
-#: dashboards/admin/routers/templates/routers/detail.html:6
-msgid "Router Detail"
 msgstr "路由器詳細資訊"
 
 #: dashboards/admin/routers/templates/routers/update.html:3
@@ -3395,29 +3392,29 @@ msgstr "路由器詳細資訊"
 msgid "Update Router"
 msgstr "更新路由器"
 
-#: dashboards/admin/volumes/tabs.py:50 dashboards/admin/volumes/tabs.py:138
+#: dashboards/admin/volumes/tabs.py:53 dashboards/admin/volumes/tabs.py:141
 #: dashboards/admin/volumes/snapshots/tables.py:52
 msgid "Unable to retrieve volume project information."
 msgstr "無法取回儲存空間專案的資訊。"
 
-#: dashboards/admin/volumes/tabs.py:65
+#: dashboards/admin/volumes/tabs.py:68
 #: dashboards/admin/volumes/volume_types/tables.py:124
 msgid "Volume Types"
 msgstr "儲存空間類型"
 
-#: dashboards/admin/volumes/tabs.py:77
+#: dashboards/admin/volumes/tabs.py:80
 msgid "Unable to retrieve volume types"
 msgstr "無法取回儲存空間的類型"
 
-#: dashboards/admin/volumes/tabs.py:85
+#: dashboards/admin/volumes/tabs.py:88
 msgid "Unable to retrieve volume type encryption information."
 msgstr ""
 
-#: dashboards/admin/volumes/tabs.py:106
+#: dashboards/admin/volumes/tabs.py:109
 msgid "Unable to retrieve QoS specs"
 msgstr ""
 
-#: dashboards/admin/volumes/tabs.py:130 dashboards/project/volumes/tabs.py:90
+#: dashboards/admin/volumes/tabs.py:133 dashboards/project/volumes/tabs.py:113
 #: dashboards/project/volumes/volumes/forms.py:200
 msgid "Unable to retrieve volume snapshots."
 msgstr "無法取回儲存空間即時存檔。"
@@ -5126,8 +5123,8 @@ msgstr "分配 IP 到專案"
 #: dashboards/project/access_and_security/floating_ips/tables.py:57
 #: dashboards/project/access_and_security/keypairs/tables.py:73
 #: dashboards/project/instances/tables.py:331
-#: dashboards/project/volumes/volumes/tables.py:124
-#: dashboards/project/volumes/volumes/tables.py:192
+#: dashboards/project/volumes/volumes/tables.py:117
+#: dashboards/project/volumes/volumes/tables.py:185
 msgid "(Quota exceeded)"
 msgstr "（超出配額）"
 
@@ -5191,7 +5188,7 @@ msgstr "無可用的浮動 IP 倉庫"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:37
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:196
-#: dashboards/project/volumes/volumes/tables.py:420
+#: dashboards/project/volumes/volumes/tables.py:413
 msgid "Instance"
 msgstr "執行實例"
 
@@ -6343,7 +6340,6 @@ msgstr "節點設置"
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:59
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:68
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:62
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_service_confs.html:12
 #, python-format
 msgid "%(conf_name)s: %(conf_value)s"
 msgstr ""
@@ -6535,23 +6531,23 @@ msgstr "設置叢集"
 msgid "Instances Count"
 msgstr "執行實例計數"
 
-#: dashboards/project/data_processing/clusters/tabs.py:111
+#: dashboards/project/data_processing/clusters/tabs.py:112
 msgid "Unable to get node group details."
 msgstr "無法獲得節點群組詳細資訊。"
 
-#: dashboards/project/data_processing/clusters/tabs.py:137
+#: dashboards/project/data_processing/clusters/tabs.py:138
 msgid "Internal IP"
 msgstr "內部 IP"
 
-#: dashboards/project/data_processing/clusters/tabs.py:140
+#: dashboards/project/data_processing/clusters/tabs.py:141
 msgid "Management IP"
 msgstr "IP 管理"
 
-#: dashboards/project/data_processing/clusters/tabs.py:145
+#: dashboards/project/data_processing/clusters/tabs.py:146
 msgid " "
 msgstr " "
 
-#: dashboards/project/data_processing/clusters/tabs.py:174
+#: dashboards/project/data_processing/clusters/tabs.py:175
 msgid "Unable to fetch instance details."
 msgstr "無法取得執行實例的詳細資訊。"
 
@@ -7606,6 +7602,11 @@ msgstr "顯示完整的設置"
 msgid "Hide full configuration"
 msgstr "隱藏完整的設置"
 
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_service_confs.html:12
+#, python-format
+msgid "%(conf_name)s: %(conf_val)s"
+msgstr ""
+
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:3
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:6
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/create.html:3
@@ -7729,7 +7730,7 @@ msgstr "備份"
 
 #: dashboards/project/database_backups/tables.py:38
 #: dashboards/project/databases/tables.py:148
-#: dashboards/project/volumes/volumes/tables.py:198
+#: dashboards/project/volumes/volumes/tables.py:191
 msgid "Create Backup"
 msgstr "新增備份"
 
@@ -9007,8 +9008,8 @@ msgstr[0] ""
 #: dashboards/project/volumes/templates/volumes/volumes/_create.html:9
 #: dashboards/project/volumes/templates/volumes/volumes/_create.html:24
 #: dashboards/project/volumes/templates/volumes/volumes/create.html:3
-#: dashboards/project/volumes/volumes/tables.py:101
-#: dashboards/project/volumes/volumes/tables.py:126
+#: dashboards/project/volumes/volumes/tables.py:94
+#: dashboards/project/volumes/volumes/tables.py:119
 msgid "Create Volume"
 msgstr "新增儲存空間"
 
@@ -9107,7 +9108,7 @@ msgstr "映像檔詳細資訊"
 #: dashboards/project/images/templates/images/snapshots/_create.html:24
 #: dashboards/project/images/templates/images/snapshots/create.html:3
 #: dashboards/project/instances/tables.py:385
-#: dashboards/project/volumes/volumes/tables.py:173
+#: dashboards/project/volumes/volumes/tables.py:166
 msgid "Create Snapshot"
 msgstr "新增即時存檔"
 
@@ -9930,7 +9931,7 @@ msgstr "已附加儲存空間"
 #: dashboards/project/instances/templates/instances/_detail_overview.html:134
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:47
-#: dashboards/project/volumes/volumes/tables.py:357
+#: dashboards/project/volumes/volumes/tables.py:350
 msgid "Attached To"
 msgstr "附加到"
 
@@ -11329,7 +11330,7 @@ msgstr "無法取回網路詳細資訊。"
 
 #: dashboards/project/networks/views.py:145
 #, python-format
-msgid "Network Detail: %(network_name)s"
+msgid "Network Details: %(network_name)s"
 msgstr ""
 
 #: dashboards/project/networks/workflows.py:50
@@ -11449,8 +11450,8 @@ msgstr "額外的路由發佈到主機。每個條目就像：destination_cidr,n
 #: dashboards/project/networks/subnets/workflows.py:150
 #: dashboards/project/networks/templates/networks/subnets/detail.html:3
 #: dashboards/project/networks/templates/networks/subnets/detail.html:6
-msgid "Subnet Detail"
-msgstr "子網路詳細資訊"
+msgid "Subnet Details"
+msgstr ""
 
 #: dashboards/project/networks/workflows.py:256
 #: dashboards/project/networks/subnets/workflows.py:151
@@ -11583,8 +11584,8 @@ msgstr "指定「網路位址」"
 #: dashboards/project/networks/subnets/workflows.py:39
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
-"available by clicking on the \"Subnet Detail\" tab."
-msgstr "新增一個子網路與此網路聯結。點擊「子網路詳細資訊」標籤後出現進階的設置。"
+"available by clicking on the \"Subnet Details\" tab."
+msgstr ""
 
 #: dashboards/project/networks/subnets/workflows.py:58
 #, python-format
@@ -11614,8 +11615,8 @@ msgstr "閘道的 IP 位址（如 192.168.0.254）。指定一個正確的位址
 #: dashboards/project/networks/subnets/workflows.py:117
 msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
-"available at \"Subnet Detail\" tab."
-msgstr "更新一個子網路與此網路聯結。進階的設置在「子網路詳細資訊」標籤裡。"
+"available at \"Subnet Details\" tab."
+msgstr ""
 
 #: dashboards/project/networks/subnets/workflows.py:162
 #, python-format
@@ -11698,8 +11699,8 @@ msgstr "無附加的裝置"
 
 #: dashboards/project/networks/templates/networks/ports/detail.html:3
 #: dashboards/project/networks/templates/networks/ports/detail.html:6
-msgid "Port Detail"
-msgstr "接口詳細資訊"
+msgid "Port Details"
+msgstr ""
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:4
 msgid "Subnet Overview"
@@ -12111,11 +12112,11 @@ msgstr ""
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:123
 msgid ""
 "The color and icon of an intersection indicates whether or not traffic is permitted from the source (row) to the destination (column).\n"
-"     Clicking the <i class=\"icon-random\"></i> button in the intersection will install a rule to switch the traffic behavior.<br/>\n"
+"     Clicking the <i class=\"fa fa-random\"></i> button in the intersection will install a rule to switch the traffic behavior.<br/>\n"
 "\n"
 "     <b>Note:</b> Rules only affect one direction of traffic. The opposite direction is outlined when hovering over an intersection.\n"
 " "
-msgstr "一個路口的顏色及圖示表示著是否允許從來源（列）到目標（欄）的交通。\n     在路口點擊<i class=\"icon-random\"></i>按鍵將會套用規則來交換交通的偏好設定。<br/>\n\n     <b>留意：</b>規則只會影響單向的交通。將滑鼠移到路口上會列出相反的方向的概要。\n "
+msgstr ""
 
 #: dashboards/project/routers/templates/routers/ports/_create.html:20
 msgid "You can connect a specified subnet to the router."
@@ -12392,7 +12393,7 @@ msgstr "無法取回機櫃。"
 
 #: dashboards/project/stacks/views.py:207
 #, python-format
-msgid "Stack Detail: %(stack_name)s"
+msgid "Stack Details: %(stack_name)s"
 msgstr ""
 
 #: dashboards/project/stacks/views.py:232
@@ -12401,7 +12402,7 @@ msgstr ""
 
 #: dashboards/project/stacks/views.py:255
 #, python-format
-msgid "Resource Detail: %s"
+msgid "Resource Details: %s"
 msgstr ""
 
 #: dashboards/project/stacks/views.py:267
@@ -12494,12 +12495,12 @@ msgid "Change Template"
 msgstr "變更樣板"
 
 #: dashboards/project/stacks/templates/stacks/detail.html:3
-msgid "Stack Detail"
-msgstr "機櫃詳細資訊"
+msgid "Stack Details"
+msgstr ""
 
 #: dashboards/project/stacks/templates/stacks/resource.html:3
-msgid "Resource Detail"
-msgstr "資源詳細資訊"
+msgid "Resource Details"
+msgstr ""
 
 #: dashboards/project/stacks/templates/stacks/update.html:6
 msgid "Update Stack"
@@ -12513,13 +12514,17 @@ msgstr "無法取回儲存空間列表。"
 msgid "Unable to retrieve volume/instance attachment information"
 msgstr "無法取回儲存空間/執行實例附件資訊"
 
-#: dashboards/project/volumes/tabs.py:104
+#: dashboards/project/volumes/tabs.py:62
+msgid "Unable to retrieve snapshot list."
+msgstr ""
+
+#: dashboards/project/volumes/tabs.py:127
 #: dashboards/project/volumes/backups/tables.py:48
 #: dashboards/project/volumes/backups/tables.py:126
 msgid "Volume Backups"
 msgstr "儲存空間備份"
 
-#: dashboards/project/volumes/tabs.py:121
+#: dashboards/project/volumes/tabs.py:144
 msgid "Unable to retrieve volume backups."
 msgstr "無法取回儲存空間備份。"
 
@@ -12709,7 +12714,7 @@ msgid "Volume Overview"
 msgstr "儲存空間概觀"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:35
-#: dashboards/project/volumes/volumes/tables.py:441
+#: dashboards/project/volumes/volumes/tables.py:434
 msgid "Attachments"
 msgstr "附件"
 
@@ -12734,7 +12739,7 @@ msgstr "儲存空間來源"
 #: dashboards/project/volumes/templates/volumes/volumes/_extend.html:24
 #: dashboards/project/volumes/templates/volumes/volumes/extend.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/extend.html:6
-#: dashboards/project/volumes/volumes/tables.py:138
+#: dashboards/project/volumes/volumes/tables.py:131
 msgid "Extend Volume"
 msgstr "擴充的儲存空間"
 
@@ -12764,7 +12769,7 @@ msgstr "儲存空間數量"
 #: dashboards/project/volumes/templates/volumes/volumes/_retype.html:39
 #: dashboards/project/volumes/templates/volumes/volumes/retype.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/retype.html:6
-#: dashboards/project/volumes/volumes/tables.py:238
+#: dashboards/project/volumes/volumes/tables.py:231
 msgid "Change Volume Type"
 msgstr "變更儲存空間的類型"
 
@@ -12809,7 +12814,7 @@ msgstr "即時存檔數量"
 #: dashboards/project/volumes/templates/volumes/volumes/_update.html:24
 #: dashboards/project/volumes/templates/volumes/volumes/update.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/update.html:6
-#: dashboards/project/volumes/volumes/tables.py:226
+#: dashboards/project/volumes/volumes/tables.py:219
 msgid "Edit Volume"
 msgstr "編輯儲存空間"
 
@@ -13116,64 +13121,59 @@ msgid "Scheduled deletion of Volume"
 msgid_plural "Scheduled deletion of Volumes"
 msgstr[0] ""
 
-#: dashboards/project/volumes/volumes/tables.py:88
-#, python-format
-msgid "Unable to delete volume \"%s\". One or more snapshots depend on it."
-msgstr "無法刪除儲存空間「%s」。一個或多個即時存檔依賴在它上。"
-
-#: dashboards/project/volumes/volumes/tables.py:149
+#: dashboards/project/volumes/volumes/tables.py:142
 msgid "Manage Attachments"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:183
+#: dashboards/project/volumes/volumes/tables.py:176
 msgid "Unable to retrieve tenant limits."
 msgstr "無法取回租用人限制。"
 
-#: dashboards/project/volumes/volumes/tables.py:210
+#: dashboards/project/volumes/volumes/tables.py:203
 msgid "Upload to Image"
 msgstr "上傳至映像檔"
 
-#: dashboards/project/volumes/volumes/tables.py:270
+#: dashboards/project/volumes/volumes/tables.py:263
 #: dashboards/project/volumes/volumes/views.py:252
 msgid "Unable to retrieve attachment information."
 msgstr "無法取回附件資訊。"
 
-#: dashboards/project/volumes/volumes/tables.py:288
+#: dashboards/project/volumes/volumes/tables.py:281
 #, python-format
 msgid "Attached to %(instance)s on %(dev)s"
 msgstr "已附加到 %(instance)s 上的 %(dev)s"
 
-#: dashboards/project/volumes/volumes/tables.py:309
+#: dashboards/project/volumes/volumes/tables.py:302
 msgid "No"
 msgstr "否"
 
-#: dashboards/project/volumes/volumes/tables.py:311
+#: dashboards/project/volumes/volumes/tables.py:304
 msgid "Yes"
 msgstr "是"
 
-#: dashboards/project/volumes/volumes/tables.py:361
+#: dashboards/project/volumes/volumes/tables.py:354
 msgid "Bootable"
 msgstr "可用於開機"
 
-#: dashboards/project/volumes/volumes/tables.py:364
+#: dashboards/project/volumes/volumes/tables.py:357
 msgid "Encrypted"
 msgstr "已加密"
 
-#: dashboards/project/volumes/volumes/tables.py:385
+#: dashboards/project/volumes/volumes/tables.py:378
 msgid "Detach Volume"
 msgid_plural "Detach Volumes"
 msgstr[0] ""
 
-#: dashboards/project/volumes/volumes/tables.py:394
+#: dashboards/project/volumes/volumes/tables.py:387
 msgid "Detaching Volume"
 msgid_plural "Detaching Volumes"
 msgstr[0] ""
 
-#: dashboards/project/volumes/volumes/tables.py:422
+#: dashboards/project/volumes/volumes/tables.py:415
 msgid "Device"
 msgstr "裝置"
 
-#: dashboards/project/volumes/volumes/tables.py:431
+#: dashboards/project/volumes/volumes/tables.py:424
 #, python-format
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr "儲存空間 %(volume_name)s 於執行實例 %(instance_name)s 上"

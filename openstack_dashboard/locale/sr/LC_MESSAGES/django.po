@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-10 22:10-0600\n"
-"PO-Revision-Date: 2014-12-11 00:12+0000\n"
+"POT-Creation-Date: 2014-12-11 21:40-0600\n"
+"PO-Revision-Date: 2014-12-12 03:41+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/horizon/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -370,7 +370,7 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:17
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:28
 #: dashboards/project/routers/tables.py:182
-#: dashboards/project/volumes/volumes/tables.py:307
+#: dashboards/project/volumes/volumes/tables.py:300
 msgid "-"
 msgstr "-"
 
@@ -468,7 +468,7 @@ msgstr "Admin"
 #: dashboards/project/data_processing/cluster_templates/tables.py:108
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:6
 #: dashboards/project/data_processing/clusters/tables.py:105
-#: dashboards/project/data_processing/clusters/tabs.py:134
+#: dashboards/project/data_processing/clusters/tabs.py:135
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:6
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:9
 #: dashboards/project/data_processing/data_sources/tables.py:57
@@ -533,8 +533,8 @@ msgstr "Admin"
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:12
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:10
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:10
-#: dashboards/project/volumes/volumes/tables.py:323
-#: dashboards/project/volumes/volumes/tables.py:352
+#: dashboards/project/volumes/volumes/tables.py:316
+#: dashboards/project/volumes/volumes/tables.py:345
 #: dashboards/project/vpn/forms.py:31 dashboards/project/vpn/forms.py:65
 #: dashboards/project/vpn/forms.py:137 dashboards/project/vpn/forms.py:208
 #: dashboards/project/vpn/tables.py:230 dashboards/project/vpn/tables.py:260
@@ -563,7 +563,7 @@ msgstr "Ime"
 #: dashboards/project/volumes/volumes/forms.py:90
 #: dashboards/project/volumes/volumes/forms.py:95
 #: dashboards/project/volumes/volumes/forms.py:96
-#: dashboards/project/volumes/volumes/tables.py:359
+#: dashboards/project/volumes/volumes/tables.py:352
 msgid "Availability Zone"
 msgstr "Dostupno u zoni"
 
@@ -1053,7 +1053,7 @@ msgstr "VCPUs"
 #: dashboards/admin/instances/tables.py:163
 #: dashboards/admin/instances/templates/instances/index.html:3
 #: dashboards/identity/projects/workflows.py:49
-#: dashboards/project/data_processing/clusters/tabs.py:149
+#: dashboards/project/data_processing/clusters/tabs.py:150
 #: dashboards/project/databases/panel.py:23
 #: dashboards/project/databases/tables.py:269
 #: dashboards/project/databases/templates/databases/index.html:3
@@ -1081,19 +1081,19 @@ msgstr "Injected files"
 #: dashboards/admin/volumes/volumes/tables.py:48
 #: dashboards/identity/projects/workflows.py:54
 #: dashboards/project/volumes/panel.py:23
-#: dashboards/project/volumes/tabs.py:62
+#: dashboards/project/volumes/tabs.py:83
 #: dashboards/project/volumes/templates/volumes/index.html:3
 #: dashboards/project/volumes/templates/volumes/index.html:6
-#: dashboards/project/volumes/volumes/tables.py:368 usage/quotas.py:74
+#: dashboards/project/volumes/volumes/tables.py:361 usage/quotas.py:74
 msgid "Volumes"
 msgstr "Volume-i"
 
 #: dashboards/admin/defaults/tables.py:49
 #: dashboards/admin/defaults/workflows.py:53
-#: dashboards/admin/volumes/tabs.py:112
+#: dashboards/admin/volumes/tabs.py:115
 #: dashboards/admin/volumes/snapshots/tables.py:69
 #: dashboards/identity/projects/workflows.py:55
-#: dashboards/project/volumes/tabs.py:76
+#: dashboards/project/volumes/tabs.py:99
 #: dashboards/project/volumes/snapshots/tables.py:147 usage/quotas.py:75
 msgid "Volume Snapshots"
 msgstr "Snapshot-ovi volume-a"
@@ -1277,7 +1277,7 @@ msgstr "%sMB"
 #: dashboards/admin/flavors/tables.py:109
 #: dashboards/admin/flavors/tables.py:113
 #: dashboards/project/volumes/backups/tables.py:95
-#: dashboards/project/volumes/volumes/tables.py:257
+#: dashboards/project/volumes/volumes/tables.py:250
 #, python-format
 msgid "%sGB"
 msgstr "%sGB"
@@ -1542,7 +1542,7 @@ msgstr "Hostname"
 #: dashboards/project/volumes/volumes/forms.py:86
 #: dashboards/project/volumes/volumes/forms.py:87
 #: dashboards/project/volumes/volumes/forms.py:660
-#: dashboards/project/volumes/volumes/tables.py:355
+#: dashboards/project/volumes/volumes/tables.py:348
 msgid "Type"
 msgstr "Vrsta"
 
@@ -1761,7 +1761,7 @@ msgstr "Zona"
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:20
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:18
-#: dashboards/project/volumes/volumes/tables.py:333
+#: dashboards/project/volumes/volumes/tables.py:326
 #: dashboards/project/vpn/tables.py:240 dashboards/project/vpn/tables.py:267
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:71
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:38
@@ -2164,7 +2164,7 @@ msgstr "IP adresa"
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:37
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:37
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:27
-#: dashboards/project/volumes/volumes/tables.py:329
+#: dashboards/project/volumes/volumes/tables.py:322
 msgid "Size"
 msgstr "Veličina"
 
@@ -2372,7 +2372,7 @@ msgstr "Merač"
 #: dashboards/project/volumes/volumes/forms.py:52
 #: dashboards/project/volumes/volumes/forms.py:488
 #: dashboards/project/volumes/volumes/forms.py:529
-#: dashboards/project/volumes/volumes/tables.py:326
+#: dashboards/project/volumes/volumes/tables.py:319
 #: dashboards/project/vpn/forms.py:36 dashboards/project/vpn/forms.py:70
 #: dashboards/project/vpn/forms.py:142 dashboards/project/vpn/forms.py:213
 #: dashboards/project/vpn/tables.py:262 dashboards/project/vpn/workflows.py:28
@@ -3185,8 +3185,8 @@ msgstr "Izmena port-a"
 #: dashboards/admin/networks/templates/networks/subnets/index.html:3
 #: dashboards/admin/networks/templates/networks/subnets/index.html:6
 #: dashboards/project/networks/templates/networks/detail.html:3
-msgid "Network Detail"
-msgstr "Detalji mreže"
+msgid "Network Details"
+msgstr ""
 
 #: dashboards/admin/overview/views.py:34
 #: dashboards/project/overview/views.py:33
@@ -3411,14 +3411,11 @@ msgid "You may update the editable properties of your router here."
 msgstr ""
 
 #: dashboards/admin/routers/templates/routers/detail.html:3
+#: dashboards/admin/routers/templates/routers/detail.html:6
 #: dashboards/project/routers/templates/routers/detail.html:3
 #: dashboards/project/routers/templates/routers/detail.html:6
 msgid "Router Details"
 msgstr "Detalji rutera"
-
-#: dashboards/admin/routers/templates/routers/detail.html:6
-msgid "Router Detail"
-msgstr "Detalj rutera"
 
 #: dashboards/admin/routers/templates/routers/update.html:3
 #: dashboards/admin/routers/templates/routers/update.html:6
@@ -3427,29 +3424,29 @@ msgstr "Detalj rutera"
 msgid "Update Router"
 msgstr ""
 
-#: dashboards/admin/volumes/tabs.py:50 dashboards/admin/volumes/tabs.py:138
+#: dashboards/admin/volumes/tabs.py:53 dashboards/admin/volumes/tabs.py:141
 #: dashboards/admin/volumes/snapshots/tables.py:52
 msgid "Unable to retrieve volume project information."
 msgstr "Nemoguće je dobiti informacije o volume-u projekta."
 
-#: dashboards/admin/volumes/tabs.py:65
+#: dashboards/admin/volumes/tabs.py:68
 #: dashboards/admin/volumes/volume_types/tables.py:124
 msgid "Volume Types"
 msgstr "Tipovi volume-a"
 
-#: dashboards/admin/volumes/tabs.py:77
+#: dashboards/admin/volumes/tabs.py:80
 msgid "Unable to retrieve volume types"
 msgstr "Nemoguće je dobiti tipove volume-a"
 
-#: dashboards/admin/volumes/tabs.py:85
+#: dashboards/admin/volumes/tabs.py:88
 msgid "Unable to retrieve volume type encryption information."
 msgstr ""
 
-#: dashboards/admin/volumes/tabs.py:106
+#: dashboards/admin/volumes/tabs.py:109
 msgid "Unable to retrieve QoS specs"
 msgstr ""
 
-#: dashboards/admin/volumes/tabs.py:130 dashboards/project/volumes/tabs.py:90
+#: dashboards/admin/volumes/tabs.py:133 dashboards/project/volumes/tabs.py:113
 #: dashboards/project/volumes/volumes/forms.py:200
 msgid "Unable to retrieve volume snapshots."
 msgstr "Nemoguće je izvući snapshot-ove volume-a."
@@ -5206,8 +5203,8 @@ msgstr "Dodelite IP proejktu"
 #: dashboards/project/access_and_security/floating_ips/tables.py:57
 #: dashboards/project/access_and_security/keypairs/tables.py:73
 #: dashboards/project/instances/tables.py:331
-#: dashboards/project/volumes/volumes/tables.py:124
-#: dashboards/project/volumes/volumes/tables.py:192
+#: dashboards/project/volumes/volumes/tables.py:117
+#: dashboards/project/volumes/volumes/tables.py:185
 msgid "(Quota exceeded)"
 msgstr "(Kvota potrošena)"
 
@@ -5275,7 +5272,7 @@ msgstr "Nema dostupnih slobodnih IP grupa"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:37
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:196
-#: dashboards/project/volumes/volumes/tables.py:420
+#: dashboards/project/volumes/volumes/tables.py:413
 msgid "Instance"
 msgstr "Instanca"
 
@@ -6451,7 +6448,6 @@ msgstr ""
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:59
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:68
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:62
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_service_confs.html:12
 #, python-format
 msgid "%(conf_name)s: %(conf_value)s"
 msgstr ""
@@ -6647,23 +6643,23 @@ msgstr ""
 msgid "Instances Count"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/tabs.py:111
+#: dashboards/project/data_processing/clusters/tabs.py:112
 msgid "Unable to get node group details."
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/tabs.py:137
+#: dashboards/project/data_processing/clusters/tabs.py:138
 msgid "Internal IP"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/tabs.py:140
+#: dashboards/project/data_processing/clusters/tabs.py:141
 msgid "Management IP"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/tabs.py:145
+#: dashboards/project/data_processing/clusters/tabs.py:146
 msgid " "
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/tabs.py:174
+#: dashboards/project/data_processing/clusters/tabs.py:175
 msgid "Unable to fetch instance details."
 msgstr ""
 
@@ -7742,6 +7738,11 @@ msgstr ""
 msgid "Hide full configuration"
 msgstr ""
 
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_service_confs.html:12
+#, python-format
+msgid "%(conf_name)s: %(conf_val)s"
+msgstr ""
+
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:3
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:6
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/create.html:3
@@ -7865,7 +7866,7 @@ msgstr "Sigurnosne kopije - backup-i"
 
 #: dashboards/project/database_backups/tables.py:38
 #: dashboards/project/databases/tables.py:148
-#: dashboards/project/volumes/volumes/tables.py:198
+#: dashboards/project/volumes/volumes/tables.py:191
 msgid "Create Backup"
 msgstr "Kreirajte sigurnosnu kopiju - backup"
 
@@ -9173,8 +9174,8 @@ msgstr[2] ""
 #: dashboards/project/volumes/templates/volumes/volumes/_create.html:9
 #: dashboards/project/volumes/templates/volumes/volumes/_create.html:24
 #: dashboards/project/volumes/templates/volumes/volumes/create.html:3
-#: dashboards/project/volumes/volumes/tables.py:101
-#: dashboards/project/volumes/volumes/tables.py:126
+#: dashboards/project/volumes/volumes/tables.py:94
+#: dashboards/project/volumes/volumes/tables.py:119
 msgid "Create Volume"
 msgstr "Kreirajte volume"
 
@@ -9273,7 +9274,7 @@ msgstr "Detalji image-a"
 #: dashboards/project/images/templates/images/snapshots/_create.html:24
 #: dashboards/project/images/templates/images/snapshots/create.html:3
 #: dashboards/project/instances/tables.py:385
-#: dashboards/project/volumes/volumes/tables.py:173
+#: dashboards/project/volumes/volumes/tables.py:166
 msgid "Create Snapshot"
 msgstr "Kreirajte snapshot"
 
@@ -10132,7 +10133,7 @@ msgstr "Pridruženi volume-i"
 #: dashboards/project/instances/templates/instances/_detail_overview.html:134
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:47
-#: dashboards/project/volumes/volumes/tables.py:357
+#: dashboards/project/volumes/volumes/tables.py:350
 msgid "Attached To"
 msgstr "Zakačen za "
 
@@ -11549,7 +11550,7 @@ msgstr "Nemoguće je dobiti detalje mreže."
 
 #: dashboards/project/networks/views.py:145
 #, python-format
-msgid "Network Detail: %(network_name)s"
+msgid "Network Details: %(network_name)s"
 msgstr ""
 
 #: dashboards/project/networks/workflows.py:50
@@ -11669,8 +11670,8 @@ msgstr ""
 #: dashboards/project/networks/subnets/workflows.py:150
 #: dashboards/project/networks/templates/networks/subnets/detail.html:3
 #: dashboards/project/networks/templates/networks/subnets/detail.html:6
-msgid "Subnet Detail"
-msgstr "Detalji podmreže"
+msgid "Subnet Details"
+msgstr ""
 
 #: dashboards/project/networks/workflows.py:256
 #: dashboards/project/networks/subnets/workflows.py:151
@@ -11803,7 +11804,7 @@ msgstr ""
 #: dashboards/project/networks/subnets/workflows.py:39
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
-"available by clicking on the \"Subnet Detail\" tab."
+"available by clicking on the \"Subnet Details\" tab."
 msgstr ""
 
 #: dashboards/project/networks/subnets/workflows.py:58
@@ -11834,7 +11835,7 @@ msgstr ""
 #: dashboards/project/networks/subnets/workflows.py:117
 msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
-"available at \"Subnet Detail\" tab."
+"available at \"Subnet Details\" tab."
 msgstr ""
 
 #: dashboards/project/networks/subnets/workflows.py:162
@@ -11918,8 +11919,8 @@ msgstr ""
 
 #: dashboards/project/networks/templates/networks/ports/detail.html:3
 #: dashboards/project/networks/templates/networks/ports/detail.html:6
-msgid "Port Detail"
-msgstr "Detalji port-a"
+msgid "Port Details"
+msgstr ""
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:4
 msgid "Subnet Overview"
@@ -12347,11 +12348,11 @@ msgstr ""
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:123
 msgid ""
 "The color and icon of an intersection indicates whether or not traffic is permitted from the source (row) to the destination (column).\n"
-"     Clicking the <i class=\"icon-random\"></i> button in the intersection will install a rule to switch the traffic behavior.<br/>\n"
+"     Clicking the <i class=\"fa fa-random\"></i> button in the intersection will install a rule to switch the traffic behavior.<br/>\n"
 "\n"
 "     <b>Note:</b> Rules only affect one direction of traffic. The opposite direction is outlined when hovering over an intersection.\n"
 " "
-msgstr "Boja i ikona ukrštanja ukazuju da li je dozvoljen saobraćaj između izvora (red) i odredišta (kolona).\n     Klik na <i class=\"icon-random\"></i> dugme na ukrštanju će instalirati pravilo za promenu ponašanja saobraćaja.<br/>\n\n     <b>Napomena:</b> Pravilo utiče samo na jedan smear saobraćaja. Suprotni pravac se prikazuje kada prelazite mišem preko ukrštanja.\n "
+msgstr ""
 
 #: dashboards/project/routers/templates/routers/ports/_create.html:20
 msgid "You can connect a specified subnet to the router."
@@ -12632,7 +12633,7 @@ msgstr "Ne mogu da povratim stack."
 
 #: dashboards/project/stacks/views.py:207
 #, python-format
-msgid "Stack Detail: %(stack_name)s"
+msgid "Stack Details: %(stack_name)s"
 msgstr ""
 
 #: dashboards/project/stacks/views.py:232
@@ -12641,7 +12642,7 @@ msgstr ""
 
 #: dashboards/project/stacks/views.py:255
 #, python-format
-msgid "Resource Detail: %s"
+msgid "Resource Details: %s"
 msgstr ""
 
 #: dashboards/project/stacks/views.py:267
@@ -12734,12 +12735,12 @@ msgid "Change Template"
 msgstr "Promena šablona"
 
 #: dashboards/project/stacks/templates/stacks/detail.html:3
-msgid "Stack Detail"
-msgstr "Detalj stack-a"
+msgid "Stack Details"
+msgstr ""
 
 #: dashboards/project/stacks/templates/stacks/resource.html:3
-msgid "Resource Detail"
-msgstr "Detalj resursa"
+msgid "Resource Details"
+msgstr ""
 
 #: dashboards/project/stacks/templates/stacks/update.html:6
 msgid "Update Stack"
@@ -12753,13 +12754,17 @@ msgstr "Nemoguće izvući listu volume-a."
 msgid "Unable to retrieve volume/instance attachment information"
 msgstr "Nemoguće izvući informacije o vezama volume/instance"
 
-#: dashboards/project/volumes/tabs.py:104
+#: dashboards/project/volumes/tabs.py:62
+msgid "Unable to retrieve snapshot list."
+msgstr ""
+
+#: dashboards/project/volumes/tabs.py:127
 #: dashboards/project/volumes/backups/tables.py:48
 #: dashboards/project/volumes/backups/tables.py:126
 msgid "Volume Backups"
 msgstr ""
 
-#: dashboards/project/volumes/tabs.py:121
+#: dashboards/project/volumes/tabs.py:144
 msgid "Unable to retrieve volume backups."
 msgstr ""
 
@@ -12953,7 +12958,7 @@ msgid "Volume Overview"
 msgstr "Pregled Volume-a"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:35
-#: dashboards/project/volumes/volumes/tables.py:441
+#: dashboards/project/volumes/volumes/tables.py:434
 msgid "Attachments"
 msgstr "Prilozi"
 
@@ -12978,7 +12983,7 @@ msgstr "Izvor Volume-a"
 #: dashboards/project/volumes/templates/volumes/volumes/_extend.html:24
 #: dashboards/project/volumes/templates/volumes/volumes/extend.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/extend.html:6
-#: dashboards/project/volumes/volumes/tables.py:138
+#: dashboards/project/volumes/volumes/tables.py:131
 msgid "Extend Volume"
 msgstr "Proširenje volume-a"
 
@@ -13008,7 +13013,7 @@ msgstr "Broj volume-a"
 #: dashboards/project/volumes/templates/volumes/volumes/_retype.html:39
 #: dashboards/project/volumes/templates/volumes/volumes/retype.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/retype.html:6
-#: dashboards/project/volumes/volumes/tables.py:238
+#: dashboards/project/volumes/volumes/tables.py:231
 msgid "Change Volume Type"
 msgstr ""
 
@@ -13053,7 +13058,7 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/volumes/_update.html:24
 #: dashboards/project/volumes/templates/volumes/volumes/update.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/update.html:6
-#: dashboards/project/volumes/volumes/tables.py:226
+#: dashboards/project/volumes/volumes/tables.py:219
 msgid "Edit Volume"
 msgstr "Izmena Volume-a"
 
@@ -13364,68 +13369,63 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/volumes/volumes/tables.py:88
-#, python-format
-msgid "Unable to delete volume \"%s\". One or more snapshots depend on it."
-msgstr "Nemoguće je obrisati volume \"%s\". Jedan ili više snapshot-ova zavisi od njega."
-
-#: dashboards/project/volumes/volumes/tables.py:149
+#: dashboards/project/volumes/volumes/tables.py:142
 msgid "Manage Attachments"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:183
+#: dashboards/project/volumes/volumes/tables.py:176
 msgid "Unable to retrieve tenant limits."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:210
+#: dashboards/project/volumes/volumes/tables.py:203
 msgid "Upload to Image"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:270
+#: dashboards/project/volumes/volumes/tables.py:263
 #: dashboards/project/volumes/volumes/views.py:252
 msgid "Unable to retrieve attachment information."
 msgstr "Nemoguće je povratiti podatke o prilozima."
 
-#: dashboards/project/volumes/volumes/tables.py:288
+#: dashboards/project/volumes/volumes/tables.py:281
 #, python-format
 msgid "Attached to %(instance)s on %(dev)s"
 msgstr "Povezano na %(instance)s na %(dev)s"
 
-#: dashboards/project/volumes/volumes/tables.py:309
+#: dashboards/project/volumes/volumes/tables.py:302
 msgid "No"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:311
+#: dashboards/project/volumes/volumes/tables.py:304
 msgid "Yes"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:361
+#: dashboards/project/volumes/volumes/tables.py:354
 msgid "Bootable"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:364
+#: dashboards/project/volumes/volumes/tables.py:357
 msgid "Encrypted"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:385
+#: dashboards/project/volumes/volumes/tables.py:378
 msgid "Detach Volume"
 msgid_plural "Detach Volumes"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/volumes/volumes/tables.py:394
+#: dashboards/project/volumes/volumes/tables.py:387
 msgid "Detaching Volume"
 msgid_plural "Detaching Volumes"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/volumes/volumes/tables.py:422
+#: dashboards/project/volumes/volumes/tables.py:415
 msgid "Device"
 msgstr "Uređaj"
 
-#: dashboards/project/volumes/volumes/tables.py:431
+#: dashboards/project/volumes/volumes/tables.py:424
 #, python-format
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr ""
