@@ -56,7 +56,7 @@ class MultiFormMixin(ContextMixin):
 
     def _get_form(self, form_class):
         """Returns an instance of a form"""
-        form = form_class(**self.get_form_kwargs(form_class))
+        form = form_class(self.request, **self.get_form_kwargs(form_class))
         form.action = self.get_endpoint(form_class)
         return form
 
@@ -82,7 +82,7 @@ class MultiFormMixin(ContextMixin):
 
     def get_prefix(self, form_class):
         """Returns the prefix to use for forms on this view."""
-        return self.prefix.get(form_class, None)
+        return self.prefixes.get(form_class, None)
 
     def form_valid(self, form):
         """If the form is valid, redirect to the supplied URL."""
