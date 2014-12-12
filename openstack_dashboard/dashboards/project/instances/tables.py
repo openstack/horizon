@@ -537,9 +537,10 @@ class AssociateIP(policy.PolicyTargetMixin, tables.LinkAction):
 
     def get_link_url(self, datum):
         base_url = urlresolvers.reverse(self.url)
-        next = urlresolvers.reverse("horizon:project:instances:index")
-        params = {"instance_id": self.table.get_object_id(datum),
-                  workflows.IPAssociationWorkflow.redirect_param_name: next}
+        next_url = self.table.get_full_url()
+        params = {
+            "instance_id": self.table.get_object_id(datum),
+            workflows.IPAssociationWorkflow.redirect_param_name: next_url}
         params = urlencode(params)
         return "?".join([base_url, params])
 
@@ -570,7 +571,7 @@ class SimpleAssociateIP(policy.PolicyTargetMixin, tables.Action):
         except Exception:
             exceptions.handle(request,
                               _("Unable to associate floating IP."))
-        return shortcuts.redirect("horizon:project:instances:index")
+        return shortcuts.redirect(request.get_full_path())
 
 
 class SimpleDisassociateIP(policy.PolicyTargetMixin, tables.Action):
@@ -610,7 +611,7 @@ class SimpleDisassociateIP(policy.PolicyTargetMixin, tables.Action):
         except Exception:
             exceptions.handle(request,
                               _("Unable to disassociate floating IP."))
-        return shortcuts.redirect("horizon:project:instances:index")
+        return shortcuts.redirect(request.get_full_path())
 
 
 def instance_fault_to_friendly_message(instance):
