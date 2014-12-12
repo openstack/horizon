@@ -28,21 +28,21 @@
 <div id="user_info" class="pull-right">
   <div id="profile_editor_switcher" class="dropdown switcher_bar" tabindex='1'>
     <button class="btn btn-default btn-topnav dropdown-toggle" data-toggle="dropdown">
-      <span class="glyphicon glyphicon-user"></span>
+      <span class="fa fa-user"></span>
       {{ request.user.username }}
       <span class="caret"></span>
     </button>
     <ul id="editor_list" class="dropdown-menu topbar-dropdown-menu pull-right">
       <li>
         <a href="{% url 'horizon:settings:user:index' %}">
-          <span class="glyphicon glyphicon-cog"></span>
+          <span class="fa fa-cog"></span>
           {% trans "Settings" %}
         </a>
       </li>
       {% if HORIZON_CONFIG.help_url %}
         <li>
           <a href="{{ HORIZON_CONFIG.help_url }}" target="_blank">
-            <span class="glyphicon glyphicon-question-sign"></span>
+            <span class="fa fa-question-circle"></span>
             {% trans "Help" %}
           </a>
         </li>
@@ -50,7 +50,7 @@
       <li class="divider"></li>
       <li>
         <a href="{% url 'logout' %}">
-          <span class="glyphicon glyphicon-log-out"></span>
+          <span class="fa fa-sign-out"></span>
           {% trans "Sign Out" %}
         </a>
       </li>
