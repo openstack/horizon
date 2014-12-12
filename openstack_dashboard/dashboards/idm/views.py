@@ -24,26 +24,27 @@ from openstack_dashboard.dashboards.idm import utils
 
 class MultiFormMixin(ContextMixin):
     """Similiar behaviour of django's FormMixin but for multiple forms on display."""
-    initals = {}
+    initials = {}
     forms_classes = []
     prefixes = {}
     endpoints = {}
     form_to_handle_class = None
     success_url = None
 
-    def __new__(cls, name, bases, attrs):
-        """Check basic stuff to avoid hard to find errors."""
-        form_to_handle_class = attrs.get('form_to_handle_class')
-        forms_classes = attrs.get('forms_classes')
-        if form_to_handle_class not in forms_classes:
-            raise TypeError('The form to be handle has to be in the forms_classes list')
-        for attr in ['initals', 'prefixes', 'endpoints']:
-            utils.check_elements(attrs.get(attr).keys(), forms_classes)      
-        return super(MultiFormMixin, cls).__new__(cls, name, bases, attrs)
+    # TODO(garcianavalon) find how to make this validations
+    # def __new__(cls, name, bases, attrs):
+    #     """Check basic stuff to avoid hard to find errors."""
+    #     form_to_handle_class = attrs.get('form_to_handle_class')
+    #     forms_classes = attrs.get('forms_classes')
+    #     if form_to_handle_class not in forms_classes:
+    #         raise TypeError('The form to be handle has to be in the forms_classes list')
+    #     for attr in ['initals', 'prefixes', 'endpoints']:
+    #         utils.check_elements(attrs.get(attr).keys(), forms_classes)      
+    #     return super(MultiFormMixin, cls).__new__(cls, name, bases, attrs)
 
     def get_initial(self, form_class):
         """Retrieve initial data for the form. By default, returns a copy of initial."""
-        return self.initial.get(form_class).copy()
+        return self.initials.get(form_class, {}).copy()
 
     def get_endpoint(self, form_class):
         """Retrieve the form handling endpoint view."""
@@ -81,7 +82,7 @@ class MultiFormMixin(ContextMixin):
 
     def get_prefix(self, form_class):
         """Returns the prefix to use for forms on this view."""
-        return self.prefix.get(form_class)
+        return self.prefix.get(form_class, None)
 
     def form_valid(self, form):
         """If the form is valid, redirect to the supplied URL."""
@@ -128,9 +129,12 @@ class BaseMultiFormView(MultiFormMixin, TemplateResponseMixin, View):
     inherit your base class for every view, to avoid repeting the common parts.
     """
 
+    def dispatch(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        return super(BaseMultiFormView, self).dispatch(request, *args, **kwargs)
+
     def get(self, request, *args, **kwargs):
         """Handles GET requests"""
-        self.object = self.get_object()
         return self.render_to_response(self.get_context_data())
 
     def post(self, request, *args, **kwargs):
