@@ -43,20 +43,30 @@ class BaseOrganizationsTests(test.TestCase):
         }
         return project_info
 
+    def list_organizations(self):
+        return self._initialize_tenants()
+
+    def get_organization(self):
+        return self._initialize_tenants()[0]
+
+    def _initialize_tenants(self):
+        organizations = self.tenants.list()
+        # NOTE(garcianavalon) self.tenants.list() is giving me a lazy loaded
+        # list, hack initializaes the elements. 
+        # TODO(garcianavalon) Find a better way to do this...
+        for org in organizations:
+            try:
+                getattr(org, 'is_default', False)
+            except Exception:
+                pass
+        return organizations
+
 
 class IndexTests(BaseOrganizationsTests):
 
     @test.create_stubs({api.keystone: ('tenant_list',)})
     def test_index(self):
-        user_organizations = self.tenants.list()
-        # NOTE(garcianavalon) self.tenants.list() is giving me a lazy loaded
-        # list, hack initializaes the elements. 
-        # TODO(garcianavalon) Find a better way to do this...
-        for org in user_organizations:
-            try:
-                getattr(org, 'is_default', False)
-            except Exception:
-                pass
+        user_organizations = self.list_organizations()
 
         # Owned organizations mockup
         # Only calls the default/first tab, no need to mock the others tab
@@ -72,15 +82,7 @@ class IndexTests(BaseOrganizationsTests):
 
     @test.create_stubs({api.keystone: ('tenant_list',)})
     def test_other_organizations_tab(self):
-        all_organizations = self.tenants.list()
-        # NOTE(garcianavalon) self.tenants.list() is giving me a lazy loaded
-        # list, hack initializaes the elements. 
-        # TODO(garcianavalon) Find a better way to do this...
-        for org in all_organizations:
-            try:
-                getattr(org, 'is_default', False)
-            except Exception:
-                pass
+        all_organizations = self.list_organizations()
         user_organizations = all_organizations[len(all_organizations)/2:]
         other_organizations = all_organizations[:len(all_organizations)/2]
         # Other organizations mockup
@@ -106,7 +108,7 @@ class DetailTests(BaseOrganizationsTests):
         )
     })
     def test_detail(self):
-        project = self.tenants.first()
+        project = self.get_organization()
         setattr(project, 'img', '')
         setattr(project, 'city', '')
         setattr(project, 'email', '')
@@ -131,7 +133,7 @@ class CreateTests(BaseOrganizationsTests):
 
     @test.create_stubs({api.keystone: ('tenant_create',)})
     def test_create_organization(self):
-        project = self.tenants.first()
+        project = self.get_organization()
         project_details = self._get_project_info(project)
 
         api.keystone.tenant_create(IsA(http.HttpRequest), 
@@ -166,7 +168,7 @@ class UpdateInfoTests(BaseOrganizationsTests):
 
     @test.create_stubs({api.keystone: ('tenant_update',)})
     def test_update_info(self):
-        project = self.tenants.first()
+        project = self.get_organization()
 
         updated_project = {"name": 'Updated organization',
                            "description": 'updated organization',
@@ -193,7 +195,7 @@ class UpdateInfoTests(BaseOrganizationsTests):
 
     @unittest.skip(BUG)
     def test_update_info_required_fields(self):
-        project = self.tenants.first()
+        project = self.get_organization()
         form_data = {
             'method': 'InfoForm',
             'orgID': project.id,
@@ -213,7 +215,7 @@ class UpdateContactTests(BaseOrganizationsTests):
 
     @test.create_stubs({api.keystone: ('tenant_update',)})
     def test_update_contact(self):
-        project = self.tenants.first()
+        project = self.get_organization()
 
         updated_project = {"email": 'organization@org.com',
                            "website": 'http://www.organization.com/',
@@ -237,7 +239,7 @@ class UpdateContactTests(BaseOrganizationsTests):
         self.assertNoFormErrors(response)
 
     def test_update_contact_required_fields(self):
-        project = self.tenants.first()
+        project = self.get_organization()
 
         form_data = {
             'method': 'ContactForm',
@@ -259,7 +261,7 @@ class DeleteTests(BaseOrganizationsTests):
         ),
     })
     def test_delete_organization(self):
-        project = self.tenants.first()
+        project = self.get_organization()
         setattr(project, 'img', '')
 
         api.keystone.tenant_get(IsA(http.HttpRequest), project.id).AndReturn(project)
@@ -285,7 +287,7 @@ class UpdateAvatarTests(BaseOrganizationsTests):
         ),
     })
     def test_update_avatar(self):
-        project = self.tenants.first()
+        project = self.get_organization()
 
         mock_file = self.mox.CreateMock(file)
 
