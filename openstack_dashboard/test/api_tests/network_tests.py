@@ -688,6 +688,7 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
                  'addr': port['fixed_ips'][0]['ip_address']}
         return 'server_%(svrid)s: %(addr)s' % param
 
+    @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_lb': True})
     def test_floating_ip_target_list(self):
         ports = self.api_ports.list()
         # Port on the first subnet is connected to a router
@@ -713,6 +714,8 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
             .AndReturn({'networks': ext_nets})
         self.qclient.list_routers().AndReturn({'routers':
                                                self.api_routers.list()})
+
+        self.qclient.list_vips().AndReturn({'vips': self.vips.list()})
 
         self.mox.ReplayAll()
 
