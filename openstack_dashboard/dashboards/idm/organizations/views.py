@@ -84,12 +84,21 @@ class DetailOrganizationView(tables.MultiTableView):
 class BaseOrganizationsMultiFormView(idm_views.BaseMultiFormView):
     template_name = 'idm/organizations/edit.html'
     forms_classes = [InfoForm, ContactForm, AvatarForm, CancelForm]
-    enpoints = {
-        InfoForm: reverse_lazy('horizon:idm:organizations:info'),
-        ContactForm: reverse_lazy('horizon:idm:organizations:contact'),
-        AvatarForm: reverse_lazy('horizon:idm:organizations:avatar'),
-        CancelForm: reverse_lazy('horizon:idm:organizations:cancel'),
-    }
+    
+    def get_endpoint(self, form_class):
+        """Override to allow runtime endpoint declaration"""
+        endpoints = {
+            InfoForm: reverse('horizon:idm:organizations:info', 
+                                kwargs=self.kwargs),
+            ContactForm: reverse('horizon:idm:organizations:contact', 
+                                kwargs=self.kwargs),
+            AvatarForm: reverse('horizon:idm:organizations:avatar', 
+                                kwargs=self.kwargs),
+            CancelForm: reverse('horizon:idm:organizations:cancel', 
+                                kwargs=self.kwargs),
+        }
+        return endpoints.get(form_class)
+
     def get_object(self):
         try:
             return api.keystone.tenant_get(self.request, self.kwargs['organization_id'])
