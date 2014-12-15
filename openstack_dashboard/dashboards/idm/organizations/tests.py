@@ -44,17 +44,17 @@ class BaseOrganizationsTests(test.TestCase):
         return project_info
 
     def list_organizations(self):
-        return self._initialize_tenants()
+        return self._initialize_projects()
 
     def get_organization(self):
-        project = self._initialize_tenants()[0]
+        project = self._initialize_projects()[0]
         setattr(project, 'img', '')
         setattr(project, 'city', '')
         setattr(project, 'email', '')
         setattr(project, 'website', '')
         return project
 
-    def _initialize_tenants(self):
+    def _initialize_projects(self):
         organizations = self.tenants.list()
         # NOTE(garcianavalon) self.tenants.list() is giving me a lazy loaded
         # list, hack initializaes the elements. 
@@ -98,7 +98,7 @@ class IndexTests(BaseOrganizationsTests):
                                 admin=False).AndReturn((user_organizations, False))
         self.mox.ReplayAll()
 
-        response = self.client.get(INDEX_URL + '?tab=panel_tabs__tenants_tab')
+        response = self.client.get(INDEX_URL + '?tab=panel_tabs__organizations_tab')
         self.assertTemplateUsed(response, 'idm/organizations/index.html')
         self.assertItemsEqual(response.context['table'].data, other_organizations)
         self.assertNoMessages() 

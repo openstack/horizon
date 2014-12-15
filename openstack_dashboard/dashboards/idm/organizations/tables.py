@@ -18,67 +18,47 @@ from horizon import forms
 from horizon import tables
 
 
-class TenantsTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Name'),
-                         form_field=forms.CharField(max_length=64))
-                         # update_action=UpdateCell)
+class OrganizationsTable(tables.DataTable):
+    name = tables.Column('name', verbose_name=_('Name'))
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
-                                verbose_name=_('Description'),
-                                form_field=forms.CharField(
-                                    widget=forms.Textarea(),
-                                    required=False))
-                                # update_action=UpdateCell)
+                                verbose_name=_('Description'))
     clickable = True
     switch = True
     show_avatar = True
-    class Meta:
-        name = "tenants"
-        verbose_name = _("Organizations")
-        # row_class = UpdateRow
-        # table_actions = (TenantFilterAction, CreateOrganization)
-        pagination_param = "tenant_marker"
-        multi_select = False
 
-class MyTenantsTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Name'),
-                         form_field=forms.CharField(max_length=64))
-                         # update_action=UpdateCell)
+    class Meta:
+        name = "organizations"
+        verbose_name = _("Organizations")
+
+class MyOrganizationsTable(tables.DataTable):
+    name = tables.Column('name', verbose_name=_('Name'))
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
-                                verbose_name=_('Description'),
-                                form_field=forms.CharField(
-                                    widget=forms.Textarea(),
-                                    required=False))
-                                # update_action=UpdateCell)
+                                verbose_name=_('Description'))
     clickable = True
     switch = True
     show_avatar = True
+
     class Meta:
-        name = "mytenants"
+        name = "my_organizations"
         verbose_name = _("My Organizations")
-        # row_class = UpdateRow
-        # table_actions = (TenantFilterAction, CreateOrganization)
-        pagination_param = "my_tenant_marker"
-        columns = ('name', 'description')
-        footer = False
-        multi_select = False
+
+
        
 class MembersTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Member'))
+    name = tables.Column('name', verbose_name=_('Members'))
     clickable = True
     show_avatar = True
+
     class Meta:
         name = "members"
         verbose_name = _("Members")
-        footer = False
-        multi_select = False
+
 
 class ApplicationsTable(tables.DataTable):
     name = tables.Column('application', verbose_name=_('Applications'))
     clickable = True
     show_avatar = True
+
     class Meta:
         name = "applications"
         verbose_name = _("Applications")
-        footer = False
-        multi_select = False
-

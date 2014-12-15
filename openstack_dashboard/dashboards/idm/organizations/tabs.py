@@ -23,50 +23,50 @@ from openstack_dashboard.dashboards.idm.organizations \
     import tables as organization_tables
 
 
-class TenantsTab(tabs.TableTab):
+class OrganizationsTab(tabs.TableTab):
     name = _("Other")
-    slug = "tenants_tab"
-    table_classes = (organization_tables.TenantsTable,)
+    slug = "organizations_tab"
+    table_classes = (organization_tables.OrganizationsTable,)
     template_name = ("horizon/common/_detail_table.html")
     preload = False
 
     def has_more_data(self, table):
         return self._more
 
-    def get_tenants_data(self):
-        tenants = []
-        my_tenants = []
+    def get_organizations_data(self):
+        organizations = []
+        my_organizations = []
         #domain_context = self.request.session.get('domain_context', None)
         try:
-            tenants, self._more = api.keystone.tenant_list(self.request,
+            organizations, self._more = api.keystone.tenant_list(self.request,
                                                             admin=False)
-            my_tenants, _more = api.keystone.tenant_list(self.request,
+            my_organizations, self._more = api.keystone.tenant_list(self.request,
                                             user=self.request.user.id,
                                             admin=False)
-            tenants = [t for t in tenants if not t in my_tenants]
+            organizations = [t for t in organizations if not t in my_organizations]
         except Exception as e:
             self._more = False
             exceptions.handle(self.request,
                               _("Unable to retrieve organization list. \
                                     Error message: {0}".format(e)))
-        return idm_utils.filter_default_organizations(tenants)
+        return idm_utils.filter_default_organizations(organizations)
 
 
-class MyTenantsTab(tabs.TableTab):
+class MyOrganizationsTab(tabs.TableTab):
     name = _("Owned")
-    slug = "my_tenants_tab"
-    table_classes = (organization_tables.MyTenantsTable,)
+    slug = "my_organizations_tab"
+    table_classes = (organization_tables.MyOrganizationsTable,)
     template_name = ("horizon/common/_detail_table.html")
     preload = False
 
     def has_more_data(self, table):
         return self._more
 
-    def get_mytenants_data(self):
-        tenants = []
+    def get_my_organizations_data(self):
+        organizations = []
         #domain_context = self.request.session.get('domain_context', None)
         try:
-            tenants, self._more = api.keystone.tenant_list(
+            organizations, self._more = api.keystone.tenant_list(
                 self.request,
                 user=self.request.user.id,
                 admin=False)
@@ -74,10 +74,10 @@ class MyTenantsTab(tabs.TableTab):
             self._more = False
             exceptions.handle(self.request,
                               _("Unable to retrieve organization information."))
-        return idm_utils.filter_default_organizations(tenants)
+        return idm_utils.filter_default_organizations(organizations)
 
 
 class PanelTabs(tabs.TabGroup):
     slug = "panel_tabs"
-    tabs = (MyTenantsTab, TenantsTab)
+    tabs = (MyOrganizationsTab, OrganizationsTab)
     sticky = True
