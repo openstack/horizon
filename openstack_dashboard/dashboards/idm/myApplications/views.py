@@ -134,7 +134,8 @@ class DetailApplicationView(TemplateView):
         application = fiware_api.keystone.application_get(self.request, application_id)
         context['description'] = application.description
         context['url'] = getattr(application, 'url', None)
-        context['image'] = getattr(application, 'img', None)
+        context['image'] = getattr(application, 'img', 
+                            '/static/dashboard/img/logos/small/app.png')
         if application.redirect_uris:
             context['callbackURL'] = application.redirect_uris[0]
         else:
