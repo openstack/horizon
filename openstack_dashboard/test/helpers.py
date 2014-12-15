@@ -61,6 +61,37 @@ wsgi.WSGIRequest.__repr__ = lambda self: "<class 'django.http.HttpRequest'>"
 
 
 def create_stubs(stubs_to_create={}):
+    """decorator to simplify setting up multiple stubs at once via mox
+
+    :param stubs_to_create: methods to stub in one or more modules
+    :type stubs_to_create: dict
+
+    The keys are python paths to the module containing the methods to mock.
+
+    To mock a method in openstack_dashboard/api/nova.py, the key is::
+
+        api.nova
+
+    The values are either a tuple of list of methods to mock in the module
+    indicated by the key.
+
+    For example::
+
+        ('server_list',)
+            -or-
+        ('flavor_list', 'server_list',)
+            -or-
+        ['flavor_list', 'server_list']
+
+    Additionally, multiple modules can be mocked at once::
+
+        {
+            api.nova: ('flavor_list', 'server_list'),
+            api.glance: ('image_list_detailed',),
+        }
+
+    """
+
     if not isinstance(stubs_to_create, dict):
         raise TypeError("create_stub must be passed a dict, but a %s was "
                         "given." % type(stubs_to_create).__name__)
