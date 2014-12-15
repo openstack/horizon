@@ -25,9 +25,10 @@ from horizon import messages
 from horizon.utils import functions as utils
 
 from openstack_dashboard import fiware_api
+from openstack_dashboard.dashboards.idm import forms as idm_forms
+
 
 LOG = logging.getLogger('idm_logger')
-
 AVATAR = settings.MEDIA_ROOT+"/"+"ApplicationAvatar/"
 
 class CreateApplicationForm(forms.SelfHandlingForm):
@@ -85,49 +86,31 @@ class CreateApplicationForm(forms.SelfHandlingForm):
 
         return response
     
-class AvatarForm(forms.SelfHandlingForm):
+class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
     appID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
     image = forms.ImageField(required=False)
     nextredir = forms.CharField(widget=forms.HiddenInput(), required=False)
-    x1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
-    y1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
-    x2 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
-    y2 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
     title = 'Avatar Update'
 
     def handle(self, request, data):
-        application = fiware_api.keystone.application_get(request, data['appID'])
+        application_id = data['appID']
         if request.FILES:
 
-            x1 = self.cleaned_data['x1'] 
-            x2 = self.cleaned_data['x2']
-            y1 = self.cleaned_data['y1']
-            y2 = self.cleaned_data['y2']
-
             image = request.FILES['image'] 
-            imageName = data['appID']
-            LOG.debug('An image exists with id: '+ imageName)
-
+            output_img = self.crop(image)
             
-            img = Image.open(image)
-
-            x1 = int(x1)
-            x2 = int(x2)
-            y1 = int(y1)
-            y2 = int(y2)
-
-            output_img = img.crop((x1, y1, x2, y2))
+            imageName = application_id
             output_img.save(settings.MEDIA_ROOT+"/"+"ApplicationAvatar/"+imageName, 'JPEG')
-            extra = application.extra
-            extra['img'] = settings.MEDIA_URL+'ApplicationAvatar/'+imageName
-            fiware_api.keystone.application_update(request, application.id, extra=extra)
-            LOG.debug(application)
+            
+            img = settings.MEDIA_URL+'ApplicationAvatar/'+imageName
+            fiware_api.keystone.application_update(request, application_id, img=img)
+
         if data['nextredir'] == "update":
-            response = shortcuts.redirect('horizon:idm:myApplications:detail', data['appID']) 
-            LOG.debug('Avatar for application {0} updated'.format(application.id))
+            response = shortcuts.redirect('horizon:idm:myApplications:detail', application_id) 
+            LOG.debug('Avatar for application {0} updated'.format(application_id))
         else:
             response = shortcuts.redirect('horizon:idm:myApplications:roles_index')
-            LOG.debug('Avatar for application {0} saved'.format(application.id))
+            LOG.debug('Avatar for application {0} saved'.format(application_id))
         return response
 
 

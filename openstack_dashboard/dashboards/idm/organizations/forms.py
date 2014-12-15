@@ -14,7 +14,6 @@
 
 import os
 import logging
-from PIL import Image
 
 from django import shortcuts
 from django.conf import settings
@@ -27,7 +26,7 @@ from horizon import forms
 from horizon import messages
 from horizon.utils import functions as utils
 from openstack_dashboard import api
-
+from openstack_dashboard.dashboards.idm import forms as idm_forms
 
 LOG = logging.getLogger('idm_logger')
 AVATAR = settings.MEDIA_ROOT+"/"+"OrganizationAvatar/"
@@ -137,25 +136,7 @@ class ContactForm(forms.SelfHandlingForm):
         return response
 
 
-class ImageCropMixin(object):
-    x1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
-    y1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
-    x2 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
-    y2 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
-
-    def crop(self, image):
-        x1 = int(self.cleaned_data['x1'])
-        x2 = int(self.cleaned_data['x2'])
-        y1 = int(self.cleaned_data['y1'])
-        y2 = int(self.cleaned_data['y2'])
-
-        img = Image.open(image)
-        output_img = img.crop((x1, y1, x2, y2))
-
-        return output_img
-
-
-class AvatarForm(forms.SelfHandlingForm, ImageCropMixin):
+class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
     orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
     image = forms.ImageField(required=False)
     title = 'Avatar Update'
