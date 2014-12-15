@@ -136,10 +136,9 @@ class DetailApplicationView(TemplateView):
         context['url'] = getattr(application, 'url', None)
         context['image'] = getattr(application, 'img', 
                             '/static/dashboard/img/logos/small/app.png')
-        if application.redirect_uris:
-            context['callbackURL'] = application.redirect_uris[0]
-        else:
-            context['callbackURL'] = ''
+        callback_url = application.redirect_uris[0] \
+                        if application.redirect_uris else None
+        context['callbackurl'] = callback_url
         context['application_name'] = application.name
         context['application_id'] = application_id
         context['application_secret'] = application.secret
