@@ -133,8 +133,8 @@ class DetailApplicationView(TemplateView):
         application_id = self.kwargs['application_id']
         application = fiware_api.keystone.application_get(self.request, application_id)
         context['description'] = application.description
-        context['url'] = application.extra['url']
-        context['image'] = application.extra.get('img', 'Image not present in extra')
+        context['url'] = getattr(application, 'url', None)
+        context['image'] = getattr(application, 'img', None)
         if application.redirect_uris:
             context['callbackURL'] = application.redirect_uris[0]
         else:
@@ -178,12 +178,14 @@ class BaseApplicationsMultiFormView(idm_views.BaseMultiFormView):
     def get_initial(self, form_class):
         initial = super(BaseApplicationsMultiFormView, self).get_initial(form_class)  
         # Existing data from applciation
+        callback_url = self.object.redirect_uris[0] \
+                        if self.object.redirect_uris else None
         initial.update({
             "appID": self.object.id,
             "name": self.object.name,
             "description": self.object.description,
-            "callbackurl": self.object.redirect_uris[0],
-            "url": self.object.extra.get('url', None),
+            "callbackurl": callback_url,
+            "url": getattr(self.object, 'url', None),
             "nextredir": "update" 
         })
         return initial

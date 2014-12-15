@@ -48,15 +48,13 @@ class CreateApplicationForm(forms.SelfHandlingForm):
         if data['nextredir'] == "create":
             try:
 
-                extra = {
-                    'url':data['url'],
-                    'img': "/static/dashboard/img/logos/small/app.png"
-                }
+                default_img = '/static/dashboard/img/logos/small/app.png'
                 application = fiware_api.keystone.application_create(request,
-                                                    name=data['name'],
-                                                    description=data['description'],
-                                                    redirect_uris=[data['callbackurl']],
-                                                    extra=extra)
+                                                name=data['name'],
+                                                description=data['description'],
+                                                redirect_uris=[data['callbackurl']],
+                                                url=data['url'],
+                                                img=default_img)
                 LOG.debug('Application {0} created'.format(application.name))
             except Exception:
                 exceptions.handle(request, _('Unable to register the application.'))

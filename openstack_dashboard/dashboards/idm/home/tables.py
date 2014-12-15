@@ -61,7 +61,7 @@ class TenantsTable(tables.DataTable):
 
 class ApplicationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
-    url = tables.Column(lambda obj: obj.extra['url'])
+    url = tables.Column(lambda obj: getattr(obj, 'url', None))
     
     clickable = True
     show_avatar = True
