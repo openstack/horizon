@@ -634,7 +634,7 @@ def data(TEST):
             "vcpus_used": 1,
             "hypervisor_type": "QEMU",
             "local_gb_used": 20,
-            "hypervisor_hostname": "devstack002",
+            "hypervisor_hostname": "devstack001",
             "memory_mb_used": 1500,
             "memory_mb": 2000,
             "current_workload": 0,
@@ -650,6 +650,7 @@ def data(TEST):
             "local_gb": 29,
             "free_ram_mb": 500,
             "id": 2,
+            "servers": [{"name": "test_name_2", "uuid": "test_uuid_2"}]
         },
     )
     hypervisor_3 = hypervisors.Hypervisor(

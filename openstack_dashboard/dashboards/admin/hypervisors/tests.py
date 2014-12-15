@@ -88,12 +88,17 @@ class HypervisorViewTest(test.BaseAdminViewTests):
 class HypervisorDetailViewTest(test.BaseAdminViewTests):
     @test.create_stubs({api.nova: ('hypervisor_search',)})
     def test_index(self):
-        hypervisor = self.hypervisors.list().pop().hypervisor_hostname
+        hypervisor = self.hypervisors.first()
         api.nova.hypervisor_search(
-            IsA(http.HttpRequest), hypervisor).AndReturn([])
+            IsA(http.HttpRequest),
+            hypervisor.hypervisor_hostname).AndReturn([
+                hypervisor,
+                self.hypervisors.list()[1]])
         self.mox.ReplayAll()
 
-        url = reverse('horizon:admin:hypervisors:detail', args=[hypervisor])
+        url = reverse('horizon:admin:hypervisors:detail',
+                      args=["%s_%s" % (hypervisor.id,
+                                       hypervisor.hypervisor_hostname)])
         res = self.client.get(url)
         self.assertTemplateUsed(res, 'admin/hypervisors/detail.html')
-        self.assertItemsEqual(res.context['table'].data, [])
+        self.assertItemsEqual(res.context['table'].data, hypervisor.servers)
