@@ -16,6 +16,8 @@ from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
+from openstack_auth import utils as auth_utils
+
 from horizon import exceptions
 from horizon import forms
 from horizon import tables
@@ -154,6 +156,12 @@ class DeleteTenantsAction(tables.DeleteAction):
 
     def delete(self, request, obj_id):
         api.keystone.tenant_delete(request, obj_id)
+
+    def handle(self, table, request, obj_ids):
+        response = \
+            super(DeleteTenantsAction, self).handle(table, request, obj_ids)
+        auth_utils.remove_project_cache(request.user.token.id)
+        return response
 
 
 class TenantFilterAction(tables.FilterAction):
