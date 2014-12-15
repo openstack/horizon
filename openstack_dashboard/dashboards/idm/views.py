@@ -73,7 +73,9 @@ class MultiFormMixin(ContextMixin):
             'initial': self.get_initial(form_class),
             'prefix': self.get_prefix(form_class),
         }
-        if self.request.method in ('POST', 'PUT'):
+        if (self.request.method in ('POST', 'PUT') 
+            and form_class == self.form_to_handle_class):
+
             kwargs.update({
                 'data': self.request.POST,
                 'files': self.request.FILES,

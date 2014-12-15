@@ -114,9 +114,9 @@ class BaseOrganizationsMultiFormView(idm_views.BaseMultiFormView):
             "orgID": self.object.id,
             "name": self.object.name,
             "description": self.object.description,    
-            "city": getattr(self.object, 'city', ''),
-            "email": getattr(self.object, 'email', ''),
-            "website":getattr(self.object, 'website', ''),
+            "city": getattr(self.object, 'city', 'patata'),
+            "email": getattr(self.object, 'email', 'patata'),
+            "website":getattr(self.object, 'website', 'patata'),
         })
         return initial
 
