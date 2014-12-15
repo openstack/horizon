@@ -31,7 +31,7 @@ class MultiFormMixin(ContextMixin):
     form_to_handle_class = None
     success_url = None
 
-    # TODO(garcianavalon) find how to make this validations
+    # TODO(garcianavalon) find how to make these validations
     # def __new__(cls, name, bases, attrs):
     #     """Check basic stuff to avoid hard to find errors."""
     #     form_to_handle_class = attrs.get('form_to_handle_class')
