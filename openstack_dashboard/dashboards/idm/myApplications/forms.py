@@ -39,6 +39,7 @@ class CreateApplicationForm(forms.SelfHandlingForm):
                                 required=True)
     url = forms.CharField(label=_("URL"), required=True)
     callbackurl = forms.CharField(label=_("Callback URL"), required=True)
+    title = 'Information'
 
     def handle(self, request, data):
         #create application
@@ -84,7 +85,7 @@ class CreateApplicationForm(forms.SelfHandlingForm):
 
         return response
     
-class UploadImageForm(forms.SelfHandlingForm):
+class AvatarForm(forms.SelfHandlingForm):
     appID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
     image = forms.ImageField(required=False)
     nextredir = forms.CharField(widget=forms.HiddenInput(), required=False)
@@ -92,7 +93,7 @@ class UploadImageForm(forms.SelfHandlingForm):
     y1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
     x2 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
     y2 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
-
+    title = 'Avatar Update'
 
     def handle(self, request, data):
         application = fiware_api.keystone.application_get(request, data['appID'])
@@ -172,10 +173,9 @@ class CreatePermissionForm(forms.SelfHandlingForm):
         
 class CancelForm(forms.SelfHandlingForm):
     appID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
-    name = forms.CharField(label=_("Name"), widget=forms.HiddenInput(), required=False)
+    title = 'Cancel'
 
-    def handle(self, request, data):
-        application = fiware_api.keystone.application_get(request, data['appID'])
+    def handle(self, request, data, application):
         image = application.extra['img']
         LOG.debug(image)
         if "ApplicationAvatar" in image:
