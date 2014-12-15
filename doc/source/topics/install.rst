@@ -46,7 +46,7 @@ Installation
    ``.venv`` directory safely.
 
 2. Install Horizon python module into your system. Run the following
-   in the top directory.::
+   in the top directory::
 
     $ sudo pip install .
 
@@ -60,7 +60,21 @@ Installation
 
    For more details, please refer to :doc:`deployment` and :doc:`settings`.
 
-4. Set up a web server with WSGI support.
+4. Optional: Django has a Compressor feature that performs many enhancements
+   for the delivery of static files, including standardization and
+   minification/uglification. This processing can be run either online or
+   offline (pre-processed). Letting the compression process occur at runtime
+   will incur processing and memory use when the resources are first requested;
+   doing it ahead of time removes those runtime penalties.
+
+   If you want the static files to be processed before server runtime, you'll
+   need to configure your local_settings.py to specify
+   ``COMPRESS_OFFLINE = True``, then run the following commands::
+
+    $ ./manage.py collectstatic
+    $ ./manage.py compress
+
+5. Set up a web server with WSGI support.
    It is optional but recommended in production deployments.
    For example, install Apache web server on Ubuntu::
 
@@ -68,11 +82,11 @@ Installation
 
    Then configure the web server to host OpenStack Dashboard via WSGI.
    For apache2 web server, you may need to create
-   ``/etc/apache2/site-available/horizon.conf``.
+   ``/etc/apache2/sites-available/horizon.conf``.
    The template in devstack is a good example of the file.
    http://git.openstack.org/cgit/openstack-dev/devstack/tree/files/apache-horizon.template
 
-5. Finally, enable the above configuration and restart the web server.::
+6. Finally, enable the above configuration and restart the web server::
 
     $ sudo a2ensite horizon
     $ sudo service apache2 restart
