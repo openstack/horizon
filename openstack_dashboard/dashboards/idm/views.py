@@ -156,11 +156,15 @@ class BaseMultiFormView(MultiFormMixin, TemplateResponseMixin, View):
         """
         raise NotImplementedError()
 
+    def handle_form(self, form):
+        """ Wrapper for form.handle for easier overriding."""
+        return form.handle(self.request, form.cleaned_data)
+
     def form_valid(self, form):
         """For horizon style forms that handle themselves the request. It's a
         simplified version of the method present in horizon.forms.ModalFormView"""
         try:
-            handled = form.handle(self.request, form.cleaned_data)
+            handled = self.handle_form(form)
         except Exception:
             handled = None
             exceptions.handle(self.request)

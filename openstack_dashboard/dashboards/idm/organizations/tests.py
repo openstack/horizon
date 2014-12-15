@@ -21,11 +21,11 @@ from django.core.urlresolvers import reverse
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
-
+from openstack_dashboard.dashboards.idm.organizations \
+    import forms as organizations_forms
 
 INDEX_URL = reverse('horizon:idm:organizations:index')
 CREATE_URL = reverse('horizon:idm:organizations:create')
-BUG = 'BUG on https://trello.com/c/0idWSvhv/2-crear-tests-para-todo-lo-que-llevamos'
 
 class BaseOrganizationsTests(test.TestCase):
 
@@ -47,7 +47,12 @@ class BaseOrganizationsTests(test.TestCase):
         return self._initialize_tenants()
 
     def get_organization(self):
-        return self._initialize_tenants()[0]
+        project = self._initialize_tenants()[0]
+        setattr(project, 'img', '')
+        setattr(project, 'city', '')
+        setattr(project, 'email', '')
+        setattr(project, 'website', '')
+        return project
 
     def _initialize_tenants(self):
         organizations = self.tenants.list()
@@ -109,10 +114,6 @@ class DetailTests(BaseOrganizationsTests):
     })
     def test_detail(self):
         project = self.get_organization()
-        setattr(project, 'img', '')
-        setattr(project, 'city', '')
-        setattr(project, 'email', '')
-        setattr(project, 'website', '')
         users = self.users.list()
 
         api.keystone.user_list(IsA(http.HttpRequest), 
@@ -150,7 +151,6 @@ class CreateTests(BaseOrganizationsTests):
         response = self.client.post(CREATE_URL, form_data)
         self.assertNoFormErrors(response)
 
-
     def test_create_organization_required_fields(self):
         form_data = {
             'method': 'CreateOrganizationForm',
@@ -160,13 +160,17 @@ class CreateTests(BaseOrganizationsTests):
 
         response = self.client.post(CREATE_URL, form_data)
         self.assertFormError(response, 'form', 'name', ['This field is required.'])
-        self.assertFormError(response, 'form', 'description', ['This field is required.'])
         self.assertNoMessages() 
     
 
 class UpdateInfoTests(BaseOrganizationsTests):
 
-    @test.create_stubs({api.keystone: ('tenant_update',)})
+    @test.create_stubs({
+        api.keystone: (
+            'tenant_update',
+            'tenant_get',
+        ),
+    })
     def test_update_info(self):
         project = self.get_organization()
 
@@ -175,6 +179,7 @@ class UpdateInfoTests(BaseOrganizationsTests):
                            "enabled": True,
                            "city": 'Madrid'}
 
+        api.keystone.tenant_get(IsA(http.HttpRequest), project.id).AndReturn(project)
         api.keystone.tenant_update(IsA(http.HttpRequest), 
                                     project.id, 
                                     **updated_project).AndReturn(project)
@@ -193,9 +198,14 @@ class UpdateInfoTests(BaseOrganizationsTests):
         response = self.client.post(url, form_data)
         self.assertNoFormErrors(response)
 
-    @unittest.skip(BUG)
+    @unittest.skip('not ready')
+    @test.create_stubs({api.keystone: ('tenant_get',)})
     def test_update_info_required_fields(self):
         project = self.get_organization()
+
+        api.keystone.tenant_get(IsA(http.HttpRequest), project.id).AndReturn(project)
+        self.mox.ReplayAll()
+
         form_data = {
             'method': 'InfoForm',
             'orgID': project.id,
@@ -206,6 +216,9 @@ class UpdateInfoTests(BaseOrganizationsTests):
 
         url = reverse('horizon:idm:organizations:info', args=[project.id])
         response = self.client.post(url, form_data)
+
+        # FIXME(garcianavalon) form contains the last form in forms, not the one
+        # we want to test. The world is tought for multiforms :(
         self.assertFormError(response, 'form', 'name', ['This field is required.'])
         self.assertFormError(response, 'form', 'description', ['This field is required.'])
         self.assertNoMessages() 
@@ -213,14 +226,21 @@ class UpdateInfoTests(BaseOrganizationsTests):
 
 class UpdateContactTests(BaseOrganizationsTests):
 
-    @test.create_stubs({api.keystone: ('tenant_update',)})
+
+    @test.create_stubs({
+        api.keystone: (
+            'tenant_update',
+            'tenant_get',
+        ),
+    })
     def test_update_contact(self):
         project = self.get_organization()
 
-        updated_project = {"email": 'organization@org.com',
-                           "website": 'http://www.organization.com/',
-                           }
-
+        updated_project = {
+            "email": 'organization@org.com',
+            "website": 'http://www.organization.com/',
+        }
+        api.keystone.tenant_get(IsA(http.HttpRequest), project.id).AndReturn(project)
         api.keystone.tenant_update(IsA(http.HttpRequest), 
                                     project.id, 
                                     **updated_project).AndReturn(project)
@@ -238,8 +258,11 @@ class UpdateContactTests(BaseOrganizationsTests):
         response = self.client.post(url, form_data)
         self.assertNoFormErrors(response)
 
+    @test.create_stubs({api.keystone: ('tenant_get',)})
     def test_update_contact_required_fields(self):
         project = self.get_organization()
+        api.keystone.tenant_get(IsA(http.HttpRequest), project.id).AndReturn(project)
+        self.mox.ReplayAll()
 
         form_data = {
             'method': 'ContactForm',
@@ -262,7 +285,6 @@ class DeleteTests(BaseOrganizationsTests):
     })
     def test_delete_organization(self):
         project = self.get_organization()
-        setattr(project, 'img', '')
 
         api.keystone.tenant_get(IsA(http.HttpRequest), project.id).AndReturn(project)
         api.keystone.tenant_delete(IsA(http.HttpRequest), project).AndReturn(None)

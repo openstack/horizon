@@ -109,7 +109,7 @@ class BaseOrganizationsMultiFormView(idm_views.BaseMultiFormView):
 
     def get_initial(self, form_class):
         initial = super(BaseOrganizationsMultiFormView, self).get_initial(form_class)  
-        #Existing data from organizations
+        # Existing data from organizations
         initial.update({
             "orgID": self.object.id,
             "name": self.object.name,
@@ -126,6 +126,7 @@ class BaseOrganizationsMultiFormView(idm_views.BaseMultiFormView):
                             '/static/dashboard/img/logos/small/group.png')
         return context
 
+
 class InfoFormHandleView(BaseOrganizationsMultiFormView):    
     form_to_handle_class = InfoForm
 
@@ -137,3 +138,7 @@ class AvatarFormHandleView(BaseOrganizationsMultiFormView):
 
 class CancelFormHandleView(BaseOrganizationsMultiFormView):
     form_to_handle_class = CancelForm
+
+    def handle_form(self, form):
+        """ Wrapper for form.handle for easier overriding."""
+        return form.handle(self.request, form.cleaned_data, organization=self.object)

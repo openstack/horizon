@@ -183,8 +183,7 @@ class CancelForm(forms.SelfHandlingForm):
     orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
     title = 'Cancel'
     
-    def handle(self, request, data):
-        organization = api.keystone.tenant_get(request, data['orgID'])
+    def handle(self, request, data, organization):
         image = organization.img
         if "OrganizationAvatar" in image:
             os.remove(AVATAR + organization.id)
