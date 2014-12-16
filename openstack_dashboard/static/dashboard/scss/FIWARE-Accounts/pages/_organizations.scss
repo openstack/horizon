@@ -23,6 +23,32 @@
 }
 #detailOrganization {
   margin-top: 8px;
+  #members{
+    margin-left: -1%;
+    margin-right: -1%;
+    a.list-group-item{
+      width: 44%;
+      display: inline-table;
+      margin-left: 1%;
+      margin-right: 1%;
+      @media (max-width: $screen-xs-min){
+        width: 98%;
+      }
+      &:first-child{
+        border-top: 1px solid $border-color;
+        @media (max-width: $screen-xs-min){
+          border-top: 0;
+        }
+      }
+      &:last-child{
+        border-bottom: 1px solid $border-color;
+        @media (max-width: $screen-xs-min){
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+
 }
 #detailApplication{ 
   margin-top: 13px;
