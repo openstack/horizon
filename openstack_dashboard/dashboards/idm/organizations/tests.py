@@ -21,13 +21,15 @@ from django.core.urlresolvers import reverse
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
+from openstack_dashboard.dashboards.idm import tests as idm_tests
 from openstack_dashboard.dashboards.idm.organizations \
     import forms as organizations_forms
+
 
 INDEX_URL = reverse('horizon:idm:organizations:index')
 CREATE_URL = reverse('horizon:idm:organizations:create')
 
-class BaseOrganizationsTests(test.TestCase):
+class BaseOrganizationsTests(idm_tests.BaseTestCase):
 
     def _get_project_info(self, project):
         project_info = {
@@ -42,29 +44,6 @@ class BaseOrganizationsTests(test.TestCase):
             "website" : ''
         }
         return project_info
-
-    def list_organizations(self):
-        return self._initialize_projects()
-
-    def get_organization(self):
-        project = self._initialize_projects()[0]
-        setattr(project, 'img', '')
-        setattr(project, 'city', '')
-        setattr(project, 'email', '')
-        setattr(project, 'website', '')
-        return project
-
-    def _initialize_projects(self):
-        organizations = self.tenants.list()
-        # NOTE(garcianavalon) self.tenants.list() is giving me a lazy loaded
-        # list, hack initializaes the elements. 
-        # TODO(garcianavalon) Find a better way to do this...
-        for org in organizations:
-            try:
-                getattr(org, 'is_default', False)
-            except Exception:
-                pass
-        return organizations
 
 
 class IndexTests(BaseOrganizationsTests):
