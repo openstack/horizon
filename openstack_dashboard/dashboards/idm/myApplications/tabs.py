@@ -38,6 +38,7 @@ class ProvidingTab(tabs.TableTab):
                               _("Unable to retrieve application list."))
         return applications
 
+
 class PurchasedTab(tabs.TableTab):
     name = _("Purchased")
     slug = "purchased_tab"
