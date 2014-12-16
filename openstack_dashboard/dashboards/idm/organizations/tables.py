@@ -46,7 +46,7 @@ class MyOrganizationsTable(tables.DataTable):
 class AddMemberLink(tables.LinkAction):
     name = "add"
     verbose_name = _("Add")
-    url = "horizon:idm:organizations:index"
+    url = "horizon:idm:organizations:members_add"
     classes = ("ajax-modal",)
 
     def allowed(self, request, user):

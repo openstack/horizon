@@ -20,10 +20,11 @@ from django.core.urlresolvers import reverse, reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
-from horizon import tables
-from horizon.utils import memoized
-from horizon import tabs
 from horizon import forms
+from horizon import tables
+from horizon import tabs
+from horizon import workflows
+from horizon.utils import memoized
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.idm import views as idm_views
@@ -33,6 +34,8 @@ from openstack_dashboard.dashboards.idm.organizations \
     import tabs as organization_tabs
 from openstack_dashboard.dashboards.idm.organizations.forms \
     import  InfoForm, ContactForm, AvatarForm, CancelForm, CreateOrganizationForm
+from openstack_dashboard.dashboards.idm.organizations \
+    import workflows as organization_workflows
 
 
 LOG = logging.getLogger('idm_logger')
@@ -79,6 +82,20 @@ class DetailOrganizationView(tables.MultiTableView):
         context['email'] = getattr(organization, 'email', '')
         context['website'] = getattr(organization, 'website', '')
         return context
+
+
+class AddMemberView(workflows.WorkflowView):
+    workflow_class = organization_workflows.UpdateOrganizationMembers
+
+    def get_initial(self):
+        initial = super(AddMemberView, self).get_initial()
+
+        # Set the domain of the project
+        domain = api.keystone.get_default_domain(self.request)
+        initial["domain_id"] = domain.id
+        initial["domain_name"] = domain.name
+
+        return initial
 
 
 class BaseOrganizationsMultiFormView(idm_views.BaseMultiFormView):
