@@ -30,7 +30,7 @@ else:
     from keystoneclient import session
     from keystoneclient.auth.identity import v3
     from keystoneclient.v3 import client
-    from keystoneclient.v3.contrib.oauth2 import auth
+    from keystoneclient.v3.contrib.oauth2 import auth as oauth2_auth
 
 LOG = logging.getLogger('idm_logger')
 
@@ -51,7 +51,7 @@ def fiwareclient(session=None, request=None):# TODO(garcianavalon) use this
     return keystone
         
 def _oauth2_session(access_token_id):
-    auth = auth.OAuth2(access_token=access_token_id)
+    auth = oauth2_auth.OAuth2(access_token=access_token_id)
     return session.Session(auth=auth)
 
 def _password_session():
@@ -198,7 +198,7 @@ def permission_delete(request, permission_id):
 # APPLICATIONS/CONSUMERS
 def application_create(request, name, redirect_uris, scopes=['all_info'],
                     client_type='confidential', description=None, 
-                    grant_type='authorization_code', extra=None):
+                    grant_type='authorization_code', **kwargs):
     """ Registers a new consumer in the Keystone OAuth2 extension.
 
     In FIWARE applications is the name OAuth2 consumers/clients receive.
@@ -210,7 +210,7 @@ def application_create(request, name, redirect_uris, scopes=['all_info'],
                         scopes=scopes,
                         client_type=client_type,
                         grant_type=grant_type,
-                        extra=extra)
+                        **kwargs)
 
 def application_list(request, user=None):
     manager = api.keystone.keystoneclient(request, admin=True).oauth2.consumers

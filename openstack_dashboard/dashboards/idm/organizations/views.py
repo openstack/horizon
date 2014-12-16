@@ -1,52 +1,42 @@
-# Copyright 2012 United States Government as represented by the
-# Administrator of the National Aeronautics and Space Administration.
-# All Rights Reserved.
+# Copyright (C) 2014 Universidad Politecnica de Madrid
 #
-# Copyright 2012 Nebula, Inc.
+# Licensed under the Apache License, Version 2.0 (the "License"); you may
+# not use this file except in compliance with the License. You may obtain
+# a copy of the License at
 #
-#    Licensed under the Apache License, Version 2.0 (the "License"); you may
-#    not use this file except in compliance with the License. You may obtain
-#    a copy of the License at
+#      http://www.apache.org/licenses/LICENSE-2.0
 #
-#         http://www.apache.org/licenses/LICENSE-2.0
-#
-#    Unless required by applicable law or agreed to in writing, software
-#    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-#    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-#    License for the specific language governing permissions and limitations
-#    under the License.
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+
 import os
 import logging
 
 from django.conf import settings
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse, reverse_lazy
 from django.utils.translation import ugettext_lazy as _
-from django.views import generic
-from django.core.files import File
-from django.views.generic.base import TemplateView
 
 from horizon import exceptions
-from horizon import messages
 from horizon import tables
 from horizon.utils import memoized
-from horizon import workflows
 from horizon import tabs
 from horizon import forms
 
 from openstack_dashboard import api
-from openstack_dashboard import policy
-
+from openstack_dashboard.dashboards.idm import views as idm_views
 from openstack_dashboard.dashboards.idm.organizations \
     import tables as organization_tables
 from openstack_dashboard.dashboards.idm.organizations \
     import tabs as organization_tabs
-from openstack_dashboard.dashboards.idm.organizations \
-    import forms as organization_forms
+from openstack_dashboard.dashboards.idm.organizations.forms \
+    import  InfoForm, ContactForm, AvatarForm, CancelForm, CreateOrganizationForm
+
 
 LOG = logging.getLogger('idm_logger')
-
 AVATAR_ROOT = os.path.abspath(os.path.join(settings.MEDIA_ROOT, 'OrganizationAvatar'))
-
 
 class IndexView(tabs.TabbedTableView):
     tab_group_class = organization_tabs.PanelTabs
@@ -54,7 +44,7 @@ class IndexView(tabs.TabbedTableView):
 
 
 class CreateOrganizationView(forms.ModalFormView):
-    form_class = organization_forms.CreateOrganizationForm
+    form_class = CreateOrganizationForm
     template_name = 'idm/organizations/create.html'
 
 
@@ -64,23 +54,20 @@ class DetailOrganizationView(tables.MultiTableView):
                      organization_tables.ApplicationsTable)
     
     def get_members_data(self):        
-        user = []
-        user_id = self.request.user.id
+        users = []
         try:
-            user_info = api.keystone.user_get(self.request, self.request.user.id)
-            user.append(user_info)
-            
+            users = api.keystone.user_list(self.request,
+                                         project=self.kwargs['organization_id'])
         except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve member information."))
-        return user
+        return users
 
     def get_applications_data(self):
         applications = []
         return applications
 
     def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
         context = super(DetailOrganizationView, self).get_context_data(**kwargs)
         organization_id = self.kwargs['organization_id']
         organization = api.keystone.tenant_get(self.request, organization_id, admin=True)
@@ -94,73 +81,65 @@ class DetailOrganizationView(tables.MultiTableView):
         return context
 
 
-class MultiFormView(TemplateView):
+class BaseOrganizationsMultiFormView(idm_views.BaseMultiFormView):
     template_name = 'idm/organizations/edit.html'
+    forms_classes = [InfoForm, ContactForm, AvatarForm, CancelForm]
+    
+    def get_endpoint(self, form_class):
+        """Override to allow runtime endpoint declaration"""
+        endpoints = {
+            InfoForm: reverse('horizon:idm:organizations:info', 
+                                kwargs=self.kwargs),
+            ContactForm: reverse('horizon:idm:organizations:contact', 
+                                kwargs=self.kwargs),
+            AvatarForm: reverse('horizon:idm:organizations:avatar', 
+                                kwargs=self.kwargs),
+            CancelForm: reverse('horizon:idm:organizations:cancel', 
+                                kwargs=self.kwargs),
+        }
+        return endpoints.get(form_class)
 
-    @memoized.memoized_method
     def get_object(self):
         try:
             return api.keystone.tenant_get(self.request, self.kwargs['organization_id'])
         except Exception:
             redirect = reverse("horizon:idm:organizations:index")
-            exceptions.handle(self.request, _('Unable to update organization'), redirect=redirect)
+            exceptions.handle(self.request, 
+                    _('Unable to update organization'), redirect=redirect)
 
-
+    def get_initial(self, form_class):
+        initial = super(BaseOrganizationsMultiFormView, self).get_initial(form_class)  
+        # Existing data from organizations
+        initial.update({
+            "orgID": self.object.id,
+            "name": self.object.name,
+            "description": self.object.description,    
+            "city": getattr(self.object, 'city', 'patata'),
+            "email": getattr(self.object, 'email', 'patata'),
+            "website":getattr(self.object, 'website', 'patata'),
+        })
+        return initial
 
     def get_context_data(self, **kwargs):
-        context = super(MultiFormView, self).get_context_data(**kwargs)
-        organization = self.get_object()
-        context['organization'] = organization
 
-        #Existing data from organizations
-           
-        initial_data = {
-            "orgID": organization.id,
-            "name": organization.name,
-            "description": organization.description,    
-            "city": getattr(organization, 'city', ''),
-            "email": getattr(organization, 'email', ''),
-            "website":getattr(organization, 'website', ''),
-        }
-       
-        #Create forms
-        info = organization_forms.InfoForm(self.request, initial=initial_data)
-        contact = organization_forms.ContactForm(self.request, initial=initial_data)
-        avatar = organization_forms.AvatarForm(self.request, initial=initial_data)
-        cancel = organization_forms.CancelForm(self.request, initial=initial_data)
-
-        #Actions and titles
-        # TODO(garcianavalon) quizas es mejor meterlo en el __init__ del form
-        info.action = 'info/'
-        info.title = 'Information'
-        contact.action = "contact/"
-        contact.title = 'Contact Information'
-        avatar.action = "avatar/"
-        avatar.title = 'Avatar Update'
-        cancel.action = "cancel/"
-        cancel.title = ' '
-
-        context['forms'] = [info, contact, avatar]
-        context['cancel_form'] = cancel
-        context['image'] = getattr(organization, 'img', '/static/dashboard/img/logos/small/group.png')
+        context = super(BaseOrganizationsMultiFormView, self).get_context_data(**kwargs)
+        context['image'] = getattr(self.object, 'img', 
+                            '/static/dashboard/img/logos/small/group.png')
         return context
 
-class HandleForm(forms.ModalFormView):
-    template_name = ''
-    http_method_not_allowed = ['get']
 
+class InfoFormHandleView(BaseOrganizationsMultiFormView):    
+    form_to_handle_class = InfoForm
 
-class InfoFormView(HandleForm):    
-    form_class = organization_forms.InfoForm
-    http_method_not_allowed = ['get']
-
-class ContactFormView(HandleForm):
-    form_class = organization_forms.ContactForm
-
+class ContactFormHandleView(BaseOrganizationsMultiFormView):
+    form_to_handle_class = ContactForm
    
-class AvatarFormView(forms.ModalFormView):
-    form_class = organization_forms.AvatarForm
+class AvatarFormHandleView(BaseOrganizationsMultiFormView):
+    form_to_handle_class = AvatarForm
 
+class CancelFormHandleView(BaseOrganizationsMultiFormView):
+    form_to_handle_class = CancelForm
 
-class CancelFormView(forms.ModalFormView):
-    form_class = organization_forms.CancelForm
+    def handle_form(self, form):
+        """ Wrapper for form.handle for easier overriding."""
+        return form.handle(self.request, form.cleaned_data, organization=self.object)

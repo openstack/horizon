@@ -11,12 +11,10 @@
 # under the License.
 
 import logging
-import json
 
 from django import forms
 from django.core.urlresolvers import reverse_lazy
 from django.core.urlresolvers import reverse
-from django.http import HttpResponse
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -28,6 +26,7 @@ from horizon.utils import memoized
 from django.views.generic.base import TemplateView
 
 from openstack_dashboard import fiware_api
+from openstack_dashboard.dashboards.idm import views as idm_views
 from openstack_dashboard.dashboards.idm.myApplications \
             import tables as application_tables
 from openstack_dashboard.dashboards.idm.myApplications \
@@ -35,8 +34,8 @@ from openstack_dashboard.dashboards.idm.myApplications \
 from openstack_dashboard.dashboards.idm.myApplications \
             import forms as application_forms
 
-LOG = logging.getLogger('idm_logger')
 
+LOG = logging.getLogger('idm_logger')
 
 class IndexView(tabs.TabbedTableView):
     tab_group_class = application_tabs.PanelTabs
@@ -56,7 +55,7 @@ class CreateView(forms.ModalFormView):
     
 
 class UploadImageView(forms.ModalFormView):
-    form_class = application_forms.UploadImageForm
+    form_class = application_forms.AvatarForm
     template_name = 'idm/myApplications/upload.html'
 
     def get_initial(self):
@@ -134,62 +133,80 @@ class DetailApplicationView(TemplateView):
         application_id = self.kwargs['application_id']
         application = fiware_api.keystone.application_get(self.request, application_id)
         context['description'] = application.description
-        context['url'] = application.extra['url']
-        context['image'] = application.extra.get('img', 'Image not present in extra')
-        if application.redirect_uris:
-            context['callbackURL'] = application.redirect_uris[0]
-        else:
-            context['callbackURL'] = ''
+        context['url'] = getattr(application, 'url', None)
+        context['image'] = getattr(application, 'img', 
+                            '/static/dashboard/img/logos/small/app.png')
+        callback_url = application.redirect_uris[0] \
+                        if application.redirect_uris else None
+        context['callbackurl'] = callback_url
         context['application_name'] = application.name
         context['application_id'] = application_id
         context['application_secret'] = application.secret
         return context
 
-class MultiFormView(TemplateView):
+
+class BaseApplicationsMultiFormView(idm_views.BaseMultiFormView):
     template_name = 'idm/myApplications/edit.html'
+    forms_classes = [
+        application_forms.CreateApplicationForm, 
+        application_forms.AvatarForm, 
+        application_forms.CancelForm
+    ]
+    
+    def get_endpoint(self, form_class):
+        """Override to allow runtime endpoint declaration"""
+        endpoints = {
+            application_forms.CreateApplicationForm: 
+                reverse('horizon:idm:myApplications:info', kwargs=self.kwargs),
+            application_forms.AvatarForm: 
+                reverse('horizon:idm:myApplications:avatar', kwargs=self.kwargs),
+            application_forms.CancelForm: 
+                reverse('horizon:idm:myApplications:cancel', kwargs=self.kwargs),
+        }
+        return endpoints.get(form_class)
 
     @memoized.memoized_method
     def get_object(self):
         try:
-            return fiware_api.keystone.application_get(self.request, self.kwargs['application_id'])
+            return fiware_api.keystone.application_get(self.request, 
+                                                    self.kwargs['application_id'])
         except Exception:
             redirect = reverse("horizon:idm:myApplications:index")
-            exceptions.handle(self.request, _('Unable to update application'), redirect=redirect)
+            exceptions.handle(self.request, _('Unable to update application'), 
+                                redirect=redirect)
+
+    def get_initial(self, form_class):
+        initial = super(BaseApplicationsMultiFormView, self).get_initial(form_class)  
+        # Existing data from applciation
+        callback_url = self.object.redirect_uris[0] \
+                        if self.object.redirect_uris else None
+        initial.update({
+            "appID": self.object.id,
+            "name": self.object.name,
+            "description": self.object.description,
+            "callbackurl": callback_url,
+            "url": getattr(self.object, 'url', None),
+            "nextredir": "update" 
+        })
+        return initial
 
     def get_context_data(self, **kwargs):
-        context = super(MultiFormView, self).get_context_data(**kwargs)
-        application = self.get_object()
-        context['application'] = application
-        context['image'] = application.extra.get('img', 'Image not present in extra')
 
-        #Existing data from organizations
-        initial_data = {
-            "appID": application.id,
-            "name": application.name,
-            "description": application.description,
-            "callbackurl": application.redirect_uris[0],
-            "url": application.extra.get('url', None),
-            "nextredir": "update" 
-        }
-        
-        #Create forms
-        info = application_forms.CreateApplicationForm(self.request, initial=initial_data)
-        avatar = application_forms.UploadImageForm(self.request, initial=initial_data)
-        cancel = application_forms.CancelForm(self.request, initial=initial_data)
-
-        #Actions and titles
-        # TODO(garcianavalon) quizas es mejor meterlo en el __init__ del form
-        info.action = 'info/'
-        info.title = 'Information'
-        avatar.action = "avatar/"
-        avatar.title = 'Avatar Update'
-        cancel.action = "cancel/"
-        cancel.title = ' '
-
-        context['forms'] = [info, avatar]
-        context['cancel_form'] = cancel
+        context = super(BaseApplicationsMultiFormView, self).get_context_data(**kwargs)
+        context['image'] = getattr(self.object, 'img', 
+                            '/static/dashboard/img/logos/small/app.png')
         return context
 
-class CancelFormView(forms.ModalFormView):
-    form_class = application_forms.CancelForm
-    http_method_not_allowed = ['get']
+
+class CreateApplicationFormHandleView(BaseApplicationsMultiFormView):    
+    form_to_handle_class = application_forms.CreateApplicationForm
+
+class AvatarFormHandleView(BaseApplicationsMultiFormView):
+    form_to_handle_class = application_forms.AvatarForm
+
+class CancelFormHandleView(BaseApplicationsMultiFormView):
+    form_to_handle_class = application_forms.CancelForm
+
+    def handle_form(self, form):
+        """ Wrapper for form.handle for easier overriding."""
+        return form.handle(self.request, form.cleaned_data, application=self.object)
