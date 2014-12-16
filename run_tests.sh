@@ -18,6 +18,7 @@ function usage {
   echo "  --makemessages           Create/Update English translation files."
   echo "  --compilemessages        Compile all translation files."
   echo "  --check-only             Do not update translation files (--makemessages only)."
+  echo "  --pseudo                 Pseudo translate a language."
   echo "  -p, --pep8               Just run pep8"
   echo "  -8, --pep8-changed [<basecommit>]"
   echo "                           Just run PEP8 and HACKING compliance check"
@@ -83,6 +84,7 @@ with_coverage=0
 makemessages=0
 compilemessages=0
 check_only=0
+pseudo=0
 manage=0
 
 # Jenkins sets a "JOB_NAME" variable, if it's not set, we'll make it "default"
@@ -112,6 +114,7 @@ function process_option {
     --makemessages) makemessages=1;;
     --compilemessages) compilemessages=1;;
     --check-only) check_only=1;;
+    --pseudo) pseudo=1;;
     --only-selenium) only_selenium=1;;
     --with-selenium) with_selenium=1;;
     --selenium-headless) selenium_headless=1;;
@@ -444,6 +447,17 @@ function run_compilemessages {
   exit $(($HORIZON_PY_RESULT || $DASHBOARD_RESULT))
 }
 
+function run_pseudo {
+  for lang in $testargs
+  # Use English po file as the source file/pot file just like real Horizon translations
+  do
+      ${command_wrapper} $root/tools/pseudo.py openstack_dashboard/locale/en/LC_MESSAGES/django.po openstack_dashboard/locale/$lang/LC_MESSAGES/django.po $lang
+      ${command_wrapper} $root/tools/pseudo.py horizon/locale/en/LC_MESSAGES/django.po horizon/locale/$lang/LC_MESSAGES/django.po $lang
+      ${command_wrapper} $root/tools/pseudo.py horizon/locale/en/LC_MESSAGES/djangojs.po horizon/locale/$lang/LC_MESSAGES/djangojs.po $lang
+  done
+  exit $?
+}
+
 
 # ---------PREPARE THE ENVIRONMENT------------ #
 
@@ -508,6 +522,12 @@ fi
 # Compile translation files
 if [ $compilemessages -eq 1 ]; then
     run_compilemessages
+    exit $?
+fi
+
+# Generate Pseudo translation
+if [ $pseudo -eq 1 ]; then
+    run_pseudo
     exit $?
 fi
 
