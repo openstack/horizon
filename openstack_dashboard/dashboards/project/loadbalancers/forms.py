@@ -35,8 +35,8 @@ class UpdatePool(forms.SelfHandlingForm):
     description = forms.CharField(required=False,
                                   max_length=80, label=_("Description"))
     lb_method = forms.ChoiceField(label=_("Load Balancing Method"))
-    # TODO(amotoki): make UP/DOWN translatable
-    admin_state_up = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+    admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
+                                                (False, _('DOWN'))],
                                        label=_("Admin State"))
 
     failure_url = 'horizon:project:loadbalancers:index'
@@ -90,8 +90,8 @@ class UpdateVip(forms.SelfHandlingForm):
         min_value=-1, label=_("Connection Limit"),
         help_text=_("Maximum number of connections allowed "
                     "for the VIP or '-1' if the limit is not set"))
-    # TODO(amotoki): make UP/DOWN translatable
-    admin_state_up = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+    admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
+                                                (False, _('DOWN'))],
                                        label=_("Admin State"))
 
     failure_url = 'horizon:project:loadbalancers:index'
@@ -173,8 +173,8 @@ class UpdateMember(forms.SelfHandlingForm):
     weight = forms.IntegerField(max_value=256, min_value=0, label=_("Weight"),
                                 help_text=_("Relative part of requests this "
                                 "pool member serves compared to others"))
-    # TODO(amotoki): make UP/DOWN translatable
-    admin_state_up = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+    admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
+                                                (False, _('DOWN'))],
                                        label=_("Admin State"))
 
     failure_url = 'horizon:project:loadbalancers:index'
@@ -235,8 +235,8 @@ class UpdateMonitor(forms.SelfHandlingForm):
         label=_("Max Retries (1~10)"),
         help_text=_("Number of permissible failures before changing "
                     "the status of member to inactive"))
-    # TODO(amotoki): make UP/DOWN translatable
-    admin_state_up = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+    admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
+                                                (False, _('DOWN'))],
                                        label=_("Admin State"))
 
     failure_url = 'horizon:project:loadbalancers:index'

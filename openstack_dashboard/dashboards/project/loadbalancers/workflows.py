@@ -43,8 +43,8 @@ class AddPoolAction(workflows.Action):
     subnet_id = forms.ChoiceField(label=_("Subnet"))
     protocol = forms.ChoiceField(label=_("Protocol"))
     lb_method = forms.ChoiceField(label=_("Load Balancing Method"))
-    # TODO(amotoki): make UP/DOWN translatable
-    admin_state_up = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+    admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
+                                                (False, _('DOWN'))],
                                        label=_("Admin State"))
 
     def __init__(self, request, *args, **kwargs):
@@ -190,8 +190,8 @@ class AddVipAction(workflows.Action):
         required=False, min_value=-1, label=_("Connection Limit"),
         help_text=_("Maximum number of connections allowed "
                     "for the VIP or '-1' if the limit is not set"))
-    # TODO(amotoki): make UP/DOWN translatable
-    admin_state_up = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+    admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
+                                                (False, _('DOWN'))],
                                        label=_("Admin State"))
 
     def __init__(self, request, *args, **kwargs):
@@ -342,8 +342,8 @@ class AddMemberAction(workflows.Action):
                     "members and can be modified later."),
         validators=[validators.validate_port_range]
     )
-    # TODO(amotoki): make UP/DOWN translatable
-    admin_state_up = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+    admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
+                                                (False, _('DOWN'))],
                                        label=_("Admin State"))
 
     def __init__(self, request, *args, **kwargs):
@@ -545,8 +545,8 @@ class AddMonitorAction(workflows.Action):
             'data-type-http': _('Expected HTTP Status Codes'),
             'data-type-https': _('Expected HTTP Status Codes')
         }))
-    # TODO(amotoki): make UP/DOWN translatable
-    admin_state_up = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+    admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
+                                                (False, _('DOWN'))],
                                        label=_("Admin State"))
 
     def __init__(self, request, *args, **kwargs):

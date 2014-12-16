@@ -16,6 +16,7 @@ import logging
 from django.core.urlresolvers import reverse
 from django import template
 from django.template import defaultfilters as filters
+from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
@@ -141,6 +142,12 @@ def get_subnets(network):
     return template.loader.render_to_string(template_name, context)
 
 
+DISPLAY_CHOICES = (
+    ("UP", pgettext_lazy("Admin state of a Network", u"UP")),
+    ("DOWN", pgettext_lazy("Admin state of a Network", u"DOWN")),
+)
+
+
 class NetworksTable(tables.DataTable):
     name = tables.Column("name",
                          verbose_name=_("Name"),
@@ -152,7 +159,8 @@ class NetworksTable(tables.DataTable):
     status = tables.Column("status", verbose_name=_("Status"),
                            filters=(filters.title,))
     admin_state = tables.Column("admin_state",
-                                verbose_name=_("Admin State"))
+                                verbose_name=_("Admin State"),
+                                display_choices=DISPLAY_CHOICES)
 
     class Meta:
         name = "networks"

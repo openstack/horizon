@@ -16,6 +16,7 @@ import logging
 
 from django.core.urlresolvers import reverse
 from django.template import defaultfilters as filters
+from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
@@ -82,6 +83,12 @@ class EditNetwork(policy.PolicyTargetMixin, tables.LinkAction):
 #    return ','.join(cidrs)
 
 
+DISPLAY_CHOICES = (
+    ("UP", pgettext_lazy("Admin state of a Network", u"UP")),
+    ("DOWN", pgettext_lazy("Admin state of a Network", u"DOWN")),
+)
+
+
 class NetworksTable(tables.DataTable):
     tenant = tables.Column("tenant_name", verbose_name=_("Project"))
     name = tables.Column("name", verbose_name=_("Network Name"),
@@ -94,7 +101,8 @@ class NetworksTable(tables.DataTable):
                            filters=(filters.yesno, filters.capfirst))
     status = tables.Column("status", verbose_name=_("Status"))
     admin_state = tables.Column("admin_state",
-                                verbose_name=_("Admin State"))
+                                verbose_name=_("Admin State"),
+                                display_choices=DISPLAY_CHOICES)
 
     class Meta:
         name = "networks"
