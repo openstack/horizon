@@ -846,7 +846,9 @@ STATUS_DISPLAY_CHOICES = (
                                         u"Shelved Offloaded")),
 )
 
+TASK_DISPLAY_NONE = pgettext_lazy("Task status of an Instance", u"None")
 
+# Mapping of task states taken from Nova's nova/compute/task_states.py
 TASK_DISPLAY_CHOICES = (
     ("scheduling", pgettext_lazy("Task status of an Instance",
                                  u"Scheduling")),
@@ -880,8 +882,16 @@ TASK_DISPLAY_CHOICES = (
     ("resize_confirming", pgettext_lazy("Task status of an Instance",
                                         u"Confirming Resize or Migrate")),
     ("rebooting", pgettext_lazy("Task status of an Instance", u"Rebooting")),
+    ("reboot_pending", pgettext_lazy("Task status of an Instance",
+                                     u"Reboot Pending")),
+    ("reboot_started", pgettext_lazy("Task status of an Instance",
+                                     u"Reboot Started")),
     ("rebooting_hard", pgettext_lazy("Task status of an Instance",
                                      u"Rebooting Hard")),
+    ("reboot_pending_hard", pgettext_lazy("Task status of an Instance",
+                                          u"Reboot Pending Hard")),
+    ("reboot_started_hard", pgettext_lazy("Task status of an Instance",
+                                          u"Reboot Started Hard")),
     ("pausing", pgettext_lazy("Task status of an Instance", u"Pausing")),
     ("unpausing", pgettext_lazy("Task status of an Instance", u"Resuming")),
     ("suspending", pgettext_lazy("Task status of an Instance",
@@ -974,7 +984,7 @@ class InstancesTable(tables.DataTable):
                        verbose_name=_("Availability Zone"))
     task = tables.Column("OS-EXT-STS:task_state",
                          verbose_name=_("Task"),
-                         filters=(title, filters.replace_underscores),
+                         empty_value=TASK_DISPLAY_NONE,
                          status=True,
                          status_choices=TASK_STATUS_CHOICES,
                          display_choices=TASK_DISPLAY_CHOICES)
