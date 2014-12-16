@@ -12,6 +12,9 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import logging
+
+LOG = logging.getLogger('idm_logger')
 def filter_default_organizations(projects):
     """Remove from a list the automated created project for a user. This project
     is created during the user registration step and is needed for the user to be
@@ -19,7 +22,9 @@ def filter_default_organizations(projects):
     project behaviour. We don't want the user to be able to do any operations to this 
     project nor even notice it exists.
     """
-    return [p for p in projects if not getattr(p, 'is_default', False)]
+    filtered = [p for p in projects if not getattr(p, 'is_default', False)]
+    LOG.debug('filtered organizations: {0}'.format(filtered))
+    return filtered
 
 def check_elements(elements, valid_elements):
     """Checks a list of elements are present in an allowed elements list"""
