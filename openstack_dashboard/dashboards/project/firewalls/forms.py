@@ -128,8 +128,8 @@ class UpdateFirewall(forms.SelfHandlingForm):
                                   label=_("Description"),
                                   required=False)
     firewall_policy_id = forms.ChoiceField(label=_("Policy"))
-    # TODO(amotoki): make UP/DOWN translatable
-    admin_state_up = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+    admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
+                                                (False, _('DOWN'))],
                                        label=_("Admin State"))
 
     failure_url = 'horizon:project:firewalls:index'

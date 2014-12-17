@@ -14,6 +14,7 @@
 
 from django.core.urlresolvers import reverse
 from django import template
+from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
@@ -50,6 +51,12 @@ class UpdatePort(policy.PolicyTargetMixin, tables.LinkAction):
         return reverse(self.url, args=(network_id, port.id))
 
 
+DISPLAY_CHOICES = (
+    ("UP", pgettext_lazy("Admin state of a Port", u"UP")),
+    ("DOWN", pgettext_lazy("Admin state of a Port", u"DOWN")),
+)
+
+
 class PortsTable(tables.DataTable):
     name = tables.Column("name",
                          verbose_name=_("Name"),
@@ -58,7 +65,8 @@ class PortsTable(tables.DataTable):
     attached = tables.Column(get_attached, verbose_name=_("Attached Device"))
     status = tables.Column("status", verbose_name=_("Status"))
     admin_state = tables.Column("admin_state",
-                                verbose_name=_("Admin State"))
+                                verbose_name=_("Admin State"),
+                                display_choices=DISPLAY_CHOICES)
     mac_state = tables.Column("mac_state", empty_value=api.neutron.OFF_STATE,
                               verbose_name=_("MAC Learning State"))
 

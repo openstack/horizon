@@ -74,8 +74,8 @@ class CreateNetwork(forms.SelfHandlingForm):
             'data-network_type-gre': _('Segmentation ID'),
             'data-network_type-vxlan': _('Segmentation ID')
         }))
-    # TODO(amotoki): make UP/DOWN translatable
-    admin_state = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+    admin_state = forms.ChoiceField(choices=[(True, _('UP')),
+                                             (False, _('DOWN'))],
                                     label=_("Admin State"))
     shared = forms.BooleanField(label=_("Shared"),
                                 initial=False, required=False)
@@ -233,8 +233,8 @@ class CreateNetwork(forms.SelfHandlingForm):
 class UpdateNetwork(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), required=False)
     tenant_id = forms.CharField(widget=forms.HiddenInput)
-    # TODO(amotoki): make UP/DOWN translatable
-    admin_state = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+    admin_state = forms.ChoiceField(choices=[(True, _('UP')),
+                                             (False, _('DOWN'))],
                                     label=_("Admin State"))
     shared = forms.BooleanField(label=_("Shared"), required=False)
     external = forms.BooleanField(label=_("External Network"), required=False)

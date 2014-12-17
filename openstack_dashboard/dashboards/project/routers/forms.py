@@ -83,8 +83,8 @@ class CreateForm(forms.SelfHandlingForm):
 
 class UpdateForm(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), required=False)
-    # TODO(amotoki): make UP/DOWN translatable
-    admin_state = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+    admin_state = forms.ChoiceField(choices=[(True, _('UP')),
+                                             (False, _('DOWN'))],
                                     label=_("Admin State"))
     router_id = forms.CharField(label=_("ID"),
                                 widget=forms.HiddenInput())

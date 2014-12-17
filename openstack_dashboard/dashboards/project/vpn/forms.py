@@ -34,8 +34,8 @@ class UpdateVPNService(forms.SelfHandlingForm):
         widget=forms.TextInput(attrs={'readonly': 'readonly'}))
     description = forms.CharField(
         required=False, max_length=80, label=_("Description"))
-    # TODO(amotoki): make UP/DOWN translatable
-    admin_state_up = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+    admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
+                                                (False, _('DOWN'))],
                                        label=_("Admin State"))
 
     failure_url = 'horizon:project:vpn:index'
@@ -258,8 +258,8 @@ class UpdateIPSecSiteConnection(forms.SelfHandlingForm):
         label=_("Initiator state"),
         choices=[('bi-directional', _('bi-directional')),
                  ('response-only', _('response-only'))])
-    # TODO(amotoki): make UP/DOWN translatable
-    admin_state_up = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+    admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
+                                                (False, _('DOWN'))],
                                        label=_("Admin State"))
 
     failure_url = 'horizon:project:vpn:index'

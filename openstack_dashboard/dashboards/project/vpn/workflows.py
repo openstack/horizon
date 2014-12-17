@@ -28,8 +28,8 @@ class AddVPNServiceAction(workflows.Action):
         max_length=80, label=_("Description"))
     router_id = forms.ChoiceField(label=_("Router"))
     subnet_id = forms.ChoiceField(label=_("Subnet"))
-    # TODO(amotoki): make UP/DOWN translatable
-    admin_state_up = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+    admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
+                                                (False, _('DOWN'))],
                                        label=_("Admin State"),
                                        help_text=_("The state to start in."))
 
@@ -414,8 +414,8 @@ class AddIPSecSiteConnectionOptionalAction(workflows.Action):
         initial=120,
         help_text=_("Valid integer greater than the DPD interval"))
     initiator = forms.ChoiceField(label=_("Initiator state"))
-    # TODO(amotoki): make UP/DOWN translatable
-    admin_state_up = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+    admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
+                                                (False, _('DOWN'))],
                                        label=_("Admin State"),
                                        help_text=_("The state to start in."))
 

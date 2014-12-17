@@ -238,8 +238,8 @@ class AddFirewallAction(workflows.Action):
     shared = forms.BooleanField(label=_("Shared"),
                                 initial=False,
                                 required=False)
-    # TODO(amotoki): make UP/DOWN translatable
-    admin_state_up = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+    admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
+                                                (False, _('DOWN'))],
                                        label=_("Admin State"))
 
     def __init__(self, request, *args, **kwargs):

@@ -34,8 +34,8 @@ LOG = logging.getLogger(__name__)
 class UpdateNetwork(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), required=False)
     tenant_id = forms.CharField(widget=forms.HiddenInput)
-    # TODO(amotoki): make UP/DOWN translatable
-    admin_state = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+    admin_state = forms.ChoiceField(choices=[(True, _('UP')),
+                                             (False, _('DOWN'))],
                                     label=_("Admin State"))
     failure_url = 'horizon:project:networks:index'
 

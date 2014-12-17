@@ -44,8 +44,8 @@ class CreateNetworkInfoAction(workflows.Action):
                                        required=False,
                                        widget=widget)
 
-    # TODO(amotoki): make UP/DOWN translatable
-    admin_state = forms.ChoiceField(choices=[(True, 'UP'), (False, 'DOWN')],
+    admin_state = forms.ChoiceField(choices=[(True, _('UP')),
+                                             (False, _('DOWN'))],
                                     label=_("Admin State"),
                                     help_text=_("The state to start"
                                                 " the network in."))

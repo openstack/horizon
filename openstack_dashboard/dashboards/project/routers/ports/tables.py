@@ -15,6 +15,7 @@
 import logging
 
 from django.core.urlresolvers import reverse
+from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
@@ -89,6 +90,12 @@ class RemoveInterface(policy.PolicyTargetMixin, tables.DeleteAction):
             exceptions.handle(request, msg, redirect=redirect)
 
 
+DISPLAY_CHOICES = (
+    ("UP", pgettext_lazy("Admin state of a Port", u"UP")),
+    ("DOWN", pgettext_lazy("Admin state of a Port", u"DOWN")),
+)
+
+
 class PortsTable(tables.DataTable):
     name = tables.Column("name",
                          verbose_name=_("Name"),
@@ -99,7 +106,8 @@ class PortsTable(tables.DataTable):
     device_owner = tables.Column(get_device_owner,
                                  verbose_name=_("Type"))
     admin_state = tables.Column("admin_state",
-                                verbose_name=_("Admin State"))
+                                verbose_name=_("Admin State"),
+                                display_choices=DISPLAY_CHOICES)
 
     def get_object_display(self, port):
         return port.id
