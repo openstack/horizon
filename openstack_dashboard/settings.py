@@ -24,8 +24,6 @@ import warnings
 from django.utils.translation import ugettext_lazy as _
 import xstatic.main
 import xstatic.pkg.angular
-import xstatic.pkg.angular_cookies
-import xstatic.pkg.angular_mock
 import xstatic.pkg.bootstrap_datepicker
 import xstatic.pkg.bootstrap_scss
 import xstatic.pkg.d3
@@ -153,10 +151,6 @@ STATICFILES_FINDERS = (
 STATICFILES_DIRS = [
     ('horizon/lib/angular',
         xstatic.main.XStatic(xstatic.pkg.angular).base_dir),
-    ('horizon/lib/angular',
-        xstatic.main.XStatic(xstatic.pkg.angular_cookies).base_dir),
-    ('horizon/lib/angular',
-        xstatic.main.XStatic(xstatic.pkg.angular_mock).base_dir),
     ('horizon/lib/bootstrap_datepicker',
         xstatic.main.XStatic(xstatic.pkg.bootstrap_datepicker).base_dir),
     ('bootstrap',
