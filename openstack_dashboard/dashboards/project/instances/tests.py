@@ -17,10 +17,12 @@
 #    under the License.
 
 import json
+import logging
 import sys
 
 import django
 from django.conf import settings
+from django.contrib.auth import REDIRECT_FIELD_NAME  # noqa
 from django.core.urlresolvers import reverse
 from django.forms import widgets
 from django import http
@@ -889,9 +891,18 @@ class InstanceTests(helpers.TestCase):
 
         url = reverse('horizon:project:instances:detail',
                       args=[server.id])
-        res = self.client.get(url)
 
-        self.assertRedirectsNoFollow(res, INDEX_URL)
+        # Avoid the log message in the test
+        # when unauthorized exception will be logged
+        logging.disable(logging.ERROR)
+        res = self.client.get(url)
+        logging.disable(logging.NOTSET)
+
+        self.assertEqual(302, res.status_code)
+        self.assertEqual(('Location', settings.TESTSERVER +
+                          settings.LOGIN_URL + '?' +
+                          REDIRECT_FIELD_NAME + '=' + url),
+                         res._headers.get('location', None),)
 
     def test_instance_details_flavor_not_found(self):
         server = self.servers.first()
