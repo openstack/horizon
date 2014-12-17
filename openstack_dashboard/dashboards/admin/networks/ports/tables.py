@@ -73,36 +73,14 @@ class CreatePort(tables.LinkAction):
         return reverse(self.url, args=(network_id,))
 
 
-class UpdatePort(policy.PolicyTargetMixin, tables.LinkAction):
-    name = "update"
-    verbose_name = _("Edit Port")
+class UpdatePort(project_tables.UpdatePort):
     url = "horizon:admin:networks:editport"
-    classes = ("ajax-modal",)
-    icon = "pencil"
-    policy_rules = (("network", "update_port"),)
-
-    def get_link_url(self, port):
-        network_id = self.table.kwargs['network_id']
-        return reverse(self.url, args=(network_id, port.id))
 
 
-class PortsTable(tables.DataTable):
+class PortsTable(project_tables.PortsTable):
     name = tables.Column("name_or_id",
                          verbose_name=_("Name"),
                          link="horizon:admin:networks:ports:detail")
-    fixed_ips = tables.Column(
-        project_tables.get_fixed_ips, verbose_name=_("Fixed IPs"))
-    device_id = tables.Column(
-        project_tables.get_attached, verbose_name=_("Device Attached"))
-    status = tables.Column(
-        "status",
-        verbose_name=_("Status"),
-        display_choices=project_tables.STATUS_DISPLAY_CHOICES)
-    admin_state = tables.Column("admin_state",
-                                verbose_name=_("Admin State"),
-                                display_choices=project_tables.DISPLAY_CHOICES)
-    mac_state = tables.Column("mac_state", empty_value=api.neutron.OFF_STATE,
-                              verbose_name=_("Mac Learning State"))
 
     class Meta(object):
         name = "ports"
@@ -110,10 +88,3 @@ class PortsTable(tables.DataTable):
         table_actions = (CreatePort, DeletePort)
         row_actions = (UpdatePort, DeletePort,)
         hidden_title = False
-
-    def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
-        super(PortsTable, self).__init__(request, data=data,
-                                         needs_form_wrapper=needs_form_wrapper,
-                                         **kwargs)
-        if not api.neutron.is_extension_supported(request, 'mac-learning'):
-            del self.columns['mac_state']

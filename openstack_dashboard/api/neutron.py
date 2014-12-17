@@ -88,9 +88,9 @@ class Network(NeutronAPIDictWrapper):
     def __init__(self, apiresource):
         apiresource['admin_state'] = \
             'UP' if apiresource['admin_state_up'] else 'DOWN'
-        # Django cannot handle a key name with a colon, so remap another key
+        # Django cannot handle a key name with ':', so use '__'
         for key in apiresource.keys():
-            if key.find(':'):
+            if ':' in key:
                 apiresource['__'.join(key.split(':'))] = apiresource[key]
         super(Network, self).__init__(apiresource)
 
@@ -112,6 +112,10 @@ class Port(NeutronAPIDictWrapper):
     """Wrapper for neutron ports."""
 
     def __init__(self, apiresource):
+        # Django cannot handle a key name with ':', so use '__'
+        for key in apiresource.keys():
+            if ':' in key:
+                apiresource['__'.join(key.split(':'))] = apiresource[key]
         apiresource['admin_state'] = \
             'UP' if apiresource['admin_state_up'] else 'DOWN'
         if 'mac_learning_enabled' in apiresource:
@@ -725,6 +729,13 @@ def port_get(request, port_id, **params):
     return Port(port)
 
 
+def unescape_port_kwargs(**kwargs):
+    for key in kwargs:
+        if '__' in key:
+            kwargs[':'.join(key.split('__'))] = kwargs.pop(key)
+    return kwargs
+
+
 def port_create(request, network_id, **kwargs):
     """Create a port on a specified network.
 
@@ -739,6 +750,7 @@ def port_create(request, network_id, **kwargs):
     # In the case policy profiles are being used, profile id is needed.
     if 'policy_profile_id' in kwargs:
         kwargs['n1kv:profile_id'] = kwargs.pop('policy_profile_id')
+    kwargs = unescape_port_kwargs(**kwargs)
     body = {'port': {'network_id': network_id}}
     if 'tenant_id' not in kwargs:
         kwargs['tenant_id'] = request.user.project_id
@@ -754,6 +766,7 @@ def port_delete(request, port_id):
 
 def port_update(request, port_id, **kwargs):
     LOG.debug("port_update(): portid=%s, kwargs=%s" % (port_id, kwargs))
+    kwargs = unescape_port_kwargs(**kwargs)
     body = {'port': kwargs}
     port = neutronclient(request).update_port(port_id, body=body).get('port')
     return Port(port)

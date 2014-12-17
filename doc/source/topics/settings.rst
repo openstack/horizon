@@ -666,6 +666,7 @@ Default::
             'enable_vpn': True,
             'profile_support': None,
             'supported_provider_types': ["*"],
+            'supported_vnic_types': ["*"],
             'segmentation_id_range': {}
         }
 
@@ -790,6 +791,19 @@ local, flat, vlan, gre, and vxlan. By default all provider network types will
 be available to choose from.
 
 Example: ``['local', 'flat', 'gre']``
+
+``supported_vnic_types``:
+
+.. versionadded:: 2015.1(Kilo)
+
+Default ``['*']``
+
+For use with the port binding extension. Use this to explicitly set which VNIC
+types are supported; only those listed will be shown when creating or editing
+a port. VNIC types include normal, direct and macvtap. By default all VNIC
+types will be available to choose from.
+
+Example ``['normal', 'direct']``
 
 ``segmentation_id_range``:
 

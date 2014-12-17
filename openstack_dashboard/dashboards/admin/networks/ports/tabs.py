@@ -12,31 +12,13 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.core.urlresolvers import reverse
-from django.utils.translation import ugettext_lazy as _
-
-from horizon import exceptions
-from horizon import tabs
-
-from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.networks.ports \
+    import tabs as project_tabs
 
 
-class OverviewTab(tabs.Tab):
-    name = _("Overview")
-    slug = "overview"
-    template_name = "project/networks/ports/_detail_overview.html"
-
-    def get_context_data(self, request):
-        port_id = self.tab_group.kwargs['port_id']
-        try:
-            port = api.neutron.port_get(self.request, port_id)
-        except Exception:
-            redirect = reverse('horizon:admin:networks:index')
-            msg = _('Unable to retrieve port details.')
-            exceptions.handle(request, msg, redirect=redirect)
-        return {'port': port}
+class OverviewTab(project_tabs.OverviewTab):
+    template_name = "admin/networks/ports/_detail_overview.html"
 
 
-class PortDetailTabs(tabs.TabGroup):
-    slug = "port_details"
+class PortDetailTabs(project_tabs.PortDetailTabs):
     tabs = (OverviewTab,)

@@ -100,8 +100,7 @@ class UpdateView(forms.ModalFormView):
         try:
             return api.neutron.port_get(self.request, port_id)
         except Exception:
-            redirect = reverse("horizon:project:networks:detail",
-                               args=(self.kwargs['network_id'],))
+            redirect = self.get_success_url()
             msg = _('Unable to retrieve port details')
             exceptions.handle(self.request, msg, redirect=redirect)
 
@@ -120,9 +119,9 @@ class UpdateView(forms.ModalFormView):
                    'network_id': port['network_id'],
                    'tenant_id': port['tenant_id'],
                    'name': port['name'],
-                   'admin_state': port['admin_state_up'],
-                   'device_id': port['device_id'],
-                   'device_owner': port['device_owner']}
+                   'admin_state': port['admin_state_up']}
+        if port['binding__vnic_type']:
+            initial['binding__vnic_type'] = port['binding__vnic_type']
         try:
             initial['mac_state'] = port['mac_learning_enabled']
         except Exception:

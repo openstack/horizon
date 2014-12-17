@@ -1691,11 +1691,14 @@ class NetworkPortTests(test.TestCase):
     def test_port_update_get_with_mac_learning(self):
         self._test_port_update_get(mac_learning=True)
 
-    def _test_port_update_get(self, mac_learning=False):
+    def _test_port_update_get(self, mac_learning=False, binding=False):
         port = self.ports.first()
         api.neutron.port_get(IsA(http.HttpRequest),
                              port.id)\
             .AndReturn(port)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'binding')\
+            .AndReturn(binding)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
@@ -1719,14 +1722,19 @@ class NetworkPortTests(test.TestCase):
     def test_port_update_post_with_mac_learning(self):
         self._test_port_update_post(mac_learning=True)
 
-    def _test_port_update_post(self, mac_learning=False):
+    def _test_port_update_post(self, mac_learning=False, binding=False):
         port = self.ports.first()
         api.neutron.port_get(IsA(http.HttpRequest), port.id)\
             .AndReturn(port)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'binding')\
+            .AndReturn(binding)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
         extension_kwargs = {}
+        if binding:
+            extension_kwargs['binding__vnic_type'] = port.binding__vnic_type
         if mac_learning:
             extension_kwargs['mac_learning_enabled'] = True
         api.neutron.port_update(IsA(http.HttpRequest), port.id,
@@ -1740,6 +1748,8 @@ class NetworkPortTests(test.TestCase):
                      'port_id': port.id,
                      'name': port.name,
                      'admin_state': port.admin_state_up}
+        if binding:
+            form_data['binding__vnic_type'] = port.binding__vnic_type
         if mac_learning:
             form_data['mac_state'] = True
         url = reverse('horizon:project:networks:editport',
@@ -1762,14 +1772,21 @@ class NetworkPortTests(test.TestCase):
     def test_port_update_post_exception_with_mac_learning(self):
         self._test_port_update_post_exception(mac_learning=True)
 
-    def _test_port_update_post_exception(self, mac_learning=False):
+    def _test_port_update_post_exception(self, mac_learning=False,
+                                         binding=False):
+
         port = self.ports.first()
         api.neutron.port_get(IsA(http.HttpRequest), port.id)\
             .AndReturn(port)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'binding')\
+            .AndReturn(binding)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
         extension_kwargs = {}
+        if binding:
+            extension_kwargs['binding__vnic_type'] = port.binding__vnic_type
         if mac_learning:
             extension_kwargs['mac_learning_enabled'] = True
         api.neutron.port_update(IsA(http.HttpRequest), port.id,
@@ -1783,6 +1800,8 @@ class NetworkPortTests(test.TestCase):
                      'port_id': port.id,
                      'name': port.name,
                      'admin_state': port.admin_state_up}
+        if binding:
+            form_data['binding__vnic_type'] = port.binding__vnic_type
         if mac_learning:
             form_data['mac_state'] = True
         url = reverse('horizon:project:networks:editport',
