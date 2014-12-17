@@ -84,17 +84,11 @@ class DetailOrganizationView(tables.MultiTableView):
         return context
 
 
-class AddMemberView(workflows.WorkflowView):
-    workflow_class = organization_workflows.UpdateOrganizationMembers
+class OrganizationMembersView(workflows.WorkflowView):
+    workflow_class = organization_workflows.ManageOrganizationMembers
 
     def get_initial(self):
-        initial = super(AddMemberView, self).get_initial()
-
-        # Set the domain of the project
-        domain = api.keystone.get_default_domain(self.request)
-        initial["domain_id"] = domain.id
-        initial["domain_name"] = domain.name
-
+        initial = super(OrganizationMembersView, self).get_initial()
         return initial
 
 

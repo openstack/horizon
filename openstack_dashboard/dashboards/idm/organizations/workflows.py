@@ -126,7 +126,7 @@ class UpdateProjectMembers(workflows.UpdateMembersStep):
         return context
 
 
-class UpdateOrganizationMembers(workflows.Workflow):
+class ManageOrganizationMembers(workflows.Workflow):
     slug = "update_organization_users"
     name = _("Edit Project")
     finalize_button_name = _("Save")
@@ -137,7 +137,7 @@ class UpdateOrganizationMembers(workflows.Workflow):
 
     def __init__(self, request=None, context_seed=None, entry_point=None,
                  *args, **kwargs):
-        super(UpdateOrganizationMembers, self).__init__(request=request,
+        super(ManageOrganizationMembers, self).__init__(request=request,
                                             context_seed=context_seed,
                                             entry_point=entry_point,
                                             *args,

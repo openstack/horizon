@@ -38,11 +38,12 @@
             </div>
 		</div>
 	</div>
-    {{ members_table }}
+    
 	<div class="panel panel-default members">
 
         <div class="panel-heading">
-              {{ members_table.render_table_actions }}  
+            {{ members_table }}
+            {{ members_table.render_table_actions }}  
         </div>
         <div class="panel-body">
             {{ members_table.render}}
