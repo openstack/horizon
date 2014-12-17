@@ -168,6 +168,20 @@ A dictionary containing classes of exceptions which Horizon's centralized
 exception handling should be aware of. Based on these exception categories,
 Horizon will handle the exception and display a message to the user.
 
+``modal_backdrop``
+------------------
+
+.. versionadded:: 2014.2(Kilo)
+
+Default: ``"static"``
+
+Controls how bootstrap backdrop element outside of modals looks and feels.
+Valid values are ``"true"`` (show backdrop element outside the modal, close
+the modal after clicking on backdrop), ``"false"`` (do not show backdrop
+element, do not close the modal after clicking outside of it) and ``"static"``
+(show backdrop element outside the modal, do not close the modal after
+clicking on backdrop).
+
 ``password_validator``
 ----------------------
 

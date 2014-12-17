@@ -1,4 +1,5 @@
 <div id="{% block modal_id %}{{ modal_id }}{% endblock %}"
+     data-backdrop="{{ modal_backdrop }}"
      class="{% block modal_class %}{% if hide %}modal{% else %}static_page{% endif %}{% endblock %}">
   <div class="{% if hide %}modal-dialog{% endif %}">
     <div class="{% if hide %}modal-content{% endif %}">

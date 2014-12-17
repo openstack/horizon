@@ -23,11 +23,12 @@ from django.views import generic
 import six
 
 from horizon import exceptions
+from horizon.forms import views as hz_views
 from horizon.forms.views import ADD_TO_FIELD_HEADER  # noqa
 from horizon import messages
 
 
-class WorkflowView(generic.TemplateView):
+class WorkflowView(hz_views.ModalBackdropMixin, generic.TemplateView):
     """A generic class-based view which handles the intricacies of workflow
     processing with minimal user configuration.
 
@@ -60,6 +61,7 @@ class WorkflowView(generic.TemplateView):
     step_errors = {}
 
     def __init__(self):
+        super(WorkflowView, self).__init__()
         if not self.workflow_class:
             raise AttributeError("You must set the workflow_class attribute "
                                  "on %s." % self.__class__.__name__)
