@@ -158,6 +158,12 @@ class HorizonMiddleware(object):
             login_url = request.build_absolute_uri(auth_url)
             response = redirect_to_login(next_url, login_url=login_url,
                                          redirect_field_name=field_name)
+            if isinstance(exception, exceptions.NotAuthorized):
+                logout_reason = _("Unauthorized. Please try logging in again.")
+                utils.add_logout_reason(request, response, logout_reason)
+                # delete messages, created in get_data() method
+                # since we are going to redirect user to the login page
+                response.delete_cookie('messages')
 
             if request.is_ajax():
                 response_401 = http.HttpResponse(status=401)

@@ -17,7 +17,10 @@
 #    under the License.
 
 import datetime
+import logging
 
+from django.conf import settings
+from django.contrib.auth import REDIRECT_FIELD_NAME  # noqa
 from django.core.urlresolvers import reverse
 from django import http
 from django.utils import timezone
@@ -34,13 +37,17 @@ INDEX_URL = reverse('horizon:project:overview:index')
 
 class UsageViewTests(test.TestCase):
 
-    def _stub_nova_api_calls(self, nova_stu_enabled=True):
+    def _stub_nova_api_calls(self, nova_stu_enabled=True,
+                             stu_exception=False):
         self.mox.StubOutWithMock(api.nova, 'usage_get')
         self.mox.StubOutWithMock(api.nova, 'tenant_absolute_limits')
         self.mox.StubOutWithMock(api.nova, 'extension_supported')
         api.nova.extension_supported(
             'SimpleTenantUsage', IsA(http.HttpRequest)) \
             .AndReturn(nova_stu_enabled)
+
+        if nova_stu_enabled and stu_exception:
+            self._nova_stu_enabled(stu_exception)
 
     def _stub_cinder_api_calls(self):
         self.mox.StubOutWithMock(api.cinder, 'tenant_absolute_limits')
@@ -63,6 +70,20 @@ class UsageViewTests(test.TestCase):
         if neutron_sg_enabled:
             api.network.security_group_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.q_secgroups.list())
+
+    def _nova_stu_enabled(self, exception=False):
+        now = timezone.now()
+        start = datetime.datetime(now.year, now.month, 1, 0, 0, 0, 0)
+        end = datetime.datetime(now.year, now.month, now.day, 23, 59, 59, 0)
+
+        if exception:
+            api.nova.usage_get(IsA(http.HttpRequest), self.tenant.id,
+                               start, end) \
+                .AndRaise(exception)
+        else:
+            api.nova.usage_get(IsA(http.HttpRequest), self.tenant.id,
+                               start, end) \
+                .AndReturn(api.nova.NovaUsage(self.usages.first()))
 
     def test_usage(self):
         self._test_usage(nova_stu_enabled=True)
@@ -150,32 +171,33 @@ class UsageViewTests(test.TestCase):
             self.assertNotContains(res, 'form-inline')
         self.assertEqual(usages.limits['maxTotalFloatingIps'], 10)
 
-    def test_unauthorized(self):
-        exc = self.exceptions.nova_unauthorized
-        now = timezone.now()
-        self._stub_nova_api_calls()
+    @test.create_stubs({api.nova: ('usage_get',
+                                   'extension_supported')})
+    def _stub_nova_api_calls_unauthorized(self, exception):
         api.nova.extension_supported(
             'SimpleTenantUsage', IsA(http.HttpRequest)) \
             .AndReturn(True)
-        api.nova.usage_get(IsA(http.HttpRequest), self.tenant.id,
-                           datetime.datetime(now.year,
-                                             now.month,
-                                             1, 0, 0, 0, 0),
-                           datetime.datetime(now.year,
-                                             now.month,
-                                             now.day, 23, 59, 59, 0)) \
-            .AndRaise(exc)
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
-            .AndReturn(self.limits['absolute'])
-        self._stub_neutron_api_calls()
-        self._stub_cinder_api_calls()
+        self._nova_stu_enabled(exception)
+
+    def test_unauthorized(self):
+        self._stub_nova_api_calls_unauthorized(
+            self.exceptions.nova_unauthorized)
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:overview:index')
+
+        # Avoid the log message in the test
+        # when unauthorized exception will be logged
+        logging.disable(logging.ERROR)
         res = self.client.get(url)
-        self.assertTemplateUsed(res, 'project/overview/usage.html')
-        self.assertMessageCount(res, error=1)
-        self.assertContains(res, 'Unauthorized:')
+        logging.disable(logging.NOTSET)
+
+        self.assertEqual(302, res.status_code)
+        self.assertEqual((
+            'Location', settings.TESTSERVER +
+            settings.LOGIN_URL + '?' +
+            REDIRECT_FIELD_NAME + '=' + url),
+            res._headers.get('location', None),)
 
     def test_usage_csv(self):
         self._test_usage_csv(nova_stu_enabled=True)
