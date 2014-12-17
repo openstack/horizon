@@ -22,6 +22,7 @@ from horizon import messages
 from horizon import workflows
 
 from openstack_dashboard import api
+from openstack_dashboard import fiware_api
 
 
 INDEX_URL = "horizon:idm:organization:index"
@@ -32,11 +33,10 @@ class UpdateProjectMembersAction(workflows.MembershipAction):
         super(UpdateProjectMembersAction, self).__init__(request,
                                                          *args,
                                                          **kwargs)
+        import pdb; pdb.set_trace()
         err_msg = _('Unable to retrieve user list. Please try again later.')
 
-        project_id = ''
-        if 'project_id' in self.initial:
-            project_id = self.initial['project_id']
+        project_id = self.initial['project_id']
 
         # Get the default role
         try:
@@ -53,7 +53,8 @@ class UpdateProjectMembersAction(workflows.MembershipAction):
                               err_msg,
                               redirect=reverse(INDEX_URL))
         default_role_name = self.get_default_role_field_name()
-        self.fields[default_role_name] = forms.CharField(required=False)
+        self.fields[default_role_name] = forms.CharField(required=False, 
+                                                        widget=forms.HiddenInput())
         self.fields[default_role_name].initial = default_role.id
 
         # Get list of available users
@@ -67,8 +68,12 @@ class UpdateProjectMembersAction(workflows.MembershipAction):
         # Get list of roles
         role_list = []
         try:
-            # TODO(garcianavalon) fiware roles
-            role_list = api.keystone.role_list(request)
+            # NOTE(garcianavalon) the role logic is the following:
+            # list all roles grouped by application on which current user
+            # has the right to get and assign
+            # TODO(garcianavalon) for now lets just list all user roles
+            role_list = fiware_api.keystone.role_list(request,
+                                                    user=request.user.id)
         except Exception:
             exceptions.handle(request,
                               err_msg,
@@ -82,21 +87,38 @@ class UpdateProjectMembersAction(workflows.MembershipAction):
             self.fields[field_name].initial = []
 
         # Figure out users & roles
-        if project_id:
+        # NOTE(garcianavalon) logic for this part: 
+        # find all the roles from the role_list(the ones the current user can get 
+        # and assign) that are already assigned for each user and flag them
+
+        # First, load all users from the organization
+        try:
+            project_users = api.keystone.user_list(request,
+                                            project=project_id)
+        except Exception:
+            exceptions.handle(request,
+                              err_msg,
+                              redirect=reverse(INDEX_URL))
+
+        # Load all the roles for every user
+        users_roles = {}
+        for user in project_users:
+            # TODO(garcianavalon) what about the roles of users in the all list??
             try:
-                # TODO(garcianavalon) fiware roles
-                users_roles = api.keystone.get_project_users_roles(request,
-                                                                   project_id)
+                users_roles[user.id] = fiware_api.keystone.role_list(request,
+                                                        user=user)
+                #users_roles = api.keystone.get_project_users_roles(request,
+                #                                                   project_id)
             except Exception:
                 exceptions.handle(request,
                                   err_msg,
                                   redirect=reverse(INDEX_URL))
-
-            for user_id in users_roles:
-                roles_ids = users_roles[user_id]
-                for role_id in roles_ids:
-                    field_name = self.get_member_field_name(role_id)
-                    self.fields[field_name].initial.append(user_id)
+        # Flag the alredy owned ones
+        for user_id in users_roles:
+            roles_ids = [r.id for r in users_roles[user_id] if r in role_list]
+            for role_id in roles_ids:
+                field_name = self.get_member_field_name(role_id)
+                self.fields[field_name].initial.append(user_id)
 
     class Meta:
         name = _("Organization Members")

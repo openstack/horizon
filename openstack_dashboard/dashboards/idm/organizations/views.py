@@ -89,6 +89,8 @@ class OrganizationMembersView(workflows.WorkflowView):
 
     def get_initial(self):
         initial = super(OrganizationMembersView, self).get_initial()
+        import pdb; pdb.set_trace()
+        initial['project_id'] = self.kwargs['organization_id']
         return initial
 
 
