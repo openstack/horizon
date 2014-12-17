@@ -34,6 +34,7 @@ from openstack_dashboard.usage import quotas
 
 VOLUME_INDEX_URL = reverse('horizon:project:volumes:index')
 VOLUME_VOLUMES_TAB_URL = reverse('horizon:project:volumes:volumes_tab')
+SEARCH_OPTS = dict(status=api.cinder.VOLUME_STATE_AVAILABLE)
 
 
 class VolumeViewTests(test.TestCase):
@@ -65,7 +66,8 @@ class VolumeViewTests(test.TestCase):
             AndReturn(self.volume_types.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
             AndReturn(usage_limit)
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=SEARCH_OPTS).\
             AndReturn(self.cinder_volume_snapshots.list())
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
@@ -82,7 +84,8 @@ class VolumeViewTests(test.TestCase):
         cinder.extension_supported(IsA(http.HttpRequest), 'AvailabilityZones')\
             .AndReturn(True)
         cinder.volume_list(IsA(
-            http.HttpRequest)).AndReturn(self.cinder_volumes.list())
+            http.HttpRequest),
+            search_opts=SEARCH_OPTS).AndReturn(self.cinder_volumes.list())
 
         cinder.volume_create(IsA(http.HttpRequest),
                              formData['size'],
@@ -132,7 +135,8 @@ class VolumeViewTests(test.TestCase):
             AndReturn(self.volume_types.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
             AndReturn(usage_limit)
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=SEARCH_OPTS).\
             AndReturn(self.cinder_volume_snapshots.list())
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
@@ -149,7 +153,8 @@ class VolumeViewTests(test.TestCase):
         cinder.extension_supported(IsA(http.HttpRequest), 'AvailabilityZones')\
             .AndReturn(True)
         cinder.volume_list(IsA(
-            http.HttpRequest)).AndReturn(self.cinder_volumes.list())
+            http.HttpRequest),
+            search_opts=SEARCH_OPTS).AndReturn(self.cinder_volumes.list())
 
         cinder.volume_create(IsA(http.HttpRequest),
                              formData['size'],
@@ -196,7 +201,8 @@ class VolumeViewTests(test.TestCase):
 
         cinder.volume_type_list(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.list())
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=SEARCH_OPTS).\
             AndReturn(self.cinder_volume_snapshots.list())
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
@@ -208,7 +214,8 @@ class VolumeViewTests(test.TestCase):
                      'status': 'active'}) \
             .AndReturn([[], False, False])
         cinder.volume_list(IsA(
-            http.HttpRequest)).AndReturn(self.cinder_volumes.list())
+            http.HttpRequest),
+            search_opts=SEARCH_OPTS).AndReturn(self.cinder_volumes.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
             AndReturn(usage_limit)
 
@@ -310,11 +317,12 @@ class VolumeViewTests(test.TestCase):
                     'volume_source_type': 'volume_source',
                     'volume_source': volume.id}
 
-        cinder.volume_list(IsA(http.HttpRequest)).\
+        cinder.volume_list(IsA(http.HttpRequest), search_opts=SEARCH_OPTS).\
             AndReturn(self.cinder_volumes.list())
         cinder.volume_type_list(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.list())
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=SEARCH_OPTS).\
             AndReturn(self.cinder_volume_snapshots.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
             AndReturn(usage_limit)
@@ -381,7 +389,8 @@ class VolumeViewTests(test.TestCase):
 
         cinder.volume_type_list(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.list())
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=SEARCH_OPTS).\
             AndReturn(self.cinder_volume_snapshots.list())
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
@@ -393,7 +402,8 @@ class VolumeViewTests(test.TestCase):
                      'status': 'active'}) \
             .AndReturn([[], False, False])
         cinder.volume_list(IsA(
-            http.HttpRequest)).AndReturn(self.cinder_volumes.list())
+            http.HttpRequest),
+            search_opts=SEARCH_OPTS).AndReturn(self.cinder_volumes.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
             AndReturn(usage_limit)
         cinder.volume_snapshot_get(IsA(http.HttpRequest),
@@ -544,7 +554,8 @@ class VolumeViewTests(test.TestCase):
 
         cinder.volume_type_list(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.list())
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=SEARCH_OPTS).\
             AndReturn(self.cinder_volume_snapshots.list())
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
@@ -556,7 +567,8 @@ class VolumeViewTests(test.TestCase):
                      'status': 'active'}) \
             .AndReturn([[], False, False])
         cinder.volume_list(IsA(
-            http.HttpRequest)).AndReturn(self.cinder_volumes.list())
+            http.HttpRequest),
+            search_opts=SEARCH_OPTS).AndReturn(self.cinder_volumes.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)) \
             .AndReturn(usage_limit)
         api.glance.image_get(IsA(http.HttpRequest),
@@ -708,7 +720,8 @@ class VolumeViewTests(test.TestCase):
             AndReturn(self.volume_types.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
             AndReturn(usage_limit)
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=SEARCH_OPTS).\
             AndReturn(self.cinder_volume_snapshots.list())
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
@@ -720,7 +733,8 @@ class VolumeViewTests(test.TestCase):
                      'status': 'active'}) \
             .AndReturn([[], False, False])
         cinder.volume_list(IsA(
-            http.HttpRequest)).AndReturn(self.cinder_volumes.list())
+            http.HttpRequest),
+            search_opts=SEARCH_OPTS).AndReturn(self.cinder_volumes.list())
         cinder.extension_supported(IsA(http.HttpRequest), 'AvailabilityZones')\
             .AndReturn(True)
         cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
@@ -758,7 +772,8 @@ class VolumeViewTests(test.TestCase):
             AndReturn(self.volume_types.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
             AndReturn(usage_limit)
-        cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=SEARCH_OPTS).\
             AndReturn(self.cinder_volume_snapshots.list())
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
@@ -770,7 +785,8 @@ class VolumeViewTests(test.TestCase):
                      'status': 'active'}) \
             .AndReturn([[], False, False])
         cinder.volume_list(IsA(
-            http.HttpRequest)).AndReturn(self.cinder_volumes.list())
+            http.HttpRequest),
+            search_opts=SEARCH_OPTS).AndReturn(self.cinder_volumes.list())
         cinder.extension_supported(IsA(http.HttpRequest), 'AvailabilityZones')\
             .AndReturn(True)
         cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
