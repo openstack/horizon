@@ -96,6 +96,7 @@ class LaunchInstanceView(horizon_workflows.WorkflowView):
 class DetailView(horizon_tabs.TabbedTableView):
     tab_group_class = tabs.InstanceDetailTabs
     template_name = 'project/databases/detail.html'
+    page_title = _("Instance Details: {{ instance.name }}")
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
@@ -104,9 +105,6 @@ class DetailView(horizon_tabs.TabbedTableView):
         context["instance"] = instance
         context["url"] = self.get_redirect_url()
         context["actions"] = table.render_row_actions(instance)
-        context["page_title"] = _("Instance Details: "
-                                  "%(instance_name)s") % {'instance_name':
-                                                          instance.name}
         return context
 
     @memoized.memoized_method

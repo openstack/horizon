@@ -33,7 +33,9 @@
           <div id='content_body'>
             <div class="row">
               <div class="col-xs-12">
-                {% block page_header %}{% endblock %}
+                {% block page_header %}
+                  {% include "horizon/common/_page_header.html" with title=page_title %}
+                {% endblock %}
                 {% block main %}{% endblock %}
               </div>
             </div>

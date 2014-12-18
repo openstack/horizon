@@ -75,6 +75,7 @@ class BackupView(horizon_workflows.WorkflowView):
 
 class DetailView(horizon_views.APIView):
     template_name = "project/database_backups/details.html"
+    page_title = _("Backup Details: {{ backup.name }}")
 
     def get_data(self, request, context, *args, **kwargs):
         backup_id = kwargs.get("backup_id")
@@ -103,8 +104,4 @@ class DetailView(horizon_views.APIView):
             instance = None
         context['backup'] = backup
         context['instance'] = instance
-        context['page_title'] = _("Backup Details: "
-                                  "%(backup_name)s") % {'backup_name':
-                                                        backup.name}
-
         return context
