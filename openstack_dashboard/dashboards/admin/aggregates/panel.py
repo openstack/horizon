@@ -23,12 +23,12 @@ class Aggregates(horizon.Panel):
     slug = 'aggregates'
     permissions = ('openstack.services.compute',)
 
-    def can_access(self, context):
+    def allowed(self, context):
         # extend basic permission-based check with a check to see whether
         # the Aggregates extension is even enabled in nova
         if not nova.extension_supported('Aggregates', context['request']):
             return False
-        return super(Aggregates, self).can_access(context)
+        return super(Aggregates, self).allowed(context)
 
 
 dashboard.Admin.register(Aggregates)
