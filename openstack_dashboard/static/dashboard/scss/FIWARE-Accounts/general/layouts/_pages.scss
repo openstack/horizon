@@ -139,8 +139,12 @@ textarea {
 .destroy_organization{
   &:hover{
     border-color: $brand-danger !important;
-    h4{
+    h3{
       color: $brand-danger !important;
+      border-color: $brand-danger !important;
+    }
+    .btn-primary{
+      background-color: $brand-danger !important;
     }
   }
   h4{
