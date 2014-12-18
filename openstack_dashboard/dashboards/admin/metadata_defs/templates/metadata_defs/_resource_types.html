@@ -1,0 +1,14 @@
+{% extends 'admin/metadata_defs/resource_types.html' %}
+{% load i18n %}
+{% load url from future %}
+{% block title %}
+  {% trans "Namespace Resource Type Associations" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Namespace Resource Type Associations") %}
+{% endblock page_header %}
+
+{% block form_action %}
+  {% url 'horizon:admin:metadata_defs:resource_types' id %}{% endblock %}
+{% block modal-header %}
+  {% trans "Namespace Resource Type Associations" %}{% endblock %}

@@ -34,6 +34,7 @@ from openstack_dashboard.api import base
 
 
 LOG = logging.getLogger(__name__)
+VERSIONS = base.APIVersionManager("image", preferred_version=2)
 
 
 @memoized
@@ -158,10 +159,11 @@ class Namespace(BaseGlanceMetadefAPIResourceWrapper):
               'created_at', 'updated_at', 'properties', 'objects']
 
     @property
-    def resource_type_associations(self):
+    def resource_type_names(self):
         result = [resource_type['name'] for resource_type in
                   getattr(self._apiresource, 'resource_type_associations')]
-        return result
+
+        return sorted(result)
 
     @property
     def public(self):
@@ -185,10 +187,30 @@ def metadefs_namespace_get(request, namespace, resource_type=None, wrap=False):
 
 def metadefs_namespace_list(request,
                             filters={},
-                            sort_dir='desc',
-                            sort_key='created_at',
+                            sort_dir='asc',
+                            sort_key='namespace',
                             marker=None,
                             paginate=False):
+    """Retrieve a listing of Namespaces
+    :param paginate: If true will perform pagination based on settings.
+    :param marker: Specifies the namespace of the last-seen namespace.
+             The typical pattern of limit and marker is to make an
+             initial limited request and then to use the last
+             namespace from the response as the marker parameter
+             in a subsequent limited request. With paginate, limit
+             is automatically set.
+    :param sort_dir: The sort direction ('asc' or 'desc').
+    :param sort_key: The field to sort on (for example, 'created_at'). Default
+             is namespace. The way base namespaces are loaded into glance
+             typically at first deployment is done in a single transaction
+             giving them a potentially unpredictable sort result when using
+             create_at.
+    :param filters: specifies addition fields to filter on such as name.
+    :returns A tuple of three values:
+             1) Current page results
+             2) A boolean of whether or not there are previous page(s).
+             3) A boolean of whether or not there are more page(s).
+    """
     limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
     page_size = utils.get_page_size(request)
 
@@ -218,7 +240,7 @@ def metadefs_namespace_list(request,
             if marker is not None:
                 has_prev_data = True
         # first page condition when reached via prev back
-        elif sort_dir == 'asc' and marker is not None:
+        elif sort_dir == 'desc' and marker is not None:
             has_more_data = True
         # last page condition
         elif marker is not None:
@@ -228,3 +250,43 @@ def metadefs_namespace_list(request,
 
     namespaces = [Namespace(namespace) for namespace in namespaces]
     return namespaces, has_more_data, has_prev_data
+
+
+def metadefs_namespace_create(request, namespace):
+    return glanceclient(request, '2').metadefs_namespace.create(**namespace)
+
+
+def metadefs_namespace_update(request, namespace_name, **properties):
+    return glanceclient(request, '2').metadefs_namespace.update(
+        namespace_name,
+        **properties)
+
+
+def metadefs_namespace_delete(request, namespace_name):
+    return glanceclient(request, '2').metadefs_namespace.delete(namespace_name)
+
+
+def metadefs_resource_types_list(request):
+    return glanceclient(request, '2').metadefs_resource_type.list()
+
+
+def metadefs_namespace_resource_types(request, namespace_name):
+    resource_types = glanceclient(request, '2').metadefs_resource_type.get(
+        namespace_name)
+
+    # metadefs_resource_type.get() returns generator, converting it to list
+    return list(resource_types)
+
+
+def metadefs_namespace_add_resource_type(request,
+                                         namespace_name,
+                                         resource_type):
+    return glanceclient(request, '2').metadefs_resource_type.associate(
+        namespace_name, **resource_type)
+
+
+def metadefs_namespace_remove_resource_type(request,
+                                            namespace_name,
+                                            resource_type_name):
+    glanceclient(request, '2').metadefs_resource_type.deassociate(
+        namespace_name, resource_type_name)
