@@ -25,13 +25,45 @@ from horizon import workflows
 
 from openstack_dashboard import api
 from openstack_dashboard import fiware_api
+from openstack_dashboard.dashboards.idm import utils as idm_utils
 
 
 INDEX_URL = "horizon:idm:organization:index"
 PROJECT_USER_MEMBER_SLUG = "update_members"
 LOG = logging.getLogger('idm_logger')
 
-class UpdateProjectMembersAction(workflows.MembershipAction):
+class RolesMixin(object):
+    """Simple container for the roles logic."""
+    # TODO(garcianavalon) maybe move to fiware_api
+    def list_all_roles(self, request):
+        role_list = {}
+        # NOTE(garcianavalon) list all roles grouped by application
+        # on which current user has the right to get and assign
+        # TODO(garcianavalon) for now lets just list all user roles
+        role_list['applications'] = fiware_api.keystone.role_list(request,
+                                                user=request.user.id)
+        # NOTE(garcianavalon) we also need the organization (keystone)
+        # roles here to add members
+        role_list['organizations'] = api.keystone.role_list(request)
+        return role_list
+
+    def list_users_with_roles(self, request, project_id, available_roles):
+        # First, load all users from the organization
+        # with their roles
+        project_users_roles = api.keystone.get_project_users_roles(request,
+                                                              project_id)
+        # Second, load all the application roles for every user
+        # but only the ones the user can assign
+        for user_id in project_users_roles:
+            # TODO(garcianavalon) filter by organization
+            project_users_roles[user_id] = [
+                r.id for r in fiware_api.keystone.role_list(request,
+                                                        user=user_id)
+                    if r in available_roles
+            ]
+        return project_users_roles
+
+class UpdateProjectMembersAction(workflows.MembershipAction, RolesMixin):
     def __init__(self, request, *args, **kwargs):
         super(UpdateProjectMembersAction, self).__init__(request,
                                                          *args,
@@ -61,7 +93,6 @@ class UpdateProjectMembersAction(workflows.MembershipAction):
         self.fields[default_role_name].initial = default_role.id
 
         # Get list of available users
-        all_users = []
         try:
             all_users = api.keystone.user_list(request)
         except Exception:
@@ -69,16 +100,8 @@ class UpdateProjectMembersAction(workflows.MembershipAction):
         users_list = [(user.id, user.name) for user in all_users]
 
         # Get list of roles
-        role_list = {}
         try:
-            # NOTE(garcianavalon) list all roles grouped by application
-            # on which current user has the right to get and assign
-            # TODO(garcianavalon) for now lets just list all user roles
-            role_list['applications'] = fiware_api.keystone.role_list(request,
-                                                    user=request.user.id)
-            # NOTE(garcianavalon) we also need the organization (keystone)
-            # roles here to add members
-            role_list['organizations'] = api.keystone.role_list(request)
+            role_list = self.list_all_roles(request)
         except Exception:
             exceptions.handle(request,
                               err_msg,
@@ -101,32 +124,15 @@ class UpdateProjectMembersAction(workflows.MembershipAction):
         # can get and assign) that are already assigned for each user and flag them
         # ALSO find out the organization members and assign them the 
         # default (keystone)role
-
-        # First, load all users from the organization
-        # with their roles
         try:
-            project_users_roles = api.keystone.get_project_users_roles(request,
-                                                                  project_id)
+            project_users_roles = self.list_users_with_roles(request,
+                                                            project_id,
+                                                            role_list['applications'])
         except Exception:
             exceptions.handle(request,
                               err_msg,
                               redirect=reverse(INDEX_URL))
 
-        # Second, load all the application roles for every user
-        # but only the ones the user can assign
-        for user_id in project_users_roles:
-            try:
-                # TODO(garcianavalon) filter by organization
-                project_users_roles[user_id] = [
-                        r.id for r in fiware_api.keystone.role_list(request,
-                                                                user=user_id)
-                        if r in role_list['applications']
-                ]
-                
-            except Exception:
-                exceptions.handle(request,
-                                  err_msg,
-                                  redirect=reverse(INDEX_URL))
         # Flag the alredy owned ones, both organization and application
         for user_id in project_users_roles:
             roles_ids = project_users_roles[user_id]
@@ -148,7 +154,6 @@ class UpdateProjectMembers(workflows.UpdateMembersStep):
     contributes = ("project_id",)
 
     def contribute(self, data, context):
-        import pdb; pdb.set_trace()
         if data:
             try:
                 # TODO(garcianavalon) fiware roles too
@@ -166,7 +171,7 @@ class UpdateProjectMembers(workflows.UpdateMembersStep):
         return context
 
 
-class ManageOrganizationMembers(workflows.Workflow):
+class ManageOrganizationMembers(workflows.Workflow, RolesMixin):
     slug = "manage_organization_users"
     name = _("Manage Members")
     finalize_button_name = _("Save")
@@ -179,39 +184,17 @@ class ManageOrganizationMembers(workflows.Workflow):
         return message % self.context.get('name', 'unknown organization')
 
     def handle(self, request, data):
-        import pdb; pdb.set_trace()
         project_id = data['project_id']
         # Project-user member step
         member_step = self.get_step(PROJECT_USER_MEMBER_SLUG)
 
-        
         try:
-            role_list = {}
-            # NOTE(garcianavalon) list all roles grouped by application
-            # on which current user has the right to get and assign
-            # TODO(garcianavalon) for now lets just list all user roles
-            role_list['applications'] = fiware_api.keystone.role_list(request,
-                                                    user=request.user.id)
-            # NOTE(garcianavalon) we also need the organization (keystone)
-            # roles here to add members
-            role_list['organizations'] = api.keystone.role_list(request)
-            # Get the current roles for each user
-            project_users_roles = api.keystone.get_project_users_roles(request,
-                                                                  project_id)
-            for user_id in project_users_roles:
-                # TODO(garcianavalon) filter by organization
-                project_users_roles[user_id] = [
-                        r.id for r in fiware_api.keystone.role_list(request,
-                                                                user=user_id)
-                        if r in role_list['applications']
-                ]
-            # re-index by role with a user list for easier processing
-            current_roles = {}
-            for user_id in project_users_roles:
-                for role_id in project_users_roles[user_id]:
-                    current_roles[role_id] = current_roles.get(role_id, [])
-                    current_roles[role_id].append(user_id)
-            import pdb; pdb.set_trace()
+            role_list = self.list_all_roles(request)
+            project_users_roles = self.list_users_with_roles(request,
+                                                            project_id,
+                                                            role_list['applications'])
+            # re-index by role with a user list for easier processing in later steps
+            current_roles = idm_utils.swap_dict(project_users_roles)
 
             # Parse the form data
             modified_roles = {}
@@ -222,56 +205,73 @@ class ManageOrganizationMembers(workflows.Workflow):
 
             import pdb; pdb.set_trace()            
             # Create the delete and add sets
-            roles_to_delete = {}
-            roles_to_add = {}
-            for role_id in modified_roles:
-                new_users = set(modified_roles[role_id])
-                current_users = set(project_users_roles[role_id])
-                # users to add-> users in N and not in C -> N-C
-                roles_to_add[role_id] = new_users - current_users
-                # users to delete -> users in C and not in N -> C-N
-                roles_to_delete[role_id] = current_users - new_users
+            roles_to_add, roles_to_delete = self._create_add_and_delete_sets(
+                                                                modified_roles, 
+                                                                current_roles)
+            application_roles = [r.id for r in role_list['applications']]
+            organization_roles = [r.id for r in role_list['organizations']]
 
             import pdb; pdb.set_trace()
             # Add the roles
-            for role_id in roles_to_add:
-                for user_id in roles_to_add[role_id]:
-                    if role_id in [r.id for r in role_list['applications']]:
-                        fiware_api.keystone.add_role_to_user(request,
-                                                            role_id,
-                                                            user_id,
-                                                            project_id)
-                    elif role_id in [r.id for r in role_list['organizations']]:
-                        api.keystone.add_tenant_user_role(request,
-                                                        project=project_id,
-                                                        user=user_id,
-                                                        role=role_id)
-                    else:
-                        LOG.error('Unexpected role {0} not in possible roles'
-                                    .format(role_id))
-                        raise ValueError('Invalid role')
+            add_methods = [
+                (application_roles, fiware_api.keystone.add_role_to_user),
+                (organization_roles, api.keystone.add_tenant_user_role)
+            ]
+            self._apply_method(roles_to_add, add_methods, project_id)
 
             import pdb; pdb.set_trace()
             # Remove the roles
-            for role_id in roles_to_delete:
-                for user_id in roles_to_delete[role_id]:
-                    if role_id in [r.id for r in role_list['applications']]:
-                        fiware_api.keystone.remove_role_from_user(request,
-                                                            role_id,
-                                                            user_id,
-                                                            project_id)
-                    elif role_id in [r.id for r in role_list['organizations']]:
-                        api.keystone.remove_tenant_user_role(request,
-                                                        project=project_id,
-                                                        user=user_id,
-                                                        role=role_id)
-                    else:
-                        LOG.error('Unexpected role {0} not in possible roles'
-                                    .format(role_id))
-                        raise ValueError('Invalid role')
+            delete_methods = [
+                (application_roles, fiware_api.keystone.remove_role_from_user),
+                (organization_roles, api.keystone.remove_tenant_user_role)
+            ]
+            self._apply_method(roles_to_delete, delete_methods, project_id)
 
 
         except Exception:
             exceptions.handle(request,
                           _('Failed to modify organization\'s members.'))
             return False
+
+    def _create_add_and_delete_sets(self, modified_roles, current_roles):
+        roles_to_add = {}
+        roles_to_delete = {}
+        for role_id in modified_roles:
+            new_users = set(modified_roles.get(role_id, []))
+            current_users = set(current_roles.get(role_id, []))
+            # users to add-> users in N and not in C -> N-C
+            users_to_add = new_users - current_users
+            if users_to_add:
+                roles_to_add[role_id] = users_to_add
+            # users to delete -> users in C and not in N -> C-N
+            users_to_delete = current_users - new_users
+            if users_to_delete:
+                roles_to_delete[role_id] = users_to_delete
+        return roles_to_add, roles_to_delete
+
+
+    def _apply_method(self, roles_users, methods, project_id):
+        """Utility method to iterate all elements in the dictionary and 
+        apply a method based on a condition.
+
+            :param methods: a list with the methods to apply to each group
+            :type methods: list of tuples (container, function)
+        """
+        for role_id in roles_users:
+            function = self._decide_function(role_id, methods)
+            if not function:
+                # We should never get to this point
+                LOG.error('Unexpected role {0} not in possible roles'.format(role_id))
+                raise ValueError('Invalid role')
+            for user_id in roles_users[role_id]:
+                function(self.request,
+                        project=project_id,
+                        user=user_id,
+                        role=role_id)
+
+    def _decide_function(self, role_id, methods):
+        for (container, function) in methods:
+            if role_id not in container:
+                continue
+            return function
+        return None
