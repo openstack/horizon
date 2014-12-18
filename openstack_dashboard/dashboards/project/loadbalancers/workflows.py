@@ -155,7 +155,7 @@ class AddVipAction(workflows.Action):
                                   initial="",
                                   required=False)
     address = forms.IPField(label=_("IP address"),
-                            version=forms.IPv4,
+                            version=forms.IPv4 | forms.IPv6,
                             mask=False,
                             required=False)
     protocol_port = forms.IntegerField(
