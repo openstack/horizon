@@ -161,7 +161,7 @@ class AddVipAction(workflows.Action):
                                   required=False)
     address = forms.IPField(label=_("Specify a free IP address "
                                     "from the selected subnet"),
-                            version=forms.IPv4,
+                            version=forms.IPv4 | forms.IPv6,
                             mask=False,
                             required=False)
     protocol_port = forms.IntegerField(

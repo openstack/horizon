@@ -264,22 +264,46 @@ class LoadBalancerTests(test.TestCase):
             self.assertContains(res, default_provider)
 
     def test_add_vip_post(self):
-        self._test_add_vip_post()
+        self._test_add_vip_common_post()
 
     def test_add_vip_post_no_connection_limit(self):
-        self._test_add_vip_post(with_conn_limit=False)
+        self._test_add_vip_common_post(with_conn_limit=False)
 
     def test_add_vip_post_with_diff_subnet(self):
-        self._test_add_vip_post(with_diff_subnet=True)
+        self._test_add_vip_common_post(with_diff_subnet=True)
+
+    def test_add_v6_vip_post(self):
+        self._test_add_vip_common_post(vip_name='v6_vip1',
+                                       subnet_name='v6_subnet1',
+                                       pool_name='v6_pool1')
+
+    def test_add_v6_vip_post_no_connection_limit(self):
+        self._test_add_vip_common_post(vip_name='v6_vip1',
+                                       subnet_name='v6_subnet1',
+                                       pool_name='v6_pool1',
+                                       with_conn_limit=False)
+
+    def test_add_v6_vip_post_with_diff_subnet(self):
+        self._test_add_vip_common_post(vip_name='v6_vip1',
+                                       subnet_name='v6_subnet1',
+                                       pool_name='v6_pool1',
+                                       with_diff_subnet=True)
 
     @test.create_stubs({api.lbaas: ('pool_get', 'vip_create'),
                         api.neutron: (
                             'network_list_for_tenant', 'subnet_get', )})
-    def _test_add_vip_post(self, with_diff_subnet=False, with_conn_limit=True):
-        vip = self.vips.first()
+    def _test_add_vip_common_post(self, vip_name='vip1',
+                                  subnet_name='mysubnet1',
+                                  pool_name='pool1',
+                                  with_diff_subnet=False,
+                                  with_conn_limit=True):
+        """This method is common for both IPv4 and IPv6 tests. For IPv6 test
+           we will pass the corresponding vip_name, subnet_name & pool_name.
+        """
+        vip = self.vips.get(name=vip_name)
 
-        subnet = self.subnets.first()
-        pool = self.pools.first()
+        subnet = self.subnets.get(name=subnet_name)
+        pool = self.pools.get(name=pool_name)
         networks = [{'subnets': [subnet, ]}, ]
         api.lbaas.pool_get(
             IsA(http.HttpRequest), pool.id).MultipleTimes().AndReturn(pool)

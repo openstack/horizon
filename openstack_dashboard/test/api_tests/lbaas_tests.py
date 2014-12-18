@@ -210,7 +210,7 @@ class LbaasApiTests(test.APITestCase):
         self.assertEqual(ret_val.vip.id, vip_dict['vip']['id'])
         self.assertIsInstance(ret_val.subnet, api.neutron.Subnet)
         self.assertEqual(ret_val.subnet.id, subnet.id)
-        self.assertEqual(2, len(ret_val.members))
+        self.assertEqual(3, len(ret_val.members))
         self.assertIsInstance(ret_val.members[0], api.lbaas.Member)
         self.assertEqual(len(pool.health_monitors),
                          len(ret_val.health_monitors))
@@ -300,7 +300,7 @@ class LbaasApiTests(test.APITestCase):
         ret_val = api.lbaas.pool_health_monitor_get(
             self.request, monitor['id'])
         self.assertIsInstance(ret_val, api.lbaas.PoolMonitor)
-        self.assertEqual(2, len(ret_val.pools))
+        self.assertEqual(3, len(ret_val.pools))
         self.assertIsInstance(ret_val.pools[0], api.lbaas.Pool)
 
     @test.create_stubs({neutronclient: ('create_member', )})
