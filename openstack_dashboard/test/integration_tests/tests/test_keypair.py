@@ -13,14 +13,14 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import random
+import uuid
 
 from openstack_dashboard.test.integration_tests import helpers
 
 
 class TestKeypair(helpers.TestCase):
     """Checks that the user is able to create/delete keypair."""
-    KEYPAIR_NAME = 'horizonkeypair' + str(random.randint(0, 1000))
+    KEYPAIR_NAME = 'horizonkeypair_' + str(uuid.uuid4())
 
     def test_keypair(self):
         accesssecurity_page = self.home_pg.go_to_accesssecurity_page()
