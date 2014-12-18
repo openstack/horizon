@@ -28,7 +28,7 @@ from openstack_dashboard import fiware_api
 from openstack_dashboard.dashboards.idm import utils as idm_utils
 
 
-INDEX_URL = "horizon:idm:organization:index"
+INDEX_URL = "horizon:idm:organizations:index"
 PROJECT_USER_MEMBER_SLUG = "update_members"
 LOG = logging.getLogger('idm_logger')
 
@@ -39,7 +39,7 @@ class RolesMixin(object):
         role_list = {}
         # NOTE(garcianavalon) list all roles grouped by application
         # on which current user has the right to get and assign
-        # TODO(garcianavalon) for now lets just list all user roles
+        # TODO(garcianavalon) ROLES LOGIC!!
         role_list['applications'] = fiware_api.keystone.role_list(request,
                                                 user=request.user.id)
         # NOTE(garcianavalon) we also need the organization (keystone)
@@ -52,13 +52,13 @@ class RolesMixin(object):
         # with their roles
         project_users_roles = api.keystone.get_project_users_roles(request,
                                                               project_id)
-        # Second, load all the application roles for every user
-        # but only the ones the user can assign
+        # Second, load all the application organization-scoped roles for every user
+        # but only the ones the user can assign 
         for user_id in project_users_roles:
-            # TODO(garcianavalon) filter by organization
             project_users_roles[user_id] = [
                 r.id for r in fiware_api.keystone.role_list(request,
-                                                        user=user_id)
+                                                        user=user_id,
+                                                        organization=project_id)
                     if r in available_roles
             ]
         return project_users_roles
@@ -145,7 +145,7 @@ class UpdateProjectMembersAction(workflows.MembershipAction, RolesMixin):
         slug = PROJECT_USER_MEMBER_SLUG
 
 
-class UpdateProjectMembers(workflows.UpdateMembersStep):
+class UpdateProjectMembers(workflows.UpdateMembersStep, RolesMixin):
     action_class = UpdateProjectMembersAction
     available_list_title = _("All Users")
     members_list_title = _("Organization Members")
@@ -156,18 +156,16 @@ class UpdateProjectMembers(workflows.UpdateMembersStep):
     def contribute(self, data, context):
         if data:
             try:
-                # TODO(garcianavalon) fiware roles too
-                roles = api.keystone.role_list(self.workflow.request)
-                roles += fiware_api.keystone.role_list(self.workflow.request,
-                                                user=self.workflow.request.user.id)
+                role_list = self.list_all_roles(self.workflow.request.request)
             except Exception:
                 exceptions.handle(self.workflow.request,
                                   _('Unable to retrieve role list.'))
 
             post = self.workflow.request.POST
-            for role in roles:
-                field = self.get_member_field_name(role.id)
-                context[field] = post.getlist(field)
+            for k in role_list:
+                for role in role_list[k]:
+                    field = self.get_member_field_name(role.id)
+                    context[field] = post.getlist(field)
         return context
 
 
