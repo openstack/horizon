@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-16 22:15-0600\n"
-"PO-Revision-Date: 2014-12-17 04:14+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"PO-Revision-Date: 2014-12-17 12:40+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3737,7 +3737,7 @@ msgstr "\nDer Datenträgertyp ist ein Typ oder eine Markierung, die bei der Erst
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:9
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:38
 msgid "Create Volume Type Encryption"
-msgstr ""
+msgstr "Volumentyp-Verschlüsselung erstellen"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:20
 msgid ""
@@ -3792,7 +3792,7 @@ msgstr "Bearbeite Benutzer"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:4
 msgid "Volume Type Encryption Overview"
-msgstr ""
+msgstr "Volumentyp-Verschlüsselungsübersicht"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:8
 msgid "Info"
@@ -3809,7 +3809,7 @@ msgstr "Provider"
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:15
 #: dashboards/admin/volumes/volume_types/forms.py:28
 msgid "Control Location"
-msgstr ""
+msgstr "Steuerungsort"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:17
 #: dashboards/admin/volumes/volume_types/forms.py:34
@@ -3823,7 +3823,7 @@ msgstr "Schlüsselgröße (Bit)"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:25
 msgid "Volume Type is Unencrypted."
-msgstr ""
+msgstr "Volumentyp ist nicht verschlüsselt."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/associate_qos_spec.html:3
 msgid "Associate QoS Spec"
@@ -3839,11 +3839,11 @@ msgstr "Datenträgertyp erstellen"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_volume_type_encryption.html:3
 msgid "Create Encrypted Volume Type"
-msgstr ""
+msgstr "Verschlüsselten Volumentyp erstellen"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_volume_type_encryption.html:6
 msgid "Create an Encrypted Volume Type"
-msgstr ""
+msgstr "Einen verschlüsselten Volumentyp erstellen"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/edit_qos_spec_consumer.html:3
 #: dashboards/admin/volumes/templates/volumes/volume_types/edit_qos_spec_consumer.html:6
@@ -3853,7 +3853,7 @@ msgstr "Spezifikation für QOS Verbraucher bearbeiten"
 #: dashboards/admin/volumes/templates/volumes/volume_types/volume_encryption_type_detail.html:3
 #: dashboards/admin/volumes/templates/volumes/volume_types/volume_encryption_type_detail.html:6
 msgid "Volume Type Encryption Details"
-msgstr ""
+msgstr "Volumentyp-Verschlüsselungsdetails"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:10
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/create.html:4
@@ -3964,7 +3964,7 @@ msgstr "Datenträgerdetails"
 #: dashboards/admin/volumes/volume_types/forms.py:51
 #, python-format
 msgid "Successfully created encryption for volume type: %s"
-msgstr ""
+msgstr "Verschlüsselung erfolgreich erstellt für Volumentyp: %s"
 
 #: dashboards/admin/volumes/volume_types/forms.py:56
 msgid "Unable to create encrypted volume type."
@@ -11531,7 +11531,7 @@ msgstr "Netzwerkdetails können nicht abgerufen werden."
 #: dashboards/project/networks/views.py:145
 #, python-format
 msgid "Network Details: %(network_name)s"
-msgstr ""
+msgstr "Netzwerkdetails: %(network_name)s"
 
 #: dashboards/project/networks/workflows.py:50
 msgid "The state to start the network in."
@@ -12799,7 +12799,7 @@ msgstr "Details zur Sicherungskopie können nicht abgerufen werden."
 #: dashboards/project/volumes/backups/views.py:56
 #, python-format
 msgid "Volume Backup Details: %(backup_name)s"
-msgstr ""
+msgstr "Volumensicherungsdetails: %(backup_name)s"
 
 #: dashboards/project/volumes/snapshots/forms.py:39
 #, python-format
