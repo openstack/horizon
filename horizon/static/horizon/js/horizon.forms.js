@@ -164,7 +164,7 @@ horizon.forms.add_password_fields_reveal_buttons = function (el) {
   $(el).find('input[type="password"]').each(function (i, input) {
     var $input = $(input);
 
-    $input.closest('.form-group').addClass("has-feedback");
+    $input.closest('div').addClass("has-feedback");
     $('<span>').addClass(
       "form-control-feedback glyphicon glyphicon-eye-open"
     ).insertAfter($input).click(function () {

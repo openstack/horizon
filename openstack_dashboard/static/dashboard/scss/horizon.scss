@@ -2319,3 +2319,7 @@ label.log-length {
 a.link-popover { cursor: default; }
 
 a:hover.link-popover { text-decoration: none; }
+
+.has-feedback .form-control-feedback {
+  top: 0;
+}
