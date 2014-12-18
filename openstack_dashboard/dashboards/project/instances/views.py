@@ -28,6 +28,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
+from horizon import messages
 from horizon import tables
 from horizon import tabs
 from horizon.utils import memoized
@@ -142,19 +143,19 @@ class LaunchInstanceView(workflows.WorkflowView):
 
 
 def console(request, instance_id):
-    try:
-        # TODO(jakedahn): clean this up once the api supports tailing.
-        tail = request.GET.get('length', None)
-        data = api.nova.server_console_output(request,
-                                              instance_id,
-                                              tail_length=tail)
-    except Exception:
-        data = _('Unable to get log for instance "%s".') % instance_id
-        exceptions.handle(request, ignore=True)
-    response = http.HttpResponse(content_type='text/plain')
-    response.write(data)
-    response.flush()
-    return response
+    data = _('Unable to get log for instance "%s".') % instance_id
+    tail = request.GET.get('length')
+    if tail and not tail.isdigit():
+        msg = _('Log length must be a nonnegative integer.')
+        messages.warning(request, msg)
+    else:
+        try:
+            data = api.nova.server_console_output(request,
+                                                  instance_id,
+                                                  tail_length=tail)
+        except Exception:
+            exceptions.handle(request, ignore=True)
+    return http.HttpResponse(data.encode('utf-8'), content_type='text/plain')
 
 
 def vnc(request, instance_id):

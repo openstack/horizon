@@ -986,6 +986,20 @@ class InstanceTests(helpers.TestCase):
 
         self.assertContains(res, "Unable to get log for")
 
+    def test_instance_log_invalid_input(self):
+        server = self.servers.first()
+
+        url = reverse('horizon:project:instances:console',
+                      args=[server.id])
+        tg = tabs.InstanceDetailTabs(self.request, instance=server)
+        for length in ["-5", "x"]:
+            qs = "?%s=%s&length=%s" % (tg.param_name,
+                                       tg.get_tab("log").get_id(),
+                                       length)
+            res = self.client.get(url + qs)
+
+            self.assertContains(res, "Unable to get log for")
+
     def test_instance_vnc(self):
         server = self.servers.first()
         CONSOLE_OUTPUT = '/vncserver'
