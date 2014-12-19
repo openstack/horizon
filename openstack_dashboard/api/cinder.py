@@ -400,6 +400,10 @@ def volume_encryption_type_create(request, volume_type_id, data):
                                                                 specs=data)
 
 
+def volume_encryption_type_delete(request, volume_type_id):
+    return cinderclient(request).volume_encryption_types.delete(volume_type_id)
+
+
 def volume_encryption_type_get(request, volume_type_id):
     return cinderclient(request).volume_encryption_types.get(volume_type_id)
 

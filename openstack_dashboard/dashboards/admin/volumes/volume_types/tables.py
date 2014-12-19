@@ -84,6 +84,36 @@ class CreateVolumeTypeEncryption(tables.LinkAction):
             return False
 
 
+class DeleteVolumeTypeEncryption(tables.DeleteAction):
+    name = "delete_encryption"
+    policy_rules = (("volume", "volume_extension:volume_type_encryption"),)
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Encryption",
+            u"Delete Encryptions",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Encryption",
+            u"Deleted Encryptions",
+            count
+        )
+
+    def delete(self, request, volume_type_id):
+        cinder.volume_encryption_type_delete(request,
+                                             volume_type_id)
+
+    def allowed(self, request, volume_type=None):
+        return (_is_vol_type_enc_possible(request) and
+                hasattr(volume_type, 'encryption') and
+                hasattr(volume_type.encryption, 'provider'))
+
+
 def _is_vol_type_enc_possible(request):
     try:
         supported = cinder.extension_supported(request,
@@ -126,6 +156,7 @@ class VolumeTypesTable(tables.DataTable):
         row_actions = (CreateVolumeTypeEncryption,
                        ViewVolumeTypeExtras,
                        ManageQosSpecAssociation,
+                       DeleteVolumeTypeEncryption,
                        DeleteVolumeType,)
 
 
