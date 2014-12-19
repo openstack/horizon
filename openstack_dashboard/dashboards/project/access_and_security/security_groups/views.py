@@ -62,10 +62,12 @@ class DetailView(tables.DataTableView):
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
         security_group = self._get_data()
+        security_group_name_id = "%s (%s)" % (security_group.name,
+                                              security_group.id)
         context["security_group"] = security_group
-        context["page_title"] = _("Manage Security Group Rules: "
-                                  "%(security_group)s") % {'security_group':
-                                                           security_group.name}
+        context["page_title"] = _(
+            "Manage Security Group Rules: %(security_group)s") % {
+            'security_group': security_group_name_id}
         return context
 
 
