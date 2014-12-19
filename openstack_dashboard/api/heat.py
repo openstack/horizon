@@ -126,6 +126,10 @@ def template_validate(request, **kwargs):
     return heatclient(request).stacks.validate(**kwargs)
 
 
+def action_check(request, stack_id):
+    return heatclient(request).actions.check(stack_id)
+
+
 def resource_types_list(request):
     return heatclient(request).resource_types.list()
 
