@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-16 22:15-0600\n"
-"PO-Revision-Date: 2014-12-17 04:14+0000\n"
+"POT-Creation-Date: 2014-12-18 06:58-0600\n"
+"PO-Revision-Date: 2014-12-18 12:57+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/horizon/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -437,6 +437,7 @@ msgstr "Beheerder"
 #: dashboards/admin/info/tables.py:94 dashboards/admin/info/tables.py:118
 #: dashboards/admin/info/tables.py:170 dashboards/admin/instances/tables.py:95
 #: dashboards/admin/instances/tables.py:128
+#: dashboards/admin/metadata_defs/tables.py:128
 #: dashboards/admin/networks/forms.py:38
 #: dashboards/admin/networks/forms.py:234
 #: dashboards/admin/networks/ports/forms.py:40
@@ -785,6 +786,7 @@ msgstr "Toevoegen/verwijderen van gastheren aan het aggregaat"
 #: dashboards/admin/aggregates/workflows.py:209
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:24
 #: dashboards/admin/flavors/workflows.py:266
+#: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:79
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:25
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:25
 #: dashboards/identity/domains/workflows.py:300
@@ -810,6 +812,7 @@ msgstr "Fout bij het toevoegen of verwijderen van gastheren."
 #: dashboards/admin/images/templates/images/_create.html:18
 #: dashboards/admin/images/templates/images/_update.html:18
 #: dashboards/admin/instances/templates/instances/_live_migrate.html:17
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:18
 #: dashboards/admin/metering/templates/metering/_daily.html:18
 #: dashboards/admin/networks/templates/networks/_create.html:18
 #: dashboards/admin/networks/templates/networks/_update.html:17
@@ -899,6 +902,8 @@ msgstr ""
 #: dashboards/admin/images/templates/images/_create.html:34
 #: dashboards/admin/images/templates/images/_update.html:25
 #: dashboards/admin/instances/templates/instances/_live_migrate.html:24
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:36
+#: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:80
 #: dashboards/admin/metering/templates/metering/_daily.html:25
 #: dashboards/admin/networks/templates/networks/_create.html:27
 #: dashboards/admin/networks/templates/networks/_update.html:24
@@ -1359,6 +1364,9 @@ msgid "ID"
 msgstr "ID"
 
 #: dashboards/admin/flavors/tables.py:137
+#: dashboards/admin/metadata_defs/forms.py:61
+#: dashboards/admin/metadata_defs/tables.py:142
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:18
 #: dashboards/project/containers/forms.py:42
 #: dashboards/project/containers/templates/containers/_container_detail.html:14
 #: dashboards/project/containers/templates/containers/_container_metadata.html:7
@@ -2187,12 +2195,12 @@ msgid "Unable to retrieve instance list."
 msgstr "Niet in staat om de exemplarenlijst op te halen."
 
 #: dashboards/admin/instances/views.py:110
-#: dashboards/project/instances/views.py:78
+#: dashboards/project/instances/views.py:79
 msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "Niet in staat om de IP adressen van Neutron op te halen."
 
 #: dashboards/admin/instances/views.py:134
-#: dashboards/project/instances/views.py:119
+#: dashboards/project/instances/views.py:120
 msgid "Unable to retrieve instance size information."
 msgstr "Niet in staat om de afmetingsinformatie voor het exemplaar op te halen."
 
@@ -2202,8 +2210,8 @@ msgstr ""
 
 #: dashboards/admin/instances/views.py:177
 #: dashboards/project/databases/views.py:149
-#: dashboards/project/instances/views.py:209
-#: dashboards/project/instances/views.py:351
+#: dashboards/project/instances/views.py:210
+#: dashboards/project/instances/views.py:352
 msgid "Unable to retrieve instance details."
 msgstr "Niet in staat om de details van het exemplaar op te halen."
 
@@ -2221,83 +2229,109 @@ msgstr ""
 msgid "All Instances"
 msgstr "Alle exemplaren"
 
-#: dashboards/admin/metering/forms.py:24
-#: dashboards/admin/metering/templates/metering/stats.html:106
-msgid "Last day"
-msgstr "Afgelopen dag"
-
-#: dashboards/admin/metering/forms.py:25
-#: dashboards/admin/metering/templates/metering/stats.html:107
-msgid "Last week"
-msgstr "Afgelopen week"
-
-#: dashboards/admin/metering/forms.py:26
-#: dashboards/admin/metering/templates/metering/stats.html:108
-msgid "Month to date"
-msgstr "Maand tot heden"
-
-#: dashboards/admin/metering/forms.py:27
-#: dashboards/admin/metering/templates/metering/stats.html:109
-msgid "Last 15 days"
-msgstr "Afgelopen 15 dagen"
-
-#: dashboards/admin/metering/forms.py:28
-#: dashboards/admin/metering/templates/metering/stats.html:110
-msgid "Last 30 days"
-msgstr "Afgelopen 30 dagen"
-
-#: dashboards/admin/metering/forms.py:29
-#: dashboards/admin/metering/templates/metering/stats.html:111
-msgid "Last year"
-msgstr "Afgelopen jaar"
-
-#: dashboards/admin/metering/forms.py:30
-#: dashboards/admin/metering/templates/metering/stats.html:112
-#: dashboards/router/nexus1000v/forms.py:59
-msgid "Other"
-msgstr "Overig"
-
-#: dashboards/admin/metering/forms.py:32
-msgid "Period"
-msgstr "Periode"
-
-#: dashboards/admin/metering/forms.py:35
-msgid "From"
-msgstr "Van"
-
-#: dashboards/admin/metering/forms.py:39
-msgid "To"
-msgstr "Tot"
-
-#: dashboards/admin/metering/forms.py:48
-msgid "Must specify start of period"
+#: dashboards/admin/metadata_defs/forms.py:38
+msgid "Namespace Definition Source"
 msgstr ""
 
-#: dashboards/admin/metering/forms.py:58
-msgid "Start must be earlier than end of period."
+#: dashboards/admin/metadata_defs/forms.py:40
+#: dashboards/admin/metadata_defs/forms.py:46
+#: dashboards/admin/metadata_defs/forms.py:50
+msgid "Metadata Definition File"
 msgstr ""
 
-#: dashboards/admin/metering/panel.py:20
-msgid "Resource Usage"
-msgstr "Middelenverbruik"
+#: dashboards/admin/metadata_defs/forms.py:41
+#: dashboards/project/instances/workflows/create_instance.py:620
+#: dashboards/project/stacks/forms.py:58
+msgid "Direct Input"
+msgstr "Directe invoer"
 
-#: dashboards/admin/metering/tables.py:26
-#: dashboards/admin/metering/templates/metering/_daily.html:9
-#: dashboards/admin/metering/templates/metering/daily.html:3
-#: dashboards/admin/metering/templates/metering/daily.html:6
-msgid "Modify Usage Report Parameters"
+#: dashboards/admin/metadata_defs/forms.py:47
+msgid "A local metadata definition file to upload."
 msgstr ""
 
-#: dashboards/admin/metering/tables.py:34 usage/tables.py:25
-msgid "Download CSV Summary"
-msgstr "CSV samenvatting ophalen"
+#: dashboards/admin/metadata_defs/forms.py:54
+#: dashboards/admin/metadata_defs/forms.py:58
+msgid "Namespace JSON"
+msgstr ""
 
-#: dashboards/admin/metering/tables.py:43
-#: dashboards/admin/metering/tables.py:62
-#: dashboards/admin/metering/views.py:160
-msgid "Meter"
-msgstr "Meter"
+#: dashboards/admin/metadata_defs/forms.py:55
+msgid "The JSON formatted contents of a namespace."
+msgstr ""
 
+#: dashboards/admin/metadata_defs/forms.py:62
+#: dashboards/admin/metadata_defs/tables.py:149
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:20
+#: dashboards/project/images/images/forms.py:96
+#: dashboards/project/images/images/forms.py:229
+#: dashboards/project/images/images/tables.py:241
+#: dashboards/project/images/templates/images/images/_detail_overview.html:23
+msgid "Protected"
+msgstr "Beschermd"
+
+#: dashboards/admin/metadata_defs/forms.py:77
+msgid "Cannot specify both file and direct input."
+msgstr ""
+
+#: dashboards/admin/metadata_defs/forms.py:80
+msgid "No input was provided for the namespace content."
+msgstr ""
+
+#: dashboards/admin/metadata_defs/forms.py:100
+#, python-format
+msgid "There was a problem loading the namespace: %s."
+msgstr ""
+
+#: dashboards/admin/metadata_defs/forms.py:110
+#, python-format
+msgid "Namespace %s has been created."
+msgstr ""
+
+#: dashboards/admin/metadata_defs/forms.py:114
+#, python-format
+msgid "Unable to create new namespace. %s"
+msgstr ""
+
+#: dashboards/admin/metadata_defs/forms.py:140
+#, python-format
+msgid "Resource types updated for namespace %s."
+msgstr ""
+
+#: dashboards/admin/metadata_defs/forms.py:144
+#, python-format
+msgid "Error updating resource types for namespace %s."
+msgstr ""
+
+#: dashboards/admin/metadata_defs/panel.py:25
+#: dashboards/admin/metadata_defs/templates/metadata_defs/index.html:3
+#: dashboards/admin/metadata_defs/templates/metadata_defs/index.html:6
+msgid "Metadata Definitions"
+msgstr ""
+
+#: dashboards/admin/metadata_defs/tables.py:30
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:9
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:35
+msgid "Import Namespace"
+msgstr ""
+
+#: dashboards/admin/metadata_defs/tables.py:41
+msgid "Delete Namespace"
+msgid_plural "Delete Namespaces"
+msgstr[0] ""
+msgstr[1] ""
+
+#: dashboards/admin/metadata_defs/tables.py:49
+msgid "Deleted Namespace"
+msgid_plural "Deleted Namespaces"
+msgstr[0] ""
+msgstr[1] ""
+
+#: dashboards/admin/metadata_defs/tables.py:69
+msgid "Update Associations"
+msgstr ""
+
+#: dashboards/admin/metadata_defs/tables.py:132
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:15
+#: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:57
 #: dashboards/admin/metering/tables.py:44
 #: dashboards/admin/metering/tables.py:63
 #: dashboards/admin/metering/views.py:160
@@ -2377,6 +2411,323 @@ msgstr "Meter"
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:10
 msgid "Description"
 msgstr "Omschrijving"
+
+#: dashboards/admin/metadata_defs/tables.py:137
+msgid "Resource Types"
+msgstr ""
+
+#: dashboards/admin/metadata_defs/tables.py:165
+msgid "Namespaces"
+msgstr ""
+
+#: dashboards/admin/metadata_defs/tabs.py:26
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:3
+msgid "Namespace Overview"
+msgstr ""
+
+#: dashboards/admin/metadata_defs/tabs.py:38
+#: dashboards/admin/metadata_defs/views.py:106
+msgid "Unable to retrieve namespace details."
+msgstr ""
+
+#: dashboards/admin/metadata_defs/tabs.py:45
+msgid "Contents"
+msgstr ""
+
+#: dashboards/admin/metadata_defs/tabs.py:57
+msgid "Unable to retrieve namespace contents."
+msgstr ""
+
+#: dashboards/admin/metadata_defs/views.py:75
+msgid "Error getting metadata definitions."
+msgstr ""
+
+#: dashboards/admin/metadata_defs/views.py:127
+#: dashboards/admin/metadata_defs/views.py:145
+#: dashboards/admin/metadata_defs/views.py:159
+msgid "Error getting resource type associations."
+msgstr ""
+
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:20
+msgid "Specify a metadata definition namespace to import."
+msgstr ""
+
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:23
+msgid "Only definitions in raw JSON format are supported."
+msgstr ""
+
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:26
+msgid ""
+"Administrator Note: Use the following CLI command to import the default "
+"definitions into Glance: "
+msgstr ""
+
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_contents.html:4
+msgid "Undefined"
+msgstr ""
+
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:7
+#: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:8
+msgid "Info"
+msgstr "Informatie"
+
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:10
+msgid "Display Name"
+msgstr ""
+
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:11
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:13
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:35
+#: dashboards/admin/metadata_defs/templates/metadata_defs/detail.html:7
+#: dashboards/admin/routers/templates/routers/_detail_overview.html:8
+#: dashboards/admin/volumes/volume_types/forms.py:87
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:11
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:11
+#: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:14
+#: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:12
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:11
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:16
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:22
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:11
+#: dashboards/project/images/templates/images/images/_detail_overview.html:10
+#: dashboards/project/images/templates/images/images/_detail_overview.html:16
+#: dashboards/project/images/templates/images/images/_detail_overview.html:49
+#: dashboards/project/images/templates/images/images/_detail_overview.html:51
+#: dashboards/project/instances/templates/instances/_detail_overview.html:108
+#: dashboards/project/instances/templates/instances/_detail_overview.html:117
+#: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:45
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:51
+#: dashboards/project/networks/templates/networks/_detail_overview.html:8
+#: dashboards/project/networks/templates/networks/_detail_overview.html:10
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:11
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:13
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:16
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:27
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:31
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:33
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:35
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:42
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:10
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:12
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:15
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:19
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:47
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:55
+#: dashboards/project/routers/templates/routers/_detail_overview.html:4
+#: dashboards/project/routers/templates/routers/_detail_overview.html:10
+#: dashboards/project/routers/templates/routers/_detail_overview.html:12
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:77
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:7
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:10
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:7
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:10
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:8
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:11
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:8
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:11
+msgid "None"
+msgstr "Geen"
+
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:12
+msgid "Namespace"
+msgstr ""
+
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:22
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:35
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:82
+#: dashboards/project/data_processing/jobs/workflows/launch.py:407
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:320
+#: dashboards/project/database_backups/tables.py:150
+#: dashboards/project/database_backups/templates/database_backups/details.html:36
+#: dashboards/project/databases/tables.py:315
+#: dashboards/project/databases/templates/databases/_detail_overview.html:34
+#: dashboards/project/images/templates/images/images/_detail_overview.html:27
+#: dashboards/project/instances/templates/instances/_detail_overview.html:18
+#: dashboards/project/instances/templates/instances/_detail_overview.html:38
+#: dashboards/project/stacks/tables.py:108
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:22
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:39
+#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:39
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:29
+msgid "Created"
+msgstr "Gecreëerd"
+
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:23
+#: dashboards/admin/networks/views.py:57
+#: dashboards/admin/routers/templates/routers/_detail_overview.html:16
+#: dashboards/project/images/templates/images/images/_detail_overview.html:20
+#: dashboards/project/images/templates/images/images/_detail_overview.html:31
+#: dashboards/project/instances/tables.py:619
+#: dashboards/project/networks/templates/networks/_detail_overview.html:14
+#: dashboards/project/networks/templates/networks/_detail_overview.html:16
+#: dashboards/project/networks/templates/networks/_detail_overview.html:23
+#: dashboards/project/routers/templates/routers/_detail_overview.html:14
+#: dashboards/project/routers/templates/routers/_detail_overview.html:16
+#: dashboards/project/volumes/backups/tables.py:36
+#: dashboards/project/volumes/snapshots/tables.py:126
+msgid "Unknown"
+msgstr "Onbekend"
+
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:24
+#: dashboards/project/database_backups/templates/database_backups/details.html:38
+#: dashboards/project/databases/templates/databases/_detail_overview.html:36
+#: dashboards/project/images/templates/images/images/_detail_overview.html:33
+#: dashboards/project/stacks/tables.py:112
+msgid "Updated"
+msgstr "Bijgewerkt"
+
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:25
+#: dashboards/project/images/templates/images/images/_detail_overview.html:37
+msgid "Never updated"
+msgstr "Nooit bijgewerkt"
+
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:32
+msgid "Associated Resource Types"
+msgstr ""
+
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:39
+msgid "Prefix: "
+msgstr ""
+
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:42
+msgid "Properties Target: "
+msgstr ""
+
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:47
+msgid "No associations defined."
+msgstr ""
+
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_resource_types.html:5
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_resource_types.html:8
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_resource_types.html:14
+msgid "Namespace Resource Type Associations"
+msgstr ""
+
+#: dashboards/admin/metadata_defs/templates/metadata_defs/create.html:3
+#: dashboards/admin/metadata_defs/templates/metadata_defs/create.html:6
+msgid "Create a Metadata Namespace"
+msgstr ""
+
+#: dashboards/admin/metadata_defs/templates/metadata_defs/detail.html:4
+msgid "Namespace Details"
+msgstr ""
+
+#: dashboards/admin/metadata_defs/templates/metadata_defs/detail.html:7
+msgid "Namespace Details: "
+msgstr ""
+
+#: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:15
+msgid "Available Types"
+msgstr ""
+
+#: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:19
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_fields_help.html:3
+msgid "Filter"
+msgstr "Filter"
+
+#: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:59
+msgid ""
+"Namespaces can be associated to different resource types. This makes the "
+"properties in the namespace visible in the 'Update Metadata' action for that"
+" type of resource."
+msgstr ""
+
+#: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:61
+msgid ""
+"Additionally, some resource types may require a prefix to be used when "
+"applying the metadata. In certain cases, the prefix may differ between the "
+"resource type (for example, flavor vs image)."
+msgstr ""
+
+#: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:63
+msgid ""
+"Example: The prefix 'hw:' is added to OS::Nova::Flavor for the Virtual CPU "
+"Topology namespace so that the properties will be prefixed with 'hw:' when "
+"applied to flavors."
+msgstr ""
+
+#: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:65
+msgid ""
+"Do not use a colon ':' with OS::Glance::Images. This resource type does not "
+"support the use of colons."
+msgstr ""
+
+#: dashboards/admin/metering/forms.py:24
+#: dashboards/admin/metering/templates/metering/stats.html:106
+msgid "Last day"
+msgstr "Afgelopen dag"
+
+#: dashboards/admin/metering/forms.py:25
+#: dashboards/admin/metering/templates/metering/stats.html:107
+msgid "Last week"
+msgstr "Afgelopen week"
+
+#: dashboards/admin/metering/forms.py:26
+#: dashboards/admin/metering/templates/metering/stats.html:108
+msgid "Month to date"
+msgstr "Maand tot heden"
+
+#: dashboards/admin/metering/forms.py:27
+#: dashboards/admin/metering/templates/metering/stats.html:109
+msgid "Last 15 days"
+msgstr "Afgelopen 15 dagen"
+
+#: dashboards/admin/metering/forms.py:28
+#: dashboards/admin/metering/templates/metering/stats.html:110
+msgid "Last 30 days"
+msgstr "Afgelopen 30 dagen"
+
+#: dashboards/admin/metering/forms.py:29
+#: dashboards/admin/metering/templates/metering/stats.html:111
+msgid "Last year"
+msgstr "Afgelopen jaar"
+
+#: dashboards/admin/metering/forms.py:30
+#: dashboards/admin/metering/templates/metering/stats.html:112
+#: dashboards/router/nexus1000v/forms.py:59
+msgid "Other"
+msgstr "Overig"
+
+#: dashboards/admin/metering/forms.py:32
+msgid "Period"
+msgstr "Periode"
+
+#: dashboards/admin/metering/forms.py:35
+msgid "From"
+msgstr "Van"
+
+#: dashboards/admin/metering/forms.py:39
+msgid "To"
+msgstr "Tot"
+
+#: dashboards/admin/metering/forms.py:48
+msgid "Must specify start of period"
+msgstr ""
+
+#: dashboards/admin/metering/forms.py:58
+msgid "Start must be earlier than end of period."
+msgstr ""
+
+#: dashboards/admin/metering/panel.py:20
+msgid "Resource Usage"
+msgstr "Middelenverbruik"
+
+#: dashboards/admin/metering/tables.py:26
+#: dashboards/admin/metering/templates/metering/_daily.html:9
+#: dashboards/admin/metering/templates/metering/daily.html:3
+#: dashboards/admin/metering/templates/metering/daily.html:6
+msgid "Modify Usage Report Parameters"
+msgstr ""
+
+#: dashboards/admin/metering/tables.py:34 usage/tables.py:25
+msgid "Download CSV Summary"
+msgstr "CSV samenvatting ophalen"
+
+#: dashboards/admin/metering/tables.py:43
+#: dashboards/admin/metering/tables.py:62
+#: dashboards/admin/metering/views.py:160
+msgid "Meter"
+msgstr "Meter"
 
 #: dashboards/admin/metering/tables.py:45
 #: dashboards/admin/metering/tables.py:64
@@ -2851,21 +3202,6 @@ msgstr "Gekoppelde subnetten"
 #: dashboards/admin/networks/agents/tables.py:101
 msgid "DHCP Agents"
 msgstr ""
-
-#: dashboards/admin/networks/views.py:57
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:16
-#: dashboards/project/images/templates/images/images/_detail_overview.html:20
-#: dashboards/project/images/templates/images/images/_detail_overview.html:31
-#: dashboards/project/instances/tables.py:619
-#: dashboards/project/networks/templates/networks/_detail_overview.html:14
-#: dashboards/project/networks/templates/networks/_detail_overview.html:16
-#: dashboards/project/networks/templates/networks/_detail_overview.html:23
-#: dashboards/project/routers/templates/routers/_detail_overview.html:14
-#: dashboards/project/routers/templates/routers/_detail_overview.html:16
-#: dashboards/project/volumes/backups/tables.py:36
-#: dashboards/project/volumes/snapshots/tables.py:126
-msgid "Unknown"
-msgstr "Onbekend"
 
 #: dashboards/admin/networks/views.py:76
 #: dashboards/project/networks/views.py:52
@@ -3348,55 +3684,6 @@ msgstr "Aansluitingen"
 msgid "Router Overview: %(router_name)s"
 msgstr ""
 
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:8
-#: dashboards/admin/volumes/volume_types/forms.py:87
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:11
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:11
-#: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:14
-#: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:12
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:11
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:16
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:22
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:11
-#: dashboards/project/images/templates/images/images/_detail_overview.html:10
-#: dashboards/project/images/templates/images/images/_detail_overview.html:16
-#: dashboards/project/images/templates/images/images/_detail_overview.html:49
-#: dashboards/project/images/templates/images/images/_detail_overview.html:51
-#: dashboards/project/instances/templates/instances/_detail_overview.html:108
-#: dashboards/project/instances/templates/instances/_detail_overview.html:117
-#: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:45
-#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:51
-#: dashboards/project/networks/templates/networks/_detail_overview.html:8
-#: dashboards/project/networks/templates/networks/_detail_overview.html:10
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:11
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:13
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:16
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:27
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:31
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:33
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:35
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:42
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:10
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:12
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:15
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:19
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:47
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:55
-#: dashboards/project/routers/templates/routers/_detail_overview.html:4
-#: dashboards/project/routers/templates/routers/_detail_overview.html:10
-#: dashboards/project/routers/templates/routers/_detail_overview.html:12
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:77
-#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:7
-#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:10
-#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:7
-#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:10
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:8
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:11
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:8
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:11
-msgid "None"
-msgstr "Geen"
-
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:11
 #: dashboards/identity/projects/tables.py:231
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:22
@@ -3606,25 +3893,6 @@ msgstr "Specificatie"
 msgid "GB"
 msgstr "GB"
 
-#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:35
-#: dashboards/project/data_processing/cluster_templates/workflows/create.py:82
-#: dashboards/project/data_processing/jobs/workflows/launch.py:407
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:320
-#: dashboards/project/database_backups/tables.py:150
-#: dashboards/project/database_backups/templates/database_backups/details.html:36
-#: dashboards/project/databases/tables.py:315
-#: dashboards/project/databases/templates/databases/_detail_overview.html:34
-#: dashboards/project/images/templates/images/images/_detail_overview.html:27
-#: dashboards/project/instances/templates/instances/_detail_overview.html:18
-#: dashboards/project/instances/templates/instances/_detail_overview.html:38
-#: dashboards/project/stacks/tables.py:108
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:22
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:39
-#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:39
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:29
-msgid "Created"
-msgstr "Gecreëerd"
-
 #: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:9
 #: dashboards/admin/volumes/templates/volumes/snapshots/update_status.html:3
 #: dashboards/admin/volumes/templates/volumes/snapshots/update_status.html:6
@@ -3788,10 +4056,6 @@ msgstr ""
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:4
 msgid "Volume Type Encryption Overview"
 msgstr ""
-
-#: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:8
-msgid "Info"
-msgstr "Informatie"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:13
 #: dashboards/admin/volumes/volume_types/forms.py:27
@@ -5072,7 +5336,7 @@ msgid "Edit User"
 msgstr ""
 
 #: dashboards/identity/users/templates/users/_update.html:18
-msgid "Edit the user's details, including the Primary Project and Role."
+msgid "Edit the user's details, including the Primary Project."
 msgstr ""
 
 #: dashboards/identity/users/templates/users/update.html:3
@@ -7718,10 +7982,6 @@ msgstr ""
 msgid "Ephemeral drive"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_fields_help.html:3
-msgid "Filter"
-msgstr "Filter"
-
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_fields_help.html:4
 msgid "Show full configuration"
 msgstr ""
@@ -7891,7 +8151,7 @@ msgstr[1] ""
 #: dashboards/project/databases/tables.py:222
 #: dashboards/project/instances/tables.py:804
 #: dashboards/project/instances/tables.py:811
-#: dashboards/project/instances/views.py:365
+#: dashboards/project/instances/views.py:366
 #: dashboards/project/instances/templates/instances/_detail_overview.html:62
 #: dashboards/project/instances/templates/instances/_detail_overview.html:98
 msgid "Not available"
@@ -7972,13 +8232,6 @@ msgstr "Archiefbestandslocatie"
 #: dashboards/project/database_backups/templates/database_backups/details.html:34
 msgid "Initial Volume Size"
 msgstr "Initiele volumegrootte"
-
-#: dashboards/project/database_backups/templates/database_backups/details.html:38
-#: dashboards/project/databases/templates/databases/_detail_overview.html:36
-#: dashboards/project/images/templates/images/images/_detail_overview.html:33
-#: dashboards/project/stacks/tables.py:112
-msgid "Updated"
-msgstr "Bijgewerkt"
 
 #: dashboards/project/database_backups/templates/database_backups/details.html:40
 msgid "Backup Duration"
@@ -8200,7 +8453,7 @@ msgid "Unable to retrieve database instances."
 msgstr "Niet in staat om de database exemplaren op te halen."
 
 #: dashboards/project/databases/views.py:104
-#: dashboards/project/instances/views.py:262
+#: dashboards/project/instances/views.py:263
 #, python-format
 msgid "Instance Details: %(instance_name)s"
 msgstr ""
@@ -9093,13 +9346,6 @@ msgid ""
 "value defaults to 0 (no minimum)."
 msgstr "De minimum geheugengrootte benodigd om de afbeelding te starten. Indien ongespecificeerd staat deze waarde standaard op 0 (geen minimum)."
 
-#: dashboards/project/images/images/forms.py:96
-#: dashboards/project/images/images/forms.py:229
-#: dashboards/project/images/images/tables.py:241
-#: dashboards/project/images/templates/images/images/_detail_overview.html:23
-msgid "Protected"
-msgstr "Beschermd"
-
 #: dashboards/project/images/images/forms.py:139
 msgid "A image or external image location must be specified."
 msgstr "Een afbeelding of externe afbeeldingslocatie dient te worden gespecificeerd."
@@ -9217,10 +9463,6 @@ msgstr ""
 #: dashboards/project/images/templates/images/images/_detail_overview.html:25
 msgid "Checksum"
 msgstr "Controlesom"
-
-#: dashboards/project/images/templates/images/images/_detail_overview.html:37
-msgid "Never updated"
-msgstr "Nooit bijgewerkt"
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:48
 msgid "Container Format"
@@ -9504,7 +9746,7 @@ msgid "Failed to launch instance \"%s\""
 msgstr "Het starten van exemplaar \"%s\" is mislukt"
 
 #: dashboards/project/instances/tables.py:650
-#: dashboards/project/instances/views.py:362
+#: dashboards/project/instances/views.py:363
 #, python-format
 msgid "Unable to retrieve flavor information for instance \"%s\"."
 msgstr ""
@@ -9931,7 +10173,7 @@ msgid "Log"
 msgstr "Log"
 
 #: dashboards/project/instances/tabs.py:51
-#: dashboards/project/instances/views.py:152
+#: dashboards/project/instances/views.py:146
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr "Niet in staat om het log te verkrijgen voor exemplaar \"%s\"."
@@ -9956,53 +10198,57 @@ msgstr "Kon de exemplaarsmaken niet sorteren."
 msgid "Unable to retrieve Nova availability zones."
 msgstr ""
 
-#: dashboards/project/instances/views.py:70
+#: dashboards/project/instances/views.py:71
 msgid "Unable to retrieve instances."
 msgstr "Niet in staat om de exemplaren op te halen."
 
-#: dashboards/project/instances/views.py:167
+#: dashboards/project/instances/views.py:149
+msgid "Log length must be a nonnegative integer."
+msgstr ""
+
+#: dashboards/project/instances/views.py:168
 #, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr "Niet in staat om het VNC beheervenster te verkrijgen voor exemplaar \"%s\"."
 
-#: dashboards/project/instances/views.py:178
+#: dashboards/project/instances/views.py:179
 #, python-format
 msgid "Unable to get SPICE console for instance \"%s\"."
 msgstr "Niet in staat om het SPICE beheervenster te verkrijgen voor exemplaar \"%s\"."
 
-#: dashboards/project/instances/views.py:189
+#: dashboards/project/instances/views.py:190
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "Kon het RDP beheervenster voor exemplaar \"%s\" niet openen."
 
-#: dashboards/project/instances/views.py:276
+#: dashboards/project/instances/views.py:277
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "Niet in staat om de details voor exemplaar \"%s\" op te halen."
 
-#: dashboards/project/instances/views.py:297
+#: dashboards/project/instances/views.py:298
 #, python-format
 msgid "Unable to retrieve volume list for instance \"%(name)s\" (%(id)s)."
 msgstr ""
 
-#: dashboards/project/instances/views.py:306
+#: dashboards/project/instances/views.py:307
 #, python-format
 msgid "Unable to retrieve flavor information for instance \"%(name)s\" (%(id)s)."
 msgstr ""
 
-#: dashboards/project/instances/views.py:315
+#: dashboards/project/instances/views.py:316
 #, python-format
 msgid "Unable to retrieve security groups for instance \"%(name)s\" (%(id)s)."
 msgstr ""
 
-#: dashboards/project/instances/views.py:323
+#: dashboards/project/instances/views.py:324
 #, python-format
 msgid ""
 "Unable to retrieve IP addresses from Neutron for instance \"%(name)s\" "
 "(%(id)s)."
 msgstr ""
 
-#: dashboards/project/instances/views.py:376
+#: dashboards/project/instances/views.py:377
 msgid "Unable to retrieve flavors."
 msgstr "Niet in staat om de smaken op te halen."
 
@@ -10489,11 +10735,6 @@ msgstr "Post-creatie"
 #: dashboards/project/instances/workflows/create_instance.py:619
 msgid "Select Script Source"
 msgstr ""
-
-#: dashboards/project/instances/workflows/create_instance.py:620
-#: dashboards/project/stacks/forms.py:58
-msgid "Direct Input"
-msgstr "Directe invoer"
 
 #: dashboards/project/instances/workflows/create_instance.py:624
 msgid "Customization Script Source"
