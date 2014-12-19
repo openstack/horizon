@@ -34,7 +34,7 @@ class PageObject(basewebobject.BaseWebObject):
         return True
 
     def get_url_current_page(self):
-        return self.driver.current_url()
+        return self.driver.current_url
 
     def close_window(self):
         return self.driver.close()
