@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-18 06:58-0600\n"
-"PO-Revision-Date: 2014-12-18 17:11+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"POT-Creation-Date: 2014-12-19 15:20-0600\n"
+"PO-Revision-Date: 2014-12-19 21:20+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -455,8 +455,8 @@ msgstr "Administrator"
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:10
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:11
 #: dashboards/admin/volumes/volume_types/forms.py:24
-#: dashboards/admin/volumes/volume_types/tables.py:107
-#: dashboards/admin/volumes/volume_types/tables.py:188
+#: dashboards/admin/volumes/volume_types/tables.py:137
+#: dashboards/admin/volumes/volume_types/tables.py:219
 #: dashboards/admin/volumes/volumes/forms.py:29
 #: dashboards/admin/volumes/volumes/forms.py:88
 #: dashboards/admin/volumes/volumes/tables.py:41
@@ -3766,7 +3766,7 @@ msgid "Unable to retrieve volume project information."
 msgstr "Projektinformationen zum Datenträger können nicht aufgerufen werden."
 
 #: dashboards/admin/volumes/tabs.py:68
-#: dashboards/admin/volumes/volume_types/tables.py:124
+#: dashboards/admin/volumes/volume_types/tables.py:154
 msgid "Volume Types"
 msgstr "Datenträgertypen"
 
@@ -3870,7 +3870,7 @@ msgstr "Datenträger"
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:30
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_index.html:7
-#: dashboards/admin/volumes/volume_types/tables.py:191
+#: dashboards/admin/volumes/volume_types/tables.py:222
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:36
 #: dashboards/project/databases/templates/databases/_detail_overview.html:23
 #: dashboards/project/images/templates/images/images/_detail_overview.html:43
@@ -3942,7 +3942,7 @@ msgstr "Zuweisen"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:9
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_qos_spec.html:3
-#: dashboards/admin/volumes/volume_types/tables.py:149
+#: dashboards/admin/volumes/volume_types/tables.py:180
 msgid "Create QoS Spec"
 msgstr "QoS Spezifikation erstellen"
 
@@ -4301,44 +4301,56 @@ msgstr[1] "Gelöschte Datenträgertypen"
 msgid "Create Encryption"
 msgstr "Verschlüsselung erstellen"
 
-#: dashboards/admin/volumes/volume_types/tables.py:92
+#: dashboards/admin/volumes/volume_types/tables.py:94
+msgid "Delete Encryption"
+msgid_plural "Delete Encryptions"
+msgstr[0] ""
+msgstr[1] ""
+
+#: dashboards/admin/volumes/volume_types/tables.py:102
+msgid "Deleted Encryption"
+msgid_plural "Deleted Encryptions"
+msgstr[0] ""
+msgstr[1] ""
+
+#: dashboards/admin/volumes/volume_types/tables.py:122
 msgid "Unable to determine if volume type encryption is supported."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:109
+#: dashboards/admin/volumes/volume_types/tables.py:139
 msgid "Associated QoS Spec"
 msgstr "Verbundene QoS Spezifikation"
 
-#: dashboards/admin/volumes/volume_types/tables.py:111
+#: dashboards/admin/volumes/volume_types/tables.py:141
 msgid "Encryption"
 msgstr "Verschlüsselung"
 
-#: dashboards/admin/volumes/volume_types/tables.py:135
+#: dashboards/admin/volumes/volume_types/tables.py:166
 msgid "Manage Specs"
 msgstr "Spezifikationen verwalten"
 
-#: dashboards/admin/volumes/volume_types/tables.py:160
+#: dashboards/admin/volumes/volume_types/tables.py:191
 msgid "Delete QoS Spec"
 msgid_plural "Delete QoS Specs"
 msgstr[0] "Lösche QoS Spezifikation"
 msgstr[1] "Lösche QoS Spezifikationen"
 
-#: dashboards/admin/volumes/volume_types/tables.py:168
+#: dashboards/admin/volumes/volume_types/tables.py:199
 msgid "Deleted QoS Spec"
 msgid_plural "Deleted QoS Specs"
 msgstr[0] "Gelöschte QoS Spezifikation"
 msgstr[1] "Gelöschte QoS Spezifikationen"
 
-#: dashboards/admin/volumes/volume_types/tables.py:180
+#: dashboards/admin/volumes/volume_types/tables.py:211
 msgid "Edit Consumer"
 msgstr "Bearbeite Benutzer"
 
-#: dashboards/admin/volumes/volume_types/tables.py:189
+#: dashboards/admin/volumes/volume_types/tables.py:220
 #: dashboards/admin/volumes/volumes/forms.py:89
 msgid "Consumer"
 msgstr "Benutzer"
 
-#: dashboards/admin/volumes/volume_types/tables.py:204
+#: dashboards/admin/volumes/volume_types/tables.py:235
 msgid "QoS Specs"
 msgstr "QoS Spezifikationen"
 
@@ -5392,7 +5404,7 @@ msgid "Access & Security"
 msgstr "Zugriff & Sicherheit"
 
 #: dashboards/project/access_and_security/tabs.py:57
-#: dashboards/project/access_and_security/security_groups/views.py:124
+#: dashboards/project/access_and_security/security_groups/views.py:126
 #: usage/base.py:116
 msgid "Unable to retrieve security groups."
 msgstr "Sicherheitsgruppen können nicht abgerufen werden."
@@ -5969,16 +5981,16 @@ msgid "Any"
 msgstr "Jede(s)"
 
 #: dashboards/project/access_and_security/security_groups/views.py:52
-#: dashboards/project/access_and_security/security_groups/views.py:83
+#: dashboards/project/access_and_security/security_groups/views.py:85
 msgid "Unable to retrieve security group."
 msgstr "Sicherheitsgruppe kann nicht abgerufen werden."
 
-#: dashboards/project/access_and_security/security_groups/views.py:66
+#: dashboards/project/access_and_security/security_groups/views.py:69
 #, python-format
 msgid "Manage Security Group Rules: %(security_group)s"
 msgstr "Sicherheitsgruppenregeln verwalten: %(security_group)s"
 
-#: dashboards/project/access_and_security/security_groups/views.py:131
+#: dashboards/project/access_and_security/security_groups/views.py:133
 #, python-format
 msgid "%s (current)"
 msgstr "%s (aktuell)"
