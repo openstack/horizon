@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-18 06:58-0600\n"
-"PO-Revision-Date: 2014-12-18 12:57+0000\n"
+"POT-Creation-Date: 2014-12-19 15:20-0600\n"
+"PO-Revision-Date: 2014-12-19 21:20+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -454,8 +454,8 @@ msgstr "管理员"
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:10
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:11
 #: dashboards/admin/volumes/volume_types/forms.py:24
-#: dashboards/admin/volumes/volume_types/tables.py:107
-#: dashboards/admin/volumes/volume_types/tables.py:188
+#: dashboards/admin/volumes/volume_types/tables.py:137
+#: dashboards/admin/volumes/volume_types/tables.py:219
 #: dashboards/admin/volumes/volumes/forms.py:29
 #: dashboards/admin/volumes/volumes/forms.py:88
 #: dashboards/admin/volumes/volumes/tables.py:41
@@ -3747,7 +3747,7 @@ msgid "Unable to retrieve volume project information."
 msgstr "无法获取云硬盘项目信息。"
 
 #: dashboards/admin/volumes/tabs.py:68
-#: dashboards/admin/volumes/volume_types/tables.py:124
+#: dashboards/admin/volumes/volume_types/tables.py:154
 msgid "Volume Types"
 msgstr "云硬盘类型"
 
@@ -3851,7 +3851,7 @@ msgstr "云硬盘"
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:30
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_index.html:7
-#: dashboards/admin/volumes/volume_types/tables.py:191
+#: dashboards/admin/volumes/volume_types/tables.py:222
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:36
 #: dashboards/project/databases/templates/databases/_detail_overview.html:23
 #: dashboards/project/images/templates/images/images/_detail_overview.html:43
@@ -3923,7 +3923,7 @@ msgstr "关联"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:9
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_qos_spec.html:3
-#: dashboards/admin/volumes/volume_types/tables.py:149
+#: dashboards/admin/volumes/volume_types/tables.py:180
 msgid "Create QoS Spec"
 msgstr "创建QoS规格"
 
@@ -4280,42 +4280,52 @@ msgstr[0] "已删除的云硬盘类型"
 msgid "Create Encryption"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:92
+#: dashboards/admin/volumes/volume_types/tables.py:94
+msgid "Delete Encryption"
+msgid_plural "Delete Encryptions"
+msgstr[0] ""
+
+#: dashboards/admin/volumes/volume_types/tables.py:102
+msgid "Deleted Encryption"
+msgid_plural "Deleted Encryptions"
+msgstr[0] ""
+
+#: dashboards/admin/volumes/volume_types/tables.py:122
 msgid "Unable to determine if volume type encryption is supported."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:109
+#: dashboards/admin/volumes/volume_types/tables.py:139
 msgid "Associated QoS Spec"
 msgstr "已关联的QoS规格"
 
-#: dashboards/admin/volumes/volume_types/tables.py:111
+#: dashboards/admin/volumes/volume_types/tables.py:141
 msgid "Encryption"
 msgstr "jiami"
 
-#: dashboards/admin/volumes/volume_types/tables.py:135
+#: dashboards/admin/volumes/volume_types/tables.py:166
 msgid "Manage Specs"
 msgstr "管理规格"
 
-#: dashboards/admin/volumes/volume_types/tables.py:160
+#: dashboards/admin/volumes/volume_types/tables.py:191
 msgid "Delete QoS Spec"
 msgid_plural "Delete QoS Specs"
 msgstr[0] "删除QoS规格"
 
-#: dashboards/admin/volumes/volume_types/tables.py:168
+#: dashboards/admin/volumes/volume_types/tables.py:199
 msgid "Deleted QoS Spec"
 msgid_plural "Deleted QoS Specs"
 msgstr[0] "已删除的QoS规格"
 
-#: dashboards/admin/volumes/volume_types/tables.py:180
+#: dashboards/admin/volumes/volume_types/tables.py:211
 msgid "Edit Consumer"
 msgstr "编辑消费者"
 
-#: dashboards/admin/volumes/volume_types/tables.py:189
+#: dashboards/admin/volumes/volume_types/tables.py:220
 #: dashboards/admin/volumes/volumes/forms.py:89
 msgid "Consumer"
 msgstr "消费者"
 
-#: dashboards/admin/volumes/volume_types/tables.py:204
+#: dashboards/admin/volumes/volume_types/tables.py:235
 msgid "QoS Specs"
 msgstr "QoS规格"
 
@@ -5349,7 +5359,7 @@ msgid "Access & Security"
 msgstr "访问 & 安全"
 
 #: dashboards/project/access_and_security/tabs.py:57
-#: dashboards/project/access_and_security/security_groups/views.py:124
+#: dashboards/project/access_and_security/security_groups/views.py:126
 #: usage/base.py:116
 msgid "Unable to retrieve security groups."
 msgstr "无法获取安全组。"
@@ -5918,16 +5928,16 @@ msgid "Any"
 msgstr "任何"
 
 #: dashboards/project/access_and_security/security_groups/views.py:52
-#: dashboards/project/access_and_security/security_groups/views.py:83
+#: dashboards/project/access_and_security/security_groups/views.py:85
 msgid "Unable to retrieve security group."
 msgstr "找不到安全组"
 
-#: dashboards/project/access_and_security/security_groups/views.py:66
+#: dashboards/project/access_and_security/security_groups/views.py:69
 #, python-format
 msgid "Manage Security Group Rules: %(security_group)s"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/views.py:131
+#: dashboards/project/access_and_security/security_groups/views.py:133
 #, python-format
 msgid "%s (current)"
 msgstr "%s(当前)"
