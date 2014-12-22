@@ -91,7 +91,7 @@ DISPLAY_CHOICES = (
 
 class NetworksTable(tables.DataTable):
     tenant = tables.Column("tenant_name", verbose_name=_("Project"))
-    name = tables.Column("name", verbose_name=_("Network Name"),
+    name = tables.Column("name_or_id", verbose_name=_("Network Name"),
                          link='horizon:admin:networks:detail')
     subnets = tables.Column(project_tables.get_subnets,
                             verbose_name=_("Subnets Associated"),)

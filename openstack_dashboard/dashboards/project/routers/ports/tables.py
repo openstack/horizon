@@ -97,7 +97,7 @@ DISPLAY_CHOICES = (
 
 
 class PortsTable(tables.DataTable):
-    name = tables.Column("name",
+    name = tables.Column("name_or_id",
                          verbose_name=_("Name"),
                          link="horizon:project:networks:ports:detail")
     fixed_ips = tables.Column(project_tables.get_fixed_ips,

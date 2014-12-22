@@ -152,8 +152,7 @@ class UpdateFirewall(forms.SelfHandlingForm):
         firewall_policy_id_choices = [(policy_id, policy_name)]
         for p in policies:
             if p.id != policy_id:
-                p.set_id_as_name_if_empty()
-                firewall_policy_id_choices.append((p.id, p.name))
+                firewall_policy_id_choices.append((p.id, p.name_or_id))
 
         self.fields['firewall_policy_id'].choices = firewall_policy_id_choices
 
@@ -191,9 +190,7 @@ class InsertRuleToPolicy(forms.SelfHandlingForm):
         tenant_id = self.request.user.tenant_id
         try:
             all_rules = api.fwaas.rule_list(request, tenant_id=tenant_id)
-            for r in all_rules:
-                r.set_id_as_name_if_empty()
-            all_rules = sorted(all_rules, key=lambda rule: rule.name)
+            all_rules = sorted(all_rules, key=lambda rule: rule.name_or_id)
 
             available_rules = [r for r in all_rules
                                if not r.firewall_policy_id]
@@ -203,8 +200,8 @@ class InsertRuleToPolicy(forms.SelfHandlingForm):
                 r_obj = [rule for rule in all_rules if r == rule.id][0]
                 current_rules.append(r_obj)
 
-            available_choices = [(r.id, r.name) for r in available_rules]
-            current_choices = [(r.id, r.name) for r in current_rules]
+            available_choices = [(r.id, r.name_or_id) for r in available_rules]
+            current_choices = [(r.id, r.name_or_id) for r in current_rules]
 
         except Exception as e:
             msg = _('Failed to retrieve available rules: %s') % e
@@ -252,15 +249,13 @@ class RemoveRuleFromPolicy(forms.SelfHandlingForm):
         tenant_id = request.user.tenant_id
         try:
             all_rules = api.fwaas.rule_list(request, tenant_id=tenant_id)
-            for r in all_rules:
-                r.set_id_as_name_if_empty()
 
             current_rules = []
             for r in kwargs['initial']['firewall_rules']:
                 r_obj = [rule for rule in all_rules if r == rule.id][0]
                 current_rules.append(r_obj)
 
-            current_choices = [(r.id, r.name) for r in current_rules]
+            current_choices = [(r.id, r.name_or_id) for r in current_rules]
         except Exception as e:
             msg = _('Failed to retrieve current rules in policy %(name)s: '
                     '%(reason)s') % {'name': self.initial['name'], 'reason': e}

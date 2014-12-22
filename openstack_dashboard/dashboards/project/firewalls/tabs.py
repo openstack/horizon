@@ -41,8 +41,6 @@ class RulesTab(tabs.TableTab):
             rules = []
             exceptions.handle(self.tab_group.request,
                               _('Unable to retrieve rules list.'))
-        for r in rules:
-            r.set_id_as_name_if_empty()
 
         return rules
 
@@ -62,8 +60,6 @@ class PoliciesTab(tabs.TableTab):
             policies = []
             exceptions.handle(self.tab_group.request,
                               _('Unable to retrieve policies list.'))
-        for p in policies:
-            p.set_id_as_name_if_empty()
 
         return policies
 
@@ -83,9 +79,6 @@ class FirewallsTab(tabs.TableTab):
             firewalls = []
             exceptions.handle(self.tab_group.request,
                               _('Unable to retrieve firewall list.'))
-
-        for f in firewalls:
-            f.set_id_as_name_if_empty()
 
         return firewalls
 

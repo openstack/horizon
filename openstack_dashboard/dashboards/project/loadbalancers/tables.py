@@ -266,7 +266,7 @@ class DeletePMAssociationLink(policy.PolicyTargetMixin,
 
 
 class PoolsTable(tables.DataTable):
-    name = tables.Column("name",
+    name = tables.Column("name_or_id",
                          verbose_name=_("Name"),
                          link="horizon:project:loadbalancers:pooldetails")
     description = tables.Column('description', verbose_name=_("Description"))

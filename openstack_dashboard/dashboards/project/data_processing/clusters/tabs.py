@@ -63,8 +63,7 @@ class GeneralTab(tabs.Tab):
             if getattr(cluster, 'neutron_management_network', None):
                 net_id = cluster.neutron_management_network
                 network = neutron.network_get(request, net_id)
-                network.set_id_as_name_if_empty()
-                net_name = network.name
+                net_name = network.name_or_id
             else:
                 net_name = None
 

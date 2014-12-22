@@ -42,7 +42,6 @@ class CreateView(workflows.WorkflowView):
         try:
             network_id = self.kwargs["network_id"]
             network = api.neutron.network_get(self.request, network_id)
-            network.set_id_as_name_if_empty()
             return network
         except Exception:
             redirect = reverse('horizon:project:networks:index')
@@ -52,7 +51,7 @@ class CreateView(workflows.WorkflowView):
     def get_initial(self):
         network = self.get_object()
         return {"network_id": self.kwargs['network_id'],
-                "network_name": network.name}
+                "network_name": network.name_or_id}
 
 
 class UpdateView(workflows.WorkflowView):

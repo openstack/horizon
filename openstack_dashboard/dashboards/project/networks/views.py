@@ -51,8 +51,6 @@ class IndexView(tables.DataTableView):
             networks = []
             msg = _('Network list can not be retrieved.')
             exceptions.handle(self.request, msg)
-        for n in networks:
-            n.set_id_as_name_if_empty()
         return networks
 
 
@@ -106,8 +104,6 @@ class DetailView(tables.MultiTableView):
             subnets = []
             msg = _('Subnet list can not be retrieved.')
             exceptions.handle(self.request, msg)
-        for s in subnets:
-            s.set_id_as_name_if_empty()
         return subnets
 
     def get_ports_data(self):
@@ -118,8 +114,6 @@ class DetailView(tables.MultiTableView):
             ports = []
             msg = _('Port list can not be retrieved.')
             exceptions.handle(self.request, msg)
-        for p in ports:
-            p.set_id_as_name_if_empty()
         return ports
 
     @memoized.memoized_method

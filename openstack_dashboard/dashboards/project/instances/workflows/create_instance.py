@@ -732,8 +732,7 @@ class SetNetworkAction(workflows.Action):
             tenant_id = self.request.user.tenant_id
             networks = api.neutron.network_list_for_tenant(request, tenant_id)
             for n in networks:
-                n.set_id_as_name_if_empty()
-                network_list.append((n.id, n.name))
+                network_list.append((n.id, n.name_or_id))
             sorted(network_list, key=lambda obj: obj[1])
         except Exception:
             exceptions.handle(request,

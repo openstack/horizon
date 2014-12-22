@@ -30,8 +30,6 @@ class InterfacesTab(tabs.TableTab):
 
     def get_interfaces_data(self):
         ports = self.tab_group.ports
-        for p in ports:
-            p.set_id_as_name_if_empty()
         return ports
 
 
