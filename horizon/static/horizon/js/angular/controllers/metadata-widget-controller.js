@@ -65,7 +65,7 @@
       this.label = this.leaf.title || '';
       this.description = this.leaf.description || '';
       this.leaf.name = name;
-      this.leaf.value = this.leaf.default || null;
+      this.setLeafValue(this.leaf.default || null);
 
       return this;
     };
@@ -133,6 +133,21 @@
       return path;
     };
 
+    Item.prototype.setLeafValue = function(value) {
+      if(value === null) {
+        this.leaf.value = null;
+        return;
+      }
+
+      switch (this.leaf.type) {
+        case 'integer': this.leaf.value = parseInt(value); break;
+        case 'number': this.leaf.value = parseFloat(value); break;
+        case 'array': this.leaf.value = value.replace(/^<in> /, ''); break;
+        case 'boolean': this.leaf.value = parseBool(value); break;
+        default: this.leaf.value = value;
+      }
+    };
+
     //// Private functions ////
 
     var filter = $filter('filter');
@@ -179,14 +194,29 @@
           item = new Item().customProperty(key);
           available.push(item);
         }
-        switch (item.leaf.type) {
-          case 'integer': item.leaf.value = parseInt(value); break;
-          case 'number': item.leaf.value = parseFloat(value); break;
-          case 'array': item.leaf.value = value.replace(/^<in> /, ''); break;
-          default: item.leaf.value = value;
-        }
+        item.setLeafValue(value);
         item.markAsAdded();
       });
+    }
+
+    function parseBool(value) {
+      var value_type = typeof(value);
+
+      if(value_type === 'boolean') {
+        return value;
+      }
+      else if(value_type === 'string') {
+        value = value.toLowerCase();
+
+        if(value === 'true') {
+          return true;
+        }
+        else if(value === 'false') {
+          return false;
+        }
+      }
+
+      return null;
     }
 
     //// Public functions ////
