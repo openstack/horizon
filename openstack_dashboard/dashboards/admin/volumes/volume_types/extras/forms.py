@@ -10,6 +10,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
 from openstack_dashboard import api
@@ -33,8 +34,10 @@ class CreateExtraSpec(forms.SelfHandlingForm):
             messages.success(request, msg)
             return True
         except Exception:
+            redirect = reverse("horizon:admin:volumes:index")
             exceptions.handle(request,
-                              _("Unable to create volume type extra spec."))
+                              _("Unable to create volume type extra spec."),
+                              redirect=redirect)
 
 
 class EditExtraSpec(forms.SelfHandlingForm):
@@ -51,5 +54,7 @@ class EditExtraSpec(forms.SelfHandlingForm):
             messages.success(request, msg)
             return True
         except Exception:
+            redirect = reverse("horizon:admin:volumes:index")
             exceptions.handle(request,
-                              _("Unable to edit volume type extra spec."))
+                              _("Unable to edit volume type extra spec."),
+                              redirect=redirect)

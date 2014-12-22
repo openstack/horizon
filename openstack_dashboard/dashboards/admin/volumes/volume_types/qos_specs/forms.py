@@ -10,6 +10,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -38,9 +39,10 @@ class CreateKeyValuePair(forms.SelfHandlingForm):
             messages.success(request, msg)
             return True
         except Exception:
+            redirect = reverse("horizon:admin:volumes:index")
             exceptions.handle(request,
-                              _("Unable to create spec."))
-            return False
+                              _("Unable to create spec."),
+                              redirect=redirect)
 
 
 class EditKeyValuePair(forms.SelfHandlingForm):
@@ -65,6 +67,7 @@ class EditKeyValuePair(forms.SelfHandlingForm):
             messages.success(request, msg)
             return True
         except Exception:
+            redirect = reverse("horizon:admin:volumes:index")
             exceptions.handle(request,
-                              _("Unable to edit spec."))
-            return False
+                              _("Unable to edit spec."),
+                              redirect=redirect)
