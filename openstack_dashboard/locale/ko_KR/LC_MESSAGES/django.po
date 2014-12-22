@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-19 15:20-0600\n"
-"PO-Revision-Date: 2014-12-19 21:20+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-12-20 01:30-0600\n"
+"PO-Revision-Date: 2014-12-21 12:41+0000\n"
+"Last-Translator: Yongbok Kim <ruo91@yongbok.net>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -390,23 +390,23 @@ msgstr "%(cidr)s에서 %(from)s:%(to)s 허용 "
 
 #: api/nova.py:296
 msgid "Couldn't get security group list."
-msgstr "시큐리티 그룹 목록을 가져올 수 없습니다."
+msgstr "보안 그룹 목록을 가져올 수 없습니다."
 
 #: api/nova.py:303
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
-msgstr "인스턴스 %s 의 현재 시큐리티 그룹 목록을 가져올 수 없습니다."
+msgstr "인스턴스 %s 의 현재 보안 그룹 목록을 가져올 수 없습니다."
 
 #: api/nova.py:320
 #, python-format
 msgid ""
 "Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
-msgstr "%(num_groups_to_modify)d 인스턴스 시큐리티 그룹 수정에 실패했습니다: %(err)s"
+msgstr "%(num_groups_to_modify)d 인스턴스 보안 그룹 수정에 실패했습니다: %(err)s"
 
 #: api/nova.py:335
 #, python-format
 msgid "Failed to modify %d instance security groups"
-msgstr "%d 인스턴스 시큐리티 그룹을 수정하지 못하였습니다."
+msgstr "%d 인스턴스 보안 그룹을 수정하지 못하였습니다."
 
 #: api/nova.py:762
 #, python-format
@@ -1548,7 +1548,7 @@ msgstr "호스트 이름"
 #: dashboards/project/volumes/volumes/forms.py:659
 #: dashboards/project/volumes/volumes/tables.py:348
 msgid "Type"
-msgstr "타입"
+msgstr "종류"
 
 #: dashboards/admin/hypervisors/tables.py:31
 msgid "VCPUs (used)"
@@ -2227,13 +2227,13 @@ msgstr "모든 인스턴스"
 
 #: dashboards/admin/metadata_defs/forms.py:38
 msgid "Namespace Definition Source"
-msgstr ""
+msgstr "소스의 네임스페이스를 정의"
 
 #: dashboards/admin/metadata_defs/forms.py:40
 #: dashboards/admin/metadata_defs/forms.py:46
 #: dashboards/admin/metadata_defs/forms.py:50
 msgid "Metadata Definition File"
-msgstr ""
+msgstr "메타데이터 정의 파일"
 
 #: dashboards/admin/metadata_defs/forms.py:41
 #: dashboards/project/instances/workflows/create_instance.py:620
@@ -2243,12 +2243,12 @@ msgstr "직접 입력"
 
 #: dashboards/admin/metadata_defs/forms.py:47
 msgid "A local metadata definition file to upload."
-msgstr ""
+msgstr "로컬 메타데이터 정의 파일을 업로드 합니다."
 
 #: dashboards/admin/metadata_defs/forms.py:54
 #: dashboards/admin/metadata_defs/forms.py:58
 msgid "Namespace JSON"
-msgstr ""
+msgstr "JSON 네임스페이스"
 
 #: dashboards/admin/metadata_defs/forms.py:55
 msgid "The JSON formatted contents of a namespace."
@@ -2266,7 +2266,7 @@ msgstr "보호함"
 
 #: dashboards/admin/metadata_defs/forms.py:77
 msgid "Cannot specify both file and direct input."
-msgstr ""
+msgstr "파일 및 직접 입력은 모두 지정할 수 없습니다."
 
 #: dashboards/admin/metadata_defs/forms.py:80
 msgid "No input was provided for the namespace content."
@@ -2275,53 +2275,53 @@ msgstr ""
 #: dashboards/admin/metadata_defs/forms.py:100
 #, python-format
 msgid "There was a problem loading the namespace: %s."
-msgstr ""
+msgstr "%s의 네임스페이스를 가져오는 중에 문제가 발생했습니다"
 
 #: dashboards/admin/metadata_defs/forms.py:110
 #, python-format
 msgid "Namespace %s has been created."
-msgstr ""
+msgstr "%s의 네임스페이스가 생성 되었습니다."
 
 #: dashboards/admin/metadata_defs/forms.py:114
 #, python-format
 msgid "Unable to create new namespace. %s"
-msgstr ""
+msgstr "%s의 새 네임스페이스 만들 수 없습니다."
 
 #: dashboards/admin/metadata_defs/forms.py:140
 #, python-format
 msgid "Resource types updated for namespace %s."
-msgstr ""
+msgstr "%s의 네임스페이스 자원 종류를 업데이트 하였습니다."
 
 #: dashboards/admin/metadata_defs/forms.py:144
 #, python-format
 msgid "Error updating resource types for namespace %s."
-msgstr ""
+msgstr "%s의 네임스페이스 자원 종류 업데이트 중 오류가 발생했습니다."
 
 #: dashboards/admin/metadata_defs/panel.py:25
 #: dashboards/admin/metadata_defs/templates/metadata_defs/index.html:3
 #: dashboards/admin/metadata_defs/templates/metadata_defs/index.html:6
 msgid "Metadata Definitions"
-msgstr ""
+msgstr "메타데이터 정의"
 
 #: dashboards/admin/metadata_defs/tables.py:30
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:9
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:35
 msgid "Import Namespace"
-msgstr ""
+msgstr "네임스페이스 가져오기"
 
 #: dashboards/admin/metadata_defs/tables.py:41
 msgid "Delete Namespace"
 msgid_plural "Delete Namespaces"
-msgstr[0] ""
+msgstr[0] "네임스페이스 삭제"
 
 #: dashboards/admin/metadata_defs/tables.py:49
 msgid "Deleted Namespace"
 msgid_plural "Deleted Namespaces"
-msgstr[0] ""
+msgstr[0] "삭제 된 네임스페이스"
 
 #: dashboards/admin/metadata_defs/tables.py:69
 msgid "Update Associations"
-msgstr ""
+msgstr "연관 업데이트"
 
 #: dashboards/admin/metadata_defs/tables.py:132
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:15
@@ -2408,57 +2408,57 @@ msgstr "설명"
 
 #: dashboards/admin/metadata_defs/tables.py:137
 msgid "Resource Types"
-msgstr ""
+msgstr "자원 종류"
 
 #: dashboards/admin/metadata_defs/tables.py:165
 msgid "Namespaces"
-msgstr ""
+msgstr "네임스페이스"
 
 #: dashboards/admin/metadata_defs/tabs.py:26
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:3
 msgid "Namespace Overview"
-msgstr ""
+msgstr "네임스페이스 개요"
 
 #: dashboards/admin/metadata_defs/tabs.py:38
 #: dashboards/admin/metadata_defs/views.py:106
 msgid "Unable to retrieve namespace details."
-msgstr ""
+msgstr "네임스페이스의 세부 정보를 찾지 못했습니다."
 
 #: dashboards/admin/metadata_defs/tabs.py:45
 msgid "Contents"
-msgstr ""
+msgstr "내용"
 
 #: dashboards/admin/metadata_defs/tabs.py:57
 msgid "Unable to retrieve namespace contents."
-msgstr ""
+msgstr "네임스페이스의 내용을 찾지 못했습니다."
 
 #: dashboards/admin/metadata_defs/views.py:75
 msgid "Error getting metadata definitions."
-msgstr ""
+msgstr "메타데이터 정의를 받는 중에 오류가 발생했습니다."
 
 #: dashboards/admin/metadata_defs/views.py:127
 #: dashboards/admin/metadata_defs/views.py:145
 #: dashboards/admin/metadata_defs/views.py:159
 msgid "Error getting resource type associations."
-msgstr ""
+msgstr "자원 종류의 관련 된 것을 얻는 중에 오류가 발생했습니다."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:20
 msgid "Specify a metadata definition namespace to import."
-msgstr ""
+msgstr "가져올 메타 데이터 정의 네임스페이스를 지정합니다."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:23
 msgid "Only definitions in raw JSON format are supported."
-msgstr ""
+msgstr "raw JSON 형식의 정의만 지원합니다."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:26
 msgid ""
 "Administrator Note: Use the following CLI command to import the default "
 "definitions into Glance: "
-msgstr ""
+msgstr "관리자 참고 : 다음의 CLI 명령을 사용하여 Glance의 기본 정의를 가져올 수 있습니다."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_contents.html:4
 msgid "Undefined"
-msgstr ""
+msgstr "정의되지 않은"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:7
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:8
@@ -2524,7 +2524,7 @@ msgstr "None"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:12
 msgid "Namespace"
-msgstr ""
+msgstr "네임스페이스"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:22
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:35
@@ -2577,7 +2577,7 @@ msgstr "한번도 업데이트 하지 않음."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:32
 msgid "Associated Resource Types"
-msgstr ""
+msgstr "자원 종류의 관련된"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:39
 msgid "Prefix: "
@@ -2585,34 +2585,34 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:42
 msgid "Properties Target: "
-msgstr ""
+msgstr "등록 대상:"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:47
 msgid "No associations defined."
-msgstr ""
+msgstr "관련된 정의가 없습니다."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_resource_types.html:5
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_resource_types.html:8
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_resource_types.html:14
 msgid "Namespace Resource Type Associations"
-msgstr ""
+msgstr "자원 종류의 관련된 네임스페이스"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/create.html:3
 #: dashboards/admin/metadata_defs/templates/metadata_defs/create.html:6
 msgid "Create a Metadata Namespace"
-msgstr ""
+msgstr "메타데이터 네임스페이스 생성"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/detail.html:4
 msgid "Namespace Details"
-msgstr ""
+msgstr "네임스페이스 세부 정보"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/detail.html:7
 msgid "Namespace Details: "
-msgstr ""
+msgstr "네임스페이스 세부 정보:"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:15
 msgid "Available Types"
-msgstr ""
+msgstr "사용 가능한 종류"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:19
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_fields_help.html:3
@@ -2960,7 +2960,7 @@ msgstr "구분 ID"
 #: dashboards/project/vpn/forms.py:261 dashboards/project/vpn/workflows.py:31
 #: dashboards/project/vpn/workflows.py:417
 msgid "UP"
-msgstr ""
+msgstr "UP"
 
 #: dashboards/admin/networks/forms.py:78
 #: dashboards/admin/networks/forms.py:237
@@ -2982,7 +2982,7 @@ msgstr ""
 #: dashboards/project/vpn/forms.py:262 dashboards/project/vpn/workflows.py:32
 #: dashboards/project/vpn/workflows.py:418
 msgid "DOWN"
-msgstr ""
+msgstr "DOWN"
 
 #: dashboards/admin/networks/forms.py:79
 #: dashboards/admin/networks/forms.py:238
@@ -3168,7 +3168,7 @@ msgstr "네트워크 편집"
 #: dashboards/project/networks/tables.py:146
 msgctxt "Admin state of a Network"
 msgid "UP"
-msgstr ""
+msgstr "UP"
 
 #: dashboards/admin/networks/tables.py:88
 #: dashboards/admin/networks/ports/tables.py:92
@@ -3176,7 +3176,7 @@ msgstr ""
 #: dashboards/project/networks/tables.py:147
 msgctxt "Admin state of a Network"
 msgid "DOWN"
-msgstr ""
+msgstr "DOWN"
 
 #: dashboards/admin/networks/tables.py:94
 #: dashboards/admin/networks/agents/forms.py:32
@@ -3897,7 +3897,7 @@ msgstr "\n볼륨 스냅샷 상태는 기본적으론 자동으로 관리됩니�
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:9
 #: dashboards/admin/volumes/templates/volumes/volume_types/associate_qos_spec.html:6
 msgid "Associate QoS Spec with Volume Type"
-msgstr ""
+msgstr "볼륨 타입별 연결 QOS 성능"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:19
 msgid ""
@@ -5901,7 +5901,7 @@ msgstr "시큐리티 그룹 편집"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:117
 msgid "Manage Rules"
-msgstr "룰 관리"
+msgstr "규칙 관리"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:147
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:8
@@ -5935,7 +5935,7 @@ msgstr "시큐리티 그룹을 찾지 못했습니다."
 #: dashboards/project/access_and_security/security_groups/views.py:69
 #, python-format
 msgid "Manage Security Group Rules: %(security_group)s"
-msgstr ""
+msgstr "보안 그룹 규칙 관리: %(security_group)s"
 
 #: dashboards/project/access_and_security/security_groups/views.py:133
 #, python-format
@@ -6124,7 +6124,7 @@ msgstr "시큐리티 그룹은 VM의 네트워크 설정에  IP 필터 룰을 �
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/detail.html:3
 msgid "Manage Security Group Rules"
-msgstr "시큐리티 그룹 룰 관리"
+msgstr "보안 그룹 규칙 관리"
 
 #: dashboards/project/containers/browsers.py:24
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:11
@@ -11880,13 +11880,13 @@ msgstr "연결 해제됨"
 #: dashboards/project/routers/ports/tables.py:94
 msgctxt "Admin state of a Port"
 msgid "UP"
-msgstr ""
+msgstr "UP"
 
 #: dashboards/project/networks/ports/tables.py:56
 #: dashboards/project/routers/ports/tables.py:95
 msgctxt "Admin state of a Port"
 msgid "DOWN"
-msgstr ""
+msgstr "DOWN"
 
 #: dashboards/project/networks/ports/tables.py:65
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:40
