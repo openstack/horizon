@@ -98,7 +98,7 @@ def update_dashboards(modules, horizon_config, installed_apps):
 
     enabled_dashboards = []
     disabled_dashboards = []
-    exceptions = {}
+    exceptions = horizon_config.get('exceptions', {})
     apps = []
     angular_modules = []
     js_files = set()
@@ -110,7 +110,10 @@ def update_dashboards(modules, horizon_config, installed_apps):
                 disabled_dashboards.append(config.get('DASHBOARD'))
             continue
         apps.extend(config.get('ADD_INSTALLED_APPS', []))
-        exceptions.update(config.get('ADD_EXCEPTIONS', {}))
+        for category, exc_list in config.get('ADD_EXCEPTIONS', {}).iteritems():
+            exceptions[category] = tuple(set(exceptions.get(category, ())
+                                             + exc_list))
+
         angular_modules.extend(config.get('ADD_ANGULAR_MODULES', []))
         js_files.update(config.get('ADD_JS_FILES', []))
         update_horizon_config.update(
