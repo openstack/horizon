@@ -440,7 +440,10 @@ def data(TEST):
                 'port_id': None,
                 'router_id': None}
     TEST.api_q_floating_ips.add(fip_dict)
-    TEST.q_floating_ips.add(neutron.FloatingIp(fip_dict))
+    fip_with_instance = copy.deepcopy(fip_dict)
+    fip_with_instance.update({'instance_id': None,
+                              'instance_type': None})
+    TEST.q_floating_ips.add(neutron.FloatingIp(fip_with_instance))
 
     # Associated (with compute port on 1st network).
     fip_dict = {'tenant_id': '1',
@@ -451,7 +454,10 @@ def data(TEST):
                 'port_id': assoc_port['id'],
                 'router_id': router_dict['id']}
     TEST.api_q_floating_ips.add(fip_dict)
-    TEST.q_floating_ips.add(neutron.FloatingIp(fip_dict))
+    fip_with_instance = copy.deepcopy(fip_dict)
+    fip_with_instance.update({'instance_id': '1',
+                              'instance_type': 'compute'})
+    TEST.q_floating_ips.add(neutron.FloatingIp(fip_with_instance))
 
     # Security group.
 

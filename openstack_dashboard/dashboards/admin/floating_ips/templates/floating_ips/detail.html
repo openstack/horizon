@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load i18n sizeformat %}
+
+{% block title %}{% trans "Floating IP Details"%}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_detail_header.html" %}
+{% endblock %}
+
+{% block main %}
+<div class="detail">
+  <dl class="dl-horizontal">
+    <dt>{% trans "ID" %}</dt>
+    <dd>{{ floating_ip.id|default:_("None") }}</dd>
+
+    <dt>{% trans "Project ID" %}</dt>
+    <dd>{{ floating_ip.tenant_id|default:"-" }}</dd>
+
+    <dt>{% trans "Floating IP address" %}</dt>
+    <dd>{{ floating_ip.ip|default:_("None") }}</dd>
+    <dt>{% trans "Status" %}</dt>
+    <dd>{{ floating_ip.status|default:_("None") }}</dd>
+
+    <dt>{% trans "Pool" %}</dt>
+    {% url 'horizon:admin:networks:detail' floating_ip.pool as network_url %}
+    <dd><a href="{{ network_url }}">{{ floating_ip.pool_name|default:_("None") }}</a></dd>
+
+    <dt>{% trans "Mapped IP Address" %}</dt>
+    {% if floating_ip.instance_id and floating_ip.instance_type == 'compute' %}
+    {% url 'horizon:admin:instances:detail' floating_ip.instance_id as instance_url %}
+    <dd><a href="{{ instance_url }}">{{ floating_ip.mapped_fixed_ip }}</a></dd>
+    {% elif floating_ip.port_id  and floating_ip.fixed_ip and floating_ip.instance_type != 'compute' %}
+    {% url 'horizon:admin:networks:ports:detail' floating_ip.port_id as port_url %}
+    <dd><a href="{{ port_url }}">{{ floating_ip.fixed_ip }}</a></dd>
+    {% else %}
+    <dd>{% trans "No associated fixed IP" %}</dd>
+    {% endif %}
+
+    <dt>{% trans "Router" %}</dt>
+    {% if floating_ip.router_id %}
+    {% url 'horizon:admin:routers:detail' floating_ip.router_id as router_url %}
+    <dd><a href="{{ router_url }}">{{ floating_ip.router_name }}</a></dd>
+    {% else %}
+    <dd>{% trans "No router" %}</dd>
+    {% endif %}
+  </dl>
+</div>
+{% endblock %}

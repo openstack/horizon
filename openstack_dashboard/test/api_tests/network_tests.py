@@ -127,7 +127,7 @@ class NetworkApiNovaFloatingIpTests(NetworkApiNovaTestBase):
         fips = self.api_floating_ips.list()
         novaclient = self.stub_novaclient()
         novaclient.floating_ips = self.mox.CreateMockAnything()
-        novaclient.floating_ips.list().AndReturn(fips)
+        novaclient.floating_ips.list(all_tenants=False).AndReturn(fips)
         self.mox.ReplayAll()
 
         ret = api.network.tenant_floating_ip_list(self.request)
