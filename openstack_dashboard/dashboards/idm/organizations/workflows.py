@@ -35,16 +35,16 @@ LOG = logging.getLogger('idm_logger')
 class RolesMixin(object):
     """Simple container for the roles logic."""
     # TODO(garcianavalon) maybe move to fiware_api
-    def list_all_roles(self, request):
+    def list_all_roles(self, request, project_id):
         role_list = {}
         # NOTE(garcianavalon) list all roles grouped by application
         # on which current user has the right to get and assign
-        # TODO(garcianavalon) ROLES LOGIC!!
-        role_list['applications'] = fiware_api.keystone.role_list(request,
-                                                user=request.user.id)
+        role_list = fiware_api.keystone.list_allowed_roles_to_assign(request,
+                                                user=request.user.id,
+                                                organization=request.user.project_id)
         # NOTE(garcianavalon) we also need the organization (keystone)
         # roles here to add members
-        role_list['organizations'] = api.keystone.role_list(request)
+        role_list[project_id] = api.keystone.role_list(request)
         return role_list
 
     def list_users_with_roles(self, request, project_id, available_roles):
@@ -101,7 +101,7 @@ class UpdateProjectMembersAction(workflows.MembershipAction, RolesMixin):
 
         # Get list of roles
         try:
-            role_list = self.list_all_roles(request)
+            role_list = self.list_all_roles(request, project_id)
         except Exception:
             exceptions.handle(request,
                               err_msg,
@@ -187,7 +187,7 @@ class ManageOrganizationMembers(workflows.Workflow, RolesMixin):
         member_step = self.get_step(PROJECT_USER_MEMBER_SLUG)
 
         try:
-            role_list = self.list_all_roles(request)
+            role_list = self.list_all_roles(request, project_id)
             project_users_roles = self.list_users_with_roles(request,
                                                             project_id,
                                                             role_list['applications'])
