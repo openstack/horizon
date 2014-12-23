@@ -300,12 +300,16 @@ def user_list(request, project=None, domain=None, group=None):
 def user_create(request, name=None, email=None, password=None, project=None,
                 enabled=None, domain=None):
     manager = keystoneclient(request, admin=True).users
-    if VERSIONS.active < 3:
-        user = manager.create(name, password, email, project, enabled)
-        return VERSIONS.upgrade_v2_user(user)
-    else:
-        return manager.create(name, password=password, email=email,
-                              project=project, enabled=enabled, domain=domain)
+    try:
+        if VERSIONS.active < 3:
+            user = manager.create(name, password, email, project, enabled)
+            return VERSIONS.upgrade_v2_user(user)
+        else:
+            return manager.create(name, password=password, email=email,
+                                  project=project, enabled=enabled,
+                                  domain=domain)
+    except keystone_exceptions.Conflict:
+        raise exceptions.Conflict()
 
 
 def user_delete(request, user_id):

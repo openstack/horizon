@@ -145,6 +145,9 @@ class CreateUserForm(BaseUserForm):
                                           _('Unable to add user '
                                             'to primary project.'))
             return new_user
+        except exceptions.Conflict:
+            msg = _('User name "%s" is already used.') % data['name']
+            messages.error(request, msg)
         except Exception:
             exceptions.handle(request, _('Unable to create user.'))
 
