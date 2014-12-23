@@ -80,6 +80,11 @@ def instance_resize_volume(request, instance_id, size):
     return troveclient(request).instances.resize_volume(instance_id, size)
 
 
+def instance_resize(request, instance_id, flavor_id):
+    return troveclient(request).instances.resize_instance(instance_id,
+                                                          flavor_id)
+
+
 def instance_backups(request, instance_id):
     return troveclient(request).instances.backups(instance_id)
 

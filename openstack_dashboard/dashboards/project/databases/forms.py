@@ -53,3 +53,46 @@ class ResizeVolumeForm(forms.SelfHandlingForm):
             exceptions.handle(request, _('Unable to resize volume. %s') %
                               e.message, redirect=redirect)
         return True
+
+
+class ResizeInstanceForm(forms.SelfHandlingForm):
+    instance_id = forms.CharField(widget=forms.HiddenInput())
+    old_flavor_name = forms.CharField(label=_("Old Flavor"),
+                                      required=False,
+                                      widget=forms.TextInput(
+                                      attrs={'readonly': 'readonly'}))
+    new_flavor = forms.ChoiceField(label=_("New Flavor"),
+                                   help_text=_("Choose a new instance "
+                                               "flavor."))
+
+    def __init__(self, request, *args, **kwargs):
+        super(ResizeInstanceForm, self).__init__(request, *args, **kwargs)
+
+        choices = kwargs.get('initial', {}).get('flavors')
+        if choices:
+            choices.insert(0, ("", _("Select a new flavor")))
+        else:
+            choices.insert(0, ("", _("No flavors available")))
+        self.fields['new_flavor'].choices = choices
+
+    def clean(self):
+        cleaned_data = super(ResizeInstanceForm, self).clean()
+        flavor = cleaned_data.get('new_flavor', None)
+
+        if flavor is None or flavor == self.initial['old_flavor_id']:
+            raise forms.ValidationError(_('Please choose a new flavor that '
+                                          'is not the same as the old one.'))
+        return cleaned_data
+
+    def handle(self, request, data):
+        instance = data.get('instance_id')
+        flavor = data.get('new_flavor')
+        try:
+            api.trove.instance_resize(request, instance, flavor)
+
+            messages.success(request, _('Resizing instance "%s"') % instance)
+        except Exception as e:
+            redirect = reverse("horizon:project:databases:index")
+            exceptions.handle(request, _('Unable to resize instance. %s') %
+                              e.message, redirect=redirect)
+        return True

@@ -15,6 +15,7 @@
 from troveclient.v1 import backups
 from troveclient.v1 import databases
 from troveclient.v1 import datastores
+from troveclient.v1 import flavors
 from troveclient.v1 import instances
 from troveclient.v1 import users
 
@@ -149,6 +150,27 @@ VERSION_TWO = {
     "id": "500a6d52-8347-4e00-8e4c-f4fa9cf96ae9"
 }
 
+FLAVOR_ONE = {
+    "ram": 512,
+    "id": "1",
+    "links": [],
+    "name": "m1.tiny"
+}
+
+FLAVOR_TWO = {
+    "ram": 768,
+    "id": "10",
+    "links": [],
+    "name": "eph.rd-smaller"
+}
+
+FLAVOR_THREE = {
+    "ram": 800,
+    "id": "100",
+    "links": [],
+    "name": "test.1"
+}
+
 
 def data(TEST):
     database1 = instances.Instance(instances.Instances(None),
@@ -172,10 +194,16 @@ def data(TEST):
         DatastoreVersion(datastores.DatastoreVersions(None),
                          VERSION_TWO)
 
+    flavor1 = flavors.Flavor(flavors.Flavors(None), FLAVOR_ONE)
+    flavor2 = flavors.Flavor(flavors.Flavors(None), FLAVOR_TWO)
+    flavor3 = flavors.Flavor(flavors.Flavors(None), FLAVOR_THREE)
+
     TEST.databases = utils.TestDataContainer()
     TEST.database_backups = utils.TestDataContainer()
     TEST.database_users = utils.TestDataContainer()
     TEST.database_user_dbs = utils.TestDataContainer()
+    TEST.database_flavors = utils.TestDataContainer()
+
     TEST.databases.add(database1)
     TEST.databases.add(database2)
     TEST.database_backups.add(bkup1)
@@ -188,3 +216,4 @@ def data(TEST):
     TEST.datastore_versions = utils.TestDataContainer()
     TEST.datastore_versions.add(version1)
     TEST.datastore_versions.add(version2)
+    TEST.database_flavors.add(flavor1, flavor2, flavor3)
