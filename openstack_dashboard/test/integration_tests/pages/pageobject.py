@@ -27,9 +27,8 @@ class PageObject(basewebobject.BaseWebObject):
         return self.driver.title
 
     def is_the_current_page(self):
-        if self._page_title not in self.page_title:
-            raise AssertionError(
-                "Expected to find %s in page title, instead found: %s"
+       self.assertIn(title, self.page_title,
+            "Expected to find %s in page title, instead found: %s"
                 % (self._page_title, self.page_title))
         return True
 
