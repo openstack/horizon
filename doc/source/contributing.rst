@@ -54,9 +54,13 @@ plunging in head-first:
   mailing list on the project page, or on IRC.
 * Write documentation!
 * Write unit tests for untested code!
+* Help improve the `User Experience Design`_ or contribute to the `Persona Working Group`_.
 
 .. _`bug tracker`: https://bugs.launchpad.net/horizon
 .. _`Launchpad Blueprints`: https://blueprints.launchpad.net/horizon
+.. _`User Experience Design`: https://wiki.openstack.org/wiki/UX#Getting_Started
+.. _`Persona Working Group`: https://wiki.openstack.org/wiki/Personas
+
 
 Choosing Issues To Work On
 --------------------------
