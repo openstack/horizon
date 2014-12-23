@@ -68,7 +68,8 @@ class ConsoleTab(tabs.Tab):
         console_type = getattr(settings, 'CONSOLE_TYPE', 'AUTO')
         console_url = None
         try:
-            console_url = console.get_console(request, console_type, instance)
+            console_url = console.get_console(request, console_type,
+                                              instance)[1]
         except exceptions.NotAvailable:
             exceptions.handle(request, ignore=True, force_log=True)
 
