@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-19 15:20-0600\n"
-"PO-Revision-Date: 2014-12-19 21:20+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-12-20 01:30-0600\n"
+"PO-Revision-Date: 2014-12-22 14:51+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2300,7 +2300,7 @@ msgstr ""
 #: dashboards/admin/metadata_defs/templates/metadata_defs/index.html:3
 #: dashboards/admin/metadata_defs/templates/metadata_defs/index.html:6
 msgid "Metadata Definitions"
-msgstr ""
+msgstr "メタデータ定義"
 
 #: dashboards/admin/metadata_defs/tables.py:30
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:9
@@ -11668,7 +11668,7 @@ msgstr "ネットワークの詳細を取得できません。"
 #: dashboards/project/networks/views.py:145
 #, python-format
 msgid "Network Details: %(network_name)s"
-msgstr ""
+msgstr "ネットワークの詳細: %(network_name)s"
 
 #: dashboards/project/networks/workflows.py:50
 msgid "The state to start the network in."
@@ -11788,7 +11788,7 @@ msgstr "ホストに通知される追加のルート。各項目は destination
 #: dashboards/project/networks/templates/networks/subnets/detail.html:3
 #: dashboards/project/networks/templates/networks/subnets/detail.html:6
 msgid "Subnet Details"
-msgstr ""
+msgstr "サブネットの詳細"
 
 #: dashboards/project/networks/workflows.py:256
 #: dashboards/project/networks/subnets/workflows.py:151
@@ -12049,7 +12049,7 @@ msgstr "接続中のデバイスはありません"
 #: dashboards/project/networks/templates/networks/ports/detail.html:3
 #: dashboards/project/networks/templates/networks/ports/detail.html:6
 msgid "Port Details"
-msgstr ""
+msgstr "ポートの詳細"
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:4
 msgid "Subnet Overview"
@@ -14559,7 +14559,7 @@ msgstr "内部サーバーエラー"
 
 #: templates/500.html:67
 msgid "Something went wrong!"
-msgstr "問題が発生しました"
+msgstr "どこかがおかしくなりました！"
 
 #: templates/500.html:68
 msgid ""
