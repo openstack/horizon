@@ -19,7 +19,7 @@ from openstack_dashboard.test.integration_tests.regions import messages
 @decorators.services_required("neutron")
 class TestNetworks(helpers.TestCase):
     NETWORK_NAME = helpers.gen_random_resource_name("network")
-    SUBNET_NAME = helpers.gen_random_resource_name("subnet")
+    SUBNET_NAME = None
 
     def test_private_network_create(self):
         """tests the network creation and deletion functionalities:
@@ -45,3 +45,7 @@ class TestNetworks(helpers.TestCase):
         self.assertFalse(
             networks_page.find_message_and_dismiss(messages.ERROR))
         self.assertFalse(networks_page.is_network_present(self.NETWORK_NAME))
+
+
+class TestAdminNetworks(helpers.AdminTestCase, TestNetworks):
+    SUBNET_NAME = helpers.gen_random_resource_name("subnet")
