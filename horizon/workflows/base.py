@@ -13,6 +13,7 @@
 #    under the License.
 
 import copy
+from importlib import import_module  # noqa
 import inspect
 import logging
 
@@ -25,7 +26,7 @@ from django.template.defaultfilters import safe  # noqa
 from django.template.defaultfilters import slugify  # noqa
 from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
-from importlib import import_module
+from openstack_auth import policy
 import six
 
 from horizon import base
@@ -66,6 +67,7 @@ class ActionMetaclass(forms.forms.DeclarativeFieldsMetaclass):
         cls.name = getattr(opts, "name", name)
         cls.slug = getattr(opts, "slug", slugify(name))
         cls.permissions = getattr(opts, "permissions", ())
+        cls.policy_rules = getattr(opts, "policy_rules", ())
         cls.progress_message = getattr(opts,
                                        "progress_message",
                                        _("Processing..."))
@@ -112,6 +114,23 @@ class Action(forms.Form):
 
         A list of permission names which this action requires in order to be
         completed. Defaults to an empty list (``[]``).
+
+    .. attribute:: policy_rules
+
+        list of scope and rule tuples to do policy checks on, the
+        composition of which is (scope, rule)
+
+            scope: service type managing the policy for action
+            rule: string representing the action to be checked
+
+            for a policy that requires a single rule check:
+                policy_rules should look like
+                    "(("compute", "compute:create_instance"),)"
+            for a policy that requires multiple rule checks:
+                rules should look like
+                    "(("identity", "identity:list_users"),
+                      ("identity", "identity:list_roles"))"
+                where two service-rule clauses are OR-ed.
 
     .. attribute:: help_text
 
@@ -300,6 +319,7 @@ class Step(object):
         self.slug = self.action_class.slug
         self.name = self.action_class.name
         self.permissions = self.action_class.permissions
+        self.policy_rules = self.action_class.policy_rules
         self.has_errors = False
         self._handlers = {}
 
@@ -673,10 +693,12 @@ class Workflow(html.HTMLElement):
         for default_step in self.default_steps:
             self.register(default_step)
             self._registry[default_step] = default_step(self)
-        self._ordered_steps = [self._registry[step_class]
-                               for step_class in ordered_step_classes
-                               if has_permissions(self.request.user,
-                                                  self._registry[step_class])]
+        self._ordered_steps = []
+        for step_class in ordered_step_classes:
+            cls = self._registry[step_class]
+            if (has_permissions(self.request.user, cls) and
+                    policy.check(cls.policy_rules, self.request)):
+                self._ordered_steps.append(cls)
 
     def _order_steps(self):
         steps = list(copy.copy(self.default_steps))
@@ -834,6 +856,13 @@ class Workflow(html.HTMLElement):
             return message % self.name
         else:
             return message
+
+    def verify_integrity(self):
+        provided_keys = self.contributions | set(self.context_seed.keys())
+        if len(self.depends_on - provided_keys):
+            raise exceptions.NotAvailable(
+                _("The current user has insufficient permission to complete "
+                  "the requested task."))
 
     def render(self):
         """Renders the workflow."""
