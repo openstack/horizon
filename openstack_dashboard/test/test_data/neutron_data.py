@@ -658,11 +658,15 @@ def data(TEST):
     extension_5 = {"name": "HA Router extension",
                    "alias": "l3-ha",
                    "description": "Add HA capability to routers."}
+    extension_6 = {"name": "LoadBalancing service",
+                   "alias": "lbaas",
+                   "description": "Extension for LoadBalancing service"}
     TEST.api_extensions.add(extension_1)
     TEST.api_extensions.add(extension_2)
     TEST.api_extensions.add(extension_3)
     TEST.api_extensions.add(extension_4)
     TEST.api_extensions.add(extension_5)
+    TEST.api_extensions.add(extension_6)
 
     # 1st agent.
     agent_dict = {"binary": "neutron-openvswitch-agent",
