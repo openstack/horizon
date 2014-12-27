@@ -10,13 +10,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import uuid
-
 from openstack_dashboard.test.integration_tests import helpers
 
 
 class TestFlavors(helpers.AdminTestCase):
-    FLAVOR_NAME = 'horizonflavor_' + str(uuid.uuid4())
+    FLAVOR_NAME = helpers.gen_random_resource_name("flavor")
 
     def test_flavor_create(self):
         """tests the flavor creation and deletion functionalities:

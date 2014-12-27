@@ -10,13 +10,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import uuid
-
 from openstack_dashboard.test.integration_tests import helpers
 
 
 class TestImage(helpers.TestCase):
-    IMAGE_NAME = 'horizonimage_' + str(uuid.uuid4())
+    IMAGE_NAME = helpers.gen_random_resource_name("image")
 
     def test_image_create_delete(self):
         """tests the image creation and deletion functionalities:
