@@ -5,14 +5,15 @@
 # Translators:
 # Akihiro Motoki <amotoki@gmail.com>, 2014
 # myamamot <myamamot@redhat.com>, 2014
+# Tom Fifield <tom@openstack.org>, 2014
 # ykatabam <ykatabam@redhat.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-24 15:19-0600\n"
-"PO-Revision-Date: 2014-12-23 20:49+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"PO-Revision-Date: 2014-12-28 06:01+0000\n"
+"Last-Translator: Tom Fifield <tom@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2459,7 +2460,7 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_contents.html:4
 msgid "Undefined"
-msgstr ""
+msgstr "未定義"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:7
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:8
