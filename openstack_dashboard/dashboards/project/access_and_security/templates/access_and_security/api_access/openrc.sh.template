@@ -1,13 +1,17 @@
 {% load shellfilter %}
 #!/bin/bash
 
-# To use an Openstack cloud you need to authenticate against keystone, which
-# returns a **Token** and **Service Catalog**.  The catalog contains the
-# endpoint for all services the user/tenant has access to - including nova,
-# glance, keystone, swift.
+# To use an OpenStack cloud you need to authenticate against the Identity
+# service named keystone, which returns a **Token** and **Service Catalog**.
+# The catalog contains the endpoints for all services the user/tenant has
+# access to - such as Compute, Image Service, Identity, Object Storage, Block
+# Storage, and Networking (code-named nova, glance, keystone, swift,
+# cinder, and neutron).
 #
-# *NOTE*: Using the 2.0 *auth api* does not mean that compute api is 2.0.  We
-# will use the 1.1 *compute api*
+# *NOTE*: Using the 2.0 *Identity API* does not necessarily mean any other
+# OpenStack API is version 2.0. For example, your cloud provider may implement
+# Image API v1.1, Block Storage API v2, and Compute API v2.0. OS_AUTH_URL is
+# only for the Identity API served through keystone.
 export OS_AUTH_URL={{ auth_url }}
 
 # With the addition of Keystone we have standardized on the term **tenant**
@@ -15,7 +19,7 @@ export OS_AUTH_URL={{ auth_url }}
 export OS_TENANT_ID={{ tenant_id }}
 export OS_TENANT_NAME="{{ tenant_name|shellfilter }}"
 
-# In addition to the owning entity (tenant), openstack stores the entity
+# In addition to the owning entity (tenant), OpenStack stores the entity
 # performing the action as the **user**.
 export OS_USERNAME="{{ user.username|shellfilter }}"
 
