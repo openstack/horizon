@@ -10,12 +10,16 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import logging
+
 from django.utils.translation import ugettext_lazy as _
 
 import horizon
 
 from openstack_dashboard.api import nova
 from openstack_dashboard.dashboards.admin import dashboard
+
+LOG = logging.getLogger(__name__)
 
 
 class Aggregates(horizon.Panel):
@@ -26,7 +30,13 @@ class Aggregates(horizon.Panel):
     def allowed(self, context):
         # extend basic permission-based check with a check to see whether
         # the Aggregates extension is even enabled in nova
-        if not nova.extension_supported('Aggregates', context['request']):
+        try:
+            if not nova.extension_supported('Aggregates', context['request']):
+                return False
+        except Exception:
+            LOG.error("Call to list supported extensions failed. This is "
+                      "likely due to a problem communicating with the Nova "
+                      "endpoint. Host Aggregates panel will not be displayed.")
             return False
         return super(Aggregates, self).allowed(context)
 
