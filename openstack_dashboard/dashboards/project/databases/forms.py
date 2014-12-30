@@ -68,21 +68,16 @@ class ResizeInstanceForm(forms.SelfHandlingForm):
     def __init__(self, request, *args, **kwargs):
         super(ResizeInstanceForm, self).__init__(request, *args, **kwargs)
 
+        old_flavor_id = kwargs.get('initial', {}).get('old_flavor_id')
         choices = kwargs.get('initial', {}).get('flavors')
+        # Remove current flavor from the list of flavor choices
+        choices = [(flavor_id, name) for (flavor_id, name) in choices
+                   if flavor_id != old_flavor_id]
         if choices:
             choices.insert(0, ("", _("Select a new flavor")))
         else:
             choices.insert(0, ("", _("No flavors available")))
         self.fields['new_flavor'].choices = choices
-
-    def clean(self):
-        cleaned_data = super(ResizeInstanceForm, self).clean()
-        flavor = cleaned_data.get('new_flavor', None)
-
-        if flavor is None or flavor == self.initial['old_flavor_id']:
-            raise forms.ValidationError(_('Please choose a new flavor that '
-                                          'is not the same as the old one.'))
-        return cleaned_data
 
     def handle(self, request, data):
         instance = data.get('instance_id')
