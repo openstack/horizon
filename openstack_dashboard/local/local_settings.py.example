@@ -47,7 +47,7 @@ TEMPLATE_DEBUG = DEBUG
 # OPENSTACK_KEYSTONE_DEFAULT_DOMAIN = 'Default'
 
 # Set Console type:
-# valid options would be "AUTO"(default), "VNC", "SPICE", "RDP" or None
+# valid options would be "AUTO"(default), "VNC", "SPICE", "RDP", "SERIAL" or None
 # Set to None explicitly if you want to deactivate the console.
 # CONSOLE_TYPE = "AUTO"
 

@@ -4252,7 +4252,8 @@ class ConsoleManagerTests(helpers.TestCase):
         console.CONSOLES = SortedDict([
             ('VNC', api.nova.server_vnc_console),
             ('SPICE', api.nova.server_spice_console),
-            ('RDP', api.nova.server_rdp_console)])
+            ('RDP', api.nova.server_rdp_console),
+            ('SERIAL', api.nova.server_serial_console)])
 
     def _get_console_vnc(self, server):
         console_mock = self.mox.CreateMock(api.nova.VNCConsole)
@@ -4308,6 +4309,24 @@ class ConsoleManagerTests(helpers.TestCase):
         data = console.get_console(self.request, 'RDP', server)[1]
         self.assertEqual(data, url)
 
+    def _get_console_serial(self, server):
+        console_mock = self.mox.CreateMock(api.nova.SerialConsole)
+        console_mock.url = '/SERIAL'
+
+        self.mox.StubOutWithMock(api.nova, 'server_serial_console')
+        api.nova.server_serial_console(IgnoreArg(), server.id) \
+            .AndReturn(console_mock)
+
+        self.mox.ReplayAll()
+        self.setup_consoles()
+
+    def test_get_console_serial(self):
+        server = self.servers.first()
+        self._get_console_serial(server)
+        url = '/SERIAL'
+        data = console.get_console(self.request, 'SERIAL', server)[1]
+        self.assertEqual(data, url)
+
     def test_get_console_auto_iterate_available(self):
         server = self.servers.first()
 
@@ -4330,6 +4349,35 @@ class ConsoleManagerTests(helpers.TestCase):
         self.setup_consoles()
 
         url = '/RDP&title=%s(%s)' % (server.name, server.id)
+        data = console.get_console(self.request, 'AUTO', server)[1]
+        self.assertEqual(data, url)
+
+    def test_get_console_auto_iterate_serial_available(self):
+        server = self.servers.first()
+
+        console_mock = self.mox.CreateMock(api.nova.SerialConsole)
+        console_mock.url = '/SERIAL'
+
+        self.mox.StubOutWithMock(api.nova, 'server_vnc_console')
+        api.nova.server_vnc_console(IgnoreArg(), server.id) \
+            .AndRaise(self.exceptions.nova)
+
+        self.mox.StubOutWithMock(api.nova, 'server_spice_console')
+        api.nova.server_spice_console(IgnoreArg(), server.id) \
+            .AndRaise(self.exceptions.nova)
+
+        self.mox.StubOutWithMock(api.nova, 'server_rdp_console')
+        api.nova.server_rdp_console(IgnoreArg(), server.id) \
+            .AndRaise(self.exceptions.nova)
+
+        self.mox.StubOutWithMock(api.nova, 'server_serial_console')
+        api.nova.server_serial_console(IgnoreArg(), server.id) \
+            .AndReturn(console_mock)
+
+        self.mox.ReplayAll()
+        self.setup_consoles()
+
+        url = '/SERIAL'
         data = console.get_console(self.request, 'AUTO', server)[1]
         self.assertEqual(data, url)
 

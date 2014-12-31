@@ -27,7 +27,8 @@ LOG = logging.getLogger(__name__)
 
 CONSOLES = SortedDict([('VNC', api.nova.server_vnc_console),
                        ('SPICE', api.nova.server_spice_console),
-                       ('RDP', api.nova.server_rdp_console)])
+                       ('RDP', api.nova.server_rdp_console),
+                       ('SERIAL', api.nova.server_serial_console)])
 
 
 def get_console(request, console_type, instance):
@@ -58,10 +59,14 @@ def get_console(request, console_type, instance):
             LOG.debug('Console not available', exc_info=True)
             continue
 
-        console_url = "%s&%s(%s)" % (
-                      console.url,
-                      urlencode({'title': getattr(instance, "name", "")}),
-                      instance.id)
+        if con_type == 'SERIAL':
+            console_url = console.url
+        else:
+            console_url = "%s&%s(%s)" % (
+                          console.url,
+                          urlencode({'title': getattr(instance, "name", "")}),
+                          instance.id)
+
         return (con_type, console_url)
 
     raise exceptions.NotAvailable(_('No available console found.'))

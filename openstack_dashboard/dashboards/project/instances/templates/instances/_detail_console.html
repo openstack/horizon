@@ -3,7 +3,11 @@
 
 <h3>{% trans "Instance Console" %}</h3>
 {% if console_url %}
-<p class='alert alert-info'>{% blocktrans %}If console is not responding to keyboard input: click the grey status bar below.{% endblocktrans %} <a href="{{ console_url }}"  style="text-decoration: underline">{% trans "Click here to show only console" %}</a><br />
+<p class='alert alert-info'>
+{% if console_type != 'SERIAL' %}
+{% blocktrans %}If console is not responding to keyboard input: click the grey status bar below.{% endblocktrans %}
+{% endif %}
+<a href="{{ console_url }}"  style="text-decoration: underline">{% trans "Click here to show only console" %}</a><br />
     {% trans "To exit the fullscreen mode, click the browser's back button." %}</p>
 <iframe id="console_embed" src="{{ console_url }}" style="width:100%;height:100%"></iframe>
 <script type="text/javascript">

@@ -36,6 +36,7 @@ import xstatic.pkg.jsencrypt
 import xstatic.pkg.qunit
 import xstatic.pkg.rickshaw
 import xstatic.pkg.spin
+import xstatic.pkg.termjs
 
 
 STATICFILES_DIRS = [
@@ -73,6 +74,8 @@ STATICFILES_DIRS = [
         xstatic.main.XStatic(xstatic.pkg.rickshaw).base_dir),
     ('horizon/lib',
         xstatic.main.XStatic(xstatic.pkg.spin).base_dir),
+    ('horizon/lib',
+        xstatic.main.XStatic(xstatic.pkg.termjs).base_dir),
 ]
 
 

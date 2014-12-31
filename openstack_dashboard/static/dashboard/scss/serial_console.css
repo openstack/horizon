@@ -1,0 +1,19 @@
+/* Stand-alone CSS file for Serial Console IFrame. */
+
+#terminalNode {
+  display:inline-block;
+}
+
+.terminal {
+  float: left;
+  border: black solid 5px;
+  font-family: "DejaVu Sans Mono", "Liberation Mono", monospace;
+  font-size: 16px;
+  color: white;
+  background: black;
+}
+
+.terminal-cursor {
+  color: black;
+  background: white;
+};
