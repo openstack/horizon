@@ -960,6 +960,7 @@ class InstancesTable(tables.DataTable):
         ("paused", True),
         ("error", False),
         ("rescue", True),
+        ("shelved", True),
         ("shelved_offloaded", True),
     )
     name = tables.Column("name",

@@ -112,6 +112,7 @@ class AdminInstancesTable(tables.DataTable):
         ("paused", True),
         ("error", False),
         ("rescue", True),
+        ("shelved", True),
         ("shelved_offloaded", True),
     )
     tenant = tables.Column("tenant_name", verbose_name=_("Project"))
