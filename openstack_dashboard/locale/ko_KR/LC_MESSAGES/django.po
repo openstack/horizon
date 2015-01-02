@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-24 15:19-0600\n"
-"PO-Revision-Date: 2014-12-23 20:49+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"PO-Revision-Date: 2015-01-01 18:14+0000\n"
+"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4271,12 +4271,12 @@ msgstr ""
 #: dashboards/admin/volumes/volume_types/tables.py:53
 msgid "Delete Volume Type"
 msgid_plural "Delete Volume Types"
-msgstr[0] ""
+msgstr[0] "볼륨 타입 삭제"
 
 #: dashboards/admin/volumes/volume_types/tables.py:61
 msgid "Deleted Volume Type"
 msgid_plural "Deleted Volume Types"
-msgstr[0] ""
+msgstr[0] "볼륨 타입 삭제됨"
 
 #: dashboards/admin/volumes/volume_types/tables.py:73
 msgid "Create Encryption"
@@ -5586,7 +5586,7 @@ msgstr "IP 주소 %s를 연결할 수 없습니다."
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:146
 msgid "unknown IP address"
-msgstr ""
+msgstr "알 수 없는 IP 주소"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:156
 msgid ""
@@ -5961,19 +5961,19 @@ msgstr "인증 URL"
 
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:36
 msgid "EC2 URL"
-msgstr ""
+msgstr "EC2 URL"
 
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:39
 msgid "S3 URL"
-msgstr ""
+msgstr "S3 URL"
 
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:43
 msgid "EC2 Access Key"
-msgstr ""
+msgstr "EC2 접근 키"
 
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:49
 msgid "EC2 Secret Key"
-msgstr ""
+msgstr "EC2 보안 키"
 
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/credentials.html:6
 msgid "User Credentials Details"
@@ -11827,7 +11827,7 @@ msgstr "호스트에 추가 라우트가 알려졌습니다. 각 엔트리는: d
 #: dashboards/project/networks/templates/networks/subnets/detail.html:3
 #: dashboards/project/networks/templates/networks/subnets/detail.html:6
 msgid "Subnet Details"
-msgstr ""
+msgstr "서브넷 세부 정보들"
 
 #: dashboards/project/networks/workflows.py:256
 #: dashboards/project/networks/subnets/workflows.py:151
@@ -11937,7 +11937,7 @@ msgstr "포트 세부 정보를 찾지 못했습니다."
 
 #: dashboards/project/networks/subnets/tables.py:106
 msgid "Create Subnet (Quota exceeded)"
-msgstr ""
+msgstr "서브넷 생성 (Quota 초과)"
 
 #: dashboards/project/networks/subnets/utils.py:20
 msgid "No options specified"
@@ -12088,7 +12088,7 @@ msgstr "연결할 디바이스가 없습니다."
 #: dashboards/project/networks/templates/networks/ports/detail.html:3
 #: dashboards/project/networks/templates/networks/ports/detail.html:6
 msgid "Port Details"
-msgstr ""
+msgstr "포트 세부 정보들"
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:4
 msgid "Subnet Overview"
@@ -12791,7 +12791,7 @@ msgstr ""
 #: dashboards/project/stacks/views.py:255
 #, python-format
 msgid "Resource Details: %s"
-msgstr ""
+msgstr "리소스 세부 정보들: %s"
 
 #: dashboards/project/stacks/views.py:267
 msgid "Unable to retrieve resource."
@@ -12864,7 +12864,7 @@ msgstr "리소스 메타데이터"
 
 #: dashboards/project/stacks/templates/stacks/_stack_template.html:3
 msgid "Stack Template"
-msgstr ""
+msgstr "스택 템플릿"
 
 #: dashboards/project/stacks/templates/stacks/_update.html:19
 msgid ""
@@ -12884,7 +12884,7 @@ msgstr "템플릿 변경"
 
 #: dashboards/project/stacks/templates/stacks/detail.html:3
 msgid "Stack Details"
-msgstr ""
+msgstr "스택 세부 정보들"
 
 #: dashboards/project/stacks/templates/stacks/resource.html:3
 msgid "Resource Details"
