@@ -71,6 +71,16 @@
               {% endfor %}
             </optgroup>
           {% endif %}
+
+          {% if ipmi_meters %}
+            <optgroup label='{% trans "Intelligent Platform Management Interface (IPMI)" %}'>
+              {% for meter in ipmi_meters %}
+                <option title="{{ meter.description }}"  value="{{ meter.name }}" data-unit="{{ meter.unit }}">
+                  {{ meter.label }}
+                </option>
+              {% endfor %}
+            </optgroup>
+          {% endif %}
         </select>
       </div>
     </div>
