@@ -929,6 +929,10 @@ class Meters(object):
                 'label': '',
                 'description': _("Volume of RAM in MB"),
             }),
+            ("memory.usage", {
+                'label': '',
+                'description': _("Volume of RAM used in MB"),
+            }),
             ("cpu", {
                 'label': '',
                 'description': _("CPU time used"),
@@ -956,6 +960,22 @@ class Meters(object):
             ("disk.write.bytes", {
                 'label': '',
                 'description': _("Volume of writes in B"),
+            }),
+            ("disk.read.requests.rate", {
+                'label': '',
+                'description': _("Average rate of read requests per second"),
+            }),
+            ("disk.write.requests.rate", {
+                'label': '',
+                'description': _("Average rate of write requests per second"),
+            }),
+            ("disk.read.bytes.rate", {
+                'label': '',
+                'description': _("Average rate of reads in B per second"),
+            }),
+            ("disk.write.bytes.rate", {
+                'label': '',
+                'description': _("Average volume of writes in B per second"),
             }),
             ("disk.root.size", {
                 'label': '',
@@ -985,7 +1005,27 @@ class Meters(object):
                 'label': '',
                 'description': _("Number of outgoing "
                                  "packets for a VM interface"),
-            })
+            }),
+            ("network.incoming.bytes.rate", {
+                'label': '',
+                'description': _("Average rate per sec of incoming "
+                                 "bytes on a VM network interface"),
+            }),
+            ("network.outgoing.bytes.rate", {
+                'label': '',
+                'description': _("Average rate per sec of outgoing "
+                                 "bytes on a VM network interface"),
+            }),
+            ("network.incoming.packets.rate", {
+                'label': '',
+                'description': _("Average rate per sec of incoming "
+                                 "packets on a VM network interface"),
+            }),
+            ("network.outgoing.packets.rate", {
+                'label': '',
+                'description': _("Average rate per sec of outgoing "
+                                 "packets on a VM network interface"),
+            }),
         ])
         # Adding flavor based meters into meters_info dict
         # TODO(lsmola) this kind of meter will be probably deprecated
