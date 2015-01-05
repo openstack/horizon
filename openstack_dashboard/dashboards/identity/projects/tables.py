@@ -189,9 +189,12 @@ class UpdateRow(tables.Row):
 
 class UpdateCell(tables.UpdateAction):
     def allowed(self, request, project, cell):
-        return api.keystone.keystone_can_edit_project() and \
-            policy.check((("identity", "identity:update_project"),),
-                         request)
+        policy_rule = (("identity", "identity:update_project"),)
+        return (
+            (cell.column.name != 'enabled' or
+             request.user.token.project['id'] != cell.datum.id) and
+            api.keystone.keystone_can_edit_project() and
+            policy.check(policy_rule, request))
 
     def update_cell(self, request, datum, project_id,
                     cell_name, new_cell_value):

@@ -521,6 +521,14 @@ class CreateProject(workflows.Workflow):
 class UpdateProjectInfoAction(CreateProjectInfoAction):
     enabled = forms.BooleanField(required=False, label=_("Enabled"))
 
+    def __init__(self, request, initial, *args, **kwargs):
+        super(UpdateProjectInfoAction, self).__init__(
+            request, initial, *args, **kwargs)
+        if initial['project_id'] == request.user.token.project['id']:
+            self.fields['enabled'].widget.attrs['disabled'] = True
+            self.fields['enabled'].help_text = _(
+                'You cannot disable your current project')
+
     class Meta:
         name = _("Project Information")
         slug = 'update_info'
