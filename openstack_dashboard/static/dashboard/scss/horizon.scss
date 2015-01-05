@@ -1469,6 +1469,11 @@ label.log-length {
   }
 
   /* Member lists */
+  .update_members_filterable {
+    overflow-y: auto;
+    height: 500px;
+  }
+
   .members, .available_members {
     padding: 0;
     // reset nav-pills display to block
