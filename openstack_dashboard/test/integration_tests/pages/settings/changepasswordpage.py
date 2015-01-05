@@ -16,7 +16,7 @@ from openstack_dashboard.test.integration_tests.pages import basepage
 from openstack_dashboard.test.integration_tests.regions import forms
 
 
-class ChangePasswordPage(basepage.BasePage):
+class ChangepasswordPage(basepage.BaseNavigationPage):
 
         _password_form_locator = (by.By.CSS_SELECTOR,
                                   'div#change_password_modal')

@@ -21,8 +21,7 @@ class TestPasswordChange(helpers.TestCase):
         """Changes the password, verifies it was indeed changed and resets to
         default password.
         """
-        settings_page = self.home_pg.go_to_settings_page()
-        passwordchange_page = settings_page.go_to_change_password_page()
+        passwordchange_page = self.home_pg.go_to_settings_changepasswordpage()
 
         try:
             passwordchange_page.change_password(self.conf.identity.password,
@@ -32,8 +31,9 @@ class TestPasswordChange(helpers.TestCase):
                 user=self.conf.identity.username, password=NEW_PASSWORD)
             self.assertTrue(self.home_pg.is_logged_in,
                             "Failed to login with new password")
-            settings_page = self.home_pg.go_to_settings_page()
-            passwordchange_page = settings_page.go_to_change_password_page()
+            settings_page = self.home_pg.go_to_settings_usersettingspage()
+            passwordchange_page = settings_page.\
+                go_to_settings_changepasswordpage()
         finally:
             passwordchange_page.reset_to_default_password(NEW_PASSWORD)
             self.login_pg.login()

@@ -21,7 +21,6 @@ from openstack_dashboard.test.integration_tests.pages.project.compute import \
 
 
 class LoginPage(pageobject.PageObject):
-
     _login_username_field_locator = (by.By.CSS_SELECTOR, '#id_username')
     _login_password_field_locator = (by.By.CSS_SELECTOR, '#id_password')
     _login_submit_button_locator = (by.By.CSS_SELECTOR,
@@ -32,8 +31,8 @@ class LoginPage(pageobject.PageObject):
         self._page_title = "Login"
 
     def is_login_page(self):
-        return self.is_the_current_page() and \
-            self._is_element_visible(*self._login_submit_button_locator)
+        return (self.is_the_current_page() and
+                self.is_element_visible(*self._login_submit_button_locator))
 
     @property
     def username(self):

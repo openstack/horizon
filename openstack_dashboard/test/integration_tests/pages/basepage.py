@@ -12,6 +12,7 @@
 
 from selenium.webdriver.common import by
 
+from openstack_dashboard.test.integration_tests.pages import navigation
 from openstack_dashboard.test.integration_tests.pages import pageobject
 from openstack_dashboard.test.integration_tests.regions import bars
 from openstack_dashboard.test.integration_tests.regions import menus
@@ -40,6 +41,7 @@ class BasePage(pageobject.PageObject):
     def navaccordion(self):
         return menus.NavigationAccordionRegion(self.driver, self.conf)
 
+    @property
     def error_message(self):
         src_elem = self._get_element(*self._error_msg_locator)
         return messages.ErrorMessageRegion(self.driver, self.conf, src_elem)
@@ -59,3 +61,7 @@ class BasePage(pageobject.PageObject):
 
     def go_to_help_page(self):
         self.topbar.user_dropdown_menu.click_on_help()
+
+
+class BaseNavigationPage(BasePage, navigation.Navigation):
+    pass

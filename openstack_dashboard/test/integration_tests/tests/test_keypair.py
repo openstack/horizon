@@ -23,12 +23,10 @@ class TestKeypair(helpers.TestCase):
     KEYPAIR_NAME = 'horizonkeypair_' + str(uuid.uuid4())
 
     def test_keypair(self):
-        accesssecurity_page = self.home_pg.go_to_accesssecurity_page()
-        keypair_page = accesssecurity_page.go_to_keypair_page()
-
+        keypair_page = self.home_pg.go_to_accessandsecurity_keypairspage()
         keypair_page.create_keypair(self.KEYPAIR_NAME)
-        accesssecurity_page = self.home_pg.go_to_accesssecurity_page()
-        keypair_page = accesssecurity_page.go_to_keypair_page()
+
+        keypair_page = self.home_pg.go_to_accessandsecurity_keypairspage()
         self.assertTrue(keypair_page.is_keypair_present(self.KEYPAIR_NAME))
 
         keypair_page.delete_keypair(self.KEYPAIR_NAME)
