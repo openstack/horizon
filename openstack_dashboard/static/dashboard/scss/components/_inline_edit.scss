@@ -57,6 +57,10 @@ td.has-form {
 div.table_cell_wrapper {
    position: relative;
 
+  .table_cell_data_wrapper{
+    padding-right: 35px;
+  }
+
   .inline-edit-label {
     display: inline;
   }
@@ -64,7 +68,7 @@ div.table_cell_wrapper {
   .inline-edit-form {
     float: left;
     padding: 1px;
-    padding-right: 26px;
+    padding-right: 30px;
     width: 100%;
 
     input, textarea {
@@ -107,7 +111,7 @@ div.table_cell_wrapper {
 
   .table_cell_action {
     float: right;
-    width: 20px;
+    width: 28px;
     margin: 0;
 
     button.ajax-inline-edit {
