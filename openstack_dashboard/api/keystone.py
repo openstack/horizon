@@ -366,7 +366,9 @@ def user_update(request, user, **data):
                 if user.id == request.user.id:
                     return utils.logout_with_message(
                         request,
-                        _("Password changed. Please log in again to continue.")
+                        _("Password changed. Please log in again to "
+                          "continue."),
+                        redirect=False
                     )
             except Exception:
                 error = exceptions.handle(request, ignore=True)
@@ -385,7 +387,8 @@ def user_update(request, user, **data):
         if data.get('password') and user.id == request.user.id:
             return utils.logout_with_message(
                 request,
-                _("Password changed. Please log in again to continue.")
+                _("Password changed. Please log in again to continue."),
+                redirect=False
             )
 
 

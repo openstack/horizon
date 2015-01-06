@@ -43,15 +43,18 @@ def add_logout_reason(request, response, reason):
         response.set_cookie('logout_reason', reason, max_age=10)
 
 
-def logout_with_message(request, msg):
+def logout_with_message(request, msg, redirect=True):
     """Send HttpResponseRedirect to LOGOUT_URL.
 
     `msg` is a message displayed on the login page after the logout, to explain
     the logout reason.
     """
     logout(request)
-    response = http.HttpResponseRedirect(
-        '%s?next=%s' % (settings.LOGOUT_URL, request.path))
+    if redirect:
+        response = http.HttpResponseRedirect(
+            '%s?next=%s' % (settings.LOGOUT_URL, request.path))
+    else:
+        response = http.HttpResponseRedirect(settings.LOGOUT_URL)
     add_logout_reason(request, response, msg)
     return response
 
