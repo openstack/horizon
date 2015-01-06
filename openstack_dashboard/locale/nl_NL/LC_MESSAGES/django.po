@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-24 15:19-0600\n"
-"PO-Revision-Date: 2014-12-23 20:49+0000\n"
+"POT-Creation-Date: 2015-01-05 15:30-0600\n"
+"PO-Revision-Date: 2015-01-05 20:29+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/horizon/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -86,188 +86,224 @@ msgid "Volume of RAM in MB"
 msgstr "Grootte van het werkgeheugen in MB"
 
 #: api/ceilometer.py:934
+msgid "Volume of RAM used in MB"
+msgstr ""
+
+#: api/ceilometer.py:938
 msgid "CPU time used"
 msgstr "CPU tijd gebruikt"
 
-#: api/ceilometer.py:938
+#: api/ceilometer.py:942
 msgid "Average CPU utilization"
 msgstr "Gemiddelde CPU benutting"
 
-#: api/ceilometer.py:942
+#: api/ceilometer.py:946
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:28
 msgid "Number of VCPUs"
 msgstr "Aantal VCPUs"
 
-#: api/ceilometer.py:946
+#: api/ceilometer.py:950
 msgid "Number of read requests"
 msgstr "Aantal leesverzoeken"
 
-#: api/ceilometer.py:950
+#: api/ceilometer.py:954
 msgid "Number of write requests"
 msgstr "Aantal schrijfverzoeken"
 
-#: api/ceilometer.py:954
+#: api/ceilometer.py:958
 msgid "Volume of reads in B"
 msgstr "Leesgrootte in B"
 
-#: api/ceilometer.py:958
+#: api/ceilometer.py:962
 msgid "Volume of writes in B"
 msgstr "Schrijfgrootte in B"
 
-#: api/ceilometer.py:962
+#: api/ceilometer.py:966
+msgid "Average rate of read requests per second"
+msgstr ""
+
+#: api/ceilometer.py:970
+msgid "Average rate of write requests per second"
+msgstr ""
+
+#: api/ceilometer.py:974
+msgid "Average rate of reads in B per second"
+msgstr ""
+
+#: api/ceilometer.py:978
+msgid "Average volume of writes in B per second"
+msgstr ""
+
+#: api/ceilometer.py:982
 msgid "Size of root disk in GB"
 msgstr "Grootte van de systeemschijf in GB"
 
-#: api/ceilometer.py:966
+#: api/ceilometer.py:986
 msgid "Size of ephemeral disk in GB"
 msgstr "Grootte van de eigen schijf in GB"
 
-#: api/ceilometer.py:971
+#: api/ceilometer.py:991
 msgid "Number of incoming bytes on the network for a VM interface"
 msgstr "Aantal inkomende bytes op het netwerk van een VM aansluiting"
 
-#: api/ceilometer.py:976
+#: api/ceilometer.py:996
 msgid "Number of outgoing bytes on the network for a VM interface"
 msgstr "Aantal uitgaande bytes op het netwerk voor een VM aansluiting"
 
-#: api/ceilometer.py:981
+#: api/ceilometer.py:1001
 msgid "Number of incoming packets for a VM interface"
 msgstr "Aantal inkomende pakketten voor een VM aansluiting"
 
-#: api/ceilometer.py:986
+#: api/ceilometer.py:1006
 msgid "Number of outgoing packets for a VM interface"
 msgstr "Aantal uitgaande pakketten voor een VM aansluiting"
 
-#: api/ceilometer.py:998
+#: api/ceilometer.py:1011
+msgid "Average rate per sec of incoming bytes on a VM network interface"
+msgstr ""
+
+#: api/ceilometer.py:1016
+msgid "Average rate per sec of outgoing bytes on a VM network interface"
+msgstr ""
+
+#: api/ceilometer.py:1021
+msgid "Average rate per sec of incoming packets on a VM network interface"
+msgstr ""
+
+#: api/ceilometer.py:1026
+msgid "Average rate per sec of outgoing packets on a VM network interface"
+msgstr ""
+
+#: api/ceilometer.py:1038
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
 msgstr "Duur van exemplaar type %s (openstack smaak)"
 
-#: api/ceilometer.py:1018
+#: api/ceilometer.py:1058
 msgid "Duration of network"
 msgstr "Netwerkduur"
 
-#: api/ceilometer.py:1022
+#: api/ceilometer.py:1062
 msgid "Creation requests for this network"
 msgstr "Creatieverzoeken voor dit netwerk"
 
-#: api/ceilometer.py:1026
+#: api/ceilometer.py:1066
 msgid "Update requests for this network"
 msgstr "Bijwerkverzoeken voor dit netwerk"
 
-#: api/ceilometer.py:1030
+#: api/ceilometer.py:1070
 msgid "Duration of subnet"
 msgstr "Subnetduur"
 
-#: api/ceilometer.py:1034
+#: api/ceilometer.py:1074
 msgid "Creation requests for this subnet"
 msgstr "Creatieverzoeken voor dit subnet"
 
-#: api/ceilometer.py:1038
+#: api/ceilometer.py:1078
 msgid "Update requests for this subnet"
 msgstr "Bijwerkverzoeken voor dit subnet"
 
-#: api/ceilometer.py:1042
+#: api/ceilometer.py:1082
 msgid "Duration of port"
 msgstr "Duur van poort"
 
-#: api/ceilometer.py:1046
+#: api/ceilometer.py:1086
 msgid "Creation requests for this port"
 msgstr "Creatieverzoeken voor deze poort"
 
-#: api/ceilometer.py:1050
+#: api/ceilometer.py:1090
 msgid "Update requests for this port"
 msgstr "Bijwerkverzoeken voor deze poort"
 
-#: api/ceilometer.py:1054
+#: api/ceilometer.py:1094
 msgid "Duration of router"
 msgstr "Routerduur"
 
-#: api/ceilometer.py:1058
+#: api/ceilometer.py:1098
 msgid "Creation requests for this router"
 msgstr "Creatieverzoeken voor deze router"
 
-#: api/ceilometer.py:1062
+#: api/ceilometer.py:1102
 msgid "Update requests for this router"
 msgstr "Bijwerkverzoeken voor deze router"
 
-#: api/ceilometer.py:1066
+#: api/ceilometer.py:1106
 msgid "Duration of floating ip"
 msgstr "Duur van vlottend IP adres"
 
-#: api/ceilometer.py:1070
+#: api/ceilometer.py:1110
 msgid "Creation requests for this floating ip"
 msgstr "Creatieverzoeken voor dit vlottend IP adres"
 
-#: api/ceilometer.py:1074
+#: api/ceilometer.py:1114
 msgid "Update requests for this floating ip"
 msgstr "Bijwerkverzoeken voor dit vlottend IP adres"
 
-#: api/ceilometer.py:1091
+#: api/ceilometer.py:1131
 msgid "Image existence check"
 msgstr "Controle of de afbeelding bestaat"
 
-#: api/ceilometer.py:1095
+#: api/ceilometer.py:1135
 msgid "Uploaded image size"
 msgstr "Grootte geuploade afbeelding"
 
-#: api/ceilometer.py:1099
+#: api/ceilometer.py:1139
 msgid "Number of update on the image"
 msgstr "Bewerkingsnummer voor deze afbeelding"
 
-#: api/ceilometer.py:1103
+#: api/ceilometer.py:1143
 msgid "Number of upload of the image"
 msgstr "Uploadnummer van de afbeelding"
 
-#: api/ceilometer.py:1107
+#: api/ceilometer.py:1147
 msgid "Number of delete on the image"
 msgstr "Aantal verwijderingen op de afbeelding"
 
-#: api/ceilometer.py:1111
+#: api/ceilometer.py:1151
 msgid "Image is downloaded"
 msgstr "Afbeelding is opgehaald"
 
-#: api/ceilometer.py:1115
+#: api/ceilometer.py:1155
 msgid "Image is served out"
 msgstr "Afbeelding is uitgeserveerd"
 
-#: api/ceilometer.py:1132
+#: api/ceilometer.py:1172
 msgid "Duration of volume"
 msgstr "Volumeduur"
 
-#: api/ceilometer.py:1136
+#: api/ceilometer.py:1176
 msgid "Size of volume"
 msgstr "Volumegrootte"
 
-#: api/ceilometer.py:1153
+#: api/ceilometer.py:1193
 msgid "Number of objects"
 msgstr "Aantal objecten"
 
-#: api/ceilometer.py:1157
+#: api/ceilometer.py:1197
 msgid "Total size of stored objects"
 msgstr "Totale grootte van de opgeslagen objecten"
 
-#: api/ceilometer.py:1161
+#: api/ceilometer.py:1201
 msgid "Number of containers"
 msgstr "Aantal houders"
 
-#: api/ceilometer.py:1165
+#: api/ceilometer.py:1205
 msgid "Number of incoming bytes"
 msgstr "Hoeveelheid inkomende Bytes"
 
-#: api/ceilometer.py:1169
+#: api/ceilometer.py:1209
 msgid "Number of outgoing bytes"
 msgstr "Hoeveelheid uitgaande Bytes"
 
-#: api/ceilometer.py:1173
+#: api/ceilometer.py:1213
 msgid "Number of API requests against swift"
 msgstr "Hoeveelheid API verzoeken voor Swift"
 
-#: api/ceilometer.py:1190
+#: api/ceilometer.py:1230
 msgid "Amount of energy"
 msgstr "Hoeveelheid energie"
 
-#: api/ceilometer.py:1194
+#: api/ceilometer.py:1234
 msgid "Power consumption"
 msgstr "Stroomverbruik"
 
@@ -312,17 +348,17 @@ msgstr "Wachtwoord gewijzigd. Meldt u zich opnieuw aan om door te gaan."
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "TOESTAAN %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
-#: api/neutron.py:859
+#: api/neutron.py:868
 msgid "Unable to connect to Neutron."
 msgstr "Niet in staat om te verbinden met Neutron."
 
-#: api/neutron.py:896
+#: api/neutron.py:905
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "Niet in staat om het IP adres %s te verwerken."
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1035
+#: api/neutron.py:1044
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -330,14 +366,14 @@ msgid ""
 msgstr ""
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1053
+#: api/neutron.py:1062
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
 "invalid. It should be one of %(allowed)s"
 msgstr ""
 
-#: api/neutron.py:1068
+#: api/neutron.py:1077
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr ""
@@ -460,7 +496,7 @@ msgstr "Beheerder"
 #: dashboards/identity/groups/forms.py:30
 #: dashboards/identity/groups/forms.py:56
 #: dashboards/identity/groups/tables.py:115
-#: dashboards/identity/projects/tables.py:222
+#: dashboards/identity/projects/tables.py:225
 #: dashboards/identity/projects/workflows.py:144
 #: dashboards/project/access_and_security/security_groups/forms.py:37
 #: dashboards/project/access_and_security/security_groups/forms.py:66
@@ -587,7 +623,7 @@ msgstr "Metadata succesvol geüpdatet."
 msgid "Unable to update the aggregate metadata."
 msgstr "Niet in staat verzamelde metadata te updaten."
 
-#: dashboards/admin/aggregates/panel.py:22
+#: dashboards/admin/aggregates/panel.py:26
 #: dashboards/admin/aggregates/tables.py:143
 #: dashboards/admin/aggregates/templates/aggregates/index.html:3
 #: dashboards/admin/aggregates/templates/aggregates/index.html:6
@@ -790,7 +826,7 @@ msgstr "Toevoegen/verwijderen van gastheren aan het aggregaat"
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:25
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:25
 #: dashboards/identity/domains/workflows.py:300
-#: dashboards/identity/projects/workflows.py:543
+#: dashboards/identity/projects/workflows.py:551
 #: dashboards/identity/users/templates/users/_update.html:33
 #: dashboards/project/instances/workflows/update_instance.py:133
 #: dashboards/project/networks/subnets/workflows.py:161
@@ -1968,8 +2004,8 @@ msgstr ""
 #: dashboards/identity/domains/tables.py:202
 #: dashboards/identity/domains/workflows.py:39
 #: dashboards/identity/groups/tables.py:195
-#: dashboards/identity/projects/tables.py:232
-#: dashboards/identity/projects/tables.py:234
+#: dashboards/identity/projects/tables.py:235
+#: dashboards/identity/projects/tables.py:237
 #: dashboards/identity/projects/workflows.py:150
 #: dashboards/identity/projects/workflows.py:522
 #: dashboards/identity/users/tables.py:178
@@ -2343,7 +2379,7 @@ msgstr ""
 #: dashboards/identity/groups/forms.py:33
 #: dashboards/identity/groups/forms.py:59
 #: dashboards/identity/groups/tables.py:117
-#: dashboards/identity/projects/tables.py:226
+#: dashboards/identity/projects/tables.py:229
 #: dashboards/identity/projects/workflows.py:148
 #: dashboards/project/access_and_security/security_groups/forms.py:44
 #: dashboards/project/access_and_security/security_groups/forms.py:73
@@ -3045,6 +3081,8 @@ msgstr "Gedeeld"
 
 #: dashboards/admin/networks/forms.py:82
 #: dashboards/admin/networks/forms.py:240
+#: dashboards/project/network_topology/templates/network_topology/_svg_element.html:177
+#: dashboards/project/network_topology/templates/network_topology/_svg_element.html:220
 #: dashboards/project/networks/templates/networks/_detail_overview.html:19
 #: dashboards/project/routers/tables.py:201
 #: dashboards/project/routers/ports/forms.py:146
@@ -3687,7 +3725,7 @@ msgid "Router Overview: %(router_name)s"
 msgstr ""
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:11
-#: dashboards/identity/projects/tables.py:231
+#: dashboards/identity/projects/tables.py:234
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:22
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:16
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:16
@@ -4925,7 +4963,7 @@ msgid "Group Management"
 msgstr "Groepsbeheer"
 
 #: dashboards/identity/projects/panel.py:27
-#: dashboards/identity/projects/tables.py:240
+#: dashboards/identity/projects/tables.py:243
 #: dashboards/identity/projects/templates/projects/index.html:3
 #: dashboards/identity/projects/templates/projects/index.html:6
 #: templates/403.html:25 templates/404.html:24
@@ -4947,7 +4985,7 @@ msgid "Create Project"
 msgstr "Creëer project"
 
 #: dashboards/identity/projects/tables.py:110
-#: dashboards/identity/projects/workflows.py:542
+#: dashboards/identity/projects/workflows.py:550
 msgid "Edit Project"
 msgstr "Project bewerken"
 
@@ -4967,7 +5005,7 @@ msgid_plural "Deleted Projects"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/identity/projects/tables.py:213
+#: dashboards/identity/projects/tables.py:216
 msgid "This name is already taken."
 msgstr "Deze naam is al in gebruik."
 
@@ -5025,7 +5063,7 @@ msgid "Domain Name"
 msgstr "Domeinnaam"
 
 #: dashboards/identity/projects/workflows.py:165
-#: dashboards/identity/projects/workflows.py:525
+#: dashboards/identity/projects/workflows.py:533
 msgid "Project Information"
 msgstr ""
 
@@ -5077,46 +5115,50 @@ msgstr "Het toevoegen van %s projectgroepen en bijwerken van projectquota's is m
 msgid "Unable to set project quotas."
 msgstr "Niet in staat om de projectquota's in te stellen."
 
-#: dashboards/identity/projects/workflows.py:527
+#: dashboards/identity/projects/workflows.py:530
+msgid "You cannot disable your current project"
+msgstr ""
+
+#: dashboards/identity/projects/workflows.py:535
 msgid "Edit the project details."
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:544
+#: dashboards/identity/projects/workflows.py:552
 #, python-format
 msgid "Modified project \"%s\"."
 msgstr "Project \"%s\" is aangepast."
 
-#: dashboards/identity/projects/workflows.py:545
+#: dashboards/identity/projects/workflows.py:553
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr "Niet in staat om het project \"%s\" aan te passen."
 
-#: dashboards/identity/projects/workflows.py:634
+#: dashboards/identity/projects/workflows.py:642
 msgid ""
 "You cannot revoke your administrative privileges from the project you are "
 "currently logged into. Please switch to another project with administrative "
 "privileges or remove the administrative role manually via the CLI."
 msgstr "U kunt uw beheerrechten niet intrekken van een project waarin u op dit moment bent aangemeld. Wisselt u alstublieft naar een ander project met beheerrechten of verwijder de beheerrol via de CLI."
 
-#: dashboards/identity/projects/workflows.py:694
+#: dashboards/identity/projects/workflows.py:702
 msgid ", update project groups"
 msgstr ", projectgroepen bijwerken"
 
-#: dashboards/identity/projects/workflows.py:698
+#: dashboards/identity/projects/workflows.py:706
 #, python-format
 msgid ""
 "Failed to modify %(users_to_modify)s project members%(group_msg)s and update"
 " project quotas."
 msgstr "Het aanpassen van %(users_to_modify)s projectleden %(group_msg)s en bijwerken van projectquota's is mislukt."
 
-#: dashboards/identity/projects/workflows.py:775
+#: dashboards/identity/projects/workflows.py:783
 #, python-format
 msgid ""
 "Failed to modify %s project members, update project groups and update "
 "project quotas."
 msgstr "Het aanpassen van %s projectleden, bijwerken van projectgroepen en bijwerken van projectquota's is mislukt."
 
-#: dashboards/identity/projects/workflows.py:809
+#: dashboards/identity/projects/workflows.py:817
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
@@ -5568,7 +5610,7 @@ msgid "No floating IP pools available"
 msgstr "Geen vlottende IP poules beschikbaar."
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:37
-#: dashboards/project/network_topology/templates/network_topology/_svg_element.html:196
+#: dashboards/project/network_topology/templates/network_topology/_svg_element.html:202
 #: dashboards/project/volumes/volumes/tables.py:413
 msgid "Instance"
 msgstr "Exemplaar"
@@ -8970,7 +9012,7 @@ msgstr "Regel %(rule)s is succesvol verwijderd van beleid %(policy)s."
 msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr "Regel verwijderen uit beleid mislukt %(name)s: %(reason)s"
 
-#: dashboards/project/firewalls/panel.py:22
+#: dashboards/project/firewalls/panel.py:26
 #: dashboards/project/firewalls/tables.py:257
 #: dashboards/project/firewalls/tabs.py:69
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
@@ -11075,7 +11117,7 @@ msgstr "Gezondheidsbewaker %s is succesvol bijgewerkt."
 msgid "Failed to update health monitor %s"
 msgstr "Bijwerken van gezondheidsbewaker %s mislukt"
 
-#: dashboards/project/loadbalancers/panel.py:22
+#: dashboards/project/loadbalancers/panel.py:26
 msgid "Load Balancers"
 msgstr "Belastingverdelers"
 
@@ -11761,7 +11803,7 @@ msgstr "Netwerktopologie"
 msgid "Create Router"
 msgstr "Creëer router"
 
-#: dashboards/project/network_topology/templates/network_topology/_svg_element.html:178
+#: dashboards/project/network_topology/templates/network_topology/_svg_element.html:184
 #: dashboards/project/vpn/tables.py:264 dashboards/project/vpn/workflows.py:29
 #: dashboards/router/dashboard.py:19
 msgid "Router"
@@ -13985,7 +14027,7 @@ msgstr "IPSec locatieverbinding %s is succesvol bijgewerkt."
 msgid "Failed to update IPSec Site Connection %s"
 msgstr "Bijwerken van de IPSec locatieverbinding %s mislukt"
 
-#: dashboards/project/vpn/panel.py:24
+#: dashboards/project/vpn/panel.py:28
 msgid "VPN"
 msgstr "VPN"
 
