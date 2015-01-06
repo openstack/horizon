@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-24 15:19-0600\n"
-"PO-Revision-Date: 2014-12-23 20:49+0000\n"
+"POT-Creation-Date: 2015-01-05 15:30-0600\n"
+"PO-Revision-Date: 2015-01-05 20:29+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -86,188 +86,224 @@ msgid "Volume of RAM in MB"
 msgstr "Svazek RAM v MB"
 
 #: api/ceilometer.py:934
+msgid "Volume of RAM used in MB"
+msgstr ""
+
+#: api/ceilometer.py:938
 msgid "CPU time used"
 msgstr "Využitého času procesoru"
 
-#: api/ceilometer.py:938
+#: api/ceilometer.py:942
 msgid "Average CPU utilization"
 msgstr "Průměrné využití procesoru"
 
-#: api/ceilometer.py:942
+#: api/ceilometer.py:946
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:28
 msgid "Number of VCPUs"
 msgstr "Počet VCPU"
 
-#: api/ceilometer.py:946
+#: api/ceilometer.py:950
 msgid "Number of read requests"
 msgstr "Počet žádostí o čtení"
 
-#: api/ceilometer.py:950
+#: api/ceilometer.py:954
 msgid "Number of write requests"
 msgstr "Počet žádostí o zápis"
 
-#: api/ceilometer.py:954
+#: api/ceilometer.py:958
 msgid "Volume of reads in B"
 msgstr "Svazek čtení v B"
 
-#: api/ceilometer.py:958
+#: api/ceilometer.py:962
 msgid "Volume of writes in B"
 msgstr "Svazek čtení v B"
 
-#: api/ceilometer.py:962
+#: api/ceilometer.py:966
+msgid "Average rate of read requests per second"
+msgstr ""
+
+#: api/ceilometer.py:970
+msgid "Average rate of write requests per second"
+msgstr ""
+
+#: api/ceilometer.py:974
+msgid "Average rate of reads in B per second"
+msgstr ""
+
+#: api/ceilometer.py:978
+msgid "Average volume of writes in B per second"
+msgstr ""
+
+#: api/ceilometer.py:982
 msgid "Size of root disk in GB"
 msgstr "Velikost kořenového disku v GB"
 
-#: api/ceilometer.py:966
+#: api/ceilometer.py:986
 msgid "Size of ephemeral disk in GB"
 msgstr "Velikost efemérního disku v GB"
 
-#: api/ceilometer.py:971
+#: api/ceilometer.py:991
 msgid "Number of incoming bytes on the network for a VM interface"
 msgstr "Počet příchozích bajtů v síti pro rozhraní VM"
 
-#: api/ceilometer.py:976
+#: api/ceilometer.py:996
 msgid "Number of outgoing bytes on the network for a VM interface"
 msgstr "Počet odchozích bajtů v síti pro rozhraní VM"
 
-#: api/ceilometer.py:981
+#: api/ceilometer.py:1001
 msgid "Number of incoming packets for a VM interface"
 msgstr "Počet příchozích paketů pro rozhraní VM"
 
-#: api/ceilometer.py:986
+#: api/ceilometer.py:1006
 msgid "Number of outgoing packets for a VM interface"
 msgstr "Počet odchozích paketů pro rozhraní VM"
 
-#: api/ceilometer.py:998
+#: api/ceilometer.py:1011
+msgid "Average rate per sec of incoming bytes on a VM network interface"
+msgstr ""
+
+#: api/ceilometer.py:1016
+msgid "Average rate per sec of outgoing bytes on a VM network interface"
+msgstr ""
+
+#: api/ceilometer.py:1021
+msgid "Average rate per sec of incoming packets on a VM network interface"
+msgstr ""
+
+#: api/ceilometer.py:1026
+msgid "Average rate per sec of outgoing packets on a VM network interface"
+msgstr ""
+
+#: api/ceilometer.py:1038
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
 msgstr "Trvání typu instance %s (konfigurace openstack)"
 
-#: api/ceilometer.py:1018
+#: api/ceilometer.py:1058
 msgid "Duration of network"
 msgstr "Trvání sítě"
 
-#: api/ceilometer.py:1022
+#: api/ceilometer.py:1062
 msgid "Creation requests for this network"
 msgstr "Žádosti o vytvoření pro tuto síť"
 
-#: api/ceilometer.py:1026
+#: api/ceilometer.py:1066
 msgid "Update requests for this network"
 msgstr "Žádosti o aktualizaci pro tuto síť"
 
-#: api/ceilometer.py:1030
+#: api/ceilometer.py:1070
 msgid "Duration of subnet"
 msgstr "Trvání podsítě"
 
-#: api/ceilometer.py:1034
+#: api/ceilometer.py:1074
 msgid "Creation requests for this subnet"
 msgstr "Žádosti o vytvoření pro tuto podsíť"
 
-#: api/ceilometer.py:1038
+#: api/ceilometer.py:1078
 msgid "Update requests for this subnet"
 msgstr "Žádosti o aktualizaci pro tuto podsíť"
 
-#: api/ceilometer.py:1042
+#: api/ceilometer.py:1082
 msgid "Duration of port"
 msgstr "Trvání portu"
 
-#: api/ceilometer.py:1046
+#: api/ceilometer.py:1086
 msgid "Creation requests for this port"
 msgstr "Žádosti o vytvoření pro tento port"
 
-#: api/ceilometer.py:1050
+#: api/ceilometer.py:1090
 msgid "Update requests for this port"
 msgstr "Žádosti o aktualizaci pro tento port"
 
-#: api/ceilometer.py:1054
+#: api/ceilometer.py:1094
 msgid "Duration of router"
 msgstr "Trvání směrovače"
 
-#: api/ceilometer.py:1058
+#: api/ceilometer.py:1098
 msgid "Creation requests for this router"
 msgstr "Žádosti o vytvoření pro tento směrovač"
 
-#: api/ceilometer.py:1062
+#: api/ceilometer.py:1102
 msgid "Update requests for this router"
 msgstr "Žádosti o aktualizaci pro tento směrovač"
 
-#: api/ceilometer.py:1066
+#: api/ceilometer.py:1106
 msgid "Duration of floating ip"
 msgstr "Trvání plovoucí IP"
 
-#: api/ceilometer.py:1070
+#: api/ceilometer.py:1110
 msgid "Creation requests for this floating ip"
 msgstr "Žádosti o vytvoření pro tuto plovoucí IP"
 
-#: api/ceilometer.py:1074
+#: api/ceilometer.py:1114
 msgid "Update requests for this floating ip"
 msgstr "Žádosti o aktualizaci pro tuto plovoucí IP"
 
-#: api/ceilometer.py:1091
+#: api/ceilometer.py:1131
 msgid "Image existence check"
 msgstr "Kontrola existence obrazu"
 
-#: api/ceilometer.py:1095
+#: api/ceilometer.py:1135
 msgid "Uploaded image size"
 msgstr "Velikost nahraného obrazu"
 
-#: api/ceilometer.py:1099
+#: api/ceilometer.py:1139
 msgid "Number of update on the image"
 msgstr "Počet aktualizací obrazu"
 
-#: api/ceilometer.py:1103
+#: api/ceilometer.py:1143
 msgid "Number of upload of the image"
 msgstr "Počet nahrání obrazu"
 
-#: api/ceilometer.py:1107
+#: api/ceilometer.py:1147
 msgid "Number of delete on the image"
 msgstr "Počet smazání obrazu"
 
-#: api/ceilometer.py:1111
+#: api/ceilometer.py:1151
 msgid "Image is downloaded"
 msgstr "Obraz je smazán"
 
-#: api/ceilometer.py:1115
+#: api/ceilometer.py:1155
 msgid "Image is served out"
 msgstr "Obraz je vydáván"
 
-#: api/ceilometer.py:1132
+#: api/ceilometer.py:1172
 msgid "Duration of volume"
 msgstr "Trvání svazku"
 
-#: api/ceilometer.py:1136
+#: api/ceilometer.py:1176
 msgid "Size of volume"
 msgstr "Velikost svazku"
 
-#: api/ceilometer.py:1153
+#: api/ceilometer.py:1193
 msgid "Number of objects"
 msgstr "Počet objektů"
 
-#: api/ceilometer.py:1157
+#: api/ceilometer.py:1197
 msgid "Total size of stored objects"
 msgstr "Celková velikost uložených objetků"
 
-#: api/ceilometer.py:1161
+#: api/ceilometer.py:1201
 msgid "Number of containers"
 msgstr "Počet kontejnerů"
 
-#: api/ceilometer.py:1165
+#: api/ceilometer.py:1205
 msgid "Number of incoming bytes"
 msgstr "Počet příchozích bajtů"
 
-#: api/ceilometer.py:1169
+#: api/ceilometer.py:1209
 msgid "Number of outgoing bytes"
 msgstr "Počet odchozích bajtů"
 
-#: api/ceilometer.py:1173
+#: api/ceilometer.py:1213
 msgid "Number of API requests against swift"
 msgstr "Počet žádostí API na Swift"
 
-#: api/ceilometer.py:1190
+#: api/ceilometer.py:1230
 msgid "Amount of energy"
 msgstr "Množství energie"
 
-#: api/ceilometer.py:1194
+#: api/ceilometer.py:1234
 msgid "Power consumption"
 msgstr "Spotřeba energie"
 
@@ -312,17 +348,17 @@ msgstr "Heslo bylo změněno. Por pokračovaní se prosím znovu přihlaste."
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "POVOLIT %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
-#: api/neutron.py:859
+#: api/neutron.py:868
 msgid "Unable to connect to Neutron."
 msgstr "Nelze se připojit k Neutron."
 
-#: api/neutron.py:896
+#: api/neutron.py:905
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "Nelze zpracovat IP adresu %s."
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1035
+#: api/neutron.py:1044
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -330,14 +366,14 @@ msgid ""
 msgstr "Vyžadovaná funkce '%(feature)s' je neznámá. Ujistěte se, že je zadána ve FEATURE_MAP."
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1053
+#: api/neutron.py:1062
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
 "invalid. It should be one of %(allowed)s"
 msgstr "Parametr 'operation' pro získání oprávnění k funkci '%(feature)s' je neplatný.\nMěl by to být jeden z %(allowed)s"
 
-#: api/neutron.py:1068
+#: api/neutron.py:1077
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr "Nelze zkontrolovat. Rozšíření Neutron '%s' není podporováno"
@@ -460,7 +496,7 @@ msgstr "Správce"
 #: dashboards/identity/groups/forms.py:30
 #: dashboards/identity/groups/forms.py:56
 #: dashboards/identity/groups/tables.py:115
-#: dashboards/identity/projects/tables.py:222
+#: dashboards/identity/projects/tables.py:225
 #: dashboards/identity/projects/workflows.py:144
 #: dashboards/project/access_and_security/security_groups/forms.py:37
 #: dashboards/project/access_and_security/security_groups/forms.py:66
@@ -587,7 +623,7 @@ msgstr "Popisná data úspěšně aktualizována"
 msgid "Unable to update the aggregate metadata."
 msgstr "Nelze aktualizovat popisná data agregátu."
 
-#: dashboards/admin/aggregates/panel.py:22
+#: dashboards/admin/aggregates/panel.py:26
 #: dashboards/admin/aggregates/tables.py:143
 #: dashboards/admin/aggregates/templates/aggregates/index.html:3
 #: dashboards/admin/aggregates/templates/aggregates/index.html:6
@@ -792,7 +828,7 @@ msgstr "Přidat/odstranit hostitele z agregátu"
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:25
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:25
 #: dashboards/identity/domains/workflows.py:300
-#: dashboards/identity/projects/workflows.py:543
+#: dashboards/identity/projects/workflows.py:551
 #: dashboards/identity/users/templates/users/_update.html:33
 #: dashboards/project/instances/workflows/update_instance.py:133
 #: dashboards/project/networks/subnets/workflows.py:161
@@ -1974,8 +2010,8 @@ msgstr "Informace o systému"
 #: dashboards/identity/domains/tables.py:202
 #: dashboards/identity/domains/workflows.py:39
 #: dashboards/identity/groups/tables.py:195
-#: dashboards/identity/projects/tables.py:232
-#: dashboards/identity/projects/tables.py:234
+#: dashboards/identity/projects/tables.py:235
+#: dashboards/identity/projects/tables.py:237
 #: dashboards/identity/projects/workflows.py:150
 #: dashboards/identity/projects/workflows.py:522
 #: dashboards/identity/users/tables.py:178
@@ -2353,7 +2389,7 @@ msgstr ""
 #: dashboards/identity/groups/forms.py:33
 #: dashboards/identity/groups/forms.py:59
 #: dashboards/identity/groups/tables.py:117
-#: dashboards/identity/projects/tables.py:226
+#: dashboards/identity/projects/tables.py:229
 #: dashboards/identity/projects/workflows.py:148
 #: dashboards/project/access_and_security/security_groups/forms.py:44
 #: dashboards/project/access_and_security/security_groups/forms.py:73
@@ -3055,6 +3091,8 @@ msgstr "Sdíleno"
 
 #: dashboards/admin/networks/forms.py:82
 #: dashboards/admin/networks/forms.py:240
+#: dashboards/project/network_topology/templates/network_topology/_svg_element.html:177
+#: dashboards/project/network_topology/templates/network_topology/_svg_element.html:220
 #: dashboards/project/networks/templates/networks/_detail_overview.html:19
 #: dashboards/project/routers/tables.py:201
 #: dashboards/project/routers/ports/forms.py:146
@@ -3705,7 +3743,7 @@ msgid "Router Overview: %(router_name)s"
 msgstr ""
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:11
-#: dashboards/identity/projects/tables.py:231
+#: dashboards/identity/projects/tables.py:234
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:22
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:16
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:16
@@ -4959,7 +4997,7 @@ msgid "Group Management"
 msgstr "Správa skupiny"
 
 #: dashboards/identity/projects/panel.py:27
-#: dashboards/identity/projects/tables.py:240
+#: dashboards/identity/projects/tables.py:243
 #: dashboards/identity/projects/templates/projects/index.html:3
 #: dashboards/identity/projects/templates/projects/index.html:6
 #: templates/403.html:25 templates/404.html:24
@@ -4981,7 +5019,7 @@ msgid "Create Project"
 msgstr "Vytvořit projekt"
 
 #: dashboards/identity/projects/tables.py:110
-#: dashboards/identity/projects/workflows.py:542
+#: dashboards/identity/projects/workflows.py:550
 msgid "Edit Project"
 msgstr "Upravit projekt"
 
@@ -5003,7 +5041,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/identity/projects/tables.py:213
+#: dashboards/identity/projects/tables.py:216
 msgid "This name is already taken."
 msgstr "Název již je používán."
 
@@ -5061,7 +5099,7 @@ msgid "Domain Name"
 msgstr "Název domény"
 
 #: dashboards/identity/projects/workflows.py:165
-#: dashboards/identity/projects/workflows.py:525
+#: dashboards/identity/projects/workflows.py:533
 msgid "Project Information"
 msgstr ""
 
@@ -5113,46 +5151,50 @@ msgstr "Nelze přidat %s skupin projektu a aktualizovat kvóty projektu."
 msgid "Unable to set project quotas."
 msgstr "Nelze nastavit kvótu projektu."
 
-#: dashboards/identity/projects/workflows.py:527
+#: dashboards/identity/projects/workflows.py:530
+msgid "You cannot disable your current project"
+msgstr ""
+
+#: dashboards/identity/projects/workflows.py:535
 msgid "Edit the project details."
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:544
+#: dashboards/identity/projects/workflows.py:552
 #, python-format
 msgid "Modified project \"%s\"."
 msgstr "Projekt \"%s\" změněn."
 
-#: dashboards/identity/projects/workflows.py:545
+#: dashboards/identity/projects/workflows.py:553
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr "Nelze změnit projekt \"%s\"."
 
-#: dashboards/identity/projects/workflows.py:634
+#: dashboards/identity/projects/workflows.py:642
 msgid ""
 "You cannot revoke your administrative privileges from the project you are "
 "currently logged into. Please switch to another project with administrative "
 "privileges or remove the administrative role manually via the CLI."
 msgstr "Nemůžete si odstranit svá správcovská oprávnění v projektu, do kterého jste nyní přihlášeni. Prosím přejděte do jiného projektu se stejnými oprávněními, nebo odstraňte roli správce ručně pomocí příkazového řádku."
 
-#: dashboards/identity/projects/workflows.py:694
+#: dashboards/identity/projects/workflows.py:702
 msgid ", update project groups"
 msgstr ", aktualizovat skupiny projektu"
 
-#: dashboards/identity/projects/workflows.py:698
+#: dashboards/identity/projects/workflows.py:706
 #, python-format
 msgid ""
 "Failed to modify %(users_to_modify)s project members%(group_msg)s and update"
 " project quotas."
 msgstr "Nelze změnit %(users_to_modify)s členů projektu%(group_msg)s a aktualizovat kvóty projektu,"
 
-#: dashboards/identity/projects/workflows.py:775
+#: dashboards/identity/projects/workflows.py:783
 #, python-format
 msgid ""
 "Failed to modify %s project members, update project groups and update "
 "project quotas."
 msgstr "Nelze změnit %s členů projektu, aktualizovat skupiny projektu a kvóty projektu."
 
-#: dashboards/identity/projects/workflows.py:809
+#: dashboards/identity/projects/workflows.py:817
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
@@ -5614,7 +5656,7 @@ msgid "No floating IP pools available"
 msgstr "Žádná zásoba plovoucích IP není dostupná"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:37
-#: dashboards/project/network_topology/templates/network_topology/_svg_element.html:196
+#: dashboards/project/network_topology/templates/network_topology/_svg_element.html:202
 #: dashboards/project/volumes/volumes/tables.py:413
 msgid "Instance"
 msgstr "Instance"
@@ -9050,7 +9092,7 @@ msgstr "Pravidlo %(rule)s úspěšně odstraněno ze zásady %(policy)s."
 msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr "Nelze odstranit pravidlo ze zásady %(name)s: %(reason)s"
 
-#: dashboards/project/firewalls/panel.py:22
+#: dashboards/project/firewalls/panel.py:26
 #: dashboards/project/firewalls/tables.py:257
 #: dashboards/project/firewalls/tabs.py:69
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
@@ -11181,7 +11223,7 @@ msgstr "Monitor funkčnosti %s byl úspěšně aktualizován."
 msgid "Failed to update health monitor %s"
 msgstr "Aktualizace monitoru funkčnosti %s selhala"
 
-#: dashboards/project/loadbalancers/panel.py:22
+#: dashboards/project/loadbalancers/panel.py:26
 msgid "Load Balancers"
 msgstr "Vyvažovač zátěže"
 
@@ -11875,7 +11917,7 @@ msgstr "Topologie sítě"
 msgid "Create Router"
 msgstr "Vytvořit směrovač"
 
-#: dashboards/project/network_topology/templates/network_topology/_svg_element.html:178
+#: dashboards/project/network_topology/templates/network_topology/_svg_element.html:184
 #: dashboards/project/vpn/tables.py:264 dashboards/project/vpn/workflows.py:29
 #: dashboards/router/dashboard.py:19
 msgid "Router"
@@ -14115,7 +14157,7 @@ msgstr "IPSec připojení k místu %s bylo úspěšně vytvořeno"
 msgid "Failed to update IPSec Site Connection %s"
 msgstr "Nelze aktualizovat IPSec připojení k místu %s"
 
-#: dashboards/project/vpn/panel.py:24
+#: dashboards/project/vpn/panel.py:28
 msgid "VPN"
 msgstr "VPN"
 

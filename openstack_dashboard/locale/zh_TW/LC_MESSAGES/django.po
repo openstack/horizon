@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-24 15:19-0600\n"
-"PO-Revision-Date: 2014-12-23 20:49+0000\n"
+"POT-Creation-Date: 2015-01-05 15:30-0600\n"
+"PO-Revision-Date: 2015-01-05 20:29+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -86,188 +86,224 @@ msgid "Volume of RAM in MB"
 msgstr "隨機存取記憶體 MB 容量"
 
 #: api/ceilometer.py:934
+msgid "Volume of RAM used in MB"
+msgstr ""
+
+#: api/ceilometer.py:938
 msgid "CPU time used"
 msgstr "已使用的處理器時數"
 
-#: api/ceilometer.py:938
+#: api/ceilometer.py:942
 msgid "Average CPU utilization"
 msgstr "平均 CPU 使用量"
 
-#: api/ceilometer.py:942
+#: api/ceilometer.py:946
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:28
 msgid "Number of VCPUs"
 msgstr "虛擬處理器數量"
 
-#: api/ceilometer.py:946
+#: api/ceilometer.py:950
 msgid "Number of read requests"
 msgstr "讀取請求數量"
 
-#: api/ceilometer.py:950
+#: api/ceilometer.py:954
 msgid "Number of write requests"
 msgstr "寫入請求數量"
 
-#: api/ceilometer.py:954
+#: api/ceilometer.py:958
 msgid "Volume of reads in B"
 msgstr "硬碟讀取位元組"
 
-#: api/ceilometer.py:958
+#: api/ceilometer.py:962
 msgid "Volume of writes in B"
 msgstr "硬碟寫入位元組"
 
-#: api/ceilometer.py:962
+#: api/ceilometer.py:966
+msgid "Average rate of read requests per second"
+msgstr ""
+
+#: api/ceilometer.py:970
+msgid "Average rate of write requests per second"
+msgstr ""
+
+#: api/ceilometer.py:974
+msgid "Average rate of reads in B per second"
+msgstr ""
+
+#: api/ceilometer.py:978
+msgid "Average volume of writes in B per second"
+msgstr ""
+
+#: api/ceilometer.py:982
 msgid "Size of root disk in GB"
 msgstr "根硬碟 GB 容量"
 
-#: api/ceilometer.py:966
+#: api/ceilometer.py:986
 msgid "Size of ephemeral disk in GB"
 msgstr "暫時性硬碟 GB 容量"
 
-#: api/ceilometer.py:971
+#: api/ceilometer.py:991
 msgid "Number of incoming bytes on the network for a VM interface"
 msgstr "虛擬機器網路卡介面在網路上的流入位元組流量"
 
-#: api/ceilometer.py:976
+#: api/ceilometer.py:996
 msgid "Number of outgoing bytes on the network for a VM interface"
 msgstr "虛擬機器網路卡介面在網路上的傳出位元組流量"
 
-#: api/ceilometer.py:981
+#: api/ceilometer.py:1001
 msgid "Number of incoming packets for a VM interface"
 msgstr "虛擬機器網路卡介面在網路上的流入封包數量"
 
-#: api/ceilometer.py:986
+#: api/ceilometer.py:1006
 msgid "Number of outgoing packets for a VM interface"
 msgstr "虛擬機器網路卡介面在網路上的傳出封包數量"
 
-#: api/ceilometer.py:998
+#: api/ceilometer.py:1011
+msgid "Average rate per sec of incoming bytes on a VM network interface"
+msgstr ""
+
+#: api/ceilometer.py:1016
+msgid "Average rate per sec of outgoing bytes on a VM network interface"
+msgstr ""
+
+#: api/ceilometer.py:1021
+msgid "Average rate per sec of incoming packets on a VM network interface"
+msgstr ""
+
+#: api/ceilometer.py:1026
+msgid "Average rate per sec of outgoing packets on a VM network interface"
+msgstr ""
+
+#: api/ceilometer.py:1038
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
 msgstr "%s 類型執行實例的使用時間（Openstack 虛擬硬體樣板）"
 
-#: api/ceilometer.py:1018
+#: api/ceilometer.py:1058
 msgid "Duration of network"
 msgstr "網路用量"
 
-#: api/ceilometer.py:1022
+#: api/ceilometer.py:1062
 msgid "Creation requests for this network"
 msgstr "此網路的新增請求數"
 
-#: api/ceilometer.py:1026
+#: api/ceilometer.py:1066
 msgid "Update requests for this network"
 msgstr "此網路的更新請求數"
 
-#: api/ceilometer.py:1030
+#: api/ceilometer.py:1070
 msgid "Duration of subnet"
 msgstr "子網路用量"
 
-#: api/ceilometer.py:1034
+#: api/ceilometer.py:1074
 msgid "Creation requests for this subnet"
 msgstr "此子網路的新增請求數"
 
-#: api/ceilometer.py:1038
+#: api/ceilometer.py:1078
 msgid "Update requests for this subnet"
 msgstr "此子網路的更新請求數"
 
-#: api/ceilometer.py:1042
+#: api/ceilometer.py:1082
 msgid "Duration of port"
 msgstr "接口用量"
 
-#: api/ceilometer.py:1046
+#: api/ceilometer.py:1086
 msgid "Creation requests for this port"
 msgstr "此接口的新增請求數"
 
-#: api/ceilometer.py:1050
+#: api/ceilometer.py:1090
 msgid "Update requests for this port"
 msgstr "此接口的更新請求數"
 
-#: api/ceilometer.py:1054
+#: api/ceilometer.py:1094
 msgid "Duration of router"
 msgstr "路由器用量"
 
-#: api/ceilometer.py:1058
+#: api/ceilometer.py:1098
 msgid "Creation requests for this router"
 msgstr "此路由器的新增請求數"
 
-#: api/ceilometer.py:1062
+#: api/ceilometer.py:1102
 msgid "Update requests for this router"
 msgstr "此路由器的更新請求數"
 
-#: api/ceilometer.py:1066
+#: api/ceilometer.py:1106
 msgid "Duration of floating ip"
 msgstr "浮動 IP 用量"
 
-#: api/ceilometer.py:1070
+#: api/ceilometer.py:1110
 msgid "Creation requests for this floating ip"
 msgstr "此浮動 IP 的新增請求數"
 
-#: api/ceilometer.py:1074
+#: api/ceilometer.py:1114
 msgid "Update requests for this floating ip"
 msgstr "此浮動 IP 的更新請求數"
 
-#: api/ceilometer.py:1091
+#: api/ceilometer.py:1131
 msgid "Image existence check"
 msgstr "映像檔存在檢查"
 
-#: api/ceilometer.py:1095
+#: api/ceilometer.py:1135
 msgid "Uploaded image size"
 msgstr "已更新映像檔容量"
 
-#: api/ceilometer.py:1099
+#: api/ceilometer.py:1139
 msgid "Number of update on the image"
 msgstr "映像檔更新數量"
 
-#: api/ceilometer.py:1103
+#: api/ceilometer.py:1143
 msgid "Number of upload of the image"
 msgstr "映像檔上傳數量"
 
-#: api/ceilometer.py:1107
+#: api/ceilometer.py:1147
 msgid "Number of delete on the image"
 msgstr "映像檔刪除數量"
 
-#: api/ceilometer.py:1111
+#: api/ceilometer.py:1151
 msgid "Image is downloaded"
 msgstr "映像檔已下載"
 
-#: api/ceilometer.py:1115
+#: api/ceilometer.py:1155
 msgid "Image is served out"
 msgstr "已提供之映像檔"
 
-#: api/ceilometer.py:1132
+#: api/ceilometer.py:1172
 msgid "Duration of volume"
 msgstr "儲存空間用量"
 
-#: api/ceilometer.py:1136
+#: api/ceilometer.py:1176
 msgid "Size of volume"
 msgstr "儲存空間容量"
 
-#: api/ceilometer.py:1153
+#: api/ceilometer.py:1193
 msgid "Number of objects"
 msgstr "物件數量"
 
-#: api/ceilometer.py:1157
+#: api/ceilometer.py:1197
 msgid "Total size of stored objects"
 msgstr "已儲存的物件總容量"
 
-#: api/ceilometer.py:1161
+#: api/ceilometer.py:1201
 msgid "Number of containers"
 msgstr "容器數量"
 
-#: api/ceilometer.py:1165
+#: api/ceilometer.py:1205
 msgid "Number of incoming bytes"
 msgstr "流入位元組流量"
 
-#: api/ceilometer.py:1169
+#: api/ceilometer.py:1209
 msgid "Number of outgoing bytes"
 msgstr "傳出位元組流量"
 
-#: api/ceilometer.py:1173
+#: api/ceilometer.py:1213
 msgid "Number of API requests against swift"
 msgstr "針對 Swift 的 API 請求數量"
 
-#: api/ceilometer.py:1190
+#: api/ceilometer.py:1230
 msgid "Amount of energy"
 msgstr "能量"
 
-#: api/ceilometer.py:1194
+#: api/ceilometer.py:1234
 msgid "Power consumption"
 msgstr "能源消耗"
 
@@ -312,17 +348,17 @@ msgstr "密碼已變更。請再登入一次以繼續。"
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "允許 %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
-#: api/neutron.py:859
+#: api/neutron.py:868
 msgid "Unable to connect to Neutron."
 msgstr "無法與 Neutron 連線。"
 
-#: api/neutron.py:896
+#: api/neutron.py:905
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "無法分析 IP 位址 %s。"
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1035
+#: api/neutron.py:1044
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -330,14 +366,14 @@ msgid ""
 msgstr "所請求的特色「%(feature)s」未知。請確定指定的是已定義於 FEATURE_MAP 的特色。"
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1053
+#: api/neutron.py:1062
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
 "invalid. It should be one of %(allowed)s"
 msgstr "給 get_feature_permission 「%(feature)s」的「作業」參數無效。它應該是 %(allowed)s 之一"
 
-#: api/neutron.py:1068
+#: api/neutron.py:1077
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr "檢查 Neutron「%s」擴充套件是否支援時失敗"
@@ -460,7 +496,7 @@ msgstr "管理員"
 #: dashboards/identity/groups/forms.py:30
 #: dashboards/identity/groups/forms.py:56
 #: dashboards/identity/groups/tables.py:115
-#: dashboards/identity/projects/tables.py:222
+#: dashboards/identity/projects/tables.py:225
 #: dashboards/identity/projects/workflows.py:144
 #: dashboards/project/access_and_security/security_groups/forms.py:37
 #: dashboards/project/access_and_security/security_groups/forms.py:66
@@ -587,7 +623,7 @@ msgstr "已成功更新描述資料。"
 msgid "Unable to update the aggregate metadata."
 msgstr "無法更新聚合描述資料。"
 
-#: dashboards/admin/aggregates/panel.py:22
+#: dashboards/admin/aggregates/panel.py:26
 #: dashboards/admin/aggregates/tables.py:143
 #: dashboards/admin/aggregates/templates/aggregates/index.html:3
 #: dashboards/admin/aggregates/templates/aggregates/index.html:6
@@ -788,7 +824,7 @@ msgstr "加入/移除主機到聚合中"
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:25
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:25
 #: dashboards/identity/domains/workflows.py:300
-#: dashboards/identity/projects/workflows.py:543
+#: dashboards/identity/projects/workflows.py:551
 #: dashboards/identity/users/templates/users/_update.html:33
 #: dashboards/project/instances/workflows/update_instance.py:133
 #: dashboards/project/networks/subnets/workflows.py:161
@@ -1962,8 +1998,8 @@ msgstr "系統資訊"
 #: dashboards/identity/domains/tables.py:202
 #: dashboards/identity/domains/workflows.py:39
 #: dashboards/identity/groups/tables.py:195
-#: dashboards/identity/projects/tables.py:232
-#: dashboards/identity/projects/tables.py:234
+#: dashboards/identity/projects/tables.py:235
+#: dashboards/identity/projects/tables.py:237
 #: dashboards/identity/projects/workflows.py:150
 #: dashboards/identity/projects/workflows.py:522
 #: dashboards/identity/users/tables.py:178
@@ -2333,7 +2369,7 @@ msgstr ""
 #: dashboards/identity/groups/forms.py:33
 #: dashboards/identity/groups/forms.py:59
 #: dashboards/identity/groups/tables.py:117
-#: dashboards/identity/projects/tables.py:226
+#: dashboards/identity/projects/tables.py:229
 #: dashboards/identity/projects/workflows.py:148
 #: dashboards/project/access_and_security/security_groups/forms.py:44
 #: dashboards/project/access_and_security/security_groups/forms.py:73
@@ -3035,6 +3071,8 @@ msgstr "已分享"
 
 #: dashboards/admin/networks/forms.py:82
 #: dashboards/admin/networks/forms.py:240
+#: dashboards/project/network_topology/templates/network_topology/_svg_element.html:177
+#: dashboards/project/network_topology/templates/network_topology/_svg_element.html:220
 #: dashboards/project/networks/templates/networks/_detail_overview.html:19
 #: dashboards/project/routers/tables.py:201
 #: dashboards/project/routers/ports/forms.py:146
@@ -3669,7 +3707,7 @@ msgid "Router Overview: %(router_name)s"
 msgstr ""
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:11
-#: dashboards/identity/projects/tables.py:231
+#: dashboards/identity/projects/tables.py:234
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:22
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:16
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:16
@@ -4891,7 +4929,7 @@ msgid "Group Management"
 msgstr "群組管理"
 
 #: dashboards/identity/projects/panel.py:27
-#: dashboards/identity/projects/tables.py:240
+#: dashboards/identity/projects/tables.py:243
 #: dashboards/identity/projects/templates/projects/index.html:3
 #: dashboards/identity/projects/templates/projects/index.html:6
 #: templates/403.html:25 templates/404.html:24
@@ -4913,7 +4951,7 @@ msgid "Create Project"
 msgstr "新增專案"
 
 #: dashboards/identity/projects/tables.py:110
-#: dashboards/identity/projects/workflows.py:542
+#: dashboards/identity/projects/workflows.py:550
 msgid "Edit Project"
 msgstr "編輯專案"
 
@@ -4931,7 +4969,7 @@ msgid "Deleted Project"
 msgid_plural "Deleted Projects"
 msgstr[0] ""
 
-#: dashboards/identity/projects/tables.py:213
+#: dashboards/identity/projects/tables.py:216
 msgid "This name is already taken."
 msgstr "此名稱已被取走。"
 
@@ -4989,7 +5027,7 @@ msgid "Domain Name"
 msgstr "地域名稱"
 
 #: dashboards/identity/projects/workflows.py:165
-#: dashboards/identity/projects/workflows.py:525
+#: dashboards/identity/projects/workflows.py:533
 msgid "Project Information"
 msgstr "專案資訊"
 
@@ -5041,46 +5079,50 @@ msgstr "加入 %s 專案群組和更新專案配額時失敗。"
 msgid "Unable to set project quotas."
 msgstr "無法設定專案的配額。"
 
-#: dashboards/identity/projects/workflows.py:527
+#: dashboards/identity/projects/workflows.py:530
+msgid "You cannot disable your current project"
+msgstr ""
+
+#: dashboards/identity/projects/workflows.py:535
 msgid "Edit the project details."
 msgstr "編輯專案的詳細資訊。"
 
-#: dashboards/identity/projects/workflows.py:544
+#: dashboards/identity/projects/workflows.py:552
 #, python-format
 msgid "Modified project \"%s\"."
 msgstr "已更改專案「%s」。"
 
-#: dashboards/identity/projects/workflows.py:545
+#: dashboards/identity/projects/workflows.py:553
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr "無法更改專案「%s」。"
 
-#: dashboards/identity/projects/workflows.py:634
+#: dashboards/identity/projects/workflows.py:642
 msgid ""
 "You cannot revoke your administrative privileges from the project you are "
 "currently logged into. Please switch to another project with administrative "
 "privileges or remove the administrative role manually via the CLI."
 msgstr "您不能從此專案裡撤銷您目前已登入的管理員權限。請以管理員權限交換到其他專案或者用命令列介面手動移除管理員角色。"
 
-#: dashboards/identity/projects/workflows.py:694
+#: dashboards/identity/projects/workflows.py:702
 msgid ", update project groups"
 msgstr "、更新專案群組"
 
-#: dashboards/identity/projects/workflows.py:698
+#: dashboards/identity/projects/workflows.py:706
 #, python-format
 msgid ""
 "Failed to modify %(users_to_modify)s project members%(group_msg)s and update"
 " project quotas."
 msgstr "更改 %(users_to_modify)s 專案成員%(group_msg)s以及更新專案配額時失敗。"
 
-#: dashboards/identity/projects/workflows.py:775
+#: dashboards/identity/projects/workflows.py:783
 #, python-format
 msgid ""
 "Failed to modify %s project members, update project groups and update "
 "project quotas."
 msgstr "更改 %s 專案成員、更新專案群組以及更新專案配額時失敗。"
 
-#: dashboards/identity/projects/workflows.py:809
+#: dashboards/identity/projects/workflows.py:817
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
@@ -5522,7 +5564,7 @@ msgid "No floating IP pools available"
 msgstr "無可用的浮動 IP 倉庫"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:37
-#: dashboards/project/network_topology/templates/network_topology/_svg_element.html:196
+#: dashboards/project/network_topology/templates/network_topology/_svg_element.html:202
 #: dashboards/project/volumes/volumes/tables.py:413
 msgid "Instance"
 msgstr "執行實例"
@@ -8890,7 +8932,7 @@ msgstr "已成功從政策 %(policy)s 裡移除規則 %(rule)s。"
 msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr "從政策 %(name)s 裡移除規則時失敗：%(reason)s"
 
-#: dashboards/project/firewalls/panel.py:22
+#: dashboards/project/firewalls/panel.py:26
 #: dashboards/project/firewalls/tables.py:257
 #: dashboards/project/firewalls/tabs.py:69
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
@@ -10969,7 +11011,7 @@ msgstr "已成功更新健康監視器 %s。"
 msgid "Failed to update health monitor %s"
 msgstr "更新健康監視器 %s 時失敗"
 
-#: dashboards/project/loadbalancers/panel.py:22
+#: dashboards/project/loadbalancers/panel.py:26
 msgid "Load Balancers"
 msgstr "負載平衡器"
 
@@ -11647,7 +11689,7 @@ msgstr "網路拓撲"
 msgid "Create Router"
 msgstr "新增路由器"
 
-#: dashboards/project/network_topology/templates/network_topology/_svg_element.html:178
+#: dashboards/project/network_topology/templates/network_topology/_svg_element.html:184
 #: dashboards/project/vpn/tables.py:264 dashboards/project/vpn/workflows.py:29
 #: dashboards/router/dashboard.py:19
 msgid "Router"
@@ -13855,7 +13897,7 @@ msgstr "已成功更新 IPSec 網站連線 %s。"
 msgid "Failed to update IPSec Site Connection %s"
 msgstr "更新 IPSec 網站連線 %s 時失敗"
 
-#: dashboards/project/vpn/panel.py:24
+#: dashboards/project/vpn/panel.py:28
 msgid "VPN"
 msgstr "虛擬私人網路"
 
