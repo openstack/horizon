@@ -152,6 +152,35 @@
     padding-left: 0;
     padding-right: 0;
   }
+  .btn-group-vertical{ 
+    label{
+      margin-bottom: 6px;
+      @include border-top-radius ($border-radius-base !important);
+      @include border-bottom-radius ($border-radius-base !important);
+      text-align: left;
+      i{
+        float: right;
+        margin-top: 2px;
+        margin-left: 4px;
+      }
+      i.fa-edit{
+        margin-top: 3px;
+      }
+      input{
+        &[type="text"]{
+          width: 94%;
+          background-color: #DDD;
+          border: none;
+        }
+      }
+    }
+    label.edit{
+      background-color: #DDD;
+    }
+    .active{
+      box-shadow: none;
+    }
+  }
 }
 .permissions_list,
 .relation_list{
@@ -160,7 +189,18 @@
     h4{
       display: inline;
     }
-    button{float:right;}
+    button{
+      float:right;
+      background-color: transparent;
+      padding: 0 1px 0 0;
+      margin-top: -2px;
+      &:hover{
+        color: $brand-secundary;
+      }
+    }
+  }
+  .btn-group-vertical{
+    width: 95%;
   }
   .list-group-item{
     position: relative;
@@ -220,6 +260,34 @@
   }
   .alert{
     margin-top: 10px;
+  }
+  .btn-group-vertical {
+    label{
+      border-bottom: none;
+      border-left: none;
+      border-right: none;
+      border-top: none;
+      text-align: left;
+      background-color: $gray-lighter;
+      &:first-child{
+        border-top: none;
+      }
+      &:hover{
+        background-color: $white;
+      }
+      i{
+        margin-right: 4px;
+      }
+    }
+    .active{
+      background-color: #FFF;
+      box-shadow: none;
+    }
+    hr{
+      margin-top: 0px !important;
+      margin-bottom: 0px !important;
+      border-top: 1px solid $gray !important;
+    } 
   }
 }
 #collapse_oauth2_credentials {

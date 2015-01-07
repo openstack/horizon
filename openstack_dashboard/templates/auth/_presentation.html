@@ -3,8 +3,8 @@
 <div class="site-client-roles">
   <section id="relation_list" class="relation_list">
     <header>
-      <h4>roles_table.name</h4>
-      <button class="btn" data-toggle="modal" data-target="#new-roleModal">+</button>
+      <h4>Roles</h4>
+      <button class="btn" data-toggle="modal" data-target="#new-roleModal"><i class="fa fa-plus"></i></button>
     </header>
 
     <div class="btn-group-vertical" data-toggle="buttons">
@@ -16,6 +16,12 @@
       </label>
       <label class="btn btn-default">
         <input type="radio" name="options" id="option3" autocomplete="off"> role 3
+        <i class="fa fa-close"></i>
+        <i class="fa fa-edit"></i>
+      </label>
+      <label class="btn btn-default edit">
+        <input type="text" name="options" id="editoption3" autocomplete="off" placeholder="role 3">
+        <i class="fa fa-check"></i>
       </label>
     </div>
 
@@ -36,21 +42,26 @@
 
   <section id="permissions_list" class="permissions_list">
     <header>
-      <h4>permissions_table.name</h4>
-      <button class="btn" data-toggle="modal" data-target="#new-permissionModal">+</button>
+      <h4>Permissions</h4>
+      <button class="btn" data-toggle="modal" data-target="#new-permissionModal"><i class="fa fa-plus"></i></button>
     </header>
     <div class="btn-group-vertical" data-toggle="buttons">
-      <label class="btn btn-default">
+      <label class="btn btn-default disabled">
+        <i class="fa fa-check"></i>
         <input type="checkbox" autocomplete="off"> permission 1
       </label>
-      <label class="btn btn-default">
+      <hr>
+      <label class="btn btn-default active">
+        <i class="fa fa-check"></i>
         <input type="checkbox" autocomplete="off"> permission 2
       </label>
+      <hr>
       <label class="btn btn-default">
+        <i class="fa fa-check" style="display:none"></i>
         <input type="checkbox" autocomplete="off"> permission 3
       </label>
     </div>
-    
+
     <div class="modal fade" id="new-permissionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
