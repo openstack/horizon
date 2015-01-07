@@ -133,10 +133,11 @@ def role_get(request, role_id):
     manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.roles
     return manager.get(role_id)
 
-def role_list(request, user=None):
+def role_list(request, user=None, organization=None):
     #manager = fiwareclient().fiware_roles.roles
     manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.roles
-    return manager.list(user=user)
+    return manager.list(user=user,
+                        organization=organization)
 
 def role_create(request, name, is_internal=False, application=None, **kwargs):
     #manager = fiwareclient().fiware_roles.roles

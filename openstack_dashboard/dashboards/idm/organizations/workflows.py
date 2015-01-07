@@ -39,7 +39,7 @@ class RolesMixin(object):
         role_list = {}
         # NOTE(garcianavalon) list all roles grouped by application
         # on which current user has the right to get and assign
-        role_list = fiware_api.keystone.list_allowed_roles_to_assign(request,
+        role_list['applications'] = fiware_api.keystone.list_allowed_roles_to_assign(request,
                                                 user=request.user.id,
                                                 organization=request.user.project_id)
         # NOTE(garcianavalon) we also need the organization (keystone)
@@ -52,13 +52,15 @@ class RolesMixin(object):
         # with their roles
         project_users_roles = api.keystone.get_project_users_roles(request,
                                                               project_id)
-        # Second, load all the application organization-scoped roles for every user
-        # but only the ones the user can assign 
+        # Second, load all the organization-scoped application roles for every user
+        # but only the ones the user can assign (and only scoped for the current
+        # organization)
         for user_id in project_users_roles:
             project_users_roles[user_id] = [
-                r.id for r in fiware_api.keystone.role_list(request,
-                                                        user=user_id,
-                                                        organization=project_id)
+                r.id for r in fiware_api.keystone.role_list(
+                                                    request,
+                                                    user=user_id,
+                                                    organization=project_id)
                     if r in available_roles
             ]
         return project_users_roles
