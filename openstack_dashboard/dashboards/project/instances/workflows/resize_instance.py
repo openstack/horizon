@@ -44,17 +44,12 @@ class SetFlavorChoiceAction(workflows.Action):
         help_text_template = ("project/instances/"
                               "_flavors_and_quotas.html")
 
-    def clean(self):
-        cleaned_data = super(SetFlavorChoiceAction, self).clean()
-        flavor = cleaned_data.get('flavor', None)
-
-        if flavor is None or flavor == cleaned_data['old_flavor_id']:
-            raise forms.ValidationError(_('Please choose a new flavor that '
-                                          'is not the same as the old one.'))
-        return cleaned_data
-
     def populate_flavor_choices(self, request, context):
+        old_flavor_id = context.get('old_flavor_id')
         flavors = context.get('flavors').values()
+
+        # Remove current flavor from the list of flavor choices
+        flavors = [flavor for flavor in flavors if flavor.id != old_flavor_id]
         if len(flavors) > 1:
             flavors = instance_utils.sort_flavor_list(request, flavors)
         if flavors:

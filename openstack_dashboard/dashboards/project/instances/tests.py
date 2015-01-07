@@ -3474,6 +3474,13 @@ class InstanceTests(helpers.TestCase):
         config_drive_field_label = 'Configuration Drive'
         self.assertNotContains(res, config_drive_field_label)
 
+        option = '<option value="%s">%s</option>'
+        for flavor in self.flavors.list():
+            if flavor.id == server.flavor['id']:
+                self.assertNotContains(res, option % (flavor.id, flavor.name))
+            else:
+                self.assertContains(res, option % (flavor.id, flavor.name))
+
     @helpers.create_stubs({api.nova: ('server_get',
                                       'flavor_list',)})
     def test_instance_resize_get_server_get_exception(self):
@@ -3552,7 +3559,9 @@ class InstanceTests(helpers.TestCase):
     @helpers.create_stubs(instance_resize_post_stubs)
     def test_instance_resize_post(self):
         server = self.servers.first()
-        flavor = self.flavors.first()
+        flavors = [flavor for flavor in self.flavors.list()
+                   if flavor.id != server.flavor['id']]
+        flavor = flavors[0]
 
         api.nova.server_get(IsA(http.HttpRequest), server.id) \
             .AndReturn(server)
@@ -3573,7 +3582,9 @@ class InstanceTests(helpers.TestCase):
     @helpers.create_stubs(instance_resize_post_stubs)
     def test_instance_resize_post_api_exception(self):
         server = self.servers.first()
-        flavor = self.flavors.first()
+        flavors = [flavor for flavor in self.flavors.list()
+                   if flavor.id != server.flavor['id']]
+        flavor = flavors[0]
 
         api.nova.server_get(IsA(http.HttpRequest), server.id) \
             .AndReturn(server)
