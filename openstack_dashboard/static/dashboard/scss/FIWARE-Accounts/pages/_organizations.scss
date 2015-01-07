@@ -97,3 +97,42 @@
     color: $brand-secundary;
   }
 }
+
+.add-members{
+  @include make-sm-column(12, $gutter: $grid-gutter-width);
+  @include make-md-column(12, $gutter: $grid-gutter-width);
+  @include make-lg-column(12, $gutter: $grid-gutter-width);
+  .all-users,
+  .members-list{
+    @media (max-width: $screen-sm-min){
+      padding-left: 0;
+      padding-right: 0;
+    }
+    header{
+      min-height: 26px;
+      h4{
+        display: inline;
+      }
+      .form-control{
+        width: 165px;
+        display: inline-block;
+        float: right;
+        height: 27px;
+      }
+    }
+    .fa-plus,
+    .fa-close{
+      float: right;
+    } 
+  }
+}
+.all-users{
+  @include make-sm-column(4, $gutter: $grid-gutter-width);
+  @include make-md-column(4, $gutter: $grid-gutter-width);
+  @include make-lg-column(4, $gutter: $grid-gutter-width);
+} 
+.members-list{
+  @include make-sm-column(8, $gutter: $grid-gutter-width);
+  @include make-md-column(8, $gutter: $grid-gutter-width);
+  @include make-lg-column(8, $gutter: $grid-gutter-width);
+}
