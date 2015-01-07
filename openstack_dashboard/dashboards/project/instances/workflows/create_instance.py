@@ -542,6 +542,7 @@ class SetAccessControlsAction(workflows.Action):
         required=False,
         widget=forms.PasswordInput(render_value=False))
     groups = forms.MultipleChoiceField(label=_("Security Groups"),
+                                       required=False,
                                        initial=["default"],
                                        widget=forms.CheckboxSelectMultiple(),
                                        help_text=_("Launch instance in these "
