@@ -1052,3 +1052,96 @@ def data(TEST):
     TEST.api_network_profile_binding.add(network_profile_binding_dict)
     TEST.network_profile_binding.add(neutron.Profile(
         network_profile_binding_dict))
+
+    # Adding a new network and new network and policy profile
+    # similar to the first to test launching an instance with multiple
+    # nics and multiple profiles.
+
+    # 4th network to use for testing instances with multiple-nics & profiles
+    network_dict = {'admin_state_up': True,
+                    'id': '7aa23d91-ffff-abab-dcdc-3411ae767e8a',
+                    'name': 'net4',
+                    'status': 'ACTIVE',
+                    'subnets': ['31be4a21-aadd-73da-6422-821ff249a4bb'],
+                    'tenant_id': '1',
+                    'router:external': False,
+                    'shared': False}
+    subnet_dict = {'allocation_pools': [{'end': '11.10.0.254',
+                                         'start': '11.10.0.2'}],
+                   'dns_nameservers': [],
+                   'host_routes': [],
+                   'cidr': '11.10.0.0/24',
+                   'enable_dhcp': True,
+                   'gateway_ip': '11.10.0.1',
+                   'id': network_dict['subnets'][0],
+                   'ip_version': 4,
+                   'name': 'mysubnet4',
+                   'network_id': network_dict['id'],
+                   'tenant_id': network_dict['tenant_id']}
+
+    TEST.api_networks.add(network_dict)
+    TEST.api_subnets.add(subnet_dict)
+
+    network = copy.deepcopy(network_dict)
+    subnet = neutron.Subnet(subnet_dict)
+    network['subnets'] = [subnet]
+    TEST.networks.add(neutron.Network(network))
+    TEST.subnets.add(subnet)
+
+    # 5th network profile for network when using the cisco n1k plugin
+    # Network Profile applied on 4th network
+    net_profile_dict = {'name': 'net_profile_test5',
+                        'segment_type': 'vlan',
+                        'physical_network': 'phys5',
+                        'segment_range': '400-450',
+                        'id':
+                        '00000000-5555-5555-5555-000000000000',
+                        'project': TEST.networks.get(name="net4")['tenant_id']}
+
+    TEST.api_net_profiles.add(net_profile_dict)
+    TEST.net_profiles.add(neutron.Profile(net_profile_dict))
+
+    # 2nd policy profile for port when using the cisco n1k plugin
+    policy_profile_dict = {'name': 'policy_profile_test2',
+                           'id':
+                           '11111111-9999-9999-9999-111111111111'}
+
+    TEST.api_policy_profiles.add(policy_profile_dict)
+    TEST.policy_profiles.add(neutron.Profile(policy_profile_dict))
+
+    # network profile binding
+    network_profile_binding_dict = {'profile_id':
+                                    '00000000-5555-5555-5555-000000000000',
+                                    'tenant_id':
+                                    TEST.networks.get(name="net4")['tenant_id']
+                                    }
+
+    TEST.api_network_profile_binding.add(network_profile_binding_dict)
+    TEST.network_profile_binding.add(neutron.Profile(
+        network_profile_binding_dict))
+
+    # policy profile binding
+    policy_profile_binding_dict = {'profile_id':
+                                   '11111111-9999-9999-9999-111111111111',
+                                   'tenant_id':
+                                   TEST.networks.get(name="net4")['tenant_id']}
+
+    TEST.api_policy_profile_binding.add(policy_profile_binding_dict)
+    TEST.policy_profile_binding.add(neutron.Profile(
+        policy_profile_binding_dict))
+
+    # ports on 4th network
+    port_dict = {'admin_state_up': True,
+                 'device_id': '9872faaa-b2b2-eeee-9911-21332eedaa77',
+                 'device_owner': 'network:dhcp',
+                 'fixed_ips': [{'ip_address': '11.10.0.3',
+                                'subnet_id':
+                                TEST.subnets.get(name="mysubnet4")['id']}],
+                 'id': 'a21dcd22-6733-cccc-aa32-22adafaf16a2',
+                 'mac_address': '78:22:ff:1a:ba:23',
+                 'name': 'port5',
+                 'network_id': TEST.networks.get(name="net4")['id'],
+                 'status': 'ACTIVE',
+                 'tenant_id': TEST.networks.get(name="net4")['tenant_id']}
+    TEST.api_ports.add(port_dict)
+    TEST.ports.add(neutron.Port(port_dict))
