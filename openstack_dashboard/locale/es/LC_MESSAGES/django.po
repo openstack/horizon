@@ -5,15 +5,15 @@
 # Translators:
 # cametiope <aldohcasa@hotmail.com>, 2014
 # egongu90 <dabarren@gmail.com>, 2014
-# Marian Tort <marian.tort@gmail.com>, 2014
+# Marian Tort <marian.tort@gmail.com>, 2014-2015
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-05 15:30-0600\n"
-"PO-Revision-Date: 2015-01-05 20:29+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-01-06 10:18-0600\n"
+"PO-Revision-Date: 2015-01-06 16:22+0000\n"
+"Last-Translator: Marian Tort <marian.tort@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -91,7 +91,7 @@ msgstr "Volumen de la RAM en MB"
 
 #: api/ceilometer.py:934
 msgid "Volume of RAM used in MB"
-msgstr ""
+msgstr "Volumen de la RAM en MB"
 
 #: api/ceilometer.py:938
 msgid "CPU time used"
@@ -136,7 +136,7 @@ msgstr ""
 
 #: api/ceilometer.py:978
 msgid "Average volume of writes in B per second"
-msgstr ""
+msgstr "Volumen medio de escrituras en B por segundo"
 
 #: api/ceilometer.py:982
 msgid "Size of root disk in GB"
@@ -342,7 +342,7 @@ msgstr "El servicio de identidad no permite editar datos de usuario."
 msgid "User %s has no role defined for that project."
 msgstr "El usuario %s no tiene roles definidos para ese proyecto."
 
-#: api/keystone.py:369 api/keystone.py:388
+#: api/keystone.py:369 api/keystone.py:390
 #: dashboards/settings/password/forms.py:65
 msgid "Password changed. Please log in again to continue."
 msgstr "Se ha cambiado la contraseña. Inicie sesión de nuevo para continuar."
@@ -1609,11 +1609,11 @@ msgstr "RAM (total)"
 
 #: dashboards/admin/hypervisors/tables.py:47
 msgid "Local Storage (used)"
-msgstr ""
+msgstr "Almacenamiento local (usado)"
 
 #: dashboards/admin/hypervisors/tables.py:52
 msgid "Local Storage (total)"
-msgstr ""
+msgstr "Almacenamiento local (total)"
 
 #: dashboards/admin/hypervisors/tables.py:70
 #: dashboards/project/databases/tables.py:263
@@ -1712,7 +1712,7 @@ msgstr "Razón"
 #: dashboards/admin/hypervisors/compute/forms.py:86
 #, python-format
 msgid "Disabled compute service for host: %s."
-msgstr ""
+msgstr "Deshabilitar el servicio de computación para el host %s."
 
 #: dashboards/admin/hypervisors/compute/forms.py:91
 #, python-format
@@ -1738,14 +1738,14 @@ msgstr "Deshabilitar servicio"
 #: dashboards/admin/hypervisors/compute/tables.py:63
 msgid "Enable Service"
 msgid_plural "Enable Services"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Habilitar servicio"
+msgstr[1] "Habilitar servicios"
 
 #: dashboards/admin/hypervisors/compute/tables.py:71
 msgid "Enabled Service"
 msgid_plural "Enabled Services"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Servicio habilitado"
+msgstr[1] "Servicios habilitados"
 
 #: dashboards/admin/hypervisors/compute/tables.py:95
 #: dashboards/admin/info/tables.py:96 dashboards/admin/info/tables.py:120
@@ -1866,11 +1866,11 @@ msgstr "Uso de memoria"
 
 #: dashboards/admin/hypervisors/templates/hypervisors/index.html:29
 msgid "Local Disk Usage"
-msgstr ""
+msgstr "Uso del disco local"
 
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_disable_service.html:18
 msgid "Disable the compute service."
-msgstr ""
+msgstr "Deshabilitar el servicio de computación."
 
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:18
 msgid ""
@@ -2347,7 +2347,7 @@ msgstr ""
 #: dashboards/admin/metadata_defs/templates/metadata_defs/index.html:3
 #: dashboards/admin/metadata_defs/templates/metadata_defs/index.html:6
 msgid "Metadata Definitions"
-msgstr ""
+msgstr "Definiciones de los metadatos"
 
 #: dashboards/admin/metadata_defs/tables.py:30
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:9
@@ -2369,7 +2369,7 @@ msgstr[1] ""
 
 #: dashboards/admin/metadata_defs/tables.py:69
 msgid "Update Associations"
-msgstr ""
+msgstr "Actualizar asociaciones"
 
 #: dashboards/admin/metadata_defs/tables.py:132
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:15
@@ -2456,7 +2456,7 @@ msgstr "Descripción "
 
 #: dashboards/admin/metadata_defs/tables.py:137
 msgid "Resource Types"
-msgstr ""
+msgstr "Tipos de recurso"
 
 #: dashboards/admin/metadata_defs/tables.py:165
 msgid "Namespaces"
@@ -2474,7 +2474,7 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/tabs.py:45
 msgid "Contents"
-msgstr ""
+msgstr "Contenidos"
 
 #: dashboards/admin/metadata_defs/tabs.py:57
 msgid "Unable to retrieve namespace contents."
@@ -2482,7 +2482,7 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/views.py:75
 msgid "Error getting metadata definitions."
-msgstr ""
+msgstr "Error al obtener las definiciones de metadatos."
 
 #: dashboards/admin/metadata_defs/views.py:127
 #: dashboards/admin/metadata_defs/views.py:145
@@ -2502,7 +2502,7 @@ msgstr ""
 msgid ""
 "Administrator Note: Use the following CLI command to import the default "
 "definitions into Glance: "
-msgstr ""
+msgstr "Nota del administrador: Utilizar el siguiente comando CLI para importar las definiciones predeterminadas a Glance:"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_contents.html:4
 msgid "Undefined"
@@ -2515,7 +2515,7 @@ msgstr "Info"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:10
 msgid "Display Name"
-msgstr ""
+msgstr "Mostrar nombre"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:11
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:13
@@ -2660,7 +2660,7 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:15
 msgid "Available Types"
-msgstr ""
+msgstr "Tipos disponibles"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:19
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_fields_help.html:3
@@ -2744,11 +2744,11 @@ msgstr "Hasta"
 
 #: dashboards/admin/metering/forms.py:48
 msgid "Must specify start of period"
-msgstr ""
+msgstr "Debe especificar el inicio del periodo"
 
 #: dashboards/admin/metering/forms.py:58
 msgid "Start must be earlier than end of period."
-msgstr ""
+msgstr "El inicio debe ser previo al final del periodo."
 
 #: dashboards/admin/metering/panel.py:20
 msgid "Resource Usage"
@@ -2784,7 +2784,7 @@ msgstr "Valor (medio)"
 
 #: dashboards/admin/metering/tables.py:55
 msgid "Daily Usage Report"
-msgstr ""
+msgstr "Informe de uso diario"
 
 #: dashboards/admin/metering/tabs.py:29
 msgid "Stats"
@@ -2849,11 +2849,11 @@ msgstr ""
 
 #: dashboards/admin/metering/templates/metering/_daily.html:19
 msgid "Select a pre-defined period or specify date."
-msgstr ""
+msgstr "Seleccionar un periodo predefinido o especificar una fecha."
 
 #: dashboards/admin/metering/templates/metering/_daily.html:24
 msgid "View Usage Report"
-msgstr ""
+msgstr "Ver informe de uso"
 
 #: dashboards/admin/metering/templates/metering/index.html:3
 #: dashboards/admin/metering/templates/metering/index.html:6
@@ -3610,7 +3610,7 @@ msgstr "Actualizar puerto"
 #: dashboards/admin/networks/templates/networks/subnets/index.html:6
 #: dashboards/project/networks/templates/networks/detail.html:3
 msgid "Network Details"
-msgstr ""
+msgstr "Detalles de la red"
 
 #: dashboards/admin/overview/views.py:34
 #: dashboards/project/overview/views.py:33
@@ -3815,7 +3815,7 @@ msgstr "No ha sido posible obtener los tipos de volúmenes."
 
 #: dashboards/admin/volumes/tabs.py:88
 msgid "Unable to retrieve volume type encryption information."
-msgstr ""
+msgstr "No ha sido posible obtener la información sobre la encriptación del tipo de volumen."
 
 #: dashboards/admin/volumes/tabs.py:109
 msgid "Unable to retrieve QoS specs"
@@ -3895,7 +3895,7 @@ msgstr "Vista general de la snapshot de volumen"
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:7
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:7
 msgid "Information"
-msgstr ""
+msgstr "Información"
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/instances/templates/instances/_detail_overview.html:142
@@ -4142,7 +4142,7 @@ msgstr "Crear un tipo de volumen"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_volume_type_encryption.html:3
 msgid "Create Encrypted Volume Type"
-msgstr ""
+msgstr "Crear tipo de volumen encriptado"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_volume_type_encryption.html:6
 msgid "Create an Encrypted Volume Type"
@@ -4151,7 +4151,7 @@ msgstr ""
 #: dashboards/admin/volumes/templates/volumes/volume_types/edit_qos_spec_consumer.html:3
 #: dashboards/admin/volumes/templates/volumes/volume_types/edit_qos_spec_consumer.html:6
 msgid "Edit QoS Spec Consumer"
-msgstr ""
+msgstr "Editar consumidor de especificaciones QoS"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/volume_encryption_type_detail.html:3
 #: dashboards/admin/volumes/templates/volumes/volume_types/volume_encryption_type_detail.html:6
@@ -4267,7 +4267,7 @@ msgstr "Detalles del volumen"
 #: dashboards/admin/volumes/volume_types/forms.py:51
 #, python-format
 msgid "Successfully created encryption for volume type: %s"
-msgstr ""
+msgstr "Se ha creado correctamente la encriptación de volumen: %s"
 
 #: dashboards/admin/volumes/volume_types/forms.py:56
 msgid "Unable to create encrypted volume type."
@@ -4322,29 +4322,29 @@ msgstr "Ver especif. adicionales"
 
 #: dashboards/admin/volumes/volume_types/tables.py:42
 msgid "Manage QoS Spec Association"
-msgstr ""
+msgstr "Gestion de las asociaciones de especificaciones QoS"
 
 #: dashboards/admin/volumes/volume_types/tables.py:53
 msgid "Delete Volume Type"
 msgid_plural "Delete Volume Types"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Eliminar tipo de volumen"
+msgstr[1] "Eliminar tipos de volumen"
 
 #: dashboards/admin/volumes/volume_types/tables.py:61
 msgid "Deleted Volume Type"
 msgid_plural "Deleted Volume Types"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tipo de volumen eliminado"
+msgstr[1] "Tipos de volumen eliminados"
 
 #: dashboards/admin/volumes/volume_types/tables.py:73
 msgid "Create Encryption"
-msgstr ""
+msgstr "Crear encriptacion"
 
 #: dashboards/admin/volumes/volume_types/tables.py:94
 msgid "Delete Encryption"
 msgid_plural "Delete Encryptions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Eliminar encriptación"
+msgstr[1] "Eliminar encriptaciones"
 
 #: dashboards/admin/volumes/volume_types/tables.py:102
 msgid "Deleted Encryption"

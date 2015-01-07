@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-05 15:30-0600\n"
-"PO-Revision-Date: 2015-01-06 05:10+0000\n"
+"POT-Creation-Date: 2015-01-06 10:18-0600\n"
+"PO-Revision-Date: 2015-01-07 06:00+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -342,7 +342,7 @@ msgstr "Identity Service ではユーザーデータの編集が許可されて�
 msgid "User %s has no role defined for that project."
 msgstr "ユーザー %s はこのプロジェクトではロールが定義されていません。"
 
-#: api/keystone.py:369 api/keystone.py:388
+#: api/keystone.py:369 api/keystone.py:390
 #: dashboards/settings/password/forms.py:65
 msgid "Password changed. Please log in again to continue."
 msgstr "パスワードが変更されました。続行するには、再度ログインしてください。"
@@ -3797,7 +3797,7 @@ msgstr "ボリューム種別を取得できません。"
 
 #: dashboards/admin/volumes/tabs.py:88
 msgid "Unable to retrieve volume type encryption information."
-msgstr ""
+msgstr "ボリューム種別の暗号化設定の情報を取得できません。"
 
 #: dashboards/admin/volumes/tabs.py:109
 msgid "Unable to retrieve QoS specs"
@@ -4026,41 +4026,41 @@ msgstr "\nボリューム種別は OpenStack でボリュームを作成する�
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:9
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:38
 msgid "Create Volume Type Encryption"
-msgstr ""
+msgstr "ボリューム種別の暗号化設定の作成"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:20
 msgid ""
 "Creating encryption for a volume type causes all volumes with that volume "
 "type to be encrypted.  Encryption information cannot be added to a volume "
 "type if volumes are currently in use with that volume type."
-msgstr ""
+msgstr "ボリューム種別の暗号化設定を作成すると、このボリューム種別のボリュームがすべて暗号化されます。このボリューム種別を現在使用しているボリュームがある場合は、暗号化情報はボリューム種別に追加できません。"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:23
 msgid ""
 "The <strong>Provider</strong> is the class providing encryption support "
 "(e.g. LuksEncryptor)."
-msgstr ""
+msgstr "<strong>プロバイダー</strong>は暗号化対応を提供するクラスです (例えば LuksEncryptor)。"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:26
 msgid ""
 "The <strong>Control Location</strong> is the notional service where "
 "encryption is performed (e.g., front-end=Nova). The default value is 'front-"
 "end.'"
-msgstr ""
+msgstr "<strong>制御場所</strong>は暗号化が実施される場所です (例えば、フロントエンドは Nova のことです)。デフォルト値は「フロントエンド」です。"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:29
 msgid ""
 "The <strong>Cipher</strong> is the encryption algorithm/mode to use (e.g., "
 "aes-xts-plain64). If the field is left empty, the provider default will be "
 "used."
-msgstr ""
+msgstr "<strong>暗号</strong>は使用する暗号化アルゴリズムとモードです (例えば aes-xts-plain64)。このフィールドを空欄にすると、プロバイダーのデフォルトが使用されます。"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:32
 msgid ""
 "The <strong>Key Size</strong> is the size of the encryption key, in bits "
 "(e.g., 128, 256). If the field is left empty, the provider default will be "
 "used."
-msgstr ""
+msgstr "<strong>キーサイズ</strong>は暗号鍵のビット単位のサイズです (例えば 128, 256)。このフィールドを空欄にすると、プロバイダーのデフォルトが使用されます。"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:9
 msgid "Edit Consumer of QoS Spec"
@@ -4081,7 +4081,7 @@ msgstr "使用者の変更"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:4
 msgid "Volume Type Encryption Overview"
-msgstr ""
+msgstr "ボリューム種別の暗号化設定の概要"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:13
 #: dashboards/admin/volumes/volume_types/forms.py:27
@@ -4099,7 +4099,7 @@ msgstr "制御場所"
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:17
 #: dashboards/admin/volumes/volume_types/forms.py:34
 msgid "Cipher"
-msgstr ""
+msgstr "暗号"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:19
 #: dashboards/admin/volumes/volume_types/forms.py:35
@@ -4108,7 +4108,7 @@ msgstr "キーサイズ (ビット)"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:25
 msgid "Volume Type is Unencrypted."
-msgstr ""
+msgstr "このボリューム種別は暗号化されません。"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/associate_qos_spec.html:3
 msgid "Associate QoS Spec"
@@ -4124,11 +4124,11 @@ msgstr "ボリューム種別の作成"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_volume_type_encryption.html:3
 msgid "Create Encrypted Volume Type"
-msgstr ""
+msgstr "ボリューム種別の暗号化設定の作成"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_volume_type_encryption.html:6
 msgid "Create an Encrypted Volume Type"
-msgstr ""
+msgstr "ボリューム種別の暗号化設定の作成"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/edit_qos_spec_consumer.html:3
 #: dashboards/admin/volumes/templates/volumes/volume_types/edit_qos_spec_consumer.html:6
@@ -4138,7 +4138,7 @@ msgstr "QoS スペックの使用者の編集"
 #: dashboards/admin/volumes/templates/volumes/volume_types/volume_encryption_type_detail.html:3
 #: dashboards/admin/volumes/templates/volumes/volume_types/volume_encryption_type_detail.html:6
 msgid "Volume Type Encryption Details"
-msgstr ""
+msgstr "ボリューム種別の暗号化設定の詳細"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:10
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/create.html:4
@@ -4249,11 +4249,11 @@ msgstr "ボリュームの詳細"
 #: dashboards/admin/volumes/volume_types/forms.py:51
 #, python-format
 msgid "Successfully created encryption for volume type: %s"
-msgstr ""
+msgstr "ボリューム種別の暗号化設定 %s を正常に作成しました。"
 
 #: dashboards/admin/volumes/volume_types/forms.py:56
 msgid "Unable to create encrypted volume type."
-msgstr ""
+msgstr "ボリューム種別の暗号化設定を作成できません。"
 
 #: dashboards/admin/volumes/volume_types/forms.py:62
 msgid "QoS Spec to be associated"
@@ -4318,21 +4318,21 @@ msgstr[0] "ボリューム種別を削除しました"
 
 #: dashboards/admin/volumes/volume_types/tables.py:73
 msgid "Create Encryption"
-msgstr ""
+msgstr "暗号化設定の作成"
 
 #: dashboards/admin/volumes/volume_types/tables.py:94
 msgid "Delete Encryption"
 msgid_plural "Delete Encryptions"
-msgstr[0] ""
+msgstr[0] "暗号化設定の削除"
 
 #: dashboards/admin/volumes/volume_types/tables.py:102
 msgid "Deleted Encryption"
 msgid_plural "Deleted Encryptions"
-msgstr[0] ""
+msgstr[0] "暗号化設定を削除しました"
 
 #: dashboards/admin/volumes/volume_types/tables.py:122
 msgid "Unable to determine if volume type encryption is supported."
-msgstr ""
+msgstr "ボリューム種別の暗号化設定に対応しているか確認できません。"
 
 #: dashboards/admin/volumes/volume_types/tables.py:139
 msgid "Associated QoS Spec"
@@ -4371,7 +4371,7 @@ msgstr "QoS スペック"
 
 #: dashboards/admin/volumes/volume_types/views.py:66
 msgid "Unable to retrieve volume type encryption details."
-msgstr ""
+msgstr "ボリューム種別の暗号化設定の詳細を取得できません。"
 
 #: dashboards/admin/volumes/volume_types/views.py:88
 msgid "Unable to retrieve volume type name."
@@ -5230,7 +5230,7 @@ msgstr "パスワードが一致しません。"
 #: dashboards/project/databases/workflows/create_instance.py:196
 #: dashboards/project/instances/forms.py:156
 msgid "Password"
-msgstr "パスワード設定中"
+msgstr "パスワード"
 
 #: dashboards/identity/users/forms.py:91
 #: dashboards/identity/users/forms.py:175

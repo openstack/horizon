@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Roeltje, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-05 15:30-0600\n"
-"PO-Revision-Date: 2015-01-05 20:29+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-01-06 10:18-0600\n"
+"PO-Revision-Date: 2015-01-06 12:10+0000\n"
+"Last-Translator: Roeltje\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/horizon/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -87,7 +88,7 @@ msgstr "Grootte van het werkgeheugen in MB"
 
 #: api/ceilometer.py:934
 msgid "Volume of RAM used in MB"
-msgstr ""
+msgstr "Grootte van het gebruikt werkgeheugen in MB"
 
 #: api/ceilometer.py:938
 msgid "CPU time used"
@@ -338,7 +339,7 @@ msgstr "Identiteitsdienst staat het bewerken van gebruikersgegevens niet toe."
 msgid "User %s has no role defined for that project."
 msgstr "Gebruiker %s kent geen gedefinieerde rol voor dat project."
 
-#: api/keystone.py:369 api/keystone.py:388
+#: api/keystone.py:369 api/keystone.py:390
 #: dashboards/settings/password/forms.py:65
 msgid "Password changed. Please log in again to continue."
 msgstr "Wachtwoord gewijzigd. Meldt u zich opnieuw aan om door te gaan."
@@ -1605,11 +1606,11 @@ msgstr "Werkgeheugen (totaal)"
 
 #: dashboards/admin/hypervisors/tables.py:47
 msgid "Local Storage (used)"
-msgstr ""
+msgstr "Locale Opslag (gebruikt)"
 
 #: dashboards/admin/hypervisors/tables.py:52
 msgid "Local Storage (total)"
-msgstr ""
+msgstr "Locale Opslag (totaal)"
 
 #: dashboards/admin/hypervisors/tables.py:70
 #: dashboards/project/databases/tables.py:263
@@ -1628,11 +1629,11 @@ msgstr "Exemplaar ID"
 
 #: dashboards/admin/hypervisors/tables.py:80
 msgid "Hypervisor Instances"
-msgstr "Hypervisor exemplaren"
+msgstr "Hypervisor Exemplaren"
 
 #: dashboards/admin/hypervisors/tabs.py:26
 msgid "Hypervisor"
-msgstr ""
+msgstr "Hypervisor"
 
 #: dashboards/admin/hypervisors/tabs.py:36
 #: dashboards/admin/hypervisors/views.py:40
@@ -1650,11 +1651,11 @@ msgstr "De lijst met hypervisor exemplaren kon niet worden opgehaald."
 #: dashboards/admin/hypervisors/compute/forms.py:25
 #: dashboards/admin/instances/forms.py:27
 msgid "Current Host"
-msgstr "Huidige gastheer"
+msgstr "Huidige Host"
 
 #: dashboards/admin/hypervisors/compute/forms.py:29
 msgid "Target Host"
-msgstr ""
+msgstr "Doelhost"
 
 #: dashboards/admin/hypervisors/compute/forms.py:30
 msgid "Choose a Host to evacuate servers to."
@@ -1662,16 +1663,16 @@ msgstr ""
 
 #: dashboards/admin/hypervisors/compute/forms.py:32
 msgid "Shared Storage"
-msgstr ""
+msgstr "Gedeelde Opslag"
 
 #: dashboards/admin/hypervisors/compute/forms.py:48
 msgid "Select a target host"
-msgstr ""
+msgstr "Selecteer een doelhost"
 
 #: dashboards/admin/hypervisors/compute/forms.py:50
 #: dashboards/admin/instances/forms.py:58
 msgid "No other hosts available."
-msgstr "Geen andere gastheren beschikbaar."
+msgstr "Geen andere host beschikbaar."
 
 #: dashboards/admin/hypervisors/compute/forms.py:61
 #, python-format
@@ -1703,7 +1704,7 @@ msgstr "Gastheer"
 
 #: dashboards/admin/hypervisors/compute/forms.py:77
 msgid "Reason"
-msgstr ""
+msgstr "Reden"
 
 #: dashboards/admin/hypervisors/compute/forms.py:86
 #, python-format
@@ -1729,19 +1730,19 @@ msgstr ""
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/disable_service.html:3
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/disable_service.html:6
 msgid "Disable Service"
-msgstr ""
+msgstr "Service Deactiveren"
 
 #: dashboards/admin/hypervisors/compute/tables.py:63
 msgid "Enable Service"
 msgid_plural "Enable Services"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Service Activeren"
+msgstr[1] "Services Activeren"
 
 #: dashboards/admin/hypervisors/compute/tables.py:71
 msgid "Enabled Service"
 msgid_plural "Enabled Services"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Service Geactiveerd"
+msgstr[1] "Services Geactiveerd"
 
 #: dashboards/admin/hypervisors/compute/tables.py:95
 #: dashboards/admin/info/tables.py:96 dashboards/admin/info/tables.py:120
@@ -1862,7 +1863,7 @@ msgstr "Geheugenverbruik"
 
 #: dashboards/admin/hypervisors/templates/hypervisors/index.html:29
 msgid "Local Disk Usage"
-msgstr ""
+msgstr "Locaal Schijfverbruik"
 
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_disable_service.html:18
 msgid "Disable the compute service."
@@ -1889,25 +1890,25 @@ msgstr "Afbeeldingen"
 
 #: dashboards/admin/images/tables.py:61
 msgid "Image Name ="
-msgstr ""
+msgstr "Afbeeldingsnaam ="
 
 #: dashboards/admin/images/tables.py:62
 #: dashboards/admin/instances/tables.py:98
 #: dashboards/project/instances/tables.py:946
 msgid "Status ="
-msgstr ""
+msgstr "Statuus ="
 
 #: dashboards/admin/images/tables.py:63
 msgid "Format ="
-msgstr ""
+msgstr "Formaat ="
 
 #: dashboards/admin/images/tables.py:64
 msgid "Min. Size (MB)"
-msgstr ""
+msgstr "Min. Grootte (MB)"
 
 #: dashboards/admin/images/tables.py:65
 msgid "Max. Size (MB)"
-msgstr ""
+msgstr "Max. grootte (MB)"
 
 #: dashboards/admin/images/tables.py:71
 #: dashboards/admin/instances/tables.py:130
@@ -1984,20 +1985,20 @@ msgstr "Afbeelding bijwerken"
 #: dashboards/admin/images/templates/images/_update.html:19
 #: dashboards/project/images/templates/images/images/_update.html:12
 msgid "Edit the image details."
-msgstr ""
+msgstr "Pas de details van de afbeelding aan."
 
 #: dashboards/admin/images/templates/images/_update_metadata.html:4
 #: dashboards/admin/images/templates/images/_update_metadata.html:7
 #: dashboards/admin/images/templates/images/update_metadata.html:3
 #: dashboards/admin/images/templates/images/update_metadata.html:6
 msgid "Update Image Metadata"
-msgstr ""
+msgstr "Update Afbeeldings-metadata"
 
 #: dashboards/admin/info/panel.py:27
 #: dashboards/admin/info/templates/info/index.html:3
 #: dashboards/admin/info/templates/info/index.html:6
 msgid "System Information"
-msgstr ""
+msgstr "Systeeminformatie"
 
 #: dashboards/admin/info/tables.py:26 dashboards/admin/info/tables.py:156
 #: dashboards/admin/networks/agents/tables.py:79
@@ -2046,7 +2047,7 @@ msgstr "Rekendiensten"
 
 #: dashboards/admin/info/tables.py:137 dashboards/admin/info/tabs.py:64
 msgid "Block Storage Services"
-msgstr ""
+msgstr "Blokkeer Opslagservices"
 
 #: dashboards/admin/info/tables.py:163
 #: dashboards/admin/networks/agents/tables.py:85
@@ -2081,7 +2082,7 @@ msgstr ""
 #: dashboards/admin/info/templates/info/_cell_status.html:4
 #, python-format
 msgid "Reason: %(disabled_reason)s"
-msgstr ""
+msgstr "Reden: %(disabled_reason)s"
 
 #: dashboards/admin/info/templates/info/index.html:14
 #, python-format
@@ -2092,11 +2093,11 @@ msgstr ""
 
 #: dashboards/admin/instances/forms.py:31
 msgid "New Host"
-msgstr "Nieuwe gastheer"
+msgstr "Nieuwe Host"
 
 #: dashboards/admin/instances/forms.py:32
 msgid "Choose a Host to migrate to."
-msgstr "Kies een gastheer om naar te verplaatsen."
+msgstr "Kies een Host om naar te verplaatsen."
 
 #: dashboards/admin/instances/forms.py:33
 msgid "Disk Over Commit"
@@ -2108,7 +2109,7 @@ msgstr "Blokmigratie"
 
 #: dashboards/admin/instances/forms.py:56
 msgid "Select a new host"
-msgstr "Selecteer een nieuwe gastheer"
+msgstr "Selecteer een nieuwe host"
 
 #: dashboards/admin/instances/forms.py:70
 #, python-format
@@ -2158,20 +2159,20 @@ msgstr "Project"
 
 #: dashboards/admin/instances/tables.py:94
 msgid "Host ="
-msgstr ""
+msgstr "Host ="
 
 #: dashboards/admin/instances/tables.py:96
 msgid "IPv4 Address ="
-msgstr ""
+msgstr "IPv4 Adres ="
 
 #: dashboards/admin/instances/tables.py:97
 msgid "IPv6 Address ="
-msgstr ""
+msgstr "IPv6 Adres ="
 
 #: dashboards/admin/instances/tables.py:99
 #: dashboards/project/instances/tables.py:947
 msgid "Image ID ="
-msgstr ""
+msgstr "Afbeelding ID ="
 
 #: dashboards/admin/instances/tables.py:100
 #: dashboards/project/instances/tables.py:948
@@ -2185,7 +2186,7 @@ msgstr ""
 #: dashboards/project/instances/tables.py:971
 #: dashboards/project/loadbalancers/tables.py:302
 msgid "IP Address"
-msgstr "IP adres"
+msgstr "IP Adres"
 
 #: dashboards/admin/instances/tables.py:135
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:33
@@ -2257,7 +2258,7 @@ msgstr "Niet in staat om de details van het exemplaar op te halen."
 #: dashboards/admin/instances/templates/instances/live_migrate.html:3
 #: dashboards/admin/instances/templates/instances/live_migrate.html:6
 msgid "Live Migrate"
-msgstr "Live verplaatsen"
+msgstr "Live Verplaatsen"
 
 #: dashboards/admin/instances/templates/instances/_live_migrate.html:18
 msgid "Live migrate an instance to a specific host."
@@ -2265,7 +2266,7 @@ msgstr ""
 
 #: dashboards/admin/instances/templates/instances/index.html:6
 msgid "All Instances"
-msgstr "Alle exemplaren"
+msgstr "Alle Exemplaren"
 
 #: dashboards/admin/metadata_defs/forms.py:38
 msgid "Namespace Definition Source"
@@ -2281,7 +2282,7 @@ msgstr ""
 #: dashboards/project/instances/workflows/create_instance.py:620
 #: dashboards/project/stacks/forms.py:58
 msgid "Direct Input"
-msgstr "Directe invoer"
+msgstr "Directe Invoer"
 
 #: dashboards/admin/metadata_defs/forms.py:47
 msgid "A local metadata definition file to upload."
@@ -2343,7 +2344,7 @@ msgstr ""
 #: dashboards/admin/metadata_defs/templates/metadata_defs/index.html:3
 #: dashboards/admin/metadata_defs/templates/metadata_defs/index.html:6
 msgid "Metadata Definitions"
-msgstr ""
+msgstr "Metadata Definities"
 
 #: dashboards/admin/metadata_defs/tables.py:30
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:9
@@ -2456,7 +2457,7 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/tables.py:165
 msgid "Namespaces"
-msgstr ""
+msgstr "Naamplaatsen"
 
 #: dashboards/admin/metadata_defs/tabs.py:26
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:3
@@ -2470,7 +2471,7 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/tabs.py:45
 msgid "Contents"
-msgstr ""
+msgstr "Inhouden"
 
 #: dashboards/admin/metadata_defs/tabs.py:57
 msgid "Unable to retrieve namespace contents."
@@ -2502,7 +2503,7 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_contents.html:4
 msgid "Undefined"
-msgstr ""
+msgstr "Onbepaald"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:7
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:8
@@ -2511,7 +2512,7 @@ msgstr "Informatie"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:10
 msgid "Display Name"
-msgstr ""
+msgstr "Naam Weergeven"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:11
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:13
@@ -2568,7 +2569,7 @@ msgstr "Geen"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:12
 msgid "Namespace"
-msgstr ""
+msgstr "Naamplaats"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:22
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:35
@@ -2625,7 +2626,7 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:39
 msgid "Prefix: "
-msgstr ""
+msgstr "Voorvoegsel:"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:42
 msgid "Properties Target: "
@@ -2656,7 +2657,7 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:15
 msgid "Available Types"
-msgstr ""
+msgstr "Beschikbare Types"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:19
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_fields_help.html:3
@@ -2755,7 +2756,7 @@ msgstr "Middelenverbruik"
 #: dashboards/admin/metering/templates/metering/daily.html:3
 #: dashboards/admin/metering/templates/metering/daily.html:6
 msgid "Modify Usage Report Parameters"
-msgstr ""
+msgstr "Pas Gebruiksrapport Parameters Aan"
 
 #: dashboards/admin/metering/tables.py:34 usage/tables.py:25
 msgid "Download CSV Summary"
@@ -2780,7 +2781,7 @@ msgstr "Waarde (Gem)"
 
 #: dashboards/admin/metering/tables.py:55
 msgid "Daily Usage Report"
-msgstr ""
+msgstr "Dagelijks Gebruiksrapport"
 
 #: dashboards/admin/metering/tabs.py:29
 msgid "Stats"
@@ -2820,7 +2821,7 @@ msgstr "Kwapi"
 
 #: dashboards/admin/metering/tabs.py:80 dashboards/admin/metering/views.py:120
 msgid "Dates cannot be recognized."
-msgstr ""
+msgstr "Datum wordt niet herkent."
 
 #: dashboards/admin/metering/tabs.py:88 dashboards/admin/metering/views.py:202
 #: dashboards/admin/overview/views.py:65
@@ -2837,7 +2838,7 @@ msgstr "Projectnaam"
 
 #: dashboards/admin/metering/views.py:161
 msgid "Time"
-msgstr ""
+msgstr "Tijd"
 
 #: dashboards/admin/metering/views.py:194
 msgid "Dates cannot be recognised."
@@ -2886,7 +2887,7 @@ msgstr "Energie (Kwapi)"
 
 #: dashboards/admin/metering/templates/metering/stats.html:79
 msgid "Group by:"
-msgstr ""
+msgstr "Groeperen bij:"
 
 #: dashboards/admin/metering/templates/metering/stats.html:83
 msgid "--"
@@ -2894,7 +2895,7 @@ msgstr "--"
 
 #: dashboards/admin/metering/templates/metering/stats.html:89
 msgid "Value:"
-msgstr ""
+msgstr "Waarde:"
 
 #: dashboards/admin/metering/templates/metering/stats.html:94
 msgid "Avg."
@@ -2918,11 +2919,11 @@ msgstr ""
 
 #: dashboards/admin/metering/templates/metering/stats.html:117
 msgid "From:"
-msgstr ""
+msgstr "Van:"
 
 #: dashboards/admin/metering/templates/metering/stats.html:124
 msgid "To:"
-msgstr ""
+msgstr "Naar:"
 
 #: dashboards/admin/metering/templates/metering/stats.html:136
 msgid "Statistics of all resources"
@@ -2930,11 +2931,11 @@ msgstr "Statistieken van alle middelen"
 
 #: dashboards/admin/networks/forms.py:29
 msgid "Local"
-msgstr ""
+msgstr "Locaal"
 
 #: dashboards/admin/networks/forms.py:29
 msgid "Flat"
-msgstr ""
+msgstr "Plat"
 
 #: dashboards/admin/networks/forms.py:30
 #: dashboards/router/nexus1000v/forms.py:49
@@ -2944,7 +2945,7 @@ msgstr "VLAN"
 
 #: dashboards/admin/networks/forms.py:30
 msgid "GRE"
-msgstr ""
+msgstr "GRE"
 
 #: dashboards/admin/networks/forms.py:31
 msgid "VXLAN"
@@ -3004,7 +3005,7 @@ msgstr "Segment ID"
 #: dashboards/project/vpn/forms.py:261 dashboards/project/vpn/workflows.py:31
 #: dashboards/project/vpn/workflows.py:417
 msgid "UP"
-msgstr ""
+msgstr "OMHOOG"
 
 #: dashboards/admin/networks/forms.py:78
 #: dashboards/admin/networks/forms.py:237
@@ -3026,7 +3027,7 @@ msgstr ""
 #: dashboards/project/vpn/forms.py:262 dashboards/project/vpn/workflows.py:32
 #: dashboards/project/vpn/workflows.py:418
 msgid "DOWN"
-msgstr ""
+msgstr "OMLAAG"
 
 #: dashboards/admin/networks/forms.py:79
 #: dashboards/admin/networks/forms.py:238
@@ -3173,15 +3174,15 @@ msgstr "Netwerken"
 #: dashboards/project/networks/tables.py:49
 msgid "Delete Network"
 msgid_plural "Delete Networks"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Netwerk Verwijderen"
+msgstr[1] "Netwerken Verwijderen"
 
 #: dashboards/admin/networks/tables.py:46
 #: dashboards/project/networks/tables.py:57
 msgid "Deleted Network"
 msgid_plural "Deleted Networks"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Netwerk Verwijderd"
+msgstr[1] "Netwerken Verwijderd"
 
 #: dashboards/admin/networks/tables.py:57
 #: dashboards/project/networks/tables.py:79
@@ -3216,7 +3217,7 @@ msgstr "Netwerk bewerken"
 #: dashboards/project/networks/tables.py:146
 msgctxt "Admin state of a Network"
 msgid "UP"
-msgstr ""
+msgstr "OMHOOG"
 
 #: dashboards/admin/networks/tables.py:88
 #: dashboards/admin/networks/ports/tables.py:92
@@ -3224,7 +3225,7 @@ msgstr ""
 #: dashboards/project/networks/tables.py:147
 msgctxt "Admin state of a Network"
 msgid "DOWN"
-msgstr ""
+msgstr "OMLAAG"
 
 #: dashboards/admin/networks/tables.py:94
 #: dashboards/admin/networks/agents/forms.py:32
@@ -3241,7 +3242,7 @@ msgstr "Gekoppelde subnetten"
 #: dashboards/admin/networks/tables.py:99
 #: dashboards/admin/networks/agents/tables.py:101
 msgid "DHCP Agents"
-msgstr ""
+msgstr "DHCP Agenten"
 
 #: dashboards/admin/networks/views.py:76
 #: dashboards/project/networks/views.py:52
@@ -3274,7 +3275,7 @@ msgstr "Niet in staat om de details voor netwerk \"%s\" op te halen."
 
 #: dashboards/admin/networks/agents/forms.py:36
 msgid "New DHCP Agent"
-msgstr ""
+msgstr "Nieuw DHCP Agent"
 
 #: dashboards/admin/networks/agents/forms.py:37
 msgid "Choose an DHCP Agent to attach to."
@@ -3282,11 +3283,11 @@ msgstr ""
 
 #: dashboards/admin/networks/agents/forms.py:55
 msgid "Select a new agent"
-msgstr ""
+msgstr "Selecteer een nieuw agent"
 
 #: dashboards/admin/networks/agents/forms.py:57
 msgid "No other agents available."
-msgstr ""
+msgstr "Geen andere agenten beschikbaar."
 
 #: dashboards/admin/networks/agents/forms.py:74
 #, python-format
@@ -3296,24 +3297,24 @@ msgstr ""
 #: dashboards/admin/networks/agents/forms.py:80
 #, python-format
 msgid "Failed to add agent %(agent_name)s for network %(network)s."
-msgstr ""
+msgstr "Mislukt om agent %(agent_name)s toe te voegen voor netwerk %(network)s."
 
 #: dashboards/admin/networks/agents/tables.py:36
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "DHCP Agent Verwijderen"
+msgstr[1] "DHCP Agenten Verwijderen"
 
 #: dashboards/admin/networks/agents/tables.py:44
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "DHCP Agent Verwijderd"
+msgstr[1] "DHCP Agenten Verwijderd"
 
 #: dashboards/admin/networks/agents/tables.py:57
 #, python-format
 msgid "Failed to delete agent: %s"
-msgstr ""
+msgstr "Mislukt om agent te verwijderen: %s"
 
 #: dashboards/admin/networks/agents/tables.py:66
 #: dashboards/admin/networks/templates/networks/agents/_add.html:9
@@ -3321,7 +3322,7 @@ msgstr ""
 #: dashboards/admin/networks/templates/networks/agents/add.html:3
 #: dashboards/admin/networks/templates/networks/agents/add.html:6
 msgid "Add DHCP Agent"
-msgstr ""
+msgstr "Voeg DHCP Agent Toe"
 
 #: dashboards/admin/networks/agents/views.py:56
 #: dashboards/admin/networks/ports/views.py:48
@@ -3392,14 +3393,14 @@ msgstr "Bijwerken van poort %s mislukt"
 #: dashboards/admin/networks/ports/tables.py:37
 msgid "Delete Port"
 msgid_plural "Delete Ports"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Poort Verwijderen"
+msgstr[1] "Poorten Verwijderen"
 
 #: dashboards/admin/networks/ports/tables.py:45
 msgid "Deleted Port"
 msgid_plural "Deleted Ports"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Poorten Verwijderd"
+msgstr[1] "Poorten Verwijderd"
 
 #: dashboards/admin/networks/ports/tables.py:56
 #, python-format
@@ -3606,7 +3607,7 @@ msgstr "Poort bijwerken"
 #: dashboards/admin/networks/templates/networks/subnets/index.html:6
 #: dashboards/project/networks/templates/networks/detail.html:3
 msgid "Network Details"
-msgstr ""
+msgstr "Netwerk Details"
 
 #: dashboards/admin/overview/views.py:34
 #: dashboards/project/overview/views.py:33
@@ -3625,7 +3626,7 @@ msgstr "Verwijderd"
 #: dashboards/admin/overview/templates/overview/usage.csv:1
 #: dashboards/project/overview/templates/overview/usage.csv:1
 msgid "Usage Report For Period"
-msgstr "Verbruiksrapport voor periode"
+msgstr "Verbruiksrapport Voor Periode"
 
 #: dashboards/admin/overview/templates/overview/usage.csv:2
 #: dashboards/project/overview/templates/overview/usage.csv:3
@@ -3645,20 +3646,20 @@ msgstr "Totaal Actieve RAM (MB)"
 #: dashboards/admin/overview/templates/overview/usage.csv:5
 #: dashboards/project/overview/templates/overview/usage.csv:6
 msgid "Total Disk Size (GB)"
-msgstr ""
+msgstr "Totale Schijfgrootte (GB)"
 
 #: dashboards/admin/overview/templates/overview/usage.csv:6
 #: dashboards/project/overview/templates/overview/usage.csv:7
 msgid "Total Disk Usage (Hours)"
-msgstr ""
+msgstr "Totaal Schijfverbruik (uren)"
 
 #: dashboards/admin/overview/templates/overview/usage.html:3
 msgid "Usage Overview"
-msgstr "Verbruiks overzicht"
+msgstr "Verbruiks-overzicht"
 
 #: dashboards/admin/overview/templates/overview/usage.html:12
 msgid "Monitoring:"
-msgstr ""
+msgstr "Monitoren:"
 
 #: dashboards/admin/routers/panel.py:24 dashboards/admin/routers/tables.py:46
 #: dashboards/admin/routers/templates/routers/index.html:3
@@ -3774,7 +3775,7 @@ msgstr ""
 #: dashboards/project/routers/tables.py:105
 #: dashboards/project/routers/templates/routers/_update.html:8
 msgid "Edit Router"
-msgstr ""
+msgstr "Router Aanpassen"
 
 #: dashboards/admin/routers/templates/routers/_update.html:18
 #: dashboards/project/routers/templates/routers/_update.html:18
@@ -3793,7 +3794,7 @@ msgstr "Routerdetails"
 #: dashboards/project/routers/templates/routers/update.html:3
 #: dashboards/project/routers/templates/routers/update.html:6
 msgid "Update Router"
-msgstr ""
+msgstr "Router Vernieuwen"
 
 #: dashboards/admin/volumes/tabs.py:53 dashboards/admin/volumes/tabs.py:141
 #: dashboards/admin/volumes/snapshots/tables.py:52
@@ -3825,22 +3826,22 @@ msgstr "Niet in staat om de momentopnamen van het volume op te halen."
 #: dashboards/admin/volumes/snapshots/forms.py:25
 #: dashboards/admin/volumes/volumes/forms.py:55
 msgid "Creating"
-msgstr ""
+msgstr "Aanmaken"
 
 #: dashboards/admin/volumes/snapshots/forms.py:26
 #: dashboards/admin/volumes/volumes/forms.py:56
 msgid "Deleting"
-msgstr ""
+msgstr "Verwijderen"
 
 #: dashboards/admin/volumes/snapshots/forms.py:27
 #: dashboards/admin/volumes/volumes/forms.py:58
 msgid "Error"
-msgstr ""
+msgstr "Fout"
 
 #: dashboards/admin/volumes/snapshots/forms.py:28
 #: dashboards/admin/volumes/volumes/forms.py:59
 msgid "Error Deleting"
-msgstr ""
+msgstr "Fout Verwijderen"
 
 #: dashboards/admin/volumes/snapshots/forms.py:43
 #, python-format
@@ -3891,7 +3892,7 @@ msgstr "Volume momentopname overzicht"
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:7
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:7
 msgid "Information"
-msgstr ""
+msgstr "Informatie"
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/instances/templates/instances/_detail_overview.html:142
@@ -4091,7 +4092,7 @@ msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:28
 msgid "Modify Consumer"
-msgstr ""
+msgstr "Pas Verbruiker Aan"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:4
 msgid "Volume Type Encryption Overview"
@@ -4118,7 +4119,7 @@ msgstr ""
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:19
 #: dashboards/admin/volumes/volume_types/forms.py:35
 msgid "Key Size (bits)"
-msgstr ""
+msgstr "Sleutelgrootte (bits)"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:25
 msgid "Volume Type is Unencrypted."
@@ -4474,7 +4475,7 @@ msgstr "Bewerken"
 
 #: dashboards/admin/volumes/volume_types/extras/tables.py:74
 msgid "Extra Specs"
-msgstr "Extra specificaties"
+msgstr "Extra Specificaties"
 
 #: dashboards/admin/volumes/volume_types/extras/views.py:55
 msgid "Unable to retrieve extra spec list."
@@ -5599,7 +5600,7 @@ msgstr "Omlaag"
 #: dashboards/project/access_and_security/floating_ips/tables.py:181
 msgctxt "Current status of a Floating IP"
 msgid "Error"
-msgstr ""
+msgstr "Fout"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:196
 msgid "Mapped Fixed IP Address"
@@ -6602,7 +6603,7 @@ msgstr ""
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:22
 #: dashboards/project/stacks/tabs.py:143
 msgid "Template"
-msgstr ""
+msgstr "Sjabloon"
 
 #: dashboards/project/data_processing/cluster_templates/forms.py:57
 msgid "Unable to upload cluster template file"
@@ -6611,14 +6612,14 @@ msgstr ""
 #: dashboards/project/data_processing/cluster_templates/panel.py:22
 #: dashboards/project/data_processing/cluster_templates/tables.py:124
 msgid "Cluster Templates"
-msgstr ""
+msgstr "Cluster Sjabloon"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:31
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_upload_file.html:11
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/upload_file.html:3
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/upload_file.html:6
 msgid "Upload Template"
-msgstr ""
+msgstr "Sjabloon Vernieuwen"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:39
 #: dashboards/project/data_processing/clusters/tables.py:33
@@ -6632,31 +6633,31 @@ msgstr ""
 #: dashboards/project/data_processing/clusters/workflows/create.py:54
 #: dashboards/project/data_processing/clusters/workflows/create.py:201
 msgid "Launch Cluster"
-msgstr ""
+msgstr "Cluster Starten"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:55
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:47
 msgid "Copy Template"
-msgstr ""
+msgstr "Sjabloon Kopiëren"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:64
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:56
 msgid "Delete Template"
 msgid_plural "Delete Templates"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Sjablonen Verwijderen"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:72
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:64
 msgid "Deleted Template"
 msgid_plural "Deleted Templates"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Sjablonen Verwijderd"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:83
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:28
 msgid "Create Template"
-msgstr ""
+msgstr "Creër Sjabloon"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:92
 msgid "Configure Cluster Template"
@@ -6672,7 +6673,7 @@ msgstr ""
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:6
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:30
 msgid "Plugin"
-msgstr ""
+msgstr "Plug-in"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:114
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:8
@@ -6686,7 +6687,7 @@ msgstr ""
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:32
 #: dashboards/project/data_processing/utils/workflow_helpers.py:175
 msgid "Version"
-msgstr ""
+msgstr "Versie"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:116
 #: dashboards/project/data_processing/cluster_templates/tabs.py:48
@@ -6705,7 +6706,7 @@ msgstr ""
 #: dashboards/project/data_processing/jobs/tabs.py:26
 #: dashboards/project/data_processing/nodegroup_templates/tabs.py:30
 msgid "General Info"
-msgstr ""
+msgstr "Algemene Info"
 
 #: dashboards/project/data_processing/cluster_templates/tabs.py:43
 msgid "Unable to fetch cluster template details."
@@ -6752,7 +6753,7 @@ msgstr ""
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:3
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:3
 msgid "Template Overview"
-msgstr ""
+msgstr "Sjabloon Overzicht"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:20
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:46
@@ -6849,7 +6850,7 @@ msgstr ""
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_upload_file.html:22
 #: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:40
 msgid "Upload"
-msgstr ""
+msgstr "Uploaden"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_node_groups_template.html:95
 msgid "Select a Node Group Template to add:"
@@ -6893,7 +6894,7 @@ msgstr ""
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:53
 #: dashboards/project/data_processing/jobs/workflows/launch.py:354
 msgid "Plugin name"
-msgstr ""
+msgstr "Plug-in Naam"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:69
 msgid "Select plugin and hadoop version for cluster template"
@@ -6903,12 +6904,12 @@ msgstr ""
 #: dashboards/project/data_processing/jobs/workflows/launch.py:408
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:321
 msgid "Could not create"
-msgstr ""
+msgstr "Kan niet aanmaken"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:97
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:37
 msgid "Template Name"
-msgstr ""
+msgstr "Sjabloon Naam"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:138
 #: dashboards/project/data_processing/data_plugins/tabs.py:26
@@ -6932,7 +6933,7 @@ msgstr ""
 #: dashboards/project/data_processing/clusters/panel.py:22
 #: dashboards/project/data_processing/clusters/tables.py:117
 msgid "Clusters"
-msgstr ""
+msgstr "Clusters"
 
 #: dashboards/project/data_processing/clusters/tables.py:41
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/scale.html:3
@@ -6945,13 +6946,13 @@ msgstr ""
 msgid "Delete Cluster"
 msgid_plural "Delete Clusters"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Clusters Verwijderen"
 
 #: dashboards/project/data_processing/clusters/tables.py:61
 msgid "Deleted Cluster"
 msgid_plural "Deleted Clusters"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Clusters Verwijderd"
 
 #: dashboards/project/data_processing/clusters/tables.py:81
 #: dashboards/project/data_processing/job_executions/tables.py:117
@@ -6962,11 +6963,11 @@ msgstr ""
 #: dashboards/project/data_processing/clusters/workflows/create.py:183
 #: dashboards/project/data_processing/jobs/workflows/launch.py:312
 msgid "Configure Cluster"
-msgstr ""
+msgstr "Configureer Cluster"
 
 #: dashboards/project/data_processing/clusters/tables.py:113
 msgid "Instances Count"
-msgstr ""
+msgstr "Exemplaren Tel"
 
 #: dashboards/project/data_processing/clusters/tabs.py:111
 msgid "Unable to get node group details."
@@ -6974,7 +6975,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/clusters/tabs.py:137
 msgid "Internal IP"
-msgstr ""
+msgstr "Interne IP"
 
 #: dashboards/project/data_processing/clusters/tabs.py:140
 msgid "Management IP"
@@ -7012,7 +7013,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_create_cluster.html:21
 msgid " Done"
-msgstr ""
+msgstr "Klaar"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_create_general_help.html:3
 msgid "Select a plugin and version for a new Cluster."
@@ -7020,16 +7021,16 @@ msgstr ""
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:3
 msgid "Cluster Overview"
-msgstr ""
+msgstr "Cluster Overzicht"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:17
 msgid "Error Details"
-msgstr ""
+msgstr "Foutendetails"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:36
 #: dashboards/project/data_processing/clusters/workflows/create.py:79
 msgid "Base Image"
-msgstr ""
+msgstr "Basisafbeelding"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:39
 #: dashboards/project/data_processing/clusters/workflows/create.py:95
@@ -7048,7 +7049,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_instances_details.html:2
 msgid "Cluster Instances"
-msgstr ""
+msgstr "Cluster Exemplaren"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:10
 #, python-format
@@ -7072,7 +7073,7 @@ msgstr ""
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/details.html:3
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/details.html:6
 msgid "Cluster Details"
-msgstr ""
+msgstr "Cluster Details"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:43
 #: dashboards/project/data_processing/jobs/workflows/launch.py:394
@@ -7081,11 +7082,11 @@ msgstr ""
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:71
 msgid "Cluster Name"
-msgstr ""
+msgstr "Cluster Naam"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:76
 msgid "Cluster Template"
-msgstr ""
+msgstr "Cluster Sjabloon"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:84
 msgid "Which keypair to use for authentication."
@@ -7105,7 +7106,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:140
 msgid "No keypair"
-msgstr ""
+msgstr "Geen Sleutelpaar"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:156
 msgid "No Templates Available"
@@ -7114,15 +7115,15 @@ msgstr ""
 #: dashboards/project/data_processing/clusters/workflows/create.py:203
 #, python-format
 msgid "Created Cluster %s"
-msgstr ""
+msgstr "Creër Cluster %s"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:235
 msgid "Unable to create the cluster"
-msgstr ""
+msgstr "Niet in staat om de cluster te creëren"
 
 #: dashboards/project/data_processing/clusters/workflows/scale.py:43
 msgid "Scale"
-msgstr ""
+msgstr "Schaal"
 
 #: dashboards/project/data_processing/clusters/workflows/scale.py:50
 msgid "Scaled cluster successfully started."
@@ -7142,7 +7143,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/data_image_registry/forms.py:45
 msgid "Successfully updated image."
-msgstr ""
+msgstr "Afbeelding succesvol bijgewerkt."
 
 #: dashboards/project/data_processing/data_image_registry/forms.py:50
 msgid "Failed to update image."
@@ -7183,7 +7184,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/data_image_registry/tables.py:30
 msgid "Edit Tags"
-msgstr ""
+msgstr "Tags Bewerken"
 
 #: dashboards/project/data_processing/data_image_registry/tables.py:44
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_register_image.html:10
@@ -7206,7 +7207,7 @@ msgstr[1] ""
 
 #: dashboards/project/data_processing/data_image_registry/tables.py:77
 msgid "Tags"
-msgstr ""
+msgstr "Tags"
 
 #: dashboards/project/data_processing/data_image_registry/views.py:47
 msgid "Unable to retrieve image list"
@@ -7225,12 +7226,12 @@ msgstr ""
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/edit_tags.html:3
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/edit_tags.html:6
 msgid "Edit Image Tags"
-msgstr ""
+msgstr "Afbeeldingstags Bewerken"
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_edit_tags.html:27
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_register_image.html:25
 msgid "Done"
-msgstr ""
+msgstr "Klaar"
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:3
 msgid "Image Registry tool:"
@@ -7278,17 +7279,17 @@ msgstr ""
 #: dashboards/project/data_processing/data_plugins/panel.py:22
 #: dashboards/project/data_processing/data_plugins/tables.py:40
 msgid "Plugins"
-msgstr ""
+msgstr "Plug-ins"
 
 #: dashboards/project/data_processing/data_plugins/tables.py:26
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:11
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 #: dashboards/project/data_processing/data_plugins/tables.py:31
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:15
 msgid "Supported Versions"
-msgstr ""
+msgstr "Ondersteunde Versies"
 
 #: dashboards/project/data_processing/data_plugins/tabs.py:39
 msgid "Unable to retrieve plugin."
@@ -7315,7 +7316,7 @@ msgstr ""
 #: dashboards/project/data_processing/data_sources/tables.py:67
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/data_sources.html:6
 msgid "Data Sources"
-msgstr ""
+msgstr "Databronnen"
 
 #: dashboards/project/data_processing/data_sources/tables.py:28
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/create.html:3
@@ -7323,7 +7324,7 @@ msgstr ""
 #: dashboards/project/data_processing/data_sources/workflows/create.py:54
 #: dashboards/project/data_processing/data_sources/workflows/create.py:78
 msgid "Create Data Source"
-msgstr ""
+msgstr "Creër Databron"
 
 #: dashboards/project/data_processing/data_sources/tables.py:38
 msgid "Delete Data Source"
@@ -7339,7 +7340,7 @@ msgstr[1] ""
 
 #: dashboards/project/data_processing/data_sources/tabs.py:38
 msgid "Unable to retrieve data source details"
-msgstr ""
+msgstr "Niet in staat om de datbrondetails op te halen"
 
 #: dashboards/project/data_processing/data_sources/views.py:45
 #: dashboards/project/data_processing/jobs/workflows/launch.py:75
@@ -7364,7 +7365,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:2
 msgid "Data Source Overview"
-msgstr ""
+msgstr "Databron Overzicht"
 
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:11
 #: dashboards/project/data_processing/data_sources/workflows/create.py:35
@@ -7381,7 +7382,7 @@ msgstr "URL"
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:13
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:24
 msgid "Create time"
-msgstr ""
+msgstr "Creër Tijd"
 
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/details.html:3
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/details.html:6
@@ -7418,19 +7419,19 @@ msgstr ""
 
 #: dashboards/project/data_processing/job_binaries/forms.py:58
 msgid "Upload File"
-msgstr ""
+msgstr "Bestand Uploaden"
 
 #: dashboards/project/data_processing/job_binaries/forms.py:61
 msgid "Script name"
-msgstr ""
+msgstr "Scriptnaam"
 
 #: dashboards/project/data_processing/job_binaries/forms.py:64
 msgid "Script text"
-msgstr ""
+msgstr "Script-tekst"
 
 #: dashboards/project/data_processing/job_binaries/forms.py:69
 msgid "Username"
-msgstr ""
+msgstr "Gebruikersnaam"
 
 #: dashboards/project/data_processing/job_binaries/forms.py:99
 msgid "Failed to get list of internal binaries."
@@ -7518,11 +7519,11 @@ msgstr ""
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:17
 msgid "Choose an existing file"
-msgstr ""
+msgstr "Kies een bestaand bestand"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:18
 msgid "Upload a new file"
-msgstr ""
+msgstr "Nieuw bestand uploaden"
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:19
 msgid "Create a script to be uploaded dynamically"
@@ -7609,13 +7610,13 @@ msgstr ""
 #: dashboards/project/data_processing/jobs/workflows/launch.py:97
 #: dashboards/project/data_processing/jobs/workflows/launch.py:122
 msgid "Job"
-msgstr ""
+msgstr "Job"
 
 #: dashboards/project/data_processing/job_executions/tables.py:153
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:16
 #: dashboards/project/data_processing/jobs/workflows/launch.py:104
 msgid "Cluster"
-msgstr ""
+msgstr "Cluster"
 
 #: dashboards/project/data_processing/job_executions/views.py:43
 msgid "Unable to fetch job executions."
@@ -8159,11 +8160,11 @@ msgstr ""
 
 #: dashboards/project/data_processing/utils/workflow_helpers.py:115
 msgid "Count"
-msgstr ""
+msgstr "Tel"
 
 #: dashboards/project/data_processing/utils/workflow_helpers.py:168
 msgid "Plugin Name"
-msgstr ""
+msgstr "Plug-in Naam"
 
 #: dashboards/project/database_backups/panel.py:23
 #: dashboards/project/database_backups/tables.py:167
@@ -8232,7 +8233,7 @@ msgstr ""
 #: dashboards/project/database_backups/tables.py:155
 #: dashboards/project/databases/tables.py:337
 msgid "Incremental"
-msgstr ""
+msgstr "Stapsgewijs"
 
 #: dashboards/project/database_backups/views.py:48
 msgid "Not Found"
@@ -8276,7 +8277,7 @@ msgstr "Database archiveren"
 
 #: dashboards/project/database_backups/templates/database_backups/details.html:3
 msgid "Backup Details"
-msgstr ""
+msgstr "Archiefdetails"
 
 #: dashboards/project/database_backups/templates/database_backups/details.html:12
 msgid "Backup Overview"
@@ -8296,7 +8297,7 @@ msgstr "Archiveringsduur"
 
 #: dashboards/project/database_backups/templates/database_backups/details.html:47
 msgid "Incremental Backup"
-msgstr ""
+msgstr "Stapsgewijs Archief"
 
 #: dashboards/project/database_backups/templates/database_backups/details.html:50
 #: dashboards/project/database_backups/workflows/create_backup.py:38
@@ -8338,7 +8339,7 @@ msgstr ""
 #: dashboards/project/database_backups/workflows/create_backup.py:71
 #: dashboards/project/databases/workflows/create_instance.py:247
 msgid "No backups available"
-msgstr ""
+msgstr "Geen Archief Beschikbaar"
 
 #: dashboards/project/database_backups/workflows/create_backup.py:83
 #: dashboards/project/databases/workflows/create_instance.py:227
@@ -8370,12 +8371,12 @@ msgstr "Fout bij het creeeren van database archief."
 #: dashboards/project/databases/forms.py:28
 #: dashboards/project/volumes/volumes/forms.py:613
 msgid "Current Size (GB)"
-msgstr ""
+msgstr "Huidige Grootte (GB)"
 
 #: dashboards/project/databases/forms.py:32
 #: dashboards/project/volumes/volumes/forms.py:617
 msgid "New Size (GB)"
-msgstr ""
+msgstr "Nieuwe Grootte (GB)"
 
 #: dashboards/project/databases/forms.py:39
 msgid "New size for volume must be greater than current size."
@@ -8517,7 +8518,7 @@ msgstr "Volumegrootte"
 
 #: dashboards/project/databases/tables.py:297
 msgid "Allowed Host"
-msgstr ""
+msgstr "Toegestane Host"
 
 #: dashboards/project/databases/tables.py:298
 #: dashboards/project/databases/tables.py:315
@@ -8535,15 +8536,15 @@ msgstr "Archiefbestand"
 
 #: dashboards/project/databases/tabs.py:63
 msgid "Unable to get user data."
-msgstr ""
+msgstr "Niet in staat om gebruikersdata te ontvangen."
 
 #: dashboards/project/databases/tabs.py:90
 msgid "Unable to get databases data."
-msgstr ""
+msgstr "Niet in staat om database data te ontvangen."
 
 #: dashboards/project/databases/tabs.py:115
 msgid "Unable to get database backup data."
-msgstr ""
+msgstr "Niet in staat om database archief data te ontvangen."
 
 #: dashboards/project/databases/views.py:58
 msgid "Unable to retrieve database size information."
@@ -8601,17 +8602,17 @@ msgstr "Verbindingsvoorbeelden"
 #: dashboards/project/databases/templates/databases/_detail_overview_mysql.html:18
 #: dashboards/project/databases/templates/databases/_detail_overview_mysql.html:19
 msgid "USERNAME"
-msgstr ""
+msgstr "GEBRUIKERSNAAM"
 
 #: dashboards/project/databases/templates/databases/_detail_overview_mongodb.html:19
 #: dashboards/project/databases/templates/databases/_detail_overview_mysql.html:19
 msgid "PASSWORD"
-msgstr ""
+msgstr "WACHTWOORD"
 
 #: dashboards/project/databases/templates/databases/_detail_overview_mongodb.html:19
 #: dashboards/project/databases/templates/databases/_detail_overview_mysql.html:19
 msgid "DATABASE"
-msgstr ""
+msgstr "DATABASE"
 
 #: dashboards/project/databases/templates/databases/_launch_details_help.html:3
 #: dashboards/project/instances/templates/instances/_launch_details_help.html:5
@@ -8657,7 +8658,7 @@ msgstr "Wachtwoord (vereist)"
 #: dashboards/project/databases/templates/databases/_launch_initialize_help.html:14
 #: dashboards/project/databases/workflows/create_instance.py:198
 msgid "Allowed Host (optional)"
-msgstr ""
+msgstr "Toegestane Host (optioneel)"
 
 #: dashboards/project/databases/templates/databases/_launch_initialize_help.html:15
 msgid ""
@@ -8678,7 +8679,7 @@ msgstr ""
 #: dashboards/project/databases/templates/databases/_launch_networks.html:8
 #: dashboards/project/instances/templates/instances/_update_networks.html:8
 msgid "Selected networks"
-msgstr ""
+msgstr "Geselecteerde netwerken"
 
 #: dashboards/project/databases/templates/databases/_launch_networks.html:11
 #: dashboards/project/instances/templates/instances/_update_networks.html:11
@@ -8812,7 +8813,7 @@ msgstr "Herstel vanuit archief"
 
 #: dashboards/project/databases/workflows/create_instance.py:245
 msgid "Select backup"
-msgstr ""
+msgstr "Selecteer archief"
 
 #: dashboards/project/databases/workflows/create_instance.py:260
 msgid "Unable to find backup!"
@@ -9039,7 +9040,7 @@ msgstr[1] ""
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Beleiden Verwijderen"
 
 #: dashboards/project/firewalls/tables.py:86
 msgid "Scheduled deletion of Policy"
@@ -9051,7 +9052,7 @@ msgstr[1] ""
 msgid "Delete Firewall"
 msgid_plural "Delete Firewalls"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Firewalls Verwijderen"
 
 #: dashboards/project/firewalls/tables.py:109
 msgid "Scheduled deletion of Firewall"
@@ -9947,7 +9948,7 @@ msgstr "Gepauzeerd"
 #: dashboards/project/instances/tables.py:825
 msgctxt "Current status of an Instance"
 msgid "Error"
-msgstr ""
+msgstr "Fout"
 
 #: dashboards/project/instances/tables.py:827
 msgctxt "Current status of an Instance"
@@ -10188,7 +10189,7 @@ msgstr ""
 #: dashboards/project/instances/tables.py:914
 msgctxt "Task status of an Instance"
 msgid "Deleting"
-msgstr ""
+msgstr "Verwijderen"
 
 #: dashboards/project/instances/tables.py:916
 msgctxt "Task status of an Instance"
@@ -12070,13 +12071,13 @@ msgstr "Ontkoppeld"
 #: dashboards/project/routers/ports/tables.py:94
 msgctxt "Admin state of a Port"
 msgid "UP"
-msgstr ""
+msgstr "OMHOOG"
 
 #: dashboards/project/networks/ports/tables.py:56
 #: dashboards/project/routers/ports/tables.py:95
 msgctxt "Admin state of a Port"
 msgid "DOWN"
-msgstr ""
+msgstr "OMLAAG"
 
 #: dashboards/project/networks/ports/tables.py:65
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:40
