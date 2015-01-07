@@ -81,7 +81,7 @@
 <br><br><br><br><br><br><br>
 
 <br/><br/><br/><br/><br/><br/><br/>
-<!-- ADD MEMBERS -->
+<!-- ADD MEMBERS MODAL -->
 
 <div class="add-members">
   <div class="all-users">
@@ -92,8 +92,10 @@
     <div class="list-group">
       <a class="list-group-item">
         <img alt="User" class="avatar" src="{{ STATIC_URL }}dashboard/img/logos/small/user.png">
-        <div class="name">name of user</div>
-        <i class="fa fa-plus"></i>
+        <div class="data">
+          <div class="name">name of user</div>
+          <i class="fa fa-plus"></i>
+        </div>
       </a>
     </div>
   </div>
@@ -102,20 +104,35 @@
       <h4>Members</h4>
       <input type="text" class="form-control" placeholder="filter">
     </header>
-    <div class="list-group">
-      <a class="list-group-item">
+    <ul class="list-group">
+      <li class="list-group-item">
         <img alt="User" class="avatar" src="{{ STATIC_URL }}dashboard/img/logos/small/user.png">
-        <div class="name">name of user</div>
-        
-        <i class="fa fa-close"></i>
-      </a>
-    </div>
+        <div class="data">
+          <div class="name">name of user</div>    
+          <i class="fa fa-close"></i>
+          <div class="dropdown">
+            <a id="drop4" href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="true">
+              3 roles
+              <span class="fa fa-chevron-down"></span>
+            </a>
+            <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Action</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Another action</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Something else here</a></li>
+              <li role="presentation" class="divider"></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Separated link</a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
 </div>
 
 
-<br/><br/><br/><br/><br/><br/><br/>
+<br><br><br><br><br><br><br>
 
+<br/><br/><br/><br/><br/><br/><br/>
 
 <div class="presentation">
   <section class="media">

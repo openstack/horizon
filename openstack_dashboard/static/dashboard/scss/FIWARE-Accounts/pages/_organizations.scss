@@ -102,6 +102,9 @@
   @include make-sm-column(12, $gutter: $grid-gutter-width);
   @include make-md-column(12, $gutter: $grid-gutter-width);
   @include make-lg-column(12, $gutter: $grid-gutter-width);
+  .all-users{
+    border-right: 1px solid;
+  }
   .all-users,
   .members-list{
     @media (max-width: $screen-sm-min){
@@ -109,9 +112,11 @@
       padding-right: 0;
     }
     header{
-      min-height: 26px;
+      min-height: 28px;
+      margin-bottom: 10px;
       h4{
         display: inline;
+        line-height: 31px;
       }
       .form-control{
         width: 165px;
@@ -120,9 +125,19 @@
         height: 27px;
       }
     }
+    .data{padding-top: 8px;
+      .dropdown{
+        float: right;
+        display: inline-block;
+        margin-right: 20px;
+      }               
+    }
+    .name{display: inline;}
     .fa-plus,
     .fa-close{
       float: right;
+      display: inline-block;
+      padding-top: 4px;
     } 
   }
 }
