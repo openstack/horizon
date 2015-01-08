@@ -42,7 +42,7 @@ class BaseTestCase(testtools.TestCase):
 
     def tearDown(self):
         if os.environ.get('INTEGRATION_TESTS', False):
-            self.driver.close()
+            self.driver.quit()
         if hasattr(self, 'vdisplay'):
             self.vdisplay.stop()
         super(BaseTestCase, self).tearDown()
@@ -62,9 +62,12 @@ class TestCase(BaseTestCase):
         self.home_pg = self.login_pg.login()
 
     def tearDown(self):
-        self.home_pg.go_to_home_page()
-        self.home_pg.log_out()
-        super(TestCase, self).tearDown()
+        try:
+            if self.home_pg.is_logged_in:
+                self.home_pg.go_to_home_page()
+                self.home_pg.log_out()
+        finally:
+            super(TestCase, self).tearDown()
 
 
 class AdminTestCase(BaseTestCase):
@@ -77,5 +80,8 @@ class AdminTestCase(BaseTestCase):
             password=self.conf.identity.admin_password)
 
     def tearDown(self):
-        self.home_pg.log_out()
-        super(AdminTestCase, self).tearDown()
+        try:
+            if self.home_pg.is_logged_in:
+                self.home_pg.log_out()
+        finally:
+            super(AdminTestCase, self).tearDown()
