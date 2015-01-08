@@ -197,9 +197,11 @@ horizon.addInitFunction(horizon.forms.init = function () {
   horizon.forms.handle_object_upload_source();
   horizon.forms.datepicker();
 
-  horizon.forms.add_password_fields_reveal_buttons($("body"));
-  horizon.modals.addModalInitFunction(
-    horizon.forms.add_password_fields_reveal_buttons);
+  if (!horizon.conf.disable_password_reveal) {
+    horizon.forms.add_password_fields_reveal_buttons($("body"));
+    horizon.modals.addModalInitFunction(
+      horizon.forms.add_password_fields_reveal_buttons);
+  }
 
   // Bind event handlers to confirm dangerous actions.
   $("body").on("click", "form button.btn-danger", function (evt) {

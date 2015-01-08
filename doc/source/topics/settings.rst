@@ -182,6 +182,16 @@ element, do not close the modal after clicking outside of it) and ``"static"``
 (show backdrop element outside the modal, do not close the modal after
 clicking on backdrop).
 
+``disable_password_reveal``
+---------------------------
+
+.. versionadded:: 2015.1(Kilo)
+
+Default: ``False``
+
+Setting this to True will disable the reveal button for password fields,
+including on the login form.
+
 ``password_validator``
 ----------------------
 

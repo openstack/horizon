@@ -42,6 +42,7 @@ angular.module('hz')
       fade_duration: {{ HORIZON_CONFIG.auto_fade_alerts.fade_duration|default:"1500" }},
       types: {{ HORIZON_CONFIG.auto_fade_alerts.types|default:"[]"|safe }}
     };
+    hzConfig.disable_password_reveal = {{ HORIZON_CONFIG.disable_password_reveal|yesno:"true,false" }};
 }]);
 
 </script>
