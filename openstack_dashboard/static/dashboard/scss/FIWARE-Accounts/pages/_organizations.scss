@@ -23,6 +23,32 @@
 }
 #detailOrganization {
   margin-top: 8px;
+  #members{
+    margin-left: -1%;
+    margin-right: -1%;
+    a.list-group-item{
+      width: 44%;
+      display: inline-table;
+      margin-left: 1%;
+      margin-right: 1%;
+      @media (max-width: $screen-xs-min){
+        width: 98%;
+      }
+      &:first-child{
+        border-top: 1px solid $border-color;
+        @media (max-width: $screen-xs-min){
+          border-top: 0;
+        }
+      }
+      &:last-child{
+        border-bottom: 1px solid $border-color;
+        @media (max-width: $screen-xs-min){
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+
 }
 #detailApplication{ 
   margin-top: 13px;
@@ -56,4 +82,72 @@
   .sortable{
     @extend .data;
   }
+}
+
+.extra{
+  .panel-title{
+    a{
+      color: $brand-primary;
+    }
+  }
+  .panel-heading {
+    padding: 0;
+    margin-bottom: 7px;
+    border-bottom: 1px solid #D5D5D5;
+    color: $brand-secundary;
+  }
+}
+
+.add-members{
+  @include make-sm-column(12, $gutter: $grid-gutter-width);
+  @include make-md-column(12, $gutter: $grid-gutter-width);
+  @include make-lg-column(12, $gutter: $grid-gutter-width);
+  .all-users{
+    border-right: 1px solid;
+  }
+  .all-users,
+  .members-list{
+    @media (max-width: $screen-sm-min){
+      padding-left: 0;
+      padding-right: 0;
+    }
+    header{
+      min-height: 28px;
+      margin-bottom: 10px;
+      h4{
+        display: inline;
+        line-height: 31px;
+      }
+      .form-control{
+        width: 165px;
+        display: inline-block;
+        float: right;
+        height: 27px;
+      }
+    }
+    .data{padding-top: 8px;
+      .dropdown{
+        float: right;
+        display: inline-block;
+        margin-right: 20px;
+      }               
+    }
+    .name{display: inline;}
+    .fa-plus,
+    .fa-close{
+      float: right;
+      display: inline-block;
+      padding-top: 4px;
+    } 
+  }
+}
+.all-users{
+  @include make-sm-column(4, $gutter: $grid-gutter-width);
+  @include make-md-column(4, $gutter: $grid-gutter-width);
+  @include make-lg-column(4, $gutter: $grid-gutter-width);
+} 
+.members-list{
+  @include make-sm-column(8, $gutter: $grid-gutter-width);
+  @include make-md-column(8, $gutter: $grid-gutter-width);
+  @include make-lg-column(8, $gutter: $grid-gutter-width);
 }

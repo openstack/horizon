@@ -21,15 +21,15 @@
         <div class="panel-footer">
             <a href="/idm/myApplications/">View All</a>
         </div>
-    </div>
-    <div class="panel panel-default tenants">
+    </div> {# TODO(garcianavalon) change this to organizations #}
+    <div class="panel panel-default tenants"> 
         <div class="panel-heading">
-            {{ tenants_table }}
+            {{ organizations_table }}
             <a href="/idm/organizations/create/">Create</a>
         </div>    
       
         <div class="panel-body">
-            {{ tenants_table.render}}
+            {{ organizations_table.render}}
         </div>
 
         <div class="panel-footer">

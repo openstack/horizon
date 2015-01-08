@@ -1,3 +1,5 @@
+# Copyright (C) 2014 Universidad Politecnica de Madrid
+#
 # Licensed under the Apache License, Version 2.0 (the "License"); you may
 # not use this file except in compliance with the License. You may obtain
 # a copy of the License at
@@ -9,6 +11,7 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
+
 
 from django.utils.translation import ugettext_lazy as _
     
@@ -45,31 +48,27 @@ class CreateOrganization(tables.LinkAction):
         return base_url
 
 
-class TenantsTable(tables.DataTable):
+class OrganizationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
    
     clickable = True
     switch = True
     show_avatar = True
     class Meta:
-        name = "tenants"
+        name = "organizations"
         verbose_name = _("Organizations")
-        pagination_param = "tenant_marker"
         table_actions = (CreateOrganization, GoToOrganizationTable,)
         multi_select = False
-    
 
 class ApplicationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
-    url = tables.Column(lambda obj: obj.extra['url'])
+    url = tables.Column(lambda obj: getattr(obj, 'url', None))
     
     clickable = True
     show_avatar = True
     class Meta:
         name = "applications"
         verbose_name = _("Applications")
-        pagination_param = "tenant_marker"
         table_actions = (GoToApplicationsTable,)
         multi_select = False
-        
         

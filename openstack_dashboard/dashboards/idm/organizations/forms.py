@@ -1,24 +1,19 @@
-# Copyright 2012 United States Government as represented by the
-# Administrator of the National Aeronautics and Space Administration.
-# All Rights Reserved.
+# Copyright (C) 2014 Universidad Politecnica de Madrid
 #
-# Copyright 2012 OpenStack Foundation
-# Copyright 2012 Nebula, Inc.
+# Licensed under the Apache License, Version 2.0 (the "License"); you may
+# not use this file except in compliance with the License. You may obtain
+# a copy of the License at
 #
-#    Licensed under the Apache License, Version 2.0 (the "License"); you may
-#    not use this file except in compliance with the License. You may obtain
-#    a copy of the License at
+#      http://www.apache.org/licenses/LICENSE-2.0
 #
-#         http://www.apache.org/licenses/LICENSE-2.0
-#
-#    Unless required by applicable law or agreed to in writing, software
-#    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-#    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-#    License for the specific language governing permissions and limitations
-#    under the License.
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+
 import os
 import logging
-
 
 from django import shortcuts
 from django.conf import settings
@@ -31,18 +26,16 @@ from horizon import forms
 from horizon import messages
 from horizon.utils import functions as utils
 from openstack_dashboard import api
-
-from PIL import Image
+from openstack_dashboard.dashboards.idm import forms as idm_forms
 
 LOG = logging.getLogger('idm_logger')
-
 AVATAR = settings.MEDIA_ROOT+"/"+"OrganizationAvatar/"
 
 class CreateOrganizationForm(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), max_length=64, required=True)
-    description = forms.CharField(label=_("Description"), widget=forms.widgets.Textarea, required=True)
-    enabled = forms.BooleanField(label=_("Enabled"), required=False, initial=True, widget=forms.HiddenInput())
-    
+    description = forms.CharField(label=_("Description"), 
+                                widget=forms.widgets.Textarea, 
+                                required=True)
 
     def handle(self, request, data):
         #create organization
@@ -51,12 +44,11 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
             img = "/static/dashboard/img/logos/small/group.png" 
             city = ""
             email = ""
-            website = ""       
-            desc = data['description']
+            website = ""
             self.object = api.keystone.tenant_create(request,
                                                 name=data['name'],
-                                                description=desc,
-                                                enabled=data['enabled'],
+                                                description=data['description'],
+                                                enabled=True,
                                                 domain=default_domain,
                                                 img=img,
                                                 city=city,
@@ -83,8 +75,7 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
                 LOG.debug(msg)
                 raise exceptions.NotFound(msg)
         except Exception as e:
-            exceptions.handle(self.request, 
-                                e.error,
+            exceptions.handle(self.request,
                                 redirect=reverse('horizon:idm:organizations:index'))
             return False
         try:
@@ -105,13 +96,21 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
 
 class InfoForm(forms.SelfHandlingForm):
     orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
-    name = forms.CharField(label=_("Name"), max_length=64, required=False)
-    description = forms.CharField(label=_("Description"), widget=forms.widgets.Textarea, required=False)
+    name = forms.CharField(label=_("Name"), max_length=64, required=True)
+    description = forms.CharField(label=_("Description"), 
+                                widget=forms.widgets.Textarea, 
+                                required=True)
     city = forms.CharField(label=_("City"), max_length=64, required=False)
+    title = 'Information'
 
     def handle(self, request, data):
         try:
-            api.keystone.tenant_update(request, data['orgID'], name=data['name'], description=data['description'], city=data['city'])
+            api.keystone.tenant_update(request, 
+                                    data['orgID'], 
+                                    name=data['name'], 
+                                    description=data['description'], 
+                                    city=data['city'])
+
             LOG.debug('Organization {0} updated'.format(data['orgID']))
             messages.success(request, _("Organization updated successfully."))
             response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])
@@ -124,59 +123,48 @@ class ContactForm(forms.SelfHandlingForm):
     orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
     email = forms.EmailField(label=_("E-mail"), required=False)
     website = forms.URLField(label=_("Website"), required=False)
+    title = 'Contact Information'
 
     def handle(self, request, data):
-        api.keystone.tenant_update(request, data['orgID'], email=data['email'], website=data['website'])
+        api.keystone.tenant_update(request, 
+                                data['orgID'], 
+                                email=data['email'], 
+                                website=data['website'])
         LOG.debug('Organization {0} updated'.format(data['orgID']))
         messages.success(request, _("Organization updated successfully."))
         response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])
         return response
 
-class AvatarForm(forms.SelfHandlingForm):
+
+class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
     orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
     image = forms.ImageField(required=False)
-    x1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
-    y1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
-    x2 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
-    y2 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
+    title = 'Avatar Update'
 
     def handle(self, request, data):
         if request.FILES:
-
-            x1 = self.cleaned_data['x1'] 
-            x2 = self.cleaned_data['x2']
-            y1 = self.cleaned_data['y1']
-            y2 = self.cleaned_data['y2']
-                    
             image = request.FILES['image'] 
-
-            img = Image.open(image)
-
-            x1 = int(x1)
-            x2 = int(x2)
-            y1 = int(y1)
-            y2 = int(y2)
-
-            output_img = img.crop((x1, y1, x2, y2))
+            output_img = self.crop(image)
+            
             imageName = self.data['orgID']
         
             output_img.save(settings.MEDIA_ROOT + "/" + "OrganizationAvatar/" + imageName, 'JPEG')
-            organization = api.keystone.tenant_get(request, data['orgID'])
-            img=settings.MEDIA_URL+'OrganizationAvatar/'+imageName
+            
+            img = settings.MEDIA_URL+'OrganizationAvatar/'+imageName
             api.keystone.tenant_update(request, data['orgID'], img=img)
-            LOG.debug('Organization {0} image updated'.format(organization.id))
+
+            LOG.debug('Organization {0} image updated'.format(data['orgID']))
             messages.success(request, _("Organization updated successfully."))
 
         response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])
         return response
-        
+
+             
 class CancelForm(forms.SelfHandlingForm):
     orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
-    name = forms.CharField(label=_("Name"), widget=forms.HiddenInput(), required=False)
-
-    def handle(self, request, data):
-        
-        organization = api.keystone.tenant_get(request, data['orgID'])
+    title = 'Cancel'
+    
+    def handle(self, request, data, organization):
         image = organization.img
         if "OrganizationAvatar" in image:
             os.remove(AVATAR + organization.id)
@@ -186,7 +174,3 @@ class CancelForm(forms.SelfHandlingForm):
         messages.success(request, _("Organization deleted successfully."))
         response = shortcuts.redirect('horizon:idm:organizations:index')
         return response
-
-
-       
-

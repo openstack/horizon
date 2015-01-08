@@ -1,3 +1,139 @@
+<!-- ROLES AND PERMISSIONS TEMPLATES -->
+
+<div class="site-client-roles">
+  <section id="relation_list" class="relation_list">
+    <header>
+      <h4>Roles</h4>
+      <button class="btn" data-toggle="modal" data-target="#new-roleModal"><i class="fa fa-plus"></i></button>
+    </header>
+
+    <div class="btn-group-vertical" data-toggle="buttons">
+      <label class="btn btn-default active">
+        <input type="radio" class="disabled" name="options" id="option1" autocomplete="off"> role 1 (default)
+      </label>
+      <label class="btn btn-default">
+        <input type="radio" name="options" id="option2" autocomplete="off"> role 2
+      </label>
+      <label class="btn btn-default">
+        <input type="radio" name="options" id="option3" autocomplete="off"> role 3
+        <i class="fa fa-close"></i>
+        <i class="fa fa-edit"></i>
+      </label>
+      <label class="btn btn-default edit">
+        <input type="text" name="options" id="editoption3" autocomplete="off" placeholder="role 3">
+        <i class="fa fa-check"></i>
+      </label>
+    </div>
+
+    <div class="modal fade" id="new-roleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          </div>
+          <div class="modal-body form-group" role="tabpanel">    
+            rere
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="permissions_list" class="permissions_list">
+    <header>
+      <h4>Permissions</h4>
+      <button class="btn" data-toggle="modal" data-target="#new-permissionModal"><i class="fa fa-plus"></i></button>
+    </header>
+    <div class="btn-group-vertical" data-toggle="buttons">
+      <label class="btn btn-default disabled">
+        <i class="fa fa-check"></i>
+        <input type="checkbox" autocomplete="off"> permission 1
+      </label>
+      <hr>
+      <label class="btn btn-default active">
+        <i class="fa fa-check"></i>
+        <input type="checkbox" autocomplete="off"> permission 2
+      </label>
+      <hr>
+      <label class="btn btn-default">
+        <i class="fa fa-check" style="display:none"></i>
+        <input type="checkbox" autocomplete="off"> permission 3
+      </label>
+    </div>
+
+    <div class="modal fade" id="new-permissionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          </div>
+          <div class="modal-body form-group" role="tabpanel">            
+            rere
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<br><br><br><br><br><br><br>
+
+<br/><br/><br/><br/><br/><br/><br/>
+<!-- ADD MEMBERS MODAL -->
+
+<div class="add-members">
+  <div class="all-users">
+    <header>
+      <h4>All users</h4>
+      <input type="text" class="form-control" placeholder="filter">
+    </header>
+    <div class="list-group">
+      <a class="list-group-item">
+        <img alt="User" class="avatar" src="{{ STATIC_URL }}dashboard/img/logos/small/user.png">
+        <div class="data">
+          <div class="name">name of user</div>
+          <i class="fa fa-plus"></i>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="members-list">
+    <header>
+      <h4>Members</h4>
+      <input type="text" class="form-control" placeholder="filter">
+    </header>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <img alt="User" class="avatar" src="{{ STATIC_URL }}dashboard/img/logos/small/user.png">
+        <div class="data">
+          <div class="name">name of user</div>    
+          <i class="fa fa-close"></i>
+          <div class="dropdown">
+            <a id="drop4" href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="true">
+              3 roles
+              <span class="fa fa-chevron-down"></span>
+            </a>
+            <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Action</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Another action</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Something else here</a></li>
+              <li role="presentation" class="divider"></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Separated link</a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<br><br><br><br><br><br><br>
+
+<br/><br/><br/><br/><br/><br/><br/>
+
 <div class="presentation">
   <section class="media">
     <h3 class="media-heading">

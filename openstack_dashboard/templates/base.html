@@ -27,7 +27,6 @@
 
       <div id="container" class="container-fluid wrap">
         <div id='main_content' class="wrap">
-          {% include "horizon/_messages.html" %}
           {% block sidebar %}
             {% include 'horizon/common/_sidebar.html' %}
           {% endblock %}
@@ -37,6 +36,7 @@
           </div>
         </div>
       </div>
+      {% include "horizon/_messages.html" %}
     {% endblock %}
     <div id="footer">
       {% block footer %}{% endblock %}

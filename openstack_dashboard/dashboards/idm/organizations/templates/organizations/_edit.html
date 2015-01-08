@@ -1,9 +1,6 @@
-
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
 {% load url from future %}
-
-
 
 {% block form_class %}{% endblock %}
 {% block form_action %}{{form.action}}{% endblock %}
@@ -20,6 +17,13 @@
 <div>
 	<img id="avatar-update" src="{{ image }}" alt="your image"   />
 </div>
+{% elif form.title == ' ' %}
+<a class="modal-header panel-title" data-toggle="collapse" data-parent="#accordion" href="#destroy_organization" class="panel-heading">
+    <h3>
+      Are you sure you want to delete the organization?
+    </h3>
+</a>
+
 {% endif %}
 <div >
   <fieldset>
@@ -30,11 +34,19 @@
 
 
 {% block modal-footer %}
-{% if form.title == 'Cancel'%}
-    <button type="submit" class="btn btn-primary">{% trans "Delete Organization" %} </button>
+
+{% if form.title == ' '%}
+<div id="destroy_organization" class="panel-collapse collapse">
+
+    <button type="submit" class="btn btn-danger">{% trans "Delete Organization" %} </button>
+
+</div>  
+
 {% else %}
 <button type="submit" class="btn btn-primary">{% trans "Update Organization" %} </button>
 {% endif %}
+
+
     
 {% endblock %}
 
