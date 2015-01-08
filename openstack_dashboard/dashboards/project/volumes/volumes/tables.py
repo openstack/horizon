@@ -354,7 +354,9 @@ class VolumesTable(VolumesTableBase):
                              verbose_name=_("Bootable"),
                              filters=(filters.yesno, filters.capfirst))
     encryption = tables.Column(get_encrypted_value,
-                               verbose_name=_("Encrypted"))
+                               verbose_name=_("Encrypted"),
+                               link="horizon:project:volumes:"
+                                    "volumes:encryption_detail")
 
     class Meta:
         name = "volumes"

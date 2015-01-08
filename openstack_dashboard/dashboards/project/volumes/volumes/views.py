@@ -19,6 +19,7 @@ Views for managing volumes.
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
+from django.views import generic
 
 from horizon import exceptions
 from horizon import forms
@@ -319,3 +320,48 @@ class RetypeView(forms.ModalFormView):
         return {'id': self.kwargs['volume_id'],
                 'name': volume.name,
                 'volume_type': volume.volume_type}
+
+
+class EncryptionDetailView(generic.TemplateView):
+    template_name = 'project/volumes/volumes/encryption_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(EncryptionDetailView, self).get_context_data(**kwargs)
+        volume = self.get_volume_data()
+        context["encryption_metadata"] = self.get_encryption_data()
+        context["volume"] = volume
+        context["page_title"] = _("Volume Encryption Details: "
+                                  "%(volume_name)s") % {'volume_name':
+                                                        volume.name}
+        return context
+
+    @memoized.memoized_method
+    def get_encryption_data(self):
+        if not hasattr(self, "_encryption_metadata"):
+            try:
+                volume_id = self.kwargs['volume_id']
+                self._encryption_metadata = \
+                    cinder.volume_get_encryption_metadata(self.request,
+                                                          volume_id)
+            except Exception:
+                redirect = self.get_redirect_url()
+                exceptions.handle(self.request,
+                                  _('Unable to retrieve volume encryption '
+                                    'details.'),
+                                  redirect=redirect)
+        return self._encryption_metadata
+
+    @memoized.memoized_method
+    def get_volume_data(self):
+        try:
+            volume_id = self.kwargs['volume_id']
+            volume = cinder.volume_get(self.request, volume_id)
+        except Exception:
+            redirect = self.get_redirect_url()
+            exceptions.handle(self.request,
+                              _('Unable to retrieve volume details.'),
+                              redirect=redirect)
+        return volume
+
+    def get_redirect_url(self):
+        return reverse('horizon:project:volumes:index')
