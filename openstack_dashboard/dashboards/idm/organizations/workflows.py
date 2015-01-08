@@ -56,7 +56,7 @@ class RolesMixin(object):
         # but only the ones the user can assign (and only scoped for the current
         # organization)
         for user_id in project_users_roles:
-            project_users_roles[user_id] = [
+            project_users_roles[user_id] += [
                 r.id for r in fiware_api.keystone.role_list(
                                                     request,
                                                     user=user_id,
@@ -71,7 +71,6 @@ class UpdateProjectMembersAction(workflows.MembershipAction, RolesMixin):
                                                          *args,
                                                          **kwargs)
         err_msg = _('Unable to retrieve user list. Please try again later.')
-
         project_id = self.initial['project_id']
 
         # Get the default role
