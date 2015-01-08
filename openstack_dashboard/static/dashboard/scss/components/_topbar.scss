@@ -6,6 +6,7 @@
     display: inline-block;
     width: 222px;
     margin: 0 0 0 10px;
+    line-height: 1;
     a {
       background: url(../img/logo.png) left center no-repeat;
       display: block;
@@ -13,7 +14,6 @@
     }
   }
   .switcher_bar {
-    @import "/dashboard/scss/context_selection";
     display: inline-block;
     vertical-align: top;
     font-size: 0px;
