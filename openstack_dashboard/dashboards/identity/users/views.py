@@ -81,8 +81,6 @@ class UpdateView(forms.ModalFormView):
     success_url = reverse_lazy('horizon:identity:users:index')
     page_title = _("Update User")
 
-    @method_decorator(sensitive_post_parameters('password',
-                                                'confirm_password'))
     def dispatch(self, *args, **kwargs):
         return super(UpdateView, self).dispatch(*args, **kwargs)
 
@@ -94,7 +92,7 @@ class UpdateView(forms.ModalFormView):
         except Exception:
             redirect = reverse("horizon:identity:users:index")
             exceptions.handle(self.request,
-                              _('Unable to update user.'),
+                              _('Unable to retrieve user information.'),
                               redirect=redirect)
 
     def get_context_data(self, **kwargs):
@@ -200,3 +198,41 @@ class DetailView(views.HorizonTemplateView):
 
     def get_redirect_url(self):
         return reverse('horizon:identity:users:index')
+
+
+class ChangePasswordView(forms.ModalFormView):
+    template_name = 'identity/users/change_password.html'
+    modal_header = _("Change Password")
+    form_id = "change_user_password_form"
+    form_class = project_forms.ChangePasswordForm
+    submit_url = "horizon:identity:users:change_password"
+    submit_label = _("Save")
+    success_url = reverse_lazy('horizon:identity:users:index')
+    page_title = _("Change Password")
+
+    @method_decorator(sensitive_post_parameters('password',
+                                                'confirm_password'))
+    def dispatch(self, *args, **kwargs):
+        return super(ChangePasswordView, self).dispatch(*args, **kwargs)
+
+    @memoized.memoized_method
+    def get_object(self):
+        try:
+            return api.keystone.user_get(self.request, self.kwargs['user_id'],
+                                         admin=True)
+        except Exception:
+            redirect = reverse("horizon:identity:users:index")
+            exceptions.handle(self.request,
+                              _('Unable to retrieve user information.'),
+                              redirect=redirect)
+
+    def get_context_data(self, **kwargs):
+        context = super(ChangePasswordView, self).get_context_data(**kwargs)
+        args = (self.kwargs['user_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
+        return context
+
+    def get_initial(self):
+        user = self.get_object()
+        return {'id': self.kwargs['user_id'],
+                'name': user.name}
