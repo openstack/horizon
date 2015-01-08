@@ -2137,3 +2137,12 @@ a:hover.link-popover { text-decoration: none; }
 .has-feedback .form-control-feedback {
   top: 0;
 }
+
+/**** Details Override ****/
+.detail ul {
+  padding-left: 0;
+}
+
+.detail dt {
+  text-align: left;
+}

@@ -6,7 +6,7 @@
 <div class="info row detail">
   <h4>{% trans "Port" %}</h4>
   <hr class="header_rule">
-  <dl>
+  <dl class="dl-horizontal">
     <dt>{% trans "Name" %}</dt>
     <dd>{{ port.name|default:_("None") }}</dd>
     <dt>{% trans "ID" %}</dt>
@@ -34,8 +34,8 @@
     <dt>{% trans "Admin State" %}</dt>
     <dd>{{ port.admin_state|default:_("None") }}</dd>
     {% if port.mac_state %}
-      <dt>{% trans "MAC Learning State" %}</dt>
-      <dd>{{ port.mac_state }}</dd>
+    <dt>{% trans "MAC Learning State" %}</dt>
+    <dd>{{ port.mac_state }}</dd>
     {% endif %}
     <dt>{% trans "Attached Device" %}</dt>
     {% if port.device_id|length > 1 or port.device_owner %}

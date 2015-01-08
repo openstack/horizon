@@ -4,8 +4,9 @@
 <h3>{% trans "Subnet Overview" %}</h3>
 
 <div class="info row detail">
+  <h4>{% trans "Subnet" %}</h4>
   <hr class="header_rule">
-  <dl>
+  <dl class="dl-horizontal">
     <dt>{% trans "Name" %}</dt>
     <dd>{{ subnet.name|default:_("None") }}</dd>
     <dt>{% trans "ID" %}</dt>
@@ -20,8 +21,8 @@
     <dt>{% trans "IP allocation pool" %}</dt>
     <dd>
       {% for pool in subnet.allocation_pools %}
-      {% trans "Start" %}  {{ pool.start }}
-      {% trans " - End" %} {{ pool.end   }}<br>
+        {% trans "Start" %}  {{ pool.start }}
+        {% trans " - End" %} {{ pool.end   }}<br>
       {% endfor %}
     </dd>
     <dt>{% trans "Gateway IP" %}</dt>
@@ -31,9 +32,9 @@
     {% if subnet.ip_version == 6 %}
       <dt>{% trans "IPv6 Address Configuration Mode" %}<dt>
       {% if subnet.ipv6_modes_desc %}
-      <dd>{{ subnet.ipv6_modes_desc }}</dd>
+        <dd>{{ subnet.ipv6_modes_desc }}</dd>
       {% else %}
-      <dd>{% blocktrans with ra_mode=subnet.ipv6_ra_mode addr_mode=subnet.ipv6_address_mode %}
+        <dd>{% blocktrans with ra_mode=subnet.ipv6_ra_mode addr_mode=subnet.ipv6_address_mode %}
         Other IPv6 modes: ipv6_ra_mode={{ ra_mode }}, ipv6_address_mode={{ addr_mode }}
         {% endblocktrans %}</dd>
       {% endif %}
@@ -41,18 +42,18 @@
     <dt>{% trans "Additional routes" %}</dt>
     <dd>
       {% for route in subnet.host_routes %}
-      {% trans "Destination" %} {{ route.destination }}
-      {% trans " : Next hop" %} {{ route.nexthop }}<br>
-      {% empty %}
-      {% trans "None" %}
+        {% trans "Destination" %} {{ route.destination }}
+        {% trans " : Next hop" %} {{ route.nexthop }}<br>
+        {% empty %}
+        {% trans "None" %}
       {% endfor %}
     </dd>
     <dt>{% trans "DNS name server" %}</dt>
     <dd>
       {% for dns in subnet.dns_nameservers %}
-      {{ dns }}
-      {% empty %}
-      {% trans "None" %}
+        {{ dns }}
+        {% empty %}
+        {% trans "None" %}
       {% endfor %}
     </dd>
   </dl>

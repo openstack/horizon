@@ -5,11 +5,11 @@
 <div class="info row detail">
   <h4>{% trans "Information" %}</h4>
   <hr class="header_rule">
-  <dl>
+  <dl class="dl-horizontal">
     <dt>{% trans "Stack Resource ID" %}</dt>
     <dd>{{ resource.resource_name }}</dd>
   </dl>
-  <dl>
+  <dl class="dl-horizontal">
     <dt>{% trans "Resource ID" %}</dt>
     <dd>
       {% if resource_url %}
@@ -21,11 +21,11 @@
       {% endif %}
     </dd>
   </dl>
-  <dl>
+  <dl class="dl-horizontal">
     <dt>{% trans "Stack Resource Type" %}</dt>
     <dd>{{ resource.resource_type }}</dd>
   </dl>
-  <dl>
+  <dl class="dl-horizontal">
     <dt>{% trans "Description" %}</dt>
     <dd>{{ resource.description }}</dd>
   </dl>
@@ -34,7 +34,7 @@
 <div class="status row detail">
   <h4>{% trans "Status" %}</h4>
   <hr class="header_rule">
-  <dl>
+  <dl class="dl-horizontal">
     <dt>{% trans "Last Updated" %}</dt>
     <dd>{{ resource.updated_time|parse_isotime|timesince_or_never }}</dd>
     <dt>{% trans "Status" %}</dt>

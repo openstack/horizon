@@ -7,10 +7,10 @@
 {% endblock page_header %}
 
 {% block main %}
-{% include "admin/routers/_detail_overview.html" %}
 <div class="row">
   <div class="col-sm-12">
-  {{ tab_group.render }}
+    {% include "admin/routers/_detail_overview.html" %}
+    {{ tab_group.render }}
   </div>
 </div>
 {% endblock %}

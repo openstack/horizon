@@ -5,7 +5,7 @@
 <div class="info row detail">
   <h4>{% trans "Information" %}</h4>
   <hr class="header_rule">
-  <dl>
+  <dl class="dl-horizontal">
     <dt>{% trans "Name" %}</dt>
     <dd>{{ stack.stack_name }}</dd>
     <dt>{% trans "ID" %}</dt>
@@ -18,7 +18,7 @@
 <div class="status row detail">
   <h4>{% trans "Status" %}</h4>
   <hr class="header_rule">
-  <dl>
+  <dl class="dl-horizontal">
     <dt>{% trans "Created" %}</dt>
     <dd>{{ stack.creation_time|parse_isotime|timesince_or_never }}</dd>
     <dt>{% trans "Last Updated" %}</dt>
@@ -33,7 +33,7 @@
 <div class="outputs row detail">
   <h4>{% trans "Outputs" %}</h4>
   <hr class="header_rule">
-  <dl>
+  <dl class="dl-horizontal">
     {% for output in stack.outputs %}
     <dt>{{ output.output_key }}</dt>
     <dd>{{ output.description }}</dd>
@@ -47,7 +47,7 @@
 <div class="parameters row detail">
   <h4>{% trans "Stack Parameters" %}</h4>
   <hr class="header_rule">
-  <dl>
+  <dl class="dl-horizontal">
     {% for key, value in stack.parameters.items %}
     <dt>{{ key }}</dt>
     <dd>{{ value }}</dd>
@@ -58,7 +58,7 @@
 <div class="launch row detail">
   <h4>{% trans "Launch Parameters" %}</h4>
   <hr class="header_rule">
-  <dl>
+  <dl class="dl-horizontal">
     <dt>{% trans "Timeout" %}</dt>
     <dd>{{ stack.timeout_mins }} {% trans "Minutes" %}</dd>
     <dt>{% trans "Rollback" %}</dt>

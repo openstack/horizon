@@ -2,26 +2,26 @@
 {% load url from future %}
 <h3>{% trans "Job" %}</h3>
 <div class="status row detail">
-    <dl>
-        <dt>{% trans "Name" %}</dt>
-        <dd>{{ job.name }}</dd>
-        <dt>{% trans "ID" %}</dt>
-        <dd>{{ job.id }}</dd>
-        <dt>{% trans "Description" %}</dt>
-        <dd>{{ job.description|default:_("None") }}</dd>
-        <dt>{% trans "Mains" %}<dt>
-        {% for main in job.mains %}
-          <dd><a href="{% url 'horizon:project:data_processing.job_binaries:details' main.id  %}">{{ main.name }}</a></dd>
-        {% empty %}
-          <dd>{% trans "None" %}</dd>
-        {% endfor %}
-        <dt>{% trans "Libs" %}<dt>
-        {% for lib in job.libs %}
-          <dd><a href="{% url 'horizon:project:data_processing.job_binaries:details' lib.id  %}">{{ lib.name }}</a></dd>
-        {% empty %}
-          <dd>{% trans "None" %}</dd>
-        {% endfor %}
-        <dt>{% trans "Create time" %}</dt>
-        <dd>{{ job.created_at }}</dd>
-    </dl>
+  <dl class="dl-horizontal">
+      <dt>{% trans "Name" %}</dt>
+      <dd>{{ job.name }}</dd>
+      <dt>{% trans "ID" %}</dt>
+      <dd>{{ job.id }}</dd>
+      <dt>{% trans "Description" %}</dt>
+      <dd>{{ job.description|default:_("None") }}</dd>
+      <dt>{% trans "Mains" %}</dt>
+      {% for main in job.mains %}
+        <dd><a href="{% url 'horizon:project:data_processing.job_binaries:details' main.id  %}">{{ main.name }}</a></dd>
+      {% empty %}
+        <dd>{% trans "None" %}</dd>
+      {% endfor %}
+      <dt>{% trans "Libs" %}</dt>
+      {% for lib in job.libs %}
+        <dd><a href="{% url 'horizon:project:data_processing.job_binaries:details' lib.id  %}">{{ lib.name }}</a></dd>
+      {% empty %}
+        <dd>{% trans "None" %}</dd>
+      {% endfor %}
+      <dt>{% trans "Create time" %}</dt>
+      <dd>{{ job.created_at }}</dd>
+  </dl>
 </div>
