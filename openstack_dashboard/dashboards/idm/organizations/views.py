@@ -59,8 +59,14 @@ class DetailOrganizationView(tables.MultiTableView):
     def get_members_data(self):        
         users = []
         try:
-            users = api.keystone.user_list(self.request,
+            # NOTE(garcianavalon) Filtering by project doesn't work anymore
+            # in v3 API >< We need to get the role_assignments for the user's
+            # id's and then filter the user list ourselves
+            all_users = api.keystone.user_list(self.request,
                                          project=self.kwargs['organization_id'])
+            project_users_roles = api.keystone.get_project_users_roles(self.request,
+                                                 project=self.kwargs['organization_id'])
+            users = [user for user in all_users if user.id in project_users_roles]
         except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve member information."))
