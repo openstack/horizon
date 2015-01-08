@@ -44,7 +44,7 @@ class RolesMixin(object):
                                                 organization=request.user.project_id)
         # NOTE(garcianavalon) we also need the organization (keystone)
         # roles here to add members
-        role_list[project_id] = api.keystone.role_list(request)
+        role_list['organization'] = api.keystone.role_list(request)
         return role_list
 
     def list_users_with_roles(self, request, project_id, available_roles):
@@ -155,9 +155,10 @@ class UpdateProjectMembers(workflows.UpdateMembersStep, RolesMixin):
     contributes = ("project_id",)
 
     def contribute(self, data, context):
+        project_id = context['project_id']
         if data:
             try:
-                role_list = self.list_all_roles(self.workflow.request.request)
+                role_list = self.list_all_roles(self.workflow.request, project_id)
             except Exception:
                 exceptions.handle(self.workflow.request,
                                   _('Unable to retrieve role list.'))
@@ -174,13 +175,15 @@ class ManageOrganizationMembers(workflows.Workflow, RolesMixin):
     slug = "manage_organization_users"
     name = _("Manage Members")
     finalize_button_name = _("Save")
-    success_message = _('Modified users in "%s".')
-    failure_message = _('Unable to modify users in "%s".')
-    success_url = "horizon:idm:organizations:index"
+    success_message = _('Modified users.')
+    failure_message = _('Unable to modify users.')
+    success_url = "horizon:idm:organizations:detail"
     default_steps = (UpdateProjectMembers,)
 
-    def format_status_message(self, message):
-        return message % self.context.get('name', 'unknown organization')
+    def get_success_url(self):
+        # Overwrite to allow passing kwargs
+        return reverse(self.success_url, 
+                    kwargs={'organization_id':self.context['project_id']})
 
     def handle(self, request, data):
         project_id = data['project_id']
@@ -201,16 +204,14 @@ class ManageOrganizationMembers(workflows.Workflow, RolesMixin):
                 for role in role_list[k]:
                     field_name = member_step.get_member_field_name(role.id)
                     modified_roles[role.id] = data[field_name]
-
-            import pdb; pdb.set_trace()            
+            
             # Create the delete and add sets
             roles_to_add, roles_to_delete = self._create_add_and_delete_sets(
                                                                 modified_roles, 
                                                                 current_roles)
             application_roles = [r.id for r in role_list['applications']]
-            organization_roles = [r.id for r in role_list['organizations']]
+            organization_roles = [r.id for r in role_list['organization']]
 
-            import pdb; pdb.set_trace()
             # Add the roles
             add_methods = [
                 (application_roles, fiware_api.keystone.add_role_to_user),
@@ -218,7 +219,6 @@ class ManageOrganizationMembers(workflows.Workflow, RolesMixin):
             ]
             self._apply_method(roles_to_add, add_methods, project_id)
 
-            import pdb; pdb.set_trace()
             # Remove the roles
             delete_methods = [
                 (application_roles, fiware_api.keystone.remove_role_from_user),
@@ -226,7 +226,7 @@ class ManageOrganizationMembers(workflows.Workflow, RolesMixin):
             ]
             self._apply_method(roles_to_delete, delete_methods, project_id)
 
-
+            return True
         except Exception:
             exceptions.handle(request,
                           _('Failed to modify organization\'s members.'))
