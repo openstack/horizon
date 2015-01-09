@@ -1,4 +1,4 @@
-# The name of the dashboard to be added to HORIZON['dashboards']. Required.
+# The slug of the dashboard to be added to HORIZON['dashboards']. Required.
 DASHBOARD = 'project'
 # If set to True, this dashboard will be set as the default dashboard.
 DEFAULT = True
