@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-06 10:18-0600\n"
-"PO-Revision-Date: 2015-01-07 06:00+0000\n"
+"POT-Creation-Date: 2015-01-08 18:22-0600\n"
+"PO-Revision-Date: 2015-01-09 01:01+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -21,55 +21,55 @@ msgstr ""
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: settings.py:101
+#: settings.py:99
 msgid "Select format"
 msgstr "形式を選択してください"
 
-#: settings.py:102
+#: settings.py:100
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon カーネルイメージ"
 
-#: settings.py:103
+#: settings.py:101
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon マシンイメージ"
 
-#: settings.py:104
+#: settings.py:102
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon ラムディスクイメージ"
 
-#: settings.py:105
+#: settings.py:103
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - 光学ディスクイメージ"
 
-#: settings.py:106
+#: settings.py:104
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU エミュレーター"
 
-#: settings.py:107
+#: settings.py:105
 msgid "Raw"
 msgstr "Raw"
 
-#: settings.py:108
+#: settings.py:106
 msgid "VDI"
 msgstr "VDI"
 
-#: settings.py:109
+#: settings.py:107
 msgid "VHD"
 msgstr "VHD"
 
-#: settings.py:110
+#: settings.py:108
 msgid "VMDK"
 msgstr "VMDK"
 
-#: settings.py:298
+#: settings.py:292
 msgid "All TCP"
 msgstr "All TCP"
 
-#: settings.py:304
+#: settings.py:298
 msgid "All UDP"
 msgstr "All UDP"
 
-#: settings.py:310
+#: settings.py:304
 msgid "All ICMP"
 msgstr "All ICMP"
 
@@ -407,8 +407,8 @@ msgstr "Neutron が '%s' 拡張に対応しているか確認できませんで�
 #: dashboards/project/networks/templates/networks/_detail_overview.html:25
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:18
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:43
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:17
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:28
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:18
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:29
 #: dashboards/project/routers/tables.py:182
 #: dashboards/project/volumes/volumes/tables.py:300
 msgid "-"
@@ -563,7 +563,7 @@ msgstr "管理"
 #: dashboards/project/networks/subnets/tables.py:129
 #: dashboards/project/networks/templates/networks/_detail_overview.html:7
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:10
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:9
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:10
 #: dashboards/project/routers/forms.py:85
 #: dashboards/project/routers/tables.py:187
 #: dashboards/project/routers/ports/tables.py:101
@@ -1022,7 +1022,7 @@ msgstr "ホストアグリゲートは、ホストをグループ化し、1 つ�
 #: dashboards/project/volumes/templates/volumes/volumes/_create_snapshot.html:28
 #: dashboards/project/volumes/templates/volumes/volumes/_extend.html:25
 #: dashboards/project/volumes/templates/volumes/volumes/_retype.html:40
-#: dashboards/project/volumes/templates/volumes/volumes/_update.html:25
+#: dashboards/project/volumes/templates/volumes/volumes/_update.html:28
 #: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:41
 #: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:24
 #: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:24
@@ -1383,7 +1383,7 @@ msgstr "スワップディスク"
 #: dashboards/project/networks/templates/networks/_detail_overview.html:9
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:12
 #: dashboards/project/networks/templates/networks/ports/_update.html:13
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:11
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:12
 #: dashboards/project/routers/forms.py:89
 #: dashboards/project/routers/templates/routers/_detail_overview.html:11
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:11
@@ -1582,7 +1582,7 @@ msgstr "ホスト名"
 #: dashboards/project/volumes/volumes/forms.py:81
 #: dashboards/project/volumes/volumes/forms.py:86
 #: dashboards/project/volumes/volumes/forms.py:87
-#: dashboards/project/volumes/volumes/forms.py:659
+#: dashboards/project/volumes/volumes/forms.py:675
 #: dashboards/project/volumes/volumes/tables.py:348
 msgid "Type"
 msgstr "種別"
@@ -1913,7 +1913,7 @@ msgstr "最大サイズ (MB)"
 #: dashboards/project/instances/tables.py:969
 #: dashboards/project/instances/templates/instances/_detail_overview.html:112
 #: dashboards/project/instances/workflows/create_instance.py:106
-#: dashboards/project/volumes/volumes/forms.py:551
+#: dashboards/project/volumes/volumes/forms.py:567
 msgid "Image Name"
 msgstr "イメージ名"
 
@@ -2274,7 +2274,7 @@ msgid "Metadata Definition File"
 msgstr "メタデータ定義ファイル"
 
 #: dashboards/admin/metadata_defs/forms.py:41
-#: dashboards/project/instances/workflows/create_instance.py:620
+#: dashboards/project/instances/workflows/create_instance.py:621
 #: dashboards/project/stacks/forms.py:58
 msgid "Direct Input"
 msgstr "直接入力"
@@ -2429,7 +2429,7 @@ msgstr "関連付けの更新"
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:15
 #: dashboards/project/volumes/volumes/forms.py:52
 #: dashboards/project/volumes/volumes/forms.py:487
-#: dashboards/project/volumes/volumes/forms.py:528
+#: dashboards/project/volumes/volumes/forms.py:529
 #: dashboards/project/volumes/volumes/tables.py:319
 #: dashboards/project/vpn/forms.py:36 dashboards/project/vpn/forms.py:70
 #: dashboards/project/vpn/forms.py:142 dashboards/project/vpn/forms.py:213
@@ -2539,12 +2539,12 @@ msgstr "表示名"
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:33
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:35
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:42
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:10
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:12
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:15
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:19
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:47
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:55
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:11
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:13
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:16
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:20
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:48
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:56
 #: dashboards/project/routers/templates/routers/_detail_overview.html:4
 #: dashboards/project/routers/templates/routers/_detail_overview.html:10
 #: dashboards/project/routers/templates/routers/_detail_overview.html:12
@@ -3099,13 +3099,13 @@ msgid ""
 msgstr "VLAN ネットワークでは、仮想ネットワークに使用する物理ネットワークの VLAN ID。有効な VLAN ID は %(vlan_min)s から %(vlan_max)s です。 GRE と VXLAN ネットワークの場合は、トンネル ID です。有効なトンネル ID は、GRE ネットワークでは %(gre_min)s から %(gre_max)s、VXLAN ネットワークでは %(vxlan_min)s から %(vxlan_max)s です。"
 
 #: dashboards/admin/networks/forms.py:145
-#: dashboards/project/instances/workflows/create_instance.py:743
+#: dashboards/project/instances/workflows/create_instance.py:744
 #: dashboards/project/networks/workflows.py:61
 msgid "Select a profile"
 msgstr "プロファイルを選択してください"
 
 #: dashboards/admin/networks/forms.py:155
-#: dashboards/project/instances/workflows/create_instance.py:753
+#: dashboards/project/instances/workflows/create_instance.py:754
 #: dashboards/project/networks/workflows.py:71
 #: dashboards/router/nexus1000v/views.py:52
 msgid "Network Profiles could not be retrieved."
@@ -3154,7 +3154,7 @@ msgstr "ネットワーク %s の更新に失敗しました"
 #: dashboards/admin/networks/templates/networks/index.html:6
 #: dashboards/identity/projects/workflows.py:74
 #: dashboards/project/databases/workflows/create_instance.py:131
-#: dashboards/project/instances/workflows/create_instance.py:697
+#: dashboards/project/instances/workflows/create_instance.py:698
 #: dashboards/project/networks/panel.py:23
 #: dashboards/project/networks/tables.py:167
 #: dashboards/project/networks/templates/networks/index.html:3
@@ -3325,7 +3325,7 @@ msgstr "エージェントの一覧を取得できません。"
 
 #: dashboards/admin/networks/ports/forms.py:36
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:15
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:14
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:15
 msgid "Network ID"
 msgstr "ネットワーク ID"
 
@@ -3485,7 +3485,7 @@ msgstr "サブネットの編集"
 #: dashboards/project/access_and_security/security_groups/forms.py:196
 #: dashboards/project/access_and_security/security_groups/forms.py:208
 #: dashboards/project/access_and_security/security_groups/forms.py:218
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:18
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:19
 msgid "CIDR"
 msgstr "CIDR"
 
@@ -3499,7 +3499,7 @@ msgstr "IP バージョン"
 #: dashboards/admin/networks/subnets/tables.py:96
 #: dashboards/project/networks/workflows.py:128
 #: dashboards/project/networks/subnets/tables.py:133
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:27
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:28
 msgid "Gateway IP"
 msgstr "ゲートウェイ IP"
 
@@ -3847,10 +3847,10 @@ msgstr "ステータスの変更"
 #: dashboards/project/volumes/backups/tables.py:120
 #: dashboards/project/volumes/snapshots/tables.py:142
 #: dashboards/project/volumes/volumes/forms.py:48
-#: dashboards/project/volumes/volumes/forms.py:524
-#: dashboards/project/volumes/volumes/forms.py:548
-#: dashboards/project/volumes/volumes/forms.py:608
-#: dashboards/project/volumes/volumes/forms.py:656
+#: dashboards/project/volumes/volumes/forms.py:525
+#: dashboards/project/volumes/volumes/forms.py:564
+#: dashboards/project/volumes/volumes/forms.py:624
+#: dashboards/project/volumes/volumes/forms.py:672
 msgid "Volume Name"
 msgstr "ボリューム名"
 
@@ -5219,7 +5219,7 @@ msgstr "使用可能なプロジェクトがありません"
 
 #: dashboards/identity/users/forms.py:66
 #: dashboards/project/instances/forms.py:92
-#: dashboards/project/instances/workflows/create_instance.py:593
+#: dashboards/project/instances/workflows/create_instance.py:594
 #: dashboards/settings/password/forms.py:50
 msgid "Passwords do not match."
 msgstr "パスワードが一致しません。"
@@ -5399,7 +5399,7 @@ msgid "Data Processing"
 msgstr "データ処理"
 
 #: dashboards/project/access_and_security/panel.py:24
-#: dashboards/project/instances/workflows/create_instance.py:551
+#: dashboards/project/instances/workflows/create_instance.py:552
 msgid "Access & Security"
 msgstr "アクセスとセキュリティー"
 
@@ -6215,7 +6215,7 @@ msgid "Unable to create container."
 msgstr "コンテナーを作成できません。"
 
 #: dashboards/project/containers/forms.py:84
-#: dashboards/project/instances/workflows/create_instance.py:621
+#: dashboards/project/instances/workflows/create_instance.py:622
 #: dashboards/project/stacks/forms.py:57
 msgid "File"
 msgstr "ファイル"
@@ -7849,7 +7849,7 @@ msgstr "ジョブ終了後もクラスターを保持する"
 #: dashboards/project/data_processing/jobs/workflows/launch.py:416
 #: dashboards/project/databases/workflows/create_instance.py:272
 #: dashboards/project/images/images/tables.py:35
-#: dashboards/project/instances/workflows/create_instance.py:839
+#: dashboards/project/instances/workflows/create_instance.py:840
 #: dashboards/project/stacks/templates/stacks/_create.html:24
 msgid "Launch"
 msgstr "起動"
@@ -8081,7 +8081,7 @@ msgstr "anti-affinity グループを展開できません。"
 
 #: dashboards/project/data_processing/utils/neutron_support.py:31
 #: dashboards/project/databases/workflows/create_instance.py:160
-#: dashboards/project/instances/workflows/create_instance.py:739
+#: dashboards/project/instances/workflows/create_instance.py:740
 msgid "Unable to retrieve networks."
 msgstr "ネットワーク一覧を取得できません。"
 
@@ -8282,14 +8282,14 @@ msgstr "バックアップ \"%(name)s\" の作成を予約しました。"
 
 #: dashboards/project/database_backups/workflows/create_backup.py:85
 #: dashboards/project/databases/workflows/create_instance.py:274
-#: dashboards/project/instances/workflows/create_instance.py:841
+#: dashboards/project/instances/workflows/create_instance.py:842
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "名前が \"%(name)s\" の %(count)s が起動できません。"
 
 #: dashboards/project/database_backups/workflows/create_backup.py:95
 #: dashboards/project/databases/workflows/create_instance.py:290
-#: dashboards/project/instances/workflows/create_instance.py:858
+#: dashboards/project/instances/workflows/create_instance.py:859
 msgid "instance"
 msgstr "インスタンス"
 
@@ -8298,12 +8298,12 @@ msgid "Error creating database backup."
 msgstr "データベースのバックアップ作成でエラーが発生しました。"
 
 #: dashboards/project/databases/forms.py:28
-#: dashboards/project/volumes/volumes/forms.py:613
+#: dashboards/project/volumes/volumes/forms.py:629
 msgid "Current Size (GB)"
 msgstr "現在のサイズ (GB)"
 
 #: dashboards/project/databases/forms.py:32
-#: dashboards/project/volumes/volumes/forms.py:617
+#: dashboards/project/volumes/volumes/forms.py:633
 msgid "New Size (GB)"
 msgstr "新しいサイズ (GB)"
 
@@ -8335,26 +8335,21 @@ msgstr "新しいフレーバー"
 msgid "Choose a new instance flavor."
 msgstr "新しいインスタンスフレーバーを選択してください。"
 
-#: dashboards/project/databases/forms.py:73
+#: dashboards/project/databases/forms.py:77
 msgid "Select a new flavor"
 msgstr "新しいフレーバーを選択してください"
 
-#: dashboards/project/databases/forms.py:75
-#: dashboards/project/instances/workflows/resize_instance.py:63
+#: dashboards/project/databases/forms.py:79
+#: dashboards/project/instances/workflows/resize_instance.py:58
 msgid "No flavors available"
 msgstr "利用可能なフレーバーはありません"
 
-#: dashboards/project/databases/forms.py:83
-#: dashboards/project/instances/workflows/resize_instance.py:52
-msgid "Please choose a new flavor that is not the same as the old one."
-msgstr "新しいフレーバーを選択してください。現在のフレーバーとは同じにはできません。"
-
-#: dashboards/project/databases/forms.py:93
+#: dashboards/project/databases/forms.py:88
 #, python-format
 msgid "Resizing instance \"%s\""
 msgstr "インスタンス \"%s\" をリサイズ中です"
 
-#: dashboards/project/databases/forms.py:96
+#: dashboards/project/databases/forms.py:91
 #, python-format
 msgid "Unable to resize instance. %s"
 msgstr "インスタンスをリサイズできません。 %s"
@@ -8404,7 +8399,7 @@ msgstr "インスタンスからのデータベースの削除でエラーが発
 #: dashboards/project/databases/workflows/create_instance.py:271
 #: dashboards/project/instances/tables.py:305
 #: dashboards/project/instances/tables.py:333
-#: dashboards/project/instances/workflows/create_instance.py:838
+#: dashboards/project/instances/workflows/create_instance.py:839
 #: dashboards/project/network_topology/templates/network_topology/index.html:28
 msgid "Launch Instance"
 msgstr "インスタンスの起動"
@@ -8415,7 +8410,7 @@ msgstr "ボリュームのリサイズ"
 
 #: dashboards/project/databases/tables.py:178
 #: dashboards/project/instances/tables.py:435
-#: dashboards/project/instances/workflows/resize_instance.py:89
+#: dashboards/project/instances/workflows/resize_instance.py:84
 msgid "Resize Instance"
 msgstr "インスタンスのリサイズ"
 
@@ -8683,22 +8678,22 @@ msgid "Select datastore type and version"
 msgstr "データストアの種別とバージョンを選択してください"
 
 #: dashboards/project/databases/workflows/create_instance.py:135
-#: dashboards/project/instances/workflows/create_instance.py:701
+#: dashboards/project/instances/workflows/create_instance.py:702
 msgid "At least one network must be specified."
 msgstr "少なくとも 1 つのネットワークを指定する必要があります。"
 
 #: dashboards/project/databases/workflows/create_instance.py:137
-#: dashboards/project/instances/workflows/create_instance.py:703
+#: dashboards/project/instances/workflows/create_instance.py:704
 msgid "Launch instance with these networks"
 msgstr "これらのネットワークでインスタンスを起動します。"
 
 #: dashboards/project/databases/workflows/create_instance.py:147
-#: dashboards/project/instances/workflows/create_instance.py:725
+#: dashboards/project/instances/workflows/create_instance.py:726
 msgid "Networking"
 msgstr "ネットワーク"
 
 #: dashboards/project/databases/workflows/create_instance.py:149
-#: dashboards/project/instances/workflows/create_instance.py:727
+#: dashboards/project/instances/workflows/create_instance.py:728
 msgid "Select networks for your instance."
 msgstr "インスタンスのネットワークを選択します。"
 
@@ -8743,7 +8738,7 @@ msgid "Unable to find backup!"
 msgstr "バックアップが見つかりません！"
 
 #: dashboards/project/databases/workflows/create_instance.py:273
-#: dashboards/project/instances/workflows/create_instance.py:840
+#: dashboards/project/instances/workflows/create_instance.py:841
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "名前が \"%(name)s\" の %(count)s を起動しました。"
@@ -9503,7 +9498,7 @@ msgid "Container Format"
 msgstr "格納形式"
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:50
-#: dashboards/project/volumes/volumes/forms.py:552
+#: dashboards/project/volumes/volumes/forms.py:568
 msgid "Disk Format"
 msgstr "ディスク形式"
 
@@ -9574,7 +9569,7 @@ msgid "Confirm Rebuild Password"
 msgstr "再作成するパスワード（確認）"
 
 #: dashboards/project/instances/forms.py:53
-#: dashboards/project/instances/workflows/create_instance.py:785
+#: dashboards/project/instances/workflows/create_instance.py:786
 msgid "Disk Partition"
 msgstr "ディスクパーティション"
 
@@ -9584,18 +9579,18 @@ msgid "No images available"
 msgstr "利用可能なイメージがありません。"
 
 #: dashboards/project/instances/forms.py:78
-#: dashboards/project/instances/workflows/create_instance.py:803
+#: dashboards/project/instances/workflows/create_instance.py:804
 msgid "Automatic"
 msgstr "自動"
 
 #: dashboards/project/instances/forms.py:79
-#: dashboards/project/instances/workflows/create_instance.py:804
+#: dashboards/project/instances/workflows/create_instance.py:805
 msgid "Manual"
 msgstr "手動"
 
 #: dashboards/project/instances/forms.py:82
 #: dashboards/project/instances/workflows/create_instance.py:166
-#: dashboards/project/instances/workflows/create_instance.py:813
+#: dashboards/project/instances/workflows/create_instance.py:814
 msgid "Unable to retrieve extensions information."
 msgstr "API 拡張の情報を取得できません。"
 
@@ -10647,7 +10642,7 @@ msgid "Any Availability Zone"
 msgstr "すべてのアベイラビリティーゾーン"
 
 #: dashboards/project/instances/workflows/create_instance.py:402
-#: dashboards/project/instances/workflows/resize_instance.py:77
+#: dashboards/project/instances/workflows/resize_instance.py:72
 #: usage/base.py:237
 msgid "Unable to retrieve quota information."
 msgstr "クォータ情報を取得できません。"
@@ -10708,104 +10703,104 @@ msgstr "管理者パスワード"
 msgid "Confirm Admin Password"
 msgstr "管理者パスワード（確認）"
 
-#: dashboards/project/instances/workflows/create_instance.py:547
+#: dashboards/project/instances/workflows/create_instance.py:548
 msgid "Launch instance in these security groups."
 msgstr "これらのセキュリティーグループでインスタンスを起動します。"
 
-#: dashboards/project/instances/workflows/create_instance.py:552
+#: dashboards/project/instances/workflows/create_instance.py:553
 msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
 msgstr "インスタンスへのアクセスを、キーペア、セキュリティーグループやその他の仕組みを使って制御します。"
 
-#: dashboards/project/instances/workflows/create_instance.py:568
+#: dashboards/project/instances/workflows/create_instance.py:569
 msgid "Unable to retrieve key pairs."
 msgstr "キーペアの一覧を取得できません。"
 
-#: dashboards/project/instances/workflows/create_instance.py:572
+#: dashboards/project/instances/workflows/create_instance.py:573
 msgid "Select a key pair"
 msgstr "キーペアを選択してください"
 
-#: dashboards/project/instances/workflows/create_instance.py:574
+#: dashboards/project/instances/workflows/create_instance.py:575
 msgid "No key pairs available"
 msgstr "キーペアがありません"
 
-#: dashboards/project/instances/workflows/create_instance.py:583
+#: dashboards/project/instances/workflows/create_instance.py:584
 msgid "Unable to retrieve list of security groups"
 msgstr "セキュリティーグループの一覧を取得できません"
 
-#: dashboards/project/instances/workflows/create_instance.py:615
+#: dashboards/project/instances/workflows/create_instance.py:616
 msgid "Post-Creation"
 msgstr "作成後"
 
-#: dashboards/project/instances/workflows/create_instance.py:619
+#: dashboards/project/instances/workflows/create_instance.py:620
 msgid "Select Script Source"
 msgstr "スクリプトの入力方法を選択してください"
 
-#: dashboards/project/instances/workflows/create_instance.py:624
+#: dashboards/project/instances/workflows/create_instance.py:625
 msgid "Customization Script Source"
 msgstr "カスタマイズスクリプトの入力方法"
 
-#: dashboards/project/instances/workflows/create_instance.py:629
+#: dashboards/project/instances/workflows/create_instance.py:630
 msgid ""
 "A script or set of commands to be executed after the instance has been built"
 " (max 16kb)."
 msgstr "インスタンスが構築された後に実行されるスクリプトまたは一組のコマンドです (最大 16 kb)。"
 
-#: dashboards/project/instances/workflows/create_instance.py:633
-#: dashboards/project/instances/workflows/create_instance.py:638
+#: dashboards/project/instances/workflows/create_instance.py:634
+#: dashboards/project/instances/workflows/create_instance.py:639
 msgid "Script File"
 msgstr "スクリプトファイル"
 
-#: dashboards/project/instances/workflows/create_instance.py:642
-#: dashboards/project/instances/workflows/create_instance.py:647
+#: dashboards/project/instances/workflows/create_instance.py:643
+#: dashboards/project/instances/workflows/create_instance.py:648
 msgid "Script Data"
 msgstr "スクリプトデータ"
 
-#: dashboards/project/instances/workflows/create_instance.py:674
+#: dashboards/project/instances/workflows/create_instance.py:675
 msgid "File exceeds maximum size (16kb)"
 msgstr "ファイルサイズが最大サイズ (16KB) を超えています"
 
-#: dashboards/project/instances/workflows/create_instance.py:682
+#: dashboards/project/instances/workflows/create_instance.py:683
 #: dashboards/project/stacks/forms.py:187
 #, python-format
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr "%(prefix)s の解析中に問題がありました: %(error)s"
 
-#: dashboards/project/instances/workflows/create_instance.py:709
+#: dashboards/project/instances/workflows/create_instance.py:710
 msgid "Policy Profiles"
 msgstr "ポリシープロファイル"
 
-#: dashboards/project/instances/workflows/create_instance.py:712
+#: dashboards/project/instances/workflows/create_instance.py:713
 msgid "Launch instance with this policy profile"
 msgstr "このポリシープロファイルでインスタンスを起動します。"
 
-#: dashboards/project/instances/workflows/create_instance.py:786
+#: dashboards/project/instances/workflows/create_instance.py:787
 msgid ""
 "Automatic: The entire disk is a single partition and automatically resizes. "
 "Manual: Results in faster build times but requires manual partitioning."
 msgstr "自動: ディスク全体が 1 つのパーティションになります。自動的にリサイズを行います。手動: 構築時間は早いですが、手動でのパーティション設定が必要です。"
 
-#: dashboards/project/instances/workflows/create_instance.py:790
+#: dashboards/project/instances/workflows/create_instance.py:791
 msgid "Configuration Drive"
 msgstr "コンフィグドライブ"
 
-#: dashboards/project/instances/workflows/create_instance.py:791
+#: dashboards/project/instances/workflows/create_instance.py:792
 msgid ""
 "Configure OpenStack to write metadata to a special configuration drive that "
 "attaches to the instance when it boots."
 msgstr "起動時にインスタンスに接続される特別なコンフィグドライブにメタデータを書き込むように OpenStack に指定します。"
 
-#: dashboards/project/instances/workflows/create_instance.py:817
+#: dashboards/project/instances/workflows/create_instance.py:818
 msgid "Advanced Options"
 msgstr "高度な設定"
 
-#: dashboards/project/instances/workflows/create_instance.py:855
+#: dashboards/project/instances/workflows/create_instance.py:856
 #, python-format
 msgid "%s instances"
 msgstr "%s インスタンス"
 
-#: dashboards/project/instances/workflows/create_instance.py:915
+#: dashboards/project/instances/workflows/create_instance.py:916
 #, python-format
 msgid "Port not created for profile-id (%s)."
 msgstr "プロファイル ID (%s) でポートを作成できませんでした。"
@@ -10818,20 +10813,20 @@ msgstr "起動するフレーバーを選択してください。"
 msgid "Flavor Choice"
 msgstr "フレーバーの選択"
 
-#: dashboards/project/instances/workflows/resize_instance.py:61
+#: dashboards/project/instances/workflows/resize_instance.py:56
 msgid "Select a New Flavor"
 msgstr "新しいフレーバーを選択してください"
 
-#: dashboards/project/instances/workflows/resize_instance.py:90
+#: dashboards/project/instances/workflows/resize_instance.py:85
 msgid "Resize"
 msgstr "リサイズ"
 
-#: dashboards/project/instances/workflows/resize_instance.py:91
+#: dashboards/project/instances/workflows/resize_instance.py:86
 #, python-format
 msgid "Scheduled resize of instance \"%s\"."
 msgstr "インスタンス \"%s\" のリサイズを予約しました。"
 
-#: dashboards/project/instances/workflows/resize_instance.py:92
+#: dashboards/project/instances/workflows/resize_instance.py:87
 #, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "インスタンス \"%s\" をリサイズできません。"
@@ -11128,6 +11123,7 @@ msgstr "モニターの割り当て解除"
 #: dashboards/project/networks/workflows.py:158
 #: dashboards/project/networks/subnets/workflows.py:38
 #: dashboards/project/networks/subnets/workflows.py:116
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:7
 #: dashboards/project/routers/ports/forms.py:29
 #: dashboards/project/vpn/tables.py:263 dashboards/project/vpn/workflows.py:30
 msgid "Subnet"
@@ -11822,7 +11818,7 @@ msgstr "DHCP 有効"
 
 #: dashboards/project/networks/workflows.py:217
 #: dashboards/project/networks/workflows.py:221
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:32
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:33
 msgid "IPv6 Address Configuration Mode"
 msgstr "IPv6 アドレス設定モード"
 
@@ -12136,27 +12132,27 @@ msgstr "ポートの詳細"
 msgid "Subnet Overview"
 msgstr "サブネットの概要"
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:16
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:17
 msgid "IP version"
 msgstr "IP バージョン"
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:20
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:21
 msgid "IP allocation pool"
 msgstr "IP アドレス割り当てプール"
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:23
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:24
 msgid "Start"
 msgstr "開始"
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:24
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:25
 msgid " - End"
 msgstr " - 末尾"
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:29
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:30
 msgid "DHCP Enable"
 msgstr "DHCP 有効"
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:36
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:37
 #, python-format
 msgid ""
 "\n"
@@ -12164,20 +12160,20 @@ msgid ""
 "        "
 msgstr "\nその他の IPv6 モード: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode=%(addr_mode)s\n        "
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:41
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:42
 msgid "Additional routes"
 msgstr "追加のルート設定"
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:44
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:45
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:24
 msgid "Destination"
 msgstr "宛先"
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:45
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:46
 msgid " : Next hop"
 msgstr " : ネクストホップ"
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:50
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:51
 msgid "DNS name server"
 msgstr "DNS サーバー"
 
@@ -13152,9 +13148,9 @@ msgstr "接続状況"
 #, python-format
 msgid ""
 "\n"
-"        <a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s\n"
-"        "
-msgstr "\n<a href=\"%(instance_url)s\">%(instance_name)s</a> の %(device)s\n        "
+"      <a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s\n"
+"      "
+msgstr "\n      <a href=\"%(instance_url)s\">%(instance_name)s</a> の %(device)s\n      "
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:48
 msgid "Not attached"
@@ -13241,7 +13237,7 @@ msgid "Number of Snapshots"
 msgstr "スナップショット数"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_update.html:9
-#: dashboards/project/volumes/templates/volumes/volumes/_update.html:24
+#: dashboards/project/volumes/templates/volumes/volumes/_update.html:27
 #: dashboards/project/volumes/templates/volumes/volumes/update.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/update.html:6
 #: dashboards/project/volumes/volumes/tables.py:219
@@ -13251,6 +13247,12 @@ msgstr "ボリュームの編集"
 #: dashboards/project/volumes/templates/volumes/volumes/_update.html:19
 msgid "Modify name and description of a volume."
 msgstr "ボリュームの名前と説明を変更します。"
+
+#: dashboards/project/volumes/templates/volumes/volumes/_update.html:21
+msgid ""
+"The \"Bootable\" flag specifies that this volume can be used to launch an "
+"instance."
+msgstr "「ブート可能」フラグは、このボリュームをインスタンスを起動するのに使用できることを指示するものです。"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:9
 #: dashboards/project/volumes/templates/volumes/volumes/upload_to_image.html:3
@@ -13460,79 +13462,92 @@ msgstr "接続中のボリュームからスナップショット \"%s\" を強�
 msgid "Unable to create volume snapshot."
 msgstr "ボリュームのスナップショットを作成できません。"
 
-#: dashboards/project/volumes/volumes/forms.py:537
+#: dashboards/project/volumes/volumes/forms.py:531
+#: dashboards/project/volumes/volumes/tables.py:354
+msgid "Bootable"
+msgstr "起動可能"
+
+#: dashboards/project/volumes/volumes/forms.py:533
+msgid "Specifies that the volume can be used to launch an instance"
+msgstr "このボリュームをインスタンスを起動するのに使用できることを指示します。"
+
+#: dashboards/project/volumes/volumes/forms.py:544
+msgid "Unable to update volume."
+msgstr "ボリュームを更新できません。"
+
+#: dashboards/project/volumes/volumes/forms.py:555
+msgid "Unable to set bootable flag on volume."
+msgstr "ボリュームにブート可能フラグをセットできません。"
+
+#: dashboards/project/volumes/volumes/forms.py:558
 #, python-format
 msgid "Updating volume \"%s\""
 msgstr "ボリューム \"%s\" を更新中"
 
-#: dashboards/project/volumes/volumes/forms.py:543
-msgid "Unable to update volume."
-msgstr "ボリュームを更新できません。"
-
-#: dashboards/project/volumes/volumes/forms.py:557
+#: dashboards/project/volumes/volumes/forms.py:573
 msgctxt "Force upload volume in in-use status to image"
 msgid "Force"
 msgstr "強制アップロード"
 
-#: dashboards/project/volumes/volumes/forms.py:592
+#: dashboards/project/volumes/volumes/forms.py:608
 #, python-format
 msgid "Successfully sent the request to upload volume to image for volume: \"%s\""
 msgstr "ボリューム %s のイメージへのアップロード要求は正常に行われました。"
 
-#: dashboards/project/volumes/volumes/forms.py:599
+#: dashboards/project/volumes/volumes/forms.py:615
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "ボリューム %s をイメージにアップロードできません。"
 
-#: dashboards/project/volumes/volumes/forms.py:625
+#: dashboards/project/volumes/volumes/forms.py:641
 msgid "New size must be greater than current size."
 msgstr "変更後のサイズは現在のサイズより大きくなければいけません。"
 
-#: dashboards/project/volumes/volumes/forms.py:631
+#: dashboards/project/volumes/volumes/forms.py:647
 #, python-format
 msgid ""
 "Volume cannot be extended to %(req)iGB as you only have %(avail)iGB of your "
 "quota available."
 msgstr "ボリュームを %(req)iGB に拡張することができません。利用できるクォータは %(avail)iGB しかありません。"
 
-#: dashboards/project/volumes/volumes/forms.py:645
+#: dashboards/project/volumes/volumes/forms.py:661
 #, python-format
 msgid "Extending volume: \"%s\""
 msgstr "ボリューム %s を拡張しています。"
 
-#: dashboards/project/volumes/volumes/forms.py:651
+#: dashboards/project/volumes/volumes/forms.py:667
 msgid "Unable to extend volume."
 msgstr "ボリュームを拡張できません。"
 
-#: dashboards/project/volumes/volumes/forms.py:660
+#: dashboards/project/volumes/volumes/forms.py:676
 msgid "Never"
 msgstr "なし"
 
-#: dashboards/project/volumes/volumes/forms.py:661
+#: dashboards/project/volumes/volumes/forms.py:677
 msgid "On Demand"
 msgstr "要求時"
 
-#: dashboards/project/volumes/volumes/forms.py:662
+#: dashboards/project/volumes/volumes/forms.py:678
 msgid "Migration Policy"
 msgstr "移行ポリシー"
 
-#: dashboards/project/volumes/volumes/forms.py:679
+#: dashboards/project/volumes/volumes/forms.py:695
 msgid "Unable to retrieve the volume type list."
 msgstr "ボリューム種別の一覧を取得できません。"
 
-#: dashboards/project/volumes/volumes/forms.py:688
+#: dashboards/project/volumes/volumes/forms.py:704
 #, python-format
 msgid "New volume type must be different from the original volume type \"%s\"."
 msgstr "新しいボリューム種別は元のボリューム種別 %s とは違うものでなければいけません。"
 
-#: dashboards/project/volumes/volumes/forms.py:704
+#: dashboards/project/volumes/volumes/forms.py:720
 #, python-format
 msgid ""
 "Successfully sent the request to change the volume type to \"%(vtype)s\" for"
 " volume: \"%(name)s\""
 msgstr "ボリューム %(name)s のボリューム種別 \"%(vtype)s\" への変更要求が正常に送信されました。"
 
-#: dashboards/project/volumes/volumes/forms.py:713
+#: dashboards/project/volumes/volumes/forms.py:729
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "ボリューム \"%s\" のボリューム種別を変更できません。"
@@ -13564,7 +13579,7 @@ msgid "Upload to Image"
 msgstr "イメージにアップロード"
 
 #: dashboards/project/volumes/volumes/tables.py:263
-#: dashboards/project/volumes/volumes/views.py:252
+#: dashboards/project/volumes/volumes/views.py:253
 msgid "Unable to retrieve attachment information."
 msgstr "接続情報を取得できません。"
 
@@ -13580,10 +13595,6 @@ msgstr "いいえ"
 #: dashboards/project/volumes/volumes/tables.py:304
 msgid "Yes"
 msgstr "はい"
-
-#: dashboards/project/volumes/volumes/tables.py:354
-msgid "Bootable"
-msgstr "起動可能"
 
 #: dashboards/project/volumes/volumes/tables.py:357
 msgid "Encrypted"
@@ -13610,7 +13621,7 @@ msgstr "インスタンス %(instance_name)s のボリューム %(volume_name)s"
 
 #: dashboards/project/volumes/volumes/views.py:109
 #: dashboards/project/volumes/volumes/views.py:152
-#: dashboards/project/volumes/volumes/views.py:235
+#: dashboards/project/volumes/volumes/views.py:236
 msgid "Unable to retrieve volume information."
 msgstr "ボリューム情報を取得できません。"
 
@@ -13621,7 +13632,7 @@ msgid ""
 msgstr "このボリュームは現在インスタンスに接続されています。状況によっては、接続中のボリュームからスナップショットを作成すると、壊れたスナップショットが作成される可能性があります。"
 
 #: dashboards/project/volumes/volumes/views.py:171
-#: dashboards/project/volumes/volumes/views.py:301
+#: dashboards/project/volumes/volumes/views.py:302
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
 msgstr "ボリューム \"%s\" のボリューム情報を取得できません。"
