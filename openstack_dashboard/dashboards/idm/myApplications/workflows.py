@@ -45,6 +45,9 @@ class UpdateApplicationRolesAction(workflows.MembershipAction):
         try:
             application_roles = fiware_api.keystone.role_list(request,
                                                     application=application_id)
+            # TODO(garcianavalon) the default roles should be non editable!
+            # TODO(garcianavalon) filtering for internal
+            application_roles.append(fiware_api.keystone.role_list(request))
         except Exception:
             exceptions.handle(request, err_msg)
         role_list = [(role.id, role.name) for role in application_roles]
@@ -53,6 +56,9 @@ class UpdateApplicationRolesAction(workflows.MembershipAction):
         try:
             permission_list = fiware_api.keystone.permission_list(request,
                                                     application=application_id)
+            # TODO(garcianavalon) the default roles should be non editable!
+            # TODO(garcianavalon) filtering for internal
+            permission_list.append(fiware_api.keystone.permission_list(request))
         except Exception:
             exceptions.handle(request,
                               err_msg,
@@ -135,6 +141,7 @@ class ManageApplicationRoles(workflows.Workflow):
         member_step = self.get_step(APPLICATION_ROLE_PERMISSION_SLUG)
 
         try:
+            # TODO(garcianavalon) exclude from processing the non-editable roles
             role_list = fiware_api.keystone.role_list(request,
                                                 application=application_id)
             permission_list = fiware_api.keystone.permission_list(request,
