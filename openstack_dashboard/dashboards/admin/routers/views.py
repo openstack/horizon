@@ -63,6 +63,13 @@ class DetailView(r_views.DetailView):
     template_name = 'admin/routers/detail.html'
     failure_url = reverse_lazy('horizon:admin:routers:index')
 
+    def get_context_data(self, **kwargs):
+        context = super(DetailView, self).get_context_data(**kwargs)
+        table = rtbl.RoutersTable(self.request)
+        context["url"] = self.failure_url
+        context["actions"] = table.render_row_actions(context["router"])
+        return context
+
 
 class UpdateView(r_views.UpdateView):
     form_class = rforms.UpdateForm

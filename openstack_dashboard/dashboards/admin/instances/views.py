@@ -59,6 +59,7 @@ def rdp(args, **kvargs):
 
 class AdminUpdateView(views.UpdateView):
     workflow_class = update_instance.AdminUpdateInstance
+    success_url = reverse_lazy("horizon:admin:instances:index")
 
 
 class AdminIndexView(tables.DataTableView):
