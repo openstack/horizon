@@ -230,6 +230,11 @@ def volume_retype(request, volume_id, new_type, migration_policy):
                                                 migration_policy)
 
 
+def volume_set_bootable(request, volume_id, bootable):
+    return cinderclient(request).volumes.set_bootable(volume_id,
+                                                      bootable)
+
+
 def volume_update(request, volume_id, name, description):
     vol_data = {'name': name,
                 'description': description}

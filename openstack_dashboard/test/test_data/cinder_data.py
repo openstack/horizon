@@ -34,6 +34,7 @@ def data(TEST):
     TEST.cinder_volume_backups = utils.TestDataContainer()
     TEST.cinder_volume_encryption_types = utils.TestDataContainer()
     TEST.cinder_volume_types = utils.TestDataContainer()
+    TEST.cinder_bootable_volumes = utils.TestDataContainer()
     TEST.cinder_qos_specs = utils.TestDataContainer()
     TEST.cinder_qos_spec_associations = utils.TestDataContainer()
     TEST.cinder_volume_snapshots = utils.TestDataContainer()
@@ -111,6 +112,18 @@ def data(TEST):
          'volume_type': 'vol_type_2',
          'attachments': [{"id": "2", "server_id": '2',
                           "device": "/dev/hdb"}]})
+    non_bootable_volume = volumes.Volume(
+        volumes.VolumeManager(None),
+        {'id': "21023e92-8008-1234-8059-7f2293ff3890",
+         'status': 'in-use',
+         'size': 10,
+         'display_name': u'my_volume',
+         'display_description': '',
+         'created_at': '2013-04-01 10:30:00',
+         'volume_type': None,
+         'bootable': False,
+         'attachments': [{"id": "1", "server_id": '1',
+                          "device": "/dev/hda"}]})
 
     volume.bootable = 'true'
     nameless_volume.bootable = 'true'
@@ -120,6 +133,8 @@ def data(TEST):
     TEST.cinder_volumes.add(api.cinder.Volume(nameless_volume))
     TEST.cinder_volumes.add(api.cinder.Volume(other_volume))
     TEST.cinder_volumes.add(api.cinder.Volume(volume_with_type))
+
+    TEST.cinder_bootable_volumes.add(api.cinder.Volume(non_bootable_volume))
 
     vol_type1 = volume_types.VolumeType(volume_types.VolumeTypeManager(None),
                                         {'id': u'1',

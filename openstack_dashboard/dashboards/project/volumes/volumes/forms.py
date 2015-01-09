@@ -521,27 +521,43 @@ class CreateSnapshotForm(forms.SelfHandlingForm):
 
 
 class UpdateForm(forms.SelfHandlingForm):
-    name = forms.CharField(max_length=255, label=_("Volume Name"),
+    name = forms.CharField(max_length=255,
+                           label=_("Volume Name"),
                            required=False)
     description = forms.CharField(max_length=255,
                                   widget=forms.Textarea(attrs={'rows': 4}),
                                   label=_("Description"),
                                   required=False)
+    bootable = forms.BooleanField(label=_("Bootable"),
+                                  required=False,
+                                  help_text=_("Specifies that the volume can "
+                                              "be used to launch an instance"))
 
     def handle(self, request, data):
         volume_id = self.initial['volume_id']
         try:
             cinder.volume_update(request, volume_id, data['name'],
                                  data['description'])
-
-            message = _('Updating volume "%s"') % data['name']
-            messages.info(request, message)
-            return True
         except Exception:
             redirect = reverse("horizon:project:volumes:index")
             exceptions.handle(request,
                               _('Unable to update volume.'),
                               redirect=redirect)
+
+        # only update bootable flag if modified
+        make_bootable = data['bootable']
+        if make_bootable != self.initial['bootable']:
+            try:
+                cinder.volume_set_bootable(request, volume_id, make_bootable)
+            except Exception:
+                redirect = reverse("horizon:project:volumes:index")
+                exceptions.handle(request,
+                                  _('Unable to set bootable flag on volume.'),
+                                  redirect=redirect)
+
+        message = _('Updating volume "%s"') % data['name']
+        messages.info(request, message)
+        return True
 
 
 class UploadToImageForm(forms.SelfHandlingForm):
