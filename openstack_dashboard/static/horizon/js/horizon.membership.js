@@ -177,7 +177,7 @@ horizon.membership = {
 
     // set the selection back to default role
     var $roles_display = $dropdown.children('.dropdown-toggle').children('.roles_display');
-    var roles_to_display = [];
+    /*var roles_to_display = [];
     for (var i = 0; i < role_ids.length; i++) {
       if (i === 2) {
         roles_to_display.push('...');
@@ -188,7 +188,8 @@ horizon.membership = {
     text = roles_to_display.join(', ');
     if (text.length === 0) {
       text = gettext('No roles');
-    }
+    }*/
+    text = role_ids.length > 0 ? role_ids.length + " roles" : "No roles";
     $roles_display.text(text);
   },
 
