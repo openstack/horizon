@@ -1023,7 +1023,7 @@ The following keys are specific to registering a dashboard:
 
 .. versionadded:: 2014.1(Icehouse)
 
-The name of the dashboard to be added to ``HORIZON['dashboards']``. Required.
+The slug of the dashboard to be added to ``HORIZON['dashboards']``. Required.
 
 ``DEFAULT``
 -----------
@@ -1071,14 +1071,14 @@ The following keys are specific to registering or removing a panel:
 
 .. versionadded:: 2014.1(Icehouse)
 
-The name of the panel to be added to ``HORIZON_CONFIG``. Required.
+The slug of the panel to be added to ``HORIZON_CONFIG``. Required.
 
 ``PANEL_DASHBOARD``
 -------------------
 
 .. versionadded:: 2014.1(Icehouse)
 
-The name of the dashboard the ``PANEL`` associated with. Required.
+The slug of the dashboard the ``PANEL`` associated with. Required.
 
 
 ``PANEL_GROUP``
@@ -1086,8 +1086,8 @@ The name of the dashboard the ``PANEL`` associated with. Required.
 
 .. versionadded:: 2014.1(Icehouse)
 
-The name of the panel group the ``PANEL`` is associated with. If you want the panel to show up
-without a panel group, use the panel group "default".
+The slug of the panel group the ``PANEL`` is associated with. If you want the
+panel to show up without a panel group, use the panel group "default".
 
 ``DEFAULT_PANEL``
 -----------------
@@ -1154,7 +1154,7 @@ The following keys are specific to registering a panel group:
 
 .. versionadded:: 2014.1(Icehouse)
 
-The name of the panel group to be added to ``HORIZON_CONFIG``. Required.
+The slug of the panel group to be added to ``HORIZON_CONFIG``. Required.
 
 ``PANEL_GROUP_NAME``
 --------------------
@@ -1168,7 +1168,7 @@ The display name of the PANEL_GROUP. Required.
 
 .. versionadded:: 2014.1(Icehouse)
 
-The name of the dashboard the ``PANEL_GROUP`` associated with. Required.
+The slug of the dashboard the ``PANEL_GROUP`` associated with. Required.
 
 
 
