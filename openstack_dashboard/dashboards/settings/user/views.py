@@ -32,7 +32,8 @@ class UserSettingsView(forms.ModalFormView):
             'timezone': self.request.session.get(
                 'django_timezone',
                 self.request.COOKIES.get('django_timezone', 'UTC')),
-            'pagesize': utils.get_page_size(self.request)}
+            'pagesize': utils.get_page_size(self.request),
+            'instance_log_length': utils.get_log_length(self.request)}
 
     def form_valid(self, form):
         return form.handle(self.request, form.cleaned_data)

@@ -73,6 +73,21 @@ def get_page_size(request, default=20):
     return page_size
 
 
+def get_log_length(request, default=35):
+    session = request.session
+    cookies = request.COOKIES
+    try:
+        log_length = int(session.get(
+            'instance_log_length',
+            cookies.get('instance_log_length',
+                        getattr(settings,
+                                'INSTANCE_LOG_LENGTH',
+                                default))))
+    except ValueError:
+        log_length = session['instance_log_length'] = int(default)
+    return log_length
+
+
 def natural_sort(attr):
     return lambda x: [int(s) if s.isdigit() else s for s in
                       re.split(r'(\d+)', getattr(x, attr, x))]

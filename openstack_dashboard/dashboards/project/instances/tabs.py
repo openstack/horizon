@@ -17,6 +17,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import tabs
+from horizon.utils import functions as utils
 
 from openstack_dashboard.dashboards.project.instances \
     import audit_tables as a_tables
@@ -43,15 +44,17 @@ class LogTab(tabs.Tab):
 
     def get_context_data(self, request):
         instance = self.tab_group.kwargs['instance']
+        log_length = utils.get_log_length(request)
         try:
             data = api.nova.server_console_output(request,
                                                   instance.id,
-                                                  tail_length=35)
+                                                  tail_length=log_length)
         except Exception:
             data = _('Unable to get log for instance "%s".') % instance.id
             exceptions.handle(request, ignore=True)
         return {"instance": instance,
-                "console_log": data}
+                "console_log": data,
+                "log_length": log_length}
 
 
 class ConsoleTab(tabs.Tab):

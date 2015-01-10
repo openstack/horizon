@@ -314,6 +314,18 @@ and ``None`` (this latest value is available in version 2014.2(Juno) to allow
 deactivating the in-browser console).
 
 
+``INSTANCE_LOG_LENGTH``
+-----------------------
+
+.. versionadded:: 2015.1(Kilo)
+
+Default:  ``35``
+
+This setting enables you to change the default number of lines displayed for
+the log of an instance.
+Valid value must be a positive integer.
+
+
 ``CREATE_INSTANCE_FLAVOR_SORT``
 -------------------------------
 
