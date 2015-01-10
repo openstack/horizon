@@ -164,7 +164,9 @@ class UsersTable(tables.DataTable):
         ("true", True),
         ("false", False)
     )
-    name = tables.Column('name', verbose_name=_('User Name'))
+    name = tables.Column('name',
+                         link=("horizon:identity:users:detail"),
+                         verbose_name=_('User Name'))
     email = tables.Column('email', verbose_name=_('Email'),
                           filters=(lambda v: defaultfilters
                                    .default_if_none(v, ""),
