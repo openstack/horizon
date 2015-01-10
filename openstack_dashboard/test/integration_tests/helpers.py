@@ -50,7 +50,7 @@ class BaseTestCase(testtools.TestCase):
     def wait_for_title(self):
         timeout = self.conf.dashboard.page_timeout
         ui.WebDriverWait(self.driver, timeout).until(lambda d:
-                                                     self.driver.title)
+                                                     d.title)
 
 
 class TestCase(BaseTestCase):
