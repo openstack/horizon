@@ -190,6 +190,72 @@ class UploadToImageView(forms.ModalFormView):
                 'status': volume.status}
 
 
+class CreateTransferView(forms.ModalFormView):
+    form_class = project_forms.CreateTransferForm
+    template_name = 'project/volumes/volumes/create_transfer.html'
+    success_url = reverse_lazy('horizon:project:volumes:volumes_tab')
+    modal_id = "create_volume_transfer_modal"
+    modal_header = _("Create Volume Transfer")
+    submit_label = _("Create Volume Transfer")
+    submit_url = "horizon:project:volumes:volumes:create_transfer"
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(CreateTransferView, self).get_context_data(**kwargs)
+        volume_id = self.kwargs['volume_id']
+        context['volume_id'] = volume_id
+        context['submit_url'] = reverse(self.submit_url, args=[volume_id])
+        return context
+
+    def get_initial(self):
+        return {'volume_id': self.kwargs["volume_id"]}
+
+
+class AcceptTransferView(forms.ModalFormView):
+    form_class = project_forms.AcceptTransferForm
+    template_name = 'project/volumes/volumes/accept_transfer.html'
+    success_url = reverse_lazy('horizon:project:volumes:volumes_tab')
+    modal_id = "accept_volume_transfer_modal"
+    modal_header = _("Accept Volume Transfer")
+    submit_label = _("Accept Volume Transfer")
+    submit_url = reverse_lazy(
+        "horizon:project:volumes:volumes:accept_transfer")
+
+
+class ShowTransferView(forms.ModalFormView):
+    form_class = project_forms.ShowTransferForm
+    template_name = 'project/volumes/volumes/show_transfer.html'
+    success_url = reverse_lazy('horizon:project:volumes:volumes_tab')
+    modal_id = "show_volume_transfer_modal"
+    modal_header = _("Volume Transfer")
+    submit_url = "horizon:project:volumes:volumes:show_transfer"
+
+    def get_object(self):
+        try:
+            return self._object
+        except AttributeError:
+            transfer_id = self.kwargs['transfer_id']
+            try:
+                self._object = cinder.transfer_get(self.request, transfer_id)
+                return self._object
+            except Exception:
+                exceptions.handle(self.request,
+                                  _('Unable to retrieve volume transfer.'))
+
+    def get_context_data(self, **kwargs):
+        context = super(ShowTransferView, self).get_context_data(**kwargs)
+        context['transfer_id'] = self.kwargs['transfer_id']
+        context['auth_key'] = self.kwargs['auth_key']
+        context['submit_url'] = reverse(self.submit_url, args=[
+            context['transfer_id'], context['auth_key']])
+        return context
+
+    def get_initial(self):
+        transfer = self.get_object()
+        return {'id': transfer.id,
+                'name': transfer.name,
+                'auth_key': self.kwargs['auth_key']}
+
+
 class UpdateView(forms.ModalFormView):
     form_class = project_forms.UpdateForm
     template_name = 'project/volumes/volumes/update.html'

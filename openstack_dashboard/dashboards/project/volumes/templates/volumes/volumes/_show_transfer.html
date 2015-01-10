@@ -1,0 +1,12 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block modal-body-right %}
+    <h3>{% trans "Description:" %}</h3>
+    <p>{% trans "The Transfer ID and the Authorization Key are needed by the recipient in order to accept the transfer. Please capture both the Transfer ID and the Authorization Key and provide them to your transfer recipient." %}</p>
+    <p class="alert alert-warning">{% trans "The Authorization Key will not be available after closing this page, so you must capture it now, or else you will be unable to use the transfer." %}</p>
+{% endblock %}
+
+{% block modal-footer %}
+  <a href="{% url 'horizon:project:volumes:volumes_tab' %}" class="btn btn-default secondary cancel close">{% trans "Close" %}</a>
+{% endblock %}

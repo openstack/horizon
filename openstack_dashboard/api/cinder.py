@@ -79,7 +79,7 @@ class Volume(BaseCinderAPIResourceWrapper):
               'volume_type', 'availability_zone', 'imageRef', 'bootable',
               'snapshot_id', 'source_volid', 'attachments', 'tenant_name',
               'os-vol-host-attr:host', 'os-vol-tenant-attr:tenant_id',
-              'metadata', 'volume_image_metadata', 'encrypted']
+              'metadata', 'volume_image_metadata', 'encrypted', 'transfer']
 
     @property
     def is_bootable(self):
@@ -127,6 +127,11 @@ class QosSpec(object):
         self.id = id
         self.key = key
         self.value = val
+
+
+class VolumeTransfer(base.APIResourceWrapper):
+
+    _attrs = ['id', 'name', 'created_at', 'volume_id', 'auth_key']
 
 
 @memoized
@@ -181,7 +186,17 @@ def volume_list(request, search_opts=None):
     c_client = cinderclient(request)
     if c_client is None:
         return []
-    return [Volume(v) for v in c_client.volumes.list(search_opts=search_opts)]
+
+    # build a dictionary of volume_id -> transfer
+    transfers = {t.volume_id: t
+                 for t in transfer_list(request, search_opts=search_opts)}
+
+    volumes = []
+    for v in c_client.volumes.list(search_opts=search_opts):
+        v.transfer = transfers.get(v.id)
+        volumes.append(Volume(v))
+
+    return volumes
 
 
 def volume_get(request, volume_id):
@@ -196,6 +211,14 @@ def volume_get(request, volume_id):
             # the lack a server_id property; to work around that we'll
             # give the attached instance a generic name.
             attachment['instance_name'] = _("Unknown instance")
+
+    volume_data.transfer = None
+    if volume_data.status == 'awaiting-transfer':
+        for transfer in transfer_list(request):
+            if transfer.volume_id == volume_id:
+                volume_data.transfer = transfer
+                break
+
     return Volume(volume_data)
 
 
@@ -526,3 +549,30 @@ def extension_supported(request, extension_name):
         if extension.name == extension_name:
             return True
     return False
+
+
+def transfer_list(request, detailed=True, search_opts=None):
+    """To see all volumes transfers as an admin pass in a special
+    search option: {'all_tenants': 1}
+    """
+    c_client = cinderclient(request)
+    return [VolumeTransfer(v) for v in c_client.transfers.list(
+        detailed=detailed, search_opts=search_opts)]
+
+
+def transfer_get(request, transfer_id):
+    transfer_data = cinderclient(request).transfers.get(transfer_id)
+    return VolumeTransfer(transfer_data)
+
+
+def transfer_create(request, transfer_id, name):
+    volume = cinderclient(request).transfers.create(transfer_id, name)
+    return VolumeTransfer(volume)
+
+
+def transfer_accept(request, transfer_id, auth_key):
+    return cinderclient(request).transfers.accept(transfer_id, auth_key)
+
+
+def transfer_delete(request, transfer_id):
+    return cinderclient(request).transfers.delete(transfer_id)

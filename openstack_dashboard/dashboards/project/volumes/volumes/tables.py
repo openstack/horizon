@@ -24,6 +24,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
 from horizon import exceptions
+from horizon import messages
 from horizon import tables
 
 from openstack_dashboard import api
@@ -186,6 +187,17 @@ class CreateSnapshot(VolumePolicyTargetMixin, tables.LinkAction):
         return volume.status in ("available", "in-use")
 
 
+class CreateTransfer(VolumePolicyTargetMixin, tables.LinkAction):
+    name = "create_transfer"
+    verbose_name = _("Create Transfer")
+    url = "horizon:project:volumes:volumes:create_transfer"
+    classes = ("ajax-modal",)
+    policy_rules = (("volume", "volume:create_transfer"),)
+
+    def allowed(self, request, volume=None):
+        return volume.status == "available"
+
+
 class CreateBackup(VolumePolicyTargetMixin, tables.LinkAction):
     name = "backups"
     verbose_name = _("Create Backup")
@@ -236,6 +248,48 @@ class RetypeVolume(VolumePolicyTargetMixin, tables.LinkAction):
 
     def allowed(self, request, volume=None):
         return volume.status in ("available", "in-use")
+
+
+class AcceptTransfer(tables.LinkAction):
+    name = "accept_transfer"
+    verbose_name = _("Accept Transfer")
+    url = "horizon:project:volumes:volumes:accept_transfer"
+    classes = ("ajax-modal",)
+    icon = "exchange"
+    policy_rules = (("volume", "volume:accept_transfer"),)
+    ajax = True
+
+    def single(self, table, request, object_id=None):
+        return HttpResponse(self.render())
+
+
+class DeleteTransfer(VolumePolicyTargetMixin, tables.Action):
+    # This class inherits from tables.Action instead of the more obvious
+    # tables.DeleteAction due to the confirmation message.  When the delete
+    # is successful, DeleteAction automatically appends the name of the
+    # volume to the message, e.g. "Deleted volume transfer 'volume'". But
+    # we are deleting the volume *transfer*, whose name is different.
+    name = "delete_transfer"
+    verbose_name = _("Cancel Transfer")
+    policy_rules = (("volume", "volume:delete_transfer"),)
+    classes = ('btn-danger',)
+
+    def allowed(self, request, volume):
+        return (volume.status == "awaiting-transfer" and
+                getattr(volume, 'transfer', None))
+
+    def single(self, table, request, volume_id):
+        volume = table.get_object_by_id(volume_id)
+        try:
+            cinder.transfer_delete(request, volume.transfer.id)
+            if volume.transfer.name:
+                msg = _('Successfully deleted volume transfer "%s"'
+                        ) % volume.transfer.name
+            else:
+                msg = _("Successfully deleted volume transfer")
+            messages.success(request, msg)
+        except Exception:
+            exceptions.handle(request, _("Unable to delete volume transfer."))
 
 
 class UpdateRow(tables.Row):
@@ -361,10 +415,12 @@ class VolumesTable(VolumesTableBase):
         verbose_name = _("Volumes")
         status_columns = ["status"]
         row_class = UpdateRow
-        table_actions = (CreateVolume, DeleteVolume, VolumesFilterAction)
+        table_actions = (CreateVolume, AcceptTransfer, DeleteVolume,
+                         VolumesFilterAction)
         row_actions = (EditVolume, ExtendVolume, LaunchVolume, EditAttachments,
                        CreateSnapshot, CreateBackup, RetypeVolume,
-                       UploadToImage, DeleteVolume)
+                       UploadToImage, CreateTransfer, DeleteTransfer,
+                       DeleteVolume)
 
 
 class DetachVolume(tables.BatchAction):

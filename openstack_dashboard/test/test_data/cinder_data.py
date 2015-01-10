@@ -19,6 +19,7 @@ from cinderclient.v2 import services
 from cinderclient.v2 import volume_backups as vol_backups
 from cinderclient.v2 import volume_encryption_types as vol_enc_types
 from cinderclient.v2 import volume_snapshots as vol_snaps
+from cinderclient.v2 import volume_transfers
 from cinderclient.v2 import volume_types
 from cinderclient.v2 import volumes
 
@@ -41,6 +42,7 @@ def data(TEST):
     TEST.cinder_quotas = utils.TestDataContainer()
     TEST.cinder_quota_usages = utils.TestDataContainer()
     TEST.cinder_availability_zones = utils.TestDataContainer()
+    TEST.cinder_volume_transfers = utils.TestDataContainer()
 
     # Services
     service_1 = services.Service(services.ServiceManager(None), {
@@ -287,3 +289,13 @@ def data(TEST):
     TEST.cinder_qos_specs.add(qos_spec1, qos_spec2)
     vol_type1.associated_qos_spec = qos_spec1.name
     TEST.cinder_qos_spec_associations.add(vol_type1)
+
+    # volume_transfers
+    transfer_1 = volume_transfers.VolumeTransfer(
+        volume_transfers.VolumeTransferManager(None), {
+            'id': '99999999-8888-7777-6666-555555555555',
+            'name': 'test transfer',
+            'volume_id': volume.id,
+            'auth_key': 'blah',
+            'created_at': ''})
+    TEST.cinder_volume_transfers.add(transfer_1)
