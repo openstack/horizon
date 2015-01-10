@@ -50,6 +50,7 @@ horizon.addInitFunction(function() {
       {
         // collapse the inactive panel groups
         activeDashPanel.closest('div').find("h4").addClass("active");
+        activeDashPanel.closest('ul').slideDown();
         allPanelGroupBodies.each(function(index, value) {
           var activePanels = $(value).find('li > a.active');
           if(activePanels.length === 0) {
