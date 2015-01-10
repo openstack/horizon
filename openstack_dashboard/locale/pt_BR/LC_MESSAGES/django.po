@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-05 15:30-0600\n"
-"PO-Revision-Date: 2015-01-05 20:29+0000\n"
+"POT-Creation-Date: 2015-01-08 18:22-0600\n"
+"PO-Revision-Date: 2015-01-09 00:09+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -19,55 +19,55 @@ msgstr ""
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: settings.py:101
+#: settings.py:99
 msgid "Select format"
 msgstr "Selecione o formato"
 
-#: settings.py:102
+#: settings.py:100
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Imagem de Kernel da Amazon"
 
-#: settings.py:103
+#: settings.py:101
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Imagem de máquina Amazon"
 
-#: settings.py:104
+#: settings.py:102
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Imagem de Ramdisk Amazon"
 
-#: settings.py:105
+#: settings.py:103
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - Imagem de Disco Óptico"
 
-#: settings.py:106
+#: settings.py:104
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - Emulador QEMU"
 
-#: settings.py:107
+#: settings.py:105
 msgid "Raw"
 msgstr "Raw"
 
-#: settings.py:108
+#: settings.py:106
 msgid "VDI"
 msgstr "VDI"
 
-#: settings.py:109
+#: settings.py:107
 msgid "VHD"
 msgstr "VHD"
 
-#: settings.py:110
+#: settings.py:108
 msgid "VMDK"
 msgstr "VMDK"
 
-#: settings.py:298
+#: settings.py:292
 msgid "All TCP"
 msgstr "Tudo TCP"
 
-#: settings.py:304
+#: settings.py:298
 msgid "All UDP"
 msgstr "Tudo UDP"
 
-#: settings.py:310
+#: settings.py:304
 msgid "All ICMP"
 msgstr "Tudo ICMP"
 
@@ -340,7 +340,7 @@ msgstr "O serviço de identidade não permite a edição de dados do usuário."
 msgid "User %s has no role defined for that project."
 msgstr "O usuário %s não possui um papel definido para o projeto."
 
-#: api/keystone.py:369 api/keystone.py:388
+#: api/keystone.py:369 api/keystone.py:390
 #: dashboards/settings/password/forms.py:65
 msgid "Password changed. Please log in again to continue."
 msgstr "Senha Alterada. Por favor faça login novamente para continuar."
@@ -405,8 +405,8 @@ msgstr "Falha para checar a extensão Neutron '%s' não suportada"
 #: dashboards/project/networks/templates/networks/_detail_overview.html:25
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:18
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:43
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:17
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:28
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:18
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:29
 #: dashboards/project/routers/tables.py:182
 #: dashboards/project/volumes/volumes/tables.py:300
 msgid "-"
@@ -561,7 +561,7 @@ msgstr "Admin"
 #: dashboards/project/networks/subnets/tables.py:129
 #: dashboards/project/networks/templates/networks/_detail_overview.html:7
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:10
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:9
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:10
 #: dashboards/project/routers/forms.py:85
 #: dashboards/project/routers/tables.py:187
 #: dashboards/project/routers/ports/tables.py:101
@@ -1022,7 +1022,7 @@ msgstr "Agregados de Host dividem uma zona de disponibilidade em unidades lógic
 #: dashboards/project/volumes/templates/volumes/volumes/_create_snapshot.html:28
 #: dashboards/project/volumes/templates/volumes/volumes/_extend.html:25
 #: dashboards/project/volumes/templates/volumes/volumes/_retype.html:40
-#: dashboards/project/volumes/templates/volumes/volumes/_update.html:25
+#: dashboards/project/volumes/templates/volumes/volumes/_update.html:28
 #: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:41
 #: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:24
 #: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:24
@@ -1385,7 +1385,7 @@ msgstr "Disco de Swap"
 #: dashboards/project/networks/templates/networks/_detail_overview.html:9
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:12
 #: dashboards/project/networks/templates/networks/ports/_update.html:13
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:11
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:12
 #: dashboards/project/routers/forms.py:89
 #: dashboards/project/routers/templates/routers/_detail_overview.html:11
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:11
@@ -1584,7 +1584,7 @@ msgstr "Nome do host"
 #: dashboards/project/volumes/volumes/forms.py:81
 #: dashboards/project/volumes/volumes/forms.py:86
 #: dashboards/project/volumes/volumes/forms.py:87
-#: dashboards/project/volumes/volumes/forms.py:659
+#: dashboards/project/volumes/volumes/forms.py:675
 #: dashboards/project/volumes/volumes/tables.py:348
 msgid "Type"
 msgstr "Tipo"
@@ -1917,7 +1917,7 @@ msgstr "Tamanho Max. (MB)"
 #: dashboards/project/instances/tables.py:969
 #: dashboards/project/instances/templates/instances/_detail_overview.html:112
 #: dashboards/project/instances/workflows/create_instance.py:106
-#: dashboards/project/volumes/volumes/forms.py:551
+#: dashboards/project/volumes/volumes/forms.py:567
 msgid "Image Name"
 msgstr "Nome da Imagem"
 
@@ -2280,7 +2280,7 @@ msgid "Metadata Definition File"
 msgstr ""
 
 #: dashboards/admin/metadata_defs/forms.py:41
-#: dashboards/project/instances/workflows/create_instance.py:620
+#: dashboards/project/instances/workflows/create_instance.py:621
 #: dashboards/project/stacks/forms.py:58
 msgid "Direct Input"
 msgstr "Entrada Direta"
@@ -2437,7 +2437,7 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:15
 #: dashboards/project/volumes/volumes/forms.py:52
 #: dashboards/project/volumes/volumes/forms.py:487
-#: dashboards/project/volumes/volumes/forms.py:528
+#: dashboards/project/volumes/volumes/forms.py:529
 #: dashboards/project/volumes/volumes/tables.py:319
 #: dashboards/project/vpn/forms.py:36 dashboards/project/vpn/forms.py:70
 #: dashboards/project/vpn/forms.py:142 dashboards/project/vpn/forms.py:213
@@ -2547,12 +2547,12 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:33
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:35
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:42
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:10
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:12
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:15
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:19
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:47
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:55
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:11
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:13
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:16
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:20
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:48
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:56
 #: dashboards/project/routers/templates/routers/_detail_overview.html:4
 #: dashboards/project/routers/templates/routers/_detail_overview.html:10
 #: dashboards/project/routers/templates/routers/_detail_overview.html:12
@@ -3107,13 +3107,13 @@ msgid ""
 msgstr "Para redes VLAN, o VLAN VID na rede física é que faz a rede virtual. VIDs VLAN válidos vão de %(vlan_min)s a %(vlan_max)s. Para redes GRE ou VXLAN, o ID do tunel . IDs de tunel válidos para GRE vão de %(gre_min)s a %(gre_max)s. Para redes VXLAN, de %(vxlan_min)s a %(vxlan_max)s."
 
 #: dashboards/admin/networks/forms.py:145
-#: dashboards/project/instances/workflows/create_instance.py:743
+#: dashboards/project/instances/workflows/create_instance.py:744
 #: dashboards/project/networks/workflows.py:61
 msgid "Select a profile"
 msgstr "Selecione um perfil"
 
 #: dashboards/admin/networks/forms.py:155
-#: dashboards/project/instances/workflows/create_instance.py:753
+#: dashboards/project/instances/workflows/create_instance.py:754
 #: dashboards/project/networks/workflows.py:71
 #: dashboards/router/nexus1000v/views.py:52
 msgid "Network Profiles could not be retrieved."
@@ -3162,7 +3162,7 @@ msgstr "Falha ao atualizar rede %s"
 #: dashboards/admin/networks/templates/networks/index.html:6
 #: dashboards/identity/projects/workflows.py:74
 #: dashboards/project/databases/workflows/create_instance.py:131
-#: dashboards/project/instances/workflows/create_instance.py:697
+#: dashboards/project/instances/workflows/create_instance.py:698
 #: dashboards/project/networks/panel.py:23
 #: dashboards/project/networks/tables.py:167
 #: dashboards/project/networks/templates/networks/index.html:3
@@ -3337,7 +3337,7 @@ msgstr "Não foi possível ler a lista de agentes."
 
 #: dashboards/admin/networks/ports/forms.py:36
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:15
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:14
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:15
 msgid "Network ID"
 msgstr "ID de Rede"
 
@@ -3501,7 +3501,7 @@ msgstr "Editar Sub-rede"
 #: dashboards/project/access_and_security/security_groups/forms.py:196
 #: dashboards/project/access_and_security/security_groups/forms.py:208
 #: dashboards/project/access_and_security/security_groups/forms.py:218
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:18
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:19
 msgid "CIDR"
 msgstr "CIDR"
 
@@ -3515,7 +3515,7 @@ msgstr "Versão IP"
 #: dashboards/admin/networks/subnets/tables.py:96
 #: dashboards/project/networks/workflows.py:128
 #: dashboards/project/networks/subnets/tables.py:133
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:27
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:28
 msgid "Gateway IP"
 msgstr "IP do Gateway"
 
@@ -3863,10 +3863,10 @@ msgstr "Atualizar Status"
 #: dashboards/project/volumes/backups/tables.py:120
 #: dashboards/project/volumes/snapshots/tables.py:142
 #: dashboards/project/volumes/volumes/forms.py:48
-#: dashboards/project/volumes/volumes/forms.py:524
-#: dashboards/project/volumes/volumes/forms.py:548
-#: dashboards/project/volumes/volumes/forms.py:608
-#: dashboards/project/volumes/volumes/forms.py:656
+#: dashboards/project/volumes/volumes/forms.py:525
+#: dashboards/project/volumes/volumes/forms.py:564
+#: dashboards/project/volumes/volumes/forms.py:624
+#: dashboards/project/volumes/volumes/forms.py:672
 msgid "Volume Name"
 msgstr "Nome do Volume"
 
@@ -5255,7 +5255,7 @@ msgstr "Nenhum projeto disponível"
 
 #: dashboards/identity/users/forms.py:66
 #: dashboards/project/instances/forms.py:92
-#: dashboards/project/instances/workflows/create_instance.py:593
+#: dashboards/project/instances/workflows/create_instance.py:594
 #: dashboards/settings/password/forms.py:50
 msgid "Passwords do not match."
 msgstr "As senhas não conferem."
@@ -5441,7 +5441,7 @@ msgid "Data Processing"
 msgstr "Processamento de Dados"
 
 #: dashboards/project/access_and_security/panel.py:24
-#: dashboards/project/instances/workflows/create_instance.py:551
+#: dashboards/project/instances/workflows/create_instance.py:552
 msgid "Access & Security"
 msgstr "Acesso e Segurança"
 
@@ -6265,7 +6265,7 @@ msgid "Unable to create container."
 msgstr "Não é possível criar contêiner."
 
 #: dashboards/project/containers/forms.py:84
-#: dashboards/project/instances/workflows/create_instance.py:621
+#: dashboards/project/instances/workflows/create_instance.py:622
 #: dashboards/project/stacks/forms.py:57
 msgid "File"
 msgstr "Arquivo"
@@ -7919,7 +7919,7 @@ msgstr "Persistir cluster após sair do job"
 #: dashboards/project/data_processing/jobs/workflows/launch.py:416
 #: dashboards/project/databases/workflows/create_instance.py:272
 #: dashboards/project/images/images/tables.py:35
-#: dashboards/project/instances/workflows/create_instance.py:839
+#: dashboards/project/instances/workflows/create_instance.py:840
 #: dashboards/project/stacks/templates/stacks/_create.html:24
 msgid "Launch"
 msgstr "Disparar"
@@ -8151,7 +8151,7 @@ msgstr "Incapaz de preencher os processos anti-affinity."
 
 #: dashboards/project/data_processing/utils/neutron_support.py:31
 #: dashboards/project/databases/workflows/create_instance.py:160
-#: dashboards/project/instances/workflows/create_instance.py:739
+#: dashboards/project/instances/workflows/create_instance.py:740
 msgid "Unable to retrieve networks."
 msgstr "Não é possível recuperar redes."
 
@@ -8354,14 +8354,14 @@ msgstr "Backup \"%(name)s\" agendado."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:85
 #: dashboards/project/databases/workflows/create_instance.py:274
-#: dashboards/project/instances/workflows/create_instance.py:841
+#: dashboards/project/instances/workflows/create_instance.py:842
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "Não foi possível disparar %(count)s chamadas \"%(name)s\"."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:95
 #: dashboards/project/databases/workflows/create_instance.py:290
-#: dashboards/project/instances/workflows/create_instance.py:858
+#: dashboards/project/instances/workflows/create_instance.py:859
 msgid "instance"
 msgstr "instância"
 
@@ -8370,12 +8370,12 @@ msgid "Error creating database backup."
 msgstr "Erro criando backup da base de dados."
 
 #: dashboards/project/databases/forms.py:28
-#: dashboards/project/volumes/volumes/forms.py:613
+#: dashboards/project/volumes/volumes/forms.py:629
 msgid "Current Size (GB)"
 msgstr "Tamanho Atual (GB)"
 
 #: dashboards/project/databases/forms.py:32
-#: dashboards/project/volumes/volumes/forms.py:617
+#: dashboards/project/volumes/volumes/forms.py:633
 msgid "New Size (GB)"
 msgstr "Novo Tamanho (GB)"
 
@@ -8407,26 +8407,21 @@ msgstr "Flavor Novo"
 msgid "Choose a new instance flavor."
 msgstr ""
 
-#: dashboards/project/databases/forms.py:73
+#: dashboards/project/databases/forms.py:77
 msgid "Select a new flavor"
 msgstr ""
 
-#: dashboards/project/databases/forms.py:75
-#: dashboards/project/instances/workflows/resize_instance.py:63
+#: dashboards/project/databases/forms.py:79
+#: dashboards/project/instances/workflows/resize_instance.py:58
 msgid "No flavors available"
 msgstr "Nenhum flavor disponível."
 
-#: dashboards/project/databases/forms.py:83
-#: dashboards/project/instances/workflows/resize_instance.py:52
-msgid "Please choose a new flavor that is not the same as the old one."
-msgstr "Por favor, escolha um novo flavor que não é o mesmo que o antigo."
-
-#: dashboards/project/databases/forms.py:93
+#: dashboards/project/databases/forms.py:88
 #, python-format
 msgid "Resizing instance \"%s\""
 msgstr ""
 
-#: dashboards/project/databases/forms.py:96
+#: dashboards/project/databases/forms.py:91
 #, python-format
 msgid "Unable to resize instance. %s"
 msgstr ""
@@ -8482,7 +8477,7 @@ msgstr "Erro excluindo base de dados na instância."
 #: dashboards/project/databases/workflows/create_instance.py:271
 #: dashboards/project/instances/tables.py:305
 #: dashboards/project/instances/tables.py:333
-#: dashboards/project/instances/workflows/create_instance.py:838
+#: dashboards/project/instances/workflows/create_instance.py:839
 #: dashboards/project/network_topology/templates/network_topology/index.html:28
 msgid "Launch Instance"
 msgstr "Disparar Instância"
@@ -8493,7 +8488,7 @@ msgstr "Redimensionar volume"
 
 #: dashboards/project/databases/tables.py:178
 #: dashboards/project/instances/tables.py:435
-#: dashboards/project/instances/workflows/resize_instance.py:89
+#: dashboards/project/instances/workflows/resize_instance.py:84
 msgid "Resize Instance"
 msgstr "Redimensionar Instância"
 
@@ -8761,22 +8756,22 @@ msgid "Select datastore type and version"
 msgstr "Selecione o tipo de armazenamento de dados e versão"
 
 #: dashboards/project/databases/workflows/create_instance.py:135
-#: dashboards/project/instances/workflows/create_instance.py:701
+#: dashboards/project/instances/workflows/create_instance.py:702
 msgid "At least one network must be specified."
 msgstr "Ao menos uma rede deve ser espeicifacada."
 
 #: dashboards/project/databases/workflows/create_instance.py:137
-#: dashboards/project/instances/workflows/create_instance.py:703
+#: dashboards/project/instances/workflows/create_instance.py:704
 msgid "Launch instance with these networks"
 msgstr "Disparar instância com estas redes"
 
 #: dashboards/project/databases/workflows/create_instance.py:147
-#: dashboards/project/instances/workflows/create_instance.py:725
+#: dashboards/project/instances/workflows/create_instance.py:726
 msgid "Networking"
 msgstr "Rede"
 
 #: dashboards/project/databases/workflows/create_instance.py:149
-#: dashboards/project/instances/workflows/create_instance.py:727
+#: dashboards/project/instances/workflows/create_instance.py:728
 msgid "Select networks for your instance."
 msgstr "Selecione as redes para sua instância."
 
@@ -8821,7 +8816,7 @@ msgid "Unable to find backup!"
 msgstr "Não foi possível encontrar o backup!"
 
 #: dashboards/project/databases/workflows/create_instance.py:273
-#: dashboards/project/instances/workflows/create_instance.py:840
+#: dashboards/project/instances/workflows/create_instance.py:841
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "Disparadas %(count)s chamadas \"%(name)s\"."
@@ -9588,7 +9583,7 @@ msgid "Container Format"
 msgstr "Formato do contêiner"
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:50
-#: dashboards/project/volumes/volumes/forms.py:552
+#: dashboards/project/volumes/volumes/forms.py:568
 msgid "Disk Format"
 msgstr "Formato de Disco"
 
@@ -9659,7 +9654,7 @@ msgid "Confirm Rebuild Password"
 msgstr "Confirmar Reconstrução de Senha"
 
 #: dashboards/project/instances/forms.py:53
-#: dashboards/project/instances/workflows/create_instance.py:785
+#: dashboards/project/instances/workflows/create_instance.py:786
 msgid "Disk Partition"
 msgstr "Partição de disco"
 
@@ -9669,18 +9664,18 @@ msgid "No images available"
 msgstr "Sem imagens disponíveis"
 
 #: dashboards/project/instances/forms.py:78
-#: dashboards/project/instances/workflows/create_instance.py:803
+#: dashboards/project/instances/workflows/create_instance.py:804
 msgid "Automatic"
 msgstr "Automático"
 
 #: dashboards/project/instances/forms.py:79
-#: dashboards/project/instances/workflows/create_instance.py:804
+#: dashboards/project/instances/workflows/create_instance.py:805
 msgid "Manual"
 msgstr "Manual"
 
 #: dashboards/project/instances/forms.py:82
 #: dashboards/project/instances/workflows/create_instance.py:166
-#: dashboards/project/instances/workflows/create_instance.py:813
+#: dashboards/project/instances/workflows/create_instance.py:814
 msgid "Unable to retrieve extensions information."
 msgstr "Não é possível recuperar informações de extensões."
 
@@ -10751,7 +10746,7 @@ msgid "Any Availability Zone"
 msgstr "Qualquer Zona de Disponibilidade"
 
 #: dashboards/project/instances/workflows/create_instance.py:402
-#: dashboards/project/instances/workflows/resize_instance.py:77
+#: dashboards/project/instances/workflows/resize_instance.py:72
 #: usage/base.py:237
 msgid "Unable to retrieve quota information."
 msgstr "Não foi possível obter informações de cota."
@@ -10812,104 +10807,104 @@ msgstr "Senha de Administrador"
 msgid "Confirm Admin Password"
 msgstr "Confirme Senha de Administrador"
 
-#: dashboards/project/instances/workflows/create_instance.py:547
+#: dashboards/project/instances/workflows/create_instance.py:548
 msgid "Launch instance in these security groups."
 msgstr "Disparar instância nestes grupos de segurança."
 
-#: dashboards/project/instances/workflows/create_instance.py:552
+#: dashboards/project/instances/workflows/create_instance.py:553
 msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
 msgstr "Controle o acesso à sua instância através de pares de chave, grupos de segurança e outros mecanismos."
 
-#: dashboards/project/instances/workflows/create_instance.py:568
+#: dashboards/project/instances/workflows/create_instance.py:569
 msgid "Unable to retrieve key pairs."
 msgstr "Não foi possível obter pares de chave."
 
-#: dashboards/project/instances/workflows/create_instance.py:572
+#: dashboards/project/instances/workflows/create_instance.py:573
 msgid "Select a key pair"
 msgstr "Selecionar um par de chaves"
 
-#: dashboards/project/instances/workflows/create_instance.py:574
+#: dashboards/project/instances/workflows/create_instance.py:575
 msgid "No key pairs available"
 msgstr "Não há par de chaves disponível"
 
-#: dashboards/project/instances/workflows/create_instance.py:583
+#: dashboards/project/instances/workflows/create_instance.py:584
 msgid "Unable to retrieve list of security groups"
 msgstr "Não é possível recuperar a lista de grupos de segurança"
 
-#: dashboards/project/instances/workflows/create_instance.py:615
+#: dashboards/project/instances/workflows/create_instance.py:616
 msgid "Post-Creation"
 msgstr "Pós-Criação"
 
-#: dashboards/project/instances/workflows/create_instance.py:619
+#: dashboards/project/instances/workflows/create_instance.py:620
 msgid "Select Script Source"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:624
+#: dashboards/project/instances/workflows/create_instance.py:625
 msgid "Customization Script Source"
 msgstr "Personalização Source Script"
 
-#: dashboards/project/instances/workflows/create_instance.py:629
+#: dashboards/project/instances/workflows/create_instance.py:630
 msgid ""
 "A script or set of commands to be executed after the instance has been built"
 " (max 16kb)."
 msgstr "Um script é um conjunto de comandos a ser executado após a construção da instância (máximo 16kb)."
 
-#: dashboards/project/instances/workflows/create_instance.py:633
-#: dashboards/project/instances/workflows/create_instance.py:638
+#: dashboards/project/instances/workflows/create_instance.py:634
+#: dashboards/project/instances/workflows/create_instance.py:639
 msgid "Script File"
 msgstr "Arquivo de Script"
 
-#: dashboards/project/instances/workflows/create_instance.py:642
-#: dashboards/project/instances/workflows/create_instance.py:647
+#: dashboards/project/instances/workflows/create_instance.py:643
+#: dashboards/project/instances/workflows/create_instance.py:648
 msgid "Script Data"
 msgstr "Script Data"
 
-#: dashboards/project/instances/workflows/create_instance.py:674
+#: dashboards/project/instances/workflows/create_instance.py:675
 msgid "File exceeds maximum size (16kb)"
 msgstr "Arquivo excede o tamanho máximo (16kb)"
 
-#: dashboards/project/instances/workflows/create_instance.py:682
+#: dashboards/project/instances/workflows/create_instance.py:683
 #: dashboards/project/stacks/forms.py:187
 #, python-format
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr "Houve um problema ao analisar o  %(prefix)s: %(error)s"
 
-#: dashboards/project/instances/workflows/create_instance.py:709
+#: dashboards/project/instances/workflows/create_instance.py:710
 msgid "Policy Profiles"
 msgstr "Perfis de Política"
 
-#: dashboards/project/instances/workflows/create_instance.py:712
+#: dashboards/project/instances/workflows/create_instance.py:713
 msgid "Launch instance with this policy profile"
 msgstr "Dispare instância com este perfil de política"
 
-#: dashboards/project/instances/workflows/create_instance.py:786
+#: dashboards/project/instances/workflows/create_instance.py:787
 msgid ""
 "Automatic: The entire disk is a single partition and automatically resizes. "
 "Manual: Results in faster build times but requires manual partitioning."
 msgstr "Automático: O disco inteiro é uma única partição e automaticamente redimensiona. Manual: Resultados no mais rápido tempo de construção, mas requer particionamento manual."
 
-#: dashboards/project/instances/workflows/create_instance.py:790
+#: dashboards/project/instances/workflows/create_instance.py:791
 msgid "Configuration Drive"
 msgstr "Configuração de Drive"
 
-#: dashboards/project/instances/workflows/create_instance.py:791
+#: dashboards/project/instances/workflows/create_instance.py:792
 msgid ""
 "Configure OpenStack to write metadata to a special configuration drive that "
 "attaches to the instance when it boots."
 msgstr "Configurar OpenStack para escrever metadados para uma unidade de configuração especial que atribui à instância quando ele inicia."
 
-#: dashboards/project/instances/workflows/create_instance.py:817
+#: dashboards/project/instances/workflows/create_instance.py:818
 msgid "Advanced Options"
 msgstr "Opções Avançadas"
 
-#: dashboards/project/instances/workflows/create_instance.py:855
+#: dashboards/project/instances/workflows/create_instance.py:856
 #, python-format
 msgid "%s instances"
 msgstr "%s instâncias"
 
-#: dashboards/project/instances/workflows/create_instance.py:915
+#: dashboards/project/instances/workflows/create_instance.py:916
 #, python-format
 msgid "Port not created for profile-id (%s)."
 msgstr "Porta não criada para profile-id (%s)."
@@ -10922,20 +10917,20 @@ msgstr "Escolha o flavor para ser disparado."
 msgid "Flavor Choice"
 msgstr "Escolha de Flavor"
 
-#: dashboards/project/instances/workflows/resize_instance.py:61
+#: dashboards/project/instances/workflows/resize_instance.py:56
 msgid "Select a New Flavor"
 msgstr "Selecionar um novo sabor"
 
-#: dashboards/project/instances/workflows/resize_instance.py:90
+#: dashboards/project/instances/workflows/resize_instance.py:85
 msgid "Resize"
 msgstr "Redimensionar"
 
-#: dashboards/project/instances/workflows/resize_instance.py:91
+#: dashboards/project/instances/workflows/resize_instance.py:86
 #, python-format
 msgid "Scheduled resize of instance \"%s\"."
 msgstr "Agendado o redimensionamento da instância \"%s\"."
 
-#: dashboards/project/instances/workflows/resize_instance.py:92
+#: dashboards/project/instances/workflows/resize_instance.py:87
 #, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "Não foi possível redimensionar a instância \"%s\"."
@@ -11240,6 +11235,7 @@ msgstr "Desassociar Monitor"
 #: dashboards/project/networks/workflows.py:158
 #: dashboards/project/networks/subnets/workflows.py:38
 #: dashboards/project/networks/subnets/workflows.py:116
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:7
 #: dashboards/project/routers/ports/forms.py:29
 #: dashboards/project/vpn/tables.py:263 dashboards/project/vpn/workflows.py:30
 msgid "Subnet"
@@ -11934,7 +11930,7 @@ msgstr "Habilitar DHCP"
 
 #: dashboards/project/networks/workflows.py:217
 #: dashboards/project/networks/workflows.py:221
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:32
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:33
 msgid "IPv6 Address Configuration Mode"
 msgstr "Modo de configuração de endereços IPv6"
 
@@ -12248,27 +12244,27 @@ msgstr ""
 msgid "Subnet Overview"
 msgstr "Visão Geral de Sub-rede"
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:16
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:17
 msgid "IP version"
 msgstr "Versão de IP"
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:20
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:21
 msgid "IP allocation pool"
 msgstr "Pool de alocação de IPs"
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:23
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:24
 msgid "Start"
 msgstr "Iniciar"
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:24
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:25
 msgid " - End"
 msgstr "- Fim"
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:29
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:30
 msgid "DHCP Enable"
 msgstr "DHCP Habilitado"
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:36
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:37
 #, python-format
 msgid ""
 "\n"
@@ -12276,20 +12272,20 @@ msgid ""
 "        "
 msgstr "\nOutros Modeos IPv6 : ipv6_ra_mode =%(ra_mode)s, ipv6_address_mode =%(addr_mode)s"
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:41
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:42
 msgid "Additional routes"
 msgstr "Rotas adicionais"
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:44
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:45
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:24
 msgid "Destination"
 msgstr "Destino"
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:45
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:46
 msgid " : Next hop"
 msgstr ": Próximo salto"
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:50
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:51
 msgid "DNS name server"
 msgstr "Servidor de nomes DNS"
 
@@ -13276,9 +13272,9 @@ msgstr "Anexos"
 #, python-format
 msgid ""
 "\n"
-"        <a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s\n"
-"        "
-msgstr "\n        <a href=\"%(instance_url)s\">%(instance_name)s</a> no %(device)s\n        "
+"      <a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s\n"
+"      "
+msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:48
 msgid "Not attached"
@@ -13365,7 +13361,7 @@ msgid "Number of Snapshots"
 msgstr "Número de Snapshots"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_update.html:9
-#: dashboards/project/volumes/templates/volumes/volumes/_update.html:24
+#: dashboards/project/volumes/templates/volumes/volumes/_update.html:27
 #: dashboards/project/volumes/templates/volumes/volumes/update.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/update.html:6
 #: dashboards/project/volumes/volumes/tables.py:219
@@ -13375,6 +13371,12 @@ msgstr "Editar Volume"
 #: dashboards/project/volumes/templates/volumes/volumes/_update.html:19
 msgid "Modify name and description of a volume."
 msgstr "Modifica o nome e descrição de um volume."
+
+#: dashboards/project/volumes/templates/volumes/volumes/_update.html:21
+msgid ""
+"The \"Bootable\" flag specifies that this volume can be used to launch an "
+"instance."
+msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:9
 #: dashboards/project/volumes/templates/volumes/volumes/upload_to_image.html:3
@@ -13584,79 +13586,92 @@ msgstr "Forçando para criar snapshot \"%s\" do volume axenado."
 msgid "Unable to create volume snapshot."
 msgstr "Não foi possível criar um snapshot de volume."
 
-#: dashboards/project/volumes/volumes/forms.py:537
+#: dashboards/project/volumes/volumes/forms.py:531
+#: dashboards/project/volumes/volumes/tables.py:354
+msgid "Bootable"
+msgstr "Bootável"
+
+#: dashboards/project/volumes/volumes/forms.py:533
+msgid "Specifies that the volume can be used to launch an instance"
+msgstr ""
+
+#: dashboards/project/volumes/volumes/forms.py:544
+msgid "Unable to update volume."
+msgstr "Não é possível atualizar volume."
+
+#: dashboards/project/volumes/volumes/forms.py:555
+msgid "Unable to set bootable flag on volume."
+msgstr ""
+
+#: dashboards/project/volumes/volumes/forms.py:558
 #, python-format
 msgid "Updating volume \"%s\""
 msgstr "Atualizando volume \"%s\""
 
-#: dashboards/project/volumes/volumes/forms.py:543
-msgid "Unable to update volume."
-msgstr "Não é possível atualizar volume."
-
-#: dashboards/project/volumes/volumes/forms.py:557
+#: dashboards/project/volumes/volumes/forms.py:573
 msgctxt "Force upload volume in in-use status to image"
 msgid "Force"
 msgstr "Forçar"
 
-#: dashboards/project/volumes/volumes/forms.py:592
+#: dashboards/project/volumes/volumes/forms.py:608
 #, python-format
 msgid "Successfully sent the request to upload volume to image for volume: \"%s\""
 msgstr "Enviada com sucesso o pedido de upload de volume a imagem para o volume: \"%s\""
 
-#: dashboards/project/volumes/volumes/forms.py:599
+#: dashboards/project/volumes/volumes/forms.py:615
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "Não é possível fazer upload de volume a imagem para o volume: \"%s\""
 
-#: dashboards/project/volumes/volumes/forms.py:625
+#: dashboards/project/volumes/volumes/forms.py:641
 msgid "New size must be greater than current size."
 msgstr "Nova tamanho deve ser maior do que o tamanho actual."
 
-#: dashboards/project/volumes/volumes/forms.py:631
+#: dashboards/project/volumes/volumes/forms.py:647
 #, python-format
 msgid ""
 "Volume cannot be extended to %(req)iGB as you only have %(avail)iGB of your "
 "quota available."
 msgstr "O volume não pode ser estendida a %(req)iGB como você só tem%(avail)iGB da sua quota disponível."
 
-#: dashboards/project/volumes/volumes/forms.py:645
+#: dashboards/project/volumes/volumes/forms.py:661
 #, python-format
 msgid "Extending volume: \"%s\""
 msgstr "Estendendo o volume: \"%s\""
 
-#: dashboards/project/volumes/volumes/forms.py:651
+#: dashboards/project/volumes/volumes/forms.py:667
 msgid "Unable to extend volume."
 msgstr "Incapaz de estender o volume."
 
-#: dashboards/project/volumes/volumes/forms.py:660
+#: dashboards/project/volumes/volumes/forms.py:676
 msgid "Never"
 msgstr "Nunca"
 
-#: dashboards/project/volumes/volumes/forms.py:661
+#: dashboards/project/volumes/volumes/forms.py:677
 msgid "On Demand"
 msgstr "Sob Demanda"
 
-#: dashboards/project/volumes/volumes/forms.py:662
+#: dashboards/project/volumes/volumes/forms.py:678
 msgid "Migration Policy"
 msgstr "Política de Migração"
 
-#: dashboards/project/volumes/volumes/forms.py:679
+#: dashboards/project/volumes/volumes/forms.py:695
 msgid "Unable to retrieve the volume type list."
 msgstr "Não é possível recuperar a lista de tipos de volume."
 
-#: dashboards/project/volumes/volumes/forms.py:688
+#: dashboards/project/volumes/volumes/forms.py:704
 #, python-format
 msgid "New volume type must be different from the original volume type \"%s\"."
 msgstr "Novo tipo de volume deve ser diferente do tipo volume original \"%s\"."
 
-#: dashboards/project/volumes/volumes/forms.py:704
+#: dashboards/project/volumes/volumes/forms.py:720
 #, python-format
 msgid ""
 "Successfully sent the request to change the volume type to \"%(vtype)s\" for"
 " volume: \"%(name)s\""
 msgstr "Enviada com sucesso o pedido para alterar o tipo de volume para \"%(vtype)s\" para o volume:\"%(name)s\""
 
-#: dashboards/project/volumes/volumes/forms.py:713
+#: dashboards/project/volumes/volumes/forms.py:729
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "Não é possível alterar o tipo de volume para volume: \"%s\""
@@ -13690,7 +13705,7 @@ msgid "Upload to Image"
 msgstr "Enviar para Imagem"
 
 #: dashboards/project/volumes/volumes/tables.py:263
-#: dashboards/project/volumes/volumes/views.py:252
+#: dashboards/project/volumes/volumes/views.py:253
 msgid "Unable to retrieve attachment information."
 msgstr "Não foi possível obter informações do anexo."
 
@@ -13706,10 +13721,6 @@ msgstr "Não"
 #: dashboards/project/volumes/volumes/tables.py:304
 msgid "Yes"
 msgstr "Sim"
-
-#: dashboards/project/volumes/volumes/tables.py:354
-msgid "Bootable"
-msgstr "Bootável"
 
 #: dashboards/project/volumes/volumes/tables.py:357
 msgid "Encrypted"
@@ -13738,7 +13749,7 @@ msgstr "Volume%(volume_name)s na instância%(instance_name)s"
 
 #: dashboards/project/volumes/volumes/views.py:109
 #: dashboards/project/volumes/volumes/views.py:152
-#: dashboards/project/volumes/volumes/views.py:235
+#: dashboards/project/volumes/volumes/views.py:236
 msgid "Unable to retrieve volume information."
 msgstr "Não foi possível recuperar informações do volume."
 
@@ -13749,7 +13760,7 @@ msgid ""
 msgstr "No momento este volume está conectado à uma instância. Em alguns casos, criar uma imagem de um volume em uso pode resultar numa imagem corrompida."
 
 #: dashboards/project/volumes/volumes/views.py:171
-#: dashboards/project/volumes/volumes/views.py:301
+#: dashboards/project/volumes/volumes/views.py:302
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
 msgstr "Não é possível recuperar as informações de volume para volume: \"%s\""
