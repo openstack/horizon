@@ -41,6 +41,7 @@ ADD_USER_URL = "horizon:identity:projects:create_user"
 PROJECT_GROUP_ENABLED = keystone.VERSIONS.active >= 3
 PROJECT_USER_MEMBER_SLUG = "update_members"
 PROJECT_GROUP_MEMBER_SLUG = "update_group_members"
+COMMON_HORIZONTAL_TEMPLATE = "identity/projects/_common_horizontal_form.html"
 
 
 class ProjectQuotaAction(workflows.Action):
@@ -123,12 +124,14 @@ class CreateProjectQuotaAction(ProjectQuotaAction):
 
 class UpdateProjectQuota(workflows.Step):
     action_class = UpdateProjectQuotaAction
+    template_name = COMMON_HORIZONTAL_TEMPLATE
     depends_on = ("project_id",)
     contributes = quotas.QUOTA_FIELDS
 
 
 class CreateProjectQuota(workflows.Step):
     action_class = CreateProjectQuotaAction
+    template_name = COMMON_HORIZONTAL_TEMPLATE
     depends_on = ("project_id",)
     contributes = quotas.QUOTA_FIELDS
 
@@ -168,6 +171,7 @@ class CreateProjectInfoAction(workflows.Action):
 
 class CreateProjectInfo(workflows.Step):
     action_class = CreateProjectInfoAction
+    template_name = COMMON_HORIZONTAL_TEMPLATE
     contributes = ("domain_id",
                    "domain_name",
                    "project_id",
@@ -550,6 +554,7 @@ class UpdateProjectInfoAction(CreateProjectInfoAction):
 
 class UpdateProjectInfo(workflows.Step):
     action_class = UpdateProjectInfoAction
+    template_name = COMMON_HORIZONTAL_TEMPLATE
     depends_on = ("project_id",)
     contributes = ("domain_id",
                    "domain_name",
