@@ -10,6 +10,8 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import copy
+
 from openstack_dashboard.test.test_data import utils
 
 from saharaclient.api import cluster_templates
@@ -32,6 +34,7 @@ def data(TEST):
     TEST.job_binaries = utils.TestDataContainer()
     TEST.jobs = utils.TestDataContainer()
     TEST.job_executions = utils.TestDataContainer()
+    TEST.registered_images = copy.deepcopy(TEST.images)
 
     plugin1_dict = {
         "description": "vanilla plugin",
@@ -477,3 +480,8 @@ def data(TEST):
     jobex1 = job_executions.JobExecution(
         job_executions.JobExecutionsManager(None), jobex1_dict)
     TEST.job_executions.add(jobex1)
+
+    augmented_image = TEST.registered_images.first()
+    augmented_image.tags = {}
+    augmented_image.username = 'myusername'
+    augmented_image.description = 'mydescription'
