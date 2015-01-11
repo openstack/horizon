@@ -133,26 +133,27 @@ def role_get(request, role_id):
     manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.roles
     return manager.get(role_id)
 
-def role_list(request):
+def role_list(request, user=None, organization=None):
     #manager = fiwareclient().fiware_roles.roles
     manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.roles
-    return manager.list()
+    return manager.list(user=user,
+                        organization=organization)
 
-def role_create(request, name, is_editable=True, application=None, **kwargs):
+def role_create(request, name, is_internal=False, application=None, **kwargs):
     #manager = fiwareclient().fiware_roles.roles
     manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.roles
     return manager.create(name=name,
-                is_editable=is_editable,
+                is_internal=is_internal,
                 application=application,
                 **kwargs)
 
-def role_update(request, role, name=None, is_editable=True, 
+def role_update(request, role, name=None, is_internal=False, 
                 application=None, **kwargs):
     #manager = fiwareclient().fiware_roles.roles
     manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.roles
     return manager.update(role, 
                         name=name,
-                        is_editable=is_editable,
+                        is_internal=is_internal,
                         application=application,
                         **kwargs)
         
@@ -160,6 +161,18 @@ def role_delete(request, role_id):
     #manager = fiwareclient().fiware_roles.roles
     manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.roles
     return manager.delete(role_id)
+
+def add_role_to_user(request, role, user, organization):
+    manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.roles
+    return manager.add_to_user(role, user, organization)
+
+def remove_role_from_user(request, role, user, organization):
+    manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.roles
+    return manager.remove_from_user(role, user, organization)
+
+def list_allowed_roles_to_assign(request, user, organization):
+    manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.roles
+    return manager.list_allowed_roles_to_assign(user, organization)
 
 def permission_get(request, permission_id):
     #manager = fiwareclient().fiware_roles.permissions
@@ -171,21 +184,21 @@ def permission_list(request):
     manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.permissions
     return manager.list()
 
-def permission_create(request, name, is_editable=True, application=None, **kwargs):
+def permission_create(request, name, is_internal=False, application=None, **kwargs):
     #manager = fiwareclient().fiware_roles.permissions
     manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.permissions
     return manager.create(name=name,
-                is_editable=is_editable,
+                is_internal=is_internal,
                 application=application,
                 **kwargs)
 
-def permission_update(request, permission, name=None, is_editable=True, 
+def permission_update(request, permission, name=None, is_internal=False, 
                 application=None, **kwargs):
     #manager = fiwareclient().fiware_roles.permissions
     manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.permissions
     return manager.update(permission, 
                         name=name,
-                        is_editable=is_editable,
+                        is_internal=is_internal,
                         application=application,
                         **kwargs)
         

@@ -12,11 +12,15 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import logging
+
+from django.core import urlresolvers
 from django.utils.translation import ugettext_lazy as _
 
-from horizon import forms
 from horizon import tables
 
+
+LOG = logging.getLogger('idm_logger')
 
 class OrganizationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
@@ -29,6 +33,7 @@ class OrganizationsTable(tables.DataTable):
     class Meta:
         name = "organizations"
         verbose_name = _("Organizations")
+
 
 class MyOrganizationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
@@ -43,15 +48,30 @@ class MyOrganizationsTable(tables.DataTable):
         verbose_name = _("My Organizations")
 
 
-       
+class ManageMembersLink(tables.LinkAction):
+    name = "manage_members"
+    verbose_name = _("Manage Members")
+    url = "horizon:idm:organizations:members"
+    classes = ("ajax-modal",)
+
+    def allowed(self, request, user):
+        # TODO(garcianavalon)
+        return True
+
+    def get_link_url(self, datum=None):
+        org_id = self.table.kwargs['organization_id']
+        return  urlresolvers.reverse(self.url, args=(org_id,))
+
+
 class MembersTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Members'))
-    clickable = True
     show_avatar = True
 
     class Meta:
         name = "members"
-        verbose_name = _("Members")
+        verbose_name = _("Authorized members")
+        table_actions = (ManageMembersLink, )
+        multi_select = False
 
 
 class ApplicationsTable(tables.DataTable):

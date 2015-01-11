@@ -1,0 +1,40 @@
+{% load i18n %}
+{% with workflow.get_entry_point as entry_point %}
+<div class="workflow {{ layout|join:' ' }}">
+  <form {{ workflow.attr_string|safe }} action="{{ workflow.get_absolute_url }}" {% if add_to_field %}data-add-to-field="{{ add_to_field }}"{% endif %} method="POST"{% if workflow.multipart %} enctype="multipart/form-data"{% endif %}>{% csrf_token %}
+    {% if REDIRECT_URL %}<input type="hidden" name="{{ workflow.redirect_param_name }}" value="{{ REDIRECT_URL }}"/>{% endif %}
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+        {% block modal-header %}
+          {% if modal %}<a href="#" class="close" data-dismiss="modal">&times;</a>{% endif %}
+          <h3>{{ workflow.name }}</h3>
+        {% endblock %}
+        </div>
+        <div class="modal-body clearfix">
+        {% block modal-body %}
+          <div class="tab-content">
+            {% for step in workflow.steps %}
+              <fieldset id="{{ step.get_id }}" class="js-tab-pane{% if entry_point == step.slug %} active{% endif %}">
+                {{ step.render }}
+              </fieldset>
+              {% if not forloop.last %}
+                <noscript><hr /></noscript>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endblock %}
+        </div>
+        <div class="modal-footer">
+        {% block modal-footer %}
+            <input class="btn btn-primary pull-right" type="submit" value="{{ workflow.finalize_button_name }}" />
+            {% if modal %}<a class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>{% endif %}
+        {% endblock %}
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+{% endwith %}
+{% block modal-js %}
+{% endblock %}

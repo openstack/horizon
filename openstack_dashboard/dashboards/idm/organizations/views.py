@@ -20,10 +20,11 @@ from django.core.urlresolvers import reverse, reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
-from horizon import tables
-from horizon.utils import memoized
-from horizon import tabs
 from horizon import forms
+from horizon import tables
+from horizon import tabs
+from horizon import workflows
+from horizon.utils import memoized
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.idm import views as idm_views
@@ -33,6 +34,8 @@ from openstack_dashboard.dashboards.idm.organizations \
     import tabs as organization_tabs
 from openstack_dashboard.dashboards.idm.organizations.forms \
     import  InfoForm, ContactForm, AvatarForm, CancelForm, CreateOrganizationForm
+from openstack_dashboard.dashboards.idm.organizations \
+    import workflows as organization_workflows
 
 
 LOG = logging.getLogger('idm_logger')
@@ -56,8 +59,14 @@ class DetailOrganizationView(tables.MultiTableView):
     def get_members_data(self):        
         users = []
         try:
-            users = api.keystone.user_list(self.request,
+            # NOTE(garcianavalon) Filtering by project doesn't work anymore
+            # in v3 API >< We need to get the role_assignments for the user's
+            # id's and then filter the user list ourselves
+            all_users = api.keystone.user_list(self.request,
                                          project=self.kwargs['organization_id'])
+            project_users_roles = api.keystone.get_project_users_roles(self.request,
+                                                 project=self.kwargs['organization_id'])
+            users = [user for user in all_users if user.id in project_users_roles]
         except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve member information."))
@@ -79,6 +88,18 @@ class DetailOrganizationView(tables.MultiTableView):
         context['email'] = getattr(organization, 'email', '')
         context['website'] = getattr(organization, 'website', '')
         return context
+
+
+class OrganizationMembersView(workflows.WorkflowView):
+    workflow_class = organization_workflows.ManageOrganizationMembers
+
+    def get_initial(self):
+        initial = super(OrganizationMembersView, self).get_initial()
+
+        project_id = self.kwargs['organization_id']
+        initial['project_id'] = project_id
+
+        return initial
 
 
 class BaseOrganizationsMultiFormView(idm_views.BaseMultiFormView):

@@ -32,3 +32,18 @@ def check_elements(elements, valid_elements):
     if invalid_elements:
         raise TypeError('The elements {0} are not defined \
             in {1}'.format(invalid_elements, valid_elements))
+
+def swap_dict(old_dict):
+    """Returns a new dictionary in wich the keys are all the values of the old
+    dictionary and the values are lists of keys that had that value.
+    
+    Example: 
+    d = { 'a':['c','v','b'], 's':['c','v','d']} 
+    swap_dict(d) -> {'c': ['a', 's'], 'b': ['a'], 'd': ['s'], 'v': ['a', 's']}
+    """
+    new_dict = {}
+    for key in old_dict:
+        for value in old_dict[key]:
+            new_dict[value] = new_dict.get(value, [])
+            new_dict[value].append(key)
+    return new_dict

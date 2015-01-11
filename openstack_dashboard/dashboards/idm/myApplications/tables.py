@@ -22,48 +22,32 @@ from horizon import tables
 
 from openstack_dashboard import fiware_api
 
-class CreateApplication(tables.LinkAction):
-    name = "create_application"
-    verbose_name = _("Add application")
-    url = "horizon:idm:myApplication"
-
-    def get_link_url(self):
-        base_url = '/idm/myApplication/create'
-        return base_url
-
 
 class ProvidingApplicationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
     url = tables.Column(lambda obj: getattr(obj, 'url', None))
     clickable = True
     show_avatar = True
+
     class Meta:
         name = "providing_table"
         verbose_name = _("Providing Applications")
-        pagination_param = "tenant_marker"
-        table_actions = (CreateApplication, )
         multi_select = False
         
-
-
 
 class PurchasedApplicationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
     url = tables.Column(lambda obj: getattr(obj, 'url', None))
     clickable = True
     show_avatar = True
+
     class Meta:
         name = "purchased_table"
         verbose_name = _("Purchased Applications")
-        pagination_param = "tenant_marker"
-        table_actions = (CreateApplication, )
         multi_select = False
 
 
-
-
 class DeleteRolesAction(tables.DeleteAction):
-
     icon = "cross"
 
     @staticmethod

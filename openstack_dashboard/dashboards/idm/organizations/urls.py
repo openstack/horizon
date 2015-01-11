@@ -32,4 +32,6 @@ urlpatterns = patterns('',
             views.AvatarFormHandleView.as_view(), name='avatar'),
     url(r'^(?P<organization_id>[^/]+)/edit/cancel/$', 
             views.CancelFormHandleView.as_view(), name='cancel'),
+    url(r'^(?P<organization_id>[^/]+)/edit/members/$', 
+        views.OrganizationMembersView.as_view(), name='members'),
 )

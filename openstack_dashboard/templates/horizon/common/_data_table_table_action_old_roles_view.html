@@ -2,7 +2,8 @@
   NOTE(garcianavalon): Right now we are only using the actions for the role's widget to create a new role. In the future we might have to find a better solution for this rather than overriding the whole template for all table actions.
 {% endcomment %}
 <h4  id="headingOne" role="tab" class="panel-title">
-  <a data-create-url='{{ action.get_link_url }}' title='{{ action.verbose_name }}' {{ action.attr_string|safe }}>
+  <a 
+  -url='{{ action.get_link_url }}' title='{{ action.verbose_name }}' {{ action.attr_string|safe }}>
     {% if action.icon != None %}
         <span class="fa fa-{{ action.icon }}"></span>
     {% endif %}
