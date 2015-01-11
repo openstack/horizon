@@ -11,6 +11,7 @@
 # under the License.
 
 import json
+import logging
 
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponse  # noqa
@@ -23,6 +24,7 @@ from horizon import tabs
 from horizon.utils import csvbase
 from horizon.utils import units
 
+from openstack_dashboard import api
 from openstack_dashboard.api import ceilometer
 
 from openstack_dashboard.dashboards.admin.metering import forms as \
@@ -30,6 +32,9 @@ from openstack_dashboard.dashboards.admin.metering import forms as \
 from openstack_dashboard.dashboards.admin.metering import tabs as \
     metering_tabs
 from openstack_dashboard.utils import metering as utils_metering
+
+
+LOG = logging.getLogger(__name__)
 
 
 class IndexView(tabs.TabbedTableView):
@@ -43,11 +48,41 @@ class CreateUsageReport(forms.ModalFormView):
     success_url = reverse_lazy('horizon:admin:metering:index')
 
 
+METER_API_MAPPINGS = {
+    "instance": 'nova',
+    "cpu": 'nova',
+    "cpu_util": 'nova',
+    "disk_read_requests": 'nova',
+    "disk_write_requests": 'nova',
+    "disk_read_bytes": 'nova',
+    "disk_write_bytes": 'nova',
+    "image": 'glance',
+    "image_size": 'glance'
+}
+
+
+def get_resource_name(request, resource_id, resource_name, meter_name):
+    resource = None
+    try:
+        if resource_name == "resource_id":
+            meter_name = 'instance' if "instance" in meter_name else meter_name
+            api_type = METER_API_MAPPINGS.get(meter_name, '')
+            if api_type == 'nova':
+                resource = api.nova.server_get(request, resource_id)
+            elif api_type == 'glance':
+                resource = api.glance.image_get(request, resource_id)
+
+    except Exception:
+        LOG.info(_("Failed to get the resource name: %s"), resource_id,
+                 exc_info=True)
+    return resource.name if resource else resource_id
+
+
 class SamplesView(django.views.generic.TemplateView):
     template_name = "admin/metering/samples.csv"
 
     @staticmethod
-    def series_for_meter(aggregates,
+    def series_for_meter(request, aggregates,
                          resource_name,
                          meter_name,
                          stats_name,
@@ -56,8 +91,12 @@ class SamplesView(django.views.generic.TemplateView):
         series = []
         for resource in aggregates:
             if resource.get_meter(meter_name):
+                resource_id = getattr(resource, resource_name)
                 point = {'unit': unit,
-                         'name': getattr(resource, resource_name),
+                         'name': get_resource_name(request,
+                                                   resource_id,
+                                                   resource_name,
+                                                   meter_name),
                          'data': []}
                 for statistic in resource.get_meter(meter_name):
                     date = statistic.duration_end[:19]
@@ -130,7 +169,7 @@ class SamplesView(django.views.generic.TemplateView):
 
         resources, unit = query.query(meter)
         resource_name = 'id' if group_by == "project" else 'resource_id'
-        series = self.series_for_meter(resources,
+        series = self.series_for_meter(request, resources,
                                        resource_name,
                                        meter_name,
                                        stats_attr,
@@ -138,7 +177,6 @@ class SamplesView(django.views.generic.TemplateView):
 
         series = self.normalize_series_by_unit(series)
         ret = {'series': series, 'settings': {}}
-
         return HttpResponse(json.dumps(ret), content_type='application/json')
 
 
@@ -207,19 +245,19 @@ def load_report_data(request):
                 service = name
                 break
         res, unit = project_aggregates.query(meter.name)
-        for re in res:
-            values = re.get_meter(meter.name.replace(".", "_"))
+        for r in res:
+            values = r.get_meter(meter.name.replace(".", "_"))
             if values:
                 for value in values:
                     row = {"name": 'none',
-                           "project": re.id,
+                           "project": r.id,
                            "meter": meter.name,
                            "description": meter.description,
                            "service": service,
                            "time": value._apiresource.period_end,
                            "value": value._apiresource.avg}
-                    if re.id not in project_rows:
-                        project_rows[re.id] = [row]
+                    if r.id not in project_rows:
+                        project_rows[r.id] = [row]
                     else:
-                        project_rows[re.id].append(row)
+                        project_rows[r.id].append(row)
     return project_rows
