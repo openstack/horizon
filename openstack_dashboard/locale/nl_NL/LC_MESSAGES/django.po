@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-08 18:22-0600\n"
-"PO-Revision-Date: 2015-01-09 00:09+0000\n"
+"POT-Creation-Date: 2015-01-10 23:12-0600\n"
+"PO-Revision-Date: 2015-01-10 23:01+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/horizon/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -18,55 +18,55 @@ msgstr ""
 "Language: nl_NL\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: settings.py:99
+#: settings.py:101
 msgid "Select format"
 msgstr "Selecteer formaat"
 
-#: settings.py:100
+#: settings.py:102
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Kernel Afbeelding"
 
-#: settings.py:101
+#: settings.py:103
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Afbeelding"
 
-#: settings.py:102
+#: settings.py:104
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon Geheugenschijf Afbeelding"
 
-#: settings.py:103
+#: settings.py:105
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - Optische Schijf Afbeelding"
 
-#: settings.py:104
+#: settings.py:106
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Emulator"
 
-#: settings.py:105
+#: settings.py:107
 msgid "Raw"
 msgstr "Ruw"
 
-#: settings.py:106
+#: settings.py:108
 msgid "VDI"
 msgstr "VDI"
 
-#: settings.py:107
+#: settings.py:109
 msgid "VHD"
 msgstr "VHD"
 
-#: settings.py:108
+#: settings.py:110
 msgid "VMDK"
 msgstr "VMDK"
 
-#: settings.py:292
+#: settings.py:298
 msgid "All TCP"
 msgstr "Alle TCP"
 
-#: settings.py:298
+#: settings.py:304
 msgid "All UDP"
 msgstr "Alle UDP"
 
-#: settings.py:304
+#: settings.py:310
 msgid "All ICMP"
 msgstr "Alle ICMP"
 
@@ -321,7 +321,7 @@ msgctxt "Both of front-end and back-end"
 msgid "both"
 msgstr "beiden"
 
-#: api/cinder.py:198
+#: api/cinder.py:213
 msgid "Unknown instance"
 msgstr "Onbekend Exemplaar"
 
@@ -407,7 +407,7 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:18
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:29
 #: dashboards/project/routers/tables.py:182
-#: dashboards/project/volumes/volumes/tables.py:300
+#: dashboards/project/volumes/volumes/tables.py:354
 msgid "-"
 msgstr "-"
 
@@ -571,8 +571,9 @@ msgstr "Beheerder"
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:12
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:10
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:10
-#: dashboards/project/volumes/volumes/tables.py:316
-#: dashboards/project/volumes/volumes/tables.py:345
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:91
+#: dashboards/project/volumes/volumes/tables.py:370
+#: dashboards/project/volumes/volumes/tables.py:399
 #: dashboards/project/vpn/forms.py:31 dashboards/project/vpn/forms.py:65
 #: dashboards/project/vpn/forms.py:137 dashboards/project/vpn/forms.py:208
 #: dashboards/project/vpn/tables.py:230 dashboards/project/vpn/tables.py:260
@@ -598,10 +599,10 @@ msgstr "Naam"
 #: dashboards/project/instances/tables.py:984
 #: dashboards/project/instances/templates/instances/_detail_overview.html:16
 #: dashboards/project/instances/workflows/create_instance.py:79
-#: dashboards/project/volumes/volumes/forms.py:90
-#: dashboards/project/volumes/volumes/forms.py:95
+#: dashboards/project/volumes/volumes/forms.py:91
 #: dashboards/project/volumes/volumes/forms.py:96
-#: dashboards/project/volumes/volumes/tables.py:352
+#: dashboards/project/volumes/volumes/forms.py:97
+#: dashboards/project/volumes/volumes/tables.py:406
 msgid "Availability Zone"
 msgstr "Beschikbaarheidszone"
 
@@ -911,9 +912,12 @@ msgstr "Fout bij het toevoegen of verwijderen van gastheren."
 #: dashboards/project/stacks/templates/stacks/_select_template.html:19
 #: dashboards/project/stacks/templates/stacks/_update.html:18
 #: dashboards/project/volumes/templates/volumes/snapshots/_update.html:18
+#: dashboards/project/volumes/templates/volumes/volumes/_accept_transfer.html:5
+#: dashboards/project/volumes/templates/volumes/volumes/_create_transfer.html:5
 #: dashboards/project/volumes/templates/volumes/volumes/_extend_limits.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/_limits.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/_retype.html:18
+#: dashboards/project/volumes/templates/volumes/volumes/_show_transfer.html:5
 #: dashboards/project/volumes/templates/volumes/volumes/_update.html:18
 #: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:18
 #: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:17
@@ -1125,7 +1129,7 @@ msgstr "Geïnjecteerde bestanden"
 #: dashboards/project/volumes/tabs.py:83
 #: dashboards/project/volumes/templates/volumes/index.html:3
 #: dashboards/project/volumes/templates/volumes/index.html:6
-#: dashboards/project/volumes/volumes/tables.py:361 usage/quotas.py:74
+#: dashboards/project/volumes/volumes/tables.py:415 usage/quotas.py:74
 msgid "Volumes"
 msgstr "Volumen"
 
@@ -1316,7 +1320,7 @@ msgstr "%sMB"
 #: dashboards/admin/flavors/tables.py:109
 #: dashboards/admin/flavors/tables.py:113
 #: dashboards/project/volumes/backups/tables.py:95
-#: dashboards/project/volumes/volumes/tables.py:250
+#: dashboards/project/volumes/volumes/tables.py:304
 #, python-format
 msgid "%sGB"
 msgstr "%sGB"
@@ -1357,6 +1361,7 @@ msgstr "Wisselgeheugenschijf"
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:12
 #: dashboards/identity/roles/forms.py:37
 #: dashboards/identity/users/forms.py:163
+#: dashboards/identity/users/templates/users/_detail_overview.html:19
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:8
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:8
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:7
@@ -1391,6 +1396,7 @@ msgstr "Wisselgeheugenschijf"
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:14
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:12
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:12
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:87
 #: dashboards/project/vpn/forms.py:33 dashboards/project/vpn/forms.py:67
 #: dashboards/project/vpn/forms.py:139 dashboards/project/vpn/forms.py:210
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:12
@@ -1580,11 +1586,11 @@ msgstr "Gastheer naam"
 #: dashboards/project/loadbalancers/workflows.py:486
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/routers/ports/tables.py:107
-#: dashboards/project/volumes/volumes/forms.py:81
-#: dashboards/project/volumes/volumes/forms.py:86
+#: dashboards/project/volumes/volumes/forms.py:82
 #: dashboards/project/volumes/volumes/forms.py:87
-#: dashboards/project/volumes/volumes/forms.py:675
-#: dashboards/project/volumes/volumes/tables.py:348
+#: dashboards/project/volumes/volumes/forms.py:88
+#: dashboards/project/volumes/volumes/forms.py:735
+#: dashboards/project/volumes/volumes/tables.py:402
 msgid "Type"
 msgstr "Type"
 
@@ -1801,7 +1807,7 @@ msgstr "Zone"
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:20
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:18
-#: dashboards/project/volumes/volumes/tables.py:326
+#: dashboards/project/volumes/volumes/tables.py:380
 #: dashboards/project/vpn/tables.py:240 dashboards/project/vpn/tables.py:267
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:71
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:38
@@ -1916,7 +1922,7 @@ msgstr "Max. grootte (MB)"
 #: dashboards/project/instances/tables.py:969
 #: dashboards/project/instances/templates/instances/_detail_overview.html:112
 #: dashboards/project/instances/workflows/create_instance.py:106
-#: dashboards/project/volumes/volumes/forms.py:567
+#: dashboards/project/volumes/volumes/forms.py:627
 msgid "Image Name"
 msgstr "Afbeeldingsnaam"
 
@@ -2009,7 +2015,8 @@ msgstr "Systeeminformatie"
 #: dashboards/identity/projects/tables.py:237
 #: dashboards/identity/projects/workflows.py:150
 #: dashboards/identity/projects/workflows.py:522
-#: dashboards/identity/users/tables.py:178
+#: dashboards/identity/users/tables.py:180
+#: dashboards/identity/users/templates/users/_detail_overview.html:23
 #: dashboards/project/firewalls/forms.py:70
 #: dashboards/project/firewalls/tables.py:216
 #: dashboards/project/firewalls/workflows.py:67
@@ -2202,7 +2209,7 @@ msgstr "IP Adres"
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:37
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:37
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:27
-#: dashboards/project/volumes/volumes/tables.py:322
+#: dashboards/project/volumes/volumes/tables.py:376
 msgid "Size"
 msgstr "Omvang"
 
@@ -2434,10 +2441,10 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:17
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:15
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:15
-#: dashboards/project/volumes/volumes/forms.py:52
-#: dashboards/project/volumes/volumes/forms.py:487
-#: dashboards/project/volumes/volumes/forms.py:529
-#: dashboards/project/volumes/volumes/tables.py:319
+#: dashboards/project/volumes/volumes/forms.py:53
+#: dashboards/project/volumes/volumes/forms.py:488
+#: dashboards/project/volumes/volumes/forms.py:589
+#: dashboards/project/volumes/volumes/tables.py:373
 #: dashboards/project/vpn/forms.py:36 dashboards/project/vpn/forms.py:70
 #: dashboards/project/vpn/forms.py:142 dashboards/project/vpn/forms.py:213
 #: dashboards/project/vpn/tables.py:262 dashboards/project/vpn/workflows.py:28
@@ -2507,6 +2514,7 @@ msgstr "Onbepaald"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:7
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:8
+#: dashboards/identity/users/templates/users/_detail_overview.html:6
 msgid "Info"
 msgstr "Informatie"
 
@@ -2520,6 +2528,7 @@ msgstr "Naam Weergeven"
 #: dashboards/admin/metadata_defs/templates/metadata_defs/detail.html:7
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:8
 #: dashboards/admin/volumes/volume_types/forms.py:87
+#: dashboards/identity/users/templates/users/_detail_overview.html:22
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:11
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:11
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:14
@@ -2587,7 +2596,6 @@ msgstr "Naamplaats"
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:22
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:39
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:29
 msgid "Created"
 msgstr "Gecreëerd"
 
@@ -3443,7 +3451,7 @@ msgstr "Poorten"
 #: dashboards/admin/volumes/snapshots/tabs.py:23
 #: dashboards/project/databases/tabs.py:26
 #: dashboards/project/images/images/tabs.py:22
-#: dashboards/project/instances/tabs.py:29
+#: dashboards/project/instances/tabs.py:30
 #: dashboards/project/networks/ports/tabs.py:21
 #: dashboards/project/networks/subnets/tabs.py:21
 #: dashboards/project/overview/panel.py:27
@@ -3727,6 +3735,7 @@ msgstr ""
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:11
 #: dashboards/identity/projects/tables.py:234
+#: dashboards/identity/users/templates/users/_detail_overview.html:25
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:22
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:16
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:16
@@ -3819,7 +3828,7 @@ msgid "Unable to retrieve QoS specs"
 msgstr ""
 
 #: dashboards/admin/volumes/tabs.py:133 dashboards/project/volumes/tabs.py:113
-#: dashboards/project/volumes/volumes/forms.py:200
+#: dashboards/project/volumes/volumes/forms.py:201
 msgid "Unable to retrieve volume snapshots."
 msgstr "Niet in staat om de momentopnamen van het volume op te halen."
 
@@ -3861,11 +3870,11 @@ msgstr ""
 #: dashboards/admin/volumes/snapshots/tables.py:62
 #: dashboards/project/volumes/backups/tables.py:120
 #: dashboards/project/volumes/snapshots/tables.py:142
-#: dashboards/project/volumes/volumes/forms.py:48
-#: dashboards/project/volumes/volumes/forms.py:525
-#: dashboards/project/volumes/volumes/forms.py:564
+#: dashboards/project/volumes/volumes/forms.py:49
+#: dashboards/project/volumes/volumes/forms.py:585
 #: dashboards/project/volumes/volumes/forms.py:624
-#: dashboards/project/volumes/volumes/forms.py:672
+#: dashboards/project/volumes/volumes/forms.py:684
+#: dashboards/project/volumes/volumes/forms.py:732
 msgid "Volume Name"
 msgstr "Volumenaam"
 
@@ -3900,7 +3909,7 @@ msgstr "Informatie"
 #: dashboards/project/instances/workflows/create_instance.py:415
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:23
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
-#: dashboards/project/volumes/volumes/forms.py:217
+#: dashboards/project/volumes/volumes/forms.py:218
 msgid "Volume"
 msgstr "Volume"
 
@@ -4185,6 +4194,7 @@ msgstr ""
 #: dashboards/project/containers/templates/containers/_container_detail.html:29
 #: dashboards/project/containers/templates/containers/_object_detail.html:25
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:104
+#: dashboards/project/volumes/templates/volumes/volumes/_show_transfer.html:11
 msgid "Close"
 msgstr "Sluiten"
 
@@ -4644,6 +4654,7 @@ msgstr "Domeincontext gewist."
 #: dashboards/identity/projects/workflows.py:138
 #: dashboards/identity/users/forms.py:75
 #: dashboards/identity/users/forms.py:157
+#: dashboards/identity/users/templates/users/_detail_overview.html:10
 msgid "Domain ID"
 msgstr "Domein ID"
 
@@ -4688,7 +4699,7 @@ msgstr ""
 
 #: dashboards/identity/domains/workflows.py:89
 #: dashboards/identity/projects/workflows.py:268
-#: dashboards/identity/users/views.py:56
+#: dashboards/identity/users/views.py:57
 msgid "Unable to retrieve user list."
 msgstr "Niet in staat om de gebruikerslijst op te halen."
 
@@ -4867,7 +4878,8 @@ msgstr "Toevoegen..."
 #: dashboards/identity/groups/tables.py:190
 #: dashboards/identity/users/forms.py:81
 #: dashboards/identity/users/forms.py:164
-#: dashboards/identity/users/tables.py:167
+#: dashboards/identity/users/tables.py:169
+#: dashboards/identity/users/templates/users/_detail_overview.html:17
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:14
 #: dashboards/project/data_processing/data_image_registry/forms.py:28
 #: dashboards/project/databases/tables.py:296
@@ -4877,12 +4889,13 @@ msgstr "Gebruikersnaam"
 #: dashboards/identity/groups/tables.py:191
 #: dashboards/identity/users/forms.py:83
 #: dashboards/identity/users/forms.py:166
-#: dashboards/identity/users/tables.py:168
+#: dashboards/identity/users/tables.py:170
+#: dashboards/identity/users/templates/users/_detail_overview.html:21
 msgid "Email"
 msgstr "E-mail"
 
 #: dashboards/identity/groups/tables.py:194
-#: dashboards/identity/users/tables.py:177
+#: dashboards/identity/users/tables.py:179
 #: dashboards/project/instances/audit_tables.py:28
 msgid "User ID"
 msgstr "Gebruiker ID"
@@ -5025,7 +5038,8 @@ msgid "Unable to retrieve default Neutron quota values."
 msgstr "Niet in staat om de standaard Neutron quotumwaarden op te halen."
 
 #: dashboards/identity/projects/views.py:189
-#: dashboards/identity/users/views.py:110
+#: dashboards/identity/users/views.py:111
+#: dashboards/identity/users/views.py:167
 msgid "Unable to retrieve project domain."
 msgstr "Niet in staat om het projectdomein op te halen."
 
@@ -5060,6 +5074,7 @@ msgstr ""
 #: dashboards/identity/projects/workflows.py:141
 #: dashboards/identity/users/forms.py:78
 #: dashboards/identity/users/forms.py:160
+#: dashboards/identity/users/templates/users/_detail_overview.html:14
 msgid "Domain Name"
 msgstr "Domeinnaam"
 
@@ -5309,7 +5324,7 @@ msgid "Unable to update the user."
 msgstr "Niet in staat om de gebruiker bij te werken."
 
 #: dashboards/identity/users/panel.py:27
-#: dashboards/identity/users/tables.py:185
+#: dashboards/identity/users/tables.py:187
 #: dashboards/identity/users/templates/users/index.html:3
 #: dashboards/identity/users/templates/users/index.html:6
 #: dashboards/project/databases/tables.py:302
@@ -5367,26 +5382,39 @@ msgid_plural "Deleted Users"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/identity/users/views.py:65
+#: dashboards/identity/users/views.py:66
 msgid "Unable to retrieve user information."
 msgstr ""
 
-#: dashboards/identity/users/views.py:67
+#: dashboards/identity/users/views.py:68
 msgid "Insufficient privilege level to view user information."
 msgstr ""
 
-#: dashboards/identity/users/views.py:90
+#: dashboards/identity/users/views.py:91
 msgid "Unable to update user."
 msgstr "Niet in staat om de gebruiker bij te werken."
 
-#: dashboards/identity/users/views.py:136
+#: dashboards/identity/users/views.py:137
 msgid "Unable to retrieve user roles."
 msgstr "Niet in staat om de gebruikersrollen op te halen."
+
+#: dashboards/identity/users/views.py:172
+#, python-format
+msgid "User Details: %s"
+msgstr ""
+
+#: dashboards/identity/users/views.py:185
+msgid "Unable to retrieve user details."
+msgstr ""
 
 #: dashboards/identity/users/templates/users/_create.html:18
 msgid ""
 "Create a new user and set related properties including the Primary Project "
 "and Role."
+msgstr ""
+
+#: dashboards/identity/users/templates/users/_detail_overview.html:3
+msgid "User Overview"
 msgstr ""
 
 #: dashboards/identity/users/templates/users/_update.html:8
@@ -5395,6 +5423,10 @@ msgstr ""
 
 #: dashboards/identity/users/templates/users/_update.html:18
 msgid "Edit the user's details, including the Primary Project."
+msgstr ""
+
+#: dashboards/identity/users/templates/users/detail.html:3
+msgid "User Details"
 msgstr ""
 
 #: dashboards/identity/users/templates/users/update.html:3
@@ -5545,8 +5577,8 @@ msgstr "IP toewijzen aan project"
 #: dashboards/project/access_and_security/floating_ips/tables.py:57
 #: dashboards/project/access_and_security/keypairs/tables.py:73
 #: dashboards/project/instances/tables.py:331
-#: dashboards/project/volumes/volumes/tables.py:117
-#: dashboards/project/volumes/volumes/tables.py:185
+#: dashboards/project/volumes/volumes/tables.py:118
+#: dashboards/project/volumes/volumes/tables.py:186
 msgid "(Quota exceeded)"
 msgstr "(quota overschreden)"
 
@@ -5612,7 +5644,7 @@ msgstr "Geen vlottende IP poules beschikbaar."
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:37
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:202
-#: dashboards/project/volumes/volumes/tables.py:413
+#: dashboards/project/volumes/volumes/tables.py:469
 msgid "Instance"
 msgstr "Exemplaar"
 
@@ -5642,7 +5674,7 @@ msgid "Select a port"
 msgstr "Selecteer een poort"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:110
-#: dashboards/project/volumes/volumes/forms.py:452
+#: dashboards/project/volumes/volumes/forms.py:453
 msgid "Select an instance"
 msgstr "Selecteer een exemplaar"
 
@@ -5651,7 +5683,7 @@ msgid "No ports available"
 msgstr "Geen poorten beschikbaar"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:116
-#: dashboards/project/volumes/volumes/forms.py:454
+#: dashboards/project/volumes/volumes/forms.py:455
 msgid "No instances available"
 msgstr "Geen exemplaren beschikbaar"
 
@@ -7152,7 +7184,7 @@ msgstr ""
 #: dashboards/project/data_processing/data_image_registry/forms.py:59
 #: dashboards/project/data_processing/data_image_registry/tables.py:73
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:58
-#: dashboards/project/volumes/volumes/forms.py:205
+#: dashboards/project/volumes/volumes/forms.py:206
 msgid "Image"
 msgstr "Afbeelding"
 
@@ -7659,6 +7691,8 @@ msgid "Oozie Job ID"
 msgstr ""
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:28
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:29
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:95
 msgctxt "Created time"
 msgid "Created"
 msgstr "Gecreëerd"
@@ -8176,7 +8210,7 @@ msgstr "Archieven"
 
 #: dashboards/project/database_backups/tables.py:38
 #: dashboards/project/databases/tables.py:148
-#: dashboards/project/volumes/volumes/tables.py:191
+#: dashboards/project/volumes/volumes/tables.py:203
 msgid "Create Backup"
 msgstr "Creëer archief"
 
@@ -8369,12 +8403,12 @@ msgid "Error creating database backup."
 msgstr "Fout bij het creeeren van database archief."
 
 #: dashboards/project/databases/forms.py:28
-#: dashboards/project/volumes/volumes/forms.py:629
+#: dashboards/project/volumes/volumes/forms.py:689
 msgid "Current Size (GB)"
 msgstr "Huidige Grootte (GB)"
 
 #: dashboards/project/databases/forms.py:32
-#: dashboards/project/volumes/volumes/forms.py:633
+#: dashboards/project/volumes/volumes/forms.py:693
 msgid "New Size (GB)"
 msgstr "Nieuwe Grootte (GB)"
 
@@ -9510,8 +9544,8 @@ msgstr[1] ""
 #: dashboards/project/volumes/templates/volumes/volumes/_create.html:9
 #: dashboards/project/volumes/templates/volumes/volumes/_create.html:24
 #: dashboards/project/volumes/templates/volumes/volumes/create.html:3
-#: dashboards/project/volumes/volumes/tables.py:94
-#: dashboards/project/volumes/volumes/tables.py:119
+#: dashboards/project/volumes/volumes/tables.py:95
+#: dashboards/project/volumes/volumes/tables.py:120
 msgid "Create Volume"
 msgstr "Creëer volume"
 
@@ -9534,7 +9568,7 @@ msgstr "Niet in staat om de afbeeldingsdetails op te halen."
 
 #: dashboards/project/images/snapshots/forms.py:33
 #: dashboards/project/volumes/snapshots/forms.py:25
-#: dashboards/project/volumes/volumes/forms.py:484
+#: dashboards/project/volumes/volumes/forms.py:485
 msgid "Snapshot Name"
 msgstr "Momentopname naam"
 
@@ -9582,7 +9616,7 @@ msgid "Container Format"
 msgstr "Houderformaat"
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:50
-#: dashboards/project/volumes/volumes/forms.py:568
+#: dashboards/project/volumes/volumes/forms.py:628
 msgid "Disk Format"
 msgstr "Schijfformaat"
 
@@ -9606,7 +9640,7 @@ msgstr "Afbeelding details"
 #: dashboards/project/images/templates/images/snapshots/_create.html:24
 #: dashboards/project/images/templates/images/snapshots/create.html:3
 #: dashboards/project/instances/tables.py:385
-#: dashboards/project/volumes/volumes/tables.py:166
+#: dashboards/project/volumes/volumes/tables.py:167
 msgid "Create Snapshot"
 msgstr "Creëer momentopname"
 
@@ -9782,7 +9816,7 @@ msgid "Edit Security Groups"
 msgstr "Beveiligingsgroepen bewerken"
 
 #: dashboards/project/instances/tables.py:398
-#: dashboards/project/instances/tabs.py:58
+#: dashboards/project/instances/tabs.py:61
 msgid "Console"
 msgstr "Beheervenster"
 
@@ -10276,21 +10310,21 @@ msgstr ""
 msgid "Key Pair"
 msgstr "Sleutelpaar"
 
-#: dashboards/project/instances/tabs.py:39
+#: dashboards/project/instances/tabs.py:40
 msgid "Log"
 msgstr "Log"
 
-#: dashboards/project/instances/tabs.py:51
+#: dashboards/project/instances/tabs.py:53
 #: dashboards/project/instances/views.py:146
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr "Niet in staat om het log te verkrijgen voor exemplaar \"%s\"."
 
-#: dashboards/project/instances/tabs.py:81
+#: dashboards/project/instances/tabs.py:84
 msgid "Action Log"
 msgstr ""
 
-#: dashboards/project/instances/tabs.py:94
+#: dashboards/project/instances/tabs.py:97
 msgid "Unable to retrieve instance action list."
 msgstr ""
 
@@ -10467,7 +10501,7 @@ msgstr "Aangekoppelde volumes."
 #: dashboards/project/instances/templates/instances/_detail_overview.html:134
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:47
-#: dashboards/project/volumes/volumes/tables.py:350
+#: dashboards/project/volumes/volumes/tables.py:404
 msgid "Attached To"
 msgstr "Aangekoppeld aan"
 
@@ -10617,7 +10651,7 @@ msgid "Volume size in gigabytes (integer value)."
 msgstr "Volumegrootte in Gigabytes (geheel getal)"
 
 #: dashboards/project/instances/workflows/create_instance.py:120
-#: dashboards/project/volumes/volumes/forms.py:417
+#: dashboards/project/volumes/volumes/forms.py:418
 msgid "Device Name"
 msgstr "Apparaatnaam"
 
@@ -10730,17 +10764,17 @@ msgid ""
 msgstr "Het starten van meerdere exemplaren wordt alleen ondersteund voor afbeeldingen en momentopnamen."
 
 #: dashboards/project/instances/workflows/create_instance.py:372
-#: dashboards/project/volumes/volumes/forms.py:285
+#: dashboards/project/volumes/volumes/forms.py:286
 msgid "Unable to retrieve availability zones."
 msgstr "Niet in staat om de beschikbaarheidszones op te halen."
 
 #: dashboards/project/instances/workflows/create_instance.py:378
-#: dashboards/project/volumes/volumes/forms.py:288
+#: dashboards/project/volumes/volumes/forms.py:289
 msgid "No availability zones found"
 msgstr "Geen beschikbaarheidszones gevonden"
 
 #: dashboards/project/instances/workflows/create_instance.py:380
-#: dashboards/project/volumes/volumes/forms.py:290
+#: dashboards/project/volumes/volumes/forms.py:291
 msgid "Any Availability Zone"
 msgstr "Elke beschikbaarheidszone"
 
@@ -10751,7 +10785,7 @@ msgid "Unable to retrieve quota information."
 msgstr "Niet in staat om de quotainformatie op te halen."
 
 #: dashboards/project/instances/workflows/create_instance.py:412
-#: dashboards/project/volumes/volumes/forms.py:192
+#: dashboards/project/volumes/volumes/forms.py:193
 msgid "Snapshot"
 msgstr "Momentopname"
 
@@ -10769,7 +10803,7 @@ msgid "No snapshots available"
 msgstr "Geen momentopnamen beschikbaar."
 
 #: dashboards/project/instances/workflows/create_instance.py:466
-#: dashboards/project/volumes/volumes/forms.py:302
+#: dashboards/project/volumes/volumes/forms.py:303
 msgid "Unable to retrieve list of volumes."
 msgstr "Niet in staat om de volumelijst op te halen."
 
@@ -13234,6 +13268,14 @@ msgstr ""
 msgid "Volume Snapshot Details"
 msgstr "Volume momentopname details"
 
+#: dashboards/project/volumes/templates/volumes/volumes/_accept_transfer.html:6
+msgid ""
+"Ownership of a volume can be transferred from one project to another.  "
+"Accepting a transfer requires obtaining the Transfer ID and Authorization "
+"Key from the donor.  This is equivalent to the <tt>cinder transfer-"
+"accept</tt> command."
+msgstr ""
+
 #: dashboards/project/volumes/templates/volumes/volumes/_attach.html:10
 #: dashboards/project/volumes/templates/volumes/volumes/attach.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/attach.html:6
@@ -13258,12 +13300,20 @@ msgstr "Creëer volume momentopname"
 msgid "Create Volume Snapshot (Force)"
 msgstr "Creëer volume momentopname (Forceer)"
 
+#: dashboards/project/volumes/templates/volumes/volumes/_create_transfer.html:6
+msgid ""
+"Ownership of a volume can be transferred from one project to another. Once a"
+" volume transfer is created in a donor project, it then can be \"accepted\" "
+"by a recipient project. This is equivalent to the <tt>cinder transfer-"
+"create</tt> command."
+msgstr ""
+
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:4
 msgid "Volume Overview"
 msgstr "Volumeoverzicht"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:35
-#: dashboards/project/volumes/volumes/tables.py:434
+#: dashboards/project/volumes/volumes/tables.py:490
 msgid "Attachments"
 msgstr "Aankoppelingen"
 
@@ -13280,15 +13330,20 @@ msgid "Not attached"
 msgstr "Niet aangekoppeld"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:55
-#: dashboards/project/volumes/volumes/forms.py:53
+#: dashboards/project/volumes/volumes/forms.py:54
 msgid "Volume Source"
 msgstr "Volumebron"
+
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:84
+#: dashboards/project/volumes/volumes/views.py:229
+msgid "Volume Transfer"
+msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/volumes/_extend.html:9
 #: dashboards/project/volumes/templates/volumes/volumes/_extend.html:24
 #: dashboards/project/volumes/templates/volumes/volumes/extend.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/extend.html:6
-#: dashboards/project/volumes/volumes/tables.py:131
+#: dashboards/project/volumes/volumes/tables.py:132
 msgid "Extend Volume"
 msgstr "Volume uitbreiden"
 
@@ -13318,7 +13373,7 @@ msgstr "Aantal volumes"
 #: dashboards/project/volumes/templates/volumes/volumes/_retype.html:39
 #: dashboards/project/volumes/templates/volumes/volumes/retype.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/retype.html:6
-#: dashboards/project/volumes/volumes/tables.py:231
+#: dashboards/project/volumes/volumes/tables.py:243
 msgid "Change Volume Type"
 msgstr ""
 
@@ -13347,6 +13402,19 @@ msgid ""
 "       "
 msgstr ""
 
+#: dashboards/project/volumes/templates/volumes/volumes/_show_transfer.html:6
+msgid ""
+"The Transfer ID and the Authorization Key are needed by the recipient in "
+"order to accept the transfer. Please capture both the Transfer ID and the "
+"Authorization Key and provide them to your transfer recipient."
+msgstr ""
+
+#: dashboards/project/volumes/templates/volumes/volumes/_show_transfer.html:7
+msgid ""
+"The Authorization Key will not be available after closing this page, so you "
+"must capture it now, or else you will be unable to use the transfer."
+msgstr ""
+
 #: dashboards/project/volumes/templates/volumes/volumes/_snapshot_limits.html:5
 msgid "From here you can create a snapshot of a volume."
 msgstr ""
@@ -13363,7 +13431,7 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/volumes/_update.html:27
 #: dashboards/project/volumes/templates/volumes/volumes/update.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/update.html:6
-#: dashboards/project/volumes/volumes/tables.py:219
+#: dashboards/project/volumes/volumes/tables.py:231
 msgid "Edit Volume"
 msgstr "Volume bewerken"
 
@@ -13407,6 +13475,13 @@ msgid ""
 "         "
 msgstr ""
 
+#: dashboards/project/volumes/templates/volumes/volumes/accept_transfer.html:3
+#: dashboards/project/volumes/templates/volumes/volumes/accept_transfer.html:6
+#: dashboards/project/volumes/volumes/views.py:218
+#: dashboards/project/volumes/volumes/views.py:219
+msgid "Accept Volume Transfer"
+msgstr ""
+
 #: dashboards/project/volumes/templates/volumes/volumes/create.html:6
 msgid "Create a Volume"
 msgstr "Creëer een volume"
@@ -13415,340 +13490,417 @@ msgstr "Creëer een volume"
 msgid "Create a Volume Snapshot"
 msgstr "Creëer een volume momentopname"
 
-#: dashboards/project/volumes/volumes/forms.py:59
+#: dashboards/project/volumes/templates/volumes/volumes/create_transfer.html:3
+#: dashboards/project/volumes/volumes/views.py:198
+#: dashboards/project/volumes/volumes/views.py:199
+msgid "Create Volume Transfer"
+msgstr ""
+
+#: dashboards/project/volumes/templates/volumes/volumes/create_transfer.html:6
+msgid "Create a Volume Transfer"
+msgstr ""
+
+#: dashboards/project/volumes/templates/volumes/volumes/show_transfer.html:3
+#: dashboards/project/volumes/templates/volumes/volumes/show_transfer.html:6
+msgid "Volume Transfer Details"
+msgstr ""
+
+#: dashboards/project/volumes/volumes/forms.py:60
 msgid "Use snapshot as a source"
 msgstr "Gebruik een momentopname als bron"
 
-#: dashboards/project/volumes/volumes/forms.py:66
+#: dashboards/project/volumes/volumes/forms.py:67
 msgid "Use image as a source"
 msgstr "Gebruik een afbeelding as bron"
 
-#: dashboards/project/volumes/volumes/forms.py:73
+#: dashboards/project/volumes/volumes/forms.py:74
 msgid "Use a volume as source"
 msgstr "Gebruik een volume als bron"
 
-#: dashboards/project/volumes/volumes/forms.py:88
+#: dashboards/project/volumes/volumes/forms.py:89
 msgid "Size (GB)"
 msgstr "Grootte (GB)"
 
-#: dashboards/project/volumes/volumes/forms.py:114
+#: dashboards/project/volumes/volumes/forms.py:115
 #, python-format
 msgid "Volume size must be equal to or greater than the snapshot size (%sGB)"
 msgstr "Volumegrootte moet gelijk of groter zijn dan de grootte van de momentopname (%sGB)"
 
-#: dashboards/project/volumes/volumes/forms.py:122
+#: dashboards/project/volumes/volumes/forms.py:123
 msgid "Unable to load the specified snapshot."
 msgstr "Niet in staat om de gespecificeerde momentopname te laden."
 
-#: dashboards/project/volumes/volumes/forms.py:134
+#: dashboards/project/volumes/volumes/forms.py:135
 #, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "Volumegrootte moet gelijk of groter zijn dan de grootte van de afbeelding (%sGB)"
 
-#: dashboards/project/volumes/volumes/forms.py:142
+#: dashboards/project/volumes/volumes/forms.py:143
 #, python-format
 msgid ""
 "Volume size must be equal to or greater than the image minimum disk size "
 "(%sGB)"
 msgstr "De volumegrootte moet ten minste gelijk zijn aan de minimale schijfgrootte voor de afbeelding (%sGB)"
 
-#: dashboards/project/volumes/volumes/forms.py:153
+#: dashboards/project/volumes/volumes/forms.py:154
 #, python-format
 msgid "Unable to load the specified image. %s"
 msgstr "Niet in staat om de gespecificeerde afbeelding te laden. %s"
 
-#: dashboards/project/volumes/volumes/forms.py:163
+#: dashboards/project/volumes/volumes/forms.py:164
 #, python-format
 msgid "Unable to load the specified volume. %s"
 msgstr "Kon het gekozen volume niet laden. %s"
 
-#: dashboards/project/volumes/volumes/forms.py:170
+#: dashboards/project/volumes/volumes/forms.py:171
 #, python-format
 msgid ""
 "Volume size must be equal to or greater than the origin volume size (%s)"
 msgstr "Volumegrootte moet gelijk of groter zijn dan de bron volumegrootte (%s)"
 
-#: dashboards/project/volumes/volumes/forms.py:193
+#: dashboards/project/volumes/volumes/forms.py:194
 msgid "Choose a snapshot"
 msgstr "Kies een momentopname"
 
-#: dashboards/project/volumes/volumes/forms.py:206
+#: dashboards/project/volumes/volumes/forms.py:207
 msgid "Choose an image"
 msgstr "Kies een afbeelding"
 
-#: dashboards/project/volumes/volumes/forms.py:218
+#: dashboards/project/volumes/volumes/forms.py:219
 msgid "Choose a volume"
 msgstr "Selecteer een volume"
 
-#: dashboards/project/volumes/volumes/forms.py:227
+#: dashboards/project/volumes/volumes/forms.py:228
 msgid "No source, empty volume"
 msgstr "Geen bron, leeg volume"
 
-#: dashboards/project/volumes/volumes/forms.py:236
+#: dashboards/project/volumes/volumes/forms.py:237
 msgid "No volume type"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:254
+#: dashboards/project/volumes/volumes/forms.py:255
 msgid "Image source must be specified"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:258
+#: dashboards/project/volumes/volumes/forms.py:259
 msgid "Snapshot source must be specified"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:262
+#: dashboards/project/volumes/volumes/forms.py:263
 msgid "Volume source must be specified"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:271
+#: dashboards/project/volumes/volumes/forms.py:272
 msgid "Unable to determine if availability zones extension is supported."
 msgstr "Niet in staat om vast te stellen of de beschikbaarheidszone uitbreiding ondersteund is."
 
-#: dashboards/project/volumes/volumes/forms.py:324
+#: dashboards/project/volumes/volumes/forms.py:325
 #, python-format
 msgid "The volume size cannot be less than the snapshot size (%sGB)"
 msgstr "Het volume mag niet kleiner zijn dan de momentopname (%sGB)"
 
-#: dashboards/project/volumes/volumes/forms.py:337
+#: dashboards/project/volumes/volumes/forms.py:338
 #, python-format
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "Het volume kan niet kleiner zijn dan de afbeelding (%s)"
 
-#: dashboards/project/volumes/volumes/forms.py:345
+#: dashboards/project/volumes/volumes/forms.py:346
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGB)"
 msgstr "De volumegrootte mag niet minder zijn dan de minimale schijfgrootte (%sGB)"
 
-#: dashboards/project/volumes/volumes/forms.py:356
+#: dashboards/project/volumes/volumes/forms.py:357
 #, python-format
 msgid "The volume size cannot be less than the source volume size (%sGB)"
 msgstr "Het volume mag niet kleiner zijn dan de grootte van het bronvolume (%sGB)"
 
-#: dashboards/project/volumes/volumes/forms.py:365
+#: dashboards/project/volumes/volumes/forms.py:366
 #, python-format
 msgid ""
 "A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your"
 " quota available."
 msgstr "Een volume van %(req)iGB kan niet worden gecreerd aangezien u over nog slechts %(avail)iGB van uw quotum beschikt."
 
-#: dashboards/project/volumes/volumes/forms.py:372
+#: dashboards/project/volumes/volumes/forms.py:373
 msgid "You are already using all of your available volumes."
 msgstr "U gebruikt reeds al uw beschikbare volumes."
 
-#: dashboards/project/volumes/volumes/forms.py:388
+#: dashboards/project/volumes/volumes/forms.py:389
 #, python-format
 msgid "Creating volume \"%s\""
 msgstr "Volume \"%s\" aan het creëren"
 
-#: dashboards/project/volumes/volumes/forms.py:396
+#: dashboards/project/volumes/volumes/forms.py:397
 msgid "Unable to create volume."
 msgstr "Niet in staat om het volume te creëren."
 
-#: dashboards/project/volumes/volumes/forms.py:413
+#: dashboards/project/volumes/volumes/forms.py:414
 msgid "Attach to Instance"
 msgstr "Aankoppelen aan exemplaar"
 
-#: dashboards/project/volumes/volumes/forms.py:414
+#: dashboards/project/volumes/volumes/forms.py:415
 msgid "Select an instance to attach to."
 msgstr "Selecteer een exemplaar om aan te koppelen."
 
-#: dashboards/project/volumes/volumes/forms.py:421
+#: dashboards/project/volumes/volumes/forms.py:422
 msgid ""
 "Actual device name may differ due to hypervisor settings. If not specified, "
 "then hypervisor will select a device name."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:460
+#: dashboards/project/volumes/volumes/forms.py:461
 msgid "Unknown instance (None)"
 msgstr "Onbekend exemplaar (geen)"
 
-#: dashboards/project/volumes/volumes/forms.py:470
+#: dashboards/project/volumes/volumes/forms.py:471
 #, python-format
 msgid "Attaching volume %(vol)s to instance %(inst)s on %(dev)s."
 msgstr "Volume %(vol)s aan het koppelen aan exemplaar %(inst)s op %(dev)s."
 
-#: dashboards/project/volumes/volumes/forms.py:479
+#: dashboards/project/volumes/volumes/forms.py:480
 msgid "Unable to attach volume."
 msgstr "Niet in staat om het volume aan te koppelen."
 
-#: dashboards/project/volumes/volumes/forms.py:503
+#: dashboards/project/volumes/volumes/forms.py:504
 #, python-format
 msgid "Creating volume snapshot \"%s\"."
 msgstr "Bezig met aanmaken van volume momentopname \"%s\"."
 
-#: dashboards/project/volumes/volumes/forms.py:506
+#: dashboards/project/volumes/volumes/forms.py:507
 #, python-format
 msgid "Forcing to create snapshot \"%s\" from attached volume."
 msgstr "Aanmaken van momentopname \"%s\" van het gekoppelde volume aan het afdwingen."
 
-#: dashboards/project/volumes/volumes/forms.py:519
+#: dashboards/project/volumes/volumes/forms.py:520
 msgid "Unable to create volume snapshot."
 msgstr "Niet in staat om de momentopname van het volume te creëren."
 
-#: dashboards/project/volumes/volumes/forms.py:531
-#: dashboards/project/volumes/volumes/tables.py:354
+#: dashboards/project/volumes/volumes/forms.py:525
+#: dashboards/project/volumes/volumes/forms.py:567
+msgid "Transfer Name"
+msgstr ""
+
+#: dashboards/project/volumes/volumes/forms.py:534
+#, python-format
+msgid "Created volume transfer: \"%s\"."
+msgstr ""
+
+#: dashboards/project/volumes/volumes/forms.py:536
+msgid "Created volume transfer."
+msgstr ""
+
+#: dashboards/project/volumes/volumes/forms.py:543
+msgid "Unable to create volume transfer."
+msgstr ""
+
+#: dashboards/project/volumes/volumes/forms.py:548
+#: dashboards/project/volumes/volumes/forms.py:571
+msgid "Transfer ID"
+msgstr ""
+
+#: dashboards/project/volumes/volumes/forms.py:549
+#: dashboards/project/volumes/volumes/forms.py:575
+msgid "Authorization Key"
+msgstr ""
+
+#: dashboards/project/volumes/volumes/forms.py:557
+#, python-format
+msgid "Successfully accepted volume transfer: \"%s\""
+msgstr ""
+
+#: dashboards/project/volumes/volumes/forms.py:562
+msgid "Unable to accept volume transfer."
+msgstr ""
+
+#: dashboards/project/volumes/volumes/forms.py:591
+#: dashboards/project/volumes/volumes/tables.py:408
 msgid "Bootable"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:533
+#: dashboards/project/volumes/volumes/forms.py:593
 msgid "Specifies that the volume can be used to launch an instance"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:544
+#: dashboards/project/volumes/volumes/forms.py:604
 msgid "Unable to update volume."
 msgstr "Niet in staat om volume bij te werken."
 
-#: dashboards/project/volumes/volumes/forms.py:555
+#: dashboards/project/volumes/volumes/forms.py:615
 msgid "Unable to set bootable flag on volume."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:558
+#: dashboards/project/volumes/volumes/forms.py:618
 #, python-format
 msgid "Updating volume \"%s\""
 msgstr "Bijwerken volume \"%s\""
 
-#: dashboards/project/volumes/volumes/forms.py:573
+#: dashboards/project/volumes/volumes/forms.py:633
 msgctxt "Force upload volume in in-use status to image"
 msgid "Force"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:608
+#: dashboards/project/volumes/volumes/forms.py:668
 #, python-format
 msgid "Successfully sent the request to upload volume to image for volume: \"%s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:615
+#: dashboards/project/volumes/volumes/forms.py:675
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:641
+#: dashboards/project/volumes/volumes/forms.py:701
 msgid "New size must be greater than current size."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:647
+#: dashboards/project/volumes/volumes/forms.py:707
 #, python-format
 msgid ""
 "Volume cannot be extended to %(req)iGB as you only have %(avail)iGB of your "
 "quota available."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:661
+#: dashboards/project/volumes/volumes/forms.py:721
 #, python-format
 msgid "Extending volume: \"%s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:667
+#: dashboards/project/volumes/volumes/forms.py:727
 msgid "Unable to extend volume."
 msgstr "Kon het volume niet uitbreiden."
 
-#: dashboards/project/volumes/volumes/forms.py:676
+#: dashboards/project/volumes/volumes/forms.py:736
 msgid "Never"
 msgstr "Nooit"
 
-#: dashboards/project/volumes/volumes/forms.py:677
+#: dashboards/project/volumes/volumes/forms.py:737
 msgid "On Demand"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:678
+#: dashboards/project/volumes/volumes/forms.py:738
 msgid "Migration Policy"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:695
+#: dashboards/project/volumes/volumes/forms.py:755
 msgid "Unable to retrieve the volume type list."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:704
+#: dashboards/project/volumes/volumes/forms.py:764
 #, python-format
 msgid "New volume type must be different from the original volume type \"%s\"."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:720
+#: dashboards/project/volumes/volumes/forms.py:780
 #, python-format
 msgid ""
 "Successfully sent the request to change the volume type to \"%(vtype)s\" for"
 " volume: \"%(name)s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:729
+#: dashboards/project/volumes/volumes/forms.py:789
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:43
+#: dashboards/project/volumes/volumes/tables.py:44
 msgid "Launch as Instance"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:67
+#: dashboards/project/volumes/volumes/tables.py:68
 msgid "Delete Volume"
 msgid_plural "Delete Volumes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/volumes/volumes/tables.py:75
+#: dashboards/project/volumes/volumes/tables.py:76
 msgid "Scheduled deletion of Volume"
 msgid_plural "Scheduled deletion of Volumes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/volumes/volumes/tables.py:142
+#: dashboards/project/volumes/volumes/tables.py:143
 msgid "Manage Attachments"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:176
+#: dashboards/project/volumes/volumes/tables.py:177
 msgid "Unable to retrieve tenant limits."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:203
+#: dashboards/project/volumes/volumes/tables.py:192
+msgid "Create Transfer"
+msgstr ""
+
+#: dashboards/project/volumes/volumes/tables.py:215
 msgid "Upload to Image"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:263
-#: dashboards/project/volumes/volumes/views.py:253
+#: dashboards/project/volumes/volumes/tables.py:255
+msgid "Accept Transfer"
+msgstr ""
+
+#: dashboards/project/volumes/volumes/tables.py:273
+msgid "Cancel Transfer"
+msgstr ""
+
+#: dashboards/project/volumes/volumes/tables.py:286
+#, python-format
+msgid "Successfully deleted volume transfer \"%s\""
+msgstr ""
+
+#: dashboards/project/volumes/volumes/tables.py:289
+msgid "Successfully deleted volume transfer"
+msgstr ""
+
+#: dashboards/project/volumes/volumes/tables.py:292
+msgid "Unable to delete volume transfer."
+msgstr ""
+
+#: dashboards/project/volumes/volumes/tables.py:317
+#: dashboards/project/volumes/volumes/views.py:319
 msgid "Unable to retrieve attachment information."
 msgstr "Niet in staat om de aankoppelingsinformatie op te halen."
 
-#: dashboards/project/volumes/volumes/tables.py:281
+#: dashboards/project/volumes/volumes/tables.py:335
 #, python-format
 msgid "Attached to %(instance)s on %(dev)s"
 msgstr "Gekoppeld aan %(instance)s op %(dev)s"
 
-#: dashboards/project/volumes/volumes/tables.py:302
+#: dashboards/project/volumes/volumes/tables.py:356
 msgid "No"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:304
+#: dashboards/project/volumes/volumes/tables.py:358
 msgid "Yes"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:357
+#: dashboards/project/volumes/volumes/tables.py:411
 msgid "Encrypted"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:378
+#: dashboards/project/volumes/volumes/tables.py:434
 msgid "Detach Volume"
 msgid_plural "Detach Volumes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/volumes/volumes/tables.py:387
+#: dashboards/project/volumes/volumes/tables.py:443
 msgid "Detaching Volume"
 msgid_plural "Detaching Volumes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/volumes/volumes/tables.py:415
+#: dashboards/project/volumes/volumes/tables.py:471
 msgid "Device"
 msgstr "Apparaat"
 
-#: dashboards/project/volumes/volumes/tables.py:424
+#: dashboards/project/volumes/volumes/tables.py:480
 #, python-format
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr ""
 
 #: dashboards/project/volumes/volumes/views.py:109
 #: dashboards/project/volumes/volumes/views.py:152
-#: dashboards/project/volumes/volumes/views.py:236
+#: dashboards/project/volumes/volumes/views.py:302
 msgid "Unable to retrieve volume information."
 msgstr "Niet in staat om de volumeinformatie op te halen."
 
@@ -13759,12 +13911,16 @@ msgid ""
 msgstr "Dit volume is momenteel gekoppeld aan een exemplaar. In bepaalde gevallen kan het maken van een momentopname van een gekoppeld volume resulteren in een beschadigde momentopname."
 
 #: dashboards/project/volumes/volumes/views.py:171
-#: dashboards/project/volumes/volumes/views.py:302
+#: dashboards/project/volumes/volumes/views.py:368
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/views.py:204
+#: dashboards/project/volumes/volumes/views.py:242
+msgid "Unable to retrieve volume transfer."
+msgstr ""
+
+#: dashboards/project/volumes/volumes/views.py:270
 msgid "Unable to retrieve volume."
 msgstr "Niet in staat om het volume op te halen."
 
@@ -14728,26 +14884,34 @@ msgstr "Artikelen per pagina"
 msgid "Number of items to show per page"
 msgstr "Per pagina weer te geven aantal artikelen "
 
-#: dashboards/settings/user/forms.py:80
+#: dashboards/settings/user/forms.py:48
+msgid "Log Lines Per Instance"
+msgstr ""
+
+#: dashboards/settings/user/forms.py:49
+msgid "Number of log lines to be shown per instance"
+msgstr ""
+
+#: dashboards/settings/user/forms.py:83
 #, python-format
 msgid "UTC %(hour)s:%(min)s"
 msgstr ""
 
-#: dashboards/settings/user/forms.py:86
+#: dashboards/settings/user/forms.py:89
 msgid "UTC"
 msgstr ""
 
-#: dashboards/settings/user/forms.py:88
+#: dashboards/settings/user/forms.py:91
 msgid "GMT"
 msgstr ""
 
 #. Translators:  UTC offset and timezone label
-#: dashboards/settings/user/forms.py:93
+#: dashboards/settings/user/forms.py:96
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr ""
 
-#: dashboards/settings/user/forms.py:121
+#: dashboards/settings/user/forms.py:128
 msgid "Settings saved."
 msgstr "Instellingen opgeslagen."
 
