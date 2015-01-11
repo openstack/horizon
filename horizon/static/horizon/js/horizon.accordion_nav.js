@@ -1,13 +1,6 @@
 horizon.addInitFunction(function() {
   var allPanelGroupBodies = $('.nav_accordion > dd > div > ul');
 
-  allPanelGroupBodies.each(function(index, value) {
-    var activePanels = $(this).find('li > a.active');
-    if(activePanels.length === 0) {
-      $(this).slideUp(0);
-    }
-  });
-
   // mark the active panel group
   var activePanel = $('.nav_accordion > dd > div > ul > li > a.active');
   activePanel.closest('div').find('h4').addClass('active');
@@ -38,7 +31,7 @@ horizon.addInitFunction(function() {
       if (activeDashPanel.length === 0) {
         // expand the active panel group
         var activePanel = myDashBody.find("div:first > ul");
-        activePanel.slideDown();
+        activePanel.removeClass('hidden').slideDown();
         activePanel.closest('div').find("h4").addClass("active");
 
         // collapse the inactive panel groups
@@ -50,7 +43,7 @@ horizon.addInitFunction(function() {
       {
         // collapse the inactive panel groups
         activeDashPanel.closest('div').find("h4").addClass("active");
-        activeDashPanel.closest('ul').slideDown();
+        activeDashPanel.closest('ul').removeClass('hidden').slideDown();
         allPanelGroupBodies.each(function(index, value) {
           var activePanels = $(value).find('li > a.active');
           if(activePanels.length === 0) {
@@ -75,7 +68,8 @@ horizon.addInitFunction(function() {
     // expand the selected panel group if not already active
     if(!myPanelGroupWasActive) {
       myPanelGroupHeader.addClass("active");
-      myPanelGroupHeader.closest('div').find('ul').slideDown();
+      myPanelGroupHeader.closest('div').find('ul').removeClass('hidden')
+        .slideDown();
     }
   });
 
