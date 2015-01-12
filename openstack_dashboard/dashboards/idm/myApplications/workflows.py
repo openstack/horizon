@@ -120,6 +120,7 @@ class UpdateApplicationRoles(workflows.UpdateMembersStep):
     no_available_text = _("No users found.")
     no_members_text = _("No users.")
     contributes = ("application_id",)
+    template_name = "idm/myApplications/roles/_workflow_step_update_members.html"
 
     def contribute(self, data, context):
         application_id = context['application_id']
