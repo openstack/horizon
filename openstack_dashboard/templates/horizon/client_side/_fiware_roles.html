@@ -9,16 +9,18 @@
     <label class="btn btn-default">
       <input type="radio" name="options" id="option2" autocomplete="off"> 
       [[display_name]]
+      <i class="fa fa-edit"></i>      
+      <i class="fa fa-close"></i>
     </label>
   </li>
   <li class="btn-group-vertical" data-toggle="buttons">
-      [[#roles]]
+      [[#permissions]]
       <label class="btn btn-default disabled">
         <i class="fa fa-check"></i>
-        <input data-role-id="[[role_id]]" type="checkbox" autocomplete="off"/> 
-        [[role_name]]
+        <input data-permission-id="[[permission_id]]" type="checkbox" autocomplete="off"/>
+        [[permission_name]]
       </label>
-      [[/roles]]
+      [[/permissions]]
     </li>
 </ul>
 {% endjstemplate %}{% endspaceless %}{% endblock %}

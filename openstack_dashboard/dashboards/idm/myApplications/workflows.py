@@ -27,7 +27,10 @@ from openstack_dashboard import api
 from openstack_dashboard import fiware_api
 from openstack_dashboard.dashboards.idm import utils as idm_utils
 
-
+# NOTE(garcianavalon) Beware! we are reusing the membership stuff
+# but changing assign roles to users to assign permissions to roles.
+# TODO(garcianavalon) rename al the 'role' stuff from the membership workflow
+# to 'permission' and the 'user' one to 'role'
 INDEX_URL = "horizon:idm:myApplications:index"
 APPLICATION_ROLE_PERMISSION_SLUG = "update_members"
 LOG = logging.getLogger('idm_logger')
@@ -101,12 +104,8 @@ class UpdateApplicationRolesAction(workflows.MembershipAction):
         #return "default_" + self.slug + "_role"
         return
 
-    def get_member_field_name(self, role_id):
-        # NOTE(garcianavalon) Beware! we are reusing the membership stuff
-        # but changing assign roles to users to assign permissions to roles.
-        # TODO(garcianavalon) rename al the 'role' stuff from the membership
-        # to 'permission' and the 'user' one to 'role'
-        return self.slug + "_role_" + role_id
+    def get_member_field_name(self, permission_id):
+        return self.slug + "_permission_" + permission_id
 
     class Meta:
         name = _("Application roles")
