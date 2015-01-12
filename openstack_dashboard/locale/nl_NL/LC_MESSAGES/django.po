@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-10 23:12-0600\n"
-"PO-Revision-Date: 2015-01-10 23:01+0000\n"
+"POT-Creation-Date: 2015-01-11 02:22-0600\n"
+"PO-Revision-Date: 2015-01-11 06:53+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/horizon/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -2033,7 +2033,7 @@ msgstr "Gedeactiveerd"
 
 #: dashboards/admin/info/tables.py:65 dashboards/admin/metering/tables.py:42
 #: dashboards/admin/metering/tables.py:61
-#: dashboards/admin/metering/views.py:161
+#: dashboards/admin/metering/views.py:199
 #: dashboards/project/access_and_security/api_access/tables.py:61
 msgid "Service"
 msgstr "Dienst"
@@ -2380,7 +2380,7 @@ msgstr ""
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:57
 #: dashboards/admin/metering/tables.py:44
 #: dashboards/admin/metering/tables.py:63
-#: dashboards/admin/metering/views.py:160
+#: dashboards/admin/metering/views.py:198
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:15
 #: dashboards/identity/domains/tables.py:200
 #: dashboards/identity/domains/workflows.py:37
@@ -2772,7 +2772,7 @@ msgstr "CSV samenvatting ophalen"
 
 #: dashboards/admin/metering/tables.py:43
 #: dashboards/admin/metering/tables.py:62
-#: dashboards/admin/metering/views.py:160
+#: dashboards/admin/metering/views.py:198
 msgid "Meter"
 msgstr "Meter"
 
@@ -2783,7 +2783,7 @@ msgstr "Dag"
 
 #: dashboards/admin/metering/tables.py:47
 #: dashboards/admin/metering/tables.py:66
-#: dashboards/admin/metering/views.py:161
+#: dashboards/admin/metering/views.py:199
 msgid "Value (Avg)"
 msgstr "Waarde (Gem)"
 
@@ -2803,52 +2803,57 @@ msgstr "Er zijn nog geen meters gedefinieerd."
 msgid "Usage Report"
 msgstr "Verbruiksrapport"
 
-#: dashboards/admin/metering/tabs.py:62 dashboards/admin/metering/views.py:178
+#: dashboards/admin/metering/tabs.py:62 dashboards/admin/metering/views.py:216
 msgid "Nova"
 msgstr "Nova"
 
-#: dashboards/admin/metering/tabs.py:63 dashboards/admin/metering/views.py:179
+#: dashboards/admin/metering/tabs.py:63 dashboards/admin/metering/views.py:217
 msgid "Neutron"
 msgstr "Neutron"
 
-#: dashboards/admin/metering/tabs.py:64 dashboards/admin/metering/views.py:180
+#: dashboards/admin/metering/tabs.py:64 dashboards/admin/metering/views.py:218
 msgid "Glance"
 msgstr "Glance"
 
-#: dashboards/admin/metering/tabs.py:65 dashboards/admin/metering/views.py:181
+#: dashboards/admin/metering/tabs.py:65 dashboards/admin/metering/views.py:219
 msgid "Cinder"
 msgstr "Cinder"
 
-#: dashboards/admin/metering/tabs.py:66 dashboards/admin/metering/views.py:182
+#: dashboards/admin/metering/tabs.py:66 dashboards/admin/metering/views.py:220
 msgid "Swift_meters"
 msgstr "Swift_meters"
 
-#: dashboards/admin/metering/tabs.py:67 dashboards/admin/metering/views.py:183
+#: dashboards/admin/metering/tabs.py:67 dashboards/admin/metering/views.py:221
 msgid "Kwapi"
 msgstr "Kwapi"
 
-#: dashboards/admin/metering/tabs.py:80 dashboards/admin/metering/views.py:120
+#: dashboards/admin/metering/tabs.py:80 dashboards/admin/metering/views.py:159
 msgid "Dates cannot be recognized."
 msgstr "Datum wordt niet herkent."
 
-#: dashboards/admin/metering/tabs.py:88 dashboards/admin/metering/views.py:202
+#: dashboards/admin/metering/tabs.py:88 dashboards/admin/metering/views.py:240
 #: dashboards/admin/overview/views.py:65
 #: dashboards/identity/projects/views.py:90
 msgid "Unable to retrieve project list."
 msgstr "Niet in staat om de projectlijst op te halen."
 
-#: dashboards/admin/metering/views.py:160
+#: dashboards/admin/metering/views.py:76
+#, python-format
+msgid "Failed to get the resource name: %s"
+msgstr ""
+
+#: dashboards/admin/metering/views.py:198
 #: dashboards/admin/overview/views.py:33
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:18
 #: usage/tables.py:45
 msgid "Project Name"
 msgstr "Projectnaam"
 
-#: dashboards/admin/metering/views.py:161
+#: dashboards/admin/metering/views.py:199
 msgid "Time"
 msgstr "Tijd"
 
-#: dashboards/admin/metering/views.py:194
+#: dashboards/admin/metering/views.py:232
 msgid "Dates cannot be recognised."
 msgstr ""
 
