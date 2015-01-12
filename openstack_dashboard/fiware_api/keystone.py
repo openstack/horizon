@@ -180,10 +180,11 @@ def permission_get(request, permission_id):
     manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.permissions
     return manager.get(permission_id)
 
-def permission_list(request, role=None):
+def permission_list(request, role=None, application=None):
     #manager = fiwareclient().fiware_roles.permissions
     manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.permissions
-    return manager.list(role=role)
+    return manager.list(role=role,
+                        application=application)
 
 def permission_create(request, name, is_internal=False, application=None, **kwargs):
     #manager = fiwareclient().fiware_roles.permissions

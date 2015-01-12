@@ -43,14 +43,13 @@ class UpdateApplicationRolesAction(workflows.MembershipAction):
 
         # Get list of available roles
         try:
-            application_roles = fiware_api.keystone.role_list(request,
+            role_list = fiware_api.keystone.role_list(request,
                                                     application=application_id)
             # TODO(garcianavalon) the default roles should be non editable!
             # TODO(garcianavalon) filtering for internal
-            application_roles.append(fiware_api.keystone.role_list(request))
+            # role_list += fiware_api.keystone.role_list(request)
         except Exception:
             exceptions.handle(request, err_msg)
-        role_list = [(role.id, role.name) for role in application_roles]
 
         # Get list of permissions
         try:
@@ -58,7 +57,7 @@ class UpdateApplicationRolesAction(workflows.MembershipAction):
                                                     application=application_id)
             # TODO(garcianavalon) the default roles should be non editable!
             # TODO(garcianavalon) filtering for internal
-            permission_list.append(fiware_api.keystone.permission_list(request))
+            # permission_list += fiware_api.keystone.permission_list(request)
         except Exception:
             exceptions.handle(request,
                               err_msg,
@@ -69,16 +68,20 @@ class UpdateApplicationRolesAction(workflows.MembershipAction):
             label = permission.name
             self.fields[field_name] = forms.MultipleChoiceField(required=False,
                                                                 label=label)
-            self.fields[field_name].choices = role_list
+            self.fields[field_name].choices = [
+                (role.id, role.name) for role in role_list
+            ]
             self.fields[field_name].initial = []
 
         # Figure out roles and permissions
         application_role_permissions = {}
         try:
             for role in role_list:
-                application_role_permissions[role.id] = \
-                    fiware_api.keystone.permission_list(request,
+                application_role_permissions[role.id] = [
+                    p.id for p in fiware_api.keystone.permission_list(
+                                                        request,
                                                         role=role.id)
+                ]
         except Exception:
             exceptions.handle(request,
                               err_msg,
@@ -90,6 +93,20 @@ class UpdateApplicationRolesAction(workflows.MembershipAction):
             for permission_id in permissions_ids:
                 field_name = self.get_member_field_name(permission_id)
                 self.fields[field_name].initial.append(role_id)
+
+    def get_default_role_field_name(self):
+        """ No use for this method, this workflow doesn't support the
+        'adding from a pool of all resources' logic as the user one does.
+        """
+        #return "default_" + self.slug + "_role"
+        return
+
+    def get_member_field_name(self, role_id):
+        # NOTE(garcianavalon) Beware! we are reusing the membership stuff
+        # but changing assign roles to users to assign permissions to roles.
+        # TODO(garcianavalon) rename al the 'role' stuff from the membership
+        # to 'permission' and the 'user' one to 'role'
+        return self.slug + "_role_" + role_id
 
     class Meta:
         name = _("Application roles")
