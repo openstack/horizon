@@ -210,7 +210,8 @@ horizon.fiware_roles_workflow = {
       if (membership_permissions.hasOwnProperty(p)){
         permissions.push({
           permission_id: p,
-          permission_name: membership_permissions[p]
+          permission_name: membership_permissions[p],
+          status: 'active',
         });
       }
     }
