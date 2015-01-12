@@ -77,7 +77,7 @@ class UploadImageView(forms.ModalFormView):
 
 class RolesView(workflows.WorkflowView):
     workflow_class = application_workflows.ManageApplicationRoles
-
+    template_name = 'idm/myApplications/roles/_workflow_base.html'
     def get_initial(self):
         initial = super(RolesView, self).get_initial()
 

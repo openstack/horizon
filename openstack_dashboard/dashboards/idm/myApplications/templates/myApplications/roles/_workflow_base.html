@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% endblock %}
+
+{% block main %}
+  <div id="create_application_roles">
+    <div class="modal-header"><h3>
+    {% include "idm/myApplications/_step-3.html" %}
+    </h3>
+    </div>
+    <div class="site-client-roles">
+      {% include 'horizon/common/_workflow.html' %}
+    </div>
+    <a class="btn btn-primary" href="{% url 'horizon:idm:myApplications:index' %}">{% trans "Finish" %}</a>
+  </div>
+{% endblock %}
