@@ -1,0 +1,24 @@
+{% extends "horizon/client_side/template.html" %}
+{% load horizon %}
+
+{% block id %}fiware_roles_template{% endblock %}
+
+{% block template %}{% spaceless %}{% jstemplate %}
+<ul class="nav nav-pills btn-group">
+  <li class="member" data-[[step_slug]]-id="[[data_id]]">  
+    <label class="btn btn-default">
+      <input type="radio" name="options" id="option2" autocomplete="off"> 
+      [[display_name]]
+    </label>
+  </li>
+  <li class="btn-group-vertical" data-toggle="buttons">
+      [[#roles]]
+      <label class="btn btn-default disabled">
+        <i class="fa fa-check"></i>
+        <input data-role-id="[[role_id]]" type="checkbox" autocomplete="off"/> 
+        [[role_name]]
+      </label>
+      [[/roles]]
+    </li>
+</ul>
+{% endjstemplate %}{% endspaceless %}{% endblock %}

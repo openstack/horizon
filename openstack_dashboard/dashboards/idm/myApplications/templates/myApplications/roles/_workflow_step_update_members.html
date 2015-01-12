@@ -1,0 +1,36 @@
+{% load i18n %}
+
+<noscript><h3>{{ step }}</h3></noscript>
+
+<div class="membership {{ step.slug }}_membership dropdown_fix" data-show-roles="{{ step.show_roles }}">
+  <div class="header">
+    <div class="help_text">{{ step.help_text }}</div>
+    <div class="right">
+      <div class="fake_table fake_table_header fake_{{ step.slug }}_table">
+        <span class="members_title">{{ step.members_list_title }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="right filterable {{ step.slug }}_filterable">
+    <div class="fake_table fake_{{ step.slug }}_table" id="{{ step.slug }}_members">
+      <ul class="members {{ step.slug }}_members"></ul>
+      <ul class="no_results" id="no_{{ step.slug }}_members"><li>{{ step.no_members_text }}</li></ul>
+    </div>
+  </div>
+</div>
+
+<div class="hide">
+  {% include "horizon/common/_form_fields.html" %}
+</div>
+
+
+<script>
+  if (typeof horizon.fiware_roles_workflow !== 'undefined') {
+    horizon.fiware_roles_workflow.workflow_init($(".workflow"), "{{ step.slug }}", "{{ step.get_id }}");
+  } else {
+    addHorizonLoadEvent(function() {
+      horizon.fiware_roles_workflow.workflow_init($(".workflow"), "{{ step.slug }}", "{{ step.get_id }}");
+    });
+  }
+</script>
