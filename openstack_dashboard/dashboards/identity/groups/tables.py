@@ -172,7 +172,7 @@ class RemoveMembers(tables.DeleteAction):
 
 class AddMembersLink(tables.LinkAction):
     name = "add_user_link"
-    verbose_name = _("Add...")
+    verbose_name = _("Add Users")
     classes = ("ajax-modal",)
     icon = "plus"
     url = constants.GROUPS_ADD_MEMBER_URL
