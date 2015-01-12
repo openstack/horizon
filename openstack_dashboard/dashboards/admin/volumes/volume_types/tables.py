@@ -133,6 +133,15 @@ def get_volume_type_encryption(volume_type):
     return provider
 
 
+class VolumeTypesFilterAction(tables.FilterAction):
+
+    def filter(self, table, volume_types, filter_string):
+        """Naive case-insensitive search."""
+        query = filter_string.lower()
+        return [volume_type for volume_type in volume_types
+                if query in volume_type.name.lower()]
+
+
 class VolumeTypesTable(tables.DataTable):
     name = tables.Column("name", verbose_name=_("Name"))
     assoc_qos_spec = tables.Column("associated_qos_spec",
@@ -152,7 +161,8 @@ class VolumeTypesTable(tables.DataTable):
         name = "volume_types"
         hidden_title = False
         verbose_name = _("Volume Types")
-        table_actions = (CreateVolumeType, DeleteVolumeType,)
+        table_actions = (VolumeTypesFilterAction, CreateVolumeType,
+                         DeleteVolumeType,)
         row_actions = (CreateVolumeTypeEncryption,
                        ViewVolumeTypeExtras,
                        ManageQosSpecAssociation,
