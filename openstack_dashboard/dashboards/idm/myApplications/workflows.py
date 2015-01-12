@@ -32,7 +32,7 @@ from openstack_dashboard.dashboards.idm import utils as idm_utils
 # TODO(garcianavalon) rename al the 'role' stuff from the membership workflow
 # to 'permission' and the 'user' one to 'role'
 INDEX_URL = "horizon:idm:myApplications:index"
-APPLICATION_ROLE_PERMISSION_SLUG = "update_members"
+APPLICATION_ROLE_PERMISSION_SLUG = "fiware_roles"
 LOG = logging.getLogger('idm_logger')
 
 class UpdateApplicationRolesAction(workflows.MembershipAction):
@@ -48,6 +48,8 @@ class UpdateApplicationRolesAction(workflows.MembershipAction):
         try:
             role_list = fiware_api.keystone.role_list(request,
                                                     application=application_id)
+            # Save the role_list to use in the template
+            self.application_roles = role_list
             # TODO(garcianavalon) the default roles should be non editable!
             # TODO(garcianavalon) filtering for internal
             # role_list += fiware_api.keystone.role_list(request)
@@ -114,10 +116,7 @@ class UpdateApplicationRolesAction(workflows.MembershipAction):
 
 class UpdateApplicationRoles(workflows.UpdateMembersStep):
     action_class = UpdateApplicationRolesAction
-    available_list_title = _("All Users")
-    members_list_title = _("Organization Members")
-    no_available_text = _("No users found.")
-    no_members_text = _("No users.")
+    members_list_title = _("Application roles")
     contributes = ("application_id",)
     template_name = "idm/myApplications/roles/_workflow_step_update_members.html"
 

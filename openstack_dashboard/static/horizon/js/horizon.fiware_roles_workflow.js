@@ -6,7 +6,7 @@ horizon.fiware_roles_workflow = {
   current_relations: [],
   data: [],
   permissions: [],
-  has_permissions: [],
+  //has_permissions: [],
   
   //default_permission_id: [],
 
@@ -40,7 +40,7 @@ horizon.fiware_roles_workflow = {
    * default permission id.
    **/
   init_properties: function(step_slug) {
-    horizon.fiware_roles_workflow.has_permissions[step_slug] = $("." + step_slug + "_membership").data('show-roles') !== "False";
+    //horizon.fiware_roles_workflow.has_permissions[step_slug] = $("." + step_slug + "_membership").data('show-roles') !== "False";
     //horizon.fiware_roles_workflow.default_permission_id[step_slug] = $('#id_default_' + step_slug + '_role').attr('value');
     horizon.fiware_roles_workflow.init_data_list(step_slug);
     horizon.fiware_roles_workflow.init_permission_list(step_slug);
@@ -159,7 +159,7 @@ horizon.fiware_roles_workflow = {
     horizon.fiware_roles_workflow.update_permission_lists(step_slug, permission_id, permission_list);
   },
 
-  update_member_permission_dropdown: function(step_slug, data_id, permission_ids, member_el) {
+  /*update_role_permission_list: function(step_slug, permission_ids, member_el) {
     if (typeof(permission_ids) === 'undefined') {
       permission_ids = horizon.fiware_roles_workflow.get_member_permissions(step_slug, data_id);
     }
@@ -178,7 +178,6 @@ horizon.fiware_roles_workflow = {
       }
     });
 
-    // TODO(garcianavalon) maybe here is a good place to hide the permissions
     // set the selection back to default role
     var $permissions_display = $dropdown.children('.dropdown-toggle').children('.roles_display');
     /*var roles_to_display = [];
@@ -192,62 +191,59 @@ horizon.fiware_roles_workflow = {
     text = roles_to_display.join(', ');
     if (text.length === 0) {
       text = gettext('No permissions');
-    }*/
+    }
     text = permission_ids.length > 0 ? permission_ids.length + " permissions" : "No permissions";
     $permissions_display.text(text);
-  },
+  },*/
 
   /*
-   * Generates the HTML structure for a member that will be displayed
-   * as a list item in the member list.
+   * Generates the HTML structure for a role's permissions that will be displayed
+   * as a checkbox for each permission
    **/
-  generate_member_element: function(step_slug, display_name, data_id, permission_ids) {
+  generate_permissions_element: function(step_slug, permission_ids) {
     var permissions = [],
       that = this,
       membership_permissions = that.permissions[step_slug],
-      r;
+      p;
 
-    for (r in membership_permissions) {
-      if (membership_permissions.hasOwnProperty(r)){
+    for (p in membership_permissions) {
+      if (membership_permissions.hasOwnProperty(p)){
         permissions.push({
-          permission_id: r,
-          permission_name: membership_permissions[r]
+          permission_id: p,
+          permission_name: membership_permissions[p]
         });
       }
     }
 
     var template = horizon.templates.compiled_templates["#fiware_roles_template"],
       params = {
-        data_id: "id_" + step_slug + "_" + data_id,
         step_slug: step_slug,
-        display_name: display_name,
         permissions: permissions,
-        permissions_label: gettext("Permissions")
       },
       member_el = $(template.render(params));
-    this.update_member_permission_dropdown(step_slug, params.data_id, permission_ids, member_el);
+    //this.update_role_permission_list(step_slug, permission_ids, member_el);
     return $(member_el);
   },
 
   /*
    * Generates the HTML structure for the membership UI.
    **/
-  generate_html: function(step_slug) {
+  /*generate_html: function(step_slug) {
     var data_id, data = horizon.fiware_roles_workflow.data[step_slug];
     for (data_id in data) {
       if(data.hasOwnProperty(data_id)){
         var display_name = data[data_id];
         var permission_ids = this.get_member_permissions(step_slug, data_id);
         if (permission_ids.length > 0) {
-          $("." + step_slug + "_members").append(this.generate_member_element(step_slug, display_name, data_id, permission_ids));
+          $("." + step_slug + "_permissions").append(this.generate_permissions_element(step_slug, permission_ids));
         }
         else {
-          $(".available_" + step_slug).append(this.generate_member_element(step_slug, display_name, data_id, permission_ids));
+          $(".available_" + step_slug).append(this.generate_permissions_element(step_slug, permission_ids));
         }
       }
     }
     horizon.fiware_roles_workflow.detect_no_results(step_slug);
-  },
+  },*/
 
   /*
    * Triggers on click of link to add/remove membership association.
@@ -267,7 +263,7 @@ horizon.fiware_roles_workflow = {
 
         if (horizon.fiware_roles_workflow.has_permissions[step_slug]) {
           $(this).parent().siblings(".role_options").show();
-          horizon.fiware_roles_workflow.update_member_permission_dropdown(step_slug, data_id, [default_role], member_el);
+          horizon.fiware_roles_workflow.update_role_permission_list(step_slug, data_id, [default_role], member_el);
         }
       }
       else {
@@ -290,7 +286,7 @@ horizon.fiware_roles_workflow = {
    * Detects whether each list has members and if it does not
    * displays a message to the user.
    **/
-  detect_no_results: function (step_slug) {
+  /*detect_no_results: function (step_slug) {
     $('.' + step_slug +  '_filterable').each( function () {
       var css_class = $(this).find('ul').attr('class');
       // Example value: members step_slug_members
@@ -306,8 +302,28 @@ horizon.fiware_roles_workflow = {
         $("input[id='" + filter + "']").removeAttr('disabled');
       }
     });
+  },*/
+  /*
+   * Triggers on selecting a role to show its permissions
+   **/
+  show_active_role_permissions: function(step_slug) {
+    $("input[type=radio]").on('change', function (evt) {
+      if (!($(this).is(':checked'))) {
+        return
+      }
+      evt.preventDefault();
+      var data_id;
+      var active_role_id = $(this).parent().parent().attr("data-" + step_slug + "-id");
+      var data = horizon.fiware_roles_workflow.data[step_slug];
+      for (data_id in data) {
+        if (data.hasOwnProperty(data_id) && active_role_id == data_id) {
+          var permission_ids = horizon.fiware_roles_workflow.get_member_permissions(step_slug, data_id);
+          var permissions_container = $("." + step_slug + "_permissions")
+          permissions_container.html(horizon.fiware_roles_workflow.generate_permissions_element(step_slug, permission_ids));
+        }
+      }
+    });
   },
-
   /*
    * Triggers on selection of new permission for a member.
    **/
@@ -328,7 +344,7 @@ horizon.fiware_roles_workflow = {
         $(this).addClass('selected');
         horizon.fiware_roles_workflow.add_member_to_permission(step_slug, data_id, new_permission_id);
       }
-      horizon.fiware_roles_workflow.update_member_permission_dropdown(step_slug, data_id);
+      //horizon.fiware_roles_workflow.update_role_permission_list(step_slug, data_id);
     });
   },
 
@@ -342,7 +358,7 @@ horizon.fiware_roles_workflow = {
       var display_name = $(this).find("option").text();
       var data_id = $(this).find("option").attr("value");
       var default_permission_id = horizon.fiware_roles_workflow.default_permission_id[step_slug];
-      $("." + step_slug + "_members").append(horizon.fiware_roles_workflow.generate_member_element(step_slug, display_name, data_id, [default_permission_id], "-"));
+      $("." + step_slug + "_members").append(horizon.fiware_roles_workflow.generate_permissions_element(step_slug, display_name, data_id, [default_permission_id], "-"));
 
       // add the member to the hidden permission lists and the data list
       horizon.fiware_roles_workflow.data[step_slug][data_id] = display_name;
@@ -450,14 +466,15 @@ horizon.fiware_roles_workflow = {
       var $form = $(this);
 
       // Do nothing if this isn't a membership modal
-      if ($form.find('div.' + step_slug + '_membership').length === 0) {
+      /*if ($form.find('div.' + step_slug + '_membership').length === 0) {
         return; // continue
-      }
+      }*/
 
       // call the initialization functions
       horizon.fiware_roles_workflow.init_properties(step_slug);
-      horizon.fiware_roles_workflow.generate_html(step_slug);
-      horizon.fiware_roles_workflow.update_membership(step_slug);
+      //horizon.fiware_roles_workflow.generate_html(step_slug);
+      //horizon.fiware_roles_workflow.update_membership(step_slug);
+      horizon.fiware_roles_workflow.show_active_role_permissions(step_slug);
       horizon.fiware_roles_workflow.select_member_permission(step_slug);
       //horizon.fiware_roles_workflow.add_new_member(step_slug);
 
@@ -467,9 +484,9 @@ horizon.fiware_roles_workflow = {
       $form.find(".available_" +  step_slug + " .role_options").hide();
 
       // hide the dropdown for members too if we don't need to show it
-      if (!horizon.fiware_roles_workflow.has_permissions[step_slug]) {
+      /*if (!horizon.fiware_roles_workflow.has_permissions[step_slug]) {
         $form.find("." + step_slug + "_members .role_options").hide();
-      }
+      }*/
 
       // unfocus filter fields
       if (step_id.indexOf('update') === 0) {
@@ -477,6 +494,8 @@ horizon.fiware_roles_workflow = {
       }
 
       // prevent filter inputs from submitting form on 'enter'
+      // TODO(garcianavalon) check if we need this, (don't forget there is 
+      // no _membership in template anymore)
       $form.find('.' + step_slug + '_membership').keydown(function(event){
         if(event.keyCode === 13) {
           event.preventDefault();
@@ -487,7 +506,7 @@ horizon.fiware_roles_workflow = {
       // add filtering + styling to the inline obj creation btn
       //horizon.fiware_roles_workflow.add_new_member_styling(step_slug);
       //horizon.fiware_roles_workflow.list_filtering(step_slug);
-      horizon.fiware_roles_workflow.detect_no_results(step_slug);
+      //horizon.fiware_roles_workflow.detect_no_results(step_slug);
 
       // fix initial striping of rows
       /*$form.find('.fake_' + step_slug + '_table').each( function () {
