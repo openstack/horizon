@@ -375,7 +375,7 @@ horizon.membership = {
   /*
    * Fixes the striping of the fake table upon modification of the lists.
    **/
-  fix_stripes: function(step_slug) {
+  /*fix_stripes: function(step_slug) {
     $('.fake_' + step_slug + '_table').each( function () {
       var filter = "." + $(this).attr('id');
       var visible = " .btn-group:visible";
@@ -392,7 +392,7 @@ horizon.membership = {
       $(filter + visible).removeClass('last_stripe');
       $(filter + last).addClass('last_stripe');
     });
-  },
+  },*/
 
   /*
    * Sets up filtering for each list of data.
