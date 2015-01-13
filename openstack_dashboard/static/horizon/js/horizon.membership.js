@@ -294,11 +294,13 @@ horizon.membership = {
       // Pick the class name that contains the step_slug
       var filter = $.grep(css_class.split(' '), function(val){ return val.indexOf(step_slug) !== -1; })[0];
 
-      if (!$('.' + filter).children('ul').length) {
+      if (!$('.' + filter).children('li').length) {
+        console.log('no results in '+filter)
         $('#no_' + filter).show();
         $("input[id='" + filter + "']").attr('disabled', 'disabled');
       }
       else {
+        console.log('results in '+filter)
         $('#no_' + filter).hide();
         $("input[id='" + filter + "']").removeAttr('disabled');
       }
