@@ -1,13 +1,11 @@
 from django.utils.translation import ugettext_lazy as _
 
 import horizon
-
-from {{ dash_path }} import dashboard
-
+{% if dashboard %}from {{ dash_path }} import dashboard{% endif %}
 
 class {{ panel_name|title }}(horizon.Panel):
     name = _("{{ panel_name|title }}")
     slug = "{{ panel_name|slugify }}"
+{% if dashboard %}
 
-
-dashboard.{{ dash_name|title }}.register({{ panel_name|title }})
+dashboard.{{ dash_name|title }}.register({{ panel_name|title }}){% endif %}

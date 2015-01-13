@@ -50,25 +50,21 @@ class Command(TemplateCommand):
         if panel_name is None:
             raise CommandError("You must provide a panel name.")
 
-        if options.get('dashboard') is None:
-            raise CommandError("You must specify the name of the dashboard "
-                               "this panel will be registered with using the "
-                               "-d or --dashboard option.")
-
-        dashboard_path = options.get('dashboard')
-        dashboard_mod_path = ".".join([dashboard_path, "dashboard"])
+        if options.get('dashboard'):
+            dashboard_path = options.get('dashboard')
+            dashboard_mod_path = ".".join([dashboard_path, "dashboard"])
 
         # Check the dashboard.py file in the dashboard app can be imported.
         # Add the dashboard information to our options to pass along if all
         # goes well.
-        try:
-            dashboard_mod = import_module(dashboard_mod_path)
-            options["dash_path"] = dashboard_path
-            options["dash_name"] = dashboard_path.split(".")[-1]
-        except ImportError:
-            raise CommandError("A dashboard.py module could not be imported "
-                               " from the dashboard at %r."
-                               % options.get("dashboard"))
+            try:
+                dashboard_mod = import_module(dashboard_mod_path)
+                options["dash_path"] = dashboard_path
+                options["dash_name"] = dashboard_path.split(".")[-1]
+            except ImportError:
+                raise CommandError("A dashboard.py module could not be "
+                                   "imported from the dashboard at %r."
+                                   % options.get("dashboard"))
 
         target = options.pop("target", None)
         if target == "auto":
