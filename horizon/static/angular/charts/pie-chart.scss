@@ -1,0 +1,44 @@
+.pie-chart {
+  display: inline-block;
+  position: relative;
+
+  .svg-pie-chart {
+    float: left;
+
+    .slice {
+      cursor: pointer;
+    }
+  }
+
+  .pie-chart-title {
+    font-size: $chart-title-font-size;
+    font-weight: $chart-title-weight;
+    padding: $chart-title-padding;
+  }
+
+  .pie-chart-label {
+    font-size: 1.2em;
+    text-anchor: middle;
+  }
+
+  .pie-chart-legend {
+    float: left;
+    font-size: $chart-legend-font-size;
+    line-height: 1em;
+    padding: $chart-legend-padding;
+
+    .slice-legend {
+      padding: 0.1em 0;
+
+      .slice-key {
+        color: transparent;
+        display: inline-block;
+        height: 1em;
+        line-height: 1em;
+        position: relative;
+        top: 0.12em;
+        width: 0.5em;
+      }
+    }
+  }
+}

@@ -132,6 +132,10 @@ $tooltip-border: solid 1px #bcbcbc !default;
 $tooltip-border-radius: 0 !default;
 $tooltip-box-shadow: 1px 1px 8px -3px #cccccc !default;
 $tooltip-font-color: #000000 !default;
+$tooltip-key-color: #000000 !default;
+$tooltip-key-padding: 0 0.2em !default;
+$tooltip-key-weight: 600 !default;
+$tooltip-padding: 0.3em 0.8em !default;
 
 /* Transfer Tables */
 $badge-info-color: #0084d1 !default;
@@ -139,3 +143,10 @@ $invalid-color: #f0ad4e !default;
 $invalid-tooltip-color: #333333 !default;
 $transfer-btn-width: 3em !default;
 $transfer-section-bg: #fefefe !default;
+
+/* Pie Chart */
+$chart-title-font-size: 1.1em !default;
+$chart-title-padding: 0.5em 0 !default;
+$chart-title-weight: 600 !default;
+$chart-legend-font-size: 1em !default;
+$chart-legend-padding: 0.2em 1.5em !default;

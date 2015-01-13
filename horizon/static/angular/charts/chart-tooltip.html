@@ -1,0 +1,9 @@
+<div class="chart-tooltip"
+  ng-class="{ 'tooltip-enabled': tooltip.enabled }"
+  ng-style="tooltip.style">
+  <span class="fa {$ ::tooltip.icon $}"
+    ng-class="tooltip.iconClass"
+    ng-style="{ color: tooltip.iconColor }"></span>
+  <span class="tooltip-key">{$ tooltip.label $}</span>
+  {$ tooltip.value $}
+</div>
