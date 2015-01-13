@@ -9,6 +9,8 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+
+import collections
 import functools
 import inspect
 
@@ -94,5 +96,39 @@ def services_required(*req_services):
                 obj = skip_method(obj, "%s service is required for this test"
                                        " to work properly." % req_service)
                 break
+        return obj
+    return actual_decoration
+
+
+def skip_because(**kwargs):
+    """Decorator for skipping tests hitting known bugs
+
+    Usage:
+    from openstack_dashboard.test.integration_tests.tests import decorators
+
+    class TestDashboardHelp(helpers.TestCase):
+
+        @decorators.skip_because(bugs=["1234567"])
+        def test_dashboard_help_redirection(self):
+        .
+        .
+        .
+    """
+    def actual_decoration(obj):
+        if inspect.isclass(obj):
+            if not _is_test_cls(obj):
+                raise ValueError(NOT_TEST_OBJECT_ERROR_MSG)
+            skip_method = _mark_class_skipped
+        else:
+            if not _is_test_method_name(obj.func_name):
+                raise ValueError(NOT_TEST_OBJECT_ERROR_MSG)
+            skip_method = _mark_method_skipped
+        bugs = kwargs.get("bugs")
+        if bugs and isinstance(bugs, collections.Iterable):
+            for bug in bugs:
+                if not bug.isdigit():
+                    raise ValueError("bug must be a valid bug number")
+            obj = skip_method(obj, "Skipped until Bugs: %s are resolved."
+                              ", ".join([bug for bug in bugs]))
         return obj
     return actual_decoration
