@@ -1030,48 +1030,50 @@ tr.terminated {
   margin-bottom: -5px;
 }
 
-#main_content .nav-tabs {
-  border-top: 1px solid $nav-tabs-border-color;
-  border-bottom: none;
-  > li {
-    margin-bottom: 0;
-    margin-top: -1px;
-    > a {
-      margin-right: 0;
-      border-radius: 0;
-      padding-top: 4px;
-      padding-bottom: 4px;
-      &:hover {
-        border-color: $nav-tabs-border-color $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color;
+#main_content {
+  .nav-tabs {
+    border-top: 1px solid $nav-tabs-border-color;
+    border-bottom: none;
+    > li {
+      margin-bottom: 0;
+      margin-top: -1px;
+      > a {
+        margin-right: 0;
+        border-radius: 0;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        &:hover {
+          border-color: $nav-tabs-border-color $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color;
+        }
       }
-    }
-    &.active > a {
-      &,
-      &:hover,
-      &:focus {
-        font-weight: bold;
-        background-color: #555;
-        border-color: #555;
-        color: #fff;
+      &.active > a {
+        &,
+        &:hover,
+        &:focus {
+          font-weight: bold;
+          background-color: $gray;
+          border-color: $gray;
+          color: #fff;
+        }
       }
     }
   }
-}
 
-#main_content .tab-content {
-  padding: 10px;
-}
+  .tab-content {
+    padding: 10px;
+  }
 
-#main_content .workflow .modal-body {
-  padding-left: 0;
-  padding-right: 0;
-}
+  .workflow .modal-body {
+    padding-left: 0;
+    padding-right: 0;
 
-#main_content .workflow .modal-body .tab-content {
-  border-left: 0 none;
-  border-right: 0 none;
-  border-bottom: 0 none;
-  padding-top: 10px;
+    .tab-content {
+      border-left: 0 none;
+      border-right: 0 none;
+      border-bottom: 0 none;
+      padding-top: 10px;
+    }
+  }
 }
 
 #content_body {
@@ -1090,7 +1092,7 @@ tr.terminated {
 
 .volume_boot_disclosure {
   font-weight: bold;
-  color: #555;
+  color: $gray;
   cursor: pointer;
   background-image: url(../img/right_droparrow.png);
   background-repeat: no-repeat;
