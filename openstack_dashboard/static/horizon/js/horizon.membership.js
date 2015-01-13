@@ -164,7 +164,7 @@ horizon.membership = {
       member_el = horizon.membership.get_member_element(step_slug, data_id);
     }
 
-    var $dropdown = member_el.find("li.member").siblings('.dropdown');
+    var $dropdown = member_el.find("div.member").siblings('.dropdown');
     var $role_items = $dropdown.children('.role_dropdown').children('li');
 
     $role_items.each(function (idx, el) {
@@ -251,12 +251,11 @@ horizon.membership = {
    * Triggers on click of link to add/remove membership association.
    **/
   update_membership: function(step_slug) {
-    $(".available_" + step_slug + ", ." + step_slug + "_members").on('click', ".btn-group a[href='#add_remove']", function (evt) {
+    $(".available_" + step_slug + ", ." + step_slug + "_members").on('click', "a[href='#add_remove']", function (evt) {
       evt.preventDefault();
       var available = $(".available_" + step_slug).has($(this)).length;
-      var data_id = horizon.membership.get_field_id($(this).parent().siblings().attr('data-' + step_slug +  '-id'));
-      var member_el = $(this).parent().parent();
-
+      var data_id = horizon.membership.get_field_id($(this).parent().parent().attr('data-' + step_slug +  '-id'));
+      var member_el = $(this).parent().parent().parent();
       if (available) {
         var default_role = horizon.membership.default_role_id[step_slug];
         $(this).removeClass( "fa-plus" ).addClass( "fa-close" );
