@@ -47,11 +47,6 @@ class SubServiceFilterAction(ServiceFilterAction):
     filter_field = 'binary'
 
 
-def get_stats(service):
-    return template.loader.render_to_string('admin/services/_stats.html',
-                                            {'service': service})
-
-
 def get_status(service):
     # if not configured in this region, neither option makes sense
     if service.host:
