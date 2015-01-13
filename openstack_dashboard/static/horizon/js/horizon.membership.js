@@ -28,7 +28,7 @@ horizon.membership = {
    * data id. I.e., the member's row.
    **/
   get_member_element: function(step_slug, data_id) {
-    return $('li[data-' + step_slug + '-id$=' + data_id + ']').parent();
+    return $('div[data-' + step_slug + '-id$=' + data_id + ']').parent();
   },
 
   /*
@@ -263,13 +263,13 @@ horizon.membership = {
         horizon.membership.add_member_to_role(step_slug, data_id, default_role);
 
         if (horizon.membership.has_roles[step_slug]) {
-          $(this).parent().siblings(".role_options").show();
+          $(this).parent().parent().siblings(".role_options").show();
           horizon.membership.update_member_role_dropdown(step_slug, data_id, [default_role], member_el);
         }
       }
       else {
         $(this).removeClass( "fa-close" ).addClass( "fa-plus" );
-        $(this).parent().siblings(".role_options").hide();
+        $(this).parent().parent().siblings(".role_options").hide();
         $(".available_" + step_slug).append(member_el);
         horizon.membership.remove_member_from_role(step_slug, data_id);
       }
@@ -312,16 +312,18 @@ horizon.membership = {
     $(".available_" + step_slug + ", ." + step_slug + "_members").on('click', '.role_dropdown li', function (evt) {
       evt.preventDefault();
       evt.stopPropagation();
-
+      console.log('click')
       // get the newly selected role and the member's name
       var new_role_id = $(this).attr("data-role-id");
       var id_str = $(this).parent().parent().siblings(".member").attr("data-" + step_slug + "-id");
       var data_id = horizon.membership.get_field_id(id_str);
       // update role lists
       if ($(this).hasClass('selected')) {
+        console.log('remove selected')
         $(this).removeClass('selected');
         horizon.membership.remove_member_from_role(step_slug, data_id, new_role_id);
       } else {
+        console.log('add selected')
         $(this).addClass('selected');
         horizon.membership.add_member_to_role(step_slug, data_id, new_role_id);
       }
@@ -332,7 +334,7 @@ horizon.membership = {
   /*
    * Triggers on the addition of a new member via the inline object creation field.
    **/
-  add_new_member: function(step_slug) {
+  /*add_new_member: function(step_slug) {
     $("select[id='id_new_" + step_slug + "']").on('change', function (evt) {
       // add the member to the visible list
       var display_name = $(this).find("option").text();
@@ -357,18 +359,18 @@ horizon.membership = {
       $("." +  step_slug + "_members .btn-group").removeClass('last_stripe');
       $("." +  step_slug + "_members .btn-group:last").addClass('last_stripe');
     });
-  },
+  },*/
 
   /*
    * Style the inline object creation button, hide the associated field.
    **/
-  add_new_member_styling: function(step_slug) {
+  /*add_new_member_styling: function(step_slug) {
     var add_member_el = $("label[for='id_new_" + step_slug + "']").parent();
     $(add_member_el).find("select").hide();
     $("#add_" + step_slug).append($(add_member_el));
     $(add_member_el).addClass("add_" + step_slug);
     $(add_member_el).find("label, .input").addClass("add_" + step_slug + "_btn");
-  },
+  },*/
 
   /*
    * Fixes the striping of the fake table upon modification of the lists.
@@ -455,7 +457,7 @@ horizon.membership = {
       horizon.membership.generate_html(step_slug);
       horizon.membership.update_membership(step_slug);
       horizon.membership.select_member_role(step_slug);
-      horizon.membership.add_new_member(step_slug);
+      //horizon.membership.add_new_member(step_slug);
 
 
       // initially hide role dropdowns for available member list
@@ -480,16 +482,16 @@ horizon.membership = {
       });
 
       // add filtering + styling to the inline obj creation btn
-      horizon.membership.add_new_member_styling(step_slug);
+      //horizon.membership.add_new_member_styling(step_slug);
       horizon.membership.list_filtering(step_slug);
       horizon.membership.detect_no_results(step_slug);
 
       // fix initial striping of rows
-      $form.find('.fake_' + step_slug + '_table').each( function () {
+      /*$form.find('.fake_' + step_slug + '_table').each( function () {
         var filter = "." + $(this).attr('id');
         $(filter + ' .btn-group:even').addClass('dark_stripe');
         $(filter + ' .btn-group:last').addClass('last_stripe');
-      });
+      });*/
     });
   }
 };
