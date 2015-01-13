@@ -70,23 +70,23 @@
            <input type="hidden" name="action" value="{{ dest.inverse_rule.action }}">
 
            {% if dest.rule_to_delete %}
-               <center><input type="hidden" name="rule_to_delete" value="{{ dest.rule_to_delete.id }}"/></center>
+               <div class="center-block"><input type="hidden" name="rule_to_delete" value="{{ dest.rule_to_delete.id }}"/></div>
            {% endif %}
            {% if dest.reachable == 'none' %}
-              <center>
+              <div class="center-block">
               <i class="fa fa-ban"></i>
-              <button type="submit" class="btn btn-default btn-xs" href="#"><i class="fa fa-random"></i></button></center>
+              <button type="submit" class="btn btn-default btn-xs" href="#"><i class="fa fa-random"></i></button></div>
            {% elif dest.reachable == 'full' %}
-           <center>
+           <div class="center-block">
               <i class="fa fa-check"></i>
               {% if not dest.cidr == row.source.cidr %}
                    <button type="submit" class="btn btn-default btn-xs" href="#"><i class="fa fa-random"></i></button>
               {% else %}
                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               {% endif %}
-           </center>
+           </div>
            {% else %}
-                <center><a type="button" class="btn btn-default btn-xs" href="#modal_{{ dest.subnetid|add:row.source.subnetid }}" data-toggle="modal"><span class="fa fa-exclamation-circle"></span> Conflict</a></center>
+                <div class="center-block"><a type="button" class="btn btn-default btn-xs" href="#modal_{{ dest.subnetid|add:row.source.subnetid }}" data-toggle="modal"><span class="fa fa-exclamation-circle"></span> Conflict</a></div>
                <div class="modal hide" id="modal_{{ dest.subnetid|add:row.source.subnetid }}">
                  <div class="modal-header">
                    <a class="close" data-dismiss="modal">&times;</a>
