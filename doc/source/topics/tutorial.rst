@@ -399,10 +399,12 @@ The auto-generated ``urls.py`` file is like::
     from django.conf.urls import patterns
     from django.conf.urls import url
 
-    from .views import IndexView
+    from openstack_dashboard.dashboards.mydashboard.mypanel.views \
+        import IndexView
 
 
-    urlpatterns = patterns('',
+    urlpatterns = patterns(
+        '',
         url(r'^$', IndexView.as_view(), name='index'),
     )
 
