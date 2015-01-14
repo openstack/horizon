@@ -6,8 +6,10 @@
 {% block template %}{% spaceless %}{% jstemplate %}
 <li class="list-group-item">
   <img alt="User" class="avatar" src="{{ STATIC_URL }}dashboard/img/logos/small/user.png">
-  <div class="member data" data-[[step_slug]]-id="[[data_id]]">
-    <span class="name">[[display_name]]</span>
+  <div class="member" data-[[step_slug]]-id="[[data_id]]">
+    <div class="data">
+      <span class="name">[[display_name]]</span>
+    </div>
     <div class="active"><a class="[[text]]" href="#add_remove"></a></div>
   </div>
   <div class="dropdown role_options">

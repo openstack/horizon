@@ -96,27 +96,40 @@
   @include make-sm-column(12, $gutter: $grid-gutter-width);
   @include make-md-column(12, $gutter: $grid-gutter-width);
   @include make-lg-column(12, $gutter: $grid-gutter-width);
+  padding: 0;
+  .list-group-item{
+    margin: 0;
+  }
   .all-users{
-    border-right: 1px solid;
+    border-right: 1px solid #DDD;
   }
   .all-users,
   .members-list{
+    padding: 0;
     @media (max-width: $screen-sm-min){
       padding-left: 0;
       padding-right: 0;
     }
     header{
       min-height: 28px;
-      margin-bottom: 10px;
+      margin-bottom: 2px;
+      margin-top: 7px;
       h4{
         display: inline;
         line-height: 31px;
       }
       .form-control{
-        width: 165px;
+        width: 100%;
         display: inline-block;
         float: right;
         height: 27px;
+        padding: 3px 5px;
+      }
+    }
+    li.list-group-item{
+      border-bottom: 1px solid #DDD;
+      &:last-child{
+        border-bottom: none; 
       }
     }
     .data{padding-top: 8px;
@@ -135,13 +148,87 @@
     } 
   }
 }
+.role_dropdown li{
+  display: block;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.42857;
+  color: #5B5B5F;
+  white-space: nowrap;
+  padding: 7px 10px;
+  &:hover{
+    text-decoration: none;
+    color: #F9F9F9;
+    background-color: #AFAFB5;
+  }
+  i{
+    margin-right: 5px;
+    min-width: 14px;
+    @include opacity (0);
+  }
+}
+.role_dropdown li.active{
+  text-decoration: none;
+  color: #F9F9F9;
+  background-color: #AFAFB5;
+  i{
+    @include opacity (1);
+    color: #F9F9F9;
+  }
+}
+
 .all-users{
-  @include make-sm-column(4, $gutter: $grid-gutter-width);
-  @include make-md-column(4, $gutter: $grid-gutter-width);
-  @include make-lg-column(4, $gutter: $grid-gutter-width);
+  @include make-sm-column(5, $gutter: $grid-gutter-width);
+  @include make-md-column(5, $gutter: $grid-gutter-width);
+  @include make-lg-column(5, $gutter: $grid-gutter-width);
+  padding-right: 10px !important;
 } 
 .members-list{
-  @include make-sm-column(8, $gutter: $grid-gutter-width);
-  @include make-md-column(8, $gutter: $grid-gutter-width);
-  @include make-lg-column(8, $gutter: $grid-gutter-width);
+  @include make-sm-column(7, $gutter: $grid-gutter-width);
+  @include make-md-column(7, $gutter: $grid-gutter-width);
+  @include make-lg-column(7, $gutter: $grid-gutter-width);
+  padding-left: 10px !important;
+}
+.all-users,
+.members-list{
+  h4{
+    display: inline;
+  }
+  .has-feedback{
+    width: 142px;
+    display: inline-block;
+    float: right;
+    height: 27px;
+    padding: 3px 5px;
+  }
+  div.active{
+    float: right;
+    display: inline-block;
+    margin-top: -18px;
+  }
+  .role_options{
+    float: right;
+    display: inline-block;
+    margin-top: -22px;
+    margin-right: 19px;
+  }
+}
+//MODAL USER MANAGE
+.workflow{
+  .modal-content{
+    padding: 10px;
+  }
+}
+.workflow.static_page {
+  .modal-body{
+    #update_members_members,
+    .all-users {
+      .member{
+        min-height: 36px;
+      }
+      .data{
+        display: inline;
+      }
+    }
+  }
 }
