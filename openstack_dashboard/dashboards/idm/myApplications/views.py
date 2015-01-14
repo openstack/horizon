@@ -51,25 +51,25 @@ class CreateView(forms.ModalFormView):
     def get_initial(self):
         initial_data = {
             "appID" : "",
-            "nextredir": 'create',
+            "redirect_to": 'create',
         }
         return initial_data
     
 
-class UploadImageView(forms.ModalFormView):
+class AvatarStepView(forms.ModalFormView):
     form_class = application_forms.AvatarForm
-    template_name = 'idm/myApplications/upload.html'
+    template_name = 'idm/myApplications/avatar_step.html'
 
     def get_initial(self):
         application = fiware_api.keystone.application_get(self.request, self.kwargs['application_id'])
         initial_data = {
             "appID": application.id,
-            "nextredir": 'create',
+            "redirect_to": 'create',
         }
         return initial_data
 
     def get_context_data(self, **kwargs):
-        context = super(UploadImageView, self).get_context_data(**kwargs)
+        context = super(AvatarStepView, self).get_context_data(**kwargs)
         application = fiware_api.keystone.application_get(self.request, self.kwargs['application_id'])
         context['application'] = application
         context['image'] = getattr(application, 'img', '/static/dashboard/img/logos/small/app.png')
@@ -198,7 +198,7 @@ class BaseApplicationsMultiFormView(idm_views.BaseMultiFormView):
             "description": self.object.description,
             "callbackurl": callback_url,
             "url": getattr(self.object, 'url', None),
-            "nextredir": "update" 
+            "redirect_to": "update" 
         })
         return initial
 
