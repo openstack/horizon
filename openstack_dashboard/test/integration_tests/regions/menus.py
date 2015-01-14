@@ -182,3 +182,12 @@ class UserDropDownMenuRegion(DropDownMenuRegion):
     def click_on_logout(self):
         self.open()
         self.logout_link.click()
+
+
+class TabbedMenuRegion(baseregion.BaseRegion):
+
+    _tab_locator = (by.By.CSS_SELECTOR, 'li')
+    _default_src_locator = (by.By.CSS_SELECTOR, 'ul.nav-tabs')
+
+    def switch_to(self, index=0):
+        self._get_elements(*self._tab_locator)[index].click()

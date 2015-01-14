@@ -16,6 +16,7 @@ import selenium.webdriver.support.ui as Support
 
 from openstack_dashboard.test.integration_tests.regions import baseregion
 from openstack_dashboard.test.integration_tests.regions import exceptions
+from openstack_dashboard.test.integration_tests.regions import menus
 
 
 class FieldFactory(baseregion.BaseRegion):
@@ -66,6 +67,9 @@ class BaseFormFieldRegion(baseregion.BaseRegion):
     def is_required(self):
         classes = self.driver.get_attribute('class')
         return 'required' in classes
+
+    def is_displayed(self):
+        return self.element.is_displayed()
 
 
 class CheckBoxFormFieldRegion(BaseFormFieldRegion):
@@ -145,6 +149,9 @@ class SelectFormFieldRegion(BaseFormFieldRegion):
 
     _element_locator = (by.By.CSS_SELECTOR, 'div > select')
 
+    def is_displayed(self):
+        return self.element._el.is_displayed()
+
     @property
     def element(self):
         select = self._get_element(*self._element_locator)
@@ -209,7 +216,7 @@ class FormRegion(BaseFormRegion):
 
     # private methods
     def __init__(self, driver, conf, src_elem, form_field_names):
-        super(self.__class__, self).__init__(driver, conf, src_elem)
+        super(FormRegion, self).__init__(driver, conf, src_elem)
         self.form_field_names = form_field_names
         self._init_form_fields()
 
@@ -245,6 +252,52 @@ class FormRegion(BaseFormRegion):
     def fields(self):
         """List of all fields that form contains."""
         return self._get_form_fields()
+
+
+class TabbedFormRegion(FormRegion):
+    """Forms that are divided with tabs.
+
+    As example is taken form under the
+    the  Project/Network/Networks/Create Network, on initialization form needs
+    to have form field names divided into tuples, that represents the tabs
+    and the fields located under them.
+
+    Usage:
+
+    form_field_names = (("network_name", "admin_state"),
+                        ("create_subnet", "subnet_name", "network_address",
+                         "ip_version", "gateway_ip", "disable_gateway"),
+                        ("enable_dhcp", "allocation_pools", "dns_name_servers",
+                         "host_routes"))
+    form = TabbedFormRegion(self.conf, self.driver, None, form_field_names)
+    form.network_name.text = "test_network_name"
+    """
+
+    _submit_locator = (by.By.CSS_SELECTOR, '*.btn.btn-primary[type=submit]')
+    _side_info_locator = (by.By.CSS_SELECTOR, "td.help_text")
+    _fields_locator = (by.By.CSS_SELECTOR, "div.form-group")
+
+    class GetFieldsMethod(object):
+
+        def __init__(self, get_fields_method, tab_index, switch_tab_method):
+            self.get_fields = get_fields_method
+            self.tab_index = tab_index
+            self.switch_to_tab = switch_tab_method
+
+        def __call__(self, *args, **kwargs):
+            self.switch_to_tab(self.tab_index)
+            return [field for field in self.get_fields()
+                    if field.is_displayed()]
+
+    @property
+    def tabs(self):
+        return menus.TabbedMenuRegion(self.driver, self.conf)
+
+    def _init_form_fields(self):
+        for index, tab_names in enumerate(self.form_field_names):
+            get_fields = self.GetFieldsMethod(self._get_form_fields, index,
+                                              self.tabs.switch_to)
+            self._init_dynamic_properties(tab_names, get_fields)
 
 
 class DateFormRegion(BaseFormRegion):
