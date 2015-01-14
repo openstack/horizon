@@ -133,11 +133,12 @@ def role_get(request, role_id):
     manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.roles
     return manager.get(role_id)
 
-def role_list(request, user=None, organization=None):
+def role_list(request, user=None, organization=None, application=None):
     #manager = fiwareclient().fiware_roles.roles
     manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.roles
     return manager.list(user=user,
-                        organization=organization)
+                        organization=organization,
+                        application=application)
 
 def role_create(request, name, is_internal=False, application=None, **kwargs):
     #manager = fiwareclient().fiware_roles.roles
@@ -179,10 +180,11 @@ def permission_get(request, permission_id):
     manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.permissions
     return manager.get(permission_id)
 
-def permission_list(request):
+def permission_list(request, role=None, application=None):
     #manager = fiwareclient().fiware_roles.permissions
     manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.permissions
-    return manager.list()
+    return manager.list(role=role,
+                        application=application)
 
 def permission_create(request, name, is_internal=False, application=None, **kwargs):
     #manager = fiwareclient().fiware_roles.permissions
@@ -207,6 +209,13 @@ def permission_delete(request, permission_id):
     manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.permissions
     return manager.delete(permission_id)
 
+def add_permission_to_role(request, permission, role):
+    manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.permissions
+    return manager.add_to_role(permission, role)
+
+def remove_permission_from_role(request, permission, role):
+    manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.permissions
+    return manager.remove_from_role(permission, role)
 
 # APPLICATIONS/CONSUMERS
 def application_create(request, name, redirect_uris, scopes=['all_info'],

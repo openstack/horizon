@@ -1,41 +1,35 @@
 {% load i18n %}
 
-<noscript><h3>{{ step }}</h3></noscript>
-
-<div class="membership {{ step.slug }}_membership dropdown_fix" data-show-roles="{{ step.show_roles }}">
-  <div class="header">
-    <div class="help_text">{{ step.help_text }}</div>
-    <div class="left">
-      <div class="fake_table fake_table_header fake_{{ step.slug }}_table">
-        <span class="members_title">{{ step.available_list_title }}</span>
-        <div class="form-group has-feedback">
-          <input type="text" name="available_{{ step.slug }}_filter" id="available_{{ step.slug }}" class="filter {{ step.slug }}_filter form-control input-sm" placeholder="{% trans "Filter" %}">
-          <i class="fa fa-search"></i>
-        </div>
+<div class="membership {{ step.slug }}_membership dropdown_fix add-members" data-show-roles="{{ step.show_roles }}">
+  <div class="all-users">
+    <header>
+      <h4>{{ step.available_list_title }}</h4>
+      <div class="form-group has-feedback">
+        <input type="text" name="available_{{ step.slug }}_filter" id="available_{{ step.slug }}" class="filter {{ step.slug }}_filter form-control input-sm" placeholder="{% trans "filter" %}">
+        <i class="fa fa-search"></i>
       </div>
-    </div>
-    <div class="right">
-      <div class="fake_table fake_table_header fake_{{ step.slug }}_table">
-        <span class="members_title">{{ step.members_list_title }}</span>
-        <div class="form-group has-feedback">
-          <input type="text" name="{{ step.slug }}_members_filter" id="{{ step.slug }}_members" class="filter {{ step.slug }}_filter form-control input-sm" placeholder="{% trans "Filter" %}">
-          <i class="fa fa-search"></i>
-        </div>
-      </div>
-    </div>
+    </header>
+    <div class="filterable {{ step.slug }}_filterable" id="available_{{ step.slug }}">
+      <ul class="available_members available_{{ step.slug }} list-group"></ul>
+      <ul class="no_results list-group" id="no_available_{{ step.slug }}">
+        <li>{{ step.no_available_text }}</li>
+      </ul>
+    </div>   
   </div>
 
-  <div class="left filterable {{ step.slug }}_filterable">
-    <div class="fake_table fake_{{ step.slug }}_table" id="available_{{ step.slug }}">
-      <ul class="available_members available_{{ step.slug }}"></ul>
-      <ul class="no_results" id="no_available_{{ step.slug }}"><li>{{ step.no_available_text }}</li></ul>
-    </div>
-  </div>
-
-  <div class="right filterable {{ step.slug }}_filterable">
-    <div class="fake_table fake_{{ step.slug }}_table" id="{{ step.slug }}_members">
-      <ul class="members {{ step.slug }}_members"></ul>
-      <ul class="no_results" id="no_{{ step.slug }}_members"><li>{{ step.no_members_text }}</li></ul>
+  <div class="members-list">
+    <header>
+      <h4>{{ step.members_list_title }}</h4>
+      <div class="form-group has-feedback">
+        <input type="text" name="{{ step.slug }}_members_filter" id="{{ step.slug }}_members" class="filter {{ step.slug }}_filter form-control input-sm" placeholder="{% trans "filter" %}">
+        <i class="fa fa-search"></i>
+        </div>
+    </header>
+    <div class="filterable {{ step.slug }}_filterable" id="{{ step.slug }}_members">
+      <ul class="members {{ step.slug }}_members list-group"></ul>
+      <ul class="no_results list-group" id="no_{{ step.slug }}_members">
+        <li>{{ step.no_members_text }}</li>
+      </ul>
     </div>
   </div>
 </div>

@@ -1,0 +1,66 @@
+{% load i18n %}
+{% with workflow.get_entry_point as entry_point %}
+<div class="workflow {{ layout|join:' ' }}">
+  <form {{ workflow.attr_string|safe }} action="{{ workflow.get_absolute_url }}" {% if add_to_field %}data-add-to-field="{{ add_to_field }}"{% endif %} method="POST"{% if workflow.multipart %} enctype="multipart/form-data"{% endif %}>{% csrf_token %}
+    {% if REDIRECT_URL %}<input type="hidden" name="{{ workflow.redirect_param_name }}" value="{{ REDIRECT_URL }}"/>{% endif %}
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+        {% block modal-header %}
+          {% if modal %}<a href="#" class="close" data-dismiss="modal">&times;</a>{% endif %}
+          <h3>{{ workflow.name }}</h3>
+        {% endblock %}
+        </div>
+        <div class="modal-body clearfix">
+        {% block modal-body %}
+        <ul class="nav nav-tabs{% if workflow.wizard %} wizard-tabs{% endif %}">
+            {% for step in workflow.steps %}
+            <li class="{% if entry_point == step.slug %}active{% endif %}{% if step.has_errors %} error{% endif %}{% if step.has_required_fields %} required{% endif %}">
+              <a href="#{{ step.get_id }}" data-toggle="tab" data-target="#{{ step.get_id }}">{{ step }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+          <div class="tab-content">
+            {% for step in workflow.steps %}
+              <fieldset id="{{ step.get_id }}" class="js-tab-pane{% if entry_point == step.slug %} active{% endif %}">
+                {{ step.render }}
+              </fieldset>
+              {% if not forloop.last %}
+                <noscript><hr /></noscript>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endblock %}
+        </div>
+        <div class="modal-footer">
+        {% block modal-footer %}
+          {% if workflow.wizard %}
+          <div class="row">
+            <div class="col-sm-6 back">
+                <button type="button" class="btn btn-default button-previous">&laquo; {% trans "Back" %}</button>
+            </div>
+            <div class="col-sm-6 next">
+                <button type="button" class="btn btn-primary button-next">{% trans "Next" %} &raquo;</button>
+              <button type="submit" class="btn btn-primary button-final">{{ workflow.finalize_button_name }}</button>
+            </div>
+          </div>
+          {% else %}
+            <input class="btn btn-primary pull-right" type="submit" value="{{ workflow.finalize_button_name }}" />
+            {% if modal %}<a class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>{% endif %}
+          {% endif %}
+        {% endblock %}
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+{% endwith %}
+{% block modal-js %}
+  {% if workflow.wizard %}
+  <script type="text/javascript">
+    (window.$ || window.addHorizonLoadEvent)(function () {
+      horizon.modals.init_wizard();
+    });
+  </script>
+  {% endif %}
+{% endblock %}

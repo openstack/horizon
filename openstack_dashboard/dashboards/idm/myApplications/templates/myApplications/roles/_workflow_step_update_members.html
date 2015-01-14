@@ -1,0 +1,45 @@
+{% load i18n %}
+<div class="site-client-roles">
+  <section id="relation_list" class="relation_list">
+    <header>
+      <h4>Roles</h4>
+      <button class="btn" data-toggle="modal" data-target="#new-roleModal"><i class="fa fa-plus"></i></button>
+    </header>
+
+    <div class="btn-group-vertical members {{ step.slug }}_members" data-toggle="buttons" id="{{ step.slug }}_members">
+      {% for role in form.application_roles %}
+        <div class="member" data-{{ step.slug }}-id="{{ role.id }}">  
+          <label class="btn btn-default">
+            <input type="radio" name="options" id="{{ role.id }}_radio" autocomplete="off">
+              {{ role.name }}
+            <i class="fa fa-edit"></i>      
+            <i class="fa fa-close"></i>
+          </label>
+        </div>
+      {% endfor %}
+    </div>
+
+    <section id="permissions_list" class="permissions_list">
+    <header>
+      <h4>Permissions</h4>
+      <button class="btn" data-toggle="modal" data-target="#new-permissionModal"><i class="fa fa-plus"></i></button>
+    </header>
+    <div class="btn-group-vertical permissions {{step.slug }}_permissions" data-toggle="buttons" id="{{ step.slug }}_permissions">
+        {# The permisions for each role are rendered here on role radio check #}
+    </div>
+</div>
+
+<div class="hide">
+  {% include "horizon/common/_form_fields.html" %}
+</div>
+
+
+<script>
+  if (typeof horizon.fiware_roles_workflow !== 'undefined') {
+    horizon.fiware_roles_workflow.workflow_init($(".workflow"), "{{ step.slug }}", "{{ step.get_id }}");
+  } else {
+    addHorizonLoadEvent(function() {
+      horizon.fiware_roles_workflow.workflow_init($(".workflow"), "{{ step.slug }}", "{{ step.get_id }}");
+    });
+  }
+</script>

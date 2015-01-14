@@ -4,22 +4,22 @@
 {% block id %}membership_template{% endblock %}
 
 {% block template %}{% spaceless %}{% jstemplate %}
-<ul class="nav nav-pills btn-group">
-  <li class="member" data-[[step_slug]]-id="[[data_id]]">
-    <img alt="User" class="avatar" src="{{ STATIC_URL }}dashboard/img/logos/small/user.png">
-    <span class="display_name">[[display_name]]</span>
-  </li>
-  <li class="active"><a class="btn btn-primary [[text]]" href="#add_remove"></a></li>
-  <li class="dropdown role_options">
+<li class="list-group-item">
+  <img alt="User" class="avatar" src="{{ STATIC_URL }}dashboard/img/logos/small/user.png">
+  <div class="member data" data-[[step_slug]]-id="[[data_id]]">
+    <span class="name">[[display_name]]</span>
+    <div class="active"><a class="[[text]]" href="#add_remove"></a></div>
+  </div>
+  <div class="dropdown role_options">
     <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
       <span class="roles_display">[[roles_label]]</span>
       <span class="fa fa-chevron-down"></span>
     </a>
     <ul class="dropdown-menu role_dropdown clearfix">
       [[#roles]]
-      <li data-role-id="[[role_id]]"><i class="icon-ok"></i>  [[role_name]]</li>
+      <li data-role-id="[[role_id]]"><i class="[[selected]]"></i>[[role_name]]</li>
       [[/roles]]
     </ul>
-  </li>
-</ul>
+  </div>
+</li>
 {% endjstemplate %}{% endspaceless %}{% endblock %}
