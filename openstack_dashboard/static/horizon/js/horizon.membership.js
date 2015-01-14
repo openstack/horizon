@@ -207,7 +207,8 @@ horizon.membership = {
       if (membership_roles.hasOwnProperty(r)){
         roles.push({
           role_id: r,
-          role_name: membership_roles[r]
+          role_name: membership_roles[r],
+          display:'none'
         });
       }
     }
@@ -218,7 +219,6 @@ horizon.membership = {
         step_slug: step_slug,
         default_role: that.roles[that.default_role_id[step_slug]],
         display_name: display_name,
-        text: text,
         roles: roles,
         roles_label: gettext("Roles")
       },
@@ -310,6 +310,7 @@ horizon.membership = {
    **/
   select_member_role: function(step_slug) {
     $(".available_" + step_slug + ", ." + step_slug + "_members").on('click', '.role_dropdown li', function (evt) {
+      console.log('checkbox change')
       evt.preventDefault();
       evt.stopPropagation();
       // get the newly selected role and the member's name
@@ -319,9 +320,11 @@ horizon.membership = {
       // update role lists
       if ($(this).hasClass('selected')) {
         $(this).removeClass('selected');
+        $(this).children('i').hide()
         horizon.membership.remove_member_from_role(step_slug, data_id, new_role_id);
       } else {
         $(this).addClass('selected');
+        $(this).children('i').show()
         horizon.membership.add_member_to_role(step_slug, data_id, new_role_id);
       }
       horizon.membership.update_member_role_dropdown(step_slug, data_id);
