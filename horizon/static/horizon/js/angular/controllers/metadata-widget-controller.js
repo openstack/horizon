@@ -255,7 +255,7 @@
 
     $scope.saveMetadata = function () {
       var metadata = [];
-      var added = filter($scope.flatTree, {'added': true, 'leaf': '!!'});
+      var added = filter($scope.flatTree, {'added': true, 'leaf': '!null'});
       angular.forEach(added, function(item) {
         metadata.push({
           key: item.leaf.name,
@@ -289,7 +289,10 @@
       valid: false,
       found: []
     };
-
+    $scope.filterText = {
+      available: '',
+      existing: ''
+    };
     loadExisting($scope.flatTree, $window.existing_metadata);
 
   }]);

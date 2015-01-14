@@ -26,7 +26,7 @@
                 <strong>{% trans "Available Metadata" %}</strong>
                 <input class="form-control input-sm"
                        type="text" placeholder="{% trans "Filter" %}"
-                       ng-model="treeFilter"/>
+                       ng-model="filterText.available"/>
                 <span class="fa fa-search form-control-feedback">
                 </span>
               </div>
@@ -56,8 +56,7 @@
                 {% trans "Duplicate keys are not allowed" %}
               </span>
             </li>
-
-            <li ng-repeat="item in available = (flatTree | filter: {$: treeFilter, visible: true, added: false})"
+            <li ng-repeat="item in available = (flatTree | filter: {$: filterText.available, visible: true, added: false})"
                 ng-class="'level-' + item.level + (selected===item?' active':'')"
                 ng-class-odd="'dark-stripe'"
                 ng-class-even="'light-stripe'"
@@ -96,14 +95,14 @@
                 <strong>{% trans "Existing Metadata" %}</strong>
                 <input class="form-control input-sm"
                        type="text" placeholder="{% trans "Filter" %}"
-                       ng-model="listFilter"/>
+                       ng-model="filterText.existing"/>
               <span class="fa fa-search form-control-feedback">
               </span>
               </div>
             </div>
           </div>
           <ul class="list-group" ng-cloak>
-            <li ng-repeat="item in existing = (flatTree | filter:{$:listFilter, added:true, leaf:'!!'} | orderBy:'leaf.name')"
+            <li ng-repeat="item in existing = (flatTree | filter:{$:filterText.existing, added:true, leaf:'!null'} | orderBy:'leaf.name')"
                 ng-class="{'active': selected===item}"
                 ng-class-odd="'dark-stripe'"
                 ng-class-even="'light-stripe'"
@@ -124,9 +123,9 @@
                        name="property"
                        type="text"
                        class="form-control"
+                       pattern="{$ item.leaf.pattern $}"
                        ng-required=true
                        ng-model="item.leaf.value"
-                       ng-pattern="/{$ item.leaf.pattern $}/"
                        ng-minlength="{$ item.leaf.minLength $}"
                        ng-maxlength="{$ item.leaf.maxLength $}"
                        tooltip="{$ item.description $}"/>
