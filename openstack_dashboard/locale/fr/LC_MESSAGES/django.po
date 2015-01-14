@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-11 02:22-0600\n"
-"PO-Revision-Date: 2015-01-11 06:53+0000\n"
+"POT-Creation-Date: 2015-01-13 19:42-0600\n"
+"PO-Revision-Date: 2015-01-13 21:13+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -472,9 +472,9 @@ msgstr "Admin"
 #: dashboards/admin/aggregates/forms.py:28
 #: dashboards/admin/aggregates/tables.py:128
 #: dashboards/admin/aggregates/workflows.py:24
-#: dashboards/admin/flavors/workflows.py:36 dashboards/admin/info/tables.py:64
-#: dashboards/admin/info/tables.py:94 dashboards/admin/info/tables.py:118
-#: dashboards/admin/info/tables.py:170 dashboards/admin/instances/tables.py:95
+#: dashboards/admin/flavors/workflows.py:36 dashboards/admin/info/tables.py:59
+#: dashboards/admin/info/tables.py:89 dashboards/admin/info/tables.py:113
+#: dashboards/admin/info/tables.py:165 dashboards/admin/instances/tables.py:95
 #: dashboards/admin/instances/tables.py:128
 #: dashboards/admin/metadata_defs/tables.py:128
 #: dashboards/admin/networks/forms.py:38
@@ -1578,7 +1578,7 @@ msgid "Hostname"
 msgstr "Nom d'Hôte"
 
 #: dashboards/admin/hypervisors/tables.py:28
-#: dashboards/admin/info/tables.py:169
+#: dashboards/admin/info/tables.py:164
 #: dashboards/admin/routers/ports/tables.py:39
 #: dashboards/project/access_and_security/security_groups/forms.py:173
 #: dashboards/project/access_and_security/security_groups/forms.py:180
@@ -1694,8 +1694,8 @@ msgstr "Échec lors de l'évacuation de  l'hôte : %s."
 
 #: dashboards/admin/hypervisors/compute/forms.py:73
 #: dashboards/admin/hypervisors/compute/tables.py:94
-#: dashboards/admin/info/tables.py:66 dashboards/admin/info/tables.py:95
-#: dashboards/admin/info/tables.py:119 dashboards/admin/info/tables.py:171
+#: dashboards/admin/info/tables.py:61 dashboards/admin/info/tables.py:90
+#: dashboards/admin/info/tables.py:114 dashboards/admin/info/tables.py:166
 #: dashboards/admin/instances/tables.py:124
 #: dashboards/admin/networks/agents/tables.py:91
 #: dashboards/admin/volumes/snapshots/tables.py:64
@@ -1753,13 +1753,13 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: dashboards/admin/hypervisors/compute/tables.py:95
-#: dashboards/admin/info/tables.py:96 dashboards/admin/info/tables.py:120
+#: dashboards/admin/info/tables.py:91 dashboards/admin/info/tables.py:115
 msgid "Zone"
 msgstr "Zone"
 
 #: dashboards/admin/hypervisors/compute/tables.py:96
-#: dashboards/admin/info/tables.py:68 dashboards/admin/info/tables.py:97
-#: dashboards/admin/info/tables.py:121 dashboards/admin/info/tables.py:172
+#: dashboards/admin/info/tables.py:63 dashboards/admin/info/tables.py:92
+#: dashboards/admin/info/tables.py:116 dashboards/admin/info/tables.py:167
 #: dashboards/admin/instances/tables.py:141
 #: dashboards/admin/networks/tables.py:102
 #: dashboards/admin/networks/agents/tables.py:92
@@ -1817,8 +1817,8 @@ msgid "Status"
 msgstr "Statut"
 
 #: dashboards/admin/hypervisors/compute/tables.py:97
-#: dashboards/admin/info/tables.py:98 dashboards/admin/info/tables.py:123
-#: dashboards/admin/info/tables.py:173 dashboards/project/overview/views.py:34
+#: dashboards/admin/info/tables.py:93 dashboards/admin/info/tables.py:118
+#: dashboards/admin/info/tables.py:168 dashboards/project/overview/views.py:34
 msgid "State"
 msgstr "Etat"
 
@@ -2008,7 +2008,7 @@ msgstr "Mettre à jour les métadonnées de l'image"
 msgid "System Information"
 msgstr "Informations du système"
 
-#: dashboards/admin/info/tables.py:26 dashboards/admin/info/tables.py:156
+#: dashboards/admin/info/tables.py:26 dashboards/admin/info/tables.py:151
 #: dashboards/admin/networks/agents/tables.py:79
 #: dashboards/identity/domains/tables.py:202
 #: dashboards/identity/domains/workflows.py:39
@@ -2017,7 +2017,7 @@ msgstr "Informations du système"
 #: dashboards/identity/projects/tables.py:237
 #: dashboards/identity/projects/workflows.py:150
 #: dashboards/identity/projects/workflows.py:522
-#: dashboards/identity/users/tables.py:180
+#: dashboards/identity/users/tables.py:223
 #: dashboards/identity/users/templates/users/_detail_overview.html:23
 #: dashboards/project/firewalls/forms.py:70
 #: dashboards/project/firewalls/tables.py:216
@@ -2027,48 +2027,48 @@ msgstr "Informations du système"
 msgid "Enabled"
 msgstr "Activé"
 
-#: dashboards/admin/info/tables.py:27 dashboards/admin/info/tables.py:158
+#: dashboards/admin/info/tables.py:27 dashboards/admin/info/tables.py:153
 #: dashboards/admin/networks/agents/tables.py:80
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:65
 msgid "Disabled"
 msgstr "Désactivé"
 
-#: dashboards/admin/info/tables.py:65 dashboards/admin/metering/tables.py:42
+#: dashboards/admin/info/tables.py:60 dashboards/admin/metering/tables.py:42
 #: dashboards/admin/metering/tables.py:61
 #: dashboards/admin/metering/views.py:199
 #: dashboards/project/access_and_security/api_access/tables.py:61
 msgid "Service"
 msgstr "Service"
 
-#: dashboards/admin/info/tables.py:74 dashboards/admin/info/tabs.py:30
+#: dashboards/admin/info/tables.py:69 dashboards/admin/info/tabs.py:30
 msgid "Services"
 msgstr "Services"
 
-#: dashboards/admin/info/tables.py:103 dashboards/admin/info/tables.py:128
-#: dashboards/admin/info/tables.py:177
+#: dashboards/admin/info/tables.py:98 dashboards/admin/info/tables.py:123
+#: dashboards/admin/info/tables.py:172
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "Dernière mise à jour"
 
-#: dashboards/admin/info/tables.py:112 dashboards/admin/info/tabs.py:46
+#: dashboards/admin/info/tables.py:107 dashboards/admin/info/tabs.py:46
 msgid "Compute Services"
 msgstr "Services de Calcul"
 
-#: dashboards/admin/info/tables.py:137 dashboards/admin/info/tabs.py:64
+#: dashboards/admin/info/tables.py:132 dashboards/admin/info/tabs.py:64
 msgid "Block Storage Services"
 msgstr "Service de Stockage Blocs"
 
-#: dashboards/admin/info/tables.py:163
+#: dashboards/admin/info/tables.py:158
 #: dashboards/admin/networks/agents/tables.py:85
 msgid "Up"
 msgstr "Haut"
 
-#: dashboards/admin/info/tables.py:165
+#: dashboards/admin/info/tables.py:160
 #: dashboards/admin/networks/agents/tables.py:86
 msgid "Down"
 msgstr "Bas"
 
-#: dashboards/admin/info/tables.py:186 dashboards/admin/info/tabs.py:82
+#: dashboards/admin/info/tables.py:181 dashboards/admin/info/tabs.py:82
 msgid "Network Agents"
 msgstr "Agents réseau."
 
@@ -4484,7 +4484,7 @@ msgstr[1] "Spécifications supplémentaires supprimées"
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:48
 #: dashboards/identity/domains/tables.py:80
 #: dashboards/identity/roles/tables.py:37
-#: dashboards/identity/users/tables.py:45
+#: dashboards/identity/users/tables.py:46
 #: dashboards/project/containers/tables.py:318
 #: dashboards/project/images/images/tables.py:102
 msgid "Edit"
@@ -4879,13 +4879,13 @@ msgstr[0] "Utilisateur Supprimé"
 msgstr[1] "Utilisateurs Supprimés"
 
 #: dashboards/identity/groups/tables.py:175
-msgid "Add..."
-msgstr "Ajouter..."
+msgid "Add Users"
+msgstr "Ajouter des Utilisateurs"
 
 #: dashboards/identity/groups/tables.py:190
 #: dashboards/identity/users/forms.py:81
 #: dashboards/identity/users/forms.py:164
-#: dashboards/identity/users/tables.py:169
+#: dashboards/identity/users/tables.py:208
 #: dashboards/identity/users/templates/users/_detail_overview.html:17
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:14
 #: dashboards/project/data_processing/data_image_registry/forms.py:28
@@ -4896,13 +4896,13 @@ msgstr "Nom d'utilisateur"
 #: dashboards/identity/groups/tables.py:191
 #: dashboards/identity/users/forms.py:83
 #: dashboards/identity/users/forms.py:166
-#: dashboards/identity/users/tables.py:170
+#: dashboards/identity/users/tables.py:211
 #: dashboards/identity/users/templates/users/_detail_overview.html:21
 msgid "Email"
 msgstr "E-mail"
 
 #: dashboards/identity/groups/tables.py:194
-#: dashboards/identity/users/tables.py:179
+#: dashboards/identity/users/tables.py:222
 #: dashboards/project/instances/audit_tables.py:28
 msgid "User ID"
 msgstr "ID d'Utilisateur"
@@ -5027,6 +5027,7 @@ msgstr[0] "Projet Supprimé"
 msgstr[1] "Projets Supprimés"
 
 #: dashboards/identity/projects/tables.py:216
+#: dashboards/identity/users/tables.py:192
 msgid "This name is already taken."
 msgstr "Ce nom est déjà pris."
 
@@ -5331,7 +5332,7 @@ msgid "Unable to update the user."
 msgstr "Impossible de mettre à jour l'utilisateur."
 
 #: dashboards/identity/users/panel.py:27
-#: dashboards/identity/users/tables.py:187
+#: dashboards/identity/users/tables.py:230
 #: dashboards/identity/users/templates/users/index.html:3
 #: dashboards/identity/users/templates/users/index.html:6
 #: dashboards/project/databases/tables.py:302
@@ -5339,7 +5340,7 @@ msgstr "Impossible de mettre à jour l'utilisateur."
 msgid "Users"
 msgstr "Utilisateurs"
 
-#: dashboards/identity/users/tables.py:30
+#: dashboards/identity/users/tables.py:31
 #: dashboards/identity/users/templates/users/_create.html:8
 #: dashboards/identity/users/templates/users/_create.html:33
 #: dashboards/identity/users/templates/users/create.html:3
@@ -5347,42 +5348,42 @@ msgstr "Utilisateurs"
 msgid "Create User"
 msgstr "Créer un Utilisateur"
 
-#: dashboards/identity/users/tables.py:64
+#: dashboards/identity/users/tables.py:65
 msgid "Enable User"
 msgid_plural "Enable Users"
 msgstr[0] "Activer un Utilisateur"
 msgstr[1] "Activer des Utilisateurs"
 
-#: dashboards/identity/users/tables.py:69
+#: dashboards/identity/users/tables.py:70
 msgid "Disable User"
 msgid_plural "Disable Users"
 msgstr[0] "Désactiver un Utilisateur"
 msgstr[1] "Désactiver des Utilisateurs"
 
-#: dashboards/identity/users/tables.py:79
+#: dashboards/identity/users/tables.py:80
 msgid "Enabled User"
 msgid_plural "Enabled Users"
 msgstr[0] "Utilisateur Activé"
 msgstr[1] "Utilisateurs Activés"
 
-#: dashboards/identity/users/tables.py:84
+#: dashboards/identity/users/tables.py:85
 msgid "Disabled User"
 msgid_plural "Disabled Users"
 msgstr[0] "Utilisateur Désactivé"
 msgstr[1] "Utilisateurs Désactivés"
 
-#: dashboards/identity/users/tables.py:114
+#: dashboards/identity/users/tables.py:115
 msgid "You cannot disable the user you are currently logged in as."
 msgstr "Vous ne pouvez pas désactiver l'utilisateur avec lequel vous êtes connecté."
 
-#: dashboards/identity/users/tables.py:129
+#: dashboards/identity/users/tables.py:130
 #: dashboards/project/databases/tables.py:90
 msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] ""
 msgstr[1] "Supprimer les utilisateurs"
 
-#: dashboards/identity/users/tables.py:137
+#: dashboards/identity/users/tables.py:138
 #: dashboards/project/databases/tables.py:98
 msgid "Deleted User"
 msgid_plural "Deleted Users"

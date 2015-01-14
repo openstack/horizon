@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-11 02:22-0600\n"
-"PO-Revision-Date: 2015-01-11 06:53+0000\n"
+"POT-Creation-Date: 2015-01-13 19:42-0600\n"
+"PO-Revision-Date: 2015-01-13 20:56+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -469,9 +469,9 @@ msgstr "管理員"
 #: dashboards/admin/aggregates/forms.py:28
 #: dashboards/admin/aggregates/tables.py:128
 #: dashboards/admin/aggregates/workflows.py:24
-#: dashboards/admin/flavors/workflows.py:36 dashboards/admin/info/tables.py:64
-#: dashboards/admin/info/tables.py:94 dashboards/admin/info/tables.py:118
-#: dashboards/admin/info/tables.py:170 dashboards/admin/instances/tables.py:95
+#: dashboards/admin/flavors/workflows.py:36 dashboards/admin/info/tables.py:59
+#: dashboards/admin/info/tables.py:89 dashboards/admin/info/tables.py:113
+#: dashboards/admin/info/tables.py:165 dashboards/admin/instances/tables.py:95
 #: dashboards/admin/instances/tables.py:128
 #: dashboards/admin/metadata_defs/tables.py:128
 #: dashboards/admin/networks/forms.py:38
@@ -1571,7 +1571,7 @@ msgid "Hostname"
 msgstr "主機名稱"
 
 #: dashboards/admin/hypervisors/tables.py:28
-#: dashboards/admin/info/tables.py:169
+#: dashboards/admin/info/tables.py:164
 #: dashboards/admin/routers/ports/tables.py:39
 #: dashboards/project/access_and_security/security_groups/forms.py:173
 #: dashboards/project/access_and_security/security_groups/forms.py:180
@@ -1687,8 +1687,8 @@ msgstr "撤離主機時失敗：%s。"
 
 #: dashboards/admin/hypervisors/compute/forms.py:73
 #: dashboards/admin/hypervisors/compute/tables.py:94
-#: dashboards/admin/info/tables.py:66 dashboards/admin/info/tables.py:95
-#: dashboards/admin/info/tables.py:119 dashboards/admin/info/tables.py:171
+#: dashboards/admin/info/tables.py:61 dashboards/admin/info/tables.py:90
+#: dashboards/admin/info/tables.py:114 dashboards/admin/info/tables.py:166
 #: dashboards/admin/instances/tables.py:124
 #: dashboards/admin/networks/agents/tables.py:91
 #: dashboards/admin/volumes/snapshots/tables.py:64
@@ -1744,13 +1744,13 @@ msgid_plural "Enabled Services"
 msgstr[0] ""
 
 #: dashboards/admin/hypervisors/compute/tables.py:95
-#: dashboards/admin/info/tables.py:96 dashboards/admin/info/tables.py:120
+#: dashboards/admin/info/tables.py:91 dashboards/admin/info/tables.py:115
 msgid "Zone"
 msgstr "區域"
 
 #: dashboards/admin/hypervisors/compute/tables.py:96
-#: dashboards/admin/info/tables.py:68 dashboards/admin/info/tables.py:97
-#: dashboards/admin/info/tables.py:121 dashboards/admin/info/tables.py:172
+#: dashboards/admin/info/tables.py:63 dashboards/admin/info/tables.py:92
+#: dashboards/admin/info/tables.py:116 dashboards/admin/info/tables.py:167
 #: dashboards/admin/instances/tables.py:141
 #: dashboards/admin/networks/tables.py:102
 #: dashboards/admin/networks/agents/tables.py:92
@@ -1808,8 +1808,8 @@ msgid "Status"
 msgstr "狀態"
 
 #: dashboards/admin/hypervisors/compute/tables.py:97
-#: dashboards/admin/info/tables.py:98 dashboards/admin/info/tables.py:123
-#: dashboards/admin/info/tables.py:173 dashboards/project/overview/views.py:34
+#: dashboards/admin/info/tables.py:93 dashboards/admin/info/tables.py:118
+#: dashboards/admin/info/tables.py:168 dashboards/project/overview/views.py:34
 msgid "State"
 msgstr "狀態"
 
@@ -1999,7 +1999,7 @@ msgstr "更新映像檔描述資料"
 msgid "System Information"
 msgstr "系統資訊"
 
-#: dashboards/admin/info/tables.py:26 dashboards/admin/info/tables.py:156
+#: dashboards/admin/info/tables.py:26 dashboards/admin/info/tables.py:151
 #: dashboards/admin/networks/agents/tables.py:79
 #: dashboards/identity/domains/tables.py:202
 #: dashboards/identity/domains/workflows.py:39
@@ -2008,7 +2008,7 @@ msgstr "系統資訊"
 #: dashboards/identity/projects/tables.py:237
 #: dashboards/identity/projects/workflows.py:150
 #: dashboards/identity/projects/workflows.py:522
-#: dashboards/identity/users/tables.py:180
+#: dashboards/identity/users/tables.py:223
 #: dashboards/identity/users/templates/users/_detail_overview.html:23
 #: dashboards/project/firewalls/forms.py:70
 #: dashboards/project/firewalls/tables.py:216
@@ -2018,48 +2018,48 @@ msgstr "系統資訊"
 msgid "Enabled"
 msgstr "已啟用"
 
-#: dashboards/admin/info/tables.py:27 dashboards/admin/info/tables.py:158
+#: dashboards/admin/info/tables.py:27 dashboards/admin/info/tables.py:153
 #: dashboards/admin/networks/agents/tables.py:80
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:65
 msgid "Disabled"
 msgstr "已關閉"
 
-#: dashboards/admin/info/tables.py:65 dashboards/admin/metering/tables.py:42
+#: dashboards/admin/info/tables.py:60 dashboards/admin/metering/tables.py:42
 #: dashboards/admin/metering/tables.py:61
 #: dashboards/admin/metering/views.py:199
 #: dashboards/project/access_and_security/api_access/tables.py:61
 msgid "Service"
 msgstr "伺服器"
 
-#: dashboards/admin/info/tables.py:74 dashboards/admin/info/tabs.py:30
+#: dashboards/admin/info/tables.py:69 dashboards/admin/info/tabs.py:30
 msgid "Services"
 msgstr "伺服器"
 
-#: dashboards/admin/info/tables.py:103 dashboards/admin/info/tables.py:128
-#: dashboards/admin/info/tables.py:177
+#: dashboards/admin/info/tables.py:98 dashboards/admin/info/tables.py:123
+#: dashboards/admin/info/tables.py:172
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "最近一次更新"
 
-#: dashboards/admin/info/tables.py:112 dashboards/admin/info/tabs.py:46
+#: dashboards/admin/info/tables.py:107 dashboards/admin/info/tabs.py:46
 msgid "Compute Services"
 msgstr "運算伺服器"
 
-#: dashboards/admin/info/tables.py:137 dashboards/admin/info/tabs.py:64
+#: dashboards/admin/info/tables.py:132 dashboards/admin/info/tabs.py:64
 msgid "Block Storage Services"
 msgstr "區塊類型儲存伺服器"
 
-#: dashboards/admin/info/tables.py:163
+#: dashboards/admin/info/tables.py:158
 #: dashboards/admin/networks/agents/tables.py:85
 msgid "Up"
 msgstr "上線"
 
-#: dashboards/admin/info/tables.py:165
+#: dashboards/admin/info/tables.py:160
 #: dashboards/admin/networks/agents/tables.py:86
 msgid "Down"
 msgstr "離線"
 
-#: dashboards/admin/info/tables.py:186 dashboards/admin/info/tabs.py:82
+#: dashboards/admin/info/tables.py:181 dashboards/admin/info/tabs.py:82
 msgid "Network Agents"
 msgstr "網路媒介"
 
@@ -4455,7 +4455,7 @@ msgstr[0] ""
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:48
 #: dashboards/identity/domains/tables.py:80
 #: dashboards/identity/roles/tables.py:37
-#: dashboards/identity/users/tables.py:45
+#: dashboards/identity/users/tables.py:46
 #: dashboards/project/containers/tables.py:318
 #: dashboards/project/images/images/tables.py:102
 msgid "Edit"
@@ -4844,13 +4844,13 @@ msgid_plural "Removed Users"
 msgstr[0] ""
 
 #: dashboards/identity/groups/tables.py:175
-msgid "Add..."
-msgstr "加入……"
+msgid "Add Users"
+msgstr ""
 
 #: dashboards/identity/groups/tables.py:190
 #: dashboards/identity/users/forms.py:81
 #: dashboards/identity/users/forms.py:164
-#: dashboards/identity/users/tables.py:169
+#: dashboards/identity/users/tables.py:208
 #: dashboards/identity/users/templates/users/_detail_overview.html:17
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:14
 #: dashboards/project/data_processing/data_image_registry/forms.py:28
@@ -4861,13 +4861,13 @@ msgstr "使用者名稱"
 #: dashboards/identity/groups/tables.py:191
 #: dashboards/identity/users/forms.py:83
 #: dashboards/identity/users/forms.py:166
-#: dashboards/identity/users/tables.py:170
+#: dashboards/identity/users/tables.py:211
 #: dashboards/identity/users/templates/users/_detail_overview.html:21
 msgid "Email"
 msgstr "電子郵件信箱"
 
 #: dashboards/identity/groups/tables.py:194
-#: dashboards/identity/users/tables.py:179
+#: dashboards/identity/users/tables.py:222
 #: dashboards/project/instances/audit_tables.py:28
 msgid "User ID"
 msgstr "使用者識別號"
@@ -4988,6 +4988,7 @@ msgid_plural "Deleted Projects"
 msgstr[0] ""
 
 #: dashboards/identity/projects/tables.py:216
+#: dashboards/identity/users/tables.py:192
 msgid "This name is already taken."
 msgstr "此名稱已被取走。"
 
@@ -5290,7 +5291,7 @@ msgid "Unable to update the user."
 msgstr "無法更新使用者。"
 
 #: dashboards/identity/users/panel.py:27
-#: dashboards/identity/users/tables.py:187
+#: dashboards/identity/users/tables.py:230
 #: dashboards/identity/users/templates/users/index.html:3
 #: dashboards/identity/users/templates/users/index.html:6
 #: dashboards/project/databases/tables.py:302
@@ -5298,7 +5299,7 @@ msgstr "無法更新使用者。"
 msgid "Users"
 msgstr "使用者"
 
-#: dashboards/identity/users/tables.py:30
+#: dashboards/identity/users/tables.py:31
 #: dashboards/identity/users/templates/users/_create.html:8
 #: dashboards/identity/users/templates/users/_create.html:33
 #: dashboards/identity/users/templates/users/create.html:3
@@ -5306,37 +5307,37 @@ msgstr "使用者"
 msgid "Create User"
 msgstr "新增使用者"
 
-#: dashboards/identity/users/tables.py:64
+#: dashboards/identity/users/tables.py:65
 msgid "Enable User"
 msgid_plural "Enable Users"
 msgstr[0] ""
 
-#: dashboards/identity/users/tables.py:69
+#: dashboards/identity/users/tables.py:70
 msgid "Disable User"
 msgid_plural "Disable Users"
 msgstr[0] ""
 
-#: dashboards/identity/users/tables.py:79
+#: dashboards/identity/users/tables.py:80
 msgid "Enabled User"
 msgid_plural "Enabled Users"
 msgstr[0] ""
 
-#: dashboards/identity/users/tables.py:84
+#: dashboards/identity/users/tables.py:85
 msgid "Disabled User"
 msgid_plural "Disabled Users"
 msgstr[0] ""
 
-#: dashboards/identity/users/tables.py:114
+#: dashboards/identity/users/tables.py:115
 msgid "You cannot disable the user you are currently logged in as."
 msgstr "您不能關閉您目前正登入的使用者。"
 
-#: dashboards/identity/users/tables.py:129
+#: dashboards/identity/users/tables.py:130
 #: dashboards/project/databases/tables.py:90
 msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] ""
 
-#: dashboards/identity/users/tables.py:137
+#: dashboards/identity/users/tables.py:138
 #: dashboards/project/databases/tables.py:98
 msgid "Deleted User"
 msgid_plural "Deleted Users"
