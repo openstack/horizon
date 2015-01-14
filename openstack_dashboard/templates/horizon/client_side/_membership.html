@@ -16,12 +16,18 @@
       <span class="fa fa-chevron-down"></span>
     </a>
     <ul class="dropdown-menu role_dropdown clearfix">
-      [[#roles]]
-      <li data-role-id="[[role_id]]">
-        <i class="fa fa-check"></i>
-        [[role_name]]
+      [[#apps]]
+      <li> [[app]]
+        <ul>
+          [[#roles]]
+          <li data-role-id="[[role_id]]">
+            <i class="fa fa-check"></i>
+            [[role_name]]
+          </li>
+          [[/roles]]
+        </ul>
       </li>
-      [[/roles]]
+      [[/apps]]
     </ul>
   </div>
 </li>

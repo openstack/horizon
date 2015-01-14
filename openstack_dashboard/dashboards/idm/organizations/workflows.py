@@ -114,8 +114,12 @@ class UpdateProjectMembersAction(workflows.MembershipAction, RolesMixin):
             for role in role_list[k]:
                 field_name = self.get_member_field_name(role.id)
                 label = role.name
-                self.fields[field_name] = forms.MultipleChoiceField(required=False,
-                                                                    label=label)
+                widget = forms.widgets.SelectMultiple(
+                                attrs={'data-application-name':'patata'})
+                self.fields[field_name] = forms.MultipleChoiceField(
+                                                        required=False,
+                                                        label=label,
+                                                        widget=widget)
                 self.fields[field_name].choices = users_list
                 self.fields[field_name].initial = []
 
