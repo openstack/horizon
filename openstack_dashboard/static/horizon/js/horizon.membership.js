@@ -169,9 +169,9 @@ horizon.membership = {
 
     $role_items.each(function (idx, el) {
       if ($.inArray(($(el).data('role-id')), role_ids) !== -1) {
-        $(el).addClass('selected');
+        $(el).addClass('active');
       } else {
-        $(el).removeClass('selected');
+        $(el).removeClass('active');
       }
     });
 
@@ -208,7 +208,6 @@ horizon.membership = {
         roles.push({
           role_id: r,
           role_name: membership_roles[r],
-          display:'none'
         });
       }
     }
@@ -318,13 +317,11 @@ horizon.membership = {
       var id_str = $(this).parent().parent().siblings(".member").attr("data-" + step_slug + "-id");
       var data_id = horizon.membership.get_field_id(id_str);
       // update role lists
-      if ($(this).hasClass('selected')) {
-        $(this).removeClass('selected');
-        $(this).children('i').hide()
+      if ($(this).hasClass('active')) {
+        $(this).removeClass('active');
         horizon.membership.remove_member_from_role(step_slug, data_id, new_role_id);
       } else {
-        $(this).addClass('selected');
-        $(this).children('i').show()
+        $(this).addClass('active');
         horizon.membership.add_member_to_role(step_slug, data_id, new_role_id);
       }
       horizon.membership.update_member_role_dropdown(step_slug, data_id);
