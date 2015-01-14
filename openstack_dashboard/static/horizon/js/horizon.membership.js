@@ -295,12 +295,10 @@ horizon.membership = {
       var filter = $.grep(css_class.split(' '), function(val){ return val.indexOf(step_slug) !== -1; })[0];
 
       if (!$('.' + filter).children('li').length) {
-        console.log('no results in '+filter)
         $('#no_' + filter).show();
         $("input[id='" + filter + "']").attr('disabled', 'disabled');
       }
       else {
-        console.log('results in '+filter)
         $('#no_' + filter).hide();
         $("input[id='" + filter + "']").removeAttr('disabled');
       }
@@ -314,18 +312,15 @@ horizon.membership = {
     $(".available_" + step_slug + ", ." + step_slug + "_members").on('click', '.role_dropdown li', function (evt) {
       evt.preventDefault();
       evt.stopPropagation();
-      console.log('click')
       // get the newly selected role and the member's name
       var new_role_id = $(this).attr("data-role-id");
       var id_str = $(this).parent().parent().siblings(".member").attr("data-" + step_slug + "-id");
       var data_id = horizon.membership.get_field_id(id_str);
       // update role lists
       if ($(this).hasClass('selected')) {
-        console.log('remove selected')
         $(this).removeClass('selected');
         horizon.membership.remove_member_from_role(step_slug, data_id, new_role_id);
       } else {
-        console.log('add selected')
         $(this).addClass('selected');
         horizon.membership.add_member_to_role(step_slug, data_id, new_role_id);
       }
@@ -402,16 +397,14 @@ horizon.membership = {
   list_filtering: function (step_slug) {
     // remove previous lists' quicksearch events
     $('input.' + step_slug + '_filter').unbind();
-
     // set up quicksearch to filter on input
     $('.' + step_slug + '_filterable').each(function () {
-      var css_class = $(this).children().children('ul').attr('class');
+      var css_class = $(this).children('ul').attr('class');
       // Example value: members step_slug_members
       // Pick the class name that contains the step_slug
       var filter = $.grep(css_class.split(' '), function(val){ return val.indexOf(step_slug) !== -1; })[0];
-
       var input = $("input[id='" + filter +"']");
-      input.quicksearch('ul.' + filter + ' ul li span.display_name', {
+      input.quicksearch('ul.' + filter + ' ul li span.name', {
         'delay': 200,
         'loader': 'span.loading',
         'show': function () {
@@ -425,7 +418,7 @@ horizon.membership = {
         },
         'noResults': 'ul#no_' + filter,
         'onAfter': function () {
-          horizon.membership.fix_stripes(step_slug);
+          //horizon.membership.fix_stripes(step_slug);
         },
         'prepareQuery': function (val) {
           return new RegExp(val, "i");
@@ -453,14 +446,12 @@ horizon.membership = {
       if ($form.find('div.' + step_slug + '_membership').length === 0) {
         return; // continue
       }
-
       // call the initialization functions
       horizon.membership.init_properties(step_slug);
       horizon.membership.generate_html(step_slug);
       horizon.membership.update_membership(step_slug);
       horizon.membership.select_member_role(step_slug);
       //horizon.membership.add_new_member(step_slug);
-
 
       // initially hide role dropdowns for available member list
       $form.find(".available_" +  step_slug + " .role_options").hide();
@@ -469,12 +460,10 @@ horizon.membership = {
       if (!horizon.membership.has_roles[step_slug]) {
         $form.find("." + step_slug + "_members .role_options").hide();
       }
-
       // unfocus filter fields
       if (step_id.indexOf('update') === 0) {
         $form.find("#" + step_id + " input").blur();
       }
-
       // prevent filter inputs from submitting form on 'enter'
       $form.find('.' + step_slug + '_membership').keydown(function(event){
         if(event.keyCode === 13) {

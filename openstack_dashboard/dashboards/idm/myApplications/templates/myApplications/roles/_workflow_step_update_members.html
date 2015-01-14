@@ -6,11 +6,11 @@
       <button class="btn" data-toggle="modal" data-target="#new-roleModal"><i class="fa fa-plus"></i></button>
     </header>
 
-    <div class="btn-group-vertical members {{ step.slug }}_members" data-toggle="buttons" id="{{ step.slug }}_members">
+    <div class="btn-group-vertical roles {{ step.slug }}_roles" data-toggle="buttons" id="{{ step.slug }}_roles">
       {% for role in form.application_roles %}
-        <div class="member" data-{{ step.slug }}-id="{{ role.id }}">  
+        <div class="role" data-{{ step.slug }}-id="{{ role.id }}">  
           <label class="btn btn-default">
-            <input type="radio" name="options" id="{{ role.id }}_radio" autocomplete="off">
+            <input type="radio" name="roles" id="{{ role.id }}_radio" autocomplete="off">
               {{ role.name }}
             <i class="fa fa-edit"></i>      
             <i class="fa fa-close"></i>
