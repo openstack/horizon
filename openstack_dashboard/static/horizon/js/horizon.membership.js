@@ -60,8 +60,14 @@ horizon.membership = {
   init_role_list: function(step_slug) {
     horizon.membership.roles[step_slug] = [];
     angular.forEach($('label[for^="id_' + step_slug + '_role_"]'), function(role) {
-      var id = horizon.membership.get_field_id($(role).attr('for'));
-      horizon.membership.roles[step_slug][id] = $(role).text();
+      var input_name = $(role).attr('for')
+      var id = horizon.membership.get_field_id(input_name);
+      var app = $('#' + input_name).attr('data-application-name')
+      if (!horizon.membership.roles[step_slug][app]){
+        // init the second dimension of the array if not created
+        horizon.membership.roles[step_slug][app] = []
+      }
+      horizon.membership.roles[step_slug][app][id] = $(role).text();
     });
   },
 
@@ -169,9 +175,9 @@ horizon.membership = {
 
     $role_items.each(function (idx, el) {
       if ($.inArray(($(el).data('role-id')), role_ids) !== -1) {
-        $(el).addClass('selected');
+        $(el).addClass('active');
       } else {
-        $(el).removeClass('selected');
+        $(el).removeClass('active');
       }
     });
 
@@ -198,18 +204,24 @@ horizon.membership = {
    * as a list item in the member list.
    **/
   generate_member_element: function(step_slug, display_name, data_id, role_ids, text) {
-    var roles = [],
+    var apps = [],
       that = this,
       membership_roles = that.roles[step_slug],
       r;
-
-    for (r in membership_roles) {
-      if (membership_roles.hasOwnProperty(r)){
-        roles.push({
-          role_id: r,
-          role_name: membership_roles[r]
-        });
+    for (app in membership_roles){
+      var roles = []
+      for (r in membership_roles[app]) {
+        if (membership_roles[app].hasOwnProperty(r)){
+          roles.push({
+            role_id: r,
+            role_name: membership_roles[app][r],
+          });
+        }
       }
+      apps.push({
+        app: app,
+        roles: roles,
+      })
     }
 
     var template = horizon.templates.compiled_templates["#membership_template"],
@@ -218,8 +230,7 @@ horizon.membership = {
         step_slug: step_slug,
         default_role: that.roles[that.default_role_id[step_slug]],
         display_name: display_name,
-        text: text,
-        roles: roles,
+        apps: apps,
         roles_label: gettext("Roles")
       },
       member_el = $(template.render(params));
@@ -314,14 +325,18 @@ horizon.membership = {
       evt.stopPropagation();
       // get the newly selected role and the member's name
       var new_role_id = $(this).attr("data-role-id");
-      var id_str = $(this).parent().parent().siblings(".member").attr("data-" + step_slug + "-id");
+      if (!new_role_id) {
+        // this is a application name li item, do nothing
+        return
+      }
+      var id_str = $(this).parentsUntil( $("li.list-group-item"), "div").siblings(".member").attr("data-" + step_slug + "-id");
       var data_id = horizon.membership.get_field_id(id_str);
       // update role lists
-      if ($(this).hasClass('selected')) {
-        $(this).removeClass('selected');
+      if ($(this).hasClass('active')) {
+        $(this).removeClass('active');
         horizon.membership.remove_member_from_role(step_slug, data_id, new_role_id);
       } else {
-        $(this).addClass('selected');
+        $(this).addClass('active');
         horizon.membership.add_member_to_role(step_slug, data_id, new_role_id);
       }
       horizon.membership.update_member_role_dropdown(step_slug, data_id);

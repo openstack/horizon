@@ -33,7 +33,7 @@ AVATAR = settings.MEDIA_ROOT+"/"+"ApplicationAvatar/"
 
 class CreateApplicationForm(forms.SelfHandlingForm):
     appID = forms.CharField(label=_("ID"), widget=forms.HiddenInput(), required=False)
-    nextredir = forms.CharField(widget=forms.HiddenInput(), required=False)
+    redirect_to = forms.CharField(widget=forms.HiddenInput(), required=False)
     name = forms.CharField(label=_("Name"), required=True)
     description = forms.CharField(label=_("Description"), 
                                 widget=forms.Textarea, 
@@ -45,7 +45,7 @@ class CreateApplicationForm(forms.SelfHandlingForm):
     def handle(self, request, data):
         #create application
         #default_domain = api.keystone.get_default_domain(request)
-        if data['nextredir'] == "create":
+        if data['redirect_to'] == "create":
             try:
 
                 default_img = '/static/dashboard/img/logos/small/app.png'
@@ -60,7 +60,7 @@ class CreateApplicationForm(forms.SelfHandlingForm):
                 exceptions.handle(request, _('Unable to register the application.'))
                 return False
             
-            response = shortcuts.redirect('horizon:idm:myApplications:upload', application.id)
+            response = shortcuts.redirect('horizon:idm:myApplications:avatar', application.id)
 
         else:
             try:
@@ -86,7 +86,7 @@ class CreateApplicationForm(forms.SelfHandlingForm):
 class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
     appID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
     image = forms.ImageField(required=False)
-    nextredir = forms.CharField(widget=forms.HiddenInput(), required=False)
+    redirect_to = forms.CharField(widget=forms.HiddenInput(), required=False)
     title = 'Avatar Update'
 
     def handle(self, request, data):
@@ -102,7 +102,7 @@ class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
             img = settings.MEDIA_URL+'ApplicationAvatar/'+imageName
             fiware_api.keystone.application_update(request, application_id, img=img)
 
-        if data['nextredir'] == "update":
+        if data['redirect_to'] == "update":
             response = shortcuts.redirect('horizon:idm:myApplications:detail', application_id) 
             LOG.debug('Avatar for application {0} updated'.format(application_id))
         else:

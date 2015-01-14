@@ -1,0 +1,42 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}{% endblock %}
+{% block form_action %}{% url 'horizon:idm:myApplications:avatar_step' application.id %}{% endblock %}
+{% block form_enctype %}multipart/form-data{% endblock %}
+
+{% block modal_id %}upload_image_modal{% endblock %}
+{% block modal-header %}
+	{% include "idm/myApplications/steps/_step-2.html" %}
+{% endblock %}
+
+{% block modal-body %}
+
+	<div>
+		<img id="avatar-update" src="{{ image }}" alt="your image"   />
+	</div>
+
+	<div>
+	  <fieldset>
+	    {% include "horizon/common/_form_fields.html" %}
+	  </fieldset>
+	</div>
+
+
+<script>
+	$('.jcrop-holder').Jcrop({
+      aspectRatio: 1,  //If you want to keep aspectRatio
+      boxWidth: 650,   //Maximum width you want for your bigger images
+      boxHeight: 400,  //Maximum Height for your bigger images
+      onSelect: updateCoords 
+ },function()
+ {
+      alert('Now you see smaller preview of your bigger one.');
+ });
+</script>
+{% endblock %}
+
+{% block modal-footer %}
+    <button type="submit" class="btn btn-primary">{% trans "Next" %}</button>
+{% endblock %}
