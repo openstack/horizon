@@ -41,10 +41,14 @@ class RolesMixin(object):
         # on which current user has the right to get and assign
         role_list['applications'] = fiware_api.keystone.list_allowed_roles_to_assign(request,
                                                 user=request.user.id,
-                                                organization=request.user.project_id)
+                                                organization=project_id)
         # NOTE(garcianavalon) we also need the organization (keystone)
-        # roles here to add members
+        # roles here to add members.
         role_list['organization'] = api.keystone.role_list(request)
+        # Little trick to show them together, we simulate the organization to be
+        # an application
+        for role in role_list['organization']:
+            role.application = project_id
         return role_list
 
     def list_users_with_roles(self, request, project_id, available_roles):
@@ -115,7 +119,7 @@ class UpdateProjectMembersAction(workflows.MembershipAction, RolesMixin):
                 field_name = self.get_member_field_name(role.id)
                 label = role.name
                 widget = forms.widgets.SelectMultiple(
-                                attrs={'data-application-name':'patata'})
+                                attrs={'data-application-name':role.application})
                 self.fields[field_name] = forms.MultipleChoiceField(
                                                         required=False,
                                                         label=label,
