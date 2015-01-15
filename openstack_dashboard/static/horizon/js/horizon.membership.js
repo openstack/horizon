@@ -203,7 +203,7 @@ horizon.membership = {
    * Generates the HTML structure for a member that will be displayed
    * as a list item in the member list.
    **/
-  generate_member_element: function(step_slug, display_name, data_id, role_ids, text) {
+  generate_member_element: function(step_slug, display_name, data_id, role_ids, update_icon) {
     var apps = [],
       that = this,
       membership_roles = that.roles[step_slug],
@@ -231,7 +231,8 @@ horizon.membership = {
         default_role: that.roles[that.default_role_id[step_slug]],
         display_name: display_name,
         apps: apps,
-        roles_label: gettext("Roles")
+        roles_label: gettext("Roles"),
+        update_icon: update_icon,
       },
       member_el = $(template.render(params));
     this.update_member_role_dropdown(step_slug, params.data_id, role_ids, member_el);
