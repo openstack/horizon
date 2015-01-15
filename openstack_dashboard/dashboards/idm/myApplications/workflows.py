@@ -60,6 +60,8 @@ class UpdateApplicationRolesAction(workflows.MembershipAction):
         try:
             permission_list = fiware_api.keystone.permission_list(request,
                                                     application=application_id)
+            # Save the permission_list to use in the template
+            self.application_permissions = permission_list
             # TODO(garcianavalon) the default roles should be non editable!
             # TODO(garcianavalon) filtering for internal
             # permission_list += fiware_api.keystone.permission_list(request)
