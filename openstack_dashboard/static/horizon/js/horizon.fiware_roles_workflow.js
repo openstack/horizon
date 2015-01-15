@@ -116,9 +116,9 @@ horizon.fiware_roles_workflow = {
   },
 
   /*
-   * Helper function for remove_member_from_permission.
+   * Helper function for remove_role_from_permission.
    **/
-  remove_member: function(step_slug, data_id, permission_id, permission_list) {
+  remove_role: function(step_slug, data_id, permission_id, permission_list) {
     var index = permission_list.indexOf(data_id);
     if (index >= 0) {
       // remove member from list
@@ -131,10 +131,10 @@ horizon.fiware_roles_workflow = {
    * Searches through the permission lists and removes a given member
    * from the lists.
    **/
-  remove_member_from_permission: function(step_slug, data_id, permission_id) {
+  remove_role_from_permission: function(step_slug, data_id, permission_id) {
     var permission, role = horizon.fiware_roles_workflow.current_relations[step_slug];
     if (permission_id) {
-      horizon.fiware_roles_workflow.remove_member(
+      horizon.fiware_roles_workflow.remove_role(
         step_slug, data_id, permission_id, role[permission_id]
       );
     }
@@ -142,8 +142,8 @@ horizon.fiware_roles_workflow = {
       // search for role in permission lists
       for (permission in role) {
         if (role.hasOwnProperty(permission)) {
-          horizon.fiware_roles_workflow.remove_member(
-            step_slug, data_id, permission,  role[permission]
+          horizon.fiware_roles_workflow.remove_role(
+            step_slug, data_id, permission, role[permission]
           );
         }
       }
@@ -151,9 +151,9 @@ horizon.fiware_roles_workflow = {
   },
 
   /*
-   * Adds a member to a given permission list.
+   * Adds a role to a given permission list.
    **/
-  add_member_to_permission: function(step_slug, data_id, permission_id) {
+  add_role_to_permission: function(step_slug, data_id, permission_id) {
     var permission_list = horizon.fiware_roles_workflow.current_relations[step_slug][permission_id];
     permission_list.push(data_id);
     horizon.fiware_roles_workflow.update_permission_lists(step_slug, permission_id, permission_list);
@@ -221,9 +221,9 @@ horizon.fiware_roles_workflow = {
         step_slug: step_slug,
         permissions: permissions,
       },
-      member_el = $(template.render(params));
-    //this.update_role_permission_list(step_slug, permission_ids, member_el);
-    return $(member_el);
+      role_el = $(template.render(params));
+    //this.update_role_permission_list(step_slug, permission_ids, role_el);
+    return $(role_el);
   },
 
   /*
@@ -271,7 +271,7 @@ horizon.fiware_roles_workflow = {
         //$(this).removeClass( "fa-close" ).addClass( "fa-plus" );
         $(this).parent().siblings(".role_options").hide();
         $(".available_" + step_slug).append(member_el);
-        horizon.fiware_roles_workflow.remove_member_from_permission(step_slug, data_id);
+        horizon.fiware_roles_workflow.remove_role_from_permission(step_slug, data_id);
       }
 
       // update lists
@@ -331,18 +331,19 @@ horizon.fiware_roles_workflow = {
   select_role_permission: function(step_slug) {
     $("." + step_slug + "_permissions").on('change', 'input[type=checkbox]', function (evt) {
       evt.preventDefault();
+      evt.stopPropagation();
       // get the newly selected permission and the role's name
       var new_permission_id = $(this).attr("data-permission-id");
       var id_str = $("input[name=roles]:checked").parent().parent().attr("data-" + "fiware_roles" + "-id")
       var data_id = horizon.fiware_roles_workflow.get_field_id(id_str);
       // update permission lists
-      // TODO(garcianavalon) need to uncheck manually?
-      // TODO(garcianavalon) is this AFTER change or BEFORE change??
       if (!($(this).is(':checked'))) {
         console.log('removing')
+        $(this).parent().removeClass('active');
         horizon.fiware_roles_workflow.remove_role_from_permission(step_slug, data_id, new_permission_id);
       } else {
         console.log('adding')
+        $(this).parent().addClass('active');
         horizon.fiware_roles_workflow.add_role_to_permission(step_slug, data_id, new_permission_id);
       }
       //horizon.fiware_roles_workflow.update_role_permission_list(step_slug, data_id);
