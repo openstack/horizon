@@ -18,9 +18,14 @@
 
 from __future__ import absolute_import
 
+from django.conf import settings
+
 from horizon import exceptions
 
 from openstack_dashboard.api import base as api_base
+from openstack_dashboard.api import cinder
+from openstack_dashboard.api import glance
+from openstack_dashboard.api import keystone
 from openstack_dashboard.test import helpers as test
 
 
@@ -145,6 +150,39 @@ class APIDictWrapperTests(test.TestCase):
                              "Find new missing attribute.")
         # We're primarily interested in this test NOT raising a TypeError.
         self.assertFalse(0 in resource)
+
+
+class ApiVersionTests(test.TestCase):
+    def setUp(self):
+        super(ApiVersionTests, self).setUp()
+        self.previous_settings = settings.OPENSTACK_API_VERSIONS
+        settings.OPENSTACK_API_VERSIONS = {
+            "data_processing": 1.1,
+            "identity": "2.0",
+            "volume": 1
+        }
+        # Make sure cached data from other tests doesn't interfere
+        cinder.VERSIONS.clear_active_cache()
+        keystone.VERSIONS.clear_active_cache()
+        glance.VERSIONS.clear_active_cache()
+
+    def tearDown(self):
+        super(ApiVersionTests, self).tearDown()
+        settings.OPENSTACK_API_VERSIONS = self.previous_settings
+        # Clear out our bogus data so it doesn't interfere
+        cinder.VERSIONS.clear_active_cache()
+        keystone.VERSIONS.clear_active_cache()
+        glance.VERSIONS.clear_active_cache()
+
+    def test_invalid_versions(self):
+        with self.assertRaises(exceptions.ConfigurationError):
+            getattr(keystone.VERSIONS, 'active')
+        with self.assertRaises(exceptions.ConfigurationError):
+            getattr(cinder.VERSIONS, 'active')
+        try:
+            getattr(glance.VERSIONS, 'active')
+        except exceptions.ConfigurationError:
+            self.fail("ConfigurationError raised inappropriately.")
 
 
 class ApiHelperTests(test.TestCase):
