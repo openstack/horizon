@@ -211,7 +211,6 @@ horizon.fiware_roles_workflow = {
         permissions.push({
           permission_id: p,
           permission_name: role_permissions[p],
-          status: 'active',
         });
       }
     }
@@ -329,8 +328,9 @@ horizon.fiware_roles_workflow = {
    * Triggers on selection of new permission for a role.
    **/
   select_role_permission: function(step_slug) {
-    $("." + step_slug + "_permissions").on('change', 'input[type=checkbox]', function (evt) {
+    $("." + step_slug + "_permissions").on('click', 'input[type=checkbox]', function (evt) {
       evt.preventDefault();
+      evt.stopPropagation();
       // get the newly selected permission and the role's name
       var new_permission_id = $(this).attr("data-permission-id");
       var id_str = $("input[name=roles]:checked").parent().parent().attr("data-" + "fiware_roles" + "-id")

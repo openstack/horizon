@@ -24,8 +24,10 @@
       <h4>Permissions</h4>
       <button class="btn" data-toggle="modal" data-target="#new-permissionModal"><i class="fa fa-plus"></i></button>
     </header>
-    <div class="btn-group-vertical permissions {{step.slug }}_permissions" data-toggle="buttons" id="{{ step.slug }}_permissions">
+    <div class="" id="{{ step.slug }}_permissions">
+      <ul class="permissions {{ step.slug }}_permissions list-group">
         {# The permisions for each role are rendered here on role radio check #}
+      </ul>
     </div>
 </div>
 

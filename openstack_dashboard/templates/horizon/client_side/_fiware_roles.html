@@ -4,15 +4,11 @@
 {% block id %}fiware_roles_template{% endblock %}
 
 {% block template %}{% spaceless %}{% jstemplate %}
-<div class="nav nav-pills btn-group">
-  <div class="btn-group-vertical permission" data-toggle="buttons">
-      [[#permissions]]
-      <label class="btn btn-default [[status]]">
+[[#permissions]]
+    <li class="list-group-item" data-permission-id="[[permission_id]]">
         <i class="fa fa-check"></i>
-        <input data-permission-id="[[permission_id]]" type="checkbox" autocomplete="off"/>
         [[permission_name]]
-      </label>
-      [[/permissions]]
-    </div>
-</div>
+    </li>
+[[/permissions]]
 {% endjstemplate %}{% endspaceless %}{% endblock %}
+      
