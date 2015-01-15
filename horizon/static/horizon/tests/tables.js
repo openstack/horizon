@@ -27,25 +27,33 @@ test("Footer count update", function () {
   var table_count = table.find("span.table_count");
   var rows = tbody.find('tr');
 
+  // The following function returns the first set of consecutive numbers.
+  // This is allows you to match an inner numeric value regardless of
+  // the language and regardless of placement within the phrase.
+  // If you want to match '4' for your numeric value, the following are ok:
+  // "there are 4 lights", "4 lights there are", "lights there are 4" but
+  // not "there are 14 lights".
+  var get_consec_nums = function(str) { return (str.match(/\d+/) || [""])[0]; };
+
   horizon.datatables.update_footer_count(table);
-  notEqual(table_count.text().indexOf('4 items'), -1, "Initial count is correct");
+  equal(get_consec_nums(table_count.text()), '4', "Initial count is correct");
 
   // hide rows
   rows.first().hide();
   rows.first().next().hide();
   horizon.datatables.update_footer_count(table);
-  notEqual(table_count.text().indexOf('2 items'), -1, "Count correct after hiding two rows");
+  equal(get_consec_nums(table_count.text()), '2', "Count correct after hiding two rows");
 
   // show a row
   rows.first().next().show();
   horizon.datatables.update_footer_count(table);
-  notEqual(table_count.text().indexOf('3 items'), -1, "Count correct after showing one row");
+  equal(get_consec_nums(table_count.text()), '3', "Count correct after showing one row");
 
   // add rows
   $('<tr><td>cat3</td></tr>"').appendTo(tbody);
   $('<tr><td>cat4</td></tr>"').appendTo(tbody);
   horizon.datatables.update_footer_count(table);
-  notEqual(table_count.text().indexOf('5 items'), -1, "Count correct after adding two rows");
+  equal(get_consec_nums(table_count.text()), '5', "Count correct after adding two rows");
 });
 
 test("Formset reenumerate rows", function () {

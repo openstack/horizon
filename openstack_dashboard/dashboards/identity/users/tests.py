@@ -611,16 +611,14 @@ class SeleniumTests(test.SeleniumAdminTestCase):
                                      ignored_exceptions=[socket_timeout])
         wait.until(lambda x: self.selenium.find_element_by_id("id_name"))
 
-        body = self.selenium.find_element_by_tag_name("body")
-        self.assertFalse("Passwords do not match" in body.text,
-                         "Error message should not be visible at loading time")
+        self.assertFalse(self._is_element_present("id_confirm_password_error"),
+                         "Password error element shouldn't yet exist.")
         self.selenium.find_element_by_id("id_name").send_keys("Test User")
         self.selenium.find_element_by_id("id_password").send_keys("test")
         self.selenium.find_element_by_id("id_confirm_password").send_keys("te")
         self.selenium.find_element_by_id("id_email").send_keys("a@b.com")
-        body = self.selenium.find_element_by_tag_name("body")
-        self.assertTrue("Passwords do not match" in body.text,
-                        "Error message not found in body")
+        self.assertTrue(self._is_element_present("id_confirm_password_error"),
+                        "Couldn't find password error element.")
 
     @test.create_stubs({api.keystone: ('tenant_list',
                                        'user_get',
@@ -638,12 +636,17 @@ class SeleniumTests(test.SeleniumAdminTestCase):
 
         self.selenium.get("%s%s" % (self.live_server_url, USER_UPDATE_URL))
 
-        body = self.selenium.find_element_by_tag_name("body")
-        self.assertFalse("Passwords do not match" in body.text,
-                         "Error message should not be visible at loading time")
+        self.assertFalse(self._is_element_present("id_confirm_password_error"),
+                         "Password error element shouldn't yet exist.")
         self.selenium.find_element_by_id("id_password").send_keys("test")
         self.selenium.find_element_by_id("id_confirm_password").send_keys("te")
         self.selenium.find_element_by_id("id_email").clear()
-        body = self.selenium.find_element_by_tag_name("body")
-        self.assertTrue("Passwords do not match" in body.text,
-                        "Error message not found in body")
+        self.assertTrue(self._is_element_present("id_confirm_password_error"),
+                        "Couldn't find password error element.")
+
+    def _is_element_present(self, element_id):
+        try:
+            self.selenium.find_element_by_id(element_id)
+            return True
+        except Exception:
+            return False

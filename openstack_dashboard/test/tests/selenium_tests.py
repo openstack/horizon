@@ -18,5 +18,6 @@ from horizon.test import helpers as test
 class BrowserTests(test.SeleniumTestCase):
     def test_splash(self):
         self.selenium.get(self.live_server_url)
-        button = self.selenium.find_element_by_tag_name("button")
-        self.assertEqual("Sign In", button.text)
+        button = self.selenium.find_element_by_id("loginBtn")
+        # Ensure button has something; must be language independent.
+        self.assertTrue(len(button.text) > 0)
