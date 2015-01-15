@@ -247,6 +247,7 @@
   }
 }
 
+
 .permissions_list{
   @include make-sm-column(6, $gutter: $grid-gutter-width);
   @include make-md-column(6, $gutter: $grid-gutter-width);
@@ -261,34 +262,45 @@
   .alert{
     margin-top: 10px;
   }
-  .btn-group-vertical {
-    label{
-      border-bottom: none;
-      border-left: none;
-      border-right: none;
+  li{
+    background-color: $gray-lighter;
+    color: #5B5B5F;
+    white-space: nowrap;
+    padding: 7px 10px;
+    background-color: #B3B3B3;
+    &:first-child{
       border-top: none;
-      text-align: left;
-      background-color: $gray-lighter;
-      &:first-child{
-        border-top: none;
-      }
-      &:hover{
-        background-color: $white;
-      }
-      i{
-        margin-right: 4px;
-      }
     }
-    .active{
-      background-color: #FFF;
-      box-shadow: none;
+    &:hover{
+      text-decoration: none;
+      background-color: #D8D8D8;
     }
-    hr{
-      margin-top: 0px !important;
-      margin-bottom: 0px !important;
-      border-top: 1px solid $gray !important;
-    } 
+    i{
+      margin-right: 5px;
+      min-width: 14px;
+      @include opacity (0);
+    }
   }
+  li.active{
+    text-decoration: none;
+    background-color: $white;
+    border-color: #ddd;
+    color: $text-color;
+    i{
+      @include opacity (1);
+    }
+    &:hover{
+      text-decoration: none;
+      background-color: #ECECEC;
+      color: $text-color;
+      border: transparent;
+    }
+  }
+  hr{
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    border-top: 1px solid $gray !important;
+  } 
 }
 #collapse_oauth2_credentials {
   .btn-link{
