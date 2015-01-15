@@ -148,7 +148,7 @@
     } 
   }
 }
-.role_dropdown li{
+.role_dropdown li.app-roles-list{
   display: block;
   clear: both;
   font-weight: normal;
@@ -156,29 +156,36 @@
   color: #5B5B5F;
   white-space: nowrap;
   padding: 7px 10px;
+  background-color: $white;
   &:hover{
     text-decoration: none;
-    color: #F9F9F9;
-    background-color: #AFAFB5;
+    color: $text-color;
+    background-color: #fff;
   }
-  .app-roles-list{
+  span{
     border-bottom: 1px solid $brand-secundary;
     margin-bottom: 2px;
     padding-top: 4px;
+    font-family: $corporate-font-family-sans-serif-Regular;
+    @include text-overflow;
   }
   i{
     margin-right: 5px;
     min-width: 14px;
     @include opacity (0);
   }
+  ol{
+    padding-left: 0px;
+    margin-top: 2px;
+  }
 }
 .role_dropdown li.active{
   text-decoration: none;
-  color: #F9F9F9;
-  background-color: #AFAFB5;
+  color: $text-color;
+  background-color: #fff;
   i{
     @include opacity (1);
-    color: #F9F9F9;
+    color: $text-color;
   }
 }
 

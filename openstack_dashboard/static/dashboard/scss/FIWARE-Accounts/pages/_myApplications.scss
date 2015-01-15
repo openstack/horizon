@@ -273,7 +273,7 @@
     }
     &:hover{
       text-decoration: none;
-      background-color: #ECECEC;
+      background-color: #D8D8D8;
     }
     i{
       margin-right: 5px;
@@ -283,7 +283,7 @@
   }
   li.active{
     text-decoration: none;
-    background-color: #ECECEC;
+    background-color: $white;
     border-color: #ddd;
     color: $text-color;
     i{
