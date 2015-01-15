@@ -899,26 +899,10 @@ class LaunchInstance(workflows.Workflow):
 
         avail_zone = context.get('availability_zone', None)
 
-        # Create port with Network Name and Port Profile
-        # for the use with the plugin supporting port profiles.
-        # neutron port-create <Network name> --n1kv:profile <Port Profile ID>
-        # for net_id in context['network_id']:
-        # HACK for now use first network.
         if api.neutron.is_port_profiles_supported():
-            net_id = context['network_id'][0]
-            LOG.debug("Horizon->Create Port with %(netid)s %(profile_id)s",
-                      {'netid': net_id, 'profile_id': context['profile_id']})
-            port = None
-            try:
-                port = api.neutron.port_create(
-                    request, net_id, policy_profile_id=context['profile_id'])
-            except Exception:
-                msg = (_('Port not created for profile-id (%s).') %
-                       context['profile_id'])
-                exceptions.handle(request, msg)
-
-            if port and port.id:
-                nics = [{"port-id": port.id}]
+            nics = self.set_network_port_profiles(request,
+                                                  context['network_id'],
+                                                  context['profile_id'])
 
         try:
             api.nova.server_create(request,
@@ -940,3 +924,40 @@ class LaunchInstance(workflows.Workflow):
         except Exception:
             exceptions.handle(request)
             return False
+
+    def set_network_port_profiles(self, request, net_ids, profile_id):
+        # Create port with Network ID and Port Profile
+        # for the use with the plugin supporting port profiles.
+        nics = []
+        for net_id in net_ids:
+            try:
+                port = api.neutron.port_create(
+                    request,
+                    net_id,
+                    policy_profile_id=profile_id,
+                )
+            except Exception as e:
+                msg = (_('Unable to create port for profile '
+                         '"%(profile_id)s": %(reason)s'),
+                       {'profile_id': profile_id,
+                        'reason': e})
+                for nic in nics:
+                    try:
+                        port_id = nic['port-id']
+                        api.neutron.port_delete(request, port_id)
+                    except Exception:
+                        msg = (msg +
+                               _(' Also failed to delete port %s') % port_id)
+                redirect = self.success_url
+                exceptions.handle(request, msg, redirect=redirect)
+
+            if port:
+                nics.append({"port-id": port.id})
+                LOG.debug("Created Port %(portid)s with "
+                          "network %(netid)s "
+                          "policy profile %(profile_id)s",
+                          {'portid': port.id,
+                           'netid': net_id,
+                           'profile_id': profile_id})
+
+        return nics
