@@ -161,6 +161,11 @@
     color: #F9F9F9;
     background-color: #AFAFB5;
   }
+  .app-roles-list{
+    border-bottom: 1px solid $brand-secundary;
+    margin-bottom: 2px;
+    padding-top: 4px;
+  }
   i{
     margin-right: 5px;
     min-width: 14px;
@@ -217,6 +222,10 @@
 .workflow{
   .modal-content{
     padding: 10px;
+    .list-group-item{
+      border-left: none;
+      border-right: none;
+    }
   }
 }
 .workflow.static_page {
