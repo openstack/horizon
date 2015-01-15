@@ -2,6 +2,7 @@
   @include make-sm-column(8, $gutter: $grid-gutter-width);
   @include make-md-column(8, $gutter: $grid-gutter-width);
   @include make-lg-column(8, $gutter: $grid-gutter-width);
+  margin-top: 27px;
   a.panel-heading {
     &:hover{
       cursor: pointer;
@@ -20,25 +21,8 @@
       float: right;
     }
   }
-}
-.cancel_account,
-.destroy_organization{
-  &:hover{
-    border-color: $brand-danger !important;
-    h4{
-      color: $brand-danger !important;
-    }
-  }
-  h4{
-    margin-top: 3px !important;
-    padding: 0px 15px;
-  }
-  .panel-body{
-    padding-top: 15px;
-    padding-bottom: 15px;
-    a{
-      color: $brand-danger !important;
-    }
+  legend{
+    margin-bottom: 0;
+    border-bottom: 0;
   }
 }
-

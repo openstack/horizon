@@ -6,7 +6,6 @@
       <h4>{{ step.available_list_title }}</h4>
       <div class="form-group has-feedback">
         <input type="text" name="available_{{ step.slug }}_filter" id="available_{{ step.slug }}" class="filter {{ step.slug }}_filter form-control input-sm" placeholder="{% trans "filter" %}">
-        <i class="fa fa-search"></i>
       </div>
     </header>
     <div class="filterable {{ step.slug }}_filterable" id="available_{{ step.slug }}">
@@ -22,7 +21,6 @@
       <h4>{{ step.members_list_title }}</h4>
       <div class="form-group has-feedback">
         <input type="text" name="{{ step.slug }}_members_filter" id="{{ step.slug }}_members" class="filter {{ step.slug }}_filter form-control input-sm" placeholder="{% trans "filter" %}">
-        <i class="fa fa-search"></i>
         </div>
     </header>
     <div class="filterable {{ step.slug }}_filterable" id="{{ step.slug }}_members">

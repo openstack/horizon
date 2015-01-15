@@ -25,8 +25,8 @@
                 <p>{{ email }}</p>
                 <p>{{ website }}</p>
             </div>
-            <!-- div que contiene la información de la org, cuando no esté relleno este campo ocultar -->
-            <div class="description">
+            <!-- div que contiene la información de la org, cuando no esté relleno este campo, ocultar -->
+            <div class="extra">
                 <h4 class="panel-title">
                     <a data-toggle="collapse" data-parent="#accordion" href="#description">
                         Description
@@ -42,10 +42,13 @@
 	<div class="panel panel-default members">
 
         <div class="panel-heading">
-            {{ members_table }}
-            {{ members_table.render_table_actions }}  
+            {{ members_table }}  
         </div>
         <div class="panel-body">
+            <div class="members-actions">
+                <input type="text" class="form-control" placeholder="filter">
+                {{ members_table.render_table_actions }}
+            </div>
             {{ members_table.render}}
         </div>
     </div>

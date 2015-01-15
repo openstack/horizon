@@ -20,7 +20,7 @@
             {% endif %}
             <ul>
             {% for panel in filtered_panels %}
-              <li class="{{ panel.slug }}"><a href="{{ panel.get_absolute_url }}" {% if current.slug == dashboard.slug and current_panel == panel.slug %}class="active"{% endif %} tabindex="{{ forloop.counter }}" ><i class="fa"></i><h2>{{ panel.name }}</h2></a></li>
+              <a href="{{ panel.get_absolute_url }}" class="{{ panel.slug }}"><h4 {% if current.slug == dashboard.slug and current_panel == panel.slug %}class="active"{% endif %} tabindex="{{ forloop.counter }}" ><i class="fa"></i><span>{{ panel.name }}</span></h4></a>
             {% endfor %}
 
             {% if heading %}
@@ -31,12 +31,12 @@
         {% endfor %}
         <hr class="hidden-xs">
        
-          <li class="notify">
-            <a href="."><i class="fa"></i><h2>Notify</h2></a>
-          </li>
-          <li class="administrators">
-            <a href="."><i class="fa"></i><h2>Administrators</h2></a>
-          </li>
+          <a href="." class="notify">
+            <h4><i class="fa"></i><span>Notify</span></h4></a>
+          </a>
+          <a href="." class="administrators">
+            <h4><i class="fa"></i><span>Administrators</span></h4></a>
+          </a>
         </ul>
       {% endif %}
     {% endif %}
