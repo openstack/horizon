@@ -8,9 +8,9 @@
 
     <div class="btn-group-vertical roles {{ step.slug }}_roles" data-toggle="buttons" id="{{ step.slug }}_roles">
       {% for role in form.application_roles %}
-        <div class="role" data-{{ step.slug }}-id="{{ role.id }}">  
+        <div class="role">  
           <label class="btn btn-default">
-            <input type="radio" name="roles" id="{{ role.id }}_radio" autocomplete="off">
+            <input type="radio" name="roles" id="{{ role.id }}_radio" autocomplete="off" data-{{ step.slug }}-id="{{ role.id }}">
               {{ role.name }}
             <i class="fa fa-edit"></i>      
             <i class="fa fa-close"></i>
@@ -18,8 +18,9 @@
         </div>
       {% endfor %}
     </div>
+  </section>
 
-    <section id="permissions_list" class="permissions_list">
+  <section id="permissions_list" class="permissions_list">
     <header>
       <h4>Permissions</h4>
       <button class="btn" data-toggle="modal" data-target="#new-permissionModal"><i class="fa fa-plus"></i></button>
@@ -29,6 +30,7 @@
         {# The permisions for each role are rendered here on role radio check #}
       </ul>
     </div>
+  </section>
 </div>
 
 <div class="hide">
