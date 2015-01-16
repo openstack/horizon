@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-14 00:03-0600\n"
+"POT-Creation-Date: 2015-01-16 00:07-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,55 +17,55 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: settings.py:101
+#: settings.py:84
 msgid "Select format"
 msgstr ""
 
-#: settings.py:102
+#: settings.py:85
 msgid "AKI - Amazon Kernel Image"
 msgstr ""
 
-#: settings.py:103
+#: settings.py:86
 msgid "AMI - Amazon Machine Image"
 msgstr ""
 
-#: settings.py:104
+#: settings.py:87
 msgid "ARI - Amazon Ramdisk Image"
 msgstr ""
 
-#: settings.py:105
+#: settings.py:88
 msgid "ISO - Optical Disk Image"
 msgstr ""
 
-#: settings.py:106
+#: settings.py:89
 msgid "QCOW2 - QEMU Emulator"
 msgstr ""
 
-#: settings.py:107
+#: settings.py:90
 msgid "Raw"
 msgstr ""
 
-#: settings.py:108
+#: settings.py:91
 msgid "VDI"
 msgstr ""
 
-#: settings.py:109
+#: settings.py:92
 msgid "VHD"
 msgstr ""
 
-#: settings.py:110
+#: settings.py:93
 msgid "VMDK"
 msgstr ""
 
-#: settings.py:298
+#: settings.py:232
 msgid "All TCP"
 msgstr ""
 
-#: settings.py:304
+#: settings.py:238
 msgid "All UDP"
 msgstr ""
 
-#: settings.py:310
+#: settings.py:244
 msgid "All ICMP"
 msgstr ""
 
@@ -9672,7 +9672,8 @@ msgid "Create Snapshot"
 msgstr ""
 
 #: dashboards/project/images/templates/images/snapshots/_create.html:19
-msgid "Snapshots preserve the disk state of a running instance."
+msgid ""
+"A snapshot is an image which preserves the disk state of a running instance."
 msgstr ""
 
 #: dashboards/project/images/templates/images/snapshots/create.html:6
@@ -10965,9 +10966,14 @@ msgstr ""
 msgid "%s instances"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:916
+#: dashboards/project/instances/workflows/create_instance.py:940
 #, python-format
-msgid "Port not created for profile-id (%s)."
+msgid "Unable to create port for profile \"%(profile_id)s\": %(reason)s"
+msgstr ""
+
+#: dashboards/project/instances/workflows/create_instance.py:950
+#, python-format
+msgid " Also failed to delete port %s"
 msgstr ""
 
 #: dashboards/project/instances/workflows/resize_instance.py:39

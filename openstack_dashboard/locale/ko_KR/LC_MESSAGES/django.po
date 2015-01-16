@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-13 19:42-0600\n"
-"PO-Revision-Date: 2015-01-13 21:13+0000\n"
+"POT-Creation-Date: 2015-01-15 21:15-0600\n"
+"PO-Revision-Date: 2015-01-15 10:50+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -21,55 +21,55 @@ msgstr ""
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: settings.py:101
+#: settings.py:84
 msgid "Select format"
 msgstr "포맷 선택"
 
-#: settings.py:102
+#: settings.py:85
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Kernel Image"
 
-#: settings.py:103
+#: settings.py:86
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Image"
 
-#: settings.py:104
+#: settings.py:87
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon Ramdisk Image"
 
-#: settings.py:105
+#: settings.py:88
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - Optical Disk Image"
 
-#: settings.py:106
+#: settings.py:89
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Emulator"
 
-#: settings.py:107
+#: settings.py:90
 msgid "Raw"
 msgstr "Raw"
 
-#: settings.py:108
+#: settings.py:91
 msgid "VDI"
 msgstr "VDI"
 
-#: settings.py:109
+#: settings.py:92
 msgid "VHD"
 msgstr "VHD"
 
-#: settings.py:110
+#: settings.py:93
 msgid "VMDK"
 msgstr "VMDK"
 
-#: settings.py:298
+#: settings.py:232
 msgid "All TCP"
 msgstr "모든 TCP"
 
-#: settings.py:304
+#: settings.py:238
 msgid "All UDP"
 msgstr "모든 UDP"
 
-#: settings.py:310
+#: settings.py:244
 msgid "All ICMP"
 msgstr "모든 ICMP"
 
@@ -9567,8 +9567,9 @@ msgid "Create Snapshot"
 msgstr "스냅샷 생성"
 
 #: dashboards/project/images/templates/images/snapshots/_create.html:19
-msgid "Snapshots preserve the disk state of a running instance."
-msgstr "스냅샷은 작동 중인 인스턴스 디스크 상태를 저장합니다."
+msgid ""
+"A snapshot is an image which preserves the disk state of a running instance."
+msgstr ""
 
 #: dashboards/project/images/templates/images/snapshots/create.html:6
 msgid "Create a Snapshot"
@@ -10840,10 +10841,15 @@ msgstr "고급 옵션"
 msgid "%s instances"
 msgstr "%s 인스턴스"
 
-#: dashboards/project/instances/workflows/create_instance.py:916
+#: dashboards/project/instances/workflows/create_instance.py:940
 #, python-format
-msgid "Port not created for profile-id (%s)."
-msgstr "포트를 프로필-id (%s)에서 생성할 수 없습니다."
+msgid "Unable to create port for profile \"%(profile_id)s\": %(reason)s"
+msgstr ""
+
+#: dashboards/project/instances/workflows/create_instance.py:950
+#, python-format
+msgid " Also failed to delete port %s"
+msgstr ""
 
 #: dashboards/project/instances/workflows/resize_instance.py:39
 msgid "Choose the flavor to launch."
