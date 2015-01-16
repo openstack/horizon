@@ -20,6 +20,8 @@ from horizon import forms
 from horizon import workflows
 
 from openstack_dashboard.api import sahara as saharaclient
+from openstack_dashboard.dashboards.project.data_processing \
+    .utils import helpers
 
 LOG = logging.getLogger(__name__)
 
@@ -106,6 +108,13 @@ class CreateDataSource(workflows.Workflow):
                 context["source_url"],
                 context.get("general_data_source_credential_user", None),
                 context.get("general_data_source_credential_pass", None))
+
+            hlps = helpers.Helpers(request)
+            if hlps.is_from_guide():
+                request.session["guide_datasource_id"] = self.object.id
+                request.session["guide_datasource_name"] = self.object.name
+                self.success_url = (
+                    "horizon:project:data_processing.wizard:jobex_guide")
             return True
         except Exception:
             exceptions.handle(request)

@@ -185,7 +185,7 @@
     var job_type;
 
     $.ajax({
-        url: "launch-job",
+        url: "/project/data_processing/jobs/launch-job",
         data: {"job_id": $("#id_job").val(),
             "json": true },
         success: function (data, textStatus, jqXHR) {

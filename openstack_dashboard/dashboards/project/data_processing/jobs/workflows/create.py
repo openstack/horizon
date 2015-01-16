@@ -14,6 +14,7 @@
 import json
 import logging
 
+from django.core import urlresolvers
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -21,7 +22,8 @@ from horizon import forms
 from horizon.forms import fields
 from horizon import workflows
 
-
+from openstack_dashboard.dashboards.project.data_processing \
+    .utils import helpers
 from openstack_dashboard.api import sahara as saharaclient
 
 
@@ -85,6 +87,14 @@ class GeneralConfigAction(workflows.Action):
                                       required=False,
                                       widget=forms.Textarea(attrs={'rows': 4}))
 
+    def __init__(self, request, context, *args, **kwargs):
+        super(GeneralConfigAction,
+              self).__init__(request, context, *args, **kwargs)
+        resolver_match = urlresolvers.resolve(request.path)
+        if "guide_job_type" in resolver_match.kwargs:
+            self.fields["job_type"].initial = (
+                resolver_match.kwargs["guide_job_type"].lower())
+
     def populate_job_type_choices(self, request, context):
         choices = [("pig", _("Pig")), ("hive", _("Hive")),
                    ("spark", _("Spark")),
@@ -119,19 +129,11 @@ class GeneralConfigAction(workflows.Action):
 class GeneralConfig(workflows.Step):
     action_class = GeneralConfigAction
     contributes = ("job_name", "job_type", "job_description", "main_binary")
-    # Map needed because switchable fields need lower case
-    # and our server is expecting upper case
-    JOB_TYPE_MAP = {"pig": "Pig",
-                    "hive": "Hive",
-                    "spark": "Spark",
-                    "mapreduce": "MapReduce",
-                    "mapreduce.streaming": "MapReduce.Streaming",
-                    "java": "Java"}
 
     def contribute(self, data, context):
         for k, v in data.items():
             if k == "job_type":
-                context[k] = self.JOB_TYPE_MAP[v]
+                context[k] = helpers.JOB_TYPE_MAP[v][1]
             else:
                 context[k] = v
         return context
@@ -169,13 +171,21 @@ class CreateJob(workflows.Workflow):
             main_locations.append(context["main_binary"])
 
         try:
-            saharaclient.job_create(
+            job = saharaclient.job_create(
                 request,
                 context["job_name"],
                 context["job_type"],
                 main_locations,
                 lib_locations,
                 context["job_description"])
+
+            hlps = helpers.Helpers(request)
+            if hlps.is_from_guide():
+                request.session["guide_job_id"] = job.id
+                request.session["guide_job_type"] = context["job_type"]
+                request.session["guide_job_name"] = context["job_name"]
+                self.success_url = (
+                    "horizon:project:data_processing.wizard:jobex_guide")
             return True
         except Exception:
             exceptions.handle(request)

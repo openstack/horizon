@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Choose job type" %}{% endblock %}
+
+{% block page_header %}
+    {% include "horizon/common/_page_header.html" with title=_("Choose job type") %}
+{% endblock page_header %}
+
+{% block main %}
+    {% include 'project/data_processing.wizard/_job_type_select.html' %}
+{% endblock %}

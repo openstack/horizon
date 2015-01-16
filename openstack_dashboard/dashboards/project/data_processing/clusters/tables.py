@@ -36,6 +36,12 @@ class ClustersFilterAction(tables.FilterAction):
                       ('status', _("Status"), True))
 
 
+class ClusterGuide(tables.LinkAction):
+    name = "cluster_guide"
+    verbose_name = _("Cluster Creation Guide")
+    url = "horizon:project:data_processing.wizard:cluster_guide"
+
+
 class CreateCluster(tables.LinkAction):
     name = "create"
     verbose_name = _("Launch Cluster")
@@ -156,7 +162,8 @@ class ClustersTable(tables.DataTable):
         row_class = UpdateRow
         cell_class = RichErrorCell
         status_columns = ["status"]
-        table_actions = (CreateCluster,
+        table_actions = (ClusterGuide,
+                         CreateCluster,
                          ConfigureCluster,
                          DeleteCluster,
                          ClustersFilterAction)

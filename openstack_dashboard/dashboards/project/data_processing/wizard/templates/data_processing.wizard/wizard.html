@@ -33,6 +33,29 @@
             </div>
           </div>
       </li>
-     </ul>
+      <li>
+          <div>
+            <div>{% blocktrans %}
+                  In order to run a Data Processing job, you need to make
+                  the files for your program available to the
+                  Data Processing system, define where the input and output
+                  need to go and create a Job Template that describes
+                  how to run your job.  Each of those steps can be done
+                  manually or you can follow this guide to help take you
+                  through the steps to run a job on an existing cluster.
+            {% endblocktrans %}
+            </div>
+            <div>
+                <a id="jobex_guide_btn"
+                   class=" btn btn-default btn-small btn-create btn-inline"
+                   title="{% trans "Job Execution Guide" %}"
+                   href="/project/data_processing/wizard/jobex_guide">
+                    {% trans "Job Execution Guide" %}
+                 </a>
+             </div>
+           </div>
+          </li>
+      </ul>
+    </div>
 
 {% endblock %}
