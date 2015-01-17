@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-15 21:15-0600\n"
+"POT-Creation-Date: 2015-01-16 12:34-0600\n"
 "PO-Revision-Date: 2015-01-15 10:50+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/horizon/language/nl_NL/)\n"
@@ -871,8 +871,8 @@ msgstr "Fout bij het toevoegen of verwijderen van gastheren."
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:18
 #: dashboards/identity/groups/templates/groups/_create.html:17
 #: dashboards/identity/groups/templates/groups/_update.html:17
-#: dashboards/identity/roles/templates/roles/_create.html:17
-#: dashboards/identity/roles/templates/roles/_update.html:17
+#: dashboards/identity/roles/templates/roles/_create.html:5
+#: dashboards/identity/roles/templates/roles/_update.html:5
 #: dashboards/identity/users/templates/users/_create.html:17
 #: dashboards/identity/users/templates/users/_update.html:17
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:18
@@ -966,8 +966,6 @@ msgstr ""
 #: dashboards/identity/groups/templates/groups/_add_non_member.html:8
 #: dashboards/identity/groups/templates/groups/_create.html:24
 #: dashboards/identity/groups/templates/groups/_update.html:24
-#: dashboards/identity/roles/templates/roles/_create.html:24
-#: dashboards/identity/roles/templates/roles/_update.html:24
 #: dashboards/identity/users/templates/users/_create.html:34
 #: dashboards/identity/users/templates/users/_update.html:34
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:43
@@ -5211,7 +5209,7 @@ msgstr "Niet in staat om de rol te creëren."
 msgid "Role updated successfully."
 msgstr "Rol is succesvol bijgewerkt."
 
-#: dashboards/identity/roles/forms.py:46 dashboards/identity/roles/views.py:65
+#: dashboards/identity/roles/forms.py:46 dashboards/identity/roles/views.py:69
 msgid "Unable to update role."
 msgstr "Niet in staat om de rol bij te werken."
 
@@ -5223,8 +5221,7 @@ msgid "Roles"
 msgstr "Rollen"
 
 #: dashboards/identity/roles/tables.py:25
-#: dashboards/identity/roles/templates/roles/_create.html:8
-#: dashboards/identity/roles/templates/roles/_create.html:23
+#: dashboards/identity/roles/views.py:86 dashboards/identity/roles/views.py:89
 #: dashboards/identity/roles/templates/roles/create.html:3
 #: dashboards/identity/roles/templates/roles/create.html:7
 msgid "Create Role"
@@ -5254,18 +5251,17 @@ msgstr "Niet in staat om de rollenlijst op te halen."
 msgid "Insufficient privilege level to view role information."
 msgstr ""
 
-#: dashboards/identity/roles/templates/roles/_create.html:18
-msgid "Create a new role."
-msgstr ""
-
-#: dashboards/identity/roles/templates/roles/_update.html:8
-#: dashboards/identity/roles/templates/roles/_update.html:23
+#: dashboards/identity/roles/views.py:55 dashboards/identity/roles/views.py:58
 #: dashboards/identity/roles/templates/roles/update.html:3
 #: dashboards/identity/roles/templates/roles/update.html:7
 msgid "Update Role"
 msgstr "Rol bijwerken"
 
-#: dashboards/identity/roles/templates/roles/_update.html:18
+#: dashboards/identity/roles/templates/roles/_create.html:6
+msgid "Create a new role."
+msgstr ""
+
+#: dashboards/identity/roles/templates/roles/_update.html:6
 msgid "Edit the role's details."
 msgstr ""
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-15 21:15-0600\n"
+"POT-Creation-Date: 2015-01-16 12:34-0600\n"
 "PO-Revision-Date: 2015-01-15 10:50+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
@@ -868,8 +868,8 @@ msgstr "加入或移除主機時出錯。"
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:18
 #: dashboards/identity/groups/templates/groups/_create.html:17
 #: dashboards/identity/groups/templates/groups/_update.html:17
-#: dashboards/identity/roles/templates/roles/_create.html:17
-#: dashboards/identity/roles/templates/roles/_update.html:17
+#: dashboards/identity/roles/templates/roles/_create.html:5
+#: dashboards/identity/roles/templates/roles/_update.html:5
 #: dashboards/identity/users/templates/users/_create.html:17
 #: dashboards/identity/users/templates/users/_update.html:17
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:18
@@ -963,8 +963,6 @@ msgstr "主機聚合以分組主機的方式劃分一個可用區域至邏輯單
 #: dashboards/identity/groups/templates/groups/_add_non_member.html:8
 #: dashboards/identity/groups/templates/groups/_create.html:24
 #: dashboards/identity/groups/templates/groups/_update.html:24
-#: dashboards/identity/roles/templates/roles/_create.html:24
-#: dashboards/identity/roles/templates/roles/_update.html:24
 #: dashboards/identity/users/templates/users/_create.html:34
 #: dashboards/identity/users/templates/users/_update.html:34
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:43
@@ -5174,7 +5172,7 @@ msgstr "無法新增角色。"
 msgid "Role updated successfully."
 msgstr "已成功更新角色。"
 
-#: dashboards/identity/roles/forms.py:46 dashboards/identity/roles/views.py:65
+#: dashboards/identity/roles/forms.py:46 dashboards/identity/roles/views.py:69
 msgid "Unable to update role."
 msgstr "無法更新角色。"
 
@@ -5186,8 +5184,7 @@ msgid "Roles"
 msgstr "角色"
 
 #: dashboards/identity/roles/tables.py:25
-#: dashboards/identity/roles/templates/roles/_create.html:8
-#: dashboards/identity/roles/templates/roles/_create.html:23
+#: dashboards/identity/roles/views.py:86 dashboards/identity/roles/views.py:89
 #: dashboards/identity/roles/templates/roles/create.html:3
 #: dashboards/identity/roles/templates/roles/create.html:7
 msgid "Create Role"
@@ -5215,18 +5212,17 @@ msgstr "無法取回角色列表。"
 msgid "Insufficient privilege level to view role information."
 msgstr "權限的等級不足以檢視角色資訊。"
 
-#: dashboards/identity/roles/templates/roles/_create.html:18
-msgid "Create a new role."
-msgstr "新增一個新的角色。"
-
-#: dashboards/identity/roles/templates/roles/_update.html:8
-#: dashboards/identity/roles/templates/roles/_update.html:23
+#: dashboards/identity/roles/views.py:55 dashboards/identity/roles/views.py:58
 #: dashboards/identity/roles/templates/roles/update.html:3
 #: dashboards/identity/roles/templates/roles/update.html:7
 msgid "Update Role"
 msgstr "更新角色"
 
-#: dashboards/identity/roles/templates/roles/_update.html:18
+#: dashboards/identity/roles/templates/roles/_create.html:6
+msgid "Create a new role."
+msgstr "新增一個新的角色。"
+
+#: dashboards/identity/roles/templates/roles/_update.html:6
 msgid "Edit the role's details."
 msgstr "編輯角色的詳細資訊。"
 

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-15 21:15-0600\n"
+"POT-Creation-Date: 2015-01-16 12:34-0600\n"
 "PO-Revision-Date: 2015-01-15 10:50+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
@@ -873,8 +873,8 @@ msgstr "Erreur pendant l'ajout ou la suppression d'hôtes."
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:18
 #: dashboards/identity/groups/templates/groups/_create.html:17
 #: dashboards/identity/groups/templates/groups/_update.html:17
-#: dashboards/identity/roles/templates/roles/_create.html:17
-#: dashboards/identity/roles/templates/roles/_update.html:17
+#: dashboards/identity/roles/templates/roles/_create.html:5
+#: dashboards/identity/roles/templates/roles/_update.html:5
 #: dashboards/identity/users/templates/users/_create.html:17
 #: dashboards/identity/users/templates/users/_update.html:17
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:18
@@ -968,8 +968,6 @@ msgstr "Les agrégats d'hôtes permettent de définir des zones logiques au sein
 #: dashboards/identity/groups/templates/groups/_add_non_member.html:8
 #: dashboards/identity/groups/templates/groups/_create.html:24
 #: dashboards/identity/groups/templates/groups/_update.html:24
-#: dashboards/identity/roles/templates/roles/_create.html:24
-#: dashboards/identity/roles/templates/roles/_update.html:24
 #: dashboards/identity/users/templates/users/_create.html:34
 #: dashboards/identity/users/templates/users/_update.html:34
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:43
@@ -5213,7 +5211,7 @@ msgstr "Impossible de créer le rôle."
 msgid "Role updated successfully."
 msgstr "Rôle mis à jour avec succès."
 
-#: dashboards/identity/roles/forms.py:46 dashboards/identity/roles/views.py:65
+#: dashboards/identity/roles/forms.py:46 dashboards/identity/roles/views.py:69
 msgid "Unable to update role."
 msgstr "Impossible de mettre à jour le rôle."
 
@@ -5225,8 +5223,7 @@ msgid "Roles"
 msgstr "Rôles"
 
 #: dashboards/identity/roles/tables.py:25
-#: dashboards/identity/roles/templates/roles/_create.html:8
-#: dashboards/identity/roles/templates/roles/_create.html:23
+#: dashboards/identity/roles/views.py:86 dashboards/identity/roles/views.py:89
 #: dashboards/identity/roles/templates/roles/create.html:3
 #: dashboards/identity/roles/templates/roles/create.html:7
 msgid "Create Role"
@@ -5256,18 +5253,17 @@ msgstr "Impossible de récupérer la liste des rôles."
 msgid "Insufficient privilege level to view role information."
 msgstr "Niveau de privilèges insuffisants pour voir les informations du rôle."
 
-#: dashboards/identity/roles/templates/roles/_create.html:18
-msgid "Create a new role."
-msgstr "Créer un nouveau rôle."
-
-#: dashboards/identity/roles/templates/roles/_update.html:8
-#: dashboards/identity/roles/templates/roles/_update.html:23
+#: dashboards/identity/roles/views.py:55 dashboards/identity/roles/views.py:58
 #: dashboards/identity/roles/templates/roles/update.html:3
 #: dashboards/identity/roles/templates/roles/update.html:7
 msgid "Update Role"
 msgstr "Mettre à jour le Rôle"
 
-#: dashboards/identity/roles/templates/roles/_update.html:18
+#: dashboards/identity/roles/templates/roles/_create.html:6
+msgid "Create a new role."
+msgstr "Créer un nouveau rôle."
+
+#: dashboards/identity/roles/templates/roles/_update.html:6
 msgid "Edit the role's details."
 msgstr "Éditer les détails du rôle."
 
