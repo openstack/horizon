@@ -39,12 +39,13 @@ class IndexView(tables.DataTableView):
 
     def get_data(self):
         groups = []
-        domain_context = self.request.session.get('domain_context', None)
+        domain_id = api.keystone.get_effective_domain_id(self.request)
+
         if policy.check((("identity", "identity:list_groups"),),
                         self.request):
             try:
                 groups = api.keystone.group_list(self.request,
-                                                 domain=domain_context)
+                                                 domain=domain_id)
             except Exception:
                 exceptions.handle(self.request,
                                   _('Unable to retrieve group list.'))
@@ -108,7 +109,9 @@ class GroupManageMixin(object):
     @memoized.memoized_method
     def _get_group_members(self):
         group_id = self.kwargs['group_id']
-        return api.keystone.user_list(self.request, group=group_id)
+        domain_id = api.keystone.get_effective_domain_id(self.request)
+        return api.keystone.user_list(self.request, domain=domain_id,
+                                      group=group_id)
 
     @memoized.memoized_method
     def _get_group_non_members(self):

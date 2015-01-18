@@ -50,7 +50,8 @@ class EditUserLink(policy.PolicyTargetMixin, tables.LinkAction):
     icon = "pencil"
     policy_rules = (("identity", "identity:update_user"),
                     ("identity", "identity:list_projects"),)
-    policy_target_attrs = (("user_id", "id"),)
+    policy_target_attrs = (("user_id", "id"),
+                           ("target.user.domain_id", "domain_id"),)
 
     def allowed(self, request, user):
         return api.keystone.keystone_can_edit_user()
@@ -103,7 +104,8 @@ class ToggleEnabled(policy.PolicyTargetMixin, tables.BatchAction):
         )
     classes = ("btn-toggle",)
     policy_rules = (("identity", "identity:update_user"),)
-    policy_target_attrs = (("user_id", "id"),)
+    policy_target_attrs = (("user_id", "id"),
+                           ("target.user.domain_id", "domain_id"))
 
     def allowed(self, request, user=None):
         if not api.keystone.keystone_can_edit_user():
@@ -137,7 +139,7 @@ class ToggleEnabled(policy.PolicyTargetMixin, tables.BatchAction):
             self.current_past_action = ENABLE
 
 
-class DeleteUsersAction(tables.DeleteAction):
+class DeleteUsersAction(policy.PolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
@@ -255,6 +257,18 @@ class UsersTable(tables.DataTable):
                             filters=(defaultfilters.yesno,
                                      defaultfilters.capfirst),
                             empty_value="False")
+
+    if api.keystone.VERSIONS.active >= 3:
+        domain_name = tables.Column(
+            'domain_name',
+            verbose_name=_('Domain Name'),
+            attrs={'data-type': 'uuid'})
+        enabled = tables.Column('enabled', verbose_name=_('Enabled'),
+                                status=True,
+                                status_choices=STATUS_CHOICES,
+                                filters=(defaultfilters.yesno,
+                                         defaultfilters.capfirst),
+                                empty_value="False")
 
     class Meta(object):
         name = "users"

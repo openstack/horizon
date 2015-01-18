@@ -36,6 +36,11 @@ def get_user_home(user):
     if dashboard is None:
         dashboard = horizon.get_default_dashboard()
 
+    # Domain Admin, Project Admin will default to identity
+    if (user.token.project.get('id') is None or
+            (user.is_superuser and user.token.project.get('id'))):
+        dashboard = horizon.get_dashboard('identity')
+
     return dashboard.get_absolute_url()
 
 

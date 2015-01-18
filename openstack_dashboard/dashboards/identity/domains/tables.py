@@ -39,9 +39,7 @@ class UpdateUsersLink(tables.LinkAction):
     verbose_name = _("Manage Members")
     url = "horizon:identity:domains:update"
     classes = ("ajax-modal",)
-    policy_rules = (("identity", "identity:list_users"),
-                    ("identity", "identity:list_roles"),
-                    ("identity", "identity:list_role_assignments"))
+    policy_rules = (("identity", "identity:update_domain"),)
 
     def get_link_url(self, domain):
         step = 'update_user_members'
@@ -56,6 +54,7 @@ class UpdateGroupsLink(tables.LinkAction):
     url = "horizon:identity:domains:update"
     classes = ("ajax-modal",)
     icon = "pencil"
+    policy_rules = (("identity", "identity:update_domain"),)
 
     def get_link_url(self, domain):
         step = 'update_group_members'
@@ -227,7 +226,7 @@ class SetDomainContext(tables.Action):
     verbose_name = _("Set Domain Context")
     url = constants.DOMAINS_INDEX_URL
     preempt = True
-    policy_rules = (('identity', 'admin_required'),)
+    policy_rules = (('identity', 'identity:update_domain'),)
 
     def allowed(self, request, datum):
         multidomain_support = getattr(settings,
@@ -262,7 +261,7 @@ class UnsetDomainContext(tables.Action):
     url = constants.DOMAINS_INDEX_URL
     preempt = True
     requires_input = False
-    policy_rules = (('identity', 'admin_required'),)
+    policy_rules = (('identity', 'identity:update_domain'),)
 
     def allowed(self, request, datum):
         ctx = request.session.get("domain_context", None)

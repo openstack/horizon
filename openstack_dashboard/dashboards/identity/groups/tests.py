@@ -65,11 +65,33 @@ class GroupsViewTests(test.BaseAdminViewTests):
         self.assertContains(res, 'Edit')
         self.assertContains(res, 'Delete Group')
 
+    @test.create_stubs({api.keystone: ('group_list',
+                                       'get_effective_domain_id')})
     def test_index_with_domain(self):
         domain = self.domains.get(id="1")
+
         self.setSessionValues(domain_context=domain.id,
                               domain_context_name=domain.name)
-        self.test_index()
+        groups = self._get_groups(domain.id)
+
+        api.keystone.get_effective_domain_id(IgnoreArg()).AndReturn(domain.id)
+
+        api.keystone.group_list(IsA(http.HttpRequest),
+                                domain=domain.id).AndReturn(groups)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(GROUPS_INDEX_URL)
+
+        self.assertTemplateUsed(res, constants.GROUPS_INDEX_VIEW_TEMPLATE)
+        self.assertItemsEqual(res.context['table'].data, groups)
+        if domain.id:
+            for group in res.context['table'].data:
+                self.assertItemsEqual(group.domain_id, domain.id)
+
+        self.assertContains(res, 'Create Group')
+        self.assertContains(res, 'Edit')
+        self.assertContains(res, 'Delete Group')
 
     @test.create_stubs({api.keystone: ('group_list',
                                        'keystone_can_edit_group')})
@@ -159,17 +181,27 @@ class GroupsViewTests(test.BaseAdminViewTests):
 
         self.assertRedirectsNoFollow(res, GROUPS_INDEX_URL)
 
-    @test.create_stubs({api.keystone: ('group_get',
+    @test.create_stubs({api.keystone: ('get_effective_domain_id',
+                                       'group_get',
                                        'user_list',)})
     def test_manage(self):
         group = self.groups.get(id="1")
         group_members = self.users.list()
+        domain_id = self._get_domain_id()
 
         api.keystone.group_get(IsA(http.HttpRequest), group.id).\
             AndReturn(group)
-        api.keystone.user_list(IgnoreArg(),
-                               group=group.id).\
-            AndReturn(group_members)
+
+        if api.keystone.VERSIONS.active >= 3:
+            api.keystone.get_effective_domain_id(
+                IgnoreArg()).AndReturn(domain_id)
+            api.keystone.user_list(
+                IgnoreArg(), group=group.id, domain=domain_id).AndReturn(
+                group_members)
+
+        else:
+            api.keystone.user_list(
+                IgnoreArg(), group=group.id).AndReturn(group_members)
         self.mox.ReplayAll()
 
         res = self.client.get(GROUP_MANAGE_URL)
@@ -177,15 +209,25 @@ class GroupsViewTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, constants.GROUPS_MANAGE_VIEW_TEMPLATE)
         self.assertItemsEqual(res.context['table'].data, group_members)
 
-    @test.create_stubs({api.keystone: ('user_list',
+    @test.create_stubs({api.keystone: ('get_effective_domain_id',
+                                       'user_list',
                                        'remove_group_user')})
     def test_remove_user(self):
         group = self.groups.get(id="1")
         user = self.users.get(id="2")
+        domain_id = self._get_domain_id()
 
-        api.keystone.user_list(IgnoreArg(),
-                               group=group.id).\
-            AndReturn(self.users.list())
+        if api.keystone.VERSIONS.active >= 3:
+            api.keystone.get_effective_domain_id(
+                IgnoreArg()).AndReturn(domain_id)
+
+            api.keystone.user_list(
+                IgnoreArg(), group=group.id, domain=domain_id).AndReturn(
+                self.users.list())
+        else:
+            api.keystone.user_list(
+                IgnoreArg(), group=group.id).AndReturn(self.users.list())
+
         api.keystone.remove_group_user(IgnoreArg(),
                                        group_id=group.id,
                                        user_id=user.id)
@@ -197,20 +239,24 @@ class GroupsViewTests(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res, GROUP_MANAGE_URL)
         self.assertMessageCount(success=1)
 
-    @test.create_stubs({api.keystone: ('group_get',
+    @test.create_stubs({api.keystone: ('get_effective_domain_id',
+                                       'group_get',
                                        'user_list',
                                        'add_group_user')})
     def test_add_user(self):
         group = self.groups.get(id="1")
         user = self.users.get(id="2")
+        domain_id = group.domain_id
+
+        api.keystone.get_effective_domain_id(IgnoreArg()).AndReturn(domain_id)
 
         api.keystone.group_get(IsA(http.HttpRequest), group.id).\
             AndReturn(group)
-        api.keystone.user_list(IgnoreArg(),
-                               domain=group.domain_id).\
+
+        api.keystone.user_list(IgnoreArg(), domain=domain_id).\
             AndReturn(self.users.list())
-        api.keystone.user_list(IgnoreArg(),
-                               group=group.id).\
+
+        api.keystone.user_list(IgnoreArg(), domain=domain_id, group=group.id).\
             AndReturn(self.users.list()[2:])
 
         api.keystone.add_group_user(IgnoreArg(),

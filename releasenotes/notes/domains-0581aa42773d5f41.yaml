@@ -1,0 +1,22 @@
+---
+features:
+  - Added support for managing domains and projects when using Keystone v3.
+    Horizon now maintains a domain scoped token for users who have a role on a
+    domain, a project scoped token for users who have a role on a project, or
+    both a domain scoped token and project scoped token for users who have
+    roles on both.
+  - |
+    Domain management supports the following use cases:
+
+    * Cloud Admin - View and manage identity resources across domains
+    * Domain Admin - View and manage identity resources in the domain logged in
+    * User - View identity project in the domain logged in
+
+other:
+  - |
+    Current limitations on managing identity resources with Keystone v3:
+
+    * Does not support role assignments across domains, such as giving a user
+      in domain1 access to domain2.
+    * Does not support project admins managing Keystone projects.
+    * Does not support hierarchical project management.

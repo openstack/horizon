@@ -62,6 +62,14 @@ class UpdateMembersLink(tables.LinkAction):
         param = urlencode({"step": step})
         return "?".join([base_url, param])
 
+    def allowed(self, request, project):
+        if api.keystone.is_multi_domain_enabled():
+            # domain admin or cloud admin = True
+            # project admin or member = False
+            return api.keystone.is_domain_admin(request)
+        else:
+            return super(UpdateMembersLink, self).allowed(request, project)
+
 
 class UpdateGroupsLink(tables.LinkAction):
     name = "groups"
@@ -72,7 +80,12 @@ class UpdateGroupsLink(tables.LinkAction):
     policy_rules = (("identity", "identity:list_groups"),)
 
     def allowed(self, request, project):
-        return api.keystone.VERSIONS.active >= 3
+        if api.keystone.is_multi_domain_enabled():
+            # domain admin or cloud admin = True
+            # project admin or member = False
+            return api.keystone.is_domain_admin(request)
+        else:
+            return super(UpdateGroupsLink, self).allowed(request, project)
 
     def get_link_url(self, project):
         step = 'update_group_members'
@@ -101,19 +114,30 @@ class CreateProject(tables.LinkAction):
     policy_rules = (('identity', 'identity:create_project'),)
 
     def allowed(self, request, project):
-        return api.keystone.keystone_can_edit_project()
+        if api.keystone.is_multi_domain_enabled():
+            # domain admin or cloud admin = True
+            # project admin or member = False
+            return api.keystone.is_domain_admin(request)
+        else:
+            return api.keystone.keystone_can_edit_project()
 
 
-class UpdateProject(tables.LinkAction):
+class UpdateProject(policy.PolicyTargetMixin, tables.LinkAction):
     name = "update"
     verbose_name = _("Edit Project")
     url = "horizon:identity:projects:update"
     classes = ("ajax-modal",)
     icon = "pencil"
     policy_rules = (('identity', 'identity:update_project'),)
+    policy_target_attrs = (("target.project.domain_id", "domain_id"),)
 
     def allowed(self, request, project):
-        return api.keystone.keystone_can_edit_project()
+        if api.keystone.is_multi_domain_enabled():
+            # domain admin or cloud admin = True
+            # project admin or member = False
+            return api.keystone.is_domain_admin(request)
+        else:
+            return api.keystone.keystone_can_edit_project()
 
 
 class ModifyQuotas(tables.LinkAction):
@@ -124,6 +148,12 @@ class ModifyQuotas(tables.LinkAction):
     icon = "pencil"
     policy_rules = (('compute', "compute_extension:quotas:update"),)
 
+    def allowed(self, request, datum):
+        if api.keystone.VERSIONS.active < 3:
+            return True
+        else:
+            return api.keystone.is_cloud_admin(request)
+
     def get_link_url(self, project):
         step = 'update_quotas'
         base_url = reverse(self.url, args=[project.id])
@@ -131,7 +161,7 @@ class ModifyQuotas(tables.LinkAction):
         return "?".join([base_url, param])
 
 
-class DeleteTenantsAction(tables.DeleteAction):
+class DeleteTenantsAction(policy.PolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
@@ -149,8 +179,12 @@ class DeleteTenantsAction(tables.DeleteAction):
         )
 
     policy_rules = (("identity", "identity:delete_project"),)
+    policy_target_attrs = ("target.project.domain_id", "domain_id"),
 
     def allowed(self, request, project):
+        if api.keystone.is_multi_domain_enabled() \
+                and not api.keystone.is_domain_admin(request):
+            return False
         return api.keystone.keystone_can_edit_project()
 
     def delete(self, request, obj_id):
@@ -237,6 +271,17 @@ class TenantsTable(tables.DataTable):
                                 label=_('Enabled'),
                                 required=False),
                             update_action=UpdateCell)
+
+    if api.keystone.VERSIONS.active >= 3:
+        domain_name = tables.Column(
+            'domain_name', verbose_name=_('Domain Name'))
+        enabled = tables.Column('enabled', verbose_name=_('Enabled'),
+                                status=True,
+                                filters=(filters.yesno, filters.capfirst),
+                                form_field=forms.BooleanField(
+                                    label=_('Enabled'),
+                                    required=False),
+                                update_action=UpdateCell)
 
     def get_project_detail_link(self, project):
         # this method is an ugly monkey patch, needed because

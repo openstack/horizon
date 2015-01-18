@@ -322,8 +322,16 @@ class UpdateDomain(workflows.Workflow, IdentityMixIn):
             users_roles = api.keystone.get_domain_users_roles(request,
                                                               domain=domain_id)
             users_to_modify = len(users_roles)
+            all_users = api.keystone.user_list(request,
+                                               domain=domain_id)
+            users_dict = {user.id: user.name for user in all_users}
 
             for user_id in users_roles.keys():
+                # Don't remove roles if the user isn't in the domain
+                if user_id not in users_dict:
+                    users_to_modify -= 1
+                    continue
+
                 # Check if there have been any changes in the roles of
                 # Existing domain members.
                 current_role_ids = list(users_roles[user_id])
@@ -484,7 +492,7 @@ class UpdateDomain(workflows.Workflow, IdentityMixIn):
         try:
             LOG.info('Updating domain with name "%s"' % data['name'])
             api.keystone.domain_update(request,
-                                       domain_id=domain_id,
+                                       domain_id,
                                        name=data['name'],
                                        description=data['description'],
                                        enabled=data['enabled'])

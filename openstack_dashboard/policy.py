@@ -40,7 +40,10 @@ class PolicyTargetMixin(object):
 
     policy_target_attrs = (("project_id", "tenant_id"),
                            ("user_id", "user_id"),
-                           ("domain_id", "domain_id"))
+                           ("domain_id", "domain_id"),
+                           ("target.project.domain_id", "domain_id"),
+                           ("target.user.domain_id", "domain_id"),
+                           ("target.group.domain_id", "domain_id"))
 
     def get_policy_target(self, request, datum=None):
         policy_target = {}
