@@ -422,13 +422,13 @@ class FilterAction(BaseAction):
         A string representing the name of the request parameter used for the
         search term. Default: ``"q"``.
 
-    .. attribute: filter_type
+    .. attribute:: filter_type
 
         A string representing the type of this filter. If this is set to
         ``"server"`` then ``filter_choices`` must also be provided.
         Default: ``"query"``.
 
-    .. attribute: filter_choices
+    .. attribute:: filter_choices
 
         Required for server type filters. A tuple of tuples representing the
         filter options. Tuple composition should evaluate to (string, string,
@@ -439,7 +439,7 @@ class FilterAction(BaseAction):
         type filters in general will need to be performed in the filter method.
         By default this attribute is not provided.
 
-    .. attribute: needs_preloading
+    .. attribute:: needs_preloading
 
         If True, the filter function will be called for the initial
         GET request with an empty ``filter_string``, regardless of the

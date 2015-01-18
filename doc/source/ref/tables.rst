@@ -81,6 +81,9 @@ Actions
 .. autoclass:: FilterAction
     :members:
 
+.. autoclass:: FixedFilterAction
+    :members:
+
 .. autoclass:: BatchAction
     :members:
 
