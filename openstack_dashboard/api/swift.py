@@ -18,7 +18,7 @@
 
 import logging
 
-from oslo.utils import timeutils
+from oslo_utils import timeutils
 import six.moves.urllib.parse as urlparse
 import swiftclient
 

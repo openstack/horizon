@@ -16,7 +16,7 @@ import logging
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.debug import sensitive_variables  # noqa
 
-from oslo.utils import strutils
+from oslo_utils import strutils
 import six
 
 from horizon import exceptions
