@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-16 12:34-0600\n"
-"PO-Revision-Date: 2015-01-15 10:50+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"PO-Revision-Date: 2015-01-18 12:10+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9565,7 +9565,7 @@ msgstr "スナップショットの作成"
 #: dashboards/project/images/templates/images/snapshots/_create.html:19
 msgid ""
 "A snapshot is an image which preserves the disk state of a running instance."
-msgstr ""
+msgstr "スナップショットは、実行中のインスタンスのディスク状態を保存したイメージです。"
 
 #: dashboards/project/images/templates/images/snapshots/create.html:6
 msgid "Create a Snapshot"
@@ -10840,12 +10840,12 @@ msgstr "%s インスタンス"
 #: dashboards/project/instances/workflows/create_instance.py:940
 #, python-format
 msgid "Unable to create port for profile \"%(profile_id)s\": %(reason)s"
-msgstr ""
+msgstr "プロファイル \"%(profile_id)s\" のポートを作成できません: %(reason)s"
 
 #: dashboards/project/instances/workflows/create_instance.py:950
 #, python-format
 msgid " Also failed to delete port %s"
-msgstr ""
+msgstr "ポート %s の削除にも失敗しました。"
 
 #: dashboards/project/instances/workflows/resize_instance.py:39
 msgid "Choose the flavor to launch."
@@ -13159,7 +13159,7 @@ msgid ""
 "Accepting a transfer requires obtaining the Transfer ID and Authorization "
 "Key from the donor.  This is equivalent to the <tt>cinder transfer-"
 "accept</tt> command."
-msgstr ""
+msgstr "ボリュームの所有権をあるプロジェクトから別のプリジェクトに譲渡することができます。譲渡を受理するには、譲渡元から譲渡 ID と認証キーを得る必要があります。これは <tt>cinder transfer-accept</tt> コマンドと同じです。"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_attach.html:10
 #: dashboards/project/volumes/templates/volumes/volumes/attach.html:3
@@ -13191,7 +13191,7 @@ msgid ""
 " volume transfer is created in a donor project, it then can be \"accepted\" "
 "by a recipient project. This is equivalent to the <tt>cinder transfer-"
 "create</tt> command."
-msgstr ""
+msgstr "ボリュームの所有権をあるプロジェクトから別のプロジェクトに譲渡することができます。いったんボリュームの譲渡が譲渡元のプロジェクトで作成されると、譲渡先のプロジェクトで「受理」できるようになります。これは <tt>cinder transfer-create</tt> コマンドと同じです。"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:4
 msgid "Volume Overview"
@@ -13222,7 +13222,7 @@ msgstr "ボリュームソース"
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:84
 #: dashboards/project/volumes/volumes/views.py:229
 msgid "Volume Transfer"
-msgstr ""
+msgstr "ボリュームの譲渡"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_extend.html:9
 #: dashboards/project/volumes/templates/volumes/volumes/_extend.html:24
@@ -13292,13 +13292,13 @@ msgid ""
 "The Transfer ID and the Authorization Key are needed by the recipient in "
 "order to accept the transfer. Please capture both the Transfer ID and the "
 "Authorization Key and provide them to your transfer recipient."
-msgstr ""
+msgstr "譲渡を受理するには、譲渡先で譲渡 ID と認証キーが必要です。譲渡 ID と認証キーを記録し、譲渡を受ける人に伝えてください。"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_show_transfer.html:7
 msgid ""
 "The Authorization Key will not be available after closing this page, so you "
 "must capture it now, or else you will be unable to use the transfer."
-msgstr ""
+msgstr "認証キーはこのページを閉じると参照できなくなるので、必ず今記録してください。さもないと、作成した譲渡を使えなくなります。"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_snapshot_limits.html:5
 msgid "From here you can create a snapshot of a volume."
@@ -13365,7 +13365,7 @@ msgstr "\nボリュームのステータスが \"In-Use\" の場合、ボリュ�
 #: dashboards/project/volumes/volumes/views.py:218
 #: dashboards/project/volumes/volumes/views.py:219
 msgid "Accept Volume Transfer"
-msgstr ""
+msgstr "ボリュームの譲渡の受理"
 
 #: dashboards/project/volumes/templates/volumes/volumes/create.html:6
 msgid "Create a Volume"
@@ -13379,16 +13379,16 @@ msgstr "ボリュームのスナップショットの作成"
 #: dashboards/project/volumes/volumes/views.py:198
 #: dashboards/project/volumes/volumes/views.py:199
 msgid "Create Volume Transfer"
-msgstr ""
+msgstr "ボリュームの譲渡の作成"
 
 #: dashboards/project/volumes/templates/volumes/volumes/create_transfer.html:6
 msgid "Create a Volume Transfer"
-msgstr ""
+msgstr "ボリュームの譲渡の作成"
 
 #: dashboards/project/volumes/templates/volumes/volumes/show_transfer.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/show_transfer.html:6
 msgid "Volume Transfer Details"
-msgstr ""
+msgstr "ボリュームの譲渡の詳細"
 
 #: dashboards/project/volumes/volumes/forms.py:60
 msgid "Use snapshot as a source"
@@ -13563,39 +13563,39 @@ msgstr "ボリュームのスナップショットを作成できません。"
 #: dashboards/project/volumes/volumes/forms.py:525
 #: dashboards/project/volumes/volumes/forms.py:567
 msgid "Transfer Name"
-msgstr ""
+msgstr "譲渡名"
 
 #: dashboards/project/volumes/volumes/forms.py:534
 #, python-format
 msgid "Created volume transfer: \"%s\"."
-msgstr ""
+msgstr "ボリュームの譲渡 \"%s\" を作成しました。"
 
 #: dashboards/project/volumes/volumes/forms.py:536
 msgid "Created volume transfer."
-msgstr ""
+msgstr "ボリュームの譲渡を作成しました。"
 
 #: dashboards/project/volumes/volumes/forms.py:543
 msgid "Unable to create volume transfer."
-msgstr ""
+msgstr "ボリュームの譲渡を作成できません。"
 
 #: dashboards/project/volumes/volumes/forms.py:548
 #: dashboards/project/volumes/volumes/forms.py:571
 msgid "Transfer ID"
-msgstr ""
+msgstr "譲渡 ID"
 
 #: dashboards/project/volumes/volumes/forms.py:549
 #: dashboards/project/volumes/volumes/forms.py:575
 msgid "Authorization Key"
-msgstr ""
+msgstr "認証キー"
 
 #: dashboards/project/volumes/volumes/forms.py:557
 #, python-format
 msgid "Successfully accepted volume transfer: \"%s\""
-msgstr ""
+msgstr "ボリュームの譲渡 \"%s\" を正常に受理しました。"
 
 #: dashboards/project/volumes/volumes/forms.py:562
 msgid "Unable to accept volume transfer."
-msgstr ""
+msgstr "ボリュームの譲渡を受理できません。"
 
 #: dashboards/project/volumes/volumes/forms.py:591
 #: dashboards/project/volumes/volumes/tables.py:408
@@ -13711,7 +13711,7 @@ msgstr "プロジェクトのリソース上限を取得できません。"
 
 #: dashboards/project/volumes/volumes/tables.py:192
 msgid "Create Transfer"
-msgstr ""
+msgstr "譲渡の作成"
 
 #: dashboards/project/volumes/volumes/tables.py:215
 msgid "Upload to Image"
@@ -13719,24 +13719,24 @@ msgstr "イメージにアップロード"
 
 #: dashboards/project/volumes/volumes/tables.py:255
 msgid "Accept Transfer"
-msgstr ""
+msgstr "譲渡の受理"
 
 #: dashboards/project/volumes/volumes/tables.py:273
 msgid "Cancel Transfer"
-msgstr ""
+msgstr "譲渡のキャンセル"
 
 #: dashboards/project/volumes/volumes/tables.py:286
 #, python-format
 msgid "Successfully deleted volume transfer \"%s\""
-msgstr ""
+msgstr "ボリュームの譲渡 \"%s\" を正常に削除しました。"
 
 #: dashboards/project/volumes/volumes/tables.py:289
 msgid "Successfully deleted volume transfer"
-msgstr ""
+msgstr "ボリュームの譲渡を正常に削除しました。"
 
 #: dashboards/project/volumes/volumes/tables.py:292
 msgid "Unable to delete volume transfer."
-msgstr ""
+msgstr "ボリュームの譲渡を削除できません。"
 
 #: dashboards/project/volumes/volumes/tables.py:317
 #: dashboards/project/volumes/volumes/views.py:319
@@ -13799,7 +13799,7 @@ msgstr "ボリューム \"%s\" のボリューム情報を取得できません�
 
 #: dashboards/project/volumes/volumes/views.py:242
 msgid "Unable to retrieve volume transfer."
-msgstr ""
+msgstr "ボリュームの譲渡を取得できません。"
 
 #: dashboards/project/volumes/volumes/views.py:270
 msgid "Unable to retrieve volume."
