@@ -301,7 +301,7 @@ to be shown per page if API pagination support for this exists.
 Default: ``None``
 
 A tuple of tuples which define multiple regions. The tuple format is
-``('http://{{keystone_host}}:5000/v2.0', '{{region_name}}')``. If any regions
+``('http://{{ keystone_host }}:5000/v2.0', '{{ region_name }}')``. If any regions
 are specified the login form will have a dropdown selector for authenticating
 to the appropriate region, and there will be a region switcher dropdown in
 the site header when logged in.

@@ -18,7 +18,7 @@
     <dt>{% trans "VIP" %}</dt>
     {% if pool.vip_id %}
       {% url 'horizon:project:loadbalancers:vipdetails' pool.vip_id as vip_url %}
-      <dd><a href="{{vip_url}}">{{ pool.vip.name_or_id }}</a></dd>
+      <dd><a href="{{ vip_url }}">{{ pool.vip.name_or_id }}</a></dd>
     {% else %}
       <dd>{% trans "-" %}</dd>
     {% endif %}
@@ -28,7 +28,7 @@
 
     <dt>{% trans "Subnet" %}</dt>
     {% url 'horizon:project:networks:subnets:detail' pool.subnet_id as subnet_url %}
-    <dd><a href="{{subnet_url}}">{{ pool.subnet.name_or_id }} {{pool.subnet.cidr}}</a></dd>
+    <dd><a href="{{ subnet_url }}">{{ pool.subnet.name_or_id }} {{ pool.subnet.cidr }}</a></dd>
 
     <dt>{% trans "Protocol" %}</dt>
     <dd>{{ pool.protocol }}</dd>
@@ -41,7 +41,7 @@
       {% if pool.members %}
       {% for member in pool.members %}
       {% url 'horizon:project:loadbalancers:memberdetails' member.id as member_url %}
-      <a href="{{member_url}}">{{member.address}}:{{member.protocol_port}}</a><br>
+      <a href="{{ member_url }}">{{ member.address }}:{{ member.protocol_port }}</a><br>
       {% endfor %}
       {% else %}
       <dd>{% trans "-" %}</dd>
@@ -53,7 +53,7 @@
       {% if pool.health_monitors %}
       {% for monitor in pool.health_monitors %}
       {% url 'horizon:project:loadbalancers:monitordetails' monitor.id as monitor_url %}
-      <a href="{{monitor_url}}">{{ monitor.display_name }}</a><br>
+      <a href="{{ monitor_url }}">{{ monitor.display_name }}</a><br>
       {% endfor %}
       {% else %}
       <dd>{% trans "-" %}</dd>

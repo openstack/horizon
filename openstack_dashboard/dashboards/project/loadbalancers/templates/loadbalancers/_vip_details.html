@@ -17,7 +17,7 @@
 
     <dt>{% trans "Subnet" %}</dt>
     {% url 'horizon:project:networks:subnets:detail' vip.subnet_id as subnet_url %}
-    <dd><a href="{{subnet_url}}">{{ vip.subnet.name_or_id }} {{ vip.subnet.cidr }}</a></dd>
+    <dd><a href="{{ subnet_url }}">{{ vip.subnet.name_or_id }} {{ vip.subnet.cidr }}</a></dd>
 
     <dt>{% trans "Address" %}</dt>
     <dd>{{ vip.address }}</dd>
@@ -30,11 +30,11 @@
 
     <dt>{% trans "Pool" %}</dt>
     {% url 'horizon:project:loadbalancers:pooldetails' vip.pool_id as pool_url %}
-    <dd><a href="{{pool_url}}">{{ vip.pool.name_or_id }}</a></dd>
+    <dd><a href="{{ pool_url }}">{{ vip.pool.name_or_id }}</a></dd>
 
     <dt>{% trans "Port ID" %}</dt>
     {% url 'horizon:project:networks:ports:detail' vip.port_id as port_url %}
-    <dd><a href="{{port_url}}">{{ vip.port_id }}</a></dd>
+    <dd><a href="{{ port_url }}">{{ vip.port_id }}</a></dd>
 
     <dt>{% trans "Session Persistence" %}</dt>
     {% if vip.session_persistence %}
