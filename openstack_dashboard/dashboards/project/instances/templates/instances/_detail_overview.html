@@ -72,7 +72,7 @@
         <dt>{{ network|title }}</dt>
         <dd>
           {% for ip in ip_list %}
-            {% if not forloop.last %}{{ ip.addr}},&nbsp;{% else %}{{ip.addr}}{% endif %}
+            {% if not forloop.last %}{{ ip.addr }},&nbsp;{% else %}{{ ip.addr }}{% endif %}
           {% endfor %}
         </dd>
       {% endfor %}

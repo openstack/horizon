@@ -260,25 +260,25 @@ class FiltersTests(test.TestCase):
 
     def test_parse_isotime_filter(self):
         c = django.template.Context({'time': ''})
-        t = django.template.Template('{{time|parse_isotime}}')
+        t = django.template.Template('{{ time|parse_isotime }}')
         output = u""
 
         self.assertEqual(output, t.render(c))
 
         c = django.template.Context({'time': 'error'})
-        t = django.template.Template('{{time|parse_isotime}}')
+        t = django.template.Template('{{ time|parse_isotime }}')
         output = u""
 
         self.assertEqual(output, t.render(c))
 
         c = django.template.Context({'time': 'error'})
-        t = django.template.Template('{{time|parse_isotime:"test"}}')
+        t = django.template.Template('{{ time|parse_isotime:"test" }}')
         output = u"test"
 
         self.assertEqual(output, t.render(c))
 
         c = django.template.Context({'time': '2007-03-04T21:08:12'})
-        t = django.template.Template('{{time|parse_isotime:"test"}}')
+        t = django.template.Template('{{ time|parse_isotime:"test" }}')
         output = u"March 4, 2007, 3:08 p.m."
 
         self.assertEqual(output, t.render(c))
@@ -294,41 +294,41 @@ class TimeSinceNeverFilterTests(test.TestCase):
 
     def test_timesince_or_never_returns_default_for_empty_string(self):
         c = django.template.Context({'time': ''})
-        t = django.template.Template('{{time|timesince_or_never}}')
+        t = django.template.Template('{{ time|timesince_or_never }}')
         self.assertEqual(self.default, t.render(c))
 
     def test_timesince_or_never_returns_default_for_none(self):
         c = django.template.Context({'time': None})
-        t = django.template.Template('{{time|timesince_or_never}}')
+        t = django.template.Template('{{ time|timesince_or_never }}')
         self.assertEqual(self.default, t.render(c))
 
     def test_timesince_or_never_returns_default_for_gibberish(self):
         c = django.template.Context({'time': django.template.Context()})
-        t = django.template.Template('{{time|timesince_or_never}}')
+        t = django.template.Template('{{ time|timesince_or_never }}')
         self.assertEqual(self.default, t.render(c))
 
     def test_timesince_or_never_returns_with_custom_default(self):
         custom = "Hello world"
         c = django.template.Context({'date': ''})
-        t = django.template.Template('{{date|timesince_or_never:"%s"}}'
+        t = django.template.Template('{{ date|timesince_or_never:"%s" }}'
                                      % custom)
         self.assertEqual(custom, t.render(c))
 
     def test_timesince_or_never_returns_with_custom_empty_string_default(self):
         c = django.template.Context({'date': ''})
-        t = django.template.Template('{{date|timesince_or_never:""}}')
+        t = django.template.Template('{{ date|timesince_or_never:"" }}')
         self.assertEqual("", t.render(c))
 
     def test_timesince_or_never_returns_same_output_as_django_date(self):
         d = datetime.date(year=2014, month=3, day=7)
         c = django.template.Context({'date': d})
-        t = django.template.Template('{{date|timesince_or_never}}')
+        t = django.template.Template('{{ date|timesince_or_never }}')
         self.assertEqual(defaultfilters.timesince(d), t.render(c))
 
     def test_timesince_or_never_returns_same_output_as_django_datetime(self):
         now = datetime.datetime.now()
         c = django.template.Context({'date': now})
-        t = django.template.Template('{{date|timesince_or_never}}')
+        t = django.template.Template('{{ date|timesince_or_never }}')
         self.assertEqual(defaultfilters.timesince(now), t.render(c))
 
 

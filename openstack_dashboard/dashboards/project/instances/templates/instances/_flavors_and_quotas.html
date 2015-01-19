@@ -40,8 +40,8 @@
 </div>
 
 <script type="text/javascript" charset="utf-8">
-  some_disabled_msg = '{{_("Some flavors not meeting minimum image requirements have been disabled.")|escapejs}}';
-  all_disabled_msg = '{{_("No flavors meet minimum criteria for selected image.")|escapejs}}';
+  some_disabled_msg = '{{_("Some flavors not meeting minimum image requirements have been disabled.")|escapejs }}';
+  all_disabled_msg = '{{_("No flavors meet minimum criteria for selected image.")|escapejs }}';
 
   if(typeof horizon.Quota !== 'undefined') {
     horizon.Quota.initWithFlavors({{ flavors|safe|default:"{}" }});

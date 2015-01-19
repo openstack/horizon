@@ -18,15 +18,15 @@
 
     <dt>{% trans "VPN Service" %}</dt>
     {% url 'horizon:project:vpn:vpnservicedetails' ipsecsiteconnection.vpnservice_id as vpnservice_url %}
-    <dd><a href="{{ vpnservice_url}}">{{ ipsecsiteconnection.vpnservice.name_or_id }}</a></dd>
+    <dd><a href="{{ vpnservice_url }}">{{ ipsecsiteconnection.vpnservice.name_or_id }}</a></dd>
 
     <dt>{% trans "IKE Policy" %}</dt>
     {% url 'horizon:project:vpn:ikepolicydetails' ipsecsiteconnection.ikepolicy_id as ikepolicy_url %}
-    <dd><a href="{{ ikepolicy_url}}">{{ ipsecsiteconnection.ikepolicy.name_or_id }}</a></dd>
+    <dd><a href="{{ ikepolicy_url }}">{{ ipsecsiteconnection.ikepolicy.name_or_id }}</a></dd>
 
     <dt>{% trans "IPSec Policy" %}</dt>
     {% url 'horizon:project:vpn:ipsecpolicydetails' ipsecsiteconnection.ipsecpolicy_id as ipsecpolicy_url %}
-    <dd><a href="{{ ipsecpolicy_url}}">{{ ipsecsiteconnection.ipsecpolicy.name_or_id }}</a></dd>
+    <dd><a href="{{ ipsecpolicy_url }}">{{ ipsecsiteconnection.ipsecpolicy.name_or_id }}</a></dd>
 
     <dt>{% trans "Peer gateway public IPv4/IPv6 Address or FQDN" %}</dt>
     <dd>{{ ipsecsiteconnection.peer_address }}</dd>

@@ -236,12 +236,12 @@ class JasmineTests(SeleniumTestCase):
 
     .. attribute:: sources
 
-        A list of JS source files (the {{STATIC_URL}} will be added
+        A list of JS source files (the {{ STATIC_URL }} will be added
         automatically, these are the source files tested
 
     .. attribute:: specs
 
-        A list of Jasmine JS spec files (the {{STATIC_URL}} will be added
+        A list of Jasmine JS spec files (the {{ STATIC_URL }} will be added
         automatically
 
     .. attribute:: template_name

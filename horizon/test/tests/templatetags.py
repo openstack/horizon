@@ -87,8 +87,8 @@ class TemplateTagTests(test.TestCase):
                       'val2': 'hellotrunc',
                       'val3': 'four'}
 
-        text = ('{{test.val1|truncate:1}}#{{test.val2|truncate:4}}#'
-                '{{test.val3|truncate:10}}')
+        text = ('{{ test.val1|truncate:1 }}#{{ test.val2|truncate:4 }}#'
+                '{{ test.val3|truncate:10 }}')
 
         expected = u' h#h...#four'
         rendered_str = self.render_template(tag_require='truncate_filter',
@@ -101,8 +101,8 @@ class TemplateTagTests(test.TestCase):
                       'val2': 1000,
                       'val3': float('inf')}
 
-        text = ('{{test.val1|quota:"TB"}}#{{test.val2|quota}}#'
-                '{{test.val3|quota}}')
+        text = ('{{ test.val1|quota:"TB" }}#{{ test.val2|quota }}#'
+                '{{ test.val3|quota }}')
 
         expected = u' 100 TB Available#1000 Available#No Limit'
 

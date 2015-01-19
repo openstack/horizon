@@ -19,7 +19,7 @@
   <p>{% block total %}{{ usages.maxTotalVolumes|quota|intcomma }}{% endblock %}</p>
 </div>
 
-<div id={% block type_id %}"quota_volumes"{% endblock %} data-progress-indicator-step-by="1" data-quota-limit={% block total_progress %}"{{ usages.maxTotalVolumes}}"{% endblock %} data-quota-used={% block used_progress %}"{{ usages.volumesUsed }}"{% endblock %} class="quota_bar">
+<div id={% block type_id %}"quota_volumes"{% endblock %} data-progress-indicator-step-by="1" data-quota-limit={% block total_progress %}"{{ usages.maxTotalVolumes }}"{% endblock %} data-quota-used={% block used_progress %}"{{ usages.volumesUsed }}"{% endblock %} class="quota_bar">
 </div>
 
 
