@@ -121,7 +121,7 @@
       {% for key, value in instance.metadata.items %}
         <dt>{{ key|force_escape }}</dt>
         <dd>{{ value|force_escape|default:default_item_value }}</dd>
-      {% endfor%}
+      {% endfor %}
       {% endwith %}
     </dl>
 </div>

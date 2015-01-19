@@ -30,7 +30,7 @@
     <dt>{% trans "Job Configuration" %}</dt>
     <dd>{% for group, vals in job_execution.job_configs.iteritems %}
         <ul><li><span style="font-weight:bold">{% blocktrans %}{{ group }}:{% endblocktrans %}</span>
-          {%if group == "args" %}
+          {% if group == "args" %}
             <ul>{% for val in vals %} <li>{{ val }}</li> {% endfor %}</ul>
           {% else %}
             <ul>{% for key, val in vals.iteritems %} <li>{{ key }} = {{ val }}</li> {% endfor %}</ul>

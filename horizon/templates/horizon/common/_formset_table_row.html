@@ -5,7 +5,7 @@
     {% if cell.field %}
       {{ cell.field }}
     {% else %}
-      {%if cell.wrap_list %}<ul>{% endif %}{{ cell.value }}{%if cell.wrap_list %}</ul>{% endif %}
+      {% if cell.wrap_list %}<ul>{% endif %}{{ cell.value }}{% if cell.wrap_list %}</ul>{% endif %}
     {% endif %}
     {% if forloop.first %}
       {% for field in row.form.hidden_fields %}

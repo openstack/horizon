@@ -3,7 +3,7 @@
 {% load url from future %}
 
 {% block form_id %}select_template{% endblock %}
-{% block form_action %}{% url 'horizon:project:stacks:change_template' stack.id%}{% endblock %}
+{% block form_action %}{% url 'horizon:project:stacks:change_template' stack.id %}{% endblock %}
 {% block form_attrs %}enctype="multipart/form-data"{% endblock %}
 
 {% block modal-header %}{% trans "Select Template" %}{% endblock %}

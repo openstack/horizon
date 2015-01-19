@@ -21,7 +21,7 @@
     {% endfor %}
 </div>
 {% endif %}
-{% if row_actions|length == 1%}
-  {% include "horizon/common/_data_table_row_action_dropdown.html" with action=row_actions.0%}
+{% if row_actions|length == 1 %}
+  {% include "horizon/common/_data_table_row_action_dropdown.html" with action=row_actions.0 %}
 {% endif %}
 {% endspaceless %}

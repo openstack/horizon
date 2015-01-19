@@ -3,7 +3,7 @@
 {% load url from future %}
 
 {% block form_id %}{% endblock %}
-{% block form_action %}{% url 'horizon:project:volumes:volumes:extend' volume.id%}{% endblock %}
+{% block form_action %}{% url 'horizon:project:volumes:volumes:extend' volume.id %}{% endblock %}
 
 {% block modal_id %}extend_volume_modal{% endblock %}
 {% block modal-header %}{% trans "Extend Volume" %}{% endblock %}
