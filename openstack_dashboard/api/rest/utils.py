@@ -19,7 +19,7 @@ from django.conf import settings
 from django import http
 from django.utils import decorators
 
-from oslo.serialization import jsonutils
+from oslo_serialization import jsonutils
 
 from horizon import exceptions
 
