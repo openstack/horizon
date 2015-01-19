@@ -25,7 +25,7 @@
         <td{{ cell.attr_string|safe }}>
             <div class="table_cell_wrapper">
                 <div class="table_cell_data_wrapper">
-                    {%if cell.wrap_list %}<ul>{% endif %}{{ cell.value }}{%if cell.wrap_list %}</ul>{% endif %}
+                    {% if cell.wrap_list %}<ul>{% endif %}{{ cell.value }}{% if cell.wrap_list %}</ul>{% endif %}
                 </div>
                 <div class="table_cell_action">
                     <button class="ajax-inline-edit"><span class="fa fa-pencil"></span></button>
@@ -34,6 +34,6 @@
             </div>
         </td>
     {% else %}
-        <td{{ cell.attr_string|safe }}>{%if cell.wrap_list %}<ul>{% endif %}{{ cell.value }}{%if cell.wrap_list %}</ul>{% endif %}</td>
+        <td{{ cell.attr_string|safe }}>{% if cell.wrap_list %}<ul>{% endif %}{{ cell.value }}{% if cell.wrap_list %}</ul>{% endif %}</td>
     {% endif %}
 {% endif %}
