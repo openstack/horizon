@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-24 15:19-0600\n"
-"PO-Revision-Date: 2015-01-04 17:01+0000\n"
-"Last-Translator: Łukasz Jernaś <deejay1@srem.org>\n"
+"POT-Creation-Date: 2015-01-19 17:45-0600\n"
+"PO-Revision-Date: 2015-01-19 15:20+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -79,7 +79,7 @@ msgid "Submit"
 msgstr "Wyślij"
 
 #: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:236
+#: templates/horizon/common/_modal_form_update_metadata.html:235
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "Anuluj"
@@ -87,7 +87,7 @@ msgstr "Anuluj"
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:33
 #: templates/horizon/common/_modal_form_update_metadata.html:28
-#: templates/horizon/common/_modal_form_update_metadata.html:98
+#: templates/horizon/common/_modal_form_update_metadata.html:97
 #: templates/horizon/common/_workflow_step_update_members.html:14
 #: templates/horizon/common/_workflow_step_update_members.html:23
 msgid "Filter"
@@ -105,7 +105,7 @@ msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:794 tables/base.py:1565
+#: tables/actions.py:794 tables/base.py:1570
 msgid "N/A"
 msgstr "n.d."
 
@@ -149,21 +149,21 @@ msgstr "-"
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "Atrybut %(attr)s nie istnieje dla %(obj)s."
 
-#: tables/base.py:985
+#: tables/base.py:990
 msgid "No items to display."
 msgstr "Brak pozycji do wyświetlenia."
 
-#: tables/base.py:1094
+#: tables/base.py:1099
 #: templates/horizon/common/_data_table_table_actions.html:47
 msgid "Actions"
 msgstr "Czynności"
 
-#: tables/base.py:1324
+#: tables/base.py:1329
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Nie znaleziono wyników dla identyfikatora „%s”."
 
-#: tables/base.py:1481
+#: tables/base.py:1486
 msgid "Please select a row before taking that action."
 msgstr "Należy wybrać wiersz przed wykonaniem tej czynności."
 
@@ -268,7 +268,6 @@ msgstr "Instancje"
 #: templates/horizon/common/_limit_summary.html:8
 #: templates/horizon/common/_limit_summary.html:15
 #: templates/horizon/common/_limit_summary.html:22
-#: templates/horizon/common/_limit_summary.html:29
 #: templates/horizon/common/_limit_summary.html:36
 #: templates/horizon/common/_limit_summary.html:43
 #: templates/horizon/common/_limit_summary.html:50
@@ -287,6 +286,11 @@ msgstr "RAM"
 #: templates/horizon/common/_limit_summary.html:28
 msgid "Floating IPs"
 msgstr "Pływające adresy IP"
+
+#: templates/horizon/common/_limit_summary.html:29
+#, python-format
+msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr ""
 
 #: templates/horizon/common/_limit_summary.html:35
 msgid "Security Groups"
@@ -318,16 +322,16 @@ msgstr "Dostępne metadane"
 msgid "Duplicate keys are not allowed"
 msgstr "Ponowne użycie nazwy klucza jest niedozwolone."
 
-#: templates/horizon/common/_modal_form_update_metadata.html:85
-#: templates/horizon/common/_modal_form_update_metadata.html:197
+#: templates/horizon/common/_modal_form_update_metadata.html:84
+#: templates/horizon/common/_modal_form_update_metadata.html:196
 msgid "No available metadata"
 msgstr "Metadane niedostępne"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:96
+#: templates/horizon/common/_modal_form_update_metadata.html:95
 msgid "Existing Metadata"
 msgstr "Istniejące metadane"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:213
+#: templates/horizon/common/_modal_form_update_metadata.html:212
 msgid ""
 "\n"
 "          You can specify resource metadata by moving items from the left\n"
@@ -337,7 +341,7 @@ msgid ""
 "        "
 msgstr "\nMożna podać metadane zasobów poprzez przesunięcie pozycji z lewej\nkolumny do prawej. W lewej kolumnie znajdują się definicje metadanych z Katalogu Metadanych Glance. W celu podania własnego klucza\nnależy wykorzystać opcję „Inne”."
 
-#: templates/horizon/common/_modal_form_update_metadata.html:235
+#: templates/horizon/common/_modal_form_update_metadata.html:234
 #: workflows/base.py:594
 msgid "Save"
 msgstr "Zapisz"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-03 20:48-0600\n"
-"PO-Revision-Date: 2014-12-04 03:01+0000\n"
+"POT-Creation-Date: 2015-01-19 17:45-0600\n"
+"PO-Revision-Date: 2015-01-19 15:20+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -36,16 +36,16 @@ msgstr "您沒有足夠的權限存取 %s"
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
 msgstr "一個名為「%(name)s」的 %(resource)s 已經存在。"
 
-#: exceptions.py:287
+#: exceptions.py:230
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "未授權：%s"
 
-#: exceptions.py:290
+#: exceptions.py:233
 msgid "Unauthorized. Please try logging in again."
 msgstr "未授權。請試著重新登入。"
 
-#: middleware.py:97
+#: middleware.py:103
 msgid "Session timed out."
 msgstr "連線階段過期。"
 
@@ -74,23 +74,22 @@ msgstr "無效的 IP 位址版本"
 msgid "Invalid subnet mask"
 msgstr "無效的子網路遮罩"
 
-#: forms/views.py:102 templates/horizon/common/_usage_summary.html:16
+#: forms/views.py:132 templates/horizon/common/_usage_summary.html:16
 msgid "Submit"
 msgstr "提交"
 
-#: forms/views.py:103
-#: templates/horizon/common/_modal_form_update_metadata.html:236
+#: forms/views.py:133
+#: templates/horizon/common/_modal_form_update_metadata.html:235
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "取消"
 
 #: tables/actions.py:460
-#: templates/horizon/common/_data_table_table_actions.html:16
-#: templates/horizon/common/_data_table_table_actions.html:26
+#: templates/horizon/common/_data_table_table_actions.html:33
 #: templates/horizon/common/_modal_form_update_metadata.html:28
-#: templates/horizon/common/_modal_form_update_metadata.html:98
-#: templates/horizon/common/_workflow_step_update_members.html:12
-#: templates/horizon/common/_workflow_step_update_members.html:21
+#: templates/horizon/common/_modal_form_update_metadata.html:97
+#: templates/horizon/common/_workflow_step_update_members.html:14
+#: templates/horizon/common/_workflow_step_update_members.html:23
 msgid "Filter"
 msgstr "篩選"
 
@@ -106,7 +105,7 @@ msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:794 tables/base.py:1565
+#: tables/actions.py:794 tables/base.py:1570
 msgid "N/A"
 msgstr "N/A"
 
@@ -150,21 +149,21 @@ msgstr "-"
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "%(obj)s 不存在 %(attr)s 屬性。"
 
-#: tables/base.py:985
+#: tables/base.py:990
 msgid "No items to display."
 msgstr "沒有項目可以列出。"
 
-#: tables/base.py:1094
-#: templates/horizon/common/_data_table_table_actions.html:40
+#: tables/base.py:1099
+#: templates/horizon/common/_data_table_table_actions.html:47
 msgid "Actions"
 msgstr "動作"
 
-#: tables/base.py:1324
+#: tables/base.py:1329
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "沒有符合識別號「%s」的結果。"
 
-#: tables/base.py:1481
+#: tables/base.py:1486
 msgid "Please select a row before taking that action."
 msgstr "執行動作前請選擇一個欄位。"
 
@@ -238,7 +237,7 @@ msgstr "&laquo;&nbsp;上一頁"
 msgid "Next&nbsp;&raquo;"
 msgstr "下一頁&nbsp;&raquo;"
 
-#: templates/horizon/common/_data_table_table_actions.html:38
+#: templates/horizon/common/_data_table_table_actions.html:45
 msgid "More Actions"
 msgstr "更多動作"
 
@@ -267,7 +266,6 @@ msgstr "執行實例"
 #: templates/horizon/common/_limit_summary.html:8
 #: templates/horizon/common/_limit_summary.html:15
 #: templates/horizon/common/_limit_summary.html:22
-#: templates/horizon/common/_limit_summary.html:29
 #: templates/horizon/common/_limit_summary.html:36
 #: templates/horizon/common/_limit_summary.html:43
 #: templates/horizon/common/_limit_summary.html:50
@@ -286,6 +284,11 @@ msgstr "隨機存取記憶體"
 #: templates/horizon/common/_limit_summary.html:28
 msgid "Floating IPs"
 msgstr "浮動 IP"
+
+#: templates/horizon/common/_limit_summary.html:29
+#, python-format
+msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr ""
 
 #: templates/horizon/common/_limit_summary.html:35
 msgid "Security Groups"
@@ -317,16 +320,16 @@ msgstr "可用的描述資料"
 msgid "Duplicate keys are not allowed"
 msgstr "不允許重覆的鍵"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:85
-#: templates/horizon/common/_modal_form_update_metadata.html:197
+#: templates/horizon/common/_modal_form_update_metadata.html:84
+#: templates/horizon/common/_modal_form_update_metadata.html:196
 msgid "No available metadata"
 msgstr "無可用的描述資料"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:96
+#: templates/horizon/common/_modal_form_update_metadata.html:95
 msgid "Existing Metadata"
 msgstr "存在的描述資料"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:213
+#: templates/horizon/common/_modal_form_update_metadata.html:212
 msgid ""
 "\n"
 "          You can specify resource metadata by moving items from the left\n"
@@ -336,7 +339,7 @@ msgid ""
 "        "
 msgstr "\n          您可以從左欄移動項目到右欄來指定資源的描述資料。\n          左欄有來自 Glance 描述資料類別的描述資料定義。\n          使用「其他」選項以使用您自選的鍵來加入描述資料。\n          "
 
-#: templates/horizon/common/_modal_form_update_metadata.html:235
+#: templates/horizon/common/_modal_form_update_metadata.html:234
 #: workflows/base.py:594
 msgid "Save"
 msgstr "儲存"

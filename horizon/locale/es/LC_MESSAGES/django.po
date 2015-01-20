@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-03 20:48-0600\n"
-"PO-Revision-Date: 2014-12-04 03:01+0000\n"
+"POT-Creation-Date: 2015-01-19 17:45-0600\n"
+"PO-Revision-Date: 2015-01-19 15:20+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -36,16 +36,16 @@ msgstr "No está autorizado para acceder a %s"
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
 msgstr "Un %(resource)s con el nombre \"%(name)s\" ya existe."
 
-#: exceptions.py:287
+#: exceptions.py:230
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "No autorizado: %s"
 
-#: exceptions.py:290
+#: exceptions.py:233
 msgid "Unauthorized. Please try logging in again."
 msgstr "No autorizado. Inicie sesión de nuevo."
 
-#: middleware.py:97
+#: middleware.py:103
 msgid "Session timed out."
 msgstr "La sesión ha expirado."
 
@@ -74,23 +74,22 @@ msgstr "Versión de dirección IP no válida"
 msgid "Invalid subnet mask"
 msgstr "Máscara de red no válida"
 
-#: forms/views.py:102 templates/horizon/common/_usage_summary.html:16
+#: forms/views.py:132 templates/horizon/common/_usage_summary.html:16
 msgid "Submit"
 msgstr "Enviar"
 
-#: forms/views.py:103
-#: templates/horizon/common/_modal_form_update_metadata.html:236
+#: forms/views.py:133
+#: templates/horizon/common/_modal_form_update_metadata.html:235
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "Cancelar "
 
 #: tables/actions.py:460
-#: templates/horizon/common/_data_table_table_actions.html:16
-#: templates/horizon/common/_data_table_table_actions.html:26
+#: templates/horizon/common/_data_table_table_actions.html:33
 #: templates/horizon/common/_modal_form_update_metadata.html:28
-#: templates/horizon/common/_modal_form_update_metadata.html:98
-#: templates/horizon/common/_workflow_step_update_members.html:12
-#: templates/horizon/common/_workflow_step_update_members.html:21
+#: templates/horizon/common/_modal_form_update_metadata.html:97
+#: templates/horizon/common/_workflow_step_update_members.html:14
+#: templates/horizon/common/_workflow_step_update_members.html:23
 msgid "Filter"
 msgstr "Filtrar"
 
@@ -106,7 +105,7 @@ msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:794 tables/base.py:1565
+#: tables/actions.py:794 tables/base.py:1570
 msgid "N/A"
 msgstr "N/A"
 
@@ -150,21 +149,21 @@ msgstr "-"
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "El atributo %(attr)s no existe en %(obj)s."
 
-#: tables/base.py:985
+#: tables/base.py:990
 msgid "No items to display."
 msgstr "No hay ítems que mostrar."
 
-#: tables/base.py:1094
-#: templates/horizon/common/_data_table_table_actions.html:40
+#: tables/base.py:1099
+#: templates/horizon/common/_data_table_table_actions.html:47
 msgid "Actions"
 msgstr "Acciones"
 
-#: tables/base.py:1324
+#: tables/base.py:1329
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "Ninguna coincidencia para el id \"%s\"."
 
-#: tables/base.py:1481
+#: tables/base.py:1486
 msgid "Please select a row before taking that action."
 msgstr "Seleccione una fila antes de realizar la acción."
 
@@ -239,7 +238,7 @@ msgstr "&laquo;&nbsp;Prev"
 msgid "Next&nbsp;&raquo;"
 msgstr "Siguiente&nbsp;&raquo;"
 
-#: templates/horizon/common/_data_table_table_actions.html:38
+#: templates/horizon/common/_data_table_table_actions.html:45
 msgid "More Actions"
 msgstr "Más acciones"
 
@@ -268,7 +267,6 @@ msgstr "Instancias"
 #: templates/horizon/common/_limit_summary.html:8
 #: templates/horizon/common/_limit_summary.html:15
 #: templates/horizon/common/_limit_summary.html:22
-#: templates/horizon/common/_limit_summary.html:29
 #: templates/horizon/common/_limit_summary.html:36
 #: templates/horizon/common/_limit_summary.html:43
 #: templates/horizon/common/_limit_summary.html:50
@@ -287,6 +285,11 @@ msgstr "RAM"
 #: templates/horizon/common/_limit_summary.html:28
 msgid "Floating IPs"
 msgstr "IPs flotantes"
+
+#: templates/horizon/common/_limit_summary.html:29
+#, python-format
+msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr ""
 
 #: templates/horizon/common/_limit_summary.html:35
 msgid "Security Groups"
@@ -318,16 +321,16 @@ msgstr "Metadatos disponibles"
 msgid "Duplicate keys are not allowed"
 msgstr "Las claves duplicadas no están permitidas"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:85
-#: templates/horizon/common/_modal_form_update_metadata.html:197
+#: templates/horizon/common/_modal_form_update_metadata.html:84
+#: templates/horizon/common/_modal_form_update_metadata.html:196
 msgid "No available metadata"
 msgstr "Metadatos no disponibles"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:96
+#: templates/horizon/common/_modal_form_update_metadata.html:95
 msgid "Existing Metadata"
 msgstr "Metadatos existentes"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:213
+#: templates/horizon/common/_modal_form_update_metadata.html:212
 msgid ""
 "\n"
 "          You can specify resource metadata by moving items from the left\n"
@@ -337,7 +340,7 @@ msgid ""
 "        "
 msgstr "\nPuede especificar los metadatos del recurso moviendo los ítems de la columna de la izquierda a la de la derecha. La columna de la izquierda contiene definiciones de metadatos del catálogo de metadatos de Glance. Utilizar la opción \"Otros\" para añadir metadatos con la clave que desee. "
 
-#: templates/horizon/common/_modal_form_update_metadata.html:235
+#: templates/horizon/common/_modal_form_update_metadata.html:234
 #: workflows/base.py:594
 msgid "Save"
 msgstr "Guardar"
