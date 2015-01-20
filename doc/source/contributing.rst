@@ -35,7 +35,7 @@ Second, you'll need to take care of a couple administrative tasks:
 #. Follow the `instructions for setting up git-review`_ in your
    development environment.
 
-Whew! Got that all that? Okay! You're good to go.
+Whew! Got all that? Okay! You're good to go.
 
 Ways To Contribute
 ------------------
