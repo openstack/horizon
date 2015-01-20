@@ -65,14 +65,6 @@
 }
 
 
-
-.site-client-roles{
-  @include make-sm-column(12, $gutter: $grid-gutter-width);
-  @include make-md-column(12, $gutter: $grid-gutter-width);
-  @include make-lg-column(12, $gutter: $grid-gutter-width);
-  padding: 25px 0 0px;
-  margin: 0 0 20px;
-}
 .site-client-roles{
   .list-group-item{
     min-height: 46px !important;
@@ -114,27 +106,23 @@
   }
 }
 
-.site-client-roles{
-  .data{
-    float: left;
+#role_list {
+  @include make-sm-column(5, $gutter: $grid-gutter-width);
+  @include make-md-column(5, $gutter: $grid-gutter-width);
+  @include make-lg-column(5, $gutter: $grid-gutter-width);
+  @media (max-width: $screen-sm-min){
+    padding-left: 0;
+    padding-right: 0;
   }
-  .btn-link{
-    float: right;
-    border: rgba(0, 0, 0, 0);
-    &:hover{
-      border: transparent;
-      color: $brand-secundary;
+  .role{
+    text-align: left;
+    i{
+      float: right;
+      margin-left: 5px;
     }
   }
-  .panel-title {
-    margin-bottom: 0;
-    text-align: right;
-    font-size: 15px;
-    padding-top: 10px;
-    color: inherit;
-    border-top: 1px solid #DDD;
-  }
 }
+
 #add_permission{
   .modal-content{
     padding: 10px 15px;
@@ -144,46 +132,18 @@
   }
 }
 
-.relation_list{
-  @include make-sm-column(5, $gutter: $grid-gutter-width);
-  @include make-md-column(5, $gutter: $grid-gutter-width);
-  @include make-lg-column(5, $gutter: $grid-gutter-width);
+#permissions_list{
+  @include make-sm-column(7, $gutter: $grid-gutter-width);
+  @include make-md-column(7, $gutter: $grid-gutter-width);
+  @include make-lg-column(7, $gutter: $grid-gutter-width);
   @media (max-width: $screen-sm-min){
     padding-left: 0;
     padding-right: 0;
   }
-  .btn-group-vertical{ 
-    label{
-      margin-bottom: 6px;
-      @include border-top-radius ($border-radius-base !important);
-      @include border-bottom-radius ($border-radius-base !important);
-      text-align: left;
-      i{
-        float: right;
-        margin-top: 2px;
-        margin-left: 4px;
-      }
-      i.fa-edit{
-        margin-top: 3px;
-      }
-      input{
-        &[type="text"]{
-          width: 94%;
-          background-color: #DDD;
-          border: none;
-        }
-      }
-    }
-    label.edit{
-      background-color: #DDD;
-    }
-    .active{
-      box-shadow: none;
-    }
-  }
 }
+
 .permissions_list,
-.relation_list{
+.role_list{
   header{
     min-height: 26px;
     h4{
@@ -249,31 +209,19 @@
 
 
 .permissions_list{
-  @include make-sm-column(6, $gutter: $grid-gutter-width);
-  @include make-md-column(6, $gutter: $grid-gutter-width);
-  @include make-lg-column(6, $gutter: $grid-gutter-width);
-  border-left: 1px solid $gray-light;
-  @media (max-width: $screen-sm-min){
-    border-left: none;
-    margin-top: 30px;
-    padding-left: 0;
-    padding-right: 0;
-  }
   .alert{
     margin-top: 10px;
   }
   li{
     background-color: $gray-lighter;
-    color: #5B5B5F;
+    color: #C5C5C5;
     white-space: nowrap;
-    padding: 7px 10px;
-    background-color: #B3B3B3;
     &:first-child{
       border-top: none;
     }
     &:hover{
       text-decoration: none;
-      background-color: #D8D8D8;
+      background-color: $gray-lighter;
     }
     i{
       margin-right: 5px;
@@ -288,12 +236,14 @@
     color: $text-color;
     i{
       @include opacity (1);
+      color: $brand-primary;
     }
     &:hover{
       text-decoration: none;
       background-color: #ECECEC;
       color: $text-color;
-      border: transparent;
+      border-bottom: 1px solid transparent;
+      border-top: 1px solid transparent;
     }
   }
   hr{
@@ -302,6 +252,7 @@
     border-top: 1px solid $gray !important;
   } 
 }
+
 #collapse_oauth2_credentials {
   .btn-link{
     margin-top: -6px;
