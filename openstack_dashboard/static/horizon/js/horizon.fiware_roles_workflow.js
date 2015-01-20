@@ -342,7 +342,23 @@ horizon.fiware_roles_workflow = {
     },
     render_form: function(role_div_element) {
       console.log('render')
+      var template = horizon.templates.compiled_templates["#inline_edit_form_template"],
+        params = {
+        },
+        form_el = $(template.render(params)),
+        parent = $(role_div_element).parent();
+
+      $(role_div_element).hide();
+      parent.append($(form_el));
     },
+    render_role: function(current_name) {
+      var role_div_element = horizon.fiware_roles_workflow.inline_edit_role.cached_role
+      $(role_div_element).children('input').text = current_name
+      // remove form template
+
+      // show role element
+      $(role_div_element).show();
+    }
 
   },
   /*
