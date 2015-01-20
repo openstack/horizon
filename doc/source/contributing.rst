@@ -329,13 +329,28 @@ Required
   * Write-only in controllers.
 * Since Django already uses ``{{ }}``, use ``{$ $}`` or ``{% verbatim %}``
   instead.
+* For localization in JavaScript files use either ``gettext`` or ``ngettext``.
+  Only those two methods are recognized by our tools and will be included in
+  the .po file after running ``./run_tests --makemessages``.
+
+  .. code ::
+
+    // recognized
+    gettext("translatable text");
+    ngettext("translatable text");
+
+    // not recognized
+    var _ = gettext;
+    _('translatable text');
+
+    $window.gettext('translatable text');
+
 * For localization of AngularJS templates in Horizon, there are a couple of
   ways to do it.
 
   * Using ``gettext`` or ``ngettext`` function that is passed from server to
-    client.  However, this depends on the catalog object that is also passed
-    from server to client. If you're only translating a few things, this
-    methodology is ok to use.
+    client.  If you're only translating a few things, this methodology is ok
+    to use.
 
   * Use an Angular directive that will fetch a django template instead of a
     static HTML file. The advantage here is that you can now use
