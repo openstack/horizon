@@ -17,7 +17,7 @@ import os
 import random
 import string
 
-import lockfile
+from oslo_concurrency import lockutils
 
 
 class FilePermissionError(Exception):
@@ -48,7 +48,9 @@ def generate_or_read_from_file(key_file='.secret_key', key_length=64):
     environment).  Also checks if file permissions are set correctly and
     throws an exception if not.
     """
-    lock = lockfile.FileLock(key_file)
+    abspath = os.path.abspath(key_file)
+    lock = lockutils.external_lock(key_file + ".lock",
+                                   lock_path=os.path.dirname(abspath))
     with lock:
         if not os.path.exists(key_file):
             key = generate_key(key_length)
