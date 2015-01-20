@@ -16,7 +16,7 @@
 <div>
 	<img id="avatar-update" src="{{ image }}" alt="your image"   />
 </div>
-{% elif form.title == ' ' %}
+{% elif form.title == 'Cancel' %}
 <a class="modal-header panel-title" data-toggle="collapse" data-parent="#accordion" href="#destroy_application" class="panel-heading">
     <h3>
       Are you sure you want to delete the application?
@@ -35,7 +35,7 @@
 
 
 {% block modal-footer %}
-{% if form.title == ' '%}
+{% if form.title == 'Cancel'%}
 <div id="destroy_application" class="panel-collapse collapse">
 
     

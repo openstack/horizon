@@ -59,8 +59,8 @@ class CreateApplicationForm(forms.SelfHandlingForm):
             except Exception:
                 exceptions.handle(request, _('Unable to register the application.'))
                 return False
-            
-            response = shortcuts.redirect('horizon:idm:myApplications:avatar', application.id)
+            response = shortcuts.redirect('horizon:idm:myApplications:avatar_step', application.id)
+
 
         else:
             try:
