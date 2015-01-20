@@ -323,7 +323,28 @@ horizon.fiware_roles_workflow = {
       horizon.fiware_roles_workflow.update_role_permission_list(step_slug, data_id);
     });
   },
+  /*
+   * Inline edit for roles
+   */
+  inline_edit_role: {
+    init: function(step_slug) {
+      $("#" + step_slug + "_roles").on('click', '.fa-edit', function (evt) {
+        console.log('edit')
+        //var data_id = $(this).siblings('input').attr("data-" + step_slug + "-id");
+        //console.log('data_id:'+data_id)
+        // TODO(garcianavalon) rename it, its a label...
+        var role_div_element = $(this).parent();
+        // save the element for later use
+        horizon.fiware_roles_workflow.inline_edit_role.cached_role = role_div_element;
+        // client_template
+        horizon.fiware_roles_workflow.inline_edit_role.render_form(role_div_element)
+      });
+    },
+    render_form: function(role_div_element) {
+      console.log('render')
+    },
 
+  },
   /*
    * Triggers on the addition of a new member via the inline object creation field.
    **/
@@ -375,7 +396,7 @@ horizon.fiware_roles_workflow = {
       horizon.fiware_roles_workflow.show_role_permissions(step_slug);
       horizon.fiware_roles_workflow.select_role_permission(step_slug);
       //horizon.fiware_roles_workflow.add_new_member(step_slug);
-
+      horizon.fiware_roles_workflow.inline_edit_role.init(step_slug);
 
       // initially hide permissions list
       $form.find("#" +  step_slug + "_permissions").hide();
