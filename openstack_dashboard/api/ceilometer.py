@@ -752,6 +752,7 @@ class Meters(object):
         self._cinder_meters_info = self._get_cinder_meters_info()
         self._swift_meters_info = self._get_swift_meters_info()
         self._kwapi_meters_info = self._get_kwapi_meters_info()
+        self._ipmi_meters_info = self._get_ipmi_meters_info()
 
         # Storing the meters info of all services together.
         all_services_meters = (self._nova_meters_info,
@@ -759,7 +760,8 @@ class Meters(object):
                                self._glance_meters_info,
                                self._cinder_meters_info,
                                self._swift_meters_info,
-                               self._kwapi_meters_info)
+                               self._kwapi_meters_info,
+                               self._ipmi_meters_info)
         self._all_meters_info = {}
         for service_meters in all_services_meters:
             self._all_meters_info.update(dict([(meter_name, meter_info)
@@ -839,6 +841,16 @@ class Meters(object):
         """
 
         return self._list(only_meters=self._kwapi_meters_info.keys(),
+                          except_meters=except_meters)
+
+    def list_ipmi(self, except_meters=None):
+        """Returns a list of meters tied to ipmi
+
+        :Parameters:
+          - `except_meters`: The list of meter names we don't want to show
+        """
+
+        return self._list(only_meters=self._ipmi_meters_info.keys(),
                           except_meters=except_meters)
 
     def _list(self, only_meters=None, except_meters=None):
@@ -1232,5 +1244,42 @@ class Meters(object):
             ('power', {
                 'label': '',
                 'description': _("Power consumption"),
+            }),
+        ])
+
+    def _get_ipmi_meters_info(self):
+        """Returns additional info for each meter
+
+        That will be used for augmenting the Ceilometer meter
+        """
+
+        # TODO(lsmola) Unless the Ceilometer will provide the information
+        # below, I need to define it as a static here. I will be joining this
+        # to info that I am able to obtain from Ceilometer meters, hopefully
+        # some day it will be supported all.
+        return datastructures.SortedDict([
+            ('hardware.ipmi.node.power', {
+                'label': '',
+                'description': _("System Current Power"),
+            }),
+            ('hardware.ipmi.node.temperature', {
+                'label': '',
+                'description': _("System Current Temperature"),
+            }),
+            ('hardware.ipmi.fan', {
+                'label': '',
+                'description': _("Fan RPM"),
+            }),
+            ('hardware.ipmi.temperature', {
+                'label': '',
+                'description': _("Sensor Temperature Reading"),
+            }),
+            ('hardware.ipmi.current', {
+                'label': '',
+                'description': _("Sensor Current Reading"),
+            }),
+            ('hardware.ipmi.voltage', {
+                'label': '',
+                'description': _("Sensor Voltage Reading"),
             }),
         ])

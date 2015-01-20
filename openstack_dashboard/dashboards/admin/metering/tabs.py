@@ -45,6 +45,7 @@ class GlobalStatsTab(tabs.TableTab):
             'cinder_meters': meters.list_cinder(),
             'swift_meters': meters.list_swift(),
             'kwapi_meters': meters.list_kwapi(),
+            'ipmi_meters': meters.list_ipmi(),
         }
 
         return context
@@ -65,6 +66,7 @@ class UsageReportTab(tabs.TableTab):
             _('Cinder'): meters.list_cinder(),
             _('Swift_meters'): meters.list_swift(),
             _('Kwapi'): meters.list_kwapi(),
+            _('IPMI'): meters.list_ipmi(),
         }
         report_rows = []
 

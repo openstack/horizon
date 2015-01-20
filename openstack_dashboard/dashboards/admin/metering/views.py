@@ -219,6 +219,7 @@ def load_report_data(request):
         _('Cinder'): meters.list_cinder(),
         _('Swift_meters'): meters.list_swift(),
         _('Kwapi'): meters.list_kwapi(),
+        _('IPMI'): meters.list_ipmi(),
     }
     project_rows = {}
     date_options = request.GET.get('date_options', 7)
