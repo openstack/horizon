@@ -85,6 +85,7 @@ class RolesView(workflows.WorkflowView):
         initial['application_id'] = application_id
 
         return initial
+        
 # # NOTE(garcianavalon) from horizon.forms.views
 # ADD_TO_FIELD_HEADER = "HTTP_X_HORIZON_ADD_TO_FIELD"
 # class RolesView(tables.MultiTableView):
