@@ -375,8 +375,8 @@ the entire list.
 
 Default: ``None``
 
-A list of dictionaries to add optional categories to the image filters
-in the Images & Snapshots panel, based on project ownership.
+A list of dictionaries to add optional categories to the image fixed filters
+in the Images panel, based on project ownership.
 
 Each dictionary should contain a `tenant` attribute with the project
 id, and optionally a `text` attribute specifying the category name, and
@@ -384,6 +384,12 @@ an `icon` attribute that displays an icon in the filter button. The
 icon names are based on the default icon theme provided by Bootstrap.
 
 Example: ``[{'text': 'Official', 'tenant': '27d0058849da47c896d205e2fc25a5e8', 'icon': 'icon-ok'}]``
+
+.. note::
+
+    Since the Kilo release, the Bootstrap icon library (e.g. 'icon-ok') has
+    been replaced with Font Awesome (e.g. 'fa-check').
+
 
 ``IMAGE_RESERVED_CUSTOM_PROPERTIES``
 ------------------------------------

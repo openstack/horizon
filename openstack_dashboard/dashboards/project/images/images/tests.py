@@ -318,7 +318,7 @@ class OwnerFilterTests(test.TestCase):
 
     @override_settings(IMAGES_LIST_FILTER_TENANTS=[{'name': 'Official',
                                                     'tenant': 'officialtenant',
-                                                    'icon': 'icon-ok'}])
+                                                    'icon': 'fa-check'}])
     def test_filter(self):
         self.mox.ReplayAll()
         all_images = self.images.list()
