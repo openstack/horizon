@@ -32,7 +32,7 @@ LOG = logging.getLogger('idm_logger')
 AVATAR = settings.MEDIA_ROOT+"/"+"ApplicationAvatar/"
 
 class CreateApplicationForm(forms.SelfHandlingForm):
-    appID = forms.CharField(label=_("ID"), widget=forms.HiddenInput(), required=False)
+    appID = forms.CharField(widget=forms.HiddenInput(), required=False)
     redirect_to = forms.CharField(widget=forms.HiddenInput(), required=False)
     name = forms.CharField(label=_("Name"), required=True)
     description = forms.CharField(label=_("Description"), 
@@ -84,7 +84,7 @@ class CreateApplicationForm(forms.SelfHandlingForm):
         return response
     
 class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
-    appID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
+    appID = forms.CharField(widget=forms.HiddenInput())
     image = forms.ImageField(required=False)
     redirect_to = forms.CharField(widget=forms.HiddenInput(), required=False)
     title = 'Avatar Update'
@@ -114,13 +114,15 @@ class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
 
 class CreateRoleForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255, label=_("Role Name"))
-    no_autocomplete = True
+    application_id = forms.CharField(required=True,
+                                 widget=forms.HiddenInput())
 
     def handle(self, request, data):
         try:
             LOG.info('Creating role with name "%s"' % data['name'])
             new_role = fiware_api.keystone.role_create(request,
-                                                name=data['name'])
+                                            name=data['name'],
+                                            application=data['application_id'])
             messages.success(request,
                              _('Role "%s" was successfully created.')
                              % data['name'])
@@ -130,20 +132,19 @@ class CreateRoleForm(forms.SelfHandlingForm):
 
 
 class CreatePermissionForm(forms.SelfHandlingForm):
-    # application_id = forms.CharField(label=_("Domain ID"),
-    #                             required=True,
-    #                             widget=forms.HiddenInput())
+    application_id = forms.CharField(required=True,
+                                 widget=forms.HiddenInput())
     name = forms.CharField(max_length=255, label=_("Permission Name"))
     description = forms.CharField(max_length=255, label=_("Description"))
     actions = forms.CharField(max_length=255, label=_("HTTP actions"))
     resource = forms.CharField(max_length=255, label=_("Resource"))
-    no_autocomplete = True
 
     def handle(self, request, data):
         try:
             LOG.info('Creating permission with name "%s"' % data['name'])
             new_permission = fiware_api.keystone.permission_create(request,
-                                                name=data['name'])
+                                            name=data['name'],
+                                            application=data['application_id'])
             messages.success(request,
                              _('Permission "%s" was successfully created.')
                              % data['name'])

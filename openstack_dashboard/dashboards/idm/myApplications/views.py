@@ -79,12 +79,10 @@ class AvatarStepView(forms.ModalFormView):
 class RolesView(workflows.WorkflowView):
     workflow_class = application_workflows.ManageApplicationRoles
     template_name = 'idm/myApplications/roles/_workflow_base.html'
+
     def get_initial(self):
         initial = super(RolesView, self).get_initial()
-
-        application_id = self.kwargs['application_id']
-        initial['application_id'] = application_id
-
+        initial['application_id'] = self.kwargs['application_id']
         return initial
 
 
@@ -102,19 +100,30 @@ class CreateRoleView(forms.ModalFormView):
         context['application_id'] = self.kwargs['application_id']
         return context
 
+    def get_initial(self):
+        initial = super(CreateRoleView, self).get_initial()
+        initial['application_id'] = self.kwargs['application_id']
+        return initial
+
+
 class CreatePermissionView(forms.ModalFormView):
     form_class = application_forms.CreatePermissionForm
     template_name = 'idm/myApplications/roles/permission_create.html'
     success_url = 'horizon:idm:myApplications:roles_index'
 
     def get_context_data(self, **kwargs):
-        context = super(CreateRoleView, self).get_context_data(**kwargs)
+        context = super(CreatePermissionView, self).get_context_data(**kwargs)
         context['application_id'] = self.kwargs['application_id']
         return context
 
     def get_success_url(self):
         return reverse(self.success_url, 
                 kwargs={'application_id': self.kwargs['application_id']})
+
+    def get_initial(self):
+        initial = super(CreatePermissionView, self).get_initial()
+        initial['application_id'] = self.kwargs['application_id']
+        return initial
 
 
 class DetailApplicationView(TemplateView):
