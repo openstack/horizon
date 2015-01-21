@@ -137,6 +137,9 @@ class CreatePermissionForm(forms.SelfHandlingForm):
     #                             required=True,
     #                             widget=forms.HiddenInput())
     name = forms.CharField(max_length=255, label=_("Permission Name"))
+    description = forms.CharField(max_length=255, label=_("Description"))
+    actions = forms.CharField(max_length=255, label=_("HTTP actions"))
+    resource = forms.CharField(max_length=255, label=_("Resource"))
     no_autocomplete = True
 
     def handle(self, request, data):

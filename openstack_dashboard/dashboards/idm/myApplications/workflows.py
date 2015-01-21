@@ -42,7 +42,8 @@ class UpdateApplicationRolesAction(workflows.MembershipAction):
                                                          **kwargs)
         err_msg = _('Unable to retrieve role list. Please try again later.')
         application_id = self.initial['application_id']
-
+        # Save the application_id for use in template
+        self.application_id = application_id
 
         # Get list of available roles
         try:
@@ -110,6 +111,7 @@ class UpdateApplicationRolesAction(workflows.MembershipAction):
 
     def get_member_field_name(self, permission_id):
         return self.slug + "_permission_" + permission_id
+
 
     class Meta:
         name = _("Application roles")

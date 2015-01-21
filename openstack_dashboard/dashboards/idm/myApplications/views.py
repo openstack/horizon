@@ -85,6 +85,7 @@ class RolesView(workflows.WorkflowView):
         initial['application_id'] = application_id
 
         return initial
+        
 # # NOTE(garcianavalon) from horizon.forms.views
 # ADD_TO_FIELD_HEADER = "HTTP_X_HORIZON_ADD_TO_FIELD"
 # class RolesView(tables.MultiTableView):
@@ -125,15 +126,15 @@ class RolesView(workflows.WorkflowView):
 #         context['permissions_add_to_field'] = 'permissions'
 #         return context
 
-# class CreateRoleView(forms.ModalFormView):
-#     form_class = application_forms.CreateRoleForm
-#     template_name = 'idm/myApplications/role_create.html'
-#     success_url = reverse_lazy('horizon:idm:myApplications:roles_index')
+class CreateRoleView(forms.ModalFormView):
+    form_class = application_forms.CreateRoleForm
+    template_name = 'idm/myApplications/roles/role_create.html'
+    success_url = "reverse_lazy('horizon:idm:myApplications:roles_index')"
 
-# class CreatePermissionView(forms.ModalFormView):
-#     form_class = application_forms.CreatePermissionForm
-#     template_name = 'idm/myApplications/permission_create.html'
-#     success_url = reverse_lazy('horizon:idm:myApplications:roles_index')
+class CreatePermissionView(forms.ModalFormView):
+    form_class = application_forms.CreatePermissionForm
+    template_name = 'idm/myApplications/roles/permission_create.html'
+    success_url = "reverse_lazy('horizon:idm:myApplications:roles_index')"
 
 
 class DetailApplicationView(TemplateView):

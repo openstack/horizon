@@ -323,7 +323,44 @@ horizon.fiware_roles_workflow = {
       horizon.fiware_roles_workflow.update_role_permission_list(step_slug, data_id);
     });
   },
+  /*
+   * Inline edit for roles
+   */
+  inline_edit_role: {
+    init: function(step_slug) {
+      $("#" + step_slug + "_roles").on('click', '.fa-edit', function (evt) {
+        console.log('edit')
+        //var data_id = $(this).siblings('input').attr("data-" + step_slug + "-id");
+        //console.log('data_id:'+data_id)
+        // TODO(garcianavalon) rename it, its a label...
+        var role_div_element = $(this).parent();
+        // save the element for later use
+        horizon.fiware_roles_workflow.inline_edit_role.cached_role = role_div_element;
+        // client_template
+        horizon.fiware_roles_workflow.inline_edit_role.render_form(role_div_element)
+      });
+    },
+    render_form: function(role_div_element) {
+      console.log('render')
+      var template = horizon.templates.compiled_templates["#inline_edit_form_template"],
+        params = {
+        },
+        form_el = $(template.render(params)),
+        parent = $(role_div_element).parent();
 
+      $(role_div_element).hide();
+      parent.append($(form_el));
+    },
+    render_role: function(current_name) {
+      var role_div_element = horizon.fiware_roles_workflow.inline_edit_role.cached_role
+      $(role_div_element).children('input').text = current_name
+      // remove form template
+
+      // show role element
+      $(role_div_element).show();
+    }
+
+  },
   /*
    * Triggers on the addition of a new member via the inline object creation field.
    **/
@@ -375,7 +412,7 @@ horizon.fiware_roles_workflow = {
       horizon.fiware_roles_workflow.show_role_permissions(step_slug);
       horizon.fiware_roles_workflow.select_role_permission(step_slug);
       //horizon.fiware_roles_workflow.add_new_member(step_slug);
-
+      horizon.fiware_roles_workflow.inline_edit_role.init(step_slug);
 
       // initially hide permissions list
       $form.find("#" +  step_slug + "_permissions").hide();
