@@ -760,8 +760,6 @@ class RouterRuleTests(RouterMixin, test.TestCase):
         params = {}
         params['router_rules'] = rulemanager.format_for_api(
             post_router['router_rules'])
-        api.neutron.router_get(IsA(http.HttpRequest),
-                               pre_router.id).AndReturn(pre_router)
         router_update = api.neutron.router_update(IsA(http.HttpRequest),
                                                   pre_router.id, **params)
         router_update.AndReturn({'router': post_router})
@@ -797,8 +795,6 @@ class RouterRuleTests(RouterMixin, test.TestCase):
         router_update = api.neutron.router_update(IsA(http.HttpRequest),
                                                   pre_router.id, **params)
         router_update.AndReturn({'router': post_router})
-        api.neutron.router_get(IsA(http.HttpRequest),
-                               pre_router.id).AndReturn(post_router)
         api.neutron.port_list(IsA(http.HttpRequest),
                               device_id=pre_router.id)\
             .AndReturn([self.ports.first()])
