@@ -28,6 +28,11 @@ class BaseTestCase(testtools.TestCase):
             # Start a virtual display server for running the tests headless.
             if os.environ.get('SELENIUM_HEADLESS', False):
                 self.vdisplay = xvfbwrapper.Xvfb(width=1280, height=720)
+                # workaround for memory leak in Xvfb taken from: http://blog.
+                # jeffterrace.com/2012/07/xvfb-memory-leak-workaround.html
+                self.vdisplay.xvfb_cmd.append("-noreset")
+                # disables X access control
+                self.vdisplay.xvfb_cmd.append("-ac")
                 self.vdisplay.start()
             # Start the Selenium webdriver and setup configuration.
             self.driver = webdriver.WebDriverWrapper()
