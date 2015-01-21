@@ -393,7 +393,8 @@ class SetInstanceDetailsAction(workflows.Action):
             if images is not None:
                 attrs = [{'id': i.id,
                           'min_disk': getattr(i, 'min_disk', 0),
-                          'min_ram': getattr(i, 'min_ram', 0)}
+                          'min_ram': getattr(i, 'min_ram', 0),
+                          'size': functions.bytes_to_gigabytes(i.size)}
                          for i in images]
                 extra['images'] = json.dumps(attrs)
 
