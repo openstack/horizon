@@ -20,7 +20,7 @@
 <section id="permissions_list" class="permissions_list">
   <header>
     <h4>Permissions</h4>
-    <a href="{% url 'horizon:idm:myApplications:roles_create' application_id=1 %}" class="btn ajax-modal"><i class="fa fa-plus"></i></a>
+    <a href="{% url 'horizon:idm:myApplications:permissions_create' application_id=1 %}" class="btn ajax-modal"><i class="fa fa-plus"></i></a>
   </header>
   {# show when no role is selected #}
   <div class="alert alert-info" id="{{ step.slug}}_info_message">

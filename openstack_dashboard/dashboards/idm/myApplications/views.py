@@ -130,10 +130,10 @@ class CreateRoleView(forms.ModalFormView):
     template_name = 'idm/myApplications/roles/role_create.html'
     success_url = "reverse_lazy('horizon:idm:myApplications:roles_index')"
 
-# class CreatePermissionView(forms.ModalFormView):
-#     form_class = application_forms.CreatePermissionForm
-#     template_name = 'idm/myApplications/permission_create.html'
-#     success_url = reverse_lazy('horizon:idm:myApplications:roles_index')
+class CreatePermissionView(forms.ModalFormView):
+    form_class = application_forms.CreatePermissionForm
+    template_name = 'idm/myApplications/roles/permission_create.html'
+    success_url = "reverse_lazy('horizon:idm:myApplications:roles_index')"
 
 
 class DetailApplicationView(TemplateView):

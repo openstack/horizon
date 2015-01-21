@@ -132,24 +132,24 @@ class CreateRoleForm(forms.SelfHandlingForm):
             exceptions.handle(request, _('Unable to create role.'))
 
 
-# class CreatePermissionForm(forms.SelfHandlingForm):
-#     # application_id = forms.CharField(label=_("Domain ID"),
-#     #                             required=True,
-#     #                             widget=forms.HiddenInput())
-#     name = forms.CharField(max_length=255, label=_("Permission Name"))
-#     no_autocomplete = True
+class CreatePermissionForm(forms.SelfHandlingForm):
+    # application_id = forms.CharField(label=_("Domain ID"),
+    #                             required=True,
+    #                             widget=forms.HiddenInput())
+    name = forms.CharField(max_length=255, label=_("Permission Name"))
+    no_autocomplete = True
 
-#     def handle(self, request, data):
-#         try:
-#             LOG.info('Creating permission with name "%s"' % data['name'])
-#             new_permission = fiware_api.keystone.permission_create(request,
-#                                                 name=data['name'])
-#             messages.success(request,
-#                              _('Permission "%s" was successfully created.')
-#                              % data['name'])
-#             return new_permission
-#         except Exception:
-#             exceptions.handle(request, _('Unable to create permission.'))
+    def handle(self, request, data):
+        try:
+            LOG.info('Creating permission with name "%s"' % data['name'])
+            new_permission = fiware_api.keystone.permission_create(request,
+                                                name=data['name'])
+            messages.success(request,
+                             _('Permission "%s" was successfully created.')
+                             % data['name'])
+            return new_permission
+        except Exception:
+            exceptions.handle(request, _('Unable to create permission.'))
 
         
 class CancelForm(forms.SelfHandlingForm):
