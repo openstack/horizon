@@ -100,6 +100,23 @@ class KeyPairViewTests(test.TestCase):
 
         self.assertTrue(res.has_header('content-disposition'))
 
+    def test_keypair_detail_get(self):
+        keypair = self.keypairs.first()
+        keypair.private_key = "secrete"
+
+        self.mox.StubOutWithMock(api.nova, 'keypair_get')
+        api.nova.keypair_get(IsA(http.HttpRequest),
+                             keypair.name).AndReturn(keypair)
+        self.mox.ReplayAll()
+
+        context = {'keypair_name': keypair.name}
+        url = reverse('horizon:project:access_and_security:keypairs:detail',
+                      kwargs={'keypair_name': keypair.name})
+        res = self.client.get(url, context)
+
+        self.assertContains(res, "<h1>Key Pair Details</h1>", 1, 200)
+        self.assertContains(res, "<dd>%s</dd>" % keypair.name, 2, 200)
+
     @test.create_stubs({api.nova: ("keypair_create", "keypair_delete")})
     def test_regenerate_keypair_get(self):
         keypair = self.keypairs.first()

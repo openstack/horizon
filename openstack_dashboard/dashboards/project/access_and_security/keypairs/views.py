@@ -29,6 +29,7 @@ from django.views.generic import View  # noqa
 
 from horizon import exceptions
 from horizon import forms
+from horizon.utils import memoized
 
 from openstack_dashboard import api
 
@@ -53,6 +54,30 @@ class ImportView(forms.ModalFormView):
 
     def get_object_id(self, keypair):
         return keypair.name
+
+
+class DetailView(TemplateView):
+    template_name = 'project/access_and_security/keypairs/detail.html'
+
+    @memoized.memoized_method
+    def _get_data(self):
+        try:
+            keypair = api.nova.keypair_get(self.request,
+                                           self.kwargs['keypair_name'])
+        except Exception:
+            redirect = reverse('horizon:project:access_and_security:index')
+            msg = _('Unable to retrieve details for keypair "%s".')\
+                % (self.kwargs['keypair_name'])
+            exceptions.handle(self.request, msg,
+                              redirect=redirect)
+        return keypair
+
+    def get_context_data(self, **kwargs):
+        """Gets the context data for keypair."""
+        context = super(DetailView, self).get_context_data(**kwargs)
+        context['page_title'] = _("Key Pair Details")
+        context['keypair'] = self._get_data()
+        return context
 
 
 class DownloadView(TemplateView):
