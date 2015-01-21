@@ -113,9 +113,6 @@ class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
 
 
 class CreateRoleForm(forms.SelfHandlingForm):
-    # application_id = forms.CharField(label=_("Domain ID"),
-    #                             required=True,
-    #                             widget=forms.HiddenInput())
     name = forms.CharField(max_length=255, label=_("Role Name"))
     no_autocomplete = True
 
