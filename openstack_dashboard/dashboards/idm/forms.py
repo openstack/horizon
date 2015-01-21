@@ -15,7 +15,7 @@
 from django import forms 
 from PIL import Image
 
-class ImageCropMixin(object):
+class ImageCropMixin(forms.Form):
     x1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
     y1 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
     x2 = forms.DecimalField(widget=forms.HiddenInput(), required=False)
