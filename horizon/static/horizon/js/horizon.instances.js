@@ -177,7 +177,7 @@ horizon.addInitFunction(horizon.instances.init = function () {
         break;
 
       case "volume_id":
-        $("#id_volume_id, #id_delete_on_terminate").closest(".form-group").show();
+        $("#id_volume_id, #id_device_name, #id_delete_on_terminate").closest(".form-group").show();
         break;
 
       case "volume_image_id":
