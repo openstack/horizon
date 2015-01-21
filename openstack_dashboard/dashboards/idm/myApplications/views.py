@@ -125,10 +125,10 @@ class RolesView(workflows.WorkflowView):
 #         context['permissions_add_to_field'] = 'permissions'
 #         return context
 
-# class CreateRoleView(forms.ModalFormView):
-#     form_class = application_forms.CreateRoleForm
-#     template_name = 'idm/myApplications/role_create.html'
-#     success_url = reverse_lazy('horizon:idm:myApplications:roles_index')
+class CreateRoleView(forms.ModalFormView):
+    form_class = application_forms.CreateRoleForm
+    template_name = 'idm/myApplications/role_create.html'
+    success_url = "reverse_lazy('horizon:idm:myApplications:roles_index')"
 
 # class CreatePermissionView(forms.ModalFormView):
 #     form_class = application_forms.CreatePermissionForm

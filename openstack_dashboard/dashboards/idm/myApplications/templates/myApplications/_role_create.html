@@ -3,7 +3,7 @@
 {% load url from future %}
 
 {% block form_id %}create_role_form{% endblock %}
-{% block form_action %}{% url 'horizon:idm:myApplications:roles_create' %}{% endblock %}
+{% block form_action %}{% url 'horizon:idm:myApplications:roles_create' application_id=1 %}{% endblock %}
 {% block form_class %}{% if inline_forms %}ajax-inline-create{% endif %}{% endblock %}
 
 {% block modal-header %}{% endblock %}
