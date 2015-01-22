@@ -213,9 +213,11 @@
     margin-top: 10px;
   }
   li{
-    background-color: $gray-lighter;
+    background-color: $white;
     color: #C5C5C5;
     white-space: nowrap;
+    padding-right: 10px;
+    padding-left: 10px;
     &:first-child{
       border-top: none;
     }
@@ -231,7 +233,7 @@
   }
   li.active{
     text-decoration: none;
-    background-color: $white;
+    background-color: $gray-lighter;
     border-color: #ddd;
     color: $text-color;
     i{
@@ -260,11 +262,39 @@
 }
 
 
+.workflow-roles{
+  .modal-dialog {
+    width: 100%;
+    margin: 10px 0 0;
+    .modal-content {
+      box-shadow: none;
+      border: none;
+      margin-top: 20px;
+      padding-bottom: 0;
+    }
+    .modal-footer {
+      border-top: none;
+      margin-top: 20px;
+      padding-bottom: 0;
+    }
+  }
+}
 
+#edit{
+  .modal{
+  top: 0 !important;
+  }
+  .modal-header {
+    padding: 0px 0px 5px;
+    border-bottom: 1px solid $border-color;
+  }
 
+  .modal-body {
+    padding: 0;
+  }
 
-
-
-
-.site-client-roles{}
-
+  .modal-footer {
+    padding: 15px 0;
+    border-top: 1px solid $border-color;
+  }
+}

@@ -6,7 +6,9 @@
 {% block form_action %}{% url 'horizon:idm:myApplications:roles_create' application_id=application_id %}{% endblock %}
 {% block form_class %}{% if inline_forms %}ajax-inline-create{% endif %}{% endblock %}
 
-{% block modal-header %}{% endblock %}
+{% block modal-header %}
+    <h3>Create role</h3> 
+{% endblock %}
 
 {% block modal-body %}
     <fieldset>

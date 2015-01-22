@@ -90,6 +90,10 @@
     border-bottom: 1px solid #D5D5D5;
     color: $brand-secundary;
   }
+  .collapse{
+    padding: 8px 10px 1px;
+    background-color: #ECECEC;
+  }
 }
 
 .add-members{
@@ -223,28 +227,5 @@
     display: inline-block;
     margin-top: -22px;
     margin-right: 19px;
-  }
-}
-//MODAL USER MANAGE
-.workflow{
-  .modal-content{
-    padding: 10px;
-    .list-group-item{
-      border-left: none;
-      border-right: none;
-    }
-  }
-}
-.workflow.static_page {
-  .modal-body{
-    #update_members_members,
-    .all-users {
-      .member{
-        min-height: 36px;
-      }
-      .data{
-        display: inline;
-      }
-    }
   }
 }
