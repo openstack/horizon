@@ -130,6 +130,24 @@ class CreateRoleForm(forms.SelfHandlingForm):
         except Exception:
             exceptions.handle(request, _('Unable to create role.'))
 
+class EditRoleForm(forms.SelfHandlingForm):
+    role_id = forms.CharField(required=True,
+                                 widget=forms.HiddenInput())
+    name = forms.CharField(max_length=255, label=_("Role Name"))
+
+    def handle(self, request, data):
+        try:
+            LOG.info('Updating role with id {0}'.format(data['role_id']))
+            role = fiware_api.keystone.role_update(request,
+                                            role=data['role_id'],
+                                            name=data['name'])
+            messages.success(request,
+                             _('Role "%s" was successfully updated.')
+                             % data['role_id'])
+            return role
+        except Exception:
+            exceptions.handle(request, _('Unable to delete role.'))
+
 class DeleteRoleForm(forms.SelfHandlingForm):
     role_id = forms.CharField(required=True,
                                  widget=forms.HiddenInput())
