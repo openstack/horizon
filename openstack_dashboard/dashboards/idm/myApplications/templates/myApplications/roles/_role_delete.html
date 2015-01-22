@@ -6,13 +6,12 @@
 {% block form_action %}{% url 'horizon:idm:myApplications:roles_delete' application_id=application_id role_id=role_id %}{% endblock %}
 
 {% block modal-header %}
-<p>This will permanently delete the role from the application and can't be undone. Are you sure you want to continue?</p>
+<h3>Delete role</h3>
 {% endblock %}
 
 {% block modal-body %}
-    <fieldset>
-        {% include "horizon/common/_form_fields.html"%}
-    </fieldset>
+
+    <p>This will permanently delete the role from the application and can't be undone. Are you sure you want to continue?</p>
 {% endblock %}
 
 {% block modal-footer %}

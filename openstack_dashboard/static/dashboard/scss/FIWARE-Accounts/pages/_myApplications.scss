@@ -116,9 +116,16 @@
   }
   .role{
     text-align: left;
-    i{
-      float: right;
-      margin-left: 5px;
+    position: relative;
+    a{
+      position: absolute;
+    }
+    .ajax-inline-edit{
+      right: 27px;
+      top: 5px;
+    }
+    .ajax-modal{
+      right: 7px;
     }
   }
 }
@@ -218,6 +225,8 @@
     white-space: nowrap;
     padding-right: 10px;
     padding-left: 10px;
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
     &:first-child{
       border-top: none;
     }
@@ -234,18 +243,20 @@
   li.active{
     text-decoration: none;
     background-color: $gray-lighter;
-    border-color: #ddd;
     color: $text-color;
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+    padding-left: 10px;
     i{
       @include opacity (1);
       color: $brand-primary;
     }
     &:hover{
       text-decoration: none;
-      background-color: #ECECEC;
+      background-color: #E2E2E2;
       color: $text-color;
-      border-bottom: 1px solid transparent;
-      border-top: 1px solid transparent;
+      border-top: 1px solid $border-color;
+      border-bottom: 1px solid $border-color;
     }
   }
   hr{
