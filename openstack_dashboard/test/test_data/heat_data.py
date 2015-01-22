@@ -10,6 +10,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from heatclient.v1 import resource_types
 from heatclient.v1 import stacks
 
 from openstack_dashboard.test.test_data import utils
@@ -326,6 +327,10 @@ def data(TEST):
     TEST.stacks = utils.TestDataContainer()
     TEST.stack_templates = utils.TestDataContainer()
     TEST.stack_environments = utils.TestDataContainer()
+    TEST.resource_types = utils.TestDataContainer()
+
+    # Data return by heatclient.
+    TEST.api_resource_types = utils.TestDataContainer()
 
     for i in range(10):
         stack_data = {
@@ -360,3 +365,57 @@ def data(TEST):
 
     TEST.stack_templates.add(Template(TEMPLATE, VALIDATE))
     TEST.stack_environments.add(Environment(ENVIRONMENT))
+
+    # Resource types list
+    r_type_1 = {
+        "resource_type": "AWS::CloudFormation::Stack",
+        "attributes": {},
+        "properties": {
+            "Parameters": {
+                "description":
+                    "The set of parameters passed to this nested stack.",
+                "immutable": False,
+                "required": False,
+                "type": "map",
+                "update_allowed": True},
+            "TemplateURL": {
+                "description": "The URL of a template that specifies"
+                               " the stack to be created as a resource.",
+                "immutable": False,
+                "required": True,
+                "type": "string",
+                "update_allowed": True},
+            "TimeoutInMinutes": {
+                "description": "The length of time, in minutes,"
+                               " to wait for the nested stack creation.",
+                "immutable": False,
+                "required": False,
+                "type": "number",
+                "update_allowed": True}
+        }
+    }
+
+    r_type_2 = {
+        "resource_type": "OS::Heat::CloudConfig",
+        "attributes": {
+            "config": {
+                "description": "The config value of the software config."}
+        },
+        "properties": {
+            "cloud_config": {
+                "description": "Map representing the cloud-config data"
+                               " structure which will be formatted as YAML.",
+                "immutable": False,
+                "required": False,
+                "type": "map",
+                "update_allowed": False}
+        }
+    }
+
+    r_types_list = [r_type_1, r_type_2]
+
+    for rt in r_types_list:
+        r_type = resource_types.ResourceType(
+            resource_types.ResourceTypeManager(None), rt['resource_type'])
+        TEST.resource_types.add(r_type)
+        TEST.api_resource_types.add(rt)
