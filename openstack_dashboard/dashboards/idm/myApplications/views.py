@@ -85,6 +85,11 @@ class RolesView(workflows.WorkflowView):
         initial['application_id'] = self.kwargs['application_id']
         return initial
 
+    def get_workflow(self):
+        workflow = super(RolesView, self).get_workflow()
+        workflow.finalize_button_name = _("Finish")
+        return workflow
+
 
 class CreateRoleView(forms.ModalFormView):
     form_class = application_forms.CreateRoleForm
