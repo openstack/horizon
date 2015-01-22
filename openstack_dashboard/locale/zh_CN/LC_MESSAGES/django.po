@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-16 12:34-0600\n"
-"PO-Revision-Date: 2015-01-15 14:23+0000\n"
+"POT-Creation-Date: 2015-01-20 22:33-0600\n"
+"PO-Revision-Date: 2015-01-20 18:53+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -78,239 +78,263 @@ msgstr "所有ICMP协议"
 msgid "Unable to retrieve Ceilometer meterlist."
 msgstr "无法获取Ceilometer的计量列表"
 
-#: api/ceilometer.py:921
+#: api/ceilometer.py:933
 msgid "Duration of instance"
 msgstr "云主机存在时间"
 
-#: api/ceilometer.py:925
+#: api/ceilometer.py:937
 msgid "Duration of instance <type> (openstack types)"
 msgstr "云主机<类型> (openstack类型)的存在时间"
 
-#: api/ceilometer.py:930
+#: api/ceilometer.py:942
 msgid "Volume of RAM in MB"
 msgstr "以MB计内存大小"
 
-#: api/ceilometer.py:934
+#: api/ceilometer.py:946
 msgid "Volume of RAM used in MB"
 msgstr ""
 
-#: api/ceilometer.py:938
+#: api/ceilometer.py:950
 msgid "CPU time used"
 msgstr "已用CPU时间"
 
-#: api/ceilometer.py:942
+#: api/ceilometer.py:954
 msgid "Average CPU utilization"
 msgstr "平均CPU利用率"
 
-#: api/ceilometer.py:946
+#: api/ceilometer.py:958
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:28
 msgid "Number of VCPUs"
 msgstr "虚拟CPU数量"
 
-#: api/ceilometer.py:950
+#: api/ceilometer.py:962
 msgid "Number of read requests"
 msgstr "读请求的数目"
 
-#: api/ceilometer.py:954
+#: api/ceilometer.py:966
 msgid "Number of write requests"
 msgstr "写请求的数目"
 
-#: api/ceilometer.py:958
+#: api/ceilometer.py:970
 msgid "Volume of reads in B"
 msgstr "以字节计读数据的大小"
 
-#: api/ceilometer.py:962
+#: api/ceilometer.py:974
 msgid "Volume of writes in B"
 msgstr "以字节计写数据的大小"
 
-#: api/ceilometer.py:966
+#: api/ceilometer.py:978
 msgid "Average rate of read requests per second"
 msgstr ""
 
-#: api/ceilometer.py:970
+#: api/ceilometer.py:982
 msgid "Average rate of write requests per second"
 msgstr ""
 
-#: api/ceilometer.py:974
+#: api/ceilometer.py:986
 msgid "Average rate of reads in B per second"
 msgstr ""
 
-#: api/ceilometer.py:978
+#: api/ceilometer.py:990
 msgid "Average volume of writes in B per second"
 msgstr ""
 
-#: api/ceilometer.py:982
+#: api/ceilometer.py:994
 msgid "Size of root disk in GB"
 msgstr "以GB计根磁盘的大小"
 
-#: api/ceilometer.py:986
+#: api/ceilometer.py:998
 msgid "Size of ephemeral disk in GB"
 msgstr "以GB计临时磁盘大小"
 
-#: api/ceilometer.py:991
+#: api/ceilometer.py:1003
 msgid "Number of incoming bytes on the network for a VM interface"
 msgstr "流入虚拟机网络接口的字节数目"
 
-#: api/ceilometer.py:996
+#: api/ceilometer.py:1008
 msgid "Number of outgoing bytes on the network for a VM interface"
 msgstr "流出虚拟机网络接口的字节数目"
 
-#: api/ceilometer.py:1001
+#: api/ceilometer.py:1013
 msgid "Number of incoming packets for a VM interface"
 msgstr "流入虚拟机网络接口的包数目"
 
-#: api/ceilometer.py:1006
+#: api/ceilometer.py:1018
 msgid "Number of outgoing packets for a VM interface"
 msgstr "流出虚拟机网络接口的包数目"
 
-#: api/ceilometer.py:1011
+#: api/ceilometer.py:1023
 msgid "Average rate per sec of incoming bytes on a VM network interface"
 msgstr ""
 
-#: api/ceilometer.py:1016
+#: api/ceilometer.py:1028
 msgid "Average rate per sec of outgoing bytes on a VM network interface"
 msgstr ""
 
-#: api/ceilometer.py:1021
+#: api/ceilometer.py:1033
 msgid "Average rate per sec of incoming packets on a VM network interface"
 msgstr ""
 
-#: api/ceilometer.py:1026
+#: api/ceilometer.py:1038
 msgid "Average rate per sec of outgoing packets on a VM network interface"
 msgstr ""
 
-#: api/ceilometer.py:1038
+#: api/ceilometer.py:1050
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
 msgstr "实例类型%s (openstack flavor)的持续时间"
 
-#: api/ceilometer.py:1058
+#: api/ceilometer.py:1070
 msgid "Duration of network"
 msgstr "网络存在时间"
 
-#: api/ceilometer.py:1062
+#: api/ceilometer.py:1074
 msgid "Creation requests for this network"
 msgstr "该网络的创建请求"
 
-#: api/ceilometer.py:1066
+#: api/ceilometer.py:1078
 msgid "Update requests for this network"
 msgstr "该网络的更新请求"
 
-#: api/ceilometer.py:1070
+#: api/ceilometer.py:1082
 msgid "Duration of subnet"
 msgstr "子网的存在时间"
 
-#: api/ceilometer.py:1074
+#: api/ceilometer.py:1086
 msgid "Creation requests for this subnet"
 msgstr "该子网的创建请求"
 
-#: api/ceilometer.py:1078
+#: api/ceilometer.py:1090
 msgid "Update requests for this subnet"
 msgstr "该子网的更新请求"
 
-#: api/ceilometer.py:1082
+#: api/ceilometer.py:1094
 msgid "Duration of port"
 msgstr "端口寿命期"
 
-#: api/ceilometer.py:1086
+#: api/ceilometer.py:1098
 msgid "Creation requests for this port"
 msgstr "该端口的创建请求"
 
-#: api/ceilometer.py:1090
+#: api/ceilometer.py:1102
 msgid "Update requests for this port"
 msgstr "该端口的更新请求"
 
-#: api/ceilometer.py:1094
+#: api/ceilometer.py:1106
 msgid "Duration of router"
 msgstr "路由的存在时间"
 
-#: api/ceilometer.py:1098
+#: api/ceilometer.py:1110
 msgid "Creation requests for this router"
 msgstr "该路由的创建请求"
 
-#: api/ceilometer.py:1102
+#: api/ceilometer.py:1114
 msgid "Update requests for this router"
 msgstr "该路由的更新请求"
 
-#: api/ceilometer.py:1106
+#: api/ceilometer.py:1118
 msgid "Duration of floating ip"
 msgstr "浮动IP的存在时间"
 
-#: api/ceilometer.py:1110
+#: api/ceilometer.py:1122
 msgid "Creation requests for this floating ip"
 msgstr "该浮动IP的创建请求"
 
-#: api/ceilometer.py:1114
+#: api/ceilometer.py:1126
 msgid "Update requests for this floating ip"
 msgstr "该浮动IP的更新请求"
 
-#: api/ceilometer.py:1131
+#: api/ceilometer.py:1143
 msgid "Image existence check"
 msgstr "检查镜像是否存在"
 
-#: api/ceilometer.py:1135
+#: api/ceilometer.py:1147
 msgid "Uploaded image size"
 msgstr "已上传镜像大小"
 
-#: api/ceilometer.py:1139
+#: api/ceilometer.py:1151
 msgid "Number of update on the image"
 msgstr "镜像更新次数"
 
-#: api/ceilometer.py:1143
+#: api/ceilometer.py:1155
 msgid "Number of upload of the image"
 msgstr "镜像上载次数"
 
-#: api/ceilometer.py:1147
+#: api/ceilometer.py:1159
 msgid "Number of delete on the image"
 msgstr "镜像删除次数"
 
-#: api/ceilometer.py:1151
+#: api/ceilometer.py:1163
 msgid "Image is downloaded"
 msgstr "镜像已下载"
 
-#: api/ceilometer.py:1155
+#: api/ceilometer.py:1167
 msgid "Image is served out"
 msgstr "镜像已使用"
 
-#: api/ceilometer.py:1172
+#: api/ceilometer.py:1184
 msgid "Duration of volume"
 msgstr "云硬盘的存在时间"
 
-#: api/ceilometer.py:1176
+#: api/ceilometer.py:1188
 msgid "Size of volume"
 msgstr "云硬盘大小"
 
-#: api/ceilometer.py:1193
+#: api/ceilometer.py:1205
 msgid "Number of objects"
 msgstr "对象数目"
 
-#: api/ceilometer.py:1197
+#: api/ceilometer.py:1209
 msgid "Total size of stored objects"
 msgstr "存储对象总大小"
 
-#: api/ceilometer.py:1201
+#: api/ceilometer.py:1213
 msgid "Number of containers"
 msgstr "容器数目"
 
-#: api/ceilometer.py:1205
+#: api/ceilometer.py:1217
 msgid "Number of incoming bytes"
 msgstr "流入字节数目"
 
-#: api/ceilometer.py:1209
+#: api/ceilometer.py:1221
 msgid "Number of outgoing bytes"
 msgstr "流出字节数目"
 
-#: api/ceilometer.py:1213
+#: api/ceilometer.py:1225
 msgid "Number of API requests against swift"
 msgstr "Swift API请求数目"
 
-#: api/ceilometer.py:1230
+#: api/ceilometer.py:1242
 msgid "Amount of energy"
 msgstr "能源数量"
 
-#: api/ceilometer.py:1234
+#: api/ceilometer.py:1246
 msgid "Power consumption"
 msgstr "电源消耗"
+
+#: api/ceilometer.py:1263
+msgid "System Current Power"
+msgstr ""
+
+#: api/ceilometer.py:1267
+msgid "System Current Temperature"
+msgstr ""
+
+#: api/ceilometer.py:1271
+msgid "Fan RPM"
+msgstr ""
+
+#: api/ceilometer.py:1275
+msgid "Sensor Temperature Reading"
+msgstr ""
+
+#: api/ceilometer.py:1279
+msgid "Sensor Current Reading"
+msgstr ""
+
+#: api/ceilometer.py:1283
+msgid "Sensor Voltage Reading"
+msgstr ""
 
 #: api/cinder.py:46 dashboards/admin/volumes/volume_types/forms.py:32
 msgid "back-end"
@@ -491,8 +515,8 @@ msgstr "管理员"
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:10
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:11
 #: dashboards/admin/volumes/volume_types/forms.py:24
-#: dashboards/admin/volumes/volume_types/tables.py:137
-#: dashboards/admin/volumes/volume_types/tables.py:219
+#: dashboards/admin/volumes/volume_types/tables.py:146
+#: dashboards/admin/volumes/volume_types/tables.py:229
 #: dashboards/admin/volumes/volumes/forms.py:29
 #: dashboards/admin/volumes/volumes/forms.py:88
 #: dashboards/admin/volumes/volumes/tables.py:41
@@ -571,7 +595,7 @@ msgstr "管理员"
 #: dashboards/project/routers/templates/routers/_detail_overview.html:9
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:9
 #: dashboards/project/volumes/backups/tables.py:106
-#: dashboards/project/volumes/snapshots/tables.py:138
+#: dashboards/project/volumes/snapshots/tables.py:147
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:12
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:10
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:10
@@ -660,7 +684,7 @@ msgstr "管理主机"
 
 #: dashboards/admin/aggregates/tables.py:64
 #: dashboards/admin/aggregates/templates/aggregates/_update_metadata.html:11
-#: dashboards/admin/flavors/tables.py:70
+#: dashboards/admin/flavors/tables.py:71
 #: dashboards/admin/flavors/templates/flavors/_update_metadata.html:11
 #: dashboards/admin/images/tables.py:46
 #: dashboards/admin/images/templates/images/_update_metadata.html:11
@@ -688,7 +712,7 @@ msgid "Hosts"
 msgstr "主机"
 
 #: dashboards/admin/aggregates/tables.py:136
-#: dashboards/admin/flavors/tables.py:141
+#: dashboards/admin/flavors/tables.py:142
 #: dashboards/project/instances/templates/instances/_detail_overview.html:104
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:46
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:68
@@ -1079,7 +1103,7 @@ msgstr "元数据条目"
 
 #: dashboards/admin/defaults/tables.py:45
 #: dashboards/admin/defaults/workflows.py:47
-#: dashboards/admin/flavors/tables.py:122
+#: dashboards/admin/flavors/tables.py:123
 #: dashboards/admin/flavors/workflows.py:46
 #: dashboards/admin/overview/views.py:33
 #: dashboards/identity/projects/workflows.py:50
@@ -1139,7 +1163,7 @@ msgstr "云硬盘"
 #: dashboards/admin/volumes/snapshots/tables.py:69
 #: dashboards/identity/projects/workflows.py:57
 #: dashboards/project/volumes/tabs.py:99
-#: dashboards/project/volumes/snapshots/tables.py:147 usage/quotas.py:75
+#: dashboards/project/volumes/snapshots/tables.py:156 usage/quotas.py:75
 msgid "Volume Snapshots"
 msgstr "云硬盘快照"
 
@@ -1274,23 +1298,23 @@ msgstr "无法更新默认配额。"
 msgid "Unable to update the flavor metadata."
 msgstr "无法更新云主机类型元数据"
 
-#: dashboards/admin/flavors/panel.py:27 dashboards/admin/flavors/tables.py:149
+#: dashboards/admin/flavors/panel.py:27 dashboards/admin/flavors/tables.py:150
 #: dashboards/admin/flavors/templates/flavors/index.html:3
 #: dashboards/admin/flavors/templates/flavors/index.html:6
 msgid "Flavors"
 msgstr "云主机类型"
 
-#: dashboards/admin/flavors/tables.py:34
+#: dashboards/admin/flavors/tables.py:35
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
 msgstr[0] "删除主机类型"
 
-#: dashboards/admin/flavors/tables.py:42
+#: dashboards/admin/flavors/tables.py:43
 msgid "Deleted Flavor"
 msgid_plural "Deleted Flavors"
 msgstr[0] "已删除主机类型"
 
-#: dashboards/admin/flavors/tables.py:53
+#: dashboards/admin/flavors/tables.py:54
 #: dashboards/admin/flavors/workflows.py:178
 #: dashboards/admin/flavors/workflows.py:179
 #: dashboards/admin/flavors/templates/flavors/create.html:3
@@ -1298,36 +1322,35 @@ msgstr[0] "已删除主机类型"
 msgid "Create Flavor"
 msgstr "创建云主机类型"
 
-#: dashboards/admin/flavors/tables.py:61
+#: dashboards/admin/flavors/tables.py:62
 #: dashboards/admin/flavors/workflows.py:265
 #: dashboards/admin/flavors/templates/flavors/update.html:3
 #: dashboards/admin/flavors/templates/flavors/update.html:6
 msgid "Edit Flavor"
 msgstr "编辑云主机类型"
 
-#: dashboards/admin/flavors/tables.py:77
+#: dashboards/admin/flavors/tables.py:78
 msgid "Modify Access"
 msgstr "修改使用权"
 
-#: dashboards/admin/flavors/tables.py:101
-#: dashboards/admin/flavors/tables.py:105
+#: dashboards/admin/flavors/tables.py:106
 #, python-format
 msgid "%sMB"
 msgstr "%s MB"
 
-#: dashboards/admin/flavors/tables.py:109
-#: dashboards/admin/flavors/tables.py:113
+#: dashboards/admin/flavors/tables.py:110
+#: dashboards/admin/flavors/tables.py:114
 #: dashboards/project/volumes/backups/tables.py:95
 #: dashboards/project/volumes/volumes/tables.py:304
 #, python-format
 msgid "%sGB"
 msgstr "%sGB"
 
-#: dashboards/admin/flavors/tables.py:121
+#: dashboards/admin/flavors/tables.py:122
 msgid "Flavor Name"
 msgstr "云主机类型名称"
 
-#: dashboards/admin/flavors/tables.py:124
+#: dashboards/admin/flavors/tables.py:125
 #: dashboards/project/databases/templates/databases/_detail_overview.html:28
 #: dashboards/project/instances/templates/instances/_detail_overview.html:51
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:14
@@ -1336,22 +1359,22 @@ msgstr "云主机类型名称"
 msgid "RAM"
 msgstr "内存"
 
-#: dashboards/admin/flavors/tables.py:127
+#: dashboards/admin/flavors/tables.py:128
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:11
 msgid "Root Disk"
 msgstr "根磁盘"
 
-#: dashboards/admin/flavors/tables.py:130
+#: dashboards/admin/flavors/tables.py:131
 #: dashboards/project/instances/templates/instances/_detail_overview.html:58
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:12
 msgid "Ephemeral Disk"
 msgstr "临时磁盘"
 
-#: dashboards/admin/flavors/tables.py:133
+#: dashboards/admin/flavors/tables.py:134
 msgid "Swap Disk"
 msgstr "交换盘空间"
 
-#: dashboards/admin/flavors/tables.py:135
+#: dashboards/admin/flavors/tables.py:136
 #: dashboards/admin/flavors/workflows.py:41
 #: dashboards/admin/networks/agents/tables.py:90
 #: dashboards/admin/networks/templates/networks/ports/_update.html:13
@@ -1405,7 +1428,7 @@ msgstr "交换盘空间"
 msgid "ID"
 msgstr "ID"
 
-#: dashboards/admin/flavors/tables.py:137
+#: dashboards/admin/flavors/tables.py:138
 #: dashboards/admin/metadata_defs/forms.py:61
 #: dashboards/admin/metadata_defs/tables.py:142
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:18
@@ -2142,7 +2165,7 @@ msgstr "实例热迁移"
 #: dashboards/admin/instances/tables.py:93
 #: dashboards/admin/instances/tables.py:117
 #: dashboards/admin/metering/tables.py:41
-#: dashboards/admin/metering/templates/metering/stats.html:84
+#: dashboards/admin/metering/templates/metering/stats.html:94
 #: dashboards/admin/networks/forms.py:40
 #: dashboards/admin/networks/tables.py:93
 #: dashboards/admin/routers/tables.py:39
@@ -2506,7 +2529,6 @@ msgstr "无定义"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:7
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:8
-#: dashboards/identity/users/templates/users/_detail_overview.html:6
 msgid "Info"
 msgstr "信息"
 
@@ -2692,37 +2714,37 @@ msgid ""
 msgstr ""
 
 #: dashboards/admin/metering/forms.py:24
-#: dashboards/admin/metering/templates/metering/stats.html:106
+#: dashboards/admin/metering/templates/metering/stats.html:116
 msgid "Last day"
 msgstr "最近一天"
 
 #: dashboards/admin/metering/forms.py:25
-#: dashboards/admin/metering/templates/metering/stats.html:107
+#: dashboards/admin/metering/templates/metering/stats.html:117
 msgid "Last week"
 msgstr "最近一周"
 
 #: dashboards/admin/metering/forms.py:26
-#: dashboards/admin/metering/templates/metering/stats.html:108
+#: dashboards/admin/metering/templates/metering/stats.html:118
 msgid "Month to date"
 msgstr "月累计"
 
 #: dashboards/admin/metering/forms.py:27
-#: dashboards/admin/metering/templates/metering/stats.html:109
+#: dashboards/admin/metering/templates/metering/stats.html:119
 msgid "Last 15 days"
 msgstr "最近15天"
 
 #: dashboards/admin/metering/forms.py:28
-#: dashboards/admin/metering/templates/metering/stats.html:110
+#: dashboards/admin/metering/templates/metering/stats.html:120
 msgid "Last 30 days"
 msgstr "最近30天"
 
 #: dashboards/admin/metering/forms.py:29
-#: dashboards/admin/metering/templates/metering/stats.html:111
+#: dashboards/admin/metering/templates/metering/stats.html:121
 msgid "Last year"
 msgstr "最近一年"
 
 #: dashboards/admin/metering/forms.py:30
-#: dashboards/admin/metering/templates/metering/stats.html:112
+#: dashboards/admin/metering/templates/metering/stats.html:122
 #: dashboards/router/nexus1000v/forms.py:59
 msgid "Other"
 msgstr "其它"
@@ -2791,39 +2813,43 @@ msgstr "统计数据"
 msgid "There are no meters defined yet."
 msgstr "没有定义任何计量。"
 
-#: dashboards/admin/metering/tabs.py:54
+#: dashboards/admin/metering/tabs.py:55
 msgid "Usage Report"
 msgstr "使用报告"
 
-#: dashboards/admin/metering/tabs.py:62 dashboards/admin/metering/views.py:216
+#: dashboards/admin/metering/tabs.py:63 dashboards/admin/metering/views.py:216
 msgid "Nova"
 msgstr "Nova"
 
-#: dashboards/admin/metering/tabs.py:63 dashboards/admin/metering/views.py:217
+#: dashboards/admin/metering/tabs.py:64 dashboards/admin/metering/views.py:217
 msgid "Neutron"
 msgstr "Neutron"
 
-#: dashboards/admin/metering/tabs.py:64 dashboards/admin/metering/views.py:218
+#: dashboards/admin/metering/tabs.py:65 dashboards/admin/metering/views.py:218
 msgid "Glance"
 msgstr "Glance"
 
-#: dashboards/admin/metering/tabs.py:65 dashboards/admin/metering/views.py:219
+#: dashboards/admin/metering/tabs.py:66 dashboards/admin/metering/views.py:219
 msgid "Cinder"
 msgstr "Cinder"
 
-#: dashboards/admin/metering/tabs.py:66 dashboards/admin/metering/views.py:220
+#: dashboards/admin/metering/tabs.py:67 dashboards/admin/metering/views.py:220
 msgid "Swift_meters"
 msgstr "Swift_meters"
 
-#: dashboards/admin/metering/tabs.py:67 dashboards/admin/metering/views.py:221
+#: dashboards/admin/metering/tabs.py:68 dashboards/admin/metering/views.py:221
 msgid "Kwapi"
 msgstr "Kwapi"
 
-#: dashboards/admin/metering/tabs.py:80 dashboards/admin/metering/views.py:159
+#: dashboards/admin/metering/tabs.py:69 dashboards/admin/metering/views.py:222
+msgid "IPMI"
+msgstr ""
+
+#: dashboards/admin/metering/tabs.py:82 dashboards/admin/metering/views.py:159
 msgid "Dates cannot be recognized."
 msgstr "日期不能被识别"
 
-#: dashboards/admin/metering/tabs.py:88 dashboards/admin/metering/views.py:240
+#: dashboards/admin/metering/tabs.py:90 dashboards/admin/metering/views.py:241
 #: dashboards/admin/overview/views.py:65
 #: dashboards/identity/projects/views.py:90
 msgid "Unable to retrieve project list."
@@ -2845,7 +2871,7 @@ msgstr "项目名称"
 msgid "Time"
 msgstr "时间"
 
-#: dashboards/admin/metering/views.py:232
+#: dashboards/admin/metering/views.py:233
 msgid "Dates cannot be recognised."
 msgstr "日期不能被识别"
 
@@ -2890,47 +2916,51 @@ msgstr "对象存储(Swift)"
 msgid "Energy (Kwapi)"
 msgstr "能源(Kwapi)"
 
-#: dashboards/admin/metering/templates/metering/stats.html:79
+#: dashboards/admin/metering/templates/metering/stats.html:76
+msgid "Intelligent Platform Management Interface (IPMI)"
+msgstr ""
+
+#: dashboards/admin/metering/templates/metering/stats.html:89
 msgid "Group by:"
 msgstr "分组："
 
-#: dashboards/admin/metering/templates/metering/stats.html:83
+#: dashboards/admin/metering/templates/metering/stats.html:93
 msgid "--"
 msgstr "--"
 
-#: dashboards/admin/metering/templates/metering/stats.html:89
+#: dashboards/admin/metering/templates/metering/stats.html:99
 msgid "Value:"
 msgstr "值："
 
-#: dashboards/admin/metering/templates/metering/stats.html:94
+#: dashboards/admin/metering/templates/metering/stats.html:104
 msgid "Avg."
 msgstr "平均"
 
-#: dashboards/admin/metering/templates/metering/stats.html:95
+#: dashboards/admin/metering/templates/metering/stats.html:105
 msgid "Min."
 msgstr "最小"
 
-#: dashboards/admin/metering/templates/metering/stats.html:96
+#: dashboards/admin/metering/templates/metering/stats.html:106
 msgid "Max."
 msgstr "最大"
 
-#: dashboards/admin/metering/templates/metering/stats.html:97
+#: dashboards/admin/metering/templates/metering/stats.html:107
 msgid "Sum."
 msgstr "总和"
 
-#: dashboards/admin/metering/templates/metering/stats.html:102
+#: dashboards/admin/metering/templates/metering/stats.html:112
 msgid "Period:"
 msgstr "周期："
 
-#: dashboards/admin/metering/templates/metering/stats.html:117
+#: dashboards/admin/metering/templates/metering/stats.html:127
 msgid "From:"
 msgstr "从："
 
-#: dashboards/admin/metering/templates/metering/stats.html:124
+#: dashboards/admin/metering/templates/metering/stats.html:134
 msgid "To:"
 msgstr "至："
 
-#: dashboards/admin/metering/templates/metering/stats.html:136
+#: dashboards/admin/metering/templates/metering/stats.html:146
 msgid "Statistics of all resources"
 msgstr "所有资源的统计信息"
 
@@ -3800,7 +3830,7 @@ msgid "Unable to retrieve volume project information."
 msgstr "无法获取云硬盘项目信息。"
 
 #: dashboards/admin/volumes/tabs.py:68
-#: dashboards/admin/volumes/volume_types/tables.py:154
+#: dashboards/admin/volumes/volume_types/tables.py:163
 msgid "Volume Types"
 msgstr "云硬盘类型"
 
@@ -3858,7 +3888,7 @@ msgstr "更新状态"
 
 #: dashboards/admin/volumes/snapshots/tables.py:62
 #: dashboards/project/volumes/backups/tables.py:120
-#: dashboards/project/volumes/snapshots/tables.py:142
+#: dashboards/project/volumes/snapshots/tables.py:151
 #: dashboards/project/volumes/volumes/forms.py:49
 #: dashboards/project/volumes/volumes/forms.py:585
 #: dashboards/project/volumes/volumes/forms.py:624
@@ -3878,6 +3908,7 @@ msgid "Volume Snapshot Overview"
 msgstr "云硬盘快照概览"
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:7
+#: dashboards/identity/users/templates/users/_detail_overview.html:6
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:6
 #: dashboards/project/database_backups/templates/database_backups/details.html:15
 #: dashboards/project/databases/templates/databases/_detail_overview.html:6
@@ -3904,7 +3935,7 @@ msgstr "云硬盘"
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:30
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_index.html:7
-#: dashboards/admin/volumes/volume_types/tables.py:222
+#: dashboards/admin/volumes/volume_types/tables.py:232
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:36
 #: dashboards/project/databases/templates/databases/_detail_overview.html:23
 #: dashboards/project/images/templates/images/images/_detail_overview.html:43
@@ -3976,7 +4007,7 @@ msgstr "关联"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:9
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_qos_spec.html:3
-#: dashboards/admin/volumes/volume_types/tables.py:180
+#: dashboards/admin/volumes/volume_types/tables.py:190
 msgid "Create QoS Spec"
 msgstr "创建QoS规格"
 
@@ -4348,38 +4379,38 @@ msgstr[0] ""
 msgid "Unable to determine if volume type encryption is supported."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:139
+#: dashboards/admin/volumes/volume_types/tables.py:148
 msgid "Associated QoS Spec"
 msgstr "已关联的QoS规格"
 
-#: dashboards/admin/volumes/volume_types/tables.py:141
+#: dashboards/admin/volumes/volume_types/tables.py:150
 msgid "Encryption"
 msgstr "jiami"
 
-#: dashboards/admin/volumes/volume_types/tables.py:166
+#: dashboards/admin/volumes/volume_types/tables.py:176
 msgid "Manage Specs"
 msgstr "管理规格"
 
-#: dashboards/admin/volumes/volume_types/tables.py:191
+#: dashboards/admin/volumes/volume_types/tables.py:201
 msgid "Delete QoS Spec"
 msgid_plural "Delete QoS Specs"
 msgstr[0] "删除QoS规格"
 
-#: dashboards/admin/volumes/volume_types/tables.py:199
+#: dashboards/admin/volumes/volume_types/tables.py:209
 msgid "Deleted QoS Spec"
 msgid_plural "Deleted QoS Specs"
 msgstr[0] "已删除的QoS规格"
 
-#: dashboards/admin/volumes/volume_types/tables.py:211
+#: dashboards/admin/volumes/volume_types/tables.py:221
 msgid "Edit Consumer"
 msgstr "编辑消费者"
 
-#: dashboards/admin/volumes/volume_types/tables.py:220
+#: dashboards/admin/volumes/volume_types/tables.py:230
 #: dashboards/admin/volumes/volumes/forms.py:89
 msgid "Consumer"
 msgstr "消费者"
 
-#: dashboards/admin/volumes/volume_types/tables.py:235
+#: dashboards/admin/volumes/volume_types/tables.py:245
 msgid "QoS Specs"
 msgstr "QoS规格"
 
