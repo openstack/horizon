@@ -336,18 +336,13 @@ horizon.fiware_roles_workflow = {
         var role_div_element = $(this).parent();
         // save the element for later use
         horizon.fiware_roles_workflow.inline_edit_role.cached_role = role_div_element;
-        // client_template
-        horizon.fiware_roles_workflow.inline_edit_role.render_form(role_div_element)
+        // time to ajax for the form!
+        
       });
     },
     render_form: function(role_div_element) {
       console.log('render')
-      var template = horizon.templates.compiled_templates["#inline_edit_form_template"],
-        params = {
-        },
-        form_el = $(template.render(params)),
-        parent = $(role_div_element).parent();
-
+      
       $(role_div_element).hide();
       parent.append($(form_el));
     },
