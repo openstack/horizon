@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-20 22:33-0600\n"
-"PO-Revision-Date: 2015-01-20 18:53+0000\n"
+"POT-Creation-Date: 2015-01-22 00:01-0600\n"
+"PO-Revision-Date: 2015-01-22 00:45+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -367,22 +367,22 @@ msgstr "使用者 %s 在那專案中沒有被定義角色。"
 msgid "Password changed. Please log in again to continue."
 msgstr "密碼已變更。請再登入一次以繼續。"
 
-#: api/neutron.py:207
+#: api/neutron.py:212
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "允許 %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
-#: api/neutron.py:868
+#: api/neutron.py:873
 msgid "Unable to connect to Neutron."
 msgstr "無法與 Neutron 連線。"
 
-#: api/neutron.py:905
+#: api/neutron.py:910
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "無法分析 IP 位址 %s。"
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1044
+#: api/neutron.py:1049
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -390,14 +390,14 @@ msgid ""
 msgstr "所請求的特色「%(feature)s」未知。請確定指定的是已定義於 FEATURE_MAP 的特色。"
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1062
+#: api/neutron.py:1067
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
 "invalid. It should be one of %(allowed)s"
 msgstr "給 get_feature_permission 「%(feature)s」的「作業」參數無效。它應該是 %(allowed)s 之一"
 
-#: api/neutron.py:1077
+#: api/neutron.py:1082
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr "檢查 Neutron「%s」擴充套件是否支援時失敗"
@@ -1602,6 +1602,7 @@ msgstr "主機名稱"
 #: dashboards/project/loadbalancers/workflows.py:486
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/routers/ports/tables.py:107
+#: dashboards/project/stacks/resource_types/tables.py:30
 #: dashboards/project/volumes/volumes/forms.py:82
 #: dashboards/project/volumes/volumes/forms.py:87
 #: dashboards/project/volumes/volumes/forms.py:88
@@ -1902,7 +1903,7 @@ msgstr "無法更新此映像檔的描述資料。"
 #: dashboards/admin/images/templates/images/index.html:3
 #: dashboards/admin/images/templates/images/index.html:6
 #: dashboards/project/images/panel.py:24
-#: dashboards/project/images/images/tables.py:254
+#: dashboards/project/images/images/tables.py:255
 #: dashboards/project/images/templates/images/index.html:3
 #: dashboards/project/images/templates/images/index.html:6
 msgid "Images"
@@ -2166,7 +2167,7 @@ msgstr "即時轉移執行實例"
 #: dashboards/admin/routers/tables.py:39
 #: dashboards/admin/volumes/snapshots/tables.py:65
 #: dashboards/admin/volumes/volumes/tables.py:44
-#: dashboards/project/dashboard.py:75
+#: dashboards/project/dashboard.py:76
 #: dashboards/project/images/images/tables.py:151
 #: dashboards/project/instances/workflows/create_instance.py:52
 #: dashboards/router/nexus1000v/forms.py:119
@@ -2213,7 +2214,7 @@ msgstr "IP 位址"
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
 #: dashboards/project/databases/tables.py:270
-#: dashboards/project/images/images/tables.py:248
+#: dashboards/project/images/images/tables.py:249
 #: dashboards/project/images/templates/images/images/_detail_overview.html:46
 #: dashboards/project/instances/tables.py:974
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:6
@@ -2469,6 +2470,10 @@ msgid "Description"
 msgstr "描述"
 
 #: dashboards/admin/metadata_defs/tables.py:137
+#: dashboards/project/stacks/resource_types/panel.py:22
+#: dashboards/project/stacks/resource_types/tables.py:44
+#: dashboards/project/stacks/resource_types/templates/stacks.resource_types/index.html:3
+#: dashboards/project/stacks/resource_types/templates/stacks.resource_types/index.html:6
 msgid "Resource Types"
 msgstr ""
 
@@ -3474,6 +3479,7 @@ msgstr "接口"
 #: dashboards/project/overview/templates/overview/usage.html:6
 #: dashboards/project/routers/ports/tabs.py:24
 #: dashboards/project/stacks/tabs.py:53 dashboards/project/stacks/tabs.py:67
+#: dashboards/project/stacks/resource_types/tabs.py:21
 #: dashboards/project/volumes/backups/tabs.py:24
 #: dashboards/project/volumes/snapshots/tabs.py:25
 #: dashboards/project/volumes/volumes/tabs.py:21
@@ -5441,12 +5447,12 @@ msgstr "物件式儲存空間"
 msgid "Orchestration"
 msgstr "編配"
 
-#: dashboards/project/dashboard.py:54
+#: dashboards/project/dashboard.py:55
 #: dashboards/project/database_backups/tables.py:153
 msgid "Database"
 msgstr "資料庫"
 
-#: dashboards/project/dashboard.py:61
+#: dashboards/project/dashboard.py:62
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_templates.html:3
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/clusters.html:3
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/image_registry.html:3
@@ -10388,8 +10394,8 @@ msgid "View Full Log"
 msgstr "檢視完整記錄"
 
 #: dashboards/project/instances/templates/instances/_detail_overview.html:20
-msgid "Uptime"
-msgstr "上線時間"
+msgid "Time Since Created"
+msgstr ""
 
 #: dashboards/project/instances/templates/instances/_detail_overview.html:29
 msgid "Fault"
@@ -12825,6 +12831,7 @@ msgstr "機櫃資源"
 
 #: dashboards/project/stacks/tables.py:146
 #: dashboards/project/stacks/tables.py:191
+#: dashboards/project/stacks/resource_types/tables.py:37
 msgid "Resource"
 msgstr "資源"
 
@@ -12907,6 +12914,39 @@ msgstr "無法取回資源。"
 #: dashboards/project/stacks/views.py:280
 msgid "Unable to retrieve metadata."
 msgstr "無法取回描述資料。"
+
+#: dashboards/project/stacks/resource_types/tables.py:33
+msgid "Implementation"
+msgstr ""
+
+#: dashboards/project/stacks/resource_types/tables.py:35
+msgid "Component"
+msgstr ""
+
+#: dashboards/project/stacks/resource_types/views.py:40
+msgid "Unable to retrieve stack resource types."
+msgstr ""
+
+#: dashboards/project/stacks/resource_types/views.py:56
+msgid "Unable to retrieve resource type details."
+msgstr ""
+
+#: dashboards/project/stacks/resource_types/templates/stacks.resource_types/_details.html:4
+msgid "Resource Type"
+msgstr ""
+
+#: dashboards/project/stacks/resource_types/templates/stacks.resource_types/_details.html:12
+msgid "Attributes"
+msgstr ""
+
+#: dashboards/project/stacks/resource_types/templates/stacks.resource_types/_details.html:18
+msgid "Properties"
+msgstr ""
+
+#: dashboards/project/stacks/resource_types/templates/stacks.resource_types/details.html:3
+#: dashboards/project/stacks/resource_types/templates/stacks.resource_types/details.html:6
+msgid "Resource Type Details"
+msgstr ""
 
 #: dashboards/project/stacks/templates/stacks/_change_template.html:20
 #: dashboards/project/stacks/templates/stacks/_select_template.html:20

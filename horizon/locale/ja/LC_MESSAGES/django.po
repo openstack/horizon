@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Akihiro Motoki <amotoki@gmail.com>, 2014
+# Akihiro Motoki <amotoki@gmail.com>, 2014-2015
 # myamamot <myamamot@redhat.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-19 17:45-0600\n"
-"PO-Revision-Date: 2015-01-19 15:20+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-01-22 00:01-0600\n"
+"PO-Revision-Date: 2015-01-21 17:01+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -86,6 +86,7 @@ msgid "Cancel"
 msgstr "取り消し"
 
 #: tables/actions.py:460
+#: templates/horizon/common/_data_table_table_actions.html:21
 #: templates/horizon/common/_data_table_table_actions.html:33
 #: templates/horizon/common/_modal_form_update_metadata.html:28
 #: templates/horizon/common/_modal_form_update_metadata.html:97
@@ -289,7 +290,7 @@ msgstr "Floating IP"
 #: templates/horizon/common/_limit_summary.html:29
 #, python-format
 msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr ""
+msgstr "<span> %(available)s </span> 中 <span> %(used)s </span> 割り当て済み"
 
 #: templates/horizon/common/_limit_summary.html:35
 msgid "Security Groups"
