@@ -21,7 +21,6 @@
 import tempfile
 
 from django.core.files.uploadedfile import InMemoryUploadedFile  # noqa
-from django.core.urlresolvers import reverse
 from django import http
 from django.utils import http as utils_http
 
@@ -30,18 +29,39 @@ from mox import IsA  # noqa
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.containers import forms
 from openstack_dashboard.dashboards.project.containers import tables
-from openstack_dashboard.dashboards.project.containers import views
 from openstack_dashboard.test import helpers as test
+
+from horizon.utils.urlresolvers import reverse  # noqa
 
 
 CONTAINER_NAME_1 = u"container one%\u6346"
 CONTAINER_NAME_2 = u"container_two\u6346"
 CONTAINER_NAME_1_QUOTED = utils_http.urlquote(CONTAINER_NAME_1)
 CONTAINER_NAME_2_QUOTED = utils_http.urlquote(CONTAINER_NAME_2)
+INVALID_CONTAINER_NAME_1 = utils_http.urlquote(CONTAINER_NAME_1_QUOTED)
+INVALID_CONTAINER_NAME_2 = utils_http.urlquote(CONTAINER_NAME_2_QUOTED)
 CONTAINER_INDEX_URL = reverse('horizon:project:containers:index')
+
+INVALID_PATHS = []
+
+
+def invalid_paths():
+    if not INVALID_PATHS:
+        for x in (CONTAINER_NAME_1_QUOTED, CONTAINER_NAME_2_QUOTED):
+            y = reverse('horizon:project:containers:index',
+                        args=(tables.wrap_delimiter(x), ))
+            INVALID_PATHS.append(y)
+        for x in (CONTAINER_NAME_1, CONTAINER_NAME_2):
+            INVALID_PATHS.append(CONTAINER_INDEX_URL + x)
+    return INVALID_PATHS
 
 
 class SwiftTests(test.TestCase):
+
+    def _test_invalid_paths(self, response):
+        for x in invalid_paths():
+            self.assertNotContains(response, x)
+
     @test.create_stubs({api.swift: ('swift_get_containers',)})
     def test_index_no_container_selected(self):
         containers = self.containers.list()
@@ -107,8 +127,7 @@ class SwiftTests(test.TestCase):
                         'method': forms.CreateContainer.__name__}
             res = self.client.post(
                 reverse('horizon:project:containers:create'), formData)
-            args = (utils_http.urlquote(tables.wrap_delimiter(
-                container.name)),)
+            args = (tables.wrap_delimiter(container.name),)
             url = reverse('horizon:project:containers:index', args=args)
             self.assertRedirectsNoFollow(res, url)
 
@@ -167,6 +186,7 @@ class SwiftTests(test.TestCase):
         form_action = ' action="%s%s/" ' % (CONTAINER_INDEX_URL,
                                             CONTAINER_NAME_1_QUOTED)
         self.assertContains(res, form_action, count=2)
+        self._test_invalid_paths(res)
 
     @test.create_stubs({api.swift: ('swift_upload_object',)})
     def test_upload(self):
@@ -190,9 +210,8 @@ class SwiftTests(test.TestCase):
 
         res = self.client.get(upload_url)
         self.assertTemplateUsed(res, 'project/containers/upload.html')
-
-        res = self.client.get(upload_url)
         self.assertContains(res, 'enctype="multipart/form-data"')
+        self._test_invalid_paths(res)
 
         formData = {'method': forms.UploadObject.__name__,
                     'container_name': container.name,
@@ -200,7 +219,7 @@ class SwiftTests(test.TestCase):
                     'object_file': temp_file}
         res = self.client.post(upload_url, formData)
 
-        args = (utils_http.urlquote(tables.wrap_delimiter(container.name)),)
+        args = (tables.wrap_delimiter(container.name),)
         index_url = reverse('horizon:project:containers:index', args=args)
         self.assertRedirectsNoFollow(res, index_url)
 
@@ -223,6 +242,8 @@ class SwiftTests(test.TestCase):
 
         res = self.client.get(upload_url)
         self.assertContains(res, 'enctype="multipart/form-data"')
+        self.assertNotContains(res, INVALID_CONTAINER_NAME_1)
+        self.assertNotContains(res, INVALID_CONTAINER_NAME_2)
 
         formData = {'method': forms.UploadObject.__name__,
                     'container_name': container.name,
@@ -230,7 +251,7 @@ class SwiftTests(test.TestCase):
                     'object_file': None}
         res = self.client.post(upload_url, formData)
 
-        args = (utils_http.urlquote(tables.wrap_delimiter(container.name)),)
+        args = (tables.wrap_delimiter(container.name),)
         index_url = reverse('horizon:project:containers:index', args=args)
         self.assertRedirectsNoFollow(res, index_url)
 
@@ -251,6 +272,7 @@ class SwiftTests(test.TestCase):
         res = self.client.get(create_pseudo_folder_url)
         self.assertTemplateUsed(res,
                                 'project/containers/create_pseudo_folder.html')
+        self._test_invalid_paths(res)
 
         formData = {'method': forms.CreatePseudoFolder.__name__,
                     'container_name': container.name,
@@ -266,7 +288,7 @@ class SwiftTests(test.TestCase):
     def test_delete(self):
         container = self.containers.first()
         obj = self.objects.first()
-        args = (utils_http.urlquote(tables.wrap_delimiter(container.name)),)
+        args = (tables.wrap_delimiter(container.name),)
         index_url = reverse('horizon:project:containers:index', args=args)
         api.swift.swift_delete_object(IsA(http.HttpRequest),
                                       container.name,
@@ -285,7 +307,7 @@ class SwiftTests(test.TestCase):
     def test_delete_pseudo_folder(self):
         container = self.containers.first()
         folder = self.folder.first()
-        args = (utils_http.urlquote(tables.wrap_delimiter(container.name)),)
+        args = (tables.wrap_delimiter(container.name),)
         index_url = reverse('horizon:project:containers:index', args=args)
         api.swift.swift_delete_object(IsA(http.HttpRequest),
                                       container.name,
@@ -317,6 +339,9 @@ class SwiftTests(test.TestCase):
                 res = self.client.get(download_url)
                 self.assertEqual(res.content, obj.data)
                 self.assertTrue(res.has_header('Content-Disposition'))
+                self.assertNotContains(res, INVALID_CONTAINER_NAME_1)
+                self.assertNotContains(res, INVALID_CONTAINER_NAME_2)
+
                 # Check that the returned Content-Disposition filename is well
                 # surrounded by double quotes and with commas removed
                 expected_name = '"%s"' % obj.name.replace(
@@ -336,6 +361,8 @@ class SwiftTests(test.TestCase):
                                       args=[self.containers.first().name,
                                             self.objects.first().name]))
         self.assertTemplateUsed(res, 'project/containers/copy.html')
+        self.assertNotContains(res, INVALID_CONTAINER_NAME_1)
+        self.assertNotContains(res, INVALID_CONTAINER_NAME_2)
 
     @test.create_stubs({api.swift: ('swift_get_containers',
                                     'swift_copy_object')})
@@ -361,7 +388,7 @@ class SwiftTests(test.TestCase):
         copy_url = reverse('horizon:project:containers:object_copy',
                            args=[container_1.name, obj.name])
         res = self.client.post(copy_url, formData)
-        args = (utils_http.urlquote(tables.wrap_delimiter(container_2.name)),)
+        args = (tables.wrap_delimiter(container_2.name),)
         index_url = reverse('horizon:project:containers:index', args=args)
         self.assertRedirectsNoFollow(res, index_url)
 
@@ -387,9 +414,8 @@ class SwiftTests(test.TestCase):
 
         res = self.client.get(update_url)
         self.assertTemplateUsed(res, 'project/containers/update.html')
-
-        res = self.client.get(update_url)
         self.assertContains(res, 'enctype="multipart/form-data"')
+        self._test_invalid_paths(res)
 
         formData = {'method': forms.UpdateObject.__name__,
                     'container_name': container.name,
@@ -397,7 +423,7 @@ class SwiftTests(test.TestCase):
                     'object_file': temp_file}
         res = self.client.post(update_url, formData)
 
-        args = (utils_http.urlquote(tables.wrap_delimiter(container.name)),)
+        args = (tables.wrap_delimiter(container.name),)
         index_url = reverse('horizon:project:containers:index', args=args)
         self.assertRedirectsNoFollow(res, index_url)
 
@@ -413,16 +439,15 @@ class SwiftTests(test.TestCase):
 
         res = self.client.get(update_url)
         self.assertTemplateUsed(res, 'project/containers/update.html')
-
-        res = self.client.get(update_url)
         self.assertContains(res, 'enctype="multipart/form-data"')
+        self._test_invalid_paths(res)
 
         formData = {'method': forms.UpdateObject.__name__,
                     'container_name': container.name,
                     'name': obj.name}
         res = self.client.post(update_url, formData)
 
-        args = (utils_http.urlquote(tables.wrap_delimiter(container.name)),)
+        args = (tables.wrap_delimiter(container.name),)
         index_url = reverse('horizon:project:containers:index', args=args)
         self.assertRedirectsNoFollow(res, index_url)
 
@@ -443,6 +468,8 @@ class SwiftTests(test.TestCase):
             self.assertTemplateUsed(res,
                                     'project/containers/container_detail.html')
             self.assertContains(res, container.name, 1, 200)
+            self.assertNotContains(res, INVALID_CONTAINER_NAME_1)
+            self.assertNotContains(res, INVALID_CONTAINER_NAME_2)
 
     @test.create_stubs({api.swift: ('swift_get_object', )})
     def test_view_object(self):
@@ -462,6 +489,7 @@ class SwiftTests(test.TestCase):
                 self.assertTemplateUsed(
                     res, 'project/containers/object_detail.html')
                 self.assertContains(res, obj.name, 1, 200)
+                self._test_invalid_paths(res)
 
     def test_wrap_delimiter(self):
         expected = {
@@ -472,13 +500,3 @@ class SwiftTests(test.TestCase):
         }
         for name, expected_name in expected.items():
             self.assertEqual(tables.wrap_delimiter(name), expected_name)
-
-    def test_for_url(self):
-        expected = {
-            'containerA': 'containerA/',
-            'containerB%': 'containerB%25/',  # urlquote() must be called
-            'containerC%/': 'containerC%25/',
-            'containerD%/objectA%': 'containerD%25/objectA%25/'
-        }
-        for name, expected_name in expected.items():
-            self.assertEqual(views.for_url(name), expected_name)
