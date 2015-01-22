@@ -6,7 +6,6 @@ horizon.templates = {
     "#alert_message_template", 
     "#spinner-modal", 
     "#membership_template",
-    "#inline_edit_form_template",
   ],
   compiled_templates: {}  
 };

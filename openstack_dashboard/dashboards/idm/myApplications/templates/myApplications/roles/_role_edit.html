@@ -1,0 +1,19 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}edit_role_form{% endblock %}
+{% block form_action %}{% url 'horizon:idm:myApplications:roles_edit' application_id=application_id role_id=role_id %}{% endblock %}
+
+{% block modal-header %}
+{% endblock %}
+
+{% block modal-body %}
+    <fieldset>
+        {% include "horizon/common/_form_fields.html"%}
+    </fieldset>
+{% endblock %}
+
+{% block modal-footer %}
+{# TODO(garcianavalon) cancel and confirm buttons #}
+{% endblock %}

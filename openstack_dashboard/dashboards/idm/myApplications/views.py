@@ -85,6 +85,11 @@ class RolesView(workflows.WorkflowView):
         initial['application_id'] = self.kwargs['application_id']
         return initial
 
+    def get_workflow(self):
+        workflow = super(RolesView, self).get_workflow()
+        workflow.finalize_button_name = _("Finish")
+        return workflow
+
 
 class CreateRoleView(forms.ModalFormView):
     form_class = application_forms.CreateRoleForm
@@ -103,6 +108,42 @@ class CreateRoleView(forms.ModalFormView):
     def get_initial(self):
         initial = super(CreateRoleView, self).get_initial()
         initial['application_id'] = self.kwargs['application_id']
+        return initial
+
+class EditRoleView(forms.ModalFormView):
+    form_class = application_forms.EditRoleForm
+    template_name = 'idm/myApplications/roles/role_edit.html'
+    success_url = 'no use all ajax!'
+
+    def get_context_data(self, **kwargs):
+        context = super(EditRoleView, self).get_context_data(**kwargs)
+        context['role_id'] = self.kwargs['role_id']
+        context['application_id'] = self.kwargs['application_id']
+        return context
+
+    def get_initial(self):
+        initial = super(EditRoleView, self).get_initial()
+        initial['role_id'] = self.kwargs['role_id']
+        return initial
+
+class DeleteRoleView(forms.ModalFormView):
+    form_class = application_forms.DeleteRoleForm
+    template_name = 'idm/myApplications/roles/role_delete.html'
+    success_url = 'horizon:idm:myApplications:roles_index'
+
+    def get_success_url(self):
+        return reverse(self.success_url, 
+                kwargs={'application_id': self.kwargs['application_id']})
+
+    def get_context_data(self, **kwargs):
+        context = super(DeleteRoleView, self).get_context_data(**kwargs)
+        context['role_id'] = self.kwargs['role_id']
+        context['application_id'] = self.kwargs['application_id']
+        return context
+
+    def get_initial(self):
+        initial = super(DeleteRoleView, self).get_initial()
+        initial['role_id'] = self.kwargs['role_id']
         return initial
 
 
