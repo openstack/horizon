@@ -130,6 +130,21 @@ class CreateRoleForm(forms.SelfHandlingForm):
         except Exception:
             exceptions.handle(request, _('Unable to create role.'))
 
+class DeleteRoleForm(forms.SelfHandlingForm):
+    role_id = forms.CharField(required=True,
+                                 widget=forms.HiddenInput())
+
+    def handle(self, request, data):
+        try:
+            LOG.info('Deleting role with id {0}'.format(data['role_id']))
+            fiware_api.keystone.role_delete(request,
+                                            role_id=data['role_id'])
+            messages.success(request,
+                             _('Role "%s" was successfully deleted.')
+                             % data['role_id'])
+            return True
+        except Exception:
+            exceptions.handle(request, _('Unable to delete role.'))
 
 class CreatePermissionForm(forms.SelfHandlingForm):
     application_id = forms.CharField(required=True,

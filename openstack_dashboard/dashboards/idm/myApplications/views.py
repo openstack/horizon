@@ -110,6 +110,27 @@ class CreateRoleView(forms.ModalFormView):
         initial['application_id'] = self.kwargs['application_id']
         return initial
 
+class DeleteRoleView(forms.ModalFormView):
+    form_class = application_forms.DeleteRoleForm
+    template_name = 'idm/myApplications/roles/role_delete.html'
+    success_url = 'horizon:idm:myApplications:roles_index'
+
+    def get_success_url(self):
+        return reverse(self.success_url, 
+                kwargs={'application_id': self.kwargs['application_id']})
+
+    def get_context_data(self, **kwargs):
+        context = super(DeleteRoleView, self).get_context_data(**kwargs)
+        context['role_id'] = self.kwargs['role_id']
+        context['application_id'] = self.kwargs['application_id']
+        return context
+
+    def get_initial(self):
+        initial = super(DeleteRoleView, self).get_initial()
+        initial['role_id'] = self.kwargs['role_id']
+        return initial
+
+
 
 class CreatePermissionView(forms.ModalFormView):
     form_class = application_forms.CreatePermissionForm
