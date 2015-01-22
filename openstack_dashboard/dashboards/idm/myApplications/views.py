@@ -75,66 +75,55 @@ class AvatarStepView(forms.ModalFormView):
         context['image'] = getattr(application, 'img', '/static/dashboard/img/logos/small/app.png')
         return context
 
+
 class RolesView(workflows.WorkflowView):
     workflow_class = application_workflows.ManageApplicationRoles
     template_name = 'idm/myApplications/roles/_workflow_base.html'
+
     def get_initial(self):
         initial = super(RolesView, self).get_initial()
-
-        application_id = self.kwargs['application_id']
-        initial['application_id'] = application_id
-
+        initial['application_id'] = self.kwargs['application_id']
         return initial
-        
-# # NOTE(garcianavalon) from horizon.forms.views
-# ADD_TO_FIELD_HEADER = "HTTP_X_HORIZON_ADD_TO_FIELD"
-# class RolesView(tables.MultiTableView):
-#     """ Logic for the asynchronous widget to manage roles and permissions at the
-#     application level.
-#     """
-#     template_name = 'idm/myApplications/roles.html'
-#     table_classes = (application_tables.RolesTable,
-#                      application_tables.PermissionsTable)
 
-#     def get_roles_data(self):
-#         roles = []
-#         try:
-#             roles = fiware_api.keystone.role_list(self.request)
-#         except Exception:
-#             exceptions.handle(self.request,
-#                                _('Unable to retrieve roles list.'))
-    
-#         return roles
-
-#     def get_permissions_data(self):
-#         permissions = []
-#         try:
-#             permissions = fiware_api.keystone.permission_list(self.request)
-#         except Exception:
-#             exceptions.handle(self.request,
-#                                _('Unable to retrieve permissions list.'))
-    
-#         return permissions
-
-#     def get_context_data(self, **kwargs):
-#         # NOTE(garcianavalon) add the CreateRoleForm to the view for inline create
-#         context = super(RolesView, self).get_context_data(**kwargs)
-#         context['inline_forms'] = True
-#         context['roles_form'] = application_forms.CreateRoleForm(self.request)
-#         context['roles_add_to_field'] = 'roles'
-#         context['permissions_form'] = application_forms.CreatePermissionForm(self.request)
-#         context['permissions_add_to_field'] = 'permissions'
-#         return context
 
 class CreateRoleView(forms.ModalFormView):
     form_class = application_forms.CreateRoleForm
     template_name = 'idm/myApplications/roles/role_create.html'
-    success_url = "reverse_lazy('horizon:idm:myApplications:roles_index')"
+    success_url = 'horizon:idm:myApplications:roles_index'
+
+    def get_success_url(self):
+        return reverse(self.success_url, 
+                kwargs={'application_id': self.kwargs['application_id']})
+
+    def get_context_data(self, **kwargs):
+        context = super(CreateRoleView, self).get_context_data(**kwargs)
+        context['application_id'] = self.kwargs['application_id']
+        return context
+
+    def get_initial(self):
+        initial = super(CreateRoleView, self).get_initial()
+        initial['application_id'] = self.kwargs['application_id']
+        return initial
+
 
 class CreatePermissionView(forms.ModalFormView):
     form_class = application_forms.CreatePermissionForm
     template_name = 'idm/myApplications/roles/permission_create.html'
-    success_url = "reverse_lazy('horizon:idm:myApplications:roles_index')"
+    success_url = 'horizon:idm:myApplications:roles_index'
+
+    def get_context_data(self, **kwargs):
+        context = super(CreatePermissionView, self).get_context_data(**kwargs)
+        context['application_id'] = self.kwargs['application_id']
+        return context
+
+    def get_success_url(self):
+        return reverse(self.success_url, 
+                kwargs={'application_id': self.kwargs['application_id']})
+
+    def get_initial(self):
+        initial = super(CreatePermissionView, self).get_initial()
+        initial['application_id'] = self.kwargs['application_id']
+        return initial
 
 
 class DetailApplicationView(TemplateView):
