@@ -36,6 +36,31 @@ class LaunchStack(tables.LinkAction):
     policy_rules = (("orchestration", "cloudformation:CreateStack"),)
 
 
+class CheckStack(tables.BatchAction):
+    name = "check"
+    verbose_name = _("Check Stack")
+    policy_rules = (("orchestration", "cloudformation:CheckStack"),)
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Check Stack",
+            u"Check Stacks",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Checked Stack",
+            u"Checked Stacks",
+            count
+        )
+
+    def action(self, request, stack_id):
+        api.heat.action_check(request, stack_id)
+
+
 class ChangeStackTemplate(tables.LinkAction):
     name = "edit"
     verbose_name = _("Change Stack Template")
@@ -127,9 +152,8 @@ class StacksTable(tables.DataTable):
         pagination_param = 'stack_marker'
         status_columns = ["status", ]
         row_class = StacksUpdateRow
-        table_actions = (LaunchStack, DeleteStack,)
-        row_actions = (DeleteStack,
-                       ChangeStackTemplate)
+        table_actions = (LaunchStack, CheckStack, DeleteStack,)
+        row_actions = (CheckStack, ChangeStackTemplate, DeleteStack,)
 
 
 def get_resource_url(obj):
