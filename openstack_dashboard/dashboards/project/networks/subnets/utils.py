@@ -19,12 +19,12 @@ IPV6_MODE_CHOICES = [
     ('none/none',
      _('No options specified')),
     ('slaac/slaac',
-     _('SLAAC: Address discovered from Openstack Router')),
+     _('SLAAC: Address discovered from OpenStack Router')),
     ('dhcpv6-stateful/dhcpv6-stateful',
-     _('DHCPv6 stateful: Address discovered from Openstack DHCP')),
+     _('DHCPv6 stateful: Address discovered from OpenStack DHCP')),
     ('dhcpv6-stateless/dhcpv6-stateless',
-     _('DHCPv6 stateless: Address discovered from Openstack Router '
-       'and info from Openstack DHCP')),
+     _('DHCPv6 stateless: Address discovered from OpenStack Router '
+       'and additional information from OpenStack DHCP')),
 ]
 IPV6_MODE_MAP = dict(IPV6_MODE_CHOICES)
 
