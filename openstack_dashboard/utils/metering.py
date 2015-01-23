@@ -11,30 +11,43 @@
 # under the License.
 
 import datetime
+import logging
 
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
+from horizon.utils import units
+
 from openstack_dashboard import api
 
+import pytz
 
-def calc_period(date_from, date_to):
+
+LOG = logging.getLogger(__name__)
+
+
+METER_API_MAPPINGS = {
+    "instance": 'nova',
+    "cpu": 'nova',
+    "cpu_util": 'nova',
+    "disk_read_requests": 'nova',
+    "disk_write_requests": 'nova',
+    "disk_read_bytes": 'nova',
+    "disk_write_bytes": 'nova',
+    "image": 'glance',
+    "image_size": 'glance'
+}
+
+
+def calc_period(date_from, date_to, number_of_samples=400):
     if date_from and date_to:
         if date_to < date_from:
             # TODO(lsmola) propagate the Value error through Horizon
             # handler to the client with verbose message.
             raise ValueError(_("To date to must be greater than From date."))
 
-        # get the time delta in seconds
         delta = date_to - date_from
-        if delta.days <= 0:
-            # it's one day
-            delta_in_seconds = 3600 * 24
-        else:
-            delta_in_seconds = delta.days * 24 * 3600 + delta.seconds
-            # Lets always show 400 samples in the chart. Know that it is
-        # maximum amount of samples and it can be lower.
-        number_of_samples = 400
+        delta_in_seconds = delta.days * 24 * 3600 + delta.seconds
         period = delta_in_seconds / number_of_samples
     else:
         # If some date is missing, just set static window to one day.
@@ -43,31 +56,114 @@ def calc_period(date_from, date_to):
 
 
 def calc_date_args(date_from, date_to, date_options):
+    # TODO(lsmola) all timestamps should probably work with
+    # current timezone. And also show the current timezone in chart.
     if date_options == "other":
-        if date_from and not isinstance(date_from, datetime.date):
-            try:
-                date_from = datetime.datetime.strptime(date_from,
-                                                       "%Y-%m-%d")
-            except Exception:
-                raise ValueError(_("From-date is not recognized"))
-
-        if date_to:
-            if not isinstance(date_to, datetime.date):
-                try:
-                    date_to = datetime.datetime.strptime(date_to,
-                                                         "%Y-%m-%d")
-                except Exception:
-                    raise ValueError(_("To-date is not recognized"))
-        else:
-            date_to = timezone.now()
+        try:
+            if date_from:
+                date_from = pytz.utc.localize(
+                    datetime.datetime.strptime(date_from, "%Y-%m-%d"))
+            else:
+                # TODO(lsmola) there should be probably the date
+                # of the first sample as default, so it correctly
+                # counts the time window. Though I need ordering
+                # and limit of samples to obtain that.
+                pass
+            if date_to:
+                date_to = pytz.utc.localize(
+                    datetime.datetime.strptime(date_to, "%Y-%m-%d"))
+                # It returns the beginning of the day, I want the end of
+                # the day, so I add one day without a second.
+                date_to = (date_to + datetime.timedelta(days=1) -
+                           datetime.timedelta(seconds=1))
+            else:
+                date_to = timezone.now()
+        except Exception:
+            raise ValueError(_("The dates haven't been recognized"))
     else:
         try:
             date_to = timezone.now()
-            date_from = date_to - datetime.timedelta(days=int(date_options))
+            date_from = date_to - datetime.timedelta(days=float(date_options))
         except Exception:
-            raise ValueError(_("The time delta must be an "
-                             "integer representing days."))
+            raise ValueError(_("The time delta must be a number representing "
+                               "the time span in days"))
     return date_from, date_to
+
+
+def get_resource_name(request, resource_id, resource_name, meter_name):
+    resource = None
+    try:
+        if resource_name == "resource_id":
+            meter_name = 'instance' if "instance" in meter_name else meter_name
+            api_type = METER_API_MAPPINGS.get(meter_name, '')
+            if api_type == 'nova':
+                resource = api.nova.server_get(request, resource_id)
+            elif api_type == 'glance':
+                resource = api.glance.image_get(request, resource_id)
+
+    except Exception:
+        LOG.info(_("Failed to get the resource name: %s"), resource_id,
+                 exc_info=True)
+    return resource.name if resource else resource_id
+
+
+def series_for_meter(request, aggregates, group_by, meter_id,
+                     meter_name, stats_name, unit, label=None):
+    """Construct datapoint series for a meter from resource aggregates."""
+    series = []
+    for resource in aggregates:
+        if resource.get_meter(meter_name):
+            if label:
+                name = label
+            else:
+                resource_name = ('id' if group_by == "project"
+                                 else 'resource_id')
+                resource_id = getattr(resource, resource_name)
+                name = get_resource_name(request, resource_id,
+                                         resource_name, meter_name)
+            point = {'unit': unit,
+                     'name': name,
+                     'meter': meter_id,
+                     'data': []}
+            for statistic in resource.get_meter(meter_name):
+                date = statistic.duration_end[:19]
+                value = float(getattr(statistic, stats_name))
+                point['data'].append({'x': date, 'y': value})
+            series.append(point)
+    return series
+
+
+def normalize_series_by_unit(series):
+    """Transform series' values into a more human readable form:
+    1) Determine the data point with the maximum value
+    2) Decide the unit appropriate for this value (normalize it)
+    3) Convert other values to this new unit, if necessary
+    """
+    if not series:
+        return series
+
+    source_unit = target_unit = series[0]['unit']
+
+    if not units.is_supported(source_unit):
+        return series
+
+    # Find the data point with the largest value and normalize it to
+    # determine its unit - that will be the new unit
+    maximum = max([d['y'] for point in series for d in point['data']])
+    unit = units.normalize(maximum, source_unit)[1]
+
+    # If unit needs to be changed, set the new unit for all data points
+    # and convert all values to that unit
+    if units.is_larger(unit, target_unit):
+        target_unit = unit
+        for i, point in enumerate(series[:]):
+            if point['unit'] != target_unit:
+                series[i]['unit'] = target_unit
+                for j, d in enumerate(point['data'][:]):
+                    series[i]['data'][j]['y'] = units.convert(
+                        d['y'], source_unit, target_unit, fmt=True)[0]
+
+    return series
 
 
 class ProjectAggregatesQuery(object):
