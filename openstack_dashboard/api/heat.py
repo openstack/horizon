@@ -130,6 +130,14 @@ def action_check(request, stack_id):
     return heatclient(request).actions.check(stack_id)
 
 
+def action_suspend(request, stack_id):
+    return heatclient(request).actions.suspend(stack_id)
+
+
+def action_resume(request, stack_id):
+    return heatclient(request).actions.resume(stack_id)
+
+
 def resource_types_list(request):
     return heatclient(request).resource_types.list()
 

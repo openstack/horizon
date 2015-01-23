@@ -679,6 +679,22 @@ class StackTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    def test_suspend_stack(self):
+        stack = self.stacks.first()
+        form_data = {"action": "stacks__suspend__%s" % stack.id}
+        res = self.client.post(INDEX_URL, form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    def test_resume_stack(self):
+        stack = self.stacks.first()
+        form_data = {"action": "stacks__resume__%s" % stack.id}
+        res = self.client.post(INDEX_URL, form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
 
 class TemplateFormTests(test.TestCase):
 
