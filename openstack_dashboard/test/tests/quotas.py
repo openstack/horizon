@@ -81,7 +81,7 @@ class QuotaTests(test.APITestCase):
         cinder.volume_list(IsA(http.HttpRequest), opts) \
             .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest), opts) \
-            .AndReturn(self.snapshots.list())
+            .AndReturn(self.cinder_volume_snapshots.list())
         cinder.tenant_quota_get(IsA(http.HttpRequest), '1') \
             .AndReturn(self.cinder_quotas.first())
 
@@ -91,7 +91,7 @@ class QuotaTests(test.APITestCase):
         expected_output = self.get_usages()
 
         # Compare internal structure of usages to expected.
-        self.assertEqual(expected_output, quota_usages.usages)
+        self.assertItemsEqual(expected_output, quota_usages.usages)
 
     @test.create_stubs({api.nova: ('server_list',
                                    'flavor_list',
@@ -126,7 +126,7 @@ class QuotaTests(test.APITestCase):
         expected_output = self.get_usages(with_volume=False)
 
         # Compare internal structure of usages to expected.
-        self.assertEqual(expected_output, quota_usages.usages)
+        self.assertItemsEqual(expected_output, quota_usages.usages)
 
         # Make sure that the `in` operator and the `.get()` method
         # behave as expected
@@ -169,7 +169,7 @@ class QuotaTests(test.APITestCase):
             'cores': {'available': 10, 'used': 0, 'quota': 10}})
 
         # Compare internal structure of usages to expected.
-        self.assertEqual(expected_output, quota_usages.usages)
+        self.assertItemsEqual(expected_output, quota_usages.usages)
 
     @test.create_stubs({api.nova: ('server_list',
                                    'flavor_list',
@@ -205,7 +205,7 @@ class QuotaTests(test.APITestCase):
         cinder.volume_list(IsA(http.HttpRequest), opts) \
             .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest), opts) \
-            .AndReturn(self.snapshots.list())
+            .AndReturn(self.cinder_volume_snapshots.list())
         cinder.tenant_quota_get(IsA(http.HttpRequest), '1') \
             .AndReturn(self.cinder_quotas.first())
 
@@ -218,7 +218,7 @@ class QuotaTests(test.APITestCase):
                                         'quota': float("inf")}})
 
         # Compare internal structure of usages to expected.
-        self.assertEqual(quota_usages.usages, expected_output)
+        self.assertItemsEqual(expected_output, quota_usages.usages)
 
     @test.create_stubs({api.nova: ('server_list',
                                    'flavor_list',
@@ -250,7 +250,7 @@ class QuotaTests(test.APITestCase):
         cinder.volume_list(IsA(http.HttpRequest), opts) \
             .AndReturn(self.volumes.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest), opts) \
-            .AndReturn(self.snapshots.list())
+            .AndReturn(self.cinder_volume_snapshots.list())
         cinder.tenant_quota_get(IsA(http.HttpRequest), '1') \
             .AndReturn(self.cinder_quotas.first())
 
@@ -262,4 +262,4 @@ class QuotaTests(test.APITestCase):
         expected_output['floating_ips']['available'] = 1
 
         # Compare internal structure of usages to expected.
-        self.assertEqual(expected_output, quota_usages.usages)
+        self.assertItemsEqual(expected_output, quota_usages.usages)
