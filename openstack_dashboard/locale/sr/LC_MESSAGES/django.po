@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-22 00:01-0600\n"
-"PO-Revision-Date: 2015-01-22 00:45+0000\n"
+"POT-Creation-Date: 2015-01-23 08:15-0600\n"
+"PO-Revision-Date: 2015-01-23 14:15+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/horizon/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -1823,9 +1823,9 @@ msgstr "Zona"
 #: dashboards/project/routers/tables.py:191
 #: dashboards/project/routers/ports/tables.py:105
 #: dashboards/project/routers/templates/routers/_detail_overview.html:13
-#: dashboards/project/stacks/tables.py:117
-#: dashboards/project/stacks/tables.py:154
-#: dashboards/project/stacks/tables.py:201
+#: dashboards/project/stacks/tables.py:142
+#: dashboards/project/stacks/tables.py:178
+#: dashboards/project/stacks/tables.py:225
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:19
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:26
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:35
@@ -2626,7 +2626,7 @@ msgstr ""
 #: dashboards/project/images/templates/images/images/_detail_overview.html:27
 #: dashboards/project/instances/templates/instances/_detail_overview.html:18
 #: dashboards/project/instances/templates/instances/_detail_overview.html:38
-#: dashboards/project/stacks/tables.py:108
+#: dashboards/project/stacks/tables.py:133
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:22
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:39
@@ -2653,7 +2653,7 @@ msgstr "Nepoznato"
 #: dashboards/project/database_backups/templates/database_backups/details.html:38
 #: dashboards/project/databases/templates/databases/_detail_overview.html:36
 #: dashboards/project/images/templates/images/images/_detail_overview.html:33
-#: dashboards/project/stacks/tables.py:112
+#: dashboards/project/stacks/tables.py:137
 msgid "Updated"
 msgstr "Ažurirano"
 
@@ -12981,7 +12981,7 @@ msgstr "ID stack-a"
 #: dashboards/project/stacks/forms.py:233
 #: dashboards/project/stacks/forms.py:257
 #: dashboards/project/stacks/forms.py:382
-#: dashboards/project/stacks/tables.py:105
+#: dashboards/project/stacks/tables.py:130
 msgid "Stack Name"
 msgstr "Ime stack-a"
 
@@ -13041,7 +13041,7 @@ msgid "Stack update started."
 msgstr "Izmena stack-a je pokrenuta."
 
 #: dashboards/project/stacks/panel.py:21
-#: dashboards/project/stacks/tables.py:126
+#: dashboards/project/stacks/tables.py:151
 #: dashboards/project/stacks/templates/stacks/index.html:3
 #: dashboards/project/stacks/templates/stacks/index.html:6
 msgid "Stacks"
@@ -13055,57 +13055,72 @@ msgid "Launch Stack"
 msgstr "Pokretanje stack-a"
 
 #: dashboards/project/stacks/tables.py:41
+#: dashboards/project/stacks/tables.py:47
+msgid "Check Stack"
+msgid_plural "Check Stacks"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: dashboards/project/stacks/tables.py:55
+msgid "Checked Stack"
+msgid_plural "Checked Stacks"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: dashboards/project/stacks/tables.py:66
 msgid "Change Stack Template"
 msgstr "Promena šablona stack-a"
 
-#: dashboards/project/stacks/tables.py:54
+#: dashboards/project/stacks/tables.py:79
 msgid "Delete Stack"
 msgid_plural "Delete Stacks"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/stacks/tables.py:62
+#: dashboards/project/stacks/tables.py:87
 msgid "Deleted Stack"
 msgid_plural "Deleted Stacks"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/stacks/tables.py:143
-#: dashboards/project/stacks/tables.py:188
+#: dashboards/project/stacks/tables.py:167
+#: dashboards/project/stacks/tables.py:212
 msgid "Stack Resource"
 msgstr "Resurs stack-a"
 
-#: dashboards/project/stacks/tables.py:146
-#: dashboards/project/stacks/tables.py:191
+#: dashboards/project/stacks/tables.py:170
+#: dashboards/project/stacks/tables.py:215
 #: dashboards/project/stacks/resource_types/tables.py:37
 msgid "Resource"
 msgstr "Resurs"
 
-#: dashboards/project/stacks/tables.py:149
+#: dashboards/project/stacks/tables.py:173
 msgid "Time Since Event"
 msgstr "Vreme od događaja"
 
-#: dashboards/project/stacks/tables.py:157
-#: dashboards/project/stacks/tables.py:206
+#: dashboards/project/stacks/tables.py:181
+#: dashboards/project/stacks/tables.py:230
 msgid "Status Reason"
 msgstr "Razlozi statusa"
 
-#: dashboards/project/stacks/tables.py:161
+#: dashboards/project/stacks/tables.py:185
 msgid "Stack Events"
 msgstr "Događaji stack-a"
 
-#: dashboards/project/stacks/tables.py:194
+#: dashboards/project/stacks/tables.py:218
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:25
 msgid "Stack Resource Type"
 msgstr "Vrsta resursa stack-a"
 
-#: dashboards/project/stacks/tables.py:196
+#: dashboards/project/stacks/tables.py:220
 msgid "Date Updated"
 msgstr "Datum izmene"
 
-#: dashboards/project/stacks/tables.py:219
+#: dashboards/project/stacks/tables.py:243
 msgid "Stack Resources"
 msgstr "Resursi stack-a"
 

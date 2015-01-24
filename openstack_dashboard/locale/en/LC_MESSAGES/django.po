@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-22 00:07-0600\n"
+"POT-Creation-Date: 2015-01-24 00:06-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1816,9 +1816,9 @@ msgstr ""
 #: dashboards/project/routers/tables.py:191
 #: dashboards/project/routers/ports/tables.py:105
 #: dashboards/project/routers/templates/routers/_detail_overview.html:13
-#: dashboards/project/stacks/tables.py:117
-#: dashboards/project/stacks/tables.py:154
-#: dashboards/project/stacks/tables.py:201
+#: dashboards/project/stacks/tables.py:142
+#: dashboards/project/stacks/tables.py:178
+#: dashboards/project/stacks/tables.py:225
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:19
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:26
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:35
@@ -2615,7 +2615,7 @@ msgstr ""
 #: dashboards/project/images/templates/images/images/_detail_overview.html:27
 #: dashboards/project/instances/templates/instances/_detail_overview.html:18
 #: dashboards/project/instances/templates/instances/_detail_overview.html:38
-#: dashboards/project/stacks/tables.py:108
+#: dashboards/project/stacks/tables.py:133
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:22
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:39
@@ -2642,7 +2642,7 @@ msgstr ""
 #: dashboards/project/database_backups/templates/database_backups/details.html:38
 #: dashboards/project/databases/templates/databases/_detail_overview.html:36
 #: dashboards/project/images/templates/images/images/_detail_overview.html:33
-#: dashboards/project/stacks/tables.py:112
+#: dashboards/project/stacks/tables.py:137
 msgid "Updated"
 msgstr ""
 
@@ -12201,17 +12201,17 @@ msgid "No options specified"
 msgstr ""
 
 #: dashboards/project/networks/subnets/utils.py:22
-msgid "SLAAC: Address discovered from Openstack Router"
+msgid "SLAAC: Address discovered from OpenStack Router"
 msgstr ""
 
 #: dashboards/project/networks/subnets/utils.py:24
-msgid "DHCPv6 stateful: Address discovered from Openstack DHCP"
+msgid "DHCPv6 stateful: Address discovered from OpenStack DHCP"
 msgstr ""
 
 #: dashboards/project/networks/subnets/utils.py:26
 msgid ""
-"DHCPv6 stateless: Address discovered from Openstack Router and info from "
-"Openstack DHCP"
+"DHCPv6 stateless: Address discovered from OpenStack Router and additional "
+"information from OpenStack DHCP"
 msgstr ""
 
 #: dashboards/project/networks/subnets/views.py:67
@@ -12892,7 +12892,7 @@ msgstr ""
 #: dashboards/project/stacks/forms.py:233
 #: dashboards/project/stacks/forms.py:257
 #: dashboards/project/stacks/forms.py:382
-#: dashboards/project/stacks/tables.py:105
+#: dashboards/project/stacks/tables.py:130
 msgid "Stack Name"
 msgstr ""
 
@@ -12952,7 +12952,7 @@ msgid "Stack update started."
 msgstr ""
 
 #: dashboards/project/stacks/panel.py:21
-#: dashboards/project/stacks/tables.py:126
+#: dashboards/project/stacks/tables.py:151
 #: dashboards/project/stacks/templates/stacks/index.html:3
 #: dashboards/project/stacks/templates/stacks/index.html:6
 msgid "Stacks"
@@ -12966,55 +12966,68 @@ msgid "Launch Stack"
 msgstr ""
 
 #: dashboards/project/stacks/tables.py:41
+#: dashboards/project/stacks/tables.py:47
+msgid "Check Stack"
+msgid_plural "Check Stacks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: dashboards/project/stacks/tables.py:55
+msgid "Checked Stack"
+msgid_plural "Checked Stacks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: dashboards/project/stacks/tables.py:66
 msgid "Change Stack Template"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:54
+#: dashboards/project/stacks/tables.py:79
 msgid "Delete Stack"
 msgid_plural "Delete Stacks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/stacks/tables.py:62
+#: dashboards/project/stacks/tables.py:87
 msgid "Deleted Stack"
 msgid_plural "Deleted Stacks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/stacks/tables.py:143
-#: dashboards/project/stacks/tables.py:188
+#: dashboards/project/stacks/tables.py:167
+#: dashboards/project/stacks/tables.py:212
 msgid "Stack Resource"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:146
-#: dashboards/project/stacks/tables.py:191
+#: dashboards/project/stacks/tables.py:170
+#: dashboards/project/stacks/tables.py:215
 #: dashboards/project/stacks/resource_types/tables.py:37
 msgid "Resource"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:149
+#: dashboards/project/stacks/tables.py:173
 msgid "Time Since Event"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:157
-#: dashboards/project/stacks/tables.py:206
+#: dashboards/project/stacks/tables.py:181
+#: dashboards/project/stacks/tables.py:230
 msgid "Status Reason"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:161
+#: dashboards/project/stacks/tables.py:185
 msgid "Stack Events"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:194
+#: dashboards/project/stacks/tables.py:218
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:25
 msgid "Stack Resource Type"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:196
+#: dashboards/project/stacks/tables.py:220
 msgid "Date Updated"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:219
+#: dashboards/project/stacks/tables.py:243
 msgid "Stack Resources"
 msgstr ""
 
