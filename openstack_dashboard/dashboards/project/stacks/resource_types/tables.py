@@ -21,8 +21,9 @@ class ResourceTypesTable(tables.DataTable):
         def get_raw_data(self, datum):
             attr_list = ['implementation', 'component', 'resource']
             info_list = datum.resource_type.split('::')
-            info_list[0] = info_list[0].replace("AWS", "Amazon Web Services").\
-                replace("OS", "OpenStack")
+            info_list[0] = info_list[0].replace("OS", "OpenStack")
+            if info_list[0] == "AWS":
+                info_list[0] = _("AWS compatible")
             info_dict = dict(zip(attr_list, info_list))
             return info_dict[self.transform]
 
