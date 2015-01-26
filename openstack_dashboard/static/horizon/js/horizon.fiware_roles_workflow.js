@@ -328,7 +328,7 @@ horizon.fiware_roles_workflow = {
    */
   inline_edit_role: {
     init: function(step_slug) {
-      $("#" + step_slug + "_roles").on('click', '.fa-edit', function (evt) {
+      $("#" + step_slug + "_roles").on('click', '.ajax-inline-edit', function (evt) {
         console.log('edit')
         //var data_id = $(this).siblings('input').attr("data-" + step_slug + "-id");
         //console.log('data_id:'+data_id)
@@ -337,14 +337,45 @@ horizon.fiware_roles_workflow = {
         // save the element for later use
         horizon.fiware_roles_workflow.inline_edit_role.cached_role = role_div_element;
         // time to ajax for the form!
-        
+        var url = $(this).attr("href");
+        horizon.fiware_roles_workflow.inline_edit_role.render_form(url, role_div_element)
+
       });
     },
-    render_form: function(role_div_element) {
-      console.log('render')
-      
-      $(role_div_element).hide();
-      parent.append($(form_el));
+    render_form: function(url, role_div_element) {
+      horizon.ajax.queue({
+        url: url,
+        data: {},
+        beforeSend: function () {
+        },
+        complete: function () {
+        },
+        error: function(jqXHR, status, errorThrown) {
+          console.log('error')
+          if (jqXHR.status === 401){
+            var redir_url = jqXHR.getResponseHeader("X-Horizon-Location");
+            if (redir_url){
+              location.href = redir_url;
+            } else {
+              horizon.alert("error", gettext("Not authorized to do this operation."));
+            }
+          }
+          else {
+            if (!horizon.ajax.get_messages(jqXHR)) {
+              // Generic error handler. Really generic.
+              horizon.alert("error", gettext("An error occurred. Please try again later."));
+            }
+          }
+        },
+        success: function (data, textStatus, jqXHR) {
+          console.log('success')
+          //hide the role element, append the form in its place
+          var form_element = $(data);
+          $(role_div_element).replaceWith(form_element);
+          form_element.focus();
+          console.log('form rendered')
+        }
+      });
     },
     render_role: function(current_name) {
       var role_div_element = horizon.fiware_roles_workflow.inline_edit_role.cached_role
@@ -353,7 +384,8 @@ horizon.fiware_roles_workflow = {
 
       // show role element
       $(role_div_element).show();
-    }
+    },
+
 
   },
   /*

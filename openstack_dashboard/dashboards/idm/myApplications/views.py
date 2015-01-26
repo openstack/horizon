@@ -113,12 +113,14 @@ class CreateRoleView(forms.ModalFormView):
 class EditRoleView(forms.ModalFormView):
     form_class = application_forms.EditRoleForm
     template_name = 'idm/myApplications/roles/role_edit.html'
-    success_url = 'no use all ajax!'
+    success_url = 'no use, all ajax!'
 
     def get_context_data(self, **kwargs):
         context = super(EditRoleView, self).get_context_data(**kwargs)
         context['role_id'] = self.kwargs['role_id']
         context['application_id'] = self.kwargs['application_id']
+        # dont show the modal css classes
+        context.pop('hide', None)
         return context
 
     def get_initial(self):
@@ -145,7 +147,6 @@ class DeleteRoleView(forms.ModalFormView):
         initial = super(DeleteRoleView, self).get_initial()
         initial['role_id'] = self.kwargs['role_id']
         return initial
-
 
 class CreatePermissionView(forms.ModalFormView):
     form_class = application_forms.CreatePermissionForm
