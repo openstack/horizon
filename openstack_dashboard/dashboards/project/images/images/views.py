@@ -19,6 +19,7 @@
 """
 Views for managing images.
 """
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
@@ -71,6 +72,9 @@ class CreateView(forms.ModalFormView):
         context = super(CreateView, self).get_context_data(**kwargs)
         upload_mode = api.glance.get_image_upload_mode()
         context['image_upload_enabled'] = upload_mode != 'off'
+        context['images_allow_location'] = getattr(settings,
+                                                   'IMAGES_ALLOW_LOCATION',
+                                                   False)
         return context
 
 

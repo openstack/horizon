@@ -514,6 +514,17 @@ class APITestCase(TestCase):
         return self.ceilometerclient
 
 
+# Need this to test both Glance API V1 and V2 versions
+class ResetImageAPIVersionMixin(object):
+    def setUp(self):
+        super(ResetImageAPIVersionMixin, self).setUp()
+        api.glance.VERSIONS.clear_active_cache()
+
+    def tearDown(self):
+        api.glance.VERSIONS.clear_active_cache()
+        super(ResetImageAPIVersionMixin, self).tearDown()
+
+
 @unittest.skipUnless(os.environ.get('WITH_SELENIUM', False),
                      "The WITH_SELENIUM env variable is not set.")
 class SeleniumTestCase(horizon_helpers.SeleniumTestCase):

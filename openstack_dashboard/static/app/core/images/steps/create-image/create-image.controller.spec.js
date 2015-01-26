@@ -186,10 +186,22 @@
           var ctrl = createController();
           settingsCall.resolve({
             OPENSTACK_IMAGE_FORMATS: [],
-            HORIZON_IMAGES_UPLOAD_MODE: 'off'
+            HORIZON_IMAGES_UPLOAD_MODE: 'off',
+            IMAGES_ALLOW_LOCATION: true
           });
           $timeout.flush();
           expect(ctrl.imageSourceOptions).toEqual([urlSourceOption]);
+        });
+
+        it('set to "off" and location disallowed disables all source options', function() {
+          var ctrl = createController();
+          settingsCall.resolve({
+            OPENSTACK_IMAGE_FORMATS: [],
+            HORIZON_IMAGES_UPLOAD_MODE: 'off',
+            IMAGES_ALLOW_LOCATION: false
+          });
+          $timeout.flush();
+          expect(ctrl.imageSourceOptions).toEqual([]);
         });
 
         it('set to a non-"off" value enables local file upload', function() {
@@ -197,7 +209,8 @@
           var fileSourceOption = { label: gettext('File'), value: 'file-sample' };
           settingsCall.resolve({
             OPENSTACK_IMAGE_FORMATS: [],
-            HORIZON_IMAGES_UPLOAD_MODE: 'sample'
+            HORIZON_IMAGES_UPLOAD_MODE: 'sample',
+            IMAGES_ALLOW_LOCATION: true
           });
           $timeout.flush();
           expect(ctrl.imageSourceOptions).toEqual([fileSourceOption, urlSourceOption]);

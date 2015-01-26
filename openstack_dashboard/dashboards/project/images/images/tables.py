@@ -206,8 +206,14 @@ class OwnerFilter(tables.FixedFilterAction):
             new_dict = button_dict.copy()
             new_dict['value'] = new_dict['tenant']
             buttons.append(new_dict)
-        buttons.append(make_dict(_('Shared with Project'), 'shared',
-                                 'fa-share-square-o'))
+        # FIXME(bpokorny): Remove this check once admins can list images with
+        # GlanceV2 without getting all images in the whole cloud.
+        if api.glance.VERSIONS.active >= 2:
+            buttons.append(make_dict(_('Non-Public from Other Projects'),
+                                     'other', 'fa-group'))
+        else:
+            buttons.append(make_dict(_('Shared with Project'), 'shared',
+                                     'fa-share-square-o'))
         buttons.append(make_dict(_('Public'), 'public', 'fa-group'))
         return buttons
 
@@ -223,14 +229,15 @@ class OwnerFilter(tables.FixedFilterAction):
 
 def get_image_categories(im, user_tenant_id):
     categories = []
-    if api.glance.is_image_public(im):
+    if im.is_public:
         categories.append('public')
     if im.owner == user_tenant_id:
         categories.append('project')
     elif im.owner in filter_tenant_ids():
         categories.append(im.owner)
-    elif not api.glance.is_image_public(im):
+    elif not im.is_public:
         categories.append('shared')
+        categories.append('other')
     return categories
 
 

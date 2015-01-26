@@ -65,25 +65,34 @@ def create_image_metadata(data):
     else:
         container_format = 'bare'
 
-    # The Create form uses 'is_public' but the Update form uses 'public'. Just
-    # being tolerant here so we don't break anything else.
-    meta = {'is_public': data.get('is_public', data.get('public', False)),
-            'protected': data['protected'],
+    meta = {'protected': data['protected'],
             'disk_format': disk_format,
             'container_format': container_format,
             'min_disk': (data['minimum_disk'] or 0),
             'min_ram': (data['minimum_ram'] or 0),
-            'name': data['name'],
-            'properties': {}}
+            'name': data['name']}
 
-    if 'description' in data:
-        meta['properties']['description'] = data['description']
+    is_public = data.get('is_public', data.get('public', False))
+    properties = {}
+    # NOTE(tsufiev): in V2 the way how empty non-base attributes (AKA metadata)
+    # are handled has changed: in V2 empty metadata is kept in image
+    # properties, while in V1 they were omitted. Skip empty description (which
+    # is metadata) to keep the same behavior between V1 and V2
+    if data.get('description'):
+        properties['description'] = data['description']
     if data.get('kernel'):
-        meta['properties']['kernel_id'] = data['kernel']
+        properties['kernel_id'] = data['kernel']
     if data.get('ramdisk'):
-        meta['properties']['ramdisk_id'] = data['ramdisk']
+        properties['ramdisk_id'] = data['ramdisk']
     if data.get('architecture'):
-        meta['properties']['architecture'] = data['architecture']
+        properties['architecture'] = data['architecture']
+
+    if api.glance.VERSIONS.active < 2:
+        meta.update({'is_public': is_public, 'properties': properties})
+    else:
+        meta['visibility'] = 'public' if is_public else 'private'
+        meta.update(properties)
+
     return meta
 
 
@@ -195,6 +204,24 @@ class CreateImageForm(CreateParent):
             self._hide_file_source_type()
         if not policy.check((("image", "set_image_location"),), request):
             self._hide_url_source_type()
+
+        # GlanceV2 feature removals
+        if api.glance.VERSIONS.active >= 2:
+            # NOTE: GlanceV2 doesn't support copy-from feature, sorry!
+            self._hide_is_copying()
+            if not getattr(settings, 'IMAGES_ALLOW_LOCATION', False):
+                self._hide_url_source_type()
+                if (api.glance.get_image_upload_mode() == 'off' or not
+                        policy.check((("image", "upload_image"),), request)):
+                    # Neither setting a location nor uploading image data is
+                    # allowed, so throw an error.
+                    msg = _('The current Horizon settings indicate no valid '
+                            'image creation methods are available. Providing '
+                            'an image location and/or uploading from the '
+                            'local file system must be allowed to support '
+                            'image creation.')
+                    messages.error(request, msg)
+                    raise ValidationError(msg)
         if not policy.check((("image", "publicize_image"),), request):
             self._hide_is_public()
 
@@ -252,6 +279,10 @@ class CreateImageForm(CreateParent):
         self.fields['is_public'].widget = HiddenInput()
         self.fields['is_public'].initial = False
 
+    def _hide_is_copying(self):
+        self.fields['is_copying'].widget = HiddenInput()
+        self.fields['is_copying'].initial = False
+
     def clean(self):
         data = super(CreateImageForm, self).clean()
 
@@ -278,7 +309,7 @@ class CreateImageForm(CreateParent):
                 policy.check((("image", "upload_image"),), request) and
                 data.get('image_file', None)):
             meta['data'] = data['image_file']
-        elif data['is_copying']:
+        elif data.get('is_copying'):
             meta['copy_from'] = data['image_url']
         else:
             meta['location'] = data['image_url']
@@ -369,9 +400,6 @@ class UpdateImageForm(forms.SelfHandlingForm):
         image_id = data['image_id']
         error_updating = _('Unable to update image "%s".')
         meta = create_image_metadata(data)
-        # Ensure we do not delete properties that have already been
-        # set on an image.
-        meta['purge_props'] = False
 
         try:
             image = api.glance.image_update(request, image_id, **meta)

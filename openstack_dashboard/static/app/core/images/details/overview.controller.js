@@ -44,7 +44,11 @@
       ctrl.image = image.data;
 
       ctrl.image.properties = Object.keys(ctrl.image.properties).map(function mapProps(prop) {
-        return {name: prop, value: ctrl.image.properties[prop]};
+        var propValue = ctrl.image.properties[prop];
+        if ($.isArray(propValue) && propValue.length === 0) {
+          propValue = '';
+        }
+        return {name: prop, value: propValue};
       });
 
       userSession.get().then(setProject);

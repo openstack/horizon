@@ -14,6 +14,7 @@
 
 from glanceclient.v1 import images
 
+from openstack_dashboard import api
 from openstack_dashboard.test.test_data import utils
 
 
@@ -31,10 +32,26 @@ class Namespace(dict):
         return self.__dict__
 
 
+class APIResourceV2(dict):
+    _base_props = [
+        'id', 'name', 'status', 'visibility', 'protected', 'checksum', 'owner',
+        'size', 'virtual_size', 'container_format', 'disk_format',
+        'created_at', 'updated_at', 'tags', 'direct_url', 'min_ram',
+        'min_disk', 'self', 'file', 'schema', 'locations']
+
+    def __getattr__(self, item):
+        if item == 'schema':
+            return {'properties': {k: '' for k in self._base_props}}
+        else:
+            return self.get(item)
+
+
 def data(TEST):
     TEST.images = utils.TestDataContainer()
+    TEST.images_api = utils.TestDataContainer()
     TEST.snapshots = utils.TestDataContainer()
     TEST.metadata_defs = utils.TestDataContainer()
+    TEST.imagesV2 = utils.TestDataContainer()
 
     # Snapshots
     snapshot_dict = {'name': u'snapshot',
@@ -62,11 +79,11 @@ def data(TEST):
                             'is_public': False,
                             'protected': False}
     snapshot = images.Image(images.ImageManager(None), snapshot_dict)
-    TEST.snapshots.add(snapshot)
+    TEST.snapshots.add(api.glance.Image(snapshot))
     snapshot = images.Image(images.ImageManager(None), snapshot_dict_no_owner)
-    TEST.snapshots.add(snapshot)
+    TEST.snapshots.add(api.glance.Image(snapshot))
     snapshot = images.Image(images.ImageManager(None), snapshot_dict_queued)
-    TEST.snapshots.add(snapshot)
+    TEST.snapshots.add(api.glance.Image(snapshot))
 
     # Images
     image_dict = {'id': '007e7d55-fe1e-4c5c-bf08-44b4a4964822',
@@ -210,11 +227,96 @@ def data(TEST):
                   'protected': False}
     no_name_image = images.Image(images.ImageManager(None), image_dict)
 
-    TEST.images.add(public_image, private_image, protected_image,
-                    public_image2, private_image2, private_image3,
-                    shared_image1, official_image1, multi_prop_image)
+    TEST.images_api.add(public_image, private_image, protected_image,
+                        public_image2, private_image2, private_image3,
+                        shared_image1, official_image1, multi_prop_image)
 
-    TEST.empty_name_image = no_name_image
+    TEST.images.add(api.glance.Image(public_image),
+                    api.glance.Image(private_image),
+                    api.glance.Image(protected_image),
+                    api.glance.Image(public_image2),
+                    api.glance.Image(private_image2),
+                    api.glance.Image(private_image3),
+                    api.glance.Image(shared_image1),
+                    api.glance.Image(official_image1),
+                    api.glance.Image(multi_prop_image))
+
+    TEST.empty_name_image = api.glance.Image(no_name_image)
+
+    image_v2_dicts = [{
+        'checksum': 'eb9139e4942121f22bbc2afc0400b2a4',
+        'container_format': 'novaImage',
+        'created_at': '2014-02-14T20:56:53',
+        'direct_url': 'swift+config://ref1/glance/'
+                      'da8500d5-8b80-4b9c-8410-cc57fb8fb9d5',
+        'disk_format': u'qcow2',
+        'file': '/v2/images/'
+                'da8500d5-8b80-4b9c-8410-cc57fb8fb9d5/file',
+        'id': '007e7d55-fe1e-4c5c-bf08-44b4a4964822',
+        'kernel_id': 'f6ebd5f0-b110-4406-8c1e-67b28d4e85e7',
+        'locations': [
+            {'metadata': {},
+             'url': 'swift+config://ref1/glance/'
+                    'da8500d5-8b80-4b9c-8410-cc57fb8fb9d5'}],
+        'min_ram': 0,
+        'name': 'public_image',
+        'image_type': u'image',
+        'min_disk': 0,
+        'owner': TEST.tenant.id,
+        'protected': False,
+        'ramdisk_id': '868efefc-4f2d-4ed8-82b1-7e35576a7a47',
+        'size': 20 * 1024 ** 3,
+        'status': 'active',
+        'tags': ['active_image'],
+        'updated_at': '2015-08-31T19:37:45Z',
+        'virtual_size': None,
+        'visibility': 'public'
+    }, {
+        'checksum': None,
+        'container_format': 'novaImage',
+        'created_at': '2014-03-16T06:22:14',
+        'disk_format': None,
+        'image_type': u'image',
+        'file': '/v2/images/885d1cb0-9f5c-4677-9d03-175be7f9f984/file',
+        'id': 'd6936c86-7fec-474a-85c5-5e467b371c3c',
+        'locations': [],
+        'min_disk': 30,
+        'min_ram': 0,
+        'name': 'protected_images',
+        'owner': TEST.tenant.id,
+        'protected': True,
+        'size': 2 * 1024 ** 3,
+        'status': "active",
+        'tags': ['empty_image'],
+        'updated_at': '2015-09-01T22:37:32Z',
+        'virtual_size': None,
+        'visibility': 'public'
+    }, {
+        'checksum': 'e533283e6aac072533d1d091a7d2e413',
+        'container_format': 'novaImage',
+        'created_at': '2015-09-02T00:31:16Z',
+        'disk_format': 'qcow2',
+        'file': '/v2/images/10ca6b6b-48f4-43ac-8159-aa9e9353f5e4/file',
+        'id': 'a67e7d45-fe1e-4c5c-bf08-44b4a4964822',
+        'image_type': 'an image type',
+        'min_disk': 0,
+        'min_ram': 0,
+        'name': 'multi_prop_image',
+        'owner': TEST.tenant.id,
+        'protected': False,
+        'size': 20 * 1024 ** 3,
+        'status': 'active',
+        'tags': ['custom_property_image'],
+        'updated_at': '2015-09-02T00:31:17Z',
+        'virtual_size': None,
+        'visibility': 'public',
+        'description': u'a multi prop image',
+        'foo': u'foo val',
+        'bar': u'bar val'
+    }]
+    for fixture in image_v2_dicts:
+        apiresource = APIResourceV2(fixture)
+        TEST.imagesV2.add(api.glance.Image(apiresource))
 
     metadef_dict = {
         'namespace': 'namespace_1',

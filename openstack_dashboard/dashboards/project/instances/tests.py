@@ -28,6 +28,7 @@ from django.core.urlresolvers import reverse
 from django.forms import widgets
 from django import http
 import django.test
+from django.test.utils import override_settings
 from django.utils.http import urlencode
 from mox3.mox import IgnoreArg  # noqa
 from mox3.mox import IsA  # noqa
@@ -54,7 +55,14 @@ VOLUME_SEARCH_OPTS = dict(status=AVAILABLE, bootable=True)
 SNAPSHOT_SEARCH_OPTS = dict(status=AVAILABLE)
 
 
-class InstanceTests(helpers.TestCase):
+class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
+    def setUp(self):
+        super(InstanceTests, self).setUp()
+        if api.glance.VERSIONS.active < 2:
+            self.versioned_images = self.images
+        else:
+            self.versioned_images = self.imagesV2
+
     @helpers.create_stubs({
         api.nova: (
             'flavor_list',
@@ -1511,7 +1519,7 @@ class InstanceTests(helpers.TestCase):
                                  config_drive=True,
                                  config_drive_default=False,
                                  test_with_profile=False):
-        image = self.images.first()
+        image = self.versioned_images.first()
 
         api.nova.extension_supported('BlockDeviceMappingV2Boot',
                                      IsA(http.HttpRequest)) \
@@ -1525,7 +1533,7 @@ class InstanceTests(helpers.TestCase):
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.images.list(), False, False])
+            .AndReturn([self.versioned_images.list(), False, False])
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'property-owner_id': self.tenant.id,
@@ -1674,6 +1682,10 @@ class InstanceTests(helpers.TestCase):
         self.assertEqual(step.action.initial['config_drive'],
                          config_drive_default)
 
+    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
+    def test_launch_instance_get_glance_v1(self):
+        self.test_launch_instance_get()
+
     @django.test.utils.override_settings(
         OPENSTACK_HYPERVISOR_FEATURES={'can_set_password': False})
     def test_launch_instance_get_without_password(self):
@@ -1777,7 +1789,7 @@ class InstanceTests(helpers.TestCase):
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.images.list(), False, False])
+            .AndReturn([self.versioned_images.list(), False, False])
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'property-owner_id': self.tenant.id,
@@ -1853,6 +1865,10 @@ class InstanceTests(helpers.TestCase):
         for volume in bootable_volumes:
             self.assertTrue(volume in volume_sources_ids)
 
+    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
+    def test_launch_instance_get_bootable_volumes_glance_v1(self):
+        self.test_launch_instance_get_bootable_volumes()
+
     @helpers.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_launch_instance_get_bootable_volumes_with_profile(self):
@@ -1879,7 +1895,7 @@ class InstanceTests(helpers.TestCase):
                                   test_with_profile=False,
                                   test_with_multi_nics=False):
         flavor = self.flavors.first()
-        image = self.images.first()
+        image = self.versioned_images.first()
         keypair = self.keypairs.first()
         server = self.servers.first()
         sec_group = self.security_groups.first()
@@ -1903,7 +1919,7 @@ class InstanceTests(helpers.TestCase):
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.images.list(), False, False])
+            .AndReturn([self.versioned_images.list(), False, False])
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'property-owner_id': self.tenant.id,
@@ -2024,6 +2040,10 @@ class InstanceTests(helpers.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
+    def test_launch_instance_post_glance_v1(self):
+        self.test_launch_instance_post()
+
     def test_launch_instance_post_no_disk_config_supported(self):
         self.test_launch_instance_post(disk_config=False)
 
@@ -2046,7 +2066,7 @@ class InstanceTests(helpers.TestCase):
         test_with_multi_nics=False,
     ):
         flavor = self.flavors.first()
-        image = self.images.first()
+        image = self.versioned_images.first()
         keypair = self.keypairs.first()
         server = self.servers.first()
         sec_group = self.security_groups.first()
@@ -2068,7 +2088,7 @@ class InstanceTests(helpers.TestCase):
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
-                  .AndReturn([self.images.list(), False, False])
+                  .AndReturn([self.versioned_images.list(), False, False])
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'property-owner_id': self.tenant.id,
@@ -2181,6 +2201,10 @@ class InstanceTests(helpers.TestCase):
     def test_launch_instance_post_with_profile_and_port_error(self):
         self._test_launch_instance_post_with_profile_and_port_error()
 
+    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
+    def test_launch_instance_post_with_profile_and_port_error_glance_v1(self):
+        self.test_launch_instance_post_with_profile_and_port_error()
+
     @helpers.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
@@ -2263,7 +2287,7 @@ class InstanceTests(helpers.TestCase):
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.images.list(), False, False])
+            .AndReturn([self.versioned_images.list(), False, False])
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'property-owner_id': self.tenant.id,
@@ -2367,6 +2391,10 @@ class InstanceTests(helpers.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
+    def test_launch_instance_post_boot_from_volume_glance_v1(self):
+        self.test_launch_instance_post_boot_from_volume()
+
     def test_launch_instance_post_boot_from_volume_with_bdmv2(self):
         self.test_launch_instance_post_boot_from_volume(test_with_bdmv2=True)
 
@@ -2422,7 +2450,7 @@ class InstanceTests(helpers.TestCase):
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.images.list(), False, False])
+            .AndReturn([self.versioned_images.list(), False, False])
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'property-owner_id': self.tenant.id,
@@ -2526,6 +2554,10 @@ class InstanceTests(helpers.TestCase):
 
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
+    def test_lnch_inst_post_no_images_avail_boot_from_volume_glance_v1(self):
+        self.test_launch_instance_post_no_images_available_boot_from_volume()
 
     @helpers.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
@@ -2712,7 +2744,7 @@ class InstanceTests(helpers.TestCase):
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.images.list(), False, False])
+            .AndReturn([self.versioned_images.list(), False, False])
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'property-owner_id': self.tenant.id,
@@ -2816,6 +2848,10 @@ class InstanceTests(helpers.TestCase):
 
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
+    def test_launch_instance_post_boot_from_snapshot_glance_v1(self):
+        self.test_launch_instance_post_boot_from_snapshot()
 
     def test_launch_instance_post_boot_from_snapshot_with_bdmv2(self):
         self.test_launch_instance_post_boot_from_snapshot(test_with_bdmv2=True)
@@ -2945,7 +2981,7 @@ class InstanceTests(helpers.TestCase):
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.images.list(), False, False])
+            .AndReturn([self.versioned_images.list(), False, False])
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'property-owner_id': self.tenant.id,
@@ -3000,6 +3036,10 @@ class InstanceTests(helpers.TestCase):
 
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
+    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
+    def test_launch_flavorlist_error_glance_v1(self):
+        self.test_launch_flavorlist_error()
+
     @helpers.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_launch_flavorlist_error_with_profile(self):
@@ -3024,7 +3064,7 @@ class InstanceTests(helpers.TestCase):
     def test_launch_form_keystone_exception(self,
                                             test_with_profile=False):
         flavor = self.flavors.first()
-        image = self.images.first()
+        image = self.versioned_images.first()
         keypair = self.keypairs.first()
         server = self.servers.first()
         sec_group = self.security_groups.first()
@@ -3055,7 +3095,7 @@ class InstanceTests(helpers.TestCase):
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.images.list(), False, False])
+            .AndReturn([self.versioned_images.list(), False, False])
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'property-owner_id': self.tenant.id,
@@ -3151,6 +3191,10 @@ class InstanceTests(helpers.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
+    def test_launch_form_keystone_exception_with_profile_glance_v1(self):
+        self.test_launch_form_keystone_exception()
+
     @helpers.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_launch_form_keystone_exception_with_profile(self):
@@ -3172,7 +3216,7 @@ class InstanceTests(helpers.TestCase):
     def test_launch_form_instance_count_error(self,
                                               test_with_profile=False):
         flavor = self.flavors.first()
-        image = self.images.first()
+        image = self.versioned_images.first()
         keypair = self.keypairs.first()
         server = self.servers.first()
         volume = self.volumes.first()
@@ -3197,7 +3241,7 @@ class InstanceTests(helpers.TestCase):
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.images.list(), False, False])
+            .AndReturn([self.versioned_images.list(), False, False])
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'property-owner_id': self.tenant.id,
@@ -3273,6 +3317,10 @@ class InstanceTests(helpers.TestCase):
 
         self.assertContains(res, "greater than or equal to 1")
 
+    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
+    def test_launch_form_instance_count_error_glance_v1(self):
+        self.test_launch_form_instance_count_error()
+
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
                                          'profile_list',
@@ -3290,7 +3338,7 @@ class InstanceTests(helpers.TestCase):
     def _test_launch_form_count_error(self, resource,
                                       avail, test_with_profile=False):
         flavor = self.flavors.first()
-        image = self.images.first()
+        image = self.versioned_images.first()
         keypair = self.keypairs.first()
         server = self.servers.first()
         volume = self.volumes.first()
@@ -3320,7 +3368,7 @@ class InstanceTests(helpers.TestCase):
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.images.list(), False, False])
+            .AndReturn([self.versioned_images.list(), False, False])
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'property-owner_id': self.tenant.id,
@@ -3407,7 +3455,11 @@ class InstanceTests(helpers.TestCase):
                    "512, Requested: 1024)" % {'avail': avail})
         self.assertContains(res, msg)
 
-    def test_launch_form_cores_count_error(self):
+    def test_launch_form_cores_count_error_glance_v2(self):
+        self._test_launch_form_count_error('cores', 1, test_with_profile=False)
+
+    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
+    def test_launch_form_cores_count_error_glance_v1(self):
         self._test_launch_form_count_error('cores', 1, test_with_profile=False)
 
     def test_launch_form_ram_count_error(self):
@@ -3461,7 +3513,7 @@ class InstanceTests(helpers.TestCase):
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.images.list(), False, False])
+            .AndReturn([self.versioned_images.list(), False, False])
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'property-owner_id': self.tenant.id,
@@ -3547,18 +3599,22 @@ class InstanceTests(helpers.TestCase):
         test_with_profile=False,
     ):
         flavor = self.flavors.first()
-        image = self.images.first()
+        image = self.versioned_images.first()
         image.min_ram = flavor.ram
         image.min_disk = flavor.disk + 1
         self._test_launch_form_instance_requirement_error(image, flavor,
                                                           test_with_profile)
+
+    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
+    def test_launch_form_instance_requirement_error_disk_glance_v1(self):
+        self.test_launch_form_instance_requirement_error_disk()
 
     def test_launch_form_instance_requirement_error_ram(
         self,
         test_with_profile=False,
     ):
         flavor = self.flavors.first()
-        image = self.images.first()
+        image = self.versioned_images.first()
         image.min_ram = flavor.ram + 1
         image.min_disk = flavor.disk
         self._test_launch_form_instance_requirement_error(image, flavor,
@@ -3593,7 +3649,7 @@ class InstanceTests(helpers.TestCase):
                                                     widget_class,
                                                     widget_attrs):
         flavor = self.flavors.first()
-        image = self.images.first()
+        image = self.versioned_images.first()
         keypair = self.keypairs.first()
         server = self.servers.first()
         volume = self.volumes.first()
@@ -3617,7 +3673,7 @@ class InstanceTests(helpers.TestCase):
             IsA(http.HttpRequest),
             filters={'is_public': True,
                      'status': 'active'}).AndReturn(
-            [self.images.list(), False, False])
+            [self.versioned_images.list(), False, False])
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'property-owner_id': self.tenant.id,
@@ -3692,9 +3748,20 @@ class InstanceTests(helpers.TestCase):
         for widget_part in widget_content.split():
             self.assertContains(res, widget_part)
 
-    @django.test.utils.override_settings(
-        OPENSTACK_HYPERVISOR_FEATURES={'can_set_mount_point': True})
+    @override_settings(
+        OPENSTACK_HYPERVISOR_FEATURES={'can_set_mount_point': True},)
     def test_launch_form_instance_device_name_showed(self):
+        self._test_launch_form_instance_show_device_name(
+            u'vda', widgets.TextInput, {
+                'name': 'device_name', 'value': 'vda',
+                'attrs': {'id': 'id_device_name'}}
+        )
+
+    @override_settings(
+        OPENSTACK_HYPERVISOR_FEATURES={'can_set_mount_point': True},
+        OPENSTACK_API_VERSIONS={'image': 1}
+    )
+    def test_launch_form_instance_device_name_showed_glance_v1(self):
         self._test_launch_form_instance_show_device_name(
             u'vda', widgets.TextInput, {
                 'name': 'device_name', 'value': 'vda',
@@ -3754,7 +3821,7 @@ class InstanceTests(helpers.TestCase):
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.images.list(), False, False])
+            .AndReturn([self.versioned_images.list(), False, False])
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'property-owner_id': self.tenant.id,
@@ -3834,22 +3901,26 @@ class InstanceTests(helpers.TestCase):
 
     def test_launch_form_instance_volume_size_error(self,
                                                     test_with_profile=False):
-        image = self.images.get(name='protected_images')
+        image = self.versioned_images.get(name='protected_images')
         volume_size = image.min_disk // 2
         msg = ("The Volume size is too small for the &#39;%s&#39; image" %
                image.name)
         self._test_launch_form_instance_volume_size(image, volume_size, msg,
                                                     test_with_profile)
 
+    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
+    def test_launch_form_instance_volume_size_error_glance_v1(self):
+        self.test_launch_form_instance_volume_size_error()
+
     def test_launch_form_instance_non_int_volume_size(self,
                                                       test_with_profile=False):
-        image = self.images.get(name='protected_images')
+        image = self.versioned_images.get(name='protected_images')
         msg = "Enter a whole number."
         self._test_launch_form_instance_volume_size(image, 1.5, msg,
                                                     test_with_profile)
 
     def test_launch_form_instance_volume_exceed_quota(self):
-        image = self.images.get(name='protected_images')
+        image = self.versioned_images.get(name='protected_images')
         msg = "Requested volume exceeds quota: Available: 0, Requested: 1"
         self._test_launch_form_instance_volume_size(image, image.min_disk,
                                                     msg, False, 0)
@@ -3975,7 +4046,7 @@ class InstanceTests(helpers.TestCase):
                            quotas: ('tenant_quota_usages',)})
     def test_launch_with_empty_device_name_allowed(self):
         flavor = self.flavors.get(name='m1.massive')
-        image = self.images.first()
+        image = self.versioned_images.first()
         keypair = self.keypairs.first()
         server = self.servers.first()
         sec_group = self.security_groups.first()
@@ -4007,7 +4078,7 @@ class InstanceTests(helpers.TestCase):
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.images.list(), False, False])
+            .AndReturn([self.versioned_images.list(), False, False])
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'property-owner_id': self.tenant.id,
@@ -4094,6 +4165,10 @@ class InstanceTests(helpers.TestCase):
         res = self.client.post(url, form_data)
         self.assertNoFormErrors(res)
 
+    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
+    def test_launch_with_empty_device_name_allowed_glance_v1(self):
+        self.test_launch_with_empty_device_name_allowed()
+
     @helpers.create_stubs({
         api.nova: ('flavor_list', 'server_list', 'tenant_absolute_limits',
                    'extension_supported',),
@@ -4157,7 +4232,7 @@ class InstanceTests(helpers.TestCase):
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.images.list(), False, False])
+            .AndReturn([self.versioned_images.list(), False, False])
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'property-owner_id': self.tenant.id,
@@ -4217,6 +4292,10 @@ class InstanceTests(helpers.TestCase):
                  "%(key)s</option>" % {'key': keypair.name},
             html=True,
             msg_prefix="The default key pair was not selected.")
+
+    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
+    def test_select_default_keypair_if_only_one_glance_v1(self):
+        self.test_select_default_keypair_if_only_one()
 
     @helpers.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
@@ -4945,7 +5024,7 @@ class InstanceAjaxTests(helpers.TestCase):
         self.assertContains(res, "Not available")
 
 
-class ConsoleManagerTests(helpers.TestCase):
+class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
     def setup_consoles(self):
         # Need to refresh with mocks or will fail since mox do not detect
@@ -5266,9 +5345,8 @@ class ConsoleManagerTests(helpers.TestCase):
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
                            quotas: ('tenant_quota_usages',)})
-    def test_port_cleanup_called_on_failed_vm_launch(self):
+    def _test_port_cleanup_called_on_failed_vm_launch(self, image, images):
         flavor = self.flavors.first()
-        image = self.images.first()
         keypair = self.keypairs.first()
         server = self.servers.first()
         sec_group = self.security_groups.first()
@@ -5298,7 +5376,7 @@ class ConsoleManagerTests(helpers.TestCase):
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.images.list(), False, False])
+            .AndReturn([images, False, False])
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'property-owner_id': self.tenant.id,
@@ -5390,3 +5468,14 @@ class ConsoleManagerTests(helpers.TestCase):
         res = self.client.post(url, form_data)
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
+    def test_port_cleanup_called_on_failed_vm_launch_v1(self):
+        image = self.images.first()
+        images = self.images.list()
+        self._test_port_cleanup_called_on_failed_vm_launch(image, images)
+
+    def test_port_cleanup_called_on_failed_vm_launch_v2(self):
+        image = self.imagesV2.first()
+        images = self.imagesV2.list()
+        self._test_port_cleanup_called_on_failed_vm_launch(image, images)

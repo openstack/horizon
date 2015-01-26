@@ -51,12 +51,13 @@
     ctrl.imageFormats = imageFormats;
     ctrl.diskFormats = [];
     ctrl.prepareUpload = prepareUpload;
+    ctrl.apiVersion = 0;
 
     ctrl.image = {
-      source_type: 'url',
+      source_type: '',
       image_url: '',
       data: {},
-      is_copying: true,
+      is_copying: false,
       protected: false,
       min_disk: 0,
       min_ram: 0,
@@ -77,9 +78,7 @@
       { label: gettext('No'), value: false }
     ];
 
-    ctrl.imageSourceOptions = [
-      { label: gettext('URL'), value: 'url' }
-    ];
+    ctrl.imageSourceOptions = [];
 
     ctrl.imageVisibilityOptions = [
       { label: gettext('Public'), value: 'public'},
@@ -113,6 +112,7 @@
     }
 
     function getConfiguredFormatsAndModes(response) {
+      ctrl.apiVersion = response.HORIZON_ACTIVE_IMAGE_VERSION;
       var settingsFormats = response.OPENSTACK_IMAGE_FORMATS;
       var uploadMode = response.HORIZON_IMAGES_UPLOAD_MODE;
       var dupe = angular.copy(imageFormats);
@@ -122,9 +122,15 @@
         }
       });
       if (uploadMode !== 'off') {
-        ctrl.imageSourceOptions.splice(0, 0, {
-          label: gettext('File'), value: 'file-' + uploadMode
+        var uploadValue = 'file-' + uploadMode;
+        ctrl.imageSourceOptions.push({
+          label: gettext('File'), value: uploadValue
         });
+        ctrl.image.source_type = uploadValue;
+      }
+      if (ctrl.apiVersion < 2 || response.IMAGES_ALLOW_LOCATION) {
+        ctrl.imageSourceOptions.push({ label: gettext('URL'), value: 'url' });
+        ctrl.image.source_type = 'url';
       }
       ctrl.imageFormats = dupe;
     }

@@ -40,7 +40,7 @@ VOLUME_VOLUMES_TAB_URL = urlunquote(reverse(
 SEARCH_OPTS = dict(status=api.cinder.VOLUME_STATE_AVAILABLE)
 
 
-class VolumeViewTests(test.TestCase):
+class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     @test.create_stubs({cinder: ('volume_create',
                                  'volume_snapshot_list',
                                  'volume_type_list',
@@ -752,10 +752,15 @@ class VolumeViewTests(test.TestCase):
         image.min_disk = 30
         self._test_create_volume_from_image_under_image_min_disk_size(image)
 
-    def test_create_volume_from_image_under_image_property_min_disk_size(self):
+    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
+    def test_create_volume_from_image_under_image_prop_min_disk_size_v1(self):
         image = self.images.get(name="protected_images")
         image.min_disk = 0
         image.properties['min_disk'] = 30
+        self._test_create_volume_from_image_under_image_min_disk_size(image)
+
+    def test_create_volume_from_image_under_image_prop_min_disk_size_v2(self):
+        image = self.imagesV2.get(name="protected_images")
         self._test_create_volume_from_image_under_image_min_disk_size(image)
 
     @test.create_stubs({cinder: ('volume_snapshot_list',

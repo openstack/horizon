@@ -52,7 +52,8 @@ class Image(generic.View):
 
         http://localhost/api/glance/images/cc758c90-3d98-4ea1-af44-aab405c9c915
         """
-        return api.glance.image_get(request, image_id).to_dict()
+        image = api.glance.image_get(request, image_id)
+        return image.to_dict(show_ext_attrs=True)
 
     @rest_utils.ajax(data_required=True)
     def patch(self, request, image_id):
@@ -80,7 +81,6 @@ class Image(generic.View):
 
         """
         meta = create_image_metadata(request.DATA)
-        meta['purge_props'] = False
 
         api.glance.image_update(request, image_id, **meta)
 
@@ -322,8 +322,8 @@ def create_image_metadata(data):
                 'min_ram': data.get('min_ram', 0),
                 'name': data.get('name'),
                 'disk_format': data.get('disk_format'),
-                'container_format': data.get('container_format'),
-                'properties': {}}
+                'container_format': data.get('container_format')}
+        properties = {}
 
         # 'architecture' will be directly mapped
         # into the .properties by the handle_unknown_properties function.
@@ -331,12 +331,17 @@ def create_image_metadata(data):
         # compatibility.
         props = data.get('properties')
         if props and props.get('description'):
-            meta['properties']['description'] = props.get('description')
+            properties['description'] = props.get('description')
         if data.get('kernel'):
-            meta['properties']['kernel_id'] = data.get('kernel')
+            properties['kernel_id'] = data.get('kernel')
         if data.get('ramdisk'):
-            meta['properties']['ramdisk_id'] = data.get('ramdisk')
-        handle_unknown_properties(data, meta)
+            properties['ramdisk_id'] = data.get('ramdisk')
+        handle_unknown_properties(data, properties)
+        if api.glance.VERSIONS.active >= 2:
+            meta.update(properties)
+        else:
+            meta['properties'] = properties
+
         handle_visibility(data.get('visibility'), meta)
 
     except KeyError as e:
@@ -345,7 +350,7 @@ def create_image_metadata(data):
     return meta
 
 
-def handle_unknown_properties(data, meta):
+def handle_unknown_properties(data, properties):
     # The Glance API takes in both known and unknown fields. Unknown fields
     # are assumed as metadata. To achieve this and continue to use the
     # existing horizon api wrapper, we need this function.  This way, the
@@ -359,19 +364,18 @@ def handle_unknown_properties(data, meta):
                    'deleted_at', 'is_public', 'virtual_size',
                    'status', 'size', 'owner', 'id', 'updated_at']
     other_props = {k: v for (k, v) in data.items() if k not in known_props}
-    meta['properties'].update(other_props)
+    properties.update(other_props)
 
 
 def handle_visibility(visibility, meta):
-    # The following expects a 'visibility' parameter to be passed via
-    # the AJAX call, then translates this to a Glance API v1 is_public
-    # parameter.  In the future, if the 'visibility' param is exposed on the
-    # glance API, you can check for version, e.g.:
-    #   if float(api.glance.get_version()) < 2.0:
     mapping_to_v1 = {'public': True, 'private': False, 'shared': False}
     # note: presence of 'visibility' previously checked for in general call
     try:
-        meta['is_public'] = mapping_to_v1[visibility]
+        is_public = mapping_to_v1[visibility]
+        if api.glance.VERSIONS.active >= 2:
+            meta['visibility'] = visibility
+        else:
+            meta['is_public'] = is_public
     except KeyError as e:
         raise rest_utils.AjaxError(400,
                                    'invalid visibility option: %s' % e.args[0])

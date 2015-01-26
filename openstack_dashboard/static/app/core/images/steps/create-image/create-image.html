@@ -57,7 +57,7 @@
             <label class="control-label required">
               <translate>Source Type</translate>
             </label>
-            <div class="form-field">
+            <div class="form-field" ng-if="ctrl.image.source_type !== ''">
               <div class="btn-group">
                 <label class="btn btn-default btn-toggle"
                        ng-repeat="option in ctrl.imageSourceOptions"
@@ -112,7 +112,8 @@
             </p>
           </div>
         </div>
-        <div class="col-xs-6 col-sm-6" ng-if="ctrl.image.source_type === 'url'">
+        <div class="col-xs-6 col-sm-6"
+             ng-if="ctrl.image.source_type === 'url' && ctrl.apiVersion < 2">
           <div class="form-group">
             <label class="control-label required">
               <translate>Copy Data</translate>
@@ -126,6 +127,17 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="row form-group" ng-if="ctrl.image.source_type === ''">
+        <div class="col-xs-9 col-sm-9">
+          <p class="help-block alert alert-danger">
+            <translate>The current Horizon settings indicate no valid
+                       image creation methods are available. Providing
+                       an image location and/or uploading from the
+                       local file system must be allowed to support
+                       image creation.</translate>
+          </p>
         </div>
       </div>
       <div class="row form-group">

@@ -137,7 +137,8 @@ AVAILABLE_REGIONS = [
 ]
 
 OPENSTACK_API_VERSIONS = {
-    "identity": 3
+    "identity": 3,
+    "image": 2
 }
 
 OPENSTACK_KEYSTONE_URL = "http://localhost:5000/v2.0"

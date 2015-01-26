@@ -8,18 +8,22 @@
 {% block modal-body-right %}
   <h3>{% trans "Description:" %}</h3>
   <p>
-     {% if image_upload_enabled %}
+     {% if image_upload_enabled and images_allow_location %}
           {% trans "Images can be provided via an HTTP/HTTPS URL or be uploaded from your local file system." %}
+     {% elif image_upload_enabled %}
+          {% trans "Currently only images uploaded from your local file system are supported." %}
      {% else %}
           {% trans "Currently only images available via an HTTP/HTTPS URL are supported. The image location must be accessible to the Image Service." %}
      {% endif %}
   </p>
   <p>
-     <strong>{% trans "Please note: " %}</strong>
-     {% if image_upload_enabled %}
-         {% trans "If you select an image via an HTTP/HTTPS URL, the Image Location field MUST be a valid and direct URL to the image binary; it must also be accessible to the Image Service. URLs that redirect or serve error pages will result in unusable images." %}
-     {% else %}
-         {% trans "The Image Location field MUST be a valid and direct URL to the image binary. URLs that redirect or serve error pages will result in unusable images." %}
+     {% if images_allow_location %}
+         <strong>{% trans "Please note: " %}</strong>
+         {% if image_upload_enabled %}
+             {% trans "If you select an image via an HTTP/HTTPS URL, the Image Location field MUST be a valid and direct URL to the image binary; it must also be accessible to the Image Service. URLs that redirect or serve error pages will result in unusable images." %}
+         {% else %}
+             {% trans "The Image Location field MUST be a valid and direct URL to the image binary. URLs that redirect or serve error pages will result in unusable images." %}
+         {% endif %}
      {% endif %}
   </p>
 {% endblock %}
