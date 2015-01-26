@@ -46,6 +46,7 @@ class ReportTable(tables.DataTable):
                          filters=[show_date])
     value = tables.Column('value', verbose_name=_('Value (Avg)'),
                           filters=[humanize.intcomma])
+    unit = tables.Column('unit', verbose_name=_('Unit'))
 
     def get_object_id(self, obj):
         return "%s-%s-%s" % (obj['project'], obj['service'], obj['meter'])

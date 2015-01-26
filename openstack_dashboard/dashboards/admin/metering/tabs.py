@@ -106,7 +106,8 @@ class UsageReportTab(tabs.TableTab):
                                "description": meter.description,
                                "service": service,
                                "time": value._apiresource.period_end,
-                               "value": value._apiresource.avg}
+                               "value": value._apiresource.avg,
+                               "unit": meter.unit}
                         report_rows.append(row)
         return report_rows
 
