@@ -12,7 +12,6 @@
 
 import os
 
-from selenium.webdriver.support import ui
 import testtools
 import xvfbwrapper
 
@@ -51,11 +50,6 @@ class BaseTestCase(testtools.TestCase):
         if hasattr(self, 'vdisplay'):
             self.vdisplay.stop()
         super(BaseTestCase, self).tearDown()
-
-    def wait_for_title(self):
-        timeout = self.conf.dashboard.page_timeout
-        ui.WebDriverWait(self.driver, timeout).until(lambda d:
-                                                     d.title)
 
 
 class TestCase(BaseTestCase):
