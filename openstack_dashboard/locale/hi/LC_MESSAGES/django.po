@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-23 08:15-0600\n"
-"PO-Revision-Date: 2015-01-23 14:15+0000\n"
+"POT-Creation-Date: 2015-01-24 03:24-0600\n"
+"PO-Revision-Date: 2015-01-24 08:25+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -1608,7 +1608,7 @@ msgstr "होस्टनाम"
 #: dashboards/project/loadbalancers/workflows.py:486
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/routers/ports/tables.py:107
-#: dashboards/project/stacks/resource_types/tables.py:30
+#: dashboards/project/stacks/resource_types/tables.py:31
 #: dashboards/project/volumes/volumes/forms.py:82
 #: dashboards/project/volumes/volumes/forms.py:87
 #: dashboards/project/volumes/volumes/forms.py:88
@@ -2483,7 +2483,7 @@ msgstr "विवरण"
 
 #: dashboards/admin/metadata_defs/tables.py:137
 #: dashboards/project/stacks/resource_types/panel.py:22
-#: dashboards/project/stacks/resource_types/tables.py:44
+#: dashboards/project/stacks/resource_types/tables.py:45
 #: dashboards/project/stacks/resource_types/templates/stacks.resource_types/index.html:3
 #: dashboards/project/stacks/resource_types/templates/stacks.resource_types/index.html:6
 msgid "Resource Types"
@@ -12173,17 +12173,17 @@ msgid "No options specified"
 msgstr ""
 
 #: dashboards/project/networks/subnets/utils.py:22
-msgid "SLAAC: Address discovered from Openstack Router"
+msgid "SLAAC: Address discovered from OpenStack Router"
 msgstr ""
 
 #: dashboards/project/networks/subnets/utils.py:24
-msgid "DHCPv6 stateful: Address discovered from Openstack DHCP"
+msgid "DHCPv6 stateful: Address discovered from OpenStack DHCP"
 msgstr ""
 
 #: dashboards/project/networks/subnets/utils.py:26
 msgid ""
-"DHCPv6 stateless: Address discovered from Openstack Router and info from "
-"Openstack DHCP"
+"DHCPv6 stateless: Address discovered from OpenStack Router and additional "
+"information from OpenStack DHCP"
 msgstr ""
 
 #: dashboards/project/networks/subnets/views.py:67
@@ -12970,7 +12970,7 @@ msgstr "ढेर संसाधन"
 
 #: dashboards/project/stacks/tables.py:170
 #: dashboards/project/stacks/tables.py:215
-#: dashboards/project/stacks/resource_types/tables.py:37
+#: dashboards/project/stacks/resource_types/tables.py:38
 msgid "Resource"
 msgstr "साधन"
 
@@ -13054,11 +13054,15 @@ msgstr "संसाधन को पुनः प्राप्त करन�
 msgid "Unable to retrieve metadata."
 msgstr "मेटाडेटा प्राप्त करने में असमर्थ."
 
-#: dashboards/project/stacks/resource_types/tables.py:33
+#: dashboards/project/stacks/resource_types/tables.py:26
+msgid "AWS compatible"
+msgstr ""
+
+#: dashboards/project/stacks/resource_types/tables.py:34
 msgid "Implementation"
 msgstr ""
 
-#: dashboards/project/stacks/resource_types/tables.py:35
+#: dashboards/project/stacks/resource_types/tables.py:36
 msgid "Component"
 msgstr ""
 

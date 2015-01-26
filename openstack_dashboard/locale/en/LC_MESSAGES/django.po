@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-24 00:06-0600\n"
+"POT-Creation-Date: 2015-01-26 00:06-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1605,7 +1605,7 @@ msgstr ""
 #: dashboards/project/loadbalancers/workflows.py:486
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/routers/ports/tables.py:107
-#: dashboards/project/stacks/resource_types/tables.py:30
+#: dashboards/project/stacks/resource_types/tables.py:31
 #: dashboards/project/volumes/volumes/forms.py:82
 #: dashboards/project/volumes/volumes/forms.py:87
 #: dashboards/project/volumes/volumes/forms.py:88
@@ -2480,7 +2480,7 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/tables.py:137
 #: dashboards/project/stacks/resource_types/panel.py:22
-#: dashboards/project/stacks/resource_types/tables.py:44
+#: dashboards/project/stacks/resource_types/tables.py:45
 #: dashboards/project/stacks/resource_types/templates/stacks.resource_types/index.html:3
 #: dashboards/project/stacks/resource_types/templates/stacks.resource_types/index.html:6
 msgid "Resource Types"
@@ -13001,7 +13001,7 @@ msgstr ""
 
 #: dashboards/project/stacks/tables.py:170
 #: dashboards/project/stacks/tables.py:215
-#: dashboards/project/stacks/resource_types/tables.py:37
+#: dashboards/project/stacks/resource_types/tables.py:38
 msgid "Resource"
 msgstr ""
 
@@ -13085,11 +13085,15 @@ msgstr ""
 msgid "Unable to retrieve metadata."
 msgstr ""
 
-#: dashboards/project/stacks/resource_types/tables.py:33
+#: dashboards/project/stacks/resource_types/tables.py:26
+msgid "AWS compatible"
+msgstr ""
+
+#: dashboards/project/stacks/resource_types/tables.py:34
 msgid "Implementation"
 msgstr ""
 
-#: dashboards/project/stacks/resource_types/tables.py:35
+#: dashboards/project/stacks/resource_types/tables.py:36
 msgid "Component"
 msgstr ""
 

@@ -5,14 +5,14 @@
 # Translators:
 # Ambroise Christea <ambroise.christea@cloudwatt.com>, 2014
 # Frédéric <frosmont@free.fr>, 2014
-# Maxime COQUEREL <max.coquerel@gmail.com>, 2014
+# Maxime COQUEREL <max.coquerel@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-23 08:15-0600\n"
-"PO-Revision-Date: 2015-01-23 14:32+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-01-24 03:24-0600\n"
+"PO-Revision-Date: 2015-01-24 19:00+0000\n"
+"Last-Translator: Maxime COQUEREL <max.coquerel@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -90,7 +90,7 @@ msgstr "Quantité de RAM en Mo"
 
 #: api/ceilometer.py:946
 msgid "Volume of RAM used in MB"
-msgstr ""
+msgstr "Volume de RAM utilisé en MB"
 
 #: api/ceilometer.py:950
 msgid "CPU time used"
@@ -1609,7 +1609,7 @@ msgstr "Nom d'Hôte"
 #: dashboards/project/loadbalancers/workflows.py:486
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/routers/ports/tables.py:107
-#: dashboards/project/stacks/resource_types/tables.py:30
+#: dashboards/project/stacks/resource_types/tables.py:31
 #: dashboards/project/volumes/volumes/forms.py:82
 #: dashboards/project/volumes/volumes/forms.py:87
 #: dashboards/project/volumes/volumes/forms.py:88
@@ -2322,7 +2322,7 @@ msgstr ""
 #: dashboards/admin/metadata_defs/forms.py:54
 #: dashboards/admin/metadata_defs/forms.py:58
 msgid "Namespace JSON"
-msgstr ""
+msgstr "Espace de nom JSON"
 
 #: dashboards/admin/metadata_defs/forms.py:55
 msgid "The JSON formatted contents of a namespace."
@@ -2484,15 +2484,15 @@ msgstr "Description"
 
 #: dashboards/admin/metadata_defs/tables.py:137
 #: dashboards/project/stacks/resource_types/panel.py:22
-#: dashboards/project/stacks/resource_types/tables.py:44
+#: dashboards/project/stacks/resource_types/tables.py:45
 #: dashboards/project/stacks/resource_types/templates/stacks.resource_types/index.html:3
 #: dashboards/project/stacks/resource_types/templates/stacks.resource_types/index.html:6
 msgid "Resource Types"
-msgstr ""
+msgstr "Types de ressource"
 
 #: dashboards/admin/metadata_defs/tables.py:165
 msgid "Namespaces"
-msgstr ""
+msgstr "Espace de noms"
 
 #: dashboards/admin/metadata_defs/tabs.py:26
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:3
@@ -2547,7 +2547,7 @@ msgstr "Informations"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:10
 msgid "Display Name"
-msgstr ""
+msgstr "Nom d'affichage"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:11
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:13
@@ -2605,7 +2605,7 @@ msgstr "Aucun"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:12
 msgid "Namespace"
-msgstr ""
+msgstr "Espace de nom"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:22
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:35
@@ -2661,11 +2661,11 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:39
 msgid "Prefix: "
-msgstr ""
+msgstr "Préfixe:"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:42
 msgid "Properties Target: "
-msgstr ""
+msgstr "Propriétes cible:"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:47
 msgid "No associations defined."
@@ -2684,11 +2684,11 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/detail.html:4
 msgid "Namespace Details"
-msgstr ""
+msgstr "Détails de l'espace de nom"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/detail.html:7
 msgid "Namespace Details: "
-msgstr ""
+msgstr "Détails de l'espace de nom:"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:15
 msgid "Available Types"
@@ -3656,7 +3656,7 @@ msgstr "Mettre à jour un port"
 #: dashboards/admin/networks/templates/networks/subnets/index.html:6
 #: dashboards/project/networks/templates/networks/detail.html:3
 msgid "Network Details"
-msgstr ""
+msgstr "Détails du réseau"
 
 #: dashboards/admin/overview/views.py:34
 #: dashboards/project/overview/views.py:33
@@ -4165,7 +4165,7 @@ msgstr ""
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:17
 #: dashboards/admin/volumes/volume_types/forms.py:34
 msgid "Cipher"
-msgstr ""
+msgstr "Cipher"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:19
 #: dashboards/admin/volumes/volume_types/forms.py:35
@@ -4619,7 +4619,7 @@ msgstr "Incapable de créer la Spécification QoS."
 #: dashboards/project/volumes/volumes/views.py:53
 #, python-format
 msgid "Volume Details: %(volume_name)s"
-msgstr ""
+msgstr "Détails du volume: %(volume_name)s"
 
 #: dashboards/admin/volumes/volumes/views.py:69
 #: dashboards/project/volumes/volumes/views.py:70
@@ -4641,7 +4641,7 @@ msgstr "Domaines"
 #: dashboards/identity/groups/tables.py:91
 #: dashboards/identity/projects/tables.py:53
 msgid "Manage Members"
-msgstr ""
+msgstr "Gestion des membres"
 
 #: dashboards/identity/domains/tables.py:54
 #: dashboards/identity/projects/tables.py:69
@@ -4977,7 +4977,7 @@ msgstr "Impossible de mettre à jour le groupe."
 #: dashboards/identity/groups/views.py:119
 #, python-format
 msgid "Group Management: %(group_name)s"
-msgstr ""
+msgstr "Groupe de management: %(group_name)s"
 
 #: dashboards/identity/groups/views.py:130
 msgid "Unable to retrieve group users."
@@ -5350,7 +5350,7 @@ msgstr "Impossible d'ajouter un utilisateur au projet primaire."
 #: dashboards/identity/users/forms.py:212
 #, python-format
 msgid "User name \"%s\" is already used."
-msgstr ""
+msgstr "Le nom d’utilisateur \"%s\" est déjà utilisé."
 
 #: dashboards/identity/users/forms.py:152
 msgid "Unable to create user."
@@ -5442,7 +5442,7 @@ msgstr "Impossible de récupérer les rôles utilisateur."
 #: dashboards/identity/users/views.py:172
 #, python-format
 msgid "User Details: %s"
-msgstr ""
+msgstr "Détails utilisateur: %s"
 
 #: dashboards/identity/users/views.py:185
 msgid "Unable to retrieve user details."
@@ -5468,7 +5468,7 @@ msgstr ""
 
 #: dashboards/identity/users/templates/users/detail.html:3
 msgid "User Details"
-msgstr ""
+msgstr "Détails de l'utilisateur"
 
 #: dashboards/identity/users/templates/users/update.html:3
 #: dashboards/identity/users/templates/users/update.html:7
@@ -8126,7 +8126,7 @@ msgstr "Cacher la configuration complète"
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_service_confs.html:12
 #, python-format
 msgid "%(conf_name)s: %(conf_val)s"
-msgstr ""
+msgstr "%(conf_name)s: %(conf_val)s"
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:3
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:6
@@ -8331,7 +8331,7 @@ msgstr "Impossible de recupérer les détails de la sauvegarde totale: %s"
 #: dashboards/project/database_backups/views.py:106
 #, python-format
 msgid "Backup Details: %(backup_name)s"
-msgstr ""
+msgstr "Détails de la sauvegarde: %(backup_name)s"
 
 #: dashboards/project/database_backups/templates/database_backups/_backup_details_help.html:3
 msgid "Specify the details for the database backup."
@@ -9267,7 +9267,7 @@ msgstr "Impossible de supprimer le pare-feu %s"
 #: dashboards/project/firewalls/views.py:132
 #, python-format
 msgid "Edit Rule %(rule_name)s"
-msgstr ""
+msgstr "Édition de la règle %(rule_name)s"
 
 #: dashboards/project/firewalls/views.py:170
 #, python-format
@@ -10914,7 +10914,7 @@ msgstr "Post-création"
 
 #: dashboards/project/instances/workflows/create_instance.py:620
 msgid "Select Script Source"
-msgstr ""
+msgstr "Sélection du script source"
 
 #: dashboards/project/instances/workflows/create_instance.py:625
 msgid "Customization Script Source"
@@ -11937,7 +11937,7 @@ msgstr "Impossible de récupérer les détails du réseau."
 #: dashboards/project/networks/views.py:139
 #, python-format
 msgid "Network Details: %(network_name)s"
-msgstr ""
+msgstr "Détails réseau: %(network_name)s"
 
 #: dashboards/project/networks/workflows.py:50
 msgid "The state to start the network in."
@@ -12057,7 +12057,7 @@ msgstr "Routes additionnelles annoncées aux hôtes. Chaque entrée est de la fo
 #: dashboards/project/networks/templates/networks/subnets/detail.html:3
 #: dashboards/project/networks/templates/networks/subnets/detail.html:6
 msgid "Subnet Details"
-msgstr ""
+msgstr "Détails du sous-réseau"
 
 #: dashboards/project/networks/workflows.py:256
 #: dashboards/project/networks/subnets/workflows.py:151
@@ -12174,18 +12174,18 @@ msgid "No options specified"
 msgstr "Aucune option spécifiée"
 
 #: dashboards/project/networks/subnets/utils.py:22
-msgid "SLAAC: Address discovered from Openstack Router"
-msgstr "SLAAC : adresse découverte par le routeur OpenStack "
+msgid "SLAAC: Address discovered from OpenStack Router"
+msgstr "SLAAC: Adresse découverte par le routeur OpenStack"
 
 #: dashboards/project/networks/subnets/utils.py:24
-msgid "DHCPv6 stateful: Address discovered from Openstack DHCP"
-msgstr "DHCPv6 stateful : adresse découverte par le DHCP Openstack"
+msgid "DHCPv6 stateful: Address discovered from OpenStack DHCP"
+msgstr ""
 
 #: dashboards/project/networks/subnets/utils.py:26
 msgid ""
-"DHCPv6 stateless: Address discovered from Openstack Router and info from "
-"Openstack DHCP"
-msgstr "DHCPv6 stateless : adresse découverte par le routeur Openstack et les informations par le DHCP Openstack"
+"DHCPv6 stateless: Address discovered from OpenStack Router and additional "
+"information from OpenStack DHCP"
+msgstr ""
 
 #: dashboards/project/networks/subnets/views.py:67
 msgid "Unable to retrieve subnet details"
@@ -12318,7 +12318,7 @@ msgstr "Pas de périphérique attaché"
 #: dashboards/project/networks/templates/networks/ports/detail.html:3
 #: dashboards/project/networks/templates/networks/ports/detail.html:6
 msgid "Port Details"
-msgstr ""
+msgstr "Détails du port "
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:4
 msgid "Subnet Overview"
@@ -12971,7 +12971,7 @@ msgstr "Ressource de la Stack"
 
 #: dashboards/project/stacks/tables.py:170
 #: dashboards/project/stacks/tables.py:215
-#: dashboards/project/stacks/resource_types/tables.py:37
+#: dashboards/project/stacks/resource_types/tables.py:38
 msgid "Resource"
 msgstr "Ressource"
 
@@ -13036,7 +13036,7 @@ msgstr "Impossible d'extraire la Stack."
 #: dashboards/project/stacks/views.py:207
 #, python-format
 msgid "Stack Details: %(stack_name)s"
-msgstr ""
+msgstr "Détails de la Stack: %(stack_name)s"
 
 #: dashboards/project/stacks/views.py:232
 msgid "Unable to retrieve stack template."
@@ -13045,7 +13045,7 @@ msgstr "Impossible de récupérer le modèle de stack."
 #: dashboards/project/stacks/views.py:255
 #, python-format
 msgid "Resource Details: %s"
-msgstr ""
+msgstr "Détails de la ressource: %s"
 
 #: dashboards/project/stacks/views.py:267
 msgid "Unable to retrieve resource."
@@ -13055,29 +13055,33 @@ msgstr "Impossible de récupérer la ressource."
 msgid "Unable to retrieve metadata."
 msgstr "Impossible de récupérer les métadonnées."
 
-#: dashboards/project/stacks/resource_types/tables.py:33
-msgid "Implementation"
-msgstr ""
+#: dashboards/project/stacks/resource_types/tables.py:26
+msgid "AWS compatible"
+msgstr "Compatible AWS"
 
-#: dashboards/project/stacks/resource_types/tables.py:35
+#: dashboards/project/stacks/resource_types/tables.py:34
+msgid "Implementation"
+msgstr "Implémentation"
+
+#: dashboards/project/stacks/resource_types/tables.py:36
 msgid "Component"
-msgstr ""
+msgstr "Composant"
 
 #: dashboards/project/stacks/resource_types/views.py:40
 msgid "Unable to retrieve stack resource types."
-msgstr ""
+msgstr "Impossible de récupérer les types de ressource de la stack."
 
 #: dashboards/project/stacks/resource_types/views.py:56
 msgid "Unable to retrieve resource type details."
-msgstr ""
+msgstr "Impossible de récupérer les détails du type de ressource."
 
 #: dashboards/project/stacks/resource_types/templates/stacks.resource_types/_details.html:4
 msgid "Resource Type"
-msgstr ""
+msgstr "Type de ressource"
 
 #: dashboards/project/stacks/resource_types/templates/stacks.resource_types/_details.html:12
 msgid "Attributes"
-msgstr ""
+msgstr "Attributs"
 
 #: dashboards/project/stacks/resource_types/templates/stacks.resource_types/_details.html:18
 msgid "Properties"
@@ -13086,7 +13090,7 @@ msgstr "Propriétées"
 #: dashboards/project/stacks/resource_types/templates/stacks.resource_types/details.html:3
 #: dashboards/project/stacks/resource_types/templates/stacks.resource_types/details.html:6
 msgid "Resource Type Details"
-msgstr ""
+msgstr "Détails du type de ressource"
 
 #: dashboards/project/stacks/templates/stacks/_change_template.html:20
 #: dashboards/project/stacks/templates/stacks/_select_template.html:20
@@ -13171,11 +13175,11 @@ msgstr "Changer un modèle."
 
 #: dashboards/project/stacks/templates/stacks/detail.html:3
 msgid "Stack Details"
-msgstr ""
+msgstr "Détails de la Stack"
 
 #: dashboards/project/stacks/templates/stacks/resource.html:3
 msgid "Resource Details"
-msgstr ""
+msgstr "Détails de la ressource"
 
 #: dashboards/project/stacks/templates/stacks/update.html:6
 msgid "Update Stack"
@@ -13191,7 +13195,7 @@ msgstr "Impossible de récupérer les informations d'attachement du volume/insta
 
 #: dashboards/project/volumes/tabs.py:62
 msgid "Unable to retrieve snapshot list."
-msgstr ""
+msgstr "Impossible de récupérer la liste des snapshot"
 
 #: dashboards/project/volumes/tabs.py:127
 #: dashboards/project/volumes/backups/tables.py:48
@@ -13417,7 +13421,7 @@ msgid ""
 "\n"
 "      <a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s\n"
 "      "
-msgstr ""
+msgstr "\n\n<a href=\"%(instance_url)s\">%(instance_name)s</a> sur %(device)s"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:48
 msgid "Not attached"
@@ -13431,7 +13435,7 @@ msgstr "Source du volume"
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:84
 #: dashboards/project/volumes/volumes/views.py:229
 msgid "Volume Transfer"
-msgstr ""
+msgstr "Volume de transfère"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_extend.html:9
 #: dashboards/project/volumes/templates/volumes/volumes/_extend.html:24
@@ -13588,16 +13592,16 @@ msgstr "Création d'un instantané du volume"
 #: dashboards/project/volumes/volumes/views.py:198
 #: dashboards/project/volumes/volumes/views.py:199
 msgid "Create Volume Transfer"
-msgstr ""
+msgstr "Création d'un volume de transfère"
 
 #: dashboards/project/volumes/templates/volumes/volumes/create_transfer.html:6
 msgid "Create a Volume Transfer"
-msgstr ""
+msgstr "Création d'un volume de transfère"
 
 #: dashboards/project/volumes/templates/volumes/volumes/show_transfer.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/show_transfer.html:6
 msgid "Volume Transfer Details"
-msgstr ""
+msgstr "Détails du transfère du volume"
 
 #: dashboards/project/volumes/volumes/forms.py:60
 msgid "Use snapshot as a source"
@@ -13772,30 +13776,30 @@ msgstr "Impossible de créer l'instantané du volume."
 #: dashboards/project/volumes/volumes/forms.py:525
 #: dashboards/project/volumes/volumes/forms.py:567
 msgid "Transfer Name"
-msgstr ""
+msgstr "Nom de transfère"
 
 #: dashboards/project/volumes/volumes/forms.py:534
 #, python-format
 msgid "Created volume transfer: \"%s\"."
-msgstr ""
+msgstr "Création d'un volume de transfère: \"%s\"."
 
 #: dashboards/project/volumes/volumes/forms.py:536
 msgid "Created volume transfer."
-msgstr ""
+msgstr "Création d'un volume de transfère."
 
 #: dashboards/project/volumes/volumes/forms.py:543
 msgid "Unable to create volume transfer."
-msgstr ""
+msgstr "Impossible de créer un volume de transfère."
 
 #: dashboards/project/volumes/volumes/forms.py:548
 #: dashboards/project/volumes/volumes/forms.py:571
 msgid "Transfer ID"
-msgstr ""
+msgstr "ID du transfère"
 
 #: dashboards/project/volumes/volumes/forms.py:549
 #: dashboards/project/volumes/volumes/forms.py:575
 msgid "Authorization Key"
-msgstr ""
+msgstr "Clé d’autorisation"
 
 #: dashboards/project/volumes/volumes/forms.py:557
 #, python-format
@@ -13922,7 +13926,7 @@ msgstr "Incapable de récupérer les limites du tenant."
 
 #: dashboards/project/volumes/volumes/tables.py:192
 msgid "Create Transfer"
-msgstr ""
+msgstr "Création du transfère"
 
 #: dashboards/project/volumes/volumes/tables.py:215
 msgid "Upload to Image"
@@ -13930,20 +13934,20 @@ msgstr "Télécharger dans l'Image"
 
 #: dashboards/project/volumes/volumes/tables.py:255
 msgid "Accept Transfer"
-msgstr ""
+msgstr "Acceptation du transfère"
 
 #: dashboards/project/volumes/volumes/tables.py:273
 msgid "Cancel Transfer"
-msgstr ""
+msgstr "Annulation du transfère"
 
 #: dashboards/project/volumes/volumes/tables.py:286
 #, python-format
 msgid "Successfully deleted volume transfer \"%s\""
-msgstr ""
+msgstr "Suppression avec succès du volume de transfère \"%s\""
 
 #: dashboards/project/volumes/volumes/tables.py:289
 msgid "Successfully deleted volume transfer"
-msgstr ""
+msgstr "Suppression avec succès du volume de transfère"
 
 #: dashboards/project/volumes/volumes/tables.py:292
 msgid "Unable to delete volume transfer."
