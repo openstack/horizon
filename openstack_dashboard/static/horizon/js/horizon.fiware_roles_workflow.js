@@ -328,6 +328,7 @@ horizon.fiware_roles_workflow = {
    */
   inline_edit_role: {
     init: function(step_slug) {
+      // edit
       $("#" + step_slug + "_roles").on('click', '.ajax-inline-edit', function (evt) {
         console.log('edit')
         //var data_id = $(this).siblings('input').attr("data-" + step_slug + "-id");
@@ -340,6 +341,13 @@ horizon.fiware_roles_workflow = {
         var url = $(this).attr("href");
         horizon.fiware_roles_workflow.inline_edit_role.render_form(url, role_div_element)
 
+      });
+      // cancel
+      $("#" + step_slug + "_roles").on('click', '.inline-edit-cancel', function (evt) {
+        console.log('cancel')
+        evt.preventDefault();
+        var form_element = $(this).parentsUntil($("#" + step_slug + "_roles") , '.static_page');
+        form_element.replaceWith(horizon.fiware_roles_workflow.inline_edit_role.cached_role);
       });
     },
     render_form: function(url, role_div_element) {
