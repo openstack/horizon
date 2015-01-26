@@ -116,7 +116,7 @@ class CreateRoleForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255, label=_("Role Name"))
     application_id = forms.CharField(required=True,
                                  widget=forms.HiddenInput())
-
+    no_autocomplete = True
     def handle(self, request, data):
         try:
             LOG.info('Creating role with name "%s"' % data['name'])
@@ -134,7 +134,7 @@ class EditRoleForm(forms.SelfHandlingForm):
     role_id = forms.CharField(required=True,
                                  widget=forms.HiddenInput())
     name = forms.CharField(max_length=255, label=_("Role Name"))
-
+    no_autocomplete = True
     def handle(self, request, data):
         try:
             LOG.info('Updating role with id {0}'.format(data['role_id']))
