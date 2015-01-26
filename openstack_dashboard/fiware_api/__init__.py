@@ -13,7 +13,9 @@
         
 
 from openstack_dashboard.fiware_api import keystone
+from openstack_dashboard.fiware_api import access_control_ge
 
 __all__ = [
-    "keystone",
+    'keystone',
+    'access_control_ge',
 ]
