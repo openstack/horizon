@@ -171,13 +171,17 @@ class CreatePermissionForm(forms.SelfHandlingForm):
     description = forms.CharField(max_length=255, label=_("Description"))
     actions = forms.CharField(max_length=255, label=_("HTTP actions"))
     resource = forms.CharField(max_length=255, label=_("Resource"))
-
+    no_autocomplete = True
     def handle(self, request, data):
         try:
             LOG.info('Creating permission with name "%s"' % data['name'])
             new_permission = fiware_api.keystone.permission_create(request,
                                             name=data['name'],
                                             application=data['application_id'])
+            LOG.info('Sending new rules to the Access Control GE')
+            ac_response = fiware_api.access_control_ge.send_xacml(
+                                                    data['actions'],
+                                                    data['resource'])
             messages.success(request,
                              _('Permission "%s" was successfully created.')
                              % data['name'])
