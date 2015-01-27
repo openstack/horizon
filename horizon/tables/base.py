@@ -734,7 +734,7 @@ class Cell(html.HTMLElement):
             raise six.reraise(template.TemplateSyntaxError, exc_info[1],
                               exc_info[2])
 
-        if self.url:
+        if self.url and not self.column.auto == "form_field":
             link_attrs = ' '.join(['%s="%s"' % (k, v) for (k, v) in
                                   self.column.link_attrs.items()])
             # Escape the data inside while allowing our HTML to render
