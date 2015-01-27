@@ -252,7 +252,8 @@ class ResourceView(tabs.TabView):
         resource = self.get_data(self.request, **kwargs)
         context["resource"] = resource
         context["metadata"] = self.get_metadata(self.request, **kwargs)
-        context["page_title"] = _("Resource Details: %s") % resource
+        context["page_title"] = _("Resource Details: %s") % \
+            getattr(resource, 'resource_name')
         return context
 
     @memoized.memoized_method
