@@ -364,7 +364,7 @@ horizon.fiware_roles_workflow = {
       // submit
       container.on('click', '.inline-edit-submit', function (evt) {
         evt.preventDefault();
-        horizon.fiware_roles_workflow.inline_edit_role.submit_form(this);
+        horizon.fiware_roles_workflow.inline_edit_role.submit_form(this, container);
       });
     },
 
@@ -403,7 +403,7 @@ horizon.fiware_roles_workflow = {
         }
       });
     },
-    submit_form: function(el) {
+    submit_form: function(el, container) {
       var form = $(el).parents('form').first();
       var form_element = $(el).parentsUntil(container, '.static_page');
       horizon.ajax.queue({
@@ -434,11 +434,10 @@ horizon.fiware_roles_workflow = {
         success: function (data, textStatus, jqXHR) {
           console.log('success')
           //hide the form, show the new element
-          //var form_element = $(data);
-          //form_element.replaceWith(data);
-          console.log('data:'+data)
-          console.log('textStatus:'+textStatus)
-          console.log('jqXHR:'+jqXHR)
+          var role_element = horizon.fiware_roles_workflow.inline_edit_role.cached_role
+          form_element.replaceWith(role_element);
+          role_element.find('label').text(data);
+          console.log('label:' +role_element.find('label').text())
           console.log('edited role!')
         }
       });

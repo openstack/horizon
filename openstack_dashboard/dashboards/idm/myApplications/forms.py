@@ -16,6 +16,7 @@ import os
 from django import forms
 from django import shortcuts
 from django.conf import settings
+from django.http import HttpResponse
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -132,7 +133,7 @@ class CreateRoleForm(forms.SelfHandlingForm):
 class EditRoleForm(forms.SelfHandlingForm):
     role_id = forms.CharField(required=True,
                                  widget=forms.HiddenInput())
-    name = forms.CharField(max_length=255, label=_("Role Name"))
+    name = forms.CharField(max_length=60, label='')
     no_autocomplete = True
     def handle(self, request, data):
         try:
@@ -143,7 +144,8 @@ class EditRoleForm(forms.SelfHandlingForm):
             messages.success(request,
                              _('Role "%s" was successfully updated.')
                              % data['role_id'])
-            return role
+            response = HttpResponse(role.name)
+            return response
         except Exception:
             exceptions.handle(request, _('Unable to delete role.'))
 
