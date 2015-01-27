@@ -1,35 +1,16 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
-{% load url from future %}
 
-{% block form_id %}update_user_form{% endblock %}
-{% block form_action %}{% url 'horizon:identity:users:update' user.id %}{% endblock %}
-
-{% block modal-header %}{% trans "Edit User" %}{% endblock %}
-
-{% block modal-body %}
-<div class="left">
-    <fieldset>
-    {% include "horizon/common/_form_fields.html" %}
-    </fieldset>
-</div>
-<div class="right">
-    <h3>{% trans "Description:" %}</h3>
-    <p>{% trans "Edit the user's details, including the Primary Project." %}</p>
-</div>
-
-<script type="text/javascript">
-  if (typeof horizon.user !== 'undefined') {
-    horizon.user.init();
-  } else {
-    addHorizonLoadEvent(function() {
+{% block modal-body-right %}
+  <h3>{% trans "Description:" %}</h3>
+  <p>{% trans "Edit the user's details, including the Primary Project." %}</p>
+  <script type="text/javascript">
+    if (typeof horizon.user !== 'undefined') {
       horizon.user.init();
-    });
-  }
-</script>
-{% endblock %}
-
-{% block modal-footer %}
-  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Save" %}" />
-  <a href="{% url 'horizon:identity:users:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
+    } else {
+      addHorizonLoadEvent(function() {
+        horizon.user.init();
+      });
+    }
+  </script>
 {% endblock %}
