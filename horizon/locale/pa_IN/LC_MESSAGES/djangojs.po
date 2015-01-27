@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-18 20:37-0500\n"
-"PO-Revision-Date: 2014-10-18 14:31+0000\n"
+"POT-Creation-Date: 2015-01-26 23:48-0600\n"
+"PO-Revision-Date: 2015-01-27 05:48+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/projects/p/horizon/language/pa_IN/)\n"
 "MIME-Version: 1.0\n"
@@ -17,8 +17,8 @@ msgstr ""
 "Language: pa_IN\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: static/horizon/js/horizon.accordion_nav.js:83
-#: static/horizon/js/horizon.modals.js:309
+#: static/horizon/js/horizon.accordion_nav.js:84
+#: static/horizon/js/horizon.modals.js:313
 #: static/horizon/js/horizon.tabs.js:21
 msgid "Loading"
 msgstr "ਲੋਡ ਹੋ ਰਿਹਾ"
@@ -29,27 +29,27 @@ msgid "No data available."
 msgstr "ਕੋਈ ਡਾਟਾ ਉਪਲਖ਼ਬਧ ਨਹੀ।"
 
 #: static/horizon/js/horizon.d3linechart.js:410
-#: static/horizon/js/horizon.modals.js:328
+#: static/horizon/js/horizon.modals.js:332
 #: static/horizon/js/horizon.tables_inline_edit.js:94
 #: static/horizon/js/horizon.tables_inline_edit.js:175
 msgid "An error occurred. Please try again later."
 msgstr "ਇੱਕ ਗਲਤੀ ਵਾਪਰੀ। ਕਿਰਪਾ ਕਰ ਕੇ ਬਾਅਦ ਵਿੱਚ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
 
 #: static/horizon/js/horizon.firewalls.js:30
-#: static/horizon/js/horizon.instances.js:30
+#: static/horizon/js/horizon.instances.js:31
 msgid "There was a problem communicating with the server, please try again."
 msgstr "ਸਰਵਰ ਨਾਲ ਸੰਚਾਰ ਕਰਨ ਵੇਲੇ ਇੱਕ ਮੁਸ਼ਕਿਲ ਸੀ, ਕਿਰਪਾ ਕਰ ਕੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
 
-#: static/horizon/js/horizon.forms.js:195
+#: static/horizon/js/horizon.forms.js:184
 msgid "Filter"
 msgstr "ਛਾਣਨੀ (ਫਿਲਟਰ)"
 
-#: static/horizon/js/horizon.instances.js:248
+#: static/horizon/js/horizon.instances.js:264
 msgid "Could not read the file"
 msgstr "ਫਾਈਲ ਪੜ੍ਹ ਨਹੀਂ ਸਕਿਆ"
 
-#: static/horizon/js/horizon.instances.js:254
-#: static/horizon/js/horizon.instances.js:281
+#: static/horizon/js/horizon.instances.js:270
+#: static/horizon/js/horizon.instances.js:297
 msgid "Could not decrypt the password"
 msgstr "ਪਛਾਣ-ਸ਼ਬਦ ਨੂੰ ਡੀ-ਕ੍ਰਿਪਟ ਨਹੀਂ ਕਰ ਸਕਿਆ"
 
@@ -85,70 +85,70 @@ msgstr "ਗਲਤੀ: "
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
 
-#: static/horizon/js/horizon.modals.js:225
-#: static/horizon/js/horizon.tables.js:223
+#: static/horizon/js/horizon.modals.js:227
+#: static/horizon/js/horizon.tables.js:218
 msgid "Working"
 msgstr "ਕੰਮ ਕਰ ਰਿਹਾ"
 
-#: static/horizon/js/horizon.modals.js:259
+#: static/horizon/js/horizon.modals.js:261
 msgid "There was an error submitting the form. Please try again."
 msgstr "ਫਾਰਮ ਸਮਰਪਣ ਵੇਲੇ ਇੱਕ ਗਲਤੀ ਸੀ। ਕਿਰਪਾ ਕਰ ਕੇ ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
 
-#: static/horizon/js/horizon.networktopology.js:511
-#: static/horizon/js/horizon.networktopology.js:517
+#: static/horizon/js/horizon.networktopology.js:528
+#: static/horizon/js/horizon.networktopology.js:534
 msgid "None"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:530
+#: static/horizon/js/horizon.networktopology.js:547
 msgid "Delete"
 msgstr "ਮਿਟਾਉ"
 
-#: static/horizon/js/horizon.networktopology.js:533
+#: static/horizon/js/horizon.networktopology.js:550
 msgid "STATUS"
 msgstr "ਹਾਲਾਤ"
 
-#: static/horizon/js/horizon.networktopology.js:534
+#: static/horizon/js/horizon.networktopology.js:551
 msgid "ID"
 msgstr "ID"
 
-#: static/horizon/js/horizon.networktopology.js:535
+#: static/horizon/js/horizon.networktopology.js:552
 msgid "Interfaces"
 msgstr "ਇੰਟਰਫੇਸ"
 
-#: static/horizon/js/horizon.networktopology.js:536
+#: static/horizon/js/horizon.networktopology.js:553
 msgid "Delete Interface"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:537
+#: static/horizon/js/horizon.networktopology.js:554
 msgid "Open Console"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:538
+#: static/horizon/js/horizon.networktopology.js:555
 msgid "View Details"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:541
+#: static/horizon/js/horizon.networktopology.js:558
 msgid "Delete Router"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:542
+#: static/horizon/js/horizon.networktopology.js:559
 msgid "View Router Details"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:545
+#: static/horizon/js/horizon.networktopology.js:562
 msgid "Add Interface"
 msgstr "ਇੰਟਰਫੇਸ ਜੋੜ੍ਹੋ"
 
-#: static/horizon/js/horizon.networktopology.js:551
+#: static/horizon/js/horizon.networktopology.js:568
 msgid "Terminate Instance"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:552
+#: static/horizon/js/horizon.networktopology.js:569
 msgid "View Instance Details"
 msgstr ""
 
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:379
+#: static/horizon/js/horizon.tables.js:374
 msgid "No items to display."
 msgstr "ਪਰਦਰਸ਼ਿਤ ਕਰਨ ਲਈ ਕੋਈ ਚੀਜ਼ ਨਹੀਂ।"
 
@@ -157,21 +157,21 @@ msgstr "ਪਰਦਰਸ਼ਿਤ ਕਰਨ ਲਈ ਕੋਈ ਚੀਜ਼ ਨਹੀ�
 msgid "An error occurred while updating."
 msgstr "ਅੱਪਡੇਟ ਕਰਨ ਵੇਲੇ ਇੱਕ ਗਲਤੀ ਹੋਈ।"
 
-#: static/horizon/js/horizon.tables.js:206
+#: static/horizon/js/horizon.tables.js:200
 #, c-format
 msgid "You have selected %s. "
 msgstr "ਤੁਸੀਂ %s ਦੀ ਚੋਣ ਕੀਤੀ ਹੈ।"
 
-#: static/horizon/js/horizon.tables.js:208
+#: static/horizon/js/horizon.tables.js:203
 #, c-format
 msgid "Confirm %s"
 msgstr "%s ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ"
 
-#: static/horizon/js/horizon.tables.js:209
-msgid "Please confirm your selection. This action cannot be undone."
-msgstr "ਕਿਰਪਾ ਕਰ ਕੇ ਆਪਣੀ ਚੋਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ। ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀੰ ਹੋ ਸਕੇਗੀ।"
+#: static/horizon/js/horizon.tables.js:204
+msgid "Please confirm your selection. "
+msgstr ""
 
-#: static/horizon/js/horizon.tables.js:366
+#: static/horizon/js/horizon.tables.js:361
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"

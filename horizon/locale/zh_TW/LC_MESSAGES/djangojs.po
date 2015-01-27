@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-20 22:42-0600\n"
-"PO-Revision-Date: 2014-11-21 01:50+0000\n"
-"Last-Translator: Xiao Xi LIU <liuxx@cn.ibm.com>\n"
+"POT-Creation-Date: 2015-01-26 23:48-0600\n"
+"PO-Revision-Date: 2015-01-27 05:48+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,8 +18,8 @@ msgstr ""
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: static/horizon/js/horizon.accordion_nav.js:83
-#: static/horizon/js/horizon.modals.js:309
+#: static/horizon/js/horizon.accordion_nav.js:84
+#: static/horizon/js/horizon.modals.js:313
 #: static/horizon/js/horizon.tabs.js:21
 msgid "Loading"
 msgstr "讀取中"
@@ -30,7 +30,7 @@ msgid "No data available."
 msgstr "無可用的資料。"
 
 #: static/horizon/js/horizon.d3linechart.js:410
-#: static/horizon/js/horizon.modals.js:328
+#: static/horizon/js/horizon.modals.js:332
 #: static/horizon/js/horizon.tables_inline_edit.js:94
 #: static/horizon/js/horizon.tables_inline_edit.js:175
 msgid "An error occurred. Please try again later."
@@ -86,70 +86,70 @@ msgstr "錯誤："
 msgid "Cancel"
 msgstr "取消"
 
-#: static/horizon/js/horizon.modals.js:225
-#: static/horizon/js/horizon.tables.js:226
+#: static/horizon/js/horizon.modals.js:227
+#: static/horizon/js/horizon.tables.js:218
 msgid "Working"
 msgstr "運作中"
 
-#: static/horizon/js/horizon.modals.js:259
+#: static/horizon/js/horizon.modals.js:261
 msgid "There was an error submitting the form. Please try again."
 msgstr "提交表單時有錯誤。請再試一次。"
 
-#: static/horizon/js/horizon.networktopology.js:511
-#: static/horizon/js/horizon.networktopology.js:517
+#: static/horizon/js/horizon.networktopology.js:528
+#: static/horizon/js/horizon.networktopology.js:534
 msgid "None"
 msgstr "無"
 
-#: static/horizon/js/horizon.networktopology.js:530
+#: static/horizon/js/horizon.networktopology.js:547
 msgid "Delete"
 msgstr "刪除"
 
-#: static/horizon/js/horizon.networktopology.js:533
+#: static/horizon/js/horizon.networktopology.js:550
 msgid "STATUS"
 msgstr "狀態"
 
-#: static/horizon/js/horizon.networktopology.js:534
+#: static/horizon/js/horizon.networktopology.js:551
 msgid "ID"
 msgstr "識別號"
 
-#: static/horizon/js/horizon.networktopology.js:535
+#: static/horizon/js/horizon.networktopology.js:552
 msgid "Interfaces"
 msgstr "網路卡介面"
 
-#: static/horizon/js/horizon.networktopology.js:536
+#: static/horizon/js/horizon.networktopology.js:553
 msgid "Delete Interface"
 msgstr "刪除網路卡介面"
 
-#: static/horizon/js/horizon.networktopology.js:537
+#: static/horizon/js/horizon.networktopology.js:554
 msgid "Open Console"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:538
+#: static/horizon/js/horizon.networktopology.js:555
 msgid "View Details"
 msgstr "檢視詳細資訊"
 
-#: static/horizon/js/horizon.networktopology.js:541
+#: static/horizon/js/horizon.networktopology.js:558
 msgid "Delete Router"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:542
+#: static/horizon/js/horizon.networktopology.js:559
 msgid "View Router Details"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:545
+#: static/horizon/js/horizon.networktopology.js:562
 msgid "Add Interface"
 msgstr "加入網路卡介面"
 
-#: static/horizon/js/horizon.networktopology.js:551
+#: static/horizon/js/horizon.networktopology.js:568
 msgid "Terminate Instance"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:552
+#: static/horizon/js/horizon.networktopology.js:569
 msgid "View Instance Details"
 msgstr ""
 
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:382
+#: static/horizon/js/horizon.tables.js:374
 msgid "No items to display."
 msgstr "沒有項目可以列出。"
 
@@ -158,21 +158,21 @@ msgstr "沒有項目可以列出。"
 msgid "An error occurred while updating."
 msgstr "更新時發生錯誤。"
 
-#: static/horizon/js/horizon.tables.js:209
+#: static/horizon/js/horizon.tables.js:200
 #, c-format
 msgid "You have selected %s. "
 msgstr "您選擇了 %s。"
 
-#: static/horizon/js/horizon.tables.js:211
+#: static/horizon/js/horizon.tables.js:203
 #, c-format
 msgid "Confirm %s"
 msgstr "確認 %s"
 
-#: static/horizon/js/horizon.tables.js:212
-msgid "Please confirm your selection. This action cannot be undone."
-msgstr "請確認您的選擇。這個動作將無法回復。"
+#: static/horizon/js/horizon.tables.js:204
+msgid "Please confirm your selection. "
+msgstr ""
 
-#: static/horizon/js/horizon.tables.js:369
+#: static/horizon/js/horizon.tables.js:361
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"

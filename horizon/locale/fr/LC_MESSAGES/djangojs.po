@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-24 13:00-0500\n"
-"PO-Revision-Date: 2014-10-24 08:10+0000\n"
-"Last-Translator: Frédéric <frosmont@free.fr>\n"
+"POT-Creation-Date: 2015-01-26 23:48-0600\n"
+"PO-Revision-Date: 2015-01-27 05:48+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,8 +18,8 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: static/horizon/js/horizon.accordion_nav.js:83
-#: static/horizon/js/horizon.modals.js:309
+#: static/horizon/js/horizon.accordion_nav.js:84
+#: static/horizon/js/horizon.modals.js:313
 #: static/horizon/js/horizon.tabs.js:21
 msgid "Loading"
 msgstr "Chargement..."
@@ -30,7 +30,7 @@ msgid "No data available."
 msgstr "Pas de données disponibles."
 
 #: static/horizon/js/horizon.d3linechart.js:410
-#: static/horizon/js/horizon.modals.js:328
+#: static/horizon/js/horizon.modals.js:332
 #: static/horizon/js/horizon.tables_inline_edit.js:94
 #: static/horizon/js/horizon.tables_inline_edit.js:175
 msgid "An error occurred. Please try again later."
@@ -86,70 +86,70 @@ msgstr "Erreur :"
 msgid "Cancel"
 msgstr "Annuler"
 
-#: static/horizon/js/horizon.modals.js:225
-#: static/horizon/js/horizon.tables.js:226
+#: static/horizon/js/horizon.modals.js:227
+#: static/horizon/js/horizon.tables.js:218
 msgid "Working"
 msgstr "Traitement en cours..."
 
-#: static/horizon/js/horizon.modals.js:259
+#: static/horizon/js/horizon.modals.js:261
 msgid "There was an error submitting the form. Please try again."
 msgstr "Erreur lors de la soumission du formulaire. Veuillez réessayer. "
 
-#: static/horizon/js/horizon.networktopology.js:511
-#: static/horizon/js/horizon.networktopology.js:517
+#: static/horizon/js/horizon.networktopology.js:528
+#: static/horizon/js/horizon.networktopology.js:534
 msgid "None"
 msgstr "Aucun"
 
-#: static/horizon/js/horizon.networktopology.js:530
+#: static/horizon/js/horizon.networktopology.js:547
 msgid "Delete"
 msgstr "Supprimer"
 
-#: static/horizon/js/horizon.networktopology.js:533
+#: static/horizon/js/horizon.networktopology.js:550
 msgid "STATUS"
 msgstr "STATUT"
 
-#: static/horizon/js/horizon.networktopology.js:534
+#: static/horizon/js/horizon.networktopology.js:551
 msgid "ID"
 msgstr "ID"
 
-#: static/horizon/js/horizon.networktopology.js:535
+#: static/horizon/js/horizon.networktopology.js:552
 msgid "Interfaces"
 msgstr "Interfaces"
 
-#: static/horizon/js/horizon.networktopology.js:536
+#: static/horizon/js/horizon.networktopology.js:553
 msgid "Delete Interface"
 msgstr "Supprimer l'Interface"
 
-#: static/horizon/js/horizon.networktopology.js:537
+#: static/horizon/js/horizon.networktopology.js:554
 msgid "Open Console"
 msgstr "Ouvrir une Console"
 
-#: static/horizon/js/horizon.networktopology.js:538
+#: static/horizon/js/horizon.networktopology.js:555
 msgid "View Details"
 msgstr "Voir les détails"
 
-#: static/horizon/js/horizon.networktopology.js:541
+#: static/horizon/js/horizon.networktopology.js:558
 msgid "Delete Router"
 msgstr "Supprimer un Routeur"
 
-#: static/horizon/js/horizon.networktopology.js:542
+#: static/horizon/js/horizon.networktopology.js:559
 msgid "View Router Details"
 msgstr "Voir les Détails du Routeur"
 
-#: static/horizon/js/horizon.networktopology.js:545
+#: static/horizon/js/horizon.networktopology.js:562
 msgid "Add Interface"
 msgstr "Ajouter une interface"
 
-#: static/horizon/js/horizon.networktopology.js:551
+#: static/horizon/js/horizon.networktopology.js:568
 msgid "Terminate Instance"
 msgstr "Terminer l'Instance"
 
-#: static/horizon/js/horizon.networktopology.js:552
+#: static/horizon/js/horizon.networktopology.js:569
 msgid "View Instance Details"
 msgstr "Voir les Détails de l'Instance"
 
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:382
+#: static/horizon/js/horizon.tables.js:374
 msgid "No items to display."
 msgstr "Aucun élément à afficher."
 
@@ -158,21 +158,21 @@ msgstr "Aucun élément à afficher."
 msgid "An error occurred while updating."
 msgstr "Une erreur s'est produite durant la mise à jour."
 
-#: static/horizon/js/horizon.tables.js:209
+#: static/horizon/js/horizon.tables.js:200
 #, c-format
 msgid "You have selected %s. "
 msgstr "Vous avez sélectionné %s."
 
-#: static/horizon/js/horizon.tables.js:211
+#: static/horizon/js/horizon.tables.js:203
 #, c-format
 msgid "Confirm %s"
 msgstr "Confirmez %s"
 
-#: static/horizon/js/horizon.tables.js:212
-msgid "Please confirm your selection. This action cannot be undone."
-msgstr "Confirmez votre sélection. Cette action ne peut pas être annulée."
+#: static/horizon/js/horizon.tables.js:204
+msgid "Please confirm your selection. "
+msgstr ""
 
-#: static/horizon/js/horizon.tables.js:369
+#: static/horizon/js/horizon.tables.js:361
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"

@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-22 00:01-0600\n"
-"PO-Revision-Date: 2015-01-21 17:01+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"POT-Creation-Date: 2015-01-26 23:48-0600\n"
+"PO-Revision-Date: 2015-01-27 05:48+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -95,50 +95,54 @@ msgstr "取り消し"
 msgid "Filter"
 msgstr "フィルター"
 
-#: tables/actions.py:758
+#: tables/actions.py:645
+msgid "This action cannot be undone."
+msgstr ""
+
+#: tables/actions.py:767
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(data_type)sの%(action)s"
 
-#: tables/actions.py:760
+#: tables/actions.py:769
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(data_type)sの%(action)s"
 
-#: tables/actions.py:794 tables/base.py:1570
+#: tables/actions.py:803 tables/base.py:1570
 msgid "N/A"
 msgstr "N/A"
 
-#: tables/actions.py:823
+#: tables/actions.py:832
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "%(action)s は許可されていません： %(objs)s"
 
-#: tables/actions.py:830
+#: tables/actions.py:839
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "%(action)s を実行できません: %(objs)s"
 
-#: tables/actions.py:836
+#: tables/actions.py:845
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:906
+#: tables/actions.py:915
 msgid "Delete"
 msgstr "削除"
 
-#: tables/actions.py:908
+#: tables/actions.py:917
 msgid "Deleted"
 msgstr "削除"
 
-#: tables/actions.py:939
+#: tables/actions.py:948
 msgid "Update"
 msgstr "更新"
 
-#: tables/actions.py:940
+#: tables/actions.py:949
 msgid "Updated"
 msgstr "更新日時"
 
