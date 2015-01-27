@@ -188,10 +188,13 @@ class StacksTable(tables.DataTable):
                             filters=(filters.parse_isotime,
                                      filters.timesince_or_never))
     status = tables.Column("status",
-                           filters=(title, filters.replace_underscores),
-                           verbose_name=_("Status"),
+                           hidden=True,
                            status=True,
                            status_choices=STATUS_CHOICES)
+
+    stack_status = tables.Column("stack_status",
+                                 filters=(title, filters.replace_underscores),
+                                 verbose_name=_("Status"))
 
     def get_object_display(self, stack):
         return stack.stack_name
