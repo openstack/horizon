@@ -132,6 +132,13 @@ class MyBatchAction(tables.BatchAction):
         pass
 
 
+class MyBatchActionWithHelpText(MyBatchAction):
+    name = "batch_help"
+    help_text = "this is help."
+    action_present = "BatchHelp"
+    action_past = "BatchedHelp"
+
+
 class MyToggleAction(tables.BatchAction):
     name = "toggle"
     action_present = ("Down", "Up")
@@ -237,8 +244,10 @@ class MyTable(tables.DataTable):
         columns = ('id', 'name', 'value', 'optional', 'status')
         row_class = MyRow
         column_class = MyColumn
-        table_actions = (MyFilterAction, MyAction, MyBatchAction)
-        row_actions = (MyAction, MyLinkAction, MyBatchAction, MyToggleAction)
+        table_actions = (MyFilterAction, MyAction, MyBatchAction,
+                         MyBatchActionWithHelpText)
+        row_actions = (MyAction, MyLinkAction, MyBatchAction, MyToggleAction,
+                       MyBatchActionWithHelpText)
 
 
 class MyServerFilterTable(MyTable):
@@ -250,7 +259,8 @@ class MyServerFilterTable(MyTable):
         row_class = MyRow
         column_class = MyColumn
         table_actions = (MyServerFilterAction, MyAction, MyBatchAction)
-        row_actions = (MyAction, MyLinkAction, MyBatchAction, MyToggleAction)
+        row_actions = (MyAction, MyLinkAction, MyBatchAction, MyToggleAction,
+                       MyBatchActionWithHelpText)
 
 
 class MyTableSelectable(MyTable):
@@ -338,6 +348,7 @@ class DataTableTests(test.TestCase):
         # Actions (these also test ordering)
         self.assertQuerysetEqual(self.table.base_actions.values(),
                                  ['<MyBatchAction: batch>',
+                                  '<MyBatchActionWithHelpText: batch_help>',
                                   '<MyAction: delete>',
                                   '<MyFilterAction: filter>',
                                   '<MyLinkAction: login>',
@@ -345,12 +356,14 @@ class DataTableTests(test.TestCase):
         self.assertQuerysetEqual(self.table.get_table_actions(),
                                  ['<MyFilterAction: filter>',
                                   '<MyAction: delete>',
-                                  '<MyBatchAction: batch>'])
+                                  '<MyBatchAction: batch>',
+                                  '<MyBatchActionWithHelpText: batch_help>'])
         self.assertQuerysetEqual(self.table.get_row_actions(TEST_DATA[0]),
                                  ['<MyAction: delete>',
                                   '<MyLinkAction: login>',
                                   '<MyBatchAction: batch>',
-                                  '<MyToggleAction: toggle>'])
+                                  '<MyToggleAction: toggle>',
+                                  '<MyBatchActionWithHelpText: batch_help>'])
         # Auto-generated columns
         multi_select = self.table.columns['multi_select']
         self.assertEqual("multi_select", multi_select.auto)
@@ -561,15 +574,30 @@ class DataTableTests(test.TestCase):
         self.assertContains(resp, "my_table__filter__q", 1)
         self.assertContains(resp, "my_table__delete", 1)
         self.assertContains(resp, 'id="my_table__action_delete"', 1)
+
+        # Table BatchActions
+        self.assertContains(resp, 'id="my_table__action_batch_help"', 1)
+        self.assertContains(resp, 'help_text="this is help."', 1)
+        self.assertContains(resp, 'BatchHelp Item', 1)
+
         # Row actions
         row_actions = self.table.render_row_actions(TEST_DATA[0])
         resp = http.HttpResponse(row_actions)
-        self.assertContains(resp, "<li", 3)
+        self.assertContains(resp, "<li", 4)
         self.assertContains(resp, "my_table__delete__1", 1)
         self.assertContains(resp, "my_table__toggle__1", 1)
         self.assertContains(resp, "/auth/login/", 1)
         self.assertContains(resp, "ajax-modal", 1)
         self.assertContains(resp, 'id="my_table__row_1__action_delete"', 1)
+
+        # Row BatchActions
+        row_actions = self.table.render_row_actions(TEST_DATA[0])
+        resp = http.HttpResponse(row_actions)
+        self.assertContains(resp, 'id="my_table__row_1__action_batch_help"', 1)
+        self.assertContains(resp, 'help_text="this is help."', 1)
+        self.assertContains(resp, 'value="my_table__batch_help__1"', 1)
+        self.assertContains(resp, 'BatchHelp Item', 1)
+
         # Whole table
         resp = http.HttpResponse(self.table.render())
         self.assertContains(resp, '<table id="my_table"', 1)
@@ -802,11 +830,17 @@ class DataTableTests(test.TestCase):
         toggle_action = self.table.get_row_actions(TEST_DATA_3[0])[2]
         self.assertEqual("Batch Item", unicode(toggle_action.verbose_name))
 
+        # Batch action with custom help text
+        req = self.factory.get('/my_url/')
+        self.table = MyTable(req, TEST_DATA_3)
+        toggle_action = self.table.get_row_actions(TEST_DATA_3[0])[4]
+        self.assertEqual("BatchHelp Item", unicode(toggle_action.verbose_name))
+
         # Single object toggle action
         # GET page - 'up' to 'down'
         req = self.factory.get('/my_url/')
         self.table = MyTable(req, TEST_DATA_3)
-        self.assertEqual(4, len(self.table.get_row_actions(TEST_DATA_3[0])))
+        self.assertEqual(5, len(self.table.get_row_actions(TEST_DATA_3[0])))
         toggle_action = self.table.get_row_actions(TEST_DATA_3[0])[3]
         self.assertEqual("Down Item", unicode(toggle_action.verbose_name))
 
@@ -827,7 +861,7 @@ class DataTableTests(test.TestCase):
         # GET page - 'down' to 'up'
         req = self.factory.get('/my_url/')
         self.table = MyTable(req, TEST_DATA_2)
-        self.assertEqual(3, len(self.table.get_row_actions(TEST_DATA_2[0])))
+        self.assertEqual(4, len(self.table.get_row_actions(TEST_DATA_2[0])))
         toggle_action = self.table.get_row_actions(TEST_DATA_2[0])[2]
         self.assertEqual("Up Item", unicode(toggle_action.verbose_name))
 
@@ -883,7 +917,8 @@ class DataTableTests(test.TestCase):
         self.assertQuerysetEqual(self.table.get_table_actions(),
                                  ['<MyFilterAction: filter>',
                                   '<MyAction: delete>',
-                                  '<MyBatchAction: batch>'])
+                                  '<MyBatchAction: batch>',
+                                  '<MyBatchActionWithHelpText: batch_help>'])
 
         # Zero objects in table
         # BatchAction not available

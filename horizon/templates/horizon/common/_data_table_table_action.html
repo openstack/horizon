@@ -1,5 +1,5 @@
 {% if action.method != "GET" %}
-  <button {{ action.attr_string|safe }} name="action" value="{{ action.get_param_name }}" type="submit">
+  <button {{ action.attr_string|safe }} name="action" value="{{ action.get_param_name }}" {% if action.help_text %}help_text="{{ action.help_text }}"{% endif %} type="submit">
     {% if action.icon != None %}<span class="fa fa-{{ action.icon }}"></span> {% endif %}
     {% if action.handles_multiple %}{{ action.verbose_name_plural }}{% else %}{{ action.verbose_name }}{% endif %}
   </button>

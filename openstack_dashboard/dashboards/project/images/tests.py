@@ -46,6 +46,8 @@ class ImagesAndSnapshotsTests(test.TestCase):
 
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'project/images/index.html')
+        self.assertContains(res, 'help_text="Deleted images'
+                                 ' are not recoverable."')
         self.assertIn('images_table', res.context)
         images_table = res.context['images_table']
         images = images_table.data

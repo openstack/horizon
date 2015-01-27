@@ -57,6 +57,10 @@ class LaunchImage(tables.LinkAction):
 
 
 class DeleteImage(tables.DeleteAction):
+    # NOTE: The bp/add-batchactions-help-text
+    # will add appropriate help text to some batch/delete actions.
+    help_text = _("Deleted images are not recoverable.")
+
     @staticmethod
     def action_present(count):
         return ungettext_lazy(

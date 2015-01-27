@@ -635,7 +635,14 @@ class BatchAction(Action):
 
        Optional location to redirect after completion of the delete
        action. Defaults to the current page.
+
+    .. attribute:: help_text
+
+       Optional message for providing an appropriate help text for
+       the horizon user.
     """
+
+    help_text = _("This action cannot be undone.")
 
     def __init__(self, **kwargs):
         super(BatchAction, self).__init__(**kwargs)
@@ -695,6 +702,8 @@ class BatchAction(Action):
         self.current_past_action = 0
         # Keep record of successfully handled objects
         self.success_ids = []
+
+        self.help_text = kwargs.get('help_text', self.help_text)
 
     def _allowed(self, request, datum=None):
         # Override the default internal action method to prevent batch
