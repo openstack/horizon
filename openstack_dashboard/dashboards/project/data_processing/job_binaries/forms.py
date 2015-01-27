@@ -42,37 +42,91 @@ class LabeledInput(widgets.Input):
 
 
 class JobBinaryCreateForm(forms.SelfHandlingForm):
-    NEW_SCRIPT = "%%%NEWSCRIPT%%%"
-    UPLOAD_BIN = "%%%UPLOADFILE%%%"
+    NEW_SCRIPT = "newscript"
+    UPLOAD_BIN = "uploadfile"
 
     job_binary_name = forms.CharField(label=_("Name"))
 
-    job_binary_type = forms.ChoiceField(label=_("Storage type"))
+    job_binary_type = forms.ChoiceField(
+        label=_("Storage type"),
+        widget=forms.Select(
+            attrs={
+                'class': 'switchable',
+                'data-slug': 'jb_type'
+            }))
 
-    job_binary_url = forms.CharField(label=_("URL"),
-                                     required=False,
-                                     widget=LabeledInput())
-    job_binary_internal = forms.ChoiceField(label=_("Internal binary"),
-                                            required=False)
+    job_binary_url = forms.CharField(
+        label=_("URL"),
+        required=False,
+        widget=LabeledInput(
+            attrs={
+                'class': 'switched',
+                'data-switch-on': 'jb_type',
+                'data-jb_type-swift': _('URL')
+            }))
 
-    job_binary_file = forms.FileField(label=_("Upload File"),
-                                      required=False)
+    job_binary_internal = forms.ChoiceField(
+        label=_("Internal binary"),
+        required=False,
+        widget=forms.Select(
+            attrs={
+                'class': 'switched switchable',
+                'data-slug': 'jb_internal',
+                'data-switch-on': 'jb_type',
+                'data-jb_type-internal-db': _('Internal Binary')
+            }))
 
-    job_binary_script_name = forms.CharField(label=_("Script name"),
-                                             required=False)
+    job_binary_file = forms.FileField(
+        label=_("Upload File"),
+        required=False,
+        widget=forms.ClearableFileInput(
+            attrs={
+                'class': 'switched',
+                'data-switch-on': 'jb_internal',
+                'data-jb_internal-uploadfile': _("Upload File")
+            }))
 
-    job_binary_script = forms.CharField(label=_("Script text"),
-                                        required=False,
-                                        widget=forms.Textarea(
-                                            attrs={'rows': 4}))
+    job_binary_script_name = forms.CharField(
+        label=_("Script name"),
+        required=False,
+        widget=forms.TextInput(
+            attrs={
+                'class': 'switched',
+                'data-switch-on': 'jb_internal',
+                'data-jb_internal-newscript': _("Script name")
+            }))
 
-    job_binary_username = forms.CharField(label=_("Username"),
-                                          required=False)
+    job_binary_script = forms.CharField(
+        label=_("Script text"),
+        required=False,
+        widget=forms.Textarea(
+            attrs={
+                'rows': 4,
+                'class': 'switched',
+                'data-switch-on': 'jb_internal',
+                'data-jb_internal-newscript': _("Script text")
+            }))
 
-    job_binary_password = forms.CharField(label=_("Password"),
-                                          required=False,
-                                          widget=forms.PasswordInput(
-                                              attrs={'autocomplete': 'off'}))
+    job_binary_username = forms.CharField(
+        label=_("Username"),
+        required=False,
+        widget=forms.TextInput(
+            attrs={
+                'class': 'switched',
+                'data-switch-on': 'jb_type',
+                'data-jb_type-swift': _('Username')
+            }))
+
+    job_binary_password = forms.CharField(
+        label=_("Password"),
+        required=False,
+        widget=forms.PasswordInput(
+            attrs={
+                'autocomplete': 'off',
+                'class': 'switched',
+                'data-switch-on': 'jb_type',
+                'data-jb_type-swift': _('Password')
+            }))
 
     job_binary_description = forms.CharField(label=_("Description"),
                                              required=False,
