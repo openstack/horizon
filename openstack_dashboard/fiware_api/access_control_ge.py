@@ -16,6 +16,7 @@ from django.template.loader import render_to_string
 
 LOG = logging.getLogger('idm_logger')
 
+# TODO(garcianavalon) extract as conf options
 AC_URL = 'https://az.testbed.fi-ware.eu/authzforce/\
         domains/f764202c-fc7a-11e2-8cc3-fa163e3515ad/pap/policySet'
 RULE_TEMPLATE = 'access_control/rule.xacml'

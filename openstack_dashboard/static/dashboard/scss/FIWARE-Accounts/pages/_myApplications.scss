@@ -117,12 +117,14 @@
   .role{
     text-align: left;
     position: relative;
+    height: 34px;
+    padding-top: 7px;
     a{
       position: absolute;
     }
     .ajax-inline-edit{
       right: 27px;
-      top: 5px;
+      top: 8px;
     }
     .ajax-modal{
       right: 7px;
@@ -307,5 +309,32 @@
   .modal-footer {
     padding: 15px 0;
     border-top: 1px solid $border-color;
+  }
+}
+
+#fiware_roles_roles{ 
+  .static_page{
+    .modal-header{
+      display: none;
+    }
+    .modal-body{
+      padding: 0;
+      .form-group {
+        padding: 0;
+        margin-bottom: 0;
+      }
+      label.control-label{
+        display: none;
+      }
+    }
+    .modal-footer{
+      margin: -27px 9px 0 0;
+      position: relative;
+      padding: 0;
+      float: right;
+      .fa-check{
+        margin-right: 4px;
+      }
+    }
   }
 }

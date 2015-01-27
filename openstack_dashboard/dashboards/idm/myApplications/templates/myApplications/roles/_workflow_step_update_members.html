@@ -7,12 +7,12 @@
 
   <div class="btn-group-vertical roles {{ step.slug }}_roles" data-toggle="buttons" id="{{ step.slug }}_roles">
     {% for role in form.application_roles %}
-        <label class="btn btn-default role">
+        <div class="btn btn-default role">
           <input type="radio" name="roles" id="{{ role.id }}_radio" autocomplete="off" data-{{ step.slug }}-id="{{ role.id }}">
-            {{ role.name }}
+          <label for="{{ role.id }}_radio">{{ role.name }}</label>
           <a href="{% url 'horizon:idm:myApplications:roles_edit' application_id=form.application_id role_id=role.id %}" class="ajax-inline-edit"><i class="fa fa-edit"></i></a>
-          <a href="{% url 'horizon:idm:myApplications:roles_delete' application_id=form.application_id role_id=role.id %}" class="ajax-modal"><i class="fa fa-close"></i></a>
-        </label>
+          <a href="{% url 'horizon:idm:myApplications:roles_delete' application_id=form.application_id role_id=role.id %}" class="ajax-modal"><i class="fa fa-trash-o"></i></a>
+        </div>
     {% endfor %}
   </div>
 </section>

@@ -327,10 +327,21 @@ horizon.fiware_roles_workflow = {
    * Inline edit for roles
    */
   inline_edit_role: {
+    editing: false,
     init: function(step_slug) {
+      var container = $("#" + step_slug + "_roles")
       // edit
-      $("#" + step_slug + "_roles").on('click', '.ajax-inline-edit', function (evt) {
+      container.on('click', '.ajax-inline-edit', function (evt) {
+        evt.preventDefault();
         console.log('edit')
+        // first check if other element is on edit mode
+        if (horizon.fiware_roles_workflow.inline_edit_role.editing){
+          console.log('reset')
+          // reset the edition of the other element
+          var form_element = $(this).parent().siblings('.static_page');
+          form_element.replaceWith(horizon.fiware_roles_workflow.inline_edit_role.cached_role);
+        }
+        horizon.fiware_roles_workflow.inline_edit_role.editing = true;
         //var data_id = $(this).siblings('input').attr("data-" + step_slug + "-id");
         //console.log('data_id:'+data_id)
         // TODO(garcianavalon) rename it, its a label...
@@ -343,13 +354,20 @@ horizon.fiware_roles_workflow = {
 
       });
       // cancel
-      $("#" + step_slug + "_roles").on('click', '.inline-edit-cancel', function (evt) {
+      container.on('click', '.inline-edit-cancel', function (evt) {
         console.log('cancel')
         evt.preventDefault();
-        var form_element = $(this).parentsUntil($("#" + step_slug + "_roles") , '.static_page');
+        var form_element = $(this).parentsUntil(container, '.static_page');
         form_element.replaceWith(horizon.fiware_roles_workflow.inline_edit_role.cached_role);
+        horizon.fiware_roles_workflow.inline_edit_role.editing = false;
+      });
+      // submit
+      container.on('click', '.inline-edit-submit', function (evt) {
+        evt.preventDefault();
+        horizon.fiware_roles_workflow.inline_edit_role.submit_form(this, container);
       });
     },
+
     render_form: function(url, role_div_element) {
       horizon.ajax.queue({
         url: url,
@@ -385,16 +403,45 @@ horizon.fiware_roles_workflow = {
         }
       });
     },
-    render_role: function(current_name) {
-      var role_div_element = horizon.fiware_roles_workflow.inline_edit_role.cached_role
-      $(role_div_element).children('input').text = current_name
-      // remove form template
-
-      // show role element
-      $(role_div_element).show();
+    submit_form: function(el, container) {
+      var form = $(el).parents('form').first();
+      var form_element = $(el).parentsUntil(container, '.static_page');
+      horizon.ajax.queue({
+        type: 'POST',
+        url: form.attr('action'),
+        data: form.serialize(),
+        beforeSend: function () {
+        },
+        complete: function () {
+        },
+        error: function(jqXHR, status, errorThrown) {
+          console.log('error')
+          if (jqXHR.status === 401){
+            var redir_url = jqXHR.getResponseHeader("X-Horizon-Location");
+            if (redir_url){
+              location.href = redir_url;
+            } else {
+              horizon.alert("error", gettext("Not authorized to do this operation."));
+            }
+          }
+          else {
+            if (!horizon.ajax.get_messages(jqXHR)) {
+              // Generic error handler. Really generic.
+              horizon.alert("error", gettext("An error occurred. Please try again later."));
+            }
+          }
+        },
+        success: function (data, textStatus, jqXHR) {
+          console.log('success')
+          //hide the form, show the new element
+          var role_element = horizon.fiware_roles_workflow.inline_edit_role.cached_role
+          form_element.replaceWith(role_element);
+          role_element.find('label').text(data);
+          console.log('label:' +role_element.find('label').text())
+          console.log('edited role!')
+        }
+      });
     },
-
-
   },
   /*
    * Triggers on the addition of a new member via the inline object creation field.
