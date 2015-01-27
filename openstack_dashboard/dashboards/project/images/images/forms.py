@@ -180,8 +180,17 @@ class CreateImageForm(forms.SelfHandlingForm):
                              _('Your image %s has been queued for creation.') %
                              data['name'])
             return image
-        except Exception:
-            exceptions.handle(request, _('Unable to create new image.'))
+        except Exception as e:
+            msg = _('Unable to create new image')
+            # TODO(nikunj2512): Fix this once it is fixed in glance client
+            if hasattr(e, 'code') and e.code == 400:
+                if "Invalid disk format" in e.details:
+                    msg = _('Unable to create new image: Invalid disk format '
+                            '%s for image.') % data['disk_format']
+
+            exceptions.handle(request, msg)
+
+            return False
 
 
 class UpdateImageForm(forms.SelfHandlingForm):
