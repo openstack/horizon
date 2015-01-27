@@ -2,7 +2,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#    http://www.apache.org/licenses/LICENSE-2.0
+# http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -27,7 +27,6 @@ LOG = logging.getLogger(__name__)
 
 
 class AdditionalLibsAction(workflows.Action):
-
     lib_binaries = forms.ChoiceField(label=_("Choose libraries"),
                                      required=False)
 
@@ -51,27 +50,39 @@ class AdditionalLibsAction(workflows.Action):
 
 
 class GeneralConfigAction(workflows.Action):
-
     job_name = forms.CharField(label=_("Name"))
 
-    job_type = forms.ChoiceField(label=_("Job Type"))
+    job_type = forms.ChoiceField(label=_("Job Type"),
+                                 widget=forms.Select(attrs={
+                                     'class': 'switchable',
+                                     'data-slug': 'jobtype'
+                                 }))
 
-    main_binary = forms.ChoiceField(label=_("Choose a main binary"),
-                                    required=False,
-                                    help_text=_("Choose the binary which "
-                                                "should be used in this "
-                                                "Job."))
+    main_binary = forms.ChoiceField(
+        label=_("Choose a main binary"),
+        required=False,
+        help_text=_("Choose the binary which "
+                    "should be used in this Job."),
+        widget=forms.Select(
+            attrs={
+                'class': 'switched',
+                'data-switch-on': 'jobtype',
+                'data-jobtype-pig': _("Choose a main binary"),
+                'data-jobtype-hive': _("Choose a main binary"),
+                'data-jobtype-spark': _("Choose a main binary"),
+                'data-jobtype-mapreduce.streaming': _("Choose a main binary")
+            }))
 
     job_description = forms.CharField(label=_("Description"),
                                       required=False,
                                       widget=forms.Textarea(attrs={'rows': 4}))
 
     def populate_job_type_choices(self, request, context):
-        choices = [("Pig", _("Pig")), ("Hive", _("Hive")),
-                   ("Spark", _("Spark")),
-                   ("MapReduce", _("MapReduce")),
-                   ("MapReduce.Streaming", _("Streaming MapReduce")),
-                   ("Java", _("Java Action"))]
+        choices = [("pig", _("Pig")), ("hive", _("Hive")),
+                   ("spark", _("Spark")),
+                   ("mapreduce", _("MapReduce")),
+                   ("mapreduce.streaming", _("Streaming MapReduce")),
+                   ("java", _("Java Action"))]
         return choices
 
     def populate_main_binary_choices(self, request, context):
@@ -100,6 +111,22 @@ class GeneralConfigAction(workflows.Action):
 class GeneralConfig(workflows.Step):
     action_class = GeneralConfigAction
     contributes = ("job_name", "job_type", "job_description", "main_binary")
+    # Map needed because switchable fields need lower case
+    # and our server is expecting upper case
+    JOB_TYPE_MAP = {"pig": "Pig",
+                    "hive": "Hive",
+                    "spark": "Spark",
+                    "mapreduce": "MapReduce",
+                    "mapreduce.streaming": "MapReduce.Streaming",
+                    "java": "Java"}
+
+    def contribute(self, data, context):
+        for k, v in data.items():
+            if k == "job_type":
+                context[k] = self.JOB_TYPE_MAP[v]
+            else:
+                context[k] = v
+        return context
 
 
 class ConfigureLibs(workflows.Step):
