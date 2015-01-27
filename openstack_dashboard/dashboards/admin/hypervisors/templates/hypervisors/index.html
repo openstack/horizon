@@ -20,7 +20,7 @@
     <div class="d3_quota_bar">
     <div class="d3_pie_chart_usage" data-used="{% widthratio stats.memory_mb_used stats.memory_mb 100 %}"></div>
      <strong>{% trans "Memory Usage" %} <br />
-         {% blocktrans with used=stats.memory_mb_used|mbformat available=stats.memory_mb|mbformat %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
+         {% blocktrans with used=stats.memory_mb_used|mb_float_format available=stats.memory_mb|mb_float_format %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
      </strong>
     </div>
 
