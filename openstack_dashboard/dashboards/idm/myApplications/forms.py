@@ -170,7 +170,7 @@ class CreatePermissionForm(forms.SelfHandlingForm):
                                  widget=forms.HiddenInput())
     name = forms.CharField(max_length=255, label=_("Permission Name"))
     description = forms.CharField(max_length=255, label=_("Description"))
-    actions = forms.CharField(max_length=255, label=_("HTTP actions"))
+    action = forms.CharField(max_length=255, label=_("HTTP action"))
     resource = forms.CharField(max_length=255, label=_("Resource"))
     no_autocomplete = True
     def handle(self, request, data):
@@ -179,10 +179,10 @@ class CreatePermissionForm(forms.SelfHandlingForm):
             new_permission = fiware_api.keystone.permission_create(request,
                                             name=data['name'],
                                             application=data['application_id'])
-            LOG.info('Sending new rules to the Access Control GE')
-            ac_response = fiware_api.access_control_ge.send_xacml(
-                                                    data['actions'],
-                                                    data['resource'])
+            # TODO(garcianavalon) add support for extra arguments in permissions
+                                            # resource=data['resource'],
+                                            # action=data['action'])
+
             messages.success(request,
                              _('Permission "%s" was successfully created.')
                              % data['name'])

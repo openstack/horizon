@@ -1,10 +1,10 @@
-<Rule RuleId="PR:Manage" Effect="Permit">
-  <Description>Rule: Permission example</Description>
+<Rule RuleId="{{ permission.id }}" Effect="Permit">
+  <Description>{{ permission.description }}</Description>
   <Target>
     <Resources>
       <Resource>
         <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-          <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">{{resource}}</AttributeValue>
+          <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">{{ permission.resource }}</AttributeValue>
           <ResourceAttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id" DataType="http://www.w3.org/2001/XMLSchema#string" />
         </ResourceMatch>
       </Resource>
@@ -12,7 +12,7 @@
     <Actions>
       <Action>
         <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-          <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">{{action}}</AttributeValue>
+          <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">{{ permission.action }}</AttributeValue>
           <ActionAttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" DataType="http://www.w3.org/2001/XMLSchema#string" />
         </ActionMatch>
       </Action>

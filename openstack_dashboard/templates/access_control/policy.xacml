@@ -1,0 +1,16 @@
+<Policy PolicyId="{{role.id}}" Version="1.0" RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:permit-overrides">
+    <Description>{{ role.description }}</Description>
+    <Target>
+      <Subjects>
+        <Subject>
+          <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">{{role.id}}</AttributeValue>
+            <SubjectAttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string" AttributeId="urn:oasis:names:tc:xacml:2.0:subject:role" MustBePresent="true"/>
+          </SubjectMatch>
+        </Subject>
+      </Subjects>
+    </Target>
+    {% for rule in role.permissions %}
+      {% include 'access_control/rule.xacml' %}
+    {% endfor %}
+  </Policy>

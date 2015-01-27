@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PolicySet xmlns="urn:oasis:names:tc:xacml:2.0:policy:schema:os" PolicySetId="604" Version="1.0" PolicyCombiningAlgId="urn:oasis:names:tc:xacml:1.0:policy-combining-algorithm:permit-overrides">
+    <Description>{{ policy_set_description }}</Description>
+    {% for role in roles %}
+        {% include 'access_control/policy.xacml' %}
+    {% endfor %}
+</PolicySet>
