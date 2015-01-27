@@ -567,13 +567,15 @@ class CustomizeAction(workflows.Action):
         help_text_template = ("project/instances/"
                               "_launch_customize_help.html")
 
-    source_choices = [('raw', _('Direct Input')),
+    source_choices = [('', _('Select Script Source')),
+                      ('raw', _('Direct Input')),
                       ('file', _('File'))]
 
     attributes = {'class': 'switchable', 'data-slug': 'scriptsource'}
     script_source = forms.ChoiceField(label=_('Customization Script Source'),
-                                        choices=source_choices,
-                                        widget=forms.Select(attrs=attributes))
+                                      choices=source_choices,
+                                      widget=forms.Select(attrs=attributes),
+                                      required=False)
 
     script_help = _("A script or set of commands to be executed after the "
                     "instance has been built (max 16kb).")
