@@ -255,6 +255,13 @@ class CreateSubnetDetailAction(workflows.Action):
         name = _("Subnet Details")
         help_text = _('Specify additional attributes for the subnet.')
 
+    def __init__(self, request, context, *args, **kwargs):
+        super(CreateSubnetDetailAction, self).__init__(request, context,
+                                                       *args, **kwargs)
+        if not getattr(settings, 'OPENSTACK_NEUTRON_NETWORK',
+                       {}).get('enable_ipv6', True):
+            self.fields['ipv6_modes'].widget = forms.HiddenInput()
+
     def populate_ipv6_modes_choices(self, request, context):
         return [(value, _("%s (Default)") % label)
                 if value == utils.IPV6_DEFAULT_MODE
