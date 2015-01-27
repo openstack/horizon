@@ -336,9 +336,13 @@ class ResourcesUpdateRow(tables.Row):
 
 
 class ResourcesTable(tables.DataTable):
+    class StatusColumn(tables.Column):
+        def get_raw_data(self, datum):
+            return datum.resource_status.partition("_")[2]
+
     STATUS_CHOICES = (
-        ("Create Complete", True),
-        ("Create Failed", False),
+        ("Complete", True),
+        ("Failed", False),
     )
 
     logical_resource = tables.Column('resource_name',
@@ -355,12 +359,15 @@ class ResourcesTable(tables.DataTable):
                                           filters.timesince_or_never))
     status = tables.Column("resource_status",
                            filters=(title, filters.replace_underscores),
-                           verbose_name=_("Status"),
-                           status=True,
-                           status_choices=STATUS_CHOICES)
+                           verbose_name=_("Status"))
 
     statusreason = tables.Column("resource_status_reason",
                                  verbose_name=_("Status Reason"),)
+
+    status_hidden = StatusColumn("status",
+                                 hidden=True,
+                                 status=True,
+                                 status_choices=STATUS_CHOICES)
 
     def __init__(self, request, data=None,
                  needs_form_wrapper=None, **kwargs):
@@ -374,5 +381,5 @@ class ResourcesTable(tables.DataTable):
     class Meta(object):
         name = "resources"
         verbose_name = _("Stack Resources")
-        status_columns = ["status", ]
+        status_columns = ["status_hidden", ]
         row_class = ResourcesUpdateRow
