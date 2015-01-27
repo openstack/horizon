@@ -125,7 +125,10 @@ class EditRoleView(forms.ModalFormView):
 
     def get_initial(self):
         initial = super(EditRoleView, self).get_initial()
-        initial['role_id'] = self.kwargs['role_id']
+        role = fiware_api.keystone.role_get(self.request,
+                                            self.kwargs['role_id'])
+        initial['role_id'] = role.id
+        initial['name'] = role.name
         return initial
 
 class DeleteRoleView(forms.ModalFormView):
