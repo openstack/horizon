@@ -22,16 +22,14 @@ from horizon import exceptions
 from horizon import forms
 from horizon import tabs
 from horizon.utils import csvbase
-from horizon.utils import units
 
-from openstack_dashboard import api
 from openstack_dashboard.api import ceilometer
 
 from openstack_dashboard.dashboards.admin.metering import forms as \
     metering_forms
 from openstack_dashboard.dashboards.admin.metering import tabs as \
     metering_tabs
-from openstack_dashboard.utils import metering as utils_metering
+from openstack_dashboard.utils import metering as metering_utils
 
 
 LOG = logging.getLogger(__name__)
@@ -48,96 +46,7 @@ class CreateUsageReport(forms.ModalFormView):
     success_url = reverse_lazy('horizon:admin:metering:index')
 
 
-METER_API_MAPPINGS = {
-    "instance": 'nova',
-    "cpu": 'nova',
-    "cpu_util": 'nova',
-    "disk_read_requests": 'nova',
-    "disk_write_requests": 'nova',
-    "disk_read_bytes": 'nova',
-    "disk_write_bytes": 'nova',
-    "image": 'glance',
-    "image_size": 'glance'
-}
-
-
-def get_resource_name(request, resource_id, resource_name, meter_name):
-    resource = None
-    try:
-        if resource_name == "resource_id":
-            meter_name = 'instance' if "instance" in meter_name else meter_name
-            api_type = METER_API_MAPPINGS.get(meter_name, '')
-            if api_type == 'nova':
-                resource = api.nova.server_get(request, resource_id)
-            elif api_type == 'glance':
-                resource = api.glance.image_get(request, resource_id)
-
-    except Exception:
-        LOG.info(_("Failed to get the resource name: %s"), resource_id,
-                 exc_info=True)
-    return resource.name if resource else resource_id
-
-
 class SamplesView(django.views.generic.TemplateView):
-    template_name = "admin/metering/samples.csv"
-
-    @staticmethod
-    def series_for_meter(request, aggregates,
-                         resource_name,
-                         meter_name,
-                         stats_name,
-                         unit):
-        """Construct datapoint series for a meter from resource aggregates."""
-        series = []
-        for resource in aggregates:
-            if resource.get_meter(meter_name):
-                resource_id = getattr(resource, resource_name)
-                point = {'unit': unit,
-                         'name': get_resource_name(request,
-                                                   resource_id,
-                                                   resource_name,
-                                                   meter_name),
-                         'data': []}
-                for statistic in resource.get_meter(meter_name):
-                    date = statistic.duration_end[:19]
-                    value = float(getattr(statistic, stats_name))
-                    point['data'].append({'x': date, 'y': value})
-                series.append(point)
-        return series
-
-    @staticmethod
-    def normalize_series_by_unit(series):
-        """Transform series' values into a more human readable form:
-        1) Determine the data point with the maximum value
-        2) Decide the unit appropriate for this value (normalize it)
-        3) Convert other values to this new unit, if necessary
-        """
-        if not series:
-            return series
-
-        source_unit = target_unit = series[0]['unit']
-
-        if not units.is_supported(source_unit):
-            return series
-
-        # Find the data point with the largest value and normalize it to
-        # determine its unit - that will be the new unit
-        maximum = max([d['y'] for point in series for d in point['data']])
-        unit = units.normalize(maximum, source_unit)[1]
-
-        # If unit needs to be changed, set the new unit for all data points
-        # and convert all values to that unit
-        if units.is_larger(unit, target_unit):
-            target_unit = unit
-            for i, point in enumerate(series[:]):
-                if point['unit'] != target_unit:
-                    series[i]['unit'] = target_unit
-                    for j, d in enumerate(point['data'][:]):
-                        series[i]['data'][j]['y'] = units.convert(
-                            d['y'], source_unit, target_unit, fmt=True)[0]
-
-        return series
-
     def get(self, request, *args, **kwargs):
         meter = request.GET.get('meter', None)
         if not meter:
@@ -152,30 +61,27 @@ class SamplesView(django.views.generic.TemplateView):
         group_by = request.GET.get('group_by', None)
 
         try:
-            date_from, date_to = utils_metering.calc_date_args(date_from,
+            date_from, date_to = metering_utils.calc_date_args(date_from,
                                                                date_to,
                                                                date_options)
         except Exception:
             exceptions.handle(self.request, _('Dates cannot be recognized.'))
 
         if group_by == 'project':
-            query = utils_metering.ProjectAggregatesQuery(request,
+            query = metering_utils.ProjectAggregatesQuery(request,
                                                           date_from,
                                                           date_to,
                                                           3600 * 24)
         else:
-            query = utils_metering.MeterQuery(request, date_from,
+            query = metering_utils.MeterQuery(request, date_from,
                                               date_to, 3600 * 24)
 
         resources, unit = query.query(meter)
-        resource_name = 'id' if group_by == "project" else 'resource_id'
-        series = self.series_for_meter(request, resources,
-                                       resource_name,
-                                       meter_name,
-                                       stats_attr,
-                                       unit)
+        series = metering_utils.series_for_meter(request, resources,
+                                                 group_by, meter,
+                                                 meter_name, stats_attr, unit)
 
-        series = self.normalize_series_by_unit(series)
+        series = metering_utils.normalize_series_by_unit(series)
         ret = {'series': series, 'settings': {}}
         return HttpResponse(json.dumps(ret), content_type='application/json')
 
@@ -226,13 +132,13 @@ def load_report_data(request):
     date_from = request.GET.get('date_from')
     date_to = request.GET.get('date_to')
     try:
-        date_from, date_to = utils_metering.calc_date_args(date_from,
+        date_from, date_to = metering_utils.calc_date_args(date_from,
                                                            date_to,
                                                            date_options)
     except Exception:
         exceptions.handle(request, _('Dates cannot be recognised.'))
     try:
-        project_aggregates = utils_metering.ProjectAggregatesQuery(request,
+        project_aggregates = metering_utils.ProjectAggregatesQuery(request,
                                                                    date_from,
                                                                    date_to,
                                                                    3600 * 24)
