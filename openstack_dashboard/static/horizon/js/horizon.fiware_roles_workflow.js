@@ -361,6 +361,11 @@ horizon.fiware_roles_workflow = {
         form_element.replaceWith(horizon.fiware_roles_workflow.inline_edit_role.cached_role);
         horizon.fiware_roles_workflow.inline_edit_role.editing = false;
       });
+      // submit
+      container.on('click', '.inline-edit-submit', function (evt) {
+        evt.preventDefault();
+        horizon.fiware_roles_workflow.inline_edit_role.submit_form(this);
+      });
     },
 
     render_form: function(url, role_div_element) {
@@ -398,16 +403,46 @@ horizon.fiware_roles_workflow = {
         }
       });
     },
-    render_role: function(current_name) {
-      var role_div_element = horizon.fiware_roles_workflow.inline_edit_role.cached_role
-      $(role_div_element).children('input').text = current_name
-      // remove form template
-
-      // show role element
-      $(role_div_element).show();
+    submit_form: function(el) {
+      var form = $(el).parents('form').first();
+      var form_element = $(el).parentsUntil(container, '.static_page');
+      horizon.ajax.queue({
+        type: 'POST',
+        url: form.attr('action'),
+        data: form.serialize(),
+        beforeSend: function () {
+        },
+        complete: function () {
+        },
+        error: function(jqXHR, status, errorThrown) {
+          console.log('error')
+          if (jqXHR.status === 401){
+            var redir_url = jqXHR.getResponseHeader("X-Horizon-Location");
+            if (redir_url){
+              location.href = redir_url;
+            } else {
+              horizon.alert("error", gettext("Not authorized to do this operation."));
+            }
+          }
+          else {
+            if (!horizon.ajax.get_messages(jqXHR)) {
+              // Generic error handler. Really generic.
+              horizon.alert("error", gettext("An error occurred. Please try again later."));
+            }
+          }
+        },
+        success: function (data, textStatus, jqXHR) {
+          console.log('success')
+          //hide the form, show the new element
+          //var form_element = $(data);
+          //form_element.replaceWith(data);
+          console.log('data:'+data)
+          console.log('textStatus:'+textStatus)
+          console.log('jqXHR:'+jqXHR)
+          console.log('edited role!')
+        }
+      });
     },
-
-
   },
   /*
    * Triggers on the addition of a new member via the inline object creation field.

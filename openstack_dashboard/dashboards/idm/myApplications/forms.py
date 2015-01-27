@@ -12,7 +12,6 @@
 
 import logging
 import os
-from PIL import Image 
 
 from django import forms
 from django import shortcuts
