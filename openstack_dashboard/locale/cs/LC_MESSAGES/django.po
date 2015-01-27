@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-24 03:24-0600\n"
-"PO-Revision-Date: 2015-01-24 08:25+0000\n"
+"POT-Creation-Date: 2015-01-26 23:48-0600\n"
+"PO-Revision-Date: 2015-01-27 05:48+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -1440,8 +1440,8 @@ msgstr "ID"
 #: dashboards/project/containers/templates/containers/_container_metadata.html:7
 #: dashboards/project/images/images/forms.py:95
 #: dashboards/project/images/images/forms.py:228
-#: dashboards/project/images/images/tables.py:158
-#: dashboards/project/images/images/tables.py:238
+#: dashboards/project/images/images/tables.py:162
+#: dashboards/project/images/images/tables.py:242
 #: dashboards/project/images/templates/images/images/_detail_overview.html:21
 msgid "Public"
 msgstr "Veřejné"
@@ -1606,7 +1606,7 @@ msgstr "Název hostitele"
 #: dashboards/project/access_and_security/security_groups/forms.py:180
 #: dashboards/project/data_processing/data_sources/tables.py:61
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:9
-#: dashboards/project/images/images/tables.py:230
+#: dashboards/project/images/images/tables.py:234
 #: dashboards/project/loadbalancers/workflows.py:486
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/routers/ports/tables.py:107
@@ -1807,7 +1807,7 @@ msgstr "Zóna"
 #: dashboards/project/databases/templates/databases/_detail_overview.html:17
 #: dashboards/project/firewalls/tables.py:253
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
-#: dashboards/project/images/images/tables.py:234
+#: dashboards/project/images/images/tables.py:238
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
 #: dashboards/project/instances/tables.py:979
 #: dashboards/project/instances/templates/instances/_detail_overview.html:14
@@ -1823,9 +1823,9 @@ msgstr "Zóna"
 #: dashboards/project/routers/tables.py:191
 #: dashboards/project/routers/ports/tables.py:105
 #: dashboards/project/routers/templates/routers/_detail_overview.html:13
-#: dashboards/project/stacks/tables.py:142
-#: dashboards/project/stacks/tables.py:178
-#: dashboards/project/stacks/tables.py:225
+#: dashboards/project/stacks/tables.py:192
+#: dashboards/project/stacks/tables.py:236
+#: dashboards/project/stacks/tables.py:283
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:19
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:26
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:35
@@ -1915,7 +1915,7 @@ msgstr "Nelze aktualizovat popisná data obrazu."
 #: dashboards/admin/images/templates/images/index.html:3
 #: dashboards/admin/images/templates/images/index.html:6
 #: dashboards/project/images/panel.py:24
-#: dashboards/project/images/images/tables.py:255
+#: dashboards/project/images/images/tables.py:259
 #: dashboards/project/images/templates/images/index.html:3
 #: dashboards/project/images/templates/images/index.html:6
 msgid "Images"
@@ -1945,7 +1945,7 @@ msgstr "Max. velikost (MB)"
 
 #: dashboards/admin/images/tables.py:71
 #: dashboards/admin/instances/tables.py:130
-#: dashboards/project/images/images/tables.py:228
+#: dashboards/project/images/images/tables.py:232
 #: dashboards/project/instances/tables.py:969
 #: dashboards/project/instances/templates/instances/_detail_overview.html:112
 #: dashboards/project/instances/workflows/create_instance.py:106
@@ -1999,7 +1999,7 @@ msgid ""
 msgstr "Pole umístění obrazu MUSÍ být platné a přímá URL do spustitelného souboru obrazu. URL, které přesměrovávají nebo chybové stránky serveru způsobí nepoužitelnost obrazů."
 
 #: dashboards/admin/images/templates/images/_create.html:33
-#: dashboards/project/images/images/tables.py:93
+#: dashboards/project/images/images/tables.py:97
 #: dashboards/project/images/templates/images/images/_create.html:32
 msgid "Create Image"
 msgstr "Vytvořit obraz"
@@ -2184,7 +2184,7 @@ msgstr "Přesunout instanci za běhu"
 #: dashboards/admin/volumes/snapshots/tables.py:65
 #: dashboards/admin/volumes/volumes/tables.py:44
 #: dashboards/project/dashboard.py:76
-#: dashboards/project/images/images/tables.py:151
+#: dashboards/project/images/images/tables.py:155
 #: dashboards/project/instances/workflows/create_instance.py:52
 #: dashboards/router/nexus1000v/forms.py:119
 #: dashboards/router/nexus1000v/forms.py:177
@@ -2230,7 +2230,7 @@ msgstr "IP adresa"
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
 #: dashboards/project/databases/tables.py:270
-#: dashboards/project/images/images/tables.py:249
+#: dashboards/project/images/images/tables.py:253
 #: dashboards/project/images/templates/images/images/_detail_overview.html:46
 #: dashboards/project/instances/tables.py:974
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:6
@@ -2338,7 +2338,7 @@ msgstr ""
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:20
 #: dashboards/project/images/images/forms.py:96
 #: dashboards/project/images/images/forms.py:229
-#: dashboards/project/images/images/tables.py:242
+#: dashboards/project/images/images/tables.py:246
 #: dashboards/project/images/templates/images/images/_detail_overview.html:23
 msgid "Protected"
 msgstr "Chráněno"
@@ -2626,7 +2626,7 @@ msgstr ""
 #: dashboards/project/images/templates/images/images/_detail_overview.html:27
 #: dashboards/project/instances/templates/instances/_detail_overview.html:18
 #: dashboards/project/instances/templates/instances/_detail_overview.html:38
-#: dashboards/project/stacks/tables.py:133
+#: dashboards/project/stacks/tables.py:183
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:22
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:39
@@ -2653,7 +2653,7 @@ msgstr "Neznámé"
 #: dashboards/project/database_backups/templates/database_backups/details.html:38
 #: dashboards/project/databases/templates/databases/_detail_overview.html:36
 #: dashboards/project/images/templates/images/images/_detail_overview.html:33
-#: dashboards/project/stacks/tables.py:137
+#: dashboards/project/stacks/tables.py:187
 msgid "Updated"
 msgstr "Aktualizováno"
 
@@ -4544,7 +4544,7 @@ msgstr[2] ""
 #: dashboards/identity/roles/tables.py:37
 #: dashboards/identity/users/tables.py:46
 #: dashboards/project/containers/tables.py:318
-#: dashboards/project/images/images/tables.py:102
+#: dashboards/project/images/images/tables.py:106
 msgid "Edit"
 msgstr "Upravit"
 
@@ -9583,7 +9583,7 @@ msgstr "Místní obraz pro nahrání."
 
 #: dashboards/project/images/images/forms.py:76
 #: dashboards/project/images/images/forms.py:210
-#: dashboards/project/images/images/tables.py:245
+#: dashboards/project/images/images/tables.py:249
 msgid "Format"
 msgstr "Formátovat"
 
@@ -9650,21 +9650,25 @@ msgstr "Nelze aktualizovat obraz \"%s\"."
 msgid "Image was successfully updated."
 msgstr "Obraz byl úspěšně aktualizován."
 
-#: dashboards/project/images/images/tables.py:63
+#: dashboards/project/images/images/tables.py:62
+msgid "Deleted images are not recoverable."
+msgstr ""
+
+#: dashboards/project/images/images/tables.py:67
 msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/images/images/tables.py:71
+#: dashboards/project/images/images/tables.py:75
 msgid "Deleted Image"
 msgid_plural "Deleted Images"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/images/images/tables.py:119
+#: dashboards/project/images/images/tables.py:123
 #: dashboards/project/volumes/snapshots/tables.py:93
 #: dashboards/project/volumes/templates/volumes/volumes/_create.html:9
 #: dashboards/project/volumes/templates/volumes/volumes/_create.html:24
@@ -9674,7 +9678,7 @@ msgstr[2] ""
 msgid "Create Volume"
 msgstr "Vytvořit svazek"
 
-#: dashboards/project/images/images/tables.py:156
+#: dashboards/project/images/images/tables.py:160
 msgid "Shared with Me"
 msgstr "Sdíleno se mnou"
 
@@ -12981,7 +12985,7 @@ msgstr "ID zásobníku"
 #: dashboards/project/stacks/forms.py:233
 #: dashboards/project/stacks/forms.py:257
 #: dashboards/project/stacks/forms.py:382
-#: dashboards/project/stacks/tables.py:130
+#: dashboards/project/stacks/tables.py:180
 msgid "Stack Name"
 msgstr "Název zásobníku"
 
@@ -13041,7 +13045,7 @@ msgid "Stack update started."
 msgstr "Zahájena aktualizace zásobníku."
 
 #: dashboards/project/stacks/panel.py:21
-#: dashboards/project/stacks/tables.py:151
+#: dashboards/project/stacks/tables.py:201
 #: dashboards/project/stacks/templates/stacks/index.html:3
 #: dashboards/project/stacks/templates/stacks/index.html:6
 msgid "Stacks"
@@ -13070,57 +13074,87 @@ msgstr[1] ""
 msgstr[2] ""
 
 #: dashboards/project/stacks/tables.py:66
+#: dashboards/project/stacks/tables.py:72
+msgid "Suspend Stack"
+msgid_plural "Suspend Stacks"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: dashboards/project/stacks/tables.py:80
+msgid "Suspended Stack"
+msgid_plural "Suspended Stacks"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: dashboards/project/stacks/tables.py:91
+#: dashboards/project/stacks/tables.py:97
+msgid "Resume Stack"
+msgid_plural "Resume Stacks"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: dashboards/project/stacks/tables.py:105
+msgid "Resumed Stack"
+msgid_plural "Resumed Stacks"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: dashboards/project/stacks/tables.py:116
 msgid "Change Stack Template"
 msgstr "Změnit šablonu zásobníku"
 
-#: dashboards/project/stacks/tables.py:79
+#: dashboards/project/stacks/tables.py:129
 msgid "Delete Stack"
 msgid_plural "Delete Stacks"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/stacks/tables.py:87
+#: dashboards/project/stacks/tables.py:137
 msgid "Deleted Stack"
 msgid_plural "Deleted Stacks"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/stacks/tables.py:167
-#: dashboards/project/stacks/tables.py:212
+#: dashboards/project/stacks/tables.py:225
+#: dashboards/project/stacks/tables.py:270
 msgid "Stack Resource"
 msgstr "Zdroj zásobníku"
 
-#: dashboards/project/stacks/tables.py:170
-#: dashboards/project/stacks/tables.py:215
+#: dashboards/project/stacks/tables.py:228
+#: dashboards/project/stacks/tables.py:273
 #: dashboards/project/stacks/resource_types/tables.py:38
 msgid "Resource"
 msgstr "Zdroj"
 
-#: dashboards/project/stacks/tables.py:173
+#: dashboards/project/stacks/tables.py:231
 msgid "Time Since Event"
 msgstr "Doba od události"
 
-#: dashboards/project/stacks/tables.py:181
-#: dashboards/project/stacks/tables.py:230
+#: dashboards/project/stacks/tables.py:239
+#: dashboards/project/stacks/tables.py:288
 msgid "Status Reason"
 msgstr "Důvod stavu"
 
-#: dashboards/project/stacks/tables.py:185
+#: dashboards/project/stacks/tables.py:243
 msgid "Stack Events"
 msgstr "Události zásobníku"
 
-#: dashboards/project/stacks/tables.py:218
+#: dashboards/project/stacks/tables.py:276
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:25
 msgid "Stack Resource Type"
 msgstr "Typ zdroje zásobníku"
 
-#: dashboards/project/stacks/tables.py:220
+#: dashboards/project/stacks/tables.py:278
 msgid "Date Updated"
 msgstr "Nahráno dne"
 
-#: dashboards/project/stacks/tables.py:243
+#: dashboards/project/stacks/tables.py:301
 msgid "Stack Resources"
 msgstr "Zdroje zásobníku"
 

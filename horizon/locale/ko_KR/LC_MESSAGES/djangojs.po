@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-22 00:01-0600\n"
-"PO-Revision-Date: 2015-01-23 02:31+0000\n"
-"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
+"POT-Creation-Date: 2015-01-26 23:48-0600\n"
+"PO-Revision-Date: 2015-01-27 05:48+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -88,7 +88,7 @@ msgid "Cancel"
 msgstr "취소"
 
 #: static/horizon/js/horizon.modals.js:227
-#: static/horizon/js/horizon.tables.js:216
+#: static/horizon/js/horizon.tables.js:218
 msgid "Working"
 msgstr "작동 중"
 
@@ -150,7 +150,7 @@ msgid "View Instance Details"
 msgstr "인스턴스 정보 자세히 보기"
 
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:372
+#: static/horizon/js/horizon.tables.js:374
 msgid "No items to display."
 msgstr "표시할 항목이 없습니다."
 
@@ -159,21 +159,21 @@ msgstr "표시할 항목이 없습니다."
 msgid "An error occurred while updating."
 msgstr "업데이트 도중 오류가 발생하였습니다."
 
-#: static/horizon/js/horizon.tables.js:199
+#: static/horizon/js/horizon.tables.js:200
 #, c-format
 msgid "You have selected %s. "
 msgstr "%s를 선택하였습니다. "
 
-#: static/horizon/js/horizon.tables.js:201
+#: static/horizon/js/horizon.tables.js:203
 #, c-format
 msgid "Confirm %s"
 msgstr "%s를 확인하세요."
 
-#: static/horizon/js/horizon.tables.js:202
-msgid "Please confirm your selection. This action cannot be undone."
-msgstr "선택 사항을 확인하시기 바랍니다. 이 작업은 취소 할 수 없습니다."
+#: static/horizon/js/horizon.tables.js:204
+msgid "Please confirm your selection. "
+msgstr ""
 
-#: static/horizon/js/horizon.tables.js:359
+#: static/horizon/js/horizon.tables.js:361
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
