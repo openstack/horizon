@@ -22,9 +22,10 @@
 
             // replace form submit with ajax POST and trigger next workflow
             horizon.modals.addModalInitFunction(function (modal) {
-                if ($(modal).find(".nav-tabs").find("li").size() == 1) {
+                var $navbar = $(modal).find(".nav-tabs");
+                if ($navbar.find("li").size() == 1) {
                     // hide tab bar for plugin/version modal wizard
-                   $('div#modal_wrapper ul.nav-tabs').hide();
+                    $navbar.hide();
                 }
 
                 if ($(modal).find(".hidden_create_field").length > 0) {

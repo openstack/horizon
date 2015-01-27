@@ -15,9 +15,10 @@
 <script type="text/javascript">
     addHorizonLoadEvent(function () {
         horizon.modals.addModalInitFunction(function (modal) {
-            if ($(modal).find(".nav-tabs").find("li").size() == 1) {
+            var $navbar = $(modal).find(".nav-tabs");
+            if ($navbar.find("li").size() == 1) {
                 // hide tab bar for plugin/version modal wizard
-               $('div#modal_wrapper ul.nav-tabs').hide();
+               $navbar.hide();
             }
             var add_ng_btn_label = '{% trans "Add Node Group" %}';
             $(".hidden_nodegroups_field").after("<input type='button' id='add_nodegroup' value='" + add_ng_btn_label + "'/><br/>");

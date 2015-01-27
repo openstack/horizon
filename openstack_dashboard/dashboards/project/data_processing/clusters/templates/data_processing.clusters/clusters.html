@@ -16,9 +16,10 @@
     addHorizonLoadEvent(function () {
 
         horizon.modals.addModalInitFunction(function (modal) {
-            if ($(modal).find(".nav-tabs").find("li").size() == 1) {
+            var $navbar = $(modal).find(".nav-tabs");
+            if ($navbar.find("li").size() == 1) {
                 // hide tab bar for plugin/version modal wizard
-               $('div#modal_wrapper ul.nav-tabs').hide();
+               $navbar.hide();
             }
 
             $(".hidden_nodegroups_field").val("");
