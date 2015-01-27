@@ -404,11 +404,12 @@ class CreateProject(workflows.Workflow):
         domain_id = data['domain_id']
         try:
             desc = data['description']
-            return api.keystone.tenant_create(request,
-                                              name=data['name'],
-                                              description=desc,
-                                              enabled=data['enabled'],
-                                              domain=domain_id)
+            self.object = api.keystone.tenant_create(request,
+                                                     name=data['name'],
+                                                     description=desc,
+                                                     enabled=data['enabled'],
+                                                     domain=domain_id)
+            return self.object
         except Exception:
             exceptions.handle(request, ignore=True)
             return
