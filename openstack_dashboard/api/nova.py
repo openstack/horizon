@@ -39,6 +39,7 @@ from horizon import conf
 from horizon import exceptions as horizon_exceptions
 from horizon.utils import functions as utils
 from horizon.utils.memoized import memoized  # noqa
+from horizon.utils.memoized import memoized_with_request  # noqa
 
 from openstack_dashboard.api import base
 from openstack_dashboard.api import network_base
@@ -55,6 +56,8 @@ VERSIONS.load_supported_version(2, {"client": nova_client, "version": 2})
 INSTANCE_ACTIVE_STATE = 'ACTIVE'
 VOLUME_STATE_AVAILABLE = "available"
 DEFAULT_QUOTA_NAME = 'default'
+INSECURE = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
+CACERT = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
 
 
 class VNCConsole(base.APIDictWrapper):
@@ -451,20 +454,31 @@ class FloatingIpManager(network_base.FloatingIpManager):
         return True
 
 
-@memoized
-def novaclient(request):
-    insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
-    cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
+def get_auth_params_from_request(request):
+    """Extracts the properties from the request object needed by the novaclient
+    call below. These will be used to memoize the calls to novaclient
+    """
+    return (
+        request.user.username,
+        request.user.token.id,
+        request.user.tenant_id,
+        base.url_for(request, 'compute')
+    )
+
+
+@memoized_with_request(get_auth_params_from_request)
+def novaclient(request_auth_params):
+    username, token_id, project_id, auth_url = request_auth_params
     c = nova_client.Client(VERSIONS.get_active_version()['version'],
-                           request.user.username,
-                           request.user.token.id,
-                           project_id=request.user.tenant_id,
-                           auth_url=base.url_for(request, 'compute'),
-                           insecure=insecure,
-                           cacert=cacert,
+                           username,
+                           token_id,
+                           project_id=project_id,
+                           auth_url=auth_url,
+                           insecure=INSECURE,
+                           cacert=CACERT,
                            http_log_debug=settings.DEBUG)
-    c.client.auth_token = request.user.token.id
-    c.client.management_url = base.url_for(request, 'compute')
+    c.client.auth_token = token_id
+    c.client.management_url = auth_url
     return c
 
 
@@ -575,10 +589,10 @@ def flavor_list_paged(request, is_public=True, get_extras=False, marker=None,
     return (flavors, has_more_data, has_prev_data)
 
 
-@memoized
-def flavor_access_list(request, flavor=None):
+@memoized_with_request(novaclient)
+def flavor_access_list(nova_api, flavor=None):
     """Get the list of access instance sizes (flavors)."""
-    return novaclient(request).flavor_access.list(flavor=flavor)
+    return nova_api.flavor_access.list(flavor=flavor)
 
 
 def add_tenant_to_flavor(request, flavor, tenant):
@@ -1022,27 +1036,25 @@ def interface_detach(request, server, port_id):
     return novaclient(request).servers.interface_detach(server, port_id)
 
 
-@memoized
-def list_extensions(request):
+@memoized_with_request(novaclient)
+def list_extensions(nova_api):
     """List all nova extensions, except the ones in the blacklist."""
-
     blacklist = set(getattr(settings,
                             'OPENSTACK_NOVA_EXTENSIONS_BLACKLIST', []))
     return [
         extension for extension in
-        nova_list_extensions.ListExtManager(novaclient(request)).show_all()
+        nova_list_extensions.ListExtManager(nova_api).show_all()
         if extension.name not in blacklist
     ]
 
 
-@memoized
-def extension_supported(extension_name, request):
+@memoized_with_request(list_extensions, 1)
+def extension_supported(extension_name, extensions):
     """Determine if nova supports a given extension name.
 
     Example values for the extension_name include AdminActions, ConsoleOutput,
     etc.
     """
-    extensions = list_extensions(request)
     for extension in extensions:
         if extension.name == extension_name:
             return True

@@ -521,20 +521,17 @@ class ComputeApiTests(test.APITestCase):
 
         self.assertIsNone(api_val)
 
+    @test.create_stubs({api.nova: ('flavor_access_list',)})
     def test_flavor_access_list(self):
         flavor_access = self.flavor_access.list()
         flavor = [f for f in self.flavors.list() if f.id ==
                   flavor_access[0].flavor_id][0]
 
-        novaclient = self.stub_novaclient()
-        novaclient.flavors = self.mox.CreateMockAnything()
-        novaclient.flavor_access = self.mox.CreateMockAnything()
-        novaclient.flavor_access.list(flavor=flavor).AndReturn(flavor_access)
+        api.nova.flavor_access_list(self.request, flavor)\
+            .AndReturn(flavor_access)
 
         self.mox.ReplayAll()
-
         api_flavor_access = api.nova.flavor_access_list(self.request, flavor)
-
         self.assertEqual(len(flavor_access), len(api_flavor_access))
         for access in api_flavor_access:
             self.assertIsInstance(access, nova_flavor_access.FlavorAccess)
