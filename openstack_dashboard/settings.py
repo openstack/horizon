@@ -86,11 +86,12 @@ OPENSTACK_IMAGE_BACKEND = {
         ('ami', _('AMI - Amazon Machine Image')),
         ('ari', _('ARI - Amazon Ramdisk Image')),
         ('iso', _('ISO - Optical Disk Image')),
+        ('ova', _('OVA - Open Virtual Appliance')),
         ('qcow2', _('QCOW2 - QEMU Emulator')),
         ('raw', _('Raw')),
-        ('vdi', _('VDI')),
-        ('vhd', _('VHD')),
-        ('vmdk', _('VMDK'))
+        ('vdi', _('VDI - Virtual Disk Image')),
+        ('vhd', _('VHD - Virtual Hard Disk')),
+        ('vmdk', _('VMDK - Virtual Machine Disk'))
     ]
 }
 
