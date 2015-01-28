@@ -218,6 +218,9 @@ horizon.addInitFunction(horizon.instances.init = function () {
     if (image !== undefined && image.min_disk > volume_size) {
       volume_size = image.min_disk;
     }
+    if (image !== undefined && image.size > volume_size) {
+      volume_size = image.size;
+    }
 
     // If the user has manually changed the volume size, do not override
     // unless user-defined value is too small.
