@@ -107,7 +107,8 @@ class NetworksTable(tables.DataTable):
     class Meta:
         name = "networks"
         verbose_name = _("Networks")
-        table_actions = (CreateNetwork, DeleteNetwork)
+        table_actions = (CreateNetwork, DeleteNetwork,
+                         project_tables.NetworksFilterAction)
         row_actions = (EditNetwork, DeleteNetwork)
 
     def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
