@@ -70,9 +70,9 @@ class KeystoneRestTestCase(unittest2.TestCase):
 
     def test_user_create_full(self):
         self._test_user_create(
-            '{"action": "create", "data": {"name": "bob", '
+            '{"name": "bob", '
             '"password": "sekrit", "project_id": "project123", '
-            '"email": "spam@company.example"}}',
+            '"email": "spam@company.example"}',
             {
                 'name': 'bob',
                 'password': 'sekrit',
@@ -85,9 +85,9 @@ class KeystoneRestTestCase(unittest2.TestCase):
 
     def test_user_create_existing_role(self):
         self._test_user_create(
-            '{"action": "create", "data": {"name": "bob", '
+            '{"name": "bob", '
             '"password": "sekrit", "project_id": "project123", '
-            '"email": "spam@company.example"}}',
+            '"email": "spam@company.example"}',
             {
                 'name': 'bob',
                 'password': 'sekrit',
@@ -100,7 +100,7 @@ class KeystoneRestTestCase(unittest2.TestCase):
 
     def test_user_create_partial(self):
         self._test_user_create(
-            '{"action": "create", "data": {"name": "bob"}}',
+            '{"name": "bob"}',
             {
                 'name': 'bob',
                 'password': None,
@@ -132,13 +132,10 @@ class KeystoneRestTestCase(unittest2.TestCase):
     @mock.patch.object(keystone.api, 'keystone')
     def test_user_delete_many(self, kc):
         request = construct_request(body='''
-            {
-                "action": "delete",
-                "data": ["id1", "id2", "id3"]
-            }
+            ["id1", "id2", "id3"]
         ''')
 
-        response = keystone.Users().post(request)
+        response = keystone.Users().delete(request)
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, '')
         kc.user_delete.assert_has_mock.calls([
@@ -156,11 +153,11 @@ class KeystoneRestTestCase(unittest2.TestCase):
         kc.user_delete.assert_called_once_with(request, 'the_id')
 
     @mock.patch.object(keystone.api, 'keystone')
-    def test_user_put_password(self, kc):
+    def test_user_patch_password(self, kc):
         request = construct_request(body='''
             {"password": "sekrit"}
         ''')
-        response = keystone.User().put(request, 'user123')
+        response = keystone.User().patch(request, 'user123')
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, '')
         kc.user_update_password.assert_called_once_with(request,
@@ -168,11 +165,11 @@ class KeystoneRestTestCase(unittest2.TestCase):
                                                         password='sekrit')
 
     @mock.patch.object(keystone.api, 'keystone')
-    def test_user_put_enabled(self, kc):
+    def test_user_patch_enabled(self, kc):
         request = construct_request(body='''
             {"enabled": false}
         ''')
-        response = keystone.User().put(request, 'user123')
+        response = keystone.User().patch(request, 'user123')
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, '')
         kc.user_update_enabled.assert_called_once_with(request,
@@ -180,11 +177,11 @@ class KeystoneRestTestCase(unittest2.TestCase):
                                                        enabled=False)
 
     @mock.patch.object(keystone.api, 'keystone')
-    def test_user_put_project(self, kc):
+    def test_user_patch_project(self, kc):
         request = construct_request(body='''
             {"project_id": "other123"}
         ''')
-        response = keystone.User().put(request, 'user123')
+        response = keystone.User().patch(request, 'user123')
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, '')
         kc.user_update_tenant.assert_called_once_with(request,
@@ -192,11 +189,11 @@ class KeystoneRestTestCase(unittest2.TestCase):
                                                       project='other123')
 
     @mock.patch.object(keystone.api, 'keystone')
-    def test_user_put_multiple(self, kc):
+    def test_user_patch_multiple(self, kc):
         request = construct_request(body='''
             {"project_id": "other123", "enabled": false}
         ''')
-        response = keystone.User().put(request, 'user123')
+        response = keystone.User().patch(request, 'user123')
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, '')
         kc.user_update.assert_called_once_with(request,
@@ -258,7 +255,7 @@ class KeystoneRestTestCase(unittest2.TestCase):
     @mock.patch.object(keystone.api, 'keystone')
     def test_role_create(self, kc):
         request = construct_request(body='''
-            {"action": "create", "data": {"name": "bob"}}
+            {"name": "bob"}
         ''')
         kc.role_create.return_value.id = 'role123'
         kc.role_create.return_value.to_dict.return_value = {
@@ -278,22 +275,20 @@ class KeystoneRestTestCase(unittest2.TestCase):
             {"action": "grant", "data": {"user_id": "user123",
             "role_id": "role123", "project_id": "project123"}}
         ''')
-        response = keystone.Roles().post(request)
+        response = keystone.ProjectRole().put(request, "project1", "role2",
+                                              "user3")
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, '')
-        kc.add_tenant_user_role.assert_called_once_with(request, 'project123',
-                                                        'user123', 'role123')
+        kc.add_tenant_user_role.assert_called_once_with(request, 'project1',
+                                                        'user3', 'role2')
 
     @mock.patch.object(keystone.api, 'keystone')
     def test_role_delete_many(self, kc):
         request = construct_request(body='''
-            {
-                "action": "delete",
-                "data": ["id1", "id2", "id3"]
-            }
+            ["id1", "id2", "id3"]
         ''')
 
-        response = keystone.Roles().post(request)
+        response = keystone.Roles().delete(request)
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, '')
         kc.role_delete.assert_has_mock.calls([
@@ -311,9 +306,9 @@ class KeystoneRestTestCase(unittest2.TestCase):
         kc.role_delete.assert_called_once_with(request, 'the_id')
 
     @mock.patch.object(keystone.api, 'keystone')
-    def test_role_put(self, kc):
+    def test_role_patch(self, kc):
         request = construct_request(body='{"name": "spam"}')
-        response = keystone.Role().put(request, 'the_id')
+        response = keystone.Role().patch(request, 'the_id')
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, '')
         kc.role_update.assert_called_once_with(request,
@@ -359,8 +354,8 @@ class KeystoneRestTestCase(unittest2.TestCase):
 
     def test_domain_create_full(self):
         self._test_domain_create(
-            '{"action": "create", "data": {"name": "bob", '
-            '"description": "sekrit", "enabled": false}}',
+            '{"name": "bob", '
+            '"description": "sekrit", "enabled": false}',
             {
                 'description': 'sekrit',
                 'enabled': False
@@ -369,7 +364,7 @@ class KeystoneRestTestCase(unittest2.TestCase):
 
     def test_domain_create_partial(self):
         self._test_domain_create(
-            '{"action": "create", "data": {"name": "bob"}}',
+            '{"name": "bob"}',
             {
                 'description': None,
                 'enabled': True
@@ -396,13 +391,10 @@ class KeystoneRestTestCase(unittest2.TestCase):
     @mock.patch.object(keystone.api, 'keystone')
     def test_domain_delete_many(self, kc):
         request = construct_request(body='''
-            {
-                "action": "delete",
-                "data": ["id1", "id2", "id3"]
-            }
+            ["id1", "id2", "id3"]
         ''')
 
-        response = keystone.Domains().post(request)
+        response = keystone.Domains().delete(request)
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, '')
         kc.domain_delete.assert_has_mock.calls([
@@ -420,9 +412,9 @@ class KeystoneRestTestCase(unittest2.TestCase):
         kc.domain_delete.assert_called_once_with(request, 'the_id')
 
     @mock.patch.object(keystone.api, 'keystone')
-    def test_domain_put(self, kc):
+    def test_domain_patch(self, kc):
         request = construct_request(body='{"name": "spam"}')
-        response = keystone.Domain().put(request, 'the_id')
+        response = keystone.Domain().patch(request, 'the_id')
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, '')
         kc.domain_update.assert_called_once_with(request,
@@ -461,9 +453,9 @@ class KeystoneRestTestCase(unittest2.TestCase):
 
     def test_project_create_full(self):
         self._test_project_create(
-            '{"action": "create", "data": {"name": "bob", '
+            '{"name": "bob", '
             '"domain_id": "domain123", "description": "sekrit", '
-            '"enabled": false}}',
+            '"enabled": false}',
             {
                 'description': 'sekrit',
                 'domain': 'domain123',
@@ -473,7 +465,7 @@ class KeystoneRestTestCase(unittest2.TestCase):
 
     def test_project_create_partial(self):
         self._test_project_create(
-            '{"action": "create", "data": {"name": "bob"}}',
+            '{"name": "bob"}',
             {
                 'description': None,
                 'domain': None,
@@ -501,13 +493,10 @@ class KeystoneRestTestCase(unittest2.TestCase):
     @mock.patch.object(keystone.api, 'keystone')
     def test_project_delete_many(self, kc):
         request = construct_request(body='''
-            {
-                "action": "delete",
-                "data": ["id1", "id2", "id3"]
-            }
+            ["id1", "id2", "id3"]
         ''')
 
-        response = keystone.Projects().post(request)
+        response = keystone.Projects().delete(request)
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, '')
         kc.tenant_delete.assert_has_mock.calls([
@@ -525,13 +514,13 @@ class KeystoneRestTestCase(unittest2.TestCase):
         kc.tenant_delete.assert_called_once_with(request, 'the_id')
 
     @mock.patch.object(keystone.api, 'keystone')
-    def test_project_put(self, kc):
+    def test_project_patch(self, kc):
         # nothing in the Horizon code documents what additional parameters are
         # allowed, so we'll just assume GIGO
         request = construct_request(body='''
             {"name": "spam", "domain_id": "domain123", "foo": "bar"}
         ''')
-        response = keystone.Project().put(request, 'spam123')
+        response = keystone.Project().patch(request, 'spam123')
         self.assertStatusCode(response, 204)
         self.assertEqual(response.content, '')
         kc.tenant_update.assert_called_once_with(request,

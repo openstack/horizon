@@ -48,55 +48,46 @@ class Users(generic.View):
         )
         return {'items': [u.to_dict() for u in result]}
 
-    @rest_utils.ajax(method='POST')
+    @rest_utils.ajax(data_required=True)
     def post(self, request):
-        """Perform some action on the collection of users.
+        """Create a user.
 
-        The POST data should be an application/json object with two
-        parameters: "action" and "data".
+        Create a user using the parameters supplied in the POST
+        application/json object. The base parameters are name (string), email
+        (string, optional), password (string, optional), project_id (string,
+        optional), enabled (boolean, defaults to true). The user will be
+        created in the default domain.
 
-        action = "delete"
-            This action deletes multiple users in one call, using the list of
-            ids (strings) passed in as data.
-
-            This action returns HTTP 204 (no content) on success.
-
-        action = "create"
-            This action creates a user using the parameters supplied in
-            "data". The base parameters are name (string), email (string,
-            optional), password (string, optional), project_id (string,
-            optional), enabled (boolean, defaults to true). The user will be
-            created in the default domain.
-
-            This action returns the new user object on success.
-
-            This action returns HTTP 204 (no content) on success.
+        This action returns the new user object on success.
         """
-        action = request.DATA['action']
-        data = request.DATA['data']
+        # not sure why email is forced to None, but other code does it
+        domain = api.keystone.get_default_domain(request)
+        new_user = api.keystone.user_create(
+            request,
+            name=request.DATA['name'],
+            email=request.DATA.get('email') or None,
+            password=request.DATA.get('password'),
+            project=request.DATA.get('project_id'),
+            enabled=True,
+            domain=domain.id
+        )
+        return rest_utils.CreatedResponse(
+            '/api/keystone/users/%s' % new_user.id,
+            new_user.to_dict()
+        )
 
-        if action == 'delete':
-            for user_id in data:
-                if user_id != request.user.id:
-                    api.keystone.user_delete(request, user_id)
-        elif action == 'create':
-            # not sure why email is forced to None, but other code does it
-            domain = api.keystone.get_default_domain(request)
-            new_user = api.keystone.user_create(
-                request,
-                name=data['name'],
-                email=data.get('email') or None,
-                password=data.get('password'),
-                project=data.get('project_id'),
-                enabled=True,
-                domain=domain.id
-            )
-            return rest_utils.CreatedResponse(
-                '/api/keystone/users/%s' % new_user.id,
-                new_user.to_dict()
-            )
-        else:
-            raise rest_utils.AjaxError(400, 'invalid action')
+    @rest_utils.ajax(data_required=True)
+    def delete(self, request):
+        """Delete multiple users by id.
+
+        The DELETE data should be an application/json array of user ids to
+        delete.
+
+        This method returns HTTP 204 (no content) on success.
+        """
+        for user_id in request.DATA:
+            if user_id != request.user.id:
+                api.keystone.user_delete(request, user_id)
 
 
 @urls.register
@@ -126,13 +117,13 @@ class User(generic.View):
             raise django.http.HttpResponseNotFound('current')
         api.keystone.user_delete(request, id)
 
-    @rest_utils.ajax(method='PUT')
-    def put(self, request, id):
+    @rest_utils.ajax(data_required=True)
+    def patch(self, request, id):
         """Update a single user.
 
-        The PUT data should be an application/json object with attributes to
+        The PATCH data should be an application/json object with attributes to
         set to new values: password (string), project_id (string),
-        enabled (boolean). A PUT may contain any one of those attributes, but
+        enabled (boolean). A PATCH may contain any one of those attributes, but
         if it contains more than one it must contain the project_id, even
         if it is not being altered.
 
@@ -184,52 +175,32 @@ class Roles(generic.View):
             items = [r.to_dict() for r in api.keystone.role_list(request)]
         return {'items': items}
 
-    @rest_utils.ajax(method='POST')
+    @rest_utils.ajax(data_required=True)
     def post(self, request):
-        """Perform some action on the collection of roles.
+        """Create a role.
 
-        The POST data should be an application/json object with two
-        parameters: "action" and "data".
+        Create a role using the "name" (string) parameter supplied in the POST
+        application/json object.
 
-        action = "delete"
-            This action deletes multiple roles in one call, using the list of
-            ids (strings) passed in as data.
-
-            This method returns HTTP 204 (no content) on success.
-
-        action = "create"
-            This action creates a role using the "name" (string) parameter
-            supplied in the "data" object.
-
-            This method returns the new role object on success.
-
-        action = "grant"
-            This action adds a role to a user using the parameters
-            "user_id" (string), "project_id" (string) and "role_id" (string).
-
-            This method returns HTTP 204 (no content) on success.
+        This method returns the new role object on success.
         """
-        action = request.DATA['action']
-        data = request.DATA['data']
+        new_role = api.keystone.role_create(request, request.DATA['name'])
+        return rest_utils.CreatedResponse(
+            '/api/keystone/roles/%s' % new_role.id,
+            new_role.to_dict()
+        )
 
-        if action == 'delete':
-            for role_id in data:
-                api.keystone.role_delete(request, role_id)
-        elif action == 'create':
-            new_role = api.keystone.role_create(request, data['name'])
-            return rest_utils.CreatedResponse(
-                '/api/keystone/roles/%s' % new_role.id,
-                new_role.to_dict()
-            )
-        elif action == 'grant':
-            api.keystone.add_tenant_user_role(
-                request,
-                data['project_id'],
-                data['user_id'],
-                data['role_id']
-            )
-        else:
-            raise rest_utils.AjaxError(400, 'invalid (unrecognised) action')
+    @rest_utils.ajax(data_required=True)
+    def delete(self, request):
+        """Delete multiple roles by id.
+
+        The DELETE data should be an application/json array of role ids to
+                delete.
+
+        This method returns HTTP 204 (no content) on success.
+        """
+        for role_id in request.DATA:
+            api.keystone.role_delete(request, role_id)
 
 
 @urls.register
@@ -259,12 +230,12 @@ class Role(generic.View):
             raise django.http.HttpResponseNotFound('default')
         api.keystone.role_delete(request, id)
 
-    @rest_utils.ajax(method='PUT')
-    def put(self, request, id):
+    @rest_utils.ajax(data_required=True)
+    def patch(self, request, id):
         """Update a single role.
 
-        The PUT data should be an application/json object with the "name"
-        attribute to update
+        The PATCH data should be an application/json object with the "name"
+        attribute to update.
 
         This method returns HTTP 204 (no content) on success.
         """
@@ -288,46 +259,39 @@ class Domains(generic.View):
         items = [d.to_dict() for d in api.keystone.domain_list(request)]
         return {'items': items}
 
-    @rest_utils.ajax(method='POST')
+    @rest_utils.ajax(data_required=True)
     def post(self, request):
         """Perform some action on the collection of domains.
 
-        The POST data should be an application/json object with two
-        parameters: "action" and "data".
+        This action creates a domain using parameters supplied in the POST
+        application/json object. The "name" (string) parameter is required,
+        others are optional: "description" (string) and "enabled" (boolean,
+        defaults to true).
 
-        action = "delete"
-            This action deletes multiple domains in one call, using the list of
-            ids (strings) passed in as data.
-
-            This method returns HTTP 204 (no content) on success.
-
-        action = "create"
-            This action creates a domain using parameters supplied in the
-            "data" object. The "name" (string) parameter is required, others
-            are optional: "description" (string) and "enabled" (boolean,
-            defaults to true).
-
-            This method returns the new domain object on success.
+        This method returns the new domain object on success.
         """
-        action = request.DATA['action']
-        data = request.DATA['data']
+        new_domain = api.keystone.domain_create(
+            request,
+            request.DATA['name'],
+            description=request.DATA.get('description'),
+            enabled=request.DATA.get('enabled', True),
+        )
+        return rest_utils.CreatedResponse(
+            '/api/keystone/domains/%s' % new_domain.id,
+            new_domain.to_dict()
+        )
 
-        if action == 'delete':
-            for domain_id in data:
-                api.keystone.domain_delete(request, domain_id)
-        elif action == 'create':
-            new_domain = api.keystone.domain_create(
-                request,
-                data['name'],
-                description=data.get('description'),
-                enabled=data.get('enabled', True),
-            )
-            return rest_utils.CreatedResponse(
-                '/api/keystone/domains/%s' % new_domain.id,
-                new_domain.to_dict()
-            )
-        else:
-            raise rest_utils.AjaxError(400, 'invalid action')
+    @rest_utils.ajax(data_required=True)
+    def delete(self, request):
+        """Delete multiple domains by id.
+
+        The DELETE data should be an application/json array of domain ids to
+                delete.
+
+        This method returns HTTP 204 (no content) on success.
+        """
+        for domain_id in request.DATA:
+            api.keystone.domain_delete(request, domain_id)
 
 
 @urls.register
@@ -357,11 +321,11 @@ class Domain(generic.View):
             raise django.http.HttpResponseNotFound('default')
         api.keystone.domain_delete(request, id)
 
-    @rest_utils.ajax()
-    def put(self, request, id):
+    @rest_utils.ajax(data_required=True)
+    def patch(self, request, id):
         """Update a single domain.
 
-        The PUT data should be an application/json object with the attributes
+        The PATCH data should be an application/json object with the attributes
         to set to new values: "name" (string), "description" (string) and
         "enabled" (boolean).
 
@@ -425,50 +389,43 @@ class Projects(generic.View):
         # return (list of results, has_more_data)
         return dict(has_more=has_more, items=[d.to_dict() for d in result])
 
-    @rest_utils.ajax(method='POST')
+    @rest_utils.ajax(data_required=True)
     def post(self, request):
-        """Perform some action on the collection of projects (tenants).
+        """Create a project (tenant).
 
-        The POST data should be an application/json object with two
-        parameters: "action" and "data".
+        Create a project using parameters supplied in the POST
+        application/json object. The "name" (string) parameter is required,
+        others are optional: "description" (string), "domain_id" (string) and
+        "enabled" (boolean, defaults to true). Additional, undefined
+        parameters may also be provided, but you'll have to look deep into
+        keystone to figure out what they might be.
 
-        action = "delete"
-            This action deletes multiple projects in one call, using the list
-            of ids (strings) passed in as data.
-
-            This method returns HTTP 204 (no content) on success.
-
-        action = "create"
-            This action creates a project using parameters supplied in the
-            "data" object. The "name" (string) parameter is required, others
-            are optional: "description" (string), "domain_id" (string) and
-            "enabled" (boolean, defaults to true). Additional, undefined
-            parameters may also be provided, but you'll have to look deep into
-            keystone to figure out what they might be.
-
-            This method returns the new project object on success.
+        This method returns the new project object on success.
         """
-        action = request.DATA['action']
-        data = request.DATA['data']
+        kwargs = _tenant_kwargs_from_DATA(request.DATA)
+        if not kwargs['name']:
+            raise rest_utils.AjaxError(400, '"name" is required')
+        new_project = api.keystone.tenant_create(
+            request,
+            kwargs.pop('name'),
+            **kwargs
+        )
+        return rest_utils.CreatedResponse(
+            '/api/keystone/projects/%s' % new_project.id,
+            new_project.to_dict()
+        )
 
-        if action == 'delete':
-            for id in data:
-                api.keystone.tenant_delete(request, id)
-        elif action == 'create':
-            kwargs = _tenant_kwargs_from_DATA(data)
-            if not kwargs['name']:
-                raise rest_utils.AjaxError(400, '"name" is required')
-            new_project = api.keystone.tenant_create(
-                request,
-                kwargs.pop('name'),
-                **kwargs
-            )
-            return rest_utils.CreatedResponse(
-                '/api/keystone/projects/%s' % new_project.id,
-                new_project.to_dict()
-            )
-        else:
-            raise rest_utils.AjaxError(400, 'invalid action')
+    @rest_utils.ajax(data_required=True)
+    def delete(self, request):
+        """Delete multiple projects by id.
+
+        The DELETE data should be an application/json array of project ids to
+        delete.
+
+        This method returns HTTP 204 (no content) on success.
+        """
+        for id in request.DATA:
+            api.keystone.tenant_delete(request, id)
 
 
 @urls.register
@@ -495,17 +452,38 @@ class Project(generic.View):
         """
         api.keystone.tenant_delete(request, id)
 
-    @rest_utils.ajax()
-    def put(self, request, id):
+    @rest_utils.ajax(data_required=True)
+    def patch(self, request, id):
         """Update a single project.
 
-        The PUT data should be an application/json object with  the attributes
-        to set to new values: "name" (string),  "description" (string),
-        "domain_id" (string) and "enabled" (boolean). Additional, undefined
-        parameters may also be provided, but you'll have to look deep into
-        keystone to figure out what they might be.
+        The PATCH data should be an application/json object with  the
+        attributes to set to new values: "name" (string),  "description"
+        (string), "domain_id" (string) and "enabled" (boolean). Additional,
+        undefined parameters may also be provided, but you'll have to look
+        deep into keystone to figure out what they might be.
 
         This method returns HTTP 204 (no content) on success.
         """
         kwargs = _tenant_kwargs_from_DATA(request.DATA, enabled=None)
         api.keystone.tenant_update(request, id, **kwargs)
+
+
+@urls.register
+class ProjectRole(generic.View):
+    url_regex = r'keystone/projects/(?P<project_id>[0-9a-f]+)/' \
+                ' (?P<role_id>[0-9a-f]+)/(?P<user_id>[0-9a-f]+)$'
+
+    @rest_utils.ajax()
+    def put(self, request, project_id, role_id, user_id):
+        """Grant the specified role to the user in the project (tenant).
+
+        This method takes no data.
+
+        This method returns HTTP 204 (no content) on success.
+        """
+        api.keystone.add_tenant_user_role(
+            request,
+            project_id,
+            user_id,
+            role_id
+        )
