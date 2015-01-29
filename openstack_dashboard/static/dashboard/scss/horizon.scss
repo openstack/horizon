@@ -2089,3 +2089,7 @@ a:hover.link-popover { text-decoration: none; }
 .detail dt {
   text-align: left;
 }
+
+input::-ms-clear, input::-ms-reveal{
+  display: none;
+}
