@@ -102,7 +102,7 @@ class CsvReportView(django.views.generic.View):
 class ReportCsvRenderer(csvbase.BaseCsvResponse):
 
     columns = [_("Project Name"), _("Meter"), _("Description"),
-               _("Service"), _("Time"), _("Value (Avg)")]
+               _("Service"), _("Time"), _("Value (Avg)"), _("Unit")]
 
     def get_row_data(self):
 
@@ -113,7 +113,8 @@ class ReportCsvRenderer(csvbase.BaseCsvResponse):
                        u["description"],
                        u["service"],
                        u["time"],
-                       u["value"])
+                       u["value"],
+                       u["unit"])
 
 
 def load_report_data(request):
@@ -136,7 +137,7 @@ def load_report_data(request):
                                                            date_to,
                                                            date_options)
     except Exception:
-        exceptions.handle(request, _('Dates cannot be recognised.'))
+        exceptions.handle(request, _('Dates cannot be recognized.'))
     try:
         project_aggregates = metering_utils.ProjectAggregatesQuery(request,
                                                                    date_from,
@@ -162,7 +163,8 @@ def load_report_data(request):
                            "description": meter.description,
                            "service": service,
                            "time": value._apiresource.period_end,
-                           "value": value._apiresource.avg}
+                           "value": value._apiresource.avg,
+                           "unit": meter.unit}
                     if r.id not in project_rows:
                         project_rows[r.id] = [row]
                     else:
