@@ -22,4 +22,5 @@ in https://wiki.openstack.org/wiki/APIChangeGuidelines.
 """
 
 # import REST API modules here
+import glance       #flake8: noqa
 import keystone     #flake8: noqa
