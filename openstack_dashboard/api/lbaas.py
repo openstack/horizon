@@ -15,6 +15,9 @@
 from __future__ import absolute_import
 
 from django.utils.datastructures import SortedDict
+from django.utils.translation import ugettext_lazy as _
+
+from horizon import messages
 
 from openstack_dashboard.api import neutron
 
@@ -146,6 +149,8 @@ def _get_vip(request, pool, vip_dict, expand_name_only=False):
             else:
                 vip = _vip_get(request, pool['vip_id'])
         except Exception:
+            messages.warning(request, _("Unable to get VIP for pool "
+                                        "%(pool)s.") % {"pool": pool["id"]})
             vip = Vip({'id': pool['vip_id'], 'name': ''})
         if expand_name_only:
             vip = vip.name_or_id
@@ -180,15 +185,38 @@ def pool_get(request, pool_id):
 
 
 def _pool_get(request, pool_id, expand_resource=False):
-    pool = neutronclient(request).show_pool(pool_id).get('pool')
+    try:
+        pool = neutronclient(request).show_pool(pool_id).get('pool')
+    except Exception:
+        messages.warning(request, _("Unable to get pool detail."))
+        return None
     if expand_resource:
-        pool['subnet'] = neutron.subnet_get(request, pool['subnet_id'])
+        # TODO(lyj): The expand resource(subnet, member etc.) attached
+        # to a pool could be deleted without cleanup pool related database,
+        # this will cause exceptions if we trying to get the deleted resources.
+        # so we need to handle the situation by showing a warning message here.
+        # we can safely remove the try/except once the neutron bug is fixed
+        # https://bugs.launchpad.net/neutron/+bug/1406854
+        try:
+            pool['subnet'] = neutron.subnet_get(request, pool['subnet_id'])
+        except Exception:
+            messages.warning(request, _("Unable to get subnet for pool "
+                                        "%(pool)s.") % {"pool": pool_id})
         pool['vip'] = _get_vip(request, pool, vip_dict=None,
                                expand_name_only=False)
-        pool['members'] = _member_list(request, expand_pool=False,
-                                       pool_id=pool_id)
-        pool['health_monitors'] = pool_health_monitor_list(
-            request, id=pool['health_monitors'])
+        try:
+            pool['members'] = _member_list(request, expand_pool=False,
+                                           pool_id=pool_id)
+        except Exception:
+            messages.warning(request, _("Unable to get members for pool "
+                                        "%(pool)s.") % {"pool": pool_id})
+        try:
+            pool['health_monitors'] = pool_health_monitor_list(
+                request, id=pool['health_monitors'])
+        except Exception:
+            messages.warning(request,
+                             _("Unable to get health monitors "
+                               "for pool %(pool)s.") % {"pool": pool_id})
     return Pool(pool)
 
 
