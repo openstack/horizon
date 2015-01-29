@@ -911,9 +911,6 @@ tr:hover .actions_column ul.row_actions.single,
 
 th.multi_select_column, td.multi_select_column {
   width: 41px;
-}
-
-th.multi_select_column, td.multi_select_column {
   text-align: center;
 }
 
@@ -923,6 +920,7 @@ th.multi_select_column, td.multi_select_column {
 
 .table input[type="checkbox"] {
   display: inline;
+  vertical-align: middle;
 }
 
 div.input input[type="checkbox"] {
