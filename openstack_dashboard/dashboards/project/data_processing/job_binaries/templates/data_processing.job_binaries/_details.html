@@ -11,7 +11,7 @@
     <dt>{% trans "Description" %}</dt>
     <dd>{{ job_binary.description|default:_("None") }}</dd>
     <dt>{% trans "Create time" %}</dt>
-    <dd>{{ job_binary.created_at }}</dd>
+    <dd>{{ job_binary.created_at|parse_isotime }}</dd>
   </dl>
   <a href="{% url 'horizon:project:data_processing.job_binaries:download' job_binary.id %}">{% trans "Download job binary" %}</a>
 </div>
