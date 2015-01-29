@@ -249,7 +249,7 @@ class InstancesTable(tables.DataTable):
     STATUS_CHOICES = (
         ("ACTIVE", True),
         ("BLOCKED", True),
-        ("BUILD", True),
+        ("BUILD", None),
         ("FAILED", False),
         ("REBOOT", None),
         ("RESIZE", None),
