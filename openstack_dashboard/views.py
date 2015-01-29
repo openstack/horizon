@@ -41,7 +41,7 @@ def splash(request):
         response = shortcuts.redirect(horizon.get_user_home(request.user))
     else:
         form = forms.Login(request)
-        response = shortcuts.render(request, 'splash.html', {'form': form})
+        response = shortcuts.render(request, 'auth/login.html', {'form': form})
     if 'logout_reason' in request.COOKIES:
         response.delete_cookie('logout_reason')
     return response
