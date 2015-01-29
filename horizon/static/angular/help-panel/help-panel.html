@@ -1,0 +1,5 @@
+<div class="help-panel" ng-class="{'open': openHelp}">
+  <button class="open" ng-click="openHelp=true"><span class="fa fa-question-circle"></span></button>
+  <button class="close" ng-click="openHelp=false"><span class="fa fa-times-circle"></span></button>
+  <div class="content" ng-transclude></div>
+</div>

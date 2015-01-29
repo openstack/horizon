@@ -70,3 +70,17 @@ $overview_chart_height: 81px;
 /* Accordion Navigation */
 
 $accordionBorderColor: #e5e5e5;
+
+
+/* Help panel */
+
+// theme
+$helpPanelColor: #333 !default;
+$helpPanelBg: #eee !default;
+$helpPanelBtnColor: #333 !default;
+$helpPanelBtnBg: transparent !default;
+
+// layout
+$helpPanelWidthDefault: 300px !default;
+$helpPanelBtnSize: 40px !default;
+$helpPanelBtnIconSize: 28px !default;

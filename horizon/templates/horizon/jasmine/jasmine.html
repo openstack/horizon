@@ -32,5 +32,37 @@
     {% endblock %}
   </div>
 
+  <script type="text/javascript">
+    (function () { 'use strict';
+
+      // Caching all external angular templates
+
+      var templates = [
+        {% for externalTemplate in externalTemplates %}
+          {{ STATIC_URL }}{{ externalTemplate }} + ","
+        {% endfor %}
+      ];
+
+      var tplmodule = angular.module('templates', []);
+
+      templates.forEach(function (template) {
+        cacheTemplate(template, tplmodule);
+      });
+
+      function cacheTemplate(template, tplmodule) {
+        tplmodule.run(function ($templateCache) {
+          $templateCache.put(template, loadSync(template));
+        });
+      }
+
+      function loadSync(url) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url, false);
+        xhr.send();
+        return xhr.status === 200 ? xhr.responseText : null;
+      }
+
+    })();
+  </script>
 </body>
 </html>
