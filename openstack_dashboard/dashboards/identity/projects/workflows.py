@@ -28,7 +28,6 @@ from horizon.utils import memoized
 from horizon import workflows
 
 from openstack_dashboard import api
-from openstack_dashboard.api import base
 from openstack_dashboard.api import cinder
 from openstack_dashboard.api import keystone
 from openstack_dashboard.api import nova
@@ -399,7 +398,7 @@ class CommonQuotaWorkflow(workflows.Workflow):
             [(key, data[key]) for key in quotas.NOVA_QUOTA_FIELDS])
         nova.tenant_quota_update(request, project_id, **nova_data)
 
-        if base.is_service_enabled(request, 'volume'):
+        if cinder.is_volume_service_enabled(request):
             cinder_data = dict([(key, data[key]) for key in
                                 quotas.CINDER_QUOTA_FIELDS])
             cinder.tenant_quota_update(request,

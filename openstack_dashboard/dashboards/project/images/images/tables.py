@@ -26,7 +26,6 @@ from horizon import tables
 from horizon.utils.memoized import memoized  # noqa
 
 from openstack_dashboard import api
-from openstack_dashboard.api import base
 
 NOT_LAUNCHABLE_FORMATS = ['aki', 'ari']
 
@@ -157,7 +156,7 @@ class CreateVolumeFromImage(tables.LinkAction):
 
     def allowed(self, request, image=None):
         if (image and image.container_format not in NOT_LAUNCHABLE_FORMATS
-                and base.is_service_enabled(request, 'volume')):
+                and api.cinder.is_volume_service_enabled(request)):
             return image.status == "active"
         return False
 

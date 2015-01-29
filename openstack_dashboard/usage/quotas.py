@@ -231,7 +231,7 @@ def get_disabled_quotas(request):
     disabled_quotas = []
 
     # Cinder
-    if not base.is_service_enabled(request, 'volume'):
+    if not cinder.is_volume_service_enabled(request):
         disabled_quotas.extend(CINDER_QUOTA_FIELDS)
 
     # Neutron
@@ -390,7 +390,7 @@ def tenant_limit_usages(request):
         msg = _("Unable to retrieve compute limit information.")
         exceptions.handle(request, msg)
 
-    if base.is_service_enabled(request, 'volume'):
+    if cinder.is_volume_service_enabled(request):
         try:
             limits.update(cinder.tenant_absolute_limits(request))
             volumes = cinder.volume_list(request)

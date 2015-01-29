@@ -130,13 +130,14 @@ class UsageViewTests(test.TestCase):
     def test_usage_nova_network_disabled(self):
         self._test_usage_nova_network(nova_stu_enabled=False)
 
-    @test.create_stubs({api.base: ('is_service_enabled',)})
+    @test.create_stubs({api.base: ('is_service_enabled',),
+                        api.cinder: ('is_volume_service_enabled',)})
     def _test_usage_nova_network(self, nova_stu_enabled):
         self._stub_nova_api_calls(nova_stu_enabled)
 
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
             .MultipleTimes().AndReturn(False)
-        api.base.is_service_enabled(IsA(http.HttpRequest), 'volume') \
+        api.cinder.is_volume_service_enabled(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(False)
 
         self.mox.ReplayAll()
@@ -307,7 +308,8 @@ class UsageViewTests(test.TestCase):
     def test_usage_without_cinder(self):
         self._test_usage_cinder(cinder_enabled=False)
 
-    @test.create_stubs({api.base: ('is_service_enabled',)})
+    @test.create_stubs({api.base: ('is_service_enabled',),
+                        api.cinder: ('is_volume_service_enabled',)})
     def _test_usage_cinder(self, cinder_enabled):
         self._stub_nova_api_calls(True)
 
@@ -316,7 +318,7 @@ class UsageViewTests(test.TestCase):
 
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
             .MultipleTimes().AndReturn(False)
-        api.base.is_service_enabled(IsA(http.HttpRequest), 'volume') \
+        api.cinder.is_volume_service_enabled(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(cinder_enabled)
         self.mox.ReplayAll()
 

@@ -785,3 +785,10 @@ def pool_list(request, detailed=False):
 
     return [VolumePool(v) for v in c_client.pools.list(
         detailed=detailed)]
+
+
+def is_volume_service_enabled(request):
+    return bool(
+        base.is_service_enabled(request, 'volume') or
+        base.is_service_enabled(request, 'volumev2')
+    )
