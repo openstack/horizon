@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-28 23:45-0600\n"
+"POT-Creation-Date: 2015-01-29 23:24-0600\n"
 "PO-Revision-Date: 2015-01-28 12:53+0000\n"
 "Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
@@ -188,10 +188,6 @@ msgstr "도움말"
 msgid "Sign Out"
 msgstr "로그아웃"
 
-#: templates/splash.html:8 templates/auth/login.html:4
-msgid "Login"
-msgstr "로그인"
-
 #: templates/auth/_login.html:5
 msgid "Log In"
 msgstr "로그인"
@@ -210,6 +206,10 @@ msgstr "다른 사용자로 로그인하거나 <a href=\"%(home_url)s\">홈페�
 #: templates/auth/_login.html:32
 msgid "Sign In"
 msgstr "등록"
+
+#: templates/auth/login.html:4
+msgid "Login"
+msgstr "로그인"
 
 #: templates/horizon/_messages.html:7
 msgid "Info: "

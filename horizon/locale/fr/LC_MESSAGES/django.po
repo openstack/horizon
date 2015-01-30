@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-26 23:48-0600\n"
+"POT-Creation-Date: 2015-01-29 23:24-0600\n"
 "PO-Revision-Date: 2015-01-27 05:48+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
@@ -186,10 +186,6 @@ msgstr "Aide"
 msgid "Sign Out"
 msgstr "Se déconnecter"
 
-#: templates/splash.html:8 templates/auth/login.html:4
-msgid "Login"
-msgstr "Identifiant"
-
 #: templates/auth/_login.html:5
 msgid "Log In"
 msgstr "Se connecter"
@@ -208,6 +204,10 @@ msgstr "Connectez-vous avec un autre nom d'utilisateur ou revenez à <a href=\"%
 #: templates/auth/_login.html:32
 msgid "Sign In"
 msgstr "Se connecter"
+
+#: templates/auth/login.html:4
+msgid "Login"
+msgstr "Identifiant"
 
 #: templates/horizon/_messages.html:7
 msgid "Info: "

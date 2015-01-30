@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-28 23:45-0600\n"
-"PO-Revision-Date: 2015-01-29 05:46+0000\n"
+"POT-Creation-Date: 2015-01-29 23:24-0600\n"
+"PO-Revision-Date: 2015-01-29 17:58+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -370,6 +370,30 @@ msgstr "ユーザー %s はこのプロジェクトではロールが定義さ�
 #: dashboards/settings/password/forms.py:65
 msgid "Password changed. Please log in again to continue."
 msgstr "パスワードが変更されました。続行するには、再度ログインしてください。"
+
+#: api/lbaas.py:152
+#, python-format
+msgid "Unable to get VIP for pool %(pool)s."
+msgstr ""
+
+#: api/lbaas.py:191
+msgid "Unable to get pool detail."
+msgstr ""
+
+#: api/lbaas.py:203
+#, python-format
+msgid "Unable to get subnet for pool %(pool)s."
+msgstr ""
+
+#: api/lbaas.py:211
+#, python-format
+msgid "Unable to get members for pool %(pool)s."
+msgstr ""
+
+#: api/lbaas.py:218
+#, python-format
+msgid "Unable to get health monitors for pool %(pool)s."
+msgstr ""
 
 #: api/neutron.py:212
 #, python-format
@@ -2051,7 +2075,7 @@ msgid "Disabled"
 msgstr "無効"
 
 #: dashboards/admin/info/tables.py:60 dashboards/admin/metering/tables.py:42
-#: dashboards/admin/metering/tables.py:61
+#: dashboards/admin/metering/tables.py:62
 #: dashboards/admin/metering/views.py:105
 #: dashboards/project/access_and_security/api_access/tables.py:61
 msgid "Service"
@@ -2394,7 +2418,7 @@ msgstr "関連付けの更新"
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:15
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:57
 #: dashboards/admin/metering/tables.py:44
-#: dashboards/admin/metering/tables.py:63
+#: dashboards/admin/metering/tables.py:64
 #: dashboards/admin/metering/views.py:104
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:15
 #: dashboards/identity/domains/tables.py:200
@@ -2789,23 +2813,28 @@ msgid "Download CSV Summary"
 msgstr "サマリー (CSV) のダウンロード"
 
 #: dashboards/admin/metering/tables.py:43
-#: dashboards/admin/metering/tables.py:62
+#: dashboards/admin/metering/tables.py:63
 #: dashboards/admin/metering/views.py:104
 msgid "Meter"
 msgstr "メーター"
 
 #: dashboards/admin/metering/tables.py:45
-#: dashboards/admin/metering/tables.py:64
+#: dashboards/admin/metering/tables.py:65
 msgid "Day"
 msgstr "日"
 
 #: dashboards/admin/metering/tables.py:47
-#: dashboards/admin/metering/tables.py:66
+#: dashboards/admin/metering/tables.py:67
 #: dashboards/admin/metering/views.py:105
 msgid "Value (Avg)"
 msgstr "値 (平均)"
 
-#: dashboards/admin/metering/tables.py:55
+#: dashboards/admin/metering/tables.py:49
+#: dashboards/admin/metering/views.py:105
+msgid "Unit"
+msgstr ""
+
+#: dashboards/admin/metering/tables.py:56
 msgid "Daily Usage Report"
 msgstr "日次使用状況レポート"
 
@@ -2821,39 +2850,40 @@ msgstr "まだ定義されたメーターがありません。"
 msgid "Usage Report"
 msgstr "使用状況レポート"
 
-#: dashboards/admin/metering/tabs.py:63 dashboards/admin/metering/views.py:122
+#: dashboards/admin/metering/tabs.py:63 dashboards/admin/metering/views.py:123
 msgid "Nova"
 msgstr "Nova"
 
-#: dashboards/admin/metering/tabs.py:64 dashboards/admin/metering/views.py:123
+#: dashboards/admin/metering/tabs.py:64 dashboards/admin/metering/views.py:124
 msgid "Neutron"
 msgstr "Neutron"
 
-#: dashboards/admin/metering/tabs.py:65 dashboards/admin/metering/views.py:124
+#: dashboards/admin/metering/tabs.py:65 dashboards/admin/metering/views.py:125
 msgid "Glance"
 msgstr "Glance"
 
-#: dashboards/admin/metering/tabs.py:66 dashboards/admin/metering/views.py:125
+#: dashboards/admin/metering/tabs.py:66 dashboards/admin/metering/views.py:126
 msgid "Cinder"
 msgstr "Cinder"
 
-#: dashboards/admin/metering/tabs.py:67 dashboards/admin/metering/views.py:126
+#: dashboards/admin/metering/tabs.py:67 dashboards/admin/metering/views.py:127
 msgid "Swift_meters"
 msgstr "Swift_meters"
 
-#: dashboards/admin/metering/tabs.py:68 dashboards/admin/metering/views.py:127
+#: dashboards/admin/metering/tabs.py:68 dashboards/admin/metering/views.py:128
 msgid "Kwapi"
 msgstr "Kwapi"
 
-#: dashboards/admin/metering/tabs.py:69 dashboards/admin/metering/views.py:128
+#: dashboards/admin/metering/tabs.py:69 dashboards/admin/metering/views.py:129
 msgid "IPMI"
 msgstr "IPMI"
 
 #: dashboards/admin/metering/tabs.py:82 dashboards/admin/metering/views.py:68
+#: dashboards/admin/metering/views.py:140
 msgid "Dates cannot be recognized."
 msgstr "日付を認識できません"
 
-#: dashboards/admin/metering/tabs.py:90 dashboards/admin/metering/views.py:147
+#: dashboards/admin/metering/tabs.py:90 dashboards/admin/metering/views.py:148
 #: dashboards/admin/overview/views.py:65
 #: dashboards/identity/projects/views.py:90
 msgid "Unable to retrieve project list."
@@ -2869,10 +2899,6 @@ msgstr "プロジェクト名"
 #: dashboards/admin/metering/views.py:105
 msgid "Time"
 msgstr "時刻"
-
-#: dashboards/admin/metering/views.py:139
-msgid "Dates cannot be recognised."
-msgstr "日付を認識できません"
 
 #: dashboards/admin/metering/templates/metering/_daily.html:19
 msgid "Select a pre-defined period or specify date."

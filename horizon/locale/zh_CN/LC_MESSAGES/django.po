@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-26 23:48-0600\n"
+"POT-Creation-Date: 2015-01-29 23:24-0600\n"
 "PO-Revision-Date: 2015-01-27 05:48+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
@@ -187,10 +187,6 @@ msgstr "帮助"
 msgid "Sign Out"
 msgstr "退出"
 
-#: templates/splash.html:8 templates/auth/login.html:4
-msgid "Login"
-msgstr "登录"
-
 #: templates/auth/_login.html:5
 msgid "Log In"
 msgstr "登录"
@@ -209,6 +205,10 @@ msgstr "使用其他用户登录或返回 <a href=\"%(home_url)s\">首页</a>"
 #: templates/auth/_login.html:32
 msgid "Sign In"
 msgstr "登入"
+
+#: templates/auth/login.html:4
+msgid "Login"
+msgstr "登录"
 
 #: templates/horizon/_messages.html:7
 msgid "Info: "
