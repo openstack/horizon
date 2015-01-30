@@ -1008,6 +1008,14 @@ tr.terminated {
   }
 }
 
+.javascript_disabled_alert {
+  @extend .alert-danger;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  padding: 8px;
+  text-align: center;
+}
+
 #content_body {
   padding-left: $sidebar-width + 15px;
   padding-right: 15px;
