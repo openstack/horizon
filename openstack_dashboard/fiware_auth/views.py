@@ -12,12 +12,22 @@
 # limitations under the License.
 
 import logging
+import datetime
 
+from django.conf import settings
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import redirect
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
+from django.utils.translation import ugettext_lazy as _
+from django.template.loader import render_to_string
+from django.core.mail import EmailMultiAlternatives
+from django.utils import timezone
 
+from horizon import messages
+from horizon import exceptions
+
+from openstack_dashboard import fiware_api
 from openstack_dashboard.fiware_auth import forms as fiware_forms
 from openstack_dashboard.fiware_auth import models as fiware_models
 
@@ -72,6 +82,9 @@ class RegistrationView(_RequestPassingFormView):
     http_method_names = ['get', 'post', 'head', 'options', 'trace']
     success_url = reverse_lazy('login')
     template_name = 'auth/registration/registration.html'
+    # TODO(garcianavalon) as settings
+    EMAIL_HTML_TEMPLATE = 'email/base_email.html'
+    EMAIL_TEXT_TEMPLATE = 'email/base_email.txt'
 
     def form_valid(self, request, form):
         new_user = self.register(request, **form.cleaned_data)
@@ -85,15 +98,53 @@ class RegistrationView(_RequestPassingFormView):
     def register(self, request, **cleaned_data):
         LOG.info('Singup user {0}.'.format(cleaned_data['username']))
         #delegate to the manager to create all the stuff
-        new_user = fiware_models.RegistrationProfile.objects.create_inactive_user(request, **cleaned_data)
-        return new_user
+        try:
+            # We use the keystoneclient directly here because the keystone api
+            # reuses the request (and therefor the session). We make the normal rest-api
+            # calls, using our own user for our portal
+            new_user = fiware_api.keystone.register_user(
+                name=cleaned_data['username'],
+                email=cleaned_data['email'],
+                password=cleaned_data['password1'])
+            LOG.debug('User {0} was successfully created.'.format(cleaned_data['username']))
+            self.send_activation_email(new_user)
+            return new_user
 
+        except Exception:
+            msg = _('Unable to create user.')
+            LOG.warning(msg)
+            exceptions.handle(request, msg)
+
+    def send_activation_email(self, user):
+        # TODO(garcianavalon) subject, message and from_email as settings/files
+        subject = 'Welcome to FIWARE'
+        # Email subject *must not* contain newlines
+        subject = ''.join(subject.splitlines())
+        content = 'New user created at FIWARE :D/n Go to http://localhost:8000/activate/?activation_key={0}&user={1} to activate'.format(user.activation_key, user.id)
+        #send a mail for activation
+        self.send_html_email(to=[user.email],
+                             from_email='admin@fiware-idm-test.dit.upm.es',
+                             subject=subject,
+                             content=content)
+
+    def send_html_email(self, to, from_email, subject, content):
+        # TODO(garcianavalon) pass the context dict as param is better or use kwargs
+        LOG.debug('Sending email to {0} with subject {1}'.format(to, subject))
+        context = {
+            'content':content
+        }
+        text_content = render_to_string(self.EMAIL_TEXT_TEMPLATE, context)
+        html_content = render_to_string(self.EMAIL_HTML_TEMPLATE, context)
+        msg = EmailMultiAlternatives(subject, text_content, from_email, to)
+        msg.attach_alternative(html_content, "text/html")
+        msg.send()
 
 class ActivationView(TemplateView):
 
     http_method_names = ['get']
     template_name = 'auth/activation/activate.html'
     success_url = reverse_lazy('login')
+    ACTIVATED = u"ALREADY_ACTIVATED"
 
     def get(self, request, *args, **kwargs):
         activated_user = self.activate(request, *args, **kwargs)
@@ -103,10 +154,17 @@ class ActivationView(TemplateView):
 
     def activate(self, request):
         activation_key = request.GET.get('activation_key')
+        user = request.GET.get('user')
         LOG.info('Requested activation for key {0}.'.format(activation_key))
-        activated_user = fiware_models.RegistrationProfile.objects.activate_user(
-                                                            request, activation_key)
-        return activated_user
+        try:
+            activated_user = fiware_api.keystone.activate_user(user, activation_key)
+            LOG.debug('User {0} was successfully activated.'.format(user.name))
+            messages.success(request, _('User "%s" was successfully activated.') %user.name)
+            return activated_user
+        except Exception:
+            msg = _('Unable to activate user.')
+            LOG.warning(msg)
+            exceptions.handle(request, msg)
 
 class RequestPasswordResetView(_RequestPassingFormView):
     form_class = fiware_forms.EmailForm

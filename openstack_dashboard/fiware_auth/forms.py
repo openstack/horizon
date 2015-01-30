@@ -64,16 +64,16 @@ class RegistrationForm(ConfirmPasswordForm):
     """
 
     captcha = ReCaptchaField(attrs={
-                    'theme' : 'custom',
-                    'custom_theme_widget': 'recaptcha_widget'
-                })
+        'theme' : 'custom',
+        'custom_theme_widget': 'recaptcha_widget'
+        })
     username = forms.RegexField(regex=r'^[\w.@+-]+$',
                                 max_length=30,
                                 label=_("Username"),
                                 error_messages={'invalid': _("This value may contain only letters, numbers and @/./+/-/_ characters.")})
-    
+
     email = forms.EmailField(label=_("E-mail"),
-                            required=True)
+                             required=True)
 
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
