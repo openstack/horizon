@@ -74,6 +74,9 @@ class BasePage(pageobject.PageObject):
             # it will raise the NoSuchElementException exception.
             pass
 
+    def change_project(self, name):
+        self.topbar.user_dropdown_project.click_on_project(name)
+
 
 class BaseNavigationPage(BasePage, navigation.Navigation):
     pass

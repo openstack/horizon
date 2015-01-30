@@ -20,6 +20,9 @@ class TopBarRegion(baseregion.BaseRegion):
     _user_dropdown_menu_locator = (by.By.ID, 'profile_editor_switcher')
     _openstack_brand_locator = (by.By.CSS_SELECTOR, 'a[href*="/home/"]')
 
+    _user_dropdown_project_locator = (by.By.CSS_SELECTOR,
+                                      'div.dropdown.context-selection')
+
     @property
     def user(self):
         return self._get_element(*self._user_dropdown_menu_locator)
@@ -37,3 +40,9 @@ class TopBarRegion(baseregion.BaseRegion):
     @property
     def is_logged_in(self):
         return self._is_element_visible(*self._user_dropdown_menu_locator)
+
+    @property
+    def user_dropdown_project(self):
+        src_elem = self._get_element(*self._user_dropdown_project_locator)
+        return menus.ProjectDropDownRegion(self.driver,
+                                           self.conf, src_elem)
