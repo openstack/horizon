@@ -62,6 +62,8 @@ class NodeGroupsTab(tabs.Tab):
                 ng["node_group_template"] = helpers.safe_call(
                     saharaclient.nodegroup_template_get,
                     request, ng.get("node_group_template_id", None))
+                ng["security_groups_full"] = helpers.get_security_groups(
+                    request, ng.get("security_groups"))
         except Exception:
             template = {}
             exceptions.handle(request,

@@ -125,7 +125,8 @@ def data(TEST):
         "updated_at": None,
         "volume_mount_prefix": "/volumes/disk",
         "volumes_per_node": 0,
-        "volumes_size": 0
+        "volumes_size": 0,
+        "security_groups": []
     }
 
     ngt1 = node_group_templates.NodeGroupTemplate(
@@ -241,7 +242,8 @@ def data(TEST):
                 "updated_at": "2014-06-04 20:02:14.841760",
                 "volume_mount_prefix": "/volumes/disk",
                 "volumes_per_node": 0,
-                "volumes_size": 0
+                "volumes_size": 0,
+                "security_groups": []
             },
             {
                 "count": 2,
@@ -281,7 +283,8 @@ def data(TEST):
                 "updated_at": "2014-06-04 20:02:15.355745",
                 "volume_mount_prefix": "/volumes/disk",
                 "volumes_per_node": 0,
-                "volumes_size": 0
+                "volumes_size": 0,
+                "security_groups": ["b7857890-09bf-4ee0-a0d5-322d7a6978bf"]
             }
         ],
         "plugin_name": "vanilla",

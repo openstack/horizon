@@ -23,6 +23,9 @@ from openstack_dashboard.api import nova
 from openstack_dashboard.api import sahara as saharaclient
 
 
+from openstack_dashboard.dashboards.project. \
+    data_processing.utils import workflow_helpers as helpers
+
 LOG = logging.getLogger(__name__)
 
 
@@ -57,8 +60,12 @@ class GeneralTab(tabs.Tab):
                 exceptions.handle(request,
                                   _("Unable to fetch floating ip pools."))
 
+        security_groups = helpers.get_security_groups(
+            request, template.security_groups)
+
         return {"template": template, "flavor": flavor,
-                "floating_ip_pool_name": floating_ip_pool_name}
+                "floating_ip_pool_name": floating_ip_pool_name,
+                "security_groups": security_groups}
 
     def _get_floating_ip_pool_name(self, request, pool_id):
         pools = [pool for pool in network.floating_ip_pools_list(
