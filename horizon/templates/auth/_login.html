@@ -19,7 +19,7 @@
     </div>
     {% endif  %}
     {% if request.COOKIES.logout_reason %}
-    <div class="form-group clearfix error">
+    <div class="form-group clearfix error" id="logout_reason">
       <span class="help-block alert alert-danger"><p>{{ request.COOKIES.logout_reason }}</p></span>
     </div>
     {% endif %}

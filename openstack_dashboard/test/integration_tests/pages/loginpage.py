@@ -25,6 +25,7 @@ class LoginPage(pageobject.PageObject):
     _login_password_field_locator = (by.By.CSS_SELECTOR, '#id_password')
     _login_submit_button_locator = (by.By.CSS_SELECTOR,
                                     'div.modal-footer button.btn')
+    _login_logout_reason_locator = (by.By.CSS_SELECTOR, '#logout_reason')
 
     def __init__(self, driver, conf):
         super(LoginPage, self).__init__(driver, conf)
@@ -51,6 +52,9 @@ class LoginPage(pageobject.PageObject):
 
     def _press_enter_on_login_button(self):
         self.login_button.send_keys(keys.Keys.RETURN)
+
+    def is_logout_reason_displayed(self):
+        return self._get_element(*self._login_logout_reason_locator)
 
     def login(self, user=None, password=None):
         return self.login_with_mouse_click(user, password)

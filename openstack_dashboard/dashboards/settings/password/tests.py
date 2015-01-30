@@ -55,24 +55,6 @@ class ChangePasswordTests(test.TestCase):
 
         self.assertFormError(res, "form", None, ['Passwords do not match.'])
 
-    # TODO(jpichon): Temporarily disabled, see bug #1333144
-    @unittest.skip("Temporarily disabled, see bug #1333144")
-    @test.create_stubs({api.keystone: ('user_update_own_password', )})
-    def test_change_password_shows_message_on_login_page(self):
-        api.keystone.user_update_own_password(IsA(http.HttpRequest),
-                                              'oldpwd',
-                                              'normalpwd').AndReturn(None)
-        self.mox.ReplayAll()
-
-        formData = {'method': 'PasswordForm',
-                    'current_password': 'oldpwd',
-                    'new_password': 'normalpwd',
-                    'confirm_password': 'normalpwd'}
-        res = self.client.post(INDEX_URL, formData, follow=True)
-
-        info_msg = "Password changed. Please log in again to continue."
-        self.assertContains(res, info_msg)
-
     @unittest.skipUnless(django.VERSION[0] >= 1 and django.VERSION[1] >= 6,
                          "'HttpResponseRedirect' object has no attribute "
                          "'url' prior to Django 1.6")

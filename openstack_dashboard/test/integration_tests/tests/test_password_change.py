@@ -17,6 +17,15 @@ NEW_PASSWORD = "123"
 
 class TestPasswordChange(helpers.TestCase):
 
+    def _reset_password(self):
+        passwordchange_page = self.home_pg.go_to_settings_changepasswordpage()
+        passwordchange_page.reset_to_default_password(NEW_PASSWORD)
+
+    def _login(self):
+        self.login_pg.login()
+        self.assertTrue(self.home_pg.is_logged_in,
+                        "Failed to login with default password")
+
     def test_password_change(self):
         """Changes the password, verifies it was indeed changed and resets to
         default password.
@@ -31,11 +40,24 @@ class TestPasswordChange(helpers.TestCase):
                 user=self.conf.identity.username, password=NEW_PASSWORD)
             self.assertTrue(self.home_pg.is_logged_in,
                             "Failed to login with new password")
-            settings_page = self.home_pg.go_to_settings_usersettingspage()
-            passwordchange_page = settings_page.\
-                go_to_settings_changepasswordpage()
         finally:
-            passwordchange_page.reset_to_default_password(NEW_PASSWORD)
-            self.login_pg.login()
-            self.assertTrue(self.home_pg.is_logged_in,
-                            "Failed to login with default password")
+            self._reset_password()
+            self._login()
+
+    def test_show_message_after_logout(self):
+        """Ensure an informational message is shown on the login page after the
+        user is logged out.
+        """
+        passwordchange_page = self.home_pg.go_to_settings_changepasswordpage()
+
+        try:
+            passwordchange_page.change_password(self.conf.identity.password,
+                                                NEW_PASSWORD)
+            self.assertTrue(
+                self.login_pg.is_logout_reason_displayed(),
+                "The logout reason message was not found on the login page")
+        finally:
+            self.login_pg.login(user=self.conf.identity.username,
+                                password=NEW_PASSWORD)
+            self._reset_password()
+            self._login()
