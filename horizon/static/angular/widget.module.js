@@ -12,7 +12,8 @@
     'hz.widget.transfer-table',
     'hz.widget.charts',
     'hz.widget.action-list',
-    'hz.widget.metadata-tree'
+    'hz.widget.metadata-tree',
+    'hz.widget.metadata-display'
   ])
     .constant('basePath', '/static/angular/');
 
