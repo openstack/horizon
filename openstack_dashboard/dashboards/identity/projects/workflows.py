@@ -530,6 +530,18 @@ class UpdateProjectInfoAction(CreateProjectInfoAction):
             self.fields['enabled'].help_text = _(
                 'You cannot disable your current project')
 
+    def clean(self):
+        cleaned_data = super(UpdateProjectInfoAction, self).clean()
+        # NOTE(tsufiev): in case the current project is being edited, its
+        # 'enabled' field is disabled to prevent changing the field value
+        # which is always `True` for the current project (because the user
+        # logged in it). Since Django treats disabled checkbox as providing
+        # `False` value even if its initial value is `True`, we need to
+        # restore the original `True` value of 'enabled' field here.
+        if self.fields['enabled'].widget.attrs.get('disabled', False):
+            cleaned_data['enabled'] = True
+        return cleaned_data
+
     class Meta:
         name = _("Project Information")
         slug = 'update_info'
