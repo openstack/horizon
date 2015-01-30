@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-26 23:48-0600\n"
+"POT-Creation-Date: 2015-01-29 23:24-0600\n"
 "PO-Revision-Date: 2015-01-27 05:48+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/projects/p/horizon/language/pa_IN/)\n"
@@ -185,10 +185,6 @@ msgstr "ਮਦਦ"
 msgid "Sign Out"
 msgstr "ਸਾਈਨ ਆਊਟ"
 
-#: templates/splash.html:8 templates/auth/login.html:4
-msgid "Login"
-msgstr "ਲਾਗਇਨ"
-
 #: templates/auth/_login.html:5
 msgid "Log In"
 msgstr "ਲਾਗ ਇਨ"
@@ -207,6 +203,10 @@ msgstr "ਵੱਖਰੇ ਵਰਤੋਂਕਾਰ ਵਜੋਂ ਲਾਗਇਨ �
 #: templates/auth/_login.html:32
 msgid "Sign In"
 msgstr "ਸਾਈਨ ਇਨ ਕਰੋ"
+
+#: templates/auth/login.html:4
+msgid "Login"
+msgstr "ਲਾਗਇਨ"
 
 #: templates/horizon/_messages.html:7
 msgid "Info: "
