@@ -166,7 +166,7 @@ class DataProcessingNodeGroupTests(test.TestCase):
              'volumes_per_node': 0,
              'volumes_size': 0,
              'floating_ip_pool': None,
-             'autogroup': True,
+             'security_autogroup': True,
              'processes': 'HDFS:namenode'})
 
         self.assertNoFormErrors(res)
