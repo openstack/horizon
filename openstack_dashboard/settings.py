@@ -225,8 +225,6 @@ INSTALLED_APPS = [
     'compressor',
     'horizon',
     'openstack_auth',
-    'fiware_auth',
-    'fiware_oauth2',
     'captcha',
 ]
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
