@@ -148,8 +148,10 @@ horizon.network_topology = {
     }
     $('.toggleView > .btn').each(function(){
       var $this = $(this);
-      if($this.hasClass(self.draw_mode)) {
+      if($this.data('value') === self.draw_mode) {
         $this.addClass('active');
+      } else {
+        $this.removeClass('active');
       }
     });
   },
