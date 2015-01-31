@@ -144,7 +144,7 @@ def keystoneclient(request, admin=False):
     """
     user = request.user
     if admin:
-        if not policy.check(("identity", "admin_required"), request):
+        if not policy.check((("identity", "admin_required"),), request):
             raise exceptions.NotAuthorized
         endpoint_type = 'adminURL'
     else:
