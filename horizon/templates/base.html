@@ -15,6 +15,11 @@
     {% include "horizon/_custom_head_js.html" %}
   </head>
   <body id="{% block body_id %}{% endblock %}" ng-app='hz'>
+    <noscript>
+      <div class="javascript_disabled_alert">
+        This application requires JavaScript to be enabled on your web browser.
+      </div>
+    </noscript>
     {% block content %}
       <div id="container">
         <div class='topbar'>
