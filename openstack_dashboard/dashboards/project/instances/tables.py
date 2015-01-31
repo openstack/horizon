@@ -814,7 +814,8 @@ def get_size(instance):
             "id": instance.id,
             "size_disk": size_disk,
             "size_ram": size_ram,
-            "vcpus": instance.full_flavor.vcpus
+            "vcpus": instance.full_flavor.vcpus,
+            "flavor_id": instance.full_flavor.id
         }
         return template.loader.render_to_string(template_name, context)
     return _("Not available")

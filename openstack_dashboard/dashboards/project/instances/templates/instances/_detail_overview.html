@@ -48,6 +48,8 @@
     <dt>{% trans "Flavor" %}</dt>
     {% if instance.full_flavor %}
       <dd>{{ instance.full_flavor.name }}</dd>
+      <dt>{% trans "Flavor ID" %}</dt>
+      <dd>{{ instance.full_flavor.id }}</dd>
       <dt>{% trans "RAM" %}</dt>
       <dd>{{ instance.full_flavor.ram|mb_float_format }}</dd>
       <dt>{% trans "VCPUs" %}</dt>
