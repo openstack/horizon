@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-29 23:24-0600\n"
-"PO-Revision-Date: 2015-01-29 17:58+0000\n"
+"POT-Creation-Date: 2015-01-30 21:37-0600\n"
+"PO-Revision-Date: 2015-01-30 21:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -550,7 +550,7 @@ msgstr "관리자"
 #: dashboards/identity/groups/forms.py:30
 #: dashboards/identity/groups/forms.py:56
 #: dashboards/identity/groups/tables.py:115
-#: dashboards/identity/projects/tables.py:225
+#: dashboards/identity/projects/tables.py:226
 #: dashboards/identity/projects/workflows.py:144
 #: dashboards/project/access_and_security/security_groups/forms.py:37
 #: dashboards/project/access_and_security/security_groups/forms.py:66
@@ -559,7 +559,7 @@ msgstr "관리자"
 #: dashboards/project/data_processing/cluster_templates/tables.py:108
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:6
 #: dashboards/project/data_processing/clusters/tables.py:105
-#: dashboards/project/data_processing/clusters/tabs.py:134
+#: dashboards/project/data_processing/clusters/tabs.py:137
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:6
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:9
 #: dashboards/project/data_processing/data_sources/tables.py:57
@@ -571,10 +571,10 @@ msgstr "관리자"
 #: dashboards/project/data_processing/jobs/tables.py:98
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:6
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:54
-#: dashboards/project/data_processing/jobs/workflows/create.py:55
+#: dashboards/project/data_processing/jobs/workflows/create.py:53
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:76
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:6
-#: dashboards/project/data_processing/utils/workflow_helpers.py:107
+#: dashboards/project/data_processing/utils/workflow_helpers.py:113
 #: dashboards/project/database_backups/tables.py:145
 #: dashboards/project/database_backups/templates/database_backups/details.html:18
 #: dashboards/project/database_backups/templates/database_backups/details.html:64
@@ -879,7 +879,7 @@ msgstr "집계에서 호스트 추가/삭제"
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:25
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:25
 #: dashboards/identity/domains/workflows.py:300
-#: dashboards/identity/projects/workflows.py:552
+#: dashboards/identity/projects/workflows.py:564
 #: dashboards/identity/users/templates/users/_update.html:33
 #: dashboards/project/instances/workflows/update_instance.py:133
 #: dashboards/project/networks/subnets/workflows.py:161
@@ -1147,7 +1147,7 @@ msgstr "VCPUs"
 #: dashboards/admin/instances/tables.py:164
 #: dashboards/admin/instances/templates/instances/index.html:3
 #: dashboards/identity/projects/workflows.py:51
-#: dashboards/project/data_processing/clusters/tabs.py:149
+#: dashboards/project/data_processing/clusters/tabs.py:152
 #: dashboards/project/databases/panel.py:23
 #: dashboards/project/databases/tables.py:284
 #: dashboards/project/databases/templates/databases/index.html:3
@@ -1226,7 +1226,7 @@ msgstr "유동 IP"
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:29
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:32
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:42
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:116
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:175
 #: dashboards/project/instances/templates/instances/_detail_overview.html:83
 #: dashboards/project/instances/workflows/create_instance.py:545
 #: dashboards/project/instances/workflows/update_instance.py:80
@@ -1841,9 +1841,9 @@ msgstr "영역"
 #: dashboards/project/routers/tables.py:200
 #: dashboards/project/routers/ports/tables.py:105
 #: dashboards/project/routers/templates/routers/_detail_overview.html:13
-#: dashboards/project/stacks/tables.py:192
-#: dashboards/project/stacks/tables.py:236
-#: dashboards/project/stacks/tables.py:283
+#: dashboards/project/stacks/tables.py:197
+#: dashboards/project/stacks/tables.py:239
+#: dashboards/project/stacks/tables.py:286
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:19
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:26
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:35
@@ -2056,8 +2056,8 @@ msgstr "시스템 정보"
 #: dashboards/identity/domains/tables.py:202
 #: dashboards/identity/domains/workflows.py:39
 #: dashboards/identity/groups/tables.py:195
-#: dashboards/identity/projects/tables.py:235
-#: dashboards/identity/projects/tables.py:237
+#: dashboards/identity/projects/tables.py:236
+#: dashboards/identity/projects/tables.py:239
 #: dashboards/identity/projects/workflows.py:150
 #: dashboards/identity/projects/workflows.py:523
 #: dashboards/identity/users/tables.py:223
@@ -2428,7 +2428,7 @@ msgstr "연관 업데이트"
 #: dashboards/identity/groups/forms.py:33
 #: dashboards/identity/groups/forms.py:59
 #: dashboards/identity/groups/tables.py:117
-#: dashboards/identity/projects/tables.py:229
+#: dashboards/identity/projects/tables.py:230
 #: dashboards/identity/projects/workflows.py:148
 #: dashboards/project/access_and_security/security_groups/forms.py:44
 #: dashboards/project/access_and_security/security_groups/forms.py:73
@@ -2444,12 +2444,12 @@ msgstr "연관 업데이트"
 #: dashboards/project/data_processing/data_sources/tables.py:63
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:13
 #: dashboards/project/data_processing/data_sources/workflows/create.py:46
-#: dashboards/project/data_processing/job_binaries/forms.py:77
+#: dashboards/project/data_processing/job_binaries/forms.py:131
 #: dashboards/project/data_processing/job_binaries/tables.py:84
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:11
 #: dashboards/project/data_processing/jobs/tables.py:101
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:10
-#: dashboards/project/data_processing/jobs/workflows/create.py:65
+#: dashboards/project/data_processing/jobs/workflows/create.py:76
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:10
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:39
 #: dashboards/project/database_backups/templates/database_backups/details.html:20
@@ -2628,7 +2628,7 @@ msgstr "네임스페이스"
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:35
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:82
 #: dashboards/project/data_processing/jobs/workflows/launch.py:407
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:320
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:340
 #: dashboards/project/database_backups/tables.py:150
 #: dashboards/project/database_backups/templates/database_backups/details.html:36
 #: dashboards/project/databases/tables.py:331
@@ -3781,7 +3781,7 @@ msgid "Router Overview: %(router_name)s"
 msgstr "라우터 개요: %(router_name)s"
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:11
-#: dashboards/identity/projects/tables.py:234
+#: dashboards/identity/projects/tables.py:235
 #: dashboards/identity/users/templates/users/_detail_overview.html:25
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:22
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:16
@@ -4066,10 +4066,10 @@ msgstr "\nQoS 스펙은 볼륨 유형과 연결 가능합니다.\n이는 볼륨 
 #: dashboards/project/data_processing/clusters/workflows/create.py:202
 #: dashboards/project/data_processing/data_sources/workflows/create.py:79
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
-#: dashboards/project/data_processing/jobs/workflows/create.py:119
+#: dashboards/project/data_processing/jobs/workflows/create.py:146
 #: dashboards/project/data_processing/jobs/workflows/launch.py:406
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:190
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:319
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:210
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:339
 #: dashboards/project/networks/workflows.py:342
 #: dashboards/project/networks/subnets/workflows.py:57
 msgid "Create"
@@ -4637,12 +4637,12 @@ msgstr "도메인"
 
 #: dashboards/identity/domains/tables.py:38
 #: dashboards/identity/groups/tables.py:91
-#: dashboards/identity/projects/tables.py:53
+#: dashboards/identity/projects/tables.py:54
 msgid "Manage Members"
 msgstr "관리 멤버"
 
 #: dashboards/identity/domains/tables.py:54
-#: dashboards/identity/projects/tables.py:69
+#: dashboards/identity/projects/tables.py:70
 msgid "Modify Groups"
 msgstr "그룹 수정"
 
@@ -5009,47 +5009,47 @@ msgid "Group Management"
 msgstr "그룹 관리"
 
 #: dashboards/identity/projects/panel.py:27
-#: dashboards/identity/projects/tables.py:243
+#: dashboards/identity/projects/tables.py:245
 #: dashboards/identity/projects/templates/projects/index.html:3
 #: dashboards/identity/projects/templates/projects/index.html:6
 #: templates/403.html:25 templates/404.html:24
 msgid "Projects"
 msgstr "프로젝트"
 
-#: dashboards/identity/projects/tables.py:32
+#: dashboards/identity/projects/tables.py:33
 msgid "Set as Active Project"
 msgstr "활성 프로젝트로 설정"
 
-#: dashboards/identity/projects/tables.py:87
+#: dashboards/identity/projects/tables.py:88
 msgid "View Usage"
 msgstr "사용량 확인"
 
-#: dashboards/identity/projects/tables.py:98
+#: dashboards/identity/projects/tables.py:99
 #: dashboards/identity/projects/workflows.py:377
 #: dashboards/identity/projects/workflows.py:378
 msgid "Create Project"
 msgstr "프로젝트 생성"
 
-#: dashboards/identity/projects/tables.py:110
-#: dashboards/identity/projects/workflows.py:551
+#: dashboards/identity/projects/tables.py:111
+#: dashboards/identity/projects/workflows.py:563
 msgid "Edit Project"
 msgstr "프로젝트 편집"
 
-#: dashboards/identity/projects/tables.py:122
+#: dashboards/identity/projects/tables.py:123
 msgid "Modify Quotas"
 msgstr "Quotas 수정"
 
-#: dashboards/identity/projects/tables.py:139
+#: dashboards/identity/projects/tables.py:140
 msgid "Delete Project"
 msgid_plural "Delete Projects"
 msgstr[0] "프로젝트 삭제"
 
-#: dashboards/identity/projects/tables.py:147
+#: dashboards/identity/projects/tables.py:148
 msgid "Deleted Project"
 msgid_plural "Deleted Projects"
 msgstr[0] "프로젝트 삭제함"
 
-#: dashboards/identity/projects/tables.py:216
+#: dashboards/identity/projects/tables.py:217
 #: dashboards/identity/users/tables.py:192
 msgid "This name is already taken."
 msgstr "이 이름은 현재 사용중입니다."
@@ -5110,7 +5110,7 @@ msgid "Domain Name"
 msgstr "도메인 이름"
 
 #: dashboards/identity/projects/workflows.py:165
-#: dashboards/identity/projects/workflows.py:534
+#: dashboards/identity/projects/workflows.py:546
 msgid "Project Information"
 msgstr "프로젝트 정보"
 
@@ -5166,46 +5166,46 @@ msgstr "프로젝트 quota를 설정하지 못하였습니다."
 msgid "You cannot disable your current project"
 msgstr "현재 프로젝트를 비활성화할 수 없습니다"
 
-#: dashboards/identity/projects/workflows.py:536
+#: dashboards/identity/projects/workflows.py:548
 msgid "Edit the project details."
 msgstr "프로젝트 상세 정보 편집"
 
-#: dashboards/identity/projects/workflows.py:553
+#: dashboards/identity/projects/workflows.py:565
 #, python-format
 msgid "Modified project \"%s\"."
 msgstr "프로젝트 \"%s\" 수정하였습니다."
 
-#: dashboards/identity/projects/workflows.py:554
+#: dashboards/identity/projects/workflows.py:566
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr "프로젝트 \"%s\"를 수정할 수 없습니다."
 
-#: dashboards/identity/projects/workflows.py:643
+#: dashboards/identity/projects/workflows.py:655
 msgid ""
 "You cannot revoke your administrative privileges from the project you are "
 "currently logged into. Please switch to another project with administrative "
 "privileges or remove the administrative role manually via the CLI."
 msgstr "현재 로그인된 사용자로는 프로젝트에서 관리 권한을 무효할 수 없습니다. 관리자 권한이 있는 다른 프로젝트로 전환을 하거나, CLI를 통해 수동으로 관리자 역할을 제거하십시오."
 
-#: dashboards/identity/projects/workflows.py:703
+#: dashboards/identity/projects/workflows.py:715
 msgid ", update project groups"
 msgstr ", 프로젝트 그룹 업데이트"
 
-#: dashboards/identity/projects/workflows.py:707
+#: dashboards/identity/projects/workflows.py:719
 #, python-format
 msgid ""
 "Failed to modify %(users_to_modify)s project members%(group_msg)s and update"
 " project quotas."
 msgstr "%(users_to_modify)s 프로젝트 멤버 수정하고 %(group_msg)s , 프로젝트 quota를 업데이트하는데 실패했습니다"
 
-#: dashboards/identity/projects/workflows.py:784
+#: dashboards/identity/projects/workflows.py:796
 #, python-format
 msgid ""
 "Failed to modify %s project members, update project groups and update "
 "project quotas."
 msgstr "%s 프로젝트 멤버를 수정하고, 프로젝트 그룹과 프로젝트 quota를 업데이트하는데 실패했습니다."
 
-#: dashboards/identity/projects/workflows.py:818
+#: dashboards/identity/projects/workflows.py:830
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
@@ -5303,7 +5303,8 @@ msgstr "비밀번호가 일치하지 않습니다."
 
 #: dashboards/identity/users/forms.py:86
 #: dashboards/identity/users/forms.py:169
-#: dashboards/project/data_processing/job_binaries/forms.py:72
+#: dashboards/project/data_processing/job_binaries/forms.py:121
+#: dashboards/project/data_processing/job_binaries/forms.py:128
 #: dashboards/project/databases/workflows/create_instance.py:196
 #: dashboards/project/instances/forms.py:156
 msgid "Password"
@@ -6725,7 +6726,7 @@ msgstr "플러그인"
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:81
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:8
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:32
-#: dashboards/project/data_processing/utils/workflow_helpers.py:175
+#: dashboards/project/data_processing/utils/workflow_helpers.py:195
 msgid "Version"
 msgstr "버전"
 
@@ -6744,7 +6745,7 @@ msgstr "노드 그룹"
 #: dashboards/project/data_processing/job_binaries/tabs.py:27
 #: dashboards/project/data_processing/job_executions/tabs.py:26
 #: dashboards/project/data_processing/jobs/tabs.py:26
-#: dashboards/project/data_processing/nodegroup_templates/tabs.py:30
+#: dashboards/project/data_processing/nodegroup_templates/tabs.py:33
 msgid "General Info"
 msgstr "일반 정보"
 
@@ -6752,7 +6753,7 @@ msgstr "일반 정보"
 msgid "Unable to fetch cluster template details."
 msgstr "클러스터 템플릿에 대한 자세한 정보를 가져올 수 없습니다."
 
-#: dashboards/project/data_processing/cluster_templates/tabs.py:68
+#: dashboards/project/data_processing/cluster_templates/tabs.py:70
 msgid "Unable to fetch node group details."
 msgstr "노드 그룹에 대한 자세한 정보를 가져올 수 없습니다."
 
@@ -6806,24 +6807,24 @@ msgid "no processes"
 msgstr "no processes"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:34
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:51
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:55
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:60
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:54
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:58
 msgid "Node Configurations"
 msgstr "노드 구성"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:42
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:59
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:63
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:68
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:62
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:66
 #, python-format
 msgid "%(conf_name)s: %(conf_value)s"
 msgstr "%(conf_name)s: %(conf_value)s"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:46
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:63
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:67
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:72
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:66
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:70
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_service_confs.html:17
 msgid "No configurations"
 msgstr "구성 없음"
@@ -6866,24 +6867,24 @@ msgstr "템플릿이 선택되지 않았습니다."
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:26
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:29
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:37
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:107
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:160
 msgid "Auto Security Group"
 msgstr "자동 시큐리티 그룹"
 
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:38
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:41
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:42
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:45
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:83
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:53
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:57
 msgid "Node Processes"
 msgstr "노드 프로세스"
 
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:48
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:51
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:52
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:55
 msgid "Node processes are not specified"
 msgstr "노드 프로세스를 선택하지 않았습니다."
 
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:68
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:71
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:72
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:75
 msgid "Node configurations are not specified"
 msgstr "노드 구성을 선택하지 않았습니다."
 
@@ -6942,7 +6943,7 @@ msgstr "클러스터 템플릿에서 플러그인과 Hadoop 버전을 선택합�
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:83
 #: dashboards/project/data_processing/jobs/workflows/launch.py:408
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:321
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:341
 msgid "Could not create"
 msgstr "생성할 수 없음"
 
@@ -7007,23 +7008,23 @@ msgstr "클러스터 구성"
 msgid "Instances Count"
 msgstr "인스턴스 개수"
 
-#: dashboards/project/data_processing/clusters/tabs.py:111
+#: dashboards/project/data_processing/clusters/tabs.py:114
 msgid "Unable to get node group details."
 msgstr "노드 그룹에 대한 자세한 정보를 가져올 수 없습니다."
 
-#: dashboards/project/data_processing/clusters/tabs.py:137
+#: dashboards/project/data_processing/clusters/tabs.py:140
 msgid "Internal IP"
 msgstr "내부 IP"
 
-#: dashboards/project/data_processing/clusters/tabs.py:140
+#: dashboards/project/data_processing/clusters/tabs.py:143
 msgid "Management IP"
 msgstr "관리 IP"
 
-#: dashboards/project/data_processing/clusters/tabs.py:145
+#: dashboards/project/data_processing/clusters/tabs.py:148
 msgid " "
 msgstr " "
 
-#: dashboards/project/data_processing/clusters/tabs.py:174
+#: dashboards/project/data_processing/clusters/tabs.py:177
 msgid "Unable to fetch instance details."
 msgstr "인스턴스에 대한 자세한 정보를 가져오지 못했습니다."
 
@@ -7403,7 +7404,8 @@ msgstr "데이터 소스 개요"
 
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:11
 #: dashboards/project/data_processing/data_sources/workflows/create.py:35
-#: dashboards/project/data_processing/job_binaries/forms.py:52
+#: dashboards/project/data_processing/job_binaries/forms.py:59
+#: dashboards/project/data_processing/job_binaries/forms.py:65
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:9
 #: dashboards/project/loadbalancers/workflows.py:526
 #: dashboards/project/loadbalancers/workflows.py:530
@@ -7443,40 +7445,48 @@ msgstr "데이터 소스를 생성했습니다."
 msgid "Could not create data source"
 msgstr "데이터 소스를 생성하지 못했습니다."
 
-#: dashboards/project/data_processing/job_binaries/forms.py:50
+#: dashboards/project/data_processing/job_binaries/forms.py:51
 msgid "Storage type"
 msgstr "스토리지 타입"
 
-#: dashboards/project/data_processing/job_binaries/forms.py:55
+#: dashboards/project/data_processing/job_binaries/forms.py:69
 msgid "Internal binary"
 msgstr "내부 바이너리"
 
-#: dashboards/project/data_processing/job_binaries/forms.py:58
+#: dashboards/project/data_processing/job_binaries/forms.py:76
+msgid "Internal Binary"
+msgstr ""
+
+#: dashboards/project/data_processing/job_binaries/forms.py:80
+#: dashboards/project/data_processing/job_binaries/forms.py:86
 msgid "Upload File"
 msgstr "파일 업로드"
 
-#: dashboards/project/data_processing/job_binaries/forms.py:61
+#: dashboards/project/data_processing/job_binaries/forms.py:90
+#: dashboards/project/data_processing/job_binaries/forms.py:96
 msgid "Script name"
 msgstr "스크립트 이름"
 
-#: dashboards/project/data_processing/job_binaries/forms.py:64
+#: dashboards/project/data_processing/job_binaries/forms.py:100
+#: dashboards/project/data_processing/job_binaries/forms.py:107
 msgid "Script text"
 msgstr "스크립트 텍스트"
 
-#: dashboards/project/data_processing/job_binaries/forms.py:69
+#: dashboards/project/data_processing/job_binaries/forms.py:111
+#: dashboards/project/data_processing/job_binaries/forms.py:117
 msgid "Username"
 msgstr "사용자명"
 
-#: dashboards/project/data_processing/job_binaries/forms.py:99
+#: dashboards/project/data_processing/job_binaries/forms.py:153
 msgid "Failed to get list of internal binaries."
 msgstr "내부 바이너리에 대한 목록을 가져오지 못했습니다."
 
-#: dashboards/project/data_processing/job_binaries/forms.py:129
-#: dashboards/project/data_processing/job_binaries/forms.py:172
+#: dashboards/project/data_processing/job_binaries/forms.py:183
+#: dashboards/project/data_processing/job_binaries/forms.py:226
 msgid "Unable to create job binary"
 msgstr "Job 바이너리를 생성하지 못했습니다."
 
-#: dashboards/project/data_processing/job_binaries/forms.py:144
+#: dashboards/project/data_processing/job_binaries/forms.py:198
 #: dashboards/project/data_processing/job_binaries/tables.py:31
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:11
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/create.html:3
@@ -7484,11 +7494,11 @@ msgstr "Job 바이너리를 생성하지 못했습니다."
 msgid "Create Job Binary"
 msgstr "Job 바이너리 생성"
 
-#: dashboards/project/data_processing/job_binaries/forms.py:161
+#: dashboards/project/data_processing/job_binaries/forms.py:215
 msgid "Unable to upload job binary"
 msgstr "Job 바이너리를 업로드 할 수 없습니다."
 
-#: dashboards/project/data_processing/job_binaries/forms.py:194
+#: dashboards/project/data_processing/job_binaries/forms.py:248
 msgid "Failed to fetch internal binary list"
 msgstr "내부 바이너리 목록을 가져올 수 없습니다."
 
@@ -7716,8 +7726,8 @@ msgstr "Jobs"
 #: dashboards/project/data_processing/jobs/tables.py:30
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:3
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:6
-#: dashboards/project/data_processing/jobs/workflows/create.py:95
-#: dashboards/project/data_processing/jobs/workflows/create.py:118
+#: dashboards/project/data_processing/jobs/workflows/create.py:106
+#: dashboards/project/data_processing/jobs/workflows/create.py:145
 msgid "Create Job"
 msgstr "Job 생성"
 
@@ -7754,27 +7764,27 @@ msgid "Select the type of your job:"
 msgstr "Job 유형을 선택하십시오:"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:9
-#: dashboards/project/data_processing/jobs/workflows/create.py:70
+#: dashboards/project/data_processing/jobs/workflows/create.py:81
 msgid "Pig"
 msgstr "Pig"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:10
-#: dashboards/project/data_processing/jobs/workflows/create.py:70
+#: dashboards/project/data_processing/jobs/workflows/create.py:81
 msgid "Hive"
 msgstr "Hive"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:11
-#: dashboards/project/data_processing/jobs/workflows/create.py:71
+#: dashboards/project/data_processing/jobs/workflows/create.py:82
 msgid "Spark"
 msgstr "Spark"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:12
-#: dashboards/project/data_processing/jobs/workflows/create.py:72
+#: dashboards/project/data_processing/jobs/workflows/create.py:83
 msgid "MapReduce"
 msgstr "MapReduce"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:13
-#: dashboards/project/data_processing/jobs/workflows/create.py:74
+#: dashboards/project/data_processing/jobs/workflows/create.py:85
 msgid "Java Action"
 msgstr "Java 실행"
 
@@ -7813,7 +7823,7 @@ msgid "Mains"
 msgstr "Mains"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:18
-#: dashboards/project/data_processing/jobs/workflows/create.py:48
+#: dashboards/project/data_processing/jobs/workflows/create.py:47
 msgid "Libs"
 msgstr "Libs"
 
@@ -7873,36 +7883,40 @@ msgstr "선택"
 msgid "Chosen Libraries"
 msgstr "라이브러리 선택"
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:31
+#: dashboards/project/data_processing/jobs/workflows/create.py:30
 msgid "Choose libraries"
 msgstr "라이브러리 선택"
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:43
-#: dashboards/project/data_processing/jobs/workflows/create.py:82
+#: dashboards/project/data_processing/jobs/workflows/create.py:42
+#: dashboards/project/data_processing/jobs/workflows/create.py:93
 msgid "-- not selected --"
 msgstr "- 선택하지 않음 -"
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:57
+#: dashboards/project/data_processing/jobs/workflows/create.py:55
 msgid "Job Type"
 msgstr "Job 유형"
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:59
+#: dashboards/project/data_processing/jobs/workflows/create.py:62
+#: dashboards/project/data_processing/jobs/workflows/create.py:70
+#: dashboards/project/data_processing/jobs/workflows/create.py:71
+#: dashboards/project/data_processing/jobs/workflows/create.py:72
+#: dashboards/project/data_processing/jobs/workflows/create.py:73
 msgid "Choose a main binary"
 msgstr "메인 바이너리 선택"
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:61
+#: dashboards/project/data_processing/jobs/workflows/create.py:64
 msgid "Choose the binary which should be used in this Job."
 msgstr "Job에 사용될 바이너리를 선택합니다."
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:73
+#: dashboards/project/data_processing/jobs/workflows/create.py:84
 msgid "Streaming MapReduce"
 msgstr "스트리밍 MapReduce"
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:120
+#: dashboards/project/data_processing/jobs/workflows/create.py:147
 msgid "Job created"
 msgstr "Job 생성됨"
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:121
+#: dashboards/project/data_processing/jobs/workflows/create.py:148
 msgid "Could not create job"
 msgstr "Job 생성하지 못함"
 
@@ -7995,20 +8009,20 @@ msgstr "노드 그룹 뎀플릿"
 msgid "Configure Template"
 msgstr "구성 템플릿"
 
-#: dashboards/project/data_processing/nodegroup_templates/tabs.py:43
-#: dashboards/project/data_processing/nodegroup_templates/tabs.py:84
+#: dashboards/project/data_processing/nodegroup_templates/tabs.py:46
+#: dashboards/project/data_processing/nodegroup_templates/tabs.py:91
 msgid "Unable to fetch node group template."
 msgstr "노드 그룹 템플릿을 가져올 수 없습니다."
 
-#: dashboards/project/data_processing/nodegroup_templates/tabs.py:49
+#: dashboards/project/data_processing/nodegroup_templates/tabs.py:52
 msgid "Unable to fetch flavor for template."
 msgstr "템플릿에 대한 flavor를 가져올 수 없습니다."
 
-#: dashboards/project/data_processing/nodegroup_templates/tabs.py:58
+#: dashboards/project/data_processing/nodegroup_templates/tabs.py:61
 msgid "Unable to fetch floating ip pools."
 msgstr "유동 IP 풀을 찾지 못했습니다."
 
-#: dashboards/project/data_processing/nodegroup_templates/tabs.py:71
+#: dashboards/project/data_processing/nodegroup_templates/tabs.py:78
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_service_confs.html:2
 msgid "Service Configurations"
 msgstr "서비스 구성"
@@ -8047,24 +8061,24 @@ msgstr "프로세스가 선택되면, 구성된 범위 내 <b>노드</b>를 대�
 msgid "Select a plugin and version for a new Node group template."
 msgstr "새로운 노드 그룹 템플릿에 대한 플러그인 및 버전을 선택하세요."
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:63
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:67
 msgid "HDFS placement"
 msgstr "HDFS 배치"
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:65
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:69
 msgid "Cinder volumes"
 msgstr "Cinder 볼륨"
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:66
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:70
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:60
 msgid "Volumes per node"
 msgstr "노드당 볼륨"
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:68
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:72
 msgid "Volumes size"
 msgstr "볼륨 크기"
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:71
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:75
 msgid "Ephemeral drive"
 msgstr "Ephemeral 드라이브"
 
@@ -8085,8 +8099,8 @@ msgstr "%(conf_name)s: %(conf_val)s"
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:6
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/create.html:3
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/create.html:6
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:189
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:318
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:209
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:338
 msgid "Create Node Group Template"
 msgstr "노드 그룹 템플릿 생성"
 
@@ -8103,7 +8117,7 @@ msgstr "노드 그룹 템플릿에 대한 자세한 정보"
 msgid "Node Group Template copy %s created"
 msgstr "노드 그룹 템플릿 복사본 %s를 생성함"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/copy.py:83
+#: dashboards/project/data_processing/nodegroup_templates/workflows/copy.py:86
 msgid "Unable to fetch plugin details."
 msgstr "플러그인에 대한 자세한 정보를 가져올 수 없습니다."
 
@@ -8131,36 +8145,48 @@ msgstr "볼륨 크기 (GB)"
 msgid "Unable to generate process choices."
 msgstr "프로세스 선택을 생성할 수 없습니다."
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:109
-msgid "Create security group for this Node Group."
-msgstr "이 노드 그룹에 대한 시큐리티 그룹을 생성합니다."
-
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:118
-msgid "Launch instances in these security groups."
-msgstr "이 시큐리티 그룹에서 인스턴스를 구동합니다."
-
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:123
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:107
 msgid "Processes"
 msgstr "프로세스"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:125
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:109
 msgid "Processes to be launched in node group"
 msgstr "노드 그룹에서 프로세스 실행"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:150
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:134
 msgid "No availability zone specified"
 msgstr "가용성 존이 지정되지 않았습니다."
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:165
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:149
 msgid "Configure Node Group Template"
 msgstr "노드 그룹 템플릿 구성"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:191
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:162
+msgid "Create security group for this Node Group."
+msgstr "이 노드 그룹에 대한 시큐리티 그룹을 생성합니다."
+
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:170
+msgid "Unable to get security group list."
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:177
+msgid "Launch instances in these security groups."
+msgstr "이 시큐리티 그룹에서 인스턴스를 구동합니다."
+
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:182
+msgid "Security"
+msgstr "보안"
+
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:183
+msgid "Control access to instances of the node group."
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:211
 #, python-format
 msgid "Created Node Group Template %s"
 msgstr "노드 그룹 템플릿 %s 생성"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:299
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:319
 msgid "Select plugin and hadoop version"
 msgstr "Hadoop 버전과 플러그인 선택"
 
@@ -8182,15 +8208,20 @@ msgstr "Anti-affinity 프로세스를 채우지 못했습니다."
 msgid "Unable to retrieve networks."
 msgstr "네트워크를 찾지 못했습니다."
 
-#: dashboards/project/data_processing/utils/workflow_helpers.py:111
+#: dashboards/project/data_processing/utils/workflow_helpers.py:117
 msgid "Node group cluster"
 msgstr "노드 그룹 클러스터"
 
-#: dashboards/project/data_processing/utils/workflow_helpers.py:115
+#: dashboards/project/data_processing/utils/workflow_helpers.py:121
 msgid "Count"
 msgstr "개수"
 
-#: dashboards/project/data_processing/utils/workflow_helpers.py:168
+#: dashboards/project/data_processing/utils/workflow_helpers.py:158
+#, python-format
+msgid "Unable to retrieve security group %(group)s."
+msgstr ""
+
+#: dashboards/project/data_processing/utils/workflow_helpers.py:188
 msgid "Plugin Name"
 msgstr "플러그인 이름"
 
@@ -12838,7 +12869,7 @@ msgid "Stack update started."
 msgstr "스택 업데이트를 시작하였습니다."
 
 #: dashboards/project/stacks/panel.py:21
-#: dashboards/project/stacks/tables.py:201
+#: dashboards/project/stacks/tables.py:204
 #: dashboards/project/stacks/templates/stacks/index.html:3
 #: dashboards/project/stacks/templates/stacks/index.html:6
 msgid "Stacks"
@@ -12898,40 +12929,40 @@ msgid "Deleted Stack"
 msgid_plural "Deleted Stacks"
 msgstr[0] "스택 삭제함"
 
-#: dashboards/project/stacks/tables.py:225
-#: dashboards/project/stacks/tables.py:270
+#: dashboards/project/stacks/tables.py:228
+#: dashboards/project/stacks/tables.py:273
 msgid "Stack Resource"
 msgstr "스택 리소스"
 
-#: dashboards/project/stacks/tables.py:228
-#: dashboards/project/stacks/tables.py:273
+#: dashboards/project/stacks/tables.py:231
+#: dashboards/project/stacks/tables.py:276
 #: dashboards/project/stacks/resource_types/tables.py:38
 msgid "Resource"
 msgstr "리소스"
 
-#: dashboards/project/stacks/tables.py:231
+#: dashboards/project/stacks/tables.py:234
 msgid "Time Since Event"
 msgstr "이벤트 이후 시간"
 
-#: dashboards/project/stacks/tables.py:239
-#: dashboards/project/stacks/tables.py:288
+#: dashboards/project/stacks/tables.py:242
+#: dashboards/project/stacks/tables.py:291
 msgid "Status Reason"
 msgstr "상태 현황"
 
-#: dashboards/project/stacks/tables.py:243
+#: dashboards/project/stacks/tables.py:246
 msgid "Stack Events"
 msgstr "스택 이벤트"
 
-#: dashboards/project/stacks/tables.py:276
+#: dashboards/project/stacks/tables.py:279
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:25
 msgid "Stack Resource Type"
 msgstr "스택 리소스 타입"
 
-#: dashboards/project/stacks/tables.py:278
+#: dashboards/project/stacks/tables.py:281
 msgid "Date Updated"
 msgstr "업데이트한 날짜"
 
-#: dashboards/project/stacks/tables.py:301
+#: dashboards/project/stacks/tables.py:304
 msgid "Stack Resources"
 msgstr "스택 리소스"
 
