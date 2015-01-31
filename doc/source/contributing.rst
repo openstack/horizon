@@ -309,6 +309,28 @@ Required
 * Avoid commented-out code.
 * Avoid dead code.
 
+**Performance**
+
+* Avoid creating instances of the same object repeatedly within the same scope.
+  Instead, assign the object to a variable and re-use the existing object. For
+  example:
+
+  .. code ::
+
+     $(document).on('click', function() { /* do something. */ });
+     $(document).on('mouseover', function() { /* do something. */ });
+
+  A better approach:
+
+  .. code ::
+
+     var $document = $(document);
+     $document.on('click', function() { /* do something. */ });
+     $document.on('mouseover', function() { /* do something. */ });
+
+  In the first approach a jQuery object for ``document`` is created each time.
+  The second approach creates only one jQuery object and reuses it. Each object
+  needs to be created, uses memory, and needs to be garbage collected.
 
 Recommended
 ~~~~~~~~~~~
