@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-30 21:37-0600\n"
-"PO-Revision-Date: 2015-01-30 20:40+0000\n"
+"POT-Creation-Date: 2015-01-31 11:11-0600\n"
+"PO-Revision-Date: 2015-01-31 16:25+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/horizon/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -643,7 +643,7 @@ msgstr "Ime"
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:22
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:19
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:46
-#: dashboards/project/instances/tables.py:1001
+#: dashboards/project/instances/tables.py:1002
 #: dashboards/project/instances/templates/instances/_detail_overview.html:16
 #: dashboards/project/instances/workflows/create_instance.py:79
 #: dashboards/project/volumes/volumes/forms.py:91
@@ -736,7 +736,7 @@ msgstr "Hostovi"
 
 #: dashboards/admin/aggregates/tables.py:136
 #: dashboards/admin/flavors/tables.py:142
-#: dashboards/project/instances/templates/instances/_detail_overview.html:104
+#: dashboards/project/instances/templates/instances/_detail_overview.html:106
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:46
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:68
 msgid "Metadata"
@@ -880,7 +880,7 @@ msgstr "Dodaj/Izbaci host iz skupa"
 #: dashboards/identity/projects/workflows.py:564
 #: dashboards/identity/users/templates/users/_update.html:33
 #: dashboards/project/instances/workflows/update_instance.py:133
-#: dashboards/project/networks/subnets/workflows.py:161
+#: dashboards/project/networks/subnets/workflows.py:159
 #: dashboards/settings/user/templates/user/_settings.html:24
 msgid "Save"
 msgstr "Sačuvaj"
@@ -1130,9 +1130,9 @@ msgstr "Činioci meta podataka"
 #: dashboards/admin/flavors/workflows.py:46
 #: dashboards/admin/overview/views.py:33
 #: dashboards/identity/projects/workflows.py:50
-#: dashboards/project/instances/templates/instances/_detail_overview.html:53
+#: dashboards/project/instances/templates/instances/_detail_overview.html:55
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:10
-#: dashboards/project/instances/templates/instances/_instance_flavor.html:4
+#: dashboards/project/instances/templates/instances/_instance_flavor.html:5
 #: dashboards/project/overview/views.py:32 usage/quotas.py:63
 #: usage/tables.py:33
 msgid "VCPUs"
@@ -1151,7 +1151,7 @@ msgstr "VCPUs"
 #: dashboards/project/databases/templates/databases/index.html:3
 #: dashboards/project/databases/templates/databases/index.html:6
 #: dashboards/project/instances/panel.py:23
-#: dashboards/project/instances/tables.py:1020
+#: dashboards/project/instances/tables.py:1021
 #: dashboards/project/instances/templates/instances/index.html:3
 #: dashboards/project/instances/templates/instances/index.html:6
 #: dashboards/project/network_topology/instances/tables.py:23
@@ -1225,7 +1225,7 @@ msgstr "Slobodne IP"
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:32
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:42
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:175
-#: dashboards/project/instances/templates/instances/_detail_overview.html:83
+#: dashboards/project/instances/templates/instances/_detail_overview.html:85
 #: dashboards/project/instances/workflows/create_instance.py:545
 #: dashboards/project/instances/workflows/update_instance.py:80
 #: usage/quotas.py:70 usage/quotas.py:82
@@ -1379,9 +1379,9 @@ msgstr "Ime arome"
 
 #: dashboards/admin/flavors/tables.py:125
 #: dashboards/project/databases/templates/databases/_detail_overview.html:28
-#: dashboards/project/instances/templates/instances/_detail_overview.html:51
+#: dashboards/project/instances/templates/instances/_detail_overview.html:53
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:14
-#: dashboards/project/instances/templates/instances/_instance_flavor.html:5
+#: dashboards/project/instances/templates/instances/_instance_flavor.html:6
 #: usage/tables.py:37
 msgid "RAM"
 msgstr "RAM"
@@ -1392,7 +1392,7 @@ msgid "Root Disk"
 msgstr "Root Disk"
 
 #: dashboards/admin/flavors/tables.py:131
-#: dashboards/project/instances/templates/instances/_detail_overview.html:58
+#: dashboards/project/instances/templates/instances/_detail_overview.html:60
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:12
 msgid "Ephemeral Disk"
 msgstr "Ephemeral Disk"
@@ -1426,6 +1426,7 @@ msgstr "Swap Disk"
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:13
 #: dashboards/project/images/templates/images/images/_detail_overview.html:15
 #: dashboards/project/instances/templates/instances/_detail_overview.html:12
+#: dashboards/project/instances/templates/instances/_instance_flavor.html:4
 #: dashboards/project/loadbalancers/forms.py:32
 #: dashboards/project/loadbalancers/forms.py:74
 #: dashboards/project/loadbalancers/forms.py:169
@@ -1670,8 +1671,8 @@ msgstr ""
 #: dashboards/admin/hypervisors/tables.py:70
 #: dashboards/project/databases/tables.py:263
 #: dashboards/project/databases/workflows/create_instance.py:35
-#: dashboards/project/instances/tables.py:961
-#: dashboards/project/instances/tables.py:984
+#: dashboards/project/instances/tables.py:962
+#: dashboards/project/instances/tables.py:985
 #: dashboards/project/instances/workflows/create_instance.py:82
 #: dashboards/project/overview/views.py:32 usage/tables.py:75
 msgid "Instance Name"
@@ -1833,7 +1834,7 @@ msgstr "Zona"
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
 #: dashboards/project/images/images/tables.py:238
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
-#: dashboards/project/instances/tables.py:996
+#: dashboards/project/instances/tables.py:997
 #: dashboards/project/instances/templates/instances/_detail_overview.html:14
 #: dashboards/project/loadbalancers/tables.py:277
 #: dashboards/project/loadbalancers/tables.py:311
@@ -1951,7 +1952,7 @@ msgstr ""
 
 #: dashboards/admin/images/tables.py:62
 #: dashboards/admin/instances/tables.py:98
-#: dashboards/project/instances/tables.py:962
+#: dashboards/project/instances/tables.py:963
 msgid "Status ="
 msgstr ""
 
@@ -1970,8 +1971,8 @@ msgstr ""
 #: dashboards/admin/images/tables.py:71
 #: dashboards/admin/instances/tables.py:131
 #: dashboards/project/images/images/tables.py:232
-#: dashboards/project/instances/tables.py:986
-#: dashboards/project/instances/templates/instances/_detail_overview.html:112
+#: dashboards/project/instances/tables.py:987
+#: dashboards/project/instances/templates/instances/_detail_overview.html:114
 #: dashboards/project/instances/workflows/create_instance.py:106
 #: dashboards/project/volumes/volumes/forms.py:627
 msgid "Image Name"
@@ -2230,12 +2231,12 @@ msgid "IPv6 Address ="
 msgstr ""
 
 #: dashboards/admin/instances/tables.py:99
-#: dashboards/project/instances/tables.py:963
+#: dashboards/project/instances/tables.py:964
 msgid "Image ID ="
 msgstr ""
 
 #: dashboards/admin/instances/tables.py:100
-#: dashboards/project/instances/tables.py:964
+#: dashboards/project/instances/tables.py:965
 msgid "Flavor ID ="
 msgstr ""
 
@@ -2243,7 +2244,7 @@ msgstr ""
 #: dashboards/project/access_and_security/floating_ips/tables.py:192
 #: dashboards/project/access_and_security/floating_ips/workflows.py:33
 #: dashboards/project/access_and_security/floating_ips/workflows.py:40
-#: dashboards/project/instances/tables.py:988
+#: dashboards/project/instances/tables.py:989
 #: dashboards/project/loadbalancers/tables.py:302
 msgid "IP Address"
 msgstr "IP adresa"
@@ -2256,8 +2257,8 @@ msgstr "IP adresa"
 #: dashboards/project/databases/tables.py:270
 #: dashboards/project/images/images/tables.py:253
 #: dashboards/project/images/templates/images/images/_detail_overview.html:46
-#: dashboards/project/instances/tables.py:991
-#: dashboards/project/instances/templates/instances/_instance_flavor.html:6
+#: dashboards/project/instances/tables.py:992
+#: dashboards/project/instances/templates/instances/_instance_flavor.html:7
 #: dashboards/project/volumes/backups/tables.py:112
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:37
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:37
@@ -2267,17 +2268,17 @@ msgid "Size"
 msgstr "Veličina"
 
 #: dashboards/admin/instances/tables.py:147
-#: dashboards/project/instances/tables.py:1003
+#: dashboards/project/instances/tables.py:1004
 msgid "Task"
 msgstr "Zadatak"
 
 #: dashboards/admin/instances/tables.py:154
-#: dashboards/project/instances/tables.py:1010
+#: dashboards/project/instances/tables.py:1011
 msgid "Power State"
 msgstr "Stanje rada"
 
 #: dashboards/admin/instances/tables.py:157
-#: dashboards/project/instances/tables.py:1013 usage/tables.py:78
+#: dashboards/project/instances/tables.py:1014 usage/tables.py:78
 msgid "Time since created"
 msgstr ""
 
@@ -2599,8 +2600,8 @@ msgstr ""
 #: dashboards/project/images/templates/images/images/_detail_overview.html:16
 #: dashboards/project/images/templates/images/images/_detail_overview.html:49
 #: dashboards/project/images/templates/images/images/_detail_overview.html:51
-#: dashboards/project/instances/templates/instances/_detail_overview.html:108
-#: dashboards/project/instances/templates/instances/_detail_overview.html:117
+#: dashboards/project/instances/templates/instances/_detail_overview.html:110
+#: dashboards/project/instances/templates/instances/_detail_overview.html:119
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:45
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:51
 #: dashboards/project/networks/templates/networks/_detail_overview.html:8
@@ -3273,7 +3274,7 @@ msgstr "Neuspešno brisanje mreže %s"
 #: dashboards/admin/networks/templates/networks/_create.html:26
 #: dashboards/admin/networks/templates/networks/create.html:3
 #: dashboards/admin/networks/templates/networks/create.html:6
-#: dashboards/project/network_topology/templates/network_topology/index.html:31
+#: dashboards/project/network_topology/templates/network_topology/index.html:38
 #: dashboards/project/networks/tables.py:87
 #: dashboards/project/networks/tables.py:100
 #: dashboards/project/networks/workflows.py:341
@@ -3577,7 +3578,7 @@ msgstr "Kreiranje podmreže"
 
 #: dashboards/admin/networks/subnets/tables.py:80
 #: dashboards/project/networks/subnets/tables.py:117
-#: dashboards/project/networks/subnets/workflows.py:160
+#: dashboards/project/networks/subnets/workflows.py:158
 msgid "Edit Subnet"
 msgstr "Izmena podmreže"
 
@@ -3982,7 +3983,7 @@ msgid "Information"
 msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:20
-#: dashboards/project/instances/templates/instances/_detail_overview.html:142
+#: dashboards/project/instances/templates/instances/_detail_overview.html:144
 #: dashboards/project/instances/workflows/create_instance.py:100
 #: dashboards/project/instances/workflows/create_instance.py:416
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:23
@@ -4006,8 +4007,8 @@ msgstr "Specifikacije"
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:34
 #: dashboards/project/database_backups/templates/database_backups/details.html:35
-#: dashboards/project/instances/templates/instances/_detail_overview.html:56
-#: dashboards/project/instances/templates/instances/_detail_overview.html:59
+#: dashboards/project/instances/templates/instances/_detail_overview.html:58
+#: dashboards/project/instances/templates/instances/_detail_overview.html:61
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:11
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:12
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:13
@@ -5074,7 +5075,7 @@ msgstr "Upravljanje grupama"
 #: dashboards/identity/projects/tables.py:245
 #: dashboards/identity/projects/templates/projects/index.html:3
 #: dashboards/identity/projects/templates/projects/index.html:6
-#: templates/403.html:25 templates/404.html:24
+#: templates/403.html:27 templates/404.html:24
 msgid "Projects"
 msgstr "Projekti"
 
@@ -8406,11 +8407,11 @@ msgstr[2] ""
 #: dashboards/project/databases/tables.py:214
 #: dashboards/project/databases/tables.py:231
 #: dashboards/project/databases/tables.py:237
-#: dashboards/project/instances/tables.py:820
-#: dashboards/project/instances/tables.py:827
+#: dashboards/project/instances/tables.py:821
+#: dashboards/project/instances/tables.py:828
 #: dashboards/project/instances/views.py:366
-#: dashboards/project/instances/templates/instances/_detail_overview.html:62
-#: dashboards/project/instances/templates/instances/_detail_overview.html:98
+#: dashboards/project/instances/templates/instances/_detail_overview.html:64
+#: dashboards/project/instances/templates/instances/_detail_overview.html:100
 msgid "Not available"
 msgstr "Nije dostupno"
 
@@ -8682,7 +8683,7 @@ msgstr "Greška u brisanju baze podataka na računarskoj jedinici."
 #: dashboards/project/instances/tables.py:305
 #: dashboards/project/instances/tables.py:333
 #: dashboards/project/instances/workflows/create_instance.py:840
-#: dashboards/project/network_topology/templates/network_topology/index.html:28
+#: dashboards/project/network_topology/templates/network_topology/index.html:35
 msgid "Launch Instance"
 msgstr "Kreiranje instance"
 
@@ -10154,364 +10155,364 @@ msgstr[2] ""
 msgid "%s GB"
 msgstr "%s GB"
 
-#: dashboards/project/instances/tables.py:835
-#: dashboards/project/instances/tables.py:857
+#: dashboards/project/instances/tables.py:836
+#: dashboards/project/instances/tables.py:858
 msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "Obrisano"
 
-#: dashboards/project/instances/tables.py:836
+#: dashboards/project/instances/tables.py:837
 msgctxt "Current status of an Instance"
 msgid "Active"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:837
+#: dashboards/project/instances/tables.py:838
 msgctxt "Current status of an Instance"
 msgid "Shutoff"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:839
-msgctxt "Current status of an Instance"
-msgid "Suspended"
-msgstr "Zaustavljeno"
-
 #: dashboards/project/instances/tables.py:840
 msgctxt "Current status of an Instance"
-msgid "Paused"
+msgid "Suspended"
 msgstr "Zaustavljeno"
 
 #: dashboards/project/instances/tables.py:841
 msgctxt "Current status of an Instance"
+msgid "Paused"
+msgstr "Zaustavljeno"
+
+#: dashboards/project/instances/tables.py:842
+msgctxt "Current status of an Instance"
 msgid "Error"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:843
+#: dashboards/project/instances/tables.py:844
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
 msgstr "Izmena veličine/seoba"
 
-#: dashboards/project/instances/tables.py:845
+#: dashboards/project/instances/tables.py:846
 msgctxt "Current status of an Instance"
 msgid "Confirm or Revert Resize/Migrate"
 msgstr "Potvrdite ili odustanite od promene veličine/seobe"
 
-#: dashboards/project/instances/tables.py:847
+#: dashboards/project/instances/tables.py:848
 msgctxt "Current status of an Instance"
 msgid "Revert Resize/Migrate"
 msgstr "Povratiti prekrajanje/migraciju"
 
-#: dashboards/project/instances/tables.py:848
+#: dashboards/project/instances/tables.py:849
 msgctxt "Current status of an Instance"
 msgid "Reboot"
 msgstr "Ponovno pokretanje - restart"
 
-#: dashboards/project/instances/tables.py:850
+#: dashboards/project/instances/tables.py:851
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr "Bazično restartovanje"
 
-#: dashboards/project/instances/tables.py:851
+#: dashboards/project/instances/tables.py:852
 msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "Lozinka"
 
-#: dashboards/project/instances/tables.py:852
+#: dashboards/project/instances/tables.py:853
 msgctxt "Current status of an Instance"
 msgid "Rebuild"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:854
-msgctxt "Current status of an Instance"
-msgid "Migrating"
-msgstr ""
-
 #: dashboards/project/instances/tables.py:855
 msgctxt "Current status of an Instance"
-msgid "Build"
+msgid "Migrating"
 msgstr ""
 
 #: dashboards/project/instances/tables.py:856
 msgctxt "Current status of an Instance"
-msgid "Rescue"
+msgid "Build"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:859
+#: dashboards/project/instances/tables.py:857
 msgctxt "Current status of an Instance"
-msgid "Soft Deleted"
+msgid "Rescue"
 msgstr ""
 
 #: dashboards/project/instances/tables.py:860
 msgctxt "Current status of an Instance"
+msgid "Soft Deleted"
+msgstr ""
+
+#: dashboards/project/instances/tables.py:861
+msgctxt "Current status of an Instance"
 msgid "Shelved"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:862
+#: dashboards/project/instances/tables.py:863
 msgctxt "Current status of an Instance"
 msgid "Shelved Offloaded"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:865
+#: dashboards/project/instances/tables.py:866
 msgctxt "Task status of an Instance"
 msgid "None"
 msgstr "Ništa"
 
-#: dashboards/project/instances/tables.py:870
+#: dashboards/project/instances/tables.py:871
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:872
+#: dashboards/project/instances/tables.py:873
 msgctxt "Task status of an Instance"
 msgid "Block Device Mapping"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:874
+#: dashboards/project/instances/tables.py:875
 msgctxt "Task status of an Instance"
 msgid "Networking"
 msgstr "Umrežavanje"
 
-#: dashboards/project/instances/tables.py:875
+#: dashboards/project/instances/tables.py:876
 msgctxt "Task status of an Instance"
 msgid "Spawning"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:877
+#: dashboards/project/instances/tables.py:878
 msgctxt "Task status of an Instance"
 msgid "Snapshotting"
 msgstr "Pravljenje snapshot-a"
 
-#: dashboards/project/instances/tables.py:879
+#: dashboards/project/instances/tables.py:880
 msgctxt "Task status of an Instance"
 msgid "Image Snapshot Pending"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:881
+#: dashboards/project/instances/tables.py:882
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:883
+#: dashboards/project/instances/tables.py:884
 msgctxt "Task status of an Instance"
 msgid "Image Uploading"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:885
+#: dashboards/project/instances/tables.py:886
 msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:887
+#: dashboards/project/instances/tables.py:888
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:889
+#: dashboards/project/instances/tables.py:890
 msgctxt "Task status of an Instance"
 msgid "Preparing Resize or Migrate"
 msgstr "Priprema za promenu veličine ili seobu"
 
-#: dashboards/project/instances/tables.py:891
+#: dashboards/project/instances/tables.py:892
 msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "Promena veličine ili seoba"
 
-#: dashboards/project/instances/tables.py:893
+#: dashboards/project/instances/tables.py:894
 msgctxt "Task status of an Instance"
 msgid "Resized or Migrated"
 msgstr "Izmenjena veličina ili preseljeno"
 
-#: dashboards/project/instances/tables.py:895
+#: dashboards/project/instances/tables.py:896
 msgctxt "Task status of an Instance"
 msgid "Finishing Resize or Migrate"
 msgstr "Završena promena veličine ili seoba"
 
-#: dashboards/project/instances/tables.py:897
+#: dashboards/project/instances/tables.py:898
 msgctxt "Task status of an Instance"
 msgid "Reverting Resize or Migrate"
 msgstr "Povratite nazad promenu veličine ili seobu"
 
-#: dashboards/project/instances/tables.py:899
+#: dashboards/project/instances/tables.py:900
 msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "Potvrdite promenu veličine ili seobu"
 
-#: dashboards/project/instances/tables.py:900
+#: dashboards/project/instances/tables.py:901
 msgctxt "Task status of an Instance"
 msgid "Rebooting"
 msgstr "Ponovno pokretanje - restart"
 
-#: dashboards/project/instances/tables.py:902
+#: dashboards/project/instances/tables.py:903
 msgctxt "Task status of an Instance"
 msgid "Reboot Pending"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:904
+#: dashboards/project/instances/tables.py:905
 msgctxt "Task status of an Instance"
 msgid "Reboot Started"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:906
+#: dashboards/project/instances/tables.py:907
 msgctxt "Task status of an Instance"
 msgid "Rebooting Hard"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:908
+#: dashboards/project/instances/tables.py:909
 msgctxt "Task status of an Instance"
 msgid "Reboot Pending Hard"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:910
+#: dashboards/project/instances/tables.py:911
 msgctxt "Task status of an Instance"
 msgid "Reboot Started Hard"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:911
+#: dashboards/project/instances/tables.py:912
 msgctxt "Task status of an Instance"
 msgid "Pausing"
 msgstr "Pauza"
 
-#: dashboards/project/instances/tables.py:912
-#: dashboards/project/instances/tables.py:915
+#: dashboards/project/instances/tables.py:913
+#: dashboards/project/instances/tables.py:916
 msgctxt "Task status of an Instance"
 msgid "Resuming"
 msgstr "Nastavljanje"
 
-#: dashboards/project/instances/tables.py:914
+#: dashboards/project/instances/tables.py:915
 msgctxt "Task status of an Instance"
 msgid "Suspending"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:917
+#: dashboards/project/instances/tables.py:918
 msgctxt "Task status of an Instance"
 msgid "Powering Off"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:919
+#: dashboards/project/instances/tables.py:920
 msgctxt "Task status of an Instance"
 msgid "Powering On"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:920
+#: dashboards/project/instances/tables.py:921
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:922
+#: dashboards/project/instances/tables.py:923
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:924
+#: dashboards/project/instances/tables.py:925
 msgctxt "Task status of an Instance"
 msgid "Rebuilding"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:926
+#: dashboards/project/instances/tables.py:927
 msgctxt "Task status of an Instance"
 msgid "Rebuild Block Device Mapping"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:928
+#: dashboards/project/instances/tables.py:929
 msgctxt "Task status of an Instance"
 msgid "Rebuild Spawning"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:929
+#: dashboards/project/instances/tables.py:930
 msgctxt "Task status of an Instance"
 msgid "Migrating"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:930
+#: dashboards/project/instances/tables.py:931
 msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:932
+#: dashboards/project/instances/tables.py:933
 msgctxt "Task status of an Instance"
 msgid "Soft Deleting"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:933
+#: dashboards/project/instances/tables.py:934
 msgctxt "Task status of an Instance"
 msgid "Restoring"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:934
+#: dashboards/project/instances/tables.py:935
 msgctxt "Task status of an Instance"
 msgid "Shelving"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:936
+#: dashboards/project/instances/tables.py:937
 msgctxt "Task status of an Instance"
 msgid "Shelving Image Pending Upload"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:938
+#: dashboards/project/instances/tables.py:939
 msgctxt "Task status of an Instance"
 msgid "Shelving Image Uploading"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:940
+#: dashboards/project/instances/tables.py:941
 msgctxt "Task status of an Instance"
 msgid "Shelving Offloading"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:942
+#: dashboards/project/instances/tables.py:943
 msgctxt "Task status of an Instance"
 msgid "Unshelving"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:946
+#: dashboards/project/instances/tables.py:947
 msgctxt "Power state of an Instance"
 msgid "No State"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:947
+#: dashboards/project/instances/tables.py:948
 msgctxt "Power state of an Instance"
 msgid "Running"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:948
+#: dashboards/project/instances/tables.py:949
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:949
+#: dashboards/project/instances/tables.py:950
 msgctxt "Power state of an Instance"
 msgid "Paused"
 msgstr "Zaustavljeno"
 
-#: dashboards/project/instances/tables.py:950
+#: dashboards/project/instances/tables.py:951
 msgctxt "Power state of an Instance"
 msgid "Shut Down"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:951
+#: dashboards/project/instances/tables.py:952
 msgctxt "Power state of an Instance"
 msgid "Shut Off"
 msgstr "Isključenje"
 
-#: dashboards/project/instances/tables.py:952
+#: dashboards/project/instances/tables.py:953
 msgctxt "Power state of an Instance"
 msgid "Crashed"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:953
+#: dashboards/project/instances/tables.py:954
 msgctxt "Power state of an Instance"
 msgid "Suspended"
 msgstr "Zaustavljeno"
 
-#: dashboards/project/instances/tables.py:954
+#: dashboards/project/instances/tables.py:955
 msgctxt "Power state of an Instance"
 msgid "Failed"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:955
+#: dashboards/project/instances/tables.py:956
 msgctxt "Power state of an Instance"
 msgid "Building"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:993
+#: dashboards/project/instances/tables.py:994
 #: dashboards/project/instances/workflows/create_instance.py:530
 msgid "Key Pair"
 msgstr "Par kjučeva"
@@ -10673,45 +10674,49 @@ msgstr ""
 msgid "Fault"
 msgstr "Greška"
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:54
+#: dashboards/project/instances/templates/instances/_detail_overview.html:51
+msgid "Flavor ID"
+msgstr ""
+
+#: dashboards/project/instances/templates/instances/_detail_overview.html:56
 msgid "VCPU"
 msgstr "VCPU"
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:55
+#: dashboards/project/instances/templates/instances/_detail_overview.html:57
 #: usage/tables.py:34
 msgid "Disk"
 msgstr "Disk"
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:68
+#: dashboards/project/instances/templates/instances/_detail_overview.html:70
 msgid "IP Addresses"
 msgstr "IP Adrese"
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:93
+#: dashboards/project/instances/templates/instances/_detail_overview.html:95
 msgid "No rules defined."
 msgstr "Nema definisanih pravila."
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:107
+#: dashboards/project/instances/templates/instances/_detail_overview.html:109
 msgid "Key Name"
 msgstr "Ime ključa"
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:120
+#: dashboards/project/instances/templates/instances/_detail_overview.html:122
 #: dashboards/project/loadbalancers/tables.py:274
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:27
 msgid "N/A"
 msgstr "Neprimenljivo"
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:130
+#: dashboards/project/instances/templates/instances/_detail_overview.html:132
 msgid "Volumes Attached"
 msgstr "Pridruženi volume-i"
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:134
+#: dashboards/project/instances/templates/instances/_detail_overview.html:136
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:47
 #: dashboards/project/volumes/volumes/tables.py:404
 msgid "Attached To"
 msgstr "Zakačen za "
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:137
+#: dashboards/project/instances/templates/instances/_detail_overview.html:139
 #, python-format
 msgid ""
 "\n"
@@ -10719,7 +10724,7 @@ msgid ""
 "            "
 msgstr ""
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:143
+#: dashboards/project/instances/templates/instances/_detail_overview.html:145
 msgid "No volumes attached."
 msgstr "Nema pridruženih volume-a."
 
@@ -10767,7 +10772,7 @@ msgstr "Neke arome koje ne zadovoljavaju minimalne zahteve image-a su onemoguće
 msgid "No flavors meet minimum criteria for selected image."
 msgstr "Nema aroma koje pružaju najmanji kriterijum za odabrani image."
 
-#: dashboards/project/instances/templates/instances/_instance_flavor.html:8
+#: dashboards/project/instances/templates/instances/_instance_flavor.html:9
 #, python-format
 msgid "Flavor Details: %(name)s\">%(name)s"
 msgstr ""
@@ -12048,7 +12053,7 @@ msgstr "Topologija mreže"
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:9
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:20
 #: dashboards/project/network_topology/templates/network_topology/create_router.html:3
-#: dashboards/project/network_topology/templates/network_topology/index.html:34
+#: dashboards/project/network_topology/templates/network_topology/index.html:41
 #: dashboards/project/routers/tables.py:84
 #: dashboards/project/routers/tables.py:97
 #: dashboards/project/routers/templates/routers/_create.html:9
@@ -12072,29 +12077,29 @@ msgstr "Kreirajte ruter"
 msgid "This pane needs javascript support."
 msgstr "Ovom panelu treba podrška javascript-a."
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:22
+#: dashboards/project/network_topology/templates/network_topology/index.html:25
 msgid "Small"
 msgstr "Mali"
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:23
+#: dashboards/project/network_topology/templates/network_topology/index.html:30
 msgid "Normal"
 msgstr "Regularan"
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:28
+#: dashboards/project/network_topology/templates/network_topology/index.html:35
 msgid "Launch Instance (Quota exceeded)"
 msgstr ""
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:31
+#: dashboards/project/network_topology/templates/network_topology/index.html:38
 #: dashboards/project/networks/tables.py:98
 msgid "Create Network (Quota exceeded)"
 msgstr ""
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:34
+#: dashboards/project/network_topology/templates/network_topology/index.html:41
 #: dashboards/project/routers/tables.py:95
 msgid "Create Router (Quota exceeded)"
 msgstr ""
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:40
+#: dashboards/project/network_topology/templates/network_topology/index.html:47
 msgid "There are no networks, routers, or connected instances to display."
 msgstr "Nema mreža, rutera, ili povezanih računarskih jedinica za prikaz."
 
@@ -12230,14 +12235,14 @@ msgid ""
 msgstr ""
 
 #: dashboards/project/networks/workflows.py:255
-#: dashboards/project/networks/subnets/workflows.py:150
+#: dashboards/project/networks/subnets/workflows.py:148
 #: dashboards/project/networks/templates/networks/subnets/detail.html:3
 #: dashboards/project/networks/templates/networks/subnets/detail.html:6
 msgid "Subnet Details"
 msgstr ""
 
 #: dashboards/project/networks/workflows.py:256
-#: dashboards/project/networks/subnets/workflows.py:151
+#: dashboards/project/networks/subnets/workflows.py:149
 msgid "Specify additional attributes for the subnet."
 msgstr ""
 
@@ -12413,22 +12418,22 @@ msgid ""
 "available at \"Subnet Details\" tab."
 msgstr ""
 
-#: dashboards/project/networks/subnets/workflows.py:162
+#: dashboards/project/networks/subnets/workflows.py:160
 #, python-format
 msgid "Updated subnet \"%s\"."
 msgstr "Izmenjena podmreža \"%s\"."
 
-#: dashboards/project/networks/subnets/workflows.py:163
+#: dashboards/project/networks/subnets/workflows.py:161
 #, python-format
 msgid "Unable to update subnet \"%s\"."
 msgstr "Nemoguće je izmeniti podmrežu \"%s\"."
 
-#: dashboards/project/networks/subnets/workflows.py:198
+#: dashboards/project/networks/subnets/workflows.py:196
 #, python-format
 msgid "Subnet \"%s\" was successfully updated."
 msgstr "Podmreža \"%s\" je uspešno izmenjena."
 
-#: dashboards/project/networks/subnets/workflows.py:202
+#: dashboards/project/networks/subnets/workflows.py:200
 #, python-format
 msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
 msgstr "Neuspešna izmena podmreže \"%(sub)s\":  %(reason)s"
@@ -15263,7 +15268,14 @@ msgstr ""
 msgid "Forbidden"
 msgstr "Zabranjeno"
 
-#: templates/403.html:21 templates/404.html:20 templates/500.html:73
+#: templates/403.html:11
+msgid ""
+"You do not have the required\n"
+"          privileges to access this content. If you believe this message to\n"
+"          be in error, please contact your project manager."
+msgstr ""
+
+#: templates/403.html:23 templates/404.html:20 templates/500.html:73
 msgid "Home"
 msgstr "Početak strane"
 
