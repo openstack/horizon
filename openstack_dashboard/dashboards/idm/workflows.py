@@ -31,13 +31,13 @@ RELATIONSHIP_SLUG = "update_owners"
 class RelationshipApiInterface(object):
     """Holds the api calls for each specific relationship"""
     
-    def _list_all_owners(self, request):
+    def _list_all_owners(self, request, superset_id):
         pass
 
-    def _list_all_objects(self, request):
+    def _list_all_objects(self, request, superset_id):
         pass
 
-    def _list_current_assignments(self, request):
+    def _list_current_assignments(self, request, superset_id):
         pass
 
     def _get_default_object(self, request):
@@ -74,18 +74,21 @@ class UpdateRelationshipAction(workflows.MembershipAction,
             exceptions.handle(request,
                               self.ERROR_MESSAGE,
                               redirect=reverse(self.ERROR_URL))
-        self._init_default_object_field(default_object)
+        if default_object:
+            self._init_default_object_field(default_object)
         
         # Get list of available owners
         try:
-            owners_list = relationship._list_all_owners(request)
+            owners_list = relationship._list_all_owners(request, 
+                                                self.superset_id)
         except Exception:
             exceptions.handle(request,
                               self.ERROR_MESSAGE,
                               redirect=reverse(self.ERROR_URL))
         # Get list of objects
         try:
-            object_list = relationship._list_all_objects(request)
+            object_list = relationship._list_all_objects(request, 
+                                                self.superset_id)
         except Exception:
             exceptions.handle(request,
                               self.ERROR_MESSAGE,
@@ -148,7 +151,9 @@ class UpdateRelationship(workflows.UpdateMembersStep,
         if data:
             relationship = self._load_relationship_api()
             try:
-                object_list = relationship._list_all_objects(self.workflow.request)
+                object_list = relationship._list_all_objects(
+                                                self.workflow.request, 
+                                                superset_id)
             except Exception:
                 exceptions.handle(self.workflow.request,
                                   _('Unable to retrieve list.'))
@@ -169,8 +174,10 @@ class RelationshipWorkflow(workflows.Workflow,
         member_step = self.get_step(RELATIONSHIP_SLUG)
         relationship = self._load_relationship_api()
         try:
-            object_list = relationship._list_all_objects(request)
-            owners_objects_relationship = relationship._list_current_assignments(request,
+            object_list = relationship._list_all_objects(request, 
+                                                superset_id)
+            owners_objects_relationship = relationship._list_current_assignments(
+                                                                request,
                                                               superset_id)
             # re-index by object with a owner list for easier processing 
             # in later steps

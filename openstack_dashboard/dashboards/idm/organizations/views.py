@@ -101,6 +101,17 @@ class OrganizationMembersView(workflows.WorkflowView):
 
         return initial
 
+class ApplicationRolesMembersView(workflows.WorkflowView):
+    workflow_class = organization_workflows.ManageApplicationRolesMembers
+
+    def get_initial(self):
+        initial = super(ApplicationRolesMembersView, self).get_initial()
+
+        project_id = self.kwargs['organization_id']
+        initial['superset_id'] = project_id
+
+        return initial
+
 
 class BaseOrganizationsMultiFormView(idm_views.BaseMultiFormView):
     template_name = 'idm/organizations/edit.html'
