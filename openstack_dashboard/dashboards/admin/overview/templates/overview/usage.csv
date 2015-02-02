@@ -2,5 +2,6 @@
 {% trans "Active Instances" %}:,{{ usage.summary.instances }}
 {% trans "Total VCPU Usage (Hours)" %}:,{{ usage.summary.vcpu_hours|floatformat:2 }}
 {% trans "Total Active RAM (MB)" %}:,{{ usage.summary.memory_mb }}
+{% trans "Total Memory Usage (Hours)" %}:,{{ usage.summary.memory_mb_hours|floatformat:2 }}
 {% trans "Total Disk Size (GB)" %}:,{{ usage.summary.local_gb }}
 {% trans "Total Disk Usage (Hours)" %}:,{{ usage.summary.disk_gb_hours|floatformat:2 }}
