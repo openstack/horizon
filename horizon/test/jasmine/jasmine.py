@@ -41,6 +41,7 @@ def dispatcher(request, test_name):
                 return django.shortcuts.render(
                     request,
                     template,
-                    {'specs': cls.specs, 'sources': cls.sources})
+                    {'specs': cls.specs, 'sources': cls.sources,
+                     'externalTemplates': cls.externalTemplates})
 
     return django.views.defaults.page_not_found(request)

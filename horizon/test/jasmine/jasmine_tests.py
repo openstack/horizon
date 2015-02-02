@@ -22,9 +22,15 @@ class ServicesTests(test.JasmineTests):
         'horizon/js/angular/horizon.conf.js',
         'horizon/js/angular/horizon.js',
         'horizon/js/angular/services/horizon.utils.js',
-        'horizon/js/angular/controllers/metadata-widget-controller.js'
+        'horizon/js/angular/controllers/metadata-widget-controller.js',
+        'angular/widget.module.js',
+        'angular/help-panel/help-panel.js'
     ]
     specs = [
         'horizon/tests/jasmine/utilsSpec.js',
-        'horizon/tests/jasmine/metadataWidgetControllerSpec.js'
+        'horizon/tests/jasmine/metadataWidgetControllerSpec.js',
+        'angular/help-panel/help-panel.spec.js'
+    ]
+    externalTemplates = [
+        'angular/help-panel/help-panel.html'
     ]
