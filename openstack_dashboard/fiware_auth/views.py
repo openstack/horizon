@@ -164,7 +164,3 @@ class ResendConfirmationInstructionsView(_RequestPassingFormView):
         LOG.info('Resending confirmation instructions to {0}.'.format(email))
         #delegate to the manager
         fiware_models.RegistrationProfile.objects.resend_email(request, email)
-
-
-class FiwareSignOutView(TemplateView):
-    template_name = 'auth/signOut.js'

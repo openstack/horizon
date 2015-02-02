@@ -30,9 +30,3 @@ urlpatterns = patterns(
     url(r'^confirmation/$', views.ResendConfirmationInstructionsView.as_view(),
                             name='fiware_auth_confirmation'),
 )
-
-urlpatterns += patterns(
-    '',
-    url(r'^assets/signOut.js$', views.FiwareSignOutView.as_view(), 
-                            name='signOutjs')
-)

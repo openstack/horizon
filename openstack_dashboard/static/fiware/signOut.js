@@ -96,11 +96,8 @@ Fiware.signOut = (function($, undefined) {
   };
 
   var call = function(currentPortal) {
-    <% if Rails.env == 'production' %>
-      productionCall(currentPortal);
-    <% else %>
+      // productionCall(currentPortal);
       developmentCall(currentPortal);
-    <% end %>
   };
 
   return call;
