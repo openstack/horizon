@@ -39,7 +39,7 @@
 
       var templates = [
         {% for externalTemplate in externalTemplates %}
-          {{ STATIC_URL }}{{ externalTemplate }} + ","
+          '{{ STATIC_URL }}{{ externalTemplate }}',
         {% endfor %}
       ];
 
