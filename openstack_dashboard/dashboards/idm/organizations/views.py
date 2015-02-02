@@ -97,7 +97,7 @@ class OrganizationMembersView(workflows.WorkflowView):
         initial = super(OrganizationMembersView, self).get_initial()
 
         project_id = self.kwargs['organization_id']
-        initial['project_id'] = project_id
+        initial['superset_id'] = project_id
 
         return initial
 

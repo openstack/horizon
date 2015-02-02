@@ -62,7 +62,7 @@ horizon.membership = {
     angular.forEach($('label[for^="id_' + step_slug + '_role_"]'), function(role) {
       var input_name = $(role).attr('for')
       var id = horizon.membership.get_field_id(input_name);
-      var app = $('#' + input_name).attr('data-application-name')
+      var app = $('#' + input_name).attr('data-superset-id')
       if (!horizon.membership.roles[step_slug][app]){
         // init the second dimension of the array if not created
         horizon.membership.roles[step_slug][app] = []
