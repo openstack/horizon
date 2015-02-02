@@ -243,7 +243,6 @@ process::
         # ObjectStorePanels
         panels = (BasePanels, NetworkPanels, ObjectStorePanels)
         default_panel = 'overview'
-        supports_tenants = True
         ...
 
     horizon.register(Project)
