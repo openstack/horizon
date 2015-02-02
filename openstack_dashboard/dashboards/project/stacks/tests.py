@@ -51,11 +51,11 @@ class MappingsTests(test.TestCase):
 
         assertMappingUrl(
             '/project/networks/subnets/aaa/detail',
-            'OS::Quantum::Subnet',
+            'OS::Neutron::Subnet',
             'aaa')
         assertMappingUrl(
             None,
-            'OS::Quantum::Subnet',
+            'OS::Neutron::Subnet',
             None)
         assertMappingUrl(
             None,
