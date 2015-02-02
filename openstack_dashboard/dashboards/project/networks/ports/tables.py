@@ -56,6 +56,11 @@ DISPLAY_CHOICES = (
     ("DOWN", pgettext_lazy("Admin state of a Port", u"DOWN")),
 )
 
+STATUS_DISPLAY_CHOICES = (
+    ("ACTIVE", pgettext_lazy("status of a network port", u"ACTIVE")),
+    ("DOWN", pgettext_lazy("status of a network port", u"DOWN")),
+)
+
 
 class PortsTable(tables.DataTable):
     name = tables.Column("name_or_id",
@@ -63,7 +68,9 @@ class PortsTable(tables.DataTable):
                          link="horizon:project:networks:ports:detail")
     fixed_ips = tables.Column(get_fixed_ips, verbose_name=_("Fixed IPs"))
     attached = tables.Column(get_attached, verbose_name=_("Attached Device"))
-    status = tables.Column("status", verbose_name=_("Status"))
+    status = tables.Column("status",
+                           verbose_name=_("Status"),
+                           display_choices=STATUS_DISPLAY_CHOICES)
     admin_state = tables.Column("admin_state",
                                 verbose_name=_("Admin State"),
                                 display_choices=DISPLAY_CHOICES)
