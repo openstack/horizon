@@ -103,6 +103,9 @@ class ComputeHostTable(tables.DataTable):
     def get_object_id(self, obj):
         return obj.host
 
+    def get_object_display(self, obj):
+        return obj.host
+
     class Meta:
         name = "compute_host"
         verbose_name = _("Compute Host")
