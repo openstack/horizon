@@ -134,7 +134,6 @@ class AdminInstancesTable(tables.DataTable):
                        attrs={'data-type': "ip"})
     size = tables.Column(project_tables.get_size,
                          verbose_name=_("Size"),
-                         classes=('nowrap-col',),
                          attrs={'data-type': 'size'})
     status = tables.Column(
         "status",
