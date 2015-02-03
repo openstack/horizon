@@ -71,8 +71,12 @@ class IndexView(tables.DataTableView):
 
 
 class UpdateView(forms.ModalFormView):
-    form_class = project_forms.UpdateUserForm
     template_name = 'identity/users/update.html'
+    modal_header = _("Update User")
+    form_id = "update_user_form"
+    form_class = project_forms.UpdateUserForm
+    submit_label = _("Update User")
+    submit_url = "horizon:identity:users:update"
     success_url = reverse_lazy('horizon:identity:users:index')
 
     @method_decorator(sensitive_post_parameters('password',
@@ -93,7 +97,8 @@ class UpdateView(forms.ModalFormView):
 
     def get_context_data(self, **kwargs):
         context = super(UpdateView, self).get_context_data(**kwargs)
-        context['user'] = self.get_object()
+        args = (self.kwargs['user_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
         return context
 
     def get_initial(self):
@@ -118,8 +123,13 @@ class UpdateView(forms.ModalFormView):
 
 
 class CreateView(forms.ModalFormView):
+    template_name = 'identity/users/create.html'
+    modal_header = _("Create User")
+    form_id = "create_user_form"
     form_class = project_forms.CreateUserForm
     template_name = 'identity/users/create.html'
+    submit_label = _("Create User")
+    submit_url = reverse_lazy("horizon:identity:users:create")
     success_url = reverse_lazy('horizon:identity:users:index')
 
     @method_decorator(sensitive_post_parameters('password',
