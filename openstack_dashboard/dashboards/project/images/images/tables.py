@@ -18,6 +18,7 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.template import defaultfilters as filters
 from django.utils.http import urlencode
+from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
@@ -227,6 +228,15 @@ class ImagesTable(tables.DataTable):
         ("killed", False),
         ("deleted", False),
     )
+    STATUS_DISPLAY_CHOICES = (
+        ("active", pgettext_lazy("Current status of an Image", u"Active")),
+        ("saving", pgettext_lazy("Current status of an Image", u"Saving")),
+        ("queued", pgettext_lazy("Current status of an Image", u"Queued")),
+        ("pending_delete", pgettext_lazy("Current status of an Image",
+                                         u"Pending Delete")),
+        ("killed", pgettext_lazy("Current status of an Image", u"Killed")),
+        ("deleted", pgettext_lazy("Current status of an Image", u"Deleted")),
+    )
     name = tables.Column(get_image_name,
                          link=("horizon:project:images:images:detail"),
                          verbose_name=_("Image Name"))
@@ -234,10 +244,10 @@ class ImagesTable(tables.DataTable):
                                verbose_name=_("Type"),
                                filters=(filters.title,))
     status = tables.Column("status",
-                           filters=(filters.title,),
                            verbose_name=_("Status"),
                            status=True,
-                           status_choices=STATUS_CHOICES)
+                           status_choices=STATUS_CHOICES,
+                           display_choices=STATUS_DISPLAY_CHOICES)
     public = tables.Column("is_public",
                            verbose_name=_("Public"),
                            empty_value=False,
