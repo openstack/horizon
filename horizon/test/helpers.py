@@ -118,18 +118,32 @@ class TestCase(django_test.TestCase):
       * A ready-to-go request object via ``self.request``.
     """
     def setUp(self):
+        super(TestCase, self).setUp()
         self.mox = mox.Mox()
-        self.factory = RequestFactoryWithMessages()
-        self.user = User.objects.create_user(username='test', password='test')
-        self.assertTrue(self.client.login(username="test", password="test"))
-
-        self.request = http.HttpRequest()
-        self.request.session = self.client._session()
+        self._setup_test_data()
+        self._setup_factory()
+        self._setup_user()
+        self._setup_request()
         middleware.HorizonMiddleware().process_request(self.request)
         AuthenticationMiddleware().process_request(self.request)
         os.environ["HORIZON_TEST_RUN"] = "True"
 
+    def _setup_test_data(self):
+        pass
+
+    def _setup_factory(self):
+        self.factory = RequestFactoryWithMessages()
+
+    def _setup_user(self):
+        self.user = User.objects.create_user(username='test', password='test')
+        self.assertTrue(self.client.login(username="test", password="test"))
+
+    def _setup_request(self):
+        self.request = http.HttpRequest()
+        self.request.session = self.client._session()
+
     def tearDown(self):
+        super(TestCase, self).tearDown()
         self.mox.UnsetStubs()
         self.mox.VerifyAll()
         del os.environ["HORIZON_TEST_RUN"]
