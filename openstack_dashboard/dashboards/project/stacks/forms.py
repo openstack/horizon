@@ -295,8 +295,8 @@ class CreateStackForm(forms.SelfHandlingForm):
                     if param in params:
                         params_in_order.append((param, params[param]))
         else:
-            # no parameter groups, so no way to determine order
-            params_in_order = params.items()
+            # no parameter groups, simply sorted to make the order fixed
+            params_in_order = sorted(params.items())
         for param_key, param in params_in_order:
             field = None
             field_key = self.param_prefix + param_key
