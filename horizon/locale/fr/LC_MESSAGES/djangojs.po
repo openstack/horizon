@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Frédéric <frosmont@free.fr>, 2014
+# Maxime COQUEREL <max.coquerel@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-26 23:48-0600\n"
-"PO-Revision-Date: 2015-01-27 05:48+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-02-02 15:13-0600\n"
+"PO-Revision-Date: 2015-02-03 03:20+0000\n"
+"Last-Translator: Maxime COQUEREL <max.coquerel@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,12 +46,12 @@ msgstr "Problème de communication avec le serveur, veuillez réessayer."
 msgid "Filter"
 msgstr "Filtrer"
 
-#: static/horizon/js/horizon.instances.js:264
+#: static/horizon/js/horizon.instances.js:272
 msgid "Could not read the file"
 msgstr "Le fichier n'a pu être lu"
 
-#: static/horizon/js/horizon.instances.js:270
-#: static/horizon/js/horizon.instances.js:297
+#: static/horizon/js/horizon.instances.js:278
+#: static/horizon/js/horizon.instances.js:307
 msgid "Could not decrypt the password"
 msgstr "Le mot de passe n'a pu être déchiffré"
 
@@ -95,56 +96,56 @@ msgstr "Traitement en cours..."
 msgid "There was an error submitting the form. Please try again."
 msgstr "Erreur lors de la soumission du formulaire. Veuillez réessayer. "
 
-#: static/horizon/js/horizon.networktopology.js:528
-#: static/horizon/js/horizon.networktopology.js:534
+#: static/horizon/js/horizon.networktopology.js:530
+#: static/horizon/js/horizon.networktopology.js:536
 msgid "None"
 msgstr "Aucun"
 
-#: static/horizon/js/horizon.networktopology.js:547
+#: static/horizon/js/horizon.networktopology.js:549
 msgid "Delete"
 msgstr "Supprimer"
 
-#: static/horizon/js/horizon.networktopology.js:550
+#: static/horizon/js/horizon.networktopology.js:552
 msgid "STATUS"
 msgstr "STATUT"
 
-#: static/horizon/js/horizon.networktopology.js:551
+#: static/horizon/js/horizon.networktopology.js:553
 msgid "ID"
 msgstr "ID"
 
-#: static/horizon/js/horizon.networktopology.js:552
+#: static/horizon/js/horizon.networktopology.js:554
 msgid "Interfaces"
 msgstr "Interfaces"
 
-#: static/horizon/js/horizon.networktopology.js:553
+#: static/horizon/js/horizon.networktopology.js:555
 msgid "Delete Interface"
 msgstr "Supprimer l'Interface"
 
-#: static/horizon/js/horizon.networktopology.js:554
+#: static/horizon/js/horizon.networktopology.js:556
 msgid "Open Console"
 msgstr "Ouvrir une Console"
 
-#: static/horizon/js/horizon.networktopology.js:555
+#: static/horizon/js/horizon.networktopology.js:557
 msgid "View Details"
 msgstr "Voir les détails"
 
-#: static/horizon/js/horizon.networktopology.js:558
+#: static/horizon/js/horizon.networktopology.js:560
 msgid "Delete Router"
 msgstr "Supprimer un Routeur"
 
-#: static/horizon/js/horizon.networktopology.js:559
+#: static/horizon/js/horizon.networktopology.js:561
 msgid "View Router Details"
 msgstr "Voir les Détails du Routeur"
 
-#: static/horizon/js/horizon.networktopology.js:562
+#: static/horizon/js/horizon.networktopology.js:564
 msgid "Add Interface"
 msgstr "Ajouter une interface"
 
-#: static/horizon/js/horizon.networktopology.js:568
+#: static/horizon/js/horizon.networktopology.js:570
 msgid "Terminate Instance"
 msgstr "Terminer l'Instance"
 
-#: static/horizon/js/horizon.networktopology.js:569
+#: static/horizon/js/horizon.networktopology.js:571
 msgid "View Instance Details"
 msgstr "Voir les Détails de l'Instance"
 
@@ -170,7 +171,7 @@ msgstr "Confirmez %s"
 
 #: static/horizon/js/horizon.tables.js:204
 msgid "Please confirm your selection. "
-msgstr ""
+msgstr "Merci de confirmer votre sélection."
 
 #: static/horizon/js/horizon.tables.js:361
 #, c-format
