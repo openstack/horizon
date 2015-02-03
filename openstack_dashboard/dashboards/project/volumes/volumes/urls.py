@@ -59,4 +59,7 @@ urlpatterns = patterns(
     url(r'^(?P<volume_id>[^/]+)/retype/$',
         views.RetypeView.as_view(),
         name='retype'),
+    url(r'^(?P<volume_id>[^/]+)/encryption_detail/$',
+        views.EncryptionDetailView.as_view(),
+        name='encryption_detail'),
 )

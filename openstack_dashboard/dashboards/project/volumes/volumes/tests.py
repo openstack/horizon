@@ -1067,6 +1067,59 @@ class VolumeViewTests(test.TestCase):
 
         self.assertNoMessages()
 
+    @test.create_stubs({cinder: ('volume_get',
+                                 'volume_get_encryption_metadata'), })
+    def test_encryption_detail_view_encrypted(self):
+        enc_meta = self.cinder_volume_encryption.first()
+        volume = self.cinder_volumes.get(name='my_volume2')
+
+        cinder.volume_get_encryption_metadata(
+            IsA(http.HttpRequest), volume.id).AndReturn(enc_meta)
+        cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:volumes:volumes:encryption_detail',
+                      args=[volume.id])
+        res = self.client.get(url)
+
+        self.assertContains(res,
+                            "<h1>Volume Encryption Details: "
+                            "%s</h1>" % volume.name,
+                            1, 200)
+        self.assertContains(res, "<dd>%s</dd>" % volume.volume_type, 1, 200)
+        self.assertContains(res, "<dd>%s</dd>" % enc_meta.provider, 1, 200)
+        self.assertContains(res, "<dd>%s</dd>" % enc_meta.control_location, 1,
+                            200)
+        self.assertContains(res, "<dd>%s</dd>" % enc_meta.cipher, 1, 200)
+        self.assertContains(res, "<dd>%s</dd>" % enc_meta.key_size, 1, 200)
+
+        self.assertNoMessages()
+
+    @test.create_stubs({cinder: ('volume_get',
+                                 'volume_get_encryption_metadata'), })
+    def test_encryption_detail_view_unencrypted(self):
+        enc_meta = self.cinder_volume_encryption.list()[1]
+        volume = self.cinder_volumes.get(name='my_volume2')
+
+        cinder.volume_get_encryption_metadata(
+            IsA(http.HttpRequest), volume.id).AndReturn(enc_meta)
+        cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:volumes:volumes:encryption_detail',
+                      args=[volume.id])
+        res = self.client.get(url)
+
+        self.assertContains(res,
+                            "<h1>Volume Encryption Details: "
+                            "%s</h1>" % volume.name,
+                            1, 200)
+        self.assertContains(res, "<h3>Volume is Unencrypted</h3>", 1, 200)
+
+        self.assertNoMessages()
+
     @test.create_stubs({cinder: ('tenant_absolute_limits',
                                  'volume_get',)})
     def test_get_data(self):

@@ -279,6 +279,10 @@ def volume_upload_to_image(request, volume_id, force, image_name,
                                                          disk_format)
 
 
+def volume_get_encryption_metadata(request, volume_id):
+    return cinderclient(request).volumes.get_encryption_metadata(volume_id)
+
+
 def volume_snapshot_get(request, snapshot_id):
     snapshot = cinderclient(request).volume_snapshots.get(snapshot_id)
     return VolumeSnapshot(snapshot)
