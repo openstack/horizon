@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-31 11:11-0600\n"
-"PO-Revision-Date: 2015-01-31 16:25+0000\n"
+"POT-Creation-Date: 2015-02-02 15:13-0600\n"
+"PO-Revision-Date: 2015-02-02 19:18+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/horizon/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
@@ -38,34 +38,38 @@ msgid "ISO - Optical Disk Image"
 msgstr "ISO - Optical Disk Image"
 
 #: settings.py:89
+msgid "OVA - Open Virtual Appliance"
+msgstr ""
+
+#: settings.py:90
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Emulator"
 
-#: settings.py:90
+#: settings.py:91
 msgid "Raw"
 msgstr "Raw"
 
-#: settings.py:91
-msgid "VDI"
-msgstr "VDI"
-
 #: settings.py:92
-msgid "VHD"
-msgstr "VHD"
+msgid "VDI - Virtual Disk Image"
+msgstr ""
 
 #: settings.py:93
-msgid "VMDK"
-msgstr "VMDK"
+msgid "VHD - Virtual Hard Disk"
+msgstr ""
 
-#: settings.py:232
+#: settings.py:94
+msgid "VMDK - Virtual Machine Disk"
+msgstr ""
+
+#: settings.py:233
 msgid "All TCP"
 msgstr "All TCP"
 
-#: settings.py:238
+#: settings.py:239
 msgid "All UDP"
 msgstr "All UDP"
 
-#: settings.py:244
+#: settings.py:245
 msgid "All ICMP"
 msgstr "All ICMP"
 
@@ -458,42 +462,42 @@ msgstr "Failed to check Neutron '%s' extension is not supported"
 msgid "-"
 msgstr "-"
 
-#: api/nova.py:215
+#: api/nova.py:220
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(group)s"
 msgstr "ALLOW %(from)s:%(to)s from %(group)s"
 
-#: api/nova.py:220
+#: api/nova.py:225
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
 msgstr "ALLOW %(from)s:%(to)s from %(cidr)s"
 
-#: api/nova.py:296
+#: api/nova.py:301
 msgid "Couldn't get security group list."
 msgstr "Couldn't get security group list."
 
-#: api/nova.py:303
+#: api/nova.py:308
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
 msgstr "Couldn't get current security group list for instance %s."
 
-#: api/nova.py:320
+#: api/nova.py:325
 #, python-format
 msgid ""
 "Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
 msgstr "Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
 
-#: api/nova.py:335
+#: api/nova.py:340
 #, python-format
 msgid "Failed to modify %d instance security groups"
 msgstr "Failed to modify %d instance security groups"
 
-#: api/nova.py:762
+#: api/nova.py:767
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr "Name: %(name)s ID: %(uuid)s"
 
-#: api/nova.py:767
+#: api/nova.py:772
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr "Failed to evacuate instances: %s"
@@ -916,8 +920,8 @@ msgstr "Error when adding or removing hosts."
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_create.html:19
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:19
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:18
-#: dashboards/identity/groups/templates/groups/_create.html:17
-#: dashboards/identity/groups/templates/groups/_update.html:17
+#: dashboards/identity/groups/templates/groups/_create.html:5
+#: dashboards/identity/groups/templates/groups/_update.html:5
 #: dashboards/identity/roles/templates/roles/_create.html:5
 #: dashboards/identity/roles/templates/roles/_update.html:5
 #: dashboards/identity/users/templates/users/_create.html:17
@@ -1011,8 +1015,6 @@ msgstr "Host aggregates divide an availability zone into logical units by groupi
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:26
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:29
 #: dashboards/identity/groups/templates/groups/_add_non_member.html:8
-#: dashboards/identity/groups/templates/groups/_create.html:24
-#: dashboards/identity/groups/templates/groups/_update.html:24
 #: dashboards/identity/users/templates/users/_create.html:34
 #: dashboards/identity/users/templates/users/_update.html:34
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:43
@@ -1670,7 +1672,7 @@ msgstr ""
 #: dashboards/project/instances/tables.py:962
 #: dashboards/project/instances/tables.py:985
 #: dashboards/project/instances/workflows/create_instance.py:82
-#: dashboards/project/overview/views.py:32 usage/tables.py:75
+#: dashboards/project/overview/views.py:32 usage/tables.py:80
 msgid "Instance Name"
 msgstr "Instance Name"
 
@@ -2270,7 +2272,7 @@ msgid "Power State"
 msgstr "Power State"
 
 #: dashboards/admin/instances/tables.py:157
-#: dashboards/project/instances/tables.py:1014 usage/tables.py:78
+#: dashboards/project/instances/tables.py:1014 usage/tables.py:83
 msgid "Time since created"
 msgstr ""
 
@@ -3713,11 +3715,16 @@ msgstr "Total Active RAM (MB)"
 
 #: dashboards/admin/overview/templates/overview/usage.csv:5
 #: dashboards/project/overview/templates/overview/usage.csv:6
-msgid "Total Disk Size (GB)"
-msgstr "Total Disk Size (GB)"
+msgid "Total Memory Usage (Hours)"
+msgstr ""
 
 #: dashboards/admin/overview/templates/overview/usage.csv:6
 #: dashboards/project/overview/templates/overview/usage.csv:7
+msgid "Total Disk Size (GB)"
+msgstr "Total Disk Size (GB)"
+
+#: dashboards/admin/overview/templates/overview/usage.csv:7
+#: dashboards/project/overview/templates/overview/usage.csv:8
 msgid "Total Disk Usage (Hours)"
 msgstr "Total Disk Usage (Hours)"
 
@@ -4893,8 +4900,8 @@ msgid "Groups"
 msgstr "Groups"
 
 #: dashboards/identity/groups/tables.py:39
-#: dashboards/identity/groups/templates/groups/_create.html:8
-#: dashboards/identity/groups/templates/groups/_create.html:23
+#: dashboards/identity/groups/views.py:58
+#: dashboards/identity/groups/views.py:62
 #: dashboards/identity/groups/templates/groups/create.html:3
 #: dashboards/identity/groups/templates/groups/create.html:6
 msgid "Create Group"
@@ -4989,20 +4996,27 @@ msgstr "Unable to retrieve group list."
 msgid "Insufficient privilege level to view group information."
 msgstr "Insufficient privilege level to view group information."
 
-#: dashboards/identity/groups/views.py:75
+#: dashboards/identity/groups/views.py:68
+#: dashboards/identity/groups/views.py:72
+#: dashboards/identity/groups/templates/groups/update.html:3
+#: dashboards/identity/groups/templates/groups/update.html:6
+msgid "Update Group"
+msgstr "Update Group"
+
+#: dashboards/identity/groups/views.py:83
 msgid "Unable to update group."
 msgstr "Unable to update group."
 
-#: dashboards/identity/groups/views.py:119
+#: dashboards/identity/groups/views.py:128
 #, python-format
 msgid "Group Management: %(group_name)s"
 msgstr ""
 
-#: dashboards/identity/groups/views.py:130
+#: dashboards/identity/groups/views.py:139
 msgid "Unable to retrieve group users."
 msgstr "Unable to retrieve group users."
 
-#: dashboards/identity/groups/views.py:151
+#: dashboards/identity/groups/views.py:160
 msgid "Unable to retrieve users."
 msgstr "Unable to retrieve users."
 
@@ -5010,20 +5024,13 @@ msgstr "Unable to retrieve users."
 msgid "Add Group Assignment"
 msgstr "Add Group Assignment"
 
-#: dashboards/identity/groups/templates/groups/_create.html:18
+#: dashboards/identity/groups/templates/groups/_create.html:6
 msgid ""
 "Groups are used to manage access and assign roles to multiple users at once."
 " After creating the group, edit the group to add users."
 msgstr "Groups are used to manage access and assign roles to multiple users at once. After creating the group, edit the group to add users."
 
-#: dashboards/identity/groups/templates/groups/_update.html:8
-#: dashboards/identity/groups/templates/groups/_update.html:23
-#: dashboards/identity/groups/templates/groups/update.html:3
-#: dashboards/identity/groups/templates/groups/update.html:6
-msgid "Update Group"
-msgstr "Update Group"
-
-#: dashboards/identity/groups/templates/groups/_update.html:18
+#: dashboards/identity/groups/templates/groups/_update.html:6
 msgid ""
 "Groups are used to manage access and assign roles to multiple users at once."
 " Edit the group to add users."
@@ -15234,7 +15241,15 @@ msgstr "Disk GB Hours"
 msgid "Total disk usage (GB * Hours Used) for the project"
 msgstr ""
 
-#: usage/tables.py:58 usage/tables.py:88
+#: usage/tables.py:52
+msgid "Memory MB Hours"
+msgstr ""
+
+#: usage/tables.py:53
+msgid "Total memory usage (MB * Hours Used) for the project"
+msgstr ""
+
+#: usage/tables.py:63 usage/tables.py:93
 msgid "Usage"
 msgstr "Usage"
 

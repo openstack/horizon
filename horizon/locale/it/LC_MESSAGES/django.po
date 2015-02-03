@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-29 23:24-0600\n"
-"PO-Revision-Date: 2015-01-27 05:48+0000\n"
+"POT-Creation-Date: 2015-02-02 15:13-0600\n"
+"PO-Revision-Date: 2015-02-02 19:18+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/horizon/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -403,6 +403,10 @@ msgstr ""
 
 #: templates/horizon/common/_usage_summary.html:23
 msgid "This Period's GB-Hours:"
+msgstr ""
+
+#: templates/horizon/common/_usage_summary.html:24
+msgid "This Period's RAM-Hours:"
 msgstr ""
 
 #: templates/horizon/common/_workflow.html:40

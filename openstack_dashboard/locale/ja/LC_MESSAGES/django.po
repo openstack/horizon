@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-31 11:11-0600\n"
-"PO-Revision-Date: 2015-01-31 16:25+0000\n"
+"POT-Creation-Date: 2015-02-02 15:13-0600\n"
+"PO-Revision-Date: 2015-02-02 19:18+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -42,34 +42,38 @@ msgid "ISO - Optical Disk Image"
 msgstr "ISO - 光学ディスクイメージ"
 
 #: settings.py:89
+msgid "OVA - Open Virtual Appliance"
+msgstr ""
+
+#: settings.py:90
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU エミュレーター"
 
-#: settings.py:90
+#: settings.py:91
 msgid "Raw"
 msgstr "Raw"
 
-#: settings.py:91
-msgid "VDI"
-msgstr "VDI"
-
 #: settings.py:92
-msgid "VHD"
-msgstr "VHD"
+msgid "VDI - Virtual Disk Image"
+msgstr ""
 
 #: settings.py:93
-msgid "VMDK"
-msgstr "VMDK"
+msgid "VHD - Virtual Hard Disk"
+msgstr ""
 
-#: settings.py:232
+#: settings.py:94
+msgid "VMDK - Virtual Machine Disk"
+msgstr ""
+
+#: settings.py:233
 msgid "All TCP"
 msgstr "All TCP"
 
-#: settings.py:238
+#: settings.py:239
 msgid "All UDP"
 msgstr "All UDP"
 
-#: settings.py:244
+#: settings.py:245
 msgid "All ICMP"
 msgstr "All ICMP"
 
@@ -462,42 +466,42 @@ msgstr "Neutron が '%s' 拡張に対応しているか確認できませんで�
 msgid "-"
 msgstr "-"
 
-#: api/nova.py:215
+#: api/nova.py:220
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(group)s"
 msgstr "%(group)s からポート番号 %(from)s:%(to)s への通信を許可します"
 
-#: api/nova.py:220
+#: api/nova.py:225
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
 msgstr "%(cidr)s からポート番号 %(from)s:%(to)s への通信を許可します"
 
-#: api/nova.py:296
+#: api/nova.py:301
 msgid "Couldn't get security group list."
 msgstr "セキュリティーグループ一覧を取得できません。"
 
-#: api/nova.py:303
+#: api/nova.py:308
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
 msgstr "インスタンス %s の現在のセキュリティーグループ一覧を取得できません。"
 
-#: api/nova.py:320
+#: api/nova.py:325
 #, python-format
 msgid ""
 "Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
 msgstr "インスタンスの %(num_groups_to_modify)d 個のセキュリティーグループが更新できませんでした: %(err)s"
 
-#: api/nova.py:335
+#: api/nova.py:340
 #, python-format
 msgid "Failed to modify %d instance security groups"
 msgstr "インスタンスの %d 個のセキュリティーグループが更新できませんでした"
 
-#: api/nova.py:762
+#: api/nova.py:767
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr "名前: %(name)s ID: %(uuid)s"
 
-#: api/nova.py:767
+#: api/nova.py:772
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr "インスタンスの退避に失敗しました: %s"
@@ -918,8 +922,8 @@ msgstr "ホストの追加、削除中にエラーがありました。"
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_create.html:19
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:19
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:18
-#: dashboards/identity/groups/templates/groups/_create.html:17
-#: dashboards/identity/groups/templates/groups/_update.html:17
+#: dashboards/identity/groups/templates/groups/_create.html:5
+#: dashboards/identity/groups/templates/groups/_update.html:5
 #: dashboards/identity/roles/templates/roles/_create.html:5
 #: dashboards/identity/roles/templates/roles/_update.html:5
 #: dashboards/identity/users/templates/users/_create.html:17
@@ -1013,8 +1017,6 @@ msgstr "ホストアグリゲートは、ホストをグループ化し、1 つ�
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:26
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:29
 #: dashboards/identity/groups/templates/groups/_add_non_member.html:8
-#: dashboards/identity/groups/templates/groups/_create.html:24
-#: dashboards/identity/groups/templates/groups/_update.html:24
 #: dashboards/identity/users/templates/users/_create.html:34
 #: dashboards/identity/users/templates/users/_update.html:34
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:43
@@ -1670,7 +1672,7 @@ msgstr "ローカルストレージ (総量)"
 #: dashboards/project/instances/tables.py:962
 #: dashboards/project/instances/tables.py:985
 #: dashboards/project/instances/workflows/create_instance.py:82
-#: dashboards/project/overview/views.py:32 usage/tables.py:75
+#: dashboards/project/overview/views.py:32 usage/tables.py:80
 msgid "Instance Name"
 msgstr "インスタンス名"
 
@@ -2266,7 +2268,7 @@ msgid "Power State"
 msgstr "電源状態"
 
 #: dashboards/admin/instances/tables.py:157
-#: dashboards/project/instances/tables.py:1014 usage/tables.py:78
+#: dashboards/project/instances/tables.py:1014 usage/tables.py:83
 msgid "Time since created"
 msgstr "作成後経過時間"
 
@@ -3699,11 +3701,16 @@ msgstr "使用中のメモリー合計量 (MB)"
 
 #: dashboards/admin/overview/templates/overview/usage.csv:5
 #: dashboards/project/overview/templates/overview/usage.csv:6
-msgid "Total Disk Size (GB)"
-msgstr "合計ディスクサイズ (GB)"
+msgid "Total Memory Usage (Hours)"
+msgstr ""
 
 #: dashboards/admin/overview/templates/overview/usage.csv:6
 #: dashboards/project/overview/templates/overview/usage.csv:7
+msgid "Total Disk Size (GB)"
+msgstr "合計ディスクサイズ (GB)"
+
+#: dashboards/admin/overview/templates/overview/usage.csv:7
+#: dashboards/project/overview/templates/overview/usage.csv:8
 msgid "Total Disk Usage (Hours)"
 msgstr "合計ディスク使用量 (時間)"
 
@@ -4869,8 +4876,8 @@ msgid "Groups"
 msgstr "グループ"
 
 #: dashboards/identity/groups/tables.py:39
-#: dashboards/identity/groups/templates/groups/_create.html:8
-#: dashboards/identity/groups/templates/groups/_create.html:23
+#: dashboards/identity/groups/views.py:58
+#: dashboards/identity/groups/views.py:62
 #: dashboards/identity/groups/templates/groups/create.html:3
 #: dashboards/identity/groups/templates/groups/create.html:6
 msgid "Create Group"
@@ -4959,20 +4966,27 @@ msgstr "グループの一覧を取得できません。"
 msgid "Insufficient privilege level to view group information."
 msgstr "グループ情報を参照するのに必要な権限がありません。"
 
-#: dashboards/identity/groups/views.py:75
+#: dashboards/identity/groups/views.py:68
+#: dashboards/identity/groups/views.py:72
+#: dashboards/identity/groups/templates/groups/update.html:3
+#: dashboards/identity/groups/templates/groups/update.html:6
+msgid "Update Group"
+msgstr "グループの更新"
+
+#: dashboards/identity/groups/views.py:83
 msgid "Unable to update group."
 msgstr "グループを更新できません。"
 
-#: dashboards/identity/groups/views.py:119
+#: dashboards/identity/groups/views.py:128
 #, python-format
 msgid "Group Management: %(group_name)s"
 msgstr "グループ %(group_name)s の管理"
 
-#: dashboards/identity/groups/views.py:130
+#: dashboards/identity/groups/views.py:139
 msgid "Unable to retrieve group users."
 msgstr "グループのユーザーを取得できません。"
 
-#: dashboards/identity/groups/views.py:151
+#: dashboards/identity/groups/views.py:160
 msgid "Unable to retrieve users."
 msgstr "ユーザー一覧を取得できません。"
 
@@ -4980,20 +4994,13 @@ msgstr "ユーザー一覧を取得できません。"
 msgid "Add Group Assignment"
 msgstr "グループ割り当ての追加"
 
-#: dashboards/identity/groups/templates/groups/_create.html:18
+#: dashboards/identity/groups/templates/groups/_create.html:6
 msgid ""
 "Groups are used to manage access and assign roles to multiple users at once."
 " After creating the group, edit the group to add users."
 msgstr "グループを使うと、複数のユーザーに対するアクセス権やロールの割り当てを一度で行うことができます。グループを作成した後で、グループに追加するユーザーの編集を行います。"
 
-#: dashboards/identity/groups/templates/groups/_update.html:8
-#: dashboards/identity/groups/templates/groups/_update.html:23
-#: dashboards/identity/groups/templates/groups/update.html:3
-#: dashboards/identity/groups/templates/groups/update.html:6
-msgid "Update Group"
-msgstr "グループの更新"
-
-#: dashboards/identity/groups/templates/groups/_update.html:18
+#: dashboards/identity/groups/templates/groups/_update.html:6
 msgid ""
 "Groups are used to manage access and assign roles to multiple users at once."
 " Edit the group to add users."
@@ -15092,7 +15099,15 @@ msgstr "ディスク GB 時間"
 msgid "Total disk usage (GB * Hours Used) for the project"
 msgstr "このプロジェクトの全ディスク使用量 (使用 GB 時間)"
 
-#: usage/tables.py:58 usage/tables.py:88
+#: usage/tables.py:52
+msgid "Memory MB Hours"
+msgstr ""
+
+#: usage/tables.py:53
+msgid "Total memory usage (MB * Hours Used) for the project"
+msgstr ""
+
+#: usage/tables.py:63 usage/tables.py:93
 msgid "Usage"
 msgstr "使用状況"
 
