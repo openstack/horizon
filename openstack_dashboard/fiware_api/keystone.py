@@ -93,7 +93,8 @@ def register_user(name, email, password):
     keystone = fiwareclient()
     domain = getattr(settings, 'OPENSTACK_KEYSTONE_ADMIN_CREDENTIALS')['DOMAIN']
     default_domain = keystone.domains.get(domain)
-    new_user = keystone.user_registration.registration.register_user(
+    # if not (check_user(name) or check_email(email)):
+    new_user = keystone.user_registration.users.register_user(
         name,
         domain=default_domain,
         password=password,
@@ -102,7 +103,7 @@ def register_user(name, email, password):
 
 def activate_user(user, activation_key):
     keystone = fiwareclient()
-    user = keystone.user_registration.activation.activate_user(user, activation_key)
+    user = keystone.user_registration.users.activate_user(user, activation_key)
     return user
 
 def change_password(user_email, new_password):
@@ -120,6 +121,16 @@ def check_email(email):
     keystone = fiwareclient()
     user = _find_user(keystone, email=email)
     return user
+
+def get_reset_token(user):
+    keystone = fiwareclient()
+    token = keystone.user_registration.token.get_reset_token(user)
+    return token
+
+def new_activation_key(user):
+    keystone = fiwareclient()
+    activation_key = keystone.user_registration.activation_key.new_activation_key(user)
+    return activation_key
 
 # ROLES AND PERMISSIONS
 def role_get(request, role_id):
