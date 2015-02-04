@@ -172,14 +172,14 @@ class UpdatePolicyView(forms.ModalFormView):
 
     @memoized.memoized_method
     def _get_object(self, *args, **kwargs):
-            policy_id = self.kwargs['policy_id']
-            try:
-                policy = api.fwaas.policy_get(self.request, policy_id)
-                return policy
-            except Exception:
-                redirect = self.success_url
-                msg = _('Unable to retrieve policy details.')
-                exceptions.handle(self.request, msg, redirect=redirect)
+        policy_id = self.kwargs['policy_id']
+        try:
+            policy = api.fwaas.policy_get(self.request, policy_id)
+            return policy
+        except Exception:
+            redirect = self.success_url
+            msg = _('Unable to retrieve policy details.')
+            exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_initial(self):
         policy = self._get_object()
