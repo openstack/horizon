@@ -1,9 +1,9 @@
 from django.conf.urls import patterns
 from django.conf.urls import url
 
-from .views import IndexView
+from openstack_dashboard.dashboards.idm_admin.notify import views
 
 
 urlpatterns = patterns('',
-    url(r'^$', IndexView.as_view(), name='index'),
+    url(r'^$', views.NotifyEmailView.as_view(), name='index'),
 )

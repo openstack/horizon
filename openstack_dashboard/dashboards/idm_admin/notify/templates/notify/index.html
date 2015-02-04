@@ -1,17 +1,9 @@
 {% extends 'base.html' %}
 {% load i18n %}
-{% block title %}{% trans "notify all account users" %}{% endblock %}
-
-{% block page_header %}
-  {% include "horizon/common/_domain_page_header.html" with title=_("notify all account users") %}
-{% endblock page_header %}
 
 {% block main %}
-  patata
+    {% include "idm_admin/notify/_index.html" %}
 {% endblock %}
-
-
-
 
 
 
