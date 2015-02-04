@@ -9,9 +9,7 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-
 import selenium.common.exceptions as Exceptions
-from selenium.webdriver.support import expected_conditions
 import selenium.webdriver.support.ui as Support
 from selenium.webdriver.support import wait
 
@@ -35,6 +33,18 @@ class BaseWebObject(object):
             return self._get_element(*locator).is_displayed()
         except (Exceptions.NoSuchElementException,
                 Exceptions.ElementNotVisibleException):
+            return False
+
+    def _is_element_displayed(self, element):
+        try:
+            return element.is_displayed()
+        except Exception:
+            return False
+
+    def _is_text_visible(self, element, text):
+        try:
+            return element.text == text
+        except Exception:
             return False
 
     def _get_element(self, *locator):
@@ -62,12 +72,20 @@ class BaseWebObject(object):
     def _turn_on_implicit_wait(self):
         self.driver.implicitly_wait(self.conf.selenium.page_timeout)
 
-    def _wait_till_text_present_in_element(self, locator, text):
-        condition = expected_conditions.text_to_be_present_in_element(locator,
-                                                                      text)
-        try:
-            wait.WebDriverWait(self.driver, self.explicit_wait).\
-                until(condition)
-        except Exceptions.TimeoutException:
-            return False
-        return True
+    def _wait_till_text_present_in_element(self, element, text, timeout=None):
+        if not timeout:
+            timeout = self.explicit_wait
+        wait.WebDriverWait(self.driver, timeout).until(
+            lambda x: self._is_text_visible(element, text))
+
+    def _wait_till_element_visible(self, element, timeout=None):
+        if not timeout:
+            timeout = self.explicit_wait
+        wait.WebDriverWait(self.driver, timeout).until(
+            lambda x: self._is_element_displayed(element))
+
+    def _wait_till_element_disappears(self, element, timeout=None):
+        if not timeout:
+            timeout = self.explicit_wait
+        wait.WebDriverWait(self.driver, timeout).until_not(
+            lambda x: self._is_element_displayed(element))
