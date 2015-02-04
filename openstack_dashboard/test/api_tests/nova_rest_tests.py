@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 import mock
-import unittest2
+import testtools
 
 from django.conf import settings
 
@@ -21,7 +21,7 @@ from openstack_dashboard.api.rest import nova
 from rest_test_utils import construct_request   # noqa
 
 
-class NovaRestTestCase(unittest2.TestCase):
+class NovaRestTestCase(testtools.TestCase):
     def assertStatusCode(self, response, expected_code):
         if response.status_code == expected_code:
             return

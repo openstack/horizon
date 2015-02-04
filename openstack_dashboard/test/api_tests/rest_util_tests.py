@@ -12,12 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 import mock
-import unittest2
+import testtools
 
 from openstack_dashboard.api.rest import utils
 
 
-class RestUtilsTestCase(unittest2.TestCase):
+class RestUtilsTestCase(testtools.TestCase):
     def assertStatusCode(self, response, expected_code):
         if response.status_code == expected_code:
             return
