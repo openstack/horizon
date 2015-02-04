@@ -103,12 +103,16 @@ def register_user(name, email, password):
 
 def activate_user(user, activation_key):
     keystone = fiwareclient()
+    import pdb
+    pdb.set_trace()
     user = keystone.user_registration.users.activate_user(user, activation_key)
     return user
 
 def change_password(user_email, new_password):
     keystone = fiwareclient()
     user = _find_user(keystone, email=user_email)
+    import pdb
+    pdb.set_trace()
     user = keystone.users.update(user, password=new_password, enabled=True)
     return user
 

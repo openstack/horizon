@@ -41,12 +41,15 @@ class ConfirmPasswordForm(forms.Form):
         field.
         
         """
-        data = super(ConfirmPasswordForm, self).clean()
+        cleaned_data = super(ConfirmPasswordForm, self).clean()
 
-        if data['password1'] != data['password2']:
+        p1 = cleaned_data.get('password1')
+        p2 = cleaned_data.get('password2')
+
+        if p1 and p2 and p1 != p2:
             raise forms.ValidationError(_("The two password fields didn't match."),
                                             code='invalid')
-        return data
+        return cleaned_data
 
 
 class RegistrationForm(ConfirmPasswordForm):

@@ -155,8 +155,8 @@ class ActivationView(TemplateView):
         LOG.info('Requested activation for key {0}.'.format(activation_key))
         try:
             activated_user = fiware_api.keystone.activate_user(user, activation_key)
-            LOG.debug('User {0} was successfully activated.'.format(user.name))
-            messages.success(request, _('User "%s" was successfully activated.') %user.name)
+            LOG.debug('User {0} was successfully activated.'.format(activated_user.name))
+            messages.success(request, _('User "%s" was successfully activated.') %activated_user.name)
             return activated_user
         except Exception:
             msg = _('Unable to activate user.')
@@ -201,11 +201,11 @@ class ResetPasswordView(_RequestPassingFormView):
     template_name = 'auth/password/reset.html'
     success_url = reverse_lazy('login')
 
-    def get(self, request, *args, **kwargs):
+    def dispatch(self, request, *args, **kwargs):
         self.token = request.GET.get('token')
         self.email = request.GET.get('email')
-        return super(ResetPasswordView, self).get(request, *args, **kwargs)
-
+        return super(ResetPasswordView, self).dispatch(request, *args, **kwargs)
+    
     def get_context_data(self, **kwargs):
         context = super(ResetPasswordView, self).get_context_data(**kwargs)
         context['token'] = self.token
@@ -214,7 +214,7 @@ class ResetPasswordView(_RequestPassingFormView):
 
     def form_valid(self, request, form):
         password = form.cleaned_data['password1']
-        token = request.GET.get('reset_password_token')
+        token = self.token    
         user = self._reset_password(request, token, password)
         if user:
             return super(ResetPasswordView, self).form_valid(form)
@@ -222,7 +222,7 @@ class ResetPasswordView(_RequestPassingFormView):
 
     def _reset_password(self, request, token, new_password):
         LOG.info('Reseting password for token {0}.'.format(token))
-        user_email = request.GET.get('email')
+        user_email = self.email
         user = fiware_api.keystone.change_password(user_email, new_password)
         if user:
             messages.success(request, _('password successfully changed.'))
