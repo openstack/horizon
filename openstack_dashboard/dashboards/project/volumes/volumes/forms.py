@@ -45,6 +45,35 @@ VALID_DISK_FORMATS = ('raw', 'vmdk', 'vdi', 'qcow2')
 DEFAULT_CONTAINER_FORMAT = 'bare'
 
 
+# Determine whether the extension for Cinder AZs is enabled
+def cinder_az_supported(request):
+    try:
+        return cinder.extension_supported(request, 'AvailabilityZones')
+    except Exception:
+        exceptions.handle(request, _('Unable to determine if availability '
+                                     'zones extension is supported.'))
+        return False
+
+
+def availability_zones(request):
+    zone_list = []
+    if cinder_az_supported(request):
+        try:
+            zones = api.cinder.availability_zone_list(request)
+            zone_list = [(zone.zoneName, zone.zoneName)
+                         for zone in zones if zone.zoneState['available']]
+            zone_list.sort()
+        except Exception:
+            exceptions.handle(request, _('Unable to retrieve availability '
+                                         'zones.'))
+    if not zone_list:
+        zone_list.insert(0, ("", _("No availability zones found")))
+    elif len(zone_list) > 0:
+        zone_list.insert(0, ("", _("Any Availability Zone")))
+
+    return zone_list
+
+
 class CreateForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255, label=_("Volume Name"),
                            required=False)
@@ -124,7 +153,7 @@ class CreateForm(forms.SelfHandlingForm):
 
     def prepare_source_fields_if_image_specified(self, request):
         self.fields['availability_zone'].choices = \
-            self.availability_zones(request)
+            availability_zones(request)
         try:
             image = self.get_image(request,
                                    request.GET["image_id"])
@@ -156,7 +185,7 @@ class CreateForm(forms.SelfHandlingForm):
 
     def prepare_source_fields_if_volume_specified(self, request):
         self.fields['availability_zone'].choices = \
-            self.availability_zones(request)
+            availability_zones(request)
         volume = None
         try:
             volume = self.get_volume(request, request.GET["volume_id"])
@@ -182,7 +211,7 @@ class CreateForm(forms.SelfHandlingForm):
     def prepare_source_fields_default(self, request):
         source_type_choices = []
         self.fields['availability_zone'].choices = \
-            self.availability_zones(request)
+            availability_zones(request)
 
         try:
             available = api.cinder.VOLUME_STATE_AVAILABLE
@@ -263,34 +292,6 @@ class CreateForm(forms.SelfHandlingForm):
             msg = _('Volume source must be specified')
             self._errors['volume_source'] = self.error_class([msg])
         return cleaned_data
-
-    # Determine whether the extension for Cinder AZs is enabled
-    def cinder_az_supported(self, request):
-        try:
-            return cinder.extension_supported(request, 'AvailabilityZones')
-        except Exception:
-            exceptions.handle(request, _('Unable to determine if '
-                                         'availability zones extension '
-                                         'is supported.'))
-            return False
-
-    def availability_zones(self, request):
-        zone_list = []
-        if self.cinder_az_supported(request):
-            try:
-                zones = api.cinder.availability_zone_list(request)
-                zone_list = [(zone.zoneName, zone.zoneName)
-                             for zone in zones if zone.zoneState['available']]
-                zone_list.sort()
-            except Exception:
-                exceptions.handle(request, _('Unable to retrieve availability '
-                                             'zones.'))
-        if not zone_list:
-            zone_list.insert(0, ("", _("No availability zones found")))
-        elif len(zone_list) > 0:
-            zone_list.insert(0, ("", _("Any Availability Zone")))
-
-        return zone_list
 
     def get_volumes(self, request):
         volumes = []

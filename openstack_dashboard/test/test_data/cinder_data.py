@@ -158,6 +158,7 @@ def data(TEST):
          'size': 20,
          'created_at': '2014-01-27 10:30:00',
          'volume_type': None,
+         'os-vol-host-attr:host': 'host@backend-name#pool',
          'bootable': 'true',
          'attachments': []})
     volume_v2.bootable = 'true'
