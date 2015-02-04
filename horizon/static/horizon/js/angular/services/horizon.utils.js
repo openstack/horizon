@@ -55,7 +55,8 @@
          fails silently on this, it is an angular behaviour.
          */
 
-      }
+      },
+
     };
   }
   angular.module('hz.utils.hzUtils', ['hz.conf'])

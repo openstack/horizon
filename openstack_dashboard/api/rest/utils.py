@@ -62,7 +62,7 @@ class JSONResponse(http.HttpResponse):
         )
 
 
-def ajax(authenticated=True, method=None):
+def ajax(authenticated=True, data_required=False):
     '''Provide a decorator to wrap a view method so that it may exist in an
     entirely AJAX environment:
 
@@ -74,10 +74,7 @@ def ajax(authenticated=True, method=None):
     if authenticated is true then we'll make sure the current user is
     authenticated.
 
-    If method='POST' then we'll assert that there is a JSON body
-    present with the minimum attributes of "action" and "data".
-
-    If method='PUT' then we'll assert that there is a JSON body
+    If data_required is true then we'll assert that there is a JSON body
     present.
 
     The wrapped view method should return either:
@@ -90,7 +87,8 @@ def ajax(authenticated=True, method=None):
     Methods returning nothing (or None explicitly) will result in a 204 "NO
     CONTENT" being returned to the caller.
     '''
-    def decorator(function, authenticated=authenticated, method=method):
+    def decorator(function, authenticated=authenticated,
+                  data_required=data_required):
         @functools.wraps(function,
                          assigned=decorators.available_attrs(function))
         def _wrapped(self, request, *args, **kw):
@@ -107,18 +105,9 @@ def ajax(authenticated=True, method=None):
                 except (TypeError, ValueError) as e:
                     return JSONResponse('malformed JSON request: %s' % e, 400)
 
-            # if we're wrapping a POST action then ensure the action/data
-            # expected parameters are present
-            if method == 'POST':
+            if data_required:
                 if not request.DATA:
-                    return JSONResponse('POST requires JSON body', 400)
-                if 'action' not in request.DATA or 'data' not in request.DATA:
-                    return JSONResponse('POST JSON missing action/data', 400)
-
-            # if we're wrapping a PUT action then ensure there's JSON data
-            if method == 'PUT':
-                if not request.DATA:
-                    return JSONResponse('PUT requires JSON body', 400)
+                    return JSONResponse('request requires JSON body', 400)
 
             # invoke the wrapped function, handling exceptions sanely
             try:

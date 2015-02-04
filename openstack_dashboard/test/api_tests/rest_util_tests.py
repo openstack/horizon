@@ -104,52 +104,17 @@ class RestUtilsTestCase(unittest2.TestCase):
         self.assertStatusCode(response, 404)
         self.assertEqual(response.content, '"b0rk"')
 
-    def test_post_with_no_data(self):
-        @utils.ajax(method='POST')
+    def test_data_required_with_no_data(self):
+        @utils.ajax(data_required=True)
         def f(self, request):
             assert False, "don't get here"
         request = self._construct_request()
         response = f(None, request)
         self.assertStatusCode(response, 400)
-        self.assertEqual(response.content, '"POST requires JSON body"')
+        self.assertEqual(response.content, '"request requires JSON body"')
 
-    def test_post_with_no_post_action(self):
-        self._test_bad_post('data')
-
-    def test_post_with_no_post_data(self):
-        self._test_bad_post('action')
-
-    def _test_bad_post(self, arg):
-        @utils.ajax(method='POST')
-        def f(self, request):
-            assert False, "don't get here"
-        request = self._construct_request(**{'body': '{"%s": true}' % arg})
-        response = f(None, request)
-        self.assertStatusCode(response, 400)
-        self.assertEqual(response.content, '"POST JSON missing action/data"')
-
-    def test_valid_post(self):
-        @utils.ajax(method='POST')
-        def f(self, request):
-            return 'OK'
-        request = self._construct_request(**{'body': '''
-            {"action": true, "data": true}
-        '''})
-        response = f(None, request)
-        self.assertStatusCode(response, 200)
-        self.assertEqual(response.content, '"OK"')
-
-    def test_put_with_no_data(self):
-        @utils.ajax(method='PUT')
-        def f(self, request):
-            assert False, "don't get here"
-        request = self._construct_request()
-        response = f(None, request)
-        self.assertStatusCode(response, 400)
-        self.assertEqual(response.content, '"PUT requires JSON body"')
-
-    def test_valid_put(self):
-        @utils.ajax(method='PUT')
+    def test_valid_data_required(self):
+        @utils.ajax(data_required=True)
         def f(self, request):
             return 'OK'
         request = self._construct_request(**{'body': '''
