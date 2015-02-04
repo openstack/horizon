@@ -102,6 +102,8 @@ class RegistrationView(_RequestPassingFormView):
             success_url = self.get_success_url(request, new_user)
             # success_url must be a simple string, no tuples
             return redirect(success_url)
+        # TODO(garcianavalon) do something if new_user is None like
+        # redirect to login or to sign_up
 
     # We have to protect the entire "cleaned_data" dict because it contains the
     # password and confirm_password strings.

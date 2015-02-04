@@ -343,7 +343,7 @@ if not SECRET_KEY:
                                                        '.secret_key_store'))
 
 from openstack_dashboard import policy
-POLICY_CHECK_FUNCTION = policy.check
+#POLICY_CHECK_FUNCTION = policy.check
 
 # Add HORIZON_CONFIG to the context information for offline compression
 COMPRESS_OFFLINE_CONTEXT = {
