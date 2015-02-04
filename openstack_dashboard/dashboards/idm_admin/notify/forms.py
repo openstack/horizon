@@ -25,7 +25,7 @@ from horizon import messages
 
 from openstack_dashboard import api
 # TODO(garcianavalon) centralize email sending
-from openstack_dashboard.fiware_auth.models import TemplatedEmailMixin
+from openstack_dashboard.fiware_auth.views import TemplatedEmailMixin
 
 LOG = logging.getLogger('idm_logger')
 
