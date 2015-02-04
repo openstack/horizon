@@ -12,14 +12,24 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import logging
+
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 
 from django_summernote.widgets import SummernoteWidget
 
+from horizon import exceptions
 from horizon import forms
+from horizon import messages
 
-class EmailForm(forms.SelfHandlingForm):
+from openstack_dashboard import api
+# TODO(garcianavalon) centralize email sending
+from openstack_dashboard.fiware_auth.models import TemplatedEmailMixin
+
+LOG = logging.getLogger('idm_logger')
+
+class EmailForm(forms.SelfHandlingForm, TemplatedEmailMixin):
     subject = forms.CharField(max_length=50,
                                 label=_("Subject"),
                                 required=True)
@@ -28,4 +38,16 @@ class EmailForm(forms.SelfHandlingForm):
                                 required=True)
 
     def handle(self, request, data):
-        pass
+        try:
+            to = [u.email for u in api.keystone.user_list(request)
+                if hasattr(u, 'email')]
+            self.send_html_email(
+                to, 
+                ' no-reply@account.lab.fi-ware.org', 
+                data['subject'], 
+                data['body'])
+            messages.success(request, _('Message sended succesfully.'))
+        except Exception:
+            msg = _('Unable to send message. Please try again later.')
+            LOG.warning(msg)
+            exceptions.handle(request, msg)
