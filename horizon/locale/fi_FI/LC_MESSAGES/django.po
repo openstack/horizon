@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Toni Willberg <twillber@redhat.com>, 2014
+# Toni Willberg <twillber@redhat.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-02 15:13-0600\n"
-"PO-Revision-Date: 2015-02-02 19:18+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-02-03 20:23-0600\n"
+"PO-Revision-Date: 2015-02-03 20:43+0000\n"
+"Last-Translator: Toni Willberg <twillber@redhat.com>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/horizon/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -79,7 +79,7 @@ msgid "Submit"
 msgstr "Lähetä"
 
 #: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:235
+#: templates/horizon/common/_modal_form_update_metadata.html:232
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "Keskeytä"
@@ -96,7 +96,7 @@ msgstr "Suodatin"
 
 #: tables/actions.py:645
 msgid "This action cannot be undone."
-msgstr ""
+msgstr "Tätä toimintoa ei voi peruuttaa."
 
 #: tables/actions.py:767
 #, python-format
@@ -147,7 +147,7 @@ msgstr "Päivitetty"
 
 #: tables/base.py:305
 msgid "-"
-msgstr ""
+msgstr "-"
 
 #: tables/base.py:361
 #, python-format
@@ -294,7 +294,7 @@ msgstr "Kelluvat IP:t"
 #: templates/horizon/common/_limit_summary.html:29
 #, python-format
 msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr ""
+msgstr "Varattu <span> %(used)s </span> / <span> %(available)s </span>"
 
 #: templates/horizon/common/_limit_summary.html:35
 msgid "Security Groups"
@@ -327,7 +327,7 @@ msgid "Duplicate keys are not allowed"
 msgstr "Avaimen pitää olla uniikki"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:84
-#: templates/horizon/common/_modal_form_update_metadata.html:196
+#: templates/horizon/common/_modal_form_update_metadata.html:193
 msgid "No available metadata"
 msgstr "Metatietoa ei ole saatavilla"
 
@@ -335,7 +335,7 @@ msgstr "Metatietoa ei ole saatavilla"
 msgid "Existing Metadata"
 msgstr "Olemassa oleva metatieto"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:212
+#: templates/horizon/common/_modal_form_update_metadata.html:209
 msgid ""
 "\n"
 "          You can specify resource metadata by moving items from the left\n"
@@ -345,7 +345,7 @@ msgid ""
 "        "
 msgstr "\nVoit määritellä resurssin metatiedot siirtämällä kohteita vasemmasta\nsarakkeesta oikean puoleiseen sarakkeeseen. Vasemmassa sarakkeessa on metatiedon\nmääritelmät Glancen metatietokatalogista. Käytä \"Muu\" optiota\nlisätäksesi metatietoa haluamallasi avainsanalla."
 
-#: templates/horizon/common/_modal_form_update_metadata.html:234
+#: templates/horizon/common/_modal_form_update_metadata.html:231
 #: workflows/base.py:594
 msgid "Save"
 msgstr "Tallenna"
@@ -408,7 +408,7 @@ msgstr "Tämän ajanjakson GB-tunnit:"
 
 #: templates/horizon/common/_usage_summary.html:24
 msgid "This Period's RAM-Hours:"
-msgstr ""
+msgstr "RAM-tunteja tällä aikajaksolla:"
 
 #: templates/horizon/common/_workflow.html:40
 msgid "Back"
