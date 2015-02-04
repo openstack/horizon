@@ -403,18 +403,17 @@ class EncryptionDetailView(generic.TemplateView):
 
     @memoized.memoized_method
     def get_encryption_data(self):
-        if not hasattr(self, "_encryption_metadata"):
-            try:
-                volume_id = self.kwargs['volume_id']
-                self._encryption_metadata = \
-                    cinder.volume_get_encryption_metadata(self.request,
-                                                          volume_id)
-            except Exception:
-                redirect = self.get_redirect_url()
-                exceptions.handle(self.request,
-                                  _('Unable to retrieve volume encryption '
-                                    'details.'),
-                                  redirect=redirect)
+        try:
+            volume_id = self.kwargs['volume_id']
+            self._encryption_metadata = \
+                cinder.volume_get_encryption_metadata(self.request,
+                                                      volume_id)
+        except Exception:
+            redirect = self.get_redirect_url()
+            exceptions.handle(self.request,
+                              _('Unable to retrieve volume encryption '
+                                'details.'),
+                              redirect=redirect)
         return self._encryption_metadata
 
     @memoized.memoized_method
