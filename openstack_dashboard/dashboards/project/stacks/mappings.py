@@ -42,6 +42,8 @@ resource_urls = {
         'link': 'horizon:project:containers:index'},
     "OS::Nova::Server": {
         'link': 'horizon:project:instances:detail'},
+    "OS::Cinder::Volume": {
+        'link': 'horizon:project:volumes:volumes:detail'},
     "OS::Neutron::Net": {
         'link': 'horizon:project:networks:detail'},
     "OS::Neutron::Port": {
