@@ -170,19 +170,21 @@ horizon.modals.init_wizard = function () {
 
 horizon.addInitFunction(horizon.modals.init = function() {
 
+  var $document = $(document);
+
   // Bind handler for initializing new modals.
   $('#modal_wrapper').on('new_modal', function (evt, modal) {
     horizon.modals.initModal(modal);
   });
 
   // Bind "cancel" button handler.
-  $(document).on('click', '.modal .cancel', function (evt) {
+  $document.on('click', '.modal .cancel', function (evt) {
     $(this).closest('.modal').modal('hide');
     evt.preventDefault();
   });
 
   // AJAX form submissions from modals. Makes validation happen in-modal.
-  $(document).on('submit', '.modal form', function (evt) {
+  $document.on('submit', '.modal form', function (evt) {
     var $form = $(this),
       form = this,
       $button = $form.find(".modal-footer .btn-primary"),
@@ -271,7 +273,7 @@ horizon.addInitFunction(horizon.modals.init = function() {
   });
 
   // Position modal so it's in-view even when scrolled down.
-  $(document).on('show.bs.modal', '.modal', function (evt) {
+  $document.on('show.bs.modal', '.modal', function (evt) {
     // Filter out indirect triggers of "show" from (for example) tabs.
     if ($(evt.target).hasClass("modal")) {
       var scrollShift = $('body').scrollTop() || $('html').scrollTop(),
@@ -300,7 +302,7 @@ horizon.addInitFunction(horizon.modals.init = function() {
   horizon.modals.addModalInitFunction(horizon.utils.loadAngular);
 
   // Load modals for ajax-modal links.
-  $(document).on('click', '.ajax-modal', function (evt) {
+  $document.on('click', '.ajax-modal', function (evt) {
     var $this = $(this);
 
     // If there's an existing modal request open, cancel it out.
@@ -354,7 +356,7 @@ horizon.addInitFunction(horizon.modals.init = function() {
 
   // After a modal has been shown, hide any other modals that are already in
   // the stack. Only one modal can be visible at the same time.
-  $(document).on("show.bs.modal", ".modal", function () {
+  $document.on("show.bs.modal", ".modal", function () {
     var modal_stack = $("#modal_wrapper .modal");
     modal_stack.splice(modal_stack.length - 1, 1);
     modal_stack.modal("hide");
@@ -364,7 +366,7 @@ horizon.addInitFunction(horizon.modals.init = function() {
   // Note: the modal should only be removed if it is the "top" of the stack of
   // modals, e.g. it's the one currently being interacted with and isn't just
   // temporarily being hidden.
-  $(document).on('hidden.bs.modal', '.modal', function () {
+  $document.on('hidden.bs.modal', '.modal', function () {
     var $this = $(this),
       modal_stack = $("#modal_wrapper .modal");
     if ($this[0] === modal_stack.last()[0] || $this.hasClass("loading")) {
@@ -376,7 +378,7 @@ horizon.addInitFunction(horizon.modals.init = function() {
   });
 
   // Make modals draggable
-  $(document).on("show.bs.modal", ".modal", function () {
+  $document.on("show.bs.modal", ".modal", function () {
     $(".modal-content").draggable({
       handle: ".modal-header"
     });
