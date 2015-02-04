@@ -100,27 +100,10 @@ horizon.inline_edit = {
           self.form_element = self.get_form_element(td_element);
 
           if (self.inline_edit_mod) {
-            // if cell is in inline edit mode
-            var table_cell_wrapper = td_element.find(".table_cell_wrapper");
 
-            width = self.td_element.outerWidth();
-            height = self.td_element.outerHeight();
-
-            td_element.width(width);
-            td_element.height(height);
-            td_element.css('margin', 0).css('padding', 0);
-            table_cell_wrapper.css('margin', 0).css('padding', 0);
-
-            if (self.form_element.attr('type') === 'checkbox'){
-              var inline_edit_form = td_element.find(".inline-edit-form");
-              inline_edit_form.css('padding-top', '11px').css('padding-left', '4px');
-              inline_edit_form.width(width - 40);
-            } else {
-              // setting CSS of element, so the cell remains the same size in editing mode
-              self.form_element.width(width - 40);
-              self.form_element.height(height - 2);
-              self.form_element.css('margin', 0).css('padding', 0);
-            }
+            var cellWidth = self.td_element.outerWidth(true);
+            td_element.width(cellWidth);
+            td_element.addClass("has-form");
           }
           // saving old td_element for cancel and loading purposes
           self.cached_presentation_view = self.td_element;

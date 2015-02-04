@@ -50,8 +50,11 @@ td.inline_edit_available div.table_cell_wrapper .table_cell_action button.ajax-i
   }
 }
 
+td.has-form {
+  padding: 0 !important;
+}
+
 div.table_cell_wrapper {
-   min-height: 18px;
    position: relative;
 
   .inline-edit-label {
@@ -60,9 +63,49 @@ div.table_cell_wrapper {
 
   .inline-edit-form {
     float: left;
+    padding: 1px;
+    padding-right: 26px;
+    width: 100%;
+
+    input, textarea {
+      width: 100%;
+      height: 45px;
+      border: 2px inset;
+      border-color: lightgray;
+      background: oldlace;
+    }
+
+    input[type='checkbox'] {
+      width: auto;
+      height: auto;
+      margin-left: 5%;
+      margin-top: 10%;
+    }
+
+    label {
+      vertical-align: text-bottom;
+    }
+
+    textarea {
+      resize: vertical;
+      padding: 6px;
+    }
   }
 
-  .inline-edit-actions, .table_cell_action {
+  .inline-edit-actions {
+    float: right;
+    width: 0;
+
+    button.btn-xs {
+      margin: 1px;
+
+      &:not(:first-child) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .table_cell_action {
     float: right;
     width: 20px;
     margin: 0;
