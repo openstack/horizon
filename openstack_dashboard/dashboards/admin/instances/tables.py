@@ -125,7 +125,7 @@ class AdminInstancesTable(tables.DataTable):
                          verbose_name=_("Host"),
                          classes=('nowrap-col',))
     name = tables.Column("name",
-                         link=("horizon:admin:instances:detail"),
+                         link="horizon:admin:instances:detail",
                          verbose_name=_("Name"))
     image_name = tables.Column("image_name",
                                verbose_name=_("Image Name"))

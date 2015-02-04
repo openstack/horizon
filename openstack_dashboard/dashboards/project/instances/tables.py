@@ -981,7 +981,7 @@ class InstancesTable(tables.DataTable):
         ("shelved_offloaded", True),
     )
     name = tables.Column("name",
-                         link=("horizon:project:instances:detail"),
+                         link="horizon:project:instances:detail",
                          verbose_name=_("Instance Name"))
     image_name = tables.Column("image_name",
                                verbose_name=_("Image Name"))

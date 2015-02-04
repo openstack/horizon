@@ -228,7 +228,7 @@ class ImagesTable(tables.DataTable):
         ("deleted", False),
     )
     name = tables.Column(get_image_name,
-                         link=("horizon:project:images:images:detail"),
+                         link="horizon:project:images:images:detail",
                          verbose_name=_("Image Name"))
     image_type = tables.Column(get_image_type,
                                verbose_name=_("Type"),
