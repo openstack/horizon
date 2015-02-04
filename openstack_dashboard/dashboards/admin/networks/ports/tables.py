@@ -15,7 +15,6 @@
 import logging
 
 from django.core.urlresolvers import reverse
-from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
@@ -87,12 +86,6 @@ class UpdatePort(policy.PolicyTargetMixin, tables.LinkAction):
         return reverse(self.url, args=(network_id, port.id))
 
 
-DISPLAY_CHOICES = (
-    ("UP", pgettext_lazy("Admin state of a Network", u"UP")),
-    ("DOWN", pgettext_lazy("Admin state of a Network", u"DOWN")),
-)
-
-
 class PortsTable(tables.DataTable):
     name = tables.Column("name_or_id",
                          verbose_name=_("Name"),
@@ -101,10 +94,13 @@ class PortsTable(tables.DataTable):
         project_tables.get_fixed_ips, verbose_name=_("Fixed IPs"))
     device_id = tables.Column(
         project_tables.get_attached, verbose_name=_("Device Attached"))
-    status = tables.Column("status", verbose_name=_("Status"))
+    status = tables.Column(
+        "status",
+        verbose_name=_("Status"),
+        display_choices=project_tables.STATUS_DISPLAY_CHOICES)
     admin_state = tables.Column("admin_state",
                                 verbose_name=_("Admin State"),
-                                display_choices=DISPLAY_CHOICES)
+                                display_choices=project_tables.DISPLAY_CHOICES)
     mac_state = tables.Column("mac_state", empty_value=api.neutron.OFF_STATE,
                               verbose_name=_("Mac Learning State"))
 

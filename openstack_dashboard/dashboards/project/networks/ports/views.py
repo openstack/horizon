@@ -29,6 +29,9 @@ from openstack_dashboard.dashboards.project.networks.ports \
 from openstack_dashboard.dashboards.project.networks.ports \
     import tabs as project_tabs
 
+STATE_DICT = dict(project_tables.DISPLAY_CHOICES)
+STATUS_DICT = dict(project_tables.STATUS_DISPLAY_CHOICES)
+
 
 class DetailView(tabs.TabView):
     tab_group_class = project_tabs.PortDetailTabs
@@ -40,6 +43,10 @@ class DetailView(tabs.TabView):
 
         try:
             port = api.neutron.port_get(self.request, port_id)
+            port.admin_state_label = STATE_DICT.get(port.admin_state,
+                                                    port.admin_state)
+            port.status_label = STATUS_DICT.get(port.status,
+                                                port.status)
         except Exception:
             port = []
             redirect = self.get_redirect_url()
