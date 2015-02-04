@@ -542,6 +542,10 @@ def keypair_list(request):
     return novaclient(request).keypairs.list()
 
 
+def keypair_get(request, keypair_id):
+    return novaclient(request).keypairs.get(keypair_id)
+
+
 def server_create(request, name, image, flavor, key_name, user_data,
                   security_groups, block_device_mapping=None,
                   block_device_mapping_v2=None, nics=None,
