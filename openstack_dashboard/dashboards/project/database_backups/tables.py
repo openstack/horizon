@@ -14,6 +14,7 @@
 
 from django.core.urlresolvers import reverse
 from django.template import defaultfilters as d_filters
+from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
@@ -30,6 +31,20 @@ STATUS_CHOICES = (
     ("FAILED", False),
     ("NEW", None),
     ("SAVING", None),
+)
+STATUS_DISPLAY_CHOICES = (
+    ("BUILDING", pgettext_lazy("Current status of a Database Backup",
+                               u"Building")),
+    ("COMPLETED", pgettext_lazy("Current status of a Database Backup",
+                                u"Completed")),
+    ("DELETE_FAILED", pgettext_lazy("Current status of a Database Backup",
+                                    u"Delete Failed")),
+    ("FAILED", pgettext_lazy("Current status of a Database Backup",
+                             u"Failed")),
+    ("NEW", pgettext_lazy("Current status of a Database Backup",
+                          u"New")),
+    ("SAVING", pgettext_lazy("Current status of a Database Backup",
+                             u"Saving")),
 )
 
 
@@ -156,11 +171,10 @@ class BackupsTable(tables.DataTable):
                                 filters=(d_filters.yesno,
                                          d_filters.capfirst))
     status = tables.Column("status",
-                           filters=(d_filters.title,
-                                    filters.replace_underscores),
                            verbose_name=_("Status"),
                            status=True,
-                           status_choices=STATUS_CHOICES)
+                           status_choices=STATUS_CHOICES,
+                           display_choices=STATUS_DISPLAY_CHOICES)
 
     class Meta(object):
         name = "backups"
