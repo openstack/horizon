@@ -224,6 +224,7 @@ class UpdateCell(tables.UpdateAction):
 
 class TenantsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'),
+                         link=("horizon:identity:projects:detail"),
                          form_field=forms.CharField(max_length=64),
                          update_action=UpdateCell)
     description = tables.Column(lambda obj: getattr(obj, 'description', None),

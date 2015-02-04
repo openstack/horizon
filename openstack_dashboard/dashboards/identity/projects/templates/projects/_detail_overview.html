@@ -1,0 +1,19 @@
+{% load i18n  %}
+
+<h3>{% trans "Project Overview" %}</h3>
+
+<div class="info detail">
+  <h4>{% trans "Information" %}</h4>
+  <hr class="header_rule">
+  <dl class="dl-horizontal">
+    <dt>{% trans "Project Name" %}</dt>
+    <dd>{{ project.name }}</dd>
+    <dt>{% trans "Project ID" %}</dt>
+    <dd>{{ project.id }}</dd>
+    <dt>{% trans "Enabled" %}</dt>
+    <dd>{{ project.enabled }}</dd>
+    <dt>{% trans "Description" %}</dt>
+    <dd>{{ project.description|default:_("None") }}</dd>
+  </dl>
+</div>
+
