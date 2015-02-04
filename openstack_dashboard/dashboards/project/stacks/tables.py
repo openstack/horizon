@@ -13,7 +13,6 @@
 from django.core import urlresolvers
 from django.http import Http404  # noqa
 from django.template.defaultfilters import title  # noqa
-from django.utils.http import urlencode  # noqa
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
