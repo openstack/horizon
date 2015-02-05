@@ -15,6 +15,7 @@ django-recaptcha==1.0.2
 django_compressor>=1.4
 django_openstack_auth>=1.1.7
 django-pyscss>=1.0.3  # BSD License (2 clause)
+django-summernote
 Pillow==2.6.1
 eventlet>=0.15.2
 httplib2>=0.7.5

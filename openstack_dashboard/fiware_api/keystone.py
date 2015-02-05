@@ -23,8 +23,8 @@ try:
     from keystoneclient.v3.contrib.oauth2 import core
 except ImportError, e:
     raise ImportError(e,
-                'You dont have setup correctly the extended keystoneclient. \
-                ask garcianavalon (Kike) or look at the wiki at github')
+                      'You dont have setup correctly the extended keystoneclient. \
+                      ask garcianavalon (Kike) or look at the wiki at github')
 else:
     from keystoneclient import exceptions as ks_exceptions
     from keystoneclient import session
@@ -49,7 +49,7 @@ def fiwareclient(session=None, request=None):# TODO(garcianavalon) use this
         session = _password_session()
     keystone = client.Client(session=session)
     return keystone
-        
+
 def _oauth2_session(access_token_id):
     auth = oauth2_auth.OAuth2(access_token=access_token_id)
     return session.Session(auth=auth)
@@ -60,17 +60,17 @@ def _password_session():
     LOG.debug('Creating a new keystoneclient password session to \
         {0} for user: {1}'.format(conf_params['AUTH_URL'], conf_params['USERNAME']))
     auth = v3.Password(auth_url=conf_params['AUTH_URL'],
-                    username=conf_params['USERNAME'],
-                    password=conf_params['PASSWORD'],
-                    project_name=conf_params['PROJECT'],
-                    user_domain_id=conf_params['DOMAIN'],
-                    project_domain_id=conf_params['DOMAIN'])
+                       username=conf_params['USERNAME'],
+                       password=conf_params['PASSWORD'],
+                       project_name=conf_params['PROJECT'],
+                       user_domain_id=conf_params['DOMAIN'],
+                       project_domain_id=conf_params['DOMAIN'])
     return session.Session(auth=auth)
 
 # USER REGISTRATION
 def _find_user(keystone, email=None, name=None):
-    # NOTE(garcianavalon) I dont know why but find by email returns a NoUniqueMatch 
-    # exception so we do it by hand filtering the python dictionary, 
+    # NOTE(garcianavalon) I dont know why but find by email returns a NoUniqueMatch
+    # exception so we do it by hand filtering the python dictionary,
     # which is extremely inneficient
     if name:
         user = keystone.users.find(name=name)
@@ -78,7 +78,7 @@ def _find_user(keystone, email=None, name=None):
     elif email:
         user_list = keystone.users.list()
         for user in user_list:
-            if user.email == email:
+            if hasattr(user, 'email') and user.email == email:
                 return user
         # consistent behaviour with the keystoneclient api
         msg = "No user matching email=%s." % email
@@ -93,22 +93,17 @@ def register_user(name, email, password):
     keystone = fiwareclient()
     domain = getattr(settings, 'OPENSTACK_KEYSTONE_ADMIN_CREDENTIALS')['DOMAIN']
     default_domain = keystone.domains.get(domain)
-    # set a new attribute is_default to filter it later
-    default_project = keystone.projects.create(name, domain=default_domain, is_default=True)
-    new_user = keystone.users.create(name,
-                                    domain=default_domain,
-                                    password=password,
-                                    email=email,
-                                    default_project=default_project)
-    # TODO(garcianavalon) expose the role as a config option
-    role = _grant_role(keystone, '_member_', new_user, default_project)
+    # if not (check_user(name) or check_email(email)):
+    new_user = keystone.user_registration.users.register_user(
+        name,
+        domain=default_domain,
+        password=password,
+        email=email)
     return new_user
-    
-def activate_user(user_id):
+
+def activate_user(user, activation_key):
     keystone = fiwareclient()
-    user = keystone.users.get(user_id)
-    project = keystone.projects.update(user.default_project_id, enabled=True)
-    user = keystone.users.update(user, enabled=True)
+    user = keystone.user_registration.users.activate_user(user, activation_key)
     return user
 
 def change_password(user_email, new_password):
@@ -127,6 +122,16 @@ def check_email(email):
     user = _find_user(keystone, email=email)
     return user
 
+def get_reset_token(user):
+    keystone = fiwareclient()
+    token = keystone.user_registration.token.get_reset_token(user)
+    return token
+
+def new_activation_key(user):
+    keystone = fiwareclient()
+    activation_key = keystone.user_registration.activation_key.new_activation_key(user)
+    return activation_key
+
 # ROLES AND PERMISSIONS
 def role_get(request, role_id):
     #manager = fiwareclient().fiware_roles.roles
@@ -144,20 +149,20 @@ def role_create(request, name, is_internal=False, application=None, **kwargs):
     #manager = fiwareclient().fiware_roles.roles
     manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.roles
     return manager.create(name=name,
-                is_internal=is_internal,
-                application=application,
-                **kwargs)
+                          is_internal=is_internal,
+                          application=application,
+                          **kwargs)
 
 def role_update(request, role, name=None, is_internal=False, 
                 application=None, **kwargs):
     #manager = fiwareclient().fiware_roles.roles
     manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.roles
-    return manager.update(role, 
-                        name=name,
-                        is_internal=is_internal,
-                        application=application,
-                        **kwargs)
-        
+    return manager.update(role,
+                          name=name,
+                          is_internal=is_internal,
+                          application=application,
+                          **kwargs)
+
 def role_delete(request, role_id):
     #manager = fiwareclient().fiware_roles.roles
     manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.roles
@@ -190,20 +195,20 @@ def permission_create(request, name, is_internal=False, application=None, **kwar
     #manager = fiwareclient().fiware_roles.permissions
     manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.permissions
     return manager.create(name=name,
-                is_internal=is_internal,
-                application=application,
-                **kwargs)
+                          is_internal=is_internal,
+                          application=application,
+                          **kwargs)
 
 def permission_update(request, permission, name=None, is_internal=False, 
-                application=None, **kwargs):
+                      application=None, **kwargs):
     #manager = fiwareclient().fiware_roles.permissions
     manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.permissions
-    return manager.update(permission, 
-                        name=name,
-                        is_internal=is_internal,
-                        application=application,
-                        **kwargs)
-        
+    return manager.update(permission,
+                          name=name,
+                          is_internal=is_internal,
+                          application=application,
+                          **kwargs)
+
 def permission_delete(request, permission_id):
     #manager = fiwareclient().fiware_roles.permissions
     manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.permissions
@@ -219,20 +224,20 @@ def remove_permission_from_role(request, permission, role):
 
 # APPLICATIONS/CONSUMERS
 def application_create(request, name, redirect_uris, scopes=['all_info'],
-                    client_type='confidential', description=None, 
-                    grant_type='authorization_code', **kwargs):
+                       client_type='confidential', description=None,
+                       grant_type='authorization_code', **kwargs):
     """ Registers a new consumer in the Keystone OAuth2 extension.
 
     In FIWARE applications is the name OAuth2 consumers/clients receive.
     """
     manager = api.keystone.keystoneclient(request, admin=True).oauth2.consumers
     return manager.create(name=name,
-                        redirect_uris=redirect_uris,
-                        description=description,
-                        scopes=scopes,
-                        client_type=client_type,
-                        grant_type=grant_type,
-                        **kwargs)
+                          redirect_uris=redirect_uris,
+                          description=description,
+                          scopes=scopes,
+                          client_type=client_type,
+                          grant_type=grant_type,
+                          **kwargs)
 
 def application_list(request, user=None):
     manager = api.keystone.keystoneclient(request, admin=True).oauth2.consumers
@@ -246,16 +251,16 @@ def application_get(request, application_id, use_idm_account=False):
     return manager.get(application_id)
 
 def application_update(request, consumer_id, name=None, description=None, client_type=None, 
-                redirect_uris=None, grant_type=None, scopes=None, **kwargs):
+                       redirect_uris=None, grant_type=None, scopes=None, **kwargs):
     manager = api.keystone.keystoneclient(request, admin=True).oauth2.consumers
     return manager.update(consumer=consumer_id,
-                        name=name,
-                        description=description,
-                        client_type=client_type,
-                        redirect_uris=redirect_uris,
-                        grant_type=grant_type,
-                        scopes=scopes,
-                        **kwargs)
+                          name=name,
+                          description=description,
+                          client_type=client_type,
+                          redirect_uris=redirect_uris,
+                          grant_type=grant_type,
+                          scopes=scopes,
+                          **kwargs)
 
 def application_delete(request, application_id):
     manager = api.keystone.keystoneclient(request, admin=True).oauth2.consumers
@@ -264,7 +269,7 @@ def application_delete(request, application_id):
 
 # OAUTH2 FLOW
 def request_authorization_for_application(request, application, 
-                                        redirect_uri, scope=['all_info'], state=None):
+                                          redirect_uri, scope=['all_info'], state=None):
     """ Sends the consumer/client credentials to the authorization server to ask
     a resource owner for authorization in a certain scope.
 
@@ -274,16 +279,16 @@ def request_authorization_for_application(request, application,
     LOG.debug('Requesting authorization for application: {0} with redirect_uri: {1} \
         and scope: {2} by user {3}'.format(application, redirect_uri, scope, request.user))
     manager = api.keystone.keystoneclient(request, admin=True).oauth2.authorization_codes
-    response_dict = manager.request_authorization(consumer=application, 
-                                    redirect_uri=redirect_uri, 
-                                    scope=scope, 
-                                    state=state)
+    response_dict = manager.request_authorization(consumer=application,
+                                                  redirect_uri=redirect_uri,
+                                                  scope=scope,
+                                                  state=state)
     return  response_dict
 
-def check_authorization_for_application(request, application, 
+def check_authorization_for_application(request, application,
                                         redirect_uri, scope=['all_info']):
     """ Checks if the requesting application already got authorized by the user, so we don't
-    need to make all the steps again. 
+        need to make all the steps again.
 
         The logic is that if the application already has a (valid) access token for that
     user and the scopes and redirect uris are registered then we can issue a new token for
@@ -295,7 +300,7 @@ def check_authorization_for_application(request, application,
     # FIXME(garcianavalon) the keystoneclient is not ready yet
 
 def authorize_application(request, application, scopes=['all_info'], redirect=False):
-    """ Give authorization from a resource owner to the consumer/client on the 
+    """ Give authorization from a resource owner to the consumer/client on the
     requested scopes.
 
     Example use case: when the user is redirected from the application website to
@@ -303,19 +308,18 @@ def authorize_application(request, application, scopes=['all_info'], redirect=Fa
     delegate to our Keystone backend, where the client credentials will be checked an
     an authorization_code returned if everything is correct.
 
-    :returns: an authorization_code object, following the same pattern as other 
+    :returns: an authorization_code object, following the same pattern as other
         keystoneclient objects
     """
     LOG.debug('Authorizing application: {0} by user: {1}'.format(application, request.user))
     manager = api.keystone.keystoneclient(request, admin=True).oauth2.authorization_codes
-    authorization_code = manager.authorize(
-                                    consumer=application, 
-                                    scopes=scopes, 
-                                    redirect=redirect)
+    authorization_code = manager.authorize(consumer=application,
+                                           scopes=scopes,
+                                           redirect=redirect)
     return authorization_code
 
 def obtain_access_token(request, consumer_id, consumer_secret, code,
-               redirect_uri):
+                        redirect_uri):
     """ Exchange the authorization_code for an access_token.
 
     This token can be later exchanged for a keystone scoped token using the oauth2
@@ -329,10 +333,10 @@ def obtain_access_token(request, consumer_id, consumer_secret, code,
     # convenient to simply forward the request, see forward_access_token_request method
     LOG.debug('Exchanging code: {0} by application: {1}'.format(code, consumer_id))
     manager = fiwareclient().oauth2.access_tokens
-    access_token = manager.create(consumer_id=consumer_id, 
-                                consumer_secret=consumer_secret, 
-                                authorization_code=code,
-                                redirect_uri=redirect_uri)
+    access_token = manager.create(consumer_id=consumer_id,
+                                  consumer_secret=consumer_secret,
+                                  authorization_code=code,
+                                  redirect_uri=redirect_uri)
     return access_token
 
 def forward_access_token_request(request):

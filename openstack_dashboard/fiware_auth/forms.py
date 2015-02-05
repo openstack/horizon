@@ -41,12 +41,15 @@ class ConfirmPasswordForm(forms.Form):
         field.
         
         """
-        data = super(ConfirmPasswordForm, self).clean()
+        cleaned_data = super(ConfirmPasswordForm, self).clean()
 
-        if data['password1'] != data['password2']:
+        p1 = cleaned_data.get('password1')
+        p2 = cleaned_data.get('password2')
+
+        if p1 and p2 and p1 != p2:
             raise forms.ValidationError(_("The two password fields didn't match."),
                                             code='invalid')
-        return data
+        return cleaned_data
 
 
 class RegistrationForm(ConfirmPasswordForm):
@@ -64,16 +67,16 @@ class RegistrationForm(ConfirmPasswordForm):
     """
 
     captcha = ReCaptchaField(attrs={
-                    'theme' : 'custom',
-                    'custom_theme_widget': 'recaptcha_widget'
-                })
+        'theme' : 'custom',
+        'custom_theme_widget': 'recaptcha_widget'
+        })
     username = forms.RegexField(regex=r'^[\w.@+-]+$',
                                 max_length=30,
                                 label=_("Username"),
                                 error_messages={'invalid': _("This value may contain only letters, numbers and @/./+/-/_ characters.")})
-    
+
     email = forms.EmailField(label=_("E-mail"),
-                            required=True)
+                             required=True)
 
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)

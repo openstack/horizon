@@ -7,7 +7,7 @@
         Change your password
     {% endblock %}
 
-    {% block form_action %}{% url 'fiware_auth_reset' %}?reset_password_token={{ token }}{% endblock %}
+    {% block form_action %}{% url 'fiware_auth_reset' %}?token={{ token }}&email={{ email }}{% endblock %}
 
     {% block modal-body %}
         {% include "horizon/common/_form_fields.html" %}
