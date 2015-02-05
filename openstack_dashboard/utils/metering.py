@@ -15,12 +15,11 @@ import logging
 
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
+import pytz
 
 from horizon.utils import units
 
 from openstack_dashboard import api
-
-import pytz
 
 
 LOG = logging.getLogger(__name__)
