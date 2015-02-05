@@ -15,7 +15,8 @@
     'hz.widget.action-list',
     'hz.widget.metadata-tree',
     'hz.widget.metadata-display',
-    'hz.framework.validators'
+    'hz.framework.validators',
+    'hz.widget.toast'
   ])
     .constant('basePath', '/static/angular/');
 
