@@ -143,6 +143,7 @@ class DataProcessingNodeGroupTests(test.TestCase):
                'flavor_id': flavor.id,
                'volumes_per_node': None,
                'volumes_size': None,
+               'volumes_availability_zone': None,
                'node_processes': ['namenode'],
                'node_configs': {},
                'floating_ip_pool': None,
@@ -165,6 +166,7 @@ class DataProcessingNodeGroupTests(test.TestCase):
              'storage': 'ephemeral_drive',
              'volumes_per_node': 0,
              'volumes_size': 0,
+             'volumes_availability_zone': None,
              'floating_ip_pool': None,
              'security_autogroup': True,
              'processes': 'HDFS:namenode'})

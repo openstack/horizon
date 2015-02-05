@@ -96,18 +96,23 @@ def nodegroup_template_create(request, name, plugin_name, hadoop_version,
                               node_processes=None, node_configs=None,
                               floating_ip_pool=None, security_groups=None,
                               auto_security_group=False,
-                              availability_zone=False):
-    return client(request).node_group_templates.create(name, plugin_name,
-                                                       hadoop_version,
-                                                       flavor_id, description,
-                                                       volumes_per_node,
-                                                       volumes_size,
-                                                       node_processes,
-                                                       node_configs,
-                                                       floating_ip_pool,
-                                                       security_groups,
-                                                       auto_security_group,
-                                                       availability_zone)
+                              availability_zone=False,
+                              volumes_availability_zone=False):
+    return client(request).node_group_templates.create(
+        name,
+        plugin_name,
+        hadoop_version,
+        flavor_id,
+        description,
+        volumes_per_node,
+        volumes_size,
+        node_processes,
+        node_configs,
+        floating_ip_pool,
+        security_groups,
+        auto_security_group,
+        availability_zone,
+        volumes_availability_zone)
 
 
 def nodegroup_template_list(request):
@@ -132,20 +137,24 @@ def nodegroup_template_update(request, ngt_id, name, plugin_name,
                               volumes_size=None, node_processes=None,
                               node_configs=None, floating_ip_pool=None,
                               security_groups=None, auto_security_group=False,
-                              availability_zone=False):
-    return client(request).node_group_templates.update(ngt_id, name,
-                                                       plugin_name,
-                                                       hadoop_version,
-                                                       flavor_id,
-                                                       description,
-                                                       volumes_per_node,
-                                                       volumes_size,
-                                                       node_processes,
-                                                       node_configs,
-                                                       floating_ip_pool,
-                                                       security_groups,
-                                                       auto_security_group,
-                                                       availability_zone)
+                              availability_zone=False,
+                              volumes_availability_zone=False):
+    return client(request).node_group_templates.update(
+        ngt_id,
+        name,
+        plugin_name,
+        hadoop_version,
+        flavor_id,
+        description,
+        volumes_per_node,
+        volumes_size,
+        node_processes,
+        node_configs,
+        floating_ip_pool,
+        security_groups,
+        auto_security_group,
+        availability_zone,
+        volumes_availability_zone)
 
 
 def cluster_template_create(request, name, plugin_name, hadoop_version,

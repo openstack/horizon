@@ -126,7 +126,8 @@ def data(TEST):
         "volume_mount_prefix": "/volumes/disk",
         "volumes_per_node": 0,
         "volumes_size": 0,
-        "security_groups": []
+        "security_groups": [],
+        "volumes_availability_zone": None,
     }
 
     ngt1 = node_group_templates.NodeGroupTemplate(
@@ -165,7 +166,8 @@ def data(TEST):
                 "updated_at": None,
                 "volume_mount_prefix": "/volumes/disk",
                 "volumes_per_node": 0,
-                "volumes_size": 0
+                "volumes_size": 0,
+                "volumes_availability_zone": None,
             },
             {
                 "count": 2,
@@ -183,7 +185,8 @@ def data(TEST):
                 "updated_at": None,
                 "volume_mount_prefix": "/volumes/disk",
                 "volumes_per_node": 0,
-                "volumes_size": 0
+                "volumes_size": 0,
+                "volumes_availability_zone": None,
             }
         ],
         "plugin_name": "vanilla",
@@ -243,7 +246,8 @@ def data(TEST):
                 "volume_mount_prefix": "/volumes/disk",
                 "volumes_per_node": 0,
                 "volumes_size": 0,
-                "security_groups": []
+                "security_groups": [],
+                "volumes_availability_zone": None,
             },
             {
                 "count": 2,
@@ -284,7 +288,8 @@ def data(TEST):
                 "volume_mount_prefix": "/volumes/disk",
                 "volumes_per_node": 0,
                 "volumes_size": 0,
-                "security_groups": ["b7857890-09bf-4ee0-a0d5-322d7a6978bf"]
+                "security_groups": ["b7857890-09bf-4ee0-a0d5-322d7a6978bf"],
+                "volumes_availability_zone": None,
             }
         ],
         "plugin_name": "vanilla",
