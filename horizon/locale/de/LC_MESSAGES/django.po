@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Andreas Jaeger <jaegerandi@gmail.com>, 2014
-# Robert Simai, 2014
+# Robert Simai, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-02 15:13-0600\n"
-"PO-Revision-Date: 2015-02-02 19:18+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-02-04 17:16-0600\n"
+"PO-Revision-Date: 2015-02-04 12:24+0000\n"
+"Last-Translator: Robert Simai\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -80,7 +80,7 @@ msgid "Submit"
 msgstr "Abschicken"
 
 #: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:235
+#: templates/horizon/common/_modal_form_update_metadata.html:232
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "Abbrechen"
@@ -97,7 +97,7 @@ msgstr "Filter"
 
 #: tables/actions.py:645
 msgid "This action cannot be undone."
-msgstr ""
+msgstr "Diese Aktion kann nicht rückgängig gemacht werden"
 
 #: tables/actions.py:767
 #, python-format
@@ -295,7 +295,7 @@ msgstr "Floating IPs"
 #: templates/horizon/common/_limit_summary.html:29
 #, python-format
 msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr ""
+msgstr "<span> %(used)s </span> von <span> %(available)s </span> zugewiesen"
 
 #: templates/horizon/common/_limit_summary.html:35
 msgid "Security Groups"
@@ -328,7 +328,7 @@ msgid "Duplicate keys are not allowed"
 msgstr "Doppelte Schlüssel sind nicht erlaubt"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:84
-#: templates/horizon/common/_modal_form_update_metadata.html:196
+#: templates/horizon/common/_modal_form_update_metadata.html:193
 msgid "No available metadata"
 msgstr "Keine Metadaten vorhanden"
 
@@ -336,7 +336,7 @@ msgstr "Keine Metadaten vorhanden"
 msgid "Existing Metadata"
 msgstr "Existierende Metadaten"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:212
+#: templates/horizon/common/_modal_form_update_metadata.html:209
 msgid ""
 "\n"
 "          You can specify resource metadata by moving items from the left\n"
@@ -346,7 +346,7 @@ msgid ""
 "        "
 msgstr "\nSie können Ressource-Metadaten angeben in dem Sie Einträge von der linken Spalten zur rechten Spalte verschieben. In der linken Spalte sind Metadatenangaben aus dem Glance Metadaten Katalog. Wählen Sie die Option \"Other\" um eine Bezeichnung Ihrer Wahl zu benutzen."
 
-#: templates/horizon/common/_modal_form_update_metadata.html:234
+#: templates/horizon/common/_modal_form_update_metadata.html:231
 #: workflows/base.py:594
 msgid "Save"
 msgstr "Speichern"
@@ -409,7 +409,7 @@ msgstr "GB-Stunden in diesem Zeitraum:"
 
 #: templates/horizon/common/_usage_summary.html:24
 msgid "This Period's RAM-Hours:"
-msgstr ""
+msgstr "RAM-Stunden in diesem Zeitraum:"
 
 #: templates/horizon/common/_workflow.html:40
 msgid "Back"

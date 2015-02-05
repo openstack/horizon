@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-03 20:23-0600\n"
-"PO-Revision-Date: 2015-02-04 02:23+0000\n"
+"POT-Creation-Date: 2015-02-04 17:16-0600\n"
+"PO-Revision-Date: 2015-02-04 23:17+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -541,9 +541,10 @@ msgstr "Администратор"
 #: dashboards/admin/volumes/volume_types/forms.py:24
 #: dashboards/admin/volumes/volume_types/tables.py:146
 #: dashboards/admin/volumes/volume_types/tables.py:229
-#: dashboards/admin/volumes/volumes/forms.py:29
-#: dashboards/admin/volumes/volumes/forms.py:88
-#: dashboards/admin/volumes/volumes/tables.py:41
+#: dashboards/admin/volumes/volumes/forms.py:85
+#: dashboards/admin/volumes/volumes/forms.py:166
+#: dashboards/admin/volumes/volumes/forms.py:225
+#: dashboards/admin/volumes/volumes/tables.py:79
 #: dashboards/identity/domains/tables.py:198
 #: dashboards/identity/domains/workflows.py:34
 #: dashboards/identity/groups/forms.py:30
@@ -645,15 +646,16 @@ msgstr "Имя"
 #: dashboards/admin/aggregates/forms.py:30
 #: dashboards/admin/aggregates/tables.py:130
 #: dashboards/admin/aggregates/workflows.py:27
+#: dashboards/admin/volumes/volumes/forms.py:74
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:22
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:19
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:46
 #: dashboards/project/instances/tables.py:1002
 #: dashboards/project/instances/templates/instances/_detail_overview.html:16
 #: dashboards/project/instances/workflows/create_instance.py:79
-#: dashboards/project/volumes/volumes/forms.py:91
-#: dashboards/project/volumes/volumes/forms.py:96
-#: dashboards/project/volumes/volumes/forms.py:97
+#: dashboards/project/volumes/volumes/forms.py:120
+#: dashboards/project/volumes/volumes/forms.py:125
+#: dashboards/project/volumes/volumes/forms.py:126
 #: dashboards/project/volumes/volumes/tables.py:417
 msgid "Availability Zone"
 msgstr "Зона доступности"
@@ -741,6 +743,7 @@ msgstr "Узлы"
 
 #: dashboards/admin/aggregates/tables.py:136
 #: dashboards/admin/flavors/tables.py:142
+#: dashboards/admin/volumes/volumes/forms.py:67
 #: dashboards/project/instances/templates/instances/_detail_overview.html:106
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:46
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:68
@@ -753,7 +756,7 @@ msgstr "Имя зоны доступности"
 
 #: dashboards/admin/aggregates/tables.py:161
 #: dashboards/admin/volumes/snapshots/forms.py:24
-#: dashboards/admin/volumes/volumes/forms.py:54
+#: dashboards/admin/volumes/volumes/forms.py:191
 msgid "Available"
 msgstr "Доступно"
 
@@ -921,6 +924,8 @@ msgstr "Ошибка при добавлении или удалении узл�
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:19
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_create.html:19
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:19
+#: dashboards/admin/volumes/templates/volumes/volumes/_manage_volume.html:5
+#: dashboards/admin/volumes/templates/volumes/volumes/_unmanage_volume.html:5
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:18
 #: dashboards/identity/groups/templates/groups/_create.html:5
 #: dashboards/identity/groups/templates/groups/_update.html:5
@@ -1170,7 +1175,7 @@ msgstr "Загруженные файлы"
 #: dashboards/admin/volumes/panel.py:21 dashboards/admin/volumes/tabs.py:35
 #: dashboards/admin/volumes/templates/volumes/index.html:3
 #: dashboards/admin/volumes/templates/volumes/index.html:6
-#: dashboards/admin/volumes/volumes/tables.py:48
+#: dashboards/admin/volumes/volumes/tables.py:86
 #: dashboards/identity/projects/workflows.py:56
 #: dashboards/project/volumes/panel.py:23
 #: dashboards/project/volumes/tabs.py:83
@@ -1296,7 +1301,7 @@ msgid "Unable to get quota info."
 msgstr "Не удалось получить информацию о квоте."
 
 #: dashboards/admin/defaults/views.py:44
-#: dashboards/identity/projects/views.py:159
+#: dashboards/identity/projects/views.py:160
 msgid "Unable to retrieve default quota values."
 msgstr "Не удалось получить значение стандартных квот."
 
@@ -1407,6 +1412,8 @@ msgstr "Диск подкачки"
 #: dashboards/admin/networks/templates/networks/ports/_update.html:13
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:9
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:12
+#: dashboards/admin/volumes/volumes/forms.py:86
+#: dashboards/admin/volumes/volumes/forms.py:144
 #: dashboards/identity/roles/forms.py:37
 #: dashboards/identity/users/forms.py:163
 #: dashboards/identity/users/templates/users/_detail_overview.html:19
@@ -1636,10 +1643,10 @@ msgstr "Имя узла"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/routers/ports/tables.py:107
 #: dashboards/project/stacks/resource_types/tables.py:31
-#: dashboards/project/volumes/volumes/forms.py:82
-#: dashboards/project/volumes/volumes/forms.py:87
-#: dashboards/project/volumes/volumes/forms.py:88
-#: dashboards/project/volumes/volumes/forms.py:735
+#: dashboards/project/volumes/volumes/forms.py:111
+#: dashboards/project/volumes/volumes/forms.py:116
+#: dashboards/project/volumes/volumes/forms.py:117
+#: dashboards/project/volumes/volumes/forms.py:736
 #: dashboards/project/volumes/volumes/tables.py:413
 msgid "Type"
 msgstr "Тип"
@@ -1747,7 +1754,9 @@ msgstr "Не удалось эвакуировать хост: %s"
 #: dashboards/admin/instances/tables.py:125
 #: dashboards/admin/networks/agents/tables.py:91
 #: dashboards/admin/volumes/snapshots/tables.py:64
-#: dashboards/admin/volumes/volumes/tables.py:43
+#: dashboards/admin/volumes/volumes/forms.py:54
+#: dashboards/admin/volumes/volumes/forms.py:140
+#: dashboards/admin/volumes/volumes/tables.py:81
 #: dashboards/project/databases/tables.py:268
 #: dashboards/project/databases/templates/databases/_detail_overview_cassandra.html:10
 #: dashboards/project/databases/templates/databases/_detail_overview_couchbase.html:10
@@ -1818,7 +1827,7 @@ msgstr "Зона"
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:13
 #: dashboards/admin/volumes/snapshots/forms.py:33
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:18
-#: dashboards/admin/volumes/volumes/forms.py:46
+#: dashboards/admin/volumes/volumes/forms.py:183
 #: dashboards/project/access_and_security/floating_ips/tables.py:200
 #: dashboards/project/data_processing/clusters/tables.py:109
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:12
@@ -1974,7 +1983,7 @@ msgstr "Максимальный размер (МБ)"
 #: dashboards/project/instances/tables.py:987
 #: dashboards/project/instances/templates/instances/_detail_overview.html:114
 #: dashboards/project/instances/workflows/create_instance.py:106
-#: dashboards/project/volumes/volumes/forms.py:627
+#: dashboards/project/volumes/volumes/forms.py:628
 msgid "Image Name"
 msgstr "Имя образа"
 
@@ -2063,10 +2072,11 @@ msgstr "Системная информация"
 #: dashboards/identity/domains/tables.py:202
 #: dashboards/identity/domains/workflows.py:39
 #: dashboards/identity/groups/tables.py:195
-#: dashboards/identity/projects/tables.py:236
-#: dashboards/identity/projects/tables.py:239
+#: dashboards/identity/projects/tables.py:237
+#: dashboards/identity/projects/tables.py:240
 #: dashboards/identity/projects/workflows.py:150
 #: dashboards/identity/projects/workflows.py:523
+#: dashboards/identity/projects/templates/projects/_detail_overview.html:13
 #: dashboards/identity/users/tables.py:223
 #: dashboards/identity/users/templates/users/_detail_overview.html:23
 #: dashboards/project/firewalls/forms.py:70
@@ -2207,7 +2217,7 @@ msgstr "Живая миграция машины"
 #: dashboards/admin/networks/tables.py:93
 #: dashboards/admin/routers/tables.py:39
 #: dashboards/admin/volumes/snapshots/tables.py:65
-#: dashboards/admin/volumes/volumes/tables.py:44
+#: dashboards/admin/volumes/volumes/tables.py:82
 #: dashboards/project/dashboard.py:76
 #: dashboards/project/images/images/tables.py:156
 #: dashboards/project/instances/workflows/create_instance.py:52
@@ -2438,13 +2448,15 @@ msgstr ""
 #: dashboards/admin/metering/tables.py:64
 #: dashboards/admin/metering/views.py:104
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:15
+#: dashboards/admin/volumes/volumes/forms.py:64
 #: dashboards/identity/domains/tables.py:200
 #: dashboards/identity/domains/workflows.py:37
 #: dashboards/identity/groups/forms.py:33
 #: dashboards/identity/groups/forms.py:59
 #: dashboards/identity/groups/tables.py:117
-#: dashboards/identity/projects/tables.py:230
+#: dashboards/identity/projects/tables.py:231
 #: dashboards/identity/projects/workflows.py:148
+#: dashboards/identity/projects/templates/projects/_detail_overview.html:15
 #: dashboards/project/access_and_security/security_groups/forms.py:44
 #: dashboards/project/access_and_security/security_groups/forms.py:73
 #: dashboards/project/access_and_security/security_groups/tables.py:133
@@ -2497,9 +2509,9 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:17
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:15
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:15
-#: dashboards/project/volumes/volumes/forms.py:53
-#: dashboards/project/volumes/volumes/forms.py:488
-#: dashboards/project/volumes/volumes/forms.py:589
+#: dashboards/project/volumes/volumes/forms.py:82
+#: dashboards/project/volumes/volumes/forms.py:489
+#: dashboards/project/volumes/volumes/forms.py:590
 #: dashboards/project/volumes/volumes/tables.py:384
 #: dashboards/project/vpn/forms.py:36 dashboards/project/vpn/forms.py:70
 #: dashboards/project/vpn/forms.py:142 dashboards/project/vpn/forms.py:213
@@ -2588,6 +2600,7 @@ msgstr ""
 #: dashboards/admin/metadata_defs/templates/metadata_defs/detail.html:7
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:8
 #: dashboards/admin/volumes/volume_types/forms.py:87
+#: dashboards/identity/projects/templates/projects/_detail_overview.html:16
 #: dashboards/identity/users/templates/users/_detail_overview.html:22
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:11
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:11
@@ -2903,12 +2916,13 @@ msgstr ""
 
 #: dashboards/admin/metering/tabs.py:90 dashboards/admin/metering/views.py:148
 #: dashboards/admin/overview/views.py:65
-#: dashboards/identity/projects/views.py:90
+#: dashboards/identity/projects/views.py:91
 msgid "Unable to retrieve project list."
 msgstr "Не удалось получить список проектов."
 
 #: dashboards/admin/metering/views.py:104
 #: dashboards/admin/overview/views.py:33
+#: dashboards/identity/projects/templates/projects/_detail_overview.html:9
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:18
 #: usage/tables.py:45
 msgid "Project Name"
@@ -3818,7 +3832,8 @@ msgid "Router Overview: %(router_name)s"
 msgstr ""
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:11
-#: dashboards/identity/projects/tables.py:235
+#: dashboards/identity/projects/tables.py:236
+#: dashboards/identity/projects/templates/projects/_detail_overview.html:11
 #: dashboards/identity/users/templates/users/_detail_overview.html:25
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:22
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:16
@@ -3912,27 +3927,27 @@ msgid "Unable to retrieve QoS specs"
 msgstr ""
 
 #: dashboards/admin/volumes/tabs.py:133 dashboards/project/volumes/tabs.py:113
-#: dashboards/project/volumes/volumes/forms.py:201
+#: dashboards/project/volumes/volumes/forms.py:230
 msgid "Unable to retrieve volume snapshots."
 msgstr "Не удалось получить снимки диска."
 
 #: dashboards/admin/volumes/snapshots/forms.py:25
-#: dashboards/admin/volumes/volumes/forms.py:55
+#: dashboards/admin/volumes/volumes/forms.py:192
 msgid "Creating"
 msgstr "Создание"
 
 #: dashboards/admin/volumes/snapshots/forms.py:26
-#: dashboards/admin/volumes/volumes/forms.py:56
+#: dashboards/admin/volumes/volumes/forms.py:193
 msgid "Deleting"
 msgstr "Удаление"
 
 #: dashboards/admin/volumes/snapshots/forms.py:27
-#: dashboards/admin/volumes/volumes/forms.py:58
+#: dashboards/admin/volumes/volumes/forms.py:195
 msgid "Error"
 msgstr "Ошибка"
 
 #: dashboards/admin/volumes/snapshots/forms.py:28
-#: dashboards/admin/volumes/volumes/forms.py:59
+#: dashboards/admin/volumes/volumes/forms.py:196
 msgid "Error Deleting"
 msgstr "Ошибка удаления"
 
@@ -3952,13 +3967,15 @@ msgid "Update Status"
 msgstr "Обновить статус"
 
 #: dashboards/admin/volumes/snapshots/tables.py:62
+#: dashboards/admin/volumes/volumes/forms.py:59
+#: dashboards/admin/volumes/volumes/forms.py:136
 #: dashboards/project/volumes/backups/tables.py:131
 #: dashboards/project/volumes/snapshots/tables.py:151
-#: dashboards/project/volumes/volumes/forms.py:49
-#: dashboards/project/volumes/volumes/forms.py:585
-#: dashboards/project/volumes/volumes/forms.py:624
-#: dashboards/project/volumes/volumes/forms.py:684
-#: dashboards/project/volumes/volumes/forms.py:732
+#: dashboards/project/volumes/volumes/forms.py:78
+#: dashboards/project/volumes/volumes/forms.py:586
+#: dashboards/project/volumes/volumes/forms.py:625
+#: dashboards/project/volumes/volumes/forms.py:685
+#: dashboards/project/volumes/volumes/forms.py:733
 msgid "Volume Name"
 msgstr "Имя диска"
 
@@ -3973,6 +3990,7 @@ msgid "Volume Snapshot Overview"
 msgstr "Обзор снимка диска"
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:7
+#: dashboards/identity/projects/templates/projects/_detail_overview.html:6
 #: dashboards/identity/users/templates/users/_detail_overview.html:6
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:6
 #: dashboards/project/database_backups/templates/database_backups/details.html:15
@@ -3994,7 +4012,7 @@ msgstr ""
 #: dashboards/project/instances/workflows/create_instance.py:416
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:23
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
-#: dashboards/project/volumes/volumes/forms.py:218
+#: dashboards/project/volumes/volumes/forms.py:247
 msgid "Volume"
 msgstr "Диск"
 
@@ -4339,10 +4357,32 @@ msgstr ""
 msgid "QoS Spec: %(qos_spec_name)s"
 msgstr ""
 
+#: dashboards/admin/volumes/templates/volumes/volumes/_manage_volume.html:6
+msgid ""
+"\n"
+"    \"Manage\" an existing volume from a Cinder host. This will make the volume visible within\n"
+"    OpenStack.\n"
+"    <br>\n"
+"    <br>\n"
+"    This is equivalent to the <tt>cinder manage</tt> command.\n"
+"    "
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/volumes/_unmanage_volume.html:6
+msgid ""
+"\n"
+"    When a volume is \"unmanaged\", the volume will no longer be visible within OpenStack. Note that the\n"
+"    volume will not be deleted from the Cinder host.\n"
+"    <br>\n"
+"    <br>\n"
+"    This is equivalent to the <tt>cinder unmanage</tt> command.\n"
+"    "
+msgstr ""
+
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:9
 #: dashboards/admin/volumes/templates/volumes/volumes/update_status.html:3
 #: dashboards/admin/volumes/templates/volumes/volumes/update_status.html:6
-#: dashboards/admin/volumes/volumes/tables.py:31
+#: dashboards/admin/volumes/volumes/tables.py:69
 msgid "Update Volume Status"
 msgstr "Обновить статус диска"
 
@@ -4359,6 +4399,25 @@ msgstr "\nСтатус диска, как правило, управляется
 #: dashboards/project/volumes/templates/volumes/volumes/detail.html:3
 msgid "Volume Details"
 msgstr "Информация о диска"
+
+#: dashboards/admin/volumes/templates/volumes/volumes/manage_volume.html:3
+#: dashboards/admin/volumes/volumes/tables.py:33
+#: dashboards/admin/volumes/volumes/views.py:46
+msgid "Manage Volume"
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/volumes/manage_volume.html:6
+msgid "Manage a Volume"
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/volumes/unmanage_volume.html:3
+#: dashboards/admin/volumes/volumes/tables.py:43
+msgid "Unmanage Volume"
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/volumes/unmanage_volume.html:6
+msgid "Unmanage a Volume"
+msgstr ""
 
 #: dashboards/admin/volumes/volume_types/forms.py:51
 #, python-format
@@ -4487,7 +4546,7 @@ msgid "Edit Consumer"
 msgstr "Редактировать потребителя"
 
 #: dashboards/admin/volumes/volume_types/tables.py:230
-#: dashboards/admin/volumes/volumes/forms.py:89
+#: dashboards/admin/volumes/volumes/forms.py:226
 msgid "Consumer"
 msgstr "Потребитель"
 
@@ -4630,44 +4689,119 @@ msgstr ""
 msgid "Unable to retrieve QoS spec details."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:36
+#: dashboards/admin/volumes/volumes/forms.py:32
+msgid "Invalid metadata entry. Use comma-separated key=value pairs"
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/forms.py:47
+msgid "Identifier"
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/forms.py:48
+msgid "Name or other identifier for existing volume"
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/forms.py:50
+msgid "Identifier Type"
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/forms.py:51
+msgid "Type of backend device identifier provided"
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/forms.py:55
+msgid ""
+"Cinder host on which the existing volume resides; takes the form: host"
+"@backend-name#pool"
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/forms.py:61
+msgid "Volume name to be assigned"
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/forms.py:68
+msgid "Comma-separated key=value pairs"
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/forms.py:71
+msgid "Volume Type"
+msgstr "тип диска"
+
+#: dashboards/admin/volumes/volumes/forms.py:78
+#: dashboards/project/volumes/volumes/forms.py:592
+#: dashboards/project/volumes/volumes/tables.py:419
+msgid "Bootable"
+msgstr "Загрузочный"
+
+#: dashboards/admin/volumes/volumes/forms.py:80
+msgid "Specifies that the newly created volume should be marked as bootable"
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/forms.py:88
+#: dashboards/project/volumes/volumes/forms.py:266
+msgid "No volume type"
+msgstr "Никакого типа диска"
+
+#: dashboards/admin/volumes/volumes/forms.py:127
+#, python-format
+msgid "Successfully sent the request to manage volume: %s"
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/forms.py:131
+msgid "Unable to manage volume."
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/forms.py:157
+#, python-format
+msgid "Successfully sent the request to unmanage volume: %s"
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/forms.py:161
+msgid "Unable to unmanage volume."
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/forms.py:173
 #, python-format
 msgid "Successfully created volume type: %s"
 msgstr "Успешно создан тип диска: %s"
 
-#: dashboards/admin/volumes/volumes/forms.py:41
+#: dashboards/admin/volumes/volumes/forms.py:178
 msgid "Unable to create volume type."
 msgstr "Не удалось создать тип диска."
 
-#: dashboards/admin/volumes/volumes/forms.py:53
+#: dashboards/admin/volumes/volumes/forms.py:190
 msgid "Attaching"
 msgstr "Подключение"
 
-#: dashboards/admin/volumes/volumes/forms.py:57
+#: dashboards/admin/volumes/volumes/forms.py:194
 msgid "Detaching"
 msgstr "Отсоединение"
 
-#: dashboards/admin/volumes/volumes/forms.py:60
+#: dashboards/admin/volumes/volumes/forms.py:197
 msgid "In Use"
 msgstr "В использовании"
 
-#: dashboards/admin/volumes/volumes/forms.py:77
+#: dashboards/admin/volumes/volumes/forms.py:214
 #, python-format
 msgid "Successfully updated volume status to \"%s\"."
 msgstr "Успешно обновлен статус диска на \"%s\"."
 
-#: dashboards/admin/volumes/volumes/forms.py:82
+#: dashboards/admin/volumes/volumes/forms.py:219
 #, python-format
 msgid "Unable to update volume status to \"%s\"."
 msgstr "Не удалось обновить статус диска на \"%s\"."
 
-#: dashboards/admin/volumes/volumes/forms.py:98
+#: dashboards/admin/volumes/volumes/forms.py:235
 #, python-format
 msgid "Successfully created QoS Spec: %s"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:103
+#: dashboards/admin/volumes/volumes/forms.py:240
 msgid "Unable to create QoS Spec."
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/tables.py:61
+msgid "Unable to retrieve snapshot data."
 msgstr ""
 
 #: dashboards/admin/volumes/volumes/views.py:34
@@ -4676,7 +4810,20 @@ msgstr ""
 msgid "Volume Details: %(volume_name)s"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/views.py:69
+#: dashboards/admin/volumes/volumes/views.py:48
+msgid "Manage"
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/views.py:61
+msgid "Confirm Unmanage Volume"
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/views.py:63
+msgid "Unmanage"
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/views.py:81
+#: dashboards/admin/volumes/volumes/views.py:118
 #: dashboards/project/volumes/volumes/views.py:71
 #: dashboards/project/volumes/volumes/views.py:427
 msgid "Unable to retrieve volume details."
@@ -5083,7 +5230,7 @@ msgid "Group Management"
 msgstr "Управление группами"
 
 #: dashboards/identity/projects/panel.py:27
-#: dashboards/identity/projects/tables.py:245
+#: dashboards/identity/projects/tables.py:246
 #: dashboards/identity/projects/templates/projects/index.html:3
 #: dashboards/identity/projects/templates/projects/index.html:6
 #: templates/403.html:27 templates/404.html:24
@@ -5132,29 +5279,35 @@ msgstr[2] ""
 msgid "This name is already taken."
 msgstr "Это имя уже занято."
 
-#: dashboards/identity/projects/views.py:58
-#: dashboards/identity/projects/views.py:103
+#: dashboards/identity/projects/views.py:59
+#: dashboards/identity/projects/views.py:104
 #: dashboards/router/nexus1000v/views.py:41
 msgid "Unable to retrieve project information."
 msgstr "Не удалось получить информацию о проекте."
 
-#: dashboards/identity/projects/views.py:107
+#: dashboards/identity/projects/views.py:108
 msgid "Insufficient privilege level to view project information."
 msgstr "Недостаточный уровень полномочий для просмотра информации о проекте"
 
-#: dashboards/identity/projects/views.py:151
+#: dashboards/identity/projects/views.py:152
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "Не удалось получить значения стандартных квот Neutron."
 
-#: dashboards/identity/projects/views.py:189
+#: dashboards/identity/projects/views.py:190
 #: dashboards/identity/users/views.py:116
 #: dashboards/identity/users/views.py:177
 msgid "Unable to retrieve project domain."
 msgstr "Не удалось получить домен проекта."
 
-#: dashboards/identity/projects/views.py:203
+#: dashboards/identity/projects/views.py:204
+#: dashboards/identity/projects/views.py:229
 msgid "Unable to retrieve project details."
 msgstr "Не удалось получить подробную информацию о проекте."
+
+#: dashboards/identity/projects/views.py:217
+#, python-format
+msgid "Project Details: %s"
+msgstr ""
 
 #: dashboards/identity/projects/workflows.py:47
 msgid "Injected File Content (Bytes)"
@@ -5288,6 +5441,14 @@ msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
 msgstr "Изменена информация о проекте и участники, но квоты обновить не удалось."
+
+#: dashboards/identity/projects/templates/projects/_detail_overview.html:3
+msgid "Project Overview"
+msgstr ""
+
+#: dashboards/identity/projects/templates/projects/detail.html:3
+msgid "Project Details"
+msgstr ""
 
 #: dashboards/identity/projects/templates/projects/usage.html:3
 msgid "Project Usage Overview"
@@ -5790,7 +5951,7 @@ msgid "Select a port"
 msgstr "Выберете порт"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:110
-#: dashboards/project/volumes/volumes/forms.py:453
+#: dashboards/project/volumes/volumes/forms.py:454
 msgid "Select an instance"
 msgstr "Выбрать экземпляр"
 
@@ -5799,7 +5960,7 @@ msgid "No ports available"
 msgstr "Нет доступных портов"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:116
-#: dashboards/project/volumes/volumes/forms.py:455
+#: dashboards/project/volumes/volumes/forms.py:456
 msgid "No instances available"
 msgstr "Нет доступных экземпляров"
 
@@ -7314,7 +7475,7 @@ msgstr "Не удалось обновить образ"
 #: dashboards/project/data_processing/data_image_registry/forms.py:59
 #: dashboards/project/data_processing/data_image_registry/tables.py:73
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:58
-#: dashboards/project/volumes/volumes/forms.py:206
+#: dashboards/project/volumes/volumes/forms.py:235
 msgid "Image"
 msgstr "Образ"
 
@@ -8577,12 +8738,12 @@ msgid "Error creating database backup."
 msgstr "Ошибка создания резервной копии БД."
 
 #: dashboards/project/databases/forms.py:28
-#: dashboards/project/volumes/volumes/forms.py:689
+#: dashboards/project/volumes/volumes/forms.py:690
 msgid "Current Size (GB)"
 msgstr "Текущий размер (ГБ)"
 
 #: dashboards/project/databases/forms.py:32
-#: dashboards/project/volumes/volumes/forms.py:693
+#: dashboards/project/volumes/volumes/forms.py:694
 msgid "New Size (GB)"
 msgstr "Новый размер (Гб)"
 
@@ -9794,7 +9955,7 @@ msgstr "Невозможно получить подробности образ�
 
 #: dashboards/project/images/snapshots/forms.py:33
 #: dashboards/project/volumes/snapshots/forms.py:25
-#: dashboards/project/volumes/volumes/forms.py:485
+#: dashboards/project/volumes/volumes/forms.py:486
 msgid "Snapshot Name"
 msgstr "Название снимка"
 
@@ -9842,7 +10003,7 @@ msgid "Container Format"
 msgstr "Формат контейнера"
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:50
-#: dashboards/project/volumes/volumes/forms.py:628
+#: dashboards/project/volumes/volumes/forms.py:629
 msgid "Disk Format"
 msgstr "Формат диска"
 
@@ -10904,7 +11065,7 @@ msgid "Volume size in gigabytes (integer value)."
 msgstr "Размер диска в гигабайтах (целое значение)."
 
 #: dashboards/project/instances/workflows/create_instance.py:120
-#: dashboards/project/volumes/volumes/forms.py:418
+#: dashboards/project/volumes/volumes/forms.py:419
 msgid "Device Name"
 msgstr "Имя устройства"
 
@@ -11018,17 +11179,17 @@ msgid ""
 msgstr "Запуск нескольких инстансов поддерживается только для образов и снимков инстансов."
 
 #: dashboards/project/instances/workflows/create_instance.py:372
-#: dashboards/project/volumes/volumes/forms.py:286
+#: dashboards/project/volumes/volumes/forms.py:67
 msgid "Unable to retrieve availability zones."
 msgstr "Невозможно получить зоны доступности."
 
 #: dashboards/project/instances/workflows/create_instance.py:378
-#: dashboards/project/volumes/volumes/forms.py:289
+#: dashboards/project/volumes/volumes/forms.py:70
 msgid "No availability zones found"
 msgstr "Не найдены зоны доступности."
 
 #: dashboards/project/instances/workflows/create_instance.py:380
-#: dashboards/project/volumes/volumes/forms.py:291
+#: dashboards/project/volumes/volumes/forms.py:72
 msgid "Any Availability Zone"
 msgstr "Любая зона доступности"
 
@@ -11039,7 +11200,7 @@ msgid "Unable to retrieve quota information."
 msgstr "Невозможно получить информацию о квоте."
 
 #: dashboards/project/instances/workflows/create_instance.py:413
-#: dashboards/project/volumes/volumes/forms.py:193
+#: dashboards/project/volumes/volumes/forms.py:222
 msgid "Snapshot"
 msgstr "Снимок"
 
@@ -11057,7 +11218,7 @@ msgid "No snapshots available"
 msgstr "Нет доступных снимков."
 
 #: dashboards/project/instances/workflows/create_instance.py:467
-#: dashboards/project/volumes/volumes/forms.py:303
+#: dashboards/project/volumes/volumes/forms.py:304
 msgid "Unable to retrieve list of volumes."
 msgstr "Не удалось получить список дисков."
 
@@ -13513,22 +13674,22 @@ msgstr "Запланировано удаление %(data_type)s"
 #: dashboards/project/volumes/backups/tables.py:108
 msgctxt "Current status of a Volume Backup"
 msgid "Available"
-msgstr ""
+msgstr "Доступно"
 
 #: dashboards/project/volumes/backups/tables.py:110
 msgctxt "Current status of a Volume Backup"
 msgid "Error"
-msgstr ""
+msgstr "Ошибка"
 
 #: dashboards/project/volumes/backups/tables.py:112
 msgctxt "Current status of a Volume Backup"
 msgid "Creating"
-msgstr ""
+msgstr "Создание "
 
 #: dashboards/project/volumes/backups/tables.py:114
 msgctxt "Current status of a Volume Backup"
 msgid "Restoring"
-msgstr ""
+msgstr "Восстановление"
 
 #: dashboards/project/volumes/backups/tabs.py:41
 #: dashboards/project/volumes/backups/views.py:70
@@ -13712,7 +13873,7 @@ msgid "Not attached"
 msgstr "Не подключен"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:55
-#: dashboards/project/volumes/volumes/forms.py:54
+#: dashboards/project/volumes/volumes/forms.py:83
 msgid "Volume Source"
 msgstr "Источник диска"
 
@@ -13903,299 +14064,290 @@ msgstr ""
 msgid "Volume Transfer Details"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:60
+#: dashboards/project/volumes/volumes/forms.py:53
+msgid "Unable to determine if availability zones extension is supported."
+msgstr "Невозможно определить, поддерживается ли расширение зон доступности."
+
+#: dashboards/project/volumes/volumes/forms.py:89
 msgid "Use snapshot as a source"
 msgstr "Использовать снимок как источник"
 
-#: dashboards/project/volumes/volumes/forms.py:67
+#: dashboards/project/volumes/volumes/forms.py:96
 msgid "Use image as a source"
 msgstr "Использовать образ как источник"
 
-#: dashboards/project/volumes/volumes/forms.py:74
+#: dashboards/project/volumes/volumes/forms.py:103
 msgid "Use a volume as source"
 msgstr "Использовать диск как ресурс"
 
-#: dashboards/project/volumes/volumes/forms.py:89
+#: dashboards/project/volumes/volumes/forms.py:118
 msgid "Size (GB)"
 msgstr "Размер (Гб)"
 
-#: dashboards/project/volumes/volumes/forms.py:115
+#: dashboards/project/volumes/volumes/forms.py:144
 #, python-format
 msgid "Volume size must be equal to or greater than the snapshot size (%sGB)"
 msgstr "Размер диска должен быть не меньше размера снимка (%s ГБ)"
 
-#: dashboards/project/volumes/volumes/forms.py:123
+#: dashboards/project/volumes/volumes/forms.py:152
 msgid "Unable to load the specified snapshot."
 msgstr "Невозможно загрузить указанный снимок."
 
-#: dashboards/project/volumes/volumes/forms.py:135
+#: dashboards/project/volumes/volumes/forms.py:164
 #, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "Размер диска должен быть больше или равен размеру образа (%s)"
 
-#: dashboards/project/volumes/volumes/forms.py:143
+#: dashboards/project/volumes/volumes/forms.py:172
 #, python-format
 msgid ""
 "Volume size must be equal to or greater than the image minimum disk size "
 "(%sGB)"
 msgstr "Размер тома должен быть равен или превышать минимальный размер диска образа (%sГБ)"
 
-#: dashboards/project/volumes/volumes/forms.py:154
+#: dashboards/project/volumes/volumes/forms.py:183
 #, python-format
 msgid "Unable to load the specified image. %s"
 msgstr "Невозможно загрузить указанный образ. %s"
 
-#: dashboards/project/volumes/volumes/forms.py:164
+#: dashboards/project/volumes/volumes/forms.py:193
 #, python-format
 msgid "Unable to load the specified volume. %s"
 msgstr "Не удалось загрузить указанный диск. %s"
 
-#: dashboards/project/volumes/volumes/forms.py:171
+#: dashboards/project/volumes/volumes/forms.py:200
 #, python-format
 msgid ""
 "Volume size must be equal to or greater than the origin volume size (%s)"
 msgstr "Размер диска должен быть равен или больше оригинального размера диска (%s)"
 
-#: dashboards/project/volumes/volumes/forms.py:194
+#: dashboards/project/volumes/volumes/forms.py:223
 msgid "Choose a snapshot"
 msgstr "Выбрать снимок"
 
-#: dashboards/project/volumes/volumes/forms.py:207
+#: dashboards/project/volumes/volumes/forms.py:236
 msgid "Choose an image"
 msgstr "Выберите образ"
 
-#: dashboards/project/volumes/volumes/forms.py:219
+#: dashboards/project/volumes/volumes/forms.py:248
 msgid "Choose a volume"
 msgstr "Выбрать диск"
 
-#: dashboards/project/volumes/volumes/forms.py:228
+#: dashboards/project/volumes/volumes/forms.py:257
 msgid "No source, empty volume"
 msgstr "Нет источников, чистый диск."
 
-#: dashboards/project/volumes/volumes/forms.py:237
-msgid "No volume type"
-msgstr "Никакого типа диска"
-
-#: dashboards/project/volumes/volumes/forms.py:255
+#: dashboards/project/volumes/volumes/forms.py:284
 msgid "Image source must be specified"
 msgstr "Ресурс образа должен быть указан"
 
-#: dashboards/project/volumes/volumes/forms.py:259
+#: dashboards/project/volumes/volumes/forms.py:288
 msgid "Snapshot source must be specified"
 msgstr "Ресурс снимка должен быть указан"
 
-#: dashboards/project/volumes/volumes/forms.py:263
+#: dashboards/project/volumes/volumes/forms.py:292
 msgid "Volume source must be specified"
 msgstr "Ресурс диска должен быть указан"
 
-#: dashboards/project/volumes/volumes/forms.py:272
-msgid "Unable to determine if availability zones extension is supported."
-msgstr "Невозможно определить, поддерживается ли расширение зон доступности."
-
-#: dashboards/project/volumes/volumes/forms.py:325
+#: dashboards/project/volumes/volumes/forms.py:326
 #, python-format
 msgid "The volume size cannot be less than the snapshot size (%sGB)"
 msgstr "Размер диска не может быть меньше, чем размер снимка (%s ГБ)"
 
-#: dashboards/project/volumes/volumes/forms.py:338
+#: dashboards/project/volumes/volumes/forms.py:339
 #, python-format
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "Размер диска не может быть меньше размера образа (%s)"
 
-#: dashboards/project/volumes/volumes/forms.py:346
+#: dashboards/project/volumes/volumes/forms.py:347
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGB)"
 msgstr "Размер диска не может быть меньше минимабльного размера диска образа (%sГБ)"
 
-#: dashboards/project/volumes/volumes/forms.py:357
+#: dashboards/project/volumes/volumes/forms.py:358
 #, python-format
 msgid "The volume size cannot be less than the source volume size (%sGB)"
 msgstr "Размер диска не может быть меньше чем размер ресурса диска (%s ГБ)"
 
-#: dashboards/project/volumes/volumes/forms.py:366
+#: dashboards/project/volumes/volumes/forms.py:367
 #, python-format
 msgid ""
 "A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your"
 " quota available."
 msgstr "Диск размером %(req)i ГБ не может быть создан, так как доступно только %(avail)i ГБ вашей квоты."
 
-#: dashboards/project/volumes/volumes/forms.py:373
+#: dashboards/project/volumes/volumes/forms.py:374
 msgid "You are already using all of your available volumes."
 msgstr "Уже используются все доступные диски."
 
-#: dashboards/project/volumes/volumes/forms.py:389
+#: dashboards/project/volumes/volumes/forms.py:390
 #, python-format
 msgid "Creating volume \"%s\""
 msgstr "Создаем диск \"%s\""
 
-#: dashboards/project/volumes/volumes/forms.py:397
+#: dashboards/project/volumes/volumes/forms.py:398
 msgid "Unable to create volume."
 msgstr "Не удалось создать диск."
 
-#: dashboards/project/volumes/volumes/forms.py:414
+#: dashboards/project/volumes/volumes/forms.py:415
 msgid "Attach to Instance"
 msgstr "Присоединить к экземпляру"
 
-#: dashboards/project/volumes/volumes/forms.py:415
+#: dashboards/project/volumes/volumes/forms.py:416
 msgid "Select an instance to attach to."
 msgstr "Выбрать экземпляр для присоединения."
 
-#: dashboards/project/volumes/volumes/forms.py:422
+#: dashboards/project/volumes/volumes/forms.py:423
 msgid ""
 "Actual device name may differ due to hypervisor settings. If not specified, "
 "then hypervisor will select a device name."
 msgstr "Реальное имя устройства может отличаться из-за настроек гипервизора. Если не указан, то гипервизор выберет имя устройства."
 
-#: dashboards/project/volumes/volumes/forms.py:461
+#: dashboards/project/volumes/volumes/forms.py:462
 msgid "Unknown instance (None)"
 msgstr "Неизвестный экземпляр (Нет)"
 
-#: dashboards/project/volumes/volumes/forms.py:471
+#: dashboards/project/volumes/volumes/forms.py:472
 #, python-format
 msgid "Attaching volume %(vol)s to instance %(inst)s on %(dev)s."
 msgstr "Присоединить диск %(vol)s к экземпляру %(inst)s на %(dev)s."
 
-#: dashboards/project/volumes/volumes/forms.py:480
+#: dashboards/project/volumes/volumes/forms.py:481
 msgid "Unable to attach volume."
 msgstr "Не удалось присоединить диск."
 
-#: dashboards/project/volumes/volumes/forms.py:504
+#: dashboards/project/volumes/volumes/forms.py:505
 #, python-format
 msgid "Creating volume snapshot \"%s\"."
 msgstr "Создается снимок диска \"%s\""
 
-#: dashboards/project/volumes/volumes/forms.py:507
+#: dashboards/project/volumes/volumes/forms.py:508
 #, python-format
 msgid "Forcing to create snapshot \"%s\" from attached volume."
 msgstr "Принудительное создание снимка \"%s\" с присоединенного тома."
 
-#: dashboards/project/volumes/volumes/forms.py:520
+#: dashboards/project/volumes/volumes/forms.py:521
 msgid "Unable to create volume snapshot."
 msgstr "Не удалось создать снимок диска."
 
-#: dashboards/project/volumes/volumes/forms.py:525
-#: dashboards/project/volumes/volumes/forms.py:567
+#: dashboards/project/volumes/volumes/forms.py:526
+#: dashboards/project/volumes/volumes/forms.py:568
 msgid "Transfer Name"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:534
+#: dashboards/project/volumes/volumes/forms.py:535
 #, python-format
 msgid "Created volume transfer: \"%s\"."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:536
+#: dashboards/project/volumes/volumes/forms.py:537
 msgid "Created volume transfer."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:543
+#: dashboards/project/volumes/volumes/forms.py:544
 msgid "Unable to create volume transfer."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:548
-#: dashboards/project/volumes/volumes/forms.py:571
+#: dashboards/project/volumes/volumes/forms.py:549
+#: dashboards/project/volumes/volumes/forms.py:572
 msgid "Transfer ID"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:549
-#: dashboards/project/volumes/volumes/forms.py:575
+#: dashboards/project/volumes/volumes/forms.py:550
+#: dashboards/project/volumes/volumes/forms.py:576
 msgid "Authorization Key"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:557
+#: dashboards/project/volumes/volumes/forms.py:558
 #, python-format
 msgid "Successfully accepted volume transfer: \"%s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:562
+#: dashboards/project/volumes/volumes/forms.py:563
 msgid "Unable to accept volume transfer."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:591
-#: dashboards/project/volumes/volumes/tables.py:419
-msgid "Bootable"
-msgstr "Загрузочный"
-
-#: dashboards/project/volumes/volumes/forms.py:593
+#: dashboards/project/volumes/volumes/forms.py:594
 msgid "Specifies that the volume can be used to launch an instance"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:604
+#: dashboards/project/volumes/volumes/forms.py:605
 msgid "Unable to update volume."
 msgstr "Невозможно обновить диск."
 
-#: dashboards/project/volumes/volumes/forms.py:615
+#: dashboards/project/volumes/volumes/forms.py:616
 msgid "Unable to set bootable flag on volume."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:618
+#: dashboards/project/volumes/volumes/forms.py:619
 #, python-format
 msgid "Updating volume \"%s\""
 msgstr "Обновление тома \"%s\""
 
-#: dashboards/project/volumes/volumes/forms.py:633
+#: dashboards/project/volumes/volumes/forms.py:634
 msgctxt "Force upload volume in in-use status to image"
 msgid "Force"
 msgstr "Сила"
 
-#: dashboards/project/volumes/volumes/forms.py:668
+#: dashboards/project/volumes/volumes/forms.py:669
 #, python-format
 msgid "Successfully sent the request to upload volume to image for volume: \"%s\""
 msgstr "Запрос для загрузки диска на образ для диска: \"%s\" успешно отправлен"
 
-#: dashboards/project/volumes/volumes/forms.py:675
+#: dashboards/project/volumes/volumes/forms.py:676
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "Не удалось загрузить диск на образ для диска: \"%s\""
 
-#: dashboards/project/volumes/volumes/forms.py:701
+#: dashboards/project/volumes/volumes/forms.py:702
 msgid "New size must be greater than current size."
 msgstr "Новый размер должен быть больше текущего размера."
 
-#: dashboards/project/volumes/volumes/forms.py:707
+#: dashboards/project/volumes/volumes/forms.py:708
 #, python-format
 msgid ""
 "Volume cannot be extended to %(req)iGB as you only have %(avail)iGB of your "
 "quota available."
 msgstr "Диск не может быть расширен на %(req)iГБ, так как у вас есть только %(avail)iГБ доступной квоты."
 
-#: dashboards/project/volumes/volumes/forms.py:721
+#: dashboards/project/volumes/volumes/forms.py:722
 #, python-format
 msgid "Extending volume: \"%s\""
 msgstr "Расширить диск: \"%s\""
 
-#: dashboards/project/volumes/volumes/forms.py:727
+#: dashboards/project/volumes/volumes/forms.py:728
 msgid "Unable to extend volume."
 msgstr "Не удалось расширить диск."
 
-#: dashboards/project/volumes/volumes/forms.py:736
+#: dashboards/project/volumes/volumes/forms.py:737
 msgid "Never"
 msgstr "Никогда"
 
-#: dashboards/project/volumes/volumes/forms.py:737
+#: dashboards/project/volumes/volumes/forms.py:738
 msgid "On Demand"
 msgstr "По требованию"
 
-#: dashboards/project/volumes/volumes/forms.py:738
+#: dashboards/project/volumes/volumes/forms.py:739
 msgid "Migration Policy"
 msgstr "Миграционная политика"
 
-#: dashboards/project/volumes/volumes/forms.py:755
+#: dashboards/project/volumes/volumes/forms.py:756
 msgid "Unable to retrieve the volume type list."
 msgstr "Не удалось получить список типов диска."
 
-#: dashboards/project/volumes/volumes/forms.py:764
+#: dashboards/project/volumes/volumes/forms.py:765
 #, python-format
 msgid "New volume type must be different from the original volume type \"%s\"."
 msgstr "Новый тип диска должен отличаться от оригинального типа диска \"%s\"."
 
-#: dashboards/project/volumes/volumes/forms.py:780
+#: dashboards/project/volumes/volumes/forms.py:781
 #, python-format
 msgid ""
 "Successfully sent the request to change the volume type to \"%(vtype)s\" for"
 " volume: \"%(name)s\""
 msgstr "Запрос успешно отправлен для изменения типа диска на \"%(vtype)s\" для диска: \"%(name)s\""
 
-#: dashboards/project/volumes/volumes/forms.py:789
+#: dashboards/project/volumes/volumes/forms.py:790
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "Не удалось изменит тип диска для диска: \"%s\""
@@ -14276,7 +14428,7 @@ msgstr "Да"
 #: dashboards/project/volumes/volumes/tables.py:372
 msgctxt "Current status of a Volume"
 msgid "Available"
-msgstr ""
+msgstr "Доступно"
 
 #: dashboards/project/volumes/volumes/tables.py:373
 msgctxt "Current status of a Volume"
@@ -14286,12 +14438,12 @@ msgstr ""
 #: dashboards/project/volumes/volumes/tables.py:374
 msgctxt "Current status of a Volume"
 msgid "Error"
-msgstr ""
+msgstr "Ошибка"
 
 #: dashboards/project/volumes/volumes/tables.py:376
 msgctxt "Current status of a Volume"
 msgid "Creating"
-msgstr ""
+msgstr "Создание "
 
 #: dashboards/project/volumes/volumes/tables.py:378
 msgctxt "Current status of a Volume"
