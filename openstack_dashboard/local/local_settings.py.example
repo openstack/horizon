@@ -570,3 +570,18 @@ ACCOUNT_ACTIVATION_DAYS = 1
 RECAPTCHA_PUBLIC_KEY = '6LcgXvwSAAHJKES48096Gr2KKc6cjWlVWtIcDAfa'
 RECAPTCHA_PRIVATE_KEY = '6LcgXvwSAAHJKFmlOhj1bsGzT8P6vmPpVq5KYjkA'
 RECAPTCHA_USE_SSL = False 
+
+# summernote
+SUMMERNOTE_CONFIG = {
+    # Use native HTML tags (`<b>`, `<i>`, ...) instead of style attributes
+    # (Firefox, Chrome only)
+    'styleWithTags': True,
+
+    # Customize toolbar buttons
+    'toolbar': [
+        ['style', ['style']],
+        ['style', ['bold', 'italic', 'underline', 'clear']],
+        ['para', ['ul', 'ol', 'height']],
+        ['insert', ['link']],
+    ],
+}
