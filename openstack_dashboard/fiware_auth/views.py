@@ -214,7 +214,7 @@ class ResetPasswordView(_RequestPassingFormView):
 
     def form_valid(self, request, form):
         password = form.cleaned_data['password1']
-        token = self.token    
+        token = self.token
         user = self._reset_password(request, token, password)
         if user:
             return super(ResetPasswordView, self).form_valid(form)
@@ -223,12 +223,21 @@ class ResetPasswordView(_RequestPassingFormView):
     def _reset_password(self, request, token, new_password):
         LOG.info('Reseting password for token {0}.'.format(token))
         user_email = self.email
-        user = fiware_api.keystone.change_password(user_email, new_password)
-        if user:
-            messages.success(request, _('password successfully changed.'))
-            return user
-        
-    
+        user = fiware_api.keystone.check_email(user_email)
+        user_ref = {
+            'id': user.id,
+            'password': new_password,
+        }
+        try:
+            user = fiware_api.keystone.reset_password(user_ref, token)
+            if user:
+                messages.success(request, _('password successfully changed.'))
+                return user
+        except Exception:
+            msg = _('Unable to change password.')
+            LOG.warning(msg)
+            exceptions.handle(request, msg)
+
 class ResendConfirmationInstructionsView(_RequestPassingFormView):
     form_class = fiware_forms.EmailForm
     template_name = 'auth/registration/confirmation.html'
