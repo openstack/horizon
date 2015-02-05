@@ -35,15 +35,13 @@
 
 {% block modal-footer %}
 
-{% if form.title == ' '%}
+{% if form.title == 'Cancel'%}
 <div id="destroy_organization" class="panel-collapse collapse">
-
-    <button type="submit" class="btn btn-danger">{% trans "Delete Organization" %} </button>
-
+  <button type="submit" class="btn btn-danger">{% trans "Delete Organization" %} </button>
 </div>  
 
 {% else %}
-<button type="submit" class="btn btn-primary">{% trans "Update Organization" %} </button>
+  <button type="submit" class="btn btn-primary">{% trans "Update Organization" %} </button>
 {% endif %}
 
 

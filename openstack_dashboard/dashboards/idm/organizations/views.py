@@ -145,7 +145,7 @@ class BaseOrganizationsMultiFormView(idm_views.BaseMultiFormView):
 
         context = super(BaseOrganizationsMultiFormView, self).get_context_data(**kwargs)
         context['image'] = getattr(self.object, 'img', 
-                            '/static/dashboard/img/logos/small/group.png')
+                            '/static/dashboard/img/logos/original/group.png')
         return context
 
 
