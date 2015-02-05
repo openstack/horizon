@@ -43,7 +43,7 @@ class AdditionalLibsAction(workflows.Action):
 
         return choices
 
-    class Meta:
+    class Meta(object):
         name = _("Libs")
         help_text_template = (
             "project/data_processing.jobs/_create_job_libs_help.html")
@@ -102,7 +102,7 @@ class GeneralConfigAction(workflows.Action):
 
         return cleaned_data
 
-    class Meta:
+    class Meta(object):
         name = _("Create Job")
         help_text_template = (
             "project/data_processing.jobs/_create_job_help.html")

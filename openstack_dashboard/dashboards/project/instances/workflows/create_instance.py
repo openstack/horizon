@@ -63,7 +63,7 @@ class SelectProjectUserAction(workflows.Action):
         users = [(request.user.id, request.user.username)]
         self.fields['user_id'].choices = users
 
-    class Meta:
+    class Meta(object):
         name = _("Project & User")
         # Unusable permission so this is always hidden. However, we
         # keep this step in the workflow for validation/verification purposes.
@@ -132,7 +132,7 @@ class SetInstanceDetailsAction(workflows.Action):
                                              help_text=_("Delete volume on "
                                                          "instance terminate"))
 
-    class Meta:
+    class Meta(object):
         name = _("Details")
         help_text_template = ("project/instances/"
                               "_launch_details_help.html")
@@ -549,7 +549,7 @@ class SetAccessControlsAction(workflows.Action):
                                        help_text=_("Launch instance in these "
                                                    "security groups."))
 
-    class Meta:
+    class Meta(object):
         name = _("Access & Security")
         help_text = _("Control access to your instance via key pairs, "
                       "security groups, and other mechanisms.")
@@ -613,7 +613,7 @@ class SetAccessControls(workflows.Step):
 
 
 class CustomizeAction(workflows.Action):
-    class Meta:
+    class Meta(object):
         name = _("Post-Creation")
         help_text_template = ("project/instances/"
                               "_launch_customize_help.html")
@@ -723,7 +723,7 @@ class SetNetworkAction(workflows.Action):
             self.fields['profile'].choices = (
                 self.get_policy_profile_choices(request))
 
-    class Meta:
+    class Meta(object):
         name = _("Networking")
         permissions = ('openstack.services.network',)
         help_text = _("Select networks for your instance.")
@@ -815,7 +815,7 @@ class SetAdvancedAction(workflows.Action):
             exceptions.handle(request, _('Unable to retrieve extensions '
                                          'information.'))
 
-    class Meta:
+    class Meta(object):
         name = _("Advanced Options")
         help_text_template = ("project/instances/"
                               "_launch_advanced_help.html")

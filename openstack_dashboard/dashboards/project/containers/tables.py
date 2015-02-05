@@ -271,7 +271,7 @@ class ContainersTable(tables.DataTable):
                                     status_choices=METADATA_LOADED_CHOICES,
                                     hidden=True)
 
-    class Meta:
+    class Meta(object):
         name = "containers"
         verbose_name = _("Containers")
         row_class = ContainerAjaxUpdateRow
@@ -445,7 +445,7 @@ class ObjectsTable(tables.DataTable):
 
     size = tables.Column(get_size, verbose_name=_('Size'))
 
-    class Meta:
+    class Meta(object):
         name = "objects"
         verbose_name = _("Objects")
         table_actions = (ObjectFilterAction, CreatePseudoFolder, UploadObject,

@@ -76,7 +76,7 @@ class ImageRegistryTable(tables.DataTable):
     tags = tables.Column(tags_to_string,
                          verbose_name=_("Tags"))
 
-    class Meta:
+    class Meta(object):
         name = "image_registry"
         verbose_name = _("Image Registry")
         table_actions = (RegisterImage, UnregisterImages,)

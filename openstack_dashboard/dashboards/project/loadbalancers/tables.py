@@ -278,7 +278,7 @@ class PoolsTable(tables.DataTable):
     vip_name = tables.Column('vip_name', verbose_name=_("VIP"),
                              link=get_vip_link)
 
-    class Meta:
+    class Meta(object):
         name = "poolstable"
         verbose_name = _("Pools")
         table_actions = (AddPoolLink, DeletePoolLink)
@@ -310,7 +310,7 @@ class MembersTable(tables.DataTable):
                               verbose_name=_("Pool"), link=get_pool_link)
     status = tables.Column('status', verbose_name=_("Status"))
 
-    class Meta:
+    class Meta(object):
         name = "memberstable"
         verbose_name = _("Members")
         table_actions = (AddMemberLink, DeleteMemberLink)
@@ -336,7 +336,7 @@ class MonitorsTable(tables.DataTable):
     max_retries = tables.Column("max_retries", verbose_name=_("Max Retries"))
     details = tables.Column(get_monitor_details, verbose_name=_("Details"))
 
-    class Meta:
+    class Meta(object):
         name = "monitorstable"
         verbose_name = _("Monitors")
         table_actions = (AddMonitorLink, DeleteMonitorLink)

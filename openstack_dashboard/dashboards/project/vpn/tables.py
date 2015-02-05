@@ -241,7 +241,7 @@ class IPSecSiteConnectionsTable(tables.DataTable):
                            status=True,
                            status_choices=STATUS_CHOICES)
 
-    class Meta:
+    class Meta(object):
         name = "ipsecsiteconnectionstable"
         verbose_name = _("IPSec Site Connections")
         table_actions = (AddIPSecSiteConnectionLink,
@@ -268,7 +268,7 @@ class VPNServicesTable(tables.DataTable):
                            status=True,
                            status_choices=STATUS_CHOICES)
 
-    class Meta:
+    class Meta(object):
         name = "vpnservicestable"
         verbose_name = _("VPN Services")
         table_actions = (AddVPNServiceLink, DeleteVPNServiceLink)
@@ -286,7 +286,7 @@ class IKEPoliciesTable(tables.DataTable):
         verbose_name=_('Encryption algorithm'))
     pfs = tables.Column("pfs", verbose_name=_('PFS'))
 
-    class Meta:
+    class Meta(object):
         name = "ikepoliciestable"
         verbose_name = _("IKE Policies")
         table_actions = (AddIKEPolicyLink, DeleteIKEPolicyLink)
@@ -304,7 +304,7 @@ class IPSecPoliciesTable(tables.DataTable):
         verbose_name=_('Encryption algorithm'))
     pfs = tables.Column("pfs", verbose_name=_('PFS'))
 
-    class Meta:
+    class Meta(object):
         name = "ipsecpoliciestable"
         verbose_name = _("IPSec Policies")
         table_actions = (AddIPSecPolicyLink, DeleteIPSecPolicyLink,)

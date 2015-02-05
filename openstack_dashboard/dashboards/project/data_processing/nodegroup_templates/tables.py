@@ -84,7 +84,7 @@ class NodegroupTemplatesTable(tables.DataTable):
                                    wrap_list=True,
                                    filters=(filters.unordered_list,))
 
-    class Meta:
+    class Meta(object):
         name = "nodegroup_templates"
         verbose_name = _("Node Group Templates")
         table_actions = (CreateNodegroupTemplate,

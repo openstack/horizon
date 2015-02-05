@@ -137,7 +137,7 @@ class HostAggregatesTable(tables.DataTable):
                              wrap_list=True,
                              filters=(safe_unordered_list,))
 
-    class Meta:
+    class Meta(object):
         name = "host_aggregates"
         hidden_title = False
         verbose_name = _("Host Aggregates")
@@ -165,7 +165,7 @@ class AvailabilityZonesTable(tables.DataTable):
     def get_object_id(self, zone):
         return zone.zoneName
 
-    class Meta:
+    class Meta(object):
         name = "availability_zones"
         hidden_title = False
         verbose_name = _("Availability Zones")

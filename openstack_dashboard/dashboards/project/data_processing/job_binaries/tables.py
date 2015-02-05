@@ -83,7 +83,7 @@ class JobBinariesTable(tables.DataTable):
     description = tables.Column("description",
                                 verbose_name=_("Description"))
 
-    class Meta:
+    class Meta(object):
         name = "job_binaries"
         verbose_name = _("Job Binaries")
         table_actions = (CreateJobBinary,

@@ -57,7 +57,7 @@ class GlobalUsageTable(BaseUsageTable):
     def get_object_id(self, datum):
         return datum.tenant_id
 
-    class Meta:
+    class Meta(object):
         name = "global_usage"
         hidden_title = False
         verbose_name = _("Usage")
@@ -87,7 +87,7 @@ class ProjectUsageTable(BaseUsageTable):
     def get_object_id(self, datum):
         return datum.get('instance_id', id(datum))
 
-    class Meta:
+    class Meta(object):
         name = "project_usage"
         hidden_title = False
         verbose_name = _("Usage")

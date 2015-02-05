@@ -65,7 +65,7 @@ class AddVPNServiceAction(workflows.Action):
         self.fields['router_id'].choices = router_id_choices
         return router_id_choices
 
-    class Meta:
+    class Meta(object):
         name = _("Add New VPN Service")
         permissions = ('openstack.services.network',)
         help_text = _("Create VPN Service for current project.\n\n"
@@ -160,7 +160,7 @@ class AddIKEPolicyAction(workflows.Action):
         # Currently this field has only one choice, so mark it as readonly.
         self.fields['phase1_negotiation_mode'].widget.attrs['readonly'] = True
 
-    class Meta:
+    class Meta(object):
         name = _("Add New IKE Policy")
         permissions = ('openstack.services.network',)
         help_text = _("Create IKE Policy for current project.\n\n"
@@ -257,7 +257,7 @@ class AddIPSecPolicyAction(workflows.Action):
                                       ("ah-esp", "ah-esp")]
         self.fields['transform_protocol'].choices = transform_protocol_choices
 
-    class Meta:
+    class Meta(object):
         name = _("Add New IPSec Policy")
         permissions = ('openstack.services.network',)
         help_text = _("Create IPSec Policy for current project.\n\n"
@@ -379,7 +379,7 @@ class AddIPSecSiteConnectionAction(workflows.Action):
         self.fields['vpnservice_id'].choices = vpnservice_id_choices
         return vpnservice_id_choices
 
-    class Meta:
+    class Meta(object):
         name = _("Add New IPSec Site Connection")
         permissions = ('openstack.services.network',)
         help_text = _("Create IPSec Site Connection for current project.\n\n"
@@ -436,7 +436,7 @@ class AddIPSecSiteConnectionOptionalAction(workflows.Action):
         self.fields['dpd_action'].choices = dpd_action_choices
         return dpd_action_choices
 
-    class Meta:
+    class Meta(object):
         name = _("Optional Parameters")
         permissions = ('openstack.services.network',)
         help_text = _("Fields in this tab are optional. "

@@ -58,7 +58,7 @@ class SpecsTable(tables.DataTable):
     key = tables.Column('key', verbose_name=_('Key'))
     value = tables.Column('value', verbose_name=_('Value'))
 
-    class Meta:
+    class Meta(object):
         name = "specs"
         verbose_name = _("Key-Value Pairs")
         table_actions = (SpecCreateKeyValuePair, SpecDeleteKeyValuePair)

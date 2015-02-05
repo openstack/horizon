@@ -76,7 +76,7 @@ class RouterRulesTable(tables.DataTable):
     def get_object_display(self, rule):
         return "(%(action)s) %(source)s -> %(destination)s" % rule
 
-    class Meta:
+    class Meta(object):
         name = "routerrules"
         verbose_name = _("Router Rules")
         table_actions = (AddRouterRule, RemoveRouterRule)

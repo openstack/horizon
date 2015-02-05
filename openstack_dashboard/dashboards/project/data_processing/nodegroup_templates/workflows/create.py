@@ -145,7 +145,7 @@ class GeneralConfigAction(workflows.Action):
         extra["hadoop_version"] = hadoop_version
         return super(GeneralConfigAction, self).get_help_text(extra)
 
-    class Meta:
+    class Meta(object):
         name = _("Configure Node Group Template")
         help_text_template = (
             "project/data_processing.nodegroup_templates"
@@ -178,7 +178,7 @@ class SecurityConfigAction(workflows.Action):
             choices=security_group_list,
             required=False)
 
-    class Meta:
+    class Meta(object):
         name = _("Security")
         help_text = _("Control access to instances of the node group.")
 
@@ -315,7 +315,7 @@ class SelectPluginAction(workflows.Action,
         sahara = saharaclient.client(request)
         self._generate_plugin_version_fields(sahara)
 
-    class Meta:
+    class Meta(object):
         name = _("Select plugin and hadoop version")
         help_text_template = ("project/data_processing.nodegroup_templates"
                               "/_create_general_help.html")

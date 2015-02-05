@@ -132,7 +132,7 @@ class BackupsTable(tables.DataTable):
                                          link="horizon:project"
                                               ":volumes:volumes:detail")
 
-    class Meta:
+    class Meta(object):
         name = "volume_backups"
         verbose_name = _("Volume Backups")
         status_columns = ("status",)

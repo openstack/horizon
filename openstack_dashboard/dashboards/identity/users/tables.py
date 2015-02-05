@@ -225,7 +225,7 @@ class UsersTable(tables.DataTable):
                             status_choices=STATUS_CHOICES,
                             empty_value="False")
 
-    class Meta:
+    class Meta(object):
         name = "users"
         verbose_name = _("Users")
         row_actions = (EditUserLink, ToggleEnabled, DeleteUsersAction)

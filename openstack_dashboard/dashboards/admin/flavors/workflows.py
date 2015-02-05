@@ -54,7 +54,7 @@ class CreateFlavorInfoAction(workflows.Action):
     swap_mb = forms.IntegerField(label=_("Swap Disk (MB)"),
                                  min_value=0)
 
-    class Meta:
+    class Meta(object):
         name = _("Flavor Information")
         help_text = _("Flavors define the sizes for RAM, disk, number of "
                       "cores, and other resources and can be selected when "
@@ -147,7 +147,7 @@ class UpdateFlavorAccessAction(workflows.MembershipAction):
 
         self.fields[field_name].initial = flavor_access
 
-    class Meta:
+    class Meta(object):
         name = _("Flavor Access")
         slug = "update_flavor_access"
 
@@ -222,7 +222,7 @@ class CreateFlavor(workflows.Workflow):
 class UpdateFlavorInfoAction(CreateFlavorInfoAction):
     flavor_id = forms.CharField(widget=forms.widgets.HiddenInput)
 
-    class Meta:
+    class Meta(object):
         name = _("Flavor Information")
         slug = 'update_info'
         help_text = _("Edit the flavor details. Flavors define the sizes for "

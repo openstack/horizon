@@ -279,7 +279,7 @@ class InstancesTable(tables.DataTable):
                            status=True,
                            status_choices=STATUS_CHOICES)
 
-    class Meta:
+    class Meta(object):
         name = "databases"
         verbose_name = _("Instances")
         status_columns = ["status"]
@@ -297,7 +297,7 @@ class UsersTable(tables.DataTable):
     host = tables.Column("host", verbose_name=_("Allowed Host"))
     databases = tables.Column(get_databases, verbose_name=_("Databases"))
 
-    class Meta:
+    class Meta(object):
         name = "users"
         verbose_name = _("Users")
         table_actions = [DeleteUser]
@@ -310,7 +310,7 @@ class UsersTable(tables.DataTable):
 class DatabaseTable(tables.DataTable):
     name = tables.Column("name", verbose_name=_("Database Name"))
 
-    class Meta:
+    class Meta(object):
         name = "databases"
         verbose_name = _("Databases")
         table_actions = [DeleteDatabase]
@@ -344,7 +344,7 @@ class InstanceBackupsTable(tables.DataTable):
                            status=True,
                            status_choices=backup_tables.STATUS_CHOICES)
 
-    class Meta:
+    class Meta(object):
         name = "backups"
         verbose_name = _("Backups")
         status_columns = ["status"]

@@ -198,7 +198,7 @@ class StacksTable(tables.DataTable):
     def get_object_display(self, stack):
         return stack.stack_name
 
-    class Meta:
+    class Meta(object):
         name = "stacks"
         verbose_name = _("Stacks")
         pagination_param = 'stack_marker'
@@ -240,7 +240,7 @@ class EventsTable(tables.DataTable):
     statusreason = tables.Column("resource_status_reason",
                                  verbose_name=_("Status Reason"),)
 
-    class Meta:
+    class Meta(object):
         name = "events"
         verbose_name = _("Stack Events")
 
@@ -298,7 +298,7 @@ class ResourcesTable(tables.DataTable):
     def get_object_id(self, datum):
         return datum.resource_name
 
-    class Meta:
+    class Meta(object):
         name = "resources"
         verbose_name = _("Stack Resources")
         status_columns = ["status", ]

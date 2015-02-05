@@ -237,7 +237,7 @@ class MyTable(tables.DataTable):
     optional = tables.Column('optional', empty_value='N/A')
     excluded = tables.Column('excluded')
 
-    class Meta:
+    class Meta(object):
         name = "my_table"
         verbose_name = "My Table"
         status_columns = ["status"]
@@ -251,7 +251,7 @@ class MyTable(tables.DataTable):
 
 
 class MyServerFilterTable(MyTable):
-    class Meta:
+    class Meta(object):
         name = "my_table"
         verbose_name = "My Table"
         status_columns = ["status"]
@@ -264,7 +264,7 @@ class MyServerFilterTable(MyTable):
 
 
 class MyTableSelectable(MyTable):
-    class Meta:
+    class Meta(object):
         name = "my_table"
         columns = ('id', 'name', 'value', 'status')
         row_class = MyRowSelectable
@@ -280,7 +280,7 @@ class MyTableNotAllowedInlineEdit(MyTable):
                          form_field_attributes={'class': 'test'},
                          update_action=MyUpdateActionNotAllowed)
 
-    class Meta:
+    class Meta(object):
         name = "my_table"
         columns = ('id', 'name', 'value', 'optional', 'status')
         row_class = MyRow
@@ -302,7 +302,7 @@ class MyTableWrapList(MyTable):
 class NoActionsTable(tables.DataTable):
     id = tables.Column('id')
 
-    class Meta:
+    class Meta(object):
         name = "no_actions_table"
         verbose_name = "No Actions Table"
         table_actions = ()
@@ -312,7 +312,7 @@ class NoActionsTable(tables.DataTable):
 class DisabledActionsTable(tables.DataTable):
     id = tables.Column('id')
 
-    class Meta:
+    class Meta(object):
         name = "disabled_actions_table"
         verbose_name = "Disabled Actions Table"
         table_actions = (MyDisabledAction,)
@@ -381,7 +381,7 @@ class DataTableTests(test.TestCase):
 
     def test_table_force_no_multiselect(self):
         class TempTable(MyTable):
-            class Meta:
+            class Meta(object):
                 columns = ('id',)
                 table_actions = (MyFilterAction, MyAction,)
                 row_actions = (MyAction, MyLinkAction,)
@@ -393,7 +393,7 @@ class DataTableTests(test.TestCase):
 
     def test_table_force_no_actions_column(self):
         class TempTable(MyTable):
-            class Meta:
+            class Meta(object):
                 columns = ('id',)
                 table_actions = (MyFilterAction, MyAction,)
                 row_actions = (MyAction, MyLinkAction,)
@@ -409,7 +409,7 @@ class DataTableTests(test.TestCase):
                                  verbose_name="Verbose Name",
                                  sortable=True)
 
-            class Meta:
+            class Meta(object):
                 name = "my_table"
                 columns = ('id', 'name', 'value', 'optional', 'status')
 
@@ -421,7 +421,7 @@ class DataTableTests(test.TestCase):
 
     def test_table_natural_no_actions_column(self):
         class TempTable(MyTable):
-            class Meta:
+            class Meta(object):
                 columns = ('id',)
                 table_actions = (MyFilterAction, MyAction,)
         self.table = TempTable(self.request, TEST_DATA)
@@ -431,7 +431,7 @@ class DataTableTests(test.TestCase):
 
     def test_table_natural_no_multiselect(self):
         class TempTable(MyTable):
-            class Meta:
+            class Meta(object):
                 columns = ('id',)
                 row_actions = (MyAction, MyLinkAction,)
         self.table = TempTable(self.request, TEST_DATA)
@@ -443,7 +443,7 @@ class DataTableTests(test.TestCase):
         class TempTable(MyTable):
             extra = tables.Column('extra')
 
-            class Meta:
+            class Meta(object):
                 name = "temp_table"
                 table_actions = (MyFilterAction, MyAction,)
                 row_actions = (MyAction, MyLinkAction,)
@@ -754,7 +754,7 @@ class DataTableTests(test.TestCase):
                                  form_field_attributes={'class': 'test'},
                                  update_action=MyUpdateAction)
 
-            class Meta:
+            class Meta(object):
                 name = "my_table"
                 columns = ('id', 'name', 'value', 'optional', 'status')
 
@@ -791,7 +791,7 @@ class DataTableTests(test.TestCase):
                                  form_field_attributes={'class': 'test'},
                                  update_action=MyUpdateAction)
 
-            class Meta:
+            class Meta(object):
                 name = "my_table"
                 columns = ('id', 'name', 'value', 'optional', 'status')
 
@@ -1322,7 +1322,7 @@ class APIFilterTableView(SingleTableView):
 class TableWithPermissions(tables.DataTable):
     id = tables.Column('id')
 
-    class Meta:
+    class Meta(object):
         name = "table_with_permissions"
         permissions = ('horizon.test',)
 
@@ -1462,7 +1462,7 @@ class FormsetTableTests(test.TestCase):
             name = tables.Column('name')
             value = tables.Column('value')
 
-            class Meta:
+            class Meta(object):
                 name = 'table'
 
         table = Table(self.request)

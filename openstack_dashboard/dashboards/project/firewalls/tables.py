@@ -218,7 +218,7 @@ class RulesTable(tables.DataTable):
                                        link=get_policy_link,
                                        verbose_name=_("In Policy"))
 
-    class Meta:
+    class Meta(object):
         name = "rulestable"
         verbose_name = _("Rules")
         table_actions = (AddRuleLink, DeleteRuleLink)
@@ -234,7 +234,7 @@ class PoliciesTable(tables.DataTable):
     audited = tables.Column("audited",
                             verbose_name=_("Audited"))
 
-    class Meta:
+    class Meta(object):
         name = "policiestable"
         verbose_name = _("Policies")
         table_actions = (AddPolicyLink, DeletePolicyLink)
@@ -252,7 +252,7 @@ class FirewallsTable(tables.DataTable):
     status = tables.Column("status",
                            verbose_name=_("Status"))
 
-    class Meta:
+    class Meta(object):
         name = "firewallstable"
         verbose_name = _("Firewalls")
         table_actions = (AddFirewallLink, DeleteFirewallLink)

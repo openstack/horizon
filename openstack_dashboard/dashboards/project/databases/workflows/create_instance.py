@@ -43,7 +43,7 @@ class SetInstanceDetailsAction(workflows.Action):
                                   help_text=_(
                                       "Type and version of datastore."))
 
-    class Meta:
+    class Meta(object):
         name = _("Details")
         help_text_template = "project/databases/_launch_details_help.html"
 
@@ -143,7 +143,7 @@ class SetNetworkAction(workflows.Action):
         if len(network_list) == 1:
             self.fields['network'].initial = [network_list[0][0]]
 
-    class Meta:
+    class Meta(object):
         name = _("Networking")
         permissions = ('openstack.services.network',)
         help_text = _("Select networks for your instance.")
@@ -200,7 +200,7 @@ class AddDatabasesAction(workflows.Action):
                            help_text=_("Host or IP that the user is allowed "
                                        "to connect through."))
 
-    class Meta:
+    class Meta(object):
         name = _("Initialize Databases")
         permissions = TROVE_ADD_PERMS
         help_text_template = "project/databases/_launch_initialize_help.html"
@@ -228,7 +228,7 @@ class RestoreAction(workflows.Action):
                                required=False,
                                help_text=_('Select a backup to restore'))
 
-    class Meta:
+    class Meta(object):
         name = _("Restore From Backup")
         permissions = ('openstack.services.object-store',)
         help_text_template = "project/databases/_launch_restore_help.html"

@@ -112,7 +112,7 @@ class PortsTable(tables.DataTable):
     def get_object_display(self, port):
         return port.id
 
-    class Meta:
+    class Meta(object):
         name = "interfaces"
         verbose_name = _("Interfaces")
         table_actions = (AddInterface, RemoveInterface)

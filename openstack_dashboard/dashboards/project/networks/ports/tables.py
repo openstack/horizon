@@ -80,7 +80,7 @@ class PortsTable(tables.DataTable):
     def get_object_display(self, port):
         return port.id
 
-    class Meta:
+    class Meta(object):
         name = "ports"
         verbose_name = _("Ports")
         row_actions = (UpdatePort,)

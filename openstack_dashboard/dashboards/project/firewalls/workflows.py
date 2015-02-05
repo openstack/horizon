@@ -69,7 +69,7 @@ class AddRuleAction(workflows.Action):
     def __init__(self, request, *args, **kwargs):
         super(AddRuleAction, self).__init__(request, *args, **kwargs)
 
-    class Meta:
+    class Meta(object):
         name = _("AddRule")
         permissions = ('openstack.services.network',)
         help_text = _("Create a firewall rule.\n\n"
@@ -133,7 +133,7 @@ class SelectRulesAction(workflows.Action):
         widget=forms.CheckboxSelectMultiple(),
         help_text=_("Create a policy with selected rules."))
 
-    class Meta:
+    class Meta(object):
         name = _("Rules")
         permissions = ('openstack.services.network',)
         help_text = _("Select rules for your policy.")
@@ -184,7 +184,7 @@ class AddPolicyAction(workflows.Action):
     def __init__(self, request, *args, **kwargs):
         super(AddPolicyAction, self).__init__(request, *args, **kwargs)
 
-    class Meta:
+    class Meta(object):
         name = _("AddPolicy")
         permissions = ('openstack.services.network',)
         help_text = _("Create a firewall policy with an ordered list "
@@ -261,7 +261,7 @@ class AddFirewallAction(workflows.Action):
         if not request.user.is_superuser:
             self.fields['shared'].widget.attrs['disabled'] = 'disabled'
 
-    class Meta:
+    class Meta(object):
         name = _("AddFirewall")
         permissions = ('openstack.services.network',)
         help_text = _("Create a firewall based on a policy.\n\n"

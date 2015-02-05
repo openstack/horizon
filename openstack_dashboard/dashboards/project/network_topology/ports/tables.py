@@ -23,7 +23,7 @@ class RemoveInterface(tables.RemoveInterface):
 
 
 class PortsTable(tables.PortsTable):
-    class Meta:
+    class Meta(object):
         name = "interfaces"
         verbose_name = _("Interfaces")
         row_actions = (RemoveInterface, )

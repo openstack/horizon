@@ -241,7 +241,7 @@ class TenantsTable(tables.DataTable):
                                 required=False),
                             update_action=UpdateCell)
 
-    class Meta:
+    class Meta(object):
         name = "tenants"
         verbose_name = _("Projects")
         row_class = UpdateRow

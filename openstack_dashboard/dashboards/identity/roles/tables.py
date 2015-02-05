@@ -81,7 +81,7 @@ class RolesTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Role Name'))
     id = tables.Column('id', verbose_name=_('Role ID'))
 
-    class Meta:
+    class Meta(object):
         name = "roles"
         verbose_name = _("Roles")
         row_actions = (EditRoleLink, DeleteRolesAction)

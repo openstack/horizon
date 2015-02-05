@@ -106,7 +106,7 @@ class ComputeHostTable(tables.DataTable):
     def get_object_display(self, obj):
         return obj.host
 
-    class Meta:
+    class Meta(object):
         name = "compute_host"
         verbose_name = _("Compute Host")
         table_actions = (ComputeHostFilterAction,)

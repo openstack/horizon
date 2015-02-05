@@ -145,7 +145,7 @@ class FlavorsTable(tables.DataTable):
                                 empty_value=False,
                                 filters=(filters.yesno, filters.capfirst))
 
-    class Meta:
+    class Meta(object):
         name = "flavors"
         verbose_name = _("Flavors")
         table_actions = (FlavorFilterAction, CreateFlavor, DeleteFlavor)

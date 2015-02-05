@@ -51,7 +51,7 @@ class ReportTable(tables.DataTable):
     def get_object_id(self, obj):
         return "%s-%s-%s" % (obj['project'], obj['service'], obj['meter'])
 
-    class Meta:
+    class Meta(object):
         name = 'report_table'
         verbose_name = _("Daily Usage Report")
         table_actions = (ModifyUsageReportParameters, CreateCSVUsageReport)
@@ -86,5 +86,5 @@ class UsageTable(tables.DataTable):
     def __unicode__(self):
         return self.title
 
-    class Meta:
+    class Meta(object):
         name = 'daily'

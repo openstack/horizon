@@ -104,7 +104,7 @@ class PortsTable(tables.DataTable):
     mac_state = tables.Column("mac_state", empty_value=api.neutron.OFF_STATE,
                               verbose_name=_("Mac Learning State"))
 
-    class Meta:
+    class Meta(object):
         name = "ports"
         verbose_name = _("Ports")
         table_actions = (CreatePort, DeletePort)

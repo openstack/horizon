@@ -70,7 +70,7 @@ class AdminImagesTable(project_tables.ImagesTable):
                          link="horizon:admin:images:detail",
                          verbose_name=_("Image Name"))
 
-    class Meta:
+    class Meta(object):
         name = "images"
         row_class = UpdateRow
         status_columns = ["status"]

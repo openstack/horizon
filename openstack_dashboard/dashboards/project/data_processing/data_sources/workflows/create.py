@@ -50,7 +50,7 @@ class GeneralConfigAction(workflows.Action):
     def __init__(self, request, *args, **kwargs):
         super(GeneralConfigAction, self).__init__(request, *args, **kwargs)
 
-    class Meta:
+    class Meta(object):
         name = _("Create Data Source")
         help_text_template = ("project/data_processing.data_sources/"
                               "_create_data_source_help.html")

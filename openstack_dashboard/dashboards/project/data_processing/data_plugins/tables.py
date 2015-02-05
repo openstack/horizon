@@ -35,6 +35,6 @@ class PluginsTable(tables.DataTable):
     description = tables.Column("description",
                                 verbose_name=_("Description"))
 
-    class Meta:
+    class Meta(object):
         name = "plugins"
         verbose_name = _("Plugins")

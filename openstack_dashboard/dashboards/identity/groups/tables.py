@@ -117,7 +117,7 @@ class GroupsTable(tables.DataTable):
                                 verbose_name=_('Description'))
     id = tables.Column('id', verbose_name=_('Group ID'))
 
-    class Meta:
+    class Meta(object):
         name = "groups"
         verbose_name = _("Groups")
         row_actions = (ManageUsersLink, EditGroupLink, DeleteGroupsAction)
@@ -199,7 +199,7 @@ class UsersTable(tables.DataTable):
 
 
 class GroupMembersTable(UsersTable):
-    class Meta:
+    class Meta(object):
         name = "group_members"
         verbose_name = _("Group Members")
         table_actions = (UserFilterAction, AddMembersLink, RemoveMembers)
@@ -249,7 +249,7 @@ class AddMembers(tables.BatchAction):
 
 
 class GroupNonMembersTable(UsersTable):
-    class Meta:
+    class Meta(object):
         name = "group_non_members"
         verbose_name = _("Non-Members")
         table_actions = (UserFilterAction, AddMembers)

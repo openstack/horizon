@@ -262,7 +262,7 @@ class ImagesTable(tables.DataTable):
                          attrs=({"data-type": "size"}),
                          verbose_name=_("Size"))
 
-    class Meta:
+    class Meta(object):
         name = "images"
         row_class = UpdateRow
         status_columns = ["status"]

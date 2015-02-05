@@ -74,7 +74,7 @@ class CreateNetworkInfoAction(workflows.Action):
     # TODO(absubram): Add ability to view network profile information
     # in the network detail if a profile is used.
 
-    class Meta:
+    class Meta(object):
         name = _("Network")
         help_text = _("Create a new network. "
                       "In addition a subnet associated with the network "
@@ -154,7 +154,7 @@ class CreateSubnetInfoAction(workflows.Action):
     msg = _('Specify "Network Address" or '
             'clear "Create Subnet" checkbox.')
 
-    class Meta:
+    class Meta(object):
         name = _("Subnet")
         help_text = _('Create a subnet associated with the new network, '
                       'in which case "Network Address" must be specified. '
@@ -251,7 +251,7 @@ class CreateSubnetDetailAction(workflows.Action):
                     "and one entry per line."),
         required=False)
 
-    class Meta:
+    class Meta(object):
         name = _("Subnet Details")
         help_text = _('Specify additional attributes for the subnet.')
 

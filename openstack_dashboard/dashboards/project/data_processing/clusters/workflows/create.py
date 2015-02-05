@@ -39,7 +39,7 @@ KEYPAIR_IMPORT_URL = "horizon:project:access_and_security:keypairs:import"
 
 
 class SelectPluginAction(t_flows.SelectPluginAction):
-    class Meta:
+    class Meta(object):
         name = _("Select plugin and hadoop version for cluster")
         help_text_template = (
             "project/data_processing.clusters/_create_general_help.html")
@@ -179,7 +179,7 @@ class GeneralConfigAction(workflows.Action):
             self._errors = dict()
         return cleaned_data
 
-    class Meta:
+    class Meta(object):
         name = _("Configure Cluster")
         help_text_template = \
             ("project/data_processing.clusters/_configure_general_help.html")

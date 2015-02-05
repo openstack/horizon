@@ -18,7 +18,7 @@ from openstack_dashboard.dashboards.project.instances import tables
 
 
 class InstancesTable(tables.InstancesTable):
-    class Meta:
+    class Meta(object):
         name = "instances"
         verbose_name = _("Instances")
         row_actions = (

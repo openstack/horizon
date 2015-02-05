@@ -93,7 +93,7 @@ class JobExecutionGeneralConfigAction(workflows.Action):
 
         return choices
 
-    class Meta:
+    class Meta(object):
         name = _("Job")
         help_text_template = (
             "project/data_processing.jobs/_launch_job_help.html")
@@ -118,7 +118,7 @@ class JobExecutionExistingGeneralConfigAction(JobExecutionGeneralConfigAction):
 
         return choices
 
-    class Meta:
+    class Meta(object):
         name = _("Job")
         help_text_template = (
             "project/data_processing.jobs/_launch_job_help.html")
@@ -226,7 +226,7 @@ class JobConfigAction(workflows.Action):
             del configs[rmkey]
         return (configs, edp_configs)
 
-    class Meta:
+    class Meta(object):
         name = _("Configure")
         help_text_template = (
             "project/data_processing.jobs/_launch_job_configure_help.html")
@@ -308,7 +308,7 @@ class NewClusterConfigAction(c_flow.GeneralConfigAction):
         label=_("Persist cluster after job exit"),
         required=False)
 
-    class Meta:
+    class Meta(object):
         name = _("Configure Cluster")
         help_text_template = (
             "project/data_processing.clusters/_configure_general_help.html")
@@ -390,7 +390,7 @@ class SelectHadoopPluginAction(t_flows.SelectPluginAction):
                 self.fields["job_args"].initial = (
                     json.dumps(job_configs["args"]))
 
-    class Meta:
+    class Meta(object):
         name = _("Select plugin and hadoop version for cluster")
         help_text_template = ("project/data_processing.clusters/"
                               "_create_general_help.html")

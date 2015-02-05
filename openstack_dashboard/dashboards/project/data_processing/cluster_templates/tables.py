@@ -119,7 +119,7 @@ class ClusterTemplatesTable(tables.DataTable):
     description = tables.Column("description",
                                 verbose_name=_("Description"))
 
-    class Meta:
+    class Meta(object):
         name = "cluster_templates"
         verbose_name = _("Cluster Templates")
         table_actions = (UploadFile,

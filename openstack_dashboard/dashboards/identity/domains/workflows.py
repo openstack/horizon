@@ -40,7 +40,7 @@ class CreateDomainInfoAction(workflows.Action):
                                  required=False,
                                  initial=True)
 
-    class Meta:
+    class Meta(object):
         name = _("Domain Information")
         slug = "create_domain"
         help_text = _("Domains provide separation between users and "
@@ -123,7 +123,7 @@ class UpdateDomainUsersAction(workflows.MembershipAction):
                     field_name = self.get_member_field_name(role_id)
                     self.fields[field_name].initial.append(user_id)
 
-    class Meta:
+    class Meta(object):
         name = _("Domain Members")
         slug = constants.DOMAIN_USER_MEMBER_SLUG
 
@@ -220,7 +220,7 @@ class UpdateDomainGroupsAction(workflows.MembershipAction):
                     field_name = self.get_member_field_name(role.id)
                     self.fields[field_name].initial.append(group.id)
 
-    class Meta:
+    class Meta(object):
         name = _("Domain Groups")
         slug = constants.DOMAIN_GROUP_MEMBER_SLUG
 
@@ -277,7 +277,7 @@ class CreateDomain(workflows.Workflow):
 
 class UpdateDomainInfoAction(CreateDomainInfoAction):
 
-    class Meta:
+    class Meta(object):
         name = _("Domain Information")
         slug = 'update_domain'
         help_text = _("Domains provide separation between users and "
