@@ -132,6 +132,12 @@ def new_activation_key(user):
     activation_key = keystone.user_registration.activation_key.new_activation_key(user)
     return activation_key
 
+def reset_password(user, token):
+    keystone = fiwareclient()
+    user = keystone.user_registration.users.reset_password(user, token)
+    return user
+
+
 # ROLES AND PERMISSIONS
 def role_get(request, role_id):
     #manager = fiwareclient().fiware_roles.roles

@@ -218,6 +218,8 @@ class ResetPasswordView(_RequestPassingFormView):
         password = form.cleaned_data['password1']
         token = self.token    
         user = self._reset_password(request, token, password)
+        # import pdb
+        # pdb.set_trace()
         if user:
             return super(ResetPasswordView, self).form_valid(form)
         return self.get(request) # redirect to itself
@@ -225,7 +227,12 @@ class ResetPasswordView(_RequestPassingFormView):
     def _reset_password(self, request, token, new_password):
         LOG.info('Reseting password for token {0}.'.format(token))
         user_email = self.email
-        user = fiware_api.keystone.change_password(user_email, new_password)
+        user = fiware_api.keystone.check_email(user_email)
+        user_ref = {
+            'id': user.id,
+            'password': new_password,
+        }
+        user = fiware_api.keystone.reset_password(user_ref, token)
         if user:
             messages.success(request, _('password successfully changed.'))
             return user
@@ -268,7 +275,7 @@ class ResendConfirmationInstructionsView(_RequestPassingFormView):
         subject = 'Welcome to FIWARE'
         # Email subject *must not* contain newlines
         subject = ''.join(subject.splitlines())
-        content = 'New user created at FIWARE :D/n Go to http://localhost:8000/activate/?activation_key={0}&user={1} to activate'.format(activation_key, user.id)
+        content = 'New user created at FIWARE :D/n Go to http://localhost:8000/activate/?activation_key={0}&user={1} to activate'.format(base.getid(activation_key), user.id)
         #send a mail for activation
         self.send_html_email(to=[user.email],
                              from_email='admin@fiware-idm-test.dit.upm.es',
