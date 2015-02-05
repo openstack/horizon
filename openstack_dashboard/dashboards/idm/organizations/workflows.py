@@ -116,12 +116,13 @@ class ApplicationRoleApi(idm_workflows.RelationshipApiInterface):
         return  [(user.id, user.name) for user in self.available_users]
 
     def _list_all_objects(self, request, superset_id):
-        # TODO(garcianavalon) load fiware roles not keystone
-        # self.allowed_roles = fiware_api.keystone.list_allowed_roles_to_assign(
-        #                                         request,
-        #                                         user=request.user.id,
-        #                                         organization=superset_id)
-        self.allowed_roles = api.keystone.role_list(request)
+        import pdb; pdb.set_trace()
+        self.allowed_roles = fiware_api.keystone.list_allowed_roles_to_assign(
+                                                request,
+                                                user=request.user.id,
+                                                organization=superset_id)
+        
+        # self.allowed_roles = api.keystone.role_list(request)
         return self.allowed_roles
 
     def _list_current_assignments(self, request, superset_id):
@@ -129,6 +130,7 @@ class ApplicationRoleApi(idm_workflows.RelationshipApiInterface):
         # load all the organization-scoped application roles for every user
         # but only the ones the user can assign (and only scoped for the current
         # organization)
+        import pdb; pdb.set_trace()
         application_users_roles = {}
         for user_id in [user.id for user in self.available_users]:
             application_users_roles[user_id] = [
@@ -138,11 +140,19 @@ class ApplicationRoleApi(idm_workflows.RelationshipApiInterface):
                                                     organization=superset_id)
                     if r in self.allowed_roles
             ]
-
+        import pdb; pdb.set_trace()
         return application_users_roles
 
     def _get_default_object(self, request):
-        return None
+        default_role = api.keystone.get_default_role(request)
+        # Default role is necessary to add members to a project
+        if default_role is None:
+            default = getattr(settings,
+                              "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
+            msg = (_('Could not find default role "%s" in Keystone') %
+                   default)
+            raise exceptions.NotFound(msg)
+        return default_role
 
     def _add_object_to_owner(self, request, superset, owner, obj):
         fiware_api.keystone.add_role_to_user(request,
