@@ -70,8 +70,9 @@ class CopyNodegroupTemplate(create_flow.ConfigureNodegroupTemplate):
 
         s_fields["security_autogroup"].initial = template.auto_security_group
 
-        s_fields["security_groups"].initial = dict(
-            [(sg, sg) for sg in template.security_groups])
+        if template.security_groups:
+            s_fields["security_groups"].initial = dict(
+                [(sg, sg) for sg in template.security_groups])
 
         processes_dict = dict()
         try:
