@@ -1,6 +1,7 @@
 <div class="metadata-tree-item" ng-form="itemForm">
   <div class="input-group input-group-sm"
        ng-switch on="item.leaf.type"
+       ng-if="item.leaf.type !== 'array'"
        ng-class="{'has-error': itemForm.property.$invalid && itemForm.property.$dirty}">
     <span class="input-group-addon"
           title="{$ ::item.leaf.name $}"
@@ -24,14 +25,6 @@
             required
             ng-model="item.leaf.value"
             ng-options="op for op in item.leaf.enum"
-            ng-disabled="item.leaf.readonly">
-    </select>
-    <select ng-switch-when="array"
-            name="property"
-            class="form-control"
-            required
-            ng-model="item.leaf.value"
-            ng-options="op for op in item.leaf.items.enum"
             ng-disabled="item.leaf.readonly">
     </select>
     <input ng-switch-when="integer"
@@ -66,6 +59,50 @@
          ng-click="action()">
         <span class="fa fa-minus"></span>
       </a>
+    </div>
+  </div>
+  <div ng-if="item.leaf.type === 'array'"
+       class="panel panel-default multiselect">
+    <div class="panel-heading">
+      <div ng-click="open()">
+        <span class="fa fa-fw"
+              ng-class="item.leaf.readonly ? '' : opened ? 'fa-chevron-down' : 'fa-chevron-right'">
+        </span>
+        <span ng-bind="::item.leaf.name"></span>
+        <div class="text-right">
+          <a class="btn btn-xs btn-default" ng-click="action()">
+            <i class="fa fa-minus"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="panel-body values"
+         ng-class="{disabled: item.leaf.readonly}">
+      <span ng-repeat="val in item.leaf.value">
+        <span class="label label-default"
+              ng-click="remove(val)">
+          <span ng-bind="::val"></span>
+          <span class="fa fa-times" ng-if="!item.leaf.readonly"></span>
+        </span>
+      </span>
+    </div>
+    <ul class="list-group options" ng-show="opened">
+      <li class="list-group-item"
+          ng-repeat="val in values"
+          ng-click="add(val)">
+        <span ng-bind="::val"></span>
+      </li>
+    </ul>
+    <div class="panel-footer" ng-show="opened">
+      <div class="form-inline clearfix">
+        <div class="form-group pull-right">
+          <label>Operator</label>
+          <select class="form-control input-sm"
+                  ng-model="item.leaf.operator"
+                  ng-options="val for val in item.leaf.operators">
+          </select>
+        </div>
+      </div>
     </div>
   </div>
   <div class="label label-info">

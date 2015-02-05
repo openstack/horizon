@@ -25,7 +25,7 @@
             </div>
           </div>
         </div>
-        <ul class="list-group" ng-cloak>
+        <ul class="list-group metadata-list-group" ng-cloak>
           <li class="list-group-item" ng-form="customItemForm">
             <div class="input-group input-group-sm"
                  ng-class="{'has-error': customItemForm.$invalid && customItemForm.$dirty}">
@@ -96,7 +96,7 @@
             </div>
           </div>
         </div>
-        <ul class="list-group" ng-cloak>
+        <ul class="list-group metadata-list-group" ng-cloak>
           <li ng-repeat="item in existingList = (tree.flatTree | filter:{$:filterText.existing, added:true, leaf:'!null'} | orderBy:'leaf.name')"
               ng-class="{'active': tree.selected===item}"
               ng-class-odd="'dark-stripe'"

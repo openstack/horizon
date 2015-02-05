@@ -1,7 +1,7 @@
 .metadata-tree {
   min-height: 200px;
 
-  .panel .list-group {
+  .metadata-list-group {
     height: 400px;
     overflow: auto;
   }
@@ -59,6 +59,56 @@
       width: 50%;
       max-width: 140px;
       text-align: right;
+    }
+
+    .multiselect {
+      margin: 0;
+      color: $text-color;
+
+      .panel-heading {
+        padding: 4px;
+
+        &>* {
+          display: table;
+          width: 100%;
+
+          &>* {
+            display: table-cell;
+            vertical-align: middle;
+          }
+        }
+      }
+
+      .panel-body {
+        padding: 3px 5px 5px;
+      }
+
+      .panel-footer {
+        padding: 4px;
+      }
+
+      .values .label {
+        display: inline-block;
+        text-transform: uppercase;
+      }
+
+      .name {
+        vertical-align: text-top;
+      }
+
+      .options {
+        max-height: 180px;
+        overflow-y: auto;
+
+        &>*:last-child {
+          border-bottom: none;
+        }
+      }
+
+      .disabled {
+        cursor: not-allowed;
+        background-color: $input-bg-disabled;
+      }
     }
 
     .label-info {

@@ -49,6 +49,8 @@
      * @property {string} default Property default value
      * @property {string} type Property type
      * @property {boolean} readonly Property readonly state
+     * @property {string[]} operators Property available operators when type='array'
+     * @property {string} operator Property operator when type='array'
      */
     function Property(name, json) {
       this.name = name;
@@ -58,7 +60,9 @@
       this.default = null;
       this.type = 'string';
       this.readonly = false;
+      this.operators = ['<in>'];
       angular.extend(this, json);
+      this.operator = this.operators[0];
       this.setValue(this.default);
     }
 
@@ -69,14 +73,19 @@
      */
     Property.prototype.setValue = function(value) {
       if(value === null) {
-        this.value = null;
+        this.value = this.type !== 'array' ? null : [];
         return;
       }
 
       switch (this.type) {
         case 'integer': this.value = parseInt(value); break;
         case 'number': this.value = parseFloat(value); break;
-        case 'array': this.value = value.replace(/^<in> /, ''); break;
+        case 'array':
+          var data = /^(<.*?>) (.*)$/.exec(value);
+          if(data) {
+            this.operator = data[1];
+            this.value = data[2].split(',');
+          } break;
         case 'boolean': this.value = parseBool(value); break;
         default: this.value = value;
       }
@@ -89,7 +98,7 @@
      */
     Property.prototype.getValue = function() {
       switch (this.type) {
-        case 'array': return '<in> ' + this.value;
+        case 'array': return this.operator + ' ' + this.value.join(',');
         default: return this.value;
       }
     };
