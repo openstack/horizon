@@ -170,6 +170,15 @@ class StacksUpdateRow(tables.Row):
             raise
 
 
+class StacksFilterAction(tables.FilterAction):
+
+    def filter(self, table, stacks, filter_string):
+        """Naive case-insensitive search."""
+        query = filter_string.lower()
+        return [stack for stack in stacks
+                if query in stack.name.lower()]
+
+
 class StacksTable(tables.DataTable):
     STATUS_CHOICES = (
         ("Complete", True),
@@ -208,7 +217,8 @@ class StacksTable(tables.DataTable):
                          CheckStack,
                          SuspendStack,
                          ResumeStack,
-                         DeleteStack,)
+                         DeleteStack,
+                         StacksFilterAction,)
         row_actions = (CheckStack,
                        SuspendStack,
                        ResumeStack,
