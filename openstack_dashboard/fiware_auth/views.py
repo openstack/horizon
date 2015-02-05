@@ -32,17 +32,29 @@ from keystoneclient import base
 
 LOG = logging.getLogger('idm_logger')
 
-class _RequestPassingFormView(FormView):
+class TemplatedEmailMixin(object):
+    # TODO(garcianavalon) as settings
+    EMAIL_HTML_TEMPLATE = 'email/base_email.html'
+    EMAIL_TEXT_TEMPLATE = 'email/base_email.txt'
+    def send_html_email(self, to, from_email, subject, content):
+        # TODO(garcianavalon) pass the context dict as param is better or use kwargs
+        LOG.debug('Sending email to {0} with subject {1}'.format(to, subject))
+        context = {
+            'content':content
+        }
+        text_content = render_to_string(self.EMAIL_TEXT_TEMPLATE, context)
+        html_content = render_to_string(self.EMAIL_HTML_TEMPLATE, context)
+        msg = EmailMultiAlternatives(subject, text_content, from_email, to)
+        msg.attach_alternative(html_content, "text/html")
+        msg.send()
+
+class _RequestPassingFormView(FormView, TemplatedEmailMixin):
     """
     A version of FormView which passes extra arguments to certain
     methods, notably passing the HTTP request nearly everywhere, to
     enable finer-grained processing.
     
     """
-    # TODO(garcianavalon) as settings
-    EMAIL_HTML_TEMPLATE = 'email/base_email.html'
-    EMAIL_TEXT_TEMPLATE = 'email/base_email.txt'
-
     def post(self, request, *args, **kwargs):
         # Pass request to get_form_class and get_form for per-request
         # form control.
@@ -73,18 +85,6 @@ class _RequestPassingFormView(FormView):
 
     def form_invalid(self, form, request=None):
         return super(_RequestPassingFormView, self).form_invalid(form)
-
-    def send_html_email(self, to, from_email, subject, content):
-        # TODO(garcianavalon) pass the context dict as param is better or use kwargs
-        LOG.debug('Sending email to {0} with subject {1}'.format(to, subject))
-        context = {
-            'content':content
-        }
-        text_content = render_to_string(self.EMAIL_TEXT_TEMPLATE, context)
-        html_content = render_to_string(self.EMAIL_HTML_TEMPLATE, context)
-        msg = EmailMultiAlternatives(subject, text_content, from_email, to)
-        msg.attach_alternative(html_content, "text/html")
-        msg.send()
 
 
 class RegistrationView(_RequestPassingFormView):
