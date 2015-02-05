@@ -70,7 +70,7 @@ class QuotasTable(tables.DataTable):
     def get_object_id(self, obj):
         return obj.name
 
-    class Meta:
+    class Meta(object):
         name = "quotas"
         verbose_name = _("Quotas")
         table_actions = (QuotaFilterAction, UpdateDefaultQuotas)

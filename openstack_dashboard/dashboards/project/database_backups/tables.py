@@ -162,7 +162,7 @@ class BackupsTable(tables.DataTable):
                            status=True,
                            status_choices=STATUS_CHOICES)
 
-    class Meta:
+    class Meta(object):
         name = "backups"
         verbose_name = _("Backups")
         status_columns = ["status"]

@@ -135,7 +135,7 @@ class SecurityGroupsTable(tables.DataTable):
     def sanitize_id(self, obj_id):
         return filters.get_int_or_uuid(obj_id)
 
-    class Meta:
+    class Meta(object):
         name = "security_groups"
         verbose_name = _("Security Groups")
         table_actions = (CreateGroup, DeleteGroup)
@@ -263,7 +263,7 @@ class RulesTable(tables.DataTable):
     def get_object_display(self, rule):
         return unicode(rule)
 
-    class Meta:
+    class Meta(object):
         name = "rules"
         verbose_name = _("Security Group Rules")
         table_actions = (CreateRule, DeleteRule)

@@ -88,7 +88,7 @@ class KeypairsTable(tables.DataTable):
     def get_object_id(self, keypair):
         return keypair.name
 
-    class Meta:
+    class Meta(object):
         name = "keypairs"
         verbose_name = _("Key Pairs")
         table_actions = (CreateKeyPair, ImportKeyPair, DeleteKeyPairs,)

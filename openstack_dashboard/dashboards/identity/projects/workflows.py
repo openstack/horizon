@@ -108,14 +108,14 @@ class UpdateProjectQuotaAction(ProjectQuotaAction):
             raise forms.ValidationError(msg)
         return cleaned_data
 
-    class Meta:
+    class Meta(object):
         name = _("Quota")
         slug = 'update_quotas'
         help_text = _("Set maximum quotas for the project.")
 
 
 class CreateProjectQuotaAction(ProjectQuotaAction):
-    class Meta:
+    class Meta(object):
         name = _("Quota")
         slug = 'create_quotas'
         help_text = _("Set maximum quotas for the project.")
@@ -161,7 +161,7 @@ class CreateProjectInfoAction(workflows.Action):
             self.fields["domain_id"].widget = readonlyInput
             self.fields["domain_name"].widget = readonlyInput
 
-    class Meta:
+    class Meta(object):
         name = _("Project Information")
         help_text = _("Create a project to organize users.")
 
@@ -247,7 +247,7 @@ class UpdateProjectMembersAction(workflows.MembershipAction):
                     field_name = self.get_member_field_name(role_id)
                     self.fields[field_name].initial.append(user_id)
 
-    class Meta:
+    class Meta(object):
         name = _("Project Members")
         slug = PROJECT_USER_MEMBER_SLUG
 
@@ -345,7 +345,7 @@ class UpdateProjectGroupsAction(workflows.MembershipAction):
                     field_name = self.get_member_field_name(role_id)
                     self.fields[field_name].initial.append(group_id)
 
-    class Meta:
+    class Meta(object):
         name = _("Project Groups")
         slug = PROJECT_GROUP_MEMBER_SLUG
 
@@ -542,7 +542,7 @@ class UpdateProjectInfoAction(CreateProjectInfoAction):
             cleaned_data['enabled'] = True
         return cleaned_data
 
-    class Meta:
+    class Meta(object):
         name = _("Project Information")
         slug = 'update_info'
         help_text = _("Edit the project details.")

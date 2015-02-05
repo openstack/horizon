@@ -151,7 +151,7 @@ class VolumeSnapshotsTable(volume_tables.VolumesTableBase):
         verbose_name=_("Volume Name"),
         link="horizon:project:volumes:volumes:detail")
 
-    class Meta:
+    class Meta(object):
         name = "volume_snapshots"
         verbose_name = _("Volume Snapshots")
         table_actions = (VolumeSnapshotsFilterAction, DeleteVolumeSnapshot,)

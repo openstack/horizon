@@ -112,7 +112,7 @@ class ClustersTable(tables.DataTable):
     instances_count = tables.Column(get_instances_count,
                                     verbose_name=_("Instances Count"))
 
-    class Meta:
+    class Meta(object):
         name = "clusters"
         verbose_name = _("Clusters")
         row_class = UpdateRow

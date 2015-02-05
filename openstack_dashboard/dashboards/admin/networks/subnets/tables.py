@@ -111,7 +111,7 @@ class SubnetsTable(tables.DataTable):
             exceptions.handle(self.request, msg, redirect=self.failure_url)
         return network
 
-    class Meta:
+    class Meta(object):
         name = "subnets"
         verbose_name = _("Subnets")
         table_actions = (CreateSubnet, DeleteSubnet)

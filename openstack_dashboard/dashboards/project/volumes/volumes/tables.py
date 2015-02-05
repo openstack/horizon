@@ -423,7 +423,7 @@ class VolumesTable(VolumesTableBase):
                                link="horizon:project:volumes:"
                                     "volumes:encryption_detail")
 
-    class Meta:
+    class Meta(object):
         name = "volumes"
         verbose_name = _("Volumes")
         status_columns = ["status"]
@@ -498,7 +498,7 @@ class AttachmentsTable(tables.DataTable):
                 return obj
         raise ValueError('No match found for the id "%s".' % obj_id)
 
-    class Meta:
+    class Meta(object):
         name = "attachments"
         verbose_name = _("Attachments")
         table_actions = (DetachVolume,)

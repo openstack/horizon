@@ -27,7 +27,7 @@ from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
 
 
-class RouterMixin:
+class RouterMixin(object):
     @test.create_stubs({
         api.neutron: ('router_get', 'port_list',
                       'network_get'),

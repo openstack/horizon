@@ -106,7 +106,7 @@ class AddPoolAction(workflows.Action):
             self.fields['provider'].widget.attrs['readonly'] = True
         self.fields['provider'].choices = provider_choices
 
-    class Meta:
+    class Meta(object):
         name = _("Add New Pool")
         permissions = ('openstack.services.network',)
         help_text = _("Create Pool for current project.\n\n"
@@ -229,7 +229,7 @@ class AddVipAction(workflows.Action):
             self._errors['cookie_name'] = self.error_class([msg])
         return cleaned_data
 
-    class Meta:
+    class Meta(object):
         name = _("Specify VIP")
         permissions = ('openstack.services.network',)
         help_text = _("Create a VIP for this pool. "
@@ -397,7 +397,7 @@ class AddMemberAction(workflows.Action):
             self._errors['address'] = self.error_class([msg])
         return cleaned_data
 
-    class Meta:
+    class Meta(object):
         name = _("Add New Member")
         permissions = ('openstack.services.network',)
         help_text = _("Add member(s) to the selected pool.\n\n"
@@ -574,7 +574,7 @@ class AddMonitorAction(workflows.Action):
                 self._errors['expected_codes'] = self.error_class([msg])
         return cleaned_data
 
-    class Meta:
+    class Meta(object):
         name = _("Add New Monitor")
         permissions = ('openstack.services.network',)
         help_text = _("Create a monitor template.\n\n"
@@ -644,7 +644,7 @@ class AddPMAssociationAction(workflows.Action):
 
         return monitor_id_choices
 
-    class Meta:
+    class Meta(object):
         name = _("Association Details")
         permissions = ('openstack.services.network',)
         help_text = _("Associate a health monitor with target pool.")
@@ -706,7 +706,7 @@ class DeletePMAssociationAction(workflows.Action):
 
         return monitor_id_choices
 
-    class Meta:
+    class Meta(object):
         name = _("Association Details")
         permissions = ('openstack.services.network',)
         help_text = _("Disassociate a health monitor from target pool. ")

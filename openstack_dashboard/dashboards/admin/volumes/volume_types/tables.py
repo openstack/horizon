@@ -157,7 +157,7 @@ class VolumeTypesTable(tables.DataTable):
     def get_object_id(self, vol_type):
         return str(vol_type.id)
 
-    class Meta:
+    class Meta(object):
         name = "volume_types"
         hidden_title = False
         verbose_name = _("Volume Types")
@@ -239,7 +239,7 @@ class QosSpecsTable(tables.DataTable):
     def get_object_id(self, qos_specs):
         return qos_specs.id
 
-    class Meta:
+    class Meta(object):
         name = "qos_specs"
         hidden_title = False
         verbose_name = _("QoS Specs")

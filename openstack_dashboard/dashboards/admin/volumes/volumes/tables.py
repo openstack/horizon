@@ -81,7 +81,7 @@ class VolumesTable(volumes_tables.VolumesTable):
     host = tables.Column("os-vol-host-attr:host", verbose_name=_("Host"))
     tenant = tables.Column("tenant_name", verbose_name=_("Project"))
 
-    class Meta:
+    class Meta(object):
         name = "volumes"
         verbose_name = _("Volumes")
         status_columns = ["status"]

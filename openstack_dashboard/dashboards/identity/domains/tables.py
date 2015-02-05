@@ -201,7 +201,7 @@ class DomainsTable(tables.DataTable):
     id = tables.Column('id', verbose_name=_('Domain ID'))
     enabled = tables.Column('enabled', verbose_name=_('Enabled'), status=True)
 
-    class Meta:
+    class Meta(object):
         name = "domains"
         verbose_name = _("Domains")
         row_actions = (SetDomainContext, UpdateUsersLink, UpdateGroupsLink,

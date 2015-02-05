@@ -100,7 +100,7 @@ class JobsTable(tables.DataTable):
     description = tables.Column("description",
                                 verbose_name=_("Description"))
 
-    class Meta:
+    class Meta(object):
         name = "jobs"
         verbose_name = _("Jobs")
         table_actions = (CreateJob,

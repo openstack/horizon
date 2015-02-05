@@ -160,7 +160,7 @@ class JobExecutionsTable(tables.DataTable):
     def get_object_display(self, datum):
         return datum.id
 
-    class Meta:
+    class Meta(object):
         name = "job_executions"
         row_class = UpdateRow
         status_columns = ["status"]

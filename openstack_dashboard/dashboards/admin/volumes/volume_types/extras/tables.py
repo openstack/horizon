@@ -69,7 +69,7 @@ class ExtraSpecsTable(tables.DataTable):
     key = tables.Column('key', verbose_name=_('Key'))
     value = tables.Column('value', verbose_name=_('Value'))
 
-    class Meta:
+    class Meta(object):
         name = "extras"
         verbose_name = _("Extra Specs")
         table_actions = (ExtraSpecCreate, ExtraSpecDelete)

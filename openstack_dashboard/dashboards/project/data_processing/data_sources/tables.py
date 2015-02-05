@@ -62,7 +62,7 @@ class DataSourcesTable(tables.DataTable):
     description = tables.Column("description",
                                 verbose_name=_("Description"))
 
-    class Meta:
+    class Meta(object):
         name = "data_sources"
         verbose_name = _("Data Sources")
         table_actions = (CreateDataSource,

@@ -171,7 +171,7 @@ class NetworksTable(tables.DataTable):
                                 verbose_name=_("Admin State"),
                                 display_choices=DISPLAY_CHOICES)
 
-    class Meta:
+    class Meta(object):
         name = "networks"
         verbose_name = _("Networks")
         table_actions = (CreateNetwork, DeleteNetwork,

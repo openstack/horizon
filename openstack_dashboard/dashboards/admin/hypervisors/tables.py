@@ -59,7 +59,7 @@ class AdminHypervisorsTable(tables.DataTable):
     def get_object_id(self, hypervisor):
         return hypervisor.hypervisor_hostname
 
-    class Meta:
+    class Meta(object):
         name = "hypervisors"
         verbose_name = _("Hypervisors")
 
@@ -75,6 +75,6 @@ class AdminHypervisorInstancesTable(tables.DataTable):
     def get_object_id(self, server):
         return server['uuid']
 
-    class Meta:
+    class Meta(object):
         name = "hypervisor_instances"
         verbose_name = _("Hypervisor Instances")

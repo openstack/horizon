@@ -63,7 +63,7 @@ class UpdateDefaultQuotasAction(workflows.Action):
                 self.fields[field].required = False
                 self.fields[field].widget = forms.HiddenInput()
 
-    class Meta:
+    class Meta(object):
         name = _("Default Quotas")
         slug = 'update_default_quotas'
         help_text = _("From here you can update the default quotas "

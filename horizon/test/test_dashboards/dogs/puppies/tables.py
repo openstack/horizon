@@ -18,7 +18,7 @@ from horizon import tables
 class EagerPuppiesTable(tables.DataTable):
     name = tables.Column('name')
 
-    class Meta:
+    class Meta(object):
         name = 'eager_puppies'
         verbose_name = 'Eager Puppies'
 
@@ -49,7 +49,7 @@ class SellPuppy(tables.DeleteAction):
 class LazyPuppiesTable(tables.DataTable):
     name = tables.Column('name')
 
-    class Meta:
+    class Meta(object):
         name = 'lazy_puppies'
         verbose_name = 'Lazy Puppies'
         table_actions = (SellPuppy,)

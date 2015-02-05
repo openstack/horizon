@@ -194,7 +194,7 @@ class JobBinaryCreateForm(forms.SelfHandlingForm):
             text += defaultfilters.linebreaks(force_text(self.help_text))
         return defaultfilters.safe(text)
 
-    class Meta:
+    class Meta(object):
         name = _("Create Job Binary")
         help_text_template = ("project/data_processing.job_binaries/"
                               "_create_job_binary_help.html")

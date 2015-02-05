@@ -96,7 +96,7 @@ class DHCPAgentsTable(tables.DataTable):
                                         filters=(utils_filters.parse_isotime,
                                                  filters.timesince))
 
-    class Meta:
+    class Meta(object):
         name = "agents"
         verbose_name = _("DHCP Agents")
         table_actions = (AddDHCPAgent, DeleteDHCPAgent)

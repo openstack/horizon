@@ -215,7 +215,7 @@ class FloatingIPsTable(tables.DataTable):
     def get_object_display(self, datum):
         return datum.ip
 
-    class Meta:
+    class Meta(object):
         name = "floating_ips"
         verbose_name = _("Floating IPs")
         table_actions = (AllocateIP, ReleaseIPs)

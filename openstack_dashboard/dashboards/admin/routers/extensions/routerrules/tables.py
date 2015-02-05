@@ -24,6 +24,6 @@ class RouterRulesTable(tables.DataTable):
     action = tables.Column("action", verbose_name=_("Action"))
     nexthops = tables.Column("nexthops", verbose_name=_("Next Hops"))
 
-    class Meta:
+    class Meta(object):
         name = "routerrules"
         verbose_name = _("Router Rules")

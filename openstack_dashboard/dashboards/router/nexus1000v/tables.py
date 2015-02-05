@@ -82,7 +82,7 @@ class NetworkProfile(tables.DataTable):
     physical_network = tables.Column("physical_network",
                                      verbose_name=_("Physical Network Name"))
 
-    class Meta:
+    class Meta(object):
         name = "network_profile"
         verbose_name = _("Network Profile")
         table_actions = (CreateNetworkProfile, DeleteNetworkProfile,)
@@ -94,6 +94,6 @@ class PolicyProfile(tables.DataTable):
     name = tables.Column("name", verbose_name=_("Policy Profile"), )
     project = tables.Column("project_name", verbose_name=_("Project"))
 
-    class Meta:
+    class Meta(object):
         name = "policy_profile"
         verbose_name = _("Policy Profile")

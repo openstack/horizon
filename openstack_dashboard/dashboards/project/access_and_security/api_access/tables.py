@@ -63,7 +63,7 @@ class EndpointsTable(tables.DataTable):
     api_endpoint = tables.Column('public_url',
                                  verbose_name=_("Service Endpoint"))
 
-    class Meta:
+    class Meta(object):
         name = "endpoints"
         verbose_name = _("API Endpoints")
         multi_select = False

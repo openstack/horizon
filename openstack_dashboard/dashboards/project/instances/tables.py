@@ -1016,7 +1016,7 @@ class InstancesTable(tables.DataTable):
                                      filters.timesince_sortable),
                             attrs={'data-type': 'timesince'})
 
-    class Meta:
+    class Meta(object):
         name = "instances"
         verbose_name = _("Instances")
         status_columns = ["status", "task"]

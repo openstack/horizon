@@ -40,6 +40,6 @@ class ResourceTypesTable(tables.DataTable):
     def get_object_id(self, resource):
         return resource.resource_type
 
-    class Meta:
+    class Meta(object):
         name = "resource_types"
         verbose_name = _("Resource Types")

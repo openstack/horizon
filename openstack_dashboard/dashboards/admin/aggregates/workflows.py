@@ -27,7 +27,7 @@ class SetAggregateInfoAction(workflows.Action):
     availability_zone = forms.CharField(label=_("Availability Zone"),
                                         max_length=255)
 
-    class Meta:
+    class Meta(object):
         name = _("Host Aggregate Information")
         help_text = _("Host aggregates divide an availability zone into "
                       "logical units by grouping together hosts. Create a "
@@ -90,7 +90,7 @@ class AddHostsToAggregateAction(workflows.MembershipAction):
         self.fields[field_name].choices = \
             [(host_name, host_name) for host_name in host_names]
 
-    class Meta:
+    class Meta(object):
         name = _("Manage Hosts within Aggregate")
         slug = "add_host_to_aggregate"
 
@@ -130,7 +130,7 @@ class ManageAggregateHostsAction(workflows.MembershipAction):
 
         self.fields[field_name].initial = current_aggregate_hosts
 
-    class Meta:
+    class Meta(object):
         name = _("Manage Hosts within Aggregate")
 
 

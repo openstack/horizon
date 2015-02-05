@@ -28,7 +28,7 @@ class AuditTable(tables.DataTable):
     user_id = tables.Column('user_id', verbose_name=_('User ID'))
     message = tables.Column('message', verbose_name=_('Message'))
 
-    class Meta:
+    class Meta(object):
         name = 'audit'
         verbose_name = _('Instance Action List')
 

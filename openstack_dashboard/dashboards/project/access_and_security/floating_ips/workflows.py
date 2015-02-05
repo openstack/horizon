@@ -36,7 +36,7 @@ class AssociateIPAction(workflows.Action):
                                           add_item_link=ALLOCATE_URL)
     instance_id = forms.ChoiceField(label=_("Instance"))
 
-    class Meta:
+    class Meta(object):
         name = _("IP Address")
         help_text = _("Select the IP address you wish to associate with "
                       "the selected instance or port.")

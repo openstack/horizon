@@ -142,7 +142,7 @@ class InstancesTable(tables.DataTable):
     management_ip = tables.Column("management_ip",
                                   verbose_name=_("Management IP"))
 
-    class Meta:
+    class Meta(object):
         name = "cluster_instances"
         # Just ignoring the name.
         verbose_name = _(" ")

@@ -38,7 +38,7 @@ class SetFlavorChoiceAction(workflows.Action):
     flavor = forms.ChoiceField(label=_("New Flavor"),
                                help_text=_("Choose the flavor to launch."))
 
-    class Meta:
+    class Meta(object):
         name = _("Flavor Choice")
         slug = 'flavor_choice'
         help_text_template = ("project/instances/"

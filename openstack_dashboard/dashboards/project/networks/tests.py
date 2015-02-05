@@ -1894,7 +1894,7 @@ class NetworkViewTests(test.TestCase):
         subnets = res.context['subnets_table'].data
         self.assertItemsEqual(subnets, self.subnets.list())
 
-        class FakeTable():
+        class FakeTable(object):
             kwargs = {'network_id': network_id}
         create_link = subnets_tables.CreateSubnet()
         create_link.table = FakeTable()

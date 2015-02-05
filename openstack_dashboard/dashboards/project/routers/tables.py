@@ -223,7 +223,7 @@ class RoutersTable(tables.DataTable):
     def get_object_display(self, obj):
         return obj.name
 
-    class Meta:
+    class Meta(object):
         name = "Routers"
         verbose_name = _("Routers")
         status_columns = ["status"]
