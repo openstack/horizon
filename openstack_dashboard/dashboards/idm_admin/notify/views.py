@@ -1,5 +1,3 @@
-# Copyright (C) 2014 Universidad Politecnica de Madrid
-#
 # Licensed under the Apache License, Version 2.0 (the "License"); you may
 # not use this file except in compliance with the License. You may obtain
 # a copy of the License at
@@ -12,4 +10,15 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from openstack_dashboard.fiware_auth.urls import urlpatterns as urls
+import logging
+
+from horizon import forms
+
+from openstack_dashboard.dashboards.idm_admin.notify \
+    import forms as notify_forms
+
+LOG = logging.getLogger('idm_logger')
+
+class NotifyEmailView(forms.ModalFormView):
+    form_class = notify_forms.EmailForm
+    template_name = 'idm_admin/notify/index.html'

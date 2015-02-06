@@ -32,17 +32,29 @@ from keystoneclient import base
 
 LOG = logging.getLogger('idm_logger')
 
-class _RequestPassingFormView(FormView):
+class TemplatedEmailMixin(object):
+    # TODO(garcianavalon) as settings
+    EMAIL_HTML_TEMPLATE = 'email/base_email.html'
+    EMAIL_TEXT_TEMPLATE = 'email/base_email.txt'
+    def send_html_email(self, to, from_email, subject, content):
+        # TODO(garcianavalon) pass the context dict as param is better or use kwargs
+        LOG.debug('Sending email to {0} with subject {1}'.format(to, subject))
+        context = {
+            'content':content
+        }
+        text_content = render_to_string(self.EMAIL_TEXT_TEMPLATE, context)
+        html_content = render_to_string(self.EMAIL_HTML_TEMPLATE, context)
+        msg = EmailMultiAlternatives(subject, text_content, from_email, to)
+        msg.attach_alternative(html_content, "text/html")
+        msg.send()
+
+class _RequestPassingFormView(FormView, TemplatedEmailMixin):
     """
     A version of FormView which passes extra arguments to certain
     methods, notably passing the HTTP request nearly everywhere, to
     enable finer-grained processing.
     
     """
-    # TODO(garcianavalon) as settings
-    EMAIL_HTML_TEMPLATE = 'email/base_email.html'
-    EMAIL_TEXT_TEMPLATE = 'email/base_email.txt'
-
     def post(self, request, *args, **kwargs):
         # Pass request to get_form_class and get_form for per-request
         # form control.
@@ -74,18 +86,6 @@ class _RequestPassingFormView(FormView):
     def form_invalid(self, form, request=None):
         return super(_RequestPassingFormView, self).form_invalid(form)
 
-    def send_html_email(self, to, from_email, subject, content):
-        # TODO(garcianavalon) pass the context dict as param is better or use kwargs
-        LOG.debug('Sending email to {0} with subject {1}'.format(to, subject))
-        context = {
-            'content':content
-        }
-        text_content = render_to_string(self.EMAIL_TEXT_TEMPLATE, context)
-        html_content = render_to_string(self.EMAIL_HTML_TEMPLATE, context)
-        msg = EmailMultiAlternatives(subject, text_content, from_email, to)
-        msg.attach_alternative(html_content, "text/html")
-        msg.send()
-
 
 class RegistrationView(_RequestPassingFormView):
     """Creates a new user in the backend. Then redirects to the log-in page.
@@ -102,6 +102,8 @@ class RegistrationView(_RequestPassingFormView):
             success_url = self.get_success_url(request, new_user)
             # success_url must be a simple string, no tuples
             return redirect(success_url)
+        # TODO(garcianavalon) do something if new_user is None like
+        # redirect to login or to sign_up
 
     # We have to protect the entire "cleaned_data" dict because it contains the
     # password and confirm_password strings.
@@ -216,6 +218,8 @@ class ResetPasswordView(_RequestPassingFormView):
         password = form.cleaned_data['password1']
         token = self.token
         user = self._reset_password(request, token, password)
+        # import pdb
+        # pdb.set_trace()
         if user:
             return super(ResetPasswordView, self).form_valid(form)
         return self.get(request) # redirect to itself
@@ -226,8 +230,9 @@ class ResetPasswordView(_RequestPassingFormView):
         user = fiware_api.keystone.check_email(user_email)
         user_ref = {
             'id': user.id,
-            'password': new_password,
+            'passwor': new_password,
         }
+
         try:
             user = fiware_api.keystone.reset_password(user_ref, token)
             if user:
@@ -275,7 +280,7 @@ class ResendConfirmationInstructionsView(_RequestPassingFormView):
         subject = 'Welcome to FIWARE'
         # Email subject *must not* contain newlines
         subject = ''.join(subject.splitlines())
-        content = 'New user created at FIWARE :D/n Go to http://localhost:8000/activate/?activation_key={0}&user={1} to activate'.format(activation_key, user.id)
+        content = 'New user created at FIWARE :D/n Go to http://localhost:8000/activate/?activation_key={0}&user={1} to activate'.format(base.getid(activation_key), user.id)
         #send a mail for activation
         self.send_html_email(to=[user.email],
                              from_email='admin@fiware-idm-test.dit.upm.es',

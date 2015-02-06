@@ -98,7 +98,7 @@
           <!--<li><a href="{{ HORIZON_CONFIG.help_url }}" target="_new">{% trans "Help" %}</a></li>-->
           <li class="divider"></li>
           <li>
-            <a href="{% url 'logout' %}">
+            <a href="#" onclick="Fiware.signOut('account'); return false">
               {% trans "Sign Out" %}
             </a>
           </li>

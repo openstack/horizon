@@ -1,0 +1,27 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+
+{% block form_id %}{% endblock %}
+{% block form_action %}{% url 'horizon:idm_admin:notify:index' %}{% endblock %}
+
+
+{% block modal_id %}notify_modal{% endblock %}
+{% block modal-header %}
+    {% include "horizon/common/_domain_page_header.html" with title=_("notify all account users") %}
+{% endblock %}
+
+{% block modal-body %}
+
+<fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+</fieldset>
+
+{% endblock %}
+
+{% block modal-footer %}
+
+    <button type="submit" class="btn btn-primary">{% trans "Send" %}</button>
+
+{% endblock %}

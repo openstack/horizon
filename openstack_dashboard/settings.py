@@ -225,9 +225,8 @@ INSTALLED_APPS = [
     'compressor',
     'horizon',
     'openstack_auth',
-    'fiware_auth',
-    'fiware_oauth2',
     'captcha',
+    'django_summernote', 
 ]
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 AUTHENTICATION_BACKENDS = ('openstack_auth.backend.KeystoneBackend',)
@@ -345,7 +344,7 @@ if not SECRET_KEY:
                                                        '.secret_key_store'))
 
 from openstack_dashboard import policy
-POLICY_CHECK_FUNCTION = policy.check
+#POLICY_CHECK_FUNCTION = policy.check
 
 # Add HORIZON_CONFIG to the context information for offline compression
 COMPRESS_OFFLINE_CONTEXT = {

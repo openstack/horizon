@@ -188,12 +188,12 @@ class ManageApplicationRoles(workflows.Workflow):
             # Add the permissions
             for permission in permissions_to_add:
                 for role in permissions_to_add[permission]:
-                    fiware_api.keystone.add_permission_to_role(permission, role)
+                    fiware_api.keystone.add_permission_to_role(request, permission, role)
 
             # Remove the permissions
             for permission in permissions_to_remove:
                 for role in permissions_to_remove[permission]:
-                    fiware_api.keystone.remove_permission_from_role(permission, role)
+                    fiware_api.keystone.remove_permission_from_role(request, permission, role)
 
             return True
         except Exception:
