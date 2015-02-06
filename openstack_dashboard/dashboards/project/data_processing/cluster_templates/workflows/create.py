@@ -78,7 +78,7 @@ class SelectPlugin(workflows.Step):
 class CreateClusterTemplate(workflows.Workflow):
     slug = "create_cluster_template"
     name = _("Create Cluster Template")
-    finalize_button_name = _("Create")
+    finalize_button_name = _("Next")
     success_message = _("Created")
     failure_message = _("Could not create")
     success_url = "horizon:project:data_processing.cluster_templates:index"
