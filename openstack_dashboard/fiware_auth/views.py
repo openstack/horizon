@@ -224,17 +224,12 @@ class ResetPasswordView(_RequestPassingFormView):
             return super(ResetPasswordView, self).form_valid(form)
         return self.get(request) # redirect to itself
 
-    def _reset_password(self, request, token, new_password):
+    def _reset_password(self, request, token, password):
         LOG.info('Reseting password for token {0}.'.format(token))
         user_email = self.email
         user = fiware_api.keystone.check_email(user_email)
-        user_ref = {
-            'id': user.id,
-            'passwor': new_password,
-        }
-
         try:
-            user = fiware_api.keystone.reset_password(user_ref, token)
+            user = fiware_api.keystone.reset_password(user, token, password)
             if user:
                 messages.success(request, _('password successfully changed.'))
                 return user
