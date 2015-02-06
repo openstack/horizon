@@ -27,13 +27,16 @@ class ServicesTests(test.JasmineTests):
         'horizon/js/angular/services/hz.api.service.js',
         'angular/widget.module.js',
         'angular/help-panel/help-panel.js',
+        'angular/wizard/wizard.js',
     ]
     specs = [
         'horizon/tests/jasmine/utilsSpec.js',
         'horizon/tests/jasmine/metadataWidgetControllerSpec.js',
         'horizon/js/angular/services/hz.api.service.spec.js',
         'angular/help-panel/help-panel.spec.js',
+        'angular/wizard/wizard.spec.js',
     ]
     externalTemplates = [
         'angular/help-panel/help-panel.html',
+        'angular/wizard/wizard.html',
     ]
