@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-05 00:13-0600\n"
+"POT-Creation-Date: 2015-02-06 00:09-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -649,7 +649,7 @@ msgstr ""
 #: dashboards/admin/volumes/volumes/forms.py:74
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:22
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:19
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:46
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:48
 #: dashboards/project/instances/tables.py:1002
 #: dashboards/project/instances/templates/instances/_detail_overview.html:16
 #: dashboards/project/instances/workflows/create_instance.py:79
@@ -1227,7 +1227,7 @@ msgstr ""
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:29
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:32
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:42
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:175
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:191
 #: dashboards/project/instances/templates/instances/_detail_overview.html:85
 #: dashboards/project/instances/workflows/create_instance.py:545
 #: dashboards/project/instances/workflows/update_instance.py:80
@@ -1851,9 +1851,9 @@ msgstr ""
 #: dashboards/project/routers/tables.py:200
 #: dashboards/project/routers/ports/tables.py:105
 #: dashboards/project/routers/templates/routers/_detail_overview.html:13
-#: dashboards/project/stacks/tables.py:197
-#: dashboards/project/stacks/tables.py:239
-#: dashboards/project/stacks/tables.py:286
+#: dashboards/project/stacks/tables.py:205
+#: dashboards/project/stacks/tables.py:248
+#: dashboards/project/stacks/tables.py:295
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:19
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:26
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:35
@@ -2468,7 +2468,7 @@ msgstr ""
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:10
 #: dashboards/project/data_processing/jobs/workflows/create.py:76
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:10
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:39
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:41
 #: dashboards/project/database_backups/templates/database_backups/details.html:20
 #: dashboards/project/database_backups/workflows/create_backup.py:34
 #: dashboards/project/firewalls/forms.py:36
@@ -2653,7 +2653,7 @@ msgstr ""
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:21
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:82
 #: dashboards/project/data_processing/jobs/workflows/launch.py:407
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:340
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:360
 #: dashboards/project/database_backups/tables.py:150
 #: dashboards/project/database_backups/templates/database_backups/details.html:36
 #: dashboards/project/databases/tables.py:331
@@ -2661,7 +2661,7 @@ msgstr ""
 #: dashboards/project/images/templates/images/images/_detail_overview.html:27
 #: dashboards/project/instances/templates/instances/_detail_overview.html:18
 #: dashboards/project/instances/templates/instances/_detail_overview.html:38
-#: dashboards/project/stacks/tables.py:183
+#: dashboards/project/stacks/tables.py:191
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:22
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:39
@@ -2689,7 +2689,7 @@ msgstr ""
 #: dashboards/project/database_backups/templates/database_backups/details.html:38
 #: dashboards/project/databases/templates/databases/_detail_overview.html:36
 #: dashboards/project/images/templates/images/images/_detail_overview.html:33
-#: dashboards/project/stacks/tables.py:187
+#: dashboards/project/stacks/tables.py:195
 msgid "Updated"
 msgstr ""
 
@@ -4119,8 +4119,8 @@ msgstr ""
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
 #: dashboards/project/data_processing/jobs/workflows/create.py:146
 #: dashboards/project/data_processing/jobs/workflows/launch.py:406
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:210
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:339
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:226
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:359
 #: dashboards/project/networks/workflows.py:342
 #: dashboards/project/networks/subnets/workflows.py:57
 msgid "Create"
@@ -7127,7 +7127,7 @@ msgstr ""
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:26
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:29
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:37
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:160
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:176
 msgid "Auto Security Group"
 msgstr ""
 
@@ -7203,12 +7203,12 @@ msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:83
 #: dashboards/project/data_processing/jobs/workflows/launch.py:408
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:341
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:361
 msgid "Could not create"
 msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:97
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:37
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:39
 msgid "Template Name"
 msgstr ""
 
@@ -7363,7 +7363,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:18
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:25
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:102
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:111
 msgid "Floating IP Pool"
 msgstr ""
 
@@ -8348,7 +8348,7 @@ msgid "Cinder volumes"
 msgstr ""
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:70
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:60
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:62
 msgid "Volumes per node"
 msgstr ""
 
@@ -8357,6 +8357,11 @@ msgid "Volumes size"
 msgstr ""
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:75
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:76
+msgid "Volumes Availability Zone"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:79
 msgid "Ephemeral drive"
 msgstr ""
 
@@ -8377,8 +8382,8 @@ msgstr ""
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:6
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/create.html:3
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/create.html:6
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:209
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:338
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:225
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:358
 msgid "Create Node Group Template"
 msgstr ""
 
@@ -8395,76 +8400,81 @@ msgstr ""
 msgid "Node Group Template copy %s created"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/copy.py:86
+#: dashboards/project/data_processing/nodegroup_templates/workflows/copy.py:89
 msgid "Unable to fetch plugin details."
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:43
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:45
 msgid "OpenStack Flavor"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:47
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:49
 msgid "Launch instances in this availability zone."
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:53
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:55
 msgid "Storage location"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:54
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:56
 msgid "Choose a storage location"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:67
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:69
 msgid "Volumes size (GB)"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:94
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:77
+msgid "Create volumes in this availability zone."
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:103
 msgid "Unable to generate process choices."
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:107
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:116
 msgid "Processes"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:109
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:118
 msgid "Processes to be launched in node group"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:134
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:143
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:150
 msgid "No availability zone specified"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:149
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:165
 msgid "Configure Node Group Template"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:162
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:178
 msgid "Create security group for this Node Group."
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:170
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:186
 msgid "Unable to get security group list."
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:177
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:193
 msgid "Launch instances in these security groups."
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:182
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:198
 msgid "Security"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:183
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:199
 msgid "Control access to instances of the node group."
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:211
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:227
 #, python-format
 msgid "Created Node Group Template %s"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:319
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:339
 msgid "Select plugin and hadoop version"
 msgstr ""
 
@@ -13195,7 +13205,7 @@ msgstr ""
 #: dashboards/project/stacks/forms.py:233
 #: dashboards/project/stacks/forms.py:257
 #: dashboards/project/stacks/forms.py:382
-#: dashboards/project/stacks/tables.py:180
+#: dashboards/project/stacks/tables.py:188
 msgid "Stack Name"
 msgstr ""
 
@@ -13255,108 +13265,108 @@ msgid "Stack update started."
 msgstr ""
 
 #: dashboards/project/stacks/panel.py:21
-#: dashboards/project/stacks/tables.py:204
+#: dashboards/project/stacks/tables.py:212
 #: dashboards/project/stacks/templates/stacks/index.html:3
 #: dashboards/project/stacks/templates/stacks/index.html:6
 msgid "Stacks"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:32
+#: dashboards/project/stacks/tables.py:31
 #: dashboards/project/stacks/templates/stacks/_create.html:8
 #: dashboards/project/stacks/templates/stacks/create.html:3
 #: dashboards/project/stacks/templates/stacks/create.html:6
 msgid "Launch Stack"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:41
-#: dashboards/project/stacks/tables.py:47
+#: dashboards/project/stacks/tables.py:40
+#: dashboards/project/stacks/tables.py:46
 msgid "Check Stack"
 msgid_plural "Check Stacks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/stacks/tables.py:55
+#: dashboards/project/stacks/tables.py:54
 msgid "Checked Stack"
 msgid_plural "Checked Stacks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/stacks/tables.py:66
-#: dashboards/project/stacks/tables.py:72
+#: dashboards/project/stacks/tables.py:65
+#: dashboards/project/stacks/tables.py:71
 msgid "Suspend Stack"
 msgid_plural "Suspend Stacks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/stacks/tables.py:80
+#: dashboards/project/stacks/tables.py:79
 msgid "Suspended Stack"
 msgid_plural "Suspended Stacks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/stacks/tables.py:91
-#: dashboards/project/stacks/tables.py:97
+#: dashboards/project/stacks/tables.py:90
+#: dashboards/project/stacks/tables.py:96
 msgid "Resume Stack"
 msgid_plural "Resume Stacks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/stacks/tables.py:105
+#: dashboards/project/stacks/tables.py:104
 msgid "Resumed Stack"
 msgid_plural "Resumed Stacks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/stacks/tables.py:116
+#: dashboards/project/stacks/tables.py:115
 msgid "Change Stack Template"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:129
+#: dashboards/project/stacks/tables.py:128
 msgid "Delete Stack"
 msgid_plural "Delete Stacks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/stacks/tables.py:137
+#: dashboards/project/stacks/tables.py:136
 msgid "Deleted Stack"
 msgid_plural "Deleted Stacks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/stacks/tables.py:228
-#: dashboards/project/stacks/tables.py:273
+#: dashboards/project/stacks/tables.py:237
+#: dashboards/project/stacks/tables.py:282
 msgid "Stack Resource"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:231
-#: dashboards/project/stacks/tables.py:276
+#: dashboards/project/stacks/tables.py:240
+#: dashboards/project/stacks/tables.py:285
 #: dashboards/project/stacks/resource_types/tables.py:38
 msgid "Resource"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:234
+#: dashboards/project/stacks/tables.py:243
 msgid "Time Since Event"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:242
-#: dashboards/project/stacks/tables.py:291
+#: dashboards/project/stacks/tables.py:251
+#: dashboards/project/stacks/tables.py:300
 msgid "Status Reason"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:246
+#: dashboards/project/stacks/tables.py:255
 msgid "Stack Events"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:279
+#: dashboards/project/stacks/tables.py:288
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:25
 msgid "Stack Resource Type"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:281
+#: dashboards/project/stacks/tables.py:290
 msgid "Date Updated"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:304
+#: dashboards/project/stacks/tables.py:313
 msgid "Stack Resources"
 msgstr ""
 
@@ -13564,6 +13574,10 @@ msgstr ""
 
 #: dashboards/project/volumes/tabs.py:144
 msgid "Unable to retrieve volume backups."
+msgstr ""
+
+#: dashboards/project/volumes/utils.py:28
+msgid "Unable to retrieve volumes availability zones."
 msgstr ""
 
 #: dashboards/project/volumes/backups/forms.py:33
@@ -15579,19 +15593,19 @@ msgstr ""
 msgid "Usage"
 msgstr ""
 
-#: utils/metering.py:47
+#: utils/metering.py:46
 msgid "To date to must be greater than From date."
 msgstr ""
 
-#: utils/metering.py:82
+#: utils/metering.py:81
 msgid "The dates haven't been recognized"
 msgstr ""
 
-#: utils/metering.py:88
+#: utils/metering.py:87
 msgid "The time delta must be a number representing the time span in days"
 msgstr ""
 
-#: utils/metering.py:105
+#: utils/metering.py:104
 #, python-format
 msgid "Failed to get the resource name: %s"
 msgstr ""

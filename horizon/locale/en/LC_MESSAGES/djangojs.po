@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-05 00:13-0600\n"
+"POT-Creation-Date: 2015-02-06 00:09-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,22 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: static/angular/wizard/wizard.js:7 static/horizon/js/horizon.modals.js:33
+msgid "Cancel"
+msgstr ""
+
+#: static/angular/wizard/wizard.js:8
+msgid "Back"
+msgstr ""
+
+#: static/angular/wizard/wizard.js:9
+msgid "Next"
+msgstr ""
+
+#: static/angular/wizard/wizard.js:10
+msgid "Finish"
+msgstr ""
 
 #: static/horizon/js/horizon.accordion_nav.js:84
 #: static/horizon/js/horizon.modals.js:313
@@ -79,10 +95,6 @@ msgstr ""
 
 #: static/horizon/js/horizon.messages.js:13
 msgid "Error: "
-msgstr ""
-
-#: static/horizon/js/horizon.modals.js:33
-msgid "Cancel"
 msgstr ""
 
 #: static/horizon/js/horizon.modals.js:227

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-04 17:16-0600\n"
-"PO-Revision-Date: 2015-02-04 21:29+0000\n"
+"POT-Creation-Date: 2015-02-05 19:00-0600\n"
+"PO-Revision-Date: 2015-02-06 01:22+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#: static/angular/wizard/wizard.js:7 static/horizon/js/horizon.modals.js:33
+msgid "Cancel"
+msgstr "取消"
+
+#: static/angular/wizard/wizard.js:8
+msgid "Back"
+msgstr "上一頁"
+
+#: static/angular/wizard/wizard.js:9
+msgid "Next"
+msgstr "下一步"
+
+#: static/angular/wizard/wizard.js:10
+msgid "Finish"
+msgstr ""
 
 #: static/horizon/js/horizon.accordion_nav.js:84
 #: static/horizon/js/horizon.modals.js:313
@@ -81,10 +97,6 @@ msgstr "成功："
 #: static/horizon/js/horizon.messages.js:13
 msgid "Error: "
 msgstr "錯誤："
-
-#: static/horizon/js/horizon.modals.js:33
-msgid "Cancel"
-msgstr "取消"
 
 #: static/horizon/js/horizon.modals.js:227
 #: static/horizon/js/horizon.tables.js:218

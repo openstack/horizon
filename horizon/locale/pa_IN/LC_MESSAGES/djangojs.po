@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-04 17:16-0600\n"
-"PO-Revision-Date: 2015-02-04 21:29+0000\n"
+"POT-Creation-Date: 2015-02-05 19:00-0600\n"
+"PO-Revision-Date: 2015-02-06 01:22+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/projects/p/horizon/language/pa_IN/)\n"
 "MIME-Version: 1.0\n"
@@ -16,6 +16,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pa_IN\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: static/angular/wizard/wizard.js:7 static/horizon/js/horizon.modals.js:33
+msgid "Cancel"
+msgstr "ਰੱਦ ਕਰੋ"
+
+#: static/angular/wizard/wizard.js:8
+msgid "Back"
+msgstr "ਪਿੱਛੇ"
+
+#: static/angular/wizard/wizard.js:9
+msgid "Next"
+msgstr "ਅਗਲਾ"
+
+#: static/angular/wizard/wizard.js:10
+msgid "Finish"
+msgstr ""
 
 #: static/horizon/js/horizon.accordion_nav.js:84
 #: static/horizon/js/horizon.modals.js:313
@@ -80,10 +96,6 @@ msgstr "ਸਫਲਤਾ: "
 #: static/horizon/js/horizon.messages.js:13
 msgid "Error: "
 msgstr "ਗਲਤੀ: "
-
-#: static/horizon/js/horizon.modals.js:33
-msgid "Cancel"
-msgstr "ਰੱਦ ਕਰੋ"
 
 #: static/horizon/js/horizon.modals.js:227
 #: static/horizon/js/horizon.tables.js:218
