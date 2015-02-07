@@ -25,7 +25,7 @@ class ModifyUsageReportParameters(tables.LinkAction):
     name = "create"
     verbose_name = _("Modify Usage Report Parameters")
     url = "horizon:admin:metering:create"
-    classes = ("btn-create",)
+    classes = ("ajax-modal",)
     icon = "edit"
 
 
