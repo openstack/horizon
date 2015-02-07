@@ -10,9 +10,6 @@
 {% comment %} Compress jQuery, Angular, Plugins, Bootstrap, Hogan.js and Horizon-specific JS. {% endcomment %}
 {% compress js %}
 <script type="text/javascript">var STATIC_URL = "{{ STATIC_URL }}";</script>
-{% for file in HORIZON_CONFIG.js_files %}
-    <script src='{{ STATIC_URL }}{{ file }}' type='text/javascript' charset='utf-8'></script>
-{% endfor %}
 <script src='{{ STATIC_URL }}horizon/lib/angular/angular-cookies.js' type='text/javascript' charset='utf-8'></script>
 <script src='{{ STATIC_URL }}horizon/js/angular/controllers/namespace-controller.js'></script>
 <script src='{{ STATIC_URL }}horizon/js/angular/controllers/dummy.js' type='text/javascript' charset='utf-8'></script>
@@ -69,6 +66,11 @@
 <script src='{{ STATIC_URL }}horizon/lib/jsencrypt/jsencrypt.js' type='text/javascript' charset='utf-8'></script>
 
 <script src='{{ STATIC_URL }}horizon/js/horizon.images.js' type='text/javascript' charset='utf-8'></script>
+
+{% for file in HORIZON_CONFIG.js_files %}
+    <script src='{{ STATIC_URL }}{{ file }}'></script>
+{% endfor %}
+
 {% block custom_js_files %}{% endblock %}
 {% endcompress %}
 
