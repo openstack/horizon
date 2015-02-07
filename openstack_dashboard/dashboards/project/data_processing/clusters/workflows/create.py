@@ -199,8 +199,8 @@ class GeneralConfig(workflows.Step):
 class ConfigureCluster(whelpers.StatusFormatMixin, workflows.Workflow):
     slug = "configure_cluster"
     name = _("Launch Cluster")
-    finalize_button_name = _("Create")
-    success_message = _("Created Cluster %s")
+    finalize_button_name = _("Launch")
+    success_message = _("Launched Cluster %s")
     name_property = "general_cluster_name"
     success_url = "horizon:project:data_processing.clusters:index"
     default_steps = (GeneralConfig, )
