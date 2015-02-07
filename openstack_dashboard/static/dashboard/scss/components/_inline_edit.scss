@@ -57,8 +57,9 @@ td.has-form {
 div.table_cell_wrapper {
    position: relative;
 
-  .table_cell_data_wrapper{
+  .table_cell_data_wrapper {
     padding-right: 35px;
+    min-height: 15px;
   }
 
   .inline-edit-label {
