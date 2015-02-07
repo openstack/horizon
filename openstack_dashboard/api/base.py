@@ -23,6 +23,8 @@ from django.conf import settings
 
 from horizon import exceptions
 
+import six
+
 
 __all__ = ('APIResourceWrapper', 'APIDictWrapper',
            'get_service_from_catalog', 'url_for',)
@@ -41,6 +43,13 @@ class APIVersionManager(object):
         self.preferred = preferred_version
         self._active = None
         self.supported = {}
+        # As a convenience, we can drop in a placeholder for APIs that we
+        # have not yet needed to version. This is useful, for example, when
+        # panels such as the admin metadata_defs wants to check the active
+        # version even though it's not explicitly defined. Previously
+        # this caused a KeyError.
+        if self.preferred:
+            self.supported[self.preferred] = {"version": self.preferred}
 
     @property
     def active(self):
@@ -60,8 +69,25 @@ class APIVersionManager(object):
             # the setting in as a way of overriding the latest available
             # version.
             key = self.preferred
+        # Since we do a key lookup in the supported dict the type matters,
+        # let's ensure people know if they use a string when the key isn't.
+        if isinstance(key, six.string_types):
+            msg = ('The version "%s" specified for the %s service should be '
+                   'either an integer or a float, not a string.' %
+                   (key, self.service_type))
+            raise exceptions.ConfigurationError(msg)
+        # Provide a helpful error message if the specified version isn't in the
+        # supported list.
+        if key not in self.supported:
+            choices = ", ".join(str(k) for k in six.iterkeys(self.supported))
+            msg = ('%s is not a supported API version for the %s service, '
+                   ' choices are: %s' % (key, self.service_type, choices))
+            raise exceptions.ConfigurationError(msg)
         self._active = key
         return self.supported[self._active]
+
+    def clear_active_cache(self):
+        self._active = None
 
 
 class APIResourceWrapper(object):

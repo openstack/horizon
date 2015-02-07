@@ -172,6 +172,11 @@ class AlreadyExists(HorizonException):
         return self.msg % self.attrs
 
 
+class ConfigurationError(HorizonException):
+    """Exception to be raised when invalid settings have been provided."""
+    pass
+
+
 class NotAvailable(HorizonException):
     """Exception to be raised when something is not available."""
     pass
