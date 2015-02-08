@@ -1,3 +1,4 @@
+/* jshint globalstrict: true */
 'use strict';
 
 describe('hz.widget.wizard module', function () {
