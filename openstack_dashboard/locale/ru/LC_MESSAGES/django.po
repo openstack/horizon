@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Dasha Sher <sher.dasha@gmail.com>, 2014
+# Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-05 19:00-0600\n"
-"PO-Revision-Date: 2015-02-06 01:22+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"PO-Revision-Date: 2015-02-06 15:43+0000\n"
+"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,43 +25,43 @@ msgstr "Выберите формат"
 
 #: settings.py:85
 msgid "AKI - Amazon Kernel Image"
-msgstr "AKI - Образ ядра Amazon"
+msgstr "AKI - Amazon Kernel Image"
 
 #: settings.py:86
 msgid "AMI - Amazon Machine Image"
-msgstr "AMI - Образ машины Amazon"
+msgstr "AMI - Amazon Machine Image"
 
 #: settings.py:87
 msgid "ARI - Amazon Ramdisk Image"
-msgstr "ARI - Образ электрондиска Amazon"
+msgstr "ARI - Amazon Ramdisk Image"
 
 #: settings.py:88
 msgid "ISO - Optical Disk Image"
-msgstr "ISO - образ оптического диска"
+msgstr "ISO - Optical Disk Image"
 
 #: settings.py:89
 msgid "OVA - Open Virtual Appliance"
-msgstr ""
+msgstr "OVA - Open Virtual Appliance"
 
 #: settings.py:90
 msgid "QCOW2 - QEMU Emulator"
-msgstr "QCOW2 - Эмулятор QEMU"
+msgstr "QCOW2 - QEMU Emulator"
 
 #: settings.py:91
 msgid "Raw"
-msgstr "RAW"
+msgstr "Raw"
 
 #: settings.py:92
 msgid "VDI - Virtual Disk Image"
-msgstr ""
+msgstr "VDI - Virtual Disk Image"
 
 #: settings.py:93
 msgid "VHD - Virtual Hard Disk"
-msgstr ""
+msgstr "VHD - Virtual Hard Disk"
 
 #: settings.py:94
 msgid "VMDK - Virtual Machine Disk"
-msgstr ""
+msgstr "VMDK - Virtual Machine Disk"
 
 #: settings.py:233
 msgid "All TCP"
@@ -92,7 +93,7 @@ msgstr "Объем ОЗУ (МБ)"
 
 #: api/ceilometer.py:946
 msgid "Volume of RAM used in MB"
-msgstr ""
+msgstr "Использованный объем памяти в МБ"
 
 #: api/ceilometer.py:950
 msgid "CPU time used"
@@ -100,12 +101,12 @@ msgstr "Затраченное время ЦПУ (наносекунды)"
 
 #: api/ceilometer.py:954
 msgid "Average CPU utilization"
-msgstr "Среднее потребление ЦПУ"
+msgstr "Среднее потребление CPU"
 
 #: api/ceilometer.py:958
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:28
 msgid "Number of VCPUs"
-msgstr "Количество ВЦПУ"
+msgstr "Количество VCPU"
 
 #: api/ceilometer.py:962
 msgid "Number of read requests"
@@ -125,19 +126,19 @@ msgstr "Объем записи (байт)"
 
 #: api/ceilometer.py:978
 msgid "Average rate of read requests per second"
-msgstr ""
+msgstr "Среднее количество запросов на чтение в секунду"
 
 #: api/ceilometer.py:982
 msgid "Average rate of write requests per second"
-msgstr ""
+msgstr "Среднее количество запросов на запись в секунду"
 
 #: api/ceilometer.py:986
 msgid "Average rate of reads in B per second"
-msgstr ""
+msgstr "Средняя скорость чтения в байтах в секунду"
 
 #: api/ceilometer.py:990
 msgid "Average volume of writes in B per second"
-msgstr ""
+msgstr "Средняя скорость записи в байтах в секунду"
 
 #: api/ceilometer.py:994
 msgid "Size of root disk in GB"
@@ -664,12 +665,12 @@ msgstr "Зона доступности"
 #: dashboards/admin/aggregates/forms.py:45
 #, python-format
 msgid "Successfully updated aggregate: \"%s.\""
-msgstr "Сборник «%s» успешно обновлён."
+msgstr "Агрегат «%s» успешно обновлён."
 
 #: dashboards/admin/aggregates/forms.py:50
 #: dashboards/admin/aggregates/workflows.py:211
 msgid "Unable to update the aggregate."
-msgstr "Не удалось обновить сборник."
+msgstr "Не удалось обновить агрегат."
 
 #: dashboards/admin/aggregates/forms.py:73
 #: dashboards/admin/flavors/forms.py:44 dashboards/admin/images/forms.py:61
