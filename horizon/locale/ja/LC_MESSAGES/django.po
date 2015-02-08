@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-02 15:13-0600\n"
-"PO-Revision-Date: 2015-02-02 19:18+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-02-07 20:43-0600\n"
+"PO-Revision-Date: 2015-02-07 10:31+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,12 +37,12 @@ msgstr "%s へのアクセスが許可されていません。"
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
 msgstr "名前が \"%(name)s\" の %(resource)s がすでに存在します。"
 
-#: exceptions.py:230
+#: exceptions.py:235
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "権限がありません: %s"
 
-#: exceptions.py:233
+#: exceptions.py:238
 msgid "Unauthorized. Please try logging in again."
 msgstr "認証されていません。もう一度ログインしてください。"
 
@@ -80,7 +80,7 @@ msgid "Submit"
 msgstr "送信"
 
 #: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:235
+#: templates/horizon/common/_modal_form_update_metadata.html:232
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "取り消し"
@@ -327,7 +327,7 @@ msgid "Duplicate keys are not allowed"
 msgstr "重複するキーは使用できません"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:84
-#: templates/horizon/common/_modal_form_update_metadata.html:196
+#: templates/horizon/common/_modal_form_update_metadata.html:193
 msgid "No available metadata"
 msgstr "利用可能なメタデータはありません"
 
@@ -335,7 +335,7 @@ msgstr "利用可能なメタデータはありません"
 msgid "Existing Metadata"
 msgstr "選択済みのメタデータ"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:212
+#: templates/horizon/common/_modal_form_update_metadata.html:209
 msgid ""
 "\n"
 "          You can specify resource metadata by moving items from the left\n"
@@ -345,7 +345,7 @@ msgid ""
 "        "
 msgstr "\n左の列から右の列にアイテムを移動して、リソースのメタデータを指定できます。左の列には、Glance のメタデータカタログに登録されているメタデータの定義が表示されています。任意のキーのメタデータを追加するには、\"Other\" オプションを使ってください。\n\n      "
 
-#: templates/horizon/common/_modal_form_update_metadata.html:234
+#: templates/horizon/common/_modal_form_update_metadata.html:231
 #: workflows/base.py:594
 msgid "Save"
 msgstr "保存"
@@ -406,7 +406,7 @@ msgstr "指定期間中の GB 時間:"
 
 #: templates/horizon/common/_usage_summary.html:24
 msgid "This Period's RAM-Hours:"
-msgstr ""
+msgstr "指定期間中のメモリー時間"
 
 #: templates/horizon/common/_workflow.html:40
 msgid "Back"

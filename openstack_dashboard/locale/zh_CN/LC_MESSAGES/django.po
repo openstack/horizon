@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-05 19:00-0600\n"
-"PO-Revision-Date: 2015-02-06 01:22+0000\n"
+"POT-Creation-Date: 2015-02-07 20:43-0600\n"
+"PO-Revision-Date: 2015-02-07 06:54+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -4092,15 +4092,12 @@ msgstr "\nQoS规格可以与云硬盘类型关联。\n它用于映射到一组�
 #: dashboards/admin/volumes/volume_types/extras/tables.py:48
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:24
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:23
-#: dashboards/project/data_processing/cluster_templates/workflows/create.py:81
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:225
-#: dashboards/project/data_processing/clusters/workflows/create.py:202
 #: dashboards/project/data_processing/data_sources/workflows/create.py:79
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
 #: dashboards/project/data_processing/jobs/workflows/create.py:146
 #: dashboards/project/data_processing/jobs/workflows/launch.py:406
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:226
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:359
 #: dashboards/project/networks/workflows.py:342
 #: dashboards/project/networks/subnets/workflows.py:57
 msgid "Create"
@@ -7130,6 +7127,14 @@ msgstr "插件名称"
 msgid "Select plugin and hadoop version for cluster template"
 msgstr "为集群模板选择一个插件和一个Hadoop版本"
 
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:81
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:359
+#: dashboards/project/networks/templates/networks/create.html:17
+#: dashboards/project/stacks/templates/stacks/_change_template.html:25
+#: dashboards/project/stacks/templates/stacks/_select_template.html:25
+msgid "Next"
+msgstr "下一步"
+
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:83
 #: dashboards/project/data_processing/jobs/workflows/launch.py:408
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:361
@@ -7340,10 +7345,20 @@ msgstr "没有密钥对"
 msgid "No Templates Available"
 msgstr "没有可用的模板"
 
+#: dashboards/project/data_processing/clusters/workflows/create.py:202
+#: dashboards/project/data_processing/jobs/workflows/launch.py:331
+#: dashboards/project/data_processing/jobs/workflows/launch.py:416
+#: dashboards/project/databases/workflows/create_instance.py:272
+#: dashboards/project/images/images/tables.py:36
+#: dashboards/project/instances/workflows/create_instance.py:841
+#: dashboards/project/stacks/templates/stacks/_create.html:24
+msgid "Launch"
+msgstr "运行"
+
 #: dashboards/project/data_processing/clusters/workflows/create.py:203
 #, python-format
-msgid "Created Cluster %s"
-msgstr "已创建的集群 %s"
+msgid "Launched Cluster %s"
+msgstr ""
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:235
 msgid "Unable to create the cluster"
@@ -8144,15 +8159,6 @@ msgstr "配置"
 #: dashboards/project/data_processing/jobs/workflows/launch.py:308
 msgid "Persist cluster after job exit"
 msgstr "任务退出后保留集群"
-
-#: dashboards/project/data_processing/jobs/workflows/launch.py:331
-#: dashboards/project/data_processing/jobs/workflows/launch.py:416
-#: dashboards/project/databases/workflows/create_instance.py:272
-#: dashboards/project/images/images/tables.py:36
-#: dashboards/project/instances/workflows/create_instance.py:841
-#: dashboards/project/stacks/templates/stacks/_create.html:24
-msgid "Launch"
-msgstr "运行"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:332
 #: dashboards/project/data_processing/jobs/workflows/launch.py:417
@@ -12481,12 +12487,6 @@ msgstr "段ID："
 #: dashboards/project/networks/templates/networks/create.html:13
 msgid "Back"
 msgstr "返回"
-
-#: dashboards/project/networks/templates/networks/create.html:17
-#: dashboards/project/stacks/templates/stacks/_change_template.html:25
-#: dashboards/project/stacks/templates/stacks/_select_template.html:25
-msgid "Next"
-msgstr "下一步"
 
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:4
 msgid "Port Overview"

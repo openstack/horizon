@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-05 19:00-0600\n"
-"PO-Revision-Date: 2015-02-06 01:22+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-02-07 20:43-0600\n"
+"PO-Revision-Date: 2015-02-07 13:51+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,7 +45,7 @@ msgstr "ISO - Optical Disk Image"
 
 #: settings.py:89
 msgid "OVA - Open Virtual Appliance"
-msgstr "OVA - 오픈 가상화 기구"
+msgstr "OVA - Open Virtual Appliance"
 
 #: settings.py:90
 msgid "QCOW2 - QEMU Emulator"
@@ -57,15 +57,15 @@ msgstr "Raw"
 
 #: settings.py:92
 msgid "VDI - Virtual Disk Image"
-msgstr "VDI - 가상 디스크 이미지"
+msgstr "VDI - Virtual Disk Image"
 
 #: settings.py:93
 msgid "VHD - Virtual Hard Disk"
-msgstr "VHD - 가상 하드 디스크"
+msgstr "VHD - Virtual Hard Disk"
 
 #: settings.py:94
 msgid "VMDK - Virtual Machine Disk"
-msgstr "VMDK - 가상머신 디스크"
+msgstr "VMDK - Virtual Machine Disk"
 
 #: settings.py:233
 msgid "All TCP"
@@ -4093,15 +4093,12 @@ msgstr "\nQoS 스펙은 볼륨 유형과 연결 가능합니다.\n이는 볼륨 
 #: dashboards/admin/volumes/volume_types/extras/tables.py:48
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:24
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:23
-#: dashboards/project/data_processing/cluster_templates/workflows/create.py:81
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:225
-#: dashboards/project/data_processing/clusters/workflows/create.py:202
 #: dashboards/project/data_processing/data_sources/workflows/create.py:79
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
 #: dashboards/project/data_processing/jobs/workflows/create.py:146
 #: dashboards/project/data_processing/jobs/workflows/launch.py:406
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:226
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:359
 #: dashboards/project/networks/workflows.py:342
 #: dashboards/project/networks/subnets/workflows.py:57
 msgid "Create"
@@ -4343,7 +4340,7 @@ msgid ""
 "    <br>\n"
 "    This is equivalent to the <tt>cinder manage</tt> command.\n"
 "    "
-msgstr ""
+msgstr "\nCinder 호스트에서 기본 볼륨을 \"관리\"합니다. OpenStack의 볼륨을 볼 수 있도록 해줍니다.\n<br>\n<br>\n이 명령은 <tt>cinder manage</tt> 명령어와 동일합니다."
 
 #: dashboards/admin/volumes/templates/volumes/volumes/_unmanage_volume.html:6
 msgid ""
@@ -4354,7 +4351,7 @@ msgid ""
 "    <br>\n"
 "    This is equivalent to the <tt>cinder unmanage</tt> command.\n"
 "    "
-msgstr ""
+msgstr "\n볼륨이 \"미관리\" 상태일 때, 해당 볼륨은 OpenStack에서 더 이상 나타나지 않을 것입니다. 참고로,\n해당 볼륨이 Cinder 호스트에서 삭제된 것은 아닙니다.\n<br>\n<br>\n이는 <tt>cinder unmanage</tt> 명령어와 동일합니다."
 
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:9
 #: dashboards/admin/volumes/templates/volumes/volumes/update_status.html:3
@@ -4381,20 +4378,20 @@ msgstr "볼륨 세부 정보"
 #: dashboards/admin/volumes/volumes/tables.py:33
 #: dashboards/admin/volumes/volumes/views.py:46
 msgid "Manage Volume"
-msgstr ""
+msgstr "볼륨 관리"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/manage_volume.html:6
 msgid "Manage a Volume"
-msgstr ""
+msgstr "볼륨 관리"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/unmanage_volume.html:3
 #: dashboards/admin/volumes/volumes/tables.py:43
 msgid "Unmanage Volume"
-msgstr ""
+msgstr "볼륨 관리 취소"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/unmanage_volume.html:6
 msgid "Unmanage a Volume"
-msgstr ""
+msgstr "볼륨 관리 취소"
 
 #: dashboards/admin/volumes/volume_types/forms.py:51
 #, python-format
@@ -4652,37 +4649,37 @@ msgstr "QOS 사양의 세부 정보를 찾지 못 했습니다."
 
 #: dashboards/admin/volumes/volumes/forms.py:32
 msgid "Invalid metadata entry. Use comma-separated key=value pairs"
-msgstr ""
+msgstr "유효하지 않은 메타데이터 항목. 콤마로 구분된 key=value 페어를 사용하세요."
 
 #: dashboards/admin/volumes/volumes/forms.py:47
 msgid "Identifier"
-msgstr ""
+msgstr "구분자"
 
 #: dashboards/admin/volumes/volumes/forms.py:48
 msgid "Name or other identifier for existing volume"
-msgstr ""
+msgstr "존재하는 볼륨에 대한 이름 또는 기타 구분자"
 
 #: dashboards/admin/volumes/volumes/forms.py:50
 msgid "Identifier Type"
-msgstr ""
+msgstr "구분자 유형"
 
 #: dashboards/admin/volumes/volumes/forms.py:51
 msgid "Type of backend device identifier provided"
-msgstr ""
+msgstr "제공된 백엔드 장치 구분자 유형"
 
 #: dashboards/admin/volumes/volumes/forms.py:55
 msgid ""
 "Cinder host on which the existing volume resides; takes the form: host"
 "@backend-name#pool"
-msgstr ""
+msgstr "존재하는 볼륨이 위치하는 Cinder 호스트; 다음 유형을 사용하세요: host@backend-name#pool"
 
 #: dashboards/admin/volumes/volumes/forms.py:61
 msgid "Volume name to be assigned"
-msgstr ""
+msgstr "지정할 볼륨 이름"
 
 #: dashboards/admin/volumes/volumes/forms.py:68
 msgid "Comma-separated key=value pairs"
-msgstr ""
+msgstr "콤마로 구분된 key=value 페어"
 
 #: dashboards/admin/volumes/volumes/forms.py:71
 msgid "Volume Type"
@@ -4696,7 +4693,7 @@ msgstr "부팅가능"
 
 #: dashboards/admin/volumes/volumes/forms.py:80
 msgid "Specifies that the newly created volume should be marked as bootable"
-msgstr ""
+msgstr "새롭게 생성된 볼륨이 부팅 가능하도록 표시되어야 함을 지정합니다"
 
 #: dashboards/admin/volumes/volumes/forms.py:88
 #: dashboards/project/volumes/volumes/forms.py:266
@@ -4706,20 +4703,20 @@ msgstr "볼륨 타입이 없음"
 #: dashboards/admin/volumes/volumes/forms.py:127
 #, python-format
 msgid "Successfully sent the request to manage volume: %s"
-msgstr ""
+msgstr "요청을 관리 볼륨: %s에 성공적으로 전송하였습니다"
 
 #: dashboards/admin/volumes/volumes/forms.py:131
 msgid "Unable to manage volume."
-msgstr ""
+msgstr "관리 볼륨 "
 
 #: dashboards/admin/volumes/volumes/forms.py:157
 #, python-format
 msgid "Successfully sent the request to unmanage volume: %s"
-msgstr ""
+msgstr "요청을 미관리 볼륨: %s에 성공적으로 전송하였습니다"
 
 #: dashboards/admin/volumes/volumes/forms.py:161
 msgid "Unable to unmanage volume."
-msgstr ""
+msgstr "볼륨을 관리 취소할 수 없습니다."
 
 #: dashboards/admin/volumes/volumes/forms.py:173
 #, python-format
@@ -4763,7 +4760,7 @@ msgstr "QOS 사양을 생성할 수 없습니다. "
 
 #: dashboards/admin/volumes/volumes/tables.py:61
 msgid "Unable to retrieve snapshot data."
-msgstr ""
+msgstr "스냅샷 데이터를 가져올 수 없습니다."
 
 #: dashboards/admin/volumes/volumes/views.py:34
 #: dashboards/project/volumes/volumes/views.py:54
@@ -4773,15 +4770,15 @@ msgstr "볼륨 세부 사항: %(volume_name)s"
 
 #: dashboards/admin/volumes/volumes/views.py:48
 msgid "Manage"
-msgstr ""
+msgstr "관리"
 
 #: dashboards/admin/volumes/volumes/views.py:61
 msgid "Confirm Unmanage Volume"
-msgstr ""
+msgstr "볼륨 관리 취소 확인"
 
 #: dashboards/admin/volumes/volumes/views.py:63
 msgid "Unmanage"
-msgstr ""
+msgstr "관리 취소"
 
 #: dashboards/admin/volumes/volumes/views.py:81
 #: dashboards/admin/volumes/volumes/views.py:118
@@ -5249,7 +5246,7 @@ msgstr "프로젝트 세부 정보를 찾지 못 했습니다."
 #: dashboards/identity/projects/views.py:217
 #, python-format
 msgid "Project Details: %s"
-msgstr ""
+msgstr "프로젝트 세부 정보: %s"
 
 #: dashboards/identity/projects/workflows.py:47
 msgid "Injected File Content (Bytes)"
@@ -5386,11 +5383,11 @@ msgstr "프로젝트 정보와 멤버들은 수정하였으나, 프로젝트 quo
 
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:3
 msgid "Project Overview"
-msgstr ""
+msgstr "프로젝트 개요"
 
 #: dashboards/identity/projects/templates/projects/detail.html:3
 msgid "Project Details"
-msgstr ""
+msgstr "프로젝트 세부 정보"
 
 #: dashboards/identity/projects/templates/projects/usage.html:3
 msgid "Project Usage Overview"
@@ -5971,12 +5968,12 @@ msgstr "Fingerprint"
 #: dashboards/project/access_and_security/keypairs/views.py:69
 #, python-format
 msgid "Unable to retrieve details for keypair \"%s\"."
-msgstr ""
+msgstr "키페어 \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
 
 #: dashboards/project/access_and_security/keypairs/views.py:78
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:4
 msgid "Key Pair Details"
-msgstr ""
+msgstr "키 페어 세부 정보"
 
 #: dashboards/project/access_and_security/keypairs/views.py:99
 #, python-format
@@ -7131,6 +7128,14 @@ msgstr "플러그인 이름"
 msgid "Select plugin and hadoop version for cluster template"
 msgstr "클러스터 템플릿에서 플러그인과 Hadoop 버전을 선택합니다."
 
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:81
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:359
+#: dashboards/project/networks/templates/networks/create.html:17
+#: dashboards/project/stacks/templates/stacks/_change_template.html:25
+#: dashboards/project/stacks/templates/stacks/_select_template.html:25
+msgid "Next"
+msgstr "다음"
+
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:83
 #: dashboards/project/data_processing/jobs/workflows/launch.py:408
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:361
@@ -7341,10 +7346,20 @@ msgstr "키패어 없음"
 msgid "No Templates Available"
 msgstr "사용 가능한 템플릿 없음"
 
+#: dashboards/project/data_processing/clusters/workflows/create.py:202
+#: dashboards/project/data_processing/jobs/workflows/launch.py:331
+#: dashboards/project/data_processing/jobs/workflows/launch.py:416
+#: dashboards/project/databases/workflows/create_instance.py:272
+#: dashboards/project/images/images/tables.py:36
+#: dashboards/project/instances/workflows/create_instance.py:841
+#: dashboards/project/stacks/templates/stacks/_create.html:24
+msgid "Launch"
+msgstr "실행"
+
 #: dashboards/project/data_processing/clusters/workflows/create.py:203
 #, python-format
-msgid "Created Cluster %s"
-msgstr "클러스터 %s를 생성했습니다."
+msgid "Launched Cluster %s"
+msgstr "실행된 클러스터 %s"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:235
 msgid "Unable to create the cluster"
@@ -8146,15 +8161,6 @@ msgstr "구성"
 msgid "Persist cluster after job exit"
 msgstr "작업 종료 후 클러스터 지속"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:331
-#: dashboards/project/data_processing/jobs/workflows/launch.py:416
-#: dashboards/project/databases/workflows/create_instance.py:272
-#: dashboards/project/images/images/tables.py:36
-#: dashboards/project/instances/workflows/create_instance.py:841
-#: dashboards/project/stacks/templates/stacks/_create.html:24
-msgid "Launch"
-msgstr "실행"
-
 #: dashboards/project/data_processing/jobs/workflows/launch.py:332
 #: dashboards/project/data_processing/jobs/workflows/launch.py:417
 msgid "Job launched"
@@ -8271,7 +8277,7 @@ msgstr "볼륨 크기"
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:75
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:76
 msgid "Volumes Availability Zone"
-msgstr ""
+msgstr "볼륨 가용 존"
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:79
 msgid "Ephemeral drive"
@@ -8338,7 +8344,7 @@ msgstr "볼륨 크기 (GB)"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:77
 msgid "Create volumes in this availability zone."
-msgstr ""
+msgstr "볼륨을 해당 가용 존에 생성합니다."
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:103
 msgid "Unable to generate process choices."
@@ -9780,22 +9786,22 @@ msgstr "작동중"
 #: dashboards/project/images/images/tables.py:233
 msgctxt "Current status of an Image"
 msgid "Saving"
-msgstr ""
+msgstr "저장"
 
 #: dashboards/project/images/images/tables.py:234
 msgctxt "Current status of an Image"
 msgid "Queued"
-msgstr ""
+msgstr "대기됨"
 
 #: dashboards/project/images/images/tables.py:236
 msgctxt "Current status of an Image"
 msgid "Pending Delete"
-msgstr ""
+msgstr "삭제 보류"
 
 #: dashboards/project/images/images/tables.py:237
 msgctxt "Current status of an Image"
 msgid "Killed"
-msgstr ""
+msgstr "종료"
 
 #: dashboards/project/images/images/tables.py:238
 msgctxt "Current status of an Image"
@@ -12483,12 +12489,6 @@ msgstr "구분 ID:"
 msgid "Back"
 msgstr "뒤로"
 
-#: dashboards/project/networks/templates/networks/create.html:17
-#: dashboards/project/stacks/templates/stacks/_change_template.html:25
-#: dashboards/project/stacks/templates/stacks/_select_template.html:25
-msgid "Next"
-msgstr "다음"
-
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:4
 msgid "Port Overview"
 msgstr "포트 개요"
@@ -13418,7 +13418,7 @@ msgstr "볼륨 백업들을 찾지 못 했습니다."
 
 #: dashboards/project/volumes/utils.py:28
 msgid "Unable to retrieve volumes availability zones."
-msgstr ""
+msgstr "볼륨 가용 존을 가져올 수 없습니다."
 
 #: dashboards/project/volumes/backups/forms.py:33
 msgid "Backup Name"
@@ -13670,15 +13670,15 @@ msgstr "볼륨 전송"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_encryption_detail_overview.html:4
 msgid "Volume Encryption Overview"
-msgstr ""
+msgstr "볼륨 암호화 개요"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_encryption_detail_overview.html:11
 msgid "Volume Type Name"
-msgstr ""
+msgstr "볼륨 유형 이름"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_encryption_detail_overview.html:25
 msgid "Volume is Unencrypted"
-msgstr ""
+msgstr "볼륨이 암호화되지 않은 상태임"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_extend.html:9
 #: dashboards/project/volumes/templates/volumes/volumes/_extend.html:24
@@ -13843,7 +13843,7 @@ msgstr "볼륨 전송 생성"
 
 #: dashboards/project/volumes/templates/volumes/volumes/encryption_detail.html:3
 msgid "Volume Encryption Details"
-msgstr ""
+msgstr "볼륨 암호화 세부 정보"
 
 #: dashboards/project/volumes/templates/volumes/volumes/show_transfer.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/show_transfer.html:6
@@ -14215,7 +14215,7 @@ msgstr "사용 가능"
 #: dashboards/project/volumes/volumes/tables.py:373
 msgctxt "Current status of a Volume"
 msgid "In-use"
-msgstr ""
+msgstr "사용중"
 
 #: dashboards/project/volumes/volumes/tables.py:374
 msgctxt "Current status of a Volume"
@@ -14230,7 +14230,7 @@ msgstr "생성"
 #: dashboards/project/volumes/volumes/tables.py:378
 msgctxt "Current status of a Volume"
 msgid "Error Extending"
-msgstr ""
+msgstr "오류 확장"
 
 #: dashboards/project/volumes/volumes/tables.py:422
 msgid "Encrypted"
@@ -14284,11 +14284,11 @@ msgstr "볼륨을 찾지 못 했습니다."
 #: dashboards/project/volumes/volumes/views.py:399
 #, python-format
 msgid "Volume Encryption Details: %(volume_name)s"
-msgstr ""
+msgstr "볼륨 암호화 세부 정보: %(volume_name)s"
 
 #: dashboards/project/volumes/volumes/views.py:414
 msgid "Unable to retrieve volume encryption details."
-msgstr ""
+msgstr "볼륨 암호화 세부 정보를 가져올 수 없습니다."
 
 #: dashboards/project/vpn/forms.py:52
 #, python-format
@@ -15291,7 +15291,7 @@ msgid ""
 "You do not have the required\n"
 "          privileges to access this content. If you believe this message to\n"
 "          be in error, please contact your project manager."
-msgstr ""
+msgstr "해당 내용에 접근할\n권한을 갖고 있지 않습니다. 해당 메시지가 오류라고\n생각되는 경우, 프로젝트 관리자에게 문의하시기 바랍니다."
 
 #: templates/403.html:23 templates/404.html:20 templates/500.html:73
 msgid "Home"
@@ -15400,11 +15400,11 @@ msgstr "프로젝트의 총 디스크 사용량(GB * 사용 시간)"
 
 #: usage/tables.py:52
 msgid "Memory MB Hours"
-msgstr ""
+msgstr "메모리 MB 시간"
 
 #: usage/tables.py:53
 msgid "Total memory usage (MB * Hours Used) for the project"
-msgstr ""
+msgstr "프로젝트 총 메모리 사용량 (사용된 MB * 시간)"
 
 #: usage/tables.py:63 usage/tables.py:93
 msgid "Usage"

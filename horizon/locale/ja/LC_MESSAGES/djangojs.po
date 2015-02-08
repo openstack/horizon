@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-05 19:00-0600\n"
-"PO-Revision-Date: 2015-02-06 01:22+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-02-07 20:43-0600\n"
+"PO-Revision-Date: 2015-02-07 10:31+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -202,100 +202,100 @@ msgstr "パスワードが一致しません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:24
 msgid "Unable to retrieve users"
-msgstr ""
+msgstr "ユーザー一覧を取得できません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:31
 msgid "Unable to create the user."
-msgstr ""
+msgstr "ユーザーを作成できません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:38
 msgid "Unable to delete the users."
-msgstr ""
+msgstr "ユーザーを削除できません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:45
 msgid "Unable to retrieve the user"
-msgstr ""
+msgstr "ユーザーを取得できません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:53
 msgid "Unable to edit the user."
-msgstr ""
+msgstr "ユーザーを編集できません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:60
 msgid "Unable to delete the user."
-msgstr ""
+msgstr "ユーザーを削除できません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:68
 msgid "Unable to retrieve role"
-msgstr ""
+msgstr "ロールを取得できません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:75
 msgid "Unable to create the role."
-msgstr ""
+msgstr "ロールを作成できません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:82
 msgid "Unable to delete the roles."
-msgstr ""
+msgstr "ロールを削除できません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:89
 msgid "Unable to retrieve the role"
-msgstr ""
+msgstr "ロールを取得できません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:97
 msgid "Unable to edit the role."
-msgstr ""
+msgstr "ロールを編集できません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:104
 msgid "Unable to delete the role."
-msgstr ""
+msgstr "ロールを削除できません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:112
 msgid "Unable to retrieve domains"
-msgstr ""
+msgstr "ドメイン一覧を取得できません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:119
 msgid "Unable to create the domain."
-msgstr ""
+msgstr "ドメインを作成できません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:126
 msgid "Unable to delete the domains."
-msgstr ""
+msgstr "ドメインを削除できません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:133
 msgid "Unable to retrieve the domain"
-msgstr ""
+msgstr "ドメインを取得できません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:141
 msgid "Unable to edit the domain."
-msgstr ""
+msgstr "ドメインを編集できません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:148
 msgid "Unable to delete the domain."
-msgstr ""
+msgstr "ドメインを削除できません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:156
 msgid "Unable to retrieve projects"
-msgstr ""
+msgstr "プロジェクト一覧を取得できません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:163
 msgid "Unable to create the project."
-msgstr ""
+msgstr "プロジェクトを作成できません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:170
 msgid "Unable to delete the projects."
-msgstr ""
+msgstr "プロジェクトを削除できません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:177
 msgid "Unable to retrieve the project"
-msgstr ""
+msgstr "プロジェクトを取得できません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:185
 msgid "Unable to edit the project."
-msgstr ""
+msgstr "プロジェクトを編集できません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:192
 msgid "Unable to delete the project."
-msgstr ""
+msgstr "プロジェクトを削除できません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:200
 msgid "Unable to grant the role."
-msgstr ""
+msgstr "ロールを許可できません。"
