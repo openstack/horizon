@@ -1192,7 +1192,7 @@ class DataTableTests(test.TestCase):
         res = http.HttpResponse(table.render())
         self.assertContains(res, "multi_select_column hidden")
 
-    def test_table_action_object_display_is_none(self):
+    def test_table_action_object_display_is_id(self):
         action_string = "my_table__toggle__1"
         req = self.factory.post('/my_url/', {'action': action_string})
         self.table = MyTable(req, TEST_DATA)
@@ -1206,7 +1206,7 @@ class DataTableTests(test.TestCase):
         handled = self.table.maybe_handle()
         self.assertEqual(302, handled.status_code)
         self.assertEqual("/my_url/", handled["location"])
-        self.assertEqual(u"Downed Item: N/A",
+        self.assertEqual(u"Downed Item: 1",
                          list(req._messages)[0].message)
 
     def test_table_column_can_be_selected(self):
