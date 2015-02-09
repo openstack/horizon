@@ -36,7 +36,7 @@ python-glanceclient>=0.14.0
 python-heatclient>=0.2.9
 #removed to use our custom keystone client
 #python-keystoneclient>=0.11.1
--e ../fiwareclient
+-e openstack_dashboard/fiware_api/fiwareclient
 python-neutronclient>=2.3.6,<3
 python-novaclient>=2.18.0
 python-saharaclient>=0.7.3

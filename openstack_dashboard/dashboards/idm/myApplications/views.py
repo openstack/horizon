@@ -72,7 +72,7 @@ class AvatarStepView(forms.ModalFormView):
         context = super(AvatarStepView, self).get_context_data(**kwargs)
         application = fiware_api.keystone.application_get(self.request, self.kwargs['application_id'])
         context['application'] = application
-        context['image'] = getattr(application, 'img', '/static/dashboard/img/logos/small/app.png')
+        context['image'] = getattr(application, 'img', '/static/dashboard/img/logos/original/app.png')
         return context
 
 
@@ -182,7 +182,7 @@ class DetailApplicationView(TemplateView):
         context['description'] = application.description
         context['url'] = getattr(application, 'url', None)
         context['image'] = getattr(application, 'img', 
-                            '/static/dashboard/img/logos/small/app.png')
+                            '/static/dashboard/img/logos/original/app.png')
         callback_url = application.redirect_uris[0] \
                         if application.redirect_uris else None
         context['callbackurl'] = callback_url
@@ -241,7 +241,7 @@ class BaseApplicationsMultiFormView(idm_views.BaseMultiFormView):
 
         context = super(BaseApplicationsMultiFormView, self).get_context_data(**kwargs)
         context['image'] = getattr(self.object, 'img', 
-                            '/static/dashboard/img/logos/small/app.png')
+                            '/static/dashboard/img/logos/original/app.png')
         return context
 
 

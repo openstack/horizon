@@ -141,7 +141,6 @@ textarea {
     border-color: $brand-danger !important;
     h3{
       color: $brand-danger !important;
-      border-color: $brand-danger !important;
     }
     .btn-primary{
       background-color: $brand-danger !important;
@@ -160,7 +159,22 @@ textarea {
       color: $brand-danger !important;
     }
   }
+  .modal-header { 
+    h3{
+      display: none;
+    }
+  }
+  .panel-title{
+    h3{
+      margin: 0 !important;
+      font-size: 17px !important;
+      color: #48B9C9;
+      display: block !important;
+      text-decoration: none;
+    }    
+  }
 }
+
 
 #authorize_application_modal{
   @extend .well;
