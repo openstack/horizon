@@ -67,6 +67,10 @@ class UserRoleApi(idm_workflows.RelationshipApiInterface):
                             user=owner,
                             role=obj)
 
+    def _get_supersetid_name(self, request, superset_id):
+        organization = api.keystone.tenant_get(request, superset_id)
+        return organization.name
+
 class UpdateProjectMembersAction(idm_workflows.UpdateRelationshipAction):
     ERROR_MESSAGE = _('Unable to retrieve user list. Please try again later.')
     RELATIONSHIP_CLASS = UserRoleApi
@@ -165,6 +169,10 @@ class ApplicationRoleApi(idm_workflows.RelationshipApiInterface):
                             organization=superset,
                             user=owner,
                             role=obj)
+
+    def _get_supersetid_name(self, request, superset_id):
+        application = fiware_api.keystone.application_get(request, superset_id)
+        return application.id
 
 class UpdateApplicationRolesMembersAction(idm_workflows.UpdateRelationshipAction):
     ERROR_MESSAGE = _('Unable to retrieve data. Please try again later.')

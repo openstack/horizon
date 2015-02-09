@@ -49,6 +49,9 @@ class RelationshipApiInterface(object):
     def _remove_object_from_owner(self, request, superset, owner, obj):
         pass
 
+    def _get_supersetid_name(self, request, superset_id):
+        pass
+
 
 class RelationshipConsumerMixin(object):
     RELATIONSHIP_CLASS = None
@@ -115,11 +118,12 @@ class UpdateRelationshipAction(workflows.MembershipAction,
         self.fields[default_object_name].initial = default_object.id
 
     def _init_object_fields(self, object_list, owners_list):
+        relationship = self._load_relationship_api()
         for obj in object_list:
             field_name = self.get_member_field_name(obj.id)
             label = obj.name
             widget = forms.widgets.SelectMultiple(
-                            attrs={'data-superset-id':self.superset_id})
+                attrs={'data-superset-id': relationship._get_supersetid_name(self.request, self.superset_id)})
             self.fields[field_name] = forms.MultipleChoiceField(
                                                     required=False,
                                                     label=label,
