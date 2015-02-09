@@ -78,6 +78,15 @@ class CreateKeyPair(tables.LinkAction):
         return True
 
 
+class KeypairsFilterAction(tables.FilterAction):
+
+    def filter(self, table, keypairs, filter_string):
+        """Naive case-insensitive search."""
+        query = filter_string.lower()
+        return [keypair for keypair in keypairs
+                if query in keypair.name.lower()]
+
+
 class KeypairsTable(tables.DataTable):
     detail_link = "horizon:project:access_and_security:keypairs:detail"
 
@@ -91,5 +100,6 @@ class KeypairsTable(tables.DataTable):
     class Meta(object):
         name = "keypairs"
         verbose_name = _("Key Pairs")
-        table_actions = (CreateKeyPair, ImportKeyPair, DeleteKeyPairs,)
+        table_actions = (CreateKeyPair, ImportKeyPair, DeleteKeyPairs,
+                         KeypairsFilterAction,)
         row_actions = (DeleteKeyPairs,)
