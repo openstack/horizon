@@ -97,6 +97,7 @@ textarea {
 #avatar-update{
   @include border-top-radius ($border-radius-base);
   @include border-bottom-radius ($border-radius-base);
+  max-width: 30%;
 }
 
 #edit{
@@ -135,6 +136,15 @@ textarea {
   }
 }
 
+.fix-top{
+  top: 0 !important;
+}
+
+#modal_wrapper{
+  .modal{
+    @extend .fix-top;
+  }
+}
 .cancel_account,
 .destroy_organization{
   &:hover{
