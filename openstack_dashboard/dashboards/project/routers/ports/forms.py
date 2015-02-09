@@ -48,14 +48,20 @@ class AddInterface(forms.SelfHandlingForm):
     def populate_subnet_id_choices(self, request):
         tenant_id = self.request.user.tenant_id
         networks = []
+        router_subnet_ids = []
+        router_id = request.REQUEST.get('router_id',
+                                        self.initial.get('router_id'))
+
         try:
             networks = api.neutron.network_list_for_tenant(request, tenant_id)
+            if router_id:
+                ports = api.neutron.port_list(request, device_id=router_id)
+                router_subnet_ids = [fixed_ip["subnet_id"] for port in ports
+                                     for fixed_ip in port.fixed_ips]
         except Exception as e:
             msg = _('Failed to get network list %s') % e
             LOG.info(msg)
             messages.error(request, msg)
-            router_id = request.REQUEST.get('router_id',
-                                            self.initial.get('router_id'))
             if router_id:
                 redirect = reverse(self.failure_url, args=[router_id])
             else:
@@ -69,7 +75,8 @@ class AddInterface(forms.SelfHandlingForm):
             choices += [(subnet.id,
                          '%s%s (%s)' % (net_name, subnet.cidr,
                                         subnet.name or subnet.id))
-                        for subnet in n['subnets']]
+                        for subnet in n['subnets']
+                        if subnet.id not in router_subnet_ids]
         if choices:
             choices.insert(0, ("", _("Select Subnet")))
         else:
