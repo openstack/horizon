@@ -1,7 +1,7 @@
 {% if cell.inline_edit_mod and cell.update_allowed %}
    <td{{ cell.attr_string|safe }}>
         <div class="table_cell_wrapper">
-            <div class="inline-edit-error"> </div>
+            <div class="inline-edit-error"></div>
             <div class="inline-edit-form">
                 {{ cell.value }}
                 {% if cell.column.form_field.label %}
@@ -11,10 +11,10 @@
             <div class="inline-edit-actions">
                 <button class="inline-edit-submit btn btn-primary btn-xs pull-right"
                      name="action" value="" type="submit">
-                     <span class="fa fa-check"></span>
+                    <span class="fa fa-fw fa-check"></span>
                 </button>
                 <button class="inline-edit-cancel btn btn-default btn-xs pull-right secondary cancel">
-                    <span class="fa fa-times"></span>
+                    <span class="fa fa-fw fa-times"></span>
                 </button>
             </div>
             <div class="inline-edit-status inline-edit-mod"></div>
@@ -34,6 +34,8 @@
             </div>
         </td>
     {% else %}
-        <td{{ cell.attr_string|safe }}>{% if cell.wrap_list %}<ul>{% endif %}{{ cell.value }}{% if cell.wrap_list %}</ul>{% endif %}</td>
+        <td{{ cell.attr_string|safe }}>
+            {% if cell.wrap_list %}<ul>{% endif %}{{ cell.value }}{% if cell.wrap_list %}</ul>{% endif %}
+        </td>
     {% endif %}
 {% endif %}

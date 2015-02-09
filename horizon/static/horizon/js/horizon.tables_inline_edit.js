@@ -100,7 +100,6 @@ horizon.inline_edit = {
           self.form_element = self.get_form_element(td_element);
 
           if (self.inline_edit_mod) {
-
             var cellWidth = self.td_element.outerWidth(true);
             td_element.width(cellWidth);
             td_element.addClass("has-form");
