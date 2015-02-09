@@ -215,7 +215,13 @@ Note that the CSRF_COOKIE_SECURE option is only available from Django 1.4. It
 does no harm to have the setting in earlier versions, but it does not take effect.
 
 You can also disable `browser autocompletion`_ for the authentication form by
-changing the ``password_autocomplete`` attribute to ``off`` in ``horizon/conf/default.py``
+modifying the ``HORIZON_CONFIG`` dictionary in ``local_settings.py`` by adding
+the key ``password_autocomplete`` with the value ``off`` as shown here::
+
+    HORIZON_CONFIG = {
+    ...
+        'password_autocomplete': 'off',
+    }
 
 .. _cross-site scripting: https://www.owasp.org/index.php/HttpOnly
 .. _browser autocompletion: https://wiki.mozilla.org/The_autocomplete_attribute_and_web_documents_using_XHTML
