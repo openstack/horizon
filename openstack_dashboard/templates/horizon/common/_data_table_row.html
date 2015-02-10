@@ -3,8 +3,8 @@
   	{% if row.table.name == 'members' %}
   		<img id="{{ row.datum.name }}-avatar" src="/static/dashboard/img/logos/small/user.png">
   	{% else %}
-	  	{% if row.datum.extra.img %}
-	  		<img id="{{ row.datum.name }}-avatar" src="{{ row.datum.extra.img }}">
+	  	{% if row.datum.extra.img_small %}
+	  		<img id="{{ row.datum.name }}-avatar" src="{{ row.datum.extra.img_small }}">
 	     {% elif row.datum.img_small %}
 	     	<img id="{{ row.datum.name }}-avatar" src="{{ row.datum.img_small }}">
 	     {% else %}
