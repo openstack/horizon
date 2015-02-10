@@ -41,19 +41,23 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
         #create organization
         default_domain = api.keystone.get_default_domain(request)
         try:
-            img = "/static/dashboard/img/logos/small/group.png" 
+            img_small = "/static/dashboard/img/logos/small/group.png"
+            img_medium = "/static/dashboard/img/logos/medium/group.png"
+            img_original ="/static/dashboard/img/logos/original/group.png" 
             city = ""
             email = ""
             website = ""
             self.object = api.keystone.tenant_create(request,
-                                                name=data['name'],
-                                                description=data['description'],
-                                                enabled=True,
-                                                domain=default_domain,
-                                                img=img,
-                                                city=city,
-                                                email=email,
-                                                website=website)
+                                                     name=data['name'],
+                                                     description=data['description'],
+                                                     enabled=True,
+                                                     domain=default_domain,
+                                                     img_small=img_small,
+                                                     img_medium=img_medium,
+                                                     img_original=img_original,
+                                                     city=city,
+                                                     email=email,
+                                                     website=website)
         except Exception:
             exceptions.handle(request, ignore=True)
             return False
@@ -146,12 +150,26 @@ class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
             image = request.FILES['image'] 
             output_img = self.crop(image)
             
-            imageName = self.data['orgID']
-        
-            output_img.save(settings.MEDIA_ROOT + "/" + "OrganizationAvatar/" + imageName, 'JPEG')
+            small = 36, 36, 'small'
+            medium = 60, 60, 'medium'
+            original = 100, 100, 'original'
+            meta = [original, medium, small]
+            for meta in meta:
+                size = meta[0], meta[1]
+                img_type = meta[2]
+                output_img.thumbnail(size)
+                imageName = self.data['orgID']
+                output_img.save(settings.MEDIA_ROOT + "/" + "OrganizationAvatar/" + img_type + "/" + imageName, 'JPEG')
+                
+                img = settings.MEDIA_URL + 'OrganizationAvatar/' + img_type + "/" +imageName
+                if img_type == 'small':
+                    api.keystone.tenant_update(request, data['orgID'], img_small=img)
+                elif img_type == 'medium':
+                    api.keystone.tenant_update(request, data['orgID'], img_medium=img)
+                else:
+                    api.keystone.tenant_update(request, data['orgID'], img_original=img)
+
             
-            img = settings.MEDIA_URL+'OrganizationAvatar/'+imageName
-            api.keystone.tenant_update(request, data['orgID'], img=img)
 
             LOG.debug('Organization {0} image updated'.format(data['orgID']))
             messages.success(request, _("Organization updated successfully."))

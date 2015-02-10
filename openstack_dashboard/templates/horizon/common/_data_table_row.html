@@ -5,8 +5,8 @@
   	{% else %}
 	  	{% if row.datum.extra.img %}
 	  		<img id="{{ row.datum.name }}-avatar" src="{{ row.datum.extra.img }}">
-	     {% elif row.datum.img %}
-	     	<img id="{{ row.datum.name }}-avatar" src="{{ row.datum.img }}">
+	     {% elif row.datum.img_small %}
+	     	<img id="{{ row.datum.name }}-avatar" src="{{ row.datum.img_small }}">
 	     {% else %}
 	     	<img id="{{ row.datum.name }}-avatar" src="/static/dashboard/img/logos/small/group.png">
 	     {% endif %}
