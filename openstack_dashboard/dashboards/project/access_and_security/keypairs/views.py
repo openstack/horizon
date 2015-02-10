@@ -24,12 +24,12 @@ from django.core.urlresolvers import reverse_lazy
 from django import http
 from django.template.defaultfilters import slugify  # noqa
 from django.utils.translation import ugettext_lazy as _
-from django.views.generic import TemplateView  # noqa
 from django.views.generic import View  # noqa
 
 from horizon import exceptions
 from horizon import forms
 from horizon.utils import memoized
+from horizon import views
 
 from openstack_dashboard import api
 
@@ -41,6 +41,7 @@ class CreateView(forms.ModalFormView):
     form_class = project_forms.CreateKeypair
     template_name = 'project/access_and_security/keypairs/create.html'
     success_url = 'horizon:project:access_and_security:keypairs:download'
+    page_title = _("Create Key Pair")
 
     def get_success_url(self):
         return reverse(self.success_url,
@@ -51,13 +52,15 @@ class ImportView(forms.ModalFormView):
     form_class = project_forms.ImportKeypair
     template_name = 'project/access_and_security/keypairs/import.html'
     success_url = reverse_lazy('horizon:project:access_and_security:index')
+    page_title = _("Import Key Pair")
 
     def get_object_id(self, keypair):
         return keypair.name
 
 
-class DetailView(TemplateView):
+class DetailView(views.HorizonTemplateView):
     template_name = 'project/access_and_security/keypairs/detail.html'
+    page_title = _("Key Pair Details")
 
     @memoized.memoized_method
     def _get_data(self):
@@ -75,15 +78,16 @@ class DetailView(TemplateView):
     def get_context_data(self, **kwargs):
         """Gets the context data for keypair."""
         context = super(DetailView, self).get_context_data(**kwargs)
-        context['page_title'] = _("Key Pair Details")
         context['keypair'] = self._get_data()
         return context
 
 
-class DownloadView(TemplateView):
+class DownloadView(views.HorizonTemplateView):
+    template_name = 'project/access_and_security/keypairs/download.html'
+    page_title = _("Download Key Pair")
+
     def get_context_data(self, keypair_name=None):
         return {'keypair_name': keypair_name}
-    template_name = 'project/access_and_security/keypairs/download.html'
 
 
 class GenerateView(View):
