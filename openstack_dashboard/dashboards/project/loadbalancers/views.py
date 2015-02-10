@@ -39,6 +39,7 @@ import re
 class IndexView(tabs.TabView):
     tab_group_class = (project_tabs.LoadBalancerTabs)
     template_name = 'project/loadbalancers/details_tabs.html'
+    page_title = _("Load Balancer")
 
     def post(self, request, *args, **kwargs):
         obj_ids = request.POST.getlist('object_ids')
@@ -228,6 +229,7 @@ class UpdatePoolView(forms.ModalFormView):
     template_name = "project/loadbalancers/updatepool.html"
     context_object_name = 'pool'
     success_url = reverse_lazy("horizon:project:loadbalancers:index")
+    page_title = _("Edit Pool")
 
     def get_context_data(self, **kwargs):
         context = super(UpdatePoolView, self).get_context_data(**kwargs)
@@ -258,6 +260,7 @@ class UpdateVipView(forms.ModalFormView):
     template_name = "project/loadbalancers/updatevip.html"
     context_object_name = 'vip'
     success_url = reverse_lazy("horizon:project:loadbalancers:index")
+    page_title = _("Edit VIP")
 
     def get_context_data(self, **kwargs):
         context = super(UpdateVipView, self).get_context_data(**kwargs)
@@ -302,6 +305,7 @@ class UpdateMemberView(forms.ModalFormView):
     template_name = "project/loadbalancers/updatemember.html"
     context_object_name = 'member'
     success_url = reverse_lazy("horizon:project:loadbalancers:index")
+    page_title = _("Edit Member")
 
     def get_context_data(self, **kwargs):
         context = super(UpdateMemberView, self).get_context_data(**kwargs)
@@ -331,6 +335,7 @@ class UpdateMonitorView(forms.ModalFormView):
     template_name = "project/loadbalancers/updatemonitor.html"
     context_object_name = 'monitor'
     success_url = reverse_lazy("horizon:project:loadbalancers:index")
+    page_title = _("Edit Monitor")
 
     def get_context_data(self, **kwargs):
         context = super(UpdateMonitorView, self).get_context_data(**kwargs)

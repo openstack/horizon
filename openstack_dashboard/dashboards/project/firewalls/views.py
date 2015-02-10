@@ -89,31 +89,36 @@ class IndexView(tabs.TabView):
 class AddRuleView(workflows.WorkflowView):
     workflow_class = AddRule
     template_name = "project/firewalls/addrule.html"
+    page_title = _("Add New Rule")
 
 
 class AddPolicyView(workflows.WorkflowView):
     workflow_class = AddPolicy
     template_name = "project/firewalls/addpolicy.html"
+    page_title = _("Add New Policy")
 
 
 class AddFirewallView(workflows.WorkflowView):
     workflow_class = AddFirewall
     template_name = "project/firewalls/addfirewall.html"
+    page_title = _("Add New Firewall")
 
 
-class RuleDetailsView(tabs.TabView):
+class FireWallDetailTabs(tabs.TabView):
+    template_name = 'project/firewalls/details_tabs.html'
+    page_title = _("Firewalls")
+
+
+class RuleDetailsView(FireWallDetailTabs):
     tab_group_class = (RuleDetailsTabs)
-    template_name = 'project/firewalls/details_tabs.html'
 
 
-class PolicyDetailsView(tabs.TabView):
+class PolicyDetailsView(FireWallDetailTabs):
     tab_group_class = (PolicyDetailsTabs)
-    template_name = 'project/firewalls/details_tabs.html'
 
 
-class FirewallDetailsView(tabs.TabView):
+class FirewallDetailsView(FireWallDetailTabs):
     tab_group_class = (FirewallDetailsTabs)
-    template_name = 'project/firewalls/details_tabs.html'
 
 
 class UpdateRuleView(forms.ModalFormView):
@@ -121,7 +126,7 @@ class UpdateRuleView(forms.ModalFormView):
     template_name = "project/firewalls/updaterule.html"
     context_object_name = 'rule'
     success_url = reverse_lazy("horizon:project:firewalls:index")
-    page_title = _("Edit Rule")
+    page_title = _("Edit Rule {{ name }}")
 
     def get_context_data(self, **kwargs):
         context = super(UpdateRuleView, self).get_context_data(**kwargs)
@@ -129,9 +134,6 @@ class UpdateRuleView(forms.ModalFormView):
         obj = self._get_object()
         if obj:
             context['name'] = obj.name_or_id
-            context['page_title'] = _("Edit Rule "
-                                      "%(rule_name)s") % {'rule_name':
-                                                          obj.name}
         return context
 
     @memoized.memoized_method
@@ -159,7 +161,7 @@ class UpdatePolicyView(forms.ModalFormView):
     template_name = "project/firewalls/updatepolicy.html"
     context_object_name = 'policy'
     success_url = reverse_lazy("horizon:project:firewalls:index")
-    page_title = _("Edit Policy")
+    page_title = _("Edit Policy {{ name }}")
 
     def get_context_data(self, **kwargs):
         context = super(UpdatePolicyView, self).get_context_data(**kwargs)
@@ -167,7 +169,6 @@ class UpdatePolicyView(forms.ModalFormView):
         obj = self._get_object()
         if obj:
             context['name'] = obj.name_or_id
-            context['page_title'] = _("Edit Policy %s") % obj.name
         return context
 
     @memoized.memoized_method
@@ -192,7 +193,7 @@ class UpdateFirewallView(forms.ModalFormView):
     template_name = "project/firewalls/updatefirewall.html"
     context_object_name = 'firewall'
     success_url = reverse_lazy("horizon:project:firewalls:index")
-    page_title = _("Edit Firewall")
+    page_title = _("Edit Firewall {{ name }}")
 
     def get_context_data(self, **kwargs):
         context = super(UpdateFirewallView, self).get_context_data(**kwargs)
@@ -200,7 +201,6 @@ class UpdateFirewallView(forms.ModalFormView):
         obj = self._get_object()
         if obj:
             context['name'] = obj.name
-            context['page_title'] = _("Edit Firewall %s") % obj.name
         return context
 
     @memoized.memoized_method
@@ -226,6 +226,7 @@ class InsertRuleToPolicyView(forms.ModalFormView):
     template_name = "project/firewalls/insert_rule_to_policy.html"
     context_object_name = 'policy'
     success_url = reverse_lazy("horizon:project:firewalls:index")
+    page_title = _("Insert Rule to Policy")
 
     def get_context_data(self, **kwargs):
         context = super(InsertRuleToPolicyView,
@@ -259,6 +260,7 @@ class RemoveRuleFromPolicyView(forms.ModalFormView):
     template_name = "project/firewalls/remove_rule_from_policy.html"
     context_object_name = 'policy'
     success_url = reverse_lazy("horizon:project:firewalls:index")
+    page_title = _("Remove Rule from Policy")
 
     def get_context_data(self, **kwargs):
         context = super(RemoveRuleFromPolicyView,

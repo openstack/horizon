@@ -37,6 +37,7 @@ import re
 class IndexView(tabs.TabView):
     tab_group_class = vpn_tabs.VPNTabs
     template_name = 'project/vpn/index.html'
+    page_title = _("Virtual Private Network")
 
     def post(self, request, *args, **kwargs):
         obj_ids = request.POST.getlist('object_ids')
@@ -123,6 +124,7 @@ class AddIPSecPolicyView(workflows.WorkflowView):
 class IKEPolicyDetailsView(tabs.TabView):
     tab_group_class = vpn_tabs.IKEPolicyDetailsTabs
     template_name = 'project/vpn/details_tabs.html'
+    page_title = _("Virtual Private Network")
 
     @memoized.memoized_method
     def get_data(self):
@@ -267,6 +269,7 @@ class UpdateVPNServiceView(forms.ModalFormView):
     template_name = "project/vpn/update_vpnservice.html"
     context_object_name = 'vpnservice'
     success_url = reverse_lazy("horizon:project:vpn:index")
+    page_title = _("Edit VPN Service")
 
     def get_context_data(self, **kwargs):
         context = super(UpdateVPNServiceView, self).get_context_data(**kwargs)
@@ -296,6 +299,7 @@ class UpdateIKEPolicyView(forms.ModalFormView):
     template_name = "project/vpn/update_ikepolicy.html"
     context_object_name = 'ikepolicy'
     success_url = reverse_lazy("horizon:project:vpn:index")
+    page_title = _("Edit IKE Policy")
 
     def get_context_data(self, **kwargs):
         context = super(UpdateIKEPolicyView, self).get_context_data(**kwargs)
@@ -332,6 +336,7 @@ class UpdateIPSecPolicyView(forms.ModalFormView):
     template_name = "project/vpn/update_ipsecpolicy.html"
     context_object_name = 'ipsecpolicy'
     success_url = reverse_lazy("horizon:project:vpn:index")
+    page_title = _("Edit IPSec Policy")
 
     def get_context_data(self, **kwargs):
         context = super(UpdateIPSecPolicyView, self).get_context_data(**kwargs)
@@ -367,6 +372,7 @@ class UpdateIPSecSiteConnectionView(forms.ModalFormView):
     template_name = "project/vpn/update_ipsecsiteconnection.html"
     context_object_name = 'ipsecsiteconnection'
     success_url = reverse_lazy("horizon:project:vpn:index")
+    page_title = _("Edit IPSec Site Connection")
 
     def get_context_data(self, **kwargs):
         context = super(
