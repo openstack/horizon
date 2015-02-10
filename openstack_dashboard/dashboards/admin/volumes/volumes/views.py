@@ -94,6 +94,7 @@ class UpdateStatusView(forms.ModalFormView):
     form_class = volumes_forms.UpdateStatus
     template_name = 'admin/volumes/volumes/update_status.html'
     success_url = reverse_lazy('horizon:admin:volumes:index')
+    page_title = _("Update Volume Status")
 
     def get_context_data(self, **kwargs):
         context = super(UpdateStatusView, self).get_context_data(**kwargs)

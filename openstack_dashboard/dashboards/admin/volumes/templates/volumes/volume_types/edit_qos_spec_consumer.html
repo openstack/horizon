@@ -2,10 +2,6 @@
 {% load i18n %}
 {% block title %}{% trans "Edit QoS Spec Consumer" %}{% endblock %}
 
-{% block page_header %}
-  {% include "horizon/common/_page_header.html" with title=_("Edit QoS Spec Consumer") %}
-{% endblock page_header %}
-
 {% block main %}
     {% include 'admin/volumes/volume_types/_edit_qos_spec_consumer.html' %}
 {% endblock %}

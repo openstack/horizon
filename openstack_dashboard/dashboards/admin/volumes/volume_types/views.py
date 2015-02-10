@@ -34,6 +34,7 @@ class CreateVolumeTypeView(forms.ModalFormView):
     form_class = volumes_forms.CreateVolumeType
     template_name = 'admin/volumes/volume_types/create_volume_type.html'
     success_url = 'horizon:admin:volumes:volume_types_tab'
+    page_title = _("Create a Volume Type")
 
     def get_success_url(self):
         return reverse(self.success_url)
@@ -42,6 +43,7 @@ class CreateVolumeTypeView(forms.ModalFormView):
 class VolumeTypeEncryptionDetailView(generic.TemplateView):
     template_name = ("admin/volumes/volume_types"
                      "/volume_encryption_type_detail.html")
+    page_title = _("Volume Type Encryption Details")
 
     def get_context_data(self, **kwargs):
         context = super(VolumeTypeEncryptionDetailView, self).\
@@ -76,6 +78,7 @@ class CreateVolumeTypeEncryptionView(forms.ModalFormView):
     template_name = ("admin/volumes/volume_types/"
                      "create_volume_type_encryption.html")
     success_url = reverse_lazy('horizon:admin:volumes:index')
+    page_title = _("Create an Encrypted Volume Type")
 
     @memoized.memoized_method
     def get_name(self):
@@ -106,6 +109,7 @@ class CreateQosSpecView(forms.ModalFormView):
     form_class = volumes_forms.CreateQosSpec
     template_name = 'admin/volumes/volume_types/create_qos_spec.html'
     success_url = 'horizon:admin:volumes:volume_types_tab'
+    page_title = _("Create a QoS Spec")
 
     def get_success_url(self):
         return reverse(self.success_url)
@@ -115,6 +119,7 @@ class EditQosSpecConsumerView(forms.ModalFormView):
     form_class = volume_types_forms.EditQosSpecConsumer
     template_name = 'admin/volumes/volume_types/edit_qos_spec_consumer.html'
     success_url = 'horizon:admin:volumes:volume_types_tab'
+    page_title = _("Edit QoS Spec Consumer")
 
     def get_success_url(self):
         return reverse(self.success_url)
@@ -147,6 +152,7 @@ class ManageQosSpecAssociationView(forms.ModalFormView):
     form_class = volume_types_forms.ManageQosSpecAssociation
     template_name = 'admin/volumes/volume_types/associate_qos_spec.html'
     success_url = 'horizon:admin:volumes:volume_types_tab'
+    page_title = _("Associate QoS Spec with Volume Type")
 
     def get_success_url(self):
         return reverse(self.success_url)

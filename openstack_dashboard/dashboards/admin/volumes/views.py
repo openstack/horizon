@@ -15,6 +15,7 @@
 """
 Admin views for managing volumes and snapshots.
 """
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import tabs
 
@@ -25,3 +26,4 @@ from openstack_dashboard.dashboards.admin.volumes \
 class IndexView(tabs.TabbedTableView):
     tab_group_class = volumes_tabs.VolumesGroupTabs
     template_name = 'admin/volumes/index.html'
+    page_title = _("Volumes")
