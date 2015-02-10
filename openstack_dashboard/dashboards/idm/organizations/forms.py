@@ -152,9 +152,9 @@ class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
             image = request.FILES['image'] 
             output_img = self.crop(image)
             
-            small = 36, 36, 'small'
-            medium = 60, 60, 'medium'
-            original = 100, 100, 'original'
+            small = 25, 25, 'small'
+            medium = 36, 36, 'medium'
+            original = 60, 60, 'original'
             meta = [original, medium, small]
             for meta in meta:
                 size = meta[0], meta[1]
