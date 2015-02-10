@@ -29,6 +29,7 @@ from openstack_dashboard.dashboards.admin.info import tabs as project_tabs
 class IndexView(tabs.TabbedTableView):
     tab_group_class = project_tabs.SystemInfoTabs
     template_name = constants.INFO_TEMPLATE_NAME
+    page_title = _("System Information")
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)

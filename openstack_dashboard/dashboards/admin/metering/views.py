@@ -38,12 +38,14 @@ LOG = logging.getLogger(__name__)
 class IndexView(tabs.TabbedTableView):
     tab_group_class = metering_tabs.CeilometerOverviewTabs
     template_name = 'admin/metering/index.html'
+    page_title = _("Resources Usage Overview")
 
 
 class CreateUsageReport(forms.ModalFormView):
     form_class = metering_forms.UsageReportForm
     template_name = 'admin/metering/daily.html'
     success_url = reverse_lazy('horizon:admin:metering:index')
+    page_title = _("Modify Usage Report Parameters")
 
 
 class SamplesView(django.views.generic.TemplateView):
