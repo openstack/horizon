@@ -67,6 +67,7 @@ def _get_profiles(request, type_p):
 class NetworkProfileIndexView(tables.DataTableView):
     table_class = profiletables.NetworkProfile
     template_name = 'router/nexus1000v/network_profile/index.html'
+    page_title = _("Cisco Nexus 1000V")
 
     def get_data(self):
         return _get_profiles(self.request, 'network')
@@ -75,6 +76,7 @@ class NetworkProfileIndexView(tables.DataTableView):
 class PolicyProfileIndexView(tables.DataTableView):
     table_class = profiletables.PolicyProfile
     template_name = 'router/nexus1000v/policy_profile/index.html'
+    page_title = _("Cisco Nexus 1000V")
 
     def get_data(self):
         return _get_profiles(self.request, 'policy')
@@ -89,6 +91,7 @@ class IndexView(tables.MultiTableView):
     table_classes = (profiletables.NetworkProfile,
                      profiletables.PolicyProfile,)
     template_name = 'router/nexus1000v/index.html'
+    page_title = _("Cisco Nexus 1000V")
 
     def get_network_profile_data(self):
         return _get_profiles(self.request, 'network')
@@ -101,6 +104,7 @@ class CreateNetworkProfileView(forms.ModalFormView):
     form_class = profileforms.CreateNetworkProfile
     template_name = 'router/nexus1000v/create_network_profile.html'
     success_url = urlresolvers.reverse_lazy('horizon:router:nexus1000v:index')
+    page_title = _("Create Network Profile")
 
 
 class UpdateNetworkProfileView(forms.ModalFormView):
@@ -108,6 +112,7 @@ class UpdateNetworkProfileView(forms.ModalFormView):
     template_name = 'router/nexus1000v/update_network_profile.html'
     context_object_name = 'network_profile'
     success_url = urlresolvers.reverse_lazy('horizon:router:nexus1000v:index')
+    page_title = _("Update Network Profile")
 
     def get_context_data(self, **kwargs):
         context = super(UpdateNetworkProfileView,
