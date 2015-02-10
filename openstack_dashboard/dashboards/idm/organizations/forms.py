@@ -29,7 +29,9 @@ from openstack_dashboard import api
 from openstack_dashboard.dashboards.idm import forms as idm_forms
 
 LOG = logging.getLogger('idm_logger')
-AVATAR = settings.MEDIA_ROOT+"/"+"OrganizationAvatar/"
+AVATAR_SMALL = settings.MEDIA_ROOT+"/"+"OrganizationAvatar/small/"
+AVATAR_MEDIUM = settings.MEDIA_ROOT+"/"+"OrganizationAvatar/medium/"
+AVATAR_ORIGINAL = settings.MEDIA_ROOT+"/"+"OrganizationAvatar/original/"
 
 class CreateOrganizationForm(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), max_length=64, required=True)
@@ -183,9 +185,11 @@ class CancelForm(forms.SelfHandlingForm):
     title = 'Cancel'
     
     def handle(self, request, data, organization):
-        image = organization.img
+        image = organization.img_original
         if "OrganizationAvatar" in image:
-            os.remove(AVATAR + organization.id)
+            os.remove(AVATAR_SMALL + organization.id)
+            os.remove(AVATAR_MEDIUM + organization.id)
+            os.remove(AVATAR_ORIGINAL + organization.id)
             LOG.debug('{0} deleted'.format(image))
         api.keystone.tenant_delete(request, organization)
         LOG.info('Organization {0} deleted'.format(organization.id))
