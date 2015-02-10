@@ -41,7 +41,7 @@ that Horizon supports in DevStack when `stack.sh` is run.
     enable_service q-svc
     enable_service q-agt
     enable_service q-dhcp
-    enable_service q-13
+    enable_service q-l3
     enable_service q-meta
     enable_service q-metering
     enable_service neutron
