@@ -44,6 +44,7 @@ LOG = logging.getLogger(__name__)
 class IndexView(tables.DataTableView):
     table_class = project_tables.StacksTable
     template_name = 'project/stacks/index.html'
+    page_title = _("Stacks")
 
     def __init__(self, *args, **kwargs):
         super(IndexView, self).__init__(*args, **kwargs)
@@ -87,6 +88,7 @@ class SelectTemplateView(forms.ModalFormView):
     form_class = project_forms.TemplateForm
     template_name = 'project/stacks/select_template.html'
     success_url = reverse_lazy('horizon:project:stacks:launch')
+    page_title = _("Select Template")
 
     def get_form_kwargs(self):
         kwargs = super(SelectTemplateView, self).get_form_kwargs()
@@ -98,6 +100,7 @@ class ChangeTemplateView(forms.ModalFormView):
     form_class = project_forms.ChangeTemplateForm
     template_name = 'project/stacks/change_template.html'
     success_url = reverse_lazy('horizon:project:stacks:edit_stack')
+    page_title = _("Change Template")
 
     def get_context_data(self, **kwargs):
         context = super(ChangeTemplateView, self).get_context_data(**kwargs)
@@ -131,6 +134,7 @@ class CreateStackView(forms.ModalFormView):
     form_class = project_forms.CreateStackForm
     template_name = 'project/stacks/create.html'
     success_url = reverse_lazy('horizon:project:stacks:index')
+    page_title = _("Launch Stack")
 
     def get_initial(self):
         initial = {}
@@ -162,6 +166,7 @@ class EditStackView(CreateStackView):
     form_class = project_forms.EditStackForm
     template_name = 'project/stacks/update.html'
     success_url = reverse_lazy('horizon:project:stacks:index')
+    page_title = _("Update Stack")
 
     def get_initial(self):
         initial = super(EditStackView, self).get_initial()
@@ -244,14 +249,12 @@ class DetailView(tabs.TabView):
 class ResourceView(tabs.TabView):
     tab_group_class = project_tabs.ResourceDetailTabs
     template_name = 'project/stacks/resource.html'
+    page_title = _("Resource Details: {{ resource.resource_name }}")
 
     def get_context_data(self, **kwargs):
         context = super(ResourceView, self).get_context_data(**kwargs)
-        resource = self.get_data(self.request, **kwargs)
-        context["resource"] = resource
+        context["resource"] = self.get_data(self.request, **kwargs)
         context["metadata"] = self.get_metadata(self.request, **kwargs)
-        context["page_title"] = _("Resource Details: %s") % \
-            getattr(resource, 'resource_name')
         return context
 
     @memoized.memoized_method
