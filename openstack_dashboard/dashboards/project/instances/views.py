@@ -51,6 +51,7 @@ from openstack_dashboard.dashboards.project.instances \
 class IndexView(tables.DataTableView):
     table_class = project_tables.InstancesTable
     template_name = 'project/instances/index.html'
+    page_title = _("Instances")
 
     def has_more_data(self, table):
         return self._more
@@ -221,6 +222,7 @@ class RebuildView(forms.ModalFormView):
     form_class = project_forms.RebuildInstanceForm
     template_name = 'project/instances/rebuild.html'
     success_url = reverse_lazy('horizon:project:instances:index')
+    page_title = _("Rebuild Instance")
 
     def get_context_data(self, **kwargs):
         context = super(RebuildView, self).get_context_data(**kwargs)
@@ -236,6 +238,7 @@ class DecryptPasswordView(forms.ModalFormView):
     form_class = project_forms.DecryptPasswordInstanceForm
     template_name = 'project/instances/decryptpassword.html'
     success_url = reverse_lazy('horizon:project:instances:index')
+    page_title = _("Retrieve Instance Password")
 
     def get_context_data(self, **kwargs):
         context = super(DecryptPasswordView, self).get_context_data(**kwargs)
