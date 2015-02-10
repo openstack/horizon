@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-07 20:43-0600\n"
-"PO-Revision-Date: 2015-02-07 06:54+0000\n"
+"POT-Creation-Date: 2015-02-09 16:54-0600\n"
+"PO-Revision-Date: 2015-02-09 23:36+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -1846,9 +1846,9 @@ msgstr "區域"
 #: dashboards/project/routers/tables.py:200
 #: dashboards/project/routers/ports/tables.py:105
 #: dashboards/project/routers/templates/routers/_detail_overview.html:13
-#: dashboards/project/stacks/tables.py:205
-#: dashboards/project/stacks/tables.py:248
-#: dashboards/project/stacks/tables.py:295
+#: dashboards/project/stacks/tables.py:267
+#: dashboards/project/stacks/tables.py:311
+#: dashboards/project/stacks/tables.py:358
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:19
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:26
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:35
@@ -2652,7 +2652,7 @@ msgstr ""
 #: dashboards/project/images/templates/images/images/_detail_overview.html:27
 #: dashboards/project/instances/templates/instances/_detail_overview.html:18
 #: dashboards/project/instances/templates/instances/_detail_overview.html:38
-#: dashboards/project/stacks/tables.py:191
+#: dashboards/project/stacks/tables.py:254
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:22
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:39
@@ -2680,7 +2680,7 @@ msgstr "未知"
 #: dashboards/project/database_backups/templates/database_backups/details.html:38
 #: dashboards/project/databases/templates/databases/_detail_overview.html:36
 #: dashboards/project/images/templates/images/images/_detail_overview.html:33
-#: dashboards/project/stacks/tables.py:195
+#: dashboards/project/stacks/tables.py:258
 msgid "Updated"
 msgstr "已更新"
 
@@ -13047,7 +13047,7 @@ msgstr "機櫃識別號"
 #: dashboards/project/stacks/forms.py:233
 #: dashboards/project/stacks/forms.py:257
 #: dashboards/project/stacks/forms.py:382
-#: dashboards/project/stacks/tables.py:188
+#: dashboards/project/stacks/tables.py:251
 msgid "Stack Name"
 msgstr "機櫃名稱"
 
@@ -13107,100 +13107,250 @@ msgid "Stack update started."
 msgstr "已開始更新機櫃。"
 
 #: dashboards/project/stacks/panel.py:21
-#: dashboards/project/stacks/tables.py:212
+#: dashboards/project/stacks/tables.py:275
 #: dashboards/project/stacks/templates/stacks/index.html:3
 #: dashboards/project/stacks/templates/stacks/index.html:6
 msgid "Stacks"
 msgstr "機櫃"
 
-#: dashboards/project/stacks/tables.py:31
+#: dashboards/project/stacks/tables.py:32
 #: dashboards/project/stacks/templates/stacks/_create.html:8
 #: dashboards/project/stacks/templates/stacks/create.html:3
 #: dashboards/project/stacks/templates/stacks/create.html:6
 msgid "Launch Stack"
 msgstr "發動機櫃"
 
-#: dashboards/project/stacks/tables.py:40
-#: dashboards/project/stacks/tables.py:46
+#: dashboards/project/stacks/tables.py:41
+#: dashboards/project/stacks/tables.py:47
 msgid "Check Stack"
 msgid_plural "Check Stacks"
 msgstr[0] ""
 
-#: dashboards/project/stacks/tables.py:54
+#: dashboards/project/stacks/tables.py:55
 msgid "Checked Stack"
 msgid_plural "Checked Stacks"
 msgstr[0] ""
 
-#: dashboards/project/stacks/tables.py:65
-#: dashboards/project/stacks/tables.py:71
+#: dashboards/project/stacks/tables.py:66
+#: dashboards/project/stacks/tables.py:72
 msgid "Suspend Stack"
 msgid_plural "Suspend Stacks"
 msgstr[0] ""
 
-#: dashboards/project/stacks/tables.py:79
+#: dashboards/project/stacks/tables.py:80
 msgid "Suspended Stack"
 msgid_plural "Suspended Stacks"
 msgstr[0] ""
 
-#: dashboards/project/stacks/tables.py:90
-#: dashboards/project/stacks/tables.py:96
+#: dashboards/project/stacks/tables.py:91
+#: dashboards/project/stacks/tables.py:97
 msgid "Resume Stack"
 msgid_plural "Resume Stacks"
 msgstr[0] ""
 
-#: dashboards/project/stacks/tables.py:104
+#: dashboards/project/stacks/tables.py:105
 msgid "Resumed Stack"
 msgid_plural "Resumed Stacks"
 msgstr[0] ""
 
-#: dashboards/project/stacks/tables.py:115
+#: dashboards/project/stacks/tables.py:116
 msgid "Change Stack Template"
 msgstr "變更機櫃樣板"
 
-#: dashboards/project/stacks/tables.py:128
+#: dashboards/project/stacks/tables.py:129
 msgid "Delete Stack"
 msgid_plural "Delete Stacks"
 msgstr[0] ""
 
-#: dashboards/project/stacks/tables.py:136
+#: dashboards/project/stacks/tables.py:137
 msgid "Deleted Stack"
 msgid_plural "Deleted Stacks"
 msgstr[0] ""
 
-#: dashboards/project/stacks/tables.py:237
-#: dashboards/project/stacks/tables.py:282
+#: dashboards/project/stacks/tables.py:190
+msgctxt "current status of stack"
+msgid "Init In Progress"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:192
+msgctxt "current status of stack"
+msgid "Init Complete"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:194
+msgctxt "current status of stack"
+msgid "Init Failed"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:196
+msgctxt "current status of stack"
+msgid "Create In Progress"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:198
+msgctxt "current status of stack"
+msgid "Create Complete"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:200
+msgctxt "current status of stack"
+msgid "Create Failed"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:202
+msgctxt "current status of stack"
+msgid "Delete In Progress"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:204
+msgctxt "current status of stack"
+msgid "Delete Complete"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:206
+msgctxt "current status of stack"
+msgid "Delete Failed"
+msgstr "刪除失敗"
+
+#: dashboards/project/stacks/tables.py:208
+msgctxt "current status of stack"
+msgid "Update In Progress"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:210
+msgctxt "current status of stack"
+msgid "Update Complete"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:212
+msgctxt "current status of stack"
+msgid "Update Failed"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:214
+msgctxt "current status of stack"
+msgid "Rollback In Progress"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:216
+msgctxt "current status of stack"
+msgid "Rollback Complete"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:218
+msgctxt "current status of stack"
+msgid "Rollback Failed"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:220
+msgctxt "current status of stack"
+msgid "Suspend In Progress"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:222
+msgctxt "current status of stack"
+msgid "Suspend Complete"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:224
+msgctxt "current status of stack"
+msgid "Suspend Failed"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:226
+msgctxt "current status of stack"
+msgid "Resume In Progress"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:228
+msgctxt "current status of stack"
+msgid "Resume Complete"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:230
+msgctxt "current status of stack"
+msgid "Resume Failed"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:232
+msgctxt "current status of stack"
+msgid "Adopt In Progress"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:234
+msgctxt "current status of stack"
+msgid "Adopt Complete"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:236
+msgctxt "current status of stack"
+msgid "Adopt Failed"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:238
+msgctxt "current status of stack"
+msgid "Snapshot In Progress"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:240
+msgctxt "current status of stack"
+msgid "Snapshot Complete"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:242
+msgctxt "current status of stack"
+msgid "Snapshot Failed"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:244
+msgctxt "current status of stack"
+msgid "Check In Progress"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:246
+msgctxt "current status of stack"
+msgid "Check Complete"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:248
+msgctxt "current status of stack"
+msgid "Check Failed"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:300
+#: dashboards/project/stacks/tables.py:345
 msgid "Stack Resource"
 msgstr "機櫃資源"
 
-#: dashboards/project/stacks/tables.py:240
-#: dashboards/project/stacks/tables.py:285
+#: dashboards/project/stacks/tables.py:303
+#: dashboards/project/stacks/tables.py:348
 #: dashboards/project/stacks/resource_types/tables.py:38
 msgid "Resource"
 msgstr "資源"
 
-#: dashboards/project/stacks/tables.py:243
+#: dashboards/project/stacks/tables.py:306
 msgid "Time Since Event"
 msgstr "事件已過時間"
 
-#: dashboards/project/stacks/tables.py:251
-#: dashboards/project/stacks/tables.py:300
+#: dashboards/project/stacks/tables.py:314
+#: dashboards/project/stacks/tables.py:363
 msgid "Status Reason"
 msgstr "狀態原因"
 
-#: dashboards/project/stacks/tables.py:255
+#: dashboards/project/stacks/tables.py:318
 msgid "Stack Events"
 msgstr "機櫃事件"
 
-#: dashboards/project/stacks/tables.py:288
+#: dashboards/project/stacks/tables.py:351
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:25
 msgid "Stack Resource Type"
 msgstr "機櫃資源類型"
 
-#: dashboards/project/stacks/tables.py:290
+#: dashboards/project/stacks/tables.py:353
 msgid "Date Updated"
 msgstr "更新日期"
 
-#: dashboards/project/stacks/tables.py:313
+#: dashboards/project/stacks/tables.py:376
 msgid "Stack Resources"
 msgstr "機櫃資源"
 
