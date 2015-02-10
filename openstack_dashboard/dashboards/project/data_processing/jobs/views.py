@@ -41,7 +41,11 @@ class JobsView(tables.DataTableView):
 
     def get_data(self):
         try:
-            jobs = saharaclient.job_list(self.request)
+            search_opts = {}
+            filter = self.get_server_filter_info(self.request)
+            if filter['value'] and filter['field']:
+                search_opts = {filter['field']: filter['value']}
+            jobs = saharaclient.job_list(self.request, search_opts)
         except Exception:
             jobs = []
             exceptions.handle(self.request,

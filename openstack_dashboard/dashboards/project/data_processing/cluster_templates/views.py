@@ -44,8 +44,12 @@ class ClusterTemplatesView(tables.DataTableView):
 
     def get_data(self):
         try:
+            search_opts = {}
+            filter = self.get_server_filter_info(self.request)
+            if filter['value'] and filter['field']:
+                search_opts = {filter['field']: filter['value']}
             cluster_templates = saharaclient.cluster_template_list(
-                self.request)
+                self.request, search_opts)
         except Exception:
             cluster_templates = []
             exceptions.handle(self.request,

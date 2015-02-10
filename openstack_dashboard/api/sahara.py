@@ -49,8 +49,8 @@ def client(request):
                              input_auth_token=request.user.token.id)
 
 
-def image_list(request):
-    return client(request).images.list()
+def image_list(request, search_opts=None):
+    return client(request).images.list(search_opts)
 
 
 def image_get(request, image_id):
@@ -69,8 +69,8 @@ def image_tags_update(request, image_id, image_tags):
     client(request).images.update_tags(image_id, image_tags)
 
 
-def plugin_list(request):
-    return client(request).plugins.list()
+def plugin_list(request, search_opts=None):
+    return client(request).plugins.list(search_opts)
 
 
 def plugin_get(request, plugin_name):
@@ -115,8 +115,8 @@ def nodegroup_template_create(request, name, plugin_name, hadoop_version,
         volumes_availability_zone)
 
 
-def nodegroup_template_list(request):
-    return client(request).node_group_templates.list()
+def nodegroup_template_list(request, search_opts=None):
+    return client(request).node_group_templates.list(search_opts)
 
 
 def nodegroup_template_get(request, ngt_id):
@@ -170,8 +170,8 @@ def cluster_template_create(request, name, plugin_name, hadoop_version,
                                                     net_id)
 
 
-def cluster_template_list(request):
-    return client(request).cluster_templates.list()
+def cluster_template_list(request, search_opts=None):
+    return client(request).cluster_templates.list(search_opts)
 
 
 def cluster_template_get(request, ct_id):
@@ -214,8 +214,8 @@ def cluster_scale(request, cluster_id, scale_object):
     return client(request).clusters.scale(cluster_id, scale_object)
 
 
-def cluster_list(request):
-    return client(request).clusters.list()
+def cluster_list(request, search_opts=None):
+    return client(request).clusters.list(search_opts)
 
 
 def cluster_get(request, cluster_id):
@@ -233,8 +233,8 @@ def data_source_create(request, name, description, ds_type, url,
                                                credential_pass)
 
 
-def data_source_list(request):
-    return client(request).data_sources.list()
+def data_source_list(request, search_opts=None):
+    return client(request).data_sources.list(search_opts)
 
 
 def data_source_get(request, ds_id):
@@ -249,8 +249,8 @@ def job_binary_create(request, name, url, description, extra):
     return client(request).job_binaries.create(name, url, description, extra)
 
 
-def job_binary_list(request):
-    return client(request).job_binaries.list()
+def job_binary_list(request, search_opts=None):
+    return client(request).job_binaries.list(search_opts)
 
 
 def job_binary_get(request, jb_id):
@@ -269,8 +269,8 @@ def job_binary_internal_create(request, name, data):
     return client(request).job_binary_internals.create(name, data)
 
 
-def job_binary_internal_list(request):
-    return client(request).job_binary_internals.list()
+def job_binary_internal_list(request, search_opts=None):
+    return client(request).job_binary_internals.list(search_opts)
 
 
 def job_binary_internal_get(request, jbi_id):
@@ -285,8 +285,8 @@ def job_create(request, name, j_type, mains, libs, description):
     return client(request).jobs.create(name, j_type, mains, libs, description)
 
 
-def job_list(request):
-    return client(request).jobs.list()
+def job_list(request, search_opts=None):
+    return client(request).jobs.list(search_opts)
 
 
 def job_get(request, job_id):
@@ -308,8 +308,8 @@ def job_execution_create(request, job_id, cluster_id,
                                                  configs)
 
 
-def job_execution_list(request):
-    jex_list = client(request).job_executions.list()
+def job_execution_list(request, search_opts=None):
+    jex_list = client(request).job_executions.list(search_opts)
     job_dict = dict((j.id, j) for j in job_list(request))
     cluster_dict = dict((c.id, c) for c in cluster_list(request))
     for jex in jex_list:

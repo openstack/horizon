@@ -31,6 +31,14 @@ from openstack_dashboard.dashboards.project.data_processing. \
 LOG = logging.getLogger(__name__)
 
 
+class JobExecutionsFilterAction(tables.FilterAction):
+    filter_type = "server"
+    filter_choices = (('id', _("ID"), True),
+                      ('job', _("Job"), True),
+                      ('cluster', _("Cluster"), True),
+                      ('status', _("Status"), True))
+
+
 class DeleteJobExecution(tables.DeleteAction):
     @staticmethod
     def action_present(count):
@@ -165,7 +173,8 @@ class JobExecutionsTable(tables.DataTable):
         row_class = UpdateRow
         status_columns = ["status"]
         verbose_name = _("Job Executions")
-        table_actions = [DeleteJobExecution]
+        table_actions = [DeleteJobExecution,
+                         JobExecutionsFilterAction]
         row_actions = [DeleteJobExecution,
                        ReLaunchJobExistingCluster,
                        ReLaunchJobNewCluster]

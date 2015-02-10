@@ -35,7 +35,7 @@ CREATE_URL = reverse(
 class DataProcessingNodeGroupTests(test.TestCase):
     @test.create_stubs({api.sahara: ('nodegroup_template_list',)})
     def test_index(self):
-        api.sahara.nodegroup_template_list(IsA(http.HttpRequest)) \
+        api.sahara.nodegroup_template_list(IsA(http.HttpRequest), {}) \
             .AndReturn(self.nodegroup_templates.list())
         self.mox.ReplayAll()
         res = self.client.get(INDEX_URL)
@@ -67,7 +67,7 @@ class DataProcessingNodeGroupTests(test.TestCase):
                                      'nodegroup_template_delete')})
     def test_delete(self):
         ngt = self.nodegroup_templates.first()
-        api.sahara.nodegroup_template_list(IsA(http.HttpRequest)) \
+        api.sahara.nodegroup_template_list(IsA(http.HttpRequest), {}) \
             .AndReturn(self.nodegroup_templates.list())
         api.sahara.nodegroup_template_delete(IsA(http.HttpRequest), ngt.id)
         self.mox.ReplayAll()

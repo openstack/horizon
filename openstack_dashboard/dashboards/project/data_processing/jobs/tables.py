@@ -25,6 +25,12 @@ from openstack_dashboard.api import sahara as saharaclient
 LOG = logging.getLogger(__name__)
 
 
+class JobsFilterAction(tables.FilterAction):
+    filter_type = "server"
+    filter_choices = (('name', _("Name"), True),
+                      ('description', _("Description"), True))
+
+
 class CreateJob(tables.LinkAction):
     name = "create job"
     verbose_name = _("Create Job")
@@ -103,6 +109,5 @@ class JobsTable(tables.DataTable):
     class Meta(object):
         name = "jobs"
         verbose_name = _("Jobs")
-        table_actions = (CreateJob,
-                         DeleteJob)
+        table_actions = (CreateJob, DeleteJob, JobsFilterAction,)
         row_actions = (LaunchJobExistingCluster, ChoosePlugin, DeleteJob,)

@@ -28,6 +28,12 @@ from saharaclient.api import base as api_base
 LOG = logging.getLogger(__name__)
 
 
+class ClustersFilterAction(tables.FilterAction):
+    filter_type = "server"
+    filter_choices = (('name', _("Name"), True),
+                      ('status', _("Status"), True))
+
+
 class CreateCluster(tables.LinkAction):
     name = "create"
     verbose_name = _("Launch Cluster")
@@ -119,6 +125,7 @@ class ClustersTable(tables.DataTable):
         status_columns = ["status"]
         table_actions = (CreateCluster,
                          ConfigureCluster,
-                         DeleteCluster)
+                         DeleteCluster,
+                         ClustersFilterAction)
         row_actions = (ScaleCluster,
                        DeleteCluster,)
