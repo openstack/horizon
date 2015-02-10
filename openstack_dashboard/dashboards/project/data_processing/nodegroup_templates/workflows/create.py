@@ -56,27 +56,42 @@ class GeneralConfigAction(workflows.Action):
         help_text=_("Choose a storage location"),
         choices=[("ephemeral_drive", "Ephemeral Drive"),
                  ("cinder_volume", "Cinder Volume")],
-        widget=forms.Select(attrs={"class": "storage_field"}))
+        widget=forms.Select(attrs={
+            "class": "storage_field switchable",
+            'data-slug': 'storage_loc'
+        }))
 
     volumes_per_node = forms.IntegerField(
         label=_("Volumes per node"),
         required=False,
         initial=1,
-        widget=forms.TextInput(attrs={"class": "volume_per_node_field"})
+        widget=forms.TextInput(attrs={
+            "class": "volume_per_node_field switched",
+            "data-switch-on": "storage_loc",
+            "data-storage_loc-cinder_volume": _('Volumes per node')
+        })
     )
 
     volumes_size = forms.IntegerField(
         label=_("Volumes size (GB)"),
         required=False,
         initial=10,
-        widget=forms.TextInput(attrs={"class": "volume_size_field"})
+        widget=forms.TextInput(attrs={
+            "class": "volume_size_field switched",
+            "data-switch-on": "storage_loc",
+            "data-storage_loc-cinder_volume": _('Volumes size (GB)')
+        })
     )
 
     volumes_availability_zone = forms.ChoiceField(
         label=_("Volumes Availability Zone"),
         help_text=_("Create volumes in this availability zone."),
         required=False,
-        widget=forms.Select(attrs={"class": "volumes_availability_zone_field"})
+        widget=forms.Select(attrs={
+            "class": "volumes_availability_zone_field switched",
+            "data-switch-on": "storage_loc",
+            "data-storage_loc-cinder_volume": _('Volumes Availability Zone')
+        })
     )
 
     hidden_configure_field = forms.CharField(

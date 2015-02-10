@@ -54,21 +54,6 @@
                     $("." + plugin.val() + "_version_choice").closest(".form-group").show();
                 }
 
-                $(".storage_field").change(switch_storage).change();
-
-                function switch_storage() {
-                    var show = $(".storage_field").val() == "cinder_volume";
-                    if (show) {
-                        $(".volume_per_node_field").closest(".form-group").show();
-                        $(".volume_size_field").closest(".form-group").show();
-                        $(".volumes_availability_zone_field").closest(".form-group").show();
-                    } else {
-                        $(".volume_per_node_field").closest(".form-group").hide();
-                        $(".volume_size_field").closest(".form-group").hide();
-                        $(".volumes_availability_zone_field").closest(".form-group").hide();
-                    }
-                }
-
                 $(".plugin_name_choice").change();
 
                 //handle node processes change
