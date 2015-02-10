@@ -39,6 +39,7 @@ from openstack_dashboard.dashboards.admin.networks \
 class IndexView(tables.DataTableView):
     table_class = networks_tables.NetworksTable
     template_name = 'admin/networks/index.html'
+    page_title = _("Networks")
 
     @memoized.memoized_method
     def _get_tenant_list(self):
@@ -94,6 +95,7 @@ class CreateView(forms.ModalFormView):
     form_class = project_forms.CreateNetwork
     template_name = 'admin/networks/create.html'
     success_url = reverse_lazy('horizon:admin:networks:index')
+    page_title = _("Create Network")
 
 
 class DetailView(tables.MultiTableView):
@@ -101,6 +103,7 @@ class DetailView(tables.MultiTableView):
                      ports_tables.PortsTable,
                      agents_tables.DHCPAgentsTable)
     template_name = 'project/networks/detail.html'
+    page_title = _("Network Details: {{ network.name }}")
 
     def get_subnets_data(self):
         try:

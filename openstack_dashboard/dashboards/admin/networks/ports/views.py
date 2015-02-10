@@ -32,6 +32,7 @@ class CreateView(forms.ModalFormView):
     template_name = 'admin/networks/ports/create.html'
     success_url = 'horizon:admin:networks:detail'
     failure_url = 'horizon:admin:networks:detail'
+    page_title = _("Create Port")
 
     def get_success_url(self):
         return reverse(self.success_url,
