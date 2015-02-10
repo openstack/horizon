@@ -34,6 +34,7 @@ from openstack_dashboard.dashboards.identity.roles \
 class IndexView(tables.DataTableView):
     table_class = project_tables.RolesTable
     template_name = 'identity/roles/index.html'
+    page_title = _("Roles")
 
     def get_data(self):
         roles = []
@@ -58,6 +59,7 @@ class UpdateView(forms.ModalFormView):
     submit_label = _("Update Role")
     submit_url = "horizon:identity:roles:update"
     success_url = reverse_lazy('horizon:identity:roles:index')
+    page_title = _("Update Role")
 
     @memoized.memoized_method
     def get_object(self):
@@ -89,3 +91,4 @@ class CreateView(forms.ModalFormView):
     submit_label = _("Create Role")
     submit_url = reverse_lazy("horizon:identity:roles:create")
     success_url = reverse_lazy('horizon:identity:roles:index')
+    page_title = _("Create Role")

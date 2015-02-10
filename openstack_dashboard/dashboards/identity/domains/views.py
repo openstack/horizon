@@ -33,6 +33,7 @@ from openstack_dashboard.dashboards.identity.domains \
 class IndexView(tables.DataTableView):
     table_class = project_tables.DomainsTable
     template_name = constants.DOMAINS_INDEX_VIEW_TEMPLATE
+    page_title = _("Domains")
 
     def get_data(self):
         domains = []
