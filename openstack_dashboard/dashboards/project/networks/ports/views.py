@@ -36,6 +36,7 @@ STATUS_DICT = dict(project_tables.STATUS_DISPLAY_CHOICES)
 class DetailView(tabs.TabView):
     tab_group_class = project_tabs.PortDetailTabs
     template_name = 'project/networks/ports/detail.html'
+    page_title = _("Port Details")
 
     @memoized.memoized_method
     def get_data(self):
@@ -83,6 +84,7 @@ class UpdateView(forms.ModalFormView):
     template_name = 'project/networks/ports/update.html'
     context_object_name = 'port'
     success_url = 'horizon:project:networks:detail'
+    page_title = _("Update Port")
 
     def get_success_url(self):
         return reverse(self.success_url,

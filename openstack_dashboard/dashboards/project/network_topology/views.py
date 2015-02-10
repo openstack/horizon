@@ -23,10 +23,10 @@ from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponse  # noqa
 from django.utils.translation import ugettext_lazy as _
-from django.views.generic import TemplateView  # noqa
 from django.views.generic import View  # noqa
 
 from horizon import exceptions
+from horizon import views
 
 from openstack_dashboard import api
 from openstack_dashboard.usage import quotas
@@ -55,6 +55,7 @@ from openstack_dashboard.dashboards.project.routers import\
 class NTCreateRouterView(r_views.CreateView):
     template_name = 'project/network_topology/create_router.html'
     success_url = reverse_lazy("horizon:project:network_topology:index")
+    page_title = _("Create a Router")
 
 
 class NTCreateNetwork(n_workflows.CreateNetwork):
@@ -95,8 +96,9 @@ class RouterDetailView(r_views.DetailView):
         pass
 
 
-class NetworkTopologyView(TemplateView):
+class NetworkTopologyView(views.HorizonTemplateView):
     template_name = 'project/network_topology/index.html'
+    page_title = _("Network Topology")
 
     def _has_permission(self, policy):
         has_permission = True

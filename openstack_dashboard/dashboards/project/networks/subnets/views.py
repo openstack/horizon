@@ -100,6 +100,7 @@ class UpdateView(workflows.WorkflowView):
 class DetailView(tabs.TabView):
     tab_group_class = project_tabs.SubnetDetailTabs
     template_name = 'project/networks/subnets/detail.html'
+    page_title = _("Subnet Details")
 
     @memoized.memoized_method
     def get_data(self):

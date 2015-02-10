@@ -42,6 +42,7 @@ from openstack_dashboard.dashboards.project.networks \
 class IndexView(tables.DataTableView):
     table_class = project_tables.NetworksTable
     template_name = 'project/networks/index.html'
+    page_title = _("Networks")
 
     def get_data(self):
         try:
@@ -69,6 +70,7 @@ class UpdateView(forms.ModalFormView):
     submit_url = "horizon:project:networks:update"
     success_url = reverse_lazy("horizon:project:networks:index")
     template_name = 'project/networks/update.html'
+    page_title = _("Update Network")
 
     def get_context_data(self, **kwargs):
         context = super(UpdateView, self).get_context_data(**kwargs)
