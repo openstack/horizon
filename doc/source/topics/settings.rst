@@ -212,7 +212,7 @@ requires them.
 
 .. versionadded:: 2013.1(Grizzly)
 
-Default: ``"on"``
+Default: ``"off"``
 
 Controls whether browser autocompletion should be enabled on the login form.
 Valid values are ``"on"`` and ``"off"``.
