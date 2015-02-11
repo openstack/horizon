@@ -1,0 +1,18 @@
+<div class="modal-header">
+  <h3 class="modal-title">
+    <span ng-bind="::context.title"></span>
+  </h3>
+</div>
+<div class="modal-body clearfix">
+  <p ng-bind="::context.body"></p>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-default secondary"
+    type="button" ng-click="cancel()">
+    <span ng-bind="::context.cancel"></span>
+  </button>
+  <button class="btn btn-primary"
+    type="button" ng-click="submit()">
+    <span ng-bind="::context.submit"></span>
+  </button>
+</div>
