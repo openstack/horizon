@@ -11,6 +11,7 @@
 #    under the License.
 
 from heatclient.v1 import resource_types
+from heatclient.v1 import services
 from heatclient.v1 import stacks
 
 from openstack_dashboard.test.test_data import utils
@@ -328,6 +329,39 @@ def data(TEST):
     TEST.stack_templates = utils.TestDataContainer()
     TEST.stack_environments = utils.TestDataContainer()
     TEST.resource_types = utils.TestDataContainer()
+    TEST.heat_services = utils.TestDataContainer()
+
+    # Services
+    service_1 = services.Service(services.ServiceManager(None), {
+        "status": "up",
+        "binary": "heat-engine",
+        "report_interval": 60,
+        "engine_id": "2f7b5a9b-c50b-4b01-8248-f89f5fb338d1",
+        "created_at": "2015-02-06T03:23:32.000000",
+        "hostname": "mrkanag",
+        "updated_at": "2015-02-20T09:49:52.000000",
+        "topic": "engine",
+        "host": "engine-1",
+        "deleted_at": None,
+        "id": "1efd7015-5016-4caa-b5c8-12438af7b100"
+    })
+
+    service_2 = services.Service(services.ServiceManager(None), {
+        "status": "up",
+        "binary": "heat-engine",
+        "report_interval": 60,
+        "engine_id": "2f7b5a9b-c50b-4b01-8248-f89f5fb338d2",
+        "created_at": "2015-02-06T03:23:32.000000",
+        "hostname": "mrkanag",
+        "updated_at": "2015-02-20T09:49:52.000000",
+        "topic": "engine",
+        "host": "engine-2",
+        "deleted_at": None,
+        "id": "1efd7015-5016-4caa-b5c8-12438af7b100"
+    })
+
+    TEST.heat_services.add(service_1)
+    TEST.heat_services.add(service_2)
 
     # Data return by heatclient.
     TEST.api_resource_types = utils.TestDataContainer()
