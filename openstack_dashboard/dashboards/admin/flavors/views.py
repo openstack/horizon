@@ -44,6 +44,7 @@ INDEX_URL = "horizon:admin:flavors:index"
 class IndexView(tables.DataTableView):
     table_class = project_tables.FlavorsTable
     template_name = 'admin/flavors/index.html'
+    page_title = _("Flavors")
 
     def get_data(self):
         request = self.request
@@ -62,11 +63,13 @@ class IndexView(tables.DataTableView):
 class CreateView(workflows.WorkflowView):
     workflow_class = flavor_workflows.CreateFlavor
     template_name = 'admin/flavors/create.html'
+    page_title = _("Create Flavor")
 
 
 class UpdateView(workflows.WorkflowView):
     workflow_class = flavor_workflows.UpdateFlavor
     template_name = 'admin/flavors/update.html'
+    page_title = _("Edit Flavor")
 
     def get_initial(self):
         flavor_id = self.kwargs['id']
@@ -91,6 +94,7 @@ class UpdateMetadataView(forms.ModalFormView):
     template_name = "admin/flavors/update_metadata.html"
     form_class = project_forms.UpdateMetadataForm
     success_url = reverse_lazy('horizon:admin:flavors:index')
+    page_title = _("Update Flavor Metadata")
 
     def get_initial(self):
         extra_specs_dict = self.get_object()
