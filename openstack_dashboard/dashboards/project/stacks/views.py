@@ -196,6 +196,7 @@ class EditStackView(CreateStackView):
 class DetailView(tabs.TabView):
     tab_group_class = project_tabs.StackDetailTabs
     template_name = 'project/stacks/detail.html'
+    page_title = _("Stack Details: {{ stack.stack_name }}")
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
@@ -204,9 +205,6 @@ class DetailView(tabs.TabView):
         context["stack"] = stack
         context["url"] = self.get_redirect_url()
         context["actions"] = table.render_row_actions(stack)
-        context["page_title"] = _("Stack Details: "
-                                  "%(stack_name)s") % {'stack_name':
-                                                       stack.stack_name}
         return context
 
     @memoized.memoized_method

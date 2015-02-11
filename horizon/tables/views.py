@@ -15,7 +15,8 @@
 from collections import defaultdict
 
 from django import shortcuts
-from django.views import generic
+
+from horizon import views
 
 from horizon.templatetags.horizon import has_permissions  # noqa
 
@@ -125,7 +126,7 @@ class MultiTableMixin(object):
         return handled
 
 
-class MultiTableView(MultiTableMixin, generic.TemplateView):
+class MultiTableView(MultiTableMixin, views.HorizonTemplateView):
     """A class-based generic view to handle the display and processing of
     multiple :class:`~horizon.tables.DataTable` classes in a single view.
 
@@ -136,6 +137,7 @@ class MultiTableView(MultiTableMixin, generic.TemplateView):
     which returns a set of data for that table; and specify a template for
     the ``template_name`` attribute.
     """
+
     def construct_tables(self):
         tables = self.get_tables().values()
         # Early out before data is loaded

@@ -121,12 +121,12 @@ class UpdateRuleView(forms.ModalFormView):
     template_name = "project/firewalls/updaterule.html"
     context_object_name = 'rule'
     success_url = reverse_lazy("horizon:project:firewalls:index")
+    page_title = _("Edit Rule")
 
     def get_context_data(self, **kwargs):
         context = super(UpdateRuleView, self).get_context_data(**kwargs)
         context['rule_id'] = self.kwargs['rule_id']
         obj = self._get_object()
-        context['page_title'] = _("Edit Rule")
         if obj:
             context['name'] = obj.name_or_id
             context['page_title'] = _("Edit Rule "
@@ -159,12 +159,12 @@ class UpdatePolicyView(forms.ModalFormView):
     template_name = "project/firewalls/updatepolicy.html"
     context_object_name = 'policy'
     success_url = reverse_lazy("horizon:project:firewalls:index")
+    page_title = _("Edit Policy")
 
     def get_context_data(self, **kwargs):
         context = super(UpdatePolicyView, self).get_context_data(**kwargs)
         context["policy_id"] = self.kwargs['policy_id']
         obj = self._get_object()
-        context['page_title'] = _("Edit Policy")
         if obj:
             context['name'] = obj.name_or_id
             context['page_title'] = _("Edit Policy %s") % obj.name
@@ -192,12 +192,12 @@ class UpdateFirewallView(forms.ModalFormView):
     template_name = "project/firewalls/updatefirewall.html"
     context_object_name = 'firewall'
     success_url = reverse_lazy("horizon:project:firewalls:index")
+    page_title = _("Edit Firewall")
 
     def get_context_data(self, **kwargs):
         context = super(UpdateFirewallView, self).get_context_data(**kwargs)
         context["firewall_id"] = self.kwargs['firewall_id']
         obj = self._get_object()
-        context['page_title'] = _("Edit Firewall")
         if obj:
             context['name'] = obj.name
             context['page_title'] = _("Edit Firewall %s") % obj.name

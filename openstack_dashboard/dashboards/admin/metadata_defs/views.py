@@ -86,9 +86,9 @@ class CreateView(forms.ModalFormView):
 
 class DetailView(tabs.TabView):
     redirect_url = constants.METADATA_INDEX_URL
-
     tab_group_class = admin_tabs.NamespaceDetailTabs
     template_name = constants.METADATA_DETAIL_TEMPLATE
+    page_title = _("Namespace Details: {{ namespace.namespace }}")
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)

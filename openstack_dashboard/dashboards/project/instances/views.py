@@ -252,6 +252,7 @@ class DetailView(tabs.TabView):
     tab_group_class = project_tabs.InstanceDetailTabs
     template_name = 'project/instances/detail.html'
     redirect_url = 'horizon:project:instances:index'
+    page_title = _("Instance Details: {{ instance.name }}")
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
@@ -260,9 +261,6 @@ class DetailView(tabs.TabView):
         table = project_tables.InstancesTable(self.request)
         context["url"] = reverse(self.redirect_url)
         context["actions"] = table.render_row_actions(instance)
-        context["page_title"] = _("Instance Details: "
-                                  "%(instance_name)s") % {'instance_name':
-                                                          instance.name}
         return context
 
     @memoized.memoized_method

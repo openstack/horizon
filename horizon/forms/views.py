@@ -18,9 +18,9 @@ import os
 from django.conf import settings
 from django import http
 from django.utils.translation import ugettext_lazy as _
-from django.views import generic
 
 from horizon import exceptions
+from horizon import views
 
 
 ADD_TO_FIELD_HEADER = "HTTP_X_HORIZON_ADD_TO_FIELD"
@@ -77,7 +77,7 @@ class ModalFormMixin(object):
         return context
 
 
-class ModalFormView(ModalBackdropMixin, ModalFormMixin, generic.FormView):
+class ModalFormView(ModalBackdropMixin, ModalFormMixin, views.HorizonFormView):
     """The main view class from which all views which handle forms in Horizon
     should inherit. It takes care of all details with processing
     :class:`~horizon.forms.base.SelfHandlingForm` classes, and modal concerns

@@ -13,10 +13,36 @@
 #    under the License.
 
 from django import shortcuts
+from django import template
 from django.views import generic
 
 import horizon
 from horizon import exceptions
+
+
+class PageTitleMixin(object):
+    page_title = ""
+
+    def render_title(self, context):
+        if "page_title" not in context:
+            con = template.Context(context)
+            # NOTE(sambetts): Cast to unicode to ensure lazy translations
+            # are handled correctly.
+            temp = template.Template(unicode(self.page_title))
+            context["page_title"] = temp.render(con)
+        return context
+
+    def render_to_response(self, context):
+        context = self.render_title(context)
+        return super(PageTitleMixin, self).render_to_response(context)
+
+
+class HorizonTemplateView(PageTitleMixin, generic.TemplateView):
+    pass
+
+
+class HorizonFormView(PageTitleMixin, generic.FormView):
+    pass
 
 
 def user_home(request):
@@ -24,7 +50,7 @@ def user_home(request):
     return shortcuts.redirect(horizon.get_user_home(request.user))
 
 
-class APIView(generic.TemplateView):
+class APIView(HorizonTemplateView):
     """A quick class-based view for putting API data into a template.
 
     Subclasses must define one method, ``get_data``, and a template name
@@ -34,6 +60,7 @@ class APIView(generic.TemplateView):
     the :func:`horizon.exceptions.handle` error handler if not otherwise
     caught.
     """
+
     def get_data(self, request, context, *args, **kwargs):
         """This method should handle any necessary API calls, update the
         context object, and return the context object at the end.

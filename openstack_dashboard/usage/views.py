@@ -22,6 +22,7 @@ class UsageView(tables.DataTableView):
     usage_class = None
     show_terminated = True
     csv_template_name = None
+    page_title = _("Overview")
 
     def __init__(self, *args, **kwargs):
         super(UsageView, self).__init__(*args, **kwargs)
@@ -72,6 +73,7 @@ class UsageView(tables.DataTableView):
             response_kwargs.setdefault("filename", "usage.csv")
         else:
             render_class = self.response_class
+        context = self.render_title(context)
         resp = render_class(request=self.request,
                             template=self.get_template_names(),
                             context=context,

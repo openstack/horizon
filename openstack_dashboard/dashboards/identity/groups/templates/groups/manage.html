@@ -2,10 +2,6 @@
 {% load i18n %}
 {% block title %}{% trans 'Group Management' %}{% endblock %}
 
-{% block page_header %}
-  {% include "horizon/common/_page_header.html" with title=page_title %}
-{% endblock page_header %}
-
 {% block main %}
     {{ group_members_table.render }}
 {% endblock %}
