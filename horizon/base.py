@@ -412,13 +412,6 @@ class Dashboard(Registry, HorizonComponent):
         to control whether or not this dashboard should appear in
         automatically-generated navigation. Default: ``True``.
 
-    .. attribute:: supports_tenants
-
-        Optional boolean that indicates whether or not this dashboard includes
-        support for projects/tenants. If set to ``True`` this dashboard's
-        navigation will include a UI element that allows the user to select
-        project/tenant. Default: ``False``.
-
     .. attribute:: public
 
         Boolean value to determine whether this dashboard can be viewed
@@ -432,7 +425,6 @@ class Dashboard(Registry, HorizonComponent):
     panels = []
     default_panel = None
     nav = True
-    supports_tenants = False
     public = False
 
     def __repr__(self):
