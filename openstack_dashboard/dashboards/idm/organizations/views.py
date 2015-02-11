@@ -83,7 +83,11 @@ class DetailOrganizationView(tables.MultiTableView):
         context['contact_info'] = organization.description
         context['organization.id'] = organization.id
         context['organization_name'] = organization.name
+<<<<<<< HEAD
         context['image'] = getattr(organization, 'img', '/static/dashboard/img/logos/original/group.png')
+=======
+        context['image'] =  getattr(organization, 'img_original', '/static/dashboard/img/logos/original/group.png')
+>>>>>>> 74211bd940ef1e41d35021558555e2fdf66a3712
         context['city'] = getattr(organization, 'city', '')
         context['email'] = getattr(organization, 'email', '')
         context['website'] = getattr(organization, 'website', '')
@@ -135,16 +139,20 @@ class BaseOrganizationsMultiFormView(idm_views.BaseMultiFormView):
             "orgID": self.object.id,
             "name": self.object.name,
             "description": self.object.description,    
-            "city": getattr(self.object, 'city', 'patata'),
-            "email": getattr(self.object, 'email', 'patata'),
-            "website":getattr(self.object, 'website', 'patata'),
+            "city": getattr(self.object, 'city', ' '),
+            "email": getattr(self.object, 'email', ' '),
+            "website":getattr(self.object, 'website', ' '),
         })
         return initial
 
     def get_context_data(self, **kwargs):
 
         context = super(BaseOrganizationsMultiFormView, self).get_context_data(**kwargs)
+<<<<<<< HEAD
         context['image'] = getattr(self.object, 'img', 
+=======
+        context['image'] = getattr(self.object, 'img_original', 
+>>>>>>> 74211bd940ef1e41d35021558555e2fdf66a3712
                             '/static/dashboard/img/logos/original/group.png')
         return context
 

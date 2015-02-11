@@ -3,12 +3,12 @@
   	{% if row.table.name == 'members' %}
   		<img id="{{ row.datum.name }}-avatar" src="/static/dashboard/img/logos/small/user.png">
   	{% else %}
-	  	{% if row.datum.extra.img %}
-	  		<img id="{{ row.datum.name }}-avatar" src="{{ row.datum.extra.img }}">
-	     {% elif row.datum.img %}
-	     	<img id="{{ row.datum.name }}-avatar" src="{{ row.datum.img }}">
+	  	{% if row.datum.extra.img_medium %}
+	  		<img id="{{ row.datum.name }}-avatar" src="{{ row.datum.extra.img_medium }}">
+	     {% elif row.datum.img_medium %}
+	     	<img id="{{ row.datum.name }}-avatar" src="{{ row.datum.img_medium }}">
 	     {% else %}
-	     	<img id="{{ row.datum.name }}-avatar" src="/static/dashboard/img/logos/small/group.png">
+	     	<img id="{{ row.datum.name }}-avatar" src="/static/dashboard/img/logos/medium/group.png">
 	     {% endif %}
 	{% endif %}
 

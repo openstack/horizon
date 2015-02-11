@@ -11,10 +11,10 @@ function readURL(input) {
         reader.onload = function (e) {
             $('#avatar-update').attr('src', e.target.result);
             $('#avatar-update').Jcrop({
-                onChange: showCoords,
+                // onChange: showCoords,
                 onSelect: showCoords,
                 aspectRatio: 1,
-                setSelect:   [ 100, 100, 50, 50 ],
+                setSelect:   [ 120, 120, 60, 60 ],
                 boxWidth: 650,
 
             });
@@ -38,7 +38,10 @@ function showCoords(c){
     console.log("x2: "+$("#id_x2").val());
     console.log("y1: "+$("#id_y1").val());
     console.log("y2: "+$("#id_y2").val());
-   
+    if(($("#id_x2").val() - $("#id_x1").val())<100){
+        alert('The image is smaller than 100 px. 
+            We recommend you choose a larger image')
+    }
 }
 
     
