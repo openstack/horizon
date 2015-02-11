@@ -36,7 +36,7 @@ class LabeledInput(widgets.Input):
         final_attrs = self.build_attrs(attrs, type=self.input_type, name=name)
         output = "<span id='%s'>%s</span>%s" %\
             ("id_%s_label" % name,
-             "internal-db://",
+             "swift://",
              ('<input%s />' % util.flatatt(final_attrs)))
         return mark_safe(output)
 
