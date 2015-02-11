@@ -104,10 +104,10 @@ class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
             
             small = 25, 25, 'small'
             medium = 36, 36, 'medium'
-            original = 60, 60, 'original'
+            original = 100, 100, 'original'
 
-            if output_img.size[0] < original[0]:
-                messages.warning(request, 'Image is smaller than 60px/60px')
+            # if output_img.size[0] < original[0]:
+            #     messages.warning(request, 'Image is smaller than 60px/60px')
                 
             meta = [original, medium, small]
             for meta in meta:

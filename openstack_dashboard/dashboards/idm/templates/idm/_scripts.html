@@ -38,8 +38,9 @@ function showCoords(c){
     console.log("x2: "+$("#id_x2").val());
     console.log("y1: "+$("#id_y1").val());
     console.log("y2: "+$("#id_y2").val());
-    if(($("#id_x2").val() - $("#id_x1").val())<60){
-        alert('The image is smaller than 60 px')
+    if(($("#id_x2").val() - $("#id_x1").val())<100){
+        alert('The image is smaller than 100 px. 
+            We recommend you choose a larger image')
     }
 }
 

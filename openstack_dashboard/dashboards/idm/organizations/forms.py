@@ -154,7 +154,7 @@ class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
             
             small = 25, 25, 'small'
             medium = 36, 36, 'medium'
-            original = 60, 60, 'original'
+            original = 100, 100, 'original'
             meta = [original, medium, small]
             for meta in meta:
                 size = meta[0], meta[1]
