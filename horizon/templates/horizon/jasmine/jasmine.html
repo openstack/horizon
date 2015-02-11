@@ -1,8 +1,10 @@
+{% load url from future %}
 <!DOCTYPE html>
 <html>
 <head>
   <title>Jasmine Spec Runner</title>
   <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}horizon/lib/jasmine/jasmine.css">
+  <script src="{% url 'horizon:jsi18n' 'horizon' %}"></script>
   <script type="text/javascript" src="{{ STATIC_URL }}horizon/lib/jasmine/jasmine.js"></script>
   <script type="text/javascript" src="{{ STATIC_URL }}horizon/lib/jasmine/jasmine-html.js"></script>
   <script type="text/javascript" src="{{ STATIC_URL }}horizon/lib/jasmine/boot.js"></script>
