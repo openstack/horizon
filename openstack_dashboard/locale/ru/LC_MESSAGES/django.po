@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-09 16:54-0600\n"
-"PO-Revision-Date: 2015-02-09 22:53+0000\n"
+"POT-Creation-Date: 2015-02-10 00:28-0600\n"
+"PO-Revision-Date: 2015-02-10 08:31+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -8521,7 +8521,7 @@ msgstr "Запустить инстанс в этих группах безоп�
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:198
 msgid "Security"
-msgstr ""
+msgstr "Безопасность"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:199
 msgid "Control access to instances of the node group."

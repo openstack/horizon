@@ -3,15 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Gabriel Wainer, 2015
+# Luís Eduardo Tenório Silva <eduardovansilva@gmail.com>, 2015
 # maurosr <maurosmrodrigues@gmail.com>, 2014
 # Rodrigo Felix de Almeida <rodrigofelixdealmeida@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-09 16:54-0600\n"
-"PO-Revision-Date: 2015-02-09 23:36+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-02-10 00:28-0600\n"
+"PO-Revision-Date: 2015-02-10 20:41+0000\n"
+"Last-Translator: Luís Eduardo Tenório Silva <eduardovansilva@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,7 +43,7 @@ msgstr "ISO - Imagem de Disco Óptico"
 
 #: settings.py:89
 msgid "OVA - Open Virtual Appliance"
-msgstr ""
+msgstr "OVA - Open Virtual Appliance"
 
 #: settings.py:90
 msgid "QCOW2 - QEMU Emulator"
@@ -53,15 +55,15 @@ msgstr "Raw"
 
 #: settings.py:92
 msgid "VDI - Virtual Disk Image"
-msgstr ""
+msgstr "VDI - Virtual Disk Image"
 
 #: settings.py:93
 msgid "VHD - Virtual Hard Disk"
-msgstr ""
+msgstr "VHD - Virtual Hard Disk"
 
 #: settings.py:94
 msgid "VMDK - Virtual Machine Disk"
-msgstr ""
+msgstr "VMDK - Virtual Machine Disk"
 
 #: settings.py:233
 msgid "All TCP"
@@ -93,7 +95,7 @@ msgstr "Volume de RAM em MB"
 
 #: api/ceilometer.py:946
 msgid "Volume of RAM used in MB"
-msgstr ""
+msgstr "Volume de RAM utilizado em MB"
 
 #: api/ceilometer.py:950
 msgid "CPU time used"
@@ -126,15 +128,15 @@ msgstr "Volume de escritas em B"
 
 #: api/ceilometer.py:978
 msgid "Average rate of read requests per second"
-msgstr ""
+msgstr "Taxa média de requisições de leitura por segundo"
 
 #: api/ceilometer.py:982
 msgid "Average rate of write requests per second"
-msgstr ""
+msgstr "Taxa média de requisições de escrita por segundo"
 
 #: api/ceilometer.py:986
 msgid "Average rate of reads in B per second"
-msgstr ""
+msgstr "Taxa média de leitura em B por segundo"
 
 #: api/ceilometer.py:990
 msgid "Average volume of writes in B per second"
@@ -13307,37 +13309,37 @@ msgstr ""
 #: dashboards/project/stacks/tables.py:192
 msgctxt "current status of stack"
 msgid "Init Complete"
-msgstr ""
+msgstr "Inicialização Completa"
 
 #: dashboards/project/stacks/tables.py:194
 msgctxt "current status of stack"
 msgid "Init Failed"
-msgstr ""
+msgstr "Inicialização Falhou"
 
 #: dashboards/project/stacks/tables.py:196
 msgctxt "current status of stack"
 msgid "Create In Progress"
-msgstr ""
+msgstr "Criação em Andamento"
 
 #: dashboards/project/stacks/tables.py:198
 msgctxt "current status of stack"
 msgid "Create Complete"
-msgstr ""
+msgstr "Criação Completa"
 
 #: dashboards/project/stacks/tables.py:200
 msgctxt "current status of stack"
 msgid "Create Failed"
-msgstr ""
+msgstr "Criação Falhou"
 
 #: dashboards/project/stacks/tables.py:202
 msgctxt "current status of stack"
 msgid "Delete In Progress"
-msgstr ""
+msgstr "Exclusão em Andamento"
 
 #: dashboards/project/stacks/tables.py:204
 msgctxt "current status of stack"
 msgid "Delete Complete"
-msgstr ""
+msgstr "Exclusão Concluída"
 
 #: dashboards/project/stacks/tables.py:206
 msgctxt "current status of stack"
@@ -13347,17 +13349,17 @@ msgstr "Falha na Exclusão."
 #: dashboards/project/stacks/tables.py:208
 msgctxt "current status of stack"
 msgid "Update In Progress"
-msgstr ""
+msgstr "Atualização em Andamento"
 
 #: dashboards/project/stacks/tables.py:210
 msgctxt "current status of stack"
 msgid "Update Complete"
-msgstr ""
+msgstr "Atualização Concluída"
 
 #: dashboards/project/stacks/tables.py:212
 msgctxt "current status of stack"
 msgid "Update Failed"
-msgstr ""
+msgstr "Atualização Falhou"
 
 #: dashboards/project/stacks/tables.py:214
 msgctxt "current status of stack"

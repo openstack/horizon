@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-10 00:09-0600\n"
+"POT-Creation-Date: 2015-02-11 00:08-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -521,9 +521,9 @@ msgstr ""
 #: dashboards/admin/aggregates/forms.py:28
 #: dashboards/admin/aggregates/tables.py:128
 #: dashboards/admin/aggregates/workflows.py:24
-#: dashboards/admin/flavors/workflows.py:36 dashboards/admin/info/tables.py:59
-#: dashboards/admin/info/tables.py:89 dashboards/admin/info/tables.py:113
-#: dashboards/admin/info/tables.py:165 dashboards/admin/instances/tables.py:95
+#: dashboards/admin/flavors/workflows.py:36 dashboards/admin/info/tables.py:64
+#: dashboards/admin/info/tables.py:94 dashboards/admin/info/tables.py:118
+#: dashboards/admin/info/tables.py:169 dashboards/admin/instances/tables.py:95
 #: dashboards/admin/instances/tables.py:129
 #: dashboards/admin/metadata_defs/tables.py:128
 #: dashboards/admin/networks/forms.py:38
@@ -592,8 +592,8 @@ msgstr ""
 #: dashboards/project/firewalls/tables.py:230
 #: dashboards/project/firewalls/tables.py:247
 #: dashboards/project/firewalls/workflows.py:30
-#: dashboards/project/firewalls/workflows.py:173
-#: dashboards/project/firewalls/workflows.py:230
+#: dashboards/project/firewalls/workflows.py:172
+#: dashboards/project/firewalls/workflows.py:229
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:7
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:7
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:7
@@ -1633,7 +1633,7 @@ msgid "Hostname"
 msgstr ""
 
 #: dashboards/admin/hypervisors/tables.py:28
-#: dashboards/admin/info/tables.py:164
+#: dashboards/admin/info/tables.py:168
 #: dashboards/admin/routers/ports/tables.py:39
 #: dashboards/project/access_and_security/security_groups/forms.py:173
 #: dashboards/project/access_and_security/security_groups/forms.py:180
@@ -1750,8 +1750,8 @@ msgstr ""
 
 #: dashboards/admin/hypervisors/compute/forms.py:73
 #: dashboards/admin/hypervisors/compute/tables.py:94
-#: dashboards/admin/info/tables.py:61 dashboards/admin/info/tables.py:90
-#: dashboards/admin/info/tables.py:114 dashboards/admin/info/tables.py:166
+#: dashboards/admin/info/tables.py:66 dashboards/admin/info/tables.py:95
+#: dashboards/admin/info/tables.py:119 dashboards/admin/info/tables.py:170
 #: dashboards/admin/instances/tables.py:125
 #: dashboards/admin/networks/agents/tables.py:91
 #: dashboards/admin/volumes/snapshots/tables.py:64
@@ -1811,13 +1811,13 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: dashboards/admin/hypervisors/compute/tables.py:95
-#: dashboards/admin/info/tables.py:91 dashboards/admin/info/tables.py:115
+#: dashboards/admin/info/tables.py:96 dashboards/admin/info/tables.py:120
 msgid "Zone"
 msgstr ""
 
 #: dashboards/admin/hypervisors/compute/tables.py:96
-#: dashboards/admin/info/tables.py:63 dashboards/admin/info/tables.py:92
-#: dashboards/admin/info/tables.py:116 dashboards/admin/info/tables.py:167
+#: dashboards/admin/info/tables.py:68 dashboards/admin/info/tables.py:97
+#: dashboards/admin/info/tables.py:121 dashboards/admin/info/tables.py:171
 #: dashboards/admin/instances/tables.py:142
 #: dashboards/admin/networks/tables.py:102
 #: dashboards/admin/networks/agents/tables.py:92
@@ -1877,8 +1877,8 @@ msgid "Status"
 msgstr ""
 
 #: dashboards/admin/hypervisors/compute/tables.py:97
-#: dashboards/admin/info/tables.py:93 dashboards/admin/info/tables.py:118
-#: dashboards/admin/info/tables.py:168 dashboards/project/overview/views.py:34
+#: dashboards/admin/info/tables.py:98 dashboards/admin/info/tables.py:122
+#: dashboards/admin/info/tables.py:172 dashboards/project/overview/views.py:34
 msgid "State"
 msgstr ""
 
@@ -2068,7 +2068,8 @@ msgstr ""
 msgid "System Information"
 msgstr ""
 
-#: dashboards/admin/info/tables.py:26 dashboards/admin/info/tables.py:151
+#: dashboards/admin/info/tables.py:26 dashboards/admin/info/tables.py:155
+#: dashboards/admin/info/templates/info/_cell_status.html:8
 #: dashboards/admin/networks/agents/tables.py:79
 #: dashboards/identity/domains/tables.py:202
 #: dashboards/identity/domains/workflows.py:39
@@ -2088,48 +2089,49 @@ msgstr ""
 msgid "Enabled"
 msgstr ""
 
-#: dashboards/admin/info/tables.py:27 dashboards/admin/info/tables.py:153
+#: dashboards/admin/info/tables.py:27 dashboards/admin/info/tables.py:157
+#: dashboards/admin/info/templates/info/_cell_status.html:3
 #: dashboards/admin/networks/agents/tables.py:80
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:65
 msgid "Disabled"
 msgstr ""
 
-#: dashboards/admin/info/tables.py:60 dashboards/admin/metering/tables.py:42
+#: dashboards/admin/info/tables.py:31 dashboards/admin/info/tables.py:162
+#: dashboards/admin/networks/agents/tables.py:85
+msgid "Up"
+msgstr ""
+
+#: dashboards/admin/info/tables.py:32 dashboards/admin/info/tables.py:164
+#: dashboards/admin/networks/agents/tables.py:86
+msgid "Down"
+msgstr ""
+
+#: dashboards/admin/info/tables.py:65 dashboards/admin/metering/tables.py:42
 #: dashboards/admin/metering/tables.py:62
 #: dashboards/admin/metering/views.py:105
 #: dashboards/project/access_and_security/api_access/tables.py:61
 msgid "Service"
 msgstr ""
 
-#: dashboards/admin/info/tables.py:69 dashboards/admin/info/tabs.py:30
+#: dashboards/admin/info/tables.py:74 dashboards/admin/info/tabs.py:30
 msgid "Services"
 msgstr ""
 
-#: dashboards/admin/info/tables.py:98 dashboards/admin/info/tables.py:123
-#: dashboards/admin/info/tables.py:172
+#: dashboards/admin/info/tables.py:103 dashboards/admin/info/tables.py:127
+#: dashboards/admin/info/tables.py:176
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr ""
 
-#: dashboards/admin/info/tables.py:107 dashboards/admin/info/tabs.py:46
+#: dashboards/admin/info/tables.py:112 dashboards/admin/info/tabs.py:46
 msgid "Compute Services"
 msgstr ""
 
-#: dashboards/admin/info/tables.py:132 dashboards/admin/info/tabs.py:64
+#: dashboards/admin/info/tables.py:136 dashboards/admin/info/tabs.py:64
 msgid "Block Storage Services"
 msgstr ""
 
-#: dashboards/admin/info/tables.py:158
-#: dashboards/admin/networks/agents/tables.py:85
-msgid "Up"
-msgstr ""
-
-#: dashboards/admin/info/tables.py:160
-#: dashboards/admin/networks/agents/tables.py:86
-msgid "Down"
-msgstr ""
-
-#: dashboards/admin/info/tables.py:181 dashboards/admin/info/tabs.py:82
+#: dashboards/admin/info/tables.py:185 dashboards/admin/info/tabs.py:82
 msgid "Network Agents"
 msgstr ""
 
@@ -2149,7 +2151,7 @@ msgstr ""
 msgid "Unable to retrieve version information."
 msgstr ""
 
-#: dashboards/admin/info/templates/info/_cell_status.html:4
+#: dashboards/admin/info/templates/info/_cell_status.html:5
 #, python-format
 msgid "Reason: %(disabled_reason)s"
 msgstr ""
@@ -2462,7 +2464,7 @@ msgstr ""
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:10
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:99
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:10
-#: dashboards/project/data_processing/clusters/workflows/create.py:73
+#: dashboards/project/data_processing/clusters/workflows/create.py:76
 #: dashboards/project/data_processing/data_image_registry/forms.py:30
 #: dashboards/project/data_processing/data_plugins/tables.py:36
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:13
@@ -2484,8 +2486,8 @@ msgstr ""
 #: dashboards/project/firewalls/forms.py:100
 #: dashboards/project/firewalls/forms.py:128
 #: dashboards/project/firewalls/workflows.py:34
-#: dashboards/project/firewalls/workflows.py:175
-#: dashboards/project/firewalls/workflows.py:233
+#: dashboards/project/firewalls/workflows.py:174
+#: dashboards/project/firewalls/workflows.py:232
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:10
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:10
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:10
@@ -3087,7 +3089,7 @@ msgstr ""
 #: dashboards/admin/networks/forms.py:236
 #: dashboards/admin/networks/ports/forms.py:42
 #: dashboards/project/firewalls/forms.py:131
-#: dashboards/project/firewalls/workflows.py:239
+#: dashboards/project/firewalls/workflows.py:238
 #: dashboards/project/loadbalancers/forms.py:38
 #: dashboards/project/loadbalancers/forms.py:93
 #: dashboards/project/loadbalancers/forms.py:176
@@ -3109,7 +3111,7 @@ msgstr ""
 #: dashboards/admin/networks/forms.py:237
 #: dashboards/admin/networks/ports/forms.py:43
 #: dashboards/project/firewalls/forms.py:132
-#: dashboards/project/firewalls/workflows.py:240
+#: dashboards/project/firewalls/workflows.py:239
 #: dashboards/project/loadbalancers/forms.py:39
 #: dashboards/project/loadbalancers/forms.py:94
 #: dashboards/project/loadbalancers/forms.py:177
@@ -3136,7 +3138,7 @@ msgstr ""
 #: dashboards/admin/routers/ports/tables.py:41
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:15
 #: dashboards/project/firewalls/forms.py:133
-#: dashboards/project/firewalls/workflows.py:241
+#: dashboards/project/firewalls/workflows.py:240
 #: dashboards/project/loadbalancers/forms.py:40
 #: dashboards/project/loadbalancers/forms.py:95
 #: dashboards/project/loadbalancers/forms.py:178
@@ -3169,8 +3171,8 @@ msgstr ""
 #: dashboards/project/firewalls/forms.py:69
 #: dashboards/project/firewalls/forms.py:101
 #: dashboards/project/firewalls/workflows.py:65
-#: dashboards/project/firewalls/workflows.py:177
-#: dashboards/project/firewalls/workflows.py:236
+#: dashboards/project/firewalls/workflows.py:176
+#: dashboards/project/firewalls/workflows.py:235
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:31
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:50
 #: dashboards/project/networks/tables.py:166
@@ -6494,8 +6496,8 @@ msgstr ""
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:59
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:69
 #: dashboards/project/firewalls/workflows.py:104
-#: dashboards/project/firewalls/workflows.py:209
-#: dashboards/project/firewalls/workflows.py:286
+#: dashboards/project/firewalls/workflows.py:208
+#: dashboards/project/firewalls/workflows.py:284
 #: dashboards/project/loadbalancers/workflows.py:136
 #: dashboards/project/loadbalancers/workflows.py:260
 #: dashboards/project/loadbalancers/workflows.py:426
@@ -6964,8 +6966,8 @@ msgstr ""
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/create.html:6
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/create_cluster.html:3
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/create_cluster.html:6
-#: dashboards/project/data_processing/clusters/workflows/create.py:54
-#: dashboards/project/data_processing/clusters/workflows/create.py:201
+#: dashboards/project/data_processing/clusters/workflows/create.py:57
+#: dashboards/project/data_processing/clusters/workflows/create.py:207
 msgid "Launch Cluster"
 msgstr ""
 
@@ -7279,7 +7281,7 @@ msgid "Unable to update row"
 msgstr ""
 
 #: dashboards/project/data_processing/clusters/tables.py:97
-#: dashboards/project/data_processing/clusters/workflows/create.py:183
+#: dashboards/project/data_processing/clusters/workflows/create.py:189
 #: dashboards/project/data_processing/jobs/workflows/launch.py:312
 msgid "Configure Cluster"
 msgstr ""
@@ -7347,17 +7349,17 @@ msgid "Error Details"
 msgstr ""
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:36
-#: dashboards/project/data_processing/clusters/workflows/create.py:79
+#: dashboards/project/data_processing/clusters/workflows/create.py:84
 msgid "Base Image"
 msgstr ""
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:39
-#: dashboards/project/data_processing/clusters/workflows/create.py:95
+#: dashboards/project/data_processing/clusters/workflows/create.py:101
 msgid "Neutron Management Network"
 msgstr ""
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:42
-#: dashboards/project/data_processing/clusters/workflows/create.py:82
+#: dashboards/project/data_processing/clusters/workflows/create.py:88
 msgid "Keypair"
 msgstr ""
 
@@ -7394,44 +7396,44 @@ msgstr ""
 msgid "Cluster Details"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:43
+#: dashboards/project/data_processing/clusters/workflows/create.py:46
 #: dashboards/project/data_processing/jobs/workflows/launch.py:394
 msgid "Select plugin and hadoop version for cluster"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:71
+#: dashboards/project/data_processing/clusters/workflows/create.py:74
 msgid "Cluster Name"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:76
+#: dashboards/project/data_processing/clusters/workflows/create.py:79
 msgid "Cluster Template"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:84
+#: dashboards/project/data_processing/clusters/workflows/create.py:90
 msgid "Which keypair to use for authentication."
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:125
+#: dashboards/project/data_processing/clusters/workflows/create.py:131
 msgid "Unable to fetch image choices."
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:128
+#: dashboards/project/data_processing/clusters/workflows/create.py:134
 msgid "No Images Available"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:138
+#: dashboards/project/data_processing/clusters/workflows/create.py:144
 msgid "Unable to fetch keypair choices."
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:140
+#: dashboards/project/data_processing/clusters/workflows/create.py:146
 msgid "No keypair"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:156
+#: dashboards/project/data_processing/clusters/workflows/create.py:162
 msgid "No Templates Available"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:202
+#: dashboards/project/data_processing/clusters/workflows/create.py:208
 #: dashboards/project/data_processing/jobs/workflows/launch.py:331
 #: dashboards/project/data_processing/jobs/workflows/launch.py:416
 #: dashboards/project/databases/workflows/create_instance.py:272
@@ -7441,12 +7443,12 @@ msgstr ""
 msgid "Launch"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:203
+#: dashboards/project/data_processing/clusters/workflows/create.py:209
 #, python-format
 msgid "Launched Cluster %s"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:235
+#: dashboards/project/data_processing/clusters/workflows/create.py:241
 msgid "Unable to create the cluster"
 msgstr ""
 
@@ -9294,7 +9296,7 @@ msgstr ""
 
 #: dashboards/project/firewalls/forms.py:102
 #: dashboards/project/firewalls/tables.py:235
-#: dashboards/project/firewalls/workflows.py:180
+#: dashboards/project/firewalls/workflows.py:179
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:34
 msgid "Audited"
 msgstr ""
@@ -9311,82 +9313,82 @@ msgstr ""
 
 #: dashboards/project/firewalls/forms.py:130
 #: dashboards/project/firewalls/tables.py:251
-#: dashboards/project/firewalls/workflows.py:235
+#: dashboards/project/firewalls/workflows.py:234
 msgid "Policy"
 msgstr ""
 
-#: dashboards/project/firewalls/forms.py:146
+#: dashboards/project/firewalls/forms.py:145
 msgid "Unable to retrieve policy list."
 msgstr ""
 
-#: dashboards/project/firewalls/forms.py:166
+#: dashboards/project/firewalls/forms.py:165
 #, python-format
 msgid "Firewall %s was successfully updated."
 msgstr ""
 
-#: dashboards/project/firewalls/forms.py:171
+#: dashboards/project/firewalls/forms.py:170
 #, python-format
 msgid "Failed to update firewall %(name)s: %(reason)s"
 msgstr ""
 
-#: dashboards/project/firewalls/forms.py:179
+#: dashboards/project/firewalls/forms.py:178
 #: dashboards/project/firewalls/tables.py:156
 msgid "Insert Rule"
 msgstr ""
 
-#: dashboards/project/firewalls/forms.py:180
+#: dashboards/project/firewalls/forms.py:179
 msgid "Before"
 msgstr ""
 
-#: dashboards/project/firewalls/forms.py:182
+#: dashboards/project/firewalls/forms.py:181
 msgid "After"
 msgstr ""
 
-#: dashboards/project/firewalls/forms.py:207
+#: dashboards/project/firewalls/forms.py:205
 #, python-format
 msgid "Failed to retrieve available rules: %s"
 msgstr ""
 
-#: dashboards/project/firewalls/forms.py:226
+#: dashboards/project/firewalls/forms.py:224
 #, python-format
 msgid "Rule %(rule)s was successfully inserted to policy %(policy)s."
 msgstr ""
 
-#: dashboards/project/firewalls/forms.py:234
+#: dashboards/project/firewalls/forms.py:232
 #, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr ""
 
-#: dashboards/project/firewalls/forms.py:242
+#: dashboards/project/firewalls/forms.py:240
 #: dashboards/project/firewalls/tables.py:170
 msgid "Remove Rule"
 msgstr ""
 
-#: dashboards/project/firewalls/forms.py:260
+#: dashboards/project/firewalls/forms.py:257
 #, python-format
 msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
 msgstr ""
 
-#: dashboards/project/firewalls/forms.py:276
+#: dashboards/project/firewalls/forms.py:273
 #, python-format
 msgid "Rule %(rule)s was successfully removed from policy %(policy)s."
 msgstr ""
 
-#: dashboards/project/firewalls/forms.py:284
+#: dashboards/project/firewalls/forms.py:281
 #, python-format
 msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr ""
 
 #: dashboards/project/firewalls/panel.py:26
 #: dashboards/project/firewalls/tables.py:257
-#: dashboards/project/firewalls/tabs.py:69
+#: dashboards/project/firewalls/tabs.py:65
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:6
 msgid "Firewalls"
 msgstr ""
 
 #: dashboards/project/firewalls/tables.py:35
-#: dashboards/project/firewalls/workflows.py:208
+#: dashboards/project/firewalls/workflows.py:207
 msgid "Add Policy"
 msgstr ""
 
@@ -9483,47 +9485,47 @@ msgstr ""
 msgid "Firewall Rules"
 msgstr ""
 
-#: dashboards/project/firewalls/tabs.py:43
+#: dashboards/project/firewalls/tabs.py:41
 msgid "Unable to retrieve rules list."
 msgstr ""
 
-#: dashboards/project/firewalls/tabs.py:50
+#: dashboards/project/firewalls/tabs.py:48
 msgid "Firewall Policies"
 msgstr ""
 
-#: dashboards/project/firewalls/tabs.py:62
+#: dashboards/project/firewalls/tabs.py:58
 msgid "Unable to retrieve policies list."
 msgstr ""
 
-#: dashboards/project/firewalls/tabs.py:81
+#: dashboards/project/firewalls/tabs.py:75
 msgid "Unable to retrieve firewall list."
 msgstr ""
 
-#: dashboards/project/firewalls/tabs.py:87
+#: dashboards/project/firewalls/tabs.py:81
 msgid "Firewall Rule Details"
 msgstr ""
 
-#: dashboards/project/firewalls/tabs.py:98
+#: dashboards/project/firewalls/tabs.py:92
 #: dashboards/project/firewalls/views.py:145
 msgid "Unable to retrieve rule details."
 msgstr ""
 
-#: dashboards/project/firewalls/tabs.py:104
+#: dashboards/project/firewalls/tabs.py:98
 msgid "Firewall Policy Details"
 msgstr ""
 
-#: dashboards/project/firewalls/tabs.py:115
+#: dashboards/project/firewalls/tabs.py:109
 #: dashboards/project/firewalls/views.py:181
 #: dashboards/project/firewalls/views.py:247
 #: dashboards/project/firewalls/views.py:280
 msgid "Unable to retrieve policy details."
 msgstr ""
 
-#: dashboards/project/firewalls/tabs.py:121
+#: dashboards/project/firewalls/tabs.py:115
 msgid "Firewall Details"
 msgstr ""
 
-#: dashboards/project/firewalls/tabs.py:132
+#: dashboards/project/firewalls/tabs.py:126
 #: dashboards/project/firewalls/views.py:215
 msgid "Unable to retrieve firewall details."
 msgstr ""
@@ -9602,16 +9604,16 @@ msgstr ""
 msgid "Select rules for your policy."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:152
+#: dashboards/project/firewalls/workflows.py:151
 #, python-format
 msgid "Unable to retrieve rules (%(error)s)."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:188
+#: dashboards/project/firewalls/workflows.py:187
 msgid "AddPolicy"
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:190
+#: dashboards/project/firewalls/workflows.py:189
 msgid ""
 "Create a firewall policy with an ordered list of firewall rules.\n"
 "\n"
@@ -9619,46 +9621,46 @@ msgid ""
 "Rules tab."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:210
+#: dashboards/project/firewalls/workflows.py:209
 #, python-format
 msgid "Added Policy \"%s\"."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:211
+#: dashboards/project/firewalls/workflows.py:210
 #, python-format
 msgid "Unable to add Policy \"%s\"."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:246
+#: dashboards/project/firewalls/workflows.py:245
 msgid "Select a Policy"
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:254
+#: dashboards/project/firewalls/workflows.py:252
 #, python-format
 msgid "Unable to retrieve policy list (%(error)s)."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:265
+#: dashboards/project/firewalls/workflows.py:263
 msgid "AddFirewall"
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:267
+#: dashboards/project/firewalls/workflows.py:265
 msgid ""
 "Create a firewall based on a policy.\n"
 "\n"
 "A policy must be selected. Other fields are optional."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:285
+#: dashboards/project/firewalls/workflows.py:283
 msgid "Add Firewall"
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:287
+#: dashboards/project/firewalls/workflows.py:285
 #, python-format
 msgid "Added Firewall \"%s\"."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:288
+#: dashboards/project/firewalls/workflows.py:286
 #, python-format
 msgid "Unable to add Firewall \"%s\"."
 msgstr ""
