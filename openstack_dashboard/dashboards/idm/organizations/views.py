@@ -83,11 +83,7 @@ class DetailOrganizationView(tables.MultiTableView):
         context['contact_info'] = organization.description
         context['organization.id'] = organization.id
         context['organization_name'] = organization.name
-<<<<<<< HEAD
-        context['image'] = getattr(organization, 'img', '/static/dashboard/img/logos/original/group.png')
-=======
         context['image'] =  getattr(organization, 'img_original', '/static/dashboard/img/logos/original/group.png')
->>>>>>> 74211bd940ef1e41d35021558555e2fdf66a3712
         context['city'] = getattr(organization, 'city', '')
         context['email'] = getattr(organization, 'email', '')
         context['website'] = getattr(organization, 'website', '')
@@ -148,11 +144,7 @@ class BaseOrganizationsMultiFormView(idm_views.BaseMultiFormView):
     def get_context_data(self, **kwargs):
 
         context = super(BaseOrganizationsMultiFormView, self).get_context_data(**kwargs)
-<<<<<<< HEAD
-        context['image'] = getattr(self.object, 'img', 
-=======
         context['image'] = getattr(self.object, 'img_original', 
->>>>>>> 74211bd940ef1e41d35021558555e2fdf66a3712
                             '/static/dashboard/img/logos/original/group.png')
         return context
 
