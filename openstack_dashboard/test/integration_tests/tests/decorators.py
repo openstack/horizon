@@ -128,7 +128,7 @@ def skip_because(**kwargs):
             for bug in bugs:
                 if not bug.isdigit():
                     raise ValueError("bug must be a valid bug number")
-            obj = skip_method(obj, "Skipped until Bugs: %s are resolved."
+            obj = skip_method(obj, "Skipped until Bugs: %s are resolved." %
                               ", ".join([bug for bug in bugs]))
         return obj
     return actual_decoration
