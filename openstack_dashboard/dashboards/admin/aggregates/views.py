@@ -40,6 +40,7 @@ class IndexView(tables.MultiTableView):
     table_classes = (project_tables.HostAggregatesTable,
                      project_tables.AvailabilityZonesTable)
     template_name = constants.AGGREGATES_TEMPLATE_NAME
+    page_title = _("Host Aggregates")
 
     def get_host_aggregates_data(self):
         request = self.request
@@ -68,12 +69,14 @@ class IndexView(tables.MultiTableView):
 class CreateView(workflows.WorkflowView):
     workflow_class = aggregate_workflows.CreateAggregateWorkflow
     template_name = constants.AGGREGATES_CREATE_VIEW_TEMPLATE
+    page_title = _("Create Host Aggregate")
 
 
 class UpdateView(forms.ModalFormView):
     template_name = constants.AGGREGATES_UPDATE_VIEW_TEMPLATE
     form_class = aggregate_forms.UpdateAggregateForm
     success_url = reverse_lazy(constants.AGGREGATES_INDEX_URL)
+    page_title = _("Edit Host Aggregate")
 
     def get_initial(self):
         aggregate = self.get_object()
@@ -102,6 +105,7 @@ class UpdateMetadataView(forms.ModalFormView):
     template_name = constants.AGGREGATES_UPDATE_METADATA_TEMPLATE
     form_class = aggregate_forms.UpdateMetadataForm
     success_url = reverse_lazy(constants.AGGREGATES_INDEX_URL)
+    page_title = _("Update Aggregate Metadata")
 
     def get_initial(self):
         aggregate = self.get_object()
@@ -150,6 +154,7 @@ class ManageHostsView(workflows.WorkflowView):
     template_name = constants.AGGREGATES_MANAGE_HOSTS_TEMPLATE
     workflow_class = aggregate_workflows.ManageAggregateHostsWorkflow
     success_url = reverse_lazy(constants.AGGREGATES_INDEX_URL)
+    page_title = _("Manage Hosts Aggregate")
 
     def get_initial(self):
         return {'id': self.kwargs["id"]}
