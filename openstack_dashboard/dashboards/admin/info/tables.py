@@ -27,6 +27,11 @@ SERVICE_STATUS_DISPLAY_CHOICES = (
     (SERVICE_DISABLED, _("Disabled")),
 )
 
+SERVICE_STATE_DISPLAY_CHOICES = (
+    ('up', _("Up")),
+    ('down', _("Down")),
+)
+
 
 class ServiceFilterAction(tables.FilterAction):
     filter_field = 'type'
@@ -76,7 +81,7 @@ def get_available(zone):
     return zone.zoneState['available']
 
 
-def get_nova_agent_status(agent):
+def get_agent_status(agent):
     template_name = 'admin/info/_cell_status.html'
     context = {
         'status': agent.status,
@@ -89,9 +94,9 @@ class NovaServicesTable(tables.DataTable):
     binary = tables.Column("binary", verbose_name=_('Name'))
     host = tables.Column('host', verbose_name=_('Host'))
     zone = tables.Column('zone', verbose_name=_('Zone'))
-    status = tables.Column(get_nova_agent_status, verbose_name=_('Status'))
+    status = tables.Column(get_agent_status, verbose_name=_('Status'))
     state = tables.Column('state', verbose_name=_('State'),
-                          filters=(filters.title,))
+                          display_choices=SERVICE_STATE_DISPLAY_CHOICES)
     updated_at = tables.Column('updated_at',
                                verbose_name=pgettext_lazy(
                                    'Time since the last update',
@@ -113,10 +118,9 @@ class CinderServicesTable(tables.DataTable):
     binary = tables.Column("binary", verbose_name=_('Name'))
     host = tables.Column('host', verbose_name=_('Host'))
     zone = tables.Column('zone', verbose_name=_('Zone'))
-    status = tables.Column('status', verbose_name=_('Status'),
-                           filters=(filters.title, ))
+    status = tables.Column(get_agent_status, verbose_name=_('Status'))
     state = tables.Column('state', verbose_name=_('State'),
-                          filters=(filters.title, ))
+                          display_choices=SERVICE_STATE_DISPLAY_CHOICES)
     updated_at = tables.Column('updated_at',
                                verbose_name=pgettext_lazy(
                                    'Time since the last update',

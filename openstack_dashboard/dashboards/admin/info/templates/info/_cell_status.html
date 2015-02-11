@@ -1,5 +1,9 @@
 {% load i18n %}
-{{ status|title }}
-{% if status == 'disabled' and disabled_reason %}
-<br/><i>{% blocktrans %}Reason: {{ disabled_reason }}{% endblocktrans %}</i>
+{% if status == 'disabled' %}
+  {% trans "Disabled"%}
+  {% if disabled_reason %}
+    <br/><i>{% blocktrans %}Reason: {{ disabled_reason }}{% endblocktrans %}</i>
+  {% endif %}
+{% else %}
+  {% trans "Enabled"%}
 {% endif %}
