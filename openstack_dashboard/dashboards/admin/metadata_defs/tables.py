@@ -133,7 +133,7 @@ class AdminNamespacesTable(tables.DataTable):
         form_field=forms.CharField(widget=forms.Textarea(), required=False),
         truncate=200)
     resource_type_names = tables.Column(
-        "resource_type_names",
+        lambda obj: getattr(obj, 'resource_type_names', []),
         verbose_name=_("Resource Types"),
         wrap_list=True,
         filters=(filters.unordered_list,))
