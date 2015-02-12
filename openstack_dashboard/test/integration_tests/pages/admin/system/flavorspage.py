@@ -21,7 +21,7 @@ class FlavorsPage(basepage.BaseNavigationPage):
     DEFAULT_ID = "auto"
     FLAVORS_TABLE_NAME_COLUMN_INDEX = 0
 
-    _flavors_table_locator = (by.By.CSS_SELECTOR, 'table#flavors')
+    _flavors_table_locator = (by.By.ID, 'flavors')
 
     FLAVORS_TABLE_ACTIONS = ("create_flavor", "delete_flavors")
     FLAVORS_TABLE_ROW_ACTIONS = {

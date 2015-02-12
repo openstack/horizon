@@ -22,7 +22,7 @@ from openstack_dashboard.test.integration_tests.regions import tables
 
 class KeypairsPage(basepage.BaseNavigationPage):
 
-    _key_pairs_table_locator = (by.By.CSS_SELECTOR, 'table#keypairs')
+    _key_pairs_table_locator = (by.By.ID, 'keypairs')
 
     KEY_PAIRS_TABLE_ACTIONS = ("create_key_pair", "import_key_pair",
                                "delete_key_pair")

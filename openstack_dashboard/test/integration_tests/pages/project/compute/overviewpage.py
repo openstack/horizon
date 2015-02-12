@@ -17,8 +17,8 @@ from openstack_dashboard.test.integration_tests.regions import tables
 
 
 class OverviewPage(basepage.BaseNavigationPage):
-    _usage_table_locator = (by.By.CSS_SELECTOR, 'table#project_usage')
-    _date_form_locator = (by.By.CSS_SELECTOR, 'form#date_form')
+    _usage_table_locator = (by.By.ID, 'project_usage')
+    _date_form_locator = (by.By.ID, 'date_form')
 
     USAGE_TABLE_ACTIONS = ("download_csv",)
 
