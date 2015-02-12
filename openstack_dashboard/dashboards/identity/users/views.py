@@ -127,7 +127,6 @@ class CreateView(forms.ModalFormView):
     modal_header = _("Create User")
     form_id = "create_user_form"
     form_class = project_forms.CreateUserForm
-    template_name = 'identity/users/create.html'
     submit_label = _("Create User")
     submit_url = reverse_lazy("horizon:identity:users:create")
     success_url = reverse_lazy('horizon:identity:users:index')
