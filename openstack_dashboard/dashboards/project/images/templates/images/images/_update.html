@@ -1,18 +1,7 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
-{% load url from future %}
-
-{% block form_id %}update_image_form{% endblock %}
-{% block form_action %}{% url 'horizon:project:images:images:update' image.id %}{% endblock %}
-
-{% block modal-header %}{% trans "Update Image" %}{% endblock %}
 
 {% block modal-body-right %}
   <h3>{% trans "Description:" %}</h3>
   <p>{% trans "Edit the image details." %}</p>
-{% endblock %}
-
-{% block modal-footer %}
-  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Update Image" %}" />
-  <a href="{% url 'horizon:project:images:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
 {% endblock %}

@@ -40,6 +40,10 @@ from openstack_dashboard.dashboards.project.images.images \
 
 class CreateView(forms.ModalFormView):
     form_class = project_forms.CreateImageForm
+    form_id = "create_image_form"
+    modal_header = _("Create An Image")
+    submit_label = _("Create Image")
+    submit_url = reverse_lazy('horizon:project:images:images:create')
     template_name = 'project/images/images/create.html'
     context_object_name = 'image'
     success_url = reverse_lazy("horizon:project:images:index")
@@ -48,6 +52,10 @@ class CreateView(forms.ModalFormView):
 
 class UpdateView(forms.ModalFormView):
     form_class = project_forms.UpdateImageForm
+    form_id = "update_image_form"
+    modal_header = _("Update Image")
+    submit_label = _("Update Image")
+    submit_url = "horizon:project:images:images:update"
     template_name = 'project/images/images/update.html'
     success_url = reverse_lazy("horizon:project:images:index")
     page_title = _("Update Image")
@@ -64,6 +72,8 @@ class UpdateView(forms.ModalFormView):
     def get_context_data(self, **kwargs):
         context = super(UpdateView, self).get_context_data(**kwargs)
         context['image'] = self.get_object()
+        args = (self.kwargs['image_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
         return context
 
     def get_initial(self):
