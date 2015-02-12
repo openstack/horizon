@@ -36,12 +36,8 @@ python-glanceclient>=0.14.0
 python-heatclient>=0.2.9
 #removed to use our custom keystone client
 #python-keystoneclient>=0.11.1
-<<<<<<< Updated upstream
--e ../fiwareclient
-=======
 # installed globally through fabric
 #-e ../fiwareclient
->>>>>>> Stashed changes
 python-neutronclient>=2.3.6,<3
 python-novaclient>=2.18.0
 python-saharaclient>=0.7.3
