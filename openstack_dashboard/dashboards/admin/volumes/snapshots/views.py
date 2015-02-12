@@ -32,6 +32,7 @@ class UpdateStatusView(forms.ModalFormView):
     form_class = vol_snapshot_forms.UpdateStatus
     template_name = 'admin/volumes/snapshots/update_status.html'
     success_url = reverse_lazy("horizon:admin:volumes:snapshots_tab")
+    page_title = _("Update Volume Snapshot Status")
 
     @memoized.memoized_method
     def get_object(self):
