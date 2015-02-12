@@ -2,10 +2,6 @@
 {% load i18n %}
 {% block title %}{% trans "Resource Types" %}{% endblock %}
 
-{% block page_header %}
-  {% include "horizon/common/_page_header.html" with title=_("Resource Types") %}
-{% endblock page_header %}
-
 {% block main %}
     {{ table.render }}
 {% endblock %}

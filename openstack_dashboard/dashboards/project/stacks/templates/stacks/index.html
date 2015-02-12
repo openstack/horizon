@@ -2,12 +2,6 @@
 {% load i18n %}
 {% block title %}{% trans "Stacks" %}{% endblock %}
 
-{% block page_header %}
-  {% include "horizon/common/_page_header.html" with title=_("Stacks") %}
-{% endblock page_header %}
-
 {% block main %}
     {{ table.render }}
 {% endblock %}
-
-
