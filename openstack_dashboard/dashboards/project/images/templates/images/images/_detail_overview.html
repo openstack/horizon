@@ -45,6 +45,10 @@
   <dl class="dl-horizontal">
     <dt>{% trans "Size" %}</dt>
     <dd>{{ image.size|filesizeformat }}</dd>
+    {% if image.virtual_size %}
+      <dt>{% trans "Virtual Size" %}</dt>
+      <dd>{{ image.virtual_size|filesizeformat }}</dd>
+    {% endif %}
     <dt>{% trans "Container Format" %}</dt>
     <dd>{{ image.container_format|default:_("None")|upper }}</dd>
     <dt>{% trans "Disk Format" %}</dt>
