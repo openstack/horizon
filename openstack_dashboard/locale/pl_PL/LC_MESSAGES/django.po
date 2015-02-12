@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-09 16:54-0600\n"
-"PO-Revision-Date: 2015-02-09 22:53+0000\n"
+"POT-Creation-Date: 2015-02-11 13:40-0600\n"
+"PO-Revision-Date: 2015-02-11 19:29+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -457,7 +457,7 @@ msgstr "Nie można sprawdzić Neutron, rozszerzenie „%s” jest niewspierane"
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:43
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:18
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:29
-#: dashboards/project/routers/tables.py:182
+#: dashboards/project/routers/tables.py:183
 #: dashboards/project/volumes/volumes/tables.py:355
 msgid "-"
 msgstr "-"
@@ -521,9 +521,9 @@ msgstr "Administracja"
 #: dashboards/admin/aggregates/forms.py:28
 #: dashboards/admin/aggregates/tables.py:128
 #: dashboards/admin/aggregates/workflows.py:24
-#: dashboards/admin/flavors/workflows.py:36 dashboards/admin/info/tables.py:59
-#: dashboards/admin/info/tables.py:89 dashboards/admin/info/tables.py:113
-#: dashboards/admin/info/tables.py:165 dashboards/admin/instances/tables.py:95
+#: dashboards/admin/flavors/workflows.py:36 dashboards/admin/info/tables.py:64
+#: dashboards/admin/info/tables.py:94 dashboards/admin/info/tables.py:118
+#: dashboards/admin/info/tables.py:169 dashboards/admin/instances/tables.py:95
 #: dashboards/admin/instances/tables.py:129
 #: dashboards/admin/metadata_defs/tables.py:128
 #: dashboards/admin/networks/forms.py:38
@@ -556,9 +556,11 @@ msgstr "Administracja"
 #: dashboards/project/access_and_security/security_groups/tables.py:132
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:15
 #: dashboards/project/containers/templates/containers/_object_detail.html:10
-#: dashboards/project/data_processing/cluster_templates/tables.py:108
+#: dashboards/project/data_processing/cluster_templates/tables.py:31
+#: dashboards/project/data_processing/cluster_templates/tables.py:116
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:6
-#: dashboards/project/data_processing/clusters/tables.py:105
+#: dashboards/project/data_processing/clusters/tables.py:33
+#: dashboards/project/data_processing/clusters/tables.py:111
 #: dashboards/project/data_processing/clusters/tabs.py:137
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:6
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:9
@@ -568,16 +570,18 @@ msgstr "Administracja"
 #: dashboards/project/data_processing/job_binaries/forms.py:48
 #: dashboards/project/data_processing/job_binaries/tables.py:79
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:5
-#: dashboards/project/data_processing/jobs/tables.py:98
+#: dashboards/project/data_processing/jobs/tables.py:30
+#: dashboards/project/data_processing/jobs/tables.py:104
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:6
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:54
 #: dashboards/project/data_processing/jobs/workflows/create.py:53
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:76
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:28
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:83
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:6
 #: dashboards/project/data_processing/utils/workflow_helpers.py:113
 #: dashboards/project/database_backups/tables.py:145
-#: dashboards/project/database_backups/templates/database_backups/details.html:18
-#: dashboards/project/database_backups/templates/database_backups/details.html:64
+#: dashboards/project/database_backups/templates/database_backups/details.html:14
+#: dashboards/project/database_backups/templates/database_backups/details.html:60
 #: dashboards/project/database_backups/workflows/create_backup.py:32
 #: dashboards/project/databases/tables.py:330
 #: dashboards/project/databases/templates/databases/_detail_overview.html:9
@@ -588,8 +592,8 @@ msgstr "Administracja"
 #: dashboards/project/firewalls/tables.py:230
 #: dashboards/project/firewalls/tables.py:247
 #: dashboards/project/firewalls/workflows.py:30
-#: dashboards/project/firewalls/workflows.py:173
-#: dashboards/project/firewalls/workflows.py:230
+#: dashboards/project/firewalls/workflows.py:172
+#: dashboards/project/firewalls/workflows.py:229
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:7
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:7
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:7
@@ -615,7 +619,7 @@ msgstr "Administracja"
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:10
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:10
 #: dashboards/project/routers/forms.py:85
-#: dashboards/project/routers/tables.py:196
+#: dashboards/project/routers/tables.py:202
 #: dashboards/project/routers/ports/tables.py:101
 #: dashboards/project/routers/templates/routers/_detail_overview.html:9
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:9
@@ -681,8 +685,8 @@ msgstr "Nie można zaktualizować metadanych agregatu."
 
 #: dashboards/admin/aggregates/panel.py:26
 #: dashboards/admin/aggregates/tables.py:143
+#: dashboards/admin/aggregates/views.py:43
 #: dashboards/admin/aggregates/templates/aggregates/index.html:3
-#: dashboards/admin/aggregates/templates/aggregates/index.html:6
 msgid "Host Aggregates"
 msgstr "Agregaty hostów"
 
@@ -701,10 +705,10 @@ msgstr[1] ""
 msgstr[2] ""
 
 #: dashboards/admin/aggregates/tables.py:48
+#: dashboards/admin/aggregates/views.py:72
 #: dashboards/admin/aggregates/workflows.py:176
 #: dashboards/admin/aggregates/workflows.py:177
 #: dashboards/admin/aggregates/templates/aggregates/create.html:3
-#: dashboards/admin/aggregates/templates/aggregates/create.html:6
 msgid "Create Host Aggregate"
 msgstr "Utwórz agregat hostów"
 
@@ -722,9 +726,9 @@ msgid "Update Metadata"
 msgstr "Aktualizuj metadane"
 
 #: dashboards/admin/aggregates/tables.py:72
+#: dashboards/admin/aggregates/views.py:79
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:9
 #: dashboards/admin/aggregates/templates/aggregates/update.html:3
-#: dashboards/admin/aggregates/templates/aggregates/update.html:6
 msgid "Edit Host Aggregate"
 msgstr "Edytuj agregat hostów"
 
@@ -764,25 +768,37 @@ msgstr "Dostępne"
 msgid "Availability Zones"
 msgstr "Strefy dostępności"
 
-#: dashboards/admin/aggregates/views.py:51
+#: dashboards/admin/aggregates/views.py:52
 msgid "Unable to retrieve host aggregates list."
 msgstr "Nie można pobrać listy agregatów hostów."
 
-#: dashboards/admin/aggregates/views.py:63
+#: dashboards/admin/aggregates/views.py:64
 msgid "Unable to retrieve availability zone list."
 msgstr "Nie można pobrać listy stref dostępności."
 
-#: dashboards/admin/aggregates/views.py:96
+#: dashboards/admin/aggregates/views.py:99
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "Nie można pobrać agregatu do aktualizacji"
 
-#: dashboards/admin/aggregates/views.py:130
+#: dashboards/admin/aggregates/views.py:108
+#: dashboards/admin/aggregates/templates/aggregates/_update_metadata.html:4
+#: dashboards/admin/aggregates/templates/aggregates/_update_metadata.html:7
+#: dashboards/admin/aggregates/templates/aggregates/update_metadata.html:3
+msgid "Update Aggregate Metadata"
+msgstr "Aktualizuj metadane agregatu"
+
+#: dashboards/admin/aggregates/views.py:134
 msgid "Unable to retrieve available metadata for aggregate."
 msgstr "Nie można pobrać dostępnych metadanych dla agregatu."
 
-#: dashboards/admin/aggregates/views.py:143
+#: dashboards/admin/aggregates/views.py:147
 msgid "Unable to retrieve the aggregate to be updated."
 msgstr "Nie można pobrać agregatu w celu aktualizacji."
+
+#: dashboards/admin/aggregates/views.py:157
+#: dashboards/admin/aggregates/templates/aggregates/manage_hosts.html:3
+msgid "Manage Hosts Aggregate"
+msgstr "Zarządzaj agregatem hostów"
 
 #: dashboards/admin/aggregates/workflows.py:31
 msgid "Host Aggregate Information"
@@ -1090,21 +1106,8 @@ msgstr "Agregaty hostów dzielą strefę dostępności w logiczne jednostki popr
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: dashboards/admin/aggregates/templates/aggregates/_update_metadata.html:4
-#: dashboards/admin/aggregates/templates/aggregates/_update_metadata.html:7
-#: dashboards/admin/aggregates/templates/aggregates/update_metadata.html:3
-#: dashboards/admin/aggregates/templates/aggregates/update_metadata.html:6
-msgid "Update Aggregate Metadata"
-msgstr "Aktualizuj metadane agregatu"
-
-#: dashboards/admin/aggregates/templates/aggregates/manage_hosts.html:3
-#: dashboards/admin/aggregates/templates/aggregates/manage_hosts.html:6
-msgid "Manage Hosts Aggregate"
-msgstr "Zarządzaj agregatem hostów"
-
-#: dashboards/admin/defaults/panel.py:23
+#: dashboards/admin/defaults/panel.py:23 dashboards/admin/defaults/views.py:29
 #: dashboards/admin/defaults/templates/defaults/index.html:3
-#: dashboards/admin/defaults/templates/defaults/index.html:6
 msgid "Defaults"
 msgstr "Wartości domyślne"
 
@@ -1300,7 +1303,7 @@ msgstr "Domyślne limity"
 msgid "Unable to get quota info."
 msgstr "Nie można pobrać informacji o limitach."
 
-#: dashboards/admin/defaults/views.py:44
+#: dashboards/admin/defaults/views.py:45
 #: dashboards/identity/projects/views.py:160
 msgid "Unable to retrieve default quota values."
 msgstr "Nie można pobrać domyślnych wartości limitów."
@@ -1327,8 +1330,8 @@ msgid "Unable to update the flavor metadata."
 msgstr "Nie można zaktualizować metadanych odmiany."
 
 #: dashboards/admin/flavors/panel.py:27 dashboards/admin/flavors/tables.py:150
+#: dashboards/admin/flavors/views.py:47
 #: dashboards/admin/flavors/templates/flavors/index.html:3
-#: dashboards/admin/flavors/templates/flavors/index.html:6
 msgid "Flavors"
 msgstr "Odmiany"
 
@@ -1346,18 +1349,16 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/admin/flavors/tables.py:54
+#: dashboards/admin/flavors/tables.py:54 dashboards/admin/flavors/views.py:66
 #: dashboards/admin/flavors/workflows.py:178
 #: dashboards/admin/flavors/workflows.py:179
 #: dashboards/admin/flavors/templates/flavors/create.html:3
-#: dashboards/admin/flavors/templates/flavors/create.html:6
 msgid "Create Flavor"
 msgstr "Utwórz odmianę"
 
-#: dashboards/admin/flavors/tables.py:62
+#: dashboards/admin/flavors/tables.py:62 dashboards/admin/flavors/views.py:72
 #: dashboards/admin/flavors/workflows.py:265
 #: dashboards/admin/flavors/templates/flavors/update.html:3
-#: dashboards/admin/flavors/templates/flavors/update.html:6
 msgid "Edit Flavor"
 msgstr "Edytuj odmianę"
 
@@ -1422,12 +1423,13 @@ msgstr "Dysk swap"
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:8
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:7
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:7
-#: dashboards/project/data_processing/job_executions/tables.py:143
+#: dashboards/project/data_processing/job_executions/tables.py:36
+#: dashboards/project/data_processing/job_executions/tables.py:151
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:8
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:8
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:8
-#: dashboards/project/database_backups/templates/database_backups/details.html:22
-#: dashboards/project/database_backups/templates/database_backups/details.html:66
+#: dashboards/project/database_backups/templates/database_backups/details.html:18
+#: dashboards/project/database_backups/templates/database_backups/details.html:62
 #: dashboards/project/databases/templates/databases/_detail_overview.html:11
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:13
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:13
@@ -1479,19 +1481,26 @@ msgstr "ID"
 msgid "Public"
 msgstr "Publiczny"
 
-#: dashboards/admin/flavors/views.py:56
+#: dashboards/admin/flavors/views.py:57
 msgid "Unable to retrieve flavor list."
 msgstr "Nie można pobrać listy odmian."
 
-#: dashboards/admin/flavors/views.py:79
+#: dashboards/admin/flavors/views.py:82
 msgid "Unable to retrieve flavor details."
 msgstr "Nie można pobrać szczegółów odmiany."
 
-#: dashboards/admin/flavors/views.py:121
+#: dashboards/admin/flavors/views.py:97
+#: dashboards/admin/flavors/templates/flavors/_update_metadata.html:4
+#: dashboards/admin/flavors/templates/flavors/_update_metadata.html:7
+#: dashboards/admin/flavors/templates/flavors/update_metadata.html:3
+msgid "Update Flavor Metadata"
+msgstr "Aktualizacja metadanych odmiany"
+
+#: dashboards/admin/flavors/views.py:125
 msgid "Unable to retrieve available metadata for flavors."
 msgstr "Nie można pobrać metadanych odmian."
 
-#: dashboards/admin/flavors/views.py:135
+#: dashboards/admin/flavors/views.py:139
 msgid "Unable to retrieve the flavor metadata."
 msgstr "Nie można pobrać metadanych odmiany."
 
@@ -1615,13 +1624,6 @@ msgstr "Nie można zmodyfikować odmiany „%s”."
 msgid "Modified flavor information, but unable to modify flavor access."
 msgstr "Zmodyfikowano informacje o odmianie, lecz nie można zmodyfikować dostępności odmiany."
 
-#: dashboards/admin/flavors/templates/flavors/_update_metadata.html:4
-#: dashboards/admin/flavors/templates/flavors/_update_metadata.html:7
-#: dashboards/admin/flavors/templates/flavors/update_metadata.html:3
-#: dashboards/admin/flavors/templates/flavors/update_metadata.html:6
-msgid "Update Flavor Metadata"
-msgstr "Aktualizacja metadanych odmiany"
-
 #: dashboards/admin/hypervisors/panel.py:22
 #: dashboards/admin/hypervisors/tables.py:64
 #: dashboards/admin/hypervisors/templates/hypervisors/index.html:4
@@ -1633,7 +1635,7 @@ msgid "Hostname"
 msgstr "Nazwa hosta"
 
 #: dashboards/admin/hypervisors/tables.py:28
-#: dashboards/admin/info/tables.py:164
+#: dashboards/admin/info/tables.py:168
 #: dashboards/admin/routers/ports/tables.py:39
 #: dashboards/project/access_and_security/security_groups/forms.py:173
 #: dashboards/project/access_and_security/security_groups/forms.py:180
@@ -1750,8 +1752,8 @@ msgstr "Nie można ewakuować hosta: %s."
 
 #: dashboards/admin/hypervisors/compute/forms.py:73
 #: dashboards/admin/hypervisors/compute/tables.py:94
-#: dashboards/admin/info/tables.py:61 dashboards/admin/info/tables.py:90
-#: dashboards/admin/info/tables.py:114 dashboards/admin/info/tables.py:166
+#: dashboards/admin/info/tables.py:66 dashboards/admin/info/tables.py:95
+#: dashboards/admin/info/tables.py:119 dashboards/admin/info/tables.py:170
 #: dashboards/admin/instances/tables.py:125
 #: dashboards/admin/networks/agents/tables.py:91
 #: dashboards/admin/volumes/snapshots/tables.py:64
@@ -1813,13 +1815,13 @@ msgstr[1] ""
 msgstr[2] ""
 
 #: dashboards/admin/hypervisors/compute/tables.py:95
-#: dashboards/admin/info/tables.py:91 dashboards/admin/info/tables.py:115
+#: dashboards/admin/info/tables.py:96 dashboards/admin/info/tables.py:120
 msgid "Zone"
 msgstr "Strefa"
 
 #: dashboards/admin/hypervisors/compute/tables.py:96
-#: dashboards/admin/info/tables.py:63 dashboards/admin/info/tables.py:92
-#: dashboards/admin/info/tables.py:116 dashboards/admin/info/tables.py:167
+#: dashboards/admin/info/tables.py:68 dashboards/admin/info/tables.py:97
+#: dashboards/admin/info/tables.py:121 dashboards/admin/info/tables.py:171
 #: dashboards/admin/instances/tables.py:142
 #: dashboards/admin/networks/tables.py:102
 #: dashboards/admin/networks/agents/tables.py:92
@@ -1830,13 +1832,15 @@ msgstr "Strefa"
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/admin/volumes/volumes/forms.py:183
 #: dashboards/project/access_and_security/floating_ips/tables.py:200
-#: dashboards/project/data_processing/clusters/tables.py:109
+#: dashboards/project/data_processing/clusters/tables.py:34
+#: dashboards/project/data_processing/clusters/tables.py:115
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:12
-#: dashboards/project/data_processing/job_executions/tables.py:158
+#: dashboards/project/data_processing/job_executions/tables.py:39
+#: dashboards/project/data_processing/job_executions/tables.py:166
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:6
 #: dashboards/project/database_backups/tables.py:161
-#: dashboards/project/database_backups/templates/database_backups/details.html:30
-#: dashboards/project/database_backups/templates/database_backups/details.html:71
+#: dashboards/project/database_backups/templates/database_backups/details.html:26
+#: dashboards/project/database_backups/templates/database_backups/details.html:67
 #: dashboards/project/databases/tables.py:278
 #: dashboards/project/databases/tables.py:343
 #: dashboards/project/databases/templates/databases/_detail_overview.html:17
@@ -1855,7 +1859,7 @@ msgstr "Strefa"
 #: dashboards/project/networks/ports/tables.py:72
 #: dashboards/project/networks/templates/networks/_detail_overview.html:13
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:32
-#: dashboards/project/routers/tables.py:200
+#: dashboards/project/routers/tables.py:205
 #: dashboards/project/routers/ports/tables.py:105
 #: dashboards/project/routers/templates/routers/_detail_overview.html:13
 #: dashboards/project/stacks/tables.py:267
@@ -1877,8 +1881,8 @@ msgid "Status"
 msgstr "Stan"
 
 #: dashboards/admin/hypervisors/compute/tables.py:97
-#: dashboards/admin/info/tables.py:93 dashboards/admin/info/tables.py:118
-#: dashboards/admin/info/tables.py:168 dashboards/project/overview/views.py:34
+#: dashboards/admin/info/tables.py:98 dashboards/admin/info/tables.py:122
+#: dashboards/admin/info/tables.py:172 dashboards/project/overview/views.py:34
 msgid "State"
 msgstr "Stan"
 
@@ -2068,7 +2072,8 @@ msgstr "Aktualizacja metadanych obrazu"
 msgid "System Information"
 msgstr "Informacje systemowe"
 
-#: dashboards/admin/info/tables.py:26 dashboards/admin/info/tables.py:151
+#: dashboards/admin/info/tables.py:26 dashboards/admin/info/tables.py:155
+#: dashboards/admin/info/templates/info/_cell_status.html:8
 #: dashboards/admin/networks/agents/tables.py:79
 #: dashboards/identity/domains/tables.py:202
 #: dashboards/identity/domains/workflows.py:39
@@ -2088,48 +2093,49 @@ msgstr "Informacje systemowe"
 msgid "Enabled"
 msgstr "Włączone"
 
-#: dashboards/admin/info/tables.py:27 dashboards/admin/info/tables.py:153
+#: dashboards/admin/info/tables.py:27 dashboards/admin/info/tables.py:157
+#: dashboards/admin/info/templates/info/_cell_status.html:3
 #: dashboards/admin/networks/agents/tables.py:80
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:65
 msgid "Disabled"
 msgstr "Wyłączone"
 
-#: dashboards/admin/info/tables.py:60 dashboards/admin/metering/tables.py:42
+#: dashboards/admin/info/tables.py:31 dashboards/admin/info/tables.py:162
+#: dashboards/admin/networks/agents/tables.py:85
+msgid "Up"
+msgstr "Podniesiono"
+
+#: dashboards/admin/info/tables.py:32 dashboards/admin/info/tables.py:164
+#: dashboards/admin/networks/agents/tables.py:86
+msgid "Down"
+msgstr "Położono"
+
+#: dashboards/admin/info/tables.py:65 dashboards/admin/metering/tables.py:42
 #: dashboards/admin/metering/tables.py:62
 #: dashboards/admin/metering/views.py:105
 #: dashboards/project/access_and_security/api_access/tables.py:61
 msgid "Service"
 msgstr "Usługa"
 
-#: dashboards/admin/info/tables.py:69 dashboards/admin/info/tabs.py:30
+#: dashboards/admin/info/tables.py:74 dashboards/admin/info/tabs.py:30
 msgid "Services"
 msgstr "Usługi"
 
-#: dashboards/admin/info/tables.py:98 dashboards/admin/info/tables.py:123
-#: dashboards/admin/info/tables.py:172
+#: dashboards/admin/info/tables.py:103 dashboards/admin/info/tables.py:127
+#: dashboards/admin/info/tables.py:176
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "Ostatnio zaktualizowano"
 
-#: dashboards/admin/info/tables.py:107 dashboards/admin/info/tabs.py:46
+#: dashboards/admin/info/tables.py:112 dashboards/admin/info/tabs.py:46
 msgid "Compute Services"
 msgstr "Usługi obliczeniowe"
 
-#: dashboards/admin/info/tables.py:132 dashboards/admin/info/tabs.py:64
+#: dashboards/admin/info/tables.py:136 dashboards/admin/info/tabs.py:64
 msgid "Block Storage Services"
 msgstr "Usługi przechowywania blokowego"
 
-#: dashboards/admin/info/tables.py:158
-#: dashboards/admin/networks/agents/tables.py:85
-msgid "Up"
-msgstr "Podniesiono"
-
-#: dashboards/admin/info/tables.py:160
-#: dashboards/admin/networks/agents/tables.py:86
-msgid "Down"
-msgstr "Położono"
-
-#: dashboards/admin/info/tables.py:181 dashboards/admin/info/tabs.py:82
+#: dashboards/admin/info/tables.py:185 dashboards/admin/info/tabs.py:82
 msgid "Network Agents"
 msgstr "Agenci sieciowi"
 
@@ -2149,7 +2155,7 @@ msgstr "Nie można pobrać listy agentów sieciowych."
 msgid "Unable to retrieve version information."
 msgstr "Nie można pobrać informacji o wersji."
 
-#: dashboards/admin/info/templates/info/_cell_status.html:4
+#: dashboards/admin/info/templates/info/_cell_status.html:5
 #, python-format
 msgid "Reason: %(disabled_reason)s"
 msgstr ""
@@ -2319,10 +2325,10 @@ msgid "Unable to retrieve host information."
 msgstr "Nie można pobrać informacji o hoście."
 
 #: dashboards/admin/instances/views.py:177
-#: dashboards/project/databases/views.py:152
-#: dashboards/project/databases/views.py:191
+#: dashboards/project/databases/views.py:150
+#: dashboards/project/databases/views.py:189
 #: dashboards/project/instances/views.py:210
-#: dashboards/project/instances/views.py:352
+#: dashboards/project/instances/views.py:350
 msgid "Unable to retrieve instance details."
 msgstr "Nie można pobrać szczegółów instancji."
 
@@ -2461,11 +2467,12 @@ msgstr ""
 #: dashboards/project/access_and_security/security_groups/forms.py:44
 #: dashboards/project/access_and_security/security_groups/forms.py:73
 #: dashboards/project/access_and_security/security_groups/tables.py:133
-#: dashboards/project/data_processing/cluster_templates/tables.py:120
+#: dashboards/project/data_processing/cluster_templates/tables.py:34
+#: dashboards/project/data_processing/cluster_templates/tables.py:128
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:10
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:99
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:10
-#: dashboards/project/data_processing/clusters/workflows/create.py:73
+#: dashboards/project/data_processing/clusters/workflows/create.py:76
 #: dashboards/project/data_processing/data_image_registry/forms.py:30
 #: dashboards/project/data_processing/data_plugins/tables.py:36
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:13
@@ -2475,19 +2482,20 @@ msgstr ""
 #: dashboards/project/data_processing/job_binaries/forms.py:131
 #: dashboards/project/data_processing/job_binaries/tables.py:84
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:11
-#: dashboards/project/data_processing/jobs/tables.py:101
+#: dashboards/project/data_processing/jobs/tables.py:31
+#: dashboards/project/data_processing/jobs/tables.py:107
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:10
 #: dashboards/project/data_processing/jobs/workflows/create.py:76
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:10
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:41
-#: dashboards/project/database_backups/templates/database_backups/details.html:20
+#: dashboards/project/database_backups/templates/database_backups/details.html:16
 #: dashboards/project/database_backups/workflows/create_backup.py:34
 #: dashboards/project/firewalls/forms.py:36
 #: dashboards/project/firewalls/forms.py:100
 #: dashboards/project/firewalls/forms.py:128
 #: dashboards/project/firewalls/workflows.py:34
-#: dashboards/project/firewalls/workflows.py:175
-#: dashboards/project/firewalls/workflows.py:233
+#: dashboards/project/firewalls/workflows.py:174
+#: dashboards/project/firewalls/workflows.py:232
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:10
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:10
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:10
@@ -2561,6 +2569,10 @@ msgstr ""
 msgid "Error getting metadata definitions."
 msgstr ""
 
+#: dashboards/admin/metadata_defs/views.py:91
+msgid "Namespace Details: {{ namespace.namespace }}"
+msgstr ""
+
 #: dashboards/admin/metadata_defs/views.py:127
 #: dashboards/admin/metadata_defs/views.py:145
 #: dashboards/admin/metadata_defs/views.py:159
@@ -2598,7 +2610,6 @@ msgstr ""
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:11
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:13
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:35
-#: dashboards/admin/metadata_defs/templates/metadata_defs/detail.html:7
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:8
 #: dashboards/admin/volumes/volume_types/forms.py:87
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:16
@@ -2666,7 +2677,7 @@ msgstr ""
 #: dashboards/project/data_processing/jobs/workflows/launch.py:407
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:360
 #: dashboards/project/database_backups/tables.py:150
-#: dashboards/project/database_backups/templates/database_backups/details.html:36
+#: dashboards/project/database_backups/templates/database_backups/details.html:32
 #: dashboards/project/databases/tables.py:331
 #: dashboards/project/databases/templates/databases/_detail_overview.html:34
 #: dashboards/project/images/templates/images/images/_detail_overview.html:27
@@ -2697,7 +2708,7 @@ msgstr "Nieznane"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:24
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:24
-#: dashboards/project/database_backups/templates/database_backups/details.html:38
+#: dashboards/project/database_backups/templates/database_backups/details.html:34
 #: dashboards/project/databases/templates/databases/_detail_overview.html:36
 #: dashboards/project/images/templates/images/images/_detail_overview.html:33
 #: dashboards/project/stacks/tables.py:258
@@ -2738,10 +2749,6 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/detail.html:4
 msgid "Namespace Details"
-msgstr ""
-
-#: dashboards/admin/metadata_defs/templates/metadata_defs/detail.html:7
-msgid "Namespace Details: "
 msgstr ""
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:15
@@ -3089,7 +3096,7 @@ msgstr "ID segmentacji"
 #: dashboards/admin/networks/forms.py:236
 #: dashboards/admin/networks/ports/forms.py:42
 #: dashboards/project/firewalls/forms.py:131
-#: dashboards/project/firewalls/workflows.py:239
+#: dashboards/project/firewalls/workflows.py:238
 #: dashboards/project/loadbalancers/forms.py:38
 #: dashboards/project/loadbalancers/forms.py:93
 #: dashboards/project/loadbalancers/forms.py:176
@@ -3111,7 +3118,7 @@ msgstr ""
 #: dashboards/admin/networks/forms.py:237
 #: dashboards/admin/networks/ports/forms.py:43
 #: dashboards/project/firewalls/forms.py:132
-#: dashboards/project/firewalls/workflows.py:240
+#: dashboards/project/firewalls/workflows.py:239
 #: dashboards/project/loadbalancers/forms.py:39
 #: dashboards/project/loadbalancers/forms.py:94
 #: dashboards/project/loadbalancers/forms.py:177
@@ -3138,7 +3145,7 @@ msgstr ""
 #: dashboards/admin/routers/ports/tables.py:41
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:15
 #: dashboards/project/firewalls/forms.py:133
-#: dashboards/project/firewalls/workflows.py:241
+#: dashboards/project/firewalls/workflows.py:240
 #: dashboards/project/loadbalancers/forms.py:40
 #: dashboards/project/loadbalancers/forms.py:95
 #: dashboards/project/loadbalancers/forms.py:178
@@ -3171,8 +3178,8 @@ msgstr "Stan administracyjny"
 #: dashboards/project/firewalls/forms.py:69
 #: dashboards/project/firewalls/forms.py:101
 #: dashboards/project/firewalls/workflows.py:65
-#: dashboards/project/firewalls/workflows.py:177
-#: dashboards/project/firewalls/workflows.py:236
+#: dashboards/project/firewalls/workflows.py:176
+#: dashboards/project/firewalls/workflows.py:235
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:31
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:50
 #: dashboards/project/networks/tables.py:166
@@ -3185,7 +3192,7 @@ msgstr "Współdzielone"
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:177
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:220
 #: dashboards/project/networks/templates/networks/_detail_overview.html:19
-#: dashboards/project/routers/tables.py:210
+#: dashboards/project/routers/tables.py:216
 #: dashboards/project/routers/ports/forms.py:146
 msgid "External Network"
 msgstr "Zewnętrzna sieć"
@@ -3356,18 +3363,18 @@ msgid "Unable to list dhcp agents hosting network."
 msgstr "Nie można pobrać listy agentów DHCP dla sieci."
 
 #: dashboards/admin/networks/views.py:112
-#: dashboards/project/networks/views.py:105
+#: dashboards/project/networks/views.py:106
 msgid "Subnet list can not be retrieved."
 msgstr "Nie można pobrać listy podsieci."
 
 #: dashboards/admin/networks/views.py:122
-#: dashboards/project/networks/views.py:115
+#: dashboards/project/networks/views.py:116
 msgid "Port list can not be retrieved."
 msgstr "Nie można pobrać listy portów."
 
 #: dashboards/admin/networks/views.py:145
 #: dashboards/admin/networks/subnets/tables.py:109
-#: dashboards/project/networks/views.py:126
+#: dashboards/project/networks/views.py:127
 #: dashboards/project/networks/subnets/tables.py:143
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
@@ -3543,7 +3550,6 @@ msgstr "Porty"
 
 #: dashboards/admin/networks/ports/tabs.py:25
 #: dashboards/admin/overview/panel.py:27
-#: dashboards/admin/overview/templates/overview/usage.html:6
 #: dashboards/admin/volumes/snapshots/tabs.py:23
 #: dashboards/project/databases/tabs.py:26
 #: dashboards/project/images/images/tabs.py:22
@@ -3551,13 +3557,12 @@ msgstr "Porty"
 #: dashboards/project/networks/ports/tabs.py:21
 #: dashboards/project/networks/subnets/tabs.py:21
 #: dashboards/project/overview/panel.py:27
-#: dashboards/project/overview/templates/overview/usage.html:6
 #: dashboards/project/routers/ports/tabs.py:24
 #: dashboards/project/stacks/tabs.py:53 dashboards/project/stacks/tabs.py:67
 #: dashboards/project/stacks/resource_types/tabs.py:21
 #: dashboards/project/volumes/backups/tabs.py:24
 #: dashboards/project/volumes/snapshots/tabs.py:25
-#: dashboards/project/volumes/volumes/tabs.py:21
+#: dashboards/project/volumes/volumes/tabs.py:21 usage/views.py:25
 msgid "Overview"
 msgstr "Przegląd"
 
@@ -3769,7 +3774,7 @@ msgstr "Całkowite użycie dysku (godziny)"
 msgid "Usage Overview"
 msgstr "Przegląd wykorzystania"
 
-#: dashboards/admin/overview/templates/overview/usage.html:12
+#: dashboards/admin/overview/templates/overview/usage.html:8
 msgid "Monitoring:"
 msgstr ""
 
@@ -3779,7 +3784,7 @@ msgstr ""
 #: dashboards/identity/projects/workflows.py:76
 #: dashboards/project/network_topology/routers/tables.py:27
 #: dashboards/project/routers/panel.py:24
-#: dashboards/project/routers/tables.py:228
+#: dashboards/project/routers/tables.py:234
 #: dashboards/project/routers/templates/routers/index.html:3
 #: dashboards/project/routers/templates/routers/index.html:6
 #: usage/quotas.py:80
@@ -3863,7 +3868,7 @@ msgstr "ID projektu"
 #: dashboards/project/routers/forms.py:47
 #: dashboards/project/routers/forms.py:105
 #: dashboards/project/routers/forms.py:111
-#: dashboards/project/routers/tables.py:204
+#: dashboards/project/routers/tables.py:210
 #: dashboards/project/routers/templates/routers/_detail_overview.html:18
 msgid "Distributed"
 msgstr "Rozproszony"
@@ -3886,7 +3891,7 @@ msgid "Connected External Network: %(router_gw_info_network)s"
 msgstr ""
 
 #: dashboards/admin/routers/templates/routers/_update.html:8
-#: dashboards/project/routers/tables.py:105
+#: dashboards/project/routers/tables.py:106
 #: dashboards/project/routers/templates/routers/_update.html:8
 msgid "Edit Router"
 msgstr "Edytuj router"
@@ -4000,7 +4005,7 @@ msgstr "Szczegóły migawki wolumenu"
 #: dashboards/identity/users/templates/users/_detail_overview.html:6
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:12
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:6
-#: dashboards/project/database_backups/templates/database_backups/details.html:15
+#: dashboards/project/database_backups/templates/database_backups/details.html:11
 #: dashboards/project/databases/templates/databases/_detail_overview.html:6
 #: dashboards/project/images/templates/images/images/_detail_overview.html:6
 #: dashboards/project/instances/templates/instances/_detail_overview.html:7
@@ -4037,7 +4042,7 @@ msgid "Specs"
 msgstr "Specyfikacja"
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:34
-#: dashboards/project/database_backups/templates/database_backups/details.html:35
+#: dashboards/project/database_backups/templates/database_backups/details.html:31
 #: dashboards/project/instances/templates/instances/_detail_overview.html:58
 #: dashboards/project/instances/templates/instances/_detail_overview.html:61
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:11
@@ -4406,7 +4411,7 @@ msgstr "Szczegóły wolumenu"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/manage_volume.html:3
 #: dashboards/admin/volumes/volumes/tables.py:33
-#: dashboards/admin/volumes/volumes/views.py:46
+#: dashboards/admin/volumes/volumes/views.py:38
 msgid "Manage Volume"
 msgstr ""
 
@@ -4808,28 +4813,22 @@ msgstr ""
 msgid "Unable to retrieve snapshot data."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/views.py:34
-#: dashboards/project/volumes/volumes/views.py:54
-#, python-format
-msgid "Volume Details: %(volume_name)s"
-msgstr ""
-
-#: dashboards/admin/volumes/volumes/views.py:48
+#: dashboards/admin/volumes/volumes/views.py:40
 msgid "Manage"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/views.py:61
+#: dashboards/admin/volumes/volumes/views.py:53
 msgid "Confirm Unmanage Volume"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/views.py:63
+#: dashboards/admin/volumes/volumes/views.py:55
 msgid "Unmanage"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/views.py:81
-#: dashboards/admin/volumes/volumes/views.py:118
-#: dashboards/project/volumes/volumes/views.py:71
-#: dashboards/project/volumes/volumes/views.py:427
+#: dashboards/admin/volumes/volumes/views.py:73
+#: dashboards/admin/volumes/volumes/views.py:110
+#: dashboards/project/volumes/volumes/views.py:68
+#: dashboards/project/volumes/volumes/views.py:424
 msgid "Unable to retrieve volume details."
 msgstr "Nie można pobrać szczegółów wolumenu."
 
@@ -5197,16 +5196,15 @@ msgstr "Aktualizuj grupę"
 msgid "Unable to update group."
 msgstr "Nie można zaktualizować grupy."
 
-#: dashboards/identity/groups/views.py:128
-#, python-format
-msgid "Group Management: %(group_name)s"
+#: dashboards/identity/groups/views.py:123
+msgid "Group Management: {{ group.name }}"
 msgstr ""
 
-#: dashboards/identity/groups/views.py:139
+#: dashboards/identity/groups/views.py:136
 msgid "Unable to retrieve group users."
 msgstr "Nie można pobrać użytkowników w grupie."
 
-#: dashboards/identity/groups/views.py:160
+#: dashboards/identity/groups/views.py:157
 msgid "Unable to retrieve users."
 msgstr "Nie można pobrać użytkowników."
 
@@ -5756,7 +5754,7 @@ msgid "Access & Security"
 msgstr "Dostęp i bezpieczeństwo"
 
 #: dashboards/project/access_and_security/tabs.py:57
-#: dashboards/project/access_and_security/security_groups/views.py:126
+#: dashboards/project/access_and_security/security_groups/views.py:122
 #: usage/base.py:116
 msgid "Unable to retrieve security groups."
 msgstr "Nie można pobrać grup zabezpieczeń."
@@ -6353,17 +6351,18 @@ msgstr[2] ""
 msgid "Any"
 msgstr "Dowolny"
 
-#: dashboards/project/access_and_security/security_groups/views.py:52
-#: dashboards/project/access_and_security/security_groups/views.py:85
+#: dashboards/project/access_and_security/security_groups/views.py:43
+msgid ""
+"Manage Security Group Rules: {{ security_group.name }} ({{ security_group.id"
+" }})"
+msgstr ""
+
+#: dashboards/project/access_and_security/security_groups/views.py:54
+#: dashboards/project/access_and_security/security_groups/views.py:81
 msgid "Unable to retrieve security group."
 msgstr "Nie można pobrać grupy zabezpieczeń."
 
-#: dashboards/project/access_and_security/security_groups/views.py:69
-#, python-format
-msgid "Manage Security Group Rules: %(security_group)s"
-msgstr ""
-
-#: dashboards/project/access_and_security/security_groups/views.py:133
+#: dashboards/project/access_and_security/security_groups/views.py:129
 #, python-format
 msgid "%s (current)"
 msgstr "%s (bieżący)"
@@ -6522,8 +6521,8 @@ msgstr "Należy podać źródło ruchu dozwolone przez tą regułę. Można to z
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:59
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:69
 #: dashboards/project/firewalls/workflows.py:104
-#: dashboards/project/firewalls/workflows.py:209
-#: dashboards/project/firewalls/workflows.py:286
+#: dashboards/project/firewalls/workflows.py:208
+#: dashboards/project/firewalls/workflows.py:284
 #: dashboards/project/loadbalancers/workflows.py:136
 #: dashboards/project/loadbalancers/workflows.py:260
 #: dashboards/project/loadbalancers/workflows.py:426
@@ -6946,19 +6945,49 @@ msgid "Unable to upload cluster template file"
 msgstr "Nie można przesłać pliku szablonu klastra"
 
 #: dashboards/project/data_processing/cluster_templates/panel.py:22
-#: dashboards/project/data_processing/cluster_templates/tables.py:124
+#: dashboards/project/data_processing/cluster_templates/tables.py:132
 msgid "Cluster Templates"
 msgstr "Szablony klastra"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:31
+#: dashboards/project/data_processing/cluster_templates/tables.py:32
+#: dashboards/project/data_processing/cluster_templates/tables.py:120
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:6
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:14
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:6
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:24
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:7
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:29
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:86
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:6
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:30
+msgid "Plugin"
+msgstr "Wtyczka"
+
+#: dashboards/project/data_processing/cluster_templates/tables.py:33
+#: dashboards/project/data_processing/cluster_templates/tables.py:122
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:8
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:16
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:60
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:8
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:26
+#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:8
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:30
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:88
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:8
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:32
+#: dashboards/project/data_processing/utils/workflow_helpers.py:195
+msgid "Version"
+msgstr "Wersja"
+
+#: dashboards/project/data_processing/cluster_templates/tables.py:39
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_upload_file.html:11
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/upload_file.html:3
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/upload_file.html:6
 msgid "Upload Template"
 msgstr "Wyślij szablon"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:39
-#: dashboards/project/data_processing/clusters/tables.py:33
+#: dashboards/project/data_processing/cluster_templates/tables.py:47
+#: dashboards/project/data_processing/clusters/tables.py:39
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_create_cluster.html:10
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/configure.html:3
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/configure.html:6
@@ -6966,68 +6995,42 @@ msgstr "Wyślij szablon"
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/create.html:6
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/create_cluster.html:3
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/create_cluster.html:6
-#: dashboards/project/data_processing/clusters/workflows/create.py:54
-#: dashboards/project/data_processing/clusters/workflows/create.py:201
+#: dashboards/project/data_processing/clusters/workflows/create.py:57
+#: dashboards/project/data_processing/clusters/workflows/create.py:207
 msgid "Launch Cluster"
 msgstr "Uruchom klaster"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:55
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:47
+#: dashboards/project/data_processing/cluster_templates/tables.py:63
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:54
 msgid "Copy Template"
 msgstr "Kopiuj szablon"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:64
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:56
+#: dashboards/project/data_processing/cluster_templates/tables.py:72
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:63
 msgid "Delete Template"
 msgid_plural "Delete Templates"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:72
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:64
+#: dashboards/project/data_processing/cluster_templates/tables.py:80
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:71
 msgid "Deleted Template"
 msgid_plural "Deleted Templates"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:83
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:28
+#: dashboards/project/data_processing/cluster_templates/tables.py:91
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:35
 msgid "Create Template"
 msgstr "Utwórz szablon"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:92
+#: dashboards/project/data_processing/cluster_templates/tables.py:100
 msgid "Configure Cluster Template"
 msgstr "Konfiguruj szablon klastra"
 
-#: dashboards/project/data_processing/cluster_templates/tables.py:112
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:6
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:14
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:6
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:24
-#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:7
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:79
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:6
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:30
-msgid "Plugin"
-msgstr "Wtyczka"
-
-#: dashboards/project/data_processing/cluster_templates/tables.py:114
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:8
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:16
-#: dashboards/project/data_processing/cluster_templates/workflows/create.py:60
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:8
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:26
-#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:8
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:81
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:8
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:32
-#: dashboards/project/data_processing/utils/workflow_helpers.py:195
-msgid "Version"
-msgstr "Wersja"
-
-#: dashboards/project/data_processing/cluster_templates/tables.py:116
+#: dashboards/project/data_processing/cluster_templates/tables.py:124
 #: dashboards/project/data_processing/cluster_templates/tabs.py:48
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:3
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:206
@@ -7054,12 +7057,12 @@ msgstr "Nie można pobrać szczegółów szablonu klastra."
 msgid "Unable to fetch node group details."
 msgstr "Nie można pobrać szczegółów grupy węzłów."
 
-#: dashboards/project/data_processing/cluster_templates/views.py:52
+#: dashboards/project/data_processing/cluster_templates/views.py:56
 msgid "Unable to fetch cluster template list"
 msgstr "Nie można pobrać listy szablonów klastra."
 
-#: dashboards/project/data_processing/cluster_templates/views.py:112
-#: dashboards/project/data_processing/clusters/views.py:97
+#: dashboards/project/data_processing/cluster_templates/views.py:116
+#: dashboards/project/data_processing/clusters/views.py:101
 msgid "Unable to fetch cluster template."
 msgstr "Nie można pobrać szablonu klastra."
 
@@ -7170,7 +7173,7 @@ msgstr "Automatyczna grupa zabezpieczeń"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:42
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:45
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:83
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:90
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:57
 msgid "Node Processes"
 msgstr "Procesy węzła"
@@ -7277,43 +7280,43 @@ msgid "Cluster template creation failed"
 msgstr "Nie można utworzyć szablonu klastra"
 
 #: dashboards/project/data_processing/clusters/panel.py:22
-#: dashboards/project/data_processing/clusters/tables.py:117
+#: dashboards/project/data_processing/clusters/tables.py:123
 msgid "Clusters"
 msgstr "Klastry"
 
-#: dashboards/project/data_processing/clusters/tables.py:41
+#: dashboards/project/data_processing/clusters/tables.py:47
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/scale.html:3
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/scale.html:6
 #: dashboards/project/data_processing/clusters/workflows/scale.py:42
 msgid "Scale Cluster"
 msgstr "Skaluj klaster"
 
-#: dashboards/project/data_processing/clusters/tables.py:53
+#: dashboards/project/data_processing/clusters/tables.py:59
 msgid "Delete Cluster"
 msgid_plural "Delete Clusters"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/data_processing/clusters/tables.py:61
+#: dashboards/project/data_processing/clusters/tables.py:67
 msgid "Deleted Cluster"
 msgid_plural "Deleted Clusters"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/data_processing/clusters/tables.py:81
-#: dashboards/project/data_processing/job_executions/tables.py:117
+#: dashboards/project/data_processing/clusters/tables.py:87
+#: dashboards/project/data_processing/job_executions/tables.py:125
 msgid "Unable to update row"
 msgstr "Nie można zaktualizować wiersza"
 
-#: dashboards/project/data_processing/clusters/tables.py:91
-#: dashboards/project/data_processing/clusters/workflows/create.py:183
+#: dashboards/project/data_processing/clusters/tables.py:97
+#: dashboards/project/data_processing/clusters/workflows/create.py:189
 #: dashboards/project/data_processing/jobs/workflows/launch.py:312
 msgid "Configure Cluster"
 msgstr "Konfiguruj klaster"
 
-#: dashboards/project/data_processing/clusters/tables.py:113
+#: dashboards/project/data_processing/clusters/tables.py:119
 msgid "Instances Count"
 msgstr "Liczba instancji"
 
@@ -7337,7 +7340,7 @@ msgstr " "
 msgid "Unable to fetch instance details."
 msgstr "Nie można pobrać szczegółów instancji."
 
-#: dashboards/project/data_processing/clusters/views.py:47
+#: dashboards/project/data_processing/clusters/views.py:51
 msgid "Unable to fetch cluster list"
 msgstr "Nie można pobrać listy klastrów"
 
@@ -7376,17 +7379,17 @@ msgid "Error Details"
 msgstr "Szczegóły błędu"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:36
-#: dashboards/project/data_processing/clusters/workflows/create.py:79
+#: dashboards/project/data_processing/clusters/workflows/create.py:84
 msgid "Base Image"
 msgstr "Podstawowy obraz"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:39
-#: dashboards/project/data_processing/clusters/workflows/create.py:95
+#: dashboards/project/data_processing/clusters/workflows/create.py:101
 msgid "Neutron Management Network"
 msgstr "Sieć zarządzająca Neutron"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:42
-#: dashboards/project/data_processing/clusters/workflows/create.py:82
+#: dashboards/project/data_processing/clusters/workflows/create.py:88
 msgid "Keypair"
 msgstr "Para kluczy"
 
@@ -7423,44 +7426,44 @@ msgstr "Przetwarzanie danych - klastry"
 msgid "Cluster Details"
 msgstr "Szczegóły klastra"
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:43
+#: dashboards/project/data_processing/clusters/workflows/create.py:46
 #: dashboards/project/data_processing/jobs/workflows/launch.py:394
 msgid "Select plugin and hadoop version for cluster"
 msgstr "Należy wybrać wtyczkę i wersję Hadoop dla klastra."
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:71
+#: dashboards/project/data_processing/clusters/workflows/create.py:74
 msgid "Cluster Name"
 msgstr "Nazwa klastra"
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:76
+#: dashboards/project/data_processing/clusters/workflows/create.py:79
 msgid "Cluster Template"
 msgstr "Szablon klastra"
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:84
+#: dashboards/project/data_processing/clusters/workflows/create.py:90
 msgid "Which keypair to use for authentication."
 msgstr "Która para kluczy powinna zostać wykorzystana do autentykacji."
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:125
+#: dashboards/project/data_processing/clusters/workflows/create.py:131
 msgid "Unable to fetch image choices."
 msgstr "Nie można pobrać listy obrazów."
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:128
+#: dashboards/project/data_processing/clusters/workflows/create.py:134
 msgid "No Images Available"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:138
+#: dashboards/project/data_processing/clusters/workflows/create.py:144
 msgid "Unable to fetch keypair choices."
 msgstr "Nie można pobrać listy par kluczy."
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:140
+#: dashboards/project/data_processing/clusters/workflows/create.py:146
 msgid "No keypair"
 msgstr "Brak pary kluczy"
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:156
+#: dashboards/project/data_processing/clusters/workflows/create.py:162
 msgid "No Templates Available"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:202
+#: dashboards/project/data_processing/clusters/workflows/create.py:208
 #: dashboards/project/data_processing/jobs/workflows/launch.py:331
 #: dashboards/project/data_processing/jobs/workflows/launch.py:416
 #: dashboards/project/databases/workflows/create_instance.py:272
@@ -7470,12 +7473,12 @@ msgstr ""
 msgid "Launch"
 msgstr "Uruchom"
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:203
+#: dashboards/project/data_processing/clusters/workflows/create.py:209
 #, python-format
 msgid "Launched Cluster %s"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:235
+#: dashboards/project/data_processing/clusters/workflows/create.py:241
 msgid "Unable to create the cluster"
 msgstr "Nie można utworzyć klastra"
 
@@ -7932,27 +7935,44 @@ msgid "Job Binary Details"
 msgstr "Szczegóły pliku binarnego zadania"
 
 #: dashboards/project/data_processing/job_executions/panel.py:22
-#: dashboards/project/data_processing/job_executions/tables.py:167
+#: dashboards/project/data_processing/job_executions/tables.py:175
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/job_executions.html:6
 msgid "Job Executions"
 msgstr "Wykonania zadań"
 
+#: dashboards/project/data_processing/job_executions/tables.py:37
+#: dashboards/project/data_processing/job_executions/tables.py:157
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:10
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:3
+#: dashboards/project/data_processing/jobs/workflows/launch.py:56
+#: dashboards/project/data_processing/jobs/workflows/launch.py:97
+#: dashboards/project/data_processing/jobs/workflows/launch.py:122
+msgid "Job"
+msgstr "Zadanie"
+
 #: dashboards/project/data_processing/job_executions/tables.py:38
+#: dashboards/project/data_processing/job_executions/tables.py:161
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:16
+#: dashboards/project/data_processing/jobs/workflows/launch.py:104
+msgid "Cluster"
+msgstr "Klaster"
+
+#: dashboards/project/data_processing/job_executions/tables.py:46
 msgid "Delete Job Execution"
 msgid_plural "Delete Job Executions"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/data_processing/job_executions/tables.py:46
+#: dashboards/project/data_processing/job_executions/tables.py:54
 msgid "Deleted Job Execution"
 msgid_plural "Deleted Job Executions"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/data_processing/job_executions/tables.py:59
-#: dashboards/project/data_processing/job_executions/tables.py:88
+#: dashboards/project/data_processing/job_executions/tables.py:67
+#: dashboards/project/data_processing/job_executions/tables.py:96
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/launch.html:3
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/launch.html:6
 #: dashboards/project/data_processing/jobs/workflows/launch.py:330
@@ -7964,38 +7984,23 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/data_processing/job_executions/tables.py:67
-#: dashboards/project/data_processing/job_executions/tables.py:96
+#: dashboards/project/data_processing/job_executions/tables.py:75
+#: dashboards/project/data_processing/job_executions/tables.py:104
 msgid "Launched Job"
 msgid_plural "Launched Jobs"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/data_processing/job_executions/tables.py:73
+#: dashboards/project/data_processing/job_executions/tables.py:81
 msgid "Relaunch On Existing Cluster"
 msgstr "Uruchom ponownie na istniejącym klastrze"
 
-#: dashboards/project/data_processing/job_executions/tables.py:102
+#: dashboards/project/data_processing/job_executions/tables.py:110
 msgid "Relaunch On New Cluster"
 msgstr "Uruchom ponownie na nowym klastrze"
 
-#: dashboards/project/data_processing/job_executions/tables.py:149
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:10
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:3
-#: dashboards/project/data_processing/jobs/workflows/launch.py:56
-#: dashboards/project/data_processing/jobs/workflows/launch.py:97
-#: dashboards/project/data_processing/jobs/workflows/launch.py:122
-msgid "Job"
-msgstr "Zadanie"
-
-#: dashboards/project/data_processing/job_executions/tables.py:153
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:16
-#: dashboards/project/data_processing/jobs/workflows/launch.py:104
-msgid "Cluster"
-msgstr "Klaster"
-
-#: dashboards/project/data_processing/job_executions/views.py:43
+#: dashboards/project/data_processing/job_executions/views.py:56
 msgid "Unable to fetch job executions."
 msgstr "Nie można pobrać wykonań zadań."
 
@@ -8057,12 +8062,12 @@ msgid "Job Execution Details"
 msgstr "Szczegóły wykonania zadania"
 
 #: dashboards/project/data_processing/jobs/panel.py:22
-#: dashboards/project/data_processing/jobs/tables.py:105
+#: dashboards/project/data_processing/jobs/tables.py:111
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/jobs.html:6
 msgid "Jobs"
 msgstr "Zadania"
 
-#: dashboards/project/data_processing/jobs/tables.py:30
+#: dashboards/project/data_processing/jobs/tables.py:36
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:3
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:6
 #: dashboards/project/data_processing/jobs/workflows/create.py:106
@@ -8070,30 +8075,30 @@ msgstr "Zadania"
 msgid "Create Job"
 msgstr "Utwórz zadanie"
 
-#: dashboards/project/data_processing/jobs/tables.py:40
+#: dashboards/project/data_processing/jobs/tables.py:46
 msgid "Delete Job"
 msgid_plural "Delete Jobs"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/data_processing/jobs/tables.py:48
+#: dashboards/project/data_processing/jobs/tables.py:54
 msgid "Deleted Job"
 msgid_plural "Deleted Jobs"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/data_processing/jobs/tables.py:59
+#: dashboards/project/data_processing/jobs/tables.py:65
 msgid "Launch On Existing Cluster"
 msgstr "Uruchom na istniejącym klastrze"
 
-#: dashboards/project/data_processing/jobs/tables.py:72
-#: dashboards/project/data_processing/jobs/tables.py:85
+#: dashboards/project/data_processing/jobs/tables.py:78
+#: dashboards/project/data_processing/jobs/tables.py:91
 msgid "Launch On New Cluster"
 msgstr "Uruchom na nowym klastrze"
 
-#: dashboards/project/data_processing/jobs/views.py:48
+#: dashboards/project/data_processing/jobs/views.py:52
 #: dashboards/project/data_processing/jobs/workflows/launch.py:89
 msgid "Unable to fetch jobs."
 msgstr "Nie można pobrać zadań."
@@ -8334,12 +8339,12 @@ msgid "Unable to launch job."
 msgstr "Nie można uruchomić zadania."
 
 #: dashboards/project/data_processing/nodegroup_templates/panel.py:22
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:89
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:96
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/nodegroup_templates.html:6
 msgid "Node Group Templates"
 msgstr "Szablony grup węzłów"
 
-#: dashboards/project/data_processing/nodegroup_templates/tables.py:37
+#: dashboards/project/data_processing/nodegroup_templates/tables.py:44
 msgid "Configure Template"
 msgstr "Konfiguruj szablon"
 
@@ -8361,11 +8366,11 @@ msgstr "Nie można pobrać pul pływających adresów IP."
 msgid "Service Configurations"
 msgstr "Konfiguracje usług"
 
-#: dashboards/project/data_processing/nodegroup_templates/views.py:48
+#: dashboards/project/data_processing/nodegroup_templates/views.py:53
 msgid "Unable to fetch node group template list."
 msgstr "Nie można pobrać listy szablonów grup węzłów."
 
-#: dashboards/project/data_processing/nodegroup_templates/views.py:103
+#: dashboards/project/data_processing/nodegroup_templates/views.py:108
 msgid "Unable to fetch template object."
 msgstr "Nie można pobrać obiektu szablonu."
 
@@ -8614,14 +8619,14 @@ msgstr[2] ""
 #: dashboards/project/databases/tables.py:237
 #: dashboards/project/instances/tables.py:821
 #: dashboards/project/instances/tables.py:828
-#: dashboards/project/instances/views.py:366
+#: dashboards/project/instances/views.py:364
 #: dashboards/project/instances/templates/instances/_detail_overview.html:64
 #: dashboards/project/instances/templates/instances/_detail_overview.html:100
 msgid "Not available"
 msgstr "Niedostępne "
 
 #: dashboards/project/database_backups/tables.py:147
-#: dashboards/project/database_backups/templates/database_backups/details.html:25
+#: dashboards/project/database_backups/templates/database_backups/details.html:21
 #: dashboards/project/databases/tables.py:265
 #: dashboards/project/databases/templates/databases/_detail_overview.html:13
 #: dashboards/project/databases/workflows/create_instance.py:42
@@ -8629,7 +8634,7 @@ msgid "Datastore"
 msgstr "Datastore"
 
 #: dashboards/project/database_backups/tables.py:149
-#: dashboards/project/database_backups/templates/database_backups/details.html:27
+#: dashboards/project/database_backups/templates/database_backups/details.html:23
 #: dashboards/project/databases/tables.py:267
 #: dashboards/project/databases/templates/databases/_detail_overview.html:15
 msgid "Datastore Version"
@@ -8648,20 +8653,19 @@ msgstr "Nie znaleziono"
 msgid "Error getting database backup list."
 msgstr "Nie można pobrać listy kopii zapasowych baz danych."
 
-#: dashboards/project/database_backups/views.py:88
+#: dashboards/project/database_backups/views.py:78
+msgid "Backup Details: {{ backup.name }}"
+msgstr ""
+
+#: dashboards/project/database_backups/views.py:89
 #, python-format
 msgid "Unable to retrieve details for backup: %s"
 msgstr "Nie można pobrać szczegółów kopii zapasowej: %s"
 
-#: dashboards/project/database_backups/views.py:96
+#: dashboards/project/database_backups/views.py:97
 #, python-format
 msgid "Unable to retrieve details for parent backup: %s"
 msgstr "Nie można pobrać szczegółów nadrzędnej kopii zapasowej: %s"
-
-#: dashboards/project/database_backups/views.py:106
-#, python-format
-msgid "Backup Details: %(backup_name)s"
-msgstr ""
 
 #: dashboards/project/database_backups/templates/database_backups/_backup_details_help.html:3
 msgid "Specify the details for the database backup."
@@ -8684,32 +8688,32 @@ msgstr "Utwórz kopię zapasową bazy danych"
 msgid "Backup Details"
 msgstr "Szczegóły kopii zapasowej"
 
-#: dashboards/project/database_backups/templates/database_backups/details.html:12
+#: dashboards/project/database_backups/templates/database_backups/details.html:8
 msgid "Backup Overview"
 msgstr "Przegląd kopii zapasowych"
 
-#: dashboards/project/database_backups/templates/database_backups/details.html:32
+#: dashboards/project/database_backups/templates/database_backups/details.html:28
 msgid "Backup File Location"
 msgstr "Położenie pliku kopii zapasowej"
 
-#: dashboards/project/database_backups/templates/database_backups/details.html:34
+#: dashboards/project/database_backups/templates/database_backups/details.html:30
 msgid "Initial Volume Size"
 msgstr "Początkowy rozmiar wolumenu"
 
-#: dashboards/project/database_backups/templates/database_backups/details.html:40
+#: dashboards/project/database_backups/templates/database_backups/details.html:36
 msgid "Backup Duration"
 msgstr "Czas trwania kopii zapasowej"
 
-#: dashboards/project/database_backups/templates/database_backups/details.html:47
+#: dashboards/project/database_backups/templates/database_backups/details.html:43
 msgid "Incremental Backup"
 msgstr "Przyrostowa kopia zapasowa"
 
-#: dashboards/project/database_backups/templates/database_backups/details.html:50
+#: dashboards/project/database_backups/templates/database_backups/details.html:46
 #: dashboards/project/database_backups/workflows/create_backup.py:38
 msgid "Parent Backup"
 msgstr "Nadrzędna kopia zapasowa"
 
-#: dashboards/project/database_backups/templates/database_backups/details.html:61
+#: dashboards/project/database_backups/templates/database_backups/details.html:57
 msgid "Database Info"
 msgstr "Informacje o bazie danych"
 
@@ -8960,19 +8964,18 @@ msgstr "Nie można pobrać informacji o rozmiarze bazy danych."
 msgid "Unable to retrieve database instances."
 msgstr "Nie można pobrać instancji baz danych."
 
-#: dashboards/project/databases/views.py:107
-#: dashboards/project/instances/views.py:263
-#, python-format
-msgid "Instance Details: %(instance_name)s"
+#: dashboards/project/databases/views.py:99
+#: dashboards/project/instances/views.py:255
+msgid "Instance Details: {{ instance.name }}"
 msgstr ""
 
-#: dashboards/project/databases/views.py:120
+#: dashboards/project/databases/views.py:118
 #, python-format
 msgid "Unable to retrieve details for database instance: %s"
 msgstr "Nie można pobrać szczegółów dla instancji bazy danych: %s"
 
-#: dashboards/project/databases/views.py:207
-#: dashboards/project/instances/views.py:377
+#: dashboards/project/databases/views.py:205
+#: dashboards/project/instances/views.py:375
 msgid "Unable to retrieve flavors."
 msgstr "Nie można pobrać odmian."
 
@@ -9336,7 +9339,7 @@ msgstr "Nie można zaktualizować reguły %(name)s: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:102
 #: dashboards/project/firewalls/tables.py:235
-#: dashboards/project/firewalls/workflows.py:180
+#: dashboards/project/firewalls/workflows.py:179
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:34
 msgid "Audited"
 msgstr "Audytowany"
@@ -9353,82 +9356,82 @@ msgstr "Nie można zaktualizować zasady %(name)s: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:130
 #: dashboards/project/firewalls/tables.py:251
-#: dashboards/project/firewalls/workflows.py:235
+#: dashboards/project/firewalls/workflows.py:234
 msgid "Policy"
 msgstr "Zasada"
 
-#: dashboards/project/firewalls/forms.py:146
+#: dashboards/project/firewalls/forms.py:145
 msgid "Unable to retrieve policy list."
 msgstr "Nie można pobrać listy zasad."
 
-#: dashboards/project/firewalls/forms.py:166
+#: dashboards/project/firewalls/forms.py:165
 #, python-format
 msgid "Firewall %s was successfully updated."
 msgstr "Zaktualizowano zaporę ogniową %s."
 
-#: dashboards/project/firewalls/forms.py:171
+#: dashboards/project/firewalls/forms.py:170
 #, python-format
 msgid "Failed to update firewall %(name)s: %(reason)s"
 msgstr "Nie można zaktualizować zapory ogniowej %(name)s: %(reason)s"
 
-#: dashboards/project/firewalls/forms.py:179
+#: dashboards/project/firewalls/forms.py:178
 #: dashboards/project/firewalls/tables.py:156
 msgid "Insert Rule"
 msgstr "Dodaj regułę"
 
-#: dashboards/project/firewalls/forms.py:180
+#: dashboards/project/firewalls/forms.py:179
 msgid "Before"
 msgstr "Przed"
 
-#: dashboards/project/firewalls/forms.py:182
+#: dashboards/project/firewalls/forms.py:181
 msgid "After"
 msgstr "Po"
 
-#: dashboards/project/firewalls/forms.py:207
+#: dashboards/project/firewalls/forms.py:205
 #, python-format
 msgid "Failed to retrieve available rules: %s"
 msgstr "Nie można pobrać dostępnych reguł: %s"
 
-#: dashboards/project/firewalls/forms.py:226
+#: dashboards/project/firewalls/forms.py:224
 #, python-format
 msgid "Rule %(rule)s was successfully inserted to policy %(policy)s."
 msgstr "Poprawnie dodano regułę %(rule)s do zasady %(policy)s."
 
-#: dashboards/project/firewalls/forms.py:234
+#: dashboards/project/firewalls/forms.py:232
 #, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr "Nie można dodać reguły do zasady %(name)s: %(reason)s"
 
-#: dashboards/project/firewalls/forms.py:242
+#: dashboards/project/firewalls/forms.py:240
 #: dashboards/project/firewalls/tables.py:170
 msgid "Remove Rule"
 msgstr "Usuń regułę"
 
-#: dashboards/project/firewalls/forms.py:260
+#: dashboards/project/firewalls/forms.py:257
 #, python-format
 msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
 msgstr "Nie można pobrać bieżących reguł w zasadach %(name)s: %(reason)s"
 
-#: dashboards/project/firewalls/forms.py:276
+#: dashboards/project/firewalls/forms.py:273
 #, python-format
 msgid "Rule %(rule)s was successfully removed from policy %(policy)s."
 msgstr "Usunięto regułę %(rule)s z zasady %(policy)s."
 
-#: dashboards/project/firewalls/forms.py:284
+#: dashboards/project/firewalls/forms.py:281
 #, python-format
 msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr "Nie można usunąć reguły z zasady %(name)s: %(reason)s"
 
 #: dashboards/project/firewalls/panel.py:26
 #: dashboards/project/firewalls/tables.py:257
-#: dashboards/project/firewalls/tabs.py:69
+#: dashboards/project/firewalls/tabs.py:65
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:6
 msgid "Firewalls"
 msgstr "Zapory ogniowe"
 
 #: dashboards/project/firewalls/tables.py:35
-#: dashboards/project/firewalls/workflows.py:208
+#: dashboards/project/firewalls/workflows.py:207
 msgid "Add Policy"
 msgstr "Dodaj zasadę"
 
@@ -9472,21 +9475,21 @@ msgstr[1] ""
 msgstr[2] ""
 
 #: dashboards/project/firewalls/tables.py:119
-#: dashboards/project/firewalls/views.py:129
+#: dashboards/project/firewalls/views.py:124
 #: dashboards/project/firewalls/templates/firewalls/_updaterule.html:8
 #: dashboards/project/firewalls/templates/firewalls/updaterule.html:3
 msgid "Edit Rule"
 msgstr "Edycja reguły"
 
 #: dashboards/project/firewalls/tables.py:131
-#: dashboards/project/firewalls/views.py:167
+#: dashboards/project/firewalls/views.py:162
 #: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:8
 #: dashboards/project/firewalls/templates/firewalls/updatepolicy.html:3
 msgid "Edit Policy"
 msgstr "Edytuj zasadę"
 
 #: dashboards/project/firewalls/tables.py:143
-#: dashboards/project/firewalls/views.py:200
+#: dashboards/project/firewalls/views.py:195
 #: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:8
 #: dashboards/project/firewalls/templates/firewalls/updatefirewall.html:3
 msgid "Edit Firewall"
@@ -9530,47 +9533,47 @@ msgstr "Zasady"
 msgid "Firewall Rules"
 msgstr "Reguły zapory ogniowej"
 
-#: dashboards/project/firewalls/tabs.py:43
+#: dashboards/project/firewalls/tabs.py:41
 msgid "Unable to retrieve rules list."
 msgstr "Nie można pobrać listy reguł."
 
-#: dashboards/project/firewalls/tabs.py:50
+#: dashboards/project/firewalls/tabs.py:48
 msgid "Firewall Policies"
 msgstr "Zasady zapory ogniowej"
 
-#: dashboards/project/firewalls/tabs.py:62
+#: dashboards/project/firewalls/tabs.py:58
 msgid "Unable to retrieve policies list."
 msgstr "Nie można pobrać listy zasad."
 
-#: dashboards/project/firewalls/tabs.py:81
+#: dashboards/project/firewalls/tabs.py:75
 msgid "Unable to retrieve firewall list."
 msgstr "Nie można pobrać listy zapór ogniowych."
 
-#: dashboards/project/firewalls/tabs.py:87
+#: dashboards/project/firewalls/tabs.py:81
 msgid "Firewall Rule Details"
 msgstr "Szczegóły reguły zapory ogniowej"
 
-#: dashboards/project/firewalls/tabs.py:98
+#: dashboards/project/firewalls/tabs.py:92
 #: dashboards/project/firewalls/views.py:145
 msgid "Unable to retrieve rule details."
 msgstr "Nie można pobrać szczegółów reguły."
 
-#: dashboards/project/firewalls/tabs.py:104
+#: dashboards/project/firewalls/tabs.py:98
 msgid "Firewall Policy Details"
 msgstr "Szczegóły zasad zapory ogniowej"
 
-#: dashboards/project/firewalls/tabs.py:115
+#: dashboards/project/firewalls/tabs.py:109
 #: dashboards/project/firewalls/views.py:181
 #: dashboards/project/firewalls/views.py:247
 #: dashboards/project/firewalls/views.py:280
 msgid "Unable to retrieve policy details."
 msgstr "Nie można pobrać szczegółów zasady."
 
-#: dashboards/project/firewalls/tabs.py:121
+#: dashboards/project/firewalls/tabs.py:115
 msgid "Firewall Details"
 msgstr "Szczegóły zapory ogniowej"
 
-#: dashboards/project/firewalls/tabs.py:132
+#: dashboards/project/firewalls/tabs.py:126
 #: dashboards/project/firewalls/views.py:215
 msgid "Unable to retrieve firewall details."
 msgstr "Nie można pobrać szczegółów zapory ogniowej."
@@ -9649,62 +9652,62 @@ msgstr "Tworzy zasadę z wybranymi regułami."
 msgid "Select rules for your policy."
 msgstr "Wybór reguł dla zasad."
 
-#: dashboards/project/firewalls/workflows.py:152
+#: dashboards/project/firewalls/workflows.py:151
 #, python-format
 msgid "Unable to retrieve rules (%(error)s)."
 msgstr "Nie można pobrać reguł (%(error)s)."
 
-#: dashboards/project/firewalls/workflows.py:188
+#: dashboards/project/firewalls/workflows.py:187
 msgid "AddPolicy"
 msgstr "Dodanie zasady"
 
-#: dashboards/project/firewalls/workflows.py:190
+#: dashboards/project/firewalls/workflows.py:189
 msgid ""
 "Create a firewall policy with an ordered list of firewall rules.\n"
 "\n"
 "A name must be given. Firewall rules are added in the order placed under the Rules tab."
 msgstr "Pozwala na utworzenie zasady zapory ogniowej z uporządkowaną listą reguł.\n\nMusi być podana jej nazwa. Reguły zapory ogniowej są dodawane w kolejności umieszczenia ich w zakładce Reguły."
 
-#: dashboards/project/firewalls/workflows.py:210
+#: dashboards/project/firewalls/workflows.py:209
 #, python-format
 msgid "Added Policy \"%s\"."
 msgstr "Dodano zasadę „%s”."
 
-#: dashboards/project/firewalls/workflows.py:211
+#: dashboards/project/firewalls/workflows.py:210
 #, python-format
 msgid "Unable to add Policy \"%s\"."
 msgstr "Nie można dodać zasady „%s”."
 
-#: dashboards/project/firewalls/workflows.py:246
+#: dashboards/project/firewalls/workflows.py:245
 msgid "Select a Policy"
 msgstr "Wybór zasady"
 
-#: dashboards/project/firewalls/workflows.py:254
+#: dashboards/project/firewalls/workflows.py:252
 #, python-format
 msgid "Unable to retrieve policy list (%(error)s)."
 msgstr "Nie można pobrać listy zasad (%(error)s)."
 
-#: dashboards/project/firewalls/workflows.py:265
+#: dashboards/project/firewalls/workflows.py:263
 msgid "AddFirewall"
 msgstr "Dodanie zapory ogniowej"
 
-#: dashboards/project/firewalls/workflows.py:267
+#: dashboards/project/firewalls/workflows.py:265
 msgid ""
 "Create a firewall based on a policy.\n"
 "\n"
 "A policy must be selected. Other fields are optional."
 msgstr "Pozwala utworzyć zaporę ogniową na bazie zasad.\n\nNależy wybrać zasadę. Pozostałe pola nie są wymagane."
 
-#: dashboards/project/firewalls/workflows.py:285
+#: dashboards/project/firewalls/workflows.py:283
 msgid "Add Firewall"
 msgstr "Dodaj zaporę ogniową"
 
-#: dashboards/project/firewalls/workflows.py:287
+#: dashboards/project/firewalls/workflows.py:285
 #, python-format
 msgid "Added Firewall \"%s\"."
 msgstr "Dodano zaporę ogniową „%s”."
 
-#: dashboards/project/firewalls/workflows.py:288
+#: dashboards/project/firewalls/workflows.py:286
 #, python-format
 msgid "Unable to add Firewall \"%s\"."
 msgstr "Nie można dodać zapory ogniowej „%s”."
@@ -9980,12 +9983,11 @@ msgstr "Usunięto"
 msgid "Unable to retrieve image."
 msgstr "Nie można pobrać obrazu."
 
-#: dashboards/project/images/images/views.py:94
-#, python-format
-msgid "Image Details: %(image_name)s"
+#: dashboards/project/images/images/views.py:86
+msgid "Image Details: {{ image.name }}"
 msgstr ""
 
-#: dashboards/project/images/images/views.py:109
+#: dashboards/project/images/images/views.py:107
 msgid "Unable to retrieve image details."
 msgstr "Nie można pobrać szczegółów obrazu."
 
@@ -10322,7 +10324,7 @@ msgid "Failed to launch instance \"%s\""
 msgstr "Nie można uruchomić instancji „%s”"
 
 #: dashboards/project/instances/tables.py:650
-#: dashboards/project/instances/views.py:363
+#: dashboards/project/instances/views.py:361
 #, python-format
 msgid "Unable to retrieve flavor information for instance \"%s\"."
 msgstr ""
@@ -10805,27 +10807,27 @@ msgstr "Nie można uzyskać konsoli SPICE dla instancji „%s”."
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "Nie można pobrać konsoli RDP dla instancji „%s”."
 
-#: dashboards/project/instances/views.py:277
+#: dashboards/project/instances/views.py:275
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "Nie można pobrać szczegółów dla instancji „%s”."
 
-#: dashboards/project/instances/views.py:298
+#: dashboards/project/instances/views.py:296
 #, python-format
 msgid "Unable to retrieve volume list for instance \"%(name)s\" (%(id)s)."
 msgstr ""
 
-#: dashboards/project/instances/views.py:307
+#: dashboards/project/instances/views.py:305
 #, python-format
 msgid "Unable to retrieve flavor information for instance \"%(name)s\" (%(id)s)."
 msgstr ""
 
-#: dashboards/project/instances/views.py:316
+#: dashboards/project/instances/views.py:314
 #, python-format
 msgid "Unable to retrieve security groups for instance \"%(name)s\" (%(id)s)."
 msgstr ""
 
-#: dashboards/project/instances/views.py:324
+#: dashboards/project/instances/views.py:322
 #, python-format
 msgid ""
 "Unable to retrieve IP addresses from Neutron for instance \"%(name)s\" "
@@ -12289,8 +12291,8 @@ msgstr "Topologia sieci"
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:20
 #: dashboards/project/network_topology/templates/network_topology/create_router.html:3
 #: dashboards/project/network_topology/templates/network_topology/index.html:41
-#: dashboards/project/routers/tables.py:84
-#: dashboards/project/routers/tables.py:97
+#: dashboards/project/routers/tables.py:85
+#: dashboards/project/routers/tables.py:98
 #: dashboards/project/routers/templates/routers/_create.html:9
 #: dashboards/project/routers/templates/routers/_create.html:20
 #: dashboards/project/routers/templates/routers/create.html:3
@@ -12330,7 +12332,7 @@ msgid "Create Network (Quota exceeded)"
 msgstr ""
 
 #: dashboards/project/network_topology/templates/network_topology/index.html:41
-#: dashboards/project/routers/tables.py:95
+#: dashboards/project/routers/tables.py:96
 msgid "Create Router (Quota exceeded)"
 msgstr ""
 
@@ -12351,9 +12353,8 @@ msgstr ""
 msgid "Unable to retrieve network details."
 msgstr "Nie można pobrać szczegółów sieci."
 
-#: dashboards/project/networks/views.py:139
-#, python-format
-msgid "Network Details: %(network_name)s"
+#: dashboards/project/networks/views.py:97
+msgid "Network Details: {{ network.name }}"
 msgstr ""
 
 #: dashboards/project/networks/workflows.py:50
@@ -12847,27 +12848,27 @@ msgstr "Zaktualizowano router %s."
 msgid "Failed to update router %s"
 msgstr "Nie można zaktualizować routera %s"
 
-#: dashboards/project/routers/tables.py:39
+#: dashboards/project/routers/tables.py:40
 msgid "Delete Router"
 msgid_plural "Delete Routers"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/routers/tables.py:47
+#: dashboards/project/routers/tables.py:48
 msgid "Deleted Router"
 msgid_plural "Deleted Routers"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/routers/tables.py:66
-#: dashboards/project/routers/tables.py:74
+#: dashboards/project/routers/tables.py:67
+#: dashboards/project/routers/tables.py:75
 #, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "Nie można usunąć routera „%s”"
 
-#: dashboards/project/routers/tables.py:114
+#: dashboards/project/routers/tables.py:115
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:9
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:24
 #: dashboards/project/routers/templates/routers/ports/setgateway.html:3
@@ -12875,27 +12876,37 @@ msgstr "Nie można usunąć routera „%s”"
 msgid "Set Gateway"
 msgstr "Ustaw bramę"
 
-#: dashboards/project/routers/tables.py:130
+#: dashboards/project/routers/tables.py:131
 msgid "Clear Gateway"
 msgid_plural "Clear Gateways"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/routers/tables.py:138
+#: dashboards/project/routers/tables.py:139
 msgid "Cleared Gateway"
 msgid_plural "Cleared Gateways"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/routers/tables.py:154
+#: dashboards/project/routers/tables.py:155
 #, python-format
 msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
 msgstr "Nie można usunąć bramy dla routera: „%(name)s”: „%(msg)s”"
 
+#: dashboards/project/routers/tables.py:197
+msgctxt "current status of router"
+msgid "Active"
+msgstr "Aktywny"
+
+#: dashboards/project/routers/tables.py:198
+msgctxt "current status of router"
+msgid "Error"
+msgstr "Błąd"
+
 #. Translators: High Availability mode of Neutron router
-#: dashboards/project/routers/tables.py:208
+#: dashboards/project/routers/tables.py:214
 msgid "HA mode"
 msgstr "Tryb wysokiej dostępności (HA)"
 
@@ -13642,29 +13653,28 @@ msgstr "Nie można pobrać listy stosów."
 
 #: dashboards/project/stacks/views.py:113
 #: dashboards/project/stacks/views.py:190
-#: dashboards/project/stacks/views.py:221
+#: dashboards/project/stacks/views.py:219
 msgid "Unable to retrieve stack."
 msgstr "Nie można pobrać stosu."
 
-#: dashboards/project/stacks/views.py:207
-#, python-format
-msgid "Stack Details: %(stack_name)s"
+#: dashboards/project/stacks/views.py:199
+msgid "Stack Details: {{ stack.stack_name }}"
 msgstr ""
 
-#: dashboards/project/stacks/views.py:232
+#: dashboards/project/stacks/views.py:230
 msgid "Unable to retrieve stack template."
 msgstr ""
 
-#: dashboards/project/stacks/views.py:255
+#: dashboards/project/stacks/views.py:253
 #, python-format
 msgid "Resource Details: %s"
 msgstr ""
 
-#: dashboards/project/stacks/views.py:268
+#: dashboards/project/stacks/views.py:266
 msgid "Unable to retrieve resource."
 msgstr "Nie można pobrać zasobu."
 
-#: dashboards/project/stacks/views.py:281
+#: dashboards/project/stacks/views.py:279
 msgid "Unable to retrieve metadata."
 msgstr "Nie można pobrać metadanych."
 
@@ -13886,13 +13896,12 @@ msgid "Restoring"
 msgstr "Przywracanie"
 
 #: dashboards/project/volumes/backups/tabs.py:41
-#: dashboards/project/volumes/backups/views.py:70
+#: dashboards/project/volumes/backups/views.py:67
 msgid "Unable to retrieve backup details."
 msgstr "Nie można pobrać szczegółów kopii zapasowej."
 
-#: dashboards/project/volumes/backups/views.py:56
-#, python-format
-msgid "Volume Backup Details: %(backup_name)s"
+#: dashboards/project/volumes/backups/views.py:48
+msgid "Volume Backup Details: {{ backup.name }}"
 msgstr ""
 
 #: dashboards/project/volumes/snapshots/forms.py:39
@@ -13927,13 +13936,12 @@ msgid "Edit Snapshot"
 msgstr "Edytuj migawkę"
 
 #: dashboards/project/volumes/snapshots/tabs.py:36
-#: dashboards/project/volumes/snapshots/views.py:86
+#: dashboards/project/volumes/snapshots/views.py:84
 msgid "Unable to retrieve snapshot details."
 msgstr "Nie można pobrać szczegółów migawki."
 
-#: dashboards/project/volumes/snapshots/views.py:72
-#, python-format
-msgid "Volume Snapshot Details: %(snapshot_name)s"
+#: dashboards/project/volumes/snapshots/views.py:64
+msgid "Volume Snapshot Details: {{ snapshot.name }}"
 msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:9
@@ -14072,7 +14080,7 @@ msgid "Volume Source"
 msgstr "Źródło wolumenu"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:84
-#: dashboards/project/volumes/volumes/views.py:230
+#: dashboards/project/volumes/volumes/views.py:227
 msgid "Volume Transfer"
 msgstr ""
 
@@ -14226,8 +14234,8 @@ msgstr "\nJeżeli stan wolumenu jest „w użyciu” mozna wykorzystać przycisk
 
 #: dashboards/project/volumes/templates/volumes/volumes/accept_transfer.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/accept_transfer.html:6
-#: dashboards/project/volumes/volumes/views.py:219
-#: dashboards/project/volumes/volumes/views.py:220
+#: dashboards/project/volumes/volumes/views.py:216
+#: dashboards/project/volumes/volumes/views.py:217
 msgid "Accept Volume Transfer"
 msgstr ""
 
@@ -14240,8 +14248,8 @@ msgid "Create a Volume Snapshot"
 msgstr "Utwórz migawkę wolumenu"
 
 #: dashboards/project/volumes/templates/volumes/volumes/create_transfer.html:3
-#: dashboards/project/volumes/volumes/views.py:199
-#: dashboards/project/volumes/volumes/views.py:200
+#: dashboards/project/volumes/volumes/views.py:196
+#: dashboards/project/volumes/volumes/views.py:197
 msgid "Create Volume Transfer"
 msgstr ""
 
@@ -14602,7 +14610,7 @@ msgid "Unable to delete volume transfer."
 msgstr ""
 
 #: dashboards/project/volumes/volumes/tables.py:318
-#: dashboards/project/volumes/volumes/views.py:320
+#: dashboards/project/volumes/volumes/views.py:317
 msgid "Unable to retrieve attachment information."
 msgstr "Nie można pobrać informacji o dowiązaniach."
 
@@ -14671,38 +14679,42 @@ msgstr "Urządzenie"
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr "Wolumen %(volume_name)s w instancji %(instance_name)s"
 
-#: dashboards/project/volumes/volumes/views.py:110
-#: dashboards/project/volumes/volumes/views.py:153
-#: dashboards/project/volumes/volumes/views.py:303
+#: dashboards/project/volumes/volumes/views.py:46
+msgid "Volume Details: {{ volume.name }}"
+msgstr ""
+
+#: dashboards/project/volumes/volumes/views.py:107
+#: dashboards/project/volumes/volumes/views.py:150
+#: dashboards/project/volumes/volumes/views.py:300
 msgid "Unable to retrieve volume information."
 msgstr "Nie można pobrać informacji o wolumenie."
 
-#: dashboards/project/volumes/volumes/views.py:144
+#: dashboards/project/volumes/volumes/views.py:141
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
 msgstr "Wolumen jest obecnie dołączony do instancji. W niektórych przypadkach utworzenie migawki dołączonego wolumenu może spowodować powstanie nieprawidłowej migawki."
 
-#: dashboards/project/volumes/volumes/views.py:172
-#: dashboards/project/volumes/volumes/views.py:369
+#: dashboards/project/volumes/volumes/views.py:169
+#: dashboards/project/volumes/volumes/views.py:366
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
 msgstr "Nie można pobrać informacji o wolumenie dla wolumenu: „%s”"
 
-#: dashboards/project/volumes/volumes/views.py:243
+#: dashboards/project/volumes/volumes/views.py:240
 msgid "Unable to retrieve volume transfer."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/views.py:271
+#: dashboards/project/volumes/volumes/views.py:268
 msgid "Unable to retrieve volume."
 msgstr "Nie można pobrać wolumenu."
 
-#: dashboards/project/volumes/volumes/views.py:399
+#: dashboards/project/volumes/volumes/views.py:396
 #, python-format
 msgid "Volume Encryption Details: %(volume_name)s"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/views.py:414
+#: dashboards/project/volumes/volumes/views.py:411
 msgid "Unable to retrieve volume encryption details."
 msgstr ""
 
@@ -15511,10 +15523,10 @@ msgid "Cisco Nexus 1000v"
 msgstr "Cisco Nexus 1000v"
 
 #: dashboards/router/nexus1000v/tables.py:29
+#: dashboards/router/nexus1000v/views.py:107
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:9
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:27
 #: dashboards/router/nexus1000v/templates/nexus1000v/create_network_profile.html:3
-#: dashboards/router/nexus1000v/templates/nexus1000v/create_network_profile.html:6
 msgid "Create Network Profile"
 msgstr "Utwórz profil sieciowy"
 
@@ -15552,11 +15564,22 @@ msgstr "Nazwa sieci fizycznej"
 msgid "Policy Profile"
 msgstr "Profil zasad"
 
-#: dashboards/router/nexus1000v/views.py:128
+#: dashboards/router/nexus1000v/views.py:70
+#: dashboards/router/nexus1000v/views.py:79
+#: dashboards/router/nexus1000v/views.py:94
+msgid "Cisco Nexus 1000V"
+msgstr "Cisco Nexus 1000V"
+
+#: dashboards/router/nexus1000v/views.py:115
+#: dashboards/router/nexus1000v/templates/nexus1000v/update_network_profile.html:3
+msgid "Update Network Profile"
+msgstr "Aktualizuj profil sieciowy"
+
+#: dashboards/router/nexus1000v/views.py:133
 msgid "Unable to retrieve network profile details."
 msgstr "Nie można pobrać szczegółów profilu sieciowego."
 
-#: dashboards/router/nexus1000v/views.py:139
+#: dashboards/router/nexus1000v/views.py:144
 msgid "Failed to obtain network profile binding"
 msgstr "Nie można pobrać powiązania profilu sieciowego"
 
@@ -15609,17 +15632,6 @@ msgstr "Edycja profilu sieciowego celem modyfikacji nazwy, zakresu segmentu lub 
 #: dashboards/router/nexus1000v/templates/nexus1000v/policy_profile/index.html:3
 msgid "Cisco Nexus 1000V Networking"
 msgstr "Sieć Cisco Nexus 1000V"
-
-#: dashboards/router/nexus1000v/templates/nexus1000v/index.html:6
-#: dashboards/router/nexus1000v/templates/nexus1000v/network_profile/index.html:6
-#: dashboards/router/nexus1000v/templates/nexus1000v/policy_profile/index.html:6
-msgid "Cisco Nexus 1000V"
-msgstr "Cisco Nexus 1000V"
-
-#: dashboards/router/nexus1000v/templates/nexus1000v/update_network_profile.html:3
-#: dashboards/router/nexus1000v/templates/nexus1000v/update_network_profile.html:6
-msgid "Update Network Profile"
-msgstr "Aktualizuj profil sieciowy"
 
 #: dashboards/settings/dashboard.py:22 templates/_header.html:39
 msgid "Settings"
@@ -15799,7 +15811,7 @@ msgstr "Nie można pobrać informacji o limitach wolumenów."
 msgid "Unable to retrieve limit information."
 msgstr "Nie można pobrać informacji o limitach."
 
-#: usage/base.py:216 usage/views.py:54
+#: usage/base.py:216 usage/views.py:55
 msgid "Unable to retrieve usage information."
 msgstr "Nie można pobrać informacji o wykorzystaniu."
 
