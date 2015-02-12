@@ -18,6 +18,7 @@ from horizon import views
 
 from django import forms
 from django.test import client
+from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
 FAKENAME = "FakeName"
@@ -54,6 +55,10 @@ class ViewWithTitle(views.PageTitleMixin, generic.TemplateView):
     page_title = "Fake"
 
 
+class ViewWithTransTitle(views.PageTitleMixin, generic.TemplateView):
+    page_title = _("Fake")
+
+
 class PageTitleTests(test.TestCase):
 
     def setUp(self):
@@ -65,15 +70,20 @@ class PageTitleTests(test.TestCase):
         p.request = self.request
         return p.dispatch(self.request)
 
-    def test_render_title(self):
+    def test_render_context_with_title(self):
         tm = ViewWithTitle()
-        context = tm.render_title({})
+        context = tm.render_context_with_title({})
         self.assertEqual("Fake", context['page_title'])
 
-    def test_render_title_override(self):
+    def test_render_context_with_title_override(self):
         tm = ViewWithTitle()
-        context = tm.render_title({'page_title': "ekaF"})
+        context = tm.render_context_with_title({'page_title': "ekaF"})
         self.assertEqual("ekaF", context['page_title'])
+
+    def test_render_context_with_title_lazy_translations(self):
+        tm = ViewWithTransTitle()
+        context = tm.render_context_with_title({})
+        self.assertEqual("Fake", context['page_title'])
 
     def test_no_title_set(self):
         res = self._dispatch(PageWithNoTitle)

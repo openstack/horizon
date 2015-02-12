@@ -73,7 +73,7 @@ class UsageView(tables.DataTableView):
             response_kwargs.setdefault("filename", "usage.csv")
         else:
             render_class = self.response_class
-        context = self.render_title(context)
+        context = self.render_context_with_title(context)
         resp = render_class(request=self.request,
                             template=self.get_template_names(),
                             context=context,
