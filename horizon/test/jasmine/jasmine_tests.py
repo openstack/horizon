@@ -28,6 +28,7 @@ class ServicesTests(test.JasmineTests):
         'angular/widget.module.js',
         'angular/help-panel/help-panel.js',
         'angular/wizard/wizard.js',
+        'angular/table/table.js',
     ]
     specs = [
         'horizon/tests/jasmine/utilsSpec.js',
@@ -35,6 +36,7 @@ class ServicesTests(test.JasmineTests):
         'horizon/js/angular/services/hz.api.service.spec.js',
         'angular/help-panel/help-panel.spec.js',
         'angular/wizard/wizard.spec.js',
+        'angular/table/table.spec.js',
     ]
     externalTemplates = [
         'angular/help-panel/help-panel.html',

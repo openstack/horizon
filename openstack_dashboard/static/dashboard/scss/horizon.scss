@@ -60,7 +60,7 @@ body {
     background-position: -200px top;
   }
   color: $text-color;
-  min-width: 900px;
+  min-width: $body-min-width;
 }
 
 small {
@@ -1019,8 +1019,8 @@ tr.terminated {
 }
 
 #content_body {
-  padding-left: $sidebar-width + 15px;
-  padding-right: 15px;
+  padding-left: $sidebar-width + $content-body-padding;
+  padding-right: $content-body-padding;
 }
 
 .tab_wrapper {
