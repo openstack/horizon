@@ -77,6 +77,10 @@ class MappingsTests(test.TestCase):
             None,
             'Foo::Bar::Baz',
             'aaa')
+        assertMappingUrl(
+            '/project/instances/aaa/',
+            'OS::Nova::Server',
+            'aaa')
 
     def test_stack_output(self):
         self.assertEqual(u'foo', mappings.stack_output('foo'))
