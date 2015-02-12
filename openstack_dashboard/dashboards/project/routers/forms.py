@@ -33,6 +33,12 @@ LOG = logging.getLogger(__name__)
 
 class CreateForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255, label=_("Router Name"))
+    admin_state_up = forms.ChoiceField(label=_("Admin State"),
+                                       choices=[(True, _('UP')),
+                                                (False, _('DOWN'))],
+                                       required=False)
+    external_network = forms.ChoiceField(label=_("External Network"),
+                                         required=False)
     mode = forms.ChoiceField(label=_("Router Type"))
     ha = forms.ChoiceField(label=_("High Availability Mode"))
     failure_url = 'horizon:project:routers:index'
@@ -58,10 +64,36 @@ class CreateForm(forms.SelfHandlingForm):
             self.fields['ha'].choices = ha_choices
         else:
             del self.fields['ha']
+        networks = self._get_network_list(request)
+        if networks:
+            self.fields['external_network'].choices = networks
+        else:
+            del self.fields['external_network']
+
+    def _get_network_list(self, request):
+        search_opts = {'router:external': True}
+        try:
+            networks = api.neutron.network_list(request, **search_opts)
+        except Exception:
+            msg = _('Failed to get network list.')
+            LOG.info(msg)
+            messages.warning(request, msg)
+            networks = []
+
+        choices = [(network.id, network.name or network.id)
+                   for network in networks]
+        if choices:
+            choices.insert(0, ("", _("Select network")))
+        return choices
 
     def handle(self, request, data):
         try:
             params = {'name': data['name']}
+            if 'admin_state_up' in data and data['admin_state_up']:
+                params['admin_state_up'] = data['admin_state_up']
+            if 'external_network' in data and data['external_network']:
+                params['external_gateway_info'] = {'network_id':
+                                                   data['external_network']}
             if (self.dvr_allowed and data['mode'] != 'server_default'):
                 params['distributed'] = (data['mode'] == 'distributed')
             if (self.ha_allowed and data['ha'] != 'server_default'):
