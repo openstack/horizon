@@ -128,6 +128,15 @@ class ManageRules(policy.PolicyTargetMixin, tables.LinkAction):
         return POLICY_CHECK(policy, request, policy_target)
 
 
+class SecurityGroupsFilterAction(tables.FilterAction):
+
+    def filter(self, table, security_groups, filter_string):
+        """Naive case-insensitive search."""
+        query = filter_string.lower()
+        return [security_group for security_group in security_groups
+                if query in security_group.name.lower()]
+
+
 class SecurityGroupsTable(tables.DataTable):
     name = tables.Column("name", verbose_name=_("Name"))
     description = tables.Column("description", verbose_name=_("Description"))
@@ -138,7 +147,7 @@ class SecurityGroupsTable(tables.DataTable):
     class Meta(object):
         name = "security_groups"
         verbose_name = _("Security Groups")
-        table_actions = (CreateGroup, DeleteGroup)
+        table_actions = (CreateGroup, DeleteGroup, SecurityGroupsFilterAction)
         row_actions = (ManageRules, EditGroup, DeleteGroup)
 
 
