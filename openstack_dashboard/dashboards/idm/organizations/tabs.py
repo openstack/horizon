@@ -49,7 +49,7 @@ class OrganizationsTab(tabs.TableTab):
             exceptions.handle(self.request,
                               _("Unable to retrieve organization list. \
                                     Error message: {0}".format(e)))
-        return idm_utils.filter_default_organizations(organizations)
+        return idm_utils.filter_default(organizations)
 
 
 class MyOrganizationsTab(tabs.TableTab):
@@ -74,7 +74,7 @@ class MyOrganizationsTab(tabs.TableTab):
             self._more = False
             exceptions.handle(self.request,
                               _("Unable to retrieve organization information."))
-        return idm_utils.filter_default_organizations(organizations)
+        return idm_utils.filter_default(organizations)
 
 
 class PanelTabs(tabs.TabGroup):

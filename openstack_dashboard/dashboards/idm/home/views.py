@@ -39,16 +39,17 @@ class IndexView(tables.MultiTableView):
         organizations = []
         # domain_context = self.request.session.get('domain_context', None)
         try:
-            organizations, self._more = api.keystone.tenant_list(self.request,
-                                                    user=self.request.user.id,
-                                                    admin=False)
+            organizations, self._more = api.keystone.tenant_list(
+                self.request,
+                user=self.request.user.id,
+                admin=False)
             LOG.debug('Organizations listed: {0}'.format(organizations))
         except Exception:
             self._more = False
             exceptions.handle(self.request,
                               _("Unable to retrieve organization list."))
     
-        return idm_utils.filter_default_organizations(organizations)
+        return idm_utils.filter_default(organizations)
 
     def get_applications_data(self):
         applications = []
@@ -60,4 +61,4 @@ class IndexView(tables.MultiTableView):
         except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve application list."))
-        return applications
+        return idm_utils.filter_default(applications)
