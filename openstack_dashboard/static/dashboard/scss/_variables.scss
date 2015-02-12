@@ -125,3 +125,17 @@ $table-border: 1px solid $table-border-color !default;
 $table-gap-height: 0.5em !default;
 $table-padding: 0.5em !default;
 $table-stripe-bgcolor: #f9f9f9 !default;
+
+/* Tooltip */
+$tooltip-bg-color: #fefefe !default;
+$tooltip-border: solid 1px #bcbcbc !default;
+$tooltip-border-radius: 0 !default;
+$tooltip-box-shadow: 1px 1px 8px -3px #cccccc !default;
+$tooltip-font-color: #000000 !default;
+
+/* Transfer Tables */
+$badge-info-color: #0084d1 !default;
+$invalid-color: #f0ad4e !default;
+$invalid-tooltip-color: #333333 !default;
+$transfer-btn-width: 3em !default;
+$transfer-section-bg: #fefefe !default;
