@@ -126,6 +126,7 @@ class CreateView(forms.ModalFormView):
     form_class = project_forms.CreateContainer
     template_name = 'project/containers/create.html'
     success_url = "horizon:project:containers:index"
+    page_title = _("Create Container")
 
     def get_success_url(self):
         parent = self.request.POST.get('parent', None)
@@ -149,6 +150,7 @@ class CreatePseudoFolderView(forms.ModalFormView):
     form_class = project_forms.CreatePseudoFolder
     template_name = 'project/containers/create_pseudo_folder.html'
     success_url = "horizon:project:containers:index"
+    page_title = _("Create Pseudo-folder")
 
     def get_success_url(self):
         container_name = self.request.POST['container_name']
@@ -171,6 +173,7 @@ class UploadView(forms.ModalFormView):
     form_class = project_forms.UploadObject
     template_name = 'project/containers/upload.html'
     success_url = "horizon:project:containers:index"
+    page_title = _("Upload Objects")
 
     def get_success_url(self):
         container = tables.wrap_delimiter(self.request.POST['container_name'])
@@ -214,6 +217,7 @@ class CopyView(forms.ModalFormView):
     form_class = project_forms.CopyObject
     template_name = 'project/containers/copy.html'
     success_url = "horizon:project:containers:index"
+    page_title = _("Copy Object")
 
     def get_success_url(self):
         container = tables.wrap_delimiter(
@@ -259,6 +263,7 @@ class CopyView(forms.ModalFormView):
 
 class ContainerDetailView(forms.ModalFormMixin, generic.TemplateView):
     template_name = 'project/containers/container_detail.html'
+    page_title = _("Container Details")
 
     @memoized.memoized_method
     def get_object(self):
@@ -281,6 +286,7 @@ class ContainerDetailView(forms.ModalFormMixin, generic.TemplateView):
 
 class ObjectDetailView(forms.ModalFormMixin, generic.TemplateView):
     template_name = 'project/containers/object_detail.html'
+    page_title = _("Object Details")
 
     @memoized.memoized_method
     def get_object(self):
@@ -306,6 +312,7 @@ class UpdateObjectView(forms.ModalFormView):
     form_class = project_forms.UpdateObject
     template_name = 'project/containers/update.html'
     success_url = "horizon:project:containers:index"
+    page_title = _("Update Object")
 
     def get_success_url(self):
         container = tables.wrap_delimiter(self.request.POST['container_name'])
