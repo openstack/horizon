@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-02 15:13-0600\n"
-"PO-Revision-Date: 2015-02-02 19:18+0000\n"
+"POT-Creation-Date: 2015-02-12 18:22-0600\n"
+"PO-Revision-Date: 2015-02-12 15:36+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/horizon/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Language: sr\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: base.py:483 templates/horizon/common/_modal_form_update_metadata.html:38
+#: base.py:475 templates/horizon/common/_modal_form_update_metadata.html:38
 msgid "Other"
 msgstr "Drugi"
 
@@ -35,12 +35,12 @@ msgstr "Niste ovlašćeni za pristup %s"
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
 msgstr ""
 
-#: exceptions.py:230
+#: exceptions.py:235
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "Neovlašćen: %s"
 
-#: exceptions.py:233
+#: exceptions.py:238
 msgid "Unauthorized. Please try logging in again."
 msgstr "Niste ovlašćeni. Molim, pokušajte da se ulogujete ponovo."
 
@@ -78,7 +78,7 @@ msgid "Submit"
 msgstr "Predaj"
 
 #: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:235
+#: templates/horizon/common/_modal_form_update_metadata.html:232
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "Odustani"
@@ -327,7 +327,7 @@ msgid "Duplicate keys are not allowed"
 msgstr "Dupli kljucevi nisu omoguceni"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:84
-#: templates/horizon/common/_modal_form_update_metadata.html:196
+#: templates/horizon/common/_modal_form_update_metadata.html:193
 msgid "No available metadata"
 msgstr ""
 
@@ -335,7 +335,7 @@ msgstr ""
 msgid "Existing Metadata"
 msgstr "Postojeci Metadata podaci"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:212
+#: templates/horizon/common/_modal_form_update_metadata.html:209
 msgid ""
 "\n"
 "          You can specify resource metadata by moving items from the left\n"
@@ -345,7 +345,7 @@ msgid ""
 "        "
 msgstr ""
 
-#: templates/horizon/common/_modal_form_update_metadata.html:234
+#: templates/horizon/common/_modal_form_update_metadata.html:231
 #: workflows/base.py:594
 msgid "Save"
 msgstr "Sačuvaj"
@@ -484,6 +484,10 @@ msgid_plural "Sold Puppies"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+
+#: test/tests/views.py:59
+msgid "Fake"
+msgstr ""
 
 #: utils/filters.py:49
 msgid "Never"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-02 15:13-0600\n"
-"PO-Revision-Date: 2015-02-02 19:18+0000\n"
+"POT-Creation-Date: 2015-02-12 18:22-0600\n"
+"PO-Revision-Date: 2015-02-12 15:36+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/projects/p/horizon/language/pa_IN/)\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Language: pa_IN\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: base.py:483 templates/horizon/common/_modal_form_update_metadata.html:38
+#: base.py:475 templates/horizon/common/_modal_form_update_metadata.html:38
 msgid "Other"
 msgstr "ਹੋਰ"
 
@@ -36,12 +36,12 @@ msgstr "ਤੁਸੀਂ %s ਤੇ ਦਖਲ ਦੇਣ ਲਈ ਅਧਿਕਾਰ�
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
 msgstr "ਇੱਕ %(resource)s ਪਹਿਲਾਂ ਹੀ \"%(name)s\" ਨਾਂ ਨਾਲ ਮੌਜੂਦ ਹੈ।"
 
-#: exceptions.py:230
+#: exceptions.py:235
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "ਅਣ-ਅਧਿਕਾਰਤ ਕੀਤਾ: %s"
 
-#: exceptions.py:233
+#: exceptions.py:238
 msgid "Unauthorized. Please try logging in again."
 msgstr "ਅਣਅਧਿਕਾਰਤ। ਕਿਰਪਾ ਕਰ ਕੇ ਦੁਬਾਰਾ ਲਾਗਇਨ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
 
@@ -79,7 +79,7 @@ msgid "Submit"
 msgstr "ਦਾਖਲ ਕਰੋ"
 
 #: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:235
+#: templates/horizon/common/_modal_form_update_metadata.html:232
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
@@ -327,7 +327,7 @@ msgid "Duplicate keys are not allowed"
 msgstr "ਨਕਲ ਚਾਬੀਆਂ ਪਰਵਾਨਤ ਨਹੀਂ ਹਨ"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:84
-#: templates/horizon/common/_modal_form_update_metadata.html:196
+#: templates/horizon/common/_modal_form_update_metadata.html:193
 msgid "No available metadata"
 msgstr ""
 
@@ -335,7 +335,7 @@ msgstr ""
 msgid "Existing Metadata"
 msgstr "ਮੌਜੂਦਾ ਮੈਟਾਡਾਟਾ"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:212
+#: templates/horizon/common/_modal_form_update_metadata.html:209
 msgid ""
 "\n"
 "          You can specify resource metadata by moving items from the left\n"
@@ -345,7 +345,7 @@ msgid ""
 "        "
 msgstr "\n          ਤੁਸੀਂ ਖੱਬੀ ਪੱਟੀ ਤੋਂ ਸੱਜੀ ਪੱਟੀ ਵਿੱਚ ਚੀਜ਼ਾਂ ਜੋੜ ਕੇ ਵਸੀਲਾ ਮੈਟਾਡਾਟਾ ਨਿਰਧਾਰਤ ਕਰ ਸਕਦੇ ਹੋ।\n          ਖੱਬੀ ਪੱਟੀ ਵਿੱਚ ਗਲਾਂਸ ਮੈਟਾਡਾਟਾ ਕੈਟਾਲੌਗ ਤੋਂ ਮੈਟਾਡਾਟਾ ਪਰਿਭਾਸ਼ਾਵਾਂ ਦਿੱਤੀਆਂ ਹੋਈਆਂ ਹਨ।\n          ਆਪਣੀ ਪਸੰਦ ਦੀ ਚਾਬੀ ਨਾਲ ਮੈਟਾਡਾਟਾ ਜੋੜਨ ਲਈ \"ਹੋਰ\" ਚੋਣ ਨੂੰ ਵਰਤੋ।\n        "
 
-#: templates/horizon/common/_modal_form_update_metadata.html:234
+#: templates/horizon/common/_modal_form_update_metadata.html:231
 #: workflows/base.py:594
 msgid "Save"
 msgstr "ਸੰਭਾਲੋ"
@@ -479,6 +479,10 @@ msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
 msgstr[0] ""
 msgstr[1] ""
+
+#: test/tests/views.py:59
+msgid "Fake"
+msgstr ""
 
 #: utils/filters.py:49
 msgid "Never"
