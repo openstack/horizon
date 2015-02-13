@@ -64,6 +64,7 @@ class AdminUpdateView(views.UpdateView):
 class AdminIndexView(tables.DataTableView):
     table_class = project_tables.AdminInstancesTable
     template_name = 'admin/instances/index.html'
+    page_title = _("All Instances")
 
     def has_more_data(self, table):
         return self._more
@@ -152,6 +153,7 @@ class LiveMigrateView(forms.ModalFormView):
     template_name = 'admin/instances/live_migrate.html'
     context_object_name = 'instance'
     success_url = reverse_lazy("horizon:admin:instances:index")
+    page_title = _("Live Migrate")
 
     def get_context_data(self, **kwargs):
         context = super(LiveMigrateView, self).get_context_data(**kwargs)

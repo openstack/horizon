@@ -37,6 +37,7 @@ from openstack_dashboard.dashboards.admin.metadata_defs \
 class AdminIndexView(tables.DataTableView):
     table_class = admin_tables.AdminNamespacesTable
     template_name = constants.METADATA_INDEX_TEMPLATE
+    page_title = _("Metadata Definitions")
 
     def has_prev_data(self, table):
         return self._prev
@@ -82,6 +83,7 @@ class CreateView(forms.ModalFormView):
     template_name = constants.METADATA_CREATE_TEMPLATE
     context_object_name = 'namespace'
     success_url = reverse_lazy(constants.METADATA_INDEX_URL)
+    page_title = _("Create a Metadata Namespace")
 
 
 class DetailView(tabs.TabView):
