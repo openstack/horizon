@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-02 15:13-0600\n"
-"PO-Revision-Date: 2015-02-02 19:18+0000\n"
+"POT-Creation-Date: 2015-02-12 18:22-0600\n"
+"PO-Revision-Date: 2015-02-12 15:36+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: base.py:483 templates/horizon/common/_modal_form_update_metadata.html:38
+#: base.py:475 templates/horizon/common/_modal_form_update_metadata.html:38
 msgid "Other"
 msgstr "其它"
 
@@ -38,12 +38,12 @@ msgstr "您无权访问 %s"
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
 msgstr "已经存在一个资源%(resource)s名称为\"%(name)s\"。"
 
-#: exceptions.py:230
+#: exceptions.py:235
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "无权: %s"
 
-#: exceptions.py:233
+#: exceptions.py:238
 msgid "Unauthorized. Please try logging in again."
 msgstr "未授权。请尝试重新登录。"
 
@@ -81,7 +81,7 @@ msgid "Submit"
 msgstr "提交"
 
 #: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:235
+#: templates/horizon/common/_modal_form_update_metadata.html:232
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "取消"
@@ -328,7 +328,7 @@ msgid "Duplicate keys are not allowed"
 msgstr "复制密钥是不允许的"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:84
-#: templates/horizon/common/_modal_form_update_metadata.html:196
+#: templates/horizon/common/_modal_form_update_metadata.html:193
 msgid "No available metadata"
 msgstr "没有可用的元数据"
 
@@ -336,7 +336,7 @@ msgstr "没有可用的元数据"
 msgid "Existing Metadata"
 msgstr "已存在的元数据"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:212
+#: templates/horizon/common/_modal_form_update_metadata.html:209
 msgid ""
 "\n"
 "          You can specify resource metadata by moving items from the left\n"
@@ -346,7 +346,7 @@ msgid ""
 "        "
 msgstr "\n你可以通过从左边栏目目录中选取并移至右边栏目\n来指定资源的元数据。在左边栏目中是来自\nGlance元数据目录的元数据定义。使用\"其他\"选项\n来增加你自定的元数据。"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:234
+#: templates/horizon/common/_modal_form_update_metadata.html:231
 #: workflows/base.py:594
 msgid "Save"
 msgstr "保存"
@@ -475,6 +475,10 @@ msgstr[0] "出售小狗"
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
 msgstr[0] "已售出的小狗"
+
+#: test/tests/views.py:59
+msgid "Fake"
+msgstr ""
 
 #: utils/filters.py:49
 msgid "Never"
