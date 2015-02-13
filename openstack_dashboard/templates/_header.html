@@ -84,12 +84,16 @@
 
     <div id="user_info" class="pull-right">
       <div id="profile_editor_switcher" class="dropdown switcher_bar" tabindex='1'>
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#profile_editor_switcher">
-         
+       
+ <!--        <a class="dropdown-toggle" data-toggle="dropdown" href="#profile_editor_switcher">
+          -->
+        
         {% if request.user.username %}
+         <a  href="{% url 'horizon:idm:users:detail' request.user.id %}">
           <img alt="User" src="{{ STATIC_URL }}dashboard/img/logos/small/user.png">
           {{ request.user.username }}
-         
+          </a>
+         <a class="dropdown-toggle" data-toggle="dropdown" href="#profile_editor_switch">
           <i class="fa fa-angle-double-down"></i>
         </a>
         <ul id="editor_list" class="dropdown-menu dropdown-menu-right">

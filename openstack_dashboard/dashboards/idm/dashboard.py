@@ -6,7 +6,7 @@ import horizon
 class Idm(horizon.Dashboard):
     name = _("Identity Manager")
     slug = "idm"
-    panels = ('home', 'organizations', 'myApplications')  # Add your panels here.
+    panels = ('home', 'organizations', 'myApplications', 'users')  # Add your panels here.
     default_panel = 'home'  # Specify the slug of the dashboard's default panel.
 
 
