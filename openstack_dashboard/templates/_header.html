@@ -6,7 +6,7 @@
 
 <div class="switcher_bar">
   <div class="dropdown context-selection">
-    <button class="btn btn-default btn-topnav dropdown-toggle" data-toggle="dropdown">
+    <button class="btn btn-default btn-topnav dropdown-toggle">
         {% show_overview %}
     </button>
     <div class="dropdown-menu topbar-dropdown-menu">
@@ -27,7 +27,7 @@
 
 <div id="user_info" class="pull-right">
   <div id="profile_editor_switcher" class="dropdown switcher_bar" tabindex='1'>
-    <button class="btn btn-default btn-topnav dropdown-toggle" data-toggle="dropdown">
+    <button class="btn btn-default btn-topnav dropdown-toggle">
       <span class="fa fa-user"></span>
       {{ request.user.username }}
       <span class="caret"></span>
