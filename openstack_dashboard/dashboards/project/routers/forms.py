@@ -87,7 +87,8 @@ class UpdateForm(forms.SelfHandlingForm):
                                              (False, _('DOWN'))],
                                     label=_("Admin State"))
     router_id = forms.CharField(label=_("ID"),
-                                widget=forms.HiddenInput())
+                                widget=forms.TextInput(
+                                    attrs={'readonly': 'readonly'}))
     mode = forms.ChoiceField(label=_("Router Type"))
     ha = forms.BooleanField(label=_("High Availability Mode"), required=False)
 
