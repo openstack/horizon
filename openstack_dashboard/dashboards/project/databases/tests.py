@@ -15,8 +15,10 @@
 
 import logging
 
+import django
 from django.core.urlresolvers import reverse
 from django import http
+from django.utils import unittest
 
 from mox import IsA  # noqa
 
@@ -151,6 +153,11 @@ class DatabaseTests(test.TestCase):
         res = self.client.get(LAUNCH_URL)
         self.assertTemplateUsed(res, 'project/databases/launch.html')
 
+    # django 1.7 and later does not handle the thrown Http302
+    # exception well enough.
+    # TODO(mrunge): re-check when django-1.8 is stable
+    @unittest.skipIf(django.VERSION >= (1, 7, 0),
+                     'Currently skipped with Django >= 1.7')
     @test.create_stubs({api.trove: ('flavor_list',)})
     def test_launch_instance_exception_on_flavors(self):
         trove_exception = self.exceptions.nova
