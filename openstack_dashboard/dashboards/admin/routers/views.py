@@ -66,5 +66,6 @@ class DetailView(r_views.DetailView):
 
 class UpdateView(r_views.UpdateView):
     form_class = rforms.UpdateForm
-    template_name = 'admin/routers/update.html'
+    template_name = 'project/routers/update.html'
     success_url = reverse_lazy("horizon:admin:routers:index")
+    submit_url = "horizon:admin:routers:update"
