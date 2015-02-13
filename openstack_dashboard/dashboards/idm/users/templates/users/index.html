@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "User" %}{% endblock %}
+
+{% block page_header %}{% endblock page_header %}
+
+{% block main %}
+<div id="detailUser">
+    <header>
+        <h3 class="name">
+            {{ user_name }} <a href="#" class="small"><i class="fa fa-edit"></i>edit</a>
+        </h3>
+        <!--crear la carga de la imagen -->
+        <div class="logo">
+            <img alt="organization logo" src="{{ image }}">        
+
+        </div>
+    </header>
+	<div class="panel panel-default">
+		<div class="panel-body">
+            <h5>
+              Contact us
+            </h5>
+            <div>
+                <p>{{ city }}</p>
+                <p>{{ email }}</p>
+                <p>{{ website }}</p>
+            </div>
+            <!-- div que contiene la información de la org, cuando no esté relleno este campo, ocultar -->
+            <div class="extra">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#description">
+                        Description
+                    </a>
+                </h4>
+                <div id="description" class="collapse">
+                    <p>{{ about_me }}</p>
+                </div>
+            </div>
+		</div>
+	</div>
+    
+	<div class="panel panel-default organizations">
+
+        <div class="panel-heading">
+            {{ organizations_table }}  
+        </div>
+        <div class="panel-body">
+            <div class="organizations-actions">
+                <input type="text" class="form-control" placeholder="filter">
+                {{ organizations_table.render_table_actions }}
+            </div>
+            {{ organizations_table.render}}
+        </div>
+    </div>
+
+    <div class="panel panel-default applications">
+        <div class="panel-heading">
+            {{ applications_table }}
+        </div>
+        <div class="panel-body">
+            {{ applications_table.render}}
+            <!-- texto que debe aparecer cuando no haya nada -->
+            <p class="alert alert-info empty"> {{ user_name }} does not have any applications.</p>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
