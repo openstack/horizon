@@ -123,7 +123,9 @@ class UpdateRelationshipAction(workflows.MembershipAction,
             field_name = self.get_member_field_name(obj.id)
             label = obj.name
             widget = forms.widgets.SelectMultiple(
-                attrs={'data-superset-id': relationship._get_supersetid_name(self.request, self.superset_id)})
+                attrs={'data-superset-id': 
+                relationship._get_supersetid_name(self.request, 
+                                                  self.superset_id)})
             self.fields[field_name] = forms.MultipleChoiceField(
                                                     required=False,
                                                     label=label,

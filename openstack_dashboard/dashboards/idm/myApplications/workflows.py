@@ -26,6 +26,7 @@ from horizon import workflows
 from openstack_dashboard import api
 from openstack_dashboard import fiware_api
 from openstack_dashboard.dashboards.idm import utils as idm_utils
+from openstack_dashboard.dashboards.idm import workflows as idm_workflows
 
 # NOTE(garcianavalon) Beware! we are reusing the membership stuff
 # but changing assign roles to users to assign permissions to roles.
@@ -217,3 +218,113 @@ class ManageApplicationRoles(workflows.Workflow):
             if users_to_remove:
                 permissions_to_remove[role_id] = users_to_remove
         return permissions_to_add, permissions_to_remove
+
+
+# APPLICATION ROLES
+class AuthorizedMembersApi(idm_workflows.RelationshipApiInterface):
+    """FIWARE Roles logic to assign"""
+    
+    def _list_all_owners(self, request, superset_id):
+        all_users = api.keystone.user_list(request)
+        return  [(user.id, user.name) for user in all_users]
+
+
+    def _list_all_objects(self, request, superset_id):
+        all_roles = fiware_api.keystone.role_list(request)
+        default_org = api.keystone.user_get(
+            request, request.user).default_project_id
+        allowed = fiware_api.keystone.list_user_allowed_roles_to_assign(
+            request,
+            user=request.user.id,
+            organization=default_org)
+        self.allowed = [role for role in all_roles 
+                   if role.id in allowed[superset_id]]
+        return self.allowed
+
+
+    def _list_current_assignments(self, request, superset_id):
+        # NOTE(garcianavalon) logic for this part:
+        # load all the organization-scoped application roles for every user
+        # but only the ones the user can assign
+        application_users_roles = {}
+        allowed_ids = [r.id for r in self.allowed]
+        role_assignments = fiware_api.keystone.user_role_assignments(
+            request, application=superset_id)
+        users = set([a.user_id for a in role_assignments])
+        for user_id in users:
+            application_users_roles[user_id] = [
+                a.role_id for a in role_assignments
+                if a.user_id == user_id
+                and a.role_id in allowed_ids
+            ]
+        return application_users_roles
+
+
+    def _get_default_object(self, request):
+        default_role = api.keystone.get_default_role(request)
+        # Default role is necessary to add members to a project
+        if default_role is None:
+            default = getattr(settings,
+                              "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
+            msg = (_('Could not find default role "%s" in Keystone') %
+                   default)
+            raise exceptions.NotFound(msg)
+        return default_role
+
+
+    def _add_object_to_owner(self, request, superset, owner, obj):
+        default_org = api.keystone.user_get(request, owner).default_project_id
+        fiware_api.keystone.add_role_to_user(request,
+                                             application=superset,
+                                             user=owner,
+                                             organization=default_org,
+                                             role=obj)
+
+
+    def _remove_object_from_owner(self, request, superset, owner, obj):
+        default_org = api.keystone.user_get(request, owner).default_project_id
+        fiware_api.keystone.remove_role_from_user(request,
+                                                  application=superset,
+                                                  user=owner,
+                                                  organization=default_org,
+                                                  role=obj)
+
+
+    def _get_supersetid_name(self, request, superset_id):
+        application = fiware_api.keystone.application_get(request, superset_id)
+        return application.name
+
+
+class UpdateAuthorizedMembersAction(idm_workflows.UpdateRelationshipAction):
+    ERROR_MESSAGE = _('Unable to retrieve data. Please try again later.')
+    RELATIONSHIP_CLASS = AuthorizedMembersApi
+    ERROR_URL = INDEX_URL
+
+    class Meta:
+        name = _("Manage your applications' roles")
+        slug = idm_workflows.RELATIONSHIP_SLUG
+
+
+class UpdateAuthorizedMembers(idm_workflows.UpdateRelationship):
+    action_class = UpdateAuthorizedMembersAction
+    available_list_title = _("Organization Members")
+    members_list_title = _("Members with roles")
+    no_available_text = _("No users found.")
+    no_members_text = _("No users.")
+    RELATIONSHIP_CLASS = AuthorizedMembersApi
+
+
+class ManageAuthorizedMembers(idm_workflows.RelationshipWorkflow):
+    slug = "manage_organization_users_application_roles"
+    name = _("Manage your applications' Roles")
+    finalize_button_name = _("Save")
+    success_message = _('Modified users.')
+    failure_message = _('Unable to modify users.')
+    success_url = "horizon:idm:myApplications:detail"
+    default_steps = (UpdateAuthorizedMembers,)
+    RELATIONSHIP_CLASS = AuthorizedMembersApi
+
+    def get_success_url(self):
+        # Overwrite to allow passing kwargs
+        return reverse(self.success_url, 
+                    kwargs={'application_id':self.context['superset_id']})

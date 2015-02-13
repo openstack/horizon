@@ -62,20 +62,6 @@ class ManageMembersLink(tables.LinkAction):
         org_id = self.table.kwargs['organization_id']
         return  urlresolvers.reverse(self.url, args=(org_id,))
 
-class ManageApplicationRolesLink(tables.LinkAction):
-    name = "manage_application_roles"
-    verbose_name = _("Manage your applications' roles")
-    url = "horizon:idm:organizations:roles"
-    classes = ("ajax-modal",)
-
-    def allowed(self, request, user):
-        # TODO(garcianavalon)
-        return True
-
-    def get_link_url(self, datum=None):
-        org_id = self.table.kwargs['organization_id']
-        return  urlresolvers.reverse(self.url, args=(org_id,))
-
 
 class MembersTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Members'))
@@ -84,7 +70,7 @@ class MembersTable(tables.DataTable):
     class Meta:
         name = "members"
         verbose_name = _("Members")
-        table_actions = (ManageApplicationRolesLink, ManageMembersLink, )
+        table_actions = (ManageMembersLink, )
         multi_select = False
 
 

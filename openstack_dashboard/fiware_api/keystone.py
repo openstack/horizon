@@ -139,7 +139,7 @@ def reset_password(user, token, new_password):
     return user
 
 
-# ROLES AND PERMISSIONS
+# ROLES
 def role_get(request, role_id):
     #manager = fiwareclient().fiware_roles.roles
     manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.roles
@@ -175,18 +175,33 @@ def role_delete(request, role_id):
     manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.roles
     return manager.delete(role_id)
 
-def add_role_to_user(request, role, user, organization):
-    manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.roles
-    return manager.add_to_user(role, user, organization)
 
-def remove_role_from_user(request, role, user, organization):
-    manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.roles
-    return manager.remove_from_user(role, user, organization)
+# ROLE-USERS
+def add_role_to_user(request, role, user, organization, application):
+    manager = api.keystone.keystoneclient(
+        request, admin=True).fiware_roles.roles
+    return manager.add_to_user(role, user, organization, application)
 
-def list_allowed_roles_to_assign(request, user, organization):
-    manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.roles
-    return manager.list_allowed_roles_to_assign(user, organization)
+def remove_role_from_user(request, role, user, organization, application):
+    manager = api.keystone.keystoneclient(
+        request, admin=True).fiware_roles.roles
+    return manager.remove_from_user(role, user, organization, application)
 
+def list_user_allowed_roles_to_assign(request, user, organization):
+    manager = api.keystone.keystoneclient(
+        request, admin=True).fiware_roles.roles
+    return manager.list_user_allowed_roles_to_assign(user, organization)
+
+def user_role_assignments(request, user=None, organization=None,
+                          application=None):    
+    manager = api.keystone.keystoneclient(
+        request, admin=True).fiware_roles.role_assignments
+    return manager.list_user_role_assignments(user=user,
+                                              organization=organization,
+                                              application=application)
+# ROLE-ORGANIZATIONS
+
+# PERMISSIONS
 def permission_get(request, permission_id):
     #manager = fiwareclient().fiware_roles.permissions
     manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.permissions
