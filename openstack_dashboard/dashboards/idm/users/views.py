@@ -26,8 +26,11 @@ from horizon import tabs
 from horizon.utils import memoized
 
 from openstack_dashboard import api
+from openstack_dashboard import fiware_api
 from openstack_dashboard.dashboards.idm import views as idm_views
 from openstack_dashboard.dashboards.idm.users import tables as user_tables
+from openstack_dashboard.dashboards.idm import utils as idm_utils
+from openstack_dashboard.dashboards.idm.users.forms import  InfoForm, ContactForm
 
 from horizon import views
 
@@ -39,7 +42,7 @@ from horizon import views
 #     def get_data(self, request, context, *args, **kwargs):
 #         return context
 
-class DetailUserView(views.APIView):
+class DetailUserView(tables.MultiTableView):
     template_name = 'idm/users/index.html'
     table_classes = (user_tables.OrganizationsTable,
                      user_tables.ApplicationsTable)
@@ -81,3 +84,66 @@ class DetailUserView(views.APIView):
         context['email'] = getattr(user, 'email', '')
         context['website'] = getattr(user, 'website', '')
         return context
+
+class BaseUsersMultiFormView(idm_views.BaseMultiFormView):
+    template_name = 'idm/users/edit.html'
+    forms_classes = [InfoForm, ContactForm]
+    
+    def get_endpoint(self, form_class):
+        """Override to allow runtime endpoint declaration"""
+        endpoints = {
+            InfoForm: reverse('horizon:idm:users:info', 
+                                kwargs=self.kwargs),
+            ContactForm: reverse('horizon:idm:users:contact', 
+                                kwargs=self.kwargs),
+            # AvatarForm: reverse('horizon:idm:organizations:avatar', 
+            #                     kwargs=self.kwargs),
+            # CancelForm: reverse('horizon:idm:organizations:cancel', 
+            #                     kwargs=self.kwargs),
+        }
+        return endpoints.get(form_class)
+
+    def get_object(self):
+        try:
+            return api.keystone.user_get(self.request, self.kwargs['user_id'])
+        except Exception:
+            redirect = reverse("horizon:idm:users:index")
+            exceptions.handle(self.request, 
+                    _('Unable to update user'), redirect=redirect)
+
+    def get_initial(self, form_class):
+        initial = super(BaseUsersMultiFormView, self).get_initial(form_class)  
+        # Existing data from organizations
+        initial.update({
+            "userID": self.object.id,
+            "name": self.object.name,
+            "description": getattr(self.object, 'description', ' '),    
+            "city": getattr(self.object, 'city', ' '),
+            "email": getattr(self.object, 'email', ' '),
+            "website":getattr(self.object, 'website', ' '),
+        })
+        return initial
+
+    def get_context_data(self, **kwargs):
+
+        context = super(BaseUsersMultiFormView, self).get_context_data(**kwargs)
+        context['image'] = getattr(self.object, 'img_original', 
+                            '/static/dashboard/img/logos/original/user.png')
+        return context
+
+
+class InfoFormHandleView(BaseUsersMultiFormView):    
+    form_to_handle_class = InfoForm
+
+class ContactFormHandleView(BaseUsersMultiFormView):
+    form_to_handle_class = ContactForm
+   
+# class AvatarFormHandleView(BaseUsersMultiFormView):
+#     form_to_handle_class = AvatarForm
+
+# class CancelFormHandleView(BaseUsersMultiFormView):
+#     form_to_handle_class = CancelForm
+
+#     def handle_form(self, form):
+#         """ Wrapper for form.handle for easier overriding."""
+#         return form.handle(self.request, form.cleaned_data, organization=self.object)

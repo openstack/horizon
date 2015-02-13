@@ -12,6 +12,10 @@
                     <a class="list-group-item" href="{% url 'horizon:idm:myApplications:detail' row.datum.id %}">
                       {{ row.render }}
                     </a>
+                {% elif row.table.name == "manage_members" %}
+                  <a class="list-group-item" href="{% url 'horizon:idm:users:detail' row.datum.id %}">
+                      {{ row.render }}
+                  </a>
                 {% else %}
                      <a class="list-group-item" href="{% url 'horizon:idm:organizations:detail' row.datum.id %}">
                       {{ row.render }}

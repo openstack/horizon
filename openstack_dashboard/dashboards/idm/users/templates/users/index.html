@@ -8,7 +8,7 @@
 <div id="detailUser">
     <header>
         <h3 class="name">
-            {{ user_name }} <a href="#" class="small"><i class="fa fa-edit"></i>edit</a>
+            {{ user_name }} <a href="{% url 'horizon:idm:users:edit' user_id %}" class="small"><i class="fa fa-edit"></i>edit</a>
         </h3>
         <!--crear la carga de la imagen -->
         <div class="logo">

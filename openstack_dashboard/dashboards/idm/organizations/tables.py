@@ -66,6 +66,7 @@ class ManageMembersLink(tables.LinkAction):
 class MembersTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Members'))
     show_avatar = True
+    clickable = True
 
     class Meta:
         name = "members"
