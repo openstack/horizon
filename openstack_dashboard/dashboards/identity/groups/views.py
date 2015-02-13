@@ -35,6 +35,7 @@ from openstack_dashboard.dashboards.identity.groups \
 class IndexView(tables.DataTableView):
     table_class = project_tables.GroupsTable
     template_name = constants.GROUPS_INDEX_VIEW_TEMPLATE
+    page_title = _("Groups")
 
     def get_data(self):
         groups = []
@@ -61,6 +62,7 @@ class CreateView(forms.ModalFormView):
     submit_url = "horizon:identity:groups:create"
     submit_label = _("Create Group")
     success_url = reverse_lazy(constants.GROUPS_INDEX_URL)
+    page_title = _("Create Group")
 
 
 class UpdateView(forms.ModalFormView):
@@ -71,6 +73,7 @@ class UpdateView(forms.ModalFormView):
     submit_url = "horizon:identity:groups:update"
     submit_label = _("Update Group")
     success_url = reverse_lazy(constants.GROUPS_INDEX_URL)
+    page_title = _("Update Group")
 
     @memoized.memoized_method
     def get_object(self):

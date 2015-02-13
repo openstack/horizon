@@ -68,6 +68,7 @@ class TenantContextMixin(object):
 class IndexView(tables.DataTableView):
     table_class = project_tables.TenantsTable
     template_name = 'identity/projects/index.html'
+    page_title = _("Projects")
 
     def has_more_data(self, table):
         return self._more
@@ -116,6 +117,7 @@ class ProjectUsageView(usage.UsageView):
     template_name = 'identity/projects/usage.html'
     csv_response_class = project_views.ProjectUsageCsvRenderer
     csv_template_name = 'project/overview/usage.csv'
+    page_title = _("Project Usage")
 
     def get_data(self):
         super(ProjectUsageView, self).get_data()

@@ -23,13 +23,13 @@ from django.core.urlresolvers import reverse_lazy
 from django.utils.decorators import method_decorator  # noqa
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.debug import sensitive_post_parameters  # noqa
-from django.views import generic
 
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
 from horizon import tables
 from horizon.utils import memoized
+from horizon import views
 
 from openstack_dashboard import api
 from openstack_dashboard import policy
@@ -43,6 +43,7 @@ from openstack_dashboard.dashboards.identity.users \
 class IndexView(tables.DataTableView):
     table_class = project_tables.UsersTable
     template_name = 'identity/users/index.html'
+    page_title = _("Users")
 
     def get_data(self):
         users = []
@@ -78,6 +79,7 @@ class UpdateView(forms.ModalFormView):
     submit_label = _("Update User")
     submit_url = "horizon:identity:users:update"
     success_url = reverse_lazy('horizon:identity:users:index')
+    page_title = _("Update User")
 
     @method_decorator(sensitive_post_parameters('password',
                                                 'confirm_password'))
@@ -130,6 +132,7 @@ class CreateView(forms.ModalFormView):
     submit_label = _("Create User")
     submit_url = reverse_lazy("horizon:identity:users:create")
     success_url = reverse_lazy('horizon:identity:users:index')
+    page_title = _("Create User")
 
     @method_decorator(sensitive_post_parameters('password',
                                                 'confirm_password'))
@@ -158,8 +161,9 @@ class CreateView(forms.ModalFormView):
                 'role_id': getattr(default_role, "id", None)}
 
 
-class DetailView(generic.TemplateView):
+class DetailView(views.HorizonTemplateView):
     template_name = 'identity/users/detail.html'
+    page_title = _("User Details: {{ user.name }}")
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
@@ -178,7 +182,6 @@ class DetailView(generic.TemplateView):
         context["user"] = user
         context["domain_id"] = domain_id
         context["domain_name"] = domain_name
-        context["page_title"] = _("User Details: %s") % user.name
         context["url"] = self.get_redirect_url()
         context["actions"] = table.render_row_actions(user)
         return context
