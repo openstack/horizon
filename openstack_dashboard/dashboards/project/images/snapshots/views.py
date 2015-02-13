@@ -37,6 +37,7 @@ class CreateView(forms.ModalFormView):
     form_class = project_forms.CreateSnapshot
     template_name = 'project/images/snapshots/create.html'
     success_url = reverse_lazy("horizon:project:images:index")
+    page_title = _("Create a Snapshot")
 
     @memoized.memoized_method
     def get_object(self):
