@@ -12,15 +12,24 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import logging
+
 from django.utils.translation import ugettext_lazy as _
+from django.core.urlresolvers import reverse, reverse_lazy
+
+from django import shortcuts
 
 from horizon import views
+from horizon import exceptions
+
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.settings.cancelaccount import forms \
                                                             as cancelaccount_forms
 from openstack_dashboard.dashboards.settings.password import forms as password_forms
 from openstack_dashboard.dashboards.settings.useremail import forms as useremail_forms
+
+LOG = logging.getLogger('idm_logger')
 
 
 class MultiFormView(views.APIView):
@@ -32,8 +41,9 @@ class MultiFormView(views.APIView):
         # Initial data
         user_id = self.request.user.id
         user = api.keystone.user_get(self.request, user_id, admin=False)
+        email = getattr(user, 'email', '') 
         initial_email = {
-            'email': user.email
+            'email': email
         }
         
         #Create forms

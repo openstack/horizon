@@ -29,7 +29,9 @@ from openstack_dashboard.dashboards.idm import forms as idm_forms
 
 
 LOG = logging.getLogger('idm_logger')
-AVATAR = settings.MEDIA_ROOT+"/"+"ApplicationAvatar/"
+AVATAR_SMALL = settings.MEDIA_ROOT+"/ApplicationAvatar/small/"
+AVATAR_MEDIUM = settings.MEDIA_ROOT+"/ApplicationAvatar/medium/"
+AVATAR_ORIGINAL = settings.MEDIA_ROOT+"/ApplicationAvatar/original/"
 
 class CreateApplicationForm(forms.SelfHandlingForm):
     appID = forms.CharField(widget=forms.HiddenInput(), required=False)
@@ -48,13 +50,17 @@ class CreateApplicationForm(forms.SelfHandlingForm):
         if data['redirect_to'] == "create":
             try:
 
-                default_img = '/static/dashboard/img/logos/small/app.png'
+                img_small = '/static/dashboard/img/logos/small/app.png'
+                img_medium = '/static/dashboard/img/logos/mediuml/app.png'
+                img_original = '/static/dashboard/img/logos/original/app.png'
                 application = fiware_api.keystone.application_create(request,
                                                 name=data['name'],
                                                 description=data['description'],
                                                 redirect_uris=[data['callbackurl']],
                                                 url=data['url'],
-                                                img=default_img)
+                                                img_small=img_small,
+                                                img_medium=img_medium,
+                                                img_original=img_original)
                 LOG.debug('Application {0} created'.format(application.name))
             except Exception:
                 exceptions.handle(request, _('Unable to register the application.'))
@@ -96,11 +102,29 @@ class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
             image = request.FILES['image'] 
             output_img = self.crop(image)
             
-            imageName = application_id
-            output_img.save(settings.MEDIA_ROOT+"/"+"ApplicationAvatar/"+imageName, 'JPEG')
-            
-            img = settings.MEDIA_URL+'ApplicationAvatar/'+imageName
-            fiware_api.keystone.application_update(request, application_id, img=img)
+            small = 25, 25, 'small'
+            medium = 36, 36, 'medium'
+            original = 100, 100, 'original'
+
+            # if output_img.size[0] < original[0]:
+            #     messages.warning(request, 'Image is smaller than 60px/60px')
+                
+            meta = [original, medium, small]
+            for meta in meta:
+                size = meta[0], meta[1]
+                img_type = meta[2]
+                output_img.resize(size)
+                imageName = application_id
+                output_img.save(settings.MEDIA_ROOT + "/" + "ApplicationAvatar/" + img_type + "/" + imageName, 'JPEG')
+                
+                img = settings.MEDIA_URL + 'ApplicationAvatar/' + img_type + "/" +imageName
+                if img_type == 'small':
+                    fiware_api.keystone.application_update(request, application_id, img_small=img)
+                elif img_type == 'medium':
+                    fiware_api.keystone.application_update(request, application_id, img_medium=img)
+                else:
+                    fiware_api.keystone.application_update(request, application_id, img_original=img)
+
 
         if data['redirect_to'] == "update":
             response = shortcuts.redirect('horizon:idm:myApplications:detail', application_id) 
@@ -196,10 +220,12 @@ class CancelForm(forms.SelfHandlingForm):
     title = 'Cancel'
 
     def handle(self, request, data, application):
-        image = application.extra['img']
+        image = application.extra['img_original']
         LOG.debug(image)
         if "ApplicationAvatar" in image:
-            os.remove(AVATAR + application.id)
+            os.remove(AVATAR_SMALL + application.id)
+            os.remove(AVATAR_MEDIUM + application.id)
+            os.remove(AVATAR_ORIGINAL + application.id)
             LOG.debug('Avatar deleted from server')    
         fiware_api.keystone.application_delete(request, application.id)
         LOG.info('Application {0} deleted'.format(application.id))

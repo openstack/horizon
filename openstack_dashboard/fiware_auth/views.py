@@ -13,8 +13,9 @@
 
 import logging
 
+from django import http
 from django.conf import settings
-from django.core.urlresolvers import reverse_lazy
+from django.core.urlresolvers import reverse, reverse_lazy
 from django.shortcuts import redirect
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
@@ -95,6 +96,11 @@ class RegistrationView(_RequestPassingFormView):
     http_method_names = ['get', 'post', 'head', 'options', 'trace']
     success_url = reverse_lazy('login')
     template_name = 'auth/registration/registration.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.username:
+            return redirect("/idm/")
+        return super(RegistrationView, self).dispatch(request, *args, **kwargs)
     
     def form_valid(self, request, form):
         new_user = self.register(request, **form.cleaned_data)
@@ -145,6 +151,11 @@ class ActivationView(TemplateView):
     template_name = 'auth/activation/activate.html'
     success_url = reverse_lazy('login')
 
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.username:
+            return redirect("/idm/")
+        return super(ActivationView, self).dispatch(request, *args, **kwargs)
+
     def get(self, request, *args, **kwargs):
         activated_user = self.activate(request, *args, **kwargs)
         if activated_user:
@@ -169,6 +180,11 @@ class RequestPasswordResetView(_RequestPassingFormView):
     form_class = fiware_forms.EmailForm
     template_name = 'auth/password/request.html'
     success_url = reverse_lazy('login')
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.username:
+            return redirect("/idm/")
+        return super(RequestPasswordResetView, self).dispatch(request, *args, **kwargs)
 
     def form_valid(self, request, form):
         self._create_reset_password_token(request, form.cleaned_data['email'])
@@ -204,6 +220,8 @@ class ResetPasswordView(_RequestPassingFormView):
     success_url = reverse_lazy('login')
 
     def dispatch(self, request, *args, **kwargs):
+        if request.user.username:
+            return redirect("/idm/")
         self.token = request.GET.get('token')
         self.email = request.GET.get('email')
         return super(ResetPasswordView, self).dispatch(request, *args, **kwargs)
@@ -216,25 +234,35 @@ class ResetPasswordView(_RequestPassingFormView):
 
     def form_valid(self, request, form):
         password = form.cleaned_data['password1']
-        token = self.token    
+        token = self.token
         user = self._reset_password(request, token, password)
         if user:
             return super(ResetPasswordView, self).form_valid(form)
         return self.get(request) # redirect to itself
 
-    def _reset_password(self, request, token, new_password):
+    def _reset_password(self, request, token, password):
         LOG.info('Reseting password for token {0}.'.format(token))
         user_email = self.email
-        user = fiware_api.keystone.change_password(user_email, new_password)
-        if user:
-            messages.success(request, _('password successfully changed.'))
-            return user
-        
-    
+        user = fiware_api.keystone.check_email(user_email)
+        try:
+            user = fiware_api.keystone.reset_password(user, token, password)
+            if user:
+                messages.success(request, _('password successfully changed.'))
+                return user
+        except Exception:
+            msg = _('Unable to change password.')
+            LOG.warning(msg)
+            exceptions.handle(request, msg)
+
 class ResendConfirmationInstructionsView(_RequestPassingFormView):
     form_class = fiware_forms.EmailForm
     template_name = 'auth/registration/confirmation.html'
     success_url = reverse_lazy('login')
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.username:
+            return redirect("/idm/")
+        return super(ResendConfirmationInstructionsView, self).dispatch(request, *args, **kwargs)
 
     def form_valid(self, request, form):
         self._resend_confirmation_email(request, form.cleaned_data['email'])
@@ -268,7 +296,7 @@ class ResendConfirmationInstructionsView(_RequestPassingFormView):
         subject = 'Welcome to FIWARE'
         # Email subject *must not* contain newlines
         subject = ''.join(subject.splitlines())
-        content = 'New user created at FIWARE :D/n Go to http://localhost:8000/activate/?activation_key={0}&user={1} to activate'.format(activation_key, user.id)
+        content = 'New user created at FIWARE :D/n Go to http://localhost:8000/activate/?activation_key={0}&user={1} to activate'.format(base.getid(activation_key), user.id)
         #send a mail for activation
         self.send_html_email(to=[user.email],
                              from_email='admin@fiware-idm-test.dit.upm.es',
