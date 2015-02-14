@@ -27,11 +27,7 @@ import pytz
 
 from horizon import forms
 from horizon import messages
-
-
-def _one_year():
-    now = datetime.utcnow()
-    return now + timedelta(days=365)
+from horizon.utils import functions
 
 
 class UserSettingsForm(forms.SelfHandlingForm):
@@ -106,27 +102,22 @@ class UserSettingsForm(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         response = shortcuts.redirect(request.build_absolute_uri())
-        # Language
+
         lang_code = data['language']
         if lang_code and translation.check_for_language(lang_code):
-            if hasattr(request, 'session'):
-                request.session['django_language'] = lang_code
-            response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang_code,
-                                expires=_one_year())
+            response = functions.save_config_value(
+                request, response, settings.LANGUAGE_COOKIE_NAME, lang_code)
 
-        # Timezone
-        request.session['django_timezone'] = pytz.timezone(
-            data['timezone']).zone
-        response.set_cookie('django_timezone', data['timezone'],
-                            expires=_one_year())
+        response = functions.save_config_value(
+            request, response, 'django_timezone',
+            pytz.timezone(data['timezone']).zone)
 
-        request.session['horizon_pagesize'] = data['pagesize']
-        response.set_cookie('horizon_pagesize', data['pagesize'],
-                            expires=_one_year())
+        response = functions.save_config_value(
+            request, response, 'API_RESULT_PAGE_SIZE', data['pagesize'])
 
-        request.session['instance_log_length'] = data['instance_log_length']
-        response.set_cookie('instance_log_length',
-                            data['instance_log_length'], expires=_one_year())
+        response = functions.save_config_value(
+            request, response, 'INSTANCE_LOG_LENGTH',
+            data['instance_log_length'])
 
         with translation.override(lang_code):
             messages.success(request,

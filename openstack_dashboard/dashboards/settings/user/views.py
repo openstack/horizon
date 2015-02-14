@@ -12,7 +12,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import settings
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
@@ -31,15 +30,9 @@ class UserSettingsView(forms.ModalFormView):
     template_name = 'settings/user/settings.html'
 
     def get_initial(self):
-        default_tz = getattr(settings, 'TIME_ZONE', 'UTC')
         return {
-            'language': self.request.session.get(
-                settings.LANGUAGE_COOKIE_NAME,
-                self.request.COOKIES.get(settings.LANGUAGE_COOKIE_NAME,
-                                         self.request.LANGUAGE_CODE)),
-            'timezone': self.request.session.get(
-                'django_timezone',
-                self.request.COOKIES.get('django_timezone', default_tz)),
+            'language': utils.get_language(self.request),
+            'timezone': utils.get_timezone(self.request),
             'pagesize': utils.get_page_size(self.request),
             'instance_log_length': utils.get_log_length(self.request)}
 
