@@ -74,10 +74,22 @@ def rule_list(request, **kwargs):
     return _rule_list(request, expand_policy=True, **kwargs)
 
 
+def rule_list_for_tenant(request, tenant_id, **kwargs):
+    """Return a rule list available for the tenant.
+
+    The list contains rules owned by the tenant and shared rules.
+    This is required because Neutron returns all resources including
+    all tenants if a user has admin role.
+    """
+    rules = rule_list(request, tenant_id=tenant_id, shared=False, **kwargs)
+    shared_rules = rule_list(request, shared=True, **kwargs)
+    return rules + shared_rules
+
+
 def _rule_list(request, expand_policy, **kwargs):
     rules = neutronclient(request).list_firewall_rules(
         **kwargs).get('firewall_rules')
-    if expand_policy:
+    if expand_policy and rules:
         policies = _policy_list(request, expand_rule=False)
         policy_dict = SortedDict((p.id, p) for p in policies)
         for rule in rules:
@@ -133,10 +145,23 @@ def policy_list(request, **kwargs):
     return _policy_list(request, expand_rule=True, **kwargs)
 
 
+def policy_list_for_tenant(request, tenant_id, **kwargs):
+    """Return a policy list available for the tenant.
+
+    The list contains policies owned by the tenant and shared policies.
+    This is required because Neutron returns all resources including
+    all tenants if a user has admin role.
+    """
+    policies = policy_list(request, tenant_id=tenant_id,
+                           shared=False, **kwargs)
+    shared_policies = policy_list(request, shared=True, **kwargs)
+    return policies + shared_policies
+
+
 def _policy_list(request, expand_rule, **kwargs):
     policies = neutronclient(request).list_firewall_policies(
         **kwargs).get('firewall_policies')
-    if expand_rule:
+    if expand_rule and policies:
         rules = _rule_list(request, expand_policy=False)
         rule_dict = SortedDict((rule.id, rule) for rule in rules)
         for p in policies:
@@ -206,10 +231,25 @@ def firewall_list(request, **kwargs):
     return _firewall_list(request, expand_policy=True, **kwargs)
 
 
+def firewall_list_for_tenant(request, tenant_id, **kwargs):
+    """Return a firewall list available for the tenant.
+
+    The list contains firewalls owned by the tenant and shared firewalls.
+    This is required because Neutron returns all resources including
+    all tenants if a user has admin role.
+    """
+    # NOTE(amotoki): At now 'shared' attribute is not visible in Neutron
+    # and there is no way to query shared firewalls explicitly.
+    # Thus this method returns the same as when tenant_id is specified,
+    # but I would like to have this method for symmetry to firewall
+    # rules and policies to avoid unnecessary confusion.
+    return firewall_list(request, tenant_id=tenant_id, **kwargs)
+
+
 def _firewall_list(request, expand_policy, **kwargs):
     firewalls = neutronclient(request).list_firewalls(
         **kwargs).get('firewalls')
-    if expand_policy:
+    if expand_policy and firewalls:
         policies = _policy_list(request, expand_rule=False)
         policy_dict = SortedDict((p.id, p) for p in policies)
         for fw in firewalls:
