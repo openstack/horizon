@@ -195,6 +195,8 @@ class UsersTable(tables.DataTable):
     enabled = tables.Column('enabled', verbose_name=_('Enabled'),
                             status=True,
                             status_choices=STATUS_CHOICES,
+                            filters=(defaultfilters.yesno,
+                                     defaultfilters.capfirst),
                             empty_value=_('False'))
 
 

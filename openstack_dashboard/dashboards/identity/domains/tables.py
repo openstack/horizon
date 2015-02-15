@@ -16,6 +16,7 @@ import logging
 
 from django.conf import settings
 from django.core.urlresolvers import reverse
+from django.template import defaultfilters as filters
 from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
@@ -199,7 +200,8 @@ class DomainsTable(tables.DataTable):
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
                                 verbose_name=_('Description'))
     id = tables.Column('id', verbose_name=_('Domain ID'))
-    enabled = tables.Column('enabled', verbose_name=_('Enabled'), status=True)
+    enabled = tables.Column('enabled', verbose_name=_('Enabled'), status=True,
+                            filters=(filters.yesno, filters.capfirst))
 
     class Meta(object):
         name = "domains"
