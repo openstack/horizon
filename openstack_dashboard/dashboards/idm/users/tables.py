@@ -36,7 +36,7 @@ class OrganizationsTable(tables.DataTable):
 
 
 class ApplicationsTable(tables.DataTable):
-    name = tables.Column('application', verbose_name=_('Applications'))
+    name = tables.Column('name', verbose_name=_('Applications'))
     clickable = True
     show_avatar = True
 

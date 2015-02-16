@@ -69,7 +69,7 @@ class DetailUserView(tables.MultiTableView):
         try:
             applications = fiware_api.keystone.application_list(
                 self.request)
-                #user=self.request.user.id)
+                # user=self.request.user.id)
         except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve application list."))
