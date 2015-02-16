@@ -30,7 +30,7 @@ class UsersettingsPage(basepage.BaseNavigationPage):
 
     SETTINGS_FORM_FIELDS = ("language", "timezone", "pagesize")
 
-    _settings_form_locator = (by.By.CSS_SELECTOR, 'div#user_settings_modal')
+    _settings_form_locator = (by.By.ID, 'user_settings_modal')
     _change_password_tab_locator = (by.By.CSS_SELECTOR,
                                     'a[href*="/settings/password/"]')
 

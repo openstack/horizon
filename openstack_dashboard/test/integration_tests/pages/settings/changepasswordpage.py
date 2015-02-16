@@ -18,8 +18,7 @@ from openstack_dashboard.test.integration_tests.regions import forms
 
 class ChangepasswordPage(basepage.BaseNavigationPage):
 
-        _password_form_locator = (by.By.CSS_SELECTOR,
-                                  'div#change_password_modal')
+        _password_form_locator = (by.By.ID, 'change_password_modal')
 
         CHANGE_PASSWORD_FORM_FIELDS = ("current_password", "new_password",
                                        "confirm_new_password")
