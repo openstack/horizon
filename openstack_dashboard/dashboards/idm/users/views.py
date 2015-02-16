@@ -62,7 +62,7 @@ class DetailUserView(tables.MultiTableView):
             self._more = False
             exceptions.handle(self.request,
                               _("Unable to retrieve organization information."))
-        return idm_utils.filter_default_organizations(organizations)
+        return idm_utils.filter_default(organizations)
 
     def get_applications_data(self):
         applications = []
