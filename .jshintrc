@@ -1,0 +1,33 @@
+{
+  "browser": true,
+  "trailing": true,
+  "evil": true,
+
+  "globals": {
+    "jQuery": false,
+    "$": false,
+
+    "angular": false,
+    "module": false,
+    "inject": false,
+
+    "describe": false,
+    "beforeEach": false,
+    "afterEach": false,
+    "beforeAll": false,
+    "afterAll": false,
+    "it": false,
+    "expect": false,
+
+    "d3": false,
+
+    "pluralidx": false,
+    "gettext": false,
+    "ngettext": false,
+    "gettext_noop": false,
+    "pgettext": false,
+    "npgettext": false,
+    "interpolate": false,
+    "get_format": false
+  }
+}

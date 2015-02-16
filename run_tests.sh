@@ -157,6 +157,7 @@ function run_jshint {
   echo "Running jshint ..."
   jshint horizon/static/horizon/js
   jshint horizon/static/horizon/tests
+  jshint horizon/static/angular/
 }
 
 function warn_on_flake8_without_venv {
