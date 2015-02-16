@@ -30,7 +30,7 @@ from openstack_dashboard import fiware_api
 from openstack_dashboard.dashboards.idm import views as idm_views
 from openstack_dashboard.dashboards.idm.users import tables as user_tables
 from openstack_dashboard.dashboards.idm import utils as idm_utils
-from openstack_dashboard.dashboards.idm.users.forms import  InfoForm, ContactForm, CancelForm
+from openstack_dashboard.dashboards.idm.users.forms import  InfoForm, ContactForm, AvatarForm, CancelForm
 
 from horizon import views
 
@@ -90,7 +90,7 @@ class DetailUserView(tables.MultiTableView):
 
 class BaseUsersMultiFormView(idm_views.BaseMultiFormView):
     template_name = 'idm/users/edit.html'
-    forms_classes = [InfoForm, ContactForm, CancelForm]
+    forms_classes = [InfoForm, ContactForm, AvatarForm, CancelForm]
     
     def get_endpoint(self, form_class):
         """Override to allow runtime endpoint declaration"""
@@ -99,8 +99,8 @@ class BaseUsersMultiFormView(idm_views.BaseMultiFormView):
                                 kwargs=self.kwargs),
             ContactForm: reverse('horizon:idm:users:contact', 
                                 kwargs=self.kwargs),
-            # AvatarForm: reverse('horizon:idm:organizations:avatar', 
-            #                     kwargs=self.kwargs),
+            AvatarForm: reverse('horizon:idm:users:avatar', 
+                                kwargs=self.kwargs),
             CancelForm: reverse('horizon:idm:users:cancel', 
                                 kwargs=self.kwargs),
         }
@@ -142,8 +142,8 @@ class InfoFormHandleView(BaseUsersMultiFormView):
 class ContactFormHandleView(BaseUsersMultiFormView):
     form_to_handle_class = ContactForm
    
-# class AvatarFormHandleView(BaseUsersMultiFormView):
-#     form_to_handle_class = AvatarForm
+class AvatarFormHandleView(BaseUsersMultiFormView):
+    form_to_handle_class = AvatarForm
 
 class CancelFormHandleView(BaseUsersMultiFormView):
     form_to_handle_class = CancelForm

@@ -91,6 +91,7 @@
         {% if request.user.username %}
          <a  href="{% url 'horizon:idm:users:detail' request.user.id %}">
           <img alt="User" src="{{ STATIC_URL }}dashboard/img/logos/small/user.png">
+          <!-- Hay que hacer que se muestre la imagen del usuario -->
           {{ request.user.username }}
           </a>
          <a class="dropdown-toggle" data-toggle="dropdown" href="#profile_editor_switch">

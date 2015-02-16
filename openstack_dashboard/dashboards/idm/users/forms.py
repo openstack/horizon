@@ -32,6 +32,10 @@ import pdb
 
 LOG = logging.getLogger('idm_logger')
 
+AVATAR_SMALL = settings.MEDIA_ROOT+"/"+"UserAvatar/small/"
+AVATAR_MEDIUM = settings.MEDIA_ROOT+"/"+"UserAvatar/medium/"
+AVATAR_ORIGINAL = settings.MEDIA_ROOT+"/"+"UserAvatar/original/"
+
 
 class InfoForm(forms.SelfHandlingForm):
     userID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
@@ -81,43 +85,43 @@ class ContactForm(forms.SelfHandlingForm):
         return response
 
 
-# class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
-#     userID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
-#     image = forms.ImageField(required=False)
-#     password = forms.CharField(label=_("password"), widget=forms.HiddenInput(), required=False)
-#     title = 'Change your avatar'
+class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
+    userID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
+    image = forms.ImageField(required=False)
+    password = forms.CharField(label=_("password"), widget=forms.HiddenInput(), required=False)
+    title = 'Change your avatar'
 
-#     def handle(self, request, data):
-#         if request.FILES:
-#             image = request.FILES['image'] 
-#             output_img = self.crop(image)
+    def handle(self, request, data):
+        if request.FILES:
+            image = request.FILES['image'] 
+            output_img = self.crop(image)
             
-#             small = 25, 25, 'small'
-#             medium = 36, 36, 'medium'
-#             original = 100, 100, 'original'
-#             meta = [original, medium, small]
-#             for meta in meta:
-#                 size = meta[0], meta[1]
-#                 img_type = meta[2]
-#                 output_img.thumbnail(size)
-#                 imageName = self.data['userID']
-#                 output_img.save(settings.MEDIA_ROOT + "/" + "UserAvatar/" + img_type + "/" + imageName, 'JPEG')
+            small = 25, 25, 'small'
+            medium = 36, 36, 'medium'
+            original = 100, 100, 'original'
+            meta = [original, medium, small]
+            for meta in meta:
+                size = meta[0], meta[1]
+                img_type = meta[2]
+                output_img.thumbnail(size)
+                imageName = self.data['userID']
+                output_img.save(settings.MEDIA_ROOT + "/" + "UserAvatar/" + img_type + "/" + imageName, 'JPEG')
                 
-#                 img = settings.MEDIA_URL + 'UserAvatar/' + img_type + "/" +imageName
-#                 if img_type == 'small':
-#                     api.keystone.user_update(request, data['userID'], img_small=img)
-#                 elif img_type == 'medium':
-#                     api.keystone.user_update(request, data['userID'], img_medium=img)
-#                 else:
-#                     api.keystone.user_update(request, data['userID'], img_original=img)
+                img = settings.MEDIA_URL + 'UserAvatar/' + img_type + "/" +imageName
+                if img_type == 'small':
+                    api.keystone.user_update(request, data['userID'], img_small=img, password=data['password'])
+                elif img_type == 'medium':
+                    api.keystone.user_update(request, data['userID'], img_medium=img, password=data['password'])
+                else:
+                    api.keystone.user_update(request, data['userID'], img_original=img, password=data['password'])
 
             
 
-#             LOG.debug('User {0} image updated'.format(data['userID']))
-#             messages.success(request, _("User updated successfully."))
+            LOG.debug('User {0} image updated'.format(data['userID']))
+            messages.success(request, _("User updated successfully."))
 
-#         response = shortcuts.redirect('horizon:idm:users:detail', data['userID'])
-        # return response
+        response = shortcuts.redirect('horizon:idm:users:detail', data['userID'])
+        return response
 
              
 class CancelForm(forms.SelfHandlingForm):
@@ -125,12 +129,12 @@ class CancelForm(forms.SelfHandlingForm):
     title = 'Cancel Account'
     
     def handle(self, request, data, user):
-        # image = user.img_original
-        # if "UserAvatar" in image:
-        #     os.remove(AVATAR_SMALL + organization.id)
-        #     os.remove(AVATAR_MEDIUM + organization.id)
-        #     os.remove(AVATAR_ORIGINAL + organization.id)
-        #     LOG.debug('{0} deleted'.format(image))
+        image = user.img_original
+        if "UserAvatar" in image:
+            os.remove(AVATAR_SMALL + organization.id)
+            os.remove(AVATAR_MEDIUM + organization.id)
+            os.remove(AVATAR_ORIGINAL + organization.id)
+            LOG.debug('{0} deleted'.format(image))
         api.keystone.user_delete(request, user)
         LOG.info('User {0} deleted'.format(user.id))
         messages.success(request, _("User deleted successfully."))
