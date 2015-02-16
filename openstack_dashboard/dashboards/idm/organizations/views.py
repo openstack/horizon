@@ -83,7 +83,7 @@ class DetailOrganizationView(tables.MultiTableView):
         context['contact_info'] = organization.description
         context['organization.id'] = organization.id
         context['organization_name'] = organization.name
-        context['image'] =  getattr(organization, 'img_original', '/static/dashboard/img/logos/original/group.png')
+        context['image'] = getattr(organization, 'img_original', '/static/dashboard/img/logos/original/group.png')
         context['city'] = getattr(organization, 'city', '')
         context['email'] = getattr(organization, 'email', '')
         context['website'] = getattr(organization, 'website', '')
@@ -97,7 +97,7 @@ class OrganizationMembersView(workflows.WorkflowView):
         initial = super(OrganizationMembersView, self).get_initial()
 
         project_id = self.kwargs['organization_id']
-        initial['project_id'] = project_id
+        initial['superset_id'] = project_id
 
         return initial
 

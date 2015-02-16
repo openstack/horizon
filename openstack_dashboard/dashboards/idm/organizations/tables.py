@@ -70,7 +70,7 @@ class MembersTable(tables.DataTable):
 
     class Meta:
         name = "members"
-        verbose_name = _("Authorized members")
+        verbose_name = _("Members")
         table_actions = (ManageMembersLink, )
         multi_select = False
 
