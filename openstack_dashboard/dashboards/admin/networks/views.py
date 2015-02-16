@@ -175,6 +175,7 @@ class UpdateView(user_views.UpdateView):
     form_class = project_forms.UpdateNetwork
     template_name = 'admin/networks/update.html'
     success_url = reverse_lazy('horizon:admin:networks:index')
+    submit_url = "horizon:admin:networks:update"
 
     def get_initial(self):
         network = self._get_object()

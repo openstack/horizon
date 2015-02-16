@@ -15,6 +15,7 @@
 """
 Views for managing Neutron Networks.
 """
+from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
@@ -58,19 +59,22 @@ class CreateView(workflows.WorkflowView):
     workflow_class = project_workflows.CreateNetwork
     ajax_template_name = 'project/networks/create.html'
 
-    def get_initial(self):
-        pass
-
 
 class UpdateView(forms.ModalFormView):
-    form_class = project_forms.UpdateNetwork
-    template_name = 'project/networks/update.html'
     context_object_name = 'network'
+    form_class = project_forms.UpdateNetwork
+    form_id = "update_network_form"
+    modal_header = _("Edit Network")
+    submit_label = _("Save Changes")
+    submit_url = "horizon:project:networks:update"
     success_url = reverse_lazy("horizon:project:networks:index")
+    template_name = 'project/networks/update.html'
 
     def get_context_data(self, **kwargs):
         context = super(UpdateView, self).get_context_data(**kwargs)
+        args = (self.kwargs['network_id'],)
         context["network_id"] = self.kwargs['network_id']
+        context["submit_url"] = reverse(self.submit_url, args=args)
         return context
 
     @memoized.memoized_method
