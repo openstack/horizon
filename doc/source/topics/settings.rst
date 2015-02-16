@@ -255,10 +255,19 @@ are added as dependencies on the root Horizon application ``hz``.
 
 Default: ``[]``
 
-A list of javascript files to be included in the compressed set of files that are
+A list of javascript source files to be included in the compressed set of files that are
 loaded on every page. This is needed for AngularJS modules that are referenced in
 ``angular_modules`` and therefore need to be include in every page.
 
+``js_spec_files``
+-------------------------
+
+.. versionadded:: 2015.1(Kilo)
+
+Default: ``[]``
+
+A list of javascript spec files to include for integration with the Jasmine spec runner.
+Jasmine is a behavior-driven development framework for testing JavaScript code.
 
 OpenStack Settings (Partial)
 ============================
@@ -1019,9 +1028,18 @@ are added as dependencies on the root Horizon application ``hz``.
 
 .. versionadded:: 2014.2(Juno)
 
-A list of javascript files to be included in the compressed set of files that are
+A list of javascript source files to be included in the compressed set of files that are
 loaded on every page. This is needed for AngularJS modules that are referenced in
 ``ADD_ANGULAR_MODULES`` and therefore need to be included in every page.
+
+``ADD_JS_SPEC_FILES``
+----------------------
+
+.. versionadded:: 2015.1(Kilo)
+
+A list of javascript spec files to include for integration with the Jasmine spec runner.
+Jasmine is a behavior-driven development framework for testing JavaScript code.
+
 
 ``DISABLED``
 ------------

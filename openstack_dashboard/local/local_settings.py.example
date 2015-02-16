@@ -67,6 +67,7 @@ HORIZON_CONFIG = {
     'modal_backdrop': 'static',
     'angular_modules': [],
     'js_files': [],
+    'js_spec_files': [],
 }
 
 # Specify a regular expression to validate user passwords.
