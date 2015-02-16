@@ -19,11 +19,12 @@ import horizon
 
 from openstack_dashboard import fiware_api
 
+
 class Idm_Admin(horizon.Dashboard):
     name = _(" ")
     slug = "idm_admin"
-    panels = ('notify',)  # Add your panels here.
-    default_panel = 'notify'  # Specify the slug of the dashboard's default panel.
+    panels = ('notify', 'administrators')
+    default_panel = 'notify'
 
     def nav(self, context):
         # NOTE(garcianavalon) hide it if the user doesn't belong to idm_admin
@@ -31,7 +32,7 @@ class Idm_Admin(horizon.Dashboard):
         idm_admin = getattr(settings, 'IDM_ID')
         user_apps = [a.application_id for a
                      in fiware_api.keystone.user_role_assignments(
-                        request, user=request.user.id)]
+                         request, user=request.user.id)]
         return idm_admin in user_apps
 
 
