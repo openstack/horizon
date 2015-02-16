@@ -15,15 +15,18 @@
 import logging
 
 LOG = logging.getLogger('idm_logger')
-def filter_default_organizations(projects):
+def filter_default(items):
     """Remove from a list the automated created project for a user. This project
     is created during the user registration step and is needed for the user to be
     able to perform operations in the cloud, as a work around the Keystone-OpenStack
     project behaviour. We don't want the user to be able to do any operations to this 
     project nor even notice it exists.
+
+    Also filters other default items we dont want to show, like internal
+    applications.
     """
-    filtered = [p for p in projects if not getattr(p, 'is_default', False)]
-    LOG.debug('filtered organizations: {0}'.format(filtered))
+    filtered = [i for i in items if not getattr(i, 'is_default', False)]
+    LOG.debug('filtered items: {0}'.format(filtered))
     return filtered
 
 def check_elements(elements, valid_elements):

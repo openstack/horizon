@@ -16,6 +16,7 @@ from horizon import exceptions
 from horizon import tabs
 
 from openstack_dashboard import fiware_api
+from openstack_dashboard.dashboards.idm import utils as idm_utils
 from openstack_dashboard.dashboards.idm.myApplications \
     import tables as applications_table
 
@@ -36,7 +37,7 @@ class ProvidingTab(tabs.TableTab):
         except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve application list."))
-        return applications
+        return idm_utils.filter_default(applications)
 
 
 class PurchasedTab(tabs.TableTab):
@@ -48,7 +49,7 @@ class PurchasedTab(tabs.TableTab):
 
     def get_purchased_table_data(self):
         applications = []
-        return applications
+        return idm_utils.filter_default(applications)
 
         
 class PanelTabs(tabs.TabGroup):

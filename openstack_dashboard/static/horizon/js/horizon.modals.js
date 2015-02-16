@@ -40,13 +40,8 @@ horizon.modals.create = function (title, body, confirm, cancel) {
 
 horizon.modals.success = function (data, textStatus, jqXHR) {
   var modal;
-  console.log('appending data!')
   $('#modal_wrapper').append(data);
-  console.log('appended')
-  console.log('finding last modal')
   modal = $('.modal:last');
-  console.log('finded!')
-  console.log('modal: ' +modal)
   modal.modal();
   $(modal).trigger("new_modal", modal);
   return modal;
@@ -175,7 +170,6 @@ horizon.addInitFunction(function() {
 
   // Bind handler for initializing new modals.
   $('#modal_wrapper').on('new_modal', function (evt, modal) {
-    console.log('new modal! init time')
     horizon.modals.initModal(modal);
   });
 
@@ -303,7 +297,6 @@ horizon.addInitFunction(function() {
 
   // Load modals for ajax-modal links.
   $(document).on('click', '.ajax-modal', function (evt) {
-    console.log('load modal')
     var $this = $(this);
 
     // If there's an existing modal request open, cancel it out.
@@ -313,17 +306,14 @@ horizon.addInitFunction(function() {
 
     horizon.modals._request = $.ajax($this.attr('href'), {
       beforeSend: function () {
-        console.log('beforeSend')
         horizon.modals.modal_spinner(gettext("Loading"));
       },
       complete: function () {
-        console.log('complete!')
         // Clear the global storage;
         horizon.modals._request = null;
         horizon.modals.spinner.modal('hide');
       },
       error: function(jqXHR, status, errorThrown) {
-        console.log('error')
         if (jqXHR.status === 401){
           var redir_url = jqXHR.getResponseHeader("X-Horizon-Location");
           if (redir_url){
@@ -340,7 +330,6 @@ horizon.addInitFunction(function() {
         }
       },
       success: function (data, textStatus, jqXHR) {
-        console.log('success')
         var update_field_id = $this.attr('data-add-to-field'),
           modal,
           form;

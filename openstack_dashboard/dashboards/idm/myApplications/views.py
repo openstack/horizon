@@ -26,6 +26,7 @@ from horizon.utils import memoized
 
 from django.views.generic.base import TemplateView
 
+from openstack_dashboard import api
 from openstack_dashboard import fiware_api
 from openstack_dashboard.dashboards.idm import views as idm_views
 from openstack_dashboard.dashboards.idm.myApplications \
@@ -171,8 +172,24 @@ class CreatePermissionView(forms.ModalFormView):
         return initial
 
 
-class DetailApplicationView(TemplateView):
+class DetailApplicationView(tables.MultiTableView):
     template_name = 'idm/myApplications/detail.html'
+    table_classes = (application_tables.MembersTable, )
+
+    def get_members_data(self):        
+        users = []
+        try:
+            # NOTE(garcianavalon) Get all the users' ids that belong to
+            # the application (they have one or more roles)
+            all_users = api.keystone.user_list(self.request)
+            role_assignments = fiware_api.keystone.user_role_assignments(
+                self.request, application=self.kwargs['application_id'])
+            users = [user for user in all_users if user.id 
+                     in set([a.user_id for a in role_assignments])]
+        except Exception:
+            exceptions.handle(self.request,
+                              _("Unable to retrieve member information."))
+        return users
 
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
@@ -190,6 +207,15 @@ class DetailApplicationView(TemplateView):
         context['application_id'] = application_id
         context['application_secret'] = application.secret
         return context
+
+
+class AuthorizedMembersView(workflows.WorkflowView):
+    workflow_class = application_workflows.ManageAuthorizedMembers
+
+    def get_initial(self):
+        initial = super(AuthorizedMembersView, self).get_initial()
+        initial['superset_id'] = self.kwargs['application_id']
+        return initial
 
 
 class BaseApplicationsMultiFormView(idm_views.BaseMultiFormView):
