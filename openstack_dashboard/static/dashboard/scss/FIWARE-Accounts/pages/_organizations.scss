@@ -230,3 +230,9 @@
   }  
 }
 
+
+#no_update_owners_members{
+  @extend .alert;
+  @extend .alert-info;
+  margin-top: 11px;
+}

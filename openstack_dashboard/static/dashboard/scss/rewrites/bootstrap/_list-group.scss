@@ -3,8 +3,9 @@
 }
 
 .list-group-item {
-  padding: 10px 0;
+  //padding: 10px 0;
   min-height: 60px !important;
+  border: 1px solid $border-color;
   &:first-child{
     border-top: none;
   }
