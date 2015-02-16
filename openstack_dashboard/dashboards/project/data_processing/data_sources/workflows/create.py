@@ -30,15 +30,29 @@ class GeneralConfigAction(workflows.Action):
     data_source_type = forms.ChoiceField(
         label=_("Data Source Type"),
         choices=[("swift", "Swift"), ("hdfs", "HDFS")],
-        widget=forms.Select(attrs={"class": "data_source_type_choice"}))
+        widget=forms.Select(attrs={
+            "class": "switchable",
+            "data-slug": "ds_type"
+        }))
 
     data_source_url = forms.CharField(label=_("URL"))
 
-    data_source_credential_user = forms.CharField(label=_("Source username"),
-                                                  required=False)
+    data_source_credential_user = forms.CharField(
+        label=_("Source username"),
+        required=False,
+        widget=forms.TextInput(attrs={
+            "class": "switched",
+            "data-switch-on": "ds_type",
+            "data-ds_type-swift": _("Source username")
+        }))
 
     data_source_credential_pass = forms.CharField(
-        widget=forms.PasswordInput(attrs={'autocomplete': 'off'}),
+        widget=forms.PasswordInput(attrs={
+            'class': 'switched',
+            'data-switch-on': 'ds_type',
+            'data-ds_type-swift': _("Source password"),
+            'autocomplete': 'off'
+        }),
         label=_("Source password"),
         required=False)
 
