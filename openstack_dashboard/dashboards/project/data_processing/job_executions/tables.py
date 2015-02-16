@@ -16,6 +16,7 @@ import logging
 from django.core.urlresolvers import reverse
 from django.http import Http404  # noqa
 from django.utils import http
+from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
@@ -146,10 +147,21 @@ class JobExecutionsTable(tables.DataTable):
         ("KILLED", False),
         ("SUCCEEDED", True),
     )
+    STATUS_DISPLAY_CHOICES = (
+        ("DONEWITHERROR", pgettext_lazy("Current status of a Job Execution",
+                                        u"Done with Error")),
+        ("FAILED", pgettext_lazy("Current status of a Job Execution",
+                                 u"Failed")),
+        ("KILLED", pgettext_lazy("Current status of a Job Execution",
+                                 u"Killed")),
+        ("SUCCEEDED", pgettext_lazy("Current status of a Job Execution",
+                                    u"Succeeded")),
+    )
 
     name = tables.Column("id",
                          verbose_name=_("ID"),
-                         display_choices=(("id", "ID"), ("name", "Name")),
+                         display_choices=(("id", "ID"),
+                                          ("name", pgettext_lazy("Name")),),
                          link=("horizon:project:data_processing."
                                "job_executions:details"))
     job_name = tables.Column(
@@ -163,6 +175,7 @@ class JobExecutionsTable(tables.DataTable):
     status = StatusColumn("info",
                           status=True,
                           status_choices=STATUS_CHOICES,
+                          display_choices=STATUS_DISPLAY_CHOICES,
                           verbose_name=_("Status"))
 
     def get_object_display(self, datum):
