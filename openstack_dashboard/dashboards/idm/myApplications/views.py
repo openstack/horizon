@@ -1,3 +1,5 @@
+# Copyright (C) 2014 Universidad Politecnica de Madrid
+#
 # Licensed under the Apache License, Version 2.0 (the "License"); you may
 # not use this file except in compliance with the License. You may obtain
 # a copy of the License at
@@ -12,8 +14,6 @@
 
 import logging
 
-from django import forms
-from django.core.urlresolvers import reverse_lazy
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
@@ -24,17 +24,16 @@ from horizon import tabs
 from horizon import workflows
 from horizon.utils import memoized
 
-from django.views.generic.base import TemplateView
 
 from openstack_dashboard import api
 from openstack_dashboard import fiware_api
 from openstack_dashboard.dashboards.idm import views as idm_views
 from openstack_dashboard.dashboards.idm.myApplications \
-            import tables as application_tables
+    import tables as application_tables
 from openstack_dashboard.dashboards.idm.myApplications \
-            import tabs as application_tabs
+    import tabs as application_tabs
 from openstack_dashboard.dashboards.idm.myApplications \
-            import forms as application_forms
+    import forms as application_forms
 from openstack_dashboard.dashboards.idm.myApplications \
     import workflows as application_workflows
 
@@ -44,7 +43,7 @@ class IndexView(tabs.TabbedTableView):
     tab_group_class = application_tabs.PanelTabs
     template_name = 'idm/myApplications/index.html'
 
-  
+
 class CreateView(forms.ModalFormView):
     form_class = application_forms.CreateApplicationForm
     template_name = 'idm/myApplications/create.html'
@@ -55,7 +54,7 @@ class CreateView(forms.ModalFormView):
             "redirect_to": 'create',
         }
         return initial_data
-    
+
 
 class AvatarStepView(forms.ModalFormView):
     form_class = application_forms.AvatarForm
@@ -98,7 +97,7 @@ class CreateRoleView(forms.ModalFormView):
     success_url = 'horizon:idm:myApplications:roles_index'
 
     def get_success_url(self):
-        return reverse(self.success_url, 
+        return reverse(self.success_url,
                 kwargs={'application_id': self.kwargs['application_id']})
 
     def get_context_data(self, **kwargs):
@@ -138,7 +137,7 @@ class DeleteRoleView(forms.ModalFormView):
     success_url = 'horizon:idm:myApplications:roles_index'
 
     def get_success_url(self):
-        return reverse(self.success_url, 
+        return reverse(self.success_url,
                 kwargs={'application_id': self.kwargs['application_id']})
 
     def get_context_data(self, **kwargs):
@@ -163,7 +162,7 @@ class CreatePermissionView(forms.ModalFormView):
         return context
 
     def get_success_url(self):
-        return reverse(self.success_url, 
+        return reverse(self.success_url,
                 kwargs={'application_id': self.kwargs['application_id']})
 
     def get_initial(self):
@@ -176,7 +175,7 @@ class DetailApplicationView(tables.MultiTableView):
     template_name = 'idm/myApplications/detail.html'
     table_classes = (application_tables.MembersTable, )
 
-    def get_members_data(self):        
+    def get_members_data(self):
         users = []
         try:
             # NOTE(garcianavalon) Get all the users' ids that belong to
@@ -184,7 +183,7 @@ class DetailApplicationView(tables.MultiTableView):
             all_users = api.keystone.user_list(self.request)
             role_assignments = fiware_api.keystone.user_role_assignments(
                 self.request, application=self.kwargs['application_id'])
-            users = [user for user in all_users if user.id 
+            users = [user for user in all_users if user.id
                      in set([a.user_id for a in role_assignments])]
         except Exception:
             exceptions.handle(self.request,
@@ -198,7 +197,7 @@ class DetailApplicationView(tables.MultiTableView):
         application = fiware_api.keystone.application_get(self.request, application_id)
         context['description'] = application.description
         context['url'] = getattr(application, 'url', None)
-        context['image'] = getattr(application, 'img_original', 
+        context['image'] = getattr(application, 'img_original',
                             '/static/dashboard/img/logos/original/app.png')
         callback_url = application.redirect_uris[0] \
                         if application.redirect_uris else None
@@ -221,19 +220,19 @@ class AuthorizedMembersView(workflows.WorkflowView):
 class BaseApplicationsMultiFormView(idm_views.BaseMultiFormView):
     template_name = 'idm/myApplications/edit.html'
     forms_classes = [
-        application_forms.CreateApplicationForm, 
-        application_forms.AvatarForm, 
+        application_forms.CreateApplicationForm,
+        application_forms.AvatarForm,
         application_forms.CancelForm
     ]
-    
+
     def get_endpoint(self, form_class):
         """Override to allow runtime endpoint declaration"""
         endpoints = {
-            application_forms.CreateApplicationForm: 
+            application_forms.CreateApplicationForm:
                 reverse('horizon:idm:myApplications:info', kwargs=self.kwargs),
-            application_forms.AvatarForm: 
+            application_forms.AvatarForm:
                 reverse('horizon:idm:myApplications:avatar', kwargs=self.kwargs),
-            application_forms.CancelForm: 
+            application_forms.CancelForm:
                 reverse('horizon:idm:myApplications:cancel', kwargs=self.kwargs),
         }
         return endpoints.get(form_class)
@@ -241,15 +240,15 @@ class BaseApplicationsMultiFormView(idm_views.BaseMultiFormView):
     @memoized.memoized_method
     def get_object(self):
         try:
-            return fiware_api.keystone.application_get(self.request, 
+            return fiware_api.keystone.application_get(self.request,
                                                     self.kwargs['application_id'])
         except Exception:
             redirect = reverse("horizon:idm:myApplications:index")
-            exceptions.handle(self.request, _('Unable to update application'), 
+            exceptions.handle(self.request, _('Unable to update application'),
                                 redirect=redirect)
 
     def get_initial(self, form_class):
-        initial = super(BaseApplicationsMultiFormView, self).get_initial(form_class)  
+        initial = super(BaseApplicationsMultiFormView, self).get_initial(form_class)
         # Existing data from applciation
         callback_url = self.object.redirect_uris[0] \
                         if self.object.redirect_uris else None
@@ -259,20 +258,19 @@ class BaseApplicationsMultiFormView(idm_views.BaseMultiFormView):
             "description": self.object.description,
             "callbackurl": callback_url,
             "url": getattr(self.object, 'url', None),
-            "redirect_to": "update" 
+            "redirect_to": "update"
         })
         return initial
 
     def get_context_data(self, **kwargs):
 
         context = super(BaseApplicationsMultiFormView, self).get_context_data(**kwargs)
-        context['image'] = getattr(self.object, 'img_original', 
-
+        context['image'] = getattr(self.object, 'img_original',
                             '/static/dashboard/img/logos/original/app.png')
         return context
 
 
-class CreateApplicationFormHandleView(BaseApplicationsMultiFormView):    
+class CreateApplicationFormHandleView(BaseApplicationsMultiFormView):
     form_to_handle_class = application_forms.CreateApplicationForm
 
 class AvatarFormHandleView(BaseApplicationsMultiFormView):

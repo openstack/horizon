@@ -1,0 +1,12 @@
+{% extends 'idm/base.html' %}
+{% load i18n %}
+
+{% block main %}
+  {% for form in forms %}
+    <div class="panel panel-default {% if forloop.last %}cancel_account{% endif %}">
+      <div class="panel-body">
+        {% include "idm/users/_edit.html" %}
+      </div>
+    </div>
+  {% endfor%}
+{% endblock %}

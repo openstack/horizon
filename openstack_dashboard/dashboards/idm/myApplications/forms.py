@@ -51,7 +51,7 @@ class CreateApplicationForm(forms.SelfHandlingForm):
             try:
 
                 img_small = '/static/dashboard/img/logos/small/app.png'
-                img_medium = '/static/dashboard/img/logos/mediuml/app.png'
+                img_medium = '/static/dashboard/img/logos/medium/app.png'
                 img_original = '/static/dashboard/img/logos/original/app.png'
                 application = fiware_api.keystone.application_create(request,
                                                 name=data['name'],

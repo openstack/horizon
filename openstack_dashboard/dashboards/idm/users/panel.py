@@ -12,28 +12,23 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 import horizon
 
-from openstack_dashboard import fiware_api
+from openstack_dashboard.dashboards.idm import dashboard
 
 
-class Idm_Admin(horizon.Dashboard):
-    name = _(" ")
-    slug = "idm_admin"
-    panels = ('notify', 'administrators')
-    default_panel = 'notify'
+class Users(horizon.Panel):
+    name = _("Users")
+    slug = "users"
 
     def nav(self, context):
-        # NOTE(garcianavalon) hide it if the user doesn't belong to idm_admin
-        request = context['request']
-        idm_admin = getattr(settings, 'IDM_ID')
-        user_apps = [a.application_id for a
-                     in fiware_api.keystone.user_role_assignments(
-                         request, user=request.user.id)]
-        return idm_admin in user_apps
+		# NOTE(garcianavalon) hide it always for the IdM
+		# dash = context['request'].horizon.get('dashboard', None)
+		# if dash and dash.slug == self.slug:
+		#     return True
+		return False
 
 
-horizon.register(Idm_Admin)
+dashboard.Idm.register(Users)

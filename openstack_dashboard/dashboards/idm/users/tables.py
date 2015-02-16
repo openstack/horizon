@@ -35,48 +35,8 @@ class OrganizationsTable(tables.DataTable):
         verbose_name = _("Organizations")
 
 
-class MyOrganizationsTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Name'))
-    description = tables.Column(lambda obj: getattr(obj, 'description', None),
-                                verbose_name=_('Description'))
-    clickable = True
-    switch = True
-    show_avatar = True
-
-    class Meta:
-        name = "my_organizations"
-        verbose_name = _("My Organizations")
-
-
-class ManageMembersLink(tables.LinkAction):
-    name = "manage_members"
-    verbose_name = _("Manage Members")
-    url = "horizon:idm:organizations:members"
-    classes = ("ajax-modal",)
-
-    def allowed(self, request, user):
-        # TODO(garcianavalon)
-        return True
-
-    def get_link_url(self, datum=None):
-        org_id = self.table.kwargs['organization_id']
-        return  urlresolvers.reverse(self.url, args=(org_id,))
-
-
-class MembersTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Members'))
-    show_avatar = True
-    clickable = True
-
-    class Meta:
-        name = "members"
-        verbose_name = _("Members")
-        table_actions = (ManageMembersLink, )
-        multi_select = False
-
-
 class ApplicationsTable(tables.DataTable):
-    name = tables.Column('application', verbose_name=_('Applications'))
+    name = tables.Column('name', verbose_name=_('Applications'))
     clickable = True
     show_avatar = True
 

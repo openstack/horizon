@@ -1,0 +1,57 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_class %}{% endblock %}
+{% block form_action %}{{form.action}}{% endblock %}
+{% block form_enctype %}multipart/form-data{% endblock %}
+
+{% block modal_id %}edit{% endblock %}
+{% block modal-header %}
+{{form.title}}
+{% endblock %}
+
+{% block modal-body %}
+
+{% if form.title == 'Change your avatar'%}
+<div>
+	<img id="avatar-update" src="{{ image }}" alt="your image"   />
+</div>
+{% elif form.title == 'Cancel Account' %}
+<a class="modal-header panel-title" data-toggle="collapse" data-parent="#accordion" href="#destroy_organization" class="panel-heading">
+    <h3>
+      Are you sure you want to delete your account?
+    </h3>
+</a>
+
+{% endif %}
+<div >
+  <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+  </fieldset>
+</div>
+{% endblock %}
+
+
+{% block modal-footer %}
+
+{% if form.title == 'Cancel Account'%}
+<div id="destroy_organization" class="panel-collapse collapse">
+
+    <button type="submit" class="btn btn-danger">{% trans "Delete User" %} </button>
+
+</div>  
+
+{% else %}
+<button type="submit" class="btn btn-primary">{% trans "Update User" %} </button>
+{% endif %}
+
+
+    
+{% endblock %}
+
+
+
+
+
+    

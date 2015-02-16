@@ -378,7 +378,6 @@ def user_update(request, user, **data):
                 _("Password changed. Please log in again to continue.")
             )
 
-
 def user_update_enabled(request, user, enabled):
     manager = keystoneclient(request, admin=True).users
     if VERSIONS.active < 3:
