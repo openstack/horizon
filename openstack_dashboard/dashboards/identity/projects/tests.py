@@ -20,6 +20,7 @@ import os
 import django
 from django.core.urlresolvers import reverse
 from django import http
+from django.test.utils import override_settings
 from django.utils import timezone
 from django.utils import unittest
 
@@ -31,6 +32,7 @@ from horizon.workflows import views
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.identity.projects import workflows
+from openstack_dashboard import policy_backend
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard import usage
 from openstack_dashboard.usage import quotas
@@ -84,6 +86,7 @@ class TenantsViewTests(test.BaseAdminViewTests):
 
 
 class ProjectsViewNonAdminTests(test.TestCase):
+    @override_settings(POLICY_CHECK_FUNCTION=policy_backend.check)
     @test.create_stubs({api.keystone: ('tenant_list',)})
     def test_index(self):
         api.keystone.tenant_list(IsA(http.HttpRequest),
