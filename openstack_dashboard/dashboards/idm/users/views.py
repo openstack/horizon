@@ -30,9 +30,12 @@ from openstack_dashboard import fiware_api
 from openstack_dashboard.dashboards.idm import views as idm_views
 from openstack_dashboard.dashboards.idm.users import tables as user_tables
 from openstack_dashboard.dashboards.idm import utils as idm_utils
-from openstack_dashboard.dashboards.idm.users.forms import  InfoForm, ContactForm
+from openstack_dashboard.dashboards.idm.users.forms import  InfoForm, ContactForm, CancelForm
 
 from horizon import views
+
+LOG = logging.getLogger('idm_logger')
+
 
 
 # class IndexView(views.APIView):
@@ -76,8 +79,8 @@ class DetailUserView(tables.MultiTableView):
         context = super(DetailUserView, self).get_context_data(**kwargs)
         user_id = self.kwargs['user_id']
         user = api.keystone.user_get(self.request, user_id, admin=True)
-        context['about_me'] = getattr(user,'description', 'hola')
-        context['user.id'] = user.id
+        context['about_me'] = getattr(user,'description', '')
+        context['user_id'] = user_id
         context['user_name'] = user.name
         context['image'] = getattr(user, 'img_original', '/static/dashboard/img/logos/original/user.png')
         context['city'] = getattr(user, 'city', '')
@@ -87,7 +90,7 @@ class DetailUserView(tables.MultiTableView):
 
 class BaseUsersMultiFormView(idm_views.BaseMultiFormView):
     template_name = 'idm/users/edit.html'
-    forms_classes = [InfoForm, ContactForm]
+    forms_classes = [InfoForm, ContactForm, CancelForm]
     
     def get_endpoint(self, form_class):
         """Override to allow runtime endpoint declaration"""
@@ -98,8 +101,8 @@ class BaseUsersMultiFormView(idm_views.BaseMultiFormView):
                                 kwargs=self.kwargs),
             # AvatarForm: reverse('horizon:idm:organizations:avatar', 
             #                     kwargs=self.kwargs),
-            # CancelForm: reverse('horizon:idm:organizations:cancel', 
-            #                     kwargs=self.kwargs),
+            CancelForm: reverse('horizon:idm:users:cancel', 
+                                kwargs=self.kwargs),
         }
         return endpoints.get(form_class)
 
@@ -121,6 +124,7 @@ class BaseUsersMultiFormView(idm_views.BaseMultiFormView):
             "city": getattr(self.object, 'city', ' '),
             "email": getattr(self.object, 'email', ' '),
             "website":getattr(self.object, 'website', ' '),
+            "password": '',
         })
         return initial
 
@@ -141,9 +145,9 @@ class ContactFormHandleView(BaseUsersMultiFormView):
 # class AvatarFormHandleView(BaseUsersMultiFormView):
 #     form_to_handle_class = AvatarForm
 
-# class CancelFormHandleView(BaseUsersMultiFormView):
-#     form_to_handle_class = CancelForm
+class CancelFormHandleView(BaseUsersMultiFormView):
+    form_to_handle_class = CancelForm
 
-#     def handle_form(self, form):
-#         """ Wrapper for form.handle for easier overriding."""
-#         return form.handle(self.request, form.cleaned_data, organization=self.object)
+    def handle_form(self, form):
+        """ Wrapper for form.handle for easier overriding."""
+        return form.handle(self.request, form.cleaned_data, user=self.object)

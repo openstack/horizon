@@ -30,8 +30,12 @@ from openstack_dashboard import fiware_api
 from openstack_dashboard.dashboards.idm import forms as idm_forms
 import pdb
 
+LOG = logging.getLogger('idm_logger')
+
+
 class InfoForm(forms.SelfHandlingForm):
     userID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
+    password = forms.CharField(label=_("password"), widget=forms.HiddenInput(), required=False)
     name = forms.CharField(label=_("Name"), max_length=64, required=True)
     description = forms.CharField(label=_("About Me"),
                                   widget=forms.widgets.Textarea,
@@ -41,11 +45,14 @@ class InfoForm(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
+            import pdb
+            pdb.set_trace()
             api.keystone.user_update(request,
                                      data['userID'],
                                      name=data['name'],
                                      description=data['description'],
-                                     city=data['city'])
+                                     city=data['city'],
+                                     password=data['password'])
             LOG.debug('User {0} updated'.format(data['userID']))
             messages.success(request, _('User updated successfully'))
             response = shortcuts.redirect('horizon:idm:users:detail', data['userID'])
@@ -57,6 +64,7 @@ class InfoForm(forms.SelfHandlingForm):
 
 class ContactForm(forms.SelfHandlingForm):
     userID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
+    password = forms.CharField(label=_("password"), widget=forms.HiddenInput(), required=False)
     email = forms.EmailField(label=_("E-mail"), required=False)
     website = forms.URLField(label=_("Website"), required=False)
     title = 'Contact Information'
@@ -65,7 +73,8 @@ class ContactForm(forms.SelfHandlingForm):
         api.keystone.user_update(request, 
                                 data['userID'], 
                                 email=data['email'], 
-                                website=data['website'])
+                                website=data['website'],
+                                password=data['password'])
         LOG.debug('User {0} updated'.format(data['userID']))
         messages.success(request, _("User updated successfully."))
         response = shortcuts.redirect('horizon:idm:users:detail', data['userID'])
@@ -75,6 +84,7 @@ class ContactForm(forms.SelfHandlingForm):
 # class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
 #     userID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
 #     image = forms.ImageField(required=False)
+#     password = forms.CharField(label=_("password"), widget=forms.HiddenInput(), required=False)
 #     title = 'Change your avatar'
 
 #     def handle(self, request, data):
@@ -110,19 +120,19 @@ class ContactForm(forms.SelfHandlingForm):
         # return response
 
              
-# class CancelForm(forms.SelfHandlingForm):
-#     userID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
-#     title = 'Cancel Account'
+class CancelForm(forms.SelfHandlingForm):
+    userID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
+    title = 'Cancel Account'
     
-#     def handle(self, request, data, user):
-#         image = user.img_original
-#         if "UserAvatar" in image:
-#             os.remove(AVATAR_SMALL + organization.id)
-#             os.remove(AVATAR_MEDIUM + organization.id)
-#             os.remove(AVATAR_ORIGINAL + organization.id)
-#             LOG.debug('{0} deleted'.format(image))
-#         api.keystone.usert_delete(request, organization)
-#         LOG.info('User {0} deleted'.format(organization.id))
-#         messages.success(request, _("User deleted successfully."))
-#         response = shortcuts.redirect('horizon:idm:users:index')
-#         return response
+    def handle(self, request, data, user):
+        # image = user.img_original
+        # if "UserAvatar" in image:
+        #     os.remove(AVATAR_SMALL + organization.id)
+        #     os.remove(AVATAR_MEDIUM + organization.id)
+        #     os.remove(AVATAR_ORIGINAL + organization.id)
+        #     LOG.debug('{0} deleted'.format(image))
+        api.keystone.user_delete(request, user)
+        LOG.info('User {0} deleted'.format(user.id))
+        messages.success(request, _("User deleted successfully."))
+        response = shortcuts.redirect('horizon:idm:users:detail')
+        return response

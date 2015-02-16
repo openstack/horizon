@@ -17,10 +17,10 @@
 <div>
 	<img id="avatar-update" src="{{ image }}" alt="your image"   />
 </div>
-{% elif form.title == 'Cancel' %}
+{% elif form.title == 'Cancel Account' %}
 <a class="modal-header panel-title" data-toggle="collapse" data-parent="#accordion" href="#destroy_organization" class="panel-heading">
     <h3>
-      Are you sure you want to delete the organization?
+      Are you sure you want to delete your account?
     </h3>
 </a>
 
@@ -35,7 +35,7 @@
 
 {% block modal-footer %}
 
-{% if form.title == 'Cancel'%}
+{% if form.title == 'Cancel Account'%}
 <div id="destroy_organization" class="panel-collapse collapse">
 
     <button type="submit" class="btn btn-danger">{% trans "Delete User" %} </button>
