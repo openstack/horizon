@@ -14,6 +14,7 @@
 
 import re
 
+from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
@@ -118,14 +119,20 @@ class FirewallDetailsView(tabs.TabView):
 
 class UpdateRuleView(forms.ModalFormView):
     form_class = UpdateRule
+    form_id = "update_rule_form"
     template_name = "project/firewalls/updaterule.html"
     context_object_name = 'rule'
+    modal_header = _("Edit Rule")
+    submit_label = _("Save Changes")
+    submit_url = "horizon:project:firewalls:updaterule"
     success_url = reverse_lazy("horizon:project:firewalls:index")
     page_title = _("Edit Rule")
 
     def get_context_data(self, **kwargs):
         context = super(UpdateRuleView, self).get_context_data(**kwargs)
         context['rule_id'] = self.kwargs['rule_id']
+        args = (self.kwargs['rule_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
         obj = self._get_object()
         if obj:
             context['name'] = obj.name_or_id
@@ -156,14 +163,20 @@ class UpdateRuleView(forms.ModalFormView):
 
 class UpdatePolicyView(forms.ModalFormView):
     form_class = UpdatePolicy
+    form_id = "update_policy_form"
     template_name = "project/firewalls/updatepolicy.html"
     context_object_name = 'policy'
+    modal_header = _("Edit Policy")
+    submit_label = _("Save Changes")
+    submit_url = "horizon:project:firewalls:updatepolicy"
     success_url = reverse_lazy("horizon:project:firewalls:index")
     page_title = _("Edit Policy")
 
     def get_context_data(self, **kwargs):
         context = super(UpdatePolicyView, self).get_context_data(**kwargs)
         context["policy_id"] = self.kwargs['policy_id']
+        args = (self.kwargs['policy_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
         obj = self._get_object()
         if obj:
             context['name'] = obj.name_or_id
@@ -189,14 +202,20 @@ class UpdatePolicyView(forms.ModalFormView):
 
 class UpdateFirewallView(forms.ModalFormView):
     form_class = UpdateFirewall
+    form_id = "update_firewall_form"
     template_name = "project/firewalls/updatefirewall.html"
     context_object_name = 'firewall'
+    modal_header = _("Edit Firewall")
+    submit_label = _("Save Changes")
+    submit_url = "horizon:project:firewalls:updatefirewall"
     success_url = reverse_lazy("horizon:project:firewalls:index")
     page_title = _("Edit Firewall")
 
     def get_context_data(self, **kwargs):
         context = super(UpdateFirewallView, self).get_context_data(**kwargs)
         context["firewall_id"] = self.kwargs['firewall_id']
+        args = (self.kwargs['firewall_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
         obj = self._get_object()
         if obj:
             context['name'] = obj.name
@@ -223,14 +242,20 @@ class UpdateFirewallView(forms.ModalFormView):
 
 class InsertRuleToPolicyView(forms.ModalFormView):
     form_class = InsertRuleToPolicy
+    form_id = "update_policy_form"
+    modal_header = _("Insert Rule into Policy")
     template_name = "project/firewalls/insert_rule_to_policy.html"
     context_object_name = 'policy'
+    submit_url = "horizon:project:firewalls:insertrule"
+    submit_label = _("Save Changes")
     success_url = reverse_lazy("horizon:project:firewalls:index")
 
     def get_context_data(self, **kwargs):
         context = super(InsertRuleToPolicyView,
                         self).get_context_data(**kwargs)
         context["policy_id"] = self.kwargs['policy_id']
+        args = (self.kwargs['policy_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
         obj = self._get_object()
         if obj:
             context['name'] = obj.name_or_id
@@ -256,14 +281,20 @@ class InsertRuleToPolicyView(forms.ModalFormView):
 
 class RemoveRuleFromPolicyView(forms.ModalFormView):
     form_class = RemoveRuleFromPolicy
+    form_id = "update_policy_form"
+    modal_header = _("Remove Rule from Policy")
     template_name = "project/firewalls/remove_rule_from_policy.html"
     context_object_name = 'policy'
+    submit_label = _("Save Changes")
+    submit_url = "horizon:project:firewalls:removerule"
     success_url = reverse_lazy("horizon:project:firewalls:index")
 
     def get_context_data(self, **kwargs):
         context = super(RemoveRuleFromPolicyView,
                         self).get_context_data(**kwargs)
         context["policy_id"] = self.kwargs['policy_id']
+        args = (self.kwargs['policy_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
         obj = self._get_object()
         if obj:
             context['name'] = obj.name_or_id
