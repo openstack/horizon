@@ -1,7 +1,11 @@
 {% if row.table.show_avatar %}
   <div class="avatar">
   	{% if row.table.name == 'members' %}
-  		<img id="{{ row.datum.name }}-avatar" src="/static/dashboard/img/logos/small/user.png">
+		{% if row.datum.img_medium %}  		
+  		    <img id="{{ row.datum.name }}-avatar" src="{{ row.datum.img_medium }}">
+        {% else %}
+            <img id="{{ row.datum.name }}-avatar" src="/static/dashboard/img/logos/small/user.png">
+        {% endif %}
   	{% else %}
 	  	{% if row.datum.extra.img_medium %}
 	  		<img id="{{ row.datum.name }}-avatar" src="{{ row.datum.extra.img_medium }}">
@@ -16,6 +20,7 @@
 
 {% endif %}
 
-{% for cell in row %}  
+{% for cell in row %} 
   {% include "horizon/common/_data_table_cell.html" %}
+	
 {% endfor %}
