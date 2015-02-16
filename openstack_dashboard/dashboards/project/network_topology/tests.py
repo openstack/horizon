@@ -86,7 +86,6 @@ class NetworkTopologyTests(test.TestCase):
              'name': server.name,
              'status': server.status,
              'task': None,
-             'console': 'vnc',
              'url': '/project/instances/%s/' % server.id}
             for server in self.servers.list()]
         self.assertEqual(expect_server_urls, data['servers'])

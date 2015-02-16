@@ -22,8 +22,11 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponse  # noqa
+from django.utils.translation import ugettext_lazy as _
 from django.views.generic import TemplateView  # noqa
 from django.views.generic import View  # noqa
+
+from horizon import exceptions
 
 from openstack_dashboard import api
 from openstack_dashboard.usage import quotas
@@ -35,6 +38,8 @@ from openstack_dashboard.dashboards.project.network_topology.ports \
 from openstack_dashboard.dashboards.project.network_topology.routers \
     import tables as routers_tables
 
+from openstack_dashboard.dashboards.project.instances import\
+    console as i_console
 from openstack_dashboard.dashboards.project.instances import\
     views as i_views
 from openstack_dashboard.dashboards.project.instances.workflows import\
@@ -154,16 +159,23 @@ class JSONView(View):
             servers, more = api.nova.server_list(request)
         except Exception:
             servers = []
+        data = []
         console_type = getattr(settings, 'CONSOLE_TYPE', 'AUTO')
-        if console_type == 'SPICE':
-            console = 'spice'
-        else:
-            console = 'vnc'
-        data = [{'name': server.name,
-                 'status': server.status,
-                 'console': console,
-                 'task': getattr(server, 'OS-EXT-STS:task_state'),
-                 'id': server.id} for server in servers]
+        # lowercase of the keys will be used at the end of the console URL.
+        for server in servers:
+            try:
+                console = i_console.get_console(
+                    request, console_type, server)[0].lower()
+            except exceptions.NotAvailable:
+                console = None
+                exceptions.handle(request, _('No console available.'))
+            server_data = {'name': server.name,
+                           'status': server.status,
+                           'task': getattr(server, 'OS-EXT-STS:task_state'),
+                           'id': server.id}
+            if console:
+                server_data['console'] = console
+            data.append(server_data)
         self.add_resource_url('horizon:project:instances:detail', data)
         return data
 

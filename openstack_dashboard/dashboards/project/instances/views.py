@@ -162,7 +162,7 @@ def console(request, instance_id):
 def vnc(request, instance_id):
     try:
         instance = api.nova.server_get(request, instance_id)
-        console_url = project_console.get_console(request, 'VNC', instance)
+        console_url = project_console.get_console(request, 'VNC', instance)[1]
         return shortcuts.redirect(console_url)
     except Exception:
         redirect = reverse("horizon:project:instances:index")
@@ -173,7 +173,8 @@ def vnc(request, instance_id):
 def spice(request, instance_id):
     try:
         instance = api.nova.server_get(request, instance_id)
-        console_url = project_console.get_console(request, 'SPICE', instance)
+        console_url = project_console.get_console(request, 'SPICE',
+                                                  instance)[1]
         return shortcuts.redirect(console_url)
     except Exception:
         redirect = reverse("horizon:project:instances:index")
@@ -184,7 +185,7 @@ def spice(request, instance_id):
 def rdp(request, instance_id):
     try:
         instance = api.nova.server_get(request, instance_id)
-        console_url = project_console.get_console(request, 'RDP', instance)
+        console_url = project_console.get_console(request, 'RDP', instance)[1]
         return shortcuts.redirect(console_url)
     except Exception:
         redirect = reverse("horizon:project:instances:index")

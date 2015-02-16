@@ -31,22 +31,23 @@ CONSOLES = SortedDict([('VNC', api.nova.server_vnc_console),
 
 
 def get_console(request, console_type, instance):
-    """Get a console url based on console type."""
+    """Get a tuple of console url and console type."""
     if console_type == 'AUTO':
         check_consoles = CONSOLES
     else:
         try:
-            check_consoles = {'console_type': CONSOLES[console_type]}
+            check_consoles = {console_type: CONSOLES[console_type]}
         except KeyError:
             msg = _('Console type "%s" not supported.') % console_type
             raise exceptions.NotAvailable(msg)
 
-    for api_call in check_consoles.values():
-        # Ugly workaround due novaclient API change from 2.17 to 2.18.
-        try:
-            httpnotimplemented = nova_exception.HttpNotImplemented
-        except AttributeError:
-            httpnotimplemented = nova_exception.HTTPNotImplemented
+    # Ugly workaround due novaclient API change from 2.17 to 2.18.
+    try:
+        httpnotimplemented = nova_exception.HttpNotImplemented
+    except AttributeError:
+        httpnotimplemented = nova_exception.HTTPNotImplemented
+
+    for con_type, api_call in check_consoles.iteritems():
         try:
             console = api_call(request, instance.id)
         # If not supported, don't log it to avoid lot of errors in case
@@ -61,6 +62,6 @@ def get_console(request, console_type, instance):
                       console.url,
                       urlencode({'title': getattr(instance, "name", "")}),
                       instance.id)
-        return console_url
+        return (con_type, console_url)
 
     raise exceptions.NotAvailable(_('No available console found.'))
