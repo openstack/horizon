@@ -25,6 +25,17 @@
   var app = angular.module('hz.widget.table', [ 'smart-table' ]);
 
   /**
+   * @ngdoc parameters
+   * @name hz.widget.table.constant:expandSettings
+   * @param {string} expandIconClasses Icon classes to be used for expand icon
+   * @param {number} duration The slide down animation duration/speed
+   */
+  app.constant('expandSettings', {
+    expandIconClasses: 'fa-chevron-right fa-chevron-down',
+    duration: 400
+  });
+
+  /**
    * @ngdoc directive
    * @name hz.widget.table.directive:hzTable
    * @element table st-table='rowCollection'
@@ -171,7 +182,7 @@
    * ```
    *
    */
-  app.directive('hzExpandDetail', function() {
+  app.directive('hzExpandDetail', [ 'expandSettings', function(settings) {
     return {
       restrict: 'A',
       scope: {
@@ -180,12 +191,12 @@
       },
       link: function(scope, element) {
         element.on('click', function() {
-          var iconClasses = scope.icons || 'fa-chevron-right fa-chevron-down';
+          var iconClasses = scope.icons || settings.expandIconClasses;
           element.toggleClass(iconClasses);
 
           var summaryRow = element.closest('tr');
           var detailCell = summaryRow.next('tr').find('.detail');
-          var duration = scope.duration ? parseInt(scope.duration) : 400;
+          var duration = scope.duration ? parseInt(scope.duration) : settings.duration;
 
           if (summaryRow.hasClass('expanded')) {
             var options = {
@@ -211,6 +222,6 @@
         });
       }
     };
-  });
+  }]);
 
 })();
