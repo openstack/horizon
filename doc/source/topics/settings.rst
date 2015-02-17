@@ -977,6 +977,15 @@ are generally safe to use.
 When CSRF_COOKIE_SECURE or SESSION_COOKIE_SECURE are set to True, these attributes
 help protect the session cookies from cross-site scripting.
 
+``ADD_INSTALLED_APPS``
+----------------------
+
+.. versionadded:: 2015.1(Kilo)
+
+A list of Django applications to be prepended to the ``INSTALLED_APPS``
+setting. Allows extending the list of installed applications without having
+to override it completely.
+
 
 .. _pluggable-settings-label:
 
