@@ -214,7 +214,6 @@ horizon.membership = {
       params = {
         data_id: "id_" + step_slug + "_" + data_id,
         step_slug: step_slug,
-        default_role: that.roles[that.default_role_id[step_slug]],
         display_name: display_name,
         apps: apps,
         roles_label: gettext("Roles"),
@@ -258,11 +257,14 @@ horizon.membership = {
         var default_role = horizon.membership.default_role_id[step_slug];
         $(this).removeClass( "fa-plus" ).addClass( "fa-close" );
         $("." + step_slug + "_members").append(member_el);
-        horizon.membership.add_member_to_role(step_slug, data_id, default_role);
+        if (default_role) {
+          horizon.membership.add_member_to_role(step_slug, data_id, default_role);
+        }
 
         if (horizon.membership.has_roles[step_slug]) {
           $(this).parent().parent().siblings(".role_options").show();
-          horizon.membership.update_member_role_dropdown(step_slug, data_id, [default_role], member_el);
+          var role_ids = default_role ? [default_role] : []
+          horizon.membership.update_member_role_dropdown(step_slug, data_id, role_ids, member_el);
         }
       }
       else {

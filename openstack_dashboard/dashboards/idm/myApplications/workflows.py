@@ -261,15 +261,7 @@ class AuthorizedMembersApi(idm_workflows.RelationshipApiInterface):
 
 
     def _get_default_object(self, request):
-        default_role = api.keystone.get_default_role(request)
-        # Default role is necessary to add members to a project
-        if default_role is None:
-            default = getattr(settings,
-                              "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
-            msg = (_('Could not find default role "%s" in Keystone') %
-                   default)
-            raise exceptions.NotFound(msg)
-        return default_role
+        return None
 
 
     def _add_object_to_owner(self, request, superset, owner, obj):
