@@ -29,6 +29,7 @@ from openstack_dashboard.dashboards.admin.hypervisors \
 class AdminIndexView(tabs.TabbedTableView):
     tab_group_class = project_tabs.HypervisorHostTabs
     template_name = 'admin/hypervisors/index.html'
+    page_title = _("All Hypervisors")
 
     def get_data(self):
         hypervisors = []
@@ -55,6 +56,7 @@ class AdminIndexView(tabs.TabbedTableView):
 class AdminDetailView(tables.DataTableView):
     table_class = project_tables.AdminHypervisorInstancesTable
     template_name = 'admin/hypervisors/detail.html'
+    page_title = _("Hypervisor Servers")
 
     def get_data(self):
         instances = []
