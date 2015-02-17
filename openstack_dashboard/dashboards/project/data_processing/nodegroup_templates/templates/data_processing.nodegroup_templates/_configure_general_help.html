@@ -9,12 +9,15 @@
     <br />
 </p>
 <p>
-    {% blocktrans %}The Node Group Template object should specify processes that will be launched on each instance. Also an OpenStack flavor is required to boot VMs.{% endblocktrans %}
+    {% blocktrans %}The Node Group Template object specifies the processes
+        that will be launched on each instance. Check one or more processes.
+        When processes are selected, you may set <b>node</b> scoped
+        configurations on corresponding tabs.{% endblocktrans %}
+</p>
+<p>
+    {% blocktrans %}You must choose a flavor to determine the size (VCPUs, memory and storage) of all launched VMs.{% endblocktrans %}
 </p>
 <p>
     {% blocktrans %}Data Processing provides different storage location options. You may choose Ephemeral Drive or a Cinder Volume to be attached to instances.{% endblocktrans %}
-</p>
-<p>
-    {% blocktrans %}When processes are selected, you may set <b>node</b> scoped configurations on corresponding tabs.{% endblocktrans %}
 </p>
 </div>
