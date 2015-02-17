@@ -9,7 +9,8 @@
   }
 }
 #detailApplication,
-#detailOrganization{
+#detailOrganization,
+#detailUser{
   .logo{ 
     img{
       width: 83px;
@@ -21,9 +22,12 @@
     padding: 7px 15px;
   }
 }
-#detailOrganization {
+#detailApplication,
+#detailOrganization,
+#detailUser {
   margin-top: 8px;
-  .panel.members > .panel-body .members-actions{
+  .panel.members > .panel-body .members-actions,
+  .panel.organizations > .panel-body .organizations-actions{
     border-bottom: 1px solid $border-color;
     padding-bottom: 7px;
     .form-control{
@@ -39,10 +43,15 @@
     }
   }
 }
+
 #members{
   max-height: 232px;
   overflow-x: hidden;
   overflow-y: scroll;
+  margin: 0 -15px;
+  .list-group-item{
+    margin: 0;
+  }
 }
 #detailApplication{ 
   margin-top: 13px;
@@ -61,16 +70,15 @@
     @extend .btn-primary;
   }
 }
+
 #organizations{
-  .tab-pane{ 
-    .list-group-item{
-      @include switch-hover;
-      .name{
-        display: inline;
-      }
-      .btn-link{
-        display: inline-block !important;
-      }
+  .list-group-item{
+    @include switch-hover;
+    .name{
+      display: inline;
+    }
+    .btn-link{
+      display: inline-block !important;
     }
   }
   .sortable{
@@ -105,7 +113,7 @@
     margin: 0;
   }
   .all-users{
-    border-right: 1px solid #DDD;
+    border-right: 1px solid $border-color;
   }
   .all-users,
   .members-list{
@@ -131,7 +139,7 @@
       }
     }
     li.list-group-item{
-      border-bottom: 1px solid #DDD;
+      border-bottom: 0px solid #DDD;
       &:last-child{
         border-bottom: none; 
       }
@@ -167,9 +175,12 @@
     background-color: #fff;
   }
   span{
+    margin-bottom: 4px;
+    padding-bottom: 3px;
+    line-height: 1;
+    width: 100%;
+    float: left;
     border-bottom: 1px solid $brand-secundary;
-    margin-bottom: 2px;
-    padding-top: 4px;
     font-family: $corporate-font-family-sans-serif-Regular;
     @include text-overflow;
   }
@@ -181,6 +192,8 @@
   ol{
     padding-left: 0px;
     margin-top: 2px;
+    padding-bottom: 2px;
+    clear: both;
   }
 }
 .role_dropdown li.active{
@@ -211,7 +224,7 @@
     display: inline;
   }
   .has-feedback{
-    width: 142px;
+    width: 120px;
     display: inline-block;
     float: right;
     height: 27px;
@@ -231,7 +244,8 @@
 }
 
 
-#no_update_owners_members{
+#no_update_owners_members,
+#no_available_update_owners{
   @extend .alert;
   @extend .alert-info;
   margin-top: 11px;

@@ -14,6 +14,13 @@
       padding: 0px 15px;
     }
   }
+  .cancel_account{
+    h4.panel-title {     
+      &:hover{
+        color: $brand-danger !important;
+      }
+    }
+  }
   .panel-body{
     padding-top: 15px;
     padding-bottom: 15px;
@@ -25,4 +32,8 @@
     margin-bottom: 0;
     border-bottom: 0;
   }
+}
+
+.control-label {
+  color: #B6B6B6;
 }

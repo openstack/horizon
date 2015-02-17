@@ -3,7 +3,9 @@
   @include border-top-radius (0);
   @include border-bottom-radius (0);
 }
-
+.btn-default{
+	border-color: #A9A9A9;
+}
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open > .btn-default.dropdown-toggle {
   color: $brand-primary;
   background-color: $white;

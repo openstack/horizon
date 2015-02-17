@@ -211,3 +211,12 @@ textarea {
     }
   }
 }
+
+@media (min-width: 768px){
+  .workflow.modal{
+    .modal-dialog {
+      width: 777px;
+      margin: 30px auto;
+    }
+  }
+}

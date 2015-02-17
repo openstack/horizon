@@ -41,6 +41,8 @@
     }
     a{
       line-height: 42px;
+      display: block;
+      margin-bottom: 9px;
       @media (max-width: $screen-xs-min){
         line-height: 37px;
         &:first-child{
