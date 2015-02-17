@@ -132,7 +132,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 OPENSTACK_HOST = "127.0.0.1"
 OPENSTACK_KEYSTONE_URL = "http://%s:5000/v3" % OPENSTACK_HOST
 # NOTE(garcianavalon) this role is created whith all the other initial
-# data. Don't confuse it with keystone v2 API default role 
+# data. Don't confuse it with keystone v2 API default role
 # (member_role_name=_member_)
 OPENSTACK_KEYSTONE_DEFAULT_ROLE = "member"
 
@@ -542,14 +542,6 @@ SECURITY_GROUP_RULES = {
 # algorithms supported by Python's hashlib library.
 # OPENSTACK_TOKEN_HASH_ALGORITHM = 'md5'
 
-# FIWARE AUTH
-# database for pending users
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'fiwaredb',
-    }
-}
 # USER REGISTRATION
 # KEYSTONE ADMIN ACCOUNT FOR THE IdM
 OPENSTACK_KEYSTONE_ADMIN_CREDENTIALS = {
@@ -564,12 +556,17 @@ ACCOUNT_ACTIVATION_DAYS = 1
 # blacklist. Comment out the line for no filtering
 # EMAIL_LIST_TYPE = 'whitelist'
 
+# IdM ADMIN
+# Application ID of the idm in the backend. Used for the administrator
+# dashboard
+IDM_ID = '0ae035308e454202a8a3eeb730762da5'
+
 # reCAPTCHA
 # Get your keys at: https://www.google.com/recaptcha/admin#createsite
 # More documentation at: https://github.com/praekelt/django-recaptcha
 RECAPTCHA_PUBLIC_KEY = '6LcgXvwSAAHJKES48096Gr2KKc6cjWlVWtIcDAfa'
 RECAPTCHA_PRIVATE_KEY = '6LcgXvwSAAHJKFmlOhj1bsGzT8P6vmPpVq5KYjkA'
-RECAPTCHA_USE_SSL = False 
+RECAPTCHA_USE_SSL = False
 
 # summernote
 SUMMERNOTE_CONFIG = {
