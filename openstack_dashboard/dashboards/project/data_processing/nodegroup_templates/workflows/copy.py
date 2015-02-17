@@ -55,7 +55,13 @@ class CopyNodegroupTemplate(create_flow.ConfigureNodegroupTemplate):
         g_fields["nodegroup_name"].initial = template.name + "-copy"
         g_fields["description"].initial = template.description
         g_fields["flavor"].initial = template.flavor_id
-        g_fields["availability_zone"].initial = template.availability_zone
+
+        if hasattr(template, "availability_zone"):
+            g_fields["availability_zone"].initial = template.availability_zone
+
+        if hasattr(template, "volumes_availability_zone"):
+            g_fields["volumes_availability_zone"].initial = \
+                template.volumes_availability_zone
 
         storage = "cinder_volume" if template.volumes_per_node > 0 \
             else "ephemeral_drive"
@@ -64,8 +70,6 @@ class CopyNodegroupTemplate(create_flow.ConfigureNodegroupTemplate):
         g_fields["storage"].initial = storage
         g_fields["volumes_per_node"].initial = volumes_per_node
         g_fields["volumes_size"].initial = volumes_size
-        g_fields["volumes_availability_zone"].initial = \
-            template.volumes_availability_zone
 
         if template.floating_ip_pool:
             g_fields['floating_ip_pool'].initial = template.floating_ip_pool
