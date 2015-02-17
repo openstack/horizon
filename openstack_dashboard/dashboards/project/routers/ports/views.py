@@ -33,6 +33,7 @@ class AddInterfaceView(forms.ModalFormView):
     template_name = 'project/routers/ports/create.html'
     success_url = 'horizon:project:routers:detail'
     failure_url = 'horizon:project:routers:detail'
+    page_title = _("Add Interface")
 
     def get_success_url(self):
         return reverse(self.success_url,
@@ -64,6 +65,7 @@ class SetGatewayView(forms.ModalFormView):
     template_name = 'project/routers/ports/setgateway.html'
     success_url = 'horizon:project:routers:index'
     failure_url = 'horizon:project:routers:index'
+    page_title = _("Set Gateway")
 
     def get_success_url(self):
         return reverse(self.success_url)

@@ -38,6 +38,7 @@ from openstack_dashboard.dashboards.project.routers import tabs as rdtabs
 class IndexView(tables.DataTableView):
     table_class = rtables.RoutersTable
     template_name = 'project/routers/index.html'
+    page_title = _("Routers")
 
     def _get_routers(self, search_opts=None):
         try:
@@ -97,6 +98,7 @@ class DetailView(tabs.TabbedTableView):
     tab_group_class = rdtabs.RouterDetailTabs
     template_name = 'project/routers/detail.html'
     failure_url = reverse_lazy('horizon:project:routers:index')
+    page_title = _("Router Details")
 
     @memoized.memoized_method
     def _get_data(self):
@@ -147,12 +149,14 @@ class CreateView(forms.ModalFormView):
     form_class = project_forms.CreateForm
     template_name = 'project/routers/create.html'
     success_url = reverse_lazy("horizon:project:routers:index")
+    page_title = _("Create Router")
 
 
 class UpdateView(forms.ModalFormView):
     form_class = project_forms.UpdateForm
     template_name = 'project/routers/update.html'
     success_url = reverse_lazy("horizon:project:routers:index")
+    page_title = _("Update Router")
 
     def get_context_data(self, **kwargs):
         context = super(UpdateView, self).get_context_data(**kwargs)

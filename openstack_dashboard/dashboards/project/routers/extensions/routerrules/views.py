@@ -34,6 +34,7 @@ class AddRouterRuleView(forms.ModalFormView):
     template_name = 'project/routers/extensions/routerrules/create.html'
     success_url = 'horizon:project:routers:detail'
     failure_url = 'horizon:project:routers:detail'
+    page_title = _("Add Router Rule")
 
     def get_success_url(self):
         return reverse(self.success_url,
