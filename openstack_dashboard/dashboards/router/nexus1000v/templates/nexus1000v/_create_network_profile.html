@@ -1,29 +1,10 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
-{% load url from future %}
 
-{% block form_id %}create_network_profile_form{% endblock %}
-{% block form_action %}{% url 'horizon:router:nexus1000v:create_network_profile' %}{% endblock %}
-
-{% block modal_id %}create_network_profile_modal{% endblock %}
-{% block modal-header %}{% trans "Create Network Profile" %}{% endblock %}
-
-{% block modal-body %}
-<div class="left">
-    <fieldset>
-    {% include "horizon/common/_form_fields.html" %}
-    </fieldset>
-</div>
-<div class="right">
-    <h3>{% trans "Description:" %}</h3>
-    <p><strong>{% trans "Name:" %}</strong> {% blocktrans %} Select a name for your network profile.{% endblocktrans %}</p>
-    <p><strong>{% trans "Segment Type:" %}</strong> {% blocktrans %} Segment types available are VLAN, Overlay and Trunk.{% endblocktrans %}</p>
-    <p><strong>{% trans "Segment Sub Type:" %}</strong> {% blocktrans %} Sub types available are for the Overlay and Trunk segments. Available sub-types for Overlay are: Native-VXLAN, Enhanced-VXLAN or 'Other' (eg. GRE) which can be manually inputed as a text parameter for subtype. Available sub-type for Trunk is: VLAN.{% endblocktrans %}</p>
-    <p><strong>{% trans "Segment Range:" %}</strong> {% blocktrans %} Segment Ranges are 1-4093 for VLAN and above 5000 for Enhanced-VXLAN Overlay.{% endblocktrans %}</p>
-</div>
-{% endblock %}
-
-{% block modal-footer %}
-    <input class="btn btn-primary pull-right" type="submit" value="{% trans "Create Network Profile" %}" />
-    <a href="{% url 'horizon:router:nexus1000v:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
+{% block modal-body-right %}
+  <h3>{% trans "Description:" %}</h3>
+  <p><strong>{% trans "Name:" %}</strong> {% blocktrans %} Select a name for your network profile.{% endblocktrans %}</p>
+  <p><strong>{% trans "Segment Type:" %}</strong> {% blocktrans %} Segment types available are VLAN, Overlay and Trunk.{% endblocktrans %}</p>
+  <p><strong>{% trans "Segment Sub Type:" %}</strong> {% blocktrans %} Sub types available are for the Overlay and Trunk segments. Available sub-types for Overlay are: Native-VXLAN, Enhanced-VXLAN or 'Other' (eg. GRE) which can be manually inputed as a text parameter for subtype. Available sub-type for Trunk is: VLAN.{% endblocktrans %}</p>
+  <p><strong>{% trans "Segment Range:" %}</strong> {% blocktrans %} Segment Ranges are 1-4093 for VLAN and above 5000 for Enhanced-VXLAN Overlay.{% endblocktrans %}</p>
 {% endblock %}
