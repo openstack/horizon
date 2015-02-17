@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-05 19:00-0600\n"
-"PO-Revision-Date: 2015-02-06 01:22+0000\n"
+"POT-Creation-Date: 2015-02-16 18:38-0600\n"
+"PO-Revision-Date: 2015-02-16 19:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,12 @@ msgstr ""
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: static/angular/wizard/wizard.js:7 static/horizon/js/horizon.modals.js:33
+#: static/angular/modal/modal.js:83
+msgid "Submit"
+msgstr "Отправить"
+
+#: static/angular/modal/modal.js:84 static/angular/wizard/wizard.js:7
+#: static/horizon/js/horizon.modals.js:33
 msgid "Cancel"
 msgstr "Отмена"
 
@@ -48,7 +53,7 @@ msgstr "Нет данных."
 #: static/horizon/js/horizon.d3linechart.js:410
 #: static/horizon/js/horizon.modals.js:332
 #: static/horizon/js/horizon.tables_inline_edit.js:94
-#: static/horizon/js/horizon.tables_inline_edit.js:158
+#: static/horizon/js/horizon.tables_inline_edit.js:157
 msgid "An error occurred. Please try again later."
 msgstr "Произошла ошибка. Повторите попытку."
 
@@ -193,7 +198,7 @@ msgstr[1] "Отображено %s значений"
 msgstr[2] "Отображено %s значений"
 
 #: static/horizon/js/horizon.tables_inline_edit.js:88
-#: static/horizon/js/horizon.tables_inline_edit.js:152
+#: static/horizon/js/horizon.tables_inline_edit.js:151
 msgid "Not authorized to do this operation."
 msgstr "Нет прав для выполнения."
 

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-05 19:00-0600\n"
-"PO-Revision-Date: 2015-02-06 01:22+0000\n"
+"POT-Creation-Date: 2015-02-16 18:38-0600\n"
+"PO-Revision-Date: 2015-02-16 19:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,12 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: static/angular/wizard/wizard.js:7 static/horizon/js/horizon.modals.js:33
+#: static/angular/modal/modal.js:83
+msgid "Submit"
+msgstr "提交"
+
+#: static/angular/modal/modal.js:84 static/angular/wizard/wizard.js:7
+#: static/horizon/js/horizon.modals.js:33
 msgid "Cancel"
 msgstr "取消"
 
@@ -49,7 +54,7 @@ msgstr "没有可用数据"
 #: static/horizon/js/horizon.d3linechart.js:410
 #: static/horizon/js/horizon.modals.js:332
 #: static/horizon/js/horizon.tables_inline_edit.js:94
-#: static/horizon/js/horizon.tables_inline_edit.js:158
+#: static/horizon/js/horizon.tables_inline_edit.js:157
 msgid "An error occurred. Please try again later."
 msgstr "发生错误。请稍后重试。"
 
@@ -192,7 +197,7 @@ msgid_plural "Displaying %s items"
 msgstr[0] "正在显示 %s 项"
 
 #: static/horizon/js/horizon.tables_inline_edit.js:88
-#: static/horizon/js/horizon.tables_inline_edit.js:152
+#: static/horizon/js/horizon.tables_inline_edit.js:151
 msgid "Not authorized to do this operation."
 msgstr "未授权不能进行此操作。"
 

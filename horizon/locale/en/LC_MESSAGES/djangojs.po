@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-06 00:09-0600\n"
+"POT-Creation-Date: 2015-02-17 00:11-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: static/angular/wizard/wizard.js:7 static/horizon/js/horizon.modals.js:33
+#: static/angular/modal/modal.js:83
+msgid "Submit"
+msgstr ""
+
+#: static/angular/modal/modal.js:84 static/angular/wizard/wizard.js:7
+#: static/horizon/js/horizon.modals.js:33
 msgid "Cancel"
 msgstr ""
 
@@ -47,7 +52,7 @@ msgstr ""
 #: static/horizon/js/horizon.d3linechart.js:410
 #: static/horizon/js/horizon.modals.js:332
 #: static/horizon/js/horizon.tables_inline_edit.js:94
-#: static/horizon/js/horizon.tables_inline_edit.js:158
+#: static/horizon/js/horizon.tables_inline_edit.js:157
 msgid "An error occurred. Please try again later."
 msgstr ""
 
@@ -191,7 +196,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: static/horizon/js/horizon.tables_inline_edit.js:88
-#: static/horizon/js/horizon.tables_inline_edit.js:152
+#: static/horizon/js/horizon.tables_inline_edit.js:151
 msgid "Not authorized to do this operation."
 msgstr ""
 

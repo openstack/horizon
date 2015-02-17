@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Frans Thamura <frans@meruvian.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-12 18:22-0600\n"
-"PO-Revision-Date: 2015-02-12 15:36+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-02-16 18:38-0600\n"
+"PO-Revision-Date: 2015-02-16 19:03+0000\n"
+"Last-Translator: Frans Thamura <frans@meruvian.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/horizon/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,7 +51,7 @@ msgstr "Sesi sudah berakhir."
 
 #: browsers/base.py:88
 msgid "Navigation Item"
-msgstr "Menu"
+msgstr "Item Navigasi"
 
 #: browsers/views.py:41
 #, python-format
@@ -71,7 +72,7 @@ msgstr "Versi alamat IP salah."
 
 #: forms/fields.py:66
 msgid "Invalid subnet mask"
-msgstr "Subnet mask alamat IP salah."
+msgstr "Subnet mask alamat IP tidak benar."
 
 #: forms/views.py:132 templates/horizon/common/_usage_summary.html:16
 msgid "Submit"
@@ -160,7 +161,7 @@ msgstr "Tidak ada yang ditampilkan"
 #: tables/base.py:1099
 #: templates/horizon/common/_data_table_table_actions.html:47
 msgid "Actions"
-msgstr "Lakukan"
+msgstr "Aksi"
 
 #: tables/base.py:1329
 #, python-format
@@ -169,7 +170,7 @@ msgstr "Tidak ada hasil yang berhubungan dengan id \"%s\"."
 
 #: tables/base.py:1486
 msgid "Please select a row before taking that action."
-msgstr "Mohon pilih baris terlebih dahulu."
+msgstr "Mohon pilih sebuah baris terlebih dahulu sebelum aksi."
 
 #: templates/_header.html:5
 #, python-format
@@ -197,7 +198,7 @@ msgstr "Anda tidak diijinkan untuk mengakses bagian ini."
 msgid ""
 "Login as different user or go back to <a href=\"%(home_url)s\"> home "
 "page</a>"
-msgstr "Masuk sebagai user lain atau kembali ke <a href=\"%(home_url)s\"> halaman utama</a>"
+msgstr "Masuk sebagai user lain atau kembali ke <a href=\"%(home_url)s\"> beranda</a>"
 
 #: templates/auth/_login.html:32
 msgid "Sign In"
@@ -231,24 +232,24 @@ msgstr "Ringkasan"
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] ""
+msgstr[0] "Menampilkan %(counter)s item"
 
 #: templates/horizon/common/_data_table.html:77
 msgid "&laquo;&nbsp;Prev"
-msgstr "&laquo;&nbsp;Prev"
+msgstr "&laquo;&nbsp;Mundur"
 
 #: templates/horizon/common/_data_table.html:80
 msgid "Next&nbsp;&raquo;"
-msgstr "Next&nbsp;&raquo;"
+msgstr "Berikut&nbsp;&raquo;"
 
 #: templates/horizon/common/_data_table_table_actions.html:45
 msgid "More Actions"
-msgstr "Perintah Lanjutan"
+msgstr "Aksi Lebih"
 
 #: templates/horizon/common/_domain_page_header.html:6
 #, python-format
 msgid "%(context_name)s:"
-msgstr ""
+msgstr "%(context_name)s:"
 
 #: templates/horizon/common/_formset_table.html:35
 msgid "Add a row"
@@ -257,11 +258,11 @@ msgstr "Tambah baris"
 #: templates/horizon/common/_formset_table_row.html:15
 #, python-format
 msgid "%(name)s: %(error)s"
-msgstr ""
+msgstr "%(name)s: %(error)s"
 
 #: templates/horizon/common/_limit_summary.html:4
 msgid "Limit Summary"
-msgstr "Ringkasan Limit"
+msgstr "Ringkasan Batasan"
 
 #: templates/horizon/common/_limit_summary.html:7
 msgid "Instances"
@@ -292,11 +293,11 @@ msgstr "Floating IPs"
 #: templates/horizon/common/_limit_summary.html:29
 #, python-format
 msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr ""
+msgstr "Teralokasi <span> %(used)s </span> of <span> %(available)s </span>"
 
 #: templates/horizon/common/_limit_summary.html:35
 msgid "Security Groups"
-msgstr "Security Groups"
+msgstr "Kelompok Keamanan"
 
 #: templates/horizon/common/_limit_summary.html:42
 msgid "Volumes"
@@ -304,7 +305,7 @@ msgstr "Volumes"
 
 #: templates/horizon/common/_limit_summary.html:49
 msgid "Volume Storage"
-msgstr "Volume Storage"
+msgstr "Volume Penyimpanan"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:12
 msgid ""
@@ -322,7 +323,7 @@ msgstr "Metadata yang tersedia"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:56
 msgid "Duplicate keys are not allowed"
-msgstr "Tidak diijinkan untuk \"key\" yang sama"
+msgstr "Duplikasi kata kunci tidak diperbolehkan"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:84
 #: templates/horizon/common/_modal_form_update_metadata.html:193
@@ -352,13 +353,13 @@ msgstr "Simpan"
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] ""
+msgstr[0] "Tampilkan %(nav_items)s items"
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] ""
+msgstr[0] "Menampilkan sebanyak %(content_items)s item"
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"

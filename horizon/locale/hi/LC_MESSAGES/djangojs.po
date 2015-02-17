@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-05 19:00-0600\n"
-"PO-Revision-Date: 2015-02-06 01:22+0000\n"
+"POT-Creation-Date: 2015-02-16 18:38-0600\n"
+"PO-Revision-Date: 2015-02-16 19:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,12 @@ msgstr ""
 "Language: hi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: static/angular/wizard/wizard.js:7 static/horizon/js/horizon.modals.js:33
+#: static/angular/modal/modal.js:83
+msgid "Submit"
+msgstr "जमा करें"
+
+#: static/angular/modal/modal.js:84 static/angular/wizard/wizard.js:7
+#: static/horizon/js/horizon.modals.js:33
 msgid "Cancel"
 msgstr "रद्द करें"
 
@@ -48,7 +53,7 @@ msgstr "कोई आँकड़ा उपलब्ध नहीं."
 #: static/horizon/js/horizon.d3linechart.js:410
 #: static/horizon/js/horizon.modals.js:332
 #: static/horizon/js/horizon.tables_inline_edit.js:94
-#: static/horizon/js/horizon.tables_inline_edit.js:158
+#: static/horizon/js/horizon.tables_inline_edit.js:157
 msgid "An error occurred. Please try again later."
 msgstr "एक त्रुटि हो गई. बाद में पुन: प्रयास करें."
 
@@ -192,7 +197,7 @@ msgstr[0] " %s मद प्रदर्शित"
 msgstr[1] " %s मद प्रदर्शित"
 
 #: static/horizon/js/horizon.tables_inline_edit.js:88
-#: static/horizon/js/horizon.tables_inline_edit.js:152
+#: static/horizon/js/horizon.tables_inline_edit.js:151
 msgid "Not authorized to do this operation."
 msgstr " इस प्रकिया को कार्यान्वयित करने की अनुमति नहीं है"
 

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-05 19:00-0600\n"
-"PO-Revision-Date: 2015-02-06 01:00+0000\n"
+"POT-Creation-Date: 2015-02-16 18:38-0600\n"
+"PO-Revision-Date: 2015-02-16 18:42+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Telugu (India) (http://www.transifex.com/projects/p/horizon/language/te_IN/)\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,12 @@ msgstr ""
 "Language: te_IN\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: static/angular/wizard/wizard.js:7 static/horizon/js/horizon.modals.js:33
+#: static/angular/modal/modal.js:83
+msgid "Submit"
+msgstr ""
+
+#: static/angular/modal/modal.js:84 static/angular/wizard/wizard.js:7
+#: static/horizon/js/horizon.modals.js:33
 msgid "Cancel"
 msgstr "రద్దుచేయు"
 
@@ -47,7 +52,7 @@ msgstr "  సమాచారం అందుబాటు లో లేదు"
 #: static/horizon/js/horizon.d3linechart.js:410
 #: static/horizon/js/horizon.modals.js:332
 #: static/horizon/js/horizon.tables_inline_edit.js:94
-#: static/horizon/js/horizon.tables_inline_edit.js:158
+#: static/horizon/js/horizon.tables_inline_edit.js:157
 msgid "An error occurred. Please try again later."
 msgstr "లోపము జరిగినది.  దయచేసి మరల  ప్రయత్నించండి"
 
@@ -191,7 +196,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: static/horizon/js/horizon.tables_inline_edit.js:88
-#: static/horizon/js/horizon.tables_inline_edit.js:152
+#: static/horizon/js/horizon.tables_inline_edit.js:151
 msgid "Not authorized to do this operation."
 msgstr "ఈ పని చేయుటకు అనుమతి లేదు"
 
