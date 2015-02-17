@@ -45,7 +45,7 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
         try:
             img_small = "/static/dashboard/img/logos/small/group.png"
             img_medium = "/static/dashboard/img/logos/medium/group.png"
-            img_original ="/static/dashboard/img/logos/original/group.png" 
+            img_original = "/static/dashboard/img/logos/original/group.png" 
             city = ""
             email = ""
             website = ""
@@ -160,18 +160,15 @@ class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
                 size = meta[0], meta[1]
                 img_type = meta[2]
                 output_img.thumbnail(size)
-                imageName = self.data['orgID']
-                output_img.save(settings.MEDIA_ROOT + "/" + "OrganizationAvatar/" + img_type + "/" + imageName, 'JPEG')
-                
-                img = settings.MEDIA_URL + 'OrganizationAvatar/' + img_type + "/" +imageName
+                img = 'OrganizationAvatar/' + img_type + "/" + self.data['orgID']
+                output_img.save(settings.MEDIA_ROOT + "/" + img, 'JPEG')
+        
                 if img_type == 'small':
                     api.keystone.tenant_update(request, data['orgID'], img_small=img)
                 elif img_type == 'medium':
                     api.keystone.tenant_update(request, data['orgID'], img_medium=img)
                 else:
                     api.keystone.tenant_update(request, data['orgID'], img_original=img)
-
-            
 
             LOG.debug('Organization {0} image updated'.format(data['orgID']))
             messages.success(request, _("Organization updated successfully."))
