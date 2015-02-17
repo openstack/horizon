@@ -2,16 +2,16 @@
 <section id="role_list" class="role_list">
   <header>
     <h4>Roles</h4>
-    <button href="{% url 'horizon:idm:myApplications:roles_create' application_id=form.application_id %}" class="btn ajax-modal"><i class="fa fa-plus"></i></button>
+    <button href="{% url 'horizon:idm:myApplications:roles_create' application_id=form.superset_id %}" class="btn ajax-modal"><i class="fa fa-plus"></i></button>
   </header>
 
   <div class="btn-group-vertical roles {{ step.slug }}_roles" data-toggle="buttons" id="{{ step.slug }}_roles">
-    {% for role in form.application_roles %}
+    {% for role in form.relationship.application_roles %}
         <div class="btn btn-default role">
           <input type="radio" name="roles" id="{{ role.id }}_radio" autocomplete="off" data-{{ step.slug }}-id="{{ role.id }}">
           <label for="{{ role.id }}_radio">{{ role.name }}</label>
-          <a href="{% url 'horizon:idm:myApplications:roles_edit' application_id=form.application_id role_id=role.id %}" class="ajax-inline-edit"><i class="fa fa-edit"></i></a>
-          <a href="{% url 'horizon:idm:myApplications:roles_delete' application_id=form.application_id role_id=role.id %}" class="ajax-modal"><i class="fa fa-trash-o"></i></a>
+          <a href="{% url 'horizon:idm:myApplications:roles_edit' application_id=form.superset_id role_id=role.id %}" class="ajax-inline-edit"><i class="fa fa-edit"></i></a>
+          <a href="{% url 'horizon:idm:myApplications:roles_delete' application_id=form.superset_id role_id=role.id %}" class="ajax-modal"><i class="fa fa-trash-o"></i></a>
         </div>
     {% endfor %}
   </div>
@@ -20,7 +20,7 @@
 <section id="permissions_list" class="permissions_list">
   <header>
     <h4>Permissions</h4>
-    <button href="{% url 'horizon:idm:myApplications:permissions_create' application_id=form.application_id %}" class="btn ajax-modal"><i class="fa fa-plus"></i></button>
+    <button href="{% url 'horizon:idm:myApplications:permissions_create' application_id=form.superset_id %}" class="btn ajax-modal"><i class="fa fa-plus"></i></button>
   </header>
   {# show when no role is selected #}
   <div class="alert alert-info" id="{{ step.slug}}_info_message">
@@ -28,7 +28,7 @@
   </div>
   <div class="" id="{{ step.slug }}_permissions">
     <ul class="permissions {{ step.slug }}_permissions list-group">
-    {% for permission in form.application_permissions %}
+    {% for permission in form.relationship.application_permissions %}
       <li class="list-group-item" data-permission-id="{{ permission.id }}">
         <i class="fa fa-check"></i>
           {{ permission.name }}

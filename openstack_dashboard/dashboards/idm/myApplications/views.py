@@ -82,7 +82,7 @@ class RolesView(workflows.WorkflowView):
 
     def get_initial(self):
         initial = super(RolesView, self).get_initial()
-        initial['application_id'] = self.kwargs['application_id']
+        initial['superset_id'] = self.kwargs['application_id']
         return initial
 
     def get_workflow(self):
