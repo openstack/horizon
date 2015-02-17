@@ -28,5 +28,8 @@
             $cookieStore.put(key, value);
           });
         };
+        horizon.cookies.getRaw = function (key) {
+          return $cookies[key];
+        };
       }]);
 }());
