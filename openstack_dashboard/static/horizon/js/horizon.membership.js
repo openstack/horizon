@@ -331,69 +331,6 @@ horizon.membership = {
   },
 
   /*
-   * Triggers on the addition of a new member via the inline object creation field.
-   **/
-  /*add_new_member: function(step_slug) {
-    $("select[id='id_new_" + step_slug + "']").on('change', function (evt) {
-      // add the member to the visible list
-      var display_name = $(this).find("option").text();
-      var data_id = $(this).find("option").attr("value");
-      var default_role_id = horizon.membership.default_role_id[step_slug];
-      $("." + step_slug + "_members").append(horizon.membership.generate_member_element(step_slug, display_name, data_id, [default_role_id], "-"));
-
-      // add the member to the hidden role lists and the data list
-      horizon.membership.data[step_slug][data_id] = display_name;
-      $("select[multiple='multiple']").append("<option value='" + data_id + "'>" + horizon.membership.data[step_slug][data_id] + "</option>");
-      horizon.membership.add_member_to_role(step_slug, data_id, default_role_id);
-
-      // remove option from hidden select
-      $(this).text("");
-
-      // reset lists and input filters
-      horizon.membership.list_filtering(step_slug);
-      horizon.membership.detect_no_results(step_slug);
-      $("input.filter").val("");
-
-      // fix styling
-      $("." +  step_slug + "_members .btn-group").removeClass('last_stripe');
-      $("." +  step_slug + "_members .btn-group:last").addClass('last_stripe');
-    });
-  },*/
-
-  /*
-   * Style the inline object creation button, hide the associated field.
-   **/
-  /*add_new_member_styling: function(step_slug) {
-    var add_member_el = $("label[for='id_new_" + step_slug + "']").parent();
-    $(add_member_el).find("select").hide();
-    $("#add_" + step_slug).append($(add_member_el));
-    $(add_member_el).addClass("add_" + step_slug);
-    $(add_member_el).find("label, .input").addClass("add_" + step_slug + "_btn");
-  },*/
-
-  /*
-   * Fixes the striping of the fake table upon modification of the lists.
-   **/
-  /*fix_stripes: function(step_slug) {
-    $('.fake_' + step_slug + '_table').each( function () {
-      var filter = "." + $(this).attr('id');
-      var visible = " .btn-group:visible";
-      var even = " .btn-group:visible:even";
-      var last = " .btn-group:visible:last";
-
-      // fix striping of rows
-      $(filter + visible).removeClass('dark_stripe');
-      $(filter + visible).addClass('light_stripe');
-      $(filter + even).removeClass('light_stripe');
-      $(filter + even).addClass('dark_stripe');
-
-      // fix bottom border of new last element
-      $(filter + visible).removeClass('last_stripe');
-      $(filter + last).addClass('last_stripe');
-    });
-  },*/
-
-  /*
    * Sets up filtering for each list of data.
    **/
   list_filtering: function (step_slug) {
