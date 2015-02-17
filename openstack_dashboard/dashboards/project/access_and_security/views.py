@@ -21,6 +21,8 @@
 Views for Instances and Volumes.
 """
 
+from django.utils.translation import ugettext_lazy as _
+
 from horizon import tabs
 
 from openstack_dashboard.dashboards.project.access_and_security \
@@ -30,3 +32,4 @@ from openstack_dashboard.dashboards.project.access_and_security \
 class IndexView(tabs.TabbedTableView):
     tab_group_class = project_tabs.AccessAndSecurityTabs
     template_name = 'project/access_and_security/index.html'
+    page_title = _("Access & Security")

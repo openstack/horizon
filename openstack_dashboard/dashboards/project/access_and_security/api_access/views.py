@@ -21,11 +21,11 @@ from django import http
 from django import shortcuts
 from django.template.loader import render_to_string
 from django.utils.translation import ugettext_lazy as _
-from django.views import generic
 
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
+from horizon import views
 
 from openstack_dashboard import api
 
@@ -133,8 +133,9 @@ def download_rc_file(request):
         return shortcuts.redirect(request.build_absolute_uri())
 
 
-class CredentialsView(forms.ModalFormMixin, generic.TemplateView):
+class CredentialsView(forms.ModalFormMixin, views.HorizonTemplateView):
     template_name = 'project/access_and_security/api_access/credentials.html'
+    page_title = _("User Credentials Details")
 
     def get_context_data(self, **kwargs):
         context = super(CredentialsView, self).get_context_data(**kwargs)

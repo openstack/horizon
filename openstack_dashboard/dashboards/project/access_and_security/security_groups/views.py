@@ -71,6 +71,7 @@ class UpdateView(forms.ModalFormView):
     form_class = project_forms.UpdateGroup
     template_name = 'project/access_and_security/security_groups/update.html'
     success_url = reverse_lazy('horizon:project:access_and_security:index')
+    page_title = _("Edit Security Group")
 
     @memoized.memoized_method
     def get_object(self):
@@ -97,6 +98,7 @@ class UpdateView(forms.ModalFormView):
 class AddRuleView(forms.ModalFormView):
     form_class = project_forms.AddRule
     template_name = 'project/access_and_security/security_groups/add_rule.html'
+    page_title = _("Add Rule")
 
     def get_success_url(self):
         sg_id = self.kwargs['security_group_id']
@@ -137,3 +139,4 @@ class CreateView(forms.ModalFormView):
     form_class = project_forms.CreateGroup
     template_name = 'project/access_and_security/security_groups/create.html'
     success_url = reverse_lazy('horizon:project:access_and_security:index')
+    page_title = _("Create Security Group")

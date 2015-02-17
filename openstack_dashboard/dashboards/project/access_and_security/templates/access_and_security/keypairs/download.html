@@ -3,10 +3,6 @@
 {% load url from future %}
 {% block title %}{% blocktrans %}Download Key Pair{% endblocktrans %}{% endblock %}
 
-{% block page_header %}
-  {% include "horizon/common/_page_header.html" with title=_("Download Key Pair") %}
-{% endblock page_header %}
-
 {% block main %}
   <div class="modal-header">
     <h3>{% blocktrans %}The key pair &quot;{{ keypair_name }}&quot; should download automatically. If not use the link below.{% endblocktrans %}</h3>
