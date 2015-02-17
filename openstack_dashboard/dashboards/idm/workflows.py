@@ -67,12 +67,12 @@ class UpdateRelationshipAction(workflows.MembershipAction,
         super(UpdateRelationshipAction, self).__init__(request,
                                                          *args,
                                                          **kwargs)
-        relationship = self._load_relationship_api()
+        self.relationship = self._load_relationship_api()
         self.superset_id = self._get_superset_id()
 
         # Get the default role
         try:
-            default_object = relationship._get_default_object(request)
+            default_object = self.relationship._get_default_object(request)
         except Exception:
             exceptions.handle(request,
                               self.ERROR_MESSAGE,
@@ -82,7 +82,7 @@ class UpdateRelationshipAction(workflows.MembershipAction,
         
         # Get list of available owners
         try:
-            owners_list = relationship._list_all_owners(request, 
+            owners_list = self.relationship._list_all_owners(request, 
                                                 self.superset_id)
         except Exception:
             exceptions.handle(request,
@@ -90,7 +90,7 @@ class UpdateRelationshipAction(workflows.MembershipAction,
                               redirect=reverse(self.ERROR_URL))
         # Get list of objects
         try:
-            object_list = relationship._list_all_objects(request, 
+            object_list = self.relationship._list_all_objects(request, 
                                                 self.superset_id)
         except Exception:
             exceptions.handle(request,
@@ -101,7 +101,7 @@ class UpdateRelationshipAction(workflows.MembershipAction,
         # Figure out owners & objects
         try:
             owners_objects_relationship = \
-                relationship._list_current_assignments(request, 
+                self.relationship._list_current_assignments(request, 
                                                 self.superset_id)
         except Exception:
             exceptions.handle(request,
@@ -122,10 +122,12 @@ class UpdateRelationshipAction(workflows.MembershipAction,
         for obj in object_list:
             field_name = self.get_member_field_name(obj.id)
             label = obj.name
-            widget = forms.widgets.SelectMultiple(
-                attrs={'data-superset-id': 
-                relationship._get_supersetid_name(self.request, 
-                                                  self.superset_id)})
+            widget = forms.widgets.SelectMultiple(attrs={
+                'data-superset-name': 
+                    relationship._get_supersetid_name(self.request, 
+                                                      self.superset_id),
+                'data-superset-id':self.superset_id
+            })
             self.fields[field_name] = forms.MultipleChoiceField(
                                                     required=False,
                                                     label=label,
@@ -147,7 +149,7 @@ class UpdateRelationshipAction(workflows.MembershipAction,
         slug = RELATIONSHIP_SLUG
 
 
-class UpdateRelationship(workflows.UpdateMembersStep, 
+class UpdateRelationshipStep(workflows.UpdateMembersStep, 
                             RelationshipConsumerMixin):
     action_class = UpdateRelationshipAction
     contributes = ("superset_id",)
@@ -155,11 +157,10 @@ class UpdateRelationship(workflows.UpdateMembersStep,
     def contribute(self, data, context):
         superset_id = context['superset_id']
         if data:
-            relationship = self._load_relationship_api()
+            self.relationship = self._load_relationship_api()
             try:
-                object_list = relationship._list_all_objects(
-                                                self.workflow.request, 
-                                                superset_id)
+                object_list = self.relationship._list_all_objects(
+                    self.workflow.request, superset_id)
             except Exception:
                 exceptions.handle(self.workflow.request,
                                   _('Unable to retrieve list.'))
@@ -173,18 +174,18 @@ class UpdateRelationship(workflows.UpdateMembersStep,
 
 class RelationshipWorkflow(workflows.Workflow, 
                             RelationshipConsumerMixin):
-    default_steps = (UpdateRelationship,)
+    default_steps = (UpdateRelationshipStep,)
 
     def handle(self, request, data):
         superset_id = data['superset_id']
         member_step = self.get_step(RELATIONSHIP_SLUG)
-        relationship = self._load_relationship_api()
+        self.relationship = self._load_relationship_api()
         try:
-            object_list = relationship._list_all_objects(request, 
-                                                superset_id)
-            owners_objects_relationship = relationship._list_current_assignments(
-                                                                request,
-                                                              superset_id)
+            object_list = self.relationship._list_all_objects(
+                request, superset_id)
+            owners_objects_relationship = \
+                self.relationship._list_current_assignments(request,
+                                                            superset_id)
             # re-index by object with a owner list for easier processing 
             # in later steps
             current_objects = idm_utils.swap_dict(owners_objects_relationship)
@@ -196,23 +197,25 @@ class RelationshipWorkflow(workflows.Workflow,
                 modified_objects[obj.id] = data[field_name]
             
             # Create the delete and add sets
-            objects_to_add, objects_to_delete = self._create_add_and_delete_sets(
-                                                                modified_objects, 
-                                                                current_objects)
+            objects_to_add, objects_to_delete = \
+                self._create_add_and_delete_sets(modified_objects, 
+                                                 current_objects)
             # Add the objects
             for object_id in objects_to_add:
                 for owner_id in objects_to_add[object_id]:
-                   relationship._add_object_to_owner(self.request,
-                            superset=superset_id,
-                            owner=owner_id,
-                            obj=object_id)
+                  self.relationship._add_object_to_owner(
+                    self.request,
+                    superset=superset_id,
+                    owner=owner_id,
+                    obj=object_id)
             # Remove the objects
             for object_id in objects_to_delete:
                 for owner_id in objects_to_delete[object_id]:
-                    relationship._remove_object_from_owner(self.request,
-                            superset=superset_id,
-                            owner=owner_id,
-                            obj=object_id)
+                   self.relationship._remove_object_from_owner(
+                        self.request,
+                        superset=superset_id,
+                        owner=owner_id,
+                        obj=object_id)
             return True
         except Exception:
             exceptions.handle(request,

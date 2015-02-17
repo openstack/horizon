@@ -80,7 +80,7 @@ class UpdateProjectMembersAction(idm_workflows.UpdateRelationshipAction):
         slug = idm_workflows.RELATIONSHIP_SLUG
 
 
-class UpdateProjectMembers(idm_workflows.UpdateRelationship):
+class UpdateProjectMembers(idm_workflows.UpdateRelationshipStep):
     action_class = UpdateProjectMembersAction
     available_list_title = _("All Users")
     members_list_title = _("Organization Members")

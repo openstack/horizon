@@ -6,6 +6,7 @@ horizon.membership = {
   roles: [],
   has_roles: [],
   default_role_id: [],
+  app_names: [],
 
   /* Parses the form field selector's ID to get either the
    * role or user id (i.e. returns "id12345" when
@@ -62,12 +63,16 @@ horizon.membership = {
     angular.forEach($('label[for^="id_' + step_slug + '_role_"]'), function(role) {
       var input_name = $(role).attr('for')
       var id = horizon.membership.get_field_id(input_name);
-      var app = $('#' + input_name).attr('data-superset-id')
-      if (!horizon.membership.roles[step_slug][app]){
+      var app_id = $('#' + input_name).attr('data-superset-id')
+
+      // store name for rendering purposes
+      horizon.membership.app_names[app_id] = $('#' + input_name).attr('data-superset-name')
+      
+      if (!horizon.membership.roles[step_slug][app_id]){
         // init the second dimension of the array if not created
-        horizon.membership.roles[step_slug][app] = []
+        horizon.membership.roles[step_slug][app_id] = []
       }
-      horizon.membership.roles[step_slug][app][id] = $(role).text();
+      horizon.membership.roles[step_slug][app_id][id] = $(role).text();
     });
   },
 
@@ -205,7 +210,7 @@ horizon.membership = {
         }
       }
       apps.push({
-        app: app,
+        app_name: horizon.membership.app_names[app],
         roles: roles,
       })
     }
