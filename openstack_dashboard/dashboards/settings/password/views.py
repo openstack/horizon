@@ -12,6 +12,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.utils.translation import ugettext_lazy as _
+
 from horizon import forms
 
 from openstack_dashboard.dashboards.settings.password \
@@ -21,3 +23,4 @@ from openstack_dashboard.dashboards.settings.password \
 class PasswordView(forms.ModalFormView):
     form_class = pass_forms.PasswordForm
     template_name = 'settings/password/change.html'
+    page_title = _("Change Password")

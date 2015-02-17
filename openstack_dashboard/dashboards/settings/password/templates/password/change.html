@@ -2,10 +2,6 @@
 {% load i18n %}
 {% block title %}{% trans "Change Password" %}{% endblock %}
 
-{% block page_header %}
-  {% include "horizon/common/_page_header.html" with title=_("Change Password") %}
-{% endblock page_header %}
-
 {% block main %}
   {% include "settings/password/_change.html" %}
 {% endblock %}

@@ -13,6 +13,7 @@
 #    under the License.
 
 from django.conf import settings
+from django.utils.translation import ugettext_lazy as _
 
 from horizon import forms
 from horizon.utils import functions as utils
@@ -22,6 +23,7 @@ from openstack_dashboard.dashboards.settings.user import forms as user_forms
 class UserSettingsView(forms.ModalFormView):
     form_class = user_forms.UserSettingsForm
     template_name = 'settings/user/settings.html'
+    page_title = _("User Settings")
 
     def get_initial(self):
         return {
