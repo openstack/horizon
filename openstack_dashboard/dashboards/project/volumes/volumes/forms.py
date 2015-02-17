@@ -515,10 +515,13 @@ class CreateSnapshotForm(forms.SelfHandlingForm):
 
             messages.info(request, message)
             return snapshot
-        except Exception:
+        except Exception as e:
             redirect = reverse("horizon:project:volumes:index")
+            msg = _('Unable to create volume snapshot.')
+            if e.code == 413:
+                msg = _('Requested snapshot would exceed the allowed quota.')
             exceptions.handle(request,
-                              _('Unable to create volume snapshot.'),
+                              msg,
                               redirect=redirect)
 
 
