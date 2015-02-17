@@ -50,28 +50,35 @@ class FirewallTests(test.TestCase):
     REMOVERULE_PATH = 'horizon:%s:firewalls:removerule' % DASHBOARD
 
     def set_up_expect(self):
+        # retrieve rules
+        tenant_id = self.tenant.id
 
         api.fwaas.rule_list(
-            IsA(http.HttpRequest)).AndReturn(self.fw_rules.list())
+            IsA(http.HttpRequest),
+            tenant_id=tenant_id).AndReturn(self.fw_rules.list())
 
         # retrieves policies
         policies = self.fw_policies.list()
         api.fwaas.policy_list(
-            IsA(http.HttpRequest)).AndReturn(policies)
+            IsA(http.HttpRequest), tenant_id=tenant_id).AndReturn(policies)
 
         # retrieves firewalls
         firewalls = self.firewalls.list()
         api.fwaas.firewall_list(
-            IsA(http.HttpRequest)).AndReturn(firewalls)
+            IsA(http.HttpRequest), tenant_id=tenant_id).AndReturn(firewalls)
 
     def set_up_expect_with_exception(self):
+        tenant_id = self.tenant.id
 
         api.fwaas.rule_list(
-            IsA(http.HttpRequest)).AndRaise(self.exceptions.neutron)
+            IsA(http.HttpRequest),
+            tenant_id=tenant_id).AndRaise(self.exceptions.neutron)
         api.fwaas.policy_list(
-            IsA(http.HttpRequest)).AndRaise(self.exceptions.neutron)
+            IsA(http.HttpRequest),
+            tenant_id=tenant_id).AndRaise(self.exceptions.neutron)
         api.fwaas.firewall_list(
-            IsA(http.HttpRequest)).AndRaise(self.exceptions.neutron)
+            IsA(http.HttpRequest),
+            tenant_id=tenant_id).AndRaise(self.exceptions.neutron)
 
     @test.create_stubs({api.fwaas: ('firewall_list',
                                     'policy_list',
@@ -81,7 +88,9 @@ class FirewallTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(self.INDEX_URL)
+        tenant_id = self.tenant.id
+
+        res = self.client.get(self.INDEX_URL, tenant_id=tenant_id)
 
         self.assertTemplateUsed(res, '%s/firewalls/details_tabs.html'
                                 % self.DASHBOARD)
@@ -97,7 +106,10 @@ class FirewallTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(self.INDEX_URL + '?tab=fwtabs__policies')
+        tenant_id = self.tenant.id
+
+        res = self.client.get(self.INDEX_URL + '?tab=fwtabs__policies',
+                              tenant_id=tenant_id)
 
         self.assertTemplateUsed(res, '%s/firewalls/details_tabs.html'
                                 % self.DASHBOARD)
@@ -113,7 +125,10 @@ class FirewallTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(self.INDEX_URL + '?tab=fwtabs__rules')
+        tenant_id = self.tenant.id
+
+        res = self.client.get(self.INDEX_URL + '?tab=fwtabs__rules',
+                              tenant_id=tenant_id)
 
         self.assertTemplateUsed(res, '%s/firewalls/details_tabs.html'
                                 % self.DASHBOARD)
@@ -129,7 +144,9 @@ class FirewallTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(self.INDEX_URL)
+        tenant_id = self.tenant.id
+
+        res = self.client.get(self.INDEX_URL, tenant_id=tenant_id)
 
         self.assertTemplateUsed(res,
                                 '%s/firewalls/details_tabs.html'
@@ -146,7 +163,10 @@ class FirewallTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(self.INDEX_URL + '?tab=fwtabs__policies')
+        tenant_id = self.tenant.id
+
+        res = self.client.get(self.INDEX_URL + '?tab=fwtabs__policies',
+                              tenant_id=tenant_id)
 
         self.assertTemplateUsed(res,
                                 '%s/firewalls/details_tabs.html'
@@ -163,7 +183,10 @@ class FirewallTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(self.INDEX_URL + '?tab=fwtabs__rules')
+        tenant_id = self.tenant.id
+
+        res = self.client.get(self.INDEX_URL + '?tab=fwtabs__rules',
+                              tenant_id=tenant_id)
 
         self.assertTemplateUsed(res,
                                 '%s/firewalls/details_tabs.html'
@@ -223,6 +246,7 @@ class FirewallTests(test.TestCase):
     def test_add_policy_post(self):
         policy = self.fw_policies.first()
         rules = self.fw_rules.list()
+        tenant_id = self.tenant.id
         form_data = {'name': policy.name,
                      'description': policy.description,
                      'firewall_rules': policy.firewall_rules,
@@ -245,7 +269,7 @@ class FirewallTests(test.TestCase):
             if rule.id in policy.firewall_rules:
                 rule.firewall_policy_id = rule.policy = None
         api.fwaas.rule_list(
-            IsA(http.HttpRequest)).AndReturn(rules)
+            IsA(http.HttpRequest), tenant_id=tenant_id).AndReturn(rules)
         api.fwaas.policy_create(
             IsA(http.HttpRequest), **form_data).AndReturn(policy)
 
@@ -260,13 +284,14 @@ class FirewallTests(test.TestCase):
     def test_add_policy_post_with_error(self):
         policy = self.fw_policies.first()
         rules = self.fw_rules.list()
+        tenant_id = self.tenant.id
         form_data = {'description': policy.description,
                      'firewall_rules': None,
                      'shared': policy.shared,
                      'audited': policy.audited
                      }
         api.fwaas.rule_list(
-            IsA(http.HttpRequest)).AndReturn(rules)
+            IsA(http.HttpRequest), tenant_id=tenant_id).AndReturn(rules)
 
         self.mox.ReplayAll()
 
@@ -278,6 +303,7 @@ class FirewallTests(test.TestCase):
     def test_add_firewall_post(self):
         firewall = self.firewalls.first()
         policies = self.fw_policies.list()
+        tenant_id = self.tenant.id
         form_data = {'name': firewall.name,
                      'description': firewall.description,
                      'firewall_policy_id': firewall.firewall_policy_id,
@@ -285,7 +311,7 @@ class FirewallTests(test.TestCase):
                      'admin_state_up': firewall.admin_state_up
                      }
         api.fwaas.policy_list(
-            IsA(http.HttpRequest)).AndReturn(policies)
+            IsA(http.HttpRequest), tenant_id=tenant_id).AndReturn(policies)
         api.fwaas.firewall_create(
             IsA(http.HttpRequest), **form_data).AndReturn(firewall)
 
@@ -300,6 +326,7 @@ class FirewallTests(test.TestCase):
     def test_add_firewall_post_with_error(self):
         firewall = self.firewalls.first()
         policies = self.fw_policies.list()
+        tenant_id = self.tenant.id
         form_data = {'name': firewall.name,
                      'description': firewall.description,
                      'firewall_policy_id': None,
@@ -307,7 +334,7 @@ class FirewallTests(test.TestCase):
                      'admin_state_up': firewall.admin_state_up
                      }
         api.fwaas.policy_list(
-            IsA(http.HttpRequest)).AndReturn(policies)
+            IsA(http.HttpRequest), tenant_id=tenant_id).AndReturn(policies)
 
         self.mox.ReplayAll()
 
@@ -470,9 +497,10 @@ class FirewallTests(test.TestCase):
     def test_update_firewall_get(self):
         firewall = self.firewalls.first()
         policies = self.fw_policies.list()
+        tenant_id = self.tenant.id
 
         api.fwaas.policy_list(
-            IsA(http.HttpRequest)).AndReturn(policies)
+            IsA(http.HttpRequest), tenant_id=tenant_id).AndReturn(policies)
 
         api.fwaas.firewall_get(IsA(http.HttpRequest),
                                firewall.id).AndReturn(firewall)
@@ -488,6 +516,7 @@ class FirewallTests(test.TestCase):
                                     'firewall_update')})
     def test_update_firewall_post(self):
         firewall = self.firewalls.first()
+        tenant_id = self.tenant.id
         api.fwaas.firewall_get(IsA(http.HttpRequest),
                                firewall.id).AndReturn(firewall)
 
@@ -499,7 +528,7 @@ class FirewallTests(test.TestCase):
 
         policies = self.fw_policies.list()
         api.fwaas.policy_list(
-            IsA(http.HttpRequest)).AndReturn(policies)
+            IsA(http.HttpRequest), tenant_id=tenant_id).AndReturn(policies)
 
         api.fwaas.firewall_update(IsA(http.HttpRequest), firewall.id, **data)\
             .AndReturn(firewall)
@@ -516,6 +545,7 @@ class FirewallTests(test.TestCase):
                                     'rule_list', 'rule_get')})
     def test_policy_insert_rule(self):
         policy = self.fw_policies.first()
+        tenant_id = self.tenant.id
         rules = self.fw_rules.list()
 
         new_rule_id = rules[2].id
@@ -532,7 +562,7 @@ class FirewallTests(test.TestCase):
                                  rules[1].id]
 
         api.fwaas.rule_list(
-            IsA(http.HttpRequest)).AndReturn(rules)
+            IsA(http.HttpRequest), tenant_id=tenant_id).AndReturn(rules)
         api.fwaas.rule_get(
             IsA(http.HttpRequest), new_rule_id).AndReturn(rules[2])
         api.fwaas.policy_insert_rule(IsA(http.HttpRequest), policy.id, **data)\
@@ -550,6 +580,7 @@ class FirewallTests(test.TestCase):
                                     'rule_list', 'rule_get')})
     def test_policy_remove_rule(self):
         policy = self.fw_policies.first()
+        tenant_id = self.tenant.id
         rules = self.fw_rules.list()
 
         remove_rule_id = policy.firewall_rules[0]
@@ -569,7 +600,7 @@ class FirewallTests(test.TestCase):
         api.fwaas.policy_get(IsA(http.HttpRequest),
                              policy.id).AndReturn(policy)
         api.fwaas.rule_list(
-            IsA(http.HttpRequest)).AndReturn(rules)
+            IsA(http.HttpRequest), tenant_id=tenant_id).AndReturn(rules)
         api.fwaas.rule_get(
             IsA(http.HttpRequest), remove_rule_id).AndReturn(rules[0])
         api.fwaas.policy_remove_rule(IsA(http.HttpRequest), policy.id, **data)\
