@@ -38,12 +38,12 @@ class OrganizationsTab(tabs.TableTab):
         my_organizations = []
         #domain_context = self.request.session.get('domain_context', None)
         try:
-            organizations, self._more = api.keystone.tenant_list(self.request,
-                                                            admin=False)
-            my_organizations, self._more = api.keystone.tenant_list(self.request,
-                                            user=self.request.user.id,
-                                            admin=False)
-            organizations = [t for t in organizations if not t in my_organizations]
+            organizations, self._more = api.keystone.tenant_list(
+                self.request, admin=False)
+            my_organizations, self._more = api.keystone.tenant_list(
+                self.request, user=self.request.user.id, admin=False)
+            organizations = [t for t in organizations if not t 
+                             in my_organizations]
         except Exception as e:
             self._more = False
             exceptions.handle(self.request,
