@@ -675,29 +675,37 @@ class StackTests(test.TestCase):
         self.assertFormErrors(res, 1)
         self.assertFormError(res, "form", 'stack_name', error)
 
+    def _test_stack_action(self, action):
+        stack = self.stacks.first()
+
+        api.heat.stacks_list(IsA(http.HttpRequest),
+                             marker=None,
+                             paginate=True,
+                             sort_dir='desc') \
+            .AndReturn([self.stacks.list(), True, True])
+
+        getattr(api.heat, 'action_%s' % action)(IsA(http.HttpRequest),
+                                                stack.id).AndReturn(stack)
+
+        self.mox.ReplayAll()
+
+        form_data = {"action": "stacks__%s__%s" % (action, stack.id)}
+        res = self.client.post(INDEX_URL, form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({api.heat: ('stacks_list', 'action_check',)})
     def test_check_stack(self):
-        stack = self.stacks.first()
-        form_data = {"action": "stacks__check__%s" % stack.id}
-        res = self.client.post(INDEX_URL, form_data)
+        self._test_stack_action('check')
 
-        self.assertNoFormErrors(res)
-        self.assertRedirectsNoFollow(res, INDEX_URL)
-
+    @test.create_stubs({api.heat: ('stacks_list', 'action_suspend',)})
     def test_suspend_stack(self):
-        stack = self.stacks.first()
-        form_data = {"action": "stacks__suspend__%s" % stack.id}
-        res = self.client.post(INDEX_URL, form_data)
+        self._test_stack_action('suspend')
 
-        self.assertNoFormErrors(res)
-        self.assertRedirectsNoFollow(res, INDEX_URL)
-
+    @test.create_stubs({api.heat: ('stacks_list', 'action_resume',)})
     def test_resume_stack(self):
-        stack = self.stacks.first()
-        form_data = {"action": "stacks__resume__%s" % stack.id}
-        res = self.client.post(INDEX_URL, form_data)
-
-        self.assertNoFormErrors(res)
-        self.assertRedirectsNoFollow(res, INDEX_URL)
+        self._test_stack_action('resume')
 
 
 class TemplateFormTests(test.TestCase):
