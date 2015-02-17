@@ -37,14 +37,6 @@ from horizon import views
 LOG = logging.getLogger('idm_logger')
 
 
-
-# class IndexView(views.APIView):
-#     # A very simple class-based view...
-#     template_name = 'idm/users/index.html'
-
-#     def get_data(self, request, context, *args, **kwargs):
-#         return context
-
 class DetailUserView(tables.MultiTableView):
     template_name = 'idm/users/index.html'
     table_classes = (user_tables.OrganizationsTable,
@@ -86,6 +78,8 @@ class DetailUserView(tables.MultiTableView):
         context['city'] = getattr(user, 'city', '')
         context['email'] = getattr(user, 'email', '')
         context['website'] = getattr(user, 'website', '')
+        applications = self.get_applications_data()
+        context['applications'] = applications
         return context
 
 class BaseUsersMultiFormView(idm_views.BaseMultiFormView):

@@ -87,6 +87,8 @@ class DetailOrganizationView(tables.MultiTableView):
         context['city'] = getattr(organization, 'city', '')
         context['email'] = getattr(organization, 'email', '')
         context['website'] = getattr(organization, 'website', '')
+        applications = self.get_applications_data()
+        context['applications'] = applications
         return context
 
 
