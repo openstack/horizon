@@ -38,9 +38,7 @@ horizon.membership = {
    **/
   init_properties: function(step_slug) {
     horizon.membership.has_roles[step_slug] = $("." + step_slug + "_membership").data('show-roles') !== "False";
-    console.log('Has roles: '+horizon.membership.has_roles[step_slug])
     horizon.membership.default_role_id[step_slug] = $('#id_default_' + step_slug + '_role').attr('value');
-    console.log('Default role: '+horizon.membership.default_role_id[step_slug])
     horizon.membership.init_data_list(step_slug);
     horizon.membership.init_role_list(step_slug);
     horizon.membership.init_current_membership(step_slug);
@@ -54,7 +52,6 @@ horizon.membership = {
     angular.forEach($(this.get_role_element(step_slug, "")).find("option"), function (option) {
       horizon.membership.data[step_slug][option.value] = option.text;
     });
-    console.log('inited data: '+horizon.membership.data[step_slug])
   },
 
   /*
@@ -72,7 +69,6 @@ horizon.membership = {
       }
       horizon.membership.roles[step_slug][app][id] = $(role).text();
     });
-    console.log('inited roles: '+horizon.membership.roles[step_slug])
   },
 
   /*
@@ -98,7 +94,6 @@ horizon.membership = {
       }
       horizon.membership.current_membership[step_slug][role_id] = members_list;
     });
-    console.log('inited membership: '+horizon.membership.current_membership[step_slug])
   },
 
   /*
@@ -176,8 +171,7 @@ horizon.membership = {
     }
 
     var $dropdown = member_el.find("div.member").siblings('.dropdown');
-    var $role_items = $dropdown.children('.role_dropdown').children('li');
-
+    var $role_items = $dropdown.children('.role_dropdown').find('li.role_dropdown_role');
     $role_items.each(function (idx, el) {
       if ($.inArray(($(el).data('role-id')), role_ids) !== -1) {
         $(el).addClass('active');
@@ -186,20 +180,7 @@ horizon.membership = {
       }
     });
 
-    // set the selection back to default role
     var $roles_display = $dropdown.children('.dropdown-toggle').children('.roles_display');
-    /*var roles_to_display = [];
-    for (var i = 0; i < role_ids.length; i++) {
-      if (i === 2) {
-        roles_to_display.push('...');
-        break;
-      }
-      roles_to_display.push(horizon.membership.roles[step_slug][role_ids[i]]);
-    }
-    text = roles_to_display.join(', ');
-    if (text.length === 0) {
-      text = gettext('No roles');
-    }*/
     text = role_ids.length > 0 ? role_ids.length + " roles" : "No roles";
     $roles_display.text(text);
   },
@@ -249,18 +230,14 @@ horizon.membership = {
    **/
   generate_html: function(step_slug) {
     var data_id, data = horizon.membership.data[step_slug];
-    console.log('data in generate_html: '+data)
     for (data_id in data) {
-      console.log('data_id: ' +data_id)
       if(data.hasOwnProperty(data_id)){
         var display_name = data[data_id];
         var role_ids = this.get_member_roles(step_slug, data_id);
         if (role_ids.length > 0) {
-          console.log('With roles: '+display_name)
           $("." + step_slug + "_members").append(this.generate_member_element(step_slug, display_name, data_id, role_ids, 'fa fa-close'));
         }
         else {
-          console.log('Available: '+display_name)
           $(".available_" + step_slug).append(this.generate_member_element(step_slug, display_name, data_id, role_ids, 'fa fa-plus'));
         }
       }
@@ -464,7 +441,6 @@ horizon.membership = {
    * Calls set-up functions upon loading the workflow.
    **/
   workflow_init: function(modal, step_slug, step_id) {
-    console.log('workflow_init!')
     $(modal).find('form').each( function () {
       var $form = $(this);
 
@@ -510,6 +486,5 @@ horizon.membership = {
         $(filter + ' .btn-group:last').addClass('last_stripe');
       });*/
     });
-    console.log('Done :)')
   }
 };
