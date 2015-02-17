@@ -32,6 +32,7 @@ from openstack_dashboard.dashboards.project.database_backups import workflows
 class IndexView(horizon_tables.DataTableView):
     table_class = tables.BackupsTable
     template_name = 'project/database_backups/index.html'
+    page_title = _("Backups")
 
     def _get_extra_data(self, backup):
         """Apply extra info to the backup."""
@@ -65,6 +66,7 @@ class IndexView(horizon_tables.DataTableView):
 class BackupView(horizon_workflows.WorkflowView):
     workflow_class = workflows.CreateBackup
     template_name = "project/database_backups/backup.html"
+    page_title = _("Backup Database")
 
     def get_context_data(self, **kwargs):
         context = super(BackupView, self).get_context_data(**kwargs)
