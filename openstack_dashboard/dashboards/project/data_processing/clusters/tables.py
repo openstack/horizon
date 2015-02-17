@@ -14,6 +14,7 @@
 import logging
 
 from django.http import Http404  # noqa
+from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
@@ -106,6 +107,10 @@ class ClustersTable(tables.DataTable):
         ("active", True),
         ("error", False)
     )
+    STATUS_DISPLAY_CHOICES = (
+        ("active", pgettext_lazy("Current status of a Cluster", u"Active")),
+        ("error", pgettext_lazy("Current status of a Cluster", u"Error")),
+    )
 
     name = tables.Column("name",
                          verbose_name=_("Name"),
@@ -114,7 +119,8 @@ class ClustersTable(tables.DataTable):
     status = tables.Column("status",
                            verbose_name=_("Status"),
                            status=True,
-                           status_choices=STATUS_CHOICES)
+                           status_choices=STATUS_CHOICES,
+                           display_choices=STATUS_DISPLAY_CHOICES)
     instances_count = tables.Column(get_instances_count,
                                     verbose_name=_("Instances Count"))
 
