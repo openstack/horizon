@@ -62,7 +62,9 @@ class RoleAndPermissionApi(idm_workflows.RelationshipApiInterface):
 
     def _list_current_assignments(self, request, superset_id):
         application_role_permissions = {}
-        for role in self.application_roles:
+        role_list = getattr(self, 'application_roles', 
+            fiware_api.keystone.role_list(request, application=superset_id))
+        for role in role_list:
             application_role_permissions[role.id] = [
                 p.id for p in fiware_api.keystone.permission_list(
                     request, role=role.id)
@@ -129,7 +131,7 @@ class ManageApplicationRoles(idm_workflows.RelationshipWorkflow):
     def get_success_url(self):
         # Overwrite to allow passing kwargs
         return reverse(self.success_url, 
-                    kwargs={'application_id':self.context['application_id']})
+                    kwargs={'application_id':self.context['superset_id']})
 
 
 
