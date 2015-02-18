@@ -2,10 +2,6 @@
 {% load i18n %}
 {% block title %}{% trans "Edit VPN Service" %}{% endblock %}
 
-{% block page_header %}
-  {% include "horizon/common/_page_header.html" with title=_("Edit VPN Service") %}
-{% endblock page_header %}
-
 {% block main %}
   {% include 'project/vpn/_update_vpnservice.html' %}
 {% endblock %}
