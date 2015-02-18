@@ -139,7 +139,7 @@ class UpdateFirewall(forms.SelfHandlingForm):
 
         try:
             tenant_id = self.request.user.tenant_id
-            policies = api.fwaas.policy_list(request, tenant_id=tenant_id)
+            policies = api.fwaas.policy_list_for_tenant(request, tenant_id)
             policies = sorted(policies, key=lambda policy: policy.name)
         except Exception:
             exceptions.handle(request,
@@ -187,9 +187,9 @@ class InsertRuleToPolicy(forms.SelfHandlingForm):
     def __init__(self, request, *args, **kwargs):
         super(InsertRuleToPolicy, self).__init__(request, *args, **kwargs)
 
-        tenant_id = self.request.user.tenant_id
         try:
-            all_rules = api.fwaas.rule_list(request, tenant_id=tenant_id)
+            tenant_id = self.request.user.tenant_id
+            all_rules = api.fwaas.rule_list_for_tenant(request, tenant_id)
             all_rules = sorted(all_rules, key=lambda rule: rule.name_or_id)
 
             available_rules = [r for r in all_rules
@@ -246,9 +246,9 @@ class RemoveRuleFromPolicy(forms.SelfHandlingForm):
     def __init__(self, request, *args, **kwargs):
         super(RemoveRuleFromPolicy, self).__init__(request, *args, **kwargs)
 
-        tenant_id = request.user.tenant_id
         try:
-            all_rules = api.fwaas.rule_list(request, tenant_id=tenant_id)
+            tenant_id = request.user.tenant_id
+            all_rules = api.fwaas.rule_list_for_tenant(request, tenant_id)
 
             current_rules = []
             for r in kwargs['initial']['firewall_rules']:
