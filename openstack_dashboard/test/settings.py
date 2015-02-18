@@ -23,7 +23,7 @@ STATIC_ROOT = os.path.abspath(os.path.join(ROOT_PATH, '..', 'static'))
 
 SECRET_KEY = secret_key.generate_or_read_from_file(
     os.path.join(TEST_DIR, '.secret_key_store'))
-ROOT_URLCONF = 'openstack_dashboard.urls'
+ROOT_URLCONF = 'openstack_dashboard.test.urls'
 TEMPLATE_DIRS = (
     os.path.join(TEST_DIR, 'templates'),
 )
