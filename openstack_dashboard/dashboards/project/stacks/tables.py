@@ -344,6 +344,7 @@ class ResourcesTable(tables.DataTable):
         ("Complete", True),
         ("Failed", False),
     )
+    STATUS_DISPLAY_CHOICES = StacksTable.STACK_STATUS_DISPLAY_CHOICES
 
     logical_resource = tables.Column('resource_name',
                                      verbose_name=_("Stack Resource"),
@@ -358,8 +359,8 @@ class ResourcesTable(tables.DataTable):
                                  filters=(filters.parse_isotime,
                                           filters.timesince_or_never))
     status = tables.Column("resource_status",
-                           filters=(title, filters.replace_underscores),
-                           verbose_name=_("Status"))
+                           verbose_name=_("Status"),
+                           display_choices=STATUS_DISPLAY_CHOICES)
 
     statusreason = tables.Column("resource_status_reason",
                                  verbose_name=_("Status Reason"),)
