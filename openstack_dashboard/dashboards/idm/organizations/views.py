@@ -56,7 +56,7 @@ class CreateOrganizationView(forms.ModalFormView):
 class DetailOrganizationView(tables.MultiTableView):
     template_name = 'idm/organizations/detail.html'
     table_classes = (organization_tables.MembersTable,
-                     organization_tables.ApplicationsTable)
+                     organization_tables.AuthorizingApplicationsTable)
     
     def get_members_data(self):        
         users = []

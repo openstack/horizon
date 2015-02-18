@@ -91,7 +91,7 @@ class MembersTable(tables.DataTable):
         multi_select = False
 
 
-class ApplicationsTable(tables.DataTable):
+class AuthorizingApplicationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Applications'))
     url = tables.Column(lambda obj: getattr(obj, 'url', None))
     avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(
@@ -104,4 +104,4 @@ class ApplicationsTable(tables.DataTable):
 
     class Meta:
         name = "applications"
-        verbose_name = _("Applications")
+        verbose_name = _("Authorizing Applications")
