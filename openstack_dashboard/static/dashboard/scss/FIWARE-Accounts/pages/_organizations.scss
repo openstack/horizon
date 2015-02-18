@@ -39,6 +39,10 @@
       display: inline-block;
       a{
         margin-top: 3px;
+        @include text-overflow;
+        @media (max-width: $screen-xs-min){
+          width: 131px;
+        }
       }
     }
   }

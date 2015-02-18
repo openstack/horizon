@@ -3,6 +3,10 @@
   @include make-md-column(8, $gutter: $grid-gutter-width);
   @include make-lg-column(8, $gutter: $grid-gutter-width);
   margin-top: 27px;
+  @media (max-width: $screen-sm-min){
+    margin: 0;
+    padding: 0;
+  }
   a.panel-heading {
     &:hover{
       cursor: pointer;
