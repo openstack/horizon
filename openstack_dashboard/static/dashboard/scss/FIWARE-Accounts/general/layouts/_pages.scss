@@ -51,13 +51,20 @@ textarea {
   border-left: rgba(0, 0, 0, 0);
   border-right: rgba(0, 0, 0, 0);
   min-height: 60px;
-  .avatar {
-    float: left;    
-    margin-right: 15px;
-    img{
-      width: 36px;   
-      @include border-top-radius (2px);
-      @include border-bottom-radius (2px);   
+  .normal_column{
+    margin-left: 47px;
+    &:last-child{
+      float: left;    
+      margin-left: 0 !important;
+      top: 11px;
+      position: absolute;
+      .avatar {
+        img{
+          width: 36px;   
+          @include border-top-radius (2px);
+          @include border-bottom-radius (2px);   
+        }
+      }
     }
   }
   .data{
