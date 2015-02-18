@@ -50,17 +50,18 @@ class CreateApplicationForm(forms.SelfHandlingForm):
         if data['redirect_to'] == "create":
             try:
 
-                img_small = '/static/dashboard/img/logos/small/app.png'
-                img_medium = '/static/dashboard/img/logos/medium/app.png'
-                img_original = '/static/dashboard/img/logos/original/app.png'
+                # img_small = 'dashboard/img/logos/small/app.png'
+                # img_medium = 'dashboard/img/logos/medium/app.png'
+                # img_original ='dashboard/img/logos/original/app.png'
                 application = fiware_api.keystone.application_create(request,
                                                 name=data['name'],
                                                 description=data['description'],
                                                 redirect_uris=[data['callbackurl']],
-                                                url=data['url'],
-                                                img_small=img_small,
-                                                img_medium=img_medium,
-                                                img_original=img_original)
+                                                url=data['url'])
+
+                                                # img_small=img_small,
+                                                # img_medium=img_medium,
+                                                # img_original=img_original)
                 LOG.debug('Application {0} created'.format(application.name))
             except Exception:
                 exceptions.handle(request, _('Unable to register the application.'))
@@ -114,16 +115,15 @@ class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
                 size = meta[0], meta[1]
                 img_type = meta[2]
                 output_img.resize(size)
-                imageName = application_id
-                output_img.save(settings.MEDIA_ROOT + "/" + "ApplicationAvatar/" + img_type + "/" + imageName, 'JPEG')
-                
-                img = settings.MEDIA_URL + 'ApplicationAvatar/' + img_type + "/" +imageName
+                img = settings.MEDIA_ROOT +'/ApplicationAvatar/' + img_type + "/" + application_id
+                output_img.save(img, 'JPEG')
+                image_root =  'ApplicationAvatar/' + img_type + "/" + application_id               
                 if img_type == 'small':
-                    fiware_api.keystone.application_update(request, application_id, img_small=img)
+                    fiware_api.keystone.application_update(request, application_id, img_small=image_root)
                 elif img_type == 'medium':
-                    fiware_api.keystone.application_update(request, application_id, img_medium=img)
+                    fiware_api.keystone.application_update(request, application_id, img_medium=image_root)
                 else:
-                    fiware_api.keystone.application_update(request, application_id, img_original=img)
+                    fiware_api.keystone.application_update(request, application_id, img_original=image_root)
 
 
         if data['redirect_to'] == "update":

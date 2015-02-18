@@ -59,9 +59,12 @@
             {{ applications_table }}
         </div>
         <div class="panel-body">
-            {{ applications_table.render}}
+            {% if applications %}
+                {{ applications_table.render}}
+            {% else %}
             <!-- texto que debe aparecer cuando no haya nada -->
             <p class="alert alert-info empty"> {{ user_name }} does not have any applications.</p>
+            {% endif %}
         </div>
     </div>
 

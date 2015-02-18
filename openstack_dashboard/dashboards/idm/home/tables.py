@@ -12,10 +12,10 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-
 from django.utils.translation import ugettext_lazy as _
     
 from horizon import tables
+from django.conf import settings
 
 
 class GoToOrganizationTable(tables.LinkAction):
@@ -50,22 +50,26 @@ class CreateOrganization(tables.LinkAction):
 
 class OrganizationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
-   
+    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(obj, 'img_medium', 'dashboard/img/logos/medium/app.png'))
+    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(obj, 'img_medium','dashboard/img/logos/medium/app.png'))
     clickable = True
     switch = True
-    show_avatar = True
+    # show_avatar = True
     class Meta:
         name = "organizations"
         verbose_name = _("Organizations")
         table_actions = (CreateOrganization, GoToOrganizationTable,)
         multi_select = False
 
+
 class ApplicationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
     url = tables.Column(lambda obj: getattr(obj, 'url', None))
+    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(obj, 'img_medium', 'dashboard/img/logos/medium/app.png'))
+    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(obj, 'img_medium','dashboard/img/logos/medium/app.png'))
     
     clickable = True
-    show_avatar = True
+    # show_avatar = True
     class Meta:
         name = "applications"
         verbose_name = _("Applications")

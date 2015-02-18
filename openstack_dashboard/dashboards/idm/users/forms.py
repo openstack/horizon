@@ -104,10 +104,9 @@ class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
                 size = meta[0], meta[1]
                 img_type = meta[2]
                 output_img.thumbnail(size)
-                imageName = self.data['userID']
-                output_img.save(settings.MEDIA_ROOT + "/" + "UserAvatar/" + img_type + "/" + imageName, 'JPEG')
+                img = 'UserAvatar/' + img_type + "/" + self.data['userID']
+                output_img.save(settings.MEDIA_ROOT + "/" + img, 'JPEG')
                 
-                img = settings.MEDIA_URL + 'UserAvatar/' + img_type + "/" +imageName
                 if img_type == 'small':
                     api.keystone.user_update(request, data['userID'], img_small=img, password=data['password'])
                 elif img_type == 'medium':

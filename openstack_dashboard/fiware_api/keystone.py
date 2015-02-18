@@ -204,7 +204,8 @@ def user_role_assignments(request, user=None, organization=None,
 # PERMISSIONS
 def permission_get(request, permission_id):
     #manager = fiwareclient().fiware_roles.permissions
-    manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.permissions
+    manager = api.keystone.keystoneclient(
+        request, admin=True).fiware_roles.permissions
     return manager.get(permission_id)
 
 def permission_list(request, role=None, application=None):
@@ -215,7 +216,8 @@ def permission_list(request, role=None, application=None):
 
 def permission_create(request, name, is_internal=False, application=None, **kwargs):
     #manager = fiwareclient().fiware_roles.permissions
-    manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.permissions
+    manager = api.keystone.keystoneclient(
+        request, admin=True).fiware_roles.permissions
     return manager.create(name=name,
                           is_internal=is_internal,
                           application=application,
@@ -224,7 +226,8 @@ def permission_create(request, name, is_internal=False, application=None, **kwar
 def permission_update(request, permission, name=None, is_internal=False, 
                       application=None, **kwargs):
     #manager = fiwareclient().fiware_roles.permissions
-    manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.permissions
+    manager = api.keystone.keystoneclient(
+        request, admin=True).fiware_roles.permissions
     return manager.update(permission,
                           name=name,
                           is_internal=is_internal,
@@ -233,16 +236,19 @@ def permission_update(request, permission, name=None, is_internal=False,
 
 def permission_delete(request, permission_id):
     #manager = fiwareclient().fiware_roles.permissions
-    manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.permissions
+    manager = api.keystone.keystoneclient(
+        request, admin=True).fiware_roles.permissions
     return manager.delete(permission_id)
 
 def add_permission_to_role(request, permission, role):
-    manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.permissions
-    return manager.add_to_role(permission, role)
+    manager = api.keystone.keystoneclient(
+        request, admin=True).fiware_roles.permissions
+    return manager.add_to_role(permission=permission, role=role)
 
 def remove_permission_from_role(request, permission, role):
-    manager = api.keystone.keystoneclient(request, admin=True).fiware_roles.permissions
-    return manager.remove_from_role(permission, role)
+    manager = api.keystone.keystoneclient(
+        request, admin=True).fiware_roles.permissions
+    return manager.remove_from_role(permission=permission, role=role)
 
 # APPLICATIONS/CONSUMERS
 def application_create(request, name, redirect_uris, scopes=['all_info'],
@@ -262,7 +268,8 @@ def application_create(request, name, redirect_uris, scopes=['all_info'],
                           **kwargs)
 
 def application_list(request, user=None):
-    manager = api.keystone.keystoneclient(request, admin=True).oauth2.consumers
+    manager = api.keystone.keystoneclient(
+        request, admin=True).oauth2.consumers
     return manager.list(user=user)
 
 def application_get(request, application_id, use_idm_account=False):

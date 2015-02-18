@@ -14,6 +14,7 @@
 
 import logging
 
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -54,10 +55,13 @@ class IndexView(tables.MultiTableView):
     def get_applications_data(self):
         applications = []
         try:
-            applications = fiware_api.keystone.application_list(
-                self.request)
-                #user=self.request.user.id)
-            LOG.debug('Applications listed: {0}'.format(applications))
+            # TODO(garcianavalon) extract to fiware_api
+            all_apps = fiware_api.keystone.application_list(self.request)
+            apps_with_roles = [a.application_id for a 
+                               in fiware_api.keystone.user_role_assignments(
+                               self.request, user=self.request.user.id)]
+            applications = [app for app in all_apps 
+                            if app.id in apps_with_roles]
         except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve application list."))

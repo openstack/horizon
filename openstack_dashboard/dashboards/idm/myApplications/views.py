@@ -16,6 +16,7 @@ import logging
 
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
+from django.conf import settings
 
 from horizon import exceptions
 from horizon import forms
@@ -72,7 +73,12 @@ class AvatarStepView(forms.ModalFormView):
         context = super(AvatarStepView, self).get_context_data(**kwargs)
         application = fiware_api.keystone.application_get(self.request, self.kwargs['application_id'])
         context['application'] = application
-        context['image'] = getattr(application, 'img_original', '/static/dashboard/img/logos/original/app.png')
+        if hasattr(application, 'img_original'):
+            image = getattr(application, 'img_original')
+            image = settings.MEDIA_URL + image
+        else:
+            image = settings.STATIC_URL + 'dashboard/img/logos/original/app.png'
+        context['image'] = image
         return context
 
 
@@ -197,8 +203,12 @@ class DetailApplicationView(tables.MultiTableView):
         application = fiware_api.keystone.application_get(self.request, application_id)
         context['description'] = application.description
         context['url'] = getattr(application, 'url', None)
-        context['image'] = getattr(application, 'img_original',
-                            '/static/dashboard/img/logos/original/app.png')
+        if hasattr(application, 'img_original'):
+            image = getattr(application, 'img_original')
+            image = settings.MEDIA_URL + image
+        else:
+            image = settings.STATIC_URL + 'dashboard/img/logos/original/app.png'
+        context['image'] = image
         callback_url = application.redirect_uris[0] \
                         if application.redirect_uris else None
         context['callbackurl'] = callback_url
@@ -265,8 +275,12 @@ class BaseApplicationsMultiFormView(idm_views.BaseMultiFormView):
     def get_context_data(self, **kwargs):
 
         context = super(BaseApplicationsMultiFormView, self).get_context_data(**kwargs)
-        context['image'] = getattr(self.object, 'img_original',
-                            '/static/dashboard/img/logos/original/app.png')
+        if hasattr(self.object, 'img_original'):
+            image = getattr(self.object, 'img_original')
+            image = settings.MEDIA_URL + image
+        else:
+            image = settings.STATIC_URL + 'dashboard/img/logos/original/app.png'
+        context['image'] = image
         return context
 
 

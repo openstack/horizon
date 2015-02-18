@@ -62,7 +62,9 @@ class RoleAndPermissionApi(idm_workflows.RelationshipApiInterface):
 
     def _list_current_assignments(self, request, superset_id):
         application_role_permissions = {}
-        for role in self.application_roles:
+        role_list = getattr(self, 'application_roles', 
+            fiware_api.keystone.role_list(request, application=superset_id))
+        for role in role_list:
             application_role_permissions[role.id] = [
                 p.id for p in fiware_api.keystone.permission_list(
                     request, role=role.id)
@@ -94,6 +96,16 @@ class UpdateApplicationRolesAction(idm_workflows.UpdateRelationshipAction):
     RELATIONSHIP_CLASS = RoleAndPermissionApi
     ERROR_URL = INDEX_URL
 
+    def get_default_role_field_name(self):
+        """ No use for this method, this workflow doesn't support the
+        'adding from a pool of all resources' logic as the user one does.
+        """
+        #return "default_" + self.slug + "_role"
+        return
+
+    def get_member_field_name(self, permission_id):
+        return self.slug + "_permission_" + permission_id
+
     class Meta:
         name = _("Manage your applications' roles")
         slug = idm_workflows.RELATIONSHIP_SLUG
@@ -119,7 +131,7 @@ class ManageApplicationRoles(idm_workflows.RelationshipWorkflow):
     def get_success_url(self):
         # Overwrite to allow passing kwargs
         return reverse(self.success_url, 
-                    kwargs={'application_id':self.context['application_id']})
+                    kwargs={'application_id':self.context['superset_id']})
 
 
 
