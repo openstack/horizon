@@ -32,21 +32,41 @@
           <div class="inline-edit-status"></div>
 
         {% else %}
-
           {% if cell.column.name == 'name'%}
             <div class="name" {{ cell.attr_string|safe }}>
               {{ cell.value }}
             </div>
-            {% if row.table.switch == True %}
-              <button class="btn btn-link">switch</button>
-            {% endif %}
+              {% if row.table.switch == True %}
+                <button class="btn btn-link">switch</button>
+              {% endif %}
             
-            {% else %}
+          {% elif  cell.column.name == 'description' %}
               <div class="description" {{ cell.attr_string|safe }}>
                 {{ cell.value }}
               </div>
-            {% endif %}  
+
+          {% elif cell.column.name == 'avatar' and not 'dashboard/img/' in cell.value %}
+            <div class='avatar' {{cell.attr_string|safe}} >
+            <img src="{{cell.value}}">
+            </div>
+          {% elif cell.column.name == 'default_avatar' and 'dashboard/img/' in cell.value %}
+          <div class='avatar' {{cell.attr_string|safe}} >
+            <img src="{{cell.value}}">
+          </div>
           {% endif %}
+
+
+
+
+          
+          
+ 
+
+
+
+
+
         {% endif %}
+      {% endif %}
   </div>
 {% endif %}

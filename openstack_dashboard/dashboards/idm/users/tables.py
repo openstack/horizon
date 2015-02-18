@@ -16,6 +16,7 @@ import logging
 
 from django.core import urlresolvers
 from django.utils.translation import ugettext_lazy as _
+from django.conf import settings
 
 from horizon import tables
 
@@ -26,6 +27,9 @@ class OrganizationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
                                 verbose_name=_('Description'))
+    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(obj, 'img_medium', 'dashboard/img/logos/medium/group.png'))
+    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(obj, 'img_medium','dashboard/img/logos/medium/group.png'))
+    
     clickable = True
     switch = True
     show_avatar = True
@@ -37,6 +41,9 @@ class OrganizationsTable(tables.DataTable):
 
 class ApplicationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Applications'))
+    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(obj, 'img_medium', 'dashboard/img/logos/medium/app.png'))
+    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(obj, 'img_medium','dashboard/img/logos/medium/app.png'))
+    
     clickable = True
     show_avatar = True
 
