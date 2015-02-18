@@ -35,6 +35,7 @@
     margin-bottom: 15px;
     @media (max-width: $screen-sm-min){
       height: 21px;
+      padding-top: 0;
     }
     @media (max-width: $screen-xs-min){
       width: 100%;

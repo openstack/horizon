@@ -27,14 +27,15 @@
     @include well;
     border-bottom: none;
     border-radius-bottom: 0;
-    margin-bottom: -12px;
-    padding-bottom: 0px;
+    padding: 15px;
+    margin: 0;
     @include border-top-radius (3px);
   }
   .modal-footer{
     @include well;
     border-radius-top: 0;
     border-top: none;
+    padding: 15px;
     @include border-bottom-radius (3px);
     .btn{
       float: right;
