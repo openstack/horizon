@@ -12,7 +12,6 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-
 from django.utils.translation import ugettext_lazy as _
     
 from horizon import tables
@@ -59,6 +58,7 @@ class OrganizationsTable(tables.DataTable):
         verbose_name = _("Organizations")
         table_actions = (CreateOrganization, GoToOrganizationTable,)
         multi_select = False
+
 
 class ApplicationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
