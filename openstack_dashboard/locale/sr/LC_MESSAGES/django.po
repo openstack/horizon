@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-16 18:38-0600\n"
-"PO-Revision-Date: 2015-02-17 00:38+0000\n"
+"POT-Creation-Date: 2015-02-17 22:37-0600\n"
+"PO-Revision-Date: 2015-02-17 16:27+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/horizon/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -554,13 +554,13 @@ msgstr "Admin"
 #: dashboards/project/access_and_security/security_groups/forms.py:37
 #: dashboards/project/access_and_security/security_groups/forms.py:66
 #: dashboards/project/access_and_security/security_groups/tables.py:141
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:15
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:12
 #: dashboards/project/containers/templates/containers/_object_detail.html:10
 #: dashboards/project/data_processing/cluster_templates/tables.py:31
 #: dashboards/project/data_processing/cluster_templates/tables.py:116
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:6
-#: dashboards/project/data_processing/clusters/tables.py:33
-#: dashboards/project/data_processing/clusters/tables.py:111
+#: dashboards/project/data_processing/clusters/tables.py:34
+#: dashboards/project/data_processing/clusters/tables.py:116
 #: dashboards/project/data_processing/clusters/tabs.py:137
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:6
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:9
@@ -592,8 +592,8 @@ msgstr "Admin"
 #: dashboards/project/firewalls/tables.py:230
 #: dashboards/project/firewalls/tables.py:247
 #: dashboards/project/firewalls/workflows.py:30
-#: dashboards/project/firewalls/workflows.py:172
-#: dashboards/project/firewalls/workflows.py:229
+#: dashboards/project/firewalls/workflows.py:173
+#: dashboards/project/firewalls/workflows.py:230
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:7
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:7
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:7
@@ -926,7 +926,7 @@ msgstr "Greška pri dodavanju ili uklanjanju hostova."
 #: dashboards/admin/metering/templates/metering/_daily.html:18
 #: dashboards/admin/networks/templates/networks/_create.html:18
 #: dashboards/admin/networks/templates/networks/_update.html:5
-#: dashboards/admin/networks/templates/networks/agents/_add.html:18
+#: dashboards/admin/networks/templates/networks/agents/_add.html:5
 #: dashboards/admin/networks/templates/networks/ports/_create.html:18
 #: dashboards/admin/networks/templates/networks/ports/_update.html:22
 #: dashboards/admin/routers/templates/routers/_update.html:17
@@ -998,8 +998,8 @@ msgstr "Greška pri dodavanju ili uklanjanju hostova."
 #: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:17
 #: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:17
 #: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:17
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:18
-#: dashboards/router/nexus1000v/templates/nexus1000v/_update_network_profile.html:17
+#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:5
+#: dashboards/router/nexus1000v/templates/nexus1000v/_update_network_profile.html:5
 #: dashboards/settings/password/templates/password/_change.html:18
 #: dashboards/settings/user/templates/user/_settings.html:18
 msgid "Description:"
@@ -1021,7 +1021,6 @@ msgstr ""
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:80
 #: dashboards/admin/metering/templates/metering/_daily.html:25
 #: dashboards/admin/networks/templates/networks/_create.html:27
-#: dashboards/admin/networks/templates/networks/agents/_add.html:25
 #: dashboards/admin/networks/templates/networks/ports/_create.html:25
 #: dashboards/admin/networks/templates/networks/ports/_update.html:29
 #: dashboards/admin/routers/templates/routers/_update.html:24
@@ -1097,8 +1096,6 @@ msgstr ""
 #: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:24
 #: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:24
 #: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:24
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:28
-#: dashboards/router/nexus1000v/templates/nexus1000v/_update_network_profile.html:24
 #: dashboards/settings/password/templates/password/_change.html:25
 #: dashboards/settings/user/templates/user/_settings.html:25
 msgid "Cancel"
@@ -1155,8 +1152,8 @@ msgstr "VCPUs"
 #: dashboards/project/data_processing/clusters/tabs.py:152
 #: dashboards/project/databases/panel.py:23
 #: dashboards/project/databases/tables.py:284
+#: dashboards/project/databases/views.py:48
 #: dashboards/project/databases/templates/databases/index.html:3
-#: dashboards/project/databases/templates/databases/index.html:6
 #: dashboards/project/instances/panel.py:23
 #: dashboards/project/instances/tables.py:1021
 #: dashboards/project/instances/views.py:54
@@ -1417,7 +1414,7 @@ msgstr "Swap Disk"
 #: dashboards/identity/roles/forms.py:37
 #: dashboards/identity/users/forms.py:163
 #: dashboards/identity/users/templates/users/_detail_overview.html:19
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:17
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:14
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:8
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:8
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:7
@@ -1701,15 +1698,24 @@ msgid "Hypervisor"
 msgstr ""
 
 #: dashboards/admin/hypervisors/tabs.py:36
-#: dashboards/admin/hypervisors/views.py:40
+#: dashboards/admin/hypervisors/views.py:41
 msgid "Unable to retrieve hypervisor information."
 msgstr "Nije moguće izvući hipervizor podatke."
 
-#: dashboards/admin/hypervisors/views.py:50
+#: dashboards/admin/hypervisors/views.py:32
+msgid "All Hypervisors"
+msgstr "Svi hipervizori"
+
+#: dashboards/admin/hypervisors/views.py:51
 msgid "Unable to retrieve hypervisor statistics."
 msgstr "Nije moguće izvući hipervizor statistiku."
 
-#: dashboards/admin/hypervisors/views.py:72
+#: dashboards/admin/hypervisors/views.py:59
+#: dashboards/admin/hypervisors/templates/hypervisors/detail.html:3
+msgid "Hypervisor Servers"
+msgstr "Serveri hipervizora"
+
+#: dashboards/admin/hypervisors/views.py:74
 msgid "Unable to retrieve hypervisor instances list."
 msgstr "nemoguće je dobiti listu instanci hipervizora."
 
@@ -1784,18 +1790,18 @@ msgid "Failed to disable compute service for host: %s."
 msgstr ""
 
 #: dashboards/admin/hypervisors/compute/tables.py:26
+#: dashboards/admin/hypervisors/compute/views.py:30
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:8
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:23
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/evacuate_host.html:3
-#: dashboards/admin/hypervisors/templates/hypervisors/compute/evacuate_host.html:6
 msgid "Evacuate Host"
 msgstr ""
 
 #: dashboards/admin/hypervisors/compute/tables.py:44
+#: dashboards/admin/hypervisors/compute/views.py:62
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_disable_service.html:8
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_disable_service.html:23
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/disable_service.html:3
-#: dashboards/admin/hypervisors/templates/hypervisors/compute/disable_service.html:6
 msgid "Disable Service"
 msgstr ""
 
@@ -1831,8 +1837,8 @@ msgstr "Zona"
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/admin/volumes/volumes/forms.py:183
 #: dashboards/project/access_and_security/floating_ips/tables.py:200
-#: dashboards/project/data_processing/clusters/tables.py:34
-#: dashboards/project/data_processing/clusters/tables.py:115
+#: dashboards/project/data_processing/clusters/tables.py:35
+#: dashboards/project/data_processing/clusters/tables.py:120
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:12
 #: dashboards/project/data_processing/job_executions/tables.py:40
 #: dashboards/project/data_processing/job_executions/tables.py:179
@@ -1863,7 +1869,7 @@ msgstr "Zona"
 #: dashboards/project/routers/templates/routers/_detail_overview.html:13
 #: dashboards/project/stacks/tables.py:267
 #: dashboards/project/stacks/tables.py:311
-#: dashboards/project/stacks/tables.py:358
+#: dashboards/project/stacks/tables.py:362
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:19
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:26
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:35
@@ -1900,39 +1906,30 @@ msgstr ""
 msgid "Unable to get nova services list."
 msgstr "Nemoguće je dobiti listu nova servisa."
 
-#: dashboards/admin/hypervisors/compute/views.py:44
+#: dashboards/admin/hypervisors/compute/views.py:45
 msgid "Unable to retrieve compute host information."
 msgstr ""
 
-#: dashboards/admin/hypervisors/templates/hypervisors/detail.html:3
-#: dashboards/admin/hypervisors/templates/hypervisors/detail.html:6
-msgid "Hypervisor Servers"
-msgstr "Serveri hipervizora"
-
-#: dashboards/admin/hypervisors/templates/hypervisors/index.html:7
-msgid "All Hypervisors"
-msgstr "Svi hipervizori"
-
-#: dashboards/admin/hypervisors/templates/hypervisors/index.html:12
+#: dashboards/admin/hypervisors/templates/hypervisors/index.html:8
 msgid "Hypervisor Summary"
 msgstr "Zbirni podaci za hipervizora"
 
-#: dashboards/admin/hypervisors/templates/hypervisors/index.html:15
+#: dashboards/admin/hypervisors/templates/hypervisors/index.html:11
 msgid "VCPU Usage"
 msgstr "Korišćenje VCPU"
 
-#: dashboards/admin/hypervisors/templates/hypervisors/index.html:16
-#: dashboards/admin/hypervisors/templates/hypervisors/index.html:23
-#: dashboards/admin/hypervisors/templates/hypervisors/index.html:30
+#: dashboards/admin/hypervisors/templates/hypervisors/index.html:12
+#: dashboards/admin/hypervisors/templates/hypervisors/index.html:19
+#: dashboards/admin/hypervisors/templates/hypervisors/index.html:26
 #, python-format
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
 msgstr "Iskorišćeno <span> %(used)s </span> od <span> %(available)s </span>"
 
-#: dashboards/admin/hypervisors/templates/hypervisors/index.html:22
+#: dashboards/admin/hypervisors/templates/hypervisors/index.html:18
 msgid "Memory Usage"
 msgstr "Iskorišćenost memorije"
 
-#: dashboards/admin/hypervisors/templates/hypervisors/index.html:29
+#: dashboards/admin/hypervisors/templates/hypervisors/index.html:25
 msgid "Local Disk Usage"
 msgstr ""
 
@@ -2328,8 +2325,8 @@ msgid "Unable to retrieve host information."
 msgstr ""
 
 #: dashboards/admin/instances/views.py:179
-#: dashboards/project/databases/views.py:150
-#: dashboards/project/databases/views.py:189
+#: dashboards/project/databases/views.py:153
+#: dashboards/project/databases/views.py:193
 #: dashboards/project/instances/views.py:212
 #: dashboards/project/instances/views.py:354
 msgid "Unable to retrieve instance details."
@@ -2487,8 +2484,8 @@ msgstr ""
 #: dashboards/project/firewalls/forms.py:100
 #: dashboards/project/firewalls/forms.py:128
 #: dashboards/project/firewalls/workflows.py:34
-#: dashboards/project/firewalls/workflows.py:174
-#: dashboards/project/firewalls/workflows.py:232
+#: dashboards/project/firewalls/workflows.py:175
+#: dashboards/project/firewalls/workflows.py:233
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:10
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:10
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:10
@@ -2612,11 +2609,11 @@ msgstr ""
 #: dashboards/admin/volumes/volume_types/forms.py:87
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:16
 #: dashboards/identity/users/templates/users/_detail_overview.html:22
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:16
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:18
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:20
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:28
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:30
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:13
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:15
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:17
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:25
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:27
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:11
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:11
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:14
@@ -2670,7 +2667,7 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:22
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:35
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:21
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:18
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:82
 #: dashboards/project/data_processing/jobs/workflows/launch.py:407
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:375
@@ -2705,7 +2702,7 @@ msgid "Unknown"
 msgstr "Nepoznato"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:24
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:24
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:21
 #: dashboards/project/database_backups/templates/database_backups/details.html:34
 #: dashboards/project/databases/templates/databases/_detail_overview.html:36
 #: dashboards/project/images/templates/images/images/_detail_overview.html:33
@@ -3089,7 +3086,7 @@ msgstr "Odvajanje ID"
 #: dashboards/admin/networks/forms.py:236
 #: dashboards/admin/networks/ports/forms.py:42
 #: dashboards/project/firewalls/forms.py:131
-#: dashboards/project/firewalls/workflows.py:238
+#: dashboards/project/firewalls/workflows.py:239
 #: dashboards/project/loadbalancers/forms.py:38
 #: dashboards/project/loadbalancers/forms.py:93
 #: dashboards/project/loadbalancers/forms.py:176
@@ -3111,7 +3108,7 @@ msgstr ""
 #: dashboards/admin/networks/forms.py:237
 #: dashboards/admin/networks/ports/forms.py:43
 #: dashboards/project/firewalls/forms.py:132
-#: dashboards/project/firewalls/workflows.py:239
+#: dashboards/project/firewalls/workflows.py:240
 #: dashboards/project/loadbalancers/forms.py:39
 #: dashboards/project/loadbalancers/forms.py:94
 #: dashboards/project/loadbalancers/forms.py:177
@@ -3138,7 +3135,7 @@ msgstr ""
 #: dashboards/admin/routers/ports/tables.py:41
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:15
 #: dashboards/project/firewalls/forms.py:133
-#: dashboards/project/firewalls/workflows.py:240
+#: dashboards/project/firewalls/workflows.py:241
 #: dashboards/project/loadbalancers/forms.py:40
 #: dashboards/project/loadbalancers/forms.py:95
 #: dashboards/project/loadbalancers/forms.py:178
@@ -3171,8 +3168,8 @@ msgstr "Admin state"
 #: dashboards/project/firewalls/forms.py:69
 #: dashboards/project/firewalls/forms.py:101
 #: dashboards/project/firewalls/workflows.py:65
-#: dashboards/project/firewalls/workflows.py:176
-#: dashboards/project/firewalls/workflows.py:235
+#: dashboards/project/firewalls/workflows.py:177
+#: dashboards/project/firewalls/workflows.py:236
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:31
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:50
 #: dashboards/project/networks/tables.py:166
@@ -3214,7 +3211,7 @@ msgstr "Odaberite profil"
 #: dashboards/admin/networks/forms.py:155
 #: dashboards/project/instances/workflows/create_instance.py:755
 #: dashboards/project/networks/workflows.py:71
-#: dashboards/router/nexus1000v/views.py:52
+#: dashboards/router/nexus1000v/views.py:53
 msgid "Network Profiles could not be retrieved."
 msgstr "Ne mogu se dobiti mrežni profili."
 
@@ -3264,8 +3261,8 @@ msgstr "Neuspešno ažuriranje mreže %s"
 #: dashboards/project/instances/workflows/create_instance.py:699
 #: dashboards/project/networks/panel.py:23
 #: dashboards/project/networks/tables.py:176
+#: dashboards/project/networks/views.py:45
 #: dashboards/project/networks/templates/networks/index.html:3
-#: dashboards/project/networks/templates/networks/index.html:6
 #: usage/quotas.py:77
 msgid "Networks"
 msgstr "Mreže"
@@ -3297,7 +3294,7 @@ msgstr "Neuspešno brisanje mreže %s"
 #: dashboards/admin/networks/templates/networks/_create.html:26
 #: dashboards/admin/networks/templates/networks/create.html:3
 #: dashboards/admin/networks/templates/networks/create.html:6
-#: dashboards/project/network_topology/templates/network_topology/index.html:38
+#: dashboards/project/network_topology/templates/network_topology/index.html:34
 #: dashboards/project/networks/tables.py:87
 #: dashboards/project/networks/tables.py:100
 #: dashboards/project/networks/workflows.py:341
@@ -3308,7 +3305,7 @@ msgstr "Kreiraj mrežu"
 
 #: dashboards/admin/networks/tables.py:74
 #: dashboards/project/networks/tables.py:109
-#: dashboards/project/networks/views.py:67
+#: dashboards/project/networks/views.py:68
 msgid "Edit Network"
 msgstr "Izmeni mrežu"
 
@@ -3344,7 +3341,7 @@ msgid "DHCP Agents"
 msgstr ""
 
 #: dashboards/admin/networks/views.py:76
-#: dashboards/project/networks/views.py:53
+#: dashboards/project/networks/views.py:54
 msgid "Network list can not be retrieved."
 msgstr "Nije moguće izvući listu mreža."
 
@@ -3355,18 +3352,18 @@ msgid "Unable to list dhcp agents hosting network."
 msgstr ""
 
 #: dashboards/admin/networks/views.py:112
-#: dashboards/project/networks/views.py:110
+#: dashboards/project/networks/views.py:112
 msgid "Subnet list can not be retrieved."
 msgstr "Nije moguće izvući listu Subnet-ova"
 
 #: dashboards/admin/networks/views.py:122
-#: dashboards/project/networks/views.py:120
+#: dashboards/project/networks/views.py:122
 msgid "Port list can not be retrieved."
 msgstr "Nije moguće izvući listu portova"
 
 #: dashboards/admin/networks/views.py:145
 #: dashboards/admin/networks/subnets/tables.py:109
-#: dashboards/project/networks/views.py:131
+#: dashboards/project/networks/views.py:133
 #: dashboards/project/networks/subnets/tables.py:143
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
@@ -3418,20 +3415,20 @@ msgid "Failed to delete agent: %s"
 msgstr ""
 
 #: dashboards/admin/networks/agents/tables.py:66
-#: dashboards/admin/networks/templates/networks/agents/_add.html:9
-#: dashboards/admin/networks/templates/networks/agents/_add.html:24
+#: dashboards/admin/networks/agents/views.py:31
+#: dashboards/admin/networks/agents/views.py:35
 #: dashboards/admin/networks/templates/networks/agents/add.html:3
 #: dashboards/admin/networks/templates/networks/agents/add.html:6
 msgid "Add DHCP Agent"
 msgstr ""
 
-#: dashboards/admin/networks/agents/views.py:56
+#: dashboards/admin/networks/agents/views.py:62
 #: dashboards/admin/networks/ports/views.py:48
 #: dashboards/project/networks/subnets/views.py:48
 msgid "Unable to retrieve network."
 msgstr "Nije moguće izvući mrežu."
 
-#: dashboards/admin/networks/agents/views.py:67
+#: dashboards/admin/networks/agents/views.py:73
 msgid "Unable to retrieve agent list."
 msgstr ""
 
@@ -3559,7 +3556,7 @@ msgid "Overview"
 msgstr "Pregled"
 
 #: dashboards/admin/networks/ports/tabs.py:35
-#: dashboards/project/networks/ports/views.py:53
+#: dashboards/project/networks/ports/views.py:54
 #: dashboards/project/routers/ports/tabs.py:35
 msgid "Unable to retrieve port details."
 msgstr "Nije moguće izvući detalje o port."
@@ -3657,12 +3654,12 @@ msgstr "Ovde možete izmeniti izmenljive osobine vaše mreže."
 
 #: dashboards/admin/networks/templates/networks/update.html:3
 #: dashboards/admin/networks/templates/networks/update.html:6
+#: dashboards/project/networks/views.py:73
 #: dashboards/project/networks/templates/networks/update.html:3
-#: dashboards/project/networks/templates/networks/update.html:6
 msgid "Update Network"
 msgstr "Ažuriranje mreže"
 
-#: dashboards/admin/networks/templates/networks/agents/_add.html:19
+#: dashboards/admin/networks/templates/networks/agents/_add.html:6
 msgid "From here you can add a DHCP agent for the network."
 msgstr ""
 
@@ -3688,21 +3685,21 @@ msgstr "Ovde možete izmeniti izmenljive osobine vašeg port-a."
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:23
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:23
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:23
-#: dashboards/project/networks/views.py:68
+#: dashboards/project/networks/views.py:69
 #: dashboards/project/networks/templates/networks/ports/_update.html:28
 #: dashboards/project/routers/templates/routers/_update.html:23
 #: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:23
 #: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:23
 #: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:23
 #: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:23
-#: dashboards/router/nexus1000v/templates/nexus1000v/_update_network_profile.html:23
+#: dashboards/router/nexus1000v/views.py:121
 msgid "Save Changes"
 msgstr "Sačuvaj izmene"
 
 #: dashboards/admin/networks/templates/networks/ports/update.html:3
 #: dashboards/admin/networks/templates/networks/ports/update.html:6
+#: dashboards/project/networks/ports/views.py:87
 #: dashboards/project/networks/templates/networks/ports/update.html:3
-#: dashboards/project/networks/templates/networks/ports/update.html:6
 msgid "Update Port"
 msgstr "Izmena port-a"
 
@@ -3776,13 +3773,13 @@ msgstr ""
 #: dashboards/project/network_topology/routers/tables.py:27
 #: dashboards/project/routers/panel.py:24
 #: dashboards/project/routers/tables.py:234
+#: dashboards/project/routers/views.py:41
 #: dashboards/project/routers/templates/routers/index.html:3
-#: dashboards/project/routers/templates/routers/index.html:6
 #: usage/quotas.py:80
 msgid "Routers"
 msgstr "Ruteri"
 
-#: dashboards/admin/routers/views.py:42 dashboards/project/routers/views.py:51
+#: dashboards/admin/routers/views.py:42 dashboards/project/routers/views.py:52
 msgid "Unable to retrieve router list."
 msgstr "Nemoguće je dobiti listu rutera."
 
@@ -3894,15 +3891,15 @@ msgstr ""
 
 #: dashboards/admin/routers/templates/routers/detail.html:3
 #: dashboards/admin/routers/templates/routers/detail.html:6
+#: dashboards/project/routers/views.py:101
 #: dashboards/project/routers/templates/routers/detail.html:3
-#: dashboards/project/routers/templates/routers/detail.html:6
 msgid "Router Details"
 msgstr "Detalji rutera"
 
 #: dashboards/admin/routers/templates/routers/update.html:3
 #: dashboards/admin/routers/templates/routers/update.html:6
+#: dashboards/project/routers/views.py:159
 #: dashboards/project/routers/templates/routers/update.html:3
-#: dashboards/project/routers/templates/routers/update.html:6
 msgid "Update Router"
 msgstr ""
 
@@ -4000,7 +3997,7 @@ msgstr "Pregled snapshot-a volume-a"
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:7
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:6
 #: dashboards/identity/users/templates/users/_detail_overview.html:6
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:12
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:9
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:6
 #: dashboards/project/database_backups/templates/database_backups/details.html:11
 #: dashboards/project/databases/templates/databases/_detail_overview.html:6
@@ -5141,7 +5138,7 @@ msgstr "Email"
 
 #: dashboards/identity/groups/tables.py:194
 #: dashboards/identity/users/tables.py:222
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:27
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:24
 #: dashboards/project/instances/audit_tables.py:28
 msgid "User ID"
 msgstr "ID korisnika"
@@ -5275,7 +5272,7 @@ msgstr "Ovo ime je već upotrebljeno."
 
 #: dashboards/identity/projects/views.py:59
 #: dashboards/identity/projects/views.py:105
-#: dashboards/router/nexus1000v/views.py:41
+#: dashboards/router/nexus1000v/views.py:42
 msgid "Unable to retrieve project information."
 msgstr "Nemoguće je dobiti podatke o proejktu."
 
@@ -5739,12 +5736,13 @@ msgid "Data Processing"
 msgstr ""
 
 #: dashboards/project/access_and_security/panel.py:24
+#: dashboards/project/access_and_security/views.py:35
 #: dashboards/project/instances/workflows/create_instance.py:553
 msgid "Access & Security"
 msgstr "Pristup & Sigurnost"
 
 #: dashboards/project/access_and_security/tabs.py:57
-#: dashboards/project/access_and_security/security_groups/views.py:122
+#: dashboards/project/access_and_security/security_groups/views.py:124
 #: usage/base.py:116
 msgid "Unable to retrieve security groups."
 msgstr "Nemoguće je dobiti sigurnosne grupe."
@@ -5804,11 +5802,15 @@ msgstr "Greška u zapisu zipfile-a: %(exc)s"
 msgid "Error Downloading RC File: %s"
 msgstr "Greška u preuzimanju RC file-a: %s"
 
-#: dashboards/project/access_and_security/api_access/views.py:145
+#: dashboards/project/access_and_security/api_access/views.py:138
+msgid "User Credentials Details"
+msgstr ""
+
+#: dashboards/project/access_and_security/api_access/views.py:146
 msgid "Unable to get openrc credentials"
 msgstr ""
 
-#: dashboards/project/access_and_security/api_access/views.py:151
+#: dashboards/project/access_and_security/api_access/views.py:152
 msgid "Unable to get EC2 credentials"
 msgstr ""
 
@@ -5994,7 +5996,7 @@ msgid "Key Pair Name"
 msgstr "Naziv para ključeva"
 
 #: dashboards/project/access_and_security/keypairs/forms.py:53
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:29
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:26
 msgid "Public Key"
 msgstr "Javni ključ"
 
@@ -6022,38 +6024,43 @@ msgstr[1] ""
 msgstr[2] ""
 
 #: dashboards/project/access_and_security/keypairs/tables.py:50
+#: dashboards/project/access_and_security/keypairs/views.py:55
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:8
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:29
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/import.html:3
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/import.html:6
 msgid "Import Key Pair"
 msgstr "Uvoz para ključeva"
 
 #: dashboards/project/access_and_security/keypairs/tables.py:59
 #: dashboards/project/access_and_security/keypairs/tables.py:75
+#: dashboards/project/access_and_security/keypairs/views.py:44
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_create.html:8
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_create.html:24
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/create.html:3
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/create.html:6
 msgid "Create Key Pair"
 msgstr "Kreiranje para ključeva"
 
 #: dashboards/project/access_and_security/keypairs/tables.py:95
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:19
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:16
 msgid "Fingerprint"
 msgstr "Otisak prsta"
 
-#: dashboards/project/access_and_security/keypairs/views.py:69
-#, python-format
-msgid "Unable to retrieve details for keypair \"%s\"."
-msgstr ""
-
-#: dashboards/project/access_and_security/keypairs/views.py:78
+#: dashboards/project/access_and_security/keypairs/views.py:63
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:4
 msgid "Key Pair Details"
 msgstr ""
 
-#: dashboards/project/access_and_security/keypairs/views.py:99
+#: dashboards/project/access_and_security/keypairs/views.py:72
+#, python-format
+msgid "Unable to retrieve details for keypair \"%s\"."
+msgstr ""
+
+#: dashboards/project/access_and_security/keypairs/views.py:87
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:4
+msgid "Download Key Pair"
+msgstr "Skinite par ključeva"
+
+#: dashboards/project/access_and_security/keypairs/views.py:103
 #, python-format
 msgid "Unable to create key pair: %(exc)s"
 msgstr "Nemoguće kreirati par ključeva: %(exc)s"
@@ -6290,10 +6297,10 @@ msgstr[2] ""
 
 #: dashboards/project/access_and_security/security_groups/tables.py:70
 #: dashboards/project/access_and_security/security_groups/tables.py:87
+#: dashboards/project/access_and_security/security_groups/views.py:142
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_create.html:8
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_create.html:24
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/create.html:3
-#: dashboards/project/access_and_security/templates/access_and_security/security_groups/create.html:6
 msgid "Create Security Group"
 msgstr "Kreiranje sigurnosne grupe"
 
@@ -6302,10 +6309,10 @@ msgid "Create Security Group (Quota exceeded)"
 msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/tables.py:95
+#: dashboards/project/access_and_security/security_groups/views.py:74
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_update.html:8
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_update.html:24
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/update.html:3
-#: dashboards/project/access_and_security/templates/access_and_security/security_groups/update.html:6
 msgid "Edit Security Group"
 msgstr "Izmena sigurnosne grupe"
 
@@ -6314,9 +6321,9 @@ msgid "Manage Rules"
 msgstr "Upravljanje pravilima"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:156
+#: dashboards/project/access_and_security/security_groups/views.py:101
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:8
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:3
-#: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:6
 #: dashboards/project/firewalls/tables.py:26
 #: dashboards/project/firewalls/workflows.py:103
 msgid "Add Rule"
@@ -6348,17 +6355,16 @@ msgid ""
 msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/views.py:54
-#: dashboards/project/access_and_security/security_groups/views.py:81
+#: dashboards/project/access_and_security/security_groups/views.py:82
 msgid "Unable to retrieve security group."
 msgstr "Nemoguće je dobiti sigurnosnu grupu."
 
-#: dashboards/project/access_and_security/security_groups/views.py:129
+#: dashboards/project/access_and_security/security_groups/views.py:131
 #, python-format
 msgid "%s (current)"
 msgstr "%s (trenutno)"
 
 #: dashboards/project/access_and_security/templates/access_and_security/index.html:3
-#: dashboards/project/access_and_security/templates/access_and_security/index.html:6
 msgid "Access &amp; Security"
 msgstr "Pristup &amp; Sigurnost"
 
@@ -6385,10 +6391,6 @@ msgstr ""
 
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:49
 msgid "EC2 Secret Key"
-msgstr ""
-
-#: dashboards/project/access_and_security/templates/access_and_security/api_access/credentials.html:6
-msgid "User Credentials Details"
 msgstr ""
 
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:9
@@ -6449,19 +6451,14 @@ msgid ""
 "might be different depending on the image you launched):"
 msgstr "Nakon pokretanja instance, logujete se privatnim ključem (korisničko ime može biti drugačije zavisno od image-a koji pokrećete):"
 
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:4
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:7
-msgid "Download Key Pair"
-msgstr "Skinite par ključeva"
-
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:12
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:8
 #, python-format
 msgid ""
 "The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
 "not use the link below."
 msgstr "Par ključeva &quot;%(keypair_name)s&quot; će automatski biti prenet. Ako nije, iskoristite link ispod."
 
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:16
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:12
 #, python-format
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
 msgstr "Skinite par ključeva &quot;%(keypair_name)s&quot;"
@@ -6511,8 +6508,8 @@ msgstr "Morate odrediti izvor dozvoljenog saobraćaja pomoću ovog pravila. To m
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:59
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:69
 #: dashboards/project/firewalls/workflows.py:104
-#: dashboards/project/firewalls/workflows.py:208
-#: dashboards/project/firewalls/workflows.py:284
+#: dashboards/project/firewalls/workflows.py:209
+#: dashboards/project/firewalls/workflows.py:286
 #: dashboards/project/loadbalancers/workflows.py:136
 #: dashboards/project/loadbalancers/workflows.py:260
 #: dashboards/project/loadbalancers/workflows.py:426
@@ -6977,7 +6974,7 @@ msgid "Upload Template"
 msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:47
-#: dashboards/project/data_processing/clusters/tables.py:39
+#: dashboards/project/data_processing/clusters/tables.py:40
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_create_cluster.html:10
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/configure.html:3
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/configure.html:6
@@ -7270,43 +7267,53 @@ msgid "Cluster template creation failed"
 msgstr ""
 
 #: dashboards/project/data_processing/clusters/panel.py:22
-#: dashboards/project/data_processing/clusters/tables.py:123
+#: dashboards/project/data_processing/clusters/tables.py:129
 msgid "Clusters"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/tables.py:47
+#: dashboards/project/data_processing/clusters/tables.py:48
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/scale.html:3
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/scale.html:6
 #: dashboards/project/data_processing/clusters/workflows/scale.py:42
 msgid "Scale Cluster"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/tables.py:59
+#: dashboards/project/data_processing/clusters/tables.py:60
 msgid "Delete Cluster"
 msgid_plural "Delete Clusters"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/data_processing/clusters/tables.py:67
+#: dashboards/project/data_processing/clusters/tables.py:68
 msgid "Deleted Cluster"
 msgid_plural "Deleted Clusters"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/data_processing/clusters/tables.py:87
+#: dashboards/project/data_processing/clusters/tables.py:88
 #: dashboards/project/data_processing/job_executions/tables.py:126
 msgid "Unable to update row"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/tables.py:97
+#: dashboards/project/data_processing/clusters/tables.py:98
 #: dashboards/project/data_processing/clusters/workflows/create.py:189
 #: dashboards/project/data_processing/jobs/workflows/launch.py:312
 msgid "Configure Cluster"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/tables.py:119
+#: dashboards/project/data_processing/clusters/tables.py:111
+msgctxt "Current status of a Cluster"
+msgid "Active"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/tables.py:112
+msgctxt "Current status of a Cluster"
+msgid "Error"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/tables.py:125
 msgid "Instances Count"
 msgstr ""
 
@@ -8589,7 +8596,7 @@ msgstr ""
 
 #: dashboards/project/database_backups/panel.py:23
 #: dashboards/project/database_backups/tables.py:167
-#: dashboards/project/database_backups/templates/database_backups/index.html:6
+#: dashboards/project/database_backups/views.py:35
 #: dashboards/project/databases/tables.py:349
 #: dashboards/project/databases/tabs.py:104
 msgid "Backups"
@@ -8658,24 +8665,30 @@ msgstr ""
 msgid "Incremental"
 msgstr ""
 
-#: dashboards/project/database_backups/views.py:48
+#: dashboards/project/database_backups/views.py:49
 msgid "Not Found"
 msgstr "Nije nađeno"
 
-#: dashboards/project/database_backups/views.py:60
+#: dashboards/project/database_backups/views.py:61
 msgid "Error getting database backup list."
 msgstr "Nemoguće je dobiti listu sigurnosnih kopija baze podataka."
 
-#: dashboards/project/database_backups/views.py:78
+#: dashboards/project/database_backups/views.py:69
+#: dashboards/project/database_backups/templates/database_backups/backup.html:3
+#: dashboards/project/database_backups/workflows/create_backup.py:82
+msgid "Backup Database"
+msgstr "Baza podataka sigurnosnih kopija"
+
+#: dashboards/project/database_backups/views.py:80
 msgid "Backup Details: {{ backup.name }}"
 msgstr ""
 
-#: dashboards/project/database_backups/views.py:89
+#: dashboards/project/database_backups/views.py:91
 #, python-format
 msgid "Unable to retrieve details for backup: %s"
 msgstr "Nemoguće je dobiti detalje sigurnosne kopije: %s"
 
-#: dashboards/project/database_backups/views.py:97
+#: dashboards/project/database_backups/views.py:99
 #, python-format
 msgid "Unable to retrieve details for parent backup: %s"
 msgstr ""
@@ -8690,12 +8703,6 @@ msgid ""
 "<strong>However,</strong> not all databases support incremental backups in "
 "which case this operation will result in an error."
 msgstr ""
-
-#: dashboards/project/database_backups/templates/database_backups/backup.html:3
-#: dashboards/project/database_backups/templates/database_backups/backup.html:6
-#: dashboards/project/database_backups/workflows/create_backup.py:82
-msgid "Backup Database"
-msgstr "Baza podataka sigurnosnih kopija"
 
 #: dashboards/project/database_backups/templates/database_backups/details.html:3
 msgid "Backup Details"
@@ -8905,7 +8912,7 @@ msgstr "Greška u brisanju baze podataka na računarskoj jedinici."
 #: dashboards/project/instances/tables.py:305
 #: dashboards/project/instances/tables.py:333
 #: dashboards/project/instances/workflows/create_instance.py:840
-#: dashboards/project/network_topology/templates/network_topology/index.html:35
+#: dashboards/project/network_topology/templates/network_topology/index.html:31
 msgid "Launch Instance"
 msgstr "Kreiranje instance"
 
@@ -8969,25 +8976,43 @@ msgstr ""
 msgid "Unable to get database backup data."
 msgstr ""
 
-#: dashboards/project/databases/views.py:58
+#: dashboards/project/databases/views.py:59
 msgid "Unable to retrieve database size information."
 msgstr "Nemoguće je dobiti podatke o veličini baze podataka."
 
-#: dashboards/project/databases/views.py:79
+#: dashboards/project/databases/views.py:80
 msgid "Unable to retrieve database instances."
 msgstr "Nemoguće je povratiti računarsku jedinicu baze podataka."
 
-#: dashboards/project/databases/views.py:99
+#: dashboards/project/databases/views.py:89
+msgid "Launch Database"
+msgstr "Pokrenite bazu podataka"
+
+#: dashboards/project/databases/views.py:101
 #: dashboards/project/instances/views.py:259
 msgid "Instance Details: {{ instance.name }}"
 msgstr ""
 
-#: dashboards/project/databases/views.py:118
+#: dashboards/project/databases/views.py:120
 #, python-format
 msgid "Unable to retrieve details for database instance: %s"
 msgstr "Nemoguće je dobiti detaljeza računarsku jedinicu baze podataka: %s"
 
-#: dashboards/project/databases/views.py:205
+#: dashboards/project/databases/views.py:145
+#: dashboards/project/databases/templates/databases/_resize_volume.html:9
+#: dashboards/project/databases/templates/databases/_resize_volume.html:24
+#: dashboards/project/databases/templates/databases/resize_volume.html:3
+msgid "Resize Database Volume"
+msgstr ""
+
+#: dashboards/project/databases/views.py:172
+#: dashboards/project/databases/templates/databases/_resize_instance.html:9
+#: dashboards/project/databases/templates/databases/_resize_instance.html:23
+#: dashboards/project/databases/templates/databases/resize_instance.html:3
+msgid "Resize Database Instance"
+msgstr ""
+
+#: dashboards/project/databases/views.py:209
 #: dashboards/project/instances/views.py:379
 msgid "Unable to retrieve flavors."
 msgstr "Nemoguće je dobiti arome."
@@ -9112,22 +9137,8 @@ msgstr "Dostupne mreže"
 msgid "Create this database from a previous backup."
 msgstr "Kreirajte ovu bazu podataka iz prethodne sigurnosne kopije - backup-a."
 
-#: dashboards/project/databases/templates/databases/_resize_instance.html:9
-#: dashboards/project/databases/templates/databases/_resize_instance.html:23
-#: dashboards/project/databases/templates/databases/resize_instance.html:3
-#: dashboards/project/databases/templates/databases/resize_instance.html:6
-msgid "Resize Database Instance"
-msgstr ""
-
 #: dashboards/project/databases/templates/databases/_resize_instance.html:18
 msgid "Specify a new flavor for the database instance."
-msgstr ""
-
-#: dashboards/project/databases/templates/databases/_resize_volume.html:9
-#: dashboards/project/databases/templates/databases/_resize_volume.html:24
-#: dashboards/project/databases/templates/databases/resize_volume.html:3
-#: dashboards/project/databases/templates/databases/resize_volume.html:6
-msgid "Resize Database Volume"
 msgstr ""
 
 #: dashboards/project/databases/templates/databases/_resize_volume.html:18
@@ -9144,10 +9155,6 @@ msgstr ""
 #: dashboards/project/instances/templates/instances/detail.html:3
 msgid "Instance Details"
 msgstr "Detalji instance"
-
-#: dashboards/project/databases/templates/databases/launch.html:6
-msgid "Launch Database"
-msgstr "Pokrenite bazu podataka"
 
 #: dashboards/project/databases/templates/databases/update.html:3
 #: dashboards/project/databases/templates/databases/update.html:6
@@ -9352,7 +9359,7 @@ msgstr "Neuspešna izmena pravila %(name)s: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:102
 #: dashboards/project/firewalls/tables.py:235
-#: dashboards/project/firewalls/workflows.py:179
+#: dashboards/project/firewalls/workflows.py:180
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:34
 msgid "Audited"
 msgstr "Revizija"
@@ -9369,82 +9376,82 @@ msgstr "Neuspešna izmena politike %(name)s: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:130
 #: dashboards/project/firewalls/tables.py:251
-#: dashboards/project/firewalls/workflows.py:234
+#: dashboards/project/firewalls/workflows.py:235
 msgid "Policy"
 msgstr "Politika"
 
-#: dashboards/project/firewalls/forms.py:145
+#: dashboards/project/firewalls/forms.py:146
 msgid "Unable to retrieve policy list."
 msgstr "Nemoguće je dobiti listu politika."
 
-#: dashboards/project/firewalls/forms.py:165
+#: dashboards/project/firewalls/forms.py:166
 #, python-format
 msgid "Firewall %s was successfully updated."
 msgstr "Firewall %s je uspešno izmenjen."
 
-#: dashboards/project/firewalls/forms.py:170
+#: dashboards/project/firewalls/forms.py:171
 #, python-format
 msgid "Failed to update firewall %(name)s: %(reason)s"
 msgstr "Neuspešna izmena firewall-a %(name)s: %(reason)s"
 
-#: dashboards/project/firewalls/forms.py:178
+#: dashboards/project/firewalls/forms.py:179
 #: dashboards/project/firewalls/tables.py:156
 msgid "Insert Rule"
 msgstr "Unesite pravilo"
 
-#: dashboards/project/firewalls/forms.py:179
+#: dashboards/project/firewalls/forms.py:180
 msgid "Before"
 msgstr "Pre"
 
-#: dashboards/project/firewalls/forms.py:181
+#: dashboards/project/firewalls/forms.py:182
 msgid "After"
 msgstr "Posle"
 
-#: dashboards/project/firewalls/forms.py:205
+#: dashboards/project/firewalls/forms.py:207
 #, python-format
 msgid "Failed to retrieve available rules: %s"
 msgstr "Nisu izvučena dostupna pravila: %s"
 
-#: dashboards/project/firewalls/forms.py:224
+#: dashboards/project/firewalls/forms.py:226
 #, python-format
 msgid "Rule %(rule)s was successfully inserted to policy %(policy)s."
 msgstr "Pravilo %(rule)s je uspešno uneseno u politiku %(policy)s."
 
-#: dashboards/project/firewalls/forms.py:232
+#: dashboards/project/firewalls/forms.py:234
 #, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr "Neuspešno uneseno pravilo u politiku %(name)s: %(reason)s"
 
-#: dashboards/project/firewalls/forms.py:240
+#: dashboards/project/firewalls/forms.py:242
 #: dashboards/project/firewalls/tables.py:170
 msgid "Remove Rule"
 msgstr "Ukinite pravilo"
 
-#: dashboards/project/firewalls/forms.py:257
+#: dashboards/project/firewalls/forms.py:260
 #, python-format
 msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
 msgstr "Neuspešno vraćena trenutna pravila u politiku %(name)s: %(reason)s"
 
-#: dashboards/project/firewalls/forms.py:273
+#: dashboards/project/firewalls/forms.py:276
 #, python-format
 msgid "Rule %(rule)s was successfully removed from policy %(policy)s."
 msgstr "Pravilo %(rule)s je uspešno ukinuto iz politike %(policy)s."
 
-#: dashboards/project/firewalls/forms.py:281
+#: dashboards/project/firewalls/forms.py:284
 #, python-format
 msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr "Neuspešno ukinuto pravilo iz politike %(name)s: %(reason)s"
 
 #: dashboards/project/firewalls/panel.py:26
 #: dashboards/project/firewalls/tables.py:257
-#: dashboards/project/firewalls/tabs.py:65
+#: dashboards/project/firewalls/tabs.py:69
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:6
 msgid "Firewalls"
 msgstr "Firewall-i"
 
 #: dashboards/project/firewalls/tables.py:35
-#: dashboards/project/firewalls/workflows.py:207
+#: dashboards/project/firewalls/workflows.py:208
 msgid "Add Policy"
 msgstr "Dodajte politiku"
 
@@ -9546,47 +9553,47 @@ msgstr "Politike"
 msgid "Firewall Rules"
 msgstr "Pravila Firewall-a"
 
-#: dashboards/project/firewalls/tabs.py:41
+#: dashboards/project/firewalls/tabs.py:43
 msgid "Unable to retrieve rules list."
 msgstr "Nemoguće je dobiti listu pravila."
 
-#: dashboards/project/firewalls/tabs.py:48
+#: dashboards/project/firewalls/tabs.py:50
 msgid "Firewall Policies"
 msgstr "Politike Firewall-a"
 
-#: dashboards/project/firewalls/tabs.py:58
+#: dashboards/project/firewalls/tabs.py:62
 msgid "Unable to retrieve policies list."
 msgstr "Nemoguće je dobiti listu politika."
 
-#: dashboards/project/firewalls/tabs.py:75
+#: dashboards/project/firewalls/tabs.py:81
 msgid "Unable to retrieve firewall list."
 msgstr "Nemoguće je dobiti listu firewall-a."
 
-#: dashboards/project/firewalls/tabs.py:81
+#: dashboards/project/firewalls/tabs.py:87
 msgid "Firewall Rule Details"
 msgstr "Detalji pravila firewall-a"
 
-#: dashboards/project/firewalls/tabs.py:92
+#: dashboards/project/firewalls/tabs.py:98
 #: dashboards/project/firewalls/views.py:145
 msgid "Unable to retrieve rule details."
 msgstr "Nemoguće je dobiti detalje pravila."
 
-#: dashboards/project/firewalls/tabs.py:98
+#: dashboards/project/firewalls/tabs.py:104
 msgid "Firewall Policy Details"
 msgstr "Detalji politika Firewall-a"
 
-#: dashboards/project/firewalls/tabs.py:109
+#: dashboards/project/firewalls/tabs.py:115
 #: dashboards/project/firewalls/views.py:181
 #: dashboards/project/firewalls/views.py:247
 #: dashboards/project/firewalls/views.py:280
 msgid "Unable to retrieve policy details."
 msgstr "Nemoguće je dobiti detalje politika."
 
-#: dashboards/project/firewalls/tabs.py:115
+#: dashboards/project/firewalls/tabs.py:121
 msgid "Firewall Details"
 msgstr "Detalji firewall-a"
 
-#: dashboards/project/firewalls/tabs.py:126
+#: dashboards/project/firewalls/tabs.py:132
 #: dashboards/project/firewalls/views.py:215
 msgid "Unable to retrieve firewall details."
 msgstr "Nemoguće je dobiti detalje firewall-a."
@@ -9665,62 +9672,62 @@ msgstr "Kreirajte politiku sa odabranim pravilima."
 msgid "Select rules for your policy."
 msgstr "Odaberite pravila za Vašu politiku."
 
-#: dashboards/project/firewalls/workflows.py:151
+#: dashboards/project/firewalls/workflows.py:152
 #, python-format
 msgid "Unable to retrieve rules (%(error)s)."
 msgstr "Nemoguće je dobiti pravila (%(error)s)."
 
-#: dashboards/project/firewalls/workflows.py:187
+#: dashboards/project/firewalls/workflows.py:188
 msgid "AddPolicy"
 msgstr "AddPolicy"
 
-#: dashboards/project/firewalls/workflows.py:189
+#: dashboards/project/firewalls/workflows.py:190
 msgid ""
 "Create a firewall policy with an ordered list of firewall rules.\n"
 "\n"
 "A name must be given. Firewall rules are added in the order placed under the Rules tab."
 msgstr "Kreirajte politiku firewall-a sa naručenom listom pravila firewall-a.\n\nIme mora biti dodeljeno. Pravila firewll-a su dodata po redosledu postavljenom u masci za pravila - Rules tab."
 
-#: dashboards/project/firewalls/workflows.py:209
+#: dashboards/project/firewalls/workflows.py:210
 #, python-format
 msgid "Added Policy \"%s\"."
 msgstr "Dodata politika \"%s\"."
 
-#: dashboards/project/firewalls/workflows.py:210
+#: dashboards/project/firewalls/workflows.py:211
 #, python-format
 msgid "Unable to add Policy \"%s\"."
 msgstr "Nemoguće je dodati politiku \"%s\"."
 
-#: dashboards/project/firewalls/workflows.py:245
+#: dashboards/project/firewalls/workflows.py:246
 msgid "Select a Policy"
 msgstr "Odaberite politiku"
 
-#: dashboards/project/firewalls/workflows.py:252
+#: dashboards/project/firewalls/workflows.py:254
 #, python-format
 msgid "Unable to retrieve policy list (%(error)s)."
 msgstr "Nemoguće je dobiti listu politika (%(error)s)."
 
-#: dashboards/project/firewalls/workflows.py:263
+#: dashboards/project/firewalls/workflows.py:265
 msgid "AddFirewall"
 msgstr "AddFirewall"
 
-#: dashboards/project/firewalls/workflows.py:265
+#: dashboards/project/firewalls/workflows.py:267
 msgid ""
 "Create a firewall based on a policy.\n"
 "\n"
 "A policy must be selected. Other fields are optional."
 msgstr "Kreirajte firewall baziran na politici.\n\nPolitika mora biti odabrana. Ostala polja su neobavezna."
 
-#: dashboards/project/firewalls/workflows.py:283
+#: dashboards/project/firewalls/workflows.py:285
 msgid "Add Firewall"
 msgstr "Dodajte firewall"
 
-#: dashboards/project/firewalls/workflows.py:285
+#: dashboards/project/firewalls/workflows.py:287
 #, python-format
 msgid "Added Firewall \"%s\"."
 msgstr "Dodat firewall \"%s\"."
 
-#: dashboards/project/firewalls/workflows.py:286
+#: dashboards/project/firewalls/workflows.py:288
 #, python-format
 msgid "Unable to add Firewall \"%s\"."
 msgstr "Nemoguće je dodati firewall \"%s\"."
@@ -12299,25 +12306,29 @@ msgid "Load Balancer"
 msgstr "Balanser opterećenja"
 
 #: dashboards/project/network_topology/panel.py:27
+#: dashboards/project/network_topology/views.py:101
 #: dashboards/project/network_topology/templates/network_topology/index.html:4
-#: dashboards/project/network_topology/templates/network_topology/index.html:7
 msgid "Network Topology"
 msgstr "Topologija mreže"
 
-#: dashboards/project/network_topology/views.py:171
+#: dashboards/project/network_topology/views.py:58
+msgid "Create a Router"
+msgstr "Kreirajte ruter"
+
+#: dashboards/project/network_topology/views.py:173
 msgid "No console available."
 msgstr ""
 
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:9
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:20
 #: dashboards/project/network_topology/templates/network_topology/create_router.html:3
-#: dashboards/project/network_topology/templates/network_topology/index.html:41
+#: dashboards/project/network_topology/templates/network_topology/index.html:37
 #: dashboards/project/routers/tables.py:85
 #: dashboards/project/routers/tables.py:98
+#: dashboards/project/routers/views.py:152
 #: dashboards/project/routers/templates/routers/_create.html:9
 #: dashboards/project/routers/templates/routers/_create.html:20
 #: dashboards/project/routers/templates/routers/create.html:3
-#: dashboards/project/routers/templates/routers/create.html:6
 msgid "Create Router"
 msgstr "Kreiraj ruter"
 
@@ -12327,37 +12338,33 @@ msgstr "Kreiraj ruter"
 msgid "Router"
 msgstr "Ruter"
 
-#: dashboards/project/network_topology/templates/network_topology/create_router.html:6
-msgid "Create a Router"
-msgstr "Kreirajte ruter"
-
-#: dashboards/project/network_topology/templates/network_topology/index.html:13
+#: dashboards/project/network_topology/templates/network_topology/index.html:9
 msgid "This pane needs javascript support."
 msgstr "Ovom panelu treba podrška javascript-a."
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:25
+#: dashboards/project/network_topology/templates/network_topology/index.html:21
 msgid "Small"
 msgstr "Mali"
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:30
+#: dashboards/project/network_topology/templates/network_topology/index.html:26
 msgid "Normal"
 msgstr "Regularan"
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:35
+#: dashboards/project/network_topology/templates/network_topology/index.html:31
 msgid "Launch Instance (Quota exceeded)"
 msgstr ""
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:38
+#: dashboards/project/network_topology/templates/network_topology/index.html:34
 #: dashboards/project/networks/tables.py:98
 msgid "Create Network (Quota exceeded)"
 msgstr ""
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:41
+#: dashboards/project/network_topology/templates/network_topology/index.html:37
 #: dashboards/project/routers/tables.py:96
 msgid "Create Router (Quota exceeded)"
 msgstr ""
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:47
+#: dashboards/project/network_topology/templates/network_topology/index.html:43
 msgid "There are no networks, routers, or connected instances to display."
 msgstr "Nema mreža, rutera, ili povezanih računarskih jedinica za prikaz."
 
@@ -12370,11 +12377,11 @@ msgstr "Dodaj podmrežu"
 msgid "Add Subnet (Quota exceeded)"
 msgstr ""
 
-#: dashboards/project/networks/views.py:87
+#: dashboards/project/networks/views.py:89
 msgid "Unable to retrieve network details."
 msgstr "Nemoguće je dobiti detalje mreže."
 
-#: dashboards/project/networks/views.py:101
+#: dashboards/project/networks/views.py:103
 msgid "Network Details: {{ network.name }}"
 msgstr ""
 
@@ -12492,9 +12499,9 @@ msgid ""
 msgstr ""
 
 #: dashboards/project/networks/workflows.py:255
+#: dashboards/project/networks/subnets/views.py:103
 #: dashboards/project/networks/subnets/workflows.py:148
 #: dashboards/project/networks/templates/networks/subnets/detail.html:3
-#: dashboards/project/networks/templates/networks/subnets/detail.html:6
 msgid "Subnet Details"
 msgstr ""
 
@@ -12610,7 +12617,12 @@ msgstr ""
 msgid "Attached Device"
 msgstr "Prikačen uređaj"
 
-#: dashboards/project/networks/ports/views.py:99
+#: dashboards/project/networks/ports/views.py:39
+#: dashboards/project/networks/templates/networks/ports/detail.html:3
+msgid "Port Details"
+msgstr ""
+
+#: dashboards/project/networks/ports/views.py:101
 msgid "Unable to retrieve port details"
 msgstr "Nemoguće je dobiti detalje port-a"
 
@@ -12640,7 +12652,7 @@ msgstr ""
 msgid "Unable to retrieve subnet details"
 msgstr "Nemoguće je dobiti detalje podmreže"
 
-#: dashboards/project/networks/subnets/views.py:111
+#: dashboards/project/networks/subnets/views.py:112
 msgid "Unable to retrieve subnet details."
 msgstr "Nemoguće je dobiti detalje podmreže."
 
@@ -12756,11 +12768,6 @@ msgstr "Mac adresa"
 
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:45
 msgid "No attached device"
-msgstr ""
-
-#: dashboards/project/networks/templates/networks/ports/detail.html:3
-#: dashboards/project/networks/templates/networks/ports/detail.html:6
-msgid "Port Details"
 msgstr ""
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:4
@@ -12890,10 +12897,10 @@ msgid "Unable to delete router \"%s\""
 msgstr "Nemoguće je obrisati ruter \"%s\""
 
 #: dashboards/project/routers/tables.py:115
+#: dashboards/project/routers/ports/views.py:68
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:9
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:24
 #: dashboards/project/routers/templates/routers/ports/setgateway.html:3
-#: dashboards/project/routers/templates/routers/ports/setgateway.html:6
 msgid "Set Gateway"
 msgstr "Podesite gateway"
 
@@ -12932,16 +12939,16 @@ msgid "HA mode"
 msgstr ""
 
 #: dashboards/project/routers/tabs.py:52
-#: dashboards/project/routers/views.py:168
+#: dashboards/project/routers/views.py:172
 msgid "Unable to retrieve router details."
 msgstr "Menoguće je dobiti detalje rutera."
 
-#: dashboards/project/routers/views.py:72
+#: dashboards/project/routers/views.py:73
 #, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
 msgstr "Nemoguće je dobiti liatu spoljnih mreža \"%s\"."
 
-#: dashboards/project/routers/views.py:85
+#: dashboards/project/routers/views.py:86
 #, python-format
 msgid ""
 "External network \"%(ext_net_id)s\" expected but not found for router "
@@ -12949,18 +12956,18 @@ msgid ""
 msgstr ""
 
 #. Translators: The usage is "<UUID of ext_net> (Not Found)"
-#: dashboards/project/routers/views.py:93
+#: dashboards/project/routers/views.py:94
 #, python-format
 msgctxt "External network not found"
 msgid "%s (Not Found)"
 msgstr ""
 
-#: dashboards/project/routers/views.py:108
+#: dashboards/project/routers/views.py:110
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr "Nemoguće je dobiti detalje rutera \"%s\"."
 
-#: dashboards/project/routers/views.py:119
+#: dashboards/project/routers/views.py:121
 #, python-format
 msgid "Unable to retrieve an external network \"%s\"."
 msgstr "Nemoguće je dobiti spoljnu mrežu \"%s\"."
@@ -13002,9 +13009,9 @@ msgid "Failed to add router rule %s"
 msgstr "Neuspelo dodavanje pravila rutera %s"
 
 #: dashboards/project/routers/extensions/routerrules/tables.py:32
+#: dashboards/project/routers/extensions/routerrules/views.py:37
 #: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:9
 #: dashboards/project/routers/templates/routers/extensions/routerrules/create.html:3
-#: dashboards/project/routers/templates/routers/extensions/routerrules/create.html:6
 msgid "Add Router Rule"
 msgstr "Dodajte pravilo rutera"
 
@@ -13026,8 +13033,8 @@ msgstr[2] ""
 msgid "Router Rules Grid"
 msgstr "Mreža pravila rutera"
 
-#: dashboards/project/routers/extensions/routerrules/views.py:49
-#: dashboards/project/routers/ports/views.py:48
+#: dashboards/project/routers/extensions/routerrules/views.py:50
+#: dashboards/project/routers/ports/views.py:49
 msgid "Unable to retrieve router."
 msgstr "Nemoguće je dobiti podatke rutera."
 
@@ -13098,9 +13105,9 @@ msgid "Internal Interface"
 msgstr "Unutrašnji interface"
 
 #: dashboards/project/routers/ports/tables.py:43
+#: dashboards/project/routers/ports/views.py:36
 #: dashboards/project/routers/templates/routers/ports/_create.html:9
 #: dashboards/project/routers/templates/routers/ports/create.html:3
-#: dashboards/project/routers/templates/routers/ports/create.html:6
 msgid "Add Interface"
 msgstr "Dodavanje interface-a"
 
@@ -13143,7 +13150,7 @@ msgctxt "current status of port"
 msgid "Error"
 msgstr ""
 
-#: dashboards/project/routers/ports/views.py:78
+#: dashboards/project/routers/ports/views.py:80
 msgid "Unable to set gateway."
 msgstr "Nemoguće je postaviti gateway."
 
@@ -13629,12 +13636,12 @@ msgid "Check Failed"
 msgstr ""
 
 #: dashboards/project/stacks/tables.py:300
-#: dashboards/project/stacks/tables.py:345
+#: dashboards/project/stacks/tables.py:349
 msgid "Stack Resource"
 msgstr "Resurs stack-a"
 
 #: dashboards/project/stacks/tables.py:303
-#: dashboards/project/stacks/tables.py:348
+#: dashboards/project/stacks/tables.py:352
 #: dashboards/project/stacks/resource_types/tables.py:38
 msgid "Resource"
 msgstr "Resurs"
@@ -13644,7 +13651,7 @@ msgid "Time Since Event"
 msgstr "Vreme od događaja"
 
 #: dashboards/project/stacks/tables.py:314
-#: dashboards/project/stacks/tables.py:363
+#: dashboards/project/stacks/tables.py:365
 msgid "Status Reason"
 msgstr "Razlozi statusa"
 
@@ -13652,16 +13659,16 @@ msgstr "Razlozi statusa"
 msgid "Stack Events"
 msgstr "Događaji stack-a"
 
-#: dashboards/project/stacks/tables.py:351
+#: dashboards/project/stacks/tables.py:355
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:25
 msgid "Stack Resource Type"
 msgstr "Vrsta resursa stack-a"
 
-#: dashboards/project/stacks/tables.py:353
+#: dashboards/project/stacks/tables.py:357
 msgid "Date Updated"
 msgstr "Datum izmene"
 
-#: dashboards/project/stacks/tables.py:376
+#: dashboards/project/stacks/tables.py:383
 msgid "Stack Resources"
 msgstr "Resursi stack-a"
 
@@ -15567,8 +15574,8 @@ msgstr "Cisco Nexus 1000v"
 
 #: dashboards/router/nexus1000v/tables.py:29
 #: dashboards/router/nexus1000v/views.py:107
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:9
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:27
+#: dashboards/router/nexus1000v/views.py:109
+#: dashboards/router/nexus1000v/views.py:112
 #: dashboards/router/nexus1000v/templates/nexus1000v/create_network_profile.html:3
 msgid "Create Network Profile"
 msgstr "Kreirajte mrežni profil"
@@ -15593,7 +15600,7 @@ msgid "Failed to delete network profile (%s)."
 msgstr "Neuspešno brisanje mrežnog profila (%s)."
 
 #: dashboards/router/nexus1000v/tables.py:64
-#: dashboards/router/nexus1000v/templates/nexus1000v/_update_network_profile.html:8
+#: dashboards/router/nexus1000v/views.py:118
 msgid "Edit Network Profile"
 msgstr "Izmena mrežnog profila."
 
@@ -15607,46 +15614,46 @@ msgstr "Ime fizičke mreže"
 msgid "Policy Profile"
 msgstr "Profil politika"
 
-#: dashboards/router/nexus1000v/views.py:70
-#: dashboards/router/nexus1000v/views.py:79
-#: dashboards/router/nexus1000v/views.py:94
+#: dashboards/router/nexus1000v/views.py:71
+#: dashboards/router/nexus1000v/views.py:80
+#: dashboards/router/nexus1000v/views.py:95
 msgid "Cisco Nexus 1000V"
 msgstr "Cisco Nexus 1000V"
 
-#: dashboards/router/nexus1000v/views.py:115
+#: dashboards/router/nexus1000v/views.py:124
 #: dashboards/router/nexus1000v/templates/nexus1000v/update_network_profile.html:3
 msgid "Update Network Profile"
 msgstr "Ažurirajte mrežni profil"
 
-#: dashboards/router/nexus1000v/views.py:133
+#: dashboards/router/nexus1000v/views.py:144
 msgid "Unable to retrieve network profile details."
 msgstr "Nemoguće je izvući detalje profila mreže."
 
-#: dashboards/router/nexus1000v/views.py:144
+#: dashboards/router/nexus1000v/views.py:155
 msgid "Failed to obtain network profile binding"
 msgstr ""
 
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:19
+#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:6
 msgid "Name:"
 msgstr ""
 
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:19
+#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:6
 msgid " Select a name for your network profile."
 msgstr "Odaberite ime za vaš mrežni profil."
 
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:20
+#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:7
 msgid "Segment Type:"
 msgstr ""
 
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:20
+#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:7
 msgid " Segment types available are VLAN, Overlay and Trunk."
 msgstr "Tipovi segmenta koji postoje su VLAN, Overlay i Trunk."
 
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:21
+#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:8
 msgid "Segment Sub Type:"
 msgstr ""
 
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:21
+#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:8
 msgid ""
 " Sub types available are for the Overlay and Trunk segments. Available sub-"
 "types for Overlay are: Native-VXLAN, Enhanced-VXLAN or 'Other' (eg. GRE) "
@@ -15654,17 +15661,17 @@ msgid ""
 "sub-type for Trunk is: VLAN."
 msgstr "Sub tipovi dostupni su za overlay i trunk segmente. Dostupni sub-tipovi za overlay su: Native-XLAN, prošireni VXLAN ili 'drugo' (npr. GRE) koji može ručno unesen kao tekst parametar za sub tip. Dostupni sub tip za trunk je:VLAN."
 
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:22
+#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:9
 msgid "Segment Range:"
 msgstr ""
 
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:22
+#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:9
 msgid ""
 " Segment Ranges are 1-4093 for VLAN and above 5000 for Enhanced-VXLAN "
 "Overlay."
 msgstr "Opsezi segmenta su 1-4093 za VLAN i gore 5000 za Prošireni-VXLAN Overlay."
 
-#: dashboards/router/nexus1000v/templates/nexus1000v/_update_network_profile.html:18
+#: dashboards/router/nexus1000v/templates/nexus1000v/_update_network_profile.html:6
 msgid ""
 "Edit the network profile to update name, segment range or multicast IP "
 "range."
@@ -15701,9 +15708,9 @@ msgid "Changing password is not supported."
 msgstr "Nije podržana promena lozinke."
 
 #: dashboards/settings/password/panel.py:23
+#: dashboards/settings/password/views.py:26
 #: dashboards/settings/password/templates/password/_change.html:9
 #: dashboards/settings/password/templates/password/change.html:3
-#: dashboards/settings/password/templates/password/change.html:6
 msgid "Change Password"
 msgstr "Promena lozinke"
 
@@ -15762,10 +15769,9 @@ msgstr ""
 msgid "Settings saved."
 msgstr "Podešavanja sačuvana."
 
-#: dashboards/settings/user/panel.py:23
+#: dashboards/settings/user/panel.py:23 dashboards/settings/user/views.py:26
 #: dashboards/settings/user/templates/user/_settings.html:9
 #: dashboards/settings/user/templates/user/settings.html:3
-#: dashboards/settings/user/templates/user/settings.html:6
 msgid "User Settings"
 msgstr "Korisnička podešavanja"
 
@@ -15836,6 +15842,10 @@ msgstr ""
 
 #: templates/context_selection/_region_list.html:7
 msgid "Regions:"
+msgstr ""
+
+#: test/test_panels/plugin_panel/views.py:20
+msgid "Plugin-based Panel"
 msgstr ""
 
 #: usage/base.py:74

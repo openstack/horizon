@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-16 18:38-0600\n"
-"PO-Revision-Date: 2015-02-17 00:38+0000\n"
+"POT-Creation-Date: 2015-02-17 22:37-0600\n"
+"PO-Revision-Date: 2015-02-17 21:53+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -554,13 +554,13 @@ msgstr "管理員"
 #: dashboards/project/access_and_security/security_groups/forms.py:37
 #: dashboards/project/access_and_security/security_groups/forms.py:66
 #: dashboards/project/access_and_security/security_groups/tables.py:141
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:15
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:12
 #: dashboards/project/containers/templates/containers/_object_detail.html:10
 #: dashboards/project/data_processing/cluster_templates/tables.py:31
 #: dashboards/project/data_processing/cluster_templates/tables.py:116
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:6
-#: dashboards/project/data_processing/clusters/tables.py:33
-#: dashboards/project/data_processing/clusters/tables.py:111
+#: dashboards/project/data_processing/clusters/tables.py:34
+#: dashboards/project/data_processing/clusters/tables.py:116
 #: dashboards/project/data_processing/clusters/tabs.py:137
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:6
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:9
@@ -592,8 +592,8 @@ msgstr "管理員"
 #: dashboards/project/firewalls/tables.py:230
 #: dashboards/project/firewalls/tables.py:247
 #: dashboards/project/firewalls/workflows.py:30
-#: dashboards/project/firewalls/workflows.py:172
-#: dashboards/project/firewalls/workflows.py:229
+#: dashboards/project/firewalls/workflows.py:173
+#: dashboards/project/firewalls/workflows.py:230
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:7
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:7
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:7
@@ -922,7 +922,7 @@ msgstr "加入或移除主機時出錯。"
 #: dashboards/admin/metering/templates/metering/_daily.html:18
 #: dashboards/admin/networks/templates/networks/_create.html:18
 #: dashboards/admin/networks/templates/networks/_update.html:5
-#: dashboards/admin/networks/templates/networks/agents/_add.html:18
+#: dashboards/admin/networks/templates/networks/agents/_add.html:5
 #: dashboards/admin/networks/templates/networks/ports/_create.html:18
 #: dashboards/admin/networks/templates/networks/ports/_update.html:22
 #: dashboards/admin/routers/templates/routers/_update.html:17
@@ -994,8 +994,8 @@ msgstr "加入或移除主機時出錯。"
 #: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:17
 #: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:17
 #: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:17
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:18
-#: dashboards/router/nexus1000v/templates/nexus1000v/_update_network_profile.html:17
+#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:5
+#: dashboards/router/nexus1000v/templates/nexus1000v/_update_network_profile.html:5
 #: dashboards/settings/password/templates/password/_change.html:18
 #: dashboards/settings/user/templates/user/_settings.html:18
 msgid "Description:"
@@ -1017,7 +1017,6 @@ msgstr "主機聚合以分組主機的方式劃分一個可用區域至邏輯單
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:80
 #: dashboards/admin/metering/templates/metering/_daily.html:25
 #: dashboards/admin/networks/templates/networks/_create.html:27
-#: dashboards/admin/networks/templates/networks/agents/_add.html:25
 #: dashboards/admin/networks/templates/networks/ports/_create.html:25
 #: dashboards/admin/networks/templates/networks/ports/_update.html:29
 #: dashboards/admin/routers/templates/routers/_update.html:24
@@ -1093,8 +1092,6 @@ msgstr "主機聚合以分組主機的方式劃分一個可用區域至邏輯單
 #: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:24
 #: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:24
 #: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:24
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:28
-#: dashboards/router/nexus1000v/templates/nexus1000v/_update_network_profile.html:24
 #: dashboards/settings/password/templates/password/_change.html:25
 #: dashboards/settings/user/templates/user/_settings.html:25
 msgid "Cancel"
@@ -1151,8 +1148,8 @@ msgstr "虛擬 CPU 數"
 #: dashboards/project/data_processing/clusters/tabs.py:152
 #: dashboards/project/databases/panel.py:23
 #: dashboards/project/databases/tables.py:284
+#: dashboards/project/databases/views.py:48
 #: dashboards/project/databases/templates/databases/index.html:3
-#: dashboards/project/databases/templates/databases/index.html:6
 #: dashboards/project/instances/panel.py:23
 #: dashboards/project/instances/tables.py:1021
 #: dashboards/project/instances/views.py:54
@@ -1409,7 +1406,7 @@ msgstr "Swap 硬碟"
 #: dashboards/identity/roles/forms.py:37
 #: dashboards/identity/users/forms.py:163
 #: dashboards/identity/users/templates/users/_detail_overview.html:19
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:17
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:14
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:8
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:8
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:7
@@ -1693,15 +1690,24 @@ msgid "Hypervisor"
 msgstr "虛擬機器管理程式"
 
 #: dashboards/admin/hypervisors/tabs.py:36
-#: dashboards/admin/hypervisors/views.py:40
+#: dashboards/admin/hypervisors/views.py:41
 msgid "Unable to retrieve hypervisor information."
 msgstr "無法取回虛擬機器管理程式的資訊。"
 
-#: dashboards/admin/hypervisors/views.py:50
+#: dashboards/admin/hypervisors/views.py:32
+msgid "All Hypervisors"
+msgstr "所有的虛擬機器管理程式"
+
+#: dashboards/admin/hypervisors/views.py:51
 msgid "Unable to retrieve hypervisor statistics."
 msgstr "無法取回虛擬機器管理程式的統計資料。"
 
-#: dashboards/admin/hypervisors/views.py:72
+#: dashboards/admin/hypervisors/views.py:59
+#: dashboards/admin/hypervisors/templates/hypervisors/detail.html:3
+msgid "Hypervisor Servers"
+msgstr "虛擬機器管理程式伺服器"
+
+#: dashboards/admin/hypervisors/views.py:74
 msgid "Unable to retrieve hypervisor instances list."
 msgstr "無法取回虛擬機器管理程式的執行實例列表。"
 
@@ -1776,18 +1782,18 @@ msgid "Failed to disable compute service for host: %s."
 msgstr ""
 
 #: dashboards/admin/hypervisors/compute/tables.py:26
+#: dashboards/admin/hypervisors/compute/views.py:30
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:8
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:23
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/evacuate_host.html:3
-#: dashboards/admin/hypervisors/templates/hypervisors/compute/evacuate_host.html:6
 msgid "Evacuate Host"
 msgstr "撤離主機"
 
 #: dashboards/admin/hypervisors/compute/tables.py:44
+#: dashboards/admin/hypervisors/compute/views.py:62
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_disable_service.html:8
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_disable_service.html:23
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/disable_service.html:3
-#: dashboards/admin/hypervisors/templates/hypervisors/compute/disable_service.html:6
 msgid "Disable Service"
 msgstr ""
 
@@ -1819,8 +1825,8 @@ msgstr "區域"
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/admin/volumes/volumes/forms.py:183
 #: dashboards/project/access_and_security/floating_ips/tables.py:200
-#: dashboards/project/data_processing/clusters/tables.py:34
-#: dashboards/project/data_processing/clusters/tables.py:115
+#: dashboards/project/data_processing/clusters/tables.py:35
+#: dashboards/project/data_processing/clusters/tables.py:120
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:12
 #: dashboards/project/data_processing/job_executions/tables.py:40
 #: dashboards/project/data_processing/job_executions/tables.py:179
@@ -1851,7 +1857,7 @@ msgstr "區域"
 #: dashboards/project/routers/templates/routers/_detail_overview.html:13
 #: dashboards/project/stacks/tables.py:267
 #: dashboards/project/stacks/tables.py:311
-#: dashboards/project/stacks/tables.py:358
+#: dashboards/project/stacks/tables.py:362
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:19
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:26
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:35
@@ -1888,39 +1894,30 @@ msgstr "運算主機"
 msgid "Unable to get nova services list."
 msgstr "無法獲得 Nova 伺服器列表。"
 
-#: dashboards/admin/hypervisors/compute/views.py:44
+#: dashboards/admin/hypervisors/compute/views.py:45
 msgid "Unable to retrieve compute host information."
 msgstr "無法取回運算主機資訊。"
 
-#: dashboards/admin/hypervisors/templates/hypervisors/detail.html:3
-#: dashboards/admin/hypervisors/templates/hypervisors/detail.html:6
-msgid "Hypervisor Servers"
-msgstr "虛擬機器管理程式伺服器"
-
-#: dashboards/admin/hypervisors/templates/hypervisors/index.html:7
-msgid "All Hypervisors"
-msgstr "所有的虛擬機器管理程式"
-
-#: dashboards/admin/hypervisors/templates/hypervisors/index.html:12
+#: dashboards/admin/hypervisors/templates/hypervisors/index.html:8
 msgid "Hypervisor Summary"
 msgstr "虛擬機器管理程式摘要"
 
-#: dashboards/admin/hypervisors/templates/hypervisors/index.html:15
+#: dashboards/admin/hypervisors/templates/hypervisors/index.html:11
 msgid "VCPU Usage"
 msgstr "虛擬處理器使用量"
 
-#: dashboards/admin/hypervisors/templates/hypervisors/index.html:16
-#: dashboards/admin/hypervisors/templates/hypervisors/index.html:23
-#: dashboards/admin/hypervisors/templates/hypervisors/index.html:30
+#: dashboards/admin/hypervisors/templates/hypervisors/index.html:12
+#: dashboards/admin/hypervisors/templates/hypervisors/index.html:19
+#: dashboards/admin/hypervisors/templates/hypervisors/index.html:26
 #, python-format
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
 msgstr "已使用 <span>%(available)s</span> 個中的 <span>%(used)s</span> 個"
 
-#: dashboards/admin/hypervisors/templates/hypervisors/index.html:22
+#: dashboards/admin/hypervisors/templates/hypervisors/index.html:18
 msgid "Memory Usage"
 msgstr "記憶體使用量"
 
-#: dashboards/admin/hypervisors/templates/hypervisors/index.html:29
+#: dashboards/admin/hypervisors/templates/hypervisors/index.html:25
 msgid "Local Disk Usage"
 msgstr ""
 
@@ -2312,8 +2309,8 @@ msgid "Unable to retrieve host information."
 msgstr "無法取回主機資訊。"
 
 #: dashboards/admin/instances/views.py:179
-#: dashboards/project/databases/views.py:150
-#: dashboards/project/databases/views.py:189
+#: dashboards/project/databases/views.py:153
+#: dashboards/project/databases/views.py:193
 #: dashboards/project/instances/views.py:212
 #: dashboards/project/instances/views.py:354
 msgid "Unable to retrieve instance details."
@@ -2467,8 +2464,8 @@ msgstr ""
 #: dashboards/project/firewalls/forms.py:100
 #: dashboards/project/firewalls/forms.py:128
 #: dashboards/project/firewalls/workflows.py:34
-#: dashboards/project/firewalls/workflows.py:174
-#: dashboards/project/firewalls/workflows.py:232
+#: dashboards/project/firewalls/workflows.py:175
+#: dashboards/project/firewalls/workflows.py:233
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:10
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:10
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:10
@@ -2592,11 +2589,11 @@ msgstr ""
 #: dashboards/admin/volumes/volume_types/forms.py:87
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:16
 #: dashboards/identity/users/templates/users/_detail_overview.html:22
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:16
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:18
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:20
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:28
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:30
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:13
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:15
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:17
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:25
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:27
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:11
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:11
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:14
@@ -2650,7 +2647,7 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:22
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:35
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:21
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:18
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:82
 #: dashboards/project/data_processing/jobs/workflows/launch.py:407
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:375
@@ -2685,7 +2682,7 @@ msgid "Unknown"
 msgstr "未知"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:24
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:24
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:21
 #: dashboards/project/database_backups/templates/database_backups/details.html:34
 #: dashboards/project/databases/templates/databases/_detail_overview.html:36
 #: dashboards/project/images/templates/images/images/_detail_overview.html:33
@@ -3069,7 +3066,7 @@ msgstr "分段識別號"
 #: dashboards/admin/networks/forms.py:236
 #: dashboards/admin/networks/ports/forms.py:42
 #: dashboards/project/firewalls/forms.py:131
-#: dashboards/project/firewalls/workflows.py:238
+#: dashboards/project/firewalls/workflows.py:239
 #: dashboards/project/loadbalancers/forms.py:38
 #: dashboards/project/loadbalancers/forms.py:93
 #: dashboards/project/loadbalancers/forms.py:176
@@ -3091,7 +3088,7 @@ msgstr ""
 #: dashboards/admin/networks/forms.py:237
 #: dashboards/admin/networks/ports/forms.py:43
 #: dashboards/project/firewalls/forms.py:132
-#: dashboards/project/firewalls/workflows.py:239
+#: dashboards/project/firewalls/workflows.py:240
 #: dashboards/project/loadbalancers/forms.py:39
 #: dashboards/project/loadbalancers/forms.py:94
 #: dashboards/project/loadbalancers/forms.py:177
@@ -3118,7 +3115,7 @@ msgstr ""
 #: dashboards/admin/routers/ports/tables.py:41
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:15
 #: dashboards/project/firewalls/forms.py:133
-#: dashboards/project/firewalls/workflows.py:240
+#: dashboards/project/firewalls/workflows.py:241
 #: dashboards/project/loadbalancers/forms.py:40
 #: dashboards/project/loadbalancers/forms.py:95
 #: dashboards/project/loadbalancers/forms.py:178
@@ -3151,8 +3148,8 @@ msgstr "管理員狀態"
 #: dashboards/project/firewalls/forms.py:69
 #: dashboards/project/firewalls/forms.py:101
 #: dashboards/project/firewalls/workflows.py:65
-#: dashboards/project/firewalls/workflows.py:176
-#: dashboards/project/firewalls/workflows.py:235
+#: dashboards/project/firewalls/workflows.py:177
+#: dashboards/project/firewalls/workflows.py:236
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:31
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:50
 #: dashboards/project/networks/tables.py:166
@@ -3194,7 +3191,7 @@ msgstr "選擇一個基本資料"
 #: dashboards/admin/networks/forms.py:155
 #: dashboards/project/instances/workflows/create_instance.py:755
 #: dashboards/project/networks/workflows.py:71
-#: dashboards/router/nexus1000v/views.py:52
+#: dashboards/router/nexus1000v/views.py:53
 msgid "Network Profiles could not be retrieved."
 msgstr "不能取回網路基本資料。"
 
@@ -3244,8 +3241,8 @@ msgstr "更新網路 %s 時失敗"
 #: dashboards/project/instances/workflows/create_instance.py:699
 #: dashboards/project/networks/panel.py:23
 #: dashboards/project/networks/tables.py:176
+#: dashboards/project/networks/views.py:45
 #: dashboards/project/networks/templates/networks/index.html:3
-#: dashboards/project/networks/templates/networks/index.html:6
 #: usage/quotas.py:77
 msgid "Networks"
 msgstr "網路"
@@ -3273,7 +3270,7 @@ msgstr "刪除網路 %s 時失敗"
 #: dashboards/admin/networks/templates/networks/_create.html:26
 #: dashboards/admin/networks/templates/networks/create.html:3
 #: dashboards/admin/networks/templates/networks/create.html:6
-#: dashboards/project/network_topology/templates/network_topology/index.html:38
+#: dashboards/project/network_topology/templates/network_topology/index.html:34
 #: dashboards/project/networks/tables.py:87
 #: dashboards/project/networks/tables.py:100
 #: dashboards/project/networks/workflows.py:341
@@ -3284,7 +3281,7 @@ msgstr "新增網路"
 
 #: dashboards/admin/networks/tables.py:74
 #: dashboards/project/networks/tables.py:109
-#: dashboards/project/networks/views.py:67
+#: dashboards/project/networks/views.py:68
 msgid "Edit Network"
 msgstr "編輯網路"
 
@@ -3320,7 +3317,7 @@ msgid "DHCP Agents"
 msgstr "DHCP 媒介"
 
 #: dashboards/admin/networks/views.py:76
-#: dashboards/project/networks/views.py:53
+#: dashboards/project/networks/views.py:54
 msgid "Network list can not be retrieved."
 msgstr "不能取回網路列表。"
 
@@ -3331,18 +3328,18 @@ msgid "Unable to list dhcp agents hosting network."
 msgstr "無法列出 DHCP 媒介所服務的網路。"
 
 #: dashboards/admin/networks/views.py:112
-#: dashboards/project/networks/views.py:110
+#: dashboards/project/networks/views.py:112
 msgid "Subnet list can not be retrieved."
 msgstr "不能取回子網路列表。"
 
 #: dashboards/admin/networks/views.py:122
-#: dashboards/project/networks/views.py:120
+#: dashboards/project/networks/views.py:122
 msgid "Port list can not be retrieved."
 msgstr "不能取回接口列表。"
 
 #: dashboards/admin/networks/views.py:145
 #: dashboards/admin/networks/subnets/tables.py:109
-#: dashboards/project/networks/views.py:131
+#: dashboards/project/networks/views.py:133
 #: dashboards/project/networks/subnets/tables.py:143
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
@@ -3390,20 +3387,20 @@ msgid "Failed to delete agent: %s"
 msgstr "刪除媒介時時失敗：%s"
 
 #: dashboards/admin/networks/agents/tables.py:66
-#: dashboards/admin/networks/templates/networks/agents/_add.html:9
-#: dashboards/admin/networks/templates/networks/agents/_add.html:24
+#: dashboards/admin/networks/agents/views.py:31
+#: dashboards/admin/networks/agents/views.py:35
 #: dashboards/admin/networks/templates/networks/agents/add.html:3
 #: dashboards/admin/networks/templates/networks/agents/add.html:6
 msgid "Add DHCP Agent"
 msgstr "加入 DHCP 媒介"
 
-#: dashboards/admin/networks/agents/views.py:56
+#: dashboards/admin/networks/agents/views.py:62
 #: dashboards/admin/networks/ports/views.py:48
 #: dashboards/project/networks/subnets/views.py:48
 msgid "Unable to retrieve network."
 msgstr "無法取回網路。"
 
-#: dashboards/admin/networks/agents/views.py:67
+#: dashboards/admin/networks/agents/views.py:73
 msgid "Unable to retrieve agent list."
 msgstr "無法取回媒介列表。"
 
@@ -3527,7 +3524,7 @@ msgid "Overview"
 msgstr "概觀"
 
 #: dashboards/admin/networks/ports/tabs.py:35
-#: dashboards/project/networks/ports/views.py:53
+#: dashboards/project/networks/ports/views.py:54
 #: dashboards/project/routers/ports/tabs.py:35
 msgid "Unable to retrieve port details."
 msgstr "無法取回接口詳細資訊。"
@@ -3621,12 +3618,12 @@ msgstr "您將在這更新您的網路上可供編輯的屬性。"
 
 #: dashboards/admin/networks/templates/networks/update.html:3
 #: dashboards/admin/networks/templates/networks/update.html:6
+#: dashboards/project/networks/views.py:73
 #: dashboards/project/networks/templates/networks/update.html:3
-#: dashboards/project/networks/templates/networks/update.html:6
 msgid "Update Network"
 msgstr "更新網路"
 
-#: dashboards/admin/networks/templates/networks/agents/_add.html:19
+#: dashboards/admin/networks/templates/networks/agents/_add.html:6
 msgid "From here you can add a DHCP agent for the network."
 msgstr "您可以在此為此網路加入 DHCP 媒介。"
 
@@ -3652,21 +3649,21 @@ msgstr "您將在這更新您的接口上可供編輯的屬性。"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:23
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:23
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:23
-#: dashboards/project/networks/views.py:68
+#: dashboards/project/networks/views.py:69
 #: dashboards/project/networks/templates/networks/ports/_update.html:28
 #: dashboards/project/routers/templates/routers/_update.html:23
 #: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:23
 #: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:23
 #: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:23
 #: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:23
-#: dashboards/router/nexus1000v/templates/nexus1000v/_update_network_profile.html:23
+#: dashboards/router/nexus1000v/views.py:121
 msgid "Save Changes"
 msgstr "儲存變更"
 
 #: dashboards/admin/networks/templates/networks/ports/update.html:3
 #: dashboards/admin/networks/templates/networks/ports/update.html:6
+#: dashboards/project/networks/ports/views.py:87
 #: dashboards/project/networks/templates/networks/ports/update.html:3
-#: dashboards/project/networks/templates/networks/ports/update.html:6
 msgid "Update Port"
 msgstr "更新接口"
 
@@ -3740,13 +3737,13 @@ msgstr ""
 #: dashboards/project/network_topology/routers/tables.py:27
 #: dashboards/project/routers/panel.py:24
 #: dashboards/project/routers/tables.py:234
+#: dashboards/project/routers/views.py:41
 #: dashboards/project/routers/templates/routers/index.html:3
-#: dashboards/project/routers/templates/routers/index.html:6
 #: usage/quotas.py:80
 msgid "Routers"
 msgstr "路由器"
 
-#: dashboards/admin/routers/views.py:42 dashboards/project/routers/views.py:51
+#: dashboards/admin/routers/views.py:42 dashboards/project/routers/views.py:52
 msgid "Unable to retrieve router list."
 msgstr "無法取回路由器列表。"
 
@@ -3858,15 +3855,15 @@ msgstr "您將在這更新您的路由器上可供編輯的屬性。"
 
 #: dashboards/admin/routers/templates/routers/detail.html:3
 #: dashboards/admin/routers/templates/routers/detail.html:6
+#: dashboards/project/routers/views.py:101
 #: dashboards/project/routers/templates/routers/detail.html:3
-#: dashboards/project/routers/templates/routers/detail.html:6
 msgid "Router Details"
 msgstr "路由器詳細資訊"
 
 #: dashboards/admin/routers/templates/routers/update.html:3
 #: dashboards/admin/routers/templates/routers/update.html:6
+#: dashboards/project/routers/views.py:159
 #: dashboards/project/routers/templates/routers/update.html:3
-#: dashboards/project/routers/templates/routers/update.html:6
 msgid "Update Router"
 msgstr "更新路由器"
 
@@ -3964,7 +3961,7 @@ msgstr "儲存空間即時存檔概觀"
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:7
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:6
 #: dashboards/identity/users/templates/users/_detail_overview.html:6
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:12
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:9
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:6
 #: dashboards/project/database_backups/templates/database_backups/details.html:11
 #: dashboards/project/databases/templates/databases/_detail_overview.html:6
@@ -5077,7 +5074,7 @@ msgstr "電子郵件信箱"
 
 #: dashboards/identity/groups/tables.py:194
 #: dashboards/identity/users/tables.py:222
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:27
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:24
 #: dashboards/project/instances/audit_tables.py:28
 msgid "User ID"
 msgstr "使用者識別號"
@@ -5203,7 +5200,7 @@ msgstr "此名稱已被取走。"
 
 #: dashboards/identity/projects/views.py:59
 #: dashboards/identity/projects/views.py:105
-#: dashboards/router/nexus1000v/views.py:41
+#: dashboards/router/nexus1000v/views.py:42
 msgid "Unable to retrieve project information."
 msgstr "無法取回專案資訊。"
 
@@ -5651,12 +5648,13 @@ msgid "Data Processing"
 msgstr "資料處理"
 
 #: dashboards/project/access_and_security/panel.py:24
+#: dashboards/project/access_and_security/views.py:35
 #: dashboards/project/instances/workflows/create_instance.py:553
 msgid "Access & Security"
 msgstr "存取權以及安全性"
 
 #: dashboards/project/access_and_security/tabs.py:57
-#: dashboards/project/access_and_security/security_groups/views.py:122
+#: dashboards/project/access_and_security/security_groups/views.py:124
 #: usage/base.py:116
 msgid "Unable to retrieve security groups."
 msgstr "無法取回安全性群組。"
@@ -5716,11 +5714,15 @@ msgstr "寫入 Zip 檔錯誤：%(exc)s"
 msgid "Error Downloading RC File: %s"
 msgstr "下載 RC 檔錯誤：%s"
 
-#: dashboards/project/access_and_security/api_access/views.py:145
+#: dashboards/project/access_and_security/api_access/views.py:138
+msgid "User Credentials Details"
+msgstr ""
+
+#: dashboards/project/access_and_security/api_access/views.py:146
 msgid "Unable to get openrc credentials"
 msgstr ""
 
-#: dashboards/project/access_and_security/api_access/views.py:151
+#: dashboards/project/access_and_security/api_access/views.py:152
 msgid "Unable to get EC2 credentials"
 msgstr ""
 
@@ -5902,7 +5904,7 @@ msgid "Key Pair Name"
 msgstr "密鑰對名稱"
 
 #: dashboards/project/access_and_security/keypairs/forms.py:53
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:29
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:26
 msgid "Public Key"
 msgstr "公鑰"
 
@@ -5926,38 +5928,43 @@ msgid_plural "Deleted Key Pairs"
 msgstr[0] ""
 
 #: dashboards/project/access_and_security/keypairs/tables.py:50
+#: dashboards/project/access_and_security/keypairs/views.py:55
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:8
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:29
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/import.html:3
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/import.html:6
 msgid "Import Key Pair"
 msgstr "匯入密鑰對"
 
 #: dashboards/project/access_and_security/keypairs/tables.py:59
 #: dashboards/project/access_and_security/keypairs/tables.py:75
+#: dashboards/project/access_and_security/keypairs/views.py:44
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_create.html:8
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_create.html:24
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/create.html:3
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/create.html:6
 msgid "Create Key Pair"
 msgstr "新增密鑰對"
 
 #: dashboards/project/access_and_security/keypairs/tables.py:95
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:19
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:16
 msgid "Fingerprint"
 msgstr "特徵"
 
-#: dashboards/project/access_and_security/keypairs/views.py:69
-#, python-format
-msgid "Unable to retrieve details for keypair \"%s\"."
-msgstr ""
-
-#: dashboards/project/access_and_security/keypairs/views.py:78
+#: dashboards/project/access_and_security/keypairs/views.py:63
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:4
 msgid "Key Pair Details"
 msgstr ""
 
-#: dashboards/project/access_and_security/keypairs/views.py:99
+#: dashboards/project/access_and_security/keypairs/views.py:72
+#, python-format
+msgid "Unable to retrieve details for keypair \"%s\"."
+msgstr ""
+
+#: dashboards/project/access_and_security/keypairs/views.py:87
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:4
+msgid "Download Key Pair"
+msgstr "下載密鑰對"
+
+#: dashboards/project/access_and_security/keypairs/views.py:103
 #, python-format
 msgid "Unable to create key pair: %(exc)s"
 msgstr "無法新增密鑰對：%(exc)s"
@@ -6190,10 +6197,10 @@ msgstr[0] ""
 
 #: dashboards/project/access_and_security/security_groups/tables.py:70
 #: dashboards/project/access_and_security/security_groups/tables.py:87
+#: dashboards/project/access_and_security/security_groups/views.py:142
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_create.html:8
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_create.html:24
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/create.html:3
-#: dashboards/project/access_and_security/templates/access_and_security/security_groups/create.html:6
 msgid "Create Security Group"
 msgstr "新增安全性群組"
 
@@ -6202,10 +6209,10 @@ msgid "Create Security Group (Quota exceeded)"
 msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/tables.py:95
+#: dashboards/project/access_and_security/security_groups/views.py:74
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_update.html:8
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_update.html:24
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/update.html:3
-#: dashboards/project/access_and_security/templates/access_and_security/security_groups/update.html:6
 msgid "Edit Security Group"
 msgstr "編輯安全性群組"
 
@@ -6214,9 +6221,9 @@ msgid "Manage Rules"
 msgstr "管理規則"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:156
+#: dashboards/project/access_and_security/security_groups/views.py:101
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:8
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:3
-#: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:6
 #: dashboards/project/firewalls/tables.py:26
 #: dashboards/project/firewalls/workflows.py:103
 msgid "Add Rule"
@@ -6244,17 +6251,16 @@ msgid ""
 msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/views.py:54
-#: dashboards/project/access_and_security/security_groups/views.py:81
+#: dashboards/project/access_and_security/security_groups/views.py:82
 msgid "Unable to retrieve security group."
 msgstr "無法取回安全性群組。"
 
-#: dashboards/project/access_and_security/security_groups/views.py:129
+#: dashboards/project/access_and_security/security_groups/views.py:131
 #, python-format
 msgid "%s (current)"
 msgstr "%s（目前）"
 
 #: dashboards/project/access_and_security/templates/access_and_security/index.html:3
-#: dashboards/project/access_and_security/templates/access_and_security/index.html:6
 msgid "Access &amp; Security"
 msgstr "存取權與安全性"
 
@@ -6281,10 +6287,6 @@ msgstr ""
 
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:49
 msgid "EC2 Secret Key"
-msgstr ""
-
-#: dashboards/project/access_and_security/templates/access_and_security/api_access/credentials.html:6
-msgid "User Credentials Details"
 msgstr ""
 
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:9
@@ -6345,19 +6347,14 @@ msgid ""
 "might be different depending on the image you launched):"
 msgstr "在發動一個執行個體後，您用這個私鑰來登入（依照您發動的映像檔，使用者名稱可能不同）："
 
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:4
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:7
-msgid "Download Key Pair"
-msgstr "下載密鑰對"
-
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:12
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:8
 #, python-format
 msgid ""
 "The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
 "not use the link below."
 msgstr "密鑰對「%(keypair_name)s」應該會自動下載。假如沒有開始，請使用下列超連結。"
 
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:16
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:12
 #, python-format
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
 msgstr "下載密鑰對「%(keypair_name)s」"
@@ -6407,8 +6404,8 @@ msgstr "您必須經由此規則指定要允許的交通來源。您能用 IP �
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:59
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:69
 #: dashboards/project/firewalls/workflows.py:104
-#: dashboards/project/firewalls/workflows.py:208
-#: dashboards/project/firewalls/workflows.py:284
+#: dashboards/project/firewalls/workflows.py:209
+#: dashboards/project/firewalls/workflows.py:286
 #: dashboards/project/loadbalancers/workflows.py:136
 #: dashboards/project/loadbalancers/workflows.py:260
 #: dashboards/project/loadbalancers/workflows.py:426
@@ -6865,7 +6862,7 @@ msgid "Upload Template"
 msgstr "上傳樣板"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:47
-#: dashboards/project/data_processing/clusters/tables.py:39
+#: dashboards/project/data_processing/clusters/tables.py:40
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_create_cluster.html:10
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/configure.html:3
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/configure.html:6
@@ -7154,39 +7151,49 @@ msgid "Cluster template creation failed"
 msgstr "叢集樣板的新增失敗"
 
 #: dashboards/project/data_processing/clusters/panel.py:22
-#: dashboards/project/data_processing/clusters/tables.py:123
+#: dashboards/project/data_processing/clusters/tables.py:129
 msgid "Clusters"
 msgstr "叢集"
 
-#: dashboards/project/data_processing/clusters/tables.py:47
+#: dashboards/project/data_processing/clusters/tables.py:48
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/scale.html:3
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/scale.html:6
 #: dashboards/project/data_processing/clusters/workflows/scale.py:42
 msgid "Scale Cluster"
 msgstr "調整叢集比例"
 
-#: dashboards/project/data_processing/clusters/tables.py:59
+#: dashboards/project/data_processing/clusters/tables.py:60
 msgid "Delete Cluster"
 msgid_plural "Delete Clusters"
 msgstr[0] ""
 
-#: dashboards/project/data_processing/clusters/tables.py:67
+#: dashboards/project/data_processing/clusters/tables.py:68
 msgid "Deleted Cluster"
 msgid_plural "Deleted Clusters"
 msgstr[0] ""
 
-#: dashboards/project/data_processing/clusters/tables.py:87
+#: dashboards/project/data_processing/clusters/tables.py:88
 #: dashboards/project/data_processing/job_executions/tables.py:126
 msgid "Unable to update row"
 msgstr "無法更新列"
 
-#: dashboards/project/data_processing/clusters/tables.py:97
+#: dashboards/project/data_processing/clusters/tables.py:98
 #: dashboards/project/data_processing/clusters/workflows/create.py:189
 #: dashboards/project/data_processing/jobs/workflows/launch.py:312
 msgid "Configure Cluster"
 msgstr "設置叢集"
 
-#: dashboards/project/data_processing/clusters/tables.py:119
+#: dashboards/project/data_processing/clusters/tables.py:111
+msgctxt "Current status of a Cluster"
+msgid "Active"
+msgstr "活躍"
+
+#: dashboards/project/data_processing/clusters/tables.py:112
+msgctxt "Current status of a Cluster"
+msgid "Error"
+msgstr "錯誤"
+
+#: dashboards/project/data_processing/clusters/tables.py:125
 msgid "Instances Count"
 msgstr "執行實例計數"
 
@@ -8445,7 +8452,7 @@ msgstr "插件名稱"
 
 #: dashboards/project/database_backups/panel.py:23
 #: dashboards/project/database_backups/tables.py:167
-#: dashboards/project/database_backups/templates/database_backups/index.html:6
+#: dashboards/project/database_backups/views.py:35
 #: dashboards/project/databases/tables.py:349
 #: dashboards/project/databases/tabs.py:104
 msgid "Backups"
@@ -8510,24 +8517,30 @@ msgstr "資料倉庫版本"
 msgid "Incremental"
 msgstr "增量"
 
-#: dashboards/project/database_backups/views.py:48
+#: dashboards/project/database_backups/views.py:49
 msgid "Not Found"
 msgstr "找不到"
 
-#: dashboards/project/database_backups/views.py:60
+#: dashboards/project/database_backups/views.py:61
 msgid "Error getting database backup list."
 msgstr "獲得資料庫備份列表出錯。"
 
-#: dashboards/project/database_backups/views.py:78
+#: dashboards/project/database_backups/views.py:69
+#: dashboards/project/database_backups/templates/database_backups/backup.html:3
+#: dashboards/project/database_backups/workflows/create_backup.py:82
+msgid "Backup Database"
+msgstr "備份資料庫"
+
+#: dashboards/project/database_backups/views.py:80
 msgid "Backup Details: {{ backup.name }}"
 msgstr ""
 
-#: dashboards/project/database_backups/views.py:89
+#: dashboards/project/database_backups/views.py:91
 #, python-format
 msgid "Unable to retrieve details for backup: %s"
 msgstr "無法取回備份的詳細資訊：%s"
 
-#: dashboards/project/database_backups/views.py:97
+#: dashboards/project/database_backups/views.py:99
 #, python-format
 msgid "Unable to retrieve details for parent backup: %s"
 msgstr "無法取回母體備份的詳細資訊：%s"
@@ -8542,12 +8555,6 @@ msgid ""
 "<strong>However,</strong> not all databases support incremental backups in "
 "which case this operation will result in an error."
 msgstr "您可以指定一個母體備份來履行增量備份。<strong>無論如何，</strong>並不是所有的資料庫都支援增量備份，此功能可能會導致錯誤。"
-
-#: dashboards/project/database_backups/templates/database_backups/backup.html:3
-#: dashboards/project/database_backups/templates/database_backups/backup.html:6
-#: dashboards/project/database_backups/workflows/create_backup.py:82
-msgid "Backup Database"
-msgstr "備份資料庫"
 
 #: dashboards/project/database_backups/templates/database_backups/details.html:3
 msgid "Backup Details"
@@ -8745,7 +8752,7 @@ msgstr "刪除執行實例上的資料庫出錯。"
 #: dashboards/project/instances/tables.py:305
 #: dashboards/project/instances/tables.py:333
 #: dashboards/project/instances/workflows/create_instance.py:840
-#: dashboards/project/network_topology/templates/network_topology/index.html:35
+#: dashboards/project/network_topology/templates/network_topology/index.html:31
 msgid "Launch Instance"
 msgstr "發動執行實例"
 
@@ -8809,25 +8816,43 @@ msgstr "無法獲得資料庫資料。"
 msgid "Unable to get database backup data."
 msgstr "無法獲得資料庫備份資料。"
 
-#: dashboards/project/databases/views.py:58
+#: dashboards/project/databases/views.py:59
 msgid "Unable to retrieve database size information."
 msgstr "無法取回資料庫容量資訊。"
 
-#: dashboards/project/databases/views.py:79
+#: dashboards/project/databases/views.py:80
 msgid "Unable to retrieve database instances."
 msgstr "無法取回資料庫執行實例。"
 
-#: dashboards/project/databases/views.py:99
+#: dashboards/project/databases/views.py:89
+msgid "Launch Database"
+msgstr "發動資料庫"
+
+#: dashboards/project/databases/views.py:101
 #: dashboards/project/instances/views.py:259
 msgid "Instance Details: {{ instance.name }}"
 msgstr ""
 
-#: dashboards/project/databases/views.py:118
+#: dashboards/project/databases/views.py:120
 #, python-format
 msgid "Unable to retrieve details for database instance: %s"
 msgstr "無法取回資料庫執行實例的詳細資訊：%s"
 
-#: dashboards/project/databases/views.py:205
+#: dashboards/project/databases/views.py:145
+#: dashboards/project/databases/templates/databases/_resize_volume.html:9
+#: dashboards/project/databases/templates/databases/_resize_volume.html:24
+#: dashboards/project/databases/templates/databases/resize_volume.html:3
+msgid "Resize Database Volume"
+msgstr "更改資料庫儲存空間容量"
+
+#: dashboards/project/databases/views.py:172
+#: dashboards/project/databases/templates/databases/_resize_instance.html:9
+#: dashboards/project/databases/templates/databases/_resize_instance.html:23
+#: dashboards/project/databases/templates/databases/resize_instance.html:3
+msgid "Resize Database Instance"
+msgstr ""
+
+#: dashboards/project/databases/views.py:209
 #: dashboards/project/instances/views.py:379
 msgid "Unable to retrieve flavors."
 msgstr "無法取回虛擬硬體樣板。"
@@ -8952,23 +8977,9 @@ msgstr "可用的網路"
 msgid "Create this database from a previous backup."
 msgstr "從先前的備份新增這個資料庫"
 
-#: dashboards/project/databases/templates/databases/_resize_instance.html:9
-#: dashboards/project/databases/templates/databases/_resize_instance.html:23
-#: dashboards/project/databases/templates/databases/resize_instance.html:3
-#: dashboards/project/databases/templates/databases/resize_instance.html:6
-msgid "Resize Database Instance"
-msgstr ""
-
 #: dashboards/project/databases/templates/databases/_resize_instance.html:18
 msgid "Specify a new flavor for the database instance."
 msgstr ""
-
-#: dashboards/project/databases/templates/databases/_resize_volume.html:9
-#: dashboards/project/databases/templates/databases/_resize_volume.html:24
-#: dashboards/project/databases/templates/databases/resize_volume.html:3
-#: dashboards/project/databases/templates/databases/resize_volume.html:6
-msgid "Resize Database Volume"
-msgstr "更改資料庫儲存空間容量"
 
 #: dashboards/project/databases/templates/databases/_resize_volume.html:18
 msgid "Specify the new volume size for the database instance."
@@ -8984,10 +8995,6 @@ msgstr "<strong>請留意：</strong>新值必須大於已存在的儲存空間�
 #: dashboards/project/instances/templates/instances/detail.html:3
 msgid "Instance Details"
 msgstr "執行實例詳細資訊"
-
-#: dashboards/project/databases/templates/databases/launch.html:6
-msgid "Launch Database"
-msgstr "發動資料庫"
 
 #: dashboards/project/databases/templates/databases/update.html:3
 #: dashboards/project/databases/templates/databases/update.html:6
@@ -9192,7 +9199,7 @@ msgstr "更新規則 %(name)s 時失敗：%(reason)s"
 
 #: dashboards/project/firewalls/forms.py:102
 #: dashboards/project/firewalls/tables.py:235
-#: dashboards/project/firewalls/workflows.py:179
+#: dashboards/project/firewalls/workflows.py:180
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:34
 msgid "Audited"
 msgstr "已審核"
@@ -9209,82 +9216,82 @@ msgstr "更新政策 %(name)s 時失敗：%(reason)s"
 
 #: dashboards/project/firewalls/forms.py:130
 #: dashboards/project/firewalls/tables.py:251
-#: dashboards/project/firewalls/workflows.py:234
+#: dashboards/project/firewalls/workflows.py:235
 msgid "Policy"
 msgstr "政策"
 
-#: dashboards/project/firewalls/forms.py:145
+#: dashboards/project/firewalls/forms.py:146
 msgid "Unable to retrieve policy list."
 msgstr "無法取回政策列表。"
 
-#: dashboards/project/firewalls/forms.py:165
+#: dashboards/project/firewalls/forms.py:166
 #, python-format
 msgid "Firewall %s was successfully updated."
 msgstr "已成功更新防火牆 %s。"
 
-#: dashboards/project/firewalls/forms.py:170
+#: dashboards/project/firewalls/forms.py:171
 #, python-format
 msgid "Failed to update firewall %(name)s: %(reason)s"
 msgstr "更新防火牆 %(name)s 時失敗：%(reason)s"
 
-#: dashboards/project/firewalls/forms.py:178
+#: dashboards/project/firewalls/forms.py:179
 #: dashboards/project/firewalls/tables.py:156
 msgid "Insert Rule"
 msgstr "插入規則"
 
-#: dashboards/project/firewalls/forms.py:179
+#: dashboards/project/firewalls/forms.py:180
 msgid "Before"
 msgstr "之前"
 
-#: dashboards/project/firewalls/forms.py:181
+#: dashboards/project/firewalls/forms.py:182
 msgid "After"
 msgstr "之後"
 
-#: dashboards/project/firewalls/forms.py:205
+#: dashboards/project/firewalls/forms.py:207
 #, python-format
 msgid "Failed to retrieve available rules: %s"
 msgstr "無法取回可用的規則：%s"
 
-#: dashboards/project/firewalls/forms.py:224
+#: dashboards/project/firewalls/forms.py:226
 #, python-format
 msgid "Rule %(rule)s was successfully inserted to policy %(policy)s."
 msgstr "已成功插入規則 %(rule)s 到政策 %(policy)s 中。"
 
-#: dashboards/project/firewalls/forms.py:232
+#: dashboards/project/firewalls/forms.py:234
 #, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr "插入規則到政策 %(name)s 中時失敗：%(reason)s"
 
-#: dashboards/project/firewalls/forms.py:240
+#: dashboards/project/firewalls/forms.py:242
 #: dashboards/project/firewalls/tables.py:170
 msgid "Remove Rule"
 msgstr "移除規則"
 
-#: dashboards/project/firewalls/forms.py:257
+#: dashboards/project/firewalls/forms.py:260
 #, python-format
 msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
 msgstr "取回目前政策 %(name)s 裡的規則時失敗：%(reason)s"
 
-#: dashboards/project/firewalls/forms.py:273
+#: dashboards/project/firewalls/forms.py:276
 #, python-format
 msgid "Rule %(rule)s was successfully removed from policy %(policy)s."
 msgstr "已成功從政策 %(policy)s 裡移除規則 %(rule)s。"
 
-#: dashboards/project/firewalls/forms.py:281
+#: dashboards/project/firewalls/forms.py:284
 #, python-format
 msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr "從政策 %(name)s 裡移除規則時失敗：%(reason)s"
 
 #: dashboards/project/firewalls/panel.py:26
 #: dashboards/project/firewalls/tables.py:257
-#: dashboards/project/firewalls/tabs.py:65
+#: dashboards/project/firewalls/tabs.py:69
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:6
 msgid "Firewalls"
 msgstr "防火牆"
 
 #: dashboards/project/firewalls/tables.py:35
-#: dashboards/project/firewalls/workflows.py:207
+#: dashboards/project/firewalls/workflows.py:208
 msgid "Add Policy"
 msgstr "加入政策"
 
@@ -9376,47 +9383,47 @@ msgstr "政策"
 msgid "Firewall Rules"
 msgstr "防火牆規則"
 
-#: dashboards/project/firewalls/tabs.py:41
+#: dashboards/project/firewalls/tabs.py:43
 msgid "Unable to retrieve rules list."
 msgstr "無法取回規則列表。"
 
-#: dashboards/project/firewalls/tabs.py:48
+#: dashboards/project/firewalls/tabs.py:50
 msgid "Firewall Policies"
 msgstr "防火牆政策"
 
-#: dashboards/project/firewalls/tabs.py:58
+#: dashboards/project/firewalls/tabs.py:62
 msgid "Unable to retrieve policies list."
 msgstr "無法取回政策列表。"
 
-#: dashboards/project/firewalls/tabs.py:75
+#: dashboards/project/firewalls/tabs.py:81
 msgid "Unable to retrieve firewall list."
 msgstr "無法取回防火牆列表。"
 
-#: dashboards/project/firewalls/tabs.py:81
+#: dashboards/project/firewalls/tabs.py:87
 msgid "Firewall Rule Details"
 msgstr "防火牆規則詳細資訊"
 
-#: dashboards/project/firewalls/tabs.py:92
+#: dashboards/project/firewalls/tabs.py:98
 #: dashboards/project/firewalls/views.py:145
 msgid "Unable to retrieve rule details."
 msgstr "無法取回規則詳細資訊。"
 
-#: dashboards/project/firewalls/tabs.py:98
+#: dashboards/project/firewalls/tabs.py:104
 msgid "Firewall Policy Details"
 msgstr "防火牆政策詳細資訊"
 
-#: dashboards/project/firewalls/tabs.py:109
+#: dashboards/project/firewalls/tabs.py:115
 #: dashboards/project/firewalls/views.py:181
 #: dashboards/project/firewalls/views.py:247
 #: dashboards/project/firewalls/views.py:280
 msgid "Unable to retrieve policy details."
 msgstr "無法取回政策詳細資訊。"
 
-#: dashboards/project/firewalls/tabs.py:115
+#: dashboards/project/firewalls/tabs.py:121
 msgid "Firewall Details"
 msgstr "防火牆詳細資訊"
 
-#: dashboards/project/firewalls/tabs.py:126
+#: dashboards/project/firewalls/tabs.py:132
 #: dashboards/project/firewalls/views.py:215
 msgid "Unable to retrieve firewall details."
 msgstr "無法取回防火牆詳細資訊。"
@@ -9495,62 +9502,62 @@ msgstr "以選擇的規則新增一個政策。"
 msgid "Select rules for your policy."
 msgstr "為您的政策選擇規則。"
 
-#: dashboards/project/firewalls/workflows.py:151
+#: dashboards/project/firewalls/workflows.py:152
 #, python-format
 msgid "Unable to retrieve rules (%(error)s)."
 msgstr "無法取回規則。（%(error)s）"
 
-#: dashboards/project/firewalls/workflows.py:187
+#: dashboards/project/firewalls/workflows.py:188
 msgid "AddPolicy"
 msgstr "加入政策"
 
-#: dashboards/project/firewalls/workflows.py:189
+#: dashboards/project/firewalls/workflows.py:190
 msgid ""
 "Create a firewall policy with an ordered list of firewall rules.\n"
 "\n"
 "A name must be given. Firewall rules are added in the order placed under the Rules tab."
 msgstr "以一個排序過的防火牆規則列表新增一個防火牆政策。\n\n必須取一個名稱。在規則標籤下以順序放置加入防火牆規則。"
 
-#: dashboards/project/firewalls/workflows.py:209
+#: dashboards/project/firewalls/workflows.py:210
 #, python-format
 msgid "Added Policy \"%s\"."
 msgstr "加入了政策「%s」。"
 
-#: dashboards/project/firewalls/workflows.py:210
+#: dashboards/project/firewalls/workflows.py:211
 #, python-format
 msgid "Unable to add Policy \"%s\"."
 msgstr "無法加入政策「%s」。"
 
-#: dashboards/project/firewalls/workflows.py:245
+#: dashboards/project/firewalls/workflows.py:246
 msgid "Select a Policy"
 msgstr "選擇一個政策"
 
-#: dashboards/project/firewalls/workflows.py:252
+#: dashboards/project/firewalls/workflows.py:254
 #, python-format
 msgid "Unable to retrieve policy list (%(error)s)."
 msgstr "無法取回政策列表。（%(error)s）"
 
-#: dashboards/project/firewalls/workflows.py:263
+#: dashboards/project/firewalls/workflows.py:265
 msgid "AddFirewall"
 msgstr "加入防火牆"
 
-#: dashboards/project/firewalls/workflows.py:265
+#: dashboards/project/firewalls/workflows.py:267
 msgid ""
 "Create a firewall based on a policy.\n"
 "\n"
 "A policy must be selected. Other fields are optional."
 msgstr "新增一道基於一個政策的防火牆。\n\n必須選擇一個政策。其他地方是選填的。"
 
-#: dashboards/project/firewalls/workflows.py:283
+#: dashboards/project/firewalls/workflows.py:285
 msgid "Add Firewall"
 msgstr "加入防火牆"
 
-#: dashboards/project/firewalls/workflows.py:285
+#: dashboards/project/firewalls/workflows.py:287
 #, python-format
 msgid "Added Firewall \"%s\"."
 msgstr "加入了防火牆「%s」。"
 
-#: dashboards/project/firewalls/workflows.py:286
+#: dashboards/project/firewalls/workflows.py:288
 #, python-format
 msgid "Unable to add Firewall \"%s\"."
 msgstr "無法加入防火牆「%s」。"
@@ -12071,25 +12078,29 @@ msgid "Load Balancer"
 msgstr "負載平衡器"
 
 #: dashboards/project/network_topology/panel.py:27
+#: dashboards/project/network_topology/views.py:101
 #: dashboards/project/network_topology/templates/network_topology/index.html:4
-#: dashboards/project/network_topology/templates/network_topology/index.html:7
 msgid "Network Topology"
 msgstr "網路拓撲"
 
-#: dashboards/project/network_topology/views.py:171
+#: dashboards/project/network_topology/views.py:58
+msgid "Create a Router"
+msgstr "新增一個路由器"
+
+#: dashboards/project/network_topology/views.py:173
 msgid "No console available."
 msgstr ""
 
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:9
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:20
 #: dashboards/project/network_topology/templates/network_topology/create_router.html:3
-#: dashboards/project/network_topology/templates/network_topology/index.html:41
+#: dashboards/project/network_topology/templates/network_topology/index.html:37
 #: dashboards/project/routers/tables.py:85
 #: dashboards/project/routers/tables.py:98
+#: dashboards/project/routers/views.py:152
 #: dashboards/project/routers/templates/routers/_create.html:9
 #: dashboards/project/routers/templates/routers/_create.html:20
 #: dashboards/project/routers/templates/routers/create.html:3
-#: dashboards/project/routers/templates/routers/create.html:6
 msgid "Create Router"
 msgstr "新增路由器"
 
@@ -12099,37 +12110,33 @@ msgstr "新增路由器"
 msgid "Router"
 msgstr "路由器"
 
-#: dashboards/project/network_topology/templates/network_topology/create_router.html:6
-msgid "Create a Router"
-msgstr "新增一個路由器"
-
-#: dashboards/project/network_topology/templates/network_topology/index.html:13
+#: dashboards/project/network_topology/templates/network_topology/index.html:9
 msgid "This pane needs javascript support."
 msgstr "此頁面需要 JavaScript 支援。"
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:25
+#: dashboards/project/network_topology/templates/network_topology/index.html:21
 msgid "Small"
 msgstr "縮小"
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:30
+#: dashboards/project/network_topology/templates/network_topology/index.html:26
 msgid "Normal"
 msgstr "適中"
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:35
+#: dashboards/project/network_topology/templates/network_topology/index.html:31
 msgid "Launch Instance (Quota exceeded)"
 msgstr ""
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:38
+#: dashboards/project/network_topology/templates/network_topology/index.html:34
 #: dashboards/project/networks/tables.py:98
 msgid "Create Network (Quota exceeded)"
 msgstr ""
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:41
+#: dashboards/project/network_topology/templates/network_topology/index.html:37
 #: dashboards/project/routers/tables.py:96
 msgid "Create Router (Quota exceeded)"
 msgstr ""
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:47
+#: dashboards/project/network_topology/templates/network_topology/index.html:43
 msgid "There are no networks, routers, or connected instances to display."
 msgstr "無網路、路由器或已連接的執行實例可以列出。"
 
@@ -12142,11 +12149,11 @@ msgstr "加入子網路"
 msgid "Add Subnet (Quota exceeded)"
 msgstr ""
 
-#: dashboards/project/networks/views.py:87
+#: dashboards/project/networks/views.py:89
 msgid "Unable to retrieve network details."
 msgstr "無法取回網路詳細資訊。"
 
-#: dashboards/project/networks/views.py:101
+#: dashboards/project/networks/views.py:103
 msgid "Network Details: {{ network.name }}"
 msgstr ""
 
@@ -12264,9 +12271,9 @@ msgid ""
 msgstr "額外的路由發佈到主機。每個條目就像：destination_cidr,nexthop（如 192.168.200.0/24,10.56.1.254）並且一行一個條目。"
 
 #: dashboards/project/networks/workflows.py:255
+#: dashboards/project/networks/subnets/views.py:103
 #: dashboards/project/networks/subnets/workflows.py:148
 #: dashboards/project/networks/templates/networks/subnets/detail.html:3
-#: dashboards/project/networks/templates/networks/subnets/detail.html:6
 msgid "Subnet Details"
 msgstr ""
 
@@ -12382,7 +12389,12 @@ msgstr ""
 msgid "Attached Device"
 msgstr "已附加的裝置"
 
-#: dashboards/project/networks/ports/views.py:99
+#: dashboards/project/networks/ports/views.py:39
+#: dashboards/project/networks/templates/networks/ports/detail.html:3
+msgid "Port Details"
+msgstr ""
+
+#: dashboards/project/networks/ports/views.py:101
 msgid "Unable to retrieve port details"
 msgstr "無法取回接口詳細資訊"
 
@@ -12412,7 +12424,7 @@ msgstr ""
 msgid "Unable to retrieve subnet details"
 msgstr "無法取回子網路詳細資訊"
 
-#: dashboards/project/networks/subnets/views.py:111
+#: dashboards/project/networks/subnets/views.py:112
 msgid "Unable to retrieve subnet details."
 msgstr "無法取回子網路詳細資訊。"
 
@@ -12529,11 +12541,6 @@ msgstr "MAC 位址"
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:45
 msgid "No attached device"
 msgstr "無附加的裝置"
-
-#: dashboards/project/networks/templates/networks/ports/detail.html:3
-#: dashboards/project/networks/templates/networks/ports/detail.html:6
-msgid "Port Details"
-msgstr ""
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:4
 msgid "Subnet Overview"
@@ -12658,10 +12665,10 @@ msgid "Unable to delete router \"%s\""
 msgstr "無法刪除路由器「%s」"
 
 #: dashboards/project/routers/tables.py:115
+#: dashboards/project/routers/ports/views.py:68
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:9
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:24
 #: dashboards/project/routers/templates/routers/ports/setgateway.html:3
-#: dashboards/project/routers/templates/routers/ports/setgateway.html:6
 msgid "Set Gateway"
 msgstr "設定閘道"
 
@@ -12696,16 +12703,16 @@ msgid "HA mode"
 msgstr "高可用性模式"
 
 #: dashboards/project/routers/tabs.py:52
-#: dashboards/project/routers/views.py:168
+#: dashboards/project/routers/views.py:172
 msgid "Unable to retrieve router details."
 msgstr "無法取回路由器詳細資訊。"
 
-#: dashboards/project/routers/views.py:72
+#: dashboards/project/routers/views.py:73
 #, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
 msgstr "無法取回一份對外網路「%s」的列表。"
 
-#: dashboards/project/routers/views.py:85
+#: dashboards/project/routers/views.py:86
 #, python-format
 msgid ""
 "External network \"%(ext_net_id)s\" expected but not found for router "
@@ -12713,18 +12720,18 @@ msgid ""
 msgstr "預計但是不能為路由器「%(router_id)s」找到對外網路「%(ext_net_id)s」。"
 
 #. Translators: The usage is "<UUID of ext_net> (Not Found)"
-#: dashboards/project/routers/views.py:93
+#: dashboards/project/routers/views.py:94
 #, python-format
 msgctxt "External network not found"
 msgid "%s (Not Found)"
 msgstr "%s（找不到）"
 
-#: dashboards/project/routers/views.py:108
+#: dashboards/project/routers/views.py:110
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr "無法取回路由器「%s」的詳細資訊。"
 
-#: dashboards/project/routers/views.py:119
+#: dashboards/project/routers/views.py:121
 #, python-format
 msgid "Unable to retrieve an external network \"%s\"."
 msgstr "無法取回一條對外網路「%s」。"
@@ -12766,9 +12773,9 @@ msgid "Failed to add router rule %s"
 msgstr "加入路由器規則 %s 時失敗"
 
 #: dashboards/project/routers/extensions/routerrules/tables.py:32
+#: dashboards/project/routers/extensions/routerrules/views.py:37
 #: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:9
 #: dashboards/project/routers/templates/routers/extensions/routerrules/create.html:3
-#: dashboards/project/routers/templates/routers/extensions/routerrules/create.html:6
 msgid "Add Router Rule"
 msgstr "加入路由器規則"
 
@@ -12786,8 +12793,8 @@ msgstr[0] ""
 msgid "Router Rules Grid"
 msgstr "路由器規則表"
 
-#: dashboards/project/routers/extensions/routerrules/views.py:49
-#: dashboards/project/routers/ports/views.py:48
+#: dashboards/project/routers/extensions/routerrules/views.py:50
+#: dashboards/project/routers/ports/views.py:49
 msgid "Unable to retrieve router."
 msgstr "無法取回路由器。"
 
@@ -12858,9 +12865,9 @@ msgid "Internal Interface"
 msgstr "內部網路卡介面"
 
 #: dashboards/project/routers/ports/tables.py:43
+#: dashboards/project/routers/ports/views.py:36
 #: dashboards/project/routers/templates/routers/ports/_create.html:9
 #: dashboards/project/routers/templates/routers/ports/create.html:3
-#: dashboards/project/routers/templates/routers/ports/create.html:6
 msgid "Add Interface"
 msgstr "加入網路卡介面"
 
@@ -12899,7 +12906,7 @@ msgctxt "current status of port"
 msgid "Error"
 msgstr "錯誤"
 
-#: dashboards/project/routers/ports/views.py:78
+#: dashboards/project/routers/ports/views.py:80
 msgid "Unable to set gateway."
 msgstr "無法設定閘道"
 
@@ -13369,12 +13376,12 @@ msgid "Check Failed"
 msgstr ""
 
 #: dashboards/project/stacks/tables.py:300
-#: dashboards/project/stacks/tables.py:345
+#: dashboards/project/stacks/tables.py:349
 msgid "Stack Resource"
 msgstr "機櫃資源"
 
 #: dashboards/project/stacks/tables.py:303
-#: dashboards/project/stacks/tables.py:348
+#: dashboards/project/stacks/tables.py:352
 #: dashboards/project/stacks/resource_types/tables.py:38
 msgid "Resource"
 msgstr "資源"
@@ -13384,7 +13391,7 @@ msgid "Time Since Event"
 msgstr "事件已過時間"
 
 #: dashboards/project/stacks/tables.py:314
-#: dashboards/project/stacks/tables.py:363
+#: dashboards/project/stacks/tables.py:365
 msgid "Status Reason"
 msgstr "狀態原因"
 
@@ -13392,16 +13399,16 @@ msgstr "狀態原因"
 msgid "Stack Events"
 msgstr "機櫃事件"
 
-#: dashboards/project/stacks/tables.py:351
+#: dashboards/project/stacks/tables.py:355
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:25
 msgid "Stack Resource Type"
 msgstr "機櫃資源類型"
 
-#: dashboards/project/stacks/tables.py:353
+#: dashboards/project/stacks/tables.py:357
 msgid "Date Updated"
 msgstr "更新日期"
 
-#: dashboards/project/stacks/tables.py:376
+#: dashboards/project/stacks/tables.py:383
 msgid "Stack Resources"
 msgstr "機櫃資源"
 
@@ -15279,8 +15286,8 @@ msgstr "Cisco Nexus 1000v"
 
 #: dashboards/router/nexus1000v/tables.py:29
 #: dashboards/router/nexus1000v/views.py:107
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:9
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:27
+#: dashboards/router/nexus1000v/views.py:109
+#: dashboards/router/nexus1000v/views.py:112
 #: dashboards/router/nexus1000v/templates/nexus1000v/create_network_profile.html:3
 msgid "Create Network Profile"
 msgstr "新增網路基本資料"
@@ -15301,7 +15308,7 @@ msgid "Failed to delete network profile (%s)."
 msgstr "刪除網路基本資料（%s）時失敗。"
 
 #: dashboards/router/nexus1000v/tables.py:64
-#: dashboards/router/nexus1000v/templates/nexus1000v/_update_network_profile.html:8
+#: dashboards/router/nexus1000v/views.py:118
 msgid "Edit Network Profile"
 msgstr "編輯網路基本資料"
 
@@ -15315,46 +15322,46 @@ msgstr "實體網路名稱"
 msgid "Policy Profile"
 msgstr "政策基本資料"
 
-#: dashboards/router/nexus1000v/views.py:70
-#: dashboards/router/nexus1000v/views.py:79
-#: dashboards/router/nexus1000v/views.py:94
+#: dashboards/router/nexus1000v/views.py:71
+#: dashboards/router/nexus1000v/views.py:80
+#: dashboards/router/nexus1000v/views.py:95
 msgid "Cisco Nexus 1000V"
 msgstr "Cisco Nexus 1000V"
 
-#: dashboards/router/nexus1000v/views.py:115
+#: dashboards/router/nexus1000v/views.py:124
 #: dashboards/router/nexus1000v/templates/nexus1000v/update_network_profile.html:3
 msgid "Update Network Profile"
 msgstr "更新網路基本資料"
 
-#: dashboards/router/nexus1000v/views.py:133
+#: dashboards/router/nexus1000v/views.py:144
 msgid "Unable to retrieve network profile details."
 msgstr "無法取回網路基本資料的詳細資訊。"
 
-#: dashboards/router/nexus1000v/views.py:144
+#: dashboards/router/nexus1000v/views.py:155
 msgid "Failed to obtain network profile binding"
 msgstr "取得網路基本資料綁定時失敗"
 
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:19
+#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:6
 msgid "Name:"
 msgstr "名稱："
 
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:19
+#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:6
 msgid " Select a name for your network profile."
 msgstr "為您的網路基本資料取一個名稱。"
 
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:20
+#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:7
 msgid "Segment Type:"
 msgstr ""
 
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:20
+#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:7
 msgid " Segment types available are VLAN, Overlay and Trunk."
 msgstr "可用的區段類型為虛擬區域網路、覆蓋及主幹。"
 
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:21
+#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:8
 msgid "Segment Sub Type:"
 msgstr ""
 
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:21
+#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:8
 msgid ""
 " Sub types available are for the Overlay and Trunk segments. Available sub-"
 "types for Overlay are: Native-VXLAN, Enhanced-VXLAN or 'Other' (eg. GRE) "
@@ -15362,17 +15369,17 @@ msgid ""
 "sub-type for Trunk is: VLAN."
 msgstr "子類型可用於覆蓋及主幹的區段。覆蓋可用的子類型為：基本型 VXLAN、增強型 VXLAN 或可手動輸入的「其他」（如 GRE）。主幹可用的子類型為：虛擬區域網路。"
 
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:22
+#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:9
 msgid "Segment Range:"
 msgstr ""
 
-#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:22
+#: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:9
 msgid ""
 " Segment Ranges are 1-4093 for VLAN and above 5000 for Enhanced-VXLAN "
 "Overlay."
 msgstr "區段範圍 1-4093 給虛擬區域網路，而高於 5000 則給增強型 VXLAN 覆蓋。"
 
-#: dashboards/router/nexus1000v/templates/nexus1000v/_update_network_profile.html:18
+#: dashboards/router/nexus1000v/templates/nexus1000v/_update_network_profile.html:6
 msgid ""
 "Edit the network profile to update name, segment range or multicast IP "
 "range."
@@ -15409,9 +15416,9 @@ msgid "Changing password is not supported."
 msgstr "不支援變更密碼。"
 
 #: dashboards/settings/password/panel.py:23
+#: dashboards/settings/password/views.py:26
 #: dashboards/settings/password/templates/password/_change.html:9
 #: dashboards/settings/password/templates/password/change.html:3
-#: dashboards/settings/password/templates/password/change.html:6
 msgid "Change Password"
 msgstr "變更密碼"
 
@@ -15470,10 +15477,9 @@ msgstr ""
 msgid "Settings saved."
 msgstr "已儲存設定。"
 
-#: dashboards/settings/user/panel.py:23
+#: dashboards/settings/user/panel.py:23 dashboards/settings/user/views.py:26
 #: dashboards/settings/user/templates/user/_settings.html:9
 #: dashboards/settings/user/templates/user/settings.html:3
-#: dashboards/settings/user/templates/user/settings.html:6
 msgid "User Settings"
 msgstr "使用者設定"
 
@@ -15545,6 +15551,10 @@ msgstr "專案："
 #: templates/context_selection/_region_list.html:7
 msgid "Regions:"
 msgstr "地區："
+
+#: test/test_panels/plugin_panel/views.py:20
+msgid "Plugin-based Panel"
+msgstr ""
 
 #: usage/base.py:74
 msgid "Invalid date format: Using today as default."
