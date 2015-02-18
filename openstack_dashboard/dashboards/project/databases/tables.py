@@ -14,6 +14,7 @@
 
 from django.core import urlresolvers
 from django.template import defaultfilters as d_filters
+from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
@@ -258,6 +259,29 @@ class InstancesTable(tables.DataTable):
         ("ERROR", False),
         ("RESTART_REQUIRED", None),
     )
+    STATUS_DISPLAY_CHOICES = (
+        ("ACTIVE", pgettext_lazy("Current status of a Database Instance",
+                                 u"Active")),
+        ("BLOCKED", pgettext_lazy("Current status of a Database Instance",
+                                  u"Blocked")),
+        ("BUILD", pgettext_lazy("Current status of a Database Instance",
+                                u"Build")),
+        ("FAILED", pgettext_lazy("Current status of a Database Instance",
+                                 u"Failed")),
+        ("REBOOT", pgettext_lazy("Current status of a Database Instance",
+                                 u"Reboot")),
+        ("RESIZE", pgettext_lazy("Current status of a Database Instance",
+                                 u"Resize")),
+        ("BACKUP", pgettext_lazy("Current status of a Database Instance",
+                                 u"Backup")),
+        ("SHUTDOWN", pgettext_lazy("Current status of a Database Instance",
+                                   u"Shutdown")),
+        ("ERROR", pgettext_lazy("Current status of a Database Instance",
+                                u"Error")),
+        ("RESTART_REQUIRED",
+         pgettext_lazy("Current status of a Database Instance",
+                       u"Restart Required")),
+    )
     name = tables.Column("name",
                          link=("horizon:project:databases:detail"),
                          verbose_name=_("Instance Name"))
@@ -273,11 +297,10 @@ class InstancesTable(tables.DataTable):
                            verbose_name=_("Volume Size"),
                            attrs={'data-type': 'size'})
     status = tables.Column("status",
-                           filters=(d_filters.title,
-                                    filters.replace_underscores),
                            verbose_name=_("Status"),
                            status=True,
-                           status_choices=STATUS_CHOICES)
+                           status_choices=STATUS_CHOICES,
+                           display_choices=STATUS_DISPLAY_CHOICES)
 
     class Meta(object):
         name = "databases"
@@ -337,12 +360,12 @@ class InstanceBackupsTable(tables.DataTable):
                                 verbose_name=_("Incremental"),
                                 filters=(d_filters.yesno,
                                          d_filters.capfirst))
-    status = tables.Column("status",
-                           filters=(d_filters.title,
-                                    filters.replace_underscores),
-                           verbose_name=_("Status"),
-                           status=True,
-                           status_choices=backup_tables.STATUS_CHOICES)
+    status = tables.Column(
+        "status",
+        verbose_name=_("Status"),
+        status=True,
+        status_choices=backup_tables.STATUS_CHOICES,
+        display_choices=backup_tables.STATUS_DISPLAY_CHOICES)
 
     class Meta(object):
         name = "backups"
