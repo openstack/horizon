@@ -37,6 +37,7 @@ from openstack_dashboard.dashboards.idm.myApplications \
 from openstack_dashboard.dashboards.idm.myApplications \
     import workflows as application_workflows
 
+
 LOG = logging.getLogger('idm_logger')
 
 class IndexView(tabs.TabbedTableView):
@@ -110,6 +111,7 @@ class CreateRoleView(forms.ModalFormView):
         initial['application_id'] = self.kwargs['application_id']
         return initial
 
+
 class EditRoleView(forms.ModalFormView):
     form_class = application_forms.EditRoleForm
     template_name = 'idm/myApplications/roles/role_edit.html'
@@ -131,6 +133,7 @@ class EditRoleView(forms.ModalFormView):
         initial['name'] = role.name
         return initial
 
+
 class DeleteRoleView(forms.ModalFormView):
     form_class = application_forms.DeleteRoleForm
     template_name = 'idm/myApplications/roles/role_delete.html'
@@ -150,6 +153,7 @@ class DeleteRoleView(forms.ModalFormView):
         initial = super(DeleteRoleView, self).get_initial()
         initial['role_id'] = self.kwargs['role_id']
         return initial
+
 
 class CreatePermissionView(forms.ModalFormView):
     form_class = application_forms.CreatePermissionForm
@@ -273,8 +277,10 @@ class BaseApplicationsMultiFormView(idm_views.BaseMultiFormView):
 class CreateApplicationFormHandleView(BaseApplicationsMultiFormView):
     form_to_handle_class = application_forms.CreateApplicationForm
 
+
 class AvatarFormHandleView(BaseApplicationsMultiFormView):
     form_to_handle_class = application_forms.AvatarForm
+
 
 class CancelFormHandleView(BaseApplicationsMultiFormView):
     form_to_handle_class = application_forms.CancelForm
