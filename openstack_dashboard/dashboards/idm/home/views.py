@@ -56,21 +56,10 @@ class IndexView(tables.MultiTableView):
         applications = []
         try:
             # TODO(garcianavalon) extract to fiware_api
-            providing_role = getattr(settings, 'PROVIDER_ROLE_ID', None)
-            if not providing_role:
-                LOG.warning('Missing PROVIDER_ROLE_ID in local_settings.py')
-                return []
-            purchaser_role = getattr(settings, 'PURCHASER_ROLE_ID', None)
-            if not purchaser_role:
-                LOG.warning('Missing PURCHASER_ROLE_ID in local_settings.py')
-                return []
-            
             all_apps = fiware_api.keystone.application_list(self.request)
             apps_with_roles = [a.application_id for a 
                                in fiware_api.keystone.user_role_assignments(
-                               self.request, user=self.request.user.id)
-                               if a.role_id == providing_role
-                               or a.role_id == purchaser_role]
+                               self.request, user=self.request.user.id)]
             applications = [app for app in all_apps 
                             if app.id in apps_with_roles]
         except Exception:
