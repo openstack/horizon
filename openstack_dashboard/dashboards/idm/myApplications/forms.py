@@ -25,7 +25,9 @@ from horizon import messages
 from horizon.utils import functions as utils
 
 from openstack_dashboard import fiware_api
+from openstack_dashboard import api
 from openstack_dashboard.dashboards.idm import forms as idm_forms
+from openstack_dashboard.local import local_settings
 
 
 LOG = logging.getLogger('idm_logger')
@@ -62,6 +64,21 @@ class CreateApplicationForm(forms.SelfHandlingForm):
                                                 # img_small=img_small,
                                                 # img_medium=img_medium,
                                                 # img_original=img_original)
+                provider = local_settings.PROVIDER_ROLE_ID
+                user = request.user
+                (organizations, has_more_data) = api.keystone.tenant_list(request, user=user)
+                print organizations
+                print user
+                print user.username
+                for org in organizations:
+                    if getattr(org, 'name',None) == user.username:
+                        print 'True'
+                        organization = org
+                fiware_api.keystone.add_role_to_user(request,
+                                                     role=provider,
+                                                     user=user,
+                                                     organization=organization,
+                                                     application=application)
                 LOG.debug('Application {0} created'.format(application.name))
             except Exception:
                 exceptions.handle(request, _('Unable to register the application.'))
@@ -220,7 +237,7 @@ class CancelForm(forms.SelfHandlingForm):
     title = 'Cancel'
 
     def handle(self, request, data, application):
-        image = application.extra['img_original']
+        image = getattr(application, 'img_original', '')
         LOG.debug(image)
         if "ApplicationAvatar" in image:
             os.remove(AVATAR_SMALL + application.id)
