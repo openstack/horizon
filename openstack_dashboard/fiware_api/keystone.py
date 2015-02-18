@@ -200,6 +200,27 @@ def user_role_assignments(request, user=None, organization=None,
                                               organization=organization,
                                               application=application)
 # ROLE-ORGANIZATIONS
+def add_role_to_organization(request, role, organization, application):
+    manager = api.keystone.keystoneclient(
+        request, admin=True).fiware_roles.roles
+    return manager.add_to_organization(role, organization, application)
+
+def remove_role_from_organization(request, role, organization, application):
+    manager = api.keystone.keystoneclient(
+        request, admin=True).fiware_roles.roles
+    return manager.remove_from_organization(role, organization, application)
+
+def list_organization_allowed_roles_to_assign(request, organization):
+    manager = api.keystone.keystoneclient(
+        request, admin=True).fiware_roles.roles
+    return manager.list_organization_allowed_roles_to_assign(organization)
+
+def organization_role_assignments(request, organization=None,
+                                  application=None):    
+    manager = api.keystone.keystoneclient(
+        request, admin=True).fiware_roles.role_assignments
+    return manager.list_organization_role_assignments(
+        organization=organization, application=application)
 
 # PERMISSIONS
 def permission_get(request, permission_id):

@@ -44,4 +44,6 @@ urlpatterns = patterns('',
         views.DetailApplicationView.as_view(), name='detail'),
     url(r'^(?P<application_id>[^/]+)/edit/members/$', 
         views.AuthorizedMembersView.as_view(), name='members'),
+    url(r'^(?P<application_id>[^/]+)/edit/organizations/$', 
+        views.AuthorizedOrganizationsView.as_view(), name='organizations'),
 )
