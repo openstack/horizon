@@ -29,7 +29,11 @@ from openstack_dashboard.dashboards.admin.networks.ports \
 
 class CreateView(forms.ModalFormView):
     form_class = project_forms.CreatePort
+    form_id = "create_port_form"
+    modal_header = _("Create Port")
     template_name = 'admin/networks/ports/create.html'
+    submit_label = _("Create Port")
+    submit_url = "horizon:admin:networks:addport"
     success_url = 'horizon:admin:networks:detail'
     failure_url = 'horizon:admin:networks:detail'
 
@@ -51,6 +55,8 @@ class CreateView(forms.ModalFormView):
     def get_context_data(self, **kwargs):
         context = super(CreateView, self).get_context_data(**kwargs)
         context['network'] = self.get_object()
+        args = (self.kwargs['network_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
         return context
 
     def get_initial(self):
@@ -63,4 +69,5 @@ class UpdateView(project_views.UpdateView):
     form_class = project_forms.UpdatePort
     template_name = 'admin/networks/ports/update.html'
     context_object_name = 'port'
+    submit_url = "horizon:admin:networks:editport"
     success_url = 'horizon:admin:networks:detail'

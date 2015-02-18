@@ -29,7 +29,9 @@ LOG = logging.getLogger(__name__)
 
 class UpdatePort(forms.SelfHandlingForm):
     network_id = forms.CharField(widget=forms.HiddenInput())
-    port_id = forms.CharField(widget=forms.HiddenInput())
+    port_id = forms.CharField(label=_("ID"),
+                              widget=forms.TextInput(
+                              attrs={'readonly': 'readonly'}))
     name = forms.CharField(max_length=255,
                            label=_("Name"),
                            required=False)
