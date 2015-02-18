@@ -38,6 +38,7 @@ from openstack_dashboard.dashboards.idm.myApplications \
 from openstack_dashboard.dashboards.idm.myApplications \
     import workflows as application_workflows
 
+
 LOG = logging.getLogger('idm_logger')
 
 class IndexView(tabs.TabbedTableView):
@@ -116,6 +117,7 @@ class CreateRoleView(forms.ModalFormView):
         initial['application_id'] = self.kwargs['application_id']
         return initial
 
+
 class EditRoleView(forms.ModalFormView):
     form_class = application_forms.EditRoleForm
     template_name = 'idm/myApplications/roles/role_edit.html'
@@ -137,6 +139,7 @@ class EditRoleView(forms.ModalFormView):
         initial['name'] = role.name
         return initial
 
+
 class DeleteRoleView(forms.ModalFormView):
     form_class = application_forms.DeleteRoleForm
     template_name = 'idm/myApplications/roles/role_delete.html'
@@ -156,6 +159,7 @@ class DeleteRoleView(forms.ModalFormView):
         initial = super(DeleteRoleView, self).get_initial()
         initial['role_id'] = self.kwargs['role_id']
         return initial
+
 
 class CreatePermissionView(forms.ModalFormView):
     form_class = application_forms.CreatePermissionForm
@@ -179,7 +183,8 @@ class CreatePermissionView(forms.ModalFormView):
 
 class DetailApplicationView(tables.MultiTableView):
     template_name = 'idm/myApplications/detail.html'
-    table_classes = (application_tables.MembersTable, )
+    table_classes = (application_tables.MembersTable,
+                     application_tables.AuthorizedOrganizationsTable)
 
     def get_members_data(self):
         users = []
@@ -196,11 +201,28 @@ class DetailApplicationView(tables.MultiTableView):
                               _("Unable to retrieve member information."))
         return users
 
+    def get_organizations_data(self):
+        organizations = []
+        try:
+            # NOTE(garcianavalon) Get all the orgs' ids that belong to
+            # the application (they have one or more roles)
+            all_organizations, _more = api.keystone.tenant_list(
+                self.request, admin=False)
+            role_assignments = fiware_api.keystone.organization_role_assignments(
+                self.request, application=self.kwargs['application_id'])
+            organizations = [org for org in all_organizations if org.id
+                     in set([a.organization_id for a in role_assignments])]
+        except Exception:
+            exceptions.handle(self.request,
+                              _("Unable to retrieve member information."))
+        return organizations
+
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super(DetailApplicationView, self).get_context_data(**kwargs)
         application_id = self.kwargs['application_id']
-        application = fiware_api.keystone.application_get(self.request, application_id)
+        application = fiware_api.keystone.application_get(
+            self.request, application_id)
         context['description'] = application.description
         context['url'] = getattr(application, 'url', None)
         if hasattr(application, 'img_original'):
@@ -223,6 +245,14 @@ class AuthorizedMembersView(workflows.WorkflowView):
 
     def get_initial(self):
         initial = super(AuthorizedMembersView, self).get_initial()
+        initial['superset_id'] = self.kwargs['application_id']
+        return initial
+
+class AuthorizedOrganizationsView(workflows.WorkflowView):
+    workflow_class = application_workflows.ManageAuthorizedOrganizations
+
+    def get_initial(self):
+        initial = super(AuthorizedOrganizationsView, self).get_initial()
         initial['superset_id'] = self.kwargs['application_id']
         return initial
 
@@ -287,8 +317,10 @@ class BaseApplicationsMultiFormView(idm_views.BaseMultiFormView):
 class CreateApplicationFormHandleView(BaseApplicationsMultiFormView):
     form_to_handle_class = application_forms.CreateApplicationForm
 
+
 class AvatarFormHandleView(BaseApplicationsMultiFormView):
     form_to_handle_class = application_forms.AvatarForm
+
 
 class CancelFormHandleView(BaseApplicationsMultiFormView):
     form_to_handle_class = application_forms.CancelForm

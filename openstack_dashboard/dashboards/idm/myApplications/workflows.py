@@ -209,7 +209,7 @@ class UpdateAuthorizedMembersAction(idm_workflows.UpdateRelationshipAction):
 
     class Meta:
         name = _("Manage authorized members")
-        slug = idm_workflows.RELATIONSHIP_SLUG
+        slug = idm_workflows.RELATIONSHIP_SLUG + '_members'
 
 
 class UpdateAuthorizedMembers(idm_workflows.UpdateRelationshipStep):
@@ -230,6 +230,107 @@ class ManageAuthorizedMembers(idm_workflows.RelationshipWorkflow):
     success_url = "horizon:idm:myApplications:detail"
     default_steps = (UpdateAuthorizedMembers,)
     RELATIONSHIP_CLASS = AuthorizedMembersApi
+
+    def get_success_url(self):
+        # Overwrite to allow passing kwargs
+        return reverse(self.success_url, 
+                    kwargs={'application_id':self.context['superset_id']})
+
+
+# APPLICATION ORGANIZATIONS
+class AuthorizedOrganizationsApi(idm_workflows.RelationshipApiInterface):
+    """FIWARE roles and organization logic"""
+    
+    def _list_all_owners(self, request, superset_id):
+        all_organizations, _more = api.keystone.tenant_list(request)
+        return  [(org.id, org.name) for org 
+                 in idm_utils.filter_default(all_organizations)]
+
+
+    def _list_all_objects(self, request, superset_id):
+        all_roles = fiware_api.keystone.role_list(request)
+        default_org = api.keystone.user_get(
+            request, request.user).default_project_id
+        allowed = fiware_api.keystone.list_user_allowed_roles_to_assign(
+            request,
+            user=request.user.id,
+            organization=default_org)
+        self.allowed = [role for role in all_roles 
+                   if role.id in allowed[superset_id]]
+        return self.allowed
+
+
+    def _list_current_assignments(self, request, superset_id):
+        # NOTE(garcianavalon) logic for this part:
+        # load all the organization-scoped application roles for every 
+        # organization but only the ones the user can assign
+        application_organizations_roles = {}
+        allowed_ids = [r.id for r in self.allowed]
+        role_assignments = fiware_api.keystone.organization_role_assignments(
+            request, application=superset_id)
+        organizations = set([a.organization_id for a in role_assignments])
+        for organization_id in organizations:
+            application_organizations_roles[organization_id] = [
+                a.role_id for a in role_assignments
+                if a.organization_id == organization_id
+                and a.role_id in allowed_ids
+            ]
+        return application_organizations_roles
+
+
+    def _get_default_object(self, request):
+        return None
+
+
+    def _add_object_to_owner(self, request, superset, owner, obj):
+        fiware_api.keystone.add_role_to_organization(
+            request,
+            application=superset,
+            organization=owner,
+            role=obj)
+
+
+    def _remove_object_from_owner(self, request, superset, owner, obj):
+        fiware_api.keystone.remove_role_from_organization(
+            request,
+            application=superset,
+            organization=owner,
+            role=obj)
+
+
+    def _get_supersetid_name(self, request, superset_id):
+        application = fiware_api.keystone.application_get(request, superset_id)
+        return application.name
+
+
+class UpdateAuthorizedOrganizationsAction(idm_workflows.UpdateRelationshipAction):
+    ERROR_MESSAGE = _('Unable to retrieve data. Please try again later.')
+    RELATIONSHIP_CLASS = AuthorizedOrganizationsApi
+    ERROR_URL = INDEX_URL
+
+    class Meta:
+        name = _("Manage authorized organizations")
+        slug = idm_workflows.RELATIONSHIP_SLUG + '_organizations'
+
+
+class UpdateAuthorizedOrganizations(idm_workflows.UpdateRelationshipStep):
+    action_class = UpdateAuthorizedOrganizationsAction
+    available_list_title = _("All Organizations")
+    members_list_title = _("Authorized Organizations")
+    no_available_text = _("No organizations found.")
+    no_members_text = _("No organizations.")
+    RELATIONSHIP_CLASS = AuthorizedOrganizationsApi
+
+
+class ManageAuthorizedOrganizations(idm_workflows.RelationshipWorkflow):
+    slug = "manage_organization_organizations_application_roles"
+    name = _("Manage authorized organizations")
+    finalize_button_name = _("Save")
+    success_message = _('Modified organizations.')
+    failure_message = _('Unable to modify organizations.')
+    success_url = "horizon:idm:myApplications:detail"
+    default_steps = (UpdateAuthorizedOrganizations,)
+    RELATIONSHIP_CLASS = AuthorizedOrganizationsApi
 
     def get_success_url(self):
         # Overwrite to allow passing kwargs

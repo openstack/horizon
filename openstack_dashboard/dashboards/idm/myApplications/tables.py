@@ -10,18 +10,20 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from django.conf import settings
 from django.core import urlresolvers
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
-from django.conf import settings
 
 
 class ProvidingApplicationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
     url = tables.Column(lambda obj: getattr(obj, 'url', None))
-    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(obj, 'img_medium', 'dashboard/img/logos/medium/app.png'))
-    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(obj, 'img_medium','dashboard/img/logos/medium/app.png'))
+    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(
+        obj, 'img_medium', 'dashboard/img/logos/medium/app.png'))
+    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(
+        obj, 'img_medium', 'dashboard/img/logos/medium/app.png'))
     
     clickable = True
     # show_avatar = True
@@ -35,8 +37,10 @@ class ProvidingApplicationsTable(tables.DataTable):
 class PurchasedApplicationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
     url = tables.Column(lambda obj: getattr(obj, 'url', None))
-    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(obj, 'img_medium', 'dashboard/img/logos/medium/app.png'))
-    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(obj, 'img_medium','dashboard/img/logos/medium/app.png'))
+    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(
+        obj, 'img_medium', 'dashboard/img/logos/medium/app.png'))
+    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(
+        obj, 'img_medium', 'dashboard/img/logos/medium/app.png'))
     
     clickable = True
     # show_avatar = True
@@ -61,10 +65,13 @@ class ManageAuthorizedMembersLink(tables.LinkAction):
         app_id = self.table.kwargs['application_id']
         return  urlresolvers.reverse(self.url, args=(app_id,))
 
+
 class MembersTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Members'))
-    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(obj, 'img_medium', 'dashboard/img/logos/medium/user.png'))
-    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(obj, 'img_medium','dashboard/img/logos/medium/user.png'))
+    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(
+        obj, 'img_medium', 'dashboard/img/logos/medium/user.png'))
+    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(
+        obj, 'img_medium', 'dashboard/img/logos/medium/user.png'))
     
     # show_avatar = True
     clickable = True
@@ -73,4 +80,36 @@ class MembersTable(tables.DataTable):
         name = "members"
         verbose_name = _("Authorized Members")
         table_actions = (ManageAuthorizedMembersLink, )
+        multi_select = False
+
+
+class ManageAuthorizedOrganizationsLink(tables.LinkAction):
+    name = "manage_application_organizations"
+    verbose_name = _("Manage authorized organizations")
+    url = "horizon:idm:myApplications:organizations"
+    classes = ("ajax-modal",)
+
+    def allowed(self, request, user):
+        # TODO(garcianavalon)
+        return True
+
+    def get_link_url(self, datum=None):
+        app_id = self.table.kwargs['application_id']
+        return  urlresolvers.reverse(self.url, args=(app_id,))
+
+
+class AuthorizedOrganizationsTable(tables.DataTable):
+    name = tables.Column('name')
+    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(
+        obj, 'img_medium', 'dashboard/img/logos/medium/organization.png'))
+    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(
+        obj, 'img_medium', 'dashboard/img/logos/medium/organization.png'))
+    
+    # show_avatar = True
+    clickable = True
+
+    class Meta:
+        name = "organizations"
+        verbose_name = _("Authorized Organizations")
+        table_actions = (ManageAuthorizedOrganizationsLink, )
         multi_select = False
