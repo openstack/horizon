@@ -128,7 +128,7 @@ class CancelForm(forms.SelfHandlingForm):
     title = 'Cancel Account'
     
     def handle(self, request, data, user):
-        image = user.img_original
+        image = getattr(user,'img_original','')
         if "UserAvatar" in image:
             os.remove(AVATAR_SMALL + organization.id)
             os.remove(AVATAR_MEDIUM + organization.id)
