@@ -40,6 +40,9 @@
       a{
         margin-top: 3px;
         @include text-overflow;
+        @media (max-width: $screen-sm-min){
+          max-width: 220px;
+        }
         @media (max-width: $screen-xs-min){
           width: 131px;
         }
@@ -115,6 +118,10 @@
   padding: 0;
   .list-group-item{
     margin: 0;
+  }
+  .avatar{
+    float: left;
+    margin-right: 15px;
   }
   .all-users{
     border-right: 1px solid $border-color;
