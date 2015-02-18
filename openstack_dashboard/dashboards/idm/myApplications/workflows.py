@@ -94,6 +94,16 @@ class UpdateApplicationRolesAction(idm_workflows.UpdateRelationshipAction):
     RELATIONSHIP_CLASS = RoleAndPermissionApi
     ERROR_URL = INDEX_URL
 
+    def get_default_role_field_name(self):
+        """ No use for this method, this workflow doesn't support the
+        'adding from a pool of all resources' logic as the user one does.
+        """
+        #return "default_" + self.slug + "_role"
+        return
+
+    def get_member_field_name(self, permission_id):
+        return self.slug + "_permission_" + permission_id
+
     class Meta:
         name = _("Manage your applications' roles")
         slug = idm_workflows.RELATIONSHIP_SLUG

@@ -74,16 +74,14 @@ horizon.fiware_roles_workflow = {
    **/
   init_current_relations: function(step_slug) {
     horizon.fiware_roles_workflow.current_relations[step_slug] = [];
-    var roles_list = [];
     var permission_name, permission_id, selected_members;
     angular.forEach(this.get_permission_element(step_slug, ''), function(value, key) {
       permission_id = horizon.fiware_roles_workflow.get_field_id($(value).attr('id'));
       permission_name = $('label[for="id_' + step_slug + '_permission_' + permission_id + '"]').text();
-
       // get the array of members who are selected in this list
       selected_members = $(value).find("option:selected");
       // extract the member names and add them to the dictionary of lists
-      roles_list = [];
+      var roles_list = [];
       if (selected_members) {
         angular.forEach(selected_members, function(member) {
           roles_list.push(member.value);
@@ -226,17 +224,14 @@ horizon.fiware_roles_workflow = {
       // edit
       container.on('click', '.ajax-inline-edit', function (evt) {
         evt.preventDefault();
-        console.log('edit')
         // first check if other element is on edit mode
         if (horizon.fiware_roles_workflow.inline_edit_role.editing){
-          console.log('reset')
           // reset the edition of the other element
           var form_element = $(this).parent().siblings('.static_page');
           form_element.replaceWith(horizon.fiware_roles_workflow.inline_edit_role.cached_role);
         }
         horizon.fiware_roles_workflow.inline_edit_role.editing = true;
         //var data_id = $(this).siblings('input').attr("data-" + step_slug + "-id");
-        //console.log('data_id:'+data_id)
         // TODO(garcianavalon) rename it, its a label...
         var role_div_element = $(this).parent();
         // save the element for later use
@@ -248,7 +243,6 @@ horizon.fiware_roles_workflow = {
       });
       // cancel
       container.on('click', '.inline-edit-cancel', function (evt) {
-        console.log('cancel')
         evt.preventDefault();
         var form_element = $(this).parentsUntil(container, '.static_page');
         form_element.replaceWith(horizon.fiware_roles_workflow.inline_edit_role.cached_role);
@@ -270,7 +264,6 @@ horizon.fiware_roles_workflow = {
         complete: function () {
         },
         error: function(jqXHR, status, errorThrown) {
-          console.log('error')
           if (jqXHR.status === 401){
             var redir_url = jqXHR.getResponseHeader("X-Horizon-Location");
             if (redir_url){
@@ -287,12 +280,10 @@ horizon.fiware_roles_workflow = {
           }
         },
         success: function (data, textStatus, jqXHR) {
-          console.log('success')
           //hide the role element, append the form in its place
           var form_element = $(data);
           $(role_div_element).replaceWith(form_element);
           form_element.focus();
-          console.log('form rendered')
         }
       });
     },
@@ -308,7 +299,6 @@ horizon.fiware_roles_workflow = {
         complete: function () {
         },
         error: function(jqXHR, status, errorThrown) {
-          console.log('error')
           if (jqXHR.status === 401){
             var redir_url = jqXHR.getResponseHeader("X-Horizon-Location");
             if (redir_url){
@@ -325,13 +315,10 @@ horizon.fiware_roles_workflow = {
           }
         },
         success: function (data, textStatus, jqXHR) {
-          console.log('success')
           //hide the form, show the new element
           var role_element = horizon.fiware_roles_workflow.inline_edit_role.cached_role
           form_element.replaceWith(role_element);
           role_element.find('label').text(data);
-          console.log('label:' +role_element.find('label').text())
-          console.log('edited role!')
         }
       });
     },
@@ -380,7 +367,6 @@ horizon.fiware_roles_workflow = {
       //horizon.fiware_roles_workflow.add_new_member_styling(step_slug);
       //horizon.fiware_roles_workflow.list_filtering(step_slug);
       //horizon.fiware_roles_workflow.detect_no_results(step_slug);
-      console.log('Done!')
     });
   }
 };
