@@ -256,6 +256,10 @@
 
 
 #no_update_owners_members,
+#no_update_owners_organizations_members,
+#no_update_owners_members_members,
+#no_available_update_owners_members,
+#no_available_update_owners_organizations,
 #no_available_update_owners{
   @extend .alert;
   @extend .alert-info;
