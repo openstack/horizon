@@ -7,11 +7,6 @@
         <h5 class="hidden-xs hidden-sm" {% if current.slug == dashboard.slug %}class="active"{% endif %}>
           {{ dashboard.name }}
         </h5>
-        <h5 class="hidden-xs hidden-md hidden-lg">IdM</h5>
-        {% if current.slug == dashboard.slug %}
-      
-        {% else %}
-        {% endif %}
         {% for heading, panels in panel_info.iteritems %}
           {% with panels|has_permissions_on_list:user as filtered_panels %}
           {% if filtered_panels %}

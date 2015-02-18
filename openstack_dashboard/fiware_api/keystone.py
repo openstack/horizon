@@ -268,7 +268,8 @@ def application_create(request, name, redirect_uris, scopes=['all_info'],
                           **kwargs)
 
 def application_list(request, user=None):
-    manager = api.keystone.keystoneclient(request, admin=True).oauth2.consumers
+    manager = api.keystone.keystoneclient(
+        request, admin=True).oauth2.consumers
     return manager.list(user=user)
 
 def application_get(request, application_id, use_idm_account=False):
