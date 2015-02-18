@@ -99,11 +99,12 @@ class ManageAuthorizedOrganizationsLink(tables.LinkAction):
 
 
 class AuthorizedOrganizationsTable(tables.DataTable):
-    name = tables.Column('name')
+    name = tables.Column('name', verbose_name=_('Applications'))
+    url = tables.Column(lambda obj: getattr(obj, 'url', None))
     avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(
-        obj, 'img_medium', 'dashboard/img/logos/medium/organization.png'))
+        obj, 'img_medium', 'dashboard/img/logos/medium/app.png'))
     default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(
-        obj, 'img_medium', 'dashboard/img/logos/medium/organization.png'))
+        obj, 'img_medium', 'dashboard/img/logos/medium/app.png'))
     
     # show_avatar = True
     clickable = True
