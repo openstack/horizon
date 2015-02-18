@@ -18,6 +18,7 @@ from django.core import urlresolvers
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
+from django.conf import settings
 
 
 LOG = logging.getLogger('idm_logger')
@@ -26,9 +27,12 @@ class OrganizationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
                                 verbose_name=_('Description'))
+    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(obj, 'img_medium', 'dashboard/img/logos/medium/group.png'))
+    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(obj, 'img_medium','dashboard/img/logos/medium/group.png'))
+    
     clickable = True
     switch = True
-    show_avatar = True
+    # show_avatar = True
 
     class Meta:
         name = "organizations"
@@ -39,9 +43,12 @@ class MyOrganizationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
                                 verbose_name=_('Description'))
+    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(obj, 'img_medium', 'dashboard/img/logos/medium/group.png'))
+    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(obj, 'img_medium','dashboard/img/logos/medium/group.png'))
+    
     clickable = True
     switch = True
-    show_avatar = True
+    # show_avatar = True
 
     class Meta:
         name = "my_organizations"
@@ -65,7 +72,10 @@ class ManageMembersLink(tables.LinkAction):
 
 class MembersTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Members'))
-    show_avatar = True
+    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(obj, 'img_medium', 'dashboard/img/logos/medium/user.png'))
+    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(obj, 'img_medium','dashboard/img/logos/medium/user.png'))
+    
+    # show_avatar = True
     clickable = True
 
     class Meta:
@@ -77,8 +87,11 @@ class MembersTable(tables.DataTable):
 
 class ApplicationsTable(tables.DataTable):
     name = tables.Column('application', verbose_name=_('Applications'))
+    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(obj, 'img_medium', 'dashboard/img/logos/medium/app.png'))
+    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(obj, 'img_medium','dashboard/img/logos/medium/app.png'))
+    
     clickable = True
-    show_avatar = True
+    # show_avatar = True
 
     class Meta:
         name = "applications"

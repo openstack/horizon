@@ -14,13 +14,17 @@ from django.core import urlresolvers
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
+from django.conf import settings
 
 
 class ProvidingApplicationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
     url = tables.Column(lambda obj: getattr(obj, 'url', None))
+    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(obj, 'img_medium', 'dashboard/img/logos/medium/app.png'))
+    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(obj, 'img_medium','dashboard/img/logos/medium/app.png'))
+    
     clickable = True
-    show_avatar = True
+    # show_avatar = True
 
     class Meta:
         name = "providing_table"
@@ -31,8 +35,11 @@ class ProvidingApplicationsTable(tables.DataTable):
 class PurchasedApplicationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
     url = tables.Column(lambda obj: getattr(obj, 'url', None))
+    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(obj, 'img_medium', 'dashboard/img/logos/medium/app.png'))
+    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(obj, 'img_medium','dashboard/img/logos/medium/app.png'))
+    
     clickable = True
-    show_avatar = True
+    # show_avatar = True
 
     class Meta:
         name = "purchased_table"
@@ -56,7 +63,11 @@ class ManageAuthorizedMembersLink(tables.LinkAction):
 
 class MembersTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Members'))
-    show_avatar = True
+    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(obj, 'img_medium', 'dashboard/img/logos/medium/user.png'))
+    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(obj, 'img_medium','dashboard/img/logos/medium/user.png'))
+    
+    # show_avatar = True
+    clickable = True
 
     class Meta:
         name = "members"
