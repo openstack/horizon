@@ -175,10 +175,10 @@ class UpdateRelationshipStep(workflows.UpdateMembersStep,
 class RelationshipWorkflow(workflows.Workflow, 
                             RelationshipConsumerMixin):
     default_steps = (UpdateRelationshipStep,)
-
+    member_slug = RELATIONSHIP_SLUG
     def handle(self, request, data):
         superset_id = data['superset_id']
-        member_step = self.get_step(RELATIONSHIP_SLUG)
+        member_step = self.get_step(self.member_slug)
         self.relationship = self._load_relationship_api()
         try:
             object_list = self.relationship._list_all_objects(

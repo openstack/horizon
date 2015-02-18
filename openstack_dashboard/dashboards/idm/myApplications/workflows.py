@@ -127,6 +127,7 @@ class ManageApplicationRoles(idm_workflows.RelationshipWorkflow):
     success_url = "horizon:idm:myApplications:detail"
     default_steps = (UpdateApplicationRoles,)
     RELATIONSHIP_CLASS = RoleAndPermissionApi
+    member_slug = idm_workflows.RELATIONSHIP_SLUG
 
     def get_success_url(self):
         # Overwrite to allow passing kwargs
@@ -230,6 +231,7 @@ class ManageAuthorizedMembers(idm_workflows.RelationshipWorkflow):
     success_url = "horizon:idm:myApplications:detail"
     default_steps = (UpdateAuthorizedMembers,)
     RELATIONSHIP_CLASS = AuthorizedMembersApi
+    member_slug = idm_workflows.RELATIONSHIP_SLUG + '_members'
 
     def get_success_url(self):
         # Overwrite to allow passing kwargs
@@ -331,6 +333,7 @@ class ManageAuthorizedOrganizations(idm_workflows.RelationshipWorkflow):
     success_url = "horizon:idm:myApplications:detail"
     default_steps = (UpdateAuthorizedOrganizations,)
     RELATIONSHIP_CLASS = AuthorizedOrganizationsApi
+    member_slug = idm_workflows.RELATIONSHIP_SLUG + '_organizations'
 
     def get_success_url(self):
         # Overwrite to allow passing kwargs

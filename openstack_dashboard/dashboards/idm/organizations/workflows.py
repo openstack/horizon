@@ -98,7 +98,8 @@ class ManageOrganizationMembers(idm_workflows.RelationshipWorkflow):
     success_url = "horizon:idm:organizations:detail"
     default_steps = (UpdateProjectMembers,)
     RELATIONSHIP_CLASS = UserRoleApi
-
+    member_slug = idm_workflows.RELATIONSHIP_SLUG
+    
     def get_success_url(self):
         # Overwrite to allow passing kwargs
         return reverse(self.success_url, 

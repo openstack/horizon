@@ -27,8 +27,10 @@ class OrganizationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
                                 verbose_name=_('Description'))
-    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(obj, 'img_medium', 'dashboard/img/logos/medium/group.png'))
-    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(obj, 'img_medium','dashboard/img/logos/medium/group.png'))
+    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(
+        obj, 'img_medium', 'dashboard/img/logos/medium/group.png'))
+    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(
+        obj, 'img_medium', 'dashboard/img/logos/medium/group.png'))
     
     clickable = True
     switch = True
@@ -43,8 +45,10 @@ class MyOrganizationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
                                 verbose_name=_('Description'))
-    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(obj, 'img_medium', 'dashboard/img/logos/medium/group.png'))
-    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(obj, 'img_medium','dashboard/img/logos/medium/group.png'))
+    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(
+        obj, 'img_medium', 'dashboard/img/logos/medium/group.png'))
+    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(
+        obj, 'img_medium', 'dashboard/img/logos/medium/group.png'))
     
     clickable = True
     switch = True
@@ -72,8 +76,10 @@ class ManageMembersLink(tables.LinkAction):
 
 class MembersTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Members'))
-    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(obj, 'img_medium', 'dashboard/img/logos/medium/user.png'))
-    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(obj, 'img_medium','dashboard/img/logos/medium/user.png'))
+    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(
+        obj, 'img_medium', 'dashboard/img/logos/medium/user.png'))
+    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(
+        obj, 'img_medium', 'dashboard/img/logos/medium/user.png'))
     
     # show_avatar = True
     clickable = True
@@ -85,14 +91,17 @@ class MembersTable(tables.DataTable):
         multi_select = False
 
 
-class ApplicationsTable(tables.DataTable):
-    name = tables.Column('application', verbose_name=_('Applications'))
-    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(obj, 'img_medium', 'dashboard/img/logos/medium/app.png'))
-    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(obj, 'img_medium','dashboard/img/logos/medium/app.png'))
+class AuthorizingApplicationsTable(tables.DataTable):
+    name = tables.Column('name', verbose_name=_('Applications'))
+    url = tables.Column(lambda obj: getattr(obj, 'url', None))
+    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(
+        obj, 'img_medium', 'dashboard/img/logos/medium/app.png'))
+    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(
+        obj, 'img_medium', 'dashboard/img/logos/medium/app.png'))
     
     clickable = True
     # show_avatar = True
 
     class Meta:
         name = "applications"
-        verbose_name = _("Applications")
+        verbose_name = _("Authorizing Applications")
