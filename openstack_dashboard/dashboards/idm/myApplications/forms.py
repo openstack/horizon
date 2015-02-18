@@ -40,7 +40,7 @@ class CreateApplicationForm(forms.SelfHandlingForm):
     redirect_to = forms.CharField(widget=forms.HiddenInput(), required=False)
     name = forms.CharField(label=_("Name"), required=True)
     description = forms.CharField(label=_("Description"), 
-                                widget=forms.Textarea, 
+                                widget=forms.Textarea(attrs={'rows':4,'cols':40}),
                                 required=True)
     url = forms.CharField(label=_("URL"), required=True)
     callbackurl = forms.CharField(label=_("Callback URL"), required=True)

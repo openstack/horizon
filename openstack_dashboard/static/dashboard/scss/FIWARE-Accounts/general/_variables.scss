@@ -27,7 +27,7 @@ $link-color: $brand-primary;
 $link-hover-color: darken($link-color, 15%);
 
 
-$border-color: #D5D5D5;
+$border-color: #A9A9A9;
 
 
 $headings-color: $gray-dark;
@@ -370,9 +370,9 @@ $modal-backdrop-bg:           #000 !default;
 //** Modal backdrop opacity
 $modal-backdrop-opacity:      .5 !default;
 //** Modal header border color
-$modal-header-border-color:   $gray-light !default;
+$modal-header-border-color:   #A9A9A9 !default;
 //** Modal footer border color
-$modal-footer-border-color:   $modal-header-border-color !default;
+$modal-footer-border-color:   #A9A9A9 !default;
 
 $modal-lg:                    900px !default;
 $modal-md:                    600px !default;

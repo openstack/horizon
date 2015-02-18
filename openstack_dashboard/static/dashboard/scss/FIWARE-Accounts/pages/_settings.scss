@@ -3,6 +3,10 @@
   @include make-md-column(8, $gutter: $grid-gutter-width);
   @include make-lg-column(8, $gutter: $grid-gutter-width);
   margin-top: 27px;
+  @media (max-width: $screen-sm-min){
+    margin: 0;
+    padding: 0;
+  }
   a.panel-heading {
     &:hover{
       cursor: pointer;
@@ -12,6 +16,13 @@
     h4.panel-title {
       margin-top: 3px !important;
       padding: 0px 15px;
+    }
+  }
+  .cancel_account{
+    h4.panel-title {     
+      &:hover{
+        color: $brand-danger !important;
+      }
     }
   }
   .panel-body{
@@ -25,4 +36,8 @@
     margin-bottom: 0;
     border-bottom: 0;
   }
+}
+
+.control-label {
+  color: #B6B6B6;
 }

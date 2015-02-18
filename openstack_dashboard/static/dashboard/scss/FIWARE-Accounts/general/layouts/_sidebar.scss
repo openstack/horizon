@@ -31,7 +31,8 @@
   h5.tablet
   ul{
     padding: 0;
-    margin-top: 9px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     @media (max-width: $screen-sm-min){
       height: 21px;
     }
@@ -40,6 +41,8 @@
     }
     a{
       line-height: 42px;
+      display: block;
+      margin-bottom: 9px;
       @media (max-width: $screen-xs-min){
         line-height: 37px;
         &:first-child{
@@ -69,7 +72,7 @@
           float: left;
           border-right: 1px solid $border-color;
           padding-right: 15px;
-          font-size: 12px;
+          font-size: 16px;
           &:first-child{
             padding-left: 0px;
           }
@@ -80,7 +83,7 @@
       }
 
       h4{
-        margin-bottom: 12px;
+        margin-bottom: 16px;
         span{
           display: inline;
           font-size: 15px;

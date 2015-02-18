@@ -180,7 +180,14 @@
   border-left: 1px solid #C2C2C2 !important;
 }
 
-
+.login,
+.registration,
+.remember-password,
+.resend-confirmation-instructions{
+  .modal-body{
+    padding: 0;
+  }
+}
 
 
 .remember-password,
@@ -198,7 +205,7 @@
     @include modal-header;
   }
   .modal-footer {
-    padding-bottom: 0;
+    padding: 15px 0 0 0;
   }
 }
 

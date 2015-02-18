@@ -13,11 +13,13 @@ li{
 	font-family: $corporate-font-family-sans-serif-Regular;
 	color: $brand-secundary;
 	text-align: right;
+	padding-top: 2px;
 }
 
 .page-header {
 	border: none;
-	margin: 3px 0 8px;
+	margin: -1px 0 0px;
+	padding-bottom: 6px;
     .btn{
         float: left;
         margin-top: 2px;
@@ -29,6 +31,9 @@ a{
   text-decoration: none;
 	&:hover{
 	  color: $brand-secundary;
+	  text-decoration: none;
+	}
+	&:focus{
 	  text-decoration: none;
 	}
 }

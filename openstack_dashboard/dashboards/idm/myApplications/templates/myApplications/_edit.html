@@ -12,41 +12,39 @@
 {% endblock %}
 
 {% block modal-body %}
-{% if form.title == 'Avatar Update'%}
-<div>
-	<img id="avatar-update" src="{{ image }}" alt="your image"   />
-</div>
-{% elif form.title == 'Cancel' %}
-<a class="modal-header panel-title" data-toggle="collapse" data-parent="#accordion" href="#destroy_application" class="panel-heading">
-    <h3>
-      Are you sure you want to delete the application?
-    </h3>
-</a>
+    {% if form.title == 'Avatar Update'%}
+		<div>
+			<img id="avatar-update" src="{{ image }}" alt="your image"   />
+		</div>
+	{% elif form.title == 'Cancel' %}
+		<a class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#destroy_application">
+		    <h3>
+		      Remove the application and all its data 
+		    </h3>
+		</a>
 
-
-{% endif %}
-<div >
-  <fieldset>
-    {% include "horizon/common/_form_fields.html" %}
-  </fieldset>
-</div>
-
+    {% endif %}
+	<div >
+	    <fieldset>
+	        {% include "horizon/common/_form_fields.html" %}
+	    </fieldset>
+	</div>
 {% endblock %}
 
 
 {% block modal-footer %}
-{% if form.title == 'Cancel'%}
-<div id="destroy_application" class="panel-collapse collapse">
+	{% if form.title == 'Cancel'%}
+		<div id="destroy_application" class="panel-collapse collapse">  
+	    	<button type="submit" class="btn btn-danger">
+	    	    {% trans "Delete Application" %} 
+	    	</button>
+		</div>  
 
-    
-<button type="submit" class="btn btn-primary">{% trans "Delete Application" %} </button>
-
-    </div>  
-
-{% else %}
-<button type="submit" class="btn btn-primary">{% trans "Update Application" %} </button>
-{% endif %}
-    
+	{% else %}
+	    <button type="submit" class="btn btn-primary">
+	    	{% trans "Update Application" %} 
+	    </button>
+	{% endif %}
 {% endblock %}
 
 

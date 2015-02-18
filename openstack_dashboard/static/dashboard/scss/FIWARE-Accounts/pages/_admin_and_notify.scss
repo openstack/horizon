@@ -1,0 +1,53 @@
+#administrators{
+  width: 100%;
+  float: left;
+  .list-group-item{
+    @include make-sm-column(5, $gutter: $grid-gutter-width);
+    @include make-md-column(4, $gutter: $grid-gutter-width);
+    @include make-lg-column(3, $gutter: $grid-gutter-width);
+    margin-right: 10px;
+    margin-left: 10px;
+    &:first-child{
+      border-top: 1px solid #DDD
+    }
+    &:last-child{
+      border-bottom: 1px solid #DDD
+    }
+  }
+}
+
+
+#notify{
+  .modal-header{
+    border: none;
+    padding-bottom: 0;
+    padding: 0;
+  }
+  .modal-body{
+    @include well;
+    border-bottom: none;
+    border-radius-bottom: 0;
+    margin-bottom: -12px;
+    padding-bottom: 0px;
+    @include border-top-radius (3px);
+  }
+  .modal-footer{
+    @include well;
+    border-radius-top: 0;
+    border-top: none;
+    @include border-bottom-radius (3px);
+    .btn{
+      float: right;
+    }
+  }
+}
+
+#id_body_iframe{
+  padding: 0;
+  background-color: $white;
+  border: none; 
+}
+
+.note-editor{
+  border: 1px solid $border-color !important;
+}

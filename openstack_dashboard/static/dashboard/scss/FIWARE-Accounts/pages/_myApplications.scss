@@ -62,6 +62,11 @@
       }
     }
   }
+  .modal-body, 
+  .modal-footer{
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 
@@ -119,6 +124,7 @@
     position: relative;
     height: 34px;
     padding-top: 7px;
+    padding-left: 6px;
     a{
       position: absolute;
     }
@@ -128,6 +134,9 @@
     }
     .ajax-modal{
       right: 7px;
+    }
+    label{
+      font-weight: normal;
     }
   }
 }
@@ -235,6 +244,8 @@
     &:hover{
       text-decoration: none;
       background-color: $gray-lighter;
+      cursor: pointer;
+      color: $text-color;
     }
     i{
       margin-right: 5px;
@@ -271,6 +282,11 @@
 #collapse_oauth2_credentials {
   .btn-link{
     margin-top: -6px;
+  }
+}
+.workflow-roles{
+  .modal-dialog {
+    @extend .modal-lg;
   }
 }
 
@@ -312,6 +328,13 @@
   }
 }
 
+.roles_display{
+  margin-right: 7px;
+}
+
+.app-roles-list li{
+  cursor: pointer;
+}
 #fiware_roles_roles{ 
   .static_page{
     .modal-header{

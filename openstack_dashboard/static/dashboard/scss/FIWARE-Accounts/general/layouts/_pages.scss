@@ -31,7 +31,7 @@
   @include make-md-column(9, $gutter: $grid-gutter-width);
   @include make-lg-column(9, $gutter: $grid-gutter-width);
   @media (max-width: $screen-sm-min){
-    margin-top: 45px;
+    margin-top: 8px;
     padding: 0px;
   }
 }
@@ -51,13 +51,20 @@ textarea {
   border-left: rgba(0, 0, 0, 0);
   border-right: rgba(0, 0, 0, 0);
   min-height: 60px;
-  .avatar {
-    float: left;    
-    margin-right: 15px;
-    img{
-      width: 36px;   
-      @include border-top-radius (2px);
-      @include border-bottom-radius (2px);   
+  .normal_column{
+    margin-left: 50px;
+    &:last-child{
+      float: left;    
+      margin-left: 0 !important;
+      top: 11px;
+      position: absolute;
+      .avatar {
+        img{
+          width: 36px;   
+          @include border-top-radius (2px);
+          @include border-bottom-radius (2px);   
+        }
+      }
     }
   }
   .data{
@@ -97,6 +104,7 @@ textarea {
 #avatar-update{
   @include border-top-radius ($border-radius-base);
   @include border-bottom-radius ($border-radius-base);
+  max-width: 30%;
 }
 
 #edit{
@@ -135,13 +143,21 @@ textarea {
   }
 }
 
+.fix-top{
+  top: 0 !important;
+}
+
+#modal_wrapper{
+  .modal{
+    @extend .fix-top;
+  }
+}
 .cancel_account,
 .destroy_organization{
   &:hover{
     border-color: $brand-danger !important;
     h3{
       color: $brand-danger !important;
-      border-color: $brand-danger !important;
     }
     .btn-primary{
       background-color: $brand-danger !important;
@@ -160,7 +176,22 @@ textarea {
       color: $brand-danger !important;
     }
   }
+  .modal-header { 
+    h3{
+      display: none;
+    }
+  }
+  .panel-title{
+    h3{
+      margin: 0 !important;
+      font-size: 17px !important;
+      color: #48B9C9;
+      display: block !important;
+      text-decoration: none;
+    }    
+  }
 }
+
 
 #authorize_application_modal{
   @extend .well;
@@ -184,6 +215,15 @@ textarea {
       right: 0;
       top: -2px;
       font-size: 17px;
+    }
+  }
+}
+
+@media (min-width: 768px){
+  .workflow.modal{
+    .modal-dialog {
+      width: 777px;
+      margin: 30px auto;
     }
   }
 }

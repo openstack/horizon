@@ -24,6 +24,15 @@
     .panel-heading{
       font-family: $corporate-font-family-sans-serif-Regular;
     }
+    .panel-body{
+      min-height: 295px;
+      max-height: 295px;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      @media (max-width: $screen-sm-min){
+        min-height: 15px;
+      }
+    }
     .sortable{
       @extend .data;
     }

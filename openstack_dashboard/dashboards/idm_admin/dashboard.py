@@ -27,6 +27,7 @@ class Idm_Admin(horizon.Dashboard):
     default_panel = 'notify'
 
     def nav(self, context):
+        return True
         # NOTE(garcianavalon) hide it if the user doesn't belong to idm_admin
         request = context['request']
         idm_admin = getattr(settings, 'IDM_ID', None)
