@@ -17,6 +17,7 @@
 Views for managing Neutron Routers.
 """
 
+from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.utils.datastructures import SortedDict
 from django.utils.translation import pgettext_lazy
@@ -147,20 +148,30 @@ class DetailView(tabs.TabbedTableView):
 
 class CreateView(forms.ModalFormView):
     form_class = project_forms.CreateForm
+    form_id = "create_router_form"
+    modal_header = _("Create Router")
     template_name = 'project/routers/create.html'
     success_url = reverse_lazy("horizon:project:routers:index")
     page_title = _("Create Router")
+    submit_label = _("Create Router")
+    submit_url = reverse_lazy("horizon:project:routers:create")
 
 
 class UpdateView(forms.ModalFormView):
     form_class = project_forms.UpdateForm
+    form_id = "update_router_form"
+    modal_header = _("Edit Router")
     template_name = 'project/routers/update.html'
     success_url = reverse_lazy("horizon:project:routers:index")
     page_title = _("Update Router")
+    submit_label = _("Save Changes")
+    submit_url = "horizon:project:routers:update"
 
     def get_context_data(self, **kwargs):
         context = super(UpdateView, self).get_context_data(**kwargs)
+        args = (self.kwargs['router_id'],)
         context["router_id"] = self.kwargs['router_id']
+        context['submit_url'] = reverse(self.submit_url, args=args)
         return context
 
     def _get_object(self, *args, **kwargs):
