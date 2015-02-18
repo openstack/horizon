@@ -37,14 +37,6 @@ from horizon import views
 LOG = logging.getLogger('idm_logger')
 
 
-
-# class IndexView(views.APIView):
-#     # A very simple class-based view...
-#     template_name = 'idm/users/index.html'
-
-#     def get_data(self, request, context, *args, **kwargs):
-#         return context
-
 class DetailUserView(tables.MultiTableView):
     template_name = 'idm/users/index.html'
     table_classes = (user_tables.OrganizationsTable,
@@ -82,10 +74,17 @@ class DetailUserView(tables.MultiTableView):
         context['about_me'] = getattr(user,'description', '')
         context['user_id'] = user_id
         context['user_name'] = user.name
-        context['image'] = getattr(user, 'img_original', '/static/dashboard/img/logos/original/user.png')
+        if hasattr(user, 'img_original'):
+            image = getattr(user, 'img_original')
+            image = settings.MEDIA_URL + image
+        else:
+            image = settings.STATIC_URL + 'dashboard/img/logos/original/user.png'
+        context['image'] = image
         context['city'] = getattr(user, 'city', '')
         context['email'] = getattr(user, 'email', '')
         context['website'] = getattr(user, 'website', '')
+        applications = self.get_applications_data()
+        context['applications'] = applications
         return context
 
 class BaseUsersMultiFormView(idm_views.BaseMultiFormView):
@@ -131,8 +130,12 @@ class BaseUsersMultiFormView(idm_views.BaseMultiFormView):
     def get_context_data(self, **kwargs):
 
         context = super(BaseUsersMultiFormView, self).get_context_data(**kwargs)
-        context['image'] = getattr(self.object, 'img_original', 
-                            '/static/dashboard/img/logos/original/user.png')
+        if hasattr(self.object, 'img_original'):
+            image = getattr(self.object, 'img_original')
+            image = settings.MEDIA_URL + image
+        else:
+            image = settings.STATIC_URL + 'dashboard/img/logos/original/user.png'
+        context['image'] = image
         return context
 
 
