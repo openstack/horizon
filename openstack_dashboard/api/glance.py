@@ -168,6 +168,9 @@ class BaseGlanceMetadefAPIResourceWrapper(base.APIResourceWrapper):
                 result[attr] = getattr(self, attr)
         return json.dumps(result, indent=indent)
 
+    def to_dict(self):
+        return self._apiresource
+
 
 class Namespace(BaseGlanceMetadefAPIResourceWrapper):
 
@@ -222,7 +225,8 @@ def metadefs_namespace_list(request,
              typically at first deployment is done in a single transaction
              giving them a potentially unpredictable sort result when using
              create_at.
-    :param filters: specifies addition fields to filter on such as name.
+    :param filters: specifies addition fields to filter on such as
+             resource_types.
     :returns A tuple of three values:
              1) Current page results
              2) A boolean of whether or not there are previous page(s).
