@@ -143,6 +143,9 @@ class SecurityGroup(NeutronAPIDictWrapper):
                        for rule in sg['security_group_rules']]
         super(SecurityGroup, self).__init__(sg)
 
+    def to_dict(self):
+        return {k: self._apidict[k] for k in self._apidict if k != 'rules'}
+
 
 class SecurityGroupRule(NeutronAPIDictWrapper):
     # Required attributes:
