@@ -187,11 +187,6 @@ def remove_role_from_user(request, role, user, organization, application):
         request, admin=True).fiware_roles.roles
     return manager.remove_from_user(role, user, organization, application)
 
-def list_user_allowed_roles_to_assign(request, user, organization):
-    manager = api.keystone.keystoneclient(
-        request, admin=True).fiware_roles.roles
-    return manager.list_user_allowed_roles_to_assign(user, organization)
-
 def user_role_assignments(request, user=None, organization=None,
                           application=None):    
     manager = api.keystone.keystoneclient(
@@ -210,17 +205,33 @@ def remove_role_from_organization(request, role, organization, application):
         request, admin=True).fiware_roles.roles
     return manager.remove_from_organization(role, organization, application)
 
-def list_organization_allowed_roles_to_assign(request, organization):
-    manager = api.keystone.keystoneclient(
-        request, admin=True).fiware_roles.roles
-    return manager.list_organization_allowed_roles_to_assign(organization)
-
 def organization_role_assignments(request, organization=None,
                                   application=None):    
     manager = api.keystone.keystoneclient(
         request, admin=True).fiware_roles.role_assignments
     return manager.list_organization_role_assignments(
         organization=organization, application=application)
+
+# ALLOWED ACTIONS
+def list_user_allowed_roles_to_assign(request, user, organization):
+    manager = api.keystone.keystoneclient(
+        request, admin=True).fiware_roles.allowed
+    return manager.list_user_allowed_roles_to_assign(user, organization)
+
+def list_organization_allowed_roles_to_assign(request, organization):
+    manager = api.keystone.keystoneclient(
+        request, admin=True).fiware_roles.allowed
+    return manager.list_organization_allowed_roles_to_assign(organization)
+
+def list_user_allowed_applications_to_manage(request, user, organization):
+    manager = api.keystone.keystoneclient(
+        request, admin=True).fiware_roles.allowed
+    return manager.list_user_allowed_applications_to_manage(user, organization)
+
+def list_organization_allowed_applications_to_manage(request, organization):
+    manager = api.keystone.keystoneclient(
+        request, admin=True).fiware_roles.allowed
+    return manager.list_organization_allowed_applications_to_manage(organization)
 
 # PERMISSIONS
 def permission_get(request, permission_id):

@@ -220,8 +220,12 @@ class DetailApplicationView(tables.MultiTableView):
     def _can_edit(self):
         # Allowed to edit the application if owns a role with the
         # 'Manage the application' permission.
-        # TODO(garcianavalon) this needs to be created in the backend
-        return True
+        user = self.request.user
+        allowed_applications = \
+            fiware_api.keystone.list_user_allowed_applications_to_manage(
+                self.request, user=user.id, organization=user.default_project_id)
+        app_id = self.kwargs['application_id']
+        return app_id in allowed_applications
 
 
     def get_context_data(self, **kwargs):
