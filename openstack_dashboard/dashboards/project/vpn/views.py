@@ -12,6 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
@@ -266,14 +267,20 @@ class IPSecSiteConnectionDetailsView(tabs.TabView):
 
 class UpdateVPNServiceView(forms.ModalFormView):
     form_class = vpn_forms.UpdateVPNService
+    form_id = "update_vpnservice_form"
+    modal_header = _("Edit VPN Service")
     template_name = "project/vpn/update_vpnservice.html"
     context_object_name = 'vpnservice'
+    submit_label = _("Save Changes")
+    submit_url = "horizon:project:vpn:update_vpnservice"
     success_url = reverse_lazy("horizon:project:vpn:index")
     page_title = _("Edit VPN Service")
 
     def get_context_data(self, **kwargs):
         context = super(UpdateVPNServiceView, self).get_context_data(**kwargs)
         context["vpnservice_id"] = self.kwargs['vpnservice_id']
+        args = (self.kwargs['vpnservice_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
         return context
 
     @memoized.memoized_method
@@ -296,14 +303,20 @@ class UpdateVPNServiceView(forms.ModalFormView):
 
 class UpdateIKEPolicyView(forms.ModalFormView):
     form_class = vpn_forms.UpdateIKEPolicy
+    form_id = "update_ikepolicy_form"
+    modal_header = _("Edit IKE Policy")
     template_name = "project/vpn/update_ikepolicy.html"
     context_object_name = 'ikepolicy'
+    submit_label = _("Save Changes")
+    submit_url = "horizon:project:vpn:update_ikepolicy"
     success_url = reverse_lazy("horizon:project:vpn:index")
     page_title = _("Edit IKE Policy")
 
     def get_context_data(self, **kwargs):
         context = super(UpdateIKEPolicyView, self).get_context_data(**kwargs)
         context["ikepolicy_id"] = self.kwargs['ikepolicy_id']
+        args = (self.kwargs['ikepolicy_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
         return context
 
     @memoized.memoized_method
@@ -333,14 +346,20 @@ class UpdateIKEPolicyView(forms.ModalFormView):
 
 class UpdateIPSecPolicyView(forms.ModalFormView):
     form_class = vpn_forms.UpdateIPSecPolicy
+    form_id = "update_ipsecpolicy_form"
+    modal_header = _("Edit IPSec Policy")
     template_name = "project/vpn/update_ipsecpolicy.html"
     context_object_name = 'ipsecpolicy'
+    submit_label = _("Save Changes")
+    submit_url = "horizon:project:vpn:update_ipsecpolicy"
     success_url = reverse_lazy("horizon:project:vpn:index")
     page_title = _("Edit IPSec Policy")
 
     def get_context_data(self, **kwargs):
         context = super(UpdateIPSecPolicyView, self).get_context_data(**kwargs)
         context["ipsecpolicy_id"] = self.kwargs['ipsecpolicy_id']
+        args = (self.kwargs['ipsecpolicy_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
         return context
 
     @memoized.memoized_method
@@ -369,8 +388,12 @@ class UpdateIPSecPolicyView(forms.ModalFormView):
 
 class UpdateIPSecSiteConnectionView(forms.ModalFormView):
     form_class = vpn_forms.UpdateIPSecSiteConnection
+    form_id = "update_ipsecsiteconnection_form"
+    modal_header = _("Edit IPSec Site Connection")
     template_name = "project/vpn/update_ipsecsiteconnection.html"
     context_object_name = 'ipsecsiteconnection'
+    submit_label = _("Save Changes")
+    submit_url = "horizon:project:vpn:update_ipsecsiteconnection"
     success_url = reverse_lazy("horizon:project:vpn:index")
     page_title = _("Edit IPSec Site Connection")
 
@@ -379,6 +402,8 @@ class UpdateIPSecSiteConnectionView(forms.ModalFormView):
             UpdateIPSecSiteConnectionView, self).get_context_data(**kwargs)
         context["ipsecsiteconnection_id"] = self.kwargs[
             'ipsecsiteconnection_id']
+        args = (self.kwargs['ipsecsiteconnection_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
         return context
 
     @memoized.memoized_method
