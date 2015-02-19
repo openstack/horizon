@@ -25,6 +25,7 @@ from django import http
 from django import shortcuts
 from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext_lazy as _
+from django.views import generic
 
 from horizon import exceptions
 from horizon import forms
@@ -191,6 +192,35 @@ def rdp(request, instance_id):
         redirect = reverse("horizon:project:instances:index")
         msg = _('Unable to get RDP console for instance "%s".') % instance_id
         exceptions.handle(request, msg, redirect=redirect)
+
+
+class SerialConsoleView(generic.TemplateView):
+    template_name = 'project/instances/serial_console.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(SerialConsoleView, self).get_context_data(**kwargs)
+        context['instance_id'] = self.kwargs['instance_id']
+        instance = None
+        try:
+            instance = api.nova.server_get(context['view'].request,
+                                           self.kwargs['instance_id'])
+        except Exception:
+            context["error_message"] = _(
+                "Cannot find instance %s.") % self.kwargs['instance_id']
+            # name is unknown, so leave it blank for the window title
+            # in full-screen mode, so only the instance id is shown.
+            context['instance_name'] = ''
+            return context
+        context['instance_name'] = instance.name
+        try:
+            console_url = project_console.get_console(context['view'].request,
+                                                      "SERIAL", instance)[1]
+            context["console_url"] = console_url
+        except exceptions.NotAvailable:
+            context["error_message"] = _(
+                "Cannot get console for instance %s.") % self.kwargs[
+                'instance_id']
+        return context
 
 
 class UpdateView(workflows.WorkflowView):

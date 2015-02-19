@@ -35,6 +35,8 @@ urlpatterns = patterns(
         views.DetailView.as_view(), name='detail'),
     url(INSTANCES % 'update', views.UpdateView.as_view(), name='update'),
     url(INSTANCES % 'rebuild', views.RebuildView.as_view(), name='rebuild'),
+    url(INSTANCES % 'serial', views.SerialConsoleView.as_view(),
+        name='serial'),
     url(INSTANCES % 'console', 'console', name='console'),
     url(INSTANCES % 'vnc', 'vnc', name='vnc'),
     url(INSTANCES % 'spice', 'spice', name='spice'),

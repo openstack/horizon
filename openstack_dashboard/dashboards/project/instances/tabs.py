@@ -68,12 +68,17 @@ class ConsoleTab(tabs.Tab):
         console_type = getattr(settings, 'CONSOLE_TYPE', 'AUTO')
         console_url = None
         try:
-            console_url = console.get_console(request, console_type,
-                                              instance)[1]
+            console_type, console_url = console.get_console(
+                request, console_type, instance)
+            # For serial console, the url is different from VNC, etc.
+            # because it does not include parms for title and token
+            if console_type == "SERIAL":
+                console_url = "/project/instances/%s/serial" % (instance.id)
         except exceptions.NotAvailable:
             exceptions.handle(request, ignore=True, force_log=True)
 
-        return {'console_url': console_url, 'instance_id': instance.id}
+        return {'console_url': console_url, 'instance_id': instance.id,
+                'console_type': console_type}
 
     def allowed(self, request):
         # The ConsoleTab is available if settings.CONSOLE_TYPE is not set at

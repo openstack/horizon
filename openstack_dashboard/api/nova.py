@@ -75,6 +75,14 @@ class RDPConsole(base.APIDictWrapper):
     _attrs = ['url', 'type']
 
 
+class SerialConsole(base.APIDictWrapper):
+    """Wrapper for the "console" dictionary.
+
+    Returned by the novaclient.servers.get_serial_console method.
+    """
+    _attrs = ['url', 'type']
+
+
 class Server(base.APIResourceWrapper):
     """Simple wrapper around novaclient.server.Server.
 
@@ -452,6 +460,11 @@ def server_spice_console(request, instance_id, console_type='spice-html5'):
 
 def server_rdp_console(request, instance_id, console_type='rdp-html5'):
     return RDPConsole(novaclient(request).servers.get_rdp_console(
+        instance_id, console_type)['console'])
+
+
+def server_serial_console(request, instance_id, console_type='serial'):
+    return SerialConsole(novaclient(request).servers.get_serial_console(
         instance_id, console_type)['console'])
 
 
