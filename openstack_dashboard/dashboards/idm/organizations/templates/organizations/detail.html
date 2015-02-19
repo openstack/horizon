@@ -6,70 +6,73 @@
 
 {% block main %}
 <div id="detailOrganization">
-    <header>
-        <h3 class="name">
-            {{ organization_name }}
-            {% if edit %}
-                <a href="{% url 'horizon:idm:organizations:edit' organization_id %}" class="small"><i class="fa fa-edit"></i>edit</a>
-            {% endif %}
-        </h3>
-        <!--crear la carga de la imagen -->
-        <div class="logo">
-            <img alt="organization logo" src="{{ image }}">        
+  <header>
+    <h3 class="name">
+      {{ organization_name }}
+      {% if edit %}
+      <a href="{% url 'horizon:idm:organizations:edit' organization_id %}" class="small"><i class="fa fa-edit"></i>edit</a>
+      {% endif %}
+    </h3>
+    <!--crear la carga de la imagen -->
+    <div class="logo">
+      <img alt="organization logo" src="{{ image }}">        
 
-        </div>
-    </header>
-	<div class="panel panel-default">
-		<div class="panel-body">
-            <h5>
-              Contact us
-            </h5>
-            <div>
-                <p>{{ city }}</p>
-                <p>{{ email }}</p>
-                <p>{{ website }}</p>
-            </div>
-            <!-- div que contiene la información de la org, cuando no esté relleno este campo, ocultar -->
-            <div class="extra">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#description">
-                        Description
-                    </a>
-                </h4>
-                <div id="description" class="collapse">
-                    <p>{{ contact_info }}</p>
-                </div>
-            </div>
-		</div>
-	</div>
-    
-	<div class="panel panel-default members">
-
-        <div class="panel-heading">
-            {{ members_table }}  
-        </div>
-        <div class="panel-body">
-            <div class="members-actions">
-                <input type="text" class="form-control" placeholder="filter">
-                {{ members_table.render_table_actions }}
-            </div>
-            {{ members_table.render}}
-        </div>
     </div>
-
-    <div class="panel panel-default applications">
-        <div class="panel-heading">
-            {{ applications_table }}
+  </header>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h5>
+        Contact us
+      </h5>
+      <div>
+        <p>{{ city }}</p>
+        <p>{{ email }}</p>
+        <p>{{ website }}</p>
+      </div>
+      <!-- div que contiene la información de la org, cuando no esté relleno este campo, ocultar -->
+      <div class="extra">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#description">
+            Description
+          </a>
+        </h4>
+        <div id="description" class="collapse">
+          <p>{{ contact_info }}</p>
         </div>
-        <div class="panel-body">
-        {% if applications %}
-                {{ applications_table.render}}
-        {% else %}
-            <!-- texto que debe aparecer cuando no haya nada -->
-            <p class="alert alert-info empty"> {{organization_name}} does not have any applications.</p>
-        {% endif %}
-        </div>
+      </div>
     </div>
+  </div>
+
+  <div class="panel panel-default members">
+
+    <div class="panel-heading">
+      {{ members_table }}  
+    </div>
+    <div class="panel-body">
+      <div class="members-actions">
+        <input type="text" class="form-control" placeholder="filter">
+        {{ members_table.render_table_actions }}
+      </div>
+      {% if members_table.get_rows %}
+        {{ members_table.render}}
+      {% else %}
+        <p class="alert alert-info empty"> {{ organization_name }} does not have any members.</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="panel panel-default applications">
+    <div class="panel-heading">
+      {{ applications_table }}
+    </div>
+    <div class="panel-body">
+      {% if applications_table.get_rows %}
+        {{ applications_table.render}}
+      {% else %}
+        <p class="alert alert-info empty"> {{organization_name}} does not have any authorizing applications.</p>
+      {% endif %}
+    </div>
+  </div>
 
 </div>
 {% endblock %}

@@ -49,11 +49,11 @@
             {{ organizations_table }}  
         </div>
         <div class="panel-body">
-            <div class="organizations-actions">
-                <input type="text" class="form-control" placeholder="filter">
-                {{ organizations_table.render_table_actions }}
-            </div>
-            {{ organizations_table.render}}
+            {% if organizations_table.get_rows %}
+                {{ organizations_table.render}}
+            {% else %}
+            <p class="alert alert-info empty"> {{ user_name }} does not have any organizations.</p>
+            {% endif %}
         </div>
     </div>
 
@@ -62,7 +62,11 @@
             {{ applications_table }}
         </div>
         <div class="panel-body">
-            {{ applications_table.render}}
+            {% if applications_table.get_rows %}
+                {{ applications_table.render}}
+            {% else %}
+            <p class="alert alert-info empty"> {{ user_name }} does not have any applications.</p>
+            {% endif %}
         </div>
     </div>
 
