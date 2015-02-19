@@ -8,7 +8,10 @@
 <div id="detailApplication">
     <header>
         <h4 class="name">
-            {{ application_name }} <a href="{% url 'horizon:idm:myApplications:edit' application_id %}" class="small"><i class="fa fa-edit"></i>edit</a>
+            {{ application_name }} 
+            {% if edit %}
+              <a href="{% url 'horizon:idm:myApplications:edit' application_id %}" class="small"><i class="fa fa-edit"></i>edit</a>
+            {% endif %}
         </h4>
         <!--crear la carga de la imagen -->
         <div class="logo">

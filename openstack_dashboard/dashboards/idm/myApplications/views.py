@@ -217,6 +217,13 @@ class DetailApplicationView(tables.MultiTableView):
                               _("Unable to retrieve member information."))
         return organizations
 
+    def _can_edit(self):
+        # Allowed to edit the application if owns a role with the
+        # 'Manage the application' permission.
+        # TODO(garcianavalon) this needs to be created in the backend
+        return True
+
+
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super(DetailApplicationView, self).get_context_data(**kwargs)
@@ -237,6 +244,8 @@ class DetailApplicationView(tables.MultiTableView):
         context['application_name'] = application.name
         context['application_id'] = application_id
         context['application_secret'] = application.secret
+        if self._can_edit():
+            context['edit'] = True
         return context
 
 

@@ -67,11 +67,15 @@ class DetailUserView(tables.MultiTableView):
                               _("Unable to retrieve application list."))
         return applications
 
+    def _can_edit(self):
+        # Allowed if its the same user
+        return self.request.user.id == self.kwargs['user_id']
+
     def get_context_data(self, **kwargs):
         context = super(DetailUserView, self).get_context_data(**kwargs)
         user_id = self.kwargs['user_id']
         user = api.keystone.user_get(self.request, user_id, admin=True)
-        context['about_me'] = getattr(user,'description', '')
+        context['about_me'] = getattr(user, 'description', '')
         context['user_id'] = user_id
         context['user_name'] = user.name
         if hasattr(user, 'img_original'):
@@ -83,8 +87,8 @@ class DetailUserView(tables.MultiTableView):
         context['city'] = getattr(user, 'city', '')
         context['email'] = getattr(user, 'email', '')
         context['website'] = getattr(user, 'website', '')
-        applications = self.get_applications_data()
-        context['applications'] = applications
+        if self._can_edit():
+            context['edit'] = True
         return context
 
 class BaseUsersMultiFormView(idm_views.BaseMultiFormView):

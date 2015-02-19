@@ -68,6 +68,7 @@ class ManageMembersLink(tables.LinkAction):
 
     def allowed(self, request, user):
         # Allowed if he is an admin in the organization
+        # TODO(garcianavalon) move to fiware_api
         org_id = self.table.kwargs['organization_id']
         user_roles = api.keystone.roles_for_user(
             request, request.user.id, project=org_id)
