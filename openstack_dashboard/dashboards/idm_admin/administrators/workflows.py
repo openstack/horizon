@@ -106,7 +106,7 @@ class UpdateAuthorizedMembersAction(idm_workflows.UpdateRelationshipAction):
         slug = idm_workflows.RELATIONSHIP_SLUG
 
 
-class UpdateAuthorizedMembers(idm_workflows.UpdateRelationship):
+class UpdateAuthorizedMembers(idm_workflows.UpdateRelationshipStep):
     action_class = UpdateAuthorizedMembersAction
     available_list_title = _("All users")
     members_list_title = _("Administrators")
