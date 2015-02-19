@@ -34,7 +34,7 @@ def data(TEST):
     TEST.job_binaries = utils.TestDataContainer()
     TEST.jobs = utils.TestDataContainer()
     TEST.job_executions = utils.TestDataContainer()
-    TEST.registered_images = copy.deepcopy(TEST.images)
+    TEST.registered_images = copy.copy(TEST.images)
 
     plugin1_dict = {
         "description": "vanilla plugin",
