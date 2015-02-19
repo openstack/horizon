@@ -63,8 +63,7 @@ class ManageAuthorizedMembersLink(tables.LinkAction):
     def allowed(self, request, user):
         # Allowed if your allowed role list is not empty
         # TODO(garcianavalon) move to fiware_api
-        default_org = api.keystone.user_get(
-            request, request.user).default_project_id
+        default_org = request.user.default_project_id
         allowed = fiware_api.keystone.list_user_allowed_roles_to_assign(
             request,
             user=request.user.id,
@@ -103,8 +102,7 @@ class ManageAuthorizedOrganizationsLink(tables.LinkAction):
     def allowed(self, request, user):
         # Allowed if your allowed role list is not empty
         # TODO(garcianavalon) move to fiware_api
-        default_org = api.keystone.user_get(
-            request, request.user).default_project_id
+        default_org = request.user.default_project_id
         allowed = fiware_api.keystone.list_user_allowed_roles_to_assign(
             request,
             user=request.user.id,
