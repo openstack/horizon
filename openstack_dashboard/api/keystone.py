@@ -329,9 +329,8 @@ def user_update(request, user, **data):
         raise keystone_exceptions.ClientException(
             405, _("Identity service does not allow editing user data."))
 
-    # The v2 API updates user model, password and default project separately
+    # The v2 API updates user model and default project separately
     if VERSIONS.active < 3:
-        password = data.pop('password')
         project = data.pop('project')
 
         # Update user details
@@ -358,38 +357,15 @@ def user_update(request, user, **data):
                                'that project.')
                              % data.get('name', None))
 
-        # If present, update password
-        # FIXME(gabriel): password change should be its own form + view
-        if password:
-            try:
-                user_update_password(request, user, password)
-                if user.id == request.user.id:
-                    return utils.logout_with_message(
-                        request,
-                        _("Password changed. Please log in again to "
-                          "continue."),
-                        redirect=False
-                    )
-            except Exception:
-                error = exceptions.handle(request, ignore=True)
-
         if error is not None:
             raise error
 
     # v3 API is so much simpler...
     else:
-        if not data['password']:
-            data.pop('password')
         try:
             user = manager.update(user, **data)
         except keystone_exceptions.Conflict:
             raise exceptions.Conflict()
-        if data.get('password') and user.id == request.user.id:
-            return utils.logout_with_message(
-                request,
-                _("Password changed. Please log in again to continue."),
-                redirect=False
-            )
 
 
 def user_update_enabled(request, user, enabled):
@@ -401,6 +377,11 @@ def user_update_enabled(request, user, enabled):
 
 
 def user_update_password(request, user, password, admin=True):
+
+    if not keystone_can_edit_user():
+        raise keystone_exceptions.ClientException(
+            405, _("Identity service does not allow editing user password."))
+
     manager = keystoneclient(request, admin=admin).users
     if VERSIONS.active < 3:
         return manager.update_password(user, password)

@@ -55,6 +55,19 @@ class EditUserLink(policy.PolicyTargetMixin, tables.LinkAction):
         return api.keystone.keystone_can_edit_user()
 
 
+class ChangePasswordLink(policy.PolicyTargetMixin, tables.LinkAction):
+    name = "change_password"
+    verbose_name = _("Change Password")
+    url = "horizon:identity:users:change_password"
+    classes = ("ajax-modal",)
+    icon = "key"
+    policy_rules = (("identity", "identity:change_password"),)
+    policy_target_attrs = (("user_id", "id"),)
+
+    def allowed(self, request, user):
+        return api.keystone.keystone_can_edit_user()
+
+
 class ToggleEnabled(policy.PolicyTargetMixin, tables.BatchAction):
     name = "toggle"
 
@@ -228,6 +241,7 @@ class UsersTable(tables.DataTable):
     class Meta(object):
         name = "users"
         verbose_name = _("Users")
-        row_actions = (EditUserLink, ToggleEnabled, DeleteUsersAction)
+        row_actions = (EditUserLink, ChangePasswordLink, ToggleEnabled,
+                       DeleteUsersAction)
         table_actions = (UserFilterAction, CreateUserLink, DeleteUsersAction)
         row_class = UpdateRow

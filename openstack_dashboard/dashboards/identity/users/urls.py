@@ -32,4 +32,6 @@ urlpatterns = patterns(
         views.UpdateView.as_view(), name='update'),
     url(r'^create/$', views.CreateView.as_view(), name='create'),
     url(r'^(?P<user_id>[^/]+)/detail/$',
-        views.DetailView.as_view(), name='detail'))
+        views.DetailView.as_view(), name='detail'),
+    url(r'^(?P<user_id>[^/]+)/change_password/$',
+        views.ChangePasswordView.as_view(), name='change_password'))
