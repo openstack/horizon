@@ -16,6 +16,9 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
 
+from openstack_dashboard import api
+from openstack_dashboard import fiware_api
+
 
 class ProvidingApplicationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
@@ -53,13 +56,21 @@ class PurchasedApplicationsTable(tables.DataTable):
 
 class ManageAuthorizedMembersLink(tables.LinkAction):
     name = "manage_application_members"
-    verbose_name = _("Manage your applications' members")
+    verbose_name = _("Manage authorized users")
     url = "horizon:idm:myApplications:members"
     classes = ("ajax-modal",)
 
     def allowed(self, request, user):
-        # TODO(garcianavalon)
-        return True
+        # Allowed if your allowed role list is not empty
+        # TODO(garcianavalon) move to fiware_api
+        default_org = api.keystone.user_get(
+            request, request.user).default_project_id
+        allowed = fiware_api.keystone.list_user_allowed_roles_to_assign(
+            request,
+            user=request.user.id,
+            organization=default_org)
+        app_id = self.table.kwargs['application_id']
+        return allowed.get(app_id, False)
 
     def get_link_url(self, datum=None):
         app_id = self.table.kwargs['application_id']
@@ -90,8 +101,16 @@ class ManageAuthorizedOrganizationsLink(tables.LinkAction):
     classes = ("ajax-modal",)
 
     def allowed(self, request, user):
-        # TODO(garcianavalon)
-        return True
+        # Allowed if your allowed role list is not empty
+        # TODO(garcianavalon) move to fiware_api
+        default_org = api.keystone.user_get(
+            request, request.user).default_project_id
+        allowed = fiware_api.keystone.list_user_allowed_roles_to_assign(
+            request,
+            user=request.user.id,
+            organization=default_org)
+        app_id = self.table.kwargs['application_id']
+        return allowed.get(app_id, False)
 
     def get_link_url(self, datum=None):
         app_id = self.table.kwargs['application_id']

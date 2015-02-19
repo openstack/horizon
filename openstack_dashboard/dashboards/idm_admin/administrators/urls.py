@@ -21,5 +21,5 @@ from openstack_dashboard.dashboards.idm_admin.administrators import views
 urlpatterns = patterns(
     '',
     url(r'^$', views.DetailApplicationView.as_view(), name='index'),
-    url(r'^$', views.ManageMembersView.as_view(), name='members'),
+    url(r'^/edit/members/$', views.ManageMembersView.as_view(), name='members'),
 )

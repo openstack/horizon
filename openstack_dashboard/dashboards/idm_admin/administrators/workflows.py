@@ -24,7 +24,7 @@ from openstack_dashboard import fiware_api
 from openstack_dashboard.dashboards.idm import workflows as idm_workflows
 
 
-INDEX_URL = "horizon:idm_admin:adminitrators:index"
+INDEX_URL = "horizon:idm_admin:administrators:index"
 LOG = logging.getLogger('idm_logger')
 
 
@@ -43,8 +43,8 @@ class AuthorizedMembersApi(idm_workflows.RelationshipApiInterface):
             request,
             user=request.user.id,
             organization=default_org)
-        self.allowed = [role for role in all_roles
-                        if role.id in allowed[superset_id]]
+        self.allowed = [role for role in all_roles 
+                   if role.id in allowed[superset_id]]
         return self.allowed
 
     def _list_current_assignments(self, request, superset_id):
@@ -65,15 +65,7 @@ class AuthorizedMembersApi(idm_workflows.RelationshipApiInterface):
         return application_users_roles
 
     def _get_default_object(self, request):
-        default_role = api.keystone.get_default_role(request)
-        # Default role is necessary to add members to a project
-        if default_role is None:
-            default = getattr(settings,
-                              "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
-            msg = (_('Could not find default role "%s" in Keystone') %
-                   default)
-            raise exceptions.NotFound(msg)
-        return default_role
+        return None
 
     def _add_object_to_owner(self, request, superset, owner, obj):
         default_org = api.keystone.user_get(request, owner).default_project_id

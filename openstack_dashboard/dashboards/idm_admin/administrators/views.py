@@ -28,7 +28,7 @@ from openstack_dashboard.dashboards.idm_admin.administrators \
 
 
 class DetailApplicationView(tables.MultiTableView):
-    template_name = 'idm/myApplications/detail.html'
+    template_name = 'idm_admin/administrators/index.html'
     table_classes = (administrators_tables.MembersTable, )
     idm_admin = getattr(settings, 'IDM_ID')
 

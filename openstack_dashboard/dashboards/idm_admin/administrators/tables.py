@@ -12,9 +12,13 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
+
+from openstack_dashboard import api
+from openstack_dashboard import fiware_api
 
 
 class ManageAuthorizedMembersLink(tables.LinkAction):
@@ -24,13 +28,24 @@ class ManageAuthorizedMembersLink(tables.LinkAction):
     classes = ("ajax-modal",)
 
     def allowed(self, request, user):
-        # TODO(garcianavalon)
-        return True
+        # Allowed if your allowed role list is not empty
+        # TODO(garcianavalon) move to fiware_api
+        default_org = api.keystone.user_get(
+            request, request.user).default_project_id
+        allowed = fiware_api.keystone.list_user_allowed_roles_to_assign(
+            request,
+            user=request.user.id,
+            organization=default_org)
+        app_id = getattr(settings, 'IDM_ID')
+        return allowed.get(app_id, False)
 
 
 class MembersTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Members'))
-    show_avatar = True
+    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(
+        obj, 'img_medium', 'dashboard/img/logos/medium/user.png'))
+    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(
+        obj, 'img_medium', 'dashboard/img/logos/medium/user.png'))
 
     class Meta:
         name = "members"

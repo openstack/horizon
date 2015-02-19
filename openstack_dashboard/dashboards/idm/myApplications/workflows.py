@@ -146,6 +146,7 @@ class AuthorizedMembersApi(idm_workflows.RelationshipApiInterface):
 
 
     def _list_all_objects(self, request, superset_id):
+        # TODO(garcianavalon) move to fiware_api
         all_roles = fiware_api.keystone.role_list(request)
         default_org = api.keystone.user_get(
             request, request.user).default_project_id
