@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-16 18:38-0600\n"
-"PO-Revision-Date: 2015-02-16 19:03+0000\n"
+"POT-Creation-Date: 2015-02-18 23:28-0600\n"
+"PO-Revision-Date: 2015-02-19 05:28+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/horizon/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -204,6 +204,22 @@ msgstr "No està autoritzat a realitzar aquesta operació."
 msgid "Passwords do not match."
 msgstr "Les contrasenyes no coincideixen."
 
+#: static/horizon/js/angular/services/hz.api.glance.js:38
+msgid "Unable to retrieve image."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.glance.js:81
+msgid "Unable to retrieve images."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.glance.js:133
+msgid "Unable to retrieve namespaces."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.glance.js:147
+msgid "Unable to retrieve namespace."
+msgstr ""
+
 #: static/horizon/js/angular/services/hz.api.keystone.js:24
 msgid "Unable to retrieve users"
 msgstr ""
@@ -302,4 +318,24 @@ msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:200
 msgid "Unable to grant the role."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.nova.js:40
+msgid "Unable to retrieve keypairs."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.nova.js:61
+msgid "Unable to create the keypair."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.nova.js:79
+msgid "Unable to retrieve availability zones."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.nova.js:117
+msgid "Unable to retrieve limits."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.nova.js:144
+msgid "Unable to create the server."
 msgstr ""
