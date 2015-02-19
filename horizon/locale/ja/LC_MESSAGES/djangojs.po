@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-16 18:38-0600\n"
-"PO-Revision-Date: 2015-02-16 19:03+0000\n"
+"POT-Creation-Date: 2015-02-18 23:28-0600\n"
+"PO-Revision-Date: 2015-02-19 05:42+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -205,6 +205,22 @@ msgstr "この操作を行う権限がありません。"
 msgid "Passwords do not match."
 msgstr "パスワードが一致しません。"
 
+#: static/horizon/js/angular/services/hz.api.glance.js:38
+msgid "Unable to retrieve image."
+msgstr "イメージ情報を取得できません。"
+
+#: static/horizon/js/angular/services/hz.api.glance.js:81
+msgid "Unable to retrieve images."
+msgstr "イメージ一覧を取得できません。"
+
+#: static/horizon/js/angular/services/hz.api.glance.js:133
+msgid "Unable to retrieve namespaces."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.glance.js:147
+msgid "Unable to retrieve namespace."
+msgstr ""
+
 #: static/horizon/js/angular/services/hz.api.keystone.js:24
 msgid "Unable to retrieve users"
 msgstr "ユーザー一覧を取得できません。"
@@ -304,3 +320,23 @@ msgstr "プロジェクトを削除できません。"
 #: static/horizon/js/angular/services/hz.api.keystone.js:200
 msgid "Unable to grant the role."
 msgstr "ロールを許可できません。"
+
+#: static/horizon/js/angular/services/hz.api.nova.js:40
+msgid "Unable to retrieve keypairs."
+msgstr "キーペアの一覧を取得できません。"
+
+#: static/horizon/js/angular/services/hz.api.nova.js:61
+msgid "Unable to create the keypair."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.nova.js:79
+msgid "Unable to retrieve availability zones."
+msgstr "アベイラビリティーゾーンを取得できません。"
+
+#: static/horizon/js/angular/services/hz.api.nova.js:117
+msgid "Unable to retrieve limits."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.nova.js:144
+msgid "Unable to create the server."
+msgstr ""

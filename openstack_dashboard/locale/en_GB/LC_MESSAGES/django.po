@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-17 22:37-0600\n"
-"PO-Revision-Date: 2015-02-17 21:53+0000\n"
+"POT-Creation-Date: 2015-02-18 23:28-0600\n"
+"PO-Revision-Date: 2015-02-19 05:42+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/horizon/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
@@ -430,7 +430,7 @@ msgstr "The 'operation' parameter for get_feature_permission '%(feature)s' is in
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr "Failed to check Neutron '%s' extension is not supported"
 
-#: api/nova.py:102 api/nova.py:112 dashboards/project/databases/tables.py:245
+#: api/nova.py:102 api/nova.py:112 dashboards/project/databases/tables.py:246
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:8
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:11
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:8
@@ -579,11 +579,11 @@ msgstr "Admin"
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:83
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:6
 #: dashboards/project/data_processing/utils/workflow_helpers.py:113
-#: dashboards/project/database_backups/tables.py:145
+#: dashboards/project/database_backups/tables.py:160
 #: dashboards/project/database_backups/templates/database_backups/details.html:14
 #: dashboards/project/database_backups/templates/database_backups/details.html:60
 #: dashboards/project/database_backups/workflows/create_backup.py:32
-#: dashboards/project/databases/tables.py:330
+#: dashboards/project/databases/tables.py:353
 #: dashboards/project/databases/templates/databases/_detail_overview.html:9
 #: dashboards/project/firewalls/forms.py:33
 #: dashboards/project/firewalls/forms.py:98
@@ -927,7 +927,6 @@ msgstr "Error when adding or removing hosts."
 #: dashboards/admin/networks/templates/networks/agents/_add.html:5
 #: dashboards/admin/networks/templates/networks/ports/_create.html:18
 #: dashboards/admin/networks/templates/networks/ports/_update.html:22
-#: dashboards/admin/routers/templates/routers/_update.html:17
 #: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:18
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:18
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:18
@@ -958,11 +957,11 @@ msgstr "Error when adding or removing hosts."
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:17
 #: dashboards/project/containers/templates/containers/_update.html:20
 #: dashboards/project/containers/templates/containers/_upload.html:21
-#: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:17
-#: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:17
-#: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:17
-#: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:17
-#: dashboards/project/firewalls/templates/firewalls/_updaterule.html:17
+#: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:5
+#: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:5
+#: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:5
+#: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:5
+#: dashboards/project/firewalls/templates/firewalls/_updaterule.html:5
 #: dashboards/project/images/templates/images/images/_create.html:13
 #: dashboards/project/images/templates/images/images/_update.html:11
 #: dashboards/project/images/templates/images/snapshots/_create.html:18
@@ -975,7 +974,7 @@ msgstr "Error when adding or removing hosts."
 #: dashboards/project/networks/templates/networks/_create.html:17
 #: dashboards/project/networks/templates/networks/_update.html:5
 #: dashboards/project/networks/templates/networks/ports/_update.html:22
-#: dashboards/project/routers/templates/routers/_update.html:17
+#: dashboards/project/routers/templates/routers/_update.html:5
 #: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:18
 #: dashboards/project/routers/templates/routers/ports/_create.html:18
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:18
@@ -1021,7 +1020,6 @@ msgstr "Host aggregates divide an availability zone into logical units by groupi
 #: dashboards/admin/networks/templates/networks/_create.html:27
 #: dashboards/admin/networks/templates/networks/ports/_create.html:25
 #: dashboards/admin/networks/templates/networks/ports/_update.html:29
-#: dashboards/admin/routers/templates/routers/_update.html:24
 #: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:29
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:35
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:37
@@ -1052,11 +1050,6 @@ msgstr "Host aggregates divide an availability zone into logical units by groupi
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:26
 #: dashboards/project/databases/templates/databases/_resize_instance.html:24
 #: dashboards/project/databases/templates/databases/_resize_volume.html:25
-#: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:27
-#: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:24
-#: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:24
-#: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:24
-#: dashboards/project/firewalls/templates/firewalls/_updaterule.html:24
 #: dashboards/project/images/templates/images/images/_create.html:33
 #: dashboards/project/images/templates/images/images/_update.html:17
 #: dashboards/project/images/templates/images/snapshots/_create.html:25
@@ -1071,8 +1064,6 @@ msgstr "Host aggregates divide an availability zone into logical units by groupi
 #: dashboards/project/networks/templates/networks/create.html:9
 #: dashboards/project/networks/templates/networks/create.html:24
 #: dashboards/project/networks/templates/networks/ports/_update.html:29
-#: dashboards/project/routers/templates/routers/_create.html:21
-#: dashboards/project/routers/templates/routers/_update.html:24
 #: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:28
 #: dashboards/project/routers/templates/routers/ports/_create.html:30
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:25
@@ -1149,7 +1140,7 @@ msgstr "VCPUs"
 #: dashboards/identity/projects/workflows.py:51
 #: dashboards/project/data_processing/clusters/tabs.py:152
 #: dashboards/project/databases/panel.py:23
-#: dashboards/project/databases/tables.py:284
+#: dashboards/project/databases/tables.py:307
 #: dashboards/project/databases/views.py:48
 #: dashboards/project/databases/templates/databases/index.html:3
 #: dashboards/project/instances/panel.py:23
@@ -1671,7 +1662,7 @@ msgid "Local Storage (total)"
 msgstr ""
 
 #: dashboards/admin/hypervisors/tables.py:70
-#: dashboards/project/databases/tables.py:263
+#: dashboards/project/databases/tables.py:287
 #: dashboards/project/databases/workflows/create_instance.py:35
 #: dashboards/project/instances/tables.py:962
 #: dashboards/project/instances/tables.py:985
@@ -1761,7 +1752,7 @@ msgstr "Failed to evacuate host: %s."
 #: dashboards/admin/volumes/volumes/forms.py:54
 #: dashboards/admin/volumes/volumes/forms.py:140
 #: dashboards/admin/volumes/volumes/tables.py:81
-#: dashboards/project/databases/tables.py:268
+#: dashboards/project/databases/tables.py:292
 #: dashboards/project/databases/templates/databases/_detail_overview_cassandra.html:10
 #: dashboards/project/databases/templates/databases/_detail_overview_couchbase.html:10
 #: dashboards/project/databases/templates/databases/_detail_overview_mongodb.html:10
@@ -1837,11 +1828,11 @@ msgstr "Zone"
 #: dashboards/project/data_processing/job_executions/tables.py:40
 #: dashboards/project/data_processing/job_executions/tables.py:179
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:6
-#: dashboards/project/database_backups/tables.py:161
+#: dashboards/project/database_backups/tables.py:174
 #: dashboards/project/database_backups/templates/database_backups/details.html:26
 #: dashboards/project/database_backups/templates/database_backups/details.html:67
-#: dashboards/project/databases/tables.py:278
-#: dashboards/project/databases/tables.py:343
+#: dashboards/project/databases/tables.py:300
+#: dashboards/project/databases/tables.py:365
 #: dashboards/project/databases/templates/databases/_detail_overview.html:17
 #: dashboards/project/firewalls/tables.py:253
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
@@ -2257,7 +2248,7 @@ msgstr "IP Address"
 #: dashboards/project/containers/tables.py:446
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
-#: dashboards/project/databases/tables.py:270
+#: dashboards/project/databases/tables.py:294
 #: dashboards/project/images/images/tables.py:263
 #: dashboards/project/images/templates/images/images/_detail_overview.html:46
 #: dashboards/project/instances/tables.py:992
@@ -2661,9 +2652,9 @@ msgstr ""
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:82
 #: dashboards/project/data_processing/jobs/workflows/launch.py:407
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:375
-#: dashboards/project/database_backups/tables.py:150
+#: dashboards/project/database_backups/tables.py:165
 #: dashboards/project/database_backups/templates/database_backups/details.html:32
-#: dashboards/project/databases/tables.py:331
+#: dashboards/project/databases/tables.py:354
 #: dashboards/project/databases/templates/databases/_detail_overview.html:34
 #: dashboards/project/images/templates/images/images/_detail_overview.html:27
 #: dashboards/project/instances/templates/instances/_detail_overview.html:18
@@ -3657,19 +3648,18 @@ msgid "You may update the editable properties of your port here."
 msgstr "You may update the editable properties of your port here."
 
 #: dashboards/admin/networks/templates/networks/ports/_update.html:28
-#: dashboards/admin/routers/templates/routers/_update.html:23
-#: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:26
-#: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:23
-#: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:23
-#: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:23
-#: dashboards/project/firewalls/templates/firewalls/_updaterule.html:23
+#: dashboards/project/firewalls/views.py:131
+#: dashboards/project/firewalls/views.py:172
+#: dashboards/project/firewalls/views.py:210
+#: dashboards/project/firewalls/views.py:250
+#: dashboards/project/firewalls/views.py:289
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:23
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:23
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:23
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:23
 #: dashboards/project/networks/views.py:69
 #: dashboards/project/networks/templates/networks/ports/_update.html:28
-#: dashboards/project/routers/templates/routers/_update.html:23
+#: dashboards/project/routers/views.py:167
 #: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:23
 #: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:23
 #: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:23
@@ -3755,13 +3745,13 @@ msgstr ""
 #: dashboards/project/network_topology/routers/tables.py:27
 #: dashboards/project/routers/panel.py:24
 #: dashboards/project/routers/tables.py:234
-#: dashboards/project/routers/views.py:41
+#: dashboards/project/routers/views.py:42
 #: dashboards/project/routers/templates/routers/index.html:3
 #: usage/quotas.py:80
 msgid "Routers"
 msgstr "Routers"
 
-#: dashboards/admin/routers/views.py:42 dashboards/project/routers/views.py:52
+#: dashboards/admin/routers/views.py:42 dashboards/project/routers/views.py:53
 msgid "Unable to retrieve router list."
 msgstr "Unable to retrieve router list."
 
@@ -3860,27 +3850,16 @@ msgstr "External Gateway Information"
 msgid "Connected External Network: %(router_gw_info_network)s"
 msgstr ""
 
-#: dashboards/admin/routers/templates/routers/_update.html:8
-#: dashboards/project/routers/tables.py:106
-#: dashboards/project/routers/templates/routers/_update.html:8
-msgid "Edit Router"
-msgstr "Edit Router"
-
-#: dashboards/admin/routers/templates/routers/_update.html:18
-#: dashboards/project/routers/templates/routers/_update.html:18
-msgid "You may update the editable properties of your router here."
-msgstr "You may update the editable properties of your router here."
-
 #: dashboards/admin/routers/templates/routers/detail.html:3
 #: dashboards/admin/routers/templates/routers/detail.html:6
-#: dashboards/project/routers/views.py:101
+#: dashboards/project/routers/views.py:102
 #: dashboards/project/routers/templates/routers/detail.html:3
 msgid "Router Details"
 msgstr "Router Details"
 
 #: dashboards/admin/routers/templates/routers/update.html:3
 #: dashboards/admin/routers/templates/routers/update.html:6
-#: dashboards/project/routers/views.py:159
+#: dashboards/project/routers/views.py:166
 #: dashboards/project/routers/templates/routers/update.html:3
 msgid "Update Router"
 msgstr "Update Router"
@@ -5092,7 +5071,7 @@ msgstr ""
 #: dashboards/identity/users/templates/users/_detail_overview.html:17
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:14
 #: dashboards/project/data_processing/data_image_registry/forms.py:28
-#: dashboards/project/databases/tables.py:296
+#: dashboards/project/databases/tables.py:319
 msgid "User Name"
 msgstr "User Name"
 
@@ -5551,7 +5530,7 @@ msgstr "Unable to update the user."
 #: dashboards/identity/users/tables.py:230
 #: dashboards/identity/users/views.py:46
 #: dashboards/identity/users/templates/users/index.html:3
-#: dashboards/project/databases/tables.py:302
+#: dashboards/project/databases/tables.py:325
 #: dashboards/project/databases/tabs.py:47
 msgid "Users"
 msgstr "Users"
@@ -5593,14 +5572,14 @@ msgid "You cannot disable the user you are currently logged in as."
 msgstr "You cannot disable the user you are currently logged in as."
 
 #: dashboards/identity/users/tables.py:130
-#: dashboards/project/databases/tables.py:90
+#: dashboards/project/databases/tables.py:91
 msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] ""
 msgstr[1] ""
 
 #: dashboards/identity/users/tables.py:138
-#: dashboards/project/databases/tables.py:98
+#: dashboards/project/databases/tables.py:99
 msgid "Deleted User"
 msgid_plural "Deleted Users"
 msgstr[0] ""
@@ -5674,7 +5653,7 @@ msgid "Orchestration"
 msgstr "Orchestration"
 
 #: dashboards/project/dashboard.py:55
-#: dashboards/project/database_backups/tables.py:153
+#: dashboards/project/database_backups/tables.py:168
 msgid "Database"
 msgstr "Database"
 
@@ -6692,7 +6671,7 @@ msgid "Copy"
 msgstr "Copy"
 
 #: dashboards/project/containers/tables.py:381
-#: dashboards/project/databases/tables.py:333
+#: dashboards/project/databases/tables.py:356
 msgid "Download"
 msgstr "Download"
 
@@ -8325,24 +8304,26 @@ msgstr "This Node Group Template will be created for:"
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:12
 msgid ""
-"The Node Group Template object should specify processes that will be "
-"launched on each instance. Also an OpenStack flavor is required to boot VMs."
-msgstr "The Node Group Template object should specify processes that will be launched on each instance. Also an OpenStack flavor is required to boot VMs."
+"The Node Group Template object specifies the processes\n"
+"        that will be launched on each instance. Check one or more processes.\n"
+"        When processes are selected, you may set <b>node</b> scoped\n"
+"        configurations on corresponding tabs."
+msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:15
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:18
+msgid ""
+"You must choose a flavor to determine the size (VCPUs, memory and storage) "
+"of all launched VMs."
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:21
 msgid ""
 "Data Processing provides different storage location options. You may choose "
 "Ephemeral Drive or a Cinder Volume to be attached to instances."
 msgstr "Data Processing provides different storage location options. You may choose Ephemeral Drive or a Cinder Volume to be attached to instances."
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:18
-msgid ""
-"When processes are selected, you may set <b>node</b> scoped configurations "
-"on corresponding tabs."
-msgstr ""
-
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_create_general_help.html:3
-msgid "Select a plugin and version for a new Node group template."
+msgid "Select a plugin and version for the new Node Group template."
 msgstr ""
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:67
@@ -8523,46 +8504,76 @@ msgid "Plugin Name"
 msgstr "Plugin Name"
 
 #: dashboards/project/database_backups/panel.py:23
-#: dashboards/project/database_backups/tables.py:167
+#: dashboards/project/database_backups/tables.py:181
 #: dashboards/project/database_backups/views.py:35
-#: dashboards/project/databases/tables.py:349
+#: dashboards/project/databases/tables.py:372
 #: dashboards/project/databases/tabs.py:104
 msgid "Backups"
 msgstr "Backups"
 
-#: dashboards/project/database_backups/tables.py:38
-#: dashboards/project/databases/tables.py:148
+#: dashboards/project/database_backups/tables.py:37
+msgctxt "Current status of a Database Backup"
+msgid "Building"
+msgstr "Building"
+
+#: dashboards/project/database_backups/tables.py:39
+msgctxt "Current status of a Database Backup"
+msgid "Completed"
+msgstr ""
+
+#: dashboards/project/database_backups/tables.py:41
+msgctxt "Current status of a Database Backup"
+msgid "Delete Failed"
+msgstr "Delete Failed"
+
+#: dashboards/project/database_backups/tables.py:43
+msgctxt "Current status of a Database Backup"
+msgid "Failed"
+msgstr "Failed"
+
+#: dashboards/project/database_backups/tables.py:45
+msgctxt "Current status of a Database Backup"
+msgid "New"
+msgstr ""
+
+#: dashboards/project/database_backups/tables.py:47
+msgctxt "Current status of a Database Backup"
+msgid "Saving"
+msgstr ""
+
+#: dashboards/project/database_backups/tables.py:53
+#: dashboards/project/databases/tables.py:149
 #: dashboards/project/volumes/volumes/tables.py:204
 msgid "Create Backup"
 msgstr "Create Backup"
 
-#: dashboards/project/database_backups/tables.py:46
+#: dashboards/project/database_backups/tables.py:61
 #: dashboards/project/volumes/backups/tables.py:64
 msgid "Restore Backup"
 msgstr "Restore Backup"
 
-#: dashboards/project/database_backups/tables.py:61
+#: dashboards/project/database_backups/tables.py:76
 msgid "Download Backup"
 msgstr "Download Backup"
 
-#: dashboards/project/database_backups/tables.py:81
+#: dashboards/project/database_backups/tables.py:96
 msgid "Delete Backup"
 msgid_plural "Delete Backups"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/database_backups/tables.py:89
+#: dashboards/project/database_backups/tables.py:104
 msgid "Deleted Backup"
 msgid_plural "Deleted Backups"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/database_backups/tables.py:129
-#: dashboards/project/database_backups/tables.py:135
-#: dashboards/project/databases/tables.py:208
-#: dashboards/project/databases/tables.py:214
-#: dashboards/project/databases/tables.py:231
-#: dashboards/project/databases/tables.py:237
+#: dashboards/project/database_backups/tables.py:144
+#: dashboards/project/database_backups/tables.py:150
+#: dashboards/project/databases/tables.py:209
+#: dashboards/project/databases/tables.py:215
+#: dashboards/project/databases/tables.py:232
+#: dashboards/project/databases/tables.py:238
 #: dashboards/project/instances/tables.py:821
 #: dashboards/project/instances/tables.py:828
 #: dashboards/project/instances/views.py:368
@@ -8571,23 +8582,23 @@ msgstr[1] ""
 msgid "Not available"
 msgstr "Not available"
 
-#: dashboards/project/database_backups/tables.py:147
+#: dashboards/project/database_backups/tables.py:162
 #: dashboards/project/database_backups/templates/database_backups/details.html:21
-#: dashboards/project/databases/tables.py:265
+#: dashboards/project/databases/tables.py:289
 #: dashboards/project/databases/templates/databases/_detail_overview.html:13
 #: dashboards/project/databases/workflows/create_instance.py:42
 msgid "Datastore"
 msgstr "Datastore"
 
-#: dashboards/project/database_backups/tables.py:149
+#: dashboards/project/database_backups/tables.py:164
 #: dashboards/project/database_backups/templates/database_backups/details.html:23
-#: dashboards/project/databases/tables.py:267
+#: dashboards/project/databases/tables.py:291
 #: dashboards/project/databases/templates/databases/_detail_overview.html:15
 msgid "Datastore Version"
 msgstr "Datastore Version"
 
-#: dashboards/project/database_backups/tables.py:155
-#: dashboards/project/databases/tables.py:337
+#: dashboards/project/database_backups/tables.py:170
+#: dashboards/project/databases/tables.py:360
 msgid "Incremental"
 msgstr "Incremental"
 
@@ -8780,53 +8791,53 @@ msgstr ""
 msgid "Unable to resize instance. %s"
 msgstr ""
 
-#: dashboards/project/databases/tables.py:37
+#: dashboards/project/databases/tables.py:38
 #: dashboards/project/instances/tables.py:90
 msgid "Terminate Instance"
 msgid_plural "Terminate Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/databases/tables.py:45
+#: dashboards/project/databases/tables.py:46
 #: dashboards/project/instances/tables.py:98
 msgid "Scheduled termination of Instance"
 msgid_plural "Scheduled termination of Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/databases/tables.py:62
+#: dashboards/project/databases/tables.py:63
 msgid "Restart Instance"
 msgid_plural "Restart Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/databases/tables.py:70
+#: dashboards/project/databases/tables.py:71
 msgid "Restarted Instance"
 msgid_plural "Restarted Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/databases/tables.py:108
+#: dashboards/project/databases/tables.py:109
 msgid "Error deleting database user."
 msgstr "Error deleting database user."
 
-#: dashboards/project/databases/tables.py:116
+#: dashboards/project/databases/tables.py:117
 msgid "Delete Database"
 msgid_plural "Delete Databases"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/databases/tables.py:124
+#: dashboards/project/databases/tables.py:125
 msgid "Deleted Database"
 msgid_plural "Deleted Databases"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/databases/tables.py:134
+#: dashboards/project/databases/tables.py:135
 msgid "Error deleting database on instance."
 msgstr "Error deleting database on instance."
 
-#: dashboards/project/databases/tables.py:140
+#: dashboards/project/databases/tables.py:141
 #: dashboards/project/databases/templates/databases/launch.html:3
 #: dashboards/project/databases/workflows/create_instance.py:271
 #: dashboards/project/instances/tables.py:305
@@ -8836,17 +8847,17 @@ msgstr "Error deleting database on instance."
 msgid "Launch Instance"
 msgstr "Launch Instance"
 
-#: dashboards/project/databases/tables.py:164
+#: dashboards/project/databases/tables.py:165
 msgid "Resize Volume"
 msgstr "Resize Volume"
 
-#: dashboards/project/databases/tables.py:178
+#: dashboards/project/databases/tables.py:179
 #: dashboards/project/instances/tables.py:435
 #: dashboards/project/instances/workflows/resize_instance.py:84
 msgid "Resize Instance"
 msgstr "Resize Instance"
 
-#: dashboards/project/databases/tables.py:222
+#: dashboards/project/databases/tables.py:223
 #: dashboards/project/databases/templates/databases/_detail_overview_cassandra.html:12
 #: dashboards/project/databases/templates/databases/_detail_overview_couchbase.html:12
 #: dashboards/project/databases/templates/databases/_detail_overview_mongodb.html:12
@@ -8855,32 +8866,82 @@ msgstr "Resize Instance"
 msgid "Not Assigned"
 msgstr "Not Assigned"
 
-#: dashboards/project/databases/tables.py:227
+#: dashboards/project/databases/tables.py:228
 #, python-format
 msgid "%(name)s | %(RAM)s RAM"
 msgstr "%(name)s | %(RAM)s RAM"
 
-#: dashboards/project/databases/tables.py:273
+#: dashboards/project/databases/tables.py:264
+msgctxt "Current status of a Database Instance"
+msgid "Active"
+msgstr "Active"
+
+#: dashboards/project/databases/tables.py:266
+msgctxt "Current status of a Database Instance"
+msgid "Blocked"
+msgstr "Blocked"
+
+#: dashboards/project/databases/tables.py:268
+msgctxt "Current status of a Database Instance"
+msgid "Build"
+msgstr "Build"
+
+#: dashboards/project/databases/tables.py:270
+msgctxt "Current status of a Database Instance"
+msgid "Failed"
+msgstr "Failed"
+
+#: dashboards/project/databases/tables.py:272
+msgctxt "Current status of a Database Instance"
+msgid "Reboot"
+msgstr "Reboot"
+
+#: dashboards/project/databases/tables.py:274
+msgctxt "Current status of a Database Instance"
+msgid "Resize"
+msgstr "Resize"
+
+#: dashboards/project/databases/tables.py:276
+msgctxt "Current status of a Database Instance"
+msgid "Backup"
+msgstr "Backup"
+
+#: dashboards/project/databases/tables.py:278
+msgctxt "Current status of a Database Instance"
+msgid "Shutdown"
+msgstr ""
+
+#: dashboards/project/databases/tables.py:280
+msgctxt "Current status of a Database Instance"
+msgid "Error"
+msgstr "Error"
+
+#: dashboards/project/databases/tables.py:283
+msgctxt "Current status of a Database Instance"
+msgid "Restart Required"
+msgstr ""
+
+#: dashboards/project/databases/tables.py:297
 #: dashboards/project/databases/templates/databases/_detail_overview.html:31
 #: dashboards/project/databases/workflows/create_instance.py:38
 msgid "Volume Size"
 msgstr "Volume Size"
 
-#: dashboards/project/databases/tables.py:297
+#: dashboards/project/databases/tables.py:320
 msgid "Allowed Host"
 msgstr "Allowed Host"
 
-#: dashboards/project/databases/tables.py:298
-#: dashboards/project/databases/tables.py:315
+#: dashboards/project/databases/tables.py:321
+#: dashboards/project/databases/tables.py:338
 #: dashboards/project/databases/tabs.py:77
 msgid "Databases"
 msgstr "Databases"
 
-#: dashboards/project/databases/tables.py:311
+#: dashboards/project/databases/tables.py:334
 msgid "Database Name"
 msgstr "Database Name"
 
-#: dashboards/project/databases/tables.py:335
+#: dashboards/project/databases/tables.py:358
 msgid "Backup File"
 msgstr "Backup File"
 
@@ -9365,8 +9426,8 @@ msgstr "Failed to remove rule from policy %(name)s: %(reason)s"
 #: dashboards/project/firewalls/panel.py:26
 #: dashboards/project/firewalls/tables.py:257
 #: dashboards/project/firewalls/tabs.py:69
+#: dashboards/project/firewalls/views.py:110
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
-#: dashboards/project/firewalls/templates/firewalls/details_tabs.html:6
 msgid "Firewalls"
 msgstr "Firewalls"
 
@@ -9410,22 +9471,19 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: dashboards/project/firewalls/tables.py:119
-#: dashboards/project/firewalls/views.py:124
-#: dashboards/project/firewalls/templates/firewalls/_updaterule.html:8
+#: dashboards/project/firewalls/views.py:130
 #: dashboards/project/firewalls/templates/firewalls/updaterule.html:3
 msgid "Edit Rule"
 msgstr "Edit Rule"
 
 #: dashboards/project/firewalls/tables.py:131
-#: dashboards/project/firewalls/views.py:162
-#: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:8
+#: dashboards/project/firewalls/views.py:171
 #: dashboards/project/firewalls/templates/firewalls/updatepolicy.html:3
 msgid "Edit Policy"
 msgstr "Edit Policy"
 
 #: dashboards/project/firewalls/tables.py:143
-#: dashboards/project/firewalls/views.py:195
-#: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:8
+#: dashboards/project/firewalls/views.py:209
 #: dashboards/project/firewalls/templates/firewalls/updatefirewall.html:3
 msgid "Edit Firewall"
 msgstr "Edit Firewall"
@@ -9489,7 +9547,7 @@ msgid "Firewall Rule Details"
 msgstr "Firewall Rule Details"
 
 #: dashboards/project/firewalls/tabs.py:98
-#: dashboards/project/firewalls/views.py:145
+#: dashboards/project/firewalls/views.py:154
 msgid "Unable to retrieve rule details."
 msgstr "Unable to retrieve rule details."
 
@@ -9498,9 +9556,9 @@ msgid "Firewall Policy Details"
 msgstr "Firewall Policy Details"
 
 #: dashboards/project/firewalls/tabs.py:115
-#: dashboards/project/firewalls/views.py:181
-#: dashboards/project/firewalls/views.py:247
-#: dashboards/project/firewalls/views.py:280
+#: dashboards/project/firewalls/views.py:195
+#: dashboards/project/firewalls/views.py:273
+#: dashboards/project/firewalls/views.py:313
 msgid "Unable to retrieve policy details."
 msgstr "Unable to retrieve policy details."
 
@@ -9509,54 +9567,81 @@ msgid "Firewall Details"
 msgstr "Firewall Details"
 
 #: dashboards/project/firewalls/tabs.py:132
-#: dashboards/project/firewalls/views.py:215
+#: dashboards/project/firewalls/views.py:234
 msgid "Unable to retrieve firewall details."
 msgstr "Unable to retrieve firewall details."
 
-#: dashboards/project/firewalls/views.py:65
+#: dashboards/project/firewalls/views.py:66
 #, python-format
 msgid "Deleted rule %s"
 msgstr "Deleted rule %s"
 
-#: dashboards/project/firewalls/views.py:68
+#: dashboards/project/firewalls/views.py:69
 #, python-format
 msgid "Unable to delete rule. %s"
 msgstr "Unable to delete rule. %s"
 
-#: dashboards/project/firewalls/views.py:73
+#: dashboards/project/firewalls/views.py:74
 #, python-format
 msgid "Deleted policy %s"
 msgstr "Deleted policy %s"
 
-#: dashboards/project/firewalls/views.py:76
+#: dashboards/project/firewalls/views.py:77
 #, python-format
 msgid "Unable to delete policy. %s"
 msgstr "Unable to delete policy. %s"
 
-#: dashboards/project/firewalls/views.py:82
+#: dashboards/project/firewalls/views.py:83
 #, python-format
 msgid "Deleted firewall %s"
 msgstr "Deleted firewall %s"
 
-#: dashboards/project/firewalls/views.py:85
+#: dashboards/project/firewalls/views.py:86
 #, python-format
 msgid "Unable to delete firewall. %s"
 msgstr "Unable to delete firewall. %s"
 
-#: dashboards/project/firewalls/views.py:132
-#, python-format
-msgid "Edit Rule %(rule_name)s"
+#: dashboards/project/firewalls/views.py:93
+#: dashboards/project/firewalls/templates/firewalls/addrule.html:3
+msgid "Add New Rule"
+msgstr "Add New Rule"
+
+#: dashboards/project/firewalls/views.py:99
+#: dashboards/project/firewalls/templates/firewalls/addpolicy.html:3
+msgid "Add New Policy"
+msgstr "Add New Policy"
+
+#: dashboards/project/firewalls/views.py:105
+#: dashboards/project/firewalls/templates/firewalls/addfirewall.html:3
+msgid "Add New Firewall"
+msgstr "Add New Firewall"
+
+#: dashboards/project/firewalls/views.py:134
+msgid "Edit Rule {{ name }}"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:170
-#, python-format
-msgid "Edit Policy %s"
+#: dashboards/project/firewalls/views.py:175
+msgid "Edit Policy {{ name }}"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:203
-#, python-format
-msgid "Edit Firewall %s"
+#: dashboards/project/firewalls/views.py:213
+msgid "Edit Firewall {{ name }}"
 msgstr ""
+
+#: dashboards/project/firewalls/views.py:246
+msgid "Insert Rule into Policy"
+msgstr ""
+
+#: dashboards/project/firewalls/views.py:252
+#: dashboards/project/firewalls/templates/firewalls/insert_rule_to_policy.html:3
+msgid "Insert Rule to Policy"
+msgstr "Insert Rule to Policy"
+
+#: dashboards/project/firewalls/views.py:286
+#: dashboards/project/firewalls/views.py:292
+#: dashboards/project/firewalls/templates/firewalls/remove_rule_from_policy.html:3
+msgid "Remove Rule from Policy"
+msgstr "Remove Rule from Policy"
 
 #: dashboards/project/firewalls/workflows.py:73
 msgid "AddRule"
@@ -9659,27 +9744,14 @@ msgstr "Policy ID"
 msgid "Admin State Up"
 msgstr "Admin State Up"
 
-#: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:8
-#: dashboards/project/firewalls/templates/firewalls/insert_rule_to_policy.html:3
-#: dashboards/project/firewalls/templates/firewalls/insert_rule_to_policy.html:6
-msgid "Insert Rule to Policy"
-msgstr "Insert Rule to Policy"
-
-#: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:18
+#: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:6
 msgid ""
-"Choose the rule you want to insert. Specify\n"
-"    either the rule you want to insert immediately before, or the rule\n"
-"    to insert immediately after. If both are specified, the prior\n"
-"    takes precedence."
-msgstr "Choose the rule you want to insert. Specify\n    either the rule you want to insert immediately before, or the rule\n    to insert immediately after. If both are specified, the prior\n    takes precedence."
+"Choose the rule you want to insert. Specify either the rule you want to "
+"insert immediately before, or the rule to insert immediately after. If both "
+"are specified, the prior takes precedence."
+msgstr ""
 
-#: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:8
-#: dashboards/project/firewalls/templates/firewalls/remove_rule_from_policy.html:3
-#: dashboards/project/firewalls/templates/firewalls/remove_rule_from_policy.html:6
-msgid "Remove Rule from Policy"
-msgstr "Remove Rule from Policy"
-
-#: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:18
+#: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:6
 msgid "Choose the rule you want to remove."
 msgstr "Choose the rule you want to remove."
 
@@ -9713,34 +9785,19 @@ msgstr "Selected Rules"
 msgid "Available Rules"
 msgstr "Available Rules"
 
-#: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:18
+#: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:6
 msgid "You may update firewall details here."
 msgstr "You may update firewall details here."
 
-#: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:18
+#: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:6
 msgid ""
 "You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links"
 " instead to insert or remove a rule"
 msgstr "You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links instead to insert or remove a rule"
 
-#: dashboards/project/firewalls/templates/firewalls/_updaterule.html:18
+#: dashboards/project/firewalls/templates/firewalls/_updaterule.html:6
 msgid "You may update rule details here."
 msgstr "You may update rule details here."
-
-#: dashboards/project/firewalls/templates/firewalls/addfirewall.html:3
-#: dashboards/project/firewalls/templates/firewalls/addfirewall.html:6
-msgid "Add New Firewall"
-msgstr "Add New Firewall"
-
-#: dashboards/project/firewalls/templates/firewalls/addpolicy.html:3
-#: dashboards/project/firewalls/templates/firewalls/addpolicy.html:6
-msgid "Add New Policy"
-msgstr "Add New Policy"
-
-#: dashboards/project/firewalls/templates/firewalls/addrule.html:3
-#: dashboards/project/firewalls/templates/firewalls/addrule.html:6
-msgid "Add New Rule"
-msgstr "Add New Rule"
 
 #: dashboards/project/images/utils.py:43
 msgid "Unable to retrieve public images."
@@ -11596,30 +11653,30 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: dashboards/project/loadbalancers/tables.py:171
+#: dashboards/project/loadbalancers/views.py:232
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:8
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatepool.html:3
-#: dashboards/project/loadbalancers/templates/loadbalancers/updatepool.html:6
 msgid "Edit Pool"
 msgstr "Edit Pool"
 
 #: dashboards/project/loadbalancers/tables.py:183
+#: dashboards/project/loadbalancers/views.py:263
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:8
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatevip.html:3
-#: dashboards/project/loadbalancers/templates/loadbalancers/updatevip.html:6
 msgid "Edit VIP"
 msgstr "Edit VIP"
 
 #: dashboards/project/loadbalancers/tables.py:200
+#: dashboards/project/loadbalancers/views.py:308
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:8
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatemember.html:3
-#: dashboards/project/loadbalancers/templates/loadbalancers/updatemember.html:6
 msgid "Edit Member"
 msgstr "Edit Member"
 
 #: dashboards/project/loadbalancers/tables.py:212
+#: dashboards/project/loadbalancers/views.py:338
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:8
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatemonitor.html:3
-#: dashboards/project/loadbalancers/templates/loadbalancers/updatemonitor.html:6
 msgid "Edit Monitor"
 msgstr "Edit Monitor"
 
@@ -11729,90 +11786,95 @@ msgstr "%(type)s: url:%(url_path)s method:%(http_method)s codes:%(expected_codes
 msgid "%(type)s delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
 msgstr "%(type)s delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
 
-#: dashboards/project/loadbalancers/views.py:53
+#: dashboards/project/loadbalancers/views.py:42
+#: dashboards/project/loadbalancers/templates/loadbalancers/details_tabs.html:3
+msgid "Load Balancer"
+msgstr "Load Balancer"
+
+#: dashboards/project/loadbalancers/views.py:54
 #, python-format
 msgid "Deleted monitor %s"
 msgstr "Deleted monitor %s"
 
-#: dashboards/project/loadbalancers/views.py:56
+#: dashboards/project/loadbalancers/views.py:57
 #, python-format
 msgid "Unable to delete monitor. %s"
 msgstr "Unable to delete monitor. %s"
 
-#: dashboards/project/loadbalancers/views.py:61
+#: dashboards/project/loadbalancers/views.py:62
 #, python-format
 msgid "Deleted pool %s"
 msgstr "Deleted pool %s"
 
-#: dashboards/project/loadbalancers/views.py:64
+#: dashboards/project/loadbalancers/views.py:65
 #, python-format
 msgid "Unable to delete pool. %s"
 msgstr "Unable to delete pool. %s"
 
-#: dashboards/project/loadbalancers/views.py:69
+#: dashboards/project/loadbalancers/views.py:70
 #, python-format
 msgid "Deleted member %s"
 msgstr "Deleted member %s"
 
-#: dashboards/project/loadbalancers/views.py:72
+#: dashboards/project/loadbalancers/views.py:73
 #, python-format
 msgid "Unable to delete member. %s"
 msgstr "Unable to delete member. %s"
 
-#: dashboards/project/loadbalancers/views.py:79
+#: dashboards/project/loadbalancers/views.py:80
 #, python-format
 msgid "Unable to locate VIP to delete. %s"
 msgstr "Unable to locate VIP to delete. %s"
 
-#: dashboards/project/loadbalancers/views.py:84
+#: dashboards/project/loadbalancers/views.py:85
 #, python-format
 msgid "Deleted VIP %s"
 msgstr "Deleted VIP %s"
 
-#: dashboards/project/loadbalancers/views.py:87
+#: dashboards/project/loadbalancers/views.py:88
 #, python-format
 msgid "Unable to delete VIP. %s"
 msgstr "Unable to delete VIP. %s"
 
-#: dashboards/project/loadbalancers/views.py:107
+#: dashboards/project/loadbalancers/views.py:108
 #, python-format
 msgid "Unable to retrieve pool subnet. %s"
 msgstr "Unable to retrieve pool subnet. %s"
 
-#: dashboards/project/loadbalancers/views.py:133
+#: dashboards/project/loadbalancers/views.py:134
 msgid "Unable to retrieve pool details."
 msgstr "Unable to retrieve pool details."
 
-#: dashboards/project/loadbalancers/views.py:175
+#: dashboards/project/loadbalancers/views.py:176
 msgid "Unable to retrieve member details."
 msgstr "Unable to retrieve member details."
 
-#: dashboards/project/loadbalancers/views.py:206
+#: dashboards/project/loadbalancers/views.py:207
 msgid "Unable to retrieve monitor details."
 msgstr "Unable to retrieve monitor details."
 
-#: dashboards/project/loadbalancers/views.py:244
+#: dashboards/project/loadbalancers/views.py:246
 #, python-format
 msgid "Unable to retrieve pool details. %s"
 msgstr "Unable to retrieve pool details. %s"
 
-#: dashboards/project/loadbalancers/views.py:274
+#: dashboards/project/loadbalancers/views.py:277
 #, python-format
 msgid "Unable to retrieve VIP details. %s"
 msgstr "Unable to retrieve VIP details. %s"
 
-#: dashboards/project/loadbalancers/views.py:318
+#: dashboards/project/loadbalancers/views.py:322
 #, python-format
 msgid "Unable to retrieve member details. %s"
 msgstr "Unable to retrieve member details. %s"
 
-#: dashboards/project/loadbalancers/views.py:347
+#: dashboards/project/loadbalancers/views.py:352
 #, python-format
 msgid "Unable to retrieve health monitor details. %s"
 msgstr "Unable to retrieve health monitor details. %s"
 
-#: dashboards/project/loadbalancers/views.py:370
-#: dashboards/project/loadbalancers/views.py:386
+#: dashboards/project/loadbalancers/views.py:375
+#: dashboards/project/loadbalancers/views.py:391
 #, python-format
 msgid "Unable to retrieve pool. %s"
 msgstr "Unable to retrieve pool. %s"
@@ -12186,11 +12248,6 @@ msgstr ""
 msgid "Cookie Name: %(cookie_name)s"
 msgstr ""
 
-#: dashboards/project/loadbalancers/templates/loadbalancers/details_tabs.html:3
-#: dashboards/project/loadbalancers/templates/loadbalancers/details_tabs.html:6
-msgid "Load Balancer"
-msgstr "Load Balancer"
-
 #: dashboards/project/network_topology/panel.py:27
 #: dashboards/project/network_topology/views.py:101
 #: dashboards/project/network_topology/templates/network_topology/index.html:4
@@ -12212,8 +12269,8 @@ msgstr ""
 #: dashboards/project/routers/tables.py:85
 #: dashboards/project/routers/tables.py:98
 #: dashboards/project/routers/views.py:152
-#: dashboards/project/routers/templates/routers/_create.html:9
-#: dashboards/project/routers/templates/routers/_create.html:20
+#: dashboards/project/routers/views.py:155
+#: dashboards/project/routers/views.py:156
 #: dashboards/project/routers/templates/routers/create.html:3
 msgid "Create Router"
 msgstr "Create Router"
@@ -12780,6 +12837,11 @@ msgstr[1] ""
 msgid "Unable to delete router \"%s\""
 msgstr "Unable to delete router \"%s\""
 
+#: dashboards/project/routers/tables.py:106
+#: dashboards/project/routers/views.py:163
+msgid "Edit Router"
+msgstr "Edit Router"
+
 #: dashboards/project/routers/tables.py:115
 #: dashboards/project/routers/ports/views.py:68
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:9
@@ -12821,16 +12883,16 @@ msgid "HA mode"
 msgstr ""
 
 #: dashboards/project/routers/tabs.py:52
-#: dashboards/project/routers/views.py:172
+#: dashboards/project/routers/views.py:183
 msgid "Unable to retrieve router details."
 msgstr "Unable to retrieve router details."
 
-#: dashboards/project/routers/views.py:73
+#: dashboards/project/routers/views.py:74
 #, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
 msgstr "Unable to retrieve a list of external networks \"%s\"."
 
-#: dashboards/project/routers/views.py:86
+#: dashboards/project/routers/views.py:87
 #, python-format
 msgid ""
 "External network \"%(ext_net_id)s\" expected but not found for router "
@@ -12838,18 +12900,18 @@ msgid ""
 msgstr "External network \"%(ext_net_id)s\" expected but not found for router \"%(router_id)s\"."
 
 #. Translators: The usage is "<UUID of ext_net> (Not Found)"
-#: dashboards/project/routers/views.py:94
+#: dashboards/project/routers/views.py:95
 #, python-format
 msgctxt "External network not found"
 msgid "%s (Not Found)"
 msgstr "%s (Not Found)"
 
-#: dashboards/project/routers/views.py:110
+#: dashboards/project/routers/views.py:111
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr "Unable to retrieve details for router \"%s\"."
 
-#: dashboards/project/routers/views.py:121
+#: dashboards/project/routers/views.py:122
 #, python-format
 msgid "Unable to retrieve an external network \"%s\"."
 msgstr "Unable to retrieve an external network \"%s\"."
@@ -13035,6 +13097,10 @@ msgstr "Unable to set gateway."
 #: dashboards/project/routers/templates/routers/_detail_overview.html:27
 msgid "Connected External Network:"
 msgstr ""
+
+#: dashboards/project/routers/templates/routers/_update.html:6
+msgid "You may update the editable properties of your router here."
+msgstr "You may update the editable properties of your router here."
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:20
 msgid ""
@@ -14971,24 +15037,21 @@ msgid_plural "Scheduled deletion of IPSec Site Connections"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/vpn/tables.py:164
+#: dashboards/project/vpn/tables.py:164 dashboards/project/vpn/views.py:272
 #: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:8
 #: dashboards/project/vpn/templates/vpn/update_vpnservice.html:3
-#: dashboards/project/vpn/templates/vpn/update_vpnservice.html:6
 msgid "Edit VPN Service"
 msgstr "Edit VPN Service"
 
-#: dashboards/project/vpn/tables.py:180
+#: dashboards/project/vpn/tables.py:180 dashboards/project/vpn/views.py:302
 #: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:8
 #: dashboards/project/vpn/templates/vpn/update_ikepolicy.html:3
-#: dashboards/project/vpn/templates/vpn/update_ikepolicy.html:6
 msgid "Edit IKE Policy"
 msgstr "Edit IKE Policy"
 
-#: dashboards/project/vpn/tables.py:194
+#: dashboards/project/vpn/tables.py:194 dashboards/project/vpn/views.py:339
 #: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:8
 #: dashboards/project/vpn/templates/vpn/update_ipsecpolicy.html:3
-#: dashboards/project/vpn/templates/vpn/update_ipsecpolicy.html:6
 msgid "Edit IPSec Policy"
 msgstr "Edit IPSec Policy"
 
@@ -15063,78 +15126,90 @@ msgstr "VPN Service Details"
 msgid "IPSec Site Connection Details"
 msgstr "IPSec Site Connection Details"
 
-#: dashboards/project/vpn/views.py:52
+#: dashboards/project/vpn/views.py:40 dashboards/project/vpn/views.py:127
+#: dashboards/project/vpn/templates/vpn/details_tabs.html:3
+#: dashboards/project/vpn/templates/vpn/index.html:3
+msgid "Virtual Private Network"
+msgstr "Virtual Private Network"
+
+#: dashboards/project/vpn/views.py:53
 #, python-format
 msgid "Deleted VPN Service %s"
 msgstr "Deleted VPN Service %s"
 
-#: dashboards/project/vpn/views.py:55
+#: dashboards/project/vpn/views.py:56
 #, python-format
 msgid "Unable to delete VPN Service: %s"
 msgstr "Unable to delete VPN Service: %s"
 
-#: dashboards/project/vpn/views.py:62
+#: dashboards/project/vpn/views.py:63
 #, python-format
 msgid "Deleted IKE Policy %s"
 msgstr "Deleted IKE Policy %s"
 
-#: dashboards/project/vpn/views.py:65
+#: dashboards/project/vpn/views.py:66
 #, python-format
 msgid "Unable to delete IKE Policy: %s"
 msgstr "Unable to delete IKE Policy: %s"
 
-#: dashboards/project/vpn/views.py:71
+#: dashboards/project/vpn/views.py:72
 #, python-format
 msgid "Deleted IPSec Policy %s"
 msgstr "Deleted IPSec Policy %s"
 
-#: dashboards/project/vpn/views.py:74
+#: dashboards/project/vpn/views.py:75
 #, python-format
 msgid "Unable to delete IPSec Policy: %s"
 msgstr "Unable to delete IPSec Policy: %s"
 
-#: dashboards/project/vpn/views.py:81
+#: dashboards/project/vpn/views.py:82
 #, python-format
 msgid "Deleted IPSec Site Connection %s"
 msgstr "Deleted IPSec Site Connection %s"
 
-#: dashboards/project/vpn/views.py:86
+#: dashboards/project/vpn/views.py:87
 #, python-format
 msgid "Unable to delete IPSec Site Connection: %s"
 msgstr "Unable to delete IPSec Site Connection: %s"
 
-#: dashboards/project/vpn/views.py:133
+#: dashboards/project/vpn/views.py:135
 msgid "Unable to retrieve IKE Policy details."
 msgstr "Unable to retrieve IKE Policy details."
 
-#: dashboards/project/vpn/views.py:165
+#: dashboards/project/vpn/views.py:167
 msgid "Unable to retrieve IPSec Policy details."
 msgstr "Unable to retrieve IPSec Policy details."
 
-#: dashboards/project/vpn/views.py:200
+#: dashboards/project/vpn/views.py:202
 msgid "Unable to retrieve VPN Service details."
 msgstr "Unable to retrieve VPN Service details."
 
-#: dashboards/project/vpn/views.py:240
+#: dashboards/project/vpn/views.py:242
 msgid "Unable to retrieve IPSec Site Connection details."
 msgstr "Unable to retrieve IPSec Site Connection details."
 
-#: dashboards/project/vpn/views.py:283
+#: dashboards/project/vpn/views.py:286
 #, python-format
 msgid "Unable to retrieve VPN Service details. %s"
 msgstr "Unable to retrieve VPN Service details. %s"
 
-#: dashboards/project/vpn/views.py:312
+#: dashboards/project/vpn/views.py:316
 #, python-format
 msgid "Unable to retrieve IKE Policy details. %s"
 msgstr "Unable to retrieve IKE Policy details. %s"
 
-#: dashboards/project/vpn/views.py:348
+#: dashboards/project/vpn/views.py:353
 #, python-format
 msgid "Unable to retrieve IPSec Policy details. %s"
 msgstr "Unable to retrieve IPSec Policy details. %s"
 
-#: dashboards/project/vpn/views.py:385
+#: dashboards/project/vpn/views.py:375
+#: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:8
+#: dashboards/project/vpn/templates/vpn/update_ipsecsiteconnection.html:3
+msgid "Edit IPSec Site Connection"
+msgstr "Edit IPSec Site Connection"
+
+#: dashboards/project/vpn/views.py:391
 #, python-format
 msgid "Unable to retrieve IPSec Site Connection details. %s"
 msgstr "Unable to retrieve IPSec Site Connection details. %s"
@@ -15316,12 +15391,6 @@ msgstr "You may update IKE Policy details here."
 msgid "You may update IPSec Policy details here."
 msgstr "You may update IPSec Policy details here."
 
-#: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:8
-#: dashboards/project/vpn/templates/vpn/update_ipsecsiteconnection.html:3
-#: dashboards/project/vpn/templates/vpn/update_ipsecsiteconnection.html:6
-msgid "Edit IPSec Site Connection"
-msgstr "Edit IPSec Site Connection"
-
 #: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:18
 msgid "You may update IPSec Site Connection details here."
 msgstr "You may update IPSec Site Connection details here."
@@ -15333,13 +15402,6 @@ msgstr "You may update VPN Service details here."
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:27
 msgid "VPN Connections"
 msgstr "VPN Connections"
-
-#: dashboards/project/vpn/templates/vpn/details_tabs.html:3
-#: dashboards/project/vpn/templates/vpn/details_tabs.html:6
-#: dashboards/project/vpn/templates/vpn/index.html:3
-#: dashboards/project/vpn/templates/vpn/index.html:6
-msgid "Virtual Private Network"
-msgstr "Virtual Private Network"
 
 #: dashboards/router/nexus1000v/forms.py:34
 msgid "Projects could not be retrieved."

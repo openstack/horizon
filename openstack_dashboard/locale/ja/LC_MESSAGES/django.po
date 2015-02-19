@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-17 22:37-0600\n"
-"PO-Revision-Date: 2015-02-17 21:53+0000\n"
+"POT-Creation-Date: 2015-02-18 23:28-0600\n"
+"PO-Revision-Date: 2015-02-19 05:42+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -434,7 +434,7 @@ msgstr "get_dvr_permission '%(feature)s' の 'operation' パラメーターが�
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr "Neutron が '%s' 拡張に対応しているか確認できませんでした。"
 
-#: api/nova.py:102 api/nova.py:112 dashboards/project/databases/tables.py:245
+#: api/nova.py:102 api/nova.py:112 dashboards/project/databases/tables.py:246
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:8
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:11
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:8
@@ -583,11 +583,11 @@ msgstr "管理"
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:83
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:6
 #: dashboards/project/data_processing/utils/workflow_helpers.py:113
-#: dashboards/project/database_backups/tables.py:145
+#: dashboards/project/database_backups/tables.py:160
 #: dashboards/project/database_backups/templates/database_backups/details.html:14
 #: dashboards/project/database_backups/templates/database_backups/details.html:60
 #: dashboards/project/database_backups/workflows/create_backup.py:32
-#: dashboards/project/databases/tables.py:330
+#: dashboards/project/databases/tables.py:353
 #: dashboards/project/databases/templates/databases/_detail_overview.html:9
 #: dashboards/project/firewalls/forms.py:33
 #: dashboards/project/firewalls/forms.py:98
@@ -929,7 +929,6 @@ msgstr "ホストの追加、削除中にエラーがありました。"
 #: dashboards/admin/networks/templates/networks/agents/_add.html:5
 #: dashboards/admin/networks/templates/networks/ports/_create.html:18
 #: dashboards/admin/networks/templates/networks/ports/_update.html:22
-#: dashboards/admin/routers/templates/routers/_update.html:17
 #: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:18
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:18
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:18
@@ -960,11 +959,11 @@ msgstr "ホストの追加、削除中にエラーがありました。"
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:17
 #: dashboards/project/containers/templates/containers/_update.html:20
 #: dashboards/project/containers/templates/containers/_upload.html:21
-#: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:17
-#: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:17
-#: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:17
-#: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:17
-#: dashboards/project/firewalls/templates/firewalls/_updaterule.html:17
+#: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:5
+#: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:5
+#: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:5
+#: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:5
+#: dashboards/project/firewalls/templates/firewalls/_updaterule.html:5
 #: dashboards/project/images/templates/images/images/_create.html:13
 #: dashboards/project/images/templates/images/images/_update.html:11
 #: dashboards/project/images/templates/images/snapshots/_create.html:18
@@ -977,7 +976,7 @@ msgstr "ホストの追加、削除中にエラーがありました。"
 #: dashboards/project/networks/templates/networks/_create.html:17
 #: dashboards/project/networks/templates/networks/_update.html:5
 #: dashboards/project/networks/templates/networks/ports/_update.html:22
-#: dashboards/project/routers/templates/routers/_update.html:17
+#: dashboards/project/routers/templates/routers/_update.html:5
 #: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:18
 #: dashboards/project/routers/templates/routers/ports/_create.html:18
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:18
@@ -1023,7 +1022,6 @@ msgstr "ホストアグリゲートは、ホストをグループ化し、1 つ�
 #: dashboards/admin/networks/templates/networks/_create.html:27
 #: dashboards/admin/networks/templates/networks/ports/_create.html:25
 #: dashboards/admin/networks/templates/networks/ports/_update.html:29
-#: dashboards/admin/routers/templates/routers/_update.html:24
 #: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:29
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:35
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:37
@@ -1054,11 +1052,6 @@ msgstr "ホストアグリゲートは、ホストをグループ化し、1 つ�
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:26
 #: dashboards/project/databases/templates/databases/_resize_instance.html:24
 #: dashboards/project/databases/templates/databases/_resize_volume.html:25
-#: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:27
-#: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:24
-#: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:24
-#: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:24
-#: dashboards/project/firewalls/templates/firewalls/_updaterule.html:24
 #: dashboards/project/images/templates/images/images/_create.html:33
 #: dashboards/project/images/templates/images/images/_update.html:17
 #: dashboards/project/images/templates/images/snapshots/_create.html:25
@@ -1073,8 +1066,6 @@ msgstr "ホストアグリゲートは、ホストをグループ化し、1 つ�
 #: dashboards/project/networks/templates/networks/create.html:9
 #: dashboards/project/networks/templates/networks/create.html:24
 #: dashboards/project/networks/templates/networks/ports/_update.html:29
-#: dashboards/project/routers/templates/routers/_create.html:21
-#: dashboards/project/routers/templates/routers/_update.html:24
 #: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:28
 #: dashboards/project/routers/templates/routers/ports/_create.html:30
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:25
@@ -1151,7 +1142,7 @@ msgstr "仮想 CPU"
 #: dashboards/identity/projects/workflows.py:51
 #: dashboards/project/data_processing/clusters/tabs.py:152
 #: dashboards/project/databases/panel.py:23
-#: dashboards/project/databases/tables.py:284
+#: dashboards/project/databases/tables.py:307
 #: dashboards/project/databases/views.py:48
 #: dashboards/project/databases/templates/databases/index.html:3
 #: dashboards/project/instances/panel.py:23
@@ -1671,7 +1662,7 @@ msgid "Local Storage (total)"
 msgstr "ローカルストレージ (総量)"
 
 #: dashboards/admin/hypervisors/tables.py:70
-#: dashboards/project/databases/tables.py:263
+#: dashboards/project/databases/tables.py:287
 #: dashboards/project/databases/workflows/create_instance.py:35
 #: dashboards/project/instances/tables.py:962
 #: dashboards/project/instances/tables.py:985
@@ -1761,7 +1752,7 @@ msgstr "ホスト %s からの退避に失敗しました。"
 #: dashboards/admin/volumes/volumes/forms.py:54
 #: dashboards/admin/volumes/volumes/forms.py:140
 #: dashboards/admin/volumes/volumes/tables.py:81
-#: dashboards/project/databases/tables.py:268
+#: dashboards/project/databases/tables.py:292
 #: dashboards/project/databases/templates/databases/_detail_overview_cassandra.html:10
 #: dashboards/project/databases/templates/databases/_detail_overview_couchbase.html:10
 #: dashboards/project/databases/templates/databases/_detail_overview_mongodb.html:10
@@ -1835,11 +1826,11 @@ msgstr "ゾーン"
 #: dashboards/project/data_processing/job_executions/tables.py:40
 #: dashboards/project/data_processing/job_executions/tables.py:179
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:6
-#: dashboards/project/database_backups/tables.py:161
+#: dashboards/project/database_backups/tables.py:174
 #: dashboards/project/database_backups/templates/database_backups/details.html:26
 #: dashboards/project/database_backups/templates/database_backups/details.html:67
-#: dashboards/project/databases/tables.py:278
-#: dashboards/project/databases/tables.py:343
+#: dashboards/project/databases/tables.py:300
+#: dashboards/project/databases/tables.py:365
 #: dashboards/project/databases/templates/databases/_detail_overview.html:17
 #: dashboards/project/firewalls/tables.py:253
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
@@ -2253,7 +2244,7 @@ msgstr "IP アドレス"
 #: dashboards/project/containers/tables.py:446
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
-#: dashboards/project/databases/tables.py:270
+#: dashboards/project/databases/tables.py:294
 #: dashboards/project/images/images/tables.py:263
 #: dashboards/project/images/templates/images/images/_detail_overview.html:46
 #: dashboards/project/instances/tables.py:992
@@ -2655,9 +2646,9 @@ msgstr "名前空間"
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:82
 #: dashboards/project/data_processing/jobs/workflows/launch.py:407
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:375
-#: dashboards/project/database_backups/tables.py:150
+#: dashboards/project/database_backups/tables.py:165
 #: dashboards/project/database_backups/templates/database_backups/details.html:32
-#: dashboards/project/databases/tables.py:331
+#: dashboards/project/databases/tables.py:354
 #: dashboards/project/databases/templates/databases/_detail_overview.html:34
 #: dashboards/project/images/templates/images/images/_detail_overview.html:27
 #: dashboards/project/instances/templates/instances/_detail_overview.html:18
@@ -3643,19 +3634,18 @@ msgid "You may update the editable properties of your port here."
 msgstr "ポートの編集可能なプロパティーをここから更新できます。"
 
 #: dashboards/admin/networks/templates/networks/ports/_update.html:28
-#: dashboards/admin/routers/templates/routers/_update.html:23
-#: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:26
-#: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:23
-#: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:23
-#: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:23
-#: dashboards/project/firewalls/templates/firewalls/_updaterule.html:23
+#: dashboards/project/firewalls/views.py:131
+#: dashboards/project/firewalls/views.py:172
+#: dashboards/project/firewalls/views.py:210
+#: dashboards/project/firewalls/views.py:250
+#: dashboards/project/firewalls/views.py:289
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:23
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:23
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:23
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:23
 #: dashboards/project/networks/views.py:69
 #: dashboards/project/networks/templates/networks/ports/_update.html:28
-#: dashboards/project/routers/templates/routers/_update.html:23
+#: dashboards/project/routers/views.py:167
 #: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:23
 #: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:23
 #: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:23
@@ -3741,13 +3731,13 @@ msgstr "監視:"
 #: dashboards/project/network_topology/routers/tables.py:27
 #: dashboards/project/routers/panel.py:24
 #: dashboards/project/routers/tables.py:234
-#: dashboards/project/routers/views.py:41
+#: dashboards/project/routers/views.py:42
 #: dashboards/project/routers/templates/routers/index.html:3
 #: usage/quotas.py:80
 msgid "Routers"
 msgstr "ルーター"
 
-#: dashboards/admin/routers/views.py:42 dashboards/project/routers/views.py:52
+#: dashboards/admin/routers/views.py:42 dashboards/project/routers/views.py:53
 msgid "Unable to retrieve router list."
 msgstr "ルーターの一覧を取得できません。"
 
@@ -3846,27 +3836,16 @@ msgstr "外部ゲートウェイの情報"
 msgid "Connected External Network: %(router_gw_info_network)s"
 msgstr "接続された外部ネットワーク: %(router_gw_info_network)s"
 
-#: dashboards/admin/routers/templates/routers/_update.html:8
-#: dashboards/project/routers/tables.py:106
-#: dashboards/project/routers/templates/routers/_update.html:8
-msgid "Edit Router"
-msgstr "ルーターの編集"
-
-#: dashboards/admin/routers/templates/routers/_update.html:18
-#: dashboards/project/routers/templates/routers/_update.html:18
-msgid "You may update the editable properties of your router here."
-msgstr "ルーターの変更可能な属性を更新できます。"
-
 #: dashboards/admin/routers/templates/routers/detail.html:3
 #: dashboards/admin/routers/templates/routers/detail.html:6
-#: dashboards/project/routers/views.py:101
+#: dashboards/project/routers/views.py:102
 #: dashboards/project/routers/templates/routers/detail.html:3
 msgid "Router Details"
 msgstr "ルーターの詳細"
 
 #: dashboards/admin/routers/templates/routers/update.html:3
 #: dashboards/admin/routers/templates/routers/update.html:6
-#: dashboards/project/routers/views.py:159
+#: dashboards/project/routers/views.py:166
 #: dashboards/project/routers/templates/routers/update.html:3
 msgid "Update Router"
 msgstr "ルーターの編集"
@@ -5064,7 +5043,7 @@ msgstr "ユーザーの追加"
 #: dashboards/identity/users/templates/users/_detail_overview.html:17
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:14
 #: dashboards/project/data_processing/data_image_registry/forms.py:28
-#: dashboards/project/databases/tables.py:296
+#: dashboards/project/databases/tables.py:319
 msgid "User Name"
 msgstr "ユーザー名"
 
@@ -5517,7 +5496,7 @@ msgstr "ユーザーを更新できません。"
 #: dashboards/identity/users/tables.py:230
 #: dashboards/identity/users/views.py:46
 #: dashboards/identity/users/templates/users/index.html:3
-#: dashboards/project/databases/tables.py:302
+#: dashboards/project/databases/tables.py:325
 #: dashboards/project/databases/tabs.py:47
 msgid "Users"
 msgstr "ユーザー"
@@ -5555,13 +5534,13 @@ msgid "You cannot disable the user you are currently logged in as."
 msgstr "現在ログインしているユーザーを無効化できません。"
 
 #: dashboards/identity/users/tables.py:130
-#: dashboards/project/databases/tables.py:90
+#: dashboards/project/databases/tables.py:91
 msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] "ユーザーの削除"
 
 #: dashboards/identity/users/tables.py:138
-#: dashboards/project/databases/tables.py:98
+#: dashboards/project/databases/tables.py:99
 msgid "Deleted User"
 msgid_plural "Deleted Users"
 msgstr[0] "ユーザーを削除しました"
@@ -5634,7 +5613,7 @@ msgid "Orchestration"
 msgstr "オーケストレーション"
 
 #: dashboards/project/dashboard.py:55
-#: dashboards/project/database_backups/tables.py:153
+#: dashboards/project/database_backups/tables.py:168
 msgid "Database"
 msgstr "データベース"
 
@@ -6640,7 +6619,7 @@ msgid "Copy"
 msgstr "コピー"
 
 #: dashboards/project/containers/tables.py:381
-#: dashboards/project/databases/tables.py:333
+#: dashboards/project/databases/tables.py:356
 msgid "Download"
 msgstr "ダウンロード"
 
@@ -8257,25 +8236,27 @@ msgstr "以下のプラグイン用のノードグループテンプレートを
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:12
 msgid ""
-"The Node Group Template object should specify processes that will be "
-"launched on each instance. Also an OpenStack flavor is required to boot VMs."
-msgstr "ノードグループテンプレートでは、各インスタンスで起動されるプロセスを指定する必要があります。また、VM を起動するための OpenStack フレーバーも必須です。"
+"The Node Group Template object specifies the processes\n"
+"        that will be launched on each instance. Check one or more processes.\n"
+"        When processes are selected, you may set <b>node</b> scoped\n"
+"        configurations on corresponding tabs."
+msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:15
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:18
+msgid ""
+"You must choose a flavor to determine the size (VCPUs, memory and storage) "
+"of all launched VMs."
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:21
 msgid ""
 "Data Processing provides different storage location options. You may choose "
 "Ephemeral Drive or a Cinder Volume to be attached to instances."
 msgstr "データ処理基盤ではストレージの場所を選択できます。一時ドライブか、インスタンスに接続する Cinder ボリュームを選択できます。"
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:18
-msgid ""
-"When processes are selected, you may set <b>node</b> scoped configurations "
-"on corresponding tabs."
-msgstr "プロセスを選択した場合、対応するタブで<b>ノード</b>毎の設定を行うことができます。"
-
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_create_general_help.html:3
-msgid "Select a plugin and version for a new Node group template."
-msgstr "このノードグループテンプレートで使用するプラグインとバージョンを選択してください。"
+msgid "Select a plugin and version for the new Node Group template."
+msgstr ""
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:67
 msgid "HDFS placement"
@@ -8455,44 +8436,74 @@ msgid "Plugin Name"
 msgstr "プラグイン名"
 
 #: dashboards/project/database_backups/panel.py:23
-#: dashboards/project/database_backups/tables.py:167
+#: dashboards/project/database_backups/tables.py:181
 #: dashboards/project/database_backups/views.py:35
-#: dashboards/project/databases/tables.py:349
+#: dashboards/project/databases/tables.py:372
 #: dashboards/project/databases/tabs.py:104
 msgid "Backups"
 msgstr "バックアップ"
 
-#: dashboards/project/database_backups/tables.py:38
-#: dashboards/project/databases/tables.py:148
+#: dashboards/project/database_backups/tables.py:37
+msgctxt "Current status of a Database Backup"
+msgid "Building"
+msgstr "作成中"
+
+#: dashboards/project/database_backups/tables.py:39
+msgctxt "Current status of a Database Backup"
+msgid "Completed"
+msgstr ""
+
+#: dashboards/project/database_backups/tables.py:41
+msgctxt "Current status of a Database Backup"
+msgid "Delete Failed"
+msgstr "削除に失敗しました"
+
+#: dashboards/project/database_backups/tables.py:43
+msgctxt "Current status of a Database Backup"
+msgid "Failed"
+msgstr "失敗"
+
+#: dashboards/project/database_backups/tables.py:45
+msgctxt "Current status of a Database Backup"
+msgid "New"
+msgstr ""
+
+#: dashboards/project/database_backups/tables.py:47
+msgctxt "Current status of a Database Backup"
+msgid "Saving"
+msgstr ""
+
+#: dashboards/project/database_backups/tables.py:53
+#: dashboards/project/databases/tables.py:149
 #: dashboards/project/volumes/volumes/tables.py:204
 msgid "Create Backup"
 msgstr "バックアップの作成"
 
-#: dashboards/project/database_backups/tables.py:46
+#: dashboards/project/database_backups/tables.py:61
 #: dashboards/project/volumes/backups/tables.py:64
 msgid "Restore Backup"
 msgstr "バックアップの復元"
 
-#: dashboards/project/database_backups/tables.py:61
+#: dashboards/project/database_backups/tables.py:76
 msgid "Download Backup"
 msgstr "バックアップのダウンロード"
 
-#: dashboards/project/database_backups/tables.py:81
+#: dashboards/project/database_backups/tables.py:96
 msgid "Delete Backup"
 msgid_plural "Delete Backups"
 msgstr[0] "バックアップの削除"
 
-#: dashboards/project/database_backups/tables.py:89
+#: dashboards/project/database_backups/tables.py:104
 msgid "Deleted Backup"
 msgid_plural "Deleted Backups"
 msgstr[0] "バックアップを削除しました"
 
-#: dashboards/project/database_backups/tables.py:129
-#: dashboards/project/database_backups/tables.py:135
-#: dashboards/project/databases/tables.py:208
-#: dashboards/project/databases/tables.py:214
-#: dashboards/project/databases/tables.py:231
-#: dashboards/project/databases/tables.py:237
+#: dashboards/project/database_backups/tables.py:144
+#: dashboards/project/database_backups/tables.py:150
+#: dashboards/project/databases/tables.py:209
+#: dashboards/project/databases/tables.py:215
+#: dashboards/project/databases/tables.py:232
+#: dashboards/project/databases/tables.py:238
 #: dashboards/project/instances/tables.py:821
 #: dashboards/project/instances/tables.py:828
 #: dashboards/project/instances/views.py:368
@@ -8501,23 +8512,23 @@ msgstr[0] "バックアップを削除しました"
 msgid "Not available"
 msgstr "N/A"
 
-#: dashboards/project/database_backups/tables.py:147
+#: dashboards/project/database_backups/tables.py:162
 #: dashboards/project/database_backups/templates/database_backups/details.html:21
-#: dashboards/project/databases/tables.py:265
+#: dashboards/project/databases/tables.py:289
 #: dashboards/project/databases/templates/databases/_detail_overview.html:13
 #: dashboards/project/databases/workflows/create_instance.py:42
 msgid "Datastore"
 msgstr "データストア"
 
-#: dashboards/project/database_backups/tables.py:149
+#: dashboards/project/database_backups/tables.py:164
 #: dashboards/project/database_backups/templates/database_backups/details.html:23
-#: dashboards/project/databases/tables.py:267
+#: dashboards/project/databases/tables.py:291
 #: dashboards/project/databases/templates/databases/_detail_overview.html:15
 msgid "Datastore Version"
 msgstr "データストアバージョン"
 
-#: dashboards/project/database_backups/tables.py:155
-#: dashboards/project/databases/tables.py:337
+#: dashboards/project/database_backups/tables.py:170
+#: dashboards/project/databases/tables.py:360
 msgid "Incremental"
 msgstr "差分"
 
@@ -8710,47 +8721,47 @@ msgstr "インスタンス \"%s\" をリサイズ中です"
 msgid "Unable to resize instance. %s"
 msgstr "インスタンスをリサイズできません。 %s"
 
-#: dashboards/project/databases/tables.py:37
+#: dashboards/project/databases/tables.py:38
 #: dashboards/project/instances/tables.py:90
 msgid "Terminate Instance"
 msgid_plural "Terminate Instances"
 msgstr[0] "インスタンスの終了"
 
-#: dashboards/project/databases/tables.py:45
+#: dashboards/project/databases/tables.py:46
 #: dashboards/project/instances/tables.py:98
 msgid "Scheduled termination of Instance"
 msgid_plural "Scheduled termination of Instances"
 msgstr[0] "インスタンスの終了を予約しました。"
 
-#: dashboards/project/databases/tables.py:62
+#: dashboards/project/databases/tables.py:63
 msgid "Restart Instance"
 msgid_plural "Restart Instances"
 msgstr[0] "インスタンスの再起動"
 
-#: dashboards/project/databases/tables.py:70
+#: dashboards/project/databases/tables.py:71
 msgid "Restarted Instance"
 msgid_plural "Restarted Instances"
 msgstr[0] "インスタンスを再起動しました"
 
-#: dashboards/project/databases/tables.py:108
+#: dashboards/project/databases/tables.py:109
 msgid "Error deleting database user."
 msgstr "データベースユーザーの削除でエラーが発生しました。"
 
-#: dashboards/project/databases/tables.py:116
+#: dashboards/project/databases/tables.py:117
 msgid "Delete Database"
 msgid_plural "Delete Databases"
 msgstr[0] "データベースの削除"
 
-#: dashboards/project/databases/tables.py:124
+#: dashboards/project/databases/tables.py:125
 msgid "Deleted Database"
 msgid_plural "Deleted Databases"
 msgstr[0] "データベースを削除しました"
 
-#: dashboards/project/databases/tables.py:134
+#: dashboards/project/databases/tables.py:135
 msgid "Error deleting database on instance."
 msgstr "インスタンスからのデータベースの削除でエラーが発生しました。"
 
-#: dashboards/project/databases/tables.py:140
+#: dashboards/project/databases/tables.py:141
 #: dashboards/project/databases/templates/databases/launch.html:3
 #: dashboards/project/databases/workflows/create_instance.py:271
 #: dashboards/project/instances/tables.py:305
@@ -8760,17 +8771,17 @@ msgstr "インスタンスからのデータベースの削除でエラーが発
 msgid "Launch Instance"
 msgstr "インスタンスの起動"
 
-#: dashboards/project/databases/tables.py:164
+#: dashboards/project/databases/tables.py:165
 msgid "Resize Volume"
 msgstr "ボリュームのリサイズ"
 
-#: dashboards/project/databases/tables.py:178
+#: dashboards/project/databases/tables.py:179
 #: dashboards/project/instances/tables.py:435
 #: dashboards/project/instances/workflows/resize_instance.py:84
 msgid "Resize Instance"
 msgstr "インスタンスのリサイズ"
 
-#: dashboards/project/databases/tables.py:222
+#: dashboards/project/databases/tables.py:223
 #: dashboards/project/databases/templates/databases/_detail_overview_cassandra.html:12
 #: dashboards/project/databases/templates/databases/_detail_overview_couchbase.html:12
 #: dashboards/project/databases/templates/databases/_detail_overview_mongodb.html:12
@@ -8779,32 +8790,82 @@ msgstr "インスタンスのリサイズ"
 msgid "Not Assigned"
 msgstr "割り当てなし"
 
-#: dashboards/project/databases/tables.py:227
+#: dashboards/project/databases/tables.py:228
 #, python-format
 msgid "%(name)s | %(RAM)s RAM"
 msgstr "%(name)s | %(RAM)s RAM"
 
-#: dashboards/project/databases/tables.py:273
+#: dashboards/project/databases/tables.py:264
+msgctxt "Current status of a Database Instance"
+msgid "Active"
+msgstr "稼働中"
+
+#: dashboards/project/databases/tables.py:266
+msgctxt "Current status of a Database Instance"
+msgid "Blocked"
+msgstr "実行待ち"
+
+#: dashboards/project/databases/tables.py:268
+msgctxt "Current status of a Database Instance"
+msgid "Build"
+msgstr "作成中"
+
+#: dashboards/project/databases/tables.py:270
+msgctxt "Current status of a Database Instance"
+msgid "Failed"
+msgstr "失敗"
+
+#: dashboards/project/databases/tables.py:272
+msgctxt "Current status of a Database Instance"
+msgid "Reboot"
+msgstr "再起動"
+
+#: dashboards/project/databases/tables.py:274
+msgctxt "Current status of a Database Instance"
+msgid "Resize"
+msgstr "リサイズ"
+
+#: dashboards/project/databases/tables.py:276
+msgctxt "Current status of a Database Instance"
+msgid "Backup"
+msgstr "バックアップ"
+
+#: dashboards/project/databases/tables.py:278
+msgctxt "Current status of a Database Instance"
+msgid "Shutdown"
+msgstr ""
+
+#: dashboards/project/databases/tables.py:280
+msgctxt "Current status of a Database Instance"
+msgid "Error"
+msgstr "エラー"
+
+#: dashboards/project/databases/tables.py:283
+msgctxt "Current status of a Database Instance"
+msgid "Restart Required"
+msgstr ""
+
+#: dashboards/project/databases/tables.py:297
 #: dashboards/project/databases/templates/databases/_detail_overview.html:31
 #: dashboards/project/databases/workflows/create_instance.py:38
 msgid "Volume Size"
 msgstr "ボリュームサイズ"
 
-#: dashboards/project/databases/tables.py:297
+#: dashboards/project/databases/tables.py:320
 msgid "Allowed Host"
 msgstr "許可ホスト"
 
-#: dashboards/project/databases/tables.py:298
-#: dashboards/project/databases/tables.py:315
+#: dashboards/project/databases/tables.py:321
+#: dashboards/project/databases/tables.py:338
 #: dashboards/project/databases/tabs.py:77
 msgid "Databases"
 msgstr "データベース"
 
-#: dashboards/project/databases/tables.py:311
+#: dashboards/project/databases/tables.py:334
 msgid "Database Name"
 msgstr "データベース名"
 
-#: dashboards/project/databases/tables.py:335
+#: dashboards/project/databases/tables.py:358
 msgid "Backup File"
 msgstr "バックアップファイル"
 
@@ -9289,8 +9350,8 @@ msgstr "ポリシー %(name)s からのルールの削除に失敗しました: 
 #: dashboards/project/firewalls/panel.py:26
 #: dashboards/project/firewalls/tables.py:257
 #: dashboards/project/firewalls/tabs.py:69
+#: dashboards/project/firewalls/views.py:110
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
-#: dashboards/project/firewalls/templates/firewalls/details_tabs.html:6
 msgid "Firewalls"
 msgstr "ファイアウォール"
 
@@ -9329,22 +9390,19 @@ msgid_plural "Scheduled deletion of Firewalls"
 msgstr[0] "ファイアウェールの削除を予約しました"
 
 #: dashboards/project/firewalls/tables.py:119
-#: dashboards/project/firewalls/views.py:124
-#: dashboards/project/firewalls/templates/firewalls/_updaterule.html:8
+#: dashboards/project/firewalls/views.py:130
 #: dashboards/project/firewalls/templates/firewalls/updaterule.html:3
 msgid "Edit Rule"
 msgstr "ルールの編集"
 
 #: dashboards/project/firewalls/tables.py:131
-#: dashboards/project/firewalls/views.py:162
-#: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:8
+#: dashboards/project/firewalls/views.py:171
 #: dashboards/project/firewalls/templates/firewalls/updatepolicy.html:3
 msgid "Edit Policy"
 msgstr "ポリシーの編集"
 
 #: dashboards/project/firewalls/tables.py:143
-#: dashboards/project/firewalls/views.py:195
-#: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:8
+#: dashboards/project/firewalls/views.py:209
 #: dashboards/project/firewalls/templates/firewalls/updatefirewall.html:3
 msgid "Edit Firewall"
 msgstr "ファイアウォールの編集"
@@ -9408,7 +9466,7 @@ msgid "Firewall Rule Details"
 msgstr "ファイアウォールルールの詳細"
 
 #: dashboards/project/firewalls/tabs.py:98
-#: dashboards/project/firewalls/views.py:145
+#: dashboards/project/firewalls/views.py:154
 msgid "Unable to retrieve rule details."
 msgstr "ルールの詳細を取得できません。"
 
@@ -9417,9 +9475,9 @@ msgid "Firewall Policy Details"
 msgstr "ファイアウォールポリシーの詳細"
 
 #: dashboards/project/firewalls/tabs.py:115
-#: dashboards/project/firewalls/views.py:181
-#: dashboards/project/firewalls/views.py:247
-#: dashboards/project/firewalls/views.py:280
+#: dashboards/project/firewalls/views.py:195
+#: dashboards/project/firewalls/views.py:273
+#: dashboards/project/firewalls/views.py:313
 msgid "Unable to retrieve policy details."
 msgstr "ポリシーの詳細を取得できません。"
 
@@ -9428,54 +9486,81 @@ msgid "Firewall Details"
 msgstr "ファイアウォールの詳細"
 
 #: dashboards/project/firewalls/tabs.py:132
-#: dashboards/project/firewalls/views.py:215
+#: dashboards/project/firewalls/views.py:234
 msgid "Unable to retrieve firewall details."
 msgstr "ファイアウォールの詳細を取得できません。"
 
-#: dashboards/project/firewalls/views.py:65
+#: dashboards/project/firewalls/views.py:66
 #, python-format
 msgid "Deleted rule %s"
 msgstr "ルール %s を削除しました"
 
-#: dashboards/project/firewalls/views.py:68
+#: dashboards/project/firewalls/views.py:69
 #, python-format
 msgid "Unable to delete rule. %s"
 msgstr "ルールを削除できません: %s"
 
-#: dashboards/project/firewalls/views.py:73
+#: dashboards/project/firewalls/views.py:74
 #, python-format
 msgid "Deleted policy %s"
 msgstr "ポリシー %s を削除しました"
 
-#: dashboards/project/firewalls/views.py:76
+#: dashboards/project/firewalls/views.py:77
 #, python-format
 msgid "Unable to delete policy. %s"
 msgstr "ポリシーを削除できません: %s"
 
-#: dashboards/project/firewalls/views.py:82
+#: dashboards/project/firewalls/views.py:83
 #, python-format
 msgid "Deleted firewall %s"
 msgstr "ファイアウォール %s を削除しました。"
 
-#: dashboards/project/firewalls/views.py:85
+#: dashboards/project/firewalls/views.py:86
 #, python-format
 msgid "Unable to delete firewall. %s"
 msgstr "ファイアウォールを削除できません: %s"
 
-#: dashboards/project/firewalls/views.py:132
-#, python-format
-msgid "Edit Rule %(rule_name)s"
-msgstr "ルール %(rule_name)s の編集"
+#: dashboards/project/firewalls/views.py:93
+#: dashboards/project/firewalls/templates/firewalls/addrule.html:3
+msgid "Add New Rule"
+msgstr "ルールの追加"
 
-#: dashboards/project/firewalls/views.py:170
-#, python-format
-msgid "Edit Policy %s"
-msgstr "ポリシー %s の編集"
+#: dashboards/project/firewalls/views.py:99
+#: dashboards/project/firewalls/templates/firewalls/addpolicy.html:3
+msgid "Add New Policy"
+msgstr "ポリシーの追加"
 
-#: dashboards/project/firewalls/views.py:203
-#, python-format
-msgid "Edit Firewall %s"
-msgstr "ファイアウォール %s の編集"
+#: dashboards/project/firewalls/views.py:105
+#: dashboards/project/firewalls/templates/firewalls/addfirewall.html:3
+msgid "Add New Firewall"
+msgstr "ファイアウォールの追加"
+
+#: dashboards/project/firewalls/views.py:134
+msgid "Edit Rule {{ name }}"
+msgstr ""
+
+#: dashboards/project/firewalls/views.py:175
+msgid "Edit Policy {{ name }}"
+msgstr ""
+
+#: dashboards/project/firewalls/views.py:213
+msgid "Edit Firewall {{ name }}"
+msgstr ""
+
+#: dashboards/project/firewalls/views.py:246
+msgid "Insert Rule into Policy"
+msgstr ""
+
+#: dashboards/project/firewalls/views.py:252
+#: dashboards/project/firewalls/templates/firewalls/insert_rule_to_policy.html:3
+msgid "Insert Rule to Policy"
+msgstr "ポリシーへのルールの挿入"
+
+#: dashboards/project/firewalls/views.py:286
+#: dashboards/project/firewalls/views.py:292
+#: dashboards/project/firewalls/templates/firewalls/remove_rule_from_policy.html:3
+msgid "Remove Rule from Policy"
+msgstr "ポリシーからのルールの削除"
 
 #: dashboards/project/firewalls/workflows.py:73
 msgid "AddRule"
@@ -9578,27 +9663,14 @@ msgstr "ポリシー ID"
 msgid "Admin State Up"
 msgstr "管理状態有効"
 
-#: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:8
-#: dashboards/project/firewalls/templates/firewalls/insert_rule_to_policy.html:3
-#: dashboards/project/firewalls/templates/firewalls/insert_rule_to_policy.html:6
-msgid "Insert Rule to Policy"
-msgstr "ポリシーへのルールの挿入"
-
-#: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:18
+#: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:6
 msgid ""
-"Choose the rule you want to insert. Specify\n"
-"    either the rule you want to insert immediately before, or the rule\n"
-"    to insert immediately after. If both are specified, the prior\n"
-"    takes precedence."
-msgstr "挿入したいルールを選択してください。ルールをどのルールの直前、または直後に挿入するかを指定してください。両方指定した場合は指定したルールの直前に挿入されます。"
+"Choose the rule you want to insert. Specify either the rule you want to "
+"insert immediately before, or the rule to insert immediately after. If both "
+"are specified, the prior takes precedence."
+msgstr ""
 
-#: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:8
-#: dashboards/project/firewalls/templates/firewalls/remove_rule_from_policy.html:3
-#: dashboards/project/firewalls/templates/firewalls/remove_rule_from_policy.html:6
-msgid "Remove Rule from Policy"
-msgstr "ポリシーからのルールの削除"
-
-#: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:18
+#: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:6
 msgid "Choose the rule you want to remove."
 msgstr "削除したいルールを選択してください。"
 
@@ -9632,34 +9704,19 @@ msgstr "選択済みのルール"
 msgid "Available Rules"
 msgstr "利用可能なルール"
 
-#: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:18
+#: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:6
 msgid "You may update firewall details here."
 msgstr "ファイアウォールの詳細をここから更新できます。"
 
-#: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:18
+#: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:6
 msgid ""
 "You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links"
 " instead to insert or remove a rule"
 msgstr "ポリシーの詳細をここから更新できます。ルールの挿入、削除はここではなく「ルールの挿入」「ルールの削除」を使ってください。"
 
-#: dashboards/project/firewalls/templates/firewalls/_updaterule.html:18
+#: dashboards/project/firewalls/templates/firewalls/_updaterule.html:6
 msgid "You may update rule details here."
 msgstr "ルールの詳細をここから更新できます。"
-
-#: dashboards/project/firewalls/templates/firewalls/addfirewall.html:3
-#: dashboards/project/firewalls/templates/firewalls/addfirewall.html:6
-msgid "Add New Firewall"
-msgstr "ファイアウォールの追加"
-
-#: dashboards/project/firewalls/templates/firewalls/addpolicy.html:3
-#: dashboards/project/firewalls/templates/firewalls/addpolicy.html:6
-msgid "Add New Policy"
-msgstr "ポリシーの追加"
-
-#: dashboards/project/firewalls/templates/firewalls/addrule.html:3
-#: dashboards/project/firewalls/templates/firewalls/addrule.html:6
-msgid "Add New Rule"
-msgstr "ルールの追加"
 
 #: dashboards/project/images/utils.py:43
 msgid "Unable to retrieve public images."
@@ -11486,30 +11543,30 @@ msgid_plural "Scheduled deletion of Members"
 msgstr[0] "メンバーの削除を予約しました"
 
 #: dashboards/project/loadbalancers/tables.py:171
+#: dashboards/project/loadbalancers/views.py:232
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:8
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatepool.html:3
-#: dashboards/project/loadbalancers/templates/loadbalancers/updatepool.html:6
 msgid "Edit Pool"
 msgstr "プールの編集"
 
 #: dashboards/project/loadbalancers/tables.py:183
+#: dashboards/project/loadbalancers/views.py:263
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:8
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatevip.html:3
-#: dashboards/project/loadbalancers/templates/loadbalancers/updatevip.html:6
 msgid "Edit VIP"
 msgstr "仮想 IP の編集"
 
 #: dashboards/project/loadbalancers/tables.py:200
+#: dashboards/project/loadbalancers/views.py:308
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:8
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatemember.html:3
-#: dashboards/project/loadbalancers/templates/loadbalancers/updatemember.html:6
 msgid "Edit Member"
 msgstr "メンバーの編集"
 
 #: dashboards/project/loadbalancers/tables.py:212
+#: dashboards/project/loadbalancers/views.py:338
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:8
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatemonitor.html:3
-#: dashboards/project/loadbalancers/templates/loadbalancers/updatemonitor.html:6
 msgid "Edit Monitor"
 msgstr "モニターの編集"
 
@@ -11619,90 +11676,95 @@ msgstr "%(type)s URL:%(url_path)s メソッド:%(http_method)s コード:%(expec
 msgid "%(type)s delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
 msgstr "%(type)s 遅延:%(delay)d 最大試行:%(max_retries)d タイムアウト:%(timeout)d"
 
-#: dashboards/project/loadbalancers/views.py:53
+#: dashboards/project/loadbalancers/views.py:42
+#: dashboards/project/loadbalancers/templates/loadbalancers/details_tabs.html:3
+msgid "Load Balancer"
+msgstr "ロードバランサー"
+
+#: dashboards/project/loadbalancers/views.py:54
 #, python-format
 msgid "Deleted monitor %s"
 msgstr "モニター %s を削除しました。"
 
-#: dashboards/project/loadbalancers/views.py:56
+#: dashboards/project/loadbalancers/views.py:57
 #, python-format
 msgid "Unable to delete monitor. %s"
 msgstr "モニターを削除できません。 %s"
 
-#: dashboards/project/loadbalancers/views.py:61
+#: dashboards/project/loadbalancers/views.py:62
 #, python-format
 msgid "Deleted pool %s"
 msgstr "プール %s を削除しました。"
 
-#: dashboards/project/loadbalancers/views.py:64
+#: dashboards/project/loadbalancers/views.py:65
 #, python-format
 msgid "Unable to delete pool. %s"
 msgstr "プールを削除できません。 %s"
 
-#: dashboards/project/loadbalancers/views.py:69
+#: dashboards/project/loadbalancers/views.py:70
 #, python-format
 msgid "Deleted member %s"
 msgstr "メンバー %s を削除しました。"
 
-#: dashboards/project/loadbalancers/views.py:72
+#: dashboards/project/loadbalancers/views.py:73
 #, python-format
 msgid "Unable to delete member. %s"
 msgstr "メンバーを削除できません。 %s"
 
-#: dashboards/project/loadbalancers/views.py:79
+#: dashboards/project/loadbalancers/views.py:80
 #, python-format
 msgid "Unable to locate VIP to delete. %s"
 msgstr "削除する仮想 IP が見つかりません。 %s"
 
-#: dashboards/project/loadbalancers/views.py:84
+#: dashboards/project/loadbalancers/views.py:85
 #, python-format
 msgid "Deleted VIP %s"
 msgstr "仮想 IP %s を削除しました。"
 
-#: dashboards/project/loadbalancers/views.py:87
+#: dashboards/project/loadbalancers/views.py:88
 #, python-format
 msgid "Unable to delete VIP. %s"
 msgstr "仮想 IP を削除できません。 %s"
 
-#: dashboards/project/loadbalancers/views.py:107
+#: dashboards/project/loadbalancers/views.py:108
 #, python-format
 msgid "Unable to retrieve pool subnet. %s"
 msgstr "プールのサブネットを取得できません。 %s"
 
-#: dashboards/project/loadbalancers/views.py:133
+#: dashboards/project/loadbalancers/views.py:134
 msgid "Unable to retrieve pool details."
 msgstr "プールの詳細を取得できません。"
 
-#: dashboards/project/loadbalancers/views.py:175
+#: dashboards/project/loadbalancers/views.py:176
 msgid "Unable to retrieve member details."
 msgstr "メンバーの詳細を取得できません。"
 
-#: dashboards/project/loadbalancers/views.py:206
+#: dashboards/project/loadbalancers/views.py:207
 msgid "Unable to retrieve monitor details."
 msgstr "モニターの詳細を取得できません。"
 
-#: dashboards/project/loadbalancers/views.py:244
+#: dashboards/project/loadbalancers/views.py:246
 #, python-format
 msgid "Unable to retrieve pool details. %s"
 msgstr "プールの詳細を取得できません。 %s"
 
-#: dashboards/project/loadbalancers/views.py:274
+#: dashboards/project/loadbalancers/views.py:277
 #, python-format
 msgid "Unable to retrieve VIP details. %s"
 msgstr "仮想 IP の詳細を取得できません。 %s"
 
-#: dashboards/project/loadbalancers/views.py:318
+#: dashboards/project/loadbalancers/views.py:322
 #, python-format
 msgid "Unable to retrieve member details. %s"
 msgstr "メンバーの詳細を取得できません。 %s"
 
-#: dashboards/project/loadbalancers/views.py:347
+#: dashboards/project/loadbalancers/views.py:352
 #, python-format
 msgid "Unable to retrieve health monitor details. %s"
 msgstr "ヘルスモニターの詳細を取得できません。 %s"
 
-#: dashboards/project/loadbalancers/views.py:370
-#: dashboards/project/loadbalancers/views.py:386
+#: dashboards/project/loadbalancers/views.py:375
+#: dashboards/project/loadbalancers/views.py:391
 #, python-format
 msgid "Unable to retrieve pool. %s"
 msgstr "プールを取得できません。 %s"
@@ -12076,11 +12138,6 @@ msgstr "種別: %(persistence_type)s"
 msgid "Cookie Name: %(cookie_name)s"
 msgstr "クッキー名: %(cookie_name)s"
 
-#: dashboards/project/loadbalancers/templates/loadbalancers/details_tabs.html:3
-#: dashboards/project/loadbalancers/templates/loadbalancers/details_tabs.html:6
-msgid "Load Balancer"
-msgstr "ロードバランサー"
-
 #: dashboards/project/network_topology/panel.py:27
 #: dashboards/project/network_topology/views.py:101
 #: dashboards/project/network_topology/templates/network_topology/index.html:4
@@ -12102,8 +12159,8 @@ msgstr ""
 #: dashboards/project/routers/tables.py:85
 #: dashboards/project/routers/tables.py:98
 #: dashboards/project/routers/views.py:152
-#: dashboards/project/routers/templates/routers/_create.html:9
-#: dashboards/project/routers/templates/routers/_create.html:20
+#: dashboards/project/routers/views.py:155
+#: dashboards/project/routers/views.py:156
 #: dashboards/project/routers/templates/routers/create.html:3
 msgid "Create Router"
 msgstr "ルーターの作成"
@@ -12668,6 +12725,11 @@ msgstr[0] "ルーターを削除しました"
 msgid "Unable to delete router \"%s\""
 msgstr "ルーター \"%s\" を更新できません。"
 
+#: dashboards/project/routers/tables.py:106
+#: dashboards/project/routers/views.py:163
+msgid "Edit Router"
+msgstr "ルーターの編集"
+
 #: dashboards/project/routers/tables.py:115
 #: dashboards/project/routers/ports/views.py:68
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:9
@@ -12707,16 +12769,16 @@ msgid "HA mode"
 msgstr "HA モード"
 
 #: dashboards/project/routers/tabs.py:52
-#: dashboards/project/routers/views.py:172
+#: dashboards/project/routers/views.py:183
 msgid "Unable to retrieve router details."
 msgstr "ルーターの詳細を取得できません。"
 
-#: dashboards/project/routers/views.py:73
+#: dashboards/project/routers/views.py:74
 #, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
 msgstr "外部ネットワーク一覧を取得できません: \"%s\""
 
-#: dashboards/project/routers/views.py:86
+#: dashboards/project/routers/views.py:87
 #, python-format
 msgid ""
 "External network \"%(ext_net_id)s\" expected but not found for router "
@@ -12724,18 +12786,18 @@ msgid ""
 msgstr "ルーター \"%(router_id)s\" の外部ネットワーク \"%(ext_net_id)s\" が存在するはずですが、見つかりませんでした。"
 
 #. Translators: The usage is "<UUID of ext_net> (Not Found)"
-#: dashboards/project/routers/views.py:94
+#: dashboards/project/routers/views.py:95
 #, python-format
 msgctxt "External network not found"
 msgid "%s (Not Found)"
 msgstr "%s (Not Found)"
 
-#: dashboards/project/routers/views.py:110
+#: dashboards/project/routers/views.py:111
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr "ルーター \"%s\" の詳細を取得できません。"
 
-#: dashboards/project/routers/views.py:121
+#: dashboards/project/routers/views.py:122
 #, python-format
 msgid "Unable to retrieve an external network \"%s\"."
 msgstr "外部ネットワーク \"%s\" の情報を取得できません。"
@@ -12917,6 +12979,10 @@ msgstr "ゲートウェイを設定できません。"
 #: dashboards/project/routers/templates/routers/_detail_overview.html:27
 msgid "Connected External Network:"
 msgstr "接続された外部ネットワーク:"
+
+#: dashboards/project/routers/templates/routers/_update.html:6
+msgid "You may update the editable properties of your router here."
+msgstr "ルーターの変更可能な属性を更新できます。"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:20
 msgid ""
@@ -14831,24 +14897,21 @@ msgid "Scheduled deletion of IPSec Site Connection"
 msgid_plural "Scheduled deletion of IPSec Site Connections"
 msgstr[0] "IPSec サイト間接続の削除を予約しました"
 
-#: dashboards/project/vpn/tables.py:164
+#: dashboards/project/vpn/tables.py:164 dashboards/project/vpn/views.py:272
 #: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:8
 #: dashboards/project/vpn/templates/vpn/update_vpnservice.html:3
-#: dashboards/project/vpn/templates/vpn/update_vpnservice.html:6
 msgid "Edit VPN Service"
 msgstr "VPN サービスの編集"
 
-#: dashboards/project/vpn/tables.py:180
+#: dashboards/project/vpn/tables.py:180 dashboards/project/vpn/views.py:302
 #: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:8
 #: dashboards/project/vpn/templates/vpn/update_ikepolicy.html:3
-#: dashboards/project/vpn/templates/vpn/update_ikepolicy.html:6
 msgid "Edit IKE Policy"
 msgstr "IKE ポリシーの編集"
 
-#: dashboards/project/vpn/tables.py:194
+#: dashboards/project/vpn/tables.py:194 dashboards/project/vpn/views.py:339
 #: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:8
 #: dashboards/project/vpn/templates/vpn/update_ipsecpolicy.html:3
-#: dashboards/project/vpn/templates/vpn/update_ipsecpolicy.html:6
 msgid "Edit IPSec Policy"
 msgstr "IPSec ポリシーの編集"
 
@@ -14923,78 +14986,90 @@ msgstr "VPN サービスの詳細"
 msgid "IPSec Site Connection Details"
 msgstr "IPSec サイト間接続の詳細"
 
-#: dashboards/project/vpn/views.py:52
+#: dashboards/project/vpn/views.py:40 dashboards/project/vpn/views.py:127
+#: dashboards/project/vpn/templates/vpn/details_tabs.html:3
+#: dashboards/project/vpn/templates/vpn/index.html:3
+msgid "Virtual Private Network"
+msgstr "仮想プライベートネットワーク"
+
+#: dashboards/project/vpn/views.py:53
 #, python-format
 msgid "Deleted VPN Service %s"
 msgstr "VPN サービス %s を削除しました。"
 
-#: dashboards/project/vpn/views.py:55
+#: dashboards/project/vpn/views.py:56
 #, python-format
 msgid "Unable to delete VPN Service: %s"
 msgstr "VPN サービスを削除できません: %s"
 
-#: dashboards/project/vpn/views.py:62
+#: dashboards/project/vpn/views.py:63
 #, python-format
 msgid "Deleted IKE Policy %s"
 msgstr "IKE ポリシー %s を削除しました。"
 
-#: dashboards/project/vpn/views.py:65
+#: dashboards/project/vpn/views.py:66
 #, python-format
 msgid "Unable to delete IKE Policy: %s"
 msgstr "IKE ポリシーを削除できません: %s"
 
-#: dashboards/project/vpn/views.py:71
+#: dashboards/project/vpn/views.py:72
 #, python-format
 msgid "Deleted IPSec Policy %s"
 msgstr "IPSec ポリシー %s を削除しました。"
 
-#: dashboards/project/vpn/views.py:74
+#: dashboards/project/vpn/views.py:75
 #, python-format
 msgid "Unable to delete IPSec Policy: %s"
 msgstr "IPSec ポリシーを削除できません: %s"
 
-#: dashboards/project/vpn/views.py:81
+#: dashboards/project/vpn/views.py:82
 #, python-format
 msgid "Deleted IPSec Site Connection %s"
 msgstr "IPSec サイト間接続 %s を削除しました。"
 
-#: dashboards/project/vpn/views.py:86
+#: dashboards/project/vpn/views.py:87
 #, python-format
 msgid "Unable to delete IPSec Site Connection: %s"
 msgstr "IPSec サイト間接続を削除できません: %s"
 
-#: dashboards/project/vpn/views.py:133
+#: dashboards/project/vpn/views.py:135
 msgid "Unable to retrieve IKE Policy details."
 msgstr "IKE ポリシーの詳細を取得できません。"
 
-#: dashboards/project/vpn/views.py:165
+#: dashboards/project/vpn/views.py:167
 msgid "Unable to retrieve IPSec Policy details."
 msgstr "IPSec ポリシーの詳細を取得できません。"
 
-#: dashboards/project/vpn/views.py:200
+#: dashboards/project/vpn/views.py:202
 msgid "Unable to retrieve VPN Service details."
 msgstr "VPN サービスの詳細を取得できません。"
 
-#: dashboards/project/vpn/views.py:240
+#: dashboards/project/vpn/views.py:242
 msgid "Unable to retrieve IPSec Site Connection details."
 msgstr "IPSec サイト間接続の詳細を取得できません。"
 
-#: dashboards/project/vpn/views.py:283
+#: dashboards/project/vpn/views.py:286
 #, python-format
 msgid "Unable to retrieve VPN Service details. %s"
 msgstr "VPN サービスの詳細を取得できません。 %s"
 
-#: dashboards/project/vpn/views.py:312
+#: dashboards/project/vpn/views.py:316
 #, python-format
 msgid "Unable to retrieve IKE Policy details. %s"
 msgstr "IKE ポリシーの詳細を取得できません。 %s"
 
-#: dashboards/project/vpn/views.py:348
+#: dashboards/project/vpn/views.py:353
 #, python-format
 msgid "Unable to retrieve IPSec Policy details. %s"
 msgstr "IPSec ポリシーの詳細を取得できません。 %s"
 
-#: dashboards/project/vpn/views.py:385
+#: dashboards/project/vpn/views.py:375
+#: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:8
+#: dashboards/project/vpn/templates/vpn/update_ipsecsiteconnection.html:3
+msgid "Edit IPSec Site Connection"
+msgstr "IPSec サイト間接続の編集"
+
+#: dashboards/project/vpn/views.py:391
 #, python-format
 msgid "Unable to retrieve IPSec Site Connection details. %s"
 msgstr "IPSec サイト間接続の詳細を取得できません。 %s"
@@ -15176,12 +15251,6 @@ msgstr "IKE ポリシーの詳細をここから更新できます。"
 msgid "You may update IPSec Policy details here."
 msgstr "IPSec ポリシーの詳細をここから更新できます。"
 
-#: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:8
-#: dashboards/project/vpn/templates/vpn/update_ipsecsiteconnection.html:3
-#: dashboards/project/vpn/templates/vpn/update_ipsecsiteconnection.html:6
-msgid "Edit IPSec Site Connection"
-msgstr "IPSec サイト間接続の編集"
-
 #: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:18
 msgid "You may update IPSec Site Connection details here."
 msgstr "IPSec サイト間接続の詳細をここから更新できます。"
@@ -15193,13 +15262,6 @@ msgstr "VPN サービスの詳細をここから更新できます。"
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:27
 msgid "VPN Connections"
 msgstr "VPN 接続"
-
-#: dashboards/project/vpn/templates/vpn/details_tabs.html:3
-#: dashboards/project/vpn/templates/vpn/details_tabs.html:6
-#: dashboards/project/vpn/templates/vpn/index.html:3
-#: dashboards/project/vpn/templates/vpn/index.html:6
-msgid "Virtual Private Network"
-msgstr "仮想プライベートネットワーク"
 
 #: dashboards/router/nexus1000v/forms.py:34
 msgid "Projects could not be retrieved."
