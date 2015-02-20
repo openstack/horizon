@@ -58,6 +58,11 @@ class IndexView(ExtraSpecMixin, forms.ModalFormMixin, tables.DataTableView):
 
 class CreateView(ExtraSpecMixin, forms.ModalFormView):
     form_class = project_forms.CreateExtraSpec
+    form_id = "extra_spec_create_form"
+    modal_header = _("Create Volume Type Extra Spec")
+    modal_id = "extra_spec_create_modal"
+    submit_label = _("Create")
+    submit_url = "horizon:admin:volumes:volume_types:extras:create"
     template_name = 'admin/volumes/volume_types/extras/create.html'
     success_url = 'horizon:admin:volumes:volume_types:extras:index'
 
@@ -68,9 +73,20 @@ class CreateView(ExtraSpecMixin, forms.ModalFormView):
         return reverse(self.success_url,
                        args=(self.kwargs['type_id'],))
 
+    def get_context_data(self, **kwargs):
+        context = super(CreateView, self).get_context_data(**kwargs)
+        args = (self.kwargs['type_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
+        return context
+
 
 class EditView(ExtraSpecMixin, forms.ModalFormView):
     form_class = project_forms.EditExtraSpec
+    form_id = "extra_spec_edit_form"
+    modal_header = _('Edit Extra Spec Value: %s')
+    modal_id = "extra_spec_edit_modal"
+    submit_label = _("Save")
+    submit_url = "horizon:admin:volumes:volume_types:extras:edit"
     template_name = 'admin/volumes/volume_types/extras/edit.html'
     success_url = 'horizon:admin:volumes:volume_types:extras:index'
 
@@ -93,3 +109,10 @@ class EditView(ExtraSpecMixin, forms.ModalFormView):
         return {'type_id': type_id,
                 'key': key,
                 'value': extra_specs.get(key, '')}
+
+    def get_context_data(self, **kwargs):
+        context = super(EditView, self).get_context_data(**kwargs)
+        args = (self.kwargs['type_id'], self.kwargs['key'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
+        context['modal_header'] = self.modal_header % self.kwargs['key']
+        return context

@@ -1,20 +1,7 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
-{% load url from future %}
 
-{% block form_id %}{% endblock %}
-{% block form_action %}{% url 'horizon:admin:volumes:volume_types:create_type' %}{% endblock %}
-
-{% block modal_id %}create_volume_type_modal{% endblock %}
-{% block modal-header %}{% trans "Create Volume Type" %}{% endblock %}
-
-{% block modal-body %}
-<div class="left">
-  <fieldset>
-  {% include "horizon/common/_form_fields.html" %}
-  </fieldset>
-</div>
-<div class="right">
+{% block modal-body-right %}
   <h3>{% trans "Description:" %}</h3>
   <p>{% blocktrans %}
       Volume type is a type or label that can be selected at volume creation
@@ -26,10 +13,4 @@
       pair(s) for that volume type.
      {% endblocktrans %}
   </p>
-</div>
-{% endblock %}
-
-{% block modal-footer %}
-  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Create Volume Type" %}" />
-  <a href="{% url 'horizon:admin:volumes:volume_types_tab' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
 {% endblock %}

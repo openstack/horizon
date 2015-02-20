@@ -1,20 +1,7 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
-{% load url from future %}
 
-{% block form_id %}create_volume_form{% endblock %}
-{% block form_action %}{% url 'horizon:admin:volumes:volume_types:create_type_encryption' volume_type_id %}{% endblock %}
-
-{% block modal_id %}create_volume_type_modal{% endblock %}
-{% block modal-header %}{% trans "Create Volume Type Encryption" %}{% endblock %}
-
-{% block modal-body %}
-<div class="left">
-  <fieldset>
-  {% include "horizon/common/_form_fields.html" %}
-  </fieldset>
-</div>
-<div class="right">
+{% block modal-body-right %}
   <h3>{% trans "Description:" %}</h3>
   <p>
     {% trans "Creating encryption for a volume type causes all volumes with that volume type to be encrypted.  Encryption information cannot be added to a volume type if volumes are currently in use with that volume type." %}
@@ -31,10 +18,4 @@
   <p>
     {% blocktrans %}The <strong>Key Size</strong> is the size of the encryption key, in bits (e.g., 128, 256). If the field is left empty, the provider default will be used.{% endblocktrans %}
   </p>
-</div>
-{% endblock %}
-
-{% block modal-footer %}
-  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Create Volume Type Encryption" %}" />
-  <a href="{% url 'horizon:admin:volumes:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
 {% endblock %}

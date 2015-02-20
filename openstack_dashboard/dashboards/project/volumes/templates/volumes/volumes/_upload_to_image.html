@@ -1,42 +1,23 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
-{% load url from future %}
 
-{% block form_id %}{% endblock %}
-{% block form_action %}{% url 'horizon:project:volumes:volumes:upload_to_image' volume.id %}{% endblock %}
-
-{% block modal_id %}update_volume_modal{% endblock %}
-{% block modal-header %}{% trans "Upload Volume to Image" %}{% endblock %}
-
-{% block modal-body %}
-  <div class="left">
-    <fieldset>
-    {% include "horizon/common/_form_fields.html" %}
-    </fieldset>
-  </div>
-  <div class="right">
-    <h3>{% trans "Description:" %}</h3>
+{% block modal-body-right %}
+  <h3>{% trans "Description:" %}</h3>
+  <p>{% blocktrans %}
+      Upload the volume to the Image Service as an image.
+      This is equivalent to the <tt>cinder upload-to-image</tt> command.
+     {% endblocktrans %}
+  </p>
+  <p>{% blocktrans %}
+      Choose "Disk Format" for the image. The volume images are created with
+      the QEMU disk image utility.
+     {% endblocktrans %}
+  </p>
+  {% if volume.status == 'in-use' %}
     <p>{% blocktrans %}
-        Upload the volume to the Image Service as an image.
-        This is equivalent to the <tt>cinder upload-to-image</tt> command.
+        When the volume status is "in-use", you can use "Force" to upload the
+        volume to an image.
        {% endblocktrans %}
     </p>
-    <p>{% blocktrans %}
-        Choose "Disk Format" for the image. The volume images are created with
-        the QEMU disk image utility.
-       {% endblocktrans %}
-    </p>
-    {% if volume.status == 'in-use' %}
-      <p>{% blocktrans %}
-          When the volume status is "in-use", you can use "Force" to upload the
-          volume to an image.
-         {% endblocktrans %}
-      </p>
-    {% endif %}
-  </div>
-{% endblock %}
-
-{% block modal-footer %}
-  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Upload" %}" />
-  <a href="{% url 'horizon:project:volumes:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
+  {% endif %}
 {% endblock %}

@@ -68,7 +68,12 @@ class IndexView(QosSpecMixin, forms.ModalFormMixin, tables.DataTableView):
 class CreateKeyValuePairView(QosSpecMixin, forms.ModalFormView):
     # this for creating a spec key-value pair for an existing QOS Spec
     form_class = project_forms.CreateKeyValuePair
+    form_id = "extra_spec_create_form"
+    modal_header = _("Create Spec")
+    modal_id = "qos_spec_create_modal"
     template_name = 'admin/volumes/volume_types/qos_specs/create.html'
+    submit_label = _("Create")
+    submit_url = "horizon:admin:volumes:volume_types:qos_specs:create"
     success_url = 'horizon:admin:volumes:volume_types:qos_specs:index'
 
     def get_initial(self):
@@ -79,10 +84,22 @@ class CreateKeyValuePairView(QosSpecMixin, forms.ModalFormView):
         return reverse(self.success_url,
                        args=(self.kwargs['qos_spec_id'],))
 
+    def get_context_data(self, **kwargs):
+        context = super(CreateKeyValuePairView, self).\
+            get_context_data(**kwargs)
+        args = (self.kwargs['qos_spec_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
+        return context
+
 
 class EditKeyValuePairView(QosSpecMixin, forms.ModalFormView):
     form_class = project_forms.EditKeyValuePair
+    form_id = "qos_spec_edit_form"
+    modal_header = _("Edit Spec Value")
+    modal_id = "qos_spec_edit_modal"
     template_name = 'admin/volumes/volume_types/qos_specs/edit.html'
+    submit_label = _("Save")
+    submit_url = "horizon:admin:volumes:volume_types:qos_specs_edit"
     success_url = 'horizon:admin:volumes:volume_types:qos_specs:index'
 
     def get_success_url(self):
@@ -102,3 +119,9 @@ class EditKeyValuePairView(QosSpecMixin, forms.ModalFormView):
         return {'qos_spec_id': qos_spec_id,
                 'key': key,
                 'value': qos_specs.specs.get(key, '')}
+
+    def get_context_data(self, **kwargs):
+        context = super(EditKeyValuePairView, self).get_context_data(**kwargs)
+        args = (self.kwargs['qos_spec_id'], self.kwargs['key'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
+        return context
