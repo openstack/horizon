@@ -55,6 +55,17 @@ class HypervisorViewTest(test.BaseAdminViewTests):
         self.assertEqual(2, len(actions_host_down))
         self.assertEqual('evacuate', actions_host_down[0].name)
 
+        actions_service_enabled = host_table.get_row_actions(
+            host_table.data[1])
+        self.assertEqual('evacuate', actions_service_enabled[0].name)
+        self.assertEqual('disable', actions_service_enabled[1].name)
+
+        actions_service_disabled = host_table.get_row_actions(
+            host_table.data[2])
+        self.assertEqual('enable', actions_service_disabled[0].name)
+        self.assertEqual('migrate_maintenance',
+                         actions_service_disabled[1].name)
+
     @test.create_stubs({api.nova: ('hypervisor_list',
                                    'hypervisor_stats',
                                    'service_list')})

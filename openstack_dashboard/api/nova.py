@@ -792,6 +792,42 @@ def evacuate_host(request, host, target=None, on_shared_storage=False):
     return True
 
 
+def migrate_host(request, host, live_migrate=False, disk_over_commit=False,
+                 block_migration=False):
+    hypervisors = novaclient(request).hypervisors.search(host, True)
+    response = []
+    err_code = None
+    for hyper in hypervisors:
+        for server in getattr(hyper, "servers", []):
+            try:
+                if live_migrate:
+                    instance = server_get(request, server['uuid'])
+
+                    # Checking that instance can be live-migrated
+                    if instance.status in ["ACTIVE", "PAUSED"]:
+                        novaclient(request).servers.live_migrate(
+                            server['uuid'],
+                            None,
+                            block_migration,
+                            disk_over_commit
+                        )
+                    else:
+                        novaclient(request).servers.migrate(server['uuid'])
+                else:
+                    novaclient(request).servers.migrate(server['uuid'])
+            except nova_exceptions.ClientException as err:
+                err_code = err.code
+                msg = _("Name: %(name)s ID: %(uuid)s")
+                msg = msg % {'name': server['name'], 'uuid': server['uuid']}
+                response.append(msg)
+
+    if err_code:
+        msg = _('Failed to migrate instances: %s') % ', '.join(response)
+        raise nova_exceptions.ClientException(err_code, msg)
+
+    return True
+
+
 def tenant_absolute_limits(request, reserved=False):
     limits = novaclient(request).limits.get(reserved=reserved).absolute
     limits_dict = {}

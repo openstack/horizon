@@ -24,6 +24,7 @@ from django import http
 from django.test.utils import override_settings
 
 from mox import IsA  # noqa
+from novaclient import exceptions as nova_exceptions
 from novaclient.v1_1 import servers
 import six
 
@@ -253,3 +254,96 @@ class ComputeApiTests(test.APITestCase):
                             "totalFloatingIpsUsed": 0,
                             }
         self._test_absolute_limits(values, expected_results)
+
+    def test_cold_migrate_host_succeed(self):
+        hypervisor = self.hypervisors.first()
+        novaclient = self.stub_novaclient()
+
+        novaclient.hypervisors = self.mox.CreateMockAnything()
+        novaclient.hypervisors.search('host', True).AndReturn([hypervisor])
+
+        novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.servers.migrate("test_uuid")
+
+        self.mox.ReplayAll()
+
+        ret_val = api.nova.migrate_host(self.request, "host", False, True,
+                                        True)
+
+        self.assertTrue(ret_val)
+
+    def test_cold_migrate_host_fails(self):
+        hypervisor = self.hypervisors.first()
+        novaclient = self.stub_novaclient()
+
+        novaclient.hypervisors = self.mox.CreateMockAnything()
+        novaclient.hypervisors.search('host', True).AndReturn([hypervisor])
+
+        novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.servers.migrate("test_uuid").AndRaise(
+            nova_exceptions.ClientException(404))
+
+        self.mox.ReplayAll()
+
+        self.assertRaises(nova_exceptions.ClientException,
+                          api.nova.migrate_host,
+                          self.request, "host", False, True, True)
+
+    def test_live_migrate_host_with_active_vm(self):
+        hypervisor = self.hypervisors.first()
+        server = self.servers.first()
+        novaclient = self.stub_novaclient()
+        server_uuid = hypervisor.servers[0]["uuid"]
+
+        novaclient.hypervisors = self.mox.CreateMockAnything()
+        novaclient.hypervisors.search('host', True).AndReturn([hypervisor])
+
+        novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.servers.get(server_uuid).AndReturn(server)
+        novaclient.servers.live_migrate(server_uuid, None, True, True)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.nova.migrate_host(self.request, "host", True, True,
+                                        True)
+
+        self.assertTrue(ret_val)
+
+    def test_live_migrate_host_with_paused_vm(self):
+        hypervisor = self.hypervisors.first()
+        server = self.servers.list()[3]
+        novaclient = self.stub_novaclient()
+        server_uuid = hypervisor.servers[0]["uuid"]
+
+        novaclient.hypervisors = self.mox.CreateMockAnything()
+        novaclient.hypervisors.search('host', True).AndReturn([hypervisor])
+
+        novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.servers.get(server_uuid).AndReturn(server)
+        novaclient.servers.live_migrate(server_uuid, None, True, True)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.nova.migrate_host(self.request, "host", True, True,
+                                        True)
+
+        self.assertTrue(ret_val)
+
+    def test_live_migrate_host_without_running_vm(self):
+        hypervisor = self.hypervisors.first()
+        server = self.servers.list()[1]
+        novaclient = self.stub_novaclient()
+        server_uuid = hypervisor.servers[0]["uuid"]
+
+        novaclient.hypervisors = self.mox.CreateMockAnything()
+        novaclient.hypervisors.search('host', True).AndReturn([hypervisor])
+
+        novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.servers.get(server_uuid).AndReturn(server)
+        novaclient.servers.migrate(server_uuid)
+
+        self.mox.ReplayAll()
+
+        ret_val = api.nova.migrate_host(self.request, "host", True, True,
+                                        True)
+        self.assertTrue(ret_val)

@@ -481,7 +481,12 @@ def data(TEST):
                 "server_id": "3"})
     server_3 = servers.Server(servers.ServerManager(None),
                               json.loads(SERVER_DATA % vals)['server'])
-    TEST.servers.add(server_1, server_2, server_3)
+    vals.update({"name": "server_4",
+                 "status": "PAUSED",
+                 "server_id": "4"})
+    server_4 = servers.Server(servers.ServerManager(None),
+                              json.loads(SERVER_DATA % vals)['server'])
+    TEST.servers.add(server_1, server_2, server_3, server_4)
 
     # VNC Console Data
     console = {u'console': {u'url': u'http://example.com:6080/vnc_auto.html',
@@ -618,6 +623,7 @@ def data(TEST):
             "local_gb": 29,
             "free_ram_mb": 500,
             "id": 1,
+            "servers": [{"name": "test_name", "uuid": "test_uuid"}]
         },
     )
 
@@ -723,9 +729,20 @@ def data(TEST):
         "disabled_reason": None,
     })
 
+    service_4 = services.Service(services.ServiceManager(None), {
+        "status": "disabled",
+        "binary": "nova-compute",
+        "zone": "nova",
+        "state": "up",
+        "updated_at": "2013-07-08T04:20:51.000000",
+        "host": "devstack003",
+        "disabled_reason": None,
+    })
+
     TEST.services.add(service_1)
     TEST.services.add(service_2)
     TEST.services.add(service_3)
+    TEST.services.add(service_4)
 
     # Aggregates
     aggregate_1 = aggregates.Aggregate(aggregates.AggregateManager(None), {

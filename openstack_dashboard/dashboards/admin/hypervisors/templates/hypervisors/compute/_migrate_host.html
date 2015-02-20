@@ -1,0 +1,24 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}evacuate_host_form{% endblock %}
+{% block form_action %}{% url 'horizon:admin:hypervisors:compute:migrate_host' compute_host %}{% endblock %}
+
+{% block modal-header %}{% trans "Migrate Host" %}{% endblock %}
+{% block modal-body %}
+    <div class="left">
+        <fieldset>
+            {% include "horizon/common/_form_fields.html" %}
+        </fieldset>
+    </div>
+    <div class="right">
+        <h3>{% trans "Description:" %}</h3>
+        <p>{% trans "Migrate all instances from a host with disabled nova-compute service. Optionally you can choose type of migration. All running instances of the host can be Live Migrated. Cold Migration is trying to use 'nova migrate' on each instance of migrated host." %}</p>
+    </div>
+{% endblock %}
+
+{% block modal-footer %}
+    <input class="btn btn-primary pull-right" type="submit" value="{% trans "Migrate Host" %}" />
+    <a href="{% url 'horizon:admin:hypervisors:index' %}" class="btn secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}

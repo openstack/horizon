@@ -24,4 +24,7 @@ urlpatterns = patterns(
     url(r'^(?P<compute_host>[^/]+)/disable_service$',
         views.DisableServiceView.as_view(),
         name='disable_service'),
+    url(r'^(?P<compute_host>[^/]+)/migrate_host$',
+        views.MigrateHostView.as_view(),
+        name='migrate_host'),
 )
