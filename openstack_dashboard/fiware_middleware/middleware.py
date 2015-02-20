@@ -52,7 +52,8 @@ class SwitchMiddleware(object):
     def process_request(self, request):
         # Allowed if he is an admin in the organization
         if (not hasattr(request, 'user')
-            or not request.user.is_authenticated()):
+            or not request.user.is_authenticated()
+            or not hasattr(request, 'organization')):
             return
 
         # TODO(garcianavalon) lazyloading and caching
@@ -61,6 +62,8 @@ class SwitchMiddleware(object):
         assignments = api.keystone.role_assignments_list(
             request, user=request.user.id)
         owner_role = fiware_api.keystone.get_owner_role(request)
+        switch_orgs = set([a.scope['project']['id'] for a in assignments 
+                       if a.role['id'] == owner_role.id
+                       and a.scope['project']['id'] != request.organization.id])
         request.organizations = [org for org in organizations
-                                 in [a.project_id for a in assignments 
-                                     if a.role_id == owner_role.id]]
+                                 if org.id in switch_orgs]

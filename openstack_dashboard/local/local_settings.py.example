@@ -587,4 +587,4 @@ SUMMERNOTE_CONFIG = {
 }
 
 #Set owner role. Users with this role will have permission to edit organziations
-OPENSTACK_KEYSTONE_OWNER_ROLE = 'admin'
+KEYSTONE_OWNER_ROLE = 'admin'
