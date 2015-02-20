@@ -195,7 +195,7 @@ class UsersTable(tables.DataTable):
     enabled = tables.Column('enabled', verbose_name=_('Enabled'),
                             status=True,
                             status_choices=STATUS_CHOICES,
-                            empty_value="False")
+                            empty_value=_('False'))
 
 
 class GroupMembersTable(UsersTable):
