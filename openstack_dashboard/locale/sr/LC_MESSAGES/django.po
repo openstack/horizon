@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# darioristic <office@darioristic.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-18 23:28-0600\n"
-"PO-Revision-Date: 2015-02-19 05:42+0000\n"
+"POT-Creation-Date: 2015-02-19 23:00-0600\n"
+"PO-Revision-Date: 2015-02-20 02:54+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/horizon/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +20,7 @@ msgstr ""
 
 #: settings.py:85
 msgid "Select format"
-msgstr ""
+msgstr "Izaberi format"
 
 #: settings.py:86
 msgid "AKI - Amazon Kernel Image"
@@ -39,7 +40,7 @@ msgstr "ISO - Opticki Disk Image"
 
 #: settings.py:90
 msgid "OVA - Open Virtual Appliance"
-msgstr ""
+msgstr "Otvoreni Virtuelni Uređaj"
 
 #: settings.py:91
 msgid "QCOW2 - QEMU Emulator"
@@ -51,47 +52,47 @@ msgstr "Raw"
 
 #: settings.py:93
 msgid "VDI - Virtual Disk Image"
-msgstr ""
+msgstr "Virtuelna Slika Diska"
 
 #: settings.py:94
 msgid "VHD - Virtual Hard Disk"
-msgstr ""
+msgstr "Virtuelni Hard Disk"
 
 #: settings.py:95
 msgid "VMDK - Virtual Machine Disk"
-msgstr ""
+msgstr "Virtuelni Disk Mašine"
 
 #: settings.py:235
 msgid "All TCP"
-msgstr ""
+msgstr "Sav TCP Saobraćaj"
 
 #: settings.py:241
 msgid "All UDP"
-msgstr ""
+msgstr "Sav UDP Saobraćaj"
 
 #: settings.py:247
 msgid "All ICMP"
-msgstr ""
+msgstr "Sav ICMP"
 
 #: api/ceilometer.py:743
 msgid "Unable to retrieve Ceilometer meter list."
-msgstr ""
+msgstr "Nije moguce preuzeti Ceilometer listu"
 
 #: api/ceilometer.py:931
 msgid "Existence of instance"
-msgstr ""
+msgstr "Postojeće virtuelne mašine"
 
 #: api/ceilometer.py:935
 msgid "Existence of instance <type> (openstack types)"
-msgstr ""
+msgstr "Trajanje instance <type> (tipovi openstack-a)"
 
 #: api/ceilometer.py:940
 msgid "Volume of RAM"
-msgstr ""
+msgstr "Veličina RAM u MB"
 
 #: api/ceilometer.py:944
 msgid "Volume of RAM used"
-msgstr ""
+msgstr "Veličina RAM u MB"
 
 #: api/ceilometer.py:948
 msgid "CPU time used"
@@ -116,35 +117,35 @@ msgstr "Broj zahteva za pisanje"
 
 #: api/ceilometer.py:968
 msgid "Volume of reads"
-msgstr ""
+msgstr "Količina čitanja "
 
 #: api/ceilometer.py:972
 msgid "Volume of writes"
-msgstr ""
+msgstr "Količina pisanja "
 
 #: api/ceilometer.py:976
 msgid "Average rate of read requests"
-msgstr ""
+msgstr "Broja zahteva za čitanje"
 
 #: api/ceilometer.py:980
 msgid "Average rate of write requests"
-msgstr ""
+msgstr "Srednji broj zahteva za pisanje"
 
 #: api/ceilometer.py:984
 msgid "Average rate of reads"
-msgstr ""
+msgstr "Srednji broj zahteva za čitanje"
 
 #: api/ceilometer.py:988
 msgid "Average volume of writes"
-msgstr ""
+msgstr "Količina pisanja "
 
 #: api/ceilometer.py:992
 msgid "Size of root disk"
-msgstr ""
+msgstr "Velicina root diska"
 
 #: api/ceilometer.py:996
 msgid "Size of ephemeral disk"
-msgstr ""
+msgstr "Veličina privremenog diska u GB"
 
 #: api/ceilometer.py:1000
 msgid "Number of incoming bytes on the network for a VM interface"
@@ -164,19 +165,19 @@ msgstr "Broj odlaznih paketa za VM interfejs"
 
 #: api/ceilometer.py:1020
 msgid "Average rate per sec of incoming bytes on a VM network interface"
-msgstr ""
+msgstr "Broj dolaznih bajtova na mreži za VM interfejs"
 
 #: api/ceilometer.py:1025
 msgid "Average rate per sec of outgoing bytes on a VM network interface"
-msgstr ""
+msgstr "Broj odlaznih bajtova na mreži za VM interfejs"
 
 #: api/ceilometer.py:1030
 msgid "Average rate per sec of incoming packets on a VM network interface"
-msgstr ""
+msgstr "Broj odlaznih bajtova na mreži za VM interfejs"
 
 #: api/ceilometer.py:1035
 msgid "Average rate per sec of outgoing packets on a VM network interface"
-msgstr ""
+msgstr "Broj odlaznih bajtova na mreži za VM interfejs"
 
 #: api/ceilometer.py:1047
 #, python-format
@@ -185,7 +186,7 @@ msgstr "Trajanje instance tipa %s (openstack aroma)"
 
 #: api/ceilometer.py:1067
 msgid "Existence of network"
-msgstr ""
+msgstr "Postojece mreže"
 
 #: api/ceilometer.py:1071
 msgid "Creation requests for this network"
@@ -197,7 +198,7 @@ msgstr "Izmena zahteva za ovu mrežu"
 
 #: api/ceilometer.py:1079
 msgid "Existence of subnet"
-msgstr ""
+msgstr "Postojeće pod mreže"
 
 #: api/ceilometer.py:1083
 msgid "Creation requests for this subnet"
@@ -209,7 +210,7 @@ msgstr "Ažuriranje zahteva za ovu podmrežu"
 
 #: api/ceilometer.py:1091
 msgid "Existence of port"
-msgstr ""
+msgstr "Postojeći port"
 
 #: api/ceilometer.py:1095
 msgid "Creation requests for this port"
@@ -221,7 +222,7 @@ msgstr "Ažuriranje zahteva za ovu pristupnu tačku"
 
 #: api/ceilometer.py:1103
 msgid "Existence of router"
-msgstr ""
+msgstr "Postojeći ruter"
 
 #: api/ceilometer.py:1107
 msgid "Creation requests for this router"
@@ -233,7 +234,7 @@ msgstr "Ažuriranje zahteva za ovaj ruter"
 
 #: api/ceilometer.py:1115
 msgid "Existence of floating ip"
-msgstr ""
+msgstr "Postojeća  privremena IP adresa "
 
 #: api/ceilometer.py:1119
 msgid "Creation requests for this floating ip"
@@ -253,15 +254,15 @@ msgstr "Veličina postavljenog otiska sadržaja diska"
 
 #: api/ceilometer.py:1148
 msgid "Number of image updates"
-msgstr ""
+msgstr "Broj izmene na slici (image) sadržaja diska"
 
 #: api/ceilometer.py:1152
 msgid "Number of image uploads"
-msgstr ""
+msgstr "Broj slanja otiska sadržaja diska"
 
 #: api/ceilometer.py:1156
 msgid "Number of image deletions"
-msgstr ""
+msgstr "Broj brisanja otiska sadržaja diska"
 
 #: api/ceilometer.py:1160
 msgid "Image is downloaded"
@@ -273,7 +274,7 @@ msgstr "Otisak sadržaja diska se više ne koristi"
 
 #: api/ceilometer.py:1181
 msgid "Existence of volume"
-msgstr ""
+msgstr "Postojeći disk"
 
 #: api/ceilometer.py:1185
 msgid "Size of volume"
@@ -313,40 +314,40 @@ msgstr "Potrošnja snage"
 
 #: api/ceilometer.py:1260
 msgid "System Current Power"
-msgstr ""
+msgstr "Trenutno stanje sistema napajanja"
 
 #: api/ceilometer.py:1264
 msgid "System Current Temperature"
-msgstr ""
+msgstr "Trenutno stanje temperature sistema"
 
 #: api/ceilometer.py:1268
 msgid "Fan RPM"
-msgstr ""
+msgstr "Ventilator RPM"
 
 #: api/ceilometer.py:1272
 msgid "Sensor Temperature Reading"
-msgstr ""
+msgstr "Senzor očitavanja temperature"
 
 #: api/ceilometer.py:1276
 msgid "Sensor Current Reading"
-msgstr ""
+msgstr "Trenutno očitavanje senzora"
 
 #: api/ceilometer.py:1280
 msgid "Sensor Voltage Reading"
-msgstr ""
+msgstr "Senzor očitavanja snage napajanja "
 
 #: api/cinder.py:46 dashboards/admin/volumes/volume_types/forms.py:32
 msgid "back-end"
-msgstr ""
+msgstr "zadnji deo "
 
 #: api/cinder.py:47 dashboards/admin/volumes/volume_types/forms.py:30
 msgid "front-end"
-msgstr ""
+msgstr "prednji deo"
 
 #: api/cinder.py:48
 msgctxt "Both of front-end and back-end"
 msgid "both"
-msgstr ""
+msgstr "oboje"
 
 #: api/cinder.py:213
 msgid "Unknown instance"
@@ -361,39 +362,38 @@ msgstr "%(type)s (%(backend)s pozadina)"
 msgid "Identity service does not allow editing user data."
 msgstr "Servis identiteta ne dozvoljava izmenu podataka korisnika."
 
-#: api/keystone.py:357
+#: api/keystone.py:356
 #, python-format
 msgid "User %s has no role defined for that project."
 msgstr "Korisnik %s nema ulogu u ovom projektu."
 
-#: api/keystone.py:369 api/keystone.py:390
-#: dashboards/settings/password/forms.py:65
-msgid "Password changed. Please log in again to continue."
-msgstr "Lozinka je promenjena. Molimo Vas, pristupite ponovo za nastavak."
+#: api/keystone.py:383
+msgid "Identity service does not allow editing user password."
+msgstr ""
 
 #: api/lbaas.py:152
 #, python-format
 msgid "Unable to get VIP for pool %(pool)s."
-msgstr ""
+msgstr "Nije moguće dobiti VIP iz bazena %(pool)s."
 
 #: api/lbaas.py:191
 msgid "Unable to get pool detail."
-msgstr ""
+msgstr "Nemoguće je dobiti detanje grupe."
 
 #: api/lbaas.py:203
 #, python-format
 msgid "Unable to get subnet for pool %(pool)s."
-msgstr ""
+msgstr "Ne može se dobiti podmreža za bazen %(pool)s."
 
 #: api/lbaas.py:211
 #, python-format
 msgid "Unable to get members for pool %(pool)s."
-msgstr ""
+msgstr "Nije moguće dobiti članove za ovu grupu %(pool)s."
 
 #: api/lbaas.py:218
 #, python-format
 msgid "Unable to get health monitors for pool %(pool)s."
-msgstr ""
+msgstr "Nije moguce dobiti monitore sistema za ovu grupu  %(pool)s."
 
 #: api/neutron.py:213
 #, python-format
@@ -428,9 +428,9 @@ msgstr ""
 #: api/neutron.py:1141
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
-msgstr ""
+msgstr "Neuspela provera Neutrona  '%s' extenzija nije podržana "
 
-#: api/nova.py:102 api/nova.py:112 dashboards/project/databases/tables.py:246
+#: api/nova.py:110 api/nova.py:120 dashboards/project/databases/tables.py:246
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:8
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:11
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:8
@@ -462,57 +462,57 @@ msgstr ""
 msgid "-"
 msgstr "-"
 
-#: api/nova.py:220
+#: api/nova.py:228
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(group)s"
 msgstr "DOZVOLI %(from)s:%(to)s from %(group)s"
 
-#: api/nova.py:225
+#: api/nova.py:233
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
 msgstr "DOZVOLI %(from)s:%(to)s from %(cidr)s"
 
-#: api/nova.py:301
+#: api/nova.py:309
 msgid "Couldn't get security group list."
 msgstr "Ne mogu dobiti listu sigurnosne grupe."
 
-#: api/nova.py:308
+#: api/nova.py:316
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
 msgstr "Nije moguće dobiti listu bezbednosnih grupa za instancu %s"
 
-#: api/nova.py:325
+#: api/nova.py:333
 #, python-format
 msgid ""
 "Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
-msgstr ""
+msgstr "Neuspela izmena  %(num_groups_to_modify)d  bezbedonosne grupe: %(err)s"
 
-#: api/nova.py:340
+#: api/nova.py:348
 #, python-format
 msgid "Failed to modify %d instance security groups"
-msgstr ""
+msgstr "Neuspela izmena   %d bezbedonosne grupe"
 
-#: api/nova.py:771
+#: api/nova.py:784
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
-msgstr ""
+msgstr "Naziv: %(name)s ID: %(uuid)s"
 
-#: api/nova.py:776
+#: api/nova.py:789
 #, python-format
 msgid "Failed to evacuate instances: %s"
-msgstr ""
+msgstr "Neuspelo spasavanje instance: %s"
 
 #: api/swift.py:203
 msgid "The container cannot be deleted since it is not empty."
-msgstr ""
+msgstr "Nije moguće obrisati kontejner jer nije prazan"
 
 #: api/swift.py:320
 msgid "The pseudo folder cannot be deleted since it is not empty."
-msgstr ""
+msgstr "Nije moguće obrisati kontejner jer nije prazan"
 
 #: dashboards/admin/dashboard.py:22
 msgid "System"
-msgstr ""
+msgstr "Sistem"
 
 #: dashboards/admin/dashboard.py:29
 msgid "Admin"
@@ -559,8 +559,8 @@ msgstr "Admin"
 #: dashboards/project/data_processing/cluster_templates/tables.py:31
 #: dashboards/project/data_processing/cluster_templates/tables.py:116
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:6
-#: dashboards/project/data_processing/clusters/tables.py:34
-#: dashboards/project/data_processing/clusters/tables.py:116
+#: dashboards/project/data_processing/clusters/tables.py:35
+#: dashboards/project/data_processing/clusters/tables.py:140
 #: dashboards/project/data_processing/clusters/tabs.py:137
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:6
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:9
@@ -612,7 +612,7 @@ msgstr "Admin"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:9
 #: dashboards/project/networks/forms.py:35
 #: dashboards/project/networks/tables.py:162
-#: dashboards/project/networks/ports/forms.py:34
+#: dashboards/project/networks/ports/forms.py:36
 #: dashboards/project/networks/ports/tables.py:67
 #: dashboards/project/networks/subnets/tables.py:129
 #: dashboards/project/networks/templates/networks/_detail_overview.html:7
@@ -633,8 +633,8 @@ msgstr "Admin"
 #: dashboards/project/volumes/volumes/tables.py:410
 #: dashboards/project/vpn/forms.py:31 dashboards/project/vpn/forms.py:65
 #: dashboards/project/vpn/forms.py:137 dashboards/project/vpn/forms.py:208
-#: dashboards/project/vpn/tables.py:230 dashboards/project/vpn/tables.py:260
-#: dashboards/project/vpn/tables.py:280 dashboards/project/vpn/tables.py:298
+#: dashboards/project/vpn/tables.py:238 dashboards/project/vpn/tables.py:286
+#: dashboards/project/vpn/tables.py:306 dashboards/project/vpn/tables.py:324
 #: dashboards/project/vpn/workflows.py:25
 #: dashboards/project/vpn/workflows.py:110
 #: dashboards/project/vpn/workflows.py:209
@@ -677,11 +677,11 @@ msgstr "Nije moguće ažurirati skup."
 #: dashboards/admin/aggregates/forms.py:73
 #: dashboards/admin/flavors/forms.py:44 dashboards/admin/images/forms.py:61
 msgid "Metadata successfully updated."
-msgstr ""
+msgstr "Podaci su osveženi"
 
 #: dashboards/admin/aggregates/forms.py:76
 msgid "Unable to update the aggregate metadata."
-msgstr ""
+msgstr "Nije moguće ažurirati skup metadata podataka"
 
 #: dashboards/admin/aggregates/panel.py:26
 #: dashboards/admin/aggregates/tables.py:143
@@ -723,7 +723,7 @@ msgstr "Upravljanje Hostovima"
 #: dashboards/admin/images/tables.py:46
 #: dashboards/admin/images/templates/images/_update_metadata.html:11
 msgid "Update Metadata"
-msgstr ""
+msgstr "Ažurirani Metadata podaci"
 
 #: dashboards/admin/aggregates/tables.py:72
 #: dashboards/admin/aggregates/views.py:79
@@ -785,15 +785,15 @@ msgstr "Nije moguće izvući skup koji se ažurira"
 #: dashboards/admin/aggregates/templates/aggregates/_update_metadata.html:7
 #: dashboards/admin/aggregates/templates/aggregates/update_metadata.html:3
 msgid "Update Aggregate Metadata"
-msgstr ""
+msgstr "Skup je ažuriran."
 
 #: dashboards/admin/aggregates/views.py:134
 msgid "Unable to retrieve available metadata for aggregate."
-msgstr ""
+msgstr "Nemoguće izvući listu dostupnih združenih hostova."
 
 #: dashboards/admin/aggregates/views.py:147
 msgid "Unable to retrieve the aggregate to be updated."
-msgstr ""
+msgstr "Nije moguće preuzeti skup podatka za ažuriranje"
 
 #: dashboards/admin/aggregates/views.py:157
 #: dashboards/admin/aggregates/templates/aggregates/manage_hosts.html:3
@@ -802,7 +802,7 @@ msgstr "Upravljanje host skupovima"
 
 #: dashboards/admin/aggregates/workflows.py:31
 msgid "Host Aggregate Information"
-msgstr ""
+msgstr "Informacije o združenim hostovima"
 
 #: dashboards/admin/aggregates/workflows.py:32
 msgid ""
@@ -828,11 +828,11 @@ msgstr "Nije moguće izvaditi listu raspoloživih hostova."
 #: dashboards/admin/aggregates/workflows.py:94
 #: dashboards/admin/aggregates/workflows.py:134
 msgid "Manage Hosts within Aggregate"
-msgstr ""
+msgstr "Upravljanje Skupovima Hostova"
 
 #: dashboards/admin/aggregates/workflows.py:139
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
-msgstr ""
+msgstr "Dodaj Host ovom skupu. Host moze biti dodan u vise skupova. "
 
 #: dashboards/admin/aggregates/workflows.py:141
 msgid "All available hosts"
@@ -854,7 +854,7 @@ msgstr "Nije izabran ni jedan host."
 msgid ""
 "Add hosts to this aggregate or remove hosts from it. Hosts can be in "
 "multiple aggregates."
-msgstr ""
+msgstr "Dodaj Host ovom skupu ili ga ukloni. Host moze biti dodan u vise skupova. "
 
 #: dashboards/admin/aggregates/workflows.py:159
 msgid "All Available Hosts"
@@ -902,6 +902,7 @@ msgstr "Dodaj/Izbaci host iz skupa"
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:25
 #: dashboards/identity/domains/workflows.py:300
 #: dashboards/identity/projects/workflows.py:564
+#: dashboards/identity/users/views.py:209
 #: dashboards/project/instances/workflows/update_instance.py:133
 #: dashboards/project/networks/subnets/workflows.py:159
 #: dashboards/settings/user/templates/user/_settings.html:24
@@ -927,8 +928,8 @@ msgstr "Greška pri dodavanju ili uklanjanju hostova."
 #: dashboards/admin/networks/templates/networks/_create.html:18
 #: dashboards/admin/networks/templates/networks/_update.html:5
 #: dashboards/admin/networks/templates/networks/agents/_add.html:5
-#: dashboards/admin/networks/templates/networks/ports/_create.html:18
-#: dashboards/admin/networks/templates/networks/ports/_update.html:22
+#: dashboards/admin/networks/templates/networks/ports/_create.html:5
+#: dashboards/admin/networks/templates/networks/ports/_update.html:5
 #: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:18
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:18
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:18
@@ -946,6 +947,7 @@ msgstr "Greška pri dodavanju ili uklanjanju hostova."
 #: dashboards/identity/groups/templates/groups/_update.html:5
 #: dashboards/identity/roles/templates/roles/_create.html:5
 #: dashboards/identity/roles/templates/roles/_update.html:5
+#: dashboards/identity/users/templates/users/_change_password.html:5
 #: dashboards/identity/users/templates/users/_create.html:5
 #: dashboards/identity/users/templates/users/_update.html:5
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:18
@@ -969,13 +971,13 @@ msgstr "Greška pri dodavanju ili uklanjanju hostova."
 #: dashboards/project/images/templates/images/snapshots/_create.html:18
 #: dashboards/project/instances/templates/instances/_decryptpassword.html:20
 #: dashboards/project/instances/templates/instances/_rebuild.html:18
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:17
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:17
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:17
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:17
+#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:5
+#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:5
+#: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:5
+#: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:5
 #: dashboards/project/networks/templates/networks/_create.html:17
 #: dashboards/project/networks/templates/networks/_update.html:5
-#: dashboards/project/networks/templates/networks/ports/_update.html:22
+#: dashboards/project/networks/templates/networks/ports/_update.html:5
 #: dashboards/project/routers/templates/routers/_update.html:5
 #: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:18
 #: dashboards/project/routers/templates/routers/ports/_create.html:18
@@ -993,10 +995,10 @@ msgstr "Greška pri dodavanju ili uklanjanju hostova."
 #: dashboards/project/volumes/templates/volumes/volumes/_show_transfer.html:5
 #: dashboards/project/volumes/templates/volumes/volumes/_update.html:18
 #: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:18
-#: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:17
-#: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:17
-#: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:17
-#: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:17
+#: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:5
+#: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:5
+#: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:5
+#: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:5
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:5
 #: dashboards/router/nexus1000v/templates/nexus1000v/_update_network_profile.html:5
 #: dashboards/settings/password/templates/password/_change.html:18
@@ -1020,8 +1022,6 @@ msgstr ""
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:80
 #: dashboards/admin/metering/templates/metering/_daily.html:25
 #: dashboards/admin/networks/templates/networks/_create.html:27
-#: dashboards/admin/networks/templates/networks/ports/_create.html:25
-#: dashboards/admin/networks/templates/networks/ports/_update.html:29
 #: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:29
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:35
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:37
@@ -1057,15 +1057,10 @@ msgstr ""
 #: dashboards/project/images/templates/images/snapshots/_create.html:25
 #: dashboards/project/instances/templates/instances/_decryptpassword.html:34
 #: dashboards/project/instances/templates/instances/_rebuild.html:28
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:24
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:24
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:24
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:24
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:21
 #: dashboards/project/networks/templates/networks/_create.html:24
 #: dashboards/project/networks/templates/networks/create.html:9
 #: dashboards/project/networks/templates/networks/create.html:24
-#: dashboards/project/networks/templates/networks/ports/_update.html:29
 #: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:28
 #: dashboards/project/routers/templates/routers/ports/_create.html:30
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:25
@@ -1083,10 +1078,6 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/volumes/_retype.html:40
 #: dashboards/project/volumes/templates/volumes/volumes/_update.html:28
 #: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:41
-#: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:24
-#: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:24
-#: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:24
-#: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:24
 #: dashboards/settings/password/templates/password/_change.html:25
 #: dashboards/settings/user/templates/user/_settings.html:25
 msgid "Cancel"
@@ -1110,7 +1101,7 @@ msgstr "Injected File Content Bytes"
 #: dashboards/admin/defaults/tables.py:43
 #: dashboards/admin/defaults/workflows.py:32
 msgid "Length of Injected File Path"
-msgstr ""
+msgstr "Količina podataka po osnovi ubačenih putanja datoteka "
 
 #: dashboards/admin/defaults/tables.py:44
 #: dashboards/admin/defaults/workflows.py:36
@@ -1147,7 +1138,7 @@ msgstr "VCPUs"
 #: dashboards/project/databases/templates/databases/index.html:3
 #: dashboards/project/instances/panel.py:23
 #: dashboards/project/instances/tables.py:1021
-#: dashboards/project/instances/views.py:54
+#: dashboards/project/instances/views.py:55
 #: dashboards/project/instances/templates/instances/index.html:3
 #: dashboards/project/network_topology/instances/tables.py:23
 #: usage/quotas.py:64
@@ -1305,7 +1296,7 @@ msgstr "Izmenite podrazumevane kvote"
 
 #: dashboards/admin/defaults/workflows.py:82
 msgid "Default quotas updated."
-msgstr ""
+msgstr "Podrazumevane kvote osvežene"
 
 #: dashboards/admin/defaults/workflows.py:83
 #: dashboards/admin/defaults/workflows.py:100
@@ -1314,7 +1305,7 @@ msgstr "Nemoguće ažuriranje podrazumevanih kvota."
 
 #: dashboards/admin/flavors/forms.py:48
 msgid "Unable to update the flavor metadata."
-msgstr ""
+msgstr "Nije moguće ažurirati podatke za veličine masina"
 
 #: dashboards/admin/flavors/panel.py:27 dashboards/admin/flavors/tables.py:150
 #: dashboards/admin/flavors/views.py:47
@@ -1397,13 +1388,12 @@ msgstr "Swap Disk"
 #: dashboards/admin/flavors/tables.py:136
 #: dashboards/admin/flavors/workflows.py:41
 #: dashboards/admin/networks/agents/tables.py:90
-#: dashboards/admin/networks/templates/networks/ports/_update.html:13
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:9
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:12
 #: dashboards/admin/volumes/volumes/forms.py:86
 #: dashboards/admin/volumes/volumes/forms.py:144
 #: dashboards/identity/roles/forms.py:37
-#: dashboards/identity/users/forms.py:163
+#: dashboards/identity/users/forms.py:171
 #: dashboards/identity/users/templates/users/_detail_overview.html:19
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:14
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:8
@@ -1432,9 +1422,9 @@ msgstr "Swap Disk"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:6
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:6
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:6
+#: dashboards/project/networks/ports/forms.py:32
 #: dashboards/project/networks/templates/networks/_detail_overview.html:9
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:12
-#: dashboards/project/networks/templates/networks/ports/_update.html:13
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:12
 #: dashboards/project/routers/forms.py:89
 #: dashboards/project/routers/templates/routers/_detail_overview.html:11
@@ -1481,15 +1471,15 @@ msgstr "Nemoguće je dobiti detalje arome."
 #: dashboards/admin/flavors/templates/flavors/_update_metadata.html:7
 #: dashboards/admin/flavors/templates/flavors/update_metadata.html:3
 msgid "Update Flavor Metadata"
-msgstr ""
+msgstr "Osveži definisane podatke "
 
 #: dashboards/admin/flavors/views.py:125
 msgid "Unable to retrieve available metadata for flavors."
-msgstr ""
+msgstr "Nemoguće je dobiti podatke o definisanju resursa za instance."
 
 #: dashboards/admin/flavors/views.py:139
 msgid "Unable to retrieve the flavor metadata."
-msgstr ""
+msgstr "Nije moguće ažurirati podatke za veličine masina"
 
 #: dashboards/admin/flavors/workflows.py:32
 msgid ""
@@ -1504,26 +1494,26 @@ msgstr "Ime može da sadrži slova, brojeve, podcrte, tačke ili crtice."
 
 #: dashboards/admin/flavors/workflows.py:50
 msgid "Root Disk (GB)"
-msgstr ""
+msgstr "Root Disk (GB)"
 
 #: dashboards/admin/flavors/workflows.py:52
 msgid "Ephemeral Disk (GB)"
-msgstr ""
+msgstr "Ephemeral Disk (GB)"
 
 #: dashboards/admin/flavors/workflows.py:54
 msgid "Swap Disk (MB)"
-msgstr ""
+msgstr "Swap Disk (MB)"
 
 #: dashboards/admin/flavors/workflows.py:58
 #: dashboards/admin/flavors/workflows.py:226
 msgid "Flavor Information"
-msgstr ""
+msgstr "Informacije o definisanim resursima"
 
 #: dashboards/admin/flavors/workflows.py:59
 msgid ""
 "Flavors define the sizes for RAM, disk, number of cores, and other resources"
 " and can be selected when users deploy instances."
-msgstr ""
+msgstr "Flavors definise veličinu RAM, diska i broj jezgara za virtuenu mašinu koju želimo da kreiramo."
 
 #: dashboards/admin/flavors/workflows.py:72
 #: dashboards/admin/flavors/workflows.py:239
@@ -1553,7 +1543,7 @@ msgstr "Pristup aromama"
 msgid ""
 "Select the projects where the flavors will be used. If no projects are "
 "selected, then the flavor will be available in all projects."
-msgstr ""
+msgstr "Izaberite projekat gde će ovaj skup definisanih resursa za VM biti korišćen. Ako ne izaberete projekat definisani resursi će biti dostupni u svim projektima."
 
 #: dashboards/admin/flavors/workflows.py:160
 msgid "All Projects"
@@ -1561,7 +1551,7 @@ msgstr "Svi projekti"
 
 #: dashboards/admin/flavors/workflows.py:161
 msgid "Selected Projects"
-msgstr ""
+msgstr "Izabrani projekti"
 
 #: dashboards/admin/flavors/workflows.py:162
 msgid "No projects found."
@@ -1595,7 +1585,7 @@ msgid ""
 "Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
 "cores, and other resources. Flavors are selected when users deploy "
 "instances."
-msgstr ""
+msgstr "Izmena definisanih resursa za kreiranje VM. Flavors definise veličinu RAM, diska i broj jezgara za virtuenu mašinu koju želimo da kreiramo. "
 
 #: dashboards/admin/flavors/workflows.py:267
 #, python-format
@@ -1659,11 +1649,11 @@ msgstr "RAM (Ukupno)"
 
 #: dashboards/admin/hypervisors/tables.py:47
 msgid "Local Storage (used)"
-msgstr ""
+msgstr "Lokalni Storage (Iskorišćeno)"
 
 #: dashboards/admin/hypervisors/tables.py:52
 msgid "Local Storage (total)"
-msgstr ""
+msgstr "Lokalni Storage (ukupno)"
 
 #: dashboards/admin/hypervisors/tables.py:70
 #: dashboards/project/databases/tables.py:287
@@ -1686,7 +1676,7 @@ msgstr "Instance hipervizora"
 
 #: dashboards/admin/hypervisors/tabs.py:26
 msgid "Hypervisor"
-msgstr ""
+msgstr "Hipervizor"
 
 #: dashboards/admin/hypervisors/tabs.py:36
 #: dashboards/admin/hypervisors/views.py:41
@@ -1717,19 +1707,19 @@ msgstr "Trenutni Host"
 
 #: dashboards/admin/hypervisors/compute/forms.py:29
 msgid "Target Host"
-msgstr ""
+msgstr "Traženi Host"
 
 #: dashboards/admin/hypervisors/compute/forms.py:30
 msgid "Choose a Host to evacuate servers to."
-msgstr ""
+msgstr "Izaberite Host na kome želite spasiti server."
 
 #: dashboards/admin/hypervisors/compute/forms.py:32
 msgid "Shared Storage"
-msgstr ""
+msgstr "Deljeni Storage"
 
 #: dashboards/admin/hypervisors/compute/forms.py:48
 msgid "Select a target host"
-msgstr ""
+msgstr "Izaberite traženi host"
 
 #: dashboards/admin/hypervisors/compute/forms.py:50
 #: dashboards/admin/instances/forms.py:58
@@ -1739,12 +1729,12 @@ msgstr "Nema drugog dostupnog host-a."
 #: dashboards/admin/hypervisors/compute/forms.py:61
 #, python-format
 msgid "Starting evacuation from %(current)s to %(target)s."
-msgstr ""
+msgstr "Započeto spašavanje sa %(current)s  na %(target)s."
 
 #: dashboards/admin/hypervisors/compute/forms.py:67
 #, python-format
 msgid "Failed to evacuate host: %s."
-msgstr ""
+msgstr "Neuspelo spasavanje instance: %s"
 
 #: dashboards/admin/hypervisors/compute/forms.py:73
 #: dashboards/admin/hypervisors/compute/tables.py:94
@@ -1768,17 +1758,17 @@ msgstr "Host"
 
 #: dashboards/admin/hypervisors/compute/forms.py:77
 msgid "Reason"
-msgstr ""
+msgstr "Razlog"
 
 #: dashboards/admin/hypervisors/compute/forms.py:86
 #, python-format
 msgid "Disabled compute service for host: %s."
-msgstr ""
+msgstr "Onemogućen racunarski servis za host: %s."
 
 #: dashboards/admin/hypervisors/compute/forms.py:91
 #, python-format
 msgid "Failed to disable compute service for host: %s."
-msgstr ""
+msgstr "Neuspelo isključivanje  racunarskog servisa za host: %s."
 
 #: dashboards/admin/hypervisors/compute/tables.py:26
 #: dashboards/admin/hypervisors/compute/views.py:30
@@ -1786,7 +1776,7 @@ msgstr ""
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:23
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/evacuate_host.html:3
 msgid "Evacuate Host"
-msgstr ""
+msgstr "Spasite Host"
 
 #: dashboards/admin/hypervisors/compute/tables.py:44
 #: dashboards/admin/hypervisors/compute/views.py:62
@@ -1794,7 +1784,7 @@ msgstr ""
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_disable_service.html:23
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/disable_service.html:3
 msgid "Disable Service"
-msgstr ""
+msgstr "Onemogućen Servis"
 
 #: dashboards/admin/hypervisors/compute/tables.py:63
 msgid "Enable Service"
@@ -1828,8 +1818,8 @@ msgstr "Zona"
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/admin/volumes/volumes/forms.py:183
 #: dashboards/project/access_and_security/floating_ips/tables.py:200
-#: dashboards/project/data_processing/clusters/tables.py:35
-#: dashboards/project/data_processing/clusters/tables.py:120
+#: dashboards/project/data_processing/clusters/tables.py:36
+#: dashboards/project/data_processing/clusters/tables.py:146
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:12
 #: dashboards/project/data_processing/job_executions/tables.py:40
 #: dashboards/project/data_processing/job_executions/tables.py:179
@@ -1870,7 +1860,7 @@ msgstr "Zona"
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:18
 #: dashboards/project/volumes/volumes/tables.py:390
-#: dashboards/project/vpn/tables.py:240 dashboards/project/vpn/tables.py:267
+#: dashboards/project/vpn/tables.py:247 dashboards/project/vpn/tables.py:292
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:71
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:38
 msgid "Status"
@@ -1890,7 +1880,7 @@ msgstr "Izmenjeno u"
 #: dashboards/admin/hypervisors/compute/tables.py:111
 #: dashboards/admin/hypervisors/compute/tabs.py:24
 msgid "Compute Host"
-msgstr ""
+msgstr "Računarski host"
 
 #: dashboards/admin/hypervisors/compute/tabs.py:34
 #: dashboards/admin/info/tabs.py:55
@@ -1899,7 +1889,7 @@ msgstr "Nemoguće je dobiti listu nova servisa."
 
 #: dashboards/admin/hypervisors/compute/views.py:45
 msgid "Unable to retrieve compute host information."
-msgstr ""
+msgstr "Nemoguće je dobiti podatke o compute host-u"
 
 #: dashboards/admin/hypervisors/templates/hypervisors/index.html:8
 msgid "Hypervisor Summary"
@@ -1922,20 +1912,20 @@ msgstr "Iskorišćenost memorije"
 
 #: dashboards/admin/hypervisors/templates/hypervisors/index.html:25
 msgid "Local Disk Usage"
-msgstr ""
+msgstr "Iskorišćenost Lokalnog Diska"
 
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_disable_service.html:18
 msgid "Disable the compute service."
-msgstr ""
+msgstr "Onemogući  racunarski servis."
 
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:18
 msgid ""
 "Evacuate the servers from the selected down host to an active target host."
-msgstr ""
+msgstr "Spasite server sa izabranog hosta na aktivan host."
 
 #: dashboards/admin/images/forms.py:65
 msgid "Unable to update the image metadata."
-msgstr ""
+msgstr "Nije moguće ažurirati skup metadata podataka"
 
 #: dashboards/admin/images/panel.py:27 dashboards/admin/images/tables.py:77
 #: dashboards/admin/images/views.py:45
@@ -1948,25 +1938,25 @@ msgstr "Image-i"
 
 #: dashboards/admin/images/tables.py:61
 msgid "Image Name ="
-msgstr ""
+msgstr "Ime image-a"
 
 #: dashboards/admin/images/tables.py:62
 #: dashboards/admin/instances/tables.py:98
 #: dashboards/project/instances/tables.py:963
 msgid "Status ="
-msgstr ""
+msgstr "Status"
 
 #: dashboards/admin/images/tables.py:63
 msgid "Format ="
-msgstr ""
+msgstr "Format ="
 
 #: dashboards/admin/images/tables.py:64
 msgid "Min. Size (MB)"
-msgstr ""
+msgstr "Min. Veličina (MB)"
 
 #: dashboards/admin/images/tables.py:65
 msgid "Max. Size (MB)"
-msgstr ""
+msgstr "Max. Veličina (MB)"
 
 #: dashboards/admin/images/tables.py:71
 #: dashboards/admin/instances/tables.py:131
@@ -2007,15 +1997,15 @@ msgstr "Izmena image-a"
 #: dashboards/admin/images/templates/images/_update_metadata.html:7
 #: dashboards/admin/images/templates/images/update_metadata.html:3
 msgid "Update Image Metadata"
-msgstr ""
+msgstr "Ažuriraj podatke"
 
 #: dashboards/admin/images/views.py:182
 msgid "Unable to retrieve available properties for image."
-msgstr ""
+msgstr "Nije moguće preuzeti dostupne detalje o slikama"
 
 #: dashboards/admin/images/views.py:195
 msgid "Unable to retrieve the image to be updated."
-msgstr ""
+msgstr "Nemoguće je dobiti detalje image-a za ažuriranje."
 
 #: dashboards/admin/images/templates/images/_create.html:21
 msgid "Specify an image to upload to the Image Service."
@@ -2050,12 +2040,12 @@ msgstr "Kreiranje image-a"
 #: dashboards/admin/images/templates/images/_update.html:19
 #: dashboards/project/images/templates/images/images/_update.html:12
 msgid "Edit the image details."
-msgstr ""
+msgstr "Izmeni detalje o slici"
 
 #: dashboards/admin/info/panel.py:27 dashboards/admin/info/views.py:32
 #: dashboards/admin/info/templates/info/index.html:3
 msgid "System Information"
-msgstr ""
+msgstr "Podaci o sistemu"
 
 #: dashboards/admin/info/tables.py:26 dashboards/admin/info/tables.py:155
 #: dashboards/admin/info/templates/info/_cell_status.html:8
@@ -2068,7 +2058,7 @@ msgstr ""
 #: dashboards/identity/projects/workflows.py:150
 #: dashboards/identity/projects/workflows.py:523
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:13
-#: dashboards/identity/users/tables.py:223
+#: dashboards/identity/users/tables.py:236
 #: dashboards/identity/users/templates/users/_detail_overview.html:23
 #: dashboards/project/firewalls/forms.py:70
 #: dashboards/project/firewalls/tables.py:216
@@ -2118,7 +2108,7 @@ msgstr "Servisi compute-ova"
 
 #: dashboards/admin/info/tables.py:136 dashboards/admin/info/tabs.py:64
 msgid "Block Storage Services"
-msgstr ""
+msgstr "Block Storage Servis"
 
 #: dashboards/admin/info/tables.py:185 dashboards/admin/info/tabs.py:82
 msgid "Network Agents"
@@ -2126,11 +2116,11 @@ msgstr "Agenti na mreži"
 
 #: dashboards/admin/info/tabs.py:73
 msgid "Unable to get cinder services list."
-msgstr ""
+msgstr "Nemoguće je dobiti listu Cinder servisa"
 
 #: dashboards/admin/info/tabs.py:91
 msgid "Unable to get network agents info."
-msgstr ""
+msgstr "Nemoguće dobiti informacije o agenatima mreže."
 
 #: dashboards/admin/info/tabs.py:98
 msgid "Unable to get network agents list."
@@ -2138,12 +2128,12 @@ msgstr "Nemoguće dobiti listu agenata mreže."
 
 #: dashboards/admin/info/views.py:40
 msgid "Unable to retrieve version information."
-msgstr ""
+msgstr "Nemoguće je dobiti podatke o verzijama."
 
 #: dashboards/admin/info/templates/info/_cell_status.html:5
 #, python-format
 msgid "Reason: %(disabled_reason)s"
-msgstr ""
+msgstr "Razlog: %(disabled_reason)s"
 
 #: dashboards/admin/info/templates/info/index.html:10
 #, python-format
@@ -2222,25 +2212,25 @@ msgstr "Projekat"
 
 #: dashboards/admin/instances/tables.py:94
 msgid "Host ="
-msgstr ""
+msgstr "Host ="
 
 #: dashboards/admin/instances/tables.py:96
 msgid "IPv4 Address ="
-msgstr ""
+msgstr "IPv4 Adresa ="
 
 #: dashboards/admin/instances/tables.py:97
 msgid "IPv6 Address ="
-msgstr ""
+msgstr "IPv6 Adresa ="
 
 #: dashboards/admin/instances/tables.py:99
 #: dashboards/project/instances/tables.py:964
 msgid "Image ID ="
-msgstr ""
+msgstr "Image ID ="
 
 #: dashboards/admin/instances/tables.py:100
 #: dashboards/project/instances/tables.py:965
 msgid "Flavor ID ="
-msgstr ""
+msgstr "Flavor ID ="
 
 #: dashboards/admin/instances/tables.py:133
 #: dashboards/project/access_and_security/floating_ips/tables.py:192
@@ -2282,7 +2272,7 @@ msgstr "Stanje rada"
 #: dashboards/admin/instances/tables.py:156
 #: dashboards/project/instances/tables.py:1014 usage/tables.py:83
 msgid "Time since created"
-msgstr ""
+msgstr "Vreme od kreiranja"
 
 #: dashboards/admin/instances/views.py:82
 #: dashboards/admin/networks/views.py:49
@@ -2296,12 +2286,12 @@ msgid "Unable to retrieve instance list."
 msgstr "Uemoguće je dobiti listu instanci."
 
 #: dashboards/admin/instances/views.py:111
-#: dashboards/project/instances/views.py:80
+#: dashboards/project/instances/views.py:81
 msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "Nije moguće izvući IP adreese iz Neutrona."
 
 #: dashboards/admin/instances/views.py:135
-#: dashboards/project/instances/views.py:121
+#: dashboards/project/instances/views.py:122
 msgid "Unable to retrieve instance size information."
 msgstr "Nemoguće je dobiti podatke o veličini instance."
 
@@ -2313,29 +2303,29 @@ msgstr "Selidba uživo"
 
 #: dashboards/admin/instances/views.py:169
 msgid "Unable to retrieve host information."
-msgstr ""
+msgstr "Nemoguće je dobiti podatke o hostu."
 
 #: dashboards/admin/instances/views.py:179
 #: dashboards/project/databases/views.py:153
 #: dashboards/project/databases/views.py:193
-#: dashboards/project/instances/views.py:212
-#: dashboards/project/instances/views.py:354
+#: dashboards/project/instances/views.py:242
+#: dashboards/project/instances/views.py:384
 msgid "Unable to retrieve instance details."
 msgstr "Nemoguće je dobiti detalje o instancama."
 
 #: dashboards/admin/instances/templates/instances/_live_migrate.html:18
 msgid "Live migrate an instance to a specific host."
-msgstr ""
+msgstr "Selidba instance uživo na poseban  host."
 
 #: dashboards/admin/metadata_defs/forms.py:38
 msgid "Namespace Definition Source"
-msgstr ""
+msgstr "Definicija Izvora za Namespace"
 
 #: dashboards/admin/metadata_defs/forms.py:40
 #: dashboards/admin/metadata_defs/forms.py:46
 #: dashboards/admin/metadata_defs/forms.py:50
 msgid "Metadata Definition File"
-msgstr ""
+msgstr "Metadata File"
 
 #: dashboards/admin/metadata_defs/forms.py:41
 #: dashboards/project/instances/workflows/create_instance.py:622
@@ -2345,16 +2335,16 @@ msgstr "Direktan ulaz"
 
 #: dashboards/admin/metadata_defs/forms.py:47
 msgid "A local metadata definition file to upload."
-msgstr ""
+msgstr "Lokalni fajl sa podaciza za definisanje metadata"
 
 #: dashboards/admin/metadata_defs/forms.py:54
 #: dashboards/admin/metadata_defs/forms.py:58
 msgid "Namespace JSON"
-msgstr ""
+msgstr "Namespace JSON"
 
 #: dashboards/admin/metadata_defs/forms.py:55
 msgid "The JSON formatted contents of a namespace."
-msgstr ""
+msgstr "The JSON formatted contents of a namespace."
 
 #: dashboards/admin/metadata_defs/forms.py:62
 #: dashboards/admin/metadata_defs/tables.py:149
@@ -2368,7 +2358,7 @@ msgstr "Zaštićeno"
 
 #: dashboards/admin/metadata_defs/forms.py:77
 msgid "Cannot specify both file and direct input."
-msgstr ""
+msgstr "Cannot specify both file and direct input."
 
 #: dashboards/admin/metadata_defs/forms.py:80
 msgid "No input was provided for the namespace content."
@@ -2505,7 +2495,7 @@ msgstr ""
 #: dashboards/project/volumes/volumes/tables.py:384
 #: dashboards/project/vpn/forms.py:36 dashboards/project/vpn/forms.py:70
 #: dashboards/project/vpn/forms.py:142 dashboards/project/vpn/forms.py:213
-#: dashboards/project/vpn/tables.py:262 dashboards/project/vpn/workflows.py:28
+#: dashboards/project/vpn/tables.py:288 dashboards/project/vpn/workflows.py:28
 #: dashboards/project/vpn/workflows.py:113
 #: dashboards/project/vpn/workflows.py:212
 #: dashboards/project/vpn/workflows.py:309
@@ -3088,7 +3078,7 @@ msgstr "Odvajanje ID"
 #: dashboards/project/loadbalancers/workflows.py:548
 #: dashboards/project/networks/forms.py:37
 #: dashboards/project/networks/workflows.py:47
-#: dashboards/project/networks/ports/forms.py:36
+#: dashboards/project/networks/ports/forms.py:38
 #: dashboards/project/routers/forms.py:86 dashboards/project/vpn/forms.py:37
 #: dashboards/project/vpn/forms.py:261 dashboards/project/vpn/workflows.py:31
 #: dashboards/project/vpn/workflows.py:417
@@ -3110,7 +3100,7 @@ msgstr ""
 #: dashboards/project/loadbalancers/workflows.py:549
 #: dashboards/project/networks/forms.py:38
 #: dashboards/project/networks/workflows.py:48
-#: dashboards/project/networks/ports/forms.py:37
+#: dashboards/project/networks/ports/forms.py:39
 #: dashboards/project/routers/forms.py:87 dashboards/project/vpn/forms.py:38
 #: dashboards/project/vpn/forms.py:262 dashboards/project/vpn/workflows.py:32
 #: dashboards/project/vpn/workflows.py:418
@@ -3138,7 +3128,7 @@ msgstr ""
 #: dashboards/project/networks/forms.py:39
 #: dashboards/project/networks/tables.py:171
 #: dashboards/project/networks/workflows.py:49
-#: dashboards/project/networks/ports/forms.py:38
+#: dashboards/project/networks/ports/forms.py:40
 #: dashboards/project/networks/ports/tables.py:75
 #: dashboards/project/networks/templates/networks/_detail_overview.html:15
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:34
@@ -3178,7 +3168,7 @@ msgstr "Podeljeno"
 msgid "External Network"
 msgstr "Eksterna mreža"
 
-#: dashboards/admin/networks/forms.py:91 dashboards/identity/users/forms.py:58
+#: dashboards/admin/networks/forms.py:91 dashboards/identity/users/forms.py:79
 #: dashboards/router/nexus1000v/forms.py:29
 msgid "Select a project"
 msgstr "Izaberite projekat"
@@ -3414,7 +3404,7 @@ msgid "Add DHCP Agent"
 msgstr ""
 
 #: dashboards/admin/networks/agents/views.py:62
-#: dashboards/admin/networks/ports/views.py:48
+#: dashboards/admin/networks/ports/views.py:52
 #: dashboards/project/networks/subnets/views.py:48
 msgid "Unable to retrieve network."
 msgstr "Nije moguće izvući mrežu."
@@ -3468,13 +3458,13 @@ msgid "Failed to create a port for network %s"
 msgstr "Neuspešno kreiranje porta za mrežu %s"
 
 #: dashboards/admin/networks/ports/forms.py:110
-#: dashboards/project/networks/ports/forms.py:58
+#: dashboards/project/networks/ports/forms.py:60
 #, python-format
 msgid "Port %s was successfully updated."
 msgstr "Port %s je uspešno ažuriran."
 
 #: dashboards/admin/networks/ports/forms.py:115
-#: dashboards/project/networks/ports/forms.py:63
+#: dashboards/project/networks/ports/forms.py:65
 #, python-format
 msgid "Failed to update port %s"
 msgstr "Neuspešno ažuriranje porta %s"
@@ -3499,17 +3489,16 @@ msgid "Failed to delete port: %s"
 msgstr "Neuspelo brisanje port-a: %s"
 
 #: dashboards/admin/networks/ports/tables.py:65
-#: dashboards/admin/networks/templates/networks/ports/_create.html:9
-#: dashboards/admin/networks/templates/networks/ports/_create.html:24
+#: dashboards/admin/networks/ports/views.py:33
+#: dashboards/admin/networks/ports/views.py:35
 #: dashboards/admin/networks/templates/networks/ports/create.html:3
 #: dashboards/admin/networks/templates/networks/ports/create.html:6
 msgid "Create Port"
 msgstr "Kreiraj port"
 
 #: dashboards/admin/networks/ports/tables.py:78
-#: dashboards/admin/networks/templates/networks/ports/_update.html:8
 #: dashboards/project/networks/ports/tables.py:43
-#: dashboards/project/networks/templates/networks/ports/_update.html:8
+#: dashboards/project/networks/ports/views.py:85
 msgid "Edit Port"
 msgstr "Izmena porta"
 
@@ -3518,7 +3507,7 @@ msgid "Device Attached"
 msgstr "Uređaj povezan"
 
 #: dashboards/admin/networks/ports/tables.py:105
-#: dashboards/project/networks/ports/forms.py:45
+#: dashboards/project/networks/ports/forms.py:47
 msgid "Mac Learning State"
 msgstr ""
 
@@ -3654,41 +3643,20 @@ msgstr "Ažuriranje mreže"
 msgid "From here you can add a DHCP agent for the network."
 msgstr ""
 
-#: dashboards/admin/networks/templates/networks/ports/_create.html:19
+#: dashboards/admin/networks/templates/networks/ports/_create.html:6
 msgid ""
 "You can create a port for the network. If you specify device ID to be "
 "attached, the device specified will be attached to the port created."
 msgstr "Možete kreirati port za mrežu. Ako navede ID uređaja koji se priključuje, navedeni uređaj će biti priključen na kreirani port."
 
-#: dashboards/admin/networks/templates/networks/ports/_update.html:23
-#: dashboards/project/networks/templates/networks/ports/_update.html:23
+#: dashboards/admin/networks/templates/networks/ports/_update.html:6
+#: dashboards/project/networks/templates/networks/ports/_update.html:6
 msgid "You may update the editable properties of your port here."
 msgstr "Ovde možete izmeniti izmenljive osobine vašeg port-a."
 
-#: dashboards/admin/networks/templates/networks/ports/_update.html:28
-#: dashboards/project/firewalls/views.py:131
-#: dashboards/project/firewalls/views.py:172
-#: dashboards/project/firewalls/views.py:210
-#: dashboards/project/firewalls/views.py:250
-#: dashboards/project/firewalls/views.py:289
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:23
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:23
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:23
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:23
-#: dashboards/project/networks/views.py:69
-#: dashboards/project/networks/templates/networks/ports/_update.html:28
-#: dashboards/project/routers/views.py:167
-#: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:23
-#: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:23
-#: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:23
-#: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:23
-#: dashboards/router/nexus1000v/views.py:121
-msgid "Save Changes"
-msgstr "Sačuvaj izmene"
-
 #: dashboards/admin/networks/templates/networks/ports/update.html:3
 #: dashboards/admin/networks/templates/networks/ports/update.html:6
-#: dashboards/project/networks/ports/views.py:87
+#: dashboards/project/networks/ports/views.py:91
 #: dashboards/project/networks/templates/networks/ports/update.html:3
 msgid "Update Port"
 msgstr "Izmena port-a"
@@ -3741,12 +3709,12 @@ msgstr ""
 #: dashboards/admin/overview/templates/overview/usage.csv:6
 #: dashboards/project/overview/templates/overview/usage.csv:7
 msgid "Total Disk Size (GB)"
-msgstr ""
+msgstr "Ukupna Veličina Diska (GB)"
 
 #: dashboards/admin/overview/templates/overview/usage.csv:7
 #: dashboards/project/overview/templates/overview/usage.csv:8
 msgid "Total Disk Usage (Hours)"
-msgstr ""
+msgstr "Ukupna Upotreba  Diska (časova)"
 
 #: dashboards/admin/overview/templates/overview/usage.html:3
 msgid "Usage Overview"
@@ -3754,7 +3722,7 @@ msgstr "Pregled upotrebe"
 
 #: dashboards/admin/overview/templates/overview/usage.html:8
 msgid "Monitoring:"
-msgstr ""
+msgstr "Nadzor:"
 
 #: dashboards/admin/routers/panel.py:24 dashboards/admin/routers/tables.py:46
 #: dashboards/admin/routers/templates/routers/index.html:3
@@ -3818,7 +3786,7 @@ msgstr "Interfejsi"
 #: dashboards/project/routers/templates/routers/_detail_overview.html:4
 #, python-format
 msgid "Router Overview: %(router_name)s"
-msgstr ""
+msgstr "Pregled rutera: %(router_name)s"
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:11
 #: dashboards/identity/projects/tables.py:236
@@ -3849,14 +3817,14 @@ msgstr "ID projekta"
 #: dashboards/project/routers/tables.py:210
 #: dashboards/project/routers/templates/routers/_detail_overview.html:18
 msgid "Distributed"
-msgstr ""
+msgstr "Isporučeno"
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:22
 #: dashboards/project/routers/forms.py:37
 #: dashboards/project/routers/forms.py:92
 #: dashboards/project/routers/templates/routers/_detail_overview.html:22
 msgid "High Availability Mode"
-msgstr ""
+msgstr "Model Visoke Dostupnosti"
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:26
 #: dashboards/project/routers/templates/routers/_detail_overview.html:26
@@ -3866,7 +3834,7 @@ msgstr "Informacije o spoljnom gateway-u"
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:28
 #, python-format
 msgid "Connected External Network: %(router_gw_info_network)s"
-msgstr ""
+msgstr "Priključi Eksterne Mreže:  %(router_gw_info_network)s"
 
 #: dashboards/admin/routers/templates/routers/detail.html:3
 #: dashboards/admin/routers/templates/routers/detail.html:6
@@ -3880,7 +3848,7 @@ msgstr "Detalji rutera"
 #: dashboards/project/routers/views.py:166
 #: dashboards/project/routers/templates/routers/update.html:3
 msgid "Update Router"
-msgstr ""
+msgstr "Osveži Ruter"
 
 #: dashboards/admin/volumes/tabs.py:53 dashboards/admin/volumes/tabs.py:141
 #: dashboards/admin/volumes/snapshots/tables.py:52
@@ -3898,11 +3866,11 @@ msgstr "Nemoguće je dobiti tipove volume-a"
 
 #: dashboards/admin/volumes/tabs.py:88
 msgid "Unable to retrieve volume type encryption information."
-msgstr ""
+msgstr "Nije moguće da preuzmem podatke o tipu entkripcije diska."
 
 #: dashboards/admin/volumes/tabs.py:109
 msgid "Unable to retrieve QoS specs"
-msgstr ""
+msgstr "Nije moguće da preuzmem QoS specifikaciju"
 
 #: dashboards/admin/volumes/tabs.py:133 dashboards/project/volumes/tabs.py:113
 #: dashboards/project/volumes/volumes/forms.py:230
@@ -3912,37 +3880,37 @@ msgstr "Nemoguće je izvući snapshot-ove volume-a."
 #: dashboards/admin/volumes/snapshots/forms.py:25
 #: dashboards/admin/volumes/volumes/forms.py:192
 msgid "Creating"
-msgstr ""
+msgstr "Kreiram"
 
 #: dashboards/admin/volumes/snapshots/forms.py:26
 #: dashboards/admin/volumes/volumes/forms.py:193
 msgid "Deleting"
-msgstr ""
+msgstr "Brišem"
 
 #: dashboards/admin/volumes/snapshots/forms.py:27
 #: dashboards/admin/volumes/volumes/forms.py:195
 msgid "Error"
-msgstr ""
+msgstr "Greška"
 
 #: dashboards/admin/volumes/snapshots/forms.py:28
 #: dashboards/admin/volumes/volumes/forms.py:196
 msgid "Error Deleting"
-msgstr ""
+msgstr "Greška u brisanju"
 
 #: dashboards/admin/volumes/snapshots/forms.py:43
 #, python-format
 msgid "Successfully updated volume snapshot status: \"%s\"."
-msgstr ""
+msgstr "Uspešno osvežen status slike diska: \"%s\"."
 
 #: dashboards/admin/volumes/snapshots/forms.py:48
 msgid "Unable to update volume snapshot status."
-msgstr ""
+msgstr "Nemoguće osvežiti informacije statusa  snapshot-a."
 
 #: dashboards/admin/volumes/snapshots/tables.py:29
 #: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:28
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:28
 msgid "Update Status"
-msgstr ""
+msgstr "Osveži Status"
 
 #: dashboards/admin/volumes/snapshots/tables.py:62
 #: dashboards/admin/volumes/volumes/forms.py:59
@@ -3961,12 +3929,12 @@ msgstr "Ime volume-a"
 #: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:9
 #: dashboards/admin/volumes/templates/volumes/snapshots/update_status.html:3
 msgid "Update Volume Snapshot Status"
-msgstr ""
+msgstr "Osveži Volume Snapshot Status"
 
 #: dashboards/admin/volumes/snapshots/views.py:45
 #: dashboards/project/volumes/snapshots/views.py:44
 msgid "Unable to retrieve volume snapshot."
-msgstr ""
+msgstr "Nemoguće je izvući snapshot-ove volume-a."
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:4
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:4
@@ -3989,7 +3957,7 @@ msgstr "Pregled snapshot-a volume-a"
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:7
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:7
 msgid "Information"
-msgstr ""
+msgstr "Informacije"
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/instances/templates/instances/_detail_overview.html:144
@@ -4043,7 +4011,7 @@ msgstr ""
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:9
 #: dashboards/admin/volumes/volume_types/views.py:155
 msgid "Associate QoS Spec with Volume Type"
-msgstr ""
+msgstr "nameni QoS specifikaciju sa Tipom Volumen-a"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:19
 msgid ""
@@ -4071,7 +4039,7 @@ msgstr "Pridruživanje"
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_qos_spec.html:3
 #: dashboards/admin/volumes/volume_types/tables.py:190
 msgid "Create QoS Spec"
-msgstr ""
+msgstr "Napravi  QoS Spec"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:19
 msgid ""
@@ -4129,7 +4097,7 @@ msgstr ""
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:9
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:38
 msgid "Create Volume Type Encryption"
-msgstr ""
+msgstr "Kreiraj Tip Entkripcije Volumen-a"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:20
 msgid ""
@@ -4180,7 +4148,7 @@ msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:28
 msgid "Modify Consumer"
-msgstr ""
+msgstr "Izmeni Potrošača"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:4
 msgid "Volume Type Encryption Overview"
@@ -4199,7 +4167,7 @@ msgstr "Provajder"
 #: dashboards/admin/volumes/volume_types/forms.py:28
 #: dashboards/project/volumes/templates/volumes/volumes/_encryption_detail_overview.html:15
 msgid "Control Location"
-msgstr ""
+msgstr "Kontrola  Lokacije"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:17
 #: dashboards/admin/volumes/volume_types/forms.py:34
@@ -4869,8 +4837,8 @@ msgstr "Domen kontekst obrisan"
 
 #: dashboards/identity/domains/tables.py:201
 #: dashboards/identity/projects/workflows.py:138
-#: dashboards/identity/users/forms.py:75
-#: dashboards/identity/users/forms.py:157
+#: dashboards/identity/users/forms.py:88
+#: dashboards/identity/users/forms.py:165
 #: dashboards/identity/users/templates/users/_detail_overview.html:10
 msgid "Domain ID"
 msgstr "Domen ID"
@@ -5097,9 +5065,10 @@ msgid "Add Users"
 msgstr ""
 
 #: dashboards/identity/groups/tables.py:190
-#: dashboards/identity/users/forms.py:81
-#: dashboards/identity/users/forms.py:164
-#: dashboards/identity/users/tables.py:208
+#: dashboards/identity/users/forms.py:94
+#: dashboards/identity/users/forms.py:172
+#: dashboards/identity/users/forms.py:219
+#: dashboards/identity/users/tables.py:221
 #: dashboards/identity/users/templates/users/_detail_overview.html:17
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:14
 #: dashboards/project/data_processing/data_image_registry/forms.py:28
@@ -5108,19 +5077,23 @@ msgid "User Name"
 msgstr "Korisničko ime"
 
 #: dashboards/identity/groups/tables.py:191
-#: dashboards/identity/users/forms.py:83
-#: dashboards/identity/users/forms.py:166
-#: dashboards/identity/users/tables.py:211
+#: dashboards/identity/users/forms.py:96
+#: dashboards/identity/users/forms.py:174
+#: dashboards/identity/users/tables.py:224
 #: dashboards/identity/users/templates/users/_detail_overview.html:21
 msgid "Email"
 msgstr "Email"
 
 #: dashboards/identity/groups/tables.py:194
-#: dashboards/identity/users/tables.py:222
+#: dashboards/identity/users/tables.py:235
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:24
 #: dashboards/project/instances/audit_tables.py:28
 msgid "User ID"
 msgstr "ID korisnika"
+
+#: dashboards/identity/groups/tables.py:198
+msgid "False"
+msgstr ""
 
 #: dashboards/identity/groups/tables.py:204
 msgid "Group Members"
@@ -5245,7 +5218,7 @@ msgstr[1] ""
 msgstr[2] ""
 
 #: dashboards/identity/projects/tables.py:217
-#: dashboards/identity/users/tables.py:192
+#: dashboards/identity/users/tables.py:205
 msgid "This name is already taken."
 msgstr "Ovo ime je već upotrebljeno."
 
@@ -5268,8 +5241,8 @@ msgid "Unable to retrieve default Neutron quota values."
 msgstr "Nemožete dobiti podrazumevane vrednosti Neutron kvote."
 
 #: dashboards/identity/projects/views.py:192
-#: dashboards/identity/users/views.py:118
-#: dashboards/identity/users/views.py:180
+#: dashboards/identity/users/views.py:116
+#: dashboards/identity/users/views.py:178
 msgid "Unable to retrieve project domain."
 msgstr "Nemožete dobiti domen projekta."
 
@@ -5308,8 +5281,8 @@ msgid "Set maximum quotas for the project."
 msgstr ""
 
 #: dashboards/identity/projects/workflows.py:141
-#: dashboards/identity/users/forms.py:78
-#: dashboards/identity/users/forms.py:160
+#: dashboards/identity/users/forms.py:91
+#: dashboards/identity/users/forms.py:168
 #: dashboards/identity/users/templates/users/_detail_overview.html:14
 msgid "Domain Name"
 msgstr "Ime domena"
@@ -5503,19 +5476,7 @@ msgstr ""
 msgid "Edit the role's details."
 msgstr ""
 
-#: dashboards/identity/users/forms.py:56
-msgid "No available projects"
-msgstr "Nema dostupnih projekata"
-
-#: dashboards/identity/users/forms.py:66
-#: dashboards/project/instances/forms.py:92
-#: dashboards/project/instances/workflows/create_instance.py:595
-#: dashboards/settings/password/forms.py:50
-msgid "Passwords do not match."
-msgstr "Lozinka se ne podudara."
-
-#: dashboards/identity/users/forms.py:86
-#: dashboards/identity/users/forms.py:169
+#: dashboards/identity/users/forms.py:41
 #: dashboards/project/data_processing/job_binaries/forms.py:121
 #: dashboards/project/data_processing/job_binaries/forms.py:128
 #: dashboards/project/databases/workflows/create_instance.py:196
@@ -5523,49 +5484,71 @@ msgstr "Lozinka se ne podudara."
 msgid "Password"
 msgstr "Lozinka"
 
-#: dashboards/identity/users/forms.py:91
-#: dashboards/identity/users/forms.py:175
+#: dashboards/identity/users/forms.py:46
 msgid "Confirm Password"
 msgstr "Potvrdite lozinku"
 
-#: dashboards/identity/users/forms.py:93
-#: dashboards/identity/users/forms.py:178
+#: dashboards/identity/users/forms.py:55
+#: dashboards/project/instances/forms.py:92
+#: dashboards/project/instances/workflows/create_instance.py:595
+#: dashboards/settings/password/forms.py:50
+msgid "Passwords do not match."
+msgstr "Lozinka se ne podudara."
+
+#: dashboards/identity/users/forms.py:77
+msgid "No available projects"
+msgstr "Nema dostupnih projekata"
+
+#: dashboards/identity/users/forms.py:98
+#: dashboards/identity/users/forms.py:176
 msgid "Primary Project"
 msgstr "Primarni projekat"
 
-#: dashboards/identity/users/forms.py:96
+#: dashboards/identity/users/forms.py:101
 msgid "Role"
 msgstr "Uloga"
 
-#: dashboards/identity/users/forms.py:129
+#: dashboards/identity/users/forms.py:137
 #, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "Korisnik \"%s\" je uspešno kreiran."
 
-#: dashboards/identity/users/forms.py:145
+#: dashboards/identity/users/forms.py:153
 msgid "Unable to add user to primary project."
 msgstr "Nemoguće je dodati korisnika primarnom projektu."
 
-#: dashboards/identity/users/forms.py:149
-#: dashboards/identity/users/forms.py:212
+#: dashboards/identity/users/forms.py:157
+#: dashboards/identity/users/forms.py:203
 #, python-format
 msgid "User name \"%s\" is already used."
 msgstr ""
 
-#: dashboards/identity/users/forms.py:152
+#: dashboards/identity/users/forms.py:160
 msgid "Unable to create user."
 msgstr "Nemoguće je kreirati korisnika."
 
-#: dashboards/identity/users/forms.py:210
+#: dashboards/identity/users/forms.py:201
 msgid "User has been updated successfully."
 msgstr "Podaci korisnika su uspešno izmenjeni."
 
-#: dashboards/identity/users/forms.py:217
+#: dashboards/identity/users/forms.py:208
 msgid "Unable to update the user."
 msgstr "Nemoguće je izmeniti podatke korisnika."
 
+#: dashboards/identity/users/forms.py:243
+msgid "Password changed. Please log in to continue."
+msgstr ""
+
+#: dashboards/identity/users/forms.py:246
+msgid "User password has been updated successfully."
+msgstr ""
+
+#: dashboards/identity/users/forms.py:249
+msgid "Unable to update the user password."
+msgstr ""
+
 #: dashboards/identity/users/panel.py:27
-#: dashboards/identity/users/tables.py:230
+#: dashboards/identity/users/tables.py:243
 #: dashboards/identity/users/views.py:46
 #: dashboards/identity/users/templates/users/index.html:3
 #: dashboards/project/databases/tables.py:325
@@ -5574,46 +5557,57 @@ msgid "Users"
 msgstr "Korisnici"
 
 #: dashboards/identity/users/tables.py:31
-#: dashboards/identity/users/views.py:129
-#: dashboards/identity/users/views.py:132
-#: dashboards/identity/users/views.py:135
+#: dashboards/identity/users/views.py:127
+#: dashboards/identity/users/views.py:130
+#: dashboards/identity/users/views.py:133
 #: dashboards/identity/users/templates/users/create.html:3
 msgid "Create User"
 msgstr "Kreiranje korisnika"
 
-#: dashboards/identity/users/tables.py:65
+#: dashboards/identity/users/tables.py:60
+#: dashboards/identity/users/views.py:205
+#: dashboards/identity/users/views.py:211
+#: dashboards/identity/users/templates/users/change_password.html:3
+#: dashboards/settings/password/panel.py:23
+#: dashboards/settings/password/views.py:26
+#: dashboards/settings/password/templates/password/_change.html:9
+#: dashboards/settings/password/templates/password/change.html:3
+msgid "Change Password"
+msgstr "Promena lozinke"
+
+#: dashboards/identity/users/tables.py:78
 msgid "Enable User"
 msgid_plural "Enable Users"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/identity/users/tables.py:70
+#: dashboards/identity/users/tables.py:83
 msgid "Disable User"
 msgid_plural "Disable Users"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/identity/users/tables.py:80
+#: dashboards/identity/users/tables.py:93
 msgid "Enabled User"
 msgid_plural "Enabled Users"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/identity/users/tables.py:85
+#: dashboards/identity/users/tables.py:98
 msgid "Disabled User"
 msgid_plural "Disabled Users"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/identity/users/tables.py:115
+#: dashboards/identity/users/tables.py:128
 msgid "You cannot disable the user you are currently logged in as."
 msgstr "Nemožete onemogućiti korisnika pod kojim ste trenutno ulogovani."
 
-#: dashboards/identity/users/tables.py:130
+#: dashboards/identity/users/tables.py:143
 #: dashboards/project/databases/tables.py:91
 msgid "Delete User"
 msgid_plural "Delete Users"
@@ -5621,7 +5615,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/identity/users/tables.py:138
+#: dashboards/identity/users/tables.py:151
 #: dashboards/project/databases/tables.py:99
 msgid "Deleted User"
 msgid_plural "Deleted Users"
@@ -5629,7 +5623,8 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/identity/users/views.py:67
+#: dashboards/identity/users/views.py:67 dashboards/identity/users/views.py:95
+#: dashboards/identity/users/views.py:226
 msgid "Unable to retrieve user information."
 msgstr ""
 
@@ -5643,20 +5638,20 @@ msgstr ""
 msgid "Update User"
 msgstr "Izmenite korisnika"
 
-#: dashboards/identity/users/views.py:97
-msgid "Unable to update user."
-msgstr "Nemoguće je izmeniti korisnika."
-
-#: dashboards/identity/users/views.py:149
+#: dashboards/identity/users/views.py:147
 msgid "Unable to retrieve user roles."
 msgstr "Nemoguće je dobiti korisničke uloge."
 
-#: dashboards/identity/users/views.py:166
+#: dashboards/identity/users/views.py:164
 msgid "User Details: {{ user.name }}"
 msgstr ""
 
-#: dashboards/identity/users/views.py:197
+#: dashboards/identity/users/views.py:195
 msgid "Unable to retrieve user details."
+msgstr ""
+
+#: dashboards/identity/users/templates/users/_change_password.html:6
+msgid "Change user's password. We highly recommend you create a strong one."
 msgstr ""
 
 #: dashboards/identity/users/templates/users/_create.html:6
@@ -5882,7 +5877,7 @@ msgstr "Dole"
 #: dashboards/project/access_and_security/floating_ips/tables.py:181
 msgctxt "Current status of a Floating IP"
 msgid "Error"
-msgstr ""
+msgstr "Greška"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:196
 msgid "Mapped Fixed IP Address"
@@ -6953,7 +6948,7 @@ msgid "Upload Template"
 msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:47
-#: dashboards/project/data_processing/clusters/tables.py:40
+#: dashboards/project/data_processing/clusters/tables.py:41
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_create_cluster.html:10
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/configure.html:3
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/configure.html:6
@@ -7246,53 +7241,43 @@ msgid "Cluster template creation failed"
 msgstr ""
 
 #: dashboards/project/data_processing/clusters/panel.py:22
-#: dashboards/project/data_processing/clusters/tables.py:129
+#: dashboards/project/data_processing/clusters/tables.py:155
 msgid "Clusters"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/tables.py:48
+#: dashboards/project/data_processing/clusters/tables.py:49
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/scale.html:3
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/scale.html:6
 #: dashboards/project/data_processing/clusters/workflows/scale.py:42
 msgid "Scale Cluster"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/tables.py:60
+#: dashboards/project/data_processing/clusters/tables.py:61
 msgid "Delete Cluster"
 msgid_plural "Delete Clusters"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/data_processing/clusters/tables.py:68
+#: dashboards/project/data_processing/clusters/tables.py:69
 msgid "Deleted Cluster"
 msgid_plural "Deleted Clusters"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/data_processing/clusters/tables.py:88
+#: dashboards/project/data_processing/clusters/tables.py:89
 #: dashboards/project/data_processing/job_executions/tables.py:126
 msgid "Unable to update row"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/tables.py:98
+#: dashboards/project/data_processing/clusters/tables.py:130
 #: dashboards/project/data_processing/clusters/workflows/create.py:189
 #: dashboards/project/data_processing/jobs/workflows/launch.py:312
 msgid "Configure Cluster"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/tables.py:111
-msgctxt "Current status of a Cluster"
-msgid "Active"
-msgstr ""
-
-#: dashboards/project/data_processing/clusters/tables.py:112
-msgctxt "Current status of a Cluster"
-msgid "Error"
-msgstr ""
-
-#: dashboards/project/data_processing/clusters/tables.py:125
+#: dashboards/project/data_processing/clusters/tables.py:151
 msgid "Instances Count"
 msgstr ""
 
@@ -8650,7 +8635,7 @@ msgstr[2] ""
 #: dashboards/project/databases/tables.py:238
 #: dashboards/project/instances/tables.py:821
 #: dashboards/project/instances/tables.py:828
-#: dashboards/project/instances/views.py:368
+#: dashboards/project/instances/views.py:398
 #: dashboards/project/instances/templates/instances/_detail_overview.html:64
 #: dashboards/project/instances/templates/instances/_detail_overview.html:100
 msgid "Not available"
@@ -8994,7 +8979,7 @@ msgstr ""
 #: dashboards/project/databases/tables.py:280
 msgctxt "Current status of a Database Instance"
 msgid "Error"
-msgstr ""
+msgstr "Greška"
 
 #: dashboards/project/databases/tables.py:283
 msgctxt "Current status of a Database Instance"
@@ -9050,7 +9035,7 @@ msgid "Launch Database"
 msgstr "Pokrenite bazu podataka"
 
 #: dashboards/project/databases/views.py:101
-#: dashboards/project/instances/views.py:259
+#: dashboards/project/instances/views.py:289
 msgid "Instance Details: {{ instance.name }}"
 msgstr ""
 
@@ -9074,7 +9059,7 @@ msgid "Resize Database Instance"
 msgstr ""
 
 #: dashboards/project/databases/views.py:209
-#: dashboards/project/instances/views.py:379
+#: dashboards/project/instances/views.py:409
 msgid "Unable to retrieve flavors."
 msgstr "Nemoguće je dobiti arome."
 
@@ -9701,6 +9686,24 @@ msgstr "Dodajte novu politiku"
 msgid "Add New Firewall"
 msgstr "Dodajte novi firewall"
 
+#: dashboards/project/firewalls/views.py:131
+#: dashboards/project/firewalls/views.py:172
+#: dashboards/project/firewalls/views.py:210
+#: dashboards/project/firewalls/views.py:250
+#: dashboards/project/firewalls/views.py:289
+#: dashboards/project/loadbalancers/views.py:234
+#: dashboards/project/loadbalancers/views.py:271
+#: dashboards/project/loadbalancers/views.py:322
+#: dashboards/project/loadbalancers/views.py:358
+#: dashboards/project/networks/views.py:69
+#: dashboards/project/networks/ports/views.py:88
+#: dashboards/project/routers/views.py:167 dashboards/project/vpn/views.py:274
+#: dashboards/project/vpn/views.py:310 dashboards/project/vpn/views.py:353
+#: dashboards/project/vpn/views.py:395
+#: dashboards/router/nexus1000v/views.py:121
+msgid "Save Changes"
+msgstr "Sačuvaj izmene"
+
 #: dashboards/project/firewalls/views.py:134
 msgid "Edit Rule {{ name }}"
 msgstr ""
@@ -10176,12 +10179,12 @@ msgstr "Poruka"
 msgid "Instance Action List"
 msgstr ""
 
-#: dashboards/project/instances/console.py:41
+#: dashboards/project/instances/console.py:42
 #, python-format
 msgid "Console type \"%s\" not supported."
 msgstr ""
 
-#: dashboards/project/instances/console.py:67
+#: dashboards/project/instances/console.py:72
 msgid "No available console found."
 msgstr ""
 
@@ -10350,7 +10353,7 @@ msgid "Revert Resize/Migrate"
 msgstr "Povratiti prekrajanje/migraciju"
 
 #: dashboards/project/instances/tables.py:485
-#: dashboards/project/instances/views.py:226
+#: dashboards/project/instances/views.py:256
 #: dashboards/project/instances/templates/instances/_rebuild.html:9
 #: dashboards/project/instances/templates/instances/_rebuild.html:27
 #: dashboards/project/instances/templates/instances/rebuild.html:3
@@ -10405,7 +10408,7 @@ msgid "Failed to launch instance \"%s\""
 msgstr "Neuspelo pokretanje instance \"%s\""
 
 #: dashboards/project/instances/tables.py:650
-#: dashboards/project/instances/views.py:365
+#: dashboards/project/instances/views.py:395
 #, python-format
 msgid "Unable to retrieve flavor information for instance \"%s\"."
 msgstr ""
@@ -10502,7 +10505,7 @@ msgstr "Zaustavljeno"
 #: dashboards/project/instances/tables.py:842
 msgctxt "Current status of an Instance"
 msgid "Error"
-msgstr ""
+msgstr "Greška"
 
 #: dashboards/project/instances/tables.py:844
 msgctxt "Current status of an Instance"
@@ -10743,7 +10746,7 @@ msgstr ""
 #: dashboards/project/instances/tables.py:931
 msgctxt "Task status of an Instance"
 msgid "Deleting"
-msgstr ""
+msgstr "Brišem"
 
 #: dashboards/project/instances/tables.py:933
 msgctxt "Task status of an Instance"
@@ -10840,16 +10843,16 @@ msgid "Log"
 msgstr "Log"
 
 #: dashboards/project/instances/tabs.py:53
-#: dashboards/project/instances/views.py:147
+#: dashboards/project/instances/views.py:148
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr "Nemoguće je dobiti log za instancu \"%s\"."
 
-#: dashboards/project/instances/tabs.py:85
+#: dashboards/project/instances/tabs.py:90
 msgid "Action Log"
 msgstr ""
 
-#: dashboards/project/instances/tabs.py:98
+#: dashboards/project/instances/tabs.py:103
 msgid "Unable to retrieve instance action list."
 msgstr ""
 
@@ -10865,55 +10868,65 @@ msgstr "Nemoguće sortirati arome instance."
 msgid "Unable to retrieve Nova availability zones."
 msgstr ""
 
-#: dashboards/project/instances/views.py:72
+#: dashboards/project/instances/views.py:73
 msgid "Unable to retrieve instances."
 msgstr "Nemoguće je dobiti instance."
 
-#: dashboards/project/instances/views.py:150
+#: dashboards/project/instances/views.py:151
 msgid "Log length must be a nonnegative integer."
 msgstr ""
 
-#: dashboards/project/instances/views.py:169
+#: dashboards/project/instances/views.py:170
 #, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr "Nemouguće je dobiti VNC konzolu za instance \"%s\"."
 
-#: dashboards/project/instances/views.py:181
+#: dashboards/project/instances/views.py:182
 #, python-format
 msgid "Unable to get SPICE console for instance \"%s\"."
 msgstr "Nemouguće je dobiti SPICE konzolu za instance \"%s\"."
 
-#: dashboards/project/instances/views.py:192
+#: dashboards/project/instances/views.py:193
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "Nemoguće dobiti RDP konzolu za instancu \"%s\"."
 
-#: dashboards/project/instances/views.py:242
+#: dashboards/project/instances/views.py:209
+#, python-format
+msgid "Cannot find instance %s."
+msgstr ""
+
+#: dashboards/project/instances/views.py:221
+#, python-format
+msgid "Cannot get console for instance %s."
+msgstr ""
+
+#: dashboards/project/instances/views.py:272
 #: dashboards/project/instances/templates/instances/_decryptpassword.html:10
 msgid "Retrieve Instance Password"
 msgstr "Dobijte lozinku instance"
 
-#: dashboards/project/instances/views.py:279
+#: dashboards/project/instances/views.py:309
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "Nemoguće je dobiti detalje o instanci \"%s\"."
 
-#: dashboards/project/instances/views.py:300
+#: dashboards/project/instances/views.py:330
 #, python-format
 msgid "Unable to retrieve volume list for instance \"%(name)s\" (%(id)s)."
 msgstr ""
 
-#: dashboards/project/instances/views.py:309
+#: dashboards/project/instances/views.py:339
 #, python-format
 msgid "Unable to retrieve flavor information for instance \"%(name)s\" (%(id)s)."
 msgstr ""
 
-#: dashboards/project/instances/views.py:318
+#: dashboards/project/instances/views.py:348
 #, python-format
 msgid "Unable to retrieve security groups for instance \"%(name)s\" (%(id)s)."
 msgstr ""
 
-#: dashboards/project/instances/views.py:326
+#: dashboards/project/instances/views.py:356
 #, python-format
 msgid ""
 "Unable to retrieve IP addresses from Neutron for instance \"%(name)s\" "
@@ -10946,25 +10959,25 @@ msgstr "Dešifrovanje lozinke"
 msgid "Instance Console"
 msgstr "Konzola za instance"
 
-#: dashboards/project/instances/templates/instances/_detail_console.html:6
+#: dashboards/project/instances/templates/instances/_detail_console.html:8
 msgid ""
 "If console is not responding to keyboard input: click the grey status bar "
 "below."
 msgstr "Ako konzola ne reaguje na tastaturu: kliknite u sivu zonu statusa ispod."
 
-#: dashboards/project/instances/templates/instances/_detail_console.html:6
+#: dashboards/project/instances/templates/instances/_detail_console.html:10
 msgid "Click here to show only console"
 msgstr "Kliknite ovde za prikaz samo konzolu"
 
-#: dashboards/project/instances/templates/instances/_detail_console.html:7
+#: dashboards/project/instances/templates/instances/_detail_console.html:11
 msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr "Za izlaz iz prikaza punog ekrana, kliknite nazad u browser-u."
 
-#: dashboards/project/instances/templates/instances/_detail_console.html:21
+#: dashboards/project/instances/templates/instances/_detail_console.html:25
 msgid "console is currently unavailable. Please try again later."
 msgstr "KOnzola je trenutno nedostupna. Pokušajte kasnije."
 
-#: dashboards/project/instances/templates/instances/_detail_console.html:22
+#: dashboards/project/instances/templates/instances/_detail_console.html:26
 msgid "Reload"
 msgstr "Ponovno učitavanje"
 
@@ -11767,29 +11780,29 @@ msgstr[1] ""
 msgstr[2] ""
 
 #: dashboards/project/loadbalancers/tables.py:171
-#: dashboards/project/loadbalancers/views.py:232
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:8
+#: dashboards/project/loadbalancers/views.py:231
+#: dashboards/project/loadbalancers/views.py:237
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatepool.html:3
 msgid "Edit Pool"
 msgstr "Izmena grupe"
 
 #: dashboards/project/loadbalancers/tables.py:183
-#: dashboards/project/loadbalancers/views.py:263
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:8
+#: dashboards/project/loadbalancers/views.py:268
+#: dashboards/project/loadbalancers/views.py:274
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatevip.html:3
 msgid "Edit VIP"
 msgstr "Izmena VIP"
 
 #: dashboards/project/loadbalancers/tables.py:200
-#: dashboards/project/loadbalancers/views.py:308
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:8
+#: dashboards/project/loadbalancers/views.py:319
+#: dashboards/project/loadbalancers/views.py:325
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatemember.html:3
 msgid "Edit Member"
 msgstr "Izmena člana"
 
 #: dashboards/project/loadbalancers/tables.py:212
-#: dashboards/project/loadbalancers/views.py:338
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:8
+#: dashboards/project/loadbalancers/views.py:355
+#: dashboards/project/loadbalancers/views.py:361
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatemonitor.html:3
 msgid "Edit Monitor"
 msgstr "Izmena nadzora"
@@ -11817,7 +11830,7 @@ msgstr "Razdružite monitor"
 #: dashboards/project/networks/subnets/workflows.py:116
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:7
 #: dashboards/project/routers/ports/forms.py:29
-#: dashboards/project/vpn/tables.py:263 dashboards/project/vpn/workflows.py:30
+#: dashboards/project/vpn/tables.py:289 dashboards/project/vpn/workflows.py:30
 msgid "Subnet"
 msgstr "Podmreža"
 
@@ -11900,95 +11913,95 @@ msgstr ""
 msgid "%(type)s delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
 msgstr "%(type)s kašnjenje:%(delay)d pokušaja:%(max_retries)d timeout:%(timeout)d"
 
-#: dashboards/project/loadbalancers/views.py:42
+#: dashboards/project/loadbalancers/views.py:43
 #: dashboards/project/loadbalancers/templates/loadbalancers/details_tabs.html:3
 msgid "Load Balancer"
 msgstr "Balanser opterećenja"
 
-#: dashboards/project/loadbalancers/views.py:54
+#: dashboards/project/loadbalancers/views.py:55
 #, python-format
 msgid "Deleted monitor %s"
 msgstr "Obrisan nadzor %s"
 
-#: dashboards/project/loadbalancers/views.py:57
+#: dashboards/project/loadbalancers/views.py:58
 #, python-format
 msgid "Unable to delete monitor. %s"
 msgstr "Nemoguće je obrisati nadzor. %s"
 
-#: dashboards/project/loadbalancers/views.py:62
+#: dashboards/project/loadbalancers/views.py:63
 #, python-format
 msgid "Deleted pool %s"
 msgstr "Obrisana grupa %s"
 
-#: dashboards/project/loadbalancers/views.py:65
+#: dashboards/project/loadbalancers/views.py:66
 #, python-format
 msgid "Unable to delete pool. %s"
 msgstr "Nemoguće je obrisati grupu. %s"
 
-#: dashboards/project/loadbalancers/views.py:70
+#: dashboards/project/loadbalancers/views.py:71
 #, python-format
 msgid "Deleted member %s"
 msgstr "Obrisan član %s"
 
-#: dashboards/project/loadbalancers/views.py:73
+#: dashboards/project/loadbalancers/views.py:74
 #, python-format
 msgid "Unable to delete member. %s"
 msgstr "Nemoguće je obrisati člana. %s"
 
-#: dashboards/project/loadbalancers/views.py:80
+#: dashboards/project/loadbalancers/views.py:81
 #, python-format
 msgid "Unable to locate VIP to delete. %s"
 msgstr "Nemoguće je locirati VIP radi brisanja. %s"
 
-#: dashboards/project/loadbalancers/views.py:85
+#: dashboards/project/loadbalancers/views.py:86
 #, python-format
 msgid "Deleted VIP %s"
 msgstr "Obrisan VIP %s"
 
-#: dashboards/project/loadbalancers/views.py:88
+#: dashboards/project/loadbalancers/views.py:89
 #, python-format
 msgid "Unable to delete VIP. %s"
 msgstr "Nemoguće je obrisati VIP. %s"
 
-#: dashboards/project/loadbalancers/views.py:108
+#: dashboards/project/loadbalancers/views.py:109
 #, python-format
 msgid "Unable to retrieve pool subnet. %s"
 msgstr "Nemoguće je dobiti podmrežu grupe. %s"
 
-#: dashboards/project/loadbalancers/views.py:134
+#: dashboards/project/loadbalancers/views.py:135
 msgid "Unable to retrieve pool details."
 msgstr "Nemoguće je dobiti detanje grupe."
 
-#: dashboards/project/loadbalancers/views.py:176
+#: dashboards/project/loadbalancers/views.py:177
 msgid "Unable to retrieve member details."
 msgstr "Nemoguće je dobiti detalje člana."
 
-#: dashboards/project/loadbalancers/views.py:207
+#: dashboards/project/loadbalancers/views.py:208
 msgid "Unable to retrieve monitor details."
 msgstr "Nemoguće je dobiti detalje nadzora."
 
-#: dashboards/project/loadbalancers/views.py:246
+#: dashboards/project/loadbalancers/views.py:253
 #, python-format
 msgid "Unable to retrieve pool details. %s"
 msgstr "Nemoguće je dobiti detalje grupe. %s"
 
-#: dashboards/project/loadbalancers/views.py:277
+#: dashboards/project/loadbalancers/views.py:290
 #, python-format
 msgid "Unable to retrieve VIP details. %s"
 msgstr "Nemoguće je dobiti detalje VIP-a. %s"
 
-#: dashboards/project/loadbalancers/views.py:322
+#: dashboards/project/loadbalancers/views.py:341
 #, python-format
 msgid "Unable to retrieve member details. %s"
 msgstr "Nemoguće je dobiti detalje člana. %s"
 
-#: dashboards/project/loadbalancers/views.py:352
+#: dashboards/project/loadbalancers/views.py:377
 #, python-format
 msgid "Unable to retrieve health monitor details. %s"
 msgstr "Nemoguće je dobiti detalje nadzora stabilnosti sitema. %s"
 
-#: dashboards/project/loadbalancers/views.py:375
-#: dashboards/project/loadbalancers/views.py:391
+#: dashboards/project/loadbalancers/views.py:400
+#: dashboards/project/loadbalancers/views.py:416
 #, python-format
 msgid "Unable to retrieve pool. %s"
 msgstr "Nemoguće je dobiti grupu. %s"
@@ -12325,24 +12338,24 @@ msgstr "Očekivani kodovi"
 msgid "Health Monitors"
 msgstr "Nadzor stanja sistema"
 
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:18
+#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:6
 msgid ""
 "You may update member attributes here: edit pool, weight or admin state."
 msgstr "Ovde možete izmeniti obeležja člana:izmena grupe, težine ili admin stanja."
 
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:18
+#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:6
 msgid ""
 "You may update health monitor attributes here: edit delay, timeout, max "
 "retries  or admin state."
 msgstr "Ovde možete izmeniti atribute nadzora stabilnosti: ispravka kašnjenja, dozvoljeno vreme, max broj pokušaja ili stanje admina."
 
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:18
+#: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:6
 msgid ""
 "You may update pool attributes here: edit name, description, load balancing "
 "method or admin state."
 msgstr ""
 
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:18
+#: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:6
 msgid ""
 "You may update VIP attributes here: edit name, description, pool, session "
 "persistence, connection limit  or admin state."
@@ -12390,7 +12403,7 @@ msgid "Create Router"
 msgstr "Kreiraj ruter"
 
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:184
-#: dashboards/project/vpn/tables.py:264 dashboards/project/vpn/workflows.py:29
+#: dashboards/project/vpn/tables.py:290 dashboards/project/vpn/workflows.py:29
 #: dashboards/router/dashboard.py:19
 msgid "Router"
 msgstr "Ruter"
@@ -12679,7 +12692,7 @@ msgstr "Prikačen uređaj"
 msgid "Port Details"
 msgstr ""
 
-#: dashboards/project/networks/ports/views.py:101
+#: dashboards/project/networks/ports/views.py:105
 msgid "Unable to retrieve port details"
 msgstr "Nemoguće je dobiti detalje port-a"
 
@@ -12993,7 +13006,7 @@ msgstr ""
 #: dashboards/project/routers/tables.py:198
 msgctxt "current status of router"
 msgid "Error"
-msgstr ""
+msgstr "Greška"
 
 #. Translators: High Availability mode of Neutron router
 #: dashboards/project/routers/tables.py:214
@@ -13210,7 +13223,7 @@ msgstr "Dole"
 #: dashboards/project/routers/ports/tables.py:101
 msgctxt "current status of port"
 msgid "Error"
-msgstr ""
+msgstr "Greška"
 
 #: dashboards/project/routers/ports/views.py:80
 msgid "Unable to set gateway."
@@ -13995,12 +14008,12 @@ msgstr "Dostupno"
 #: dashboards/project/volumes/backups/tables.py:110
 msgctxt "Current status of a Volume Backup"
 msgid "Error"
-msgstr ""
+msgstr "Greška"
 
 #: dashboards/project/volumes/backups/tables.py:112
 msgctxt "Current status of a Volume Backup"
 msgid "Creating"
-msgstr ""
+msgstr "Kreiram"
 
 #: dashboards/project/volumes/backups/tables.py:114
 msgctxt "Current status of a Volume Backup"
@@ -14756,12 +14769,12 @@ msgstr ""
 #: dashboards/project/volumes/volumes/tables.py:374
 msgctxt "Current status of a Volume"
 msgid "Error"
-msgstr ""
+msgstr "Greška"
 
 #: dashboards/project/volumes/volumes/tables.py:376
 msgctxt "Current status of a Volume"
 msgid "Creating"
-msgstr ""
+msgstr "Kreiram"
 
 #: dashboards/project/volumes/volumes/tables.py:378
 msgctxt "Current status of a Volume"
@@ -14845,7 +14858,7 @@ msgid "Failed to update VPN Service %s"
 msgstr "Neuspeno izmenjen VPN servis %s"
 
 #: dashboards/project/vpn/forms.py:73 dashboards/project/vpn/forms.py:145
-#: dashboards/project/vpn/tables.py:283 dashboards/project/vpn/tables.py:301
+#: dashboards/project/vpn/tables.py:309 dashboards/project/vpn/tables.py:327
 #: dashboards/project/vpn/workflows.py:114
 #: dashboards/project/vpn/workflows.py:213
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:18
@@ -14858,7 +14871,7 @@ msgid "sha1"
 msgstr "sha1"
 
 #: dashboards/project/vpn/forms.py:77 dashboards/project/vpn/forms.py:153
-#: dashboards/project/vpn/tables.py:286 dashboards/project/vpn/tables.py:304
+#: dashboards/project/vpn/tables.py:312 dashboards/project/vpn/tables.py:330
 #: dashboards/project/vpn/workflows.py:115
 #: dashboards/project/vpn/workflows.py:215
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:21
@@ -15181,20 +15194,20 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/vpn/tables.py:164 dashboards/project/vpn/views.py:272
-#: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:8
+#: dashboards/project/vpn/tables.py:164 dashboards/project/vpn/views.py:271
+#: dashboards/project/vpn/views.py:277
 #: dashboards/project/vpn/templates/vpn/update_vpnservice.html:3
 msgid "Edit VPN Service"
 msgstr "Izmena VPN servisa"
 
-#: dashboards/project/vpn/tables.py:180 dashboards/project/vpn/views.py:302
-#: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:8
+#: dashboards/project/vpn/tables.py:180 dashboards/project/vpn/views.py:307
+#: dashboards/project/vpn/views.py:313
 #: dashboards/project/vpn/templates/vpn/update_ikepolicy.html:3
 msgid "Edit IKE Policy"
 msgstr "Izmena IKE politike"
 
-#: dashboards/project/vpn/tables.py:194 dashboards/project/vpn/views.py:339
-#: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:8
+#: dashboards/project/vpn/tables.py:194 dashboards/project/vpn/views.py:350
+#: dashboards/project/vpn/views.py:356
 #: dashboards/project/vpn/templates/vpn/update_ipsecpolicy.html:3
 msgid "Edit IPSec Policy"
 msgstr "Izmena IPSec politike"
@@ -15203,38 +15216,93 @@ msgstr "Izmena IPSec politike"
 msgid "Edit Connection"
 msgstr "Izmena veze"
 
+#: dashboards/project/vpn/tables.py:231
+msgctxt "Current status of an IPSec Site Connection"
+msgid "Active"
+msgstr ""
+
 #: dashboards/project/vpn/tables.py:233
+msgctxt "Current status of an IPSec Site Connection"
+msgid "Down"
+msgstr "Dole"
+
+#: dashboards/project/vpn/tables.py:235
+msgctxt "Current status of an IPSec Site Connection"
+msgid "Error"
+msgstr "Greška"
+
+#: dashboards/project/vpn/tables.py:241
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:19
 msgid "VPN Service"
 msgstr "VPN servis"
 
-#: dashboards/project/vpn/tables.py:235
+#: dashboards/project/vpn/tables.py:243
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:23
 msgid "IKE Policy"
 msgstr "IKE politika"
 
-#: dashboards/project/vpn/tables.py:237
+#: dashboards/project/vpn/tables.py:245
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:27
 msgid "IPSec Policy"
 msgstr "IPSec politika"
 
-#: dashboards/project/vpn/tables.py:246 dashboards/project/vpn/tabs.py:27
+#: dashboards/project/vpn/tables.py:254 dashboards/project/vpn/tabs.py:27
 msgid "IPSec Site Connections"
 msgstr "Veze IPSec site-u"
 
-#: dashboards/project/vpn/tables.py:273 dashboards/project/vpn/tabs.py:46
+#: dashboards/project/vpn/tables.py:269
+msgctxt "Current status of a VPN Service"
+msgid "Active"
+msgstr ""
+
+#: dashboards/project/vpn/tables.py:271
+msgctxt "Current status of a VPN Service"
+msgid "Down"
+msgstr "Dole"
+
+#: dashboards/project/vpn/tables.py:273
+msgctxt "Current status of a VPN Service"
+msgid "Error"
+msgstr "Greška"
+
+#: dashboards/project/vpn/tables.py:275
+msgctxt "Current status of a VPN Service"
+msgid "Created"
+msgstr "Kreirano"
+
+#: dashboards/project/vpn/tables.py:277
+msgctxt "Current status of a VPN Service"
+msgid "Pending Create"
+msgstr ""
+
+#: dashboards/project/vpn/tables.py:279
+msgctxt "Current status of a VPN Service"
+msgid "Pending Update"
+msgstr ""
+
+#: dashboards/project/vpn/tables.py:281
+msgctxt "Current status of a VPN Service"
+msgid "Pending Delete"
+msgstr ""
+
+#: dashboards/project/vpn/tables.py:283
+msgctxt "Current status of a VPN Service"
+msgid "Inactive"
+msgstr ""
+
+#: dashboards/project/vpn/tables.py:299 dashboards/project/vpn/tabs.py:46
 msgid "VPN Services"
 msgstr "VPN servisi"
 
-#: dashboards/project/vpn/tables.py:287 dashboards/project/vpn/tables.py:305
+#: dashboards/project/vpn/tables.py:313 dashboards/project/vpn/tables.py:331
 msgid "PFS"
 msgstr "PFS"
 
-#: dashboards/project/vpn/tables.py:291 dashboards/project/vpn/tabs.py:64
+#: dashboards/project/vpn/tables.py:317 dashboards/project/vpn/tabs.py:64
 msgid "IKE Policies"
 msgstr "IKE politike"
 
-#: dashboards/project/vpn/tables.py:309 dashboards/project/vpn/tabs.py:82
+#: dashboards/project/vpn/tables.py:335 dashboards/project/vpn/tabs.py:82
 msgid "IPSec Policies"
 msgstr "IPSec politike"
 
@@ -15270,90 +15338,89 @@ msgstr "Detalji VPN servisa"
 msgid "IPSec Site Connection Details"
 msgstr "Detalji veze IPSec site-a"
 
-#: dashboards/project/vpn/views.py:40 dashboards/project/vpn/views.py:127
+#: dashboards/project/vpn/views.py:41 dashboards/project/vpn/views.py:128
 #: dashboards/project/vpn/templates/vpn/details_tabs.html:3
 #: dashboards/project/vpn/templates/vpn/index.html:3
 msgid "Virtual Private Network"
 msgstr "Virtualna privatna mreža"
 
-#: dashboards/project/vpn/views.py:53
+#: dashboards/project/vpn/views.py:54
 #, python-format
 msgid "Deleted VPN Service %s"
 msgstr "Obrisan VPN servis %s"
 
-#: dashboards/project/vpn/views.py:56
+#: dashboards/project/vpn/views.py:57
 #, python-format
 msgid "Unable to delete VPN Service: %s"
 msgstr "Nemguće obrisati VPN Servis: %s"
 
-#: dashboards/project/vpn/views.py:63
+#: dashboards/project/vpn/views.py:64
 #, python-format
 msgid "Deleted IKE Policy %s"
 msgstr "Obrisana IKE politika %s"
 
-#: dashboards/project/vpn/views.py:66
+#: dashboards/project/vpn/views.py:67
 #, python-format
 msgid "Unable to delete IKE Policy: %s"
 msgstr "Nemoguće obrisati IKE Policy: %s"
 
-#: dashboards/project/vpn/views.py:72
+#: dashboards/project/vpn/views.py:73
 #, python-format
 msgid "Deleted IPSec Policy %s"
 msgstr "Obrisana IPSec politika %s"
 
-#: dashboards/project/vpn/views.py:75
+#: dashboards/project/vpn/views.py:76
 #, python-format
 msgid "Unable to delete IPSec Policy: %s"
 msgstr "Nemoguće je obrisati IPSec politiku: %s"
 
-#: dashboards/project/vpn/views.py:82
+#: dashboards/project/vpn/views.py:83
 #, python-format
 msgid "Deleted IPSec Site Connection %s"
 msgstr "Obrisana veza sa IPSec site-om %s"
 
-#: dashboards/project/vpn/views.py:87
+#: dashboards/project/vpn/views.py:88
 #, python-format
 msgid "Unable to delete IPSec Site Connection: %s"
 msgstr "Nemoguće je obrisati vezu IPSec Site: %s"
 
-#: dashboards/project/vpn/views.py:135
+#: dashboards/project/vpn/views.py:136
 msgid "Unable to retrieve IKE Policy details."
 msgstr "Nemoguće je dobiti detalje IKE politike."
 
-#: dashboards/project/vpn/views.py:167
+#: dashboards/project/vpn/views.py:168
 msgid "Unable to retrieve IPSec Policy details."
 msgstr "Nemoguće je dobiti detalje IPSec politike."
 
-#: dashboards/project/vpn/views.py:202
+#: dashboards/project/vpn/views.py:203
 msgid "Unable to retrieve VPN Service details."
 msgstr "Nemoguće je dobiti detalje VPN servisa."
 
-#: dashboards/project/vpn/views.py:242
+#: dashboards/project/vpn/views.py:243
 msgid "Unable to retrieve IPSec Site Connection details."
 msgstr "Nemoguće je dobiti detalje veze IPSec site-a."
 
-#: dashboards/project/vpn/views.py:286
+#: dashboards/project/vpn/views.py:293
 #, python-format
 msgid "Unable to retrieve VPN Service details. %s"
 msgstr "Nemoguće je dobiti detalje VPN Servisa. %s"
 
-#: dashboards/project/vpn/views.py:316
+#: dashboards/project/vpn/views.py:329
 #, python-format
 msgid "Unable to retrieve IKE Policy details. %s"
 msgstr "Nemoguće je dobiti detalje IKE politike. %s"
 
-#: dashboards/project/vpn/views.py:353
+#: dashboards/project/vpn/views.py:372
 #, python-format
 msgid "Unable to retrieve IPSec Policy details. %s"
 msgstr "Nemoguće je dobiti detalje IPSec politike. %s"
 
-#: dashboards/project/vpn/views.py:375
-#: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:8
+#: dashboards/project/vpn/views.py:392 dashboards/project/vpn/views.py:398
 #: dashboards/project/vpn/templates/vpn/update_ipsecsiteconnection.html:3
 msgid "Edit IPSec Site Connection"
 msgstr "Izmena veze IPSec Site"
 
-#: dashboards/project/vpn/views.py:391
+#: dashboards/project/vpn/views.py:416
 #, python-format
 msgid "Unable to retrieve IPSec Site Connection details. %s"
 msgstr "Nemoguće je dobiti detalje IPSec veze. %s"
@@ -15527,19 +15594,19 @@ msgstr "Režim autorizacije"
 msgid "Route mode"
 msgstr "Režim rutiranja"
 
-#: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:18
+#: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:6
 msgid "You may update IKE Policy details here."
 msgstr "Možete ovde izmeniti detalje IKE politike."
 
-#: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:18
+#: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:6
 msgid "You may update IPSec Policy details here."
 msgstr "Možete ovde izmeniti detalje IPSec politike."
 
-#: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:18
+#: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:6
 msgid "You may update IPSec Site Connection details here."
 msgstr "Ovde možete izmeniti detalje veze IPSec Site."
 
-#: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:18
+#: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:6
 msgid "You may update VPN Service details here."
 msgstr "Ovde možete izmeniti detalje VPN servisa."
 
@@ -15761,6 +15828,10 @@ msgstr "Nova lozinka"
 msgid "Confirm new password"
 msgstr "Potvrdite novu lozinku"
 
+#: dashboards/settings/password/forms.py:65
+msgid "Password changed. Please log in again to continue."
+msgstr "Lozinka je promenjena. Molimo Vas, pristupite ponovo za nastavak."
+
 #: dashboards/settings/password/forms.py:70
 msgid "Unable to change password."
 msgstr "Nemoguće je promeniti lozinku."
@@ -15768,13 +15839,6 @@ msgstr "Nemoguće je promeniti lozinku."
 #: dashboards/settings/password/forms.py:73
 msgid "Changing password is not supported."
 msgstr "Nije podržana promena lozinke."
-
-#: dashboards/settings/password/panel.py:23
-#: dashboards/settings/password/views.py:26
-#: dashboards/settings/password/templates/password/_change.html:9
-#: dashboards/settings/password/templates/password/change.html:3
-msgid "Change Password"
-msgstr "Promena lozinke"
 
 #: dashboards/settings/password/templates/password/_change.html:19
 msgid "Change your password. We highly recommend you create a strong one. "

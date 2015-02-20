@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-18 23:28-0600\n"
-"PO-Revision-Date: 2015-02-19 05:42+0000\n"
+"POT-Creation-Date: 2015-02-19 23:00-0600\n"
+"PO-Revision-Date: 2015-02-20 02:54+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -365,15 +365,14 @@ msgstr "%(type)s (%(backend)s backend)"
 msgid "Identity service does not allow editing user data."
 msgstr "O serviço de identidade não permite a edição de dados do usuário."
 
-#: api/keystone.py:357
+#: api/keystone.py:356
 #, python-format
 msgid "User %s has no role defined for that project."
 msgstr "O usuário %s não possui um papel definido para o projeto."
 
-#: api/keystone.py:369 api/keystone.py:390
-#: dashboards/settings/password/forms.py:65
-msgid "Password changed. Please log in again to continue."
-msgstr "Senha Alterada. Por favor faça login novamente para continuar."
+#: api/keystone.py:383
+msgid "Identity service does not allow editing user password."
+msgstr ""
 
 #: api/lbaas.py:152
 #, python-format
@@ -434,7 +433,7 @@ msgstr "O parâmetro 'operação' para get_feature_permission '%(feature)s' é i
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr "Falha para checar a extensão Neutron '%s' não suportada"
 
-#: api/nova.py:102 api/nova.py:112 dashboards/project/databases/tables.py:246
+#: api/nova.py:110 api/nova.py:120 dashboards/project/databases/tables.py:246
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:8
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:11
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:8
@@ -466,42 +465,42 @@ msgstr "Falha para checar a extensão Neutron '%s' não suportada"
 msgid "-"
 msgstr "-"
 
-#: api/nova.py:220
+#: api/nova.py:228
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(group)s"
 msgstr "ALLOW %(from)s:%(to)s de %(group)s"
 
-#: api/nova.py:225
+#: api/nova.py:233
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
 msgstr "ALLOW %(from)s:%(to)s de %(cidr)s"
 
-#: api/nova.py:301
+#: api/nova.py:309
 msgid "Couldn't get security group list."
 msgstr "Não pôde obter lista de grupos de segurança."
 
-#: api/nova.py:308
+#: api/nova.py:316
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
 msgstr "Não foi possível buscar o a lista do grupo de segurança corrente para a instância %s."
 
-#: api/nova.py:325
+#: api/nova.py:333
 #, python-format
 msgid ""
 "Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
 msgstr "Falha ao modificar %(num_groups_to_modify)d instancias de grupos de segurança: %(err)s"
 
-#: api/nova.py:340
+#: api/nova.py:348
 #, python-format
 msgid "Failed to modify %d instance security groups"
 msgstr "Falha ao modificar %d instancias dos grupos de segurança"
 
-#: api/nova.py:771
+#: api/nova.py:784
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr "Nome: %(name)s ID: %(uuid)s"
 
-#: api/nova.py:776
+#: api/nova.py:789
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr "Falhou ao evacuar instâncias: %s"
@@ -563,8 +562,8 @@ msgstr "Admin"
 #: dashboards/project/data_processing/cluster_templates/tables.py:31
 #: dashboards/project/data_processing/cluster_templates/tables.py:116
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:6
-#: dashboards/project/data_processing/clusters/tables.py:34
-#: dashboards/project/data_processing/clusters/tables.py:116
+#: dashboards/project/data_processing/clusters/tables.py:35
+#: dashboards/project/data_processing/clusters/tables.py:140
 #: dashboards/project/data_processing/clusters/tabs.py:137
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:6
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:9
@@ -616,7 +615,7 @@ msgstr "Admin"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:9
 #: dashboards/project/networks/forms.py:35
 #: dashboards/project/networks/tables.py:162
-#: dashboards/project/networks/ports/forms.py:34
+#: dashboards/project/networks/ports/forms.py:36
 #: dashboards/project/networks/ports/tables.py:67
 #: dashboards/project/networks/subnets/tables.py:129
 #: dashboards/project/networks/templates/networks/_detail_overview.html:7
@@ -637,8 +636,8 @@ msgstr "Admin"
 #: dashboards/project/volumes/volumes/tables.py:410
 #: dashboards/project/vpn/forms.py:31 dashboards/project/vpn/forms.py:65
 #: dashboards/project/vpn/forms.py:137 dashboards/project/vpn/forms.py:208
-#: dashboards/project/vpn/tables.py:230 dashboards/project/vpn/tables.py:260
-#: dashboards/project/vpn/tables.py:280 dashboards/project/vpn/tables.py:298
+#: dashboards/project/vpn/tables.py:238 dashboards/project/vpn/tables.py:286
+#: dashboards/project/vpn/tables.py:306 dashboards/project/vpn/tables.py:324
 #: dashboards/project/vpn/workflows.py:25
 #: dashboards/project/vpn/workflows.py:110
 #: dashboards/project/vpn/workflows.py:209
@@ -904,6 +903,7 @@ msgstr "Adicionar/Remover Hosts do Agregado"
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:25
 #: dashboards/identity/domains/workflows.py:300
 #: dashboards/identity/projects/workflows.py:564
+#: dashboards/identity/users/views.py:209
 #: dashboards/project/instances/workflows/update_instance.py:133
 #: dashboards/project/networks/subnets/workflows.py:159
 #: dashboards/settings/user/templates/user/_settings.html:24
@@ -929,8 +929,8 @@ msgstr "Erro ao errar ou adicionar hosts."
 #: dashboards/admin/networks/templates/networks/_create.html:18
 #: dashboards/admin/networks/templates/networks/_update.html:5
 #: dashboards/admin/networks/templates/networks/agents/_add.html:5
-#: dashboards/admin/networks/templates/networks/ports/_create.html:18
-#: dashboards/admin/networks/templates/networks/ports/_update.html:22
+#: dashboards/admin/networks/templates/networks/ports/_create.html:5
+#: dashboards/admin/networks/templates/networks/ports/_update.html:5
 #: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:18
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:18
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:18
@@ -948,6 +948,7 @@ msgstr "Erro ao errar ou adicionar hosts."
 #: dashboards/identity/groups/templates/groups/_update.html:5
 #: dashboards/identity/roles/templates/roles/_create.html:5
 #: dashboards/identity/roles/templates/roles/_update.html:5
+#: dashboards/identity/users/templates/users/_change_password.html:5
 #: dashboards/identity/users/templates/users/_create.html:5
 #: dashboards/identity/users/templates/users/_update.html:5
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:18
@@ -971,13 +972,13 @@ msgstr "Erro ao errar ou adicionar hosts."
 #: dashboards/project/images/templates/images/snapshots/_create.html:18
 #: dashboards/project/instances/templates/instances/_decryptpassword.html:20
 #: dashboards/project/instances/templates/instances/_rebuild.html:18
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:17
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:17
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:17
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:17
+#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:5
+#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:5
+#: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:5
+#: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:5
 #: dashboards/project/networks/templates/networks/_create.html:17
 #: dashboards/project/networks/templates/networks/_update.html:5
-#: dashboards/project/networks/templates/networks/ports/_update.html:22
+#: dashboards/project/networks/templates/networks/ports/_update.html:5
 #: dashboards/project/routers/templates/routers/_update.html:5
 #: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:18
 #: dashboards/project/routers/templates/routers/ports/_create.html:18
@@ -995,10 +996,10 @@ msgstr "Erro ao errar ou adicionar hosts."
 #: dashboards/project/volumes/templates/volumes/volumes/_show_transfer.html:5
 #: dashboards/project/volumes/templates/volumes/volumes/_update.html:18
 #: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:18
-#: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:17
-#: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:17
-#: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:17
-#: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:17
+#: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:5
+#: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:5
+#: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:5
+#: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:5
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:5
 #: dashboards/router/nexus1000v/templates/nexus1000v/_update_network_profile.html:5
 #: dashboards/settings/password/templates/password/_change.html:18
@@ -1022,8 +1023,6 @@ msgstr "Agregados de Host dividem uma zona de disponibilidade em unidades lógic
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:80
 #: dashboards/admin/metering/templates/metering/_daily.html:25
 #: dashboards/admin/networks/templates/networks/_create.html:27
-#: dashboards/admin/networks/templates/networks/ports/_create.html:25
-#: dashboards/admin/networks/templates/networks/ports/_update.html:29
 #: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:29
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:35
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:37
@@ -1059,15 +1058,10 @@ msgstr "Agregados de Host dividem uma zona de disponibilidade em unidades lógic
 #: dashboards/project/images/templates/images/snapshots/_create.html:25
 #: dashboards/project/instances/templates/instances/_decryptpassword.html:34
 #: dashboards/project/instances/templates/instances/_rebuild.html:28
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:24
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:24
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:24
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:24
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:21
 #: dashboards/project/networks/templates/networks/_create.html:24
 #: dashboards/project/networks/templates/networks/create.html:9
 #: dashboards/project/networks/templates/networks/create.html:24
-#: dashboards/project/networks/templates/networks/ports/_update.html:29
 #: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:28
 #: dashboards/project/routers/templates/routers/ports/_create.html:30
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:25
@@ -1085,10 +1079,6 @@ msgstr "Agregados de Host dividem uma zona de disponibilidade em unidades lógic
 #: dashboards/project/volumes/templates/volumes/volumes/_retype.html:40
 #: dashboards/project/volumes/templates/volumes/volumes/_update.html:28
 #: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:41
-#: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:24
-#: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:24
-#: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:24
-#: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:24
 #: dashboards/settings/password/templates/password/_change.html:25
 #: dashboards/settings/user/templates/user/_settings.html:25
 msgid "Cancel"
@@ -1149,7 +1139,7 @@ msgstr "vCPUs"
 #: dashboards/project/databases/templates/databases/index.html:3
 #: dashboards/project/instances/panel.py:23
 #: dashboards/project/instances/tables.py:1021
-#: dashboards/project/instances/views.py:54
+#: dashboards/project/instances/views.py:55
 #: dashboards/project/instances/templates/instances/index.html:3
 #: dashboards/project/network_topology/instances/tables.py:23
 #: usage/quotas.py:64
@@ -1397,13 +1387,12 @@ msgstr "Disco de Swap"
 #: dashboards/admin/flavors/tables.py:136
 #: dashboards/admin/flavors/workflows.py:41
 #: dashboards/admin/networks/agents/tables.py:90
-#: dashboards/admin/networks/templates/networks/ports/_update.html:13
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:9
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:12
 #: dashboards/admin/volumes/volumes/forms.py:86
 #: dashboards/admin/volumes/volumes/forms.py:144
 #: dashboards/identity/roles/forms.py:37
-#: dashboards/identity/users/forms.py:163
+#: dashboards/identity/users/forms.py:171
 #: dashboards/identity/users/templates/users/_detail_overview.html:19
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:14
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:8
@@ -1432,9 +1421,9 @@ msgstr "Disco de Swap"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:6
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:6
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:6
+#: dashboards/project/networks/ports/forms.py:32
 #: dashboards/project/networks/templates/networks/_detail_overview.html:9
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:12
-#: dashboards/project/networks/templates/networks/ports/_update.html:13
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:12
 #: dashboards/project/routers/forms.py:89
 #: dashboards/project/routers/templates/routers/_detail_overview.html:11
@@ -1826,8 +1815,8 @@ msgstr "Zona"
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/admin/volumes/volumes/forms.py:183
 #: dashboards/project/access_and_security/floating_ips/tables.py:200
-#: dashboards/project/data_processing/clusters/tables.py:35
-#: dashboards/project/data_processing/clusters/tables.py:120
+#: dashboards/project/data_processing/clusters/tables.py:36
+#: dashboards/project/data_processing/clusters/tables.py:146
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:12
 #: dashboards/project/data_processing/job_executions/tables.py:40
 #: dashboards/project/data_processing/job_executions/tables.py:179
@@ -1868,7 +1857,7 @@ msgstr "Zona"
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:18
 #: dashboards/project/volumes/volumes/tables.py:390
-#: dashboards/project/vpn/tables.py:240 dashboards/project/vpn/tables.py:267
+#: dashboards/project/vpn/tables.py:247 dashboards/project/vpn/tables.py:292
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:71
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:38
 msgid "Status"
@@ -2066,7 +2055,7 @@ msgstr "Informação do Sistema"
 #: dashboards/identity/projects/workflows.py:150
 #: dashboards/identity/projects/workflows.py:523
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:13
-#: dashboards/identity/users/tables.py:223
+#: dashboards/identity/users/tables.py:236
 #: dashboards/identity/users/templates/users/_detail_overview.html:23
 #: dashboards/project/firewalls/forms.py:70
 #: dashboards/project/firewalls/tables.py:216
@@ -2292,12 +2281,12 @@ msgid "Unable to retrieve instance list."
 msgstr "Não foi possível recuperar a lista de instâncias."
 
 #: dashboards/admin/instances/views.py:111
-#: dashboards/project/instances/views.py:80
+#: dashboards/project/instances/views.py:81
 msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "Não foi possível obter um endereço IP do Neutron."
 
 #: dashboards/admin/instances/views.py:135
-#: dashboards/project/instances/views.py:121
+#: dashboards/project/instances/views.py:122
 msgid "Unable to retrieve instance size information."
 msgstr "Não é possível recuperar informações de tamanho instância."
 
@@ -2314,8 +2303,8 @@ msgstr "Não é possível recuperar informações do host."
 #: dashboards/admin/instances/views.py:179
 #: dashboards/project/databases/views.py:153
 #: dashboards/project/databases/views.py:193
-#: dashboards/project/instances/views.py:212
-#: dashboards/project/instances/views.py:354
+#: dashboards/project/instances/views.py:242
+#: dashboards/project/instances/views.py:384
 msgid "Unable to retrieve instance details."
 msgstr "Não foi possível recuperar os detalhes da instância."
 
@@ -2499,7 +2488,7 @@ msgstr ""
 #: dashboards/project/volumes/volumes/tables.py:384
 #: dashboards/project/vpn/forms.py:36 dashboards/project/vpn/forms.py:70
 #: dashboards/project/vpn/forms.py:142 dashboards/project/vpn/forms.py:213
-#: dashboards/project/vpn/tables.py:262 dashboards/project/vpn/workflows.py:28
+#: dashboards/project/vpn/tables.py:288 dashboards/project/vpn/workflows.py:28
 #: dashboards/project/vpn/workflows.py:113
 #: dashboards/project/vpn/workflows.py:212
 #: dashboards/project/vpn/workflows.py:309
@@ -3082,7 +3071,7 @@ msgstr "ID de Segmentação"
 #: dashboards/project/loadbalancers/workflows.py:548
 #: dashboards/project/networks/forms.py:37
 #: dashboards/project/networks/workflows.py:47
-#: dashboards/project/networks/ports/forms.py:36
+#: dashboards/project/networks/ports/forms.py:38
 #: dashboards/project/routers/forms.py:86 dashboards/project/vpn/forms.py:37
 #: dashboards/project/vpn/forms.py:261 dashboards/project/vpn/workflows.py:31
 #: dashboards/project/vpn/workflows.py:417
@@ -3104,7 +3093,7 @@ msgstr ""
 #: dashboards/project/loadbalancers/workflows.py:549
 #: dashboards/project/networks/forms.py:38
 #: dashboards/project/networks/workflows.py:48
-#: dashboards/project/networks/ports/forms.py:37
+#: dashboards/project/networks/ports/forms.py:39
 #: dashboards/project/routers/forms.py:87 dashboards/project/vpn/forms.py:38
 #: dashboards/project/vpn/forms.py:262 dashboards/project/vpn/workflows.py:32
 #: dashboards/project/vpn/workflows.py:418
@@ -3132,7 +3121,7 @@ msgstr ""
 #: dashboards/project/networks/forms.py:39
 #: dashboards/project/networks/tables.py:171
 #: dashboards/project/networks/workflows.py:49
-#: dashboards/project/networks/ports/forms.py:38
+#: dashboards/project/networks/ports/forms.py:40
 #: dashboards/project/networks/ports/tables.py:75
 #: dashboards/project/networks/templates/networks/_detail_overview.html:15
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:34
@@ -3172,7 +3161,7 @@ msgstr "Compartilhado"
 msgid "External Network"
 msgstr "Rede Externa"
 
-#: dashboards/admin/networks/forms.py:91 dashboards/identity/users/forms.py:58
+#: dashboards/admin/networks/forms.py:91 dashboards/identity/users/forms.py:79
 #: dashboards/router/nexus1000v/forms.py:29
 msgid "Select a project"
 msgstr "Selecionar um projeto"
@@ -3404,7 +3393,7 @@ msgid "Add DHCP Agent"
 msgstr "Adicionar agende DHCP"
 
 #: dashboards/admin/networks/agents/views.py:62
-#: dashboards/admin/networks/ports/views.py:48
+#: dashboards/admin/networks/ports/views.py:52
 #: dashboards/project/networks/subnets/views.py:48
 msgid "Unable to retrieve network."
 msgstr "Não é possível recuperar redes."
@@ -3458,13 +3447,13 @@ msgid "Failed to create a port for network %s"
 msgstr "Falha ao criar uma porta para a rede %s"
 
 #: dashboards/admin/networks/ports/forms.py:110
-#: dashboards/project/networks/ports/forms.py:58
+#: dashboards/project/networks/ports/forms.py:60
 #, python-format
 msgid "Port %s was successfully updated."
 msgstr "Porta %s atualizada com sucesso."
 
 #: dashboards/admin/networks/ports/forms.py:115
-#: dashboards/project/networks/ports/forms.py:63
+#: dashboards/project/networks/ports/forms.py:65
 #, python-format
 msgid "Failed to update port %s"
 msgstr "Falha ao atualizar porta %s"
@@ -3487,17 +3476,16 @@ msgid "Failed to delete port: %s"
 msgstr "Falha ao excluir porta %s"
 
 #: dashboards/admin/networks/ports/tables.py:65
-#: dashboards/admin/networks/templates/networks/ports/_create.html:9
-#: dashboards/admin/networks/templates/networks/ports/_create.html:24
+#: dashboards/admin/networks/ports/views.py:33
+#: dashboards/admin/networks/ports/views.py:35
 #: dashboards/admin/networks/templates/networks/ports/create.html:3
 #: dashboards/admin/networks/templates/networks/ports/create.html:6
 msgid "Create Port"
 msgstr "Criar Porta"
 
 #: dashboards/admin/networks/ports/tables.py:78
-#: dashboards/admin/networks/templates/networks/ports/_update.html:8
 #: dashboards/project/networks/ports/tables.py:43
-#: dashboards/project/networks/templates/networks/ports/_update.html:8
+#: dashboards/project/networks/ports/views.py:85
 msgid "Edit Port"
 msgstr "Editar Porta"
 
@@ -3506,7 +3494,7 @@ msgid "Device Attached"
 msgstr "Dispositivo anexado"
 
 #: dashboards/admin/networks/ports/tables.py:105
-#: dashboards/project/networks/ports/forms.py:45
+#: dashboards/project/networks/ports/forms.py:47
 msgid "Mac Learning State"
 msgstr "Estado de aprendizado Mac"
 
@@ -3640,41 +3628,20 @@ msgstr "Atualizar Rede"
 msgid "From here you can add a DHCP agent for the network."
 msgstr "Por aqui Você pode adicionar um agente DHCP para a rede."
 
-#: dashboards/admin/networks/templates/networks/ports/_create.html:19
+#: dashboards/admin/networks/templates/networks/ports/_create.html:6
 msgid ""
 "You can create a port for the network. If you specify device ID to be "
 "attached, the device specified will be attached to the port created."
 msgstr "Você pode criar uma porta para a rede. Se você especificar ID do dispositivo a ser conectado, o dispositivo especificado será conectado à porta criado."
 
-#: dashboards/admin/networks/templates/networks/ports/_update.html:23
-#: dashboards/project/networks/templates/networks/ports/_update.html:23
+#: dashboards/admin/networks/templates/networks/ports/_update.html:6
+#: dashboards/project/networks/templates/networks/ports/_update.html:6
 msgid "You may update the editable properties of your port here."
 msgstr "Você pode atualizar as propriedades editáveis da sua porta aqui."
 
-#: dashboards/admin/networks/templates/networks/ports/_update.html:28
-#: dashboards/project/firewalls/views.py:131
-#: dashboards/project/firewalls/views.py:172
-#: dashboards/project/firewalls/views.py:210
-#: dashboards/project/firewalls/views.py:250
-#: dashboards/project/firewalls/views.py:289
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:23
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:23
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:23
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:23
-#: dashboards/project/networks/views.py:69
-#: dashboards/project/networks/templates/networks/ports/_update.html:28
-#: dashboards/project/routers/views.py:167
-#: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:23
-#: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:23
-#: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:23
-#: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:23
-#: dashboards/router/nexus1000v/views.py:121
-msgid "Save Changes"
-msgstr "Salvar Alterações"
-
 #: dashboards/admin/networks/templates/networks/ports/update.html:3
 #: dashboards/admin/networks/templates/networks/ports/update.html:6
-#: dashboards/project/networks/ports/views.py:87
+#: dashboards/project/networks/ports/views.py:91
 #: dashboards/project/networks/templates/networks/ports/update.html:3
 msgid "Update Port"
 msgstr "Atualizar Porta"
@@ -4845,8 +4812,8 @@ msgstr "Contexto de Domínio limpo."
 
 #: dashboards/identity/domains/tables.py:201
 #: dashboards/identity/projects/workflows.py:138
-#: dashboards/identity/users/forms.py:75
-#: dashboards/identity/users/forms.py:157
+#: dashboards/identity/users/forms.py:88
+#: dashboards/identity/users/forms.py:165
 #: dashboards/identity/users/templates/users/_detail_overview.html:10
 msgid "Domain ID"
 msgstr "ID do Domínio"
@@ -5069,9 +5036,10 @@ msgid "Add Users"
 msgstr "Adicionar Usuários"
 
 #: dashboards/identity/groups/tables.py:190
-#: dashboards/identity/users/forms.py:81
-#: dashboards/identity/users/forms.py:164
-#: dashboards/identity/users/tables.py:208
+#: dashboards/identity/users/forms.py:94
+#: dashboards/identity/users/forms.py:172
+#: dashboards/identity/users/forms.py:219
+#: dashboards/identity/users/tables.py:221
 #: dashboards/identity/users/templates/users/_detail_overview.html:17
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:14
 #: dashboards/project/data_processing/data_image_registry/forms.py:28
@@ -5080,19 +5048,23 @@ msgid "User Name"
 msgstr "Nome do Usuário"
 
 #: dashboards/identity/groups/tables.py:191
-#: dashboards/identity/users/forms.py:83
-#: dashboards/identity/users/forms.py:166
-#: dashboards/identity/users/tables.py:211
+#: dashboards/identity/users/forms.py:96
+#: dashboards/identity/users/forms.py:174
+#: dashboards/identity/users/tables.py:224
 #: dashboards/identity/users/templates/users/_detail_overview.html:21
 msgid "Email"
 msgstr "Email"
 
 #: dashboards/identity/groups/tables.py:194
-#: dashboards/identity/users/tables.py:222
+#: dashboards/identity/users/tables.py:235
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:24
 #: dashboards/project/instances/audit_tables.py:28
 msgid "User ID"
 msgstr "ID de Usuário"
+
+#: dashboards/identity/groups/tables.py:198
+msgid "False"
+msgstr ""
 
 #: dashboards/identity/groups/tables.py:204
 msgid "Group Members"
@@ -5213,7 +5185,7 @@ msgstr[0] "Projeto Excluído"
 msgstr[1] "Projetos Excluídos"
 
 #: dashboards/identity/projects/tables.py:217
-#: dashboards/identity/users/tables.py:192
+#: dashboards/identity/users/tables.py:205
 msgid "This name is already taken."
 msgstr "Este nome já foi definido."
 
@@ -5236,8 +5208,8 @@ msgid "Unable to retrieve default Neutron quota values."
 msgstr "Não foi possivel obter os valores de cota padrão do Neutron."
 
 #: dashboards/identity/projects/views.py:192
-#: dashboards/identity/users/views.py:118
-#: dashboards/identity/users/views.py:180
+#: dashboards/identity/users/views.py:116
+#: dashboards/identity/users/views.py:178
 msgid "Unable to retrieve project domain."
 msgstr "Não foi possível obter domínios do projeto."
 
@@ -5276,8 +5248,8 @@ msgid "Set maximum quotas for the project."
 msgstr "Defina o valor máximo para as cotas do projeto."
 
 #: dashboards/identity/projects/workflows.py:141
-#: dashboards/identity/users/forms.py:78
-#: dashboards/identity/users/forms.py:160
+#: dashboards/identity/users/forms.py:91
+#: dashboards/identity/users/forms.py:168
 #: dashboards/identity/users/templates/users/_detail_overview.html:14
 msgid "Domain Name"
 msgstr "Nome do Domínio"
@@ -5469,19 +5441,7 @@ msgstr "Criar uma nova regra"
 msgid "Edit the role's details."
 msgstr "Editar detalhes de regras"
 
-#: dashboards/identity/users/forms.py:56
-msgid "No available projects"
-msgstr "Nenhum projeto disponível"
-
-#: dashboards/identity/users/forms.py:66
-#: dashboards/project/instances/forms.py:92
-#: dashboards/project/instances/workflows/create_instance.py:595
-#: dashboards/settings/password/forms.py:50
-msgid "Passwords do not match."
-msgstr "As senhas não conferem."
-
-#: dashboards/identity/users/forms.py:86
-#: dashboards/identity/users/forms.py:169
+#: dashboards/identity/users/forms.py:41
 #: dashboards/project/data_processing/job_binaries/forms.py:121
 #: dashboards/project/data_processing/job_binaries/forms.py:128
 #: dashboards/project/databases/workflows/create_instance.py:196
@@ -5489,49 +5449,71 @@ msgstr "As senhas não conferem."
 msgid "Password"
 msgstr "Senha"
 
-#: dashboards/identity/users/forms.py:91
-#: dashboards/identity/users/forms.py:175
+#: dashboards/identity/users/forms.py:46
 msgid "Confirm Password"
 msgstr "Confirmar Senha"
 
-#: dashboards/identity/users/forms.py:93
-#: dashboards/identity/users/forms.py:178
+#: dashboards/identity/users/forms.py:55
+#: dashboards/project/instances/forms.py:92
+#: dashboards/project/instances/workflows/create_instance.py:595
+#: dashboards/settings/password/forms.py:50
+msgid "Passwords do not match."
+msgstr "As senhas não conferem."
+
+#: dashboards/identity/users/forms.py:77
+msgid "No available projects"
+msgstr "Nenhum projeto disponível"
+
+#: dashboards/identity/users/forms.py:98
+#: dashboards/identity/users/forms.py:176
 msgid "Primary Project"
 msgstr "Projeto Primário"
 
-#: dashboards/identity/users/forms.py:96
+#: dashboards/identity/users/forms.py:101
 msgid "Role"
 msgstr "Papel"
 
-#: dashboards/identity/users/forms.py:129
+#: dashboards/identity/users/forms.py:137
 #, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "Usuário \"%s\" criado com sucesso."
 
-#: dashboards/identity/users/forms.py:145
+#: dashboards/identity/users/forms.py:153
 msgid "Unable to add user to primary project."
 msgstr "Não é possível adicionar usuário ao projeto primário."
 
-#: dashboards/identity/users/forms.py:149
-#: dashboards/identity/users/forms.py:212
+#: dashboards/identity/users/forms.py:157
+#: dashboards/identity/users/forms.py:203
 #, python-format
 msgid "User name \"%s\" is already used."
 msgstr "Nome de usuário \"%s\" já está sendo usado."
 
-#: dashboards/identity/users/forms.py:152
+#: dashboards/identity/users/forms.py:160
 msgid "Unable to create user."
 msgstr "Não é possível criar usuário."
 
-#: dashboards/identity/users/forms.py:210
+#: dashboards/identity/users/forms.py:201
 msgid "User has been updated successfully."
 msgstr "O usuário foi atualizado com sucesso."
 
-#: dashboards/identity/users/forms.py:217
+#: dashboards/identity/users/forms.py:208
 msgid "Unable to update the user."
 msgstr "Não é possível atualizar o usuário."
 
+#: dashboards/identity/users/forms.py:243
+msgid "Password changed. Please log in to continue."
+msgstr ""
+
+#: dashboards/identity/users/forms.py:246
+msgid "User password has been updated successfully."
+msgstr ""
+
+#: dashboards/identity/users/forms.py:249
+msgid "Unable to update the user password."
+msgstr ""
+
 #: dashboards/identity/users/panel.py:27
-#: dashboards/identity/users/tables.py:230
+#: dashboards/identity/users/tables.py:243
 #: dashboards/identity/users/views.py:46
 #: dashboards/identity/users/templates/users/index.html:3
 #: dashboards/project/databases/tables.py:325
@@ -5540,56 +5522,68 @@ msgid "Users"
 msgstr "Usuários"
 
 #: dashboards/identity/users/tables.py:31
-#: dashboards/identity/users/views.py:129
-#: dashboards/identity/users/views.py:132
-#: dashboards/identity/users/views.py:135
+#: dashboards/identity/users/views.py:127
+#: dashboards/identity/users/views.py:130
+#: dashboards/identity/users/views.py:133
 #: dashboards/identity/users/templates/users/create.html:3
 msgid "Create User"
 msgstr "Criar Usuário"
 
-#: dashboards/identity/users/tables.py:65
+#: dashboards/identity/users/tables.py:60
+#: dashboards/identity/users/views.py:205
+#: dashboards/identity/users/views.py:211
+#: dashboards/identity/users/templates/users/change_password.html:3
+#: dashboards/settings/password/panel.py:23
+#: dashboards/settings/password/views.py:26
+#: dashboards/settings/password/templates/password/_change.html:9
+#: dashboards/settings/password/templates/password/change.html:3
+msgid "Change Password"
+msgstr "Alterar Senha"
+
+#: dashboards/identity/users/tables.py:78
 msgid "Enable User"
 msgid_plural "Enable Users"
 msgstr[0] "Habilitar Usuário"
 msgstr[1] "Habilitar Usuários"
 
-#: dashboards/identity/users/tables.py:70
+#: dashboards/identity/users/tables.py:83
 msgid "Disable User"
 msgid_plural "Disable Users"
 msgstr[0] "Desabilitar Usuário"
 msgstr[1] "Desabilitar Usuários"
 
-#: dashboards/identity/users/tables.py:80
+#: dashboards/identity/users/tables.py:93
 msgid "Enabled User"
 msgid_plural "Enabled Users"
 msgstr[0] "Usuário Habilitado"
 msgstr[1] "Usuários Habilitados"
 
-#: dashboards/identity/users/tables.py:85
+#: dashboards/identity/users/tables.py:98
 msgid "Disabled User"
 msgid_plural "Disabled Users"
 msgstr[0] "Usuário Desabilitado"
 msgstr[1] "Usuários Desabilitados"
 
-#: dashboards/identity/users/tables.py:115
+#: dashboards/identity/users/tables.py:128
 msgid "You cannot disable the user you are currently logged in as."
 msgstr "Você não pode desabilitar o usuário que você está logado no momento."
 
-#: dashboards/identity/users/tables.py:130
+#: dashboards/identity/users/tables.py:143
 #: dashboards/project/databases/tables.py:91
 msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] "Excluir Usuário"
 msgstr[1] "Excluir Usuários"
 
-#: dashboards/identity/users/tables.py:138
+#: dashboards/identity/users/tables.py:151
 #: dashboards/project/databases/tables.py:99
 msgid "Deleted User"
 msgid_plural "Deleted Users"
 msgstr[0] "Usuário Excluído"
 msgstr[1] "Usuários Excluídos"
 
-#: dashboards/identity/users/views.py:67
+#: dashboards/identity/users/views.py:67 dashboards/identity/users/views.py:95
+#: dashboards/identity/users/views.py:226
 msgid "Unable to retrieve user information."
 msgstr "Não é possível recuperar as informações do usuário"
 
@@ -5603,20 +5597,20 @@ msgstr "Nível de privilégios insuficientes para visualizar informações de us
 msgid "Update User"
 msgstr "Atualizar Usuário"
 
-#: dashboards/identity/users/views.py:97
-msgid "Unable to update user."
-msgstr "Não foi possível atualizar o usuário."
-
-#: dashboards/identity/users/views.py:149
+#: dashboards/identity/users/views.py:147
 msgid "Unable to retrieve user roles."
 msgstr "Não é possível recuperar os papéis do usuário."
 
-#: dashboards/identity/users/views.py:166
+#: dashboards/identity/users/views.py:164
 msgid "User Details: {{ user.name }}"
 msgstr ""
 
-#: dashboards/identity/users/views.py:197
+#: dashboards/identity/users/views.py:195
 msgid "Unable to retrieve user details."
+msgstr ""
+
+#: dashboards/identity/users/templates/users/_change_password.html:6
+msgid "Change user's password. We highly recommend you create a strong one."
 msgstr ""
 
 #: dashboards/identity/users/templates/users/_create.html:6
@@ -6901,7 +6895,7 @@ msgid "Upload Template"
 msgstr "Upload de modelo"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:47
-#: dashboards/project/data_processing/clusters/tables.py:40
+#: dashboards/project/data_processing/clusters/tables.py:41
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_create_cluster.html:10
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/configure.html:3
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/configure.html:6
@@ -7192,51 +7186,41 @@ msgid "Cluster template creation failed"
 msgstr "Falha na criação de modelo de cluster"
 
 #: dashboards/project/data_processing/clusters/panel.py:22
-#: dashboards/project/data_processing/clusters/tables.py:129
+#: dashboards/project/data_processing/clusters/tables.py:155
 msgid "Clusters"
 msgstr "Clusters"
 
-#: dashboards/project/data_processing/clusters/tables.py:48
+#: dashboards/project/data_processing/clusters/tables.py:49
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/scale.html:3
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/scale.html:6
 #: dashboards/project/data_processing/clusters/workflows/scale.py:42
 msgid "Scale Cluster"
 msgstr "Escalar Cluster"
 
-#: dashboards/project/data_processing/clusters/tables.py:60
+#: dashboards/project/data_processing/clusters/tables.py:61
 msgid "Delete Cluster"
 msgid_plural "Delete Clusters"
 msgstr[0] "Excluir Cluster"
 msgstr[1] "Excluir Clusters"
 
-#: dashboards/project/data_processing/clusters/tables.py:68
+#: dashboards/project/data_processing/clusters/tables.py:69
 msgid "Deleted Cluster"
 msgid_plural "Deleted Clusters"
 msgstr[0] "Cluster Excluído"
 msgstr[1] "Clusters Excluídos"
 
-#: dashboards/project/data_processing/clusters/tables.py:88
+#: dashboards/project/data_processing/clusters/tables.py:89
 #: dashboards/project/data_processing/job_executions/tables.py:126
 msgid "Unable to update row"
 msgstr "Não foi possível atualizar a linha"
 
-#: dashboards/project/data_processing/clusters/tables.py:98
+#: dashboards/project/data_processing/clusters/tables.py:130
 #: dashboards/project/data_processing/clusters/workflows/create.py:189
 #: dashboards/project/data_processing/jobs/workflows/launch.py:312
 msgid "Configure Cluster"
 msgstr "Configurar Cluster"
 
-#: dashboards/project/data_processing/clusters/tables.py:111
-msgctxt "Current status of a Cluster"
-msgid "Active"
-msgstr "Ativo"
-
-#: dashboards/project/data_processing/clusters/tables.py:112
-msgctxt "Current status of a Cluster"
-msgid "Error"
-msgstr "Erro"
-
-#: dashboards/project/data_processing/clusters/tables.py:125
+#: dashboards/project/data_processing/clusters/tables.py:151
 msgid "Instances Count"
 msgstr "Contagem de instâncias "
 
@@ -8580,7 +8564,7 @@ msgstr[1] "Backups Excluídos"
 #: dashboards/project/databases/tables.py:238
 #: dashboards/project/instances/tables.py:821
 #: dashboards/project/instances/tables.py:828
-#: dashboards/project/instances/views.py:368
+#: dashboards/project/instances/views.py:398
 #: dashboards/project/instances/templates/instances/_detail_overview.html:64
 #: dashboards/project/instances/templates/instances/_detail_overview.html:100
 msgid "Not available"
@@ -8974,7 +8958,7 @@ msgid "Launch Database"
 msgstr "Disparar Base de Dados"
 
 #: dashboards/project/databases/views.py:101
-#: dashboards/project/instances/views.py:259
+#: dashboards/project/instances/views.py:289
 msgid "Instance Details: {{ instance.name }}"
 msgstr ""
 
@@ -8998,7 +8982,7 @@ msgid "Resize Database Instance"
 msgstr ""
 
 #: dashboards/project/databases/views.py:209
-#: dashboards/project/instances/views.py:379
+#: dashboards/project/instances/views.py:409
 msgid "Unable to retrieve flavors."
 msgstr "Não foi possível recuperar flavors."
 
@@ -9620,6 +9604,24 @@ msgstr "Adicionar Nova Política"
 msgid "Add New Firewall"
 msgstr "Adicionar Novo Firewall"
 
+#: dashboards/project/firewalls/views.py:131
+#: dashboards/project/firewalls/views.py:172
+#: dashboards/project/firewalls/views.py:210
+#: dashboards/project/firewalls/views.py:250
+#: dashboards/project/firewalls/views.py:289
+#: dashboards/project/loadbalancers/views.py:234
+#: dashboards/project/loadbalancers/views.py:271
+#: dashboards/project/loadbalancers/views.py:322
+#: dashboards/project/loadbalancers/views.py:358
+#: dashboards/project/networks/views.py:69
+#: dashboards/project/networks/ports/views.py:88
+#: dashboards/project/routers/views.py:167 dashboards/project/vpn/views.py:274
+#: dashboards/project/vpn/views.py:310 dashboards/project/vpn/views.py:353
+#: dashboards/project/vpn/views.py:395
+#: dashboards/router/nexus1000v/views.py:121
+msgid "Save Changes"
+msgstr "Salvar Alterações"
+
 #: dashboards/project/firewalls/views.py:134
 msgid "Edit Rule {{ name }}"
 msgstr ""
@@ -10093,12 +10095,12 @@ msgstr "Mensagem"
 msgid "Instance Action List"
 msgstr "Lista de Ações Instância"
 
-#: dashboards/project/instances/console.py:41
+#: dashboards/project/instances/console.py:42
 #, python-format
 msgid "Console type \"%s\" not supported."
 msgstr "Tipo Console \"%s\" não é suportado."
 
-#: dashboards/project/instances/console.py:67
+#: dashboards/project/instances/console.py:72
 msgid "No available console found."
 msgstr "Nenhum console disponível encontrado"
 
@@ -10257,7 +10259,7 @@ msgid "Revert Resize/Migrate"
 msgstr "Reverter Redimensionamento/Migração"
 
 #: dashboards/project/instances/tables.py:485
-#: dashboards/project/instances/views.py:226
+#: dashboards/project/instances/views.py:256
 #: dashboards/project/instances/templates/instances/_rebuild.html:9
 #: dashboards/project/instances/templates/instances/_rebuild.html:27
 #: dashboards/project/instances/templates/instances/rebuild.html:3
@@ -10312,7 +10314,7 @@ msgid "Failed to launch instance \"%s\""
 msgstr "Falha ao Iniciar a instância \"%s\""
 
 #: dashboards/project/instances/tables.py:650
-#: dashboards/project/instances/views.py:365
+#: dashboards/project/instances/views.py:395
 #, python-format
 msgid "Unable to retrieve flavor information for instance \"%s\"."
 msgstr "Não foi possível obter informação de flavor para instância \"%s\"."
@@ -10739,16 +10741,16 @@ msgid "Log"
 msgstr "Log"
 
 #: dashboards/project/instances/tabs.py:53
-#: dashboards/project/instances/views.py:147
+#: dashboards/project/instances/views.py:148
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr "Não foi possível obter o log da instância \"%s\"."
 
-#: dashboards/project/instances/tabs.py:85
+#: dashboards/project/instances/tabs.py:90
 msgid "Action Log"
 msgstr "Log da Ação"
 
-#: dashboards/project/instances/tabs.py:98
+#: dashboards/project/instances/tabs.py:103
 msgid "Unable to retrieve instance action list."
 msgstr "Não é possível recuperar lista de ações da instância."
 
@@ -10764,55 +10766,65 @@ msgstr "Não foi possível ordenar Flavors da instância."
 msgid "Unable to retrieve Nova availability zones."
 msgstr "Não foi possível obter zonas de disponibilidade Nova."
 
-#: dashboards/project/instances/views.py:72
+#: dashboards/project/instances/views.py:73
 msgid "Unable to retrieve instances."
 msgstr "Não foi possível recuperar instâncias."
 
-#: dashboards/project/instances/views.py:150
+#: dashboards/project/instances/views.py:151
 msgid "Log length must be a nonnegative integer."
 msgstr ""
 
-#: dashboards/project/instances/views.py:169
+#: dashboards/project/instances/views.py:170
 #, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr "Não foi possível acessar o console VNC da instância \"%s\"."
 
-#: dashboards/project/instances/views.py:181
+#: dashboards/project/instances/views.py:182
 #, python-format
 msgid "Unable to get SPICE console for instance \"%s\"."
 msgstr "Não foi possível obter o console SPICE para a instância \"%s\"."
 
-#: dashboards/project/instances/views.py:192
+#: dashboards/project/instances/views.py:193
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "Não foi possível obter console RDP para a instância \"%s\"."
 
-#: dashboards/project/instances/views.py:242
+#: dashboards/project/instances/views.py:209
+#, python-format
+msgid "Cannot find instance %s."
+msgstr ""
+
+#: dashboards/project/instances/views.py:221
+#, python-format
+msgid "Cannot get console for instance %s."
+msgstr ""
+
+#: dashboards/project/instances/views.py:272
 #: dashboards/project/instances/templates/instances/_decryptpassword.html:10
 msgid "Retrieve Instance Password"
 msgstr "Recuperar Senha da Instância"
 
-#: dashboards/project/instances/views.py:279
+#: dashboards/project/instances/views.py:309
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "Não foi possível recuperar os detalhes da instância \"%s\"."
 
-#: dashboards/project/instances/views.py:300
+#: dashboards/project/instances/views.py:330
 #, python-format
 msgid "Unable to retrieve volume list for instance \"%(name)s\" (%(id)s)."
 msgstr "Não foi possível obter lista de volumes para instância \"%(name)s\" (%(id)s)."
 
-#: dashboards/project/instances/views.py:309
+#: dashboards/project/instances/views.py:339
 #, python-format
 msgid "Unable to retrieve flavor information for instance \"%(name)s\" (%(id)s)."
 msgstr "Não foi possível obter informação de flavor para instância \"%(name)s\" (%(id)s)."
 
-#: dashboards/project/instances/views.py:318
+#: dashboards/project/instances/views.py:348
 #, python-format
 msgid "Unable to retrieve security groups for instance \"%(name)s\" (%(id)s)."
 msgstr "Não foi possível obter grupos de segurança para instância \"%(name)s\" (%(id)s)."
 
-#: dashboards/project/instances/views.py:326
+#: dashboards/project/instances/views.py:356
 #, python-format
 msgid ""
 "Unable to retrieve IP addresses from Neutron for instance \"%(name)s\" "
@@ -10845,25 +10857,25 @@ msgstr "Descriptografar Senha"
 msgid "Instance Console"
 msgstr "Console de instância"
 
-#: dashboards/project/instances/templates/instances/_detail_console.html:6
+#: dashboards/project/instances/templates/instances/_detail_console.html:8
 msgid ""
 "If console is not responding to keyboard input: click the grey status bar "
 "below."
 msgstr "Se o console não está respondendo à entradado teclado: clique na barra de status cinza abaixo."
 
-#: dashboards/project/instances/templates/instances/_detail_console.html:6
+#: dashboards/project/instances/templates/instances/_detail_console.html:10
 msgid "Click here to show only console"
 msgstr "Clique aqui para mostrar somente o console"
 
-#: dashboards/project/instances/templates/instances/_detail_console.html:7
+#: dashboards/project/instances/templates/instances/_detail_console.html:11
 msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr "Para sair do modo tela cheia, clique no botão de voltar do navegador."
 
-#: dashboards/project/instances/templates/instances/_detail_console.html:21
+#: dashboards/project/instances/templates/instances/_detail_console.html:25
 msgid "console is currently unavailable. Please try again later."
 msgstr "console não está disponível. Por favor tente mais tarde."
 
-#: dashboards/project/instances/templates/instances/_detail_console.html:22
+#: dashboards/project/instances/templates/instances/_detail_console.html:26
 msgid "Reload"
 msgstr "Recarregar"
 
@@ -11657,29 +11669,29 @@ msgstr[0] "Exclusão agendada de Membro"
 msgstr[1] "Exclusão agendada de Membros"
 
 #: dashboards/project/loadbalancers/tables.py:171
-#: dashboards/project/loadbalancers/views.py:232
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:8
+#: dashboards/project/loadbalancers/views.py:231
+#: dashboards/project/loadbalancers/views.py:237
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatepool.html:3
 msgid "Edit Pool"
 msgstr "Editar Pool"
 
 #: dashboards/project/loadbalancers/tables.py:183
-#: dashboards/project/loadbalancers/views.py:263
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:8
+#: dashboards/project/loadbalancers/views.py:268
+#: dashboards/project/loadbalancers/views.py:274
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatevip.html:3
 msgid "Edit VIP"
 msgstr "Editar vIP"
 
 #: dashboards/project/loadbalancers/tables.py:200
-#: dashboards/project/loadbalancers/views.py:308
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:8
+#: dashboards/project/loadbalancers/views.py:319
+#: dashboards/project/loadbalancers/views.py:325
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatemember.html:3
 msgid "Edit Member"
 msgstr "Editar Membro"
 
 #: dashboards/project/loadbalancers/tables.py:212
-#: dashboards/project/loadbalancers/views.py:338
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:8
+#: dashboards/project/loadbalancers/views.py:355
+#: dashboards/project/loadbalancers/views.py:361
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatemonitor.html:3
 msgid "Edit Monitor"
 msgstr "Editar Monitor"
@@ -11707,7 +11719,7 @@ msgstr "Desassociar Monitor"
 #: dashboards/project/networks/subnets/workflows.py:116
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:7
 #: dashboards/project/routers/ports/forms.py:29
-#: dashboards/project/vpn/tables.py:263 dashboards/project/vpn/workflows.py:30
+#: dashboards/project/vpn/tables.py:289 dashboards/project/vpn/workflows.py:30
 msgid "Subnet"
 msgstr "Sub-rede"
 
@@ -11790,95 +11802,95 @@ msgstr "%(type)s: url:%(url_path)s method:%(http_method)s codes:%(expected_codes
 msgid "%(type)s delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
 msgstr "%(type)s delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
 
-#: dashboards/project/loadbalancers/views.py:42
+#: dashboards/project/loadbalancers/views.py:43
 #: dashboards/project/loadbalancers/templates/loadbalancers/details_tabs.html:3
 msgid "Load Balancer"
 msgstr "Balanceador de Carga"
 
-#: dashboards/project/loadbalancers/views.py:54
+#: dashboards/project/loadbalancers/views.py:55
 #, python-format
 msgid "Deleted monitor %s"
 msgstr "Excluído monitor %s"
 
-#: dashboards/project/loadbalancers/views.py:57
+#: dashboards/project/loadbalancers/views.py:58
 #, python-format
 msgid "Unable to delete monitor. %s"
 msgstr "Não foi possível excluir o monitor. %s"
 
-#: dashboards/project/loadbalancers/views.py:62
+#: dashboards/project/loadbalancers/views.py:63
 #, python-format
 msgid "Deleted pool %s"
 msgstr "Excluído pool %s"
 
-#: dashboards/project/loadbalancers/views.py:65
+#: dashboards/project/loadbalancers/views.py:66
 #, python-format
 msgid "Unable to delete pool. %s"
 msgstr "Não foi possível remover pool. %s"
 
-#: dashboards/project/loadbalancers/views.py:70
+#: dashboards/project/loadbalancers/views.py:71
 #, python-format
 msgid "Deleted member %s"
 msgstr "Excluído membro %s"
 
-#: dashboards/project/loadbalancers/views.py:73
+#: dashboards/project/loadbalancers/views.py:74
 #, python-format
 msgid "Unable to delete member. %s"
 msgstr "Não foi possível excluir membro. %s"
 
-#: dashboards/project/loadbalancers/views.py:80
+#: dashboards/project/loadbalancers/views.py:81
 #, python-format
 msgid "Unable to locate VIP to delete. %s"
 msgstr "Não foi possível localizar vIP para excluir. %s"
 
-#: dashboards/project/loadbalancers/views.py:85
+#: dashboards/project/loadbalancers/views.py:86
 #, python-format
 msgid "Deleted VIP %s"
 msgstr "Excluído vIP %s"
 
-#: dashboards/project/loadbalancers/views.py:88
+#: dashboards/project/loadbalancers/views.py:89
 #, python-format
 msgid "Unable to delete VIP. %s"
 msgstr "Não é possível excluir vIP. %s"
 
-#: dashboards/project/loadbalancers/views.py:108
+#: dashboards/project/loadbalancers/views.py:109
 #, python-format
 msgid "Unable to retrieve pool subnet. %s"
 msgstr "Não foi possível recuperar o pool de sub-rede. %s"
 
-#: dashboards/project/loadbalancers/views.py:134
+#: dashboards/project/loadbalancers/views.py:135
 msgid "Unable to retrieve pool details."
 msgstr "Não foi possível obter detalhes do pool."
 
-#: dashboards/project/loadbalancers/views.py:176
+#: dashboards/project/loadbalancers/views.py:177
 msgid "Unable to retrieve member details."
 msgstr "Não foi possível obter detalhes do membro."
 
-#: dashboards/project/loadbalancers/views.py:207
+#: dashboards/project/loadbalancers/views.py:208
 msgid "Unable to retrieve monitor details."
 msgstr "Não foi possível obter detalhes do monitor."
 
-#: dashboards/project/loadbalancers/views.py:246
+#: dashboards/project/loadbalancers/views.py:253
 #, python-format
 msgid "Unable to retrieve pool details. %s"
 msgstr "Não foi possível obter detalhes do pool. %s"
 
-#: dashboards/project/loadbalancers/views.py:277
+#: dashboards/project/loadbalancers/views.py:290
 #, python-format
 msgid "Unable to retrieve VIP details. %s"
 msgstr "Não foi possível recuperar detalhes de vIP. %s"
 
-#: dashboards/project/loadbalancers/views.py:322
+#: dashboards/project/loadbalancers/views.py:341
 #, python-format
 msgid "Unable to retrieve member details. %s"
 msgstr "Não foi possível obter detalhes do membro. %s"
 
-#: dashboards/project/loadbalancers/views.py:352
+#: dashboards/project/loadbalancers/views.py:377
 #, python-format
 msgid "Unable to retrieve health monitor details. %s"
 msgstr "Não é possível recuperar detalhes do monitor de saúde. %s"
 
-#: dashboards/project/loadbalancers/views.py:375
-#: dashboards/project/loadbalancers/views.py:391
+#: dashboards/project/loadbalancers/views.py:400
+#: dashboards/project/loadbalancers/views.py:416
 #, python-format
 msgid "Unable to retrieve pool. %s"
 msgstr "Não foi possível recuperar o pool. %s"
@@ -12215,24 +12227,24 @@ msgstr "Códigos Esperados"
 msgid "Health Monitors"
 msgstr "Monitores de Saúde"
 
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:18
+#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:6
 msgid ""
 "You may update member attributes here: edit pool, weight or admin state."
 msgstr "Você pode atualizar atributos de membro aqui: editar pool, peso ou estado admin."
 
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:18
+#: dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:6
 msgid ""
 "You may update health monitor attributes here: edit delay, timeout, max "
 "retries  or admin state."
 msgstr "Você pode atualizar os atributos do monitor de saúde aqui: editar atraso, tempo limite, máximo de tentativas ou estado admin."
 
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:18
+#: dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:6
 msgid ""
 "You may update pool attributes here: edit name, description, load balancing "
 "method or admin state."
 msgstr "Você pode atualizar os atributos piscina aqui: edição de nome, descrição e método de balanceamento de carga ou estado de administração."
 
-#: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:18
+#: dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:6
 msgid ""
 "You may update VIP attributes here: edit name, description, pool, session "
 "persistence, connection limit  or admin state."
@@ -12280,7 +12292,7 @@ msgid "Create Router"
 msgstr "Criar Roteador"
 
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:184
-#: dashboards/project/vpn/tables.py:264 dashboards/project/vpn/workflows.py:29
+#: dashboards/project/vpn/tables.py:290 dashboards/project/vpn/workflows.py:29
 #: dashboards/router/dashboard.py:19
 msgid "Router"
 msgstr "Roteador"
@@ -12569,7 +12581,7 @@ msgstr "Dispositivo Anexado"
 msgid "Port Details"
 msgstr ""
 
-#: dashboards/project/networks/ports/views.py:101
+#: dashboards/project/networks/ports/views.py:105
 msgid "Unable to retrieve port details"
 msgstr "Não foi possível obter detalhes da porta."
 
@@ -14713,7 +14725,7 @@ msgid "Failed to update VPN Service %s"
 msgstr "Falha de atualização do Serviço VPN %s"
 
 #: dashboards/project/vpn/forms.py:73 dashboards/project/vpn/forms.py:145
-#: dashboards/project/vpn/tables.py:283 dashboards/project/vpn/tables.py:301
+#: dashboards/project/vpn/tables.py:309 dashboards/project/vpn/tables.py:327
 #: dashboards/project/vpn/workflows.py:114
 #: dashboards/project/vpn/workflows.py:213
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:18
@@ -14726,7 +14738,7 @@ msgid "sha1"
 msgstr "sha1"
 
 #: dashboards/project/vpn/forms.py:77 dashboards/project/vpn/forms.py:153
-#: dashboards/project/vpn/tables.py:286 dashboards/project/vpn/tables.py:304
+#: dashboards/project/vpn/tables.py:312 dashboards/project/vpn/tables.py:330
 #: dashboards/project/vpn/workflows.py:115
 #: dashboards/project/vpn/workflows.py:215
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:21
@@ -15041,20 +15053,20 @@ msgid_plural "Scheduled deletion of IPSec Site Connections"
 msgstr[0] "Exclusão agendada de Conexão IPSec de Site"
 msgstr[1] "Exclusão agendada de Conexões IPSec de Site"
 
-#: dashboards/project/vpn/tables.py:164 dashboards/project/vpn/views.py:272
-#: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:8
+#: dashboards/project/vpn/tables.py:164 dashboards/project/vpn/views.py:271
+#: dashboards/project/vpn/views.py:277
 #: dashboards/project/vpn/templates/vpn/update_vpnservice.html:3
 msgid "Edit VPN Service"
 msgstr "Editar serviço VPN"
 
-#: dashboards/project/vpn/tables.py:180 dashboards/project/vpn/views.py:302
-#: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:8
+#: dashboards/project/vpn/tables.py:180 dashboards/project/vpn/views.py:307
+#: dashboards/project/vpn/views.py:313
 #: dashboards/project/vpn/templates/vpn/update_ikepolicy.html:3
 msgid "Edit IKE Policy"
 msgstr "Editar IKE Policy"
 
-#: dashboards/project/vpn/tables.py:194 dashboards/project/vpn/views.py:339
-#: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:8
+#: dashboards/project/vpn/tables.py:194 dashboards/project/vpn/views.py:350
+#: dashboards/project/vpn/views.py:356
 #: dashboards/project/vpn/templates/vpn/update_ipsecpolicy.html:3
 msgid "Edit IPSec Policy"
 msgstr "Editar política do IPSec"
@@ -15063,38 +15075,93 @@ msgstr "Editar política do IPSec"
 msgid "Edit Connection"
 msgstr "Editar conexão"
 
+#: dashboards/project/vpn/tables.py:231
+msgctxt "Current status of an IPSec Site Connection"
+msgid "Active"
+msgstr "Ativo"
+
 #: dashboards/project/vpn/tables.py:233
+msgctxt "Current status of an IPSec Site Connection"
+msgid "Down"
+msgstr "Inativo"
+
+#: dashboards/project/vpn/tables.py:235
+msgctxt "Current status of an IPSec Site Connection"
+msgid "Error"
+msgstr "Erro"
+
+#: dashboards/project/vpn/tables.py:241
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:19
 msgid "VPN Service"
 msgstr "Serviço de VPN"
 
-#: dashboards/project/vpn/tables.py:235
+#: dashboards/project/vpn/tables.py:243
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:23
 msgid "IKE Policy"
 msgstr "Política IKE"
 
-#: dashboards/project/vpn/tables.py:237
+#: dashboards/project/vpn/tables.py:245
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:27
 msgid "IPSec Policy"
 msgstr "Política IPSec"
 
-#: dashboards/project/vpn/tables.py:246 dashboards/project/vpn/tabs.py:27
+#: dashboards/project/vpn/tables.py:254 dashboards/project/vpn/tabs.py:27
 msgid "IPSec Site Connections"
 msgstr "Conexões de Site IPSec"
 
-#: dashboards/project/vpn/tables.py:273 dashboards/project/vpn/tabs.py:46
+#: dashboards/project/vpn/tables.py:269
+msgctxt "Current status of a VPN Service"
+msgid "Active"
+msgstr "Ativo"
+
+#: dashboards/project/vpn/tables.py:271
+msgctxt "Current status of a VPN Service"
+msgid "Down"
+msgstr "Inativo"
+
+#: dashboards/project/vpn/tables.py:273
+msgctxt "Current status of a VPN Service"
+msgid "Error"
+msgstr "Erro"
+
+#: dashboards/project/vpn/tables.py:275
+msgctxt "Current status of a VPN Service"
+msgid "Created"
+msgstr "Criado"
+
+#: dashboards/project/vpn/tables.py:277
+msgctxt "Current status of a VPN Service"
+msgid "Pending Create"
+msgstr ""
+
+#: dashboards/project/vpn/tables.py:279
+msgctxt "Current status of a VPN Service"
+msgid "Pending Update"
+msgstr ""
+
+#: dashboards/project/vpn/tables.py:281
+msgctxt "Current status of a VPN Service"
+msgid "Pending Delete"
+msgstr ""
+
+#: dashboards/project/vpn/tables.py:283
+msgctxt "Current status of a VPN Service"
+msgid "Inactive"
+msgstr ""
+
+#: dashboards/project/vpn/tables.py:299 dashboards/project/vpn/tabs.py:46
 msgid "VPN Services"
 msgstr "Serviços de VPN"
 
-#: dashboards/project/vpn/tables.py:287 dashboards/project/vpn/tables.py:305
+#: dashboards/project/vpn/tables.py:313 dashboards/project/vpn/tables.py:331
 msgid "PFS"
 msgstr "PFS"
 
-#: dashboards/project/vpn/tables.py:291 dashboards/project/vpn/tabs.py:64
+#: dashboards/project/vpn/tables.py:317 dashboards/project/vpn/tabs.py:64
 msgid "IKE Policies"
 msgstr "Políticas IKE"
 
-#: dashboards/project/vpn/tables.py:309 dashboards/project/vpn/tabs.py:82
+#: dashboards/project/vpn/tables.py:335 dashboards/project/vpn/tabs.py:82
 msgid "IPSec Policies"
 msgstr "Políticas IPSec"
 
@@ -15130,90 +15197,89 @@ msgstr "Detalhes do Serviço de VPN"
 msgid "IPSec Site Connection Details"
 msgstr "Detalhes das conexões de Site IPSec"
 
-#: dashboards/project/vpn/views.py:40 dashboards/project/vpn/views.py:127
+#: dashboards/project/vpn/views.py:41 dashboards/project/vpn/views.py:128
 #: dashboards/project/vpn/templates/vpn/details_tabs.html:3
 #: dashboards/project/vpn/templates/vpn/index.html:3
 msgid "Virtual Private Network"
 msgstr "Rede Virtual Privada"
 
-#: dashboards/project/vpn/views.py:53
+#: dashboards/project/vpn/views.py:54
 #, python-format
 msgid "Deleted VPN Service %s"
 msgstr "Excluído Serviço de VPN %s"
 
-#: dashboards/project/vpn/views.py:56
+#: dashboards/project/vpn/views.py:57
 #, python-format
 msgid "Unable to delete VPN Service: %s"
 msgstr "Não é possível excluir o serviço VPN: %s"
 
-#: dashboards/project/vpn/views.py:63
+#: dashboards/project/vpn/views.py:64
 #, python-format
 msgid "Deleted IKE Policy %s"
 msgstr "Excluída política IKE %s"
 
-#: dashboards/project/vpn/views.py:66
+#: dashboards/project/vpn/views.py:67
 #, python-format
 msgid "Unable to delete IKE Policy: %s"
 msgstr "Não é possível apagar a política IKE: %s"
 
-#: dashboards/project/vpn/views.py:72
+#: dashboards/project/vpn/views.py:73
 #, python-format
 msgid "Deleted IPSec Policy %s"
 msgstr "Excluída política IPSec %s"
 
-#: dashboards/project/vpn/views.py:75
+#: dashboards/project/vpn/views.py:76
 #, python-format
 msgid "Unable to delete IPSec Policy: %s"
 msgstr "Não é possível apagar a política IPSEC: %s"
 
-#: dashboards/project/vpn/views.py:82
+#: dashboards/project/vpn/views.py:83
 #, python-format
 msgid "Deleted IPSec Site Connection %s"
 msgstr "Excluída conexão de Site IPSec %s"
 
-#: dashboards/project/vpn/views.py:87
+#: dashboards/project/vpn/views.py:88
 #, python-format
 msgid "Unable to delete IPSec Site Connection: %s"
 msgstr "Não é possível excluir conexão do site IPSec: %s"
 
-#: dashboards/project/vpn/views.py:135
+#: dashboards/project/vpn/views.py:136
 msgid "Unable to retrieve IKE Policy details."
 msgstr "Não é possível recuperar detalhes da política IKE."
 
-#: dashboards/project/vpn/views.py:167
+#: dashboards/project/vpn/views.py:168
 msgid "Unable to retrieve IPSec Policy details."
 msgstr "Não é possível recuperar detalhes da política IPSec."
 
-#: dashboards/project/vpn/views.py:202
+#: dashboards/project/vpn/views.py:203
 msgid "Unable to retrieve VPN Service details."
 msgstr "Não é possível recuperar detalhes do Serviço de VPN."
 
-#: dashboards/project/vpn/views.py:242
+#: dashboards/project/vpn/views.py:243
 msgid "Unable to retrieve IPSec Site Connection details."
 msgstr "Não foi possível obter detalhes de conexão do Site IPSec."
 
-#: dashboards/project/vpn/views.py:286
+#: dashboards/project/vpn/views.py:293
 #, python-format
 msgid "Unable to retrieve VPN Service details. %s"
 msgstr "Não foi possível obter detalhes do serviço de VPN %s"
 
-#: dashboards/project/vpn/views.py:316
+#: dashboards/project/vpn/views.py:329
 #, python-format
 msgid "Unable to retrieve IKE Policy details. %s"
 msgstr "Não foi possível recuperar detalhes da política IKE. %s"
 
-#: dashboards/project/vpn/views.py:353
+#: dashboards/project/vpn/views.py:372
 #, python-format
 msgid "Unable to retrieve IPSec Policy details. %s"
 msgstr "Não foi possível recuperar detalhes da política IPSec. %s"
 
-#: dashboards/project/vpn/views.py:375
-#: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:8
+#: dashboards/project/vpn/views.py:392 dashboards/project/vpn/views.py:398
 #: dashboards/project/vpn/templates/vpn/update_ipsecsiteconnection.html:3
 msgid "Edit IPSec Site Connection"
 msgstr "Editar Conexão IPSec Site"
 
-#: dashboards/project/vpn/views.py:391
+#: dashboards/project/vpn/views.py:416
 #, python-format
 msgid "Unable to retrieve IPSec Site Connection details. %s"
 msgstr "Não foi possível obter detalhes de conexão do Site IPSec. %s"
@@ -15387,19 +15453,19 @@ msgstr "Modo de autorização"
 msgid "Route mode"
 msgstr "Modo de Rota"
 
-#: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:18
+#: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:6
 msgid "You may update IKE Policy details here."
 msgstr "Você pode atualizar detalhes da política IKE aqui."
 
-#: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:18
+#: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:6
 msgid "You may update IPSec Policy details here."
 msgstr "Você pode atualizar detalhes da política IPSec aqui."
 
-#: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:18
+#: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:6
 msgid "You may update IPSec Site Connection details here."
 msgstr "Você pode atualizar detalhes da conexão IPSec Site aqui."
 
-#: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:18
+#: dashboards/project/vpn/templates/vpn/_update_vpnservice.html:6
 msgid "You may update VPN Service details here."
 msgstr "Você pode atualizar detalhes do Serviço VPN aqui."
 
@@ -15619,6 +15685,10 @@ msgstr "Nova senha"
 msgid "Confirm new password"
 msgstr "Confirmar nova senha"
 
+#: dashboards/settings/password/forms.py:65
+msgid "Password changed. Please log in again to continue."
+msgstr "Senha Alterada. Por favor faça login novamente para continuar."
+
 #: dashboards/settings/password/forms.py:70
 msgid "Unable to change password."
 msgstr "Não foi possível alterar senha."
@@ -15626,13 +15696,6 @@ msgstr "Não foi possível alterar senha."
 #: dashboards/settings/password/forms.py:73
 msgid "Changing password is not supported."
 msgstr "Alteração de senha não é suportada."
-
-#: dashboards/settings/password/panel.py:23
-#: dashboards/settings/password/views.py:26
-#: dashboards/settings/password/templates/password/_change.html:9
-#: dashboards/settings/password/templates/password/change.html:3
-msgid "Change Password"
-msgstr "Alterar Senha"
 
 #: dashboards/settings/password/templates/password/_change.html:19
 msgid "Change your password. We highly recommend you create a strong one. "

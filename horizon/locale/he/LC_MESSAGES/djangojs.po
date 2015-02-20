@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-18 23:28-0600\n"
-"PO-Revision-Date: 2015-02-19 05:28+0000\n"
+"POT-Creation-Date: 2015-02-19 23:00-0600\n"
+"PO-Revision-Date: 2015-02-19 06:38+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hebrew (http://www.transifex.com/projects/p/horizon/language/he/)\n"
 "MIME-Version: 1.0\n"
@@ -203,6 +203,27 @@ msgstr "אין לך הרשאה לביצוע פעולה זו."
 #: static/horizon/js/horizon.users.js:18
 msgid "Passwords do not match."
 msgstr "הססמאות אינן תואמות."
+
+#: static/horizon/js/angular/directives/serialConsole.js:23
+msgid "Connecting"
+msgstr ""
+
+#: static/horizon/js/angular/directives/serialConsole.js:23
+msgid "Open"
+msgstr ""
+
+#: static/horizon/js/angular/directives/serialConsole.js:23
+msgid "Closing"
+msgstr ""
+
+#: static/horizon/js/angular/directives/serialConsole.js:23
+msgid "Closed"
+msgstr ""
+
+#: static/horizon/js/angular/directives/serialConsole.js:85
+#, c-format
+msgid "Status: %s"
+msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.glance.js:38
 msgid "Unable to retrieve image."
