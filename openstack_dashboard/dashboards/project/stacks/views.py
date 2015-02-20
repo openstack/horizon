@@ -27,6 +27,7 @@ from horizon import forms
 from horizon import tables
 from horizon import tabs
 from horizon.utils import memoized
+from horizon import views
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.stacks \
     import api as project_api
@@ -130,6 +131,22 @@ class ChangeTemplateView(forms.ModalFormView):
         return kwargs
 
 
+class PreviewTemplateView(forms.ModalFormView):
+    template_name = 'project/stacks/preview_template.html'
+    modal_header = _("Preview Template")
+    form_id = "preview_template"
+    form_class = project_forms.PreviewTemplateForm
+    submit_label = _("Next")
+    submit_url = reverse_lazy('horizon:project:stacks:preview_template')
+    success_url = reverse_lazy('horizon:project:stacks:preview')
+    page_title = _("Preview Template")
+
+    def get_form_kwargs(self):
+        kwargs = super(PreviewTemplateView, self).get_form_kwargs()
+        kwargs['next_view'] = PreviewStackView
+        return kwargs
+
+
 class CreateStackView(forms.ModalFormView):
     form_class = project_forms.CreateStackForm
     template_name = 'project/stacks/create.html'
@@ -196,6 +213,33 @@ class EditStackView(CreateStackView):
             redirect = reverse('horizon:project:stacks:index')
             exceptions.handle(self.request, msg, redirect=redirect)
         return self._stack
+
+
+class PreviewStackView(CreateStackView):
+    template_name = 'project/stacks/preview.html'
+    modal_header = _("Preview Stack")
+    form_id = "preview_stack"
+    form_class = project_forms.PreviewStackForm
+    submit_label = _("Preview")
+    submit_url = reverse_lazy('horizon:project:stacks:preview')
+    success_url = reverse_lazy('horizon:project:stacks:index')
+    page_title = _("Preview Stack")
+
+    def get_form_kwargs(self):
+        kwargs = super(CreateStackView, self).get_form_kwargs()
+        kwargs['next_view'] = PreviewStackDetailsView
+        return kwargs
+
+
+class PreviewStackDetailsView(forms.ModalFormMixin, views.HorizonTemplateView):
+    template_name = 'project/stacks/preview_details.html'
+    page_title = _("Preview Stack Details")
+
+    def get_context_data(self, **kwargs):
+        context = super(
+            PreviewStackDetailsView, self).get_context_data(**kwargs)
+        context['stack_preview'] = self.kwargs['stack_preview'].to_dict()
+        return context
 
 
 class DetailView(tabs.TabView):

@@ -235,6 +235,12 @@ class ChangeTemplateForm(TemplateForm):
                                                                'readonly'}))
 
 
+class PreviewTemplateForm(TemplateForm):
+    class Meta(object):
+        name = _('Preview Template')
+        help_text = _('Select a new template to preview a stack.')
+
+
 class CreateStackForm(forms.SelfHandlingForm):
 
     param_prefix = '__param_'
@@ -427,5 +433,42 @@ class EditStackForm(CreateStackForm):
             api.heat.stack_update(self.request, stack_id=stack_id, **fields)
             messages.success(request, _("Stack update started."))
             return True
+        except Exception:
+            exceptions.handle(request)
+
+
+class PreviewStackForm(CreateStackForm):
+
+    class Meta(object):
+        name = _('Preview Stack Parameters')
+
+    def __init__(self, *args, **kwargs):
+        self.next_view = kwargs.pop('next_view')
+        super(CreateStackForm, self).__init__(*args, **kwargs)
+
+    def handle(self, request, data):
+        prefix_length = len(self.param_prefix)
+        params_list = [(k[prefix_length:], v) for (k, v) in six.iteritems(data)
+                       if k.startswith(self.param_prefix)]
+        fields = {
+            'stack_name': data.get('stack_name'),
+            'timeout_mins': data.get('timeout_mins'),
+            'disable_rollback': not(data.get('enable_rollback')),
+            'parameters': dict(params_list),
+        }
+
+        if data.get('template_data'):
+            fields['template'] = data.get('template_data')
+        else:
+            fields['template_url'] = data.get('template_url')
+
+        if data.get('environment_data'):
+            fields['environment'] = data.get('environment_data')
+
+        try:
+            stack_preview = api.heat.stack_preview(self.request, **fields)
+            request.method = 'GET'
+            return self.next_view.as_view()(request,
+                                            stack_preview=stack_preview)
         except Exception:
             exceptions.handle(request)

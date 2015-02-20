@@ -740,6 +740,54 @@ class StackTests(test.TestCase):
     def test_resume_stack(self):
         self._test_stack_action('resume')
 
+    @test.create_stubs({api.heat: ('stack_preview', 'template_validate')})
+    def test_preview_stack(self):
+        template = self.stack_templates.first()
+        stack = self.stacks.first()
+
+        api.heat.template_validate(IsA(http.HttpRequest),
+                                   template=template.data) \
+           .AndReturn(json.loads(template.validate))
+
+        api.heat.stack_preview(IsA(http.HttpRequest),
+                               stack_name=stack.stack_name,
+                               timeout_mins=60,
+                               disable_rollback=True,
+                               template=template.data,
+                               parameters=IsA(dict)).AndReturn(stack)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:stacks:preview_template')
+        res = self.client.get(url)
+        self.assertTemplateUsed(res, 'project/stacks/preview_template.html')
+
+        form_data = {'template_source': 'raw',
+                     'template_data': template.data,
+                     'method': forms.PreviewTemplateForm.__name__}
+        res = self.client.post(url, form_data)
+        self.assertTemplateUsed(res, 'project/stacks/preview.html')
+
+        url = reverse('horizon:project:stacks:preview')
+        form_data = {'template_source': 'raw',
+                     'template_data': template.data,
+                     'parameters': template.validate,
+                     'stack_name': stack.stack_name,
+                     "timeout_mins": 60,
+                     "disable_rollback": True,
+                     "__param_DBUsername": "admin",
+                     "__param_LinuxDistribution": "F17",
+                     "__param_InstanceType": "m1.small",
+                     "__param_KeyName": "test",
+                     "__param_DBPassword": "admin",
+                     "__param_DBRootPassword": "admin",
+                     "__param_DBName": "wordpress",
+                     'method': forms.PreviewStackForm.__name__}
+        res = self.client.post(url, form_data)
+        self.assertTemplateUsed(res, 'project/stacks/preview_details.html')
+        self.assertEqual(res.context['stack_preview']['stack_name'],
+                         stack.stack_name)
+
 
 class TemplateFormTests(test.TestCase):
 
