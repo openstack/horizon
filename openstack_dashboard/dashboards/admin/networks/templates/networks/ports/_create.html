@@ -1,26 +1,7 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
-{% load url from future %}
 
-{% block form_id %}create_port_form{% endblock %}
-{% block form_action %}{% url 'horizon:admin:networks:addport' network.id %}
-{% endblock %}
-
-{% block modal-header %}{% trans "Create Port" %}{% endblock %}
-
-{% block modal-body %}
-<div class="left">
-    <fieldset>
-        {% include "horizon/common/_form_fields.html" %}
-    </fieldset>
-</div>
-<div class="right">
-    <h3>{% trans "Description:" %}</h3>
-    <p>{% trans "You can create a port for the network. If you specify device ID to be attached, the device specified will be attached to the port created."%}</p>
-</div>
-{% endblock %}
-
-{% block modal-footer %}
-  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Create Port" %}" />
-  <a href="{% url 'horizon:admin:networks:detail' network.id %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
+{% block modal-body-right %}
+  <h3>{% trans "Description:" %}</h3>
+  <p>{% trans "You can create a port for the network. If you specify device ID to be attached, the device specified will be attached to the port created."%}</p>
 {% endblock %}

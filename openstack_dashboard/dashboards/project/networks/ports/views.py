@@ -81,8 +81,12 @@ class DetailView(tabs.TabView):
 
 class UpdateView(forms.ModalFormView):
     form_class = project_forms.UpdatePort
+    form_id = "update_port_form"
+    modal_header = _("Edit Port")
     template_name = 'project/networks/ports/update.html'
     context_object_name = 'port'
+    submit_label = _("Save Changes")
+    submit_url = "horizon:project:networks:editport"
     success_url = 'horizon:project:networks:detail'
     page_title = _("Update Port")
 
@@ -106,6 +110,8 @@ class UpdateView(forms.ModalFormView):
         port = self._get_object()
         context['port_id'] = port['id']
         context['network_id'] = port['network_id']
+        args = (self.kwargs['network_id'], self.kwargs['port_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
         return context
 
     def get_initial(self):
