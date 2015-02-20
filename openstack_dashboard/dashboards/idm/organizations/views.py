@@ -91,6 +91,14 @@ class DetailOrganizationView(tables.MultiTableView):
                               _("Unable to retrieve application list."))
         return idm_utils.filter_default(applications)
 
+    def _can_edit(self):
+        # Allowed if he is an admin in the organization
+        # TODO(garcianavalon) move to fiware_api
+        org_id = self.kwargs['organization_id']
+        user_roles = api.keystone.roles_for_user(
+            self.request, self.request.user.id, project=org_id)
+        return 'admin' in [r.name for r in user_roles]
+
     def get_context_data(self, **kwargs):
         context = super(DetailOrganizationView, self).get_context_data(**kwargs)
         organization_id = self.kwargs['organization_id']
@@ -107,8 +115,8 @@ class DetailOrganizationView(tables.MultiTableView):
         context['city'] = getattr(organization, 'city', '')
         context['email'] = getattr(organization, 'email', '')
         context['website'] = getattr(organization, 'website', '')
-        applications = self.get_applications_data()
-        context['applications'] = applications
+        if self._can_edit():
+            context['edit'] = True
         return context
 
 

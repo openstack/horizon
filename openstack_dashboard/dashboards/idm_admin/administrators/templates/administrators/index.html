@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Administrators" %}{% endblock %}
+
+{% block page_header %}{% endblock page_header %}
+
+{% block main %}
+<div id="detailApplication">
+    
+  <div class="panel panel-default members">
+    <div class="panel-heading">
+      {{ members_table }}  
+    </div>
+    <div class="panel-body">
+      <div class="members-actions">
+          <input type="text" class="form-control" placeholder="filter">
+          {{ members_table.render_table_actions }}
+      </div>
+      {{ members_table.render}}
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+

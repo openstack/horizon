@@ -42,13 +42,18 @@ class DetailUserView(tables.MultiTableView):
     table_classes = (user_tables.OrganizationsTable,
                      user_tables.ApplicationsTable)
 
+    
     def get_organizations_data(self):
         organizations = []
+        LOG.debug(self.request.path)
+        path = self.request.path
+        user_id = path.split('/')[3]
+
         #domain_context = self.request.session.get('domain_context', None)
         try:
             organizations, self._more = api.keystone.tenant_list(
                 self.request,
-                user=self.request.user.id,
+                user=user_id,
                 admin=False)
         except Exception:
             self._more = False
@@ -58,20 +63,31 @@ class DetailUserView(tables.MultiTableView):
 
     def get_applications_data(self):
         applications = []
+        path = self.request.path
+        user_id = path.split('/')[3]
+
         try:
-            applications = fiware_api.keystone.application_list(
-                self.request)
-                # user=self.request.user.id)
+            # TODO(garcianavalon) extract to fiware_api
+            all_apps = fiware_api.keystone.application_list(self.request)
+            apps_with_roles = [a.application_id for a 
+                               in fiware_api.keystone.user_role_assignments(
+                               self.request, user=user_id)]
+            applications = [app for app in all_apps 
+                            if app.id in apps_with_roles]
         except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve application list."))
-        return applications
+        return idm_utils.filter_default(applications)
+
+    def _can_edit(self):
+        # Allowed if its the same user
+        return self.request.user.id == self.kwargs['user_id']
 
     def get_context_data(self, **kwargs):
         context = super(DetailUserView, self).get_context_data(**kwargs)
         user_id = self.kwargs['user_id']
         user = api.keystone.user_get(self.request, user_id, admin=True)
-        context['about_me'] = getattr(user,'description', '')
+        context['about_me'] = getattr(user, 'description', '')
         context['user_id'] = user_id
         context['user_name'] = user.name
         if hasattr(user, 'img_original'):
@@ -83,8 +99,8 @@ class DetailUserView(tables.MultiTableView):
         context['city'] = getattr(user, 'city', '')
         context['email'] = getattr(user, 'email', '')
         context['website'] = getattr(user, 'website', '')
-        applications = self.get_applications_data()
-        context['applications'] = applications
+        if self._can_edit():
+            context['edit'] = True
         return context
 
 class BaseUsersMultiFormView(idm_views.BaseMultiFormView):

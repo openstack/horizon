@@ -8,7 +8,10 @@
 <div id="detailApplication">
     <header>
         <h4 class="name">
-            {{ application_name }} <a href="{% url 'horizon:idm:myApplications:edit' application_id %}" class="small"><i class="fa fa-edit"></i>edit</a>
+            {{ application_name }} 
+            {% if edit %}
+              <a href="{% url 'horizon:idm:myApplications:edit' application_id %}" class="small"><i class="fa fa-edit"></i>edit</a>
+            {% endif %}
         </h4>
         <!--crear la carga de la imagen -->
         <div class="logo">
@@ -74,7 +77,11 @@
           <input type="text" class="form-control" placeholder="filter">
           {{ members_table.render_table_actions }}
       </div>
-      {{ members_table.render}}
+      {% if members_table.get_rows %}
+        {{ members_table.render}}
+      {% else %}
+        <p class="alert alert-info empty"> {{ application_name }} does not have any authorized members.</p>
+      {% endif %}
     </div>
   </div>
 
@@ -87,7 +94,11 @@
           <input type="text" class="form-control" placeholder="filter">
           {{ organizations_table.render_table_actions }}
       </div>
-      {{ organizations_table.render}}
+      {% if organizations_table.get_rows %}
+        {{ organizations_table.render}}
+      {% else %}
+        <p class="alert alert-info empty"> {{ application_name }} does not have any authorized organizations.</p>
+      {% endif %}
     </div>
   </div>
 

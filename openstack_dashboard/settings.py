@@ -117,6 +117,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'openstack_dashboard.fiware_middleware.middleware.UserInfoMiddleware',
+    'openstack_dashboard.fiware_middleware.middleware.OrganizationInfoMiddleware',
+    'openstack_dashboard.fiware_middleware.middleware.SwitchMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'horizon.middleware.HorizonMiddleware',
     'django.middleware.doc.XViewMiddleware',

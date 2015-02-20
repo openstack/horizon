@@ -14,12 +14,13 @@
 
 import logging
 
+from django.conf import settings
 from django.core import urlresolvers
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
-from django.conf import settings
 
+from openstack_dashboard import api
 
 LOG = logging.getLogger('idm_logger')
 
@@ -66,8 +67,12 @@ class ManageMembersLink(tables.LinkAction):
     classes = ("ajax-modal",)
 
     def allowed(self, request, user):
-        # TODO(garcianavalon)
-        return True
+        # Allowed if he is an admin in the organization
+        # TODO(garcianavalon) move to fiware_api
+        org_id = self.table.kwargs['organization_id']
+        user_roles = api.keystone.roles_for_user(
+            request, request.user.id, project=org_id)
+        return 'admin' in [r.name for r in user_roles]
 
     def get_link_url(self, datum=None):
         org_id = self.table.kwargs['organization_id']

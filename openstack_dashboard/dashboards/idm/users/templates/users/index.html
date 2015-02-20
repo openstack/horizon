@@ -8,7 +8,10 @@
 <div id="detailUser">
     <header>
         <h3 class="name">
-            {{ user_name }} <a href="{% url 'horizon:idm:users:edit' user_id %}" class="small"><i class="fa fa-edit"></i>edit</a>
+            {{ user_name }} 
+            {% if edit %}
+                <a href="{% url 'horizon:idm:users:edit' user_id %}" class="small"><i class="fa fa-edit"></i>edit</a>
+            {% endif %}
         </h3>
         <!--crear la carga de la imagen -->
         <div class="logo">
@@ -46,11 +49,11 @@
             {{ organizations_table }}  
         </div>
         <div class="panel-body">
-            <div class="organizations-actions">
-                <input type="text" class="form-control" placeholder="filter">
-                {{ organizations_table.render_table_actions }}
-            </div>
-            {{ organizations_table.render}}
+            {% if organizations_table.get_rows %}
+                {{ organizations_table.render}}
+            {% else %}
+            <p class="alert alert-info empty"> {{ user_name }} does not have any organizations.</p>
+            {% endif %}
         </div>
     </div>
 
@@ -59,10 +62,9 @@
             {{ applications_table }}
         </div>
         <div class="panel-body">
-            {% if applications %}
+            {% if applications_table.get_rows %}
                 {{ applications_table.render}}
             {% else %}
-            <!-- texto que debe aparecer cuando no haya nada -->
             <p class="alert alert-info empty"> {{ user_name }} does not have any applications.</p>
             {% endif %}
         </div>

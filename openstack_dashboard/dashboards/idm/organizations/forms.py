@@ -26,6 +26,8 @@ from horizon import forms
 from horizon import messages
 from horizon.utils import functions as utils
 from openstack_dashboard import api
+from openstack_dashboard import fiware_api
+from openstack_dashboard.local import local_settings
 from openstack_dashboard.dashboards.idm import forms as idm_forms
 
 LOG = logging.getLogger('idm_logger')
@@ -54,12 +56,12 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
                                                      description=data['description'],
                                                      enabled=True,
                                                      domain=default_domain,
-                                                     # img_small=img_small,
-                                                     # img_medium=img_medium,
-                                                     # img_original=img_original,
                                                      city=city,
                                                      email=email,
                                                      website=website)
+                                                     # img_small=img_small,
+                                                     # img_medium=img_medium,
+                                                     # img_original=img_original,
         except Exception:
             exceptions.handle(request, ignore=True)
             return False
@@ -70,12 +72,13 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
 
         LOG.debug('Organization {0} created'.format(organization_id))
 
-        #Find default role id
+        #Find owner role id
         try:
-            default_role = api.keystone.get_default_role(self.request)
-            if default_role is None:
-                default = getattr(settings,
-                                    "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
+            owner_role = fiware_api.keystone.get_owner_role(self.request)
+            LOG.debug(owner_role)
+            if owner_role is None:
+                owner = getattr(local_settings,
+                                    "KEYSTONE_OWNER_ROLE", None)
                 msg = _('Could not find default role "%s" in Keystone') % \
                         default
                 LOG.debug(msg)
@@ -88,8 +91,8 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
             api.keystone.add_tenant_user_role(request,
                                             project=organization_id,
                                             user=user_id,
-                                            role=default_role.id)
-            LOG.debug('Added user {0} and organization {1} to role {2}'.format(user_id, organization_id, default_role.id))
+                                            role=owner_role.id)
+            LOG.debug('Added user {0} and organization {1} to role {2}'.format(user_id, organization_id, owner_role.id))
         except Exception:
             exceptions.handle(request,
                                     _('Failed to add %s organization to list')
