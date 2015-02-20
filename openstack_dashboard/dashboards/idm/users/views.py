@@ -65,7 +65,7 @@ class DetailUserView(tables.MultiTableView):
         applications = []
         path = self.request.path
         user_id = path.split('/')[3]
-        
+
         try:
             applications = fiware_api.keystone.application_list(
                 self.request,
@@ -73,7 +73,7 @@ class DetailUserView(tables.MultiTableView):
         except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve application list."))
-        return applications
+        return idm_utils.filter_default(applications)
 
     def get_context_data(self, **kwargs):
         context = super(DetailUserView, self).get_context_data(**kwargs)
