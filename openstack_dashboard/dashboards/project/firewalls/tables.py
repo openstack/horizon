@@ -213,7 +213,8 @@ class RulesTable(tables.DataTable):
                            filters=(filters.upper,),
                            verbose_name=_("Action"))
     enabled = tables.Column("enabled",
-                            verbose_name=_("Enabled"))
+                            verbose_name=_("Enabled"),
+                            filters=(filters.yesno, filters.capfirst))
     firewall_policy_id = tables.Column(get_policy_name,
                                        link=get_policy_link,
                                        verbose_name=_("In Policy"))
@@ -232,7 +233,8 @@ class PoliciesTable(tables.DataTable):
     firewall_rules = tables.Column(get_rules_name,
                                    verbose_name=_("Rules"))
     audited = tables.Column("audited",
-                            verbose_name=_("Audited"))
+                            verbose_name=_("Audited"),
+                            filters=(filters.yesno, filters.capfirst))
 
     class Meta(object):
         name = "policiestable"
