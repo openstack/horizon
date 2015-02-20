@@ -1,8 +1,8 @@
 {% load branding i18n %}
 {% load url from future %}
 <header class="navbar navbar-fixed-top">
-  <nav class="container-fluid">
 
+  <nav class="container-fluid">
     <div class="logo-header">
       <a href="{%site_branding_link%}" class="brand">
         <img alt="FIWARE" class="fiware-logo" src="{{ STATIC_URL }}dashboard/img/Fi-lab.png">
@@ -48,7 +48,6 @@
       </ul>
     </div>
 
-
     <ul class="oil-portal hidden-phone">
       <li class="">
         <a href="http://cloud.lab.fi-ware.org/">
@@ -83,41 +82,45 @@
     </ul>
 
     <div id="user_info" class="pull-right">
-      <div id="profile_editor_switcher" class="dropdown switcher_bar" tabindex='1'>
-       
- <!--        <a class="dropdown-toggle" data-toggle="dropdown" href="#profile_editor_switcher">
-          -->
-        
-        {% if request.user.username %}
-         <a  href="{% url 'horizon:idm:users:detail' request.user.id %}">
-         {% if request.user.img_small %} 
-            <img alt="User" src="{{ MEDIA_URL }}{{ request.user.img_small }}">
-         {% else %}
-           <img alt="User" src="{{ STATIC_URL }}dashboard/img/logos/small/user.png">
-         {% endif %}
-         {{ request.user.username }}   
-         </a>
-
-         <a class="dropdown-toggle" data-toggle="dropdown" href="#profile_editor_switch">
-          <i class="fa fa-angle-double-down"></i>
-        </a>
-        <ul id="editor_list" class="dropdown-menu dropdown-menu-right">
-          <li>
-            <a href="{% url 'horizon:settings:multisettings:index' %}">   {% trans "Settings" %}
+      <div id="profile_editor_switcher" class="dropdown switcher_bar" tabindex='1'> 
+        {% if request.user.is_authenticated %}
+          {% if request.organization.id != request.user.default_project_id %}
+            <a  href="#">
+              {% if request.organization.img_small %} 
+                <img alt="Org" src="{{ MEDIA_URL }}{{ request.organization.img_small }}">
+              {% else %}
+                <img alt="Org" src="{{ STATIC_URL }}dashboard/img/logos/small/group.png">
+              {% endif %}
+              {{ request.organization.name }}
             </a>
-          </li>
-          {% if HORIZON_CONFIG.help_url %}
-          <!--<li><a href="{{ HORIZON_CONFIG.help_url }}" target="_new">{% trans "Help" %}</a></li>-->
-          <li class="divider"></li>
-          <li>
-            <a href="#" onclick="Fiware.signOut('account'); return false">
-              {% trans "Sign Out" %}
+          {% else %}
+            <a  href="{% url 'horizon:idm:users:detail' request.user.id %}">
+              {% if request.user.img_small %} 
+                <img alt="User" src="{{ MEDIA_URL }}{{ request.user.img_small }}">
+              {% else %}
+                <img alt="User" src="{{ STATIC_URL }}dashboard/img/logos/small/user.png">
+              {% endif %}
+              {{ request.user.username }}
             </a>
-          </li>
           {% endif %}
-        </ul>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#profile_editor_switch">
+            <i class="fa fa-angle-double-down"></i>
+          </a>
+          <ul id="editor_list" class="dropdown-menu dropdown-menu-right">
+            {% for org in request.organizations %}
+              <li><a  href="{% url 'switch_tenants' org.id %}">{{org.name}}</a></li>
+            {% endfor %}
+            <li>
+              <a href="{% url 'horizon:settings:multisettings:index' %}">{% trans "Settings" %}
+              </a>
+            </li>
+            <li>
+              <a href="#" onclick="Fiware.signOut('account'); return false">
+                {% trans "Sign Out" %}
+              </a>
+            </li>
+          </ul>
         {% endif %}
-        {% include "horizon/common/_region_selector.html" %}
       </div>
     </div>
   </nav> 
