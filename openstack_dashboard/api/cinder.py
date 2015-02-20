@@ -72,6 +72,12 @@ class BaseCinderAPIResourceWrapper(base.APIResourceWrapper):
         return (getattr(self._apiresource, 'description', None) or
                 getattr(self._apiresource, 'display_description', None))
 
+    def to_dict(self):
+        obj = {}
+        for key in self._attrs:
+            obj[key] = getattr(self._apiresource, key, None)
+        return obj
+
 
 class Volume(BaseCinderAPIResourceWrapper):
 
