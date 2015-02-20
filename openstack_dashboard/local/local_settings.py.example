@@ -2,7 +2,6 @@ import os
 
 from django.utils.translation import ugettext_lazy as _
 
-from openstack_dashboard import exceptions
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -74,9 +73,9 @@ HORIZON_CONFIG = {
         'types': ['alert-success', 'alert-info']
     },
     'help_url': "http://docs.openstack.org",
-    'exceptions': {'recoverable': exceptions.RECOVERABLE,
-                   'not_found': exceptions.NOT_FOUND,
-                   'unauthorized': exceptions.UNAUTHORIZED},
+    'exceptions': {'recoverable': [],
+                   'not_found': [],
+                   'unauthorized': []},
     'modal_backdrop': 'static',
     'angular_modules': [],
     'js_files': [],
