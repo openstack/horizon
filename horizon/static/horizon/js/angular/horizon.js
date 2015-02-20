@@ -2,7 +2,7 @@
 (function () {
   'use strict';
 
-  var horizon_dependencies = ['hz.conf', 'hz.utils', 'hz.api', 'ngCookies', 'hz.widgets'];
+  var horizon_dependencies = ['hz.conf', 'hz.utils', 'hz.api', 'ngCookies', 'hz.widgets', 'hz.filters'];
   var dependencies = horizon_dependencies.concat(angularModuleExtension);
   angular.module('hz', dependencies)
     .config(['$interpolateProvider', '$httpProvider',

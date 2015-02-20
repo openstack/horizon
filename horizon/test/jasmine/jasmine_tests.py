@@ -33,6 +33,7 @@ class ServicesTests(test.JasmineTests):
         'angular/table/table.js',
         'angular/transfer-table/transfer-table.js',
         'angular/wizard/wizard.js',
+        'horizon/js/angular/filters/filters.js',
     ]
     specs = [
         'horizon/js/angular/services/hz.api.service.spec.js',
@@ -45,6 +46,7 @@ class ServicesTests(test.JasmineTests):
         'angular/table/table.spec.js',
         'angular/transfer-table/transfer-table.spec.js',
         'angular/wizard/wizard.spec.js',
+        'horizon/js/angular/filters/filters.spec.js',
     ]
     externalTemplates = [
         'angular/charts/chart-tooltip.html',
