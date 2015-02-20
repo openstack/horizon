@@ -14,6 +14,7 @@
 
 from django.core.urlresolvers import reverse
 from django.template import defaultfilters as filters
+from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
@@ -245,6 +246,24 @@ class PoliciesTable(tables.DataTable):
 
 
 class FirewallsTable(tables.DataTable):
+    STATUS_DISPLAY_CHOICES = (
+        ("Active", pgettext_lazy("Current status of a Firewall",
+                                 u"Active")),
+        ("Down", pgettext_lazy("Current status of a Firewall",
+                               u"Down")),
+        ("Error", pgettext_lazy("Current status of a Firewall",
+                                u"Error")),
+        ("Created", pgettext_lazy("Current status of a Firewall",
+                                  u"Created")),
+        ("Pending_Create", pgettext_lazy("Current status of a Firewall",
+                                         u"Pending Create")),
+        ("Pending_Update", pgettext_lazy("Current status of a Firewall",
+                                         u"Pending Update")),
+        ("Pending_Delete", pgettext_lazy("Current status of a Firewall",
+                                         u"Pending Delete")),
+        ("Inactive", pgettext_lazy("Current status of a Firewall",
+                                   u"Inactive")),
+    )
     name = tables.Column("name_or_id",
                          verbose_name=_("Name"),
                          link="horizon:project:firewalls:firewalldetails")
@@ -252,7 +271,8 @@ class FirewallsTable(tables.DataTable):
                                        link=get_policy_link,
                                        verbose_name=_("Policy"))
     status = tables.Column("status",
-                           verbose_name=_("Status"))
+                           verbose_name=_("Status"),
+                           display_choices=STATUS_DISPLAY_CHOICES)
 
     class Meta(object):
         name = "firewallstable"
