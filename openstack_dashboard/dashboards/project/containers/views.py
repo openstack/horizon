@@ -39,7 +39,7 @@ from openstack_dashboard.dashboards.project.containers \
     import browsers as project_browsers
 from openstack_dashboard.dashboards.project.containers \
     import forms as project_forms
-from openstack_dashboard.dashboards.project.containers import tables
+from openstack_dashboard.dashboards.project.containers import utils
 
 
 class ContainerView(browsers.ResourceBrowserView):
@@ -133,11 +133,11 @@ class CreateView(forms.ModalFormView):
         if parent:
             container, slash, remainder = parent.partition(
                 swift.FOLDER_DELIMITER)
-            args = (tables.wrap_delimiter(container),
-                    tables.wrap_delimiter(remainder))
+            args = (utils.wrap_delimiter(container),
+                    utils.wrap_delimiter(remainder))
             return reverse(self.success_url, args=args)
         else:
-            container = tables.wrap_delimiter(self.request.POST['name'])
+            container = utils.wrap_delimiter(self.request.POST['name'])
             return reverse(self.success_url, args=[container])
 
     def get_initial(self):
@@ -155,7 +155,7 @@ class CreatePseudoFolderView(forms.ModalFormView):
     def get_success_url(self):
         container_name = self.request.POST['container_name']
         return reverse(self.success_url,
-                       args=(tables.wrap_delimiter(container_name),
+                       args=(utils.wrap_delimiter(container_name),
                              self.request.POST.get('path', '')))
 
     def get_initial(self):
@@ -176,8 +176,8 @@ class UploadView(forms.ModalFormView):
     page_title = _("Upload Objects")
 
     def get_success_url(self):
-        container = tables.wrap_delimiter(self.request.POST['container_name'])
-        path = tables.wrap_delimiter(self.request.POST.get('path', ''))
+        container = utils.wrap_delimiter(self.request.POST['container_name'])
+        path = utils.wrap_delimiter(self.request.POST.get('path', ''))
         args = (container, path)
         return reverse(self.success_url, args=args)
 
@@ -220,9 +220,9 @@ class CopyView(forms.ModalFormView):
     page_title = _("Copy Object")
 
     def get_success_url(self):
-        container = tables.wrap_delimiter(
+        container = utils.wrap_delimiter(
             self.request.POST['new_container_name'])
-        path = tables.wrap_delimiter(self.request.POST.get('path', ''))
+        path = utils.wrap_delimiter(self.request.POST.get('path', ''))
         args = (container, path)
         return reverse(self.success_url, args=args)
 
@@ -315,8 +315,8 @@ class UpdateObjectView(forms.ModalFormView):
     page_title = _("Update Object")
 
     def get_success_url(self):
-        container = tables.wrap_delimiter(self.request.POST['container_name'])
-        path = tables.wrap_delimiter(self.request.POST.get('path', ''))
+        container = utils.wrap_delimiter(self.request.POST['container_name'])
+        path = utils.wrap_delimiter(self.request.POST.get('path', ''))
         args = (container, path)
         return reverse(self.success_url, args=args)
 

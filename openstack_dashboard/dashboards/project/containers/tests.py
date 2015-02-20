@@ -27,6 +27,7 @@ from mox import IsA  # noqa
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.containers import forms
 from openstack_dashboard.dashboards.project.containers import tables
+from openstack_dashboard.dashboards.project.containers import utils
 from openstack_dashboard.dashboards.project.containers import views
 from openstack_dashboard.test import helpers as test
 
@@ -49,7 +50,7 @@ def invalid_paths():
     if not INVALID_PATHS:
         for x in (CONTAINER_NAME_1_QUOTED, CONTAINER_NAME_2_QUOTED):
             y = reverse('horizon:project:containers:index',
-                        args=(tables.wrap_delimiter(x), ))
+                        args=(utils.wrap_delimiter(x), ))
             INVALID_PATHS.append(y)
         for x in (CONTAINER_NAME_1, CONTAINER_NAME_2):
             INVALID_PATHS.append(CONTAINER_INDEX_URL + x)
@@ -134,7 +135,7 @@ class SwiftTests(test.TestCase):
                         'method': forms.CreateContainer.__name__}
             res = self.client.post(
                 reverse('horizon:project:containers:create'), formData)
-            args = (tables.wrap_delimiter(container.name),)
+            args = (utils.wrap_delimiter(container.name),)
             url = reverse('horizon:project:containers:index', args=args)
             self.assertRedirectsNoFollow(res, url)
 
@@ -184,7 +185,7 @@ class SwiftTests(test.TestCase):
         container_name = self.containers.first().name
         res = self.client.get(
             reverse('horizon:project:containers:index',
-                    args=[tables.wrap_delimiter(container_name)]))
+                    args=[utils.wrap_delimiter(container_name)]))
         self.assertTemplateUsed(res, 'project/containers/index.html')
         # UTF8 encoding here to ensure there aren't problems with Nose output.
         expected = [obj.name.encode('utf8') for obj in self.objects.list()]
@@ -228,7 +229,7 @@ class SwiftTests(test.TestCase):
                     'object_file': temp_file}
         res = self.client.post(upload_url, formData)
 
-        args = (tables.wrap_delimiter(container.name),)
+        args = (utils.wrap_delimiter(container.name),)
         index_url = reverse('horizon:project:containers:index', args=args)
         self.assertRedirectsNoFollow(res, index_url)
 
@@ -260,7 +261,7 @@ class SwiftTests(test.TestCase):
                     'object_file': None}
         res = self.client.post(upload_url, formData)
 
-        args = (tables.wrap_delimiter(container.name),)
+        args = (utils.wrap_delimiter(container.name),)
         index_url = reverse('horizon:project:containers:index', args=args)
         self.assertRedirectsNoFollow(res, index_url)
 
@@ -289,7 +290,7 @@ class SwiftTests(test.TestCase):
         res = self.client.post(create_pseudo_folder_url, formData)
 
         index_url = reverse('horizon:project:containers:index',
-                            args=[tables.wrap_delimiter(container.name)])
+                            args=[utils.wrap_delimiter(container.name)])
 
         self.assertRedirectsNoFollow(res, index_url)
 
@@ -297,7 +298,7 @@ class SwiftTests(test.TestCase):
     def test_delete(self):
         container = self.containers.first()
         obj = self.objects.first()
-        args = (tables.wrap_delimiter(container.name),)
+        args = (utils.wrap_delimiter(container.name),)
         index_url = reverse('horizon:project:containers:index', args=args)
         api.swift.swift_delete_object(IsA(http.HttpRequest),
                                       container.name,
@@ -316,7 +317,7 @@ class SwiftTests(test.TestCase):
     def test_delete_pseudo_folder(self):
         container = self.containers.first()
         folder = self.folder.first()
-        args = (tables.wrap_delimiter(container.name),)
+        args = (utils.wrap_delimiter(container.name),)
         index_url = reverse('horizon:project:containers:index', args=args)
         api.swift.swift_delete_object(IsA(http.HttpRequest),
                                       container.name,
@@ -397,7 +398,7 @@ class SwiftTests(test.TestCase):
         copy_url = reverse('horizon:project:containers:object_copy',
                            args=[container_1.name, obj.name])
         res = self.client.post(copy_url, formData)
-        args = (tables.wrap_delimiter(container_2.name),)
+        args = (utils.wrap_delimiter(container_2.name),)
         index_url = reverse('horizon:project:containers:index', args=args)
         self.assertRedirectsNoFollow(res, index_url)
 
@@ -457,7 +458,7 @@ class SwiftTests(test.TestCase):
                     'object_file': temp_file}
         res = self.client.post(update_url, formData)
 
-        args = (tables.wrap_delimiter(container.name),)
+        args = (utils.wrap_delimiter(container.name),)
         index_url = reverse('horizon:project:containers:index', args=args)
         self.assertRedirectsNoFollow(res, index_url)
 
@@ -481,7 +482,7 @@ class SwiftTests(test.TestCase):
                     'name': obj.name}
         res = self.client.post(update_url, formData)
 
-        args = (tables.wrap_delimiter(container.name),)
+        args = (utils.wrap_delimiter(container.name),)
         index_url = reverse('horizon:project:containers:index', args=args)
         self.assertRedirectsNoFollow(res, index_url)
 
@@ -533,4 +534,4 @@ class SwiftTests(test.TestCase):
             'containerD/objectA': 'containerD/objectA/'
         }
         for name, expected_name in expected.items():
-            self.assertEqual(tables.wrap_delimiter(name), expected_name)
+            self.assertEqual(utils.wrap_delimiter(name), expected_name)
