@@ -50,9 +50,6 @@ that Horizon supports in DevStack when `stack.sh` is run.
     enable_service q-vpn
     # end group
 
-    # enable Heat (orchestration) Service
-    enable_service heat h-api h-api-cfn h-api-cw h-eng
-
     # enable Sahara (data_processing) Service
     enable_service sahara
 
