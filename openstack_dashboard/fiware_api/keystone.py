@@ -17,6 +17,12 @@ import requests
 
 from django.conf import settings
 from openstack_dashboard import api
+from openstack_dashboard.local import local_settings
+
+from horizon import exceptions
+from horizon import messages
+
+OWNER_ROLE = None
 
 # check that we have the correct version of the keystoneclient
 try:
@@ -436,3 +442,24 @@ def forward_validate_token_request(request):
     LOG.debug('API_KEYSTONE: GET to {0}'.format(url))
     response = requests.get(url)
     return response
+
+# GET OWNER ROLE
+def get_owner_role(request):
+    """Gets the owner role object from Keystone and saves it as a global.
+
+    Since this is configured in settings and should not change from request
+    to request. Supports lookup by name or id.
+    """
+    global OWNER_ROLE
+    owner = getattr(local_settings, "KEYSTONE_OWNER_ROLE", None)
+    if owner and OWNER_ROLE is None:
+        try:
+            roles = api.keystone.keystoneclient(request, admin=True).roles.list()
+        except Exception:
+            roles = []
+            exceptions.handle(request)
+        for role in roles:
+            if role.id == owner or role.name == owner:
+                OWNER_ROLE = role
+                break
+    return OWNER_ROLE
