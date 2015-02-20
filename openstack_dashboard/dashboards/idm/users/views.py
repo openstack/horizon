@@ -42,13 +42,18 @@ class DetailUserView(tables.MultiTableView):
     table_classes = (user_tables.OrganizationsTable,
                      user_tables.ApplicationsTable)
 
+    
     def get_organizations_data(self):
         organizations = []
+        LOG.debug(self.request.path)
+        path = self.request.path
+        user_id = path.split('/')[3]
+
         #domain_context = self.request.session.get('domain_context', None)
         try:
             organizations, self._more = api.keystone.tenant_list(
                 self.request,
-                user=self.request.user.id,
+                user=user_id,
                 admin=False)
         except Exception:
             self._more = False
@@ -58,14 +63,17 @@ class DetailUserView(tables.MultiTableView):
 
     def get_applications_data(self):
         applications = []
+        path = self.request.path
+        user_id = path.split('/')[3]
+
         try:
             applications = fiware_api.keystone.application_list(
-                self.request)
-                # user=self.request.user.id)
+                self.request,
+                user=user_id)
         except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve application list."))
-        return applications
+        return idm_utils.filter_default(applications)
 
     def _can_edit(self):
         # Allowed if its the same user
