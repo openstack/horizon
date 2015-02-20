@@ -487,3 +487,15 @@ class ProjectRole(generic.View):
             user_id,
             role_id
         )
+
+
+@urls.register
+class ServiceCatalog(generic.View):
+    url_regex = r'keystone/svc-catalog/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """Return the Keystone service catalog associated with the current
+        user.
+        """
+        return request.user.service_catalog
