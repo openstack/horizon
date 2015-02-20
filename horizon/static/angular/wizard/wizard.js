@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('hz.widget.wizard', [])
+  angular.module('hz.widget.wizard', ['ui.bootstrap'])
 
     .constant('wizardLabels', {
       cancel: gettext('Cancel'),
