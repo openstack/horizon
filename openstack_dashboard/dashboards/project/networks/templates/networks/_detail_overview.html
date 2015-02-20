@@ -18,6 +18,8 @@
     <dd>{{ network.shared|yesno|capfirst }}</dd>
     <dt>{% trans "External Network" %}</dt>
     <dd>{{ network.router__external|yesno|capfirst }}</dd>
+    <dt>{% trans "MTU" %}</dt>
+    <dd>{{ network.mtu|default:_("Unknown") }}</dd>
     {% if network.provider__network_type %}
     <dt>{% trans "Provider Network" %}</dt>
     <dd>{% trans "Network Type:" %} {{ network.provider__network_type|default:_("Unknown") }}</dd>
