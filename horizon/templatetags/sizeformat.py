@@ -48,15 +48,15 @@ def filesizeformat(bytes, filesize_number_format):
     try:
         bytes = float(bytes)
     except (TypeError, ValueError, UnicodeDecodeError):
-        return ungettext_lazy("%(size)d Byte",
-                              "%(size)d Bytes", 0) % {'size': 0}
+        return ungettext_lazy("%(size)d B",
+                              "%(size)d B", 0) % {'size': 0}
 
     if bytes == float('inf'):
         return _('Infinity')
     if bytes < units.Ki:
         bytes = int(bytes)
-        return ungettext_lazy("%(size)d Byte",
-                              "%(size)d Bytes", bytes) % {'size': bytes}
+        return ungettext_lazy("%(size)d B",
+                              "%(size)d B", bytes) % {'size': bytes}
     if bytes < units.Mi:
         return _("%s KB") % filesize_number_format(bytes / units.Ki)
     if bytes < units.Gi:
@@ -79,7 +79,7 @@ def float_cast_filesizeformat(value, multiplier=1, format=int_format):
         value = float(value)
         value = filesizeformat(value * multiplier, format).replace(' ', '')
     except (TypeError, ValueError):
-        value = value or _('0 Bytes')
+        value = value or _('0 B')
     return value
 
 

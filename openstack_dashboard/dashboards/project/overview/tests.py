@@ -288,7 +288,7 @@ class UsageViewTests(test.TestCase):
         self.assertEqual(10000, chart_ram['quota'])
         self.assertEqual('9.8GB', chart_ram['quota_display'])
         self.assertEqual(0, chart_ram['used'])
-        self.assertEqual('0Bytes', chart_ram['used_display'])
+        self.assertEqual('0B', chart_ram['used_display'])
 
         volume_charts = [c for c in charts if c['title'] == 'Volume'][0]
         chart_gigabytes = [c for c in volume_charts['charts']
@@ -297,7 +297,7 @@ class UsageViewTests(test.TestCase):
         self.assertEqual(1000, chart_gigabytes['quota'])
         self.assertEqual('1000GB', chart_gigabytes['quota_display'])
         self.assertEqual(0, chart_gigabytes['used'])
-        self.assertEqual('0Bytes', chart_gigabytes['used_display'])
+        self.assertEqual('0B', chart_gigabytes['used_display'])
 
         network_charts = [c for c in charts if c['title'] == 'Network'][0]
         chart_fip = [c for c in network_charts['charts']

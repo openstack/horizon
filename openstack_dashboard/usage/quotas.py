@@ -96,10 +96,10 @@ QUOTA_NAMES = {
     "cores": _('VCPUs'),
     "instances": _('Instances'),
     "injected_files": _('Injected Files'),
-    "injected_file_content_bytes": _('Injected File Content Bytes'),
+    "injected_file_content_bytes": _('Injected File Content (B)'),
     "ram": _('RAM (MB)'),
     "key_pairs": _('Key Pairs'),
-    "injected_file_path_bytes": _('Injected File Path Bytes'),
+    "injected_file_path_bytes": _('Injected File Path (B)'),
     # cinder
     "volumes": _('Volumes'),
     "snapshots": _('Volume Snapshots'),

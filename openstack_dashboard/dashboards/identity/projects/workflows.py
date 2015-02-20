@@ -108,7 +108,7 @@ class ComputeQuotaAction(CommonQuotaAction):
                                         label=_("Injected Files"))
     injected_file_content_bytes = forms.IntegerField(
         min_value=-1,
-        label=_("Injected File Content (Bytes)"))
+        label=_("Injected File Content (B)"))
     injected_file_path_bytes = forms.IntegerField(
         min_value=-1,
         label=_("Length of Injected File Path"))

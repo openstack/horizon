@@ -57,7 +57,7 @@ class DefaultsPage(basepage.BaseNavigationPage):
     QUOTAS_TABLE_LIMIT_COLUMN = 'Limit'
     VOLUMES_TAB_INDEX = 1
     DEFAULT_COMPUTE_QUOTA_NAMES = [
-        'Injected File Content Bytes',
+        'Injected File Content (B)',
         'Metadata Items',
         'Server Group Members',
         'Server Groups',
