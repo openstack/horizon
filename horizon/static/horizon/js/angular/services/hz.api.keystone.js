@@ -200,6 +200,13 @@ limitations under the License.
           horizon.alert('error', gettext('Unable to grant the role.'));
         });
     };
+
+    this.serviceCatalog = function() {
+      return apiService.get('/api/keystone/svc-catalog/')
+        .error(function () {
+          horizon.alert('error', gettext('Unable to fetch the service catalog.'));
+        });
+    };
   }
 
   angular.module('hz.api')

@@ -16,6 +16,8 @@ import testtools
 
 from django.conf import settings
 
+from oslo_serialization import jsonutils
+
 from openstack_dashboard.api.rest import keystone
 
 from rest_test_utils import construct_request   # noqa
@@ -529,3 +531,15 @@ class KeystoneRestTestCase(testtools.TestCase):
                                                  description=None,
                                                  domain='domain123',
                                                  enabled=None)
+
+    #
+    # Service Catalog
+    #
+    @mock.patch.object(keystone.api, 'keystone')
+    def test_service_catalog_get(self, kc):
+        request = construct_request()
+        response = keystone.ServiceCatalog().get(request)
+        self.assertStatusCode(response, 200)
+        content = jsonutils.dumps(request.user.service_catalog,
+                                  sort_keys=settings.DEBUG)
+        self.assertEqual(content, response.content)
