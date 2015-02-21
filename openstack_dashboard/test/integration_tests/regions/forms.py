@@ -124,6 +124,12 @@ class PasswordInputFormFieldRegion(BaseTextFormFieldRegion):
     _element_locator = (by.By.CSS_SELECTOR, 'div > input[type=password]')
 
 
+class EmailInputFormFieldRegion(BaseTextFormFieldRegion):
+    """Email text input box."""
+
+    _element_locator = (by.By.ID, 'id_email')
+
+
 class TextAreaFormFieldRegion(BaseTextFormFieldRegion):
     """Multi-line text input box."""
 
