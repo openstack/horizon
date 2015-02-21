@@ -201,7 +201,7 @@ the default panel::
         default_panel = 'mypanel'  # Specify the slug of the default panel.
 
 
-The completed ``dashoboard.py`` file should look like
+The completed ``dashboard.py`` file should look like
 the following::
 
     from django.utils.translation import ugettext_lazy as _
@@ -235,7 +235,7 @@ view from the pieces.
 Defining a table
 ~~~~~~~~~~~~~~~~
 
-Horizon provides a :class:`~horizon.tables.DataTable` class which simplifies
+Horizon provides a :class:`~horizon.forms.SelfHandlingForm`  :class:`~horizon.tables.DataTable` class which simplifies
 the vast majority of displaying data to an end-user. We're just going to skim
 the surface here, but it has a tremendous number of capabilities.
 
@@ -273,6 +273,74 @@ the ``instances`` table.
     This is a slight simplification from the reality of how the instance
     object is actually structured. In reality, accessing other attributes
     requires an additional step.
+
+Adding actions to a table
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Horizon provides three types of basic action classes which can be taken
+on a table's data:
+
+- :class:`~horizon.tables.Action`
+- :class:`~horizon.tables.LinkAction`
+- :class:`~horizon.tables.FilterAction`
+
+
+There are also additional actions which are extensions of the basic Action classes:
+
+- :class:`~horizon.tables.BatchAction`
+- :class:`~horizon.tables.DeleteAction`
+- :class:`~horizon.tables.UpdateAction`
+- :class:`~horizon.tables.FixedFilterAction`
+
+
+
+Now let's create and add a filter action to the table. To do so, we will need
+to edit the ``tables.py`` file used above. To add a filter action which will
+only show rows which contain the string entered in the filter field, we
+must first define the action::
+
+    class MyFilterAction(tables.FilterAction):
+        name = "myfilter"
+
+
+.. note::
+
+    The action specified above will default the ``filter_type`` to be ``"query"``.
+    This means that the filter will use the client side table sorter.
+
+Then, we add that action to the table actions for our table.::
+
+    class InstancesTable:
+        class Meta:
+            table_actions = (MyFilterAction,)
+
+
+The completed ``tables.py`` file should look like the following::
+
+    from django.utils.translation import ugettext_lazy as _
+
+    from horizon import tables
+
+
+    class MyFilterAction(tables.FilterAction):
+        name = "myfilter"
+
+
+    class InstancesTable(tables.DataTable):
+        name = tables.Column('name', \
+                             verbose_name=_("Name"))
+        status = tables.Column('status', \
+                               verbose_name=_("Status"))
+        zone = tables.Column('availability_zone', \
+                             verbose_name=_("Availability Zone"))
+        image_name = tables.Column('image_name', \
+                                   verbose_name=_("Image Name"))
+
+        class Meta:
+            name = "instances"
+            verbose_name = _("Instances")
+            table_actions = (MyFilterAction,)
+
 
 Defining tabs
 ~~~~~~~~~~~~~
@@ -414,12 +482,7 @@ Adjust the import of ``IndexView`` to make the code readable::
     from openstack_dashboard.dashboards.mydashboard.mypanel import views
 
 
-Update the existing ``url`` pattern to use ``views`` ::
-
-    url(r'^$', views.IndexView.as_view(), name='index'),
-
-
-Insert the following lines after the existing ``url`` pattern::
+Replace the existing ``url`` pattern with the following line::
 
     url(r'^\?tab=mypanel_tabs__tab$',
         views.IndexView.as_view(), name='mypanel_tabs'),
@@ -437,7 +500,6 @@ The completed ``urls.py`` file should look like the following::
 
 
     urlpatterns = patterns('',
-        url(r'^$', views.IndexView.as_view(), name='index'),
         url(r'^\?tab=mypanel_tabs_tab$',
             views.IndexView.as_view(), name='mypanel_tabs'),
     )
@@ -449,7 +511,7 @@ The template
 Open the ``index.html`` file in the ``mydashboard/mypanel/templates/mypanel``
 directory, the auto-generated code is like the following::
 
-    {% extends 'mydashboard/base.html' %}
+    {% extends 'base.html' %}
     {% load i18n %}
     {% block title %}{% trans "Mypanel" %}{% endblock %}
 
@@ -457,17 +519,17 @@ directory, the auto-generated code is like the following::
         {% include "horizon/common/_page_header.html" with title=_("Mypanel") %}
     {% endblock page_header %}
 
-    {% block mydashboard_main %}
+    {% block main %}
     {% endblock %}
 
 
-Insert the following code inside the ``mydashboard_main`` block::
+The ``main`` block must be modified to insert the following code::
 
-    <div class="row">
+   <div class="row">
       <div class="col-sm-12">
       {{ tab_group.render }}
       </div>
-    </div>
+   </div>
 
 
 If you want to change the title of the ``index.html`` file to be something else,
@@ -476,7 +538,7 @@ you can change it. For example, change it to be ``My Panel`` in the
 section to be something else, you can change it. For example, change it to be
 ``My Panel``. The updated code could be like::
 
-   {% extends 'mydashboard/base.html' %}
+   {% extends 'base.html' %}
    {% load i18n %}
    {% block title %}{% trans "My Panel" %}{% endblock %}
 
@@ -484,7 +546,7 @@ section to be something else, you can change it. For example, change it to be
       {% include "horizon/common/_page_header.html" with title=_("My Panel") %}
    {% endblock page_header %}
 
-   {% block mydashboard_main %}
+   {% block main %}
    <div class="row">
       <div class="col-sm-12">
       {{ tab_group.render }}
@@ -529,7 +591,7 @@ following::
 
 
 Run and check the dashboard
-=============================
+===========================
 
 Everything is in place, now run ``Horizon`` on the different port::
 
@@ -548,6 +610,15 @@ dashboard ``Project`` -> ``Images``, select a small image, for example,
 click the button ``Launch``. It should create an instance if the openstack or
 devstack is correctly set up. Once the creation of an instance is successful, go
 to ``My Dashboard`` again to check the data.
+
+
+Adding a complex action to a table
+==================================
+
+For a more detailed look into adding a table action, one that requires forms for
+gathering data, you can walk through :doc:`Adding a complex action to a table
+</topics/table_actions>` tutorial.
+
 
 Conclusion
 ==========

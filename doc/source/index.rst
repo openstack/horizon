@@ -77,6 +77,7 @@ the following topic guides.
    topics/tables
    topics/policy
    topics/testing
+   topics/table_actions
 
 API Reference
 -------------
