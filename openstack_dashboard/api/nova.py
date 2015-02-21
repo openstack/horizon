@@ -214,6 +214,9 @@ class SecurityGroup(base.APIResourceWrapper):
                      for rule in self._apiresource.rules]
         return [SecurityGroupRule(rule) for rule in rule_objs]
 
+    def to_dict(self):
+        return self._apiresource.to_dict()
+
 
 class SecurityGroupRule(base.APIResourceWrapper):
     """Wrapper for individual rules in a SecurityGroup."""
