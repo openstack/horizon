@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-19 23:00-0600\n"
-"PO-Revision-Date: 2015-02-20 03:01+0000\n"
+"POT-Creation-Date: 2015-02-20 21:08-0600\n"
+"PO-Revision-Date: 2015-02-20 21:54+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -352,7 +352,7 @@ msgctxt "Both of front-end and back-end"
 msgid "both"
 msgstr "両方"
 
-#: api/cinder.py:213
+#: api/cinder.py:219
 msgid "Unknown instance"
 msgstr "不明なインスタンス"
 
@@ -398,22 +398,22 @@ msgstr "プール %(pool)s のメンバーを取得できません。"
 msgid "Unable to get health monitors for pool %(pool)s."
 msgstr "プール %(pool)s のヘルスモニターを取得できません。"
 
-#: api/neutron.py:213
+#: api/neutron.py:216
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
-#: api/neutron.py:932
+#: api/neutron.py:935
 msgid "Unable to connect to Neutron."
 msgstr "Neutron に接続できません。"
 
-#: api/neutron.py:969
+#: api/neutron.py:972
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "IPアドレス %s のパースに失敗しました。"
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1108
+#: api/neutron.py:1111
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -421,14 +421,14 @@ msgid ""
 msgstr "要求された機能 \"'%(feature)s' が不明です。FEATURE_MAP で定義されている機能名を指定してください。"
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1126
+#: api/neutron.py:1129
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
 "invalid. It should be one of %(allowed)s"
 msgstr "get_dvr_permission '%(feature)s' の 'operation' パラメーターが無効です。 %(allowed)s のいずれかでなければいけません。"
 
-#: api/neutron.py:1141
+#: api/neutron.py:1144
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr "Neutron が '%s' 拡張に対応しているか確認できませんでした。"
@@ -465,42 +465,42 @@ msgstr "Neutron が '%s' 拡張に対応しているか確認できませんで�
 msgid "-"
 msgstr "-"
 
-#: api/nova.py:228
+#: api/nova.py:231
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(group)s"
 msgstr "%(group)s からポート番号 %(from)s:%(to)s への通信を許可します"
 
-#: api/nova.py:233
+#: api/nova.py:236
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
 msgstr "%(cidr)s からポート番号 %(from)s:%(to)s への通信を許可します"
 
-#: api/nova.py:309
+#: api/nova.py:312
 msgid "Couldn't get security group list."
 msgstr "セキュリティーグループ一覧を取得できません。"
 
-#: api/nova.py:316
+#: api/nova.py:319
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
 msgstr "インスタンス %s の現在のセキュリティーグループ一覧を取得できません。"
 
-#: api/nova.py:333
+#: api/nova.py:336
 #, python-format
 msgid ""
 "Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
 msgstr "インスタンスの %(num_groups_to_modify)d 個のセキュリティーグループが更新できませんでした: %(err)s"
 
-#: api/nova.py:348
+#: api/nova.py:351
 #, python-format
 msgid "Failed to modify %d instance security groups"
 msgstr "インスタンスの %d 個のセキュリティーグループが更新できませんでした"
 
-#: api/nova.py:784
+#: api/nova.py:787
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr "名前: %(name)s ID: %(uuid)s"
 
-#: api/nova.py:789
+#: api/nova.py:792
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr "インスタンスの退避に失敗しました: %s"
@@ -547,7 +547,7 @@ msgstr "管理"
 #: dashboards/admin/volumes/volumes/forms.py:166
 #: dashboards/admin/volumes/volumes/forms.py:225
 #: dashboards/admin/volumes/volumes/tables.py:79
-#: dashboards/identity/domains/tables.py:198
+#: dashboards/identity/domains/tables.py:199
 #: dashboards/identity/domains/workflows.py:34
 #: dashboards/identity/groups/forms.py:30
 #: dashboards/identity/groups/forms.py:56
@@ -591,9 +591,9 @@ msgstr "管理"
 #: dashboards/project/firewalls/forms.py:33
 #: dashboards/project/firewalls/forms.py:98
 #: dashboards/project/firewalls/forms.py:125
-#: dashboards/project/firewalls/tables.py:198
-#: dashboards/project/firewalls/tables.py:230
-#: dashboards/project/firewalls/tables.py:247
+#: dashboards/project/firewalls/tables.py:199
+#: dashboards/project/firewalls/tables.py:232
+#: dashboards/project/firewalls/tables.py:268
 #: dashboards/project/firewalls/workflows.py:30
 #: dashboards/project/firewalls/workflows.py:173
 #: dashboards/project/firewalls/workflows.py:230
@@ -1821,7 +1821,7 @@ msgstr "ゾーン"
 #: dashboards/project/databases/tables.py:300
 #: dashboards/project/databases/tables.py:365
 #: dashboards/project/databases/templates/databases/_detail_overview.html:17
-#: dashboards/project/firewalls/tables.py:253
+#: dashboards/project/firewalls/tables.py:274
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
 #: dashboards/project/images/images/tables.py:247
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
@@ -2041,7 +2041,7 @@ msgstr "システム情報"
 #: dashboards/admin/info/tables.py:26 dashboards/admin/info/tables.py:155
 #: dashboards/admin/info/templates/info/_cell_status.html:8
 #: dashboards/admin/networks/agents/tables.py:79
-#: dashboards/identity/domains/tables.py:202
+#: dashboards/identity/domains/tables.py:203
 #: dashboards/identity/domains/workflows.py:39
 #: dashboards/identity/groups/tables.py:195
 #: dashboards/identity/projects/tables.py:237
@@ -2052,7 +2052,7 @@ msgstr "システム情報"
 #: dashboards/identity/users/tables.py:236
 #: dashboards/identity/users/templates/users/_detail_overview.html:23
 #: dashboards/project/firewalls/forms.py:70
-#: dashboards/project/firewalls/tables.py:216
+#: dashboards/project/firewalls/tables.py:217
 #: dashboards/project/firewalls/workflows.py:67
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:53
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:65
@@ -2410,7 +2410,7 @@ msgstr "関連付けの更新"
 #: dashboards/admin/metering/views.py:106
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:15
 #: dashboards/admin/volumes/volumes/forms.py:64
-#: dashboards/identity/domains/tables.py:200
+#: dashboards/identity/domains/tables.py:201
 #: dashboards/identity/domains/workflows.py:37
 #: dashboards/identity/groups/forms.py:33
 #: dashboards/identity/groups/forms.py:59
@@ -2432,7 +2432,7 @@ msgstr "関連付けの更新"
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:13
 #: dashboards/project/data_processing/data_sources/tables.py:63
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:13
-#: dashboards/project/data_processing/data_sources/workflows/create.py:46
+#: dashboards/project/data_processing/data_sources/workflows/create.py:60
 #: dashboards/project/data_processing/job_binaries/forms.py:131
 #: dashboards/project/data_processing/job_binaries/tables.py:84
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:11
@@ -3722,7 +3722,7 @@ msgstr "宛先 CIDR"
 
 #: dashboards/admin/routers/extensions/routerrules/tables.py:24
 #: dashboards/project/firewalls/forms.py:43
-#: dashboards/project/firewalls/tables.py:214
+#: dashboards/project/firewalls/tables.py:215
 #: dashboards/project/firewalls/workflows.py:43
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:19
 #: dashboards/project/instances/audit_tables.py:25
@@ -3779,8 +3779,8 @@ msgstr "プロジェクト ID"
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:18
 #: dashboards/project/routers/forms.py:47
-#: dashboards/project/routers/forms.py:105
-#: dashboards/project/routers/forms.py:111
+#: dashboards/project/routers/forms.py:106
+#: dashboards/project/routers/forms.py:112
 #: dashboards/project/routers/tables.py:210
 #: dashboards/project/routers/templates/routers/_detail_overview.html:18
 msgid "Distributed"
@@ -3788,7 +3788,7 @@ msgstr "分散ルータ"
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:22
 #: dashboards/project/routers/forms.py:37
-#: dashboards/project/routers/forms.py:92
+#: dashboards/project/routers/forms.py:93
 #: dashboards/project/routers/templates/routers/_detail_overview.html:22
 msgid "High Availability Mode"
 msgstr "高可用性（HA）モード"
@@ -4031,7 +4031,7 @@ msgstr "\nQoS スペックをボリューム種別に関連付けることがで
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:24
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:23
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:225
-#: dashboards/project/data_processing/data_sources/workflows/create.py:79
+#: dashboards/project/data_processing/data_sources/workflows/create.py:93
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
 #: dashboards/project/data_processing/jobs/workflows/create.py:146
 #: dashboards/project/data_processing/jobs/workflows/launch.py:406
@@ -4526,7 +4526,7 @@ msgstr[0] "追加スペックを削除しました"
 
 #: dashboards/admin/volumes/volume_types/extras/tables.py:59
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:48
-#: dashboards/identity/domains/tables.py:80
+#: dashboards/identity/domains/tables.py:81
 #: dashboards/identity/roles/tables.py:37
 #: dashboards/identity/users/tables.py:46
 #: dashboards/project/containers/tables.py:318
@@ -4723,66 +4723,66 @@ msgid "Identity"
 msgstr "ユーザー管理"
 
 #: dashboards/identity/domains/panel.py:24
-#: dashboards/identity/domains/tables.py:206
+#: dashboards/identity/domains/tables.py:208
 #: dashboards/identity/domains/views.py:36
 #: dashboards/identity/domains/templates/domains/index.html:3
 msgid "Domains"
 msgstr "ドメイン"
 
-#: dashboards/identity/domains/tables.py:38
+#: dashboards/identity/domains/tables.py:39
 #: dashboards/identity/groups/tables.py:91
 #: dashboards/identity/projects/tables.py:54
 msgid "Manage Members"
 msgstr "メンバーの管理"
 
-#: dashboards/identity/domains/tables.py:54
+#: dashboards/identity/domains/tables.py:55
 #: dashboards/identity/projects/tables.py:70
 msgid "Modify Groups"
 msgstr "グループの変更"
 
-#: dashboards/identity/domains/tables.py:68
+#: dashboards/identity/domains/tables.py:69
 #: dashboards/identity/domains/workflows.py:253
 #: dashboards/identity/domains/workflows.py:254
 msgid "Create Domain"
 msgstr "ドメインの作成"
 
-#: dashboards/identity/domains/tables.py:94
+#: dashboards/identity/domains/tables.py:95
 msgid "Delete Domain"
 msgid_plural "Delete Domains"
 msgstr[0] "ドメインの削除"
 
-#: dashboards/identity/domains/tables.py:102
+#: dashboards/identity/domains/tables.py:103
 msgid "Deleted Domain"
 msgid_plural "Deleted Domains"
 msgstr[0] "ドメインを削除しました"
 
-#: dashboards/identity/domains/tables.py:116
+#: dashboards/identity/domains/tables.py:117
 #, python-format
 msgid "Domain \"%s\" must be disabled before it can be deleted."
 msgstr "ドメイン \"%s\" は削除する前に無効化する必要があります。"
 
-#: dashboards/identity/domains/tables.py:146
+#: dashboards/identity/domains/tables.py:147
 msgid "Set Domain Context"
 msgstr "ドメインコンテキストの設定"
 
-#: dashboards/identity/domains/tables.py:171
+#: dashboards/identity/domains/tables.py:172
 #, python-format
 msgid "Domain Context updated to Domain %s."
 msgstr "ドメインコンテキストをドメイン %s に更新しました。"
 
-#: dashboards/identity/domains/tables.py:175
+#: dashboards/identity/domains/tables.py:176
 msgid "Unable to set Domain Context."
 msgstr "ドメインコンテキストを設定できません。"
 
-#: dashboards/identity/domains/tables.py:180
+#: dashboards/identity/domains/tables.py:181
 msgid "Clear Domain Context"
 msgstr "ドメインコンテキストのクリア"
 
-#: dashboards/identity/domains/tables.py:194
+#: dashboards/identity/domains/tables.py:195
 msgid "Domain Context cleared."
 msgstr "ドメインコンテキストをクリアしました。"
 
-#: dashboards/identity/domains/tables.py:201
+#: dashboards/identity/domains/tables.py:202
 #: dashboards/identity/projects/workflows.py:138
 #: dashboards/identity/users/forms.py:88
 #: dashboards/identity/users/forms.py:165
@@ -5030,25 +5030,25 @@ msgstr "電子メール"
 msgid "User ID"
 msgstr "ユーザー ID"
 
-#: dashboards/identity/groups/tables.py:198
+#: dashboards/identity/groups/tables.py:200
 msgid "False"
 msgstr "誤り"
 
-#: dashboards/identity/groups/tables.py:204
+#: dashboards/identity/groups/tables.py:206
 msgid "Group Members"
 msgstr "グループのメンバー"
 
-#: dashboards/identity/groups/tables.py:212
+#: dashboards/identity/groups/tables.py:214
 msgid "Add User"
 msgid_plural "Add Users"
 msgstr[0] "ユーザーの追加"
 
-#: dashboards/identity/groups/tables.py:220
+#: dashboards/identity/groups/tables.py:222
 msgid "Added User"
 msgid_plural "Added Users"
 msgstr[0] "ユーザーを追加しました"
 
-#: dashboards/identity/groups/tables.py:254
+#: dashboards/identity/groups/tables.py:256
 msgid "Non-Members"
 msgstr "未参加メンバー"
 
@@ -5475,7 +5475,7 @@ msgid "Unable to update the user password."
 msgstr ""
 
 #: dashboards/identity/users/panel.py:27
-#: dashboards/identity/users/tables.py:243
+#: dashboards/identity/users/tables.py:245
 #: dashboards/identity/users/views.py:46
 #: dashboards/identity/users/templates/users/index.html:3
 #: dashboards/project/databases/tables.py:325
@@ -6201,13 +6201,13 @@ msgstr "ルールの管理"
 #: dashboards/project/access_and_security/security_groups/views.py:101
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:8
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:3
-#: dashboards/project/firewalls/tables.py:26
+#: dashboards/project/firewalls/tables.py:27
 #: dashboards/project/firewalls/workflows.py:103
 msgid "Add Rule"
 msgstr "ルールの追加"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:177
-#: dashboards/project/firewalls/tables.py:56
+#: dashboards/project/firewalls/tables.py:57
 msgid "Delete Rule"
 msgid_plural "Delete Rules"
 msgstr[0] "ルールの削除"
@@ -7524,8 +7524,8 @@ msgstr "データソース"
 #: dashboards/project/data_processing/data_sources/tables.py:28
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/create.html:3
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/create.html:6
-#: dashboards/project/data_processing/data_sources/workflows/create.py:54
-#: dashboards/project/data_processing/data_sources/workflows/create.py:78
+#: dashboards/project/data_processing/data_sources/workflows/create.py:68
+#: dashboards/project/data_processing/data_sources/workflows/create.py:92
 msgid "Create Data Source"
 msgstr "データソースの作成"
 
@@ -7569,7 +7569,7 @@ msgid "Data Source Overview"
 msgstr "データソースの概要"
 
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:11
-#: dashboards/project/data_processing/data_sources/workflows/create.py:35
+#: dashboards/project/data_processing/data_sources/workflows/create.py:38
 #: dashboards/project/data_processing/job_binaries/forms.py:59
 #: dashboards/project/data_processing/job_binaries/forms.py:65
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:9
@@ -7595,19 +7595,21 @@ msgstr "データソースの詳細"
 msgid "Data Source Type"
 msgstr "データソース種別"
 
-#: dashboards/project/data_processing/data_sources/workflows/create.py:37
+#: dashboards/project/data_processing/data_sources/workflows/create.py:41
+#: dashboards/project/data_processing/data_sources/workflows/create.py:46
 msgid "Source username"
 msgstr "データソースのユーザー名"
 
-#: dashboards/project/data_processing/data_sources/workflows/create.py:42
+#: dashboards/project/data_processing/data_sources/workflows/create.py:53
+#: dashboards/project/data_processing/data_sources/workflows/create.py:56
 msgid "Source password"
 msgstr "データソースのパスワード"
 
-#: dashboards/project/data_processing/data_sources/workflows/create.py:80
+#: dashboards/project/data_processing/data_sources/workflows/create.py:94
 msgid "Data source created"
 msgstr "データソースが作成されました"
 
-#: dashboards/project/data_processing/data_sources/workflows/create.py:81
+#: dashboards/project/data_processing/data_sources/workflows/create.py:95
 msgid "Could not create data source"
 msgstr "データソースを作成できませんでした"
 
@@ -9144,7 +9146,7 @@ msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "名前が \"%(name)s\" の %(count)s を起動しました。"
 
 #: dashboards/project/firewalls/forms.py:38
-#: dashboards/project/firewalls/tables.py:203
+#: dashboards/project/firewalls/tables.py:204
 #: dashboards/project/firewalls/workflows.py:37
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:22
 #: dashboards/project/loadbalancers/tables.py:276
@@ -9172,7 +9174,7 @@ msgid "ICMP"
 msgstr "ICMP"
 
 #: dashboards/project/firewalls/forms.py:40
-#: dashboards/project/firewalls/tables.py:201
+#: dashboards/project/firewalls/tables.py:202
 #: dashboards/project/firewalls/workflows.py:41
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:23
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:26
@@ -9247,7 +9249,7 @@ msgid "Failed to update rule %(name)s: %(reason)s"
 msgstr "ルール %(name)s の更新に失敗しました: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:102
-#: dashboards/project/firewalls/tables.py:235
+#: dashboards/project/firewalls/tables.py:237
 #: dashboards/project/firewalls/workflows.py:180
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:34
 msgid "Audited"
@@ -9264,7 +9266,7 @@ msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr "ポリシー %(name)s の更新に失敗しました: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:130
-#: dashboards/project/firewalls/tables.py:251
+#: dashboards/project/firewalls/tables.py:272
 #: dashboards/project/firewalls/workflows.py:235
 msgid "Policy"
 msgstr "ポリシー"
@@ -9284,7 +9286,7 @@ msgid "Failed to update firewall %(name)s: %(reason)s"
 msgstr "ファイアウォール %(name)s の更新に失敗しました: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:179
-#: dashboards/project/firewalls/tables.py:156
+#: dashboards/project/firewalls/tables.py:157
 msgid "Insert Rule"
 msgstr "ルールの挿入"
 
@@ -9312,7 +9314,7 @@ msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr "ポリシー %(name)s へのルールの挿入に失敗しました: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:242
-#: dashboards/project/firewalls/tables.py:170
+#: dashboards/project/firewalls/tables.py:171
 msgid "Remove Rule"
 msgstr "ルールの削除"
 
@@ -9332,98 +9334,138 @@ msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr "ポリシー %(name)s からのルールの削除に失敗しました: %(reason)s"
 
 #: dashboards/project/firewalls/panel.py:26
-#: dashboards/project/firewalls/tables.py:257
+#: dashboards/project/firewalls/tables.py:279
 #: dashboards/project/firewalls/tabs.py:69
 #: dashboards/project/firewalls/views.py:110
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
 msgid "Firewalls"
 msgstr "ファイアウォール"
 
-#: dashboards/project/firewalls/tables.py:35
+#: dashboards/project/firewalls/tables.py:36
 #: dashboards/project/firewalls/workflows.py:208
 msgid "Add Policy"
 msgstr "ポリシーの追加"
 
-#: dashboards/project/firewalls/tables.py:43
+#: dashboards/project/firewalls/tables.py:44
 msgid "Create Firewall"
 msgstr "ファイアウォールの作成"
 
-#: dashboards/project/firewalls/tables.py:64
+#: dashboards/project/firewalls/tables.py:65
 msgid "Scheduled deletion of Rule"
 msgid_plural "Scheduled deletion of Rules"
 msgstr[0] "ルールの削除を予約しました"
 
-#: dashboards/project/firewalls/tables.py:78
+#: dashboards/project/firewalls/tables.py:79
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
 msgstr[0] "ポリシーの削除"
 
-#: dashboards/project/firewalls/tables.py:86
+#: dashboards/project/firewalls/tables.py:87
 msgid "Scheduled deletion of Policy"
 msgid_plural "Scheduled deletion of Policies"
 msgstr[0] "ポリシーの削除を予約しました"
 
-#: dashboards/project/firewalls/tables.py:101
+#: dashboards/project/firewalls/tables.py:102
 msgid "Delete Firewall"
 msgid_plural "Delete Firewalls"
 msgstr[0] "ファイアウォールの削除"
 
-#: dashboards/project/firewalls/tables.py:109
+#: dashboards/project/firewalls/tables.py:110
 msgid "Scheduled deletion of Firewall"
 msgid_plural "Scheduled deletion of Firewalls"
 msgstr[0] "ファイアウェールの削除を予約しました"
 
-#: dashboards/project/firewalls/tables.py:119
+#: dashboards/project/firewalls/tables.py:120
 #: dashboards/project/firewalls/views.py:130
 #: dashboards/project/firewalls/templates/firewalls/updaterule.html:3
 msgid "Edit Rule"
 msgstr "ルールの編集"
 
-#: dashboards/project/firewalls/tables.py:131
+#: dashboards/project/firewalls/tables.py:132
 #: dashboards/project/firewalls/views.py:171
 #: dashboards/project/firewalls/templates/firewalls/updatepolicy.html:3
 msgid "Edit Policy"
 msgstr "ポリシーの編集"
 
-#: dashboards/project/firewalls/tables.py:143
+#: dashboards/project/firewalls/tables.py:144
 #: dashboards/project/firewalls/views.py:209
 #: dashboards/project/firewalls/templates/firewalls/updatefirewall.html:3
 msgid "Edit Firewall"
 msgstr "ファイアウォールの編集"
 
-#: dashboards/project/firewalls/tables.py:205
+#: dashboards/project/firewalls/tables.py:206
 msgid "Source IP"
 msgstr "送信元 IP アドレス"
 
-#: dashboards/project/firewalls/tables.py:207
+#: dashboards/project/firewalls/tables.py:208
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:28
 msgid "Source Port"
 msgstr "送信元ポート番号"
 
-#: dashboards/project/firewalls/tables.py:209
+#: dashboards/project/firewalls/tables.py:210
 msgid "Destination IP"
 msgstr "宛先 IP アドレス"
 
-#: dashboards/project/firewalls/tables.py:211
+#: dashboards/project/firewalls/tables.py:212
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:34
 msgid "Destination Port"
 msgstr "宛先ポート番号"
 
-#: dashboards/project/firewalls/tables.py:219
+#: dashboards/project/firewalls/tables.py:221
 msgid "In Policy"
 msgstr "利用中のポリシー"
 
-#: dashboards/project/firewalls/tables.py:223
-#: dashboards/project/firewalls/tables.py:233
+#: dashboards/project/firewalls/tables.py:225
+#: dashboards/project/firewalls/tables.py:235
 #: dashboards/project/firewalls/workflows.py:131
 #: dashboards/project/firewalls/workflows.py:137
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:19
 msgid "Rules"
 msgstr "ルール"
 
-#: dashboards/project/firewalls/tables.py:239
+#: dashboards/project/firewalls/tables.py:242
 msgid "Policies"
 msgstr "ポリシー"
+
+#: dashboards/project/firewalls/tables.py:251
+msgctxt "Current status of a Firewall"
+msgid "Active"
+msgstr "稼働中"
+
+#: dashboards/project/firewalls/tables.py:253
+msgctxt "Current status of a Firewall"
+msgid "Down"
+msgstr "停止中"
+
+#: dashboards/project/firewalls/tables.py:255
+msgctxt "Current status of a Firewall"
+msgid "Error"
+msgstr "エラー"
+
+#: dashboards/project/firewalls/tables.py:257
+msgctxt "Current status of a Firewall"
+msgid "Created"
+msgstr "作成時刻"
+
+#: dashboards/project/firewalls/tables.py:259
+msgctxt "Current status of a Firewall"
+msgid "Pending Create"
+msgstr ""
+
+#: dashboards/project/firewalls/tables.py:261
+msgctxt "Current status of a Firewall"
+msgid "Pending Update"
+msgstr ""
+
+#: dashboards/project/firewalls/tables.py:263
+msgctxt "Current status of a Firewall"
+msgid "Pending Delete"
+msgstr ""
+
+#: dashboards/project/firewalls/tables.py:265
+msgctxt "Current status of a Firewall"
+msgid "Inactive"
+msgstr ""
 
 #: dashboards/project/firewalls/tabs.py:31
 msgid "Firewall Rules"
@@ -12675,7 +12717,7 @@ msgid "Router Name"
 msgstr "ルーター名"
 
 #: dashboards/project/routers/forms.py:36
-#: dashboards/project/routers/forms.py:91
+#: dashboards/project/routers/forms.py:92
 msgid "Router Type"
 msgstr "ルーター種別"
 
@@ -12685,7 +12727,7 @@ msgid "Use Server Default"
 msgstr "デフォルト設定を使用"
 
 #: dashboards/project/routers/forms.py:46
-#: dashboards/project/routers/forms.py:110
+#: dashboards/project/routers/forms.py:111
 msgid "Centralized"
 msgstr "集中ルータ"
 
@@ -12711,12 +12753,12 @@ msgstr "ルーターのクォータを超過しました。"
 msgid "Failed to create router \"%s\"."
 msgstr "ルーター \"%s\" を作成できません。"
 
-#: dashboards/project/routers/forms.py:132
+#: dashboards/project/routers/forms.py:133
 #, python-format
 msgid "Router %s was successfully updated."
 msgstr "ルーター %s が正常に更新されました。"
 
-#: dashboards/project/routers/forms.py:137
+#: dashboards/project/routers/forms.py:138
 #, python-format
 msgid "Failed to update router %s"
 msgstr "ルーター %s の更新に失敗しました。"
