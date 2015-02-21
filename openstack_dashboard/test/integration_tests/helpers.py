@@ -11,6 +11,8 @@
 # under the License.
 
 import os
+import time
+import uuid
 
 import testtools
 import xvfbwrapper
@@ -18,6 +20,25 @@ import xvfbwrapper
 from openstack_dashboard.test.integration_tests import config
 from openstack_dashboard.test.integration_tests.pages import loginpage
 from openstack_dashboard.test.integration_tests import webdriver
+
+
+def gen_random_resource_name(resource="", timestamp=True):
+    """Generate random resource name using uuid and timestamp.
+
+    Input fields are usually limited to 255 or 80 characters hence their
+    provide enough space for quite long resource names, but it might be
+    the case that maximum field length is quite restricted, it is then
+    necessary to consider using shorter resource argument or avoid using
+    timestamp by setting timestamp argument to False.
+    """
+    fields = ["horizon"]
+    if resource:
+        fields.append(resource)
+    if timestamp:
+        tstamp = time.strftime("%d-%m-%H-%M-%S")
+        fields.append(tstamp)
+    fields.append(str(uuid.uuid4()).replace("-", ""))
+    return "_".join(fields)
 
 
 class BaseTestCase(testtools.TestCase):
