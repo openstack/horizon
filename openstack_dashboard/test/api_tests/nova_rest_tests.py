@@ -142,3 +142,131 @@ class NovaRestTestCase(test.TestCase):
             request, 'Ni!', 'image123', 'flavor123', 'sekrit', 'base64 yes',
             [{'name': 'root'}]
         )
+
+    @mock.patch.object(nova.api, 'nova')
+    def test_server_get_single(self, nc):
+        request = self.mock_rest_request()
+        nc.server_get.return_value.to_dict.return_value = {'name': '1'}
+
+        response = nova.Server().get(request, "1")
+        self.assertStatusCode(response, 200)
+        nc.server_get.assert_called_once_with(request, "1")
+
+    #
+    # Extensions
+    #
+    @mock.patch.object(nova.api, 'nova')
+    def _test_extension_list(self, nc):
+        request = self.mock_rest_request()
+        nc.list_extensions.return_value = [
+            mock.Mock(**{'to_dict.return_value': {'name': 'foo'}}),
+            mock.Mock(**{'to_dict.return_value': {'name': 'bar'}}),
+        ]
+        response = nova.Extensions().get(request)
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.content,
+                         '{"items": [{"name": "foo"}, {"name": "bar"}]}')
+        nc.list_extensions.assert_called_once_with(request)
+
+    #
+    # Flavors
+    #
+    def test_get_extras_no(self):
+        self._test_flavor_get_single(get_extras=False)
+
+    def test_get_extras_yes(self):
+        self._test_flavor_get_single(get_extras=True)
+
+    def test_get_extras_default(self):
+        self._test_flavor_get_single(get_extras=None)
+
+    @mock.patch.object(nova.api, 'nova')
+    def _test_flavor_get_single(self, nc, get_extras):
+        if get_extras:
+            request = self.mock_rest_request(GET={'get_extras': 'tRuE'})
+        elif get_extras is None:
+            request = self.mock_rest_request()
+            get_extras = False
+        else:
+            request = self.mock_rest_request(GET={'get_extras': 'fAlsE'})
+        nc.flavor_get.return_value.to_dict.return_value = {'name': '1'}
+
+        response = nova.Flavor().get(request, "1")
+        self.assertStatusCode(response, 200)
+        if get_extras:
+            self.assertEqual(response.content, '{"extras": {}, "name": "1"}')
+        else:
+            self.assertEqual(response.content, '{"name": "1"}')
+        nc.flavor_get.assert_called_once_with(request, "1",
+                                              get_extras=get_extras)
+
+    @mock.patch.object(nova.api, 'nova')
+    def _test_flavor_list_public(self, nc, is_public=None):
+        if is_public:
+            request = self.mock_rest_request(GET={'is_public': 'tRuE'})
+        elif is_public is None:
+            request = self.mock_rest_request(GET={})
+        else:
+            request = self.mock_rest_request(GET={'is_public': 'fAlsE'})
+        nc.flavor_list.return_value = [
+            mock.Mock(**{'to_dict.return_value': {'id': '1'}}),
+            mock.Mock(**{'to_dict.return_value': {'id': '2'}}),
+        ]
+        response = nova.Flavors().get(request)
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.content,
+                         '{"items": [{"id": "1"}, {"id": "2"}]}')
+        nc.flavor_list.assert_called_once_with(request, is_public=is_public,
+                                               get_extras=False)
+
+    def test_flavor_list_private(self):
+        self._test_flavor_list_public(is_public=False)
+
+    def test_flavor_list_public(self):
+        self._test_flavor_list_public(is_public=True)
+
+    def test_flavor_list_public_none(self):
+        self._test_flavor_list_public(is_public=None)
+
+    @mock.patch.object(nova.api, 'nova')
+    def _test_flavor_list_extras(self, nc, get_extras=None):
+        if get_extras:
+            request = self.mock_rest_request(GET={'get_extras': 'tRuE'})
+        elif get_extras is None:
+            request = self.mock_rest_request(GET={})
+            get_extras = False
+        else:
+            request = self.mock_rest_request(GET={'get_extras': 'fAlsE'})
+        nc.flavor_list.return_value = [
+            mock.Mock(**{'extras': {}, 'to_dict.return_value': {'id': '1'}}),
+            mock.Mock(**{'extras': {}, 'to_dict.return_value': {'id': '2'}}),
+        ]
+        response = nova.Flavors().get(request)
+        self.assertStatusCode(response, 200)
+        if get_extras:
+            self.assertEqual(response.content,
+                             '{"items": [{"extras": {}, "id": "1"}, '
+                             '{"extras": {}, "id": "2"}]}')
+        else:
+            self.assertEqual(response.content,
+                             '{"items": [{"id": "1"}, {"id": "2"}]}')
+        nc.flavor_list.assert_called_once_with(request, is_public=None,
+                                               get_extras=get_extras)
+
+    def test_flavor_list_extras_no(self):
+        self._test_flavor_list_extras(get_extras=False)
+
+    def test_flavor_list_extras_yes(self):
+        self._test_flavor_list_extras(get_extras=True)
+
+    def test_flavor_list_extras_absent(self):
+        self._test_flavor_list_extras(get_extras=None)
+
+    @mock.patch.object(nova.api, 'nova')
+    def test_flavor_extra_specs(self, nc):
+        request = self.mock_rest_request()
+        nc.flavor_get_extras.return_value.to_dict.return_value = {'foo': '1'}
+
+        response = nova.FlavorExtraSpecs().get(request, "1")
+        self.assertStatusCode(response, 200)
+        nc.flavor_get_extras.assert_called_once_with(request, "1", raw=True)

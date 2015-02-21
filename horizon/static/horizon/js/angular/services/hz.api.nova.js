@@ -144,6 +144,108 @@ limitations under the License.
           horizon.alert('error', gettext('Unable to create the server.'));
         });
     };
+
+    /**
+     * @name hz.api.novaAPI.getServer
+     * @description
+     * Get a single server by ID
+     * @param {string} id
+     * Specifies the id of the server to request.
+     */
+    this.getServer = function(id) {
+      return apiService.get('/api/nova/servers/' + id)
+        .error(function () {
+          horizon.alert('error', gettext('Unable to retrieve server.'));
+      });
+    };
+
+    /**
+     * @name hz.api.novaAPI.getExtensions
+     * @description
+     * Returns a list of enabled extensions.
+     *
+     * The listing result is an object with property "items". Each item is
+     * an extension.
+     * @example
+     * The following is an example response:
+     *
+     *  {
+     *    "items": [
+     *      {
+     *        "alias": "NMN",
+     *        "description": "Multiple network support.",
+     *        "links": [],
+     *        "name": "Multinic",
+     *        "namespace": "http://docs.openstack.org/compute/ext/multinic/api/v1.1",
+     *        "updated": "2011-06-09T00:00:00Z"
+     *      }
+     *    ]
+     *  }
+     */
+    this.getExtensions = function() {
+      return apiService.get('/api/nova/extensions/')
+        .error(function () {
+          horizon.alert('error', gettext('Unable to retrieve extensions.'));
+        });
+    };
+
+    /**
+     * @name hz.api.novaAPI.getFlavors
+     * @description
+     * Returns a list of flavors.
+     *
+     * The listing result is an object with property "items". Each item is
+     * a flavor.
+     *
+     * @param {boolean} isPublic (optional)
+     * True if public flavors should be returned. If not specified, the API
+     * will return public flavors by default for Admins and only project
+     * flavors for non-admins.
+     * @param {boolean} getExtras (optional)
+     * Also retrieve the extra specs. This is expensive (one extra underlying
+     * call per flavor).
+     */
+    this.getFlavors = function(isPublic, getExtras) {
+      var config = {'params': {}};
+      if (isPublic) { config.params.is_public = 'true'; }
+      if (getExtras) { config.params.get_extras = 'true'; }
+      return apiService.get('/api/nova/flavors/', config)
+        .error(function () {
+          horizon.alert('error', gettext('Unable to retrieve flavors.'));
+        });
+    };
+
+    /**
+     * @name hz.api.novaAPI.getFlavor
+     * @description
+     * Get a single flavor by ID.
+     * @param {string} id
+     * Specifies the id of the flavor to request.
+     * @param {boolean} getExtras (optional)
+     * Also retrieve the extra specs for the flavor.
+     */
+    this.getFlavor = function(id, getExtras) {
+      var config = {'params': {}};
+      if (getExtras) { config.params.get_extras = 'true'; }
+      return apiService.get('/api/nova/flavors/' + id, config)
+        .error(function () {
+          horizon.alert('error', gettext('Unable to retrieve flavor.'));
+      });
+    };
+
+    /**
+     * @name hz.api.novaAPI.getFlavorExtraSpecs
+     * @description
+     * Get a single flavor's extra specs by ID.
+     * @param {string} id
+     * Specifies the id of the flavor to request the extra specs.
+     */
+    this.getFlavorExtraSpecs = function(id) {
+      return apiService.get('/api/nova/flavors/' + id + '/extra-specs')
+        .error(function () {
+          horizon.alert('error', gettext('Unable to retrieve flavor extra specs.'));
+      });
+    };
   }
 
   angular.module('hz.api')

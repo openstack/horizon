@@ -117,6 +117,12 @@ class APIResourceWrapper(object):
                                   for attr in self._attrs
                                   if hasattr(self, attr)))
 
+    def to_dict(self):
+        obj = {}
+        for key in self._attrs:
+            obj[key] = getattr(self._apiresource, key, None)
+        return obj
+
 
 class APIDictWrapper(object):
     """Simple wrapper for api dictionaries

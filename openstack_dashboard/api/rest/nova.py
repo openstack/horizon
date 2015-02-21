@@ -173,3 +173,115 @@ class Servers(generic.View):
             '/api/nova/servers/%s' % urllib.quote(new.id),
             new.to_dict()
         )
+
+
+@urls.register
+class Server(generic.View):
+    """API for retrieving a single server
+    """
+    url_regex = r'nova/servers/(?P<server_id>.+|default)$'
+
+    @rest_utils.ajax()
+    def get(self, request, server_id):
+        """Get a specific server
+
+        http://localhost/api/nova/servers/1
+        """
+        return api.nova.server_get(request, server_id).to_dict()
+
+
+@urls.register
+class Extensions(generic.View):
+    """API for nova extensions.
+    """
+    url_regex = r'nova/extensions/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """Get a list of extensions.
+
+        The listing result is an object with property "items". Each item is
+        an image.
+
+        Example GET:
+        http://localhost/api/nova/extensions
+        """
+        result = api.nova.list_extensions(request)
+        return {'items': [e.to_dict() for e in result]}
+
+
+@urls.register
+class Flavors(generic.View):
+    """API for nova flavors.
+    """
+    url_regex = r'nova/flavors/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """Get a list of flavors.
+
+        The listing result is an object with property "items". Each item is
+        an flavor. By default this will return the flavors for the user's
+        current project. If the user is admin, public flavors will also be
+        returned.
+
+        :param is_public: For a regular user, set to True to see all public
+            flavors. For an admin user, set to False to not see public flavors.
+        :param get_extras: Also retrieve the extra specs.
+
+        Example GET:
+        http://localhost/api/nova/flavors?is_public=true
+        """
+        is_public = request.GET.get('is_public')
+        is_public = (is_public and is_public.lower() == 'true')
+        get_extras = request.GET.get('get_extras')
+        get_extras = bool(get_extras and get_extras.lower() == 'true')
+        flavors = api.nova.flavor_list(request, is_public=is_public,
+                                       get_extras=get_extras)
+        result = {'items': []}
+        for flavor in flavors:
+            d = flavor.to_dict()
+            if get_extras:
+                d['extras'] = flavor.extras
+            result['items'].append(d)
+        return result
+
+
+@urls.register
+class Flavor(generic.View):
+    """API for retrieving a single flavor
+    """
+    url_regex = r'nova/flavors/(?P<flavor_id>.+)/$'
+
+    @rest_utils.ajax()
+    def get(self, request, flavor_id):
+        """Get a specific flavor
+
+        :param get_extras: Also retrieve the extra specs.
+
+        Example GET:
+        http://localhost/api/nova/flavors/1
+        """
+        get_extras = request.GET.get('get_extras')
+        get_extras = bool(get_extras and get_extras.lower() == 'true')
+        flavor = api.nova.flavor_get(request, flavor_id, get_extras=get_extras)
+        result = flavor.to_dict()
+        if get_extras:
+            result['extras'] = flavor.extras
+        return result
+
+
+@urls.register
+class FlavorExtraSpecs(generic.View):
+    """API for managing flavor extra specs
+    """
+    url_regex = r'nova/flavors/(?P<flavor_id>.+)/extra-specs$'
+
+    @rest_utils.ajax()
+    def get(self, request, flavor_id):
+        """Get a specific flavor's extra specs
+
+        Example GET:
+        http://localhost/api/nova/flavors/1/extra-specs
+        """
+        return api.nova.flavor_get_extras(request, flavor_id, raw=True)

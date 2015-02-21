@@ -486,14 +486,21 @@ def flavor_delete(request, flavor_id):
     novaclient(request).flavors.delete(flavor_id)
 
 
-def flavor_get(request, flavor_id):
-    return novaclient(request).flavors.get(flavor_id)
+def flavor_get(request, flavor_id, get_extras=False):
+    flavor = novaclient(request).flavors.get(flavor_id)
+    if get_extras:
+        flavor.extras = flavor_get_extras(request, flavor.id, True, flavor)
+    return flavor
 
 
 @memoized
-def flavor_list(request, is_public=True):
+def flavor_list(request, is_public=True, get_extras=False):
     """Get the list of available instance sizes (flavors)."""
-    return novaclient(request).flavors.list(is_public=is_public)
+    flavors = novaclient(request).flavors.list(is_public=is_public)
+    if get_extras:
+        for flavor in flavors:
+            flavor.extras = flavor_get_extras(request, flavor.id, True, flavor)
+    return flavors
 
 
 @memoized
@@ -514,9 +521,10 @@ def remove_tenant_from_flavor(request, flavor, tenant):
         flavor=flavor, tenant=tenant)
 
 
-def flavor_get_extras(request, flavor_id, raw=False):
+def flavor_get_extras(request, flavor_id, raw=False, flavor=None):
     """Get flavor extra specs."""
-    flavor = novaclient(request).flavors.get(flavor_id)
+    if flavor is None:
+        flavor = novaclient(request).flavors.get(flavor_id)
     extras = flavor.get_keys()
     if raw:
         return extras
