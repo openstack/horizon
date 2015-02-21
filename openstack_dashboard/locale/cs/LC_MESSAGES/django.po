@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-19 23:00-0600\n"
-"PO-Revision-Date: 2015-02-20 02:54+0000\n"
+"POT-Creation-Date: 2015-02-20 21:08-0600\n"
+"PO-Revision-Date: 2015-02-20 21:54+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -348,7 +348,7 @@ msgctxt "Both of front-end and back-end"
 msgid "both"
 msgstr "obě"
 
-#: api/cinder.py:213
+#: api/cinder.py:219
 msgid "Unknown instance"
 msgstr "Neznámá instance"
 
@@ -394,22 +394,22 @@ msgstr ""
 msgid "Unable to get health monitors for pool %(pool)s."
 msgstr ""
 
-#: api/neutron.py:213
+#: api/neutron.py:216
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "POVOLIT %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
-#: api/neutron.py:932
+#: api/neutron.py:935
 msgid "Unable to connect to Neutron."
 msgstr "Nelze se připojit k Neutron."
 
-#: api/neutron.py:969
+#: api/neutron.py:972
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "Nelze zpracovat IP adresu %s."
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1108
+#: api/neutron.py:1111
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -417,14 +417,14 @@ msgid ""
 msgstr "Vyžadovaná funkce '%(feature)s' je neznámá. Ujistěte se, že je zadána ve FEATURE_MAP."
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1126
+#: api/neutron.py:1129
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
 "invalid. It should be one of %(allowed)s"
 msgstr "Parametr 'operation' pro získání oprávnění k funkci '%(feature)s' je neplatný.\nMěl by to být jeden z %(allowed)s"
 
-#: api/neutron.py:1141
+#: api/neutron.py:1144
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr "Nelze zkontrolovat. Rozšíření Neutron '%s' není podporováno"
@@ -461,42 +461,42 @@ msgstr "Nelze zkontrolovat. Rozšíření Neutron '%s' není podporováno"
 msgid "-"
 msgstr "-"
 
-#: api/nova.py:228
+#: api/nova.py:231
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(group)s"
 msgstr "Povolit %(from)s:%(to)s z %(group)s"
 
-#: api/nova.py:233
+#: api/nova.py:236
 #, python-format
 msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
 msgstr "Povolit %(from)s:%(to)s z %(cidr)s"
 
-#: api/nova.py:309
+#: api/nova.py:312
 msgid "Couldn't get security group list."
 msgstr "Nelze získat seznam bezpečnostních skupin."
 
-#: api/nova.py:316
+#: api/nova.py:319
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
 msgstr "Nelze získat seznam současných bezpečnostních skupin pro instanci %s."
 
-#: api/nova.py:333
+#: api/nova.py:336
 #, python-format
 msgid ""
 "Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
 msgstr "Nelze změnit %(num_groups_to_modify)d instancí bezpečnostních skupin: %(err)s"
 
-#: api/nova.py:348
+#: api/nova.py:351
 #, python-format
 msgid "Failed to modify %d instance security groups"
 msgstr "Nelze změnit %d instancí bezpečnostních skupin"
 
-#: api/nova.py:784
+#: api/nova.py:787
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr "Název: %(name)s ID: %(uuid)s"
 
-#: api/nova.py:789
+#: api/nova.py:792
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr "Nelze vyklidit instance: %s"
@@ -543,7 +543,7 @@ msgstr "Správce"
 #: dashboards/admin/volumes/volumes/forms.py:166
 #: dashboards/admin/volumes/volumes/forms.py:225
 #: dashboards/admin/volumes/volumes/tables.py:79
-#: dashboards/identity/domains/tables.py:198
+#: dashboards/identity/domains/tables.py:199
 #: dashboards/identity/domains/workflows.py:34
 #: dashboards/identity/groups/forms.py:30
 #: dashboards/identity/groups/forms.py:56
@@ -587,9 +587,9 @@ msgstr "Správce"
 #: dashboards/project/firewalls/forms.py:33
 #: dashboards/project/firewalls/forms.py:98
 #: dashboards/project/firewalls/forms.py:125
-#: dashboards/project/firewalls/tables.py:198
-#: dashboards/project/firewalls/tables.py:230
-#: dashboards/project/firewalls/tables.py:247
+#: dashboards/project/firewalls/tables.py:199
+#: dashboards/project/firewalls/tables.py:232
+#: dashboards/project/firewalls/tables.py:268
 #: dashboards/project/firewalls/workflows.py:30
 #: dashboards/project/firewalls/workflows.py:173
 #: dashboards/project/firewalls/workflows.py:230
@@ -1829,7 +1829,7 @@ msgstr "Zóna"
 #: dashboards/project/databases/tables.py:300
 #: dashboards/project/databases/tables.py:365
 #: dashboards/project/databases/templates/databases/_detail_overview.html:17
-#: dashboards/project/firewalls/tables.py:253
+#: dashboards/project/firewalls/tables.py:274
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
 #: dashboards/project/images/images/tables.py:247
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
@@ -2049,7 +2049,7 @@ msgstr "Informace o systému"
 #: dashboards/admin/info/tables.py:26 dashboards/admin/info/tables.py:155
 #: dashboards/admin/info/templates/info/_cell_status.html:8
 #: dashboards/admin/networks/agents/tables.py:79
-#: dashboards/identity/domains/tables.py:202
+#: dashboards/identity/domains/tables.py:203
 #: dashboards/identity/domains/workflows.py:39
 #: dashboards/identity/groups/tables.py:195
 #: dashboards/identity/projects/tables.py:237
@@ -2060,7 +2060,7 @@ msgstr "Informace o systému"
 #: dashboards/identity/users/tables.py:236
 #: dashboards/identity/users/templates/users/_detail_overview.html:23
 #: dashboards/project/firewalls/forms.py:70
-#: dashboards/project/firewalls/tables.py:216
+#: dashboards/project/firewalls/tables.py:217
 #: dashboards/project/firewalls/workflows.py:67
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:53
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:65
@@ -2426,7 +2426,7 @@ msgstr ""
 #: dashboards/admin/metering/views.py:106
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:15
 #: dashboards/admin/volumes/volumes/forms.py:64
-#: dashboards/identity/domains/tables.py:200
+#: dashboards/identity/domains/tables.py:201
 #: dashboards/identity/domains/workflows.py:37
 #: dashboards/identity/groups/forms.py:33
 #: dashboards/identity/groups/forms.py:59
@@ -2448,7 +2448,7 @@ msgstr ""
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:13
 #: dashboards/project/data_processing/data_sources/tables.py:63
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:13
-#: dashboards/project/data_processing/data_sources/workflows/create.py:46
+#: dashboards/project/data_processing/data_sources/workflows/create.py:60
 #: dashboards/project/data_processing/job_binaries/forms.py:131
 #: dashboards/project/data_processing/job_binaries/tables.py:84
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:11
@@ -3754,7 +3754,7 @@ msgstr "Cílové CIDR"
 
 #: dashboards/admin/routers/extensions/routerrules/tables.py:24
 #: dashboards/project/firewalls/forms.py:43
-#: dashboards/project/firewalls/tables.py:214
+#: dashboards/project/firewalls/tables.py:215
 #: dashboards/project/firewalls/workflows.py:43
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:19
 #: dashboards/project/instances/audit_tables.py:25
@@ -3811,8 +3811,8 @@ msgstr "ID projektu"
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:18
 #: dashboards/project/routers/forms.py:47
-#: dashboards/project/routers/forms.py:105
-#: dashboards/project/routers/forms.py:111
+#: dashboards/project/routers/forms.py:106
+#: dashboards/project/routers/forms.py:112
 #: dashboards/project/routers/tables.py:210
 #: dashboards/project/routers/templates/routers/_detail_overview.html:18
 msgid "Distributed"
@@ -3820,7 +3820,7 @@ msgstr ""
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:22
 #: dashboards/project/routers/forms.py:37
-#: dashboards/project/routers/forms.py:92
+#: dashboards/project/routers/forms.py:93
 #: dashboards/project/routers/templates/routers/_detail_overview.html:22
 msgid "High Availability Mode"
 msgstr ""
@@ -4063,7 +4063,7 @@ msgstr ""
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:24
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:23
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:225
-#: dashboards/project/data_processing/data_sources/workflows/create.py:79
+#: dashboards/project/data_processing/data_sources/workflows/create.py:93
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
 #: dashboards/project/data_processing/jobs/workflows/create.py:146
 #: dashboards/project/data_processing/jobs/workflows/launch.py:406
@@ -4574,7 +4574,7 @@ msgstr[2] ""
 
 #: dashboards/admin/volumes/volume_types/extras/tables.py:59
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:48
-#: dashboards/identity/domains/tables.py:80
+#: dashboards/identity/domains/tables.py:81
 #: dashboards/identity/roles/tables.py:37
 #: dashboards/identity/users/tables.py:46
 #: dashboards/project/containers/tables.py:318
@@ -4771,70 +4771,70 @@ msgid "Identity"
 msgstr "Identity"
 
 #: dashboards/identity/domains/panel.py:24
-#: dashboards/identity/domains/tables.py:206
+#: dashboards/identity/domains/tables.py:208
 #: dashboards/identity/domains/views.py:36
 #: dashboards/identity/domains/templates/domains/index.html:3
 msgid "Domains"
 msgstr "Domény"
 
-#: dashboards/identity/domains/tables.py:38
+#: dashboards/identity/domains/tables.py:39
 #: dashboards/identity/groups/tables.py:91
 #: dashboards/identity/projects/tables.py:54
 msgid "Manage Members"
 msgstr ""
 
-#: dashboards/identity/domains/tables.py:54
+#: dashboards/identity/domains/tables.py:55
 #: dashboards/identity/projects/tables.py:70
 msgid "Modify Groups"
 msgstr "Změnit skupiny"
 
-#: dashboards/identity/domains/tables.py:68
+#: dashboards/identity/domains/tables.py:69
 #: dashboards/identity/domains/workflows.py:253
 #: dashboards/identity/domains/workflows.py:254
 msgid "Create Domain"
 msgstr "Vytvořit doménu"
 
-#: dashboards/identity/domains/tables.py:94
+#: dashboards/identity/domains/tables.py:95
 msgid "Delete Domain"
 msgid_plural "Delete Domains"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/identity/domains/tables.py:102
+#: dashboards/identity/domains/tables.py:103
 msgid "Deleted Domain"
 msgid_plural "Deleted Domains"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/identity/domains/tables.py:116
+#: dashboards/identity/domains/tables.py:117
 #, python-format
 msgid "Domain \"%s\" must be disabled before it can be deleted."
 msgstr "Doména \"%s\" musí být před smazáním zakázána."
 
-#: dashboards/identity/domains/tables.py:146
+#: dashboards/identity/domains/tables.py:147
 msgid "Set Domain Context"
 msgstr "Nastavit kontext domény"
 
-#: dashboards/identity/domains/tables.py:171
+#: dashboards/identity/domains/tables.py:172
 #, python-format
 msgid "Domain Context updated to Domain %s."
 msgstr "Kontext domény aktualizován na Doména %s."
 
-#: dashboards/identity/domains/tables.py:175
+#: dashboards/identity/domains/tables.py:176
 msgid "Unable to set Domain Context."
 msgstr "Nelze nastavit kontext domény."
 
-#: dashboards/identity/domains/tables.py:180
+#: dashboards/identity/domains/tables.py:181
 msgid "Clear Domain Context"
 msgstr "Vyčistit kontext domény"
 
-#: dashboards/identity/domains/tables.py:194
+#: dashboards/identity/domains/tables.py:195
 msgid "Domain Context cleared."
 msgstr "Kontext domény vyčištěn."
 
-#: dashboards/identity/domains/tables.py:201
+#: dashboards/identity/domains/tables.py:202
 #: dashboards/identity/projects/workflows.py:138
 #: dashboards/identity/users/forms.py:88
 #: dashboards/identity/users/forms.py:165
@@ -5090,29 +5090,29 @@ msgstr "E-mail"
 msgid "User ID"
 msgstr "ID uživatele"
 
-#: dashboards/identity/groups/tables.py:198
+#: dashboards/identity/groups/tables.py:200
 msgid "False"
 msgstr ""
 
-#: dashboards/identity/groups/tables.py:204
+#: dashboards/identity/groups/tables.py:206
 msgid "Group Members"
 msgstr "Členové skupiny"
 
-#: dashboards/identity/groups/tables.py:212
+#: dashboards/identity/groups/tables.py:214
 msgid "Add User"
 msgid_plural "Add Users"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/identity/groups/tables.py:220
+#: dashboards/identity/groups/tables.py:222
 msgid "Added User"
 msgid_plural "Added Users"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/identity/groups/tables.py:254
+#: dashboards/identity/groups/tables.py:256
 msgid "Non-Members"
 msgstr "Nečlenové"
 
@@ -5547,7 +5547,7 @@ msgid "Unable to update the user password."
 msgstr ""
 
 #: dashboards/identity/users/panel.py:27
-#: dashboards/identity/users/tables.py:243
+#: dashboards/identity/users/tables.py:245
 #: dashboards/identity/users/views.py:46
 #: dashboards/identity/users/templates/users/index.html:3
 #: dashboards/project/databases/tables.py:325
@@ -6297,13 +6297,13 @@ msgstr "Správa pravidel"
 #: dashboards/project/access_and_security/security_groups/views.py:101
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:8
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:3
-#: dashboards/project/firewalls/tables.py:26
+#: dashboards/project/firewalls/tables.py:27
 #: dashboards/project/firewalls/workflows.py:103
 msgid "Add Rule"
 msgstr "Přidat pravidlo"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:177
-#: dashboards/project/firewalls/tables.py:56
+#: dashboards/project/firewalls/tables.py:57
 msgid "Delete Rule"
 msgid_plural "Delete Rules"
 msgstr[0] ""
@@ -7644,8 +7644,8 @@ msgstr ""
 #: dashboards/project/data_processing/data_sources/tables.py:28
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/create.html:3
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/create.html:6
-#: dashboards/project/data_processing/data_sources/workflows/create.py:54
-#: dashboards/project/data_processing/data_sources/workflows/create.py:78
+#: dashboards/project/data_processing/data_sources/workflows/create.py:68
+#: dashboards/project/data_processing/data_sources/workflows/create.py:92
 msgid "Create Data Source"
 msgstr ""
 
@@ -7693,7 +7693,7 @@ msgid "Data Source Overview"
 msgstr ""
 
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:11
-#: dashboards/project/data_processing/data_sources/workflows/create.py:35
+#: dashboards/project/data_processing/data_sources/workflows/create.py:38
 #: dashboards/project/data_processing/job_binaries/forms.py:59
 #: dashboards/project/data_processing/job_binaries/forms.py:65
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:9
@@ -7719,19 +7719,21 @@ msgstr ""
 msgid "Data Source Type"
 msgstr ""
 
-#: dashboards/project/data_processing/data_sources/workflows/create.py:37
+#: dashboards/project/data_processing/data_sources/workflows/create.py:41
+#: dashboards/project/data_processing/data_sources/workflows/create.py:46
 msgid "Source username"
 msgstr ""
 
-#: dashboards/project/data_processing/data_sources/workflows/create.py:42
+#: dashboards/project/data_processing/data_sources/workflows/create.py:53
+#: dashboards/project/data_processing/data_sources/workflows/create.py:56
 msgid "Source password"
 msgstr ""
 
-#: dashboards/project/data_processing/data_sources/workflows/create.py:80
+#: dashboards/project/data_processing/data_sources/workflows/create.py:94
 msgid "Data source created"
 msgstr ""
 
-#: dashboards/project/data_processing/data_sources/workflows/create.py:81
+#: dashboards/project/data_processing/data_sources/workflows/create.py:95
 msgid "Could not create data source"
 msgstr ""
 
@@ -9300,7 +9302,7 @@ msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "Spuštěno %(count)s pojmenovaných \"%(name)s\"."
 
 #: dashboards/project/firewalls/forms.py:38
-#: dashboards/project/firewalls/tables.py:203
+#: dashboards/project/firewalls/tables.py:204
 #: dashboards/project/firewalls/workflows.py:37
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:22
 #: dashboards/project/loadbalancers/tables.py:276
@@ -9328,7 +9330,7 @@ msgid "ICMP"
 msgstr "ICMP"
 
 #: dashboards/project/firewalls/forms.py:40
-#: dashboards/project/firewalls/tables.py:201
+#: dashboards/project/firewalls/tables.py:202
 #: dashboards/project/firewalls/workflows.py:41
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:23
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:26
@@ -9403,7 +9405,7 @@ msgid "Failed to update rule %(name)s: %(reason)s"
 msgstr "Nelze aktualizovat pravidlo %(name)s: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:102
-#: dashboards/project/firewalls/tables.py:235
+#: dashboards/project/firewalls/tables.py:237
 #: dashboards/project/firewalls/workflows.py:180
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:34
 msgid "Audited"
@@ -9420,7 +9422,7 @@ msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr "Nelze aktualizovat zásadu %(name)s: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:130
-#: dashboards/project/firewalls/tables.py:251
+#: dashboards/project/firewalls/tables.py:272
 #: dashboards/project/firewalls/workflows.py:235
 msgid "Policy"
 msgstr "Zásada"
@@ -9440,7 +9442,7 @@ msgid "Failed to update firewall %(name)s: %(reason)s"
 msgstr "Nelze aktualizovat bránu firewall %(name)s: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:179
-#: dashboards/project/firewalls/tables.py:156
+#: dashboards/project/firewalls/tables.py:157
 msgid "Insert Rule"
 msgstr "Vložit pravidlo"
 
@@ -9468,7 +9470,7 @@ msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr "Nelze vložit pravidlo do zásady %(name)s: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:242
-#: dashboards/project/firewalls/tables.py:170
+#: dashboards/project/firewalls/tables.py:171
 msgid "Remove Rule"
 msgstr "Odstranit pravidlo"
 
@@ -9488,108 +9490,148 @@ msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr "Nelze odstranit pravidlo ze zásady %(name)s: %(reason)s"
 
 #: dashboards/project/firewalls/panel.py:26
-#: dashboards/project/firewalls/tables.py:257
+#: dashboards/project/firewalls/tables.py:279
 #: dashboards/project/firewalls/tabs.py:69
 #: dashboards/project/firewalls/views.py:110
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
 msgid "Firewalls"
 msgstr "Brány firewall"
 
-#: dashboards/project/firewalls/tables.py:35
+#: dashboards/project/firewalls/tables.py:36
 #: dashboards/project/firewalls/workflows.py:208
 msgid "Add Policy"
 msgstr "Přidat zásadu"
 
-#: dashboards/project/firewalls/tables.py:43
+#: dashboards/project/firewalls/tables.py:44
 msgid "Create Firewall"
 msgstr "Vytvořit bránu firewall"
 
-#: dashboards/project/firewalls/tables.py:64
+#: dashboards/project/firewalls/tables.py:65
 msgid "Scheduled deletion of Rule"
 msgid_plural "Scheduled deletion of Rules"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/firewalls/tables.py:78
+#: dashboards/project/firewalls/tables.py:79
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/firewalls/tables.py:86
+#: dashboards/project/firewalls/tables.py:87
 msgid "Scheduled deletion of Policy"
 msgid_plural "Scheduled deletion of Policies"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/firewalls/tables.py:101
+#: dashboards/project/firewalls/tables.py:102
 msgid "Delete Firewall"
 msgid_plural "Delete Firewalls"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/firewalls/tables.py:109
+#: dashboards/project/firewalls/tables.py:110
 msgid "Scheduled deletion of Firewall"
 msgid_plural "Scheduled deletion of Firewalls"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/firewalls/tables.py:119
+#: dashboards/project/firewalls/tables.py:120
 #: dashboards/project/firewalls/views.py:130
 #: dashboards/project/firewalls/templates/firewalls/updaterule.html:3
 msgid "Edit Rule"
 msgstr "Upravit pravidlo"
 
-#: dashboards/project/firewalls/tables.py:131
+#: dashboards/project/firewalls/tables.py:132
 #: dashboards/project/firewalls/views.py:171
 #: dashboards/project/firewalls/templates/firewalls/updatepolicy.html:3
 msgid "Edit Policy"
 msgstr "Upravit zásadu"
 
-#: dashboards/project/firewalls/tables.py:143
+#: dashboards/project/firewalls/tables.py:144
 #: dashboards/project/firewalls/views.py:209
 #: dashboards/project/firewalls/templates/firewalls/updatefirewall.html:3
 msgid "Edit Firewall"
 msgstr "Upravit bránu firewall"
 
-#: dashboards/project/firewalls/tables.py:205
+#: dashboards/project/firewalls/tables.py:206
 msgid "Source IP"
 msgstr "Zdrojová IP"
 
-#: dashboards/project/firewalls/tables.py:207
+#: dashboards/project/firewalls/tables.py:208
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:28
 msgid "Source Port"
 msgstr "Zdrojový port"
 
-#: dashboards/project/firewalls/tables.py:209
+#: dashboards/project/firewalls/tables.py:210
 msgid "Destination IP"
 msgstr "Cílová IP"
 
-#: dashboards/project/firewalls/tables.py:211
+#: dashboards/project/firewalls/tables.py:212
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:34
 msgid "Destination Port"
 msgstr "Cílový port"
 
-#: dashboards/project/firewalls/tables.py:219
+#: dashboards/project/firewalls/tables.py:221
 msgid "In Policy"
 msgstr "V zásadě"
 
-#: dashboards/project/firewalls/tables.py:223
-#: dashboards/project/firewalls/tables.py:233
+#: dashboards/project/firewalls/tables.py:225
+#: dashboards/project/firewalls/tables.py:235
 #: dashboards/project/firewalls/workflows.py:131
 #: dashboards/project/firewalls/workflows.py:137
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:19
 msgid "Rules"
 msgstr "Pravidla"
 
-#: dashboards/project/firewalls/tables.py:239
+#: dashboards/project/firewalls/tables.py:242
 msgid "Policies"
 msgstr "Zásady"
+
+#: dashboards/project/firewalls/tables.py:251
+msgctxt "Current status of a Firewall"
+msgid "Active"
+msgstr "Aktivní"
+
+#: dashboards/project/firewalls/tables.py:253
+msgctxt "Current status of a Firewall"
+msgid "Down"
+msgstr "Zavřen"
+
+#: dashboards/project/firewalls/tables.py:255
+msgctxt "Current status of a Firewall"
+msgid "Error"
+msgstr "Chyba"
+
+#: dashboards/project/firewalls/tables.py:257
+msgctxt "Current status of a Firewall"
+msgid "Created"
+msgstr "Vytvořeno"
+
+#: dashboards/project/firewalls/tables.py:259
+msgctxt "Current status of a Firewall"
+msgid "Pending Create"
+msgstr ""
+
+#: dashboards/project/firewalls/tables.py:261
+msgctxt "Current status of a Firewall"
+msgid "Pending Update"
+msgstr ""
+
+#: dashboards/project/firewalls/tables.py:263
+msgctxt "Current status of a Firewall"
+msgid "Pending Delete"
+msgstr ""
+
+#: dashboards/project/firewalls/tables.py:265
+msgctxt "Current status of a Firewall"
+msgid "Inactive"
+msgstr ""
 
 #: dashboards/project/firewalls/tabs.py:31
 msgid "Firewall Rules"
@@ -12899,7 +12941,7 @@ msgid "Router Name"
 msgstr "Název směrovače"
 
 #: dashboards/project/routers/forms.py:36
-#: dashboards/project/routers/forms.py:91
+#: dashboards/project/routers/forms.py:92
 msgid "Router Type"
 msgstr ""
 
@@ -12909,7 +12951,7 @@ msgid "Use Server Default"
 msgstr ""
 
 #: dashboards/project/routers/forms.py:46
-#: dashboards/project/routers/forms.py:110
+#: dashboards/project/routers/forms.py:111
 msgid "Centralized"
 msgstr ""
 
@@ -12935,12 +12977,12 @@ msgstr "Překročena kvóta pro zdrojový směrovač."
 msgid "Failed to create router \"%s\"."
 msgstr "Nelze vytvořit směrovač \"%s\"."
 
-#: dashboards/project/routers/forms.py:132
+#: dashboards/project/routers/forms.py:133
 #, python-format
 msgid "Router %s was successfully updated."
 msgstr ""
 
-#: dashboards/project/routers/forms.py:137
+#: dashboards/project/routers/forms.py:138
 #, python-format
 msgid "Failed to update router %s"
 msgstr ""
