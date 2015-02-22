@@ -13,6 +13,7 @@
 #    under the License.
 
 from django.conf import settings
+from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import forms
@@ -22,8 +23,13 @@ from openstack_dashboard.dashboards.settings.user import forms as user_forms
 
 class UserSettingsView(forms.ModalFormView):
     form_class = user_forms.UserSettingsForm
-    template_name = 'settings/user/settings.html'
+    form_id = "user_settings_modal"
+    modal_header = _("User Settings")
+    modal_id = "user_settings_modal"
     page_title = _("User Settings")
+    submit_label = _("Save")
+    submit_url = reverse_lazy("horizon:settings:user:index")
+    template_name = 'settings/user/settings.html'
 
     def get_initial(self):
         return {
