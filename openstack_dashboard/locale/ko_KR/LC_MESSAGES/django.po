@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-20 21:08-0600\n"
-"PO-Revision-Date: 2015-02-20 21:54+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-02-21 12:11-0600\n"
+"PO-Revision-Date: 2015-02-21 13:51+0000\n"
+"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -370,7 +370,7 @@ msgstr "Identity 서비스는 사용자 데이터를 편집할 수 없습니다.
 #: api/keystone.py:356
 #, python-format
 msgid "User %s has no role defined for that project."
-msgstr "사용자 %s는 해당 프로젝트에 정의된 역할이 없습니다."
+msgstr "사용자 %s는 해당 프로젝트에 정의된 role이 없습니다."
 
 #: api/keystone.py:383
 msgid "Identity service does not allow editing user password."
@@ -4829,7 +4829,7 @@ msgstr "Keystone에 기본 role \"%s\"를 찾을 수 없습니다"
 
 #: dashboards/identity/domains/workflows.py:77
 msgid "Unable to find default role."
-msgstr "기본 롤을 찾을 수 없습니다."
+msgstr "기본 role을 찾을 수 없습니다."
 
 #: dashboards/identity/domains/workflows.py:89
 #: dashboards/identity/projects/workflows.py:268
@@ -4842,11 +4842,11 @@ msgstr "사용자 목록을 찾지 못 했습니다."
 #: dashboards/identity/domains/workflows.py:242
 #: dashboards/identity/projects/workflows.py:366
 msgid "Unable to retrieve role list."
-msgstr "역할 목록을 찾지 못 했습니다."
+msgstr "Role 목록을 찾지 못 했습니다."
 
 #: dashboards/identity/domains/workflows.py:115
 msgid "Unable to retrieve user domain role assignments."
-msgstr "사용자 도메인 롤 할당을 찾지 못 했습니다."
+msgstr "사용자 도메인 role 할당을 찾지 못 했습니다."
 
 #: dashboards/identity/domains/workflows.py:127
 #: dashboards/identity/domains/workflows.py:134
@@ -4929,7 +4929,7 @@ msgid ""
 "You cannot revoke your administrative privileges from the domain you are "
 "currently logged into. Please switch to another domain with administrative "
 "privileges or remove the administrative role manually via the CLI."
-msgstr "현재 로그인한 도메인에서 관리자 권한을 취소할 수 있습니다. 관리자 권한을 이용하여 다른 도메인으로 전환하거나 CLI를 통해 수동으로 관리 롤을 제거하십시오."
+msgstr "현재 로그인한 도메인에서 관리자 권한을 취소할 수 있습니다. 관리자 권한을 이용하여 다른 도메인으로 전환하거나 CLI를 통해 수동으로 관리 role을 제거하십시오."
 
 #: dashboards/identity/domains/workflows.py:403
 #, python-format
@@ -5093,13 +5093,13 @@ msgstr "그룹 할당 추가"
 msgid ""
 "Groups are used to manage access and assign roles to multiple users at once."
 " After creating the group, edit the group to add users."
-msgstr "그룹은 한번에 여러 사용자에게 롤을 할당하고 접근을 관리하는데 사용합니다. 그룹을 생성한 후, 사용자 추가하여 그룹을 수정할 수 있습니다."
+msgstr "그룹은 한번에 여러 사용자에게 role을 할당하고 접근을 관리하는데 사용합니다. 그룹을 생성한 후, 사용자 추가하여 그룹을 수정할 수 있습니다."
 
 #: dashboards/identity/groups/templates/groups/_update.html:6
 msgid ""
 "Groups are used to manage access and assign roles to multiple users at once."
 " Edit the group to add users."
-msgstr "그룹은 한번에 여러 사용자에게 롤을 할당하고 접근을 관리하는데 사용합니다. 사용자를 추가할 그룹을 편집합니다."
+msgstr "그룹은 한번에 여러 사용자에게 role을 할당하고 접근을 관리하는데 사용합니다. 사용자를 추가할 그룹을 편집합니다."
 
 #: dashboards/identity/groups/templates/groups/add_non_member.html:3
 msgid "Add User to Group"
@@ -5296,7 +5296,7 @@ msgid ""
 "You cannot revoke your administrative privileges from the project you are "
 "currently logged into. Please switch to another project with administrative "
 "privileges or remove the administrative role manually via the CLI."
-msgstr "현재 로그인된 사용자로는 프로젝트에서 관리 권한을 무효할 수 없습니다. 관리자 권한이 있는 다른 프로젝트로 전환을 하거나, CLI를 통해 수동으로 관리자 역할을 제거하십시오."
+msgstr "현재 로그인된 사용자로는 프로젝트에서 관리 권한을 무효할 수 없습니다. 관리자 권한이 있는 다른 프로젝트로 전환을 하거나, CLI를 통해 수동으로 관리자 role을 제거하십시오."
 
 #: dashboards/identity/projects/workflows.py:715
 msgid ", update project groups"
@@ -5337,73 +5337,73 @@ msgstr "프로젝트 사용량 개요"
 #: dashboards/identity/roles/forms.py:25 dashboards/identity/roles/forms.py:38
 #: dashboards/identity/roles/tables.py:81
 msgid "Role Name"
-msgstr "역할 이름"
+msgstr "Role 이름"
 
 #: dashboards/identity/roles/forms.py:30
 msgid "Role created successfully."
-msgstr "역할을 성공적으로 생성하였습니다"
+msgstr "Role을 성공적으로 생성하였습니다"
 
 #: dashboards/identity/roles/forms.py:33
 msgid "Unable to create role."
-msgstr "역할을 생성할 수 없습니다."
+msgstr "Role을 생성할 수 없습니다."
 
 #: dashboards/identity/roles/forms.py:43
 msgid "Role updated successfully."
-msgstr "역할을 성공적으로 업데이트 하였습니다."
+msgstr "Role을 성공적으로 업데이트 하였습니다."
 
 #: dashboards/identity/roles/forms.py:46 dashboards/identity/roles/views.py:71
 msgid "Unable to update role."
-msgstr "역할을 업데이트 할 수 없습니다."
+msgstr "Role을 업데이트 할 수 없습니다."
 
 #: dashboards/identity/roles/panel.py:24
 #: dashboards/identity/roles/tables.py:86
 #: dashboards/identity/roles/views.py:37
 #: dashboards/identity/roles/templates/roles/index.html:3
 msgid "Roles"
-msgstr "역할"
+msgstr "Roles"
 
 #: dashboards/identity/roles/tables.py:25
 #: dashboards/identity/roles/views.py:88 dashboards/identity/roles/views.py:91
 #: dashboards/identity/roles/views.py:94
 #: dashboards/identity/roles/templates/roles/create.html:3
 msgid "Create Role"
-msgstr "역할 생성"
+msgstr "Role 생성"
 
 #: dashboards/identity/roles/tables.py:51
 msgid "Delete Role"
 msgid_plural "Delete Roles"
-msgstr[0] "롤 삭제"
+msgstr[0] "Role 삭제"
 
 #: dashboards/identity/roles/tables.py:59
 msgid "Deleted Role"
 msgid_plural "Deleted Roles"
-msgstr[0] "롤 삭제함"
+msgstr[0] "Role 삭제함"
 
 #: dashboards/identity/roles/tables.py:82
 msgid "Role ID"
-msgstr "역할 ID"
+msgstr "Role ID"
 
 #: dashboards/identity/roles/views.py:47
 msgid "Unable to retrieve roles list."
-msgstr "역할 목록을 찾지 못 했습니다."
+msgstr "Role 목록을 찾지 못 했습니다."
 
 #: dashboards/identity/roles/views.py:49
 msgid "Insufficient privilege level to view role information."
-msgstr "불충분한 권한 수준으로 롤 정보를 볼 수 있습니다."
+msgstr "불충분한 권한 수준으로 role 정보를 볼 수 있습니다."
 
 #: dashboards/identity/roles/views.py:56 dashboards/identity/roles/views.py:59
 #: dashboards/identity/roles/views.py:62
 #: dashboards/identity/roles/templates/roles/update.html:3
 msgid "Update Role"
-msgstr "역할 업데이트"
+msgstr "Role 업데이트"
 
 #: dashboards/identity/roles/templates/roles/_create.html:6
 msgid "Create a new role."
-msgstr "새로운 롤을 생성합니다."
+msgstr "새로운 Role을 생성합니다."
 
 #: dashboards/identity/roles/templates/roles/_update.html:6
 msgid "Edit the role's details."
-msgstr "롤에대한 자세한 정보를 편집합니다."
+msgstr "Role에대한 자세한 정보를 편집합니다."
 
 #: dashboards/identity/users/forms.py:41
 #: dashboards/project/data_processing/job_binaries/forms.py:121
@@ -5435,7 +5435,7 @@ msgstr "최초 프로젝트"
 
 #: dashboards/identity/users/forms.py:101
 msgid "Role"
-msgstr "규칙"
+msgstr "Role"
 
 #: dashboards/identity/users/forms.py:137
 #, python-format
@@ -5557,7 +5557,7 @@ msgstr "사용자 업데이트"
 
 #: dashboards/identity/users/views.py:147
 msgid "Unable to retrieve user roles."
-msgstr "사용자 역할을 찾지 못 했습니다."
+msgstr "사용자 role을 찾지 못 했습니다."
 
 #: dashboards/identity/users/views.py:164
 msgid "User Details: {{ user.name }}"
@@ -5575,7 +5575,7 @@ msgstr "​사용자 암호를 변경합니다. 강한 사용자 암호를 만�
 msgid ""
 "Create a new user and set related properties including the Primary Project "
 "and Role."
-msgstr "새 사용자를 생성하고 기본 프로젝트와 롤을 포함한 속성을 설정합니다."
+msgstr "새 사용자를 생성하고 기본 프로젝트와 role을 포함한 속성을 설정합니다."
 
 #: dashboards/identity/users/templates/users/_detail_overview.html:3
 msgid "User Overview"
