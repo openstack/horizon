@@ -19,10 +19,12 @@ class TestUserSettings(helpers.TestCase):
         language = self.settings_page.settings_form.language.value
         timezone = self.settings_page.settings_form.timezone.value
         pagesize = self.settings_page.settings_form.pagesize.value
+        loglines = self.settings_page.settings_form.loglines.value
 
         user_settings = (("Language", changed_settings["language"], language),
                          ("Timezone", changed_settings["timezone"], timezone),
-                         ("Pagesize", changed_settings["pagesize"], pagesize))
+                         ("Pagesize", changed_settings["pagesize"], pagesize),
+                         ("Loglines", changed_settings["loglines"], loglines))
 
         for (setting, expected, observed) in user_settings:
             self.assertEqual(expected, observed,
@@ -34,6 +36,7 @@ class TestUserSettings(helpers.TestCase):
         * changes the system's language
         * changes the timezone
         * changes the number of items per page (page size)
+        * changes the number of log lines to be shown per instance
         * verifies all changes were successfully executed
         """
         self.settings_page = self.home_pg.go_to_settings_usersettingspage()
@@ -41,9 +44,10 @@ class TestUserSettings(helpers.TestCase):
         self.settings_page.change_language("es")
         self.settings_page.change_timezone("Asia/Jerusalem")
         self.settings_page.change_pagesize("30")
+        self.settings_page.change_loglines("50")
 
         changed_settings = {"language": "es", "timezone": "Asia/Jerusalem",
-                            "pagesize": "30"}
+                            "pagesize": "30", "loglines": "50"}
         self.verify_user_settings_change(changed_settings)
 
         self.settings_page.return_to_default_settings()
