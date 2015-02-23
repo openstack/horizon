@@ -20,43 +20,44 @@ from django.shortcuts import redirect
 
 from horizon import exceptions
 from horizon import tables
+from horizon import workflows
 
 from openstack_dashboard import api
 from openstack_dashboard import fiware_api
 from openstack_dashboard.dashboards.idm import utils as idm_utils
-from openstack_dashboard.dashboards.idm.home import tables as home_tables
+from openstack_dashboard.dashboards.idm.home_orgs \
+    import tables as home_orgs_tables
+from openstack_dashboard.dashboards.idm.home_orgs \
+    import workflows as home_orgs_workflows
 
 
 LOG = logging.getLogger('idm_logger')
 
 class IndexView(tables.MultiTableView):
-    table_classes = (home_tables.OrganizationsTable,
-                     home_tables.ApplicationsTable)
-    template_name = 'idm/home/index.html'
+    table_classes = (home_orgs_tables.MembersTable,
+                     home_orgs_tables.ApplicationsTable)
+    template_name = 'idm/home_orgs/index.html'
 
     def dispatch(self, request, *args, **kwargs):
-        if request.organization.id != request.user.default_project_id:
-            return redirect("/idm/home_orgs/")
+        if request.organization.id == request.user.default_project_id:
+            return redirect("/idm/")
         return super(IndexView, self).dispatch(request, *args, **kwargs)
 
-    def has_more_data(self, table):
-        return self._more
-
-    def get_organizations_data(self):
-        organizations = []
-        # domain_context = self.request.session.get('domain_context', None)
+    def get_members_data(self):        
+        users = []
         try:
-            organizations, self._more = api.keystone.tenant_list(
+            # NOTE(garcianavalon) Filtering by project doesn't work anymore
+            # in v3 API >< We need to get the role_assignments for the user's
+            # id's and then filter the user list ourselves
+            all_users = api.keystone.user_list(self.request)
+            project_users_roles = api.keystone.get_project_users_roles(
                 self.request,
-                user=self.request.user.id,
-                admin=False)
-            LOG.debug('Organizations listed: {0}'.format(organizations))
+                project=self.request.organization.id)
+            users = [user for user in all_users if user.id in project_users_roles]
         except Exception:
-            self._more = False
             exceptions.handle(self.request,
-                              _("Unable to retrieve organization list."))
-    
-        return idm_utils.filter_default(organizations)
+                              _("Unable to retrieve member information."))
+        return users
 
     def get_applications_data(self):
         applications = []
@@ -72,3 +73,12 @@ class IndexView(tables.MultiTableView):
             exceptions.handle(self.request,
                               _("Unable to retrieve application list."))
         return idm_utils.filter_default(applications)
+
+# Does this work?
+class OrganizationMembersView(workflows.WorkflowView):
+    workflow_class = home_orgs_workflows.ManageOrganizationMembers
+
+    def get_initial(self):
+        initial = super(OrganizationMembersView, self).get_initial()
+        initial['superset_id'] = self.request.organization.id
+        return initial
