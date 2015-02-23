@@ -67,12 +67,8 @@ class CreateApplicationForm(forms.SelfHandlingForm):
                 provider = local_settings.PROVIDER_ROLE_ID
                 user = request.user
                 (organizations, has_more_data) = api.keystone.tenant_list(request, user=user)
-                print organizations
-                print user
-                print user.username
                 for org in organizations:
                     if getattr(org, 'name',None) == user.username:
-                        print 'True'
                         organization = org
                 fiware_api.keystone.add_role_to_user(request,
                                                      role=provider,

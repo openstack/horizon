@@ -228,6 +228,18 @@ class DetailApplicationView(tables.MultiTableView):
         return app_id in allowed_applications
 
 
+    def allowed(self, request, user, application):
+        # Allowed if your allowed role list is not empty
+        # TODO(garcianavalon) move to fiware_api
+        default_org = request.user.default_project_id
+        allowed = fiware_api.keystone.list_user_allowed_roles_to_assign(
+            request,
+            user=request.user.id,
+            organization=default_org)
+        return allowed.get(application.id, False)
+
+
+
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super(DetailApplicationView, self).get_context_data(**kwargs)
@@ -250,6 +262,9 @@ class DetailApplicationView(tables.MultiTableView):
         context['application_secret'] = application.secret
         if self._can_edit():
             context['edit'] = True
+        if self.allowed(self.request, self.request.user, application):
+            context['viewCred'] = True
+
         return context
 
 

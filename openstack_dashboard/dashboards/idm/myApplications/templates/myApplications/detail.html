@@ -43,6 +43,7 @@
                 <p>{{ callbackurl }}</p>
             </div>
 
+            {% if viewCred %}
             <div class="extra">
               <h4 class="panel-title">
                 <a data-toggle="collapse" href="#collapse_oauth2_credentials" aria-expanded="true" aria-controls="collapse_oauth2_credentials">
@@ -64,6 +65,7 @@
                 </div>
               </div>
             </div>
+            {% endif %}
         </div>
     </div>
 

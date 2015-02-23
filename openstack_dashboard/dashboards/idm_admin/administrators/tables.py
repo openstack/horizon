@@ -19,7 +19,8 @@ from horizon import tables
 
 from openstack_dashboard import api
 from openstack_dashboard import fiware_api
-
+from openstack_dashboard.dashboards.idm import utils as idm_utils
+from openstack_dashboard.dashboards.idm import tables as idm_tables
 
 class ManageAuthorizedMembersLink(tables.LinkAction):
     name = "manage_administrators"
@@ -42,13 +43,12 @@ class ManageAuthorizedMembersLink(tables.LinkAction):
 
 class MembersTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Members'))
-    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(
-        obj, 'img_medium', 'dashboard/img/logos/medium/user.png'))
-    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(
-        obj, 'img_medium', 'dashboard/img/logos/medium/user.png'))
+    avatar = tables.Column(lambda obj: idm_utils.get_avatar(
+        obj, 'img_medium', idm_utils.DEFAULT_USER_MEDIUM_AVATAR))
 
     class Meta:
         name = "members"
         verbose_name = _("Authorized Administrators")
         table_actions = (ManageAuthorizedMembersLink, )
         multi_select = False
+        row_class = idm_tables.UserClickableRow

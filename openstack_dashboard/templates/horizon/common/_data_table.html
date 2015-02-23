@@ -1,41 +1,10 @@
 {% load i18n %}
 {% with table.needs_form_wrapper as needs_form_wrapper %}
-  {% if needs_form_wrapper %}<form action="{{ table.get_full_url }}" method="POST">{% csrf_token %}{% endif %}
-  {% with columns=table.get_columns rows=table.get_rows %}
-    {% block table %}
-      
+  {% with columns=table.get_columns rows=table.get_rows %}  
     <div class="list-group" id="{{ table.slugify_name }}">
-        {% block table_body %}
-        {% for row in rows %}
-            {% if row.table.clickable == True %}
-                {% if row.table.name == "purchased_table" or row.table.name == "providing_table" or row.table.name == "applications" %}
-                    <a class="list-group-item" href="{% url 'horizon:idm:myApplications:detail' row.datum.id %}">
-                      {{ row.render }}
-                    </a>
-                
-                {% elif row.table.name == "members" %}
-                        <a class="list-group-item" href="{% url 'horizon:idm:users:detail' row.datum.id %}">
-                            {{ row.render }}
-                        </a>
-               
-                {% else %}
-                     <a class="list-group-item" href="{% url 'horizon:idm:organizations:detail' row.datum.id %}">
-                      {{ row.render }}
-                    </a>
-                {% endif %}
-
-            {% else %}
-              <div class="list-group-item">      
-                {{ row.render }}
-              </div>            
-            {% endif %}
-          {% endfor %}
-        {% endblock table_body %}
-        {% block table_footer %}
-        {% endblock table_footer %}
-      </div>
-    {% endblock table %}
+      {% for row in rows %}
+        {{ row.render }}
+      {% endfor %}
+    </div>
   {% endwith %}
-
-  {% if needs_form_wrapper %}</form>{% endif %}
 {% endwith %}

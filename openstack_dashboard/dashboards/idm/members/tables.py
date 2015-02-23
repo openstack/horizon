@@ -17,39 +17,27 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import tables
 from django.conf import settings
 
+from openstack_dashboard.dashboards.idm import utils as idm_utils
+from openstack_dashboard.dashboards.idm import tables as idm_tables
+
 
 class ManageMembersLink(tables.LinkAction):
     name = "manage_members"
-    verbose_name = _("Add")
+    verbose_name = _("Manage members")
     url = "horizon:idm:members:edit"
     classes = ("ajax-modal",)
 
-    # def allowed(self, request, user):
-    #     # Allowed if he is an admin in the organization
-    #     # TODO(garcianavalon) move to fiware_api
-    #     user_id = self.table.kwargs['user_id']
-    #     user_roles = api.keystone.roles_for_user(
-    #         request, user_id, project=request.organization.id)
-    #     return 'admin' in [r.name for r in user_roles]
-
-    # def get_link_url(self, datum=None):
-    #     org_id = request.organization.id
-    #     return  urlresolvers.reverse(self.url, args=(org_id,))
-
-
+    
 class MembersTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Members'))
-    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(
-        obj, 'img_medium', 'dashboard/img/logos/medium/user.png'))
-    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(
-        obj, 'img_medium', 'dashboard/img/logos/medium/user.png'))
+    avatar = tables.Column(lambda obj: idm_utils.get_avatar(
+        obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
     
-    # show_avatar = True
-    clickable = True
 
     class Meta:
         name = "members"
         verbose_name = _("Members")
         table_actions = (ManageMembersLink, )
         multi_select = False
+        row_class = idm_tables.UserClickableRow
 

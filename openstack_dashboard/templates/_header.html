@@ -85,7 +85,7 @@
       <div id="profile_editor_switcher" class="dropdown switcher_bar" tabindex='1'> 
         {% if request.user.is_authenticated %}
           {% if request.organization.id != request.user.default_project_id %}
-            <a  href="#">
+            <a  href="{% url 'horizon:idm:organizations:detail' request.organization.id %}">
               {% if request.organization.img_small %} 
                 <img alt="Org" src="{{ MEDIA_URL }}{{ request.organization.img_small }}">
               {% else %}

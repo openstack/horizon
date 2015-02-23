@@ -1,60 +1,15 @@
 {% if cell.column.name == 'id' %}
   {# do nothing #}
 {% else %}
-  <div {{ cell.attr_string|safe }}>
-    {% if cell.inline_edit_mod and cell.update_allowed %}
-      <div class="inline-edit-error"> </div>
-      <div class="inline-edit-form">
-          {{ cell.value }}
-          {% comment %}
-          {% if cell.column.form_field.label %}
-              <label class="inline-edit-label" for="{{ cell.id }}">{{ cell.column.form_field.label }}</label>
-          {% endif %}
-          {% endcomment %}
-      </div>
-      <div class="inline-edit-actions">
-          <button class="inline-edit-submit btn btn-primary btn-xs pull-right"
-               name="action" value="" type="submit">
-               <span class="fa fa-check"></span>
-          </button>
-          <button class="inline-edit-cancel btn btn-default btn-xs pull-right secondary cancel">
-              <span class="fa fa-remove"></span>
-          </button>
-      </div>
-      <div class="inline-edit-status inline-edit-mod"></div>
-    {% else %}
-      
-        {% if cell.inline_edit_available and cell.update_allowed %}
-          <div class="data">
-            {{ cell.value }}
-          </div>
-          <button class="ajax-inline-edit"><span class="fa fa-pencil"></span></button>
-          <div class="inline-edit-status"></div>
-
-        {% else %}
-          {% if cell.column.name == 'name'%}
-            <div class="name" {{ cell.attr_string|safe }}>
-              {{ cell.value }}
-            </div>
-              {% if row.table.switch == True %}
-                <button class="btn btn-link">switch</button>
-              {% endif %}
-            
-          {% elif  cell.column.name == 'description' %}
-              <div class="description" {{ cell.attr_string|safe }}>
-                {{ cell.value }}
-              </div>
-
-          {% elif cell.column.name == 'avatar' and not 'dashboard/img/' in cell.value %}
-            <div class='avatar' {{cell.attr_string|safe}} >
-            <img src="{{cell.value}}">
-            </div>
-          {% elif cell.column.name == 'default_avatar' and 'dashboard/img/' in cell.value %}
-          <div class='avatar' {{cell.attr_string|safe}} >
-            <img src="{{cell.value}}">
-          </div>
-          {% endif %}
-        {% endif %}
-      {% endif %}
+  <div class=" {{cell.column.name}}">
+    {% if cell.column.name == 'name' %}
+      {{ cell.value }}
+    {% elif cell.column.name == 'switch' and cell.value != False %}
+      <a class="btn btn-link" href="{{ cell.value }}">switch</a>
+    {% elif  cell.column.name == 'description' %}
+      {{ cell.value }}
+    {% elif cell.column.name == 'avatar' %}
+      <img src="{{cell.value}}">
+    {% endif %}
   </div>
 {% endif %}
