@@ -38,13 +38,16 @@ class IndexView(tables.MultiTableView):
 
     def get_organizations_data(self):
         organizations = []
-        # domain_context = self.request.session.get('domain_context', None)
         try:
             organizations, self._more = api.keystone.tenant_list(
                 self.request,
                 user=self.request.user.id,
                 admin=False)
-            LOG.debug('Organizations listed: {0}'.format(organizations))
+            switchable_organizations = [org.id for org 
+                                        in self.request.organizations]
+            for org in organizations:
+                if org.id in switchable_organizations:
+                    setattr(org, 'switchable', True)
         except Exception:
             self._more = False
             exceptions.handle(self.request,
