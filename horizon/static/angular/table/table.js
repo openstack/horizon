@@ -43,14 +43,16 @@
    * The `hzTable` directive extends the Smart-Table module to provide
    * support for saving the checkbox selection state of each row in the
    * table. Also included is the `updateSelectCount` function which
-   * updates the checkbox selection count of the table.
+   * updates the checkbox selection count of the table. A default sort
+   * key can be specified to sort the table initially by this key. To
+   * reverse the sort, add default-sort-reverse='true' as well.
    *
    * @restrict A
    * @scope true
    * @example
    *
    * ```
-   * <table st-table='rowCollection' hz-table>
+   * <table st-table='rowCollection' hz-table default-sort="email">
    *  <thead>
    *    <tr>
    *      <th><input type='checkbox' hz-select-all='rowCollection'/></th>
@@ -74,6 +76,7 @@
   app.directive('hzTable', function() {
     return {
       restrict: 'A',
+      require: 'stTable',
       scope: true,
       controller: function($scope) {
         $scope.selected = {};
@@ -107,6 +110,12 @@
             $scope.numSelected -= 1;
           }
         };
+      },
+      link: function(scope, element, attrs, stTableCtrl) {
+        if (attrs.defaultSort) {
+          var reverse = attrs.defaultSortReverse === 'true';
+          stTableCtrl.sortBy(attrs.defaultSort, reverse);
+        }
       }
     };
   });
