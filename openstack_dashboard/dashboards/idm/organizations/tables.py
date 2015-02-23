@@ -27,33 +27,48 @@ from openstack_dashboard.dashboards.idm import tables as idm_tables
 LOG = logging.getLogger('idm_logger')
 
 class OtherOrganizationsTable(tables.DataTable):
+    avatar = tables.Column(lambda obj: idm_utils.get_avatar(
+        obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
     name = tables.Column('name', verbose_name=_('Name'))
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
                                 verbose_name=_('Description'))
-    avatar = tables.Column(lambda obj: idm_utils.get_avatar(
-        obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
-
+    
 
     class Meta:
         name = "other_organizations"
-        verbose_name = _("Other Organizations")
+        verbose_name = _("")
         row_class = idm_tables.OrganizationClickableRow
 
 
 class OwnedOrganizationsTable(tables.DataTable):
+    avatar = tables.Column(lambda obj: idm_utils.get_avatar(
+        obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
     name = tables.Column('name', verbose_name=_('Name'))
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
                                 verbose_name=_('Description'))
-    avatar = tables.Column(lambda obj: idm_utils.get_avatar(
-        obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
     switch = tables.Column(lambda obj: idm_utils.get_switch_url(
         obj, check_switchable=False))
 
 
     class Meta:
         name = "owned_organizations"
-        verbose_name = _("Owned Organizations")
+        verbose_name = _("")
         row_class = idm_tables.OrganizationClickableRow
+
+
+class MemberOrganizationsTable(tables.DataTable):
+    avatar = tables.Column(lambda obj: idm_utils.get_avatar(
+        obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
+    name = tables.Column('name', verbose_name=_('Name'))
+    description = tables.Column(lambda obj: getattr(obj, 'description', None),
+                                verbose_name=_('Description'))
+
+
+    class Meta:
+        name = "member_organizations"
+        verbose_name = _("")
+        row_class = idm_tables.OrganizationClickableRow
+
 
 
 class ManageMembersLink(tables.LinkAction):
@@ -76,9 +91,9 @@ class ManageMembersLink(tables.LinkAction):
 
 
 class MembersTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Members'))
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_USER_MEDIUM_AVATAR))
+    name = tables.Column('name', verbose_name=_('Members'))
     
 
     class Meta:
@@ -90,11 +105,11 @@ class MembersTable(tables.DataTable):
 
 
 class AuthorizingApplicationsTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Applications'))
-    url = tables.Column(lambda obj: getattr(obj, 'url', None))
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_APP_MEDIUM_AVATAR))
-
+    name = tables.Column('name', verbose_name=_('Applications'))
+    url = tables.Column(lambda obj: getattr(obj, 'url', None))
+    
 
     class Meta:
         name = "applications"

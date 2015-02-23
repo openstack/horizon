@@ -28,10 +28,10 @@ class ManageMembersLink(tables.LinkAction):
     classes = ("ajax-modal",)
 
 class MembersTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Members'))
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
-
+    name = tables.Column('name', verbose_name=_('Members'))
+    
 
     class Meta:
         name = "members"
@@ -42,11 +42,10 @@ class MembersTable(tables.DataTable):
 
 
 class ApplicationsTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Name'))
-    url = tables.Column(lambda obj: getattr(obj, 'url', None))
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
-    
+    name = tables.Column('name', verbose_name=_('Name'))
+    url = tables.Column(lambda obj: getattr(obj, 'url', None))
 
     class Meta:
         name = "applications"
