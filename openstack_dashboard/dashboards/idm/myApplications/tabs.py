@@ -37,15 +37,15 @@ class ProvidingTab(tabs.TableTab):
         applications = []
         try:
             # TODO(garcianavalon) extract to fiware_api
-            providing_role = getattr(settings, 'PROVIDER_ROLE_ID', None)
-            if not providing_role:
+            provider_role = getattr(settings, 'PROVIDER_ROLE_ID', None)
+            if not provider_role:
                 LOG.warning('Missing PROVIDER_ROLE_ID in local_settings.py')
                 return []
             all_apps = fiware_api.keystone.application_list(self.request)
             apps_with_roles = [a.application_id for a 
                                in fiware_api.keystone.user_role_assignments(
                                self.request, user=self.request.user.id)
-                               if a.role_id == providing_role]
+                               if a.role_id == provider_role]
             applications = [app for app in all_apps 
                             if app.id in apps_with_roles]
             
@@ -83,8 +83,42 @@ class PurchasedTab(tabs.TableTab):
                               _("Unable to retrieve application list."))
         return idm_utils.filter_default(applications)
 
+
+class AuthorizedTab(tabs.TableTab):
+    name = _("Authorized")
+    slug = "authorized_tab"
+    table_classes = (applications_table.AuthorizedApplicationsTable,)
+    template_name = ("horizon/common/_detail_table.html")
+    preload = False
+
+    def get_authorized_table_data(self):
+        applications = []
+        try:
+            # TODO(garcianavalon) extract to fiware_api
+            purchaser_role = getattr(settings, 'PURCHASER_ROLE_ID', None)
+            if not purchaser_role:
+                LOG.warning('Missing PURCHASER_ROLE_ID in local_settings.py')
+                return []
+            provider_role = getattr(settings, 'PROVIDER_ROLE_ID', None)
+            if not provider_role:
+                LOG.warning('Missing PROVIDER_ROLE_ID in local_settings.py')
+                return []
+            all_apps = fiware_api.keystone.application_list(self.request)
+            apps_with_roles = [a.application_id for a 
+                               in fiware_api.keystone.user_role_assignments(
+                               self.request, user=self.request.user.id)
+                               if a.role_id != purchaser_role
+                               and a.role_id != provider_role]
+            applications = [app for app in all_apps 
+                            if app.id in apps_with_roles]
+            
+        except Exception:
+            exceptions.handle(self.request,
+                              _("Unable to retrieve application list."))
+        return idm_utils.filter_default(applications)
+
         
 class PanelTabs(tabs.TabGroup):
     slug = "panel_tabs"
-    tabs = (ProvidingTab, PurchasedTab)
+    tabs = (ProvidingTab, PurchasedTab, AuthorizedTab)
     sticky = True

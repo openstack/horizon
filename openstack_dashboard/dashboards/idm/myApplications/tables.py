@@ -29,7 +29,7 @@ class ProvidingApplicationsTable(tables.DataTable):
 
     class Meta:
         name = "providing_table"
-        verbose_name = _("Providing Applications")
+        verbose_name = _("")
         multi_select = False
         row_class = idm_tables.ApplicationClickableRow
         
@@ -43,7 +43,21 @@ class PurchasedApplicationsTable(tables.DataTable):
 
     class Meta:
         name = "purchased_table"
-        verbose_name = _("Purchased Applications")
+        verbose_name = _("")
+        multi_select = False
+        row_class = idm_tables.ApplicationClickableRow
+
+
+class AuthorizedApplicationsTable(tables.DataTable):
+    name = tables.Column('name', verbose_name=_('Name'))
+    url = tables.Column(lambda obj: getattr(obj, 'url', None))
+    avatar = tables.Column(lambda obj: idm_utils.get_avatar(
+        obj, 'img_medium', idm_utils.DEFAULT_APP_MEDIUM_AVATAR))
+    
+
+    class Meta:
+        name = "authorized_table"
+        verbose_name = _("")
         multi_select = False
         row_class = idm_tables.ApplicationClickableRow
 
