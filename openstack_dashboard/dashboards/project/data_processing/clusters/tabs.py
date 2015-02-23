@@ -144,8 +144,7 @@ class InstancesTable(tables.DataTable):
 
     class Meta(object):
         name = "cluster_instances"
-        # Just ignoring the name.
-        verbose_name = _(" ")
+        verbose_name = _("Cluster Instances")
 
 
 class InstancesTab(tabs.TableTab):
