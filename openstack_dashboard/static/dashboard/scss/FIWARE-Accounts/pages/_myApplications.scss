@@ -143,6 +143,30 @@
   }
 }
 
+#update_owners_roles{
+  .modal-header{
+    display: none;
+  }
+  .form-group,
+  .control-label{
+    margin-bottom: 0;
+  }
+  .control-label{
+    display: none;
+  }
+  .modal-footer{
+    float: right;
+    z-index: 99;
+    position: relative;
+    margin-top: -25px;
+    padding: 0;
+    margin-right: 8px;
+    .inline-edit-submit{
+      margin-right: 5px;
+    }
+  }
+} 
+
 #add_permission{
   .modal-content{
     padding: 10px 15px;

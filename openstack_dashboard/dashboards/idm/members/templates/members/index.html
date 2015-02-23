@@ -11,9 +11,13 @@
    <div class="panel panel-default members">
 
     <div class="panel-heading">
+    <span>
       {{ members_table }}  
+    </span>
       <div class="members-actions">
-        <input type="text" class="form-control" placeholder="filter">
+        <div class="filter">
+          <input type="text" class="form-control" placeholder="filter">
+        </div>
         {{ members_table.render_table_actions }}
       </div>
     </div>

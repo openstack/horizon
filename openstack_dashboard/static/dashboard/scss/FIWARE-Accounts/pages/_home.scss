@@ -25,6 +25,9 @@
     padding: 0;
     .panel-heading{
       font-family: $corporate-font-family-sans-serif-Regular;
+      div{
+        margin-top: 5px;
+      }
     }
     .panel-body{
       min-height: 295px;
@@ -33,6 +36,21 @@
       overflow-y: scroll;
       @media (max-width: $screen-sm-min){
         min-height: 15px;
+      }
+    }
+  }
+  .members{
+    .table_actions{
+      float: right;
+      margin-top: -4px !important;
+      padding-top: 0;
+      a{
+        border: none;
+        color: $brand-primary;
+        font-size: 13px; 
+        &:hover{
+          color: $brand-secundary;
+        }
       }
     }
   }

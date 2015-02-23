@@ -200,6 +200,23 @@ textarea {
   }
 }
 
+.panel-heading{ 
+  span{
+    float: left;
+    padding-top: 6px;
+  }
+  .members-actions,
+  .organizations-actions{
+    .filter{
+      margin-left: 10px;
+      float: left;
+      .form-control{
+        height: 28px;
+        padding: 3px 5px;
+      }
+    }
+  }
+}
 
 #authorize_application_modal{
   @extend .well;
