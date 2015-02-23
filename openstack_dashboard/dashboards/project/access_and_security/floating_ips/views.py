@@ -45,7 +45,12 @@ class AssociateView(workflows.WorkflowView):
 
 class AllocateView(forms.ModalFormView):
     form_class = project_forms.FloatingIpAllocate
+    form_id = "associate_floating_ip_form"
+    modal_header = _("Allocate Floating IP")
     template_name = 'project/access_and_security/floating_ips/allocate.html'
+    submit_label = _("Allocate IP")
+    submit_url = reverse_lazy(
+        "horizon:project:access_and_security:floating_ips:allocate")
     success_url = reverse_lazy('horizon:project:access_and_security:index')
 
     def get_object_display(self, obj):

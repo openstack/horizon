@@ -1,26 +1,8 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
-{% load url from future %}
 
-{% block form_id %}create_keypair_form{% endblock %}
-{% block form_action %}{% url 'horizon:project:access_and_security:keypairs:create' %}{% endblock %}
-
-{% block modal-header %}{% trans "Create Key Pair" %}{% endblock %}
-
-{% block modal-body %}
-<div class="left">
-    <fieldset>
-    {% include "horizon/common/_form_fields.html" %}
-    </fieldset>
-</div>
-<div class="right">
-    <h3>{% trans "Description:" %}</h3>
-    <p>{% trans "Key pairs are ssh credentials which are injected into images when they are launched. Creating a new key pair registers the public key and downloads the private key (a .pem file)." %}</p>
-    <p>{% trans "Protect and use the key as you would any normal ssh private key." %}</p>
-</div>
-{% endblock %}
-
-{% block modal-footer %}
-  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Create Key Pair" %}" />
-  <a href="{% url 'horizon:project:access_and_security:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
+{% block modal-body-right %}
+  <h3>{% trans "Description:" %}</h3>
+  <p>{% trans "Key pairs are ssh credentials which are injected into images when they are launched. Creating a new key pair registers the public key and downloads the private key (a .pem file)." %}</p>
+  <p>{% trans "Protect and use the key as you would any normal ssh private key." %}</p>
 {% endblock %}

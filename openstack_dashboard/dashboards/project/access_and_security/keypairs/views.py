@@ -39,7 +39,12 @@ from openstack_dashboard.dashboards.project.access_and_security.keypairs \
 
 class CreateView(forms.ModalFormView):
     form_class = project_forms.CreateKeypair
+    form_id = "create_keypair_form"
+    modal_header = _("Create Key Pair")
     template_name = 'project/access_and_security/keypairs/create.html'
+    submit_label = _("Create Key Pair")
+    submit_url = reverse_lazy(
+        "horizon:project:access_and_security:keypairs:create")
     success_url = 'horizon:project:access_and_security:keypairs:download'
     page_title = _("Create Key Pair")
 
@@ -50,7 +55,12 @@ class CreateView(forms.ModalFormView):
 
 class ImportView(forms.ModalFormView):
     form_class = project_forms.ImportKeypair
+    form_id = "import_keypair_form"
+    modal_header = _("Import Key Pair")
     template_name = 'project/access_and_security/keypairs/import.html'
+    submit_label = _("Import Key Pair")
+    submit_url = reverse_lazy(
+        "horizon:project:access_and_security:keypairs:import")
     success_url = reverse_lazy('horizon:project:access_and_security:index')
     page_title = _("Import Key Pair")
 

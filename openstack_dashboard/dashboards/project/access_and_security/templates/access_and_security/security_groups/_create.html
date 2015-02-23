@@ -1,26 +1,7 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
-{% load url from future %}
 
-{% block form_id %}create_security_group_form{% endblock %}
-{% block form_action %}{% url 'horizon:project:access_and_security:security_groups:create' %}{% endblock %}
-
-{% block modal-header %}{% trans "Create Security Group" %}{% endblock %}
-{% block modal_id %}create_security_group_modal{% endblock %}
-
-{% block modal-body %}
-<div class="left">
-    <fieldset>
-    {% include "horizon/common/_form_fields.html" %}
-    </fieldset>
-</div>
-<div class="right">
-    <h3>{% trans "Description:" %}</h3>
-    <p>{% trans "Security groups are sets of IP filter rules that are applied to the network settings for the VM. After the security group is created, you can add rules to the security group." %}</p>
-</div>
-{% endblock %}
-
-{% block modal-footer %}
-  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Create Security Group" %}" />
-  <a href="{% url 'horizon:project:access_and_security:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
+{% block modal-body-right %}
+  <h3>{% trans "Description:" %}</h3>
+  <p>{% trans "Security groups are sets of IP filter rules that are applied to the network settings for the VM. After the security group is created, you can add rules to the security group." %}</p>
 {% endblock %}
