@@ -456,7 +456,7 @@ class CeilometerUsage(object):
     def global_data_get(self, used_cls=None, query=None,
                         with_statistics=False, additional_query=None,
                         with_users_and_tenants=True):
-        """Obtaining a resources for table view.
+        """Obtaining resources for table view.
 
         It obtains resources with statistics data according to declaration
         in used_cls class.

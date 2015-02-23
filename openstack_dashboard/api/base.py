@@ -180,7 +180,7 @@ class QuotaSet(Sequence):
     into Quota objects for easier handling/iteration.
 
     `QuotaSet` objects support a mix of `list` and `dict` methods; you can use
-    the bracket notiation (`qs["my_quota"] = 0`) to add new quota values, and
+    the bracket notation (`qs["my_quota"] = 0`) to add new quota values, and
     use the `get` method to retrieve a specific quota, but otherwise it
     behaves much like a list or tuple, particularly in supporting iteration.
     """
