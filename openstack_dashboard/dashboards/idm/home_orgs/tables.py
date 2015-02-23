@@ -17,6 +17,9 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import tables
 from django.conf import settings
 
+from openstack_dashboard.dashboards.idm import utils as idm_utils
+from openstack_dashboard.dashboards.idm import tables as idm_tables
+
 
 class ManageMembersLink(tables.LinkAction):
     name = "manage_members"
@@ -26,34 +29,29 @@ class ManageMembersLink(tables.LinkAction):
 
 class MembersTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Members'))
-    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(
-        obj, 'img_medium', 'dashboard/img/logos/medium/user.png'))
-    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(
-        obj, 'img_medium', 'dashboard/img/logos/medium/user.png'))
-    
-    # show_avatar = True
-    clickable = True
+    avatar = tables.Column(lambda obj: idm_utils.get_avatar(
+        obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
+
 
     class Meta:
         name = "members"
         verbose_name = _("Members")
         table_actions = (ManageMembersLink, )
         multi_select = False
+        row_class = idm_tables.UserClickableRow
 
 
 class ApplicationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
     url = tables.Column(lambda obj: getattr(obj, 'url', None))
-    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(
-        obj, 'img_medium', 'dashboard/img/logos/medium/app.png'))
-    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(
-        obj, 'img_medium', 'dashboard/img/logos/medium/app.png'))
+    avatar = tables.Column(lambda obj: idm_utils.get_avatar(
+        obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
     
-    clickable = True
-    # show_avatar = True
+
     class Meta:
         name = "applications"
         verbose_name = _("Applications")
         # table_actions = (GoToApplicationsTable,)
         multi_select = False
+        row_class = idm_tables.ApplicationClickableRow
         
