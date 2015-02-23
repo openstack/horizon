@@ -23,6 +23,10 @@ def _is_test_method_name(method):
     return method.startswith('test_')
 
 
+def _is_test_fixture(method):
+    return method in ['setUp', 'tearDown']
+
+
 def _is_test_cls(cls):
     return cls.__name__.startswith('Test')
 
@@ -41,7 +45,8 @@ def _mark_method_skipped(meth, reason):
 
 def _mark_class_skipped(cls, reason):
     """Mark every test method of the class as skipped."""
-    tests = [attr for attr in dir(cls) if _is_test_method_name(attr)]
+    tests = [attr for attr in dir(cls) if _is_test_method_name(attr) or
+             _is_test_fixture(attr)]
     for test in tests:
         method = getattr(cls, test)
         if callable(method):
