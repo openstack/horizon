@@ -25,5 +25,13 @@ class Organizations(horizon.Panel):
     policy_rules = (("idm", "idm:list_organizations"),
                 ("idm", "idm:list_user_organizations"))
 
+    def nav(self, context):
+	# NOTE(garcianavalon) hide it always for the IdM
+	# dash = context['request'].horizon.get('dashboard', None)
+	# if dash and dash.slug == self.slug:
+	#     return True
+		return context['request'].organization.id == context['request'].user.default_project_id
+
+
 
 dashboard.Idm.register(Organizations)

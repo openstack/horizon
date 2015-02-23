@@ -23,5 +23,12 @@ class Home(horizon.Panel):
     name = _("Home")
     slug = "home"
 
+    def nav(self, context):
+	# NOTE(garcianavalon) hide it always for the IdM
+	# dash = context['request'].horizon.get('dashboard', None)
+	# if dash and dash.slug == self.slug:
+	#     return True
+		return context['request'].organization.id == context['request'].user.default_project_id
+
 
 dashboard.Idm.register(Home)

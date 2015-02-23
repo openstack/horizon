@@ -16,6 +16,7 @@ import logging
 
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
+from django.shortcuts import redirect
 
 from horizon import exceptions
 from horizon import tables
@@ -32,6 +33,11 @@ class IndexView(tables.MultiTableView):
     table_classes = (home_tables.OrganizationsTable,
                      home_tables.ApplicationsTable)
     template_name = 'idm/home/index.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.organization.id != request.user.default_project_id:
+            return redirect("/idm/home_orgs/")
+        return super(IndexView, self).dispatch(request, *args, **kwargs)
 
     def has_more_data(self, table):
         return self._more
