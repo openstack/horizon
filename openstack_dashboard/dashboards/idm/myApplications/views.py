@@ -227,7 +227,6 @@ class DetailApplicationView(tables.MultiTableView):
         app_id = self.kwargs['application_id']
         return app_id in allowed_applications
 
-
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super(DetailApplicationView, self).get_context_data(**kwargs)
@@ -250,6 +249,8 @@ class DetailApplicationView(tables.MultiTableView):
         context['application_secret'] = application.secret
         if self._can_edit():
             context['edit'] = True
+        # if self.allowed(request, request.user, application):
+        #     context['viewCred'] = True
         return context
 
 

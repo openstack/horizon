@@ -24,19 +24,7 @@ class ManageMembersLink(tables.LinkAction):
     url = "horizon:idm:members:edit"
     classes = ("ajax-modal",)
 
-    # def allowed(self, request, user):
-    #     # Allowed if he is an admin in the organization
-    #     # TODO(garcianavalon) move to fiware_api
-    #     user_id = self.table.kwargs['user_id']
-    #     user_roles = api.keystone.roles_for_user(
-    #         request, user_id, project=request.organization.id)
-    #     return 'admin' in [r.name for r in user_roles]
-
-    # def get_link_url(self, datum=None):
-    #     org_id = request.organization.id
-    #     return  urlresolvers.reverse(self.url, args=(org_id,))
-
-
+    
 class MembersTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Members'))
     avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(

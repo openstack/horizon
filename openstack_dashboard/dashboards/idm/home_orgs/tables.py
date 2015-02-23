@@ -18,43 +18,11 @@ from horizon import tables
 from django.conf import settings
 
 
-# class GoToMembersTable(tables.LinkAction):
-#     name = "members"
-#     verbose_name = _("View All")
-#     url = "horizon:idm:members"
-
-#     def get_link_url(self):
-#         base_url = '/idm/members/'
-#         return base_url
-
-
-# class GoToApplicationsTable(tables.LinkAction):
-#     name = "applications"
-#     verbose_name = _("View All")
-#     url = "horizon:idm:myApplications"
-
-#     def get_link_url(self):
-#         base_url = '/idm/myApplications/'
-#         return base_url
-
 class ManageMembersLink(tables.LinkAction):
     name = "manage_members"
     verbose_name = _("Add")
     url = "horizon:idm:home_orgs:members"
     classes = ("ajax-modal",)
-
-    # def allowed(self, request, user):
-    #     # Allowed if he is an admin in the organization
-    #     # TODO(garcianavalon) move to fiware_api
-    #     user_id = self.table.kwargs['user_id']
-    #     user_roles = api.keystone.roles_for_user(
-    #         request, user_id, project=request.organization.id)
-    #     return 'admin' in [r.name for r in user_roles]
-
-    # def get_link_url(self, datum=None):
-    #     org_id = request.organization.id
-    #     return  urlresolvers.reverse(self.url, args=(org_id,))
-
 
 class MembersTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Members'))
