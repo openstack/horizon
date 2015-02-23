@@ -24,7 +24,7 @@ from openstack_dashboard.dashboards.idm.organizations \
 
 
 class OtherOrganizationsTab(tabs.TableTab):
-    name = _("Other")
+    name = _("Other Organizations")
     slug = "other_organizations_tab"
     table_classes = (organization_tables.OtherOrganizationsTable,)
     template_name = ("horizon/common/_detail_table.html")
@@ -48,7 +48,7 @@ class OtherOrganizationsTab(tabs.TableTab):
 
 
 class OwnedOrganizationsTab(tabs.TableTab):
-    name = _("Owned")
+    name = _("Owner")
     slug = "owned_organizations_tab"
     table_classes = (organization_tables.OwnedOrganizationsTable,)
     template_name = ("horizon/common/_detail_table.html")
@@ -68,7 +68,29 @@ class OwnedOrganizationsTab(tabs.TableTab):
         return idm_utils.filter_default(organizations)
 
 
+class MemberOrganizationsTab(tabs.TableTab):
+    name = _("Member")
+    slug = "member_organizations_tab"
+    table_classes = (organization_tables.MemberOrganizationsTable,)
+    template_name = ("horizon/common/_detail_table.html")
+    preload = False
+
+    def get_member_organizations_data(self):
+        organizations = []
+        try:
+            my_organizations, self._more = api.keystone.tenant_list(
+                self.request, user=self.request.user.id, admin=False)
+            owner_organizations = [org.id for org in self.request.organizations]
+            organizations = [o for o in my_organizations 
+                             if not o.id in owner_organizations]
+        except Exception:
+            self._more = False
+            exceptions.handle(self.request,
+                              _("Unable to retrieve organization information."))
+        return idm_utils.filter_default(organizations)
+
+
 class PanelTabs(tabs.TabGroup):
     slug = "panel_tabs"
-    tabs = (OwnedOrganizationsTab, OtherOrganizationsTab)
+    tabs = (OwnedOrganizationsTab, MemberOrganizationsTab, OtherOrganizationsTab)
     sticky = True

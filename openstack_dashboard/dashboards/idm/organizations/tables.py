@@ -36,7 +36,7 @@ class OtherOrganizationsTable(tables.DataTable):
 
     class Meta:
         name = "other_organizations"
-        verbose_name = _("Other Organizations")
+        verbose_name = _("")
         row_class = idm_tables.OrganizationClickableRow
 
 
@@ -52,8 +52,23 @@ class OwnedOrganizationsTable(tables.DataTable):
 
     class Meta:
         name = "owned_organizations"
-        verbose_name = _("Owned Organizations")
+        verbose_name = _("")
         row_class = idm_tables.OrganizationClickableRow
+
+
+class MemberOrganizationsTable(tables.DataTable):
+    name = tables.Column('name', verbose_name=_('Name'))
+    description = tables.Column(lambda obj: getattr(obj, 'description', None),
+                                verbose_name=_('Description'))
+    avatar = tables.Column(lambda obj: idm_utils.get_avatar(
+        obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
+
+
+    class Meta:
+        name = "member_organizations"
+        verbose_name = _("")
+        row_class = idm_tables.OrganizationClickableRow
+
 
 
 class ManageMembersLink(tables.LinkAction):
