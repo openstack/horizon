@@ -28,7 +28,6 @@ from horizon.utils import functions as utils
 from openstack_dashboard import api
 from openstack_dashboard import fiware_api
 from openstack_dashboard.dashboards.idm import forms as idm_forms
-import pdb
 
 LOG = logging.getLogger('idm_logger')
 
@@ -49,8 +48,6 @@ class InfoForm(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            import pdb
-            pdb.set_trace()
             api.keystone.user_update(request,
                                      data['userID'],
                                      name=data['name'],
