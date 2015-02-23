@@ -96,14 +96,14 @@ class ManageOrganizationMembers(idm_workflows.RelationshipWorkflow):
     finalize_button_name = _("Save")
     success_message = _('Modified users.')
     failure_message = _('Unable to modify users.')
-    success_url = "horizon:idm:organizations:detail"
+    success_url = "horizon:idm:members:index"
     default_steps = (UpdateProjectMembers,)
     RELATIONSHIP_CLASS = UserRoleApi
     member_slug = idm_workflows.RELATIONSHIP_SLUG
     
-    def get_success_url(self):
-        # Overwrite to allow passing kwargs
-        return reverse(self.success_url, 
-                    kwargs={'organization_id':self.context['superset_id']})
+    # def get_success_url(self):
+    #     # Overwrite to allow passing kwargs
+    #     return reverse(self.success_url, 
+    #                 kwargs={'organization_id':self.context['superset_id']})
 
 
