@@ -4,8 +4,9 @@
   {% for dashboard, panel_info in components %}
     {% if user|has_permissions:dashboard %}
       {% if dashboard.supports_tenants and request.user.authorized_tenants or not dashboard.supports_tenants %}
-        <h5 class="hidden-xs hidden-sm" {% if current.slug == dashboard.slug %}class="active"{% endif %}>
-          {{ dashboard.name }}
+        <h5 >
+        <span class="hidden-xs hidden-sm" class="active">{{ dashboard.name }}</span>
+        <span class="visible-sm" class="active">{{ dashboard.name_sm }}</span>
         </h5>
         {% for heading, panels in panel_info.iteritems %}
           {% with panels|has_permissions_on_list:user as filtered_panels %}
