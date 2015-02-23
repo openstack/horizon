@@ -195,6 +195,10 @@ def get_policy_link(datum):
 
 
 class RulesTable(tables.DataTable):
+    ACTION_DISPLAY_CHOICES = (
+        ("Allow", pgettext_lazy("Action Name of a Firewall Rule", u"ALLOW")),
+        ("Deny", pgettext_lazy("Action Name of a Firewall Rule", u"DENY")),
+    )
     name = tables.Column("name_or_id",
                          verbose_name=_("Name"),
                          link="horizon:project:firewalls:ruledetails")
@@ -211,7 +215,7 @@ class RulesTable(tables.DataTable):
     destination_port = tables.Column("destination_port",
                                      verbose_name=_("Destination Port"))
     action = tables.Column("action",
-                           filters=(filters.upper,),
+                           display_choices=ACTION_DISPLAY_CHOICES,
                            verbose_name=_("Action"))
     enabled = tables.Column("enabled",
                             verbose_name=_("Enabled"),
