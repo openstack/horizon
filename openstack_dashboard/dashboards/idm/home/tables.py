@@ -50,9 +50,9 @@ class CreateOrganization(tables.LinkAction):
 
 
 class OrganizationsTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Name'))
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
+    name = tables.Column('name', verbose_name=_('Name'))
     switch = tables.Column(lambda obj: idm_utils.get_switch_url(obj))
     
     class Meta:
@@ -64,10 +64,10 @@ class OrganizationsTable(tables.DataTable):
 
 
 class ApplicationsTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Name'))
-    url = tables.Column(lambda obj: getattr(obj, 'url', None))
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_APP_MEDIUM_AVATAR))
+    name = tables.Column('name', verbose_name=_('Name'))
+    url = tables.Column(lambda obj: getattr(obj, 'url', None))
     
     class Meta:
         name = "applications"

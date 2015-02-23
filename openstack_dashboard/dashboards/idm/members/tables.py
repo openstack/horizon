@@ -29,9 +29,9 @@ class ManageMembersLink(tables.LinkAction):
 
     
 class MembersTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Members'))
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
+    name = tables.Column('name', verbose_name=_('Members'))
     
 
     class Meta:

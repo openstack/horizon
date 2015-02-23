@@ -21,10 +21,11 @@ from openstack_dashboard.dashboards.idm import tables as idm_tables
 
 
 class ProvidingApplicationsTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Name'))
-    url = tables.Column(lambda obj: getattr(obj, 'url', None))
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_APP_MEDIUM_AVATAR))
+    name = tables.Column('name', verbose_name=_('Name'))
+    url = tables.Column(lambda obj: getattr(obj, 'url', None))
+    
     
 
     class Meta:
@@ -35,10 +36,10 @@ class ProvidingApplicationsTable(tables.DataTable):
         
 
 class PurchasedApplicationsTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Name'))
-    url = tables.Column(lambda obj: getattr(obj, 'url', None))
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_APP_MEDIUM_AVATAR))
+    name = tables.Column('name', verbose_name=_('Name'))
+    url = tables.Column(lambda obj: getattr(obj, 'url', None))  
     
 
     class Meta:
@@ -49,10 +50,10 @@ class PurchasedApplicationsTable(tables.DataTable):
 
 
 class AuthorizedApplicationsTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Name'))
-    url = tables.Column(lambda obj: getattr(obj, 'url', None))
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_APP_MEDIUM_AVATAR))
+    name = tables.Column('name', verbose_name=_('Name'))
+    url = tables.Column(lambda obj: getattr(obj, 'url', None))   
     
 
     class Meta:
@@ -85,9 +86,9 @@ class ManageAuthorizedMembersLink(tables.LinkAction):
 
 
 class MembersTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Members'))
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_USER_MEDIUM_AVATAR))
+    name = tables.Column('name', verbose_name=_('Members'))
     
 
     class Meta:
@@ -121,10 +122,10 @@ class ManageAuthorizedOrganizationsLink(tables.LinkAction):
 
 
 class AuthorizedOrganizationsTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Applications'))
-    url = tables.Column(lambda obj: getattr(obj, 'url', None))
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
+    name = tables.Column('name', verbose_name=_('Applications'))
+    url = tables.Column(lambda obj: getattr(obj, 'url', None))
     
 
     class Meta:
