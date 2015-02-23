@@ -3,7 +3,7 @@
 {% block title %}{% trans "Home" %}{% endblock %}
 
 {% block page_header %}
-  {% include "horizon/common/_domain_page_header.html" with title=_("Home") %}
+  {% include "horizon/common/_domain_page_header.html" with title=_("Members") %}
 {% endblock page_header %}
 
 {% block main %}
@@ -12,12 +12,13 @@
 
     <div class="panel-heading">
       {{ members_table }}  
-    </div>
-    <div class="panel-body">
       <div class="members-actions">
         <input type="text" class="form-control" placeholder="filter">
         {{ members_table.render_table_actions }}
       </div>
+    </div>
+    <div class="panel-body">
+      
       {% if members_table.get_rows %}
         {{ members_table.render}}
       {% else %}
@@ -27,7 +28,3 @@
   </div>
   </div>
 {% endblock %}
-
-
-
-

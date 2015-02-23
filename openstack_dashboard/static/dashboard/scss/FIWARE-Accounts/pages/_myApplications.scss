@@ -186,11 +186,9 @@
     position: relative;
     padding-left: 0;
     padding-right: 0;
-    .normal_column{
-      .data{
-        margin-top: 5px;
-        margin-left: 2px;
-      }
+    .data{
+      margin-top: 5px;
+      margin-left: 2px;
     }
     .ajax-inline-edit{ 
       @extend .btn;

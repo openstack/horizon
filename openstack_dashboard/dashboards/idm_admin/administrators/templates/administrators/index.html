@@ -2,10 +2,12 @@
 {% load i18n %}
 {% block title %}{% trans "Administrators" %}{% endblock %}
 
-{% block page_header %}{% endblock page_header %}
+{% block page_header %}
+{% include "horizon/common/_domain_page_header.html" with title=_("Administrators") %}
+{% endblock page_header %}
 
 {% block main %}
-<div id="detailApplication">
+<div id="administrators-page">
     
   <div class="panel panel-default members">
     <div class="panel-heading">
