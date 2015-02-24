@@ -126,19 +126,21 @@
       padding-right: 0;
     }
     header{
-      min-height: 28px;
-      margin-bottom: 2px;
-      margin-top: 7px;
+      min-height: 29px;
+      margin-bottom: 0px;
+      padding-bottom: 0;
+      margin-top: 0;
+      border-bottom: 1px solid $border-color;
       h4{
         display: inline;
-        line-height: 31px;
+        line-height: 28px;
       }
       .form-control{
         width: 100%;
         display: inline-block;
         float: right;
-        height: 27px;
-        padding: 3px 5px;
+        height: 29px;
+        padding: 0px 5px;
       }
     }
     li.list-group-item{
@@ -231,7 +233,8 @@
     display: inline-block;
     float: right;
     height: 27px;
-    padding: 3px 5px;
+    padding: 0px;
+    margin: 0;
   }
   div.active{
     float: right;
