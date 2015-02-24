@@ -89,10 +89,9 @@ class MembersTable(tables.DataTable):
     class Meta:
         name = "members"
         verbose_name = _("Authorized Members")
-        table_actions = (ManageAuthorizedMembersLink, )
+        table_actions = (tables.FilterAction, ManageAuthorizedMembersLink, )
         multi_select = False
         row_class = idm_tables.UserClickableRow
-        table_actions = (tables.FilterAction,)
 
 
 class ManageAuthorizedOrganizationsLink(tables.LinkAction):
@@ -127,6 +126,6 @@ class AuthorizedOrganizationsTable(tables.DataTable):
     class Meta:
         name = "organizations"
         verbose_name = _("Authorized Organizations")
-        table_actions = (ManageAuthorizedOrganizationsLink, )
+        table_actions = (tables.FilterAction, 
+            ManageAuthorizedOrganizationsLink, )
         row_class = idm_tables.OrganizationClickableRow
-        table_actions = (tables.FilterAction,)

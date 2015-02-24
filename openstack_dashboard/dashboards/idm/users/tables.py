@@ -36,6 +36,7 @@ class OrganizationsTable(tables.DataTable):
         name = "organizations"
         verbose_name = _("Organizations")
         row_class = idm_tables.OrganizationClickableRow
+        table_actions = (tables.FilterAction,)
 
 
 class ApplicationsTable(tables.DataTable):
@@ -49,3 +50,4 @@ class ApplicationsTable(tables.DataTable):
         name = "applications"
         verbose_name = _("Applications")
         row_class = idm_tables.ApplicationClickableRow
+        table_actions = (tables.FilterAction,)

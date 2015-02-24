@@ -37,8 +37,6 @@ class MembersTable(tables.DataTable):
     class Meta:
         name = "members"
         verbose_name = _("Members")
-        table_actions = (ManageMembersLink, )
+        table_actions = (tables.FilterAction, ManageMembersLink, )
         multi_select = False
         row_class = idm_tables.UserClickableRow
-        table_actions = (tables.FilterAction,)
-

@@ -46,11 +46,12 @@
 	<div class="panel panel-default organizations">
 
         <div class="panel-heading">
-            {{ organizations_table }}  
+            <span>{{ organizations_table }}</span>
+            {{ organizations_table.render_table_actions }}
         </div>
         <div class="panel-body">
             {% if organizations_table.get_rows %}
-                {{ organizations_table.render}}
+                {{ organizations_table.render }}
             {% else %}
             <p class="alert alert-info empty"> {{ user_name }} does not have any organizations.</p>
             {% endif %}
@@ -59,7 +60,8 @@
 
     <div class="panel panel-default applications">
         <div class="panel-heading">
-            {{ applications_table }}
+            <span>{{ applications_table }}</span>
+            {{ applications_table.render_table_actions }}
         </div>
         <div class="panel-body">
             {% if applications_table.get_rows %}
