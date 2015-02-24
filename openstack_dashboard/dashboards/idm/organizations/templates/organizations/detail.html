@@ -49,12 +49,7 @@
       <span>
         {{ members_table }}  
       </span>
-      <div class="members-actions">
-        <div class="filter">
-          <input type="text" class="form-control" placeholder="filter">
-        </div>
-        {{ members_table.render_table_actions }}
-      </div>
+      {{ members_table.render_table_actions }}
     </div>
     <div class="panel-body">
       {% if members_table.get_rows %}
@@ -69,7 +64,6 @@
     <div class="panel-heading">
       <span>
         {{ applications_table }}
-        
       </span>
       {{ applications_table.render_table_actions }}
     </div>

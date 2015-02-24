@@ -45,4 +45,3 @@ class UserClickableRow(ClickableRow):
 	def get_url(self):
 		return urlresolvers.reverse(self.base_url,
 			                 		kwargs={'user_id':self.datum.id})
-		
