@@ -19,7 +19,7 @@
     }
   }
   .panel-body{
-    padding: 7px 15px;
+    padding: 0 15px;
   }
 }
 #detailApplication,
@@ -243,6 +243,9 @@
     display: inline-block;
     margin-top: -22px;
     margin-right: 19px;
+    a{
+      position: relative;
+    }
   }  
 }
 
