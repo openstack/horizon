@@ -31,6 +31,7 @@ class ServicesTests(test.JasmineTests):
         'angular/help-panel/help-panel.js',
         'angular/metadata-tree/metadata-tree-service.js',
         'angular/modal/modal.js',
+        'angular/modal-wait-spinner/modal-wait-spinner.js',
         'angular/table/table.js',
         'angular/transfer-table/transfer-table.js',
         'angular/wizard/wizard.js',
