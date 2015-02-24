@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Chen, Shang-Pin <dreamerwolf.tw@gmail.com>, 2015
 # Xiao Xi LIU <liuxx@cn.ibm.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-21 12:11-0600\n"
-"PO-Revision-Date: 2015-02-21 07:45+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-02-23 22:21-0600\n"
+"PO-Revision-Date: 2015-02-24 03:40+0000\n"
+"Last-Translator: Chen, Shang-Pin <dreamerwolf.tw@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,7 +38,7 @@ msgstr "下一步"
 
 #: static/angular/wizard/wizard.js:10
 msgid "Finish"
-msgstr ""
+msgstr "完成"
 
 #: static/horizon/js/horizon.accordion_nav.js:84
 #: static/horizon/js/horizon.modals.js:313
@@ -139,7 +140,7 @@ msgstr "刪除網路卡介面"
 
 #: static/horizon/js/horizon.networktopology.js:556
 msgid "Open Console"
-msgstr ""
+msgstr "開啟 Console"
 
 #: static/horizon/js/horizon.networktopology.js:557
 msgid "View Details"
@@ -147,11 +148,11 @@ msgstr "檢視詳細資訊"
 
 #: static/horizon/js/horizon.networktopology.js:560
 msgid "Delete Router"
-msgstr ""
+msgstr "刪除路由器"
 
 #: static/horizon/js/horizon.networktopology.js:561
 msgid "View Router Details"
-msgstr ""
+msgstr "檢視路由器詳細資訊"
 
 #: static/horizon/js/horizon.networktopology.js:564
 msgid "Add Interface"
@@ -159,11 +160,11 @@ msgstr "加入網路卡介面"
 
 #: static/horizon/js/horizon.networktopology.js:570
 msgid "Terminate Instance"
-msgstr ""
+msgstr "終止執行實例"
 
 #: static/horizon/js/horizon.networktopology.js:571
 msgid "View Instance Details"
-msgstr ""
+msgstr "檢視執行實例詳細資訊"
 
 #: static/horizon/js/horizon.tables.js:39
 #: static/horizon/js/horizon.tables.js:374
@@ -187,13 +188,13 @@ msgstr "確認 %s"
 
 #: static/horizon/js/horizon.tables.js:204
 msgid "Please confirm your selection. "
-msgstr ""
+msgstr "請確認您的選擇。"
 
 #: static/horizon/js/horizon.tables.js:361
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
-msgstr[0] ""
+msgstr[0] "正在顯示 %s 項"
 
 #: static/horizon/js/horizon.tables_inline_edit.js:88
 #: static/horizon/js/horizon.tables_inline_edit.js:151
@@ -206,28 +207,28 @@ msgstr "密碼沒有相配。"
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Connecting"
-msgstr ""
+msgstr "連線中"
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Open"
-msgstr ""
+msgstr "開啟"
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Closing"
-msgstr ""
+msgstr "關閉中"
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Closed"
-msgstr ""
+msgstr "已關閉"
 
 #: static/horizon/js/angular/directives/serialConsole.js:85
 #, c-format
 msgid "Status: %s"
-msgstr ""
+msgstr "狀態：%s"
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:47
 msgid "Unable to retrieve volumes."
-msgstr ""
+msgstr "無法取回儲存空間。"
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:74
 msgid "Unable to retrieve volume snapshots."
@@ -243,35 +244,35 @@ msgstr "無法取回映像檔。"
 
 #: static/horizon/js/angular/services/hz.api.glance.js:133
 msgid "Unable to retrieve namespaces."
-msgstr ""
+msgstr "無法取回名稱空間。"
 
 #: static/horizon/js/angular/services/hz.api.glance.js:147
 msgid "Unable to retrieve namespace."
-msgstr ""
+msgstr "無法取回名稱空間。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:24
 msgid "Unable to retrieve users"
-msgstr ""
+msgstr "無法取回名稱使用者。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:31
 msgid "Unable to create the user."
-msgstr ""
+msgstr "無法新增使用者。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:38
 msgid "Unable to delete the users."
-msgstr ""
+msgstr "無法刪除使用者。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:45
 msgid "Unable to retrieve the user"
-msgstr ""
+msgstr "無法取回使用者。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:53
 msgid "Unable to edit the user."
-msgstr ""
+msgstr "無法編輯使用者。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:60
 msgid "Unable to delete the user."
-msgstr ""
+msgstr "無法刪除使用者。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:68
 msgid "Unable to retrieve role"
