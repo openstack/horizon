@@ -348,19 +348,21 @@ horizon.membership = {
       var css_class = $(this).children('ul').attr('class');
       // Example value: members step_slug_members
       // Pick the class name that contains the step_slug
-      var filter = $.grep(css_class.split(' '), function(val){ return val.indexOf(step_slug) !== -1; })[0];
+      var filter = $.grep(css_class.split(' '), function(val){ 
+        return val.indexOf(step_slug) !== -1; 
+      })[0];
       var input = $("input[id='" + filter +"']");
-      input.quicksearch('ul.' + filter + ' ul li span.name', {
+      input.quicksearch('ul.' + filter + ' li.list-group-item', {
         'delay': 200,
         'loader': 'span.loading',
         'show': function () {
-          $(this).parent().parent().show();
+          $(this).show();
           if (filter === "available_" + step_slug) {
             $(this).parent('.dropdown-toggle').hide();
           }
         },
         'hide': function () {
-          $(this).parent().parent().hide();
+          $(this).hide();
         },
         'noResults': 'ul#no_' + filter,
         'onAfter': function () {
@@ -369,10 +371,11 @@ horizon.membership = {
         'prepareQuery': function (val) {
           return new RegExp(val, "i");
         },
-        'testQuery': function (query, txt, span) {
+        'testQuery': function (query, txt, li) {
           if ($(input).attr('id') === filter) {
             $(input).prev().removeAttr('disabled');
-            return query.test($(span).text());
+            var $span = $(li).find('span.name')
+            return query.test($span.text());
           } else {
             return true;
           }
