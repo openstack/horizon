@@ -45,9 +45,6 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
         #create organization
         default_domain = api.keystone.get_default_domain(request)
         try:
-            # img_small = "/static/dashboard/img/logos/small/group.png"
-            # img_medium = "/static/dashboard/img/logos/medium/group.png"
-            # img_original = "/static/dashboard/img/logos/original/group.png" 
             city = ""
             email = ""
             website = ""
@@ -59,9 +56,7 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
                                                      city=city,
                                                      email=email,
                                                      website=website)
-                                                     # img_small=img_small,
-                                                     # img_medium=img_medium,
-                                                     # img_original=img_original,
+                                                     
         except Exception:
             exceptions.handle(request, ignore=True)
             return False

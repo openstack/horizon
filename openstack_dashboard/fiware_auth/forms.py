@@ -87,7 +87,7 @@ class RegistrationForm(ConfirmPasswordForm):
         username = self.cleaned_data['username']
 
         try:
-            existing = fiware_api.keystone.check_user(username)
+            existing = fiware_api.keystone.check_username(username)
             raise forms.ValidationError(_("A user with that username already exists."),
                                         code='invalid')
         except keystoneclient_exceptions.NotFound:

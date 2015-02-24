@@ -59,8 +59,6 @@ class IndexView(tables.MultiTableView):
         return users
 
 
-
-# Does this work?
 class OrganizationMembersView(workflows.WorkflowView):
     workflow_class = members_workflows.ManageOrganizationMembers
 
