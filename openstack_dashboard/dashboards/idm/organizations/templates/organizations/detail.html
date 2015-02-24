@@ -64,6 +64,7 @@
   <div class="panel panel-default applications">
     <div class="panel-heading">
       {{ applications_table }}
+      {{ applications_table.render_table_actions }}
     </div>
     <div class="panel-body">
       {% if applications_table.get_rows %}

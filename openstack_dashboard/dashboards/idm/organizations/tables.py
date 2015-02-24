@@ -104,6 +104,14 @@ class MembersTable(tables.DataTable):
         row_class = idm_tables.UserClickableRow
 
 
+class ApplicationFilterAction(tables.FilterAction):
+    def filter(self, table, applications, filter_string):
+        """Naive case-insensitive search."""
+        q = filter_string.lower()
+        return [app for app in applications
+                if q in app.name.lower()]
+
+
 class AuthorizingApplicationsTable(tables.DataTable):
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_APP_MEDIUM_AVATAR))
@@ -115,3 +123,4 @@ class AuthorizingApplicationsTable(tables.DataTable):
         name = "applications"
         verbose_name = _("Authorizing Applications")
         row_class = idm_tables.ApplicationClickableRow
+        table_actions = (ApplicationFilterAction,)
