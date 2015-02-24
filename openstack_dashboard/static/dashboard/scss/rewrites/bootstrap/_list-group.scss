@@ -25,7 +25,10 @@
   @include border-top-radius (0);
   @include border-bottom-radius (0);
 }
-
+.list-group-item:last-child {
+  @include border-top-radius (3px);
+  @include border-bottom-radius (3px);
+}
 a.list-group-item:hover, a.list-group-item:focus {
   background-color: $navbar-default-bg;
 }
