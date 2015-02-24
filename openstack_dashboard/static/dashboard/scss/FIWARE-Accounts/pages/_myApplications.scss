@@ -385,3 +385,25 @@
     }
   }
 }
+#detailApplication > .site-client-roles{
+  .modal-content{
+    border: 1px solid $border-color;
+    .modal-header{
+      padding: 0;
+      h3{
+        font-size: 13px;
+        font-family: "Verdana";
+        margin: 0;
+        padding: 12px 6px 11px;
+        line-height: 1.42857;
+      }
+      .modal-body{
+        padding: 10px 0 0;
+      }
+      .modal-footer{
+        margin: 0 0 15px;
+      }
+    }
+  }
+
+}
