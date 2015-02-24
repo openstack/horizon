@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Chen, Shang-Pin <dreamerwolf.tw@gmail.com>, 2015
 # Xiao Xi LIU <liuxx@cn.ibm.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-12 18:22-0600\n"
-"PO-Revision-Date: 2015-02-12 15:36+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-02-23 22:21-0600\n"
+"PO-Revision-Date: 2015-02-24 03:31+0000\n"
+"Last-Translator: Chen, Shang-Pin <dreamerwolf.tw@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -96,7 +97,7 @@ msgstr "篩選"
 
 #: tables/actions.py:645
 msgid "This action cannot be undone."
-msgstr ""
+msgstr "這個動作將無法回復。"
 
 #: tables/actions.py:767
 #, python-format
@@ -293,7 +294,7 @@ msgstr "浮動 IP"
 #: templates/horizon/common/_limit_summary.html:29
 #, python-format
 msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr ""
+msgstr "已配置 <span> %(available)s </span> 中的 <span> %(used)s </span> "
 
 #: templates/horizon/common/_limit_summary.html:35
 msgid "Security Groups"
@@ -405,7 +406,7 @@ msgstr "此段時期的GB-小時數："
 
 #: templates/horizon/common/_usage_summary.html:24
 msgid "This Period's RAM-Hours:"
-msgstr ""
+msgstr "此時段的記憶體時數"
 
 #: templates/horizon/common/_workflow.html:40
 msgid "Back"
@@ -476,7 +477,7 @@ msgstr[0] "已賣出小狗"
 
 #: test/tests/views.py:59
 msgid "Fake"
-msgstr ""
+msgstr "Fake"
 
 #: utils/filters.py:49
 msgid "Never"
