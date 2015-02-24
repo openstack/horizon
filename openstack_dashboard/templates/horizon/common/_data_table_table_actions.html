@@ -2,9 +2,8 @@
 <div class="table_actions clearfix">
 {% block table_filter %}
     {% if filter.filter_type == 'query' %}
-      <div class="table_search client filter">
+      <div class="filter table_search client filter">
         <input class="form-control" value="{{ filter.filter_string|default:'' }}" type="text" name="{{ filter.get_param_name }}" placeholder="filter"/>
-        <i class="fa fa-search"></i>
       </div>
     {% endif %}
 {% endblock table_filter %}

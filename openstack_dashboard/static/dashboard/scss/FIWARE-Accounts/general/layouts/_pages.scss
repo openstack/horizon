@@ -205,15 +205,14 @@ textarea {
     float: left;
     padding-top: 6px;
   }
-  .members-actions,
-  .organizations-actions{
+  .table_actions{
     .filter{
       margin-left: 10px;
       float: left;
-      .form-control{
-        height: 28px;
-        padding: 3px 5px;
-      }
+    }
+    .form-control{
+      height: 28px;
+      padding: 3px 5px;
     }
   }
 }
