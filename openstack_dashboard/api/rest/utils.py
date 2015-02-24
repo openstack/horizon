@@ -121,8 +121,11 @@ def ajax(authenticated=True, data_required=False):
                 # exception was raised with a specific HTTP status
                 if hasattr(e, 'http_status'):
                     http_status = e.http_status
-                else:
+                elif hasattr(e, 'code'):
                     http_status = e.code
+                else:
+                    log.exception('HTTP exception with no status/code')
+                    return JSONResponse(str(e), 500)
                 return JSONResponse(str(e), http_status)
             except Exception as e:
                 log.exception('error invoking apiclient')

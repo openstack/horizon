@@ -27,5 +27,6 @@ import config       #flake8: noqa
 import glance       #flake8: noqa
 import keystone     #flake8: noqa
 import network      #flake8: noqa
+import neutron      #flake8: noqa
 import nova         #flake8: noqa
 import policy       #flake8: noqa
