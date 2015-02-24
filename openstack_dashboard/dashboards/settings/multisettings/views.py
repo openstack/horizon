@@ -41,7 +41,7 @@ class MultiFormView(views.APIView):
         # Initial data
         user_id = self.request.user.id
         user = api.keystone.user_get(self.request, user_id, admin=False)
-        email = getattr(user, 'email', '') 
+        email = getattr(user, 'name', '') 
         initial_email = {
             'email': email
         }
