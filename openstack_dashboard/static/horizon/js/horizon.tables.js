@@ -27,18 +27,14 @@ horizon.datatables.update_footer_count = function (el, modifier) {
 horizon.datatables.add_no_results_row = function (table) {
   // Add a "no results" row if there are no results.
   template = horizon.templates.compiled_templates["#empty_row_template"];
-  if (!table.find("tbody tr:visible").length && typeof(template) !== "undefined") {
-    colspan = table.find("th[colspan]").attr('colspan');
-    params = {
-        "colspan": colspan,
-        no_items_label: gettext("No items to display.")
-    };
-    table.find("tbody").append(template.render(params));
+  if (!table.find("div.list-group-item:visible").length 
+      && typeof(template) !== "undefined") {
+    table.append(template.render());
   }
 };
 
 horizon.datatables.remove_no_results_row = function (table) {
-  table.find("tr.empty").remove();
+  table.find("p.empty").remove();
 };
 
 
