@@ -26,12 +26,11 @@ from openstack_dashboard.dashboards.idm import tables as idm_tables
 LOG = logging.getLogger('idm_logger')
 
 class OrganizationsTable(tables.DataTable):
+    avatar = tables.Column(lambda obj: idm_utils.get_avatar(
+        obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
     name = tables.Column('name', verbose_name=_('Name'))
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
                                 verbose_name=_('Description'))
-    avatar = tables.Column(lambda obj: idm_utils.get_avatar(
-        obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
-
 
     class Meta:
         name = "organizations"
@@ -40,10 +39,11 @@ class OrganizationsTable(tables.DataTable):
 
 
 class ApplicationsTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Applications'))
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
-
+    name = tables.Column('name', verbose_name=_('Applications'))
+    url = tables.Column(lambda obj: getattr(obj, 'url', None))
+    
 
     class Meta:
         name = "applications"
