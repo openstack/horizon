@@ -52,3 +52,4 @@ class MembersTable(tables.DataTable):
         table_actions = (ManageAuthorizedMembersLink, )
         multi_select = False
         row_class = idm_tables.UserClickableRow
+        table_actions = (tables.FilterAction,)
