@@ -29,7 +29,7 @@ class GeneralConfigAction(workflows.Action):
 
     data_source_type = forms.ChoiceField(
         label=_("Data Source Type"),
-        choices=[("swift", "Swift"), ("hdfs", "HDFS")],
+        choices=[("swift", "Swift"), ("hdfs", "HDFS"), ("maprfs", "MapR FS")],
         widget=forms.Select(attrs={
             "class": "switchable",
             "data-slug": "ds_type"
