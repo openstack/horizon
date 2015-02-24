@@ -23,20 +23,15 @@ from openstack_dashboard.dashboards.idm.organizations \
     import tables as organization_tables
 
 
-class OrganizationsTab(tabs.TableTab):
-    name = _("Other")
-    slug = "organizations_tab"
-    table_classes = (organization_tables.OrganizationsTable,)
+class OtherOrganizationsTab(tabs.TableTab):
+    name = _("Other Organizations")
+    slug = "other_organizations_tab"
+    table_classes = (organization_tables.OtherOrganizationsTable,)
     template_name = ("horizon/common/_detail_table.html")
     preload = False
 
-    def has_more_data(self, table):
-        return self._more
-
-    def get_organizations_data(self):
+    def get_other_organizations_data(self):
         organizations = []
-        my_organizations = []
-        #domain_context = self.request.session.get('domain_context', None)
         try:
             organizations, self._more = api.keystone.tenant_list(
                 self.request, admin=False)
@@ -52,24 +47,42 @@ class OrganizationsTab(tabs.TableTab):
         return idm_utils.filter_default(organizations)
 
 
-class MyOrganizationsTab(tabs.TableTab):
-    name = _("Owned")
-    slug = "my_organizations_tab"
-    table_classes = (organization_tables.MyOrganizationsTable,)
+class OwnedOrganizationsTab(tabs.TableTab):
+    name = _("Owner")
+    slug = "owned_organizations_tab"
+    table_classes = (organization_tables.OwnedOrganizationsTable,)
     template_name = ("horizon/common/_detail_table.html")
     preload = False
 
-    def has_more_data(self, table):
-        return self._more
-
-    def get_my_organizations_data(self):
+    def get_owned_organizations_data(self):
         organizations = []
-        #domain_context = self.request.session.get('domain_context', None)
         try:
-            organizations, self._more = api.keystone.tenant_list(
-                self.request,
-                user=self.request.user.id,
-                admin=False)
+            # NOTE(garcianavalon) the organizations the user is owner(admin)
+            # are already in the request object by the middleware
+            organizations = self.request.organizations
+            self._more = False
+        except Exception:
+            self._more = False
+            exceptions.handle(self.request,
+                              _("Unable to retrieve organization information."))
+        return idm_utils.filter_default(organizations)
+
+
+class MemberOrganizationsTab(tabs.TableTab):
+    name = _("Member")
+    slug = "member_organizations_tab"
+    table_classes = (organization_tables.MemberOrganizationsTable,)
+    template_name = ("horizon/common/_detail_table.html")
+    preload = False
+
+    def get_member_organizations_data(self):
+        organizations = []
+        try:
+            my_organizations, self._more = api.keystone.tenant_list(
+                self.request, user=self.request.user.id, admin=False)
+            owner_organizations = [org.id for org in self.request.organizations]
+            organizations = [o for o in my_organizations 
+                             if not o.id in owner_organizations]
         except Exception:
             self._more = False
             exceptions.handle(self.request,
@@ -79,5 +92,5 @@ class MyOrganizationsTab(tabs.TableTab):
 
 class PanelTabs(tabs.TabGroup):
     slug = "panel_tabs"
-    tabs = (MyOrganizationsTab, OrganizationsTab)
+    tabs = (OwnedOrganizationsTab, MemberOrganizationsTab, OtherOrganizationsTab)
     sticky = True

@@ -14,7 +14,15 @@
 
 import logging
 
+from django.conf import settings
+from django.core import urlresolvers
+
+
 LOG = logging.getLogger('idm_logger')
+DEFAULT_ORG_MEDIUM_AVATAR = 'dashboard/img/logos/medium/group.png'
+DEFAULT_APP_MEDIUM_AVATAR = 'dashboard/img/logos/medium/app.png'
+DEFAULT_USER_MEDIUM_AVATAR = 'dashboard/img/logos/medium/user.png'
+
 def filter_default(items):
     """Remove from a list the automated created project for a user. This project
     is created during the user registration step and is needed for the user to be
@@ -26,7 +34,6 @@ def filter_default(items):
     applications.
     """
     filtered = [i for i in items if not getattr(i, 'is_default', False)]
-    LOG.debug('filtered items: {0}'.format(filtered))
     return filtered
 
 def check_elements(elements, valid_elements):
@@ -50,3 +57,17 @@ def swap_dict(old_dict):
             new_dict[value] = new_dict.get(value, [])
             new_dict[value].append(key)
     return new_dict
+
+def get_avatar(obj, avatar_type, default_avatar):
+    """Gets the object avatar or a default one."""
+    avatar = getattr(obj, avatar_type, None)
+    if avatar:
+        return settings.MEDIA_URL + avatar
+    else:
+        return settings.STATIC_URL + default_avatar
+
+def get_switch_url(organization, check_switchable=True):
+    if check_switchable and not getattr(organization, 'switchable', False):
+        return False
+    return urlresolvers.reverse('switch_tenants', 
+                                kwargs={'tenant_id':organization.id})

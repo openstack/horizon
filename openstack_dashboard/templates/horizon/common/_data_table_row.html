@@ -1,4 +1,18 @@
-{% for cell in row %} 
-  {% include "horizon/common/_data_table_cell.html" %}
-	
-{% endfor %}
+<div class="list-group-item">
+  {% if row.clickable == True %}
+    <a class="item" href="{{ row.get_url }}">
+  {% endif %}
+  {% for cell in row %}
+    {% if cell.column.name != 'switch' %}
+      {% include "horizon/common/_data_table_cell.html" %}
+    {% endif %}
+  {% endfor %}
+  {% if row.clickable == True %}
+    </a>
+  {% endif %}
+  {% for cell in row %}
+    {% if cell.column.name == 'switch' %}
+      {% include "horizon/common/_data_table_cell.html" %}
+    {% endif %}
+  {% endfor %}
+</div>

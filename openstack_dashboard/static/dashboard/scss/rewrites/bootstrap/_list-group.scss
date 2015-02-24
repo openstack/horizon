@@ -6,11 +6,18 @@
   //padding: 10px 0;
   min-height: 60px !important;
   border: 1px solid $border-color;
+  position: relative;
   &:first-child{
     border-top: none;
   }
   &:last-child{
     border-bottom: none;
+  }
+  a.item{
+    position: absolute;
+    width: 100%;
+    margin-left: -15px;
+    padding-left: 15px;
   }
 }
 
@@ -18,7 +25,10 @@
   @include border-top-radius (0);
   @include border-bottom-radius (0);
 }
-
+.list-group-item:last-child {
+  @include border-top-radius (3px);
+  @include border-bottom-radius (3px);
+}
 a.list-group-item:hover, a.list-group-item:focus {
   background-color: $navbar-default-bg;
 }

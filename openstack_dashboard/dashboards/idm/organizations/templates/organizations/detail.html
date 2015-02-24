@@ -46,13 +46,12 @@
   <div class="panel panel-default members">
 
     <div class="panel-heading">
-      {{ members_table }}  
+      <span>
+        {{ members_table }}  
+      </span>
+      {{ members_table.render_table_actions }}
     </div>
     <div class="panel-body">
-      <div class="members-actions">
-        <input type="text" class="form-control" placeholder="filter">
-        {{ members_table.render_table_actions }}
-      </div>
       {% if members_table.get_rows %}
         {{ members_table.render}}
       {% else %}
@@ -63,7 +62,10 @@
 
   <div class="panel panel-default applications">
     <div class="panel-heading">
-      {{ applications_table }}
+      <span>
+        {{ applications_table }}
+      </span>
+      {{ applications_table.render_table_actions }}
     </div>
     <div class="panel-body">
       {% if applications_table.get_rows %}
