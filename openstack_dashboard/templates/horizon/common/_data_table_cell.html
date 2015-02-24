@@ -2,7 +2,7 @@
   {# do nothing #}
 {% else %}
   <div class=" {{cell.column.name}}">
-    {% if cell.column.name == 'name' %}
+    {% if cell.column.name == 'name' or cell.column.name == 'username' %}
       {{ cell.value }}
     {% elif cell.column.name == 'switch' and cell.value != False %}
       <a class="btn btn-link" href="{{ cell.value }}">switch</a>

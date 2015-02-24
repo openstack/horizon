@@ -51,25 +51,19 @@ class CreateApplicationForm(forms.SelfHandlingForm):
         #default_domain = api.keystone.get_default_domain(request)
         if data['redirect_to'] == "create":
             try:
-
-                # img_small = 'dashboard/img/logos/small/app.png'
-                # img_medium = 'dashboard/img/logos/medium/app.png'
-                # img_original ='dashboard/img/logos/original/app.png'
                 application = fiware_api.keystone.application_create(request,
                                                 name=data['name'],
                                                 description=data['description'],
                                                 redirect_uris=[data['callbackurl']],
                                                 url=data['url'])
 
-                                                # img_small=img_small,
-                                                # img_medium=img_medium,
-                                                # img_original=img_original)
                 provider = local_settings.PROVIDER_ROLE_ID
                 user = request.user
                 (organizations, has_more_data) = api.keystone.tenant_list(request, user=user)
                 for org in organizations:
                     if getattr(org, 'name',None) == user.username:
                         organization = org
+                
                 fiware_api.keystone.add_role_to_user(request,
                                                      role=provider,
                                                      user=user,
