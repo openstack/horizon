@@ -1,6 +1,6 @@
 <div class="list-group-item">
   {% if row.clickable == True %}
-    <a href="{{ row.get_url }}">
+    <a class="item" href="{{ row.get_url }}">
   {% endif %}
   {% for cell in row %}
     {% if cell.column.name != 'switch' %}

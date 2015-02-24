@@ -4,7 +4,8 @@
     @include make-md-column(6, $gutter: $grid-gutter-width);
     @include make-lg-column(6, $gutter: $grid-gutter-width);
   }
-  .tenants{
+  .tenants,
+  .members{
     @include make-sm-column(5, $gutter: $grid-gutter-width);
     @include make-md-column(5, $gutter: $grid-gutter-width);
     @include make-lg-column(5, $gutter: $grid-gutter-width);
@@ -19,10 +20,14 @@
     }
   }
   .applications,
-  .tenants {
+  .tenants,
+  .members {
     padding: 0;
     .panel-heading{
       font-family: $corporate-font-family-sans-serif-Regular;
+      div{
+        margin-top: 5px;
+      }
     }
     .panel-body{
       min-height: 295px;
@@ -33,8 +38,20 @@
         min-height: 15px;
       }
     }
-    .sortable{
-      @extend .data;
+  }
+  .members{
+    .table_actions{
+      float: right;
+      margin-top: -4px !important;
+      padding-top: 0;
+      a{
+        border: none;
+        color: $brand-primary;
+        font-size: 13px; 
+        &:hover{
+          color: $brand-secundary;
+        }
+      }
     }
   }
 }
