@@ -74,17 +74,17 @@ def _password_session():
     return session.Session(auth=auth)
 
 # USER REGISTRATION
-def _find_user(keystone, email=None, name=None):
+def _find_user(keystone, email=None, username=None):
     # NOTE(garcianavalon) I dont know why but find by email returns a NoUniqueMatch
     # exception so we do it by hand filtering the python dictionary,
     # which is extremely inneficient
-    if name:
-        user = keystone.users.find(name=name)
+    if email:
+        user = keystone.users.find(name=email)
         return user
-    elif email:
+    elif username:
         user_list = keystone.users.list()
         for user in user_list:
-            if hasattr(user, 'email') and user.email == email:
+            if hasattr(user, 'username') and user.username == username:
                 return user
         # consistent behaviour with the keystoneclient api
         msg = "No user matching email=%s." % email
@@ -95,7 +95,7 @@ def _grant_role(keystone, role, user, project):
     keystone.roles.grant(role, user=user, project=project)
     return role
 
-def register_user(name, email, password):
+def register_user(name, username, password):
     keystone = fiwareclient()
     domain = getattr(settings, 'OPENSTACK_KEYSTONE_ADMIN_CREDENTIALS')['DOMAIN']
     default_domain = keystone.domains.get(domain)
@@ -104,7 +104,7 @@ def register_user(name, email, password):
         name,
         domain=default_domain,
         password=password,
-        email=email)
+        username=username)
     return new_user
 
 def activate_user(user, activation_key):
@@ -118,9 +118,9 @@ def change_password(user_email, new_password):
     user = keystone.users.update(user, password=new_password, enabled=True)
     return user
 
-def check_user(name):
+def check_username(username):
     keystone = fiwareclient()
-    user = _find_user(keystone, name=name)
+    user = _find_user(keystone, username=username)
     return user
 
 def check_email(email):

@@ -81,7 +81,8 @@ class DetailUserView(tables.MultiTableView):
 
     def _can_edit(self):
         # Allowed if its the same user
-        return self.request.user.id == self.kwargs['user_id']
+        return (self.request.user.id == self.kwargs['user_id']
+            and self.request.organization.id == self.request.user.default_project_id)
 
     def get_context_data(self, **kwargs):
         context = super(DetailUserView, self).get_context_data(**kwargs)
@@ -89,7 +90,7 @@ class DetailUserView(tables.MultiTableView):
         user = api.keystone.user_get(self.request, user_id, admin=True)
         context['about_me'] = getattr(user, 'description', '')
         context['user_id'] = user_id
-        context['user_name'] = user.name
+        context['user_name'] = getattr(user, 'username', user.name)
         if hasattr(user, 'img_original'):
             image = getattr(user, 'img_original')
             image = settings.MEDIA_URL + image
@@ -97,7 +98,7 @@ class DetailUserView(tables.MultiTableView):
             image = settings.STATIC_URL + 'dashboard/img/logos/original/user.png'
         context['image'] = image
         context['city'] = getattr(user, 'city', '')
-        context['email'] = getattr(user, 'email', '')
+        context['email'] = getattr(user, 'name', '')
         context['website'] = getattr(user, 'website', '')
         if self._can_edit():
             context['edit'] = True
@@ -134,10 +135,10 @@ class BaseUsersMultiFormView(idm_views.BaseMultiFormView):
         # Existing data from organizations
         initial.update({
             "userID": self.object.id,
-            "name": self.object.name,
+            "name": getattr(self.object, 'name', ' '),
+            "username": getattr(self.object, 'username', ' '),
             "description": getattr(self.object, 'description', ' '),    
             "city": getattr(self.object, 'city', ' '),
-            "email": getattr(self.object, 'email', ' '),
             "website":getattr(self.object, 'website', ' '),
             "password": '',
         })

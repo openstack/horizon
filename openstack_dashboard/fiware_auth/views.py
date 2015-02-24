@@ -121,9 +121,9 @@ class RegistrationView(_RequestPassingFormView):
             # reuses the request (and therefor the session). We make the normal rest-api
             # calls, using our own user for our portal
             new_user = fiware_api.keystone.register_user(
-                name=cleaned_data['username'],
-                email=cleaned_data['email'],
-                password=cleaned_data['password1'])
+                name=cleaned_data['email'],
+                password=cleaned_data['password1'],
+                username=cleaned_data['username'])
             LOG.debug('User {0} was successfully created.'.format(cleaned_data['username']))
             self.send_activation_email(new_user)
             return new_user
@@ -140,7 +140,7 @@ class RegistrationView(_RequestPassingFormView):
         subject = ''.join(subject.splitlines())
         content = 'New user created at FIWARE :D/n Go to http://localhost:8000/activate/?activation_key={0}&user={1} to activate'.format(user.activation_key, user.id)
         #send a mail for activation
-        self.send_html_email(to=[user.email],
+        self.send_html_email(to=[user.name],
                              from_email='admin@fiware-idm-test.dit.upm.es',
                              subject=subject,
                              content=content)
@@ -168,8 +168,8 @@ class ActivationView(TemplateView):
         LOG.info('Requested activation for key {0}.'.format(activation_key))
         try:
             activated_user = fiware_api.keystone.activate_user(user, activation_key)
-            LOG.debug('User {0} was successfully activated.'.format(activated_user.name))
-            messages.success(request, _('User "%s" was successfully activated.') %activated_user.name)
+            LOG.debug('User {0} was successfully activated.'.format(activated_user.username))
+            messages.success(request, _('User "%s" was successfully activated.') %activated_user.username)
             return activated_user
         except Exception:
             msg = _('Unable to activate user.')
@@ -298,7 +298,7 @@ class ResendConfirmationInstructionsView(_RequestPassingFormView):
         subject = ''.join(subject.splitlines())
         content = 'New user created at FIWARE :D/n Go to http://localhost:8000/activate/?activation_key={0}&user={1} to activate'.format(base.getid(activation_key), user.id)
         #send a mail for activation
-        self.send_html_email(to=[user.email],
+        self.send_html_email(to=[user.name],
                              from_email='admin@fiware-idm-test.dit.upm.es',
                              subject=subject,
                              content=content)

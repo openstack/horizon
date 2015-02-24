@@ -28,7 +28,6 @@ from horizon.utils import functions as utils
 from openstack_dashboard import api
 from openstack_dashboard import fiware_api
 from openstack_dashboard.dashboards.idm import forms as idm_forms
-import pdb
 
 LOG = logging.getLogger('idm_logger')
 
@@ -40,7 +39,7 @@ AVATAR_ORIGINAL = settings.MEDIA_ROOT+"/"+"UserAvatar/original/"
 class InfoForm(forms.SelfHandlingForm):
     userID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
     password = forms.CharField(label=_("password"), widget=forms.HiddenInput(), required=False)
-    name = forms.CharField(label=_("Name"), max_length=64, required=True)
+    username = forms.CharField(label=_("Username"), max_length=64, required=True)
     description = forms.CharField(label=_("About Me"),
                                   widget=forms.widgets.Textarea,
                                   required=False)
@@ -49,14 +48,16 @@ class InfoForm(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            import pdb
-            pdb.set_trace()
+            user = api.keystone.user_get(request, data['userID'])
             api.keystone.user_update(request,
-                                     data['userID'],
-                                     name=data['name'],
+                                     user.id,
+                                     username=data['username'],
                                      description=data['description'],
                                      city=data['city'],
                                      password=data['password'])
+            api.keystone.tenant_update(request,
+                                       user.default_project_id,
+                                       name=data['username'])
             LOG.debug('User {0} updated'.format(data['userID']))
             messages.success(request, _('User updated successfully'))
             response = shortcuts.redirect('horizon:idm:users:detail', data['userID'])
@@ -69,14 +70,14 @@ class InfoForm(forms.SelfHandlingForm):
 class ContactForm(forms.SelfHandlingForm):
     userID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
     password = forms.CharField(label=_("password"), widget=forms.HiddenInput(), required=False)
-    email = forms.EmailField(label=_("E-mail"), required=False)
+    name = forms.EmailField(label=_("E-mail"), required=False)
     website = forms.URLField(label=_("Website"), required=False)
     title = 'Contact Information'
 
     def handle(self, request, data):
         api.keystone.user_update(request, 
                                 data['userID'], 
-                                email=data['email'], 
+                                name=data['name'], 
                                 website=data['website'],
                                 password=data['password'])
         LOG.debug('User {0} updated'.format(data['userID']))

@@ -74,7 +74,6 @@ class IndexView(tables.MultiTableView):
                               _("Unable to retrieve application list."))
         return idm_utils.filter_default(applications)
 
-# Does this work?
 class OrganizationMembersView(workflows.WorkflowView):
     workflow_class = home_orgs_workflows.ManageOrganizationMembers
 
