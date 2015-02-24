@@ -26,8 +26,6 @@ class ProvidingApplicationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
     url = tables.Column(lambda obj: getattr(obj, 'url', None))
     
-    
-
     class Meta:
         name = "providing_table"
         verbose_name = _("")
@@ -41,7 +39,6 @@ class PurchasedApplicationsTable(tables.DataTable):
     name = tables.Column('name', verbose_name=_('Name'))
     url = tables.Column(lambda obj: getattr(obj, 'url', None))  
     
-
     class Meta:
         name = "purchased_table"
         verbose_name = _("")
@@ -53,8 +50,7 @@ class AuthorizedApplicationsTable(tables.DataTable):
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_APP_MEDIUM_AVATAR))
     name = tables.Column('name', verbose_name=_('Name'))
-    url = tables.Column(lambda obj: getattr(obj, 'url', None))   
-    
+    url = tables.Column(lambda obj: getattr(obj, 'url', None))  
 
     class Meta:
         name = "authorized_table"
@@ -90,13 +86,13 @@ class MembersTable(tables.DataTable):
         obj, 'img_medium', idm_utils.DEFAULT_USER_MEDIUM_AVATAR))
     name = tables.Column('name', verbose_name=_('Members'))
     
-
     class Meta:
         name = "members"
         verbose_name = _("Authorized Members")
         table_actions = (ManageAuthorizedMembersLink, )
         multi_select = False
         row_class = idm_tables.UserClickableRow
+        table_actions = (tables.FilterAction,)
 
 
 class ManageAuthorizedOrganizationsLink(tables.LinkAction):
@@ -133,3 +129,4 @@ class AuthorizedOrganizationsTable(tables.DataTable):
         verbose_name = _("Authorized Organizations")
         table_actions = (ManageAuthorizedOrganizationsLink, )
         row_class = idm_tables.OrganizationClickableRow
+        table_actions = (tables.FilterAction,)
