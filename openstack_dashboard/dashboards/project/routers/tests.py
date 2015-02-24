@@ -263,11 +263,14 @@ class RouterActionTests(RouterMixin, test.TestCase):
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
                                            "l3-ha", "create")\
             .AndReturn(False)
-        api.neutron.router_create(IsA(http.HttpRequest), name=router.name)\
+        params = {'name': router.name,
+                  'admin_state_up': str(router.admin_state_up)}
+        api.neutron.router_create(IsA(http.HttpRequest), **params)\
             .AndReturn(router)
 
         self.mox.ReplayAll()
-        form_data = {'name': router.name}
+        form_data = {'name': router.name,
+                     'admin_state_up': router.admin_state_up}
         url = reverse('horizon:%s:routers:create' % self.DASHBOARD)
         res = self.client.post(url, form_data)
 
@@ -284,13 +287,16 @@ class RouterActionTests(RouterMixin, test.TestCase):
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
                                            "l3-ha", "create")\
             .AndReturn(True)
-        api.neutron.router_create(IsA(http.HttpRequest), name=router.name)\
+        params = {'name': router.name,
+                  'admin_state_up': str(router.admin_state_up)}
+        api.neutron.router_create(IsA(http.HttpRequest), **params)\
             .AndReturn(router)
 
         self.mox.ReplayAll()
         form_data = {'name': router.name,
                      'mode': 'server_default',
-                     'ha': 'server_default'}
+                     'ha': 'server_default',
+                     'admin_state_up': router.admin_state_up}
         url = reverse('horizon:%s:routers:create' % self.DASHBOARD)
         res = self.client.post(url, form_data)
 
@@ -309,14 +315,16 @@ class RouterActionTests(RouterMixin, test.TestCase):
             .MultipleTimes().AndReturn(True)
         param = {'name': router.name,
                  'distributed': True,
-                 'ha': True}
+                 'ha': True,
+                 'admin_state_up': str(router.admin_state_up)}
         api.neutron.router_create(IsA(http.HttpRequest), **param)\
             .AndReturn(router)
 
         self.mox.ReplayAll()
         form_data = {'name': router.name,
                      'mode': 'distributed',
-                     'ha': 'enabled'}
+                     'ha': 'enabled',
+                     'admin_state_up': router.admin_state_up}
         url = reverse('horizon:%s:routers:create' % self.DASHBOARD)
         res = self.client.post(url, form_data)
 
@@ -334,11 +342,14 @@ class RouterActionTests(RouterMixin, test.TestCase):
                                            "l3-ha", "create")\
             .AndReturn(False)
         self.exceptions.neutron.status_code = 409
-        api.neutron.router_create(IsA(http.HttpRequest), name=router.name)\
+        params = {'name': router.name,
+                  'admin_state_up': str(router.admin_state_up)}
+        api.neutron.router_create(IsA(http.HttpRequest), **params)\
             .AndRaise(self.exceptions.neutron)
         self.mox.ReplayAll()
 
-        form_data = {'name': router.name}
+        form_data = {'name': router.name,
+                     'admin_state_up': router.admin_state_up}
         url = reverse('horizon:%s:routers:create' % self.DASHBOARD)
         res = self.client.post(url, form_data)
 
@@ -356,11 +367,14 @@ class RouterActionTests(RouterMixin, test.TestCase):
                                            "l3-ha", "create")\
             .MultipleTimes().AndReturn(False)
         self.exceptions.neutron.status_code = 999
-        api.neutron.router_create(IsA(http.HttpRequest), name=router.name)\
+        params = {'name': router.name,
+                  'admin_state_up': str(router.admin_state_up)}
+        api.neutron.router_create(IsA(http.HttpRequest), **params)\
             .AndRaise(self.exceptions.neutron)
         self.mox.ReplayAll()
 
-        form_data = {'name': router.name}
+        form_data = {'name': router.name,
+                     'admin_state_up': router.admin_state_up}
         url = reverse('horizon:%s:routers:create' % self.DASHBOARD)
         res = self.client.post(url, form_data)
 
