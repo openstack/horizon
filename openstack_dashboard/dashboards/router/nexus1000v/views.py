@@ -107,7 +107,8 @@ class CreateNetworkProfileView(forms.ModalFormView):
     modal_header = _("Create Network Profile")
     template_name = 'router/nexus1000v/create_network_profile.html'
     submit_label = _("Create Network Profile")
-    submit_url = "horizon:router:nexus1000v:create_network_profile"
+    submit_url = reverse_lazy(
+        "horizon:router:nexus1000v:create_network_profile")
     success_url = reverse_lazy('horizon:router:nexus1000v:index')
     page_title = _("Create Network Profile")
 
