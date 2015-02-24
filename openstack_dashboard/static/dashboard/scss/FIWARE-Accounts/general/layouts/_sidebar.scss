@@ -15,20 +15,21 @@
     margin: 0;
     border-bottom: 1px solid $border-color;
   }
-  h5{
+  h5 span{
     font-size: 19px;
     font-family: $corporate-font-family-sans-serif-Regular;
     color: #DDDDDD;
     border-bottom: 1px solid $border-color;
     padding-bottom: 8px;
     letter-spacing: 1px;
+    width: 100%;
+    display: block;
     @media (min-width: 1200px){
       a{
         font-size: 25px;
       }
     }
   }
-  h5.tablet
   ul{
     padding: 0;
     margin-top: 15px;
@@ -133,7 +134,10 @@
 }
 
 a.home i{@extend .fa-home;}
+a.home_orgs i{@extend .fa-home;}
+a.members i {@extend .fa-group;}
 a.myApplications i{@extend .fa-cube;}
 a.organizations i, li.members i{@extend .fa-group;}
 a.notify i{@extend .fa-comment;}
 a.administrators i{@extend .fa-wrench;}
+

@@ -14,50 +14,61 @@
 
 import logging
 
-from django.conf import settings
 from django.core import urlresolvers
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.idm import utils as idm_utils
+from openstack_dashboard.dashboards.idm import tables as idm_tables
+
 
 LOG = logging.getLogger('idm_logger')
 
-class OrganizationsTable(tables.DataTable):
+class OtherOrganizationsTable(tables.DataTable):
+    avatar = tables.Column(lambda obj: idm_utils.get_avatar(
+        obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
     name = tables.Column('name', verbose_name=_('Name'))
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
                                 verbose_name=_('Description'))
-    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(
-        obj, 'img_medium', 'dashboard/img/logos/medium/group.png'))
-    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(
-        obj, 'img_medium', 'dashboard/img/logos/medium/group.png'))
     
-    clickable = True
-    switch = True
-    # show_avatar = True
 
     class Meta:
-        name = "organizations"
-        verbose_name = _("Organizations")
+        name = "other_organizations"
+        verbose_name = _("")
+        row_class = idm_tables.OrganizationClickableRow
 
 
-class MyOrganizationsTable(tables.DataTable):
+class OwnedOrganizationsTable(tables.DataTable):
+    avatar = tables.Column(lambda obj: idm_utils.get_avatar(
+        obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
     name = tables.Column('name', verbose_name=_('Name'))
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
                                 verbose_name=_('Description'))
-    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(
-        obj, 'img_medium', 'dashboard/img/logos/medium/group.png'))
-    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(
-        obj, 'img_medium', 'dashboard/img/logos/medium/group.png'))
-    
-    clickable = True
-    switch = True
-    # show_avatar = True
+    switch = tables.Column(lambda obj: idm_utils.get_switch_url(
+        obj, check_switchable=False))
+
 
     class Meta:
-        name = "my_organizations"
-        verbose_name = _("My Organizations")
+        name = "owned_organizations"
+        verbose_name = _("")
+        row_class = idm_tables.OrganizationClickableRow
+
+
+class MemberOrganizationsTable(tables.DataTable):
+    avatar = tables.Column(lambda obj: idm_utils.get_avatar(
+        obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
+    name = tables.Column('name', verbose_name=_('Name'))
+    description = tables.Column(lambda obj: getattr(obj, 'description', None),
+                                verbose_name=_('Description'))
+
+
+    class Meta:
+        name = "member_organizations"
+        verbose_name = _("")
+        row_class = idm_tables.OrganizationClickableRow
+
 
 
 class ManageMembersLink(tables.LinkAction):
@@ -80,33 +91,27 @@ class ManageMembersLink(tables.LinkAction):
 
 
 class MembersTable(tables.DataTable):
+    avatar = tables.Column(lambda obj: idm_utils.get_avatar(
+        obj, 'img_medium', idm_utils.DEFAULT_USER_MEDIUM_AVATAR))
     name = tables.Column('name', verbose_name=_('Members'))
-    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(
-        obj, 'img_medium', 'dashboard/img/logos/medium/user.png'))
-    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(
-        obj, 'img_medium', 'dashboard/img/logos/medium/user.png'))
     
-    # show_avatar = True
-    clickable = True
 
     class Meta:
         name = "members"
         verbose_name = _("Members")
         table_actions = (ManageMembersLink, )
         multi_select = False
+        row_class = idm_tables.UserClickableRow
 
 
 class AuthorizingApplicationsTable(tables.DataTable):
+    avatar = tables.Column(lambda obj: idm_utils.get_avatar(
+        obj, 'img_medium', idm_utils.DEFAULT_APP_MEDIUM_AVATAR))
     name = tables.Column('name', verbose_name=_('Applications'))
     url = tables.Column(lambda obj: getattr(obj, 'url', None))
-    avatar = tables.Column(lambda obj: settings.MEDIA_URL + getattr(
-        obj, 'img_medium', 'dashboard/img/logos/medium/app.png'))
-    default_avatar = tables.Column(lambda obj: settings.STATIC_URL + getattr(
-        obj, 'img_medium', 'dashboard/img/logos/medium/app.png'))
     
-    clickable = True
-    # show_avatar = True
 
     class Meta:
         name = "applications"
         verbose_name = _("Authorizing Applications")
+        row_class = idm_tables.ApplicationClickableRow

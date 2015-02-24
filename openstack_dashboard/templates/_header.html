@@ -108,15 +108,15 @@
           </a>
           <ul id="editor_list" class="dropdown-menu dropdown-menu-right">
             {% for org in request.organizations %}
-              <li><a  href="{% url 'switch_tenants' org.id %}">{{org.name}}</a></li>
+              <li><a  href="{% url 'switch_tenants' org.id %}"><i class="fa fa-group"></i> {{org.name}}</a></li>
             {% endfor %}
             <li>
-              <a href="{% url 'horizon:settings:multisettings:index' %}">{% trans "Settings" %}
+              <a href="{% url 'horizon:settings:multisettings:index' %}"> <i class="fa fa-cog"></i> {% trans "Settings" %}
               </a>
             </li>
             <li>
               <a href="#" onclick="Fiware.signOut('account'); return false">
-                {% trans "Sign Out" %}
+                <i class="fa fa-sign-out"></i> {% trans "Sign Out" %}
               </a>
             </li>
           </ul>
