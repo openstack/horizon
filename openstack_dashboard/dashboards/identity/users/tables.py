@@ -217,7 +217,7 @@ class UsersTable(tables.DataTable):
         ("false", False)
     )
     name = tables.Column('name',
-                         link=("horizon:identity:users:detail"),
+                         link="horizon:identity:users:detail",
                          verbose_name=_('User Name'),
                          form_field=forms.CharField(),
                          update_action=UpdateCell)

@@ -238,7 +238,7 @@ class ImagesTable(tables.DataTable):
         ("deleted", pgettext_lazy("Current status of an Image", u"Deleted")),
     )
     name = tables.Column(get_image_name,
-                         link=("horizon:project:images:images:detail"),
+                         link="horizon:project:images:images:detail",
                          verbose_name=_("Image Name"))
     image_type = tables.Column(get_image_type,
                                verbose_name=_("Type"),

@@ -283,7 +283,7 @@ class InstancesTable(tables.DataTable):
                        u"Restart Required")),
     )
     name = tables.Column("name",
-                         link=("horizon:project:databases:detail"),
+                         link="horizon:project:databases:detail",
                          verbose_name=_("Instance Name"))
     datastore = tables.Column(get_datastore,
                               verbose_name=_("Datastore"))
@@ -349,7 +349,7 @@ def is_incremental(obj):
 
 class InstanceBackupsTable(tables.DataTable):
     name = tables.Column("name",
-                         link=("horizon:project:database_backups:detail"),
+                         link="horizon:project:database_backups:detail",
                          verbose_name=_("Name"))
     created = tables.Column("created", verbose_name=_("Created"),
                             filters=[filters.parse_isotime])
