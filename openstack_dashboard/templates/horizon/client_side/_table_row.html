@@ -1,0 +1,8 @@
+{% extends "horizon/client_side/template.html" %}
+{% load horizon %}
+
+{% block id %}empty_row_template{% endblock %}
+
+{% block template %}{% spaceless %}{% jstemplate %}
+<p class="alert alert-info empty">No results.</p>
+{% endjstemplate %}{% endspaceless %}{% endblock %}
