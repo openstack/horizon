@@ -379,6 +379,17 @@ This setting sets the maximum number of items displayed in a dropdown.
 Dropdowns that limit based on this value need to support a way to observe
 the entire list.
 
+``ENFORCE_PASSWORD_CHECK``
+--------------------------
+
+.. versionadded:: 2015.1(Kilo)
+
+Default: ``False``
+
+This setting will display an 'Admin Password' field on the Change Password
+form to verify that it is indeed the admin logged-in who wants to change
+the password.
+
 ``IMAGES_LIST_FILTER_TENANTS``
 ------------------------------
 

@@ -18,6 +18,7 @@
 
 import logging
 
+from django.conf import settings
 from django.forms import ValidationError  # noqa
 from django import http
 from django.utils.translation import ugettext_lazy as _
@@ -223,16 +224,30 @@ class ChangePasswordForm(PasswordMixin, forms.SelfHandlingForm):
     def __init__(self, request, *args, **kwargs):
         super(ChangePasswordForm, self).__init__(request, *args, **kwargs)
 
-        # Reorder form fields from multiple inheritance
-        self.fields.keyOrder = ["id", "name", "password", "confirm_password"]
+        if getattr(settings, 'ENFORCE_PASSWORD_CHECK', False):
+            self.fields["admin_password"] = forms.CharField(
+                label=_("Admin Password"),
+                widget=forms.PasswordInput(render_value=False))
+            # Reorder form fields from multiple inheritance
+            self.fields.keyOrder = ["id", "name", "admin_password",
+                                    "password", "confirm_password"]
 
-    @sensitive_variables('data', 'password')
+    @sensitive_variables('data', 'password', 'admin_password')
     def handle(self, request, data):
         user_id = data.pop('id')
         password = data.pop('password')
+        admin_password = None
 
         # Throw away the password confirmation, we're done with it.
         data.pop('confirm_password', None)
+
+        # Verify admin password before changing user password
+        if getattr(settings, 'ENFORCE_PASSWORD_CHECK', False):
+            admin_password = data.pop('admin_password')
+            if not api.keystone.user_verify_admin_password(request,
+                                                           admin_password):
+                self.api_error(_('The admin password is incorrect.'))
+                return False
 
         try:
             response = api.keystone.user_update_password(

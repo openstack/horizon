@@ -20,6 +20,7 @@ from socket import timeout as socket_timeout  # noqa
 
 from django.core.urlresolvers import reverse
 from django import http
+from django.test.utils import override_settings
 
 from mox import IgnoreArg  # noqa
 from mox import IsA  # noqa
@@ -408,6 +409,33 @@ class UsersViewTests(test.BaseAdminViewTests):
         res = self.client.post(USER_CHANGE_PASSWORD_URL, formData)
 
         self.assertNoFormErrors(res)
+
+    @test.create_stubs({api.keystone: ('user_get',
+                                       'user_verify_admin_password')})
+    @override_settings(ENFORCE_PASSWORD_CHECK=True)
+    def test_change_password_validation_for_admin_password(self):
+        user = self.users.get(id="1")
+        test_password = 'normalpwd'
+        admin_password = 'secret'
+
+        api.keystone.user_get(IsA(http.HttpRequest), '1',
+                              admin=True).AndReturn(user)
+        api.keystone.user_verify_admin_password(
+            IsA(http.HttpRequest), admin_password).AndReturn(None)
+
+        self.mox.ReplayAll()
+
+        formData = {'method': 'ChangePasswordForm',
+                    'id': user.id,
+                    'name': user.name,
+                    'password': test_password,
+                    'confirm_password': test_password,
+                    'admin_password': admin_password}
+
+        res = self.client.post(USER_CHANGE_PASSWORD_URL, formData)
+
+        self.assertFormError(res, "form", None,
+                             ['The admin password is incorrect.'])
 
     @test.create_stubs({api.keystone: ('user_get',)})
     def test_update_validation_for_password_too_short(self):
