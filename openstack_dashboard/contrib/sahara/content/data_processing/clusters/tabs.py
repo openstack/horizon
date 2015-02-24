@@ -176,7 +176,20 @@ class InstancesTab(tabs.TableTab):
         return instances
 
 
+class EventLogTab(tabs.Tab):
+    name = _("Cluster Events")
+    slug = "cluster_event_log"
+    template_name = "project/data_processing.clusters/_event_log.html"
+
+    def get_context_data(self, request, **kwargs):
+        cluster_id = self.tab_group.kwargs['cluster_id']
+        kwargs["cluster_id"] = cluster_id
+        kwargs['data_update_url'] = request.get_full_path()
+
+        return kwargs
+
+
 class ClusterDetailsTabs(tabs.TabGroup):
     slug = "cluster_details"
-    tabs = (GeneralTab, NodeGroupsTab, InstancesTab, )
+    tabs = (GeneralTab, NodeGroupsTab, InstancesTab, EventLogTab)
     sticky = True

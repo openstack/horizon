@@ -1,0 +1,62 @@
+{% load i18n %}
+
+<h4>{% trans "Cluster provision steps" %}</h4>
+<table id="steps_table" class="table table-bordered datatable">
+    <thead>
+        <tr>
+            <th>{% trans "Step Description" %}</th>
+            <th>{% trans "Started at" %}</th>
+            <th>{% trans "Duration" %}</th>
+            <th>{% trans "Progress" %}</th>
+            <th>{% trans "Status" %}</th>
+        </tr>
+    </thead>
+    <tbody id="steps_body">
+    </tbody>
+</table>
+
+<div id="events_modal" class="modal fade">
+    <div class="modal-dialog" style="width: 85%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 id="events_modal_header"></h4>
+                <span id="modal_status_marker"></span>
+            </div>
+            <div class="modal-body">
+                <table id="events_table" class="table table-bordered datatable">
+                    <thead>
+                        <tr>
+                            <th>{% trans "Node Group" %}</th>
+                            <th>{% trans "Instance" %}</th>
+                            <th>{% trans "Event time" %}</th>
+                            <th>{% trans "Info" %}</th>
+                            <th>{% trans "Status" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody id="events_body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(function () {
+        // Initialize everything.
+        horizon.event_log.cluster_id = "{{ cluster_id }}";
+        horizon.event_log.data_update_url = "{{ data_update_url }}";
+        horizon.event_log.fetch_update_events();
+    });
+
+    $(".show_events_btn").live("click", function () {
+        // Bind "show events" buttons to modals.
+        horizon.event_log.modal_step_id = $(this).data("step-id");
+        horizon.event_log.clear_events();
+        horizon.event_log.clear_modal_status();
+        horizon.event_log.update_events_rows(horizon.event_log.cached_data);
+    });
+
+</script>

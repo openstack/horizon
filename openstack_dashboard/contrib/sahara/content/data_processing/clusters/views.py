@@ -11,9 +11,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from datetime import datetime
+import json
 import logging
 
-from django.utils.translation import ugettext_lazy as _
+from django.http import HttpResponse
+from django.utils.translation import ugettext as _
+from django.views.generic import base as django_base
+import six
 
 from horizon import exceptions
 from horizon import tables
@@ -32,6 +37,7 @@ import openstack_dashboard.contrib.sahara.content.data_processing.clusters. \
     workflows.create as create_flow
 import openstack_dashboard.contrib.sahara.content.data_processing.clusters. \
     workflows.scale as scale_flow
+from saharaclient.api.base import APIException
 
 LOG = logging.getLogger(__name__)
 
@@ -75,6 +81,94 @@ class ClusterDetailsView(tabs.TabView):
         context = super(ClusterDetailsView, self).get_context_data(**kwargs)
         context['cluster'] = self.get_object()
         return context
+
+
+class ClusterEventsView(django_base.View):
+
+    _date_format = "%Y-%m-%dT%H:%M:%S"
+
+    @staticmethod
+    def _created_at_key(obj):
+        return datetime.strptime(obj["created_at"],
+                                 ClusterEventsView._date_format)
+
+    def get(self, request, *args, **kwargs):
+
+        cluster_id = kwargs.get("cluster_id")
+
+        try:
+            cluster = saharaclient.cluster_get(request, cluster_id,
+                                               show_progress=True)
+            node_group_mapping = {}
+            for node_group in cluster.node_groups:
+                node_group_mapping[node_group["id"]] = node_group["name"]
+
+            provision_steps = cluster.provision_progress
+
+            # Sort by create time
+            provision_steps = sorted(provision_steps,
+                                     key=ClusterEventsView._created_at_key,
+                                     reverse=True)
+
+            for step in provision_steps:
+                # Sort events of the steps also
+                step["events"] = sorted(step["events"],
+                                        key=ClusterEventsView._created_at_key,
+                                        reverse=True)
+
+                successful_events_count = 0
+
+                for event in step["events"]:
+                    if event["node_group_id"]:
+                        event["node_group_name"] = node_group_mapping[
+                            event["node_group_id"]]
+
+                    event_result = _("Unknown")
+                    if event["successful"] is True:
+                        successful_events_count += 1
+                        event_result = _("Completed Successfully")
+                    elif event["successful"] is False:
+                        event_result = _("Failed")
+
+                    event["result"] = event_result
+
+                    if not event["event_info"]:
+                        event["event_info"] = _("No info available")
+
+                start_time = datetime.strptime(step["created_at"],
+                                               self._date_format)
+                end_time = datetime.now()
+                # Clear out microseconds. There is no need for that precision.
+                end_time = end_time.replace(microsecond=0)
+                if step["successful"] is not None:
+                    updated_at = step["updated_at"]
+                    end_time = datetime.strptime(updated_at,
+                                                 self._date_format)
+                step["duration"] = six.text_type(end_time - start_time)
+
+                result = _("In progress")
+                step["completed"] = successful_events_count
+
+                if step["successful"] is True:
+                    step["completed"] = step["total"]
+                    result = _("Completed Successfully")
+                elif step["successful"] is False:
+                    result = _("Failed")
+
+                step["result"] = result
+
+            status = cluster.status.lower()
+            need_update = status not in ("active", "error")
+        except APIException:
+            # Cluster is not available. Returning empty event log.
+            need_update = False
+            provision_steps = []
+
+        context = {"provision_steps": provision_steps,
+                   "need_update": need_update}
+
+        return HttpResponse(json.dumps(context),
+                            content_type='application/json')
 
 
 class CreateClusterView(workflows.WorkflowView):

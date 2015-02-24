@@ -10,6 +10,8 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import json
+
 from django.core.urlresolvers import reverse
 from django import http
 
@@ -48,6 +50,31 @@ class DataProcessingClusterTests(test.TestCase):
         res = self.client.get("%s?plugin_name=shoes&hadoop_version=1.1" % url)
         self.assertContains(res, "No Images Available")
         self.assertContains(res, "No Templates Available")
+
+    @test.create_stubs({api.sahara: ('cluster_get',)})
+    def test_event_log_tab(self):
+        cluster = self.clusters.list()[-1]
+        api.sahara.cluster_get(IsA(http.HttpRequest),
+                               "cl2", show_progress=True).AndReturn(cluster)
+        self.mox.ReplayAll()
+
+        url = reverse(
+            'horizon:project:data_processing.clusters:events', args=["cl2"])
+        res = self.client.get(url)
+        data = json.loads(res.content)
+
+        self.assertIn("provision_steps", data)
+        self.assertEqual(data["need_update"], False)
+
+        step_0 = data["provision_steps"][0]
+        self.assertEqual(2, step_0["completed"])
+        self.assertEqual(2, len(step_0["events"]))
+        for evt in step_0["events"]:
+            self.assertEqual(True, evt["successful"])
+
+        step_1 = data["provision_steps"][1]
+        self.assertEqual(3, step_1["completed"])
+        self.assertEqual(0, len(step_1["events"]))
 
     @test.create_stubs({api.sahara: ('cluster_list',
                                      'cluster_delete')})

@@ -22,3 +22,10 @@ PANEL_GROUP = 'data_processing'
 ADD_PANEL = \
     ('openstack_dashboard.contrib.sahara.'
      'content.data_processing.clusters.panel.ClustersPanel')
+
+ADD_INSTALLED_APPS = \
+    ["openstack_dashboard.contrib.sahara.content.data_processing", ]
+
+ADD_JS_FILES = [
+    'dashboard/project/data_processing/data_processing.event_log.js'
+]
