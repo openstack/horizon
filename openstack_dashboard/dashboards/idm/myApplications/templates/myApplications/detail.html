@@ -6,69 +6,52 @@
 
 {% block main %}
 <div id="detailApplication">
-    <header>
-        <h4 class="name">
-            {{ application_name }} 
-            {% if edit %}
-              <a href="{% url 'horizon:idm:myApplications:edit' application_id %}" class="small"><i class="fa fa-edit"></i>edit</a>
-            {% endif %}
-        </h4>
-        <!--crear la carga de la imagen -->
-        <div class="logo">
-
-            <img alt="application logo" src="{{ image }}">
-
-        </div> 
-    </header>
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <div class="description">
-                <h5>
-                    Description
-                </h5>
-                <p>{{ description }}</p>
+  <header>
+    <h4 class="name">
+      {{ application.name }} 
+      {% if edit %}
+        <a href="{% url 'horizon:idm:myApplications:edit' application.id %}" class="small"><i class="fa fa-edit"></i>edit</a>
+      {% endif %}
+    </h4>
+    <div class="logo">
+      <img alt="application logo" src="{{ image }}">
+    </div> 
+  </header>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="description">
+        <h5>Description</h5>
+        <p>{{ application.description }}</p>
+      </div>
+      <div class="url">
+        <h5>URL</h5>      
+        <p>{{ application.url }}</p>
+      </div>
+      <div class="callback_url">
+        <h5>Callback URL</h5>               
+        <p>{{ application.redirect_uris.0 }}</p>
+      </div>
+      {% if viewCred %}
+        <div class="extra">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" href="#collapse_oauth2_credentials" aria-expanded="true" aria-controls="collapse_oauth2_credentials">
+              OAuth2 Credentials
+            </a>
+          </h4>
+          <div id="collapse_oauth2_credentials" class="form-group collapse" role="tabpanel">
+            <div>
+              <h6 class="panel-heading">Client ID</h6>               
+              <p>{{ application.id }}</p>
             </div>
-
-            <div class="url">
-                <h5>
-                    URL
-                </h5>      
-                <p>{{ url }}</p>
+            <div>
+              <h6 class="panel-heading">Client Secret</h6>               
+              <p>{{ application.secret }}</p>
             </div>
-
-            <div class="callback_url">
-                <h5>
-                    Callback URL
-                </h5>               
-                <p>{{ callbackurl }}</p>
-            </div>
-
-            {% if viewCred %}
-            <div class="extra">
-              <h4 class="panel-title">
-                <a data-toggle="collapse" href="#collapse_oauth2_credentials" aria-expanded="true" aria-controls="collapse_oauth2_credentials">
-                  OAuth2 Credentials
-                </a>
-              </h4>
-              <div id="collapse_oauth2_credentials" class="form-group collapse" role="tabpanel">
-                <div>
-                  <h6 class="panel-heading">
-                      Client ID
-                  </h6>               
-                  <p>{{ application_id }}</p>
-                </div>
-                <div>
-                  <h6 class="panel-heading">
-                      Client Secret
-                  </h6>               
-                  <p>{{ application_secret }}</p>
-                </div>
-              </div>
-            </div>
-            {% endif %}
+          </div>
         </div>
+       {% endif %}
     </div>
-
+  </div>
 
   <div class="panel panel-default members">
     <div class="panel-heading">
@@ -79,7 +62,7 @@
       {% if members_table.get_rows %}
         {{ members_table.render}}
       {% else %}
-        <p class="alert alert-info empty"> {{ application_name }} does not have any authorized members.</p>
+        <p class="alert alert-info empty">{{ application.name }} does not have any authorized members.</p>
       {% endif %}
     </div>
   </div>
@@ -93,9 +76,13 @@
       {% if organizations_table.get_rows %}
         {{ organizations_table.render}}
       {% else %}
-        <p class="alert alert-info empty"> {{ application_name }} does not have any authorized organizations.</p>
+        <p class="alert alert-info empty">{{ application.name }} does not have any authorized organizations.</p>
       {% endif %}
     </div>
+  </div>
+
+  <div class="site-client-roles">
+    {% include 'idm/myApplications/roles/_workflow.html' %}
   </div>
 
 </div>

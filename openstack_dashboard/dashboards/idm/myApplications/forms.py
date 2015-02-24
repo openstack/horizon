@@ -39,9 +39,10 @@ class CreateApplicationForm(forms.SelfHandlingForm):
     appID = forms.CharField(widget=forms.HiddenInput(), required=False)
     redirect_to = forms.CharField(widget=forms.HiddenInput(), required=False)
     name = forms.CharField(label=_("Name"), required=True)
-    description = forms.CharField(label=_("Description"), 
-                                widget=forms.Textarea(attrs={'rows':4,'cols':40}),
-                                required=True)
+    description = forms.CharField(
+        label=_("Description"), 
+        widget=forms.Textarea(attrs={'rows':4, 'cols':40}),
+        required=True)
     url = forms.CharField(label=_("URL"), required=True)
     callbackurl = forms.CharField(label=_("Callback URL"), required=True)
     title = 'Information'
@@ -66,9 +67,10 @@ class CreateApplicationForm(forms.SelfHandlingForm):
                                                 # img_original=img_original)
                 provider = local_settings.PROVIDER_ROLE_ID
                 user = request.user
-                (organizations, has_more_data) = api.keystone.tenant_list(request, user=user)
+                organizations, has_more_data = api.keystone.tenant_list(
+                    request, user=user)
                 for org in organizations:
-                    if getattr(org, 'name',None) == user.username:
+                    if getattr(org, 'name', None) == user.username:
                         organization = org
                 fiware_api.keystone.add_role_to_user(request,
                                                      role=provider,
@@ -77,9 +79,11 @@ class CreateApplicationForm(forms.SelfHandlingForm):
                                                      application=application)
                 LOG.debug('Application {0} created'.format(application.name))
             except Exception:
-                exceptions.handle(request, _('Unable to register the application.'))
+                exceptions.handle(
+                    request, _('Unable to register the application.'))
                 return False
-            response = shortcuts.redirect('horizon:idm:myApplications:avatar_step', application.id)
+            response = shortcuts.redirect(
+                'horizon:idm:myApplications:avatar_step', application.id)
 
 
         else:
@@ -96,12 +100,14 @@ class CreateApplicationForm(forms.SelfHandlingForm):
                 msg = 'Application updated successfully.'
                 messages.success(request, _(msg))
                 LOG.debug(msg)
-                response = shortcuts.redirect('horizon:idm:myApplications:detail', data['appID'])
+                response = shortcuts.redirect(
+                    'horizon:idm:myApplications:detail', data['appID'])
             except Exception as e:
                 LOG.error(e)
                 exceptions.handle(request, _('Unable to update the application.'))
 
         return response
+    
     
 class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
     appID = forms.CharField(widget=forms.HiddenInput())
@@ -128,23 +134,28 @@ class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
                 size = meta[0], meta[1]
                 img_type = meta[2]
                 output_img.resize(size)
-                img = settings.MEDIA_ROOT +'/ApplicationAvatar/' + img_type + "/" + application_id
+                img = (settings.MEDIA_ROOT +'/ApplicationAvatar/' 
+                       + img_type + "/" + application_id)
                 output_img.save(img, 'JPEG')
-                image_root =  'ApplicationAvatar/' + img_type + "/" + application_id               
+                image_root = ('ApplicationAvatar/' + img_type 
+                              + "/" + application_id)
                 if img_type == 'small':
-                    fiware_api.keystone.application_update(request, application_id, img_small=image_root)
+                    fiware_api.keystone.application_update(
+                        request, application_id, img_small=image_root)
                 elif img_type == 'medium':
-                    fiware_api.keystone.application_update(request, application_id, img_medium=image_root)
+                    fiware_api.keystone.application_update(
+                        request, application_id, img_medium=image_root)
                 else:
-                    fiware_api.keystone.application_update(request, application_id, img_original=image_root)
-
+                    fiware_api.keystone.application_update(
+                        request, application_id, img_original=image_root)
 
         if data['redirect_to'] == "update":
-            response = shortcuts.redirect('horizon:idm:myApplications:detail', application_id) 
+            response = shortcuts.redirect(
+                'horizon:idm:myApplications:detail', application_id) 
             LOG.debug('Avatar for application {0} updated'.format(application_id))
         else:
-            response = shortcuts.redirect('horizon:idm:myApplications:roles_index', 
-                                        application_id)
+            response = shortcuts.redirect(
+                'horizon:idm:myApplications:roles_index', application_id)
             LOG.debug('Avatar for application {0} saved'.format(application_id))
         return response
 
@@ -152,14 +163,14 @@ class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
 class CreateRoleForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255, label=_("Role Name"))
     application_id = forms.CharField(required=True,
-                                 widget=forms.HiddenInput())
+                                     widget=forms.HiddenInput())
     no_autocomplete = True
+
     def handle(self, request, data):
         try:
             LOG.info('Creating role with name "%s"' % data['name'])
-            new_role = fiware_api.keystone.role_create(request,
-                                            name=data['name'],
-                                            application=data['application_id'])
+            new_role = fiware_api.keystone.role_create(
+                request, name=data['name'], application=data['application_id'])
             messages.success(request,
                              _('Role "%s" was successfully created.')
                              % data['name'])
@@ -167,11 +178,13 @@ class CreateRoleForm(forms.SelfHandlingForm):
         except Exception:
             exceptions.handle(request, _('Unable to create role.'))
 
+
 class EditRoleForm(forms.SelfHandlingForm):
     role_id = forms.CharField(required=True,
-                                 widget=forms.HiddenInput())
+                              widget=forms.HiddenInput())
     name = forms.CharField(max_length=60, label='')
     no_autocomplete = True
+
     def handle(self, request, data):
         try:
             LOG.info('Updating role with id {0}'.format(data['role_id']))
@@ -186,9 +199,10 @@ class EditRoleForm(forms.SelfHandlingForm):
         except Exception:
             exceptions.handle(request, _('Unable to delete role.'))
 
+
 class DeleteRoleForm(forms.SelfHandlingForm):
     role_id = forms.CharField(required=True,
-                                 widget=forms.HiddenInput())
+                              widget=forms.HiddenInput())
 
     def handle(self, request, data):
         try:
@@ -202,20 +216,21 @@ class DeleteRoleForm(forms.SelfHandlingForm):
         except Exception:
             exceptions.handle(request, _('Unable to delete role.'))
 
+
 class CreatePermissionForm(forms.SelfHandlingForm):
     application_id = forms.CharField(required=True,
-                                 widget=forms.HiddenInput())
+                                     widget=forms.HiddenInput())
     name = forms.CharField(max_length=255, label=_("Permission Name"))
     description = forms.CharField(max_length=255, label=_("Description"))
     action = forms.CharField(max_length=255, label=_("HTTP action"))
     resource = forms.CharField(max_length=255, label=_("Resource"))
     no_autocomplete = True
+
     def handle(self, request, data):
         try:
             LOG.info('Creating permission with name "%s"' % data['name'])
-            new_permission = fiware_api.keystone.permission_create(request,
-                                            name=data['name'],
-                                            application=data['application_id'])
+            new_permission = fiware_api.keystone.permission_create(
+                request, name=data['name'], application=data['application_id'])
             # TODO(garcianavalon) add support for extra arguments in permissions
                                             # resource=data['resource'],
                                             # action=data['action'])

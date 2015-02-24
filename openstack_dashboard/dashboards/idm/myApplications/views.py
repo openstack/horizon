@@ -101,11 +101,11 @@ class RolesView(workflows.WorkflowView):
 class CreateRoleView(forms.ModalFormView):
     form_class = application_forms.CreateRoleForm
     template_name = 'idm/myApplications/roles/role_create.html'
-    success_url = 'horizon:idm:myApplications:roles_index'
+    success_url = ''
 
     def get_success_url(self):
-        return reverse(self.success_url,
-                kwargs={'application_id': self.kwargs['application_id']})
+        """Redirects to the url it was called from."""
+        return self.request.META['HTTP_REFERER']
 
     def get_context_data(self, **kwargs):
         context = super(CreateRoleView, self).get_context_data(**kwargs)
@@ -143,11 +143,11 @@ class EditRoleView(forms.ModalFormView):
 class DeleteRoleView(forms.ModalFormView):
     form_class = application_forms.DeleteRoleForm
     template_name = 'idm/myApplications/roles/role_delete.html'
-    success_url = 'horizon:idm:myApplications:roles_index'
+    success_url = ''
 
     def get_success_url(self):
-        return reverse(self.success_url,
-                kwargs={'application_id': self.kwargs['application_id']})
+        """Redirects to the url it was called from."""
+        return self.request.META['HTTP_REFERER']
 
     def get_context_data(self, **kwargs):
         context = super(DeleteRoleView, self).get_context_data(**kwargs)
@@ -164,16 +164,16 @@ class DeleteRoleView(forms.ModalFormView):
 class CreatePermissionView(forms.ModalFormView):
     form_class = application_forms.CreatePermissionForm
     template_name = 'idm/myApplications/roles/permission_create.html'
-    success_url = 'horizon:idm:myApplications:roles_index'
+    success_url = ''
+
+    def get_success_url(self):
+        """Redirects to the url it was called from."""
+        return self.request.META['HTTP_REFERER']
 
     def get_context_data(self, **kwargs):
         context = super(CreatePermissionView, self).get_context_data(**kwargs)
         context['application_id'] = self.kwargs['application_id']
         return context
-
-    def get_success_url(self):
-        return reverse(self.success_url,
-                kwargs={'application_id': self.kwargs['application_id']})
 
     def get_initial(self):
         initial = super(CreatePermissionView, self).get_initial()
@@ -181,7 +181,7 @@ class CreatePermissionView(forms.ModalFormView):
         return initial
 
 
-class DetailApplicationView(tables.MultiTableView):
+class DetailApplicationView(tables.MultiTableView, RolesView):
     template_name = 'idm/myApplications/detail.html'
     table_classes = (application_tables.MembersTable,
                      application_tables.AuthorizedOrganizationsTable)
@@ -238,33 +238,23 @@ class DetailApplicationView(tables.MultiTableView):
             organization=default_org)
         return allowed.get(application.id, False)
 
-
-
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super(DetailApplicationView, self).get_context_data(**kwargs)
         application_id = self.kwargs['application_id']
         application = fiware_api.keystone.application_get(
             self.request, application_id)
-        context['description'] = application.description
-        context['url'] = getattr(application, 'url', None)
+        context['application'] = application
         if hasattr(application, 'img_original'):
             image = getattr(application, 'img_original')
             image = settings.MEDIA_URL + image
         else:
             image = settings.STATIC_URL + 'dashboard/img/logos/original/app.png'
         context['image'] = image
-        callback_url = application.redirect_uris[0] \
-                        if application.redirect_uris else None
-        context['callbackurl'] = callback_url
-        context['application_name'] = application.name
-        context['application_id'] = application_id
-        context['application_secret'] = application.secret
         if self._can_edit():
             context['edit'] = True
         if self.allowed(self.request, self.request.user, application):
             context['viewCred'] = True
-
         return context
 
 
@@ -275,6 +265,7 @@ class AuthorizedMembersView(workflows.WorkflowView):
         initial = super(AuthorizedMembersView, self).get_initial()
         initial['superset_id'] = self.kwargs['application_id']
         return initial
+
 
 class AuthorizedOrganizationsView(workflows.WorkflowView):
     workflow_class = application_workflows.ManageAuthorizedOrganizations
@@ -308,15 +299,16 @@ class BaseApplicationsMultiFormView(idm_views.BaseMultiFormView):
     @memoized.memoized_method
     def get_object(self):
         try:
-            return fiware_api.keystone.application_get(self.request,
-                                                    self.kwargs['application_id'])
+            return fiware_api.keystone.application_get(
+                self.request, self.kwargs['application_id'])
         except Exception:
             redirect = reverse("horizon:idm:myApplications:index")
             exceptions.handle(self.request, _('Unable to update application'),
-                                redirect=redirect)
+                redirect=redirect)
 
     def get_initial(self, form_class):
-        initial = super(BaseApplicationsMultiFormView, self).get_initial(form_class)
+        initial = super(BaseApplicationsMultiFormView, 
+            self).get_initial(form_class)
         # Existing data from applciation
         callback_url = self.object.redirect_uris[0] \
                         if self.object.redirect_uris else None
@@ -331,8 +323,8 @@ class BaseApplicationsMultiFormView(idm_views.BaseMultiFormView):
         return initial
 
     def get_context_data(self, **kwargs):
-
-        context = super(BaseApplicationsMultiFormView, self).get_context_data(**kwargs)
+        context = super(BaseApplicationsMultiFormView, 
+            self).get_context_data(**kwargs)
         if hasattr(self.object, 'img_original'):
             image = getattr(self.object, 'img_original')
             image = settings.MEDIA_URL + image
@@ -355,4 +347,5 @@ class CancelFormHandleView(BaseApplicationsMultiFormView):
 
     def handle_form(self, form):
         """ Wrapper for form.handle for easier overriding."""
-        return form.handle(self.request, form.cleaned_data, application=self.object)
+        return form.handle(self.request, form.cleaned_data, 
+            application=self.object)
