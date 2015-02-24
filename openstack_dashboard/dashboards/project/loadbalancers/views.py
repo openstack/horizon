@@ -37,7 +37,7 @@ from openstack_dashboard.dashboards.project.loadbalancers \
 import re
 
 
-class IndexView(tabs.TabView):
+class IndexView(tabs.TabbedTableView):
     tab_group_class = (project_tabs.LoadBalancerTabs)
     template_name = 'project/loadbalancers/details_tabs.html'
     page_title = _("Load Balancer")

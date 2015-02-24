@@ -16,6 +16,7 @@
 from django.core.urlresolvers import reverse
 from django.template import defaultfilters as filters
 from django.utils import http
+from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
@@ -265,6 +266,51 @@ class DeletePMAssociationLink(policy.PolicyTargetMixin,
         return True
 
 
+class UpdatePoolsRow(tables.Row):
+    ajax = True
+
+    def get_data(self, request, pool_id):
+        pool = api.lbaas.pool_get(request, pool_id)
+        try:
+            vip = api.lbaas.vip_get(request, pool.vip_id)
+            pool.vip_name = vip.name
+        except Exception:
+            pool.vip_name = pool.vip_id
+        try:
+            subnet = api.neutron.subnet_get(request, pool.subnet_id)
+            pool.subnet_name = subnet.cidr
+        except Exception:
+            pool.subnet_name = pool.subnet_id
+        return pool
+
+
+STATUS_CHOICES = (
+    ("Active", True),
+    ("Down", True),
+    ("Error", False),
+)
+
+
+STATUS_DISPLAY_CHOICES = (
+    ("Active", pgettext_lazy("Current status of a Pool",
+                             u"Active")),
+    ("Down", pgettext_lazy("Current status of a Pool",
+                           u"Down")),
+    ("Error", pgettext_lazy("Current status of a Pool",
+                            u"Error")),
+    ("Created", pgettext_lazy("Current status of a Pool",
+                              u"Created")),
+    ("Pending_Create", pgettext_lazy("Current status of a Pool",
+                                     u"Pending Create")),
+    ("Pending_Update", pgettext_lazy("Current status of a Pool",
+                                     u"Pending Update")),
+    ("Pending_Delete", pgettext_lazy("Current status of a Pool",
+                                     u"Pending Delete")),
+    ("Inactive", pgettext_lazy("Current status of a Pool",
+                               u"Inactive")),
+)
+
+
 class PoolsTable(tables.DataTable):
     name = tables.Column("name_or_id",
                          verbose_name=_("Name"),
@@ -274,13 +320,19 @@ class PoolsTable(tables.DataTable):
                              filters=(lambda v: filters.default(v, _('N/A')),))
     subnet_name = tables.Column('subnet_name', verbose_name=_("Subnet"))
     protocol = tables.Column('protocol', verbose_name=_("Protocol"))
-    status = tables.Column('status', verbose_name=_("Status"))
+    status = tables.Column('status',
+                           verbose_name=_("Status"),
+                           status=True,
+                           status_choices=STATUS_CHOICES,
+                           display_choices=STATUS_DISPLAY_CHOICES)
     vip_name = tables.Column('vip_name', verbose_name=_("VIP"),
                              link=get_vip_link)
 
     class Meta(object):
         name = "poolstable"
         verbose_name = _("Pools")
+        status_columns = ["status"]
+        row_class = UpdatePoolsRow
         table_actions = (AddPoolLink, DeletePoolLink)
         row_actions = (UpdatePoolLink, AddVipLink, UpdateVipLink,
                        DeleteVipLink, AddPMAssociationLink,
@@ -297,6 +349,19 @@ def get_member_link(member):
                    args=(http.urlquote(member.id),))
 
 
+class UpdateMemberRow(tables.Row):
+    ajax = True
+
+    def get_data(self, request, member_id):
+        member = api.lbaas.member_get(request, member_id)
+        try:
+            pool = api.lbaas.pool_get(request, member.pool_id)
+            member.pool_name = pool.name
+        except Exception:
+            member.pool_name = member.pool_id
+        return member
+
+
 class MembersTable(tables.DataTable):
     address = tables.Column('address',
                             verbose_name=_("IP Address"),
@@ -308,11 +373,17 @@ class MembersTable(tables.DataTable):
                            verbose_name=_("Weight"))
     pool_name = tables.Column('pool_name',
                               verbose_name=_("Pool"), link=get_pool_link)
-    status = tables.Column('status', verbose_name=_("Status"))
+    status = tables.Column('status',
+                           verbose_name=_("Status"),
+                           status=True,
+                           status_choices=STATUS_CHOICES,
+                           display_choices=STATUS_DISPLAY_CHOICES)
 
     class Meta(object):
         name = "memberstable"
         verbose_name = _("Members")
+        status_columns = ["status"]
+        row_class = UpdateMemberRow
         table_actions = (AddMemberLink, DeleteMemberLink)
         row_actions = (UpdateMemberLink, DeleteMemberLink)
 
