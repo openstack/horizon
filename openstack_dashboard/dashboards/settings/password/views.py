@@ -12,6 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import forms
@@ -22,5 +23,10 @@ from openstack_dashboard.dashboards.settings.password \
 
 class PasswordView(forms.ModalFormView):
     form_class = pass_forms.PasswordForm
-    template_name = 'settings/password/change.html'
+    form_id = "change_password_modal"
+    modal_header = _("Change Password")
+    modal_id = "change_password_modal"
     page_title = _("Change Password")
+    submit_label = _("Change")
+    submit_url = reverse_lazy("horizon:settings:password:index")
+    template_name = 'settings/password/change.html'
