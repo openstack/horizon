@@ -30,16 +30,38 @@ from openstack_dashboard import fiware_api
 from openstack_dashboard.local import local_settings
 from openstack_dashboard.dashboards.idm import forms as idm_forms
 
+
 LOG = logging.getLogger('idm_logger')
 AVATAR_SMALL = settings.MEDIA_ROOT+"/"+"OrganizationAvatar/small/"
 AVATAR_MEDIUM = settings.MEDIA_ROOT+"/"+"OrganizationAvatar/medium/"
 AVATAR_ORIGINAL = settings.MEDIA_ROOT+"/"+"OrganizationAvatar/original/"
 
+GENERIC_ERROR_MESSAGE = 'An error ocurred. Please try again later.'
+
+
 class CreateOrganizationForm(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), max_length=64, required=True)
-    description = forms.CharField(label=_("Description"), 
-                                widget=forms.widgets.Textarea(attrs={'rows':4,'cols':40}),
-                                required=True)
+    description = forms.CharField(
+        label=_("Description"), 
+        widget=forms.widgets.Textarea(attrs={'rows':4, 'cols':40}),
+        required=True)
+
+    def clean_name(self):
+        """ Validate that the name is not already in use."""
+        org_name = self.cleaned_data['name']
+        try:
+            all_organizations, more = api.keystone.tenant_list(self.request)
+            names_in_use = [org.name for org 
+                             in all_organizations]
+            if org_name in names_in_use:
+                raise forms.ValidationError(
+                    _("An organization with that name already exists."),
+                    code='invalid')
+            return org_name
+        except Exception:
+            exceptions.handle(self.request, 
+                              GENERIC_ERROR_MESSAGE, 
+                              ignore=True)
 
     def handle(self, request, data):
         #create organization
@@ -48,17 +70,20 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
             city = ""
             email = ""
             website = ""
-            self.object = api.keystone.tenant_create(request,
-                                                     name=data['name'],
-                                                     description=data['description'],
-                                                     enabled=True,
-                                                     domain=default_domain,
-                                                     city=city,
-                                                     email=email,
-                                                     website=website)
+            self.object = api.keystone.tenant_create(
+                request,
+                name=data['name'],
+                description=data['description'],
+                enabled=True,
+                domain=default_domain,
+                city=city,
+                email=email,
+                website=website)
                                                      
         except Exception:
-            exceptions.handle(request, ignore=True)
+            exceptions.handle(request, 
+                              GENERIC_ERROR_MESSAGE, 
+                              ignore=True)
             return False
 
         #Set organization and user id
@@ -101,9 +126,10 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
 class InfoForm(forms.SelfHandlingForm):
     orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
     name = forms.CharField(label=_("Name"), max_length=64, required=True)
-    description = forms.CharField(label=_("Description"), 
-                                widget=forms.widgets.Textarea(attrs={'rows':4,'cols':40}), 
-                                required=True)
+    description = forms.CharField(
+        label=_("Description"), 
+        widget=forms.widgets.Textarea(attrs={'rows':4, 'cols':40}), 
+        required=True)
     city = forms.CharField(label=_("City"), max_length=64, required=False)
     title = 'Information'
 
