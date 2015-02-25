@@ -58,7 +58,9 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
                                                      website=website)
                                                      
         except Exception:
+            msg = 'This name is already taken by another organization'
             exceptions.handle(request, ignore=True)
+            messages.error(request,msg)
             return False
 
         #Set organization and user id
