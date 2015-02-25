@@ -232,6 +232,16 @@ class DetailApplicationView(tables.MultiTableView):
         app_id = self.kwargs['application_id']
         return app_id in allowed_applications
 
+    def _can_manage_roles(self):
+        # Allowed to manage roles if owns a role with the
+        # 'Manage roles' permission.
+        user = self.request.user
+        allowed_applications = \
+            fiware_api.keystone.list_user_allowed_applications_to_manage_roles(
+                self.request, user=user.id, organization=user.default_project_id)
+        app_id = self.kwargs['application_id']
+        return app_id in allowed_applications
+
 
     def allowed(self, request, user, application):
         # Allowed if your allowed role list is not empty
@@ -258,6 +268,8 @@ class DetailApplicationView(tables.MultiTableView):
         context['image'] = image
         if self._can_edit():
             context['edit'] = True
+        if self._can_manage_roles():
+            context['manage_roles'] = True
         if self.allowed(self.request, self.request.user, application):
             context['viewCred'] = True
         return context
