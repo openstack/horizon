@@ -62,9 +62,13 @@ limitations under the License.
       if (angular.isDefined(data)) {
         config.data = data;
       }
-      var r = new ApiPromise();
-      $http(config).success(r.handleSuccess).error(r.handleError);
-      return r;
+
+      //
+      // TODO: need discussion with Richard for this change.
+      // The reason for this change is to get a promise object compatible
+      // to $q.defer().promise.
+      //
+      return $http(config);
     };
 
     this.get = function(url, config) {

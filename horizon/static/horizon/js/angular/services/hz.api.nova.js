@@ -182,8 +182,8 @@ limitations under the License.
      *    ]
      *  }
      */
-    this.getExtensions = function() {
-      return apiService.get('/api/nova/extensions/')
+    this.getExtensions = function(config) {
+      return apiService.get('/api/nova/extensions/', config)
         .error(function () {
           horizon.alert('error', gettext('Unable to retrieve extensions.'));
         });
@@ -210,6 +210,25 @@ limitations under the License.
       if (isPublic) { config.params.is_public = 'true'; }
       if (getExtras) { config.params.get_extras = 'true'; }
       return apiService.get('/api/nova/flavors/', config)
+        .success(function (data) {
+          // The colon character ':' in the flavor data causes problems when used
+          // in Angular $parse() statements. Since these values are used as keys
+          // to lookup data (and may end up in a $parse()) provide "user-friendly"
+          // attributes
+          if ( data && data.items ) {
+            data.items.map(function(item) {
+              if ( item.hasOwnProperty('OS-FLV-EXT-DATA:ephemeral')) {
+                item.ephemeral = item['OS-FLV-EXT-DATA:ephemeral'];
+              }
+              if ( item.hasOwnProperty('OS-FLV-DISABLED:disabled')) {
+                item.disabled = item['OS-FLV-DISABLED:disabled'];
+              }
+              if ( item.hasOwnProperty('os-flavor-access:is_public')) {
+                item.is_public = item['os-flavor-access:is_public'];
+              }
+            });
+          }
+        })
         .error(function () {
           horizon.alert('error', gettext('Unable to retrieve flavors.'));
         });
@@ -250,4 +269,59 @@ limitations under the License.
 
   angular.module('hz.api')
     .service('novaAPI', ['apiService', NovaAPI]);
+
+   /**
+   * @ngdoc service
+   * @name hz.api.novaExtensions
+   * @description
+   * Provides cached access to Nova Extensions with utilities to help
+   * with asynchronous data loading. The cache may be reset at any time
+   * by accessing the cache and calling removeAll. The next call to any
+   * function will retrieve fresh results.
+   *
+   * The enabled extensions do not change often, so using cached data will
+   * speed up results. Even on a local devstack in informal testing,
+   * this saved between 30 - 100 ms per request.
+   */
+  function NovaExtensions($cacheFactory, $q, novaAPI) {
+
+    var service = {};
+    service.cache = $cacheFactory('hz.api.novaExtensions', {capacity: 1});
+
+    service.get = function() {
+      return novaAPI.getExtensions({cache: service.cache})
+        .then(function(data){
+          return data.data.items;
+        }
+      );
+    };
+
+    service.ifNameEnabled = function(desired, doThis) {
+      return service.get().then(function(extensions){
+          if (enabled(extensions, 'name', desired)){
+            return $q.when(doThis());
+          }
+        }
+      );
+    };
+
+    function enabled(resources, key, desired) {
+      if(resources) {
+        return resources.some(function (resource) {
+          return resource[key] === desired;
+        });
+      } else {
+        return false;
+      }
+    }
+
+     return service;
+  }
+
+  angular.module('hz.api')
+    .factory('novaExtensions', ['$cacheFactory',
+                                '$q',
+                                'novaAPI',
+                                NovaExtensions]);
+
 }());
