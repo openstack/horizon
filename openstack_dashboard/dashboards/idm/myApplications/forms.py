@@ -149,7 +149,7 @@ class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
             LOG.debug('Avatar for application {0} updated'.format(application_id))
         else:
             response = shortcuts.redirect(
-                'horizon:idm:myApplications:roles_index', application_id)
+                'horizon:idm:myApplications:roles_step', application_id)
             LOG.debug('Avatar for application {0} saved'.format(application_id))
         return response
 

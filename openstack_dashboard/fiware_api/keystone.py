@@ -239,6 +239,18 @@ def list_organization_allowed_applications_to_manage(request, organization):
         request, admin=True).fiware_roles.allowed
     return manager.list_organization_allowed_applications_to_manage(organization)
 
+def list_user_allowed_applications_to_manage_roles(request, user, organization):
+    manager = api.keystone.keystoneclient(
+        request, admin=True).fiware_roles.allowed
+    return manager.list_user_allowed_applications_to_manage_roles(
+        user, organization)
+
+def list_organization_allowed_applications_to_manage_roles(request, organization):
+    manager = api.keystone.keystoneclient(
+        request, admin=True).fiware_roles.allowed
+    return manager.list_organization_allowed_applications_to_manage_roles(
+        organization)
+
 # PERMISSIONS
 def permission_get(request, permission_id):
     #manager = fiwareclient().fiware_roles.permissions
