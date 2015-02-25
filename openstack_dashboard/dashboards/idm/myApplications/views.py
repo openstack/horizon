@@ -85,7 +85,12 @@ class AvatarStepView(forms.ModalFormView):
 
 class RolesView(workflows.WorkflowView):
     workflow_class = application_workflows.ManageApplicationRoles
-    template_name = 'idm/myApplications/roles/_workflow_base.html'
+
+    def __init__(self, *args, **kwargs):
+        # NOTE(garcianavalon) call grandfather's method instead of
+        # parents because parent (WorkflowView) overrides it with
+        # out super and **kwargs
+        super(workflows.WorkflowView, self).__init__(*args, **kwargs)
 
     def get_initial(self):
         initial = super(RolesView, self).get_initial()
@@ -181,7 +186,7 @@ class CreatePermissionView(forms.ModalFormView):
         return initial
 
 
-class DetailApplicationView(tables.MultiTableView, RolesView):
+class DetailApplicationView(tables.MultiTableView):
     template_name = 'idm/myApplications/detail.html'
     table_classes = (application_tables.MembersTable,
                      application_tables.AuthorizedOrganizationsTable)
