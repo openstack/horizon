@@ -28,12 +28,15 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
     @test.create_stubs({api.base: ('is_service_enabled',),
                         api.nova: ('service_list',),
                         api.neutron: ('agent_list', 'is_extension_supported'),
-                        api.cinder: ('service_list',)})
-    def test_index(self):
-        services = self.services.list()
-        api.nova.service_list(IsA(http.HttpRequest)).AndReturn(services)
+                        api.cinder: ('service_list',),
+                        api.heat: ('service_list',)})
+    def _test_base_index(self):
         api.base.is_service_enabled(IsA(http.HttpRequest), IgnoreArg()) \
                 .MultipleTimes().AndReturn(True)
+
+        services = self.services.list()
+        api.nova.service_list(IsA(http.HttpRequest)).AndReturn(services)
+
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'agent').AndReturn(True)
         agents = self.agents.list()
@@ -43,55 +46,64 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
         api.cinder.service_list(IsA(http.HttpRequest)).\
             AndReturn(cinder_services)
 
+        heat_services = self.heat_services.list()
+        api.heat.service_list(IsA(http.HttpRequest)).\
+            AndReturn(heat_services)
+
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
-
         self.assertTemplateUsed(res, 'admin/info/index.html')
 
-        services_tab = res.context['tab_group'].get_tab('services')
-        self.assertQuerysetEqual(services_tab._tables['services'].data,
-                                 ['<Service: compute>',
-                                  '<Service: volume>',
-                                  '<Service: image>',
-                                  '<Service: identity (native backend)>',
-                                  '<Service: object-store>',
-                                  '<Service: network>',
-                                  '<Service: ec2>',
-                                  '<Service: metering>',
-                                  '<Service: orchestration>',
-                                  '<Service: database>',
-                                  '<Service: data_processing>', ])
+        return res
 
+    def test_index(self):
+        res = self._test_base_index()
+        services_tab = res.context['tab_group'].get_tab('services')
+        self.assertQuerysetEqual(
+            services_tab._tables['services'].data,
+            ['<Service: compute>',
+             '<Service: volume>',
+             '<Service: image>',
+             '<Service: identity (native backend)>',
+             '<Service: object-store>',
+             '<Service: network>',
+             '<Service: ec2>',
+             '<Service: metering>',
+             '<Service: orchestration>',
+             '<Service: database>',
+             '<Service: data_processing>', ])
+
+        self.mox.VerifyAll()
+
+    def test_neutron_index(self):
+        res = self._test_base_index()
         network_agents_tab = res.context['tab_group'].get_tab('network_agents')
         self.assertQuerysetEqual(
             network_agents_tab._tables['network_agents'].data,
             [agent.__repr__() for agent in self.agents.list()]
         )
+
         self.mox.VerifyAll()
 
-    @test.create_stubs({api.base: ('is_service_enabled',),
-                        api.cinder: ('service_list',),
-                        api.nova: ('service_list',),
-                        api.neutron: ('agent_list', 'is_extension_supported')})
-    def test_cinder_services_index(self):
-        cinder_services = self.cinder_services.list()
-        api.nova.service_list(IsA(http.HttpRequest)).AndReturn([])
-        api.cinder.service_list(IsA(http.HttpRequest)).\
-            AndReturn(cinder_services)
-        api.neutron.agent_list(IsA(http.HttpRequest)).AndReturn([])
-        api.base.is_service_enabled(IsA(http.HttpRequest), IgnoreArg()) \
-                .MultipleTimes().AndReturn(True)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'agent').AndReturn(True)
-
-        self.mox.ReplayAll()
-        res = self.client.get(INDEX_URL)
+    def test_cinder_index(self):
+        res = self._test_base_index()
         cinder_services_tab = res.context['tab_group'].\
             get_tab('cinder_services')
+        self.assertQuerysetEqual(
+            cinder_services_tab._tables['cinder_services'].data,
+            [service.__repr__() for service in self.cinder_services.list()]
+        )
 
-        self.assertTemplateUsed(res, 'admin/info/index.html')
-        self.assertQuerysetEqual(cinder_services_tab._tables
-                                 ['cinder_services'].data,
-                                 ['<Service: cinder-scheduler>',
-                                  '<Service: cinder-volume>'])
+        self.mox.VerifyAll()
+
+    def test_heat_index(self):
+        res = self._test_base_index()
+        heat_services_tab = res.context['tab_group'].\
+            get_tab('heat_services')
+        self.assertQuerysetEqual(
+            heat_services_tab._tables['heat_services'].data,
+            [service.__repr__() for service in self.heat_services.list()]
+        )
+
+        self.mox.VerifyAll()
