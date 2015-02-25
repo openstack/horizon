@@ -34,7 +34,7 @@ class UserRoleApi(idm_workflows.RelationshipApiInterface):
     
     def _list_all_owners(self, request, superset_id):
         all_users = api.keystone.user_list(request)
-        return [(user.id, user.name) for user in all_users]
+        return [(user.id, user.username) for user in all_users]
 
     def _list_all_objects(self, request, superset_id):
         return api.keystone.role_list(request)

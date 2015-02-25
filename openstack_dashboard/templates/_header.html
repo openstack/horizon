@@ -108,7 +108,24 @@
           </a>
           <ul id="editor_list" class="dropdown-menu dropdown-menu-right">
             {% for org in request.organizations %}
-              <li><a href="{% url 'switch_tenants' org.id %}"><i class="fa fa-group"></i>{{org.name}}</a></li>
+              {% if org.id == request.user.default_project_id %}
+                <li><a href="{% url 'switch_tenants' org.id %}">
+                {% if request.user.img_small %}
+                <img src="{{ MEDIA_URL }}{{ request.user.img_small }}">
+                {% else %}
+                <img src="{{ STATIC_URL }}dashboard/img/logos/small/user.png">
+                {% endif %}
+                {{request.user.username}}
+                </a></li>
+              {% else %}
+                <li><a href="{% url 'switch_tenants' org.id %}">
+                {% if org.img_small %}
+                <img src="{{ MEDIA_URL }}{{ org.img_small }}">
+                {% else %}
+                <img src="{{ STATIC_URL }}dashboard/img/logos/small/group.png">
+                {% endif %}
+                {{org.name}}</a></li>
+              {% endif %}
             {% endfor %}
             <li>
               <a href="{% url 'horizon:settings:multisettings:index' %}"> <i class="fa fa-cog"></i> {% trans "Settings" %}
