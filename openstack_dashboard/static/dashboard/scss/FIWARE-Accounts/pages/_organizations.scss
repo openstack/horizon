@@ -51,16 +51,15 @@
   }
 }
 
-#members{
+#members, 
+#applications {
   max-height: 232px;
   overflow-x: hidden;
   overflow-y: scroll;
   margin: 0 -15px;
-  .list-group-item{
-    margin-left: 0;
-    margin-right: 0;
-  }
+  padding: 0 15px;
 }
+
 #detailApplication{ 
   margin-top: 13px;
   header{
@@ -104,16 +103,14 @@
 }
 
 .add-members{
-  @include make-sm-column(12, $gutter: $grid-gutter-width);
-  @include make-md-column(12, $gutter: $grid-gutter-width);
-  @include make-lg-column(12, $gutter: $grid-gutter-width);
+  @include make-xs-column(12, $gutter: $grid-gutter-width);
   padding: 0;
   .list-group-item{
     margin: 0;
   }
   .avatar{
     float: left;
-    margin-right: 15px;
+    margin-right: 0px;
   }
   .all-users{
     border-right: 1px solid $border-color;
@@ -213,16 +210,19 @@
 
 .all-users{
   @include make-sm-column(5, $gutter: $grid-gutter-width);
-  @include make-md-column(5, $gutter: $grid-gutter-width);
   @include make-lg-column(5, $gutter: $grid-gutter-width);
-  padding-right: 10px !important;
+  padding-right: 15px !important;
 } 
 .members-list{
   @include make-sm-column(7, $gutter: $grid-gutter-width);
-  @include make-md-column(7, $gutter: $grid-gutter-width);
   @include make-lg-column(7, $gutter: $grid-gutter-width);
-  padding-left: 10px !important;
+  padding-left: 15px !important;
+  @media (max-width: $screen-xs-min){
+    margin-top: 15px;
+    margin-left: 0 !important;
+  }
 }
+
 .all-users,
 .members-list{
   h4{
