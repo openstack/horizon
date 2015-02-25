@@ -10,6 +10,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common import by
 
 from openstack_dashboard.test.integration_tests.pages import navigation
@@ -64,8 +65,14 @@ class BasePage(pageobject.PageObject):
         self.topbar.user_dropdown_menu.click_on_help()
 
     def _wait_till_spinner_disappears(self):
-        spinner = self._get_element(*self._spinner_locator)
-        self._wait_till_element_disappears(spinner)
+        try:
+            spinner = self._get_element(*self._spinner_locator)
+            self._wait_till_element_disappears(spinner)
+        except NoSuchElementException:
+            # NOTE(mpavlase): This is valid state. When request completes
+            # even before Selenium get a chance to get the spinner element,
+            # it will raise the NoSuchElementException exception.
+            pass
 
 
 class BaseNavigationPage(BasePage, navigation.Navigation):
