@@ -223,15 +223,41 @@ class InitializeDatabase(workflows.Step):
     contributes = ["databases", 'user', 'password', 'host']
 
 
-class RestoreAction(workflows.Action):
-    backup = forms.ChoiceField(label=_("Backup"),
-                               required=False,
-                               help_text=_('Select a backup to restore'))
+class AdvancedAction(workflows.Action):
+    initial_state = forms.ChoiceField(
+        label=_('Source for Initial State'),
+        required=False,
+        help_text=_("Choose initial state."),
+        choices=[
+            ('', _('None')),
+            ('backup', _('Restore from Backup')),
+            ('master', _('Replicate from Instance'))],
+        widget=forms.Select(attrs={
+            'class': 'switchable',
+            'data-slug': 'initial_state'
+        }))
+    backup = forms.ChoiceField(
+        label=_('Backup Name'),
+        required=False,
+        help_text=_('Select a backup to restore'),
+        widget=forms.Select(attrs={
+            'class': 'switched',
+            'data-switch-on': 'initial_state',
+            'data-initial_state-backup': _('Backup Name')
+        }))
+    master = forms.ChoiceField(
+        label=_('Master Instance Name'),
+        required=False,
+        help_text=_('Select a master instance'),
+        widget=forms.Select(attrs={
+            'class': 'switched',
+            'data-switch-on': 'initial_state',
+            'data-initial_state-master': _('Master Instance Name')
+        }))
 
     class Meta(object):
-        name = _("Restore From Backup")
-        permissions = ('openstack.services.object-store',)
-        help_text_template = "project/databases/_launch_restore_help.html"
+        name = _("Advanced")
+        help_text_template = "project/databases/_launch_advanced_help.html"
 
     def populate_backup_choices(self, request, context):
         try:
@@ -247,23 +273,60 @@ class RestoreAction(workflows.Action):
             choices.insert(0, ("", _("No backups available")))
         return choices
 
-    def clean_backup(self):
-        backup = self.cleaned_data['backup']
-        if backup:
-            try:
-                # Make sure the user is not "hacking" the form
-                # and that they have access to this backup_id
-                LOG.debug("Obtaining backups")
-                bkup = api.trove.backup_get(self.request, backup)
-                self.cleaned_data['backup'] = bkup.id
-            except Exception:
-                raise forms.ValidationError(_("Unable to find backup!"))
-        return backup
+    def populate_master_choices(self, request, context):
+        try:
+            instances = api.trove.instance_list(request)
+            choices = [(i.id, i.name) for i in
+                       instances if i.status == 'ACTIVE']
+        except Exception:
+            choices = []
+
+        if choices:
+            choices.insert(0, ("", _("Select instance")))
+        else:
+            choices.insert(0, ("", _("No instances available")))
+        return choices
+
+    def clean(self):
+        cleaned_data = super(AdvancedAction, self).clean()
+
+        initial_state = cleaned_data.get("initial_state")
+
+        if initial_state == 'backup':
+            backup = self.cleaned_data['backup']
+            if backup:
+                try:
+                    bkup = api.trove.backup_get(self.request, backup)
+                    self.cleaned_data['backup'] = bkup.id
+                except Exception:
+                    raise forms.ValidationError(_("Unable to find backup!"))
+            else:
+                raise forms.ValidationError(_("A backup must be selected!"))
+
+            cleaned_data['master'] = None
+        elif initial_state == 'master':
+            master = self.cleaned_data['master']
+            if master:
+                try:
+                    api.trove.instance_get(self.request, master)
+                except Exception:
+                    raise forms.ValidationError(
+                        _("Unable to find master instance!"))
+            else:
+                raise forms.ValidationError(
+                    _("A master instance must be selected!"))
+
+            cleaned_data['backup'] = None
+        else:
+            cleaned_data['master'] = None
+            cleaned_data['backup'] = None
+
+        return cleaned_data
 
 
-class RestoreBackup(workflows.Step):
-    action_class = RestoreAction
-    contributes = ['backup']
+class Advanced(workflows.Step):
+    action_class = AdvancedAction
+    contributes = ['backup', 'master']
 
 
 class LaunchInstance(workflows.Workflow):
@@ -276,7 +339,7 @@ class LaunchInstance(workflows.Workflow):
     default_steps = (SetInstanceDetails,
                      SetNetwork,
                      InitializeDatabase,
-                     RestoreBackup)
+                     Advanced)
 
     def __init__(self, request=None, context_seed=None, entry_point=None,
                  *args, **kwargs):
@@ -332,11 +395,12 @@ class LaunchInstance(workflows.Workflow):
                      "{name=%s, volume=%s, flavor=%s, "
                      "datastore=%s, datastore_version=%s, "
                      "dbs=%s, users=%s, "
-                     "backups=%s, nics=%s}",
+                     "backups=%s, nics=%s, replica_of=%s}",
                      context['name'], context['volume'], context['flavor'],
                      datastore, datastore_version,
                      self._get_databases(context), self._get_users(context),
-                     self._get_backup(context), self._get_nics(context))
+                     self._get_backup(context), self._get_nics(context),
+                     context.get('master'))
             api.trove.instance_create(request,
                                       context['name'],
                                       context['volume'],
@@ -346,7 +410,8 @@ class LaunchInstance(workflows.Workflow):
                                       databases=self._get_databases(context),
                                       users=self._get_users(context),
                                       restore_point=self._get_backup(context),
-                                      nics=self._get_nics(context))
+                                      nics=self._get_nics(context),
+                                      replica_of=context.get('master'))
             return True
         except Exception:
             exceptions.handle(request)

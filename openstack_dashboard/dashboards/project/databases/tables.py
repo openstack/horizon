@@ -84,6 +84,34 @@ class RestartInstance(tables.BatchAction):
         api.trove.instance_restart(request, obj_id)
 
 
+class DetachReplica(tables.BatchAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Detach Replica",
+            u"Detach Replicas",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Replica Detached",
+            u"Replicas Detached",
+            count
+        )
+
+    name = "detach_replica"
+    classes = ('btn-danger', 'btn-detach-replica')
+
+    def allowed(self, request, instance=None):
+        return (instance.status in ACTIVE_STATES
+                and hasattr(instance, 'replica_of'))
+
+    def action(self, request, obj_id):
+        api.trove.instance_detach_replica(request, obj_id)
+
+
 class DeleteUser(tables.DeleteAction):
     @staticmethod
     def action_present(count):
@@ -312,6 +340,7 @@ class InstancesTable(tables.DataTable):
                        ResizeVolume,
                        ResizeInstance,
                        RestartInstance,
+                       DetachReplica,
                        TerminateInstance)
 
 
