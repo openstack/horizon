@@ -85,7 +85,12 @@ class AvatarStepView(forms.ModalFormView):
 
 class RolesView(workflows.WorkflowView):
     workflow_class = application_workflows.ManageApplicationRoles
-    template_name = 'idm/myApplications/roles/_workflow_base.html'
+
+    def __init__(self, *args, **kwargs):
+        # NOTE(garcianavalon) call grandfather's method instead of
+        # parents because parent (WorkflowView) overrides it with
+        # out super and **kwargs
+        super(workflows.WorkflowView, self).__init__(*args, **kwargs)
 
     def get_initial(self):
         initial = super(RolesView, self).get_initial()
@@ -181,7 +186,7 @@ class CreatePermissionView(forms.ModalFormView):
         return initial
 
 
-class DetailApplicationView(tables.MultiTableView, RolesView):
+class DetailApplicationView(tables.MultiTableView):
     template_name = 'idm/myApplications/detail.html'
     table_classes = (application_tables.MembersTable,
                      application_tables.AuthorizedOrganizationsTable)
@@ -227,6 +232,16 @@ class DetailApplicationView(tables.MultiTableView, RolesView):
         app_id = self.kwargs['application_id']
         return app_id in allowed_applications
 
+    def _can_manage_roles(self):
+        # Allowed to manage roles if owns a role with the
+        # 'Manage roles' permission.
+        user = self.request.user
+        allowed_applications = \
+            fiware_api.keystone.list_user_allowed_applications_to_manage_roles(
+                self.request, user=user.id, organization=user.default_project_id)
+        app_id = self.kwargs['application_id']
+        return app_id in allowed_applications
+
 
     def allowed(self, request, user, application):
         # Allowed if your allowed role list is not empty
@@ -253,6 +268,8 @@ class DetailApplicationView(tables.MultiTableView, RolesView):
         context['image'] = image
         if self._can_edit():
             context['edit'] = True
+        if self._can_manage_roles():
+            context['manage_roles'] = True
         if self.allowed(self.request, self.request.user, application):
             context['viewCred'] = True
         return context
