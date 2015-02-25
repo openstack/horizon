@@ -53,9 +53,9 @@ class EmailForm(forms.SelfHandlingForm):
                 default_region = (settings.OPENSTACK_KEYSTONE_URL, "Default Region")
                 region = getattr(settings, 'AVAILABLE_REGIONS', [default_region])[0][0]
 
-                username = request.user.username
+                name = request.user.name
                 result = django_auth.authenticate(request=request,
-                                    username=username,
+                                    username=name,
                                     password=password,
                                     user_domain_name=domain,
                                     auth_url=region)
@@ -65,7 +65,7 @@ class EmailForm(forms.SelfHandlingForm):
                 #user = api.keystone.user_get(request, user_id, admin=False)
                 
                 # if we dont set password to None we get a dict-key error in api/keystone
-                api.keystone.user_update(request, user_id, email=data['email'],
+                api.keystone.user_update(request, user_id, name=data['email'],
                                         password=None)
                 
                 # redirect user to settings home
