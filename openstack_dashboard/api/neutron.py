@@ -535,8 +535,8 @@ def list_resources_with_long_filters(list_method,
         If you want to specify more attributes for a filter condition,
         pass them as keyword arguments like "attr2=values2".
     :param filter_values: values of "filter_attr" to be filtered.
-        If filter_values are too long and the total URI lenght exceed the
-        maximum lenght supported by the neutron server, filter_values will
+        If filter_values are too long and the total URI length exceed the
+        maximum length supported by the neutron server, filter_values will
         be split into sub lists if filter_values is a list.
     :param params: parameters to pass a specified listing API call
         without any changes. You can specify more filter conditions

@@ -195,7 +195,7 @@ class Command(BaseCommand):
                     except subprocess.CalledProcessError:
                         if os.path.exists(local_settings_reject):
                             sys.exit(
-                                'Some conflict(s) occured. Please check "%s" '
+                                'Some conflict(s) occurred. Please check "%s" '
                                 'to find unapplied parts of the diff.\n'
                                 'Once conflicts are solved, it is safer to '
                                 'regenerate a newer diff with the "--gendiff" '
@@ -205,7 +205,7 @@ class Command(BaseCommand):
                                     local_settings_reject)
                             )
                         else:
-                            sys.exit('An unhandled error occured.')
+                            sys.exit('An unhandled error occurred.')
                     print('Generation of "%s" successful.' % os.path.join(
                         dircontext.curdir,
                         self.local_settings_file)
