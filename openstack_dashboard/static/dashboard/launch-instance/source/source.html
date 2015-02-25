@@ -1,3 +1,327 @@
 <div ng-controller="LaunchInstanceSourceCtrl">
-  <h1>{$ title $}</h1>
+  <h1>{$ ::label.title $}</h1>
+
+  <!--content-->
+  <div class="content">
+    <div class="subtitle">{$ ::label.subtitle $}</div>
+
+    <!--selected-source form-->
+    <div class="selected-source clearfix">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8">
+          <div class="row form-group">
+            <div class="col-sm-12 col-md-5">
+              <div class="form-field required instance-name">
+                <label class="on-top">{$ ::label.instanceName $}</label>
+                <input type="text" class="form-control input-sm" ng-required="true"
+                       ng-model="model.newInstanceSpec.name">
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-md-5">
+              <div class="form-field availability-zone">
+                <label class="on-top">{$ ::label.availabilityZone $}</label>
+                <select class="form-control input-sm"
+                        ng-options="zone for zone in model.availabilityZones"
+                        ng-model="model.newInstanceSpec.availability_zone">
+                </select>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-md-2">
+              <div class="form-field instance_count">
+                <label class="on-top">{$ ::label.instance_count $}</label>
+                <input type="number" class="form-control input-sm"
+                       ng-model="model.newInstanceSpec.instance_count">
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!--instance chart-->
+        <div class="col-xs-12 col-sm-4">
+          <div class="chart">
+            <pie-chart chart-data="instanceStats" chart-settings="donutSettings"></pie-chart>
+          </div>
+        </div>
+        <!--end instance chart-->
+      </div>
+    </div>
+    <!--end selected-source form-->
+
+    <h2 class="section-title">{$ ::label.instanceSourceTitle $}</h2>
+    <div class="subtitle">{$ ::label.instanceSourceSubTitle $}</div>
+
+    <!--instance-source form-->
+    <div class="instance-source clearfix">
+      <div class="form-horizontal">
+        <div class="row">
+          <div class="col-xs-12 col-sm-3">
+            <div class="form-field image">
+              <label class="on-top">{$ ::label.bootSource $}</label>
+              <!-- TODO: here we are pulling from allowedBootSourcesDebug for dev work -->
+              <!-- TODO: we will need to change this to model.allowedBootSources -->
+              <select class="form-control input-sm"
+                      ng-options="src.label for src in bootSourcesOptions track by src.type"
+                      ng-change="updateBootSourceSelection(model.newInstanceSpec.source_type)"
+                      ng-model="model.newInstanceSpec.source_type">
+              </select>
+            </div>
+          </div>
+
+          <!-- start image select options -->
+          <div class="col-xs-12 col-sm-9"
+               ng-if="model.newInstanceSpec.source_type.type === 'image'">
+
+            <div class="col-xs-12 col-sm-3">
+              <div class="form-group create-volume">
+                <div class="checkbox">
+                  <label class="on-top">
+                    <input type="checkbox" ng-model="model.newInstanceSpec.vol_create">
+                    {$ ::label.volumeCreate $}</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-9 volume-create" ng-if="model.newInstanceSpec.vol_create == true">
+
+              <div class="col-xs-12 col-sm-5 volume-size-wrapper">
+                <div class="form-field volume-size">
+                  <label class="on-top">{$ ::label.volumeSize $}</label>
+                  <input type="number" class="form-control input-sm volume-size"
+                         ng-model="model.newInstanceSpec.vol_size">
+                </div>
+              </div>
+
+              <div class="col-xs-12 col-sm-6">
+                <div class="form-group delete-volume">
+                  <div class="checkbox">
+                    <label class="on-top">
+                      <input type="checkbox"
+                             ng-model="model.newInstanceSpec.vol_delete_on_terminate">
+                      {$ ::label.deleteVolumeOnTerminate $}</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- end image select options -->
+
+          <!-- start volume select options -->
+          <div class="col-xs-12 col-sm-9"
+               ng-if="model.newInstanceSpec.source_type.type == 'volume' || model.newInstanceSpec.source_type.type == 'volume_snapshot'">
+            <div class="col-xs-12 col-sm-6">
+              <div class="form-group delete-volume">
+                <div class="checkbox">
+                  <label class="on-top">
+                    <input type="checkbox"
+                           ng-model="model.newInstanceSpec.vol_delete_on_terminate">
+                    {$ ::label.deleteVolumeOnTerminate $}</label>
+                </div>
+              </div>
+            </div>
+          </div><!-- end volume select options -->
+
+        </div>
+      </div>
+    </div>
+    <!--end instance-source form-->
+
+    <transfer-table help-text="helpText"
+                    tr-model="tableData">
+      <allocated>
+        <table class="table-striped table-rsp table-detail modern"
+               hz-table
+               st-safe-src="tableData.allocated"
+               st-table="tableData.displayAllocated">
+
+          <!-- transfer table, allocated table head -->
+          <thead>
+            <tr ng-show="tableData.allocated.length > 0">
+              <th class="expander"></th>
+              <th ng-class="tableHeadCells[0].classList"
+                  ng-style="tableHeadCells[0].style">
+                {$ tableHeadCells[0].text $}
+              </th>
+              <th ng-class="tableHeadCells[1].classList"
+                  ng-style="tableHeadCells[1].style">
+                {$ tableHeadCells[1].text $}
+              </th>
+              <th ng-class="tableHeadCells[2].classList"
+                  ng-style="tableHeadCells[2].style">
+                {$ tableHeadCells[2].text $}
+              </th>
+              <th ng-class="tableHeadCells[3].classList"
+                  ng-style="tableHeadCells[3].style">
+                {$ tableHeadCells[3].text $}
+              </th>
+              <th class="action"></th>
+            </tr>
+          </thead><!-- /transfer table, allocated table head -->
+
+          <!-- transfer table, allocated table body -->
+          <tbody>
+
+            <tr ng-if="tableData.allocated.length === 0">
+              <td colspan="{$ tableHeadCells.length + 2 $}">
+                <div class="no-rows-help">
+                  {$ ::trCtrl.helpText.noneAllocText $}
+                </div>
+              </td>
+            </tr>
+
+            <tr ng-repeat-start="row in tableData.displayAllocated track by row.id">
+              <td class="expander">
+                <span class="fa fa-chevron-right"
+                      hz-expand-detail
+                      title="{$ ::trCtrl.helpText.expandDetailsText $}"></span>
+              </td>
+              <td ng-class="tableBodyCells[0].classList"
+                  ng-style="tableBodyCells[0].style">
+                {$ tableBodyCells[0].filter ? tableBodyCells[0].filter(row[tableBodyCells[0].key]) : row[tableBodyCells[0].key] $}
+              </td>
+              <td ng-class="tableBodyCells[1].classList"
+                  ng-style="tableBodyCells[1].style">
+                {$ tableBodyCells[1].filter ? tableBodyCells[1].filter(row[tableBodyCells[1].key]) : row[tableBodyCells[1].key] $}
+              </td>
+              <td ng-class="tableBodyCells[2].classList"
+                  ng-style="tableBodyCells[2].style">
+                {$ tableBodyCells[2].filter ? tableBodyCells[2].filter(row[tableBodyCells[2].key]) : row[tableBodyCells[2].key] $}
+              </td>
+              <td ng-class="tableBodyCells[3].classList"
+                  ng-style="tableBodyCells[3].style">
+                {$ tableBodyCells[3].filter ? tableBodyCells[3].filter(row[tableBodyCells[3].key]) : row[tableBodyCells[3].key] $}
+              </td>
+              <td class="action-col">
+                <action-list>
+                  <action action-classes="'btn btn-sm btn-default'"
+                          callback="trCtrl.deallocate"
+                          item="row">
+                    <span class="fa fa-minus"></span>
+                  </action>
+                </action-list>
+              </td>
+            </tr>
+            <tr class="detail-row"
+                ng-repeat-end>
+              <td colspan="2"></td>
+              <td colspan="{$ tableHeadCells.length $}" class="detail">
+                <dl class="dl-horizontal">
+                  <dt>{$ ::label.id $}</dt>
+                  <dd>{$ row.id $}</dd>
+                </dl>
+              </td>
+            </tr>
+          </tbody><!-- /transfer table, allocated table body -->
+        </table>
+      </allocated>
+
+      <available>
+        <table st-table="tableData.displayedAvailable"
+               st-safe-src="tableData.available"
+               hz-table
+               class="table-striped table-rsp table-detail modern">
+
+          <!-- transfer table, allocatable table head -->
+          <thead>
+          <tr>
+            <th class="search-header"
+                colspan="{$ tableHeadCells.length + 2 $}">
+              <search-bar group-classes="input-group-sm"
+                          icon-classes="fa-search">
+              </search-bar>
+              </th>
+            </tr>
+            <tr>
+              <th class="expander"></th>
+              <th ng-class="tableHeadCells[0].classList"
+                  ng-style="tableHeadCells[0].style">
+                {$ tableHeadCells[0].text $}
+              </th>
+              <th ng-class="tableHeadCells[1].classList"
+                  ng-style="tableHeadCells[1].style">
+                {$ tableHeadCells[1].text $}
+              </th>
+              <th ng-class="tableHeadCells[2].classList"
+                  ng-style="tableHeadCells[2].style">
+                {$ tableHeadCells[2].text $}
+              </th>
+              <th ng-class="tableHeadCells[3].classList"
+                  ng-style="tableHeadCells[3].style">
+                {$ tableHeadCells[3].text $}
+              </th>
+              <th class="action"></th>
+            </tr>
+          </thead><!-- /allocatable table, allocated table head -->
+
+          <tbody>
+
+            <tr ng-if="trCtrl.numDisplayedAvailable() === 0">
+              <td colspan="6">
+                <div class="no-rows-help">
+                  {$ ::trCtrl.helpText.noneAvailText $}
+                </div>
+              </td>
+            </tr>
+
+            <tr ng-repeat-start="row in tableData.displayedAvailable track by row.id"
+                ng-if="!trCtrl.allocatedIds[row.id]">
+              <td class="expander">
+                <span class="fa fa-chevron-right"
+                      hz-expand-detail
+                      title="{$ ::trCtrl.helpText.expandDetailsText $}">
+                </span>
+              </td>
+              <td ng-class="tableBodyCells[0].classList"
+                  ng-style="tableBodyCells[0].style">
+                {$ tableBodyCells[0].filter ? tableBodyCells[0].filter(row[tableBodyCells[0].key]) : row[tableBodyCells[0].key] $}
+              </td>
+              <td ng-class="tableBodyCells[1].classList"
+                  ng-style="tableBodyCells[1].style">
+                {$ tableBodyCells[1].filter ? tableBodyCells[1].filter(row[tableBodyCells[1].key]) : row[tableBodyCells[1].key] $}
+              </td>
+              <td ng-class="tableBodyCells[2].classList"
+                  ng-style="tableBodyCells[2].style">
+                {$ tableBodyCells[2].filter ? tableBodyCells[2].filter(row[tableBodyCells[2].key]) : row[tableBodyCells[2].key] $}
+              </td>
+              <td ng-class="tableBodyCells[3].classList"
+                  ng-style="tableBodyCells[3].style">
+                {$ tableBodyCells[3].filter ? tableBodyCells[3].filter(row[tableBodyCells[3].key]) : row[tableBodyCells[3].key] $}
+              </td>
+              <td class="action-col">
+                <action-list button-tooltip="row.warningMessage"
+                             bt-disabled="!row.disabled"
+                             bt-model="trCtrl.tooltipModel"
+                             warning-classes="'invalid'">
+                  <notifications>
+                    <span class="fa fa-exclamation-circle invalid"
+                          ng-show="row.disabled">
+                    </span>
+                  </notifications>
+                  <action action-classes="'btn btn-sm btn-default'"
+                          callback="trCtrl.allocate"
+                          disabled="row.disabled"
+                          item="row">
+                    <span class="fa fa-plus"></span>
+                  </action>
+                </action-list>
+              </td>
+            </tr>
+            <tr class="detail-row"
+                ng-repeat-end>
+              <td colspan="2"></td>
+              <td colspan="{$ tableHeadCells.length $}" class="detail">
+                <dl class="dl-horizontal">
+                  <dt>{$ ::label.id $}</dt>
+                  <dd>{$ row.id $}</dd>
+                </dl>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </available>
+    </transfer-table>
+
+  </div>
+  <!-- end content -->
 </div>
