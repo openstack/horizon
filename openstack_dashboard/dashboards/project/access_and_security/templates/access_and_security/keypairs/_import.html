@@ -1,31 +1,13 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
-{% load url from future %}
 
-{% block form_id %}import_keypair_form{% endblock %}
-{% block form_action %}{% url 'horizon:project:access_and_security:keypairs:import' %}{% endblock %}
-
-{% block modal-header %}{% trans "Import Key Pair" %}{% endblock %}
-
-{% block modal-body %}
-<div class="left">
-    <fieldset>
-    {% include "horizon/common/_form_fields.html" %}
-    </fieldset>
-</div>
-<div class="right">
-    <h3>{% trans "Description:" %}</h3>
-    <p>{% trans "Key Pairs are how you login to your instance after it is launched." %}</p>
-    <p>{% trans "Choose a key pair name you will recognise and paste your SSH public key into the space provided." %}</p>
-    <p>{% trans "SSH key pairs can be generated with the ssh-keygen command:" %}</p>
-    <p><pre>ssh-keygen -t rsa -f cloud.key</pre></p>
-    <p>{% trans "This generates a pair of keys: a key you keep private (cloud.key) and a public key (cloud.key.pub). Paste the contents of the public key file here." %}</p>
-    <p>{% trans "After launching an instance, you login using the private key (the username might be different depending on the image you launched):" %}</p>
-    <p><pre>ssh -i cloud.key &lt;username&gt;@&lt;instance_ip&gt;</pre></p>
-</div>
-{% endblock %}
-
-{% block modal-footer %}
-  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Import Key Pair" %}" />
-  <a href="{% url 'horizon:project:access_and_security:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
+{% block modal-body-right %}
+  <h3>{% trans "Description:" %}</h3>
+  <p>{% trans "Key Pairs are how you login to your instance after it is launched." %}</p>
+  <p>{% trans "Choose a key pair name you will recognise and paste your SSH public key into the space provided." %}</p>
+  <p>{% trans "SSH key pairs can be generated with the ssh-keygen command:" %}</p>
+  <p><pre>ssh-keygen -t rsa -f cloud.key</pre></p>
+  <p>{% trans "This generates a pair of keys: a key you keep private (cloud.key) and a public key (cloud.key.pub). Paste the contents of the public key file here." %}</p>
+  <p>{% trans "After launching an instance, you login using the private key (the username might be different depending on the image you launched):" %}</p>
+  <p><pre>ssh -i cloud.key &lt;username&gt;@&lt;instance_ip&gt;</pre></p>
 {% endblock %}
