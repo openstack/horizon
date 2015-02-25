@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% endblock %}
+
+{% block main %}
+  <div id="create_application_roles">
+    <div class="modal-header"><h3>
+    {% include "idm/myApplications/steps/_step-3.html" %}
+    </h3>
+    </div>
+    <div class="site-client-roles">
+      {% include 'idm/myApplications/roles/_workflow.html' %}
+    </div>
+  </div>
+{% endblock %}
