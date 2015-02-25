@@ -24,11 +24,14 @@ class UserInfoMiddleware(object):
         if (not hasattr(request, 'user') 
             or not request.user.is_authenticated()):
             return
-
-        user_data = api.keystone.user_get(request, request.user.id)
-        # setattr(user_data, 'username', user_data.name)
-        for attr, value in user_data.__dict__.iteritems():
-            setattr(request.user, attr, value)
+        try:
+            user_data = api.keystone.user_get(request, request.user.id)
+            # setattr(user_data, 'username', user_data.name)
+            for attr, value in user_data.__dict__.iteritems():
+                setattr(request.user, attr, value)
+        except Exception:
+            pass
+        
 
 
 class OrganizationInfoMiddleware(object):
@@ -38,12 +41,14 @@ class OrganizationInfoMiddleware(object):
         if (not hasattr(request, 'user') 
             or not request.user.is_authenticated()):
             return
+        try:
+            current_organization = request.user.token.project['id']
 
-        current_organization = request.user.token.project['id']
-
-        # TODO(garcianavalon) lazyloading and caching
-        request.organization = api.keystone.tenant_get(
-            request, current_organization)
+            # TODO(garcianavalon) lazyloading and caching
+            request.organization = api.keystone.tenant_get(
+                request, current_organization)
+        except Exception:
+            pass
 
 
 class SwitchMiddleware(object):
@@ -55,15 +60,17 @@ class SwitchMiddleware(object):
             or not request.user.is_authenticated()
             or not hasattr(request, 'organization')):
             return
-
-        # TODO(garcianavalon) lazyloading and caching
-        # TODO(garcianavalon) move to fiware_api
-        organizations, more = api.keystone.tenant_list(request)
-        assignments = api.keystone.role_assignments_list(
-            request, user=request.user.id)
-        owner_role = fiware_api.keystone.get_owner_role(request)
-        switch_orgs = set([a.scope['project']['id'] for a in assignments 
-                       if a.role['id'] == owner_role.id
-                       and a.scope['project']['id'] != request.organization.id])
-        request.organizations = [org for org in organizations
-                                 if org.id in switch_orgs]
+        try:
+            # TODO(garcianavalon) lazyloading and caching
+            # TODO(garcianavalon) move to fiware_api
+            organizations, more = api.keystone.tenant_list(request)
+            assignments = api.keystone.role_assignments_list(
+                request, user=request.user.id)
+            owner_role = fiware_api.keystone.get_owner_role(request)
+            switch_orgs = set([a.scope['project']['id'] for a in assignments 
+                           if a.role['id'] == owner_role.id
+                           and a.scope['project']['id'] != request.organization.id])
+            request.organizations = [org for org in organizations
+                                     if org.id in switch_orgs]
+        except Exception:
+            pass
