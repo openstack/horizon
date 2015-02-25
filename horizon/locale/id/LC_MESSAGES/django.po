@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-16 18:38-0600\n"
-"PO-Revision-Date: 2015-02-16 19:03+0000\n"
+"POT-Creation-Date: 2015-02-24 23:33-0600\n"
+"PO-Revision-Date: 2015-02-25 00:02+0000\n"
 "Last-Translator: Frans Thamura <frans@meruvian.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/horizon/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgstr "Lainnya"
 
 #: decorators.py:53
 msgid "Please log in to continue."
-msgstr "Masuk untuk melanjutkan"
+msgstr "Harap masuk untuk melanjutkan"
 
 #: decorators.py:85
 #, python-format
@@ -34,7 +34,7 @@ msgstr "Anda tidak diijinkan untuk mengakses %s"
 #: exceptions.py:163
 #, python-format
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
-msgstr "%(resource)s dengan nama \"%(name)s\" sudah ada."
+msgstr "Sebuah %(resource)s dengan nama \"%(name)s\" sudah ada."
 
 #: exceptions.py:235
 #, python-format
@@ -96,7 +96,7 @@ msgstr "Penyaring"
 
 #: tables/actions.py:645
 msgid "This action cannot be undone."
-msgstr ""
+msgstr "Aksi ini tidak dapat diselesaikan"
 
 #: tables/actions.py:767
 #, python-format
@@ -147,7 +147,7 @@ msgstr "Sudah di perbaharui"
 
 #: tables/base.py:305
 msgid "-"
-msgstr ""
+msgstr "-"
 
 #: tables/base.py:361
 #, python-format
@@ -166,7 +166,7 @@ msgstr "Aksi"
 #: tables/base.py:1329
 #, python-format
 msgid "No match returned for the id \"%s\"."
-msgstr "Tidak ada hasil yang berhubungan dengan id \"%s\"."
+msgstr "Tidak ada hasil yang terhubung dengan id \"%s\"."
 
 #: tables/base.py:1486
 msgid "Please select a row before taking that action."
@@ -328,7 +328,7 @@ msgstr "Duplikasi kata kunci tidak diperbolehkan"
 #: templates/horizon/common/_modal_form_update_metadata.html:84
 #: templates/horizon/common/_modal_form_update_metadata.html:193
 msgid "No available metadata"
-msgstr ""
+msgstr "Metadata tidak tersedia"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:95
 msgid "Existing Metadata"
@@ -367,14 +367,14 @@ msgstr "Ringkasan Penggunaan"
 
 #: templates/horizon/common/_usage_summary.html:7
 msgid "Select a period of time to query its usage:"
-msgstr ""
+msgstr "Pilih sebuah periode waktu untuk mencari kegunaannya:"
 
 #: templates/horizon/common/_usage_summary.html:9
 #, python-format
 msgid ""
 "\n"
 "      <label>From:</label> %(start)s"
-msgstr "\n<label>From:</label> %(start)s"
+msgstr "\n<label>Dari:</label> %(start)s"
 
 #: templates/horizon/common/_usage_summary.html:13
 #, python-format
@@ -389,23 +389,23 @@ msgstr "Format tanggal harus berupa YYYY-mm-dd"
 
 #: templates/horizon/common/_usage_summary.html:20
 msgid "Active Instances:"
-msgstr ""
+msgstr "Instance aktif"
 
 #: templates/horizon/common/_usage_summary.html:21
 msgid "Active RAM:"
-msgstr ""
+msgstr "RAM aktif:"
 
 #: templates/horizon/common/_usage_summary.html:22
 msgid "This Period's VCPU-Hours:"
-msgstr ""
+msgstr "VCPU-Hours periode ini:"
 
 #: templates/horizon/common/_usage_summary.html:23
 msgid "This Period's GB-Hours:"
-msgstr ""
+msgstr "GB-Hours saat ini"
 
 #: templates/horizon/common/_usage_summary.html:24
 msgid "This Period's RAM-Hours:"
-msgstr ""
+msgstr "RAM-Hours periode ini:"
 
 #: templates/horizon/common/_workflow.html:40
 msgid "Back"
@@ -431,7 +431,7 @@ msgstr "Tersedia"
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
-msgstr[0] ""
+msgstr[0] "%(size)d Byte"
 
 #: templatetags/sizeformat.py:57
 #, python-format
@@ -460,23 +460,23 @@ msgstr "%s PB"
 
 #: templatetags/sizeformat.py:77
 msgid "0 Bytes"
-msgstr ""
+msgstr "0 Bytes"
 
 #. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:31
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
-msgstr[0] ""
+msgstr[0] "Menjual Puppies"
 
 #. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:40
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
-msgstr[0] ""
+msgstr[0] "Puppies terjual"
 
 #: test/tests/views.py:59
 msgid "Fake"
-msgstr ""
+msgstr "Bohongan"
 
 #: utils/filters.py:49
 msgid "Never"

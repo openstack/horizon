@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-23 22:21-0600\n"
-"PO-Revision-Date: 2015-02-24 03:40+0000\n"
-"Last-Translator: Chen, Shang-Pin <dreamerwolf.tw@gmail.com>\n"
+"POT-Creation-Date: 2015-02-24 23:33-0600\n"
+"PO-Revision-Date: 2015-02-24 07:54+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -233,6 +233,14 @@ msgstr "無法取回儲存空間。"
 #: static/horizon/js/angular/services/hz.api.cinder.js:74
 msgid "Unable to retrieve volume snapshots."
 msgstr "無法取回儲存空間即時存檔。"
+
+#: static/horizon/js/angular/services/hz.api.config.js:42
+msgid "Unable to retrieve user configuration."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.config.js:61
+msgid "Unable to retrieve admin configuration."
+msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.glance.js:38
 msgid "Unable to retrieve image."
