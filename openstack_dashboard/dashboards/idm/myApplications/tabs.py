@@ -12,7 +12,7 @@
 
 import logging
 
-from django.conf import settings
+from openstack_dashboard.local import local_settings as settings
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
