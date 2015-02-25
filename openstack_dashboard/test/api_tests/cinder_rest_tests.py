@@ -12,21 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 import mock
-import testtools
 
 from openstack_dashboard.api.rest import cinder
+from openstack_dashboard.test import helpers as test
 
-from openstack_dashboard.test.api_tests import rest_test_utils as utils
 
-
-class CinderRestTestCase(testtools.TestCase):
-    def assertStatusCode(self, response, expected_code):
-        if response.status_code == expected_code:
-            return
-        self.fail('status code %r != %r: %s' % (response.status_code,
-                                                expected_code,
-                                                response.content))
-
+class CinderRestTestCase(test.TestCase):
     def test_volumes_get(self):
         self._test_volumes_get(False, {})
 
@@ -40,9 +31,9 @@ class CinderRestTestCase(testtools.TestCase):
     @mock.patch.object(cinder.api, 'cinder')
     def _test_volumes_get(self, all, filters, cc):
         if all:
-            request = utils.construct_request(GET={'all_projects': 'true'})
+            request = self.mock_rest_request(GET={'all_projects': 'true'})
         else:
-            request = utils.construct_request(**{'GET': filters})
+            request = self.mock_rest_request(**{'GET': filters})
         cc.volume_list.return_value = [
             mock.Mock(**{'to_dict.return_value': {'id': 'one'}}),
             mock.Mock(**{'to_dict.return_value': {'id': 'two'}}),
@@ -60,7 +51,7 @@ class CinderRestTestCase(testtools.TestCase):
 
     @mock.patch.object(cinder.api, 'cinder')
     def test_volume_snaps_get(self, cc):
-        request = utils.construct_request(**{'GET': {}})
+        request = self.mock_rest_request(**{'GET': {}})
         cc.volume_snapshot_list.return_value = [
             mock.Mock(**{'to_dict.return_value': {'id': 'one'}}),
             mock.Mock(**{'to_dict.return_value': {'id': 'two'}}),
@@ -75,7 +66,7 @@ class CinderRestTestCase(testtools.TestCase):
     @mock.patch.object(cinder.api, 'cinder')
     def test_volume_snaps_get_with_filters(self, cc):
         filters = {'status': 'available'}
-        request = utils.construct_request(**{'GET': dict(filters)})
+        request = self.mock_rest_request(**{'GET': dict(filters)})
         cc.volume_snapshot_list.return_value = [
             mock.Mock(**{'to_dict.return_value': {'id': 'one'}}),
             mock.Mock(**{'to_dict.return_value': {'id': 'two'}}),

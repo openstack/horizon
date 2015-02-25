@@ -14,15 +14,14 @@
 import mock
 
 from openstack_dashboard.api.rest import network
-from openstack_dashboard.test.api_tests import rest_test_utils
 from openstack_dashboard.test import helpers as test
 
 
-class RestNetworkApiSecurityGroupTests(test.RestAPITestCase):
+class RestNetworkApiSecurityGroupTests(test.TestCase):
 
     @mock.patch.object(network.api, 'network')
     def test_security_group_detailed(self, client):
-        request = rest_test_utils.construct_request()
+        request = self.mock_rest_request()
         client.security_group_list.return_value = [
             mock.Mock(**{'to_dict.return_value': {'name': 'default'}}),
         ]

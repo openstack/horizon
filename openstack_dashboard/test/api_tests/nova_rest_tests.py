@@ -12,29 +12,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 import mock
-import testtools
 
 from django.conf import settings
 
 from openstack_dashboard.api.rest import nova
+from openstack_dashboard.test import helpers as test
 
-from rest_test_utils import construct_request   # noqa
 
-
-class NovaRestTestCase(testtools.TestCase):
-    def assertStatusCode(self, response, expected_code):
-        if response.status_code == expected_code:
-            return
-        self.fail('status code %r != %r: %s' % (response.status_code,
-                                                expected_code,
-                                                response.content))
-
+class NovaRestTestCase(test.TestCase):
     #
     # Keypairs
     #
     @mock.patch.object(nova.api, 'nova')
     def test_keypair_get(self, nc):
-        request = construct_request()
+        request = self.mock_rest_request()
         nc.keypair_list.return_value = [
             mock.Mock(**{'to_dict.return_value': {'id': 'one'}}),
             mock.Mock(**{'to_dict.return_value': {'id': 'two'}}),
@@ -47,7 +38,7 @@ class NovaRestTestCase(testtools.TestCase):
 
     @mock.patch.object(nova.api, 'nova')
     def test_keypair_create(self, nc):
-        request = construct_request(body='''{"name": "Ni!"}''')
+        request = self.mock_rest_request(body='''{"name": "Ni!"}''')
         new = nc.keypair_create.return_value
         new.to_dict.return_value = {'name': 'Ni!', 'public_key': 'sekrit'}
         new.name = 'Ni!'
@@ -61,7 +52,7 @@ class NovaRestTestCase(testtools.TestCase):
 
     @mock.patch.object(nova.api, 'nova')
     def test_keypair_import(self, nc):
-        request = construct_request(body='''
+        request = self.mock_rest_request(body='''
             {"name": "Ni!", "public_key": "hi"}
         ''')
         new = nc.keypair_import.return_value
@@ -87,9 +78,9 @@ class NovaRestTestCase(testtools.TestCase):
     @mock.patch.object(nova.api, 'nova')
     def _test_availzone_get(self, detail, nc):
         if detail:
-            request = construct_request(GET={'detailed': 'true'})
+            request = self.mock_rest_request(GET={'detailed': 'true'})
         else:
-            request = construct_request(GET={})
+            request = self.mock_rest_request(GET={})
         nc.availability_zone_list.return_value = [
             mock.Mock(**{'to_dict.return_value': {'id': 'one'}}),
             mock.Mock(**{'to_dict.return_value': {'id': 'two'}}),
@@ -112,9 +103,9 @@ class NovaRestTestCase(testtools.TestCase):
     @mock.patch.object(nova.api, 'nova')
     def _test_limits_get(self, reserved, nc):
         if reserved:
-            request = construct_request(GET={'reserved': 'true'})
+            request = self.mock_rest_request(GET={'reserved': 'true'})
         else:
-            request = construct_request(GET={})
+            request = self.mock_rest_request(GET={})
         nc.tenant_absolute_limits.return_value = {'id': 'one'}
         response = nova.Limits().get(request)
         self.assertStatusCode(response, 200)
@@ -126,7 +117,7 @@ class NovaRestTestCase(testtools.TestCase):
     #
     @mock.patch.object(nova.api, 'nova')
     def test_server_create_missing(self, nc):
-        request = construct_request(body='''{"name": "hi"}''')
+        request = self.mock_rest_request(body='''{"name": "hi"}''')
         response = nova.Servers().post(request)
         self.assertStatusCode(response, 400)
         self.assertEqual(response.content,
@@ -135,7 +126,7 @@ class NovaRestTestCase(testtools.TestCase):
 
     @mock.patch.object(nova.api, 'nova')
     def test_server_create_basic(self, nc):
-        request = construct_request(body='''{"name": "Ni!",
+        request = self.mock_rest_request(body='''{"name": "Ni!",
             "source_id": "image123", "flavor_id": "flavor123",
             "key_name": "sekrit", "user_data": "base64 yes",
             "security_groups": [{"name": "root"}]}
