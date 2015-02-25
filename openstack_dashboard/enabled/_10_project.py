@@ -33,7 +33,7 @@ ADD_JS_FILES = [
     LAUNCH_INST + 'flavor/flavor.js',
     LAUNCH_INST + 'network/network.js',
     LAUNCH_INST + 'access-and-security/access-and-security.js',
-    LAUNCH_INST + 'post-creation/post-creation.js',
+    LAUNCH_INST + 'configuration/configuration.js',
 ]
 
 ADD_JS_SPEC_FILES = [
@@ -44,5 +44,5 @@ ADD_JS_SPEC_FILES = [
     LAUNCH_INST + 'flavor/flavor.spec.js',
     LAUNCH_INST + 'network/network.spec.js',
     LAUNCH_INST + 'access-and-security/access-and-security.spec.js',
-    LAUNCH_INST + 'post-creation/post-creation.spec.js',
+    LAUNCH_INST + 'configuration/configuration.spec.js',
 ]

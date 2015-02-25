@@ -1,0 +1,57 @@
+<div ng-controller="LaunchInstanceConfigurationCtrl">
+  <h1 clasa="title">{$ ::label.title $}</h1>
+
+  <div class="content">
+    <div class="subtitle">{$ ::label.subtitle $}</div>
+
+    <div class="form-group customization-script-source">
+      <label for="launch-instance-customization-script-source">
+        {$ ::label.customizationScriptSource $}
+      </label>
+      <select class="form-control"
+              id="launch-instance-customization-script-source"
+              ng-model="model.newInstanceSpec.script_source"
+              ng-options="option.value as option.text for option in scriptSourceOptions">
+      </select>
+    </div>
+
+    <div class="form-group customization-script"
+         ng-show="model.newInstanceSpec.script_source === scriptSourceOptions[1].value">
+      <label for="launch-instance-customization-script">
+        {$ ::label.customizationScript $}</label>
+      <textarea class="form-control"
+                id="launch-instance-customization-script"
+                ng-model="model.newInstanceSpec.user_data">
+      </textarea>
+    </div>
+
+    <div class="form-group script-file"
+         ng-show="model.newInstanceSpec.script_source === scriptSourceOptions[2].value">
+      <label for="launch-instance_script_upload">
+        {$ ::label.scriptFile $}
+      </label>
+      <input id="launch-instance_script_upload"
+             ng-model="model.newInstanceSpec.script_upload"
+             type="file">
+    </div>
+
+    <div class="checkbox customization-script-source">
+      <label>
+        <input type="checkbox"
+               ng-model="model.newInstanceSpec.config_drive">
+        {$ ::label.configurationDrive $}
+      </label>
+    </div>
+
+    <div class="form-group disk-partition">
+      <label for="launch-instance-disk-partition">
+        {$ ::label.diskPartition $}
+      </label>
+      <select class="form-control"
+              id="launch-instance-disk-partition"
+              ng-model="model.newInstanceSpec.disk_config"
+              ng-options="option.value as option.text for option in diskConfigOptions">
+      </select>
+    </div>
+  </div>
+</div>
