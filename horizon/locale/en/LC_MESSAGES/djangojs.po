@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-21 00:10-0600\n"
+"POT-Creation-Date: 2015-02-25 00:28-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -231,6 +231,14 @@ msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:74
 msgid "Unable to retrieve volume snapshots."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.config.js:42
+msgid "Unable to retrieve user configuration."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.config.js:61
+msgid "Unable to retrieve admin configuration."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.glance.js:38
