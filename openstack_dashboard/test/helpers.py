@@ -20,7 +20,6 @@ import collections
 import copy
 from functools import wraps  # noqa
 import os
-import testtools
 
 from ceilometerclient.v2 import client as ceilometer_client
 from cinderclient import client as cinder_client
@@ -268,6 +267,28 @@ class TestCase(horizon_helpers.TestCase):
         else:
             assert len(errors) > 0, "No errors were found on the form"
 
+    def assertStatusCode(self, response, expected_code):
+        """Validates an expected status code.
+
+        Matches camel case of other assert functions
+        """
+        if response.status_code == expected_code:
+            return
+        self.fail('status code %r != %r: %s' % (response.status_code,
+                                                expected_code,
+                                                response.content))
+
+    @staticmethod
+    def mock_rest_request(**args):
+        mock_args = {
+            'user.is_authenticated.return_value': True,
+            'is_ajax.return_value': True,
+            'policy.check.return_value': True,
+            'body': ''
+        }
+        mock_args.update(args)
+        return mock.Mock(**mock_args)
+
 
 class BaseAdminViewTests(TestCase):
     """Sets an active user with the "admin" role.
@@ -423,25 +444,6 @@ class APITestCase(TestCase):
             self.mox.StubOutWithMock(sahara_client, 'Client')
             self.saharaclient = self.mox.CreateMock(sahara_client.Client)
         return self.saharaclient
-
-
-class RestAPITestCase(testtools.TestCase):
-    """Testing APIs.
-
-    For use with tests which deal with the underlying clients rather than
-    stubbing out the openstack_dashboard.api.* methods.
-    """
-
-    def assertStatusCode(self, response, expected_code):
-        """Validates an expected status code.
-
-        Matches camel case of other assert functions
-        """
-        if response.status_code == expected_code:
-            return
-        self.fail('status code %r != %r: %s' % (response.status_code,
-                                                expected_code,
-                                                response.content))
 
 
 @unittest.skipUnless(os.environ.get('WITH_SELENIUM', False),

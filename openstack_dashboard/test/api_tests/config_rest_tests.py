@@ -17,12 +17,10 @@ import mock
 from horizon import conf
 
 from openstack_dashboard.api.rest import config
-from openstack_dashboard.test.api_tests import rest_test_utils as util
 from openstack_dashboard.test import helpers as test
 
 
-class ConfigRestTestCase(test.RestAPITestCase):
-
+class ConfigRestTestCase(test.TestCase):
     def assertContains(self, response, expected_content):
         if response.find(expected_content) > 0:
             return
@@ -39,7 +37,7 @@ class ConfigRestTestCase(test.RestAPITestCase):
         user_config = {"modal_backdrop": "static"}
         content = '"modal_backdrop": "static"'
         with mock.patch.dict(conf.HORIZON_CONFIG, user_config):
-            request = util.construct_request()
+            request = self.mock_rest_request()
             response = config.DefaultUserConfigs().get(request)
             self.assertStatusCode(response, 200)
             self.assertContains(response.content, content)
@@ -48,7 +46,7 @@ class ConfigRestTestCase(test.RestAPITestCase):
         admin_config = {"user_home": "somewhere.com"}
         content = '"user_home": "somewhere.com"'
         with mock.patch.dict(conf.HORIZON_CONFIG, admin_config):
-            request = util.construct_request()
+            request = self.mock_rest_request()
             response = config.AdminConfigs().get(request)
             self.assertStatusCode(response, 200)
             self.assertContains(response.content, content)
@@ -57,7 +55,7 @@ class ConfigRestTestCase(test.RestAPITestCase):
         ignore_config = {"password_validator": "someobject"}
         content = '"password_validator": "someobject"'
         with mock.patch.dict(conf.HORIZON_CONFIG, ignore_config):
-            request = util.construct_request()
+            request = self.mock_rest_request()
             response = config.AdminConfigs().get(request)
             self.assertStatusCode(response, 200)
             self.assertNotContains(response.content, content)

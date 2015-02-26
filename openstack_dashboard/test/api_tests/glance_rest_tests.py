@@ -15,21 +15,13 @@
 import mock
 
 from openstack_dashboard.api.rest import glance
-from openstack_dashboard.test.api_tests import rest_test_utils  # noqa
 from openstack_dashboard.test import helpers as test
 
 
-class ImagesRestTestCase(test.APITestCase):
-    def assertStatusCode(self, response, expected_code):
-        if response.status_code == expected_code:
-            return
-        self.fail('status code %r != %r: %s' % (response.status_code,
-                                                expected_code,
-                                                response.content))
-
+class ImagesRestTestCase(test.TestCase):
     @mock.patch.object(glance.api, 'glance')
     def test_image_get_single(self, gc):
-        request = rest_test_utils.construct_request()
+        request = self.mock_rest_request()
         gc.image_get.return_value.to_dict.return_value = {'name': '1'}
 
         response = glance.Image().get(request, "1")
@@ -45,7 +37,7 @@ class ImagesRestTestCase(test.APITestCase):
             'paginate': False,
         }
         filters = {'name': 'fedora'}
-        request = rest_test_utils.construct_request(
+        request = self.mock_rest_request(
             **{'GET': dict(kwargs, **filters)})
         gc.image_list_detailed.return_value = ([
             mock.Mock(**{'to_dict.return_value': {'name': 'fedora'}}),
@@ -63,7 +55,7 @@ class ImagesRestTestCase(test.APITestCase):
 
     @mock.patch.object(glance.api, 'glance')
     def test_namespace_get_list(self, gc):
-        request = rest_test_utils.construct_request(**{'GET': {}})
+        request = self.mock_rest_request(**{'GET': {}})
         gc.metadefs_namespace_list.return_value = ([
             mock.Mock(**{'to_dict.return_value': {'namespace': '1'}}),
             mock.Mock(**{'to_dict.return_value': {'namespace': '2'}})
@@ -87,7 +79,7 @@ class ImagesRestTestCase(test.APITestCase):
             'paginate': False,
         }
         filters = {'resource_types': 'type'}
-        request = rest_test_utils.construct_request(
+        request = self.mock_rest_request(
             **{'GET': dict(kwargs, **filters)})
         gc.metadefs_namespace_list.return_value = ([
             mock.Mock(**{'to_dict.return_value': {'namespace': '1'}}),
@@ -106,7 +98,7 @@ class ImagesRestTestCase(test.APITestCase):
     @mock.patch.object(glance.api, 'glance')
     def test_namespace_get_namespace(self, gc):
         kwargs = {'resource_type': ['OS::Nova::Flavor']}
-        request = rest_test_utils.construct_request(**{'GET': dict(kwargs)})
+        request = self.mock_rest_request(**{'GET': dict(kwargs)})
         gc.metadefs_namespace_get.return_value\
             .to_dict.return_value = {'namespace': '1'}
 
@@ -128,26 +120,26 @@ class ImagesRestTestCase(test.APITestCase):
         # Combined
         request_params = dict(kwargs)
         request_params.update(filters)
-        request = rest_test_utils.construct_request(
+        request = self.mock_rest_request(
             **{'GET': dict(request_params)})
         output_filters, output_kwargs = glance._parse_filters_kwargs(request)
         self.assertDictEqual(kwargs, output_kwargs)
         self.assertDictEqual(filters, output_filters)
 
         # Empty Filters
-        request = rest_test_utils.construct_request(**{'GET': dict(kwargs)})
+        request = self.mock_rest_request(**{'GET': dict(kwargs)})
         output_filters, output_kwargs = glance._parse_filters_kwargs(request)
         self.assertDictEqual(kwargs, output_kwargs)
         self.assertDictEqual({}, output_filters)
 
         # Emtpy keywords
-        request = rest_test_utils.construct_request(**{'GET': dict(filters)})
+        request = self.mock_rest_request(**{'GET': dict(filters)})
         output_filters, output_kwargs = glance._parse_filters_kwargs(request)
         self.assertDictEqual({}, output_kwargs)
         self.assertDictEqual(filters, output_filters)
 
         # Empty both
-        request = rest_test_utils.construct_request(**{'GET': dict()})
+        request = self.mock_rest_request(**{'GET': dict()})
         output_filters, output_kwargs = glance._parse_filters_kwargs(request)
         self.assertDictEqual({}, output_kwargs)
         self.assertDictEqual({}, output_filters)
