@@ -29,6 +29,9 @@ from openstack_dashboard import fiware_api
 
 LOG = logging.getLogger('idm_logger')
 
+# TODO(garcianavalon) all the logout and unauthorized stuff could go
+# into its own middleware
+
 class UserInfoMiddleware(object):
     """Adds more user info to the request object for convenience."""
 
@@ -58,18 +61,11 @@ class OrganizationInfoMiddleware(object):
             or not hasattr(request, 'user') 
             or not request.user.is_authenticated()):
             return
-        try:
-            current_organization = request.user.token.project['id']
+        current_organization = request.user.token.project['id']
 
-            # TODO(garcianavalon) lazyloading and caching
-            request.organization = api.keystone.tenant_get(
-                request, current_organization)
-        except kc_exceptions.Unauthorized:
-            response = http.HttpResponseRedirect(settings.LOGOUT_URL)
-            msg = ("Session expired")
-            LOG.info(msg)
-            utils.add_logout_reason(request, response, msg)
-            return response
+        # TODO(garcianavalon) lazyloading and caching
+        request.organization = api.keystone.tenant_get(
+            request, current_organization)
 
 
 class SwitchMiddleware(object):
@@ -82,21 +78,15 @@ class SwitchMiddleware(object):
             or not request.user.is_authenticated()
             or not hasattr(request, 'organization')):
             return
-        try:
-            # TODO(garcianavalon) lazyloading and caching
-            # TODO(garcianavalon) move to fiware_api
-            organizations, more = api.keystone.tenant_list(request)
-            assignments = api.keystone.role_assignments_list(
-                request, user=request.user.id)
-            owner_role = fiware_api.keystone.get_owner_role(request)
-            switch_orgs = set([a.scope['project']['id'] for a in assignments 
-                           if a.role['id'] == owner_role.id
-                           and a.scope['project']['id'] != request.organization.id])
-            request.organizations = [org for org in organizations
-                                     if org.id in switch_orgs]
-        except kc_exceptions.Unauthorized:
-            response = http.HttpResponseRedirect(settings.LOGOUT_URL)
-            msg = ("Session expired")
-            LOG.info(msg)
-            utils.add_logout_reason(request, response, msg)
-            return response
+
+        # TODO(garcianavalon) lazyloading and caching
+        # TODO(garcianavalon) move to fiware_api
+        organizations, more = api.keystone.tenant_list(request)
+        assignments = api.keystone.role_assignments_list(
+            request, user=request.user.id)
+        owner_role = fiware_api.keystone.get_owner_role(request)
+        switch_orgs = set([a.scope['project']['id'] for a in assignments 
+                       if a.role['id'] == owner_role.id
+                       and a.scope['project']['id'] != request.organization.id])
+        request.organizations = [org for org in organizations
+                                 if org.id in switch_orgs]
