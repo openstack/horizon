@@ -58,7 +58,7 @@ class DetailOrganizationView(tables.MultiTableView):
     table_classes = (organization_tables.MembersTable,
                      organization_tables.AuthorizingApplicationsTable)
     
-    def get_members_data(self):        
+    def get_members_data(self):
         users = []
         try:
             # NOTE(garcianavalon) Filtering by project doesn't work anymore
@@ -193,7 +193,7 @@ class BaseOrganizationsMultiFormView(idm_views.BaseMultiFormView):
         return context
 
 
-class InfoFormHandleView(BaseOrganizationsMultiFormView):    
+class InfoFormHandleView(BaseOrganizationsMultiFormView):
     form_to_handle_class = organization_forms.InfoForm
 
 class ContactFormHandleView(BaseOrganizationsMultiFormView):
