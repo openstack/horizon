@@ -13,7 +13,6 @@
 # under the License.
 
 from django.conf import settings
-from django.utils.translation import ugettext_lazy as _
 
 import horizon
 
@@ -21,8 +20,8 @@ from openstack_dashboard import fiware_api
 
 
 class Idm_Admin(horizon.Dashboard):
-    name = _(" ")
-    name_sm = _(" ")
+    name = (" ")
+    name_sm = (" ")
     slug = "idm_admin"
     panels = ('notify', 'administrators')
     default_panel = 'notify'

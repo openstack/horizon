@@ -19,7 +19,6 @@ from django import shortcuts
 from django.conf import settings
 from django import forms 
 from django.core.urlresolvers import reverse
-from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
@@ -40,9 +39,9 @@ GENERIC_ERROR_MESSAGE = 'An error ocurred. Please try again later.'
 
 
 class CreateOrganizationForm(forms.SelfHandlingForm):
-    name = forms.CharField(label=_("Name"), max_length=64, required=True)
+    name = forms.CharField(label=("Name"), max_length=64, required=True)
     description = forms.CharField(
-        label=_("Description"), 
+        label=("Description"), 
         widget=forms.widgets.Textarea(attrs={'rows':4, 'cols':40}),
         required=True)
 
@@ -55,7 +54,7 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
                              in all_organizations]
             if org_name in names_in_use:
                 raise forms.ValidationError(
-                    _("An organization with that name already exists."),
+                    ("An organization with that name already exists."),
                     code='invalid')
             return org_name
         except Exception:
@@ -99,7 +98,7 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
             if owner_role is None:
                 owner = getattr(local_settings,
                                     "KEYSTONE_OWNER_ROLE", None)
-                msg = _('Could not find default role "%s" in Keystone') % \
+                msg = ('Could not find default role "%s" in Keystone') % \
                         default
                 LOG.debug(msg)
                 raise exceptions.NotFound(msg)
@@ -115,7 +114,7 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
             LOG.debug('Added user {0} and organization {1} to role {2}'.format(user_id, organization_id, owner_role.id))
         except Exception:
             exceptions.handle(request,
-                                    _('Failed to add %s organization to list')
+                                    ('Failed to add %s organization to list')
                                     % data['name'])
             return False
     
@@ -124,13 +123,13 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
 
 
 class InfoForm(forms.SelfHandlingForm):
-    orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
-    name = forms.CharField(label=_("Name"), max_length=64, required=True)
+    orgID = forms.CharField(label=("ID"), widget=forms.HiddenInput())
+    name = forms.CharField(label=("Name"), max_length=64, required=True)
     description = forms.CharField(
-        label=_("Description"), 
+        label=("Description"), 
         widget=forms.widgets.Textarea(attrs={'rows':4, 'cols':40}), 
         required=True)
-    city = forms.CharField(label=_("City"), max_length=64, required=False)
+    city = forms.CharField(label=("City"), max_length=64, required=False)
     title = 'Information'
 
     def handle(self, request, data):
@@ -142,7 +141,7 @@ class InfoForm(forms.SelfHandlingForm):
                                     city=data['city'])
 
             LOG.debug('Organization {0} updated'.format(data['orgID']))
-            messages.success(request, _("Organization updated successfully."))
+            messages.success(request, ("Organization updated successfully."))
             response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])
             return response
         except Exception:
@@ -150,9 +149,9 @@ class InfoForm(forms.SelfHandlingForm):
             return response
 
 class ContactForm(forms.SelfHandlingForm):
-    orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
-    email = forms.EmailField(label=_("E-mail"), required=False)
-    website = forms.URLField(label=_("Website"), required=False)
+    orgID = forms.CharField(label=("ID"), widget=forms.HiddenInput())
+    email = forms.EmailField(label=("E-mail"), required=False)
+    website = forms.URLField(label=("Website"), required=False)
     title = 'Contact Information'
 
     def handle(self, request, data):
@@ -161,13 +160,13 @@ class ContactForm(forms.SelfHandlingForm):
                                 email=data['email'], 
                                 website=data['website'])
         LOG.debug('Organization {0} updated'.format(data['orgID']))
-        messages.success(request, _("Organization updated successfully."))
+        messages.success(request, ("Organization updated successfully."))
         response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])
         return response
 
 
 class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
-    orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
+    orgID = forms.CharField(label=("ID"), widget=forms.HiddenInput())
     image = forms.ImageField(required=False)
     title = 'Avatar Update'
 
@@ -195,14 +194,14 @@ class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
                     api.keystone.tenant_update(request, data['orgID'], img_original=img)
 
             LOG.debug('Organization {0} image updated'.format(data['orgID']))
-            messages.success(request, _("Organization updated successfully."))
+            messages.success(request, ("Organization updated successfully."))
 
         response = shortcuts.redirect('horizon:idm:organizations:detail', data['orgID'])
         return response
 
              
 class CancelForm(forms.SelfHandlingForm):
-    orgID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
+    orgID = forms.CharField(label=("ID"), widget=forms.HiddenInput())
     title = 'Cancel'
     
     def handle(self, request, data, organization):
@@ -214,6 +213,6 @@ class CancelForm(forms.SelfHandlingForm):
             LOG.debug('{0} deleted'.format(image))
         api.keystone.tenant_delete(request, organization)
         LOG.info('Organization {0} deleted'.format(organization.id))
-        messages.success(request, _("Organization deleted successfully."))
+        messages.success(request, ("Organization deleted successfully."))
         response = shortcuts.redirect('horizon:idm:organizations:index')
         return response

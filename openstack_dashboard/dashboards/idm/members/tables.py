@@ -12,8 +12,6 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.utils.translation import ugettext_lazy as _
-    
 from horizon import tables
 from django.conf import settings
 
@@ -23,7 +21,7 @@ from openstack_dashboard.dashboards.idm import tables as idm_tables
 
 class ManageMembersLink(tables.LinkAction):
     name = "manage_members"
-    verbose_name = _("Manage members")
+    verbose_name = ("Manage members")
     url = "horizon:idm:members:edit"
     classes = ("ajax-modal",)
 
@@ -31,12 +29,12 @@ class ManageMembersLink(tables.LinkAction):
 class MembersTable(tables.DataTable):
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
-    username = tables.Column('username', verbose_name=_('Members'))
+    username = tables.Column('username', verbose_name=('Members'))
     
 
     class Meta:
         name = "members"
-        verbose_name = _("Members")
+        verbose_name = ("Members")
         table_actions = (tables.FilterAction, ManageMembersLink, )
         multi_select = False
         row_class = idm_tables.UserClickableRow

@@ -15,7 +15,6 @@
 import logging
 
 from django.core.urlresolvers import reverse
-from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
@@ -23,7 +22,6 @@ from horizon import messages
 from horizon import workflows
 
 from openstack_dashboard.dashboards.idm import utils as idm_utils
-
 
 
 LOG = logging.getLogger('idm_logger')
@@ -61,7 +59,7 @@ class RelationshipConsumerMixin(object):
 
 class UpdateRelationshipAction(workflows.MembershipAction, 
                             RelationshipConsumerMixin):
-    ERROR_MESSAGE = _('Unable to retrieve data. Please try again later.')
+    ERROR_MESSAGE = ('Unable to retrieve data. Please try again later.')
     ERROR_URL = ''
 
     def __init__(self, request, *args, **kwargs):
@@ -164,7 +162,7 @@ class UpdateRelationshipStep(workflows.UpdateMembersStep,
                     self.workflow.request, superset_id)
             except Exception:
                 exceptions.handle(self.workflow.request,
-                                  _('Unable to retrieve list.'))
+                                  ('Unable to retrieve list.'))
 
             post = self.workflow.request.POST
             for obj in object_list:
@@ -235,7 +233,7 @@ class RelationshipWorkflow(workflows.Workflow,
             return True
         except Exception:
             exceptions.handle(request,
-                          _('Failed to modify organization\'s members.'))
+                          ('Failed to modify organization\'s members.'))
             return False
 
     def _create_add_and_delete_sets(self, modified_objects, current_objects):

@@ -19,7 +19,6 @@ from django import shortcuts
 from django.conf import settings
 from django import forms 
 from django.core.urlresolvers import reverse
-from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
@@ -29,6 +28,7 @@ from openstack_dashboard import api
 from openstack_dashboard import fiware_api
 from openstack_dashboard.dashboards.idm import forms as idm_forms
 
+
 LOG = logging.getLogger('idm_logger')
 
 AVATAR_SMALL = settings.MEDIA_ROOT+"/"+"UserAvatar/small/"
@@ -37,13 +37,13 @@ AVATAR_ORIGINAL = settings.MEDIA_ROOT+"/"+"UserAvatar/original/"
 
 
 class InfoForm(forms.SelfHandlingForm):
-    userID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
-    password = forms.CharField(label=_("password"), widget=forms.HiddenInput(), required=False)
-    username = forms.CharField(label=_("Username"), max_length=64, required=True)
-    description = forms.CharField(label=_("About Me"),
+    userID = forms.CharField(label=("ID"), widget=forms.HiddenInput())
+    password = forms.CharField(label=("password"), widget=forms.HiddenInput(), required=False)
+    username = forms.CharField(label=("Username"), max_length=64, required=True)
+    description = forms.CharField(label=("About Me"),
                                   widget=forms.widgets.Textarea,
                                   required=False)
-    city = forms.CharField(label=_("City"), max_length=64, required=False)
+    city = forms.CharField(label=("City"), max_length=64, required=False)
     title = 'Personal Information'
 
     def handle(self, request, data):
@@ -59,7 +59,7 @@ class InfoForm(forms.SelfHandlingForm):
                                        user.default_project_id,
                                        name=data['username'])
             LOG.debug('User {0} updated'.format(data['userID']))
-            messages.success(request, _('User updated successfully'))
+            messages.success(request, ('User updated successfully'))
             response = shortcuts.redirect('horizon:idm:users:detail', data['userID'])
             return response
         except Exception:
@@ -68,10 +68,10 @@ class InfoForm(forms.SelfHandlingForm):
 
 
 class ContactForm(forms.SelfHandlingForm):
-    userID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
-    password = forms.CharField(label=_("password"), widget=forms.HiddenInput(), required=False)
-    name = forms.EmailField(label=_("E-mail"), required=False)
-    website = forms.URLField(label=_("Website"), required=False)
+    userID = forms.CharField(label=("ID"), widget=forms.HiddenInput())
+    password = forms.CharField(label=("password"), widget=forms.HiddenInput(), required=False)
+    name = forms.EmailField(label=("E-mail"), required=False)
+    website = forms.URLField(label=("Website"), required=False)
     title = 'Contact Information'
 
     def handle(self, request, data):
@@ -81,15 +81,15 @@ class ContactForm(forms.SelfHandlingForm):
                                 website=data['website'],
                                 password=data['password'])
         LOG.debug('User {0} updated'.format(data['userID']))
-        messages.success(request, _("User updated successfully."))
+        messages.success(request, ("User updated successfully."))
         response = shortcuts.redirect('horizon:idm:users:detail', data['userID'])
         return response
 
 
 class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
-    userID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
+    userID = forms.CharField(label=("ID"), widget=forms.HiddenInput())
     image = forms.ImageField(required=False)
-    password = forms.CharField(label=_("password"), widget=forms.HiddenInput(), required=False)
+    password = forms.CharField(label=("password"), widget=forms.HiddenInput(), required=False)
     title = 'Change your avatar'
 
     def handle(self, request, data):
@@ -118,14 +118,14 @@ class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
             
 
             LOG.debug('User {0} image updated'.format(data['userID']))
-            messages.success(request, _("User updated successfully."))
+            messages.success(request, ("User updated successfully."))
 
         response = shortcuts.redirect('horizon:idm:users:detail', data['userID'])
         return response
 
              
 class CancelForm(forms.SelfHandlingForm):
-    userID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
+    userID = forms.CharField(label=("ID"), widget=forms.HiddenInput())
     title = 'Cancel Account'
     
     def handle(self, request, data, user):
@@ -137,6 +137,6 @@ class CancelForm(forms.SelfHandlingForm):
             LOG.debug('{0} deleted'.format(image))
         api.keystone.user_delete(request, user)
         LOG.info('User {0} deleted'.format(user.id))
-        messages.success(request, _("User deleted successfully."))
+        messages.success(request, ("User deleted successfully."))
         response = shortcuts.redirect('horizon:idm:users:detail')
         return response

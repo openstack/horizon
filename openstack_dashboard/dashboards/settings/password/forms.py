@@ -17,7 +17,6 @@ import logging
 from django.conf import settings
 from django.forms import ValidationError  # noqa
 from django import http
-from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.debug import sensitive_variables  # noqa
 
 from horizon import exceptions
@@ -33,16 +32,16 @@ LOG = logging.getLogger('idm_logger')
 
 class PasswordForm(forms.SelfHandlingForm):
     current_password = forms.CharField(
-        label=_("Current password"),
+        label=("Current password"),
         widget=forms.PasswordInput(render_value=False))
     new_password = forms.RegexField(
-        label=_("New password"),
+        label=("New password"),
         widget=forms.PasswordInput(render_value=False),
         regex=validators.password_validator(),
         error_messages={'invalid':
                         validators.password_validator_msg()})
     confirm_password = forms.CharField(
-        label=_("Confirm new password"),
+        label=("Confirm new password"),
         widget=forms.PasswordInput(render_value=False))
     no_autocomplete = True
 
@@ -51,7 +50,7 @@ class PasswordForm(forms.SelfHandlingForm):
         data = super(forms.Form, self).clean()
         if 'new_password' in data:
             if data['new_password'] != data.get('confirm_password', None):
-                raise ValidationError(_('Passwords do not match.'))
+                raise ValidationError(('Passwords do not match.'))
         return data
 
     # We have to protect the entire "data" dict because it contains the
@@ -66,14 +65,14 @@ class PasswordForm(forms.SelfHandlingForm):
                                                       data['current_password'],
                                                       data['new_password'])
                 response = http.HttpResponseRedirect(settings.LOGOUT_URL)
-                msg = _("Password changed. Please log in again to continue.")
+                msg = ("Password changed. Please log in again to continue.")
                 LOG.info(msg)
                 utils.add_logout_reason(request, response, msg)
                 return response
             except Exception:
                 exceptions.handle(request,
-                                  _('Unable to change password.'))
+                                  ('Unable to change password.'))
                 return False
         else:
-            messages.error(request, _('Changing password is not supported.'))
+            messages.error(request, ('Changing password is not supported.'))
             return False

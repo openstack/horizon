@@ -22,8 +22,6 @@ from openstack_dashboard.local import local_settings
 from horizon import exceptions
 from horizon import messages
 
-OWNER_ROLE = None
-
 # check that we have the correct version of the keystoneclient
 try:
     from keystoneclient.v3.contrib.oauth2 import core
@@ -38,7 +36,11 @@ else:
     from keystoneclient.v3 import client
     from keystoneclient.v3.contrib.oauth2 import auth as oauth2_auth
 
+
 LOG = logging.getLogger('idm_logger')
+OWNER_ROLE = None
+PROVIDER_ROLE = None
+PURCHASER_ROLE = None
 
 def fiwareclient(session=None, request=None):# TODO(garcianavalon) use this
     """Encapsulates all the logic for communicating with the modified keystone server.
@@ -443,7 +445,6 @@ def login_with_oauth(request, access_token, project=None):
     # return fiwareclient(session=session,request=request)
 
 # FIWARE-IdM API CALLS
-
 def forward_validate_token_request(request):
     """ Forwards the request to the keystone backend."""
     # TODO(garcianavalon) figure out if this method belongs to keystone client or if
@@ -455,7 +456,7 @@ def forward_validate_token_request(request):
     response = requests.get(url)
     return response
 
-# GET OWNER ROLE
+# SPECIAL ROLES
 def get_owner_role(request):
     """Gets the owner role object from Keystone and saves it as a global.
 
@@ -475,3 +476,45 @@ def get_owner_role(request):
                 OWNER_ROLE = role
                 break
     return OWNER_ROLE
+
+def get_provider_role(request):
+    """Gets the provider role object from Keystone and saves it as a global.
+
+    Since this is configured in settings and should not change from request
+    to request. Supports lookup by name or id.
+    """
+    global PROVIDER_ROLE
+    provider = getattr(local_settings, "FIWARE_PROVIDER_ROLE", None)
+    if provider and PROVIDER_ROLE is None:
+        try:
+            roles = api.keystone.keystoneclient(request, 
+                admin=True).fiware_roles.roles.list()
+        except Exception:
+            roles = []
+            exceptions.handle(request)
+        for role in roles:
+            if role.id == provider or role.name == provider:
+                PROVIDER_ROLE = role
+                break
+    return PROVIDER_ROLE
+
+def get_purchaser_role(request):
+    """Gets the purchaser role object from Keystone and saves it as a global.
+
+    Since this is configured in settings and should not change from request
+    to request. Supports lookup by name or id.
+    """
+    global PURCHASER_ROLE
+    purchaser = getattr(local_settings, "FIWARE_PURCHASER_ROLE", None)
+    if purchaser and PURCHASER_ROLE is None:
+        try:
+            roles = api.keystone.keystoneclient(request, 
+                admin=True).fiware_roles.roles.list()
+        except Exception:
+            roles = []
+            exceptions.handle(request)
+        for role in roles:
+            if role.id == purchaser or role.name == purchaser:
+                PURCHASER_ROLE = role
+                break
+    return PURCHASER_ROLE

@@ -11,7 +11,6 @@
 # under the License.
 
 from django.core import urlresolvers
-from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
 
@@ -23,12 +22,12 @@ from openstack_dashboard.dashboards.idm import tables as idm_tables
 class ProvidingApplicationsTable(tables.DataTable):
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_APP_MEDIUM_AVATAR))
-    name = tables.Column('name', verbose_name=_('Name'))
+    name = tables.Column('name', verbose_name=('Name'))
     url = tables.Column(lambda obj: getattr(obj, 'url', None))
     
     class Meta:
         name = "providing_table"
-        verbose_name = _("")
+        verbose_name = ("")
         multi_select = False
         row_class = idm_tables.ApplicationClickableRow
         
@@ -36,12 +35,12 @@ class ProvidingApplicationsTable(tables.DataTable):
 class PurchasedApplicationsTable(tables.DataTable):
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_APP_MEDIUM_AVATAR))
-    name = tables.Column('name', verbose_name=_('Name'))
+    name = tables.Column('name', verbose_name=('Name'))
     url = tables.Column(lambda obj: getattr(obj, 'url', None))  
     
     class Meta:
         name = "purchased_table"
-        verbose_name = _("")
+        verbose_name = ("")
         multi_select = False
         row_class = idm_tables.ApplicationClickableRow
 
@@ -49,19 +48,19 @@ class PurchasedApplicationsTable(tables.DataTable):
 class AuthorizedApplicationsTable(tables.DataTable):
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_APP_MEDIUM_AVATAR))
-    name = tables.Column('name', verbose_name=_('Name'))
+    name = tables.Column('name', verbose_name=('Name'))
     url = tables.Column(lambda obj: getattr(obj, 'url', None))  
 
     class Meta:
         name = "authorized_table"
-        verbose_name = _("")
+        verbose_name = ("")
         multi_select = False
         row_class = idm_tables.ApplicationClickableRow
 
 
 class ManageAuthorizedMembersLink(tables.LinkAction):
     name = "manage_application_members"
-    verbose_name = _("Manage authorized users")
+    verbose_name = ("Manage authorized users")
     url = "horizon:idm:myApplications:members"
     classes = ("ajax-modal",)
 
@@ -84,11 +83,11 @@ class ManageAuthorizedMembersLink(tables.LinkAction):
 class MembersTable(tables.DataTable):
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_USER_MEDIUM_AVATAR))
-    username = tables.Column('username', verbose_name=_('Members'))
+    username = tables.Column('username', verbose_name=('Members'))
     
     class Meta:
         name = "members"
-        verbose_name = _("Authorized Members")
+        verbose_name = ("Authorized Members")
         table_actions = (tables.FilterAction, ManageAuthorizedMembersLink, )
         multi_select = False
         row_class = idm_tables.UserClickableRow
@@ -96,7 +95,7 @@ class MembersTable(tables.DataTable):
 
 class ManageAuthorizedOrganizationsLink(tables.LinkAction):
     name = "manage_application_organizations"
-    verbose_name = _("Manage authorized organizations")
+    verbose_name = ("Manage authorized organizations")
     url = "horizon:idm:myApplications:organizations"
     classes = ("ajax-modal",)
 
@@ -119,13 +118,13 @@ class ManageAuthorizedOrganizationsLink(tables.LinkAction):
 class AuthorizedOrganizationsTable(tables.DataTable):
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
-    name = tables.Column('name', verbose_name=_('Applications'))
+    name = tables.Column('name', verbose_name=('Applications'))
     url = tables.Column(lambda obj: getattr(obj, 'url', None))
     
 
     class Meta:
         name = "organizations"
-        verbose_name = _("Authorized Organizations")
+        verbose_name = ("Authorized Organizations")
         table_actions = (tables.FilterAction, 
             ManageAuthorizedOrganizationsLink, )
         row_class = idm_tables.OrganizationClickableRow

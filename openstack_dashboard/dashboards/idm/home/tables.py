@@ -12,15 +12,13 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.utils.translation import ugettext_lazy as _
-    
 from horizon import tables
 from openstack_dashboard.dashboards.idm import utils as idm_utils
 from openstack_dashboard.dashboards.idm import tables as idm_tables
 
 class GoToOrganizationTable(tables.LinkAction):
     name = "organizations"
-    verbose_name = _("View All")
+    verbose_name = ("View All")
     url = "horizon:idm:organizations"
 
     def get_link_url(self):
@@ -30,7 +28,7 @@ class GoToOrganizationTable(tables.LinkAction):
 
 class GoToApplicationsTable(tables.LinkAction):
     name = "applications"
-    verbose_name = _("View All")
+    verbose_name = ("View All")
     url = "horizon:idm:myApplications"
 
     def get_link_url(self):
@@ -40,7 +38,7 @@ class GoToApplicationsTable(tables.LinkAction):
 
 class CreateOrganization(tables.LinkAction):
     name = "create_organization"
-    verbose_name = _("Create")
+    verbose_name = ("Create")
     url = "horizon:idm:organizations:create"
 
     def get_link_url(self):
@@ -52,12 +50,12 @@ class CreateOrganization(tables.LinkAction):
 class OrganizationsTable(tables.DataTable):
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
-    name = tables.Column('name', verbose_name=_('Name'))
+    name = tables.Column('name', verbose_name=('Name'))
     switch = tables.Column(lambda obj: idm_utils.get_switch_url(obj))
     
     class Meta:
         name = "organizations"
-        verbose_name = _("Organizations")
+        verbose_name = ("Organizations")
         table_actions = (CreateOrganization, GoToOrganizationTable,)
         multi_select = False
         row_class = idm_tables.OrganizationClickableRow
@@ -66,12 +64,12 @@ class OrganizationsTable(tables.DataTable):
 class ApplicationsTable(tables.DataTable):
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_APP_MEDIUM_AVATAR))
-    name = tables.Column('name', verbose_name=_('Name'))
+    name = tables.Column('name', verbose_name=('Name'))
     url = tables.Column(lambda obj: getattr(obj, 'url', None))
     
     class Meta:
         name = "applications"
-        verbose_name = _("Applications")
+        verbose_name = ("Applications")
         table_actions = (GoToApplicationsTable,)
         multi_select = False
         row_class = idm_tables.ApplicationClickableRow

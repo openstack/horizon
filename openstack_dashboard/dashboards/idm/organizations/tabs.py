@@ -12,8 +12,6 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.utils.translation import ugettext_lazy as _
-
 from horizon import exceptions
 from horizon import tabs
 
@@ -24,7 +22,7 @@ from openstack_dashboard.dashboards.idm.organizations \
 
 
 class OtherOrganizationsTab(tabs.TableTab):
-    name = _("Other Organizations")
+    name = ("Other Organizations")
     slug = "other_organizations_tab"
     table_classes = (organization_tables.OtherOrganizationsTable,)
     template_name = ("horizon/common/_detail_table.html")
@@ -42,13 +40,13 @@ class OtherOrganizationsTab(tabs.TableTab):
         except Exception as e:
             self._more = False
             exceptions.handle(self.request,
-                              _("Unable to retrieve organization list. \
+                              ("Unable to retrieve organization list. \
                                     Error message: {0}".format(e)))
         return idm_utils.filter_default(organizations)
 
 
 class OwnedOrganizationsTab(tabs.TableTab):
-    name = _("Owner")
+    name = ("Owner")
     slug = "owned_organizations_tab"
     table_classes = (organization_tables.OwnedOrganizationsTable,)
     template_name = ("horizon/common/_detail_table.html")
@@ -64,12 +62,12 @@ class OwnedOrganizationsTab(tabs.TableTab):
         except Exception:
             self._more = False
             exceptions.handle(self.request,
-                              _("Unable to retrieve organization information."))
+                              ("Unable to retrieve organization information."))
         return idm_utils.filter_default(organizations)
 
 
 class MemberOrganizationsTab(tabs.TableTab):
-    name = _("Member")
+    name = ("Member")
     slug = "member_organizations_tab"
     table_classes = (organization_tables.MemberOrganizationsTable,)
     template_name = ("horizon/common/_detail_table.html")
@@ -86,7 +84,7 @@ class MemberOrganizationsTab(tabs.TableTab):
         except Exception:
             self._more = False
             exceptions.handle(self.request,
-                              _("Unable to retrieve organization information."))
+                              ("Unable to retrieve organization information."))
         return idm_utils.filter_default(organizations)
 
 

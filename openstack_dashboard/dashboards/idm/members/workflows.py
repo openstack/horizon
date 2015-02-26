@@ -16,12 +16,10 @@ import logging
 
 from django.conf import settings
 from django.core.urlresolvers import reverse
-from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 
 from openstack_dashboard import api
-from openstack_dashboard import fiware_api
 from openstack_dashboard.dashboards.idm import workflows as idm_workflows
 
 
@@ -49,7 +47,7 @@ class UserRoleApi(idm_workflows.RelationshipApiInterface):
         if default_role is None:
             default = getattr(settings,
                               "OPENSTACK_KEYSTONE_DEFAULT_ROLE", None)
-            msg = (_('Could not find default role "%s" in Keystone') %
+            msg = (('Could not find default role "%s" in Keystone') %
                    default)
             raise exceptions.NotFound(msg)
         return default_role
@@ -73,29 +71,29 @@ class UserRoleApi(idm_workflows.RelationshipApiInterface):
 
 
 class UpdateProjectMembersAction(idm_workflows.UpdateRelationshipAction):
-    ERROR_MESSAGE = _('Unable to retrieve user list. Please try again later.')
+    ERROR_MESSAGE = ('Unable to retrieve user list. Please try again later.')
     RELATIONSHIP_CLASS = UserRoleApi
     ERROR_URL = INDEX_URL
     class Meta:
-        name = _("Organization Members")
+        name = ("Organization Members")
         slug = idm_workflows.RELATIONSHIP_SLUG
 
 
 class UpdateProjectMembers(idm_workflows.UpdateRelationshipStep):
     action_class = UpdateProjectMembersAction
-    available_list_title = _("All Users")
-    members_list_title = _("Organization Members")
-    no_available_text = _("No users found.")
-    no_members_text = _("No users.")
+    available_list_title = ("All Users")
+    members_list_title = ("Organization Members")
+    no_available_text = ("No users found.")
+    no_members_text = ("No users.")
     RELATIONSHIP_CLASS = UserRoleApi
 
 
 class ManageOrganizationMembers(idm_workflows.RelationshipWorkflow):
     slug = "manage_organization_users"
-    name = _("Manage Members")
-    finalize_button_name = _("Save")
-    success_message = _('Modified users.')
-    failure_message = _('Unable to modify users.')
+    name = ("Manage Members")
+    finalize_button_name = ("Save")
+    success_message = ('Modified users.')
+    failure_message = ('Unable to modify users.')
     success_url = "horizon:idm:members:index"
     default_steps = (UpdateProjectMembers,)
     RELATIONSHIP_CLASS = UserRoleApi

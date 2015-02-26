@@ -21,7 +21,7 @@ from django.conf import settings
 from django import shortcuts
 from django.utils import encoding
 from django.utils import translation
-from django.utils.translation import ugettext_lazy as _
+
 import pytz
 
 from horizon import forms
@@ -35,14 +35,14 @@ def _one_year():
 
 
 class UserSettingsForm(forms.SelfHandlingForm):
-    language = forms.ChoiceField(label=_("Language"))
-    timezone = forms.ChoiceField(label=_("Timezone"))
-    pagesize = forms.IntegerField(label=_("Items Per Page"),
+    language = forms.ChoiceField(label=("Language"))
+    timezone = forms.ChoiceField(label=("Timezone"))
+    pagesize = forms.IntegerField(label=("Items Per Page"),
                                   min_value=1,
                                   max_value=getattr(settings,
                                                     'API_RESULT_LIMIT',
                                                     1000),
-                                  help_text=_("Number of items to show per "
+                                  help_text=("Number of items to show per "
                                               "page"))
 
     @staticmethod
@@ -77,20 +77,20 @@ class UserSettingsForm(forms.SelfHandlingForm):
         babel_locale = babel.Locale.parse(current_locale)
         for tz, offset in self._sorted_zones():
             try:
-                utc_offset = _("UTC %(hour)s:%(min)s") % {"hour": offset[:3],
+                utc_offset = ("UTC %(hour)s:%(min)s") % {"hour": offset[:3],
                                                           "min": offset[3:]}
             except Exception:
                 utc_offset = ""
 
             if tz == "UTC":
-                tz_name = _("UTC")
+                tz_name = ("UTC")
             elif tz == "GMT":
-                tz_name = _("GMT")
+                tz_name = ("GMT")
             else:
                 tz_label = babel.dates.get_timezone_location(
                     tz, locale=babel_locale)
                 # Translators:  UTC offset and timezone label
-                tz_name = _("%(offset)s: %(label)s") % {"offset": utc_offset,
+                tz_name = ("%(offset)s: %(label)s") % {"offset": utc_offset,
                                                         "label": tz_label}
             timezones.append((tz, tz_name))
 
@@ -118,6 +118,6 @@ class UserSettingsForm(forms.SelfHandlingForm):
 
         with translation.override(lang_code):
             messages.success(request,
-                             encoding.force_text(_("Settings saved.")))
+                             encoding.force_text(("Settings saved.")))
 
         return response

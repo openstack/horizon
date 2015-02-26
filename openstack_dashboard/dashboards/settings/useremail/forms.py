@@ -1,39 +1,42 @@
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# Copyright (C) 2014 Universidad Politecnica de Madrid
 #
-# http://www.apache.org/licenses/LICENSE-2.0
+# Licensed under the Apache License, Version 2.0 (the "License"); you may
+# not use this file except in compliance with the License. You may obtain
+# a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
-# implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+
 import logging
 
 from django import shortcuts
 from django.conf import settings
 from django.contrib import auth as django_auth
-from django.utils.translation import ugettext_lazy as _
+
 from django.views.decorators.debug import sensitive_variables  # noqa
 
-import horizon
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
 from horizon.utils import functions as utils
+
 from openstack_dashboard import api
 from openstack_auth import exceptions as auth_exceptions
+
 
 LOG = logging.getLogger('idm_logger')
 
 class EmailForm(forms.SelfHandlingForm):
     email = forms.EmailField(
-            label=_("Email"),
+            label=("Email"),
             required=True)
     password = forms.CharField(
-            label=_("Current password"),
+            label=("Current password"),
             widget=forms.PasswordInput(render_value=False),
             required=True)
 
@@ -72,21 +75,21 @@ class EmailForm(forms.SelfHandlingForm):
                 response = shortcuts.redirect('horizon:settings:multisettings:index')
                 #response = shortcuts.redirect(request.build_absolute_uri())
                 #response = shortcuts.redirect(horizon.get_user_home(request.user))
-                msg = _("Email changed succesfully")
+                msg = ("Email changed succesfully")
                 LOG.debug(msg)
                 messages.success(request, msg)
                 return response
 
             except auth_exceptions.KeystoneAuthException as exc:
-                messages.error(request, _('Invalid password'))
+                messages.error(request, ('Invalid password'))
                 LOG.error(exc)
                 return False
             except Exception as e:
                 exceptions.handle(request,
-                                  _('Unable to change email.'))
+                                  ('Unable to change email.'))
                 LOG.error(e)
                 return False
         else:
-            messages.error(request, _('Changing email is not supported.'))
+            messages.error(request, ('Changing email is not supported.'))
             LOG.debug("Changing email is not supported")
             return False

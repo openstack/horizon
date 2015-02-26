@@ -15,7 +15,6 @@
 import logging
 
 from django import forms
-from django.utils.translation import ugettext_lazy as _
 
 from django_summernote.widgets import SummernoteWidget
 
@@ -27,14 +26,15 @@ from openstack_dashboard import api
 # TODO(garcianavalon) centralize email sending
 from openstack_dashboard.fiware_auth.views import TemplatedEmailMixin
 
+
 LOG = logging.getLogger('idm_logger')
 
 class EmailForm(forms.SelfHandlingForm, TemplatedEmailMixin):
     subject = forms.CharField(max_length=50,
-                                label=_("Subject"),
+                                label=("Subject"),
                                 required=True)
     body = forms.CharField(widget=SummernoteWidget(),
-                                label=_("Body"),
+                                label=("Body"),
                                 required=True)
 
     def handle(self, request, data):
@@ -46,8 +46,8 @@ class EmailForm(forms.SelfHandlingForm, TemplatedEmailMixin):
                 ' no-reply@account.lab.fi-ware.org', 
                 data['subject'], 
                 data['body'])
-            messages.success(request, _('Message sent succesfully.'))
+            messages.success(request, ('Message sent succesfully.'))
         except Exception:
-            msg = _('Unable to send message. Please try again later.')
+            msg = ('Unable to send message. Please try again later.')
             LOG.warning(msg)
             exceptions.handle(request, msg)

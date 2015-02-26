@@ -13,7 +13,6 @@
 # under the License.
 
 from django.conf import settings
-from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import tables
@@ -44,7 +43,7 @@ class DetailApplicationView(tables.MultiTableView):
                      in set([a.user_id for a in role_assignments])]
         except Exception:
             exceptions.handle(self.request,
-                              _("Unable to retrieve member information."))
+                              ("Unable to retrieve member information."))
         return users
 
     def get_context_data(self, **kwargs):

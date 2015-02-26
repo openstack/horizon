@@ -15,7 +15,7 @@
 import logging
 
 from django.conf import settings
-from django.utils.translation import ugettext_lazy as _
+
 from django.shortcuts import redirect
 
 from horizon import exceptions
@@ -55,7 +55,7 @@ class IndexView(tables.MultiTableView):
             users = [user for user in all_users if user.id in project_users_roles]
         except Exception:
             exceptions.handle(self.request,
-                              _("Unable to retrieve member information."))
+                              ("Unable to retrieve member information."))
         return users
 
 
