@@ -12,16 +12,29 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.utils.functional import SimpleLazyObject
+import logging
+
+from django import http
+from django.conf import settings
+from django.core.urlresolvers import reverse
+
+from horizon.utils import functions as utils
+
+from keystoneclient.openstack.common.apiclient \
+    import exceptions as kc_exceptions
 
 from openstack_dashboard import api
 from openstack_dashboard import fiware_api
+
+
+LOG = logging.getLogger('idm_logger')
 
 class UserInfoMiddleware(object):
     """Adds more user info to the request object for convenience."""
 
     def process_request(self, request):
-        if (not hasattr(request, 'user') 
+        if (reverse('logout') == request.META['PATH_INFO']
+            or not hasattr(request, 'user') 
             or not request.user.is_authenticated()):
             return
         try:
@@ -29,16 +42,20 @@ class UserInfoMiddleware(object):
             # setattr(user_data, 'username', user_data.name)
             for attr, value in user_data.__dict__.iteritems():
                 setattr(request.user, attr, value)
-        except Exception:
-            pass
+        except kc_exceptions.Unauthorized:
+            response = http.HttpResponseRedirect(settings.LOGOUT_URL)
+            msg = ("Session expired")
+            LOG.info(msg)
+            utils.add_logout_reason(request, response, msg)
+            return response
         
-
 
 class OrganizationInfoMiddleware(object):
     """Adds organization info to the request object for convenience."""
 
     def process_request(self, request):
-        if (not hasattr(request, 'user') 
+        if (reverse('logout') == request.META['PATH_INFO']
+            or not hasattr(request, 'user') 
             or not request.user.is_authenticated()):
             return
         try:
@@ -47,8 +64,12 @@ class OrganizationInfoMiddleware(object):
             # TODO(garcianavalon) lazyloading and caching
             request.organization = api.keystone.tenant_get(
                 request, current_organization)
-        except Exception:
-            pass
+        except kc_exceptions.Unauthorized:
+            response = http.HttpResponseRedirect(settings.LOGOUT_URL)
+            msg = ("Session expired")
+            LOG.info(msg)
+            utils.add_logout_reason(request, response, msg)
+            return response
 
 
 class SwitchMiddleware(object):
@@ -56,7 +77,8 @@ class SwitchMiddleware(object):
 
     def process_request(self, request):
         # Allowed if he is an admin in the organization
-        if (not hasattr(request, 'user')
+        if (reverse('logout') == request.META['PATH_INFO']
+            or not hasattr(request, 'user')
             or not request.user.is_authenticated()
             or not hasattr(request, 'organization')):
             return
@@ -72,5 +94,9 @@ class SwitchMiddleware(object):
                            and a.scope['project']['id'] != request.organization.id])
             request.organizations = [org for org in organizations
                                      if org.id in switch_orgs]
-        except Exception:
-            pass
+        except kc_exceptions.Unauthorized:
+            response = http.HttpResponseRedirect(settings.LOGOUT_URL)
+            msg = ("Session expired")
+            LOG.info(msg)
+            utils.add_logout_reason(request, response, msg)
+            return response
