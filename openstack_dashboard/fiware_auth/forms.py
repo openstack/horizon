@@ -15,22 +15,20 @@ from captcha.fields import ReCaptchaField
 
 from django import forms
 from django.conf import settings
-from django.utils.translation import ugettext_lazy as _
 
 from keystoneclient import exceptions as keystoneclient_exceptions   
 
 from openstack_dashboard import fiware_api
 
-    
 
 class ConfirmPasswordForm(forms.Form):
     """Encapsulates the idea of two password fields and checking they are the same"""
     password1 = forms.CharField(widget=forms.PasswordInput,
-                                label=_("Password"),
+                                label=("Password"),
                                 required=True)
     
     password2 = forms.CharField(widget=forms.PasswordInput,
-                                label=_("Password (again)"),
+                                label=("Password (again)"),
                                 required=True)
 
     def clean(self):
@@ -47,7 +45,7 @@ class ConfirmPasswordForm(forms.Form):
         p2 = cleaned_data.get('password2')
 
         if p1 and p2 and p1 != p2:
-            raise forms.ValidationError(_("The two password fields didn't match."),
+            raise forms.ValidationError(("The two password fields didn't match."),
                                             code='invalid')
         return cleaned_data
 
@@ -72,10 +70,10 @@ class RegistrationForm(ConfirmPasswordForm):
         })
     username = forms.RegexField(regex=r'^[\w.@+-]+$',
                                 max_length=30,
-                                label=_("Username"),
-                                error_messages={'invalid': _("This value may contain only letters, numbers and @/./+/-/_ characters.")})
+                                label=("Username"),
+                                error_messages={'invalid': ("This value may contain only letters, numbers and @/./+/-/_ characters.")})
 
-    email = forms.EmailField(label=_("E-mail"),
+    email = forms.EmailField(label=("E-mail"),
                              required=True)
 
     def __init__(self, *args, **kwargs):
@@ -88,7 +86,7 @@ class RegistrationForm(ConfirmPasswordForm):
 
         try:
             existing = fiware_api.keystone.check_username(username)
-            raise forms.ValidationError(_("A user with that username already exists."),
+            raise forms.ValidationError(("A user with that username already exists."),
                                         code='invalid')
         except keystoneclient_exceptions.NotFound:
             return username
@@ -104,21 +102,21 @@ class RegistrationForm(ConfirmPasswordForm):
             f = open('openstack_dashboard/fiware_auth/'+list_name+'.txt', 'rb')
             emails = [row.strip() for row in f]
             if list_name == 'blacklist' and email_domain in emails:
-                raise forms.ValidationError(_("The email domain is blacklisted."),
+                raise forms.ValidationError(("The email domain is blacklisted."),
                                          code='invalid')
             elif list_name == 'whitelist' and email_domain not in emails:
-                raise forms.ValidationError(_("The email domain is not whitelisted."),
+                raise forms.ValidationError(("The email domain is not whitelisted."),
                                          code='invalid')
         try:
             existing = fiware_api.keystone.check_email(email)
-            raise forms.ValidationError(_("The email is already in use."),
+            raise forms.ValidationError(("The email is already in use."),
                                          code='invalid')
         except keystoneclient_exceptions.NotFound:
             return email
 
 
 class EmailForm(forms.Form):
-    email = forms.EmailField(label=_("E-mail"),
+    email = forms.EmailField(label=("E-mail"),
                             required=True)
  
 class ChangePasswordForm(ConfirmPasswordForm):
