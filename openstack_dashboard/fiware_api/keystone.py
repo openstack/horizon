@@ -20,12 +20,11 @@ from openstack_dashboard import api
 from openstack_dashboard.local import local_settings
 
 from horizon import exceptions
-from horizon import messages
 
 # check that we have the correct version of the keystoneclient
 try:
     from keystoneclient.v3.contrib.oauth2 import core
-except ImportError, e:
+except ImportError as e:
     raise ImportError(e,
                       'You dont have setup correctly the extended keystoneclient. \
                       ask garcianavalon (Kike) or look at the wiki at github')
@@ -518,3 +517,16 @@ def get_purchaser_role(request):
                 PURCHASER_ROLE = role
                 break
     return PURCHASER_ROLE
+
+def get_idm_admin_app(request):
+    idm_admin = getattr(local_settings, "FIWARE_IDM_ADMIN_APP", None)
+    if idm_admin:
+        try:
+            apps = api.keystone.keystoneclient(request, 
+                admin=True).oauth2.consumers.list()
+        except Exception:
+            apps = []
+            exceptions.handle(request)
+        for app in apps:
+            if app.id == idm_admin or app.name == idm_admin:
+                return app

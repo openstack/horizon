@@ -29,13 +29,13 @@ class Idm_Admin(horizon.Dashboard):
     def nav(self, context):
         # NOTE(garcianavalon) hide it if the user doesn't belong to idm_admin
         request = context['request']
-        idm_admin = getattr(settings, 'IDM_ID', None)
+        idm_admin = fiware_api.keystone.get_idm_admin_app(request)
         if not idm_admin:
             return False
         user_apps = [a.application_id for a
                      in fiware_api.keystone.user_role_assignments(
                          request, user=request.user.id)]
-        return idm_admin in user_apps
+        return idm_admin.id in user_apps
 
 
 horizon.register(Idm_Admin)

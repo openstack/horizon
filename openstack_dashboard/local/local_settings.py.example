@@ -559,7 +559,7 @@ ACCOUNT_ACTIVATION_DAYS = 1
 # IdM ADMIN
 # Application ID of the idm in the backend. Used for the administrator
 # dashboard
-IDM_ID = $idm_id
+FIWARE_IDM_ADMIN_APP = 'idm'
 
 # reCAPTCHA
 # Get your keys at: https://www.google.com/recaptcha/admin#createsite
