@@ -100,6 +100,7 @@ class ManageOrganizationMembers(idm_workflows.RelationshipWorkflow):
     default_steps = (UpdateProjectMembers,)
     RELATIONSHIP_CLASS = UserRoleApi
     member_slug = idm_workflows.RELATIONSHIP_SLUG
+    current_user_editable = False
     
     def get_success_url(self):
         # Overwrite to allow passing kwargs
