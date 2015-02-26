@@ -3,68 +3,24 @@
   <div class="transfer-section">
     <!-- Allocated section heading -->
     <h5 class="transfer-heading">
-      <span title="{$ ::model.trModel.helpText.sectionToggleText $}" class="fa"
-        ng-class="model.views.allocated ? 'fa-chevron-down' : 'fa-chevron-right'"
-        ng-click="model.toggleView('allocated')"></span>
-      {$ ::model.trModel.helpText.allocTitle $}
-      <span ng-show="model.numAllocated" class="badge badge-info">{$ model.numAllocated $}</span>
+      <span title="{$ ::trCtrl.helpText.sectionToggleText $}" class="fa"
+        ng-if="::(trCtrl.limits.maxAllocation !== 1)"
+        ng-class="trCtrl.views.allocated ? 'fa-chevron-down' : 'fa-chevron-right'"
+        ng-click="trCtrl.toggleView('allocated')"></span>
+        {$ ::trCtrl.helpText.allocTitle $}
+      <span ng-if="::(trCtrl.limits.maxAllocation !== 1)"
+        ng-show="trCtrl.numAllocated()"
+        class="badge badge-info">{$ trCtrl.numAllocated() $}</span>
+      <span class="pull-right help-text" ng-if="::trCtrl.helpText.allocHelpText">
+        {$ ::trCtrl.helpText.allocHelpText $}
+      </span>
     </h5>
     <!-- Help text when allocated section collapsed -->
-    <div class="collapsed-help" ng-hide="model.views.allocated">
-      {$ ::model.trModel.helpText.allocHiddenText $}
+    <div class="collapsed-help" ng-hide="trCtrl.views.allocated">
+      {$ ::trCtrl.helpText.allocHiddenText $}
     </div>
-    <!-- Allocated table -->
-    <div class="transfer-allocated" ng-show="model.views.allocated">
-      <table st-table="model.displayedAllocated" st-safe-src="model.trModel.allocated" hz-table
-        class="table-striped table-rsp table-detail modern">
-        <thead>
-          <!-- Table headers -->
-          <tr>
-            <th class="expander"></th>
-            <th ng-repeat="header in ::model.trModel.headers"
-              class="rsp-p{$ ::header.priority $}" ng-class="::{ 'reorder': header.reorder }"
-              st-sort="{$ ::header.key $}">
-              {$ ::header.label $}
-            </th>
-            <th class="action-col" ng-if="::(model.trModel.limits.maxAllocation !== 1)"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Summary row -->
-          <tr ng-if="model.numAllocated === 0">
-            <!-- Helper text when nothing allocated -->
-            <td class="select-help" colspan="{$ ::(model.trModel.headers.length + 2) $}">
-              {$ ::trModel.helpText.allocHelpText $}
-            </td>
-          </tr>
-          <tr ng-repeat-start="row in model.displayedAllocated track by row.id"
-            lr-drag-data="model.displayedAllocated" lr-drag-src="reorder"
-            lr-drop-target="reorder" lr-drop-success="model.updateAllocated(e, item, collection)">
-            <!-- Expand/collapse chevron icon -->
-            <td class="expander">
-              <span class="fa fa-chevron-right" hz-expand-detail
-                title="{$ ::model.trModel.helpText.moreDetailsText $}"></span>
-            </td>
-            <!-- Row values -->
-            <td ng-repeat="header in ::model.trModel.headers" class="rsp-p{$ ::header.priority $}">
-              {$ row[header.key] $}
-            </td>
-            <!-- Allocate/de-allocate button -->
-            <td class="action-col">
-              <button type="button" class="btn btn-default btn-xs" ng-click="model.deallocate(row)">
-                <span class="fa fa-minus"></span>
-              </button>
-            </td>
-          </tr>
-          <!-- Detail row -->
-          <tr ng-repeat-end class="detail-row" bind-scope>
-            <td></td>
-            <td class="detail" colspan="{$ ::(model.trModel.headers.length + 2) $}" bind-scope-target>
-              <!-- Details will be transcluded here -->
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="transfer-allocated" ng-show="trCtrl.views.allocated">
+      <!-- Allocated table transcluded here -->
     </div>
   </div>
 
@@ -72,94 +28,21 @@
   <div class="transfer-section">
     <!-- Available section heading -->
     <h5 class="transfer-heading">
-      <span class="fa" title="{$ ::model.trModel.helpText.sectionToggleText $}"
-        ng-class="model.views.available ? 'fa-chevron-down' : 'fa-chevron-right'"
-        ng-click="model.toggleView('available')"></span>
-      {$ ::model.trModel.helpText.availTitle $}
-      <span ng-show="model.numAvailable" class="badge badge-info">{$ model.numAvailable $}</span>
-      <span class="pull-right help-text">{$ ::model.trModel.helpText.availHelpText $}</span>
+      <span class="fa" title="{$ ::trCtrl.helpText.sectionToggleText $}"
+        ng-class="trCtrl.views.available ? 'fa-chevron-down' : 'fa-chevron-right'"
+        ng-click="trCtrl.toggleView('available')"></span>
+        {$ ::trCtrl.helpText.availTitle $}
+      <span class="badge badge-info">{$ trCtrl.numAvailable $}</span>
+      <span class="pull-right help-text" ng-if="::trCtrl.helpText.availHelpText">
+        {$ ::trCtrl.helpText.availHelpText $}
+      </span>
     </h5>
     <!-- Help text when available section collapsed -->
-    <div class="collapsed-help" ng-hide="model.views.available">
-      {$ ::model.trModel.helpText.availHiddenText $}
+    <div class="collapsed-help" ng-hide="trCtrl.views.available">
+      {$ ::trCtrl.helpText.availHiddenText $}
     </div>
-    <!-- Available table -->
-    <div class="transfer-available" ng-show="model.views.available">
-      <table class="table-striped table-rsp table-detail modern"
-        st-table="model.displayedAvailable" st-safe-src="model.trModel.available" hz-table>
-        <thead>
-          <!-- Search/filter input -->
-          <tr>
-            <th class="search-header" colspan="{$ ::(model.trModel.headers.length + 2) $}">
-              <div class="form-group search-input">
-                <!-- Search -->
-                <div class="input-group input-group-sm">
-                  <span class="input-group-addon">
-                    <span class="fa fa-search"></span>
-                  </span>
-                  <input type="text" class="form-control" st-search ng-model="searchTerm">
-                </div>
-                <!-- Search help text - notifies how many items found -->
-                <div class="search-help" ng-class="{ 'searching': searchTerm }">
-                  {$ (model.displayedAvailable | filteredAvailable).length | availFoundText:model.numAvailable $}
-                </div>
-              </div>
-            </th>
-          </tr>
-          <!-- Table headers -->
-          <tr class="header-available">
-            <th class="expander"></th>
-            <th ng-repeat="header in ::model.trModel.headers"
-              class="rsp-p{$ ::header.priority $}"
-              st-sort="{$ ::header.key $}">
-              {$ ::header.label $}
-            </th>
-            <th class="action-col"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-if="(model.displayedAvailable | filteredAvailable).length === 0">
-            <!-- Helper text when nothing available -->
-            <td colspan="{$ ::(model.trModel.headers.length + 2) $}">
-              <div class="select-help">
-                {$ ::trModel.helpText.noneAvailText $}
-              </div>
-            </td>
-          </tr>
-          <!-- Summary row -->
-          <tr ng-repeat-start="row in model.displayedAvailable track by row.id" ng-if="!row.allocated">
-            <!-- Expand/collapse chevron icon -->
-            <td class="expander">
-              <span class="fa fa-chevron-right" hz-expand-detail
-                title="{$ ::model.trModel.helpText.moreDetailsText $}"></span>
-            </td>
-            <!-- Row values -->
-            <td ng-repeat="header in ::model.trModel.headers" class="rsp-p{$ ::header.priority $}">
-              <!-- Warning icon with tooltip -->
-              <span class="transfer-warning invalid fa {$ ::model.trModel.helpText.warningIcon $}"
-                ng-show="row.warnings && row.warnings[header.key]"
-                tooltip="{$ row.warnings | warningText:header.key $}"
-                tooltip-trigger tooltip-placement="top"></span>
-              {$ row[header.key] $}
-            </td>
-            <!-- Allocate/de-allocate button -->
-            <td class="action-col">
-              <button type="button" class="btn btn-default btn-xs"
-                ng-disabled="row.disabled" ng-click="model.allocate(row)"
-                title="{$ ::model.trModel.helpText.availHelpText $}">
-                <span class="fa fa-plus"></span>
-              </button>
-            </td>
-          </tr>
-          <!-- Detail row -->
-          <tr ng-repeat-end class="detail-row" ng-if="!row.allocated" bind-scope>
-            <td></td>
-            <td class="detail" colspan="{$ ::(model.trModel.headers.length + 1) $}" bind-scope-target>
-              <!-- Details will be transcluded here -->
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="transfer-available" ng-show="trCtrl.views.available">
+      <!-- Available table transcluded here -->
     </div>
   </div>
 </div>

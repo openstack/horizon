@@ -1,5 +1,79 @@
 $em-per-priority: floor($table-col-avg-width / $font-size-base) * 3;
 
+[hz-table] {
+  td.action-col {
+    .popover {
+      min-width: 15em;
+    }
+  }
+
+  .detail-row td {
+    display: none;
+
+    &.detail .detail-expanded {
+      display: none;
+    }
+  }
+
+  .expanded + tr td {
+    display: table-cell;
+  }
+
+  .fa {
+    cursor: pointer;
+  }
+
+  .invalid {
+    color: $invalid-color;
+  }
+
+  .no-rows-help {
+    font-style: italic;
+    font-weight: normal;
+    text-align: center;
+  }
+
+  .reorder {
+    min-width: 4em;
+    max-width: 4em;
+    width: 4em;
+  }
+
+  .search-header {
+    padding: 0;
+
+    .btn-addon {
+      display: table-cell;
+      padding-left: 0.3em;
+      vertical-align: top;
+      width: 1%;
+    }
+
+    .search-bar {
+      margin-bottom: 0.2em;
+      width: 100%;
+
+      .input-group-sm .form-control:not(:first-child):not(:last-child) {
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+      }
+    }
+
+    .search-help {
+      color: $transfer-help-text-color;
+      font-size: 0.9em;
+      font-style: italic;
+      font-weight: 400;
+      margin: 0.2em 0.3em 0;
+      visibility: hidden;
+
+      &.searching {
+        visibility: visible;
+      }
+    }
+  }
+}
+
 .table-rsp {
   border-collapse: separate;
   border-spacing: 0 $table-gap-height;
@@ -50,30 +124,10 @@ $em-per-priority: floor($table-col-avg-width / $font-size-base) * 3;
 
   .action-col {
     position: relative;
-    text-align: center;
+    text-align: right;
     vertical-align: top;
     min-width: $batch-action-width;
     width: $batch-action-width;
-
-    .btn {
-      width: 100%;
-    }
-  }
-
-  .reorder {
-    border-right: $table-border;
-    padding-right: 1.5em;
-    position: relative;
-
-    &:after {
-      content: '\f07d';
-      display: inline-block;
-      font-family: 'FontAwesome';
-      position: absolute;
-      right: 0;
-      text-align: left;
-      width: 1em;
-    }
   }
 
   .numeric {
@@ -165,20 +219,17 @@ $em-per-priority: floor($table-col-avg-width / $font-size-base) * 3;
     }
 
     .detail-row td {
-      display: none;
       padding: 0;
 
       &.detail .detail-expanded {
         border-top: none;
-        display: none;
-        padding: $detail-row-padding $batch-action-padding $detail-row-padding $table-padding;
+        padding: $detail-row-padding $table-padding;
         white-space: normal;
       }
     }
 
     .expanded + tr td {
       border-top: none;
-      display: table-cell;
     }
 
     .expander {

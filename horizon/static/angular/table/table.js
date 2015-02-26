@@ -22,7 +22,7 @@
    * | {@link hz.widget.table.directive:hzExpandDetail `hzExpandDetail`} |
    *
    */
-  var app = angular.module('hz.widget.table', [ 'smart-table' ]);
+  var app = angular.module('hz.widget.table', [ 'smart-table', 'lrDragNDrop' ]);
 
   /**
    * @ngdoc parameters
