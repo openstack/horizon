@@ -20,6 +20,8 @@ import json
 import logging
 import operator
 
+from oslo_utils import units
+
 from django.template.defaultfilters import filesizeformat  # noqa
 from django.utils.text import normalize_newlines  # noqa
 from django.utils.translation import ugettext_lazy as _
@@ -672,7 +674,7 @@ class CustomizeAction(workflows.Action):
             log_script_name = upload_file.name
             LOG.info('got upload %s' % log_script_name)
 
-            if upload_file._size > 16 * 1024:  # 16kb
+            if upload_file._size > 16 * units.Ki:  # 16kb
                 msg = _('File exceeds maximum size (16kb)')
                 raise forms.ValidationError(msg)
             else:
