@@ -68,10 +68,15 @@ class ManageAuthorizedMembersLink(tables.LinkAction):
         # Allowed if your allowed role list is not empty
         # TODO(garcianavalon) move to fiware_api
         default_org = request.user.default_project_id
-        allowed = fiware_api.keystone.list_user_allowed_roles_to_assign(
-            request,
-            user=request.user.id,
-            organization=default_org)
+        if request.user.default_project_id == request.organization.id:
+            allowed = fiware_api.keystone.list_user_allowed_roles_to_assign(
+                request,
+                user=request.user.id,
+                organization=request.user.default_project_id)
+        else:
+            allowed = fiware_api.keystone.list_organization_allowed_roles_to_assign(
+                request,
+                organization=request.organization.id)
         app_id = self.table.kwargs['application_id']
         return allowed.get(app_id, False)
 
@@ -103,10 +108,15 @@ class ManageAuthorizedOrganizationsLink(tables.LinkAction):
         # Allowed if your allowed role list is not empty
         # TODO(garcianavalon) move to fiware_api
         default_org = request.user.default_project_id
-        allowed = fiware_api.keystone.list_user_allowed_roles_to_assign(
-            request,
-            user=request.user.id,
-            organization=default_org)
+        if request.user.default_project_id == request.organization.id:
+            allowed = fiware_api.keystone.list_user_allowed_roles_to_assign(
+                request,
+                user=request.user.id,
+                organization=request.user.default_project_id)
+        else:
+            allowed = fiware_api.keystone.list_organization_allowed_roles_to_assign(
+                request,
+                organization=request.organization.id)
         app_id = self.table.kwargs['application_id']
         return allowed.get(app_id, False)
 

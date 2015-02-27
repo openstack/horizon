@@ -66,3 +66,12 @@ class OrganizationMembersView(workflows.WorkflowView):
         initial = super(OrganizationMembersView, self).get_initial()
         initial['superset_id'] = self.request.organization.id
         return initial
+
+
+class AuthorizedMembersView(workflows.WorkflowView):
+    workflow_class = members_workflows.ManageOrganizationAuthorizedMembers
+
+    def get_initial(self):
+        initial = super(AuthorizedMembersView, self).get_initial()
+        initial['superset_id'] = self.request.organization.id
+        return initial

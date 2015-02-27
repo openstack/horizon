@@ -142,10 +142,15 @@ class AuthorizedMembersApi(idm_workflows.RelationshipApiInterface):
     def _list_all_objects(self, request, superset_id):
         # TODO(garcianavalon) move to fiware_api
         all_roles = fiware_api.keystone.role_list(request)
-        allowed = fiware_api.keystone.list_user_allowed_roles_to_assign(
-            request,
-            user=request.user.id,
-            organization=request.user.default_project_id)
+        if request.user.default_project_id == request.organization.id:
+            allowed = fiware_api.keystone.list_user_allowed_roles_to_assign(
+                request,
+                user=request.user.id,
+                organization=request.user.default_project_id)
+        else:
+            allowed = fiware_api.keystone.list_organization_allowed_roles_to_assign(
+                request,
+                organization=request.organization.id)
         self.allowed = [role for role in all_roles 
                    if role.id in allowed[superset_id]]
         return self.allowed
@@ -158,13 +163,16 @@ class AuthorizedMembersApi(idm_workflows.RelationshipApiInterface):
         application_users_roles = {}
         allowed_ids = [r.id for r in self.allowed]
         role_assignments = fiware_api.keystone.user_role_assignments(
-            request, application=superset_id)
-        users = set([a.user_id for a in role_assignments])
-        for user_id in users:
-            application_users_roles[user_id] = [
+                request, application=superset_id)
+        users_with_roles = set([a.user_id for a in role_assignments])
+        users = [user for user in api.keystone.user_list(request)
+                 if user.id in users_with_roles]
+        for user in users:
+            application_users_roles[user.id] = [
                 a.role_id for a in role_assignments
-                if a.user_id == user_id
+                if a.user_id == user.id
                 and a.role_id in allowed_ids
+                and a.organization_id == user.default_project_id
             ]
         return application_users_roles
 
@@ -245,10 +253,15 @@ class AuthorizedOrganizationsApi(idm_workflows.RelationshipApiInterface):
     def _list_all_objects(self, request, superset_id):
         all_roles = fiware_api.keystone.role_list(request)
         default_org = request.user.default_project_id
-        allowed = fiware_api.keystone.list_user_allowed_roles_to_assign(
-            request,
-            user=request.user.id,
-            organization=default_org)
+        if request.user.default_project_id == request.organization.id:
+            allowed = fiware_api.keystone.list_user_allowed_roles_to_assign(
+                request,
+                user=request.user.id,
+                organization=request.user.default_project_id)
+        else:
+            allowed = fiware_api.keystone.list_organization_allowed_roles_to_assign(
+                request,
+                organization=request.organization.id)
         self.allowed = [role for role in all_roles 
                    if role.id in allowed[superset_id]]
         return self.allowed
