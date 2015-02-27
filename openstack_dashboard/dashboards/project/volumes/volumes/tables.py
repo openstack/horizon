@@ -295,7 +295,7 @@ class AttachmentColumn(tables.Column):
             # without the server name...
             instance = get_attachment_name(request, attachment)
             vals = {"instance": instance,
-                    "dev": html.escape(attachment["device"])}
+                    "dev": html.escape(attachment.get("device", ""))}
             attachments.append(link % vals)
         return safestring.mark_safe(", ".join(attachments))
 

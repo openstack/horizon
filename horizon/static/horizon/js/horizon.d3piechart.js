@@ -26,17 +26,18 @@ var BKGRND = "#F2F2F2";
 var FRGRND = "#006CCF";
 var FULL = "#D0342B";
 var NEARLY_FULL = "#FFA500";
-var STROKE = "#CCCCCC";
+var STROKE_USAGE = "#CCCCCC";
+var STROKE_DISTRIBUTION = "#609ED2";
 var BLUE_SHADES = [
-  "#01002C",
-  "#011554",
-  "#00388A",
-  "#1366CE",
-  "#007CF8",
-  "#45911E",
-  "#41A0FE",
-  "#89BAF4",
-  "#B9DBFE"
+  "#609ED2",
+  "#BFD8ED",
+  "#EFF5FB",
+  "#2D6997",
+  "#1F4A6F",
+  "#122A40",
+  "#428BCA",
+  "#90BAE0",
+  "#DFEBF6"
 ];
 
 
@@ -93,7 +94,7 @@ horizon.d3_pie_chart_usage = {
       .attr("class","arc")
       .attr("d", arc)
       .style("fill", BKGRND)
-      .style("stroke", STROKE)
+      .style("stroke", STROKE_USAGE)
       .style("stroke-width", 1);
 
     // Animate filling the pie chart
@@ -113,7 +114,7 @@ horizon.d3_pie_chart_usage = {
             return FRGRND;
           }
         })
-        .style("stroke", STROKE)
+        .style("stroke", STROKE_USAGE)
         .style("stroke-width", function() {
           if (self.data[0].percentage <= 0 || self.data[0].percentage >= 100) {
             return 0;
@@ -188,7 +189,7 @@ horizon.d3_pie_chart_distribution = {
       .attr("class","arc")
       .attr("d", arc)
       .style("fill", BKGRND)
-      .style("stroke", STROKE)
+      .style("stroke", STROKE_DISTRIBUTION)
       .style("stroke-width", 1);
 
     // Animate filling the pie chart
@@ -202,7 +203,7 @@ horizon.d3_pie_chart_distribution = {
         .style("fill", function(d) {
           return self.colors[self.data.indexOf(d.data)];
         })
-        .style("stroke", STROKE)
+        .style("stroke", STROKE_DISTRIBUTION)
         .style("stroke-width", 1)
         .transition()
         .duration(500)

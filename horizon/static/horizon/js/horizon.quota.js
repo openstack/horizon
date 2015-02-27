@@ -401,13 +401,13 @@ horizon.Quota = {
         scope.disableFlavorsForImage();
       };
 
-      $('#id_flavor').on('change', eventCallback);
-      $('#id_count').on('keyup', eventCallback);
+      $('#id_flavor').on('keyup change', eventCallback);
+      $('#id_count').on('input', eventCallback);
       $('#id_image_id').on('change', imageChangeCallback);
     }
 
     $(this.user_value_form_inputs).each(function(index, element) {
-      $(element).on('keyup', function(evt) {
+      $(element).on('input', function(evt) {
         var progress_element = $('div[data-progress-indicator-for=' + $(evt.target).attr('id') + ']');
         var integers_in_input = $(evt.target).val().match(/\d+/g);
         var user_integer;

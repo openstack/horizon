@@ -812,6 +812,17 @@ creating users and databases on database instances is turned on.
 To disable these extensions set the permission to something
 unusable such as ``[!]``.
 
+``OPENSTACK_TOKEN_HASH_ALGORITHM``
+----------------------------------
+
+.. versionadded:: 2014.2(Juno)
+
+Default: ``"md5"``
+
+The hash algorithm to use for authentication tokens. This must match the hash
+algorithm that the identity (Keystone) server and the auth_token middleware
+are using. Allowed values are the algorithms supported by Python's hashlib
+library.
 
 ``OPENSTACK_TOKEN_HASH_ALGORITHM``
 ----------------------------------

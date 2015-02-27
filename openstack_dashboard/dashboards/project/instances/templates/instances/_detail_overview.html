@@ -12,7 +12,7 @@
     <dt>{% trans "ID" %}</dt>
     <dd>{{ instance.id }}</dd>
     <dt>{% trans "Status" %}</dt>
-    <dd>{{ instance.status|title }}</dd>
+    <dd>{{ instance.status_label|title }}</dd>
     <dt>{% trans "Availability Zone" %}</dt>
     <dd>{{ instance.availability_zone|default:"-" }}</dd>
     <dt>{% trans "Created" %}</dt>
@@ -44,16 +44,20 @@
   <hr class="header_rule">
   <dl>
     <dt>{% trans "Flavor" %}</dt>
-    <dd>{{ instance.full_flavor.name }}</dd>
-    <dt>{% trans "RAM" %}</dt>
-    <dd>{{ instance.full_flavor.ram|mbformat }}</dd>
-    <dt>{% trans "VCPUs" %}</dt>
-    <dd>{{ instance.full_flavor.vcpus }} {% trans "VCPU" %}</dd>
-    <dt>{% trans "Disk" %}</dt>
-    <dd>{{ instance.full_flavor.disk }}{% trans "GB" %}</dd>
-    {% if instance.full_flavor.ephemeral %}
-    <dt>{% trans "Ephemeral Disk" %}</dt>
-    <dd>{{ instance.full_flavor.ephemeral }}{% trans "GB" %}</dd>
+    {% if instance.full_flavor %}
+      <dd>{{ instance.full_flavor.name }}</dd>
+      <dt>{% trans "RAM" %}</dt>
+      <dd>{{ instance.full_flavor.ram|mbformat }}</dd>
+      <dt>{% trans "VCPUs" %}</dt>
+      <dd>{{ instance.full_flavor.vcpus }} {% trans "VCPU" %}</dd>
+      <dt>{% trans "Disk" %}</dt>
+      <dd>{{ instance.full_flavor.disk }}{% trans "GB" %}</dd>
+      {% if instance.full_flavor.ephemeral %}
+      <dt>{% trans "Ephemeral Disk" %}</dt>
+      <dd>{{ instance.full_flavor.ephemeral }}{% trans "GB" %}</dd>
+      {% endif %}
+    {% else %}
+      {% trans "Not available" %}
     {% endif %}
   </dl>
 </div>
@@ -88,6 +92,8 @@
       {% endfor %}
       </ul>
     </dd>
+  {% empty %}
+    {% trans "Not available" %}
   {% endfor %}
   </dl>
 </div>

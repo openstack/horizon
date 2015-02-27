@@ -410,13 +410,14 @@ class SetInstanceDetailsAction(workflows.Action):
         return choices
 
     def populate_volume_id_choices(self, request, context):
+        volumes = []
         try:
-            volumes = [self._get_volume_display_name(v)
-                       for v in cinder.volume_list(self.request)
-                       if (v.status == api.cinder.VOLUME_STATE_AVAILABLE
-                           and v.bootable == 'true')]
+            if base.is_service_enabled(request, 'volume'):
+                volumes = [self._get_volume_display_name(v)
+                           for v in cinder.volume_list(self.request)
+                           if (v.status == api.cinder.VOLUME_STATE_AVAILABLE
+                               and v.bootable == 'true')]
         except Exception:
-            volumes = []
             exceptions.handle(self.request,
                               _('Unable to retrieve list of volumes.'))
         if volumes:
@@ -426,12 +427,13 @@ class SetInstanceDetailsAction(workflows.Action):
         return volumes
 
     def populate_volume_snapshot_id_choices(self, request, context):
+        snapshots = []
         try:
-            snapshots = cinder.volume_snapshot_list(self.request)
-            snapshots = [self._get_volume_display_name(s) for s in snapshots
-                         if s.status == api.cinder.VOLUME_STATE_AVAILABLE]
+            if base.is_service_enabled(request, 'volume'):
+                snaps = cinder.volume_snapshot_list(self.request)
+                snapshots = [self._get_volume_display_name(s) for s in snaps
+                             if s.status == api.cinder.VOLUME_STATE_AVAILABLE]
         except Exception:
-            snapshots = []
             exceptions.handle(self.request,
                               _('Unable to retrieve list of volume '
                                 'snapshots.'))
@@ -569,13 +571,15 @@ class CustomizeAction(workflows.Action):
         help_text_template = ("project/instances/"
                               "_launch_customize_help.html")
 
-    source_choices = [('raw', _('Direct Input')),
+    source_choices = [('', _('Select Script Source')),
+                      ('raw', _('Direct Input')),
                       ('file', _('File'))]
 
     attributes = {'class': 'switchable', 'data-slug': 'scriptsource'}
     script_source = forms.ChoiceField(label=_('Customization Script Source'),
                                       choices=source_choices,
-                                      widget=forms.Select(attrs=attributes))
+                                      widget=forms.Select(attrs=attributes),
+                                      required=False)
 
     script_help = _("A script or set of commands to be executed after the "
                     "instance has been built (max 16kb).")

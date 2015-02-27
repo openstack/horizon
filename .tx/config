@@ -1,19 +1,19 @@
 [main]
 host = https://www.transifex.com
 
-[horizon.horizon-translations]
+[horizon.horizon-translations-juno]
 file_filter = horizon/locale/<lang>/LC_MESSAGES/django.po
 source_file = horizon/locale/en/LC_MESSAGES/django.po
 source_lang = en
 type = PO
 
-[horizon.openstack-dashboard-translations]
+[horizon.openstack-dashboard-translations-juno]
 file_filter = openstack_dashboard/locale/<lang>/LC_MESSAGES/django.po
 source_file = openstack_dashboard/locale/en/LC_MESSAGES/django.po
 source_lang = en
 type = PO
 
-[horizon.horizon-js-translations]
+[horizon.horizon-js-translations-juno]
 file_filter = horizon/locale/<lang>/LC_MESSAGES/djangojs.po
 source_file = horizon/locale/en/LC_MESSAGES/djangojs.po
 source_lang = en
