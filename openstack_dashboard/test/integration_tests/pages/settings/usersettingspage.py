@@ -22,13 +22,15 @@ class UsersettingsPage(basepage.BaseNavigationPage):
     DEFAULT_LANGUAGE = "en"
     DEFAULT_TIMEZONE = "UTC"
     DEFAULT_PAGESIZE = "20"
+    DEFAULT_LOGLINES = "35"
     DEFAULT_SETTINGS = {
         "language": DEFAULT_LANGUAGE,
         "timezone": DEFAULT_TIMEZONE,
-        "pagesize": DEFAULT_PAGESIZE
+        "pagesize": DEFAULT_PAGESIZE,
+        "loglines": DEFAULT_LOGLINES
     }
 
-    SETTINGS_FORM_FIELDS = ("language", "timezone", "pagesize")
+    SETTINGS_FORM_FIELDS = ("language", "timezone", "pagesize", "loglines")
 
     _settings_form_locator = (by.By.ID, 'user_settings_modal')
     _change_password_tab_locator = (by.By.CSS_SELECTOR,
@@ -64,10 +66,15 @@ class UsersettingsPage(basepage.BaseNavigationPage):
         self.settings_form.pagesize.value = size
         self.settings_form.submit.click()
 
+    def change_loglines(self, lines=DEFAULT_LOGLINES):
+        self.settings_form.loglines.value = lines
+        self.settings_form.submit.click()
+
     def return_to_default_settings(self):
         self.change_language()
         self.change_timezone()
         self.change_pagesize()
+        self.change_loglines()
 
     def go_to_change_password_page(self):
         self.change_password_tab.click()
