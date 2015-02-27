@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-24 23:33-0600\n"
-"PO-Revision-Date: 2015-02-24 07:54+0000\n"
+"POT-Creation-Date: 2015-02-26 21:50-0600\n"
+"PO-Revision-Date: 2015-02-25 13:50+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hebrew (http://www.transifex.com/projects/p/horizon/language/he/)\n"
 "MIME-Version: 1.0\n"
@@ -25,6 +25,46 @@ msgstr "שליחה"
 #: static/horizon/js/horizon.modals.js:33
 msgid "Cancel"
 msgstr "ביטול"
+
+#: static/angular/transfer-table/transfer-table.js:37
+msgid "Allocated"
+msgstr ""
+
+#: static/angular/transfer-table/transfer-table.js:38
+msgid "Available"
+msgstr "זמין"
+
+#: static/angular/transfer-table/transfer-table.js:39
+msgid "Select one"
+msgstr ""
+
+#: static/angular/transfer-table/transfer-table.js:40
+msgid "Select an item from Available items below"
+msgstr ""
+
+#: static/angular/transfer-table/transfer-table.js:41
+msgid "No available items"
+msgstr ""
+
+#: static/angular/transfer-table/transfer-table.js:42
+msgid "Expand to see allocated items"
+msgstr ""
+
+#: static/angular/transfer-table/transfer-table.js:43
+msgid "Expand to see available items"
+msgstr ""
+
+#: static/angular/transfer-table/transfer-table.js:44
+msgid "Click to show or hide"
+msgstr ""
+
+#: static/angular/transfer-table/transfer-table.js:45
+msgid "Click to see more details"
+msgstr ""
+
+#: static/angular/transfer-table/transfer-table.js:93
+msgid "Found %(found)s of %(available)s"
+msgstr ""
 
 #: static/angular/wizard/wizard.js:8
 msgid "Back"

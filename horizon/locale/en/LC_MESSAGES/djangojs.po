@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-25 00:28-0600\n"
+"POT-Creation-Date: 2015-02-27 00:11-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,6 +24,46 @@ msgstr ""
 #: static/angular/modal/modal.js:84 static/angular/wizard/wizard.js:7
 #: static/horizon/js/horizon.modals.js:33
 msgid "Cancel"
+msgstr ""
+
+#: static/angular/transfer-table/transfer-table.js:37
+msgid "Allocated"
+msgstr ""
+
+#: static/angular/transfer-table/transfer-table.js:38
+msgid "Available"
+msgstr ""
+
+#: static/angular/transfer-table/transfer-table.js:39
+msgid "Select one"
+msgstr ""
+
+#: static/angular/transfer-table/transfer-table.js:40
+msgid "Select an item from Available items below"
+msgstr ""
+
+#: static/angular/transfer-table/transfer-table.js:41
+msgid "No available items"
+msgstr ""
+
+#: static/angular/transfer-table/transfer-table.js:42
+msgid "Expand to see allocated items"
+msgstr ""
+
+#: static/angular/transfer-table/transfer-table.js:43
+msgid "Expand to see available items"
+msgstr ""
+
+#: static/angular/transfer-table/transfer-table.js:44
+msgid "Click to show or hide"
+msgstr ""
+
+#: static/angular/transfer-table/transfer-table.js:45
+msgid "Click to see more details"
+msgstr ""
+
+#: static/angular/transfer-table/transfer-table.js:93
+msgid "Found %(found)s of %(available)s"
 msgstr ""
 
 #: static/angular/wizard/wizard.js:8
