@@ -14,7 +14,7 @@ import collections
 import functools
 import inspect
 
-import nose
+import testtools
 
 from openstack_dashboard.test.integration_tests import config
 
@@ -33,12 +33,12 @@ def _is_test_cls(cls):
 
 def _mark_method_skipped(meth, reason):
     """Mark method as skipped by replacing the actual method with wrapper
-    that raises the nose.SkipTest exception.
+    that raises the testtools.testcase.TestSkipped exception.
     """
 
     @functools.wraps(meth)
     def wrapper(*args, **kwargs):
-        raise nose.SkipTest(reason)
+        raise testtools.testcase.TestSkipped(reason)
 
     return wrapper
 
