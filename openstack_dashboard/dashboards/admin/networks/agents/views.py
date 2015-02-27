@@ -28,12 +28,12 @@ from openstack_dashboard.dashboards.admin.networks.agents \
 class AddView(forms.ModalFormView):
     form_class = project_forms.AddDHCPAgent
     form_id = "add_dhcp_agent_form"
-    modal_header = _("Add DHCP Agent")
     template_name = 'admin/networks/agents/add.html'
     success_url = 'horizon:admin:networks:detail'
     failure_url = 'horizon:admin:networks:detail'
-    submit_label = _("Add DHCP Agent")
     submit_url = "horizon:admin:networks:adddhcpagent"
+    title_and_label = _("Add DHCP Agent")
+    submit_label = modal_header = page_title = title_and_label
 
     def get_success_url(self):
         return reverse(self.success_url,
