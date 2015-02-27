@@ -61,8 +61,7 @@ class CreateOrganizationForm(forms.SelfHandlingForm):
             msg = 'This name is already taken by another organization'
             exceptions.handle(request, ignore=True)
             messages.error(request,msg)
-            return False
-
+            return 
         #Set organization and user id
         organization_id = self.object.id
         user_id = request.user.id
