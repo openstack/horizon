@@ -72,20 +72,24 @@ class BaseWebObject(object):
     def _turn_on_implicit_wait(self):
         self.driver.implicitly_wait(self.conf.selenium.page_timeout)
 
-    def _wait_till_text_present_in_element(self, element, text, timeout=None):
+    def _wait_until(self, predicate, timeout=None, poll_frequency=0.5):
+        """Wait until the value returned by predicate is not False or
+        the timeout is elapsed.
+        'predicate' takes the driver as argument.
+        """
         if not timeout:
             timeout = self.explicit_wait
-        wait.WebDriverWait(self.driver, timeout).until(
-            lambda x: self._is_text_visible(element, text))
+        wait.WebDriverWait(self.driver, timeout, poll_frequency).until(
+            predicate)
+
+    def _wait_till_text_present_in_element(self, element, text, timeout=None):
+        self._wait_until(lambda x: self._is_text_visible(element, text),
+                         timeout)
 
     def _wait_till_element_visible(self, element, timeout=None):
-        if not timeout:
-            timeout = self.explicit_wait
-        wait.WebDriverWait(self.driver, timeout).until(
-            lambda x: self._is_element_displayed(element))
+        self._wait_until(lambda x: self._is_element_displayed(element),
+                         timeout)
 
     def _wait_till_element_disappears(self, element, timeout=None):
-        if not timeout:
-            timeout = self.explicit_wait
-        wait.WebDriverWait(self.driver, timeout).until_not(
-            lambda x: self._is_element_displayed(element))
+        self._wait_until(lambda x: self._is_element_displayed(element),
+                         timeout)
