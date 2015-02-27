@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-19 01:04-0500\n"
+"POT-Creation-Date: 2014-10-08 17:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,7 +86,7 @@ msgid "Cancel"
 msgstr ""
 
 #: static/horizon/js/horizon.modals.js:225
-#: static/horizon/js/horizon.tables.js:223
+#: static/horizon/js/horizon.tables.js:221
 msgid "Working"
 msgstr ""
 
@@ -94,61 +94,37 @@ msgstr ""
 msgid "There was an error submitting the form. Please try again."
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:511
-#: static/horizon/js/horizon.networktopology.js:517
-msgid "None"
-msgstr ""
-
-#: static/horizon/js/horizon.networktopology.js:530
-msgid "Delete"
-msgstr ""
-
-#: static/horizon/js/horizon.networktopology.js:533
+#: static/horizon/js/horizon.networktopology.js:535
 msgid "STATUS"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:534
+#: static/horizon/js/horizon.networktopology.js:536
 msgid "ID"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:535
+#: static/horizon/js/horizon.networktopology.js:537
 msgid "Interfaces"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:536
-msgid "Delete Interface"
-msgstr ""
-
-#: static/horizon/js/horizon.networktopology.js:537
-msgid "Open Console"
-msgstr ""
-
 #: static/horizon/js/horizon.networktopology.js:538
-msgid "View Details"
+msgid "Interface"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:541
-msgid "Delete Router"
+#: static/horizon/js/horizon.networktopology.js:539
+msgid "open console"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:542
-msgid "View Router Details"
+#: static/horizon/js/horizon.networktopology.js:540
+#, c-format
+msgid "view %s details"
 msgstr ""
 
 #: static/horizon/js/horizon.networktopology.js:545
 msgid "Add Interface"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:551
-msgid "Terminate Instance"
-msgstr ""
-
-#: static/horizon/js/horizon.networktopology.js:552
-msgid "View Instance Details"
-msgstr ""
-
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:379
+#: static/horizon/js/horizon.tables.js:377
 msgid "No items to display."
 msgstr ""
 
@@ -157,21 +133,21 @@ msgstr ""
 msgid "An error occurred while updating."
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:206
+#: static/horizon/js/horizon.tables.js:204
 #, c-format
 msgid "You have selected %s. "
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:208
+#: static/horizon/js/horizon.tables.js:206
 #, c-format
 msgid "Confirm %s"
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:209
+#: static/horizon/js/horizon.tables.js:207
 msgid "Please confirm your selection. This action cannot be undone."
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:366
+#: static/horizon/js/horizon.tables.js:364
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"

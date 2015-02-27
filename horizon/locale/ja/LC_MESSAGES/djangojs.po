@@ -4,13 +4,15 @@
 # 
 # Translators:
 # Akihiro Motoki <amotoki@gmail.com>, 2014
+# yfukuda <fukuda.yuko@jp.fujitsu.com>, 2014
+# myamamot <myamamot@redhat.com>, 2014
 # ykatabam <ykatabam@redhat.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-19 13:33-0500\n"
-"PO-Revision-Date: 2014-10-19 11:00+0000\n"
+"POT-Creation-Date: 2014-12-02 00:51-0600\n"
+"PO-Revision-Date: 2014-12-02 07:07+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -88,7 +90,7 @@ msgid "Cancel"
 msgstr "取り消し"
 
 #: static/horizon/js/horizon.modals.js:225
-#: static/horizon/js/horizon.tables.js:223
+#: static/horizon/js/horizon.tables.js:221
 msgid "Working"
 msgstr "反映中"
 
@@ -150,7 +152,7 @@ msgid "View Instance Details"
 msgstr "インスタンスの詳細の表示"
 
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:379
+#: static/horizon/js/horizon.tables.js:377
 msgid "No items to display."
 msgstr "表示する項目がありません"
 
@@ -159,21 +161,21 @@ msgstr "表示する項目がありません"
 msgid "An error occurred while updating."
 msgstr "更新中にエラーが発生しました。"
 
-#: static/horizon/js/horizon.tables.js:206
+#: static/horizon/js/horizon.tables.js:204
 #, c-format
 msgid "You have selected %s. "
 msgstr "%s を選択しました。"
 
-#: static/horizon/js/horizon.tables.js:208
+#: static/horizon/js/horizon.tables.js:206
 #, c-format
 msgid "Confirm %s"
 msgstr "%sの確認"
 
-#: static/horizon/js/horizon.tables.js:209
+#: static/horizon/js/horizon.tables.js:207
 msgid "Please confirm your selection. This action cannot be undone."
 msgstr "選択内容を確認してください。この操作は取り消せません。"
 
-#: static/horizon/js/horizon.tables.js:366
+#: static/horizon/js/horizon.tables.js:364
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"

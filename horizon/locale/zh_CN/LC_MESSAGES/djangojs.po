@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# LIU Yulong <dragon889@163.com>, 2014
+# Tom Fifield <tom@openstack.org>, 2014
+# Ying Chun Guo <daisy.ycguo@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-18 20:37-0500\n"
-"PO-Revision-Date: 2014-10-18 14:31+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-12-02 00:51-0600\n"
+"PO-Revision-Date: 2014-12-02 09:05+0000\n"
+"Last-Translator: Ying Chun Guo <daisy.ycguo@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -87,7 +88,7 @@ msgid "Cancel"
 msgstr "取消"
 
 #: static/horizon/js/horizon.modals.js:225
-#: static/horizon/js/horizon.tables.js:223
+#: static/horizon/js/horizon.tables.js:221
 msgid "Working"
 msgstr "进行中"
 
@@ -118,11 +119,11 @@ msgstr "接口"
 
 #: static/horizon/js/horizon.networktopology.js:536
 msgid "Delete Interface"
-msgstr ""
+msgstr "删除接口"
 
 #: static/horizon/js/horizon.networktopology.js:537
 msgid "Open Console"
-msgstr ""
+msgstr "打开控制台"
 
 #: static/horizon/js/horizon.networktopology.js:538
 msgid "View Details"
@@ -130,11 +131,11 @@ msgstr "查看详情"
 
 #: static/horizon/js/horizon.networktopology.js:541
 msgid "Delete Router"
-msgstr ""
+msgstr "删除路由"
 
 #: static/horizon/js/horizon.networktopology.js:542
 msgid "View Router Details"
-msgstr ""
+msgstr "查看路由详情"
 
 #: static/horizon/js/horizon.networktopology.js:545
 msgid "Add Interface"
@@ -142,14 +143,14 @@ msgstr "增加接口"
 
 #: static/horizon/js/horizon.networktopology.js:551
 msgid "Terminate Instance"
-msgstr ""
+msgstr "终止实例"
 
 #: static/horizon/js/horizon.networktopology.js:552
 msgid "View Instance Details"
-msgstr ""
+msgstr "查看实例详情"
 
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:379
+#: static/horizon/js/horizon.tables.js:377
 msgid "No items to display."
 msgstr "没有条目显示。"
 
@@ -158,25 +159,25 @@ msgstr "没有条目显示。"
 msgid "An error occurred while updating."
 msgstr "更新时发生错误。"
 
-#: static/horizon/js/horizon.tables.js:206
+#: static/horizon/js/horizon.tables.js:204
 #, c-format
 msgid "You have selected %s. "
 msgstr "你已经选择了 %s 。 "
 
-#: static/horizon/js/horizon.tables.js:208
+#: static/horizon/js/horizon.tables.js:206
 #, c-format
 msgid "Confirm %s"
 msgstr "确认 %s"
 
-#: static/horizon/js/horizon.tables.js:209
+#: static/horizon/js/horizon.tables.js:207
 msgid "Please confirm your selection. This action cannot be undone."
 msgstr "请确认您的选择。这个动作不能撤消"
 
-#: static/horizon/js/horizon.tables.js:366
+#: static/horizon/js/horizon.tables.js:364
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
-msgstr[0] "正在显示 %s 项"
+msgstr[0] "显示%s个条目"
 
 #: static/horizon/js/horizon.tables_inline_edit.js:88
 #: static/horizon/js/horizon.tables_inline_edit.js:169

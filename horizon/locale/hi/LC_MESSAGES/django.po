@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Chandan kumar <chandankumar.093047@gmail.com>, 2014
+# richajha <richa.jha2@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-18 20:37-0500\n"
-"PO-Revision-Date: 2014-10-19 01:37+0000\n"
+"POT-Creation-Date: 2014-10-05 14:55+0000\n"
+"PO-Revision-Date: 2014-10-09 13:01+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Language: hi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: base.py:480
+#: base.py:454
 msgid "Other"
 msgstr "अन्य"
 
@@ -92,50 +92,50 @@ msgstr "रद्द करें"
 msgid "Filter"
 msgstr "छानना शुरू..."
 
-#: tables/actions.py:758
+#: tables/actions.py:756
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:760
+#: tables/actions.py:758
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:788 tables/base.py:1543
+#: tables/actions.py:786 tables/base.py:1537
 msgid "N/A"
 msgstr "लागू नहीं"
 
-#: tables/actions.py:817
+#: tables/actions.py:815
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "आपको %(action)s की अनुमति नहीं है.: %(objs)s"
 
-#: tables/actions.py:824
+#: tables/actions.py:822
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "%(action)s की अनुमति नहीं है.: %(objs)s"
 
-#: tables/actions.py:830
+#: tables/actions.py:828
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:900
+#: tables/actions.py:898
 msgid "Delete"
 msgstr "मिटाएँ"
 
-#: tables/actions.py:902
+#: tables/actions.py:900
 msgid "Deleted"
 msgstr "मिटाया"
 
-#: tables/actions.py:933
+#: tables/actions.py:931
 msgid "Update"
 msgstr "अद्यतन"
 
-#: tables/actions.py:934
+#: tables/actions.py:932
 msgid "Updated"
 msgstr "अद्यतित"
 
@@ -148,7 +148,7 @@ msgstr "%(obj)s पर %(attr)s  गुण मौज़ूद नहीं ह�
 msgid "No items to display."
 msgstr "दिखाने के लिए कोई सामग्रियों नहीं."
 
-#: tables/base.py:1076
+#: tables/base.py:1074
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr "क्रियाएं"
@@ -158,7 +158,7 @@ msgstr "क्रियाएं"
 msgid "No match returned for the id \"%s\"."
 msgstr "इस आइडी \"%s\" के लिए कोई मेल नहीं मिला."
 
-#: tables/base.py:1459
+#: tables/base.py:1453
 msgid "Please select a row before taking that action."
 msgstr "कृपया इस क्रिया को करने से पहले पंक्ति का चयन करें."
 
@@ -222,8 +222,8 @@ msgstr "सारांश"
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] " %(counter)s मद प्रदर्शित"
-msgstr[1] " %(counter)s मद प्रदर्शित"
+msgstr[0] ""
+msgstr[1] "%(counter)s सामाग्री दिखाएँ"
 
 #: templates/horizon/common/_data_table.html:68
 msgid "&laquo;&nbsp;Prev"
@@ -237,19 +237,9 @@ msgstr "अगला&nbsp;&raquo;"
 msgid "More Actions"
 msgstr "अधिक क्रिया"
 
-#: templates/horizon/common/_domain_page_header.html:6
-#, python-format
-msgid "%(context_name)s:"
-msgstr ""
-
 #: templates/horizon/common/_formset_table.html:35
 msgid "Add a row"
 msgstr "पंक्ति जोड़ें"
-
-#: templates/horizon/common/_formset_table_row.html:15
-#, python-format
-msgid "%(name)s: %(error)s"
-msgstr ""
 
 #: templates/horizon/common/_limit_summary.html:4
 msgid "Limit Summary"
@@ -318,8 +308,8 @@ msgstr "अवैध कुंजी नाम"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:88
 #: templates/horizon/common/_modal_form_update_metadata.html:200
-msgid "No available metadata"
-msgstr ""
+msgid "No existing metadata"
+msgstr "कोई मौजूदा मेटाडाटा नहीं "
 
 #: templates/horizon/common/_modal_form_update_metadata.html:99
 msgid "Existing Metadata"
@@ -344,23 +334,23 @@ msgstr "सहेजें"
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] "%(nav_items)s मद प्रदर्शित"
-msgstr[1] "%(nav_items)s मद प्रदर्शित"
+msgstr[0] ""
+msgstr[1] "सामाग्री %(nav_items)s दिखाएँ"
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] " %(content_items)s मद प्रदर्शित"
-msgstr[1] " %(content_items)s मद प्रदर्शित"
+msgstr[0] ""
+msgstr[1] "सामाग्री  %(content_items)s दिखाएँ"
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
 msgstr "प्रयोग सार"
 
 #: templates/horizon/common/_usage_summary.html:7
-msgid "Select a period of time to query its usage:"
-msgstr ""
+msgid "Select a period of time to query its usage"
+msgstr "उपयोग के बारें में जानने के लिए समयावधि सेट करें "
 
 #: templates/horizon/common/_usage_summary.html:9
 #, python-format
@@ -381,20 +371,20 @@ msgid "The date should be in YYYY-mm-dd format."
 msgstr "तिथि को  YYYY-mm-dd प्रारूप में होना चाहिए"
 
 #: templates/horizon/common/_usage_summary.html:20
-msgid "Active Instances:"
-msgstr ""
+msgid "Active Instances"
+msgstr "सक्रिय इंस्टेंस"
 
 #: templates/horizon/common/_usage_summary.html:21
-msgid "Active RAM:"
-msgstr ""
+msgid "Active RAM"
+msgstr "सक्रिय रैम"
 
 #: templates/horizon/common/_usage_summary.html:22
-msgid "This Period's VCPU-Hours:"
-msgstr ""
+msgid "This Period's VCPU-Hours"
+msgstr "इस अवधि में VCPU-Hours"
 
 #: templates/horizon/common/_usage_summary.html:23
-msgid "This Period's GB-Hours:"
-msgstr ""
+msgid "This Period's GB-Hours"
+msgstr "इस अवधि में GB-Hours"
 
 #: templates/horizon/common/_workflow.html:40
 msgid "Back"
@@ -420,7 +410,7 @@ msgstr "उपलब्ध"
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
-msgstr[0] "%(size)d बाइट"
+msgstr[0] ""
 msgstr[1] "%(size)d बाइट"
 
 #: templatetags/sizeformat.py:57
@@ -449,21 +439,19 @@ msgid "%s PB"
 msgstr "%s PB"
 
 #: templatetags/sizeformat.py:77
-msgid "0 Bytes"
-msgstr ""
+msgid "0 bytes"
+msgstr "0 बाइट"
 
-#. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:31
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
-msgstr[0] "Puppy बेचें "
+msgstr[0] ""
 msgstr[1] "Puppies बेचें "
 
-#. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:40
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
-msgstr[0] "बेचा हुआ Puppy"
+msgstr[0] ""
 msgstr[1] "बेचा हुआ Puppy"
 
 #: utils/filters.py:49

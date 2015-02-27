@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Akihiro Motoki <amotoki@gmail.com>, 2014
 # Sungjin Kang <potopro@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-18 20:37-0500\n"
-"PO-Revision-Date: 2014-10-18 14:31+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-12-02 00:51-0600\n"
+"PO-Revision-Date: 2014-12-02 19:18+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -87,7 +88,7 @@ msgid "Cancel"
 msgstr "취소"
 
 #: static/horizon/js/horizon.modals.js:225
-#: static/horizon/js/horizon.tables.js:223
+#: static/horizon/js/horizon.tables.js:221
 msgid "Working"
 msgstr "작동 중"
 
@@ -118,11 +119,11 @@ msgstr "인터페이스"
 
 #: static/horizon/js/horizon.networktopology.js:536
 msgid "Delete Interface"
-msgstr ""
+msgstr "인터페이스 삭제"
 
 #: static/horizon/js/horizon.networktopology.js:537
 msgid "Open Console"
-msgstr ""
+msgstr "콘솔 열기"
 
 #: static/horizon/js/horizon.networktopology.js:538
 msgid "View Details"
@@ -130,11 +131,11 @@ msgstr "세부 정보 보기"
 
 #: static/horizon/js/horizon.networktopology.js:541
 msgid "Delete Router"
-msgstr ""
+msgstr "라우터 삭제"
 
 #: static/horizon/js/horizon.networktopology.js:542
 msgid "View Router Details"
-msgstr ""
+msgstr "라우터 정보 자세히 보기"
 
 #: static/horizon/js/horizon.networktopology.js:545
 msgid "Add Interface"
@@ -142,14 +143,14 @@ msgstr "인터페이스 추가"
 
 #: static/horizon/js/horizon.networktopology.js:551
 msgid "Terminate Instance"
-msgstr ""
+msgstr "인스턴스 종료"
 
 #: static/horizon/js/horizon.networktopology.js:552
 msgid "View Instance Details"
-msgstr ""
+msgstr "인스턴스 정보 자세히 보기"
 
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:379
+#: static/horizon/js/horizon.tables.js:377
 msgid "No items to display."
 msgstr "표시할 항목이 없습니다."
 
@@ -158,25 +159,25 @@ msgstr "표시할 항목이 없습니다."
 msgid "An error occurred while updating."
 msgstr "업데이트 도중 오류가 발생하였습니다."
 
-#: static/horizon/js/horizon.tables.js:206
+#: static/horizon/js/horizon.tables.js:204
 #, c-format
 msgid "You have selected %s. "
 msgstr "%s를 선택하였습니다. "
 
-#: static/horizon/js/horizon.tables.js:208
+#: static/horizon/js/horizon.tables.js:206
 #, c-format
 msgid "Confirm %s"
 msgstr "%s를 확인하세요."
 
-#: static/horizon/js/horizon.tables.js:209
+#: static/horizon/js/horizon.tables.js:207
 msgid "Please confirm your selection. This action cannot be undone."
 msgstr "선택 사항을 확인하시기 바랍니다. 이 작업은 취소 할 수 없습니다."
 
-#: static/horizon/js/horizon.tables.js:366
+#: static/horizon/js/horizon.tables.js:364
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
-msgstr[0] "%s 항목 표시"
+msgstr[0] "%s 항목을 보여줍니다"
 
 #: static/horizon/js/horizon.tables_inline_edit.js:88
 #: static/horizon/js/horizon.tables_inline_edit.js:169

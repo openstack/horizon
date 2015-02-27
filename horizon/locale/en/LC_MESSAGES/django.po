@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-19 01:04-0500\n"
+"POT-Creation-Date: 2014-10-08 17:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: base.py:480
+#: base.py:454
 msgid "Other"
 msgstr ""
 
@@ -91,50 +91,50 @@ msgstr ""
 msgid "Filter"
 msgstr ""
 
-#: tables/actions.py:758
+#: tables/actions.py:756
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr ""
 
-#: tables/actions.py:760
+#: tables/actions.py:758
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr ""
 
-#: tables/actions.py:788 tables/base.py:1543
+#: tables/actions.py:786 tables/base.py:1537
 msgid "N/A"
 msgstr ""
 
-#: tables/actions.py:817
+#: tables/actions.py:815
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:824
+#: tables/actions.py:822
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:830
+#: tables/actions.py:828
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:900
+#: tables/actions.py:898
 msgid "Delete"
 msgstr ""
 
-#: tables/actions.py:902
+#: tables/actions.py:900
 msgid "Deleted"
 msgstr ""
 
-#: tables/actions.py:933
+#: tables/actions.py:931
 msgid "Update"
 msgstr ""
 
-#: tables/actions.py:934
+#: tables/actions.py:932
 msgid "Updated"
 msgstr ""
 
@@ -147,7 +147,7 @@ msgstr ""
 msgid "No items to display."
 msgstr ""
 
-#: tables/base.py:1076
+#: tables/base.py:1074
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr ""
@@ -157,7 +157,7 @@ msgstr ""
 msgid "No match returned for the id \"%s\"."
 msgstr ""
 
-#: tables/base.py:1459
+#: tables/base.py:1453
 msgid "Please select a row before taking that action."
 msgstr ""
 
@@ -235,18 +235,8 @@ msgstr ""
 msgid "More Actions"
 msgstr ""
 
-#: templates/horizon/common/_domain_page_header.html:6
-#, python-format
-msgid "%(context_name)s:"
-msgstr ""
-
 #: templates/horizon/common/_formset_table.html:35
 msgid "Add a row"
-msgstr ""
-
-#: templates/horizon/common/_formset_table_row.html:15
-#, python-format
-msgid "%(name)s: %(error)s"
 msgstr ""
 
 #: templates/horizon/common/_limit_summary.html:4
@@ -316,7 +306,7 @@ msgstr ""
 
 #: templates/horizon/common/_modal_form_update_metadata.html:88
 #: templates/horizon/common/_modal_form_update_metadata.html:200
-msgid "No available metadata"
+msgid "No existing metadata"
 msgstr ""
 
 #: templates/horizon/common/_modal_form_update_metadata.html:99
@@ -359,7 +349,7 @@ msgid "Usage Summary"
 msgstr ""
 
 #: templates/horizon/common/_usage_summary.html:7
-msgid "Select a period of time to query its usage:"
+msgid "Select a period of time to query its usage"
 msgstr ""
 
 #: templates/horizon/common/_usage_summary.html:9
@@ -381,19 +371,19 @@ msgid "The date should be in YYYY-mm-dd format."
 msgstr ""
 
 #: templates/horizon/common/_usage_summary.html:20
-msgid "Active Instances:"
+msgid "Active Instances"
 msgstr ""
 
 #: templates/horizon/common/_usage_summary.html:21
-msgid "Active RAM:"
+msgid "Active RAM"
 msgstr ""
 
 #: templates/horizon/common/_usage_summary.html:22
-msgid "This Period's VCPU-Hours:"
+msgid "This Period's VCPU-Hours"
 msgstr ""
 
 #: templates/horizon/common/_usage_summary.html:23
-msgid "This Period's GB-Hours:"
+msgid "This Period's GB-Hours"
 msgstr ""
 
 #: templates/horizon/common/_workflow.html:40
@@ -449,17 +439,15 @@ msgid "%s PB"
 msgstr ""
 
 #: templatetags/sizeformat.py:77
-msgid "0 Bytes"
+msgid "0 bytes"
 msgstr ""
 
-#. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:31
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
 msgstr[0] ""
 msgstr[1] ""
 
-#. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:40
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"

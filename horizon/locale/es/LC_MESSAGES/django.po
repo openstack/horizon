@@ -3,14 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# cametiope <aldohcasa@hotmail.com>, 2014
+# Alberto Molina Coballes <alb.molina@gmail.com>, 2014
+# Marian Tort <marian.tort@gmail.com>, 2014
+# Milton Mazzarri <milmazz@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-18 20:37-0500\n"
-"PO-Revision-Date: 2014-10-19 01:37+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-10-05 14:55+0000\n"
+"PO-Revision-Date: 2014-10-04 04:45+0000\n"
+"Last-Translator: Marian Tort <marian.tort@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +20,7 @@ msgstr ""
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: base.py:480
+#: base.py:454
 msgid "Other"
 msgstr "Otro"
 
@@ -47,7 +49,7 @@ msgstr "No autorizado. Inicie sesión de nuevo."
 
 #: middleware.py:97
 msgid "Session timed out."
-msgstr "La sesión ha expirado."
+msgstr "Tiempo de sesión expirado "
 
 #: browsers/base.py:88
 msgid "Navigation Item"
@@ -82,7 +84,7 @@ msgstr "Enviar"
 #: templates/horizon/common/_modal_form_update_metadata.html:239
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
-msgstr "Cancelar "
+msgstr "Cancelar"
 
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:16
@@ -92,50 +94,50 @@ msgstr "Cancelar "
 msgid "Filter"
 msgstr "Filtrar"
 
-#: tables/actions.py:758
+#: tables/actions.py:756
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:760
+#: tables/actions.py:758
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:788 tables/base.py:1543
+#: tables/actions.py:786 tables/base.py:1537
 msgid "N/A"
 msgstr "N/A"
 
-#: tables/actions.py:817
+#: tables/actions.py:815
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "No le está permitido %(action)s: %(objs)s"
 
-#: tables/actions.py:824
+#: tables/actions.py:822
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "No ha sido posible %(action)s: %(objs)s"
 
-#: tables/actions.py:830
+#: tables/actions.py:828
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:900
+#: tables/actions.py:898
 msgid "Delete"
-msgstr "Eliminar"
+msgstr "Borrar"
 
-#: tables/actions.py:902
+#: tables/actions.py:900
 msgid "Deleted"
-msgstr "Eliminado"
+msgstr "Borrado"
 
-#: tables/actions.py:933
+#: tables/actions.py:931
 msgid "Update"
 msgstr "Actualizar"
 
-#: tables/actions.py:934
+#: tables/actions.py:932
 msgid "Updated"
 msgstr "Actualizada"
 
@@ -148,7 +150,7 @@ msgstr "El atributo %(attr)s no existe en %(obj)s."
 msgid "No items to display."
 msgstr "No hay ítems que mostrar."
 
-#: tables/base.py:1076
+#: tables/base.py:1074
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr "Acciones"
@@ -158,7 +160,7 @@ msgstr "Acciones"
 msgid "No match returned for the id \"%s\"."
 msgstr "Ninguna coincidencia para el id \"%s\"."
 
-#: tables/base.py:1459
+#: tables/base.py:1453
 msgid "Please select a row before taking that action."
 msgstr "Seleccione una fila antes de realizar la acción."
 
@@ -181,7 +183,7 @@ msgstr "Usuario"
 
 #: templates/auth/_login.html:5
 msgid "Log In"
-msgstr "Iniciar sesión"
+msgstr "Acceder"
 
 #: templates/auth/_login.html:15
 msgid "You do not have permission to access the resource:"
@@ -192,7 +194,7 @@ msgstr "No tiene permisos para acceder al recurso:"
 msgid ""
 "Login as different user or go back to <a href=\"%(home_url)s\"> home "
 "page</a>"
-msgstr "Inicie sesión con otro usuario o volver a la <a href=\"%(home_url)s\"> página de inicio</a>"
+msgstr "Acceder como otro usuario o volver a la <a href=\"%(home_url)s\"> página de inicio</a>"
 
 #: templates/auth/_login.html:32
 msgid "Sign In"
@@ -222,8 +224,8 @@ msgstr "Resumen"
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] "Mostrando %(counter)s articulo"
-msgstr[1] "Mostrando %(counter)s articulos"
+msgstr[0] "Mostrando %(counter)s ítem"
+msgstr[1] "Mostrando %(counter)s ítems"
 
 #: templates/horizon/common/_data_table.html:68
 msgid "&laquo;&nbsp;Prev"
@@ -237,19 +239,9 @@ msgstr "Siguiente&nbsp;&raquo;"
 msgid "More Actions"
 msgstr "Más acciones"
 
-#: templates/horizon/common/_domain_page_header.html:6
-#, python-format
-msgid "%(context_name)s:"
-msgstr "%(context_name)s:"
-
 #: templates/horizon/common/_formset_table.html:35
 msgid "Add a row"
 msgstr "Agregar una fila"
-
-#: templates/horizon/common/_formset_table_row.html:15
-#, python-format
-msgid "%(name)s: %(error)s"
-msgstr "%(name)s: %(error)s"
 
 #: templates/horizon/common/_limit_summary.html:4
 msgid "Limit Summary"
@@ -272,7 +264,7 @@ msgstr "<span> %(used)s </span> usado de <span> %(available)s </span>"
 
 #: templates/horizon/common/_limit_summary.html:14
 msgid "VCPUs"
-msgstr "VCPU"
+msgstr "VCPUs"
 
 #: templates/horizon/common/_limit_summary.html:21
 msgid "RAM"
@@ -318,8 +310,8 @@ msgstr "Nombre de clave inválido"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:88
 #: templates/horizon/common/_modal_form_update_metadata.html:200
-msgid "No available metadata"
-msgstr "Metadatos no disponibles"
+msgid "No existing metadata"
+msgstr "No hay metadatos existentes"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:99
 msgid "Existing Metadata"
@@ -344,23 +336,23 @@ msgstr "Guardar"
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] "Mostrando %(nav_items)s articulo"
-msgstr[1] "Mostrando %(nav_items)s articulos"
+msgstr[0] "Mostrando %(nav_items)s ítem"
+msgstr[1] "Mostrando %(nav_items)s ítems"
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] "Mostrando %(content_items)s articulo"
-msgstr[1] "Mostrando %(content_items)s articulos"
+msgstr[0] "Mostrando %(content_items)s ítem"
+msgstr[1] "Mostrando %(content_items)s ítems"
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
-msgstr "Resumen del uso"
+msgstr "Resumen de uso"
 
 #: templates/horizon/common/_usage_summary.html:7
-msgid "Select a period of time to query its usage:"
-msgstr "Seleccione un periodo de tiempo para consultar su uso: "
+msgid "Select a period of time to query its usage"
+msgstr "Seleccione un período de tiempo para consultar su uso"
 
 #: templates/horizon/common/_usage_summary.html:9
 #, python-format
@@ -381,20 +373,20 @@ msgid "The date should be in YYYY-mm-dd format."
 msgstr "La fecha debe estar en formato AAAA-MM-DD."
 
 #: templates/horizon/common/_usage_summary.html:20
-msgid "Active Instances:"
-msgstr "Instancias activas:"
+msgid "Active Instances"
+msgstr "Instancias activas"
 
 #: templates/horizon/common/_usage_summary.html:21
-msgid "Active RAM:"
-msgstr "RAM activa:"
+msgid "Active RAM"
+msgstr "RAM activa"
 
 #: templates/horizon/common/_usage_summary.html:22
-msgid "This Period's VCPU-Hours:"
-msgstr "Este periodo en horas VCPU:"
+msgid "This Period's VCPU-Hours"
+msgstr "Horas-VCPU de este período"
 
 #: templates/horizon/common/_usage_summary.html:23
-msgid "This Period's GB-Hours:"
-msgstr "Este periodo en horas GB:"
+msgid "This Period's GB-Hours"
+msgstr "Horas-GB de este período"
 
 #: templates/horizon/common/_workflow.html:40
 msgid "Back"
@@ -420,8 +412,8 @@ msgstr "Disponible"
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
-msgstr[0] "%(size)d bite"
-msgstr[1] "%(size)d bites"
+msgstr[0] "%(size)d Byte"
+msgstr[1] "%(size)d Bytes"
 
 #: templatetags/sizeformat.py:57
 #, python-format
@@ -449,22 +441,20 @@ msgid "%s PB"
 msgstr "%s PB"
 
 #: templatetags/sizeformat.py:77
-msgid "0 Bytes"
-msgstr ""
+msgid "0 bytes"
+msgstr "0 bytes"
 
-#. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:31
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
-msgstr[0] "Vender Mascota"
-msgstr[1] "Vender Mascotas"
+msgstr[0] "Sell Puppy"
+msgstr[1] "Sell Puppies"
 
-#. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:40
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
-msgstr[0] "Mascota Vendida"
-msgstr[1] "Mascotas Vendidas"
+msgstr[0] "Sold Puppy"
+msgstr[1] "Sold Puppies"
 
 #: utils/filters.py:49
 msgid "Never"
