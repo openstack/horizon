@@ -19,6 +19,8 @@ from openstack_dashboard.dashboards.idm.members import views
 
 urlpatterns = patterns('',
     url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^/edit/members/$', 
+    url(r'^edit/members/$', 
         views.OrganizationMembersView.as_view(), name='edit'),
+    url(r'^edit/authorize/$', 
+        views.AuthorizedMembersView.as_view(), name='authorize'),
    )

@@ -27,6 +27,13 @@ class ManageMembersLink(tables.LinkAction):
     url = "horizon:idm:members:edit"
     classes = ("ajax-modal",)
 
+
+class ManageAuthorizedMembersLink(tables.LinkAction):
+    name = "manage_authorized_members"
+    verbose_name = _("Authorize members")
+    url = "horizon:idm:members:authorize"
+    classes = ("ajax-modal",)
+
     
 class MembersTable(tables.DataTable):
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
@@ -37,6 +44,7 @@ class MembersTable(tables.DataTable):
     class Meta:
         name = "members"
         verbose_name = _("Members")
-        table_actions = (tables.FilterAction, ManageMembersLink, )
+        table_actions = (tables.FilterAction, 
+            ManageMembersLink, ManageAuthorizedMembersLink)
         multi_select = False
         row_class = idm_tables.UserClickableRow

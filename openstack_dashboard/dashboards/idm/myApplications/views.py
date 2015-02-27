@@ -190,12 +190,20 @@ class DetailApplicationView(tables.MultiTableView, RolesView):
         users = []
         try:
             # NOTE(garcianavalon) Get all the users' ids that belong to
-            # the application (they have one or more roles)
+            # the application (they have one or more roles in their default
+            # organization)
             all_users = api.keystone.user_list(self.request)
             role_assignments = fiware_api.keystone.user_role_assignments(
                 self.request, application=self.kwargs['application_id'])
-            users = [user for user in all_users if user.id
-                     in set([a.user_id for a in role_assignments])]
+            users_with_roles = set()
+            for user in all_users:
+                for a in role_assignments:
+                    if (user.id == a.user_id 
+                        and user.default_project_id == a.organization_id):
+                            users_with_roles.add(user.id)
+            users = [user for user in all_users 
+                     if user.id in users_with_roles]
+
         except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve member information."))

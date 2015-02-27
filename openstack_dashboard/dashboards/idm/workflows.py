@@ -176,6 +176,7 @@ class RelationshipWorkflow(workflows.Workflow,
                             RelationshipConsumerMixin):
     default_steps = (UpdateRelationshipStep,)
     member_slug = RELATIONSHIP_SLUG
+
     def handle(self, request, data):
         superset_id = data['superset_id']
         member_step = self.get_step(self.member_slug)
