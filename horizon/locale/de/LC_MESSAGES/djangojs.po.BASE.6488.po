@@ -1,0 +1,165 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Robert Simai, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: Horizon\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-07-02 00:24-0500\n"
+"PO-Revision-Date: 2014-07-02 05:41+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: static/horizon/js/horizon.accordion_nav.js:83
+#: static/horizon/js/horizon.modals.js:281
+#: static/horizon/js/horizon.tabs.js:21
+msgid "Loading"
+msgstr "Lade"
+
+#: static/horizon/js/horizon.d3linechart.js:386
+#: static/horizon/js/horizon.d3linechart.js:396
+msgid "No data available."
+msgstr "Keine Daten verfügbar."
+
+#: static/horizon/js/horizon.d3linechart.js:402
+#: static/horizon/js/horizon.modals.js:300
+#: static/horizon/js/horizon.tables_inline_edit.js:94
+#: static/horizon/js/horizon.tables_inline_edit.js:175
+msgid "An error occurred. Please try again later."
+msgstr "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später noch einmal."
+
+#: static/horizon/js/horizon.firewalls.js:30
+#: static/horizon/js/horizon.instances.js:30
+msgid "There was a problem communicating with the server, please try again."
+msgstr "Es gab ein Problem bei der Kommunikation mit dem Server. Bitte versuchen Sie es noch einmal."
+
+#: static/horizon/js/horizon.forms.js:154
+msgid "Filter"
+msgstr "Filter"
+
+#: static/horizon/js/horizon.instances.js:232
+msgid "Could not read the file"
+msgstr "Die Datei konnte nicht gelesen werden"
+
+#: static/horizon/js/horizon.instances.js:238
+#: static/horizon/js/horizon.instances.js:265
+msgid "Could not decrypt the password"
+msgstr "Das Passwort konnte nicht entschlüsselt werden"
+
+#: static/horizon/js/horizon.membership.js:190
+msgid "No roles"
+msgstr "Keine Rollen"
+
+#: static/horizon/js/horizon.membership.js:222
+msgid "Roles"
+msgstr "Rollen"
+
+#: static/horizon/js/horizon.messages.js:11
+msgid "Danger: "
+msgstr "Gefahr:"
+
+#: static/horizon/js/horizon.messages.js:12
+msgid "Warning: "
+msgstr "Warnung:"
+
+#: static/horizon/js/horizon.messages.js:13
+msgid "Notice: "
+msgstr "Nachricht:"
+
+#: static/horizon/js/horizon.messages.js:14
+msgid "Success: "
+msgstr "Erfolg:"
+
+#: static/horizon/js/horizon.messages.js:15
+msgid "Error: "
+msgstr "Fehler:"
+
+#: static/horizon/js/horizon.modals.js:33
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: static/horizon/js/horizon.modals.js:208
+#: static/horizon/js/horizon.tables.js:200
+msgid "Working"
+msgstr "In Arbeit"
+
+#: static/horizon/js/horizon.modals.js:238
+msgid "There was an error submitting the form. Please try again."
+msgstr "Es gab einen Fehler beim Abschicken des Formulars. Bitte versuchen Sie es noch einmal."
+
+#: static/horizon/js/horizon.networktopology.js:535
+msgid "STATUS"
+msgstr "STATUS"
+
+#: static/horizon/js/horizon.networktopology.js:536
+msgid "ID"
+msgstr "ID"
+
+#: static/horizon/js/horizon.networktopology.js:537
+msgid "Interfaces"
+msgstr "Schnittstellen"
+
+#: static/horizon/js/horizon.networktopology.js:538
+msgid "Interface"
+msgstr "Schnittstelle"
+
+#: static/horizon/js/horizon.networktopology.js:539
+msgid "open console"
+msgstr "offene Konsole"
+
+#: static/horizon/js/horizon.networktopology.js:540
+#, c-format
+msgid "view %s details"
+msgstr "Details zu %s anzeigen"
+
+#: static/horizon/js/horizon.networktopology.js:545
+msgid "Add Interface"
+msgstr "Schnittstelle hinzufügen"
+
+#: static/horizon/js/horizon.tables.js:39
+#: static/horizon/js/horizon.tables.js:320
+msgid "No items to display."
+msgstr "Kein Eintrag zum anzeigen."
+
+#: static/horizon/js/horizon.tables.js:52
+#: static/horizon/js/horizon.tables.js:129
+msgid "An error occurred while updating."
+msgstr "Ein Fehler ist beim Aktualisieren aufgetreten."
+
+#: static/horizon/js/horizon.tables.js:183
+#, c-format
+msgid "You have selected %s. "
+msgstr "Sie haben %s ausgewählt."
+
+#: static/horizon/js/horizon.tables.js:185
+#, c-format
+msgid "Confirm %s"
+msgstr "%s bestätigen"
+
+#: static/horizon/js/horizon.tables.js:186
+msgid "Please confirm your selection. This action cannot be undone."
+msgstr "Bitte bestätigen Sie ihre Auswahl. Diese Aktion kann nicht rückgängig gemacht werden."
+
+#: static/horizon/js/horizon.tables.js:307
+#, c-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] "Zeige %s Eintrag an"
+msgstr[1] "Zeige %s Einträge an"
+
+#: static/horizon/js/horizon.tables_inline_edit.js:88
+#: static/horizon/js/horizon.tables_inline_edit.js:169
+msgid "Not authorized to do this operation."
+msgstr "Keine Berechtigung für diese Aktion."
+
+#: static/horizon/js/horizon.users.js:18
+msgid "Passwords do not match."
+msgstr "Die Passwörter stimmen nicht überein."
