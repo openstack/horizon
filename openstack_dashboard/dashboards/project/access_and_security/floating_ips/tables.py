@@ -73,6 +73,8 @@ class ReleaseIPs(tables.BatchAction):
     name = "release"
     classes = ('btn-danger',)
     icon = "unlink"
+    help_text = _("Once a floating IP is released, there is"
+                  " no guarantee the same IP can be allocated again.")
 
     @staticmethod
     def action_present(count):

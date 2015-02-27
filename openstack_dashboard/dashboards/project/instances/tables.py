@@ -83,6 +83,7 @@ class TerminateInstance(policy.PolicyTargetMixin, tables.BatchAction):
     classes = ("btn-danger",)
     icon = "off"
     policy_rules = (("compute", "compute:delete"),)
+    help_text = _("Terminated instances are not recoverable.")
 
     @staticmethod
     def action_present(count):
@@ -112,6 +113,8 @@ class RebootInstance(policy.PolicyTargetMixin, tables.BatchAction):
     name = "reboot"
     classes = ('btn-danger', 'btn-reboot')
     policy_rules = (("compute", "compute:reboot"),)
+    help_text = _("Restarted instances will lose any data"
+                  " not saved in persistent storage.")
 
     @staticmethod
     def action_present(count):
@@ -689,6 +692,7 @@ class StopInstance(policy.PolicyTargetMixin, tables.BatchAction):
     name = "stop"
     classes = ('btn-danger',)
     policy_rules = (("compute", "compute:stop"),)
+    help_text = _("To power off a specific instance.")
 
     @staticmethod
     def action_present(count):
