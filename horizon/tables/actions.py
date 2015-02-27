@@ -52,7 +52,7 @@ class BaseActionMetaClass(type):
     initialized clean way. Similar principle is used in DataTableMetaclass.
     """
     def __new__(mcs, name, bases, attrs):
-        # Options of action are set ass class attributes, loading them.
+        # Options of action are set as class attributes, loading them.
         options = {}
         if attrs:
             options = attrs
