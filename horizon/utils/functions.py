@@ -14,6 +14,8 @@ import decimal
 import math
 import re
 
+from oslo_utils import units
+
 from django.conf import settings
 from django.contrib.auth import logout  # noqa
 from django import http
@@ -32,7 +34,7 @@ lazy_join = lazy(_lazy_join, unicode)
 def bytes_to_gigabytes(bytes):
     # Converts the number of bytes to the next highest number of Gigabytes
     # For example 5000000 (5 Meg) would return '1'
-    return int(math.ceil(float(bytes) / 1024 ** 3))
+    return int(math.ceil(float(bytes) / units.Gi))
 
 
 def add_logout_reason(request, response, reason):

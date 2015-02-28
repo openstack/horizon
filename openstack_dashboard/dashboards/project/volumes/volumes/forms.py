@@ -17,6 +17,8 @@
 Views for managing volumes.
 """
 
+from oslo_utils import units
+
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.forms import ValidationError  # noqa
@@ -105,7 +107,7 @@ class CreateForm(forms.SelfHandlingForm):
             attrs={'class': 'image-selector'},
             data_attrs=('size', 'name'),
             transform=lambda x: "%s (%s)" % (
-                x.name, filesizeformat(x.size * 1024 * 1024 * 1024))),
+                x.name, filesizeformat(x.size * units.Gi))),
         required=False)
     type = forms.ChoiceField(
         label=_("Type"),
