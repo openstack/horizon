@@ -1,0 +1,30 @@
+<div class="pie-chart">
+  <chart-tooltip tooltip-data="model.tooltipData"></chart-tooltip>
+
+  <div ng-if="::model.settings.showTitle && chartData.title"
+    class="pie-chart-title">
+    {$ ::chartData.title $} ({$ model.total $} Max)
+  </div>
+
+  <svg class="svg-pie-chart"
+    ng-attr-height="{$ ::model.settings.diameter $}"
+    ng-attr-width="{$ ::model.settings.diameter $}">
+    <g class="chart"
+      ng-attr-transform="translate({$ ::model.settings.outerRadius $},{$ ::model.settings.outerRadius $})">
+      <g class="slices"></g>
+      <g ng-if="::model.settings.showLabel && chartData.label" class="pie-chart-label">
+        <text dy="0.35em" ng-style="model.settings.label">{$ chartData.label $}</text>
+      </g>
+    </g>
+  </svg>
+
+  <div ng-if="::model.settings.showLegend" class="pie-chart-legend">
+    <div ng-repeat="slice in chartData.data | showKeyFilter"
+      class="slice-legend">
+      <div class="slice-key"
+        ng-class="slice.colorClass"
+        ng-style="{ 'background-color': '{$ slice.color $}' }"></div>
+      {$ slice.value $} {$ slice.label $}
+    </div>
+  </div>
+</div>

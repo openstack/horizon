@@ -1,0 +1,25 @@
+.chart-tooltip {
+  background-color: $tooltip-bg-color;
+  border: $tooltip-border;
+  box-shadow: $tooltip-box-shadow;
+  display: none;
+  padding: $tooltip-padding;
+  position: absolute;
+  white-space: nowrap;
+  z-index: 12000;
+
+  &.tooltip-enabled {
+    display: inline-block;
+  }
+
+  .tooltip-key {
+    color: $tooltip-key-color;
+    font-weight: $tooltip-key-weight;
+    padding: $tooltip-key-padding;
+  }
+
+  i.fa {
+    background-color: inherit;
+    fill: none;
+  }
+}

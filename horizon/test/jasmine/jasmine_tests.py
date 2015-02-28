@@ -30,6 +30,9 @@ class ServicesTests(test.JasmineTests):
         'angular/modal/modal.js',
         'angular/bind-scope/bind-scope.js',
         'angular/transfer-table/transfer-table.js',
+        'angular/charts/charts.js',
+        'angular/charts/chart-tooltip.js',
+        'angular/charts/pie-chart.js',
     ]
     specs = [
         'horizon/tests/jasmine/utilsSpec.js',
@@ -41,9 +44,12 @@ class ServicesTests(test.JasmineTests):
         'angular/modal/simple-modal.spec.js',
         'angular/bind-scope/bind-scope.spec.js',
         'angular/transfer-table/transfer-table.spec.js',
+        'angular/charts/pie-chart.spec.js',
     ]
     externalTemplates = [
         'angular/help-panel/help-panel.html',
         'angular/wizard/wizard.html',
         'angular/transfer-table/transfer-table.html',
+        'angular/charts/chart-tooltip.html',
+        'angular/charts/pie-chart.html',
     ]
