@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-26 21:50-0600\n"
-"PO-Revision-Date: 2015-02-25 13:50+0000\n"
+"POT-Creation-Date: 2015-02-27 11:19-0600\n"
+"PO-Revision-Date: 2015-02-27 16:23+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/horizon/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -420,6 +420,26 @@ msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.nova.js:144
 msgid "Unable to create the server."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.nova.js:158
+msgid "Unable to retrieve server."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.nova.js:188
+msgid "Unable to retrieve extensions."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.nova.js:214
+msgid "Unable to retrieve flavors."
+msgstr "Nemoguće je dobiti arome."
+
+#: static/horizon/js/angular/services/hz.api.nova.js:232
+msgid "Unable to retrieve flavor."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.nova.js:246
+msgid "Unable to retrieve flavor extra specs."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.security-group.js:64
