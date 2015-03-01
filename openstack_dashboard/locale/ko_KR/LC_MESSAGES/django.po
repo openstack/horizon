@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-27 11:19-0600\n"
-"PO-Revision-Date: 2015-02-27 16:23+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-02-28 02:08-0600\n"
+"PO-Revision-Date: 2015-02-28 18:54+0000\n"
+"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2116,7 +2116,7 @@ msgstr ""
 
 #: dashboards/admin/info/tables.py:225
 msgid "Orchestration Services"
-msgstr ""
+msgstr "Orchestration 서비스"
 
 #: dashboards/admin/info/tabs.py:74
 msgid "Unable to get cinder services list."
@@ -2132,7 +2132,7 @@ msgstr "네트워크 에이전트 목록을 불러올 수 없습니다."
 
 #: dashboards/admin/info/tabs.py:116
 msgid "Orchestration service is disabled."
-msgstr ""
+msgstr "Orchestration 서비스는 비활성화 되었습니다."
 
 #: dashboards/admin/info/tabs.py:123
 msgid "Unable to get Orchestration service list."
