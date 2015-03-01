@@ -95,7 +95,7 @@ class CreateVolume(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Volume")
     url = "horizon:project:volumes:volumes:create"
-    classes = ("ajax-modal",)
+    classes = ("ajax-modal", "btn-create")
     icon = "plus"
     policy_rules = (("volume", "volume:create"),)
     ajax = True
