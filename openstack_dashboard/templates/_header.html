@@ -115,7 +115,7 @@
               <a tabindex="-1" href="#">
                 <i class="fa fa-angle-double-left"></i> Switch session
               </a>
-              <ul class="dropdown-menu pull-left">
+              <ul class="dropdown-menu dropdown-menu-right">
                 {% for org in request.organizations %}
 
                   {% if org.id == request.user.default_project_id %}

@@ -77,8 +77,10 @@ textarea {
   .switch{
     position: relative;
     margin-top: 14px;
-    float: left;
     margin-left: 45px;
+    a{
+      text-align: left;
+    }
   }
 
   .btn.btn-link {
