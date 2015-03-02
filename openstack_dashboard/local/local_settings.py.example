@@ -544,11 +544,11 @@ SECURITY_GROUP_RULES = {
 
 # USER REGISTRATION
 # KEYSTONE ADMIN ACCOUNT FOR THE IdM
-OPENSTACK_KEYSTONE_ADMIN_CREDENTIALS = {
-    'USERNAME': 'the_username',
-    'PASSWORD': 'the_password',
-    'PROJECT': 'the_projectname',
-    'DOMAIN': 'the_domainname',
+IDM_USER_CREDENTIALS = {
+    'username': 'idm',
+    'password': 'idm',
+    'project': 'idm',
+    'domain': 'default',
 }
 RESET_PASSWORD_DAYS = 1
 ACCOUNT_ACTIVATION_DAYS = 1
