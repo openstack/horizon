@@ -207,11 +207,11 @@ SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
 # TODO(garcianavalon) probably remove this
 #KEYSTONE ADMIN ACCOUNT FOR THE IdM
-OPENSTACK_KEYSTONE_ADMIN_CREDENTIALS = {
-    'USERNAME': 'idm',
-    'PASSWORD': 'idm',
-    'PROJECT': 'idm',
-    'DOMAIN': 'default',
+IDM_USER_CREDENTIALS = {
+    'username': 'idm',
+    'password': 'idm',
+    'project': 'idm',
+    'domain': 'default',
 }
 #USER REGISTRATION
 RESET_PASSWORD_DAYS = 1
