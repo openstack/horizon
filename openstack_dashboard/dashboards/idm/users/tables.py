@@ -14,7 +14,6 @@
 
 import logging
 
-from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 
 from horizon import tables
@@ -28,13 +27,13 @@ LOG = logging.getLogger('idm_logger')
 class OrganizationsTable(tables.DataTable):
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
-    name = tables.Column('name', verbose_name=_('Name'))
+    name = tables.Column('name', verbose_name=('Name'))
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
-                                verbose_name=_('Description'))
+                                verbose_name=('Description'))
 
     class Meta:
         name = "organizations"
-        verbose_name = _("Organizations")
+        verbose_name = ("Organizations")
         row_class = idm_tables.OrganizationClickableRow
         table_actions = (tables.FilterAction,)
 
@@ -42,12 +41,12 @@ class OrganizationsTable(tables.DataTable):
 class ApplicationsTable(tables.DataTable):
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
-    name = tables.Column('name', verbose_name=_('Applications'))
+    name = tables.Column('name', verbose_name=('Applications'))
     url = tables.Column(lambda obj: getattr(obj, 'url', None))
     
 
     class Meta:
         name = "applications"
-        verbose_name = _("Applications")
+        verbose_name = ("Applications")
         row_class = idm_tables.ApplicationClickableRow
         table_actions = (tables.FilterAction,)

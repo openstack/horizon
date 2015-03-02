@@ -17,7 +17,6 @@ import logging
 
 from django.conf import settings
 from django.core.urlresolvers import reverse
-from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
@@ -58,7 +57,7 @@ class DetailOrganizationView(tables.MultiTableView):
     table_classes = (organization_tables.MembersTable,
                      organization_tables.AuthorizingApplicationsTable)
     
-    def get_members_data(self):        
+    def get_members_data(self):
         users = []
         try:
             # NOTE(garcianavalon) Filtering by project doesn't work anymore
@@ -71,7 +70,7 @@ class DetailOrganizationView(tables.MultiTableView):
             users = [user for user in all_users if user.id in project_users_roles]
         except Exception:
             exceptions.handle(self.request,
-                              _("Unable to retrieve member information."))
+                              ("Unable to retrieve member information."))
         return users
 
     def get_applications_data(self):
@@ -88,7 +87,7 @@ class DetailOrganizationView(tables.MultiTableView):
                             if app.id in apps_with_roles]
         except Exception:
             exceptions.handle(self.request,
-                              _("Unable to retrieve application list."))
+                              ("Unable to retrieve application list."))
         return idm_utils.filter_default(applications)
 
     def _can_edit(self):
@@ -163,7 +162,7 @@ class BaseOrganizationsMultiFormView(idm_views.BaseMultiFormView):
         except Exception:
             redirect = reverse("horizon:idm:organizations:index")
             exceptions.handle(self.request, 
-                    _('Unable to update organization'), redirect=redirect)
+                    ('Unable to update organization'), redirect=redirect)
 
     def get_initial(self, form_class):
         initial = super(BaseOrganizationsMultiFormView, 
@@ -193,7 +192,7 @@ class BaseOrganizationsMultiFormView(idm_views.BaseMultiFormView):
         return context
 
 
-class InfoFormHandleView(BaseOrganizationsMultiFormView):    
+class InfoFormHandleView(BaseOrganizationsMultiFormView):
     form_to_handle_class = organization_forms.InfoForm
 
 class ContactFormHandleView(BaseOrganizationsMultiFormView):

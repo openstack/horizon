@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Tom Fifield <tom@openstack.org>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-18 20:37-0500\n"
-"PO-Revision-Date: 2014-10-19 01:37+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-10-05 14:55+0000\n"
+"PO-Revision-Date: 2014-10-04 04:45+0000\n"
+"Last-Translator: Zhang Xiaowei <zero00072@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: base.py:480
+#: base.py:454
 msgid "Other"
 msgstr "其他"
 
@@ -91,50 +92,50 @@ msgstr "取消"
 msgid "Filter"
 msgstr "篩選"
 
-#: tables/actions.py:758
+#: tables/actions.py:756
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:760
+#: tables/actions.py:758
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:788 tables/base.py:1543
+#: tables/actions.py:786 tables/base.py:1537
 msgid "N/A"
 msgstr "N/A"
 
-#: tables/actions.py:817
+#: tables/actions.py:815
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "不允許您%(action)s：%(objs)s"
 
-#: tables/actions.py:824
+#: tables/actions.py:822
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "無法%(action)s：%(objs)s"
 
-#: tables/actions.py:830
+#: tables/actions.py:828
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s：%(objs)s"
 
-#: tables/actions.py:900
+#: tables/actions.py:898
 msgid "Delete"
 msgstr "刪除"
 
-#: tables/actions.py:902
+#: tables/actions.py:900
 msgid "Deleted"
 msgstr "已刪除"
 
-#: tables/actions.py:933
+#: tables/actions.py:931
 msgid "Update"
 msgstr "更新"
 
-#: tables/actions.py:934
+#: tables/actions.py:932
 msgid "Updated"
 msgstr "已更新"
 
@@ -147,7 +148,7 @@ msgstr "%(obj)s 不存在 %(attr)s 屬性。"
 msgid "No items to display."
 msgstr "沒有項目可以列出。"
 
-#: tables/base.py:1076
+#: tables/base.py:1074
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr "動作"
@@ -157,7 +158,7 @@ msgstr "動作"
 msgid "No match returned for the id \"%s\"."
 msgstr "沒有符合識別號「%s」的結果。"
 
-#: tables/base.py:1459
+#: tables/base.py:1453
 msgid "Please select a row before taking that action."
 msgstr "執行動作前請選擇一個欄位。"
 
@@ -221,7 +222,7 @@ msgstr "摘要"
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] ""
+msgstr[0] "顯示 %(counter)s 個項目"
 
 #: templates/horizon/common/_data_table.html:68
 msgid "&laquo;&nbsp;Prev"
@@ -235,19 +236,9 @@ msgstr "下一頁&nbsp;&raquo;"
 msgid "More Actions"
 msgstr "更多動作"
 
-#: templates/horizon/common/_domain_page_header.html:6
-#, python-format
-msgid "%(context_name)s:"
-msgstr ""
-
 #: templates/horizon/common/_formset_table.html:35
 msgid "Add a row"
 msgstr "加入一列"
-
-#: templates/horizon/common/_formset_table_row.html:15
-#, python-format
-msgid "%(name)s: %(error)s"
-msgstr ""
 
 #: templates/horizon/common/_limit_summary.html:4
 msgid "Limit Summary"
@@ -270,7 +261,7 @@ msgstr "已使用 <span>%(available)s</span> 個中的 <span>%(used)s</span> 個
 
 #: templates/horizon/common/_limit_summary.html:14
 msgid "VCPUs"
-msgstr "虛擬 CPU 數"
+msgstr "虛擬處理器數"
 
 #: templates/horizon/common/_limit_summary.html:21
 msgid "RAM"
@@ -316,8 +307,8 @@ msgstr "無效的鍵名"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:88
 #: templates/horizon/common/_modal_form_update_metadata.html:200
-msgid "No available metadata"
-msgstr ""
+msgid "No existing metadata"
+msgstr "沒有存在的描述資料"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:99
 msgid "Existing Metadata"
@@ -342,21 +333,21 @@ msgstr "儲存"
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] ""
+msgstr[0] "顯示 %(nav_items)s 個項目"
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] ""
+msgstr[0] "顯示 %(content_items)s 個項目"
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
 msgstr "使用量摘要"
 
 #: templates/horizon/common/_usage_summary.html:7
-msgid "Select a period of time to query its usage:"
-msgstr ""
+msgid "Select a period of time to query its usage"
+msgstr "選擇一個時段來查詢它的使用量"
 
 #: templates/horizon/common/_usage_summary.html:9
 #, python-format
@@ -377,20 +368,20 @@ msgid "The date should be in YYYY-mm-dd format."
 msgstr "日期的格式應該為 YY-mm-dd。"
 
 #: templates/horizon/common/_usage_summary.html:20
-msgid "Active Instances:"
-msgstr ""
+msgid "Active Instances"
+msgstr "活躍的執行實例"
 
 #: templates/horizon/common/_usage_summary.html:21
-msgid "Active RAM:"
-msgstr ""
+msgid "Active RAM"
+msgstr "活躍的隨機存取記憶體"
 
 #: templates/horizon/common/_usage_summary.html:22
-msgid "This Period's VCPU-Hours:"
-msgstr ""
+msgid "This Period's VCPU-Hours"
+msgstr "此時段的虛擬處理器時數"
 
 #: templates/horizon/common/_usage_summary.html:23
-msgid "This Period's GB-Hours:"
-msgstr ""
+msgid "This Period's GB-Hours"
+msgstr "此時段的 GB 時數"
 
 #: templates/horizon/common/_workflow.html:40
 msgid "Back"
@@ -416,7 +407,7 @@ msgstr "可用"
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
-msgstr[0] ""
+msgstr[0] "%(size)d 位元組"
 
 #: templatetags/sizeformat.py:57
 #, python-format
@@ -444,20 +435,18 @@ msgid "%s PB"
 msgstr "%s PB"
 
 #: templatetags/sizeformat.py:77
-msgid "0 Bytes"
-msgstr ""
+msgid "0 bytes"
+msgstr "0 位元組"
 
-#. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:31
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
-msgstr[0] ""
+msgstr[0] "賣出狗狗"
 
-#. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:40
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
-msgstr[0] ""
+msgstr[0] "已賣出狗狗"
 
 #: utils/filters.py:49
 msgid "Never"

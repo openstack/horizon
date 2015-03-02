@@ -669,7 +669,8 @@ class InstanceTests(helpers.TestCase):
     })
     def _get_instance_details(self, server, qs=None,
                               flavor_return=None, volumes_return=None,
-                              security_groups_return=None, ):
+                              security_groups_return=None,
+                              flavor_exception=False):
 
         url = reverse('horizon:project:instances:detail', args=[server.id])
         if qs:
@@ -689,8 +690,12 @@ class InstanceTests(helpers.TestCase):
                                              IgnoreArg())
         api.nova.instance_volumes_list(IsA(http.HttpRequest),
                                        server.id).AndReturn(volumes_return)
-        api.nova.flavor_get(IsA(http.HttpRequest), server.flavor['id']) \
-            .AndReturn(flavor_return)
+        if flavor_exception:
+            api.nova.flavor_get(IsA(http.HttpRequest), server.flavor['id']) \
+                    .AndRaise(self.exceptions.nova)
+        else:
+            api.nova.flavor_get(IsA(http.HttpRequest), server.flavor['id']) \
+                    .AndReturn(flavor_return)
         api.network.server_security_groups(IsA(http.HttpRequest), server.id) \
             .AndReturn(security_groups_return)
         api.network.floating_ip_simple_associate_supported(
@@ -822,6 +827,13 @@ class InstanceTests(helpers.TestCase):
         res = self.client.get(url)
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    def test_instance_details_flavor_not_found(self):
+        server = self.servers.first()
+        res = self._get_instance_details(server, flavor_exception=True)
+        self.assertTemplateUsed(res,
+                                'project/instances/_detail_overview.html')
+        self.assertContains(res, "Not available")
 
     @helpers.create_stubs({api.nova: ('server_console_output',)})
     def test_instance_log(self):
@@ -3213,6 +3225,34 @@ class InstanceTests(helpers.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    @helpers.create_stubs({api.nova: ('server_get',
+                                      'flavor_list',
+                                      'flavor_get',
+                                      'tenant_absolute_limits',
+                                      'extension_supported')})
+    def test_instance_resize_get_current_flavor_not_found(self):
+        server = self.servers.first()
+        api.nova.server_get(IsA(http.HttpRequest), server.id) \
+            .AndReturn(server)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn([])
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn([])
+        api.nova.flavor_get(IsA(http.HttpRequest), server.flavor['id']) \
+            .AndRaise(self.exceptions.nova)
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
+           .AndReturn(self.limits['absolute'])
+        api.nova.extension_supported('DiskConfig',
+                                     IsA(http.HttpRequest)) \
+            .AndReturn(True)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:instances:resize', args=[server.id])
+        res = self.client.get(url)
+
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
+
     def _instance_resize_post(self, server_id, flavor_id, disk_config):
         formData = {'flavor': flavor_id,
                     'default_role': 'member',
@@ -3714,6 +3754,35 @@ class InstanceAjaxTests(helpers.TestCase):
         # a different availability zone.', u'']]
         self.assertEqual(messages[0][0], 'error')
         self.assertTrue(messages[0][1].startswith('Failed'))
+
+    @helpers.create_stubs({api.nova: ("server_get",
+                                      "flavor_get",
+                                      "extension_supported"),
+                           api.neutron: ("is_extension_supported",)})
+    def test_row_update_flavor_not_found(self):
+        server = self.servers.first()
+        instance_id = server.id
+
+        api.nova.extension_supported('AdminActions', IsA(http.HttpRequest))\
+            .MultipleTimes().AndReturn(True)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'security-group')\
+            .MultipleTimes().AndReturn(True)
+        api.nova.server_get(IsA(http.HttpRequest), instance_id)\
+            .AndReturn(server)
+        api.nova.flavor_get(IsA(http.HttpRequest), server.flavor["id"])\
+            .AndRaise(self.exceptions.nova)
+
+        self.mox.ReplayAll()
+
+        params = {'action': 'row_update',
+                  'table': 'instances',
+                  'obj_id': instance_id,
+                  }
+        res = self.client.get('?'.join((INDEX_URL, urlencode(params))),
+                              HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        self.assertContains(res, server.name)
+        self.assertContains(res, "Not available")
 
 
 class ConsoleManagerTests(helpers.TestCase):

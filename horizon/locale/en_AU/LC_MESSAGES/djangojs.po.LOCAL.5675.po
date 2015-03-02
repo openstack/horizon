@@ -3,186 +3,188 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# sercanaydogan <sercanaydogan@gmail.com>, 2014
+# Akihiro Motoki <amotoki@gmail.com>, 2014
+# Tom Fifield <tom@openstack.org>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-18 20:37-0500\n"
-"PO-Revision-Date: 2014-10-18 14:31+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/horizon/language/tr_TR/)\n"
+"POT-Creation-Date: 2014-12-02 00:51-0600\n"
+"PO-Revision-Date: 2014-12-02 19:17+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"Language-Team: English (Australia) (http://www.transifex.com/projects/p/horizon/language/en_AU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr_TR\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: en_AU\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: static/horizon/js/horizon.accordion_nav.js:83
 #: static/horizon/js/horizon.modals.js:309
 #: static/horizon/js/horizon.tabs.js:21
 msgid "Loading"
-msgstr "Yükleniyor"
+msgstr "Loading"
 
 #: static/horizon/js/horizon.d3linechart.js:394
 #: static/horizon/js/horizon.d3linechart.js:404
 msgid "No data available."
-msgstr "Veri yok."
+msgstr "No data available."
 
 #: static/horizon/js/horizon.d3linechart.js:410
 #: static/horizon/js/horizon.modals.js:328
 #: static/horizon/js/horizon.tables_inline_edit.js:94
 #: static/horizon/js/horizon.tables_inline_edit.js:175
 msgid "An error occurred. Please try again later."
-msgstr "Bir hata oluştu. Lütfen tekrar deneyin."
+msgstr "An error occurred. Please try again later."
 
 #: static/horizon/js/horizon.firewalls.js:30
 #: static/horizon/js/horizon.instances.js:30
 msgid "There was a problem communicating with the server, please try again."
-msgstr "Sunucu ile iletişimde bir sorun var, lütfen tekrar deneyin."
+msgstr "There was a problem communicating with the server, please try again."
 
 #: static/horizon/js/horizon.forms.js:195
 msgid "Filter"
-msgstr "Filtre"
+msgstr "Filter"
 
 #: static/horizon/js/horizon.instances.js:248
 msgid "Could not read the file"
-msgstr "Dosya okunamadı"
+msgstr "Could not read the file"
 
 #: static/horizon/js/horizon.instances.js:254
 #: static/horizon/js/horizon.instances.js:281
 msgid "Could not decrypt the password"
-msgstr "Şifre Çözülemedi"
+msgstr "Could not decrypt the password"
 
 #: static/horizon/js/horizon.membership.js:190
 msgid "No roles"
-msgstr "Roller yok"
+msgstr "No roles"
 
 #: static/horizon/js/horizon.membership.js:222
 msgid "Roles"
-msgstr "Roller"
+msgstr "Roles"
 
 #: static/horizon/js/horizon.messages.js:9
 msgid "Danger: "
-msgstr "Tehlike:"
+msgstr "Danger: "
 
 #: static/horizon/js/horizon.messages.js:10
 msgid "Warning: "
-msgstr "Uyarı:"
+msgstr "Warning: "
 
 #: static/horizon/js/horizon.messages.js:11
 msgid "Notice: "
-msgstr "Dikkat:"
+msgstr "Notice: "
 
 #: static/horizon/js/horizon.messages.js:12
 msgid "Success: "
-msgstr "Sonuç:"
+msgstr "Success: "
 
 #: static/horizon/js/horizon.messages.js:13
 msgid "Error: "
-msgstr "Hata:"
+msgstr "Error: "
 
 #: static/horizon/js/horizon.modals.js:33
 msgid "Cancel"
-msgstr "İptal"
+msgstr "Cancel"
 
 #: static/horizon/js/horizon.modals.js:225
-#: static/horizon/js/horizon.tables.js:223
+#: static/horizon/js/horizon.tables.js:221
 msgid "Working"
-msgstr "Çalışıyor"
+msgstr "Working"
 
 #: static/horizon/js/horizon.modals.js:259
 msgid "There was an error submitting the form. Please try again."
-msgstr "Formu gönderirken bir hata oluştu. Lütfen tekrar deneyin."
+msgstr "There was an error submitting the form. Please try again."
 
 #: static/horizon/js/horizon.networktopology.js:511
 #: static/horizon/js/horizon.networktopology.js:517
 msgid "None"
-msgstr "Yok"
+msgstr "None"
 
 #: static/horizon/js/horizon.networktopology.js:530
 msgid "Delete"
-msgstr "Sil"
+msgstr "Delete"
 
 #: static/horizon/js/horizon.networktopology.js:533
 msgid "STATUS"
-msgstr "DURUM"
+msgstr "STATUS"
 
 #: static/horizon/js/horizon.networktopology.js:534
 msgid "ID"
-msgstr "KİMLİK"
+msgstr "ID"
 
 #: static/horizon/js/horizon.networktopology.js:535
 msgid "Interfaces"
-msgstr "Arayüzler"
+msgstr "Interfaces"
 
 #: static/horizon/js/horizon.networktopology.js:536
 msgid "Delete Interface"
-msgstr ""
+msgstr "Delete Interface"
 
 #: static/horizon/js/horizon.networktopology.js:537
 msgid "Open Console"
-msgstr ""
+msgstr "Open Console"
 
 #: static/horizon/js/horizon.networktopology.js:538
 msgid "View Details"
-msgstr ""
+msgstr "View Details"
 
 #: static/horizon/js/horizon.networktopology.js:541
 msgid "Delete Router"
-msgstr ""
+msgstr "Delete Router"
 
 #: static/horizon/js/horizon.networktopology.js:542
 msgid "View Router Details"
-msgstr ""
+msgstr "View Router Details"
 
 #: static/horizon/js/horizon.networktopology.js:545
 msgid "Add Interface"
-msgstr "Arayüz ekle"
+msgstr "Add Interface"
 
 #: static/horizon/js/horizon.networktopology.js:551
 msgid "Terminate Instance"
-msgstr ""
+msgstr "Terminate Instance"
 
 #: static/horizon/js/horizon.networktopology.js:552
 msgid "View Instance Details"
-msgstr ""
+msgstr "View Instance Details"
 
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:379
+#: static/horizon/js/horizon.tables.js:377
 msgid "No items to display."
-msgstr "Görüntülenecek öğe yok."
+msgstr "No items to display."
 
 #: static/horizon/js/horizon.tables.js:52
 #: static/horizon/js/horizon.tables.js:120
 msgid "An error occurred while updating."
-msgstr "Güncelleme sırasında bir hata oluştu."
+msgstr "An error occurred while updating."
+
+#: static/horizon/js/horizon.tables.js:204
+#, c-format
+msgid "You have selected %s. "
+msgstr "You have selected %s. "
 
 #: static/horizon/js/horizon.tables.js:206
 #, c-format
-msgid "You have selected %s. "
-msgstr "Seçili %s var."
-
-#: static/horizon/js/horizon.tables.js:208
-#, c-format
 msgid "Confirm %s"
-msgstr "%s Onayla"
+msgstr "Confirm %s"
 
-#: static/horizon/js/horizon.tables.js:209
+#: static/horizon/js/horizon.tables.js:207
 msgid "Please confirm your selection. This action cannot be undone."
-msgstr "Lütfen seçiminizi onaylayın. Bu işlem geri alınamaz."
+msgstr "Please confirm your selection. This action cannot be undone."
 
-#: static/horizon/js/horizon.tables.js:366
+#: static/horizon/js/horizon.tables.js:364
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
-msgstr[0] "%s adet gösteriliyor"
+msgstr[0] "Displaying %s item"
+msgstr[1] "Displaying %s items"
 
 #: static/horizon/js/horizon.tables_inline_edit.js:88
 #: static/horizon/js/horizon.tables_inline_edit.js:169
 msgid "Not authorized to do this operation."
-msgstr "Bu işlemi yapmak için yetkiniz yok."
+msgstr "Not authorised to do this operation."
 
 #: static/horizon/js/horizon.users.js:18
 msgid "Passwords do not match."
-msgstr "Şifreler uyuşmuyor."
+msgstr "Passwords do not match."

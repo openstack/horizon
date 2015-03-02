@@ -14,14 +14,7 @@
 
 import logging
 
-from django.utils.translation import ugettext_lazy as _
-from django.core.urlresolvers import reverse, reverse_lazy
-
-from django import shortcuts
-
 from horizon import views
-from horizon import exceptions
-
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.settings.cancelaccount import forms \
@@ -29,8 +22,8 @@ from openstack_dashboard.dashboards.settings.cancelaccount import forms \
 from openstack_dashboard.dashboards.settings.password import forms as password_forms
 from openstack_dashboard.dashboards.settings.useremail import forms as useremail_forms
 
-LOG = logging.getLogger('idm_logger')
 
+LOG = logging.getLogger('idm_logger')
 
 class MultiFormView(views.APIView):
     template_name = 'settings/multisettings/index.html'
@@ -56,9 +49,9 @@ class MultiFormView(views.APIView):
         email.action = 'useremail/'
         password.action = "password/"
         cancel.action = "cancelaccount/"
-        email.description = _('Change your email')
-        password.description = _('Change your password')
-        cancel.description = _('Cancel account')
+        email.description = ('Change your email')
+        password.description = ('Change your password')
+        cancel.description = ('Cancel account')
 
         context['forms'] = [password, email, cancel]
         return context

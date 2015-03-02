@@ -4,14 +4,14 @@
     {% if filter.filter_type == 'fixed' %}
     <div class="table_filter btn-group" data-toggle="buttons-radio">
         {% for button in filter.fixed_buttons %}
-        <button name="{{ filter.get_param_name }}" type="submit" value="{{ button.value }}" class="btn btn-default btn-sm{% ifequal button.value filter.filter_string %} active{% endifequal %}">{% if button.icon %}<i class="{{ button.icon }}"></i> {% endif %}{{ button.text }}{% if button.count >= 0 %} ({{ button.count }}){% endif %}</button>
+        <button name="{{ filter.get_param_name }}" type="submit" value="{{ button.value }}" class="btn btn-default btn-sm{% ifequal button.value filter.filter_string %} active{% endifequal %}">{% if button.icon %}<span class="fa {{ button.icon }}"></span> {% endif %}{{ button.text }}{% if button.count >= 0 %} ({{ button.count }}){% endif %}</button>
         {% endfor %}
     </div>
     {% elif filter.filter_type == 'query' %}
     <div class="table_search client">
         <div class="form-group has-feedback">
             <input class="form-control" value="{{ filter.filter_string|default:'' }}" type="text" name="{{ filter.get_param_name }}" />
-            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+            <span class="fa fa-search search-icon form-control-feedback"></span>
         </div>
         <button type="submit" {{ filter.attr_string|safe }}>{% trans "Filter" %}</button>
     </div>

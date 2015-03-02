@@ -12,15 +12,13 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.utils.translation import ugettext_lazy as _
-
 import horizon
 
 from openstack_dashboard.dashboards.idm import dashboard
 
 
 class Members(horizon.Panel):
-    name = _("Members")
+    name = ("Members")
     slug = "members"
 
     def nav(self, context):

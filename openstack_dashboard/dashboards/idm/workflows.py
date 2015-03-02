@@ -15,14 +15,13 @@
 import logging
 
 from django.core.urlresolvers import reverse
-from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
+from horizon import messages
 from horizon import workflows
 
 from openstack_dashboard.dashboards.idm import utils as idm_utils
-
 
 
 LOG = logging.getLogger('idm_logger')
@@ -60,7 +59,7 @@ class RelationshipConsumerMixin(object):
 
 class UpdateRelationshipAction(workflows.MembershipAction, 
                             RelationshipConsumerMixin):
-    ERROR_MESSAGE = _('Unable to retrieve data. Please try again later.')
+    ERROR_MESSAGE = ('Unable to retrieve data. Please try again later.')
     ERROR_URL = ''
 
     def __init__(self, request, *args, **kwargs):
@@ -163,7 +162,7 @@ class UpdateRelationshipStep(workflows.UpdateMembersStep,
                     self.workflow.request, superset_id)
             except Exception:
                 exceptions.handle(self.workflow.request,
-                                  _('Unable to retrieve list.'))
+                                  ('Unable to retrieve list.'))
 
             post = self.workflow.request.POST
             for obj in object_list:
@@ -176,6 +175,8 @@ class RelationshipWorkflow(workflows.Workflow,
                             RelationshipConsumerMixin):
     default_steps = (UpdateRelationshipStep,)
     member_slug = RELATIONSHIP_SLUG
+    current_user_editable = True
+
     def handle(self, request, data):
         superset_id = data['superset_id']
         member_step = self.get_step(self.member_slug)
@@ -186,6 +187,7 @@ class RelationshipWorkflow(workflows.Workflow,
             owners_objects_relationship = \
                 self.relationship._list_current_assignments(request,
                                                             superset_id)
+
             # re-index by object with a owner list for easier processing 
             # in later steps
             current_objects = idm_utils.swap_dict(owners_objects_relationship)
@@ -203,23 +205,35 @@ class RelationshipWorkflow(workflows.Workflow,
             # Add the objects
             for object_id in objects_to_add:
                 for owner_id in objects_to_add[object_id]:
-                  self.relationship._add_object_to_owner(
-                    self.request,
-                    superset=superset_id,
-                    owner=owner_id,
-                    obj=object_id)
+                    if (not self.current_user_editable
+                        and owner_id == request.user.id):
+
+                        messages.warning(
+                            request, 'You can\'t edit your own roles')
+                    else:
+                        self.relationship._add_object_to_owner(
+                            self.request,
+                            superset=superset_id,
+                            owner=owner_id,
+                            obj=object_id)
             # Remove the objects
             for object_id in objects_to_delete:
                 for owner_id in objects_to_delete[object_id]:
-                   self.relationship._remove_object_from_owner(
-                        self.request,
-                        superset=superset_id,
-                        owner=owner_id,
-                        obj=object_id)
+                    if (not self.current_user_editable
+                        and owner_id == request.user.id):
+
+                        messages.warning(
+                            request, 'You can\'t edit your own roles')
+                    else:
+                        self.relationship._remove_object_from_owner(
+                            self.request,
+                            superset=superset_id,
+                            owner=owner_id,
+                            obj=object_id)
             return True
         except Exception:
             exceptions.handle(request,
-                          _('Failed to modify organization\'s members.'))
+                          ('Failed to modify organization\'s members.'))
             return False
 
     def _create_add_and_delete_sets(self, modified_objects, current_objects):

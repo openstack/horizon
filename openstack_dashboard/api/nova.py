@@ -709,13 +709,13 @@ def instance_volume_detach(request, instance_id, att_id):
 
 
 def instance_volumes_list(request, instance_id):
-    from openstack_dashboard.api.cinder import cinderclient  # noqa
+    from openstack_dashboard.api import cinder
 
     volumes = novaclient(request).volumes.get_server_volumes(instance_id)
 
     for volume in volumes:
-        volume_data = cinderclient(request).volumes.get(volume.id)
-        volume.name = volume_data.display_name
+        volume_data = cinder.cinderclient(request).volumes.get(volume.id)
+        volume.name = cinder.Volume(volume_data).name
 
     return volumes
 

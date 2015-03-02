@@ -281,7 +281,7 @@ class RouterActionTests(test.TestCase):
         # TODO(amotoki): Due to Neutron Bug 1378525, Neutron disables
         # PUT operation. It will be fixed in Kilo cycle.
         # api.neutron.get_feature_permission(IsA(http.HttpRequest),
-        #                                    "l3-ha", "update")\
+        #                                "l3-ha", "update")\
         #     .AndReturn(ha_enabled)
         self.mox.ReplayAll()
 
@@ -335,7 +335,7 @@ class RouterActionTests(test.TestCase):
         # TODO(amotoki): Due to Neutron Bug 1378525, Neutron disables
         # PUT operation. It will be fixed in Kilo cycle.
         # api.neutron.get_feature_permission(IsA(http.HttpRequest),
-        #                                    "l3-ha", "update")\
+        #                                "l3-ha", "update")\
         #     .AndReturn(False)
         api.neutron.router_update(IsA(http.HttpRequest), router.id,
                                   name=router.name,
@@ -365,7 +365,11 @@ class RouterActionTests(test.TestCase):
         # TODO(amotoki): Due to Neutron Bug 1378525, Neutron disables
         # PUT operation. It will be fixed in Kilo cycle.
         # api.neutron.get_feature_permission(IsA(http.HttpRequest),
+<<<<<<< HEAD
         #                                    "l3-ha", "update")\
+=======
+        #                                "l3-ha", "update")\
+>>>>>>> juno
         #     .AndReturn(True)
         api.neutron.router_update(IsA(http.HttpRequest), router.id,
                                   name=router.name,

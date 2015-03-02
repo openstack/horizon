@@ -14,8 +14,6 @@
 
 import logging
 
-from django.conf import settings
-from django.utils.translation import ugettext_lazy as _
 from django.shortcuts import redirect
 
 from horizon import exceptions
@@ -56,7 +54,7 @@ class IndexView(tables.MultiTableView):
             users = [user for user in all_users if user.id in project_users_roles]
         except Exception:
             exceptions.handle(self.request,
-                              _("Unable to retrieve member information."))
+                              ("Unable to retrieve member information."))
         return users
 
     def get_applications_data(self):
@@ -71,7 +69,7 @@ class IndexView(tables.MultiTableView):
                             if app.id in apps_with_roles]
         except Exception:
             exceptions.handle(self.request,
-                              _("Unable to retrieve application list."))
+                              ("Unable to retrieve application list."))
         return idm_utils.filter_default(applications)
 
 class OrganizationMembersView(workflows.WorkflowView):

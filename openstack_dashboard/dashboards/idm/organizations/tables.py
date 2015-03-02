@@ -15,7 +15,6 @@
 import logging
 
 from django.core import urlresolvers
-from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
 
@@ -29,51 +28,51 @@ LOG = logging.getLogger('idm_logger')
 class OtherOrganizationsTable(tables.DataTable):
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
-    name = tables.Column('name', verbose_name=_('Name'))
+    name = tables.Column('name', verbose_name=('Name'))
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
-                                verbose_name=_('Description'))
+                                verbose_name=('Description'))
     
 
     class Meta:
         name = "other_organizations"
-        verbose_name = _("")
+        verbose_name = ("")
         row_class = idm_tables.OrganizationClickableRow
 
 
 class OwnedOrganizationsTable(tables.DataTable):
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
-    name = tables.Column('name', verbose_name=_('Name'))
+    name = tables.Column('name', verbose_name=('Name'))
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
-                                verbose_name=_('Description'))
+                                verbose_name=('Description'))
     switch = tables.Column(lambda obj: idm_utils.get_switch_url(
         obj, check_switchable=False))
 
 
     class Meta:
         name = "owned_organizations"
-        verbose_name = _("")
+        verbose_name = ("")
         row_class = idm_tables.OrganizationClickableRow
 
 
 class MemberOrganizationsTable(tables.DataTable):
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
-    name = tables.Column('name', verbose_name=_('Name'))
+    name = tables.Column('name', verbose_name=('Name'))
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
-                                verbose_name=_('Description'))
+                                verbose_name=('Description'))
 
 
     class Meta:
         name = "member_organizations"
-        verbose_name = _("")
+        verbose_name = ("")
         row_class = idm_tables.OrganizationClickableRow
 
 
 
 class ManageMembersLink(tables.LinkAction):
     name = "manage_members"
-    verbose_name = _("Manage Members")
+    verbose_name = ("Manage Members")
     url = "horizon:idm:organizations:members"
     classes = ("ajax-modal",)
 
@@ -93,12 +92,12 @@ class ManageMembersLink(tables.LinkAction):
 class MembersTable(tables.DataTable):
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_USER_MEDIUM_AVATAR))
-    username = tables.Column('username', verbose_name=_('Members'))
+    username = tables.Column('username', verbose_name=('Members'))
     
 
     class Meta:
         name = "members"
-        verbose_name = _("Members")
+        verbose_name = ("Members")
         table_actions = (tables.FilterAction, ManageMembersLink, )
         multi_select = False
         row_class = idm_tables.UserClickableRow
@@ -107,12 +106,12 @@ class MembersTable(tables.DataTable):
 class AuthorizingApplicationsTable(tables.DataTable):
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_APP_MEDIUM_AVATAR))
-    name = tables.Column('name', verbose_name=_('Applications'))
+    name = tables.Column('name', verbose_name=('Applications'))
     url = tables.Column(lambda obj: getattr(obj, 'url', None))
     
 
     class Meta:
         name = "applications"
-        verbose_name = _("Authorizing Applications")
+        verbose_name = ("Authorizing Applications")
         row_class = idm_tables.ApplicationClickableRow
         table_actions = (tables.FilterAction,)

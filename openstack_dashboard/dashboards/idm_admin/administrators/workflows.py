@@ -14,11 +14,6 @@
 
 import logging
 
-from django.conf import settings
-from django.utils.translation import ugettext_lazy as _
-
-from horizon import exceptions
-
 from openstack_dashboard import api
 from openstack_dashboard import fiware_api
 from openstack_dashboard.dashboards.idm import workflows as idm_workflows
@@ -89,30 +84,30 @@ class AuthorizedMembersApi(idm_workflows.RelationshipApiInterface):
 
 
 class UpdateAuthorizedMembersAction(idm_workflows.UpdateRelationshipAction):
-    ERROR_MESSAGE = _('Unable to retrieve data. Please try again later.')
+    ERROR_MESSAGE = ('Unable to retrieve data. Please try again later.')
     RELATIONSHIP_CLASS = AuthorizedMembersApi
     ERROR_URL = INDEX_URL
 
     class Meta:
-        name = _("Manage administrators")
+        name = ("Manage administrators")
         slug = idm_workflows.RELATIONSHIP_SLUG
 
 
 class UpdateAuthorizedMembers(idm_workflows.UpdateRelationshipStep):
     action_class = UpdateAuthorizedMembersAction
-    available_list_title = _("All users")
-    members_list_title = _("Administrators")
-    no_available_text = _("No users found.")
-    no_members_text = _("No users.")
+    available_list_title = ("All users")
+    members_list_title = ("Administrators")
+    no_available_text = ("No users found.")
+    no_members_text = ("No users.")
     RELATIONSHIP_CLASS = AuthorizedMembersApi
 
 
 class ManageAuthorizedMembers(idm_workflows.RelationshipWorkflow):
     slug = "manage_administrators_roles"
-    name = _("Manage Administrators")
-    finalize_button_name = _("Save")
-    success_message = _('Modified users.')
-    failure_message = _('Unable to modify users.')
+    name = ("Manage Administrators")
+    finalize_button_name = ("Save")
+    success_message = ('Modified users.')
+    failure_message = ('Unable to modify users.')
     success_url = INDEX_URL
     default_steps = (UpdateAuthorizedMembers,)
     RELATIONSHIP_CLASS = AuthorizedMembersApi

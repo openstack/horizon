@@ -287,7 +287,7 @@ class NetworkApiNeutronTests(NetworkApiNeutronTestBase):
                 .AndReturn({'floatingips': assoc_fips})
             self.qclient.list_ports(tenant_id=tenant_id) \
                 .AndReturn({'ports': self.api_ports.list()})
-        self.qclient.list_networks(id=server_network_ids) \
+        self.qclient.list_networks(id=set(server_network_ids)) \
             .AndReturn({'networks': server_networks})
         self.qclient.list_subnets() \
             .AndReturn({'subnets': self.api_subnets.list()})

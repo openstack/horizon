@@ -3,7 +3,7 @@
 {% block title %}{% trans "Home" %}{% endblock %}
 
 {% block page_header %}
-  {% include "horizon/common/_domain_page_header.html" with title=_("Home") %}
+  {% include "horizon/common/_domain_page_header.html" with title="Home" %}
 {% endblock page_header %}
 
 {% block main %}
@@ -12,14 +12,14 @@
         <div class="panel-heading">
             <div>
                 {{ applications_table }}
-                <a href="/idm/myApplications/create/">Register</a>
+                <a href="{% url 'horizon:idm:myApplications:create' %}">Register</a>
             </div>
         </div> 
         <div class="panel-body">
             {{ applications_table.render}}
         </div>
         <div class="panel-footer">
-            <a href="/idm/myApplications/">View All</a>
+            <a href="{% url 'horizon:idm:myApplications:index' %}">View All</a>
         </div>
     </div> 
     
@@ -41,7 +41,7 @@
       {% endif %}
     </div>
     <div class="panel-footer">
-            <a href="/idm/members/">View All</a>
+            <a href="{% url 'horizon:idm:members:index' %}">View All</a>
         </div>
   </div>
   </div>

@@ -559,10 +559,7 @@ ACCOUNT_ACTIVATION_DAYS = 1
 # IdM ADMIN
 # Application ID of the idm in the backend. Used for the administrator
 # dashboard
-IDM_ID = $idm_id
-# Internal roles IDs
-PURCHASER_ROLE_ID = $purchaser_role_id
-PROVIDER_ROLE_ID = $provider_role_id
+FIWARE_IDM_ADMIN_APP = 'idm'
 
 # reCAPTCHA
 # Get your keys at: https://www.google.com/recaptcha/admin#createsite
@@ -586,5 +583,10 @@ SUMMERNOTE_CONFIG = {
     ],
 }
 
-#Set owner role. Users with this role will have permission to edit organziations
+
+# KEYSTONE admin role for projects
 KEYSTONE_OWNER_ROLE = 'admin'
+
+# Default FIWARE roles
+FIWARE_PURCHASER_ROLE = 'purchaser'
+FIWARE_PROVIDER_ROLE = 'provider'

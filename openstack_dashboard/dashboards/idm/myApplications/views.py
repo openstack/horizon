@@ -15,7 +15,7 @@
 import logging
 
 from django.core.urlresolvers import reverse
-from django.utils.translation import ugettext_lazy as _
+
 from django.conf import settings
 
 from horizon import exceptions
@@ -24,7 +24,6 @@ from horizon import tables
 from horizon import tabs
 from horizon import workflows
 from horizon.utils import memoized
-
 
 from openstack_dashboard import api
 from openstack_dashboard import fiware_api
@@ -99,7 +98,7 @@ class RolesView(workflows.WorkflowView):
 
     def get_workflow(self):
         workflow = super(RolesView, self).get_workflow()
-        workflow.finalize_button_name = _("Finish")
+        workflow.finalize_button_name = ("Finish")
         return workflow
 
 
@@ -195,15 +194,23 @@ class DetailApplicationView(tables.MultiTableView):
         users = []
         try:
             # NOTE(garcianavalon) Get all the users' ids that belong to
-            # the application (they have one or more roles)
+            # the application (they have one or more roles in their default
+            # organization)
             all_users = api.keystone.user_list(self.request)
             role_assignments = fiware_api.keystone.user_role_assignments(
                 self.request, application=self.kwargs['application_id'])
-            users = [user for user in all_users if user.id
-                     in set([a.user_id for a in role_assignments])]
+            users_with_roles = set()
+            for user in all_users:
+                for a in role_assignments:
+                    if (user.id == a.user_id 
+                        and user.default_project_id == a.organization_id):
+                            users_with_roles.add(user.id)
+            users = [user for user in all_users 
+                     if user.id in users_with_roles]
+
         except Exception:
             exceptions.handle(self.request,
-                              _("Unable to retrieve member information."))
+                              ("Unable to retrieve member information."))
         return users
 
     def get_organizations_data(self):
@@ -219,7 +226,7 @@ class DetailApplicationView(tables.MultiTableView):
                      in set([a.organization_id for a in role_assignments])]
         except Exception:
             exceptions.handle(self.request,
-                              _("Unable to retrieve member information."))
+                              ("Unable to retrieve member information."))
         return organizations
 
     def _can_edit(self):
@@ -241,7 +248,6 @@ class DetailApplicationView(tables.MultiTableView):
                 self.request, user=user.id, organization=user.default_project_id)
         app_id = self.kwargs['application_id']
         return app_id in allowed_applications
-
 
     def allowed(self, request, user, application):
         # Allowed if your allowed role list is not empty
@@ -320,7 +326,7 @@ class BaseApplicationsMultiFormView(idm_views.BaseMultiFormView):
                 self.request, self.kwargs['application_id'])
         except Exception:
             redirect = reverse("horizon:idm:myApplications:index")
-            exceptions.handle(self.request, _('Unable to update application'),
+            exceptions.handle(self.request, ('Unable to update application'),
                 redirect=redirect)
 
     def get_initial(self, form_class):

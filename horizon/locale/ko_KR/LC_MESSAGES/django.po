@@ -3,14 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Chun-Kil Kang <gilbird@gmail.com>, 2014
+# Mario Cho <hephaex@gmail.com>, 2014
+# muhanpong <muhanpong@gmail.com>, 2014
 # Sungjin Kang <potopro@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-18 20:37-0500\n"
-"PO-Revision-Date: 2014-10-19 01:37+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-10-05 14:55+0000\n"
+"PO-Revision-Date: 2014-10-05 15:50+0000\n"
+"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +21,7 @@ msgstr ""
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: base.py:480
+#: base.py:454
 msgid "Other"
 msgstr "다른"
 
@@ -92,52 +95,52 @@ msgstr "취소"
 msgid "Filter"
 msgstr "필터"
 
-#: tables/actions.py:758
+#: tables/actions.py:756
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(data_type)s %(action)s"
 
-#: tables/actions.py:760
+#: tables/actions.py:758
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(data_type)s %(action)s"
 
-#: tables/actions.py:788 tables/base.py:1543
+#: tables/actions.py:786 tables/base.py:1537
 msgid "N/A"
 msgstr "N/A"
 
-#: tables/actions.py:817
+#: tables/actions.py:815
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr " %(action)s 이(가) 허용되지 않습니다: %(objs)s "
 
-#: tables/actions.py:824
+#: tables/actions.py:822
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "%(action)s를 할 수 없습니다.: %(objs)s"
 
-#: tables/actions.py:830
+#: tables/actions.py:828
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:900
+#: tables/actions.py:898
 msgid "Delete"
 msgstr "삭제"
 
-#: tables/actions.py:902
+#: tables/actions.py:900
 msgid "Deleted"
 msgstr "삭제됨"
 
-#: tables/actions.py:933
+#: tables/actions.py:931
 msgid "Update"
 msgstr "업데이트"
 
-#: tables/actions.py:934
+#: tables/actions.py:932
 msgid "Updated"
-msgstr "업데이트 완료"
+msgstr "업데이트됨"
 
 #: tables/base.py:355
 #, python-format
@@ -148,7 +151,7 @@ msgstr "%(obj)s 에 %(attr)s 속성이 없습니다."
 msgid "No items to display."
 msgstr "표시할 항목이 없습니다."
 
-#: tables/base.py:1076
+#: tables/base.py:1074
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr "작업"
@@ -158,7 +161,7 @@ msgstr "작업"
 msgid "No match returned for the id \"%s\"."
 msgstr "ID \"%s\" 에 일치되는 항목이 없습니다."
 
-#: tables/base.py:1459
+#: tables/base.py:1453
 msgid "Please select a row before taking that action."
 msgstr "해당 작업을 실행하기 전에 열(row)을 선택하십시오."
 
@@ -222,7 +225,7 @@ msgstr "요약"
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] "%(counter)s 항목 표시"
+msgstr[0] "%(counter)s 항목을 보여줍니다"
 
 #: templates/horizon/common/_data_table.html:68
 msgid "&laquo;&nbsp;Prev"
@@ -236,19 +239,9 @@ msgstr "다음&nbsp;&raquo;"
 msgid "More Actions"
 msgstr "기타 작업"
 
-#: templates/horizon/common/_domain_page_header.html:6
-#, python-format
-msgid "%(context_name)s:"
-msgstr "%(context_name)s:"
-
 #: templates/horizon/common/_formset_table.html:35
 msgid "Add a row"
 msgstr "열 추가"
-
-#: templates/horizon/common/_formset_table_row.html:15
-#, python-format
-msgid "%(name)s: %(error)s"
-msgstr "%(name)s: %(error)s"
 
 #: templates/horizon/common/_limit_summary.html:4
 msgid "Limit Summary"
@@ -317,8 +310,8 @@ msgstr "잘못된 키 "
 
 #: templates/horizon/common/_modal_form_update_metadata.html:88
 #: templates/horizon/common/_modal_form_update_metadata.html:200
-msgid "No available metadata"
-msgstr "사용할 수 있는 메타데이타 없음"
+msgid "No existing metadata"
+msgstr "메타데이터가 없습니다. "
 
 #: templates/horizon/common/_modal_form_update_metadata.html:99
 msgid "Existing Metadata"
@@ -343,21 +336,21 @@ msgstr "저장"
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] "%(nav_items)s 항목 표시"
+msgstr[0] "%(nav_items)s 항목을 보여줍니다."
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] "%(content_items)s 항목 표시"
+msgstr[0] "%(content_items)s 항목을 보여줍니다."
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
 msgstr "사용량 요약"
 
 #: templates/horizon/common/_usage_summary.html:7
-msgid "Select a period of time to query its usage:"
-msgstr "사용량을 조회할 기간을 선택하세요:"
+msgid "Select a period of time to query its usage"
+msgstr "사용량을 조회할 기간을 선택하세요."
 
 #: templates/horizon/common/_usage_summary.html:9
 #, python-format
@@ -378,20 +371,20 @@ msgid "The date should be in YYYY-mm-dd format."
 msgstr "날짜는 YYYY-mm-dd 형식이어야 합니다."
 
 #: templates/horizon/common/_usage_summary.html:20
-msgid "Active Instances:"
-msgstr "동작 중인 인스턴스:"
+msgid "Active Instances"
+msgstr "동작 중인 인스턴스"
 
 #: templates/horizon/common/_usage_summary.html:21
-msgid "Active RAM:"
-msgstr "사용 중인 RAM:"
+msgid "Active RAM"
+msgstr "사용 중인 RAM"
 
 #: templates/horizon/common/_usage_summary.html:22
-msgid "This Period's VCPU-Hours:"
-msgstr "이 기간의 VCPU 사용 시간:"
+msgid "This Period's VCPU-Hours"
+msgstr "이 기간의 VCPU 사용 시간"
 
 #: templates/horizon/common/_usage_summary.html:23
-msgid "This Period's GB-Hours:"
-msgstr "이 기간의 GB-Hours 사용 시간:"
+msgid "This Period's GB-Hours"
+msgstr "이 기간의 GB-Hours 사용 시간"
 
 #: templates/horizon/common/_workflow.html:40
 msgid "Back"
@@ -445,16 +438,14 @@ msgid "%s PB"
 msgstr "%s PB"
 
 #: templatetags/sizeformat.py:77
-msgid "0 Bytes"
-msgstr ""
+msgid "0 bytes"
+msgstr "0 bytes"
 
-#. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:31
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
 msgstr[0] "강아지 판매"
 
-#. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:40
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"

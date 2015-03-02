@@ -11,11 +11,8 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
-
-from django.utils.translation import ugettext_lazy as _
-    
+ 
 from horizon import tables
-from django.conf import settings
 
 from openstack_dashboard.dashboards.idm import utils as idm_utils
 from openstack_dashboard.dashboards.idm import tables as idm_tables
@@ -23,19 +20,19 @@ from openstack_dashboard.dashboards.idm import tables as idm_tables
 
 class ManageMembersLink(tables.LinkAction):
     name = "manage_members"
-    verbose_name = _("Add")
+    verbose_name = ("Add")
     url = "horizon:idm:home_orgs:members"
     classes = ("ajax-modal",)
 
 class MembersTable(tables.DataTable):
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
-    username = tables.Column('username', verbose_name=_('Members'))
+    username = tables.Column('username', verbose_name=('Members'))
     
 
     class Meta:
         name = "members"
-        verbose_name = _("Members")
+        verbose_name = ("Members")
         table_actions = (ManageMembersLink, )
         multi_select = False
         row_class = idm_tables.UserClickableRow
@@ -44,12 +41,12 @@ class MembersTable(tables.DataTable):
 class ApplicationsTable(tables.DataTable):
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
         obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
-    name = tables.Column('name', verbose_name=_('Name'))
+    name = tables.Column('name', verbose_name=('Name'))
     url = tables.Column(lambda obj: getattr(obj, 'url', None))
 
     class Meta:
         name = "applications"
-        verbose_name = _("Applications")
+        verbose_name = ("Applications")
         # table_actions = (GoToApplicationsTable,)
         multi_select = False
         row_class = idm_tables.ApplicationClickableRow

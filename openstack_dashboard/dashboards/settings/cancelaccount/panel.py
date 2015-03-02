@@ -12,15 +12,13 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.utils.translation import ugettext_lazy as _
-
 import horizon
 
 from openstack_dashboard.dashboards.settings import dashboard
 
 
 class Cancelaccount(horizon.Panel):
-    name = _("Cancel Account")
+    name = ("Cancel Account")
     slug = "cancelaccount"
 
 

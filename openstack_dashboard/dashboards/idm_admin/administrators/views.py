@@ -13,7 +13,6 @@
 # under the License.
 
 from django.conf import settings
-from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import tables
@@ -30,7 +29,6 @@ from openstack_dashboard.dashboards.idm_admin.administrators \
 class DetailApplicationView(tables.MultiTableView):
     template_name = 'idm_admin/administrators/index.html'
     table_classes = (administrators_tables.MembersTable, )
-    idm_admin = getattr(settings, 'IDM_ID')
 
     def get_members_data(self):
         users = []
@@ -39,26 +37,29 @@ class DetailApplicationView(tables.MultiTableView):
             # the application (they have one or more roles)
             all_users = api.keystone.user_list(self.request)
             role_assignments = fiware_api.keystone.user_role_assignments(
-                self.request, application=self.idm_admin)
+                self.request, 
+                application=fiware_api.keystone.get_idm_admin_app(
+                    self.request).id)
             users = [user for user in all_users if user.id
                      in set([a.user_id for a in role_assignments])]
         except Exception:
             exceptions.handle(self.request,
-                              _("Unable to retrieve member information."))
+                              ("Unable to retrieve member information."))
         return users
 
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super(DetailApplicationView, self).get_context_data(**kwargs)
-        application_id = self.idm_admin
+        application_id = fiware_api.keystone.get_idm_admin_app(
+            self.request).id
         return context
 
 
 class ManageMembersView(workflows.WorkflowView):
     workflow_class = administrators_workflows.ManageAuthorizedMembers
-    idm_admin = getattr(settings, 'IDM_ID')
 
     def get_initial(self):
         initial = super(ManageMembersView, self).get_initial()
-        initial['superset_id'] = self.idm_admin
+        initial['superset_id'] = fiware_api.keystone.get_idm_admin_app(
+            self.request).id
         return initial

@@ -16,12 +16,6 @@ import logging
 
 from django.conf import settings
 from django.core.urlresolvers import reverse
-from django.utils.translation import ugettext_lazy as _
-
-from horizon import exceptions
-from horizon import forms
-from horizon import messages
-from horizon import workflows
 
 from openstack_dashboard import api
 from openstack_dashboard import fiware_api
@@ -92,7 +86,7 @@ class RoleAndPermissionApi(idm_workflows.RelationshipApiInterface):
 
 
 class UpdateApplicationRolesAction(idm_workflows.UpdateRelationshipAction):
-    ERROR_MESSAGE = _('Unable to retrieve data. Please try again later.')
+    ERROR_MESSAGE = ('Unable to retrieve data. Please try again later.')
     RELATIONSHIP_CLASS = RoleAndPermissionApi
     ERROR_URL = INDEX_URL
 
@@ -107,23 +101,23 @@ class UpdateApplicationRolesAction(idm_workflows.UpdateRelationshipAction):
         return self.slug + "_permission_" + permission_id
 
     class Meta:
-        name = _("Manage your applications' roles")
+        name = ("Manage your applications' roles")
         slug = idm_workflows.RELATIONSHIP_SLUG
 
 
 class UpdateApplicationRoles(idm_workflows.UpdateRelationshipStep):
     action_class = UpdateApplicationRolesAction
-    members_list_title = _("Application roles")
+    members_list_title = ("Application roles")
     RELATIONSHIP_CLASS = RoleAndPermissionApi
     template_name = "idm/myApplications/roles/_workflow_step_update_members.html"
 
 
 class ManageApplicationRoles(idm_workflows.RelationshipWorkflow):
     slug = "manage_application_roles"
-    name = _("Manage Roles")
-    finalize_button_name = _("Save")
-    success_message = _('Modified roles and permissions.')
-    failure_message = _('Unable to modify roles and permissions.')
+    name = ("Manage Roles")
+    finalize_button_name = ("Save")
+    success_message = ('Modified roles and permissions.')
+    failure_message = ('Unable to modify roles and permissions.')
     success_url = "horizon:idm:myApplications:detail"
     default_steps = (UpdateApplicationRoles,)
     RELATIONSHIP_CLASS = RoleAndPermissionApi
@@ -148,10 +142,15 @@ class AuthorizedMembersApi(idm_workflows.RelationshipApiInterface):
     def _list_all_objects(self, request, superset_id):
         # TODO(garcianavalon) move to fiware_api
         all_roles = fiware_api.keystone.role_list(request)
-        allowed = fiware_api.keystone.list_user_allowed_roles_to_assign(
-            request,
-            user=request.user.id,
-            organization=request.user.default_project_id)
+        if request.user.default_project_id == request.organization.id:
+            allowed = fiware_api.keystone.list_user_allowed_roles_to_assign(
+                request,
+                user=request.user.id,
+                organization=request.user.default_project_id)
+        else:
+            allowed = fiware_api.keystone.list_organization_allowed_roles_to_assign(
+                request,
+                organization=request.organization.id)
         self.allowed = [role for role in all_roles 
                    if role.id in allowed[superset_id]]
         return self.allowed
@@ -164,13 +163,16 @@ class AuthorizedMembersApi(idm_workflows.RelationshipApiInterface):
         application_users_roles = {}
         allowed_ids = [r.id for r in self.allowed]
         role_assignments = fiware_api.keystone.user_role_assignments(
-            request, application=superset_id)
-        users = set([a.user_id for a in role_assignments])
-        for user_id in users:
-            application_users_roles[user_id] = [
+                request, application=superset_id)
+        users_with_roles = set([a.user_id for a in role_assignments])
+        users = [user for user in api.keystone.user_list(request)
+                 if user.id in users_with_roles]
+        for user in users:
+            application_users_roles[user.id] = [
                 a.role_id for a in role_assignments
-                if a.user_id == user_id
+                if a.user_id == user.id
                 and a.role_id in allowed_ids
+                and a.organization_id == user.default_project_id
             ]
         return application_users_roles
 
@@ -203,30 +205,30 @@ class AuthorizedMembersApi(idm_workflows.RelationshipApiInterface):
 
 
 class UpdateAuthorizedMembersAction(idm_workflows.UpdateRelationshipAction):
-    ERROR_MESSAGE = _('Unable to retrieve data. Please try again later.')
+    ERROR_MESSAGE = ('Unable to retrieve data. Please try again later.')
     RELATIONSHIP_CLASS = AuthorizedMembersApi
     ERROR_URL = INDEX_URL
 
     class Meta:
-        name = _("Manage authorized members")
+        name = ("Manage authorized members")
         slug = idm_workflows.RELATIONSHIP_SLUG + '_members'
 
 
 class UpdateAuthorizedMembers(idm_workflows.UpdateRelationshipStep):
     action_class = UpdateAuthorizedMembersAction
-    available_list_title = _("All users")
-    members_list_title = _("Authorized Members")
-    no_available_text = _("No users found.")
-    no_members_text = _("No users.")
+    available_list_title = ("All users")
+    members_list_title = ("Authorized Members")
+    no_available_text = ("No users found.")
+    no_members_text = ("No users.")
     RELATIONSHIP_CLASS = AuthorizedMembersApi
 
 
 class ManageAuthorizedMembers(idm_workflows.RelationshipWorkflow):
     slug = "manage_organization_users_application_roles"
-    name = _("Manage your applications' Roles")
-    finalize_button_name = _("Save")
-    success_message = _('Modified users.')
-    failure_message = _('Unable to modify users.')
+    name = ("Manage your applications' members")
+    finalize_button_name = ("Save")
+    success_message = ('Modified users.')
+    failure_message = ('Unable to modify users.')
     success_url = "horizon:idm:myApplications:detail"
     default_steps = (UpdateAuthorizedMembers,)
     RELATIONSHIP_CLASS = AuthorizedMembersApi
@@ -251,10 +253,15 @@ class AuthorizedOrganizationsApi(idm_workflows.RelationshipApiInterface):
     def _list_all_objects(self, request, superset_id):
         all_roles = fiware_api.keystone.role_list(request)
         default_org = request.user.default_project_id
-        allowed = fiware_api.keystone.list_user_allowed_roles_to_assign(
-            request,
-            user=request.user.id,
-            organization=default_org)
+        if request.user.default_project_id == request.organization.id:
+            allowed = fiware_api.keystone.list_user_allowed_roles_to_assign(
+                request,
+                user=request.user.id,
+                organization=request.user.default_project_id)
+        else:
+            allowed = fiware_api.keystone.list_organization_allowed_roles_to_assign(
+                request,
+                organization=request.organization.id)
         self.allowed = [role for role in all_roles 
                    if role.id in allowed[superset_id]]
         return self.allowed
@@ -304,30 +311,30 @@ class AuthorizedOrganizationsApi(idm_workflows.RelationshipApiInterface):
 
 
 class UpdateAuthorizedOrganizationsAction(idm_workflows.UpdateRelationshipAction):
-    ERROR_MESSAGE = _('Unable to retrieve data. Please try again later.')
+    ERROR_MESSAGE = ('Unable to retrieve data. Please try again later.')
     RELATIONSHIP_CLASS = AuthorizedOrganizationsApi
     ERROR_URL = INDEX_URL
 
     class Meta:
-        name = _("Manage authorized organizations")
+        name = ("Manage authorized organizations")
         slug = idm_workflows.RELATIONSHIP_SLUG + '_organizations'
 
 
 class UpdateAuthorizedOrganizations(idm_workflows.UpdateRelationshipStep):
     action_class = UpdateAuthorizedOrganizationsAction
-    available_list_title = _("All Organizations")
-    members_list_title = _("Authorized Organizations")
-    no_available_text = _("No organizations found.")
-    no_members_text = _("No organizations.")
+    available_list_title = ("All Organizations")
+    members_list_title = ("Authorized Organizations")
+    no_available_text = ("No organizations found.")
+    no_members_text = ("No organizations.")
     RELATIONSHIP_CLASS = AuthorizedOrganizationsApi
 
 
 class ManageAuthorizedOrganizations(idm_workflows.RelationshipWorkflow):
     slug = "manage_organization_organizations_application_roles"
-    name = _("Manage authorized organizations")
-    finalize_button_name = _("Save")
-    success_message = _('Modified organizations.')
-    failure_message = _('Unable to modify organizations.')
+    name = ("Manage authorized organizations")
+    finalize_button_name = ("Save")
+    success_message = ('Modified organizations.')
+    failure_message = ('Unable to modify organizations.')
     success_url = "horizon:idm:myApplications:detail"
     default_steps = (UpdateAuthorizedOrganizations,)
     RELATIONSHIP_CLASS = AuthorizedOrganizationsApi

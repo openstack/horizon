@@ -12,13 +12,11 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.utils.translation import ugettext_lazy as _
-
 import horizon
 
 
 class Settings(horizon.Dashboard):
-    name = _("Settings")
+    name = ("Settings")
     slug = "settings"
     panels = ('multisettings', 'password', 'useremail', 'cancelaccount')
     default_panel = 'multisettings'

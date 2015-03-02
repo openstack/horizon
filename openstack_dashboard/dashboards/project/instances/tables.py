@@ -642,8 +642,14 @@ class UpdateRow(tables.Row):
 
     def get_data(self, request, instance_id):
         instance = api.nova.server_get(request, instance_id)
-        instance.full_flavor = api.nova.flavor_get(request,
-                                                   instance.flavor["id"])
+        try:
+            instance.full_flavor = api.nova.flavor_get(request,
+                                                       instance.flavor["id"])
+        except Exception:
+            exceptions.handle(request,
+                              _('Unable to retrieve flavor information '
+                                'for instance "%s".') % instance_id,
+                              ignore=True)
         error = get_instance_error(instance)
         if error:
             messages.error(request, error)

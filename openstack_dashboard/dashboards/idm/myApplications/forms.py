@@ -1,3 +1,5 @@
+# Copyright (C) 2014 Universidad Politecnica de Madrid
+#
 # Licensed under the Apache License, Version 2.0 (the "License"); you may
 # not use this file except in compliance with the License. You may obtain
 # a copy of the License at
@@ -17,7 +19,6 @@ from django import forms
 from django import shortcuts
 from django.conf import settings
 from django.http import HttpResponse
-from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
@@ -38,13 +39,13 @@ AVATAR_ORIGINAL = settings.MEDIA_ROOT+"/ApplicationAvatar/original/"
 class CreateApplicationForm(forms.SelfHandlingForm):
     appID = forms.CharField(widget=forms.HiddenInput(), required=False)
     redirect_to = forms.CharField(widget=forms.HiddenInput(), required=False)
-    name = forms.CharField(label=_("Name"), required=True)
+    name = forms.CharField(label=("Name"), required=True)
     description = forms.CharField(
-        label=_("Description"), 
+        label=("Description"), 
         widget=forms.Textarea(attrs={'rows':4, 'cols':40}),
         required=True)
-    url = forms.CharField(label=_("URL"), required=True)
-    callbackurl = forms.CharField(label=_("Callback URL"), required=True)
+    url = forms.CharField(label=("URL"), required=True)
+    callbackurl = forms.CharField(label=("Callback URL"), required=True)
     title = 'Information'
 
     def handle(self, request, data):
@@ -58,7 +59,7 @@ class CreateApplicationForm(forms.SelfHandlingForm):
                                                 redirect_uris=[data['callbackurl']],
                                                 url=data['url'])
 
-                provider = local_settings.PROVIDER_ROLE_ID
+                provider = fiware_api.keystone.get_provider_role(request)
                 user = request.user
                 organizations, has_more_data = api.keystone.tenant_list(
                     request, user=user)
@@ -74,7 +75,7 @@ class CreateApplicationForm(forms.SelfHandlingForm):
                 LOG.debug('Application {0} created'.format(application.name))
             except Exception:
                 exceptions.handle(
-                    request, _('Unable to register the application.'))
+                    request, ('Unable to register the application.'))
                 return False
             response = shortcuts.redirect(
                 'horizon:idm:myApplications:avatar_step', application.id)
@@ -92,13 +93,13 @@ class CreateApplicationForm(forms.SelfHandlingForm):
                                                 redirect_uris=redirect_uris, 
                                                 url=data['url'])
                 msg = 'Application updated successfully.'
-                messages.success(request, _(msg))
+                messages.success(request, (msg))
                 LOG.debug(msg)
                 response = shortcuts.redirect(
                     'horizon:idm:myApplications:detail', data['appID'])
             except Exception as e:
                 LOG.error(e)
-                exceptions.handle(request, _('Unable to update the application.'))
+                exceptions.handle(request, ('Unable to update the application.'))
 
         return response
     
@@ -155,7 +156,7 @@ class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
 
 
 class CreateRoleForm(forms.SelfHandlingForm):
-    name = forms.CharField(max_length=255, label=_("Role Name"))
+    name = forms.CharField(max_length=255, label=("Role Name"))
     application_id = forms.CharField(required=True,
                                      widget=forms.HiddenInput())
     no_autocomplete = True
@@ -166,11 +167,11 @@ class CreateRoleForm(forms.SelfHandlingForm):
             new_role = fiware_api.keystone.role_create(
                 request, name=data['name'], application=data['application_id'])
             messages.success(request,
-                             _('Role "%s" was successfully created.')
+                             ('Role "%s" was successfully created.')
                              % data['name'])
             return new_role
         except Exception:
-            exceptions.handle(request, _('Unable to create role.'))
+            exceptions.handle(request, ('Unable to create role.'))
 
 
 class EditRoleForm(forms.SelfHandlingForm):
@@ -186,12 +187,12 @@ class EditRoleForm(forms.SelfHandlingForm):
                                             role=data['role_id'],
                                             name=data['name'])
             messages.success(request,
-                             _('Role "%s" was successfully updated.')
+                             ('Role "%s" was successfully updated.')
                              % data['role_id'])
             response = HttpResponse(role.name)
             return response
         except Exception:
-            exceptions.handle(request, _('Unable to delete role.'))
+            exceptions.handle(request, ('Unable to delete role.'))
 
 
 class DeleteRoleForm(forms.SelfHandlingForm):
@@ -204,20 +205,20 @@ class DeleteRoleForm(forms.SelfHandlingForm):
             fiware_api.keystone.role_delete(request,
                                             role_id=data['role_id'])
             messages.success(request,
-                             _('Role "%s" was successfully deleted.')
+                             ('Role "%s" was successfully deleted.')
                              % data['role_id'])
             return True
         except Exception:
-            exceptions.handle(request, _('Unable to delete role.'))
+            exceptions.handle(request, ('Unable to delete role.'))
 
 
 class CreatePermissionForm(forms.SelfHandlingForm):
     application_id = forms.CharField(required=True,
                                      widget=forms.HiddenInput())
-    name = forms.CharField(max_length=255, label=_("Permission Name"))
-    description = forms.CharField(max_length=255, label=_("Description"))
-    action = forms.CharField(max_length=255, label=_("HTTP action"))
-    resource = forms.CharField(max_length=255, label=_("Resource"))
+    name = forms.CharField(max_length=255, label=("Permission Name"))
+    description = forms.CharField(max_length=255, label=("Description"))
+    action = forms.CharField(max_length=255, label=("HTTP action"))
+    resource = forms.CharField(max_length=255, label=("Resource"))
     no_autocomplete = True
 
     def handle(self, request, data):
@@ -230,15 +231,15 @@ class CreatePermissionForm(forms.SelfHandlingForm):
                                             # action=data['action'])
 
             messages.success(request,
-                             _('Permission "%s" was successfully created.')
+                             ('Permission "%s" was successfully created.')
                              % data['name'])
             return new_permission
         except Exception:
-            exceptions.handle(request, _('Unable to create permission.'))
+            exceptions.handle(request, ('Unable to create permission.'))
 
         
 class CancelForm(forms.SelfHandlingForm):
-    appID = forms.CharField(label=_("ID"), widget=forms.HiddenInput())
+    appID = forms.CharField(label=("ID"), widget=forms.HiddenInput())
     title = 'Cancel'
 
     def handle(self, request, data, application):
@@ -251,6 +252,6 @@ class CancelForm(forms.SelfHandlingForm):
             LOG.debug('Avatar deleted from server')    
         fiware_api.keystone.application_delete(request, application.id)
         LOG.info('Application {0} deleted'.format(application.id))
-        messages.success(request, _("Application deleted successfully."))
+        messages.success(request, ("Application deleted successfully."))
         response = shortcuts.redirect('horizon:idm:myApplications:index')
         return response

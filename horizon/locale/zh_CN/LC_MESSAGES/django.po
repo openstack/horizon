@@ -4,13 +4,18 @@
 # 
 # Translators:
 # LIU Yulong <dragon889@163.com>, 2014
+# Tom Fifield <tom@openstack.org>, 2014
+# Tony Fu <tfu@redhat.com>, 2014
+# Xiao Xi LIU <liuxx@cn.ibm.com>, 2014
+# Ying Chun Guo <daisy.ycguo@gmail.com>, 2014
+# 颜海峰 <yanheven@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-18 20:37-0500\n"
-"PO-Revision-Date: 2014-10-19 01:37+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-12-02 00:51-0600\n"
+"PO-Revision-Date: 2014-11-18 06:50+0000\n"
+"Last-Translator: Xiao Xi LIU <liuxx@cn.ibm.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +23,7 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: base.py:480
+#: base.py:454 templates/horizon/common/_modal_form_update_metadata.html:38
 msgid "Other"
 msgstr "其它"
 
@@ -34,7 +39,7 @@ msgstr "您无权访问 %s"
 #: exceptions.py:163
 #, python-format
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
-msgstr "已经存在一个资源%(resource)s名称为\"%(name)s\"。"
+msgstr "已经存在一个名为\"%(name)s\"的资源%(resource)s。"
 
 #: exceptions.py:287
 #, python-format
@@ -87,55 +92,57 @@ msgstr "取消"
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:16
 #: templates/horizon/common/_data_table_table_actions.html:26
+#: templates/horizon/common/_modal_form_update_metadata.html:28
+#: templates/horizon/common/_modal_form_update_metadata.html:101
 #: templates/horizon/common/_workflow_step_update_members.html:12
 #: templates/horizon/common/_workflow_step_update_members.html:21
 msgid "Filter"
 msgstr "筛选"
 
-#: tables/actions.py:758
+#: tables/actions.py:756
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:760
+#: tables/actions.py:758
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:788 tables/base.py:1543
+#: tables/actions.py:786 tables/base.py:1537
 msgid "N/A"
 msgstr "无"
 
-#: tables/actions.py:817
+#: tables/actions.py:815
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "不被允许 %(action)s: %(objs)s"
 
-#: tables/actions.py:824
+#: tables/actions.py:822
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "无法执行 %(action)s: %(objs)s"
 
-#: tables/actions.py:830
+#: tables/actions.py:828
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:900
+#: tables/actions.py:898
 msgid "Delete"
 msgstr "删除"
 
-#: tables/actions.py:902
+#: tables/actions.py:900
 msgid "Deleted"
-msgstr "删除"
+msgstr "已删除"
 
-#: tables/actions.py:933
+#: tables/actions.py:931
 msgid "Update"
 msgstr "更新"
 
-#: tables/actions.py:934
+#: tables/actions.py:932
 msgid "Updated"
 msgstr "已更新"
 
@@ -148,7 +155,7 @@ msgstr "属性 %(attr)s 并不存在于 %(obj)s。"
 msgid "No items to display."
 msgstr "没有条目显示。"
 
-#: tables/base.py:1076
+#: tables/base.py:1074
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr "动作"
@@ -156,9 +163,9 @@ msgstr "动作"
 #: tables/base.py:1302
 #, python-format
 msgid "No match returned for the id \"%s\"."
-msgstr "id \"%s\" 没有匹配的返回顶"
+msgstr "id \"%s\" 没有匹配的返回顶。"
 
-#: tables/base.py:1459
+#: tables/base.py:1453
 msgid "Please select a row before taking that action."
 msgstr "请在执行前选择一行。"
 
@@ -222,33 +229,23 @@ msgstr "概要"
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] "正在显示 %(counter)s 项"
+msgstr[0] "显示 %(counter)s 个条目"
 
 #: templates/horizon/common/_data_table.html:68
 msgid "&laquo;&nbsp;Prev"
-msgstr "&laquo;&nbsp;向前"
+msgstr "&laquo;&nbsp;前页"
 
 #: templates/horizon/common/_data_table.html:71
 msgid "Next&nbsp;&raquo;"
-msgstr "下一页&nbsp;&raquo;"
+msgstr "后页&nbsp;&raquo;"
 
 #: templates/horizon/common/_data_table_table_actions.html:38
 msgid "More Actions"
 msgstr "更多操作"
 
-#: templates/horizon/common/_domain_page_header.html:6
-#, python-format
-msgid "%(context_name)s:"
-msgstr ""
-
 #: templates/horizon/common/_formset_table.html:35
 msgid "Add a row"
 msgstr "增加一行"
-
-#: templates/horizon/common/_formset_table_row.html:15
-#, python-format
-msgid "%(name)s: %(error)s"
-msgstr ""
 
 #: templates/horizon/common/_limit_summary.html:4
 msgid "Limit Summary"
@@ -271,7 +268,7 @@ msgstr "<span> %(available)s </span>中的<span> %(used)s </span>已使用"
 
 #: templates/horizon/common/_limit_summary.html:14
 msgid "VCPUs"
-msgstr "虚拟内核"
+msgstr "虚拟处理器（VCPU）"
 
 #: templates/horizon/common/_limit_summary.html:21
 msgid "RAM"
@@ -301,7 +298,7 @@ msgid ""
 "        dictionary or you can use the \"Other\" option using a key of\n"
 "        your choice.\n"
 "      "
-msgstr "\n你可以通过从左边栏目目录选择到右边栏目来指定matadata.你可以选择增加matadata到glance目录或者使用\"其他\"选项来做出你的选择"
+msgstr "\n你可以通过从左边栏目目录中选取并移至右边栏目\n来指定元数据。你可以选择已添加至glance目录字典\n中的现成元数据，也可以使用\"其他\"选项来自定义\n元数据。"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:26
 msgid "Available Metadata"
@@ -317,8 +314,8 @@ msgstr "无效的密钥名称"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:88
 #: templates/horizon/common/_modal_form_update_metadata.html:200
-msgid "No available metadata"
-msgstr "没有可用的元数据"
+msgid "No existing metadata"
+msgstr "不存在的元数据"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:99
 msgid "Existing Metadata"
@@ -332,7 +329,7 @@ msgid ""
 "          definitions from the Glance Metadata Catalog. Use the \"Other\" option\n"
 "          to add metadata with the key of your choice.\n"
 "        "
-msgstr "\n你可以通过从左边栏目目录选择到右边栏目来指定资源的元数据.在左边栏目是按照glance 元数据目录来定义的元数据.使用\"其他\"选项来增加你的选择"
+msgstr "\n你可以通过从左边栏目目录中选取并移至右边栏目\n来指定资源的元数据。在左边栏目中是按照\nGlance元数据目录来定义的元数据。使用\"其他\"选项\n来增加你自定的元数据。"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:238
 #: workflows/base.py:594
@@ -343,21 +340,21 @@ msgstr "保存"
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] "正在显示 %(nav_items)s 项"
+msgstr[0] "显示了 %(nav_items)s 个条目"
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] "正在显示 %(content_items)s 项"
+msgstr[0] "显示了 %(content_items)s 个条目"
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
 msgstr "使用情况摘要"
 
 #: templates/horizon/common/_usage_summary.html:7
-msgid "Select a period of time to query its usage:"
-msgstr ""
+msgid "Select a period of time to query its usage"
+msgstr "选择一段时间来查询其用量"
 
 #: templates/horizon/common/_usage_summary.html:9
 #, python-format
@@ -375,23 +372,23 @@ msgstr "\n<label>到:</label>%(end)s"
 
 #: templates/horizon/common/_usage_summary.html:17
 msgid "The date should be in YYYY-mm-dd format."
-msgstr "日期采是YYYY-mm-dd格式。"
+msgstr "日期应是YYYY-mm-dd格式。"
 
 #: templates/horizon/common/_usage_summary.html:20
-msgid "Active Instances:"
-msgstr ""
+msgid "Active Instances"
+msgstr "活跃的云主机"
 
 #: templates/horizon/common/_usage_summary.html:21
-msgid "Active RAM:"
-msgstr ""
+msgid "Active RAM"
+msgstr "活跃的内存"
 
 #: templates/horizon/common/_usage_summary.html:22
-msgid "This Period's VCPU-Hours:"
-msgstr ""
+msgid "This Period's VCPU-Hours"
+msgstr "这一时期的的VCPU-小时数"
 
 #: templates/horizon/common/_usage_summary.html:23
-msgid "This Period's GB-Hours:"
-msgstr ""
+msgid "This Period's GB-Hours"
+msgstr "这一时期的GB-小时数"
 
 #: templates/horizon/common/_workflow.html:40
 msgid "Back"
@@ -417,7 +414,7 @@ msgstr "可用配额"
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
-msgstr[0] "%(size)d Bytes"
+msgstr[0] "%(size)d 字节"
 
 #: templatetags/sizeformat.py:57
 #, python-format
@@ -445,20 +442,18 @@ msgid "%s PB"
 msgstr "%s PB"
 
 #: templatetags/sizeformat.py:77
-msgid "0 Bytes"
-msgstr ""
+msgid "0 bytes"
+msgstr "0 bytes"
 
-#. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:31
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
-msgstr[0] ""
+msgstr[0] "出售小狗"
 
-#. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:40
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
-msgstr[0] ""
+msgstr[0] "已出售小狗"
 
 #: utils/filters.py:49
 msgid "Never"
@@ -503,9 +498,9 @@ msgstr "没有成员。"
 #: workflows/base.py:595
 #, python-format
 msgid "%s completed successfully."
-msgstr "%s 成功完成"
+msgstr "%s 成功完成。"
 
 #: workflows/base.py:596
 #, python-format
 msgid "%s did not complete."
-msgstr "%s 没有完成"
+msgstr "%s 没有完成。"

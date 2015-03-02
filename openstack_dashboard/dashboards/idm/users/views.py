@@ -17,7 +17,6 @@ import logging
 
 from django.conf import settings
 from django.core.urlresolvers import reverse, reverse_lazy
-from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
@@ -58,7 +57,7 @@ class DetailUserView(tables.MultiTableView):
         except Exception:
             self._more = False
             exceptions.handle(self.request,
-                              _("Unable to retrieve organization information."))
+                              ("Unable to retrieve organization information."))
         return idm_utils.filter_default(organizations)
 
     def get_applications_data(self):
@@ -76,7 +75,7 @@ class DetailUserView(tables.MultiTableView):
                             if app.id in apps_with_roles]
         except Exception:
             exceptions.handle(self.request,
-                              _("Unable to retrieve application list."))
+                              ("Unable to retrieve application list."))
         return idm_utils.filter_default(applications)
 
     def _can_edit(self):
@@ -128,7 +127,7 @@ class BaseUsersMultiFormView(idm_views.BaseMultiFormView):
         except Exception:
             redirect = reverse("horizon:idm:users:index")
             exceptions.handle(self.request, 
-                    _('Unable to update user'), redirect=redirect)
+                    ('Unable to update user'), redirect=redirect)
 
     def get_initial(self, form_class):
         initial = super(BaseUsersMultiFormView, self).get_initial(form_class)  

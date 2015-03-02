@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Tom Fifield <tom@openstack.org>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-18 20:37-0500\n"
-"PO-Revision-Date: 2014-10-19 01:37+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2014-10-05 14:55+0000\n"
+"PO-Revision-Date: 2014-10-04 04:45+0000\n"
+"Last-Translator: Tom Fifield <tom@openstack.org>\n"
 "Language-Team: English (Australia) (http://www.transifex.com/projects/p/horizon/language/en_AU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Language: en_AU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: base.py:480
+#: base.py:454
 msgid "Other"
 msgstr "Other"
 
@@ -91,50 +92,50 @@ msgstr "Cancel"
 msgid "Filter"
 msgstr "Filter"
 
-#: tables/actions.py:758
+#: tables/actions.py:756
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:760
+#: tables/actions.py:758
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
-#: tables/actions.py:788 tables/base.py:1543
+#: tables/actions.py:786 tables/base.py:1537
 msgid "N/A"
 msgstr "N/A"
 
-#: tables/actions.py:817
+#: tables/actions.py:815
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr "You are not allowed to %(action)s: %(objs)s"
 
-#: tables/actions.py:824
+#: tables/actions.py:822
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "Unable to %(action)s: %(objs)s"
 
-#: tables/actions.py:830
+#: tables/actions.py:828
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:900
+#: tables/actions.py:898
 msgid "Delete"
 msgstr "Delete"
 
-#: tables/actions.py:902
+#: tables/actions.py:900
 msgid "Deleted"
 msgstr "Deleted"
 
-#: tables/actions.py:933
+#: tables/actions.py:931
 msgid "Update"
 msgstr "Update"
 
-#: tables/actions.py:934
+#: tables/actions.py:932
 msgid "Updated"
 msgstr "Updated"
 
@@ -147,7 +148,7 @@ msgstr "The attribute %(attr)s doesn't exist on %(obj)s."
 msgid "No items to display."
 msgstr "No items to display."
 
-#: tables/base.py:1076
+#: tables/base.py:1074
 #: templates/horizon/common/_data_table_table_actions.html:40
 msgid "Actions"
 msgstr "Actions"
@@ -157,7 +158,7 @@ msgstr "Actions"
 msgid "No match returned for the id \"%s\"."
 msgstr "No match returned for the id \"%s\"."
 
-#: tables/base.py:1459
+#: tables/base.py:1453
 msgid "Please select a row before taking that action."
 msgstr "Please select a row before taking that action."
 
@@ -221,8 +222,8 @@ msgstr "Summary"
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Displaying %(counter)s item"
+msgstr[1] "Displaying %(counter)s items"
 
 #: templates/horizon/common/_data_table.html:68
 msgid "&laquo;&nbsp;Prev"
@@ -236,19 +237,9 @@ msgstr "Next&nbsp;&raquo;"
 msgid "More Actions"
 msgstr "More Actions"
 
-#: templates/horizon/common/_domain_page_header.html:6
-#, python-format
-msgid "%(context_name)s:"
-msgstr ""
-
 #: templates/horizon/common/_formset_table.html:35
 msgid "Add a row"
 msgstr "Add a row"
-
-#: templates/horizon/common/_formset_table_row.html:15
-#, python-format
-msgid "%(name)s: %(error)s"
-msgstr ""
 
 #: templates/horizon/common/_limit_summary.html:4
 msgid "Limit Summary"
@@ -317,8 +308,8 @@ msgstr "Invalid key name"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:88
 #: templates/horizon/common/_modal_form_update_metadata.html:200
-msgid "No available metadata"
-msgstr ""
+msgid "No existing metadata"
+msgstr "No existing metadata"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:99
 msgid "Existing Metadata"
@@ -343,23 +334,23 @@ msgstr "Save"
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Displaying %(nav_items)s item"
+msgstr[1] "Displaying %(nav_items)s items"
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Displaying %(content_items)s item"
+msgstr[1] "Displaying %(content_items)s items"
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
 msgstr "Usage Summary"
 
 #: templates/horizon/common/_usage_summary.html:7
-msgid "Select a period of time to query its usage:"
-msgstr ""
+msgid "Select a period of time to query its usage"
+msgstr "Select a period of time to query its usage"
 
 #: templates/horizon/common/_usage_summary.html:9
 #, python-format
@@ -380,20 +371,20 @@ msgid "The date should be in YYYY-mm-dd format."
 msgstr "The date should be in YYYY-mm-dd format."
 
 #: templates/horizon/common/_usage_summary.html:20
-msgid "Active Instances:"
-msgstr ""
+msgid "Active Instances"
+msgstr "Active Instances"
 
 #: templates/horizon/common/_usage_summary.html:21
-msgid "Active RAM:"
-msgstr ""
+msgid "Active RAM"
+msgstr "Active RAM"
 
 #: templates/horizon/common/_usage_summary.html:22
-msgid "This Period's VCPU-Hours:"
-msgstr ""
+msgid "This Period's VCPU-Hours"
+msgstr "This Period's VCPU-Hours"
 
 #: templates/horizon/common/_usage_summary.html:23
-msgid "This Period's GB-Hours:"
-msgstr ""
+msgid "This Period's GB-Hours"
+msgstr "This Period's GB-Hours"
 
 #: templates/horizon/common/_workflow.html:40
 msgid "Back"
@@ -419,8 +410,8 @@ msgstr "Available"
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(size)d Byte"
+msgstr[1] "%(size)d Bytes"
 
 #: templatetags/sizeformat.py:57
 #, python-format
@@ -448,22 +439,20 @@ msgid "%s PB"
 msgstr "%s PB"
 
 #: templatetags/sizeformat.py:77
-msgid "0 Bytes"
-msgstr ""
+msgid "0 bytes"
+msgstr "0 bytes"
 
-#. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:31
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Sell Puppy"
+msgstr[1] "Sell Puppies"
 
-#. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:40
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Sold Puppy"
+msgstr[1] "Sold Puppies"
 
 #: utils/filters.py:49
 msgid "Never"

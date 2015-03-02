@@ -489,6 +489,10 @@ horizon.datatables.set_table_query_filter = function (parent) {
 horizon.datatables.set_table_fixed_filter = function (parent) {
   $(parent).find('table.datatable').each(function (index, elm) {
     $(elm).on('click', 'div.table_filter button', function(evt) {
+      // Remove active class from all buttons
+      $(elm).find('div.table_filter button').each(function(index, btn) {
+        $(btn).removeClass('active');
+      });
       var table = $(elm);
       var category = $(this).val();
       evt.preventDefault();
@@ -502,7 +506,6 @@ horizon.datatables.set_table_fixed_filter = function (parent) {
     $(elm).find('div.table_filter button').each(function (i, button) {
       // Select the first non-empty category
       if ($(button).text().indexOf(' (0)') === -1) {
-        $(button).addClass('active');
         $(button).trigger('click');
         return false;
       }
