@@ -28,23 +28,31 @@ class Users(generic.View):
     """API for keystone users.
     """
     url_regex = r'keystone/users/$'
+    client_keywords = {'project_id', 'domain_id', 'group_id'}
 
     @rest_utils.ajax()
     def get(self, request):
         """Get a list of users.
 
         By default, a listing of all users for the current domain are
-        returned. You may specify GET parameters for project_id, group_id and
-        domain_id to change that listing's context.
+        returned. You may specify GET parameters for project_id, domain_id and
+        group_id to change that listing's context.
 
         The listing result is an object with property "items".
         """
         domain_context = request.session.get('domain_context')
+
+        filters = rest_utils.parse_filters_kwargs(request,
+                                                  self.client_keywords)[0]
+        if len(filters) == 0:
+            filters = None
+
         result = api.keystone.user_list(
             request,
             project=request.GET.get('project_id'),
             domain=request.GET.get('domain_id', domain_context),
-            group=request.GET.get('group_id')
+            group=request.GET.get('group_id'),
+            filters=filters
         )
         return {'items': [u.to_dict() for u in result]}
 
@@ -358,6 +366,8 @@ class Projects(generic.View):
     interchangeably.
     """
     url_regex = r'keystone/projects/$'
+    client_keywords = {'paginate', 'marker', 'domain_id',
+                       'user_id', 'admin'}
 
     @rest_utils.ajax()
     def get(self, request):
@@ -366,7 +376,7 @@ class Projects(generic.View):
         By default a listing of all projects for the current domain are
         returned.
 
-        You may specify GET parameters for project_id (string), user_id
+        You may specify GET parameters for domain_id (string), user_id
         (string) and admin (boolean) to change that listing's context.
         Additionally, paginate (boolean) and marker may be used to get
         paginated listings.
@@ -378,13 +388,20 @@ class Projects(generic.View):
         has_more
             Boolean indicating there are more results when pagination is used.
         """
+
+        filters = rest_utils.parse_filters_kwargs(request,
+                                                  self.client_keywords)[0]
+        if len(filters) == 0:
+            filters = None
+
         result, has_more = api.keystone.tenant_list(
             request,
             paginate=request.GET.get('paginate', False),
             marker=request.GET.get('marker'),
             domain=request.GET.get('domain_id'),
             user=request.GET.get('user_id'),
-            admin=request.GET.get('admin', True)
+            admin=request.GET.get('admin', True),
+            filters=filters
         )
         # return (list of results, has_more_data)
         return dict(has_more=has_more, items=[d.to_dict() for d in result])

@@ -22,18 +22,6 @@ from openstack_dashboard.api.rest import utils as rest_utils
 from openstack_dashboard.api.rest import urls
 
 
-def _parse_filters(request):
-    """Extract REST filter parameters from the request GET args.
-
-    We iterate like this so we avoid Django GET's odd behaviour of
-    handing a list-of-param through some QueryDict accesses.
-    """
-    filters = {}
-    for param in request.GET:
-        filters[param] = request.GET[param]
-    return filters
-
-
 @urls.register
 class Volumes(generic.View):
     """API for cinder volumes.
@@ -56,12 +44,13 @@ class Volumes(generic.View):
         """
         # TODO(clu_): when v2 pagination stuff in Cinder API merges
         # (https://review.openstack.org/#/c/118450), handle here accordingly
+
         if request.GET.get('all_projects') == 'true':
             result = api.cinder.volume_list(request, {'all_tenants': 1})
         else:
             result = api.cinder.volume_list(
                 request,
-                search_opts=_parse_filters(request)
+                search_opts=rest_utils.parse_filters_kwargs(request)[0]
             )
         return {'items': [u.to_dict() for u in result]}
 
@@ -81,6 +70,6 @@ class VolumeSnapshots(generic.View):
         """
         result = api.cinder.volume_snapshot_list(
             request,
-            search_opts=_parse_filters(request)
+            search_opts=rest_utils.parse_filters_kwargs(request)[0]
         )
         return {'items': [u.to_dict() for u in result]}

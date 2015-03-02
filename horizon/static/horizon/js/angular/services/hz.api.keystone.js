@@ -13,13 +13,13 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-/*global angular,horizon*/
 (function () {
   'use strict';
   function KeystoneAPI(apiService) {
     // Users
-    this.getUsers = function() {
-      return apiService.get('/api/keystone/users/')
+    this.getUsers = function(params) {
+      var config = (params) ? {'params': params} : {};
+      return apiService.get('/api/keystone/users/', config)
         .error(function () {
           horizon.alert('error', gettext('Unable to retrieve users'));
         });
@@ -150,8 +150,9 @@ limitations under the License.
     };
 
     // Projects
-    this.getProjects = function() {
-      return apiService.get('/api/keystone/projects/')
+    this.getProjects = function(params) {
+      var config = (params) ? {'params': params} : {};
+      return apiService.get('/api/keystone/projects/', config)
         .error(function () {
           horizon.alert('error', gettext('Unable to retrieve projects'));
         });
