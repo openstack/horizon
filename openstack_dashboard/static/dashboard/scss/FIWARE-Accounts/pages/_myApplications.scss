@@ -71,6 +71,12 @@
   }
 }
 
+#create_application_roles{
+  .modal-dialog,
+  .modal-content{
+    margin-top: 0;
+  }
+}
 
 .site-client-roles{
   .list-group-item{

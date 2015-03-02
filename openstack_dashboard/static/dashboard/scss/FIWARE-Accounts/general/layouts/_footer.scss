@@ -17,7 +17,10 @@ footer.footer-main {
   font-size: 12px;
   border-top: 1px solid $brand-secundary;
   padding-top: 1px;
-  margin: 0;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  max-width: 1200px;
   .footer-content{
     border-top: 1px solid $brand-primary;
     .container-fluid{
@@ -37,6 +40,7 @@ footer.footer-main {
 
 body > .wrap {
   padding: 75px 15px 30px;
+  max-width: 1200px;
   @media (max-width: $screen-sm-min){
     padding: 52px 15px 30px;
   }

@@ -27,14 +27,14 @@
 #detailUser {
   margin-top: 8px;
   .panel.members > .panel-body .members-actions,
-  .panel.organizations > .panel-body .organizations-actions{
+  .panel.organizations > .panel-body .organizations-actions {
     border-bottom: 1px solid $border-color;
     padding-bottom: 7px;
-    .form-control{
+    .form-control {
       width: 200px;
       display: inline;
     }
-    .table_actions{
+    .table_actions {
       float: right;
       display: inline-block;
       a{
@@ -60,13 +60,13 @@
   padding: 0 15px;
 }
 
-#detailApplication{ 
+#detailApplication { 
   margin-top: 13px;
   header{
     margin-bottom: 2px;
   }
 }
-.edit_organization_modal{
+.edit_organization_modal {
   textarea {
     min-height: 40px;
     max-height: 55px;
@@ -95,10 +95,6 @@
     margin-bottom: 7px;
     border-bottom: 1px solid #D5D5D5;
     color: $brand-secundary;
-  }
-  .collapse{
-    padding: 8px 5px 1px;
-    background-color: #ECECEC;
   }
 }
 
@@ -146,14 +142,14 @@
         border-bottom: none; 
       }
     }
-    .data{padding-top: 8px;
+    .data {padding-top: 8px;
       .dropdown{
         float: right;
         display: inline-block;
         margin-right: 20px;
       }               
     }
-    .name{display: inline;}
+    .name {display: inline;}
     .fa-plus,
     .fa-close{
       float: right;

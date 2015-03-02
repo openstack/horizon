@@ -82,6 +82,7 @@
     </ul>
 
     <div id="user_info" class="pull-right">
+
       <div id="profile_editor_switcher" class="dropdown switcher_bar" tabindex='1'> 
         {% if request.user.is_authenticated %}
           {% if request.organization.id != request.user.default_project_id %}
@@ -103,30 +104,42 @@
               {{ request.user.username }}
             </a>
           {% endif %}
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#profile_editor_switch">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#profile_editor_switcher">
             <i class="fa fa-angle-double-down"></i>
           </a>
-          <ul id="editor_list" class="dropdown-menu dropdown-menu-right">
-            {% for org in request.organizations %}
-              {% if org.id == request.user.default_project_id %}
-                <li><a href="{% url 'switch_tenants' org.id %}">
-                {% if request.user.img_small %}
-                <img src="{{ MEDIA_URL }}{{ request.user.img_small }}">
-                {% else %}
-                <img src="{{ STATIC_URL }}dashboard/img/logos/small/user.png">
-                {% endif %}
-                {{request.user.username}}
-                </a></li>
-              {% else %}
-                <li><a href="{% url 'switch_tenants' org.id %}">
-                {% if org.img_small %}
-                <img src="{{ MEDIA_URL }}{{ org.img_small }}">
-                {% else %}
-                <img src="{{ STATIC_URL }}dashboard/img/logos/small/group.png">
-                {% endif %}
-                {{org.name}}</a></li>
-              {% endif %}
-            {% endfor %}
+
+
+          <ul id="editor_list" class="dropdown-menu multi-level dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu">
+
+            <li class="dropdown-submenu">
+              <a tabindex="-1" href="#">
+                <i class="fa fa-angle-double-left"></i> Switch session
+              </a>
+              <ul class="dropdown-menu pull-left">
+                {% for org in request.organizations %}
+
+                  {% if org.id == request.user.default_project_id %}
+                    <li><a href="{% url 'switch_tenants' org.id %}">
+                    {% if request.user.img_small %}
+                    <img src="{{ MEDIA_URL }}{{ request.user.img_small }}">
+                    {% else %}
+                    <img src="{{ STATIC_URL }}dashboard/img/logos/small/user.png">
+                    {% endif %}
+                    {{request.user.username}}
+                    </a></li>
+                  {% else %}
+                    <li><a href="{% url 'switch_tenants' org.id %}">
+                    {% if org.img_small %}
+                    <img src="{{ MEDIA_URL }}{{ org.img_small }}">
+                    {% else %}
+                    <img src="{{ STATIC_URL }}dashboard/img/logos/small/group.png">
+                    {% endif %}
+                    {{org.name}}</a></li>
+                  {% endif %}
+
+                {% endfor %}
+              </ul>
+            </li>
             <li>
               <a href="{% url 'horizon:settings:multisettings:index' %}"> <i class="fa fa-cog"></i> {% trans "Settings" %}
               </a>
@@ -137,6 +150,8 @@
               </a>
             </li>
           </ul>
+
+
         {% endif %}
       </div>
     </div>

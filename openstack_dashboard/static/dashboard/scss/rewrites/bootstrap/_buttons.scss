@@ -11,3 +11,20 @@
   background-color: $white;
   border-color: $brand-primary;
 }
+
+.btn-group-vertical > .btn:last-child:not(:first-child), .btn-group-vertical .permissions_list .list-group-item > :last-child:not(:first-child).ajax-inline-edit, .permissions_list .list-group-item .btn-group-vertical > :last-child:not(:first-child).ajax-inline-edit, .btn-group-vertical .role_list .list-group-item > :last-child:not(:first-child).ajax-inline-edit, .role_list .list-group-item .btn-group-vertical > :last-child:not(:first-child).ajax-inline-edit, .btn-group-vertical .edit_organization_modal > button:last-child:not(:first-child), .edit_organization_modal .btn-group-vertical > button:last-child:not(:first-child){
+	@include border-bottom-radius (3px);
+}
+.btn-group-vertical > .btn:first-child:not(:last-child), .btn-group-vertical .permissions_list .list-group-item > :first-child:not(:last-child).ajax-inline-edit, .permissions_list .list-group-item .btn-group-vertical > :first-child:not(:last-child).ajax-inline-edit, .btn-group-vertical .role_list .list-group-item > :first-child:not(:last-child).ajax-inline-edit, .role_list .list-group-item .btn-group-vertical > :first-child:not(:last-child).ajax-inline-edit, .btn-group-vertical .edit_organization_modal > button:first-child:not(:last-child), .edit_organization_modal .btn-group-vertical > button:first-child:not(:last-child){
+	@include border-top-radius (3px);
+}
+
+
+
+
+.add-members .all-users li.list-group-item, 
+.add-members .members-list li.list-group-item{
+	&:last-child{
+	  @include border-top-radius (0);	
+	}
+}
