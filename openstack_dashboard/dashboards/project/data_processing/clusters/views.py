@@ -66,7 +66,7 @@ class CreateClusterView(workflows.WorkflowView):
     workflow_class = create_flow.CreateCluster
     success_url = \
         "horizon:project:data_processing.clusters:create-cluster"
-    classes = ("ajax-modal")
+    classes = ("ajax-modal",)
     template_name = "project/data_processing.clusters/create.html"
 
 
@@ -79,7 +79,7 @@ class ConfigureClusterView(workflows.WorkflowView):
 class ScaleClusterView(workflows.WorkflowView):
     workflow_class = scale_flow.ScaleCluster
     success_url = "horizon:project:data_processing.clusters"
-    classes = ("ajax-modal")
+    classes = ("ajax-modal",)
     template_name = "project/data_processing.clusters/scale.html"
 
     def get_context_data(self, **kwargs):

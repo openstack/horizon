@@ -72,7 +72,7 @@ class CreateNodegroupTemplateView(workflows.WorkflowView):
     success_url = (
         "horizon:project:data_processing.nodegroup_templates:"
         "create-nodegroup-template")
-    classes = ("ajax-modal")
+    classes = ("ajax-modal",)
     template_name = "project/data_processing.nodegroup_templates/create.html"
 
 

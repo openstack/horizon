@@ -82,7 +82,7 @@ class CreateClusterTemplateView(workflows.WorkflowView):
     workflow_class = create_flow.CreateClusterTemplate
     success_url = ("horizon:project:data_processing.cluster_templates"
                    ":create-cluster-template")
-    classes = ("ajax-modal")
+    classes = ("ajax-modal",)
     template_name = "project/data_processing.cluster_templates/create.html"
 
 
