@@ -111,6 +111,7 @@
         set_props();
         return id
     }
+
     function delete_prop(el) {
         var tr = $(el).closest("tr");
         var target = $(tr).closest("div").attr("id");
@@ -133,10 +134,10 @@
 
     function get_targets(job_type) {
         var res = ["configs"];
-        if ($.inArray(job_type, ["Hive", "Pig"]) != -1) {
+        if ($.inArray(job_type, ["Hive", "Pig", "Shell"]) != -1) {
             res.push("params");
         }
-        if ($.inArray(job_type, ["Java", "Pig", "Spark"]) != -1) {
+        if ($.inArray(job_type, ["Java", "Pig", "Spark", "Shell"]) != -1) {
           res.push("args_array");
         }
         return res;
@@ -154,10 +155,11 @@
     }
 
     function hide_unnecessary_fields() {
-      if ($.inArray(job_type, ["Java", "Spark"]) != -1) {
+      if ($.inArray(job_type, ["Java", "Spark", "Shell"]) != -1) {
         $("[name=job_input]").closest(".form-group").hide();
         $("[name=job_output]").closest(".form-group").hide();
-      } else {
+      }
+      if ($.inArray(job_type, ["Hive", "MapReduce", "MapReduce.Streaming", "Pig", "Shell"]) != -1) {
         $("[name=java_opts]").closest(".form-group").hide();
         $("[name=main_class]").closest(".form-group").hide();
       }
@@ -168,6 +170,12 @@
       if (job_type != "Java") {
         $("[name=hbase_common_lib]").closest(".form-group").hide();
       }
+    }
+
+    function override_field_labels() {
+        if (job_type == "Shell") {
+            $("#params > label").text(gettext('Environment Variables'));
+        }
     }
 
     properties = {};
@@ -204,6 +212,7 @@
             });
             $("#job_cfg table").hide();
             hide_unnecessary_fields();
+            override_field_labels();
             load_prior_configs();
         }
     });
