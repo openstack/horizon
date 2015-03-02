@@ -183,7 +183,7 @@ class AuthorizedMembersApi(idm_workflows.RelationshipApiInterface):
 
 
 class UpdateAuthorizedMembersAction(idm_workflows.UpdateRelationshipAction):
-    ERROR_MESSAGE = _('Unable to retrieve user list. Please try again later.')
+    ERROR_MESSAGE = ('Unable to retrieve user list. Please try again later.')
     RELATIONSHIP_CLASS = AuthorizedMembersApi
     ERROR_URL = INDEX_URL
 
@@ -217,16 +217,16 @@ class UpdateAuthorizedMembersAction(idm_workflows.UpdateRelationshipAction):
                     self.fields[field_name].initial.append(owner_id)
 
     class Meta:
-        name = _("Organization Members")
+        name = ("Organization Members")
         slug = idm_workflows.RELATIONSHIP_SLUG
 
 
 class UpdateAuthorizedMembers(idm_workflows.UpdateRelationshipStep):
     action_class = UpdateAuthorizedMembersAction
-    available_list_title = _("Organization Members")
-    members_list_title = _("Authorized in applications")
-    no_available_text = _("No users found.")
-    no_members_text = _("No users.")
+    available_list_title = ("Organization Members")
+    members_list_title = ("Authorized in applications")
+    no_available_text = ("No users found.")
+    no_members_text = ("No users.")
     RELATIONSHIP_CLASS = AuthorizedMembersApi
 
     def contribute(self, data, context):
@@ -238,7 +238,7 @@ class UpdateAuthorizedMembers(idm_workflows.UpdateRelationshipStep):
                     self.workflow.request, superset_id)
             except Exception:
                 exceptions.handle(self.workflow.request,
-                                  _('Unable to retrieve list.'))
+                                  ('Unable to retrieve list.'))
 
             post = self.workflow.request.POST
             for application in object_list:
@@ -251,10 +251,10 @@ class UpdateAuthorizedMembers(idm_workflows.UpdateRelationshipStep):
 
 class ManageOrganizationAuthorizedMembers(idm_workflows.RelationshipWorkflow):
     slug = "manage_organization_authorized_users"
-    name = _("Authorize Members")
-    finalize_button_name = _("Save")
-    success_message = _('Modified users.')
-    failure_message = _('Unable to modify users.')
+    name = ("Authorize Members")
+    finalize_button_name = ("Save")
+    success_message = ('Modified users.')
+    failure_message = ('Unable to modify users.')
     success_url = "horizon:idm:members:index"
     default_steps = (UpdateAuthorizedMembers,)
     RELATIONSHIP_CLASS = AuthorizedMembersApi
@@ -308,5 +308,5 @@ class ManageOrganizationAuthorizedMembers(idm_workflows.RelationshipWorkflow):
             return True
         except Exception:
             exceptions.handle(request,
-                          _('Failed to modify organization\'s members.'))
+                          ('Failed to modify organization\'s members.'))
             return False

@@ -13,7 +13,6 @@
 # under the License.
 
 from horizon import tables
-from django.conf import settings
 
 from openstack_dashboard.dashboards.idm import utils as idm_utils
 from openstack_dashboard.dashboards.idm import tables as idm_tables
@@ -28,7 +27,7 @@ class ManageMembersLink(tables.LinkAction):
 
 class ManageAuthorizedMembersLink(tables.LinkAction):
     name = "manage_authorized_members"
-    verbose_name = _("Authorize members")
+    verbose_name = ("Authorize members")
     url = "horizon:idm:members:authorize"
     classes = ("ajax-modal",)
 
@@ -41,7 +40,7 @@ class MembersTable(tables.DataTable):
 
     class Meta:
         name = "members"
-        verbose_name = _("Members")
+        verbose_name = ("Members")
         table_actions = (tables.FilterAction, 
             ManageMembersLink, ManageAuthorizedMembersLink)
         multi_select = False
