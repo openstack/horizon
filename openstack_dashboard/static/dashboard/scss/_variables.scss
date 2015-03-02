@@ -100,23 +100,37 @@ $helpPanelBtnIconSize: 28px !default;
 /* Wizard */
 
 // theme
-$WizardNavItemColor: #444 !default;
-$WizardButtonColorHiLight: rgba(255, 255, 255, .8) !default;
-$WizardNextBtnBgColor: #0083d1 !default;
-$WizardNextBtnBdColor: darken($WizardNextBtnBgColor, 1%) !default;
+$WizardNavItemColor: #333 !default;
+$WizardNavItemBgColor: #0084d1 !default;
+$WizardNavItemBdColor: #bbb !default;
+$WizardButtonColorHiLight: #fff !default;
+$WizardBtnTextColor: #333;
+$WizardBtnBgColor: #fff !default;
+$WizardBtnBdColor: #ccc !default;
+$WizardNextBtnBgColor: #0084d1 !default;
+$WizardNextBtnBdColor: #0084d1 !default;
 $WizardNextBtnDisabledBgColor: #ccc !default;
-$WizardNextBtnDisabledBdColor: darken($WizardNextBtnDisabledBgColor, 1%) !default;
-$WizardFinishBtnBgColor: #4b2 !default;
-$WizardFinishBtnBdColor: darken($WizardFinishBtnBgColor, 1%) !default;
+$WizardNextBtnDisabledBdColor: #ccc !default;
+$WizardFinishBtnBgColor: #51b848 !default;
+$WizardFinishBtnBdColor: #51b848 !default;
 $WizardFinishBtnDisabledBgColor: #ccc !default;
-$WizardFinishBtnDisabledBdColor: darken($WizardFinishBtnDisabledBgColor, 1%) !default;
+$WizardFinishBtnDisabledBdColor: #ccc !default;
+$WizardToolbarBgColor: #f5f5f5 !default;
+$WizardToolbarVerticalSeparatorBdColor: #e3e3e3 !default;
+
+$wizard-textarea-border-color: #eee;
 
 // layout
-$wizardHeight: 500px !default;
+$wizardTopPadding: 40px !default;
+$wizardBottomPadding: 40px !default;
+$wizardHeight: 100% !default;
+$wizardWidth: 100% !default;
+$wizardMinHeight: 460px !default;
+$wizardMinWidth: 1024px !default;
 $wizardTitleBarHeight: 70px !default;
 $wizardToolBarHeight: 65px !default;
-$wizardNavWidth: 280px !default;
-$WizardNavItemHeight: 45px !default;
+$wizardNavWidth: 290px !default;
+$WizardNavItemHeight: 46px !default;
 $WizardNavItemWidth: 190px !default;
 $WizardSidePadding: 35px !default;
 $WizardStatusIndicatorSize: 24px !default;
