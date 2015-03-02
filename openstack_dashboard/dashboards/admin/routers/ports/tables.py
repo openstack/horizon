@@ -12,37 +12,17 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
-from openstack_dashboard.dashboards.project.networks.ports \
-    import tables as networks_tables
 from openstack_dashboard.dashboards.project.routers.ports \
     import tables as routers_tables
 
 
-DISPLAY_CHOICES = (
-    ("UP", pgettext_lazy("Admin state of a Network", u"UP")),
-    ("DOWN", pgettext_lazy("Admin state of a Network", u"DOWN")),
-)
-
-
-class PortsTable(tables.DataTable):
-    name = tables.Column("name",
+class PortsTable(routers_tables.PortsTable):
+    name = tables.Column("name_or_id",
                          verbose_name=_("Name"),
                          link="horizon:admin:networks:ports:detail")
-    fixed_ips = tables.Column(networks_tables.get_fixed_ips,
-                              verbose_name=_("Fixed IPs"))
-    status = tables.Column("status", verbose_name=_("Status"))
-    device_owner = tables.Column(routers_tables.get_device_owner,
-                                 verbose_name=_("Type"))
-    admin_state = tables.Column("admin_state",
-                                verbose_name=_("Admin State"),
-                                display_choices=DISPLAY_CHOICES)
-
-    def get_object_display(self, port):
-        return port.id
 
     class Meta(object):
         name = "interfaces"
