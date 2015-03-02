@@ -55,7 +55,7 @@ class CreateJobBinaryView(forms.ModalFormView):
     form_class = job_binary_forms.JobBinaryCreateForm
     success_url = reverse_lazy(
         'horizon:project:data_processing.job_binaries:index')
-    classes = ("ajax-modal")
+    classes = ("ajax-modal",)
     template_name = "project/data_processing.job_binaries/create.html"
 
 

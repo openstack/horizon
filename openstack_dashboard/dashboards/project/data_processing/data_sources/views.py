@@ -50,7 +50,7 @@ class CreateDataSourceView(workflows.WorkflowView):
     workflow_class = create_flow.CreateDataSource
     success_url = \
         "horizon:project:data_processing.data-sources:create-data-source"
-    classes = ("ajax-modal")
+    classes = ("ajax-modal",)
     template_name = "project/data_processing.data_sources/create.html"
 
 
