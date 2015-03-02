@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-28 02:08-0600\n"
-"PO-Revision-Date: 2015-02-28 18:54+0000\n"
+"PO-Revision-Date: 2015-03-01 18:41+0000\n"
 "Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -2108,11 +2108,11 @@ msgstr "네트워크 에이전트"
 
 #: dashboards/admin/info/tables.py:208
 msgid "Engine Id"
-msgstr ""
+msgstr "Engine Id"
 
 #: dashboards/admin/info/tables.py:210
 msgid "Topic"
-msgstr ""
+msgstr "Topic"
 
 #: dashboards/admin/info/tables.py:225
 msgid "Orchestration Services"
@@ -2136,7 +2136,7 @@ msgstr "Orchestration 서비스는 비활성화 되었습니다."
 
 #: dashboards/admin/info/tabs.py:123
 msgid "Unable to get Orchestration service list."
-msgstr ""
+msgstr "Orchestration 서비스 목록을 가져올 수 없습니다."
 
 #: dashboards/admin/info/views.py:40
 msgid "Unable to retrieve version information."
@@ -2186,7 +2186,7 @@ msgstr "호스트 \"%s\"에서 인스턴스 실시간 이전을 실패하였습�
 
 #: dashboards/admin/instances/tables.py:37
 msgid "Migrating instances may cause some unrecoverable results."
-msgstr ""
+msgstr "인스턴스 마이그래이션은 일부 복구할 수 없는 경우가 발생할 수 있습니다."
 
 #: dashboards/admin/instances/tables.py:42
 msgid "Migrate Instance"
@@ -9203,7 +9203,7 @@ msgstr ""
 
 #: dashboards/project/databases/workflows/create_instance.py:234
 msgid "Replicate from Instance"
-msgstr ""
+msgstr "인스턴스로 부터 복제"
 
 #: dashboards/project/databases/workflows/create_instance.py:240
 #: dashboards/project/databases/workflows/create_instance.py:246

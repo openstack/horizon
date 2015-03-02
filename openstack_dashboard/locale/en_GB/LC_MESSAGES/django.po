@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-27 11:19-0600\n"
-"PO-Revision-Date: 2015-02-27 16:23+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-02-28 02:08-0600\n"
+"PO-Revision-Date: 2015-03-01 15:22+0000\n"
+"Last-Translator: Rob Cresswell <robert.cresswell@outlook.com>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/horizon/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2186,7 +2186,7 @@ msgstr "Failed to live migrate instance to host \"%s\"."
 
 #: dashboards/admin/instances/tables.py:37
 msgid "Migrating instances may cause some unrecoverable results."
-msgstr ""
+msgstr "Migrating instances may cause some unrecoverable results."
 
 #: dashboards/admin/instances/tables.py:42
 msgid "Migrate Instance"
@@ -5810,7 +5810,7 @@ msgstr "(Quota exceeded)"
 msgid ""
 "Once a floating IP is released, there is no guarantee the same IP can be "
 "allocated again."
-msgstr ""
+msgstr "Once a floating IP is released, there is no guarantee the same IP can be allocated again."
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:82
 msgid "Release Floating IP"
@@ -8809,7 +8809,7 @@ msgstr "Unable to resize instance. %s"
 #: dashboards/project/databases/tables.py:35
 #: dashboards/project/instances/tables.py:86
 msgid "Terminated instances are not recoverable."
-msgstr ""
+msgstr "Terminated instances are not recoverable."
 
 #: dashboards/project/databases/tables.py:40
 #: dashboards/project/instances/tables.py:91
@@ -8829,7 +8829,7 @@ msgstr[1] "Scheduled termination of Instances"
 #: dashboards/project/instances/tables.py:116
 msgid ""
 "Restarted instances will lose any data not saved in persistent storage."
-msgstr ""
+msgstr "Restarted instances will lose any data not saved in persistent storage."
 
 #: dashboards/project/databases/tables.py:68
 msgid "Restart Instance"
@@ -10494,7 +10494,7 @@ msgstr[1] "Started Instances"
 
 #: dashboards/project/instances/tables.py:695
 msgid "To power off a specific instance."
-msgstr ""
+msgstr "To power off a specific instance."
 
 #: dashboards/project/instances/tables.py:701
 msgctxt "Action to perform (the instance is currently running)"
@@ -13040,7 +13040,7 @@ msgstr "Set Gateway"
 msgid ""
 "You may reset the gateway later by using the set gateway action, but the "
 "gateway IP may change."
-msgstr ""
+msgstr "You may reset the gateway later by using the set gateway action, but the gateway IP may change."
 
 #: dashboards/project/routers/tables.py:134
 msgid "Clear Gateway"
@@ -14829,7 +14829,7 @@ msgstr "Encrypted"
 msgid ""
 "The data will remain in the volume and another instance will be able to "
 "access the data if you attach this volume to it."
-msgstr ""
+msgstr "The data will remain in the volume and another instance will be able to access the data if you attach this volume to it."
 
 #: dashboards/project/volumes/volumes/tables.py:450
 msgid "Detach Volume"

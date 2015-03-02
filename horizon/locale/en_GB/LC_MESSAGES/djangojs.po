@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-27 11:19-0600\n"
-"PO-Revision-Date: 2015-02-27 16:23+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-02-28 02:08-0600\n"
+"PO-Revision-Date: 2015-03-01 15:22+0000\n"
+"Last-Translator: Rob Cresswell <robert.cresswell@outlook.com>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/horizon/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -425,11 +425,11 @@ msgstr "Unable to create the server."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:158
 msgid "Unable to retrieve server."
-msgstr ""
+msgstr "Unable to retrieve server."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:188
 msgid "Unable to retrieve extensions."
-msgstr ""
+msgstr "Unable to retrieve extensions."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:214
 msgid "Unable to retrieve flavors."
@@ -437,11 +437,11 @@ msgstr "Unable to retrieve flavours."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:232
 msgid "Unable to retrieve flavor."
-msgstr ""
+msgstr "Unable to retrieve flavour."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:246
 msgid "Unable to retrieve flavor extra specs."
-msgstr ""
+msgstr "Unable to retrieve flavour extra specs."
 
 #: static/horizon/js/angular/services/hz.api.security-group.js:64
 msgid "Unable to retrieve security groups."
