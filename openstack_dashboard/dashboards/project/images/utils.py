@@ -13,6 +13,7 @@
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
+from horizon.templatetags import sizeformat
 
 from openstack_dashboard.api import glance
 
@@ -75,3 +76,31 @@ def get_available_images(request, project_id=None, images_cache=None):
             final_images.append(image)
     return [image for image in final_images
             if image.container_format not in ('aki', 'ari')]
+
+
+def image_field_data(request, include_empty_option=False):
+    """Returns a list of tuples of all images.
+
+    Generates a sorted list of images available. And returns a list of
+    (id, name) tuples.
+
+    :param request: django http request object
+    :param include_empty_option: flag to include a empty tuple in the front of
+    the list
+    :return: list of (id, name) tuples
+    """
+    try:
+        images = get_available_images(request, request.user.project_id)
+    except Exception:
+        exceptions.handle(request, _('Unable to retrieve images'))
+    images.sort(key=lambda c: c.name)
+    images_list = [('', _('Select Image'))]
+    for image in images:
+        image_label = u"{} ({})".format(image.name,
+                                        sizeformat.diskgbformat(image.size))
+        images_list.append((image.id, image_label))
+
+    if not images:
+        return [("", _("No images available")), ]
+
+    return images_list

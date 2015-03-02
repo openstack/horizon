@@ -214,7 +214,8 @@ class StackTests(test.TestCase):
         self.assertEqual(len(res.context['stacks_table'].data),
                          settings.API_RESULT_PAGE_SIZE)
 
-    @test.create_stubs({api.heat: ('stack_create', 'template_validate')})
+    @test.create_stubs({api.heat: ('stack_create', 'template_validate'),
+                        api.neutron: ('network_list_for_tenant', )})
     def test_launch_stack(self):
         template = self.stack_templates.first()
         stack = self.stacks.first()
@@ -230,6 +231,12 @@ class StackTests(test.TestCase):
                               template=template.data,
                               parameters=IsA(dict),
                               password='password')
+        api.neutron.network_list_for_tenant(IsA(http.HttpRequest),
+                                            self.tenant.id) \
+            .AndReturn(self.networks.list())
+        api.neutron.network_list_for_tenant(IsA(http.HttpRequest),
+                                            self.tenant.id) \
+            .AndReturn(self.networks.list())
 
         self.mox.ReplayAll()
 
@@ -258,12 +265,14 @@ class StackTests(test.TestCase):
                      "__param_DBPassword": "admin",
                      "__param_DBRootPassword": "admin",
                      "__param_DBName": "wordpress",
+                     "__param_Network": self.networks.list()[0]['id'],
                      'method': forms.CreateStackForm.__name__}
         res = self.client.post(url, form_data)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.heat: ('stack_create', 'template_validate')})
-    def test_launch_stackwith_environment(self):
+    @test.create_stubs({api.heat: ('stack_create', 'template_validate'),
+                        api.neutron: ('network_list_for_tenant', )})
+    def test_launch_stack_with_environment(self):
         template = self.stack_templates.first()
         environment = self.stack_environments.first()
         stack = self.stacks.first()
@@ -281,6 +290,12 @@ class StackTests(test.TestCase):
                               environment=environment.data,
                               parameters=IsA(dict),
                               password='password')
+        api.neutron.network_list_for_tenant(IsA(http.HttpRequest),
+                                            self.tenant.id) \
+            .AndReturn(self.networks.list())
+        api.neutron.network_list_for_tenant(IsA(http.HttpRequest),
+                                            self.tenant.id) \
+            .AndReturn(self.networks.list())
 
         self.mox.ReplayAll()
 
@@ -313,6 +328,7 @@ class StackTests(test.TestCase):
                      "__param_DBPassword": "admin",
                      "__param_DBRootPassword": "admin",
                      "__param_DBName": "wordpress",
+                     "__param_Network": self.networks.list()[0]['id'],
                      'method': forms.CreateStackForm.__name__}
         res = self.client.post(url, form_data)
         self.assertRedirectsNoFollow(res, INDEX_URL)
@@ -575,8 +591,9 @@ class StackTests(test.TestCase):
         res = self.client.post(url, form_data)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.heat: ('stack_update', 'stack_get',
-                                   'template_get', 'template_validate')})
+    @test.create_stubs({api.heat: ('stack_update', 'stack_get', 'template_get',
+                                   'template_validate'),
+                        api.neutron: ('network_list_for_tenant', )})
     def test_edit_stack_template(self):
         template = self.stack_templates.first()
         stack = self.stacks.first()
@@ -611,6 +628,10 @@ class StackTests(test.TestCase):
         api.heat.stack_update(IsA(http.HttpRequest),
                               stack_id=stack.id,
                               **fields)
+        api.neutron.network_list_for_tenant(IsA(http.HttpRequest),
+                                            self.tenant.id) \
+            .AndReturn(self.networks.list())
+
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:stacks:change_template',
@@ -640,16 +661,27 @@ class StackTests(test.TestCase):
                      "__param_DBPassword": "admin",
                      "__param_DBRootPassword": "admin",
                      "__param_DBName": "wordpress",
+                     "__param_Network": self.networks.list()[0]['id'],
                      'method': forms.EditStackForm.__name__}
         res = self.client.post(url, form_data)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    def test_launch_stack_form_invalid_names_fail(self):
+    def test_launch_stack_form_invalid_name_digit(self):
         self._test_launch_stack_invalid_name('2_StartWithDigit')
+
+    def test_launch_stack_form_invalid_name_underscore(self):
         self._test_launch_stack_invalid_name('_StartWithUnderscore')
+
+    def test_launch_stack_form_invalid_name_point(self):
         self._test_launch_stack_invalid_name('.StartWithPoint')
 
+    @test.create_stubs({api.neutron: ('network_list_for_tenant', )})
     def _test_launch_stack_invalid_name(self, name):
+        api.neutron.network_list_for_tenant(IsA(http.HttpRequest),
+                                            self.tenant.id) \
+            .AndReturn(self.networks.list())
+        self.mox.ReplayAll()
+
         template = self.stack_templates.first()
         url = reverse('horizon:project:stacks:launch')
         form_data = {'template_source': 'raw',
@@ -666,6 +698,7 @@ class StackTests(test.TestCase):
                      "__param_DBPassword": "admin",
                      "__param_DBRootPassword": "admin",
                      "__param_DBName": "wordpress",
+                     "__param_Network": self.networks.list()[0]['id'],
                      'method': forms.CreateStackForm.__name__}
 
         res = self.client.post(url, form_data)

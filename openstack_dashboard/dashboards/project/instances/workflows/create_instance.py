@@ -360,10 +360,7 @@ class SetInstanceDetailsAction(workflows.Action):
         return cleaned_data
 
     def populate_flavor_choices(self, request, context):
-        flavors = instance_utils.flavor_list(request)
-        if flavors:
-            return instance_utils.sort_flavor_list(request, flavors)
-        return []
+        return instance_utils.flavor_field_data(request, False)
 
     def populate_availability_zone_choices(self, request, context):
         try:
@@ -563,20 +560,10 @@ class SetAccessControlsAction(workflows.Action):
             del self.fields['confirm_admin_pass']
 
     def populate_keypair_choices(self, request, context):
-        try:
-            keypairs = api.nova.keypair_list(request)
-            keypair_list = [(kp.name, kp.name) for kp in keypairs]
-        except Exception:
-            keypair_list = []
-            exceptions.handle(request,
-                              _('Unable to retrieve key pairs.'))
-        if keypair_list:
-            if len(keypair_list) == 1:
-                self.fields['keypair'].initial = keypair_list[0][0]
-            keypair_list.insert(0, ("", _("Select a key pair")))
-        else:
-            keypair_list = (("", _("No key pairs available")),)
-        return keypair_list
+        keypairs = instance_utils.keypair_field_data(request, True)
+        if len(keypairs) == 2:
+            self.fields['keypair'].initial = keypairs[1][0]
+        return keypairs
 
     def populate_groups_choices(self, request, context):
         try:
@@ -731,17 +718,7 @@ class SetNetworkAction(workflows.Action):
         help_text = _("Select networks for your instance.")
 
     def populate_network_choices(self, request, context):
-        network_list = []
-        try:
-            tenant_id = self.request.user.tenant_id
-            networks = api.neutron.network_list_for_tenant(request, tenant_id)
-            for n in networks:
-                network_list.append((n.id, n.name_or_id))
-            sorted(network_list, key=lambda obj: obj[1])
-        except Exception:
-            exceptions.handle(request,
-                              _('Unable to retrieve networks.'))
-        return network_list
+        return instance_utils.network_field_data(request)
 
     def get_policy_profile_choices(self, request):
         profile_choices = [('', _("Select a profile"))]
