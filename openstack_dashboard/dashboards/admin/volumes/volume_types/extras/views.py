@@ -59,13 +59,14 @@ class IndexView(ExtraSpecMixin, forms.ModalFormMixin, tables.DataTableView):
 class CreateView(ExtraSpecMixin, forms.ModalFormView):
     form_class = project_forms.CreateExtraSpec
     template_name = 'admin/volumes/volume_types/extras/create.html'
+    success_url = 'horizon:admin:volumes:volume_types:extras:index'
 
     def get_initial(self):
         return {'type_id': self.kwargs['type_id']}
 
     def get_success_url(self):
-        return ("/admin/volumes/volume_types/%s/extras/" %
-                (self.kwargs['type_id']))
+        return reverse(self.success_url,
+                       args=(self.kwargs['type_id'],))
 
 
 class EditView(ExtraSpecMixin, forms.ModalFormView):
