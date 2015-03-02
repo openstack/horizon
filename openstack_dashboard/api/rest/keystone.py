@@ -436,7 +436,7 @@ class Project(generic.View):
     underlying keystone API the terms "project" and "tenant" are used
     interchangeably.
     """
-    url_regex = r'keystone/projects/$'
+    url_regex = r'keystone/projects/(?P<id>[0-9a-f]+)$'
 
     @rest_utils.ajax()
     def get(self, request, id):
