@@ -4,21 +4,11 @@
 
 {% block modal-footer %}
   {% if workflow.wizard %}
-  <div class="row">
-
-    <div class="col-sm-1">
-        <a href="{% url 'horizon:project:networks:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
-    </div>
-
-    <div class="col-sm-5 back">
-        <button type="button" class="btn btn-default button-previous">&laquo; {% trans "Back" %}</button>
-    </div>
-
-    <div class="col-sm-6 next">
-        <button type="button" class="btn btn-primary button-next">{% trans "Next" %} &raquo;</button>
-      <button type="submit" class="btn btn-primary button-final">{{ workflow.finalize_button_name }}</button>
-    </div>
-
+  <div class="row footer-row">
+    <a class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
+    <button type="button" class="btn btn-default button-previous">{% trans "&laquo;&nbsp;Back" %}</button>
+    <button type="button" class="btn btn-primary button-next">{% trans "Next&nbsp;&raquo;" %}</button>
+    <button type="submit" class="btn btn-primary button-final">{{ workflow.finalize_button_name }}</button>
   </div>
   {% else %}
     <input class="btn btn-primary pull-right" type="submit" value="{{ workflow.finalize_button_name }}" />
