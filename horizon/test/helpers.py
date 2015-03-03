@@ -284,14 +284,14 @@ class JasmineTests(SeleniumTestCase):
 
         wait.until(jasmine_done)
         failures = \
-            self.selenium.find_elements_by_css_selector(".specDetail.failed")
+            self.selenium.find_elements_by_css_selector(".spec-detail.failed")
 
         results = []
         for failure in failures:
             results.append(
                 failure.find_element_by_class_name("description").text)
             results.append(
-                failure.find_element_by_class_name("stackTrace").text)
+                failure.find_element_by_class_name("stack-trace").text)
 
         self.assertEqual(results, [], '\n\n' + '\n\n'.join(results) + '\n\n')
 
