@@ -225,7 +225,7 @@ class UpdateAuthorizedMembers(idm_workflows.UpdateRelationshipStep):
 
 class ManageAuthorizedMembers(idm_workflows.RelationshipWorkflow):
     slug = "manage_organization_users_application_roles"
-    name = ("Manage your applications' members")
+    name = ("Authorize users in your application")
     finalize_button_name = ("Save")
     success_message = ('Modified users.')
     failure_message = ('Unable to modify users.')
@@ -331,7 +331,7 @@ class UpdateAuthorizedOrganizations(idm_workflows.UpdateRelationshipStep):
 
 class ManageAuthorizedOrganizations(idm_workflows.RelationshipWorkflow):
     slug = "manage_organization_organizations_application_roles"
-    name = ("Manage authorized organizations")
+    name = ("Authorize organizations in your application")
     finalize_button_name = ("Save")
     success_message = ('Modified organizations.')
     failure_message = ('Unable to modify organizations.')

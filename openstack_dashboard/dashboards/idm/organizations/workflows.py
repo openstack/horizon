@@ -91,7 +91,7 @@ class UpdateProjectMembers(idm_workflows.UpdateRelationshipStep):
 
 class ManageOrganizationMembers(idm_workflows.RelationshipWorkflow):
     slug = "manage_organization_users"
-    name = ("Manage Members")
+    name = ("Manage your organization members")
     finalize_button_name = ("Save")
     success_message = ('Modified users.')
     failure_message = ('Unable to modify users.')

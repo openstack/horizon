@@ -60,9 +60,10 @@ class AuthorizedApplicationsTable(tables.DataTable):
 
 class ManageAuthorizedMembersLink(tables.LinkAction):
     name = "manage_application_members"
-    verbose_name = ("Manage authorized users")
+    verbose_name = ("Authorize")
     url = "horizon:idm:myApplications:members"
     classes = ("ajax-modal",)
+    icon = "check-square-o"
 
     def allowed(self, request, user):
         # Allowed if your allowed role list is not empty
@@ -100,9 +101,10 @@ class MembersTable(tables.DataTable):
 
 class ManageAuthorizedOrganizationsLink(tables.LinkAction):
     name = "manage_application_organizations"
-    verbose_name = ("Manage authorized organizations")
+    verbose_name = ("Authorize")
     url = "horizon:idm:myApplications:organizations"
     classes = ("ajax-modal",)
+    icon = "check-square-o"
 
     def allowed(self, request, user):
         # Allowed if your allowed role list is not empty

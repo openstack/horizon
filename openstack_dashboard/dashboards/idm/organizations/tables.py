@@ -72,9 +72,10 @@ class MemberOrganizationsTable(tables.DataTable):
 
 class ManageMembersLink(tables.LinkAction):
     name = "manage_members"
-    verbose_name = ("Manage Members")
+    verbose_name = ("Manage")
     url = "horizon:idm:organizations:members"
     classes = ("ajax-modal",)
+    icon = "cogs"
 
     def allowed(self, request, user):
         # Allowed if he is an admin in the organization

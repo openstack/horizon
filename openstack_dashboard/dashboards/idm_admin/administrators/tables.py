@@ -24,9 +24,10 @@ from openstack_dashboard.dashboards.idm import tables as idm_tables
 
 class ManageAuthorizedMembersLink(tables.LinkAction):
     name = "manage_administrators"
-    verbose_name = ("Manage administrators")
+    verbose_name = ("Authorize")
     url = "horizon:idm_admin:administrators:members"
     classes = ("ajax-modal",)
+    icon = "check-square-o"
 
     def allowed(self, request, user):
         # Allowed if your allowed role list is not empty
