@@ -805,6 +805,7 @@ class VolumeViewTests(test.TestCase):
 
     @test.create_stubs({cinder: ('tenant_absolute_limits',
                                  'volume_list',
+                                 'volume_snapshot_list',
                                  'volume_backup_supported',
                                  'volume_delete',),
                         api.nova: ('server_list',)})
@@ -818,11 +819,17 @@ class VolumeViewTests(test.TestCase):
             MultipleTimes().AndReturn(True)
         cinder.volume_list(IsA(http.HttpRequest), search_opts=None).\
             AndReturn(volumes)
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=None).\
+            AndReturn([])
         cinder.volume_delete(IsA(http.HttpRequest), volume.id)
         api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
             AndReturn([self.servers.list(), False])
         cinder.volume_list(IsA(http.HttpRequest), search_opts=None).\
             AndReturn(volumes)
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=None).\
+            AndReturn([])
         api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
             AndReturn([self.servers.list(), False])
         cinder.tenant_absolute_limits(IsA(http.HttpRequest)).MultipleTimes().\
@@ -996,6 +1003,7 @@ class VolumeViewTests(test.TestCase):
 
     @test.create_stubs({cinder: ('tenant_absolute_limits',
                                  'volume_list',
+                                 'volume_snapshot_list',
                                  'volume_backup_supported',),
                         api.nova: ('server_list',)})
     def test_create_button_disabled_when_quota_exceeded(self):
@@ -1007,6 +1015,9 @@ class VolumeViewTests(test.TestCase):
             MultipleTimes().AndReturn(True)
         cinder.volume_list(IsA(http.HttpRequest), search_opts=None)\
             .AndReturn(volumes)
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=None).\
+            AndReturn([])
         api.nova.server_list(IsA(http.HttpRequest), search_opts=None)\
             .AndReturn([self.servers.list(), False])
         cinder.tenant_absolute_limits(IsA(http.HttpRequest))\
@@ -1431,6 +1442,7 @@ class VolumeViewTests(test.TestCase):
         self._test_encryption(True)
 
     @test.create_stubs({cinder: ('volume_list',
+                                 'volume_snapshot_list',
                                  'volume_backup_supported',
                                  'tenant_absolute_limits'),
                         api.nova: ('server_list',)})
@@ -1444,6 +1456,9 @@ class VolumeViewTests(test.TestCase):
             .MultipleTimes('backup_supported').AndReturn(False)
         cinder.volume_list(IsA(http.HttpRequest), search_opts=None)\
             .AndReturn(self.volumes.list())
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=None).\
+            AndReturn(self.cinder_volume_snapshots.list())
         api.nova.server_list(IsA(http.HttpRequest), search_opts=None)\
             .AndReturn([self.servers.list(), False])
         cinder.tenant_absolute_limits(IsA(http.HttpRequest))\
@@ -1492,6 +1507,7 @@ class VolumeViewTests(test.TestCase):
 
     @test.create_stubs({cinder: ('volume_backup_supported',
                                  'volume_list',
+                                 'volume_snapshot_list',
                                  'tenant_absolute_limits'),
                         api.nova: ('server_list',)})
     def test_create_transfer_availability(self):
@@ -1501,6 +1517,9 @@ class VolumeViewTests(test.TestCase):
             .MultipleTimes().AndReturn(False)
         cinder.volume_list(IsA(http.HttpRequest), search_opts=None)\
             .AndReturn(self.volumes.list())
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=None).\
+            AndReturn([])
         api.nova.server_list(IsA(http.HttpRequest), search_opts=None)\
                 .AndReturn([self.servers.list(), False])
         cinder.tenant_absolute_limits(IsA(http.HttpRequest))\
@@ -1540,6 +1559,7 @@ class VolumeViewTests(test.TestCase):
 
     @test.create_stubs({cinder: ('volume_backup_supported',
                                  'volume_list',
+                                 'volume_snapshot_list',
                                  'transfer_delete',
                                  'tenant_absolute_limits'),
                         api.nova: ('server_list',)})
@@ -1560,6 +1580,9 @@ class VolumeViewTests(test.TestCase):
             .MultipleTimes().AndReturn(False)
         cinder.volume_list(IsA(http.HttpRequest), search_opts=None)\
             .AndReturn(volumes)
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=None).\
+            AndReturn([])
         cinder.transfer_delete(IsA(http.HttpRequest), transfer.id)
         api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
             AndReturn([self.servers.list(), False])

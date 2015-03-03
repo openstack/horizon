@@ -65,6 +65,7 @@ class QosSpecsTests(test.BaseAdminViewTests):
         self.assertMessageCount(success=1)
 
     @test.create_stubs({api.cinder: ('volume_type_list_with_qos_associations',
+                                     'volume_encryption_type_list',
                                      'qos_spec_list',
                                      'qos_spec_delete',)})
     def test_delete_qos_spec(self):
@@ -74,6 +75,8 @@ class QosSpecsTests(test.BaseAdminViewTests):
         api.cinder.volume_type_list_with_qos_associations(
             IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.list())
+        api.cinder.volume_encryption_type_list(IsA(http.HttpRequest))\
+            .AndReturn(self.cinder_volume_encryption_types.list()[0:1])
         api.cinder.qos_spec_list(IsA(http.HttpRequest)).\
             AndReturn(self.cinder_qos_specs.list())
         api.cinder.qos_spec_delete(IsA(http.HttpRequest),

@@ -82,10 +82,17 @@ class DataProcessingNodeGroupTests(test.TestCase):
     @test.create_stubs({api.sahara: ('nodegroup_template_get',
                                      'plugin_get_version_details'),
                         api.network: ('floating_ip_pools_list',
-                                      'security_group_list')})
+                                      'security_group_list'),
+                        api.cinder: ('extension_supported',
+                                     'availability_zone_list')})
     def test_copy(self):
         ngt = self.nodegroup_templates.first()
         configs = self.plugins_configs.first()
+        api.cinder.extension_supported(IsA(http.HttpRequest),
+                                       'AvailabilityZones') \
+            .AndReturn(True)
+        api.cinder.availability_zone_list(IsA(http.HttpRequest))\
+            .AndReturn(self.availability_zones.list())
         api.sahara.nodegroup_template_get(IsA(http.HttpRequest),
                                           ngt.id) \
             .AndReturn(ngt)
@@ -114,7 +121,9 @@ class DataProcessingNodeGroupTests(test.TestCase):
                                      'plugin_get_version_details'),
                         api.network: ('floating_ip_pools_list',
                                       'security_group_list'),
-                        api.nova: ('flavor_list',)})
+                        api.nova: ('flavor_list',),
+                        api.cinder: ('extension_supported',
+                                     'availability_zone_list')})
     def test_create(self):
         flavor = self.flavors.first()
         ngt = self.nodegroup_templates.first()
@@ -123,6 +132,11 @@ class DataProcessingNodeGroupTests(test.TestCase):
         self.mox.StubOutWithMock(
             workflow_helpers, 'parse_configs_from_context')
 
+        api.cinder.extension_supported(IsA(http.HttpRequest),
+                                       'AvailabilityZones') \
+            .AndReturn(True)
+        api.cinder.availability_zone_list(IsA(http.HttpRequest))\
+            .AndReturn(self.availability_zones.list())
         api.nova.flavor_list(IsA(http.HttpRequest)).AndReturn([flavor])
         api.sahara.plugin_get_version_details(IsA(http.HttpRequest),
                                               ngt.plugin_name,

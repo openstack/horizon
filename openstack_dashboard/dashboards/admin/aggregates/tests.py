@@ -180,13 +180,20 @@ class AggregatesViewTests(test.BaseAdminViewTests):
 
     @mock.patch('openstack_dashboard.api.nova.extension_supported',
                 mock.Mock(return_value=False))
+    @test.create_stubs({api.nova: ('aggregate_details_list',
+                                   'availability_zone_list',),
+                        api.cinder: ('tenant_absolute_limits',)})
     def test_panel_not_available(self):
+        api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)). \
+            MultipleTimes().AndReturn(self.cinder_limits['absolute'])
+        self.mox.ReplayAll()
+
         self.patchers['aggregates'].stop()
         res = self.client.get(reverse('horizon:admin:overview:index'))
         self.assertNotIn('Host Aggregates', res.content)
 
     @test.create_stubs({api.nova: ('aggregate_details_list',
-                                   'availability_zone_list',), })
+                                   'availability_zone_list',)})
     def test_index(self):
         api.nova.aggregate_details_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.aggregates.list())

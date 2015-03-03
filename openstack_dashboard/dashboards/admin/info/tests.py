@@ -64,6 +64,7 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
             services_tab._tables['services'].data,
             ['<Service: compute>',
              '<Service: volume>',
+             '<Service: volumev2>',
              '<Service: image>',
              '<Service: identity (native backend)>',
              '<Service: object-store>',
