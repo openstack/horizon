@@ -16,6 +16,8 @@ from captcha.fields import ReCaptchaField
 from django import forms
 from django.conf import settings
 
+from openstack_auth import forms as openstack_auth_forms
+
 from keystoneclient import exceptions as keystoneclient_exceptions   
 
 from openstack_dashboard import fiware_api
@@ -122,4 +124,9 @@ class EmailForm(forms.Form):
 class ChangePasswordForm(ConfirmPasswordForm):
     pass
 
+class LoginWithEmailForm(openstack_auth_forms.Login):
+    """Change the label for username field to email."""
+    username = forms.CharField(
+        label=("Email"),
+        widget=forms.TextInput(attrs={"autofocus": "autofocus"}))
         
