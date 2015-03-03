@@ -202,7 +202,7 @@ class SerialConsoleView(generic.TemplateView):
         context['instance_id'] = self.kwargs['instance_id']
         instance = None
         try:
-            instance = api.nova.server_get(context['view'].request,
+            instance = api.nova.server_get(self.request,
                                            self.kwargs['instance_id'])
         except Exception:
             context["error_message"] = _(
@@ -213,7 +213,7 @@ class SerialConsoleView(generic.TemplateView):
             return context
         context['instance_name'] = instance.name
         try:
-            console_url = project_console.get_console(context['view'].request,
+            console_url = project_console.get_console(self.request,
                                                       "SERIAL", instance)[1]
             context["console_url"] = console_url
         except exceptions.NotAvailable:
