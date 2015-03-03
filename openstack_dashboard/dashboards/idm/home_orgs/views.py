@@ -63,8 +63,8 @@ class IndexView(tables.MultiTableView):
             # TODO(garcianavalon) extract to fiware_api
             all_apps = fiware_api.keystone.application_list(self.request)
             apps_with_roles = [a.application_id for a 
-                               in fiware_api.keystone.user_role_assignments(
-                               self.request, user=self.request.user.id)]
+                               in fiware_api.keystone.organization_role_assignments(
+                               self.request, organization=self.request.organization.id)]
             applications = [app for app in all_apps 
                             if app.id in apps_with_roles]
         except Exception:

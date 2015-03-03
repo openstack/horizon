@@ -40,7 +40,7 @@ class OrganizationsTable(tables.DataTable):
 
 class ApplicationsTable(tables.DataTable):
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
-        obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
+        obj, 'img_medium', idm_utils.DEFAULT_APP_MEDIUM_AVATAR))
     name = tables.Column('name', verbose_name=('Applications'))
     url = tables.Column(lambda obj: getattr(obj, 'url', None))
     
