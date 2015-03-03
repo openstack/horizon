@@ -206,24 +206,31 @@ def _pool_get(request, pool_id, expand_resource=False):
             messages.warning(request, _("Unable to get subnet for pool "
                                         "%(pool)s.") % {"pool": pool_id})
         pool['vip'] = _get_vip(request, pool, vip_dict=None)
-        try:
-            pool['members'] = _member_list(request, expand_pool=False,
-                                           pool_id=pool_id)
-        except Exception:
-            messages.warning(request, _("Unable to get members for pool "
-                                        "%(pool)s.") % {"pool": pool_id})
-        monitors = []
-        for monitor_id in pool['health_monitors']:
+        # Check here to reduce the additional request if pool['members'] is
+        # empty
+        if pool['members']:
             try:
-                monitors.append(_pool_health_monitor_get(request, monitor_id,
-                                                         False))
+                pool['members'] = _member_list(request, expand_pool=False,
+                                               pool_id=pool_id)
             except Exception:
-                messages.warning(request,
-                                 _("Unable to get health monitor "
-                                   "%(monitor_id)s for pool %(pool)s.")
-                                 % {"pool": pool_id,
-                                    "monitor_id": monitor_id})
-        pool['health_monitors'] = monitors
+                messages.warning(request, _("Unable to get members for pool "
+                                            "%(pool)s.") % {"pool": pool_id})
+        # If the filter to get health monitors list is empty, all health
+        # monitors will be returned in the tenant.
+        if pool['health_monitors']:
+            monitors = []
+            for monitor_id in pool['health_monitors']:
+                try:
+                    monitors.append(_pool_health_monitor_get(request,
+                                                             monitor_id,
+                                                             False))
+                except Exception:
+                    messages.warning(request,
+                                     _("Unable to get health monitor "
+                                       "%(monitor_id)s for pool %(pool)s.")
+                                     % {"pool": pool_id,
+                                        "monitor_id": monitor_id})
+            pool['health_monitors'] = monitors
     return Pool(pool)
 
 
@@ -288,7 +295,10 @@ def _pool_health_monitor_get(request, monitor_id, expand_resource=False):
                                                   ).get('health_monitor')
     if expand_resource:
         pool_ids = [p['pool_id'] for p in monitor['pools']]
-        monitor['pools'] = _pool_list(request, id=pool_ids)
+        # If the filter to get pools list is empty, all pools will be
+        # returned in the tenant.
+        if pool_ids:
+            monitor['pools'] = _pool_list(request, id=pool_ids)
     return PoolMonitor(monitor)
 
 
