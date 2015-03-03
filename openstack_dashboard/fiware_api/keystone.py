@@ -16,30 +16,24 @@ import logging
 import requests
 
 from django.conf import settings
+from django.core.cache import cache
+
 from openstack_dashboard import api
 from openstack_dashboard.local import local_settings
 
 from horizon import exceptions
 
-# check that we have the correct version of the keystoneclient
-try:
-    from keystoneclient.v3.contrib.oauth2 import core
-except ImportError as e:
-    raise ImportError(e,
-                      'You dont have setup correctly the extended keystoneclient. \
-                      ask garcianavalon (Kike) or look at the wiki at github')
-else:
-    from keystoneclient import exceptions as ks_exceptions
-    from keystoneclient import session
-    from keystoneclient.auth.identity import v3
-    from keystoneclient.v3 import client
-    from keystoneclient.v3.contrib.oauth2 import auth as oauth2_auth
+from keystoneclient import exceptions as ks_exceptions
+from keystoneclient import session
+from keystoneclient.auth.identity import v3
+from keystoneclient.v3 import client
+from keystoneclient.v3.contrib.oauth2 import auth as oauth2_auth
 
 
 LOG = logging.getLogger('idm_logger')
-OWNER_ROLE = None
-PROVIDER_ROLE = None
-PURCHASER_ROLE = None
+# NOTE(garcianavalon) time in seconds to cache the default roles
+# and other objects
+DEFAULT_OBJECTS_CACHE_TIME = 60 * 15
 
 def fiwareclient(session=None, request=None):# TODO(garcianavalon) use this
     """Encapsulates all the logic for communicating with the modified keystone server.
@@ -456,15 +450,21 @@ def forward_validate_token_request(request):
     return response
 
 # SPECIAL ROLES
+class PickleObject():
+    """Extremely simple class that holds the very little information we need
+    to cache. Keystoneclient resource objects are not pickable.
+    """
+    def __init__(self, **kwds):
+        self.__dict__.update(kwds)
+
 def get_owner_role(request):
     """Gets the owner role object from Keystone and saves it as a global.
 
     Since this is configured in settings and should not change from request
     to request. Supports lookup by name or id.
     """
-    global OWNER_ROLE
     owner = getattr(local_settings, "KEYSTONE_OWNER_ROLE", None)
-    if owner and OWNER_ROLE is None:
+    if owner and cache.get('owner_role') is None:
         try:
             roles = api.keystone.keystoneclient(request, admin=True).roles.list()
         except Exception:
@@ -472,9 +472,10 @@ def get_owner_role(request):
             exceptions.handle(request)
         for role in roles:
             if role.id == owner or role.name == owner:
-                OWNER_ROLE = role
+                pickle_role = PickleObject(name=role.name, id=role.id)
+                cache.set('owner_role', pickle_role, DEFAULT_OBJECTS_CACHE_TIME)
                 break
-    return OWNER_ROLE
+    return cache.get('owner_role')
 
 def get_provider_role(request):
     """Gets the provider role object from Keystone and saves it as a global.
@@ -482,9 +483,8 @@ def get_provider_role(request):
     Since this is configured in settings and should not change from request
     to request. Supports lookup by name or id.
     """
-    global PROVIDER_ROLE
     provider = getattr(local_settings, "FIWARE_PROVIDER_ROLE", None)
-    if provider and PROVIDER_ROLE is None:
+    if provider and cache.get('provider_role') is None:
         try:
             roles = api.keystone.keystoneclient(request, 
                 admin=True).fiware_roles.roles.list()
@@ -493,9 +493,10 @@ def get_provider_role(request):
             exceptions.handle(request)
         for role in roles:
             if role.id == provider or role.name == provider:
-                PROVIDER_ROLE = role
+                pickle_role = PickleObject(name=role.name, id=role.id)
+                cache.set('provider_role', pickle_role, DEFAULT_OBJECTS_CACHE_TIME)
                 break
-    return PROVIDER_ROLE
+    return cache.get('provider_role')
 
 def get_purchaser_role(request):
     """Gets the purchaser role object from Keystone and saves it as a global.
@@ -503,9 +504,8 @@ def get_purchaser_role(request):
     Since this is configured in settings and should not change from request
     to request. Supports lookup by name or id.
     """
-    global PURCHASER_ROLE
     purchaser = getattr(local_settings, "FIWARE_PURCHASER_ROLE", None)
-    if purchaser and PURCHASER_ROLE is None:
+    if purchaser and cache.get('pruchaser_role') is None:
         try:
             roles = api.keystone.keystoneclient(request, 
                 admin=True).fiware_roles.roles.list()
@@ -514,13 +514,14 @@ def get_purchaser_role(request):
             exceptions.handle(request)
         for role in roles:
             if role.id == purchaser or role.name == purchaser:
-                PURCHASER_ROLE = role
+                pickle_role = PickleObject(name=role.name, id=role.id)
+                cache.set('pruchaser_role', pickle_role, DEFAULT_OBJECTS_CACHE_TIME)
                 break
-    return PURCHASER_ROLE
+    return cache.get('pruchaser_role')
 
 def get_idm_admin_app(request):
     idm_admin = getattr(local_settings, "FIWARE_IDM_ADMIN_APP", None)
-    if idm_admin:
+    if idm_admin and cache.get('idm_admin') is None:
         try:
             apps = api.keystone.keystoneclient(request, 
                 admin=True).oauth2.consumers.list()
@@ -529,4 +530,7 @@ def get_idm_admin_app(request):
             exceptions.handle(request)
         for app in apps:
             if app.id == idm_admin or app.name == idm_admin:
-                return app
+                pickle_app = PickleObject(name=app.name, id=app.id)
+                cache.set('idm_admin', pickle_app, DEFAULT_OBJECTS_CACHE_TIME)
+                break
+    return cache.get('idm_admin')

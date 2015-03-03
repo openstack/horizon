@@ -35,23 +35,31 @@ class RoleAndPermissionApi(idm_workflows.RelationshipApiInterface):
     """FIWARE Roles logic to assign"""
     
     def _list_all_owners(self, request, superset_id):
-        role_list = fiware_api.keystone.role_list(
+        role_list = []
+        # TODO(garcianavalon) the default roles should be non editable!
+        idm_app = fiware_api.keystone.get_idm_admin_app(request)
+        role_list += fiware_api.keystone.role_list(request, 
+            application=idm_app.id)
+
+        role_list += fiware_api.keystone.role_list(
             request, application=superset_id)
+        
         # Save the role_list to use in the template
         self.application_roles = role_list
-        # TODO(garcianavalon) the default roles should be non editable!
-        # TODO(garcianavalon) filtering for internal
-        # role_list += fiware_api.keystone.role_list(request)
         return  [(role.id, role.name) for role in role_list]
 
     def _list_all_objects(self, request, superset_id):
-        permission_list = fiware_api.keystone.permission_list(
-            request, application=superset_id)
+        permission_list = []
+        # TODO(garcianavalon) the default roles should be non editable!
+        idm_app = fiware_api.keystone.get_idm_admin_app(request)
+        permission_list += fiware_api.keystone.permission_list(request, 
+            application=idm_app.id)
+
+        permission_list += fiware_api.keystone.permission_list(
+            request, application=superset_id)   
+
         # Save the permission_list to use in the template
         self.application_permissions = permission_list
-        # TODO(garcianavalon) the default roles should be non editable!
-        # TODO(garcianavalon) filtering for internal
-        # permission_list += fiware_api.keystone.permission_list(request)
         return permission_list
 
     def _list_current_assignments(self, request, superset_id):
