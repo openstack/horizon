@@ -450,7 +450,7 @@ def forward_validate_token_request(request):
     return response
 
 # SPECIAL ROLES
-class PickleObject:
+class PickleObject():
     """Extremely simple class that holds the very little information we need
     to cache. Keystoneclient resource objects are not pickable.
     """
