@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-28 02:08-0600\n"
-"PO-Revision-Date: 2015-02-28 17:01+0000\n"
-"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
+"POT-Creation-Date: 2015-03-02 18:54-0600\n"
+"PO-Revision-Date: 2015-03-03 00:26+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -441,6 +441,10 @@ msgstr "Flavor를 찾지 못했습니다."
 #: static/horizon/js/angular/services/hz.api.nova.js:246
 msgid "Unable to retrieve flavor extra specs."
 msgstr "Flavor 확장 스팩을 찾지 못했습니다."
+
+#: static/horizon/js/angular/services/hz.api.policy.js:65
+msgid "Policy check failed."
+msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.security-group.js:64
 msgid "Unable to retrieve security groups."
