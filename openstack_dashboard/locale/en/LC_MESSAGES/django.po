@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-03 00:11-0600\n"
+"POT-Creation-Date: 2015-03-04 00:10-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2284,7 +2284,6 @@ msgid "Time since created"
 msgstr ""
 
 #: dashboards/admin/instances/views.py:82
-#: dashboards/admin/networks/views.py:50
 msgid "Unable to retrieve instance project information."
 msgstr ""
 
@@ -2675,7 +2674,7 @@ msgid "Created"
 msgstr ""
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:23
-#: dashboards/admin/networks/views.py:58
+#: dashboards/admin/networks/views.py:59
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:16
 #: dashboards/project/images/templates/images/images/_detail_overview.html:20
 #: dashboards/project/images/templates/images/images/_detail_overview.html:31
@@ -3280,7 +3279,7 @@ msgid "Failed to delete network %s"
 msgstr ""
 
 #: dashboards/admin/networks/tables.py:65
-#: dashboards/admin/networks/views.py:98
+#: dashboards/admin/networks/views.py:99
 #: dashboards/admin/networks/templates/networks/_create.html:9
 #: dashboards/admin/networks/templates/networks/_create.html:26
 #: dashboards/admin/networks/templates/networks/create.html:3
@@ -3328,33 +3327,37 @@ msgstr ""
 msgid "DHCP Agents"
 msgstr ""
 
-#: dashboards/admin/networks/views.py:77
+#: dashboards/admin/networks/views.py:50
+msgid "Unable to retrieve information about the networks' projects."
+msgstr ""
+
+#: dashboards/admin/networks/views.py:78
 #: dashboards/project/networks/views.py:54
 msgid "Network list can not be retrieved."
 msgstr ""
 
-#: dashboards/admin/networks/views.py:89
-#: dashboards/admin/networks/views.py:136
+#: dashboards/admin/networks/views.py:90
+#: dashboards/admin/networks/views.py:137
 #: dashboards/admin/networks/agents/forms.py:62
 msgid "Unable to list dhcp agents hosting network."
 msgstr ""
 
-#: dashboards/admin/networks/views.py:106
+#: dashboards/admin/networks/views.py:107
 #: dashboards/project/networks/views.py:103
 msgid "Network Details: {{ network.name }}"
 msgstr ""
 
-#: dashboards/admin/networks/views.py:115
+#: dashboards/admin/networks/views.py:116
 #: dashboards/project/networks/views.py:112
 msgid "Subnet list can not be retrieved."
 msgstr ""
 
-#: dashboards/admin/networks/views.py:125
+#: dashboards/admin/networks/views.py:126
 #: dashboards/project/networks/views.py:122
 msgid "Port list can not be retrieved."
 msgstr ""
 
-#: dashboards/admin/networks/views.py:148
+#: dashboards/admin/networks/views.py:149
 #: dashboards/admin/networks/subnets/tables.py:109
 #: dashboards/project/networks/views.py:133
 #: dashboards/project/networks/subnets/tables.py:143

@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-02 18:54-0600\n"
-"PO-Revision-Date: 2015-03-02 23:59+0000\n"
+"POT-Creation-Date: 2015-03-03 18:13-0600\n"
+"PO-Revision-Date: 2015-03-03 19:54+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -2291,7 +2291,6 @@ msgid "Time since created"
 msgstr "Zeit seit Erzeugung"
 
 #: dashboards/admin/instances/views.py:82
-#: dashboards/admin/networks/views.py:50
 msgid "Unable to retrieve instance project information."
 msgstr "Projektinformationen zur Instanz können nicht aufgerufen werden."
 
@@ -2682,7 +2681,7 @@ msgid "Created"
 msgstr "Erstellt"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:23
-#: dashboards/admin/networks/views.py:58
+#: dashboards/admin/networks/views.py:59
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:16
 #: dashboards/project/images/templates/images/images/_detail_overview.html:20
 #: dashboards/project/images/templates/images/images/_detail_overview.html:31
@@ -3287,7 +3286,7 @@ msgid "Failed to delete network %s"
 msgstr "Das Netzwerk %s konnte nicht gelöscht werden."
 
 #: dashboards/admin/networks/tables.py:65
-#: dashboards/admin/networks/views.py:98
+#: dashboards/admin/networks/views.py:99
 #: dashboards/admin/networks/templates/networks/_create.html:9
 #: dashboards/admin/networks/templates/networks/_create.html:26
 #: dashboards/admin/networks/templates/networks/create.html:3
@@ -3335,33 +3334,37 @@ msgstr "Zugewiesene Subnetze"
 msgid "DHCP Agents"
 msgstr "DHCP Agenten"
 
-#: dashboards/admin/networks/views.py:77
+#: dashboards/admin/networks/views.py:50
+msgid "Unable to retrieve information about the networks' projects."
+msgstr ""
+
+#: dashboards/admin/networks/views.py:78
 #: dashboards/project/networks/views.py:54
 msgid "Network list can not be retrieved."
 msgstr "Netzwerkliste kann nicht abgerufen werden."
 
-#: dashboards/admin/networks/views.py:89
-#: dashboards/admin/networks/views.py:136
+#: dashboards/admin/networks/views.py:90
+#: dashboards/admin/networks/views.py:137
 #: dashboards/admin/networks/agents/forms.py:62
 msgid "Unable to list dhcp agents hosting network."
 msgstr "Anzeige des Bereitstellungsnetzwerks des DHCP Agenten nicht möglich."
 
-#: dashboards/admin/networks/views.py:106
+#: dashboards/admin/networks/views.py:107
 #: dashboards/project/networks/views.py:103
 msgid "Network Details: {{ network.name }}"
 msgstr ""
 
-#: dashboards/admin/networks/views.py:115
+#: dashboards/admin/networks/views.py:116
 #: dashboards/project/networks/views.py:112
 msgid "Subnet list can not be retrieved."
 msgstr "Subnetzliste kann nicht abgerufen werden."
 
-#: dashboards/admin/networks/views.py:125
+#: dashboards/admin/networks/views.py:126
 #: dashboards/project/networks/views.py:122
 msgid "Port list can not be retrieved."
 msgstr "Portliste kann nicht abgerufen werden."
 
-#: dashboards/admin/networks/views.py:148
+#: dashboards/admin/networks/views.py:149
 #: dashboards/admin/networks/subnets/tables.py:109
 #: dashboards/project/networks/views.py:133
 #: dashboards/project/networks/subnets/tables.py:143
