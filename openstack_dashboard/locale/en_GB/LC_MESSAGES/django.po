@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-02 18:54-0600\n"
-"PO-Revision-Date: 2015-03-02 23:59+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-03-03 18:13-0600\n"
+"PO-Revision-Date: 2015-03-03 21:31+0000\n"
+"Last-Translator: Rob Cresswell <robert.cresswell@outlook.com>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/horizon/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2286,7 +2286,6 @@ msgid "Time since created"
 msgstr "Time since created"
 
 #: dashboards/admin/instances/views.py:82
-#: dashboards/admin/networks/views.py:50
 msgid "Unable to retrieve instance project information."
 msgstr "Unable to retrieve instance project information."
 
@@ -2677,7 +2676,7 @@ msgid "Created"
 msgstr "Created"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:23
-#: dashboards/admin/networks/views.py:58
+#: dashboards/admin/networks/views.py:59
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:16
 #: dashboards/project/images/templates/images/images/_detail_overview.html:20
 #: dashboards/project/images/templates/images/images/_detail_overview.html:31
@@ -3282,7 +3281,7 @@ msgid "Failed to delete network %s"
 msgstr "Failed to delete network %s"
 
 #: dashboards/admin/networks/tables.py:65
-#: dashboards/admin/networks/views.py:98
+#: dashboards/admin/networks/views.py:99
 #: dashboards/admin/networks/templates/networks/_create.html:9
 #: dashboards/admin/networks/templates/networks/_create.html:26
 #: dashboards/admin/networks/templates/networks/create.html:3
@@ -3330,33 +3329,37 @@ msgstr "Subnets Associated"
 msgid "DHCP Agents"
 msgstr "DHCP Agents"
 
-#: dashboards/admin/networks/views.py:77
+#: dashboards/admin/networks/views.py:50
+msgid "Unable to retrieve information about the networks' projects."
+msgstr "Unable to retrieve information about the networks' projects."
+
+#: dashboards/admin/networks/views.py:78
 #: dashboards/project/networks/views.py:54
 msgid "Network list can not be retrieved."
 msgstr "Network list can not be retrieved."
 
-#: dashboards/admin/networks/views.py:89
-#: dashboards/admin/networks/views.py:136
+#: dashboards/admin/networks/views.py:90
+#: dashboards/admin/networks/views.py:137
 #: dashboards/admin/networks/agents/forms.py:62
 msgid "Unable to list dhcp agents hosting network."
 msgstr "Unable to list dhcp agents hosting network."
 
-#: dashboards/admin/networks/views.py:106
+#: dashboards/admin/networks/views.py:107
 #: dashboards/project/networks/views.py:103
 msgid "Network Details: {{ network.name }}"
 msgstr "Network Details: {{ network.name }}"
 
-#: dashboards/admin/networks/views.py:115
+#: dashboards/admin/networks/views.py:116
 #: dashboards/project/networks/views.py:112
 msgid "Subnet list can not be retrieved."
 msgstr "Subnet list can not be retrieved."
 
-#: dashboards/admin/networks/views.py:125
+#: dashboards/admin/networks/views.py:126
 #: dashboards/project/networks/views.py:122
 msgid "Port list can not be retrieved."
 msgstr "Port list can not be retrieved."
 
-#: dashboards/admin/networks/views.py:148
+#: dashboards/admin/networks/views.py:149
 #: dashboards/admin/networks/subnets/tables.py:109
 #: dashboards/project/networks/views.py:133
 #: dashboards/project/networks/subnets/tables.py:143
@@ -9971,7 +9974,7 @@ msgstr "Unable to retrieve images for the current project."
 
 #: dashboards/project/images/utils.py:95
 msgid "Unable to retrieve images"
-msgstr ""
+msgstr "Unable to retrieve images"
 
 #: dashboards/project/images/utils.py:104
 #: dashboards/project/instances/forms.py:66
@@ -10933,7 +10936,7 @@ msgstr "Unable to retrieve Nova availability zones."
 
 #: dashboards/project/instances/utils.py:94
 msgid "Failed to get network list {0}"
-msgstr ""
+msgstr "Failed to get network list {0}"
 
 #: dashboards/project/instances/utils.py:99
 #: dashboards/project/routers/ports/forms.py:176
@@ -10942,7 +10945,7 @@ msgstr "No networks available"
 
 #: dashboards/project/instances/utils.py:103
 msgid "Select Network"
-msgstr ""
+msgstr "Select Network"
 
 #: dashboards/project/instances/utils.py:123
 msgid "Unable to retrieve key pairs."
@@ -10958,7 +10961,7 @@ msgstr "Select a key pair"
 
 #: dashboards/project/instances/utils.py:151
 msgid "Select Flavor"
-msgstr ""
+msgstr "Select Flavour"
 
 #: dashboards/project/instances/views.py:73
 msgid "Unable to retrieve instances."
