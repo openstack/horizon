@@ -98,7 +98,10 @@ class RolesView(workflows.WorkflowView):
 
     def get_workflow(self):
         workflow = super(RolesView, self).get_workflow()
-        workflow.finalize_button_name = ("Finish")
+        if 'avatar' in self.request.META.get('HTTP_REFERER', ''):
+            workflow.finalize_button_name = ("Finish")
+        else:
+            workflow.finalize_button_name = ("Save")
         return workflow
 
 

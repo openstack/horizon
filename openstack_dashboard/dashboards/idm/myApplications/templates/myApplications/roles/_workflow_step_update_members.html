@@ -10,8 +10,10 @@
         <div class="btn btn-default role">
           <input type="radio" name="roles" id="{{ role.id }}_radio" autocomplete="off" data-{{ step.slug }}-id="{{ role.id }}">
           <label for="{{ role.id }}_radio">{{ role.name }}</label>
-          <a href="{% url 'horizon:idm:myApplications:roles_edit' application_id=form.superset_id role_id=role.id %}" class="ajax-inline-edit"><i class="fa fa-edit"></i></a>
-          <a href="{% url 'horizon:idm:myApplications:roles_delete' application_id=form.superset_id role_id=role.id %}" class="ajax-modal"><i class="fa fa-trash-o"></i></a>
+          {% if not role.is_internal %}
+            <a href="{% url 'horizon:idm:myApplications:roles_edit' application_id=form.superset_id role_id=role.id %}" class="ajax-inline-edit"><i class="fa fa-edit"></i></a>
+            <a href="{% url 'horizon:idm:myApplications:roles_delete' application_id=form.superset_id role_id=role.id %}" class="ajax-modal"><i class="fa fa-trash-o"></i></a>
+          {% endif %}
         </div>
     {% endfor %}
   </div>
@@ -32,6 +34,7 @@
       <li class="list-group-item" data-permission-id="{{ permission.id }}">
         <i class="fa fa-check"></i>
           {{ permission.name }}
+          
         </li>
     {% endfor %}
     </ul>

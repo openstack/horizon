@@ -62,8 +62,7 @@ class CreateApplicationForm(forms.SelfHandlingForm):
                 provider = fiware_api.keystone.get_provider_role(request)
                 user = request.user
                 organization = request.organization
-                import pdb
-                pdb.set_trace()
+
                 if request.organization.id == request.user.default_project_id:
                     fiware_api.keystone.add_role_to_user(request,
                                                          role=provider,
@@ -152,6 +151,8 @@ class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
                 'horizon:idm:myApplications:detail', application_id) 
             LOG.debug('Avatar for application {0} updated'.format(application_id))
         else:
+            import pdb
+            pdb.set_trace()
             response = shortcuts.redirect(
                 'horizon:idm:myApplications:roles_step', application_id)
             LOG.debug('Avatar for application {0} saved'.format(application_id))

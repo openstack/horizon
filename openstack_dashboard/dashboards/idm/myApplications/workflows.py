@@ -33,30 +33,30 @@ LOG = logging.getLogger('idm_logger')
 # ROLES AND PERMISSIONS
 class RoleAndPermissionApi(idm_workflows.RelationshipApiInterface):
     """FIWARE Roles logic to assign"""
-    
+
     def _list_all_owners(self, request, superset_id):
         role_list = []
         # TODO(garcianavalon) the default roles should be non editable!
         idm_app = fiware_api.keystone.get_idm_admin_app(request)
-        role_list += fiware_api.keystone.role_list(request, 
+        role_list += fiware_api.keystone.role_list(request,
             application=idm_app.id)
 
         role_list += fiware_api.keystone.role_list(
             request, application=superset_id)
-        
+
         # Save the role_list to use in the template
         self.application_roles = role_list
-        return  [(role.id, role.name) for role in role_list]
+        return [(role.id, role.name) for role in role_list]
 
     def _list_all_objects(self, request, superset_id):
         permission_list = []
         # TODO(garcianavalon) the default roles should be non editable!
         idm_app = fiware_api.keystone.get_idm_admin_app(request)
-        permission_list += fiware_api.keystone.permission_list(request, 
+        permission_list += fiware_api.keystone.permission_list(request,
             application=idm_app.id)
 
         permission_list += fiware_api.keystone.permission_list(
-            request, application=superset_id)   
+            request, application=superset_id)
 
         # Save the permission_list to use in the template
         self.application_permissions = permission_list
@@ -64,7 +64,7 @@ class RoleAndPermissionApi(idm_workflows.RelationshipApiInterface):
 
     def _list_current_assignments(self, request, superset_id):
         application_role_permissions = {}
-        role_list = getattr(self, 'application_roles', 
+        role_list = getattr(self, 'application_roles',
             fiware_api.keystone.role_list(request, application=superset_id))
         for role in role_list:
             application_role_permissions[role.id] = [
@@ -74,18 +74,18 @@ class RoleAndPermissionApi(idm_workflows.RelationshipApiInterface):
         return application_role_permissions
 
     def _get_default_object(self, request):
-        return None     
+        return None
 
     def _add_object_to_owner(self, request, superset, owner, obj):
         fiware_api.keystone.add_permission_to_role(
-            request, 
-            permission=obj, 
+            request,
+            permission=obj,
             role=owner)
 
     def _remove_object_from_owner(self, request, superset, owner, obj):
          fiware_api.keystone.remove_permission_from_role(
-            request, 
-            permission=obj, 
+            request,
+            permission=obj,
             role=owner)
 
     def _get_supersetid_name(self, request, superset_id):
@@ -123,7 +123,7 @@ class UpdateApplicationRoles(idm_workflows.UpdateRelationshipStep):
 class ManageApplicationRoles(idm_workflows.RelationshipWorkflow):
     slug = "manage_application_roles"
     name = ("Manage Roles")
-    finalize_button = ("Save")
+    finalize_button_name = ("Finish")
     success_message = ('Modified roles and permissions.')
     failure_message = ('Unable to modify roles and permissions.')
     success_url = "horizon:idm:myApplications:detail"
@@ -234,7 +234,7 @@ class UpdateAuthorizedMembers(idm_workflows.UpdateRelationshipStep):
 class ManageAuthorizedMembers(idm_workflows.RelationshipWorkflow):
     slug = "manage_organization_users_application_roles"
     name = ("Authorize users in your application")
-    finalize_button = ("Save")
+    finalize_button_name = ("Save")
     success_message = ('Modified users.')
     failure_message = ('Unable to modify users.')
     success_url = "horizon:idm:myApplications:detail"
@@ -340,7 +340,7 @@ class UpdateAuthorizedOrganizations(idm_workflows.UpdateRelationshipStep):
 class ManageAuthorizedOrganizations(idm_workflows.RelationshipWorkflow):
     slug = "manage_organization_organizations_application_roles"
     name = ("Authorize organizations in your application")
-    finalize_button = ("Save")
+    finalize_button_name = ("Save")
     success_message = ('Modified organizations.')
     failure_message = ('Unable to modify organizations.')
     success_url = "horizon:idm:myApplications:detail"
