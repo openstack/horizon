@@ -150,14 +150,14 @@ class CreateProjectView(workflows.WorkflowView):
             except Exception:
                 error_msg = _('Unable to retrieve default Neutron quota '
                               'values.')
-                self.add_error_to_step(error_msg, 'update_quotas')
+                self.add_error_to_step(error_msg, 'create_quotas')
 
             for field in quotas.QUOTA_FIELDS:
                 initial[field] = quota_defaults.get(field).limit
 
         except Exception:
             error_msg = _('Unable to retrieve default quota values.')
-            self.add_error_to_step(error_msg, 'update_quotas')
+            self.add_error_to_step(error_msg, 'create_quotas')
 
         return initial
 

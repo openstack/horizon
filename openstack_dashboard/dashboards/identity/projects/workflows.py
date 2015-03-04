@@ -40,7 +40,7 @@ PROJECT_USER_MEMBER_SLUG = "update_members"
 PROJECT_GROUP_MEMBER_SLUG = "update_group_members"
 
 
-class UpdateProjectQuotaAction(workflows.Action):
+class ProjectQuotaAction(workflows.Action):
     ifcb_label = _("Injected File Content (Bytes)")
     metadata_items = forms.IntegerField(min_value=-1,
                                         label=_("Metadata Items"))
@@ -74,23 +74,21 @@ class UpdateProjectQuotaAction(workflows.Action):
     subnet = forms.IntegerField(min_value=-1, label=_("Subnets"))
 
     def __init__(self, request, *args, **kwargs):
-        super(UpdateProjectQuotaAction, self).__init__(request,
-                                                       *args,
-                                                       **kwargs)
+        super(ProjectQuotaAction, self).__init__(request,
+                                                 *args,
+                                                 **kwargs)
         disabled_quotas = quotas.get_disabled_quotas(request)
         for field in disabled_quotas:
             if field in self.fields:
                 self.fields[field].required = False
                 self.fields[field].widget = forms.HiddenInput()
 
-    class Meta:
-        name = _("Quota")
-        slug = 'update_quotas'
-        help_text = _("Set maximum quotas for the project.")
 
+class UpdateProjectQuotaAction(ProjectQuotaAction):
     def clean(self):
         cleaned_data = super(UpdateProjectQuotaAction, self).clean()
-        usages = quotas.tenant_quota_usages(self.request)
+        usages = quotas.tenant_quota_usages(
+            self.request, tenant_id=self.initial['project_id'])
         # Validate the quota values before updating quotas.
         bad_values = []
         for key, value in cleaned_data.items():
@@ -107,9 +105,27 @@ class UpdateProjectQuotaAction(workflows.Action):
             raise forms.ValidationError(msg)
         return cleaned_data
 
+    class Meta:
+        name = _("Quota")
+        slug = 'update_quotas'
+        help_text = _("Set maximum quotas for the project.")
+
+
+class CreateProjectQuotaAction(ProjectQuotaAction):
+    class Meta:
+        name = _("Quota")
+        slug = 'create_quotas'
+        help_text = _("Set maximum quotas for the project.")
+
 
 class UpdateProjectQuota(workflows.Step):
     action_class = UpdateProjectQuotaAction
+    depends_on = ("project_id",)
+    contributes = quotas.QUOTA_FIELDS
+
+
+class CreateProjectQuota(workflows.Step):
+    action_class = CreateProjectQuotaAction
     depends_on = ("project_id",)
     contributes = quotas.QUOTA_FIELDS
 
@@ -360,7 +376,7 @@ class CreateProject(workflows.Workflow):
     success_url = "horizon:identity:projects:index"
     default_steps = (CreateProjectInfo,
                      UpdateProjectMembers,
-                     UpdateProjectQuota)
+                     CreateProjectQuota)
 
     def __init__(self, request=None, context_seed=None, entry_point=None,
                  *args, **kwargs):
@@ -368,7 +384,7 @@ class CreateProject(workflows.Workflow):
             self.default_steps = (CreateProjectInfo,
                                   UpdateProjectMembers,
                                   UpdateProjectGroups,
-                                  UpdateProjectQuota)
+                                  CreateProjectQuota)
         super(CreateProject, self).__init__(request=request,
                                             context_seed=context_seed,
                                             entry_point=entry_point,

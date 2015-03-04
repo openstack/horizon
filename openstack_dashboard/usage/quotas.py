@@ -215,13 +215,15 @@ def get_disabled_quotas(request):
 
 
 @memoized
-def tenant_quota_usages(request):
-    # Get our quotas and construct our usage object.
+def tenant_quota_usages(request, tenant_id=None):
+    """Get our quotas and construct our usage object."""
+
     disabled_quotas = get_disabled_quotas(request)
 
     usages = QuotaUsage()
     for quota in get_tenant_quota_data(request,
-                                       disabled_quotas=disabled_quotas):
+                                       disabled_quotas=disabled_quotas,
+                                       tenant_id=tenant_id):
         usages.add_quota(quota)
 
     # Get our usages.
@@ -232,7 +234,13 @@ def tenant_quota_usages(request):
     except Exception:
         pass
     flavors = dict([(f.id, f) for f in nova.flavor_list(request)])
-    instances, has_more = nova.server_list(request)
+
+    if tenant_id:
+        instances, has_more = nova.server_list(
+            request, search_opts={'tenant_id': tenant_id}, all_tenants=True)
+    else:
+        instances, has_more = nova.server_list(request)
+
     # Fetch deleted flavors if necessary.
     missing_flavors = [instance.flavor['id'] for instance in instances
                        if instance.flavor['id'] not in flavors]
@@ -248,8 +256,13 @@ def tenant_quota_usages(request):
     usages.tally('floating_ips', len(floating_ips))
 
     if 'volumes' not in disabled_quotas:
-        volumes = cinder.volume_list(request)
-        snapshots = cinder.volume_snapshot_list(request)
+        if tenant_id:
+            opts = {'alltenants': 1, 'tenant_id': tenant_id}
+            volumes = cinder.volume_list(request, opts)
+            snapshots = cinder.volume_snapshot_list(request, opts)
+        else:
+            volumes = cinder.volume_list(request)
+            snapshots = cinder.volume_snapshot_list(request)
         usages.tally('gigabytes', sum([int(v.size) for v in volumes]))
         usages.tally('volumes', len(volumes))
         usages.tally('snapshots', len(snapshots))
