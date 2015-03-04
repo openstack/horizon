@@ -92,7 +92,7 @@ OPENSTACK_IMAGE_BACKEND = {
         ('raw', _('Raw')),
         ('vdi', _('VDI - Virtual Disk Image')),
         ('vhd', _('VHD - Virtual Hard Disk')),
-        ('vmdk', _('VMDK - Virtual Machine Disk'))
+        ('vmdk', _('VMDK - Virtual Machine Disk')),
     ]
 }
 
@@ -122,7 +122,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-    'horizon.loaders.TemplateLoader'
+    'horizon.loaders.TemplateLoader',
 )
 
 TEMPLATE_DIRS = (
@@ -263,10 +263,14 @@ import openstack_dashboard.local.enabled
 from openstack_dashboard.utils import settings
 
 INSTALLED_APPS = list(INSTALLED_APPS)  # Make sure it's mutable
-settings.update_dashboards([
-    openstack_dashboard.enabled,
-    openstack_dashboard.local.enabled,
-], HORIZON_CONFIG, INSTALLED_APPS)
+settings.update_dashboards(
+    [
+        openstack_dashboard.enabled,
+        openstack_dashboard.local.enabled,
+    ],
+    HORIZON_CONFIG,
+    INSTALLED_APPS,
+)
 INSTALLED_APPS[0:0] = ADD_INSTALLED_APPS
 
 # Ensure that we always have a SECRET_KEY set, even when no local_settings.py
@@ -287,7 +291,7 @@ POLICY_CHECK_FUNCTION = policy_backend.check
 # Add HORIZON_CONFIG to the context information for offline compression
 COMPRESS_OFFLINE_CONTEXT = {
     'STATIC_URL': STATIC_URL,
-    'HORIZON_CONFIG': HORIZON_CONFIG
+    'HORIZON_CONFIG': HORIZON_CONFIG,
 }
 
 if DEBUG:
