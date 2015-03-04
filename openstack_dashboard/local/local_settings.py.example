@@ -33,7 +33,7 @@ TEMPLATE_DEBUG = DEBUG
 # service API. For example, The identity service APIs have inconsistent
 # use of the decimal point, so valid options would be 2.0 or 3.
 #OPENSTACK_API_VERSIONS = {
-#    "data_processing": 1.1,
+#    "data-processing": 1.1,
 #    "identity": 3,
 #    "volume": 2,
 #}
