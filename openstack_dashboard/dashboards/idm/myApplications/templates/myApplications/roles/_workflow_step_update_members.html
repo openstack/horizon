@@ -8,7 +8,7 @@
   <div class="btn-group-vertical roles {{ step.slug }}_roles" data-toggle="buttons" id="{{ step.slug }}_roles">
     {% for role in form.relationship.application_roles %}
         <div class="btn btn-default role">
-          <input type="radio" name="roles" id="{{ role.id }}_radio" autocomplete="off" data-{{ step.slug }}-id="{{ role.id }}">
+          <input type="radio" name="roles" id="{{ role.id }}_radio" autocomplete="off" data-{{ step.slug }}-id="{{ role.id }}" class="{% if role.is_internal %}internal{% endif %}">
           <label for="{{ role.id }}_radio">{{ role.name }}</label>
           {% if not role.is_internal %}
             <a href="{% url 'horizon:idm:myApplications:roles_edit' application_id=form.superset_id role_id=role.id %}" class="ajax-inline-edit"><i class="fa fa-edit"></i></a>
@@ -32,10 +32,11 @@
     <ul class="permissions {{ step.slug }}_permissions list-group">
     {% for permission in form.relationship.application_permissions %}
       <li class="list-group-item" data-permission-id="{{ permission.id }}">
-        <i class="fa fa-check"></i>
+        <i class="fa fa-check" disabled=""></i>
           {{ permission.name }}
           
         </li>
+      
     {% endfor %}
     </ul>
   </div>

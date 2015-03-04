@@ -175,6 +175,8 @@ horizon.fiware_roles_workflow = {
     });
   },
 
+
+
   /*
    * Triggers on selecting a role to show its permissions
    **/
