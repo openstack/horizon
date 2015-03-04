@@ -19,11 +19,16 @@
         Dear FIWARE Lab user,
     </span>
     <span>
-        {{ content }}
+      {{ content }}
     </span>
-    <!--footer-->
+    {% if massive_footer == True %}
+      <div>
+        {% include "_massive_email_footer.html" %}
+      </div>
+    {% endif %}
+    
     <div style="padding:9px 0px 0; font-size: 11px; border-top:1px solid #ccc; margin-top: 20px;">
-      2014 © <a style="text-decoration: none;" href="http://www.fi-ware.org/" onmouseover="this.className='color-hover'; " onmouseout="this.className='color-link'; " >FIWARE</a>.
+      2014 © <a style="text-decoration: none;" href="http://www.fi-ware.org/" onmouseover="this.className='color-hover'; " onmouseout="this.className='color-link'; ">FIWARE</a>.
     </div>
   </div>
 </div>

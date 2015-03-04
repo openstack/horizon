@@ -45,7 +45,8 @@ class EmailForm(forms.SelfHandlingForm, TemplatedEmailMixin):
                 to, 
                 ' no-reply@account.lab.fi-ware.org', 
                 data['subject'], 
-                data['body'])
+                content=data['body'],
+                massive_footer=True)
             messages.success(request, ('Message sent succesfully.'))
         except Exception:
             msg = ('Unable to send message. Please try again later.')
