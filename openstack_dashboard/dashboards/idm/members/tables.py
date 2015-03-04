@@ -35,7 +35,7 @@ class ManageAuthorizedMembersLink(tables.LinkAction):
     
 class MembersTable(tables.DataTable):
     avatar = tables.Column(lambda obj: idm_utils.get_avatar(
-        obj, 'img_medium', idm_utils.DEFAULT_ORG_MEDIUM_AVATAR))
+        obj, 'img_medium', idm_utils.DEFAULT_USER_MEDIUM_AVATAR))
     username = tables.Column('username', verbose_name=('Members'))
     
 

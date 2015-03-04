@@ -34,17 +34,23 @@ class ProvidingTab(tabs.TableTab):
 
     def get_providing_table_data(self):
         applications = []
+
         try:
             # TODO(garcianavalon) extract to fiware_api
             provider_role = fiware_api.keystone.get_provider_role(self.request)
             all_apps = fiware_api.keystone.application_list(self.request)
-            apps_with_roles = [a.application_id for a 
-                               in fiware_api.keystone.user_role_assignments(
-                               self.request, user=self.request.user.id)
-                               if a.role_id == provider_role.id]
-            applications = [app for app in all_apps 
+            if self.request.organization.id == self.request.user.default_project_id:
+                apps_with_roles = [a.application_id for a
+                                   in fiware_api.keystone.user_role_assignments(
+                                   self.request, user=self.request.user.id)
+                                   if a.role_id == provider_role.id]
+            else:
+                apps_with_roles = [a.application_id for a
+                                   in fiware_api.keystone.organization_role_assignments(
+                                   self.request, organization=self.request.organization.id)
+                                   if a.role_id == provider_role.id]       
+            applications = [app for app in all_apps
                             if app.id in apps_with_roles]
-            
         except Exception:
             exceptions.handle(self.request,
                               ("Unable to retrieve application list."))
@@ -64,10 +70,18 @@ class PurchasedTab(tabs.TableTab):
             # TODO(garcianavalon) extract to fiware_api
             purchaser_role = fiware_api.keystone.get_purchaser_role(self.request)
             all_apps = fiware_api.keystone.application_list(self.request)
-            apps_with_roles = [a.application_id for a 
-                               in fiware_api.keystone.user_role_assignments(
-                               self.request, user=self.request.user.id)
-                               if a.role_id == purchaser_role.id]
+            if self.request.organization.id == self.request.user.default_project_id:
+                apps_with_roles = [a.application_id for a 
+                                   in fiware_api.keystone.user_role_assignments(
+                                   self.request, user=self.request.user.id)
+                                   if a.role_id == purchaser_role.id]
+            else:
+
+                apps_with_roles = [a.application_id for a
+                                   in fiware_api.keystone.organization_role_assignments(
+                                   self.request, organization=self.request.organization.id)
+                                   if a.role_id == purchaser_role.id]
+           
             applications = [app for app in all_apps 
                             if app.id in apps_with_roles]
             
@@ -91,11 +105,18 @@ class AuthorizedTab(tabs.TableTab):
             purchaser_role = fiware_api.keystone.get_purchaser_role(self.request)
             provider_role = fiware_api.keystone.get_provider_role(self.request)
             all_apps = fiware_api.keystone.application_list(self.request)
-            apps_with_roles = [a.application_id for a 
-                               in fiware_api.keystone.user_role_assignments(
-                               self.request, user=self.request.user.id)
-                               if a.role_id != purchaser_role.id
-                               and a.role_id != provider_role.id]
+            if self.request.organization.id == self.request.user.default_project_id:
+                apps_with_roles = [a.application_id for a 
+                                   in fiware_api.keystone.user_role_assignments(
+                                   self.request, user=self.request.user.id)
+                                   if a.role_id != purchaser_role.id
+                                   and a.role_id != provider_role.id]
+            else:
+                apps_with_roles = [a.application_id for a 
+                                   in fiware_api.keystone.organization_role_assignments(
+                                   self.request, organization=self.request.organization.id)
+                                   if a.role_id != purchaser_role.id
+                                   and a.role_id != provider_role.id]
             applications = [app for app in all_apps 
                             if app.id in apps_with_roles]
             

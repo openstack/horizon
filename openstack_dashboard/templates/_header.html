@@ -111,13 +111,13 @@
 
           <ul id="editor_list" class="dropdown-menu multi-level dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu">
 
+          {% if request.organizations %}
             <li class="dropdown-submenu">
               <a tabindex="-1" href="#">
                 <i class="fa fa-angle-double-left"></i> Switch session
               </a>
               <ul class="dropdown-menu dropdown-menu-right">
                 {% for org in request.organizations %}
-
                   {% if org.id == request.user.default_project_id %}
                     <li><a href="{% url 'switch_tenants' org.id %}">
                     {% if request.user.img_small %}
@@ -140,6 +140,7 @@
                 {% endfor %}
               </ul>
             </li>
+            {% endif %}
             <li>
               <a href="{% url 'horizon:settings:multisettings:index' %}"> <i class="fa fa-cog"></i> {% trans "Settings" %}
               </a>
