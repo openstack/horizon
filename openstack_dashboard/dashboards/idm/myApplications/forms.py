@@ -151,8 +151,6 @@ class AvatarForm(forms.SelfHandlingForm, idm_forms.ImageCropMixin):
                 'horizon:idm:myApplications:detail', application_id) 
             LOG.debug('Avatar for application {0} updated'.format(application_id))
         else:
-            import pdb
-            pdb.set_trace()
             response = shortcuts.redirect(
                 'horizon:idm:myApplications:roles_step', application_id)
             LOG.debug('Avatar for application {0} saved'.format(application_id))

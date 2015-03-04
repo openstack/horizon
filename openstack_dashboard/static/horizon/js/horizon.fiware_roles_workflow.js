@@ -201,9 +201,14 @@ horizon.fiware_roles_workflow = {
     $("." + step_slug + "_permissions").on('click', 'li', function (evt) {
       evt.preventDefault();
       evt.stopPropagation();
+      // check if the selected role is editable
+      var role = $("#" + step_slug + "_roles").find('input[type=radio]:checked');
+      if (role.parent().hasClass('no-editable')) {
+        return;
+      }
       // get the newly selected permission and the role's name
       var new_permission_id = $(this).attr("data-permission-id");
-      var id_str = $("#" + step_slug + "_roles").find('input[type=radio]:checked').attr("data-" + step_slug + "-id");
+      var id_str = role.attr("data-" + step_slug + "-id");
       var data_id = horizon.fiware_roles_workflow.get_field_id(id_str);
       // update permission lists
       if ($(this).hasClass('active')) {
