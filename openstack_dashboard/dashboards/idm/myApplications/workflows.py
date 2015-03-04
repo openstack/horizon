@@ -123,7 +123,7 @@ class UpdateApplicationRoles(idm_workflows.UpdateRelationshipStep):
 class ManageApplicationRoles(idm_workflows.RelationshipWorkflow):
     slug = "manage_application_roles"
     name = ("Manage Roles")
-    finalize_button_name = ("Save")
+    finalize_button = ("Save")
     success_message = ('Modified roles and permissions.')
     failure_message = ('Unable to modify roles and permissions.')
     success_url = "horizon:idm:myApplications:detail"
@@ -234,7 +234,7 @@ class UpdateAuthorizedMembers(idm_workflows.UpdateRelationshipStep):
 class ManageAuthorizedMembers(idm_workflows.RelationshipWorkflow):
     slug = "manage_organization_users_application_roles"
     name = ("Authorize users in your application")
-    finalize_button_name = ("Save")
+    finalize_button = ("Save")
     success_message = ('Modified users.')
     failure_message = ('Unable to modify users.')
     success_url = "horizon:idm:myApplications:detail"
@@ -340,7 +340,7 @@ class UpdateAuthorizedOrganizations(idm_workflows.UpdateRelationshipStep):
 class ManageAuthorizedOrganizations(idm_workflows.RelationshipWorkflow):
     slug = "manage_organization_organizations_application_roles"
     name = ("Authorize organizations in your application")
-    finalize_button_name = ("Save")
+    finalize_button = ("Save")
     success_message = ('Modified organizations.')
     failure_message = ('Unable to modify organizations.')
     success_url = "horizon:idm:myApplications:detail"

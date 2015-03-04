@@ -233,9 +233,14 @@ class DetailApplicationView(tables.MultiTableView):
         # Allowed to edit the application if owns a role with the
         # 'Manage the application' permission.
         user = self.request.user
-        allowed_applications = \
-            fiware_api.keystone.list_user_allowed_applications_to_manage(
-                self.request, user=user.id, organization=user.default_project_id)
+        if user.default_project_id == self.request.organization.id:
+            allowed_applications = \
+                fiware_api.keystone.list_user_allowed_applications_to_manage(
+                    self.request, user=user.id, organization=user.default_project_id)
+        else:
+            allowed_applications = \
+                fiware_api.keystone.list_organization_allowed_applications_to_manage(
+                    self.request, organization=self.request.organization.id)
         app_id = self.kwargs['application_id']
         return app_id in allowed_applications
 
@@ -243,9 +248,14 @@ class DetailApplicationView(tables.MultiTableView):
         # Allowed to manage roles if owns a role with the
         # 'Manage roles' permission.
         user = self.request.user
-        allowed_applications = \
-            fiware_api.keystone.list_user_allowed_applications_to_manage_roles(
-                self.request, user=user.id, organization=user.default_project_id)
+        if user.default_project_id == self.request.organization.id:
+            allowed_applications = \
+                fiware_api.keystone.list_user_allowed_applications_to_manage_roles(
+                    self.request, user=user.id, organization=user.default_project_id)
+        else:
+            allowed_applications = \
+                fiware_api.keystone.list_organization_allowed_applications_to_manage_roles(
+                    self.request, organization=self.request.organization.id)
         app_id = self.kwargs['application_id']
         return app_id in allowed_applications
 
