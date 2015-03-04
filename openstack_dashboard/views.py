@@ -18,8 +18,8 @@ import django.views.decorators.vary
 import horizon
 from horizon import base
 
-from openstack_auth import forms
-
+# from openstack_auth import forms
+from openstack_dashboard.fiware_auth import forms as fiware_auth_forms
 
 def get_user_home(user):
     dashboard = None
@@ -40,7 +40,8 @@ def splash(request):
     if request.user.is_authenticated():
         response = shortcuts.redirect(horizon.get_user_home(request.user))
     else:
-        form = forms.Login(request)
+        # form = forms.Login(request)
+        form = fiware_auth_forms.LoginWithEmailForm()
         response = shortcuts.render(request, 'splash.html', {'form': form})
     if 'logout_reason' in request.COOKIES:
         response.delete_cookie('logout_reason')
