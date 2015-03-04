@@ -37,14 +37,11 @@ class TemplatedEmailMixin(object):
     # TODO(garcianavalon) as settings
     EMAIL_HTML_TEMPLATE = 'email/base_email.html'
     EMAIL_TEXT_TEMPLATE = 'email/base_email.txt'
-    def send_html_email(self, to, from_email, subject, content):
-        # TODO(garcianavalon) pass the context dict as param is better or use kwargs
+    
+    def send_html_email(self, to, from_email, subject, **kwargs):
         LOG.debug('Sending email to {0} with subject {1}'.format(to, subject))
-        context = {
-            'content':content
-        }
-        text_content = render_to_string(self.EMAIL_TEXT_TEMPLATE, context)
-        html_content = render_to_string(self.EMAIL_HTML_TEMPLATE, context)
+        text_content = render_to_string(self.EMAIL_TEXT_TEMPLATE, **kwargs)
+        html_content = render_to_string(self.EMAIL_HTML_TEMPLATE, **kwargs)
         msg = EmailMultiAlternatives(subject, text_content, from_email, to)
         msg.attach_alternative(html_content, "text/html")
         msg.send()
