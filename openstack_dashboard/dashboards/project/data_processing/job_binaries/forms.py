@@ -170,14 +170,14 @@ class JobBinaryCreateForm(forms.SelfHandlingForm):
             elif(context["job_binary_type"] == "swift"):
                 extra = self.handle_swift(request, context)
 
-            saharaclient.job_binary_create(
+            bin_object = saharaclient.job_binary_create(
                 request,
                 context["job_binary_name"],
                 bin_url,
                 context["job_binary_description"],
                 extra)
             messages.success(request, "Successfully created job binary")
-            return True
+            return bin_object
         except Exception:
             exceptions.handle(request,
                               _("Unable to create job binary"))
