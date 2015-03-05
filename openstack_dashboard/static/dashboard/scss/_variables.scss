@@ -86,9 +86,11 @@ $accordionSubHeaderFontColor: #6e6e6e !default;
 
 // theme
 $helpPanelColor: #333 !default;
-$helpPanelBg: #eee !default;
-$helpPanelBtnColor: #333 !default;
-$helpPanelBtnBg: transparent !default;
+$helpPanelBg: #fff !default;
+$helpPanelBtnBg: #eee !default;
+$helpPanelBtnIconColor: #333 !default;
+$helpPanelBtnIconBg: transparent !default;
+$helpPanelBorderColor: #888; !default;
 
 // layout
 $helpPanelWidthDefault: 300px !default;

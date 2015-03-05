@@ -31,7 +31,6 @@ $em-per-priority: floor($table-col-avg-width / $font-size-base) * 3;
       padding: $table-padding;
       position: relative;
       white-space: nowrap;
-      z-index: 10;
 
       &:first-child, &.action-col {
         border-left: $table-border;
@@ -55,7 +54,6 @@ $em-per-priority: floor($table-col-avg-width / $font-size-base) * 3;
     vertical-align: top;
     min-width: $batch-action-width;
     width: $batch-action-width;
-    z-index: 20;
 
     .btn {
       width: 100%;
@@ -195,7 +193,6 @@ $em-per-priority: floor($table-col-avg-width / $font-size-base) * 3;
       height: $table-gap-height;
       padding: 0;
       position: relative;
-      z-index: 30;
     }
 
     &.table-striped {
