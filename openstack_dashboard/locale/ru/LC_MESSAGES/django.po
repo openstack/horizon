@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-03 18:13-0600\n"
-"PO-Revision-Date: 2015-03-03 19:54+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-03-04 15:09-0600\n"
+"PO-Revision-Date: 2015-03-04 09:51+0000\n"
+"Last-Translator: Kyrylo Romanenko <kromanenko@mirantis.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1781,7 +1781,7 @@ msgstr "Эвакуировать хось"
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_disable_service.html:23
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/disable_service.html:3
 msgid "Disable Service"
-msgstr ""
+msgstr "Отключить Сервис"
 
 #: dashboards/admin/hypervisors/compute/tables.py:63
 msgid "Enable Service"
@@ -2413,7 +2413,7 @@ msgstr ""
 #: dashboards/admin/metadata_defs/views.py:40
 #: dashboards/admin/metadata_defs/templates/metadata_defs/index.html:3
 msgid "Metadata Definitions"
-msgstr ""
+msgstr "Определения метаданных"
 
 #: dashboards/admin/metadata_defs/tables.py:30
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:9
@@ -2437,7 +2437,7 @@ msgstr[2] ""
 
 #: dashboards/admin/metadata_defs/tables.py:69
 msgid "Update Associations"
-msgstr ""
+msgstr "Обновить Ассоциации"
 
 #: dashboards/admin/metadata_defs/tables.py:132
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:15
@@ -2874,7 +2874,7 @@ msgstr ""
 
 #: dashboards/admin/metering/tables.py:56
 msgid "Daily Usage Report"
-msgstr ""
+msgstr "Дневной отчёт"
 
 #: dashboards/admin/metering/tabs.py:29
 msgid "Stats"
@@ -2919,7 +2919,7 @@ msgstr "IPMI"
 #: dashboards/admin/metering/tabs.py:82 dashboards/admin/metering/views.py:70
 #: dashboards/admin/metering/views.py:142
 msgid "Dates cannot be recognized."
-msgstr ""
+msgstr "Невозможно распознать даты."
 
 #: dashboards/admin/metering/tabs.py:90 dashboards/admin/metering/views.py:150
 #: dashboards/admin/overview/views.py:65
@@ -2950,7 +2950,7 @@ msgstr ""
 
 #: dashboards/admin/metering/templates/metering/_daily.html:24
 msgid "View Usage Report"
-msgstr ""
+msgstr "Просмотреть отчёт "
 
 #: dashboards/admin/metering/templates/metering/stats.html:10
 msgid "Metric:"
@@ -3692,7 +3692,7 @@ msgstr "Обновить порт"
 #: dashboards/admin/networks/templates/networks/subnets/index.html:6
 #: dashboards/project/networks/templates/networks/detail.html:3
 msgid "Network Details"
-msgstr ""
+msgstr "Подробности сети"
 
 #: dashboards/admin/overview/views.py:34
 #: dashboards/project/overview/views.py:33
@@ -3894,7 +3894,7 @@ msgstr ""
 
 #: dashboards/admin/volumes/tabs.py:109
 msgid "Unable to retrieve QoS specs"
-msgstr ""
+msgstr "Не удалось получить QoS параметры"
 
 #: dashboards/admin/volumes/tabs.py:133 dashboards/project/volumes/tabs.py:113
 #: dashboards/project/volumes/volumes/forms.py:232
@@ -4063,7 +4063,7 @@ msgstr "Назначить"
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_qos_spec.html:3
 #: dashboards/admin/volumes/volume_types/tables.py:190
 msgid "Create QoS Spec"
-msgstr ""
+msgstr "Создать QoS параметры"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:19
 msgid ""
@@ -4197,17 +4197,17 @@ msgstr ""
 #: dashboards/admin/volumes/volume_types/forms.py:34
 #: dashboards/project/volumes/templates/volumes/volumes/_encryption_detail_overview.html:17
 msgid "Cipher"
-msgstr ""
+msgstr "Шифр"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:19
 #: dashboards/admin/volumes/volume_types/forms.py:35
 #: dashboards/project/volumes/templates/volumes/volumes/_encryption_detail_overview.html:19
 msgid "Key Size (bits)"
-msgstr ""
+msgstr "Размер Ключа (бит)"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:25
 msgid "Volume Type is Unencrypted."
-msgstr ""
+msgstr "Не шифрованный тип диска."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/associate_qos_spec.html:3
 msgid "Associate QoS Spec"
@@ -4215,7 +4215,7 @@ msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_volume_type_encryption.html:3
 msgid "Create Encrypted Volume Type"
-msgstr ""
+msgstr "Создать шифрованный тип диска"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/edit_qos_spec_consumer.html:3
 #: dashboards/admin/volumes/volume_types/views.py:122
@@ -4225,7 +4225,7 @@ msgstr ""
 #: dashboards/admin/volumes/templates/volumes/volume_types/volume_encryption_type_detail.html:3
 #: dashboards/admin/volumes/volume_types/views.py:46
 msgid "Volume Type Encryption Details"
-msgstr ""
+msgstr "Детали шифрования типа диска"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:10
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/create.html:4
@@ -4306,7 +4306,7 @@ msgstr "Изменить параметры"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/edit.html:7
 msgid "QoS Spec: "
-msgstr ""
+msgstr "QoS параметры:"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/index.html:5
 #, python-format
@@ -4360,20 +4360,20 @@ msgstr "Информация о диска"
 #: dashboards/admin/volumes/volumes/tables.py:33
 #: dashboards/admin/volumes/volumes/views.py:38
 msgid "Manage Volume"
-msgstr ""
+msgstr "Управлять диском"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/manage_volume.html:6
 msgid "Manage a Volume"
-msgstr ""
+msgstr "Управление диском"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/unmanage_volume.html:3
 #: dashboards/admin/volumes/volumes/tables.py:43
 msgid "Unmanage Volume"
-msgstr ""
+msgstr "Не управлять диском"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/unmanage_volume.html:6
 msgid "Unmanage a Volume"
-msgstr ""
+msgstr "Не управлять диском"
 
 #: dashboards/admin/volumes/volume_types/forms.py:51
 #, python-format
@@ -4382,7 +4382,7 @@ msgstr ""
 
 #: dashboards/admin/volumes/volume_types/forms.py:56
 msgid "Unable to create encrypted volume type."
-msgstr ""
+msgstr "Невозможно создать шифрованный тип диска."
 
 #: dashboards/admin/volumes/volume_types/forms.py:62
 msgid "QoS Spec to be associated"
