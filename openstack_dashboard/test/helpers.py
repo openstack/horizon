@@ -19,7 +19,9 @@
 import collections
 import copy
 from functools import wraps  # noqa
+import json
 import os
+
 
 from ceilometerclient.v2 import client as ceilometer_client
 from cinderclient import client as cinder_client
@@ -277,6 +279,10 @@ class TestCase(horizon_helpers.TestCase):
         self.fail('status code %r != %r: %s' % (response.status_code,
                                                 expected_code,
                                                 response.content))
+
+    def assertItemsCollectionEqual(self, response, items_list):
+        self.assertEqual(response.content,
+                         '{"items": ' + json.dumps(items_list) + "}")
 
     @staticmethod
     def mock_rest_request(**args):

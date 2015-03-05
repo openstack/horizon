@@ -94,6 +94,11 @@ class Network(NeutronAPIDictWrapper):
                 apiresource['__'.join(key.split(':'))] = apiresource[key]
         super(Network, self).__init__(apiresource)
 
+    def to_dict(self):
+        d = dict(super(NeutronAPIDictWrapper, self).to_dict())
+        d['subnets'] = [s.to_dict() for s in d['subnets']]
+        return d
+
 
 class Subnet(NeutronAPIDictWrapper):
     """Wrapper for neutron subnets."""
