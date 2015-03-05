@@ -200,6 +200,10 @@ class RoutersTable(tables.DataTable):
         ("active", pgettext_lazy("current status of router", u"Active")),
         ("error", pgettext_lazy("current status of router", u"Error")),
     )
+    ADMIN_STATE_DISPLAY_CHOICES = (
+        ("UP", pgettext_lazy("Admin state of a Router", u"UP")),
+        ("DOWN", pgettext_lazy("Admin state of a Router", u"DOWN")),
+    )
 
     name = tables.Column("name",
                          verbose_name=_("Name"),
@@ -217,6 +221,9 @@ class RoutersTable(tables.DataTable):
                        verbose_name=_("HA mode"))
     ext_net = tables.Column(get_external_network,
                             verbose_name=_("External Network"))
+    admin_state = tables.Column("admin_state",
+                                verbose_name=_("Admin State"),
+                                display_choices=ADMIN_STATE_DISPLAY_CHOICES)
 
     def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
         super(RoutersTable, self).__init__(
