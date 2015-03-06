@@ -20,7 +20,8 @@ class Metering(horizon.Panel):
     name = _("Resource Usage")
     slug = 'metering'
     permissions = ('openstack.services.metering', )
-    policy_rules = (('telemetry', 'telemetry:compute_statistics'),
+    policy_rules = (('identity', 'identity:list_projects'),
+                    ('telemetry', 'telemetry:compute_statistics'),
                     ('telemetry', 'telemetry:get_meter'),)
 
 
