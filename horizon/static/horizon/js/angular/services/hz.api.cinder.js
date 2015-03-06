@@ -42,7 +42,7 @@ limitations under the License.
      */
     this.getVolumes = function(params) {
       var config = (params) ? {'params': params} : {};
-      return apiService.get('/api/cinder/volumes/' + config)
+      return apiService.get('/api/cinder/volumes/', config)
         .error(function () {
           horizon.alert('error', gettext('Unable to retrieve volumes.'));
         });
@@ -68,7 +68,7 @@ limitations under the License.
      */
     this.getVolumeSnapshots = function(params) {
       var config = (params) ? {'params': params} : {};
-      return apiService.get('/api/cinder/volsnaps/' + config)
+      return apiService.get('/api/cinder/volumesnapshots/', config)
         .error(function () {
           horizon.alert('error',
                         gettext('Unable to retrieve volume snapshots.'));
