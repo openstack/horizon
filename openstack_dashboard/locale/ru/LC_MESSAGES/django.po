@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-04 15:09-0600\n"
-"PO-Revision-Date: 2015-03-04 09:51+0000\n"
-"Last-Translator: Kyrylo Romanenko <kromanenko@mirantis.com>\n"
+"POT-Creation-Date: 2015-03-05 20:44-0600\n"
+"PO-Revision-Date: 2015-03-05 11:29+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -360,16 +360,16 @@ msgstr "Неизвестная машины"
 msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s backend)"
 
-#: api/keystone.py:330
+#: api/keystone.py:338
 msgid "Identity service does not allow editing user data."
 msgstr "Служба идентификации запретила редактирование данных пользователя."
 
-#: api/keystone.py:356
+#: api/keystone.py:364
 #, python-format
 msgid "User %s has no role defined for that project."
 msgstr "У пользователя %s отсутствует назанченная роль в этом проекте."
 
-#: api/keystone.py:383
+#: api/keystone.py:391
 msgid "Identity service does not allow editing user password."
 msgstr ""
 
@@ -397,22 +397,22 @@ msgstr ""
 msgid "Unable to get health monitors for pool %(pool)s."
 msgstr ""
 
-#: api/neutron.py:216
+#: api/neutron.py:221
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
-#: api/neutron.py:935
+#: api/neutron.py:940
 msgid "Unable to connect to Neutron."
 msgstr "Не удалось подключиться к Neutron."
 
-#: api/neutron.py:972
+#: api/neutron.py:977
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "Не удалось получить IP адрес %s."
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1111
+#: api/neutron.py:1116
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -420,14 +420,14 @@ msgid ""
 msgstr "The requested feature '%(feature)s' is unknown. Please make sure to specify a feature defined in FEATURE_MAP."
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1129
+#: api/neutron.py:1134
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
 "invalid. It should be one of %(allowed)s"
 msgstr "The 'operation' parameter for get_feature_permission '%(feature)s' is invalid. It should be one of %(allowed)s"
 
-#: api/neutron.py:1144
+#: api/neutron.py:1149
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr "Невозможно проверить отсутствие поддержки расширения Neutron '%s'"
@@ -622,7 +622,7 @@ msgstr "Администратор"
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:10
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:10
 #: dashboards/project/routers/forms.py:117
-#: dashboards/project/routers/tables.py:205
+#: dashboards/project/routers/tables.py:209
 #: dashboards/project/routers/ports/tables.py:107
 #: dashboards/project/routers/templates/routers/_detail_overview.html:9
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:9
@@ -1842,7 +1842,7 @@ msgstr "Зона"
 #: dashboards/project/networks/ports/tables.py:72
 #: dashboards/project/networks/templates/networks/_detail_overview.html:13
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:32
-#: dashboards/project/routers/tables.py:208
+#: dashboards/project/routers/tables.py:212
 #: dashboards/project/routers/ports/tables.py:112
 #: dashboards/project/routers/templates/routers/_detail_overview.html:13
 #: dashboards/project/stacks/tables.py:267
@@ -3156,6 +3156,7 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:34
 #: dashboards/project/routers/forms.py:36
 #: dashboards/project/routers/forms.py:120
+#: dashboards/project/routers/tables.py:225
 #: dashboards/project/routers/ports/tables.py:117
 #: dashboards/project/routers/templates/routers/_detail_overview.html:15
 #: dashboards/project/vpn/forms.py:39 dashboards/project/vpn/forms.py:263
@@ -3187,7 +3188,7 @@ msgstr "Общая"
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:220
 #: dashboards/project/networks/templates/networks/_detail_overview.html:19
 #: dashboards/project/routers/forms.py:40
-#: dashboards/project/routers/tables.py:219
+#: dashboards/project/routers/tables.py:223
 #: dashboards/project/routers/ports/forms.py:146
 msgid "External Network"
 msgstr "Внешняя сеть"
@@ -3756,7 +3757,7 @@ msgstr "Мониторинг:"
 #: dashboards/identity/projects/workflows.py:76
 #: dashboards/project/network_topology/routers/tables.py:27
 #: dashboards/project/routers/panel.py:24
-#: dashboards/project/routers/tables.py:237
+#: dashboards/project/routers/tables.py:244
 #: dashboards/project/routers/views.py:42
 #: dashboards/project/routers/templates/routers/index.html:3
 #: usage/quotas.py:80
@@ -3840,7 +3841,7 @@ msgstr " ID проекта"
 #: dashboards/project/routers/forms.py:53
 #: dashboards/project/routers/forms.py:138
 #: dashboards/project/routers/forms.py:144
-#: dashboards/project/routers/tables.py:213
+#: dashboards/project/routers/tables.py:217
 #: dashboards/project/routers/templates/routers/_detail_overview.html:18
 msgid "Distributed"
 msgstr "Распространенный"
@@ -13211,8 +13212,18 @@ msgctxt "current status of router"
 msgid "Error"
 msgstr "Ошибка"
 
+#: dashboards/project/routers/tables.py:204
+msgctxt "Admin state of a Router"
+msgid "UP"
+msgstr ""
+
+#: dashboards/project/routers/tables.py:205
+msgctxt "Admin state of a Router"
+msgid "DOWN"
+msgstr ""
+
 #. Translators: High Availability mode of Neutron router
-#: dashboards/project/routers/tables.py:217
+#: dashboards/project/routers/tables.py:221
 msgid "HA mode"
 msgstr "Режим HA"
 

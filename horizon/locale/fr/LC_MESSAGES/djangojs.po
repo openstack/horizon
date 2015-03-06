@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-04 15:09-0600\n"
-"PO-Revision-Date: 2015-03-04 08:11+0000\n"
-"Last-Translator: alexandre ignjatovic <alexandre.ignjatovic@gmail.com>\n"
+"POT-Creation-Date: 2015-03-05 20:44-0600\n"
+"PO-Revision-Date: 2015-03-05 08:02+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -372,36 +372,56 @@ msgstr ""
 msgid "Unable to delete the domain."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:156
+#: static/horizon/js/angular/services/hz.api.keystone.js:157
 msgid "Unable to retrieve projects"
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:163
+#: static/horizon/js/angular/services/hz.api.keystone.js:164
 msgid "Unable to create the project."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:170
+#: static/horizon/js/angular/services/hz.api.keystone.js:171
 msgid "Unable to delete the projects."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:177
+#: static/horizon/js/angular/services/hz.api.keystone.js:178
 msgid "Unable to retrieve the project"
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:185
+#: static/horizon/js/angular/services/hz.api.keystone.js:186
 msgid "Unable to edit the project."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:192
+#: static/horizon/js/angular/services/hz.api.keystone.js:193
 msgid "Unable to delete the project."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:200
+#: static/horizon/js/angular/services/hz.api.keystone.js:201
 msgid "Unable to grant the role."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:207
+#: static/horizon/js/angular/services/hz.api.keystone.js:208
 msgid "Unable to fetch the service catalog."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:39
+msgid "Unable to retrieve networks."
+msgstr "Impossible de récupérer les réseaux."
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:90
+msgid "Unable to create the network."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:110
+msgid "Unable to retrieve subnets."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:176
+msgid "Unable to create the subnet."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:196
+msgid "Unable to retrieve ports."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.nova.js:40

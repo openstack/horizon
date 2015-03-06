@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-02 18:54-0600\n"
-"PO-Revision-Date: 2015-03-03 00:26+0000\n"
+"POT-Creation-Date: 2015-03-05 20:44-0600\n"
+"PO-Revision-Date: 2015-03-05 07:46+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/horizon/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -79,7 +79,7 @@ msgid "Finish"
 msgstr ""
 
 #: static/horizon/js/horizon.accordion_nav.js:84
-#: static/horizon/js/horizon.modals.js:313
+#: static/horizon/js/horizon.modals.js:315
 #: static/horizon/js/horizon.tabs.js:21
 msgid "Loading"
 msgstr "Menampilkan"
@@ -90,7 +90,7 @@ msgid "No data available."
 msgstr "Data tidak tersedia."
 
 #: static/horizon/js/horizon.d3linechart.js:410
-#: static/horizon/js/horizon.modals.js:332
+#: static/horizon/js/horizon.modals.js:334
 #: static/horizon/js/horizon.tables_inline_edit.js:94
 #: static/horizon/js/horizon.tables_inline_edit.js:157
 msgid "An error occurred. Please try again later."
@@ -142,12 +142,12 @@ msgstr "Berhasil:"
 msgid "Error: "
 msgstr "Kesalahan:"
 
-#: static/horizon/js/horizon.modals.js:227
+#: static/horizon/js/horizon.modals.js:229
 #: static/horizon/js/horizon.tables.js:218
 msgid "Working"
 msgstr "Bekerja"
 
-#: static/horizon/js/horizon.modals.js:261
+#: static/horizon/js/horizon.modals.js:263
 msgid "There was an error submitting the form. Please try again."
 msgstr "Terjadi kesalahan pengiriman formulir. Silahkan coba kembai."
 
@@ -368,36 +368,56 @@ msgstr ""
 msgid "Unable to delete the domain."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:156
+#: static/horizon/js/angular/services/hz.api.keystone.js:157
 msgid "Unable to retrieve projects"
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:163
+#: static/horizon/js/angular/services/hz.api.keystone.js:164
 msgid "Unable to create the project."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:170
+#: static/horizon/js/angular/services/hz.api.keystone.js:171
 msgid "Unable to delete the projects."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:177
+#: static/horizon/js/angular/services/hz.api.keystone.js:178
 msgid "Unable to retrieve the project"
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:185
+#: static/horizon/js/angular/services/hz.api.keystone.js:186
 msgid "Unable to edit the project."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:192
+#: static/horizon/js/angular/services/hz.api.keystone.js:193
 msgid "Unable to delete the project."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:200
+#: static/horizon/js/angular/services/hz.api.keystone.js:201
 msgid "Unable to grant the role."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:207
+#: static/horizon/js/angular/services/hz.api.keystone.js:208
 msgid "Unable to fetch the service catalog."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:39
+msgid "Unable to retrieve networks."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:90
+msgid "Unable to create the network."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:110
+msgid "Unable to retrieve subnets."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:176
+msgid "Unable to create the subnet."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:196
+msgid "Unable to retrieve ports."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.nova.js:40

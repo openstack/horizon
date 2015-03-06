@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-03 18:13-0600\n"
-"PO-Revision-Date: 2015-03-03 19:54+0000\n"
+"POT-Creation-Date: 2015-03-05 20:44-0600\n"
+"PO-Revision-Date: 2015-03-05 11:44+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -363,16 +363,16 @@ msgstr "Unbekannte Instanz"
 msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s Backend)"
 
-#: api/keystone.py:330
+#: api/keystone.py:338
 msgid "Identity service does not allow editing user data."
 msgstr "Der Identitäts-Service erlaubt das Editieren von Benutzerdaten nicht."
 
-#: api/keystone.py:356
+#: api/keystone.py:364
 #, python-format
 msgid "User %s has no role defined for that project."
 msgstr "Der Benutzer %s hat keine definierte Rolle für dieses Projekt."
 
-#: api/keystone.py:383
+#: api/keystone.py:391
 msgid "Identity service does not allow editing user password."
 msgstr ""
 
@@ -400,22 +400,22 @@ msgstr ""
 msgid "Unable to get health monitors for pool %(pool)s."
 msgstr ""
 
-#: api/neutron.py:216
+#: api/neutron.py:221
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "Erlaube %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
-#: api/neutron.py:935
+#: api/neutron.py:940
 msgid "Unable to connect to Neutron."
 msgstr "Keine Verbindung zu Neutron."
 
-#: api/neutron.py:972
+#: api/neutron.py:977
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "IP Adresse %s kann nicht analysiert werden."
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1111
+#: api/neutron.py:1116
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -423,14 +423,14 @@ msgid ""
 msgstr "Das verlangte Merkmal '%(feature)s' ist unbekannt. Bitte stellen Sie sicher, ein Merkmal aus der FEATURE_MAP anzugeben."
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1129
+#: api/neutron.py:1134
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
 "invalid. It should be one of %(allowed)s"
 msgstr "Der 'operation' Parameter für get_feature_permission '%(feature)s' ist ungültig. Gültig ist %(allowed)s"
 
-#: api/neutron.py:1144
+#: api/neutron.py:1149
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr "Fehler bei der Prüfung, Neutron '%s' Erweiterung ist nicht unterstützt"
@@ -625,7 +625,7 @@ msgstr "Administrator"
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:10
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:10
 #: dashboards/project/routers/forms.py:117
-#: dashboards/project/routers/tables.py:205
+#: dashboards/project/routers/tables.py:209
 #: dashboards/project/routers/ports/tables.py:107
 #: dashboards/project/routers/templates/routers/_detail_overview.html:9
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:9
@@ -1839,7 +1839,7 @@ msgstr "Zone"
 #: dashboards/project/networks/ports/tables.py:72
 #: dashboards/project/networks/templates/networks/_detail_overview.html:13
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:32
-#: dashboards/project/routers/tables.py:208
+#: dashboards/project/routers/tables.py:212
 #: dashboards/project/routers/ports/tables.py:112
 #: dashboards/project/routers/templates/routers/_detail_overview.html:13
 #: dashboards/project/stacks/tables.py:267
@@ -3149,6 +3149,7 @@ msgstr "RUNTER"
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:34
 #: dashboards/project/routers/forms.py:36
 #: dashboards/project/routers/forms.py:120
+#: dashboards/project/routers/tables.py:225
 #: dashboards/project/routers/ports/tables.py:117
 #: dashboards/project/routers/templates/routers/_detail_overview.html:15
 #: dashboards/project/vpn/forms.py:39 dashboards/project/vpn/forms.py:263
@@ -3180,7 +3181,7 @@ msgstr "Gemeinsam verwendet"
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:220
 #: dashboards/project/networks/templates/networks/_detail_overview.html:19
 #: dashboards/project/routers/forms.py:40
-#: dashboards/project/routers/tables.py:219
+#: dashboards/project/routers/tables.py:223
 #: dashboards/project/routers/ports/forms.py:146
 msgid "External Network"
 msgstr "Externes Netzwerk"
@@ -3741,7 +3742,7 @@ msgstr "Überwachung:"
 #: dashboards/identity/projects/workflows.py:76
 #: dashboards/project/network_topology/routers/tables.py:27
 #: dashboards/project/routers/panel.py:24
-#: dashboards/project/routers/tables.py:237
+#: dashboards/project/routers/tables.py:244
 #: dashboards/project/routers/views.py:42
 #: dashboards/project/routers/templates/routers/index.html:3
 #: usage/quotas.py:80
@@ -3825,7 +3826,7 @@ msgstr "Projekt-ID"
 #: dashboards/project/routers/forms.py:53
 #: dashboards/project/routers/forms.py:138
 #: dashboards/project/routers/forms.py:144
-#: dashboards/project/routers/tables.py:213
+#: dashboards/project/routers/tables.py:217
 #: dashboards/project/routers/templates/routers/_detail_overview.html:18
 msgid "Distributed"
 msgstr "Verteilt"
@@ -13094,8 +13095,18 @@ msgctxt "current status of router"
 msgid "Error"
 msgstr "Fehler"
 
+#: dashboards/project/routers/tables.py:204
+msgctxt "Admin state of a Router"
+msgid "UP"
+msgstr "HOCH"
+
+#: dashboards/project/routers/tables.py:205
+msgctxt "Admin state of a Router"
+msgid "DOWN"
+msgstr "RUNTER"
+
 #. Translators: High Availability mode of Neutron router
-#: dashboards/project/routers/tables.py:217
+#: dashboards/project/routers/tables.py:221
 msgid "HA mode"
 msgstr "HA Modus"
 

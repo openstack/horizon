@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-03 18:13-0600\n"
-"PO-Revision-Date: 2015-03-03 19:54+0000\n"
+"POT-Creation-Date: 2015-03-05 20:44-0600\n"
+"PO-Revision-Date: 2015-03-05 11:29+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -359,16 +359,16 @@ msgstr "अज्ञात इंस्टेंस"
 msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s backend)"
 
-#: api/keystone.py:330
+#: api/keystone.py:338
 msgid "Identity service does not allow editing user data."
 msgstr "पहचान सेवा उपयोगकर्ता डेटा का संपादन की अनुमति नहीं है."
 
-#: api/keystone.py:356
+#: api/keystone.py:364
 #, python-format
 msgid "User %s has no role defined for that project."
 msgstr " इस परियोजना के लिए उपयोगकर्ता %s का कोई परिभाषित भूमिका नहीं है."
 
-#: api/keystone.py:383
+#: api/keystone.py:391
 msgid "Identity service does not allow editing user password."
 msgstr ""
 
@@ -396,22 +396,22 @@ msgstr ""
 msgid "Unable to get health monitors for pool %(pool)s."
 msgstr ""
 
-#: api/neutron.py:216
+#: api/neutron.py:221
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "अनुमति दें %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
-#: api/neutron.py:935
+#: api/neutron.py:940
 msgid "Unable to connect to Neutron."
 msgstr "न्यूट्रॉन से जुड़ नहीं सका."
 
-#: api/neutron.py:972
+#: api/neutron.py:977
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "IP पता %s के विश्लेषण में असमर्थ"
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1111
+#: api/neutron.py:1116
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -419,14 +419,14 @@ msgid ""
 msgstr "अनुरोधित सुविधा  '%(feature)s' अज्ञात है. कृपया सुनिश्चित करें कि FEATURE_MAP में परिभाषित सुविधा निर्दिष्ट हैं "
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1129
+#: api/neutron.py:1134
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
 "invalid. It should be one of %(allowed)s"
 msgstr "get_feature_permission '%(feature)s' के लिए 'संचालन' पैरामीटर अवैध हैं.  यह %(allowed)s में से एक होना चाहिए."
 
-#: api/neutron.py:1144
+#: api/neutron.py:1149
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr "समर्थित Neutron '%s' एक्सटेंशन की जांच करने में विफल"
@@ -621,7 +621,7 @@ msgstr "प्रशासक"
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:10
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:10
 #: dashboards/project/routers/forms.py:117
-#: dashboards/project/routers/tables.py:205
+#: dashboards/project/routers/tables.py:209
 #: dashboards/project/routers/ports/tables.py:107
 #: dashboards/project/routers/templates/routers/_detail_overview.html:9
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:9
@@ -1835,7 +1835,7 @@ msgstr "क्षेत्र"
 #: dashboards/project/networks/ports/tables.py:72
 #: dashboards/project/networks/templates/networks/_detail_overview.html:13
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:32
-#: dashboards/project/routers/tables.py:208
+#: dashboards/project/routers/tables.py:212
 #: dashboards/project/routers/ports/tables.py:112
 #: dashboards/project/routers/templates/routers/_detail_overview.html:13
 #: dashboards/project/stacks/tables.py:267
@@ -3145,6 +3145,7 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:34
 #: dashboards/project/routers/forms.py:36
 #: dashboards/project/routers/forms.py:120
+#: dashboards/project/routers/tables.py:225
 #: dashboards/project/routers/ports/tables.py:117
 #: dashboards/project/routers/templates/routers/_detail_overview.html:15
 #: dashboards/project/vpn/forms.py:39 dashboards/project/vpn/forms.py:263
@@ -3176,7 +3177,7 @@ msgstr "साझा"
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:220
 #: dashboards/project/networks/templates/networks/_detail_overview.html:19
 #: dashboards/project/routers/forms.py:40
-#: dashboards/project/routers/tables.py:219
+#: dashboards/project/routers/tables.py:223
 #: dashboards/project/routers/ports/forms.py:146
 msgid "External Network"
 msgstr "बाहरी नेटवर्क "
@@ -3737,7 +3738,7 @@ msgstr ""
 #: dashboards/identity/projects/workflows.py:76
 #: dashboards/project/network_topology/routers/tables.py:27
 #: dashboards/project/routers/panel.py:24
-#: dashboards/project/routers/tables.py:237
+#: dashboards/project/routers/tables.py:244
 #: dashboards/project/routers/views.py:42
 #: dashboards/project/routers/templates/routers/index.html:3
 #: usage/quotas.py:80
@@ -3821,7 +3822,7 @@ msgstr "परियोजना आईडी"
 #: dashboards/project/routers/forms.py:53
 #: dashboards/project/routers/forms.py:138
 #: dashboards/project/routers/forms.py:144
-#: dashboards/project/routers/tables.py:213
+#: dashboards/project/routers/tables.py:217
 #: dashboards/project/routers/templates/routers/_detail_overview.html:18
 msgid "Distributed"
 msgstr "वितरित"
@@ -13090,8 +13091,18 @@ msgctxt "current status of router"
 msgid "Error"
 msgstr "त्रुटि"
 
+#: dashboards/project/routers/tables.py:204
+msgctxt "Admin state of a Router"
+msgid "UP"
+msgstr ""
+
+#: dashboards/project/routers/tables.py:205
+msgctxt "Admin state of a Router"
+msgid "DOWN"
+msgstr ""
+
 #. Translators: High Availability mode of Neutron router
-#: dashboards/project/routers/tables.py:217
+#: dashboards/project/routers/tables.py:221
 msgid "HA mode"
 msgstr "HA अवस्था"
 

@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-03 18:13-0600\n"
-"PO-Revision-Date: 2015-03-03 17:24+0000\n"
-"Last-Translator: Rob Cresswell <robert.cresswell@outlook.com>\n"
+"POT-Creation-Date: 2015-03-05 20:44-0600\n"
+"PO-Revision-Date: 2015-03-05 08:02+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/horizon/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -371,37 +371,57 @@ msgstr "Unable to edit the domain."
 msgid "Unable to delete the domain."
 msgstr "Unable to delete the domain."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:156
+#: static/horizon/js/angular/services/hz.api.keystone.js:157
 msgid "Unable to retrieve projects"
 msgstr "Unable to retrieve projects"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:163
+#: static/horizon/js/angular/services/hz.api.keystone.js:164
 msgid "Unable to create the project."
 msgstr "Unable to create the project."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:170
+#: static/horizon/js/angular/services/hz.api.keystone.js:171
 msgid "Unable to delete the projects."
 msgstr "Unable to delete the projects."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:177
+#: static/horizon/js/angular/services/hz.api.keystone.js:178
 msgid "Unable to retrieve the project"
 msgstr "Unable to retrieve the project"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:185
+#: static/horizon/js/angular/services/hz.api.keystone.js:186
 msgid "Unable to edit the project."
 msgstr "Unable to edit the project."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:192
+#: static/horizon/js/angular/services/hz.api.keystone.js:193
 msgid "Unable to delete the project."
 msgstr "Unable to delete the project."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:200
+#: static/horizon/js/angular/services/hz.api.keystone.js:201
 msgid "Unable to grant the role."
 msgstr "Unable to grant the role."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:207
+#: static/horizon/js/angular/services/hz.api.keystone.js:208
 msgid "Unable to fetch the service catalog."
 msgstr "Unable to fetch the service catalogue."
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:39
+msgid "Unable to retrieve networks."
+msgstr "Unable to retrieve networks."
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:90
+msgid "Unable to create the network."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:110
+msgid "Unable to retrieve subnets."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:176
+msgid "Unable to create the subnet."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.neutron.js:196
+msgid "Unable to retrieve ports."
+msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.nova.js:40
 msgid "Unable to retrieve keypairs."

@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-03 18:13-0600\n"
-"PO-Revision-Date: 2015-03-03 19:54+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-03-05 20:44-0600\n"
+"PO-Revision-Date: 2015-03-06 05:40+0000\n"
+"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -364,16 +364,16 @@ msgstr "알 수 없는 인스턴스"
 msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s 백엔드)"
 
-#: api/keystone.py:330
+#: api/keystone.py:338
 msgid "Identity service does not allow editing user data."
 msgstr "Identity 서비스는 사용자 데이터를 편집할 수 없습니다."
 
-#: api/keystone.py:356
+#: api/keystone.py:364
 #, python-format
 msgid "User %s has no role defined for that project."
 msgstr "사용자 %s는 해당 프로젝트에 정의된 role이 없습니다."
 
-#: api/keystone.py:383
+#: api/keystone.py:391
 msgid "Identity service does not allow editing user password."
 msgstr "Identity 서비스는 사용자 암호를 편집할 수 없습니다."
 
@@ -401,22 +401,22 @@ msgstr "Pool %(pool)s에대한 멤버를 가져오지 못 했습니다."
 msgid "Unable to get health monitors for pool %(pool)s."
 msgstr "Pool %(pool)s에대한 상태 모니터를 가져오지 못했습니다."
 
-#: api/neutron.py:216
+#: api/neutron.py:221
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "%(ethertype)s %(proto_port)s %(direction)s %(remote)s 허용"
 
-#: api/neutron.py:935
+#: api/neutron.py:940
 msgid "Unable to connect to Neutron."
 msgstr "Neutron에 접속할 수 없습니다."
 
-#: api/neutron.py:972
+#: api/neutron.py:977
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "IP 주소 %s를 구문 분석할 수 없습니다."
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1111
+#: api/neutron.py:1116
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -424,14 +424,14 @@ msgid ""
 msgstr "요청된 기능 '%(feature)s'를 알 수 없습니다. FEATURE_MAP에 정의된 기능을 지정해야 합니다."
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1129
+#: api/neutron.py:1134
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
 "invalid. It should be one of %(allowed)s"
 msgstr "get_feature_permission의 'operation' 매개 변수의 '%(feature)s'가 잘못되었습니다. 이것은 %(allowed)s 중 하나여야 합니다."
 
-#: api/neutron.py:1144
+#: api/neutron.py:1149
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr "Neutron '%s' 확장을 실패에대해 확인을 지원하지 않습니다."
@@ -626,7 +626,7 @@ msgstr "관리자"
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:10
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:10
 #: dashboards/project/routers/forms.py:117
-#: dashboards/project/routers/tables.py:205
+#: dashboards/project/routers/tables.py:209
 #: dashboards/project/routers/ports/tables.py:107
 #: dashboards/project/routers/templates/routers/_detail_overview.html:9
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:9
@@ -1834,7 +1834,7 @@ msgstr "영역"
 #: dashboards/project/networks/ports/tables.py:72
 #: dashboards/project/networks/templates/networks/_detail_overview.html:13
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:32
-#: dashboards/project/routers/tables.py:208
+#: dashboards/project/routers/tables.py:212
 #: dashboards/project/routers/ports/tables.py:112
 #: dashboards/project/routers/templates/routers/_detail_overview.html:13
 #: dashboards/project/stacks/tables.py:267
@@ -3140,6 +3140,7 @@ msgstr "DOWN"
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:34
 #: dashboards/project/routers/forms.py:36
 #: dashboards/project/routers/forms.py:120
+#: dashboards/project/routers/tables.py:225
 #: dashboards/project/routers/ports/tables.py:117
 #: dashboards/project/routers/templates/routers/_detail_overview.html:15
 #: dashboards/project/vpn/forms.py:39 dashboards/project/vpn/forms.py:263
@@ -3171,7 +3172,7 @@ msgstr "공유"
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:220
 #: dashboards/project/networks/templates/networks/_detail_overview.html:19
 #: dashboards/project/routers/forms.py:40
-#: dashboards/project/routers/tables.py:219
+#: dashboards/project/routers/tables.py:223
 #: dashboards/project/routers/ports/forms.py:146
 msgid "External Network"
 msgstr "외부 네트워크"
@@ -3325,7 +3326,7 @@ msgstr "DHCP 에이전트"
 
 #: dashboards/admin/networks/views.py:50
 msgid "Unable to retrieve information about the networks' projects."
-msgstr ""
+msgstr "네트워크 프로젝트에 대한 정보를 찾지 못했습니다."
 
 #: dashboards/admin/networks/views.py:78
 #: dashboards/project/networks/views.py:54
@@ -3724,7 +3725,7 @@ msgstr "모니터링:"
 #: dashboards/identity/projects/workflows.py:76
 #: dashboards/project/network_topology/routers/tables.py:27
 #: dashboards/project/routers/panel.py:24
-#: dashboards/project/routers/tables.py:237
+#: dashboards/project/routers/tables.py:244
 #: dashboards/project/routers/views.py:42
 #: dashboards/project/routers/templates/routers/index.html:3
 #: usage/quotas.py:80
@@ -3808,7 +3809,7 @@ msgstr "프로젝트 ID"
 #: dashboards/project/routers/forms.py:53
 #: dashboards/project/routers/forms.py:138
 #: dashboards/project/routers/forms.py:144
-#: dashboards/project/routers/tables.py:213
+#: dashboards/project/routers/tables.py:217
 #: dashboards/project/routers/templates/routers/_detail_overview.html:18
 msgid "Distributed"
 msgstr "분산"
@@ -9893,7 +9894,7 @@ msgstr "현재 프로젝트의 이미지를 찾지 못 했습니다."
 
 #: dashboards/project/images/utils.py:95
 msgid "Unable to retrieve images"
-msgstr ""
+msgstr "이미지를 찾지 못했습니다."
 
 #: dashboards/project/images/utils.py:104
 #: dashboards/project/instances/forms.py:66
@@ -10835,7 +10836,7 @@ msgstr "nova에서 가용성 존을 찾을 수 없습니다."
 
 #: dashboards/project/instances/utils.py:94
 msgid "Failed to get network list {0}"
-msgstr ""
+msgstr "네트워크 목록 {0}를 가져오지 못했습니다."
 
 #: dashboards/project/instances/utils.py:99
 #: dashboards/project/routers/ports/forms.py:176
@@ -12975,8 +12976,18 @@ msgctxt "current status of router"
 msgid "Error"
 msgstr "오류"
 
+#: dashboards/project/routers/tables.py:204
+msgctxt "Admin state of a Router"
+msgid "UP"
+msgstr "UP"
+
+#: dashboards/project/routers/tables.py:205
+msgctxt "Admin state of a Router"
+msgid "DOWN"
+msgstr "DOWN"
+
 #. Translators: High Availability mode of Neutron router
-#: dashboards/project/routers/tables.py:217
+#: dashboards/project/routers/tables.py:221
 msgid "HA mode"
 msgstr "HA 모드"
 
