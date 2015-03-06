@@ -204,7 +204,8 @@ horizon.addInitFunction(horizon.forms.init = function () {
   }
 
   // Bind event handlers to confirm dangerous actions.
-  $("body").on("click", "form button.btn-danger", function (evt) {
+  // Stops angular form buttons from triggering this event
+  $("body").on("click", "form button:not([ng-click]).btn-danger", function (evt) {
     horizon.datatables.confirm(this);
     evt.preventDefault();
   });
