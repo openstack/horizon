@@ -126,3 +126,43 @@ class RestUtilsTestCase(test.TestCase):
         self.assertStatusCode(response, 201)
         self.assertEqual(response['location'], '/api/spam/spam123')
         self.assertEqual(response.content, '"spam!"')
+
+    def test_parse_filters_keywords(self):
+        kwargs = {
+            'sort_dir': '1',
+            'sort_key': '2',
+        }
+        filters = {
+            'filter1': '1',
+            'filter2': '2',
+        }
+
+        # Combined
+        request_params = dict(kwargs)
+        request_params.update(filters)
+        request = self.mock_rest_request(**{'GET': dict(request_params)})
+        output_filters, output_kwargs = utils.parse_filters_kwargs(
+            request, kwargs)
+        self.assertDictEqual(kwargs, output_kwargs)
+        self.assertDictEqual(filters, output_filters)
+
+        # Empty Filters
+        request = self.mock_rest_request(**{'GET': dict(kwargs)})
+        output_filters, output_kwargs = utils.parse_filters_kwargs(
+            request, kwargs)
+        self.assertDictEqual(kwargs, output_kwargs)
+        self.assertDictEqual({}, output_filters)
+
+        # Empty keywords
+        request = self.mock_rest_request(**{'GET': dict(filters)})
+        output_filters, output_kwargs = utils.parse_filters_kwargs(
+            request)
+        self.assertDictEqual({}, output_kwargs)
+        self.assertDictEqual(filters, output_filters)
+
+        # Empty both
+        request = self.mock_rest_request(**{'GET': dict()})
+        output_filters, output_kwargs = utils.parse_filters_kwargs(
+            request)
+        self.assertDictEqual({}, output_kwargs)
+        self.assertDictEqual({}, output_filters)

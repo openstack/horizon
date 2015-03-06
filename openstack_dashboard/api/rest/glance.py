@@ -25,24 +25,6 @@ from openstack_dashboard.api.rest import urls
 CLIENT_KEYWORDS = {'marker', 'sort_dir', 'sort_key', 'paginate'}
 
 
-def _parse_filters_kwargs(request):
-    """REST request parameters are separated appropriately.
-
-    Glance client processes some keywords separately
-    from filters and takes them as separate inputs.
-    This potentially may not be needed when Glance
-    v2 support is brought into Horizon via a separate effort.
-    """
-    filters = {}
-    kwargs = {}
-    for param in request.GET:
-        if param in CLIENT_KEYWORDS:
-            kwargs[param] = request.GET[param]
-        else:
-            filters[param] = request.GET[param]
-    return filters, kwargs
-
-
 @urls.register
 class Image(generic.View):
     """API for retrieving a single image
@@ -93,7 +75,8 @@ class Images(generic.View):
         separate work stream: https://review.openstack.org/#/c/150084/
         """
 
-        filters, kwargs = _parse_filters_kwargs(request)
+        filters, kwargs = rest_utils.parse_filters_kwargs(request,
+                                                          CLIENT_KEYWORDS)
 
         images, has_more_data, has_prev_data = api.glance.image_list_detailed(
             request, filters=filters, **kwargs)
@@ -164,7 +147,8 @@ class MetadefsNamespaces(generic.View):
         filters.
         """
 
-        filters, kwargs = _parse_filters_kwargs(request)
+        filters, kwargs = rest_utils.parse_filters_kwargs(request,
+                                                          CLIENT_KEYWORDS)
 
         namespaces, has_more, has_prev = api.glance.metadefs_namespace_list(
             request, filters=filters, **kwargs)

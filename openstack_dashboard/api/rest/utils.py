@@ -133,3 +133,20 @@ def ajax(authenticated=True, data_required=False):
 
         return _wrapped
     return decorator
+
+
+def parse_filters_kwargs(request, client_keywords={}):
+    """Extract REST filter parameters from the request GET args.
+
+    Client processes some keywords separately from filters and takes
+    them as separate inputs. This will ignore those keys to avoid
+    potential conflicts.
+    """
+    filters = {}
+    kwargs = {}
+    for param in request.GET:
+        if param in client_keywords:
+            kwargs[param] = request.GET[param]
+        else:
+            filters[param] = request.GET[param]
+    return filters, kwargs
