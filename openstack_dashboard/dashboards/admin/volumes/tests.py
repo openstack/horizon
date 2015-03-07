@@ -25,11 +25,14 @@ from openstack_dashboard.test import helpers as test
 
 class VolumeTests(test.BaseAdminViewTests):
     @test.create_stubs({api.nova: ('server_list',),
-                        cinder: ('volume_list',),
+                        cinder: ('volume_list',
+                                 'volume_snapshot_list'),
                         keystone: ('tenant_list',)})
     def test_index(self):
         cinder.volume_list(IsA(http.HttpRequest), search_opts={
             'all_tenants': True}).AndReturn(self.cinder_volumes.list())
+        cinder.volume_snapshot_list(IsA(http.HttpRequest), search_opts={
+            'all_tenants': True}).AndReturn([])
         api.nova.server_list(IsA(http.HttpRequest), search_opts={
                              'all_tenants': True}) \
             .AndReturn([self.servers.list(), False])
