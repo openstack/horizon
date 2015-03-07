@@ -83,6 +83,36 @@ class EnableService(policy.PolicyTargetMixin, tables.BatchAction):
         api.nova.service_enable(request, obj_id, 'nova-compute')
 
 
+class MigrateMaintenanceHost(tables.LinkAction):
+    name = "migrate_maintenance"
+    policy_rules = (("compute", "compute_extension:admin_actions:migrate"),)
+    classes = ('ajax-modal', 'btn-migrate', 'btn-danger')
+    verbose_name = _("Migrate Host")
+    url = "horizon:admin:hypervisors:compute:migrate_host"
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Migrate Host",
+            u"Migrate Hosts",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Migrated Host",
+            u"Migrated Hosts",
+            count
+        )
+
+    def allowed(self, request, service):
+        if not api.nova.extension_supported('AdminActions', request):
+            return False
+
+        return service.status == "disabled"
+
+
 class ComputeHostFilterAction(tables.FilterAction):
     def filter(self, table, services, filter_string):
         q = filter_string.lower()
@@ -111,4 +141,9 @@ class ComputeHostTable(tables.DataTable):
         verbose_name = _("Compute Host")
         table_actions = (ComputeHostFilterAction,)
         multi_select = False
-        row_actions = (EvacuateHost, DisableService, EnableService)
+        row_actions = (
+            EvacuateHost,
+            DisableService,
+            EnableService,
+            MigrateMaintenanceHost
+        )

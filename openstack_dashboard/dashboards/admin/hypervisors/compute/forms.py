@@ -92,3 +92,76 @@ class DisableServiceForm(forms.SelfHandlingForm):
                 data["host"]
             exceptions.handle(request, message=msg, redirect=redirect)
             return False
+
+
+class MigrateHostForm(forms.SelfHandlingForm):
+    current_host = forms.CharField(
+        label=_("Current Host"),
+        required=False,
+        widget=forms.TextInput(
+            attrs={'readonly': 'readonly'})
+    )
+
+    migrate_type = forms.ChoiceField(
+        label=_('Running Instance Migration Type'),
+        choices=[
+            ('live_migrate', _('Live Migrate')),
+            ('cold_migrate', _('Cold Migrate'))
+        ],
+        widget=forms.Select(
+            attrs={
+                'class': 'switchable',
+                'data-slug': 'source'
+            }
+        )
+    )
+
+    disk_over_commit = forms.BooleanField(
+        label=_("Disk Over Commit"),
+        initial=False,
+        required=False,
+        widget=forms.CheckboxInput(
+            attrs={
+                'class': 'switched',
+                'data-switch-on': 'source',
+                'data-source-live_migrate': _('Disk Over Commit')
+            }
+        )
+    )
+
+    block_migration = forms.BooleanField(
+        label=_("Block Migration"),
+        initial=False,
+        required=False,
+        widget=forms.CheckboxInput(
+            attrs={
+                'class': 'switched',
+                'data-switch-on': 'source',
+                'data-source-live_migrate': _('Block Migration')
+            }
+        )
+    )
+
+    def handle(self, request, data):
+        try:
+            current_host = data['current_host']
+            migrate_type = data['migrate_type']
+            disk_over_commit = data['disk_over_commit']
+            block_migration = data['block_migration']
+            live_migrate = migrate_type == 'live_migrate'
+            api.nova.migrate_host(
+                request,
+                current_host,
+                live_migrate=live_migrate,
+                disk_over_commit=disk_over_commit,
+                block_migration=block_migration
+            )
+            msg = _('Starting to migrate host: %(current)s') % \
+                {'current': current_host}
+            messages.success(request, msg)
+            return True
+        except Exception:
+            msg = _('Failed to migrate host "%s".') % data['current_host']
+            redirect = reverse('horizon:admin:hypervisors:index')
+            exceptions.handle(request, message=msg, redirect=redirect)
+            return False
