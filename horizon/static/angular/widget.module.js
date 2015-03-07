@@ -9,6 +9,7 @@
     'hz.widget.modal',
     'hz.widget.modal-wait-spinner',
     'hz.framework.bind-scope',
+    'hz.framework.workflow',
     'hz.widget.transfer-table',
     'hz.widget.charts',
     'hz.widget.action-list',
