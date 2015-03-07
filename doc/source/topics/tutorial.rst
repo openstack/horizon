@@ -484,12 +484,9 @@ Adjust the import of ``IndexView`` to make the code readable::
 
 Replace the existing ``url`` pattern with the following line::
 
-    url(r'^\?tab=mypanel_tabs__tab$',
-        views.IndexView.as_view(), name='mypanel_tabs'),
+    url(r'^$',
+        views.IndexView.as_view(), name='index'),
 
-
-Notice that ``mypanel_tabs`` is the ``slug`` attribute defined in the
-``MypanelTabs`` class in the ``tabs.py`` file.
 
 The completed ``urls.py`` file should look like the following::
 
@@ -500,8 +497,8 @@ The completed ``urls.py`` file should look like the following::
 
 
     urlpatterns = patterns('',
-        url(r'^\?tab=mypanel_tabs_tab$',
-            views.IndexView.as_view(), name='mypanel_tabs'),
+        url(r'^$',
+            views.IndexView.as_view(), name='index'),
     )
 
 
