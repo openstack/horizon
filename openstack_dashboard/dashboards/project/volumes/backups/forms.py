@@ -62,7 +62,6 @@ class CreateBackupForm(forms.SelfHandlingForm):
             exceptions.handle(request,
                               _('Unable to create volume backup.'),
                               redirect=redirect)
-            return False
 
 
 class RestoreBackupForm(forms.SelfHandlingForm):
@@ -106,5 +105,5 @@ class RestoreBackupForm(forms.SelfHandlingForm):
             return restore
         except Exception:
             msg = _('Unable to restore backup.')
-            exceptions.handle(request, msg)
-            return False
+            redirect = reverse('horizon:project:volumes:index')
+            exceptions.handle(request, msg, redirect=redirect)

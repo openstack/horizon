@@ -11,6 +11,7 @@
 # under the License.
 
 
+from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -44,6 +45,7 @@ class UpdateStatus(forms.SelfHandlingForm):
                                         ' status: "%s".') % choice)
             return True
         except Exception:
+            redirect = reverse("horizon:admin:volumes:index")
             exceptions.handle(request,
-                              _('Unable to update volume snapshot status.'))
-            return False
+                              _('Unable to update volume snapshot status.'),
+                              redirect=redirect)

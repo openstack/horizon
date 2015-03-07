@@ -11,6 +11,7 @@
 #    under the License.
 
 
+from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -52,9 +53,10 @@ class CreateVolumeTypeEncryption(forms.SelfHandlingForm):
                                         'volume type: %s') % data['name'])
             return volume_type
         except Exception:
+            redirect = reverse("horizon:admin:volumes:index")
             exceptions.handle(request,
-                              _('Unable to create encrypted volume type.'))
-            return False
+                              _('Unable to create encrypted volume type.'),
+                              redirect=redirect)
 
 
 class ManageQosSpecAssociation(forms.SelfHandlingForm):
@@ -140,9 +142,10 @@ class ManageQosSpecAssociation(forms.SelfHandlingForm):
                              _('Successfully updated QoS Spec association.'))
             return True
         except Exception:
+            redirect = reverse("horizon:admin:volumes:index")
             exceptions.handle(request,
-                              _('Error updating QoS Spec association.'))
-            return False
+                              _('Error updating QoS Spec association.'),
+                              redirect=redirect)
 
 
 class EditQosSpecConsumer(forms.SelfHandlingForm):
@@ -182,5 +185,6 @@ class EditQosSpecConsumer(forms.SelfHandlingForm):
                              _('Successfully modified QoS Spec consumer.'))
             return True
         except Exception:
-            exceptions.handle(request, _('Error editing QoS Spec consumer.'))
-            return False
+            redirect = reverse("horizon:admin:volumes:index")
+            exceptions.handle(request, _('Error editing QoS Spec consumer.'),
+                              redirect=redirect)

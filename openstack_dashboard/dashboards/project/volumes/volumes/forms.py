@@ -396,9 +396,10 @@ class CreateForm(forms.SelfHandlingForm):
             self.api_error(e.messages[0])
             return False
         except Exception:
-            exceptions.handle(request, ignore=True)
-            self.api_error(_("Unable to create volume."))
-            return False
+            redirect = reverse("horizon:project:volumes:index")
+            exceptions.handle(request,
+                              _("Unable to create volume."),
+                              redirect=redirect)
 
     @memoized
     def get_snapshot(self, request, id):
@@ -546,7 +547,9 @@ class CreateTransferForm(forms.SelfHandlingForm):
                         args=(transfer.id, transfer.auth_key)))
             return response
         except Exception:
-            exceptions.handle(request, _('Unable to create volume transfer.'))
+            redirect = reverse("horizon:project:volumes:index")
+            exceptions.handle(request, _('Unable to create volume transfer.'),
+                              redirect=redirect)
 
 
 class AcceptTransferForm(forms.SelfHandlingForm):
@@ -565,7 +568,9 @@ class AcceptTransferForm(forms.SelfHandlingForm):
             messages.success(request, msg)
             return transfer
         except Exception:
-            exceptions.handle(request, _('Unable to accept volume transfer.'))
+            redirect = reverse("horizon:project:volumes:index")
+            exceptions.handle(request, _('Unable to accept volume transfer.'),
+                              redirect=redirect)
 
 
 class ShowTransferForm(forms.SelfHandlingForm):
@@ -677,12 +682,11 @@ class UploadToImageForm(forms.SelfHandlingForm):
 
             return True
         except Exception:
+            redirect = reverse("horizon:project:volumes:index")
             error_message = _(
                 'Unable to upload volume to image for volume: "%s"') \
                 % data['name']
-            exceptions.handle(request, error_message)
-
-            return False
+            exceptions.handle(request, error_message, redirect=redirect)
 
 
 class ExtendForm(forms.SelfHandlingForm):
@@ -791,9 +795,8 @@ class RetypeForm(forms.SelfHandlingForm):
 
             return True
         except Exception:
+            redirect = reverse("horizon:project:volumes:index")
             error_message = _(
                 'Unable to change the volume type for volume: "%s"') \
                 % data['name']
-            exceptions.handle(request, error_message)
-
-            return False
+            exceptions.handle(request, error_message, redirect=redirect)

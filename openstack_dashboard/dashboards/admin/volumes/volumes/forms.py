@@ -16,6 +16,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.core.urlresolvers import reverse
 from django.forms import ValidationError  # noqa
 from django.utils.translation import ugettext_lazy as _
 
@@ -128,8 +129,9 @@ class ManageVolume(forms.SelfHandlingForm):
                 % volume_name)
             return True
         except Exception:
-            exceptions.handle(request, _("Unable to manage volume."))
-            return False
+            redirect = reverse("horizon:admin:volumes:index")
+            exceptions.handle(request, _("Unable to manage volume."),
+                              redirect=redirect)
 
 
 class UnmanageVolume(forms.SelfHandlingForm):
@@ -158,8 +160,9 @@ class UnmanageVolume(forms.SelfHandlingForm):
                 % data['name'])
             return True
         except Exception:
-            exceptions.handle(request, _("Unable to unmanage volume."))
-            return False
+            redirect = reverse("horizon:admin:volumes:index")
+            exceptions.handle(request, _("Unable to unmanage volume."),
+                              redirect=redirect)
 
 
 class CreateVolumeType(forms.SelfHandlingForm):
@@ -174,9 +177,10 @@ class CreateVolumeType(forms.SelfHandlingForm):
                              % data['name'])
             return volume_type
         except Exception:
+            redirect = reverse("horizon:admin:volumes:index")
             exceptions.handle(request,
-                              _('Unable to create volume type.'))
-            return False
+                              _('Unable to create volume type.'),
+                              redirect=redirect)
 
 
 class UpdateStatus(forms.SelfHandlingForm):
@@ -215,10 +219,10 @@ class UpdateStatus(forms.SelfHandlingForm):
                              new_status)
             return True
         except Exception:
+            redirect = reverse("horizon:admin:volumes:index")
             exceptions.handle(request,
                               _('Unable to update volume status to "%s".') %
-                              new_status)
-            return False
+                              new_status, redirect=redirect)
 
 
 class CreateQosSpec(forms.SelfHandlingForm):
@@ -236,6 +240,7 @@ class CreateQosSpec(forms.SelfHandlingForm):
                              % data['name'])
             return qos_spec
         except Exception:
+            redirect = reverse("horizon:admin:volumes:index")
             exceptions.handle(request,
-                              _('Unable to create QoS Spec.'))
-            return False
+                              _('Unable to create QoS Spec.'),
+                              redirect=redirect)
