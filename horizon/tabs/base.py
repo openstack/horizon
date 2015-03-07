@@ -48,6 +48,11 @@ class TabGroup(html.HTMLElement):
         across requests for a given user. (State storage is all done
         client-side.)
 
+    .. attribute:: show_single_tab
+
+        Boolean to control whether the tab bar is shown when the tab group
+        has only one tab. Default: ``False``
+
     .. attribute:: param_name
 
         The name of the GET request parameter which will be used when
@@ -77,6 +82,7 @@ class TabGroup(html.HTMLElement):
     template_name = "horizon/common/_tab_group.html"
     param_name = 'tab'
     sticky = False
+    show_single_tab = False
     _selected = None
     _active = None
 

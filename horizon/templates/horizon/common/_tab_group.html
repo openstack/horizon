@@ -2,6 +2,7 @@
 {% if tabs %}
 
   {# Tab Navigation #}
+  {% if tab_group.show_single_tab or tabs|length > 1 %}
   <ul id="{{ tab_group.get_id }}" {{ tab_group.attr_string|safe }}>
     {% for tab in tabs %}
     <li {{ tab.attr_string|safe }}>
@@ -9,6 +10,7 @@
     </li>
     {% endfor %}
   </ul>
+  {% endif %}
 
   {# Tab Content #}
   <div class="tab-content">
