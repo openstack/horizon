@@ -4,6 +4,7 @@
       border-top: 1px solid $metadata-display-separator-color;
       padding: 10px;
       color: $metadata-display-selector-color;
+      cursor: pointer;
 
       &:first-child {
         border-top: none;
@@ -17,6 +18,10 @@
         color: $metadata-display-selector-active-color;
       }
     }
+  }
+
+  .selected-details {
+    padding-top: 9px;
   }
 
   .description {

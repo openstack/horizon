@@ -236,15 +236,8 @@
               </td>
             </tr>
             <tr class="detail-row"
-                ng-repeat-end>
-              <td></td>
-              <td colspan="{$ tableHeadCells.length $}" class="detail">
-                <dl class="dl-horizontal">
-                  <dt>{$ ::label.id $}</dt>
-                  <dd>{$ row.id $}</dd>
-                </dl>
-              </td>
-              <td></td>
+                ng-repeat-end
+                ng-include="sourceDetails">
             </tr>
           </tbody><!-- /transfer table, allocated table body -->
         </table>
@@ -351,15 +344,8 @@
               </td>
             </tr>
             <tr class="detail-row"
-                ng-repeat-end>
-              <td></td>
-              <td colspan="{$ tableHeadCells.length $}" class="detail">
-                <dl class="dl-horizontal">
-                  <dt>{$ ::label.id $}</dt>
-                  <dd>{$ row.id $}</dd>
-                </dl>
-              </td>
-              <td></td>
+                ng-repeat-end
+                ng-include="sourceDetails">
             </tr>
           </tbody>
         </table>
