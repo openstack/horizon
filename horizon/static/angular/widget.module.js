@@ -8,7 +8,8 @@
     'hz.widget.modal',
     'hz.framework.bind-scope',
     'hz.widget.transfer-table',
-    'hz.widget.charts'
+    'hz.widget.charts',
+    'hz.widget.action-list'
   ])
     .constant('basePath', '/static/angular/');
 

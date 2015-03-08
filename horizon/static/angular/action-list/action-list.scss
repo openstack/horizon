@@ -1,0 +1,33 @@
+action-list.btn-group {
+  &[warning-tooltip] {
+    cursor: pointer;
+  }
+
+  notifications {
+    bottom: -0.5em;
+    font-size: 1.1em;
+    opacity: 1;
+    position: absolute;
+    right: -0.35em;
+    z-index: 3;
+
+    & + .btn:not(:first-child) {
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+
+      &.btn-sm {
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+      }
+
+      &.btn-lg {
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+      }
+    }
+  }
+
+  .invalid {
+    color: $invalid-color;
+  }
+}

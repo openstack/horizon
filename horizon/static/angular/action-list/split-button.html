@@ -1,0 +1,14 @@
+<!-- Dropdown button -->
+<button type="button" tabindex="0"
+  class="split-button {$ disabled ? 'disabled' : '' $}"
+  ng-class="actionClasses"
+  ng-click="disabled || callback(item)">
+</button>
+<!-- Dropdown caret button -->
+<button class="split-caret dropdown-toggle"
+  ng-class="actionClasses"
+  ng-disabled="disabled"
+  aria-expanded="false">
+  <span class="caret"></span>
+  <span class="sr-only">Toggle Dropdown</span>
+</button>

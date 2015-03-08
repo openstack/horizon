@@ -23,6 +23,7 @@ class ServicesTests(test.JasmineTests):
         'horizon/js/angular/hz.api.module.js',
         'horizon/js/angular/services/hz.api.service.js',
         'angular/widget.module.js',
+        'angular/action-list/action-list.js',
         'angular/bind-scope/bind-scope.js',
         'angular/charts/charts.js',
         'angular/charts/chart-tooltip.js',
@@ -38,6 +39,7 @@ class ServicesTests(test.JasmineTests):
         'horizon/js/angular/services/hz.api.service.spec.js',
         'horizon/tests/jasmine/metadataWidgetControllerSpec.js',
         'horizon/tests/jasmine/utilsSpec.js',
+        'angular/action-list/action-list.spec.js',
         'angular/bind-scope/bind-scope.spec.js',
         'angular/charts/pie-chart.spec.js',
         'angular/help-panel/help-panel.spec.js',
@@ -47,6 +49,11 @@ class ServicesTests(test.JasmineTests):
         'angular/wizard/wizard.spec.js',
     ]
     externalTemplates = [
+        'angular/action-list/action.html',
+        'angular/action-list/menu-item.html',
+        'angular/action-list/menu.html',
+        'angular/action-list/single-button.html',
+        'angular/action-list/split-button.html',
         'angular/charts/chart-tooltip.html',
         'angular/charts/pie-chart.html',
         'angular/help-panel/help-panel.html',
