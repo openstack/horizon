@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-05 20:44-0600\n"
-"PO-Revision-Date: 2015-03-06 05:40+0000\n"
-"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
+"POT-Creation-Date: 2015-03-07 07:39-0600\n"
+"PO-Revision-Date: 2015-03-07 13:39+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -342,11 +342,11 @@ msgstr "현재 센서 읽기"
 msgid "Sensor Voltage Reading"
 msgstr "센서 볼트값 읽기"
 
-#: api/cinder.py:46 dashboards/admin/volumes/volume_types/forms.py:32
+#: api/cinder.py:46 dashboards/admin/volumes/volume_types/forms.py:33
 msgid "back-end"
 msgstr "백-엔드"
 
-#: api/cinder.py:47 dashboards/admin/volumes/volume_types/forms.py:30
+#: api/cinder.py:47 dashboards/admin/volumes/volume_types/forms.py:31
 msgid "front-end"
 msgstr "프론트-엔드"
 
@@ -498,7 +498,7 @@ msgstr "%(num_groups_to_modify)d 인스턴스 시큐리티 그룹 수정에 실�
 msgid "Failed to modify %d instance security groups"
 msgstr "%d 인스턴스 시큐리티 그룹을 수정하지 못하였습니다."
 
-#: api/nova.py:795
+#: api/nova.py:795 api/nova.py:831
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr "이름: %(name)s ID: %(uuid)s"
@@ -507,6 +507,11 @@ msgstr "이름: %(name)s ID: %(uuid)s"
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr "인스턴스를 이주하지 못했습니다: %s"
+
+#: api/nova.py:836
+#, python-format
+msgid "Failed to migrate instances: %s"
+msgstr ""
 
 #: api/swift.py:203
 msgid "The container cannot be deleted since it is not empty."
@@ -544,12 +549,12 @@ msgstr "관리자"
 #: dashboards/admin/volumes/snapshots/tables.py:59
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:10
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:11
-#: dashboards/admin/volumes/volume_types/forms.py:24
+#: dashboards/admin/volumes/volume_types/forms.py:25
 #: dashboards/admin/volumes/volume_types/tables.py:146
 #: dashboards/admin/volumes/volume_types/tables.py:229
-#: dashboards/admin/volumes/volumes/forms.py:85
-#: dashboards/admin/volumes/volumes/forms.py:166
-#: dashboards/admin/volumes/volumes/forms.py:225
+#: dashboards/admin/volumes/volumes/forms.py:86
+#: dashboards/admin/volumes/volumes/forms.py:169
+#: dashboards/admin/volumes/volumes/forms.py:229
 #: dashboards/admin/volumes/volumes/tables.py:79
 #: dashboards/identity/domains/tables.py:199
 #: dashboards/identity/domains/workflows.py:34
@@ -657,7 +662,7 @@ msgstr "이름"
 #: dashboards/admin/aggregates/forms.py:30
 #: dashboards/admin/aggregates/tables.py:130
 #: dashboards/admin/aggregates/workflows.py:27
-#: dashboards/admin/volumes/volumes/forms.py:74
+#: dashboards/admin/volumes/volumes/forms.py:75
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:22
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:19
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:48
@@ -750,7 +755,7 @@ msgstr "호스트"
 
 #: dashboards/admin/aggregates/tables.py:136
 #: dashboards/admin/flavors/tables.py:142
-#: dashboards/admin/volumes/volumes/forms.py:67
+#: dashboards/admin/volumes/volumes/forms.py:68
 #: dashboards/project/instances/templates/instances/_detail_overview.html:106
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:46
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:68
@@ -762,8 +767,8 @@ msgid "Availability Zone Name"
 msgstr "가용 영역 이름"
 
 #: dashboards/admin/aggregates/tables.py:161
-#: dashboards/admin/volumes/snapshots/forms.py:24
-#: dashboards/admin/volumes/volumes/forms.py:191
+#: dashboards/admin/volumes/snapshots/forms.py:25
+#: dashboards/admin/volumes/volumes/forms.py:195
 msgid "Available"
 msgstr "사용 가능"
 
@@ -924,6 +929,7 @@ msgstr "호스트를 추가하거나 삭제할 때 에러가 발생하였습니�
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:18
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_disable_service.html:17
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:17
+#: dashboards/admin/hypervisors/templates/hypervisors/compute/_migrate_host.html:16
 #: dashboards/admin/images/templates/images/_create.html:19
 #: dashboards/admin/images/templates/images/_update.html:18
 #: dashboards/admin/instances/templates/instances/_live_migrate.html:17
@@ -1020,6 +1026,7 @@ msgstr "호스트 집합은 가용 영역을 호스트를 묶어서 논리적인
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:25
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_disable_service.html:24
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:24
+#: dashboards/admin/hypervisors/templates/hypervisors/compute/_migrate_host.html:23
 #: dashboards/admin/images/templates/images/_create.html:35
 #: dashboards/admin/images/templates/images/_update.html:25
 #: dashboards/admin/instances/templates/instances/_live_migrate.html:24
@@ -1382,8 +1389,8 @@ msgstr "Swap 디스크"
 #: dashboards/admin/networks/agents/tables.py:90
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:9
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:12
-#: dashboards/admin/volumes/volumes/forms.py:86
-#: dashboards/admin/volumes/volumes/forms.py:144
+#: dashboards/admin/volumes/volumes/forms.py:87
+#: dashboards/admin/volumes/volumes/forms.py:146
 #: dashboards/identity/roles/forms.py:37
 #: dashboards/identity/users/forms.py:171
 #: dashboards/identity/users/templates/users/_detail_overview.html:19
@@ -1618,7 +1625,7 @@ msgstr "호스트 이름"
 #: dashboards/project/volumes/volumes/forms.py:113
 #: dashboards/project/volumes/volumes/forms.py:118
 #: dashboards/project/volumes/volumes/forms.py:119
-#: dashboards/project/volumes/volumes/forms.py:741
+#: dashboards/project/volumes/volumes/forms.py:745
 #: dashboards/project/volumes/volumes/tables.py:413
 msgid "Type"
 msgstr "유형"
@@ -1693,6 +1700,7 @@ msgid "Unable to retrieve hypervisor instances list."
 msgstr "하이퍼바이저 인스턴스 목록을 찾지 못 했습니다."
 
 #: dashboards/admin/hypervisors/compute/forms.py:25
+#: dashboards/admin/hypervisors/compute/forms.py:99
 #: dashboards/admin/instances/forms.py:27
 msgid "Current Host"
 msgstr "현재 호스트"
@@ -1729,15 +1737,15 @@ msgid "Failed to evacuate host: %s."
 msgstr "호스트를 이주 하지못했습니다: %s"
 
 #: dashboards/admin/hypervisors/compute/forms.py:73
-#: dashboards/admin/hypervisors/compute/tables.py:94
+#: dashboards/admin/hypervisors/compute/tables.py:124
 #: dashboards/admin/info/tables.py:66 dashboards/admin/info/tables.py:95
 #: dashboards/admin/info/tables.py:119 dashboards/admin/info/tables.py:170
 #: dashboards/admin/info/tables.py:209
 #: dashboards/admin/instances/tables.py:126
 #: dashboards/admin/networks/agents/tables.py:91
 #: dashboards/admin/volumes/snapshots/tables.py:64
-#: dashboards/admin/volumes/volumes/forms.py:54
-#: dashboards/admin/volumes/volumes/forms.py:140
+#: dashboards/admin/volumes/volumes/forms.py:55
+#: dashboards/admin/volumes/volumes/forms.py:142
 #: dashboards/admin/volumes/volumes/tables.py:81
 #: dashboards/project/databases/tables.py:325
 #: dashboards/project/databases/templates/databases/_detail_overview_cassandra.html:10
@@ -1762,6 +1770,43 @@ msgstr "host %s의 compute 서비스를 사용하지 않습니다."
 #, python-format
 msgid "Failed to disable compute service for host: %s."
 msgstr "host %s의 compute 서비스를 사용하지 않도록 설정하는데 실패 했습니다. "
+
+#: dashboards/admin/hypervisors/compute/forms.py:106
+msgid "Running Instance Migration Type"
+msgstr ""
+
+#: dashboards/admin/hypervisors/compute/forms.py:108
+#: dashboards/admin/instances/views.py:156
+#: dashboards/admin/instances/templates/instances/_live_migrate.html:8
+#: dashboards/admin/instances/templates/instances/live_migrate.html:3
+msgid "Live Migrate"
+msgstr "실시간 이전"
+
+#: dashboards/admin/hypervisors/compute/forms.py:109
+msgid "Cold Migrate"
+msgstr ""
+
+#: dashboards/admin/hypervisors/compute/forms.py:120
+#: dashboards/admin/hypervisors/compute/forms.py:127
+#: dashboards/admin/instances/forms.py:33
+msgid "Disk Over Commit"
+msgstr "디스크 오버 커밋"
+
+#: dashboards/admin/hypervisors/compute/forms.py:133
+#: dashboards/admin/hypervisors/compute/forms.py:140
+#: dashboards/admin/instances/forms.py:35
+msgid "Block Migration"
+msgstr "블록 마이그레이션"
+
+#: dashboards/admin/hypervisors/compute/forms.py:159
+#, python-format
+msgid "Starting to migrate host: %(current)s"
+msgstr ""
+
+#: dashboards/admin/hypervisors/compute/forms.py:164
+#, python-format
+msgid "Failed to migrate host \"%s\"."
+msgstr ""
 
 #: dashboards/admin/hypervisors/compute/tables.py:26
 #: dashboards/admin/hypervisors/compute/views.py:30
@@ -1789,12 +1834,27 @@ msgid "Enabled Service"
 msgid_plural "Enabled Services"
 msgstr[0] "서비스 사용"
 
-#: dashboards/admin/hypervisors/compute/tables.py:95
+#: dashboards/admin/hypervisors/compute/tables.py:90
+#: dashboards/admin/hypervisors/compute/tables.py:96
+#: dashboards/admin/hypervisors/templates/hypervisors/compute/_migrate_host.html:8
+#: dashboards/admin/hypervisors/templates/hypervisors/compute/_migrate_host.html:22
+#: dashboards/admin/hypervisors/templates/hypervisors/compute/migrate_host.html:3
+#: dashboards/admin/hypervisors/templates/hypervisors/compute/migrate_host.html:6
+msgid "Migrate Host"
+msgid_plural "Migrate Hosts"
+msgstr[0] ""
+
+#: dashboards/admin/hypervisors/compute/tables.py:104
+msgid "Migrated Host"
+msgid_plural "Migrated Hosts"
+msgstr[0] ""
+
+#: dashboards/admin/hypervisors/compute/tables.py:125
 #: dashboards/admin/info/tables.py:96 dashboards/admin/info/tables.py:120
 msgid "Zone"
 msgstr "영역"
 
-#: dashboards/admin/hypervisors/compute/tables.py:96
+#: dashboards/admin/hypervisors/compute/tables.py:126
 #: dashboards/admin/info/tables.py:68 dashboards/admin/info/tables.py:97
 #: dashboards/admin/info/tables.py:121 dashboards/admin/info/tables.py:171
 #: dashboards/admin/info/tables.py:217
@@ -1803,9 +1863,9 @@ msgstr "영역"
 #: dashboards/admin/networks/agents/tables.py:92
 #: dashboards/admin/networks/ports/tables.py:99
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:13
-#: dashboards/admin/volumes/snapshots/forms.py:33
+#: dashboards/admin/volumes/snapshots/forms.py:34
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:18
-#: dashboards/admin/volumes/volumes/forms.py:183
+#: dashboards/admin/volumes/volumes/forms.py:187
 #: dashboards/project/access_and_security/floating_ips/tables.py:202
 #: dashboards/project/data_processing/clusters/tables.py:36
 #: dashboards/project/data_processing/clusters/tables.py:146
@@ -1855,18 +1915,18 @@ msgstr "영역"
 msgid "Status"
 msgstr "상태"
 
-#: dashboards/admin/hypervisors/compute/tables.py:97
+#: dashboards/admin/hypervisors/compute/tables.py:127
 #: dashboards/admin/info/tables.py:98 dashboards/admin/info/tables.py:122
 #: dashboards/admin/info/tables.py:172 dashboards/project/overview/views.py:34
 msgid "State"
 msgstr "상태"
 
-#: dashboards/admin/hypervisors/compute/tables.py:99
+#: dashboards/admin/hypervisors/compute/tables.py:129
 #: dashboards/admin/networks/agents/tables.py:95
 msgid "Updated At"
 msgstr "업데이트"
 
-#: dashboards/admin/hypervisors/compute/tables.py:111
+#: dashboards/admin/hypervisors/compute/tables.py:141
 #: dashboards/admin/hypervisors/compute/tabs.py:24
 msgid "Compute Host"
 msgstr "Compute 호스트"
@@ -1912,6 +1972,14 @@ msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr "선택된 다운 호스트에서 활성화된 대상 호스트로 서버를 이주합니다."
 
+#: dashboards/admin/hypervisors/templates/hypervisors/compute/_migrate_host.html:17
+msgid ""
+"Migrate all instances from a host with disabled nova-compute service. "
+"Optionally you can choose type of migration. All running instances of the "
+"host can be Live Migrated. Cold Migration is trying to use 'nova migrate' on"
+" each instance of migrated host."
+msgstr ""
+
 #: dashboards/admin/images/forms.py:65
 msgid "Unable to update the image metadata."
 msgstr "이미지 메타데이터를 업데이트할 수 없습니다."
@@ -1953,7 +2021,7 @@ msgstr "최대 크기 (MB)"
 #: dashboards/project/instances/tables.py:991
 #: dashboards/project/instances/templates/instances/_detail_overview.html:114
 #: dashboards/project/instances/workflows/create_instance.py:108
-#: dashboards/project/volumes/volumes/forms.py:633
+#: dashboards/project/volumes/volumes/forms.py:638
 msgid "Image Name"
 msgstr "이미지 이름"
 
@@ -2159,14 +2227,6 @@ msgstr "새로운 호스트"
 msgid "Choose a Host to migrate to."
 msgstr "이전할 호스트 선택."
 
-#: dashboards/admin/instances/forms.py:33
-msgid "Disk Over Commit"
-msgstr "디스크 오버 커밋"
-
-#: dashboards/admin/instances/forms.py:35
-msgid "Block Migration"
-msgstr "블록 마이그레이션"
-
 #: dashboards/admin/instances/forms.py:56
 msgid "Select a new host"
 msgstr "새로운 호스트 선택"
@@ -2303,12 +2363,6 @@ msgstr "Neutron에서 IP 주소를 찾지 못 했습니다."
 msgid "Unable to retrieve instance size information."
 msgstr "인스턴스 크기 정보를 찾지 못 했습니다."
 
-#: dashboards/admin/instances/views.py:156
-#: dashboards/admin/instances/templates/instances/_live_migrate.html:8
-#: dashboards/admin/instances/templates/instances/live_migrate.html:3
-msgid "Live Migrate"
-msgstr "실시간 이전"
-
 #: dashboards/admin/instances/views.py:169
 msgid "Unable to retrieve host information."
 msgstr "호스트 정보를 찾지 못 했습니다."
@@ -2430,7 +2484,7 @@ msgstr "연관 업데이트"
 #: dashboards/admin/metering/tables.py:64
 #: dashboards/admin/metering/views.py:106
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:15
-#: dashboards/admin/volumes/volumes/forms.py:64
+#: dashboards/admin/volumes/volumes/forms.py:65
 #: dashboards/identity/domains/tables.py:201
 #: dashboards/identity/domains/workflows.py:37
 #: dashboards/identity/groups/forms.py:33
@@ -2494,8 +2548,8 @@ msgstr "연관 업데이트"
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:15
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:15
 #: dashboards/project/volumes/volumes/forms.py:84
-#: dashboards/project/volumes/volumes/forms.py:491
-#: dashboards/project/volumes/volumes/forms.py:595
+#: dashboards/project/volumes/volumes/forms.py:492
+#: dashboards/project/volumes/volumes/forms.py:600
 #: dashboards/project/volumes/volumes/tables.py:384
 #: dashboards/project/vpn/forms.py:36 dashboards/project/vpn/forms.py:70
 #: dashboards/project/vpn/forms.py:142 dashboards/project/vpn/forms.py:213
@@ -2591,7 +2645,7 @@ msgstr "디스플레이 이름"
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:13
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:35
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:8
-#: dashboards/admin/volumes/volume_types/forms.py:87
+#: dashboards/admin/volumes/volume_types/forms.py:89
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:16
 #: dashboards/identity/users/templates/users/_detail_overview.html:22
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:13
@@ -3870,32 +3924,32 @@ msgstr "QOS 사양을 검색할 수 없습니다."
 msgid "Unable to retrieve volume snapshots."
 msgstr "볼륨 스냅샷을 찾지 못 했습니다."
 
-#: dashboards/admin/volumes/snapshots/forms.py:25
-#: dashboards/admin/volumes/volumes/forms.py:192
+#: dashboards/admin/volumes/snapshots/forms.py:26
+#: dashboards/admin/volumes/volumes/forms.py:196
 msgid "Creating"
 msgstr "생성"
 
-#: dashboards/admin/volumes/snapshots/forms.py:26
-#: dashboards/admin/volumes/volumes/forms.py:193
+#: dashboards/admin/volumes/snapshots/forms.py:27
+#: dashboards/admin/volumes/volumes/forms.py:197
 msgid "Deleting"
 msgstr "삭제 중"
 
-#: dashboards/admin/volumes/snapshots/forms.py:27
-#: dashboards/admin/volumes/volumes/forms.py:195
+#: dashboards/admin/volumes/snapshots/forms.py:28
+#: dashboards/admin/volumes/volumes/forms.py:199
 msgid "Error"
 msgstr "에러"
 
-#: dashboards/admin/volumes/snapshots/forms.py:28
-#: dashboards/admin/volumes/volumes/forms.py:196
+#: dashboards/admin/volumes/snapshots/forms.py:29
+#: dashboards/admin/volumes/volumes/forms.py:200
 msgid "Error Deleting"
 msgstr "삭제중 오류"
 
-#: dashboards/admin/volumes/snapshots/forms.py:43
+#: dashboards/admin/volumes/snapshots/forms.py:44
 #, python-format
 msgid "Successfully updated volume snapshot status: \"%s\"."
 msgstr "볼륨 스냅샷 상태를 업데이트 했습니다: \"%s\"."
 
-#: dashboards/admin/volumes/snapshots/forms.py:48
+#: dashboards/admin/volumes/snapshots/forms.py:50
 msgid "Unable to update volume snapshot status."
 msgstr "볼륨 스냅샷 상태를 업데이트 하지 못 했습니다."
 
@@ -3906,15 +3960,15 @@ msgid "Update Status"
 msgstr "업데이트 상태"
 
 #: dashboards/admin/volumes/snapshots/tables.py:62
-#: dashboards/admin/volumes/volumes/forms.py:59
-#: dashboards/admin/volumes/volumes/forms.py:136
+#: dashboards/admin/volumes/volumes/forms.py:60
+#: dashboards/admin/volumes/volumes/forms.py:138
 #: dashboards/project/volumes/backups/tables.py:131
 #: dashboards/project/volumes/snapshots/tables.py:151
 #: dashboards/project/volumes/volumes/forms.py:80
-#: dashboards/project/volumes/volumes/forms.py:591
-#: dashboards/project/volumes/volumes/forms.py:630
-#: dashboards/project/volumes/volumes/forms.py:690
-#: dashboards/project/volumes/volumes/forms.py:738
+#: dashboards/project/volumes/volumes/forms.py:596
+#: dashboards/project/volumes/volumes/forms.py:635
+#: dashboards/project/volumes/volumes/forms.py:694
+#: dashboards/project/volumes/volumes/forms.py:742
 msgid "Volume Name"
 msgstr "볼륨 이름"
 
@@ -4148,7 +4202,7 @@ msgid "Volume Type Encryption Overview"
 msgstr "볼륨 유형 암호화 개요"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:13
-#: dashboards/admin/volumes/volume_types/forms.py:27
+#: dashboards/admin/volumes/volume_types/forms.py:28
 #: dashboards/project/loadbalancers/tables.py:273
 #: dashboards/project/loadbalancers/workflows.py:42
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:26
@@ -4157,19 +4211,19 @@ msgid "Provider"
 msgstr "공급자"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:15
-#: dashboards/admin/volumes/volume_types/forms.py:28
+#: dashboards/admin/volumes/volume_types/forms.py:29
 #: dashboards/project/volumes/templates/volumes/volumes/_encryption_detail_overview.html:15
 msgid "Control Location"
 msgstr "제어 위치"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:17
-#: dashboards/admin/volumes/volume_types/forms.py:34
+#: dashboards/admin/volumes/volume_types/forms.py:35
 #: dashboards/project/volumes/templates/volumes/volumes/_encryption_detail_overview.html:17
 msgid "Cipher"
 msgstr "암호화 방식"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:19
-#: dashboards/admin/volumes/volume_types/forms.py:35
+#: dashboards/admin/volumes/volume_types/forms.py:36
 #: dashboards/project/volumes/templates/volumes/volumes/_encryption_detail_overview.html:19
 msgid "Key Size (bits)"
 msgstr "키 크기 (비트)"
@@ -4344,55 +4398,55 @@ msgstr "볼륨 관리 취소"
 msgid "Unmanage a Volume"
 msgstr "볼륨 관리 취소"
 
-#: dashboards/admin/volumes/volume_types/forms.py:51
+#: dashboards/admin/volumes/volume_types/forms.py:52
 #, python-format
 msgid "Successfully created encryption for volume type: %s"
 msgstr "볼륨 유형에 대한 암호화 생성 완료: %s"
 
-#: dashboards/admin/volumes/volume_types/forms.py:56
+#: dashboards/admin/volumes/volume_types/forms.py:58
 msgid "Unable to create encrypted volume type."
 msgstr "볼륨 유형 암호화 생성 실패."
 
-#: dashboards/admin/volumes/volume_types/forms.py:62
+#: dashboards/admin/volumes/volume_types/forms.py:64
 msgid "QoS Spec to be associated"
 msgstr "연결할 QoS 스펙"
 
-#: dashboards/admin/volumes/volume_types/forms.py:63
+#: dashboards/admin/volumes/volume_types/forms.py:65
 msgid "Choose associated QoS Spec."
 msgstr "연결할 QoS 스펙을 선택해주세요."
 
-#: dashboards/admin/volumes/volume_types/forms.py:108
+#: dashboards/admin/volumes/volume_types/forms.py:110
 msgid ""
 "New associated QoS Spec must be different than the current associated QoS "
 "Spec."
 msgstr "새로운 연결 QoS 스펙은 현재 연결 QoS 스펙과 달라야 합니다."
 
-#: dashboards/admin/volumes/volume_types/forms.py:140
+#: dashboards/admin/volumes/volume_types/forms.py:142
 msgid "Successfully updated QoS Spec association."
 msgstr "QoS 스펙 업데이를 완료했습니다."
 
-#: dashboards/admin/volumes/volume_types/forms.py:144
+#: dashboards/admin/volumes/volume_types/forms.py:147
 msgid "Error updating QoS Spec association."
 msgstr "QoS 스펙 업데이트하는데 오류가 발생했습니다."
 
-#: dashboards/admin/volumes/volume_types/forms.py:150
+#: dashboards/admin/volumes/volume_types/forms.py:153
 msgid "QoS Spec Consumer"
 msgstr "QoS 스펙 사용자"
 
-#: dashboards/admin/volumes/volume_types/forms.py:152
+#: dashboards/admin/volumes/volume_types/forms.py:155
 msgid "Choose consumer for this QoS Spec."
 msgstr "해당 QoS 스펙에 대한 사용자를 선택하세요."
 
-#: dashboards/admin/volumes/volume_types/forms.py:168
+#: dashboards/admin/volumes/volume_types/forms.py:171
 msgid ""
 "QoS Spec consumer value must be different than the current consumer value."
 msgstr "QoS 스펙 사용자 값은 현재 사용자 값과 달라야 합니다."
 
-#: dashboards/admin/volumes/volume_types/forms.py:182
+#: dashboards/admin/volumes/volume_types/forms.py:185
 msgid "Successfully modified QoS Spec consumer."
 msgstr "QoS 스펙 사용자를 수정했습니다."
 
-#: dashboards/admin/volumes/volume_types/forms.py:185
+#: dashboards/admin/volumes/volume_types/forms.py:189
 msgid "Error editing QoS Spec consumer."
 msgstr "QoS 스펙 사용자를 수정하는데 오류가 발생했습니다."
 
@@ -4459,7 +4513,7 @@ msgid "Edit Consumer"
 msgstr "사용자 수정"
 
 #: dashboards/admin/volumes/volume_types/tables.py:230
-#: dashboards/admin/volumes/volumes/forms.py:226
+#: dashboards/admin/volumes/volumes/forms.py:230
 msgid "Consumer"
 msgstr "사용자"
 
@@ -4504,39 +4558,39 @@ msgstr "QOS 사양의 정보을 찾지 못 했습니다."
 msgid "Unable to retrieve QoS Spec association."
 msgstr "QoS 스펙 연결을 가져올 수 없습니다."
 
-#: dashboards/admin/volumes/volume_types/extras/forms.py:23
+#: dashboards/admin/volumes/volume_types/extras/forms.py:24
 #: dashboards/admin/volumes/volume_types/extras/tables.py:69
-#: dashboards/admin/volumes/volume_types/qos_specs/forms.py:24
+#: dashboards/admin/volumes/volume_types/qos_specs/forms.py:25
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:58
 msgid "Key"
 msgstr "키"
 
-#: dashboards/admin/volumes/volume_types/extras/forms.py:24
-#: dashboards/admin/volumes/volume_types/extras/forms.py:41
+#: dashboards/admin/volumes/volume_types/extras/forms.py:25
+#: dashboards/admin/volumes/volume_types/extras/forms.py:44
 #: dashboards/admin/volumes/volume_types/extras/tables.py:70
-#: dashboards/admin/volumes/volume_types/qos_specs/forms.py:25
-#: dashboards/admin/volumes/volume_types/qos_specs/forms.py:47
+#: dashboards/admin/volumes/volume_types/qos_specs/forms.py:26
+#: dashboards/admin/volumes/volume_types/qos_specs/forms.py:49
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:59
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:55
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:65
 msgid "Value"
 msgstr "값"
 
-#: dashboards/admin/volumes/volume_types/extras/forms.py:32
+#: dashboards/admin/volumes/volume_types/extras/forms.py:33
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr "추가 사양 \"%s\"이 생성됨."
 
-#: dashboards/admin/volumes/volume_types/extras/forms.py:37
+#: dashboards/admin/volumes/volume_types/extras/forms.py:39
 msgid "Unable to create volume type extra spec."
 msgstr "볼륨 유형 추가 사양을 생성할 수 없습니다."
 
-#: dashboards/admin/volumes/volume_types/extras/forms.py:50
+#: dashboards/admin/volumes/volume_types/extras/forms.py:53
 #, python-format
 msgid "Saved extra spec \"%s\"."
 msgstr "추가 사양 \"%s\" 저장함."
 
-#: dashboards/admin/volumes/volume_types/extras/forms.py:55
+#: dashboards/admin/volumes/volume_types/extras/forms.py:59
 msgid "Unable to edit volume type extra spec."
 msgstr "볼륨 타입 추가 사양을 편집할 수 없습니다."
 
@@ -4572,21 +4626,21 @@ msgstr "추가 사양 목록을 찾지 못 했습니다."
 msgid "Unable to retrieve volume type extra spec details."
 msgstr "볼륨 타입 추가 사양에 대한 자세한 정보를 찾지 못 했습니다."
 
-#: dashboards/admin/volumes/volume_types/qos_specs/forms.py:37
+#: dashboards/admin/volumes/volume_types/qos_specs/forms.py:38
 #, python-format
 msgid "Created spec \"%s\"."
 msgstr "생성된 스펙 \"%s\" ."
 
-#: dashboards/admin/volumes/volume_types/qos_specs/forms.py:42
+#: dashboards/admin/volumes/volume_types/qos_specs/forms.py:44
 msgid "Unable to create spec."
 msgstr "사양을 생성하지 못 했습니다."
 
-#: dashboards/admin/volumes/volume_types/qos_specs/forms.py:64
+#: dashboards/admin/volumes/volume_types/qos_specs/forms.py:66
 #, python-format
 msgid "Saved spec \"%s\"."
 msgstr "사양  \"%s\"를 저장했습니다."
 
-#: dashboards/admin/volumes/volume_types/qos_specs/forms.py:69
+#: dashboards/admin/volumes/volume_types/qos_specs/forms.py:72
 msgid "Unable to edit spec."
 msgstr "사양을 수정하지 못 했습니다."
 
@@ -4610,114 +4664,114 @@ msgstr "QOS 사양 목록을 찾지 못 했습니다."
 msgid "Unable to retrieve QoS spec details."
 msgstr "QOS 사양의 세부 정보를 찾지 못 했습니다."
 
-#: dashboards/admin/volumes/volumes/forms.py:32
+#: dashboards/admin/volumes/volumes/forms.py:33
 msgid "Invalid metadata entry. Use comma-separated key=value pairs"
 msgstr "유효하지 않은 메타데이터 항목. 콤마로 구분된 key=value 페어를 사용하세요."
 
-#: dashboards/admin/volumes/volumes/forms.py:47
+#: dashboards/admin/volumes/volumes/forms.py:48
 msgid "Identifier"
 msgstr "구분자"
 
-#: dashboards/admin/volumes/volumes/forms.py:48
+#: dashboards/admin/volumes/volumes/forms.py:49
 msgid "Name or other identifier for existing volume"
 msgstr "존재하는 볼륨에 대한 이름 또는 기타 구분자"
 
-#: dashboards/admin/volumes/volumes/forms.py:50
+#: dashboards/admin/volumes/volumes/forms.py:51
 msgid "Identifier Type"
 msgstr "구분자 유형"
 
-#: dashboards/admin/volumes/volumes/forms.py:51
+#: dashboards/admin/volumes/volumes/forms.py:52
 msgid "Type of backend device identifier provided"
 msgstr "제공된 백엔드 장치 구분자 유형"
 
-#: dashboards/admin/volumes/volumes/forms.py:55
+#: dashboards/admin/volumes/volumes/forms.py:56
 msgid ""
 "Cinder host on which the existing volume resides; takes the form: host"
 "@backend-name#pool"
 msgstr "존재하는 볼륨이 위치하는 Cinder 호스트; 다음 유형을 사용하세요: host@backend-name#pool"
 
-#: dashboards/admin/volumes/volumes/forms.py:61
+#: dashboards/admin/volumes/volumes/forms.py:62
 msgid "Volume name to be assigned"
 msgstr "지정할 볼륨 이름"
 
-#: dashboards/admin/volumes/volumes/forms.py:68
+#: dashboards/admin/volumes/volumes/forms.py:69
 msgid "Comma-separated key=value pairs"
 msgstr "콤마로 구분된 key=value 페어"
 
-#: dashboards/admin/volumes/volumes/forms.py:71
+#: dashboards/admin/volumes/volumes/forms.py:72
 msgid "Volume Type"
 msgstr "볼륨 타입"
 
-#: dashboards/admin/volumes/volumes/forms.py:78
-#: dashboards/project/volumes/volumes/forms.py:597
+#: dashboards/admin/volumes/volumes/forms.py:79
+#: dashboards/project/volumes/volumes/forms.py:602
 #: dashboards/project/volumes/volumes/tables.py:419
 msgid "Bootable"
 msgstr "부팅가능"
 
-#: dashboards/admin/volumes/volumes/forms.py:80
+#: dashboards/admin/volumes/volumes/forms.py:81
 msgid "Specifies that the newly created volume should be marked as bootable"
 msgstr "새롭게 생성된 볼륨이 부팅 가능하도록 표시되어야 함을 지정합니다"
 
-#: dashboards/admin/volumes/volumes/forms.py:88
+#: dashboards/admin/volumes/volumes/forms.py:89
 #: dashboards/project/volumes/volumes/forms.py:268
 msgid "No volume type"
 msgstr "볼륨 타입이 없음"
 
-#: dashboards/admin/volumes/volumes/forms.py:127
+#: dashboards/admin/volumes/volumes/forms.py:128
 #, python-format
 msgid "Successfully sent the request to manage volume: %s"
 msgstr "볼륨 관리 요청을 보냈습니다: %s"
 
-#: dashboards/admin/volumes/volumes/forms.py:131
+#: dashboards/admin/volumes/volumes/forms.py:133
 msgid "Unable to manage volume."
 msgstr "관리 볼륨 "
 
-#: dashboards/admin/volumes/volumes/forms.py:157
+#: dashboards/admin/volumes/volumes/forms.py:159
 #, python-format
 msgid "Successfully sent the request to unmanage volume: %s"
 msgstr "볼륨 관리 해제 요청을 보냈습니다: %s"
 
-#: dashboards/admin/volumes/volumes/forms.py:161
+#: dashboards/admin/volumes/volumes/forms.py:164
 msgid "Unable to unmanage volume."
 msgstr "볼륨을 관리 취소할 수 없습니다."
 
-#: dashboards/admin/volumes/volumes/forms.py:173
+#: dashboards/admin/volumes/volumes/forms.py:176
 #, python-format
 msgid "Successfully created volume type: %s"
 msgstr "성공적으로 볼륨 타입이 생성되었습니다: %s"
 
-#: dashboards/admin/volumes/volumes/forms.py:178
+#: dashboards/admin/volumes/volumes/forms.py:182
 msgid "Unable to create volume type."
 msgstr "불륨 타입을 생성할 수 없습니다."
 
-#: dashboards/admin/volumes/volumes/forms.py:190
+#: dashboards/admin/volumes/volumes/forms.py:194
 msgid "Attaching"
 msgstr "연결"
 
-#: dashboards/admin/volumes/volumes/forms.py:194
+#: dashboards/admin/volumes/volumes/forms.py:198
 msgid "Detaching"
 msgstr "연결 해제중"
 
-#: dashboards/admin/volumes/volumes/forms.py:197
+#: dashboards/admin/volumes/volumes/forms.py:201
 msgid "In Use"
 msgstr "사용중"
 
-#: dashboards/admin/volumes/volumes/forms.py:214
+#: dashboards/admin/volumes/volumes/forms.py:218
 #, python-format
 msgid "Successfully updated volume status to \"%s\"."
 msgstr "성공적으로 %s에 볼륨 상태를 업데이트 했습니다."
 
-#: dashboards/admin/volumes/volumes/forms.py:219
+#: dashboards/admin/volumes/volumes/forms.py:224
 #, python-format
 msgid "Unable to update volume status to \"%s\"."
 msgstr "\"%s\"에 대한 볼륨 상태를 업데이트 할 수 없습니다."
 
-#: dashboards/admin/volumes/volumes/forms.py:235
+#: dashboards/admin/volumes/volumes/forms.py:239
 #, python-format
 msgid "Successfully created QoS Spec: %s"
 msgstr "QOS 사양을 성공적으로 생성했습니다: %s"
 
-#: dashboards/admin/volumes/volumes/forms.py:240
+#: dashboards/admin/volumes/volumes/forms.py:245
 msgid "Unable to create QoS Spec."
 msgstr "QOS 사양을 생성할 수 없습니다. "
 
@@ -5872,7 +5926,7 @@ msgid "Select a port"
 msgstr "포트 선택"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:110
-#: dashboards/project/volumes/volumes/forms.py:456
+#: dashboards/project/volumes/volumes/forms.py:457
 msgid "Select an instance"
 msgstr "인스턴스 선택"
 
@@ -5882,7 +5936,7 @@ msgstr "사용 가능한 포트가 없습니다."
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:116
 #: dashboards/project/databases/workflows/create_instance.py:287
-#: dashboards/project/volumes/volumes/forms.py:458
+#: dashboards/project/volumes/volumes/forms.py:459
 msgid "No instances available"
 msgstr "사용 가능한 인스턴스가 없습니다."
 
@@ -8680,12 +8734,12 @@ msgid "Error creating database backup."
 msgstr "데이터베이스 백업을 생성하던 중 오류가 발생하였습니다."
 
 #: dashboards/project/databases/forms.py:28
-#: dashboards/project/volumes/volumes/forms.py:695
+#: dashboards/project/volumes/volumes/forms.py:699
 msgid "Current Size (GB)"
 msgstr "현재 크기 (GB)"
 
 #: dashboards/project/databases/forms.py:32
-#: dashboards/project/volumes/volumes/forms.py:699
+#: dashboards/project/volumes/volumes/forms.py:703
 msgid "New Size (GB)"
 msgstr "새로운 크기 (GB)"
 
@@ -10076,7 +10130,7 @@ msgstr "이미지 세부 정보를 찾지 못 했습니다."
 
 #: dashboards/project/images/snapshots/forms.py:33
 #: dashboards/project/volumes/snapshots/forms.py:25
-#: dashboards/project/volumes/volumes/forms.py:488
+#: dashboards/project/volumes/volumes/forms.py:489
 msgid "Snapshot Name"
 msgstr "스냅샷 이름"
 
@@ -10132,7 +10186,7 @@ msgid "Container Format"
 msgstr "컨테이너 포멧"
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:54
-#: dashboards/project/volumes/volumes/forms.py:634
+#: dashboards/project/volumes/volumes/forms.py:639
 msgid "Disk Format"
 msgstr "디스크 포멧"
 
@@ -10845,7 +10899,7 @@ msgstr "사용 가능한 네트워크가 없습니다"
 
 #: dashboards/project/instances/utils.py:103
 msgid "Select Network"
-msgstr ""
+msgstr "네트워크 선택"
 
 #: dashboards/project/instances/utils.py:123
 msgid "Unable to retrieve key pairs."
@@ -10861,7 +10915,7 @@ msgstr "키 패어 선택"
 
 #: dashboards/project/instances/utils.py:151
 msgid "Select Flavor"
-msgstr ""
+msgstr "Flavor 선택"
 
 #: dashboards/project/instances/views.py:73
 msgid "Unable to retrieve instances."
@@ -11192,7 +11246,7 @@ msgid "Volume size in gigabytes (integer value)."
 msgstr "볼륨 크기 기가 바이트 (정수 값)."
 
 #: dashboards/project/instances/workflows/create_instance.py:122
-#: dashboards/project/volumes/volumes/forms.py:421
+#: dashboards/project/volumes/volumes/forms.py:422
 msgid "Device Name"
 msgstr "장치 이름"
 
@@ -11348,7 +11402,7 @@ msgid "Unable to retrieve list of volumes."
 msgstr "볼륨 목록을 찾지 못 했습니다."
 
 #: dashboards/project/instances/workflows/create_instance.py:468
-#: dashboards/project/volumes/backups/forms.py:69
+#: dashboards/project/volumes/backups/forms.py:68
 msgid "Select Volume"
 msgstr "볼륨 선택"
 
@@ -13918,22 +13972,22 @@ msgstr "볼륨 백업 \"%s\" 생성중"
 msgid "Unable to create volume backup."
 msgstr "볼륨 백업을 생성할 수 없습니다."
 
-#: dashboards/project/volumes/backups/forms.py:79
+#: dashboards/project/volumes/backups/forms.py:78
 msgid "Unable to lookup volume or backup information."
 msgstr "볼륨 또는 백업 정보를 찾을 수 없습니다."
 
-#: dashboards/project/volumes/backups/forms.py:85
+#: dashboards/project/volumes/backups/forms.py:84
 msgid "Create a New Volume"
 msgstr "새로운 볼륨 생성"
 
-#: dashboards/project/volumes/backups/forms.py:102
+#: dashboards/project/volumes/backups/forms.py:101
 #, python-format
 msgid ""
 "Successfully restored backup %(backup_name)s to volume with id: "
 "%(volume_id)s"
 msgstr "ID가 볼륨에서 백업 %(backup_name)s을 성공적으로 복원하였습니다: %(volume_id)s"
 
-#: dashboards/project/volumes/backups/forms.py:108
+#: dashboards/project/volumes/backups/forms.py:107
 msgid "Unable to restore backup."
 msgstr "백업을 복구할 수 없습니다."
 
@@ -14453,173 +14507,173 @@ msgstr "사용 가능한 볼륨 전부를 이미 사용 중입니다."
 msgid "Creating volume \"%s\""
 msgstr "볼륨 \"%s\"를 생성합니다."
 
-#: dashboards/project/volumes/volumes/forms.py:400
+#: dashboards/project/volumes/volumes/forms.py:401
 msgid "Unable to create volume."
 msgstr "볼륨을 생성할 수 없습니다."
 
-#: dashboards/project/volumes/volumes/forms.py:417
+#: dashboards/project/volumes/volumes/forms.py:418
 msgid "Attach to Instance"
 msgstr "인스턴스에 연결"
 
-#: dashboards/project/volumes/volumes/forms.py:418
+#: dashboards/project/volumes/volumes/forms.py:419
 msgid "Select an instance to attach to."
 msgstr "연결할 인스턴스 선택"
 
-#: dashboards/project/volumes/volumes/forms.py:425
+#: dashboards/project/volumes/volumes/forms.py:426
 msgid ""
 "Actual device name may differ due to hypervisor settings. If not specified, "
 "then hypervisor will select a device name."
 msgstr "실제 장치 이름은 하이퍼바이저 설정에 따라 다를 수 있습니다. 지정되지 않은 경우, 하이퍼바이저는 장치 이름에서 선택합니다."
 
-#: dashboards/project/volumes/volumes/forms.py:464
+#: dashboards/project/volumes/volumes/forms.py:465
 msgid "Unknown instance (None)"
 msgstr "알수없는 인스턴스 (None)"
 
-#: dashboards/project/volumes/volumes/forms.py:474
+#: dashboards/project/volumes/volumes/forms.py:475
 #, python-format
 msgid "Attaching volume %(vol)s to instance %(inst)s on %(dev)s."
 msgstr "%(dev)s의 인스턴스 %(inst)s에 볼륨 %(vol)s를 연결합니다."
 
-#: dashboards/project/volumes/volumes/forms.py:483
+#: dashboards/project/volumes/volumes/forms.py:484
 msgid "Unable to attach volume."
 msgstr "볼륨을 연결할 수 없습니다."
 
-#: dashboards/project/volumes/volumes/forms.py:507
+#: dashboards/project/volumes/volumes/forms.py:508
 #, python-format
 msgid "Creating volume snapshot \"%s\"."
 msgstr "볼륨 스냅샷 \"%s\" 생성"
 
-#: dashboards/project/volumes/volumes/forms.py:510
+#: dashboards/project/volumes/volumes/forms.py:511
 #, python-format
 msgid "Forcing to create snapshot \"%s\" from attached volume."
 msgstr "연결된 볼륨으로부터 스냅샷 \"%s\"를 강제 생성하기"
 
-#: dashboards/project/volumes/volumes/forms.py:522
+#: dashboards/project/volumes/volumes/forms.py:523
 msgid "Unable to create volume snapshot."
 msgstr "볼륨 스냅샷을 생성할 수 없습니다"
 
-#: dashboards/project/volumes/volumes/forms.py:524
+#: dashboards/project/volumes/volumes/forms.py:525
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr "요청된 스냅샷은 허용된 qouta를 초과 합니다."
 
-#: dashboards/project/volumes/volumes/forms.py:531
-#: dashboards/project/volumes/volumes/forms.py:573
+#: dashboards/project/volumes/volumes/forms.py:532
+#: dashboards/project/volumes/volumes/forms.py:578
 msgid "Transfer Name"
 msgstr "전송 이름"
 
-#: dashboards/project/volumes/volumes/forms.py:540
+#: dashboards/project/volumes/volumes/forms.py:541
 #, python-format
 msgid "Created volume transfer: \"%s\"."
 msgstr "볼륨 이전 생성 완료: \"%s\"."
 
-#: dashboards/project/volumes/volumes/forms.py:542
+#: dashboards/project/volumes/volumes/forms.py:543
 msgid "Created volume transfer."
 msgstr "볼륨 이전이 생성되었습니다."
 
-#: dashboards/project/volumes/volumes/forms.py:549
+#: dashboards/project/volumes/volumes/forms.py:551
 msgid "Unable to create volume transfer."
 msgstr "볼륨 이전을 생성할 수 없습니다."
 
-#: dashboards/project/volumes/volumes/forms.py:554
-#: dashboards/project/volumes/volumes/forms.py:577
+#: dashboards/project/volumes/volumes/forms.py:557
+#: dashboards/project/volumes/volumes/forms.py:582
 msgid "Transfer ID"
 msgstr "이전 ID"
 
-#: dashboards/project/volumes/volumes/forms.py:555
-#: dashboards/project/volumes/volumes/forms.py:581
+#: dashboards/project/volumes/volumes/forms.py:558
+#: dashboards/project/volumes/volumes/forms.py:586
 msgid "Authorization Key"
 msgstr "승인 Key"
 
-#: dashboards/project/volumes/volumes/forms.py:563
+#: dashboards/project/volumes/volumes/forms.py:566
 #, python-format
 msgid "Successfully accepted volume transfer: \"%s\""
 msgstr "볼륨 이전 적용 완료: \"%s\""
 
-#: dashboards/project/volumes/volumes/forms.py:568
+#: dashboards/project/volumes/volumes/forms.py:572
 msgid "Unable to accept volume transfer."
 msgstr "볼륨 이전을 적용할 수 없습니다."
 
-#: dashboards/project/volumes/volumes/forms.py:599
+#: dashboards/project/volumes/volumes/forms.py:604
 msgid "Specifies that the volume can be used to launch an instance"
 msgstr "인스턴스를 구동하기 위해 사용 가능한 볼륨을 지정합니다"
 
-#: dashboards/project/volumes/volumes/forms.py:610
+#: dashboards/project/volumes/volumes/forms.py:615
 msgid "Unable to update volume."
 msgstr "볼륨을 업데이트 할 수 업습니다."
 
-#: dashboards/project/volumes/volumes/forms.py:621
+#: dashboards/project/volumes/volumes/forms.py:626
 msgid "Unable to set bootable flag on volume."
 msgstr "부팅가능 플래그를 볼륨에 지정할 수 없습니다."
 
-#: dashboards/project/volumes/volumes/forms.py:624
+#: dashboards/project/volumes/volumes/forms.py:629
 #, python-format
 msgid "Updating volume \"%s\""
 msgstr "볼륨 \"%s\" 업데이트중"
 
-#: dashboards/project/volumes/volumes/forms.py:639
+#: dashboards/project/volumes/volumes/forms.py:644
 msgctxt "Force upload volume in in-use status to image"
 msgid "Force"
 msgstr "강제"
 
-#: dashboards/project/volumes/volumes/forms.py:674
+#: dashboards/project/volumes/volumes/forms.py:679
 #, python-format
 msgid "Successfully sent the request to upload volume to image for volume: \"%s\""
 msgstr "볼륨에대한 이미지에서 볼륨을 업로드 요청을 성공적으로 전송했습니다: \"%s\""
 
-#: dashboards/project/volumes/volumes/forms.py:681
+#: dashboards/project/volumes/volumes/forms.py:687
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "볼륨에대한 이미지를 볼륨 업로드를 할 수 없습니다: \"%s\""
 
-#: dashboards/project/volumes/volumes/forms.py:707
+#: dashboards/project/volumes/volumes/forms.py:711
 msgid "New size must be greater than current size."
 msgstr "새로 정하는 크기는 현재 크기보다 커야합니다."
 
-#: dashboards/project/volumes/volumes/forms.py:713
+#: dashboards/project/volumes/volumes/forms.py:717
 #, python-format
 msgid ""
 "Volume cannot be extended to %(req)iGB as you only have %(avail)iGB of your "
 "quota available."
 msgstr "사용가능한 quota의 %(avail)iGB에서 %(req)iGB로 볼륨을 확장하지 못 했습니다."
 
-#: dashboards/project/volumes/volumes/forms.py:727
+#: dashboards/project/volumes/volumes/forms.py:731
 #, python-format
 msgid "Extending volume: \"%s\""
 msgstr "선택한 볼륨 확장중: \"%s\""
 
-#: dashboards/project/volumes/volumes/forms.py:733
+#: dashboards/project/volumes/volumes/forms.py:737
 msgid "Unable to extend volume."
 msgstr "볼륨을 확장할 수 없습니다."
 
-#: dashboards/project/volumes/volumes/forms.py:742
+#: dashboards/project/volumes/volumes/forms.py:746
 msgid "Never"
 msgstr "없음"
 
-#: dashboards/project/volumes/volumes/forms.py:743
+#: dashboards/project/volumes/volumes/forms.py:747
 msgid "On Demand"
 msgstr "필요에 따름"
 
-#: dashboards/project/volumes/volumes/forms.py:744
+#: dashboards/project/volumes/volumes/forms.py:748
 msgid "Migration Policy"
 msgstr "마이그레이션 정책"
 
-#: dashboards/project/volumes/volumes/forms.py:761
+#: dashboards/project/volumes/volumes/forms.py:765
 msgid "Unable to retrieve the volume type list."
 msgstr "볼륨 타입 목록을 찾지 못 했습니다."
 
-#: dashboards/project/volumes/volumes/forms.py:770
+#: dashboards/project/volumes/volumes/forms.py:774
 #, python-format
 msgid "New volume type must be different from the original volume type \"%s\"."
 msgstr "새 볼륨 타입은 기존 볼륨 타입 \"%s\"와 달라야 합니다."
 
-#: dashboards/project/volumes/volumes/forms.py:786
+#: dashboards/project/volumes/volumes/forms.py:790
 #, python-format
 msgid ""
 "Successfully sent the request to change the volume type to \"%(vtype)s\" for"
 " volume: \"%(name)s\""
 msgstr "성공적으로 볼륨에서 \"%(vtype)s\"에 볼륨 형식을 변경하는 요청을 전송했습니다: \"%(name)s\""
 
-#: dashboards/project/volumes/volumes/forms.py:795
+#: dashboards/project/volumes/volumes/forms.py:800
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "선택한 볼륨의 볼륨 타입을 바꿀 수 없습니다.: \"%s\""
