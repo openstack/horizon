@@ -25,7 +25,7 @@ LOG = logging.getLogger(__name__)
 
 
 # "type" of Sahara service registered in keystone
-SAHARA_SERVICE = 'data_processing'
+SAHARA_SERVICE = 'data-processing'
 
 SAHARA_AUTO_IP_ALLOCATION_ENABLED = getattr(
     settings,

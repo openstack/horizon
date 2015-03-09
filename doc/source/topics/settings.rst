@@ -424,7 +424,7 @@ edited.
 Default::
 
     {
-        "data_processing": 1.1,
+        "data-processing": 1.1,
         "identity": 2.0,
         "volume": 2
     }
@@ -439,7 +439,7 @@ OpenStack dashboard to use a specific API version for a given service API.
     use of the decimal point, so valid options would be "2.0" or "3".
     For example,
     OPENSTACK_API_VERSIONS = {
-        "data_processing": 1.1,
+        "data-processing": 1.1,
         "identity": 3,
         "volume": 2
     }
