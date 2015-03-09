@@ -105,3 +105,6 @@ class ImagesPage(basepage.BaseNavigationPage):
         row = self._get_row_with_image_name(name)
         return row.cells[self.IMAGES_TABLE_STATUS_COLUMN_INDEX].text == \
             'Active'
+
+    def wait_until_image_active(self, name):
+        self._wait_until(lambda x: self.is_image_active(name))

@@ -141,10 +141,17 @@ class BasicTableRegion(baseregion.BaseRegion):
         self._set_search_field(value)
         self._click_search_btn()
 
-    def get_row(self, column_index, text):
-        """Get row that contains in specified column specified text."""
+    def get_row(self, column_index, text, exact_match=True):
+        """Get row that contains specified text in specified column.
+
+        In case exact_match is set to True, text contained in row must equal
+        searched text, otherwise occurrence of searched text in the column
+        text will result in row match.
+        """
         for row in self.rows:
-            if text in row.cells[column_index].text:
+            if exact_match and text == row.cells[column_index].text:
+                return row
+            if not exact_match and text in row.cells[column_index].text:
                 return row
         return None
 

@@ -69,6 +69,12 @@ SeleniumGroup = [
                help="Page load timeout in seconds"),
 ]
 
+ScenarioGroup = [
+    cfg.StrOpt('ssh_user',
+               default='cirros',
+               help='ssh username for image file'),
+]
+
 
 def _get_config_files():
     conf_dir = os.path.join(
@@ -87,5 +93,6 @@ def get_config():
     cfg.CONF.register_opts(AvailableServiceGroup, group="service_available")
     cfg.CONF.register_opts(SeleniumGroup, group="selenium")
     cfg.CONF.register_opts(ImageGroup, group="image")
+    cfg.CONF.register_opts(ScenarioGroup, group="scenario")
 
     return cfg.CONF
