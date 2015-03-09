@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Alberto Molina Coballes <alb.molina@gmail.com>, 2015
 # cametiope <aldohcasa@hotmail.com>, 2014
 # egongu90 <dabarren@gmail.com>, 2014
 # Marian Tort <marian.tort@gmail.com>, 2014-2015
@@ -12,8 +13,8 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-07 07:39-0600\n"
-"PO-Revision-Date: 2015-03-07 13:39+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"PO-Revision-Date: 2015-03-08 09:40+0000\n"
+"Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,7 +44,7 @@ msgstr "ISO - Imagen de disco óptico"
 
 #: settings.py:90
 msgid "OVA - Open Virtual Appliance"
-msgstr ""
+msgstr "OVA - Open Virtual Appliance"
 
 #: settings.py:91
 msgid "QCOW2 - QEMU Emulator"
@@ -55,15 +56,15 @@ msgstr "Fila"
 
 #: settings.py:93
 msgid "VDI - Virtual Disk Image"
-msgstr ""
+msgstr "VDI - Virtual Disk Image"
 
 #: settings.py:94
 msgid "VHD - Virtual Hard Disk"
-msgstr ""
+msgstr "VHD - Virtual Hard Disk"
 
 #: settings.py:95
 msgid "VMDK - Virtual Machine Disk"
-msgstr ""
+msgstr "VMDK - Virtual Machine Disk"
 
 #: settings.py:235
 msgid "All TCP"
@@ -79,7 +80,7 @@ msgstr "Todos los ICMP"
 
 #: api/ceilometer.py:743
 msgid "Unable to retrieve Ceilometer meter list."
-msgstr ""
+msgstr "No ha sido posible obtener la lista de medidas de Ceilometer"
 
 #: api/ceilometer.py:931
 msgid "Existence of instance"
@@ -91,11 +92,11 @@ msgstr ""
 
 #: api/ceilometer.py:940
 msgid "Volume of RAM"
-msgstr ""
+msgstr "Cantidad de RAM"
 
 #: api/ceilometer.py:944
 msgid "Volume of RAM used"
-msgstr ""
+msgstr "Cantidad de RAM utilizada"
 
 #: api/ceilometer.py:948
 msgid "CPU time used"
@@ -120,35 +121,35 @@ msgstr "Número de solicitudes de escritura"
 
 #: api/ceilometer.py:968
 msgid "Volume of reads"
-msgstr ""
+msgstr "Cantidad de lecturas"
 
 #: api/ceilometer.py:972
 msgid "Volume of writes"
-msgstr ""
+msgstr "Cantidad de escrituras"
 
 #: api/ceilometer.py:976
 msgid "Average rate of read requests"
-msgstr ""
+msgstr "Promedio de solicitudes de lectura"
 
 #: api/ceilometer.py:980
 msgid "Average rate of write requests"
-msgstr ""
+msgstr "Promedio de solicitudes de escritura"
 
 #: api/ceilometer.py:984
 msgid "Average rate of reads"
-msgstr ""
+msgstr "Promedio de lecturas"
 
 #: api/ceilometer.py:988
 msgid "Average volume of writes"
-msgstr ""
+msgstr "Cantidad promedio de escrituras"
 
 #: api/ceilometer.py:992
 msgid "Size of root disk"
-msgstr ""
+msgstr "Tamaño del disco raíz"
 
 #: api/ceilometer.py:996
 msgid "Size of ephemeral disk"
-msgstr ""
+msgstr "Tamaño del disco efímero"
 
 #: api/ceilometer.py:1000
 msgid "Number of incoming bytes on the network for a VM interface"
@@ -168,7 +169,7 @@ msgstr "Número de paquetes salientes para una interfaz de la MV"
 
 #: api/ceilometer.py:1020
 msgid "Average rate per sec of incoming bytes on a VM network interface"
-msgstr ""
+msgstr "Promedio de bytes entrantes por segundo en una interfaz de red de una MV"
 
 #: api/ceilometer.py:1025
 msgid "Average rate per sec of outgoing bytes on a VM network interface"
@@ -176,11 +177,11 @@ msgstr ""
 
 #: api/ceilometer.py:1030
 msgid "Average rate per sec of incoming packets on a VM network interface"
-msgstr ""
+msgstr "Promedio de paquetes entrantes por segundo en una interfaz de red de una MV"
 
 #: api/ceilometer.py:1035
 msgid "Average rate per sec of outgoing packets on a VM network interface"
-msgstr ""
+msgstr "Promedio de paquetes salientes por segundo en una interfaz de red de una MV"
 
 #: api/ceilometer.py:1047
 #, python-format
@@ -189,7 +190,7 @@ msgstr "Duración de instancia tipo %s (sabor de openstack)"
 
 #: api/ceilometer.py:1067
 msgid "Existence of network"
-msgstr ""
+msgstr "Existencia de una red"
 
 #: api/ceilometer.py:1071
 msgid "Creation requests for this network"
@@ -201,7 +202,7 @@ msgstr "Actualizar solicitudes para esta red"
 
 #: api/ceilometer.py:1079
 msgid "Existence of subnet"
-msgstr ""
+msgstr "Existencia de una subred"
 
 #: api/ceilometer.py:1083
 msgid "Creation requests for this subnet"
@@ -213,7 +214,7 @@ msgstr "Actualizar solicitudes para esta subred"
 
 #: api/ceilometer.py:1091
 msgid "Existence of port"
-msgstr ""
+msgstr "Existencia de un puerto"
 
 #: api/ceilometer.py:1095
 msgid "Creation requests for this port"
@@ -225,7 +226,7 @@ msgstr "Actualizar solicitudes para este puerto"
 
 #: api/ceilometer.py:1103
 msgid "Existence of router"
-msgstr ""
+msgstr "Existencia de un router"
 
 #: api/ceilometer.py:1107
 msgid "Creation requests for this router"
@@ -237,7 +238,7 @@ msgstr "Actualizar solicitudes para este router"
 
 #: api/ceilometer.py:1115
 msgid "Existence of floating ip"
-msgstr ""
+msgstr "Existencia de una IP flotante"
 
 #: api/ceilometer.py:1119
 msgid "Creation requests for this floating ip"
@@ -257,15 +258,15 @@ msgstr "Tamaño de la imagen cargada"
 
 #: api/ceilometer.py:1148
 msgid "Number of image updates"
-msgstr ""
+msgstr "Número de imágenes actualizadas"
 
 #: api/ceilometer.py:1152
 msgid "Number of image uploads"
-msgstr ""
+msgstr "Número de imágenes cargadas"
 
 #: api/ceilometer.py:1156
 msgid "Number of image deletions"
-msgstr ""
+msgstr "Número de imágenes borradas"
 
 #: api/ceilometer.py:1160
 msgid "Image is downloaded"
@@ -277,7 +278,7 @@ msgstr "Imagen obtenida"
 
 #: api/ceilometer.py:1181
 msgid "Existence of volume"
-msgstr ""
+msgstr "Existencia de un volumen"
 
 #: api/ceilometer.py:1185
 msgid "Size of volume"
@@ -321,15 +322,15 @@ msgstr ""
 
 #: api/ceilometer.py:1264
 msgid "System Current Temperature"
-msgstr ""
+msgstr "Temperatura actual del sistema"
 
 #: api/ceilometer.py:1268
 msgid "Fan RPM"
-msgstr ""
+msgstr "RPM ventilador"
 
 #: api/ceilometer.py:1272
 msgid "Sensor Temperature Reading"
-msgstr ""
+msgstr "Lectura del sensor de temperatura"
 
 #: api/ceilometer.py:1276
 msgid "Sensor Current Reading"
@@ -337,7 +338,7 @@ msgstr ""
 
 #: api/ceilometer.py:1280
 msgid "Sensor Voltage Reading"
-msgstr ""
+msgstr "Lectura del sensor de voltaje"
 
 #: api/cinder.py:46 dashboards/admin/volumes/volume_types/forms.py:33
 msgid "back-end"
@@ -372,16 +373,16 @@ msgstr "El usuario %s no tiene roles definidos para ese proyecto."
 
 #: api/keystone.py:391
 msgid "Identity service does not allow editing user password."
-msgstr ""
+msgstr "El servicio de Identidad no permite editar la contraseña del usuario."
 
 #: api/lbaas.py:152
 #, python-format
 msgid "Unable to get VIP for pool %(pool)s."
-msgstr ""
+msgstr "No ha sido posible obtener VIP del pool %(pool)s."
 
 #: api/lbaas.py:191
 msgid "Unable to get pool detail."
-msgstr ""
+msgstr "No ha sido posible obtener los detalles del pool."
 
 #: api/lbaas.py:203
 #, python-format
@@ -1785,7 +1786,7 @@ msgstr "Migración en vivo"
 
 #: dashboards/admin/hypervisors/compute/forms.py:109
 msgid "Cold Migrate"
-msgstr ""
+msgstr "Migración en frío"
 
 #: dashboards/admin/hypervisors/compute/forms.py:120
 #: dashboards/admin/hypervisors/compute/forms.py:127
@@ -1802,12 +1803,12 @@ msgstr "Migración de bloques"
 #: dashboards/admin/hypervisors/compute/forms.py:159
 #, python-format
 msgid "Starting to migrate host: %(current)s"
-msgstr ""
+msgstr "Comenzando a migrar el host: %(current)s"
 
 #: dashboards/admin/hypervisors/compute/forms.py:164
 #, python-format
 msgid "Failed to migrate host \"%s\"."
-msgstr ""
+msgstr "Ha fallado la migración del host: \"%s\"."
 
 #: dashboards/admin/hypervisors/compute/tables.py:26
 #: dashboards/admin/hypervisors/compute/views.py:30
@@ -2186,7 +2187,7 @@ msgstr ""
 
 #: dashboards/admin/info/tables.py:225
 msgid "Orchestration Services"
-msgstr ""
+msgstr "Servicios de Orquestación"
 
 #: dashboards/admin/info/tabs.py:74
 msgid "Unable to get cinder services list."
@@ -2202,11 +2203,11 @@ msgstr "No ha sido posible obtener la lista de agentes de red."
 
 #: dashboards/admin/info/tabs.py:116
 msgid "Orchestration service is disabled."
-msgstr ""
+msgstr "El servicio de orquestación está deshabilitado."
 
 #: dashboards/admin/info/tabs.py:123
 msgid "Unable to get Orchestration service list."
-msgstr ""
+msgstr "No ha sido posible obtener la lista de servicios de orquestación."
 
 #: dashboards/admin/info/views.py:40
 msgid "Unable to retrieve version information."
@@ -2248,7 +2249,7 @@ msgstr "Ha ocurrido un fallo en la migración en vivo de la instancia al host \"
 
 #: dashboards/admin/instances/tables.py:37
 msgid "Migrating instances may cause some unrecoverable results."
-msgstr ""
+msgstr "Migrar instancias puede ocasionar resultados no recuperables."
 
 #: dashboards/admin/instances/tables.py:42
 msgid "Migrate Instance"
@@ -2468,7 +2469,7 @@ msgstr "Definiciones de los metadatos"
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:9
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:35
 msgid "Import Namespace"
-msgstr ""
+msgstr "Importar Espacio de Nombres"
 
 #: dashboards/admin/metadata_defs/tables.py:41
 msgid "Delete Namespace"
@@ -2583,12 +2584,12 @@ msgstr "Tipos de recurso"
 
 #: dashboards/admin/metadata_defs/tables.py:165
 msgid "Namespaces"
-msgstr ""
+msgstr "Espacios de Nombres"
 
 #: dashboards/admin/metadata_defs/tabs.py:26
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:3
 msgid "Namespace Overview"
-msgstr ""
+msgstr "Vista general de Espacios de Nombres"
 
 #: dashboards/admin/metadata_defs/tabs.py:38
 #: dashboards/admin/metadata_defs/views.py:108
@@ -2712,7 +2713,7 @@ msgstr "Ninguno"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:12
 msgid "Namespace"
-msgstr ""
+msgstr "Espacio de Nombres"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:22
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:35
@@ -2770,7 +2771,7 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:39
 msgid "Prefix: "
-msgstr ""
+msgstr "Prefijo:"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:42
 msgid "Properties Target: "
@@ -2917,7 +2918,7 @@ msgstr "Valor (medio)"
 #: dashboards/admin/metering/tables.py:49
 #: dashboards/admin/metering/views.py:107
 msgid "Unit"
-msgstr ""
+msgstr "Unidad"
 
 #: dashboards/admin/metering/tables.py:56
 msgid "Daily Usage Report"
@@ -2961,12 +2962,12 @@ msgstr "Kwapi"
 
 #: dashboards/admin/metering/tabs.py:69 dashboards/admin/metering/views.py:131
 msgid "IPMI"
-msgstr ""
+msgstr "IPMI"
 
 #: dashboards/admin/metering/tabs.py:82 dashboards/admin/metering/views.py:70
 #: dashboards/admin/metering/views.py:142
 msgid "Dates cannot be recognized."
-msgstr ""
+msgstr "No se reconocen los datos."
 
 #: dashboards/admin/metering/tabs.py:90 dashboards/admin/metering/views.py:150
 #: dashboards/admin/overview/views.py:65
@@ -3029,7 +3030,7 @@ msgstr "Energy (Kwapi)"
 
 #: dashboards/admin/metering/templates/metering/stats.html:76
 msgid "Intelligent Platform Management Interface (IPMI)"
-msgstr ""
+msgstr "Intelligent Platform Management Interface (IPMI)"
 
 #: dashboards/admin/metering/templates/metering/stats.html:89
 msgid "Group by:"
@@ -4161,7 +4162,7 @@ msgstr "\nTipo de volumen es un tipo o etiqueta que puede ser seleccionada al mo
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:9
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:38
 msgid "Create Volume Type Encryption"
-msgstr ""
+msgstr "Crear tipo de cifrado de volumen"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:20
 msgid ""
@@ -4695,7 +4696,7 @@ msgstr ""
 
 #: dashboards/admin/volumes/volumes/forms.py:48
 msgid "Identifier"
-msgstr ""
+msgstr "Identificador"
 
 #: dashboards/admin/volumes/volumes/forms.py:49
 msgid "Name or other identifier for existing volume"
@@ -4703,7 +4704,7 @@ msgstr ""
 
 #: dashboards/admin/volumes/volumes/forms.py:51
 msgid "Identifier Type"
-msgstr ""
+msgstr "Tipo de identificador"
 
 #: dashboards/admin/volumes/volumes/forms.py:52
 msgid "Type of backend device identifier provided"
@@ -4717,11 +4718,11 @@ msgstr ""
 
 #: dashboards/admin/volumes/volumes/forms.py:62
 msgid "Volume name to be assigned"
-msgstr ""
+msgstr "Nombre de volumen a asignar"
 
 #: dashboards/admin/volumes/volumes/forms.py:69
 msgid "Comma-separated key=value pairs"
-msgstr ""
+msgstr "Pares clave=valor separados por coma"
 
 #: dashboards/admin/volumes/volumes/forms.py:72
 msgid "Volume Type"
@@ -4735,7 +4736,7 @@ msgstr "Arrancable"
 
 #: dashboards/admin/volumes/volumes/forms.py:81
 msgid "Specifies that the newly created volume should be marked as bootable"
-msgstr ""
+msgstr "Especifica que el nuevo volumen creado debe marcarse como arrancable"
 
 #: dashboards/admin/volumes/volumes/forms.py:89
 #: dashboards/project/volumes/volumes/forms.py:268
@@ -5143,7 +5144,7 @@ msgstr "ID de usuario"
 
 #: dashboards/identity/groups/tables.py:200
 msgid "False"
-msgstr ""
+msgstr "Falso"
 
 #: dashboards/identity/groups/tables.py:206
 msgid "Group Members"
@@ -5230,7 +5231,7 @@ msgstr "Proyectos"
 
 #: dashboards/identity/projects/tables.py:33
 msgid "Set as Active Project"
-msgstr ""
+msgstr "Seleccionar como proyecto activo"
 
 #: dashboards/identity/projects/tables.py:88
 msgid "View Usage"
@@ -5388,7 +5389,7 @@ msgstr "No ha sido posible definir las cuotas para el proyecto."
 
 #: dashboards/identity/projects/workflows.py:531
 msgid "You cannot disable your current project"
-msgstr ""
+msgstr "No puede deshabilitar su proyecto actual"
 
 #: dashboards/identity/projects/workflows.py:548
 msgid "Edit the project details."
@@ -5437,11 +5438,11 @@ msgstr "Se ha modificado la información del proyecto y sus miembros, pero no ha
 
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:3
 msgid "Project Overview"
-msgstr ""
+msgstr "Vista General del proyecto"
 
 #: dashboards/identity/projects/templates/projects/detail.html:3
 msgid "Project Details"
-msgstr ""
+msgstr "Detalles del proyecto"
 
 #: dashboards/identity/projects/templates/projects/usage.html:3
 msgid "Project Usage Overview"
@@ -5565,7 +5566,7 @@ msgstr "No ha sido posible añadir el usuario al proyecto principal."
 #: dashboards/identity/users/forms.py:203
 #, python-format
 msgid "User name \"%s\" is already used."
-msgstr ""
+msgstr "El nombre de usuario \"%s\" ya está en uso."
 
 #: dashboards/identity/users/forms.py:160
 msgid "Unable to create user."
@@ -5581,15 +5582,15 @@ msgstr "No ha sido posible actualizar el usuario."
 
 #: dashboards/identity/users/forms.py:243
 msgid "Password changed. Please log in to continue."
-msgstr ""
+msgstr "Contraseña modificada. Por favor, acceda de nuevo para continuar."
 
 #: dashboards/identity/users/forms.py:246
 msgid "User password has been updated successfully."
-msgstr ""
+msgstr "La contraseña de usuario se ha actualizado correctamente."
 
 #: dashboards/identity/users/forms.py:249
 msgid "Unable to update the user password."
-msgstr ""
+msgstr "No ha sido posible actualizar la contraseña de usuario."
 
 #: dashboards/identity/users/panel.py:27
 #: dashboards/identity/users/tables.py:245
@@ -5686,7 +5687,7 @@ msgstr ""
 
 #: dashboards/identity/users/views.py:195
 msgid "Unable to retrieve user details."
-msgstr ""
+msgstr "No ha sido posible obtener los detalles del usuario."
 
 #: dashboards/identity/users/templates/users/_change_password.html:6
 msgid "Change user's password. We highly recommend you create a strong one."
@@ -5700,7 +5701,7 @@ msgstr "Crear un nuevo usuario y establecer propiedades, incluyendo el Proyecto 
 
 #: dashboards/identity/users/templates/users/_detail_overview.html:3
 msgid "User Overview"
-msgstr ""
+msgstr "Vista General de usuario"
 
 #: dashboards/identity/users/templates/users/_update.html:6
 msgid "Edit the user's details, including the Primary Project."
@@ -5708,7 +5709,7 @@ msgstr ""
 
 #: dashboards/identity/users/templates/users/detail.html:3
 msgid "User Details"
-msgstr ""
+msgstr "Detalles de usuario"
 
 #: dashboards/project/dashboard.py:22
 msgid "Compute"
@@ -5790,7 +5791,7 @@ msgstr "Descargar fichero RC de OpenStack"
 
 #: dashboards/project/access_and_security/api_access/tables.py:53
 msgid "View Credentials"
-msgstr ""
+msgstr "Ver credenciales"
 
 #: dashboards/project/access_and_security/api_access/tables.py:64
 msgid "Service Endpoint"
@@ -5816,15 +5817,15 @@ msgstr "Error al descargar archivo RC: %s"
 
 #: dashboards/project/access_and_security/api_access/views.py:138
 msgid "User Credentials Details"
-msgstr ""
+msgstr "Detalles de las credenciales de usuario"
 
 #: dashboards/project/access_and_security/api_access/views.py:146
 msgid "Unable to get openrc credentials"
-msgstr ""
+msgstr "No ha sido posible obtener las credenciales openrc"
 
 #: dashboards/project/access_and_security/api_access/views.py:152
 msgid "Unable to get EC2 credentials"
-msgstr ""
+msgstr "No ha sido posible obtener las credenciales EC2"
 
 #: dashboards/project/access_and_security/floating_ips/forms.py:31
 #: dashboards/project/access_and_security/floating_ips/tables.py:200
@@ -5867,7 +5868,7 @@ msgstr "(Cuota superada)"
 msgid ""
 "Once a floating IP is released, there is no guarantee the same IP can be "
 "allocated again."
-msgstr ""
+msgstr "Una vez que una IP flotante es liberada, no se puede garantizar que la misma IP pueda ser asignada."
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:82
 msgid "Release Floating IP"
@@ -5948,7 +5949,7 @@ msgstr "Instancia"
 msgid ""
 "Select the IP address you wish to associate with the selected instance or "
 "port."
-msgstr ""
+msgstr "Seleccione la dirección IP que quiere asociar con una determinada instancia o puerto."
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:47
 msgid "Port to be associated"
@@ -6001,7 +6002,7 @@ msgstr "No ha sido posible asociar la dirección IP %s."
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:146
 msgid "unknown IP address"
-msgstr ""
+msgstr "Dirección IP desconocida"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:156
 msgid ""
@@ -6408,7 +6409,7 @@ msgstr "Acceso y seguridad"
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:5
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/credentials.html:3
 msgid "User Credentials"
-msgstr ""
+msgstr "Credenciales de usuario"
 
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:26
 msgid "Authentication URL"
@@ -6416,19 +6417,19 @@ msgstr "URL de autenticación"
 
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:36
 msgid "EC2 URL"
-msgstr ""
+msgstr "EC2 URL"
 
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:39
 msgid "S3 URL"
-msgstr ""
+msgstr "S3 URL"
 
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:43
 msgid "EC2 Access Key"
-msgstr ""
+msgstr "Clave de acceso EC2"
 
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:49
 msgid "EC2 Secret Key"
-msgstr ""
+msgstr "Clave secreta EC2"
 
 #: dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:7
 msgid "Allocate a floating IP from a given floating IP pool."
@@ -6866,7 +6867,7 @@ msgstr "Crear pseudo-carpeta en el contenedor"
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:18
 #: dashboards/project/containers/templates/containers/_upload.html:23
 msgid "Pseudo-folder:"
-msgstr ""
+msgstr "Pseudo-carpeta:"
 
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:18
 #: dashboards/project/containers/templates/containers/_upload.html:23
@@ -7436,7 +7437,7 @@ msgstr "No ha sido posible recuperar las opciones de imagenes."
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:134
 msgid "No Images Available"
-msgstr ""
+msgstr "No hay imágenes disponibles"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:144
 msgid "Unable to fetch keypair choices."
@@ -7448,7 +7449,7 @@ msgstr "Sin pareja de claves"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:162
 msgid "No Templates Available"
-msgstr ""
+msgstr "No hay plantillas disponibles"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:208
 #: dashboards/project/data_processing/jobs/workflows/launch.py:331
@@ -8054,7 +8055,7 @@ msgstr "Configuración del trabajo"
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:32
 #, python-format
 msgid "%(group)s:"
-msgstr ""
+msgstr "%(group)s:"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/details.html:3
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/details.html:6
