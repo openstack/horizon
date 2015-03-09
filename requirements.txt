@@ -16,7 +16,7 @@ django-pyscss>=1.0.3,<=1.0.6 # BSD License (2 clause)
 eventlet>=0.15.1,<=0.15.2
 httplib2>=0.7.5,<=0.9
 iso8601>=0.1.9,<=0.1.10
-kombu==3.0.7
+kombu>=2.5.0,<=3.0.7
 # Horizon Utility Requirements
 # for SECURE_KEY generation
 lockfile>=0.8,<=0.8
