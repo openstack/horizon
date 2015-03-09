@@ -6,8 +6,6 @@
 <div class="clear"></div>
 {% if stack.stack_status == 'CREATE_FAILED' %}
     <p class="error">{{ stack.stack_status_reason }}</p>
-{% else %}
-    <p>{{ stack.stack_status_desc }}</p>
 {% endif %}
 {% for output in stack.outputs %}
     {% if output.output_key == 'WebsiteURL' %}
