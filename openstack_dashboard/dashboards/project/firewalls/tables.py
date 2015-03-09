@@ -150,6 +150,13 @@ class UpdateFirewallLink(policy.PolicyTargetMixin, tables.LinkAction):
                            kwargs={'firewall_id': firewall.id})
         return base_url
 
+    def allowed(self, request, firewall):
+        if firewall.status in ("PENDING_CREATE",
+                               "PENDING_UPDATE",
+                               "PENDING_DELETE"):
+            return False
+        return True
+
 
 class InsertRuleToPolicyLink(policy.PolicyTargetMixin,
                              tables.LinkAction):
