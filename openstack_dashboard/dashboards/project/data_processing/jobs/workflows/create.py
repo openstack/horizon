@@ -121,7 +121,7 @@ class GeneralConfigAction(workflows.Action):
         return cleaned_data
 
     class Meta(object):
-        name = _("Create Job")
+        name = _("Create Job Template")
         help_text_template = (
             "project/data_processing.jobs/_create_job_help.html")
 
@@ -152,10 +152,10 @@ class ConfigureLibs(workflows.Step):
 
 class CreateJob(workflows.Workflow):
     slug = "create_job"
-    name = _("Create Job")
+    name = _("Create Job Template")
     finalize_button_name = _("Create")
     success_message = _("Job created")
-    failure_message = _("Could not create job")
+    failure_message = _("Could not create job template")
     success_url = "horizon:project:data_processing.jobs:index"
     default_steps = (GeneralConfig, ConfigureLibs)
 

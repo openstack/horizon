@@ -33,7 +33,7 @@ class DataProcessingJobExecutionTests(test.TestCase):
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(
             res, 'project/data_processing.job_executions/job_executions.html')
-        self.assertContains(res, 'Executions')
+        self.assertContains(res, 'Jobs')
 
     @test.create_stubs({api.sahara: ('job_execution_get',)})
     def test_details(self):
