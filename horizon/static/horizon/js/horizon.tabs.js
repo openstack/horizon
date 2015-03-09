@@ -44,9 +44,12 @@ horizon.addInitFunction(horizon.tabs.init = function () {
     $(el).find(".js-tab-pane").addClass("tab-pane");
   });
 
-  $(document).on("show.bs.tab", ".ajax-tabs a[data-loaded='false']", horizon.tabs.load_tab);
 
-  $(document).on("shown.bs.tab", ".nav-tabs a[data-toggle='tab']", function (evt) {
+  var $document = $(document);
+
+  $document.on("show.bs.tab", ".ajax-tabs a[data-loaded='false']", horizon.tabs.load_tab);
+
+  $document.on("shown.bs.tab", ".nav-tabs a[data-toggle='tab']", function (evt) {
     var $tab = $(evt.target),
       $content = $($(evt.target).attr('data-target'));
     $content.find("table.datatable").each(function () {
@@ -88,7 +91,7 @@ horizon.addInitFunction(horizon.tabs.init = function () {
     }
   });
 
-  $(document).on("focus", ".tab-content :input", function () {
+  $document.on("focus", ".tab-content :input", function () {
     var $this = $(this),
       tab_pane = $this.closest(".tab-pane"),
       tab_id = tab_pane.attr('id');
