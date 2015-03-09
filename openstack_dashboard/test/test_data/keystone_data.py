@@ -136,7 +136,7 @@ SERVICE_CATALOG = [
           "adminURL": "http://admin.trove.example.com:8779/v1.0",
           "publicURL": "http://public.trove.example.com:8779/v1.0",
           "internalURL": "http://int.trove.example.com:8779/v1.0"}]},
-    {"type": "data_processing",
+    {"type": "data-processing",
      "name": "Sahara",
      "endpoints_links": [],
      "endpoints": [

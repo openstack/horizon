@@ -21,7 +21,7 @@ from openstack_dashboard.dashboards.project import dashboard
 class ImageRegistryPanel(horizon.Panel):
     name = _("Image Registry")
     slug = 'data_processing.data_image_registry'
-    permissions = ('openstack.services.data_processing',)
+    permissions = ('openstack.services.data-processing',)
 
 
 dashboard.Project.register(ImageRegistryPanel)
