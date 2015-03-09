@@ -18,17 +18,24 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
+from horizon.forms import fields
 from horizon import workflows
+
 
 from openstack_dashboard.api import sahara as saharaclient
 
 
 LOG = logging.getLogger(__name__)
 
+JOB_BINARY_CREATE_URL = ("horizon:project:data_processing.job_binaries"
+                         ":create-job-binary")
+
 
 class AdditionalLibsAction(workflows.Action):
-    lib_binaries = forms.ChoiceField(label=_("Choose libraries"),
-                                     required=False)
+    lib_binaries = forms.DynamicChoiceField(
+        label=_("Choose libraries"),
+        required=False,
+        add_item_link=JOB_BINARY_CREATE_URL)
 
     lib_ids = forms.CharField(
         required=False,
@@ -58,12 +65,13 @@ class GeneralConfigAction(workflows.Action):
                                      'data-slug': 'jobtype'
                                  }))
 
-    main_binary = forms.ChoiceField(
+    main_binary = forms.DynamicChoiceField(
         label=_("Choose a main binary"),
         required=False,
         help_text=_("Choose the binary which "
                     "should be used in this Job."),
-        widget=forms.Select(
+        add_item_link=JOB_BINARY_CREATE_URL,
+        widget=fields.DynamicSelectWidget(
             attrs={
                 'class': 'switched',
                 'data-switch-on': 'jobtype',
