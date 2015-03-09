@@ -36,6 +36,7 @@ class AddPolicyLink(tables.LinkAction):
     verbose_name = _("Add Policy")
     url = "horizon:project:firewalls:addpolicy"
     classes = ("ajax-modal", "btn-addpolicy",)
+    icon = "plus"
     policy_rules = (("network", "create_firewall_policy"),)
 
 
