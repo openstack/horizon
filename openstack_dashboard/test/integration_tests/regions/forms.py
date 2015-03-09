@@ -115,7 +115,24 @@ class BaseTextFormFieldRegion(BaseFormFieldRegion):
 class TextInputFormFieldRegion(BaseTextFormFieldRegion):
     """Text input box."""
 
-    _element_locator = (by.By.CSS_SELECTOR, 'div > input[type=text]')
+    _element_locator = (by.By.CSS_SELECTOR, 'div > input[type=text],'
+                                            'div > input[type=None]')
+
+
+class FileInputFormFieldRegion(BaseFormFieldRegion):
+    """Text input box."""
+
+    _element_locator = (by.By.CSS_SELECTOR, 'div > input[type=file]')
+
+    @property
+    def path(self):
+        return self.element.text
+
+    @path.setter
+    def path(self, path):
+        # clear does not work on this kind of element
+        # because it is not user editable
+        self.element.send_keys(path)
 
 
 class PasswordInputFormFieldRegion(BaseTextFormFieldRegion):
@@ -242,6 +259,29 @@ class FormRegion(BaseFormRegion):
         finally:
             self._turn_on_implicit_wait()
         return form_fields
+
+    def set_field_values(self, data):
+        """Set fields values
+
+        data - {field_name: field_value, field_name: field_value ...}
+        """
+        for field_name in data:
+            field = getattr(self, field_name, None)
+            # Field form does not exist
+            if field is None:
+                raise AttributeError("Unknown form field name.")
+            value = data[field_name]
+            # if None - default value is left in field
+            if value is not None:
+                # all text fields
+                if hasattr(field, "text"):
+                    field.text = value
+                # file upload field
+                elif hasattr(field, "path"):
+                    field.path = value
+                # integers fields
+                elif hasattr(field, "value"):
+                    field.value = value
 
     # properties
     @property
