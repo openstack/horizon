@@ -1,9 +1,9 @@
 @mixin sidebar_toggle_icon {
   & > span {
     transition: all .3s ease 0s;
-    @extend .glyphicon-chevron-down;
+    @extend .fa-angle-down;
     &:before {
-      font-size: .6em;
+      font-size: 1em;
       line-height: 18px;
       vertical-align: middle;
     }

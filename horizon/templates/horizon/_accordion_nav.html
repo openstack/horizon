@@ -6,7 +6,7 @@
   {% if user|has_permissions:dashboard %}
     <dt {% if current.slug == dashboard.slug %}class="active"{% endif %}>
       {{ dashboard.name }}
-      <span class="glyphicon pull-right"></span>
+      <span class="fa pull-right"></span>
     </dt>
     {% if current.slug == dashboard.slug %}
     <dd>
@@ -20,7 +20,7 @@
         <div>
           <h4>
             {{ heading }}
-            <span class="glyphicon pull-right"></span>
+            <span class="fa pull-right"></span>
           </h4>
         {% endif %}
         <ul>
