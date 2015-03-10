@@ -23,7 +23,7 @@
       <dd>{{ router.ha|yesno|capfirst }}</dd>
     {% endif %}
     {% if router.external_gateway_info %}
-    <dt>{% trans "External Gateway Information" %}</dt>
+    <dt>{% trans "External Gateway" %}</dt>
     <dd>{% trans "Connected External Network:" %}
       {{ router.external_gateway_info.network }}</dd>
     {% endif %}
