@@ -555,6 +555,12 @@ class AddMonitorAction(workflows.Action):
     def clean(self):
         cleaned_data = super(AddMonitorAction, self).clean()
         type_opt = cleaned_data.get('type')
+        delay = cleaned_data.get('delay')
+        timeout = cleaned_data.get('timeout')
+
+        if not delay >= timeout:
+            msg = _('Delay must be greater than or equal to Timeout')
+            self._errors['delay'] = self.error_class([msg])
 
         if type_opt in ['http', 'https']:
             http_method_opt = cleaned_data.get('http_method')
