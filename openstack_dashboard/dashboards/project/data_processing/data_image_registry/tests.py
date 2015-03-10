@@ -41,14 +41,18 @@ class DataProcessingImageRegistryTests(test.TestCase):
         self.assertContains(res, 'Image')
         self.assertContains(res, 'Tags')
 
-    @test.create_stubs({api.sahara: ('image_update',
+    @test.create_stubs({api.sahara: ('image_get',
+                                     'image_update',
                                      'image_tags_update',
                                      'image_list'),
                         api.glance: ('image_list_detailed',)})
     def test_register(self):
-        image_id = self.images.first().id
+        image = self.images.first()
+        image_id = image.id
         test_username = 'myusername'
         test_description = 'mydescription'
+        api.sahara.image_get(IsA(http.HttpRequest),
+                             image_id).MultipleTimes().AndReturn(image)
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'owner': self.user.id,
                                                 'status': 'active'}) \
@@ -99,8 +103,7 @@ class DataProcessingImageRegistryTests(test.TestCase):
     def test_edit_tags(self):
         image = self.registered_images.first()
         api.sahara.image_get(IsA(http.HttpRequest),
-                             image.id) \
-            .AndReturn(image)
+                             image.id).MultipleTimes().AndReturn(image)
         api.sahara.image_update(IsA(http.HttpRequest),
                                 image.id,
                                 image.username,

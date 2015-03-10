@@ -40,11 +40,10 @@ class ImageForm(forms.SelfHandlingForm):
 
             image_tags = json.loads(data["tags_list"])
             saharaclient.image_tags_update(request, image_id, image_tags)
-
+            updated_image = saharaclient.image_get(request, image_id)
             messages.success(request,
                              _("Successfully updated image."))
-
-            return True
+            return updated_image
         except Exception:
             exceptions.handle(request,
                               _("Failed to update image."))
