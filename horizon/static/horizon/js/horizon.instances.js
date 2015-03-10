@@ -167,34 +167,35 @@ horizon.addInitFunction(horizon.instances.init = function () {
 
   // Handle field toggles for the Launch Instance source type field
   function update_launch_source_displayed_fields (field) {
-    var $this = $(field),
-      base_type = $this.val();
+    var $this = $(field);
+    var base_type = $this.val();
+    var elements_list;
 
     $this.closest(".form-group").nextAll().hide();
 
     switch(base_type) {
       case "image_id":
-        $("#id_image_id").closest(".form-group").show();
+        elements_list = "#id_image_id";
         break;
-
       case "instance_snapshot_id":
-        $("#id_instance_snapshot_id").closest(".form-group").show();
+        elements_list = "#id_instance_snapshot_id";
         break;
-
       case "volume_id":
-        $("#id_volume_id, #id_device_name, #id_delete_on_terminate").closest(".form-group").show();
+        elements_list = "#id_volume_id, #id_device_name, #id_delete_on_terminate";
         break;
-
       case "volume_image_id":
-        $("#id_image_id, #id_volume_size, #id_device_name, #id_delete_on_terminate")
-          .closest(".form-group").show();
+        elements_list = "#id_image_id, #id_volume_size, #id_device_name, #id_delete_on_terminate";
         break;
-
       case "volume_snapshot_id":
-        $("#id_volume_snapshot_id, #id_device_name, #id_delete_on_terminate")
-          .closest(".form-group").show();
+        elements_list = "#id_volume_snapshot_id, #id_device_name, #id_delete_on_terminate";
         break;
     }
+    var elements_list_group = $(elements_list).closest(".form-group");
+    elements_list_group.addClass("required");
+    // marking all the fields in 'elements_list' as mandatory except '#id_device_name'
+    $("#id_device_name").closest(".form-group").removeClass("required");
+    // showing all the fields in 'elements_list'
+    elements_list_group.show();
   }
 
   $document.on('change', '.workflow #id_source_type', function (evt) {
