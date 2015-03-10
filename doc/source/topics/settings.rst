@@ -822,6 +822,19 @@ Disable SSL certificate checks in the OpenStack clients (useful for self-signed
 certificates).
 
 
+``OPENSTACK_TOKEN_HASH_ALGORITHM``
+----------------------------------
+
+.. versionadded:: 2014.2(Juno)
+
+Default: ``"md5"``
+
+The hash algorithm to use for authentication tokens. This must match the hash
+algorithm that the identity (Keystone) server and the auth_token middleware
+are using. Allowed values are the algorithms supported by Python's hashlib
+library.
+
+
 ``POLICY_FILES``
 ----------------
 
@@ -877,17 +890,21 @@ To disable these extensions set the permission to something
 unusable such as ``[!]``.
 
 
-``OPENSTACK_TOKEN_HASH_ALGORITHM``
-----------------------------------
+``WEBROOT``
+-----------
 
-.. versionadded:: 2014.2(Juno)
+.. versionadded:: 2015.1(Kilo)
 
-Default: ``"md5"``
+Default: ``"/"``
 
-The hash algorithm to use for authentication tokens. This must match the hash
-algorithm that the identity (Keystone) server and the auth_token middleware
-are using. Allowed values are the algorithms supported by Python's hashlib
-library.
+Specifies the location where the access to the dashboard is configured in
+the web server.
+
+E.g. if you're accessing the Dashboard via https://<your server>/horizon, you'd
+set this to ``"/horizon"``.
+
+
+
 
 Django Settings (Partial)
 =========================

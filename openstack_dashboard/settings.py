@@ -41,12 +41,11 @@ TEMPLATE_DEBUG = DEBUG
 
 SITE_BRANDING = 'OpenStack Dashboard'
 
-LOGIN_URL = '/auth/login/'
-LOGOUT_URL = '/auth/logout/'
-# LOGIN_REDIRECT_URL can be used as an alternative for
-# HORIZON_CONFIG.user_home, if user_home is not set.
-# Do not set it to '/home/', as this will cause circular redirect loop
-LOGIN_REDIRECT_URL = '/'
+WEBROOT = '/'
+LOGIN_URL = None
+LOGOUT_URL = None
+LOGIN_REDIRECT_URL = None
+
 
 MEDIA_ROOT = os.path.abspath(os.path.join(ROOT_PATH, '..', 'media'))
 MEDIA_URL = '/media/'
@@ -256,6 +255,16 @@ try:
     from local.local_settings import *  # noqa
 except ImportError:
     logging.warning("No local_settings file found.")
+
+if not WEBROOT.endswith('/'):
+    WEBROOT += '/'
+if LOGIN_URL is None:
+    LOGIN_URL = WEBROOT + 'auth/login/'
+if LOGOUT_URL is None:
+    LOGOUT_URL = WEBROOT + 'auth/logout/'
+if LOGIN_REDIRECT_URL is None:
+    LOGIN_REDIRECT_URL = WEBROOT
+
 
 # Load the pluggable dashboard settings
 import openstack_dashboard.enabled
