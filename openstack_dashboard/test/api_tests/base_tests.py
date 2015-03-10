@@ -157,7 +157,7 @@ class ApiVersionTests(test.TestCase):
         super(ApiVersionTests, self).setUp()
         self.previous_settings = settings.OPENSTACK_API_VERSIONS
         settings.OPENSTACK_API_VERSIONS = {
-            "data_processing": 1.1,
+            "data-processing": 1.1,
             "identity": "2.0",
             "volume": 1
         }

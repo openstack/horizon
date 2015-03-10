@@ -21,7 +21,7 @@ from openstack_dashboard.dashboards.project import dashboard
 class DataSourcesPanel(horizon.Panel):
     name = _("Data Sources")
     slug = 'data_processing.data_sources'
-    permissions = ('openstack.services.data_processing',)
+    permissions = ('openstack.services.data-processing',)
 
 
 dashboard.Project.register(DataSourcesPanel)

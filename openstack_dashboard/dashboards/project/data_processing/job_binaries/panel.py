@@ -21,7 +21,7 @@ from openstack_dashboard.dashboards.project import dashboard
 class JobBinariesPanel(horizon.Panel):
     name = _("Job Binaries")
     slug = 'data_processing.job_binaries'
-    permissions = ('openstack.services.data_processing',)
+    permissions = ('openstack.services.data-processing',)
 
 
 dashboard.Project.register(JobBinariesPanel)
