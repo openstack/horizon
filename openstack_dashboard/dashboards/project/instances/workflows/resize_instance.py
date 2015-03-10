@@ -58,8 +58,8 @@ class SetFlavorChoiceAction(workflows.Action):
             flavors.insert(0, ("", _("No flavors available")))
         return flavors
 
-    def get_help_text(self):
-        extra = {}
+    def get_help_text(self, extra_context=None):
+        extra = {} if extra_context is None else dict(extra_context)
         try:
             extra['usages'] = api.nova.tenant_absolute_limits(self.request)
             extra['usages_json'] = json.dumps(extra['usages'])

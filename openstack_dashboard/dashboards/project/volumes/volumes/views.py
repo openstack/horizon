@@ -319,8 +319,8 @@ class EditAttachmentsView(tables.DataTableView, forms.ModalFormView):
                 'instances': instances}
 
     @memoized.memoized_method
-    def get_form(self):
-        form_class = self.get_form_class()
+    def get_form(self, **kwargs):
+        form_class = kwargs.get('form_class', self.get_form_class())
         return super(EditAttachmentsView, self).get_form(form_class)
 
     def get_context_data(self, **kwargs):
