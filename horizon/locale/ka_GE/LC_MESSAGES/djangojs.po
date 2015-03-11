@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-05 20:44-0600\n"
-"PO-Revision-Date: 2015-03-05 07:46+0000\n"
+"POT-Creation-Date: 2015-03-11 01:05-0500\n"
+"PO-Revision-Date: 2015-03-11 02:44+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Georgian (Georgia) (http://www.transifex.com/projects/p/horizon/language/ka_GE/)\n"
 "MIME-Version: 1.0\n"
@@ -106,12 +106,12 @@ msgstr "სერვერთან დაკავშირებისას �
 msgid "Filter"
 msgstr "ფილტრი"
 
-#: static/horizon/js/horizon.instances.js:272
+#: static/horizon/js/horizon.instances.js:273
 msgid "Could not read the file"
 msgstr "ფაილის წაკითხვა ვერ მოხერხდა"
 
-#: static/horizon/js/horizon.instances.js:278
-#: static/horizon/js/horizon.instances.js:307
+#: static/horizon/js/horizon.instances.js:279
+#: static/horizon/js/horizon.instances.js:308
 msgid "Could not decrypt the password"
 msgstr "პაროლის დეშიფრაცია ვერ მოხერხდა"
 
@@ -206,7 +206,7 @@ msgid "View Instance Details"
 msgstr ""
 
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:374
+#: static/horizon/js/horizon.tables.js:382
 msgid "No items to display."
 msgstr "საჩვენებელი ელემენტები არაა"
 
@@ -229,7 +229,7 @@ msgstr "%s-ის დადასტურება"
 msgid "Please confirm your selection. "
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:361
+#: static/horizon/js/horizon.tables.js:369
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
@@ -264,6 +264,22 @@ msgstr ""
 #, c-format
 msgid "Status: %s"
 msgstr ""
+
+#: static/horizon/js/angular/filters/filters.js:37
+msgid "Yes"
+msgstr ""
+
+#: static/horizon/js/angular/filters/filters.js:37
+msgid "No"
+msgstr ""
+
+#: static/horizon/js/angular/filters/filters.js:53
+msgid "GB"
+msgstr "გბ"
+
+#: static/horizon/js/angular/filters/filters.js:70
+msgid "MB"
+msgstr "მბ"
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:47
 msgid "Unable to retrieve volumes."

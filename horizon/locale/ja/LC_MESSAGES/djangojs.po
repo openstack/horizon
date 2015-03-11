@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-05 20:44-0600\n"
-"PO-Revision-Date: 2015-03-05 08:02+0000\n"
+"POT-Creation-Date: 2015-03-11 01:05-0500\n"
+"PO-Revision-Date: 2015-03-11 02:44+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -107,12 +107,12 @@ msgstr "サーバーとの通信中に問題がありました。再度お試し
 msgid "Filter"
 msgstr "フィルター"
 
-#: static/horizon/js/horizon.instances.js:272
+#: static/horizon/js/horizon.instances.js:273
 msgid "Could not read the file"
 msgstr "ファイルを読み取ることができませんでした。"
 
-#: static/horizon/js/horizon.instances.js:278
-#: static/horizon/js/horizon.instances.js:307
+#: static/horizon/js/horizon.instances.js:279
+#: static/horizon/js/horizon.instances.js:308
 msgid "Could not decrypt the password"
 msgstr "パスワードの復号化できませんでした。"
 
@@ -207,7 +207,7 @@ msgid "View Instance Details"
 msgstr "インスタンスの詳細の表示"
 
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:374
+#: static/horizon/js/horizon.tables.js:382
 msgid "No items to display."
 msgstr "表示する項目がありません"
 
@@ -230,7 +230,7 @@ msgstr "%sの確認"
 msgid "Please confirm your selection. "
 msgstr "選択内容を確認してください。"
 
-#: static/horizon/js/horizon.tables.js:361
+#: static/horizon/js/horizon.tables.js:369
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
@@ -265,6 +265,22 @@ msgstr ""
 #, c-format
 msgid "Status: %s"
 msgstr "ステータス: %s"
+
+#: static/horizon/js/angular/filters/filters.js:37
+msgid "Yes"
+msgstr "はい"
+
+#: static/horizon/js/angular/filters/filters.js:37
+msgid "No"
+msgstr "いいえ"
+
+#: static/horizon/js/angular/filters/filters.js:53
+msgid "GB"
+msgstr "GB"
+
+#: static/horizon/js/angular/filters/filters.js:70
+msgid "MB"
+msgstr "MB"
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:47
 msgid "Unable to retrieve volumes."
