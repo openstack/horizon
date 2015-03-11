@@ -38,6 +38,7 @@ LOG = logging.getLogger(__name__)
 class JobsView(tables.DataTableView):
     table_class = _tables.JobsTable
     template_name = 'project/data_processing.jobs/jobs.html'
+    page_title = _("Jobs")
 
     def get_data(self):
         try:
@@ -58,11 +59,13 @@ class CreateJobView(workflows.WorkflowView):
     success_url = "horizon:project:data_processing.jobs:create-job"
     classes = ("ajax-modal",)
     template_name = "project/data_processing.jobs/create.html"
+    page_title = _("Create Job")
 
 
 class JobDetailsView(tabs.TabView):
     tab_group_class = _tabs.JobDetailsTabs
     template_name = 'project/data_processing.jobs/details.html'
+    page_title = _("Job Details")
 
     def get_context_data(self, **kwargs):
         context = super(JobDetailsView, self).get_context_data(**kwargs)
@@ -77,6 +80,7 @@ class LaunchJobView(workflows.WorkflowView):
     success_url = "horizon:project:data_processing.jobs"
     classes = ("ajax-modal",)
     template_name = "project/data_processing.jobs/launch.html"
+    page_title = _("Launch Job")
 
     def get(self, request, *args, **kwargs):
         if request.is_ajax():
@@ -97,6 +101,7 @@ class LaunchJobNewClusterView(workflows.WorkflowView):
     success_url = "horizon:project:data_processing.jobs"
     classes = ("ajax-modal",)
     template_name = "project/data_processing.jobs/launch.html"
+    page_title = _("Launch Job")
 
     def get_context_data(self, **kwargs):
         context = super(LaunchJobNewClusterView, self).\
@@ -109,6 +114,7 @@ class ChoosePluginView(workflows.WorkflowView):
     success_url = "horizon:project:data_processing.jobs"
     classes = ("ajax-modal",)
     template_name = "project/data_processing.jobs/launch.html"
+    page_title = _("Launch Job")
 
     def get_context_data(self, **kwargs):
         context = super(ChoosePluginView, self).get_context_data(**kwargs)

@@ -37,6 +37,7 @@ LOG = logging.getLogger(__name__)
 class ClustersView(tables.DataTableView):
     table_class = c_tables.ClustersTable
     template_name = 'project/data_processing.clusters/clusters.html'
+    page_title = _("Clusters")
 
     def get_data(self):
         try:
@@ -55,6 +56,7 @@ class ClustersView(tables.DataTableView):
 class ClusterDetailsView(tabs.TabView):
     tab_group_class = _tabs.ClusterDetailsTabs
     template_name = 'project/data_processing.clusters/details.html'
+    page_title = _("Cluster Details")
 
     def get_context_data(self, **kwargs):
         context = super(ClusterDetailsView, self)\
@@ -68,12 +70,14 @@ class CreateClusterView(workflows.WorkflowView):
         "horizon:project:data_processing.clusters:create-cluster"
     classes = ("ajax-modal",)
     template_name = "project/data_processing.clusters/create.html"
+    page_title = _("Launch Cluster")
 
 
 class ConfigureClusterView(workflows.WorkflowView):
     workflow_class = create_flow.ConfigureCluster
     success_url = "horizon:project:data_processing.clusters"
     template_name = "project/data_processing.clusters/configure.html"
+    page_title = _("Configure Cluster")
 
 
 class ScaleClusterView(workflows.WorkflowView):
@@ -81,6 +85,7 @@ class ScaleClusterView(workflows.WorkflowView):
     success_url = "horizon:project:data_processing.clusters"
     classes = ("ajax-modal",)
     template_name = "project/data_processing.clusters/scale.html"
+    page_title = _("Scale Cluster")
 
     def get_context_data(self, **kwargs):
         context = super(ScaleClusterView, self)\

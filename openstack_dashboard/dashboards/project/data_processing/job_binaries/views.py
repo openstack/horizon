@@ -40,6 +40,7 @@ LOG = logging.getLogger(__name__)
 class JobBinariesView(tables.DataTableView):
     table_class = jb_tables.JobBinariesTable
     template_name = 'project/data_processing.job_binaries/job_binaries.html'
+    page_title = _("Job Binaries")
 
     def get_data(self):
         try:
@@ -57,11 +58,13 @@ class CreateJobBinaryView(forms.ModalFormView):
         'horizon:project:data_processing.job_binaries:index')
     classes = ("ajax-modal",)
     template_name = "project/data_processing.job_binaries/create.html"
+    page_title = _("Create Job Binary")
 
 
 class JobBinaryDetailsView(tabs.TabView):
     tab_group_class = _tabs.JobBinaryDetailsTabs
     template_name = 'project/data_processing.job_binaries/details.html'
+    page_title = _("Job Binary Details")
 
     def get_context_data(self, **kwargs):
         context = super(JobBinaryDetailsView, self)\

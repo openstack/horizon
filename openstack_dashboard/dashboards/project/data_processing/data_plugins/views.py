@@ -31,6 +31,7 @@ LOG = logging.getLogger(__name__)
 class PluginsView(tables.DataTableView):
     table_class = p_tables.PluginsTable
     template_name = 'project/data_processing.data_plugins/plugins.html'
+    page_title = _("Data Processing Plugins")
 
     def get_data(self):
         try:
@@ -45,3 +46,4 @@ class PluginsView(tables.DataTableView):
 class PluginDetailsView(tabs.TabView):
     tab_group_class = p_tabs.PluginDetailsTabs
     template_name = 'project/data_processing.data_plugins/details.html'
+    page_title = _("Data Processing Plugin Details")

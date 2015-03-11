@@ -35,6 +35,7 @@ LOG = logging.getLogger(__name__)
 class DataSourcesView(tables.DataTableView):
     table_class = ds_tables.DataSourcesTable
     template_name = 'project/data_processing.data_sources/data_sources.html'
+    page_title = _("Data Sources")
 
     def get_data(self):
         try:
@@ -52,8 +53,10 @@ class CreateDataSourceView(workflows.WorkflowView):
         "horizon:project:data_processing.data-sources:create-data-source"
     classes = ("ajax-modal",)
     template_name = "project/data_processing.data_sources/create.html"
+    page_title = _("Create Data Source")
 
 
 class DataSourceDetailsView(tabs.TabView):
     tab_group_class = _tabs.DataSourceDetailsTabs
     template_name = 'project/data_processing.data_sources/details.html'
+    page_title = _("Data Source Details")

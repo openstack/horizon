@@ -41,6 +41,7 @@ class ClusterTemplatesView(tables.DataTableView):
     table_class = ct_tables.ClusterTemplatesTable
     template_name = (
         'project/data_processing.cluster_templates/cluster_templates.html')
+    page_title = _("Cluster Templates")
 
     def get_data(self):
         try:
@@ -60,6 +61,7 @@ class ClusterTemplatesView(tables.DataTableView):
 class ClusterTemplateDetailsView(tabs.TabView):
     tab_group_class = _tabs.ClusterTemplateDetailsTabs
     template_name = 'project/data_processing.cluster_templates/details.html'
+    page_title = _("Cluster Template Details")
 
     def get_context_data(self, **kwargs):
         context = super(ClusterTemplateDetailsView, self)\
@@ -76,6 +78,7 @@ class UploadFileView(forms.ModalFormView):
         'project/data_processing.cluster_templates/upload_file.html')
     success_url = reverse_lazy(
         'horizon:project:data_processing.cluster_templates:index')
+    page_title = _("Upload Template")
 
 
 class CreateClusterTemplateView(workflows.WorkflowView):
@@ -84,18 +87,21 @@ class CreateClusterTemplateView(workflows.WorkflowView):
                    ":create-cluster-template")
     classes = ("ajax-modal",)
     template_name = "project/data_processing.cluster_templates/create.html"
+    page_title = _("Create Cluster Template")
 
 
 class ConfigureClusterTemplateView(workflows.WorkflowView):
     workflow_class = create_flow.ConfigureClusterTemplate
     success_url = "horizon:project:data_processing.cluster_templates"
     template_name = "project/data_processing.cluster_templates/configure.html"
+    page_title = _("Configure Cluster Template")
 
 
 class CopyClusterTemplateView(workflows.WorkflowView):
     workflow_class = copy_flow.CopyClusterTemplate
     success_url = "horizon:project:data_processing.cluster_templates"
     template_name = "project/data_processing.cluster_templates/configure.html"
+    page_title = _("Copy Cluster Template")
 
     def get_context_data(self, **kwargs):
         context = super(CopyClusterTemplateView, self)\

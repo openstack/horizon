@@ -38,6 +38,7 @@ class NodegroupTemplatesView(tables.DataTableView):
     table_class = _tables.NodegroupTemplatesTable
     template_name = (
         'project/data_processing.nodegroup_templates/nodegroup_templates.html')
+    page_title = _("Node Group Templates")
 
     def get_data(self):
         try:
@@ -57,6 +58,7 @@ class NodegroupTemplatesView(tables.DataTableView):
 class NodegroupTemplateDetailsView(tabs.TabView):
     tab_group_class = _tabs.NodegroupTemplateDetailsTabs
     template_name = 'project/data_processing.nodegroup_templates/details.html'
+    page_title = _("Node Group Template Details")
 
     def get_context_data(self, **kwargs):
         context = super(NodegroupTemplateDetailsView, self)\
@@ -74,6 +76,7 @@ class CreateNodegroupTemplateView(workflows.WorkflowView):
         "create-nodegroup-template")
     classes = ("ajax-modal",)
     template_name = "project/data_processing.nodegroup_templates/create.html"
+    page_title = _("Create Node Group Template")
 
 
 class ConfigureNodegroupTemplateView(workflows.WorkflowView):
@@ -81,6 +84,7 @@ class ConfigureNodegroupTemplateView(workflows.WorkflowView):
     success_url = "horizon:project:data_processing.nodegroup_templates"
     template_name = (
         "project/data_processing.nodegroup_templates/configure.html")
+    page_title = _("Create Node Group Template")
 
 
 class CopyNodegroupTemplateView(workflows.WorkflowView):

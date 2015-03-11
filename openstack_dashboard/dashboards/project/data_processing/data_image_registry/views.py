@@ -38,6 +38,7 @@ class ImageRegistryView(tables.DataTableView):
     table_class = ImageRegistryTable
     template_name = (
         'project/data_processing.data_image_registry/image_registry.html')
+    page_title = _("Image Registry")
 
     def get_data(self):
         try:
@@ -81,6 +82,7 @@ class EditTagsView(forms.ModalFormView):
         'project/data_processing.data_image_registry/edit_tags.html')
     success_url = reverse_lazy(
         'horizon:project:data_processing.data_image_registry:index')
+    page_title = _("Edit Image Tags")
 
     def get_context_data(self, **kwargs):
         context = super(EditTagsView, self).get_context_data(**kwargs)
@@ -114,6 +116,7 @@ class RegisterImageView(forms.ModalFormView):
         'project/data_processing.data_image_registry/register_image.html')
     success_url = reverse_lazy(
         'horizon:project:data_processing.data_image_registry:index')
+    page_title = _("Register Image")
 
     def get_context_data(self, **kwargs):
         context = super(RegisterImageView, self).get_context_data(**kwargs)
