@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-07 07:39-0600\n"
-"PO-Revision-Date: 2015-03-07 13:39+0000\n"
+"POT-Creation-Date: 2015-03-11 01:05-0500\n"
+"PO-Revision-Date: 2015-03-11 05:38+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -17,59 +17,59 @@ msgstr ""
 "Language: pl_PL\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: settings.py:85
+#: settings.py:84
 msgid "Select format"
 msgstr "Wybierz format"
 
-#: settings.py:86
+#: settings.py:85
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Kernel Image"
 
-#: settings.py:87
+#: settings.py:86
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Image"
 
-#: settings.py:88
+#: settings.py:87
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon Ramdisk Image"
 
-#: settings.py:89
+#: settings.py:88
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - Optical Disk Image"
 
-#: settings.py:90
+#: settings.py:89
 msgid "OVA - Open Virtual Appliance"
 msgstr ""
 
-#: settings.py:91
+#: settings.py:90
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Emulator"
 
-#: settings.py:92
+#: settings.py:91
 msgid "Raw"
 msgstr "Nieprzetworzone"
 
-#: settings.py:93
+#: settings.py:92
 msgid "VDI - Virtual Disk Image"
 msgstr ""
 
-#: settings.py:94
+#: settings.py:93
 msgid "VHD - Virtual Hard Disk"
 msgstr ""
 
-#: settings.py:95
+#: settings.py:94
 msgid "VMDK - Virtual Machine Disk"
 msgstr ""
 
-#: settings.py:235
+#: settings.py:234
 msgid "All TCP"
 msgstr "Wszystkie TCP"
 
-#: settings.py:241
+#: settings.py:240
 msgid "All UDP"
 msgstr "Wszystkie UDP"
 
-#: settings.py:247
+#: settings.py:246
 msgid "All ICMP"
 msgstr "Wszystkie ICMP"
 
@@ -441,7 +441,7 @@ msgstr "Nie można sprawdzić Neutron, rozszerzenie „%s” jest niewspierane"
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:48
 #: dashboards/project/instances/templates/instances/_detail_overview.html:17
 #: dashboards/project/instances/templates/instances/_detail_overview.html:23
-#: dashboards/project/loadbalancers/tables.py:327
+#: dashboards/project/loadbalancers/tables.py:398
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:10
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:13
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:23
@@ -579,7 +579,7 @@ msgstr "Administracja"
 #: dashboards/project/data_processing/jobs/tables.py:104
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:6
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:54
-#: dashboards/project/data_processing/jobs/workflows/create.py:53
+#: dashboards/project/data_processing/jobs/workflows/create.py:60
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:28
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:83
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:6
@@ -593,9 +593,9 @@ msgstr "Administracja"
 #: dashboards/project/firewalls/forms.py:33
 #: dashboards/project/firewalls/forms.py:98
 #: dashboards/project/firewalls/forms.py:125
-#: dashboards/project/firewalls/tables.py:203
-#: dashboards/project/firewalls/tables.py:236
-#: dashboards/project/firewalls/tables.py:272
+#: dashboards/project/firewalls/tables.py:211
+#: dashboards/project/firewalls/tables.py:244
+#: dashboards/project/firewalls/tables.py:280
 #: dashboards/project/firewalls/workflows.py:30
 #: dashboards/project/firewalls/workflows.py:173
 #: dashboards/project/firewalls/workflows.py:230
@@ -610,7 +610,7 @@ msgstr "Administracja"
 #: dashboards/project/instances/workflows/update_instance.py:105
 #: dashboards/project/loadbalancers/forms.py:31
 #: dashboards/project/loadbalancers/forms.py:73
-#: dashboards/project/loadbalancers/tables.py:270
+#: dashboards/project/loadbalancers/tables.py:316
 #: dashboards/project/loadbalancers/workflows.py:36
 #: dashboards/project/loadbalancers/workflows.py:155
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:9
@@ -1223,7 +1223,7 @@ msgstr "Grupy zabezpieczeń"
 #: dashboards/admin/defaults/workflows.py:44
 #: dashboards/identity/projects/workflows.py:66
 #: dashboards/identity/projects/workflows.py:72
-#: dashboards/project/access_and_security/security_groups/tables.py:277
+#: dashboards/project/access_and_security/security_groups/tables.py:283
 #: usage/quotas.py:71 usage/quotas.py:83
 msgid "Security Group Rules"
 msgstr "Reguły grup zabezpieczeń"
@@ -1393,7 +1393,7 @@ msgstr "Dysk swap"
 #: dashboards/admin/volumes/volumes/forms.py:87
 #: dashboards/admin/volumes/volumes/forms.py:146
 #: dashboards/identity/roles/forms.py:37
-#: dashboards/identity/users/forms.py:171
+#: dashboards/identity/users/forms.py:172
 #: dashboards/identity/users/templates/users/_detail_overview.html:19
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:14
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:8
@@ -1888,14 +1888,14 @@ msgstr "Strefa"
 #: dashboards/project/databases/tables.py:333
 #: dashboards/project/databases/tables.py:399
 #: dashboards/project/databases/templates/databases/_detail_overview.html:18
-#: dashboards/project/firewalls/tables.py:278
+#: dashboards/project/firewalls/tables.py:286
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
 #: dashboards/project/images/images/tables.py:247
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
 #: dashboards/project/instances/tables.py:1001
 #: dashboards/project/instances/templates/instances/_detail_overview.html:14
-#: dashboards/project/loadbalancers/tables.py:277
-#: dashboards/project/loadbalancers/tables.py:311
+#: dashboards/project/loadbalancers/tables.py:324
+#: dashboards/project/loadbalancers/tables.py:377
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:28
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:66
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:60
@@ -2127,7 +2127,7 @@ msgstr "Informacje systemowe"
 #: dashboards/identity/users/tables.py:236
 #: dashboards/identity/users/templates/users/_detail_overview.html:23
 #: dashboards/project/firewalls/forms.py:70
-#: dashboards/project/firewalls/tables.py:221
+#: dashboards/project/firewalls/tables.py:229
 #: dashboards/project/firewalls/workflows.py:67
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:53
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:65
@@ -2319,7 +2319,7 @@ msgstr "ID odmiany ="
 #: dashboards/project/access_and_security/floating_ips/workflows.py:33
 #: dashboards/project/access_and_security/floating_ips/workflows.py:40
 #: dashboards/project/instances/tables.py:993
-#: dashboards/project/loadbalancers/tables.py:302
+#: dashboards/project/loadbalancers/tables.py:367
 msgid "IP Address"
 msgstr "Adres IP"
 
@@ -2531,7 +2531,7 @@ msgstr ""
 #: dashboards/project/data_processing/jobs/tables.py:31
 #: dashboards/project/data_processing/jobs/tables.py:107
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:10
-#: dashboards/project/data_processing/jobs/workflows/create.py:76
+#: dashboards/project/data_processing/jobs/workflows/create.py:84
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:10
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:41
 #: dashboards/project/database_backups/templates/database_backups/details.html:16
@@ -2550,7 +2550,7 @@ msgstr ""
 #: dashboards/project/images/templates/images/images/_detail_overview.html:12
 #: dashboards/project/loadbalancers/forms.py:36
 #: dashboards/project/loadbalancers/forms.py:78
-#: dashboards/project/loadbalancers/tables.py:272
+#: dashboards/project/loadbalancers/tables.py:318
 #: dashboards/project/loadbalancers/workflows.py:39
 #: dashboards/project/loadbalancers/workflows.py:158
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:12
@@ -3248,7 +3248,7 @@ msgstr "Współdzielone"
 msgid "External Network"
 msgstr "Zewnętrzna sieć"
 
-#: dashboards/admin/networks/forms.py:91 dashboards/identity/users/forms.py:79
+#: dashboards/admin/networks/forms.py:91 dashboards/identity/users/forms.py:80
 #: dashboards/router/nexus1000v/forms.py:29
 msgid "Select a project"
 msgstr "Wybierz projekt"
@@ -3837,7 +3837,7 @@ msgstr "Docelowy CIDR"
 
 #: dashboards/admin/routers/extensions/routerrules/tables.py:24
 #: dashboards/project/firewalls/forms.py:43
-#: dashboards/project/firewalls/tables.py:219
+#: dashboards/project/firewalls/tables.py:227
 #: dashboards/project/firewalls/workflows.py:43
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:19
 #: dashboards/project/instances/audit_tables.py:25
@@ -3909,7 +3909,6 @@ msgid "High Availability Mode"
 msgstr "Tryb wysokiej dostępności (HA)"
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:26
-#: dashboards/project/routers/templates/routers/_detail_overview.html:26
 msgid "External Gateway Information"
 msgstr "Informacje o zewnętrznej bramie"
 
@@ -4146,7 +4145,7 @@ msgstr ""
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:225
 #: dashboards/project/data_processing/data_sources/workflows/create.py:93
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
-#: dashboards/project/data_processing/jobs/workflows/create.py:146
+#: dashboards/project/data_processing/jobs/workflows/create.py:154
 #: dashboards/project/data_processing/jobs/workflows/launch.py:406
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:241
 #: dashboards/project/networks/workflows.py:342
@@ -4236,7 +4235,7 @@ msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:13
 #: dashboards/admin/volumes/volume_types/forms.py:28
-#: dashboards/project/loadbalancers/tables.py:273
+#: dashboards/project/loadbalancers/tables.py:319
 #: dashboards/project/loadbalancers/workflows.py:42
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:26
 #: dashboards/project/volumes/templates/volumes/volumes/_encryption_detail_overview.html:13
@@ -4917,8 +4916,8 @@ msgstr "Wyczyszczono kontekst domeny."
 
 #: dashboards/identity/domains/tables.py:202
 #: dashboards/identity/projects/workflows.py:138
-#: dashboards/identity/users/forms.py:88
-#: dashboards/identity/users/forms.py:165
+#: dashboards/identity/users/forms.py:89
+#: dashboards/identity/users/forms.py:166
 #: dashboards/identity/users/templates/users/_detail_overview.html:10
 msgid "Domain ID"
 msgstr "ID domeny"
@@ -5145,9 +5144,9 @@ msgid "Add Users"
 msgstr ""
 
 #: dashboards/identity/groups/tables.py:190
-#: dashboards/identity/users/forms.py:94
-#: dashboards/identity/users/forms.py:172
-#: dashboards/identity/users/forms.py:219
+#: dashboards/identity/users/forms.py:95
+#: dashboards/identity/users/forms.py:173
+#: dashboards/identity/users/forms.py:220
 #: dashboards/identity/users/tables.py:221
 #: dashboards/identity/users/templates/users/_detail_overview.html:17
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:14
@@ -5157,8 +5156,8 @@ msgid "User Name"
 msgstr "Nazwa użytkownika"
 
 #: dashboards/identity/groups/tables.py:191
-#: dashboards/identity/users/forms.py:96
-#: dashboards/identity/users/forms.py:174
+#: dashboards/identity/users/forms.py:97
+#: dashboards/identity/users/forms.py:175
 #: dashboards/identity/users/tables.py:224
 #: dashboards/identity/users/templates/users/_detail_overview.html:21
 msgid "Email"
@@ -5361,8 +5360,8 @@ msgid "Set maximum quotas for the project."
 msgstr "Ustawienie maksymalnych limitów dla projektu."
 
 #: dashboards/identity/projects/workflows.py:141
-#: dashboards/identity/users/forms.py:91
-#: dashboards/identity/users/forms.py:168
+#: dashboards/identity/users/forms.py:92
+#: dashboards/identity/users/forms.py:169
 #: dashboards/identity/users/templates/users/_detail_overview.html:14
 msgid "Domain Name"
 msgstr "Nazwa domeny"
@@ -5556,7 +5555,7 @@ msgstr "Tworzy nową rolę."
 msgid "Edit the role's details."
 msgstr "Edycja szczegółów roli"
 
-#: dashboards/identity/users/forms.py:41
+#: dashboards/identity/users/forms.py:42
 #: dashboards/project/data_processing/job_binaries/forms.py:121
 #: dashboards/project/data_processing/job_binaries/forms.py:128
 #: dashboards/project/databases/workflows/create_instance.py:196
@@ -5564,66 +5563,75 @@ msgstr "Edycja szczegółów roli"
 msgid "Password"
 msgstr "Hasło"
 
-#: dashboards/identity/users/forms.py:46
+#: dashboards/identity/users/forms.py:47
 msgid "Confirm Password"
 msgstr "Potwierdź hasło"
 
-#: dashboards/identity/users/forms.py:55
+#: dashboards/identity/users/forms.py:56
 #: dashboards/project/instances/forms.py:92
 #: dashboards/project/instances/workflows/create_instance.py:584
 #: dashboards/settings/password/forms.py:50
 msgid "Passwords do not match."
 msgstr "Hasła nie pasują"
 
-#: dashboards/identity/users/forms.py:77
+#: dashboards/identity/users/forms.py:78
 msgid "No available projects"
 msgstr "Brak dostępnych projektów"
 
-#: dashboards/identity/users/forms.py:98
-#: dashboards/identity/users/forms.py:176
+#: dashboards/identity/users/forms.py:99
+#: dashboards/identity/users/forms.py:177
 msgid "Primary Project"
 msgstr "Główny projekt"
 
-#: dashboards/identity/users/forms.py:101
+#: dashboards/identity/users/forms.py:102
 msgid "Role"
 msgstr "Rola"
 
-#: dashboards/identity/users/forms.py:137
+#: dashboards/identity/users/forms.py:138
 #, python-format
 msgid "User \"%s\" was successfully created."
 msgstr "Użytkownik \"%s\" został utworzony."
 
-#: dashboards/identity/users/forms.py:153
+#: dashboards/identity/users/forms.py:154
 msgid "Unable to add user to primary project."
 msgstr "Nie można dodać użytkownika do głównego projektu."
 
-#: dashboards/identity/users/forms.py:157
-#: dashboards/identity/users/forms.py:203
+#: dashboards/identity/users/forms.py:158
+#: dashboards/identity/users/forms.py:204
 #, python-format
 msgid "User name \"%s\" is already used."
 msgstr ""
 
-#: dashboards/identity/users/forms.py:160
+#: dashboards/identity/users/forms.py:161
 msgid "Unable to create user."
 msgstr "Nie można utworzyć użytkownika."
 
-#: dashboards/identity/users/forms.py:201
+#: dashboards/identity/users/forms.py:202
 msgid "User has been updated successfully."
 msgstr "Zaktualizowano użytkownika"
 
-#: dashboards/identity/users/forms.py:208
+#: dashboards/identity/users/forms.py:209
 msgid "Unable to update the user."
 msgstr "Nie można zaktualizować użytkownika."
 
-#: dashboards/identity/users/forms.py:243
-msgid "Password changed. Please log in to continue."
-msgstr ""
-
-#: dashboards/identity/users/forms.py:246
-msgid "User password has been updated successfully."
+#: dashboards/identity/users/forms.py:229
+#: dashboards/project/instances/workflows/create_instance.py:535
+msgid "Admin Password"
 msgstr ""
 
 #: dashboards/identity/users/forms.py:249
+msgid "The admin password is incorrect."
+msgstr ""
+
+#: dashboards/identity/users/forms.py:258
+msgid "Password changed. Please log in to continue."
+msgstr ""
+
+#: dashboards/identity/users/forms.py:261
+msgid "User password has been updated successfully."
+msgstr ""
+
+#: dashboards/identity/users/forms.py:264
 msgid "Unable to update the user password."
 msgstr ""
 
@@ -5872,7 +5880,7 @@ msgstr ""
 #: dashboards/project/access_and_security/floating_ips/tables.py:200
 #: dashboards/project/loadbalancers/forms.py:79
 #: dashboards/project/loadbalancers/forms.py:172
-#: dashboards/project/loadbalancers/tables.py:310
+#: dashboards/project/loadbalancers/tables.py:375
 #: dashboards/project/loadbalancers/workflows.py:301
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:12
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:31
@@ -6175,13 +6183,13 @@ msgstr "Reguła "
 #: dashboards/project/access_and_security/security_groups/forms.py:114
 #: dashboards/project/access_and_security/security_groups/forms.py:115
 #: dashboards/project/access_and_security/security_groups/forms.py:116
-#: dashboards/project/access_and_security/security_groups/tables.py:258
+#: dashboards/project/access_and_security/security_groups/tables.py:260
 msgid "Direction"
 msgstr "Kierunek"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:120
 #: dashboards/project/access_and_security/security_groups/forms.py:127
-#: dashboards/project/access_and_security/security_groups/tables.py:263
+#: dashboards/project/access_and_security/security_groups/tables.py:265
 msgid "IP Protocol"
 msgstr "Protokół IP"
 
@@ -6203,7 +6211,7 @@ msgid "Port"
 msgstr "Port"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:132
-#: dashboards/project/access_and_security/security_groups/tables.py:266
+#: dashboards/project/access_and_security/security_groups/tables.py:268
 msgid "Port Range"
 msgstr "Zakres portu"
 
@@ -6239,7 +6247,6 @@ msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "Należy podać kod ICMP z zakresu (-1 : 255)"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:195
-#: dashboards/project/access_and_security/security_groups/tables.py:267
 msgid "Remote"
 msgstr "Zdalne"
 
@@ -6262,7 +6269,7 @@ msgstr "Classless Inter-Domain Routing (np. 192.168.0.0/24)"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:229
 #: dashboards/project/access_and_security/security_groups/forms.py:237
-#: dashboards/project/access_and_security/security_groups/tables.py:261
+#: dashboards/project/access_and_security/security_groups/tables.py:263
 msgid "Ether Type"
 msgstr "Typ medium"
 
@@ -6295,12 +6302,12 @@ msgid "Other Protocol"
 msgstr "Inny protokół"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:266
-#: dashboards/project/access_and_security/security_groups/tables.py:232
+#: dashboards/project/access_and_security/security_groups/tables.py:234
 msgid "Ingress"
 msgstr "Przychodzący"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:267
-#: dashboards/project/access_and_security/security_groups/tables.py:234
+#: dashboards/project/access_and_security/security_groups/tables.py:236
 msgid "Egress"
 msgstr "Wychodzący"
 
@@ -6400,7 +6407,7 @@ msgid "Add Rule"
 msgstr "Dodaj regułę"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:177
-#: dashboards/project/firewalls/tables.py:57
+#: dashboards/project/firewalls/tables.py:58
 msgid "Delete Rule"
 msgid_plural "Delete Rules"
 msgstr[0] ""
@@ -6414,9 +6421,17 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/access_and_security/security_groups/tables.py:239
+#: dashboards/project/access_and_security/security_groups/tables.py:241
 msgid "Any"
 msgstr "Dowolny"
+
+#: dashboards/project/access_and_security/security_groups/tables.py:270
+msgid "Remote IP Prefix"
+msgstr ""
+
+#: dashboards/project/access_and_security/security_groups/tables.py:272
+msgid "Remote Security Group"
+msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/views.py:43
 msgid ""
@@ -7314,7 +7329,7 @@ msgstr "Nazwa szablonu"
 #: dashboards/project/databases/workflows/create_instance.py:47
 #: dashboards/project/instances/templates/instances/_detail_overview.html:36
 #: dashboards/project/instances/workflows/create_instance.py:138
-#: dashboards/project/loadbalancers/tables.py:337
+#: dashboards/project/loadbalancers/tables.py:408
 msgid "Details"
 msgstr "Szczegóły"
 
@@ -7551,18 +7566,18 @@ msgstr "Operacja skalowania klastra się nie powiodła"
 msgid "Successfully updated image."
 msgstr "Zaktualizowano obraz."
 
-#: dashboards/project/data_processing/data_image_registry/forms.py:50
+#: dashboards/project/data_processing/data_image_registry/forms.py:49
 msgid "Failed to update image."
 msgstr "Nie można zaktualizować obrazu."
 
-#: dashboards/project/data_processing/data_image_registry/forms.py:59
+#: dashboards/project/data_processing/data_image_registry/forms.py:58
 #: dashboards/project/data_processing/data_image_registry/tables.py:73
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:58
 #: dashboards/project/volumes/volumes/forms.py:237
 msgid "Image"
 msgstr "Obraz"
 
-#: dashboards/project/data_processing/data_image_registry/forms.py:71
+#: dashboards/project/data_processing/data_image_registry/forms.py:70
 #: dashboards/project/images/utils.py:97
 #: dashboards/project/instances/forms.py:39
 #: dashboards/project/instances/forms.py:64
@@ -7570,16 +7585,16 @@ msgstr "Obraz"
 msgid "Select Image"
 msgstr "Wybierz obraz"
 
-#: dashboards/project/data_processing/data_image_registry/forms.py:73
+#: dashboards/project/data_processing/data_image_registry/forms.py:72
 msgid "No images available."
 msgstr "Brak dostępnych obrazów."
 
-#: dashboards/project/data_processing/data_image_registry/forms.py:83
+#: dashboards/project/data_processing/data_image_registry/forms.py:82
 #, python-format
 msgid "Unable to retrieve images with filter %s."
 msgstr "Nie można pobrać obrazów z filtrem %s."
 
-#: dashboards/project/data_processing/data_image_registry/forms.py:110
+#: dashboards/project/data_processing/data_image_registry/forms.py:109
 msgid "Unable to fetch available images."
 msgstr "Nie można pobrać dostępnych obrazów."
 
@@ -8138,8 +8153,8 @@ msgstr "Zadania"
 #: dashboards/project/data_processing/jobs/tables.py:36
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:3
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:6
-#: dashboards/project/data_processing/jobs/workflows/create.py:106
-#: dashboards/project/data_processing/jobs/workflows/create.py:145
+#: dashboards/project/data_processing/jobs/workflows/create.py:114
+#: dashboards/project/data_processing/jobs/workflows/create.py:153
 msgid "Create Job"
 msgstr "Utwórz zadanie"
 
@@ -8180,27 +8195,27 @@ msgid "Select the type of your job:"
 msgstr "Wybór typu zadania:"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:9
-#: dashboards/project/data_processing/jobs/workflows/create.py:81
+#: dashboards/project/data_processing/jobs/workflows/create.py:89
 msgid "Pig"
 msgstr "Pig"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:10
-#: dashboards/project/data_processing/jobs/workflows/create.py:81
+#: dashboards/project/data_processing/jobs/workflows/create.py:89
 msgid "Hive"
 msgstr "Hive"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:11
-#: dashboards/project/data_processing/jobs/workflows/create.py:82
+#: dashboards/project/data_processing/jobs/workflows/create.py:90
 msgid "Spark"
 msgstr "Spark"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:12
-#: dashboards/project/data_processing/jobs/workflows/create.py:83
+#: dashboards/project/data_processing/jobs/workflows/create.py:91
 msgid "MapReduce"
 msgstr "MapReduce"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:13
-#: dashboards/project/data_processing/jobs/workflows/create.py:85
+#: dashboards/project/data_processing/jobs/workflows/create.py:93
 msgid "Java Action"
 msgstr "Akcja Java"
 
@@ -8239,7 +8254,7 @@ msgid "Mains"
 msgstr "Pliki główne"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:18
-#: dashboards/project/data_processing/jobs/workflows/create.py:47
+#: dashboards/project/data_processing/jobs/workflows/create.py:54
 msgid "Libs"
 msgstr "Biblioteki"
 
@@ -8299,40 +8314,40 @@ msgstr "Wybierz"
 msgid "Chosen Libraries"
 msgstr "Wybrane biblioteki"
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:30
+#: dashboards/project/data_processing/jobs/workflows/create.py:36
 msgid "Choose libraries"
 msgstr "Wybierz biblioteki"
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:42
-#: dashboards/project/data_processing/jobs/workflows/create.py:93
+#: dashboards/project/data_processing/jobs/workflows/create.py:49
+#: dashboards/project/data_processing/jobs/workflows/create.py:101
 msgid "-- not selected --"
 msgstr "-- nie wybrano --"
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:55
+#: dashboards/project/data_processing/jobs/workflows/create.py:62
 msgid "Job Type"
 msgstr "Typ zadania"
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:62
-#: dashboards/project/data_processing/jobs/workflows/create.py:70
-#: dashboards/project/data_processing/jobs/workflows/create.py:71
-#: dashboards/project/data_processing/jobs/workflows/create.py:72
-#: dashboards/project/data_processing/jobs/workflows/create.py:73
+#: dashboards/project/data_processing/jobs/workflows/create.py:69
+#: dashboards/project/data_processing/jobs/workflows/create.py:78
+#: dashboards/project/data_processing/jobs/workflows/create.py:79
+#: dashboards/project/data_processing/jobs/workflows/create.py:80
+#: dashboards/project/data_processing/jobs/workflows/create.py:81
 msgid "Choose a main binary"
 msgstr "Wybierz główny plik binarny"
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:64
+#: dashboards/project/data_processing/jobs/workflows/create.py:71
 msgid "Choose the binary which should be used in this Job."
 msgstr "Należy wybrać plik binarny, który ma zostać wykorzystany w zadaniu."
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:84
+#: dashboards/project/data_processing/jobs/workflows/create.py:92
 msgid "Streaming MapReduce"
 msgstr "Streaming MapReduce"
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:147
+#: dashboards/project/data_processing/jobs/workflows/create.py:155
 msgid "Job created"
 msgstr "Utworzono zadanie"
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:148
+#: dashboards/project/data_processing/jobs/workflows/create.py:156
 msgid "Could not create job"
 msgstr "Nie można utworzyć zadania"
 
@@ -9473,10 +9488,10 @@ msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "Uruchomiono %(count)s nazwanych „%(name)s”."
 
 #: dashboards/project/firewalls/forms.py:38
-#: dashboards/project/firewalls/tables.py:208
+#: dashboards/project/firewalls/tables.py:216
 #: dashboards/project/firewalls/workflows.py:37
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:22
-#: dashboards/project/loadbalancers/tables.py:276
+#: dashboards/project/loadbalancers/tables.py:322
 #: dashboards/project/loadbalancers/workflows.py:44
 #: dashboards/project/loadbalancers/workflows.py:172
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:33
@@ -9501,7 +9516,7 @@ msgid "ICMP"
 msgstr "ICMP"
 
 #: dashboards/project/firewalls/forms.py:40
-#: dashboards/project/firewalls/tables.py:206
+#: dashboards/project/firewalls/tables.py:214
 #: dashboards/project/firewalls/workflows.py:41
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:23
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:26
@@ -9576,7 +9591,7 @@ msgid "Failed to update rule %(name)s: %(reason)s"
 msgstr "Nie można zaktualizować reguły %(name)s: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:102
-#: dashboards/project/firewalls/tables.py:241
+#: dashboards/project/firewalls/tables.py:249
 #: dashboards/project/firewalls/workflows.py:180
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:34
 msgid "Audited"
@@ -9593,7 +9608,7 @@ msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr "Nie można zaktualizować zasady %(name)s: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:130
-#: dashboards/project/firewalls/tables.py:276
+#: dashboards/project/firewalls/tables.py:284
 #: dashboards/project/firewalls/workflows.py:235
 msgid "Policy"
 msgstr "Zasada"
@@ -9613,7 +9628,7 @@ msgid "Failed to update firewall %(name)s: %(reason)s"
 msgstr "Nie można zaktualizować zapory ogniowej %(name)s: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:179
-#: dashboards/project/firewalls/tables.py:157
+#: dashboards/project/firewalls/tables.py:165
 msgid "Insert Rule"
 msgstr "Dodaj regułę"
 
@@ -9641,7 +9656,7 @@ msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr "Nie można dodać reguły do zasady %(name)s: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:242
-#: dashboards/project/firewalls/tables.py:171
+#: dashboards/project/firewalls/tables.py:179
 msgid "Remove Rule"
 msgstr "Usuń regułę"
 
@@ -9661,7 +9676,7 @@ msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr "Nie można usunąć reguły z zasady %(name)s: %(reason)s"
 
 #: dashboards/project/firewalls/panel.py:26
-#: dashboards/project/firewalls/tables.py:283
+#: dashboards/project/firewalls/tables.py:291
 #: dashboards/project/firewalls/tabs.py:69
 #: dashboards/project/firewalls/views.py:110
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
@@ -9673,143 +9688,143 @@ msgstr "Zapory ogniowe"
 msgid "Add Policy"
 msgstr "Dodaj zasadę"
 
-#: dashboards/project/firewalls/tables.py:44
+#: dashboards/project/firewalls/tables.py:45
 msgid "Create Firewall"
 msgstr "Utwórz zaporę ogniową"
 
-#: dashboards/project/firewalls/tables.py:65
+#: dashboards/project/firewalls/tables.py:66
 msgid "Scheduled deletion of Rule"
 msgid_plural "Scheduled deletion of Rules"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/firewalls/tables.py:79
+#: dashboards/project/firewalls/tables.py:80
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/firewalls/tables.py:87
+#: dashboards/project/firewalls/tables.py:88
 msgid "Scheduled deletion of Policy"
 msgid_plural "Scheduled deletion of Policies"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/firewalls/tables.py:102
+#: dashboards/project/firewalls/tables.py:103
 msgid "Delete Firewall"
 msgid_plural "Delete Firewalls"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/firewalls/tables.py:110
+#: dashboards/project/firewalls/tables.py:111
 msgid "Scheduled deletion of Firewall"
 msgid_plural "Scheduled deletion of Firewalls"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/firewalls/tables.py:120
+#: dashboards/project/firewalls/tables.py:121
 #: dashboards/project/firewalls/views.py:130
 #: dashboards/project/firewalls/templates/firewalls/updaterule.html:3
 msgid "Edit Rule"
 msgstr "Edycja reguły"
 
-#: dashboards/project/firewalls/tables.py:132
+#: dashboards/project/firewalls/tables.py:133
 #: dashboards/project/firewalls/views.py:171
 #: dashboards/project/firewalls/templates/firewalls/updatepolicy.html:3
 msgid "Edit Policy"
 msgstr "Edytuj zasadę"
 
-#: dashboards/project/firewalls/tables.py:144
+#: dashboards/project/firewalls/tables.py:145
 #: dashboards/project/firewalls/views.py:209
 #: dashboards/project/firewalls/templates/firewalls/updatefirewall.html:3
 msgid "Edit Firewall"
 msgstr "Edytuj zaporę ogniową"
 
-#: dashboards/project/firewalls/tables.py:199
+#: dashboards/project/firewalls/tables.py:207
 msgctxt "Action Name of a Firewall Rule"
 msgid "ALLOW"
 msgstr "ZEZWÓL"
 
-#: dashboards/project/firewalls/tables.py:200
+#: dashboards/project/firewalls/tables.py:208
 msgctxt "Action Name of a Firewall Rule"
 msgid "DENY"
 msgstr "ODRZUĆ"
 
-#: dashboards/project/firewalls/tables.py:210
+#: dashboards/project/firewalls/tables.py:218
 msgid "Source IP"
 msgstr "IP źródłowe"
 
-#: dashboards/project/firewalls/tables.py:212
+#: dashboards/project/firewalls/tables.py:220
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:28
 msgid "Source Port"
 msgstr "Port źródłowy"
 
-#: dashboards/project/firewalls/tables.py:214
+#: dashboards/project/firewalls/tables.py:222
 msgid "Destination IP"
 msgstr "IP docelowe"
 
-#: dashboards/project/firewalls/tables.py:216
+#: dashboards/project/firewalls/tables.py:224
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:34
 msgid "Destination Port"
 msgstr "Port docelowy"
 
-#: dashboards/project/firewalls/tables.py:225
+#: dashboards/project/firewalls/tables.py:233
 msgid "In Policy"
 msgstr "W zasadzie"
 
-#: dashboards/project/firewalls/tables.py:229
-#: dashboards/project/firewalls/tables.py:239
+#: dashboards/project/firewalls/tables.py:237
+#: dashboards/project/firewalls/tables.py:247
 #: dashboards/project/firewalls/workflows.py:131
 #: dashboards/project/firewalls/workflows.py:137
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:19
 msgid "Rules"
 msgstr "Reguły"
 
-#: dashboards/project/firewalls/tables.py:246
+#: dashboards/project/firewalls/tables.py:254
 msgid "Policies"
 msgstr "Zasady"
 
-#: dashboards/project/firewalls/tables.py:255
+#: dashboards/project/firewalls/tables.py:263
 msgctxt "Current status of a Firewall"
 msgid "Active"
 msgstr "Aktywny"
 
-#: dashboards/project/firewalls/tables.py:257
+#: dashboards/project/firewalls/tables.py:265
 msgctxt "Current status of a Firewall"
 msgid "Down"
 msgstr "Położono"
 
-#: dashboards/project/firewalls/tables.py:259
+#: dashboards/project/firewalls/tables.py:267
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "Błąd"
 
-#: dashboards/project/firewalls/tables.py:261
+#: dashboards/project/firewalls/tables.py:269
 msgctxt "Current status of a Firewall"
 msgid "Created"
 msgstr "Utworzono"
 
-#: dashboards/project/firewalls/tables.py:263
+#: dashboards/project/firewalls/tables.py:271
 msgctxt "Current status of a Firewall"
 msgid "Pending Create"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:265
+#: dashboards/project/firewalls/tables.py:273
 msgctxt "Current status of a Firewall"
 msgid "Pending Update"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:267
+#: dashboards/project/firewalls/tables.py:275
 msgctxt "Current status of a Firewall"
 msgid "Pending Delete"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:269
+#: dashboards/project/firewalls/tables.py:277
 msgctxt "Current status of a Firewall"
 msgid "Inactive"
 msgstr ""
@@ -11291,7 +11306,7 @@ msgid "Key Name"
 msgstr "Nazwa klucza"
 
 #: dashboards/project/instances/templates/instances/_detail_overview.html:122
-#: dashboards/project/loadbalancers/tables.py:274
+#: dashboards/project/loadbalancers/tables.py:320
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:27
 msgid "N/A"
 msgstr "n.d."
@@ -11639,10 +11654,6 @@ msgstr "Brak dostępnych migawek wolumenów"
 msgid "Key pair to use for authentication."
 msgstr "Para kluczy, która będzie użyta do autentykacji."
 
-#: dashboards/project/instances/workflows/create_instance.py:535
-msgid "Admin Password"
-msgstr ""
-
 #: dashboards/project/instances/workflows/create_instance.py:541
 msgid "Confirm Admin Password"
 msgstr ""
@@ -11880,7 +11891,7 @@ msgid "Failed to update VIP %s"
 msgstr "Nie można zaktualizować VIP-a %s"
 
 #: dashboards/project/loadbalancers/forms.py:173
-#: dashboards/project/loadbalancers/tables.py:308
+#: dashboards/project/loadbalancers/tables.py:373
 #: dashboards/project/loadbalancers/workflows.py:332
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:22
 msgid "Weight"
@@ -11901,7 +11912,7 @@ msgid "Failed to update member %s"
 msgstr "Nie można zaktualizować członka %s"
 
 #: dashboards/project/loadbalancers/forms.py:225
-#: dashboards/project/loadbalancers/tables.py:334
+#: dashboards/project/loadbalancers/tables.py:405
 #: dashboards/project/loadbalancers/workflows.py:497
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:15
 msgid "Delay"
@@ -11913,7 +11924,7 @@ msgid "The minimum time in seconds between regular checks of a member"
 msgstr "Minimalny odstęp czasu w sekundach pomiędzy testami członka"
 
 #: dashboards/project/loadbalancers/forms.py:230
-#: dashboards/project/loadbalancers/tables.py:335
+#: dashboards/project/loadbalancers/tables.py:406
 #: dashboards/project/loadbalancers/workflows.py:502
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:18
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:62
@@ -11951,125 +11962,165 @@ msgstr "Nie można zaktualizować monitora stanu %s"
 msgid "Load Balancers"
 msgstr "Load balancery"
 
-#: dashboards/project/loadbalancers/tables.py:31
+#: dashboards/project/loadbalancers/tables.py:32
 #: dashboards/project/loadbalancers/workflows.py:135
 msgid "Add Pool"
 msgstr "Dodaj pulę"
 
-#: dashboards/project/loadbalancers/tables.py:40
+#: dashboards/project/loadbalancers/tables.py:41
 #: dashboards/project/loadbalancers/workflows.py:259
 msgid "Add VIP"
 msgstr "Dodaj VIP"
 
-#: dashboards/project/loadbalancers/tables.py:58
+#: dashboards/project/loadbalancers/tables.py:59
 #: dashboards/project/loadbalancers/workflows.py:425
 msgid "Add Member"
 msgstr "Dodaj członka"
 
-#: dashboards/project/loadbalancers/tables.py:67
+#: dashboards/project/loadbalancers/tables.py:68
 #: dashboards/project/loadbalancers/workflows.py:603
 msgid "Add Monitor"
 msgstr "Dodaj monitor"
 
-#: dashboards/project/loadbalancers/tables.py:81
+#: dashboards/project/loadbalancers/tables.py:82
 msgid "Delete VIP"
 msgid_plural "Delete VIPs"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/loadbalancers/tables.py:89
+#: dashboards/project/loadbalancers/tables.py:90
 msgid "Scheduled deletion of VIP"
 msgid_plural "Scheduled deletion of VIPs"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/loadbalancers/tables.py:107
+#: dashboards/project/loadbalancers/tables.py:108
 msgid "Delete Pool"
 msgid_plural "Delete Pools"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/loadbalancers/tables.py:115
+#: dashboards/project/loadbalancers/tables.py:116
 msgid "Scheduled deletion of Pool"
 msgid_plural "Scheduled deletion of Pools"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/loadbalancers/tables.py:134
+#: dashboards/project/loadbalancers/tables.py:135
 msgid "Delete Monitor"
 msgid_plural "Delete Monitors"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/loadbalancers/tables.py:142
+#: dashboards/project/loadbalancers/tables.py:143
 msgid "Scheduled deletion of Monitor"
 msgid_plural "Scheduled deletion of Monitors"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/loadbalancers/tables.py:155
+#: dashboards/project/loadbalancers/tables.py:156
 msgid "Delete Member"
 msgid_plural "Delete Members"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/loadbalancers/tables.py:163
+#: dashboards/project/loadbalancers/tables.py:164
 msgid "Scheduled deletion of Member"
 msgid_plural "Scheduled deletion of Members"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/loadbalancers/tables.py:171
+#: dashboards/project/loadbalancers/tables.py:172
 #: dashboards/project/loadbalancers/views.py:231
 #: dashboards/project/loadbalancers/views.py:237
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatepool.html:3
 msgid "Edit Pool"
 msgstr "Edytuj pulę"
 
-#: dashboards/project/loadbalancers/tables.py:183
+#: dashboards/project/loadbalancers/tables.py:184
 #: dashboards/project/loadbalancers/views.py:268
 #: dashboards/project/loadbalancers/views.py:274
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatevip.html:3
 msgid "Edit VIP"
 msgstr "Edytuj VIP-a"
 
-#: dashboards/project/loadbalancers/tables.py:200
+#: dashboards/project/loadbalancers/tables.py:201
 #: dashboards/project/loadbalancers/views.py:319
 #: dashboards/project/loadbalancers/views.py:325
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatemember.html:3
 msgid "Edit Member"
 msgstr "Edytuj członka"
 
-#: dashboards/project/loadbalancers/tables.py:212
+#: dashboards/project/loadbalancers/tables.py:213
 #: dashboards/project/loadbalancers/views.py:355
 #: dashboards/project/loadbalancers/views.py:361
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatemonitor.html:3
 msgid "Edit Monitor"
 msgstr "Edytuj monitor"
 
-#: dashboards/project/loadbalancers/tables.py:233
+#: dashboards/project/loadbalancers/tables.py:234
 #: dashboards/project/loadbalancers/workflows.py:666
 msgid "Associate Monitor"
 msgstr "Powiąż monitor"
 
-#: dashboards/project/loadbalancers/tables.py:249
+#: dashboards/project/loadbalancers/tables.py:250
 msgid "Failed to retrieve health monitors."
 msgstr "Nie można pobrać monitorów stanu."
 
-#: dashboards/project/loadbalancers/tables.py:256
+#: dashboards/project/loadbalancers/tables.py:257
 #: dashboards/project/loadbalancers/workflows.py:729
 msgid "Disassociate Monitor"
 msgstr "Odwiąż monitor"
 
-#: dashboards/project/loadbalancers/tables.py:275
+#: dashboards/project/loadbalancers/tables.py:296
+msgctxt "Current status of a Pool"
+msgid "Active"
+msgstr "Aktywny"
+
+#: dashboards/project/loadbalancers/tables.py:298
+msgctxt "Current status of a Pool"
+msgid "Down"
+msgstr "Położono"
+
+#: dashboards/project/loadbalancers/tables.py:300
+msgctxt "Current status of a Pool"
+msgid "Error"
+msgstr "Błąd"
+
+#: dashboards/project/loadbalancers/tables.py:302
+msgctxt "Current status of a Pool"
+msgid "Created"
+msgstr "Utworzono"
+
+#: dashboards/project/loadbalancers/tables.py:304
+msgctxt "Current status of a Pool"
+msgid "Pending Create"
+msgstr ""
+
+#: dashboards/project/loadbalancers/tables.py:306
+msgctxt "Current status of a Pool"
+msgid "Pending Update"
+msgstr ""
+
+#: dashboards/project/loadbalancers/tables.py:308
+msgctxt "Current status of a Pool"
+msgid "Pending Delete"
+msgstr ""
+
+#: dashboards/project/loadbalancers/tables.py:310
+msgctxt "Current status of a Pool"
+msgid "Inactive"
+msgstr ""
+
+#: dashboards/project/loadbalancers/tables.py:321
 #: dashboards/project/loadbalancers/workflows.py:43
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:29
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:18
@@ -12082,18 +12133,18 @@ msgstr "Odwiąż monitor"
 msgid "Subnet"
 msgstr "Podsieć"
 
-#: dashboards/project/loadbalancers/tables.py:278
+#: dashboards/project/loadbalancers/tables.py:328
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:18
 msgid "VIP"
 msgstr "VIP"
 
-#: dashboards/project/loadbalancers/tables.py:283
+#: dashboards/project/loadbalancers/tables.py:333
 #: dashboards/project/loadbalancers/tabs.py:28
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:38
 msgid "Pools"
 msgstr "Pule"
 
-#: dashboards/project/loadbalancers/tables.py:306
+#: dashboards/project/loadbalancers/tables.py:371
 #: dashboards/project/loadbalancers/workflows.py:168
 #: dashboards/project/loadbalancers/workflows.py:339
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:19
@@ -12101,22 +12152,22 @@ msgstr "Pule"
 msgid "Protocol Port"
 msgstr "Port protokołu"
 
-#: dashboards/project/loadbalancers/tables.py:315
+#: dashboards/project/loadbalancers/tables.py:384
 #: dashboards/project/loadbalancers/tabs.py:46
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:39
 msgid "Members"
 msgstr "Członkowie"
 
-#: dashboards/project/loadbalancers/tables.py:332
+#: dashboards/project/loadbalancers/tables.py:403
 msgid "Monitor Type"
 msgstr "Typ monitora"
 
-#: dashboards/project/loadbalancers/tables.py:336
+#: dashboards/project/loadbalancers/tables.py:407
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:21
 msgid "Max Retries"
 msgstr "Maks. powtórzeń"
 
-#: dashboards/project/loadbalancers/tables.py:341
+#: dashboards/project/loadbalancers/tables.py:412
 #: dashboards/project/loadbalancers/tabs.py:64
 msgid "Monitors"
 msgstr "Monitory"
@@ -13433,6 +13484,7 @@ msgid "Failed to set gateway %s"
 msgstr "Nie można ustawić bramy %s"
 
 #: dashboards/project/routers/ports/tables.py:34
+#: dashboards/project/routers/templates/routers/_detail_overview.html:26
 msgid "External Gateway"
 msgstr "Zewnętrzna brama"
 

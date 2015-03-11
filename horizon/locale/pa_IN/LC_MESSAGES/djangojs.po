@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-05 20:44-0600\n"
-"PO-Revision-Date: 2015-03-05 07:46+0000\n"
+"POT-Creation-Date: 2015-03-11 01:05-0500\n"
+"PO-Revision-Date: 2015-03-11 02:18+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/projects/p/horizon/language/pa_IN/)\n"
 "MIME-Version: 1.0\n"
@@ -105,12 +105,12 @@ msgstr "ਸਰਵਰ ਨਾਲ ਸੰਚਾਰ ਕਰਨ ਵੇਲੇ ਇੱਕ 
 msgid "Filter"
 msgstr "ਛਾਣਨੀ (ਫਿਲਟਰ)"
 
-#: static/horizon/js/horizon.instances.js:272
+#: static/horizon/js/horizon.instances.js:273
 msgid "Could not read the file"
 msgstr "ਫਾਈਲ ਪੜ੍ਹ ਨਹੀਂ ਸਕਿਆ"
 
-#: static/horizon/js/horizon.instances.js:278
-#: static/horizon/js/horizon.instances.js:307
+#: static/horizon/js/horizon.instances.js:279
+#: static/horizon/js/horizon.instances.js:308
 msgid "Could not decrypt the password"
 msgstr "ਪਛਾਣ-ਸ਼ਬਦ ਨੂੰ ਡੀ-ਕ੍ਰਿਪਟ ਨਹੀਂ ਕਰ ਸਕਿਆ"
 
@@ -205,7 +205,7 @@ msgid "View Instance Details"
 msgstr ""
 
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:374
+#: static/horizon/js/horizon.tables.js:382
 msgid "No items to display."
 msgstr "ਪਰਦਰਸ਼ਿਤ ਕਰਨ ਲਈ ਕੋਈ ਚੀਜ਼ ਨਹੀਂ।"
 
@@ -228,7 +228,7 @@ msgstr "%s ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ"
 msgid "Please confirm your selection. "
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:361
+#: static/horizon/js/horizon.tables.js:369
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
@@ -263,6 +263,22 @@ msgstr ""
 #: static/horizon/js/angular/directives/serialConsole.js:85
 #, c-format
 msgid "Status: %s"
+msgstr ""
+
+#: static/horizon/js/angular/filters/filters.js:37
+msgid "Yes"
+msgstr ""
+
+#: static/horizon/js/angular/filters/filters.js:37
+msgid "No"
+msgstr ""
+
+#: static/horizon/js/angular/filters/filters.js:53
+msgid "GB"
+msgstr ""
+
+#: static/horizon/js/angular/filters/filters.js:70
+msgid "MB"
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:47

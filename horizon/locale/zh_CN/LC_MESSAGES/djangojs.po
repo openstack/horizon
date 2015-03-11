@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-05 20:44-0600\n"
-"PO-Revision-Date: 2015-03-05 08:02+0000\n"
+"POT-Creation-Date: 2015-03-11 01:05-0500\n"
+"PO-Revision-Date: 2015-03-11 02:44+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -107,12 +107,12 @@ msgstr "与服务器通信出现问题，请再试一次。"
 msgid "Filter"
 msgstr "筛选"
 
-#: static/horizon/js/horizon.instances.js:272
+#: static/horizon/js/horizon.instances.js:273
 msgid "Could not read the file"
 msgstr "不能读取文件"
 
-#: static/horizon/js/horizon.instances.js:278
-#: static/horizon/js/horizon.instances.js:307
+#: static/horizon/js/horizon.instances.js:279
+#: static/horizon/js/horizon.instances.js:308
 msgid "Could not decrypt the password"
 msgstr "不能解密密码"
 
@@ -207,7 +207,7 @@ msgid "View Instance Details"
 msgstr "查看实例详情"
 
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:374
+#: static/horizon/js/horizon.tables.js:382
 msgid "No items to display."
 msgstr "没有条目显示。"
 
@@ -230,7 +230,7 @@ msgstr "确认 %s"
 msgid "Please confirm your selection. "
 msgstr "请确认您的选择。"
 
-#: static/horizon/js/horizon.tables.js:361
+#: static/horizon/js/horizon.tables.js:369
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
@@ -265,6 +265,22 @@ msgstr "已关闭"
 #, c-format
 msgid "Status: %s"
 msgstr "状态: %s"
+
+#: static/horizon/js/angular/filters/filters.js:37
+msgid "Yes"
+msgstr "是"
+
+#: static/horizon/js/angular/filters/filters.js:37
+msgid "No"
+msgstr "不"
+
+#: static/horizon/js/angular/filters/filters.js:53
+msgid "GB"
+msgstr "GB"
+
+#: static/horizon/js/angular/filters/filters.js:70
+msgid "MB"
+msgstr "MB"
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:47
 msgid "Unable to retrieve volumes."
