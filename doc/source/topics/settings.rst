@@ -911,8 +911,8 @@ Default: ``"/"``
 Specifies the location where the access to the dashboard is configured in
 the web server.
 
-E.g. if you're accessing the Dashboard via https://<your server>/horizon, you'd
-set this to ``"/horizon"``.
+For example, if you're accessing the Dashboard via
+https://<your server>/horizon, you'd set this to ``"/horizon"``.
 
 
 
