@@ -33,6 +33,10 @@
 
   &.open {
     right: 0;
+    border: 1px solid $helpPanelBorderColor;
+    border-right: none;
+    margin-top: -1px;
+    margin-bottom: -1px;
 
     & > button.open {
       display: none;
@@ -56,14 +60,18 @@
     border: none;
     text-align: center;
     vertical-align: middle;
-    background: $helpPanelBg;
+    background: $helpPanelBtnBg;
+    border: 1px solid $helpPanelBorderColor;
+    border-right: none;
+    margin-top: -1px;
+
 
     // button icon
     & > * {
       display: inline-block;
       vertical-align: middle;
-      background: $helpPanelBtnBg;
-      color: $helpPanelBtnColor;
+      background: $helpPanelBtnIconBg;
+      color: $helpPanelBtnIconColor;
       font-size: $helpPanelBtnIconSize;
     }
 
