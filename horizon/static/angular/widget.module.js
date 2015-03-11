@@ -2,6 +2,7 @@
  'use strict';
 
   angular.module('hz.widgets', [
+    'hz.widget.form',
     'hz.widget.help-panel',
     'hz.widget.wizard',
     'hz.widget.table',
