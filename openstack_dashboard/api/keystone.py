@@ -397,6 +397,27 @@ def user_update_password(request, user, password, admin=True):
         return manager.update(user, password=password)
 
 
+def user_verify_admin_password(request, admin_password):
+    # attempt to create a new client instance with admin password to
+    # verify if it's correct.
+    client = keystone_client_v2 if VERSIONS.active < 3 else keystone_client_v3
+    try:
+        endpoint = _get_endpoint_url(request, 'internalURL')
+        insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
+        cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
+        client.Client(
+            username=request.user.username,
+            password=admin_password,
+            insecure=insecure,
+            cacert=cacert,
+            auth_url=endpoint
+        )
+        return True
+    except Exception:
+        exceptions.handle(request, ignore=True)
+        return False
+
+
 def user_update_own_password(request, origpassword, password):
     client = keystoneclient(request, admin=False)
     client.user_id = request.user.id

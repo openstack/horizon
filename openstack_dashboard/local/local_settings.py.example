@@ -291,6 +291,11 @@ TIME_ZONE = "UTC"
 #    'reverse': False,
 #}
 
+# Set this to True to display an 'Admin Password' field on the Change Password
+# form to verify that it is indeed the admin logged-in who wants to change
+# the password.
+# ENFORCE_PASSWORD_CHECK = False
+
 # The Horizon Policy Enforcement engine uses these values to load per service
 # policy rule files. The content of these files should match the files the
 # OpenStack services are using to determine role based access control in the
