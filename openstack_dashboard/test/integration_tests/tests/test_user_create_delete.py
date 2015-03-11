@@ -20,7 +20,7 @@ class TestUser(helpers.AdminTestCase):
 
     def test_create_delete_user(self):
         users_page = self.home_pg.go_to_identity_userspage()
-        password = self.conf.identity.password
+        password = self.TEST_PASSWORD
         users_page.create_user(self.USER_NAME, password=password,
                                project='admin', role='admin')
         self.assertTrue(users_page.is_user_present(self.USER_NAME))
