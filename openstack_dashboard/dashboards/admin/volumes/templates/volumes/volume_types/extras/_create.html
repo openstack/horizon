@@ -1,28 +1,7 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
-{% load url from future %}
 
-{% block form_id %}extra_spec_create_form{% endblock %}
-{% block form_action %}{% url 'horizon:admin:volumes:volume_types:extras:create' vol_type.id %}{% endblock %}
-
-
-{% block modal_id %}extra_spec_create_modal{% endblock %}
-{% block modal-header %}{% trans "Create Volume Type Extra Spec" %}{% endblock %}
-
-{% block modal-body %}
-<div class="left">
-    <fieldset>
-    {% include "horizon/common/_form_fields.html" %}
-    </fieldset>
-</div>
-<div class="right">
-    <h3>{% trans "Description:" %}</h3>
-    <p>{% trans 'Create a new "extra spec" key-value pair for a volume type.' %}</p>
-</div>
+{% block modal-body-right %}
+  <h3>{% trans "Description:" %}</h3>
+  <p>{% trans 'Create a new "extra spec" key-value pair for a volume type.' %}</p>
 {% endblock %}
-
-{% block modal-footer %}
-  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Create" %}" />
-  <a href="{% url 'horizon:admin:volumes:volume_types:extras:index' vol_type.id %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
-{% endblock %}
-

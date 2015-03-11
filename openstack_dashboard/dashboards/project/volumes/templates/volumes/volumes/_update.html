@@ -1,29 +1,8 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
-{% load url from future %}
 
-{% block form_id %}{% endblock %}
-{% block form_action %}{% url 'horizon:project:volumes:volumes:update' volume.id %}{% endblock %}
-
-{% block modal_id %}update_volume_modal{% endblock %}
-{% block modal-header %}{% trans "Edit Volume" %}{% endblock %}
-
-{% block modal-body %}
-  <div class="left">
-    <fieldset>
-    {% include "horizon/common/_form_fields.html" %}
-    </fieldset>
-  </div>
-  <div class="right">
-    <h3>{% trans "Description:" %}</h3>
-    <p>{% trans "Modify name and description of a volume." %}
-    </p>
-    <p>{% trans 'The "Bootable" flag specifies that this volume can be used to launch an instance.' %}
-    </p>
-  </div>
-{% endblock %}
-
-{% block modal-footer %}
-  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Save" %}" />
-  <a href="{% url 'horizon:project:volumes:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
+{% block modal-body-right %}
+  <h3>{% trans "Description:" %}</h3>
+  <p>{% trans "Modify name and description of a volume." %}</p>
+  <p>{% trans 'The "Bootable" flag specifies that this volume can be used to launch an instance.' %}</p>
 {% endblock %}

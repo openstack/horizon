@@ -30,7 +30,11 @@ from openstack_dashboard.dashboards.project.volumes.snapshots \
 
 class UpdateStatusView(forms.ModalFormView):
     form_class = vol_snapshot_forms.UpdateStatus
+    modal_header = _("Update Volume Snapshot Status")
+    modal_id = "update_volume_snapshot_status"
     template_name = 'admin/volumes/snapshots/update_status.html'
+    submit_label = _("Update Status")
+    submit_url = "horizon:admin:volumes:snapshots:update_status"
     success_url = reverse_lazy("horizon:admin:volumes:snapshots_tab")
     page_title = _("Update Volume Snapshot Status")
 
@@ -49,6 +53,8 @@ class UpdateStatusView(forms.ModalFormView):
     def get_context_data(self, **kwargs):
         context = super(UpdateStatusView, self).get_context_data(**kwargs)
         context['snapshot_id'] = self.kwargs["snapshot_id"]
+        args = (self.kwargs['snapshot_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
         return context
 
     def get_initial(self):

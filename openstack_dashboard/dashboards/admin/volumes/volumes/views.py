@@ -92,13 +92,19 @@ class CreateVolumeTypeView(forms.ModalFormView):
 
 class UpdateStatusView(forms.ModalFormView):
     form_class = volumes_forms.UpdateStatus
+    modal_header = _("Update Volume Status")
+    modal_id = "update_volume_status_modal"
     template_name = 'admin/volumes/volumes/update_status.html'
+    submit_label = _("Update Status")
+    submit_url = "horizon:admin:volumes:volumes:update_status"
     success_url = reverse_lazy('horizon:admin:volumes:index')
     page_title = _("Update Volume Status")
 
     def get_context_data(self, **kwargs):
         context = super(UpdateStatusView, self).get_context_data(**kwargs)
         context["volume_id"] = self.kwargs['volume_id']
+        args = (self.kwargs['volume_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
         return context
 
     @memoized.memoized_method

@@ -1,20 +1,7 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
-{% load url from future %}
 
-{% block form_id %}{% endblock %}
-{% block form_action %}{% url 'horizon:admin:volumes:volume_types:create_qos_spec' %}{% endblock %}
-
-{% block modal_id %}create_volume_type_modal{% endblock %}
-{% block modal-header %}{% trans "Create QoS Spec" %}{% endblock %}
-
-{% block modal-body %}
-<div class="left">
-  <fieldset>
-  {% include "horizon/common/_form_fields.html" %}
-  </fieldset>
-</div>
-<div class="right">
+{% block modal-body-right %}
   <h3>{% trans "Description:" %}</h3>
   <p>{% blocktrans %}
       QoS Specs can be associated with volume types.
@@ -27,12 +14,5 @@
       Each QoS Specs entity will have a "Consumer" value which indicates where the
       administrator would like the QoS policy to be enforced. This value can be "front-end"
       (Nova Compute), "back-end" (Cinder back-end), or "both".
-     {% endblocktrans %}
-  </p>
-</div>
-{% endblock %}
-
-{% block modal-footer %}
-  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Create" %}" />
-  <a href="{% url 'horizon:admin:volumes:volume_types_tab' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
+  {% endblocktrans %}</p>
 {% endblock %}
