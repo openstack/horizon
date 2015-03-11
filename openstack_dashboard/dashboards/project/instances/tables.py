@@ -81,7 +81,7 @@ def is_deleting(instance):
 class TerminateInstance(policy.PolicyTargetMixin, tables.BatchAction):
     name = "terminate"
     classes = ("btn-danger",)
-    icon = "off"
+    icon = "remove"
     policy_rules = (("compute", "compute:delete"),)
     help_text = _("Terminated instances are not recoverable.")
 

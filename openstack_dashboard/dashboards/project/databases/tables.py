@@ -52,7 +52,7 @@ class TerminateInstance(tables.BatchAction):
 
     name = "terminate"
     classes = ("btn-danger", )
-    icon = "off"
+    icon = "remove"
 
     def action(self, request, obj_id):
         api.trove.instance_delete(request, obj_id)
