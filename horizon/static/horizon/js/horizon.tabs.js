@@ -71,7 +71,7 @@ horizon.addInitFunction(horizon.tabs.init = function () {
   });
 
   // Enable keyboard navigation between tabs in a form.
-  $(document).on("keydown", ".tab-pane :input:visible:last", function (evt) {
+  $(".tab-content").on("keydown", ".tab-pane :input:visible:last", function (evt) {
     var $this = $(this),
       next_pane = $this.closest(".tab-pane").next(".tab-pane");
     // Capture the forward-tab keypress if we have a next tab to go to.
@@ -80,7 +80,7 @@ horizon.addInitFunction(horizon.tabs.init = function () {
       $(".nav-tabs a[data-target='#" + next_pane.attr("id") + "']").tab('show');
     }
   });
-  $(document).on("keydown", ".tab-pane :input:visible:first", function (evt) {
+  $(".tab-content").on("keydown", ".tab-pane :input:visible:first", function (evt) {
     var $this = $(this),
       prev_pane = $this.closest(".tab-pane").prev(".tab-pane");
     // Capture the forward-tab keypress if we have a next tab to go to.
