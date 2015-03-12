@@ -688,17 +688,23 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
                  'addr': port['fixed_ips'][0]['ip_address']}
         return 'server_%(svrid)s: %(addr)s' % param
 
+    def _subs_from_port(self, port):
+        return [ip['subnet_id'] for ip in port['fixed_ips']]
+
     @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_lb': True})
     def test_floating_ip_target_list(self):
         ports = self.api_ports.list()
         # Port on the first subnet is connected to a router
         # attached to external network in neutron_data.
         subnet_id = self.subnets.first().id
-        target_ports = [(self._get_target_id(p),
-                         self._get_target_name(p)) for p in ports
-                        if (not p['device_owner'].startswith('network:') and
-                            subnet_id in [ip['subnet_id']
-                                          for ip in p['fixed_ips']])]
+        shared_nets = [n for n in self.api_networks.list() if n['shared']]
+        shared_subnet_ids = [s for n in shared_nets for s in n['subnets']]
+        target_ports = [
+            (self._get_target_id(p), self._get_target_name(p)) for p in ports
+            if (not p['device_owner'].startswith('network:') and
+                (subnet_id in self._subs_from_port(p) or
+                 (set(shared_subnet_ids) & set(self._subs_from_port(p)))))
+        ]
         filters = {'tenant_id': self.request.user.tenant_id}
         self.qclient.list_ports(**filters).AndReturn({'ports': ports})
         servers = self.servers.list()
@@ -714,7 +720,11 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
             .AndReturn({'networks': ext_nets})
         self.qclient.list_routers().AndReturn({'routers':
                                                self.api_routers.list()})
-
+        self.qclient.list_networks(shared=True).AndReturn({'networks':
+                                                           shared_nets})
+        shared_subs = [s for s in self.api_subnets.list()
+                       if s['id'] in shared_subnet_ids]
+        self.qclient.list_subnets().AndReturn({'subnets': shared_subs})
         self.qclient.list_vips().AndReturn({'vips': self.vips.list()})
 
         self.mox.ReplayAll()

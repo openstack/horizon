@@ -429,7 +429,11 @@ class FloatingIpManager(network_base.FloatingIpManager):
                                 if ((p.device_owner in
                                      ROUTER_INTERFACE_OWNERS)
                                     and (p.device_id in gw_routers))])
-        return reachable_subnets
+        # we have to include any shared subnets as well because we may not
+        # have permission to see the router interface to infer connectivity
+        shared = set([s.id for n in network_list(self.request, shared=True)
+                      for s in n.subnets])
+        return reachable_subnets | shared
 
     def list_targets(self):
         tenant_id = self.request.user.tenant_id
