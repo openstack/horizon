@@ -210,6 +210,7 @@ class JobBinaryCreateForm(forms.SelfHandlingForm):
                     self.get_unique_binary_name(
                         request, request.FILES["job_binary_file"].name),
                     request.FILES["job_binary_file"].read())
+                bin_id = result.id
             except Exception:
                 exceptions.handle(request,
                                   _("Unable to upload job binary"))
@@ -221,12 +222,12 @@ class JobBinaryCreateForm(forms.SelfHandlingForm):
                     self.get_unique_binary_name(
                         request, context["job_binary_script_name"]),
                     context["job_binary_script"])
+                bin_id = result.id
             except Exception:
                 exceptions.handle(request,
                                   _("Unable to create job binary"))
                 return None
 
-        bin_id = result.id
         return "internal-db://%s" % bin_id
 
     def handle_swift(self, request, context):
