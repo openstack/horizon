@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-11 01:05-0500\n"
-"PO-Revision-Date: 2015-03-11 05:38+0000\n"
+"POT-Creation-Date: 2015-03-11 18:35-0500\n"
+"PO-Revision-Date: 2015-03-11 18:19+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -906,14 +906,14 @@ msgstr "호스트 집합에 호스트 추가/삭제"
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:24
 #: dashboards/admin/flavors/workflows.py:266
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:79
-#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:25
-#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:25
+#: dashboards/admin/volumes/volume_types/extras/views.py:88
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:101
 #: dashboards/identity/domains/workflows.py:300
 #: dashboards/identity/projects/workflows.py:564
 #: dashboards/identity/users/views.py:209
 #: dashboards/project/instances/workflows/update_instance.py:133
 #: dashboards/project/networks/subnets/workflows.py:159
-#: dashboards/project/volumes/templates/volumes/volumes/_update.html:27
+#: dashboards/project/volumes/volumes/views.py:278
 #: dashboards/settings/user/views.py:30
 msgid "Save"
 msgstr "저장"
@@ -940,19 +940,19 @@ msgstr "호스트를 추가하거나 삭제할 때 에러가 발생하였습니�
 #: dashboards/admin/networks/templates/networks/agents/_add.html:5
 #: dashboards/admin/networks/templates/networks/ports/_create.html:5
 #: dashboards/admin/networks/templates/networks/ports/_update.html:5
-#: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:18
-#: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:18
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:18
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:18
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:18
-#: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:18
-#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:19
-#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:19
-#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_create.html:19
-#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:19
+#: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:5
+#: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:5
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:5
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:5
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:5
+#: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:5
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:5
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:5
+#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_create.html:5
+#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:5
 #: dashboards/admin/volumes/templates/volumes/volumes/_manage_volume.html:5
 #: dashboards/admin/volumes/templates/volumes/volumes/_unmanage_volume.html:5
-#: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:18
+#: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:5
 #: dashboards/identity/groups/templates/groups/_create.html:5
 #: dashboards/identity/groups/templates/groups/_update.html:5
 #: dashboards/identity/roles/templates/roles/_create.html:5
@@ -997,15 +997,15 @@ msgstr "호스트를 추가하거나 삭제할 때 에러가 발생하였습니�
 #: dashboards/project/stacks/templates/stacks/_create.html:18
 #: dashboards/project/stacks/templates/stacks/_select_template.html:19
 #: dashboards/project/stacks/templates/stacks/_update.html:18
-#: dashboards/project/volumes/templates/volumes/snapshots/_update.html:18
+#: dashboards/project/volumes/templates/volumes/snapshots/_update.html:5
 #: dashboards/project/volumes/templates/volumes/volumes/_accept_transfer.html:5
 #: dashboards/project/volumes/templates/volumes/volumes/_create_transfer.html:5
 #: dashboards/project/volumes/templates/volumes/volumes/_extend_limits.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/_limits.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/_retype.html:18
+#: dashboards/project/volumes/templates/volumes/volumes/_retype.html:5
 #: dashboards/project/volumes/templates/volumes/volumes/_show_transfer.html:5
-#: dashboards/project/volumes/templates/volumes/volumes/_update.html:18
-#: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:18
+#: dashboards/project/volumes/templates/volumes/volumes/_update.html:5
+#: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:5
 #: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:5
 #: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:5
 #: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:5
@@ -1034,17 +1034,6 @@ msgstr "호스트 집합은 가용 영역을 호스트를 묶어서 논리적인
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:80
 #: dashboards/admin/metering/templates/metering/_daily.html:25
 #: dashboards/admin/networks/templates/networks/_create.html:27
-#: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:29
-#: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:35
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:37
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:34
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:39
-#: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:29
-#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:26
-#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:26
-#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_create.html:26
-#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:26
-#: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:29
 #: dashboards/identity/groups/templates/groups/_add_non_member.html:8
 #: dashboards/project/containers/templates/containers/_copy.html:24
 #: dashboards/project/containers/templates/containers/_create.html:25
@@ -1074,16 +1063,8 @@ msgstr "호스트 집합은 가용 영역을 호스트를 묶어서 논리적인
 #: dashboards/project/stacks/templates/stacks/_create.html:25
 #: dashboards/project/stacks/templates/stacks/_select_template.html:26
 #: dashboards/project/stacks/templates/stacks/_update.html:25
-#: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:25
-#: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:25
-#: dashboards/project/volumes/templates/volumes/snapshots/_update.html:25
-#: dashboards/project/volumes/templates/volumes/volumes/_attach.html:25
-#: dashboards/project/volumes/templates/volumes/volumes/_create.html:25
-#: dashboards/project/volumes/templates/volumes/volumes/_create_snapshot.html:28
-#: dashboards/project/volumes/templates/volumes/volumes/_extend.html:25
-#: dashboards/project/volumes/templates/volumes/volumes/_retype.html:40
-#: dashboards/project/volumes/templates/volumes/volumes/_update.html:28
-#: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:41
+#: dashboards/project/volumes/templates/volumes/volumes/_attach.html:20
+#: dashboards/project/volumes/templates/volumes/volumes/_create_snapshot.html:17
 msgid "Cancel"
 msgstr "취소"
 
@@ -3953,8 +3934,8 @@ msgid "Unable to update volume snapshot status."
 msgstr "볼륨 스냅샷 상태를 업데이트 하지 못 했습니다."
 
 #: dashboards/admin/volumes/snapshots/tables.py:29
-#: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:28
-#: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:28
+#: dashboards/admin/volumes/snapshots/views.py:36
+#: dashboards/admin/volumes/volumes/views.py:98
 msgid "Update Status"
 msgstr "업데이트 상태"
 
@@ -3971,14 +3952,14 @@ msgstr "업데이트 상태"
 msgid "Volume Name"
 msgstr "볼륨 이름"
 
-#: dashboards/admin/volumes/snapshots/views.py:35
-#: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:9
+#: dashboards/admin/volumes/snapshots/views.py:33
+#: dashboards/admin/volumes/snapshots/views.py:39
 #: dashboards/admin/volumes/templates/volumes/snapshots/update_status.html:3
 msgid "Update Volume Snapshot Status"
 msgstr "볼륨 스냅샷 상태 업데이트"
 
-#: dashboards/admin/volumes/snapshots/views.py:45
-#: dashboards/project/volumes/snapshots/views.py:44
+#: dashboards/admin/volumes/snapshots/views.py:49
+#: dashboards/project/volumes/snapshots/views.py:48
 msgid "Unable to retrieve volume snapshot."
 msgstr "볼륨 스냅샷을 찾지 못 했습니다."
 
@@ -4045,7 +4026,7 @@ msgstr "사양"
 msgid "GB"
 msgstr "GB"
 
-#: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:19
+#: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:6
 msgid ""
 "\n"
 "    The status of a volume snapshot is normally managed automatically.  In some circumstances\n"
@@ -4054,40 +4035,23 @@ msgid ""
 "    "
 msgstr "\n볼륨 스냅샷 상태는 기본적으론 자동으로 관리됩니다. 어떤 경우에는 \n관리자가 직접 상태값을 업데이트할 필요가 있을 수 있습니다. \n이것은 <tt>cinder snapshot-reset-state</tt> 명령과 같습니다."
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:9
-#: dashboards/admin/volumes/volume_types/views.py:155
-msgid "Associate QoS Spec with Volume Type"
-msgstr "볼륨 타입별 연결 QOS 사양"
+#: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:6
+msgid "Add, modify or remove the QoS Spec associated with this volume type."
+msgstr ""
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:19
+#: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:7
 msgid ""
-"\n"
-"    Add, modify or remove the QoS Spec associated with this volume type.\n"
-"    <br>\n"
-"    <br>\n"
-"    \"None\" indicates that no QoS Spec is currently associated. Conversely, setting\n"
-"    the QoS Spec to \"None\" will remove the current association.\n"
-"    <br>\n"
-"    <br>\n"
-"    This is equivalent to the <tt>cinder qos-associate</tt> and <tt>cinder qos-disassociate</tt>\n"
-"    commands.\n"
-"    "
-msgstr "\n해당 볼륨 유형과 연결된 QoS 스펙을 추가, 변경, 또는 제거하십시오.\n<br>\n<br>\n\"None\"은 QoS 스펙이 현재 연결되어 있음을 의미합니다. 반대로,\nQoS 스펙을 \"None\"으로 설정하면 현재 연결을 제거할 것입니다.\n<br>\n<br>\n이는 <tt>cinder qos-associate</tt> 및 <tt>cinder qos-disassociate</tt> 명령어와 \n동일합니다."
+"\"None\" indicates that no QoS Spec is currently associated. Conversely, "
+"setting the QoS Spec to \"None\" will remove the current association."
+msgstr ""
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:34
-#: dashboards/project/access_and_security/floating_ips/tables.py:110
-#: dashboards/project/access_and_security/floating_ips/workflows.py:137
-#: dashboards/project/loadbalancers/workflows.py:667
-msgid "Associate"
-msgstr "연결"
+#: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:8
+msgid ""
+"This is equivalent to the <tt>cinder qos-associate</tt> and <tt>cinder qos-"
+"disassociate</tt> commands."
+msgstr ""
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:9
-#: dashboards/admin/volumes/templates/volumes/volume_types/create_qos_spec.html:3
-#: dashboards/admin/volumes/volume_types/tables.py:190
-msgid "Create QoS Spec"
-msgstr "QOS 사양 생성:"
-
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:19
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:6
 msgid ""
 "\n"
 "      QoS Specs can be associated with volume types.\n"
@@ -4100,34 +4064,10 @@ msgid ""
 "      Each QoS Specs entity will have a \"Consumer\" value which indicates where the\n"
 "      administrator would like the QoS policy to be enforced. This value can be \"front-end\"\n"
 "      (Nova Compute), \"back-end\" (Cinder back-end), or \"both\".\n"
-"     "
-msgstr "\nQoS 스펙은 볼륨 유형과 연결 가능합니다.\n이는 볼륨 소유자에 의해 요청된 서비스 품질 기능 집합과 연결되는데\n사용됩니다. 이는 명령어\n<tt>cinder qos-create</tt>와 동일합니다. QoS 스펙이 생성되면,\n\"스펙 관리\" 버튼을 클릭하여 QoS 스펙에 대해 키-값 스펙을 관리하십시오.\n<br>\n<br>\n각 QoS 스펙 개체는 QoS 정책을 적용하고자 하는 관리자를 가리키는 \"사용자\"\n값을 가질 것입니다. 이 값은 \"front-end\"가 될 수 있고\n(Nova Compute), \"back-end\" (Cinder back-end), 또는 \"both\" 일 수 있습니다."
+"  "
+msgstr ""
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:36
-#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:25
-#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_create.html:25
-#: dashboards/admin/volumes/volume_types/extras/tables.py:48
-#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:24
-#: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:23
-#: dashboards/project/data_processing/cluster_templates/workflows/create.py:225
-#: dashboards/project/data_processing/data_sources/workflows/create.py:93
-#: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
-#: dashboards/project/data_processing/jobs/workflows/create.py:154
-#: dashboards/project/data_processing/jobs/workflows/launch.py:406
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:241
-#: dashboards/project/networks/workflows.py:342
-#: dashboards/project/networks/subnets/workflows.py:57
-msgid "Create"
-msgstr "생성"
-
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:9
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:33
-#: dashboards/admin/volumes/templates/volumes/volume_types/create_volume_type.html:3
-#: dashboards/admin/volumes/volume_types/tables.py:25
-msgid "Create Volume Type"
-msgstr "볼륨 타입 생성"
-
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:19
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:6
 msgid ""
 "\n"
 "      Volume type is a type or label that can be selected at volume creation\n"
@@ -4140,50 +4080,41 @@ msgid ""
 "     "
 msgstr "\n볼륨 타입은 OpenStack에서 볼륨 생성시 선택하는 유형 또는 라벨입니다.\n일반적으로 볼륨이 사용될 스토리지 백엔드 드라이버의 기능 설정과 매핑됩니다.\n예 : \"성능\", \"SSD\", \"백업\" 등. <tt>cinder type-create</tt>와 명령이 같습니다.\n생성시 하나의 볼륨 타입을 얻게 됩니다만, \"추가 사양 보기\" 버튼을 클릭하여\n볼륨 타입에 대한 확장 스펙에 대한 키-값 페어(들)을 설정할 수 있습니다."
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:9
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:38
-msgid "Create Volume Type Encryption"
-msgstr "볼륨 유형 암호화 생성"
-
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:20
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:7
 msgid ""
 "Creating encryption for a volume type causes all volumes with that volume "
 "type to be encrypted.  Encryption information cannot be added to a volume "
 "type if volumes are currently in use with that volume type."
 msgstr "볼륨 유형에 대한 암호화 생성은 암호화하고자 하는 해당 볼륨 유형에 대한 모든 볼륨에 적용됩니다. 해당 볼륨 유형에서 현재 사용 중인 볼륨이 있으면 해당 볼륨 유형에 암호화 정보를 추가할 수 없습니다."
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:23
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:10
 msgid ""
 "The <strong>Provider</strong> is the class providing encryption support "
 "(e.g. LuksEncryptor)."
 msgstr "<strong>프로바이더</strong>는 지원하는 암호화 제공자 유형입니다 (예, LuksEncryptor)."
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:26
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:13
 msgid ""
 "The <strong>Control Location</strong> is the notional service where "
 "encryption is performed (e.g., front-end=Nova). The default value is 'front-"
 "end.'"
 msgstr "<strong>제어 위치</strong>는 암호화가 이루어지는 개념상의 서비스입니다 (예: front-end=Nova). 기본 값은 'front-end' 입니다."
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:29
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:16
 msgid ""
 "The <strong>Cipher</strong> is the encryption algorithm/mode to use (e.g., "
 "aes-xts-plain64). If the field is left empty, the provider default will be "
 "used."
 msgstr "<strong>암호화 방식</strong>은 사용할 암호화 알고리즘/모드입니다 (예: aes-xts-plain64). 해당 필드가 비어있으면, 프로바이더 디폴트 값을 사용할 것입니다."
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:32
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:19
 msgid ""
 "The <strong>Key Size</strong> is the size of the encryption key, in bits "
 "(e.g., 128, 256). If the field is left empty, the provider default will be "
 "used."
 msgstr "<strong>키 길이</strong>는 비트 단위의 암호화 키 길이입니다 (예: 128, 256). 해당 필드가 비어있으면, 프로바디어 디폴트 값을 사용할 것입니다."
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:9
-msgid "Edit Consumer of QoS Spec"
-msgstr "QoS 스펙에 대한 사용자 편집"
-
-#: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:19
+#: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:6
 msgid ""
 "\n"
 "    Each QoS Specs entity will have a \"Consumer\" value which indicates where the\n"
@@ -4191,10 +4122,6 @@ msgid ""
 "    (Nova Compute), \"back-end\" (Cinder back-end), or \"both\".\n"
 "    "
 msgstr "\n각 QoS 스펙 개체는 관리자가 적용하고자 하는 QoS 정책을 가리키는\n\"소비자\" 값을 가질 것입니다. 해당 값은 \"front-end\"\n(Nova Compute), \"back-end\" (Cinder back-end), 또는 \"both\"가 될 수 있습니다."
-
-#: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:28
-msgid "Modify Consumer"
-msgstr "사용자 수정"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:4
 msgid "Volume Type Encryption Overview"
@@ -4235,35 +4162,38 @@ msgstr "볼륨 유형이 암호화되지 않았습니다."
 msgid "Associate QoS Spec"
 msgstr "연결된 QoS 스펙"
 
+#: dashboards/admin/volumes/templates/volumes/volume_types/create_qos_spec.html:3
+#: dashboards/admin/volumes/volume_types/tables.py:190
+#: dashboards/admin/volumes/volume_types/views.py:121
+msgid "Create QoS Spec"
+msgstr "QOS 사양 생성:"
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/create_volume_type.html:3
+#: dashboards/admin/volumes/volume_types/tables.py:25
+#: dashboards/admin/volumes/volume_types/views.py:35
+#: dashboards/admin/volumes/volume_types/views.py:38
+msgid "Create Volume Type"
+msgstr "볼륨 타입 생성"
+
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_volume_type_encryption.html:3
 msgid "Create Encrypted Volume Type"
 msgstr "암호화된 볼륨 유형 생성"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/edit_qos_spec_consumer.html:3
-#: dashboards/admin/volumes/volume_types/views.py:122
+#: dashboards/admin/volumes/volume_types/views.py:142
 msgid "Edit QoS Spec Consumer"
 msgstr "QoS 스펙 사용자 편집"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/volume_encryption_type_detail.html:3
-#: dashboards/admin/volumes/volume_types/views.py:46
+#: dashboards/admin/volumes/volume_types/views.py:50
 msgid "Volume Type Encryption Details"
 msgstr "볼륨 유형 암호화 세부 사항"
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:10
-#: dashboards/admin/volumes/templates/volumes/volume_types/extras/create.html:4
-msgid "Create Volume Type Extra Spec"
-msgstr "볼륨 유형 추가 사양 생성"
-
-#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:20
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:6
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "볼륨 유형에대한 새로운 \"추가 사양\" 키-값을 생성합니다."
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:10
-#, python-format
-msgid "Edit Extra Spec Value: %(key)s"
-msgstr "추가 스펙 값 편집: %(key)s"
-
-#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:20
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:6
 #, python-format
 msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "\"%(key)s\"에 대한 \"extra spec\" 값을 업데이트 하였습니다."
@@ -4279,9 +4209,13 @@ msgstr "볼륨 유형 추가 사양"
 #: dashboards/project/containers/templates/containers/_container_detail.html:29
 #: dashboards/project/containers/templates/containers/_object_detail.html:25
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:104
-#: dashboards/project/volumes/templates/volumes/volumes/_show_transfer.html:11
 msgid "Close"
 msgstr "닫기"
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/create.html:4
+#: dashboards/admin/volumes/volume_types/extras/views.py:62
+msgid "Create Volume Type Extra Spec"
+msgstr "볼륨 유형 추가 사양 생성"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/create.html:8
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/edit.html:8
@@ -4298,24 +4232,20 @@ msgstr "볼륨 유형 추가 사양 편집"
 msgid "Volume Type: %(volume_type_name)s"
 msgstr "볼륨 유형: %(volume_type_name)s"
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_create.html:10
-#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/create.html:4
-msgid "Create Spec"
-msgstr "사양 생성"
-
-#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_create.html:20
+#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_create.html:6
 #, python-format
 msgid "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\""
 msgstr "새로운 \"spec\" 키-값 페어를 QoS 스펙 \"%(qos_spec_name)s\"에 생성합니다"
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:10
-msgid "Edit Spec Value: "
-msgstr "Spec Value를 수정:"
-
-#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:20
+#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:6
 #, python-format
 msgid "Update the spec value for \"%(key)s\""
 msgstr " \"%(key)s\" 스펙 값을 갱신합니다. "
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/create.html:4
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:72
+msgid "Create Spec"
+msgstr "사양 생성"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/create.html:7
 #, python-format
@@ -4357,14 +4287,7 @@ msgid ""
 "    "
 msgstr "\n볼륨이 \"미관리\" 상태일 때, 해당 볼륨은 OpenStack에서 더 이상 나타나지 않을 것입니다. 참고로,\n해당 볼륨이 Cinder 호스트에서 삭제된 것은 아닙니다.\n<br>\n<br>\n이는 <tt>cinder unmanage</tt> 명령어와 동일합니다."
 
-#: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:9
-#: dashboards/admin/volumes/templates/volumes/volumes/update_status.html:3
-#: dashboards/admin/volumes/volumes/tables.py:69
-#: dashboards/admin/volumes/volumes/views.py:97
-msgid "Update Volume Status"
-msgstr "볼륨 스냅샷 업데이트"
-
-#: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:19
+#: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:6
 msgid ""
 "\n"
 "    The status of a volume is normally managed automatically.  In some circumstances an\n"
@@ -4396,6 +4319,13 @@ msgstr "볼륨 관리 취소"
 #: dashboards/admin/volumes/templates/volumes/volumes/unmanage_volume.html:6
 msgid "Unmanage a Volume"
 msgstr "볼륨 관리 취소"
+
+#: dashboards/admin/volumes/templates/volumes/volumes/update_status.html:3
+#: dashboards/admin/volumes/volumes/tables.py:69
+#: dashboards/admin/volumes/volumes/views.py:95
+#: dashboards/admin/volumes/volumes/views.py:101
+msgid "Update Volume Status"
+msgstr "볼륨 스냅샷 업데이트"
 
 #: dashboards/admin/volumes/volume_types/forms.py:52
 #, python-format
@@ -4520,40 +4450,82 @@ msgstr "사용자"
 msgid "QoS Specs"
 msgstr "QOS 사양"
 
-#: dashboards/admin/volumes/volume_types/views.py:37
+#: dashboards/admin/volumes/volume_types/views.py:41
 msgid "Create a Volume Type"
 msgstr "볼륨 유형 생성"
 
-#: dashboards/admin/volumes/volume_types/views.py:68
+#: dashboards/admin/volumes/volume_types/views.py:72
 msgid "Unable to retrieve volume type encryption details."
 msgstr "볼륨 유형 암호화 세부 내역을 가져올 수 없습니다."
 
-#: dashboards/admin/volumes/volume_types/views.py:81
+#: dashboards/admin/volumes/volume_types/views.py:83
+#: dashboards/admin/volumes/volume_types/views.py:87
+msgid "Create Volume Type Encryption"
+msgstr "볼륨 유형 암호화 생성"
+
+#: dashboards/admin/volumes/volume_types/views.py:90
 msgid "Create an Encrypted Volume Type"
 msgstr "암호화된 볼륨 유형 생성"
 
-#: dashboards/admin/volumes/volume_types/views.py:91
+#: dashboards/admin/volumes/volume_types/views.py:100
 msgid "Unable to retrieve volume type name."
 msgstr "볼륨 유형 이름을 가져올 수 없습니다."
 
-#: dashboards/admin/volumes/volume_types/views.py:112
+#: dashboards/admin/volumes/volume_types/views.py:125
 msgid "Create a QoS Spec"
 msgstr "QoS 스펙 생성"
 
+#: dashboards/admin/volumes/volume_types/views.py:126
+#: dashboards/admin/volumes/volume_types/extras/tables.py:48
+#: dashboards/admin/volumes/volume_types/extras/views.py:64
+#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:24
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:75
+#: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:23
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:225
+#: dashboards/project/data_processing/data_sources/workflows/create.py:93
+#: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
+#: dashboards/project/data_processing/jobs/workflows/create.py:154
+#: dashboards/project/data_processing/jobs/workflows/launch.py:406
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:241
+#: dashboards/project/networks/workflows.py:342
+#: dashboards/project/networks/subnets/workflows.py:57
+msgid "Create"
+msgstr "생성"
+
+#: dashboards/admin/volumes/volume_types/views.py:136
+msgid "Edit Consumer of QoS Spec"
+msgstr "QoS 스펙에 대한 사용자 편집"
+
 #: dashboards/admin/volumes/volume_types/views.py:139
+msgid "Modify Consumer"
+msgstr "사용자 수정"
+
+#: dashboards/admin/volumes/volume_types/views.py:161
 msgid "Unable to retrieve QoS Spec details."
 msgstr "QOS 사양의 세부 정보를 찾지 못 했습니다."
 
-#: dashboards/admin/volumes/volume_types/views.py:172
+#: dashboards/admin/volumes/volume_types/views.py:175
+#: dashboards/admin/volumes/volume_types/views.py:182
+msgid "Associate QoS Spec with Volume Type"
+msgstr "볼륨 타입별 연결 QOS 사양"
+
+#: dashboards/admin/volumes/volume_types/views.py:178
+#: dashboards/project/access_and_security/floating_ips/tables.py:110
+#: dashboards/project/access_and_security/floating_ips/workflows.py:137
+#: dashboards/project/loadbalancers/workflows.py:673
+msgid "Associate"
+msgstr "연결"
+
+#: dashboards/admin/volumes/volume_types/views.py:201
 #: dashboards/admin/volumes/volume_types/extras/views.py:36
 msgid "Unable to retrieve volume type details."
 msgstr "볼륨 유형에 대한 세부 정보를 찾지 못했습니다."
 
-#: dashboards/admin/volumes/volume_types/views.py:182
+#: dashboards/admin/volumes/volume_types/views.py:211
 msgid "Unable to retrieve QoS Specs."
 msgstr "QOS 사양의 정보을 찾지 못 했습니다."
 
-#: dashboards/admin/volumes/volume_types/views.py:202
+#: dashboards/admin/volumes/volume_types/views.py:231
 msgid "Unable to retrieve QoS Spec association."
 msgstr "QoS 스펙 연결을 가져올 수 없습니다."
 
@@ -4621,7 +4593,12 @@ msgstr "추가 사양"
 msgid "Unable to retrieve extra spec list."
 msgstr "추가 사양 목록을 찾지 못 했습니다."
 
-#: dashboards/admin/volumes/volume_types/extras/views.py:91
+#: dashboards/admin/volumes/volume_types/extras/views.py:86
+#, python-format
+msgid "Edit Extra Spec Value: %s"
+msgstr ""
+
+#: dashboards/admin/volumes/volume_types/extras/views.py:107
 msgid "Unable to retrieve volume type extra spec details."
 msgstr "볼륨 타입 추가 사양에 대한 자세한 정보를 찾지 못 했습니다."
 
@@ -4659,7 +4636,11 @@ msgstr "정의되지 않은"
 msgid "Unable to retrieve QoS spec list."
 msgstr "QOS 사양 목록을 찾지 못 했습니다."
 
-#: dashboards/admin/volumes/volume_types/qos_specs/views.py:100
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:98
+msgid "Edit Spec Value"
+msgstr ""
+
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:117
 msgid "Unable to retrieve QoS spec details."
 msgstr "QOS 사양의 세부 정보를 찾지 못 했습니다."
 
@@ -4791,9 +4772,9 @@ msgid "Unmanage"
 msgstr "관리 취소"
 
 #: dashboards/admin/volumes/volumes/views.py:73
-#: dashboards/admin/volumes/volumes/views.py:111
+#: dashboards/admin/volumes/volumes/views.py:117
 #: dashboards/project/volumes/volumes/views.py:68
-#: dashboards/project/volumes/volumes/views.py:424
+#: dashboards/project/volumes/volumes/views.py:457
 msgid "Unable to retrieve volume details."
 msgstr "볼륨 세부 정보를 찾지 못 했습니다."
 
@@ -5845,7 +5826,7 @@ msgid_plural "Released Floating IPs"
 msgstr[0] "유동 IP 릴리즈함"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:132
-#: dashboards/project/loadbalancers/workflows.py:730
+#: dashboards/project/loadbalancers/workflows.py:736
 msgid "Disassociate"
 msgstr "연결 해제"
 
@@ -6352,7 +6333,7 @@ msgstr "시큐리티 그룹을 찾지 못 했습니다."
 #: dashboards/project/loadbalancers/workflows.py:136
 #: dashboards/project/loadbalancers/workflows.py:260
 #: dashboards/project/loadbalancers/workflows.py:426
-#: dashboards/project/loadbalancers/workflows.py:604
+#: dashboards/project/loadbalancers/workflows.py:610
 #: dashboards/project/vpn/workflows.py:92
 #: dashboards/project/vpn/workflows.py:191
 #: dashboards/project/vpn/workflows.py:288
@@ -6900,6 +6881,7 @@ msgstr "업로드한 클러스터 템플릿 파일을 사용할 수 없음"
 
 #: dashboards/project/data_processing/cluster_templates/panel.py:22
 #: dashboards/project/data_processing/cluster_templates/tables.py:132
+#: dashboards/project/data_processing/cluster_templates/views.py:44
 msgid "Cluster Templates"
 msgstr "클러스터 템플릿"
 
@@ -6934,21 +6916,19 @@ msgid "Version"
 msgstr "버전"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:39
+#: dashboards/project/data_processing/cluster_templates/views.py:81
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_upload_file.html:11
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/upload_file.html:3
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/upload_file.html:6
 msgid "Upload Template"
 msgstr "템플릿 업로드"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:47
 #: dashboards/project/data_processing/clusters/tables.py:41
+#: dashboards/project/data_processing/clusters/views.py:73
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_create_cluster.html:10
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/configure.html:3
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/configure.html:6
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/create.html:3
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/create.html:6
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/create_cluster.html:3
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/create_cluster.html:6
 #: dashboards/project/data_processing/clusters/workflows/create.py:57
 #: dashboards/project/data_processing/clusters/workflows/create.py:207
 msgid "Launch Cluster"
@@ -6977,6 +6957,7 @@ msgid "Create Template"
 msgstr "템플릿 생성"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:100
+#: dashboards/project/data_processing/cluster_templates/views.py:97
 msgid "Configure Cluster Template"
 msgstr "클러스터 템플릿 구성"
 
@@ -7007,12 +6988,29 @@ msgstr "클러스터 템플릿에 대한 자세한 정보를 가져올 수 없�
 msgid "Unable to fetch node group details."
 msgstr "노드 그룹에 대한 자세한 정보를 가져올 수 없습니다."
 
-#: dashboards/project/data_processing/cluster_templates/views.py:56
+#: dashboards/project/data_processing/cluster_templates/views.py:57
 msgid "Unable to fetch cluster template list"
 msgstr "클러스터 템플릿 목록을 가져올 수 없습니다."
 
-#: dashboards/project/data_processing/cluster_templates/views.py:116
-#: dashboards/project/data_processing/clusters/views.py:101
+#: dashboards/project/data_processing/cluster_templates/views.py:64
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/details.html:3
+msgid "Cluster Template Details"
+msgstr "클러스터 템플릿 자세한 정보"
+
+#: dashboards/project/data_processing/cluster_templates/views.py:90
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/configure.html:3
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/create.html:3
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:80
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:224
+msgid "Create Cluster Template"
+msgstr "클러스터 템플릿 생성"
+
+#: dashboards/project/data_processing/cluster_templates/views.py:104
+msgid "Copy Cluster Template"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/views.py:122
+#: dashboards/project/data_processing/clusters/views.py:106
 msgid "Unable to fetch cluster template."
 msgstr "클러스터 템플릿을 가져올 수 없습니다."
 
@@ -7139,7 +7137,7 @@ msgid "Node configurations are not specified"
 msgstr "노드 구성을 선택하지 않았습니다."
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_upload_file.html:22
-#: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:40
+#: dashboards/project/volumes/volumes/views.py:173
 msgid "Upload"
 msgstr "올리기"
 
@@ -7147,27 +7145,9 @@ msgstr "올리기"
 msgid "Select a Node Group Template to add:"
 msgstr "추가할 노트 그룹 템플릿 선택:"
 
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_templates.html:6
-msgid "Data Processing - Cluster Templates"
-msgstr "테이터 처리 - 클러스터 템플릿"
-
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_templates.html:23
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_templates.html:19
 msgid "Add Node Group"
 msgstr "노드 그룹 추가"
-
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/configure.html:3
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/configure.html:6
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/create.html:3
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/create.html:6
-#: dashboards/project/data_processing/cluster_templates/workflows/create.py:80
-#: dashboards/project/data_processing/cluster_templates/workflows/create.py:224
-msgid "Create Cluster Template"
-msgstr "클러스터 템플릿 생성"
-
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/details.html:3
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/details.html:6
-msgid "Cluster Template Details"
-msgstr "클러스터 템플릿 자세한 정보"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/copy.py:32
 #, python-format
@@ -7231,12 +7211,13 @@ msgstr "클러스터 템플릿을 생성하지 못 했습니다."
 
 #: dashboards/project/data_processing/clusters/panel.py:22
 #: dashboards/project/data_processing/clusters/tables.py:155
+#: dashboards/project/data_processing/clusters/views.py:40
 msgid "Clusters"
 msgstr "클러스터"
 
 #: dashboards/project/data_processing/clusters/tables.py:49
+#: dashboards/project/data_processing/clusters/views.py:88
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/scale.html:3
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/scale.html:6
 #: dashboards/project/data_processing/clusters/workflows/scale.py:42
 msgid "Scale Cluster"
 msgstr "클러스터 규모"
@@ -7257,6 +7238,7 @@ msgid "Unable to update row"
 msgstr "행을 업데이트 할 수 없습니다."
 
 #: dashboards/project/data_processing/clusters/tables.py:130
+#: dashboards/project/data_processing/clusters/views.py:80
 #: dashboards/project/data_processing/clusters/workflows/create.py:189
 #: dashboards/project/data_processing/jobs/workflows/launch.py:312
 msgid "Configure Cluster"
@@ -7287,9 +7269,14 @@ msgstr "클러스터 인스턴스"
 msgid "Unable to fetch instance details."
 msgstr "인스턴스에 대한 자세한 정보를 가져오지 못 했습니다."
 
-#: dashboards/project/data_processing/clusters/views.py:51
+#: dashboards/project/data_processing/clusters/views.py:52
 msgid "Unable to fetch cluster list"
 msgstr "클러스터 목록을 가져오지 못 했습니다."
+
+#: dashboards/project/data_processing/clusters/views.py:59
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/details.html:3
+msgid "Cluster Details"
+msgstr "클러스터 자세한 정보"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:4
 msgid "This Cluster will be started with:"
@@ -7359,15 +7346,6 @@ msgstr "노드 수"
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:126
 msgid "Floating IP Pool"
 msgstr "유동 IP Pool"
-
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/clusters.html:6
-msgid "Data Processing - Clusters"
-msgstr "데이터 프로세싱 - 클러스터"
-
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/details.html:3
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/details.html:6
-msgid "Cluster Details"
-msgstr "클러스터 자세한 정보"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:46
 #: dashboards/project/data_processing/jobs/workflows/launch.py:394
@@ -7483,7 +7461,7 @@ msgstr "사용가능한 이미지를 가져오지 못 했습니다."
 
 #: dashboards/project/data_processing/data_image_registry/panel.py:22
 #: dashboards/project/data_processing/data_image_registry/tables.py:81
-#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/image_registry.html:6
+#: dashboards/project/data_processing/data_image_registry/views.py:41
 msgid "Image Registry"
 msgstr "이미지 저장소"
 
@@ -7492,9 +7470,9 @@ msgid "Edit Tags"
 msgstr "태그 편집"
 
 #: dashboards/project/data_processing/data_image_registry/tables.py:44
+#: dashboards/project/data_processing/data_image_registry/views.py:119
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_register_image.html:10
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/register_image.html:3
-#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/register_image.html:6
 msgid "Register Image"
 msgstr "이미지 등록"
 
@@ -7512,24 +7490,24 @@ msgstr[0] "이미지 등록 취소함"
 msgid "Tags"
 msgstr "태그"
 
-#: dashboards/project/data_processing/data_image_registry/views.py:47
+#: dashboards/project/data_processing/data_image_registry/views.py:48
 msgid "Unable to retrieve image list"
 msgstr "이미지 목록을 찾지 못 했습니다."
 
-#: dashboards/project/data_processing/data_image_registry/views.py:57
-#: dashboards/project/data_processing/data_image_registry/views.py:72
+#: dashboards/project/data_processing/data_image_registry/views.py:58
+#: dashboards/project/data_processing/data_image_registry/views.py:73
 msgid "Unable to process plugin tags"
 msgstr "프로세스 플러그인 태그를 사용할 수 없습니다."
 
-#: dashboards/project/data_processing/data_image_registry/views.py:98
-msgid "Unable to fetch the image details"
-msgstr "이미지 상세 정보를 가져올 수 없습니다."
-
+#: dashboards/project/data_processing/data_image_registry/views.py:85
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_edit_tags.html:10
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/edit_tags.html:3
-#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/edit_tags.html:6
 msgid "Edit Image Tags"
 msgstr "이미지 태그 수정"
+
+#: dashboards/project/data_processing/data_image_registry/views.py:100
+msgid "Unable to fetch the image details"
+msgstr "이미지 상세 정보를 가져올 수 없습니다."
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_edit_tags.html:27
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_register_image.html:25
@@ -7598,32 +7576,32 @@ msgstr "지원하는 버전"
 msgid "Unable to retrieve plugin."
 msgstr "플러그인을 찾지 못 했습니다."
 
-#: dashboards/project/data_processing/data_plugins/views.py:40
+#: dashboards/project/data_processing/data_plugins/views.py:34
+msgid "Data Processing Plugins"
+msgstr "데이터 프로세싱 플러그인"
+
+#: dashboards/project/data_processing/data_plugins/views.py:41
 msgid "Unable to retrieve data processing plugins."
 msgstr "데이터 프로세싱 플러그인을 찾지 못 했습니다."
+
+#: dashboards/project/data_processing/data_plugins/views.py:49
+#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/details.html:3
+msgid "Data Processing Plugin Details"
+msgstr "데이터 플세싱 플러그인 상세 정보"
 
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:3
 msgid "Data Processing Plugin Overview"
 msgstr "데이터 프로세싱 플러그인 개요"
 
-#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/details.html:3
-#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/details.html:6
-msgid "Data Processing Plugin Details"
-msgstr "데이터 플세싱 플러그인 상세 정보"
-
-#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/plugins.html:6
-msgid "Data Processing Plugins"
-msgstr "데이터 프로세싱 플러그인"
-
 #: dashboards/project/data_processing/data_sources/panel.py:22
 #: dashboards/project/data_processing/data_sources/tables.py:67
-#: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/data_sources.html:6
+#: dashboards/project/data_processing/data_sources/views.py:38
 msgid "Data Sources"
 msgstr "데이터 소스"
 
 #: dashboards/project/data_processing/data_sources/tables.py:28
+#: dashboards/project/data_processing/data_sources/views.py:56
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/create.html:3
-#: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/create.html:6
 #: dashboards/project/data_processing/data_sources/workflows/create.py:68
 #: dashboards/project/data_processing/data_sources/workflows/create.py:92
 msgid "Create Data Source"
@@ -7643,10 +7621,15 @@ msgstr[0] "데이터 원본 제거됨"
 msgid "Unable to retrieve data source details"
 msgstr "데이터 소스에대한 세부 정보를 찾지 못 했습니다."
 
-#: dashboards/project/data_processing/data_sources/views.py:45
+#: dashboards/project/data_processing/data_sources/views.py:46
 #: dashboards/project/data_processing/jobs/workflows/launch.py:75
 msgid "Unable to fetch data sources."
 msgstr "데이터 소스를 가져올 수 없습니다."
+
+#: dashboards/project/data_processing/data_sources/views.py:62
+#: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/details.html:3
+msgid "Data Source Details"
+msgstr "데이터 소스에 대한 자세한 설명"
 
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_create_data_source_help.html:4
 msgid "Create a Data Source with a specified name."
@@ -7685,11 +7668,6 @@ msgstr "URL"
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:24
 msgid "Create time"
 msgstr "시간 생성"
-
-#: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/details.html:3
-#: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/details.html:6
-msgid "Data Source Details"
-msgstr "데이터 소스에 대한 자세한 설명"
 
 #: dashboards/project/data_processing/data_sources/workflows/create.py:31
 msgid "Data Source Type"
@@ -7756,9 +7734,9 @@ msgstr "Job 바이너리를 생성하지 못 했습니다."
 
 #: dashboards/project/data_processing/job_binaries/forms.py:198
 #: dashboards/project/data_processing/job_binaries/tables.py:31
+#: dashboards/project/data_processing/job_binaries/views.py:61
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:11
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/create.html:3
-#: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/create.html:6
 msgid "Create Job Binary"
 msgstr "Job 바이너리 생성"
 
@@ -7772,7 +7750,7 @@ msgstr "내부 바이너리 목록을 가져올 수 없습니다."
 
 #: dashboards/project/data_processing/job_binaries/panel.py:22
 #: dashboards/project/data_processing/job_binaries/tables.py:88
-#: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/job_binaries.html:6
+#: dashboards/project/data_processing/job_binaries/views.py:43
 msgid "Job Binaries"
 msgstr "Job 바이너리"
 
@@ -7798,11 +7776,16 @@ msgstr "Url"
 msgid "Unable to fetch job binary."
 msgstr "Job 바이너리를 가져올 수 없습니다."
 
-#: dashboards/project/data_processing/job_binaries/views.py:50
+#: dashboards/project/data_processing/job_binaries/views.py:51
 msgid "Unable to fetch job binary list."
 msgstr "Job 바이너리 목록을 가져올 수 없습니다."
 
-#: dashboards/project/data_processing/job_binaries/views.py:84
+#: dashboards/project/data_processing/job_binaries/views.py:67
+#: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/details.html:3
+msgid "Job Binary Details"
+msgstr "Job 바이너리에대한 자세한 정보"
+
+#: dashboards/project/data_processing/job_binaries/views.py:87
 #, python-format
 msgid "Unable to fetch job binary: %(exc)s"
 msgstr "Job 바이너리를 가져올 수 없습니다: %(exc)s"
@@ -7863,14 +7846,9 @@ msgstr "Job 바이너리 개요"
 msgid "Download job binary"
 msgstr "Job 바이너리 다운로드"
 
-#: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/details.html:3
-#: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/details.html:6
-msgid "Job Binary Details"
-msgstr "Job 바이너리에대한 자세한 정보"
-
 #: dashboards/project/data_processing/job_executions/panel.py:22
 #: dashboards/project/data_processing/job_executions/tables.py:188
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/job_executions.html:6
+#: dashboards/project/data_processing/job_executions/views.py:39
 msgid "Job Executions"
 msgstr "Job 실행"
 
@@ -7903,8 +7881,10 @@ msgstr[0] "Job 실행 제거됨"
 
 #: dashboards/project/data_processing/job_executions/tables.py:68
 #: dashboards/project/data_processing/job_executions/tables.py:97
+#: dashboards/project/data_processing/jobs/views.py:83
+#: dashboards/project/data_processing/jobs/views.py:104
+#: dashboards/project/data_processing/jobs/views.py:117
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/launch.html:3
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/launch.html:6
 #: dashboards/project/data_processing/jobs/workflows/launch.py:330
 #: dashboards/project/data_processing/jobs/workflows/launch.py:405
 #: dashboards/project/data_processing/jobs/workflows/launch.py:415
@@ -7946,9 +7926,14 @@ msgctxt "Current status of a Job Execution"
 msgid "Succeeded"
 msgstr "Succeeded"
 
-#: dashboards/project/data_processing/job_executions/views.py:56
+#: dashboards/project/data_processing/job_executions/views.py:57
 msgid "Unable to fetch job executions."
 msgstr "Job 실행을 가져올 수 없습니다."
+
+#: dashboards/project/data_processing/job_executions/views.py:64
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/details.html:3
+msgid "Job Execution Details"
+msgstr "Job 실행에대한 자세한 정보"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:3
 msgid "Job Execution Overview"
@@ -8002,20 +7987,15 @@ msgstr "Job 구성"
 msgid "%(group)s:"
 msgstr "%(group)s:"
 
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/details.html:3
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/details.html:6
-msgid "Job Execution Details"
-msgstr "Job 실행에대한 자세한 정보"
-
 #: dashboards/project/data_processing/jobs/panel.py:22
 #: dashboards/project/data_processing/jobs/tables.py:111
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/jobs.html:6
+#: dashboards/project/data_processing/jobs/views.py:41
 msgid "Jobs"
 msgstr "Jobs"
 
 #: dashboards/project/data_processing/jobs/tables.py:36
+#: dashboards/project/data_processing/jobs/views.py:62
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:3
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:6
 #: dashboards/project/data_processing/jobs/workflows/create.py:114
 #: dashboards/project/data_processing/jobs/workflows/create.py:153
 msgid "Create Job"
@@ -8040,10 +8020,15 @@ msgstr "기존 클러스터에서 실행"
 msgid "Launch On New Cluster"
 msgstr "새로운 클러스터에서 실행"
 
-#: dashboards/project/data_processing/jobs/views.py:52
+#: dashboards/project/data_processing/jobs/views.py:53
 #: dashboards/project/data_processing/jobs/workflows/launch.py:89
 msgid "Unable to fetch jobs."
 msgstr "Job을 가져올 수 없습니다."
+
+#: dashboards/project/data_processing/jobs/views.py:68
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/details.html:3
+msgid "Job Details"
+msgstr "Job에대한 자세한 정보"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:4
 msgid "Create a job with a specified name."
@@ -8159,11 +8144,6 @@ msgstr "매개 변수"
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:226
 msgid "Arguments"
 msgstr "인수"
-
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/details.html:3
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/details.html:6
-msgid "Job Details"
-msgstr "Job에대한 자세한 정보"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/library_template.html:86
 msgid "Choose"
@@ -8282,7 +8262,7 @@ msgstr "Job을 실행할 수 없습니다."
 
 #: dashboards/project/data_processing/nodegroup_templates/panel.py:22
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:96
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/nodegroup_templates.html:6
+#: dashboards/project/data_processing/nodegroup_templates/views.py:41
 msgid "Node Group Templates"
 msgstr "노드 그룹 뎀플릿"
 
@@ -8308,11 +8288,24 @@ msgstr "유동 IP 풀을 찾지 못 했습니다."
 msgid "Service Configurations"
 msgstr "서비스 구성"
 
-#: dashboards/project/data_processing/nodegroup_templates/views.py:53
+#: dashboards/project/data_processing/nodegroup_templates/views.py:54
 msgid "Unable to fetch node group template list."
 msgstr "노드 그룹 템플릿 목록을 가져올 수 없습니다."
 
-#: dashboards/project/data_processing/nodegroup_templates/views.py:108
+#: dashboards/project/data_processing/nodegroup_templates/views.py:61
+msgid "Node Group Template Details"
+msgstr "노드 그룹 템플릿에 대한 자세한 정보"
+
+#: dashboards/project/data_processing/nodegroup_templates/views.py:79
+#: dashboards/project/data_processing/nodegroup_templates/views.py:87
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:3
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/create.html:3
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:240
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:373
+msgid "Create Node Group Template"
+msgstr "노드 그룹 템플릿 생성"
+
+#: dashboards/project/data_processing/nodegroup_templates/views.py:112
 msgid "Unable to fetch template object."
 msgstr "템플릿 오브젝트를 가져올 수 없습니다."
 
@@ -8385,21 +8378,8 @@ msgstr "모든 구성 감추기"
 msgid "%(conf_name)s: %(conf_val)s"
 msgstr "%(conf_name)s: %(conf_val)s"
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:3
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:6
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/create.html:3
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/create.html:6
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:240
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:373
-msgid "Create Node Group Template"
-msgstr "노드 그룹 템플릿 생성"
-
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/details.html:3
 msgid "Nodegroup Template Details"
-msgstr "노드 그룹 템플릿에 대한 자세한 정보"
-
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/details.html:6
-msgid "Node Group Template Details"
 msgstr "노드 그룹 템플릿에 대한 자세한 정보"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/copy.py:29
@@ -9763,9 +9743,10 @@ msgstr "새로운 방화벽 추가"
 #: dashboards/project/loadbalancers/views.py:358
 #: dashboards/project/networks/views.py:69
 #: dashboards/project/networks/ports/views.py:88
-#: dashboards/project/routers/views.py:167 dashboards/project/vpn/views.py:274
-#: dashboards/project/vpn/views.py:310 dashboards/project/vpn/views.py:353
-#: dashboards/project/vpn/views.py:395
+#: dashboards/project/routers/views.py:167
+#: dashboards/project/volumes/snapshots/views.py:37
+#: dashboards/project/vpn/views.py:274 dashboards/project/vpn/views.py:310
+#: dashboards/project/vpn/views.py:353 dashboards/project/vpn/views.py:395
 #: dashboards/router/nexus1000v/views.py:122
 msgid "Save Changes"
 msgstr "변경사항 저장"
@@ -10089,11 +10070,11 @@ msgstr[0] "이미지 삭제함"
 
 #: dashboards/project/images/images/tables.py:124
 #: dashboards/project/volumes/snapshots/tables.py:93
-#: dashboards/project/volumes/templates/volumes/volumes/_create.html:9
-#: dashboards/project/volumes/templates/volumes/volumes/_create.html:24
 #: dashboards/project/volumes/templates/volumes/volumes/create.html:3
 #: dashboards/project/volumes/volumes/tables.py:96
 #: dashboards/project/volumes/volumes/tables.py:121
+#: dashboards/project/volumes/volumes/views.py:82
+#: dashboards/project/volumes/volumes/views.py:84
 msgid "Create Volume"
 msgstr "볼륨 생성"
 
@@ -11765,7 +11746,7 @@ msgid "Add Member"
 msgstr "멤버 추가"
 
 #: dashboards/project/loadbalancers/tables.py:68
-#: dashboards/project/loadbalancers/workflows.py:603
+#: dashboards/project/loadbalancers/workflows.py:609
 msgid "Add Monitor"
 msgstr "모니터 추가"
 
@@ -11838,7 +11819,7 @@ msgid "Edit Monitor"
 msgstr "모니터 편집"
 
 #: dashboards/project/loadbalancers/tables.py:234
-#: dashboards/project/loadbalancers/workflows.py:666
+#: dashboards/project/loadbalancers/workflows.py:672
 msgid "Associate Monitor"
 msgstr "모니터 연결"
 
@@ -11847,7 +11828,7 @@ msgid "Failed to retrieve health monitors."
 msgstr "상태 모니터를 찾을 수 없습니다"
 
 #: dashboards/project/loadbalancers/tables.py:257
-#: dashboards/project/loadbalancers/workflows.py:729
+#: dashboards/project/loadbalancers/workflows.py:735
 msgid "Disassociate Monitor"
 msgstr "모니터 연결 해제"
 
@@ -12298,96 +12279,100 @@ msgid ""
 "202), or range of values (e.g. 200-204)"
 msgstr "예상된 코드는 단일 값(예: 200), 목록 값(예:200, 202), 또는 범위 값(예: 200-204)입니다."
 
-#: dashboards/project/loadbalancers/workflows.py:565
+#: dashboards/project/loadbalancers/workflows.py:562
+msgid "Delay must be greater than or equal to Timeout"
+msgstr ""
+
+#: dashboards/project/loadbalancers/workflows.py:571
 msgid "Please choose a HTTP method"
 msgstr "HTTP 방식을 선택하세요"
 
-#: dashboards/project/loadbalancers/workflows.py:568
+#: dashboards/project/loadbalancers/workflows.py:574
 msgid "Please specify an URL"
 msgstr "URL을 지정하세요"
 
-#: dashboards/project/loadbalancers/workflows.py:571
+#: dashboards/project/loadbalancers/workflows.py:577
 msgid ""
 "Please enter a single value (e.g. 200), a list of values (e.g. 200, 202), or"
 " range of values (e.g. 200-204)"
 msgstr "단일 값(예: 200), 목록 값(예:200, 202), 또는 범위 값(예: 200-204)을 입력하세요"
 
-#: dashboards/project/loadbalancers/workflows.py:578
+#: dashboards/project/loadbalancers/workflows.py:584
 msgid "Add New Monitor"
 msgstr "새로운 모니터 추가"
 
-#: dashboards/project/loadbalancers/workflows.py:580
+#: dashboards/project/loadbalancers/workflows.py:586
 msgid ""
 "Create a monitor template.\n"
 "\n"
 "Select type of monitoring. Specify delay, timeout, and retry limits required by the monitor. Specify method, URL path, and expected HTTP codes upon success."
 msgstr "모니터 템플릿을 생성하세요.\n\n모니터링 유형을 선택하세요. 지연, 타임아웃, 및 모니터에 의해 요구된 재시도 횟수를 지정하세요. 방식, URL 경로, 성공 시 예상된 HTTP 코드를 지정하세요. "
 
-#: dashboards/project/loadbalancers/workflows.py:605
+#: dashboards/project/loadbalancers/workflows.py:611
 msgid "Added monitor"
 msgstr "모니터를 추가하였습니다."
 
-#: dashboards/project/loadbalancers/workflows.py:606
+#: dashboards/project/loadbalancers/workflows.py:612
 msgid "Unable to add monitor"
 msgstr "모니터를 추가할 수 없음."
 
-#: dashboards/project/loadbalancers/workflows.py:616
+#: dashboards/project/loadbalancers/workflows.py:622
 msgid "Unable to add monitor."
 msgstr "모니터를 추가할 수 없습니다."
 
-#: dashboards/project/loadbalancers/workflows.py:621
-#: dashboards/project/loadbalancers/workflows.py:684
+#: dashboards/project/loadbalancers/workflows.py:627
+#: dashboards/project/loadbalancers/workflows.py:690
 msgid "Monitor"
 msgstr "모니터"
 
-#: dashboards/project/loadbalancers/workflows.py:627
+#: dashboards/project/loadbalancers/workflows.py:633
 #, python-format
 msgid "Select a monitor template for %s"
 msgstr "%s에 대한 모니터 템플릿 선택"
 
-#: dashboards/project/loadbalancers/workflows.py:630
-#: dashboards/project/loadbalancers/workflows.py:694
+#: dashboards/project/loadbalancers/workflows.py:636
+#: dashboards/project/loadbalancers/workflows.py:700
 msgid "Select a Monitor"
 msgstr "모니터 선택"
 
-#: dashboards/project/loadbalancers/workflows.py:642
-#: dashboards/project/loadbalancers/workflows.py:704
+#: dashboards/project/loadbalancers/workflows.py:648
+#: dashboards/project/loadbalancers/workflows.py:710
 msgid "Unable to retrieve monitors list."
 msgstr "모니터 목록을 찾지 못 했습니다."
 
-#: dashboards/project/loadbalancers/workflows.py:648
-#: dashboards/project/loadbalancers/workflows.py:710
+#: dashboards/project/loadbalancers/workflows.py:654
+#: dashboards/project/loadbalancers/workflows.py:716
 msgid "Association Details"
 msgstr "연결 세부 정보"
 
-#: dashboards/project/loadbalancers/workflows.py:650
+#: dashboards/project/loadbalancers/workflows.py:656
 msgid "Associate a health monitor with target pool."
 msgstr "상태 모니터는 대상 pool에 연결합니다"
 
-#: dashboards/project/loadbalancers/workflows.py:668
+#: dashboards/project/loadbalancers/workflows.py:674
 msgid "Associated monitor."
 msgstr "모니터가 연결되었습니다."
 
-#: dashboards/project/loadbalancers/workflows.py:669
-#: dashboards/project/loadbalancers/workflows.py:679
+#: dashboards/project/loadbalancers/workflows.py:675
+#: dashboards/project/loadbalancers/workflows.py:685
 msgid "Unable to associate monitor."
 msgstr "모니터를 연결할 수 없습니다."
 
-#: dashboards/project/loadbalancers/workflows.py:691
+#: dashboards/project/loadbalancers/workflows.py:697
 #, python-format
 msgid "Select a health monitor of %s"
 msgstr "상태 모니터 %s 선택"
 
-#: dashboards/project/loadbalancers/workflows.py:712
+#: dashboards/project/loadbalancers/workflows.py:718
 msgid "Disassociate a health monitor from target pool. "
 msgstr "대상 pool에서 상태 모니터를 해제합니다."
 
-#: dashboards/project/loadbalancers/workflows.py:731
+#: dashboards/project/loadbalancers/workflows.py:737
 msgid "Disassociated monitor."
 msgstr "모니터 연결 해제되었습니다."
 
-#: dashboards/project/loadbalancers/workflows.py:732
-#: dashboards/project/loadbalancers/workflows.py:742
+#: dashboards/project/loadbalancers/workflows.py:738
+#: dashboards/project/loadbalancers/workflows.py:748
 msgid "Unable to disassociate monitor."
 msgstr "모니터를 연결 해제할 수 없습니다."
 
@@ -14073,13 +14058,28 @@ msgid "Restoring"
 msgstr "Restoring"
 
 #: dashboards/project/volumes/backups/tabs.py:41
-#: dashboards/project/volumes/backups/views.py:67
+#: dashboards/project/volumes/backups/views.py:72
 msgid "Unable to retrieve backup details."
 msgstr "백업에 대한 상세 정보를 찾지 못 했습니다."
 
-#: dashboards/project/volumes/backups/views.py:48
+#: dashboards/project/volumes/backups/views.py:33
+#: dashboards/project/volumes/backups/views.py:35
+#: dashboards/project/volumes/templates/volumes/backups/create_backup.html:3
+msgid "Create Volume Backup"
+msgstr "볼륨 백업 생성"
+
+#: dashboards/project/volumes/backups/views.py:53
 msgid "Volume Backup Details: {{ backup.name }}"
 msgstr "볼륨 백업 세부 정보: {{ backup.name }}"
+
+#: dashboards/project/volumes/backups/views.py:87
+#: dashboards/project/volumes/templates/volumes/backups/restore_backup.html:3
+msgid "Restore Volume Backup"
+msgstr "볼륨 백업 복구"
+
+#: dashboards/project/volumes/backups/views.py:89
+msgid "Restore Backup to Volume"
+msgstr "볼륨에 백업 복구"
 
 #: dashboards/project/volumes/snapshots/forms.py:39
 #, python-format
@@ -14101,39 +14101,32 @@ msgid_plural "Scheduled deletion of Volume Snapshots"
 msgstr[0] "볼륨 스냅샷에대한 예약 삭제"
 
 #: dashboards/project/volumes/snapshots/tables.py:79
-#: dashboards/project/volumes/templates/volumes/snapshots/_update.html:9
-#: dashboards/project/volumes/templates/volumes/snapshots/_update.html:24
+#: dashboards/project/volumes/snapshots/views.py:35
 #: dashboards/project/volumes/templates/volumes/snapshots/update.html:3
 #: dashboards/project/volumes/templates/volumes/snapshots/update.html:6
 msgid "Edit Snapshot"
 msgstr "스냅샷 수정"
 
 #: dashboards/project/volumes/snapshots/tabs.py:36
-#: dashboards/project/volumes/snapshots/views.py:84
+#: dashboards/project/volumes/snapshots/views.py:90
 msgid "Unable to retrieve snapshot details."
 msgstr "스냅샷 세부 정보를 찾지 못 했습니다."
 
-#: dashboards/project/volumes/snapshots/views.py:64
+#: dashboards/project/volumes/snapshots/views.py:70
 msgid "Volume Snapshot Details: {{ snapshot.name }}"
 msgstr "볼륨 스냅샷 세부 정보: {{ snapshot.name }}"
 
-#: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:9
-#: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:24
-#: dashboards/project/volumes/templates/volumes/backups/create_backup.html:3
-msgid "Create Volume Backup"
-msgstr "볼륨 백업 생성"
-
-#: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:18
+#: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:5
 msgid "Volume Backup:"
 msgstr "볼륨 백업"
 
-#: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:18
+#: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:5
 msgid ""
 "Volume Backups are stored using the Object Storage service. You must have "
 "this service activated in order to create a backup."
 msgstr "볼륨 백업은 오브젝트 스토리지 서비스를 사용하여 저장됩니다. 백업을 생성하기 위해 활성화된 서비스가 있어야합니다."
 
-#: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:19
+#: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:6
 msgid ""
 "If no container name is provided, a default container named volumebackups "
 "will be provisioned for you. Backups will be the same size as the volume "
@@ -14145,26 +14138,17 @@ msgstr "어떤 컨테이너 이름을 제공하지 않으면, volumebackups라�
 msgid "Volume Backup Overview: %(backup_display_name)s"
 msgstr "볼륨 백업 개요: %(backup_display_name)s"
 
-#: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:9
-#: dashboards/project/volumes/templates/volumes/backups/restore_backup.html:3
-msgid "Restore Volume Backup"
-msgstr "볼륨 백업 복구"
-
-#: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:18
+#: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:5
 msgid "Restore Backup:"
 msgstr "백업에서 복구:"
 
-#: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:18
+#: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:5
 msgid "Select a volume to restore to."
 msgstr "복구할 볼륨을 선택합니다."
 
-#: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:19
+#: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:6
 msgid "Optionally, you may choose to create a new volume."
 msgstr "선택적으로 새로운 볼륨을 생성할 수 있습니다."
-
-#: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:24
-msgid "Restore Backup to Volume"
-msgstr "볼륨에 백업 복구"
 
 #: dashboards/project/volumes/templates/volumes/backups/create_backup.html:6
 msgid "Create a Volume Backup"
@@ -14178,7 +14162,7 @@ msgstr "볼륨 백업 상세 정보"
 msgid "Restore a Volume Backup"
 msgstr "볼륨 백업 복구"
 
-#: dashboards/project/volumes/templates/volumes/snapshots/_update.html:19
+#: dashboards/project/volumes/templates/volumes/snapshots/_update.html:6
 msgid "Modify the name and description of a snapshot."
 msgstr "스냅샷에 대한 이름과 설명을 수정합니다."
 
@@ -14194,29 +14178,23 @@ msgid ""
 "accept</tt> command."
 msgstr "볼륨의 소유권은 한 프로젝트에서 다른 프로젝트로 이전 가능합니다. 볼륨을 이전 받기 위해서는 볼륨을 이전하려는 사람에게 이전 ID와 인증 키를 받으세요. 이는 <tt>cinder transfer-accept</tt> 명령어와 동일합니다."
 
-#: dashboards/project/volumes/templates/volumes/volumes/_attach.html:10
-#: dashboards/project/volumes/templates/volumes/volumes/attach.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/attach.html:6
-msgid "Manage Volume Attachments"
-msgstr "볼륨 연결 관리"
-
-#: dashboards/project/volumes/templates/volumes/volumes/_attach.html:14
+#: dashboards/project/volumes/templates/volumes/volumes/_attach.html:9
 msgid "Attach To Instance"
 msgstr "인스터스에 연결"
 
-#: dashboards/project/volumes/templates/volumes/volumes/_attach.html:23
+#: dashboards/project/volumes/templates/volumes/volumes/_attach.html:18
 msgid "Attach Volume"
 msgstr "볼륨 연결"
 
-#: dashboards/project/volumes/templates/volumes/volumes/_create_snapshot.html:9
-#: dashboards/project/volumes/templates/volumes/volumes/_create_snapshot.html:26
-#: dashboards/project/volumes/templates/volumes/volumes/create_snapshot.html:3
-msgid "Create Volume Snapshot"
-msgstr "볼륨 스냅샷 생성"
-
-#: dashboards/project/volumes/templates/volumes/volumes/_create_snapshot.html:24
+#: dashboards/project/volumes/templates/volumes/volumes/_create_snapshot.html:13
 msgid "Create Volume Snapshot (Force)"
 msgstr "볼륨 스냅샷 (강제) 생성"
+
+#: dashboards/project/volumes/templates/volumes/volumes/_create_snapshot.html:15
+#: dashboards/project/volumes/templates/volumes/volumes/create_snapshot.html:3
+#: dashboards/project/volumes/volumes/views.py:139
+msgid "Create Volume Snapshot"
+msgstr "볼륨 스냅샷 생성"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_create_transfer.html:6
 msgid ""
@@ -14253,7 +14231,7 @@ msgid "Volume Source"
 msgstr "볼륨 소스"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:84
-#: dashboards/project/volumes/volumes/views.py:227
+#: dashboards/project/volumes/volumes/views.py:243
 msgid "Volume Transfer"
 msgstr "볼륨 이전"
 
@@ -14268,14 +14246,6 @@ msgstr "볼륨 유형 이름"
 #: dashboards/project/volumes/templates/volumes/volumes/_encryption_detail_overview.html:25
 msgid "Volume is Unencrypted"
 msgstr "볼륨이 암호화되지 않은 상태임"
-
-#: dashboards/project/volumes/templates/volumes/volumes/_extend.html:9
-#: dashboards/project/volumes/templates/volumes/volumes/_extend.html:24
-#: dashboards/project/volumes/templates/volumes/volumes/extend.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/extend.html:6
-#: dashboards/project/volumes/volumes/tables.py:133
-msgid "Extend Volume"
-msgstr "볼륨 확장"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_extend_limits.html:5
 msgid "Extend the size of a volume."
@@ -14299,38 +14269,30 @@ msgstr "볼륨은 인스턴스에 연결할 수 있는 블록 장치입니다."
 msgid "Number of Volumes"
 msgstr "볼륨 수"
 
-#: dashboards/project/volumes/templates/volumes/volumes/_retype.html:9
-#: dashboards/project/volumes/templates/volumes/volumes/_retype.html:39
-#: dashboards/project/volumes/templates/volumes/volumes/retype.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/retype.html:6
-#: dashboards/project/volumes/volumes/tables.py:244
-msgid "Change Volume Type"
-msgstr "볼륨 타입 수정"
-
-#: dashboards/project/volumes/templates/volumes/volumes/_retype.html:19
+#: dashboards/project/volumes/templates/volumes/volumes/_retype.html:6
 msgid ""
 "\n"
-"        Change the volume type of a volume after its creation.\n"
-"        This is equivalent to the <tt>cinder retype</tt> command.\n"
-"       "
-msgstr "\n볼륨이 생성된후 볼륨 타입을 변경합니다.\n<tt>cinder retype</tt> 명령과 동일한 기능입니다."
+"      Change the volume type of a volume after its creation.\n"
+"      This is equivalent to the <tt>cinder retype</tt> command.\n"
+"     "
+msgstr ""
 
-#: dashboards/project/volumes/templates/volumes/volumes/_retype.html:24
+#: dashboards/project/volumes/templates/volumes/volumes/_retype.html:11
 msgid ""
 "\n"
-"        The \"Volume Type\" selected must be different from the current volume type.\n"
-"       "
-msgstr "\n\"볼륨 타입\"은 현재 볼륨 타입이 아닌 다른 것을 선택해야합니다."
+"      The \"Volume Type\" selected must be different from the current volume type.\n"
+"     "
+msgstr ""
 
-#: dashboards/project/volumes/templates/volumes/volumes/_retype.html:28
+#: dashboards/project/volumes/templates/volumes/volumes/_retype.html:15
 msgid ""
 "\n"
-"        The \"Migration Policy\" is only used if the volume retype cannot be\n"
-"        completed. If the \"Migration Policy\" is \"On Demand\", the back end will\n"
-"        perform volume migration. Note that migration may take a significant\n"
-"        amount of time to complete, in some cases hours.\n"
-"       "
-msgstr "\n볼륨의 형식을 변경할 수 없는 경우, \"마이그레이션 정책\"만 사용됩니다.\n만약 \"마이그레이션 정책\"이 \"On Demand\"일 경우, 백엔드 볼륨 마이그레이션만 작동합니다.\n어떤 경우엔 완료하는데 시간이 오래걸릴 수 있습니다."
+"      The \"Migration Policy\" is only used if the volume retype cannot be\n"
+"      completed. If the \"Migration Policy\" is \"On Demand\", the back end will\n"
+"      perform volume migration. Note that migration may take a significant\n"
+"      amount of time to complete, in some cases hours.\n"
+"     "
+msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/volumes/_show_transfer.html:6
 msgid ""
@@ -14357,59 +14319,52 @@ msgstr "스냅샷 제한"
 msgid "Number of Snapshots"
 msgstr "스냅샷 수"
 
-#: dashboards/project/volumes/templates/volumes/volumes/_update.html:9
-#: dashboards/project/volumes/templates/volumes/volumes/update.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/update.html:6
-#: dashboards/project/volumes/volumes/tables.py:232
-msgid "Edit Volume"
-msgstr "볼륨 편집"
-
-#: dashboards/project/volumes/templates/volumes/volumes/_update.html:19
+#: dashboards/project/volumes/templates/volumes/volumes/_update.html:6
 msgid "Modify name and description of a volume."
 msgstr "볼륨의 이름과 설명을 수정합니다."
 
-#: dashboards/project/volumes/templates/volumes/volumes/_update.html:21
+#: dashboards/project/volumes/templates/volumes/volumes/_update.html:7
 msgid ""
 "The \"Bootable\" flag specifies that this volume can be used to launch an "
 "instance."
 msgstr "\"부팅가능\" 플래그는 해당 볼륨이 인스턴스를 구동하는 데 사용 가능함을 지정합니다."
 
-#: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:9
-#: dashboards/project/volumes/templates/volumes/volumes/upload_to_image.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/upload_to_image.html:6
-msgid "Upload Volume to Image"
-msgstr "이미지에서 볼륨 업로드"
-
-#: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:19
+#: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:6
 msgid ""
 "\n"
-"        Upload the volume to the Image Service as an image.\n"
-"        This is equivalent to the <tt>cinder upload-to-image</tt> command.\n"
+"      Upload the volume to the Image Service as an image.\n"
+"      This is equivalent to the <tt>cinder upload-to-image</tt> command.\n"
+"     "
+msgstr ""
+
+#: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:11
+msgid ""
+"\n"
+"      Choose \"Disk Format\" for the image. The volume images are created with\n"
+"      the QEMU disk image utility.\n"
+"     "
+msgstr ""
+
+#: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:17
+msgid ""
+"\n"
+"        When the volume status is \"in-use\", you can use \"Force\" to upload the\n"
+"        volume to an image.\n"
 "       "
-msgstr "\n이미지로 이미지 서비스에서 볼륨을 업로드합니다.\n이것은 <tt>cinder upload-to-image</tt> 명령과 동일합니다."
-
-#: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:24
-msgid ""
-"\n"
-"        Choose \"Disk Format\" for the image. The volume images are created with\n"
-"        the QEMU disk image utility.\n"
-"       "
-msgstr "\n이미지에 대한 \"디스크 포멧\"을 선택합니다. QEMU 디스크 이미지 유틸리티에서\n볼륨 이미지를 생성합니다."
-
-#: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:30
-msgid ""
-"\n"
-"          When the volume status is \"in-use\", you can use \"Force\" to upload the\n"
-"          volume to an image.\n"
-"         "
-msgstr "\n볼륨 상태가 \"in-use\"일 경우 \"강제\"로 이미지에서 볼륨을\n업로드 할 수 있습니다."
+msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/volumes/accept_transfer.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/accept_transfer.html:6
-#: dashboards/project/volumes/volumes/views.py:216
-#: dashboards/project/volumes/volumes/views.py:217
+#: dashboards/project/volumes/volumes/views.py:232
+#: dashboards/project/volumes/volumes/views.py:233
 msgid "Accept Volume Transfer"
 msgstr "볼륨 이전 받기"
+
+#: dashboards/project/volumes/templates/volumes/volumes/attach.html:3
+#: dashboards/project/volumes/templates/volumes/volumes/attach.html:6
+#: dashboards/project/volumes/volumes/views.py:312
+msgid "Manage Volume Attachments"
+msgstr "볼륨 연결 관리"
 
 #: dashboards/project/volumes/templates/volumes/volumes/create.html:6
 msgid "Create a Volume"
@@ -14420,8 +14375,8 @@ msgid "Create a Volume Snapshot"
 msgstr "볼륨 스냅샷 생성"
 
 #: dashboards/project/volumes/templates/volumes/volumes/create_transfer.html:3
-#: dashboards/project/volumes/volumes/views.py:196
-#: dashboards/project/volumes/volumes/views.py:197
+#: dashboards/project/volumes/volumes/views.py:212
+#: dashboards/project/volumes/volumes/views.py:213
 msgid "Create Volume Transfer"
 msgstr "볼륨 이전 생성"
 
@@ -14433,10 +14388,39 @@ msgstr "볼륨 이전 생성"
 msgid "Volume Encryption Details"
 msgstr "볼륨 암호화 세부 정보"
 
+#: dashboards/project/volumes/templates/volumes/volumes/extend.html:3
+#: dashboards/project/volumes/templates/volumes/volumes/extend.html:6
+#: dashboards/project/volumes/volumes/tables.py:133
+#: dashboards/project/volumes/volumes/views.py:99
+#: dashboards/project/volumes/volumes/views.py:101
+msgid "Extend Volume"
+msgstr "볼륨 확장"
+
+#: dashboards/project/volumes/templates/volumes/volumes/retype.html:3
+#: dashboards/project/volumes/templates/volumes/volumes/retype.html:6
+#: dashboards/project/volumes/volumes/tables.py:244
+#: dashboards/project/volumes/volumes/views.py:385
+#: dashboards/project/volumes/volumes/views.py:387
+msgid "Change Volume Type"
+msgstr "볼륨 타입 수정"
+
 #: dashboards/project/volumes/templates/volumes/volumes/show_transfer.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/show_transfer.html:6
 msgid "Volume Transfer Details"
 msgstr "볼륨 이전 상세 정보"
+
+#: dashboards/project/volumes/templates/volumes/volumes/update.html:3
+#: dashboards/project/volumes/templates/volumes/volumes/update.html:6
+#: dashboards/project/volumes/volumes/tables.py:232
+#: dashboards/project/volumes/volumes/views.py:275
+msgid "Edit Volume"
+msgstr "볼륨 편집"
+
+#: dashboards/project/volumes/templates/volumes/volumes/upload_to_image.html:3
+#: dashboards/project/volumes/templates/volumes/volumes/upload_to_image.html:6
+#: dashboards/project/volumes/volumes/views.py:171
+msgid "Upload Volume to Image"
+msgstr "이미지에서 볼륨 업로드"
 
 #: dashboards/project/volumes/volumes/forms.py:55
 msgid "Unable to determine if availability zones extension is supported."
@@ -14782,7 +14766,7 @@ msgid "Unable to delete volume transfer."
 msgstr "볼륨 이전을 삭제할 수 없습니다."
 
 #: dashboards/project/volumes/volumes/tables.py:318
-#: dashboards/project/volumes/volumes/views.py:317
+#: dashboards/project/volumes/volumes/views.py:343
 msgid "Unable to retrieve attachment information."
 msgstr "연결 설정 정보를 찾지 못 했습니다."
 
@@ -14857,38 +14841,38 @@ msgstr "인스턴스 %(instance_name)s 에서 볼륨 %(volume_name)s"
 msgid "Volume Details: {{ volume.name }}"
 msgstr "볼륨 세부 정보: {{ volume.name }}"
 
-#: dashboards/project/volumes/volumes/views.py:107
-#: dashboards/project/volumes/volumes/views.py:150
-#: dashboards/project/volumes/volumes/views.py:300
+#: dashboards/project/volumes/volumes/views.py:113
+#: dashboards/project/volumes/volumes/views.py:162
+#: dashboards/project/volumes/volumes/views.py:326
 msgid "Unable to retrieve volume information."
 msgstr "볼륨 정보를 찾지 못 했습니다."
 
-#: dashboards/project/volumes/volumes/views.py:141
+#: dashboards/project/volumes/volumes/views.py:153
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
 msgstr "이 볼륨은 지금 인스턴스에 연결되어 있습니다. 때때로, 연결된 볼륨에서 스냅샷을 만들게되면 스냅샷이 손상될 수 있습니다."
 
-#: dashboards/project/volumes/volumes/views.py:169
-#: dashboards/project/volumes/volumes/views.py:366
+#: dashboards/project/volumes/volumes/views.py:184
+#: dashboards/project/volumes/volumes/views.py:398
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
 msgstr "선택한 볼륨에 대한 정보를 찾지 못했습니다: \"%s\""
 
-#: dashboards/project/volumes/volumes/views.py:240
+#: dashboards/project/volumes/volumes/views.py:256
 msgid "Unable to retrieve volume transfer."
 msgstr "볼륨 이전 내용을 가져올 수 없습니다."
 
-#: dashboards/project/volumes/volumes/views.py:268
+#: dashboards/project/volumes/volumes/views.py:288
 msgid "Unable to retrieve volume."
 msgstr "볼륨을 찾지 못 했습니다."
 
-#: dashboards/project/volumes/volumes/views.py:396
+#: dashboards/project/volumes/volumes/views.py:429
 #, python-format
 msgid "Volume Encryption Details: %(volume_name)s"
 msgstr "볼륨 암호화 세부 정보: %(volume_name)s"
 
-#: dashboards/project/volumes/volumes/views.py:411
+#: dashboards/project/volumes/volumes/views.py:444
 msgid "Unable to retrieve volume encryption details."
 msgstr "볼륨 암호화 세부 정보를 가져올 수 없습니다."
 

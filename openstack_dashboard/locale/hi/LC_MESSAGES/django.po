@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-11 01:05-0500\n"
-"PO-Revision-Date: 2015-03-11 05:38+0000\n"
+"POT-Creation-Date: 2015-03-11 18:35-0500\n"
+"PO-Revision-Date: 2015-03-11 18:19+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -903,14 +903,14 @@ msgstr "सकल से होस्ट जोड़ें / हटाये"
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:24
 #: dashboards/admin/flavors/workflows.py:266
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:79
-#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:25
-#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:25
+#: dashboards/admin/volumes/volume_types/extras/views.py:88
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:101
 #: dashboards/identity/domains/workflows.py:300
 #: dashboards/identity/projects/workflows.py:564
 #: dashboards/identity/users/views.py:209
 #: dashboards/project/instances/workflows/update_instance.py:133
 #: dashboards/project/networks/subnets/workflows.py:159
-#: dashboards/project/volumes/templates/volumes/volumes/_update.html:27
+#: dashboards/project/volumes/volumes/views.py:278
 #: dashboards/settings/user/views.py:30
 msgid "Save"
 msgstr "सहेजें"
@@ -937,19 +937,19 @@ msgstr "होस्ट जोड़ने या हटाने में त�
 #: dashboards/admin/networks/templates/networks/agents/_add.html:5
 #: dashboards/admin/networks/templates/networks/ports/_create.html:5
 #: dashboards/admin/networks/templates/networks/ports/_update.html:5
-#: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:18
-#: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:18
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:18
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:18
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:18
-#: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:18
-#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:19
-#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:19
-#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_create.html:19
-#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:19
+#: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:5
+#: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:5
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:5
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:5
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:5
+#: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:5
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:5
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:5
+#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_create.html:5
+#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:5
 #: dashboards/admin/volumes/templates/volumes/volumes/_manage_volume.html:5
 #: dashboards/admin/volumes/templates/volumes/volumes/_unmanage_volume.html:5
-#: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:18
+#: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:5
 #: dashboards/identity/groups/templates/groups/_create.html:5
 #: dashboards/identity/groups/templates/groups/_update.html:5
 #: dashboards/identity/roles/templates/roles/_create.html:5
@@ -994,15 +994,15 @@ msgstr "होस्ट जोड़ने या हटाने में त�
 #: dashboards/project/stacks/templates/stacks/_create.html:18
 #: dashboards/project/stacks/templates/stacks/_select_template.html:19
 #: dashboards/project/stacks/templates/stacks/_update.html:18
-#: dashboards/project/volumes/templates/volumes/snapshots/_update.html:18
+#: dashboards/project/volumes/templates/volumes/snapshots/_update.html:5
 #: dashboards/project/volumes/templates/volumes/volumes/_accept_transfer.html:5
 #: dashboards/project/volumes/templates/volumes/volumes/_create_transfer.html:5
 #: dashboards/project/volumes/templates/volumes/volumes/_extend_limits.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/_limits.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/_retype.html:18
+#: dashboards/project/volumes/templates/volumes/volumes/_retype.html:5
 #: dashboards/project/volumes/templates/volumes/volumes/_show_transfer.html:5
-#: dashboards/project/volumes/templates/volumes/volumes/_update.html:18
-#: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:18
+#: dashboards/project/volumes/templates/volumes/volumes/_update.html:5
+#: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:5
 #: dashboards/project/vpn/templates/vpn/_update_ikepolicy.html:5
 #: dashboards/project/vpn/templates/vpn/_update_ipsecpolicy.html:5
 #: dashboards/project/vpn/templates/vpn/_update_ipsecsiteconnection.html:5
@@ -1031,17 +1031,6 @@ msgstr "होस्ट समुच्चय एक उपलब्धि क�
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:80
 #: dashboards/admin/metering/templates/metering/_daily.html:25
 #: dashboards/admin/networks/templates/networks/_create.html:27
-#: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:29
-#: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:35
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:37
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:34
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:39
-#: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:29
-#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:26
-#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:26
-#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_create.html:26
-#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:26
-#: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:29
 #: dashboards/identity/groups/templates/groups/_add_non_member.html:8
 #: dashboards/project/containers/templates/containers/_copy.html:24
 #: dashboards/project/containers/templates/containers/_create.html:25
@@ -1071,16 +1060,8 @@ msgstr "होस्ट समुच्चय एक उपलब्धि क�
 #: dashboards/project/stacks/templates/stacks/_create.html:25
 #: dashboards/project/stacks/templates/stacks/_select_template.html:26
 #: dashboards/project/stacks/templates/stacks/_update.html:25
-#: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:25
-#: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:25
-#: dashboards/project/volumes/templates/volumes/snapshots/_update.html:25
-#: dashboards/project/volumes/templates/volumes/volumes/_attach.html:25
-#: dashboards/project/volumes/templates/volumes/volumes/_create.html:25
-#: dashboards/project/volumes/templates/volumes/volumes/_create_snapshot.html:28
-#: dashboards/project/volumes/templates/volumes/volumes/_extend.html:25
-#: dashboards/project/volumes/templates/volumes/volumes/_retype.html:40
-#: dashboards/project/volumes/templates/volumes/volumes/_update.html:28
-#: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:41
+#: dashboards/project/volumes/templates/volumes/volumes/_attach.html:20
+#: dashboards/project/volumes/templates/volumes/volumes/_create_snapshot.html:17
 msgid "Cancel"
 msgstr "रद्द करें"
 
@@ -3968,8 +3949,8 @@ msgid "Unable to update volume snapshot status."
 msgstr "स्नैपशॉट स्थिति को अद्यतन करने में असमर्थ."
 
 #: dashboards/admin/volumes/snapshots/tables.py:29
-#: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:28
-#: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:28
+#: dashboards/admin/volumes/snapshots/views.py:36
+#: dashboards/admin/volumes/volumes/views.py:98
 msgid "Update Status"
 msgstr "स्थिति अपडेट करें"
 
@@ -3986,14 +3967,14 @@ msgstr "स्थिति अपडेट करें"
 msgid "Volume Name"
 msgstr "वॉल्यूम नाम"
 
-#: dashboards/admin/volumes/snapshots/views.py:35
-#: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:9
+#: dashboards/admin/volumes/snapshots/views.py:33
+#: dashboards/admin/volumes/snapshots/views.py:39
 #: dashboards/admin/volumes/templates/volumes/snapshots/update_status.html:3
 msgid "Update Volume Snapshot Status"
 msgstr "वॉल्यूम स्नैपशॉट स्थिति अद्यतन करें"
 
-#: dashboards/admin/volumes/snapshots/views.py:45
-#: dashboards/project/volumes/snapshots/views.py:44
+#: dashboards/admin/volumes/snapshots/views.py:49
+#: dashboards/project/volumes/snapshots/views.py:48
 msgid "Unable to retrieve volume snapshot."
 msgstr "स्नैपशॉट को पुनः प्राप्त करने में असमर्थ."
 
@@ -4060,7 +4041,7 @@ msgstr "विशिष्टताएं"
 msgid "GB"
 msgstr "GB"
 
-#: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:19
+#: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:6
 msgid ""
 "\n"
 "    The status of a volume snapshot is normally managed automatically.  In some circumstances\n"
@@ -4069,40 +4050,23 @@ msgid ""
 "    "
 msgstr "\n    The  status of a volume snapshot is normally managed automatically.  In some circumstances\n    an administrator may need to explicitly update the status value. This is equivalent to\n    the <tt>cinder snapshot-reset-state</tt> command.\n    "
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:9
-#: dashboards/admin/volumes/volume_types/views.py:155
-msgid "Associate QoS Spec with Volume Type"
+#: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:6
+msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr ""
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:19
+#: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:7
 msgid ""
-"\n"
-"    Add, modify or remove the QoS Spec associated with this volume type.\n"
-"    <br>\n"
-"    <br>\n"
-"    \"None\" indicates that no QoS Spec is currently associated. Conversely, setting\n"
-"    the QoS Spec to \"None\" will remove the current association.\n"
-"    <br>\n"
-"    <br>\n"
-"    This is equivalent to the <tt>cinder qos-associate</tt> and <tt>cinder qos-disassociate</tt>\n"
-"    commands.\n"
-"    "
+"\"None\" indicates that no QoS Spec is currently associated. Conversely, "
+"setting the QoS Spec to \"None\" will remove the current association."
 msgstr ""
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:34
-#: dashboards/project/access_and_security/floating_ips/tables.py:110
-#: dashboards/project/access_and_security/floating_ips/workflows.py:137
-#: dashboards/project/loadbalancers/workflows.py:667
-msgid "Associate"
-msgstr "एसोसियेट"
-
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:9
-#: dashboards/admin/volumes/templates/volumes/volume_types/create_qos_spec.html:3
-#: dashboards/admin/volumes/volume_types/tables.py:190
-msgid "Create QoS Spec"
+#: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:8
+msgid ""
+"This is equivalent to the <tt>cinder qos-associate</tt> and <tt>cinder qos-"
+"disassociate</tt> commands."
 msgstr ""
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:19
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:6
 msgid ""
 "\n"
 "      QoS Specs can be associated with volume types.\n"
@@ -4115,34 +4079,10 @@ msgid ""
 "      Each QoS Specs entity will have a \"Consumer\" value which indicates where the\n"
 "      administrator would like the QoS policy to be enforced. This value can be \"front-end\"\n"
 "      (Nova Compute), \"back-end\" (Cinder back-end), or \"both\".\n"
-"     "
+"  "
 msgstr ""
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:36
-#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:25
-#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_create.html:25
-#: dashboards/admin/volumes/volume_types/extras/tables.py:48
-#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:24
-#: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:23
-#: dashboards/project/data_processing/cluster_templates/workflows/create.py:225
-#: dashboards/project/data_processing/data_sources/workflows/create.py:93
-#: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
-#: dashboards/project/data_processing/jobs/workflows/create.py:154
-#: dashboards/project/data_processing/jobs/workflows/launch.py:406
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:241
-#: dashboards/project/networks/workflows.py:342
-#: dashboards/project/networks/subnets/workflows.py:57
-msgid "Create"
-msgstr "बनाएँ"
-
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:9
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:33
-#: dashboards/admin/volumes/templates/volumes/volume_types/create_volume_type.html:3
-#: dashboards/admin/volumes/volume_types/tables.py:25
-msgid "Create Volume Type"
-msgstr "वॉल्यूम प्रकार बनाएँ"
-
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:19
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:6
 msgid ""
 "\n"
 "      Volume type is a type or label that can be selected at volume creation\n"
@@ -4155,50 +4095,41 @@ msgid ""
 "     "
 msgstr "\n      Volume  type is a type or label that can be selected at volume creation\n      time in OpenStack. It usually maps to a set of capabilities of the storage\n      back-end driver to be used for this volume. Examples: \"Performance\",\n      \"SSD\", \"Backup\", etc. This is equivalent to the\n      <tt>cinder type-create</tt> command. Once the volume type gets created,\n      click the \"View Extra Specs\" button to set up extra specs key-value\n      pair(s) for that volume type.\n     "
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:9
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:38
-msgid "Create Volume Type Encryption"
-msgstr ""
-
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:20
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:7
 msgid ""
 "Creating encryption for a volume type causes all volumes with that volume "
 "type to be encrypted.  Encryption information cannot be added to a volume "
 "type if volumes are currently in use with that volume type."
 msgstr ""
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:23
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:10
 msgid ""
 "The <strong>Provider</strong> is the class providing encryption support "
 "(e.g. LuksEncryptor)."
 msgstr ""
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:26
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:13
 msgid ""
 "The <strong>Control Location</strong> is the notional service where "
 "encryption is performed (e.g., front-end=Nova). The default value is 'front-"
 "end.'"
 msgstr ""
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:29
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:16
 msgid ""
 "The <strong>Cipher</strong> is the encryption algorithm/mode to use (e.g., "
 "aes-xts-plain64). If the field is left empty, the provider default will be "
 "used."
 msgstr ""
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:32
+#: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:19
 msgid ""
 "The <strong>Key Size</strong> is the size of the encryption key, in bits "
 "(e.g., 128, 256). If the field is left empty, the provider default will be "
 "used."
 msgstr ""
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:9
-msgid "Edit Consumer of QoS Spec"
-msgstr ""
-
-#: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:19
+#: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:6
 msgid ""
 "\n"
 "    Each QoS Specs entity will have a \"Consumer\" value which indicates where the\n"
@@ -4206,10 +4137,6 @@ msgid ""
 "    (Nova Compute), \"back-end\" (Cinder back-end), or \"both\".\n"
 "    "
 msgstr ""
-
-#: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:28
-msgid "Modify Consumer"
-msgstr "उपभोक्ता बदलें"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:4
 msgid "Volume Type Encryption Overview"
@@ -4250,35 +4177,38 @@ msgstr ""
 msgid "Associate QoS Spec"
 msgstr ""
 
+#: dashboards/admin/volumes/templates/volumes/volume_types/create_qos_spec.html:3
+#: dashboards/admin/volumes/volume_types/tables.py:190
+#: dashboards/admin/volumes/volume_types/views.py:121
+msgid "Create QoS Spec"
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/create_volume_type.html:3
+#: dashboards/admin/volumes/volume_types/tables.py:25
+#: dashboards/admin/volumes/volume_types/views.py:35
+#: dashboards/admin/volumes/volume_types/views.py:38
+msgid "Create Volume Type"
+msgstr "वॉल्यूम प्रकार बनाएँ"
+
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_volume_type_encryption.html:3
 msgid "Create Encrypted Volume Type"
 msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/edit_qos_spec_consumer.html:3
-#: dashboards/admin/volumes/volume_types/views.py:122
+#: dashboards/admin/volumes/volume_types/views.py:142
 msgid "Edit QoS Spec Consumer"
 msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/volume_encryption_type_detail.html:3
-#: dashboards/admin/volumes/volume_types/views.py:46
+#: dashboards/admin/volumes/volume_types/views.py:50
 msgid "Volume Type Encryption Details"
 msgstr ""
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:10
-#: dashboards/admin/volumes/templates/volumes/volume_types/extras/create.html:4
-msgid "Create Volume Type Extra Spec"
-msgstr "वॉल्यूम प्रकार अतिरिक्त स्पेक बनाएँ"
-
-#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:20
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:6
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "वॉल्यूम प्रकार के लिए नया \"अतिरिक्त विनिर्देश \" कुंजी मान बनाएँ."
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:10
-#, python-format
-msgid "Edit Extra Spec Value: %(key)s"
-msgstr ""
-
-#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:20
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:6
 #, python-format
 msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "\"%(key)s\" के लिए \"अतिरिक्त विनिर्देश\" मान अद्यतन करें"
@@ -4294,9 +4224,13 @@ msgstr "वॉल्यूम प्रकार अतिरिक्त स्
 #: dashboards/project/containers/templates/containers/_container_detail.html:29
 #: dashboards/project/containers/templates/containers/_object_detail.html:25
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:104
-#: dashboards/project/volumes/templates/volumes/volumes/_show_transfer.html:11
 msgid "Close"
 msgstr "बंद करें"
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/extras/create.html:4
+#: dashboards/admin/volumes/volume_types/extras/views.py:62
+msgid "Create Volume Type Extra Spec"
+msgstr "वॉल्यूम प्रकार अतिरिक्त स्पेक बनाएँ"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/create.html:8
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/edit.html:8
@@ -4313,24 +4247,20 @@ msgstr "वॉल्यूम प्रकार अतिरिक्त स्
 msgid "Volume Type: %(volume_type_name)s"
 msgstr ""
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_create.html:10
-#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/create.html:4
-msgid "Create Spec"
-msgstr "Spec बनाएँ"
-
-#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_create.html:20
+#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_create.html:6
 #, python-format
 msgid "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\""
 msgstr ""
 
-#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:10
-msgid "Edit Spec Value: "
-msgstr "स्पेक मान संपादित करें: "
-
-#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:20
+#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_edit.html:6
 #, python-format
 msgid "Update the spec value for \"%(key)s\""
 msgstr "\"%(key)s\" के लिए स्पेक मान अद्यतन करें"
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/create.html:4
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:72
+msgid "Create Spec"
+msgstr "Spec बनाएँ"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/create.html:7
 #, python-format
@@ -4372,14 +4302,7 @@ msgid ""
 "    "
 msgstr ""
 
-#: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:9
-#: dashboards/admin/volumes/templates/volumes/volumes/update_status.html:3
-#: dashboards/admin/volumes/volumes/tables.py:69
-#: dashboards/admin/volumes/volumes/views.py:97
-msgid "Update Volume Status"
-msgstr "वॉल्यूम स्थिति को अद्यतन करें"
-
-#: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:19
+#: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:6
 msgid ""
 "\n"
 "    The status of a volume is normally managed automatically.  In some circumstances an\n"
@@ -4411,6 +4334,13 @@ msgstr ""
 #: dashboards/admin/volumes/templates/volumes/volumes/unmanage_volume.html:6
 msgid "Unmanage a Volume"
 msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/volumes/update_status.html:3
+#: dashboards/admin/volumes/volumes/tables.py:69
+#: dashboards/admin/volumes/volumes/views.py:95
+#: dashboards/admin/volumes/volumes/views.py:101
+msgid "Update Volume Status"
+msgstr "वॉल्यूम स्थिति को अद्यतन करें"
 
 #: dashboards/admin/volumes/volume_types/forms.py:52
 #, python-format
@@ -4541,40 +4471,82 @@ msgstr "ग्राहक"
 msgid "QoS Specs"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:37
+#: dashboards/admin/volumes/volume_types/views.py:41
 msgid "Create a Volume Type"
 msgstr "वॉल्यूम प्रकार बनाएँ"
 
-#: dashboards/admin/volumes/volume_types/views.py:68
+#: dashboards/admin/volumes/volume_types/views.py:72
 msgid "Unable to retrieve volume type encryption details."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:81
+#: dashboards/admin/volumes/volume_types/views.py:83
+#: dashboards/admin/volumes/volume_types/views.py:87
+msgid "Create Volume Type Encryption"
+msgstr ""
+
+#: dashboards/admin/volumes/volume_types/views.py:90
 msgid "Create an Encrypted Volume Type"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:91
+#: dashboards/admin/volumes/volume_types/views.py:100
 msgid "Unable to retrieve volume type name."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:112
+#: dashboards/admin/volumes/volume_types/views.py:125
 msgid "Create a QoS Spec"
 msgstr ""
 
+#: dashboards/admin/volumes/volume_types/views.py:126
+#: dashboards/admin/volumes/volume_types/extras/tables.py:48
+#: dashboards/admin/volumes/volume_types/extras/views.py:64
+#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:24
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:75
+#: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:23
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:225
+#: dashboards/project/data_processing/data_sources/workflows/create.py:93
+#: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
+#: dashboards/project/data_processing/jobs/workflows/create.py:154
+#: dashboards/project/data_processing/jobs/workflows/launch.py:406
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:241
+#: dashboards/project/networks/workflows.py:342
+#: dashboards/project/networks/subnets/workflows.py:57
+msgid "Create"
+msgstr "बनाएँ"
+
+#: dashboards/admin/volumes/volume_types/views.py:136
+msgid "Edit Consumer of QoS Spec"
+msgstr ""
+
 #: dashboards/admin/volumes/volume_types/views.py:139
+msgid "Modify Consumer"
+msgstr "उपभोक्ता बदलें"
+
+#: dashboards/admin/volumes/volume_types/views.py:161
 msgid "Unable to retrieve QoS Spec details."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:172
+#: dashboards/admin/volumes/volume_types/views.py:175
+#: dashboards/admin/volumes/volume_types/views.py:182
+msgid "Associate QoS Spec with Volume Type"
+msgstr ""
+
+#: dashboards/admin/volumes/volume_types/views.py:178
+#: dashboards/project/access_and_security/floating_ips/tables.py:110
+#: dashboards/project/access_and_security/floating_ips/workflows.py:137
+#: dashboards/project/loadbalancers/workflows.py:673
+msgid "Associate"
+msgstr "एसोसियेट"
+
+#: dashboards/admin/volumes/volume_types/views.py:201
 #: dashboards/admin/volumes/volume_types/extras/views.py:36
 msgid "Unable to retrieve volume type details."
 msgstr "वॉल्यूम विवरण किस्म को पुनः प्राप्त करने में असमर्थ."
 
-#: dashboards/admin/volumes/volume_types/views.py:182
+#: dashboards/admin/volumes/volume_types/views.py:211
 msgid "Unable to retrieve QoS Specs."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:202
+#: dashboards/admin/volumes/volume_types/views.py:231
 msgid "Unable to retrieve QoS Spec association."
 msgstr ""
 
@@ -4644,7 +4616,12 @@ msgstr "अतिरिक्त विनिर्देश"
 msgid "Unable to retrieve extra spec list."
 msgstr "अतिरिक्त विनिर्देश सूची को प्राप्त करने में असमर्थ."
 
-#: dashboards/admin/volumes/volume_types/extras/views.py:91
+#: dashboards/admin/volumes/volume_types/extras/views.py:86
+#, python-format
+msgid "Edit Extra Spec Value: %s"
+msgstr ""
+
+#: dashboards/admin/volumes/volume_types/extras/views.py:107
 msgid "Unable to retrieve volume type extra spec details."
 msgstr "वॉल्यूम अतिरिक्त स्पेक विवरण किस्म को पुनः प्राप्त करने में असमर्थ."
 
@@ -4682,7 +4659,11 @@ msgstr "अपारिभाषित"
 msgid "Unable to retrieve QoS spec list."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/qos_specs/views.py:100
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:98
+msgid "Edit Spec Value"
+msgstr ""
+
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:117
 msgid "Unable to retrieve QoS spec details."
 msgstr ""
 
@@ -4814,9 +4795,9 @@ msgid "Unmanage"
 msgstr ""
 
 #: dashboards/admin/volumes/volumes/views.py:73
-#: dashboards/admin/volumes/volumes/views.py:111
+#: dashboards/admin/volumes/volumes/views.py:117
 #: dashboards/project/volumes/volumes/views.py:68
-#: dashboards/project/volumes/volumes/views.py:424
+#: dashboards/project/volumes/volumes/views.py:457
 msgid "Unable to retrieve volume details."
 msgstr "वॉल्यूम विवरण को पुनः प्राप्त करने में असमर्थ."
 
@@ -5888,7 +5869,7 @@ msgstr[0] "रिलीज किया फ्लोटिंग आईपी"
 msgstr[1] "रिलीज किया फ्लोटिंग आईपी"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:132
-#: dashboards/project/loadbalancers/workflows.py:730
+#: dashboards/project/loadbalancers/workflows.py:736
 msgid "Disassociate"
 msgstr "अलग करें"
 
@@ -6401,7 +6382,7 @@ msgstr "सुरक्षा समूह को पुनः प्राप�
 #: dashboards/project/loadbalancers/workflows.py:136
 #: dashboards/project/loadbalancers/workflows.py:260
 #: dashboards/project/loadbalancers/workflows.py:426
-#: dashboards/project/loadbalancers/workflows.py:604
+#: dashboards/project/loadbalancers/workflows.py:610
 #: dashboards/project/vpn/workflows.py:92
 #: dashboards/project/vpn/workflows.py:191
 #: dashboards/project/vpn/workflows.py:288
@@ -6953,6 +6934,7 @@ msgstr "क्लस्टर टैम्प्लेट फ़ाइल अप
 
 #: dashboards/project/data_processing/cluster_templates/panel.py:22
 #: dashboards/project/data_processing/cluster_templates/tables.py:132
+#: dashboards/project/data_processing/cluster_templates/views.py:44
 msgid "Cluster Templates"
 msgstr "क्लस्टर नमूना"
 
@@ -6987,21 +6969,19 @@ msgid "Version"
 msgstr "संस्करण"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:39
+#: dashboards/project/data_processing/cluster_templates/views.py:81
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_upload_file.html:11
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/upload_file.html:3
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/upload_file.html:6
 msgid "Upload Template"
 msgstr "टेम्पलेट अपलोड करें"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:47
 #: dashboards/project/data_processing/clusters/tables.py:41
+#: dashboards/project/data_processing/clusters/views.py:73
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_create_cluster.html:10
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/configure.html:3
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/configure.html:6
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/create.html:3
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/create.html:6
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/create_cluster.html:3
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/create_cluster.html:6
 #: dashboards/project/data_processing/clusters/workflows/create.py:57
 #: dashboards/project/data_processing/clusters/workflows/create.py:207
 msgid "Launch Cluster"
@@ -7032,6 +7012,7 @@ msgid "Create Template"
 msgstr "टैम्पलेट बनाएँ"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:100
+#: dashboards/project/data_processing/cluster_templates/views.py:97
 msgid "Configure Cluster Template"
 msgstr "क्लस्टर टैम्प्लेट विन्यस्त करें"
 
@@ -7062,12 +7043,29 @@ msgstr "क्लस्टर टैम्प्लेट विवरण पा
 msgid "Unable to fetch node group details."
 msgstr "नोड समूह विवरण पाने में अक्षम."
 
-#: dashboards/project/data_processing/cluster_templates/views.py:56
+#: dashboards/project/data_processing/cluster_templates/views.py:57
 msgid "Unable to fetch cluster template list"
 msgstr "नमूना सूची विवरण पाने में अक्षम"
 
-#: dashboards/project/data_processing/cluster_templates/views.py:116
-#: dashboards/project/data_processing/clusters/views.py:101
+#: dashboards/project/data_processing/cluster_templates/views.py:64
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/details.html:3
+msgid "Cluster Template Details"
+msgstr "क्लस्टर टैम्प्लेट विवरण"
+
+#: dashboards/project/data_processing/cluster_templates/views.py:90
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/configure.html:3
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/create.html:3
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:80
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:224
+msgid "Create Cluster Template"
+msgstr "क्लस्टर टैम्पलेट बनाएँ"
+
+#: dashboards/project/data_processing/cluster_templates/views.py:104
+msgid "Copy Cluster Template"
+msgstr ""
+
+#: dashboards/project/data_processing/cluster_templates/views.py:122
+#: dashboards/project/data_processing/clusters/views.py:106
 msgid "Unable to fetch cluster template."
 msgstr "क्लस्टर नमूना पाने में अक्षम."
 
@@ -7194,7 +7192,7 @@ msgid "Node configurations are not specified"
 msgstr "नोड विन्यास निर्दिष्ट नहीं"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_upload_file.html:22
-#: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:40
+#: dashboards/project/volumes/volumes/views.py:173
 msgid "Upload"
 msgstr "अपलोड"
 
@@ -7202,27 +7200,9 @@ msgstr "अपलोड"
 msgid "Select a Node Group Template to add:"
 msgstr ""
 
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_templates.html:6
-msgid "Data Processing - Cluster Templates"
-msgstr "डेटा प्रोसेसिंग - क्लस्टर नमूना"
-
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_templates.html:23
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_templates.html:19
 msgid "Add Node Group"
 msgstr "नोड समूह जोड़ें"
-
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/configure.html:3
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/configure.html:6
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/create.html:3
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/create.html:6
-#: dashboards/project/data_processing/cluster_templates/workflows/create.py:80
-#: dashboards/project/data_processing/cluster_templates/workflows/create.py:224
-msgid "Create Cluster Template"
-msgstr "क्लस्टर टैम्पलेट बनाएँ"
-
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/details.html:3
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/details.html:6
-msgid "Cluster Template Details"
-msgstr "क्लस्टर टैम्प्लेट विवरण"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/copy.py:32
 #, python-format
@@ -7286,12 +7266,13 @@ msgstr "क्लस्टर टैम्प्लेट निर्माण 
 
 #: dashboards/project/data_processing/clusters/panel.py:22
 #: dashboards/project/data_processing/clusters/tables.py:155
+#: dashboards/project/data_processing/clusters/views.py:40
 msgid "Clusters"
 msgstr "क्लस्टर"
 
 #: dashboards/project/data_processing/clusters/tables.py:49
+#: dashboards/project/data_processing/clusters/views.py:88
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/scale.html:3
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/scale.html:6
 #: dashboards/project/data_processing/clusters/workflows/scale.py:42
 msgid "Scale Cluster"
 msgstr "क्लस्टर स्केल करें"
@@ -7314,6 +7295,7 @@ msgid "Unable to update row"
 msgstr "पंक्ति अद्यतन में असमर्थ"
 
 #: dashboards/project/data_processing/clusters/tables.py:130
+#: dashboards/project/data_processing/clusters/views.py:80
 #: dashboards/project/data_processing/clusters/workflows/create.py:189
 #: dashboards/project/data_processing/jobs/workflows/launch.py:312
 msgid "Configure Cluster"
@@ -7344,9 +7326,14 @@ msgstr "क्लस्टर इंस्टैंस"
 msgid "Unable to fetch instance details."
 msgstr "इंस्टेंस विवरण को पाने में असमर्थ."
 
-#: dashboards/project/data_processing/clusters/views.py:51
+#: dashboards/project/data_processing/clusters/views.py:52
 msgid "Unable to fetch cluster list"
 msgstr "क्लस्टर सूची विवरण पाने में अक्षम"
+
+#: dashboards/project/data_processing/clusters/views.py:59
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/details.html:3
+msgid "Cluster Details"
+msgstr "क्लस्टर विवरण"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:4
 msgid "This Cluster will be started with:"
@@ -7416,15 +7403,6 @@ msgstr "नोड्स की संख्या"
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:126
 msgid "Floating IP Pool"
 msgstr "अस्थायी आईपी पूल"
-
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/clusters.html:6
-msgid "Data Processing - Clusters"
-msgstr "डाटा प्रक्रमित - क्लस्टर"
-
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/details.html:3
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/details.html:6
-msgid "Cluster Details"
-msgstr "क्लस्टर विवरण"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:46
 #: dashboards/project/data_processing/jobs/workflows/launch.py:394
@@ -7540,7 +7518,7 @@ msgstr "उपलब्ध छवि पाने में असमर्थ."
 
 #: dashboards/project/data_processing/data_image_registry/panel.py:22
 #: dashboards/project/data_processing/data_image_registry/tables.py:81
-#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/image_registry.html:6
+#: dashboards/project/data_processing/data_image_registry/views.py:41
 msgid "Image Registry"
 msgstr "छवि पंजी"
 
@@ -7549,9 +7527,9 @@ msgid "Edit Tags"
 msgstr "टैग्स का संपादन करें"
 
 #: dashboards/project/data_processing/data_image_registry/tables.py:44
+#: dashboards/project/data_processing/data_image_registry/views.py:119
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_register_image.html:10
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/register_image.html:3
-#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/register_image.html:6
 msgid "Register Image"
 msgstr "बिंब पंजीयन करें"
 
@@ -7571,24 +7549,24 @@ msgstr[1] "अपंजीकृत बिंब"
 msgid "Tags"
 msgstr "टैग"
 
-#: dashboards/project/data_processing/data_image_registry/views.py:47
+#: dashboards/project/data_processing/data_image_registry/views.py:48
 msgid "Unable to retrieve image list"
 msgstr "बिंब सूची को प्राप्त करने में असमर्थ."
 
-#: dashboards/project/data_processing/data_image_registry/views.py:57
-#: dashboards/project/data_processing/data_image_registry/views.py:72
+#: dashboards/project/data_processing/data_image_registry/views.py:58
+#: dashboards/project/data_processing/data_image_registry/views.py:73
 msgid "Unable to process plugin tags"
 msgstr "प्लगिन टैग समाप्त करने में असमर्थ"
 
-#: dashboards/project/data_processing/data_image_registry/views.py:98
-msgid "Unable to fetch the image details"
-msgstr "बिंब विवरण प्राप्त करने में असमर्थ"
-
+#: dashboards/project/data_processing/data_image_registry/views.py:85
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_edit_tags.html:10
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/edit_tags.html:3
-#: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/edit_tags.html:6
 msgid "Edit Image Tags"
 msgstr "छवि टैग संपादित करें"
+
+#: dashboards/project/data_processing/data_image_registry/views.py:100
+msgid "Unable to fetch the image details"
+msgstr "बिंब विवरण प्राप्त करने में असमर्थ"
 
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_edit_tags.html:27
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_register_image.html:25
@@ -7657,32 +7635,32 @@ msgstr "समर्थित संस्करण"
 msgid "Unable to retrieve plugin."
 msgstr "प्लगिन निकालने में अक्षम."
 
-#: dashboards/project/data_processing/data_plugins/views.py:40
+#: dashboards/project/data_processing/data_plugins/views.py:34
+msgid "Data Processing Plugins"
+msgstr "डाटा प्रक्रमन प्लगिन"
+
+#: dashboards/project/data_processing/data_plugins/views.py:41
 msgid "Unable to retrieve data processing plugins."
 msgstr ""
+
+#: dashboards/project/data_processing/data_plugins/views.py:49
+#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/details.html:3
+msgid "Data Processing Plugin Details"
+msgstr "डाटा प्रक्रमन प्लगिन विवरण"
 
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:3
 msgid "Data Processing Plugin Overview"
 msgstr "डाटा प्लगिन सारांश"
 
-#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/details.html:3
-#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/details.html:6
-msgid "Data Processing Plugin Details"
-msgstr "डाटा प्रक्रमन प्लगिन विवरण"
-
-#: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/plugins.html:6
-msgid "Data Processing Plugins"
-msgstr "डाटा प्रक्रमन प्लगिन"
-
 #: dashboards/project/data_processing/data_sources/panel.py:22
 #: dashboards/project/data_processing/data_sources/tables.py:67
-#: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/data_sources.html:6
+#: dashboards/project/data_processing/data_sources/views.py:38
 msgid "Data Sources"
 msgstr "डाटा स्रोत"
 
 #: dashboards/project/data_processing/data_sources/tables.py:28
+#: dashboards/project/data_processing/data_sources/views.py:56
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/create.html:3
-#: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/create.html:6
 #: dashboards/project/data_processing/data_sources/workflows/create.py:68
 #: dashboards/project/data_processing/data_sources/workflows/create.py:92
 msgid "Create Data Source"
@@ -7704,10 +7682,15 @@ msgstr[1] ""
 msgid "Unable to retrieve data source details"
 msgstr "डाटा स्रोत विवरण को पुनः प्राप्त करने में असमर्थ"
 
-#: dashboards/project/data_processing/data_sources/views.py:45
+#: dashboards/project/data_processing/data_sources/views.py:46
 #: dashboards/project/data_processing/jobs/workflows/launch.py:75
 msgid "Unable to fetch data sources."
 msgstr "डाटा स्रोत लाने में अक्षम."
+
+#: dashboards/project/data_processing/data_sources/views.py:62
+#: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/details.html:3
+msgid "Data Source Details"
+msgstr "डाटा स्रोत विवरण"
 
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_create_data_source_help.html:4
 msgid "Create a Data Source with a specified name."
@@ -7746,11 +7729,6 @@ msgstr "URL"
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:24
 msgid "Create time"
 msgstr "समय बनाएँ"
-
-#: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/details.html:3
-#: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/details.html:6
-msgid "Data Source Details"
-msgstr "डाटा स्रोत विवरण"
 
 #: dashboards/project/data_processing/data_sources/workflows/create.py:31
 msgid "Data Source Type"
@@ -7817,9 +7795,9 @@ msgstr "कार्य द्विपदीय बनाने में अ�
 
 #: dashboards/project/data_processing/job_binaries/forms.py:198
 #: dashboards/project/data_processing/job_binaries/tables.py:31
+#: dashboards/project/data_processing/job_binaries/views.py:61
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:11
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/create.html:3
-#: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/create.html:6
 msgid "Create Job Binary"
 msgstr "कार्य द्विपदीय बनाएँ"
 
@@ -7833,7 +7811,7 @@ msgstr "आंतरिक द्विपदीय लाने में व�
 
 #: dashboards/project/data_processing/job_binaries/panel.py:22
 #: dashboards/project/data_processing/job_binaries/tables.py:88
-#: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/job_binaries.html:6
+#: dashboards/project/data_processing/job_binaries/views.py:43
 msgid "Job Binaries"
 msgstr "कार्य बाइनरीज़"
 
@@ -7861,11 +7839,16 @@ msgstr "यूआरएल"
 msgid "Unable to fetch job binary."
 msgstr "कार्य द्विपदीय लाने में असमर्थ."
 
-#: dashboards/project/data_processing/job_binaries/views.py:50
+#: dashboards/project/data_processing/job_binaries/views.py:51
 msgid "Unable to fetch job binary list."
 msgstr "कार्य द्विपदीय सूची लाने में असमर्थ."
 
-#: dashboards/project/data_processing/job_binaries/views.py:84
+#: dashboards/project/data_processing/job_binaries/views.py:67
+#: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/details.html:3
+msgid "Job Binary Details"
+msgstr "कार्य द्विपदीय विवरण"
+
+#: dashboards/project/data_processing/job_binaries/views.py:87
 #, python-format
 msgid "Unable to fetch job binary: %(exc)s"
 msgstr "कार्य द्विपदीय लाने में असमर्थ: %(exc)s"
@@ -7926,14 +7909,9 @@ msgstr "कार्य बाइनरी सारांश"
 msgid "Download job binary"
 msgstr "कार्य द्विपदीय डाउनलोड करें"
 
-#: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/details.html:3
-#: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/details.html:6
-msgid "Job Binary Details"
-msgstr "कार्य द्विपदीय विवरण"
-
 #: dashboards/project/data_processing/job_executions/panel.py:22
 #: dashboards/project/data_processing/job_executions/tables.py:188
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/job_executions.html:6
+#: dashboards/project/data_processing/job_executions/views.py:39
 msgid "Job Executions"
 msgstr "कार्य निष्पादन"
 
@@ -7968,8 +7946,10 @@ msgstr[1] ""
 
 #: dashboards/project/data_processing/job_executions/tables.py:68
 #: dashboards/project/data_processing/job_executions/tables.py:97
+#: dashboards/project/data_processing/jobs/views.py:83
+#: dashboards/project/data_processing/jobs/views.py:104
+#: dashboards/project/data_processing/jobs/views.py:117
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/launch.html:3
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/launch.html:6
 #: dashboards/project/data_processing/jobs/workflows/launch.py:330
 #: dashboards/project/data_processing/jobs/workflows/launch.py:405
 #: dashboards/project/data_processing/jobs/workflows/launch.py:415
@@ -8013,8 +7993,13 @@ msgctxt "Current status of a Job Execution"
 msgid "Succeeded"
 msgstr ""
 
-#: dashboards/project/data_processing/job_executions/views.py:56
+#: dashboards/project/data_processing/job_executions/views.py:57
 msgid "Unable to fetch job executions."
+msgstr ""
+
+#: dashboards/project/data_processing/job_executions/views.py:64
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/details.html:3
+msgid "Job Execution Details"
 msgstr ""
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:3
@@ -8069,20 +8054,15 @@ msgstr "कार्य विन्यास"
 msgid "%(group)s:"
 msgstr ""
 
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/details.html:3
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/details.html:6
-msgid "Job Execution Details"
-msgstr ""
-
 #: dashboards/project/data_processing/jobs/panel.py:22
 #: dashboards/project/data_processing/jobs/tables.py:111
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/jobs.html:6
+#: dashboards/project/data_processing/jobs/views.py:41
 msgid "Jobs"
 msgstr "कार्य"
 
 #: dashboards/project/data_processing/jobs/tables.py:36
+#: dashboards/project/data_processing/jobs/views.py:62
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:3
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:6
 #: dashboards/project/data_processing/jobs/workflows/create.py:114
 #: dashboards/project/data_processing/jobs/workflows/create.py:153
 msgid "Create Job"
@@ -8109,10 +8089,15 @@ msgstr ""
 msgid "Launch On New Cluster"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/views.py:52
+#: dashboards/project/data_processing/jobs/views.py:53
 #: dashboards/project/data_processing/jobs/workflows/launch.py:89
 msgid "Unable to fetch jobs."
 msgstr ""
+
+#: dashboards/project/data_processing/jobs/views.py:68
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/details.html:3
+msgid "Job Details"
+msgstr "कार्य विवरण"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:4
 msgid "Create a job with a specified name."
@@ -8228,11 +8213,6 @@ msgstr "पैरामीटर्स"
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:226
 msgid "Arguments"
 msgstr "आर्गुमेंट्स"
-
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/details.html:3
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/details.html:6
-msgid "Job Details"
-msgstr "कार्य विवरण"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/library_template.html:86
 msgid "Choose"
@@ -8351,7 +8331,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/nodegroup_templates/panel.py:22
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:96
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/nodegroup_templates.html:6
+#: dashboards/project/data_processing/nodegroup_templates/views.py:41
 msgid "Node Group Templates"
 msgstr ""
 
@@ -8377,11 +8357,24 @@ msgstr ""
 msgid "Service Configurations"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/views.py:53
+#: dashboards/project/data_processing/nodegroup_templates/views.py:54
 msgid "Unable to fetch node group template list."
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/views.py:108
+#: dashboards/project/data_processing/nodegroup_templates/views.py:61
+msgid "Node Group Template Details"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/views.py:79
+#: dashboards/project/data_processing/nodegroup_templates/views.py:87
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:3
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/create.html:3
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:240
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:373
+msgid "Create Node Group Template"
+msgstr ""
+
+#: dashboards/project/data_processing/nodegroup_templates/views.py:112
 msgid "Unable to fetch template object."
 msgstr ""
 
@@ -8454,21 +8447,8 @@ msgstr ""
 msgid "%(conf_name)s: %(conf_val)s"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:3
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:6
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/create.html:3
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/create.html:6
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:240
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:373
-msgid "Create Node Group Template"
-msgstr ""
-
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/details.html:3
 msgid "Nodegroup Template Details"
-msgstr ""
-
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/details.html:6
-msgid "Node Group Template Details"
 msgstr ""
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/copy.py:29
@@ -9847,9 +9827,10 @@ msgstr "नया फ़ायरवॉल जोड़ें"
 #: dashboards/project/loadbalancers/views.py:358
 #: dashboards/project/networks/views.py:69
 #: dashboards/project/networks/ports/views.py:88
-#: dashboards/project/routers/views.py:167 dashboards/project/vpn/views.py:274
-#: dashboards/project/vpn/views.py:310 dashboards/project/vpn/views.py:353
-#: dashboards/project/vpn/views.py:395
+#: dashboards/project/routers/views.py:167
+#: dashboards/project/volumes/snapshots/views.py:37
+#: dashboards/project/vpn/views.py:274 dashboards/project/vpn/views.py:310
+#: dashboards/project/vpn/views.py:353 dashboards/project/vpn/views.py:395
 #: dashboards/router/nexus1000v/views.py:122
 msgid "Save Changes"
 msgstr "परिवर्तन सहेजें"
@@ -10175,11 +10156,11 @@ msgstr[1] ""
 
 #: dashboards/project/images/images/tables.py:124
 #: dashboards/project/volumes/snapshots/tables.py:93
-#: dashboards/project/volumes/templates/volumes/volumes/_create.html:9
-#: dashboards/project/volumes/templates/volumes/volumes/_create.html:24
 #: dashboards/project/volumes/templates/volumes/volumes/create.html:3
 #: dashboards/project/volumes/volumes/tables.py:96
 #: dashboards/project/volumes/volumes/tables.py:121
+#: dashboards/project/volumes/volumes/views.py:82
+#: dashboards/project/volumes/volumes/views.py:84
 msgid "Create Volume"
 msgstr "वॉल्यूम बनाएँ"
 
@@ -11870,7 +11851,7 @@ msgid "Add Member"
 msgstr "सदस्य बनाएँ"
 
 #: dashboards/project/loadbalancers/tables.py:68
-#: dashboards/project/loadbalancers/workflows.py:603
+#: dashboards/project/loadbalancers/workflows.py:609
 msgid "Add Monitor"
 msgstr "मॉनिटर जोड़ें"
 
@@ -11951,7 +11932,7 @@ msgid "Edit Monitor"
 msgstr " मॉनिटर संपादित करें"
 
 #: dashboards/project/loadbalancers/tables.py:234
-#: dashboards/project/loadbalancers/workflows.py:666
+#: dashboards/project/loadbalancers/workflows.py:672
 msgid "Associate Monitor"
 msgstr "मॉनिटर जोड़ें"
 
@@ -11960,7 +11941,7 @@ msgid "Failed to retrieve health monitors."
 msgstr "स्वास्थ्य मॉनिटर लाने में असफल."
 
 #: dashboards/project/loadbalancers/tables.py:257
-#: dashboards/project/loadbalancers/workflows.py:729
+#: dashboards/project/loadbalancers/workflows.py:735
 msgid "Disassociate Monitor"
 msgstr "मॉनिटर अलग करें "
 
@@ -12411,96 +12392,100 @@ msgid ""
 "202), or range of values (e.g. 200-204)"
 msgstr "अपेक्षित कोड एक एकल मान (उदाहरण के लिए 200), मानों की सूची (उदाहरण के लिए 200, 202), या मानों की श्रेणी (जैसे 200-204) हो सकता है"
 
-#: dashboards/project/loadbalancers/workflows.py:565
+#: dashboards/project/loadbalancers/workflows.py:562
+msgid "Delay must be greater than or equal to Timeout"
+msgstr ""
+
+#: dashboards/project/loadbalancers/workflows.py:571
 msgid "Please choose a HTTP method"
 msgstr "HTTP पद्धति चुनें"
 
-#: dashboards/project/loadbalancers/workflows.py:568
+#: dashboards/project/loadbalancers/workflows.py:574
 msgid "Please specify an URL"
 msgstr "यूआरएल निर्दिष्ट करें"
 
-#: dashboards/project/loadbalancers/workflows.py:571
+#: dashboards/project/loadbalancers/workflows.py:577
 msgid ""
 "Please enter a single value (e.g. 200), a list of values (e.g. 200, 202), or"
 " range of values (e.g. 200-204)"
 msgstr "एकल मान (उदाहरण के लिए 200), मानों की सूची (उदाहरण के लिए 200, 202), या मानों की श्रेणी (जैसे 200-204) दर्ज करें"
 
-#: dashboards/project/loadbalancers/workflows.py:578
+#: dashboards/project/loadbalancers/workflows.py:584
 msgid "Add New Monitor"
 msgstr "नए मॉनिटर जोड़ें"
 
-#: dashboards/project/loadbalancers/workflows.py:580
+#: dashboards/project/loadbalancers/workflows.py:586
 msgid ""
 "Create a monitor template.\n"
 "\n"
 "Select type of monitoring. Specify delay, timeout, and retry limits required by the monitor. Specify method, URL path, and expected HTTP codes upon success."
 msgstr "मॉनिटर टेम्पलेट बनाएँ.\n\nनिगरानी के प्रकार का चयन. देरी, मध्यांतर निर्दिष्ट करें, और मॉनिटर द्वारा आवश्यक सीमा को फिर से प्रयास. विधि, URL पथ, और सफलता पर उम्मीद HTTP कोड निर्दिष्ट करें."
 
-#: dashboards/project/loadbalancers/workflows.py:605
+#: dashboards/project/loadbalancers/workflows.py:611
 msgid "Added monitor"
 msgstr "जोड़ा गया मॉनिटर"
 
-#: dashboards/project/loadbalancers/workflows.py:606
+#: dashboards/project/loadbalancers/workflows.py:612
 msgid "Unable to add monitor"
 msgstr "मॉनिटर जोड़ने में असमर्थ"
 
-#: dashboards/project/loadbalancers/workflows.py:616
+#: dashboards/project/loadbalancers/workflows.py:622
 msgid "Unable to add monitor."
 msgstr "मॉनिटर जोड़ने में असमर्थ."
 
-#: dashboards/project/loadbalancers/workflows.py:621
-#: dashboards/project/loadbalancers/workflows.py:684
+#: dashboards/project/loadbalancers/workflows.py:627
+#: dashboards/project/loadbalancers/workflows.py:690
 msgid "Monitor"
 msgstr "मॉनीटर"
 
-#: dashboards/project/loadbalancers/workflows.py:627
+#: dashboards/project/loadbalancers/workflows.py:633
 #, python-format
 msgid "Select a monitor template for %s"
 msgstr " %s के लिए एक निगरानी टेम्पलेट का चयन करें"
 
-#: dashboards/project/loadbalancers/workflows.py:630
-#: dashboards/project/loadbalancers/workflows.py:694
+#: dashboards/project/loadbalancers/workflows.py:636
+#: dashboards/project/loadbalancers/workflows.py:700
 msgid "Select a Monitor"
 msgstr "मॉनीटर चुनें"
 
-#: dashboards/project/loadbalancers/workflows.py:642
-#: dashboards/project/loadbalancers/workflows.py:704
+#: dashboards/project/loadbalancers/workflows.py:648
+#: dashboards/project/loadbalancers/workflows.py:710
 msgid "Unable to retrieve monitors list."
 msgstr "मॉनिटर सूची को प्राप्त करने में असमर्थ."
 
-#: dashboards/project/loadbalancers/workflows.py:648
-#: dashboards/project/loadbalancers/workflows.py:710
+#: dashboards/project/loadbalancers/workflows.py:654
+#: dashboards/project/loadbalancers/workflows.py:716
 msgid "Association Details"
 msgstr "एसोसिएशन विवरण"
 
-#: dashboards/project/loadbalancers/workflows.py:650
+#: dashboards/project/loadbalancers/workflows.py:656
 msgid "Associate a health monitor with target pool."
 msgstr "लक्ष्य पूल के साथ एक स्वास्थ्य पर नजर रखने के एसोसिएट."
 
-#: dashboards/project/loadbalancers/workflows.py:668
+#: dashboards/project/loadbalancers/workflows.py:674
 msgid "Associated monitor."
 msgstr "जुड़ा हुआ मॉनिटर."
 
-#: dashboards/project/loadbalancers/workflows.py:669
-#: dashboards/project/loadbalancers/workflows.py:679
+#: dashboards/project/loadbalancers/workflows.py:675
+#: dashboards/project/loadbalancers/workflows.py:685
 msgid "Unable to associate monitor."
 msgstr "मॉनिटर संबद्ध करने में असमर्थ."
 
-#: dashboards/project/loadbalancers/workflows.py:691
+#: dashboards/project/loadbalancers/workflows.py:697
 #, python-format
 msgid "Select a health monitor of %s"
 msgstr "%s के स्वास्थ्य की निगरानी का चयन करें"
 
-#: dashboards/project/loadbalancers/workflows.py:712
+#: dashboards/project/loadbalancers/workflows.py:718
 msgid "Disassociate a health monitor from target pool. "
 msgstr "लक्ष्य पूल से एक स्वास्थ्य की निगरानी अलग."
 
-#: dashboards/project/loadbalancers/workflows.py:731
+#: dashboards/project/loadbalancers/workflows.py:737
 msgid "Disassociated monitor."
 msgstr "अलग किया हुआ मॉनिटर"
 
-#: dashboards/project/loadbalancers/workflows.py:732
-#: dashboards/project/loadbalancers/workflows.py:742
+#: dashboards/project/loadbalancers/workflows.py:738
+#: dashboards/project/loadbalancers/workflows.py:748
 msgid "Unable to disassociate monitor."
 msgstr "मॉनीटर को अलग करने में असमर्थ."
 
@@ -14202,12 +14187,27 @@ msgid "Restoring"
 msgstr "पुनर्भंडारण"
 
 #: dashboards/project/volumes/backups/tabs.py:41
-#: dashboards/project/volumes/backups/views.py:67
+#: dashboards/project/volumes/backups/views.py:72
 msgid "Unable to retrieve backup details."
 msgstr "बैकअप विवरण को पुनः प्राप्त करने में असमर्थ."
 
-#: dashboards/project/volumes/backups/views.py:48
+#: dashboards/project/volumes/backups/views.py:33
+#: dashboards/project/volumes/backups/views.py:35
+#: dashboards/project/volumes/templates/volumes/backups/create_backup.html:3
+msgid "Create Volume Backup"
+msgstr "वॉल्यूम बैकअप बनाएँ"
+
+#: dashboards/project/volumes/backups/views.py:53
 msgid "Volume Backup Details: {{ backup.name }}"
+msgstr ""
+
+#: dashboards/project/volumes/backups/views.py:87
+#: dashboards/project/volumes/templates/volumes/backups/restore_backup.html:3
+msgid "Restore Volume Backup"
+msgstr "वॉल्यूम बैकअप बहाल करें"
+
+#: dashboards/project/volumes/backups/views.py:89
+msgid "Restore Backup to Volume"
 msgstr ""
 
 #: dashboards/project/volumes/snapshots/forms.py:39
@@ -14232,39 +14232,32 @@ msgstr[0] "वॉल्यूम स्नैपशॉट का नियोज
 msgstr[1] "वॉल्यूम स्नैपशॉट का नियोजित विलोपन"
 
 #: dashboards/project/volumes/snapshots/tables.py:79
-#: dashboards/project/volumes/templates/volumes/snapshots/_update.html:9
-#: dashboards/project/volumes/templates/volumes/snapshots/_update.html:24
+#: dashboards/project/volumes/snapshots/views.py:35
 #: dashboards/project/volumes/templates/volumes/snapshots/update.html:3
 #: dashboards/project/volumes/templates/volumes/snapshots/update.html:6
 msgid "Edit Snapshot"
 msgstr "स्नैपशॉट संपादित करें"
 
 #: dashboards/project/volumes/snapshots/tabs.py:36
-#: dashboards/project/volumes/snapshots/views.py:84
+#: dashboards/project/volumes/snapshots/views.py:90
 msgid "Unable to retrieve snapshot details."
 msgstr "स्नैपशॉट जानकारी प्राप्त करने में असमर्थ."
 
-#: dashboards/project/volumes/snapshots/views.py:64
+#: dashboards/project/volumes/snapshots/views.py:70
 msgid "Volume Snapshot Details: {{ snapshot.name }}"
 msgstr ""
 
-#: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:9
-#: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:24
-#: dashboards/project/volumes/templates/volumes/backups/create_backup.html:3
-msgid "Create Volume Backup"
-msgstr "वॉल्यूम बैकअप बनाएँ"
-
-#: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:18
+#: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:5
 msgid "Volume Backup:"
 msgstr ""
 
-#: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:18
+#: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:5
 msgid ""
 "Volume Backups are stored using the Object Storage service. You must have "
 "this service activated in order to create a backup."
 msgstr ""
 
-#: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:19
+#: dashboards/project/volumes/templates/volumes/backups/_create_backup.html:6
 msgid ""
 "If no container name is provided, a default container named volumebackups "
 "will be provisioned for you. Backups will be the same size as the volume "
@@ -14276,25 +14269,16 @@ msgstr ""
 msgid "Volume Backup Overview: %(backup_display_name)s"
 msgstr ""
 
-#: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:9
-#: dashboards/project/volumes/templates/volumes/backups/restore_backup.html:3
-msgid "Restore Volume Backup"
-msgstr "वॉल्यूम बैकअप बहाल करें"
-
-#: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:18
+#: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:5
 msgid "Restore Backup:"
 msgstr ""
 
-#: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:18
+#: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:5
 msgid "Select a volume to restore to."
 msgstr ""
 
-#: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:19
+#: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:6
 msgid "Optionally, you may choose to create a new volume."
-msgstr ""
-
-#: dashboards/project/volumes/templates/volumes/backups/_restore_backup.html:24
-msgid "Restore Backup to Volume"
 msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/backups/create_backup.html:6
@@ -14309,7 +14293,7 @@ msgstr ""
 msgid "Restore a Volume Backup"
 msgstr ""
 
-#: dashboards/project/volumes/templates/volumes/snapshots/_update.html:19
+#: dashboards/project/volumes/templates/volumes/snapshots/_update.html:6
 msgid "Modify the name and description of a snapshot."
 msgstr ""
 
@@ -14325,29 +14309,23 @@ msgid ""
 "accept</tt> command."
 msgstr ""
 
-#: dashboards/project/volumes/templates/volumes/volumes/_attach.html:10
-#: dashboards/project/volumes/templates/volumes/volumes/attach.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/attach.html:6
-msgid "Manage Volume Attachments"
-msgstr "वॉल्यूम अनुलग्नक प्रबंधन"
-
-#: dashboards/project/volumes/templates/volumes/volumes/_attach.html:14
+#: dashboards/project/volumes/templates/volumes/volumes/_attach.html:9
 msgid "Attach To Instance"
 msgstr "इंस्टेंस के लिए संलग्न करें"
 
-#: dashboards/project/volumes/templates/volumes/volumes/_attach.html:23
+#: dashboards/project/volumes/templates/volumes/volumes/_attach.html:18
 msgid "Attach Volume"
 msgstr "वॉल्यूम संलग्न करें"
 
-#: dashboards/project/volumes/templates/volumes/volumes/_create_snapshot.html:9
-#: dashboards/project/volumes/templates/volumes/volumes/_create_snapshot.html:26
-#: dashboards/project/volumes/templates/volumes/volumes/create_snapshot.html:3
-msgid "Create Volume Snapshot"
-msgstr "वॉल्यूम स्नैपशॉट बनाएँ"
-
-#: dashboards/project/volumes/templates/volumes/volumes/_create_snapshot.html:24
+#: dashboards/project/volumes/templates/volumes/volumes/_create_snapshot.html:13
 msgid "Create Volume Snapshot (Force)"
 msgstr "वॉल्यूम स्नैपशॉट बनाएँ ( बलपूर्वक)"
+
+#: dashboards/project/volumes/templates/volumes/volumes/_create_snapshot.html:15
+#: dashboards/project/volumes/templates/volumes/volumes/create_snapshot.html:3
+#: dashboards/project/volumes/volumes/views.py:139
+msgid "Create Volume Snapshot"
+msgstr "वॉल्यूम स्नैपशॉट बनाएँ"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_create_transfer.html:6
 msgid ""
@@ -14384,7 +14362,7 @@ msgid "Volume Source"
 msgstr "वॉल्यूम स्रोत"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:84
-#: dashboards/project/volumes/volumes/views.py:227
+#: dashboards/project/volumes/volumes/views.py:243
 msgid "Volume Transfer"
 msgstr ""
 
@@ -14399,14 +14377,6 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/volumes/_encryption_detail_overview.html:25
 msgid "Volume is Unencrypted"
 msgstr ""
-
-#: dashboards/project/volumes/templates/volumes/volumes/_extend.html:9
-#: dashboards/project/volumes/templates/volumes/volumes/_extend.html:24
-#: dashboards/project/volumes/templates/volumes/volumes/extend.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/extend.html:6
-#: dashboards/project/volumes/volumes/tables.py:133
-msgid "Extend Volume"
-msgstr "वॉल्यूम विस्तार"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_extend_limits.html:5
 msgid "Extend the size of a volume."
@@ -14430,37 +14400,29 @@ msgstr "वॉल्यूम इंस्टेंस से जुड़ा �
 msgid "Number of Volumes"
 msgstr "वॉल्यूम की संख्या"
 
-#: dashboards/project/volumes/templates/volumes/volumes/_retype.html:9
-#: dashboards/project/volumes/templates/volumes/volumes/_retype.html:39
-#: dashboards/project/volumes/templates/volumes/volumes/retype.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/retype.html:6
-#: dashboards/project/volumes/volumes/tables.py:244
-msgid "Change Volume Type"
-msgstr ""
-
-#: dashboards/project/volumes/templates/volumes/volumes/_retype.html:19
+#: dashboards/project/volumes/templates/volumes/volumes/_retype.html:6
 msgid ""
 "\n"
-"        Change the volume type of a volume after its creation.\n"
-"        This is equivalent to the <tt>cinder retype</tt> command.\n"
-"       "
+"      Change the volume type of a volume after its creation.\n"
+"      This is equivalent to the <tt>cinder retype</tt> command.\n"
+"     "
 msgstr ""
 
-#: dashboards/project/volumes/templates/volumes/volumes/_retype.html:24
+#: dashboards/project/volumes/templates/volumes/volumes/_retype.html:11
 msgid ""
 "\n"
-"        The \"Volume Type\" selected must be different from the current volume type.\n"
-"       "
+"      The \"Volume Type\" selected must be different from the current volume type.\n"
+"     "
 msgstr ""
 
-#: dashboards/project/volumes/templates/volumes/volumes/_retype.html:28
+#: dashboards/project/volumes/templates/volumes/volumes/_retype.html:15
 msgid ""
 "\n"
-"        The \"Migration Policy\" is only used if the volume retype cannot be\n"
-"        completed. If the \"Migration Policy\" is \"On Demand\", the back end will\n"
-"        perform volume migration. Note that migration may take a significant\n"
-"        amount of time to complete, in some cases hours.\n"
-"       "
+"      The \"Migration Policy\" is only used if the volume retype cannot be\n"
+"      completed. If the \"Migration Policy\" is \"On Demand\", the back end will\n"
+"      perform volume migration. Note that migration may take a significant\n"
+"      amount of time to complete, in some cases hours.\n"
+"     "
 msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/volumes/_show_transfer.html:6
@@ -14488,59 +14450,52 @@ msgstr ""
 msgid "Number of Snapshots"
 msgstr ""
 
-#: dashboards/project/volumes/templates/volumes/volumes/_update.html:9
-#: dashboards/project/volumes/templates/volumes/volumes/update.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/update.html:6
-#: dashboards/project/volumes/volumes/tables.py:232
-msgid "Edit Volume"
-msgstr " वॉल्यूम संपादित करें"
-
-#: dashboards/project/volumes/templates/volumes/volumes/_update.html:19
+#: dashboards/project/volumes/templates/volumes/volumes/_update.html:6
 msgid "Modify name and description of a volume."
 msgstr ""
 
-#: dashboards/project/volumes/templates/volumes/volumes/_update.html:21
+#: dashboards/project/volumes/templates/volumes/volumes/_update.html:7
 msgid ""
 "The \"Bootable\" flag specifies that this volume can be used to launch an "
 "instance."
 msgstr ""
 
-#: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:9
-#: dashboards/project/volumes/templates/volumes/volumes/upload_to_image.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/upload_to_image.html:6
-msgid "Upload Volume to Image"
-msgstr ""
-
-#: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:19
+#: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:6
 msgid ""
 "\n"
-"        Upload the volume to the Image Service as an image.\n"
-"        This is equivalent to the <tt>cinder upload-to-image</tt> command.\n"
+"      Upload the volume to the Image Service as an image.\n"
+"      This is equivalent to the <tt>cinder upload-to-image</tt> command.\n"
+"     "
+msgstr ""
+
+#: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:11
+msgid ""
+"\n"
+"      Choose \"Disk Format\" for the image. The volume images are created with\n"
+"      the QEMU disk image utility.\n"
+"     "
+msgstr ""
+
+#: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:17
+msgid ""
+"\n"
+"        When the volume status is \"in-use\", you can use \"Force\" to upload the\n"
+"        volume to an image.\n"
 "       "
-msgstr ""
-
-#: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:24
-msgid ""
-"\n"
-"        Choose \"Disk Format\" for the image. The volume images are created with\n"
-"        the QEMU disk image utility.\n"
-"       "
-msgstr ""
-
-#: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:30
-msgid ""
-"\n"
-"          When the volume status is \"in-use\", you can use \"Force\" to upload the\n"
-"          volume to an image.\n"
-"         "
 msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/volumes/accept_transfer.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/accept_transfer.html:6
-#: dashboards/project/volumes/volumes/views.py:216
-#: dashboards/project/volumes/volumes/views.py:217
+#: dashboards/project/volumes/volumes/views.py:232
+#: dashboards/project/volumes/volumes/views.py:233
 msgid "Accept Volume Transfer"
 msgstr ""
+
+#: dashboards/project/volumes/templates/volumes/volumes/attach.html:3
+#: dashboards/project/volumes/templates/volumes/volumes/attach.html:6
+#: dashboards/project/volumes/volumes/views.py:312
+msgid "Manage Volume Attachments"
+msgstr "वॉल्यूम अनुलग्नक प्रबंधन"
 
 #: dashboards/project/volumes/templates/volumes/volumes/create.html:6
 msgid "Create a Volume"
@@ -14551,8 +14506,8 @@ msgid "Create a Volume Snapshot"
 msgstr "वॉल्यूम स्नैपशॉट बनाएँ"
 
 #: dashboards/project/volumes/templates/volumes/volumes/create_transfer.html:3
-#: dashboards/project/volumes/volumes/views.py:196
-#: dashboards/project/volumes/volumes/views.py:197
+#: dashboards/project/volumes/volumes/views.py:212
+#: dashboards/project/volumes/volumes/views.py:213
 msgid "Create Volume Transfer"
 msgstr ""
 
@@ -14564,9 +14519,38 @@ msgstr ""
 msgid "Volume Encryption Details"
 msgstr ""
 
+#: dashboards/project/volumes/templates/volumes/volumes/extend.html:3
+#: dashboards/project/volumes/templates/volumes/volumes/extend.html:6
+#: dashboards/project/volumes/volumes/tables.py:133
+#: dashboards/project/volumes/volumes/views.py:99
+#: dashboards/project/volumes/volumes/views.py:101
+msgid "Extend Volume"
+msgstr "वॉल्यूम विस्तार"
+
+#: dashboards/project/volumes/templates/volumes/volumes/retype.html:3
+#: dashboards/project/volumes/templates/volumes/volumes/retype.html:6
+#: dashboards/project/volumes/volumes/tables.py:244
+#: dashboards/project/volumes/volumes/views.py:385
+#: dashboards/project/volumes/volumes/views.py:387
+msgid "Change Volume Type"
+msgstr ""
+
 #: dashboards/project/volumes/templates/volumes/volumes/show_transfer.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/show_transfer.html:6
 msgid "Volume Transfer Details"
+msgstr ""
+
+#: dashboards/project/volumes/templates/volumes/volumes/update.html:3
+#: dashboards/project/volumes/templates/volumes/volumes/update.html:6
+#: dashboards/project/volumes/volumes/tables.py:232
+#: dashboards/project/volumes/volumes/views.py:275
+msgid "Edit Volume"
+msgstr " वॉल्यूम संपादित करें"
+
+#: dashboards/project/volumes/templates/volumes/volumes/upload_to_image.html:3
+#: dashboards/project/volumes/templates/volumes/volumes/upload_to_image.html:6
+#: dashboards/project/volumes/volumes/views.py:171
+msgid "Upload Volume to Image"
 msgstr ""
 
 #: dashboards/project/volumes/volumes/forms.py:55
@@ -14915,7 +14899,7 @@ msgid "Unable to delete volume transfer."
 msgstr ""
 
 #: dashboards/project/volumes/volumes/tables.py:318
-#: dashboards/project/volumes/volumes/views.py:317
+#: dashboards/project/volumes/volumes/views.py:343
 msgid "Unable to retrieve attachment information."
 msgstr "अनुलग्नक सूचना पाने में असमर्थ."
 
@@ -14992,38 +14976,38 @@ msgstr ""
 msgid "Volume Details: {{ volume.name }}"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/views.py:107
-#: dashboards/project/volumes/volumes/views.py:150
-#: dashboards/project/volumes/volumes/views.py:300
+#: dashboards/project/volumes/volumes/views.py:113
+#: dashboards/project/volumes/volumes/views.py:162
+#: dashboards/project/volumes/volumes/views.py:326
 msgid "Unable to retrieve volume information."
 msgstr "वॉल्यूम सूचना पाने में असमर्थ."
 
-#: dashboards/project/volumes/volumes/views.py:141
+#: dashboards/project/volumes/volumes/views.py:153
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
 msgstr "यह मात्रा वर्तमान में एक इंस्टेंस से जुड़ा हुआ है. कुछ मामलों में, एक संलग्न वॉल्यूम से एक स्नैपशॉट बनाने के एक भ्रष्ट स्नैपशॉट में परिणाम कर सकते हैं."
 
-#: dashboards/project/volumes/volumes/views.py:169
-#: dashboards/project/volumes/volumes/views.py:366
+#: dashboards/project/volumes/volumes/views.py:184
+#: dashboards/project/volumes/volumes/views.py:398
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/views.py:240
+#: dashboards/project/volumes/volumes/views.py:256
 msgid "Unable to retrieve volume transfer."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/views.py:268
+#: dashboards/project/volumes/volumes/views.py:288
 msgid "Unable to retrieve volume."
 msgstr "वॉल्यूम को पुनः प्राप्त करने में असमर्थ."
 
-#: dashboards/project/volumes/volumes/views.py:396
+#: dashboards/project/volumes/volumes/views.py:429
 #, python-format
 msgid "Volume Encryption Details: %(volume_name)s"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/views.py:411
+#: dashboards/project/volumes/volumes/views.py:444
 msgid "Unable to retrieve volume encryption details."
 msgstr ""
 

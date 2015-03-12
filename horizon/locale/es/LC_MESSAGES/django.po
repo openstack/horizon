@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Alberto Molina Coballes <alb.molina@gmail.com>, 2015
 # cametiope <aldohcasa@hotmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-12 18:22-0600\n"
-"PO-Revision-Date: 2015-02-12 15:36+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-03-11 18:35-0500\n"
+"PO-Revision-Date: 2015-03-11 17:52+0000\n"
+"Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -96,7 +97,7 @@ msgstr "Filtrar"
 
 #: tables/actions.py:645
 msgid "This action cannot be undone."
-msgstr ""
+msgstr "No se puede deshacer esta acción."
 
 #: tables/actions.py:767
 #, python-format
@@ -294,7 +295,7 @@ msgstr "IPs flotantes"
 #: templates/horizon/common/_limit_summary.html:29
 #, python-format
 msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr ""
+msgstr "Asignados <span> %(used)s </span> de <span> %(available)s </span>"
 
 #: templates/horizon/common/_limit_summary.html:35
 msgid "Security Groups"
@@ -408,7 +409,7 @@ msgstr "Este periodo en horas GB:"
 
 #: templates/horizon/common/_usage_summary.html:24
 msgid "This Period's RAM-Hours:"
-msgstr ""
+msgstr "Horas-RAM de este periodo:"
 
 #: templates/horizon/common/_workflow.html:40
 msgid "Back"
@@ -430,19 +431,19 @@ msgstr "Sin límite"
 msgid "Available"
 msgstr "Disponible"
 
-#: templatetags/sizeformat.py:49 templatetags/sizeformat.py:54
+#: templatetags/sizeformat.py:51 templatetags/sizeformat.py:56
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
 msgstr[0] "%(size)d bite"
 msgstr[1] "%(size)d bites"
 
-#: templatetags/sizeformat.py:57
+#: templatetags/sizeformat.py:59
 #, python-format
 msgid "%s KB"
 msgstr "%s KB"
 
-#: templatetags/sizeformat.py:60
+#: templatetags/sizeformat.py:61
 #, python-format
 msgid "%s MB"
 msgstr "%s MB"
@@ -452,19 +453,19 @@ msgstr "%s MB"
 msgid "%s GB"
 msgstr "%s GB"
 
-#: templatetags/sizeformat.py:66
+#: templatetags/sizeformat.py:65
 #, python-format
 msgid "%s TB"
 msgstr "%s TB"
 
-#: templatetags/sizeformat.py:68
+#: templatetags/sizeformat.py:66
 #, python-format
 msgid "%s PB"
 msgstr "%s PB"
 
-#: templatetags/sizeformat.py:77
+#: templatetags/sizeformat.py:74
 msgid "0 Bytes"
-msgstr ""
+msgstr "0 Bytes"
 
 #. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:31
