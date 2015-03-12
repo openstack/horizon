@@ -11,7 +11,8 @@
     'hz.framework.bind-scope',
     'hz.widget.transfer-table',
     'hz.widget.charts',
-    'hz.widget.action-list'
+    'hz.widget.action-list',
+    'hz.widget.metadata-tree'
   ])
     .constant('basePath', '/static/angular/');
 

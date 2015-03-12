@@ -1,0 +1,134 @@
+<div class="metadata-tree">
+  <div class="row">
+    <p class="col-md-12">
+      <span ng-bind="::text.help"></span>
+    </p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default" ng-form="treeForm">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-md-6 v-align">
+              <strong>
+                <span ng-bind="::text.available"></span>
+              </strong>
+            </div>
+            <div class="col-md-6">
+              <div class="has-feedback">
+                <input class="form-control input-sm"
+                       type="text" placeholder="{$ ::text.filter $}"
+                       ng-model="filterText.available"/>
+                <span class="fa fa-search form-control-feedback"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ul class="list-group" ng-cloak>
+          <li class="list-group-item" ng-form="customItemForm">
+            <div class="input-group input-group-sm"
+                 ng-class="{'has-error': customItemForm.$invalid && customItemForm.$dirty}">
+              <span class="input-group-addon" ng-bind="::text.custom"></span>
+              <input class="form-control" type="text" name="customItem"
+                     ng-model="customItem"
+                     hz-metadata-tree-unique/>
+              <span class="input-group-btn">
+                <button type='button' class="btn btn-primary"
+                   ng-click="tree.addCustom(customItem)"
+                   ng-disabled="!customItem || customItemForm.$invalid">
+                  <span class="fa fa-plus"></span>
+                </button>
+              </span>
+            </div>
+            <div class="label label-danger"
+                 ng-if="customItemForm.$invalid && customItemForm.$dirty">
+              <span ng-bind="::text.duplicate"></span>
+            </div>
+          </li>
+
+          <li ng-repeat="item in availableList = (tree.flatTree | filter: {$: filterText.available} | filter: availableFilter)"
+              ng-class="'level-' + item.level + (tree.selected===item?' active':'')"
+              ng-class-odd="'dark-stripe'"
+              ng-class-even="'light-stripe'"
+              class="list-group-item"
+              ng-click="tree.select(item)">
+            <div class="clearfix">
+              <div class="pull-left">
+              <span ng-class="{leaf: item.leaf}">
+                <span class="fa" ng-show="!item.leaf"
+                      ng-class="item.expanded ? 'fa-chevron-down' : 'fa-chevron-right'"></span>
+                <span ng-bind="::item.label"></span>
+              </span>
+              </div>
+              <div class="pull-right">
+                <a class="btn btn-primary btn-xs"
+                   ng-click="tree.markAsAdded(item)">
+                  <span class="fa fa-plus"></span>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item disabled"
+              ng-show="availableList.length===0">
+            <span ng-bind="::text.noAvailable"></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-md-6 v-align">
+              <strong>
+                <span ng-bind="::text.existing"></span>
+              </strong>
+            </div>
+            <div class="col-md-6">
+              <div class="has-feedback">
+                <input class="form-control input-sm"
+                       type="text" placeholder="{$ ::text.filter $}"
+                       ng-model="filterText.existing"/>
+                <span class="fa fa-search form-control-feedback"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ul class="list-group" ng-cloak>
+          <li ng-repeat="item in existingList = (tree.flatTree | filter:{$:filterText.existing, added:true, leaf:'!null'} | orderBy:'leaf.name')"
+              ng-class="{'active': tree.selected===item}"
+              ng-class-odd="'dark-stripe'"
+              ng-class-even="'light-stripe'"
+              class="list-group-item"
+              ng-click="tree.select(item)">
+            <hz-metadata-tree-item item="item" text="text"
+                                   action="tree.unmarkAsAdded(item)">
+            </hz-metadata-tree-item>
+          </li>
+          <li class="list-group-item disabled"
+              ng-show="existingList.length===0">
+            <span ng-bind="::text.noExisting"></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="well">
+    <div ng-show="tree.selected">
+      <p>
+        <strong>
+          <span ng-bind="tree.selected.label"></span>
+        </strong>
+        <span ng-show="tree.selected.leaf">(<em><span ng-bind="tree.selected.leaf.name"></span></em>)</span>
+      </p>
+
+      <p><span ng-bind="tree.selected.description"></span></p>
+    </div>
+    <div ng-hide="tree.selected">
+      <span ng-bind="::text.help"></span>
+    </div>
+  </div>
+</div>
