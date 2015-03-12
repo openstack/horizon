@@ -20,6 +20,7 @@ from django import forms
 from django import http
 from django import shortcuts
 from django.template import defaultfilters
+from django.test.utils import override_settings
 from django.utils.translation import ungettext_lazy
 
 from mox3.mox import IsA  # noqa
@@ -300,6 +301,12 @@ class MyTable(tables.DataTable):
                        MyBatchActionWithHelpText)
 
 
+class TableWithColumnsPolicy(tables.DataTable):
+    name = tables.Column('name')
+    restricted = tables.Column('restricted',
+                               policy_rules=[('compute', 'role:admin')])
+
+
 class MyServerFilterTable(MyTable):
     class Meta(object):
         name = "my_table"
@@ -428,6 +435,22 @@ class DataTableTests(test.TestCase):
         self.assertEqual(MyUpdateAction, name_column.update_action)
         self.assertEqual(forms.CharField, name_column.form_field.__class__)
         self.assertEqual({'class': 'test'}, name_column.form_field_attributes)
+
+    @override_settings(POLICY_CHECK_FUNCTION=lambda *args: False)
+    def test_table_column_policy_not_allowed(self):
+        self.table = TableWithColumnsPolicy(self.request, TEST_DATA)
+        self.assertEqual(TEST_DATA, self.table.data)
+        # The column "restricted" is not rendered because of policy
+        expected_columns = ['<Column: name>']
+        self.assertQuerysetEqual(self.table.columns.values(), expected_columns)
+
+    @override_settings(POLICY_CHECK_FUNCTION=lambda *args: True)
+    def test_table_column_policy_allowed(self):
+        self.table = TableWithColumnsPolicy(self.request, TEST_DATA)
+        self.assertEqual(TEST_DATA, self.table.data)
+        # Policy check returns True so the column "restricted" is rendered
+        expected_columns = ['<Column: name>', '<Column: restricted>']
+        self.assertQuerysetEqual(self.table.columns.values(), expected_columns)
 
     def test_table_force_no_multiselect(self):
         class TempTable(MyTable):

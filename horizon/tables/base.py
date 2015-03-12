@@ -19,6 +19,7 @@ import logging
 from operator import attrgetter
 import sys
 
+from django.conf import settings
 from django.core import exceptions as core_exceptions
 from django.core import urlresolvers
 from django import forms
@@ -234,6 +235,22 @@ class Column(html.HTMLElement):
         ``link_attrs={"target": "_blank", "class": "link-foo link-bar"}``.
         Defaults to ``None``.
 
+    .. attribute:: policy_rules
+
+        List of scope and rule tuples to do policy checks on, the
+        composition of which is (scope, rule)
+
+            scope: service type managing the policy for action
+            rule: string representing the action to be checked
+
+            for a policy that requires a single rule check:
+                policy_rules should look like
+                    "(("compute", "compute:create_instance"),)"
+            for a policy that requires multiple rule checks:
+                rules should look like
+                    "(("identity", "identity:list_users"),
+                      ("identity", "identity:list_roles"))"
+
     .. attribute:: help_text
 
         A string of simple help text displayed in a tooltip when you hover
@@ -273,7 +290,7 @@ class Column(html.HTMLElement):
                  empty_value=None, filters=None, classes=None, summation=None,
                  auto=None, truncate=None, link_classes=None, wrap_list=False,
                  form_field=None, form_field_attributes=None,
-                 update_action=None, link_attrs=None,
+                 update_action=None, link_attrs=None, policy_rules=None,
                  cell_attributes_getter=None, help_text=None):
 
         allowed_data_types = allowed_data_types or []
@@ -311,6 +328,7 @@ class Column(html.HTMLElement):
         self.form_field_attributes = form_field_attributes or {}
         self.update_action = update_action
         self.link_attrs = link_attrs or {}
+        self.policy_rules = policy_rules or []
         self.help_text = help_text
         if link_classes:
             self.link_attrs['class'] = ' '.join(link_classes)
@@ -341,6 +359,19 @@ class Column(html.HTMLElement):
 
     def __repr__(self):
         return '<%s: %s>' % (self.__class__.__name__, self.name)
+
+    def allowed(self, request):
+        """Determine whether processing/displaying the column is allowed
+        for the current request.
+        """
+        if not self.policy_rules:
+            return True
+
+        policy_check = getattr(settings, "POLICY_CHECK_FUNCTION", None)
+
+        if policy_check:
+            return policy_check(self.policy_rules, request)
+        return True
 
     def get_raw_data(self, datum):
         """Returns the raw data for this column, before any filters or
@@ -1175,9 +1206,10 @@ class DataTable(object):
         # Create a new set
         columns = []
         for key, _column in self._columns.items():
-            column = copy.copy(_column)
-            column.table = self
-            columns.append((key, column))
+            if _column.allowed(request):
+                column = copy.copy(_column)
+                column.table = self
+                columns.append((key, column))
         self.columns = collections.OrderedDict(columns)
         self._populate_data_cache()
 
