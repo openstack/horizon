@@ -1895,3 +1895,14 @@ textarea.key_text {
   resize: none;
   border: none;
 }
+
+/**** Form Horizontal Override ****/
+.form-horizontal {
+  .form-group {
+    margin-right: 0px !important;
+  }
+
+  .form-control-feedback {
+    right: 0px !important;
+  }
+}
