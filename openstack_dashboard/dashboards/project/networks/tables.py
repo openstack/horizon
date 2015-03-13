@@ -146,6 +146,12 @@ DISPLAY_CHOICES = (
     ("UP", pgettext_lazy("Admin state of a Network", u"UP")),
     ("DOWN", pgettext_lazy("Admin state of a Network", u"DOWN")),
 )
+STATUS_DISPLAY_CHOICES = (
+    ("ACTIVE", pgettext_lazy("Current status of a Network", u"Active")),
+    ("BUILD", pgettext_lazy("Current status of a Network", u"Build")),
+    ("DOWN", pgettext_lazy("Current status of a Network", u"Down")),
+    ("ERROR", pgettext_lazy("Current status of a Network", u"Error")),
+)
 
 
 class NetworksFilterAction(tables.FilterAction):
@@ -166,7 +172,7 @@ class NetworksTable(tables.DataTable):
     shared = tables.Column("shared", verbose_name=_("Shared"),
                            filters=(filters.yesno, filters.capfirst))
     status = tables.Column("status", verbose_name=_("Status"),
-                           filters=(filters.title,))
+                           display_choices=STATUS_DISPLAY_CHOICES)
     admin_state = tables.Column("admin_state",
                                 verbose_name=_("Admin State"),
                                 display_choices=DISPLAY_CHOICES)
