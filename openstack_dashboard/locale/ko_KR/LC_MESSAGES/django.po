@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-11 18:35-0500\n"
-"PO-Revision-Date: 2015-03-11 18:19+0000\n"
+"POT-Creation-Date: 2015-03-12 22:04-0500\n"
+"PO-Revision-Date: 2015-03-13 03:23+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -1054,8 +1054,8 @@ msgstr "호스트 집합은 가용 영역을 호스트를 묶어서 논리적인
 #: dashboards/project/instances/templates/instances/_rebuild.html:28
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:21
 #: dashboards/project/networks/templates/networks/_create.html:24
-#: dashboards/project/networks/templates/networks/create.html:10
-#: dashboards/project/networks/templates/networks/create.html:25
+#: dashboards/project/networks/templates/networks/create.html:8
+#: dashboards/project/networks/templates/networks/create.html:15
 #: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:28
 #: dashboards/project/routers/templates/routers/ports/_create.html:30
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:25
@@ -7173,7 +7173,6 @@ msgstr "클러스터 템플릿에서 플러그인과 Hadoop 버전을 선택합�
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:81
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:374
-#: dashboards/project/networks/templates/networks/create.html:18
 #: dashboards/project/stacks/templates/stacks/_change_template.html:25
 #: dashboards/project/stacks/templates/stacks/_select_template.html:25
 msgid "Next"
@@ -7728,7 +7727,7 @@ msgid "Failed to get list of internal binaries."
 msgstr "내부 바이너리에 대한 목록을 가져오지 못 했습니다."
 
 #: dashboards/project/data_processing/job_binaries/forms.py:183
-#: dashboards/project/data_processing/job_binaries/forms.py:226
+#: dashboards/project/data_processing/job_binaries/forms.py:228
 msgid "Unable to create job binary"
 msgstr "Job 바이너리를 생성하지 못 했습니다."
 
@@ -7740,11 +7739,11 @@ msgstr "Job 바이너리를 생성하지 못 했습니다."
 msgid "Create Job Binary"
 msgstr "Job 바이너리 생성"
 
-#: dashboards/project/data_processing/job_binaries/forms.py:215
+#: dashboards/project/data_processing/job_binaries/forms.py:216
 msgid "Unable to upload job binary"
 msgstr "Job 바이너리를 업로드 할 수 없습니다."
 
-#: dashboards/project/data_processing/job_binaries/forms.py:248
+#: dashboards/project/data_processing/job_binaries/forms.py:249
 msgid "Failed to fetch internal binary list"
 msgstr "내부 바이너리 목록을 가져올 수 없습니다."
 
@@ -10432,8 +10431,10 @@ msgstr "선택한 가용성 존에 flavor에 대한 충분한 공간이 없습�
 
 #: dashboards/project/instances/tables.py:637
 #, python-format
-msgid "Failed to launch instance \"%s\""
-msgstr "인스턴스 \"%s\"를 구동하는데 실패했습니다."
+msgid ""
+"Failed to perform requested operation on instance \"%s\", the instance has "
+"an error status"
+msgstr ""
 
 #: dashboards/project/instances/tables.py:653
 #: dashboards/project/instances/views.py:395
@@ -12862,9 +12863,13 @@ msgstr "물리적인 네트워크"
 msgid "Segmentation ID:"
 msgstr "구분 ID:"
 
-#: dashboards/project/networks/templates/networks/create.html:14
-msgid "Back"
-msgstr "뒤로"
+#: dashboards/project/networks/templates/networks/create.html:9
+msgid "&laquo;&nbsp;Back"
+msgstr ""
+
+#: dashboards/project/networks/templates/networks/create.html:10
+msgid "Next&nbsp;&raquo;"
+msgstr "다음&nbsp;&raquo;"
 
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:4
 msgid "Port Overview"

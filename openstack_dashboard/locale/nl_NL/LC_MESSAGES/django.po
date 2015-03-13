@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-11 18:35-0500\n"
-"PO-Revision-Date: 2015-03-11 18:19+0000\n"
+"POT-Creation-Date: 2015-03-12 22:04-0500\n"
+"PO-Revision-Date: 2015-03-13 03:04+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/horizon/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -1050,8 +1050,8 @@ msgstr ""
 #: dashboards/project/instances/templates/instances/_rebuild.html:28
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:21
 #: dashboards/project/networks/templates/networks/_create.html:24
-#: dashboards/project/networks/templates/networks/create.html:10
-#: dashboards/project/networks/templates/networks/create.html:25
+#: dashboards/project/networks/templates/networks/create.html:8
+#: dashboards/project/networks/templates/networks/create.html:15
 #: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:28
 #: dashboards/project/routers/templates/routers/ports/_create.html:30
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:25
@@ -7227,7 +7227,6 @@ msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:81
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:374
-#: dashboards/project/networks/templates/networks/create.html:18
 #: dashboards/project/stacks/templates/stacks/_change_template.html:25
 #: dashboards/project/stacks/templates/stacks/_select_template.html:25
 msgid "Next"
@@ -7788,7 +7787,7 @@ msgid "Failed to get list of internal binaries."
 msgstr ""
 
 #: dashboards/project/data_processing/job_binaries/forms.py:183
-#: dashboards/project/data_processing/job_binaries/forms.py:226
+#: dashboards/project/data_processing/job_binaries/forms.py:228
 msgid "Unable to create job binary"
 msgstr ""
 
@@ -7800,11 +7799,11 @@ msgstr ""
 msgid "Create Job Binary"
 msgstr ""
 
-#: dashboards/project/data_processing/job_binaries/forms.py:215
+#: dashboards/project/data_processing/job_binaries/forms.py:216
 msgid "Unable to upload job binary"
 msgstr ""
 
-#: dashboards/project/data_processing/job_binaries/forms.py:248
+#: dashboards/project/data_processing/job_binaries/forms.py:249
 msgid "Failed to fetch internal binary list"
 msgstr ""
 
@@ -10527,8 +10526,10 @@ msgstr "Er is onvoldoende capaciteit voor deze smaak in de gekozen beschikbaarhe
 
 #: dashboards/project/instances/tables.py:637
 #, python-format
-msgid "Failed to launch instance \"%s\""
-msgstr "Het starten van exemplaar \"%s\" is mislukt"
+msgid ""
+"Failed to perform requested operation on instance \"%s\", the instance has "
+"an error status"
+msgstr ""
 
 #: dashboards/project/instances/tables.py:653
 #: dashboards/project/instances/views.py:395
@@ -12974,9 +12975,13 @@ msgstr ""
 msgid "Segmentation ID:"
 msgstr ""
 
-#: dashboards/project/networks/templates/networks/create.html:14
-msgid "Back"
-msgstr "Terug"
+#: dashboards/project/networks/templates/networks/create.html:9
+msgid "&laquo;&nbsp;Back"
+msgstr ""
+
+#: dashboards/project/networks/templates/networks/create.html:10
+msgid "Next&nbsp;&raquo;"
+msgstr ""
 
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:4
 msgid "Port Overview"
