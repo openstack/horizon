@@ -534,9 +534,6 @@ class PluginTestCase(TestCase):
         self.old_horizon_config = conf.HORIZON_CONFIG
         conf.HORIZON_CONFIG = conf.LazySettings()
         base.Horizon._urls()
-        # Trigger discovery, registration, and URLconf generation if it
-        # hasn't happened yet.
-        self.client.get("/")
         # Store our original dashboards
         self._discovered_dashboards = base.Horizon._registry.keys()
         # Gather up and store our original panels for each dashboard
