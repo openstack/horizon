@@ -32,10 +32,15 @@ import horizon
 urlpatterns = patterns(
     '',
     url(r'^$', 'openstack_dashboard.views.splash', name='splash'),
-    url(r'^auth/', include('openstack_auth.urls')),
     url(r'^api/', include('openstack_dashboard.api.rest.urls')),
     url(r'', include(horizon.urls)),
 )
+
+for u in getattr(settings, 'AUTHENTICATION_URLS', ['openstack_auth.urls']):
+    urlpatterns += patterns(
+        '',
+        url(r'^auth/', include(u))
+    )
 
 # Development static app and project media serving using the staticfiles app.
 urlpatterns += staticfiles_urlpatterns()

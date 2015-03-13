@@ -296,6 +296,13 @@ TIME_ZONE = "UTC"
 # the password.
 # ENFORCE_PASSWORD_CHECK = False
 
+# Modules that provide /auth routes that can be used to handle different types
+# of user authentication. Add auth plugins that require extra route handling to
+# this list.
+#AUTHENTICATION_URLS = [
+#    'openstack_auth.urls',
+#]
+
 # The Horizon Policy Enforcement engine uses these values to load per service
 # policy rule files. The content of these files should match the files the
 # OpenStack services are using to determine role based access control in the

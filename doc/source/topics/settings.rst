@@ -280,6 +280,18 @@ Most of the following settings are defined in
  ``openstack_dashboard/local/local_settings.py``, which should be copied from
  ``openstack_dashboard/local/local_settings.py.example``.
 
+``AUTHENTICATION_URLS``
+-----------------------
+
+.. versionadded:: 2015.1(Kilo)
+
+Default: ``['openstack_auth.urls']``
+
+A list of modules from which to collate authentication URLs from. The default
+option adds URLs from the django-openstack-auth module however others will be
+required for additional authentication mechanisms.
+
+
 ``API_RESULT_LIMIT``
 --------------------
 
