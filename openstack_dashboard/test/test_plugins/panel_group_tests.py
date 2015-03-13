@@ -20,11 +20,14 @@ import horizon
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.test.test_panels.plugin_panel \
     import panel as plugin_panel
+from openstack_dashboard.test.test_panels.second_panel \
+    import panel as second_panel
 import openstack_dashboard.test.test_plugins.panel_group_config
 from openstack_dashboard.utils import settings as util_settings
 
 
 PANEL_GROUP_SLUG = 'plugin_panel_group'
+SECOND_PANEL_GROUP_SLUG = 'second_panel_group'
 HORIZON_CONFIG = copy.deepcopy(settings.HORIZON_CONFIG)
 INSTALLED_APPS = list(settings.INSTALLED_APPS)
 
@@ -45,12 +48,31 @@ class PanelGroupPluginTests(test.PluginTestCase):
         dashboard = horizon.get_dashboard("admin")
         self.assertIsNotNone(dashboard.get_panel_group(PANEL_GROUP_SLUG))
 
-    def test_add_panel(self):
+    def test_add_second_panel_group(self):
+        # Check that the second panel group was added to the dashboard.
         dashboard = horizon.get_dashboard("admin")
+        self.assertIsNotNone(
+            dashboard.get_panel_group(SECOND_PANEL_GROUP_SLUG))
+
+    def test_add_panel(self):
+        # Check that the panel is in its configured dashboard and panel group.
+        dashboard = horizon.get_dashboard("admin")
+        panel_group = dashboard.get_panel_group(PANEL_GROUP_SLUG)
         self.assertIn(plugin_panel.PluginPanel,
                       [p.__class__ for p in dashboard.get_panels()])
+        self.assertIn(plugin_panel.PluginPanel,
+                      [p.__class__ for p in panel_group])
+
+    def test_add_second_panel(self):
+        # Check that the second panel is in its configured dashboard and panel
+        # group.
+        dashboard = horizon.get_dashboard("admin")
+        second_panel_group = dashboard.get_panel_group(SECOND_PANEL_GROUP_SLUG)
+        self.assertIn(second_panel.SecondPanel,
+                      [p.__class__ for p in dashboard.get_panels()])
+        self.assertIn(second_panel.SecondPanel,
+                      [p.__class__ for p in second_panel_group])
 
     def test_unregistered_panel_group(self):
-          dashboard = horizon.get_dashboard("admin")
-          self.assertIsNone(dashboard.get_panel_group("nonexistent_panel"))
-
+        dashboard = horizon.get_dashboard("admin")
+        self.assertIsNone(dashboard.get_panel_group("nonexistent_panel"))

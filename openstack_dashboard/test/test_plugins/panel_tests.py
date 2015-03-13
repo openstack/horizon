@@ -43,13 +43,23 @@ util_settings.update_dashboards([
 class PanelPluginTests(test.PluginTestCase):
     def test_add_panel(self):
         dashboard = horizon.get_dashboard("admin")
+        panel_group = dashboard.get_panel_group('admin')
+        # Check that the panel is in its configured dashboard.
         self.assertIn(plugin_panel.PluginPanel,
                       [p.__class__ for p in dashboard.get_panels()])
+        # Check that the panel is in its configured panel group.
+        self.assertIn(plugin_panel.PluginPanel,
+                      [p.__class__ for p in panel_group])
 
     def test_remove_panel(self):
         dashboard = horizon.get_dashboard("admin")
+        panel_group = dashboard.get_panel_group('admin')
+        # Check that the panel is no longer in the configured dashboard.
         self.assertNotIn(info_panel.Info,
                          [p.__class__ for p in dashboard.get_panels()])
+        # Check that the panel is no longer in the configured panel group.
+        self.assertNotIn(info_panel.Info,
+                         [p.__class__ for p in panel_group])
 
     def test_default_panel(self):
         dashboard = horizon.get_dashboard("admin")
