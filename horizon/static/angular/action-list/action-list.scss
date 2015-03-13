@@ -1,5 +1,5 @@
 action-list.btn-group {
-  &[warning-tooltip] {
+  &[button-tooltip] {
     cursor: pointer;
   }
 
@@ -29,5 +29,9 @@ action-list.btn-group {
 
   .invalid {
     color: $invalid-color;
+  }
+
+  & + .popover a {
+    cursor: pointer;
   }
 }
