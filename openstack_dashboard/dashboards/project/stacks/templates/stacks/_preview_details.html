@@ -1,0 +1,59 @@
+{% extends "horizon/common/_modal.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block modal-header %}{% trans "Stack Preview" %}{% endblock %}
+
+{% block modal-body %}
+<div class="row-fluid stack-preview detail">
+<form>
+  <dl class="dl-horizontal">
+    {% for key, value in stack_preview.items %}
+      {% if key != 'parameters' and key != 'resources' and key != 'links' %}
+        <dt>{{ key }}</dt>
+        <dd>{{ value }}</dd>
+      {% endif %}
+    {% endfor %}
+  </dl>
+
+  {% if stack_preview.parameters %}
+    <dt>{% trans "Parameters" %}</dt>
+    <hr class="header_rule">
+    <dl class="dl-horizontal">
+      {% for key, value in stack_preview.parameters.items %}
+        <dt>{{ key }}</dt>
+        <dd>{{ value }}</dd>
+      {% endfor %}
+    </dl>
+  {% endif %}
+
+  {% if stack_preview.links %}
+    <dt>{% trans "Links" %}</dt>
+    <hr class="header_rule">
+      {% for link in stack_preview.links %}
+        <dl class="dl-horizontal">
+        <dt>{{ link.rel }}</dt>
+        <dd>{{ link.href }}</dd>
+        </dl>
+      {% endfor %}
+  {% endif %}
+
+  {% if stack_preview.resources %}
+    <dt>{% trans "Resources" %}</dt>
+      {% for resource in stack_preview.resources %}
+        <hr class="header_rule">
+        <dl class="dl-horizontal">
+        {% for key, value in resource.items %}
+          <dt>{{ key }}</dt>
+          <dd>{{ value }}</dd>
+        {% endfor %}
+        </dl>
+      {% endfor %}
+  {% endif %}
+</form>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <a href="{% url 'horizon:project:access_and_security:index' %}" class="btn btn-default secondary cancel close">{% trans "Close" %}</a>
+{% endblock %}

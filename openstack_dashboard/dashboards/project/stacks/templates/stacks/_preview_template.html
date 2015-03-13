@@ -1,0 +1,7 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% block form_attrs %}enctype="multipart/form-data"{% endblock %}
+{% block modal-body-right %}
+  <h3>{% trans "Description:" %}</h3>
+  <p>{% trans "Use one of the available template source options to specify the template to be used in previewing this stack." %}</p>
+{% endblock %}

@@ -36,6 +36,14 @@ class LaunchStack(tables.LinkAction):
     policy_rules = (("orchestration", "cloudformation:CreateStack"),)
 
 
+class PreviewStack(tables.LinkAction):
+    name = "preview"
+    verbose_name = _("Preview Stack")
+    url = "horizon:project:stacks:preview_template"
+    classes = ("ajax-modal",)
+    policy_rules = (("orchestration", "cloudformation:PreviewStack"),)
+
+
 class CheckStack(tables.BatchAction):
     name = "check"
     verbose_name = _("Check Stack")
@@ -277,6 +285,7 @@ class StacksTable(tables.DataTable):
         status_columns = ["status", ]
         row_class = StacksUpdateRow
         table_actions = (LaunchStack,
+                         PreviewStack,
                          CheckStack,
                          SuspendStack,
                          ResumeStack,

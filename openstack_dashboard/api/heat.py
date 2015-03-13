@@ -102,6 +102,10 @@ def stack_create(request, password=None, **kwargs):
     return heatclient(request, password).stacks.create(**kwargs)
 
 
+def stack_preview(request, password=None, **kwargs):
+    return heatclient(request, password).stacks.preview(**kwargs)
+
+
 def stack_update(request, stack_id, password=None, **kwargs):
     return heatclient(request, password).stacks.update(stack_id, **kwargs)
 
