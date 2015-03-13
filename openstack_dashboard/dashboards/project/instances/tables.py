@@ -634,8 +634,8 @@ def get_instance_error(instance):
     if instance.status.lower() != 'error':
         return None
     message = instance_fault_to_friendly_message(instance)
-    preamble = _('Failed to launch instance "%s"'
-                 ) % instance.name or instance.id
+    preamble = _('Failed to perform requested operation on instance "%s", the '
+                 'instance has an error status') % instance.name or instance.id
     message = string_concat(preamble, ': ', message)
     return message
 
