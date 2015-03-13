@@ -10,9 +10,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.views.generic import TemplateView  # noqa
+import horizon
 
 
-class IndexView(TemplateView):
-    template_name = 'admin/plugin_panel/index.html'
-    page_title = 'Plugin-based Panel'
+class SecondPanel(horizon.Panel):
+    name = "Second Plugin Panel"
+    slug = 'second_panel'

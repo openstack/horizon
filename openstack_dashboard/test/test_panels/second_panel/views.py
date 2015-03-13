@@ -14,5 +14,5 @@ from django.views.generic import TemplateView  # noqa
 
 
 class IndexView(TemplateView):
-    template_name = 'admin/plugin_panel/index.html'
-    page_title = 'Plugin-based Panel'
+    template_name = 'admin/second_panel/index.html'
+    page_title = 'Second Plugin-based Panel'
