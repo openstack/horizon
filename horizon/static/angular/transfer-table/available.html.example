@@ -3,7 +3,7 @@
   <thead>
     <tr>
       <th class="search-header" colspan="10">
-        <search-bar group-classes="'input-group-sm'" icon-classes="'fa-search'">
+        <search-bar group-classes="input-group-sm" icon-classes="fa-search">
         </search-bar>
       </th>
     </tr>
@@ -17,7 +17,7 @@
       <th st-sort="rootDisk" class="rsp-p2">Root Disk</th>
       <th st-sort="ephemeralDisk" class="rsp-p3">Ephemeral Disk</th>
       <th st-sort="isPublic" class="rsp-p3">Public</th>
-      <th></th>
+      <th class="action-col"></th>
     </tr>
   </thead>
   <tbody>
@@ -68,8 +68,9 @@
       </td>
     </tr>
     <tr ng-repeat-end class="detail-row" ng-if="!trCtrl.allocatedIds[row.id]">
+      <!-- <td class="reorder"></td> -->
       <td></td>
-      <td colspan="7" class="detail">
+      <td colspan="8" class="detail">
         <ul>
           <li>Name: {$ row.name $}</li>
           <li>Name: {$ row.vcpus $}</li>
@@ -80,7 +81,6 @@
           <li>Name: {$ row.isPublic $}</li>
         </ul>
       </td>
-      <td></td>
     </tr>
   </tbody>
 </table>
