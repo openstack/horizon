@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-12 22:04-0500\n"
-"PO-Revision-Date: 2015-03-13 03:23+0000\n"
+"POT-Creation-Date: 2015-03-13 16:41-0500\n"
+"PO-Revision-Date: 2015-03-13 21:41+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -559,7 +559,7 @@ msgstr "管理"
 #: dashboards/identity/groups/forms.py:56
 #: dashboards/identity/groups/tables.py:115
 #: dashboards/identity/projects/tables.py:226
-#: dashboards/identity/projects/workflows.py:144
+#: dashboards/identity/projects/workflows.py:147
 #: dashboards/project/access_and_security/security_groups/forms.py:37
 #: dashboards/project/access_and_security/security_groups/forms.py:66
 #: dashboards/project/access_and_security/security_groups/tables.py:141
@@ -620,7 +620,7 @@ msgstr "管理"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:9
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:9
 #: dashboards/project/networks/forms.py:35
-#: dashboards/project/networks/tables.py:162
+#: dashboards/project/networks/tables.py:168
 #: dashboards/project/networks/ports/forms.py:36
 #: dashboards/project/networks/ports/tables.py:67
 #: dashboards/project/networks/subnets/tables.py:129
@@ -906,7 +906,7 @@ msgstr "アグリゲートのホストを追加・削除"
 #: dashboards/admin/volumes/volume_types/extras/views.py:88
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:101
 #: dashboards/identity/domains/workflows.py:300
-#: dashboards/identity/projects/workflows.py:564
+#: dashboards/identity/projects/workflows.py:569
 #: dashboards/identity/users/views.py:209
 #: dashboards/project/instances/workflows/update_instance.py:133
 #: dashboards/project/networks/subnets/workflows.py:159
@@ -992,6 +992,8 @@ msgstr "ホストの追加、削除中にエラーがありました。"
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:18
 #: dashboards/project/stacks/templates/stacks/_change_template.html:19
 #: dashboards/project/stacks/templates/stacks/_create.html:18
+#: dashboards/project/stacks/templates/stacks/_preview.html:4
+#: dashboards/project/stacks/templates/stacks/_preview_template.html:5
 #: dashboards/project/stacks/templates/stacks/_select_template.html:19
 #: dashboards/project/stacks/templates/stacks/_update.html:18
 #: dashboards/project/volumes/templates/volumes/snapshots/_update.html:5
@@ -1087,7 +1089,7 @@ msgstr "injected file のパス長"
 
 #: dashboards/admin/defaults/tables.py:44
 #: dashboards/admin/defaults/workflows.py:36
-#: dashboards/identity/projects/workflows.py:49 usage/quotas.py:62
+#: dashboards/identity/projects/workflows.py:50 usage/quotas.py:62
 msgid "Metadata Items"
 msgstr "メタデータ項目数"
 
@@ -1096,7 +1098,7 @@ msgstr "メタデータ項目数"
 #: dashboards/admin/flavors/tables.py:123
 #: dashboards/admin/flavors/workflows.py:46
 #: dashboards/admin/overview/views.py:33
-#: dashboards/identity/projects/workflows.py:50
+#: dashboards/identity/projects/workflows.py:51
 #: dashboards/project/instances/templates/instances/_detail_overview.html:55
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:10
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:5
@@ -1112,7 +1114,7 @@ msgstr "仮想 CPU"
 #: dashboards/admin/instances/tables.py:164
 #: dashboards/admin/instances/views.py:67
 #: dashboards/admin/instances/templates/instances/index.html:3
-#: dashboards/identity/projects/workflows.py:51
+#: dashboards/identity/projects/workflows.py:52
 #: dashboards/project/data_processing/clusters/tabs.py:151
 #: dashboards/project/databases/panel.py:23
 #: dashboards/project/databases/tables.py:340
@@ -1129,7 +1131,7 @@ msgstr "インスタンス"
 
 #: dashboards/admin/defaults/tables.py:47
 #: dashboards/admin/defaults/workflows.py:46
-#: dashboards/identity/projects/workflows.py:53 usage/quotas.py:65
+#: dashboards/identity/projects/workflows.py:54 usage/quotas.py:65
 msgid "Injected Files"
 msgstr "injected file"
 
@@ -1139,7 +1141,7 @@ msgstr "injected file"
 #: dashboards/admin/volumes/views.py:29
 #: dashboards/admin/volumes/templates/volumes/index.html:3
 #: dashboards/admin/volumes/volumes/tables.py:86
-#: dashboards/identity/projects/workflows.py:56
+#: dashboards/identity/projects/workflows.py:57
 #: dashboards/project/volumes/panel.py:23
 #: dashboards/project/volumes/tabs.py:83
 #: dashboards/project/volumes/templates/volumes/index.html:3
@@ -1152,7 +1154,7 @@ msgstr "ボリューム"
 #: dashboards/admin/defaults/workflows.py:53
 #: dashboards/admin/volumes/tabs.py:115
 #: dashboards/admin/volumes/snapshots/tables.py:69
-#: dashboards/identity/projects/workflows.py:57
+#: dashboards/identity/projects/workflows.py:58
 #: dashboards/project/volumes/tabs.py:99
 #: dashboards/project/volumes/snapshots/tables.py:156 usage/quotas.py:75
 msgid "Volume Snapshots"
@@ -1160,7 +1162,7 @@ msgstr "ボリュームのスナップショット"
 
 #: dashboards/admin/defaults/tables.py:50
 #: dashboards/admin/defaults/workflows.py:52
-#: dashboards/identity/projects/workflows.py:59 usage/quotas.py:76
+#: dashboards/identity/projects/workflows.py:60 usage/quotas.py:76
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "ボリュームとスナップショットの合計サイズ (GB)"
 
@@ -1168,15 +1170,15 @@ msgstr "ボリュームとスナップショットの合計サイズ (GB)"
 #: dashboards/admin/defaults/workflows.py:37
 #: dashboards/admin/flavors/workflows.py:48
 #: dashboards/admin/overview/views.py:33
-#: dashboards/identity/projects/workflows.py:60
+#: dashboards/identity/projects/workflows.py:61
 #: dashboards/project/overview/views.py:32 usage/quotas.py:67
 msgid "RAM (MB)"
 msgstr "メモリー (MB)"
 
 #: dashboards/admin/defaults/tables.py:52
 #: dashboards/admin/defaults/workflows.py:38
-#: dashboards/identity/projects/workflows.py:61
-#: dashboards/identity/projects/workflows.py:73
+#: dashboards/identity/projects/workflows.py:62
+#: dashboards/identity/projects/workflows.py:74
 #: dashboards/project/access_and_security/tabs.py:80
 #: dashboards/project/access_and_security/floating_ips/tables.py:222
 #: usage/quotas.py:68 usage/quotas.py:81
@@ -1185,8 +1187,8 @@ msgstr "Floating IP"
 
 #: dashboards/admin/defaults/tables.py:53
 #: dashboards/admin/defaults/workflows.py:49
-#: dashboards/identity/projects/workflows.py:64
-#: dashboards/identity/projects/workflows.py:70
+#: dashboards/identity/projects/workflows.py:65
+#: dashboards/identity/projects/workflows.py:71
 #: dashboards/project/access_and_security/tabs.py:43
 #: dashboards/project/access_and_security/security_groups/tables.py:149
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:29
@@ -1202,8 +1204,8 @@ msgstr "セキュリティーグループ"
 
 #: dashboards/admin/defaults/tables.py:54
 #: dashboards/admin/defaults/workflows.py:44
-#: dashboards/identity/projects/workflows.py:66
-#: dashboards/identity/projects/workflows.py:72
+#: dashboards/identity/projects/workflows.py:67
+#: dashboards/identity/projects/workflows.py:73
 #: dashboards/project/access_and_security/security_groups/tables.py:283
 #: usage/quotas.py:71 usage/quotas.py:83
 msgid "Security Group Rules"
@@ -1219,7 +1221,7 @@ msgstr "キーペア"
 
 #: dashboards/admin/defaults/tables.py:56
 #: dashboards/admin/networks/ports/tables.py:94
-#: dashboards/identity/projects/workflows.py:62
+#: dashboards/identity/projects/workflows.py:63
 #: dashboards/project/networks/ports/tables.py:69
 #: dashboards/project/routers/ports/tables.py:110 usage/quotas.py:69
 msgid "Fixed IPs"
@@ -1868,16 +1870,16 @@ msgstr "ゾーン"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:28
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:66
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:60
-#: dashboards/project/networks/tables.py:168
+#: dashboards/project/networks/tables.py:174
 #: dashboards/project/networks/ports/tables.py:72
 #: dashboards/project/networks/templates/networks/_detail_overview.html:13
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:32
 #: dashboards/project/routers/tables.py:212
 #: dashboards/project/routers/ports/tables.py:112
 #: dashboards/project/routers/templates/routers/_detail_overview.html:13
-#: dashboards/project/stacks/tables.py:267
-#: dashboards/project/stacks/tables.py:311
-#: dashboards/project/stacks/tables.py:362
+#: dashboards/project/stacks/tables.py:275
+#: dashboards/project/stacks/tables.py:320
+#: dashboards/project/stacks/tables.py:371
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:19
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:26
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:35
@@ -2090,8 +2092,8 @@ msgstr "システム情報"
 #: dashboards/identity/groups/tables.py:195
 #: dashboards/identity/projects/tables.py:237
 #: dashboards/identity/projects/tables.py:240
-#: dashboards/identity/projects/workflows.py:150
-#: dashboards/identity/projects/workflows.py:523
+#: dashboards/identity/projects/workflows.py:153
+#: dashboards/identity/projects/workflows.py:527
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:13
 #: dashboards/identity/users/tables.py:236
 #: dashboards/identity/users/templates/users/_detail_overview.html:23
@@ -2469,7 +2471,7 @@ msgstr "関連付けの更新"
 #: dashboards/identity/groups/forms.py:59
 #: dashboards/identity/groups/tables.py:117
 #: dashboards/identity/projects/tables.py:231
-#: dashboards/identity/projects/workflows.py:148
+#: dashboards/identity/projects/workflows.py:151
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:15
 #: dashboards/project/access_and_security/security_groups/forms.py:44
 #: dashboards/project/access_and_security/security_groups/forms.py:73
@@ -2696,7 +2698,7 @@ msgstr "名前空間"
 #: dashboards/project/images/templates/images/images/_detail_overview.html:27
 #: dashboards/project/instances/templates/instances/_detail_overview.html:18
 #: dashboards/project/instances/templates/instances/_detail_overview.html:38
-#: dashboards/project/stacks/tables.py:254
+#: dashboards/project/stacks/tables.py:262
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:22
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:39
@@ -2724,7 +2726,7 @@ msgstr "不明"
 #: dashboards/project/database_backups/templates/database_backups/details.html:34
 #: dashboards/project/databases/templates/databases/_detail_overview.html:37
 #: dashboards/project/images/templates/images/images/_detail_overview.html:33
-#: dashboards/project/stacks/tables.py:258
+#: dashboards/project/stacks/tables.py:266
 msgid "Updated"
 msgstr "更新日時"
 
@@ -3164,7 +3166,7 @@ msgstr "DOWN"
 #: dashboards/project/loadbalancers/workflows.py:347
 #: dashboards/project/loadbalancers/workflows.py:550
 #: dashboards/project/networks/forms.py:39
-#: dashboards/project/networks/tables.py:171
+#: dashboards/project/networks/tables.py:177
 #: dashboards/project/networks/workflows.py:49
 #: dashboards/project/networks/ports/forms.py:40
 #: dashboards/project/networks/ports/tables.py:75
@@ -3193,7 +3195,7 @@ msgstr "管理状態"
 #: dashboards/project/firewalls/workflows.py:236
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:31
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:50
-#: dashboards/project/networks/tables.py:166
+#: dashboards/project/networks/tables.py:172
 #: dashboards/project/networks/templates/networks/_detail_overview.html:17
 msgid "Shared"
 msgstr "共有"
@@ -3278,11 +3280,11 @@ msgstr "ネットワーク %s の更新に失敗しました"
 #: dashboards/admin/networks/tables.py:109
 #: dashboards/admin/networks/views.py:42
 #: dashboards/admin/networks/templates/networks/index.html:3
-#: dashboards/identity/projects/workflows.py:74
+#: dashboards/identity/projects/workflows.py:75
 #: dashboards/project/databases/workflows/create_instance.py:131
 #: dashboards/project/instances/workflows/create_instance.py:688
 #: dashboards/project/networks/panel.py:23
-#: dashboards/project/networks/tables.py:176
+#: dashboards/project/networks/tables.py:182
 #: dashboards/project/networks/views.py:45
 #: dashboards/project/networks/templates/networks/index.html:3
 #: usage/quotas.py:77
@@ -3347,7 +3349,7 @@ msgid "Network Name"
 msgstr "ネットワーク名"
 
 #: dashboards/admin/networks/tables.py:97
-#: dashboards/project/networks/tables.py:165
+#: dashboards/project/networks/tables.py:171
 msgid "Subnets Associated"
 msgstr "割り当てサブネット"
 
@@ -3546,7 +3548,7 @@ msgid "Mac Learning State"
 msgstr "MAC 学習状態"
 
 #: dashboards/admin/networks/ports/tables.py:109
-#: dashboards/identity/projects/workflows.py:75
+#: dashboards/identity/projects/workflows.py:76
 #: dashboards/project/networks/ports/tables.py:85 usage/quotas.py:79
 msgid "Ports"
 msgstr "ポート"
@@ -3630,7 +3632,7 @@ msgid "Gateway IP"
 msgstr "ゲートウェイ IP"
 
 #: dashboards/admin/networks/subnets/tables.py:116
-#: dashboards/identity/projects/workflows.py:77
+#: dashboards/identity/projects/workflows.py:78
 #: dashboards/project/networks/subnets/tables.py:150 usage/quotas.py:78
 msgid "Subnets"
 msgstr "サブネット"
@@ -3754,7 +3756,7 @@ msgstr "監視:"
 
 #: dashboards/admin/routers/panel.py:24 dashboards/admin/routers/tables.py:46
 #: dashboards/admin/routers/templates/routers/index.html:3
-#: dashboards/identity/projects/workflows.py:76
+#: dashboards/identity/projects/workflows.py:77
 #: dashboards/project/network_topology/routers/tables.py:27
 #: dashboards/project/routers/panel.py:24
 #: dashboards/project/routers/tables.py:244
@@ -4206,6 +4208,7 @@ msgstr "ボリューム種別の追加スペック"
 #: dashboards/project/containers/templates/containers/_container_detail.html:29
 #: dashboards/project/containers/templates/containers/_object_detail.html:25
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:104
+#: dashboards/project/stacks/templates/stacks/_preview_details.html:58
 msgid "Close"
 msgstr "閉じる"
 
@@ -4840,7 +4843,7 @@ msgid "Domain Context cleared."
 msgstr "ドメインコンテキストをクリアしました。"
 
 #: dashboards/identity/domains/tables.py:202
-#: dashboards/identity/projects/workflows.py:138
+#: dashboards/identity/projects/workflows.py:141
 #: dashboards/identity/users/forms.py:89
 #: dashboards/identity/users/forms.py:166
 #: dashboards/identity/users/templates/users/_detail_overview.html:10
@@ -4876,8 +4879,8 @@ msgstr "ドメインを使うと、異なる組織間でユーザーやインフ
 
 #: dashboards/identity/domains/workflows.py:72
 #: dashboards/identity/domains/workflows.py:171
-#: dashboards/identity/projects/workflows.py:198
-#: dashboards/identity/projects/workflows.py:296
+#: dashboards/identity/projects/workflows.py:202
+#: dashboards/identity/projects/workflows.py:300
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr "Keystone において標準のロール \"%s\" を見つけられませんでした。"
@@ -4887,7 +4890,7 @@ msgid "Unable to find default role."
 msgstr "デフォルトのロールが見つかりません。"
 
 #: dashboards/identity/domains/workflows.py:89
-#: dashboards/identity/projects/workflows.py:268
+#: dashboards/identity/projects/workflows.py:272
 #: dashboards/identity/users/views.py:58
 msgid "Unable to retrieve user list."
 msgstr "ユーザーの一覧を取得できません。"
@@ -4895,7 +4898,7 @@ msgstr "ユーザーの一覧を取得できません。"
 #: dashboards/identity/domains/workflows.py:98
 #: dashboards/identity/domains/workflows.py:145
 #: dashboards/identity/domains/workflows.py:242
-#: dashboards/identity/projects/workflows.py:366
+#: dashboards/identity/projects/workflows.py:370
 msgid "Unable to retrieve role list."
 msgstr "ロール一覧を取得できません。"
 
@@ -4909,22 +4912,22 @@ msgid "Domain Members"
 msgstr "ドメインメンバー"
 
 #: dashboards/identity/domains/workflows.py:133
-#: dashboards/identity/projects/workflows.py:257
+#: dashboards/identity/projects/workflows.py:261
 msgid "All Users"
 msgstr "すべてのユーザー"
 
 #: dashboards/identity/domains/workflows.py:135
-#: dashboards/identity/projects/workflows.py:259
+#: dashboards/identity/projects/workflows.py:263
 msgid "No users found."
 msgstr "ユーザーが見つかりませんでした。"
 
 #: dashboards/identity/domains/workflows.py:136
-#: dashboards/identity/projects/workflows.py:260
+#: dashboards/identity/projects/workflows.py:264
 msgid "No users."
 msgstr "ユーザーがいません。"
 
 #: dashboards/identity/domains/workflows.py:161
-#: dashboards/identity/projects/workflows.py:282
+#: dashboards/identity/projects/workflows.py:286
 msgid "Unable to retrieve group list. Please try again later."
 msgstr "グループ一覧を取得できません。後からもう一度お試しください。"
 
@@ -4934,17 +4937,17 @@ msgid "Domain Groups"
 msgstr "ドメイングループ"
 
 #: dashboards/identity/domains/workflows.py:230
-#: dashboards/identity/projects/workflows.py:355
+#: dashboards/identity/projects/workflows.py:359
 msgid "All Groups"
 msgstr "すべてのグループ"
 
 #: dashboards/identity/domains/workflows.py:232
-#: dashboards/identity/projects/workflows.py:357
+#: dashboards/identity/projects/workflows.py:361
 msgid "No groups found."
 msgstr "グループがありません。"
 
 #: dashboards/identity/domains/workflows.py:233
-#: dashboards/identity/projects/workflows.py:358
+#: dashboards/identity/projects/workflows.py:362
 msgid "No groups."
 msgstr "グループがありません。"
 
@@ -5181,13 +5184,13 @@ msgid "View Usage"
 msgstr "使用状況の表示"
 
 #: dashboards/identity/projects/tables.py:99
-#: dashboards/identity/projects/workflows.py:377
-#: dashboards/identity/projects/workflows.py:378
+#: dashboards/identity/projects/workflows.py:381
+#: dashboards/identity/projects/workflows.py:382
 msgid "Create Project"
 msgstr "プロジェクトの作成"
 
 #: dashboards/identity/projects/tables.py:111
-#: dashboards/identity/projects/workflows.py:563
+#: dashboards/identity/projects/workflows.py:568
 msgid "Edit Project"
 msgstr "プロジェクトの編集"
 
@@ -5244,134 +5247,134 @@ msgstr "プロジェクトの詳細を取得できません。"
 msgid "Project Details: %s"
 msgstr "プロジェクトの詳細: %s"
 
-#: dashboards/identity/projects/workflows.py:47
+#: dashboards/identity/projects/workflows.py:48
 msgid "Injected File Content (Bytes)"
 msgstr "injected file (バイト)"
 
-#: dashboards/identity/projects/workflows.py:100
+#: dashboards/identity/projects/workflows.py:101
 #, python-format
 msgid "%(used)s %(key)s used"
 msgstr "%(key)sは %(used)s 使用中"
 
-#: dashboards/identity/projects/workflows.py:105
+#: dashboards/identity/projects/workflows.py:106
 #, python-format
 msgid "Quota value(s) cannot be less than the current usage value(s): %s."
 msgstr "クォータ値は現在の使用量より小さくはできません: %s"
 
-#: dashboards/identity/projects/workflows.py:112
-#: dashboards/identity/projects/workflows.py:119
+#: dashboards/identity/projects/workflows.py:113
+#: dashboards/identity/projects/workflows.py:120
 msgid "Quota"
 msgstr "クォータ"
 
-#: dashboards/identity/projects/workflows.py:114
-#: dashboards/identity/projects/workflows.py:121
+#: dashboards/identity/projects/workflows.py:115
+#: dashboards/identity/projects/workflows.py:122
 msgid "Set maximum quotas for the project."
 msgstr "このプロジェクトの最大クォータを設定します。"
 
-#: dashboards/identity/projects/workflows.py:141
+#: dashboards/identity/projects/workflows.py:144
 #: dashboards/identity/users/forms.py:92
 #: dashboards/identity/users/forms.py:169
 #: dashboards/identity/users/templates/users/_detail_overview.html:14
 msgid "Domain Name"
 msgstr "ドメイン名"
 
-#: dashboards/identity/projects/workflows.py:165
-#: dashboards/identity/projects/workflows.py:546
+#: dashboards/identity/projects/workflows.py:168
+#: dashboards/identity/projects/workflows.py:550
 msgid "Project Information"
 msgstr "プロジェクト情報"
 
-#: dashboards/identity/projects/workflows.py:166
+#: dashboards/identity/projects/workflows.py:169
 msgid "Create a project to organize users."
 msgstr "プロジェクトを作成して、ユーザーをまとめることができます。"
 
-#: dashboards/identity/projects/workflows.py:184
+#: dashboards/identity/projects/workflows.py:188
 msgid "Unable to retrieve user list. Please try again later."
 msgstr "ユーザー一覧を取得できません。後からもう一度お試しください。"
 
-#: dashboards/identity/projects/workflows.py:251
-#: dashboards/identity/projects/workflows.py:258
+#: dashboards/identity/projects/workflows.py:255
+#: dashboards/identity/projects/workflows.py:262
 msgid "Project Members"
 msgstr "プロジェクトメンバー"
 
-#: dashboards/identity/projects/workflows.py:349
-#: dashboards/identity/projects/workflows.py:356
+#: dashboards/identity/projects/workflows.py:353
+#: dashboards/identity/projects/workflows.py:360
 msgid "Project Groups"
 msgstr "プロジェクトグループ"
 
-#: dashboards/identity/projects/workflows.py:379
+#: dashboards/identity/projects/workflows.py:383
 #, python-format
 msgid "Created new project \"%s\"."
 msgstr "新規プロジェクト \"%s\" を作成しました。"
 
-#: dashboards/identity/projects/workflows.py:380
+#: dashboards/identity/projects/workflows.py:384
 #, python-format
 msgid "Unable to create project \"%s\"."
 msgstr "プロジェクト \"%s\" を作成できません。"
 
-#: dashboards/identity/projects/workflows.py:442
+#: dashboards/identity/projects/workflows.py:446
 msgid ", add project groups"
 msgstr "、プロジェクトグループの追加"
 
-#: dashboards/identity/projects/workflows.py:446
+#: dashboards/identity/projects/workflows.py:450
 #, python-format
 msgid ""
 "Failed to add %(users_to_add)s project members%(group_msg)s and set project "
 "quotas."
 msgstr "%(users_to_add)s 個のプロジェクトメンバー追加%(group_msg)s、プロジェクトのクォータ設定の操作に失敗しました。"
 
-#: dashboards/identity/projects/workflows.py:479
+#: dashboards/identity/projects/workflows.py:483
 #, python-format
 msgid "Failed to add %s project groups and update project quotas."
 msgstr "%s 個のプロジェクトメンバー追加、プロジェクトのクォータ更新の操作に失敗しました。"
 
-#: dashboards/identity/projects/workflows.py:508
+#: dashboards/identity/projects/workflows.py:512
 msgid "Unable to set project quotas."
 msgstr "プロジェクトのクォータを設定できません。"
 
-#: dashboards/identity/projects/workflows.py:531
+#: dashboards/identity/projects/workflows.py:535
 msgid "You cannot disable your current project"
 msgstr "現在使用しているプロジェクトを無効化できません。"
 
-#: dashboards/identity/projects/workflows.py:548
+#: dashboards/identity/projects/workflows.py:552
 msgid "Edit the project details."
 msgstr "プロジェクトの詳細を編集します。"
 
-#: dashboards/identity/projects/workflows.py:565
+#: dashboards/identity/projects/workflows.py:570
 #, python-format
 msgid "Modified project \"%s\"."
 msgstr "プロジェクト \"%s\" を変更しました。"
 
-#: dashboards/identity/projects/workflows.py:566
+#: dashboards/identity/projects/workflows.py:571
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr "プロジェクト \"%s\" を変更できません。"
 
-#: dashboards/identity/projects/workflows.py:655
+#: dashboards/identity/projects/workflows.py:660
 msgid ""
 "You cannot revoke your administrative privileges from the project you are "
 "currently logged into. Please switch to another project with administrative "
 "privileges or remove the administrative role manually via the CLI."
 msgstr "現在ログインしているプロジェクトから自分の管理権限を削除することはできません。管理権限を持つ別のプロジェクトに切り替えるか、CLI を使って手動で管理権限を削除してください。"
 
-#: dashboards/identity/projects/workflows.py:715
+#: dashboards/identity/projects/workflows.py:720
 msgid ", update project groups"
 msgstr "、プロジェクトグループの更新"
 
-#: dashboards/identity/projects/workflows.py:719
+#: dashboards/identity/projects/workflows.py:724
 #, python-format
 msgid ""
 "Failed to modify %(users_to_modify)s project members%(group_msg)s and update"
 " project quotas."
 msgstr "%(users_to_modify)s 個のプロジェクトメンバー変更%(group_msg)s、プロジェクトのクォータ更新の操作に失敗しました。"
 
-#: dashboards/identity/projects/workflows.py:796
+#: dashboards/identity/projects/workflows.py:801
 #, python-format
 msgid ""
 "Failed to modify %s project members, update project groups and update "
 "project quotas."
 msgstr "%s 個のプロジェクトメンバー変更、プロジェクトグループ更新、プロジェクトのクォータ更新の操作に失敗しました。"
 
-#: dashboards/identity/projects/workflows.py:830
+#: dashboards/identity/projects/workflows.py:835
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
@@ -7170,6 +7173,7 @@ msgstr "クラスターテンプレートのプラグインと Hadoop バージ�
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:81
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:374
+#: dashboards/project/stacks/views.py:139
 #: dashboards/project/stacks/templates/stacks/_change_template.html:25
 #: dashboards/project/stacks/templates/stacks/_select_template.html:25
 msgid "Next"
@@ -8134,6 +8138,7 @@ msgid "Configuration"
 msgstr "設定"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:223
+#: dashboards/project/stacks/templates/stacks/_preview_details.html:20
 msgid "Parameters"
 msgstr "パラメーター"
 
@@ -12500,6 +12505,26 @@ msgstr "サブネットの追加"
 msgid "Add Subnet (Quota exceeded)"
 msgstr "サブネットの追加 (クォータを超過しました)"
 
+#: dashboards/project/networks/tables.py:150
+msgctxt "Current status of a Network"
+msgid "Active"
+msgstr ""
+
+#: dashboards/project/networks/tables.py:151
+msgctxt "Current status of a Network"
+msgid "Build"
+msgstr ""
+
+#: dashboards/project/networks/tables.py:152
+msgctxt "Current status of a Network"
+msgid "Down"
+msgstr ""
+
+#: dashboards/project/networks/tables.py:153
+msgctxt "Current status of a Network"
+msgid "Error"
+msgstr ""
+
 #: dashboards/project/networks/views.py:89
 msgid "Unable to retrieve network details."
 msgstr "ネットワークの詳細を取得できません。"
@@ -13393,7 +13418,7 @@ msgid ""
 "a gateway for external connectivity."
 msgstr "指定した外部ネットワークをルーターに接続できます。外部ネットワークはルーターのデフォルトルートとして扱われます。また、ルーターは外部接続用のゲートウェイとして動作します。"
 
-#: dashboards/project/stacks/forms.py:56 dashboards/project/stacks/views.py:91
+#: dashboards/project/stacks/forms.py:56 dashboards/project/stacks/views.py:92
 #: dashboards/project/stacks/templates/stacks/_change_template.html:9
 #: dashboards/project/stacks/templates/stacks/_select_template.html:9
 #: dashboards/project/stacks/templates/stacks/select_template.html:3
@@ -13480,317 +13505,339 @@ msgid "Select a new template to re-launch a stack."
 msgstr "スタックの再起動に使うテンプレートを選択してください"
 
 #: dashboards/project/stacks/forms.py:231
-#: dashboards/project/stacks/forms.py:396
+#: dashboards/project/stacks/forms.py:402
 msgid "Stack ID"
 msgstr "スタック ID"
 
 #: dashboards/project/stacks/forms.py:233
-#: dashboards/project/stacks/forms.py:258
-#: dashboards/project/stacks/forms.py:399
-#: dashboards/project/stacks/tables.py:251
+#: dashboards/project/stacks/forms.py:264
+#: dashboards/project/stacks/forms.py:405
+#: dashboards/project/stacks/tables.py:259
 msgid "Stack Name"
 msgstr "スタック名"
 
-#: dashboards/project/stacks/forms.py:243
+#: dashboards/project/stacks/forms.py:240
+#: dashboards/project/stacks/views.py:136
+#: dashboards/project/stacks/views.py:142
+#: dashboards/project/stacks/templates/stacks/preview_template.html:3
+msgid "Preview Template"
+msgstr ""
+
+#: dashboards/project/stacks/forms.py:241
+msgid "Select a new template to preview a stack."
+msgstr ""
+
+#: dashboards/project/stacks/forms.py:249
 msgid "Create Stack"
 msgstr "スタックの作成"
 
-#: dashboards/project/stacks/forms.py:259
+#: dashboards/project/stacks/forms.py:265
 msgid "Name of the stack to create."
 msgstr "作成するスタックの名前。"
 
-#: dashboards/project/stacks/forms.py:262
+#: dashboards/project/stacks/forms.py:268
 msgid ""
 "Name must start with a letter and may only contain letters, numbers, "
 "underscores, periods and hyphens."
 msgstr "名前の一文字目はアルファベットして下さい。また、名前には、鋭意数字、アンダースコア、ピリオド、ハイフンだけが使用できます。"
 
-#: dashboards/project/stacks/forms.py:267
+#: dashboards/project/stacks/forms.py:273
 msgid "Creation Timeout (minutes)"
 msgstr "作成タイムアウト時間 (分単位)"
 
-#: dashboards/project/stacks/forms.py:268
+#: dashboards/project/stacks/forms.py:274
 msgid "Stack creation timeout in minutes."
 msgstr "スタック作成のタイムアウト時間（分単位）。"
 
-#: dashboards/project/stacks/forms.py:270
+#: dashboards/project/stacks/forms.py:276
 msgid "Rollback On Failure"
 msgstr "失敗時のロールバック"
 
-#: dashboards/project/stacks/forms.py:271
+#: dashboards/project/stacks/forms.py:277
 msgid "Enable rollback on create/update failure."
 msgstr "作成/更新失敗時のロールバックを有効にします。"
 
-#: dashboards/project/stacks/forms.py:284
+#: dashboards/project/stacks/forms.py:290
 #, python-format
 msgid "Password for user \"%s\""
 msgstr "ユーザー \"%s\" のパスワード"
 
-#: dashboards/project/stacks/forms.py:285
+#: dashboards/project/stacks/forms.py:291
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
 msgstr "スタックの生存期間全体を通して、各種操作の実行に必要です。"
 
-#: dashboards/project/stacks/forms.py:373
+#: dashboards/project/stacks/forms.py:379
 msgid "Stack creation started."
 msgstr "スタックの作成を開始しました。"
 
-#: dashboards/project/stacks/forms.py:393
+#: dashboards/project/stacks/forms.py:399
 #: dashboards/project/stacks/templates/stacks/_update.html:8
 #: dashboards/project/stacks/templates/stacks/update.html:3
 msgid "Update Stack Parameters"
 msgstr "スタックのパラメーターの更新"
 
-#: dashboards/project/stacks/forms.py:428
+#: dashboards/project/stacks/forms.py:434
 msgid "Stack update started."
 msgstr "スタックの更新を開始しました。"
 
+#: dashboards/project/stacks/forms.py:443
+msgid "Preview Stack Parameters"
+msgstr ""
+
 #: dashboards/project/stacks/panel.py:21
-#: dashboards/project/stacks/tables.py:275
-#: dashboards/project/stacks/views.py:47
+#: dashboards/project/stacks/tables.py:283
+#: dashboards/project/stacks/views.py:48
 #: dashboards/project/stacks/templates/stacks/index.html:3
 msgid "Stacks"
 msgstr "スタック"
 
 #: dashboards/project/stacks/tables.py:32
-#: dashboards/project/stacks/views.py:137
+#: dashboards/project/stacks/views.py:154
 #: dashboards/project/stacks/templates/stacks/_create.html:8
 #: dashboards/project/stacks/templates/stacks/create.html:3
 msgid "Launch Stack"
 msgstr "スタックの起動"
 
 #: dashboards/project/stacks/tables.py:41
-#: dashboards/project/stacks/tables.py:47
+#: dashboards/project/stacks/views.py:220
+#: dashboards/project/stacks/views.py:226
+#: dashboards/project/stacks/templates/stacks/preview.html:3
+msgid "Preview Stack"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:49
+#: dashboards/project/stacks/tables.py:55
 msgid "Check Stack"
 msgid_plural "Check Stacks"
 msgstr[0] ""
 
-#: dashboards/project/stacks/tables.py:55
+#: dashboards/project/stacks/tables.py:63
 msgid "Checked Stack"
 msgid_plural "Checked Stacks"
 msgstr[0] ""
 
-#: dashboards/project/stacks/tables.py:66
-#: dashboards/project/stacks/tables.py:72
+#: dashboards/project/stacks/tables.py:74
+#: dashboards/project/stacks/tables.py:80
 msgid "Suspend Stack"
 msgid_plural "Suspend Stacks"
 msgstr[0] "スタックの休止"
 
-#: dashboards/project/stacks/tables.py:80
+#: dashboards/project/stacks/tables.py:88
 msgid "Suspended Stack"
 msgid_plural "Suspended Stacks"
 msgstr[0] "スタックを休止しました"
 
-#: dashboards/project/stacks/tables.py:91
-#: dashboards/project/stacks/tables.py:97
+#: dashboards/project/stacks/tables.py:99
+#: dashboards/project/stacks/tables.py:105
 msgid "Resume Stack"
 msgid_plural "Resume Stacks"
 msgstr[0] "スタックの再開"
 
-#: dashboards/project/stacks/tables.py:105
+#: dashboards/project/stacks/tables.py:113
 msgid "Resumed Stack"
 msgid_plural "Resumed Stacks"
 msgstr[0] "スタックを再開しました。"
 
-#: dashboards/project/stacks/tables.py:116
+#: dashboards/project/stacks/tables.py:124
 msgid "Change Stack Template"
 msgstr "スタックテンプレートの変更"
 
-#: dashboards/project/stacks/tables.py:129
+#: dashboards/project/stacks/tables.py:137
 msgid "Delete Stack"
 msgid_plural "Delete Stacks"
 msgstr[0] "スタックの削除"
 
-#: dashboards/project/stacks/tables.py:137
+#: dashboards/project/stacks/tables.py:145
 msgid "Deleted Stack"
 msgid_plural "Deleted Stacks"
 msgstr[0] "スタックを削除しました"
 
-#: dashboards/project/stacks/tables.py:190
+#: dashboards/project/stacks/tables.py:198
 msgctxt "current status of stack"
 msgid "Init In Progress"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:192
+#: dashboards/project/stacks/tables.py:200
 msgctxt "current status of stack"
 msgid "Init Complete"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:194
+#: dashboards/project/stacks/tables.py:202
 msgctxt "current status of stack"
 msgid "Init Failed"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:196
+#: dashboards/project/stacks/tables.py:204
 msgctxt "current status of stack"
 msgid "Create In Progress"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:198
+#: dashboards/project/stacks/tables.py:206
 msgctxt "current status of stack"
 msgid "Create Complete"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:200
+#: dashboards/project/stacks/tables.py:208
 msgctxt "current status of stack"
 msgid "Create Failed"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:202
+#: dashboards/project/stacks/tables.py:210
 msgctxt "current status of stack"
 msgid "Delete In Progress"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:204
+#: dashboards/project/stacks/tables.py:212
 msgctxt "current status of stack"
 msgid "Delete Complete"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:206
+#: dashboards/project/stacks/tables.py:214
 msgctxt "current status of stack"
 msgid "Delete Failed"
 msgstr "削除に失敗しました"
 
-#: dashboards/project/stacks/tables.py:208
+#: dashboards/project/stacks/tables.py:216
 msgctxt "current status of stack"
 msgid "Update In Progress"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:210
+#: dashboards/project/stacks/tables.py:218
 msgctxt "current status of stack"
 msgid "Update Complete"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:212
+#: dashboards/project/stacks/tables.py:220
 msgctxt "current status of stack"
 msgid "Update Failed"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:214
+#: dashboards/project/stacks/tables.py:222
 msgctxt "current status of stack"
 msgid "Rollback In Progress"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:216
+#: dashboards/project/stacks/tables.py:224
 msgctxt "current status of stack"
 msgid "Rollback Complete"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:218
+#: dashboards/project/stacks/tables.py:226
 msgctxt "current status of stack"
 msgid "Rollback Failed"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:220
+#: dashboards/project/stacks/tables.py:228
 msgctxt "current status of stack"
 msgid "Suspend In Progress"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:222
+#: dashboards/project/stacks/tables.py:230
 msgctxt "current status of stack"
 msgid "Suspend Complete"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:224
+#: dashboards/project/stacks/tables.py:232
 msgctxt "current status of stack"
 msgid "Suspend Failed"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:226
+#: dashboards/project/stacks/tables.py:234
 msgctxt "current status of stack"
 msgid "Resume In Progress"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:228
+#: dashboards/project/stacks/tables.py:236
 msgctxt "current status of stack"
 msgid "Resume Complete"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:230
+#: dashboards/project/stacks/tables.py:238
 msgctxt "current status of stack"
 msgid "Resume Failed"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:232
+#: dashboards/project/stacks/tables.py:240
 msgctxt "current status of stack"
 msgid "Adopt In Progress"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:234
+#: dashboards/project/stacks/tables.py:242
 msgctxt "current status of stack"
 msgid "Adopt Complete"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:236
+#: dashboards/project/stacks/tables.py:244
 msgctxt "current status of stack"
 msgid "Adopt Failed"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:238
+#: dashboards/project/stacks/tables.py:246
 msgctxt "current status of stack"
 msgid "Snapshot In Progress"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:240
+#: dashboards/project/stacks/tables.py:248
 msgctxt "current status of stack"
 msgid "Snapshot Complete"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:242
+#: dashboards/project/stacks/tables.py:250
 msgctxt "current status of stack"
 msgid "Snapshot Failed"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:244
+#: dashboards/project/stacks/tables.py:252
 msgctxt "current status of stack"
 msgid "Check In Progress"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:246
+#: dashboards/project/stacks/tables.py:254
 msgctxt "current status of stack"
 msgid "Check Complete"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:248
+#: dashboards/project/stacks/tables.py:256
 msgctxt "current status of stack"
 msgid "Check Failed"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:300
-#: dashboards/project/stacks/tables.py:350
+#: dashboards/project/stacks/tables.py:309
+#: dashboards/project/stacks/tables.py:359
 msgid "Stack Resource"
 msgstr "スタックリソース"
 
-#: dashboards/project/stacks/tables.py:303
-#: dashboards/project/stacks/tables.py:353
+#: dashboards/project/stacks/tables.py:312
+#: dashboards/project/stacks/tables.py:362
 #: dashboards/project/stacks/resource_types/tables.py:38
 msgid "Resource"
 msgstr "リソース"
 
-#: dashboards/project/stacks/tables.py:306
+#: dashboards/project/stacks/tables.py:315
 msgid "Time Since Event"
 msgstr "イベントからの時間"
 
-#: dashboards/project/stacks/tables.py:314
-#: dashboards/project/stacks/tables.py:366
+#: dashboards/project/stacks/tables.py:323
+#: dashboards/project/stacks/tables.py:375
 msgid "Status Reason"
 msgstr "ステータスの理由"
 
-#: dashboards/project/stacks/tables.py:318
+#: dashboards/project/stacks/tables.py:327
 msgid "Stack Events"
 msgstr "スタックイベント"
 
-#: dashboards/project/stacks/tables.py:356
+#: dashboards/project/stacks/tables.py:365
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:25
 msgid "Stack Resource Type"
 msgstr "スタックリソース種別"
 
-#: dashboards/project/stacks/tables.py:358
+#: dashboards/project/stacks/tables.py:367
 msgid "Date Updated"
 msgstr "更新日"
 
-#: dashboards/project/stacks/tables.py:384
+#: dashboards/project/stacks/tables.py:393
 msgid "Stack Resources"
 msgstr "スタックリソース"
 
@@ -13808,6 +13855,7 @@ msgid "Unable to get events for stack \"%s\"."
 msgstr "スタック \"%s\" のイベントを取得できません。"
 
 #: dashboards/project/stacks/tabs.py:114
+#: dashboards/project/stacks/templates/stacks/_preview_details.html:42
 msgid "Resources"
 msgstr "情報源"
 
@@ -13816,42 +13864,51 @@ msgstr "情報源"
 msgid "Unable to get resources for stack \"%s\"."
 msgstr "スタック \"%s\" のリソースを取得できません。"
 
-#: dashboards/project/stacks/views.py:82
+#: dashboards/project/stacks/views.py:83
 msgid "Unable to retrieve stack list."
 msgstr "スタック一覧を取得できません。"
 
-#: dashboards/project/stacks/views.py:103
+#: dashboards/project/stacks/views.py:104
 #: dashboards/project/stacks/templates/stacks/change_template.html:3
 msgid "Change Template"
 msgstr "テンプレートの変更"
 
-#: dashboards/project/stacks/views.py:116
-#: dashboards/project/stacks/views.py:195
-#: dashboards/project/stacks/views.py:224
+#: dashboards/project/stacks/views.py:117
+#: dashboards/project/stacks/views.py:212
+#: dashboards/project/stacks/views.py:268
 msgid "Unable to retrieve stack."
 msgstr "スタックを取得できません。"
 
-#: dashboards/project/stacks/views.py:169
+#: dashboards/project/stacks/views.py:186
 msgid "Update Stack"
 msgstr "スタックの更新"
 
-#: dashboards/project/stacks/views.py:204
+#: dashboards/project/stacks/views.py:223
+msgid "Preview"
+msgstr ""
+
+#: dashboards/project/stacks/views.py:236
+#: dashboards/project/stacks/templates/stacks/preview_details.html:3
+msgid "Preview Stack Details"
+msgstr ""
+
+#: dashboards/project/stacks/views.py:248
 msgid "Stack Details: {{ stack.stack_name }}"
 msgstr "スタックの詳細: {{ stack.stack_name }}"
 
-#: dashboards/project/stacks/views.py:235
+#: dashboards/project/stacks/views.py:279
 msgid "Unable to retrieve stack template."
 msgstr "スタックテンプレートを取得できません"
 
-#: dashboards/project/stacks/views.py:252
+#: dashboards/project/stacks/views.py:296
 msgid "Resource Details: {{ resource.resource_name }}"
 msgstr "リソースの詳細: {{ resource.resource_name }}"
 
-#: dashboards/project/stacks/views.py:269
+#: dashboards/project/stacks/views.py:313
 msgid "Unable to retrieve resource."
 msgstr "リソースを取得できません。"
 
-#: dashboards/project/stacks/views.py:282
+#: dashboards/project/stacks/views.py:326
 msgid "Unable to retrieve metadata."
 msgstr "メタデータを取得できません。"
 
@@ -13931,6 +13988,24 @@ msgstr "分"
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:64
 msgid "Rollback"
 msgstr "ロールバック"
+
+#: dashboards/project/stacks/templates/stacks/_preview.html:5
+msgid "Preview a new stack with the provided values."
+msgstr ""
+
+#: dashboards/project/stacks/templates/stacks/_preview_details.html:5
+msgid "Stack Preview"
+msgstr ""
+
+#: dashboards/project/stacks/templates/stacks/_preview_details.html:31
+msgid "Links"
+msgstr ""
+
+#: dashboards/project/stacks/templates/stacks/_preview_template.html:6
+msgid ""
+"Use one of the available template source options to specify the template to "
+"be used in previewing this stack."
+msgstr ""
 
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:3
 msgid "Resource Overview"

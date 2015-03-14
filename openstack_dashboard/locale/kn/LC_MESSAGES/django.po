@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-12 22:04-0500\n"
-"PO-Revision-Date: 2015-03-13 03:04+0000\n"
+"POT-Creation-Date: 2015-03-13 16:41-0500\n"
+"PO-Revision-Date: 2015-03-13 21:41+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Kannada (http://www.transifex.com/projects/p/horizon/language/kn/)\n"
 "MIME-Version: 1.0\n"
@@ -556,7 +556,7 @@ msgstr "ವ್ಯವಸ್ಥಾಪಕ"
 #: dashboards/identity/groups/forms.py:56
 #: dashboards/identity/groups/tables.py:115
 #: dashboards/identity/projects/tables.py:226
-#: dashboards/identity/projects/workflows.py:144
+#: dashboards/identity/projects/workflows.py:147
 #: dashboards/project/access_and_security/security_groups/forms.py:37
 #: dashboards/project/access_and_security/security_groups/forms.py:66
 #: dashboards/project/access_and_security/security_groups/tables.py:141
@@ -617,7 +617,7 @@ msgstr "ವ್ಯವಸ್ಥಾಪಕ"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:9
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:9
 #: dashboards/project/networks/forms.py:35
-#: dashboards/project/networks/tables.py:162
+#: dashboards/project/networks/tables.py:168
 #: dashboards/project/networks/ports/forms.py:36
 #: dashboards/project/networks/ports/tables.py:67
 #: dashboards/project/networks/subnets/tables.py:129
@@ -903,7 +903,7 @@ msgstr "ಒಟ್ಟುಗೂಡಿಕೆಗೆ ಆತಿಥೇಯಗಳನ್�
 #: dashboards/admin/volumes/volume_types/extras/views.py:88
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:101
 #: dashboards/identity/domains/workflows.py:300
-#: dashboards/identity/projects/workflows.py:564
+#: dashboards/identity/projects/workflows.py:569
 #: dashboards/identity/users/views.py:209
 #: dashboards/project/instances/workflows/update_instance.py:133
 #: dashboards/project/networks/subnets/workflows.py:159
@@ -989,6 +989,8 @@ msgstr "ಆತಿಥೇಯಗಳನ್ನು ಸೇರಿಸುವಲ್ಲಿ �
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:18
 #: dashboards/project/stacks/templates/stacks/_change_template.html:19
 #: dashboards/project/stacks/templates/stacks/_create.html:18
+#: dashboards/project/stacks/templates/stacks/_preview.html:4
+#: dashboards/project/stacks/templates/stacks/_preview_template.html:5
 #: dashboards/project/stacks/templates/stacks/_select_template.html:19
 #: dashboards/project/stacks/templates/stacks/_update.html:18
 #: dashboards/project/volumes/templates/volumes/snapshots/_update.html:5
@@ -1084,7 +1086,7 @@ msgstr "ಇಂಜೆಕ್ಟ್‌ ಮಾಡಿದ ಕಡತ ಮಾರ್ಗದ
 
 #: dashboards/admin/defaults/tables.py:44
 #: dashboards/admin/defaults/workflows.py:36
-#: dashboards/identity/projects/workflows.py:49 usage/quotas.py:62
+#: dashboards/identity/projects/workflows.py:50 usage/quotas.py:62
 msgid "Metadata Items"
 msgstr "ಮೆಟಾಡೇಟ ಅಂಶಗಳು"
 
@@ -1093,7 +1095,7 @@ msgstr "ಮೆಟಾಡೇಟ ಅಂಶಗಳು"
 #: dashboards/admin/flavors/tables.py:123
 #: dashboards/admin/flavors/workflows.py:46
 #: dashboards/admin/overview/views.py:33
-#: dashboards/identity/projects/workflows.py:50
+#: dashboards/identity/projects/workflows.py:51
 #: dashboards/project/instances/templates/instances/_detail_overview.html:55
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:10
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:5
@@ -1109,7 +1111,7 @@ msgstr "VCPUಗಳು"
 #: dashboards/admin/instances/tables.py:164
 #: dashboards/admin/instances/views.py:67
 #: dashboards/admin/instances/templates/instances/index.html:3
-#: dashboards/identity/projects/workflows.py:51
+#: dashboards/identity/projects/workflows.py:52
 #: dashboards/project/data_processing/clusters/tabs.py:151
 #: dashboards/project/databases/panel.py:23
 #: dashboards/project/databases/tables.py:340
@@ -1126,7 +1128,7 @@ msgstr "ಇನ್‌ಸ್ಟನ್ಸ್‌ಗಳು"
 
 #: dashboards/admin/defaults/tables.py:47
 #: dashboards/admin/defaults/workflows.py:46
-#: dashboards/identity/projects/workflows.py:53 usage/quotas.py:65
+#: dashboards/identity/projects/workflows.py:54 usage/quotas.py:65
 msgid "Injected Files"
 msgstr "ಇಂಜೆಕ್ಟ್‌ ಮಾಡಿದ ಕಡತಗಳು"
 
@@ -1136,7 +1138,7 @@ msgstr "ಇಂಜೆಕ್ಟ್‌ ಮಾಡಿದ ಕಡತಗಳು"
 #: dashboards/admin/volumes/views.py:29
 #: dashboards/admin/volumes/templates/volumes/index.html:3
 #: dashboards/admin/volumes/volumes/tables.py:86
-#: dashboards/identity/projects/workflows.py:56
+#: dashboards/identity/projects/workflows.py:57
 #: dashboards/project/volumes/panel.py:23
 #: dashboards/project/volumes/tabs.py:83
 #: dashboards/project/volumes/templates/volumes/index.html:3
@@ -1149,7 +1151,7 @@ msgstr "ಪರಿಮಾಣಗಳು"
 #: dashboards/admin/defaults/workflows.py:53
 #: dashboards/admin/volumes/tabs.py:115
 #: dashboards/admin/volumes/snapshots/tables.py:69
-#: dashboards/identity/projects/workflows.py:57
+#: dashboards/identity/projects/workflows.py:58
 #: dashboards/project/volumes/tabs.py:99
 #: dashboards/project/volumes/snapshots/tables.py:156 usage/quotas.py:75
 msgid "Volume Snapshots"
@@ -1157,7 +1159,7 @@ msgstr "ಪರಿಮಾಣಗಳು ಸ್ನ್ಯಾಪ್‌ಶಾಟ್‌�
 
 #: dashboards/admin/defaults/tables.py:50
 #: dashboards/admin/defaults/workflows.py:52
-#: dashboards/identity/projects/workflows.py:59 usage/quotas.py:76
+#: dashboards/identity/projects/workflows.py:60 usage/quotas.py:76
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "ಪರಿಮಾಣಗಳು ಮತ್ತು ಸ್ನ್ಯಾಪ್‌ಶಾಟ್‌ಗಳ ಒಟ್ಟು ಗಾತ್ರ (GB)"
 
@@ -1165,15 +1167,15 @@ msgstr "ಪರಿಮಾಣಗಳು ಮತ್ತು ಸ್ನ್ಯಾಪ್‌�
 #: dashboards/admin/defaults/workflows.py:37
 #: dashboards/admin/flavors/workflows.py:48
 #: dashboards/admin/overview/views.py:33
-#: dashboards/identity/projects/workflows.py:60
+#: dashboards/identity/projects/workflows.py:61
 #: dashboards/project/overview/views.py:32 usage/quotas.py:67
 msgid "RAM (MB)"
 msgstr "RAM (MB)"
 
 #: dashboards/admin/defaults/tables.py:52
 #: dashboards/admin/defaults/workflows.py:38
-#: dashboards/identity/projects/workflows.py:61
-#: dashboards/identity/projects/workflows.py:73
+#: dashboards/identity/projects/workflows.py:62
+#: dashboards/identity/projects/workflows.py:74
 #: dashboards/project/access_and_security/tabs.py:80
 #: dashboards/project/access_and_security/floating_ips/tables.py:222
 #: usage/quotas.py:68 usage/quotas.py:81
@@ -1182,8 +1184,8 @@ msgstr "ಫ್ಲೋಟಿಂಗ್‌ IPಗಳು"
 
 #: dashboards/admin/defaults/tables.py:53
 #: dashboards/admin/defaults/workflows.py:49
-#: dashboards/identity/projects/workflows.py:64
-#: dashboards/identity/projects/workflows.py:70
+#: dashboards/identity/projects/workflows.py:65
+#: dashboards/identity/projects/workflows.py:71
 #: dashboards/project/access_and_security/tabs.py:43
 #: dashboards/project/access_and_security/security_groups/tables.py:149
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:29
@@ -1199,8 +1201,8 @@ msgstr "ಸುರಕ್ಷತಾ ಗುಂಪುಗಳು"
 
 #: dashboards/admin/defaults/tables.py:54
 #: dashboards/admin/defaults/workflows.py:44
-#: dashboards/identity/projects/workflows.py:66
-#: dashboards/identity/projects/workflows.py:72
+#: dashboards/identity/projects/workflows.py:67
+#: dashboards/identity/projects/workflows.py:73
 #: dashboards/project/access_and_security/security_groups/tables.py:283
 #: usage/quotas.py:71 usage/quotas.py:83
 msgid "Security Group Rules"
@@ -1216,7 +1218,7 @@ msgstr "ಕೀಲಿ ಜೋಡಿಗಳು"
 
 #: dashboards/admin/defaults/tables.py:56
 #: dashboards/admin/networks/ports/tables.py:94
-#: dashboards/identity/projects/workflows.py:62
+#: dashboards/identity/projects/workflows.py:63
 #: dashboards/project/networks/ports/tables.py:69
 #: dashboards/project/routers/ports/tables.py:110 usage/quotas.py:69
 msgid "Fixed IPs"
@@ -1865,16 +1867,16 @@ msgstr "ವಲಯ"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:28
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:66
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:60
-#: dashboards/project/networks/tables.py:168
+#: dashboards/project/networks/tables.py:174
 #: dashboards/project/networks/ports/tables.py:72
 #: dashboards/project/networks/templates/networks/_detail_overview.html:13
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:32
 #: dashboards/project/routers/tables.py:212
 #: dashboards/project/routers/ports/tables.py:112
 #: dashboards/project/routers/templates/routers/_detail_overview.html:13
-#: dashboards/project/stacks/tables.py:267
-#: dashboards/project/stacks/tables.py:311
-#: dashboards/project/stacks/tables.py:362
+#: dashboards/project/stacks/tables.py:275
+#: dashboards/project/stacks/tables.py:320
+#: dashboards/project/stacks/tables.py:371
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:19
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:26
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:35
@@ -2087,8 +2089,8 @@ msgstr "ವ್ಯವಸ್ಥೆಯ ಮಾಹಿತಿ"
 #: dashboards/identity/groups/tables.py:195
 #: dashboards/identity/projects/tables.py:237
 #: dashboards/identity/projects/tables.py:240
-#: dashboards/identity/projects/workflows.py:150
-#: dashboards/identity/projects/workflows.py:523
+#: dashboards/identity/projects/workflows.py:153
+#: dashboards/identity/projects/workflows.py:527
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:13
 #: dashboards/identity/users/tables.py:236
 #: dashboards/identity/users/templates/users/_detail_overview.html:23
@@ -2466,7 +2468,7 @@ msgstr ""
 #: dashboards/identity/groups/forms.py:59
 #: dashboards/identity/groups/tables.py:117
 #: dashboards/identity/projects/tables.py:231
-#: dashboards/identity/projects/workflows.py:148
+#: dashboards/identity/projects/workflows.py:151
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:15
 #: dashboards/project/access_and_security/security_groups/forms.py:44
 #: dashboards/project/access_and_security/security_groups/forms.py:73
@@ -2693,7 +2695,7 @@ msgstr ""
 #: dashboards/project/images/templates/images/images/_detail_overview.html:27
 #: dashboards/project/instances/templates/instances/_detail_overview.html:18
 #: dashboards/project/instances/templates/instances/_detail_overview.html:38
-#: dashboards/project/stacks/tables.py:254
+#: dashboards/project/stacks/tables.py:262
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:22
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:39
@@ -2721,7 +2723,7 @@ msgstr "ಅಜ್ಞಾತ"
 #: dashboards/project/database_backups/templates/database_backups/details.html:34
 #: dashboards/project/databases/templates/databases/_detail_overview.html:37
 #: dashboards/project/images/templates/images/images/_detail_overview.html:33
-#: dashboards/project/stacks/tables.py:258
+#: dashboards/project/stacks/tables.py:266
 msgid "Updated"
 msgstr "ಅಪ್‌ಡೇಟ್ ಮಾಡಲಾಗಿದೆ"
 
@@ -3161,7 +3163,7 @@ msgstr ""
 #: dashboards/project/loadbalancers/workflows.py:347
 #: dashboards/project/loadbalancers/workflows.py:550
 #: dashboards/project/networks/forms.py:39
-#: dashboards/project/networks/tables.py:171
+#: dashboards/project/networks/tables.py:177
 #: dashboards/project/networks/workflows.py:49
 #: dashboards/project/networks/ports/forms.py:40
 #: dashboards/project/networks/ports/tables.py:75
@@ -3190,7 +3192,7 @@ msgstr "ವ್ಯವಸ್ಥಾಪಕ ಸ್ಥಿತಿ"
 #: dashboards/project/firewalls/workflows.py:236
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:31
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:50
-#: dashboards/project/networks/tables.py:166
+#: dashboards/project/networks/tables.py:172
 #: dashboards/project/networks/templates/networks/_detail_overview.html:17
 msgid "Shared"
 msgstr "ಹಂಚಲಾದ"
@@ -3275,11 +3277,11 @@ msgstr "%s ಜಾಲಬಂಧವನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡ�
 #: dashboards/admin/networks/tables.py:109
 #: dashboards/admin/networks/views.py:42
 #: dashboards/admin/networks/templates/networks/index.html:3
-#: dashboards/identity/projects/workflows.py:74
+#: dashboards/identity/projects/workflows.py:75
 #: dashboards/project/databases/workflows/create_instance.py:131
 #: dashboards/project/instances/workflows/create_instance.py:688
 #: dashboards/project/networks/panel.py:23
-#: dashboards/project/networks/tables.py:176
+#: dashboards/project/networks/tables.py:182
 #: dashboards/project/networks/views.py:45
 #: dashboards/project/networks/templates/networks/index.html:3
 #: usage/quotas.py:77
@@ -3344,7 +3346,7 @@ msgid "Network Name"
 msgstr "ಜಾಲಬಂಧದ ಹೆಸರು"
 
 #: dashboards/admin/networks/tables.py:97
-#: dashboards/project/networks/tables.py:165
+#: dashboards/project/networks/tables.py:171
 msgid "Subnets Associated"
 msgstr "ಸಂಬಂಧಿತ ಸಬ್‌ನೆಟ್‌ಗಳು"
 
@@ -3543,7 +3545,7 @@ msgid "Mac Learning State"
 msgstr "ಮ್ಯಾಕ್ ಕಲಿಕೆಯ ಶೈಲಿ"
 
 #: dashboards/admin/networks/ports/tables.py:109
-#: dashboards/identity/projects/workflows.py:75
+#: dashboards/identity/projects/workflows.py:76
 #: dashboards/project/networks/ports/tables.py:85 usage/quotas.py:79
 msgid "Ports"
 msgstr "ಪೋರ್ಟ್‌ಗಳು"
@@ -3627,7 +3629,7 @@ msgid "Gateway IP"
 msgstr "ಗೇಟ್‌ವೇ IP"
 
 #: dashboards/admin/networks/subnets/tables.py:116
-#: dashboards/identity/projects/workflows.py:77
+#: dashboards/identity/projects/workflows.py:78
 #: dashboards/project/networks/subnets/tables.py:150 usage/quotas.py:78
 msgid "Subnets"
 msgstr "ಸಬ್‌ನೆಟ್‌ಗಳು"
@@ -3751,7 +3753,7 @@ msgstr "ಮೇಲ್ವಿಚಾರಣೆ:"
 
 #: dashboards/admin/routers/panel.py:24 dashboards/admin/routers/tables.py:46
 #: dashboards/admin/routers/templates/routers/index.html:3
-#: dashboards/identity/projects/workflows.py:76
+#: dashboards/identity/projects/workflows.py:77
 #: dashboards/project/network_topology/routers/tables.py:27
 #: dashboards/project/routers/panel.py:24
 #: dashboards/project/routers/tables.py:244
@@ -4203,6 +4205,7 @@ msgstr "ಪರಿಮಾಣದ ಬಗೆಯ ಹೆಚ್ಚುವರಿ ಸ್ಪ
 #: dashboards/project/containers/templates/containers/_container_detail.html:29
 #: dashboards/project/containers/templates/containers/_object_detail.html:25
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:104
+#: dashboards/project/stacks/templates/stacks/_preview_details.html:58
 msgid "Close"
 msgstr "ಮುಚ್ಚಿ"
 
@@ -4837,7 +4840,7 @@ msgid "Domain Context cleared."
 msgstr "ಡೊಮೇನ್ ಸನ್ನಿವೇಶವನ್ನು ತೆರವುಗೊಳಿಸಲಾಗಿದೆ."
 
 #: dashboards/identity/domains/tables.py:202
-#: dashboards/identity/projects/workflows.py:138
+#: dashboards/identity/projects/workflows.py:141
 #: dashboards/identity/users/forms.py:89
 #: dashboards/identity/users/forms.py:166
 #: dashboards/identity/users/templates/users/_detail_overview.html:10
@@ -4873,8 +4876,8 @@ msgstr "ಡೊಮೇನ್‌ಗಳು ವಿವಿಧ ಸಂಸ್ಥೆಗಳ�
 
 #: dashboards/identity/domains/workflows.py:72
 #: dashboards/identity/domains/workflows.py:171
-#: dashboards/identity/projects/workflows.py:198
-#: dashboards/identity/projects/workflows.py:296
+#: dashboards/identity/projects/workflows.py:202
+#: dashboards/identity/projects/workflows.py:300
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr "ಕೀಸ್ಟೋನ್‌ನಲ್ಲಿ \"%s\" ಪೂರ್ವನಿಯೋಜಿತ ಪಾತ್ರವು ಕಂಡುಬಂದಿಲ್ಲ"
@@ -4884,7 +4887,7 @@ msgid "Unable to find default role."
 msgstr "ಪೂರ್ವನಿಯೋಜಿತ ಪಾತ್ರವು ಕಂಡುಬಂದಿಲ್ಲ."
 
 #: dashboards/identity/domains/workflows.py:89
-#: dashboards/identity/projects/workflows.py:268
+#: dashboards/identity/projects/workflows.py:272
 #: dashboards/identity/users/views.py:58
 msgid "Unable to retrieve user list."
 msgstr "ಬಳಕೆದಾರ ಪಟ್ಟಿಯನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
@@ -4892,7 +4895,7 @@ msgstr "ಬಳಕೆದಾರ ಪಟ್ಟಿಯನ್ನು ಹಿಂಪಡೆ�
 #: dashboards/identity/domains/workflows.py:98
 #: dashboards/identity/domains/workflows.py:145
 #: dashboards/identity/domains/workflows.py:242
-#: dashboards/identity/projects/workflows.py:366
+#: dashboards/identity/projects/workflows.py:370
 msgid "Unable to retrieve role list."
 msgstr "ಪಾತ್ರದ ಪಟ್ಟಿಯನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
@@ -4906,22 +4909,22 @@ msgid "Domain Members"
 msgstr "ಡೊಮೇನ್‌ ಅಂಗಗಳು"
 
 #: dashboards/identity/domains/workflows.py:133
-#: dashboards/identity/projects/workflows.py:257
+#: dashboards/identity/projects/workflows.py:261
 msgid "All Users"
 msgstr "ಎಲ್ಲಾ ಬಳಕೆದಾದರರು"
 
 #: dashboards/identity/domains/workflows.py:135
-#: dashboards/identity/projects/workflows.py:259
+#: dashboards/identity/projects/workflows.py:263
 msgid "No users found."
 msgstr "ಯಾವುದೆ ಬಳಕೆದಾರರು ಕಂಡುಬಂದಿಲ್ಲ."
 
 #: dashboards/identity/domains/workflows.py:136
-#: dashboards/identity/projects/workflows.py:260
+#: dashboards/identity/projects/workflows.py:264
 msgid "No users."
 msgstr "ಯಾವುದೆ ಬಳಕೆದಾರರು ಇಲ್ಲ."
 
 #: dashboards/identity/domains/workflows.py:161
-#: dashboards/identity/projects/workflows.py:282
+#: dashboards/identity/projects/workflows.py:286
 msgid "Unable to retrieve group list. Please try again later."
 msgstr "ಗುಂಪಿನ ಪಟ್ಟಿಯನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ. ದಯವಿಟ್ಟು ಇನ್ನೊಮ್ಮೆ ಪ್ರಯತ್ನಿಸಿ."
 
@@ -4931,17 +4934,17 @@ msgid "Domain Groups"
 msgstr "ಡೊಮೇನ್ ಗುಂಪುಗಳು"
 
 #: dashboards/identity/domains/workflows.py:230
-#: dashboards/identity/projects/workflows.py:355
+#: dashboards/identity/projects/workflows.py:359
 msgid "All Groups"
 msgstr "ಎಲ್ಲಾ ಗುಂಪುಗಳು"
 
 #: dashboards/identity/domains/workflows.py:232
-#: dashboards/identity/projects/workflows.py:357
+#: dashboards/identity/projects/workflows.py:361
 msgid "No groups found."
 msgstr "ಯಾವುದೇ ಗುಂಪುಗಳು ಕಂಡುಬಂದಿಲ್ಲ."
 
 #: dashboards/identity/domains/workflows.py:233
-#: dashboards/identity/projects/workflows.py:358
+#: dashboards/identity/projects/workflows.py:362
 msgid "No groups."
 msgstr "ಯಾವುದೇ ಗುಂಪುಗಳು ಇಲ್ಲ."
 
@@ -5178,13 +5181,13 @@ msgid "View Usage"
 msgstr "ಬಳಕೆಯನ್ನು ನೋಡಿ"
 
 #: dashboards/identity/projects/tables.py:99
-#: dashboards/identity/projects/workflows.py:377
-#: dashboards/identity/projects/workflows.py:378
+#: dashboards/identity/projects/workflows.py:381
+#: dashboards/identity/projects/workflows.py:382
 msgid "Create Project"
 msgstr "ಪರಿಯೋಜನೆಯನ್ನು ರಚಿಸಿ"
 
 #: dashboards/identity/projects/tables.py:111
-#: dashboards/identity/projects/workflows.py:563
+#: dashboards/identity/projects/workflows.py:568
 msgid "Edit Project"
 msgstr "ಪರಿಯೋಜನೆಯನ್ನು ಸಂಪಾದಿಸಿ"
 
@@ -5241,134 +5244,134 @@ msgstr "ಪರಿಯೋಜನೆಯ ವಿವರಗಳನ್ನು ಹಿಂಪ�
 msgid "Project Details: %s"
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:47
+#: dashboards/identity/projects/workflows.py:48
 msgid "Injected File Content (Bytes)"
 msgstr "ಇಂಜೆಕ್ಟ್‌ ಮಾಡಲಾದ ಕಡತದ ಕಂಟೆಂಟ್ (ಬೈಟ್‌ಗಳು)"
 
-#: dashboards/identity/projects/workflows.py:100
+#: dashboards/identity/projects/workflows.py:101
 #, python-format
 msgid "%(used)s %(key)s used"
 msgstr "%(used)s %(key)s ಬಳಸಲಾಗಿದೆ"
 
-#: dashboards/identity/projects/workflows.py:105
+#: dashboards/identity/projects/workflows.py:106
 #, python-format
 msgid "Quota value(s) cannot be less than the current usage value(s): %s."
 msgstr "ಕೋಟಾ ಮೌಲ್ಯವು(ಗಳು) ಪ್ರಸಕ್ತ ಬಳಕೆ ಮೌಲ್ಯಕ್ಕಿಂತ(ಗಳಿಗಿಂತ) ಕಡಿಮೆ ಇರುವಂತಿಲ್ಲ: %s."
 
-#: dashboards/identity/projects/workflows.py:112
-#: dashboards/identity/projects/workflows.py:119
+#: dashboards/identity/projects/workflows.py:113
+#: dashboards/identity/projects/workflows.py:120
 msgid "Quota"
 msgstr "ಕೋಟಾ"
 
-#: dashboards/identity/projects/workflows.py:114
-#: dashboards/identity/projects/workflows.py:121
+#: dashboards/identity/projects/workflows.py:115
+#: dashboards/identity/projects/workflows.py:122
 msgid "Set maximum quotas for the project."
 msgstr "ಪರಿಯೋಜನೆಗಾಗಿ ಗರಿಷ್ಟ ಕೋಟಾಗಳನ್ನು ಹೊಂದಿಸಿ."
 
-#: dashboards/identity/projects/workflows.py:141
+#: dashboards/identity/projects/workflows.py:144
 #: dashboards/identity/users/forms.py:92
 #: dashboards/identity/users/forms.py:169
 #: dashboards/identity/users/templates/users/_detail_overview.html:14
 msgid "Domain Name"
 msgstr "ಡೊಮೇನ್ ಹೆಸರು"
 
-#: dashboards/identity/projects/workflows.py:165
-#: dashboards/identity/projects/workflows.py:546
+#: dashboards/identity/projects/workflows.py:168
+#: dashboards/identity/projects/workflows.py:550
 msgid "Project Information"
 msgstr "ಪರಿಯೋಜನೆಯ ಮಾಹಿತಿ"
 
-#: dashboards/identity/projects/workflows.py:166
+#: dashboards/identity/projects/workflows.py:169
 msgid "Create a project to organize users."
 msgstr "ಬಳಕೆದಾರರನ್ನು ವ್ಯವಸ್ಥಿತವಾಗಿ ಜೋಡಿಸಲು ಪರಿಯೋಜನೆಯನ್ನು ರಚಿಸಿ."
 
-#: dashboards/identity/projects/workflows.py:184
+#: dashboards/identity/projects/workflows.py:188
 msgid "Unable to retrieve user list. Please try again later."
 msgstr "ಬಳಕೆದಾರರ ಪಟ್ಟಿಯನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ. ದಯವಿಟ್ಟು ಇನ್ನೊಮ್ಮೆ ಪ್ರಯತ್ನಿಸಿ."
 
-#: dashboards/identity/projects/workflows.py:251
-#: dashboards/identity/projects/workflows.py:258
+#: dashboards/identity/projects/workflows.py:255
+#: dashboards/identity/projects/workflows.py:262
 msgid "Project Members"
 msgstr "ಪರಿಯೋಜನೆ ಅಂಗಗಳು"
 
-#: dashboards/identity/projects/workflows.py:349
-#: dashboards/identity/projects/workflows.py:356
+#: dashboards/identity/projects/workflows.py:353
+#: dashboards/identity/projects/workflows.py:360
 msgid "Project Groups"
 msgstr "ಪರಿಯೋಜನೆ ಗುಂಪುಗಳು"
 
-#: dashboards/identity/projects/workflows.py:379
+#: dashboards/identity/projects/workflows.py:383
 #, python-format
 msgid "Created new project \"%s\"."
 msgstr "ಹೊಸ ಪರಿಯೋಜನೆ \"%s\" ಅನ್ನು ರಚಿಸಲಾಗಿದೆ."
 
-#: dashboards/identity/projects/workflows.py:380
+#: dashboards/identity/projects/workflows.py:384
 #, python-format
 msgid "Unable to create project \"%s\"."
 msgstr "ಪರಿಯೋಜನೆ \"%s\" ಅನ್ನು ರಚಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: dashboards/identity/projects/workflows.py:442
+#: dashboards/identity/projects/workflows.py:446
 msgid ", add project groups"
 msgstr ", ಪರಿಯೋಜನೆ ಗುಂಪುಗಳನ್ನು ಸೇರಿಸಿ"
 
-#: dashboards/identity/projects/workflows.py:446
+#: dashboards/identity/projects/workflows.py:450
 #, python-format
 msgid ""
 "Failed to add %(users_to_add)s project members%(group_msg)s and set project "
 "quotas."
 msgstr "%(users_to_add)s ಪರಿಯೋಜನೆಯ ಅಂಗಗಳನ್ನು %(group_msg)s ಸೇರಿಸಲು ಮತ್ತು ಪರಿಯೋಜನೆಯ ಕೋಟಾಗಳನ್ನು ಹೊಂದಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: dashboards/identity/projects/workflows.py:479
+#: dashboards/identity/projects/workflows.py:483
 #, python-format
 msgid "Failed to add %s project groups and update project quotas."
 msgstr "%s ಪರಿಯೋಜನೆಯ ಗುಂಪುಗಳನ್ನು ಸೇರಿಸಲು ಮತ್ತು ಪರಿಯೋಜನೆಯ ಕೋಟಾಗಳನ್ನು ಅಪ್‌ಡೇಟ್‌ ಮಾಡಲಾಗಿಲ್ಲ."
 
-#: dashboards/identity/projects/workflows.py:508
+#: dashboards/identity/projects/workflows.py:512
 msgid "Unable to set project quotas."
 msgstr "ಪರಿಯೋಜನೆಗಾಗಿ ಕೋಟಾವನ್ನು ಹೊಂದಿಸಲಾಗಿಲ್ಲ."
 
-#: dashboards/identity/projects/workflows.py:531
+#: dashboards/identity/projects/workflows.py:535
 msgid "You cannot disable your current project"
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:548
+#: dashboards/identity/projects/workflows.py:552
 msgid "Edit the project details."
 msgstr "ಪರಿಯೋಜನೆಯ ವಿವರಗಳನ್ನು ಸಂಪಾದಿಸಿ."
 
-#: dashboards/identity/projects/workflows.py:565
+#: dashboards/identity/projects/workflows.py:570
 #, python-format
 msgid "Modified project \"%s\"."
 msgstr "ಮಾರ್ಪಡಿಸಲಾದ ಪರಿಯೋಜನೆ \"%s\"."
 
-#: dashboards/identity/projects/workflows.py:566
+#: dashboards/identity/projects/workflows.py:571
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr "ಪರಿಯೋಜನೆ \"%s\" ಅನ್ನು ಮಾರ್ಪಡಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: dashboards/identity/projects/workflows.py:655
+#: dashboards/identity/projects/workflows.py:660
 msgid ""
 "You cannot revoke your administrative privileges from the project you are "
 "currently logged into. Please switch to another project with administrative "
 "privileges or remove the administrative role manually via the CLI."
 msgstr "ನೀವು ಪ್ರಸಕ್ತ ಲಾಗಿನ್ ಆದಂತಹ ಪರಿಯೋಜನೆಯಿಂದ ವ್ಯವಸ್ಥಾಪಕ ಅಧಿಕಾರಗಳನ್ನು ರದ್ದುಗೊಳಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ದಯವಿಟ್ಟು ವ್ಯವಸ್ಥಾಪಕ ಅಧಿಕಾರಗಳಿಂದ ಇನ್ನೊಂದು ಪರಿಯೋಜನೆಗೆ ಬದಲಾಯಿಸಿ  ಅಥವ CLI ಬಳಸಿಕೊಂಡು ವ್ಯವಸ್ಥಾಪಕ ಪಾತ್ರವನ್ನು ಕೈಯಾರೆ ತೆಗೆದುಹಾಕಿ."
 
-#: dashboards/identity/projects/workflows.py:715
+#: dashboards/identity/projects/workflows.py:720
 msgid ", update project groups"
 msgstr ", ಪರಿಯೋಜನೆ ಗುಂಪುಗಳನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡಿ"
 
-#: dashboards/identity/projects/workflows.py:719
+#: dashboards/identity/projects/workflows.py:724
 #, python-format
 msgid ""
 "Failed to modify %(users_to_modify)s project members%(group_msg)s and update"
 " project quotas."
 msgstr "%(users_to_modify)s ಪರಿಯೋಜನೆಯ ಅಂಗಗಳನ್ನು %(group_msg)s ಮಾರ್ಪಡಿಸಲು ಮತ್ತು ಪರಿಯೋಜನೆಯ ಕೋಟಾಗಳನ್ನು ಅಪ್‌ಡೇಟ್‌ ಮಾಡಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: dashboards/identity/projects/workflows.py:796
+#: dashboards/identity/projects/workflows.py:801
 #, python-format
 msgid ""
 "Failed to modify %s project members, update project groups and update "
 "project quotas."
 msgstr "%s ಪರಿಯೋಜನೆಯ ಅಂಗಗಳನ್ನು ಮಾರ್ಪಡಿಸಲು, ಪರಿಯೋಜನೆ ಗುಂಪುಗಳನ್ನು ಅಪ್‌ಡೇಟ್‌ ಮಾಡಲು ಮತ್ತು ಪರಿಯೋಜನೆಯ ಕೋಟಾಗಳನ್ನು ಅಪ್‌ಡೇಟ್‌ ಮಾಡಲು ವಿಫಲಗೊಂಡಿದೆ."
 
-#: dashboards/identity/projects/workflows.py:830
+#: dashboards/identity/projects/workflows.py:835
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
@@ -7167,6 +7170,7 @@ msgstr "ಸಿದ್ಧವಿನ್ಯಾಸಕ್ಕಾಗಿ ಪ್ಲಗ್�
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:81
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:374
+#: dashboards/project/stacks/views.py:139
 #: dashboards/project/stacks/templates/stacks/_change_template.html:25
 #: dashboards/project/stacks/templates/stacks/_select_template.html:25
 msgid "Next"
@@ -8131,6 +8135,7 @@ msgid "Configuration"
 msgstr "ಸಂರಚನೆ"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:223
+#: dashboards/project/stacks/templates/stacks/_preview_details.html:20
 msgid "Parameters"
 msgstr "ನಿಯತಾಂಕಗಳು"
 
@@ -12497,6 +12502,26 @@ msgstr "ಸಬ್‌ನೆಟ್ ಅನ್ನು ಸೇರಿಸಿ"
 msgid "Add Subnet (Quota exceeded)"
 msgstr "ಸಬ್‌ನೆಟ್ ಅನ್ನು ಸೇರಿಸಿ (ಕೋಟಾ ಮಿತಿಮೀರಿದೆ)"
 
+#: dashboards/project/networks/tables.py:150
+msgctxt "Current status of a Network"
+msgid "Active"
+msgstr ""
+
+#: dashboards/project/networks/tables.py:151
+msgctxt "Current status of a Network"
+msgid "Build"
+msgstr ""
+
+#: dashboards/project/networks/tables.py:152
+msgctxt "Current status of a Network"
+msgid "Down"
+msgstr ""
+
+#: dashboards/project/networks/tables.py:153
+msgctxt "Current status of a Network"
+msgid "Error"
+msgstr ""
+
 #: dashboards/project/networks/views.py:89
 msgid "Unable to retrieve network details."
 msgstr "ಜಾಲಬಂಧ ವಿವರಣೆಗಳನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
@@ -13390,7 +13415,7 @@ msgid ""
 "a gateway for external connectivity."
 msgstr "ನೀವು ನಿಶ್ಚಿತ ಬಾಹ್ಯ ಜಾಲಬಂಧವನ್ನು ರೌಟರ್‌ಗೆ ಸಂಪರ್ಕಜೋಡಿಸಬಹುದು. ಬಾಹ್ಯ ಜಾಲಬಂಧವನ್ನು ರೌಟರ್‌ನ ಪೂರ್ವನಿಯೋಜಿತ ರೌಟ್ ಆಗಿ ಪರಿಗಣಿಸಲಾಗುತ್ತದೆ ಮತ್ತು ರೌಟರ್‌ ಬಾಹ್ಯ ಸಂಪರ್ಕದ ಒಂದು ಗೇಟ್‌ವೇ ಆಗಿ ವರ್ತಿಸುತ್ತದೆ."
 
-#: dashboards/project/stacks/forms.py:56 dashboards/project/stacks/views.py:91
+#: dashboards/project/stacks/forms.py:56 dashboards/project/stacks/views.py:92
 #: dashboards/project/stacks/templates/stacks/_change_template.html:9
 #: dashboards/project/stacks/templates/stacks/_select_template.html:9
 #: dashboards/project/stacks/templates/stacks/select_template.html:3
@@ -13477,317 +13502,339 @@ msgid "Select a new template to re-launch a stack."
 msgstr "ಒಂದು ಸ್ಟ್ಯಾಕ್ ಅನ್ನು ಮರಳಿ-ಆರಂಭಿಸಲು ಒಂದು ಹೊಸ ಸಿದ್ಧವಿನ್ಯಾಸವನ್ನು ಆರಿಸಿ."
 
 #: dashboards/project/stacks/forms.py:231
-#: dashboards/project/stacks/forms.py:396
+#: dashboards/project/stacks/forms.py:402
 msgid "Stack ID"
 msgstr "ಸ್ಟ್ಯಾಕ್ ID"
 
 #: dashboards/project/stacks/forms.py:233
-#: dashboards/project/stacks/forms.py:258
-#: dashboards/project/stacks/forms.py:399
-#: dashboards/project/stacks/tables.py:251
+#: dashboards/project/stacks/forms.py:264
+#: dashboards/project/stacks/forms.py:405
+#: dashboards/project/stacks/tables.py:259
 msgid "Stack Name"
 msgstr "ಸ್ಟ್ಯಾಕ್ ಹೆಸರು"
 
-#: dashboards/project/stacks/forms.py:243
+#: dashboards/project/stacks/forms.py:240
+#: dashboards/project/stacks/views.py:136
+#: dashboards/project/stacks/views.py:142
+#: dashboards/project/stacks/templates/stacks/preview_template.html:3
+msgid "Preview Template"
+msgstr ""
+
+#: dashboards/project/stacks/forms.py:241
+msgid "Select a new template to preview a stack."
+msgstr ""
+
+#: dashboards/project/stacks/forms.py:249
 msgid "Create Stack"
 msgstr "ಸ್ಟ್ಯಾಕ್ ಅನ್ನು ರಚಿಸಿ"
 
-#: dashboards/project/stacks/forms.py:259
+#: dashboards/project/stacks/forms.py:265
 msgid "Name of the stack to create."
 msgstr "ರಚಿಸಬೇಕಿರುವ ಸ್ಟ್ಯಾಕ್‌ನ ಹೆಸರು."
 
-#: dashboards/project/stacks/forms.py:262
+#: dashboards/project/stacks/forms.py:268
 msgid ""
 "Name must start with a letter and may only contain letters, numbers, "
 "underscores, periods and hyphens."
 msgstr "ಹೆಸರು ಒಂದು ಅಕ್ಷರದಿಂದ ಆರಂಭಗೊಳ್ಳಬೇಕು ಮತ್ತು ಕೇವಲ ಅಕ್ಷರಗಳು, ಸಂಖ್ಯೆಗಳು, ಅಂಡರ್‌ಸ್ಕೋರ್‌ಗಳು, ಪಿರಿಯಡ್‌ಗಳು ಮತ್ತು ಹೈಫನ್‌ಗಳನ್ನು ಮಾತ್ರ ಹೊಂದಿರಬಹುದು."
 
-#: dashboards/project/stacks/forms.py:267
+#: dashboards/project/stacks/forms.py:273
 msgid "Creation Timeout (minutes)"
 msgstr "ರಚನೆಯ ಕಾಲಾವಧಿ ತೀರಿಕೆ (ನಿಮಿಷಗಳು)"
 
-#: dashboards/project/stacks/forms.py:268
+#: dashboards/project/stacks/forms.py:274
 msgid "Stack creation timeout in minutes."
 msgstr "ಸ್ಟ್ಯಾಕ್ ರಚನೆಯ ಕಾಲಾವಧಿ ತೀರಿಕೆ, ನಿಮಿಷಗಳಲ್ಲಿ."
 
-#: dashboards/project/stacks/forms.py:270
+#: dashboards/project/stacks/forms.py:276
 msgid "Rollback On Failure"
 msgstr "ವಿಫಲಗೊಂಡಲ್ಲಿ ಹಿಮ್ಮರಳಿಸು"
 
-#: dashboards/project/stacks/forms.py:271
+#: dashboards/project/stacks/forms.py:277
 msgid "Enable rollback on create/update failure."
 msgstr "ರಚನೆ/ಅಪ್‌ಡೇಟ್‌ನ ವಿಫಲತೆಯಲ್ಲಿ ಹಿಮ್ಮರಳಿಕೆಯನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ."
 
-#: dashboards/project/stacks/forms.py:284
+#: dashboards/project/stacks/forms.py:290
 #, python-format
 msgid "Password for user \"%s\""
 msgstr "\"%s\" ಬಳಕೆದಾರನಿಗಾಗಿನ ಗುಪ್ತಪದ"
 
-#: dashboards/project/stacks/forms.py:285
+#: dashboards/project/stacks/forms.py:291
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
 msgstr "ಇದಕ್ಕಾಗಿ ಸ್ಟ್ಯಾಕ್‌ನ ಸಂಪೂರ್ಣ ಜೀವನಚಕ್ರದ ಮೂಲಕ ಕಾರ್ಯಾಚರಣೆಗಳನ್ನು ನಡೆಸುವ ಅಗತ್ಯವಿರುತ್ತದೆ."
 
-#: dashboards/project/stacks/forms.py:373
+#: dashboards/project/stacks/forms.py:379
 msgid "Stack creation started."
 msgstr "ಸ್ಟ್ಯಾಕ್ ರಚಿಸುವಿಕೆಯನ್ನು ಆರಂಭಿಸಲಾಗಿದೆ."
 
-#: dashboards/project/stacks/forms.py:393
+#: dashboards/project/stacks/forms.py:399
 #: dashboards/project/stacks/templates/stacks/_update.html:8
 #: dashboards/project/stacks/templates/stacks/update.html:3
 msgid "Update Stack Parameters"
 msgstr "ಸ್ಟ್ಯಾಕ್ ನಿಯತಾಂಕಗಳನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡಿ"
 
-#: dashboards/project/stacks/forms.py:428
+#: dashboards/project/stacks/forms.py:434
 msgid "Stack update started."
 msgstr "ಸ್ಟ್ಯಾಕ್ ಅಪ್‌ಡೇಟ್ ಆರಂಭಗೊಂಡಿದೆ."
 
+#: dashboards/project/stacks/forms.py:443
+msgid "Preview Stack Parameters"
+msgstr ""
+
 #: dashboards/project/stacks/panel.py:21
-#: dashboards/project/stacks/tables.py:275
-#: dashboards/project/stacks/views.py:47
+#: dashboards/project/stacks/tables.py:283
+#: dashboards/project/stacks/views.py:48
 #: dashboards/project/stacks/templates/stacks/index.html:3
 msgid "Stacks"
 msgstr "ಸ್ಟ್ಯಾಕ್‌ಗಳು"
 
 #: dashboards/project/stacks/tables.py:32
-#: dashboards/project/stacks/views.py:137
+#: dashboards/project/stacks/views.py:154
 #: dashboards/project/stacks/templates/stacks/_create.html:8
 #: dashboards/project/stacks/templates/stacks/create.html:3
 msgid "Launch Stack"
 msgstr "ಸ್ಟ್ಯಾಕ್ ಅನ್ನು ಆರಂಭಿಸಿ"
 
 #: dashboards/project/stacks/tables.py:41
-#: dashboards/project/stacks/tables.py:47
+#: dashboards/project/stacks/views.py:220
+#: dashboards/project/stacks/views.py:226
+#: dashboards/project/stacks/templates/stacks/preview.html:3
+msgid "Preview Stack"
+msgstr ""
+
+#: dashboards/project/stacks/tables.py:49
+#: dashboards/project/stacks/tables.py:55
 msgid "Check Stack"
 msgid_plural "Check Stacks"
 msgstr[0] ""
 
-#: dashboards/project/stacks/tables.py:55
+#: dashboards/project/stacks/tables.py:63
 msgid "Checked Stack"
 msgid_plural "Checked Stacks"
 msgstr[0] ""
 
-#: dashboards/project/stacks/tables.py:66
-#: dashboards/project/stacks/tables.py:72
+#: dashboards/project/stacks/tables.py:74
+#: dashboards/project/stacks/tables.py:80
 msgid "Suspend Stack"
 msgid_plural "Suspend Stacks"
 msgstr[0] ""
 
-#: dashboards/project/stacks/tables.py:80
+#: dashboards/project/stacks/tables.py:88
 msgid "Suspended Stack"
 msgid_plural "Suspended Stacks"
 msgstr[0] ""
 
-#: dashboards/project/stacks/tables.py:91
-#: dashboards/project/stacks/tables.py:97
+#: dashboards/project/stacks/tables.py:99
+#: dashboards/project/stacks/tables.py:105
 msgid "Resume Stack"
 msgid_plural "Resume Stacks"
 msgstr[0] ""
 
-#: dashboards/project/stacks/tables.py:105
+#: dashboards/project/stacks/tables.py:113
 msgid "Resumed Stack"
 msgid_plural "Resumed Stacks"
 msgstr[0] ""
 
-#: dashboards/project/stacks/tables.py:116
+#: dashboards/project/stacks/tables.py:124
 msgid "Change Stack Template"
 msgstr "ಸ್ಟ್ಯಾಕ್ ಸಿದ್ಧವಿನ್ಯಾಸವನ್ನು ಬದಲಾಯಿಸಿ"
 
-#: dashboards/project/stacks/tables.py:129
+#: dashboards/project/stacks/tables.py:137
 msgid "Delete Stack"
 msgid_plural "Delete Stacks"
 msgstr[0] ""
 
-#: dashboards/project/stacks/tables.py:137
+#: dashboards/project/stacks/tables.py:145
 msgid "Deleted Stack"
 msgid_plural "Deleted Stacks"
 msgstr[0] ""
 
-#: dashboards/project/stacks/tables.py:190
+#: dashboards/project/stacks/tables.py:198
 msgctxt "current status of stack"
 msgid "Init In Progress"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:192
+#: dashboards/project/stacks/tables.py:200
 msgctxt "current status of stack"
 msgid "Init Complete"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:194
+#: dashboards/project/stacks/tables.py:202
 msgctxt "current status of stack"
 msgid "Init Failed"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:196
+#: dashboards/project/stacks/tables.py:204
 msgctxt "current status of stack"
 msgid "Create In Progress"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:198
+#: dashboards/project/stacks/tables.py:206
 msgctxt "current status of stack"
 msgid "Create Complete"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:200
+#: dashboards/project/stacks/tables.py:208
 msgctxt "current status of stack"
 msgid "Create Failed"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:202
+#: dashboards/project/stacks/tables.py:210
 msgctxt "current status of stack"
 msgid "Delete In Progress"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:204
+#: dashboards/project/stacks/tables.py:212
 msgctxt "current status of stack"
 msgid "Delete Complete"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:206
+#: dashboards/project/stacks/tables.py:214
 msgctxt "current status of stack"
 msgid "Delete Failed"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:208
+#: dashboards/project/stacks/tables.py:216
 msgctxt "current status of stack"
 msgid "Update In Progress"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:210
+#: dashboards/project/stacks/tables.py:218
 msgctxt "current status of stack"
 msgid "Update Complete"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:212
+#: dashboards/project/stacks/tables.py:220
 msgctxt "current status of stack"
 msgid "Update Failed"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:214
+#: dashboards/project/stacks/tables.py:222
 msgctxt "current status of stack"
 msgid "Rollback In Progress"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:216
+#: dashboards/project/stacks/tables.py:224
 msgctxt "current status of stack"
 msgid "Rollback Complete"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:218
+#: dashboards/project/stacks/tables.py:226
 msgctxt "current status of stack"
 msgid "Rollback Failed"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:220
+#: dashboards/project/stacks/tables.py:228
 msgctxt "current status of stack"
 msgid "Suspend In Progress"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:222
+#: dashboards/project/stacks/tables.py:230
 msgctxt "current status of stack"
 msgid "Suspend Complete"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:224
+#: dashboards/project/stacks/tables.py:232
 msgctxt "current status of stack"
 msgid "Suspend Failed"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:226
+#: dashboards/project/stacks/tables.py:234
 msgctxt "current status of stack"
 msgid "Resume In Progress"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:228
+#: dashboards/project/stacks/tables.py:236
 msgctxt "current status of stack"
 msgid "Resume Complete"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:230
+#: dashboards/project/stacks/tables.py:238
 msgctxt "current status of stack"
 msgid "Resume Failed"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:232
+#: dashboards/project/stacks/tables.py:240
 msgctxt "current status of stack"
 msgid "Adopt In Progress"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:234
+#: dashboards/project/stacks/tables.py:242
 msgctxt "current status of stack"
 msgid "Adopt Complete"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:236
+#: dashboards/project/stacks/tables.py:244
 msgctxt "current status of stack"
 msgid "Adopt Failed"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:238
+#: dashboards/project/stacks/tables.py:246
 msgctxt "current status of stack"
 msgid "Snapshot In Progress"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:240
+#: dashboards/project/stacks/tables.py:248
 msgctxt "current status of stack"
 msgid "Snapshot Complete"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:242
+#: dashboards/project/stacks/tables.py:250
 msgctxt "current status of stack"
 msgid "Snapshot Failed"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:244
+#: dashboards/project/stacks/tables.py:252
 msgctxt "current status of stack"
 msgid "Check In Progress"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:246
+#: dashboards/project/stacks/tables.py:254
 msgctxt "current status of stack"
 msgid "Check Complete"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:248
+#: dashboards/project/stacks/tables.py:256
 msgctxt "current status of stack"
 msgid "Check Failed"
 msgstr ""
 
-#: dashboards/project/stacks/tables.py:300
-#: dashboards/project/stacks/tables.py:350
+#: dashboards/project/stacks/tables.py:309
+#: dashboards/project/stacks/tables.py:359
 msgid "Stack Resource"
 msgstr "ಸ್ಟ್ಯಾಕ್ ಸಂಪನ್ಮೂಲ"
 
-#: dashboards/project/stacks/tables.py:303
-#: dashboards/project/stacks/tables.py:353
+#: dashboards/project/stacks/tables.py:312
+#: dashboards/project/stacks/tables.py:362
 #: dashboards/project/stacks/resource_types/tables.py:38
 msgid "Resource"
 msgstr "ಸಂಪನ್ಮೂಲ"
 
-#: dashboards/project/stacks/tables.py:306
+#: dashboards/project/stacks/tables.py:315
 msgid "Time Since Event"
 msgstr "ಘಟನೆಯ ನಂತರದ ಸಮಯ"
 
-#: dashboards/project/stacks/tables.py:314
-#: dashboards/project/stacks/tables.py:366
+#: dashboards/project/stacks/tables.py:323
+#: dashboards/project/stacks/tables.py:375
 msgid "Status Reason"
 msgstr "ಸ್ಥಿತಿಯ ಕಾರಣ"
 
-#: dashboards/project/stacks/tables.py:318
+#: dashboards/project/stacks/tables.py:327
 msgid "Stack Events"
 msgstr "ಸ್ಟ್ಯಾಕ್ ಘಟನೆಗಳು"
 
-#: dashboards/project/stacks/tables.py:356
+#: dashboards/project/stacks/tables.py:365
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:25
 msgid "Stack Resource Type"
 msgstr "ಸ್ಟ್ಯಾಕ್ ಸಂಪನ್ಮೂಲದ ಬಗೆ"
 
-#: dashboards/project/stacks/tables.py:358
+#: dashboards/project/stacks/tables.py:367
 msgid "Date Updated"
 msgstr "ಅಪ್‌ಡೇಟ್ ಮಾಡಿದ ದಿನಾಂಕ"
 
-#: dashboards/project/stacks/tables.py:384
+#: dashboards/project/stacks/tables.py:393
 msgid "Stack Resources"
 msgstr "ಸ್ಟ್ಯಾಕ್ ಸಂಪನ್ಮೂಲಗಳು"
 
@@ -13805,6 +13852,7 @@ msgid "Unable to get events for stack \"%s\"."
 msgstr "\"%s\" ಸ್ಟ್ಯಾಕ್‌ಗಾಗಿ ಘಟನೆಗಳನ್ನು ಪಡೆಯಲಾಗಿಲ್ಲ."
 
 #: dashboards/project/stacks/tabs.py:114
+#: dashboards/project/stacks/templates/stacks/_preview_details.html:42
 msgid "Resources"
 msgstr "ಸಂಪನ್ಮೂಲಗಳು"
 
@@ -13813,42 +13861,51 @@ msgstr "ಸಂಪನ್ಮೂಲಗಳು"
 msgid "Unable to get resources for stack \"%s\"."
 msgstr "\"%s\" ಸ್ಟ್ಯಾಕ್‌ಗಾಗಿ ಸಂಪನ್ಮೂಲಗಳನ್ನು ಪಡೆಯಲಾಗಿಲ್ಲ."
 
-#: dashboards/project/stacks/views.py:82
+#: dashboards/project/stacks/views.py:83
 msgid "Unable to retrieve stack list."
 msgstr "ಸ್ಟ್ಯಾಕ್ ಪಟ್ಟಿಯನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: dashboards/project/stacks/views.py:103
+#: dashboards/project/stacks/views.py:104
 #: dashboards/project/stacks/templates/stacks/change_template.html:3
 msgid "Change Template"
 msgstr "ಸಿದ್ಧವಿನ್ಯಾಸವನ್ನು ಬದಲಾಯಿಸಿ"
 
-#: dashboards/project/stacks/views.py:116
-#: dashboards/project/stacks/views.py:195
-#: dashboards/project/stacks/views.py:224
+#: dashboards/project/stacks/views.py:117
+#: dashboards/project/stacks/views.py:212
+#: dashboards/project/stacks/views.py:268
 msgid "Unable to retrieve stack."
 msgstr "ಸ್ಟ್ಯಾಕ್ ಅನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: dashboards/project/stacks/views.py:169
+#: dashboards/project/stacks/views.py:186
 msgid "Update Stack"
 msgstr "ಸ್ಟ್ಯಾಕ್ ಅನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡಿ"
 
-#: dashboards/project/stacks/views.py:204
+#: dashboards/project/stacks/views.py:223
+msgid "Preview"
+msgstr ""
+
+#: dashboards/project/stacks/views.py:236
+#: dashboards/project/stacks/templates/stacks/preview_details.html:3
+msgid "Preview Stack Details"
+msgstr ""
+
+#: dashboards/project/stacks/views.py:248
 msgid "Stack Details: {{ stack.stack_name }}"
 msgstr ""
 
-#: dashboards/project/stacks/views.py:235
+#: dashboards/project/stacks/views.py:279
 msgid "Unable to retrieve stack template."
 msgstr "ಸ್ಟ್ಯಾಕ್ ಸಿದ್ಧವಿನ್ಯಾಸವನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: dashboards/project/stacks/views.py:252
+#: dashboards/project/stacks/views.py:296
 msgid "Resource Details: {{ resource.resource_name }}"
 msgstr ""
 
-#: dashboards/project/stacks/views.py:269
+#: dashboards/project/stacks/views.py:313
 msgid "Unable to retrieve resource."
 msgstr "ಸಂಪನ್ಮೂಲವನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: dashboards/project/stacks/views.py:282
+#: dashboards/project/stacks/views.py:326
 msgid "Unable to retrieve metadata."
 msgstr "ಮೆಟಾಡೇಟ ಅನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
@@ -13928,6 +13985,24 @@ msgstr "ನಿಮಿಷಗಳು"
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:64
 msgid "Rollback"
 msgstr "ಹಿಮ್ಮರಳಿಸು"
+
+#: dashboards/project/stacks/templates/stacks/_preview.html:5
+msgid "Preview a new stack with the provided values."
+msgstr ""
+
+#: dashboards/project/stacks/templates/stacks/_preview_details.html:5
+msgid "Stack Preview"
+msgstr ""
+
+#: dashboards/project/stacks/templates/stacks/_preview_details.html:31
+msgid "Links"
+msgstr ""
+
+#: dashboards/project/stacks/templates/stacks/_preview_template.html:6
+msgid ""
+"Use one of the available template source options to specify the template to "
+"be used in previewing this stack."
+msgstr ""
 
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:3
 msgid "Resource Overview"

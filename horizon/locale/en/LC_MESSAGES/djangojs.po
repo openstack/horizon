@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-11 01:10-0500\n"
+"POT-Creation-Date: 2015-03-14 01:08-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,12 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: static/angular/action-list/button-tooltip.js:15
+msgid ""
+"The action cannot be performed. The contents of this row have errors or are "
+"missing information."
+msgstr ""
 
 #: static/angular/modal/modal.js:83
 msgid "Submit"
@@ -26,44 +32,48 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:37
+#: static/angular/transfer-table/transfer-table.js:39
 msgid "Allocated"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:38
+#: static/angular/transfer-table/transfer-table.js:40
 msgid "Available"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:39
+#: static/angular/transfer-table/transfer-table.js:41
 msgid "Select one"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:40
+#: static/angular/transfer-table/transfer-table.js:42
 msgid "Select an item from Available items below"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:41
+#: static/angular/transfer-table/transfer-table.js:43
 msgid "No available items"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:42
+#: static/angular/transfer-table/transfer-table.js:44
 msgid "Expand to see allocated items"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:43
+#: static/angular/transfer-table/transfer-table.js:45
 msgid "Expand to see available items"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:44
+#: static/angular/transfer-table/transfer-table.js:46
 msgid "Click to show or hide"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:45
+#: static/angular/transfer-table/transfer-table.js:47
+msgid "Re-order items using drag and drop"
+msgstr ""
+
+#: static/angular/transfer-table/transfer-table.js:48
 msgid "Click to see more details"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:93
-msgid "Found %(found)s of %(available)s"
+#: static/angular/transfer-table/transfer-table.js:100
+msgid "Found %(found)s of %(total)s"
 msgstr ""
 
 #: static/angular/wizard/wizard.js:8
