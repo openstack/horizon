@@ -35,6 +35,16 @@ INDEX_URL = reverse('horizon:project:access_and_security:index')
 SG_CREATE_URL = reverse('horizon:project:access_and_security:'
                         'security_groups:create')
 
+SG_VIEW_PATH = 'horizon:project:access_and_security:security_groups:%s'
+SG_DETAIL_VIEW = SG_VIEW_PATH % 'detail'
+SG_UPDATE_VIEW = SG_VIEW_PATH % 'update'
+SG_ADD_RULE_VIEW = SG_VIEW_PATH % 'add_rule'
+
+SG_TEMPLATE_PATH = 'project/access_and_security/security_groups/%s'
+SG_DETAIL_TEMPLATE = SG_TEMPLATE_PATH % 'detail.html'
+SG_CREATE_TEMPLATE = SG_TEMPLATE_PATH % 'create.html'
+SG_UPDATE_TEMPLATE = SG_TEMPLATE_PATH % '_update.html'
+
 
 def strip_absolute_base(uri):
     return uri.split(settings.TESTSERVER, 1)[-1]
@@ -46,12 +56,9 @@ class SecurityGroupsViewTests(test.TestCase):
     def setUp(self):
         super(SecurityGroupsViewTests, self).setUp()
         sec_group = self.security_groups.first()
-        self.detail_url = reverse('horizon:project:access_and_security:'
-                                  'security_groups:detail',
-                                  args=[sec_group.id])
-        self.edit_url = reverse('horizon:project:access_and_security:'
-                                'security_groups:add_rule',
-                                args=[sec_group.id])
+        self.detail_url = reverse(SG_DETAIL_VIEW, args=[sec_group.id])
+        self.edit_url = reverse(SG_ADD_RULE_VIEW, args=[sec_group.id])
+        self.update_url = reverse(SG_UPDATE_VIEW, args=[sec_group.id])
 
     @test.create_stubs({api.network: ('security_group_rule_create',
                                       'security_group_list',
@@ -83,66 +90,77 @@ class SecurityGroupsViewTests(test.TestCase):
         api.network.security_group_get(IsA(http.HttpRequest),
                                        sec_group.id).AndReturn(sec_group)
         self.mox.ReplayAll()
-
-        res = self.client.get(reverse('horizon:project:access_and_security:'
-                                      'security_groups:update',
-                                      args=[sec_group.id]))
-        self.assertTemplateUsed(
-            res, 'project/access_and_security/security_groups/_update.html')
+        res = self.client.get(self.update_url)
+        self.assertTemplateUsed(res, SG_UPDATE_TEMPLATE)
         self.assertEqual(res.context['security_group'].name,
                          sec_group.name)
 
     @test.create_stubs({api.network: ('security_group_update',
                                       'security_group_get')})
     def test_update_security_groups_post(self):
-        sec_group = self.security_groups.get(name="other_group")
-        api.network.security_group_update(IsA(http.HttpRequest),
-                                          str(sec_group.id),
-                                          sec_group.name,
-                                          sec_group.description) \
-            .AndReturn(sec_group)
-        api.network.security_group_get(IsA(http.HttpRequest),
-                                       sec_group.id).AndReturn(sec_group)
+        """Ensure that we can change a group name.
+
+        The name must not be restricted to alphanumeric characters.
+        bug #1233501 Security group names cannot contain at characters
+        bug #1224576 Security group names cannot contain spaces
+        """
+        sec_group = self.security_groups.first()
+        sec_group.name = "@new name"
+        api.network.security_group_update(
+            IsA(http.HttpRequest),
+            str(sec_group.id),
+            sec_group.name,
+            sec_group.description).AndReturn(sec_group)
+        api.network.security_group_get(
+            IsA(http.HttpRequest), sec_group.id).AndReturn(sec_group)
         self.mox.ReplayAll()
-
-        formData = {'method': 'UpdateGroup',
-                    'id': sec_group.id,
-                    'name': sec_group.name,
-                    'description': sec_group.description}
-
-        update_url = reverse('horizon:project:access_and_security:'
-                             'security_groups:update',
-                             args=[sec_group.id])
-        res = self.client.post(update_url, formData)
+        form_data = {'method': 'UpdateGroup',
+                     'id': sec_group.id,
+                     'name': sec_group.name,
+                     'description': sec_group.description}
+        res = self.client.post(self.update_url, form_data)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     def test_create_security_groups_get(self):
         res = self.client.get(SG_CREATE_URL)
-        self.assertTemplateUsed(
-            res, 'project/access_and_security/security_groups/create.html')
+        self.assertTemplateUsed(res, SG_CREATE_TEMPLATE)
 
-    @test.create_stubs({api.network: ('security_group_create',)})
     def test_create_security_groups_post(self):
         sec_group = self.security_groups.first()
-        api.network.security_group_create(IsA(http.HttpRequest),
-                                          sec_group.name,
-                                          sec_group.description) \
-            .AndReturn(sec_group)
+        self._create_security_group(sec_group)
+
+    def test_create_security_groups_special_chars(self):
+        """Ensure that a group name is not restricted to alphanumeric
+        characters.
+
+        bug #1233501 Security group names cannot contain at characters
+        bug #1224576 Security group names cannot contain spaces
+        """
+        sec_group = self.security_groups.first()
+        sec_group.name = '@group name'
+        self._create_security_group(sec_group)
+
+    @test.create_stubs({api.network: ('security_group_create',)})
+    def _create_security_group(self, sec_group):
+        api.network.security_group_create(
+            IsA(http.HttpRequest),
+            sec_group.name,
+            sec_group.description).AndReturn(sec_group)
         self.mox.ReplayAll()
 
-        formData = {'method': 'CreateGroup',
-                    'name': sec_group.name,
-                    'description': sec_group.description}
-        res = self.client.post(SG_CREATE_URL, formData)
+        form_data = {'method': 'CreateGroup',
+                     'name': sec_group.name,
+                     'description': sec_group.description}
+        res = self.client.post(SG_CREATE_URL, form_data)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api.network: ('security_group_create',)})
     def test_create_security_groups_post_exception(self):
         sec_group = self.security_groups.first()
-        api.network.security_group_create(IsA(http.HttpRequest),
-                                          sec_group.name,
-                                          sec_group.description) \
-            .AndRaise(self.exceptions.nova)
+        api.network.security_group_create(
+            IsA(http.HttpRequest),
+            sec_group.name,
+            sec_group.description).AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         formData = {'method': 'CreateGroup',
@@ -153,17 +171,22 @@ class SecurityGroupsViewTests(test.TestCase):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api.network: ('security_group_create',)})
-    def test_create_security_groups_post_wrong_name(self):
+    def test_create_security_groups_non_printable(self):
+        """Ensure that group names can only contain printable
+        ASCII characters.
+
+        Only 95 characters are allowed: from 0x20 (space) to 0x7E (~).
+        """
         sec_group = self.security_groups.first()
-        fail_name = sec_group.name + ' invalid'
+        # 0x7F is a control character (DELETE)
+        fail_name = sec_group.name + ' \x7F'
         self.mox.ReplayAll()
 
-        formData = {'method': 'CreateGroup',
-                    'name': fail_name,
-                    'description': sec_group.description}
-        res = self.client.post(SG_CREATE_URL, formData)
-        self.assertTemplateUsed(
-            res, 'project/access_and_security/security_groups/create.html')
+        form_data = {'method': 'CreateGroup',
+                     'name': fail_name,
+                     'description': sec_group.description}
+        res = self.client.post(SG_CREATE_URL, form_data)
+        self.assertTemplateUsed(res, SG_CREATE_TEMPLATE)
         self.assertContains(res, "ASCII")
 
     @test.create_stubs({api.network: ('security_group_get',)})
@@ -174,17 +197,15 @@ class SecurityGroupsViewTests(test.TestCase):
                                        sec_group.id).AndReturn(sec_group)
         self.mox.ReplayAll()
         res = self.client.get(self.detail_url)
-        self.assertTemplateUsed(
-            res, 'project/access_and_security/security_groups/detail.html')
+        self.assertTemplateUsed(res, SG_DETAIL_TEMPLATE)
 
     @test.create_stubs({api.network: ('security_group_get',)})
     def test_detail_get_exception(self):
         sec_group = self.security_groups.first()
 
-        api.network.security_group_get(IsA(http.HttpRequest),
-                                       sec_group.id) \
-            .AndRaise(self.exceptions.nova)
-
+        api.network.security_group_get(
+            IsA(http.HttpRequest),
+            sec_group.id).AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         res = self.client.get(self.detail_url)
@@ -630,12 +651,9 @@ class SecurityGroupsNovaNeutronDriverTests(SecurityGroupsViewTests):
         self.security_group_rules = self.security_group_rules_uuid
 
         sec_group = self.security_groups.first()
-        self.detail_url = reverse('horizon:project:access_and_security:'
-                                  'security_groups:detail',
-                                  args=[sec_group.id])
-        self.edit_url = reverse('horizon:project:access_and_security:'
-                                'security_groups:add_rule',
-                                args=[sec_group.id])
+        self.detail_url = reverse(SG_DETAIL_VIEW, args=[sec_group.id])
+        self.edit_url = reverse(SG_ADD_RULE_VIEW, args=[sec_group.id])
+        self.update_url = reverse(SG_UPDATE_VIEW, args=[sec_group.id])
 
     def tearDown(self):
         self.security_groups = self._sec_groups_orig
@@ -656,12 +674,9 @@ class SecurityGroupsNeutronTests(SecurityGroupsViewTests):
         self.security_group_rules = self.q_secgroup_rules
 
         sec_group = self.security_groups.first()
-        self.detail_url = reverse('horizon:project:access_and_security:'
-                                  'security_groups:detail',
-                                  args=[sec_group.id])
-        self.edit_url = reverse('horizon:project:access_and_security:'
-                                'security_groups:add_rule',
-                                args=[sec_group.id])
+        self.detail_url = reverse(SG_DETAIL_VIEW, args=[sec_group.id])
+        self.edit_url = reverse(SG_ADD_RULE_VIEW, args=[sec_group.id])
+        self.update_url = reverse(SG_UPDATE_VIEW, args=[sec_group.id])
 
     def tearDown(self):
         self.security_groups = self._sec_groups_orig
