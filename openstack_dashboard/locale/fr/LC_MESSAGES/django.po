@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-13 16:41-0500\n"
-"PO-Revision-Date: 2015-03-13 21:41+0000\n"
+"POT-Creation-Date: 2015-03-14 16:42-0500\n"
+"PO-Revision-Date: 2015-03-14 10:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -559,8 +559,7 @@ msgstr "Admin"
 #: dashboards/identity/groups/tables.py:115
 #: dashboards/identity/projects/tables.py:226
 #: dashboards/identity/projects/workflows.py:147
-#: dashboards/project/access_and_security/security_groups/forms.py:37
-#: dashboards/project/access_and_security/security_groups/forms.py:66
+#: dashboards/project/access_and_security/security_groups/forms.py:50
 #: dashboards/project/access_and_security/security_groups/tables.py:141
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:12
 #: dashboards/project/containers/templates/containers/_object_detail.html:10
@@ -1596,8 +1595,8 @@ msgstr "Nom d'Hôte"
 
 #: dashboards/admin/hypervisors/tables.py:28
 #: dashboards/admin/info/tables.py:168
-#: dashboards/project/access_and_security/security_groups/forms.py:173
-#: dashboards/project/access_and_security/security_groups/forms.py:180
+#: dashboards/project/access_and_security/security_groups/forms.py:178
+#: dashboards/project/access_and_security/security_groups/forms.py:185
 #: dashboards/project/data_processing/data_sources/tables.py:61
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:9
 #: dashboards/project/images/images/tables.py:244
@@ -2484,8 +2483,7 @@ msgstr ""
 #: dashboards/identity/projects/tables.py:231
 #: dashboards/identity/projects/workflows.py:151
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:15
-#: dashboards/project/access_and_security/security_groups/forms.py:44
-#: dashboards/project/access_and_security/security_groups/forms.py:73
+#: dashboards/project/access_and_security/security_groups/forms.py:54
 #: dashboards/project/access_and_security/security_groups/tables.py:142
 #: dashboards/project/data_processing/cluster_templates/tables.py:34
 #: dashboards/project/data_processing/cluster_templates/tables.py:128
@@ -3629,9 +3627,9 @@ msgid "Edit Subnet"
 msgstr "Editer le sous-réseau"
 
 #: dashboards/admin/networks/subnets/tables.py:94
-#: dashboards/project/access_and_security/security_groups/forms.py:196
-#: dashboards/project/access_and_security/security_groups/forms.py:208
-#: dashboards/project/access_and_security/security_groups/forms.py:218
+#: dashboards/project/access_and_security/security_groups/forms.py:201
+#: dashboards/project/access_and_security/security_groups/forms.py:213
+#: dashboards/project/access_and_security/security_groups/forms.py:223
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:19
 msgid "CIDR"
 msgstr "CIDR"
@@ -6080,218 +6078,210 @@ msgstr "Téléchargement de la paire de clés."
 msgid "Unable to create key pair: %(exc)s"
 msgstr "Impossible de créer la paire de clés : %(exc)s"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:40
-#: dashboards/project/access_and_security/security_groups/forms.py:69
-msgid "This field is required."
-msgstr "Ce champ est obligatoire."
-
-#: dashboards/project/access_and_security/security_groups/forms.py:41
-#: dashboards/project/access_and_security/security_groups/forms.py:70
-msgid "The string may only contain ASCII characters and numbers."
-msgstr "La chaîne ne peut contenir que des caractères ASCII et des chiffres."
-
-#: dashboards/project/access_and_security/security_groups/forms.py:54
+#: dashboards/project/access_and_security/security_groups/forms.py:77
 #, python-format
 msgid "Successfully created security group: %s"
 msgstr "Groupe de sécurité créé avec succès : %s"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:60
-msgid "Unable to create security group."
-msgstr "Impossible de créer le groupe de sécurité."
+#: dashboards/project/access_and_security/security_groups/forms.py:78
+#, python-format
+msgid "Unable to create security group: %s"
+msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:84
+#: dashboards/project/access_and_security/security_groups/forms.py:87
 #, python-format
 msgid "Successfully updated security group: %s"
 msgstr "Groupe de sécurité mis à jour avec succès : %s"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:90
-msgid "Unable to update security group."
-msgstr "Impossible de mettre à jour le groupe de sécurité."
+#: dashboards/project/access_and_security/security_groups/forms.py:88
+#, python-format
+msgid "Unable to update security group: %s"
+msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:96
+#: dashboards/project/access_and_security/security_groups/forms.py:101
 msgid "Rule"
 msgstr "Règle"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:105
 #: dashboards/project/access_and_security/security_groups/forms.py:110
-#: dashboards/project/access_and_security/security_groups/forms.py:111
-#: dashboards/project/access_and_security/security_groups/forms.py:112
-#: dashboards/project/access_and_security/security_groups/forms.py:113
-#: dashboards/project/access_and_security/security_groups/forms.py:114
 #: dashboards/project/access_and_security/security_groups/forms.py:115
 #: dashboards/project/access_and_security/security_groups/forms.py:116
+#: dashboards/project/access_and_security/security_groups/forms.py:117
+#: dashboards/project/access_and_security/security_groups/forms.py:118
+#: dashboards/project/access_and_security/security_groups/forms.py:119
+#: dashboards/project/access_and_security/security_groups/forms.py:120
+#: dashboards/project/access_and_security/security_groups/forms.py:121
 #: dashboards/project/access_and_security/security_groups/tables.py:260
 msgid "Direction"
 msgstr "Direction"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:120
-#: dashboards/project/access_and_security/security_groups/forms.py:127
+#: dashboards/project/access_and_security/security_groups/forms.py:125
+#: dashboards/project/access_and_security/security_groups/forms.py:132
 #: dashboards/project/access_and_security/security_groups/tables.py:265
 msgid "IP Protocol"
 msgstr "Protocole IP"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:121
+#: dashboards/project/access_and_security/security_groups/forms.py:126
 msgid "Enter an integer value between 0 and 255 (or -1 which means wildcard)."
 msgstr "Entrer un entier entre 0 et 255 (ou -1 comme caractère générique)."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:130
-#: dashboards/project/access_and_security/security_groups/forms.py:137
-#: dashboards/project/access_and_security/security_groups/forms.py:138
+#: dashboards/project/access_and_security/security_groups/forms.py:135
+#: dashboards/project/access_and_security/security_groups/forms.py:142
+#: dashboards/project/access_and_security/security_groups/forms.py:143
 msgid "Open Port"
 msgstr "Port ouvert"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:131
-#: dashboards/project/access_and_security/security_groups/forms.py:140
-#: dashboards/project/access_and_security/security_groups/forms.py:147
+#: dashboards/project/access_and_security/security_groups/forms.py:136
+#: dashboards/project/access_and_security/security_groups/forms.py:145
+#: dashboards/project/access_and_security/security_groups/forms.py:152
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:7
 msgid "Port"
 msgstr "Port"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:132
+#: dashboards/project/access_and_security/security_groups/forms.py:137
 #: dashboards/project/access_and_security/security_groups/tables.py:268
 msgid "Port Range"
 msgstr "Plage de ports"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:142
-#: dashboards/project/access_and_security/security_groups/forms.py:153
-#: dashboards/project/access_and_security/security_groups/forms.py:164
+#: dashboards/project/access_and_security/security_groups/forms.py:147
+#: dashboards/project/access_and_security/security_groups/forms.py:158
+#: dashboards/project/access_and_security/security_groups/forms.py:169
 #: dashboards/project/loadbalancers/workflows.py:169
 msgid "Enter an integer value between 1 and 65535."
 msgstr "Entrer un entier entre 1 et 65535."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:151
-#: dashboards/project/access_and_security/security_groups/forms.py:158
+#: dashboards/project/access_and_security/security_groups/forms.py:156
+#: dashboards/project/access_and_security/security_groups/forms.py:163
 msgid "From Port"
 msgstr "Du Port"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:162
-#: dashboards/project/access_and_security/security_groups/forms.py:169
+#: dashboards/project/access_and_security/security_groups/forms.py:167
+#: dashboards/project/access_and_security/security_groups/forms.py:174
 msgid "To Port"
 msgstr "Au Port"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:175
+#: dashboards/project/access_and_security/security_groups/forms.py:180
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "Entrer une valeur pour le type ICMP comprise dans l'intervalle (-1:255)"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:184
-#: dashboards/project/access_and_security/security_groups/forms.py:191
+#: dashboards/project/access_and_security/security_groups/forms.py:189
+#: dashboards/project/access_and_security/security_groups/forms.py:196
 #: dashboards/project/instances/templates/instances/_detail_overview.html:34
 msgid "Code"
 msgstr "Code"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:186
+#: dashboards/project/access_and_security/security_groups/forms.py:191
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "Entrer une valeur pour le code ICMP comprise dans l'intervalle (-1:255)"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:195
+#: dashboards/project/access_and_security/security_groups/forms.py:200
 msgid "Remote"
 msgstr "Distant"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:197
-#: dashboards/project/access_and_security/security_groups/forms.py:220
+#: dashboards/project/access_and_security/security_groups/forms.py:202
 #: dashboards/project/access_and_security/security_groups/forms.py:225
+#: dashboards/project/access_and_security/security_groups/forms.py:230
 msgid "Security Group"
 msgstr "Groupe de sécurité"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:198
+#: dashboards/project/access_and_security/security_groups/forms.py:203
 msgid ""
 "To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
 "from all members of another security group select &quot;Security "
 "Group&quot;."
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:211
+#: dashboards/project/access_and_security/security_groups/forms.py:216
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
 msgstr "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:229
-#: dashboards/project/access_and_security/security_groups/forms.py:237
+#: dashboards/project/access_and_security/security_groups/forms.py:234
+#: dashboards/project/access_and_security/security_groups/forms.py:242
 #: dashboards/project/access_and_security/security_groups/tables.py:263
 msgid "Ether Type"
 msgstr "Type de protocole (EtherType)"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:231
+#: dashboards/project/access_and_security/security_groups/forms.py:236
 msgid "IPv4"
 msgstr "IPv4"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:232
+#: dashboards/project/access_and_security/security_groups/forms.py:237
 msgid "IPv6"
 msgstr "IPv6"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:247
+#: dashboards/project/access_and_security/security_groups/forms.py:252
 msgid "No security groups available"
 msgstr "Pas de groupe de sécurité disponible"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:257
+#: dashboards/project/access_and_security/security_groups/forms.py:262
 msgid "Custom TCP Rule"
 msgstr "Règle TCP personnalisée"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:258
+#: dashboards/project/access_and_security/security_groups/forms.py:263
 msgid "Custom UDP Rule"
 msgstr "Règle UDP personnalisée"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:259
+#: dashboards/project/access_and_security/security_groups/forms.py:264
 msgid "Custom ICMP Rule"
 msgstr "Règle ICMP personnalisée"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:261
+#: dashboards/project/access_and_security/security_groups/forms.py:266
 msgid "Other Protocol"
 msgstr "Autre Protocole"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:266
+#: dashboards/project/access_and_security/security_groups/forms.py:271
 #: dashboards/project/access_and_security/security_groups/tables.py:234
 msgid "Ingress"
 msgstr "Entrée"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:267
+#: dashboards/project/access_and_security/security_groups/forms.py:272
 #: dashboards/project/access_and_security/security_groups/tables.py:236
 msgid "Egress"
 msgstr "Sortie"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:286
+#: dashboards/project/access_and_security/security_groups/forms.py:291
 msgid "The ICMP type is invalid."
 msgstr "Le type ICMP est invalide."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:289
+#: dashboards/project/access_and_security/security_groups/forms.py:294
 msgid "The ICMP code is invalid."
 msgstr "Le code ICMP est invalide."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:292
+#: dashboards/project/access_and_security/security_groups/forms.py:297
 msgid "The ICMP type not in range (-1, 255)"
 msgstr "Le type ICMP n'est pas dans l'intervalle (-1, 255)"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:295
+#: dashboards/project/access_and_security/security_groups/forms.py:300
 msgid "The ICMP code not in range (-1, 255)"
 msgstr "Le code ICMP n'est pas dans l'intervalle (-1, 255)"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:314
+#: dashboards/project/access_and_security/security_groups/forms.py:319
 msgid "The specified port is invalid."
 msgstr "Le port spécifié est invalide."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:319
+#: dashboards/project/access_and_security/security_groups/forms.py:324
 msgid "The \"from\" port number is invalid."
 msgstr "Le numéro de port \"origine\" est invalide."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:322
+#: dashboards/project/access_and_security/security_groups/forms.py:327
 msgid "The \"to\" port number is invalid."
 msgstr "Le numéro de port \"destination\" est invalide."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:325
+#: dashboards/project/access_and_security/security_groups/forms.py:330
 msgid ""
 "The \"to\" port number must be greater than or equal to the \"from\" port "
 "number."
 msgstr "Le numéro de port \"destination\" doit être supérieur ou égal au numéro de port \"origine\"."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:374
+#: dashboards/project/access_and_security/security_groups/forms.py:379
 msgid "CIDR must be specified."
 msgstr "Vous devez préciser le CIDR."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:397
+#: dashboards/project/access_and_security/security_groups/forms.py:402
 #, python-format
 msgid "Successfully added rule: %s"
 msgstr "Règle ajoutée avec succès : %s"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:403
+#: dashboards/project/access_and_security/security_groups/forms.py:408
 msgid "Unable to add rule to security group."
 msgstr "Impossible d'ajouter la règle au groupe de sécurité."
 

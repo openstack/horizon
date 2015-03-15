@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-13 16:41-0500\n"
-"PO-Revision-Date: 2015-03-13 18:57+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-03-14 16:42-0500\n"
+"PO-Revision-Date: 2015-03-14 19:01+0000\n"
+"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
 "missing information."
-msgstr ""
+msgstr "작업을 진행할 수 없습니다. 이 행의 내용에 오류가 있거나 정보가 누락되어 있습니다."
 
 #: static/angular/modal/modal.js:83
 msgid "Submit"
@@ -68,7 +68,7 @@ msgstr "클릭하여 보기 또는 감추기"
 
 #: static/angular/transfer-table/transfer-table.js:47
 msgid "Re-order items using drag and drop"
-msgstr ""
+msgstr "다시 주문할 아이템은 드래그 앤 드롭으로 가져옵니다."
 
 #: static/angular/transfer-table/transfer-table.js:48
 msgid "Click to see more details"
@@ -76,7 +76,7 @@ msgstr "클릭하여 세부 사항 보기"
 
 #: static/angular/transfer-table/transfer-table.js:100
 msgid "Found %(found)s of %(total)s"
-msgstr ""
+msgstr "%(total)s 의 %(found)s 찾기"
 
 #: static/angular/wizard/wizard.js:8
 msgid "Back"

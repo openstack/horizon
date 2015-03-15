@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-13 16:41-0500\n"
-"PO-Revision-Date: 2015-03-13 21:41+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-03-14 16:42-0500\n"
+"PO-Revision-Date: 2015-03-15 05:42+0000\n"
+"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -563,8 +563,7 @@ msgstr "관리자"
 #: dashboards/identity/groups/tables.py:115
 #: dashboards/identity/projects/tables.py:226
 #: dashboards/identity/projects/workflows.py:147
-#: dashboards/project/access_and_security/security_groups/forms.py:37
-#: dashboards/project/access_and_security/security_groups/forms.py:66
+#: dashboards/project/access_and_security/security_groups/forms.py:50
 #: dashboards/project/access_and_security/security_groups/tables.py:141
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:12
 #: dashboards/project/containers/templates/containers/_object_detail.html:10
@@ -1596,8 +1595,8 @@ msgstr "호스트 이름"
 
 #: dashboards/admin/hypervisors/tables.py:28
 #: dashboards/admin/info/tables.py:168
-#: dashboards/project/access_and_security/security_groups/forms.py:173
-#: dashboards/project/access_and_security/security_groups/forms.py:180
+#: dashboards/project/access_and_security/security_groups/forms.py:178
+#: dashboards/project/access_and_security/security_groups/forms.py:185
 #: dashboards/project/data_processing/data_sources/tables.py:61
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:9
 #: dashboards/project/images/images/tables.py:244
@@ -1756,7 +1755,7 @@ msgstr "host %s의 compute 서비스를 사용하지 않도록 설정하는데 �
 
 #: dashboards/admin/hypervisors/compute/forms.py:106
 msgid "Running Instance Migration Type"
-msgstr ""
+msgstr "인스턴스 마이그레이션 타입 작동중"
 
 #: dashboards/admin/hypervisors/compute/forms.py:108
 #: dashboards/admin/instances/views.py:156
@@ -1767,7 +1766,7 @@ msgstr "실시간 이전"
 
 #: dashboards/admin/hypervisors/compute/forms.py:109
 msgid "Cold Migrate"
-msgstr ""
+msgstr "Cold Migrate"
 
 #: dashboards/admin/hypervisors/compute/forms.py:120
 #: dashboards/admin/hypervisors/compute/forms.py:127
@@ -1784,12 +1783,12 @@ msgstr "블록 마이그레이션"
 #: dashboards/admin/hypervisors/compute/forms.py:159
 #, python-format
 msgid "Starting to migrate host: %(current)s"
-msgstr ""
+msgstr "호스트를 마이그레이션 시작합니다: %(current)s"
 
 #: dashboards/admin/hypervisors/compute/forms.py:164
 #, python-format
 msgid "Failed to migrate host \"%s\"."
-msgstr ""
+msgstr "\"%s\" 호스트 마이그레이션을 실패했습니다."
 
 #: dashboards/admin/hypervisors/compute/tables.py:26
 #: dashboards/admin/hypervisors/compute/views.py:30
@@ -1961,7 +1960,7 @@ msgid ""
 "Optionally you can choose type of migration. All running instances of the "
 "host can be Live Migrated. Cold Migration is trying to use 'nova migrate' on"
 " each instance of migrated host."
-msgstr ""
+msgstr "비활성화된 nova-compute 서비스의 호스트에서 모든 인스턴스를 마이그레이션합니다. 선택적으로 마이그레이션 타입을 선택할 수 있습니다. 호스트의 모든 작동중인 인스턴트는 라이브 마이그레이션을 할 수 있습니다. Cold 마이그레이션은 마이그레이션 호스트의 각 인스턴스에서 'nova migrate'를 사용하여 진행됩니다."
 
 #: dashboards/admin/images/forms.py:65
 msgid "Unable to update the image metadata."
@@ -2476,8 +2475,7 @@ msgstr "연관 업데이트"
 #: dashboards/identity/projects/tables.py:231
 #: dashboards/identity/projects/workflows.py:151
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:15
-#: dashboards/project/access_and_security/security_groups/forms.py:44
-#: dashboards/project/access_and_security/security_groups/forms.py:73
+#: dashboards/project/access_and_security/security_groups/forms.py:54
 #: dashboards/project/access_and_security/security_groups/tables.py:142
 #: dashboards/project/data_processing/cluster_templates/tables.py:34
 #: dashboards/project/data_processing/cluster_templates/tables.py:128
@@ -3613,9 +3611,9 @@ msgid "Edit Subnet"
 msgstr "서브넷 편집"
 
 #: dashboards/admin/networks/subnets/tables.py:94
-#: dashboards/project/access_and_security/security_groups/forms.py:196
-#: dashboards/project/access_and_security/security_groups/forms.py:208
-#: dashboards/project/access_and_security/security_groups/forms.py:218
+#: dashboards/project/access_and_security/security_groups/forms.py:201
+#: dashboards/project/access_and_security/security_groups/forms.py:213
+#: dashboards/project/access_and_security/security_groups/forms.py:223
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:19
 msgid "CIDR"
 msgstr "CIDR"
@@ -4039,13 +4037,13 @@ msgstr "\n볼륨 스냅샷 상태는 기본적으론 자동으로 관리됩니�
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:6
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
-msgstr ""
+msgstr "이 볼륨 타입에 QoS 스팩과 관련된 것을 추가, 수정, 제거합니다."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:7
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
 "setting the QoS Spec to \"None\" will remove the current association."
-msgstr ""
+msgstr "\"None\" 표시는 QoS 사양에 현재 관련되지 않았음을 나타냅니다. 반대로 QoS 스펙을 설정하면 \"None\"을 현재 연결에서 제거합니다."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:8
 msgid ""
@@ -6034,218 +6032,210 @@ msgstr "키 페어 다운로드"
 msgid "Unable to create key pair: %(exc)s"
 msgstr "키 페어를 생성할 수 없습니다: %(exc)s"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:40
-#: dashboards/project/access_and_security/security_groups/forms.py:69
-msgid "This field is required."
-msgstr "필수 필드입니다."
-
-#: dashboards/project/access_and_security/security_groups/forms.py:41
-#: dashboards/project/access_and_security/security_groups/forms.py:70
-msgid "The string may only contain ASCII characters and numbers."
-msgstr "문자열은 ASCII 문자와 숫자만 포함할 수 있습니다."
-
-#: dashboards/project/access_and_security/security_groups/forms.py:54
+#: dashboards/project/access_and_security/security_groups/forms.py:77
 #, python-format
 msgid "Successfully created security group: %s"
 msgstr "시큐리티 그룹을 성공적으로 생성하였습니다: %s"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:60
-msgid "Unable to create security group."
-msgstr "시큐리티 그룹을 생성할 수 없습니다."
+#: dashboards/project/access_and_security/security_groups/forms.py:78
+#, python-format
+msgid "Unable to create security group: %s"
+msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:84
+#: dashboards/project/access_and_security/security_groups/forms.py:87
 #, python-format
 msgid "Successfully updated security group: %s"
 msgstr "시큐리티 그룹을 성공적으로 업데이트 하였습니다: %s"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:90
-msgid "Unable to update security group."
-msgstr "시큐리티 그룹을 업데이트 할 수 없습니다."
+#: dashboards/project/access_and_security/security_groups/forms.py:88
+#, python-format
+msgid "Unable to update security group: %s"
+msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:96
+#: dashboards/project/access_and_security/security_groups/forms.py:101
 msgid "Rule"
 msgstr "규칙"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:105
 #: dashboards/project/access_and_security/security_groups/forms.py:110
-#: dashboards/project/access_and_security/security_groups/forms.py:111
-#: dashboards/project/access_and_security/security_groups/forms.py:112
-#: dashboards/project/access_and_security/security_groups/forms.py:113
-#: dashboards/project/access_and_security/security_groups/forms.py:114
 #: dashboards/project/access_and_security/security_groups/forms.py:115
 #: dashboards/project/access_and_security/security_groups/forms.py:116
+#: dashboards/project/access_and_security/security_groups/forms.py:117
+#: dashboards/project/access_and_security/security_groups/forms.py:118
+#: dashboards/project/access_and_security/security_groups/forms.py:119
+#: dashboards/project/access_and_security/security_groups/forms.py:120
+#: dashboards/project/access_and_security/security_groups/forms.py:121
 #: dashboards/project/access_and_security/security_groups/tables.py:260
 msgid "Direction"
 msgstr "Direction"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:120
-#: dashboards/project/access_and_security/security_groups/forms.py:127
+#: dashboards/project/access_and_security/security_groups/forms.py:125
+#: dashboards/project/access_and_security/security_groups/forms.py:132
 #: dashboards/project/access_and_security/security_groups/tables.py:265
 msgid "IP Protocol"
 msgstr "IP 프로토콜"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:121
+#: dashboards/project/access_and_security/security_groups/forms.py:126
 msgid "Enter an integer value between 0 and 255 (or -1 which means wildcard)."
 msgstr "0~255 사이의 정수 값을 입력하세요. (-1은 와일드카드)"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:130
-#: dashboards/project/access_and_security/security_groups/forms.py:137
-#: dashboards/project/access_and_security/security_groups/forms.py:138
+#: dashboards/project/access_and_security/security_groups/forms.py:135
+#: dashboards/project/access_and_security/security_groups/forms.py:142
+#: dashboards/project/access_and_security/security_groups/forms.py:143
 msgid "Open Port"
 msgstr "열린 포트"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:131
-#: dashboards/project/access_and_security/security_groups/forms.py:140
-#: dashboards/project/access_and_security/security_groups/forms.py:147
+#: dashboards/project/access_and_security/security_groups/forms.py:136
+#: dashboards/project/access_and_security/security_groups/forms.py:145
+#: dashboards/project/access_and_security/security_groups/forms.py:152
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:7
 msgid "Port"
 msgstr "포트"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:132
+#: dashboards/project/access_and_security/security_groups/forms.py:137
 #: dashboards/project/access_and_security/security_groups/tables.py:268
 msgid "Port Range"
 msgstr "포트 범위"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:142
-#: dashboards/project/access_and_security/security_groups/forms.py:153
-#: dashboards/project/access_and_security/security_groups/forms.py:164
+#: dashboards/project/access_and_security/security_groups/forms.py:147
+#: dashboards/project/access_and_security/security_groups/forms.py:158
+#: dashboards/project/access_and_security/security_groups/forms.py:169
 #: dashboards/project/loadbalancers/workflows.py:169
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 ~ 65535 사이의 정수 값을 입력하세요."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:151
-#: dashboards/project/access_and_security/security_groups/forms.py:158
+#: dashboards/project/access_and_security/security_groups/forms.py:156
+#: dashboards/project/access_and_security/security_groups/forms.py:163
 msgid "From Port"
 msgstr "포트에서"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:162
-#: dashboards/project/access_and_security/security_groups/forms.py:169
+#: dashboards/project/access_and_security/security_groups/forms.py:167
+#: dashboards/project/access_and_security/security_groups/forms.py:174
 msgid "To Port"
 msgstr "포트로"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:175
+#: dashboards/project/access_and_security/security_groups/forms.py:180
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "ICMP 타입의 범위 값을 입력하세요. (-1: 255)"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:184
-#: dashboards/project/access_and_security/security_groups/forms.py:191
+#: dashboards/project/access_and_security/security_groups/forms.py:189
+#: dashboards/project/access_and_security/security_groups/forms.py:196
 #: dashboards/project/instances/templates/instances/_detail_overview.html:34
 msgid "Code"
 msgstr "코드"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:186
+#: dashboards/project/access_and_security/security_groups/forms.py:191
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "ICMP 코드의 범위 값을 입력하세요. (-1: 255)"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:195
+#: dashboards/project/access_and_security/security_groups/forms.py:200
 msgid "Remote"
 msgstr "원격"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:197
-#: dashboards/project/access_and_security/security_groups/forms.py:220
+#: dashboards/project/access_and_security/security_groups/forms.py:202
 #: dashboards/project/access_and_security/security_groups/forms.py:225
+#: dashboards/project/access_and_security/security_groups/forms.py:230
 msgid "Security Group"
 msgstr "시큐리티 그룹"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:198
+#: dashboards/project/access_and_security/security_groups/forms.py:203
 msgid ""
 "To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
 "from all members of another security group select &quot;Security "
 "Group&quot;."
 msgstr "허용된 IP 범위를 지정하기 위해, &quot;CIDR&quot;를 선택하세요. 다른 시큐리티 그룹 내 모든 멤버에 대한 접근을 허용하려면 &quot;Security Group&quot;를 선택하세요."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:211
+#: dashboards/project/access_and_security/security_groups/forms.py:216
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
 msgstr "내부 도메인 라우팅 클레스가 정해지지 않았습니다. (예. 192.168.0.0/24)"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:229
-#: dashboards/project/access_and_security/security_groups/forms.py:237
+#: dashboards/project/access_and_security/security_groups/forms.py:234
+#: dashboards/project/access_and_security/security_groups/forms.py:242
 #: dashboards/project/access_and_security/security_groups/tables.py:263
 msgid "Ether Type"
 msgstr "Ether 타입"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:231
+#: dashboards/project/access_and_security/security_groups/forms.py:236
 msgid "IPv4"
 msgstr "IPv4"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:232
+#: dashboards/project/access_and_security/security_groups/forms.py:237
 msgid "IPv6"
 msgstr "IPv6"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:247
+#: dashboards/project/access_and_security/security_groups/forms.py:252
 msgid "No security groups available"
 msgstr "사용 가능한 시큐리티 그룹이 없습니다."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:257
+#: dashboards/project/access_and_security/security_groups/forms.py:262
 msgid "Custom TCP Rule"
 msgstr "사용자 정의 TCP 규칙"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:258
+#: dashboards/project/access_and_security/security_groups/forms.py:263
 msgid "Custom UDP Rule"
 msgstr "사용자 정의 UDP 규칙"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:259
+#: dashboards/project/access_and_security/security_groups/forms.py:264
 msgid "Custom ICMP Rule"
 msgstr "사용자 정의 ICMP 규칙"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:261
+#: dashboards/project/access_and_security/security_groups/forms.py:266
 msgid "Other Protocol"
 msgstr "다른 프로토콜"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:266
+#: dashboards/project/access_and_security/security_groups/forms.py:271
 #: dashboards/project/access_and_security/security_groups/tables.py:234
 msgid "Ingress"
 msgstr "들어옴"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:267
+#: dashboards/project/access_and_security/security_groups/forms.py:272
 #: dashboards/project/access_and_security/security_groups/tables.py:236
 msgid "Egress"
 msgstr "내보냄"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:286
+#: dashboards/project/access_and_security/security_groups/forms.py:291
 msgid "The ICMP type is invalid."
 msgstr "ICMP 타입이 유효하지 않습니다."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:289
+#: dashboards/project/access_and_security/security_groups/forms.py:294
 msgid "The ICMP code is invalid."
 msgstr "ICMP 코드가 유효하지 않습니다."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:292
+#: dashboards/project/access_and_security/security_groups/forms.py:297
 msgid "The ICMP type not in range (-1, 255)"
 msgstr "범위에 들지 않는 ICMP 타입 (-1, 255)"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:295
+#: dashboards/project/access_and_security/security_groups/forms.py:300
 msgid "The ICMP code not in range (-1, 255)"
 msgstr "범위에 들지 않는 ICMP 코드 (-1, 255)"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:314
+#: dashboards/project/access_and_security/security_groups/forms.py:319
 msgid "The specified port is invalid."
 msgstr "지정된 포트 번호가 유효하지 않습니다."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:319
+#: dashboards/project/access_and_security/security_groups/forms.py:324
 msgid "The \"from\" port number is invalid."
 msgstr "\"보내는\" 포트 번호가 유효하지 않습니다."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:322
+#: dashboards/project/access_and_security/security_groups/forms.py:327
 msgid "The \"to\" port number is invalid."
 msgstr "\"받는\" 포트 번호가 유효하지 않습니다."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:325
+#: dashboards/project/access_and_security/security_groups/forms.py:330
 msgid ""
 "The \"to\" port number must be greater than or equal to the \"from\" port "
 "number."
 msgstr "\"to\" 포트의 숫자는 반드시 \"from\" 포트의 숫자보다 크거나 같아야합니다."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:374
+#: dashboards/project/access_and_security/security_groups/forms.py:379
 msgid "CIDR must be specified."
 msgstr "CIDR은 반드시 지정되어야 합니다."
 
-#: dashboards/project/access_and_security/security_groups/forms.py:397
+#: dashboards/project/access_and_security/security_groups/forms.py:402
 #, python-format
 msgid "Successfully added rule: %s"
 msgstr "규칙을 성공적으로 추가하였습니다: %s"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:403
+#: dashboards/project/access_and_security/security_groups/forms.py:408
 msgid "Unable to add rule to security group."
 msgstr "시큐리티 그룹에 규칙을 추가할 수 없습니다."
 

@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-13 16:41-0500\n"
-"PO-Revision-Date: 2015-03-13 21:41+0000\n"
+"POT-Creation-Date: 2015-03-14 16:42-0500\n"
+"PO-Revision-Date: 2015-03-14 10:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -560,8 +560,7 @@ msgstr "管理"
 #: dashboards/identity/groups/tables.py:115
 #: dashboards/identity/projects/tables.py:226
 #: dashboards/identity/projects/workflows.py:147
-#: dashboards/project/access_and_security/security_groups/forms.py:37
-#: dashboards/project/access_and_security/security_groups/forms.py:66
+#: dashboards/project/access_and_security/security_groups/forms.py:50
 #: dashboards/project/access_and_security/security_groups/tables.py:141
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:12
 #: dashboards/project/containers/templates/containers/_object_detail.html:10
@@ -1593,8 +1592,8 @@ msgstr "ホスト名"
 
 #: dashboards/admin/hypervisors/tables.py:28
 #: dashboards/admin/info/tables.py:168
-#: dashboards/project/access_and_security/security_groups/forms.py:173
-#: dashboards/project/access_and_security/security_groups/forms.py:180
+#: dashboards/project/access_and_security/security_groups/forms.py:178
+#: dashboards/project/access_and_security/security_groups/forms.py:185
 #: dashboards/project/data_processing/data_sources/tables.py:61
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:9
 #: dashboards/project/images/images/tables.py:244
@@ -2473,8 +2472,7 @@ msgstr "関連付けの更新"
 #: dashboards/identity/projects/tables.py:231
 #: dashboards/identity/projects/workflows.py:151
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:15
-#: dashboards/project/access_and_security/security_groups/forms.py:44
-#: dashboards/project/access_and_security/security_groups/forms.py:73
+#: dashboards/project/access_and_security/security_groups/forms.py:54
 #: dashboards/project/access_and_security/security_groups/tables.py:142
 #: dashboards/project/data_processing/cluster_templates/tables.py:34
 #: dashboards/project/data_processing/cluster_templates/tables.py:128
@@ -3610,9 +3608,9 @@ msgid "Edit Subnet"
 msgstr "サブネットの編集"
 
 #: dashboards/admin/networks/subnets/tables.py:94
-#: dashboards/project/access_and_security/security_groups/forms.py:196
-#: dashboards/project/access_and_security/security_groups/forms.py:208
-#: dashboards/project/access_and_security/security_groups/forms.py:218
+#: dashboards/project/access_and_security/security_groups/forms.py:201
+#: dashboards/project/access_and_security/security_groups/forms.py:213
+#: dashboards/project/access_and_security/security_groups/forms.py:223
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:19
 msgid "CIDR"
 msgstr "CIDR"
@@ -6031,218 +6029,210 @@ msgstr "キーペアのダウンロード"
 msgid "Unable to create key pair: %(exc)s"
 msgstr "キーペアを作成できません: %(exc)s"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:40
-#: dashboards/project/access_and_security/security_groups/forms.py:69
-msgid "This field is required."
-msgstr "この項目は必須です。"
-
-#: dashboards/project/access_and_security/security_groups/forms.py:41
-#: dashboards/project/access_and_security/security_groups/forms.py:70
-msgid "The string may only contain ASCII characters and numbers."
-msgstr "文字列は ASCII 文字および数字のみを含めることができます。"
-
-#: dashboards/project/access_and_security/security_groups/forms.py:54
+#: dashboards/project/access_and_security/security_groups/forms.py:77
 #, python-format
 msgid "Successfully created security group: %s"
 msgstr "セキュリティーグループ %s を正常に作成しました。"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:60
-msgid "Unable to create security group."
-msgstr "セキュリティーグループを作成できません。"
+#: dashboards/project/access_and_security/security_groups/forms.py:78
+#, python-format
+msgid "Unable to create security group: %s"
+msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:84
+#: dashboards/project/access_and_security/security_groups/forms.py:87
 #, python-format
 msgid "Successfully updated security group: %s"
 msgstr "セキュリティーグループ %s が正常に更新されました。"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:90
-msgid "Unable to update security group."
-msgstr "セキュリティーグループを更新できません。"
+#: dashboards/project/access_and_security/security_groups/forms.py:88
+#, python-format
+msgid "Unable to update security group: %s"
+msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:96
+#: dashboards/project/access_and_security/security_groups/forms.py:101
 msgid "Rule"
 msgstr "ルール"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:105
 #: dashboards/project/access_and_security/security_groups/forms.py:110
-#: dashboards/project/access_and_security/security_groups/forms.py:111
-#: dashboards/project/access_and_security/security_groups/forms.py:112
-#: dashboards/project/access_and_security/security_groups/forms.py:113
-#: dashboards/project/access_and_security/security_groups/forms.py:114
 #: dashboards/project/access_and_security/security_groups/forms.py:115
 #: dashboards/project/access_and_security/security_groups/forms.py:116
+#: dashboards/project/access_and_security/security_groups/forms.py:117
+#: dashboards/project/access_and_security/security_groups/forms.py:118
+#: dashboards/project/access_and_security/security_groups/forms.py:119
+#: dashboards/project/access_and_security/security_groups/forms.py:120
+#: dashboards/project/access_and_security/security_groups/forms.py:121
 #: dashboards/project/access_and_security/security_groups/tables.py:260
 msgid "Direction"
 msgstr "方向"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:120
-#: dashboards/project/access_and_security/security_groups/forms.py:127
+#: dashboards/project/access_and_security/security_groups/forms.py:125
+#: dashboards/project/access_and_security/security_groups/forms.py:132
 #: dashboards/project/access_and_security/security_groups/tables.py:265
 msgid "IP Protocol"
 msgstr "IP プロトコル"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:121
+#: dashboards/project/access_and_security/security_groups/forms.py:126
 msgid "Enter an integer value between 0 and 255 (or -1 which means wildcard)."
 msgstr "0 以上 255 以下の整数値 (または全てを意味する -1) を入力してください。"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:130
-#: dashboards/project/access_and_security/security_groups/forms.py:137
-#: dashboards/project/access_and_security/security_groups/forms.py:138
+#: dashboards/project/access_and_security/security_groups/forms.py:135
+#: dashboards/project/access_and_security/security_groups/forms.py:142
+#: dashboards/project/access_and_security/security_groups/forms.py:143
 msgid "Open Port"
 msgstr "オープンするポート"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:131
-#: dashboards/project/access_and_security/security_groups/forms.py:140
-#: dashboards/project/access_and_security/security_groups/forms.py:147
+#: dashboards/project/access_and_security/security_groups/forms.py:136
+#: dashboards/project/access_and_security/security_groups/forms.py:145
+#: dashboards/project/access_and_security/security_groups/forms.py:152
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:7
 msgid "Port"
 msgstr "ポート"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:132
+#: dashboards/project/access_and_security/security_groups/forms.py:137
 #: dashboards/project/access_and_security/security_groups/tables.py:268
 msgid "Port Range"
 msgstr "ポート範囲"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:142
-#: dashboards/project/access_and_security/security_groups/forms.py:153
-#: dashboards/project/access_and_security/security_groups/forms.py:164
+#: dashboards/project/access_and_security/security_groups/forms.py:147
+#: dashboards/project/access_and_security/security_groups/forms.py:158
+#: dashboards/project/access_and_security/security_groups/forms.py:169
 #: dashboards/project/loadbalancers/workflows.py:169
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 から 65535 までの整数値を入力してください。"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:151
-#: dashboards/project/access_and_security/security_groups/forms.py:158
+#: dashboards/project/access_and_security/security_groups/forms.py:156
+#: dashboards/project/access_and_security/security_groups/forms.py:163
 msgid "From Port"
 msgstr "ポート番号 (下限)"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:162
-#: dashboards/project/access_and_security/security_groups/forms.py:169
+#: dashboards/project/access_and_security/security_groups/forms.py:167
+#: dashboards/project/access_and_security/security_groups/forms.py:174
 msgid "To Port"
 msgstr "ポート番号 (上限)"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:175
+#: dashboards/project/access_and_security/security_groups/forms.py:180
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "ICMP タイプの値が (-1, 255) の範囲ではありません"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:184
-#: dashboards/project/access_and_security/security_groups/forms.py:191
+#: dashboards/project/access_and_security/security_groups/forms.py:189
+#: dashboards/project/access_and_security/security_groups/forms.py:196
 #: dashboards/project/instances/templates/instances/_detail_overview.html:34
 msgid "Code"
 msgstr "コード"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:186
+#: dashboards/project/access_and_security/security_groups/forms.py:191
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "ICMP コードが (-1, 255) の範囲ではありません"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:195
+#: dashboards/project/access_and_security/security_groups/forms.py:200
 msgid "Remote"
 msgstr "接続相手"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:197
-#: dashboards/project/access_and_security/security_groups/forms.py:220
+#: dashboards/project/access_and_security/security_groups/forms.py:202
 #: dashboards/project/access_and_security/security_groups/forms.py:225
+#: dashboards/project/access_and_security/security_groups/forms.py:230
 msgid "Security Group"
 msgstr "セキュリティーグループ"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:198
+#: dashboards/project/access_and_security/security_groups/forms.py:203
 msgid ""
 "To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
 "from all members of another security group select &quot;Security "
 "Group&quot;."
 msgstr "許可 IP 範囲を指定するには、\"CIDR\" を選択してください。他のセキュリティーグループのすべてのメンバーからアクセスを許可するには、\"セキュリティーグループ\" を選択してください。"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:211
+#: dashboards/project/access_and_security/security_groups/forms.py:216
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
 msgstr "ネットワークアドレス (例: 192.168.0.0/24)"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:229
-#: dashboards/project/access_and_security/security_groups/forms.py:237
+#: dashboards/project/access_and_security/security_groups/forms.py:234
+#: dashboards/project/access_and_security/security_groups/forms.py:242
 #: dashboards/project/access_and_security/security_groups/tables.py:263
 msgid "Ether Type"
 msgstr "Ethernet タイプ"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:231
+#: dashboards/project/access_and_security/security_groups/forms.py:236
 msgid "IPv4"
 msgstr "IPv4"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:232
+#: dashboards/project/access_and_security/security_groups/forms.py:237
 msgid "IPv6"
 msgstr "IPv6"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:247
+#: dashboards/project/access_and_security/security_groups/forms.py:252
 msgid "No security groups available"
 msgstr "セキュリティーグループがありません。"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:257
+#: dashboards/project/access_and_security/security_groups/forms.py:262
 msgid "Custom TCP Rule"
 msgstr "カスタム TCP ルール"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:258
+#: dashboards/project/access_and_security/security_groups/forms.py:263
 msgid "Custom UDP Rule"
 msgstr "カスタム UDP ルール"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:259
+#: dashboards/project/access_and_security/security_groups/forms.py:264
 msgid "Custom ICMP Rule"
 msgstr "カスタム ICMP ルール"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:261
+#: dashboards/project/access_and_security/security_groups/forms.py:266
 msgid "Other Protocol"
 msgstr "その他のプロトコル"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:266
+#: dashboards/project/access_and_security/security_groups/forms.py:271
 #: dashboards/project/access_and_security/security_groups/tables.py:234
 msgid "Ingress"
 msgstr "受信"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:267
+#: dashboards/project/access_and_security/security_groups/forms.py:272
 #: dashboards/project/access_and_security/security_groups/tables.py:236
 msgid "Egress"
 msgstr "送信"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:286
+#: dashboards/project/access_and_security/security_groups/forms.py:291
 msgid "The ICMP type is invalid."
 msgstr "ICMP タイプが無効です。"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:289
+#: dashboards/project/access_and_security/security_groups/forms.py:294
 msgid "The ICMP code is invalid."
 msgstr "ICMP コードが無効です。"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:292
+#: dashboards/project/access_and_security/security_groups/forms.py:297
 msgid "The ICMP type not in range (-1, 255)"
 msgstr "ICMP タイプが (-1, 255) の範囲ではありません"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:295
+#: dashboards/project/access_and_security/security_groups/forms.py:300
 msgid "The ICMP code not in range (-1, 255)"
 msgstr "ICMP コードが (-1, 255) の範囲ではありません"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:314
+#: dashboards/project/access_and_security/security_groups/forms.py:319
 msgid "The specified port is invalid."
 msgstr "指定されたポートは無効です。"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:319
+#: dashboards/project/access_and_security/security_groups/forms.py:324
 msgid "The \"from\" port number is invalid."
 msgstr "「下限」ポート番号が無効です。"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:322
+#: dashboards/project/access_and_security/security_groups/forms.py:327
 msgid "The \"to\" port number is invalid."
 msgstr "「上限」ポート番号が無効です。"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:325
+#: dashboards/project/access_and_security/security_groups/forms.py:330
 msgid ""
 "The \"to\" port number must be greater than or equal to the \"from\" port "
 "number."
 msgstr "「上限」ポート番号は「下限」ポート番号以上でなければいけません。"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:374
+#: dashboards/project/access_and_security/security_groups/forms.py:379
 msgid "CIDR must be specified."
 msgstr "CIDR は指定する必要があります。"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:397
+#: dashboards/project/access_and_security/security_groups/forms.py:402
 #, python-format
 msgid "Successfully added rule: %s"
 msgstr "ルールを正常に追加しました: %s"
 
-#: dashboards/project/access_and_security/security_groups/forms.py:403
+#: dashboards/project/access_and_security/security_groups/forms.py:408
 msgid "Unable to add rule to security group."
 msgstr "ルールをセキュリティーグループに追加できません。"
 
