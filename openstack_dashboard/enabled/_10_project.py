@@ -28,6 +28,7 @@ LAUNCH_INST = 'dashboard/launch-instance/'
 ADD_JS_FILES = [
     'dashboard/dashboard.module.js',
     LAUNCH_INST + 'launch-instance.js',
+    LAUNCH_INST + 'launch-instance.model.js',
     LAUNCH_INST + 'source/source.js',
     LAUNCH_INST + 'flavor/flavor.js',
     LAUNCH_INST + 'network/network.js',
@@ -38,6 +39,7 @@ ADD_JS_FILES = [
 ADD_JS_SPEC_FILES = [
     'dashboard/dashboard.module.spec.js',
     LAUNCH_INST + 'launch-instance.spec.js',
+    LAUNCH_INST + 'launch-instance.model.spec.js',
     LAUNCH_INST + 'source/source.spec.js',
     LAUNCH_INST + 'flavor/flavor.spec.js',
     LAUNCH_INST + 'network/network.spec.js',

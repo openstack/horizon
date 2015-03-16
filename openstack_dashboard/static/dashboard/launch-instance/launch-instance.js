@@ -61,7 +61,7 @@
 
   module.controller('LaunchInstanceWizardCtrl', [
     '$scope',
-    '$q', // temporary, should call api access services
+    'launchInstanceModel',
     'launchInstanceWorkflow',
     LaunchInstanceWizardCtrl
   ]);
@@ -73,25 +73,11 @@
     LaunchInstanceModalCtrl
   ]);
 
-  function LaunchInstanceWizardCtrl($scope, $q, launchInstanceWorkflow) {
+  function LaunchInstanceWizardCtrl($scope, launchInstanceModel, launchInstanceWorkflow) {
     $scope.workflow = launchInstanceWorkflow;
-    $scope.model = {
-      source: {},
-      flavor: {},
-      network: {},
-      accessAndSecurity: {},
-      postCreation: {}
-    };
-    $scope.submit = function () {
-      return $q(function (resolve) {
-        //
-        // emulating server side process
-        //
-        setTimeout(function () {
-          resolve();
-        }, 1000);
-      });
-    };
+    $scope.model = launchInstanceModel;
+    $scope.model.initialize(true);
+    $scope.submit = $scope.model.createInstance;
   }
 
   function LaunchInstanceModalCtrl($scope, $modal, modalSpec) {

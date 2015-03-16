@@ -78,4 +78,47 @@ describe('hz.filters', function () {
 
   });
 
+  describe("decode", function() {
+
+    it("Returns value when key is present", inject(function(decodeFilter) {
+      expect(decodeFilter('PRESENT', {'PRESENT': 'Here'})).toBe('Here');
+    }));
+
+    it("Returns value when key is present and value is falsy", inject(function(decodeFilter) {
+      expect(decodeFilter('PRESENT', {'PRESENT': false})).toBe(false);
+    }));
+
+    it("Returns input when key is not present", inject(function(decodeFilter) {
+      expect(decodeFilter('NOT_PRESENT', {'PRESENT': 'Here'})).toBe('NOT_PRESENT');
+    }));
+
+  });
+
+  describe('bytes', function() {
+
+    it('returns TB values', inject(function(bytesFilter) {
+      expect(bytesFilter(1099511627776)).toBe('1.00 TB');
+    }));
+
+    it('returns GB values', inject(function(bytesFilter) {
+      expect(bytesFilter(1073741824)).toBe('1.00 GB');
+    }));
+
+    it('returns MB values', inject(function(bytesFilter) {
+      expect(bytesFilter(1048576)).toBe('1.00 MB');
+    }));
+
+    it('returns KB values', inject(function(bytesFilter) {
+      expect(bytesFilter(1024)).toBe('1.00 KB');
+    }));
+
+    it('returns byte values', inject(function(bytesFilter) {
+      expect(bytesFilter(0)).toBe('0 bytes');
+      expect(bytesFilter(1)).toBe('1 bytes');
+      expect(bytesFilter(1023)).toBe('1023 bytes');
+    }));
+
+  });
+
+
 });

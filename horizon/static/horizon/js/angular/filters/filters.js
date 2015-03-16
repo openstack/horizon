@@ -104,5 +104,49 @@
       };
     })
 
+    /**
+     * @ngdoc filter
+     * @name decode
+     * @description
+     * Returns values based on key and given mapping.  If key doesn't exist
+     * in given mapping, return key.  This is useful when translations for
+     * codes are present.
+     */
+    .filter('decode', function() {
+      return function(input, mapping) {
+        var val = mapping[input];
+        return angular.isDefined(val) ? val : input;
+      };
+    })
+
+    /**
+     * @ngdoc filter
+     * @name bytes
+     * @description
+     * Returns a human-readable approximation of the input of bytes, 
+     * converted to a useful unit of measure.  Uses 1024-based notation.
+     */
+    .filter('bytes', function() {
+      return function(input) {
+        var kb = 1024;
+        var mb = kb*1024;
+        var gb = mb*1024;
+        var tb = gb*1024;
+        if (isNaN(input) || null === input || input < 0) {
+           return '';
+         } else if (input >= tb) {
+           return Number(input/tb).toFixed(2) + " " + gettext("TB");
+         } else if (input >= gb) {
+           return Number(input/gb).toFixed(2) + " " + gettext("GB");
+         } else if (input >= mb) {
+           return Number(input/mb).toFixed(2) + " " + gettext("MB");
+         } else if (input >= kb) {
+           return Number(input/kb).toFixed(2) + " " + gettext("KB");
+         } else {
+           return Math.floor(input) + " " + gettext("bytes");
+         }
+       };
+     })
+
   ;
 }());

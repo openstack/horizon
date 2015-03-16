@@ -16,13 +16,29 @@
 
 from horizon.test import helpers as test
 
+LAUNCH_INST = "dashboard/launch-instance"
+
 
 class ServicesTests(test.JasmineTests):
     # sources would go here
     sources = [
+        LAUNCH_INST + "/launch-instance.js",
+        LAUNCH_INST + "/launch-instance.model.js",
+        LAUNCH_INST + "/access-and-security/access-and-security.js",
+        LAUNCH_INST + "/post-creation/post-creation.js",
+        LAUNCH_INST + "/flavor/flavor.js",
+        LAUNCH_INST + "/network/network.js",
+        LAUNCH_INST + "/source/source.js",
     ]
     # spec files would go here
     specs = [
+        LAUNCH_INST + "/launch-instance.spec.js",
+        LAUNCH_INST + "/launch-instance.model.spec.js",
+        LAUNCH_INST + "/access-and-security/access-and-security.spec.js",
+        LAUNCH_INST + "/post-creation/post-creation.spec.js",
+        LAUNCH_INST + "/flavor/flavor.spec.js",
+        LAUNCH_INST + "/network/network.spec.js",
+        LAUNCH_INST + "/source/source.spec.js",
     ]
     externalTemplates = [
     ]

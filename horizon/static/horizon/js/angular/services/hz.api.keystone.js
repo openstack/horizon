@@ -202,8 +202,15 @@ limitations under the License.
         });
     };
 
-    this.serviceCatalog = function() {
-      return apiService.get('/api/keystone/svc-catalog/')
+     /**
+     * @name hz.api.keyStoneAPI.serviceCatalog
+     * @description
+     * Returns the service catalog.
+     * @param {Object} config
+     * See $http config object parameters.
+     */
+    this.serviceCatalog = function(config) {
+      return apiService.get('/api/keystone/svc-catalog/', config)
         .error(function () {
           horizon.alert('error', gettext('Unable to fetch the service catalog.'));
         });
@@ -212,4 +219,60 @@ limitations under the License.
 
   angular.module('hz.api')
     .service('keystoneAPI', ['apiService', KeystoneAPI]);
+
+
+  /**
+   * @ngdoc service
+   * @name hz.api.serviceCatalog
+   * @description
+   * Provides cached access to the Service Catalog with utilities to help
+   * with asynchronous data loading. The cache may be reset at any time
+   * by accessing the cache and calling removeAll. The next call to any
+   * function will retrieve fresh results.
+   *
+   * The enabled extensions do not change often, so using cached data will
+   * speed up results. Even on a local devstack in informal testing,
+   * this saved between 30 - 100 ms per request.
+   */
+  function ServiceCatalog($cacheFactory, $q, keystoneAPI) {
+
+    var service = {};
+    service.cache = $cacheFactory('hz.api.serviceCatalog', {capacity: 1});
+
+    service.get = function() {
+      return keystoneAPI.serviceCatalog({cache: service.cache})
+        .then(function(data){
+          return data.data;
+        }
+      );
+    };
+
+    service.ifTypeEnabled = function(desired, doThis) {
+      return service.get().then(function(result){
+          if (enabled(result, 'type', desired)){
+            return $q.when(doThis());
+          }
+        }
+      );
+    };
+
+    function enabled(resources, key, desired) {
+      if(resources) {
+        return resources.some(function (resource) {
+          return resource[key] === desired;
+        });
+      } else {
+        return false;
+      }
+    }
+
+     return service;
+  }
+
+  angular.module('hz.api')
+    .factory('serviceCatalog', ['$cacheFactory',
+                                '$q',
+                                'keystoneAPI',
+                                ServiceCatalog]);
+
 }());
