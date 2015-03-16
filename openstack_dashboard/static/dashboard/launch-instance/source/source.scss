@@ -1,0 +1,55 @@
+.form-group .required label:after {
+  content: " *";
+  color: red;
+}
+
+.selected-source {
+  background: #eee;
+  padding: 12px 18px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  .chart {
+    width: 99%;
+    margin-bottom: 0;
+    padding: 10px;
+
+    @media (min-width: 768px) {
+      border-left: 1px solid #ccc;
+      padding-left: 20px;
+    }
+  }
+}
+
+[ng-controller="LaunchInstanceSourceCtrl"] {
+
+  td.hi-light {
+    color: #0084d1;
+  }
+
+  th.number,
+  td.number {
+    text-align: right;
+    padding-right: 30px;
+  }
+}
+
+.instance-source {
+  margin-top: 18px;
+  margin-bottom: 40px;
+
+  .image select {
+    width: 99%;
+  }
+
+  .volume-create {
+    padding-left: 0;
+  }
+  .volume-size input[type="number"]{
+    width: 100px;
+  }
+
+  .create-volume .checkbox, .delete-volume .checkbox {
+    margin-top: 1.5em;
+  }
+}
