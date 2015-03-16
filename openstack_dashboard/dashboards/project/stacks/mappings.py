@@ -46,6 +46,30 @@ resource_urls = {
         'link': 'horizon:project:containers:index'},
     "OS::Cinder::Volume": {
         'link': 'horizon:project:volumes:volumes:detail'},
+    "OS::Heat::AccessPolicy": {
+        'link': 'horizon:project:stacks:detail'},
+    "OS::Heat::AutoScalingGroup": {
+        'link': 'horizon:project:stacks:detail'},
+    "OS::Heat::CloudConfig": {
+        'link': 'horizon:project:stacks:detail'},
+    "OS::Heat::HARestarter": {
+        'link': 'horizon:project:stacks:detail'},
+    "OS::Heat::InstanceGroup": {
+        'link': 'horizon:project:stacks:detail'},
+    "OS::Heat::MultipartMime": {
+        'link': 'horizon:project:stacks:detail'},
+    "OS::Heat::ResourceGroup": {
+        'link': 'horizon:project:stacks:detail'},
+    "OS::Heat::SoftwareConfig": {
+        'link': 'horizon:project:stacks:detail'},
+    "OS::Heat::StructuredConfig": {
+        'link': 'horizon:project:stacks:detail'},
+    "OS::Heat::StructuredDeployment": {
+        'link': 'horizon:project:stacks:detail'},
+    "OS::Heat::WaitCondition": {
+        'link': 'horizon:project:stacks:detail'},
+    "OS::Heat::WaitConditionHandle": {
+        'link': 'horizon:project:stacks:detail'},
     "OS::Neutron::Net": {
         'link': 'horizon:project:networks:detail'},
     "OS::Neutron::Port": {
