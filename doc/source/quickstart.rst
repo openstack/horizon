@@ -17,7 +17,7 @@ On Ubuntu::
 
 On Fedora-based distributions (e.g., Fedora/RHEL/CentOS/Scientific Linux)::
 
-    > sudo yum install gcc git-core python-devel python-virtualenv openssl-devel libffi-devel
+    > sudo yum install gcc git-core python-devel python-virtualenv openssl-devel libffi-devel which
 
 Setup
 =====
