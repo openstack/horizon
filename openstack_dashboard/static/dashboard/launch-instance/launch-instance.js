@@ -34,10 +34,10 @@
           formName: 'launchInstanceAccessAndSecurityForm'
         },
         {
-          title: gettext('Post Creation'),
-          templateUrl: path + 'launch-instance/post-creation/post-creation.html',
-          helpUrl: path + 'launch-instance/post-creation/post-creation.help.html',
-          formName: 'launchInstancePostCreationForm'
+          title: gettext('Configuration'),
+          templateUrl: path + 'launch-instance/configuration/configuration.html',
+          helpUrl: path + 'launch-instance/configuration/configuration.help.html',
+          formName: 'launchInstanceConfigurationForm'
         }
       ],
 

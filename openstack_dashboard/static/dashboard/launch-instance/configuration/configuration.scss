@@ -1,0 +1,13 @@
+[ng-controller="LaunchInstanceConfigurationCtrl"] {
+
+  .customization-script-source select,
+  .disk-partition select {
+    width: 250px;
+  }
+
+  .customization-script textarea {
+    width: 480px;
+    height: 280px;
+    font-family: Menlo, Monaco, Consolas, 'Courier New';
+  }
+}
