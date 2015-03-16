@@ -3,6 +3,7 @@
   class="split-button {$ disabled ? 'disabled' : '' $}"
   ng-class="actionClasses"
   ng-click="disabled || callback(item)">
+  <ng-transclude></ng-transclude>
 </button>
 <!-- Dropdown caret button -->
 <button class="split-caret dropdown-toggle"

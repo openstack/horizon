@@ -2,4 +2,5 @@
   class="{$ disabled ? 'disabled' : '' $}"
   ng-class="actionClasses"
   ng-click="disabled || callback(item)">
+  <ng-transclude></ng-transclude>
 </button>
