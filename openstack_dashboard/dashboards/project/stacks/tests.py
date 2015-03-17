@@ -81,6 +81,10 @@ class MappingsTests(test.TestCase):
             '/project/instances/aaa/',
             'OS::Nova::Server',
             'aaa')
+        assertMappingUrl(
+            '/project/stacks/stack/aaa/',
+            'OS::Heat::ResourceGroup',
+            'aaa')
 
     def test_stack_output(self):
         self.assertEqual(u'foo', mappings.stack_output('foo'))
