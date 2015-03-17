@@ -31,6 +31,7 @@ class ServicesTests(test.JasmineTests):
         'angular/charts/pie-chart.js',
         'angular/form/form.js',
         'angular/help-panel/help-panel.js',
+        'angular/metadata-tree/metadata-tree.js',
         'angular/metadata-tree/metadata-tree-service.js',
         'angular/modal/modal.js',
         'angular/modal-wait-spinner/modal-wait-spinner.js',
@@ -42,7 +43,6 @@ class ServicesTests(test.JasmineTests):
     ]
     specs = [
         'horizon/js/angular/services/hz.api.service.spec.js',
-        'horizon/tests/jasmine/metadataWidgetControllerSpec.js',
         'horizon/tests/jasmine/utilsSpec.js',
         'angular/action-list/action-list.spec.js',
         'angular/bind-scope/bind-scope.spec.js',
@@ -54,6 +54,7 @@ class ServicesTests(test.JasmineTests):
         'angular/table/basic-table.spec.js',
         'angular/transfer-table/transfer-table.spec.js',
         'angular/wizard/wizard.spec.js',
+        'angular/metadata-tree/metadata-tree.spec.js',
         'horizon/js/angular/filters/filters.spec.js',
     ]
     externalTemplates = [
@@ -68,4 +69,6 @@ class ServicesTests(test.JasmineTests):
         'angular/table/search-bar.html',
         'angular/transfer-table/transfer-table.html',
         'angular/wizard/wizard.html',
+        'angular/metadata-tree/metadata-tree.html',
+        'angular/metadata-tree/metadata-tree-item.html',
     ]

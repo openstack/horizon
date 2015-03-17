@@ -1,0 +1,72 @@
+<div class="metadata-tree-item" ng-form="itemForm">
+  <div class="input-group input-group-sm"
+       ng-switch on="item.leaf.type"
+       ng-class="{'has-error': itemForm.property.$invalid && itemForm.property.$dirty}">
+    <span class="input-group-addon"
+          title="{$ ::item.leaf.name $}"
+          ng-bind="::item.leaf.name">
+    </span>
+    <input ng-switch-when="string"
+           ng-if="!item.leaf.enum"
+           name="property"
+           type="text"
+           class="form-control"
+           pattern="{$ ::item.leaf.pattern $}"
+           required
+           ng-model="item.leaf.value"
+           ng-minlength="{$ ::item.leaf.minLength $}"
+           ng-maxlength="{$ ::item.leaf.maxLength $}"/>
+    <select ng-switch-when="string"
+            ng-if="item.leaf.enum"
+            name="property"
+            class="form-control"
+            required
+            ng-model="item.leaf.value"
+            ng-options="op for op in item.leaf.enum">
+    </select>
+    <select ng-switch-when="array"
+            name="property"
+            class="form-control"
+            required
+            ng-model="item.leaf.value"
+            ng-options="op for op in item.leaf.items.enum">
+    </select>
+    <input ng-switch-when="integer"
+           name="property"
+           type="number"
+           class="form-control"
+           required
+           ng-model="item.leaf.value"
+           ng-pattern="/^-?\d+$/"
+           min="{$ ::item.leaf.minimum $}"
+           max="{$ ::item.leaf.maximum $}"
+           step="1"/>
+    <input ng-switch-when="number"
+           name="property"
+           type="number"
+           class="form-control"
+           required
+           ng-model="item.leaf.value"
+           min="{$ ::item.leaf.minimum $}"
+           max="{$ ::item.leaf.maximum $}"/>
+    <div class="input-group-addon bool"
+         ng-switch-when="boolean">
+      <input name="property"
+             type="checkbox"
+             ng-model="item.leaf.value"/>
+    </div>
+    <div class="input-group-btn">
+      <a class="btn btn-default"
+         ng-click="action()">
+        <span class="fa fa-minus"></span>
+      </a>
+    </div>
+  </div>
+  <div class="label label-info">
+    <span ng-bind="::item.breadcrumb()"></span>
+  </div>
+  <div class="label label-danger"
+       ng-if="itemForm.$invalid && itemForm.$dirty">
+    <span ng-bind="formatErrorMessage(item, itemForm.property.$error)"></span>
+  </div>
+</div>

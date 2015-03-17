@@ -1,204 +1,20 @@
 (function () {
   'use strict';
-  angular.module('hz')
-    .controller('hzMetadataWidgetCtrl', ['$scope', '$window', '$filter', function ($scope, $window, $filter) {
 
-    //// Item class ////
+  angular.module('hz.widget.metadata-tree')
 
-    function Item(parent) {
-      // parent as property to prevent infinite recursion in angular filter
-      Object.defineProperty(this, 'parent', {
-        value: typeof parent !== 'undefined' ? parent : null
-      });
-      this.children = [];
-    // Node properties
-      this.visible = false;
-      this.expanded = false;
-      this.label = '';
-      this.description = '';
-      this.level = parent ? parent.level + 1 : 0;
-      this.addedCount = 0;
-      this.custom = false;
-    // Leaf properties
-      this.leaf = null;
-      this.added = false;
-    }
+  /**
+   * @ngdoc service
+   * @name hz.widget.metadata-tree.metadataTreeService
+   */
+  .factory('metadataTreeService', [function () {
 
-    Item.prototype.fromNamespace = function(namespace) {
-      this.label = namespace.display_name;
-      this.description = namespace.description;
-
-      if(namespace.objects) {
-        angular.forEach(namespace.objects, function(object) {
-          this.children.push(new Item(this).fromObject(object));
-        }, this);
-      }
-
-      if(namespace.properties){
-        angular.forEach(namespace.properties, function(property, key) {
-          this.children.push(new Item(this).fromProperty(key, property));
-        }, this);
-      }
-
-      this.sortChildren();
-
-      return this;
-    };
-
-    Item.prototype.fromObject = function(object) {
-      this.label = object.name;
-      this.description = object.description;
-
-      if(object.properties) {
-        angular.forEach(object.properties, function (property, key) {
-          this.children.push(new Item(this).fromProperty(key, property));
-        }, this);
-      }
-
-      this.sortChildren();
-
-      return this;
-    };
-
-    Item.prototype.fromProperty = function(name, property) {
-      this.leaf = property || {};
-      this.label = this.leaf.title || '';
-      this.description = this.leaf.description || '';
-      this.leaf.name = name;
-      this.setLeafValue(this.leaf.default || null);
-
-      return this;
-    };
-
-    Item.prototype.customProperty = function(name) {
-      this.fromProperty(name, {title: name});
-      this.leaf.type = 'string';
-      this.custom = true;
-
-      return this;
-    };
-
-    Item.prototype.expand = function() {
-      this.expanded = true;
-      angular.forEach(this.children, function(child) {
-        child.visible = true;
-      }, this);
-    };
-
-    Item.prototype.collapse = function() {
-      this.expanded = false;
-      angular.forEach(this.children, function(child) {
-        child.collapse();
-        child.visible = false;
-      }, this);
-    };
-
-    Item.prototype.sortChildren = function() {
-      this.children.sort(function(a, b) {
-        return a.label.localeCompare(b.label);
-      });
-    };
-
-    Item.prototype.markAsAdded = function() {
-      this.added = true;
-      if(this.parent) {
-        this.parent.addedCount += 1;
-        if(this.parent.addedCount === this.parent.children.length) {
-          this.parent.added = true;
-        }
-      }
-      angular.forEach(this.children, function(item) {
-        item.markAsAdded();
-      }, this);
-    };
-
-    Item.prototype.unmarkAsAdded = function(caller) {
-      this.added = false;
-      if(this.parent) {
-        this.parent.addedCount -= 1;
-        this.parent.expand();
-        this.parent.unmarkAsAdded(this);
-      }
-      if(!caller) { // prevent infinite recursion
-        angular.forEach(this.children, function(item) {
-          item.unmarkAsAdded();
-        }, this);
-      }
-    };
-
-    Item.prototype.path = function(path) {
-      path = typeof path !== 'undefined' ? path : [];
-      if(this.parent) this.parent.path(path);
-      path.push(this.label);
-      return path;
-    };
-
-    Item.prototype.setLeafValue = function(value) {
-      if(value === null) {
-        this.leaf.value = null;
-        return;
-      }
-
-      switch (this.leaf.type) {
-        case 'integer': this.leaf.value = parseInt(value); break;
-        case 'number': this.leaf.value = parseFloat(value); break;
-        case 'array': this.leaf.value = value.replace(/^<in> /, ''); break;
-        case 'boolean': this.leaf.value = parseBool(value); break;
-        default: this.leaf.value = value;
-      }
-    };
-
-    //// Private functions ////
-
-    var filter = $filter('filter');
-
-    function loadNamespaces(namespaces) {
-      var items = [];
-
-      angular.forEach(namespaces, function(namespace) {
-        var item = new Item().fromNamespace(namespace);
-        item.visible = true;
-        items.push(item);
-      });
-
-      items.sort(function(a, b) {
-        return a.label.localeCompare(b.label);
-      });
-
-      return items;
-    }
-
-    function flattenTree(tree, items) {
-      items = typeof items !== 'undefined' ? items : [];
-
-      angular.forEach(tree, function(item) {
-        items.push(item);
-        flattenTree(item.children, items);
-      });
-
-      return items;
-    }
-
-    function loadExisting(available, existing) {
-      var itemsMapping = {};
-
-      angular.forEach(available, function(item) {
-        if(item.leaf && item.leaf.name in existing) {
-          itemsMapping[item.leaf.name] = item;
-        }
-      });
-
-      angular.forEach(existing, function(value, key) {
-        var item = itemsMapping[key];
-        if(typeof item === 'undefined') {
-          item = new Item().customProperty(key);
-          available.push(item);
-        }
-        item.setLeafValue(value);
-        item.markAsAdded();
-      });
-    }
-
+    /**
+     * Parse value into boolean
+     *
+     * @param {(string|boolean)} value
+     * @returns {boolean}
+     */
     function parseBool(value) {
       var value_type = typeof(value);
 
@@ -219,10 +35,402 @@
       return null;
     }
 
-    //// Public functions ////
+    /**
+     * Construct a new property
+     *
+     * @class Property
+     * @param {string} name
+     * @param {Object} [json]
+     *
+     * @property {string} name Property key name
+     * @property {string} title Property display name
+     * @property {string} description Property description
+     * @property {*} value Property value
+     * @property {string} default Property default value
+     * @property {string} type Property type
+     */
+    function Property(name, json) {
+      this.name = name;
+      this.title = name;
+      this.description = '';
+      this.value = null;
+      this.default = null;
+      this.type = 'string';
+      angular.extend(this, json);
+      this.setValue(this.default);
+    }
 
-    $scope.onItemClick = function(e, item) {
-      $scope.selected = item;
+    /**
+     * Deserialize value and assign it to {@link Property#value}
+     *
+     * @param  {string} value
+     */
+    Property.prototype.setValue = function(value) {
+      if(value === null) {
+        this.value = null;
+        return;
+      }
+
+      switch (this.type) {
+        case 'integer': this.value = parseInt(value); break;
+        case 'number': this.value = parseFloat(value); break;
+        case 'array': this.value = value.replace(/^<in> /, ''); break;
+        case 'boolean': this.value = parseBool(value); break;
+        default: this.value = value;
+      }
+    };
+
+    /**
+     * Serialize {@link Property#value} and returns it
+     *
+     * @returns {*}
+     */
+    Property.prototype.getValue = function() {
+      switch (this.type) {
+        case 'array': return '<in> ' + this.value;
+        default: return this.value;
+      }
+    };
+
+    /**
+     * Construct a new tree node
+     *
+     * @class Item
+     * @param {Item} parent
+     *
+     * @property {Item} parent Item parent
+     * @property {Item[]} children Item children
+     * @property {boolean} visible Item visibility
+     */
+    function Item(parent) {
+      // parent as property to prevent infinite recursion in angular filter
+      Object.defineProperty(this, 'parent', {
+        value: typeof parent !== 'undefined' ? parent : null
+      });
+      this.children = [];
+      // Node properties
+      this.visible = false;
+      this.expanded = false;
+      this.label = '';
+      this.description = '';
+      this.level = parent ? parent.level + 1 : 0;
+      this.addedCount = 0;
+      this.custom = false;
+      // Leaf properties
+      this.leaf = null;
+      this.added = false;
+    }
+
+    /**
+     * Load Item values and child Items from namespace definition
+     *
+     * @param {object} namespace Metadata namespace definition
+     * @returns {Item}
+     */
+    Item.prototype.fromNamespace = function (namespace) {
+      this.label = namespace.display_name;
+      this.description = namespace.description;
+
+      if(namespace.objects) {
+        angular.forEach(namespace.objects, function (object) {
+          this.children.push(new Item(this).fromObject(object));
+        }, this);
+      }
+
+      if(namespace.properties) {
+        angular.forEach(namespace.properties, function (property, key) {
+          this.children.push(new Item(this).fromProperty(key, property));
+        }, this);
+      }
+
+      this.sortChildren();
+
+      return this;
+    };
+
+    /**
+     * Load Item values and child Items from object definition
+     *
+     * @param {object} object Metadata object definition
+     * @returns {Item}
+     */
+    Item.prototype.fromObject = function (object) {
+      this.label = object.name;
+      this.description = object.description;
+
+      if(object.properties) {
+        angular.forEach(object.properties, function (property, key) {
+          this.children.push(new Item(this).fromProperty(key, property));
+        }, this);
+      }
+
+      this.sortChildren();
+
+      return this;
+    };
+
+    /**
+     * Load Item values from property definition
+     *
+     * @param {string} name Property name
+     * @param {object} property Metadata property definition
+     * @returns {Item}
+     */
+    Item.prototype.fromProperty = function (name, property) {
+      this.leaf = new Property(name, property);
+      this.label = this.leaf.title;
+      this.description = this.leaf.description;
+
+      return this;
+    };
+
+    /**
+     * Load Item values from property definition and mark as custom
+     *
+     * @param {string} name Property name
+     * @param {object} property Metadata property definition
+     * @returns {Item}
+     */
+    Item.prototype.customProperty = function (name, property) {
+      this.fromProperty(name, property);
+      this.custom = true;
+
+      return this;
+    };
+
+    /**
+     * Expand Item by marking all children as visible
+     *
+     * @param {boolean} deep Whether to recursively expand all child Items
+     */
+    Item.prototype.expand = function (deep) {
+      this.expanded = true;
+      angular.forEach(this.children, function (child) {
+        if(deep) {
+          child.expand(deep);
+        }
+        child.visible = true;
+      }, this);
+    };
+
+    /**
+     * Collapse Item by recursively unmarking all children as visible
+     */
+    Item.prototype.collapse = function () {
+      this.expanded = false;
+      angular.forEach(this.children, function (child) {
+        child.collapse();
+        child.visible = false;
+      }, this);
+    };
+
+    /**
+     * Sort children Items by label
+     */
+    Item.prototype.sortChildren = function () {
+      this.children.sort(function (a, b) {
+        return a.label.localeCompare(b.label);
+      });
+    };
+
+    /**
+     * Recursively mark Item and all children as added
+     *
+     * @param {=} caller Used internally to prevent infinite recursion
+     */
+    Item.prototype.markAsAdded = function (caller) {
+      if(this.parent && !this.added) {
+        this.parent.addedCount += 1;
+        if(this.parent.addedCount === this.parent.children.length) {
+          this.parent.markAsAdded(this);
+        }
+      }
+      this.added = true;
+      if(!caller) { // prevent infinite recursion
+        angular.forEach(this.children, function (item) {
+          item.markAsAdded();
+        }, this);
+      }
+    };
+
+    /**
+     * Recursively unmark Item and all children as added
+     *
+     * @param {boolean=} expand Whether to expand parent of unmarked Item
+     * @param {=} caller Used internally to prevent infinite recursion
+     */
+    Item.prototype.unmarkAsAdded = function (expand, caller) {
+      if(this.parent) {
+        if(expand) {
+          this.parent.expand();
+        }
+        if(this.added) {
+          this.parent.addedCount -= 1;
+          this.parent.unmarkAsAdded(expand, this);
+        }
+      }
+      this.added = false;
+      if(!caller) { // prevent infinite recursion
+        angular.forEach(this.children, function (item) {
+          item.unmarkAsAdded(expand);
+        }, this);
+      }
+    };
+
+    /**
+     * Returns list of Items from top-most parent to this Item
+     *
+     * @param {[]=} path Used internally
+     * @returns {Item[]}
+     */
+    Item.prototype.path = function (path) {
+      path = typeof path !== 'undefined' ? path : [];
+      if(this.parent) {
+        this.parent.path(path);
+      }
+      path.push(this);
+      return path;
+    };
+
+    /**
+     * Returns breadcrumb string for this Item
+     *
+     * @returns {string}
+     */
+    Item.prototype.breadcrumb = function () {
+      return this.path().map(function (item) {
+        return item.label;
+      }).join(' › ');
+    };
+
+    /**
+     * Parse string parameter into leaf value
+     *
+     * @param {string} value
+     */
+    Item.prototype.setLeafValue = function (value) {
+      if(this.leaf) {
+        this.leaf.setValue(value);
+      }
+    };
+
+    /**
+     * Serialize leaf value into string
+     *
+     * @returns {string}
+     */
+    Item.prototype.getLeafValue = function () {
+      if(this.leaf) {
+        return this.leaf.getValue();
+      }
+    };
+
+    /**
+     * Construct a new tree
+     *
+     * @class Tree
+     * @param {object[]} available List of available namespaces
+     * @param {object} existing Key-value pairs for existing metadata
+     *
+     * @property {Item[]} tree List available namespaces parsed into Item-s
+     * @property {Item[]} flatTree List of Item-s flattened from tree structure
+     * @property {Item} selected Selected Item
+     */
+    function Tree(available, existing) {
+      this.tree = [];
+      this.loadNamespaces(available);
+      this.flatTree = this.flatten(this.tree);
+      this.selected = null;
+      this.loadExisting(existing);
+    }
+
+    /**
+     * Load Item values and child Items from namespace definition
+     *
+     * @param {object[]} namespaces list of Metadata namespace definitions
+     * @returns {Tree}
+     */
+    Tree.prototype.loadNamespaces = function (namespaces) {
+      angular.forEach(namespaces, function (namespace) {
+        var item = new Item().fromNamespace(namespace);
+        item.visible = true;
+        this.tree.push(item);
+      }, this);
+
+      this.tree.sort(function (a, b) {
+        return a.label.localeCompare(b.label);
+      });
+
+      return this;
+    };
+
+    /**
+     * Crete flat representation of branch
+     *
+     * @param {Item[]} branch List of Items to flatten
+     * @param {[]=} items Used internally
+     * @returns {Item[]}
+     */
+    Tree.prototype.flatten = function (branch, items) {
+      items = typeof items !== 'undefined' ? items : [];
+
+      angular.forEach(branch, function (item) {
+        items.push(item);
+        this.flatten(item.children, items);
+      }, this);
+
+      return items;
+    };
+
+    /**
+     * Load Property.value for each value from existing and mark corresponding
+     * Items as added. If no corresponding Item is found new Item is added and
+     * marked as custom.
+     *
+     * @param {object} existing
+     */
+    Tree.prototype.loadExisting = function (existing) {
+      var itemsMapping = {};
+
+      angular.forEach(this.flatTree, function (item) {
+        if(item.leaf && item.leaf.name in existing) {
+          itemsMapping[item.leaf.name] = item;
+        }
+      });
+
+      angular.forEach(existing, function (value, key) {
+        var item = itemsMapping[key];
+        if(typeof item === 'undefined') {
+          item = new Item().customProperty(key);
+          this.flatTree.push(item);
+        }
+        item.setLeafValue(value);
+        item.markAsAdded();
+      }, this);
+    };
+
+    /**
+     * Returns key-value mapping of leaf Items that was marked as added
+     *
+     * @returns {object}
+     */
+    Tree.prototype.getExisting = function () {
+      var existing = {};
+      angular.forEach(this.flatTree, function(item) {
+        if(item.added && item.leaf) {
+          existing[item.leaf.name] = item.getLeafValue();
+        }
+      });
+      return existing;
+    };
+
+    /**
+     * Selects item and expands / collapses it
+     *
+     * @param {Item} item
+     */
+    Tree.prototype.select = function (item) {
+      this.selected = item;
       if(!item.expanded) {
         item.expand();
       } else {
@@ -230,100 +438,50 @@
       }
     };
 
-    $scope.onItemAdd = function(e, item) {
-      $scope.selected = item;
+    /**
+     * Selects item and marks it as added
+     *
+     * @param {Item} item
+     */
+    Tree.prototype.markAsAdded = function (item) {
+      this.selected = item;
       item.markAsAdded();
     };
 
-    $scope.onItemDelete = function(e, item) {
+    /**
+     * Selects item, unmarks it as added and expands it's parent
+     *
+     * @param {Item} item
+     */
+    Tree.prototype.unmarkAsAdded = function (item) {
       if(!item.custom) {
-        $scope.selected = item;
-        item.unmarkAsAdded();
+        this.selected = item;
+        item.unmarkAsAdded(true);
       } else {
-        $scope.selected = null;
-        var i = $scope.flatTree.indexOf(item);
+        this.selected = null;
+        var i = this.flatTree.indexOf(item);
         if(i > -1) {
-          $scope.flatTree.splice(i, 1);
+          this.flatTree.splice(i, 1);
         }
       }
     };
 
-    $scope.onCustomItemAdd = function(e) {
-      var item, name = $scope.customItem.value;
-      if($scope.customItem.found.length > 0) {
-        item = $scope.customItem.found[0];
-        item.markAsAdded();
-        $scope.selected = item;
-      } else {
-        item = new Item().customProperty(name);
-        item.markAsAdded();
-        $scope.selected = item;
-        $scope.flatTree.push(item);
-      }
-      $scope.customItem.valid = false;
-      $scope.customItem.value = '';
+    /**
+     * Adds new Item, selects it and marks it as custom and added
+     *
+     * @param {string} name Name of leaf
+     */
+    Tree.prototype.addCustom = function (name) {
+      var item = new Item().customProperty(name);
+      item.markAsAdded();
+      this.flatTree.push(item);
+      this.selected = item;
     };
 
-    $scope.formatErrorMessage = function(item, error) {
-      var _ = $window.gettext;
-      if(error.min) return _('Min') + ' ' + item.leaf.minimum;
-      if(error.max) return _('Max') + ' ' + item.leaf.maximum;
-      if(error.minlength) return _('Min length') + ' ' + item.leaf.minLength;
-      if(error.maxlength) return _('Max length') + ' ' + item.leaf.maxLength;
-      if(error.pattern) {
-        if(item.leaf.type === 'integer') return _('Integer required');
-        else return _('Pattern mismatch');
-      }
-      if(error.required) {
-        switch(item.leaf.type) {
-          case 'integer': return _('Integer required');
-          case 'number': return _('Decimal required');
-          default: return _('Required');
-        }
-      }
+    return {
+      Item: Item,
+      Property: Property,
+      Tree: Tree
     };
-
-    $scope.saveMetadata = function () {
-      var metadata = [];
-      var added = filter($scope.flatTree, {'added': true, 'leaf': '!null'});
-      angular.forEach(added, function(item) {
-        metadata.push({
-          key: item.leaf.name,
-          value: (item.leaf.type == 'array' ? '<in> ' : '') + item.leaf.value
-        });
-      });
-      $scope.metadata = JSON.stringify(metadata);
-    };
-
-    $scope.$watch('customItem.value', function() {
-      $scope.customItem.found = filter(
-          $scope.flatTree, {'leaf.name': $scope.customItem.value}, true
-      );
-      $scope.customItem.valid = $scope.customItem.value &&
-          $scope.customItem.found.length === 0;
-    });
-
-    //// Private variables ////
-
-    var tree = loadNamespaces($window.available_metadata.namespaces);
-
-    //// Public variables ////
-
-    $scope.flatTree = flattenTree(tree);
-    $scope.decriptionText = '';
-    $scope.metadata = '';
-    $scope.selected = null;
-    $scope.customItem = {
-      value: '',
-      focused: false,
-      valid: false,
-      found: []
-    };
-    $scope.filterText = {
-      available: '',
-      existing: ''
-    };
-    loadExisting($scope.flatTree, $window.existing_metadata);
-
   }]);
 }());
