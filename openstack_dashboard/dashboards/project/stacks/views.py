@@ -86,8 +86,12 @@ class IndexView(tables.DataTableView):
 
 
 class SelectTemplateView(forms.ModalFormView):
-    form_class = project_forms.TemplateForm
     template_name = 'project/stacks/select_template.html'
+    modal_header = _("Select Template")
+    form_id = "select_template"
+    form_class = project_forms.TemplateForm
+    submit_label = _("Next")
+    submit_url = reverse_lazy("horizon:project:stacks:select_template")
     success_url = reverse_lazy('horizon:project:stacks:launch')
     page_title = _("Select Template")
 
@@ -98,14 +102,20 @@ class SelectTemplateView(forms.ModalFormView):
 
 
 class ChangeTemplateView(forms.ModalFormView):
-    form_class = project_forms.ChangeTemplateForm
     template_name = 'project/stacks/change_template.html'
+    modal_header = _("Select Template")
+    form_id = "change_template"
+    form_class = project_forms.ChangeTemplateForm
+    submit_label = _("Next")
+    submit_url = "horizon:project:stacks:change_template"
+    cancel_url = reverse_lazy('horizon:project:stacks:index')
     success_url = reverse_lazy('horizon:project:stacks:edit_stack')
     page_title = _("Change Template")
 
     def get_context_data(self, **kwargs):
         context = super(ChangeTemplateView, self).get_context_data(**kwargs)
-        context['stack'] = self.get_object()
+        args = (self.get_object().id,)
+        context['submit_url'] = reverse(self.submit_url, args=args)
         return context
 
     @memoized.memoized_method
@@ -148,8 +158,12 @@ class PreviewTemplateView(forms.ModalFormView):
 
 
 class CreateStackView(forms.ModalFormView):
-    form_class = project_forms.CreateStackForm
     template_name = 'project/stacks/create.html'
+    modal_header = _("Launch Stack")
+    form_id = "launch_stack"
+    form_class = project_forms.CreateStackForm
+    submit_label = _("Launch")
+    submit_url = reverse_lazy("horizon:project:stacks:launch")
     success_url = reverse_lazy('horizon:project:stacks:index')
     page_title = _("Launch Stack")
 
@@ -180,8 +194,12 @@ class CreateStackView(forms.ModalFormView):
 
 # edit stack parameters, coming from template selector
 class EditStackView(CreateStackView):
-    form_class = project_forms.EditStackForm
     template_name = 'project/stacks/update.html'
+    modal_header = _("Update Stack Parameters")
+    form_id = "update_stack"
+    form_class = project_forms.EditStackForm
+    submit_label = _("Update")
+    submit_url = "horizon:project:stacks:edit_stack"
     success_url = reverse_lazy('horizon:project:stacks:index')
     page_title = _("Update Stack")
 
@@ -197,7 +215,8 @@ class EditStackView(CreateStackView):
 
     def get_context_data(self, **kwargs):
         context = super(EditStackView, self).get_context_data(**kwargs)
-        context['stack'] = self.get_object()['stack']
+        args = (self.get_object()['stack'].id,)
+        context['submit_url'] = reverse(self.submit_url, args=args)
         return context
 
     @memoized.memoized_method
