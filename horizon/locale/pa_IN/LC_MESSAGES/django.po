@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-14 16:42-0500\n"
-"PO-Revision-Date: 2015-03-14 10:11+0000\n"
+"POT-Creation-Date: 2015-03-16 22:31-0500\n"
+"PO-Revision-Date: 2015-03-17 03:17+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/projects/p/horizon/language/pa_IN/)\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Language: pa_IN\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: base.py:475 templates/horizon/common/_modal_form_update_metadata.html:38
+#: base.py:475
 msgid "Other"
 msgstr "ਹੋਰ"
 
@@ -79,7 +79,7 @@ msgid "Submit"
 msgstr "ਦਾਖਲ ਕਰੋ"
 
 #: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:232
+#: templates/horizon/common/_modal_form_update_metadata.html:25
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
@@ -87,8 +87,6 @@ msgstr "ਰੱਦ ਕਰੋ"
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:21
 #: templates/horizon/common/_data_table_table_actions.html:33
-#: templates/horizon/common/_modal_form_update_metadata.html:28
-#: templates/horizon/common/_modal_form_update_metadata.html:97
 #: templates/horizon/common/_workflow_step_update_members.html:14
 #: templates/horizon/common/_workflow_step_update_members.html:23
 msgid "Filter"
@@ -308,44 +306,7 @@ msgstr "ਆਇਤਨ"
 msgid "Volume Storage"
 msgstr "ਆਇਤਨ ਭੰਡਾਰਣ"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:12
-msgid ""
-"\n"
-"        You can specify metadata by adding items from the left column to\n"
-"        the right column. You may select the metadata added to glance\n"
-"        dictionary or you can use the \"Other\" option using a key of\n"
-"        your choice.\n"
-"      "
-msgstr "\n        ਤੁਸੀਂ ਖੱਬੀ ਪੱਟੀ ਤੋਂ ਸੱਜੀ ਪੱਟੀ ਵਿੱਚ ਚੀਜ਼ਾਂ ਜੋੜ ਕੇ ਮੈਟਾਡਾਟਾ ਨਿਰਧਾਰਤ ਕਰ ਸਕਦੇ ਹੋ।\n        ਤੁਸੀਂ ਗਲਾਂਸ ਸ਼ਬਦਕੋਸ਼ ਵਿੱਚ ਜੋੜੇ ਮੈਟਾਡਾਟਾ ਨੂੰ ਚੁਣ ਸਕਦੇ ਹੋ ਜਾਂ ਫਿਰ ਤੁਸੀਂ ਆਪਣੀ\n        ਪਸੰਦ ਦੀ ਕੋਈ ਚਾਬੀ ਵਰਤ ਕੇ \"ਹੋਰ\" ਚੋਣ ਵਰਤ\n        ਸਕਦੇ ਹੋ।\n      "
-
-#: templates/horizon/common/_modal_form_update_metadata.html:26
-msgid "Available Metadata"
-msgstr "ਉਪਲੱਬਧ ਮੈਟਾਡਾਟਾ"
-
-#: templates/horizon/common/_modal_form_update_metadata.html:56
-msgid "Duplicate keys are not allowed"
-msgstr "ਨਕਲ ਚਾਬੀਆਂ ਪਰਵਾਨਤ ਨਹੀਂ ਹਨ"
-
-#: templates/horizon/common/_modal_form_update_metadata.html:84
-#: templates/horizon/common/_modal_form_update_metadata.html:193
-msgid "No available metadata"
-msgstr ""
-
-#: templates/horizon/common/_modal_form_update_metadata.html:95
-msgid "Existing Metadata"
-msgstr "ਮੌਜੂਦਾ ਮੈਟਾਡਾਟਾ"
-
-#: templates/horizon/common/_modal_form_update_metadata.html:209
-msgid ""
-"\n"
-"          You can specify resource metadata by moving items from the left\n"
-"          column to the right column. In the left columns there are metadata\n"
-"          definitions from the Glance Metadata Catalog. Use the \"Other\" option\n"
-"          to add metadata with the key of your choice.\n"
-"        "
-msgstr "\n          ਤੁਸੀਂ ਖੱਬੀ ਪੱਟੀ ਤੋਂ ਸੱਜੀ ਪੱਟੀ ਵਿੱਚ ਚੀਜ਼ਾਂ ਜੋੜ ਕੇ ਵਸੀਲਾ ਮੈਟਾਡਾਟਾ ਨਿਰਧਾਰਤ ਕਰ ਸਕਦੇ ਹੋ।\n          ਖੱਬੀ ਪੱਟੀ ਵਿੱਚ ਗਲਾਂਸ ਮੈਟਾਡਾਟਾ ਕੈਟਾਲੌਗ ਤੋਂ ਮੈਟਾਡਾਟਾ ਪਰਿਭਾਸ਼ਾਵਾਂ ਦਿੱਤੀਆਂ ਹੋਈਆਂ ਹਨ।\n          ਆਪਣੀ ਪਸੰਦ ਦੀ ਚਾਬੀ ਨਾਲ ਮੈਟਾਡਾਟਾ ਜੋੜਨ ਲਈ \"ਹੋਰ\" ਚੋਣ ਨੂੰ ਵਰਤੋ।\n        "
-
-#: templates/horizon/common/_modal_form_update_metadata.html:231
+#: templates/horizon/common/_modal_form_update_metadata.html:24
 #: workflows/base.py:594
 msgid "Save"
 msgstr "ਸੰਭਾਲੋ"
@@ -422,11 +383,11 @@ msgstr "ਅਗਲਾ"
 msgid "Horizon"
 msgstr "Horizon"
 
-#: templatetags/horizon.py:133 templatetags/horizon.py:144
+#: templatetags/horizon.py:137 templatetags/horizon.py:148
 msgid "No Limit"
 msgstr "ਕੋਈ ਹੱਦ ਨਹੀਂ"
 
-#: templatetags/horizon.py:136 templatetags/horizon.py:138
+#: templatetags/horizon.py:140 templatetags/horizon.py:142
 msgid "Available"
 msgstr "ਉਪਲੱਬਧ"
 
