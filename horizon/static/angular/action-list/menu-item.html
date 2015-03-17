@@ -4,5 +4,6 @@
     class="menu-item {$ disabled ? 'disabled' : '' $}"
     ng-class="actionClasses"
     ng-click="disabled || callback(item)">
+    <ng-transclude></ng-transclude>
   </a>
 </li>

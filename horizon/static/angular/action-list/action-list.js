@@ -195,17 +195,6 @@
         },
         transclude: true,
         link: function(scope, element, attrs, ctrl, transclude) {
-          // Append transcluded content to a button
-          // or menu item link
-          transclude(scope, function(clone) {
-            var menuItem = element.find('li > a');
-            if (menuItem.length) {
-              menuItem.first().append(clone);
-            } else {
-              element.find('button').first().prepend(clone);
-            }
-          });
-
           // Don't include directive element since
           // it will misalign component look
           element.children().first().unwrap();
