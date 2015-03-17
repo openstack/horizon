@@ -61,13 +61,15 @@ class AdminDetailView(tables.DataTableView):
     def get_data(self):
         instances = []
         try:
+            id, name = self.kwargs['hypervisor'].split('_', 1)
             result = api.nova.hypervisor_search(self.request,
-                                                self.kwargs['hypervisor'])
+                                                name)
             for hypervisor in result:
-                try:
-                    instances += hypervisor.servers
-                except AttributeError:
-                    pass
+                if str(hypervisor.id) == id:
+                    try:
+                        instances += hypervisor.servers
+                    except AttributeError:
+                        pass
         except Exception:
             exceptions.handle(
                 self.request,

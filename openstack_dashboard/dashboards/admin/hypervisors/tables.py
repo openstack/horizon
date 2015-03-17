@@ -57,7 +57,8 @@ class AdminHypervisorsTable(tables.DataTable):
                                 verbose_name=_("Instances"))
 
     def get_object_id(self, hypervisor):
-        return hypervisor.hypervisor_hostname
+        return "%s_%s" % (hypervisor.id,
+                          hypervisor.hypervisor_hostname)
 
     class Meta(object):
         name = "hypervisors"
