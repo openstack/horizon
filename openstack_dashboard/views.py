@@ -17,8 +17,7 @@ import django.views.decorators.vary
 
 import horizon
 from horizon import base
-
-from openstack_auth import forms
+from horizon import exceptions
 
 
 def get_user_home(user):
@@ -37,11 +36,10 @@ def get_user_home(user):
 
 @django.views.decorators.vary.vary_on_cookie
 def splash(request):
-    if request.user.is_authenticated():
-        response = shortcuts.redirect(horizon.get_user_home(request.user))
-    else:
-        form = forms.Login(request)
-        response = shortcuts.render(request, 'auth/login.html', {'form': form})
+    if not request.user.is_authenticated():
+        raise exceptions.NotAuthenticated()
+
+    response = shortcuts.redirect(horizon.get_user_home(request.user))
     if 'logout_reason' in request.COOKIES:
         response.delete_cookie('logout_reason')
     return response
