@@ -15,8 +15,7 @@
 """API over the nova service.
 """
 
-import urllib
-
+from django.utils import http as utils_http
 from django.views import generic
 
 from openstack_dashboard import api
@@ -58,7 +57,7 @@ class Keypairs(generic.View):
         else:
             new = api.nova.keypair_create(request, request.DATA['name'])
         return rest_utils.CreatedResponse(
-            '/api/nova/keypairs/%s' % urllib.quote(new.name),
+            '/api/nova/keypairs/%s' % utils_http.urlquote(new.name),
             new.to_dict()
         )
 
@@ -170,7 +169,7 @@ class Servers(generic.View):
 
         new = api.nova.server_create(*args, **kw)
         return rest_utils.CreatedResponse(
-            '/api/nova/servers/%s' % urllib.quote(new.id),
+            '/api/nova/servers/%s' % utils_http.urlquote(new.id),
             new.to_dict()
         )
 
