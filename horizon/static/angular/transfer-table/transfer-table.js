@@ -212,25 +212,23 @@
         setAllocatedIds(trModel.allocated);
 
         model.allocate = function(row) {
-          if (!row.disabled) {
-            if (model.limits.maxAllocation < 0 ||
-                trModel.allocated.length < model.limits.maxAllocation) {
-              // Add to allocated only if limit not reached
+          if (model.limits.maxAllocation < 0 ||
+              trModel.allocated.length < model.limits.maxAllocation) {
+            // Add to allocated only if limit not reached
+            trModel.allocated.push(row);
+
+            model.numAvailable -= 1;
+          } else if (model.limits.maxAllocation === 1) {
+            // Swap out rows if only one allocation allowed
+            var oldRow = trModel.allocated.pop();
+
+            // When swapping out, Smart-Table $watch is
+            // not detecting change so timeout is used
+            // as workaround.
+            setTimeout(function() {
               trModel.allocated.push(row);
-
-              model.numAvailable -= 1;
-            } else if (model.limits.maxAllocation === 1) {
-              // Swap out rows if only one allocation allowed
-              var oldRow = trModel.allocated.pop();
-
-              // When swapping out, Smart-Table $watch is
-              // not detecting change so timeout is used
-              // as workaround.
-              setTimeout(function() {
-                trModel.allocated.push(row);
-                $scope.$apply();
-              }, 1);
-            }
+              $scope.$apply();
+            }, 1);
           }
         };
 
