@@ -256,16 +256,20 @@
     );
 
     function updateChart() {
-      if ($scope.model.newInstanceSpec.instance_count < 0) {
-        $scope.model.newInstanceSpec.instance_count = 0;
-      } else if ($scope.model.newInstanceSpec.instance_count > maxTotalInstances) {
-        $scope.model.newInstanceSpec.instance_count = maxTotalInstances;
+      // initialize instance_count to 1
+      if ($scope.model.newInstanceSpec.instance_count <= 0) {
+        $scope.model.newInstanceSpec.instance_count = 1;
       }
-
-      var instance_count= $scope.model.newInstanceSpec.instance_count || 0;
+      var instance_count = $scope.model.newInstanceSpec.instance_count || 1;
 
       var data = $scope.instanceStats.data;
-      remaining = Math.max(0, maxTotalInstances - totalInstancesUsed - selection.length * instance_count);
+      var remaining = Math.max(0, maxTotalInstances - totalInstancesUsed - selection.length * instance_count);
+      // If a user has entered a count that will result in them exceeding their
+      // quota, automatically decrease the count so that it stays within quota
+      if (instance_count + totalInstancesUsed > maxTotalInstances) {
+        $scope.model.newInstanceSpec.instance_count = maxTotalInstances - totalInstancesUsed;
+      }
+
       data[0].value = totalInstancesUsed;
       data[1].value = selection.length * instance_count;
       data[2].value = remaining;
