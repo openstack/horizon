@@ -187,6 +187,8 @@ class CreateImageForm(forms.SelfHandlingForm):
                 if "Invalid disk format" in e.details:
                     msg = _('Unable to create new image: Invalid disk format '
                             '%s for image.') % data['disk_format']
+                elif "Image name too long" in e.details:
+                    msg = _('Unable to create new image: Image name too long.')
 
             exceptions.handle(request, msg)
 
