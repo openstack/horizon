@@ -32,7 +32,6 @@
    */
   module.controller('LaunchInstanceNetworkCtrl', [
     '$scope',
-    '$http',
     LaunchInstanceNetworkCtrl
   ]);
 
@@ -47,7 +46,7 @@
     LaunchInstanceNetworkHelpCtrl
   ]);
 
-  function LaunchInstanceNetworkCtrl($scope, $http) {
+  function LaunchInstanceNetworkCtrl($scope) {
 
     $scope.label = {
       title: gettext('Network'),
