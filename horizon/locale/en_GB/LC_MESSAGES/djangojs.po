@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-14 16:42-0500\n"
-"PO-Revision-Date: 2015-03-14 18:41+0000\n"
-"Last-Translator: Rob Cresswell <robert.cresswell@outlook.com>\n"
+"POT-Creation-Date: 2015-03-16 22:31-0500\n"
+"PO-Revision-Date: 2015-03-17 03:17+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/horizon/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,6 +24,75 @@ msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
 "missing information."
 msgstr "The action cannot be performed. The contents of this row have errors or are missing information."
+
+#: static/angular/metadata-tree/metadata-tree.js:35
+msgid ""
+"You can specify resource metadata by moving items from the left column to "
+"the right column. In the left columns there are metadata definitions from "
+"the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
+"the key of your choice."
+msgstr ""
+
+#: static/angular/metadata-tree/metadata-tree.js:36
+msgid "Min"
+msgstr ""
+
+#: static/angular/metadata-tree/metadata-tree.js:37
+msgid "Max"
+msgstr ""
+
+#: static/angular/metadata-tree/metadata-tree.js:38
+msgid "Min length"
+msgstr ""
+
+#: static/angular/metadata-tree/metadata-tree.js:39
+msgid "Max length"
+msgstr ""
+
+#: static/angular/metadata-tree/metadata-tree.js:40
+msgid "Pattern mismatch"
+msgstr ""
+
+#: static/angular/metadata-tree/metadata-tree.js:41
+msgid "Integer required"
+msgstr ""
+
+#: static/angular/metadata-tree/metadata-tree.js:42
+msgid "Decimal required"
+msgstr ""
+
+#: static/angular/metadata-tree/metadata-tree.js:43
+msgid "Required"
+msgstr ""
+
+#: static/angular/metadata-tree/metadata-tree.js:44
+msgid "Duplicate keys are not allowed"
+msgstr ""
+
+#: static/angular/metadata-tree/metadata-tree.js:45
+#: static/horizon/js/horizon.forms.js:184
+msgid "Filter"
+msgstr "Filter"
+
+#: static/angular/metadata-tree/metadata-tree.js:46
+msgid "Available Metadata"
+msgstr ""
+
+#: static/angular/metadata-tree/metadata-tree.js:47
+msgid "Existing Metadata"
+msgstr ""
+
+#: static/angular/metadata-tree/metadata-tree.js:48
+msgid "Custom"
+msgstr ""
+
+#: static/angular/metadata-tree/metadata-tree.js:49
+msgid "No available metadata"
+msgstr ""
+
+#: static/angular/metadata-tree/metadata-tree.js:50
+msgid "No existing metadata"
+msgstr ""
 
 #: static/angular/modal/modal.js:83
 msgid "Submit"
@@ -90,7 +159,7 @@ msgstr "Next"
 msgid "Finish"
 msgstr "Finish"
 
-#: static/horizon/js/horizon.accordion_nav.js:84
+#: static/horizon/js/horizon.accordion_nav.js:78
 #: static/horizon/js/horizon.modals.js:315
 #: static/horizon/js/horizon.tabs.js:21
 msgid "Loading"
@@ -112,10 +181,6 @@ msgstr "An error occurred. Please try again later."
 #: static/horizon/js/horizon.instances.js:31
 msgid "There was a problem communicating with the server, please try again."
 msgstr "There was a problem communicating with the server, please try again."
-
-#: static/horizon/js/horizon.forms.js:184
-msgid "Filter"
-msgstr "Filter"
 
 #: static/horizon/js/horizon.instances.js:273
 msgid "Could not read the file"
@@ -286,12 +351,26 @@ msgid "No"
 msgstr "No"
 
 #: static/horizon/js/angular/filters/filters.js:53
+#: static/horizon/js/angular/filters/filters.js:140
 msgid "GB"
 msgstr "GB"
 
 #: static/horizon/js/angular/filters/filters.js:70
+#: static/horizon/js/angular/filters/filters.js:142
 msgid "MB"
 msgstr "MB"
+
+#: static/horizon/js/angular/filters/filters.js:138
+msgid "TB"
+msgstr "TB"
+
+#: static/horizon/js/angular/filters/filters.js:144
+msgid "KB"
+msgstr "KB"
+
+#: static/horizon/js/angular/filters/filters.js:146
+msgid "bytes"
+msgstr "bytes"
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:47
 msgid "Unable to retrieve volumes."
@@ -425,7 +504,7 @@ msgstr "Unable to delete the project."
 msgid "Unable to grant the role."
 msgstr "Unable to grant the role."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:208
+#: static/horizon/js/angular/services/hz.api.keystone.js:215
 msgid "Unable to fetch the service catalog."
 msgstr "Unable to fetch the service catalogue."
 
@@ -433,19 +512,19 @@ msgstr "Unable to fetch the service catalogue."
 msgid "Unable to retrieve networks."
 msgstr "Unable to retrieve networks."
 
-#: static/horizon/js/angular/services/hz.api.neutron.js:90
+#: static/horizon/js/angular/services/hz.api.neutron.js:88
 msgid "Unable to create the network."
 msgstr "Unable to create the network."
 
-#: static/horizon/js/angular/services/hz.api.neutron.js:110
+#: static/horizon/js/angular/services/hz.api.neutron.js:108
 msgid "Unable to retrieve subnets."
 msgstr "Unable to retrieve subnets."
 
-#: static/horizon/js/angular/services/hz.api.neutron.js:176
+#: static/horizon/js/angular/services/hz.api.neutron.js:172
 msgid "Unable to create the subnet."
 msgstr "Unable to create the subnet."
 
-#: static/horizon/js/angular/services/hz.api.neutron.js:196
+#: static/horizon/js/angular/services/hz.api.neutron.js:192
 msgid "Unable to retrieve ports."
 msgstr "Unable to retrieve ports."
 
@@ -477,15 +556,15 @@ msgstr "Unable to retrieve server."
 msgid "Unable to retrieve extensions."
 msgstr "Unable to retrieve extensions."
 
-#: static/horizon/js/angular/services/hz.api.nova.js:214
+#: static/horizon/js/angular/services/hz.api.nova.js:233
 msgid "Unable to retrieve flavors."
 msgstr "Unable to retrieve flavours."
 
-#: static/horizon/js/angular/services/hz.api.nova.js:232
+#: static/horizon/js/angular/services/hz.api.nova.js:251
 msgid "Unable to retrieve flavor."
 msgstr "Unable to retrieve flavour."
 
-#: static/horizon/js/angular/services/hz.api.nova.js:246
+#: static/horizon/js/angular/services/hz.api.nova.js:265
 msgid "Unable to retrieve flavor extra specs."
 msgstr "Unable to retrieve flavour extra specs."
 

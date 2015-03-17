@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-14 16:42-0500\n"
-"PO-Revision-Date: 2015-03-14 10:11+0000\n"
+"POT-Creation-Date: 2015-03-16 22:31-0500\n"
+"PO-Revision-Date: 2015-03-17 03:17+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/horizon/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Language: sr\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: base.py:475 templates/horizon/common/_modal_form_update_metadata.html:38
+#: base.py:475
 msgid "Other"
 msgstr "Drugi"
 
@@ -78,7 +78,7 @@ msgid "Submit"
 msgstr "Predaj"
 
 #: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:232
+#: templates/horizon/common/_modal_form_update_metadata.html:25
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "Odustani"
@@ -86,8 +86,6 @@ msgstr "Odustani"
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:21
 #: templates/horizon/common/_data_table_table_actions.html:33
-#: templates/horizon/common/_modal_form_update_metadata.html:28
-#: templates/horizon/common/_modal_form_update_metadata.html:97
 #: templates/horizon/common/_workflow_step_update_members.html:14
 #: templates/horizon/common/_workflow_step_update_members.html:23
 msgid "Filter"
@@ -308,44 +306,7 @@ msgstr "Volume-i"
 msgid "Volume Storage"
 msgstr "Volume storage"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:12
-msgid ""
-"\n"
-"        You can specify metadata by adding items from the left column to\n"
-"        the right column. You may select the metadata added to glance\n"
-"        dictionary or you can use the \"Other\" option using a key of\n"
-"        your choice.\n"
-"      "
-msgstr ""
-
-#: templates/horizon/common/_modal_form_update_metadata.html:26
-msgid "Available Metadata"
-msgstr "Dostupni Metadata podaci"
-
-#: templates/horizon/common/_modal_form_update_metadata.html:56
-msgid "Duplicate keys are not allowed"
-msgstr "Dupli kljucevi nisu omoguceni"
-
-#: templates/horizon/common/_modal_form_update_metadata.html:84
-#: templates/horizon/common/_modal_form_update_metadata.html:193
-msgid "No available metadata"
-msgstr ""
-
-#: templates/horizon/common/_modal_form_update_metadata.html:95
-msgid "Existing Metadata"
-msgstr "Postojeci Metadata podaci"
-
-#: templates/horizon/common/_modal_form_update_metadata.html:209
-msgid ""
-"\n"
-"          You can specify resource metadata by moving items from the left\n"
-"          column to the right column. In the left columns there are metadata\n"
-"          definitions from the Glance Metadata Catalog. Use the \"Other\" option\n"
-"          to add metadata with the key of your choice.\n"
-"        "
-msgstr ""
-
-#: templates/horizon/common/_modal_form_update_metadata.html:231
+#: templates/horizon/common/_modal_form_update_metadata.html:24
 #: workflows/base.py:594
 msgid "Save"
 msgstr "Sačuvaj"
@@ -424,11 +385,11 @@ msgstr "Sledeći"
 msgid "Horizon"
 msgstr "Horizon"
 
-#: templatetags/horizon.py:133 templatetags/horizon.py:144
+#: templatetags/horizon.py:137 templatetags/horizon.py:148
 msgid "No Limit"
 msgstr "Nema ograničenja"
 
-#: templatetags/horizon.py:136 templatetags/horizon.py:138
+#: templatetags/horizon.py:140 templatetags/horizon.py:142
 msgid "Available"
 msgstr "Dostupno"
 

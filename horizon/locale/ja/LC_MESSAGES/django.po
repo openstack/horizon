@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-14 16:42-0500\n"
-"PO-Revision-Date: 2015-03-14 10:11+0000\n"
+"POT-Creation-Date: 2015-03-16 22:31-0500\n"
+"PO-Revision-Date: 2015-03-17 03:17+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: base.py:475 templates/horizon/common/_modal_form_update_metadata.html:38
+#: base.py:475
 msgid "Other"
 msgstr "その他"
 
@@ -80,7 +80,7 @@ msgid "Submit"
 msgstr "送信"
 
 #: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:232
+#: templates/horizon/common/_modal_form_update_metadata.html:25
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "取り消し"
@@ -88,8 +88,6 @@ msgstr "取り消し"
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:21
 #: templates/horizon/common/_data_table_table_actions.html:33
-#: templates/horizon/common/_modal_form_update_metadata.html:28
-#: templates/horizon/common/_modal_form_update_metadata.html:97
 #: templates/horizon/common/_workflow_step_update_members.html:14
 #: templates/horizon/common/_workflow_step_update_members.html:23
 msgid "Filter"
@@ -308,44 +306,7 @@ msgstr "ボリューム"
 msgid "Volume Storage"
 msgstr "ボリューム容量"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:12
-msgid ""
-"\n"
-"        You can specify metadata by adding items from the left column to\n"
-"        the right column. You may select the metadata added to glance\n"
-"        dictionary or you can use the \"Other\" option using a key of\n"
-"        your choice.\n"
-"      "
-msgstr "\n左の列から右の列にアイテムを移動して、メタデータを指定できます。Glance に登録されているメタデータを選択するか、\"Other\" オプションで任意のキーを指定します。\n\n      "
-
-#: templates/horizon/common/_modal_form_update_metadata.html:26
-msgid "Available Metadata"
-msgstr "利用可能なメタデータ"
-
-#: templates/horizon/common/_modal_form_update_metadata.html:56
-msgid "Duplicate keys are not allowed"
-msgstr "重複するキーは使用できません"
-
-#: templates/horizon/common/_modal_form_update_metadata.html:84
-#: templates/horizon/common/_modal_form_update_metadata.html:193
-msgid "No available metadata"
-msgstr "利用可能なメタデータはありません"
-
-#: templates/horizon/common/_modal_form_update_metadata.html:95
-msgid "Existing Metadata"
-msgstr "選択済みのメタデータ"
-
-#: templates/horizon/common/_modal_form_update_metadata.html:209
-msgid ""
-"\n"
-"          You can specify resource metadata by moving items from the left\n"
-"          column to the right column. In the left columns there are metadata\n"
-"          definitions from the Glance Metadata Catalog. Use the \"Other\" option\n"
-"          to add metadata with the key of your choice.\n"
-"        "
-msgstr "\n左の列から右の列にアイテムを移動して、リソースのメタデータを指定できます。左の列には、Glance のメタデータカタログに登録されているメタデータの定義が表示されています。任意のキーのメタデータを追加するには、\"Other\" オプションを使ってください。\n\n      "
-
-#: templates/horizon/common/_modal_form_update_metadata.html:231
+#: templates/horizon/common/_modal_form_update_metadata.html:24
 #: workflows/base.py:594
 msgid "Save"
 msgstr "保存"
@@ -420,11 +381,11 @@ msgstr "次へ"
 msgid "Horizon"
 msgstr "Horizon"
 
-#: templatetags/horizon.py:133 templatetags/horizon.py:144
+#: templatetags/horizon.py:137 templatetags/horizon.py:148
 msgid "No Limit"
 msgstr "制限なし"
 
-#: templatetags/horizon.py:136 templatetags/horizon.py:138
+#: templatetags/horizon.py:140 templatetags/horizon.py:142
 msgid "Available"
 msgstr "利用可能"
 
