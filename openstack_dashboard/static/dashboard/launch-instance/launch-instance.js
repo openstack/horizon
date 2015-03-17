@@ -95,7 +95,8 @@
 
   function LaunchInstanceModalCtrl($scope, $modal, $window, modalSpec) {
     $scope.openLaunchInstanceWizard = function (launchContext) {
-     var localSpec = {
+
+      var localSpec = {
         resolve: {
           launchContext: function() { return launchContext; }
         }
@@ -105,11 +106,16 @@
 
       var launchInstanceModal = $modal.open(localSpec);
 
-      launchInstanceModal.result.then(function () {
-        if (launchContext && launchContext.successUrl) {
-          $window.location.href = launchContext.successUrl;
-        }
-      });
+      var handleModalClose = function(redirectPropertyName) {
+        return function() {
+          if (launchContext && launchContext[redirectPropertyName]) {
+            $window.location.href = launchContext[redirectPropertyName];
+          }
+        };
+      };
+
+      launchInstanceModal.result.then(handleModalClose('successUrl'),
+                                      handleModalClose('dismissUrl'));
 
     };
   }

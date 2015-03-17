@@ -83,7 +83,7 @@
                     popover-trigger="hover"></span>
               <select name="boot-source-type" class="form-control input-sm"
                       ng-options="src.label for src in bootSourcesOptions track by src.type"
-                      ng-change="updateBootSourceSelection(model.newInstanceSpec.source_type)"
+                      ng-change="updateBootSourceSelection(model.newInstanceSpec.source_type.type)"
                       ng-model="model.newInstanceSpec.source_type">
               </select>
             </div>
@@ -199,7 +199,7 @@
               </td>
             </tr>
 
-            <tr ng-repeat-start="row in tableData.displayAllocated track by row.id">
+            <tr ng-repeat-start="row in selection">
               <td class="expander">
                 <span class="fa fa-chevron-right"
                       hz-expand-detail

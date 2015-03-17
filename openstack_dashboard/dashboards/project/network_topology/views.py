@@ -130,6 +130,8 @@ class NetworkTopologyView(views.HorizonTemplateView):
         context['router_quota_exceeded'] = self._quota_exceeded('routers')
         context['console_type'] = getattr(
             settings, 'CONSOLE_TYPE', 'AUTO')
+        context['show_ng_launch'] = getattr(
+            settings, 'LAUNCH_INSTANCE_NG_ENABLED', False)
         return context
 
 

@@ -152,6 +152,7 @@
             // this is a simple workaround.
             function always() {
               $scope.ready = true;
+              $scope.initTask.resolve();
               switchToFirstReadyStep();
             }
 
