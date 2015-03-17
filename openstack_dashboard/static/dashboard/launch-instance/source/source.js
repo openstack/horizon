@@ -91,25 +91,25 @@
 
     var tableHeadCellsMap = {
       image: [
-        { text: gettext('Name'), style: { width: '25%' } },
-        { text: gettext('Updated'), style: { width: '20%' } },
-        { text: gettext('Size'), style: { width: '15%' }, classList: ['number'] },
-        { text: gettext('Type') }
+        { text: gettext('Name'), style: { width: '25%' }, sortable: true, sortDefault: true },
+        { text: gettext('Updated'), style: { width: '20%' }, sortable: true },
+        { text: gettext('Size'), style: { width: '15%' }, classList: ['number'], sortable: true },
+        { text: gettext('Type'), sortable: true }
       ],
       volume: [
-        { text: gettext('Name'), style: { width: '25%' } },
+        { text: gettext('Name'), style: { width: '25%' }, sortable: true, sortDefault: true },
         { text: gettext('Type'), style: { width: '20%' } },
-        { text: gettext('Size'), classList: ['number'] }
+        { text: gettext('Size'), classList: ['number'], sortable: true }
       ],
       snapshot: [
-        { text: gettext('Name'), style: { width: '25%' } },
+        { text: gettext('Name'), style: { width: '25%' }, sortable: true, sortDefault: true },
         { text: gettext('Type'), style: { width: '20%' } },
-        { text: gettext('Size'), classList: ['number'] }
+        { text: gettext('Size'), classList: ['number'], sortable: true }
       ],
       volume_snapshot: [
-        { text: gettext('Name'), style: { width: '25%' } },
+        { text: gettext('Name'), style: { width: '25%' }, sortable: true, sortDefault: true },
         { text: gettext('Type'), style: { width: '20%' } },
-        { text: gettext('Size'), classList: ['number'] }
+        { text: gettext('Size'), classList: ['number'], sortable: true }
       ]
     };
 
