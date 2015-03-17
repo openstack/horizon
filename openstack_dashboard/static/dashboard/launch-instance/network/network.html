@@ -1,3 +1,187 @@
 <div ng-controller="LaunchInstanceNetworkCtrl">
-  <h1>{$ title $}</h1>
+  <h1>{$ ::label.title $}</h1>
+  <div class="content">
+    <div class="subtitle">{$ ::label.subtitle $}</div>
+
+
+  <div class="form-group" ng-if="model.arePortProfilesSupported">
+    <label class="control-label required" for="profile">{$ ::label.profile $}</label>
+      <select class="form-control" id="profile" ng-model="model.newInstanceSpec.profile" ng-options="profile.name for profile in model.profiles">
+        <option value="">{$ ::label.none_option $}</option>
+      </select>
+    </dd>
+  </div>
+
+  <transfer-table tr-model="tableDataMulti" help-text="tableHelpText" limits="tableLimits">
+    <allocated>
+      <table st-table="tableDataMulti.displayedAllocated" st-safe-src="tableDataMulti.allocated" hz-table
+        class="table-striped table-rsp table-detail modern">
+        <thead>
+          <tr>
+            <th class="reorder"></th>
+            <th class="expander"></th>
+            <th class="rsp-p1">{$ ::label.network $}</th>
+            <th class="rsp-p2">{$ ::label.subnet_associated $}</th>
+            <th class="rsp-p1">{$ ::label.shared $}</th>
+            <th class="rsp-p1">{$ ::label.admin_state $}</th>
+            <th class="rsp-p1">{$ ::label.status $}</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-if="tableDataMulti.allocated.length === 0">
+            <td colspan="8">
+              <div class="no-rows-help">
+                {$ ::trCtrl.helpText.noneAllocText $}
+              </div>
+            </td>
+          </tr>
+          <tr ng-repeat-start="row in tableDataMulti.displayedAllocated track by row.id"
+            lr-drag-data="tableDataMulti.displayedAllocated" lr-drag-src="reorder"
+            lr-drop-target="reorder" lr-drop-success="trCtrl.updateAllocated(e, item, collection)">
+            <td class="reorder">
+              <span class="fa fa-sort" title="{$ ::trCtrl.helpText.orderText $}"></span>
+              {$ $index + 1 $}
+            </td>
+            <td class="expander">
+              <span class="fa fa-chevron-right" hz-expand-detail
+                title="{$ ::trCtrl.helpText.expandDetailsText $}"></span>
+            </td>
+            <td class="rsp-p1">{$ row.name $}</td>
+            <td class="rsp-p2">
+              <div ng-repeat="subnet in row.subnets">{$ subnet.name $}</div>
+            </td>
+            <td class="rsp-p1">{$ row.shared | yesno $}</td>
+            <td class="rsp-p1">{$ row.admin_state | decode:networkAdminStates $}</td>
+            <td class="rsp-p1">{$ row.status | decode:networkStatuses $}</td>
+            <td class="action-col">
+              <action-list>
+                <action action-classes="'btn btn-sm btn-default'"
+                  callback="trCtrl.deallocate" item="row">
+                  <span class="fa fa-minus"></span>
+                </action>
+              </action-list>
+            </td>
+          </tr>
+          <tr ng-repeat-end class="detail-row">
+            <td colspan="2"></td>
+            <td colspan="7" class="detail">
+              <dl class="dl-horizontal">
+                <dt>{$ ::label.id $}</dt>
+                <dd>{$ row.id $}</dd>
+                <dt>{$ ::label.project_id $}</dt>
+                <dd>{$ row.tenant_id $}</dd>
+                <dt>{$ ::label.external_network $}</dt>
+                <dd>{$ row['router:external'] | yesno $}</dd>
+              </dl>
+              <div><b>{$ ::label.provider_network $}</b></div>
+              <div class="row" class="detail">
+                <dl class="col-sm-3">
+                  <dt>{$ ::label.provider_network_type $}</dt>
+                  <dd>{$ row['provider:network_type'] $}</dd>
+                </dl>
+                <dl class="col-sm-3">
+                  <dt>{$ ::label.provider_segmentation_id $}</dt>
+                  <dd>{$ row['provider:segmentation_id'] $}</dd>
+                </dl>
+                <dl class="col-sm-3">
+                  <dt>{$ ::label.provider_physical_network $}</dt>
+                  <dd>{$ row['provider:physical_network'] $}</dd>
+                </dl>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </allocated>
+    <available>
+      <table st-table="tableDataMulti.displayedAvailable" st-safe-src="tableDataMulti.available"
+        hz-table class="table-striped table-rsp table-detail modern">
+        <thead>
+          <tr>
+            <th class="search-header" colspan="8">
+              <search-bar group-classes="input-group-sm" icon-classes="fa-search">
+              </search-bar>
+            </th>
+          </tr>
+          <tr>
+            <th class="reorder"></th>
+            <th class="expander"></th>
+            <th st-sort-default class="rsp-p1">{$ ::label.network $}</th>
+            <th class="rsp-p2">{$ ::label.subnet_associated $}</th>
+            <th class="rsp-p1">{$ ::label.shared $}</th>
+            <th class="rsp-p1">{$ ::label.admin_state $}</th>
+            <th class="rsp-p1">{$ ::label.status $}</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-if="trCtrl.numDisplayedAvailable() === 0">
+            <td colspan="8">
+              <div class="no-rows-help">
+                {$ ::trCtrl.helpText.noneAvailText $}
+              </div>
+            </td>
+          </tr>
+          <tr ng-repeat-start="row in tableDataMulti.displayedAvailable track by row.id" ng-if="!trCtrl.allocatedIds[row.id]">
+            <td class="reorder"></td>
+            <td class="expander">
+              <span class="fa fa-chevron-right" hz-expand-detail
+                title="{$ ::trCtrl.helpText.expandDetailsText $}"></span>
+            </td>
+            <td class="rsp-p1">{$ row.name$}</td>
+            <td class="rsp-p2">
+              <div ng-repeat="subnet in row.subnets">{$ subnet.name $}</div>
+            </td>
+            <td class="rsp-p1">{$ row.shared | yesno $}</td>
+            <td class="rsp-p1">{$ row.admin_state | decode:networkAdminStates $}</td>
+            <td class="rsp-p1">{$ row.status | decode:networkStatuses $}</td>
+            <td class="action-col">
+              <action-list button-tooltip="row.warningMessage"
+                bt-model="trCtrl.tooltipModel" bt-disabled="!row.disabled"
+                warning-classes="'invalid'">
+                <notifications>
+                  <span class="fa fa-exclamation-circle invalid" ng-show="row.disabled"></span>
+                </notifications>
+                <action action-classes="'btn btn-sm btn-default'"
+                  callback="trCtrl.allocate" item="row" disabled="row.disabled">
+                  <span class="fa fa-plus"></span>
+                </action>
+              </action-list>
+            </td>
+          </tr>
+          <tr ng-repeat-end class="detail-row" ng-if="!trCtrl.allocatedIds[row.id]">
+            <td colspan="2"></td>
+            <td colspan="7" class="detail">
+              <dl class="dl-horizontal">
+                <dt>{$ ::label.id $}</dt>
+                <dd>{$ row.id $}</dd>
+                <dt>{$ ::label.project_id $}</dt>
+                <dd>{$ row.tenant_id $}</dd>
+                <dt>{$ ::label.external_network $}</dt>
+                <dd>{$ row['router:external'] | yesno $}</dd>
+              </dl>
+              <div><b>{$ ::label.provider_network $}</b></div>
+              <div class="row">
+                <dl class="col-sm-3">
+                  <dt>{$ ::label.provider_network_type $}</dt>
+                  <dd>{$ row['provider:network_type'] $}</dd>
+                </dl>
+                <dl class="col-sm-3">
+                  <dt>{$ ::label.provider_segmentation_id $}</dt>
+                  <dd>{$ row['provider:segmentation_id'] $}</dd>
+                </dl>
+                <dl class="col-sm-3">
+                  <dt>{$ ::label.provider_physical_network $}</dt>
+                  <dd>{$ row['provider:physical_network'] $}</dd>
+                </dl>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </available>
+  </transfer-table>
+
+  </div>
 </div>
