@@ -143,8 +143,8 @@
      *
      */
     .controller('transferTableCtrl',
-      [ 'basePath', '$scope', '$parse', '$attrs', 'helpText', 'limits',
-      function(path, $scope, $parse, $attrs, helpText, limits) {
+      [ 'basePath', '$scope', '$timeout', '$parse', '$attrs', 'helpText', 'limits',
+      function(path, $scope, $timeout, $parse, $attrs, helpText, limits) {
         var trModel = $parse($attrs.trModel)($scope);
         var trHelpText = $parse($attrs.helpText)($scope);
         var trLimits = $parse($attrs.limits)($scope);
@@ -160,15 +160,18 @@
         model.views = { allocated: true, available: true };
 
         // Tooltip model
-        var clkMsg = 'Click here to expand the row and view the error messages.';
         model.tooltipModel = {
           templateUrl: path + 'action-list/warning-tooltip.html',
           data: {
-            clickMessage: gettext(clkMsg),
+            clickMessage: gettext('Click here to expand the row and view the errors.'),
             expandDetail: function() {
               var row = this.element.closest('tr');
               if (!row.hasClass('expanded')) {
-                row.find('[hz-expand-detail]').click();
+                // Timeout needed to prevent
+                // $apply already in progress error
+                $timeout(function() {
+                  row.find('[hz-expand-detail]').click();
+                }, 0, false);
               }
             }
           }
@@ -220,15 +223,15 @@
             model.numAvailable -= 1;
           } else if (model.limits.maxAllocation === 1) {
             // Swap out rows if only one allocation allowed
-            var oldRow = trModel.allocated.pop();
+            trModel.allocated.pop();
 
             // When swapping out, Smart-Table $watch is
             // not detecting change so timeout is used
             // as workaround.
-            setTimeout(function() {
+            $timeout(function() {
               trModel.allocated.push(row);
               $scope.$apply();
-            }, 1);
+            }, 0, false);
           }
         };
 

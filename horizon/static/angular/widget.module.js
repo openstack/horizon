@@ -13,7 +13,8 @@
     'hz.widget.charts',
     'hz.widget.action-list',
     'hz.widget.metadata-tree',
-    'hz.widget.metadata-display'
+    'hz.widget.metadata-display',
+    'hz.framework.validators'
   ])
     .constant('basePath', '/static/angular/');
 

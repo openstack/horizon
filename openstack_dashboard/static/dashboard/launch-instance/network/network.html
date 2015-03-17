@@ -12,7 +12,7 @@
   </div>
 
   <transfer-table tr-model="tableDataMulti" help-text="tableHelpText" limits="tableLimits">
-    <allocated>
+    <allocated validate-number-min="1" ng-model="tableDataMulti.allocated.length">
       <table st-table="tableDataMulti.displayedAllocated" st-safe-src="tableDataMulti.allocated" hz-table
         class="table-striped table-rsp table-detail modern">
         <thead>

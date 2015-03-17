@@ -19,6 +19,11 @@
     font-weight: normal;
   }
 
+  .fa.invalid {
+    color: $invalid-color;
+    cursor: pointer;
+  }
+
   & > .nav {
     display: inline-block;
     top: 40px;

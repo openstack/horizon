@@ -62,23 +62,52 @@ limitations under the License.
             title="{$ ::rowExpandText $}"></span>
     </td>
     <td class="rsp-p1">{$ ::item.name $}</td>
-    <td class="rsp-p1">{$ ::item.vcpus $}</td>
-    <td class="rsp-p1">{$ ::item.ram | mb $}</td>
+    <td class="rsp-p1">
+      <span class="invalid fa fa-exclamation-triangle"
+        ng-show="item.errors.vcpus"
+        popover="{$ item.errors.vcpus $}"
+        popover-placement="top" popover-append-to-body="true"
+        popover-trigger="mouseenter mouseleave"/>
+      {$ ::item.vcpus $}
+    </td>
+    <td class="rsp-p1">
+      <span class="invalid fa fa-exclamation-triangle"
+        ng-show="item.errors.ram"
+        popover="{$ item.errors.ram $}"
+        popover-placement="top" popover-append-to-body="true"
+        popover-trigger="mouseenter mouseleave"/>
+      {$ ::item.ram | mb $}
+    </td>
     <td class="rsp-p1">{$ ::item.totalDisk | gb $}</td>
-    <td class="rsp-p2">{$ ::item.rootDisk | gb $}</td>
+    <td class="rsp-p2">
+      <span class="invalid fa fa-exclamation-triangle"
+        ng-show="item.errors.disk"
+        popover="{$ item.errors.disk $}"
+        popover-placement="top" popover-append-to-body="true"
+        popover-trigger="mouseenter mouseleave"/>
+      {$ ::item.rootDisk | gb $}
+    </td>
     <td class="rsp-p2">{$ ::item.ephemeralDisk | gb $}</td>
     <td class="rsp-p2">{$ ::item.isPublic | yesno $}</td>
     <td class="action-col">
-      <action-list>
+      <action-list button-tooltip="item.disabledMessage"
+          bt-model="tooltipModel"
+          bt-disabled="!isAvailableTable || item.enabled"
+          warning-classes="'invalid'">
+        <notifications>
+          <span class="fa fa-exclamation-triangle invalid"
+            ng-show="isAvailableTable && !item.enabled"></span>
+        </notifications>
         <action action-classes="'btn btn-sm btn-default'"
                 callback="itemClickAction"
-                item="item">
+                item="item"
+                disabled="isAvailableTable && !item.enabled">
           <span class="{$ ::itemButtonClasses $}"></span>
         </action>
       </action-list>
     </td>
   </tr>
-  <tr ng-repeat-end class="detail-row">
+  <tr ng-repeat-end class="detail-row" ng-if="showItemFunc(item)">
     <td></td>
     <td colspan="7" class="detail">
       <h5>{$ ::quotaImpactLabel $}</h5>
