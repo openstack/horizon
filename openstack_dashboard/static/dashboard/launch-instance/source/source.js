@@ -153,7 +153,7 @@
     function updateHelpText(key) {
       angular.extend($scope.helpText, {
         noneAllocText: gettext('Select a source from those listed below.'),
-        availHelpText: gettext('Select one.')
+        availHelpText: gettext('Select one')
       });
     }
 

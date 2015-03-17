@@ -42,7 +42,7 @@
 
       $scope.secGroupTableHelp = {
         noneAllocText: gettext('Select one or more security groups from the available groups below.'),
-        availHelpText: gettext('Select one or more.')
+        availHelpText: gettext('Select one or more')
       };
 
       $scope.secGroupTableLimits = {
