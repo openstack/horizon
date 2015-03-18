@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-16 22:31-0500\n"
-"PO-Revision-Date: 2015-03-17 03:32+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-03-17 02:40-0500\n"
+"PO-Revision-Date: 2015-03-17 11:52+0000\n"
+"Last-Translator: Robert Simai\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -81,7 +81,7 @@ msgstr "Alle ICMP"
 
 #: api/ceilometer.py:743
 msgid "Unable to retrieve Ceilometer meter list."
-msgstr ""
+msgstr "Ceilometer Zählerliste kann nicht abgerufen werden."
 
 #: api/ceilometer.py:931
 msgid "Existence of instance"
@@ -93,11 +93,11 @@ msgstr ""
 
 #: api/ceilometer.py:940
 msgid "Volume of RAM"
-msgstr ""
+msgstr "Größe des RAM"
 
 #: api/ceilometer.py:944
 msgid "Volume of RAM used"
-msgstr ""
+msgstr "Größe des verwendeten RAM"
 
 #: api/ceilometer.py:948
 msgid "CPU time used"
@@ -130,27 +130,27 @@ msgstr ""
 
 #: api/ceilometer.py:976
 msgid "Average rate of read requests"
-msgstr ""
+msgstr "Durchschnittliche Rate der Leseanfragen"
 
 #: api/ceilometer.py:980
 msgid "Average rate of write requests"
-msgstr ""
+msgstr "Durchschnittliche Rate der Schreibanfragen"
 
 #: api/ceilometer.py:984
 msgid "Average rate of reads"
-msgstr ""
+msgstr "Durchschnittliche Leserate"
 
 #: api/ceilometer.py:988
 msgid "Average volume of writes"
-msgstr ""
+msgstr "Durchschnittliche Schreibrate"
 
 #: api/ceilometer.py:992
 msgid "Size of root disk"
-msgstr ""
+msgstr "Größe der root-Festplatte"
 
 #: api/ceilometer.py:996
 msgid "Size of ephemeral disk"
-msgstr ""
+msgstr "Größe der flüchtigen Festplatte"
 
 #: api/ceilometer.py:1000
 msgid "Number of incoming bytes on the network for a VM interface"
@@ -259,15 +259,15 @@ msgstr "Größe des hochgeladenen Abbildes"
 
 #: api/ceilometer.py:1148
 msgid "Number of image updates"
-msgstr ""
+msgstr "Anzahl der Abbild-Aktualisierungen"
 
 #: api/ceilometer.py:1152
 msgid "Number of image uploads"
-msgstr ""
+msgstr "Anzahl der hochgeladenen Abbilder"
 
 #: api/ceilometer.py:1156
 msgid "Number of image deletions"
-msgstr ""
+msgstr "Anzahl der gelöschten Abbilder"
 
 #: api/ceilometer.py:1160
 msgid "Image is downloaded"
@@ -1582,7 +1582,7 @@ msgid "Modified flavor information, but unable to modify flavor access."
 msgstr "Varianteninformation wurde geändert, aber Zugriffsrechte für Varianten können nicht verändert werden."
 
 #: dashboards/admin/hypervisors/panel.py:22
-#: dashboards/admin/hypervisors/tables.py:64
+#: dashboards/admin/hypervisors/tables.py:65
 #: dashboards/admin/hypervisors/templates/hypervisors/index.html:4
 msgid "Hypervisors"
 msgstr "Hypervisoren"
@@ -1635,7 +1635,7 @@ msgstr "Lokaler Speicher (belegt)"
 msgid "Local Storage (total)"
 msgstr "Lokaler Speicher (insgesamt)"
 
-#: dashboards/admin/hypervisors/tables.py:70
+#: dashboards/admin/hypervisors/tables.py:71
 #: dashboards/project/databases/tables.py:320
 #: dashboards/project/databases/workflows/create_instance.py:35
 #: dashboards/project/instances/tables.py:985
@@ -1645,12 +1645,12 @@ msgstr "Lokaler Speicher (insgesamt)"
 msgid "Instance Name"
 msgstr "Instanzname"
 
-#: dashboards/admin/hypervisors/tables.py:73
+#: dashboards/admin/hypervisors/tables.py:74
 #: dashboards/project/images/snapshots/forms.py:30
 msgid "Instance ID"
 msgstr "Instanz-ID"
 
-#: dashboards/admin/hypervisors/tables.py:80
+#: dashboards/admin/hypervisors/tables.py:81
 msgid "Hypervisor Instances"
 msgstr "Hypervisor-Instanzen"
 
@@ -1676,7 +1676,7 @@ msgstr "Hypervisor-Statistiken können nicht abgerufen werden."
 msgid "Hypervisor Servers"
 msgstr "Hypervisor Server"
 
-#: dashboards/admin/hypervisors/views.py:74
+#: dashboards/admin/hypervisors/views.py:76
 msgid "Unable to retrieve hypervisor instances list."
 msgstr "Hypervisor-Instanzliste konnte nicht abgerufen werden."
 
@@ -1782,12 +1782,12 @@ msgstr "Block Migration"
 #: dashboards/admin/hypervisors/compute/forms.py:159
 #, python-format
 msgid "Starting to migrate host: %(current)s"
-msgstr ""
+msgstr "Beginne Migration für Host %(current)s"
 
 #: dashboards/admin/hypervisors/compute/forms.py:164
 #, python-format
 msgid "Failed to migrate host \"%s\"."
-msgstr ""
+msgstr "Fehler beim migrieren von Host \"%s\"."
 
 #: dashboards/admin/hypervisors/compute/tables.py:26
 #: dashboards/admin/hypervisors/compute/views.py:30
@@ -1825,14 +1825,14 @@ msgstr[1] "Aktivierte Dienste"
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/migrate_host.html:6
 msgid "Migrate Host"
 msgid_plural "Migrate Hosts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Host migrieren"
+msgstr[1] "Hosts migrieren"
 
 #: dashboards/admin/hypervisors/compute/tables.py:104
 msgid "Migrated Host"
 msgid_plural "Migrated Hosts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Migrierter Host"
+msgstr[1] "Migrierte Hosts"
 
 #: dashboards/admin/hypervisors/compute/tables.py:125
 #: dashboards/admin/info/tables.py:96 dashboards/admin/info/tables.py:120
@@ -2374,7 +2374,7 @@ msgstr ""
 #: dashboards/admin/metadata_defs/forms.py:46
 #: dashboards/admin/metadata_defs/forms.py:50
 msgid "Metadata Definition File"
-msgstr ""
+msgstr "Metadaten-Definitionsdatei"
 
 #: dashboards/admin/metadata_defs/forms.py:41
 #: dashboards/project/instances/workflows/create_instance.py:611
@@ -2384,7 +2384,7 @@ msgstr "Direkteingabe"
 
 #: dashboards/admin/metadata_defs/forms.py:47
 msgid "A local metadata definition file to upload."
-msgstr ""
+msgstr "Eine lokale Metadaten-Definitionsdatei zum hochladen."
 
 #: dashboards/admin/metadata_defs/forms.py:54
 #: dashboards/admin/metadata_defs/forms.py:58
@@ -2442,7 +2442,7 @@ msgstr ""
 #: dashboards/admin/metadata_defs/views.py:40
 #: dashboards/admin/metadata_defs/templates/metadata_defs/index.html:3
 msgid "Metadata Definitions"
-msgstr ""
+msgstr "Metadaten-Definitionen"
 
 #: dashboards/admin/metadata_defs/tables.py:30
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:9
@@ -2584,16 +2584,16 @@ msgstr "Inhalt des Namensraumes kann nicht abgerufen werden."
 
 #: dashboards/admin/metadata_defs/views.py:76
 msgid "Error getting metadata definitions."
-msgstr ""
+msgstr "Fehler beim Abruf der Metadaten-Definitionen."
 
 #: dashboards/admin/metadata_defs/views.py:86
 #: dashboards/admin/metadata_defs/templates/metadata_defs/create.html:3
 msgid "Create a Metadata Namespace"
-msgstr ""
+msgstr "Metadaten-Namensraum erzeugen"
 
 #: dashboards/admin/metadata_defs/views.py:93
 msgid "Namespace Details: {{ namespace.namespace }}"
-msgstr ""
+msgstr "Namensraum Details: {{ namespace.namespace }}"
 
 #: dashboards/admin/metadata_defs/views.py:129
 #: dashboards/admin/metadata_defs/views.py:147
@@ -3386,7 +3386,7 @@ msgstr "Anzeige des Bereitstellungsnetzwerks des DHCP Agenten nicht möglich."
 #: dashboards/admin/networks/views.py:107
 #: dashboards/project/networks/views.py:103
 msgid "Network Details: {{ network.name }}"
-msgstr ""
+msgstr "Netzwerk Details: {{ network.name }}"
 
 #: dashboards/admin/networks/views.py:116
 #: dashboards/project/networks/views.py:112
@@ -3750,7 +3750,7 @@ msgstr "Gesamtes aktives RAM (MB)"
 #: dashboards/admin/overview/templates/overview/usage.csv:5
 #: dashboards/project/overview/templates/overview/usage.csv:6
 msgid "Total Memory Usage (Hours)"
-msgstr ""
+msgstr "Gesamte Speicherverwendung (Stunden)"
 
 #: dashboards/admin/overview/templates/overview/usage.csv:6
 #: dashboards/project/overview/templates/overview/usage.csv:7
@@ -4321,20 +4321,20 @@ msgstr "Datenträgerdetails"
 #: dashboards/admin/volumes/volumes/tables.py:33
 #: dashboards/admin/volumes/volumes/views.py:38
 msgid "Manage Volume"
-msgstr ""
+msgstr "Datenträger verwalten"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/manage_volume.html:6
 msgid "Manage a Volume"
-msgstr ""
+msgstr "Einen Datenträger verwalten"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/unmanage_volume.html:3
 #: dashboards/admin/volumes/volumes/tables.py:43
 msgid "Unmanage Volume"
-msgstr ""
+msgstr "Verwaltung für Datenträger aufheben"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/unmanage_volume.html:6
 msgid "Unmanage a Volume"
-msgstr ""
+msgstr "Verwaltung für einen Datenträger aufheben"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/update_status.html:3
 #: dashboards/admin/volumes/volumes/tables.py:69
@@ -4350,7 +4350,7 @@ msgstr "Verschlüsselung erfolgreich erstellt für Volumentyp: %s"
 
 #: dashboards/admin/volumes/volume_types/forms.py:58
 msgid "Unable to create encrypted volume type."
-msgstr ""
+msgstr "Verschlüsselter Datenträger-Typ kann nicht erstellt werden."
 
 #: dashboards/admin/volumes/volume_types/forms.py:64
 msgid "QoS Spec to be associated"
@@ -4433,7 +4433,7 @@ msgstr[1] "Gelöschte Verschlüsselungen"
 
 #: dashboards/admin/volumes/volume_types/tables.py:122
 msgid "Unable to determine if volume type encryption is supported."
-msgstr ""
+msgstr "Es kann nicht festgestellt werden, ob der für die Verschlüsselung nötige Datenträger-Typ unterstützt wird."
 
 #: dashboards/admin/volumes/volume_types/tables.py:148
 msgid "Associated QoS Spec"
@@ -4478,7 +4478,7 @@ msgstr "Datenträgertyp erstellen"
 
 #: dashboards/admin/volumes/volume_types/views.py:72
 msgid "Unable to retrieve volume type encryption details."
-msgstr ""
+msgstr "Details zum verschlüsselten Datenträger-Typ können nicht abgerufen werden."
 
 #: dashboards/admin/volumes/volume_types/views.py:83
 #: dashboards/admin/volumes/volume_types/views.py:87
@@ -4491,7 +4491,7 @@ msgstr "Einen verschlüsselten Volumentyp erstellen"
 
 #: dashboards/admin/volumes/volume_types/views.py:100
 msgid "Unable to retrieve volume type name."
-msgstr ""
+msgstr "Name des Datenträger-Typs kann nicht abgerufen werden."
 
 #: dashboards/admin/volumes/volume_types/views.py:125
 msgid "Create a QoS Spec"
@@ -4728,7 +4728,7 @@ msgstr ""
 
 #: dashboards/admin/volumes/volumes/forms.py:133
 msgid "Unable to manage volume."
-msgstr ""
+msgstr "Datenträger kann nicht verwaltet werden."
 
 #: dashboards/admin/volumes/volumes/forms.py:159
 #, python-format

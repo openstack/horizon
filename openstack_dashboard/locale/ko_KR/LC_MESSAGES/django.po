@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-16 22:31-0500\n"
-"PO-Revision-Date: 2015-03-17 03:32+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-03-17 02:40-0500\n"
+"PO-Revision-Date: 2015-03-17 16:37+0000\n"
+"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -511,7 +511,7 @@ msgstr "인스턴스를 이주하지 못했습니다: %s"
 #: api/nova.py:836
 #, python-format
 msgid "Failed to migrate instances: %s"
-msgstr ""
+msgstr "인스턴스 마이그레이션 실패: %s"
 
 #: api/swift.py:203
 msgid "The container cannot be deleted since it is not empty."
@@ -1579,7 +1579,7 @@ msgid "Modified flavor information, but unable to modify flavor access."
 msgstr "Flavor 정보를 수정하였으나, flavor 접근 권한을 수정할 수 없습니다."
 
 #: dashboards/admin/hypervisors/panel.py:22
-#: dashboards/admin/hypervisors/tables.py:64
+#: dashboards/admin/hypervisors/tables.py:65
 #: dashboards/admin/hypervisors/templates/hypervisors/index.html:4
 msgid "Hypervisors"
 msgstr "하이퍼바이저"
@@ -1632,7 +1632,7 @@ msgstr "로컬 저장소 (사용됨)"
 msgid "Local Storage (total)"
 msgstr "로컬 저장소 (전체)"
 
-#: dashboards/admin/hypervisors/tables.py:70
+#: dashboards/admin/hypervisors/tables.py:71
 #: dashboards/project/databases/tables.py:320
 #: dashboards/project/databases/workflows/create_instance.py:35
 #: dashboards/project/instances/tables.py:985
@@ -1642,12 +1642,12 @@ msgstr "로컬 저장소 (전체)"
 msgid "Instance Name"
 msgstr "인스턴스 이름"
 
-#: dashboards/admin/hypervisors/tables.py:73
+#: dashboards/admin/hypervisors/tables.py:74
 #: dashboards/project/images/snapshots/forms.py:30
 msgid "Instance ID"
 msgstr "인스턴스 ID"
 
-#: dashboards/admin/hypervisors/tables.py:80
+#: dashboards/admin/hypervisors/tables.py:81
 msgid "Hypervisor Instances"
 msgstr "하이퍼바이저 인스턴스"
 
@@ -1673,7 +1673,7 @@ msgstr "하이퍼바이저 통계를 찾지 못 했습니다."
 msgid "Hypervisor Servers"
 msgstr "하이퍼바이저 서버"
 
-#: dashboards/admin/hypervisors/views.py:74
+#: dashboards/admin/hypervisors/views.py:76
 msgid "Unable to retrieve hypervisor instances list."
 msgstr "하이퍼바이저 인스턴스 목록을 찾지 못 했습니다."
 
@@ -4045,7 +4045,7 @@ msgstr "\"None\" 표시는 QoS 사양에 현재 관련되지 않았음을 나타
 msgid ""
 "This is equivalent to the <tt>cinder qos-associate</tt> and <tt>cinder qos-"
 "disassociate</tt> commands."
-msgstr ""
+msgstr "<tt>cinder qos-associate</tt>와 <tt>cinder qos-disassociate</tt> 명령과 동일합니다."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:6
 msgid ""
@@ -4061,7 +4061,7 @@ msgid ""
 "      administrator would like the QoS policy to be enforced. This value can be \"front-end\"\n"
 "      (Nova Compute), \"back-end\" (Cinder back-end), or \"both\".\n"
 "  "
-msgstr ""
+msgstr "\nQoS 스펙은 볼륨 유형과 연결이 가능합니다.\n이는 볼륨 소유자에 의해 요청된 서비스 품질 기능 집합과 연결되는데 사용됩니다.\n이는 <tt>cinder qos-create</tt> 명령어와 동일합니다.\nQoS 스펙이 생성되면, \"Manage Specs\" 버튼을 클릭하여 QoS 스펙에 대해 키-값 스펙을 관리하십시오.\n<br>\n<br>\n각 QoS 스펙 개체는 QoS 정책을 적용하고자 하는 관리자를 가리키는 \n\"Consumer\" 값을 가질 것입니다. 이 값은 \"front-end\"(Nova Compute), \n\"back-end\"(Cinder back-end), \"both\"가 있습니다."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:6
 msgid ""
@@ -4593,7 +4593,7 @@ msgstr "추가 사양 목록을 찾지 못 했습니다."
 #: dashboards/admin/volumes/volume_types/extras/views.py:86
 #, python-format
 msgid "Edit Extra Spec Value: %s"
-msgstr ""
+msgstr "추가 스펙 값 편집: %s"
 
 #: dashboards/admin/volumes/volume_types/extras/views.py:107
 msgid "Unable to retrieve volume type extra spec details."
@@ -4635,7 +4635,7 @@ msgstr "QOS 사양 목록을 찾지 못 했습니다."
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:98
 msgid "Edit Spec Value"
-msgstr ""
+msgstr "추가 스펙 값"
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:117
 msgid "Unable to retrieve QoS spec details."
@@ -5526,7 +5526,7 @@ msgstr "관리자 비밀번호"
 
 #: dashboards/identity/users/forms.py:249
 msgid "The admin password is incorrect."
-msgstr ""
+msgstr "관리자 암호가 잘못되었습니다."
 
 #: dashboards/identity/users/forms.py:258
 msgid "Password changed. Please log in to continue."
@@ -6036,7 +6036,7 @@ msgstr "시큐리티 그룹을 성공적으로 생성하였습니다: %s"
 #: dashboards/project/access_and_security/security_groups/forms.py:78
 #, python-format
 msgid "Unable to create security group: %s"
-msgstr ""
+msgstr "시큐리티 그룹을 생성하지 못했습니다: %s"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:87
 #, python-format
@@ -6046,7 +6046,7 @@ msgstr "시큐리티 그룹을 성공적으로 업데이트 하였습니다: %s"
 #: dashboards/project/access_and_security/security_groups/forms.py:88
 #, python-format
 msgid "Unable to update security group: %s"
-msgstr ""
+msgstr "시큐리티 그룹을 업데이트하지 못했습니다: %s"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:101
 msgid "Rule"
@@ -6296,11 +6296,11 @@ msgstr "어디든"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:270
 msgid "Remote IP Prefix"
-msgstr ""
+msgstr "​원격 IP 접두사"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:272
 msgid "Remote Security Group"
-msgstr ""
+msgstr "원격 시큐리티 그룹"
 
 #: dashboards/project/access_and_security/security_groups/views.py:43
 msgid ""
@@ -6996,7 +6996,7 @@ msgstr "클러스터 템플릿 생성"
 
 #: dashboards/project/data_processing/cluster_templates/views.py:104
 msgid "Copy Cluster Template"
-msgstr ""
+msgstr "클러스터 탬플릿 복사"
 
 #: dashboards/project/data_processing/cluster_templates/views.py:122
 #: dashboards/project/data_processing/clusters/views.py:106
@@ -10029,7 +10029,7 @@ msgstr "새 이미지 생성 실패: 이미지에 대한 잘못된 %s 디스크 
 
 #: dashboards/project/images/images/forms.py:191
 msgid "Unable to create new image: Image name too long."
-msgstr ""
+msgstr "새로운 이미지를 생성할 수 없습니다: 이미지 이름이 너무 깁니다."
 
 #: dashboards/project/images/images/forms.py:205
 msgid "Kernel ID"
@@ -10355,7 +10355,7 @@ msgstr[0] "인스턴스 일시 중단함"
 
 #: dashboards/project/instances/tables.py:352
 msgid "Launch Instance NG"
-msgstr ""
+msgstr "인스턴스 NG 작동"
 
 #: dashboards/project/instances/tables.py:394
 msgid "Edit Security Groups"
@@ -12505,22 +12505,22 @@ msgstr "서브넷 추가 (Quota 초과)"
 #: dashboards/project/networks/tables.py:150
 msgctxt "Current status of a Network"
 msgid "Active"
-msgstr ""
+msgstr "Active"
 
 #: dashboards/project/networks/tables.py:151
 msgctxt "Current status of a Network"
 msgid "Build"
-msgstr ""
+msgstr "Build"
 
 #: dashboards/project/networks/tables.py:152
 msgctxt "Current status of a Network"
 msgid "Down"
-msgstr ""
+msgstr "Down"
 
 #: dashboards/project/networks/tables.py:153
 msgctxt "Current status of a Network"
 msgid "Error"
-msgstr ""
+msgstr "Error"
 
 #: dashboards/project/networks/views.py:89
 msgid "Unable to retrieve network details."
@@ -12746,22 +12746,22 @@ msgstr "DOWN"
 #: dashboards/project/networks/ports/tables.py:60
 msgctxt "status of a network port"
 msgid "Active"
-msgstr ""
+msgstr "Active"
 
 #: dashboards/project/networks/ports/tables.py:61
 msgctxt "status of a network port"
 msgid "Down"
-msgstr ""
+msgstr "Down"
 
 #: dashboards/project/networks/ports/tables.py:62
 msgctxt "status of a neteork port"
 msgid "Error"
-msgstr ""
+msgstr "Error"
 
 #: dashboards/project/networks/ports/tables.py:63
 msgctxt "status of a network port"
 msgid "Build"
-msgstr ""
+msgstr "Build"
 
 #: dashboards/project/networks/ports/tables.py:72
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:40
@@ -12894,7 +12894,7 @@ msgstr "구분 ID:"
 
 #: dashboards/project/networks/templates/networks/create.html:9
 msgid "&laquo;&nbsp;Back"
-msgstr ""
+msgstr "&laquo;&nbsp;뒤로"
 
 #: dashboards/project/networks/templates/networks/create.html:10
 msgid "Next&nbsp;&raquo;"
@@ -13528,11 +13528,11 @@ msgstr "스택 이름"
 #: dashboards/project/stacks/views.py:152
 #: dashboards/project/stacks/templates/stacks/preview_template.html:3
 msgid "Preview Template"
-msgstr ""
+msgstr "템플릿 미리보기"
 
 #: dashboards/project/stacks/forms.py:241
 msgid "Select a new template to preview a stack."
-msgstr ""
+msgstr "스택 미리보기할 새로운 템플릿 선택합니다."
 
 #: dashboards/project/stacks/forms.py:249
 msgid "Create Stack"
@@ -13591,7 +13591,7 @@ msgstr "스택 업데이트를 시작하였습니다."
 
 #: dashboards/project/stacks/forms.py:443
 msgid "Preview Stack Parameters"
-msgstr ""
+msgstr "스택 매개 변수 미리보기"
 
 #: dashboards/project/stacks/panel.py:21
 #: dashboards/project/stacks/tables.py:283
@@ -13612,7 +13612,7 @@ msgstr "스택 시작"
 #: dashboards/project/stacks/views.py:245
 #: dashboards/project/stacks/templates/stacks/preview.html:3
 msgid "Preview Stack"
-msgstr ""
+msgstr "미리보기 스택"
 
 #: dashboards/project/stacks/tables.py:49
 #: dashboards/project/stacks/tables.py:55
@@ -13896,12 +13896,12 @@ msgstr "스택 업데이트"
 
 #: dashboards/project/stacks/views.py:242
 msgid "Preview"
-msgstr ""
+msgstr "미리보기"
 
 #: dashboards/project/stacks/views.py:255
 #: dashboards/project/stacks/templates/stacks/preview_details.html:3
 msgid "Preview Stack Details"
-msgstr ""
+msgstr "스택 미리보기 상세정보"
 
 #: dashboards/project/stacks/views.py:267
 msgid "Stack Details: {{ stack.stack_name }}"
@@ -14002,21 +14002,21 @@ msgstr "롤백"
 
 #: dashboards/project/stacks/templates/stacks/_preview.html:5
 msgid "Preview a new stack with the provided values."
-msgstr ""
+msgstr "제공된 값을 갖는 새 스택을 미리봅니다."
 
 #: dashboards/project/stacks/templates/stacks/_preview_details.html:5
 msgid "Stack Preview"
-msgstr ""
+msgstr "스택 미리보기"
 
 #: dashboards/project/stacks/templates/stacks/_preview_details.html:31
 msgid "Links"
-msgstr ""
+msgstr "링크"
 
 #: dashboards/project/stacks/templates/stacks/_preview_template.html:6
 msgid ""
 "Use one of the available template source options to specify the template to "
 "be used in previewing this stack."
-msgstr ""
+msgstr "스택 미리보기에서 사용되는 템플릿은 지정가능한 템플릿 소스중 하나를 사용합니다."
 
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:3
 msgid "Resource Overview"
@@ -14359,7 +14359,7 @@ msgid ""
 "      Change the volume type of a volume after its creation.\n"
 "      This is equivalent to the <tt>cinder retype</tt> command.\n"
 "     "
-msgstr ""
+msgstr "\n볼륨을 생성한후 볼륨 유형을 변경합니다.\n이것은 <tt>cinder retype</tt> 명령어와 동일합니다."
 
 #: dashboards/project/volumes/templates/volumes/volumes/_retype.html:11
 msgid ""
