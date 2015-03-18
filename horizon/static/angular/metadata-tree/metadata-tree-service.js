@@ -48,6 +48,7 @@
      * @property {*} value Property value
      * @property {string} default Property default value
      * @property {string} type Property type
+     * @property {boolean} readonly Property readonly state
      */
     function Property(name, json) {
       this.name = name;
@@ -56,6 +57,7 @@
       this.value = null;
       this.default = null;
       this.type = 'string';
+      this.readonly = false;
       angular.extend(this, json);
       this.setValue(this.default);
     }

@@ -15,21 +15,24 @@
            required
            ng-model="item.leaf.value"
            ng-minlength="{$ ::item.leaf.minLength $}"
-           ng-maxlength="{$ ::item.leaf.maxLength $}"/>
+           ng-maxlength="{$ ::item.leaf.maxLength $}"
+           ng-disabled="item.leaf.readonly"/>
     <select ng-switch-when="string"
             ng-if="item.leaf.enum"
             name="property"
             class="form-control"
             required
             ng-model="item.leaf.value"
-            ng-options="op for op in item.leaf.enum">
+            ng-options="op for op in item.leaf.enum"
+            ng-disabled="item.leaf.readonly">
     </select>
     <select ng-switch-when="array"
             name="property"
             class="form-control"
             required
             ng-model="item.leaf.value"
-            ng-options="op for op in item.leaf.items.enum">
+            ng-options="op for op in item.leaf.items.enum"
+            ng-disabled="item.leaf.readonly">
     </select>
     <input ng-switch-when="integer"
            name="property"
@@ -40,7 +43,8 @@
            ng-pattern="/^-?\d+$/"
            min="{$ ::item.leaf.minimum $}"
            max="{$ ::item.leaf.maximum $}"
-           step="1"/>
+           step="1"
+           ng-disabled="item.leaf.readonly"/>
     <input ng-switch-when="number"
            name="property"
            type="number"
@@ -48,12 +52,14 @@
            required
            ng-model="item.leaf.value"
            min="{$ ::item.leaf.minimum $}"
-           max="{$ ::item.leaf.maximum $}"/>
+           max="{$ ::item.leaf.maximum $}"
+           ng-disabled="item.leaf.readonly"/>
     <div class="input-group-addon bool"
          ng-switch-when="boolean">
       <input name="property"
              type="checkbox"
-             ng-model="item.leaf.value"/>
+             ng-model="item.leaf.value"
+             ng-disabled="item.leaf.readonly"/>
     </div>
     <div class="input-group-btn">
       <a class="btn btn-default"
