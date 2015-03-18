@@ -113,7 +113,7 @@ class ChooseJobTypeForm(forms.SelfHandlingForm):
                 hlps.reset_job_guide()
                 request.session["guide_job_type"] = (
                     helpers.JOB_TYPE_MAP[job_type][0])
-                messages.success(request, "Job type chosen")
+                messages.success(request, _("Job type chosen"))
             return True
         except Exception:
             exceptions.handle(request,
