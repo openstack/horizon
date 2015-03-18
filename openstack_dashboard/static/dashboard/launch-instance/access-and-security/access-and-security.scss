@@ -5,4 +5,14 @@
     height: 280px;
     font-family: Menlo, Monaco, Consolas, 'Courier New';
   }
+
+  .table-rsp.security-group-details {
+    background: none;
+
+    td {
+      background: none !important;
+      padding: 15px !important;
+    }
+
+  }
 }
