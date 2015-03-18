@@ -21,6 +21,7 @@ import os
 import sys
 import warnings
 
+import django
 from django.utils.translation import ugettext_lazy as _
 
 from openstack_dashboard import exceptions
@@ -101,8 +102,14 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+)
+if django.VERSION >= (1, 8, 0):
+    MIDDLEWARE_CLASSES += (
+        'django.contrib.auth.middleware.SessionAuthenticationMiddleware',)
+else:
+    MIDDLEWARE_CLASSES += ('django.middleware.doc.XViewMiddleware',)
+MIDDLEWARE_CLASSES += (
     'horizon.middleware.HorizonMiddleware',
-    'django.middleware.doc.XViewMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )

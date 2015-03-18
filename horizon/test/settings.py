@@ -73,9 +73,17 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.doc.XViewMiddleware',
+)
+if django.VERSION >= (1, 8, 0):
+    MIDDLEWARE_CLASSES += (
+        'django.contrib.auth.middleware.SessionAuthenticationMiddleware',)
+else:
+    MIDDLEWARE_CLASSES += ('django.middleware.doc.XViewMiddleware',)
+MIDDLEWARE_CLASSES += (
+    'horizon.middleware.HorizonMiddleware',
     'django.middleware.locale.LocaleMiddleware',
-    'horizon.middleware.HorizonMiddleware')
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+)
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.debug',

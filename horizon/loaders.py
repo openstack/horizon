@@ -16,16 +16,23 @@ Wrapper for loading templates from "templates" directories in panel modules.
 
 import os
 
+import django
 from django.conf import settings
 from django.template.base import TemplateDoesNotExist  # noqa
-from django.template.loader import BaseLoader  # noqa
+
+if django.get_version() >= '1.8':
+    from django.template.engine import Engine
+    from django.template.loaders.base import Loader as tLoaderCls
+else:
+    from django.template.loader import BaseLoader as tLoaderCls  # noqa
+
 from django.utils._os import safe_join  # noqa
 
 # Set up a cache of the panel directories to search.
 panel_template_dirs = {}
 
 
-class TemplateLoader(BaseLoader):
+class TemplateLoader(tLoaderCls):
     is_usable = True
 
     def get_template_sources(self, template_name):
@@ -54,4 +61,8 @@ class TemplateLoader(BaseLoader):
         raise TemplateDoesNotExist(template_name)
 
 
-_loader = TemplateLoader()
+if django.get_version() >= '1.8':
+    e = Engine()
+    _loader = TemplateLoader(e)
+else:
+    _loader = TemplateLoader()
