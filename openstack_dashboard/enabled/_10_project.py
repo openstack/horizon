@@ -31,6 +31,7 @@ ADD_JS_FILES = [
     LAUNCH_INST + 'launch-instance.model.js',
     LAUNCH_INST + 'source/source.js',
     LAUNCH_INST + 'flavor/flavor.js',
+    LAUNCH_INST + 'flavor/select-flavor-table.js',
     LAUNCH_INST + 'network/network.js',
     LAUNCH_INST + 'security-groups/security-groups.js',
     LAUNCH_INST + 'keypair/keypair.js',

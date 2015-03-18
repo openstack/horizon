@@ -12,166 +12,25 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-<div ng-controller="LaunchInstanceFlavorCtrl as ctrl">
-  <h1>{$ ::ctrl.title $}</h1>
-
+<div ng-controller="LaunchInstanceFlavorCtrl as selectFlavorCtrl">
+  <h1>{$ ::selectFlavorCtrl.title $}</h1>
   <div class="content">
-    <div class="subtitle">{$ ::ctrl.subtitle $}</div>
+    <div class="subtitle">{$ ::selectFlavorCtrl.subtitle $}</div>
     <transfer-table
-        tr-model="ctrl.transferTableData"
-        limits="ctrl.allocationLimits">
+        tr-model="selectFlavorCtrl.transferTableModel"
+        limits="selectFlavorCtrl.allocationLimits">
       <allocated>
-        <table st-table="ctrl.transferTableData.displayedAllocated"
-               st-safe-src="ctrl.transferTableData.allocated"
-               hz-table class="table-striped table-rsp table-detail modern">
-          <thead>
-          <tr>
-            <th class="expander"></th>
-            <th class="rsp-p1">{$ ::ctrl.nameLabel $}</th>
-            <th class="rsp-p1">{$ ::ctrl.vcpusLabel $}</th>
-            <th class="rsp-p1">{$ ::ctrl.ramLabel $}</th>
-            <th class="rsp-p1">{$ ::ctrl.totalDiskLabel $}</th>
-            <th class="rsp-p2">{$ ::ctrl.rootDiskLabel $}</th>
-            <th class="rsp-p2">{$ ::ctrl.ephemeralDiskLabel $}</th>
-            <th class="rsp-p2">{$ ::ctrl.isPublicLabel $}</th>
-            <th></th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr ng-if="ctrl.transferTableData.displayedAllocated.length === 0">
-            <td colspan="10">
-              <div class="no-rows-help">
-                {$ ::trCtrl.helpText.noneAllocText $}
-              </div>
-            </td>
-          </tr>
-          <tr ng-repeat-start="row in ctrl.transferTableData.displayedAllocated track by row.name">
-            <td class="expander">
-              <span class="fa fa-chevron-right" hz-expand-detail
-                    title="{$ ::trCtrl.helpText.expandDetailsText $}"></span>
-            </td>
-            <td class="rsp-p1">{$ row.name $}</td>
-            <td class="rsp-p1">{$ row.vcpus $}</td>
-            <td class="rsp-p1">{$ row.ram | mb $}</td>
-            <td class="rsp-p1">{$ row.disk + row.ephemeral | gb $}</td>
-            <td class="rsp-p2">{$ row.disk | gb $}</td>
-            <td class="rsp-p2">{$ row.ephemeral | gb $}</td>
-            <td class="rsp-p2">{$ row.is_public | yesno $}</td>
-            <td class="action-col">
-              <action-list>
-                <action action-classes="'btn btn-sm btn-default'"
-                        callback="trCtrl.deallocate" item="row">
-                  <span class="fa fa-minus"></span>
-                </action>
-              </action-list>
-            </td>
-          </tr>
-          <tr ng-repeat-end class="detail-row">
-            <td></td>
-            <td colspan="7" class="detail">
-              <ul>
-                <li>{$ ::ctrl.idLabel + ' : ' + row.id $}</li>
-              </ul>
-            </td>
-            <td></td>
-          </tr>
-          </tbody>
-        </table>
+        <select-flavor-table
+            items="selectFlavorCtrl.allocatedFlavorFacades"
+            displayed-items="selectFlavorCtrl.displayedAllocatedFlavorFacades">
+        </select-flavor-table>
       </allocated>
       <available>
-        <table st-table="ctrl.transferTableData.displayedAvailable"
-               st-safe-src="ctrl.transferTableData.available"
-               hz-table class="table-striped table-rsp table-detail modern">
-          <thead>
-          <tr>
-            <th class="search-header" colspan="10">
-              <search-bar group-classes="input-group-sm"
-                          icon-classes="fa-search">
-              </search-bar>
-            </th>
-          </tr>
-          <tr>
-            <th class="expander"></th>
-            <th st-sort="name" ng-attr-st-sort-default="{$ ctrl.flavor.name.sortDefault $}"
-              class="rsp-p1">{$ ::ctrl.flavor.name.label $}</th>
-            <th st-sort="vcpus" ng-attr-st-sort-default="{$ ctrl.flavor.vcpus.sortDefault $}"
-              class="rsp-p1">{$ ::ctrl.flavor.vcpus.label $}</th>
-            <th st-sort="ram" ng-attr-st-sort-default="{$ ctrl.flavor.ram.sortDefault $}"
-              class="rsp-p1">{$ ::ctrl.flavor.ram.label $}</th>
-            <th st-sort="totalDisk" ng-attr-st-sort-default="{$ ctrl.flavor.totalDisk.sortDefault $}"
-              class="rsp-p1">{$ ::ctrl.flavor.totalDisk.label $}</th>
-            <th st-sort="disk" ng-attr-st-sort-default="{$ ctrl.flavor.disk.sortDefault $}"
-              class="rsp-p2">{$ ::ctrl.flavor.rootDisk.label $}</th>
-            <th st-sort="ephemeral" ng-attr-st-sort-default="{$ ctrl.flavor.ephemeral.sortDefault $}"
-              class="rsp-p2">{$ ::ctrl.flavor.ephemeralDisk.label $}</th>
-            <th st-sort="is_public" ng-attr-st-sort-default="{$ ctrl.flavor.is_public.sortDefault $}"
-              class="rsp-p2">{$ ::ctrl.flavor.isPublic.label $}</th>
-            <th></th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr ng-if="trCtrl.numDisplayedAvailable() === 0">
-            <td colspan="10">
-              <div class="no-rows-help">
-                {$ ::trCtrl.helpText.noneAvailText $}
-              </div>
-            </td>
-          </tr>
-          <tr ng-repeat-start="row in ctrl.transferTableData.displayedAvailable track by row.name"
-              ng-if="!trCtrl.allocatedIds[row.id]">
-            <td class="expander">
-              <span class="fa fa-chevron-right" hz-expand-detail
-                    title="{$ ::trCtrl.helpText.expandDetailsText $}"></span>
-            </td>
-            <td class="rsp-p1">{$ row.name $}</td>
-            <td class="rsp-p1">
-              <span class="invalid fa fa-exclamation-circle"
-                    ng-show="row.warnings && row.warnings.vcpus"
-                    popover="{$ row.warnings | warningText:'vcpus' $}"
-                    popover-trigger="mouseenter mouseleave"
-                    popover-placement="top"></span>
-              {$ row.vcpus $}
-            </td>
-            <td class="rsp-p1">
-              <span class="invalid fa fa-exclamation-circle"
-                    ng-show="row.warnings && row.warnings.ram"
-                    popover="{$ row.warnings | warningText:'ram' $}"
-                    popover-trigger="mouseenter mouseleave"
-                    popover-placement="top"></span>
-              {$ row.ram | mb $}
-            </td>
-            <td class="rsp-p1">{$ row.disk + row.ephemeral | gb $}</td>
-            <td class="rsp-p2">{$ row.disk | gb $}</td>
-            <td class="rsp-p2">{$ row.ephemeral | gb $}</td>
-            <td class="rsp-p2">{$ row.is_public | yesno $}</td>
-            <td class="action-col">
-              <action-list button-tooltip="row.warningMessage"
-                           bt-model="trCtrl.tooltipModel"
-                           bt-disabled="!row.disabled"
-                           warning-classes="'invalid'">
-                <notifications>
-                  <span class="fa fa-exclamation-circle invalid"
-                        ng-show="row.disabled"></span>
-                </notifications>
-                <action action-classes="'btn btn-sm btn-default'"
-                        callback="trCtrl.allocate" item="row"
-                        disabled="row.disabled">
-                  <span class="fa fa-plus"></span>
-                </action>
-              </action-list>
-            </td>
-          </tr>
-          <tr ng-repeat-end class="detail-row" ng-if="!trCtrl.allocatedIds[row.id]">
-            <td></td>
-            <td colspan="7" class="detail">
-              <ul>
-                <li>{$ ::ctrl.idLabel + ' : ' + row.id $}</li>
-              </ul>
-            </td>
-            <td></td>
-          </tr>
-          </tbody>
-        </table>
+        <select-flavor-table
+            is-available-table="true"
+            items="selectFlavorCtrl.availableFlavorFacades"
+            displayed-items="selectFlavorCtrl.displayedAvailableFlavorFacades">
+        </select-flavor-table>
       </available>
     </transfer-table>
   </div>
