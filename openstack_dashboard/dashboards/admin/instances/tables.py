@@ -30,6 +30,14 @@ class AdminEditInstance(project_tables.EditInstance):
     url = "horizon:admin:instances:update"
 
 
+class AdminConsoleLink(project_tables.ConsoleLink):
+    url = "horizon:admin:instances:detail"
+
+
+class AdminLogLink(project_tables.LogLink):
+    url = "horizon:admin:instances:detail"
+
+
 class MigrateInstance(policy.PolicyTargetMixin, tables.BatchAction):
     name = "migrate"
     classes = ("btn-migrate", "btn-danger")
@@ -169,8 +177,8 @@ class AdminInstancesTable(tables.DataTable):
         row_actions = (project_tables.ConfirmResize,
                        project_tables.RevertResize,
                        AdminEditInstance,
-                       project_tables.ConsoleLink,
-                       project_tables.LogLink,
+                       AdminConsoleLink,
+                       AdminLogLink,
                        project_tables.CreateSnapshot,
                        project_tables.TogglePause,
                        project_tables.ToggleSuspend,
