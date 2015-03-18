@@ -57,6 +57,13 @@ $em-per-priority: floor($table-col-avg-width / $font-size-base) * 3;
         border-top-right-radius: 3px;
         border-bottom-right-radius: 3px;
       }
+
+      input[type="text"] {
+       @include search-placeholder {
+         font-weight: normal;
+         color: $placeholder-text-color;
+       }
+      }
     }
 
     .search-help {
