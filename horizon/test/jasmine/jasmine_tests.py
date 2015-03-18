@@ -39,6 +39,7 @@ class ServicesTests(test.JasmineTests):
         'angular/table/basic-table.js',
         'angular/transfer-table/transfer-table.js',
         'angular/wizard/wizard.js',
+        'angular/metadata-display/metadata-display.js',
         'horizon/js/angular/filters/filters.js',
     ]
     specs = [
@@ -55,6 +56,7 @@ class ServicesTests(test.JasmineTests):
         'angular/transfer-table/transfer-table.spec.js',
         'angular/wizard/wizard.spec.js',
         'angular/metadata-tree/metadata-tree.spec.js',
+        'angular/metadata-display/metadata-display.spec.js',
         'horizon/js/angular/filters/filters.spec.js',
     ]
     externalTemplates = [
@@ -71,4 +73,5 @@ class ServicesTests(test.JasmineTests):
         'angular/wizard/wizard.html',
         'angular/metadata-tree/metadata-tree.html',
         'angular/metadata-tree/metadata-tree-item.html',
+        'angular/metadata-display/metadata-display.html',
     ]

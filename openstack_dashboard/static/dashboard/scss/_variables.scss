@@ -176,3 +176,9 @@ $chart-title-padding: 0.5em 0 !default;
 $chart-title-weight: 600 !default;
 $chart-legend-font-size: 1em !default;
 $chart-legend-padding: 0.2em 1.5em !default;
+
+/* Metadata Display */
+$metadata-display-selector-color: $link-color !default;
+$metadata-display-selector-hover-color: $link-hover-color !default;
+$metadata-display-selector-active-color: #666 !default;
+$metadata-display-separator-color: #ccc !default;

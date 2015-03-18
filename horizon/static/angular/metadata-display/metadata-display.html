@@ -1,0 +1,33 @@
+<div class="metadata-display" ng-if="!hide">
+  <div class="row">
+    <div class="col-sm-4 selector">
+      <div class="selector-item"
+           ng-repeat="item in tree.flatTree | filter: listFilter"
+           ng-click="onSelect(item)"
+           ng-class="{active: selected===item}">
+        <span ng-bind="::item.label"></span>
+      </div>
+    </div>
+
+    <div class="col-sm-8">
+      <div class="row">
+        <div ng-repeat="item in tree.flatTree | filter: childrenFilter">
+          <div class="col-sm-3 auto-width" title="{$ ::item.description $}">
+            <strong class="text-capitalize">
+              <span ng-bind="::item.label"></span>
+            </strong>
+            <span ng-bind="::item.leaf.value"></span>
+          </div>
+        </div>
+      </div>
+      <div class="row description">
+        <div class="col-sm-12">
+          <strong><span ng-bind="::text.detail"></span></strong>
+        </div>
+        <div class="col-sm-12">
+          <span ng-bind="selected.description"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

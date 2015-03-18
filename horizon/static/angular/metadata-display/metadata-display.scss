@@ -1,0 +1,29 @@
+.metadata-display {
+  .selector {
+    .selector-item {
+      border-top: 1px solid $metadata-display-separator-color;
+      padding: 10px;
+      color: $metadata-display-selector-color;
+
+      &:first-child {
+        border-top: none;
+      }
+
+      &:hover {
+        color: $metadata-display-selector-hover-color;
+      }
+
+      &.active {
+        color: $metadata-display-selector-active-color;
+      }
+    }
+  }
+
+  .description {
+    margin-top: 20px;
+  }
+
+  .auto-width {
+    width: auto;
+  }
+}
