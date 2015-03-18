@@ -1,8 +1,18 @@
 [ng-controller="LaunchInstanceAccessAndSecurityCtrl"] {
 
-  textarea.key_text {
-    width: 600px;
-    height: 280px;
-    font-family: Menlo, Monaco, Consolas, 'Courier New';
+  dl.key-pair-details {
+
+    dt {
+      width: 15%;
+    }
+    dd {
+      width: 85%;
+      margin-left: 15%;
+      padding-right: 25px;
+
+      pre {
+        background: none;
+      }
+    }
   }
 }
