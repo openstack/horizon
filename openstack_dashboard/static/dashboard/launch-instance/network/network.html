@@ -6,10 +6,9 @@
 
   <div class="form-group" ng-if="model.arePortProfilesSupported">
     <label class="control-label required" for="profile">{$ ::label.profile $}</label>
-      <select class="form-control" id="profile" ng-model="model.newInstanceSpec.profile" ng-options="profile.name for profile in model.profiles">
-        <option value="">{$ ::label.none_option $}</option>
-      </select>
-    </dd>
+    <select class="form-control" id="profile" ng-model="model.newInstanceSpec.profile" ng-options="profile.name for profile in model.profiles">
+      <option value="">{$ ::label.none_option $}</option>
+    </select>
   </div>
 
   <transfer-table tr-model="tableDataMulti" help-text="tableHelpText" limits="tableLimits">
