@@ -22,6 +22,11 @@ CLUSTER_GUIDE_URL = reverse(
 CLUSTER_GUIDE_RESET_URL = reverse(
     'horizon:project:data_processing.wizard:reset_cluster_guide',
     kwargs={"reset_cluster_guide": "true"})
+JOB_GUIDE_URL = reverse(
+    'horizon:project:data_processing.wizard:jobex_guide')
+JOB_GUIDE_RESET_URL = reverse(
+    'horizon:project:data_processing.wizard:reset_jobex_guide',
+    kwargs={"reset_jobex_guide": "true"})
 
 
 class DataProcessingClusterGuideTests(test.TestCase):
@@ -42,3 +47,13 @@ class DataProcessingClusterGuideTests(test.TestCase):
     def test_cluster_guide_reset(self):
         res = self.client.get(CLUSTER_GUIDE_RESET_URL)
         self.assertRedirectsNoFollow(res, CLUSTER_GUIDE_URL)
+
+    def test_jobex_guide(self):
+        res = self.client.get(JOB_GUIDE_URL)
+        self.assertTemplateUsed(
+            res, 'project/data_processing.wizard/jobex_guide.html')
+        self.assertContains(res, 'Guided Job Execution')
+
+    def test_jobex_guide_reset(self):
+        res = self.client.get(JOB_GUIDE_RESET_URL)
+        self.assertRedirectsNoFollow(res, JOB_GUIDE_URL)

@@ -1,0 +1,31 @@
+{% extends "horizon/common/_modal_form.html" %}
+
+{% load url from future %}
+
+{% load i18n %}
+
+{% block form_id %}create-job-binary{% endblock %}
+{% block form_action %}
+    {% url 'horizon:project:data_processing.wizard:job_type_select' %}
+{% endblock %}
+{% block form_attrs %}enctype="multipart/form-data"{% endblock %}
+
+{% block modal-header %}{% trans "Choose job type" %}{% endblock %}
+
+{% block modal-body %}
+    <div class="left">
+        <fieldset>
+            {% include "horizon/common/_form_fields.html" %}
+        </fieldset>
+    </div>
+    <div class="form-help-block right">
+        {{ form.get_help_text }}
+    </div>
+{% endblock %}
+
+{% block modal-footer %}
+    <input class="btn btn-primary pull-right" id="plugin_select_btn"
+           type="submit" value="{% trans "Select" %}"/>
+    <a href="{% url 'horizon:project:data_processing.wizard:jobex_guide' %}"
+       class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}

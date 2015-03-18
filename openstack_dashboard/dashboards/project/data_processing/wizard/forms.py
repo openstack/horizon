@@ -84,3 +84,38 @@ class ChoosePluginForm(forms.SelfHandlingForm):
 
     class Meta(object):
         name = _("Choose plugin type and version")
+
+
+class ChooseJobTypeForm(forms.SelfHandlingForm):
+    guide_job_type = forms.ChoiceField(
+        label=_("Job Type"),
+        widget=forms.Select())
+
+    def __init__(self, request, *args, **kwargs):
+        super(ChooseJobTypeForm, self).__init__(request, *args, **kwargs)
+        self.help_text_template = ("project/data_processing.wizard/"
+                                   "_job_type_select_help.html")
+
+        self.fields["guide_job_type"].choices = \
+            self.populate_guide_job_type_choices()
+
+    def populate_guide_job_type_choices(self):
+        choices = [(x, helpers.JOB_TYPE_MAP[x][0])
+                   for x in helpers.JOB_TYPE_MAP]
+        return choices
+
+    def handle(self, request, context):
+        try:
+            hlps = helpers.Helpers(request)
+            job_type = context["guide_job_type"]
+            if force_text(request.session.get("guide_job_type")) != (
+                    force_text(helpers.JOB_TYPE_MAP[job_type][0])):
+                hlps.reset_job_guide()
+                request.session["guide_job_type"] = (
+                    helpers.JOB_TYPE_MAP[job_type][0])
+                messages.success(request, "Job type chosen")
+            return True
+        except Exception:
+            exceptions.handle(request,
+                              _("Unable to set job type"))
+            return False

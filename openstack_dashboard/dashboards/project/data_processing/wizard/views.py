@@ -56,9 +56,39 @@ class ResetClusterGuideView(generic.RedirectView):
         return http.HttpResponseRedirect(reverse_lazy(self.pattern_name))
 
 
+class JobExecutionGuideView(horizon_views.APIView):
+    template_name = 'project/data_processing.wizard/jobex_guide.html'
+
+    def show_data_sources(self):
+        try:
+            if self.request.session["guide_job_type"] in ["Spark", "Java"]:
+                return False
+            return True
+        except Exception:
+            return True
+
+
+class ResetJobExGuideView(generic.RedirectView):
+    pattern_name = 'horizon:project:data_processing.wizard:jobex_guide'
+
+    def get(self, request, *args, **kwargs):
+        if kwargs["reset_jobex_guide"]:
+            hlps = helpers.Helpers(request)
+            hlps.reset_job_guide()
+        return http.HttpResponseRedirect(reverse_lazy(self.pattern_name))
+
+
 class PluginSelectView(forms.ModalFormView):
     form_class = wizforms.ChoosePluginForm
     success_url = reverse_lazy(
         'horizon:project:data_processing.wizard:cluster_guide')
     classes = ("ajax-modal")
     template_name = "project/data_processing.wizard/plugin_select.html"
+
+
+class JobTypeSelectView(forms.ModalFormView):
+    form_class = wizforms.ChooseJobTypeForm
+    success_url = reverse_lazy(
+        'horizon:project:data_processing.wizard:jobex_guide')
+    classes = ("ajax-modal")
+    template_name = "project/data_processing.wizard/job_type_select.html"

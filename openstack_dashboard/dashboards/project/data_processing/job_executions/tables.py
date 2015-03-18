@@ -40,6 +40,12 @@ class JobExecutionsFilterAction(tables.FilterAction):
                       ('status', _("Status"), True))
 
 
+class JobExecutionGuide(tables.LinkAction):
+    name = "jobex_guide"
+    verbose_name = _("Job Execution Guide")
+    url = "horizon:project:data_processing.wizard:jobex_guide"
+
+
 class DeleteJobExecution(tables.DeleteAction):
     @staticmethod
     def action_present(count):
@@ -186,7 +192,8 @@ class JobExecutionsTable(tables.DataTable):
         row_class = UpdateRow
         status_columns = ["status"]
         verbose_name = _("Job Executions")
-        table_actions = [DeleteJobExecution,
+        table_actions = [JobExecutionGuide,
+                         DeleteJobExecution,
                          JobExecutionsFilterAction]
         row_actions = [DeleteJobExecution,
                        ReLaunchJobExistingCluster,
