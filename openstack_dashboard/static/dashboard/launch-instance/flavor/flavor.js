@@ -33,14 +33,20 @@
 
     this.title = gettext('Flavor');
     this.subtitle = gettext("Flavors manage the sizing for the compute, memory and storage capacity of the instance.");
-    this.nameLabel = gettext("Name");
-    this.vcpusLabel = gettext("VCPUs");
-    this.ramLabel = gettext("RAM");
-    this.totalDiskLabel = gettext("Total Disk");
-    this.rootDiskLabel = gettext("Root Disk");
-    this.ephemeralDiskLabel = gettext("Ephemeral Disk");
-    this.isPublicLabel = gettext("Public");
-    this.idLabel = gettext("ID");
+
+    this.flavor = {
+      name: { label: gettext("Name") },
+      vcpus: { label: gettext("VCPUs") },
+      ram: { label: gettext("RAM") },
+      totalDisk: { label: gettext("Total Disk") },
+      rootDisk: { label: gettext("Root Disk") },
+      ephemeralDisk: { label: gettext("Ephemeral Disk") },
+      isPublic: { label: gettext("Public") },
+      id: { label: gettext("ID") }
+    };
+
+    // set default sort
+    this.flavor.ram.sortDefault = true;
 
     this.transferTableData = {
       allocated:          launchInstanceModel.newInstanceSpec.flavor,
