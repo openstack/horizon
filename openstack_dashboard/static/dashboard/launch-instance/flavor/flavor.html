@@ -92,19 +92,20 @@ limitations under the License.
           </tr>
           <tr>
             <th class="expander"></th>
-            <th st-sort="name" st-sort-default class="rsp-p1">{$ ::ctrl.nameLabel
-              $}
-            </th>
-            <th st-sort="vcpus" class="rsp-p1">{$ ::ctrl.vcpusLabel $}</th>
-            <th st-sort="ram" class="rsp-p1">{$ ::ctrl.ramLabel $}</th>
-            <th st-sort="totalDisk" class="rsp-p1">{$ ::ctrl.totalDiskLabel $}
-            </th>
-            <th st-sort="disk" class="rsp-p2">{$ ::ctrl.rootDiskLabel $}</th>
-            <th st-sort="ephemeral" class="rsp-p2">{$ ::ctrl.ephemeralDiskLabel
-              $}
-            </th>
-            <th st-sort="is_public" class="rsp-p2">{$ ::ctrl.isPublicLabel $}
-            </th>
+            <th st-sort="name" ng-attr-st-sort-default="{$ ctrl.flavor.name.sortDefault $}"
+              class="rsp-p1">{$ ::ctrl.flavor.name.label $}</th>
+            <th st-sort="vcpus" ng-attr-st-sort-default="{$ ctrl.flavor.vcpus.sortDefault $}"
+              class="rsp-p1">{$ ::ctrl.flavor.vcpus.label $}</th>
+            <th st-sort="ram" ng-attr-st-sort-default="{$ ctrl.flavor.ram.sortDefault $}"
+              class="rsp-p1">{$ ::ctrl.flavor.ram.label $}</th>
+            <th st-sort="totalDisk" ng-attr-st-sort-default="{$ ctrl.flavor.totalDisk.sortDefault $}"
+              class="rsp-p1">{$ ::ctrl.flavor.totalDisk.label $}</th>
+            <th st-sort="disk" ng-attr-st-sort-default="{$ ctrl.flavor.disk.sortDefault $}"
+              class="rsp-p2">{$ ::ctrl.flavor.rootDisk.label $}</th>
+            <th st-sort="ephemeral" ng-attr-st-sort-default="{$ ctrl.flavor.ephemeral.sortDefault $}"
+              class="rsp-p2">{$ ::ctrl.flavor.ephemeralDisk.label $}</th>
+            <th st-sort="is_public" ng-attr-st-sort-default="{$ ctrl.flavor.is_public.sortDefault $}"
+              class="rsp-p2">{$ ::ctrl.flavor.isPublic.label $}</th>
             <th></th>
           </tr>
           </thead>
