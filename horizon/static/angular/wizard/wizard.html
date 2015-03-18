@@ -6,7 +6,6 @@
       ng-class="{'current': currentIndex===$index}"
       ng-click="switchTo($index)"
       ng-repeat="step in steps">
-      <span ng-bind="($index + 1 < 10 ? '0' : '') + ($index + 1)"></span>
       <span ng-bind="::step.title"></span>
       <span class="status-indicator fa fa-lg fa-warning"
         ng-show="wizardForm[steps[$index].formName].$invalid"></span>
