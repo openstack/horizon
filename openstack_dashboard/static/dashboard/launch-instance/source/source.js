@@ -192,7 +192,7 @@
       outerRadius: 30,
       label: {
         'font-size': '16px',
-        'color': '#1f83c6'
+        'fill': '#1f83c6'
       },
       title: {
         'font-size': '10px'
