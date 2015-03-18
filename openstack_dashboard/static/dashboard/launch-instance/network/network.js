@@ -65,17 +65,17 @@
       provider_network: gettext('Provider Network'),
       provider_network_type: gettext('Type'),
       provider_segmentation_id: gettext('Segmentation ID'),
-      provider_physical_network: gettext('Physical Network'),
+      provider_physical_network: gettext('Physical Network')
     };
 
     $scope.networkStatuses = {
       'ACTIVE': gettext('Active'),
-      'DOWN': gettext('Down'),
+      'DOWN': gettext('Down')
     };
 
     $scope.networkAdminStates = {
       'UP': gettext('Up'),
-      'DOWN': gettext('Down'),
+      'DOWN': gettext('Down')
     };
 
     $scope.tableDataMulti = {
@@ -91,7 +91,7 @@
 
     $scope.tableHelpText = {
       allocHelpText: gettext('Select networks from those listed below.'),
-      availHelpText: gettext('Select at least one network.')
+      availHelpText: gettext('Select at least one network')
     };
 
   }
