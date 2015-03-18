@@ -69,7 +69,8 @@ class DataProcessingPanels(horizon.PanelGroup):
               'data_processing.job_binaries',
               'data_processing.data_sources',
               'data_processing.data_image_registry',
-              'data_processing.data_plugins',)
+              'data_processing.data_plugins',
+              'data_processing.wizard',)
 
 
 class Project(horizon.Dashboard):

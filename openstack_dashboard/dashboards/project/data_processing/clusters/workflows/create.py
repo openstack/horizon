@@ -22,7 +22,7 @@ from openstack_dashboard.dashboards.project.data_processing.utils \
 import openstack_dashboard.dashboards.project.data_processing.utils. \
     workflow_helpers as whelpers
 
-
+from django.core import urlresolvers
 from django.utils.translation import ugettext_lazy as _
 
 from openstack_dashboard.api import sahara as saharaclient
@@ -162,7 +162,19 @@ class GeneralConfigAction(workflows.Action):
             choices.append(("", _("No Templates Available")))
         # cluster_template_id comes from cluster templates table, when
         # Create Cluster from template is clicked there
-        selected_template_id = request.REQUEST.get("cluster_template_id", None)
+        selected_template_name = None
+        resolver_match = urlresolvers.resolve(request.path)
+        if "cluster_template_name" in resolver_match.kwargs:
+            selected_template_name = (
+                resolver_match.kwargs["cluster_template_name"])
+        if selected_template_name:
+            for template in templates:
+                if template.name == selected_template_name:
+                    selected_template_id = template.id
+                    break
+        else:
+            selected_template_id = (
+                request.REQUEST.get("cluster_template_id", None))
 
         for template in templates:
             if template.id == selected_template_id:

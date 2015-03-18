@@ -79,6 +79,11 @@ class ConfigureClusterView(workflows.WorkflowView):
     template_name = "project/data_processing.clusters/configure.html"
     page_title = _("Configure Cluster")
 
+    def get_initial(self):
+        initial = super(ConfigureClusterView, self).get_initial()
+        initial.update(self.kwargs)
+        return initial
+
 
 class ScaleClusterView(workflows.WorkflowView):
     workflow_class = scale_flow.ScaleCluster

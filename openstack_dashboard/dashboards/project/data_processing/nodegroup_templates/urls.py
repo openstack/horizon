@@ -31,6 +31,12 @@ urlpatterns = patterns('sahara.nodegroup_templates.views',
                        url(r'^configure-nodegroup-template$',
                            views.ConfigureNodegroupTemplateView.as_view(),
                            name='configure-nodegroup-template'),
+                       url(r'^configure-nodegroup-template'
+                           '/(?P<plugin_name>[^/]+)/'
+                           '(?P<hadoop_version>[^/]+)/'
+                           '(?P<guide_template_type>[^/]+)/$',
+                           views.ConfigureNodegroupTemplateView.as_view(),
+                           name='configure-nodegroup-template-defaults'),
                        url(r'^(?P<template_id>[^/]+)$',
                            views.NodegroupTemplateDetailsView.as_view(),
                            name='details'),

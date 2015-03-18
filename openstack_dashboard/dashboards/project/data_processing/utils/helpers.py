@@ -84,3 +84,23 @@ class Helpers(object):
                                                            'cluster', service)
 
         return parameters
+
+    def is_from_guide(self):
+        referer = self.request.environ.get("HTTP_REFERER")
+        if referer and "/wizard/" in referer:
+            return True
+        return False
+
+    def reset_guide(self):
+        try:
+            self.request.session.update(
+                {"plugin_name": None,
+                 "plugin_version": None,
+                 "master_name": None,
+                 "master_id": None,
+                 "worker_name": None,
+                 "worker_id": None,
+                 "guide_cluster_template_name": None})
+        except Exception:
+            return False
+        return True

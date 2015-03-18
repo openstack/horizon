@@ -13,7 +13,9 @@
 
 import logging
 
+from django.core import urlresolvers
 from django.utils.translation import ugettext_lazy as _
+
 from saharaclient.api import base as api_base
 
 from horizon import exceptions
@@ -146,6 +148,13 @@ class GeneralConfigAction(workflows.Action):
                                                               hadoop_version)
         for param in node_parameters:
             self.fields[param.name] = workflow_helpers.build_control(param)
+
+        resolver_match = urlresolvers.resolve(request.path)
+        if "guide_template_type" in resolver_match.kwargs:
+            self.fields["guide_template_type"] = forms.CharField(
+                required=False,
+                widget=forms.HiddenInput(),
+                initial=resolver_match.kwargs["guide_template_type"])
 
     def populate_flavor_choices(self, request, context):
         flavors = nova_utils.flavor_list(request)
@@ -314,7 +323,7 @@ class ConfigureNodegroupTemplate(workflow_helpers.ServiceParametersWorkflow,
                 volumes_availability_zone = \
                     context["general_volumes_availability_zone"]
 
-            saharaclient.nodegroup_template_create(
+            ngt = saharaclient.nodegroup_template_create(
                 request,
                 name=context["general_nodegroup_name"],
                 plugin_name=plugin,
@@ -330,6 +339,16 @@ class ConfigureNodegroupTemplate(workflow_helpers.ServiceParametersWorkflow,
                 security_groups=context["security_groups"],
                 auto_security_group=context["security_autogroup"],
                 availability_zone=context["general_availability_zone"])
+
+            hlps = helpers.Helpers(request)
+            if hlps.is_from_guide():
+                guide_type = context["general_guide_template_type"]
+                request.session[guide_type + "_name"] = (
+                    context["general_nodegroup_name"])
+                request.session[guide_type + "_id"] = ngt.id
+                self.success_url = (
+                    "horizon:project:data_processing.wizard:cluster_guide")
+
             return True
         except api_base.APIException as e:
             self.error_description = str(e)
