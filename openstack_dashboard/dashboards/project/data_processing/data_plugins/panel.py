@@ -21,6 +21,8 @@ from openstack_dashboard.dashboards.project import dashboard
 class PluginsPanel(horizon.Panel):
     name = _("Plugins")
     slug = 'data_processing.data_plugins'
-    permissions = ('openstack.services.data-processing',)
+    permissions = (('openstack.services.data-processing',
+                    'openstack.services.data_processing'),)
+
 
 dashboard.Project.register(PluginsPanel)
