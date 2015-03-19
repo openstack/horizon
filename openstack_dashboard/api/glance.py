@@ -197,7 +197,7 @@ def metadefs_namespace_get(request, namespace, resource_type=None, wrap=False):
     namespace = glanceclient(request, '2').\
         metadefs_namespace.get(namespace, resource_type=resource_type)
     # There were problems with using the wrapper class in
-    # in nested json serialization. So sometimes, it is not desirable
+    # nested json serialization. So sometimes, it is not desirable
     # to wrap.
     if wrap:
         return Namespace(namespace)
