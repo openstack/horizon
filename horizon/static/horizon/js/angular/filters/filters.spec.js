@@ -120,5 +120,28 @@ describe('hz.filters', function () {
 
   });
 
+  describe('itemCount', function() {
+
+    it('should return translated text with item count',
+      inject(function(itemCountFilter) {
+        expect(itemCountFilter(null)).toBe('Displaying 0 items');
+        expect(itemCountFilter(undefined)).toBe('Displaying 0 items');
+        expect(itemCountFilter(true)).toBe('Displaying 1 item');
+        expect(itemCountFilter(false)).toBe('Displaying 0 items');
+        expect(itemCountFilter('a')).toBe('Displaying 0 items');
+        expect(itemCountFilter('0')).toBe('Displaying 0 items');
+        expect(itemCountFilter('1')).toBe('Displaying 1 item');
+        expect(itemCountFilter('1e1')).toBe('Displaying 10 items');
+        expect(itemCountFilter('1b1')).toBe('Displaying 0 items');
+        expect(itemCountFilter(0)).toBe('Displaying 0 items');
+        expect(itemCountFilter(1)).toBe('Displaying 1 item');
+        expect(itemCountFilter(1.2)).toBe('Displaying 1 item');
+        expect(itemCountFilter(1.6)).toBe('Displaying 2 items');
+        expect(itemCountFilter(-1)).toBe('Displaying 0 items');
+        expect(itemCountFilter(-1.2)).toBe('Displaying 0 items');
+      })
+    );
+
+  });
 
 });
