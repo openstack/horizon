@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-16 22:31-0500\n"
-"PO-Revision-Date: 2015-03-17 03:32+0000\n"
+"POT-Creation-Date: 2015-03-18 20:07-0500\n"
+"PO-Revision-Date: 2015-03-18 22:17+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -21,59 +21,59 @@ msgstr ""
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: settings.py:84
+#: settings.py:85
 msgid "Select format"
 msgstr "Selecione o formato"
 
-#: settings.py:85
+#: settings.py:86
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Imagem de Kernel da Amazon"
 
-#: settings.py:86
+#: settings.py:87
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Imagem de máquina Amazon"
 
-#: settings.py:87
+#: settings.py:88
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Imagem de Ramdisk Amazon"
 
-#: settings.py:88
+#: settings.py:89
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - Imagem de Disco Óptico"
 
-#: settings.py:89
+#: settings.py:90
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - Open Virtual Appliance"
 
-#: settings.py:90
+#: settings.py:91
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - Emulador QEMU"
 
-#: settings.py:91
+#: settings.py:92
 msgid "Raw"
 msgstr "Raw"
 
-#: settings.py:92
+#: settings.py:93
 msgid "VDI - Virtual Disk Image"
 msgstr "VDI - Virtual Disk Image"
 
-#: settings.py:93
+#: settings.py:94
 msgid "VHD - Virtual Hard Disk"
 msgstr "VHD - Virtual Hard Disk"
 
-#: settings.py:94
+#: settings.py:95
 msgid "VMDK - Virtual Machine Disk"
 msgstr "VMDK - Virtual Machine Disk"
 
-#: settings.py:234
+#: settings.py:241
 msgid "All TCP"
 msgstr "Tudo TCP"
 
-#: settings.py:240
+#: settings.py:247
 msgid "All UDP"
 msgstr "Tudo UDP"
 
-#: settings.py:246
+#: settings.py:253
 msgid "All ICMP"
 msgstr "Tudo ICMP"
 
@@ -568,13 +568,13 @@ msgstr "Admin"
 #: dashboards/project/data_processing/cluster_templates/tables.py:116
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:6
 #: dashboards/project/data_processing/clusters/tables.py:35
-#: dashboards/project/data_processing/clusters/tables.py:140
+#: dashboards/project/data_processing/clusters/tables.py:146
 #: dashboards/project/data_processing/clusters/tabs.py:137
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:6
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:9
 #: dashboards/project/data_processing/data_sources/tables.py:57
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:5
-#: dashboards/project/data_processing/data_sources/workflows/create.py:28
+#: dashboards/project/data_processing/data_sources/workflows/create.py:30
 #: dashboards/project/data_processing/job_binaries/forms.py:48
 #: dashboards/project/data_processing/job_binaries/tables.py:79
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:5
@@ -582,7 +582,7 @@ msgstr "Admin"
 #: dashboards/project/data_processing/jobs/tables.py:104
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:6
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:54
-#: dashboards/project/data_processing/jobs/workflows/create.py:60
+#: dashboards/project/data_processing/jobs/workflows/create.py:62
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:28
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:83
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:6
@@ -661,7 +661,7 @@ msgstr "Nome"
 #: dashboards/admin/volumes/volumes/forms.py:75
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:22
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:19
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:48
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:50
 #: dashboards/project/instances/tables.py:1025
 #: dashboards/project/instances/templates/instances/_detail_overview.html:16
 #: dashboards/project/instances/workflows/create_instance.py:81
@@ -1045,6 +1045,8 @@ msgstr "Agregados de Host dividem uma zona de disponibilidade em unidades lógic
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_edit_tags.html:28
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_register_image.html:26
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:26
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_job_type_select.html:30
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_plugin_select.html:30
 #: dashboards/project/databases/templates/databases/_resize_instance.html:24
 #: dashboards/project/databases/templates/databases/_resize_volume.html:25
 #: dashboards/project/images/templates/images/images/_create.html:33
@@ -1191,7 +1193,7 @@ msgstr "IPs Flutuantes"
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:29
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:32
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:42
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:206
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:215
 #: dashboards/project/instances/templates/instances/_detail_overview.html:85
 #: dashboards/project/instances/workflows/create_instance.py:544
 #: dashboards/project/instances/workflows/update_instance.py:80
@@ -1379,7 +1381,7 @@ msgstr "Disco de Swap"
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:7
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:7
 #: dashboards/project/data_processing/job_executions/tables.py:37
-#: dashboards/project/data_processing/job_executions/tables.py:162
+#: dashboards/project/data_processing/job_executions/tables.py:168
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:8
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:8
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:8
@@ -1580,7 +1582,7 @@ msgid "Modified flavor information, but unable to modify flavor access."
 msgstr "Modificada informação de flavor, mas não foi possível modificar o acesso ao flavor."
 
 #: dashboards/admin/hypervisors/panel.py:22
-#: dashboards/admin/hypervisors/tables.py:64
+#: dashboards/admin/hypervisors/tables.py:65
 #: dashboards/admin/hypervisors/templates/hypervisors/index.html:4
 msgid "Hypervisors"
 msgstr "Hipervisores"
@@ -1633,7 +1635,7 @@ msgstr "Armazenamento Local (usado)"
 msgid "Local Storage (total)"
 msgstr "Armazenamento Local (total)"
 
-#: dashboards/admin/hypervisors/tables.py:70
+#: dashboards/admin/hypervisors/tables.py:71
 #: dashboards/project/databases/tables.py:320
 #: dashboards/project/databases/workflows/create_instance.py:35
 #: dashboards/project/instances/tables.py:985
@@ -1643,12 +1645,12 @@ msgstr "Armazenamento Local (total)"
 msgid "Instance Name"
 msgstr "Nome da instância"
 
-#: dashboards/admin/hypervisors/tables.py:73
+#: dashboards/admin/hypervisors/tables.py:74
 #: dashboards/project/images/snapshots/forms.py:30
 msgid "Instance ID"
 msgstr "ID da instância"
 
-#: dashboards/admin/hypervisors/tables.py:80
+#: dashboards/admin/hypervisors/tables.py:81
 msgid "Hypervisor Instances"
 msgstr "Instâncias do Hipervisor"
 
@@ -1674,7 +1676,7 @@ msgstr "Não é possível recuperar estatísticas de hipervisor."
 msgid "Hypervisor Servers"
 msgstr "Servidores Hipervisores"
 
-#: dashboards/admin/hypervisors/views.py:74
+#: dashboards/admin/hypervisors/views.py:76
 msgid "Unable to retrieve hypervisor instances list."
 msgstr "Não é possível obter a lista de instâncias do hipervisor."
 
@@ -1851,10 +1853,10 @@ msgstr "Zona"
 #: dashboards/admin/volumes/volumes/forms.py:187
 #: dashboards/project/access_and_security/floating_ips/tables.py:202
 #: dashboards/project/data_processing/clusters/tables.py:36
-#: dashboards/project/data_processing/clusters/tables.py:146
+#: dashboards/project/data_processing/clusters/tables.py:152
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:12
 #: dashboards/project/data_processing/job_executions/tables.py:40
-#: dashboards/project/data_processing/job_executions/tables.py:179
+#: dashboards/project/data_processing/job_executions/tables.py:185
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:6
 #: dashboards/project/database_backups/tables.py:174
 #: dashboards/project/database_backups/templates/database_backups/details.html:26
@@ -2254,7 +2256,7 @@ msgstr "Migração em tempo real da instância"
 #: dashboards/admin/routers/tables.py:39
 #: dashboards/admin/volumes/snapshots/tables.py:65
 #: dashboards/admin/volumes/volumes/tables.py:82
-#: dashboards/project/dashboard.py:76
+#: dashboards/project/dashboard.py:77
 #: dashboards/project/images/images/tables.py:156
 #: dashboards/project/instances/workflows/create_instance.py:54
 #: dashboards/router/nexus1000v/forms.py:119
@@ -2493,16 +2495,16 @@ msgstr ""
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:13
 #: dashboards/project/data_processing/data_sources/tables.py:63
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:13
-#: dashboards/project/data_processing/data_sources/workflows/create.py:60
+#: dashboards/project/data_processing/data_sources/workflows/create.py:62
 #: dashboards/project/data_processing/job_binaries/forms.py:131
 #: dashboards/project/data_processing/job_binaries/tables.py:84
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:11
 #: dashboards/project/data_processing/jobs/tables.py:31
 #: dashboards/project/data_processing/jobs/tables.py:107
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:10
-#: dashboards/project/data_processing/jobs/workflows/create.py:84
+#: dashboards/project/data_processing/jobs/workflows/create.py:86
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:10
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:41
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:43
 #: dashboards/project/database_backups/templates/database_backups/details.html:16
 #: dashboards/project/database_backups/workflows/create_backup.py:34
 #: dashboards/project/firewalls/forms.py:36
@@ -2696,7 +2698,7 @@ msgstr ""
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:18
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:82
 #: dashboards/project/data_processing/jobs/workflows/launch.py:407
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:375
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:394
 #: dashboards/project/database_backups/tables.py:165
 #: dashboards/project/database_backups/templates/database_backups/details.html:32
 #: dashboards/project/databases/tables.py:388
@@ -4501,12 +4503,12 @@ msgstr "Criar uma Especificação de QoS"
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:24
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:75
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:23
-#: dashboards/project/data_processing/cluster_templates/workflows/create.py:225
-#: dashboards/project/data_processing/data_sources/workflows/create.py:93
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:236
+#: dashboards/project/data_processing/data_sources/workflows/create.py:95
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
-#: dashboards/project/data_processing/jobs/workflows/create.py:154
+#: dashboards/project/data_processing/jobs/workflows/create.py:156
 #: dashboards/project/data_processing/jobs/workflows/launch.py:406
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:241
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:250
 #: dashboards/project/networks/workflows.py:342
 #: dashboards/project/networks/subnets/workflows.py:57
 msgid "Create"
@@ -5730,6 +5732,9 @@ msgstr "Banco de dados"
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/job_executions.html:3
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/jobs.html:3
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/nodegroup_templates.html:3
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:4
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:4
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:4
 msgid "Data Processing"
 msgstr "Processamento de Dados"
 
@@ -6955,7 +6960,8 @@ msgstr "Plugin"
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:88
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:8
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:32
-#: dashboards/project/data_processing/utils/workflow_helpers.py:195
+#: dashboards/project/data_processing/utils/workflow_helpers.py:200
+#: dashboards/project/data_processing/wizard/forms.py:64
 msgid "Version"
 msgstr "Versão"
 
@@ -6967,14 +6973,14 @@ msgid "Upload Template"
 msgstr "Upload de modelo"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:47
-#: dashboards/project/data_processing/clusters/tables.py:41
+#: dashboards/project/data_processing/clusters/tables.py:47
 #: dashboards/project/data_processing/clusters/views.py:73
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_create_cluster.html:10
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/configure.html:3
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/create.html:3
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/create_cluster.html:3
 #: dashboards/project/data_processing/clusters/workflows/create.py:57
-#: dashboards/project/data_processing/clusters/workflows/create.py:207
+#: dashboards/project/data_processing/clusters/workflows/create.py:219
 msgid "Launch Cluster"
 msgstr "Disparar Cluster"
 
@@ -7010,7 +7016,7 @@ msgstr "Configurar Modelo do Cluster"
 #: dashboards/project/data_processing/cluster_templates/tables.py:124
 #: dashboards/project/data_processing/cluster_templates/tabs.py:48
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:3
-#: dashboards/project/data_processing/cluster_templates/workflows/create.py:206
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:217
 #: dashboards/project/data_processing/clusters/tabs.py:85
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:6
 msgid "Node Groups"
@@ -7047,7 +7053,7 @@ msgstr "Detalhes do modelo de cluster"
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/configure.html:3
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/create.html:3
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:80
-#: dashboards/project/data_processing/cluster_templates/workflows/create.py:224
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:235
 msgid "Create Cluster Template"
 msgstr "Criar Modelo de Cluster"
 
@@ -7056,7 +7062,7 @@ msgid "Copy Cluster Template"
 msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/views.py:122
-#: dashboards/project/data_processing/clusters/views.py:106
+#: dashboards/project/data_processing/clusters/views.py:111
 msgid "Unable to fetch cluster template."
 msgstr "Não foi possível obeter modelo de cluster."
 
@@ -7161,7 +7167,7 @@ msgstr "Modelo não especificado"
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:26
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:29
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:37
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:191
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:200
 msgid "Auto Security Group"
 msgstr "Grupo de Segurança Automática"
 
@@ -7218,7 +7224,7 @@ msgid "Select plugin and hadoop version for cluster template"
 msgstr "Escolha um plugin e versão do Hadoop para o modelo de cluster"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:81
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:374
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:393
 #: dashboards/project/stacks/views.py:93
 #: dashboards/project/stacks/views.py:109
 #: dashboards/project/stacks/views.py:149
@@ -7227,12 +7233,12 @@ msgstr "Próximo"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:83
 #: dashboards/project/data_processing/jobs/workflows/launch.py:408
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:376
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:395
 msgid "Could not create"
 msgstr "Não foi possível criar"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:97
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:39
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:41
 msgid "Template Name"
 msgstr "Nome do Template"
 
@@ -7246,53 +7252,58 @@ msgstr "Nome do Template"
 msgid "Details"
 msgstr "Detalhes"
 
-#: dashboards/project/data_processing/cluster_templates/workflows/create.py:226
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:237
 #, python-format
 msgid "Created Cluster Template %s"
 msgstr "falha na criação de modelo %s"
 
-#: dashboards/project/data_processing/cluster_templates/workflows/create.py:309
+#: dashboards/project/data_processing/cluster_templates/workflows/create.py:326
 msgid "Cluster template creation failed"
 msgstr "Falha na criação de modelo de cluster"
 
 #: dashboards/project/data_processing/clusters/panel.py:22
-#: dashboards/project/data_processing/clusters/tables.py:155
+#: dashboards/project/data_processing/clusters/tables.py:161
 #: dashboards/project/data_processing/clusters/views.py:40
 msgid "Clusters"
 msgstr "Clusters"
 
-#: dashboards/project/data_processing/clusters/tables.py:49
-#: dashboards/project/data_processing/clusters/views.py:88
+#: dashboards/project/data_processing/clusters/tables.py:41
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:31
+msgid "Cluster Creation Guide"
+msgstr ""
+
+#: dashboards/project/data_processing/clusters/tables.py:55
+#: dashboards/project/data_processing/clusters/views.py:93
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/scale.html:3
 #: dashboards/project/data_processing/clusters/workflows/scale.py:42
 msgid "Scale Cluster"
 msgstr "Escalar Cluster"
 
-#: dashboards/project/data_processing/clusters/tables.py:61
+#: dashboards/project/data_processing/clusters/tables.py:67
 msgid "Delete Cluster"
 msgid_plural "Delete Clusters"
 msgstr[0] "Excluir Cluster"
 msgstr[1] "Excluir Clusters"
 
-#: dashboards/project/data_processing/clusters/tables.py:69
+#: dashboards/project/data_processing/clusters/tables.py:75
 msgid "Deleted Cluster"
 msgid_plural "Deleted Clusters"
 msgstr[0] "Cluster Excluído"
 msgstr[1] "Clusters Excluídos"
 
-#: dashboards/project/data_processing/clusters/tables.py:89
-#: dashboards/project/data_processing/job_executions/tables.py:126
+#: dashboards/project/data_processing/clusters/tables.py:95
+#: dashboards/project/data_processing/job_executions/tables.py:132
 msgid "Unable to update row"
 msgstr "Não foi possível atualizar a linha"
 
-#: dashboards/project/data_processing/clusters/tables.py:130
+#: dashboards/project/data_processing/clusters/tables.py:136
 #: dashboards/project/data_processing/clusters/views.py:80
-#: dashboards/project/data_processing/clusters/workflows/create.py:189
+#: dashboards/project/data_processing/clusters/workflows/create.py:201
 #: dashboards/project/data_processing/jobs/workflows/launch.py:312
 msgid "Configure Cluster"
 msgstr "Configurar Cluster"
 
-#: dashboards/project/data_processing/clusters/tables.py:151
+#: dashboards/project/data_processing/clusters/tables.py:157
 msgid "Instances Count"
 msgstr "Contagem de instâncias "
 
@@ -7391,7 +7402,7 @@ msgstr "Número de nós"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:18
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:25
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:126
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:128
 msgid "Floating IP Pool"
 msgstr "Pool de IPs flutuantes"
 
@@ -7432,7 +7443,7 @@ msgstr "Sem par de chaves"
 msgid "No Templates Available"
 msgstr "Nenhum Modelo Disponível"
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:208
+#: dashboards/project/data_processing/clusters/workflows/create.py:220
 #: dashboards/project/data_processing/jobs/workflows/launch.py:331
 #: dashboards/project/data_processing/jobs/workflows/launch.py:416
 #: dashboards/project/databases/workflows/create_instance.py:335
@@ -7442,12 +7453,12 @@ msgstr "Nenhum Modelo Disponível"
 msgid "Launch"
 msgstr "Disparar"
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:209
+#: dashboards/project/data_processing/clusters/workflows/create.py:221
 #, python-format
 msgid "Launched Cluster %s"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:241
+#: dashboards/project/data_processing/clusters/workflows/create.py:253
 msgid "Unable to create the cluster"
 msgstr "Não foi possível criar o cluster"
 
@@ -7652,8 +7663,8 @@ msgstr "Data Sources"
 #: dashboards/project/data_processing/data_sources/tables.py:28
 #: dashboards/project/data_processing/data_sources/views.py:56
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/create.html:3
-#: dashboards/project/data_processing/data_sources/workflows/create.py:68
-#: dashboards/project/data_processing/data_sources/workflows/create.py:92
+#: dashboards/project/data_processing/data_sources/workflows/create.py:70
+#: dashboards/project/data_processing/data_sources/workflows/create.py:94
 msgid "Create Data Source"
 msgstr "Criar  Data Source"
 
@@ -7704,7 +7715,7 @@ msgid "Data Source Overview"
 msgstr "Visão Geral do Data Source"
 
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:11
-#: dashboards/project/data_processing/data_sources/workflows/create.py:38
+#: dashboards/project/data_processing/data_sources/workflows/create.py:40
 #: dashboards/project/data_processing/job_binaries/forms.py:59
 #: dashboards/project/data_processing/job_binaries/forms.py:65
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:9
@@ -7721,25 +7732,25 @@ msgstr "URL"
 msgid "Create time"
 msgstr "Tempo de criação"
 
-#: dashboards/project/data_processing/data_sources/workflows/create.py:31
+#: dashboards/project/data_processing/data_sources/workflows/create.py:33
 msgid "Data Source Type"
 msgstr "tipo do Data Source"
 
-#: dashboards/project/data_processing/data_sources/workflows/create.py:41
-#: dashboards/project/data_processing/data_sources/workflows/create.py:46
+#: dashboards/project/data_processing/data_sources/workflows/create.py:43
+#: dashboards/project/data_processing/data_sources/workflows/create.py:48
 msgid "Source username"
 msgstr "Usuário de origem"
 
-#: dashboards/project/data_processing/data_sources/workflows/create.py:53
-#: dashboards/project/data_processing/data_sources/workflows/create.py:56
+#: dashboards/project/data_processing/data_sources/workflows/create.py:55
+#: dashboards/project/data_processing/data_sources/workflows/create.py:58
 msgid "Source password"
 msgstr "Senha de Origem"
 
-#: dashboards/project/data_processing/data_sources/workflows/create.py:94
+#: dashboards/project/data_processing/data_sources/workflows/create.py:96
 msgid "Data source created"
 msgstr "Data Source criado"
 
-#: dashboards/project/data_processing/data_sources/workflows/create.py:95
+#: dashboards/project/data_processing/data_sources/workflows/create.py:97
 msgid "Could not create data source"
 msgstr "Não foi possível criar Data Source"
 
@@ -7786,7 +7797,7 @@ msgstr "Não é possível criar job binário"
 
 #: dashboards/project/data_processing/job_binaries/forms.py:198
 #: dashboards/project/data_processing/job_binaries/tables.py:31
-#: dashboards/project/data_processing/job_binaries/views.py:61
+#: dashboards/project/data_processing/job_binaries/views.py:63
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:11
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/create.html:3
 msgid "Create Job Binary"
@@ -7802,7 +7813,7 @@ msgstr "Falha ao buscar lista de binário interno."
 
 #: dashboards/project/data_processing/job_binaries/panel.py:22
 #: dashboards/project/data_processing/job_binaries/tables.py:88
-#: dashboards/project/data_processing/job_binaries/views.py:43
+#: dashboards/project/data_processing/job_binaries/views.py:45
 msgid "Job Binaries"
 msgstr "Job binário"
 
@@ -7830,16 +7841,16 @@ msgstr "Url"
 msgid "Unable to fetch job binary."
 msgstr "Não foi possível obter job binários."
 
-#: dashboards/project/data_processing/job_binaries/views.py:51
+#: dashboards/project/data_processing/job_binaries/views.py:53
 msgid "Unable to fetch job binary list."
 msgstr "Não foi possível obter lista de Job binários."
 
-#: dashboards/project/data_processing/job_binaries/views.py:67
+#: dashboards/project/data_processing/job_binaries/views.py:76
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/details.html:3
 msgid "Job Binary Details"
 msgstr "Detalhes Job binário"
 
-#: dashboards/project/data_processing/job_binaries/views.py:87
+#: dashboards/project/data_processing/job_binaries/views.py:96
 #, python-format
 msgid "Unable to fetch job binary: %(exc)s"
 msgstr "Não foi possível obter job binário: %(exc)s"
@@ -7901,13 +7912,13 @@ msgid "Download job binary"
 msgstr "Download Job Binário"
 
 #: dashboards/project/data_processing/job_executions/panel.py:22
-#: dashboards/project/data_processing/job_executions/tables.py:188
+#: dashboards/project/data_processing/job_executions/tables.py:194
 #: dashboards/project/data_processing/job_executions/views.py:39
 msgid "Job Executions"
 msgstr "Execução Job"
 
 #: dashboards/project/data_processing/job_executions/tables.py:38
-#: dashboards/project/data_processing/job_executions/tables.py:169
+#: dashboards/project/data_processing/job_executions/tables.py:175
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:10
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:3
 #: dashboards/project/data_processing/jobs/workflows/launch.py:56
@@ -7917,26 +7928,32 @@ msgid "Job"
 msgstr "Trabalho"
 
 #: dashboards/project/data_processing/job_executions/tables.py:39
-#: dashboards/project/data_processing/job_executions/tables.py:173
+#: dashboards/project/data_processing/job_executions/tables.py:179
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:16
 #: dashboards/project/data_processing/jobs/workflows/launch.py:104
 msgid "Cluster"
 msgstr "Cluster"
 
-#: dashboards/project/data_processing/job_executions/tables.py:47
+#: dashboards/project/data_processing/job_executions/tables.py:45
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:51
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:53
+msgid "Job Execution Guide"
+msgstr ""
+
+#: dashboards/project/data_processing/job_executions/tables.py:53
 msgid "Delete Job Execution"
 msgid_plural "Delete Job Executions"
 msgstr[0] "Excluir Execução de Job"
 msgstr[1] "Excluir Execuções de Job"
 
-#: dashboards/project/data_processing/job_executions/tables.py:55
+#: dashboards/project/data_processing/job_executions/tables.py:61
 msgid "Deleted Job Execution"
 msgid_plural "Deleted Job Executions"
 msgstr[0] "Execução de Job Excluída"
 msgstr[1] "Execuções de Job Excluídas"
 
-#: dashboards/project/data_processing/job_executions/tables.py:68
-#: dashboards/project/data_processing/job_executions/tables.py:97
+#: dashboards/project/data_processing/job_executions/tables.py:74
+#: dashboards/project/data_processing/job_executions/tables.py:103
 #: dashboards/project/data_processing/jobs/views.py:83
 #: dashboards/project/data_processing/jobs/views.py:104
 #: dashboards/project/data_processing/jobs/views.py:117
@@ -7949,37 +7966,37 @@ msgid_plural "Launch Jobs"
 msgstr[0] "Disparar Job"
 msgstr[1] "Disparar Jobs"
 
-#: dashboards/project/data_processing/job_executions/tables.py:76
-#: dashboards/project/data_processing/job_executions/tables.py:105
+#: dashboards/project/data_processing/job_executions/tables.py:82
+#: dashboards/project/data_processing/job_executions/tables.py:111
 msgid "Launched Job"
 msgid_plural "Launched Jobs"
 msgstr[0] "Job Disparado"
 msgstr[1] "Jobs Disparados"
 
-#: dashboards/project/data_processing/job_executions/tables.py:82
+#: dashboards/project/data_processing/job_executions/tables.py:88
 msgid "Relaunch On Existing Cluster"
 msgstr "Reiniciar em cluster existente."
 
-#: dashboards/project/data_processing/job_executions/tables.py:111
+#: dashboards/project/data_processing/job_executions/tables.py:117
 msgid "Relaunch On New Cluster"
 msgstr "Reiniciar em um novo cluster"
 
-#: dashboards/project/data_processing/job_executions/tables.py:152
+#: dashboards/project/data_processing/job_executions/tables.py:158
 msgctxt "Current status of a Job Execution"
 msgid "Done with Error"
 msgstr ""
 
-#: dashboards/project/data_processing/job_executions/tables.py:154
+#: dashboards/project/data_processing/job_executions/tables.py:160
 msgctxt "Current status of a Job Execution"
 msgid "Failed"
 msgstr "Falhou"
 
-#: dashboards/project/data_processing/job_executions/tables.py:156
+#: dashboards/project/data_processing/job_executions/tables.py:162
 msgctxt "Current status of a Job Execution"
 msgid "Killed"
 msgstr ""
 
-#: dashboards/project/data_processing/job_executions/tables.py:158
+#: dashboards/project/data_processing/job_executions/tables.py:164
 msgctxt "Current status of a Job Execution"
 msgid "Succeeded"
 msgstr ""
@@ -8054,8 +8071,8 @@ msgstr "Trabalhos"
 #: dashboards/project/data_processing/jobs/tables.py:36
 #: dashboards/project/data_processing/jobs/views.py:62
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:3
-#: dashboards/project/data_processing/jobs/workflows/create.py:114
-#: dashboards/project/data_processing/jobs/workflows/create.py:153
+#: dashboards/project/data_processing/jobs/workflows/create.py:124
+#: dashboards/project/data_processing/jobs/workflows/create.py:155
 msgid "Create Job"
 msgstr "Criar Job"
 
@@ -8099,27 +8116,31 @@ msgid "Select the type of your job:"
 msgstr "Seleciona o tipo do seu job:"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:9
-#: dashboards/project/data_processing/jobs/workflows/create.py:89
+#: dashboards/project/data_processing/jobs/workflows/create.py:99
+#: dashboards/project/data_processing/utils/helpers.py:126
 msgid "Pig"
 msgstr "Pig"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:10
-#: dashboards/project/data_processing/jobs/workflows/create.py:89
+#: dashboards/project/data_processing/jobs/workflows/create.py:99
+#: dashboards/project/data_processing/utils/helpers.py:127
 msgid "Hive"
 msgstr "hive"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:11
-#: dashboards/project/data_processing/jobs/workflows/create.py:90
+#: dashboards/project/data_processing/jobs/workflows/create.py:100
+#: dashboards/project/data_processing/utils/helpers.py:128
 msgid "Spark"
 msgstr "Spark"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:12
-#: dashboards/project/data_processing/jobs/workflows/create.py:91
+#: dashboards/project/data_processing/jobs/workflows/create.py:101
+#: dashboards/project/data_processing/utils/helpers.py:129
 msgid "MapReduce"
 msgstr "MapReduce"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:13
-#: dashboards/project/data_processing/jobs/workflows/create.py:93
+#: dashboards/project/data_processing/jobs/workflows/create.py:103
 msgid "Java Action"
 msgstr "Java Action"
 
@@ -8158,7 +8179,7 @@ msgid "Mains"
 msgstr "Mains"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:18
-#: dashboards/project/data_processing/jobs/workflows/create.py:54
+#: dashboards/project/data_processing/jobs/workflows/create.py:56
 msgid "Libs"
 msgstr "Libs"
 
@@ -8214,40 +8235,42 @@ msgstr "Escolha"
 msgid "Chosen Libraries"
 msgstr "Bibliotecas escolhidas"
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:36
+#: dashboards/project/data_processing/jobs/workflows/create.py:38
 msgid "Choose libraries"
 msgstr "Escolha bibliotecas"
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:49
-#: dashboards/project/data_processing/jobs/workflows/create.py:101
+#: dashboards/project/data_processing/jobs/workflows/create.py:51
+#: dashboards/project/data_processing/jobs/workflows/create.py:111
 msgid "-- not selected --"
 msgstr "-- Não Selecionado --"
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:62
+#: dashboards/project/data_processing/jobs/workflows/create.py:64
+#: dashboards/project/data_processing/wizard/forms.py:91
 msgid "Job Type"
 msgstr "Tipo Job"
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:69
-#: dashboards/project/data_processing/jobs/workflows/create.py:78
-#: dashboards/project/data_processing/jobs/workflows/create.py:79
+#: dashboards/project/data_processing/jobs/workflows/create.py:71
 #: dashboards/project/data_processing/jobs/workflows/create.py:80
 #: dashboards/project/data_processing/jobs/workflows/create.py:81
+#: dashboards/project/data_processing/jobs/workflows/create.py:82
+#: dashboards/project/data_processing/jobs/workflows/create.py:83
 msgid "Choose a main binary"
 msgstr "Escolha um binário principal"
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:71
+#: dashboards/project/data_processing/jobs/workflows/create.py:73
 msgid "Choose the binary which should be used in this Job."
 msgstr "Escolha o binário que deve ser utilizada neste job."
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:92
+#: dashboards/project/data_processing/jobs/workflows/create.py:102
+#: dashboards/project/data_processing/utils/helpers.py:130
 msgid "Streaming MapReduce"
 msgstr "Streaming MapReduce"
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:155
+#: dashboards/project/data_processing/jobs/workflows/create.py:157
 msgid "Job created"
 msgstr "Job criado"
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:156
+#: dashboards/project/data_processing/jobs/workflows/create.py:158
 msgid "Could not create job"
 msgstr "Não foi possível criar job"
 
@@ -8361,12 +8384,12 @@ msgstr "Detalhes de modelo do Node group"
 #: dashboards/project/data_processing/nodegroup_templates/views.py:87
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:3
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/create.html:3
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:240
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:373
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:249
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:392
 msgid "Create Node Group Template"
 msgstr "Criar Mode de Node Group"
 
-#: dashboards/project/data_processing/nodegroup_templates/views.py:112
+#: dashboards/project/data_processing/nodegroup_templates/views.py:117
 msgid "Unable to fetch template object."
 msgstr "Não foi possível obter modelo de objeto."
 
@@ -8407,8 +8430,8 @@ msgid "Cinder volumes"
 msgstr "Volumes Cinder"
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:70
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:65
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:71
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:67
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:73
 msgid "Volumes per node"
 msgstr "Volumes por node"
 
@@ -8417,8 +8440,8 @@ msgid "Volumes size"
 msgstr "Tamanho do Volume"
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:75
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:87
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:93
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:89
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:95
 msgid "Volumes Availability Zone"
 msgstr ""
 
@@ -8452,78 +8475,78 @@ msgstr "Copia do Modelo de Node Group %s Criado"
 msgid "Unable to fetch plugin details."
 msgstr "Não foi possível obter detalhes de plugin."
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:45
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:47
 msgid "OpenStack Flavor"
 msgstr "OpenStack Flavor"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:49
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:51
 msgid "Launch instances in this availability zone."
 msgstr "Disparar instâncias nessa nessa zona de disponibilidade."
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:55
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:57
 msgid "Storage location"
 msgstr "Local de Armazenamento"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:56
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:58
 msgid "Choose a storage location"
 msgstr "Escolha o local de armazenamento"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:76
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:82
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:78
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:84
 msgid "Volumes size (GB)"
 msgstr "Tamanho dos Volumes (GB)"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:88
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:90
 msgid "Create volumes in this availability zone."
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:118
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:120
 msgid "Unable to generate process choices."
 msgstr "Não foi possível gerar opções de processo."
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:131
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:133
 msgid "Processes"
 msgstr "Processos"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:133
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:135
 msgid "Processes to be launched in node group"
 msgstr "Processos a serem lançados no node group"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:158
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:165
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:167
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:174
 msgid "No availability zone specified"
 msgstr "Nenhuma zona de disponibilidade especificada"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:180
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:189
 msgid "Configure Node Group Template"
 msgstr "Configurar Template Node Group"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:193
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:202
 msgid "Create security group for this Node Group."
 msgstr "Criar grupo de segurança para este Grupo de Nodos"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:201
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:210
 msgid "Unable to get security group list."
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:208
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:217
 msgid "Launch instances in these security groups."
 msgstr "Lançar instâncias nestes grupos de segurança."
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:213
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:222
 msgid "Security"
 msgstr "Segurança"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:214
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:223
 msgid "Control access to instances of the node group."
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:242
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:251
 #, python-format
 msgid "Created Node Group Template %s"
 msgstr "Template Criado Node group %s"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:354
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:373
 msgid "Select plugin and hadoop version"
 msgstr "Escolha um plugin e versão do Hadoop"
 
@@ -8538,6 +8561,10 @@ msgstr "Use grupos anti-affinity para processos"
 #: dashboards/project/data_processing/utils/anti_affinity.py:66
 msgid "Unable to populate anti-affinity processes."
 msgstr "Incapaz de preencher os processos anti-affinity."
+
+#: dashboards/project/data_processing/utils/helpers.py:132
+msgid "Java"
+msgstr ""
 
 #: dashboards/project/data_processing/utils/neutron_support.py:31
 #: dashboards/project/databases/workflows/create_instance.py:160
@@ -8557,9 +8584,305 @@ msgstr "Contagem"
 msgid "Unable to retrieve security group %(group)s."
 msgstr ""
 
-#: dashboards/project/data_processing/utils/workflow_helpers.py:188
+#: dashboards/project/data_processing/utils/workflow_helpers.py:193
+#: dashboards/project/data_processing/wizard/forms.py:56
 msgid "Plugin Name"
 msgstr "Nome Plugin"
+
+#: dashboards/project/data_processing/wizard/forms.py:47
+msgid "Unable to set cluster type"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/forms.py:86
+msgid "Choose plugin type and version"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/forms.py:120
+msgid "Unable to set job type"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/panel.py:22
+msgid "Guides"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/views.py:40
+msgid "Unable show guides."
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_job_type_select.html:13
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/job_type_select.html:3
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/job_type_select.html:6
+msgid "Choose job type"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_job_type_select.html:28
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_plugin_select.html:28
+msgid "Select"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_job_type_select_help.html:3
+msgid ""
+"Select which type of job that you want to run.\n"
+"      This choice will dictate which steps are required to successfully\n"
+"      execute your job.\n"
+"    "
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_plugin_select.html:13
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/plugin_select.html:3
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/plugin_select.html:6
+msgid "Choose plugin and version"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_plugin_select_help.html:3
+msgid ""
+"Select which plugin and version that you\n"
+"    want to use to create your cluster."
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:7
+msgid "Guided Cluster Creation"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:16
+msgid ""
+"The first step is to determine which type of\n"
+"                    cluster you want to run.  You may have several choices\n"
+"                    available depending on the configuration of your system.\n"
+"                    Click on \"choose plugin\" to bring up the list of data\n"
+"                    processing plugins.  There you will be able to choose the\n"
+"                    data processing plugin along with the version number.\n"
+"                    Choosing this up front will allow the rest of the cluster\n"
+"                    creation steps to focus only on options that are pertinent\n"
+"                    to your desired cluster type."
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:27
+msgid "Choose plugin"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:28
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:64
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:91
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:123
+msgid "Current choice:"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:31
+msgid "Plugin:"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:33
+msgid "Version:"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:38
+msgid "No plugin chosen"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:47
+msgid ""
+"Next, you need to define the different\n"
+"                        types of machines in your cluster.  This is done by\n"
+"                        defining a Node Group Template for each type of\n"
+"                        machine.  A very common case is where you\n"
+"                        need to have one or more machines running a \"master\"\n"
+"                        set of processes while another set of machines need\n"
+"                        to be running the \"worker\" processes.  Here,\n"
+"                        you will define the Node Group Template for your\n"
+"                        \"master\" node(s).\n"
+"                     "
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:62
+msgid "Create a Master Node Group Template"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:67
+msgid "Master Node Group Template:"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:72
+msgid "No Master Node Group Template Created"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:81
+msgid ""
+"Repeat the Node Group Template\n"
+"                        creation process, but this time you are creating\n"
+"                        your \"worker\" Node Group Template."
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:89
+msgid "Create a Worker Node Group Template"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:94
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:126
+msgid "Worker Node Group Template:"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:99
+msgid "No Worker Node Group Template Created"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:108
+msgid ""
+"Now you need to set the layout of your\n"
+"                        cluster.  By\n"
+"                        creating a Cluster Template, you will be choosing the\n"
+"                        number of instances of each Node Group Template that\n"
+"                        will appear in your cluster.  Additionally,\n"
+"                        you will have a chance to set any cluster-specific\n"
+"                        configuration items in the additional tabs on the\n"
+"                        create Cluster Template form."
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:121
+msgid "Create a Cluster Template"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:131
+msgid "No Cluster Template Created"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:140
+msgid ""
+"You are now ready to\n"
+"                        launch your cluster.  When you click on the link\n"
+"                        below, you will need to give your cluster a name,\n"
+"                        choose the Cluster Template to use and choose which\n"
+"                        image to use to build your instances.  After you\n"
+"                        click on \"Create\", your instances will begin to\n"
+"                        spawn.  Your cluster should be operational in a few\n"
+"                        minutes."
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:153
+msgid "Launch a Cluster"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:161
+msgid "Reset Cluster Guide"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:163
+msgid "Reset Cluster Creation Guide"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:7
+msgid "Guided Job Execution"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:17
+msgid ""
+"First, select which type of job that\n"
+"                            you want to run.  This choice will determine which\n"
+"                            other steps are required\n"
+"                        "
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:25
+msgid "Select type"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:28
+msgid "Current type:"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:35
+msgid "No type chosen"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:46
+msgid ""
+"Data Sources are what your\n"
+"                            job uses for input and output.  Depending on the type\n"
+"                            of job you will be running, you may need to define one\n"
+"                            or more data sources.  You can create multiple data\n"
+"                            sources by repeating this step.\n"
+"                        "
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:56
+msgid "Create a data source"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:65
+msgid ""
+"Define your Job Template.\n"
+"                        This is where you choose the type of job that you\n"
+"                        want to run (Pig, Java Action, Spark, etc) and choose\n"
+"                        or upload the files necessary to run it.  The inputs\n"
+"                        and outputs will be defined later.\n"
+"                    "
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:75
+msgid "Create a job template"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:77
+msgid "Job template:"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:84
+msgid "No job template created"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:93
+msgid ""
+"Launch your job.  When\n"
+"                        launching, you may need to choose your input and\n"
+"                        output data sources.  This is where you would also\n"
+"                        add any special configuration values, parameters,\n"
+"                        or arguments that you need to pass along\n"
+"                        to your job.\n"
+"                        "
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:103
+msgid "Launch job"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:112
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:114
+msgid "Reset Job Execution Guide"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:7
+msgid "Data Processing Guides"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:16
+msgid ""
+"\n"
+"                 Each of the Data Processing frameworks require a cluster of machines\n"
+"                 in order to do the work they are assigned.  A cluster is\n"
+"                 formed by creating a set of Node Group Templates, combining\n"
+"                 those into a Cluster Template and then launching a Cluster.\n"
+"                 You can do each of those steps manually, or you can follow\n"
+"                 this guide to help take you through the steps of\n"
+"                 Cluster creation.\n"
+"             "
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:29
+msgid "Cluster Guide"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:38
+msgid ""
+"\n"
+"                  In order to run a Data Processing job, you need to make\n"
+"                  the files for your program available to the\n"
+"                  Data Processing system, define where the input and output\n"
+"                  need to go and create a Job Template that describes\n"
+"                  how to run your job.  Each of those steps can be done\n"
+"                  manually or you can follow this guide to help take you\n"
+"                  through the steps to run a job on an existing cluster.\n"
+"            "
+msgstr ""
 
 #: dashboards/project/database_backups/panel.py:23
 #: dashboards/project/database_backups/tables.py:181
