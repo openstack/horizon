@@ -91,7 +91,7 @@ class AdminInstanceFilterAction(tables.FilterAction):
     # session property used for persisting the filter.
     name = "filter_admin_instances"
     filter_type = "server"
-    filter_choices = (('project', _("Project"), True),
+    filter_choices = (('project', _("Project ="), True),
                       ('host', _("Host ="), True),
                       ('name', _("Name"), True),
                       ('ip', _("IPv4 Address ="), True),
