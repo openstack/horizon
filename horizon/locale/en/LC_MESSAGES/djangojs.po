@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-17 01:36-0500\n"
+"POT-Creation-Date: 2015-03-19 01:16-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,6 +21,10 @@ msgstr ""
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
 "missing information."
+msgstr ""
+
+#: static/angular/metadata-display/metadata-display.js:33
+msgid "Detail Information"
 msgstr ""
 
 #: static/angular/metadata-tree/metadata-tree.js:35

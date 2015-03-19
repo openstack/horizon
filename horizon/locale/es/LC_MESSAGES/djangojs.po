@@ -5,12 +5,13 @@
 # Translators:
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2015
 # cametiope <aldohcasa@hotmail.com>, 2014
+# Marian Tort <marian.tort@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-16 22:31-0500\n"
-"PO-Revision-Date: 2015-03-17 03:17+0000\n"
+"POT-Creation-Date: 2015-03-18 20:07-0500\n"
+"PO-Revision-Date: 2015-03-18 23:58+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -23,6 +24,10 @@ msgstr ""
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
 "missing information."
+msgstr "Esta acción no se puede llevar a cabo. Esta columna contiene errores o carece de información."
+
+#: static/angular/metadata-display/metadata-display.js:33
+msgid "Detail Information"
 msgstr ""
 
 #: static/angular/metadata-tree/metadata-tree.js:35
@@ -31,43 +36,43 @@ msgid ""
 "the right column. In the left columns there are metadata definitions from "
 "the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
 "the key of your choice."
-msgstr ""
+msgstr "Puede especificar los metadatos de los recursos moviendo los ítems de la columna de la izquierda a la de la derecha. En las columnas de la izquierda hay definiciones de metadatos del Glance Metadata Catalog. Utilice la opcion \"Otro\" para añadir metadatos con la clave que desee. "
 
 #: static/angular/metadata-tree/metadata-tree.js:36
 msgid "Min"
-msgstr ""
+msgstr "Mín."
 
 #: static/angular/metadata-tree/metadata-tree.js:37
 msgid "Max"
-msgstr ""
+msgstr "Máx."
 
 #: static/angular/metadata-tree/metadata-tree.js:38
 msgid "Min length"
-msgstr ""
+msgstr "Longitud mín."
 
 #: static/angular/metadata-tree/metadata-tree.js:39
 msgid "Max length"
-msgstr ""
+msgstr "Longitud máx."
 
 #: static/angular/metadata-tree/metadata-tree.js:40
 msgid "Pattern mismatch"
-msgstr ""
+msgstr "Discrepancia en el patrón"
 
 #: static/angular/metadata-tree/metadata-tree.js:41
 msgid "Integer required"
-msgstr ""
+msgstr "Entero obligatorio"
 
 #: static/angular/metadata-tree/metadata-tree.js:42
 msgid "Decimal required"
-msgstr ""
+msgstr "Decimal obligatorio"
 
 #: static/angular/metadata-tree/metadata-tree.js:43
 msgid "Required"
-msgstr ""
+msgstr "Obligatorio"
 
 #: static/angular/metadata-tree/metadata-tree.js:44
 msgid "Duplicate keys are not allowed"
-msgstr ""
+msgstr "Las claves duplicadas no están permitidas"
 
 #: static/angular/metadata-tree/metadata-tree.js:45
 #: static/horizon/js/horizon.forms.js:184
@@ -76,23 +81,23 @@ msgstr "Filtrar"
 
 #: static/angular/metadata-tree/metadata-tree.js:46
 msgid "Available Metadata"
-msgstr ""
+msgstr "Metadatos disponibles"
 
 #: static/angular/metadata-tree/metadata-tree.js:47
 msgid "Existing Metadata"
-msgstr ""
+msgstr "Metadatos existentes"
 
 #: static/angular/metadata-tree/metadata-tree.js:48
 msgid "Custom"
-msgstr ""
+msgstr "Personalizar"
 
 #: static/angular/metadata-tree/metadata-tree.js:49
 msgid "No available metadata"
-msgstr ""
+msgstr "Metadatos no disponibles"
 
 #: static/angular/metadata-tree/metadata-tree.js:50
 msgid "No existing metadata"
-msgstr ""
+msgstr "No hay metadatos existentes"
 
 #: static/angular/modal/modal.js:83
 msgid "Submit"
@@ -137,7 +142,7 @@ msgstr "Haga click para mostrar u ocultar"
 
 #: static/angular/transfer-table/transfer-table.js:47
 msgid "Re-order items using drag and drop"
-msgstr ""
+msgstr "Reordene los ítems arrastrando y soltando."
 
 #: static/angular/transfer-table/transfer-table.js:48
 msgid "Click to see more details"

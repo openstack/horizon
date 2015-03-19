@@ -5,13 +5,14 @@
 # Translators:
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2015
 # cametiope <aldohcasa@hotmail.com>, 2014
+# Marian Tort <marian.tort@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-16 22:31-0500\n"
-"PO-Revision-Date: 2015-03-17 03:17+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-03-18 20:07-0500\n"
+"PO-Revision-Date: 2015-03-18 11:32+0000\n"
+"Last-Translator: Marian Tort <marian.tort@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -80,7 +81,7 @@ msgid "Submit"
 msgstr "Enviar"
 
 #: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:25
+#: templates/horizon/common/_modal_form_update_metadata.html:27
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "Cancelar "
@@ -307,7 +308,7 @@ msgstr "Volúmenes"
 msgid "Volume Storage"
 msgstr "Almacenamiento de volúmenes"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:24
+#: templates/horizon/common/_modal_form_update_metadata.html:26
 #: workflows/base.py:594
 msgid "Save"
 msgstr "Guardar"
@@ -468,7 +469,7 @@ msgstr "El número de puerto debe ser un entero"
 
 #: utils/validators.py:59
 msgid "The string may only contain ASCII printable characters."
-msgstr ""
+msgstr "La cadena sólo puede incluir caracteres imprimibles ASCII."
 
 #: workflows/base.py:71
 msgid "Processing..."
