@@ -42,7 +42,7 @@ class JobExecutionsFilterAction(tables.FilterAction):
 
 class JobExecutionGuide(tables.LinkAction):
     name = "jobex_guide"
-    verbose_name = _("Job Execution Guide")
+    verbose_name = _("Job Guide")
     url = "horizon:project:data_processing.wizard:jobex_guide"
 
 
@@ -50,16 +50,16 @@ class DeleteJobExecution(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Job Execution",
-            u"Delete Job Executions",
+            u"Delete Job",
+            u"Delete Jobs",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted Job Execution",
-            u"Deleted Job Executions",
+            u"Deleted Job",
+            u"Deleted Jobs",
             count
         )
 
@@ -154,13 +154,13 @@ class JobExecutionsTable(tables.DataTable):
         ("SUCCEEDED", True),
     )
     STATUS_DISPLAY_CHOICES = (
-        ("DONEWITHERROR", pgettext_lazy("Current status of a Job Execution",
+        ("DONEWITHERROR", pgettext_lazy("Current status of a Job",
                                         u"Done with Error")),
-        ("FAILED", pgettext_lazy("Current status of a Job Execution",
+        ("FAILED", pgettext_lazy("Current status of a Job",
                                  u"Failed")),
-        ("KILLED", pgettext_lazy("Current status of a Job Execution",
+        ("KILLED", pgettext_lazy("Current status of a Job",
                                  u"Killed")),
-        ("SUCCEEDED", pgettext_lazy("Current status of a Job Execution",
+        ("SUCCEEDED", pgettext_lazy("Current status of a Job",
                                     u"Succeeded")),
     )
 
@@ -172,7 +172,7 @@ class JobExecutionsTable(tables.DataTable):
                                "job_executions:details"))
     job_name = tables.Column(
         "job_name",
-        verbose_name=_("Job"),
+        verbose_name=_("Job Template"),
         link=get_job_link)
     cluster_name = tables.Column(
         "cluster_name",
@@ -191,7 +191,7 @@ class JobExecutionsTable(tables.DataTable):
         name = "job_executions"
         row_class = UpdateRow
         status_columns = ["status"]
-        verbose_name = _("Job Executions")
+        verbose_name = _("Jobs")
         table_actions = [JobExecutionGuide,
                          DeleteJobExecution,
                          JobExecutionsFilterAction]

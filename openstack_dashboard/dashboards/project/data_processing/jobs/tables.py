@@ -33,7 +33,7 @@ class JobsFilterAction(tables.FilterAction):
 
 class CreateJob(tables.LinkAction):
     name = "create job"
-    verbose_name = _("Create Job")
+    verbose_name = _("Create Job Template")
     url = "horizon:project:data_processing.jobs:create-job"
     classes = ("ajax-modal", "create_job_class")
     icon = "plus"
@@ -43,16 +43,16 @@ class DeleteJob(tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Job",
-            u"Delete Jobs",
+            u"Delete Job Template",
+            u"Delete Job Templates",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Deleted Job",
-            u"Deleted Jobs",
+            u"Deleted Job Template",
+            u"Deleted Jobs Templates",
             count
         )
 
@@ -108,6 +108,6 @@ class JobsTable(tables.DataTable):
 
     class Meta(object):
         name = "jobs"
-        verbose_name = _("Jobs")
+        verbose_name = _("Job Templates")
         table_actions = (CreateJob, DeleteJob, JobsFilterAction,)
         row_actions = (LaunchJobExistingCluster, ChoosePlugin, DeleteJob,)

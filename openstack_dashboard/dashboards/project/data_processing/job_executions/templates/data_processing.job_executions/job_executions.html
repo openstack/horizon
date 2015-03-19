@@ -2,6 +2,10 @@
 {% load i18n %}
 {% block title %}{% trans "Data Processing" %}{% endblock %}
 
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Jobs") %}
+{% endblock page_header %}
+
 {% block main %}
 
 <div class="job_executions">

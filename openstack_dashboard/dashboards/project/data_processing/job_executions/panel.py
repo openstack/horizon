@@ -19,7 +19,7 @@ from openstack_dashboard.dashboards.project import dashboard
 
 
 class JobExecutionsPanel(horizon.Panel):
-    name = _("Job Executions")
+    name = _("Jobs")
     slug = 'data_processing.job_executions'
     permissions = ('openstack.services.data-processing',)
 

@@ -1,13 +1,13 @@
 {% load i18n sizeformat %}
 {% load url from future %}
-<h3>{% trans "Job Execution Overview" %}</h3>
+<h3>{% trans "Job Overview" %}</h3>
 <div class="status row detail">
   <dl class="dl-horizontal">
     <dt>{% trans "Status" %}</dt>
     <dd>{{ job_execution.info.status }}</dd>
     <dt>{% trans "ID" %}</dt>
     <dd>{{ job_execution.id }}</dd>
-    <dt>{% trans "Job" %}</dt>
+    <dt>{% trans "Job Template" %}</dt>
     <dd><a href="{% url 'horizon:project:data_processing.jobs:details' job_execution.job_id %}">{{ object_names.job_name }}</a></dd>
     <dt>{% trans "Input Data Source" %}</dt>
     <dd><a href="{% url 'horizon:project:data_processing.data_sources:details' job_execution.input_id %}">{{ object_names.input_name }}</a></dd>
