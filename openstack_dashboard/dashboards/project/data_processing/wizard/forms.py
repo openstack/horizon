@@ -40,7 +40,7 @@ class ChoosePluginForm(forms.SelfHandlingForm):
             request.session["plugin_name"] = plugin_name
             request.session["plugin_version"] = (
                 context[plugin_name + "_version"])
-            messages.success(request, "Cluster type chosen")
+            messages.success(request, _("Cluster type chosen"))
             return True
         except Exception:
             exceptions.handle(request,
