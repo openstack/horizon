@@ -234,20 +234,28 @@
             </tr>
             <tr>
               <th class="expander"></th>
-              <th ng-class="tableHeadCells[0].classList"
-                  ng-style="tableHeadCells[0].style">
+              <th ng-attr-st-sort-default="{$ tableHeadCells[0].sortDefault $}"
+                  ng-class="tableHeadCells[0].classList"
+                  ng-style="tableHeadCells[0].style"
+                  st-sort="{$ tableHeadCells[0].sortable && tableBodyCells[0].key $}">
                 {$ tableHeadCells[0].text $}
               </th>
-              <th ng-class="tableHeadCells[1].classList"
-                  ng-style="tableHeadCells[1].style">
+              <th ng-attr-st-sort-default="{$ tableHeadCells[1].sortDefault $}"
+                  ng-class="tableHeadCells[1].classList"
+                  ng-style="tableHeadCells[1].style"
+                  st-sort="{$ tableHeadCells[1].sortable && tableBodyCells[1].key $}">
                 {$ tableHeadCells[1].text $}
               </th>
-              <th ng-class="tableHeadCells[2].classList"
-                  ng-style="tableHeadCells[2].style">
+              <th ng-attr-st-sort-default="{$ tableHeadCells[2].sortDefault $}"
+                  ng-class="tableHeadCells[2].classList"
+                  ng-style="tableHeadCells[2].style"
+                  st-sort="{$ tableHeadCells[2].sortable && tableBodyCells[2].key $}">
                 {$ tableHeadCells[2].text $}
               </th>
-              <th ng-class="tableHeadCells[3].classList"
-                  ng-style="tableHeadCells[3].style">
+              <th ng-attr-st-sort-default="{$ tableHeadCells[3].sortDefault $}"
+                  ng-class="tableHeadCells[3].classList"
+                  ng-style="tableHeadCells[3].style"
+                  st-sort="{$ tableHeadCells[3].sortable && tableBodyCells[3].key $}">
                 {$ tableHeadCells[3].text $}
               </th>
               <th class="action"></th>
