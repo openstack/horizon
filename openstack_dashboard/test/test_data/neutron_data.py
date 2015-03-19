@@ -161,7 +161,10 @@ def data(TEST):
                  'name': '',
                  'network_id': network_dict['id'],
                  'status': 'ACTIVE',
-                 'tenant_id': network_dict['tenant_id']}
+                 'tenant_id': network_dict['tenant_id'],
+                 'binding:vnic_type': 'normal',
+                 'binding:host_id': 'host'}
+
     TEST.api_ports.add(port_dict)
     TEST.ports.add(neutron.Port(port_dict))
 
@@ -175,7 +178,9 @@ def data(TEST):
                  'name': '',
                  'network_id': network_dict['id'],
                  'status': 'ACTIVE',
-                 'tenant_id': network_dict['tenant_id']}
+                 'tenant_id': network_dict['tenant_id'],
+                 'binding:vnic_type': 'normal',
+                 'binding:host_id': 'host'}
     TEST.api_ports.add(port_dict)
     TEST.ports.add(neutron.Port(port_dict))
     assoc_port = port_dict
@@ -190,7 +195,9 @@ def data(TEST):
                  'name': '',
                  'network_id': network_dict['id'],
                  'status': 'ACTIVE',
-                 'tenant_id': network_dict['tenant_id']}
+                 'tenant_id': network_dict['tenant_id'],
+                 'binding:vnic_type': 'normal',
+                 'binding:host_id': 'host'}
     TEST.api_ports.add(port_dict)
     TEST.ports.add(neutron.Port(port_dict))
 
@@ -238,7 +245,9 @@ def data(TEST):
                  'name': '',
                  'network_id': network_dict['id'],
                  'status': 'ACTIVE',
-                 'tenant_id': network_dict['tenant_id']}
+                 'tenant_id': network_dict['tenant_id'],
+                 'binding:vnic_type': 'normal',
+                 'binding:host_id': 'host'}
 
     TEST.api_ports.add(port_dict)
     TEST.ports.add(neutron.Port(port_dict))
@@ -350,7 +359,9 @@ def data(TEST):
                  'name': '',
                  'network_id': TEST.networks.get(name="ext_net")['id'],
                  'status': 'ACTIVE',
-                 'tenant_id': '1'}
+                 'tenant_id': '1',
+                 'binding:vnic_type': 'normal',
+                 'binding:host_id': 'host'}
     TEST.api_ports.add(port_dict)
     TEST.ports.add(neutron.Port(port_dict))
 
@@ -1142,6 +1153,8 @@ def data(TEST):
                  'name': 'port5',
                  'network_id': TEST.networks.get(name="net4")['id'],
                  'status': 'ACTIVE',
-                 'tenant_id': TEST.networks.get(name="net4")['tenant_id']}
+                 'tenant_id': TEST.networks.get(name="net4")['tenant_id'],
+                 'binding:vnic_type': 'normal',
+                 'binding:host_id': 'host'}
     TEST.api_ports.add(port_dict)
     TEST.ports.add(neutron.Port(port_dict))

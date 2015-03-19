@@ -216,6 +216,12 @@ OPENSTACK_NEUTRON_NETWORK = {
     # in this list will be available to choose from when creating a network.
     # Network types include local, flat, vlan, gre, and vxlan.
     'supported_provider_types': ['*'],
+
+    # Set which VNIC types are supported for port binding. Only the VNIC
+    # types in this list will be available to choose from when creating a
+    # port.
+    # VNIC types include 'normal', 'macvtap' and 'direct'.
+    'supported_vnic_types': ['*']
 }
 
 # The OPENSTACK_IMAGE_BACKEND settings can be used to customize features
