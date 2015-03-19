@@ -50,7 +50,7 @@ class CreateImageForm(forms.SelfHandlingForm):
             'class': 'switchable',
             'data-slug': 'source'}))
 
-    copy_from = forms.CharField(max_length=255,
+    image_url = forms.CharField(max_length=255,
                                 label=_("Image Location"),
                                 help_text=_("An external (HTTP) URL to load "
                                             "the image from."),
@@ -92,6 +92,15 @@ class CreateImageForm(forms.SelfHandlingForm):
         help_text=_('The minimum memory size required to boot the image. '
                     'If unspecified, this value defaults to 0 (no minimum).'),
         required=False)
+    is_copying = forms.BooleanField(
+        label=_("Copy Data"), initial=True, required=False,
+        help_text=_('Specify this option to copy image data to the image '
+                    'service. If unspecified, image data will be used in its '
+                    'current location.'),
+        widget=forms.CheckboxInput(attrs={
+            'class': 'switched',
+            'data-source-url': _('Image Location'),
+            'data-switch-on': 'source'}))
     is_public = forms.BooleanField(label=_("Public"), required=False)
     protected = forms.BooleanField(label=_("Protected"), required=False)
 
@@ -115,7 +124,7 @@ class CreateImageForm(forms.SelfHandlingForm):
             source_type.widget = HiddenInput()
 
     def _hide_url_source_type(self):
-        self.fields['copy_from'].widget = HiddenInput()
+        self.fields['image_url'].widget = HiddenInput()
         source_type = self.fields['source_type']
         source_type.choices = [choice for choice in source_type.choices
                                if choice[0] != 'url']
@@ -132,7 +141,7 @@ class CreateImageForm(forms.SelfHandlingForm):
         # The image_file key can be missing based on particular upload
         # conditions. Code defensively for it here...
         image_file = data.get('image_file', None)
-        image_url = data.get('copy_from', None)
+        image_url = data.get('image_url', None)
 
         if not image_url and not image_file:
             raise ValidationError(
@@ -171,8 +180,10 @@ class CreateImageForm(forms.SelfHandlingForm):
                 policy.check((("image", "upload_image"),), request) and
                 data.get('image_file', None)):
             meta['data'] = self.files['image_file']
+        elif data['is_copying']:
+            meta['copy_from'] = data['image_url']
         else:
-            meta['copy_from'] = data['copy_from']
+            meta['location'] = data['image_url']
 
         try:
             image = api.glance.image_create(request, **meta)

@@ -330,7 +330,7 @@ class SeleniumTests(test.SeleniumTestCase):
 
         srctypes = self.ui.Select(driver.find_element_by_id("id_source_type"))
         srctypes.select_by_value("url")
-        copyfrom = driver.find_element_by_id("id_copy_from")
+        copyfrom = driver.find_element_by_id("id_image_url")
         copyfrom.send_keys("http://www.test.com/test.iso")
         formats = self.ui.Select(driver.find_element_by_id("id_disk_format"))
         body = formats.first_selected_option
@@ -371,7 +371,7 @@ class SeleniumTests(test.SeleniumTestCase):
 
         srctypes = self.ui.Select(driver.find_element_by_id("id_source_type"))
         srctypes.select_by_value("url")
-        copyfrom = driver.find_element_by_id("id_copy_from")
+        copyfrom = driver.find_element_by_id("id_image_url")
         copyfrom.send_keys("http://www.test.com/test.iso")
         formats = self.ui.Select(driver.find_element_by_id("id_disk_format"))
         body = formats.first_selected_option
