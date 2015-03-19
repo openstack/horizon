@@ -37,7 +37,7 @@ class WizardView(horizon_views.APIView):
         try:
             context["test"] = "test data"
         except Exception:
-            msg = _('Unable show guides.')
+            msg = _('Unable to show guides')
             exceptions.handle(self.request, msg)
         return context
 
