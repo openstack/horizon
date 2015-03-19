@@ -15,4 +15,14 @@
       }
     }
   }
+
+  .table-rsp.security-group-details {
+    background: none;
+
+    td {
+      background: none !important;
+      padding: 15px !important;
+    }
+
+  }
 }
