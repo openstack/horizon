@@ -121,7 +121,7 @@ class ModalFormView(ModalBackdropMixin, ModalFormMixin, views.HorizonFormView):
     .. attribute: cancel_url (optional)
 
         The url for a cancel action. This url defaults to the success_url
-        if ommitted. Note that the cancel_url redirect is nullified when
+        if omitted. Note that the cancel_url redirect is nullified when
         shown in a modal dialog.
     """
 

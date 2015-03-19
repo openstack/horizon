@@ -402,7 +402,7 @@ class NeutronApiTests(test.APITestCase):
         # filter. It generates about 40*10 char length URI.
         # Each port ID is converted to "id=<UUID>&" in URI and
         # it means 40 chars (len(UUID)=36).
-        # If excess lenght is 220, it means 400-220=180 chars
+        # If excess length is 220, it means 400-220=180 chars
         # can be sent in the first request.
         # As a result three API calls with 4, 4, 2 port ID
         # are expected.
