@@ -213,8 +213,8 @@ def volume_get(request, volume_id):
             instance = nova.server_get(request, attachment['server_id'])
             attachment['instance_name'] = instance.name
         else:
-            # Nova volume can occasionally send back error'd attachments
-            # the lack a server_id property; to work around that we'll
+            # Nova volume can occasionally send attachments in error state
+            # that lack a server_id property; to work around that we'll
             # give the attached instance a generic name.
             attachment['instance_name'] = _("Unknown instance")
 
