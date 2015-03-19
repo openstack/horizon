@@ -15,6 +15,7 @@ import logging
 
 from django.conf import settings
 
+from horizon import exceptions
 from horizon.utils.memoized import memoized  # noqa
 from openstack_dashboard.api import base
 
@@ -26,6 +27,8 @@ LOG = logging.getLogger(__name__)
 
 # "type" of Sahara service registered in keystone
 SAHARA_SERVICE = 'data-processing'
+# Sahara service_type registered in Juno
+SAHARA_SERVICE_FALLBACK = 'data_processing'
 
 SAHARA_AUTO_IP_ALLOCATION_ENABLED = getattr(
     settings,
@@ -42,9 +45,17 @@ VERSIONS.load_supported_version(1.1, {"client": api_client,
 
 @memoized
 def client(request):
+    try:
+        service_type = SAHARA_SERVICE
+        sahara_url = base.url_for(request, service_type)
+    except exceptions.ServiceCatalogException:
+        # if no endpoint found, fallback to the old service_type
+        service_type = SAHARA_SERVICE_FALLBACK
+        sahara_url = base.url_for(request, service_type)
+
     return api_client.Client(VERSIONS.get_active_version()["version"],
-                             sahara_url=base.url_for(request, SAHARA_SERVICE),
-                             service_type=SAHARA_SERVICE,
+                             sahara_url=sahara_url,
+                             service_type=service_type,
                              project_id=request.user.project_id,
                              input_auth_token=request.user.token.id)
 
