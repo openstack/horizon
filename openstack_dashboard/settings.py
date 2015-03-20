@@ -259,10 +259,20 @@ SECURITY_GROUP_RULES = {
 }
 
 ADD_INSTALLED_APPS = []
+
+# STATIC directory for custom theme, set as default.
+# It can be overridden in local_settings.py
+CUSTOM_THEME_PATH = 'static/themes/default'
+
 try:
     from local.local_settings import *  # noqa
 except ImportError:
     logging.warning("No local_settings file found.")
+
+CUSTOM_THEME = os.path.join(ROOT_PATH, CUSTOM_THEME_PATH)
+STATICFILES_DIRS.append(
+    ('custom', CUSTOM_THEME),
+)
 
 if not WEBROOT.endswith('/'):
     WEBROOT += '/'

@@ -333,6 +333,10 @@ TIME_ZONE = "UTC"
 # TROVE_ADD_USER_PERMS = []
 # TROVE_ADD_DATABASE_PERMS = []
 
+# Change this patch to the appropriate static directory containing
+# two files: _variables.scss and _styles.scss
+#CUSTOM_THEME_PATH = 'static/themes/default'
+
 LOGGING = {
     'version': 1,
     # When set to True this will disable all logging except
