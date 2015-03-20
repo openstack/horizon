@@ -63,6 +63,7 @@ limitations under the License.
       return apiService.post('/api/policy/', policy_rules)
         .error(function() {
           horizon.alert('warning', gettext('Policy check failed.'));
+          horizon.autoDismissAlerts();
         });
     };
   }
