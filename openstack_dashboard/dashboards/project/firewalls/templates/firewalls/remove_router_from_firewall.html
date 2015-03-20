@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Remove Router from Firewall" %}{% endblock %}
+
+{% block main %}
+  {% include 'project/firewalls/_remove_router_from_firewall.html' %}
+{% endblock %}

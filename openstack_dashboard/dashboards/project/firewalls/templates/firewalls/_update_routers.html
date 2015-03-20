@@ -1,0 +1,45 @@
+{% load i18n %}
+
+<noscript><h3>{{ step }}</h3></noscript>
+<table class="table-fixed" id="routerListSortContainer">
+  <tbody>
+    <tr>
+      <td class="actions">
+        <h4 id="selected_router_h4">{% trans "Selected Routers" %}</h4>
+        <ul id="selected_router" class="routerlist">
+        </ul>
+        <h4>{% trans "Available Routers" %}</h4>
+        <ul id="available_router" class="routerlist">
+        </ul>
+      </td>
+      <td class="help_text">
+          {% include "project/firewalls/_update_router_help.html" %}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table-fixed" id="routerListIdContainer">
+  <tbody>
+    <tr>
+      <td class="actions">
+          <div id="routerListId">
+            {% include "horizon/common/_form_fields.html" %}
+          </div>
+      </td>
+      <td class="help_text">
+          {{ step.get_help_text }}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+  if (typeof $ !== 'undefined') {
+    horizon.firewalls.workflow_init($(".workflow"));
+  } else {
+    addHorizonLoadEvent(function() {
+      horizon.firewalls.workflow_init($(".workflow"));
+    });
+  }
+</script>

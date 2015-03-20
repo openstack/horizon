@@ -967,6 +967,7 @@ def data(TEST):
                 'firewall_policy_id':
                     'abcdef-c3eb-4fee-9763-12de3338041e',
                 'name': 'firewall1',
+                'router_ids': [TEST.routers.first().id],
                 'description': 'firewall description',
                 'status': 'PENDING_CREATE',
                 'shared': True,
@@ -975,6 +976,7 @@ def data(TEST):
 
     fw1 = fwaas.Firewall(copy.deepcopy(fw1_dict))
     fw1._apidict['policy'] = policy1
+    fw1._apidict['routers'] = [TEST.routers.first()]
     TEST.firewalls.add(fw1)
 
     # 2nd firewall (no name)

@@ -2,6 +2,8 @@ horizon.firewalls = {
   user_decided_length: false,
   rules_selected: [],
   rules_available: [],
+  routers_selected: [],
+  routers_available: [],
 
   getConsoleLog: function(via_user_submit) {
     var form_element = $("#tail_length"),
@@ -140,9 +142,117 @@ horizon.firewalls = {
     }).disableSelection();
   },
 
+  /*
+   * Gets the html select element associated with a given
+   * router id for router_id.
+   **/
+  get_router_element: function(router_id) {
+    return $('li > label[for^="id_router_' + router_id + '"]');
+  },
+
+  /*
+   * Initializes an associative array of lists of the current
+   * routers.
+   **/
+  init_router_list: function() {
+    horizon.firewalls.routers_selected = [];
+    horizon.firewalls.routers_available = [];
+    $(this.get_router_element("")).each(function(){
+      var $this = $(this);
+      var $input = $this.children("input");
+      var router_property = {
+        name:$this.text().replace(/^\s+/,""),
+        id:$input.attr("id"),
+        value:$input.attr("value")
+      };
+      if($input.is(':checked')) {
+        horizon.firewalls.routers_selected.push(router_property);
+      } else {
+        horizon.firewalls.routers_available.push(router_property);
+      }
+    });
+  },
+
+  /*
+   * Generates the HTML structure for a router that will be displayed
+   * as a list item in the router list.
+   **/
+  generate_router_element: function(name, id, value) {
+    var $li = $('<li>');
+    $li.attr('name', value).html(name + '<em class="router_id">(' + value + ')</em><a href="#" class="btn btn-primary"></a>');
+    return $li;
+  },
+
+  /*
+   * Generates the HTML structure for the router List.
+   **/
+  generate_routerlist_html: function() {
+    var self = this;
+    var updateForm = function() {
+      var lists = $("#routerListId li").attr('data-index',100);
+      var active_routers = $("#selected_router > li").map(function(){
+        return $(this).attr("name");
+      });
+      $("#routerListId input:checkbox").removeAttr('checked');
+      active_routers.each(function(index, value){
+        $("#routerListId input:checkbox[value=" + value + "]")
+          .prop('checked', true)
+          .parents("li").attr('data-index',index);
+      });
+      $("#routerListId ul").html(
+        lists.sort(function(a,b){
+          if( $(a).data("index") < $(b).data("index")) { return -1; }
+          if( $(a).data("index") > $(b).data("index")) { return 1; }
+          return 0;
+        })
+      );
+    };
+    $("#routerListSortContainer").show();
+    $("#routerListIdContainer").hide();
+    self.init_router_list();
+    // Make sure we don't duplicate the routers in the list
+    $("#available_router").empty();
+    $.each(self.routers_available, function(index, value){
+      $("#available_router").append(self.generate_router_element(value.name, value.id, value.value));
+    });
+    // Make sure we don't duplicate the routers in the list
+    $("#selected_router").empty();
+    $.each(self.routers_selected, function(index, value){
+      $("#selected_router").append(self.generate_router_element(value.name, value.id, value.value));
+    });
+    $(".routerlist > li > a.btn").click(function(e){
+      var $this = $(this);
+      e.preventDefault();
+      e.stopPropagation();
+      if($this.parents("ul#available_router").length > 0) {
+        $this.parent().appendTo($("#selected_router"));
+      } else if ($this.parents("ul#selected_router").length > 0) {
+        $this.parent().appendTo($("#available_router"));
+      }
+      updateForm();
+    });
+    if ($("#routerListId > div.form-group.error").length > 0) {
+      var errortext = $("#routerListId > div.form-group.error").find("span.help-block").text();
+      $("#selected_router_h4").before($('<div class="dynamic-error">').html(errortext));
+    }
+    $(".routerlist").sortable({
+      connectWith: "ul.routerlist",
+      placeholder: "ui-state-highlight",
+      distance: 5,
+      start:function(e,info){
+        $("#selected_router").addClass("dragging");
+      },
+      stop:function(e,info){
+        $("#selected_router").removeClass("dragging");
+        updateForm();
+      }
+    }).disableSelection();
+  },
+
   workflow_init: function(modal) {
     // Initialise the drag and drop rule list
     horizon.firewalls.generate_rulelist_html();
+    horizon.firewalls.generate_routerlist_html();
   }
 };
 

@@ -75,6 +75,16 @@ class FirewallsTab(tabs.TableTab):
             tenant_id = self.request.user.tenant_id
             request = self.tab_group.request
             firewalls = api.fwaas.firewall_list_for_tenant(request, tenant_id)
+
+            if api.neutron.is_extension_supported(request,
+                                                  'fwaasrouterinsertion'):
+                routers = api.neutron.router_list(request, tenant_id=tenant_id)
+
+                for fw in firewalls:
+                    router_list = [r for r in routers
+                                   if r['id'] in fw['router_ids']]
+                    fw.get_dict()['routers'] = router_list
+
         except Exception:
             firewalls = []
             exceptions.handle(self.tab_group.request,
@@ -127,11 +137,21 @@ class FirewallDetailsTab(tabs.Tab):
         fid = self.tab_group.kwargs['firewall_id']
         try:
             firewall = api.fwaas.firewall_get(request, fid)
+            body = {'firewall': firewall}
+            if api.neutron.is_extension_supported(request,
+                                                  'fwaasrouterinsertion'):
+                tenant_id = self.request.user.tenant_id
+                tenant_routers = api.neutron.router_list(request,
+                                                         tenant_id=tenant_id)
+                router_ids = firewall.get_dict()['router_ids']
+                routers = [r for r in tenant_routers
+                           if r['id'] in router_ids]
+                body['routers'] = routers
         except Exception:
             exceptions.handle(request,
                               _('Unable to retrieve firewall details.'),
                               redirect=self.failure_url)
-        return {'firewall': firewall}
+        return body
 
 
 class FirewallTabs(tabs.TabGroup):

@@ -33,7 +33,9 @@ from openstack_dashboard.dashboards.project.firewalls \
 from openstack_dashboard.dashboards.project.firewalls \
     import workflows as fw_workflows
 
+AddRouterToFirewall = fw_forms.AddRouterToFirewall
 InsertRuleToPolicy = fw_forms.InsertRuleToPolicy
+RemoveRouterFromFirewall = fw_forms.RemoveRouterFromFirewall
 RemoveRuleFromPolicy = fw_forms.RemoveRuleFromPolicy
 UpdateFirewall = fw_forms.UpdateFirewall
 UpdatePolicy = fw_forms.UpdatePolicy
@@ -103,6 +105,13 @@ class AddFirewallView(workflows.WorkflowView):
     workflow_class = AddFirewall
     template_name = "project/firewalls/addfirewall.html"
     page_title = _("Add New Firewall")
+
+    def get_workflow(self):
+        if api.neutron.is_extension_supported(self.request,
+                                              'fwaasrouterinsertion'):
+            AddFirewall.register(fw_workflows.SelectRoutersStep)
+        workflow = super(AddFirewallView, self).get_workflow()
+        return workflow
 
 
 class FireWallDetailTabs(tabs.TabView):
@@ -318,3 +327,53 @@ class RemoveRuleFromPolicyView(forms.ModalFormView):
         initial = policy.get_dict()
         initial['policy_id'] = initial['id']
         return initial
+
+
+class RouterCommonView(forms.ModalFormView):
+    form_id = "update_firewall_form"
+    context_object_name = 'firewall'
+    submit_label = _("Save Changes")
+    success_url = reverse_lazy("horizon:project:firewalls:index")
+
+    def get_context_data(self, **kwargs):
+        context = super(RouterCommonView,
+                        self).get_context_data(**kwargs)
+        context["firewall_id"] = self.kwargs['firewall_id']
+        args = (self.kwargs['firewall_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
+        obj = self._get_object()
+        if obj:
+            context['name'] = obj.name_or_id
+        return context
+
+    @memoized.memoized_method
+    def _get_object(self, *args, **kwargs):
+        firewall_id = self.kwargs['firewall_id']
+        try:
+            firewall = api.fwaas.firewall_get(self.request, firewall_id)
+            return firewall
+        except Exception:
+            redirect = self.success_url
+            msg = _('Unable to retrieve firewall details.')
+            exceptions.handle(self.request, msg, redirect=redirect)
+
+    def get_initial(self):
+        firewall = self._get_object()
+        initial = firewall.get_dict()
+        return initial
+
+
+class AddRouterToFirewallView(RouterCommonView):
+    form_class = AddRouterToFirewall
+    modal_header = _("Add Router to Firewall")
+    template_name = "project/firewalls/add_router_to_firewall.html"
+    submit_url = "horizon:project:firewalls:addrouter"
+    page_title = _("Add Router to Firewall")
+
+
+class RemoveRouterFromFirewallView(RouterCommonView):
+    form_class = RemoveRouterFromFirewall
+    modal_header = _("Remove Router from Firewall")
+    template_name = "project/firewalls/remove_router_from_firewall.html"
+    submit_url = "horizon:project:firewalls:removerouter"
+    page_title = _("Remove Router from Firewall")

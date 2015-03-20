@@ -12,6 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import abc
 import logging
 
 from django.core.urlresolvers import reverse
@@ -287,3 +288,94 @@ class RemoveRuleFromPolicy(forms.SelfHandlingForm):
             LOG.error(msg)
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)
+
+
+class RouterInsertionFormBase(forms.SelfHandlingForm):
+
+    def __init__(self, request, *args, **kwargs):
+        super(RouterInsertionFormBase, self).__init__(request, *args, **kwargs)
+        try:
+            router_choices = self.get_router_choices(request, kwargs)
+            self.fields['router_ids'].choices = router_choices
+        except Exception as e:
+            msg = self.init_failure_msg % {'name': self.initial['name'],
+                                           'reason': e}
+            LOG.error(msg)
+            redirect = reverse(self.failure_url)
+            exceptions.handle(request, msg, redirect=redirect)
+
+    @abc.abstractmethod
+    def get_router_choices(self, request, kwargs):
+        """Return a list of selectable routers."""
+
+    @abc.abstractmethod
+    def get_new_router_ids(self, context):
+        """Return a new list of router IDs associated with the firewall."""
+
+    def handle(self, request, context):
+        firewall_id = self.initial['firewall_id']
+        firewall_name_or_id = self.initial['name'] or firewall_id
+        try:
+            body = {'router_ids': self.get_new_router_ids(context)}
+            firewall = api.fwaas.firewall_update(request, firewall_id, **body)
+            msg = self.success_msg % {'firewall': firewall_name_or_id}
+            LOG.debug(msg)
+            messages.success(request, msg)
+            return firewall
+        except Exception as e:
+            msg = self.failure_msg % {'name': firewall_name_or_id, 'reason': e}
+            LOG.error(msg)
+            redirect = reverse(self.failure_url)
+            exceptions.handle(request, msg, redirect=redirect)
+
+
+class AddRouterToFirewall(RouterInsertionFormBase):
+    router_ids = forms.MultipleChoiceField(
+        label=_("Add Routers"),
+        required=False,
+        widget=forms.CheckboxSelectMultiple(),
+        help_text=_("Add selected router(s) to the firewall."))
+
+    failure_url = 'horizon:project:firewalls:index'
+    success_msg = _('Router(s) was/were successfully added to firewall '
+                    '%(firewall)s.')
+    failure_msg = _('Failed to add router(s) to firewall %(name)s: %(reason)s')
+    init_failure_msg = _('Failed to retrieve available routers: %(reason)s')
+
+    def get_router_choices(self, request, kwargs):
+        tenant_id = self.request.user.tenant_id
+        routers_list = api.fwaas.firewall_unassociated_routers_list(
+            request, tenant_id)
+        return [(r.id, r.name_or_id) for r in routers_list]
+
+    def get_new_router_ids(self, context):
+        existing_router_ids = self.initial['router_ids']
+        add_router_ids = context['router_ids']
+        return add_router_ids + existing_router_ids
+
+
+class RemoveRouterFromFirewall(RouterInsertionFormBase):
+    router_ids = forms.MultipleChoiceField(
+        label=_("Remove Routers"),
+        required=False,
+        widget=forms.CheckboxSelectMultiple(),
+        help_text=_("Unselect the router(s) to be removed from firewall."))
+
+    failure_url = 'horizon:project:firewalls:index'
+    success_msg = _('Router(s)  was successfully removed from firewall '
+                    '%(firewall)s.')
+    failure_msg = _('Failed to remove router(s) from firewall %(name)s: '
+                    '%(reason)s')
+    init_failure_msg = _('Failed to retrieve current routers in firewall '
+                         '%(name)s: %(reason)s')
+
+    def get_router_choices(self, request, kwargs):
+        tenant_id = self.request.user.tenant_id
+        all_routers = api.neutron.router_list(request, tenant_id=tenant_id)
+        current_routers = [r for r in all_routers
+                           if r['id'] in kwargs['initial']['router_ids']]
+        return [(r.id, r.name_or_id) for r in current_routers]
+
+    def get_new_router_ids(self, context):
+        # context[router_ids] is router IDs to be kept.
+        return context['router_ids']

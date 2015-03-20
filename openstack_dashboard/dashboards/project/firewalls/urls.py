@@ -39,5 +39,9 @@ urlpatterns = patterns(
         views.RuleDetailsView.as_view(), name='ruledetails'),
     url(r'^policy/(?P<policy_id>[^/]+)/$',
         views.PolicyDetailsView.as_view(), name='policydetails'),
+    url(r'^addrouter/(?P<firewall_id>[^/]+)/$',
+        views.AddRouterToFirewallView.as_view(), name='addrouter'),
+    url(r'^removerouter/(?P<firewall_id>[^/]+)/$',
+        views.RemoveRouterFromFirewallView.as_view(), name='removerouter'),
     url(r'^firewall/(?P<firewall_id>[^/]+)/$',
         views.FirewallDetailsView.as_view(), name='firewalldetails'))
