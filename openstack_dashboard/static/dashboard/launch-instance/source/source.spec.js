@@ -18,6 +18,29 @@
   'use strict';
 
   describe('Launch Instance Source Step', function() {
+
+    beforeEach(module('hz.dashboard.launch-instance'));
+
+    describe('Filters', function() {
+
+      describe('diskFormat', function() {
+
+        it("returns 'FORMAT' if given 'format' in value", inject(function(diskFormatFilter) {
+          expect(diskFormatFilter({disk_format: 'format'})).toBe('FORMAT');
+        }));
+
+        it("returns empty string if given null input", inject(function(diskFormatFilter) {
+          expect(diskFormatFilter(null)).toBe('');
+        }));
+
+        it("returns empty string if given input without .disk_format property", inject(function(diskFormatFilter) {
+          expect(diskFormatFilter({})).toBe('');
+        }));
+
+      });
+
+    });
+
   });
 
 })();

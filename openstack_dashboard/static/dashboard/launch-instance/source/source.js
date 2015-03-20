@@ -1,20 +1,64 @@
 (function () {
   'use strict';
 
+  /**
+   * @ngdoc overview
+   * @name hz.dashboard.launch-instance
+   * @description
+   *
+   * # hz.dashboard.launch-instance
+   *
+   * The `hz.dashboard.launch-instance` module allows a user
+   * to launch an instance via the multi-step wizard framework
+   *
+   */
   var module = angular.module('hz.dashboard.launch-instance');
 
+  /**
+   * @ngdoc filter
+   * @name diskFormat
+   * @description
+   * Expects object and returns disk_format property value.
+   * Returns empty string if input is null or not an object.
+   * Uniquely required for the source step implementation of transfer tables
+   */
+  module.filter('diskFormat', function() {
+    return function(input) {
+      if (input === null || !angular.isObject(input) ||
+        !angular.isDefined(input.disk_format) || input.disk_format === null) {
+        return '';
+      } else {
+        return input.disk_format.toUpperCase();
+      }
+    };
+  });
+
+  /**
+   * @ngdoc controller
+   * @name LaunchInstanceSourceCtrl
+   * @description
+   * The `LaunchInstanceSourceCtrl` controller provides functions for
+   * configuring the source step of the Launch Instance Wizard.
+   *
+   */
   module.controller('LaunchInstanceSourceCtrl', [
     '$scope',
     'bytesFilter',
+    'dateFilter',
+    'decodeFilter',
+    'diskFormatFilter',
+    'gbFilter',
+    'yesnoFilter',
     LaunchInstanceSourceCtrl
   ]);
 
-  module.controller('LaunchInstanceSourceHelpCtrl', [
-    '$scope',
-    LaunchInstanceSourceHelpCtrl
-  ]);
-
-  function LaunchInstanceSourceCtrl($scope, bytesFilter) {
+  function LaunchInstanceSourceCtrl($scope,
+                                    bytesFilter,
+                                    dateFilter,
+                                    decodeFilter,
+                                    diskFormatFilter,
+                                    gbFilter,
+                                    yesnoFilter) {
 
     $scope.label = {
       title: gettext('Instance Details'),
@@ -69,14 +113,14 @@
         displayedAvailable: $scope.model.images,
         displayedAllocated: selection
       },
-      volume: {
-        available: $scope.model.volumes,
+      snapshot: {
+        available: $scope.model.imageSnapshots,
         allocated: selection,
         displayedAvailable: [],
         displayedAllocated: selection
       },
-      snapshot: {
-        available: $scope.model.imageSnapshots,
+      volume: {
+        available: $scope.model.volumes,
         allocated: selection,
         displayedAvailable: [],
         displayedAllocated: selection
@@ -89,54 +133,77 @@
       }
     };
 
+    // mapping for dynamic table headers
     var tableHeadCellsMap = {
       image: [
-        { text: gettext('Name'), style: { width: '25%' }, sortable: true, sortDefault: true },
-        { text: gettext('Updated'), style: { width: '20%' }, sortable: true },
+        { text: gettext('Name'), style: { width: '30%' }, sortable: true, sortDefault: true },
+        { text: gettext('Updated'), style: { width: '15%' }, sortable: true },
         { text: gettext('Size'), style: { width: '15%' }, classList: ['number'], sortable: true },
-        { text: gettext('Type'), sortable: true }
+        { text: gettext('Type'), sortable: true },
+        { text: gettext('Visibility'), sortable: true }
+      ],
+      snapshot: [
+        { text: gettext('Name'), style: { width: '30%' }, sortable: true, sortDefault: true },
+        { text: gettext('Updated'), style: { width: '15%' }, sortable: true },
+        { text: gettext('Size'), style: { width: '15%' }, classList: ['number'], sortable: true },
+        { text: gettext('Type'), sortable: true },
+        { text: gettext('Visibility'), sortable: true }
       ],
       volume: [
         { text: gettext('Name'), style: { width: '25%' }, sortable: true, sortDefault: true },
-        { text: gettext('Type'), style: { width: '20%' } },
-        { text: gettext('Size'), classList: ['number'], sortable: true }
-      ],
-      snapshot: [
-        { text: gettext('Name'), style: { width: '25%' }, sortable: true, sortDefault: true },
-        { text: gettext('Type'), style: { width: '20%' } },
-        { text: gettext('Size'), classList: ['number'], sortable: true }
+        { text: gettext('Description'), style: { width: '20%' }, sortable: true },
+        { text: gettext('Size'), style: { width: '15%' }, classList: ['number'], sortable: true },
+        { text: gettext('Type'), style: { width: '20%' }, sortable: true },
+        { text: gettext('Encrypted'), style: { width: '20%' }, sortable: true }
       ],
       volume_snapshot: [
         { text: gettext('Name'), style: { width: '25%' }, sortable: true, sortDefault: true },
-        { text: gettext('Type'), style: { width: '20%' } },
-        { text: gettext('Size'), classList: ['number'], sortable: true }
+        { text: gettext('Description'), style: { width: '20%' }, sortable: true },
+        { text: gettext('Size'), style: { width: '15%' }, classList: ['number'], sortable: true },
+        { text: gettext('Created'), style: { width: '15%' }, sortable: true },
+        { text: gettext('Status'), style: { width: '20%' }, sortable: true }
       ]
     };
 
+    // map Visibility data so we can decode true/false to Public/Private
+    var _visibilitymap = {true: gettext('Public'), false: gettext('Private')};
+
+    // mapping for dynamic table data
     var tableBodyCellsMap = {
       image: [
         { key: 'name', classList: ['hi-light'] },
-        { key: 'updated_at' },
+        { key: 'updated_at', filter: dateFilter, filterArg: 'short' },
         { key: 'size', filter: bytesFilter, classList: ['number'] },
-        { key: 'disk_format', style: { 'text-transform': 'uppercase' } }
-      ],
-      volume: [
-        { key: 'name', classList: ['hi-light'] },
         { key: 'disk_format', style: { 'text-transform': 'uppercase' } },
-        { key: 'size', filter: bytesFilter, classList: ['number'] }
+        { key: 'is_public', filter: decodeFilter, filterArg: _visibilitymap,
+          style: { 'text-transform': 'capitalize' } }
       ],
       snapshot: [
         { key: 'name', classList: ['hi-light'] },
+        { key: 'updated_at', filter: dateFilter, filterArg: 'short' },
+        { key: 'size', filter: bytesFilter, classList: ['number'] },
         { key: 'disk_format', style: { 'text-transform': 'uppercase' } },
-        { key: 'size', filter: bytesFilter, classList: ['number'] }
+        { key: 'is_public', filter: decodeFilter, filterArg: _visibilitymap,
+          style: { 'text-transform': 'capitalize' } }
+      ],
+      volume: [
+        { key: 'name', classList: ['hi-light'] },
+        { key: 'description' },
+        { key: 'size', filter: gbFilter, classList: ['number'] },
+        { key: 'volume_image_metadata', filter: diskFormatFilter,
+          style: { 'text-transform': 'uppercase' } },
+        { key: 'encrypted', filter: yesnoFilter }
       ],
       volume_snapshot: [
         { key: 'name', classList: ['hi-light'] },
-        { key: 'disk_format', style: { 'text-transform': 'uppercase' } },
-        { key: 'size', filter: bytesFilter, classList: ['number'] }
+        { key: 'description' },
+        { key: 'size', filter: gbFilter, classList: ['number'] },
+        { key: 'created_at', filter: dateFilter, filterArg: 'short' },
+        { key: 'status', style: { 'text-transform': 'capitalize' } }
       ]
     };
 
+    // dynamically update page based on boot source selection
     function changeBootSource(key) {
       updateDataSource(key);
       updateHelpText(key);
@@ -290,6 +357,20 @@
       $scope.currentBootSource = $scope.bootSourcesOptions[0].type;
     }
   }
+
+  /**
+   * @ngdoc controller
+   * @name LaunchInstanceSourceHelpCtrl
+   * @description
+   * The `LaunchInstanceSourceHelpCtrl` controller provides functions for
+   * configuring the help text used within the source step of the
+   * Launch Instance Wizard.
+   *
+   */
+  module.controller('LaunchInstanceSourceHelpCtrl', [
+    '$scope',
+    LaunchInstanceSourceHelpCtrl
+  ]);
 
   function LaunchInstanceSourceHelpCtrl($scope) {
     $scope.title = gettext('Instance Details Help');
