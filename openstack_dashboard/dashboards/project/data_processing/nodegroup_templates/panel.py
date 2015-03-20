@@ -21,7 +21,8 @@ from openstack_dashboard.dashboards.project import dashboard
 class NodegroupTemplatesPanel(horizon.Panel):
     name = _("Node Group Templates")
     slug = 'data_processing.nodegroup_templates'
-    permissions = ('openstack.services.data-processing',)
+    permissions = (('openstack.services.data-processing',
+                    'openstack.services.data_processing'),)
 
 
 dashboard.Project.register(NodegroupTemplatesPanel)

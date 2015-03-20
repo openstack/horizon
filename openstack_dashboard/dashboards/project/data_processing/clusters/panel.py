@@ -21,7 +21,8 @@ from openstack_dashboard.dashboards.project import dashboard
 class ClustersPanel(horizon.Panel):
     name = _("Clusters")
     slug = 'data_processing.clusters'
-    permissions = ('openstack.services.data-processing',)
+    permissions = (('openstack.services.data-processing',
+                    'openstack.services.data_processing'),)
 
 
 dashboard.Project.register(ClustersPanel)
