@@ -368,13 +368,30 @@
    *
    */
   module.controller('LaunchInstanceSourceHelpCtrl', [
-    '$scope',
     LaunchInstanceSourceHelpCtrl
   ]);
 
-  function LaunchInstanceSourceHelpCtrl($scope) {
-    $scope.title = gettext('Instance Details Help');
-    $scope.content = gettext('This is the help text.');
+  function LaunchInstanceSourceHelpCtrl() {
+    var ctrl = this;
+
+    ctrl.title = gettext('Select Source Help');
+
+    ctrl.instanceDetailsTitle = gettext('Instance Details');
+    ctrl.instanceDetailsParagraphs = [
+      gettext('An instance name is required and used to help you uniquely identify your instance in the dashboard.'),
+      gettext('If you select an availability zone and plan to use the boot from volume option, make sure that the availability zone you select for the instance is the same availability zone where your bootable volume resides.')
+    ];
+
+    ctrl.instanceSourceTitle = gettext('Instance Source');
+    ctrl.instanceSourceParagraphs = [
+      gettext('If you want to create an instance that uses ephemeral storage, meaning the instance data is lost when the instance is deleted, then choose one of the following boot sources:'),
+      gettext('<li><b>Image</b>: This option uses an image to boot the instance.</li>'),
+      gettext('<li><b>Instance Snapshot</b>: This option uses an instance snapshot to boot the instance.</li>'),
+      gettext('If you want to create an instance that uses persistent storage, meaning the instance data is saved when the instance is deleted, then select one of the following boot options:'),
+      gettext('<li><b>Image (with Create New Volume checked)</b>: This options uses an image to boot the instance, and creates a new volume to persist instance data. You can specify volume size and whether to delete the volume on termination of the instance.</li>'),
+      gettext('<li><b>Volume</b>: This option uses a volume that already exists. It does not create a new volume. You can choose to delete the volume on termination of the instance. <em>Note: when selecting Volume, you can only launch one instance.</em></li>'),
+      gettext('<li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot the instance, and creates a new volume to persist instance data. You can choose to delete the volume on termination of the instance.</li>')
+    ];
   }
 
 })();

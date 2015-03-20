@@ -1,4 +1,11 @@
-<div ng-controller="LaunchInstanceSourceHelpCtrl">
-  <h1>{$ title $}</h1>
-  <p>{$ content $}</p>
+<div ng-controller="LaunchInstanceSourceHelpCtrl as sourceHelpCtrl">
+
+  <h1>{$ ::sourceHelpCtrl.title $}</h1>
+  <h4>{$ ::sourceHelpCtrl.instanceDetailsTitle $}</h4>
+   <p ng-repeat="instanceDetailsParagraph in ::sourceHelpCtrl.instanceDetailsParagraphs"
+      ng-bind-html="::instanceDetailsParagraph"></p>
+  <h4>{$ ::sourceHelpCtrl.instanceSourceTitle $}</h4>
+  <p ng-repeat="instanceSourceParagraph in ::sourceHelpCtrl.instanceSourceParagraphs"
+     ng-bind-html="::instanceSourceParagraph"></p>
+
 </div>
