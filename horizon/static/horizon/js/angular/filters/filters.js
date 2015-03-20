@@ -123,7 +123,7 @@
      * @ngdoc filter
      * @name bytes
      * @description
-     * Returns a human-readable approximation of the input of bytes, 
+     * Returns a human-readable approximation of the input of bytes,
      * converted to a useful unit of measure.  Uses 1024-based notation.
      */
     .filter('bytes', function() {
@@ -148,5 +148,21 @@
        };
      })
 
-  ;
+  /**
+   * @ngdoc filter
+   * @name itemCount
+   * @description
+   * Displays translated count in table footer.
+   * Takes only finite numbers.
+   */
+  .filter('itemCount', function() {
+    return function(input) {
+      var isNumeric = (input !== null && isFinite(input));
+      var number = isNumeric ? Math.round(input): 0;
+      var count = (number > 0) ? number: 0;
+      var format = ngettext('Displaying %s item', 'Displaying %s items', count);
+      return interpolate(format, [count]);
+    };
+  });
+
 }());
