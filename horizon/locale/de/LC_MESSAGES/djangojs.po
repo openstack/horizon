@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Andreas Jaeger <jaegerandi@gmail.com>, 2015
 # Robert Simai, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-18 20:07-0500\n"
-"PO-Revision-Date: 2015-03-18 23:58+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-03-20 00:51-0500\n"
+"PO-Revision-Date: 2015-03-19 10:28+0000\n"
+"Last-Translator: Robert Simai\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,11 +23,11 @@ msgstr ""
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
 "missing information."
-msgstr ""
+msgstr "Die Aktion kann nicht ausgeführt werden. Der Inhalt dieser Spalte enthält Fehler oder es fehlen Informationen."
 
 #: static/angular/metadata-display/metadata-display.js:33
 msgid "Detail Information"
-msgstr ""
+msgstr "Detail-Informationen"
 
 #: static/angular/metadata-tree/metadata-tree.js:35
 msgid ""
@@ -34,43 +35,43 @@ msgid ""
 "the right column. In the left columns there are metadata definitions from "
 "the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
 "the key of your choice."
-msgstr ""
+msgstr "Sie können Ressourcen-Metadaten bestimmen, indem Sie Positionen aus der linken Spalte in die rechte bewegen."
 
 #: static/angular/metadata-tree/metadata-tree.js:36
 msgid "Min"
-msgstr ""
+msgstr "Min"
 
 #: static/angular/metadata-tree/metadata-tree.js:37
 msgid "Max"
-msgstr ""
+msgstr "Max"
 
 #: static/angular/metadata-tree/metadata-tree.js:38
 msgid "Min length"
-msgstr ""
+msgstr "Minimale Länge"
 
 #: static/angular/metadata-tree/metadata-tree.js:39
 msgid "Max length"
-msgstr ""
+msgstr "Maximale Länge"
 
 #: static/angular/metadata-tree/metadata-tree.js:40
 msgid "Pattern mismatch"
-msgstr ""
+msgstr "Muster-Übereinstimmungsfehler"
 
 #: static/angular/metadata-tree/metadata-tree.js:41
 msgid "Integer required"
-msgstr ""
+msgstr "Ganzzahl erforderlich"
 
 #: static/angular/metadata-tree/metadata-tree.js:42
 msgid "Decimal required"
-msgstr ""
+msgstr "Dezimalzahl erforderlich"
 
 #: static/angular/metadata-tree/metadata-tree.js:43
 msgid "Required"
-msgstr ""
+msgstr "Erforderlich"
 
 #: static/angular/metadata-tree/metadata-tree.js:44
 msgid "Duplicate keys are not allowed"
-msgstr ""
+msgstr "Doppelte Schlüssel sind nicht erlaubt"
 
 #: static/angular/metadata-tree/metadata-tree.js:45
 #: static/horizon/js/horizon.forms.js:184
@@ -79,23 +80,23 @@ msgstr "Filter"
 
 #: static/angular/metadata-tree/metadata-tree.js:46
 msgid "Available Metadata"
-msgstr ""
+msgstr "Verfügbare Metadaten"
 
 #: static/angular/metadata-tree/metadata-tree.js:47
 msgid "Existing Metadata"
-msgstr ""
+msgstr "Vorhandene Metadaten"
 
 #: static/angular/metadata-tree/metadata-tree.js:48
 msgid "Custom"
-msgstr ""
+msgstr "Angepasst"
 
 #: static/angular/metadata-tree/metadata-tree.js:49
 msgid "No available metadata"
-msgstr ""
+msgstr "Keine Metadaten vorhanden"
 
 #: static/angular/metadata-tree/metadata-tree.js:50
 msgid "No existing metadata"
-msgstr ""
+msgstr "Keine existierenden Metadaten"
 
 #: static/angular/modal/modal.js:83
 msgid "Submit"
@@ -108,7 +109,7 @@ msgstr "Abbrechen"
 
 #: static/angular/transfer-table/transfer-table.js:39
 msgid "Allocated"
-msgstr ""
+msgstr "zugeteilt"
 
 #: static/angular/transfer-table/transfer-table.js:40
 msgid "Available"
@@ -116,39 +117,39 @@ msgstr "Verfügbar"
 
 #: static/angular/transfer-table/transfer-table.js:41
 msgid "Select one"
-msgstr ""
+msgstr "Eines auswählen"
 
 #: static/angular/transfer-table/transfer-table.js:42
 msgid "Select an item from Available items below"
-msgstr ""
+msgstr "Wählen Sie eine Sache aus den verfügbaren Positionen aus"
 
 #: static/angular/transfer-table/transfer-table.js:43
 msgid "No available items"
-msgstr ""
+msgstr "Keine verfügbaren Positionen"
 
 #: static/angular/transfer-table/transfer-table.js:44
 msgid "Expand to see allocated items"
-msgstr ""
+msgstr "Erweitern, um zugewiesene Positionen zu sehen"
 
 #: static/angular/transfer-table/transfer-table.js:45
 msgid "Expand to see available items"
-msgstr ""
+msgstr "Erweitern, um verfügbare Positionen zu sehen"
 
 #: static/angular/transfer-table/transfer-table.js:46
 msgid "Click to show or hide"
-msgstr ""
+msgstr "Klicken zum zeigen oder verbergen"
 
 #: static/angular/transfer-table/transfer-table.js:47
 msgid "Re-order items using drag and drop"
-msgstr ""
+msgstr "Umsortieren der Positionen durch ziehen und fallen lassen"
 
 #: static/angular/transfer-table/transfer-table.js:48
 msgid "Click to see more details"
-msgstr ""
+msgstr "Klicken um mehr Details zu sehen"
 
 #: static/angular/transfer-table/transfer-table.js:100
 msgid "Found %(found)s of %(total)s"
-msgstr ""
+msgstr "%(found)s von %(total)s gefunden"
 
 #: static/angular/wizard/wizard.js:8
 msgid "Back"
@@ -160,7 +161,7 @@ msgstr "Weiter"
 
 #: static/angular/wizard/wizard.js:10
 msgid "Finish"
-msgstr ""
+msgstr "beenden"
 
 #: static/horizon/js/horizon.accordion_nav.js:78
 #: static/horizon/js/horizon.modals.js:315
@@ -326,24 +327,24 @@ msgstr "Die Passwörter stimmen nicht überein."
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Connecting"
-msgstr ""
+msgstr "verbinde"
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Open"
-msgstr ""
+msgstr "offen"
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Closing"
-msgstr ""
+msgstr "schließen"
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Closed"
-msgstr ""
+msgstr "geschlossen"
 
 #: static/horizon/js/angular/directives/serialConsole.js:85
 #, c-format
 msgid "Status: %s"
-msgstr ""
+msgstr "Status: %s"
 
 #: static/horizon/js/angular/filters/filters.js:37
 msgid "Yes"
@@ -365,19 +366,19 @@ msgstr "MB"
 
 #: static/horizon/js/angular/filters/filters.js:138
 msgid "TB"
-msgstr ""
+msgstr "TB"
 
 #: static/horizon/js/angular/filters/filters.js:144
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 #: static/horizon/js/angular/filters/filters.js:146
 msgid "bytes"
-msgstr ""
+msgstr "Bytes"
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:47
 msgid "Unable to retrieve volumes."
-msgstr ""
+msgstr "Datenträger können nicht abgerufen werden."
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:74
 msgid "Unable to retrieve volume snapshots."
@@ -385,11 +386,11 @@ msgstr "Datenträger-Schattenkopien können nicht aufgerufen werden."
 
 #: static/horizon/js/angular/services/hz.api.config.js:42
 msgid "Unable to retrieve user configuration."
-msgstr ""
+msgstr "Benutzerkonfiguration kann nicht abgerufen werden."
 
 #: static/horizon/js/angular/services/hz.api.config.js:61
 msgid "Unable to retrieve admin configuration."
-msgstr ""
+msgstr "Admin-Konfiguration kann nicht abgerufen werden."
 
 #: static/horizon/js/angular/services/hz.api.glance.js:38
 msgid "Unable to retrieve image."
@@ -401,115 +402,115 @@ msgstr "Abbilder können nicht abgerufen werden."
 
 #: static/horizon/js/angular/services/hz.api.glance.js:133
 msgid "Unable to retrieve namespaces."
-msgstr ""
+msgstr "Namensräume können nicht abgerufen werden."
 
 #: static/horizon/js/angular/services/hz.api.glance.js:147
 msgid "Unable to retrieve namespace."
-msgstr ""
+msgstr "Namensraum kann nicht abgerufen werden."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:24
 msgid "Unable to retrieve users"
-msgstr ""
+msgstr "Benutzer können nicht abgerufen werden"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:31
 msgid "Unable to create the user."
-msgstr ""
+msgstr "Benutzer kann nicht angelegt werden."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:38
 msgid "Unable to delete the users."
-msgstr ""
+msgstr "Benutzer können nicht gelöscht werden."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:45
 msgid "Unable to retrieve the user"
-msgstr ""
+msgstr "Benutzers kann nicht abgerufen werden"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:53
 msgid "Unable to edit the user."
-msgstr ""
+msgstr "Benutzer kann nicht bearbeitet werden."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:60
 msgid "Unable to delete the user."
-msgstr ""
+msgstr "Benutzer kann nicht gelöscht werden."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:68
 msgid "Unable to retrieve role"
-msgstr ""
+msgstr "Rolle kann nicht abgerufen werden"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:75
 msgid "Unable to create the role."
-msgstr ""
+msgstr "Die Rolle kann nicht erstellt werden."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:82
 msgid "Unable to delete the roles."
-msgstr ""
+msgstr "Die Rollen können nicht gelöscht werden."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:89
 msgid "Unable to retrieve the role"
-msgstr ""
+msgstr "Die Rolle kann nicht abgerufen werden"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:97
 msgid "Unable to edit the role."
-msgstr ""
+msgstr "Die Rolle kann nicht bearbeitet werden."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:104
 msgid "Unable to delete the role."
-msgstr ""
+msgstr "Die Rolle kann nicht gelöscht werden."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:112
 msgid "Unable to retrieve domains"
-msgstr ""
+msgstr "Domänen können nicht abgerufen werden"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:119
 msgid "Unable to create the domain."
-msgstr ""
+msgstr "Die Domäne kann nicht erstellt werden."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:126
 msgid "Unable to delete the domains."
-msgstr ""
+msgstr "Die Domänen können nicht gelöscht werden."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:133
 msgid "Unable to retrieve the domain"
-msgstr ""
+msgstr "Die Domäne kann nicht abgerufen werden"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:141
 msgid "Unable to edit the domain."
-msgstr ""
+msgstr "Die Domäne kann nicht bearbeitet werden."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:148
 msgid "Unable to delete the domain."
-msgstr ""
+msgstr "Die Domäne kann nicht gelöscht werden."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:157
 msgid "Unable to retrieve projects"
-msgstr ""
+msgstr "Projekte können nicht abgerufen werden"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:164
 msgid "Unable to create the project."
-msgstr ""
+msgstr "Das Projekt kann nicht erstellt werden."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:171
 msgid "Unable to delete the projects."
-msgstr ""
+msgstr "Die Projekte können nicht gelöscht werden."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:178
 msgid "Unable to retrieve the project"
-msgstr ""
+msgstr "Das Projekt kann nicht abgerufen werden"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:186
 msgid "Unable to edit the project."
-msgstr ""
+msgstr "Das Projekt kann nicht bearbeitet werden."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:193
 msgid "Unable to delete the project."
-msgstr ""
+msgstr "Das Projekt kann nicht gelöscht werden."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:201
 msgid "Unable to grant the role."
-msgstr ""
+msgstr "Die Rolle kann nicht gewährt werden."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:215
 msgid "Unable to fetch the service catalog."
-msgstr ""
+msgstr "Die Dienstekatalog kann nicht abgerufen werden."
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:39
 msgid "Unable to retrieve networks."
@@ -517,19 +518,19 @@ msgstr "Netzwerke können nicht abgerufen werden."
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:88
 msgid "Unable to create the network."
-msgstr ""
+msgstr "Netzwerk konnte nicht angelegt werden."
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:108
 msgid "Unable to retrieve subnets."
-msgstr ""
+msgstr "Subnetze können nicht abgerufen werden."
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:172
 msgid "Unable to create the subnet."
-msgstr ""
+msgstr "Subnetz kann nicht erzeugt werden."
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:192
 msgid "Unable to retrieve ports."
-msgstr ""
+msgstr "Ports können nicht abgerufen werden."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:40
 msgid "Unable to retrieve keypairs."
@@ -537,7 +538,7 @@ msgstr "Schlüsselpaare können nicht abgerufen werden."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:61
 msgid "Unable to create the keypair."
-msgstr ""
+msgstr "Das Schlüsselpaar kann nicht erstellt werden."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:79
 msgid "Unable to retrieve availability zones."
@@ -545,19 +546,19 @@ msgstr "Verfügbarkeitszonen können nicht abgerufen werden."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:117
 msgid "Unable to retrieve limits."
-msgstr ""
+msgstr "Grenzwerte können nicht abgerufen werden."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:144
 msgid "Unable to create the server."
-msgstr ""
+msgstr "Der Server kann nicht erstellt werden."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:158
 msgid "Unable to retrieve server."
-msgstr ""
+msgstr "Server kann nicht abgerufen werden."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:188
 msgid "Unable to retrieve extensions."
-msgstr ""
+msgstr "Erweiterungen können nicht abgerufen werden."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:233
 msgid "Unable to retrieve flavors."
@@ -565,15 +566,15 @@ msgstr "Varianten können nicht abgerufen werden."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:251
 msgid "Unable to retrieve flavor."
-msgstr ""
+msgstr "Variante kann nicht abgerufen werden."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:265
 msgid "Unable to retrieve flavor extra specs."
-msgstr ""
+msgstr "Extraspezifikationen zur Variante können nicht abgerufen werden."
 
 #: static/horizon/js/angular/services/hz.api.policy.js:65
 msgid "Policy check failed."
-msgstr ""
+msgstr "Richtlinienüberprüfung fehlgeschlagen."
 
 #: static/horizon/js/angular/services/hz.api.security-group.js:64
 msgid "Unable to retrieve security groups."

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-16 22:31-0500\n"
+"POT-Creation-Date: 2015-03-20 00:51-0500\n"
 "PO-Revision-Date: 2015-03-17 03:17+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
@@ -81,7 +81,7 @@ msgid "Submit"
 msgstr "提交"
 
 #: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:25
+#: templates/horizon/common/_modal_form_update_metadata.html:27
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "取消"
@@ -109,10 +109,6 @@ msgstr "%(action)s %(data_type)s"
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
-
-#: tables/actions.py:803 tables/base.py:1570
-msgid "N/A"
-msgstr "无"
 
 #: tables/actions.py:832
 #, python-format
@@ -171,6 +167,10 @@ msgstr "id \"%s\" 没有匹配的返回顶。"
 #: tables/base.py:1486
 msgid "Please select a row before taking that action."
 msgstr "请在执行前选择一行。"
+
+#: tables/base.py:1570
+msgid "N/A"
+msgstr "无"
 
 #: templates/_header.html:5
 #, python-format
@@ -307,7 +307,7 @@ msgstr "云硬盘"
 msgid "Volume Storage"
 msgstr "卷存储"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:24
+#: templates/horizon/common/_modal_form_update_metadata.html:26
 #: workflows/base.py:594
 msgid "Save"
 msgstr "保存"

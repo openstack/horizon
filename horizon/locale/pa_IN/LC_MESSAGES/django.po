@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Amandeep Singh Saini <jimidar@gmail.com>, 2014
+# Amandeep Singh Saini <jimidar@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-16 22:31-0500\n"
-"PO-Revision-Date: 2015-03-17 03:17+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-03-20 00:51-0500\n"
+"PO-Revision-Date: 2015-03-20 06:04+0000\n"
+"Last-Translator: Amandeep Singh Saini <jimidar@gmail.com>\n"
 "Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/projects/p/horizon/language/pa_IN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -79,7 +79,7 @@ msgid "Submit"
 msgstr "ਦਾਖਲ ਕਰੋ"
 
 #: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:25
+#: templates/horizon/common/_modal_form_update_metadata.html:27
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
@@ -94,7 +94,7 @@ msgstr "ਛਾਣਨੀ (ਫਿਲਟਰ)"
 
 #: tables/actions.py:645
 msgid "This action cannot be undone."
-msgstr ""
+msgstr "ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀੰ ਲਈ ਜਾ ਸਕੇਗੀ।"
 
 #: tables/actions.py:767
 #, python-format
@@ -107,10 +107,6 @@ msgstr "%(action)s %(data_type)s"
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
-
-#: tables/actions.py:803 tables/base.py:1570
-msgid "N/A"
-msgstr "ਲਾਗੂ ਨਹੀਂ"
 
 #: tables/actions.py:832
 #, python-format
@@ -145,7 +141,7 @@ msgstr "ਅਪਡੇਟ ਹੋਇਆ"
 
 #: tables/base.py:305
 msgid "-"
-msgstr ""
+msgstr "-"
 
 #: tables/base.py:361
 #, python-format
@@ -169,6 +165,10 @@ msgstr "id \"%s\" ਲਈ ਕੁੱਝ ਵੀ ਮੇਲ ਖਾਂਦਾ ਵਾਪ
 #: tables/base.py:1486
 msgid "Please select a row before taking that action."
 msgstr "ਉਹ ਕਾਰਵਾਈ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਕਿਰਪਾ ਕਰ ਕੇ ਇੱਕ ਸਤਰ੍ਹ ਚੁਣੋ।"
+
+#: tables/base.py:1570
+msgid "N/A"
+msgstr "ਲਾਗੂ ਨਹੀਂ"
 
 #: templates/_header.html:5
 #, python-format
@@ -248,7 +248,7 @@ msgstr "ਹੋਰ ਕਾਰਵਾਈਆਂ"
 #: templates/horizon/common/_domain_page_header.html:6
 #, python-format
 msgid "%(context_name)s:"
-msgstr ""
+msgstr "%(context_name)s:"
 
 #: templates/horizon/common/_formset_table.html:35
 msgid "Add a row"
@@ -257,7 +257,7 @@ msgstr "ਇੱਕ ਸਤਰ੍ਹ ਜੋੜੋ"
 #: templates/horizon/common/_formset_table_row.html:15
 #, python-format
 msgid "%(name)s: %(error)s"
-msgstr ""
+msgstr "%(name)s: %(error)s"
 
 #: templates/horizon/common/_limit_summary.html:4
 msgid "Limit Summary"
@@ -292,7 +292,7 @@ msgstr "ਫਲੋਟਿੰਗ IPs"
 #: templates/horizon/common/_limit_summary.html:29
 #, python-format
 msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr ""
+msgstr "<span> %(used)s </span> ਵੰਡੇ ਗਏ <span> %(available)s </span> ਵਿੱਚੋਂ"
 
 #: templates/horizon/common/_limit_summary.html:35
 msgid "Security Groups"
@@ -306,7 +306,7 @@ msgstr "ਆਇਤਨ"
 msgid "Volume Storage"
 msgstr "ਆਇਤਨ ਭੰਡਾਰਣ"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:24
+#: templates/horizon/common/_modal_form_update_metadata.html:26
 #: workflows/base.py:594
 msgid "Save"
 msgstr "ਸੰਭਾਲੋ"
@@ -331,7 +331,7 @@ msgstr "ਵਰਤੋਂ ਸਾਰ"
 
 #: templates/horizon/common/_usage_summary.html:7
 msgid "Select a period of time to query its usage:"
-msgstr ""
+msgstr "ਇਸਦੀ ਵਰਤੋਂ ਬਾਰੇ ਪੁੱਛ-ਗਿੱਛ ਲਈ ਇੱਕ ਸਮਾਂ ਅੰਤਰਾਲ ਚੁਣੋ:"
 
 #: templates/horizon/common/_usage_summary.html:9
 #, python-format
@@ -353,23 +353,23 @@ msgstr "ਮਿਤੀ YYYY-mm-dd ਤਰਜ ਤੇ ਹੋਣੀ ਚਾਹੀਦੀ
 
 #: templates/horizon/common/_usage_summary.html:20
 msgid "Active Instances:"
-msgstr ""
+msgstr "ਕਿਰਿਆਸ਼ੀਲ ਇੰਸਟਾਸਜ਼:"
 
 #: templates/horizon/common/_usage_summary.html:21
 msgid "Active RAM:"
-msgstr ""
+msgstr "ਕਿਰਿਆਸ਼ੀਲ RAM:"
 
 #: templates/horizon/common/_usage_summary.html:22
 msgid "This Period's VCPU-Hours:"
-msgstr ""
+msgstr "ਇਸ ਅੰਤਰਾਲ ਦੇ VCPU-ਘੰਟੇ:"
 
 #: templates/horizon/common/_usage_summary.html:23
 msgid "This Period's GB-Hours:"
-msgstr ""
+msgstr "ਇਸ ਅੰਤਰਾਲ ਦੇ GB-ਘੰਟੇ:"
 
 #: templates/horizon/common/_usage_summary.html:24
 msgid "This Period's RAM-Hours:"
-msgstr ""
+msgstr "ਇਸ ਅੰਤਰਾਲ ਦੇ RAM-ਘੰਟੇ:"
 
 #: templates/horizon/common/_workflow.html:40
 msgid "Back"
@@ -425,25 +425,25 @@ msgstr "%s PB"
 
 #: templatetags/sizeformat.py:74
 msgid "0 Bytes"
-msgstr ""
+msgstr "0 ਬਾਈਟਾਂ"
 
 #. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:31
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ਪਪੀ ਵੇਚੋ"
+msgstr[1] "ਪਪੀ ਵੇਚੋ"
 
 #. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:40
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ਵਿਕਿਆ ਹੋਇਆ ਪਪੀ"
+msgstr[1] "ਵਿਕੇ ਹੋਏ ਪਪੀ"
 
 #: test/tests/views.py:59
 msgid "Fake"
-msgstr ""
+msgstr "ਨਕਲੀ"
 
 #: utils/filters.py:49
 msgid "Never"
@@ -467,7 +467,7 @@ msgstr "ਪੋਰਟ ਨੰਬਰ ਦਾ ਅੰਕ ਹੋਣਾ ਲਾਜਮੀ 
 
 #: utils/validators.py:59
 msgid "The string may only contain ASCII printable characters."
-msgstr ""
+msgstr "ਇਸ ਸਤਰ੍ਹ ਵਿੱਚ ਸਿਰਫ਼ ਛਾਪੇ ਜਾ ਸਕਣ ਵਾਲੇ ASCII ਅੱਖਰ ਹੀ ਸ਼ਾਮਲ ਹੋ ਸਕਦੇ ਹਨ।"
 
 #: workflows/base.py:71
 msgid "Processing..."

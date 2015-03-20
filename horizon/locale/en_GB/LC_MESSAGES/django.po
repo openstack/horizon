@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-16 22:31-0500\n"
+"POT-Creation-Date: 2015-03-20 00:51-0500\n"
 "PO-Revision-Date: 2015-03-17 03:17+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/horizon/language/en_GB/)\n"
@@ -80,7 +80,7 @@ msgid "Submit"
 msgstr "Submit"
 
 #: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:25
+#: templates/horizon/common/_modal_form_update_metadata.html:27
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "Cancel"
@@ -108,10 +108,6 @@ msgstr "%(action)s %(data_type)s"
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
-
-#: tables/actions.py:803 tables/base.py:1570
-msgid "N/A"
-msgstr "N/A"
 
 #: tables/actions.py:832
 #, python-format
@@ -170,6 +166,10 @@ msgstr "No match returned for the id \"%s\"."
 #: tables/base.py:1486
 msgid "Please select a row before taking that action."
 msgstr "Please select a row before taking that action."
+
+#: tables/base.py:1570
+msgid "N/A"
+msgstr "N/A"
 
 #: templates/_header.html:5
 #, python-format
@@ -307,7 +307,7 @@ msgstr "Volumes"
 msgid "Volume Storage"
 msgstr "Volume Storage"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:24
+#: templates/horizon/common/_modal_form_update_metadata.html:26
 #: workflows/base.py:594
 msgid "Save"
 msgstr "Save"

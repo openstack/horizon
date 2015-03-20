@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Andi Chandler <andi@gowling.com>, 2015
 # Rob Cresswell <robert.cresswell@outlook.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-18 20:07-0500\n"
-"PO-Revision-Date: 2015-03-18 22:17+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-03-20 00:51-0500\n"
+"PO-Revision-Date: 2015-03-19 21:54+0000\n"
+"Last-Translator: Rob Cresswell <robert.cresswell@outlook.com>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/horizon/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -62,15 +63,15 @@ msgstr "VHD - Virtual Hard Disk"
 msgid "VMDK - Virtual Machine Disk"
 msgstr "VMDK - Virtual Machine Disk"
 
-#: settings.py:241
+#: settings.py:242
 msgid "All TCP"
 msgstr "All TCP"
 
-#: settings.py:247
+#: settings.py:248
 msgid "All UDP"
 msgstr "All UDP"
 
-#: settings.py:253
+#: settings.py:254
 msgid "All ICMP"
 msgstr "All ICMP"
 
@@ -395,22 +396,22 @@ msgstr "Unable to get members for pool %(pool)s."
 msgid "Unable to get health monitors for pool %(pool)s."
 msgstr "Unable to get health monitors for pool %(pool)s."
 
-#: api/neutron.py:221
+#: api/neutron.py:225
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
-#: api/neutron.py:940
+#: api/neutron.py:957
 msgid "Unable to connect to Neutron."
 msgstr "Unable to connect to Neutron."
 
-#: api/neutron.py:977
+#: api/neutron.py:994
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "Unable to parse IP address %s."
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1116
+#: api/neutron.py:1133
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -418,19 +419,21 @@ msgid ""
 msgstr "The requested feature '%(feature)s' is unknown. Please make sure to specify a feature defined in FEATURE_MAP."
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1134
+#: api/neutron.py:1151
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
 "invalid. It should be one of %(allowed)s"
 msgstr "The 'operation' parameter for get_feature_permission '%(feature)s' is invalid. It should be one of %(allowed)s"
 
-#: api/neutron.py:1149
+#: api/neutron.py:1166
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr "Failed to check Neutron '%s' extension is not supported"
 
-#: api/nova.py:110 api/nova.py:120 dashboards/project/databases/tables.py:279
+#: api/nova.py:110 api/nova.py:120
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:14
+#: dashboards/project/databases/tables.py:279
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:8
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:11
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:8
@@ -453,8 +456,7 @@ msgstr "Failed to check Neutron '%s' extension is not supported"
 #: dashboards/project/networks/templates/networks/_detail_overview.html:12
 #: dashboards/project/networks/templates/networks/_detail_overview.html:24
 #: dashboards/project/networks/templates/networks/_detail_overview.html:25
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:18
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:43
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:14
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:18
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:29
 #: dashboards/project/routers/tables.py:186
@@ -534,9 +536,10 @@ msgstr "Admin"
 #: dashboards/admin/metadata_defs/tables.py:128
 #: dashboards/admin/networks/forms.py:38
 #: dashboards/admin/networks/forms.py:234
-#: dashboards/admin/networks/ports/forms.py:40
-#: dashboards/admin/networks/ports/tables.py:91
+#: dashboards/admin/networks/ports/forms.py:43
+#: dashboards/admin/networks/ports/tables.py:82
 #: dashboards/admin/networks/subnets/tables.py:92
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:6
 #: dashboards/admin/routers/tables.py:41
 #: dashboards/admin/routers/ports/tables.py:24
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:7
@@ -617,11 +620,11 @@ msgstr "Admin"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:9
 #: dashboards/project/networks/forms.py:35
 #: dashboards/project/networks/tables.py:168
-#: dashboards/project/networks/ports/forms.py:36
+#: dashboards/project/networks/ports/forms.py:39
 #: dashboards/project/networks/ports/tables.py:69
 #: dashboards/project/networks/subnets/tables.py:129
 #: dashboards/project/networks/templates/networks/_detail_overview.html:7
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:10
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:6
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:10
 #: dashboards/project/routers/forms.py:117
 #: dashboards/project/routers/tables.py:209
@@ -1216,7 +1219,6 @@ msgid "Key Pairs"
 msgstr "Key Pairs"
 
 #: dashboards/admin/defaults/tables.py:56
-#: dashboards/admin/networks/ports/tables.py:94
 #: dashboards/identity/projects/workflows.py:63
 #: dashboards/project/networks/ports/tables.py:71
 #: dashboards/project/routers/ports/tables.py:110 usage/quotas.py:69
@@ -1365,6 +1367,7 @@ msgstr "Swap Disk"
 #: dashboards/admin/flavors/tables.py:136
 #: dashboards/admin/flavors/workflows.py:41
 #: dashboards/admin/networks/agents/tables.py:90
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:8
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:9
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:12
 #: dashboards/admin/volumes/volumes/forms.py:87
@@ -1399,9 +1402,9 @@ msgstr "Swap Disk"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:6
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:6
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:6
-#: dashboards/project/networks/ports/forms.py:32
+#: dashboards/project/networks/ports/forms.py:35
 #: dashboards/project/networks/templates/networks/_detail_overview.html:9
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:12
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:8
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:12
 #: dashboards/project/routers/forms.py:121
 #: dashboards/project/routers/templates/routers/_detail_overview.html:11
@@ -1721,6 +1724,7 @@ msgstr "Failed to evacuate host: %s."
 #: dashboards/admin/info/tables.py:209
 #: dashboards/admin/instances/tables.py:126
 #: dashboards/admin/networks/agents/tables.py:91
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:50
 #: dashboards/admin/volumes/snapshots/tables.py:64
 #: dashboards/admin/volumes/volumes/forms.py:55
 #: dashboards/admin/volumes/volumes/forms.py:142
@@ -1843,7 +1847,7 @@ msgstr "Zone"
 #: dashboards/admin/instances/tables.py:142
 #: dashboards/admin/networks/tables.py:102
 #: dashboards/admin/networks/agents/tables.py:92
-#: dashboards/admin/networks/ports/tables.py:99
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:17
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:13
 #: dashboards/admin/volumes/snapshots/forms.py:34
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:18
@@ -1875,7 +1879,7 @@ msgstr "Zone"
 #: dashboards/project/networks/tables.py:174
 #: dashboards/project/networks/ports/tables.py:74
 #: dashboards/project/networks/templates/networks/_detail_overview.html:13
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:32
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:17
 #: dashboards/project/routers/tables.py:212
 #: dashboards/project/routers/ports/tables.py:112
 #: dashboards/project/routers/templates/routers/_detail_overview.html:13
@@ -2245,23 +2249,8 @@ msgid "Live Migrate Instance"
 msgstr "Live Migrate Instance"
 
 #: dashboards/admin/instances/tables.py:94
-#: dashboards/admin/instances/tables.py:119
-#: dashboards/admin/metering/tables.py:41
-#: dashboards/admin/metering/templates/metering/stats.html:94
-#: dashboards/admin/networks/forms.py:40
-#: dashboards/admin/networks/tables.py:93
-#: dashboards/admin/routers/tables.py:39
-#: dashboards/admin/volumes/snapshots/tables.py:65
-#: dashboards/admin/volumes/volumes/tables.py:82
-#: dashboards/project/dashboard.py:77
-#: dashboards/project/images/images/tables.py:156
-#: dashboards/project/instances/workflows/create_instance.py:54
-#: dashboards/router/nexus1000v/forms.py:119
-#: dashboards/router/nexus1000v/forms.py:177
-#: dashboards/router/nexus1000v/tables.py:73
-#: dashboards/router/nexus1000v/tables.py:95
-msgid "Project"
-msgstr "Project"
+msgid "Project ="
+msgstr "Project ="
 
 #: dashboards/admin/instances/tables.py:95
 msgid "Host ="
@@ -2285,12 +2274,32 @@ msgstr "Image ID ="
 msgid "Flavor ID ="
 msgstr "Flavour ID ="
 
+#: dashboards/admin/instances/tables.py:119
+#: dashboards/admin/metering/tables.py:41
+#: dashboards/admin/metering/templates/metering/stats.html:94
+#: dashboards/admin/networks/forms.py:40
+#: dashboards/admin/networks/tables.py:93
+#: dashboards/admin/routers/tables.py:39
+#: dashboards/admin/volumes/snapshots/tables.py:65
+#: dashboards/admin/volumes/volumes/tables.py:82
+#: dashboards/project/dashboard.py:77
+#: dashboards/project/images/images/tables.py:156
+#: dashboards/project/instances/workflows/create_instance.py:54
+#: dashboards/router/nexus1000v/forms.py:119
+#: dashboards/router/nexus1000v/forms.py:177
+#: dashboards/router/nexus1000v/tables.py:73
+#: dashboards/router/nexus1000v/tables.py:95
+msgid "Project"
+msgstr "Project"
+
 #: dashboards/admin/instances/tables.py:134
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:29
 #: dashboards/project/access_and_security/floating_ips/tables.py:194
 #: dashboards/project/access_and_security/floating_ips/workflows.py:33
 #: dashboards/project/access_and_security/floating_ips/workflows.py:40
 #: dashboards/project/instances/tables.py:1012
 #: dashboards/project/loadbalancers/tables.py:367
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:29
 msgid "IP Address"
 msgstr "IP Address"
 
@@ -2629,6 +2638,18 @@ msgstr "Display Name"
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:11
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:13
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:35
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:7
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:9
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:12
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:16
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:18
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:20
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:36
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:42
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:44
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:51
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:53
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:66
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:8
 #: dashboards/admin/volumes/volume_types/forms.py:89
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:16
@@ -2657,14 +2678,15 @@ msgstr "Display Name"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:51
 #: dashboards/project/networks/templates/networks/_detail_overview.html:8
 #: dashboards/project/networks/templates/networks/_detail_overview.html:10
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:11
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:13
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:7
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:9
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:12
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:16
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:27
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:31
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:33
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:35
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:18
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:20
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:36
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:42
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:44
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:11
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:13
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:16
@@ -3109,7 +3131,7 @@ msgstr "Segmentation ID"
 
 #: dashboards/admin/networks/forms.py:77
 #: dashboards/admin/networks/forms.py:236
-#: dashboards/admin/networks/ports/forms.py:42
+#: dashboards/admin/networks/ports/forms.py:45
 #: dashboards/project/firewalls/forms.py:131
 #: dashboards/project/firewalls/workflows.py:239
 #: dashboards/project/loadbalancers/forms.py:38
@@ -3122,7 +3144,7 @@ msgstr "Segmentation ID"
 #: dashboards/project/loadbalancers/workflows.py:548
 #: dashboards/project/networks/forms.py:37
 #: dashboards/project/networks/workflows.py:47
-#: dashboards/project/networks/ports/forms.py:38
+#: dashboards/project/networks/ports/forms.py:41
 #: dashboards/project/routers/forms.py:37
 #: dashboards/project/routers/forms.py:118 dashboards/project/vpn/forms.py:37
 #: dashboards/project/vpn/forms.py:261 dashboards/project/vpn/workflows.py:31
@@ -3132,7 +3154,7 @@ msgstr "UP"
 
 #: dashboards/admin/networks/forms.py:78
 #: dashboards/admin/networks/forms.py:237
-#: dashboards/admin/networks/ports/forms.py:43
+#: dashboards/admin/networks/ports/forms.py:46
 #: dashboards/project/firewalls/forms.py:132
 #: dashboards/project/firewalls/workflows.py:240
 #: dashboards/project/loadbalancers/forms.py:39
@@ -3145,7 +3167,7 @@ msgstr "UP"
 #: dashboards/project/loadbalancers/workflows.py:549
 #: dashboards/project/networks/forms.py:38
 #: dashboards/project/networks/workflows.py:48
-#: dashboards/project/networks/ports/forms.py:39
+#: dashboards/project/networks/ports/forms.py:42
 #: dashboards/project/routers/forms.py:38
 #: dashboards/project/routers/forms.py:119 dashboards/project/vpn/forms.py:38
 #: dashboards/project/vpn/forms.py:262 dashboards/project/vpn/workflows.py:32
@@ -3157,8 +3179,8 @@ msgstr "DOWN"
 #: dashboards/admin/networks/forms.py:238
 #: dashboards/admin/networks/tables.py:104
 #: dashboards/admin/networks/agents/tables.py:93
-#: dashboards/admin/networks/ports/forms.py:44
-#: dashboards/admin/networks/ports/tables.py:102
+#: dashboards/admin/networks/ports/forms.py:47
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:19
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:15
 #: dashboards/project/firewalls/forms.py:133
 #: dashboards/project/firewalls/workflows.py:241
@@ -3173,10 +3195,10 @@ msgstr "DOWN"
 #: dashboards/project/networks/forms.py:39
 #: dashboards/project/networks/tables.py:177
 #: dashboards/project/networks/workflows.py:49
-#: dashboards/project/networks/ports/forms.py:40
+#: dashboards/project/networks/ports/forms.py:43
 #: dashboards/project/networks/ports/tables.py:77
 #: dashboards/project/networks/templates/networks/_detail_overview.html:15
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:34
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:19
 #: dashboards/project/routers/forms.py:36
 #: dashboards/project/routers/forms.py:120
 #: dashboards/project/routers/tables.py:225
@@ -3350,7 +3372,7 @@ msgstr "DOWN"
 
 #: dashboards/admin/networks/tables.py:94
 #: dashboards/admin/networks/agents/forms.py:32
-#: dashboards/admin/networks/ports/forms.py:33
+#: dashboards/admin/networks/ports/forms.py:36
 #: dashboards/project/networks/workflows.py:37
 msgid "Network Name"
 msgstr "Network Name"
@@ -3453,7 +3475,7 @@ msgid "Add DHCP Agent"
 msgstr "Add DHCP Agent"
 
 #: dashboards/admin/networks/agents/views.py:62
-#: dashboards/admin/networks/ports/views.py:53
+#: dashboards/admin/networks/ports/views.py:56
 #: dashboards/project/networks/subnets/views.py:48
 msgid "Unable to retrieve network."
 msgstr "Unable to retrieve network."
@@ -3462,58 +3484,101 @@ msgstr "Unable to retrieve network."
 msgid "Unable to retrieve agent list."
 msgstr "Unable to retrieve agent list."
 
-#: dashboards/admin/networks/ports/forms.py:36
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:15
+#: dashboards/admin/networks/ports/forms.py:31
+#: dashboards/project/network_topology/templates/network_topology/index.html:26
+#: dashboards/project/networks/ports/forms.py:29
+msgid "Normal"
+msgstr "Normal"
+
+#: dashboards/admin/networks/ports/forms.py:31
+#: dashboards/project/networks/ports/forms.py:29
+msgid "Direct"
+msgstr "Direct"
+
+#: dashboards/admin/networks/ports/forms.py:32
+#: dashboards/project/networks/ports/forms.py:30
+msgid "MacVTap"
+msgstr "MacVTap"
+
+#: dashboards/admin/networks/ports/forms.py:39
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:11
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:11
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:15
 msgid "Network ID"
 msgstr "Network ID"
 
-#: dashboards/admin/networks/ports/forms.py:45
-#: dashboards/admin/networks/ports/forms.py:88
+#: dashboards/admin/networks/ports/forms.py:48
+#: dashboards/admin/networks/ports/forms.py:118
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:43
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:43
 msgid "Device ID"
 msgstr "Device ID"
 
-#: dashboards/admin/networks/ports/forms.py:46
-#: dashboards/admin/networks/ports/forms.py:89
+#: dashboards/admin/networks/ports/forms.py:49
+#: dashboards/admin/networks/ports/forms.py:119
 msgid "Device ID attached to the port"
 msgstr "Device ID attached to the port"
 
-#: dashboards/admin/networks/ports/forms.py:48
-#: dashboards/admin/networks/ports/forms.py:91
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:42
+#: dashboards/admin/networks/ports/forms.py:51
+#: dashboards/admin/networks/ports/forms.py:121
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:41
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:41
 msgid "Device Owner"
 msgstr "Device Owner"
 
-#: dashboards/admin/networks/ports/forms.py:49
-#: dashboards/admin/networks/ports/forms.py:92
+#: dashboards/admin/networks/ports/forms.py:52
+#: dashboards/admin/networks/ports/forms.py:122
 msgid "Device owner attached to the port"
 msgstr "Device owner attached to the port"
 
+#: dashboards/admin/networks/ports/forms.py:56
+#: dashboards/admin/networks/ports/forms.py:126
+msgid "Binding: Host"
+msgstr "Binding: Host"
+
 #: dashboards/admin/networks/ports/forms.py:57
+#: dashboards/admin/networks/ports/forms.py:127
+msgid ""
+"The ID of the host where the port is allocated. In some cases, different "
+"implementations can run on different hosts."
+msgstr "The ID of the host where the port is allocated. In some cases, different implementations can run on different hosts."
+
+#: dashboards/admin/networks/ports/forms.py:81
+#: dashboards/project/networks/ports/forms.py:64
+msgid "Binding: VNIC Type"
+msgstr "Binding: VNIC Type"
+
+#: dashboards/admin/networks/ports/forms.py:82
+#: dashboards/project/networks/ports/forms.py:65
+msgid "The VNIC type that is bound to the neutron port"
+msgstr "The VNIC type that is bound to the neutron port"
+
+#: dashboards/admin/networks/ports/forms.py:87
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:22
+#: dashboards/project/networks/ports/forms.py:70
 #: dashboards/project/networks/ports/tables.py:80
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:37
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:22
 msgid "MAC Learning State"
 msgstr "MAC Learning State"
 
-#: dashboards/admin/networks/ports/forms.py:73
+#: dashboards/admin/networks/ports/forms.py:103
 #, python-format
 msgid "Port %s was successfully created."
 msgstr "Port %s was successfully created."
 
-#: dashboards/admin/networks/ports/forms.py:78
+#: dashboards/admin/networks/ports/forms.py:108
 #, python-format
 msgid "Failed to create a port for network %s"
 msgstr "Failed to create a port for network %s"
 
-#: dashboards/admin/networks/ports/forms.py:110
-#: dashboards/project/networks/ports/forms.py:60
+#: dashboards/admin/networks/ports/forms.py:155
+#: dashboards/project/networks/ports/forms.py:87
 #, python-format
 msgid "Port %s was successfully updated."
 msgstr "Port %s was successfully updated."
 
-#: dashboards/admin/networks/ports/forms.py:115
-#: dashboards/project/networks/ports/forms.py:65
+#: dashboards/admin/networks/ports/forms.py:160
+#: dashboards/project/networks/ports/forms.py:92
 #, python-format
 msgid "Failed to update port %s"
 msgstr "Failed to update port %s"
@@ -3536,57 +3601,18 @@ msgid "Failed to delete port: %s"
 msgstr "Failed to delete port: %s"
 
 #: dashboards/admin/networks/ports/tables.py:65
-#: dashboards/admin/networks/ports/views.py:33
-#: dashboards/admin/networks/ports/views.py:35
-#: dashboards/admin/networks/ports/views.py:39
+#: dashboards/admin/networks/ports/views.py:37
+#: dashboards/admin/networks/ports/views.py:38
+#: dashboards/admin/networks/ports/views.py:40
 #: dashboards/admin/networks/templates/networks/ports/create.html:3
 msgid "Create Port"
 msgstr "Create Port"
 
-#: dashboards/admin/networks/ports/tables.py:78
-#: dashboards/project/networks/ports/tables.py:43
-#: dashboards/project/networks/ports/views.py:85
-msgid "Edit Port"
-msgstr "Edit Port"
-
-#: dashboards/admin/networks/ports/tables.py:96
-msgid "Device Attached"
-msgstr "Device Attached"
-
-#: dashboards/admin/networks/ports/tables.py:105
-#: dashboards/project/networks/ports/forms.py:47
-msgid "Mac Learning State"
-msgstr "Mac Learning State"
-
-#: dashboards/admin/networks/ports/tables.py:109
+#: dashboards/admin/networks/ports/tables.py:87
 #: dashboards/identity/projects/workflows.py:76
 #: dashboards/project/networks/ports/tables.py:87 usage/quotas.py:79
 msgid "Ports"
 msgstr "Ports"
-
-#: dashboards/admin/networks/ports/tabs.py:25
-#: dashboards/admin/overview/panel.py:27
-#: dashboards/admin/volumes/snapshots/tabs.py:23
-#: dashboards/project/databases/tabs.py:26
-#: dashboards/project/images/images/tabs.py:22
-#: dashboards/project/instances/tabs.py:30
-#: dashboards/project/networks/ports/tabs.py:21
-#: dashboards/project/networks/subnets/tabs.py:21
-#: dashboards/project/overview/panel.py:27
-#: dashboards/project/routers/ports/tabs.py:24
-#: dashboards/project/stacks/tabs.py:53 dashboards/project/stacks/tabs.py:67
-#: dashboards/project/stacks/resource_types/tabs.py:21
-#: dashboards/project/volumes/backups/tabs.py:24
-#: dashboards/project/volumes/snapshots/tabs.py:25
-#: dashboards/project/volumes/volumes/tabs.py:21 usage/views.py:25
-msgid "Overview"
-msgstr "Overview"
-
-#: dashboards/admin/networks/ports/tabs.py:35
-#: dashboards/project/networks/ports/views.py:54
-#: dashboards/project/routers/ports/tabs.py:35
-msgid "Unable to retrieve port details."
-msgstr "Unable to retrieve port details."
 
 #: dashboards/admin/networks/subnets/tables.py:38
 #: dashboards/project/networks/subnets/tables.py:61
@@ -3693,6 +3719,82 @@ msgid ""
 "attached, the device specified will be attached to the port created."
 msgstr "You can create a port for the network. If you specify device ID to be attached, the device specified will be attached to the port created."
 
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:13
+#: dashboards/admin/routers/templates/routers/_detail_overview.html:11
+#: dashboards/identity/projects/tables.py:236
+#: dashboards/identity/projects/templates/projects/_detail_overview.html:11
+#: dashboards/identity/users/templates/users/_detail_overview.html:25
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:22
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:16
+#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:16
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:16
+#: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:9
+#: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:9
+#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:15
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:15
+#: dashboards/project/networks/templates/networks/_detail_overview.html:11
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:13
+#: dashboards/project/overview/templates/overview/usage.csv:2
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:15
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:15
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:16
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:16
+msgid "Project ID"
+msgstr "Project ID"
+
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:15
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:15
+msgid "MAC Address"
+msgstr "MAC Address"
+
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:23
+msgid "On"
+msgstr "On"
+
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:25
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:25
+msgid "Fixed IP"
+msgstr "Fixed IP"
+
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:32
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:32
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:23
+msgid "Subnet ID"
+msgstr "Subnet ID"
+
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:38
+#: dashboards/project/networks/ports/tables.py:72
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:38
+msgid "Attached Device"
+msgstr "Attached Device"
+
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:46
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:46
+msgid "No attached device"
+msgstr "No attached device"
+
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:48
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:48
+msgid "Binding"
+msgstr "Binding"
+
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:52
+msgid "Profile"
+msgstr "Profile"
+
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:54
+msgid "VIF Type"
+msgstr "VIF Type"
+
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:56
+msgid "VIF Details"
+msgstr "VIF Details"
+
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:69
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:51
+msgid "VNIC Type"
+msgstr "VNIC Type"
+
 #: dashboards/admin/networks/templates/networks/ports/_update.html:6
 #: dashboards/project/networks/templates/networks/ports/_update.html:6
 msgid "You may update the editable properties of your port here."
@@ -3709,6 +3811,23 @@ msgstr "Update Port"
 #: dashboards/project/networks/templates/networks/detail.html:3
 msgid "Network Details"
 msgstr "Network Details"
+
+#: dashboards/admin/overview/panel.py:27
+#: dashboards/admin/volumes/snapshots/tabs.py:23
+#: dashboards/project/databases/tabs.py:26
+#: dashboards/project/images/images/tabs.py:22
+#: dashboards/project/instances/tabs.py:30
+#: dashboards/project/networks/ports/tabs.py:21
+#: dashboards/project/networks/subnets/tabs.py:21
+#: dashboards/project/overview/panel.py:27
+#: dashboards/project/routers/ports/tabs.py:24
+#: dashboards/project/stacks/tabs.py:53 dashboards/project/stacks/tabs.py:67
+#: dashboards/project/stacks/resource_types/tabs.py:21
+#: dashboards/project/volumes/backups/tabs.py:24
+#: dashboards/project/volumes/snapshots/tabs.py:25
+#: dashboards/project/volumes/volumes/tabs.py:21 usage/views.py:25
+msgid "Overview"
+msgstr "Overview"
 
 #: dashboards/admin/overview/views.py:34
 #: dashboards/project/overview/views.py:33
@@ -3829,28 +3948,6 @@ msgstr "Interfaces"
 #, python-format
 msgid "Router Overview: %(router_name)s"
 msgstr "Router Overview: %(router_name)s"
-
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:11
-#: dashboards/identity/projects/tables.py:236
-#: dashboards/identity/projects/templates/projects/_detail_overview.html:11
-#: dashboards/identity/users/templates/users/_detail_overview.html:25
-#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:22
-#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:16
-#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:16
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:16
-#: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:9
-#: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:9
-#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:15
-#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:15
-#: dashboards/project/networks/templates/networks/_detail_overview.html:11
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:17
-#: dashboards/project/overview/templates/overview/usage.csv:2
-#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:15
-#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:15
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:16
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:16
-msgid "Project ID"
-msgstr "Project ID"
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:18
 #: dashboards/project/routers/forms.py:53
@@ -6132,7 +6229,6 @@ msgstr "Open Port"
 #: dashboards/project/access_and_security/security_groups/forms.py:136
 #: dashboards/project/access_and_security/security_groups/forms.py:145
 #: dashboards/project/access_and_security/security_groups/forms.py:152
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:7
 msgid "Port"
 msgstr "Port"
 
@@ -7267,7 +7363,7 @@ msgstr "Clusters"
 #: dashboards/project/data_processing/clusters/tables.py:41
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:31
 msgid "Cluster Creation Guide"
-msgstr ""
+msgstr "Cluster Creation Guide"
 
 #: dashboards/project/data_processing/clusters/tables.py:55
 #: dashboards/project/data_processing/clusters/views.py:93
@@ -7910,14 +8006,12 @@ msgstr "Download job binary"
 
 #: dashboards/project/data_processing/job_executions/panel.py:22
 #: dashboards/project/data_processing/job_executions/tables.py:194
-#: dashboards/project/data_processing/job_executions/views.py:39
-msgid "Job Executions"
-msgstr "Job Executions"
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/job_executions.html:6
+#: dashboards/project/data_processing/jobs/views.py:41
+msgid "Jobs"
+msgstr "Jobs"
 
 #: dashboards/project/data_processing/job_executions/tables.py:38
-#: dashboards/project/data_processing/job_executions/tables.py:175
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:10
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:3
 #: dashboards/project/data_processing/jobs/workflows/launch.py:56
 #: dashboards/project/data_processing/jobs/workflows/launch.py:97
 #: dashboards/project/data_processing/jobs/workflows/launch.py:122
@@ -7932,22 +8026,20 @@ msgid "Cluster"
 msgstr "Cluster"
 
 #: dashboards/project/data_processing/job_executions/tables.py:45
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:51
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:53
-msgid "Job Execution Guide"
-msgstr ""
+msgid "Job Guide"
+msgstr "Job Guide"
 
 #: dashboards/project/data_processing/job_executions/tables.py:53
-msgid "Delete Job Execution"
-msgid_plural "Delete Job Executions"
-msgstr[0] "Delete Job Execution"
-msgstr[1] "Delete Job Executions"
+msgid "Delete Job"
+msgid_plural "Delete Jobs"
+msgstr[0] ""
+msgstr[1] "Delete Jobs"
 
 #: dashboards/project/data_processing/job_executions/tables.py:61
-msgid "Deleted Job Execution"
-msgid_plural "Deleted Job Executions"
-msgstr[0] "Deleted Job Execution"
-msgstr[1] "Deleted Job Executions"
+msgid "Deleted Job"
+msgid_plural "Deleted Jobs"
+msgstr[0] ""
+msgstr[1] "Deleted Jobs"
 
 #: dashboards/project/data_processing/job_executions/tables.py:74
 #: dashboards/project/data_processing/job_executions/tables.py:103
@@ -7979,37 +8071,46 @@ msgid "Relaunch On New Cluster"
 msgstr "Relaunch On New Cluster"
 
 #: dashboards/project/data_processing/job_executions/tables.py:158
-msgctxt "Current status of a Job Execution"
+msgctxt "Current status of a Job"
 msgid "Done with Error"
 msgstr "Done with Error"
 
 #: dashboards/project/data_processing/job_executions/tables.py:160
-msgctxt "Current status of a Job Execution"
+msgctxt "Current status of a Job"
 msgid "Failed"
 msgstr "Failed"
 
 #: dashboards/project/data_processing/job_executions/tables.py:162
-msgctxt "Current status of a Job Execution"
+msgctxt "Current status of a Job"
 msgid "Killed"
 msgstr "Killed"
 
 #: dashboards/project/data_processing/job_executions/tables.py:164
-msgctxt "Current status of a Job Execution"
+msgctxt "Current status of a Job"
 msgid "Succeeded"
 msgstr "Succeeded"
+
+#: dashboards/project/data_processing/job_executions/tables.py:175
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:10
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:3
+msgid "Job Template"
+msgstr "Job Template"
+
+#: dashboards/project/data_processing/job_executions/views.py:39
+msgid "Job Executions"
+msgstr "Job Executions"
 
 #: dashboards/project/data_processing/job_executions/views.py:57
 msgid "Unable to fetch job executions."
 msgstr "Unable to fetch job executions."
 
 #: dashboards/project/data_processing/job_executions/views.py:64
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/details.html:3
 msgid "Job Execution Details"
 msgstr "Job Execution Details"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:3
-msgid "Job Execution Overview"
-msgstr "Job Execution Overview"
+msgid "Job Overview"
+msgstr "Job Overview"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:12
 msgid "Input Data Source"
@@ -8059,31 +8160,37 @@ msgstr "Job Configuration"
 msgid "%(group)s:"
 msgstr "%(group)s:"
 
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/details.html:3
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/details.html:6
+#: dashboards/project/data_processing/jobs/views.py:68
+msgid "Job Details"
+msgstr "Job Details"
+
 #: dashboards/project/data_processing/jobs/panel.py:22
 #: dashboards/project/data_processing/jobs/tables.py:111
-#: dashboards/project/data_processing/jobs/views.py:41
-msgid "Jobs"
-msgstr "Jobs"
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/jobs.html:6
+msgid "Job Templates"
+msgstr "Job Templates"
 
 #: dashboards/project/data_processing/jobs/tables.py:36
-#: dashboards/project/data_processing/jobs/views.py:62
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:3
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:6
 #: dashboards/project/data_processing/jobs/workflows/create.py:124
 #: dashboards/project/data_processing/jobs/workflows/create.py:155
-msgid "Create Job"
-msgstr "Create Job"
+msgid "Create Job Template"
+msgstr "Create Job Template"
 
 #: dashboards/project/data_processing/jobs/tables.py:46
-msgid "Delete Job"
-msgid_plural "Delete Jobs"
-msgstr[0] ""
-msgstr[1] "Delete Jobs"
+msgid "Delete Job Template"
+msgid_plural "Delete Job Templates"
+msgstr[0] "Delete Job Template"
+msgstr[1] "Delete Job Templates"
 
 #: dashboards/project/data_processing/jobs/tables.py:54
-msgid "Deleted Job"
-msgid_plural "Deleted Jobs"
-msgstr[0] ""
-msgstr[1] "Deleted Jobs"
+msgid "Deleted Job Template"
+msgid_plural "Deleted Jobs Templates"
+msgstr[0] "Deleted Job Template"
+msgstr[1] "Deleted Jobs Templates"
 
 #: dashboards/project/data_processing/jobs/tables.py:65
 msgid "Launch On Existing Cluster"
@@ -8099,14 +8206,13 @@ msgstr "Launch On New Cluster"
 msgid "Unable to fetch jobs."
 msgstr "Unable to fetch jobs."
 
-#: dashboards/project/data_processing/jobs/views.py:68
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/details.html:3
-msgid "Job Details"
-msgstr "Job Details"
+#: dashboards/project/data_processing/jobs/views.py:62
+msgid "Create Job"
+msgstr "Create Job"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:4
-msgid "Create a job with a specified name."
-msgstr "Create a job with a specified name."
+msgid "Create a job template with a specified name."
+msgstr "Create a job template with a specified name."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:7
 msgid "Select the type of your job:"
@@ -8158,18 +8264,18 @@ msgid ""
 msgstr "For MapReduce or Java Action jobs, \"mains\" are not applicable.  You are required to add one\n  or more \"libs\" for these jobs."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:27
-msgid "You may also enter an optional description for your job."
-msgstr "You may also enter an optional description for your job."
+msgid "You may also enter an optional description for your job template."
+msgstr "You may also enter an optional description for your job template."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_libs_help.html:4
-msgid "Add libraries to your job."
-msgstr "Add libraries to your job."
+msgid "Add libraries to your job template."
+msgstr "Add libraries to your job template."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_libs_help.html:7
 msgid ""
 "Choose from the list of binaries and click \"choose\" to add the library to "
-"your job.  This can be repeated for additional libraries."
-msgstr "Choose from the list of binaries and click \"choose\" to add the library to your job.  This can be repeated for additional libraries."
+"your job template.  This can be repeated for additional libraries."
+msgstr "Choose from the list of binaries and click \"choose\" to add the library to your job template.  This can be repeated for additional libraries."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:12
 msgid "Mains"
@@ -8185,12 +8291,12 @@ msgid "Enter any custom configuration required for your job's execution."
 msgstr "Enter any custom configuration required for your job's execution."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_launch_job_help.html:4
-msgid "Launch the given job on a cluster."
-msgstr "Launch the given job on a cluster."
+msgid "Launch the given job template on a cluster."
+msgstr "Launch the given job template on a cluster."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_launch_job_help.html:7
-msgid "Choose the cluster to use for the job execution."
-msgstr "Choose the cluster to use for the job execution."
+msgid "Choose the cluster to use for the job."
+msgstr "Choose the cluster to use for the job."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_launch_job_help.html:10
 msgid "Choose the Input Data Source (n/a for Java jobs)."
@@ -8223,6 +8329,11 @@ msgstr "Parameters"
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:226
 msgid "Arguments"
 msgstr "Arguments"
+
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/details.html:3
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/details.html:6
+msgid "Job Template Details"
+msgstr "Job Template Details"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/library_template.html:86
 msgid "Choose"
@@ -8268,8 +8379,8 @@ msgid "Job created"
 msgstr "Job created"
 
 #: dashboards/project/data_processing/jobs/workflows/create.py:158
-msgid "Could not create job"
-msgstr "Could not create job"
+msgid "Could not create job template"
+msgstr "Could not create job template"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:40
 msgid "Input"
@@ -8561,7 +8672,7 @@ msgstr "Unable to populate anti-affinity processes."
 
 #: dashboards/project/data_processing/utils/helpers.py:132
 msgid "Java"
-msgstr ""
+msgstr "Java"
 
 #: dashboards/project/data_processing/utils/neutron_support.py:31
 #: dashboards/project/databases/workflows/create_instance.py:160
@@ -8586,36 +8697,44 @@ msgstr "Unable to retrieve security group %(group)s."
 msgid "Plugin Name"
 msgstr "Plugin Name"
 
+#: dashboards/project/data_processing/wizard/forms.py:43
+msgid "Cluster type chosen"
+msgstr "Cluster type chosen"
+
 #: dashboards/project/data_processing/wizard/forms.py:47
 msgid "Unable to set cluster type"
-msgstr ""
+msgstr "Unable to set cluster type"
 
 #: dashboards/project/data_processing/wizard/forms.py:86
 msgid "Choose plugin type and version"
-msgstr ""
+msgstr "Choose plugin type and version"
+
+#: dashboards/project/data_processing/wizard/forms.py:116
+msgid "Job type chosen"
+msgstr "Job type chosen"
 
 #: dashboards/project/data_processing/wizard/forms.py:120
 msgid "Unable to set job type"
-msgstr ""
+msgstr "Unable to set job type"
 
 #: dashboards/project/data_processing/wizard/panel.py:22
 msgid "Guides"
-msgstr ""
+msgstr "Guides"
 
 #: dashboards/project/data_processing/wizard/views.py:40
-msgid "Unable show guides."
-msgstr ""
+msgid "Unable to show guides"
+msgstr "Unable to show guides"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_job_type_select.html:13
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/job_type_select.html:3
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/job_type_select.html:6
 msgid "Choose job type"
-msgstr ""
+msgstr "Choose job type"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_job_type_select.html:28
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_plugin_select.html:28
 msgid "Select"
-msgstr ""
+msgstr "Select"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_job_type_select_help.html:3
 msgid ""
@@ -8623,23 +8742,23 @@ msgid ""
 "      This choice will dictate which steps are required to successfully\n"
 "      execute your job.\n"
 "    "
-msgstr ""
+msgstr "Select which type of job that you want to run.\n      This choice will dictate which steps are required to successfully\n      execute your job.\n    "
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_plugin_select.html:13
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/plugin_select.html:3
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/plugin_select.html:6
 msgid "Choose plugin and version"
-msgstr ""
+msgstr "Choose plugin and version"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_plugin_select_help.html:3
 msgid ""
 "Select which plugin and version that you\n"
 "    want to use to create your cluster."
-msgstr ""
+msgstr "Select which plugin and version that you\n    want to use to create your cluster."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:7
 msgid "Guided Cluster Creation"
-msgstr ""
+msgstr "Guided Cluster Creation"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:16
 msgid ""
@@ -8652,30 +8771,30 @@ msgid ""
 "                    Choosing this up front will allow the rest of the cluster\n"
 "                    creation steps to focus only on options that are pertinent\n"
 "                    to your desired cluster type."
-msgstr ""
+msgstr "The first step is to determine which type of\n                    cluster you want to run.  You may have several choices\n                    available depending on the configuration of your system.\n                    Click on \"choose plugin\" to bring up the list of data\n                    processing plugins.  There you will be able to choose the\n                    data processing plugin along with the version number.\n                    Choosing this up front will allow the rest of the cluster\n                    creation steps to focus only on options that are pertinent\n                    to your desired cluster type."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:27
 msgid "Choose plugin"
-msgstr ""
+msgstr "Choose plugin"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:28
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:64
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:91
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:123
 msgid "Current choice:"
-msgstr ""
+msgstr "Current choice:"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:31
 msgid "Plugin:"
-msgstr ""
+msgstr "Plugin:"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:33
 msgid "Version:"
-msgstr ""
+msgstr "Version:"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:38
 msgid "No plugin chosen"
-msgstr ""
+msgstr "No plugin chosen"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:47
 msgid ""
@@ -8689,39 +8808,39 @@ msgid ""
 "                        you will define the Node Group Template for your\n"
 "                        \"master\" node(s).\n"
 "                     "
-msgstr ""
+msgstr "Next, you need to define the different\n                        types of machines in your cluster.  This is done by\n                        defining a Node Group Template for each type of\n                        machine.  A very common case is where you\n                        need to have one or more machines running a \"master\"\n                        set of processes while another set of machines need\n                        to be running the \"worker\" processes.  Here,\n                        you will define the Node Group Template for your\n                        \"master\" node(s).\n                     "
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:62
 msgid "Create a Master Node Group Template"
-msgstr ""
+msgstr "Create a Master Node Group Template"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:67
 msgid "Master Node Group Template:"
-msgstr ""
+msgstr "Master Node Group Template:"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:72
 msgid "No Master Node Group Template Created"
-msgstr ""
+msgstr "No Master Node Group Template Created"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:81
 msgid ""
 "Repeat the Node Group Template\n"
 "                        creation process, but this time you are creating\n"
 "                        your \"worker\" Node Group Template."
-msgstr ""
+msgstr "Repeat the Node Group Template\n                        creation process, but this time you are creating\n                        your \"worker\" Node Group Template."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:89
 msgid "Create a Worker Node Group Template"
-msgstr ""
+msgstr "Create a Worker Node Group Template"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:94
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:126
 msgid "Worker Node Group Template:"
-msgstr ""
+msgstr "Worker Node Group Template:"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:99
 msgid "No Worker Node Group Template Created"
-msgstr ""
+msgstr "No Worker Node Group Template Created"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:108
 msgid ""
@@ -8733,15 +8852,15 @@ msgid ""
 "                        you will have a chance to set any cluster-specific\n"
 "                        configuration items in the additional tabs on the\n"
 "                        create Cluster Template form."
-msgstr ""
+msgstr "Now you need to set the layout of your\n                        cluster.  By\n                        creating a Cluster Template, you will be choosing the\n                        number of instances of each Node Group Template that\n                        will appear in your cluster.  Additionally,\n                        you will have a chance to set any cluster-specific\n                        configuration items in the additional tabs on the\n                        create Cluster Template form."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:121
 msgid "Create a Cluster Template"
-msgstr ""
+msgstr "Create a Cluster Template"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:131
 msgid "No Cluster Template Created"
-msgstr ""
+msgstr "No Cluster Template Created"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:140
 msgid ""
@@ -8753,23 +8872,23 @@ msgid ""
 "                        click on \"Create\", your instances will begin to\n"
 "                        spawn.  Your cluster should be operational in a few\n"
 "                        minutes."
-msgstr ""
+msgstr "You are now ready to\n                        launch your cluster.  When you click on the link\n                        below, you will need to give your cluster a name,\n                        choose the Cluster Template to use and choose which\n                        image to use to build your instances.  After you\n                        click on \"Create\", your instances will begin to\n                        spawn.  Your cluster should be operational in a few\n                        minutes."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:153
 msgid "Launch a Cluster"
-msgstr ""
+msgstr "Launch a Cluster"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:161
 msgid "Reset Cluster Guide"
-msgstr ""
+msgstr "Reset Cluster Guide"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:163
 msgid "Reset Cluster Creation Guide"
-msgstr ""
+msgstr "Reset Cluster Creation Guide"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:7
 msgid "Guided Job Execution"
-msgstr ""
+msgstr "Guided Job Execution"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:17
 msgid ""
@@ -8777,19 +8896,19 @@ msgid ""
 "                            you want to run.  This choice will determine which\n"
 "                            other steps are required\n"
 "                        "
-msgstr ""
+msgstr "First, select which type of job that\n                            you want to run.  This choice will determine which\n                            other steps are required\n                        "
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:25
 msgid "Select type"
-msgstr ""
+msgstr "Select type"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:28
 msgid "Current type:"
-msgstr ""
+msgstr "Current type:"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:35
 msgid "No type chosen"
-msgstr ""
+msgstr "No type chosen"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:46
 msgid ""
@@ -8799,11 +8918,11 @@ msgid ""
 "                            or more data sources.  You can create multiple data\n"
 "                            sources by repeating this step.\n"
 "                        "
-msgstr ""
+msgstr "Data Sources are what your\n                            job uses for input and output.  Depending on the type\n                            of job you will be running, you may need to define one\n                            or more data sources.  You can create multiple data\n                            sources by repeating this step.\n                        "
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:56
 msgid "Create a data source"
-msgstr ""
+msgstr "Create a data source"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:65
 msgid ""
@@ -8813,19 +8932,19 @@ msgid ""
 "                        or upload the files necessary to run it.  The inputs\n"
 "                        and outputs will be defined later.\n"
 "                    "
-msgstr ""
+msgstr "Define your Job Template.\n                        This is where you choose the type of job that you\n                        want to run (Pig, Java Action, Spark, etc) and choose\n                        or upload the files necessary to run it.  The inputs\n                        and outputs will be defined later.\n                    "
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:75
 msgid "Create a job template"
-msgstr ""
+msgstr "Create a job template"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:77
 msgid "Job template:"
-msgstr ""
+msgstr "Job template:"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:84
 msgid "No job template created"
-msgstr ""
+msgstr "No job template created"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:93
 msgid ""
@@ -8836,20 +8955,20 @@ msgid ""
 "                        or arguments that you need to pass along\n"
 "                        to your job.\n"
 "                        "
-msgstr ""
+msgstr "Launch your job.  When\n                        launching, you may need to choose your input and\n                        output data sources.  This is where you would also\n                        add any special configuration values, parameters,\n                        or arguments that you need to pass along\n                        to your job.\n                        "
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:103
 msgid "Launch job"
-msgstr ""
+msgstr "Launch job"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:112
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:114
 msgid "Reset Job Execution Guide"
-msgstr ""
+msgstr "Reset Job Execution Guide"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:7
 msgid "Data Processing Guides"
-msgstr ""
+msgstr "Data Processing Guides"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:16
 msgid ""
@@ -8862,11 +8981,11 @@ msgid ""
 "                 this guide to help take you through the steps of\n"
 "                 Cluster creation.\n"
 "             "
-msgstr ""
+msgstr "\n                 Each of the Data Processing frameworks require a cluster of machines\n                 in order to do the work they are assigned.  A cluster is\n                 formed by creating a set of Node Group Templates, combining\n                 those into a Cluster Template and then launching a Cluster.\n                 You can do each of those steps manually, or you can follow\n                 this guide to help take you through the steps of\n                 Cluster creation.\n             "
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:29
 msgid "Cluster Guide"
-msgstr ""
+msgstr "Cluster Guide"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:38
 msgid ""
@@ -8879,7 +8998,12 @@ msgid ""
 "                  manually or you can follow this guide to help take you\n"
 "                  through the steps to run a job on an existing cluster.\n"
 "            "
-msgstr ""
+msgstr "\n                  In order to run a Data Processing job, you need to make\n                  the files for your program available to the\n                  Data Processing system, define where the input and output\n                  need to go and create a Job Template that describes\n                  how to run your job.  Each of those steps can be done\n                  manually or you can follow this guide to help take you\n                  through the steps to run a job on an existing cluster.\n            "
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:51
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:53
+msgid "Job Execution Guide"
+msgstr "Job Execution Guide"
 
 #: dashboards/project/database_backups/panel.py:23
 #: dashboards/project/database_backups/tables.py:181
@@ -12906,10 +13030,6 @@ msgstr "This pane needs javascript support."
 msgid "Small"
 msgstr "Small"
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:26
-msgid "Normal"
-msgstr "Normal"
-
 #: dashboards/project/network_topology/templates/network_topology/index.html:31
 msgid "Launch Instance (Quota exceeded)"
 msgstr "Launch Instance (Quota exceeded)"
@@ -13166,6 +13286,11 @@ msgstr "Attached"
 msgid "Detached"
 msgstr "Detached"
 
+#: dashboards/project/networks/ports/tables.py:43
+#: dashboards/project/networks/ports/views.py:85
+msgid "Edit Port"
+msgstr "Edit Port"
+
 #: dashboards/project/networks/ports/tables.py:55
 #: dashboards/project/routers/ports/tables.py:94
 msgctxt "Admin state of a Port"
@@ -13198,17 +13323,17 @@ msgctxt "status of a network port"
 msgid "Build"
 msgstr "Build"
 
-#: dashboards/project/networks/ports/tables.py:72
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:40
-msgid "Attached Device"
-msgstr "Attached Device"
-
 #: dashboards/project/networks/ports/views.py:39
 #: dashboards/project/networks/templates/networks/ports/detail.html:3
 msgid "Port Details"
 msgstr "Port Details"
 
-#: dashboards/project/networks/ports/views.py:105
+#: dashboards/project/networks/ports/views.py:54
+#: dashboards/project/routers/ports/tabs.py:35
+msgid "Unable to retrieve port details."
+msgstr "Unable to retrieve port details."
+
+#: dashboards/project/networks/ports/views.py:104
 msgid "Unable to retrieve port details"
 msgstr "Unable to retrieve port details"
 
@@ -13334,31 +13459,6 @@ msgstr "&laquo;&nbsp;Back"
 #: dashboards/project/networks/templates/networks/create.html:10
 msgid "Next&nbsp;&raquo;"
 msgstr "Next&nbsp;&raquo;"
-
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:4
-msgid "Port Overview"
-msgstr "Port Overview"
-
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:19
-msgid "Fixed IP"
-msgstr "Fixed IP"
-
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:23
-msgid "IP address:"
-msgstr "IP address:"
-
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:24
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:23
-msgid "Subnet ID"
-msgstr "Subnet ID"
-
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:30
-msgid "Mac Address"
-msgstr "Mac Address"
-
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:45
-msgid "No attached device"
-msgstr "No attached device"
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:4
 msgid "Subnet Overview"

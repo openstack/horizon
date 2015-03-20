@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-18 20:07-0500\n"
-"PO-Revision-Date: 2015-03-18 22:17+0000\n"
+"POT-Creation-Date: 2015-03-20 00:51-0500\n"
+"PO-Revision-Date: 2015-03-19 21:31+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -64,15 +64,15 @@ msgstr "VHD - Virtual Hard Disk"
 msgid "VMDK - Virtual Machine Disk"
 msgstr "VMDK - Virtual Machine Disk"
 
-#: settings.py:241
+#: settings.py:242
 msgid "All TCP"
 msgstr "Все TCP"
 
-#: settings.py:247
+#: settings.py:248
 msgid "All UDP"
 msgstr "Все UDP"
 
-#: settings.py:253
+#: settings.py:254
 msgid "All ICMP"
 msgstr "Все ICMP"
 
@@ -82,11 +82,11 @@ msgstr "Не удалось получить список замеров Ceilome
 
 #: api/ceilometer.py:931
 msgid "Existence of instance"
-msgstr ""
+msgstr "Наличие инстанса"
 
 #: api/ceilometer.py:935
 msgid "Existence of instance <type> (openstack types)"
-msgstr ""
+msgstr "Наличие инстанса типа <type> (типы openstack)"
 
 #: api/ceilometer.py:940
 msgid "Volume of RAM"
@@ -371,7 +371,7 @@ msgstr "У пользователя %s отсутствует назанченн
 
 #: api/keystone.py:391
 msgid "Identity service does not allow editing user password."
-msgstr ""
+msgstr "Сервис Identity не разрешает редактирование пароля пользователя."
 
 #: api/lbaas.py:152
 #, python-format
@@ -385,34 +385,34 @@ msgstr "Невозможно получить детали пула."
 #: api/lbaas.py:203
 #, python-format
 msgid "Unable to get subnet for pool %(pool)s."
-msgstr ""
+msgstr "Невозможно получить подсеть для пула %(pool)s."
 
 #: api/lbaas.py:211
 #, python-format
 msgid "Unable to get members for pool %(pool)s."
-msgstr ""
+msgstr "Невозможно получить участников пула %(pool)s."
 
 #: api/lbaas.py:218
 #, python-format
 msgid "Unable to get health monitors for pool %(pool)s."
 msgstr ""
 
-#: api/neutron.py:221
+#: api/neutron.py:225
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
-#: api/neutron.py:940
+#: api/neutron.py:957
 msgid "Unable to connect to Neutron."
 msgstr "Не удалось подключиться к Neutron."
 
-#: api/neutron.py:977
+#: api/neutron.py:994
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "Не удалось получить IP адрес %s."
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1116
+#: api/neutron.py:1133
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -420,19 +420,21 @@ msgid ""
 msgstr "The requested feature '%(feature)s' is unknown. Please make sure to specify a feature defined in FEATURE_MAP."
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1134
+#: api/neutron.py:1151
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
 "invalid. It should be one of %(allowed)s"
 msgstr "The 'operation' parameter for get_feature_permission '%(feature)s' is invalid. It should be one of %(allowed)s"
 
-#: api/neutron.py:1149
+#: api/neutron.py:1166
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr "Невозможно проверить отсутствие поддержки расширения Neutron '%s'"
 
-#: api/nova.py:110 api/nova.py:120 dashboards/project/databases/tables.py:279
+#: api/nova.py:110 api/nova.py:120
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:14
+#: dashboards/project/databases/tables.py:279
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:8
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:11
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:8
@@ -455,8 +457,7 @@ msgstr "Невозможно проверить отсутствие подде�
 #: dashboards/project/networks/templates/networks/_detail_overview.html:12
 #: dashboards/project/networks/templates/networks/_detail_overview.html:24
 #: dashboards/project/networks/templates/networks/_detail_overview.html:25
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:18
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:43
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:14
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:18
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:29
 #: dashboards/project/routers/tables.py:186
@@ -507,7 +508,7 @@ msgstr "Не удалось эвакуировать инстанс: %s"
 #: api/nova.py:836
 #, python-format
 msgid "Failed to migrate instances: %s"
-msgstr ""
+msgstr "Не удалось смигрировать инстанс: %s"
 
 #: api/swift.py:203
 msgid "The container cannot be deleted since it is not empty."
@@ -536,9 +537,10 @@ msgstr "Администратор"
 #: dashboards/admin/metadata_defs/tables.py:128
 #: dashboards/admin/networks/forms.py:38
 #: dashboards/admin/networks/forms.py:234
-#: dashboards/admin/networks/ports/forms.py:40
-#: dashboards/admin/networks/ports/tables.py:91
+#: dashboards/admin/networks/ports/forms.py:43
+#: dashboards/admin/networks/ports/tables.py:82
 #: dashboards/admin/networks/subnets/tables.py:92
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:6
 #: dashboards/admin/routers/tables.py:41
 #: dashboards/admin/routers/ports/tables.py:24
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:7
@@ -619,11 +621,11 @@ msgstr "Администратор"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:9
 #: dashboards/project/networks/forms.py:35
 #: dashboards/project/networks/tables.py:168
-#: dashboards/project/networks/ports/forms.py:36
+#: dashboards/project/networks/ports/forms.py:39
 #: dashboards/project/networks/ports/tables.py:69
 #: dashboards/project/networks/subnets/tables.py:129
 #: dashboards/project/networks/templates/networks/_detail_overview.html:7
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:10
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:6
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:10
 #: dashboards/project/routers/forms.py:117
 #: dashboards/project/routers/tables.py:209
@@ -1220,7 +1222,6 @@ msgid "Key Pairs"
 msgstr "Пары ключей"
 
 #: dashboards/admin/defaults/tables.py:56
-#: dashboards/admin/networks/ports/tables.py:94
 #: dashboards/identity/projects/workflows.py:63
 #: dashboards/project/networks/ports/tables.py:71
 #: dashboards/project/routers/ports/tables.py:110 usage/quotas.py:69
@@ -1371,6 +1372,7 @@ msgstr "Диск подкачки"
 #: dashboards/admin/flavors/tables.py:136
 #: dashboards/admin/flavors/workflows.py:41
 #: dashboards/admin/networks/agents/tables.py:90
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:8
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:9
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:12
 #: dashboards/admin/volumes/volumes/forms.py:87
@@ -1405,9 +1407,9 @@ msgstr "Диск подкачки"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:6
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:6
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:6
-#: dashboards/project/networks/ports/forms.py:32
+#: dashboards/project/networks/ports/forms.py:35
 #: dashboards/project/networks/templates/networks/_detail_overview.html:9
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:12
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:8
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:12
 #: dashboards/project/routers/forms.py:121
 #: dashboards/project/routers/templates/routers/_detail_overview.html:11
@@ -1727,6 +1729,7 @@ msgstr "Не удалось эвакуировать хост: %s"
 #: dashboards/admin/info/tables.py:209
 #: dashboards/admin/instances/tables.py:126
 #: dashboards/admin/networks/agents/tables.py:91
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:50
 #: dashboards/admin/volumes/snapshots/tables.py:64
 #: dashboards/admin/volumes/volumes/forms.py:55
 #: dashboards/admin/volumes/volumes/forms.py:142
@@ -1853,7 +1856,7 @@ msgstr "Зона"
 #: dashboards/admin/instances/tables.py:142
 #: dashboards/admin/networks/tables.py:102
 #: dashboards/admin/networks/agents/tables.py:92
-#: dashboards/admin/networks/ports/tables.py:99
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:17
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:13
 #: dashboards/admin/volumes/snapshots/forms.py:34
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:18
@@ -1885,7 +1888,7 @@ msgstr "Зона"
 #: dashboards/project/networks/tables.py:174
 #: dashboards/project/networks/ports/tables.py:74
 #: dashboards/project/networks/templates/networks/_detail_overview.html:13
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:32
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:17
 #: dashboards/project/routers/tables.py:212
 #: dashboards/project/routers/ports/tables.py:112
 #: dashboards/project/routers/templates/routers/_detail_overview.html:13
@@ -2257,23 +2260,8 @@ msgid "Live Migrate Instance"
 msgstr "Живая миграция машины"
 
 #: dashboards/admin/instances/tables.py:94
-#: dashboards/admin/instances/tables.py:119
-#: dashboards/admin/metering/tables.py:41
-#: dashboards/admin/metering/templates/metering/stats.html:94
-#: dashboards/admin/networks/forms.py:40
-#: dashboards/admin/networks/tables.py:93
-#: dashboards/admin/routers/tables.py:39
-#: dashboards/admin/volumes/snapshots/tables.py:65
-#: dashboards/admin/volumes/volumes/tables.py:82
-#: dashboards/project/dashboard.py:77
-#: dashboards/project/images/images/tables.py:156
-#: dashboards/project/instances/workflows/create_instance.py:54
-#: dashboards/router/nexus1000v/forms.py:119
-#: dashboards/router/nexus1000v/forms.py:177
-#: dashboards/router/nexus1000v/tables.py:73
-#: dashboards/router/nexus1000v/tables.py:95
-msgid "Project"
-msgstr "Проект"
+msgid "Project ="
+msgstr ""
 
 #: dashboards/admin/instances/tables.py:95
 msgid "Host ="
@@ -2297,12 +2285,32 @@ msgstr "Образ ID ="
 msgid "Flavor ID ="
 msgstr "Схема ID ="
 
+#: dashboards/admin/instances/tables.py:119
+#: dashboards/admin/metering/tables.py:41
+#: dashboards/admin/metering/templates/metering/stats.html:94
+#: dashboards/admin/networks/forms.py:40
+#: dashboards/admin/networks/tables.py:93
+#: dashboards/admin/routers/tables.py:39
+#: dashboards/admin/volumes/snapshots/tables.py:65
+#: dashboards/admin/volumes/volumes/tables.py:82
+#: dashboards/project/dashboard.py:77
+#: dashboards/project/images/images/tables.py:156
+#: dashboards/project/instances/workflows/create_instance.py:54
+#: dashboards/router/nexus1000v/forms.py:119
+#: dashboards/router/nexus1000v/forms.py:177
+#: dashboards/router/nexus1000v/tables.py:73
+#: dashboards/router/nexus1000v/tables.py:95
+msgid "Project"
+msgstr "Проект"
+
 #: dashboards/admin/instances/tables.py:134
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:29
 #: dashboards/project/access_and_security/floating_ips/tables.py:194
 #: dashboards/project/access_and_security/floating_ips/workflows.py:33
 #: dashboards/project/access_and_security/floating_ips/workflows.py:40
 #: dashboards/project/instances/tables.py:1012
 #: dashboards/project/loadbalancers/tables.py:367
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:29
 msgid "IP Address"
 msgstr "IP-адрес"
 
@@ -2643,6 +2651,18 @@ msgstr ""
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:11
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:13
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:35
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:7
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:9
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:12
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:16
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:18
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:20
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:36
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:42
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:44
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:51
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:53
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:66
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:8
 #: dashboards/admin/volumes/volume_types/forms.py:89
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:16
@@ -2671,14 +2691,15 @@ msgstr ""
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:51
 #: dashboards/project/networks/templates/networks/_detail_overview.html:8
 #: dashboards/project/networks/templates/networks/_detail_overview.html:10
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:11
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:13
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:7
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:9
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:12
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:16
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:27
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:31
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:33
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:35
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:18
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:20
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:36
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:42
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:44
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:11
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:13
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:16
@@ -3123,7 +3144,7 @@ msgstr "ID сегмента"
 
 #: dashboards/admin/networks/forms.py:77
 #: dashboards/admin/networks/forms.py:236
-#: dashboards/admin/networks/ports/forms.py:42
+#: dashboards/admin/networks/ports/forms.py:45
 #: dashboards/project/firewalls/forms.py:131
 #: dashboards/project/firewalls/workflows.py:239
 #: dashboards/project/loadbalancers/forms.py:38
@@ -3136,7 +3157,7 @@ msgstr "ID сегмента"
 #: dashboards/project/loadbalancers/workflows.py:548
 #: dashboards/project/networks/forms.py:37
 #: dashboards/project/networks/workflows.py:47
-#: dashboards/project/networks/ports/forms.py:38
+#: dashboards/project/networks/ports/forms.py:41
 #: dashboards/project/routers/forms.py:37
 #: dashboards/project/routers/forms.py:118 dashboards/project/vpn/forms.py:37
 #: dashboards/project/vpn/forms.py:261 dashboards/project/vpn/workflows.py:31
@@ -3146,7 +3167,7 @@ msgstr ""
 
 #: dashboards/admin/networks/forms.py:78
 #: dashboards/admin/networks/forms.py:237
-#: dashboards/admin/networks/ports/forms.py:43
+#: dashboards/admin/networks/ports/forms.py:46
 #: dashboards/project/firewalls/forms.py:132
 #: dashboards/project/firewalls/workflows.py:240
 #: dashboards/project/loadbalancers/forms.py:39
@@ -3159,7 +3180,7 @@ msgstr ""
 #: dashboards/project/loadbalancers/workflows.py:549
 #: dashboards/project/networks/forms.py:38
 #: dashboards/project/networks/workflows.py:48
-#: dashboards/project/networks/ports/forms.py:39
+#: dashboards/project/networks/ports/forms.py:42
 #: dashboards/project/routers/forms.py:38
 #: dashboards/project/routers/forms.py:119 dashboards/project/vpn/forms.py:38
 #: dashboards/project/vpn/forms.py:262 dashboards/project/vpn/workflows.py:32
@@ -3171,8 +3192,8 @@ msgstr ""
 #: dashboards/admin/networks/forms.py:238
 #: dashboards/admin/networks/tables.py:104
 #: dashboards/admin/networks/agents/tables.py:93
-#: dashboards/admin/networks/ports/forms.py:44
-#: dashboards/admin/networks/ports/tables.py:102
+#: dashboards/admin/networks/ports/forms.py:47
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:19
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:15
 #: dashboards/project/firewalls/forms.py:133
 #: dashboards/project/firewalls/workflows.py:241
@@ -3187,10 +3208,10 @@ msgstr ""
 #: dashboards/project/networks/forms.py:39
 #: dashboards/project/networks/tables.py:177
 #: dashboards/project/networks/workflows.py:49
-#: dashboards/project/networks/ports/forms.py:40
+#: dashboards/project/networks/ports/forms.py:43
 #: dashboards/project/networks/ports/tables.py:77
 #: dashboards/project/networks/templates/networks/_detail_overview.html:15
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:34
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:19
 #: dashboards/project/routers/forms.py:36
 #: dashboards/project/routers/forms.py:120
 #: dashboards/project/routers/tables.py:225
@@ -3366,7 +3387,7 @@ msgstr ""
 
 #: dashboards/admin/networks/tables.py:94
 #: dashboards/admin/networks/agents/forms.py:32
-#: dashboards/admin/networks/ports/forms.py:33
+#: dashboards/admin/networks/ports/forms.py:36
 #: dashboards/project/networks/workflows.py:37
 msgid "Network Name"
 msgstr "Имя сети"
@@ -3471,7 +3492,7 @@ msgid "Add DHCP Agent"
 msgstr "Добавить DHCP агент"
 
 #: dashboards/admin/networks/agents/views.py:62
-#: dashboards/admin/networks/ports/views.py:53
+#: dashboards/admin/networks/ports/views.py:56
 #: dashboards/project/networks/subnets/views.py:48
 msgid "Unable to retrieve network."
 msgstr "Не удалось запросить сеть."
@@ -3480,58 +3501,101 @@ msgstr "Не удалось запросить сеть."
 msgid "Unable to retrieve agent list."
 msgstr "Невозможно получить список агентов"
 
-#: dashboards/admin/networks/ports/forms.py:36
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:15
+#: dashboards/admin/networks/ports/forms.py:31
+#: dashboards/project/network_topology/templates/network_topology/index.html:26
+#: dashboards/project/networks/ports/forms.py:29
+msgid "Normal"
+msgstr "Нормальный"
+
+#: dashboards/admin/networks/ports/forms.py:31
+#: dashboards/project/networks/ports/forms.py:29
+msgid "Direct"
+msgstr ""
+
+#: dashboards/admin/networks/ports/forms.py:32
+#: dashboards/project/networks/ports/forms.py:30
+msgid "MacVTap"
+msgstr ""
+
+#: dashboards/admin/networks/ports/forms.py:39
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:11
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:11
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:15
 msgid "Network ID"
 msgstr "ID сети"
 
-#: dashboards/admin/networks/ports/forms.py:45
-#: dashboards/admin/networks/ports/forms.py:88
+#: dashboards/admin/networks/ports/forms.py:48
+#: dashboards/admin/networks/ports/forms.py:118
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:43
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:43
 msgid "Device ID"
 msgstr "ID устройства"
 
-#: dashboards/admin/networks/ports/forms.py:46
-#: dashboards/admin/networks/ports/forms.py:89
+#: dashboards/admin/networks/ports/forms.py:49
+#: dashboards/admin/networks/ports/forms.py:119
 msgid "Device ID attached to the port"
 msgstr "Идентификатор устройства подключен к порту"
 
-#: dashboards/admin/networks/ports/forms.py:48
-#: dashboards/admin/networks/ports/forms.py:91
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:42
+#: dashboards/admin/networks/ports/forms.py:51
+#: dashboards/admin/networks/ports/forms.py:121
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:41
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:41
 msgid "Device Owner"
 msgstr "Владелец устройства"
 
-#: dashboards/admin/networks/ports/forms.py:49
-#: dashboards/admin/networks/ports/forms.py:92
+#: dashboards/admin/networks/ports/forms.py:52
+#: dashboards/admin/networks/ports/forms.py:122
 msgid "Device owner attached to the port"
 msgstr "Владелец устройства подключен к порту"
 
+#: dashboards/admin/networks/ports/forms.py:56
+#: dashboards/admin/networks/ports/forms.py:126
+msgid "Binding: Host"
+msgstr ""
+
 #: dashboards/admin/networks/ports/forms.py:57
+#: dashboards/admin/networks/ports/forms.py:127
+msgid ""
+"The ID of the host where the port is allocated. In some cases, different "
+"implementations can run on different hosts."
+msgstr ""
+
+#: dashboards/admin/networks/ports/forms.py:81
+#: dashboards/project/networks/ports/forms.py:64
+msgid "Binding: VNIC Type"
+msgstr ""
+
+#: dashboards/admin/networks/ports/forms.py:82
+#: dashboards/project/networks/ports/forms.py:65
+msgid "The VNIC type that is bound to the neutron port"
+msgstr ""
+
+#: dashboards/admin/networks/ports/forms.py:87
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:22
+#: dashboards/project/networks/ports/forms.py:70
 #: dashboards/project/networks/ports/tables.py:80
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:37
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:22
 msgid "MAC Learning State"
 msgstr "MAC состояние обучения"
 
-#: dashboards/admin/networks/ports/forms.py:73
+#: dashboards/admin/networks/ports/forms.py:103
 #, python-format
 msgid "Port %s was successfully created."
 msgstr "Порт %s был успешно создан."
 
-#: dashboards/admin/networks/ports/forms.py:78
+#: dashboards/admin/networks/ports/forms.py:108
 #, python-format
 msgid "Failed to create a port for network %s"
 msgstr "Не удалось создать порт для сети %s"
 
-#: dashboards/admin/networks/ports/forms.py:110
-#: dashboards/project/networks/ports/forms.py:60
+#: dashboards/admin/networks/ports/forms.py:155
+#: dashboards/project/networks/ports/forms.py:87
 #, python-format
 msgid "Port %s was successfully updated."
 msgstr "Порт %s был успешно обновлен."
 
-#: dashboards/admin/networks/ports/forms.py:115
-#: dashboards/project/networks/ports/forms.py:65
+#: dashboards/admin/networks/ports/forms.py:160
+#: dashboards/project/networks/ports/forms.py:92
 #, python-format
 msgid "Failed to update port %s"
 msgstr "Не удалось обновить порт %s"
@@ -3556,57 +3620,18 @@ msgid "Failed to delete port: %s"
 msgstr "Не удалось удалить порт %s"
 
 #: dashboards/admin/networks/ports/tables.py:65
-#: dashboards/admin/networks/ports/views.py:33
-#: dashboards/admin/networks/ports/views.py:35
-#: dashboards/admin/networks/ports/views.py:39
+#: dashboards/admin/networks/ports/views.py:37
+#: dashboards/admin/networks/ports/views.py:38
+#: dashboards/admin/networks/ports/views.py:40
 #: dashboards/admin/networks/templates/networks/ports/create.html:3
 msgid "Create Port"
 msgstr "Создать порт"
 
-#: dashboards/admin/networks/ports/tables.py:78
-#: dashboards/project/networks/ports/tables.py:43
-#: dashboards/project/networks/ports/views.py:85
-msgid "Edit Port"
-msgstr "Редактировать порт"
-
-#: dashboards/admin/networks/ports/tables.py:96
-msgid "Device Attached"
-msgstr "Устройство подключено"
-
-#: dashboards/admin/networks/ports/tables.py:105
-#: dashboards/project/networks/ports/forms.py:47
-msgid "Mac Learning State"
-msgstr "MAC состояние обучения"
-
-#: dashboards/admin/networks/ports/tables.py:109
+#: dashboards/admin/networks/ports/tables.py:87
 #: dashboards/identity/projects/workflows.py:76
 #: dashboards/project/networks/ports/tables.py:87 usage/quotas.py:79
 msgid "Ports"
 msgstr "Порты"
-
-#: dashboards/admin/networks/ports/tabs.py:25
-#: dashboards/admin/overview/panel.py:27
-#: dashboards/admin/volumes/snapshots/tabs.py:23
-#: dashboards/project/databases/tabs.py:26
-#: dashboards/project/images/images/tabs.py:22
-#: dashboards/project/instances/tabs.py:30
-#: dashboards/project/networks/ports/tabs.py:21
-#: dashboards/project/networks/subnets/tabs.py:21
-#: dashboards/project/overview/panel.py:27
-#: dashboards/project/routers/ports/tabs.py:24
-#: dashboards/project/stacks/tabs.py:53 dashboards/project/stacks/tabs.py:67
-#: dashboards/project/stacks/resource_types/tabs.py:21
-#: dashboards/project/volumes/backups/tabs.py:24
-#: dashboards/project/volumes/snapshots/tabs.py:25
-#: dashboards/project/volumes/volumes/tabs.py:21 usage/views.py:25
-msgid "Overview"
-msgstr "Обзор"
-
-#: dashboards/admin/networks/ports/tabs.py:35
-#: dashboards/project/networks/ports/views.py:54
-#: dashboards/project/routers/ports/tabs.py:35
-msgid "Unable to retrieve port details."
-msgstr "Не удалось получить информацию о порте."
 
 #: dashboards/admin/networks/subnets/tables.py:38
 #: dashboards/project/networks/subnets/tables.py:61
@@ -3715,6 +3740,82 @@ msgid ""
 "attached, the device specified will be attached to the port created."
 msgstr "Вы можете создать порт сети. Если при подключении вы укажете ID устройства, то это устройство будет подключено к созданному порту."
 
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:13
+#: dashboards/admin/routers/templates/routers/_detail_overview.html:11
+#: dashboards/identity/projects/tables.py:236
+#: dashboards/identity/projects/templates/projects/_detail_overview.html:11
+#: dashboards/identity/users/templates/users/_detail_overview.html:25
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:22
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:16
+#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:16
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:16
+#: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:9
+#: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:9
+#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:15
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:15
+#: dashboards/project/networks/templates/networks/_detail_overview.html:11
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:13
+#: dashboards/project/overview/templates/overview/usage.csv:2
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:15
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:15
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:16
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:16
+msgid "Project ID"
+msgstr " ID проекта"
+
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:15
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:15
+msgid "MAC Address"
+msgstr ""
+
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:23
+msgid "On"
+msgstr ""
+
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:25
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:25
+msgid "Fixed IP"
+msgstr "Фиксированный IP"
+
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:32
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:32
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:23
+msgid "Subnet ID"
+msgstr "ID подсети"
+
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:38
+#: dashboards/project/networks/ports/tables.py:72
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:38
+msgid "Attached Device"
+msgstr "Подклюенное устройство"
+
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:46
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:46
+msgid "No attached device"
+msgstr "Нет подключенных устройств"
+
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:48
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:48
+msgid "Binding"
+msgstr ""
+
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:52
+msgid "Profile"
+msgstr ""
+
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:54
+msgid "VIF Type"
+msgstr ""
+
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:56
+msgid "VIF Details"
+msgstr ""
+
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:69
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:51
+msgid "VNIC Type"
+msgstr ""
+
 #: dashboards/admin/networks/templates/networks/ports/_update.html:6
 #: dashboards/project/networks/templates/networks/ports/_update.html:6
 msgid "You may update the editable properties of your port here."
@@ -3731,6 +3832,23 @@ msgstr "Обновить порт"
 #: dashboards/project/networks/templates/networks/detail.html:3
 msgid "Network Details"
 msgstr "Подробности сети"
+
+#: dashboards/admin/overview/panel.py:27
+#: dashboards/admin/volumes/snapshots/tabs.py:23
+#: dashboards/project/databases/tabs.py:26
+#: dashboards/project/images/images/tabs.py:22
+#: dashboards/project/instances/tabs.py:30
+#: dashboards/project/networks/ports/tabs.py:21
+#: dashboards/project/networks/subnets/tabs.py:21
+#: dashboards/project/overview/panel.py:27
+#: dashboards/project/routers/ports/tabs.py:24
+#: dashboards/project/stacks/tabs.py:53 dashboards/project/stacks/tabs.py:67
+#: dashboards/project/stacks/resource_types/tabs.py:21
+#: dashboards/project/volumes/backups/tabs.py:24
+#: dashboards/project/volumes/snapshots/tabs.py:25
+#: dashboards/project/volumes/volumes/tabs.py:21 usage/views.py:25
+msgid "Overview"
+msgstr "Обзор"
 
 #: dashboards/admin/overview/views.py:34
 #: dashboards/project/overview/views.py:33
@@ -3851,28 +3969,6 @@ msgstr "Интерфейсы"
 #, python-format
 msgid "Router Overview: %(router_name)s"
 msgstr ""
-
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:11
-#: dashboards/identity/projects/tables.py:236
-#: dashboards/identity/projects/templates/projects/_detail_overview.html:11
-#: dashboards/identity/users/templates/users/_detail_overview.html:25
-#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:22
-#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:16
-#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:16
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:16
-#: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:9
-#: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:9
-#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:15
-#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:15
-#: dashboards/project/networks/templates/networks/_detail_overview.html:11
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:17
-#: dashboards/project/overview/templates/overview/usage.csv:2
-#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:15
-#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:15
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:16
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:16
-msgid "Project ID"
-msgstr " ID проекта"
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:18
 #: dashboards/project/routers/forms.py:53
@@ -6184,7 +6280,6 @@ msgstr "Открыть Порт"
 #: dashboards/project/access_and_security/security_groups/forms.py:136
 #: dashboards/project/access_and_security/security_groups/forms.py:145
 #: dashboards/project/access_and_security/security_groups/forms.py:152
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:7
 msgid "Port"
 msgstr "Порт"
 
@@ -7980,14 +8075,12 @@ msgstr "Скачать задания двоичных файлов"
 
 #: dashboards/project/data_processing/job_executions/panel.py:22
 #: dashboards/project/data_processing/job_executions/tables.py:194
-#: dashboards/project/data_processing/job_executions/views.py:39
-msgid "Job Executions"
-msgstr "Выполнение задания"
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/job_executions.html:6
+#: dashboards/project/data_processing/jobs/views.py:41
+msgid "Jobs"
+msgstr "Задания"
 
 #: dashboards/project/data_processing/job_executions/tables.py:38
-#: dashboards/project/data_processing/job_executions/tables.py:175
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:10
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:3
 #: dashboards/project/data_processing/jobs/workflows/launch.py:56
 #: dashboards/project/data_processing/jobs/workflows/launch.py:97
 #: dashboards/project/data_processing/jobs/workflows/launch.py:122
@@ -8002,21 +8095,19 @@ msgid "Cluster"
 msgstr "Кластер"
 
 #: dashboards/project/data_processing/job_executions/tables.py:45
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:51
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:53
-msgid "Job Execution Guide"
+msgid "Job Guide"
 msgstr ""
 
 #: dashboards/project/data_processing/job_executions/tables.py:53
-msgid "Delete Job Execution"
-msgid_plural "Delete Job Executions"
+msgid "Delete Job"
+msgid_plural "Delete Jobs"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
 #: dashboards/project/data_processing/job_executions/tables.py:61
-msgid "Deleted Job Execution"
-msgid_plural "Deleted Job Executions"
+msgid "Deleted Job"
+msgid_plural "Deleted Jobs"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
@@ -8053,37 +8144,46 @@ msgid "Relaunch On New Cluster"
 msgstr "Перезапустить на новом кластере"
 
 #: dashboards/project/data_processing/job_executions/tables.py:158
-msgctxt "Current status of a Job Execution"
+msgctxt "Current status of a Job"
 msgid "Done with Error"
 msgstr ""
 
 #: dashboards/project/data_processing/job_executions/tables.py:160
-msgctxt "Current status of a Job Execution"
+msgctxt "Current status of a Job"
 msgid "Failed"
-msgstr "Не удалось"
+msgstr ""
 
 #: dashboards/project/data_processing/job_executions/tables.py:162
-msgctxt "Current status of a Job Execution"
+msgctxt "Current status of a Job"
 msgid "Killed"
 msgstr ""
 
 #: dashboards/project/data_processing/job_executions/tables.py:164
-msgctxt "Current status of a Job Execution"
+msgctxt "Current status of a Job"
 msgid "Succeeded"
 msgstr ""
+
+#: dashboards/project/data_processing/job_executions/tables.py:175
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:10
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:3
+msgid "Job Template"
+msgstr ""
+
+#: dashboards/project/data_processing/job_executions/views.py:39
+msgid "Job Executions"
+msgstr "Выполнение задания"
 
 #: dashboards/project/data_processing/job_executions/views.py:57
 msgid "Unable to fetch job executions."
 msgstr "Не удалось получить выполненное задание"
 
 #: dashboards/project/data_processing/job_executions/views.py:64
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/details.html:3
 msgid "Job Execution Details"
 msgstr "Данные выполнения задания"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:3
-msgid "Job Execution Overview"
-msgstr "Обзор выполнения задания"
+msgid "Job Overview"
+msgstr ""
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:12
 msgid "Input Data Source"
@@ -8133,30 +8233,36 @@ msgstr "Конфигурация задания"
 msgid "%(group)s:"
 msgstr ""
 
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/details.html:3
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/details.html:6
+#: dashboards/project/data_processing/jobs/views.py:68
+msgid "Job Details"
+msgstr "Данные задания"
+
 #: dashboards/project/data_processing/jobs/panel.py:22
 #: dashboards/project/data_processing/jobs/tables.py:111
-#: dashboards/project/data_processing/jobs/views.py:41
-msgid "Jobs"
-msgstr "Задания"
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/jobs.html:6
+msgid "Job Templates"
+msgstr ""
 
 #: dashboards/project/data_processing/jobs/tables.py:36
-#: dashboards/project/data_processing/jobs/views.py:62
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:3
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:6
 #: dashboards/project/data_processing/jobs/workflows/create.py:124
 #: dashboards/project/data_processing/jobs/workflows/create.py:155
-msgid "Create Job"
-msgstr "Создать задание"
+msgid "Create Job Template"
+msgstr ""
 
 #: dashboards/project/data_processing/jobs/tables.py:46
-msgid "Delete Job"
-msgid_plural "Delete Jobs"
+msgid "Delete Job Template"
+msgid_plural "Delete Job Templates"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
 #: dashboards/project/data_processing/jobs/tables.py:54
-msgid "Deleted Job"
-msgid_plural "Deleted Jobs"
+msgid "Deleted Job Template"
+msgid_plural "Deleted Jobs Templates"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
@@ -8175,14 +8281,13 @@ msgstr "Запустить на новом кластере"
 msgid "Unable to fetch jobs."
 msgstr "Не удалось получить задания"
 
-#: dashboards/project/data_processing/jobs/views.py:68
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/details.html:3
-msgid "Job Details"
-msgstr "Данные задания"
+#: dashboards/project/data_processing/jobs/views.py:62
+msgid "Create Job"
+msgstr "Создать задание"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:4
-msgid "Create a job with a specified name."
-msgstr "Создать задание с указанным именем"
+msgid "Create a job template with a specified name."
+msgstr ""
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:7
 msgid "Select the type of your job:"
@@ -8234,18 +8339,18 @@ msgid ""
 msgstr "Для заданий  MapReduce или Java действий \"сети\" неприменимы. Вы должны добавить одну\nили несколько \"libs\" для этих заданий."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:27
-msgid "You may also enter an optional description for your job."
-msgstr "Вы также можете добавить необязательное описание для вашего задания."
+msgid "You may also enter an optional description for your job template."
+msgstr ""
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_libs_help.html:4
-msgid "Add libraries to your job."
-msgstr "Добавить библиотеки к вашему заданию."
+msgid "Add libraries to your job template."
+msgstr ""
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_libs_help.html:7
 msgid ""
 "Choose from the list of binaries and click \"choose\" to add the library to "
-"your job.  This can be repeated for additional libraries."
-msgstr "Выбрать из списка двоичных файлов и нажать \"выбрать\" для добавления библиотеки к вашему заданию. Это можно повторить для дополнительных библиотек."
+"your job template.  This can be repeated for additional libraries."
+msgstr ""
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:12
 msgid "Mains"
@@ -8261,12 +8366,12 @@ msgid "Enter any custom configuration required for your job's execution."
 msgstr "Ввести любую пользовательскую конфигурацию необходимую для выполнения вашего задания."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_launch_job_help.html:4
-msgid "Launch the given job on a cluster."
-msgstr "Запустить данное задание на кластере"
+msgid "Launch the given job template on a cluster."
+msgstr ""
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_launch_job_help.html:7
-msgid "Choose the cluster to use for the job execution."
-msgstr "Выбрать кластер для использования в выполнении задания."
+msgid "Choose the cluster to use for the job."
+msgstr ""
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_launch_job_help.html:10
 msgid "Choose the Input Data Source (n/a for Java jobs)."
@@ -8299,6 +8404,11 @@ msgstr "Параметры"
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:226
 msgid "Arguments"
 msgstr "Аргументы"
+
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/details.html:3
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/details.html:6
+msgid "Job Template Details"
+msgstr ""
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/library_template.html:86
 msgid "Choose"
@@ -8344,8 +8454,8 @@ msgid "Job created"
 msgstr "Созданное задание"
 
 #: dashboards/project/data_processing/jobs/workflows/create.py:158
-msgid "Could not create job"
-msgstr "Не удалось создать задание"
+msgid "Could not create job template"
+msgstr ""
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:40
 msgid "Input"
@@ -8662,12 +8772,20 @@ msgstr ""
 msgid "Plugin Name"
 msgstr "Имя плагина"
 
+#: dashboards/project/data_processing/wizard/forms.py:43
+msgid "Cluster type chosen"
+msgstr ""
+
 #: dashboards/project/data_processing/wizard/forms.py:47
 msgid "Unable to set cluster type"
 msgstr ""
 
 #: dashboards/project/data_processing/wizard/forms.py:86
 msgid "Choose plugin type and version"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/forms.py:116
+msgid "Job type chosen"
 msgstr ""
 
 #: dashboards/project/data_processing/wizard/forms.py:120
@@ -8679,7 +8797,7 @@ msgid "Guides"
 msgstr ""
 
 #: dashboards/project/data_processing/wizard/views.py:40
-msgid "Unable show guides."
+msgid "Unable to show guides"
 msgstr ""
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_job_type_select.html:13
@@ -8955,6 +9073,11 @@ msgid ""
 "                  manually or you can follow this guide to help take you\n"
 "                  through the steps to run a job on an existing cluster.\n"
 "            "
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:51
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:53
+msgid "Job Execution Guide"
 msgstr ""
 
 #: dashboards/project/database_backups/panel.py:23
@@ -13026,10 +13149,6 @@ msgstr "Эта панель требует поддержки javascript."
 msgid "Small"
 msgstr "Маленький"
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:26
-msgid "Normal"
-msgstr "Нормальный"
-
 #: dashboards/project/network_topology/templates/network_topology/index.html:31
 msgid "Launch Instance (Quota exceeded)"
 msgstr ""
@@ -13286,6 +13405,11 @@ msgstr "Подключено"
 msgid "Detached"
 msgstr "Отключено"
 
+#: dashboards/project/networks/ports/tables.py:43
+#: dashboards/project/networks/ports/views.py:85
+msgid "Edit Port"
+msgstr "Редактировать порт"
+
 #: dashboards/project/networks/ports/tables.py:55
 #: dashboards/project/routers/ports/tables.py:94
 msgctxt "Admin state of a Port"
@@ -13318,17 +13442,17 @@ msgctxt "status of a network port"
 msgid "Build"
 msgstr ""
 
-#: dashboards/project/networks/ports/tables.py:72
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:40
-msgid "Attached Device"
-msgstr "Подклюенное устройство"
-
 #: dashboards/project/networks/ports/views.py:39
 #: dashboards/project/networks/templates/networks/ports/detail.html:3
 msgid "Port Details"
 msgstr ""
 
-#: dashboards/project/networks/ports/views.py:105
+#: dashboards/project/networks/ports/views.py:54
+#: dashboards/project/routers/ports/tabs.py:35
+msgid "Unable to retrieve port details."
+msgstr "Не удалось получить информацию о порте."
+
+#: dashboards/project/networks/ports/views.py:104
 msgid "Unable to retrieve port details"
 msgstr "Невозможно запросить информацию о порте"
 
@@ -13454,31 +13578,6 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/create.html:10
 msgid "Next&nbsp;&raquo;"
 msgstr "Следующее&nbsp;&raquo;"
-
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:4
-msgid "Port Overview"
-msgstr "Обзор портов"
-
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:19
-msgid "Fixed IP"
-msgstr "Фиксированный IP"
-
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:23
-msgid "IP address:"
-msgstr "IP адрес:"
-
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:24
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:23
-msgid "Subnet ID"
-msgstr "ID подсети"
-
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:30
-msgid "Mac Address"
-msgstr "MAC адрес"
-
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:45
-msgid "No attached device"
-msgstr "Нет подключенных устройств"
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:4
 msgid "Subnet Overview"
