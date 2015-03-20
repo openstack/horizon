@@ -42,14 +42,12 @@
     width: 99%;
   }
 
-  .volume-create {
-    padding-left: 0;
-  }
   .volume-size input[type="number"]{
-    width: 100px;
+    width: 90%;
   }
 
-  .create-volume .checkbox, .delete-volume .checkbox {
-    margin-top: 1.5em;
+  .create-volume,
+  .delete-volume {
+    margin-top: 1.7em;
   }
 }
