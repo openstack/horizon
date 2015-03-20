@@ -248,17 +248,41 @@
     margin: 0 auto;
     height: $wizardHeight;
     width: $wizardWidth;
-    min-height: $wizardMinHeight;
-    min-width: $wizardMinWidth;
+
+    // $wizardMaxHeight is the max height of the modal content without
+    // padding, so need to add the padding here.
+    max-height: $wizardMaxHeight + $wizardTopPadding + $wizardBottomPadding;
+
+    // $wizardMaxWidth is the max width of the modal content without
+    // padding, so need to add the padding here.
+    max-width: $wizardMaxWidth + $wizardLeftPadding + $wizardRightPadding;
+
+    // $wizardMinHeight is the min height of the modal content without
+    // padding, so need to add the padding here.
+    min-height: $wizardMinHeight + $wizardTopPadding + $wizardBottomPadding;
+
+    // $wizardMinWidth is the min with of the modal content without
+    // padding, so need to add the padding here.
+    min-width: $wizardMinWidth + $wizardLeftPadding + $wizardRightPadding;
     overflow-x: auto;
 
     .modal-content {
       position: absolute;
       top: $wizardTopPadding;
-      left: 0;
-      right: 0;
+      left: $wizardLeftPadding;
+      right: $wizardRightPadding;
       bottom: $wizardBottomPadding;
       border-radius: 0;
+
+      @media (max-width: 1000px) {
+        left: 0;
+        right: 0;
+      }
+
+      @media (max-height: 600px) {
+        top: 0;
+        bottom: 0;
+      }
     }
   }
 }

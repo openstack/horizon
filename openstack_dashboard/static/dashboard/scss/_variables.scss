@@ -122,11 +122,15 @@ $wizard-textarea-border-color: #eee;
 
 // layout
 $wizardTopPadding: 40px !default;
-$wizardBottomPadding: 40px !default;
+$wizardBottomPadding: $wizardTopPadding !default;
+$wizardLeftPadding: $wizardTopPadding !default;
+$wizardRightPadding: $wizardLeftPadding !default;
 $wizardHeight: 100% !default;
 $wizardWidth: 100% !default;
 $wizardMinHeight: 460px !default;
 $wizardMinWidth: 1024px !default;
+$wizardMaxHeight: 900px !default;
+$wizardMaxWidth: 1440px !default;
 $wizardTitleBarHeight: 70px !default;
 $wizardToolBarHeight: 65px !default;
 $wizardNavWidth: 290px !default;
