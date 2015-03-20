@@ -62,12 +62,12 @@
 
     $scope.label = {
       title: gettext('Instance Details'),
-      subtitle: gettext(''),
+      subtitle: gettext('Please provide the initial host name for the instance, the availability zone where it will be deployed, and the instance count. Increase the Count to create multiple instances with the same settings.'),
       instanceName: gettext('Instance Name'),
       availabilityZone: gettext('Availability Zone'),
       instance_count: gettext('Count'),
       instanceSourceTitle: gettext('Instance Source'),
-      instanceSourceSubTitle: gettext(''),
+      instanceSourceSubTitle: gettext('Instance source is the template used to create an instance. You can use a snapshot of an existing instance, an image, or a volume (if enabled). You can also choose to use persistent storage by creating a new volume.'),
       bootSource: gettext('Select Boot Source'),
       deviceSize: gettext('Device Size (GB)'),
       volumeSize: gettext('Volume Size (GB)'),
