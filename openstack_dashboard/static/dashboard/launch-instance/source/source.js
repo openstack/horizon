@@ -274,7 +274,7 @@
       data[1].value = selection.length * instance_count;
       data[2].value = remaining;
       $scope.instanceStats.label =
-        (maxTotalInstances - remaining) * 100 / maxTotalInstances + '%';
+        Math.round((maxTotalInstances - remaining) * 100 / maxTotalInstances) + '%';
       $scope.instanceStats = angular.extend({}, $scope.instanceStats);
     }
 
