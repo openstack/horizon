@@ -50,6 +50,10 @@
         expect($element.find('.input-group.input-group-sm').length).toBe(1);
       });
 
+      it('should have default placeholder text set to "Filter"', function() {
+        expect($element.find('input[st-search]').attr('placeholder')).toEqual('Filter');
+      });
+
     });
 
   });

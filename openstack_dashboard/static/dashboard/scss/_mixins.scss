@@ -1,0 +1,19 @@
+/* This file contains any custom SCSS mixins that can be shared */
+/* For more information on the benefits of Sass mixins and the @mixin syntax,
+ * check out http://www.sass-lang.com/guide#topic-6
+ */
+
+@mixin search-placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder { /* Firefox 18- */
+    @content;
+  }
+  &::-moz-placeholder {  /* Firefox 19+ */
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
