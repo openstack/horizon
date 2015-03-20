@@ -1,0 +1,31 @@
+// Augments magic_search.scss with styles for bootstrap/Horizon.
+
+.search-bar {
+  .search-entry {
+    .search-input {
+      padding: 1px 0px;
+      font: normal normal normal 12.6px/normal;
+      outline: none;
+      height: 24px;
+      width: 500px;
+    }
+    height: 24px;
+    position: relative;
+  }
+  .fa-filter {
+    padding-left: 5px;
+    font-size: larger;
+  }
+  .fa-times {
+    font-size: larger;
+    cursor: pointer;
+  }
+  .label {
+    font-size: 100%;
+    font-weight: normal;
+  }
+}
+
+.search-main-area {
+  padding-left: 10px;
+}

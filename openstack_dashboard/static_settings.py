@@ -34,6 +34,7 @@ import xstatic.pkg.jquery_quicksearch
 import xstatic.pkg.jquery_tablesorter
 import xstatic.pkg.jquery_ui
 import xstatic.pkg.jsencrypt
+import xstatic.pkg.magic_search
 import xstatic.pkg.qunit
 import xstatic.pkg.rickshaw
 import xstatic.pkg.spin
@@ -71,6 +72,8 @@ STATICFILES_DIRS = [
         xstatic.main.XStatic(xstatic.pkg.jquery_tablesorter).base_dir),
     ('horizon/lib/jsencrypt',
         xstatic.main.XStatic(xstatic.pkg.jsencrypt).base_dir),
+    ('horizon/lib/magic_search',
+        xstatic.main.XStatic(xstatic.pkg.magic_search).base_dir),
     ('horizon/lib/qunit',
         xstatic.main.XStatic(xstatic.pkg.qunit).base_dir),
     ('horizon/lib',
