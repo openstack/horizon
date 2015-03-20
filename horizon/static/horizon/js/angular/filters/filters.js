@@ -50,7 +50,7 @@
         if (isNaN(input) || null === input) {
           return '';
         } else {
-          return input.toString() + " " + gettext("GB");
+          return interpolate(gettext("%s GB"), [input.toString()]);
         }
       };
     })
@@ -67,7 +67,7 @@
         if (isNaN(input) || null === input) {
           return '';
         } else {
-          return input.toString() + " " + gettext("MB");
+          return interpolate(gettext("%s MB"), [input.toString()]);
         }
       };
     })
@@ -135,15 +135,15 @@
         if (isNaN(input) || null === input || input < 0) {
            return '';
          } else if (input >= tb) {
-           return Number(input/tb).toFixed(2) + " " + gettext("TB");
+           return interpolate(gettext("%s TB"), [Number(input/tb).toFixed(2)]);
          } else if (input >= gb) {
-           return Number(input/gb).toFixed(2) + " " + gettext("GB");
+           return interpolate(gettext("%s GB"), [Number(input/gb).toFixed(2)]);
          } else if (input >= mb) {
-           return Number(input/mb).toFixed(2) + " " + gettext("MB");
+           return interpolate(gettext("%s MB"), [Number(input/mb).toFixed(2)]);
          } else if (input >= kb) {
-           return Number(input/kb).toFixed(2) + " " + gettext("KB");
+           return interpolate(gettext("%s KB"), [Number(input/kb).toFixed(2)]);
          } else {
-           return Math.floor(input) + " " + gettext("bytes");
+           return interpolate(gettext("%s bytes"), [Math.floor(input)]);
          }
        };
      })
