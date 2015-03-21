@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-19 23:33+0000\n"
+"PO-Revision-Date: 2015-03-20 19:28+0000\n"
 "Last-Translator: Paul Gonin <paul.gonin@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -262,11 +262,11 @@ msgstr "Nombre de mises à jour de l'image"
 
 #: api/ceilometer.py:1152
 msgid "Number of image uploads"
-msgstr ""
+msgstr "Nombre de téléversements de l'image"
 
 #: api/ceilometer.py:1156
 msgid "Number of image deletions"
-msgstr ""
+msgstr "Nombre de suppressions de l'image"
 
 #: api/ceilometer.py:1160
 msgid "Image is downloaded"
@@ -278,7 +278,7 @@ msgstr "L'image est provisionnée."
 
 #: api/ceilometer.py:1181
 msgid "Existence of volume"
-msgstr ""
+msgstr "Existence du volume"
 
 #: api/ceilometer.py:1185
 msgid "Size of volume"
@@ -13063,22 +13063,22 @@ msgstr "Ajouter un Sous Réseau (Quota dépassé)"
 #: dashboards/project/networks/tables.py:150
 msgctxt "Current status of a Network"
 msgid "Active"
-msgstr ""
+msgstr "Active"
 
 #: dashboards/project/networks/tables.py:151
 msgctxt "Current status of a Network"
 msgid "Build"
-msgstr ""
+msgstr "Construction"
 
 #: dashboards/project/networks/tables.py:152
 msgctxt "Current status of a Network"
 msgid "Down"
-msgstr ""
+msgstr "Bas"
 
 #: dashboards/project/networks/tables.py:153
 msgctxt "Current status of a Network"
 msgid "Error"
-msgstr ""
+msgstr "Erreur"
 
 #: dashboards/project/networks/views.py:89
 msgid "Unable to retrieve network details."
@@ -13309,22 +13309,22 @@ msgstr ""
 #: dashboards/project/networks/ports/tables.py:60
 msgctxt "status of a network port"
 msgid "Active"
-msgstr ""
+msgstr "Active"
 
 #: dashboards/project/networks/ports/tables.py:61
 msgctxt "status of a network port"
 msgid "Down"
-msgstr ""
+msgstr "Bas"
 
 #: dashboards/project/networks/ports/tables.py:62
 msgctxt "status of a neteork port"
 msgid "Error"
-msgstr ""
+msgstr "Erreur"
 
 #: dashboards/project/networks/ports/tables.py:63
 msgctxt "status of a network port"
 msgid "Build"
-msgstr ""
+msgstr "Construction"
 
 #: dashboards/project/networks/ports/views.py:39
 #: dashboards/project/networks/templates/networks/ports/detail.html:3

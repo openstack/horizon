@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-19 21:31+0000\n"
+"PO-Revision-Date: 2015-03-20 19:28+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -13179,22 +13179,22 @@ msgstr ""
 #: dashboards/project/networks/tables.py:150
 msgctxt "Current status of a Network"
 msgid "Active"
-msgstr ""
+msgstr "Активный"
 
 #: dashboards/project/networks/tables.py:151
 msgctxt "Current status of a Network"
 msgid "Build"
-msgstr ""
+msgstr "Создать"
 
 #: dashboards/project/networks/tables.py:152
 msgctxt "Current status of a Network"
 msgid "Down"
-msgstr ""
+msgstr "Остановлено"
 
 #: dashboards/project/networks/tables.py:153
 msgctxt "Current status of a Network"
 msgid "Error"
-msgstr ""
+msgstr "Ошибка"
 
 #: dashboards/project/networks/views.py:89
 msgid "Unable to retrieve network details."
@@ -13425,22 +13425,22 @@ msgstr ""
 #: dashboards/project/networks/ports/tables.py:60
 msgctxt "status of a network port"
 msgid "Active"
-msgstr ""
+msgstr "Активный"
 
 #: dashboards/project/networks/ports/tables.py:61
 msgctxt "status of a network port"
 msgid "Down"
-msgstr ""
+msgstr "Остановлено"
 
 #: dashboards/project/networks/ports/tables.py:62
 msgctxt "status of a neteork port"
 msgid "Error"
-msgstr ""
+msgstr "Ошибка"
 
 #: dashboards/project/networks/ports/tables.py:63
 msgctxt "status of a network port"
 msgid "Build"
-msgstr ""
+msgstr "Создать"
 
 #: dashboards/project/networks/ports/views.py:39
 #: dashboards/project/networks/templates/networks/ports/detail.html:3

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-19 21:31+0000\n"
+"PO-Revision-Date: 2015-03-20 19:28+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/horizon/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -13187,12 +13187,12 @@ msgstr ""
 #: dashboards/project/networks/tables.py:152
 msgctxt "Current status of a Network"
 msgid "Down"
-msgstr ""
+msgstr "Dole"
 
 #: dashboards/project/networks/tables.py:153
 msgctxt "Current status of a Network"
 msgid "Error"
-msgstr ""
+msgstr "Greška"
 
 #: dashboards/project/networks/views.py:89
 msgid "Unable to retrieve network details."
@@ -13428,12 +13428,12 @@ msgstr ""
 #: dashboards/project/networks/ports/tables.py:61
 msgctxt "status of a network port"
 msgid "Down"
-msgstr ""
+msgstr "Dole"
 
 #: dashboards/project/networks/ports/tables.py:62
 msgctxt "status of a neteork port"
 msgid "Error"
-msgstr ""
+msgstr "Greška"
 
 #: dashboards/project/networks/ports/tables.py:63
 msgctxt "status of a network port"

@@ -4,6 +4,7 @@
 # 
 # Translators:
 # alexandre ignjatovic <alexandre.ignjatovic@gmail.com>, 2015
+# EVEILLARD <stephane.eveillard@gmail.com>, 2015
 # François Bureau, 2015
 # Frédéric <frosmont@free.fr>, 2014
 # Maxime COQUEREL <max.coquerel@gmail.com>, 2015
@@ -12,8 +13,8 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-19 15:41+0000\n"
-"Last-Translator: François Bureau\n"
+"PO-Revision-Date: 2015-03-20 12:21+0000\n"
+"Last-Translator: EVEILLARD <stephane.eveillard@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,7 +26,7 @@ msgstr ""
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
 "missing information."
-msgstr ""
+msgstr "L'action n' pas pu être effectuée. Les contenus des lignes contiennent des erreurs ou certaines informations sont manquantes."
 
 #: static/angular/metadata-display/metadata-display.js:33
 msgid "Detail Information"
@@ -61,11 +62,11 @@ msgstr ""
 
 #: static/angular/metadata-tree/metadata-tree.js:41
 msgid "Integer required"
-msgstr ""
+msgstr "Entier requis"
 
 #: static/angular/metadata-tree/metadata-tree.js:42
 msgid "Decimal required"
-msgstr ""
+msgstr "Nombre décimal requis"
 
 #: static/angular/metadata-tree/metadata-tree.js:43
 msgid "Required"
@@ -73,7 +74,7 @@ msgstr "Requis"
 
 #: static/angular/metadata-tree/metadata-tree.js:44
 msgid "Duplicate keys are not allowed"
-msgstr ""
+msgstr "Les clés dupliquées ne sont pas autorisées"
 
 #: static/angular/metadata-tree/metadata-tree.js:45
 #: static/horizon/js/horizon.forms.js:184
@@ -139,7 +140,7 @@ msgstr ""
 
 #: static/angular/transfer-table/transfer-table.js:46
 msgid "Click to show or hide"
-msgstr ""
+msgstr "Cliquer pour montrer ou cacher"
 
 #: static/angular/transfer-table/transfer-table.js:47
 msgid "Re-order items using drag and drop"
@@ -147,7 +148,7 @@ msgstr ""
 
 #: static/angular/transfer-table/transfer-table.js:48
 msgid "Click to see more details"
-msgstr ""
+msgstr "Cliquer pour une vue plus détaillée"
 
 #: static/angular/transfer-table/transfer-table.js:100
 msgid "Found %(found)s of %(total)s"
@@ -329,7 +330,7 @@ msgstr "Les mots de passe ne correspondent pas."
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Connecting"
-msgstr ""
+msgstr "En cours de connexion"
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Open"
@@ -337,11 +338,11 @@ msgstr "Ouvert"
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Closing"
-msgstr ""
+msgstr "En cours de fermeture"
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Closed"
-msgstr ""
+msgstr "Fermé"
 
 #: static/horizon/js/angular/directives/serialConsole.js:85
 #, c-format
@@ -380,7 +381,7 @@ msgstr "octets"
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:47
 msgid "Unable to retrieve volumes."
-msgstr ""
+msgstr "Impossible de récupérer les volumes."
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:74
 msgid "Unable to retrieve volume snapshots."
@@ -404,11 +405,11 @@ msgstr "Impossible de récupérer les images."
 
 #: static/horizon/js/angular/services/hz.api.glance.js:133
 msgid "Unable to retrieve namespaces."
-msgstr ""
+msgstr "Impossible de récupérer les espaces de nommage"
 
 #: static/horizon/js/angular/services/hz.api.glance.js:147
 msgid "Unable to retrieve namespace."
-msgstr ""
+msgstr "Impossible de récupérer l'espace de nommage"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:24
 msgid "Unable to retrieve users"
@@ -436,79 +437,79 @@ msgstr "Impossible de supprimer l'utilisateur."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:68
 msgid "Unable to retrieve role"
-msgstr ""
+msgstr "Impossible de récupérer le rôle."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:75
 msgid "Unable to create the role."
-msgstr ""
+msgstr "Impossible de créer le rôle."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:82
 msgid "Unable to delete the roles."
-msgstr ""
+msgstr "Impossible de supprimer les rôles."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:89
 msgid "Unable to retrieve the role"
-msgstr ""
+msgstr "Impossible de récupérer le rôle."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:97
 msgid "Unable to edit the role."
-msgstr ""
+msgstr "Impossible d'éditer le rôle."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:104
 msgid "Unable to delete the role."
-msgstr ""
+msgstr "Impossible de supprimer le rôle."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:112
 msgid "Unable to retrieve domains"
-msgstr ""
+msgstr "Impossible de récupérer les domaines."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:119
 msgid "Unable to create the domain."
-msgstr ""
+msgstr "Impossible de créer le domaine."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:126
 msgid "Unable to delete the domains."
-msgstr ""
+msgstr "Impossible de supprimer les domaines."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:133
 msgid "Unable to retrieve the domain"
-msgstr ""
+msgstr "Impossible de récupérer le domaine."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:141
 msgid "Unable to edit the domain."
-msgstr ""
+msgstr "Impossible d'éditer le domaine."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:148
 msgid "Unable to delete the domain."
-msgstr ""
+msgstr "Impossible de supprimer le domaine."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:157
 msgid "Unable to retrieve projects"
-msgstr ""
+msgstr "Impossible de récupérer les projets."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:164
 msgid "Unable to create the project."
-msgstr ""
+msgstr "Impossible de créer le projet."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:171
 msgid "Unable to delete the projects."
-msgstr ""
+msgstr "Impossible de supprimer les projets."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:178
 msgid "Unable to retrieve the project"
-msgstr ""
+msgstr "Impossible de récupérer le projet."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:186
 msgid "Unable to edit the project."
-msgstr ""
+msgstr "Impossible d'éditer le projet."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:193
 msgid "Unable to delete the project."
-msgstr ""
+msgstr "Impossible de supprimer le projet."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:201
 msgid "Unable to grant the role."
-msgstr ""
+msgstr "Impossible d'accorder le rôle"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:215
 msgid "Unable to fetch the service catalog."
@@ -540,7 +541,7 @@ msgstr "Impossible de récupérer les paires de clés."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:61
 msgid "Unable to create the keypair."
-msgstr ""
+msgstr "Impossible de créer la paire de clés"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:79
 msgid "Unable to retrieve availability zones."

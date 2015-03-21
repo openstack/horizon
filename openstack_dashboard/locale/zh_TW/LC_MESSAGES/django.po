@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Zhang Xiaowei <zero00072@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-19 21:31+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"PO-Revision-Date: 2015-03-20 19:28+0000\n"
+"Last-Translator: Zhang Xiaowei <zero00072@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,7 +40,7 @@ msgstr "ISO - 光碟映像檔"
 
 #: settings.py:90
 msgid "OVA - Open Virtual Appliance"
-msgstr ""
+msgstr "OVA - 開放虛擬裝置"
 
 #: settings.py:91
 msgid "QCOW2 - QEMU Emulator"
@@ -51,15 +52,15 @@ msgstr "Raw"
 
 #: settings.py:93
 msgid "VDI - Virtual Disk Image"
-msgstr ""
+msgstr "VDI - 虛擬桌面基礎結構"
 
 #: settings.py:94
 msgid "VHD - Virtual Hard Disk"
-msgstr ""
+msgstr "VHD - 虛擬硬碟"
 
 #: settings.py:95
 msgid "VMDK - Virtual Machine Disk"
-msgstr ""
+msgstr "VMDK - 虛擬機器硬碟"
 
 #: settings.py:242
 msgid "All TCP"
@@ -132,7 +133,7 @@ msgstr ""
 
 #: api/ceilometer.py:984
 msgid "Average rate of reads"
-msgstr ""
+msgstr "平均讀取速率"
 
 #: api/ceilometer.py:988
 msgid "Average volume of writes"
@@ -313,27 +314,27 @@ msgstr "能源消耗"
 
 #: api/ceilometer.py:1260
 msgid "System Current Power"
-msgstr ""
+msgstr "系統目前能源"
 
 #: api/ceilometer.py:1264
 msgid "System Current Temperature"
-msgstr ""
+msgstr "系統目前溫度"
 
 #: api/ceilometer.py:1268
 msgid "Fan RPM"
-msgstr ""
+msgstr "風扇每分鐘轉速"
 
 #: api/ceilometer.py:1272
 msgid "Sensor Temperature Reading"
-msgstr ""
+msgstr "測量器溫度讀數"
 
 #: api/ceilometer.py:1276
 msgid "Sensor Current Reading"
-msgstr ""
+msgstr "測量器目前讀數"
 
 #: api/ceilometer.py:1280
 msgid "Sensor Voltage Reading"
-msgstr ""
+msgstr "測量器電壓讀數"
 
 #: api/cinder.py:46 dashboards/admin/volumes/volume_types/forms.py:33
 msgid "back-end"
@@ -699,12 +700,12 @@ msgstr "主機聚合"
 #: dashboards/admin/aggregates/tables.py:29
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
-msgstr[0] ""
+msgstr[0] "刪除主機聚合"
 
 #: dashboards/admin/aggregates/tables.py:37
 msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
-msgstr[0] ""
+msgstr[0] "已刪除主機聚合"
 
 #: dashboards/admin/aggregates/tables.py:48
 #: dashboards/admin/aggregates/views.py:72
@@ -1293,12 +1294,12 @@ msgstr "虛擬硬體樣板"
 #: dashboards/admin/flavors/tables.py:35
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
-msgstr[0] ""
+msgstr[0] "刪除虛擬硬體樣板"
 
 #: dashboards/admin/flavors/tables.py:43
 msgid "Deleted Flavor"
 msgid_plural "Deleted Flavors"
-msgstr[0] ""
+msgstr[0] "已刪除虛擬硬體樣板"
 
 #: dashboards/admin/flavors/tables.py:54 dashboards/admin/flavors/views.py:66
 #: dashboards/admin/flavors/workflows.py:178
@@ -1749,7 +1750,7 @@ msgstr ""
 
 #: dashboards/admin/hypervisors/compute/forms.py:106
 msgid "Running Instance Migration Type"
-msgstr ""
+msgstr "執行中實例轉移的類型"
 
 #: dashboards/admin/hypervisors/compute/forms.py:108
 #: dashboards/admin/instances/views.py:156
@@ -1760,7 +1761,7 @@ msgstr "即時轉移"
 
 #: dashboards/admin/hypervisors/compute/forms.py:109
 msgid "Cold Migrate"
-msgstr ""
+msgstr "關機轉移"
 
 #: dashboards/admin/hypervisors/compute/forms.py:120
 #: dashboards/admin/hypervisors/compute/forms.py:127
@@ -1777,7 +1778,7 @@ msgstr "區塊轉移"
 #: dashboards/admin/hypervisors/compute/forms.py:159
 #, python-format
 msgid "Starting to migrate host: %(current)s"
-msgstr ""
+msgstr "正在轉移主機：%(current)s"
 
 #: dashboards/admin/hypervisors/compute/forms.py:164
 #, python-format
@@ -1954,7 +1955,7 @@ msgid ""
 "Optionally you can choose type of migration. All running instances of the "
 "host can be Live Migrated. Cold Migration is trying to use 'nova migrate' on"
 " each instance of migrated host."
-msgstr ""
+msgstr "從已關閉 nova-compute 服務的主機轉移全部實例。您可以選用轉移的類型。全部主機上正在執行的實例都可即時轉移。試著對個別的實例使用「nova migrate」來關機轉移。"
 
 #: dashboards/admin/images/forms.py:65
 msgid "Unable to update the image metadata."
@@ -2149,11 +2150,11 @@ msgstr "網路媒介"
 
 #: dashboards/admin/info/tables.py:208
 msgid "Engine Id"
-msgstr ""
+msgstr "引擎識別號"
 
 #: dashboards/admin/info/tables.py:210
 msgid "Topic"
-msgstr ""
+msgstr "主題"
 
 #: dashboards/admin/info/tables.py:225
 msgid "Orchestration Services"
@@ -2173,7 +2174,7 @@ msgstr "無法獲得網路媒介列表。"
 
 #: dashboards/admin/info/tabs.py:116
 msgid "Orchestration service is disabled."
-msgstr ""
+msgstr "編配服務已關閉。"
 
 #: dashboards/admin/info/tabs.py:123
 msgid "Unable to get Orchestration service list."
@@ -2186,7 +2187,7 @@ msgstr "無法取回版本資訊。"
 #: dashboards/admin/info/templates/info/_cell_status.html:5
 #, python-format
 msgid "Reason: %(disabled_reason)s"
-msgstr ""
+msgstr "原因：%(disabled_reason)s"
 
 #: dashboards/admin/info/templates/info/index.html:10
 #, python-format
@@ -2219,7 +2220,7 @@ msgstr "即時轉移執行實例到主機「%s」時失敗。"
 
 #: dashboards/admin/instances/tables.py:37
 msgid "Migrating instances may cause some unrecoverable results."
-msgstr ""
+msgstr "轉移執行實例可能導致不可恢復的結果。"
 
 #: dashboards/admin/instances/tables.py:42
 msgid "Migrate Instance"
@@ -2362,13 +2363,13 @@ msgstr "即時轉移執行實例到指定的主機。"
 
 #: dashboards/admin/metadata_defs/forms.py:38
 msgid "Namespace Definition Source"
-msgstr ""
+msgstr "命名空間定義檔來源"
 
 #: dashboards/admin/metadata_defs/forms.py:40
 #: dashboards/admin/metadata_defs/forms.py:46
 #: dashboards/admin/metadata_defs/forms.py:50
 msgid "Metadata Definition File"
-msgstr ""
+msgstr "描述資料定義檔"
 
 #: dashboards/admin/metadata_defs/forms.py:41
 #: dashboards/project/instances/workflows/create_instance.py:611
@@ -2383,7 +2384,7 @@ msgstr ""
 #: dashboards/admin/metadata_defs/forms.py:54
 #: dashboards/admin/metadata_defs/forms.py:58
 msgid "Namespace JSON"
-msgstr ""
+msgstr "JSON 格式命名空間"
 
 #: dashboards/admin/metadata_defs/forms.py:55
 msgid "The JSON formatted contents of a namespace."
@@ -2405,7 +2406,7 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/forms.py:80
 msgid "No input was provided for the namespace content."
-msgstr ""
+msgstr "未輸入命名空間的內容。"
 
 #: dashboards/admin/metadata_defs/forms.py:100
 #, python-format
@@ -2425,12 +2426,12 @@ msgstr ""
 #: dashboards/admin/metadata_defs/forms.py:140
 #, python-format
 msgid "Resource types updated for namespace %s."
-msgstr ""
+msgstr "已更新命名空間 %s 的資源類型。"
 
 #: dashboards/admin/metadata_defs/forms.py:144
 #, python-format
 msgid "Error updating resource types for namespace %s."
-msgstr ""
+msgstr "更新命名空間 %s 的資源類型時出錯。"
 
 #: dashboards/admin/metadata_defs/panel.py:25
 #: dashboards/admin/metadata_defs/views.py:40
@@ -2442,7 +2443,7 @@ msgstr ""
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:9
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:35
 msgid "Import Namespace"
-msgstr ""
+msgstr "匯入命名空間"
 
 #: dashboards/admin/metadata_defs/tables.py:41
 msgid "Delete Namespace"
@@ -2554,7 +2555,7 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/tables.py:165
 msgid "Namespaces"
-msgstr ""
+msgstr "命名空間"
 
 #: dashboards/admin/metadata_defs/tabs.py:26
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:3
@@ -2581,11 +2582,11 @@ msgstr ""
 #: dashboards/admin/metadata_defs/views.py:86
 #: dashboards/admin/metadata_defs/templates/metadata_defs/create.html:3
 msgid "Create a Metadata Namespace"
-msgstr ""
+msgstr "新增一個描述資料命名空間"
 
 #: dashboards/admin/metadata_defs/views.py:93
 msgid "Namespace Details: {{ namespace.namespace }}"
-msgstr ""
+msgstr "命名空間詳細資訊：{{ namespace.namespace }}"
 
 #: dashboards/admin/metadata_defs/views.py:129
 #: dashboards/admin/metadata_defs/views.py:147
@@ -2595,21 +2596,21 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:20
 msgid "Specify a metadata definition namespace to import."
-msgstr ""
+msgstr "指定一個要匯入來定義命名空間的描述資料。"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:23
 msgid "Only definitions in raw JSON format are supported."
-msgstr ""
+msgstr "只支援原始 JSON 格式的定義。"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:26
 msgid ""
 "Administrator Note: Use the following CLI command to import the default "
 "definitions into Glance: "
-msgstr ""
+msgstr "管理員請留意：使用下列的命令列指令來匯入預設定義到 Glance 裡："
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_contents.html:4
 msgid "Undefined"
-msgstr ""
+msgstr "未定義"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:7
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:8
@@ -2716,7 +2717,7 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:39
 msgid "Created"
-msgstr "新增於"
+msgstr "已新增"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:23
 #: dashboards/admin/networks/views.py:59
@@ -2754,11 +2755,11 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:39
 msgid "Prefix: "
-msgstr ""
+msgstr "前綴："
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:42
 msgid "Properties Target: "
-msgstr ""
+msgstr "屬性目標："
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:47
 msgid "No associations defined."
@@ -2788,27 +2789,27 @@ msgid ""
 "Namespaces can be associated to different resource types. This makes the "
 "properties in the namespace visible in the 'Update Metadata' action for that"
 " type of resource."
-msgstr ""
+msgstr "可被連結到不同資源類型的命名空間。這會讓那資源類型的「更新描述資料」行為裡看到命名空間這個屬性。"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:61
 msgid ""
 "Additionally, some resource types may require a prefix to be used when "
 "applying the metadata. In certain cases, the prefix may differ between the "
 "resource type (for example, flavor vs image)."
-msgstr ""
+msgstr "另外，有些資源在套用到描述資料時需要使用到前綴。可以肯定的是，前綴與資源類型不同（例如虛擬硬體樣板和映像檔兩者比較）。"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:63
 msgid ""
 "Example: The prefix 'hw:' is added to OS::Nova::Flavor for the Virtual CPU "
 "Topology namespace so that the properties will be prefixed with 'hw:' when "
 "applied to flavors."
-msgstr ""
+msgstr "範例：將前綴「hw:」加入到虛擬處理器的拓撲 OS::NOVA::Flavor 命名空間裡，會導致套用虛擬硬體樣板時以「hw:」前綴來命名屬性。"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:65
 msgid ""
 "Do not use a colon ':' with OS::Glance::Images. This resource type does not "
 "support the use of colons."
-msgstr ""
+msgstr "請勿用半形冒號「:」在 OS::Glance::Images 裡。這個資源類型不支援使用冒號。"
 
 #: dashboards/admin/metering/forms.py:24
 #: dashboards/admin/metering/templates/metering/stats.html:116
@@ -2860,11 +2861,11 @@ msgstr "至"
 
 #: dashboards/admin/metering/forms.py:48
 msgid "Must specify start of period"
-msgstr ""
+msgstr "必須指定時段的啟始點"
 
 #: dashboards/admin/metering/forms.py:58
 msgid "Start must be earlier than end of period."
-msgstr ""
+msgstr "啟始點必須早於時段的終點。"
 
 #: dashboards/admin/metering/panel.py:20
 msgid "Resource Usage"
@@ -2901,7 +2902,7 @@ msgstr "值（平均）"
 #: dashboards/admin/metering/tables.py:49
 #: dashboards/admin/metering/views.py:107
 msgid "Unit"
-msgstr ""
+msgstr "單位"
 
 #: dashboards/admin/metering/tables.py:56
 msgid "Daily Usage Report"
@@ -2945,7 +2946,7 @@ msgstr "Kwapi"
 
 #: dashboards/admin/metering/tabs.py:69 dashboards/admin/metering/views.py:131
 msgid "IPMI"
-msgstr ""
+msgstr "IPMI"
 
 #: dashboards/admin/metering/tabs.py:82 dashboards/admin/metering/views.py:70
 #: dashboards/admin/metering/views.py:142
@@ -2977,7 +2978,7 @@ msgstr "時間"
 
 #: dashboards/admin/metering/templates/metering/_daily.html:19
 msgid "Select a pre-defined period or specify date."
-msgstr ""
+msgstr "選擇預先定義好的時段或指定的日期。"
 
 #: dashboards/admin/metering/templates/metering/_daily.html:24
 msgid "View Usage Report"
@@ -3013,7 +3014,7 @@ msgstr "能源（Kwapi）"
 
 #: dashboards/admin/metering/templates/metering/stats.html:76
 msgid "Intelligent Platform Management Interface (IPMI)"
-msgstr ""
+msgstr "智慧平臺管理介面（IPMI）"
 
 #: dashboards/admin/metering/templates/metering/stats.html:89
 msgid "Group by:"
@@ -3159,7 +3160,7 @@ msgstr ""
 #: dashboards/project/vpn/forms.py:262 dashboards/project/vpn/workflows.py:32
 #: dashboards/project/vpn/workflows.py:418
 msgid "DOWN"
-msgstr ""
+msgstr "下線"
 
 #: dashboards/admin/networks/forms.py:79
 #: dashboards/admin/networks/forms.py:238
@@ -3308,13 +3309,13 @@ msgstr "網路"
 #: dashboards/project/networks/tables.py:49
 msgid "Delete Network"
 msgid_plural "Delete Networks"
-msgstr[0] ""
+msgstr[0] "刪除網路"
 
 #: dashboards/admin/networks/tables.py:46
 #: dashboards/project/networks/tables.py:57
 msgid "Deleted Network"
 msgid_plural "Deleted Networks"
-msgstr[0] ""
+msgstr[0] "已刪除網路"
 
 #: dashboards/admin/networks/tables.py:57
 #: dashboards/project/networks/tables.py:79
@@ -3352,7 +3353,7 @@ msgstr ""
 #: dashboards/project/networks/tables.py:147
 msgctxt "Admin state of a Network"
 msgid "DOWN"
-msgstr ""
+msgstr "下線"
 
 #: dashboards/admin/networks/tables.py:94
 #: dashboards/admin/networks/agents/forms.py:32
@@ -3438,12 +3439,12 @@ msgstr "為網路 %(network)s 加入媒介 %(agent_name)s 時失敗。"
 #: dashboards/admin/networks/agents/tables.py:36
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
-msgstr[0] ""
+msgstr[0] "刪除 DHCP 媒介"
 
 #: dashboards/admin/networks/agents/tables.py:44
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
-msgstr[0] ""
+msgstr[0] "已刪除 DHCP 媒介"
 
 #: dashboards/admin/networks/agents/tables.py:57
 #, python-format
@@ -3475,12 +3476,12 @@ msgstr "適中"
 #: dashboards/admin/networks/ports/forms.py:31
 #: dashboards/project/networks/ports/forms.py:29
 msgid "Direct"
-msgstr ""
+msgstr "方向"
 
 #: dashboards/admin/networks/ports/forms.py:32
 #: dashboards/project/networks/ports/forms.py:30
 msgid "MacVTap"
-msgstr ""
+msgstr "MacVTap"
 
 #: dashboards/admin/networks/ports/forms.py:39
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:11
@@ -3516,24 +3517,24 @@ msgstr "附加到接口的裝置的持有人"
 #: dashboards/admin/networks/ports/forms.py:56
 #: dashboards/admin/networks/ports/forms.py:126
 msgid "Binding: Host"
-msgstr ""
+msgstr "綁定：主機"
 
 #: dashboards/admin/networks/ports/forms.py:57
 #: dashboards/admin/networks/ports/forms.py:127
 msgid ""
 "The ID of the host where the port is allocated. In some cases, different "
 "implementations can run on different hosts."
-msgstr ""
+msgstr "在已聯結接口上的主機識別號。有一些情況下，不同的實作可以執行在不同的主機上。"
 
 #: dashboards/admin/networks/ports/forms.py:81
 #: dashboards/project/networks/ports/forms.py:64
 msgid "Binding: VNIC Type"
-msgstr ""
+msgstr "綁定：虛擬網卡類型"
 
 #: dashboards/admin/networks/ports/forms.py:82
 #: dashboards/project/networks/ports/forms.py:65
 msgid "The VNIC type that is bound to the neutron port"
-msgstr ""
+msgstr "綁在 Neutron 接口上的虛擬網卡類型"
 
 #: dashboards/admin/networks/ports/forms.py:87
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:22
@@ -3568,12 +3569,12 @@ msgstr "更新接口 %s 時失敗"
 #: dashboards/admin/networks/ports/tables.py:36
 msgid "Delete Port"
 msgid_plural "Delete Ports"
-msgstr[0] ""
+msgstr[0] "刪除接口"
 
 #: dashboards/admin/networks/ports/tables.py:44
 msgid "Deleted Port"
 msgid_plural "Deleted Ports"
-msgstr[0] ""
+msgstr[0] "已刪除接口"
 
 #: dashboards/admin/networks/ports/tables.py:55
 #, python-format
@@ -3598,13 +3599,13 @@ msgstr "接口"
 #: dashboards/project/networks/subnets/tables.py:61
 msgid "Delete Subnet"
 msgid_plural "Delete Subnets"
-msgstr[0] ""
+msgstr[0] "刪除子網路"
 
 #: dashboards/admin/networks/subnets/tables.py:46
 #: dashboards/project/networks/subnets/tables.py:69
 msgid "Deleted Subnet"
 msgid_plural "Deleted Subnets"
-msgstr[0] ""
+msgstr[0] "已刪除子網路"
 
 #: dashboards/admin/networks/subnets/tables.py:57
 #: dashboards/project/networks/subnets/tables.py:80
@@ -3727,7 +3728,7 @@ msgstr ""
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:23
 msgid "On"
-msgstr ""
+msgstr "開通"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:25
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:25
@@ -4124,19 +4125,19 @@ msgstr "\n    一般來說，儲存空間即時存檔的狀態會被自動地管
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:6
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
-msgstr ""
+msgstr "加入、更改或移除已聯結到此儲存空間類型的 QoS 規格。"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:7
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
 "setting the QoS Spec to \"None\" will remove the current association."
-msgstr ""
+msgstr "「無」表示目前未聯結 QoS 規格。反過來說，將 QoS 規格設為「無」會移除掉目前的結構。"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:8
 msgid ""
 "This is equivalent to the <tt>cinder qos-associate</tt> and <tt>cinder qos-"
 "disassociate</tt> commands."
-msgstr ""
+msgstr "這等同於 <tt>cinder qos-associate</tt> 及 <tt>cinder qos-disassociate</tt> 命令。"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:6
 msgid ""
@@ -4656,12 +4657,12 @@ msgstr "無法編輯儲存空間類型額外的規格。"
 #: dashboards/admin/volumes/volume_types/extras/tables.py:27
 msgid "Delete Extra Spec"
 msgid_plural "Delete Extra Specs"
-msgstr[0] ""
+msgstr[0] "刪除額外規格"
 
 #: dashboards/admin/volumes/volume_types/extras/tables.py:35
 msgid "Deleted Extra Spec"
 msgid_plural "Deleted Extra Specs"
-msgstr[0] ""
+msgstr[0] "已刪除額外規格"
 
 #: dashboards/admin/volumes/volume_types/extras/tables.py:59
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:48
@@ -5557,7 +5558,7 @@ msgstr "編輯角色的詳細資訊。"
 #: dashboards/project/databases/workflows/create_instance.py:196
 #: dashboards/project/instances/forms.py:156
 msgid "Password"
-msgstr "產生密碼"
+msgstr "密碼"
 
 #: dashboards/identity/users/forms.py:47
 msgid "Confirm Password"
@@ -5662,22 +5663,22 @@ msgstr "變更密碼"
 #: dashboards/identity/users/tables.py:78
 msgid "Enable User"
 msgid_plural "Enable Users"
-msgstr[0] ""
+msgstr[0] "啟用使用者"
 
 #: dashboards/identity/users/tables.py:83
 msgid "Disable User"
 msgid_plural "Disable Users"
-msgstr[0] ""
+msgstr[0] "關閉使用者"
 
 #: dashboards/identity/users/tables.py:93
 msgid "Enabled User"
 msgid_plural "Enabled Users"
-msgstr[0] ""
+msgstr[0] "已啟用使用者"
 
 #: dashboards/identity/users/tables.py:98
 msgid "Disabled User"
 msgid_plural "Disabled Users"
-msgstr[0] ""
+msgstr[0] "已關閉使用者"
 
 #: dashboards/identity/users/tables.py:128
 msgid "You cannot disable the user you are currently logged in as."
@@ -5687,13 +5688,13 @@ msgstr "您不能關閉您目前正登入的使用者。"
 #: dashboards/project/databases/tables.py:124
 msgid "Delete User"
 msgid_plural "Delete Users"
-msgstr[0] ""
+msgstr[0] "刪除使用者"
 
 #: dashboards/identity/users/tables.py:151
 #: dashboards/project/databases/tables.py:132
 msgid "Deleted User"
 msgid_plural "Deleted Users"
-msgstr[0] ""
+msgstr[0] "已刪除使用者"
 
 #: dashboards/identity/users/views.py:67 dashboards/identity/users/views.py:95
 #: dashboards/identity/users/views.py:226
@@ -5909,12 +5910,12 @@ msgstr ""
 #: dashboards/project/access_and_security/floating_ips/tables.py:82
 msgid "Release Floating IP"
 msgid_plural "Release Floating IPs"
-msgstr[0] ""
+msgstr[0] "釋放浮動 IP"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:90
 msgid "Released Floating IP"
 msgid_plural "Released Floating IPs"
-msgstr[0] ""
+msgstr[0] "已釋放浮動 IP"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:132
 #: dashboards/project/loadbalancers/workflows.py:736
@@ -6073,12 +6074,12 @@ msgstr "無法匯入密鑰對。"
 #: dashboards/project/access_and_security/keypairs/tables.py:31
 msgid "Delete Key Pair"
 msgid_plural "Delete Key Pairs"
-msgstr[0] ""
+msgstr[0] "刪除密鑰對"
 
 #: dashboards/project/access_and_security/keypairs/tables.py:39
 msgid "Deleted Key Pair"
 msgid_plural "Deleted Key Pairs"
-msgstr[0] ""
+msgstr[0] "已刪除密鑰對"
 
 #: dashboards/project/access_and_security/keypairs/tables.py:50
 #: dashboards/project/access_and_security/keypairs/views.py:59
@@ -6331,12 +6332,12 @@ msgstr "無法加入規則到安全性群組。"
 #: dashboards/project/access_and_security/security_groups/tables.py:37
 msgid "Delete Security Group"
 msgid_plural "Delete Security Groups"
-msgstr[0] ""
+msgstr[0] "刪除安全性群組"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:45
 msgid "Deleted Security Group"
 msgid_plural "Deleted Security Groups"
-msgstr[0] ""
+msgstr[0] "已刪除安全性群組"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:70
 #: dashboards/project/access_and_security/security_groups/tables.py:87
@@ -6376,12 +6377,12 @@ msgstr "加入規則"
 #: dashboards/project/firewalls/tables.py:58
 msgid "Delete Rule"
 msgid_plural "Delete Rules"
-msgstr[0] ""
+msgstr[0] "刪除規則"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:185
 msgid "Deleted Rule"
 msgid_plural "Deleted Rules"
-msgstr[0] ""
+msgstr[0] "已刪除規則"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:241
 msgid "Any"
@@ -6721,12 +6722,12 @@ msgstr "已成功更新容器的存取權為私人。"
 #: dashboards/project/containers/tables.py:110
 msgid "Delete Container"
 msgid_plural "Delete Containers"
-msgstr[0] ""
+msgstr[0] "刪除容器"
 
 #: dashboards/project/containers/tables.py:118
 msgid "Deleted Container"
 msgid_plural "Deleted Containers"
-msgstr[0] ""
+msgstr[0] "已刪除容器"
 
 #: dashboards/project/containers/tables.py:132
 msgid "Unable to delete container."
@@ -6766,12 +6767,12 @@ msgstr "容器的詳細資訊"
 #: dashboards/project/containers/tables.py:333
 msgid "Delete Object"
 msgid_plural "Delete Objects"
-msgstr[0] ""
+msgstr[0] "刪除物件"
 
 #: dashboards/project/containers/tables.py:341
 msgid "Deleted Object"
 msgid_plural "Deleted Objects"
-msgstr[0] ""
+msgstr[0] "已刪除物件"
 
 #: dashboards/project/containers/tables.py:368
 msgid "Copy"
@@ -7026,13 +7027,13 @@ msgstr "複製樣板"
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:63
 msgid "Delete Template"
 msgid_plural "Delete Templates"
-msgstr[0] ""
+msgstr[0] "刪除樣板"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:80
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:71
 msgid "Deleted Template"
 msgid_plural "Deleted Templates"
-msgstr[0] ""
+msgstr[0] "已刪除樣板"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:91
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:35
@@ -7313,12 +7314,12 @@ msgstr "調整叢集比例"
 #: dashboards/project/data_processing/clusters/tables.py:67
 msgid "Delete Cluster"
 msgid_plural "Delete Clusters"
-msgstr[0] ""
+msgstr[0] "刪除叢集"
 
 #: dashboards/project/data_processing/clusters/tables.py:75
 msgid "Deleted Cluster"
 msgid_plural "Deleted Clusters"
-msgstr[0] ""
+msgstr[0] "已刪除叢集"
 
 #: dashboards/project/data_processing/clusters/tables.py:95
 #: dashboards/project/data_processing/job_executions/tables.py:132
@@ -7567,12 +7568,12 @@ msgstr "註冊映像檔"
 #: dashboards/project/data_processing/data_image_registry/tables.py:54
 msgid "Unregister Image"
 msgid_plural "Unregister Images"
-msgstr[0] ""
+msgstr[0] "註銷映像檔"
 
 #: dashboards/project/data_processing/data_image_registry/tables.py:62
 msgid "Unregistered Image"
 msgid_plural "Unregistered Images"
-msgstr[0] ""
+msgstr[0] "已註銷映像檔"
 
 #: dashboards/project/data_processing/data_image_registry/tables.py:77
 msgid "Tags"
@@ -7962,12 +7963,12 @@ msgstr ""
 #: dashboards/project/data_processing/job_executions/tables.py:53
 msgid "Delete Job"
 msgid_plural "Delete Jobs"
-msgstr[0] ""
+msgstr[0] "刪除工作"
 
 #: dashboards/project/data_processing/job_executions/tables.py:61
 msgid "Deleted Job"
 msgid_plural "Deleted Jobs"
-msgstr[0] ""
+msgstr[0] "已刪除工作"
 
 #: dashboards/project/data_processing/job_executions/tables.py:74
 #: dashboards/project/data_processing/job_executions/tables.py:103
@@ -7980,13 +7981,13 @@ msgstr[0] ""
 #: dashboards/project/data_processing/jobs/workflows/launch.py:415
 msgid "Launch Job"
 msgid_plural "Launch Jobs"
-msgstr[0] ""
+msgstr[0] "發動工作"
 
 #: dashboards/project/data_processing/job_executions/tables.py:82
 #: dashboards/project/data_processing/job_executions/tables.py:111
 msgid "Launched Job"
 msgid_plural "Launched Jobs"
-msgstr[0] ""
+msgstr[0] "已發動工作"
 
 #: dashboards/project/data_processing/job_executions/tables.py:88
 msgid "Relaunch On Existing Cluster"
@@ -9224,13 +9225,13 @@ msgstr ""
 #: dashboards/project/instances/tables.py:91
 msgid "Terminate Instance"
 msgid_plural "Terminate Instances"
-msgstr[0] ""
+msgstr[0] "終止執行實例"
 
 #: dashboards/project/databases/tables.py:48
 #: dashboards/project/instances/tables.py:99
 msgid "Scheduled termination of Instance"
 msgid_plural "Scheduled termination of Instances"
-msgstr[0] ""
+msgstr[0] "已排程執行實例的終止"
 
 #: dashboards/project/databases/tables.py:62
 #: dashboards/project/instances/tables.py:116
@@ -9635,7 +9636,7 @@ msgstr "以這些網路發動執行實例"
 #: dashboards/project/databases/workflows/create_instance.py:147
 #: dashboards/project/instances/workflows/create_instance.py:716
 msgid "Networking"
-msgstr "正在網路連線"
+msgstr "網路連線"
 
 #: dashboards/project/databases/workflows/create_instance.py:149
 #: dashboards/project/instances/workflows/create_instance.py:718
@@ -9943,27 +9944,27 @@ msgstr "新增防火牆"
 #: dashboards/project/firewalls/tables.py:66
 msgid "Scheduled deletion of Rule"
 msgid_plural "Scheduled deletion of Rules"
-msgstr[0] ""
+msgstr[0] "已排程規則的刪除"
 
 #: dashboards/project/firewalls/tables.py:80
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
-msgstr[0] ""
+msgstr[0] "刪除政策"
 
 #: dashboards/project/firewalls/tables.py:88
 msgid "Scheduled deletion of Policy"
 msgid_plural "Scheduled deletion of Policies"
-msgstr[0] ""
+msgstr[0] "已排程政策的刪除"
 
 #: dashboards/project/firewalls/tables.py:103
 msgid "Delete Firewall"
 msgid_plural "Delete Firewalls"
-msgstr[0] ""
+msgstr[0] "刪除防火牆"
 
 #: dashboards/project/firewalls/tables.py:111
 msgid "Scheduled deletion of Firewall"
 msgid_plural "Scheduled deletion of Firewalls"
-msgstr[0] ""
+msgstr[0] "已排程防火牆的刪除"
 
 #: dashboards/project/firewalls/tables.py:121
 #: dashboards/project/firewalls/views.py:130
@@ -10494,12 +10495,12 @@ msgstr ""
 #: dashboards/project/images/images/tables.py:68
 msgid "Delete Image"
 msgid_plural "Delete Images"
-msgstr[0] ""
+msgstr[0] "刪除映像檔"
 
 #: dashboards/project/images/images/tables.py:76
 msgid "Deleted Image"
 msgid_plural "Deleted Images"
-msgstr[0] ""
+msgstr[0] "已刪除映像檔"
 
 #: dashboards/project/images/images/tables.py:124
 #: dashboards/project/volumes/snapshots/tables.py:93
@@ -10743,54 +10744,54 @@ msgstr "無法取回執行實例密碼。"
 #: dashboards/project/instances/tables.py:122
 msgid "Hard Reboot Instance"
 msgid_plural "Hard Reboot Instances"
-msgstr[0] ""
+msgstr[0] "強制重開機執行實例"
 
 #: dashboards/project/instances/tables.py:130
 msgid "Hard Rebooted Instance"
 msgid_plural "Hard Rebooted Instances"
-msgstr[0] ""
+msgstr[0] "已強制重開機執行實例"
 
 #: dashboards/project/instances/tables.py:153
 msgid "Soft Reboot Instance"
 msgid_plural "Soft Reboot Instances"
-msgstr[0] ""
+msgstr[0] "重開機執行實例"
 
 #: dashboards/project/instances/tables.py:161
 msgid "Soft Rebooted Instance"
 msgid_plural "Soft Rebooted Instances"
-msgstr[0] ""
+msgstr[0] "已重開機執行實例"
 
 #: dashboards/project/instances/tables.py:178
 msgid "Pause Instance"
 msgid_plural "Pause Instances"
-msgstr[0] ""
+msgstr[0] "暫停執行實例"
 
 #: dashboards/project/instances/tables.py:183
 #: dashboards/project/instances/tables.py:251
 msgid "Resume Instance"
 msgid_plural "Resume Instances"
-msgstr[0] ""
+msgstr[0] "恢復執行實例"
 
 #: dashboards/project/instances/tables.py:193
 msgid "Paused Instance"
 msgid_plural "Paused Instances"
-msgstr[0] ""
+msgstr[0] "已暫停執行實例"
 
 #: dashboards/project/instances/tables.py:198
 #: dashboards/project/instances/tables.py:266
 msgid "Resumed Instance"
 msgid_plural "Resumed Instances"
-msgstr[0] ""
+msgstr[0] "已恢復執行實例"
 
 #: dashboards/project/instances/tables.py:246
 msgid "Suspend Instance"
 msgid_plural "Suspend Instances"
-msgstr[0] ""
+msgstr[0] "停止執行實例"
 
 #: dashboards/project/instances/tables.py:261
 msgid "Suspended Instance"
 msgid_plural "Suspended Instances"
-msgstr[0] ""
+msgstr[0] "已停止執行實例"
 
 #: dashboards/project/instances/tables.py:352
 msgid "Launch Instance NG"
@@ -10883,12 +10884,12 @@ msgstr ""
 #: dashboards/project/instances/tables.py:689
 msgid "Start Instance"
 msgid_plural "Start Instances"
-msgstr[0] ""
+msgstr[0] "開始執行實例"
 
 #: dashboards/project/instances/tables.py:697
 msgid "Started Instance"
 msgid_plural "Started Instances"
-msgstr[0] ""
+msgstr[0] "已開始執行實例"
 
 #: dashboards/project/instances/tables.py:714
 msgid "To power off a specific instance."
@@ -10898,13 +10899,13 @@ msgstr ""
 msgctxt "Action to perform (the instance is currently running)"
 msgid "Shut Off Instance"
 msgid_plural "Shut Off Instances"
-msgstr[0] ""
+msgstr[0] "關機執行實例"
 
 #: dashboards/project/instances/tables.py:729
 msgctxt "Past action (the instance is currently already Shut Off)"
 msgid "Shut Off Instance"
 msgid_plural "Shut Off Instances"
-msgstr[0] ""
+msgstr[0] "已關機執行實例"
 
 #: dashboards/project/instances/tables.py:750
 msgid "Lock Instance"
@@ -10975,7 +10976,7 @@ msgstr "等待確認或還原更改容量/轉移"
 #: dashboards/project/instances/tables.py:871
 msgctxt "Current status of an Instance"
 msgid "Revert Resize/Migrate"
-msgstr "還原更改容量/轉移"
+msgstr "還原更改容量/還原轉移"
 
 #: dashboards/project/instances/tables.py:872
 msgctxt "Current status of an Instance"
@@ -11731,7 +11732,7 @@ msgid ""
 msgid_plural ""
 "The requested %(req)i instances cannot be launched as you only have "
 "%(avail)i of your quota available."
-msgstr[0] ""
+msgstr[0] "所請求的 %(req)i 執行實例無法發動因為您只剩下 %(avail)i 個可用配額。"
 
 #: dashboards/project/instances/workflows/create_instance.py:229
 #, python-format
@@ -12940,22 +12941,22 @@ msgstr ""
 #: dashboards/project/networks/tables.py:150
 msgctxt "Current status of a Network"
 msgid "Active"
-msgstr ""
+msgstr "活躍"
 
 #: dashboards/project/networks/tables.py:151
 msgctxt "Current status of a Network"
 msgid "Build"
-msgstr ""
+msgstr "建立中"
 
 #: dashboards/project/networks/tables.py:152
 msgctxt "Current status of a Network"
 msgid "Down"
-msgstr ""
+msgstr "離線"
 
 #: dashboards/project/networks/tables.py:153
 msgctxt "Current status of a Network"
 msgid "Error"
-msgstr ""
+msgstr "錯誤"
 
 #: dashboards/project/networks/views.py:89
 msgid "Unable to retrieve network details."
@@ -13186,22 +13187,22 @@ msgstr ""
 #: dashboards/project/networks/ports/tables.py:60
 msgctxt "status of a network port"
 msgid "Active"
-msgstr ""
+msgstr "活躍"
 
 #: dashboards/project/networks/ports/tables.py:61
 msgctxt "status of a network port"
 msgid "Down"
-msgstr ""
+msgstr "離線"
 
 #: dashboards/project/networks/ports/tables.py:62
 msgctxt "status of a neteork port"
 msgid "Error"
-msgstr ""
+msgstr "錯誤"
 
 #: dashboards/project/networks/ports/tables.py:63
 msgctxt "status of a network port"
 msgid "Build"
-msgstr ""
+msgstr "建立中"
 
 #: dashboards/project/networks/ports/views.py:39
 #: dashboards/project/networks/templates/networks/ports/detail.html:3
@@ -13458,12 +13459,12 @@ msgstr "更新路由器 %s 時失敗"
 #: dashboards/project/routers/tables.py:40
 msgid "Delete Router"
 msgid_plural "Delete Routers"
-msgstr[0] ""
+msgstr[0] "刪除路由器"
 
 #: dashboards/project/routers/tables.py:48
 msgid "Deleted Router"
 msgid_plural "Deleted Routers"
-msgstr[0] ""
+msgstr[0] "已刪除路由器"
 
 #: dashboards/project/routers/tables.py:67
 #: dashboards/project/routers/tables.py:75
@@ -13493,12 +13494,12 @@ msgstr ""
 #: dashboards/project/routers/tables.py:134
 msgid "Clear Gateway"
 msgid_plural "Clear Gateways"
-msgstr[0] ""
+msgstr[0] "清除閘道"
 
 #: dashboards/project/routers/tables.py:142
 msgid "Cleared Gateway"
 msgid_plural "Cleared Gateways"
-msgstr[0] ""
+msgstr[0] "已清除閘道"
 
 #: dashboards/project/routers/tables.py:158
 #, python-format
@@ -13610,12 +13611,12 @@ msgstr "加入路由器規則"
 #: dashboards/project/routers/extensions/routerrules/tables.py:47
 msgid "Delete Router Rule"
 msgid_plural "Delete Router Rules"
-msgstr[0] ""
+msgstr[0] "刪除路由器規則"
 
 #: dashboards/project/routers/extensions/routerrules/tables.py:55
 msgid "Deleted Router Rule"
 msgid_plural "Deleted Router Rules"
-msgstr[0] ""
+msgstr[0] "已刪除路由器規則"
 
 #: dashboards/project/routers/extensions/routerrules/tabs.py:59
 msgid "Router Rules Grid"
@@ -13695,12 +13696,12 @@ msgstr "加入網路卡介面"
 #: dashboards/project/routers/ports/tables.py:58
 msgid "Delete Interface"
 msgid_plural "Delete Interfaces"
-msgstr[0] ""
+msgstr[0] "刪除網路卡介面"
 
 #: dashboards/project/routers/ports/tables.py:66
 msgid "Deleted Interface"
 msgid_plural "Deleted Interfaces"
-msgstr[0] ""
+msgstr[0] "已刪除網路卡介面"
 
 #: dashboards/project/routers/ports/tables.py:85
 #, python-format
@@ -14069,12 +14070,12 @@ msgstr "變更機櫃樣板"
 #: dashboards/project/stacks/tables.py:137
 msgid "Delete Stack"
 msgid_plural "Delete Stacks"
-msgstr[0] ""
+msgstr[0] "刪除機櫃"
 
 #: dashboards/project/stacks/tables.py:145
 msgid "Deleted Stack"
 msgid_plural "Deleted Stacks"
-msgstr[0] ""
+msgstr[0] "已刪除機櫃"
 
 #: dashboards/project/stacks/tables.py:198
 msgctxt "current status of stack"
@@ -14592,12 +14593,12 @@ msgstr "無法更新儲存空間即時存檔。"
 #: dashboards/project/volumes/snapshots/tables.py:56
 msgid "Delete Volume Snapshot"
 msgid_plural "Delete Volume Snapshots"
-msgstr[0] ""
+msgstr[0] "刪除儲存空間的即時存檔"
 
 #: dashboards/project/volumes/snapshots/tables.py:64
 msgid "Scheduled deletion of Volume Snapshot"
 msgid_plural "Scheduled deletion of Volume Snapshots"
-msgstr[0] ""
+msgstr[0] "已排程儲存空間即時存檔的刪除"
 
 #: dashboards/project/volumes/snapshots/tables.py:79
 #: dashboards/project/volumes/snapshots/views.py:35
@@ -15220,12 +15221,12 @@ msgstr "發動成執行實例"
 #: dashboards/project/volumes/volumes/tables.py:69
 msgid "Delete Volume"
 msgid_plural "Delete Volumes"
-msgstr[0] ""
+msgstr[0] "刪除儲存空間"
 
 #: dashboards/project/volumes/volumes/tables.py:77
 msgid "Scheduled deletion of Volume"
 msgid_plural "Scheduled deletion of Volumes"
-msgstr[0] ""
+msgstr[0] "已排程儲存空間的刪除"
 
 #: dashboards/project/volumes/volumes/tables.py:144
 msgid "Manage Attachments"
@@ -16224,12 +16225,12 @@ msgstr "新增網路基本資料"
 #: dashboards/router/nexus1000v/tables.py:39
 msgid "Delete Network Profile"
 msgid_plural "Delete Network Profiles"
-msgstr[0] ""
+msgstr[0] "刪除網路基本資料"
 
 #: dashboards/router/nexus1000v/tables.py:47
 msgid "Deleted Network Profile"
 msgid_plural "Deleted Network Profiles"
-msgstr[0] ""
+msgstr[0] "已刪除網路基本資料"
 
 #: dashboards/router/nexus1000v/tables.py:56
 #, python-format

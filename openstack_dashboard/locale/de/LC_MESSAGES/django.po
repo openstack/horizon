@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-19 21:31+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"PO-Revision-Date: 2015-03-20 19:28+0000\n"
+"Last-Translator: Robert Simai\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2475,7 +2475,7 @@ msgstr[1] "Gelöschte Namensräume"
 
 #: dashboards/admin/metadata_defs/tables.py:69
 msgid "Update Associations"
-msgstr ""
+msgstr "Zuweisungen aktualisieren"
 
 #: dashboards/admin/metadata_defs/tables.py:132
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:15
@@ -2610,7 +2610,7 @@ msgstr "Namensraum Details: {{ namespace.namespace }}"
 #: dashboards/admin/metadata_defs/views.py:147
 #: dashboards/admin/metadata_defs/views.py:161
 msgid "Error getting resource type associations."
-msgstr ""
+msgstr "Fehler beim Abruf der Ressourcetyp-Zuweisungen."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:20
 msgid "Specify a metadata definition namespace to import."
@@ -2618,7 +2618,7 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:23
 msgid "Only definitions in raw JSON format are supported."
-msgstr ""
+msgstr "Es werden nur Definitionen in rohem JSON Format unterstützt."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:26
 msgid ""
@@ -2769,7 +2769,7 @@ msgstr "Nicht aktualisiert"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:32
 msgid "Associated Resource Types"
-msgstr ""
+msgstr "Zugewiesene Ressourcetypen"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:39
 msgid "Prefix: "
@@ -2781,13 +2781,13 @@ msgstr "Eigenschaftsziel: "
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:47
 msgid "No associations defined."
-msgstr ""
+msgstr "Keine Zuweisungen festgelegt"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_resource_types.html:5
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_resource_types.html:8
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_resource_types.html:14
 msgid "Namespace Resource Type Associations"
-msgstr ""
+msgstr "Namensraum Ressourcetyp Zuweisungen "
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/detail.html:4
 msgid "Namespace Details"
@@ -2807,7 +2807,7 @@ msgid ""
 "Namespaces can be associated to different resource types. This makes the "
 "properties in the namespace visible in the 'Update Metadata' action for that"
 " type of resource."
-msgstr ""
+msgstr "Namensräume können verschiedenen Ressourcetypen zugewiesen werden. Dies macht die Eigenschaften im Namensraum für die 'Metadaten aktualisieren' Aktion für diese Ressourcetype sichtbar."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:61
 msgid ""
@@ -3498,12 +3498,12 @@ msgstr "Normal"
 #: dashboards/admin/networks/ports/forms.py:31
 #: dashboards/project/networks/ports/forms.py:29
 msgid "Direct"
-msgstr ""
+msgstr "Direkt"
 
 #: dashboards/admin/networks/ports/forms.py:32
 #: dashboards/project/networks/ports/forms.py:30
 msgid "MacVTap"
-msgstr ""
+msgstr "MacVTap"
 
 #: dashboards/admin/networks/ports/forms.py:39
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:11
@@ -3750,11 +3750,11 @@ msgstr "Projekt-ID"
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:15
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:15
 msgid "MAC Address"
-msgstr ""
+msgstr "MAC Adresse"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:23
 msgid "On"
-msgstr ""
+msgstr "An"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:25
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:25
@@ -3785,20 +3785,20 @@ msgstr ""
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:52
 msgid "Profile"
-msgstr ""
+msgstr "Profil"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:54
 msgid "VIF Type"
-msgstr ""
+msgstr "VIF Typ"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:56
 msgid "VIF Details"
-msgstr ""
+msgstr "VIF Details"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:69
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:51
 msgid "VNIC Type"
-msgstr ""
+msgstr "VNIC Typ"
 
 #: dashboards/admin/networks/templates/networks/ports/_update.html:6
 #: dashboards/project/networks/templates/networks/ports/_update.html:6
@@ -4007,7 +4007,7 @@ msgstr "Datenträgertypen können nicht abgerufen werden"
 
 #: dashboards/admin/volumes/tabs.py:88
 msgid "Unable to retrieve volume type encryption information."
-msgstr ""
+msgstr "Details zum verschlüsselten Datenträger-Typ können nicht abgerufen werden."
 
 #: dashboards/admin/volumes/tabs.py:109
 msgid "Unable to retrieve QoS specs"
@@ -4151,19 +4151,19 @@ msgstr "\nDer Status einer Datenträger-Schattenkopie wird normalerweise automat
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:6
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
-msgstr ""
+msgstr "Hinzufügen, verändern und entfernen der QoS Spezifikationen für diesen Datenträgertyp."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:7
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
 "setting the QoS Spec to \"None\" will remove the current association."
-msgstr ""
+msgstr "\"Keine\" gibt an, dass gegenwärtig keine QoS Spezifikationen zugewiesen sind. Im Gegenzug, das Setzen der QoS Spezifikationen auf \"keine\" entfernt die aktuellen Zuweisungen."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:8
 msgid ""
 "This is equivalent to the <tt>cinder qos-associate</tt> and <tt>cinder qos-"
 "disassociate</tt> commands."
-msgstr ""
+msgstr "Dies ist gleichbedeutend mit den <tt>cinder qos-associate</tt> und <tt>cinder qos-disassociate</tt> Kommandos."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:6
 msgid ""
@@ -4179,7 +4179,7 @@ msgid ""
 "      administrator would like the QoS policy to be enforced. This value can be \"front-end\"\n"
 "      (Nova Compute), \"back-end\" (Cinder back-end), or \"both\".\n"
 "  "
-msgstr ""
+msgstr "\nQoS Spezifikation können mit Datenträgertypen verbunden werden.\nDas dient zum Abbilden eines vom Eigentümer des Datenträgers gewünschten Satzes von Dienst-Qualitätsmerkmalen und ist gleichbedeutend mit dem <tt>cinder qos-create</tt> Kommando. Nachdem die QoS Spezifikationen erzeugt wurden, können durch Klick auf den \"Spezifikationen verwalten\" Knopf die Schlüssel-Wert Spezifikationen verwaltet werden.\n<br>\n<br>\nJedes Objekt der QOS Spezifikation enthält einen \"Verbraucher\" Wert, der anzeigt, wo der Administrator die QoS Richtlinie erzwingen möchte. Dieser Wert kann \"front-end\" (Nova Compute), \"back-end\" (Cinder Back-End) oder beides sein. "
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:6
 msgid ""
@@ -4777,7 +4777,7 @@ msgstr "Bezeichnung"
 
 #: dashboards/admin/volumes/volumes/forms.py:49
 msgid "Name or other identifier for existing volume"
-msgstr ""
+msgstr "Name oder anderer Bezeichner für einen vorhandenen Datenträger"
 
 #: dashboards/admin/volumes/volumes/forms.py:51
 msgid "Identifier Type"
@@ -6038,7 +6038,7 @@ msgstr "Instanz"
 msgid ""
 "Select the IP address you wish to associate with the selected instance or "
 "port."
-msgstr ""
+msgstr "Wählen Sie die IP-Adresse, die Sie der ausgewählten Instanz oder dem Port zuweisen wollen."
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:47
 msgid "Port to be associated"
@@ -8385,7 +8385,7 @@ msgstr "Aufgabe erstellt"
 
 #: dashboards/project/data_processing/jobs/workflows/create.py:158
 msgid "Could not create job template"
-msgstr ""
+msgstr "Aufgabenvorlage konnte nicht erstellt werden"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:40
 msgid "Input"
@@ -8532,7 +8532,7 @@ msgstr "Die Datenverarbeitung bietet Optionen für verschiedene Speicherorte an.
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_create_general_help.html:3
 msgid "Select a plugin and version for the new Node Group template."
-msgstr ""
+msgstr "Wählen Sie ein Plugin und eine Version für die neue Node-Gruppenvorlage."
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:67
 msgid "HDFS placement"
@@ -8640,7 +8640,7 @@ msgstr "Erstelle Sicherheitsgruppe für diese Node Gruppe"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:210
 msgid "Unable to get security group list."
-msgstr ""
+msgstr "Sicherheitsgruppenliste kann nicht abgerufen werden."
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:217
 msgid "Launch instances in these security groups."
@@ -8704,7 +8704,7 @@ msgstr "Pluginname"
 
 #: dashboards/project/data_processing/wizard/forms.py:43
 msgid "Cluster type chosen"
-msgstr ""
+msgstr "Ausgewählter Clustertyp"
 
 #: dashboards/project/data_processing/wizard/forms.py:47
 msgid "Unable to set cluster type"
@@ -8716,7 +8716,7 @@ msgstr "Wählen Sie Plugin-Typ und Version"
 
 #: dashboards/project/data_processing/wizard/forms.py:116
 msgid "Job type chosen"
-msgstr ""
+msgstr "Ausgewählter Aufgabentyp"
 
 #: dashboards/project/data_processing/wizard/forms.py:120
 msgid "Unable to set job type"
@@ -9338,14 +9338,14 @@ msgstr[1] "Neu gestartete Instanzen"
 #: dashboards/project/databases/tables.py:96
 msgid "Detach Replica"
 msgid_plural "Detach Replicas"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Replikation abtrennen"
+msgstr[1] "Replikationen abtrennen"
 
 #: dashboards/project/databases/tables.py:104
 msgid "Replica Detached"
 msgid_plural "Replicas Detached"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Abgetrennte Replikation"
+msgstr[1] "Abgetrennte Replpikationen"
 
 #: dashboards/project/databases/tables.py:142
 msgid "Error deleting database user."
@@ -9502,7 +9502,7 @@ msgstr "Datenbank starten"
 #: dashboards/project/databases/views.py:101
 #: dashboards/project/instances/views.py:289
 msgid "Instance Details: {{ instance.name }}"
-msgstr ""
+msgstr "Instanz Details: {{ instance.name }}"
 
 #: dashboards/project/databases/views.py:120
 #, python-format
@@ -10278,19 +10278,19 @@ msgstr "Änderungen speichern"
 
 #: dashboards/project/firewalls/views.py:134
 msgid "Edit Rule {{ name }}"
-msgstr ""
+msgstr "Regel bearbeiten {{ name }}"
 
 #: dashboards/project/firewalls/views.py:175
 msgid "Edit Policy {{ name }}"
-msgstr ""
+msgstr "Richtlinie bearbeiten {{ name }}"
 
 #: dashboards/project/firewalls/views.py:213
 msgid "Edit Firewall {{ name }}"
-msgstr ""
+msgstr "Firewall bearbeiten {{ name }}"
 
 #: dashboards/project/firewalls/views.py:246
 msgid "Insert Rule into Policy"
-msgstr ""
+msgstr "Regel in Richtlinie einfügen"
 
 #: dashboards/project/firewalls/views.py:252
 #: dashboards/project/firewalls/templates/firewalls/insert_rule_to_policy.html:3
@@ -10469,7 +10469,7 @@ msgstr "Abbilder zum aktuellen Projekt können nicht abgerufen werden."
 
 #: dashboards/project/images/utils.py:95
 msgid "Unable to retrieve images"
-msgstr ""
+msgstr "Abbilder können nicht abgerufen werden"
 
 #: dashboards/project/images/utils.py:104
 #: dashboards/project/instances/forms.py:66
@@ -10555,16 +10555,16 @@ msgstr "Ihr Abbild %s wurde in die Warteschlange zur Erzeugung aufgenommen."
 
 #: dashboards/project/images/images/forms.py:184
 msgid "Unable to create new image"
-msgstr ""
+msgstr "Neues Abbild kann nicht erstellt werden"
 
 #: dashboards/project/images/images/forms.py:188
 #, python-format
 msgid "Unable to create new image: Invalid disk format %s for image."
-msgstr ""
+msgstr "Neues Abbild kann nicht erstellt werden: ungültiges Festplattenformat %s für das Abbild."
 
 #: dashboards/project/images/images/forms.py:191
 msgid "Unable to create new image: Image name too long."
-msgstr ""
+msgstr "Neues Abbild kann nicht erstellt werden: Abbildname zu lang."
 
 #: dashboards/project/images/images/forms.py:205
 msgid "Kernel ID"
@@ -10585,7 +10585,7 @@ msgstr "Abbild wurde erfolgreich aktualisiert."
 
 #: dashboards/project/images/images/tables.py:63
 msgid "Deleted images are not recoverable."
-msgstr ""
+msgstr "Gelöschte Abbilder können nicht wieder hergestellt werden."
 
 #: dashboards/project/images/images/tables.py:68
 msgid "Delete Image"
@@ -10636,7 +10636,7 @@ msgstr ""
 #: dashboards/project/images/images/tables.py:237
 msgctxt "Current status of an Image"
 msgid "Killed"
-msgstr ""
+msgstr "Getötet"
 
 #: dashboards/project/images/images/tables.py:238
 msgctxt "Current status of an Image"
@@ -10649,7 +10649,7 @@ msgstr "Abbild kann nicht abgerufen werden."
 
 #: dashboards/project/images/images/views.py:88
 msgid "Image Details: {{ image.name }}"
-msgstr ""
+msgstr "Abbild Details: {{ image.name }}"
 
 #: dashboards/project/images/images/views.py:109
 msgid "Unable to retrieve image details."
@@ -10744,7 +10744,7 @@ msgstr "Schattenkopie erstellen"
 #: dashboards/project/images/templates/images/snapshots/_create.html:19
 msgid ""
 "A snapshot is an image which preserves the disk state of a running instance."
-msgstr ""
+msgstr "Eine Schattenkopie ist ein Abbild, welches den Zustand der Festplatte einer laufenden Instanz erhält."
 
 #: dashboards/project/instances/audit_tables.py:24
 msgid "Request ID"
@@ -11236,7 +11236,7 @@ msgstr "Neustartend"
 #: dashboards/project/instances/tables.py:926
 msgctxt "Task status of an Instance"
 msgid "Reboot Pending"
-msgstr ""
+msgstr "Neustart geplant"
 
 #: dashboards/project/instances/tables.py:928
 msgctxt "Task status of an Instance"
@@ -13070,12 +13070,12 @@ msgstr "Aktiv"
 #: dashboards/project/networks/tables.py:151
 msgctxt "Current status of a Network"
 msgid "Build"
-msgstr ""
+msgstr "Baue"
 
 #: dashboards/project/networks/tables.py:152
 msgctxt "Current status of a Network"
 msgid "Down"
-msgstr ""
+msgstr "Runter"
 
 #: dashboards/project/networks/tables.py:153
 msgctxt "Current status of a Network"
@@ -13094,7 +13094,7 @@ msgstr "Status in dem das Netzwerk gestartet werden soll."
 msgid ""
 "Create a new network. In addition, a subnet associated with the network can "
 "be created in the next panel."
-msgstr ""
+msgstr "Neues Netzwerk erzeugen. Ein mit dem Netzwerk verbundenes Subnetz kann in der nächsten Maske erzeugt werden."
 
 #: dashboards/project/networks/workflows.py:106
 msgid "Subnet Name"
@@ -13316,7 +13316,7 @@ msgstr "Aktiv"
 #: dashboards/project/networks/ports/tables.py:61
 msgctxt "status of a network port"
 msgid "Down"
-msgstr ""
+msgstr "Runter"
 
 #: dashboards/project/networks/ports/tables.py:62
 msgctxt "status of a neteork port"
@@ -13326,7 +13326,7 @@ msgstr "Fehler"
 #: dashboards/project/networks/ports/tables.py:63
 msgctxt "status of a network port"
 msgid "Build"
-msgstr ""
+msgstr "Baue"
 
 #: dashboards/project/networks/ports/views.py:39
 #: dashboards/project/networks/templates/networks/ports/detail.html:3
@@ -13380,7 +13380,7 @@ msgstr "\"Netzwerkadresse\" angeben"
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
 "available by clicking on the \"Subnet Details\" tab."
-msgstr ""
+msgstr "Ein Subnetz erzeugen, das mit dem Netzwerk verbunden ist. Die weitergehende Konfiguration ist mit Klick auf den \"Subnetz Detail\"  Reiter verfügbar.\n "
 
 #: dashboards/project/networks/subnets/workflows.py:58
 #, python-format
@@ -13411,7 +13411,7 @@ msgstr "IP Adresse des Gateways (z.B. 192.168.0.254).  Um das Gateway zu setzen,
 msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
 "available at \"Subnet Details\" tab."
-msgstr ""
+msgstr "Ein mit den Netzwerk verbundenes Subnetz aktualisieren. Für die detaillierte Konfiguation den Reiter \"Subnetz Details\" anklicken."
 
 #: dashboards/project/networks/subnets/workflows.py:160
 #, python-format
