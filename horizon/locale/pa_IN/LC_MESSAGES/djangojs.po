@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-20 16:45+0000\n"
+"PO-Revision-Date: 2015-03-22 00:12+0000\n"
 "Last-Translator: Amandeep Singh Saini <jimidar@gmail.com>\n"
 "Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/projects/p/horizon/language/pa_IN/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr "ਇਹ ਕਾਰਵਾਈ ਨਹੀਂ ਹੋ ਸਕਦੀ। ਇਸ ਸ
 
 #: static/angular/metadata-display/metadata-display.js:33
 msgid "Detail Information"
-msgstr "ਵਿਸਥਾਰਤ ਜਾਣਕਾਰੀ"
+msgstr "ਵਿਸਥਾਰ ਜਾਣਕਾਰੀ"
 
 #: static/angular/metadata-tree/metadata-tree.js:35
 msgid ""
@@ -34,7 +34,7 @@ msgid ""
 "the right column. In the left columns there are metadata definitions from "
 "the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
 "the key of your choice."
-msgstr ""
+msgstr "ਤੁਸੀਂ ਖੱਬੀ ਪੱਟੀ ਤੋਂ ਸੱਜੀ ਪੱਟੀ ਵਿੱਚ ਚੀਜ਼ਾਂ ਜੋੜ ਕੇ ਵਸੀਲਾ ਮੈਟਾਡਾਟਾ ਨਿਰਧਾਰਤ ਕਰ ਸਕਦੇ ਹੋ। ਖੱਬੀਆਂ ਪੱਟੀਆਂ ਵਿੱਚ ਗਲਾਂਸ ਮੈਟਾਡਾਟਾ ਕੈਟਾਲੌਗ ਤੋਂ ਮੈਟਾਡਾਟਾ ਪਰਿਭਾਸ਼ਾਵਾਂ ਦਿੱਤੀਆਂ ਹੋਈਆਂ ਹਨ। ਆਪਣੀ ਪਸੰਦ ਦੀ ਚਾਬੀ ਦੇ ਨਾਲ ਮੈਟਾਡਾਟਾ ਜੋੜਨ ਲਈ \"ਹੋਰ\" ਚੋਣ ਨੂੰ ਵਰਤੋ।"
 
 #: static/angular/metadata-tree/metadata-tree.js:36
 msgid "Min"
@@ -171,7 +171,7 @@ msgstr "ਲੋਡ ਹੋ ਰਿਹਾ"
 #: static/horizon/js/horizon.d3linechart.js:394
 #: static/horizon/js/horizon.d3linechart.js:404
 msgid "No data available."
-msgstr "ਕੋਈ ਡਾਟਾ ਉਪਲਖ਼ਬਧ ਨਹੀ।"
+msgstr "ਕੋਈ ਡਾਟਾ ਉਪਲੱਬਧ ਨਹੀ।"
 
 #: static/horizon/js/horizon.d3linechart.js:410
 #: static/horizon/js/horizon.modals.js:334
@@ -338,7 +338,7 @@ msgstr "ਬੰਦ ਕਰ ਰਿਹਾ"
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Closed"
-msgstr "ਬੰਦ ਕੀਤਾ"
+msgstr "ਬੰਦ ਹੋਇਆ"
 
 #: static/horizon/js/angular/directives/serialConsole.js:85
 #, c-format
@@ -433,143 +433,143 @@ msgstr "ਵਰਤੋਂਕਾਰ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸ�
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:68
 msgid "Unable to retrieve role"
-msgstr ""
+msgstr "ਰੋਲ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:75
 msgid "Unable to create the role."
-msgstr ""
+msgstr "ਰੋਲ ਨੂੰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:82
 msgid "Unable to delete the roles."
-msgstr ""
+msgstr "ਰੋਲਾਂ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:89
 msgid "Unable to retrieve the role"
-msgstr ""
+msgstr "ਰੋਲ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:97
 msgid "Unable to edit the role."
-msgstr ""
+msgstr "ਰੋਲ ਵਿੱਚ ਸੋਧ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:104
 msgid "Unable to delete the role."
-msgstr ""
+msgstr "ਰੋਲ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:112
 msgid "Unable to retrieve domains"
-msgstr ""
+msgstr "ਡੋਮੇਨਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:119
 msgid "Unable to create the domain."
-msgstr ""
+msgstr "ਡੋਮੇਨ ਨੂੰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:126
 msgid "Unable to delete the domains."
-msgstr ""
+msgstr "ਡੋਮੇਨਾਂ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:133
 msgid "Unable to retrieve the domain"
-msgstr ""
+msgstr "ਡੋਮੇਨ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:141
 msgid "Unable to edit the domain."
-msgstr ""
+msgstr "ਡੋਮੇਨ ਵਿੱਚ ਸੋਧ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:148
 msgid "Unable to delete the domain."
-msgstr ""
+msgstr "ਡੋਮੇਨ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:157
 msgid "Unable to retrieve projects"
-msgstr ""
+msgstr "ਪ੍ਰੋਜੈਕਟਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:164
 msgid "Unable to create the project."
-msgstr ""
+msgstr "ਪ੍ਰੋਜੈਕਟ ਨੂੰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:171
 msgid "Unable to delete the projects."
-msgstr ""
+msgstr "ਪ੍ਰੋਜੈਕਟਾਂ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:178
 msgid "Unable to retrieve the project"
-msgstr ""
+msgstr "ਪ੍ਰੋਜੈਕਟ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:186
 msgid "Unable to edit the project."
-msgstr ""
+msgstr "ਪ੍ਰੋਜੈਕਟ ਵਿੱਚ ਸੋਧ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:193
 msgid "Unable to delete the project."
-msgstr ""
+msgstr "ਪ੍ਰੋਜੈਕਟ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:201
 msgid "Unable to grant the role."
-msgstr ""
+msgstr "ਰੋਲ ਦੀ ਮਨਜ਼ੂਰੀ ਦੇਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:215
 msgid "Unable to fetch the service catalog."
-msgstr ""
+msgstr "ਸੇਵਾ ਕਿਤਾਬਚਾ ਹਾਸਲ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:39
 msgid "Unable to retrieve networks."
-msgstr ""
+msgstr "ਨੈੱਟਵਰਕਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:88
 msgid "Unable to create the network."
-msgstr ""
+msgstr "ਨੈੱਟਵਰਕ ਨੂੰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:108
 msgid "Unable to retrieve subnets."
-msgstr ""
+msgstr "ਉਪ-ਨੈੱਟਾਂ (ਸਬ-ਨੈੱਟਾਂ) ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:172
 msgid "Unable to create the subnet."
-msgstr ""
+msgstr "ਉਪ-ਨੈੱਟ (ਸਬ-ਨੈੱਟ) ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:192
 msgid "Unable to retrieve ports."
-msgstr ""
+msgstr "ਪੋਰਟਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:40
 msgid "Unable to retrieve keypairs."
-msgstr ""
+msgstr "ਚਾਬੀ-ਜੋੜੀਆਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:61
 msgid "Unable to create the keypair."
-msgstr ""
+msgstr "ਚਾਬੀ-ਜੋੜੀ ਨੂੰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:79
 msgid "Unable to retrieve availability zones."
-msgstr ""
+msgstr "ਜ਼ੋਨਾਂ ਦੀ ਉਪਲਬੱਧਤਾ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:117
 msgid "Unable to retrieve limits."
-msgstr ""
+msgstr "ਹੱਦਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:144
 msgid "Unable to create the server."
-msgstr ""
+msgstr "ਸਰਵਰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:158
 msgid "Unable to retrieve server."
-msgstr ""
+msgstr "ਸਰਵਰ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:188
 msgid "Unable to retrieve extensions."
-msgstr ""
+msgstr "ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:233
 msgid "Unable to retrieve flavors."
-msgstr ""
+msgstr "ਮਹਿਕਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:251
 msgid "Unable to retrieve flavor."
-msgstr ""
+msgstr "ਮਹਿਕ-ਕਿਸਮ (ਫਲੇਵਰ) ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:265
 msgid "Unable to retrieve flavor extra specs."
-msgstr ""
+msgstr "ਮਹਿਕ-ਕਿਸਮ (ਫਲੇਵਰ) ਵਾਧੂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.policy.js:65
 msgid "Policy check failed."
@@ -577,4 +577,4 @@ msgstr "ਨੀਤੀ ਪੜਤਾਲ ਅਸਫਲ ਹੋਈ।"
 
 #: static/horizon/js/angular/services/hz.api.security-group.js:64
 msgid "Unable to retrieve security groups."
-msgstr ""
+msgstr "ਸੁਰੱਖਿਆ ਸਮੂਹਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"

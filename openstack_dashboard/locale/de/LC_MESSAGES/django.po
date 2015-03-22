@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-20 19:28+0000\n"
+"PO-Revision-Date: 2015-03-21 23:51+0000\n"
 "Last-Translator: Robert Simai\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -14260,7 +14260,7 @@ msgstr ""
 #: dashboards/project/stacks/tables.py:214
 msgctxt "current status of stack"
 msgid "Delete Failed"
-msgstr ""
+msgstr "Löschvorgang fehlgeschlagen"
 
 #: dashboards/project/stacks/tables.py:216
 msgctxt "current status of stack"

@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-20 12:21+0000\n"
-"Last-Translator: EVEILLARD <stephane.eveillard@gmail.com>\n"
+"PO-Revision-Date: 2015-03-21 23:51+0000\n"
+"Last-Translator: Maxime COQUEREL <max.coquerel@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -577,7 +577,7 @@ msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.policy.js:65
 msgid "Policy check failed."
-msgstr ""
+msgstr "Échec de vérification de la politique"
 
 #: static/horizon/js/angular/services/hz.api.security-group.js:64
 msgid "Unable to retrieve security groups."

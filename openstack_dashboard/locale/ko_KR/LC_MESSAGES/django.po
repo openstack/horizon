@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-20 00:07+0000\n"
+"PO-Revision-Date: 2015-03-21 23:51+0000\n"
 "Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -8006,22 +8006,22 @@ msgstr "새로운 클러스터에서 재실행"
 #: dashboards/project/data_processing/job_executions/tables.py:158
 msgctxt "Current status of a Job"
 msgid "Done with Error"
-msgstr ""
+msgstr "Done with Error"
 
 #: dashboards/project/data_processing/job_executions/tables.py:160
 msgctxt "Current status of a Job"
 msgid "Failed"
-msgstr ""
+msgstr "Failed"
 
 #: dashboards/project/data_processing/job_executions/tables.py:162
 msgctxt "Current status of a Job"
 msgid "Killed"
-msgstr ""
+msgstr "Killed"
 
 #: dashboards/project/data_processing/job_executions/tables.py:164
 msgctxt "Current status of a Job"
 msgid "Succeeded"
-msgstr ""
+msgstr "Succeeded"
 
 #: dashboards/project/data_processing/job_executions/tables.py:175
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:10

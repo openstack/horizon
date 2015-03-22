@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-19 21:31+0000\n"
+"PO-Revision-Date: 2015-03-21 23:51+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: English (Australia) (http://www.transifex.com/projects/p/horizon/language/en_AU/)\n"
 "MIME-Version: 1.0\n"
@@ -8077,12 +8077,12 @@ msgstr ""
 #: dashboards/project/data_processing/job_executions/tables.py:160
 msgctxt "Current status of a Job"
 msgid "Failed"
-msgstr ""
+msgstr "Failed"
 
 #: dashboards/project/data_processing/job_executions/tables.py:162
 msgctxt "Current status of a Job"
 msgid "Killed"
-msgstr ""
+msgstr "Killed"
 
 #: dashboards/project/data_processing/job_executions/tables.py:164
 msgctxt "Current status of a Job"

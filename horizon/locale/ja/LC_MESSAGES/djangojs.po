@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-19 08:59+0000\n"
+"PO-Revision-Date: 2015-03-21 19:00+0000\n"
 "Last-Translator: Tom Fifield <tom@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -68,7 +68,7 @@ msgstr ""
 
 #: static/angular/metadata-tree/metadata-tree.js:43
 msgid "Required"
-msgstr ""
+msgstr "必須"
 
 #: static/angular/metadata-tree/metadata-tree.js:44
 msgid "Duplicate keys are not allowed"

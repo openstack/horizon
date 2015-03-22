@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-20 19:28+0000\n"
+"PO-Revision-Date: 2015-03-21 23:51+0000\n"
 "Last-Translator: Zhang Xiaowei <zero00072@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -8005,7 +8005,7 @@ msgstr ""
 #: dashboards/project/data_processing/job_executions/tables.py:160
 msgctxt "Current status of a Job"
 msgid "Failed"
-msgstr ""
+msgstr "已失敗"
 
 #: dashboards/project/data_processing/job_executions/tables.py:162
 msgctxt "Current status of a Job"
@@ -13182,7 +13182,7 @@ msgstr ""
 #: dashboards/project/routers/ports/tables.py:95
 msgctxt "Admin state of a Port"
 msgid "DOWN"
-msgstr ""
+msgstr "下線"
 
 #: dashboards/project/networks/ports/tables.py:60
 msgctxt "status of a network port"
@@ -13524,7 +13524,7 @@ msgstr ""
 #: dashboards/project/routers/tables.py:205
 msgctxt "Admin state of a Router"
 msgid "DOWN"
-msgstr ""
+msgstr "下線"
 
 #. Translators: High Availability mode of Neutron router
 #: dashboards/project/routers/tables.py:221

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-18 20:07-0500\n"
-"PO-Revision-Date: 2015-03-18 23:58+0000\n"
+"POT-Creation-Date: 2015-03-20 00:51-0500\n"
+"PO-Revision-Date: 2015-03-21 06:55+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -70,7 +70,7 @@ msgstr ""
 
 #: static/angular/metadata-tree/metadata-tree.js:44
 msgid "Duplicate keys are not allowed"
-msgstr ""
+msgstr "Повторяющиеся ключи не допускаются"
 
 #: static/angular/metadata-tree/metadata-tree.js:45
 #: static/horizon/js/horizon.forms.js:184
@@ -79,11 +79,11 @@ msgstr "Фильтр"
 
 #: static/angular/metadata-tree/metadata-tree.js:46
 msgid "Available Metadata"
-msgstr ""
+msgstr "Доступные метаданные"
 
 #: static/angular/metadata-tree/metadata-tree.js:47
 msgid "Existing Metadata"
-msgstr ""
+msgstr "Имеющиеся метаданные"
 
 #: static/angular/metadata-tree/metadata-tree.js:48
 msgid "Custom"
@@ -91,11 +91,11 @@ msgstr ""
 
 #: static/angular/metadata-tree/metadata-tree.js:49
 msgid "No available metadata"
-msgstr ""
+msgstr "Метаданные недоступны"
 
 #: static/angular/metadata-tree/metadata-tree.js:50
 msgid "No existing metadata"
-msgstr ""
+msgstr "Нет метаданных"
 
 #: static/angular/modal/modal.js:83
 msgid "Submit"

@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-19 09:00+0000\n"
+"PO-Revision-Date: 2015-03-21 19:00+0000\n"
 "Last-Translator: Tom Fifield <tom@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -72,7 +72,7 @@ msgstr ""
 
 #: static/angular/metadata-tree/metadata-tree.js:44
 msgid "Duplicate keys are not allowed"
-msgstr ""
+msgstr "复制密钥是不允许的"
 
 #: static/angular/metadata-tree/metadata-tree.js:45
 #: static/horizon/js/horizon.forms.js:184

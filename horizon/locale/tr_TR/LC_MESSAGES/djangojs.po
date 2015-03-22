@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-18 20:07-0500\n"
-"PO-Revision-Date: 2015-03-18 23:58+0000\n"
+"POT-Creation-Date: 2015-03-20 00:51-0500\n"
+"PO-Revision-Date: 2015-03-21 06:55+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/horizon/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -71,7 +71,7 @@ msgstr ""
 
 #: static/angular/metadata-tree/metadata-tree.js:44
 msgid "Duplicate keys are not allowed"
-msgstr ""
+msgstr "Tekrarlanan anahtarlara izin verilmiyor"
 
 #: static/angular/metadata-tree/metadata-tree.js:45
 #: static/horizon/js/horizon.forms.js:184
@@ -84,7 +84,7 @@ msgstr ""
 
 #: static/angular/metadata-tree/metadata-tree.js:47
 msgid "Existing Metadata"
-msgstr ""
+msgstr "Varolan üstveri"
 
 #: static/angular/metadata-tree/metadata-tree.js:48
 msgid "Custom"
@@ -92,7 +92,7 @@ msgstr ""
 
 #: static/angular/metadata-tree/metadata-tree.js:49
 msgid "No available metadata"
-msgstr ""
+msgstr "Üstveri mevcut değil"
 
 #: static/angular/metadata-tree/metadata-tree.js:50
 msgid "No existing metadata"

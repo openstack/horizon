@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-18 20:07-0500\n"
-"PO-Revision-Date: 2015-03-18 23:58+0000\n"
+"POT-Creation-Date: 2015-03-20 00:51-0500\n"
+"PO-Revision-Date: 2015-03-21 06:55+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/horizon/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -66,7 +66,7 @@ msgstr ""
 
 #: static/angular/metadata-tree/metadata-tree.js:43
 msgid "Required"
-msgstr ""
+msgstr "Vereist"
 
 #: static/angular/metadata-tree/metadata-tree.js:44
 msgid "Duplicate keys are not allowed"
