@@ -28,16 +28,11 @@ from horizon.utils.urlresolvers import reverse  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.api import swift
+from openstack_dashboard.dashboards.project.containers import utils
 
 
 LOG = logging.getLogger(__name__)
 LOADING_IMAGE = '<img src="/static/dashboard/img/loading.gif" />'
-
-
-def wrap_delimiter(name):
-    if name and not name.endswith(swift.FOLDER_DELIMITER):
-        return name + swift.FOLDER_DELIMITER
-    return name
 
 
 class ViewContainer(tables.LinkAction):
@@ -160,7 +155,7 @@ class ListObjects(tables.LinkAction):
 
     def get_link_url(self, datum=None):
         container_name = http.urlquote(datum.name)
-        args = (wrap_delimiter(container_name),)
+        args = (utils.wrap_delimiter(container_name),)
         return reverse(self.url, args=args)
 
 
@@ -228,7 +223,7 @@ def get_size_used(container):
 
 def get_container_link(container):
     return reverse("horizon:project:containers:index",
-                   args=(wrap_delimiter(container.name),))
+                   args=(utils.wrap_delimiter(container.name),))
 
 
 class ContainerAjaxUpdateRow(tables.Row):
@@ -396,7 +391,7 @@ class ObjectFilterAction(tables.FilterAction):
         request = table.request
         container = self.table.kwargs['container_name']
         subfolder = self.table.kwargs['subfolder_path']
-        prefix = wrap_delimiter(subfolder) if subfolder else ''
+        prefix = utils.wrap_delimiter(subfolder) if subfolder else ''
         self.filtered_data = api.swift.swift_filter_objects(request,
                                                             filter_string,
                                                             container,
@@ -432,8 +427,8 @@ def get_size(obj):
 def get_link_subfolder(subfolder):
     container_name = subfolder.container_name
     return reverse("horizon:project:containers:index",
-                   args=(wrap_delimiter(container_name),
-                         wrap_delimiter(subfolder.name)))
+                   args=(utils.wrap_delimiter(container_name),
+                         utils.wrap_delimiter(subfolder.name)))
 
 
 class ObjectsTable(tables.DataTable):

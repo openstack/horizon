@@ -27,7 +27,7 @@ from horizon import forms
 from horizon import messages
 
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.containers import tables
+from openstack_dashboard.dashboards.project.containers import utils
 
 
 no_slash_validator = validators.RegexValidator(r'^(?u)[^/]+$',
@@ -229,10 +229,10 @@ class CopyObject(forms.SelfHandlingForm):
         except exceptions.HorizonException as exc:
             messages.error(request, exc)
             raise exceptions.Http302(
-                reverse(index, args=[tables.wrap_delimiter(orig_container)]))
+                reverse(index, args=[utils.wrap_delimiter(orig_container)]))
         except Exception:
             redirect = reverse(index,
-                               args=[tables.wrap_delimiter(orig_container)])
+                               args=[utils.wrap_delimiter(orig_container)])
             exceptions.handle(request,
                               _("Unable to copy object."),
                               redirect=redirect)
