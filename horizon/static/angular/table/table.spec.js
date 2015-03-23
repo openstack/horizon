@@ -9,7 +9,7 @@ describe('hz.widget.table module', function() {
 
 describe('table directives', function () {
 
-  var $scope, $element;
+  var $scope, $timeout, $element;
 
   beforeEach(module('smart-table'));
   beforeEach(module('hz'));
@@ -18,6 +18,7 @@ describe('table directives', function () {
 
   beforeEach(inject(function($injector) {
     var $compile = $injector.get('$compile');
+    $timeout = $injector.get('$timeout');
     $scope = $injector.get('$rootScope').$new();
 
     $scope.fakeData = [
@@ -27,25 +28,27 @@ describe('table directives', function () {
     ];
 
     var markup =
-      '<table st-table="fakeData" hz-table>' +
-      '<thead><tr>' +
-      '<th><input type="checkbox" hz-select-all="fakeData"' +
-      '           ng-checked="numSelected === fakeData.length"/></th>' +
-      '<th></th>' +
-      '<th>Animal</th>' +
-      '</tr></thead>' +
-      '<tbody>' +
+    '<table st-table="fakeData" hz-table>' +
+    '<thead>' +
+      '<tr>' +
+        '<th><input type="checkbox" hz-select-all="fakeData" ' +
+              'ng-checked="numSelected === fakeData.length"/></th>' +
+        '<th></th>' +
+        '<th>Animal</th>' +
+      '</tr>'+
+    '</thead>' +
+    '<tbody>' +
       '<tr ng-repeat-start="row in fakeData">' +
-      '<td><input type="checkbox" ng-model="selected[row.id].checked"' +
-      '           ng-change="updateSelectCount(row)"/></td>' +
-      '<td><i class="fa fa-chevron-right" hz-expand-detail></i></td>' +
-      '<td>{{ row.animal }}</td>' +
+        '<td><input type="checkbox" ng-model="selected[row.id].checked" ' +
+              'ng-change="updateSelectCount(row)"/></td>' +
+        '<td><i class="fa fa-chevron-right" hz-expand-detail></i></td>' +
+        '<td>{{ row.animal }}</td>' +
       '</tr>' +
       '<tr class="detail-row" ng-repeat-end>' +
-      '<td class="detail" colspan="3"></td>' +
+        '<td class="detail" colspan="3"></td>' +
       '</tr>' +
-      '</tbody>' +
-      '</table>';
+    '</tbody>' +
+    '</table>';
 
     $element = angular.element(markup);
     $compile($element)($scope);
@@ -99,11 +102,10 @@ describe('table directives', function () {
   describe('hzSelectAll directive', function() {
 
     it('should select all checkboxes if select-all checkbox checked', function() {
-      var selectAllCb = $element.find('input[hz-select-all]').first();
-      selectAllCb[0].checked = true;
-      selectAllCb.triggerHandler('click');
-
-      $scope.$digest();
+      var selectAll = $element.find('input[hz-select-all]').first();
+      selectAll[0].checked = true;
+      selectAll.triggerHandler('click');
+      $timeout.flush();
 
       expect($element.scope().numSelected).toBe(3);
       var checkboxes = $element.find('tbody input[type="checkbox"]');

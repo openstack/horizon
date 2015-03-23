@@ -84,12 +84,11 @@
 
         $scope.updateSelectCount = function(row) {
           if ($scope.selected.hasOwnProperty(row.id)) {
-            var checkedState = $scope.selected[row.id].checked;
-
-            if (checkedState) {
-              $scope.numSelected += 1;
-            } else {
-              $scope.numSelected -= 1;
+            if ($scope.selected[row.id].checked){
+              $scope.numSelected++;
+            }
+            else {
+              $scope.numSelected--;
             }
           }
         };
@@ -105,9 +104,9 @@
           };
 
           if (checkedState && !oldCheckedState) {
-            $scope.numSelected += 1;
+            $scope.numSelected++;
           } else if (!checkedState && oldCheckedState) {
-            $scope.numSelected -= 1;
+            $scope.numSelected--;
           }
         };
       },
@@ -138,7 +137,7 @@
    * ```
    *
    */
-  app.directive('hzSelectAll', function() {
+  app.directive('hzSelectAll', function($timeout) {
     return {
       restrict: 'A',
       require: '^hzTable',
@@ -146,14 +145,21 @@
         rows: '=hzSelectAll'
       },
       link: function(scope, element, attrs, hzTableCtrl) {
-        element.on('click', function() {
-          scope.$apply(function() {
+
+        // select or unselect all
+        function clickHandler() {
+          $timeout(function() {
             var checkedState = element.prop('checked');
             angular.forEach(scope.rows, function(row) {
               hzTableCtrl.select(row, checkedState);
             });
           });
-        });
+        }
+
+        // we need to watch rows so that
+        // new rows are added to the hzTable selected
+        element.click(clickHandler);
+        scope.$watch('rows.length', clickHandler);
       }
     };
   });
