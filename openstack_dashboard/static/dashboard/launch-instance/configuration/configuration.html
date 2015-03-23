@@ -9,24 +9,28 @@
                key="user_data">
     </load-edit>
 
-    <div class="form-group disk-partition">
-      <label for="launch-instance-disk-partition">
-        {$ ::config.label.diskPartition $}
-      </label>
-      <select class="form-control"
-              id="launch-instance-disk-partition"
-              ng-model="model.newInstanceSpec.disk_config"
-              ng-options="option.value as option.text for option in config.diskConfigOptions">
-      </select>
-    </div>
+    <nova-extension required-extensions='["DiskConfig"]'>
+      <div class="form-group disk-partition">
+        <label for="launch-instance-disk-partition">
+          {$ ::config.label.diskPartition $}
+        </label>
+        <select class="form-control"
+                id="launch-instance-disk-partition"
+                ng-model="model.newInstanceSpec.disk_config"
+                ng-options="option.value as option.text for option in config.diskConfigOptions">
+        </select>
+      </div>
+    </nova-extension>
 
-    <div class="checkbox">
-      <label>
-        <input type="checkbox"
-               ng-model="model.newInstanceSpec.config_drive">
-        {$ ::config.label.configurationDrive $}
-      </label>
-    </div>
+    <nova-extension required-extensions='["ConfigDrive"]'>
+      <div class="checkbox customization-script-source">
+        <label>
+          <input type="checkbox"
+                 ng-model="model.newInstanceSpec.config_drive">
+          {$ ::config.label.configurationDrive $}
+        </label>
+      </div>
+    </nova-extension>
 
   </div>
 </div>

@@ -270,40 +270,55 @@ limitations under the License.
   angular.module('hz.api')
     .service('novaAPI', ['apiService', NovaAPI]);
 
-   /**
-   * @ngdoc service
-   * @name hz.api.novaExtensions
-   * @description
-   * Provides cached access to Nova Extensions with utilities to help
-   * with asynchronous data loading. The cache may be reset at any time
-   * by accessing the cache and calling removeAll. The next call to any
-   * function will retrieve fresh results.
-   *
-   * The enabled extensions do not change often, so using cached data will
-   * speed up results. Even on a local devstack in informal testing,
-   * this saved between 30 - 100 ms per request.
-   */
+    /**
+    * @ngdoc service
+    * @name hz.api.novaExtensions
+    * @description
+    * Provides cached access to Nova Extensions with utilities to help
+    * with asynchronous data loading. The cache may be reset at any time
+    * by accessing the cache and calling removeAll. The next call to any
+    * function will retrieve fresh results.
+    *
+    * The enabled extensions do not change often, so using cached data will
+    * speed up results. Even on a local devstack in informal testing,
+    * this saved between 30 - 100 ms per request.
+    */
   function NovaExtensions($cacheFactory, $q, novaAPI) {
+      var service = {};
+      service.cache = $cacheFactory('hz.api.novaExtensions', {capacity: 1});
 
-    var service = {};
-    service.cache = $cacheFactory('hz.api.novaExtensions', {capacity: 1});
+      service.get = function () {
+        return novaAPI.getExtensions({cache: service.cache})
+          .then(function (data) {
+            return data.data.items;
+          });
+      };
 
-    service.get = function() {
-      return novaAPI.getExtensions({cache: service.cache})
-        .then(function(data){
-          return data.data.items;
+      service.ifNameEnabled = function(desired) {
+      var deferred = $q.defer();
+
+      service.get().then(onDataLoaded, onDataFailure);
+
+      function onDataLoaded(extensions) {
+        if (enabled(extensions, 'name', desired)) {
+          deferred.resolve();
+        } else {
+          deferred.reject(interpolate(
+            gettext('Extension is not enabled: %(extension)s'),
+            {extension: desired},
+            true));
         }
-      );
+      }
+
+      function onDataFailure() {
+        deferred.reject(gettext('Cannot get nova extension list.'));
+      }
+
+      return deferred.promise;
     };
 
-    service.ifNameEnabled = function(desired, doThis) {
-      return service.get().then(function(extensions){
-          if (enabled(extensions, 'name', desired)){
-            return $q.when(doThis());
-          }
-        }
-      );
-    };
+    // This is an alias to support the extension directive default interface
+    service.ifEnabled = service.ifNameEnabled;
 
     function enabled(resources, key, desired) {
       if(resources) {
@@ -315,7 +330,7 @@ limitations under the License.
       }
     }
 
-     return service;
+    return service;
   }
 
   angular.module('hz.api')
