@@ -18,6 +18,8 @@
     "afterAll": false,
     "it": false,
     "expect": false,
+    "spyOn": false,
+    "jasmine": false,
 
     "d3": false,
 
