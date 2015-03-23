@@ -21,7 +21,7 @@ from django import http
 from django.test.utils import override_settings
 from mox import IsA  # noqa
 
-from novaclient.v1_1 import floating_ip_pools
+from novaclient.v2 import floating_ip_pools
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test

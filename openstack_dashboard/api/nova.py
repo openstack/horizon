@@ -27,12 +27,12 @@ from django.utils.functional import cached_property  # noqa
 from django.utils.translation import ugettext_lazy as _
 
 from novaclient import exceptions as nova_exceptions
-from novaclient.v1_1 import client as nova_client
-from novaclient.v1_1.contrib import instance_action as nova_instance_action
-from novaclient.v1_1.contrib import list_extensions as nova_list_extensions
-from novaclient.v1_1 import security_group_rules as nova_rules
-from novaclient.v1_1 import security_groups as nova_security_groups
-from novaclient.v1_1 import servers as nova_servers
+from novaclient.v2 import client as nova_client
+from novaclient.v2.contrib import instance_action as nova_instance_action
+from novaclient.v2.contrib import list_extensions as nova_list_extensions
+from novaclient.v2 import security_group_rules as nova_rules
+from novaclient.v2 import security_groups as nova_security_groups
+from novaclient.v2 import servers as nova_servers
 
 from horizon import conf
 from horizon.utils import functions as utils

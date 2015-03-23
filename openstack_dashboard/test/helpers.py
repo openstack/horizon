@@ -40,7 +40,7 @@ from keystoneclient.v2_0 import client as keystone_client
 import mock
 import mox
 from neutronclient.v2_0 import client as neutron_client
-from novaclient.v1_1 import client as nova_client
+from novaclient.v2 import client as nova_client
 from openstack_auth import user
 from openstack_auth import utils
 from saharaclient import client as sahara_client

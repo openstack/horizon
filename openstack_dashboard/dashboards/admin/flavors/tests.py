@@ -19,7 +19,7 @@ from mox import IsA  # noqa
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
-from novaclient.v1_1 import flavors
+from novaclient.v2 import flavors
 
 from openstack_dashboard.dashboards.admin.flavors import constants
 from openstack_dashboard.dashboards.admin.flavors import workflows

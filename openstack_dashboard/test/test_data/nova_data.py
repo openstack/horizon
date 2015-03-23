@@ -15,24 +15,24 @@
 import json
 import uuid
 
-from novaclient.v1_1 import aggregates
-from novaclient.v1_1 import availability_zones
-from novaclient.v1_1 import certs
-from novaclient.v1_1 import flavor_access
-from novaclient.v1_1 import flavors
-from novaclient.v1_1 import floating_ips
-from novaclient.v1_1 import hosts
-from novaclient.v1_1 import hypervisors
-from novaclient.v1_1 import keypairs
-from novaclient.v1_1 import quotas
-from novaclient.v1_1 import security_group_rules as rules
-from novaclient.v1_1 import security_groups as sec_groups
-from novaclient.v1_1 import servers
-from novaclient.v1_1 import services
-from novaclient.v1_1 import usage
-from novaclient.v1_1 import volume_snapshots as vol_snaps
-from novaclient.v1_1 import volume_types
-from novaclient.v1_1 import volumes
+from novaclient.v2 import aggregates
+from novaclient.v2 import availability_zones
+from novaclient.v2 import certs
+from novaclient.v2 import flavor_access
+from novaclient.v2 import flavors
+from novaclient.v2 import floating_ips
+from novaclient.v2 import hosts
+from novaclient.v2 import hypervisors
+from novaclient.v2 import keypairs
+from novaclient.v2 import quotas
+from novaclient.v2 import security_group_rules as rules
+from novaclient.v2 import security_groups as sec_groups
+from novaclient.v2 import servers
+from novaclient.v2 import services
+from novaclient.v2 import usage
+from novaclient.v2 import volume_snapshots as vol_snaps
+from novaclient.v2 import volume_types
+from novaclient.v2 import volumes
 
 from openstack_dashboard.api import base
 from openstack_dashboard.api import nova

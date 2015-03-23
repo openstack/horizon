@@ -25,7 +25,7 @@ from django.test.utils import override_settings
 
 from mox import IsA  # noqa
 from novaclient import exceptions as nova_exceptions
-from novaclient.v1_1 import servers
+from novaclient.v2 import servers
 import six
 
 from openstack_dashboard import api
