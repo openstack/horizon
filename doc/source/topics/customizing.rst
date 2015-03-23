@@ -2,6 +2,51 @@
 Customizing Horizon
 ===================
 
+Themes
+======
+
+As of the Kilo release, styling for the OpenStack Dashboard can be altered
+through the use of a theme. A theme is a directory containing a
+``_variables.scss`` file to override the color codes used throughout the SCSS
+and a ``_styles.scss`` file with additional styles to load after dashboard
+styles have loaded.
+
+To use a custom theme, set ``CUSTOM_THEME_PATH`` in ``local_settings.py`` to
+the directory location for the theme (e.g., ``"static/themes/blue"``). The
+path can either be relative to the ``openstack_dashboard`` directory or an
+absolute path to an accessible location on the file system. The default
+``CUSTOM_THEME_PATH`` is ``static/themes/default``.
+
+Both the Dashboard custom variables and Bootstrap variables can be overridden.
+For a full list of the Dashboard SCSS variables that can be changed, see the
+variables file at ``openstack_dashboard/static/dashboard/scss/_variables.scss``.
+
+Changing the Logo
+-----------------
+
+There are currently two places where the OpenStack logo is pulled in
+through the stylesheets. The first is shown at the login screen and the other
+on top of the menu bar. To override the logo place your logo in your themes
+directory and set the image to use in ``_styles.scss``. For example::
+
+    #splash .login {
+      background-image: url(/static/themes/THEME/logo-splash.png);
+    }
+
+    .topbar {
+      h1.brand a {
+        background-image: url(/static/themes/THEME/logo.png);
+      }
+    }
+
+``THEME`` should be replaced by the name of your theme directory.
+The dimensions should be ``width: 216px, height: 35px`` for a drop in
+replacement.
+
+Prior to the Kilo release the images files inside of Horizon needed to be
+replaced by your images files or the Horizon stylesheets needed to be altered
+to point to the location of your image.
+
 Changing the Site Title
 =======================
 
@@ -11,24 +56,6 @@ to ``local_settings.py`` with the value being the desired name.
 
 The file ``local_settings.py`` can be found at the Horizon directory path of
 ``openstack_dashboard/local/local_settings.py``.
-
-Changing the Logo
-=================
-
-There are currently two places where the OpenStack logo is pulled in
-through ``horizon.less``. The first is shown at the login screen and the other
-on top of the menu bar::
-
-    #splash .login {
-        background: url(/static/dashboard/img/logo-splash.png) no-repeat center 35px;
-
-    h1.brand a {
-        background: url(/static/dashboard/img/logo.png) top left no-repeat;
-
-To override the OpenStack Logo image, replace the image at the directory path
-``openstack_dashboard/static/dashboard/img/logo.png``.
-
-The dimensions should be ``width: 216px, height: 35px``.
 
 Changing the Brand Link
 =======================
