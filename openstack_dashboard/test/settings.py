@@ -15,7 +15,9 @@ import os
 from horizon.test.settings import *  # noqa
 from horizon.utils import secret_key
 from openstack_dashboard import exceptions
+from openstack_dashboard.static_settings import get_staticfiles_dirs  # noqa
 
+STATICFILES_DIRS = get_staticfiles_dirs()
 
 TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_PATH = os.path.abspath(os.path.join(TEST_DIR, ".."))

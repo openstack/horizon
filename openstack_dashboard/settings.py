@@ -25,7 +25,7 @@ import django
 from django.utils.translation import ugettext_lazy as _
 
 from openstack_dashboard import exceptions
-from openstack_dashboard.static_settings import STATICFILES_DIRS  # noqa
+from openstack_dashboard.static_settings import get_staticfiles_dirs  # noqa
 
 
 warnings.formatwarning = lambda message, category, *args, **kwargs: \
@@ -47,11 +47,6 @@ LOGIN_URL = None
 LOGOUT_URL = None
 LOGIN_REDIRECT_URL = None
 
-
-MEDIA_ROOT = os.path.abspath(os.path.join(ROOT_PATH, '..', 'media'))
-MEDIA_URL = '/media/'
-STATIC_ROOT = os.path.abspath(os.path.join(ROOT_PATH, '..', 'static'))
-STATIC_URL = '/static/'
 
 ROOT_URLCONF = 'openstack_dashboard.urls'
 
@@ -269,11 +264,6 @@ try:
 except ImportError:
     logging.warning("No local_settings file found.")
 
-CUSTOM_THEME = os.path.join(ROOT_PATH, CUSTOM_THEME_PATH)
-STATICFILES_DIRS.append(
-    ('custom', CUSTOM_THEME),
-)
-
 if not WEBROOT.endswith('/'):
     WEBROOT += '/'
 if LOGIN_URL is None:
@@ -283,6 +273,16 @@ if LOGOUT_URL is None:
 if LOGIN_REDIRECT_URL is None:
     LOGIN_REDIRECT_URL = WEBROOT
 
+MEDIA_ROOT = os.path.abspath(os.path.join(ROOT_PATH, '..', 'media'))
+MEDIA_URL = WEBROOT + 'media/'
+STATIC_ROOT = os.path.abspath(os.path.join(ROOT_PATH, '..', 'static'))
+STATIC_URL = WEBROOT + 'static/'
+STATICFILES_DIRS = get_staticfiles_dirs(WEBROOT)
+
+CUSTOM_THEME = os.path.join(ROOT_PATH, CUSTOM_THEME_PATH)
+STATICFILES_DIRS.append(
+    ('custom', CUSTOM_THEME),
+)
 
 # Load the pluggable dashboard settings
 import openstack_dashboard.enabled

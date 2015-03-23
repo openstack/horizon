@@ -22,9 +22,11 @@ import sys
 
 import django
 from django.utils import html_parser
-from openstack_dashboard.static_settings import STATICFILES_DIRS  # noqa
+from openstack_dashboard.static_settings import get_staticfiles_dirs  # noqa
 
 from horizon.test import patches
+
+STATICFILES_DIRS = get_staticfiles_dirs()
 
 # Patch django.utils.html_parser.HTMLParser as a workaround for bug 1273943
 if django.get_version() == '1.4' and sys.version_info[:3] > (2, 7, 3):
