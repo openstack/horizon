@@ -5,6 +5,7 @@
 # Translators:
 # Ambroise Christea <ambroise.christea@cloudwatt.com>, 2014
 # Orizhial <contact@prunier.es>, 2015
+# Corina Roe <croe@redhat.com>, 2015
 # Frédéric <frosmont@free.fr>, 2014
 # Maxime COQUEREL <max.coquerel@gmail.com>, 2014-2015
 # Paul Gonin <paul.gonin@gmail.com>, 2015
@@ -13,8 +14,8 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-22 00:04+0000\n"
-"Last-Translator: Maxime COQUEREL <max.coquerel@gmail.com>\n"
+"PO-Revision-Date: 2015-03-23 05:32+0000\n"
+"Last-Translator: Corina Roe <croe@redhat.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -318,27 +319,27 @@ msgstr "Consommation d'énergie"
 
 #: api/ceilometer.py:1260
 msgid "System Current Power"
-msgstr ""
+msgstr "Alimentation actuelle du système"
 
 #: api/ceilometer.py:1264
 msgid "System Current Temperature"
-msgstr ""
+msgstr "Température actuelle du système"
 
 #: api/ceilometer.py:1268
 msgid "Fan RPM"
-msgstr ""
+msgstr "RPM Éventail"
 
 #: api/ceilometer.py:1272
 msgid "Sensor Temperature Reading"
-msgstr ""
+msgstr "Lecture de la température du capteur"
 
 #: api/ceilometer.py:1276
 msgid "Sensor Current Reading"
-msgstr ""
+msgstr "Lecture du courant du capteur"
 
 #: api/ceilometer.py:1280
 msgid "Sensor Voltage Reading"
-msgstr ""
+msgstr "Lecture de la tension du capteur"
 
 #: api/cinder.py:46 dashboards/admin/volumes/volume_types/forms.py:33
 msgid "back-end"
@@ -373,31 +374,31 @@ msgstr "L'utilisateur %s n'a pas de rôle défini pour ce projet."
 
 #: api/keystone.py:391
 msgid "Identity service does not allow editing user password."
-msgstr ""
+msgstr "Le service d'identité n'autorise pas la modification du mot de passe utilisateur."
 
 #: api/lbaas.py:152
 #, python-format
 msgid "Unable to get VIP for pool %(pool)s."
-msgstr ""
+msgstr "N'a pas pu obtenir adresse IP virtuelle du pool %(pool)s."
 
 #: api/lbaas.py:191
 msgid "Unable to get pool detail."
-msgstr ""
+msgstr "N'a pas pu obtenir les informations sur le pool."
 
 #: api/lbaas.py:203
 #, python-format
 msgid "Unable to get subnet for pool %(pool)s."
-msgstr ""
+msgstr "N'a pas pu obtenir le sous-réseau du pool %(pool)s."
 
 #: api/lbaas.py:211
 #, python-format
 msgid "Unable to get members for pool %(pool)s."
-msgstr ""
+msgstr "N'a pas pu obtenir les membres du pool %(pool)s."
 
 #: api/lbaas.py:218
 #, python-format
 msgid "Unable to get health monitors for pool %(pool)s."
-msgstr ""
+msgstr "N'a pas pu obtenir le moniteur d'intégrité du pool %(pool)s."
 
 #: api/neutron.py:225
 #, python-format
@@ -514,11 +515,11 @@ msgstr "Échec de migration des instances: %s"
 
 #: api/swift.py:203
 msgid "The container cannot be deleted since it is not empty."
-msgstr ""
+msgstr "Le conteneur ne peut pas être supprimé car il n'est pas vide."
 
 #: api/swift.py:320
 msgid "The pseudo folder cannot be deleted since it is not empty."
-msgstr ""
+msgstr "Le dossier-pseudo ne peut pas être supprimé car il n'est pas vide."
 
 #: dashboards/admin/dashboard.py:22
 msgid "System"
@@ -1749,16 +1750,16 @@ msgstr "Raison"
 #: dashboards/admin/hypervisors/compute/forms.py:86
 #, python-format
 msgid "Disabled compute service for host: %s."
-msgstr ""
+msgstr "Service de Calcul désactivé pour l'hôte : %s."
 
 #: dashboards/admin/hypervisors/compute/forms.py:91
 #, python-format
 msgid "Failed to disable compute service for host: %s."
-msgstr ""
+msgstr "N'a pas pu désactiver le Service de Calcul pour l'hôte : %s."
 
 #: dashboards/admin/hypervisors/compute/forms.py:106
 msgid "Running Instance Migration Type"
-msgstr ""
+msgstr "Type en migration d'instance en cours"
 
 #: dashboards/admin/hypervisors/compute/forms.py:108
 #: dashboards/admin/instances/views.py:156
@@ -1769,7 +1770,7 @@ msgstr "Migration Dynamique"
 
 #: dashboards/admin/hypervisors/compute/forms.py:109
 msgid "Cold Migrate"
-msgstr ""
+msgstr "Migration à froid"
 
 #: dashboards/admin/hypervisors/compute/forms.py:120
 #: dashboards/admin/hypervisors/compute/forms.py:127
@@ -1786,12 +1787,12 @@ msgstr "Migration par Bloc"
 #: dashboards/admin/hypervisors/compute/forms.py:159
 #, python-format
 msgid "Starting to migrate host: %(current)s"
-msgstr ""
+msgstr "Début de la migration de l'hôte : %(current)s"
 
 #: dashboards/admin/hypervisors/compute/forms.py:164
 #, python-format
 msgid "Failed to migrate host \"%s\"."
-msgstr ""
+msgstr "N'a pas pu migrer l'hôte \"%s\"."
 
 #: dashboards/admin/hypervisors/compute/tables.py:26
 #: dashboards/admin/hypervisors/compute/views.py:30
@@ -1807,13 +1808,13 @@ msgstr "Hôte Évacué"
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_disable_service.html:23
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/disable_service.html:3
 msgid "Disable Service"
-msgstr ""
+msgstr "Désactiver le service"
 
 #: dashboards/admin/hypervisors/compute/tables.py:63
 msgid "Enable Service"
 msgid_plural "Enable Services"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Activer les services"
+msgstr[1] "Activer les services"
 
 #: dashboards/admin/hypervisors/compute/tables.py:71
 msgid "Enabled Service"
@@ -1954,7 +1955,7 @@ msgstr "Utilisation du Disque Local"
 
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_disable_service.html:18
 msgid "Disable the compute service."
-msgstr ""
+msgstr "Désactiver le Service de Calcul."
 
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:18
 msgid ""
@@ -1967,7 +1968,7 @@ msgid ""
 "Optionally you can choose type of migration. All running instances of the "
 "host can be Live Migrated. Cold Migration is trying to use 'nova migrate' on"
 " each instance of migrated host."
-msgstr ""
+msgstr "Migre toutes les instances d'un hôte avec le service nova-compute désactivé. Vous pouvez choisir le type de migration si vous le souhaitez (option). Toutes les instances en cours de l'hôte peuvent être en Migration Live. La Migration à froid essaie d'utiliser « nova migrate » sur chaque instance d'un hôte migré."
 
 #: dashboards/admin/images/forms.py:65
 msgid "Unable to update the image metadata."
@@ -2170,7 +2171,7 @@ msgstr ""
 
 #: dashboards/admin/info/tables.py:225
 msgid "Orchestration Services"
-msgstr ""
+msgstr "Services d'Orchestration"
 
 #: dashboards/admin/info/tabs.py:74
 msgid "Unable to get cinder services list."
@@ -2186,11 +2187,11 @@ msgstr "Impossible d'obtenir la liste des agents réseau."
 
 #: dashboards/admin/info/tabs.py:116
 msgid "Orchestration service is disabled."
-msgstr ""
+msgstr "Le service Orchestration est désactivé."
 
 #: dashboards/admin/info/tabs.py:123
 msgid "Unable to get Orchestration service list."
-msgstr ""
+msgstr "Impossible d'obtenir la liste des services d'Orchestration"
 
 #: dashboards/admin/info/views.py:40
 msgid "Unable to retrieve version information."
@@ -2232,7 +2233,7 @@ msgstr "Échec de la migration dynamique de l'hôte \"%s\"."
 
 #: dashboards/admin/instances/tables.py:37
 msgid "Migrating instances may cause some unrecoverable results."
-msgstr ""
+msgstr "En migrant les instances, vous risquez d'obtenir des résultats irrattrapables."
 
 #: dashboards/admin/instances/tables.py:42
 msgid "Migrate Instance"
@@ -2253,7 +2254,7 @@ msgstr "Migration dynamique d'instance"
 
 #: dashboards/admin/instances/tables.py:94
 msgid "Project ="
-msgstr ""
+msgstr "Projet ="
 
 #: dashboards/admin/instances/tables.py:95
 msgid "Host ="
@@ -2377,7 +2378,7 @@ msgstr "Migrer directement une instance à un hôte spécifique."
 
 #: dashboards/admin/metadata_defs/forms.py:38
 msgid "Namespace Definition Source"
-msgstr ""
+msgstr "Source de la définition de l'espace de nom"
 
 #: dashboards/admin/metadata_defs/forms.py:40
 #: dashboards/admin/metadata_defs/forms.py:46
@@ -2393,7 +2394,7 @@ msgstr "Entrée directe"
 
 #: dashboards/admin/metadata_defs/forms.py:47
 msgid "A local metadata definition file to upload."
-msgstr ""
+msgstr "Un fichier de définition de métadonnées à télécharger."
 
 #: dashboards/admin/metadata_defs/forms.py:54
 #: dashboards/admin/metadata_defs/forms.py:58
@@ -2402,7 +2403,7 @@ msgstr "Espace de nom JSON"
 
 #: dashboards/admin/metadata_defs/forms.py:55
 msgid "The JSON formatted contents of a namespace."
-msgstr ""
+msgstr "Le contenu JSON formaté d'un espace de nom."
 
 #: dashboards/admin/metadata_defs/forms.py:62
 #: dashboards/admin/metadata_defs/tables.py:149
@@ -2416,36 +2417,36 @@ msgstr "Protégée"
 
 #: dashboards/admin/metadata_defs/forms.py:77
 msgid "Cannot specify both file and direct input."
-msgstr ""
+msgstr "Impossible d'indiquer à la fois le fichier et l'entrée directe."
 
 #: dashboards/admin/metadata_defs/forms.py:80
 msgid "No input was provided for the namespace content."
-msgstr ""
+msgstr "Aucune saisie de contenu d'espace de nom apparaît."
 
 #: dashboards/admin/metadata_defs/forms.py:100
 #, python-format
 msgid "There was a problem loading the namespace: %s."
-msgstr ""
+msgstr "Problème lors du chargement de l'espace nom : %s."
 
 #: dashboards/admin/metadata_defs/forms.py:110
 #, python-format
 msgid "Namespace %s has been created."
-msgstr ""
+msgstr "L'espace de nom %s a été créé."
 
 #: dashboards/admin/metadata_defs/forms.py:114
 #, python-format
 msgid "Unable to create new namespace. %s"
-msgstr ""
+msgstr "Impossible de créer le nouvel espace de nom. %s"
 
 #: dashboards/admin/metadata_defs/forms.py:140
 #, python-format
 msgid "Resource types updated for namespace %s."
-msgstr ""
+msgstr "Types de ressource mis à jour pour l'espace de nom %s."
 
 #: dashboards/admin/metadata_defs/forms.py:144
 #, python-format
 msgid "Error updating resource types for namespace %s."
-msgstr ""
+msgstr "Erreur de mise à jour des types de ressource pour l'espace de nom %s."
 
 #: dashboards/admin/metadata_defs/panel.py:25
 #: dashboards/admin/metadata_defs/views.py:40
@@ -2457,7 +2458,7 @@ msgstr "Définitions des Metadata"
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:9
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:35
 msgid "Import Namespace"
-msgstr ""
+msgstr "Importation de l'espace de nom"
 
 #: dashboards/admin/metadata_defs/tables.py:41
 msgid "Delete Namespace"
@@ -2576,12 +2577,12 @@ msgstr "Espace de noms"
 #: dashboards/admin/metadata_defs/tabs.py:26
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:3
 msgid "Namespace Overview"
-msgstr ""
+msgstr "L'espace de nom"
 
 #: dashboards/admin/metadata_defs/tabs.py:38
 #: dashboards/admin/metadata_defs/views.py:108
 msgid "Unable to retrieve namespace details."
-msgstr ""
+msgstr "Impossible d'extraire les informations sur l'espace nom."
 
 #: dashboards/admin/metadata_defs/tabs.py:45
 msgid "Contents"
@@ -2589,44 +2590,44 @@ msgstr "Contenu"
 
 #: dashboards/admin/metadata_defs/tabs.py:57
 msgid "Unable to retrieve namespace contents."
-msgstr ""
+msgstr "Impossible d'extraire le contenu de l'espace nom."
 
 #: dashboards/admin/metadata_defs/views.py:76
 msgid "Error getting metadata definitions."
-msgstr ""
+msgstr "Erreur lors de l'obtention des définitions des métadonnées."
 
 #: dashboards/admin/metadata_defs/views.py:86
 #: dashboards/admin/metadata_defs/templates/metadata_defs/create.html:3
 msgid "Create a Metadata Namespace"
-msgstr ""
+msgstr "Créer un Espace de nom de métadonnées"
 
 #: dashboards/admin/metadata_defs/views.py:93
 msgid "Namespace Details: {{ namespace.namespace }}"
-msgstr ""
+msgstr "Informations sur l'espace de nom : {{ namespace.namespace }}"
 
 #: dashboards/admin/metadata_defs/views.py:129
 #: dashboards/admin/metadata_defs/views.py:147
 #: dashboards/admin/metadata_defs/views.py:161
 msgid "Error getting resource type associations."
-msgstr ""
+msgstr "Erreur d'obtention des associations de types de ressources."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:20
 msgid "Specify a metadata definition namespace to import."
-msgstr ""
+msgstr "Indiquer une définition de métadonnées d'espace nom à importer."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:23
 msgid "Only definitions in raw JSON format are supported."
-msgstr ""
+msgstr "Seules les définitions en format JSON brut sont prises en charge."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:26
 msgid ""
 "Administrator Note: Use the following CLI command to import the default "
 "definitions into Glance: "
-msgstr ""
+msgstr "Remarque administrateur : utiliser la commande CLI pour importer les définitions par défaut dans Glance :"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_contents.html:4
 msgid "Undefined"
-msgstr ""
+msgstr "Non défini"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:7
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:8
@@ -2767,7 +2768,7 @@ msgstr "Jamais mis à jour"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:32
 msgid "Associated Resource Types"
-msgstr ""
+msgstr "Types de ressources associées"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:39
 msgid "Prefix: "
@@ -2779,13 +2780,13 @@ msgstr "Propriétes cible:"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:47
 msgid "No associations defined."
-msgstr ""
+msgstr "Aucune association définie."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_resource_types.html:5
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_resource_types.html:8
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_resource_types.html:14
 msgid "Namespace Resource Type Associations"
-msgstr ""
+msgstr "Associations de types de ressources d'espaces noms"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/detail.html:4
 msgid "Namespace Details"
@@ -2805,27 +2806,27 @@ msgid ""
 "Namespaces can be associated to different resource types. This makes the "
 "properties in the namespace visible in the 'Update Metadata' action for that"
 " type of resource."
-msgstr ""
+msgstr "Les espaces noms peuvent être associés à différents types de ressources. Cela rend les propriétés de l'espace nom visibles dans l'action « Mise à jour des métadonnées » pour ce type de ressource."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:61
 msgid ""
 "Additionally, some resource types may require a prefix to be used when "
 "applying the metadata. In certain cases, the prefix may differ between the "
 "resource type (for example, flavor vs image)."
-msgstr ""
+msgstr "De plus, certains types de ressources pourraient avoir besoin d'un préfixe à utiliser pour appliquer les métadonnées. Dans certains cas, le préfixe peut varier suivant le type de ressource (ex. gabarit vs image)."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:63
 msgid ""
 "Example: The prefix 'hw:' is added to OS::Nova::Flavor for the Virtual CPU "
 "Topology namespace so that the properties will be prefixed with 'hw:' when "
 "applied to flavors."
-msgstr ""
+msgstr "Exemple : le préfixe 'hw:' est ajouté à OS::Nova::Flavor pour l'espace nom de la topologie du CPU virtuel pour que les propriétés puissent être précédées de « hw: » quand elles s'appliquent aux gabarits."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:65
 msgid ""
 "Do not use a colon ':' with OS::Glance::Images. This resource type does not "
 "support the use of colons."
-msgstr ""
+msgstr "Ne pas utiliser les deux points ':' dans OS::Glance::Images. Ce type de ressource ne doit pas contenir les deux points."
 
 #: dashboards/admin/metering/forms.py:24
 #: dashboards/admin/metering/templates/metering/stats.html:116
@@ -2918,7 +2919,7 @@ msgstr "Valeur (moyenne)"
 #: dashboards/admin/metering/tables.py:49
 #: dashboards/admin/metering/views.py:107
 msgid "Unit"
-msgstr ""
+msgstr "Unité"
 
 #: dashboards/admin/metering/tables.py:56
 msgid "Daily Usage Report"
@@ -3030,7 +3031,7 @@ msgstr "Energie (Kwapi)"
 
 #: dashboards/admin/metering/templates/metering/stats.html:76
 msgid "Intelligent Platform Management Interface (IPMI)"
-msgstr ""
+msgstr "IPMI (Intelligent Platform Management Interface)"
 
 #: dashboards/admin/metering/templates/metering/stats.html:89
 msgid "Group by:"
@@ -3392,7 +3393,7 @@ msgstr "Agents DHCP"
 
 #: dashboards/admin/networks/views.py:50
 msgid "Unable to retrieve information about the networks' projects."
-msgstr ""
+msgstr "Impossible d'extraire l'information sur les projets réseaux."
 
 #: dashboards/admin/networks/views.py:78
 #: dashboards/project/networks/views.py:54
@@ -3408,7 +3409,7 @@ msgstr "Impossible d'obtenir la liste d'agents dhcp sur le réseau hôte."
 #: dashboards/admin/networks/views.py:107
 #: dashboards/project/networks/views.py:103
 msgid "Network Details: {{ network.name }}"
-msgstr ""
+msgstr "Informations réseau : {{ network.name }}"
 
 #: dashboards/admin/networks/views.py:116
 #: dashboards/project/networks/views.py:112
@@ -3496,12 +3497,12 @@ msgstr "Normal"
 #: dashboards/admin/networks/ports/forms.py:31
 #: dashboards/project/networks/ports/forms.py:29
 msgid "Direct"
-msgstr ""
+msgstr "Direct"
 
 #: dashboards/admin/networks/ports/forms.py:32
 #: dashboards/project/networks/ports/forms.py:30
 msgid "MacVTap"
-msgstr ""
+msgstr "MacVTap"
 
 #: dashboards/admin/networks/ports/forms.py:39
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:11
@@ -3537,24 +3538,24 @@ msgstr "Propriétaire du périphérique attaché au port."
 #: dashboards/admin/networks/ports/forms.py:56
 #: dashboards/admin/networks/ports/forms.py:126
 msgid "Binding: Host"
-msgstr ""
+msgstr "Liaison : hôte"
 
 #: dashboards/admin/networks/ports/forms.py:57
 #: dashboards/admin/networks/ports/forms.py:127
 msgid ""
 "The ID of the host where the port is allocated. In some cases, different "
 "implementations can run on different hosts."
-msgstr ""
+msgstr "L'ID de l'hôte où se trouve le port. Dans certains cas, des implémentations différentes peuvent exécuter sur des hôtes différents."
 
 #: dashboards/admin/networks/ports/forms.py:81
 #: dashboards/project/networks/ports/forms.py:64
 msgid "Binding: VNIC Type"
-msgstr ""
+msgstr "Liaison : type VNIC"
 
 #: dashboards/admin/networks/ports/forms.py:82
 #: dashboards/project/networks/ports/forms.py:65
 msgid "The VNIC type that is bound to the neutron port"
-msgstr ""
+msgstr "Le type de VNIC lié au port neutron"
 
 #: dashboards/admin/networks/ports/forms.py:87
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:22
@@ -3748,7 +3749,7 @@ msgstr "ID Projet"
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:15
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:15
 msgid "MAC Address"
-msgstr ""
+msgstr "Adresse MAC"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:23
 msgid "On"
@@ -3783,20 +3784,20 @@ msgstr ""
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:52
 msgid "Profile"
-msgstr ""
+msgstr "Profil"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:54
 msgid "VIF Type"
-msgstr ""
+msgstr "Type VIF"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:56
 msgid "VIF Details"
-msgstr ""
+msgstr "Infos VIF"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:69
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:51
 msgid "VNIC Type"
-msgstr ""
+msgstr "Type de VNIC"
 
 #: dashboards/admin/networks/templates/networks/ports/_update.html:6
 #: dashboards/project/networks/templates/networks/ports/_update.html:6
@@ -3869,7 +3870,7 @@ msgstr "RAM active totale (Mo)"
 #: dashboards/admin/overview/templates/overview/usage.csv:5
 #: dashboards/project/overview/templates/overview/usage.csv:6
 msgid "Total Memory Usage (Hours)"
-msgstr ""
+msgstr "Total utilisation mémoire (heures)"
 
 #: dashboards/admin/overview/templates/overview/usage.csv:6
 #: dashboards/project/overview/templates/overview/usage.csv:7
@@ -4005,7 +4006,7 @@ msgstr "Impossible de récupérer les types de volumes"
 
 #: dashboards/admin/volumes/tabs.py:88
 msgid "Unable to retrieve volume type encryption information."
-msgstr ""
+msgstr "Impossible d'extraire les informations de cryptage du type de volume."
 
 #: dashboards/admin/volumes/tabs.py:109
 msgid "Unable to retrieve QoS specs"
@@ -4149,19 +4150,19 @@ msgstr "\n   L'état d'un volume de snapshot est normallement géré automatique
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:6
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
-msgstr ""
+msgstr "Ajouter, modifier ou supprimer le QoS Spec associé à ce type de volume."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:7
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
 "setting the QoS Spec to \"None\" will remove the current association."
-msgstr ""
+msgstr "\"None\" indique qu'aucun QoS Spec n'est actuellement associé. Inversement, en définissant le QoS Spec à « none », l'association en cours sera supprimée."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:8
 msgid ""
 "This is equivalent to the <tt>cinder qos-associate</tt> and <tt>cinder qos-"
 "disassociate</tt> commands."
-msgstr ""
+msgstr "Ce équivaut aux commandes <tt>cinder qos-associate</tt> et <tt>cinder qos-disassociate</tt>."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:6
 msgid ""
@@ -4177,7 +4178,7 @@ msgid ""
 "      administrator would like the QoS policy to be enforced. This value can be \"front-end\"\n"
 "      (Nova Compute), \"back-end\" (Cinder back-end), or \"both\".\n"
 "  "
-msgstr ""
+msgstr "\nLes QoS Specs peuvent être associés aux types de volumes.\nIls peuvent être utilisés pour faire correspondre un type de volume à un groupe de critères de qualité de service requis par le détenteur du volume.  C'est l'équivalent de la commande \n      <tt>cinder qos-create</tt>. Une fois qu'une entité QoS Specs est créé,\n      cliquer sur le bouton \"Manage Specs\" (gestion des paramètres) pour gérer les paramètres QoS Specs principaux.\n      <br>\n      <br>\n      À chaque entité QoS Specs correspondra une valeur de \"Consumer\" (utilisateur) qui indiquera si l'administrateur souhaite ou non que la politique QoS soit appliquée. La valeur peut correspondre soit à \"front-end\"\n      (Nova Compute), \"back-end\" (Cinder back-end), ou \"both\" (les deux).\n  "
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:6
 msgid ""
@@ -4233,11 +4234,11 @@ msgid ""
 "    administrator would like the QoS policy to be enforced. This value can be \"front-end\"\n"
 "    (Nova Compute), \"back-end\" (Cinder back-end), or \"both\".\n"
 "    "
-msgstr "\nChaque entité de Spécifications QOS aura une valeur \"utilisateur\" qui indique où\nl'administrateur voudra faire exécuter la politique QOS. Cette valeur peut-être \"frontale\"\n(Nova Compute), \"sauvegarde\" (Cinder back-end) ou les deux."
+msgstr "\nChaque entité QOS Specs aura une valeur \"utilisateur\" qui indique où\nl'administrateur voudra faire exécuter la politique QOS. Cette valeur peut-être \"frontale\"\n(Nova Compute), \"sauvegarde\" (Cinder back-end) ou les deux."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:4
 msgid "Volume Type Encryption Overview"
-msgstr ""
+msgstr "Cryptage du type de volume"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:13
 #: dashboards/admin/volumes/volume_types/forms.py:28
@@ -4387,7 +4388,7 @@ msgid ""
 "    <br>\n"
 "    This is equivalent to the <tt>cinder manage</tt> command.\n"
 "    "
-msgstr ""
+msgstr "\n    \"Manage\" (gérer) un volume existant à partir d'un hôte Cinder. Cela rendra le volume visible dans OpenStack.\n    <br>\n    <br>\n   C'est l'équivalent de la commande <tt>cinder manage</tt>.\n    "
 
 #: dashboards/admin/volumes/templates/volumes/volumes/_unmanage_volume.html:6
 msgid ""
@@ -4398,7 +4399,7 @@ msgid ""
 "    <br>\n"
 "    This is equivalent to the <tt>cinder unmanage</tt> command.\n"
 "    "
-msgstr ""
+msgstr "\nQuand le volume est \"non-géré\", le volume n'apparaîtra plus dans OpenStack. Notez que le\nvolume ne sera pas supprimé de l'hôte Cinder.\n <br>\n <br>\n C'est l'équivalent de la commande <tt>cinder unmanage</tt>.\n    "
 
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:6
 msgid ""
@@ -4418,7 +4419,7 @@ msgstr "Détails du Volume"
 #: dashboards/admin/volumes/volumes/tables.py:33
 #: dashboards/admin/volumes/volumes/views.py:38
 msgid "Manage Volume"
-msgstr ""
+msgstr "Volume géré"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/manage_volume.html:6
 msgid "Manage a Volume"
@@ -4427,11 +4428,11 @@ msgstr "Gérer un volume"
 #: dashboards/admin/volumes/templates/volumes/volumes/unmanage_volume.html:3
 #: dashboards/admin/volumes/volumes/tables.py:43
 msgid "Unmanage Volume"
-msgstr ""
+msgstr "Volume non-géré"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/unmanage_volume.html:6
 msgid "Unmanage a Volume"
-msgstr ""
+msgstr "Volume non-géré"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/update_status.html:3
 #: dashboards/admin/volumes/volumes/tables.py:69
@@ -4443,11 +4444,11 @@ msgstr "Actualiser l'état du Volume"
 #: dashboards/admin/volumes/volume_types/forms.py:52
 #, python-format
 msgid "Successfully created encryption for volume type: %s"
-msgstr ""
+msgstr "Cryptage réussi pour le type de volume : %s"
 
 #: dashboards/admin/volumes/volume_types/forms.py:58
 msgid "Unable to create encrypted volume type."
-msgstr ""
+msgstr "Impossible de créer le type de volume crypté."
 
 #: dashboards/admin/volumes/volume_types/forms.py:64
 msgid "QoS Spec to be associated"
@@ -4530,7 +4531,7 @@ msgstr[1] ""
 
 #: dashboards/admin/volumes/volume_types/tables.py:122
 msgid "Unable to determine if volume type encryption is supported."
-msgstr ""
+msgstr "Impossible de déterminer si la codification du type de volume est prise en charge."
 
 #: dashboards/admin/volumes/volume_types/tables.py:148
 msgid "Associated QoS Spec"
@@ -4575,20 +4576,20 @@ msgstr "Créer un Type de Volume"
 
 #: dashboards/admin/volumes/volume_types/views.py:72
 msgid "Unable to retrieve volume type encryption details."
-msgstr ""
+msgstr "Impossible de récupérer les informations sur la codification du type de volume."
 
 #: dashboards/admin/volumes/volume_types/views.py:83
 #: dashboards/admin/volumes/volume_types/views.py:87
 msgid "Create Volume Type Encryption"
-msgstr ""
+msgstr "Créer une Codification de type de volume"
 
 #: dashboards/admin/volumes/volume_types/views.py:90
 msgid "Create an Encrypted Volume Type"
-msgstr ""
+msgstr "Créer un type de volume crypté"
 
 #: dashboards/admin/volumes/volume_types/views.py:100
 msgid "Unable to retrieve volume type name."
-msgstr ""
+msgstr "Impossible de récupérer le nom du type de volume."
 
 #: dashboards/admin/volumes/volume_types/views.py:125
 msgid "Create a QoS Spec"
@@ -4717,7 +4718,7 @@ msgstr "Impossible de récupérer la liste des spécifications supplémentaires.
 #: dashboards/admin/volumes/volume_types/extras/views.py:86
 #, python-format
 msgid "Edit Extra Spec Value: %s"
-msgstr ""
+msgstr "Modifier valeur Spec Suppl : %s"
 
 #: dashboards/admin/volumes/volume_types/extras/views.py:107
 msgid "Unable to retrieve volume type extra spec details."
@@ -4759,7 +4760,7 @@ msgstr "Incapable de récupérer la liste de la spécification QoS."
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:98
 msgid "Edit Spec Value"
-msgstr ""
+msgstr "Modifier valeur Spec"
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:117
 msgid "Unable to retrieve QoS spec details."
@@ -4775,7 +4776,7 @@ msgstr ""
 
 #: dashboards/admin/volumes/volumes/forms.py:49
 msgid "Name or other identifier for existing volume"
-msgstr ""
+msgstr "Nom ou autre identifiant du volume existant"
 
 #: dashboards/admin/volumes/volumes/forms.py:51
 msgid "Identifier Type"
@@ -4789,15 +4790,15 @@ msgstr ""
 msgid ""
 "Cinder host on which the existing volume resides; takes the form: host"
 "@backend-name#pool"
-msgstr ""
+msgstr "Hôte Cinder sur lequel le volume existant réside ; prend la forme : host@backend-name#pool"
 
 #: dashboards/admin/volumes/volumes/forms.py:62
 msgid "Volume name to be assigned"
-msgstr ""
+msgstr "Le nom de volume à donner"
 
 #: dashboards/admin/volumes/volumes/forms.py:69
 msgid "Comma-separated key=value pairs"
-msgstr ""
+msgstr "Paires clé=valeur séparées par des virgules"
 
 #: dashboards/admin/volumes/volumes/forms.py:72
 msgid "Volume Type"
@@ -4811,7 +4812,7 @@ msgstr "Amorçable"
 
 #: dashboards/admin/volumes/volumes/forms.py:81
 msgid "Specifies that the newly created volume should be marked as bootable"
-msgstr ""
+msgstr "Indique que le volume nouvellement créé doit être marqué amorçable"
 
 #: dashboards/admin/volumes/volumes/forms.py:89
 #: dashboards/project/volumes/volumes/forms.py:268
@@ -4821,11 +4822,11 @@ msgstr "Pas de type de volume"
 #: dashboards/admin/volumes/volumes/forms.py:128
 #, python-format
 msgid "Successfully sent the request to manage volume: %s"
-msgstr ""
+msgstr "Demande de gestion du volume réussie : %s"
 
 #: dashboards/admin/volumes/volumes/forms.py:133
 msgid "Unable to manage volume."
-msgstr ""
+msgstr "Impossible de gérer le volume."
 
 #: dashboards/admin/volumes/volumes/forms.py:159
 #, python-format
@@ -6036,7 +6037,7 @@ msgstr "Instance"
 msgid ""
 "Select the IP address you wish to associate with the selected instance or "
 "port."
-msgstr ""
+msgstr "Sélectionner l'adresse IP que vous souhaiter faire correspondre à l'instance ou au port sélectionné(e)."
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:47
 msgid "Port to be associated"
@@ -6094,7 +6095,7 @@ msgstr "Adresse IP inconnue"
 #: dashboards/project/access_and_security/floating_ips/workflows.py:156
 msgid ""
 "The requested instance port is already associated with another floating IP."
-msgstr ""
+msgstr "Le port de l'instance demandée correspond déjà à une autre adresse IP flottante."
 
 #: dashboards/project/access_and_security/keypairs/forms.py:34
 msgid ""
@@ -6160,7 +6161,7 @@ msgstr "Empreinte"
 #: dashboards/project/access_and_security/keypairs/views.py:73
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:4
 msgid "Key Pair Details"
-msgstr ""
+msgstr "Informations Paire de clés"
 
 #: dashboards/project/access_and_security/keypairs/views.py:82
 #, python-format
@@ -6286,7 +6287,7 @@ msgid ""
 "To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
 "from all members of another security group select &quot;Security "
 "Group&quot;."
-msgstr ""
+msgstr "Pour indiquer une plage d'adresses IP autorisées, sélectionner &quot;CIDR&quot;. Pour autoriser l'accès à tous les membres d'un autre groupe de sécurité, sélectionner &quot;Security Group&quot;."
 
 #: dashboards/project/access_and_security/security_groups/forms.py:216
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
@@ -7155,7 +7156,7 @@ msgstr "Créer un modèle de cluster"
 
 #: dashboards/project/data_processing/cluster_templates/views.py:104
 msgid "Copy Cluster Template"
-msgstr ""
+msgstr "Modèle de copie d'un cluster"
 
 #: dashboards/project/data_processing/cluster_templates/views.py:122
 #: dashboards/project/data_processing/clusters/views.py:111
@@ -7366,7 +7367,7 @@ msgstr "Clusters"
 #: dashboards/project/data_processing/clusters/tables.py:41
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:31
 msgid "Cluster Creation Guide"
-msgstr ""
+msgstr "Guide de création d'un cluster"
 
 #: dashboards/project/data_processing/clusters/tables.py:55
 #: dashboards/project/data_processing/clusters/views.py:93
@@ -7552,7 +7553,7 @@ msgstr "Lancer"
 #: dashboards/project/data_processing/clusters/workflows/create.py:221
 #, python-format
 msgid "Launched Cluster %s"
-msgstr ""
+msgstr "Cluster lancé %s"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:253
 msgid "Unable to create the cluster"
@@ -8030,7 +8031,7 @@ msgstr "Cluster"
 
 #: dashboards/project/data_processing/job_executions/tables.py:45
 msgid "Job Guide"
-msgstr ""
+msgstr "Guide pour une tâche"
 
 #: dashboards/project/data_processing/job_executions/tables.py:53
 msgid "Delete Job"
@@ -8076,7 +8077,7 @@ msgstr "Relancer sur le nouveau cluster"
 #: dashboards/project/data_processing/job_executions/tables.py:158
 msgctxt "Current status of a Job"
 msgid "Done with Error"
-msgstr ""
+msgstr "Effectué avec une erreur"
 
 #: dashboards/project/data_processing/job_executions/tables.py:160
 msgctxt "Current status of a Job"
@@ -8086,18 +8087,18 @@ msgstr "Echec"
 #: dashboards/project/data_processing/job_executions/tables.py:162
 msgctxt "Current status of a Job"
 msgid "Killed"
-msgstr ""
+msgstr "Supprimé par force"
 
 #: dashboards/project/data_processing/job_executions/tables.py:164
 msgctxt "Current status of a Job"
 msgid "Succeeded"
-msgstr ""
+msgstr "Réussi"
 
 #: dashboards/project/data_processing/job_executions/tables.py:175
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:10
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:3
 msgid "Job Template"
-msgstr ""
+msgstr "Modèle de tâche"
 
 #: dashboards/project/data_processing/job_executions/views.py:39
 msgid "Job Executions"
@@ -8113,7 +8114,7 @@ msgstr "Détails sur l'exécution de la tâche"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:3
 msgid "Job Overview"
-msgstr ""
+msgstr "Aperçu de la tâche"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:12
 msgid "Input Data Source"
@@ -8173,7 +8174,7 @@ msgstr "Détails de la tâche"
 #: dashboards/project/data_processing/jobs/tables.py:111
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/jobs.html:6
 msgid "Job Templates"
-msgstr ""
+msgstr "Modèles de tâches"
 
 #: dashboards/project/data_processing/jobs/tables.py:36
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:3
@@ -8181,7 +8182,7 @@ msgstr ""
 #: dashboards/project/data_processing/jobs/workflows/create.py:124
 #: dashboards/project/data_processing/jobs/workflows/create.py:155
 msgid "Create Job Template"
-msgstr ""
+msgstr "Créer un modèle de tâche"
 
 #: dashboards/project/data_processing/jobs/tables.py:46
 msgid "Delete Job Template"
@@ -8215,7 +8216,7 @@ msgstr "Créer une tâche"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:4
 msgid "Create a job template with a specified name."
-msgstr ""
+msgstr "Créer un modèle de tâche avec un nom indiqué."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:7
 msgid "Select the type of your job:"
@@ -8268,11 +8269,11 @@ msgstr "Pour MapReduce ou les tâches Action Java, les \"mains\" ne sont pas app
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:27
 msgid "You may also enter an optional description for your job template."
-msgstr ""
+msgstr "Vous pouvez également saisir une description en option pour votre modèle de tâche."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_libs_help.html:4
 msgid "Add libraries to your job template."
-msgstr ""
+msgstr "Ajouter des bibliothèques à votre modèle de tâche."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_libs_help.html:7
 msgid ""
@@ -10634,7 +10635,7 @@ msgstr ""
 #: dashboards/project/images/images/tables.py:237
 msgctxt "Current status of an Image"
 msgid "Killed"
-msgstr ""
+msgstr "Supprimé par force"
 
 #: dashboards/project/images/images/tables.py:238
 msgctxt "Current status of an Image"

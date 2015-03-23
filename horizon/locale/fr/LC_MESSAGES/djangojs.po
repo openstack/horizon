@@ -4,6 +4,7 @@
 # 
 # Translators:
 # alexandre ignjatovic <alexandre.ignjatovic@gmail.com>, 2015
+# Corina Roe <croe@redhat.com>, 2015
 # EVEILLARD <stephane.eveillard@gmail.com>, 2015
 # François Bureau, 2015
 # Frédéric <frosmont@free.fr>, 2014
@@ -13,8 +14,8 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-21 23:51+0000\n"
-"Last-Translator: Maxime COQUEREL <max.coquerel@gmail.com>\n"
+"PO-Revision-Date: 2015-03-23 01:01+0000\n"
+"Last-Translator: Corina Roe <croe@redhat.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +27,7 @@ msgstr ""
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
 "missing information."
-msgstr "L'action n' pas pu être effectuée. Les contenus des lignes contiennent des erreurs ou certaines informations sont manquantes."
+msgstr "L'action n'a pas pu être effectuée. Le contenu de cette ligne contient des erreurs ou des informations manquantes."
 
 #: static/angular/metadata-display/metadata-display.js:33
 msgid "Detail Information"
@@ -38,7 +39,7 @@ msgid ""
 "the right column. In the left columns there are metadata definitions from "
 "the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
 "the key of your choice."
-msgstr ""
+msgstr "Vous pouvez spécifier les ressources de métadonnées en déplaçant les éléments de la colonne de gauche vers la colonne de droite. Les colonnes de gauche contiennent des définitions de métadonnées du Catalogue de métadonnées Glance. Utiliser l'option \"Autre\" pour ajouter des métadonnées avec la clé de votre choix."
 
 #: static/angular/metadata-tree/metadata-tree.js:36
 msgid "Min"
@@ -58,7 +59,7 @@ msgstr "Longueur max"
 
 #: static/angular/metadata-tree/metadata-tree.js:40
 msgid "Pattern mismatch"
-msgstr ""
+msgstr "Modèle ne correspondant pas"
 
 #: static/angular/metadata-tree/metadata-tree.js:41
 msgid "Integer required"
@@ -132,11 +133,11 @@ msgstr "Pas d'élément disponible"
 
 #: static/angular/transfer-table/transfer-table.js:44
 msgid "Expand to see allocated items"
-msgstr ""
+msgstr "Développer pour voir les éléments alloués"
 
 #: static/angular/transfer-table/transfer-table.js:45
 msgid "Expand to see available items"
-msgstr ""
+msgstr "Développer pour voir les éléments disponibles"
 
 #: static/angular/transfer-table/transfer-table.js:46
 msgid "Click to show or hide"
@@ -144,7 +145,7 @@ msgstr "Cliquer pour montrer ou cacher"
 
 #: static/angular/transfer-table/transfer-table.js:47
 msgid "Re-order items using drag and drop"
-msgstr ""
+msgstr "Ordonnancer les éléments à nouveau en utilisant l'opération glisser-déplacer"
 
 #: static/angular/transfer-table/transfer-table.js:48
 msgid "Click to see more details"
@@ -152,7 +153,7 @@ msgstr "Cliquer pour une vue plus détaillée"
 
 #: static/angular/transfer-table/transfer-table.js:100
 msgid "Found %(found)s of %(total)s"
-msgstr ""
+msgstr "Résultat %(found)s parmi %(total)s"
 
 #: static/angular/wizard/wizard.js:8
 msgid "Back"
@@ -389,11 +390,11 @@ msgstr "Impossible de récupérer les instantanés de volume."
 
 #: static/horizon/js/angular/services/hz.api.config.js:42
 msgid "Unable to retrieve user configuration."
-msgstr ""
+msgstr "Impossible de récupérer la configuration utilisateur."
 
 #: static/horizon/js/angular/services/hz.api.config.js:61
 msgid "Unable to retrieve admin configuration."
-msgstr ""
+msgstr "Impossible d'extraire la configuration admin."
 
 #: static/horizon/js/angular/services/hz.api.glance.js:38
 msgid "Unable to retrieve image."
@@ -513,7 +514,7 @@ msgstr "Impossible d'accorder le rôle"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:215
 msgid "Unable to fetch the service catalog."
-msgstr ""
+msgstr "Impossible d'extraire le catalogue de services."
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:39
 msgid "Unable to retrieve networks."
@@ -561,7 +562,7 @@ msgstr "Impossible de retrouver le serveur."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:188
 msgid "Unable to retrieve extensions."
-msgstr ""
+msgstr "Impossible d'obtenir les extensions."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:233
 msgid "Unable to retrieve flavors."
@@ -573,7 +574,7 @@ msgstr "Impossible de récupérer le gabarit."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:265
 msgid "Unable to retrieve flavor extra specs."
-msgstr ""
+msgstr "Impossible de récupérer les paramètres suppl. de gabarits."
 
 #: static/horizon/js/angular/services/hz.api.policy.js:65
 msgid "Policy check failed."

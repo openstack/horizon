@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-21 23:51+0000\n"
+"PO-Revision-Date: 2015-03-22 13:12+0000\n"
 "Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -1441,7 +1441,7 @@ msgstr "공용"
 
 #: dashboards/admin/flavors/views.py:57
 msgid "Unable to retrieve flavor list."
-msgstr "Flavor 목록을 찾지 못 했습니다."
+msgstr "Flavor 목록을 찾지 못했습니다."
 
 #: dashboards/admin/flavors/views.py:82
 msgid "Unable to retrieve flavor details."
@@ -2245,7 +2245,7 @@ msgstr "실시간 인스턴스 이전"
 
 #: dashboards/admin/instances/tables.py:94
 msgid "Project ="
-msgstr ""
+msgstr "Project ="
 
 #: dashboards/admin/instances/tables.py:95
 msgid "Host ="
@@ -3440,7 +3440,7 @@ msgstr "에이전트 %s를 추가했습니다."
 #: dashboards/admin/networks/agents/forms.py:80
 #, python-format
 msgid "Failed to add agent %(agent_name)s for network %(network)s."
-msgstr "네트워크 %(network)s 의 에이전트 %(agent_name)s 를 추가하지 못 했습니다."
+msgstr "네트워크 %(network)s 의 에이전트 %(agent_name)s 를 추가하지 못했습니다."
 
 #: dashboards/admin/networks/agents/tables.py:36
 msgid "Delete DHCP Agent"
@@ -3482,12 +3482,12 @@ msgstr "기본"
 #: dashboards/admin/networks/ports/forms.py:31
 #: dashboards/project/networks/ports/forms.py:29
 msgid "Direct"
-msgstr ""
+msgstr "Direct"
 
 #: dashboards/admin/networks/ports/forms.py:32
 #: dashboards/project/networks/ports/forms.py:30
 msgid "MacVTap"
-msgstr ""
+msgstr "MacVTap"
 
 #: dashboards/admin/networks/ports/forms.py:39
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:11
@@ -3523,24 +3523,24 @@ msgstr "포트에 디바이스 소유자가 연결되었습니다."
 #: dashboards/admin/networks/ports/forms.py:56
 #: dashboards/admin/networks/ports/forms.py:126
 msgid "Binding: Host"
-msgstr ""
+msgstr "바인딩: 호스트"
 
 #: dashboards/admin/networks/ports/forms.py:57
 #: dashboards/admin/networks/ports/forms.py:127
 msgid ""
 "The ID of the host where the port is allocated. In some cases, different "
 "implementations can run on different hosts."
-msgstr ""
+msgstr "포트가 할당된 호스트에 대한 ID. 몇몇 경우에는, 다른 구현이 서로 다른 호스트에서 실행할 수 있습니다."
 
 #: dashboards/admin/networks/ports/forms.py:81
 #: dashboards/project/networks/ports/forms.py:64
 msgid "Binding: VNIC Type"
-msgstr ""
+msgstr "바인딩: VNIC 유형"
 
 #: dashboards/admin/networks/ports/forms.py:82
 #: dashboards/project/networks/ports/forms.py:65
 msgid "The VNIC type that is bound to the neutron port"
-msgstr ""
+msgstr "Neutron 포트에 바인딩된 VNIC 유형"
 
 #: dashboards/admin/networks/ports/forms.py:87
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:22
@@ -3558,7 +3558,7 @@ msgstr "포트 %s를 성공적으로 생성하였습니다."
 #: dashboards/admin/networks/ports/forms.py:108
 #, python-format
 msgid "Failed to create a port for network %s"
-msgstr "네트워크 %s의 포트 생성하지 못 했습니다."
+msgstr "네트워크 %s의 포트를 생성하지 못했습니다."
 
 #: dashboards/admin/networks/ports/forms.py:155
 #: dashboards/project/networks/ports/forms.py:87
@@ -3730,11 +3730,11 @@ msgstr "프로젝트 ID"
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:15
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:15
 msgid "MAC Address"
-msgstr ""
+msgstr "MAC 주소"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:23
 msgid "On"
-msgstr ""
+msgstr "On"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:25
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:25
@@ -3761,24 +3761,24 @@ msgstr "연결할 디바이스가 없습니다."
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:48
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:48
 msgid "Binding"
-msgstr ""
+msgstr "바인딩"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:52
 msgid "Profile"
-msgstr ""
+msgstr "프로필"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:54
 msgid "VIF Type"
-msgstr ""
+msgstr "VIF 유형"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:56
 msgid "VIF Details"
-msgstr ""
+msgstr "VIF 세부 사항"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:69
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:51
 msgid "VNIC Type"
-msgstr ""
+msgstr "VNIC 유형"
 
 #: dashboards/admin/networks/templates/networks/ports/_update.html:6
 #: dashboards/project/networks/templates/networks/ports/_update.html:6
@@ -3983,11 +3983,11 @@ msgstr "볼륨 타입"
 
 #: dashboards/admin/volumes/tabs.py:80
 msgid "Unable to retrieve volume types"
-msgstr "볼륨 타입을 찾지 못 했습니다."
+msgstr "볼륨 타입을 찾지 못했습니다."
 
 #: dashboards/admin/volumes/tabs.py:88
 msgid "Unable to retrieve volume type encryption information."
-msgstr "볼륨 타입의 암호화 정보를 찾지 못 했습니다."
+msgstr "볼륨 타입의 암호화 정보를 찾지 못했습니다."
 
 #: dashboards/admin/volumes/tabs.py:109
 msgid "Unable to retrieve QoS specs"
@@ -3996,7 +3996,7 @@ msgstr "QOS 사양을 검색할 수 없습니다."
 #: dashboards/admin/volumes/tabs.py:133 dashboards/project/volumes/tabs.py:113
 #: dashboards/project/volumes/volumes/forms.py:232
 msgid "Unable to retrieve volume snapshots."
-msgstr "볼륨 스냅샷을 찾지 못 했습니다."
+msgstr "볼륨 스냅샷을 찾지 못했습니다."
 
 #: dashboards/admin/volumes/snapshots/forms.py:26
 #: dashboards/admin/volumes/volumes/forms.py:196
@@ -4025,7 +4025,7 @@ msgstr "볼륨 스냅샷 상태를 업데이트 했습니다: \"%s\"."
 
 #: dashboards/admin/volumes/snapshots/forms.py:50
 msgid "Unable to update volume snapshot status."
-msgstr "볼륨 스냅샷 상태를 업데이트 하지 못 했습니다."
+msgstr "볼륨 스냅샷 상태를 업데이트 하지 못했습니다."
 
 #: dashboards/admin/volumes/snapshots/tables.py:29
 #: dashboards/admin/volumes/snapshots/views.py:36
@@ -4055,7 +4055,7 @@ msgstr "볼륨 스냅샷 상태 업데이트"
 #: dashboards/admin/volumes/snapshots/views.py:49
 #: dashboards/project/volumes/snapshots/views.py:48
 msgid "Unable to retrieve volume snapshot."
-msgstr "볼륨 스냅샷을 찾지 못 했습니다."
+msgstr "볼륨 스냅샷을 찾지 못했습니다."
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:4
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:4
@@ -4597,7 +4597,7 @@ msgstr "사용자 수정"
 
 #: dashboards/admin/volumes/volume_types/views.py:161
 msgid "Unable to retrieve QoS Spec details."
-msgstr "QOS 사양의 세부 정보를 찾지 못 했습니다."
+msgstr "QOS 사양의 세부 정보를 찾지 못했습니다."
 
 #: dashboards/admin/volumes/volume_types/views.py:175
 #: dashboards/admin/volumes/volume_types/views.py:182
@@ -7964,7 +7964,7 @@ msgstr "클러스터"
 
 #: dashboards/project/data_processing/job_executions/tables.py:45
 msgid "Job Guide"
-msgstr ""
+msgstr "Job 가이드"
 
 #: dashboards/project/data_processing/job_executions/tables.py:53
 msgid "Delete Job"
@@ -8027,7 +8027,7 @@ msgstr "Succeeded"
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:10
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:3
 msgid "Job Template"
-msgstr ""
+msgstr "Job 템플릿"
 
 #: dashboards/project/data_processing/job_executions/views.py:39
 msgid "Job Executions"
@@ -8043,7 +8043,7 @@ msgstr "Job 실행에대한 자세한 정보"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:3
 msgid "Job Overview"
-msgstr ""
+msgstr "Job 개요"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:12
 msgid "Input Data Source"
@@ -8103,7 +8103,7 @@ msgstr "Job에대한 자세한 정보"
 #: dashboards/project/data_processing/jobs/tables.py:111
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/jobs.html:6
 msgid "Job Templates"
-msgstr ""
+msgstr "Job 템플릿"
 
 #: dashboards/project/data_processing/jobs/tables.py:36
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:3
@@ -8111,17 +8111,17 @@ msgstr ""
 #: dashboards/project/data_processing/jobs/workflows/create.py:124
 #: dashboards/project/data_processing/jobs/workflows/create.py:155
 msgid "Create Job Template"
-msgstr ""
+msgstr "Job 템플릿 생성"
 
 #: dashboards/project/data_processing/jobs/tables.py:46
 msgid "Delete Job Template"
 msgid_plural "Delete Job Templates"
-msgstr[0] ""
+msgstr[0] "Job 템플릿 제거"
 
 #: dashboards/project/data_processing/jobs/tables.py:54
 msgid "Deleted Job Template"
 msgid_plural "Deleted Jobs Templates"
-msgstr[0] ""
+msgstr[0] "제거된 Job 템플릿"
 
 #: dashboards/project/data_processing/jobs/tables.py:65
 msgid "Launch On Existing Cluster"
@@ -8143,7 +8143,7 @@ msgstr "Job 생성"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:4
 msgid "Create a job template with a specified name."
-msgstr ""
+msgstr "이름을 지정하여 job 템플릿을 생성합니다."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:7
 msgid "Select the type of your job:"
@@ -8196,17 +8196,17 @@ msgstr "MapReduce 또는 자바 엑션 job은 \"mains\"에 적용되지 않습�
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:27
 msgid "You may also enter an optional description for your job template."
-msgstr ""
+msgstr "Job 템플릿에 대해 옵션으로 설명 또한 넣을 수 있습니다."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_libs_help.html:4
 msgid "Add libraries to your job template."
-msgstr ""
+msgstr "Job 템플릿을 라이브러리에 추가합니다."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_libs_help.html:7
 msgid ""
 "Choose from the list of binaries and click \"choose\" to add the library to "
 "your job template.  This can be repeated for additional libraries."
-msgstr ""
+msgstr "바이너리 목록으로부터 선택하고 \"선택\"을 클릭하여 라이브러리를 job 템플릿에 추가합니다. 추가 라이브러리에 반복하여 가능합니다."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:12
 msgid "Mains"
@@ -8223,11 +8223,11 @@ msgstr "Job 실행하는데 있어서 필요한 사용자 정의 구성요소를
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_launch_job_help.html:4
 msgid "Launch the given job template on a cluster."
-msgstr ""
+msgstr "주어진 job 템플릿을 클러스터에서 실행합니다."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_launch_job_help.html:7
 msgid "Choose the cluster to use for the job."
-msgstr ""
+msgstr "Job에 대해 사용할 클러스터를 선택합니다."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_launch_job_help.html:10
 msgid "Choose the Input Data Source (n/a for Java jobs)."
@@ -8264,7 +8264,7 @@ msgstr "인수"
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/details.html:3
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/details.html:6
 msgid "Job Template Details"
-msgstr ""
+msgstr "Job 템플릿 세부 정보"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/library_template.html:86
 msgid "Choose"
@@ -8311,7 +8311,7 @@ msgstr "Job 생성됨"
 
 #: dashboards/project/data_processing/jobs/workflows/create.py:158
 msgid "Could not create job template"
-msgstr ""
+msgstr "Job 템플릿 생성 불가"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:40
 msgid "Input"
@@ -8630,7 +8630,7 @@ msgstr "플러그인 이름"
 
 #: dashboards/project/data_processing/wizard/forms.py:43
 msgid "Cluster type chosen"
-msgstr ""
+msgstr "선택된 Cluster 유형"
 
 #: dashboards/project/data_processing/wizard/forms.py:47
 msgid "Unable to set cluster type"
@@ -8642,7 +8642,7 @@ msgstr "플러그인 형식과 버전을 선택하세요"
 
 #: dashboards/project/data_processing/wizard/forms.py:116
 msgid "Job type chosen"
-msgstr ""
+msgstr "선택된 Job 유형"
 
 #: dashboards/project/data_processing/wizard/forms.py:120
 msgid "Unable to set job type"
@@ -8673,7 +8673,7 @@ msgid ""
 "      This choice will dictate which steps are required to successfully\n"
 "      execute your job.\n"
 "    "
-msgstr ""
+msgstr "실행하고자 하는 Job 유형을 선택합니다.\n이 선택은 Job을 성공적으로 실행하기 위해 필요로 하는 다음\n단계에 영향을 줄 것입니다."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_plugin_select.html:13
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/plugin_select.html:3
@@ -8685,11 +8685,11 @@ msgstr "플러그인 및 버전 선택"
 msgid ""
 "Select which plugin and version that you\n"
 "    want to use to create your cluster."
-msgstr ""
+msgstr "클러스터를 생성하는데 사용하기를 원하는 \n플러그인 및 버전을 선택합니다."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:7
 msgid "Guided Cluster Creation"
-msgstr ""
+msgstr "가이드 클러스터 생성"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:16
 msgid ""
@@ -8702,30 +8702,30 @@ msgid ""
 "                    Choosing this up front will allow the rest of the cluster\n"
 "                    creation steps to focus only on options that are pertinent\n"
 "                    to your desired cluster type."
-msgstr ""
+msgstr "첫 번째 단계에서는 실행하고자 하는 클러스터 \n유형을 결정합니다. 시스템 구성에 따라 선택 가능한 몇몇 \n선택지가 있을 것입니다.\n\"플러그인 선택\"을 클릭하여 데이터 처리 플러그인 목록을 \n보이도록 합니다. 여기서 버전 번호와 함께 놓여 있는 \n데이터 처리 플러그인을 선택할 수 있습니다.\n이를 위에 두어 남은 클러스터 생성 과정에서 원하는 클러스터 \n유형에 적합한 옵션에만 집중할 수 있도록 합니다."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:27
 msgid "Choose plugin"
-msgstr ""
+msgstr "플러그인 선택"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:28
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:64
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:91
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:123
 msgid "Current choice:"
-msgstr ""
+msgstr "현재 선택:"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:31
 msgid "Plugin:"
-msgstr ""
+msgstr "플러그인:"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:33
 msgid "Version:"
-msgstr ""
+msgstr "버전:"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:38
 msgid "No plugin chosen"
-msgstr ""
+msgstr "선택된 플러그인 없음"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:47
 msgid ""
@@ -8739,39 +8739,39 @@ msgid ""
 "                        you will define the Node Group Template for your\n"
 "                        \"master\" node(s).\n"
 "                     "
-msgstr ""
+msgstr "다음으로, 클러스터 내 있는 머신의\n다른 유형을 정의할 필요가 있습니다. 이는 머신의 \n각 유형에 대한 노드 그룹 템플릿을 정의함으로써 이루어\n집니다. 가장 일반적인 유형으로는 다른 머신 집합이 \"작업자\"  \n프로세스를 실행할 필요가 있는 동안 \"마스터\" 집합의 프로세스를 \n실행하는 하나 이상의 머신을 필요로 하는 경우입니다. 여기서, \n\"마스터\" 노드(들)에 대한 노드 그룹 템플릿을 정의할 \n수 있습니다."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:62
 msgid "Create a Master Node Group Template"
-msgstr ""
+msgstr "마스터 노드 그룹 템플릿 선택"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:67
 msgid "Master Node Group Template:"
-msgstr ""
+msgstr "마스터 노드 그룹 템플릿:"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:72
 msgid "No Master Node Group Template Created"
-msgstr ""
+msgstr "생성된 마스터 노드 그룹 템플릿이 없음"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:81
 msgid ""
 "Repeat the Node Group Template\n"
 "                        creation process, but this time you are creating\n"
 "                        your \"worker\" Node Group Template."
-msgstr ""
+msgstr "노드 그룹 템플릿 생성 과정을\n반복하지만, 현재는 \"작업자\" 노드 그룹 템플릿을 \n생성하는 중입니다."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:89
 msgid "Create a Worker Node Group Template"
-msgstr ""
+msgstr "작업자 노드 그룹 템플릿 생성"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:94
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:126
 msgid "Worker Node Group Template:"
-msgstr ""
+msgstr "작업자 노드 그룹 템플릿:"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:99
 msgid "No Worker Node Group Template Created"
-msgstr ""
+msgstr "생성된 작업자 노드 그룹 템플릿 없음"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:108
 msgid ""
@@ -8783,15 +8783,15 @@ msgid ""
 "                        you will have a chance to set any cluster-specific\n"
 "                        configuration items in the additional tabs on the\n"
 "                        create Cluster Template form."
-msgstr ""
+msgstr "이제 클러스터 레이아웃을 설정할 것입니다.\n클러스터 \n템플릿을 생성함으로써, 클러스터에 나타날 개별 노드 \n그룹 템플릿에 대한 인스턴스의 개수를 선택할 \n것입니다. 부가적으로, \n클러스터 템플릿 생성 폼에 있는 추가 탭에 \n있는 임의의 클러스터-세부 구성 항목을 선택하는 \n단계가 나타날 것입니다."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:121
 msgid "Create a Cluster Template"
-msgstr ""
+msgstr "클러스터 템플릿 생성"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:131
 msgid "No Cluster Template Created"
-msgstr ""
+msgstr "생성된 클러스터 템플릿 없음"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:140
 msgid ""
@@ -8803,23 +8803,23 @@ msgid ""
 "                        click on \"Create\", your instances will begin to\n"
 "                        spawn.  Your cluster should be operational in a few\n"
 "                        minutes."
-msgstr ""
+msgstr "이제 클러스터를 실행할 \n준비가 되었습니다. 아래 링크를 클릭하면,\n클러스터 이름을 입력할 것입니다. 그리고,\n사용할 클러스터 템플릿을 선택하여 인스턴스를 \n생성하는데 사용할 이미지를 선택합니다. 이후 \"생성\"을\n클릭하면, 인스턴스가 spawn하기 시작할 \n것입니다. 클러스터는 몇 분 이내에 동작 상태로 될 \n것입니다."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:153
 msgid "Launch a Cluster"
-msgstr ""
+msgstr "클러스터 실행"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:161
 msgid "Reset Cluster Guide"
-msgstr ""
+msgstr "클러스터 가이드 리셋"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:163
 msgid "Reset Cluster Creation Guide"
-msgstr ""
+msgstr "클러스터 생성 가이드 리셋"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:7
 msgid "Guided Job Execution"
-msgstr ""
+msgstr "가이드 Job 실행"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:17
 msgid ""
@@ -8827,19 +8827,19 @@ msgid ""
 "                            you want to run.  This choice will determine which\n"
 "                            other steps are required\n"
 "                        "
-msgstr ""
+msgstr "먼저, 실행하고자 하는 job 유형\n을 선택합니다. 이 선택을 통해 필요로 하는 다른\n과정들을 결정할 것입니다."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:25
 msgid "Select type"
-msgstr ""
+msgstr "유형 선택"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:28
 msgid "Current type:"
-msgstr ""
+msgstr "현재 유형:"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:35
 msgid "No type chosen"
-msgstr ""
+msgstr "선택된 유형 없음"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:46
 msgid ""
@@ -8849,11 +8849,11 @@ msgid ""
 "                            or more data sources.  You can create multiple data\n"
 "                            sources by repeating this step.\n"
 "                        "
-msgstr ""
+msgstr "데이터 소스는 job이 입력과 \n출력으로 사용하는 대상입니다. 실행할 job 유형에 \n의존하여, 하나 또는 여러 개의 데이터 소스를 지정해야 \n할 필요가 있을지도 모릅니다. 해당 단계를 반복하여 \n여러 데이터 소스를 생성할 수 있습니다."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:56
 msgid "Create a data source"
-msgstr ""
+msgstr "데이터 소스 생성"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:65
 msgid ""
@@ -8863,19 +8863,19 @@ msgid ""
 "                        or upload the files necessary to run it.  The inputs\n"
 "                        and outputs will be defined later.\n"
 "                    "
-msgstr ""
+msgstr "Job 템플릿을 정의합니다.\n실행하고자 하는 Job 유형을 선택하고, \n(Pig, Java Action, Spark, etc) 실행할 필요가 있는 \n파일들을 선택 또는 업로드합니다. 입력과 출력은 \n추후에 정의할 것입니다."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:75
 msgid "Create a job template"
-msgstr ""
+msgstr "Job 템플릿 생성"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:77
 msgid "Job template:"
-msgstr ""
+msgstr "Job 템플릿:"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:84
 msgid "No job template created"
-msgstr ""
+msgstr "생성된 job 템플릿이 없음"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:93
 msgid ""
@@ -8886,20 +8886,20 @@ msgid ""
 "                        or arguments that you need to pass along\n"
 "                        to your job.\n"
 "                        "
-msgstr ""
+msgstr "Job을 실행합니다. \n실행할 때, 입력 및 출력 데이터 소스를 선택할 필요가 \n있을 수 있습니다. 여기서 job을 따라 같이 전달을 \n필요로하는 임의의 특별한 구성 값, 파라메터, 또는 \n아규먼트를 또한 추가할 수 \n있습니다."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:103
 msgid "Launch job"
-msgstr ""
+msgstr "Job 실행"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:112
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:114
 msgid "Reset Job Execution Guide"
-msgstr ""
+msgstr "Job실행 가이드 리셋"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:7
 msgid "Data Processing Guides"
-msgstr ""
+msgstr "데이터 처리 가이드"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:16
 msgid ""
@@ -8916,7 +8916,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:29
 msgid "Cluster Guide"
-msgstr ""
+msgstr "클러스터 가이드"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:38
 msgid ""
@@ -10879,7 +10879,7 @@ msgstr "선택한 가용성 존에 flavor에 대한 충분한 공간이 없습�
 msgid ""
 "Failed to perform requested operation on instance \"%s\", the instance has "
 "an error status"
-msgstr ""
+msgstr "인스턴스 \"%s\"에 대해 요청된 동작 수행 실패, 인스턴스에 에러 상태가 있습니다."
 
 #: dashboards/project/instances/tables.py:672
 #: dashboards/project/instances/views.py:395
@@ -12727,7 +12727,7 @@ msgstr "예상된 코드는 단일 값(예: 200), 목록 값(예:200, 202), 또�
 
 #: dashboards/project/loadbalancers/workflows.py:562
 msgid "Delay must be greater than or equal to Timeout"
-msgstr ""
+msgstr "지연값은 Timeout 값 이상이어야 합니다."
 
 #: dashboards/project/loadbalancers/workflows.py:571
 msgid "Please choose a HTTP method"
@@ -14788,7 +14788,7 @@ msgid ""
 "\n"
 "      The \"Volume Type\" selected must be different from the current volume type.\n"
 "     "
-msgstr ""
+msgstr "\n선택된 \"볼륨 유형\"은 현재 볼륨 유형과 달라야 합니다."
 
 #: dashboards/project/volumes/templates/volumes/volumes/_retype.html:15
 msgid ""
@@ -14841,7 +14841,7 @@ msgid ""
 "      Upload the volume to the Image Service as an image.\n"
 "      This is equivalent to the <tt>cinder upload-to-image</tt> command.\n"
 "     "
-msgstr ""
+msgstr "\n볼륨을 이미지 서비스에 이미지로 업로드합니다.\n이는 <tt>cinder upload-to-image</tt> 명령어와 동일합니다."
 
 #: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:11
 msgid ""
@@ -14849,7 +14849,7 @@ msgid ""
 "      Choose \"Disk Format\" for the image. The volume images are created with\n"
 "      the QEMU disk image utility.\n"
 "     "
-msgstr ""
+msgstr "\n이미지에 대한 \"디스크 포맷\"을 선택합니다. 볼륨 이미지는 QEMU\n디스크 \n이미지 유틸리티와 같이 생성됩니다."
 
 #: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:17
 msgid ""
@@ -14857,7 +14857,7 @@ msgid ""
 "        When the volume status is \"in-use\", you can use \"Force\" to upload the\n"
 "        volume to an image.\n"
 "       "
-msgstr ""
+msgstr "\n볼륨 상태가 \"In-use\"이면, \"강제\"를 사용하여 볼륨을 이미지에 업로드할 수 있습니다."
 
 #: dashboards/project/volumes/templates/volumes/volumes/accept_transfer.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/accept_transfer.html:6

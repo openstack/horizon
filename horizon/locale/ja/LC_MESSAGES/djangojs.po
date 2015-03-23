@@ -5,14 +5,14 @@
 # Translators:
 # Akihiro Motoki <amotoki@gmail.com>, 2014-2015
 # Tom Fifield <tom@openstack.org>, 2015
-# ykatabam <ykatabam@redhat.com>, 2014
+# ykatabam <ykatabam@redhat.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-21 19:00+0000\n"
-"Last-Translator: Tom Fifield <tom@openstack.org>\n"
+"PO-Revision-Date: 2015-03-22 12:08+0000\n"
+"Last-Translator: ykatabam <ykatabam@redhat.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,11 +24,11 @@ msgstr ""
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
 "missing information."
-msgstr ""
+msgstr "操作を実行できません。この行のコンテンツにエラーがあるか、情報が見つかりません。"
 
 #: static/angular/metadata-display/metadata-display.js:33
 msgid "Detail Information"
-msgstr ""
+msgstr "詳細情報"
 
 #: static/angular/metadata-tree/metadata-tree.js:35
 msgid ""
@@ -36,23 +36,23 @@ msgid ""
 "the right column. In the left columns there are metadata definitions from "
 "the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
 "the key of your choice."
-msgstr ""
+msgstr "左の列から右の列にアイテムを移動して、リソースのメタデータを指定できます。左の列には、Glance のメタデータカタログに登録されているメタデータの定義が表示されています。任意のキーのメタデータを追加するには、\"Other\" オプションを使ってください。"
 
 #: static/angular/metadata-tree/metadata-tree.js:36
 msgid "Min"
-msgstr ""
+msgstr "最小値"
 
 #: static/angular/metadata-tree/metadata-tree.js:37
 msgid "Max"
-msgstr ""
+msgstr "最大値"
 
 #: static/angular/metadata-tree/metadata-tree.js:38
 msgid "Min length"
-msgstr ""
+msgstr "最小長"
 
 #: static/angular/metadata-tree/metadata-tree.js:39
 msgid "Max length"
-msgstr ""
+msgstr "最大長"
 
 #: static/angular/metadata-tree/metadata-tree.js:40
 msgid "Pattern mismatch"
@@ -89,7 +89,7 @@ msgstr "選択済みのメタデータ"
 
 #: static/angular/metadata-tree/metadata-tree.js:48
 msgid "Custom"
-msgstr ""
+msgstr "カスタム"
 
 #: static/angular/metadata-tree/metadata-tree.js:49
 msgid "No available metadata"
@@ -126,7 +126,7 @@ msgstr ""
 
 #: static/angular/transfer-table/transfer-table.js:43
 msgid "No available items"
-msgstr ""
+msgstr "利用できるアイテムがありません。"
 
 #: static/angular/transfer-table/transfer-table.js:44
 msgid "Expand to see allocated items"
@@ -366,15 +366,15 @@ msgstr "MB"
 
 #: static/horizon/js/angular/filters/filters.js:138
 msgid "TB"
-msgstr ""
+msgstr "TB"
 
 #: static/horizon/js/angular/filters/filters.js:144
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 #: static/horizon/js/angular/filters/filters.js:146
 msgid "bytes"
-msgstr ""
+msgstr "B"
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:47
 msgid "Unable to retrieve volumes."
@@ -386,11 +386,11 @@ msgstr "ボリュームスナップショットの一覧を取得できません
 
 #: static/horizon/js/angular/services/hz.api.config.js:42
 msgid "Unable to retrieve user configuration."
-msgstr ""
+msgstr "ユーザーの設定を取得できません。"
 
 #: static/horizon/js/angular/services/hz.api.config.js:61
 msgid "Unable to retrieve admin configuration."
-msgstr ""
+msgstr "管理者の設定を取得できません。"
 
 #: static/horizon/js/angular/services/hz.api.glance.js:38
 msgid "Unable to retrieve image."
@@ -518,19 +518,19 @@ msgstr "ネットワーク一覧を取得できません。"
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:88
 msgid "Unable to create the network."
-msgstr ""
+msgstr "ネットワークを作成できません。"
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:108
 msgid "Unable to retrieve subnets."
-msgstr ""
+msgstr "サブネットを取得できません。"
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:172
 msgid "Unable to create the subnet."
-msgstr ""
+msgstr "サブネットを作成できません。"
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:192
 msgid "Unable to retrieve ports."
-msgstr ""
+msgstr "ポートを取得できません。"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:40
 msgid "Unable to retrieve keypairs."
@@ -554,11 +554,11 @@ msgstr "サーバーを作成できません。"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:158
 msgid "Unable to retrieve server."
-msgstr ""
+msgstr "サーバーを取得できません。"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:188
 msgid "Unable to retrieve extensions."
-msgstr ""
+msgstr "拡張機能を取得できません。"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:233
 msgid "Unable to retrieve flavors."
@@ -566,15 +566,15 @@ msgstr "フレーバーの一覧を取得できません。"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:251
 msgid "Unable to retrieve flavor."
-msgstr ""
+msgstr "フレーバーを取得できません。"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:265
 msgid "Unable to retrieve flavor extra specs."
-msgstr ""
+msgstr "フレーバーの追加スペックを取得できません。"
 
 #: static/horizon/js/angular/services/hz.api.policy.js:65
 msgid "Policy check failed."
-msgstr ""
+msgstr "ポリシーチェックに失敗しました。"
 
 #: static/horizon/js/angular/services/hz.api.security-group.js:64
 msgid "Unable to retrieve security groups."
