@@ -50,7 +50,8 @@
           allNamespacesPromise;
 
       // Constants (const in ES6)
-      var SOURCE_TYPE_IMAGE = 'image',
+      var NON_BOOTABLE_IMAGE_TYPES = ['aki', 'ari'],
+          SOURCE_TYPE_IMAGE = 'image',
           SOURCE_TYPE_SNAPSHOT = 'snapshot',
           SOURCE_TYPE_VOLUME = 'volume',
           SOURCE_TYPE_VOLUME_SNAPSHOT = 'volume_snapshot';
@@ -184,7 +185,7 @@
           model.allowedBootSources.length = 0;
 
           promise = $q.all(
-            glanceAPI.getImages().then(onGetImages),
+            getImages(),
             neutronAPI.getNetworks().then(onGetNetworks),
             novaAPI.getAvailabilityZones().then(onGetAvailabilityZones),
             novaAPI.getFlavors().then(onGetFlavors),
@@ -339,16 +340,29 @@
 
       // Boot Source
 
+      function getImages(){
+        return glanceAPI.getImages({status:'active'}).then(onGetImages);
+      }
+
+      function isBootableImageType(image){
+        // This is a blacklist of images that can not be booted.
+        // If the image container type is in the blacklist
+        // The evaluation will result in a 0 or greater index.
+        return NON_BOOTABLE_IMAGE_TYPES.indexOf(image.container_format) < 0;
+      }
+
       function onGetImages(data) {
         model.images.length = 0;
         push.apply(model.images, data.data.items.filter(function (image) {
-          return !image.properties || image.properties.image_type !== 'snapshot';
+          return isBootableImageType(image) &&
+            (!image.properties || image.properties.image_type !== 'snapshot');
         }));
         addAllowedBootSource(model.images, SOURCE_TYPE_IMAGE, gettext('Image'));
 
         model.imageSnapshots.length = 0;
-        push.apply(model.imageSnapshots, data.data.items.filter(function (image) {
-          return image.properties && image.properties.image_type === 'snapshot';
+        push.apply(model.imageSnapshots,data.data.items.filter(function (image) {
+          return isBootableImageType(image) &&
+            (image.properties && image.properties.image_type === 'snapshot');
         }));
 
         addAllowedBootSource(model.imageSnapshots, SOURCE_TYPE_SNAPSHOT, gettext('Instance Snapshot'));
