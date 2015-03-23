@@ -5,7 +5,9 @@
 {% block form_id %}create_directory_form{% endblock %}
 {% block form_action %}{% url 'horizon:project:containers:create_pseudo_folder' container_name %}{% endblock %}
 
-{% block modal-header %}{% trans "Create pseudo-folder in container" %} {{ container_name }}{% endblock %}
+{% block modal-header %}
+  {% blocktrans %}Create pseudo-folder in container {{ container_name }}{% endblocktrans %}
+{% endblock %}
 
 {% block modal-body %}
 <div class="left">
