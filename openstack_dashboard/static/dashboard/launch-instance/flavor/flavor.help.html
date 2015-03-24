@@ -1,4 +1,4 @@
-<div ng-controller="LaunchInstanceFlavorHelpCtrl">
-  <h1>{$ title $}</h1>
-  <p></p>
+<div ng-controller="LaunchInstanceFlavorHelpCtrl as flavorHelpCtrl">
+  <h1>{$ ::flavorHelpCtrl.title $}</h1>
+  <p ng-repeat="paragraph in flavorHelpCtrl.paragraphs" ng-bind-html="::paragraph"></p>
 </div>

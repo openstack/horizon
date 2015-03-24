@@ -1,4 +1,4 @@
-<div ng-controller="LaunchInstanceAccessAndSecurityHelpCtrl">
-  <h1>{$ title $}</h1>
-  <p></p>
+<div ng-controller="LaunchInstanceAccessAndSecurityHelpCtrl as accessSecHelpCtrl">
+  <h1>{$ ::accessSecHelpCtrl.title $}</h1>
+  <p ng-repeat="paragraph in accessSecHelpCtrl.paragraphs" ng-bind-html="::paragraph"></p>
 </div>
