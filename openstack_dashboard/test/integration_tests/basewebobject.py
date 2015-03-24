@@ -12,9 +12,10 @@
 import selenium.common.exceptions as Exceptions
 import selenium.webdriver.support.ui as Support
 from selenium.webdriver.support import wait
+import unittest
 
 
-class BaseWebObject(object):
+class BaseWebObject(unittest.TestCase):
     """Base class for all web objects."""
     def __init__(self, driver, conf):
         self.driver = driver
