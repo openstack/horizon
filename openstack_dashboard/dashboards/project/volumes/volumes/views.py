@@ -242,6 +242,7 @@ class ShowTransferView(forms.ModalFormView):
     modal_id = "show_volume_transfer_modal"
     modal_header = _("Volume Transfer")
     submit_url = "horizon:project:volumes:volumes:show_transfer"
+    cancel_label = _("Close")
 
     def get_object(self):
         try:
@@ -275,7 +276,6 @@ class UpdateView(forms.ModalFormView):
     modal_header = _("Edit Volume")
     modal_id = "update_volume_modal"
     template_name = 'project/volumes/volumes/update.html'
-    submit_label = _("Save")
     submit_url = "horizon:project:volumes:volumes:update"
     success_url = reverse_lazy("horizon:project:volumes:index")
 
