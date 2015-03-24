@@ -69,6 +69,7 @@
   module.controller('LaunchInstanceModalCtrl', [
     '$scope',
     '$modal',
+    '$window',
     'launchInstanceWizardModalSpec',
     LaunchInstanceModalCtrl
   ]);
@@ -80,9 +81,24 @@
     $scope.submit = $scope.model.createInstance;
   }
 
-  function LaunchInstanceModalCtrl($scope, $modal, modalSpec) {
-    $scope.openLaunchInstanceWizard = function () {
-      $modal.open(modalSpec);
+  function LaunchInstanceModalCtrl($scope, $modal, $window, modalSpec) {
+    $scope.openLaunchInstanceWizard = function (launchContext) {
+     var localSpec = {
+        resolve: {
+          launchContext: function() { return launchContext; }
+        }
+      };
+
+      angular.extend(localSpec, modalSpec);
+
+      var launchInstanceModal = $modal.open(localSpec);
+
+      launchInstanceModal.result.then(function () {
+        if (launchContext && launchContext.successUrl) {
+          $window.location.href = launchContext.successUrl;
+        }
+      });
+
     };
   }
 

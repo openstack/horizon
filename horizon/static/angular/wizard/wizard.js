@@ -36,7 +36,8 @@
       };
     }])
 
-    .controller('ModalContainerCtrl', ['$scope', '$modalInstance', function ($scope, $modalInstance) {
+    .controller('ModalContainerCtrl', ['$scope', '$modalInstance', 'launchContext', function ($scope, $modalInstance, launchContext) {
+        $scope.launchContext = launchContext;
         $scope.close = function () {
           $modalInstance.close();
         };

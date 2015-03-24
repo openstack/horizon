@@ -356,7 +356,8 @@ class LaunchLinkNG(LaunchLink):
     def __init__(self,
                  attrs={
                      "ng-controller": "LaunchInstanceModalCtrl",
-                     "ng-click": "openLaunchInstanceWizard()"
+                     "ng-click": "openLaunchInstanceWizard(" +
+                                 "{successUrl: '/project/instances/'})"
                  },
                  **kwargs):
         kwargs['preempt'] = True
