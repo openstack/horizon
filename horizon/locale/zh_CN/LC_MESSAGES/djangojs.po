@@ -6,13 +6,14 @@
 # LIU Yulong <dragon889@163.com>, 2014-2015
 # Tom Fifield <tom@openstack.org>, 2015
 # Xiao Xi LIU <liuxx@cn.ibm.com>, 2014
+# Ying Chun Guo <daisy.ycguo@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-21 19:00+0000\n"
-"Last-Translator: Tom Fifield <tom@openstack.org>\n"
+"POT-Creation-Date: 2015-03-23 21:49-0500\n"
+"PO-Revision-Date: 2015-03-24 06:00+0000\n"
+"Last-Translator: Ying Chun Guo <daisy.ycguo@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,11 +25,11 @@ msgstr ""
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
 "missing information."
-msgstr ""
+msgstr "不能执行该操作。该列的内容有错或是缺少信息。"
 
 #: static/angular/metadata-display/metadata-display.js:33
 msgid "Detail Information"
-msgstr ""
+msgstr "详细信息"
 
 #: static/angular/metadata-tree/metadata-tree.js:35
 msgid ""
@@ -75,6 +76,7 @@ msgid "Duplicate keys are not allowed"
 msgstr "复制密钥是不允许的"
 
 #: static/angular/metadata-tree/metadata-tree.js:45
+#: static/angular/table/basic-table.js:6
 #: static/horizon/js/horizon.forms.js:184
 msgid "Filter"
 msgstr "筛选"
@@ -311,6 +313,7 @@ msgid "Please confirm your selection. "
 msgstr "请确认您的选择。"
 
 #: static/horizon/js/horizon.tables.js:369
+#: static/horizon/js/angular/filters/filters.js:163
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"

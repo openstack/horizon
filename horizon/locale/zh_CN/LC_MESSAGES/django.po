@@ -6,13 +6,14 @@
 # ChangBo Guo(gcb) <glongwave@gmail.com>, 2014
 # LIU Yulong <dragon889@163.com>, 2014-2015
 # Xiao Xi LIU <liuxx@cn.ibm.com>, 2014
+# Ying Chun Guo <daisy.ycguo@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-17 03:17+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-03-23 21:49-0500\n"
+"PO-Revision-Date: 2015-03-24 05:50+0000\n"
+"Last-Translator: Ying Chun Guo <daisy.ycguo@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -463,7 +464,7 @@ msgstr "端口号必须为整数"
 
 #: utils/validators.py:59
 msgid "The string may only contain ASCII printable characters."
-msgstr ""
+msgstr "字符串只能包含ASCII可印刷字符."
 
 #: workflows/base.py:71
 msgid "Processing..."
