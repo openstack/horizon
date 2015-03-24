@@ -152,6 +152,16 @@ def quotainf(val, units=None):
         return val
 
 
+@register.simple_tag
+def quotapercent(used, limit):
+    if used >= limit or limit == 0:
+        return 100
+    elif limit == float("inf"):
+        return 0
+    else:
+        return round((float(used) / float(limit)) * 100)
+
+
 class JSTemplateNode(template.Node):
     """Helper node for the ``jstemplate`` template tag."""
     def __init__(self, nodelist):

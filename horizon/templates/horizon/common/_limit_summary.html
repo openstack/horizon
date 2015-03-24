@@ -3,49 +3,49 @@
 <div class="quota-dynamic">
   <h3 class="quota-heading">{% trans "Limit Summary" %}</h3>
     <div class="d3_quota_bar">
-      <div class="d3_pie_chart_usage" data-used="{% widthratio usage.limits.totalInstancesUsed usage.limits.maxTotalInstances 100 %}"></div>
+      <div class="d3_pie_chart_usage" data-used="{% quotapercent usage.limits.totalInstancesUsed usage.limits.maxTotalInstances %}"></div>
       <strong>{% trans "Instances" %} <br />
         {% blocktrans with used=usage.limits.totalInstancesUsed|intcomma available=usage.limits.maxTotalInstances|quotainf|intcomma %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
       </strong>
     </div>
 
     <div class="d3_quota_bar">
-      <div class="d3_pie_chart_usage" data-used="{% widthratio usage.limits.totalCoresUsed usage.limits.maxTotalCores 100 %}"></div>
+      <div class="d3_pie_chart_usage" data-used="{% quotapercent usage.limits.totalCoresUsed usage.limits.maxTotalCores %}"></div>
       <strong>{% trans "VCPUs" %} <br />
         {% blocktrans with used=usage.limits.totalCoresUsed|intcomma available=usage.limits.maxTotalCores|quotainf|intcomma %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
       </strong>
     </div>
 
     <div class="d3_quota_bar">
-      <div class="d3_pie_chart_usage" data-used="{% widthratio usage.limits.totalRAMUsed usage.limits.maxTotalRAMSize 100 %}"></div>
+      <div class="d3_pie_chart_usage" data-used="{% quotapercent usage.limits.totalRAMUsed usage.limits.maxTotalRAMSize %}"></div>
       <strong>{% trans "RAM" %} <br />
         {% blocktrans with used=usage.limits.totalRAMUsed|mb_float_format available=usage.limits.maxTotalRAMSize|quotainf|mb_float_format %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
       </strong>
     </div>
 
     <div class="d3_quota_bar">
-      <div class="d3_pie_chart_usage" data-used="{% widthratio usage.limits.totalFloatingIpsUsed usage.limits.maxTotalFloatingIps 100 %}"></div>
+      <div class="d3_pie_chart_usage" data-used="{% quotapercent usage.limits.totalFloatingIpsUsed usage.limits.maxTotalFloatingIps %}"></div>
       <strong>{% trans "Floating IPs" %} <br />
         {% blocktrans with used=usage.limits.totalFloatingIpsUsed|intcomma available=usage.limits.maxTotalFloatingIps|quotainf|intcomma %}Allocated <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
       </strong>
     </div>
 
     <div class="d3_quota_bar">
-      <div class="d3_pie_chart_usage" data-used="{% widthratio usage.limits.totalSecurityGroupsUsed usage.limits.maxSecurityGroups 100 %}"></div>
+      <div class="d3_pie_chart_usage" data-used="{% quotapercent usage.limits.totalSecurityGroupsUsed usage.limits.maxSecurityGroups %}"></div>
       <strong>{% trans "Security Groups" %} <br />
         {% blocktrans with used=usage.limits.totalSecurityGroupsUsed|intcomma available=usage.limits.maxSecurityGroups|quotainf|intcomma %}Used <span> {{ used }} </span> of <span> {{ available  }} </span>{% endblocktrans %}
       </strong>
     </div>
   {% if usage.limits.totalVolumesUsed >= 0 %}
     <div class="d3_quota_bar">
-      <div class="d3_pie_chart_usage" data-used="{% widthratio usage.limits.totalVolumesUsed usage.limits.maxTotalVolumes 100 %}"></div>
+      <div class="d3_pie_chart_usage" data-used="{% quotapercent usage.limits.totalVolumesUsed usage.limits.maxTotalVolumes %}"></div>
       <strong>{% trans "Volumes" %} <br />
         {% blocktrans with used=usage.limits.totalVolumesUsed|intcomma available=usage.limits.maxTotalVolumes|quotainf|intcomma %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
       </strong>
     </div>
 
     <div class="d3_quota_bar">
-      <div class="d3_pie_chart_usage" data-used="{% widthratio usage.limits.totalGigabytesUsed usage.limits.maxTotalVolumeGigabytes 100 %}"></div>
+      <div class="d3_pie_chart_usage" data-used="{% quotapercent usage.limits.totalGigabytesUsed usage.limits.maxTotalVolumeGigabytes %}"></div>
       <strong>{% trans "Volume Storage" %} <br />
         {% blocktrans with used=usage.limits.totalGigabytesUsed|diskgbformat available=usage.limits.maxTotalVolumeGigabytes|quotainf|diskgbformat %}Used <span> {{ used }} </span> of <span> {{ available  }} </span>{% endblocktrans %}
       </strong>
