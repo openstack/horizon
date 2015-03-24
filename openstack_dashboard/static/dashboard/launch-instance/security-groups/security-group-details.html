@@ -1,0 +1,20 @@
+<table st-table="row.security_group_rules" class="table-rsp modern security-group-details">
+  <thead>
+    <tr>
+      <th st-sort="direction" st-sort-default>{$ ctrl.tableLabels.direction $}</th>
+      <th st-sort="ethertype">{$ ctrl.tableLabels.ethertype $}</th>
+      <th st-sort="protocol">{$ ctrl.tableLabels.protocol $}</th>
+      <th st-sort="port_range_min">{$ ctrl.tableLabels.port_range_min $}</th>
+      <th st-sort="port_range_max">{$ ctrl.tableLabels.port_range_max $}</th>
+      <th st-sort="remote_ip_prefix">{$ ctrl.tableLabels.remote_ip_prefix $}</th>
+    </tr>
+  </thead>
+  <tr ng-repeat="d in row.security_group_rules">
+    <td>{$ d.direction || '-' $}</td>
+    <td>{$ d.ethertype || '-' $}</td>
+    <td>{$ d.protocol || '-' $}</td>
+    <td>{$ d.port_range_min || '-' $}</td>
+    <td>{$ d.port_range_max || '-' $}</td>
+    <td>{$ d.remote_ip_prefix || '-' $}</td>
+  </tr>
+</table>

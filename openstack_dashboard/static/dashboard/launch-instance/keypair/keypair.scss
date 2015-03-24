@@ -1,0 +1,18 @@
+[ng-controller="LaunchInstanceKeypairCtrl as ctrl"] {
+
+  dl.key-pair-details {
+
+    dt {
+      width: 15%;
+    }
+    dd {
+      width: 85%;
+      margin-left: 15%;
+      padding-right: 25px;
+
+      pre {
+        background: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,116 @@
+<div ng-controller="LaunchInstanceKeypairCtrl as ctrl">
+  <h1>{$ ::ctrl.label.title $}</h1>
+
+  <div class="content">
+    <div class="subtitle">{$ ::ctrl.label.subtitle $}</div>
+
+      <transfer-table tr-model="ctrl.tableData"
+                      help-text="ctrl.tableHelp"
+                      limits="ctrl.tableLimits">
+
+        <!-- Key Pairs Allocated-->
+        <allocated>
+          <table st-table="ctrl.tableData.displayedAllocated"
+                 st-safe-src="ctrl.tableData.allocated" hz-table
+                 class="table-striped table-rsp table-detail modern">
+            <thead>
+            <tr>
+              <th class="expander"></th>
+              <th class="rsp-p1">{$ ::ctrl.label.name $}</th>
+              <th class="rsp-p2">{$ ::ctrl.tableLabels.fingerprint $}</th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-if="ctrl.tableData.allocated.length === 0">
+              <td colspan="8">
+                <div class="no-rows-help">
+                  {$ ::trCtrl.helpText.noneAllocText $}
+                </div>
+              </td>
+            </tr>
+            <tr ng-repeat-start="row in ctrl.tableData.displayedAllocated track by row.id">
+              <td class="expander">
+                  <span class="fa fa-chevron-right" hz-expand-detail
+                        title="{$ ::trCtrl.helpText.expandDetailsText $}"></span>
+              </td>
+              <td class="rsp-p1">{$ row.name $}</td>
+              <td class="rsp-p2">{$ row.fingerprint $}</td>
+              <td class="action-col">
+                <action-list>
+                  <action action-classes="'btn btn-sm btn-default'"
+                          callback="trCtrl.deallocate" item="row">
+                    <span class="fa fa-minus"></span>
+                  </action>
+                </action-list>
+              </td>
+            </tr>
+            <tr ng-repeat-end class="detail-row">
+              <td></td>
+              <td class="detail" colspan="3">
+                <dl class="dl-horizontal" ng-include="ctrl.tableDetails">
+                </dl>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </allocated>
+
+        <!-- Key Pairs Available -->
+        <available>
+          <table st-table="ctrl.tableData.displayedAvailable"
+                 st-safe-src="ctrl.tableData.available"
+                 hz-table class="table-striped table-rsp table-detail modern">
+            <thead>
+            <tr>
+              <th class="search-header" colspan="7">
+                <search-bar group-classes="input-group-sm"
+                            icon-classes="fa-search">
+                </search-bar>
+              </th>
+            </tr>
+            <tr>
+              <th class="expander"></th>
+              <th st-sort="name" st-sort-default class="rsp-p1">{$ ::ctrl.label.name $}</th>
+              <th st-sort="fingerprint" class="rsp-p1">{$ ::ctrl.tableLabels.fingerprint $}</th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-if="trCtrl.numDisplayedAvailable() === 0">
+              <td colspan="8">
+                <div class="no-rows-help">
+                  {$ ::trCtrl.helpText.noneAvailText $}
+                </div>
+              </td>
+            </tr>
+            <tr ng-repeat-start="row in ctrl.tableData.displayedAvailable track by row.id"
+                ng-if="!trCtrl.allocatedIds[row.id]">
+              <td class="expander">
+                  <span class="fa fa-chevron-right" hz-expand-detail
+                        title="{$ ::trCtrl.helpText.expandDetailsText $}"></span>
+              </td>
+              <td class="rsp-p1">{$ row.name$}</td>
+              <td class="rsp-p1">{$ row.fingerprint $}</td>
+              <td class="action-col">
+                <action-list>
+                  <action action-classes="'btn btn-sm btn-default'"
+                                          callback="trCtrl.allocate" item="row">
+                    <span class="fa fa-plus"></span>
+                  </action>
+                </action-list>
+              </td>
+            </tr>
+            <tr ng-repeat-end class="detail-row" ng-if="!trCtrl.allocatedIds[row.id]">
+              <td></td>
+              <td class="detail" colspan="3" ng-include="ctrl.tableDetails">
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </available>
+
+      </transfer-table> <!-- End Key Pairs Table -->
+
+  </div> <!-- End Content -->
+</div> <!-- End Controller -->

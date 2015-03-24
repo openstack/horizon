@@ -24,7 +24,8 @@ class ServicesTests(test.JasmineTests):
     sources = [
         LAUNCH_INST + "/launch-instance.js",
         LAUNCH_INST + "/launch-instance.model.js",
-        LAUNCH_INST + "/access-and-security/access-and-security.js",
+        LAUNCH_INST + 'security-groups/security-groups.js',
+        LAUNCH_INST + 'keypair/keypair.js',
         LAUNCH_INST + "/configuration/configuration.js",
         LAUNCH_INST + "/flavor/flavor.js",
         LAUNCH_INST + "/network/network.js",
@@ -34,7 +35,8 @@ class ServicesTests(test.JasmineTests):
     specs = [
         LAUNCH_INST + "/launch-instance.spec.js",
         LAUNCH_INST + "/launch-instance.model.spec.js",
-        LAUNCH_INST + "/access-and-security/access-and-security.spec.js",
+        LAUNCH_INST + 'security-groups/security-groups.spec.js',
+        LAUNCH_INST + 'keypair/keypair.spec.js',
         LAUNCH_INST + "/configuration/configuration.spec.js",
         LAUNCH_INST + "/flavor/flavor.spec.js",
         LAUNCH_INST + "/network/network.spec.js",
