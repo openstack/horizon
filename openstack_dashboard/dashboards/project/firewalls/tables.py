@@ -276,6 +276,11 @@ class FirewallsTable(tables.DataTable):
         ("Inactive", pgettext_lazy("Current status of a Firewall",
                                    u"Inactive")),
     )
+    ADMIN_STATE_DISPLAY_CHOICES = (
+        ("UP", pgettext_lazy("Admin state of a Firewall", u"UP")),
+        ("DOWN", pgettext_lazy("Admin state of a Firewall", u"DOWN")),
+    )
+
     name = tables.Column("name_or_id",
                          verbose_name=_("Name"),
                          link="horizon:project:firewalls:firewalldetails")
@@ -285,6 +290,9 @@ class FirewallsTable(tables.DataTable):
     status = tables.Column("status",
                            verbose_name=_("Status"),
                            display_choices=STATUS_DISPLAY_CHOICES)
+    admin_state = tables.Column("admin_state",
+                                verbose_name=_("Admin State"),
+                                display_choices=ADMIN_STATE_DISPLAY_CHOICES)
 
     class Meta(object):
         name = "firewallstable"

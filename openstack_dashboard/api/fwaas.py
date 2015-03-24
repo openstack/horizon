@@ -42,6 +42,11 @@ class Policy(neutron.NeutronAPIDictWrapper):
 class Firewall(neutron.NeutronAPIDictWrapper):
     """Wrapper for neutron firewall."""
 
+    def __init__(self, apiresource):
+        apiresource['admin_state'] = \
+            'UP' if apiresource['admin_state_up'] else 'DOWN'
+        super(Firewall, self).__init__(apiresource)
+
     def get_dict(self):
         firewall_dict = self._apidict
         firewall_dict['firewall_id'] = firewall_dict['id']
