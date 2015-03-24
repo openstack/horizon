@@ -70,7 +70,7 @@ class UsageReportTab(tabs.TableTab):
         }
         report_rows = []
 
-        date_options = self.request.session.get('period', 7)
+        date_options = self.request.session.get('period', 1)
         date_from = self.request.session.get('date_from', '')
         date_to = self.request.session.get('date_to', '')
 
