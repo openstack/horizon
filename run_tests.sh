@@ -435,12 +435,11 @@ function run_makemessages {
 }
 
 function run_compilemessages {
-  OPTS="--settings=openstack_dashboard.test.settings"
   cd horizon
-  ${command_wrapper} $root/manage.py compilemessages $OPTS
+  ${command_wrapper} $root/manage.py compilemessages
   HORIZON_PY_RESULT=$?
   cd ../openstack_dashboard
-  ${command_wrapper} $root/manage.py compilemessages $OPTS
+  ${command_wrapper} $root/manage.py compilemessages
   DASHBOARD_RESULT=$?
   cd ..
   # English is the source language, so compiled catalogs are unnecessary.
