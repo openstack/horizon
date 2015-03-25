@@ -19,11 +19,11 @@ from horizon import exceptions
 from horizon.utils.memoized import memoized  # noqa
 from openstack_dashboard.api import base
 
+from saharaclient.api.base import APIException
 from saharaclient import client as api_client
 
 
 LOG = logging.getLogger(__name__)
-
 
 # "type" of Sahara service registered in keystone
 SAHARA_SERVICE = 'data-processing'
@@ -41,6 +41,23 @@ VERSIONS = base.APIVersionManager(
                               {}).get(SAHARA_SERVICE, 1.1))
 VERSIONS.load_supported_version(1.1, {"client": api_client,
                                       "version": 1.1})
+
+
+def safe_call(func, *args, **kwargs):
+    """Call a function ignoring Not Found error
+
+    This method is supposed to be used only for safe retrieving Sahara
+    objects. If the object is no longer available the None should be
+    returned.
+
+    """
+
+    try:
+        return func(*args, **kwargs)
+    except APIException as e:
+        if e.error_code == 404:
+            return None  # Not found. Exiting with None
+        raise  # Other errors are not expected here
 
 
 @memoized
@@ -319,18 +336,42 @@ def job_execution_create(request, job_id, cluster_id,
                                                  configs)
 
 
+def _resolve_job_execution_names(job_execution, cluster=None,
+                                 job=None):
+
+    job_execution.cluster_name = None
+    if cluster:
+        job_execution.cluster_name = cluster.name
+
+    job_execution.job_name = None
+    if job:
+        job_execution.job_name = job.name
+
+    return job_execution
+
+
 def job_execution_list(request, search_opts=None):
-    jex_list = client(request).job_executions.list(search_opts)
+    job_execution_list = client(request).job_executions.list(search_opts)
     job_dict = dict((j.id, j) for j in job_list(request))
     cluster_dict = dict((c.id, c) for c in cluster_list(request))
-    for jex in jex_list:
-        setattr(jex, 'job_name', job_dict.get(jex.job_id).name)
-        setattr(jex, 'cluster_name', cluster_dict.get(jex.cluster_id).name)
-    return jex_list
+
+    resolved_job_execution_list = [
+        _resolve_job_execution_names(
+            job_execution,
+            cluster_dict.get(job_execution.cluster_id),
+            job_dict.get(job_execution.job_id))
+        for job_execution in job_execution_list
+    ]
+
+    return resolved_job_execution_list
 
 
 def job_execution_get(request, jex_id):
-    return client(request).job_executions.get(jex_id)
+    jex = client(request).job_executions.get(jex_id)
+    cluster = safe_call(client(request).clusters.get, jex.cluster_id)
+    job = safe_call(client(request).jobs.get, jex.job_id)
+
+    return _resolve_job_execution_names(jex, cluster, job)
 
 
 def job_execution_delete(request, jex_id):

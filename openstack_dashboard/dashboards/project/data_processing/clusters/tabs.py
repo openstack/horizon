@@ -27,7 +27,6 @@ from openstack_dashboard.api import network
 from openstack_dashboard.api import neutron
 from openstack_dashboard.api import nova
 
-
 from openstack_dashboard.api import sahara as saharaclient
 
 LOG = logging.getLogger(__name__)
@@ -54,7 +53,7 @@ class GeneralTab(tabs.Tab):
                                           cluster.default_image_id)
 
             if getattr(cluster, 'cluster_template_id', None):
-                cluster_template = helpers.safe_call(
+                cluster_template = saharaclient.safe_call(
                     sahara.cluster_templates.get,
                     cluster.cluster_template_id)
             else:
@@ -102,7 +101,7 @@ class NodeGroupsTab(tabs.Tab):
                             request, ng["floating_ip_pool"]))
 
                 if ng.get("node_group_template_id", None):
-                    ng["node_group_template"] = helpers.safe_call(
+                    ng["node_group_template"] = saharaclient.safe_call(
                         sahara.node_group_templates.get,
                         ng["node_group_template_id"])
 

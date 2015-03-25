@@ -59,7 +59,7 @@ class NodeGroupsTab(tabs.Tab):
                     continue
                 ng["flavor_name"] = (
                     nova.flavor_get(request, ng["flavor_id"]).name)
-                ng["node_group_template"] = helpers.safe_call(
+                ng["node_group_template"] = saharaclient.safe_call(
                     saharaclient.nodegroup_template_get,
                     request, ng.get("node_group_template_id", None))
                 ng["security_groups_full"] = helpers.get_security_groups(
