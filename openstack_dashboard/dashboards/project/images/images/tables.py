@@ -33,7 +33,7 @@ NOT_LAUNCHABLE_FORMATS = ['aki', 'ari']
 
 class LaunchImage(tables.LinkAction):
     name = "launch_image"
-    verbose_name = _("Launch")
+    verbose_name = _("Launch Instance")
     url = "horizon:project:instances:launch"
     classes = ("ajax-modal", "btn-launch")
     icon = "cloud-upload"
@@ -104,7 +104,7 @@ class CreateImage(tables.LinkAction):
 
 class EditImage(tables.LinkAction):
     name = "edit"
-    verbose_name = _("Edit")
+    verbose_name = _("Edit Image")
     url = "horizon:project:images:images:update"
     classes = ("ajax-modal",)
     icon = "pencil"
