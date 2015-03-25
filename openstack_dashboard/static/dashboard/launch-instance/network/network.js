@@ -42,7 +42,6 @@
    * Controller for the Launch Instance - Network Step Help.
    */
   module.controller('LaunchInstanceNetworkHelpCtrl', [
-    '$scope',
     LaunchInstanceNetworkHelpCtrl
   ]);
 
@@ -95,7 +94,7 @@
 
   }
 
-  function LaunchInstanceNetworkHelpCtrl($scope) {
+  function LaunchInstanceNetworkHelpCtrl() {
     var ctrl = this;
 
     ctrl.title = gettext('Network Help');

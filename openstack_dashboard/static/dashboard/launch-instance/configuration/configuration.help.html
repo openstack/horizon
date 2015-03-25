@@ -1,4 +1,5 @@
 <div ng-controller="LaunchInstanceConfigurationHelpCtrl as configHelpCtrl">
   <h1>{$ ::configHelpCtrl.title $}</h1>
-  <p ng-repeat="paragraph in configHelpCtrl.paragraphs" ng-bind-html="::paragraph"></p>
+  <p ng-repeat="paragraph in ::configHelpCtrl.paragraphs"
+    ng-bind-html="::paragraph"></p>
 </div>

@@ -9,7 +9,6 @@
   ]);
 
   module.controller('LaunchInstanceConfigurationHelpCtrl', [
-    '$scope',
     LaunchInstanceConfigurationHelpCtrl
   ]);
 
@@ -40,7 +39,7 @@
     $scope.model.newInstanceSpec.disk_config = $scope.diskConfigOptions[0].value;
   }
 
-  function LaunchInstanceConfigurationHelpCtrl($scope) {
+  function LaunchInstanceConfigurationHelpCtrl() {
     var ctrl = this;
 
     ctrl.title = gettext('Configuration Help');

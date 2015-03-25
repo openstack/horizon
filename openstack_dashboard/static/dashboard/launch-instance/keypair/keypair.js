@@ -74,6 +74,7 @@
         '<samp>ssh-keygen -t rsa -f cloud.key</samp>',
         interpolate(keyPathText, keyPathsMap, true),
         interpolate(windowsCmd, windowsCmdMap, true)
-      ];    }
+      ];
+    }
   ]);
 })();
