@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-23 21:49-0500\n"
-"PO-Revision-Date: 2015-03-23 07:52+0000\n"
+"POT-Creation-Date: 2015-03-24 17:11-0500\n"
+"PO-Revision-Date: 2015-03-24 14:32+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -603,7 +603,7 @@ msgstr "관리자"
 #: dashboards/project/firewalls/forms.py:125
 #: dashboards/project/firewalls/tables.py:211
 #: dashboards/project/firewalls/tables.py:244
-#: dashboards/project/firewalls/tables.py:280
+#: dashboards/project/firewalls/tables.py:285
 #: dashboards/project/firewalls/workflows.py:30
 #: dashboards/project/firewalls/workflows.py:173
 #: dashboards/project/firewalls/workflows.py:230
@@ -1862,7 +1862,7 @@ msgstr "영역"
 #: dashboards/project/databases/tables.py:333
 #: dashboards/project/databases/tables.py:399
 #: dashboards/project/databases/templates/databases/_detail_overview.html:18
-#: dashboards/project/firewalls/tables.py:286
+#: dashboards/project/firewalls/tables.py:291
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
 #: dashboards/project/images/images/tables.py:247
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
@@ -3176,6 +3176,7 @@ msgstr "DOWN"
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:19
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:15
 #: dashboards/project/firewalls/forms.py:133
+#: dashboards/project/firewalls/tables.py:294
 #: dashboards/project/firewalls/workflows.py:241
 #: dashboards/project/loadbalancers/forms.py:40
 #: dashboards/project/loadbalancers/forms.py:95
@@ -6892,7 +6893,7 @@ msgstr "참고: 공개된 컨테이너는 공개 URL을 가진 사람이 컨테�
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:9
 #, python-format
 msgid "Create pseudo-folder in container %(container_name)s"
-msgstr ""
+msgstr "컨테이너 %(container_name)s에서 가상 폴더 만들기"
 
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:20
 #: dashboards/project/containers/templates/containers/_upload.html:23
@@ -9864,7 +9865,7 @@ msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr "정책 %(name)s를 업데이트하지 못하였습니다.: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:130
-#: dashboards/project/firewalls/tables.py:284
+#: dashboards/project/firewalls/tables.py:289
 #: dashboards/project/firewalls/workflows.py:235
 msgid "Policy"
 msgstr "정책"
@@ -9932,7 +9933,7 @@ msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr "규칙을 정책 %(name)s에서 제거하지 못하였습니다.: %(reason)s"
 
 #: dashboards/project/firewalls/panel.py:26
-#: dashboards/project/firewalls/tables.py:291
+#: dashboards/project/firewalls/tables.py:299
 #: dashboards/project/firewalls/tabs.py:69
 #: dashboards/project/firewalls/views.py:110
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
@@ -10074,6 +10075,16 @@ msgstr "Pending Delete"
 msgctxt "Current status of a Firewall"
 msgid "Inactive"
 msgstr "Inactive"
+
+#: dashboards/project/firewalls/tables.py:280
+msgctxt "Admin state of a Firewall"
+msgid "UP"
+msgstr "UP"
+
+#: dashboards/project/firewalls/tables.py:281
+msgctxt "Admin state of a Firewall"
+msgid "DOWN"
+msgstr "DOWN"
 
 #: dashboards/project/firewalls/tabs.py:31
 msgid "Firewall Rules"

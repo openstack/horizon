@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-23 21:49-0500\n"
-"PO-Revision-Date: 2015-03-23 17:21+0000\n"
-"Last-Translator: Robert Simai\n"
+"POT-Creation-Date: 2015-03-24 17:11-0500\n"
+"PO-Revision-Date: 2015-03-24 14:32+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -603,7 +603,7 @@ msgstr "Administrator"
 #: dashboards/project/firewalls/forms.py:125
 #: dashboards/project/firewalls/tables.py:211
 #: dashboards/project/firewalls/tables.py:244
-#: dashboards/project/firewalls/tables.py:280
+#: dashboards/project/firewalls/tables.py:285
 #: dashboards/project/firewalls/workflows.py:30
 #: dashboards/project/firewalls/workflows.py:173
 #: dashboards/project/firewalls/workflows.py:230
@@ -1870,7 +1870,7 @@ msgstr "Zone"
 #: dashboards/project/databases/tables.py:333
 #: dashboards/project/databases/tables.py:399
 #: dashboards/project/databases/templates/databases/_detail_overview.html:18
-#: dashboards/project/firewalls/tables.py:286
+#: dashboards/project/firewalls/tables.py:291
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
 #: dashboards/project/images/images/tables.py:247
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
@@ -2192,7 +2192,7 @@ msgstr "Orchestrierungsdienst ist deaktiviert"
 
 #: dashboards/admin/info/tabs.py:123
 msgid "Unable to get Orchestration service list."
-msgstr ""
+msgstr "Orchestrierungsdienstliste kann nicht abgerufen werden."
 
 #: dashboards/admin/info/views.py:40
 msgid "Unable to retrieve version information."
@@ -2442,7 +2442,7 @@ msgstr "Neuer Namensraum kann nicht erstellt werden. %s"
 #: dashboards/admin/metadata_defs/forms.py:140
 #, python-format
 msgid "Resource types updated for namespace %s."
-msgstr ""
+msgstr "Ressourcetypen für Namensraum %s aktualisiert."
 
 #: dashboards/admin/metadata_defs/forms.py:144
 #, python-format
@@ -2614,7 +2614,7 @@ msgstr "Fehler beim Abruf der Ressourcetyp-Zuweisungen."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:20
 msgid "Specify a metadata definition namespace to import."
-msgstr ""
+msgstr "Geben Sie einen Metadatendefinitions-Namensraum für den Import an."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:23
 msgid "Only definitions in raw JSON format are supported."
@@ -3188,6 +3188,7 @@ msgstr "RUNTER"
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:19
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:15
 #: dashboards/project/firewalls/forms.py:133
+#: dashboards/project/firewalls/tables.py:294
 #: dashboards/project/firewalls/workflows.py:241
 #: dashboards/project/loadbalancers/forms.py:40
 #: dashboards/project/loadbalancers/forms.py:95
@@ -4235,7 +4236,7 @@ msgid ""
 "    administrator would like the QoS policy to be enforced. This value can be \"front-end\"\n"
 "    (Nova Compute), \"back-end\" (Cinder back-end), or \"both\".\n"
 "    "
-msgstr ""
+msgstr "\nJedes Objekt der QoS Spezifikation enthält einen \"Verbraucher\" Wert, der anzeigt, wo der Administrator die QoS Richtlinie erzwingen möchte. Dieser Wert kann \"front-end\" (Nova Compute), \"back-end\" (Cinder Back-End) oder beides  sein."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:4
 msgid "Volume Type Encryption Overview"
@@ -4785,13 +4786,13 @@ msgstr "Bezeichnungstyp"
 
 #: dashboards/admin/volumes/volumes/forms.py:52
 msgid "Type of backend device identifier provided"
-msgstr ""
+msgstr "Typ des angegebenen Backend-Geräte-Identifizierers"
 
 #: dashboards/admin/volumes/volumes/forms.py:56
 msgid ""
 "Cinder host on which the existing volume resides; takes the form: host"
 "@backend-name#pool"
-msgstr ""
+msgstr "Cinder-Host, auf welchem der vorhandene Datenträger liegt; in der Form: host@backend-name#pool"
 
 #: dashboards/admin/volumes/volumes/forms.py:62
 msgid "Volume name to be assigned"
@@ -6288,7 +6289,7 @@ msgid ""
 "To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
 "from all members of another security group select &quot;Security "
 "Group&quot;."
-msgstr ""
+msgstr "Wählen Sie &quot;CIDR&quot; um einen erlaubten IP-Adressenbereich anzugeben. Wählen Sie &quot;Security Group&quot; um Zugriff für alle Mitgllieder einer anderen Sicherheitsgruppe zu erlauben."
 
 #: dashboards/project/access_and_security/security_groups/forms.py:216
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
@@ -6450,17 +6451,17 @@ msgstr "Jede(s)"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:270
 msgid "Remote IP Prefix"
-msgstr ""
+msgstr "Entfernte IP Präfix"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:272
 msgid "Remote Security Group"
-msgstr ""
+msgstr "Entfernte Sicherheitsgruppe"
 
 #: dashboards/project/access_and_security/security_groups/views.py:43
 msgid ""
 "Manage Security Group Rules: {{ security_group.name }} ({{ security_group.id"
 " }})"
-msgstr ""
+msgstr "Sicherheitsgruppenregeln verwalten: {{ security_group.name }} ({{ security_group.id }})"
 
 #: dashboards/project/access_and_security/security_groups/views.py:54
 #: dashboards/project/access_and_security/security_groups/views.py:87
@@ -6950,7 +6951,7 @@ msgstr "Anmerkung: Ein öffentlicher Container erlaubt jedem Zugriff auf Objekte
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:9
 #, python-format
 msgid "Create pseudo-folder in container %(container_name)s"
-msgstr ""
+msgstr "Erstelle Pseudo-Ordner in Container %(container_name)s"
 
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:20
 #: dashboards/project/containers/templates/containers/_upload.html:23
@@ -7173,7 +7174,7 @@ msgstr "Diese Clustervorlage wird erzeugt für:"
 msgid ""
 "The Cluster Template object should specify Node Group Templates that will be used to build a Cluster.\n"
 "    You can add Node Groups using Node Group Templates on a &quot;Node Groups&quot; tab."
-msgstr ""
+msgstr "Das Clustervorlagenobjekt sollte Node-Gruppenvorlagen enthalten, die zum Bau des Clusters verwendet werden. Sie können Node-Gruppenvorlagen unter dem &quot;Node Gruppen&quot; Reiter hinzufügen."
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:16
 msgid ""
@@ -7369,7 +7370,7 @@ msgstr "Cluster"
 #: dashboards/project/data_processing/clusters/tables.py:41
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:31
 msgid "Cluster Creation Guide"
-msgstr "Clustererstellung Anleitung"
+msgstr "Clustererstellung Assistent"
 
 #: dashboards/project/data_processing/clusters/tables.py:55
 #: dashboards/project/data_processing/clusters/views.py:93
@@ -8033,7 +8034,7 @@ msgstr "Cluster"
 
 #: dashboards/project/data_processing/job_executions/tables.py:45
 msgid "Job Guide"
-msgstr ""
+msgstr "Aufgaben Assistent"
 
 #: dashboards/project/data_processing/job_executions/tables.py:53
 msgid "Delete Job"
@@ -8523,7 +8524,7 @@ msgstr ""
 msgid ""
 "You must choose a flavor to determine the size (VCPUs, memory and storage) "
 "of all launched VMs."
-msgstr ""
+msgstr "Sie müssen eine Variante wählen, um die Größe (VCPUs, Speicher und Storage) aller gestarteten VMs zu bestimmen."
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:21
 msgid ""
@@ -8557,7 +8558,7 @@ msgstr "Größe der Datenträger"
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:89
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:95
 msgid "Volumes Availability Zone"
-msgstr ""
+msgstr "Datenträger Verfügbarkeitszone"
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:79
 msgid "Ephemeral drive"
@@ -8612,7 +8613,7 @@ msgstr "Größe der Datenträger (GB)"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:90
 msgid "Create volumes in this availability zone."
-msgstr ""
+msgstr "Erstelle Datenträger in dieser Verfügbarkeitszone."
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:120
 msgid "Unable to generate process choices."
@@ -8653,7 +8654,7 @@ msgstr "Sicherheit"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:223
 msgid "Control access to instances of the node group."
-msgstr ""
+msgstr "Kontrolle des Zugriffs auf Instanzen in der Node-Gruppe."
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:251
 #, python-format
@@ -8725,11 +8726,11 @@ msgstr "Aufgabentyp kann nicht gesetzt werden"
 
 #: dashboards/project/data_processing/wizard/panel.py:22
 msgid "Guides"
-msgstr ""
+msgstr "Assistenten"
 
 #: dashboards/project/data_processing/wizard/views.py:40
 msgid "Unable to show guides"
-msgstr ""
+msgstr "Assistenten können nicht angezeigt werden"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_job_type_select.html:13
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/job_type_select.html:3
@@ -8764,7 +8765,7 @@ msgstr "Wählen Sie Plugin und Version womit Sie\n    das Cluster erstellen möc
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:7
 msgid "Guided Cluster Creation"
-msgstr ""
+msgstr "Clustererstellungsassisatent"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:16
 msgid ""
@@ -8777,7 +8778,7 @@ msgid ""
 "                    Choosing this up front will allow the rest of the cluster\n"
 "                    creation steps to focus only on options that are pertinent\n"
 "                    to your desired cluster type."
-msgstr ""
+msgstr "Im ersten Schritt bestimmen Sie, welchen Clustertyp Sie laufen lassen wollen. Abhängig von der Systemkonfiguration haben Sie verschiedene zu Auswahl. Klicken Sie \"wähle Plugins\" um eine Liste von Datenverarbeitungs-Plugins anzuzeigen. Dort wählen Sie das Datenverarbeitungs-Plugin und dessen Versionsnummer. Wenn Sie dies vorab auswählen, erhalten Sie nur Optionen, die für den gewünschten Clustertyp möglich sind."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:27
 msgid "Choose plugin"
@@ -8814,39 +8815,39 @@ msgid ""
 "                        you will define the Node Group Template for your\n"
 "                        \"master\" node(s).\n"
 "                     "
-msgstr ""
+msgstr "Als nächstes müssen Sie die verschiedenen Typen von Maschinen in Ihrem Cluster definieren. Dies wird durch die Definition einer Node-Gruppenvorlage für jeden Typ von Maschine erreicht. Ein üblicher Fall ist, eine oder mehrere Maschinen zu haben, auf denen ein Satz von \"Master\" Prozessen läuft, während auf anderen Maschinen die \"Worker\" Prozesse laufen. Hier definieren Sie Node-Gruppenvorlage für Ihre Master-Node(s)."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:62
 msgid "Create a Master Node Group Template"
-msgstr ""
+msgstr "Erstellen einer Master-Node Gruppenvorlage"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:67
 msgid "Master Node Group Template:"
-msgstr ""
+msgstr "Master-Node Gruppenvorlage:"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:72
 msgid "No Master Node Group Template Created"
-msgstr ""
+msgstr "Master-Node Gruppenvorlage erstellt"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:81
 msgid ""
 "Repeat the Node Group Template\n"
 "                        creation process, but this time you are creating\n"
 "                        your \"worker\" Node Group Template."
-msgstr ""
+msgstr "Wiederholen des Node-Gruppenvorlagen Erstellungsprozess, aber diesmal für die \"Worker\" Node-Gruppenvorlagen."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:89
 msgid "Create a Worker Node Group Template"
-msgstr ""
+msgstr "Erstellen einer Worker Node Gruppenvorlage"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:94
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:126
 msgid "Worker Node Group Template:"
-msgstr ""
+msgstr "Worker Node Gruppenvorlage:"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:99
 msgid "No Worker Node Group Template Created"
-msgstr ""
+msgstr "Keine Worker Node Gruppenvorlage erstellt"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:108
 msgid ""
@@ -8862,11 +8863,11 @@ msgstr ""
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:121
 msgid "Create a Cluster Template"
-msgstr ""
+msgstr "Erstellen einer Cluster-Vorlage"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:131
 msgid "No Cluster Template Created"
-msgstr ""
+msgstr "Keine Cluster-Vorlage erstellt"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:140
 msgid ""
@@ -8886,15 +8887,15 @@ msgstr "Einen Cluster starten"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:161
 msgid "Reset Cluster Guide"
-msgstr ""
+msgstr "Clusterassistent zurücksetzen"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:163
 msgid "Reset Cluster Creation Guide"
-msgstr ""
+msgstr "Clustererstellungsassistent zurücksetzen"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:7
 msgid "Guided Job Execution"
-msgstr ""
+msgstr "Aufgabenausführungsassistent"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:17
 msgid ""
@@ -8902,7 +8903,7 @@ msgid ""
 "                            you want to run.  This choice will determine which\n"
 "                            other steps are required\n"
 "                        "
-msgstr ""
+msgstr "Wählen Sie zuerst den Aufgabentyp, den Sie starten wollen. Diese Auswahl bestimmt, welche weiteren Schritte notwendig sind."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:25
 msgid "Select type"
@@ -8924,11 +8925,11 @@ msgid ""
 "                            or more data sources.  You can create multiple data\n"
 "                            sources by repeating this step.\n"
 "                        "
-msgstr ""
+msgstr "Datenquellen werden von Ihren Aufgaben zur Ein- und Ausgabe verwendet. Abhängig vom Aufgabentyp müssen Sie eine oder mehrere Datenquellen definieren. Sie können weitere Datenquellen erzeugen, in dem Sie diesen Schritt wiederholen."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:56
 msgid "Create a data source"
-msgstr ""
+msgstr "Erzeugen einer Datenquelle"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:65
 msgid ""
@@ -8970,11 +8971,11 @@ msgstr "Aufgabe starten"
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:112
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:114
 msgid "Reset Job Execution Guide"
-msgstr ""
+msgstr "Aufgabenausführungsassistent zurücksetzen"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:7
 msgid "Data Processing Guides"
-msgstr ""
+msgstr "Datenverarbeitung Assistenten"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:16
 msgid ""
@@ -8987,11 +8988,11 @@ msgid ""
 "                 this guide to help take you through the steps of\n"
 "                 Cluster creation.\n"
 "             "
-msgstr ""
+msgstr "\nJeder der Datenverarbeitungs-Rahmen erfordert einen Cluster von Maschinen, um die ihnen zugewiesene Arbeit zu erledigen. Ein Cluster wird durch einen Satz Node-Gruppenvorlagen gebildet, die in einer Clustervorlage zusammengefasst werden und den Cluster starten. Jeder dieser Schritte kann manuell vorgenommen werden oder Sie folgen diesem Assistenten, der Sie durch die einzelnen Schritte der Clustererstellung leitet."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:29
 msgid "Cluster Guide"
-msgstr ""
+msgstr "Cluster Assistent"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:38
 msgid ""
@@ -9004,12 +9005,12 @@ msgid ""
 "                  manually or you can follow this guide to help take you\n"
 "                  through the steps to run a job on an existing cluster.\n"
 "            "
-msgstr ""
+msgstr "\nUm eine Datenverarbeitungsaufgabe auszuführen müssen Sie die Dateien für Ihr Programm dem Datenverarbeitungssystem zur Verfügung stellen, die Ein- und Ausgabewege definieren und eine Aufgabenvorlage erstellen, die die Ausführung beschreibt. Jeder dieser Schritte kann manuell vorgenommen werden oder Sie verwenden diesen Assistenten, der Sie durch die einzelnen Schritte zur Ausführung einer Aufgabe auf einem vorhandenen Cluster leitet."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:51
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:53
 msgid "Job Execution Guide"
-msgstr ""
+msgstr "Aufgabenasuführung Assistent"
 
 #: dashboards/project/database_backups/panel.py:23
 #: dashboards/project/database_backups/tables.py:181
@@ -9292,17 +9293,17 @@ msgstr "Keine Varianten verfügbar"
 #: dashboards/project/databases/forms.py:88
 #, python-format
 msgid "Resizing instance \"%s\""
-msgstr ""
+msgstr "Skaliere Instanz \"%s\""
 
 #: dashboards/project/databases/forms.py:91
 #, python-format
 msgid "Unable to resize instance. %s"
-msgstr ""
+msgstr "Instanz %s kann nicht skaliert werden."
 
 #: dashboards/project/databases/tables.py:35
 #: dashboards/project/instances/tables.py:86
 msgid "Terminated instances are not recoverable."
-msgstr ""
+msgstr "Terminierte Instanzen können nicht wiederhergestellt werden."
 
 #: dashboards/project/databases/tables.py:40
 #: dashboards/project/instances/tables.py:91
@@ -9760,11 +9761,11 @@ msgstr "Sie müssen mindestens eine Datenbank angeben, wenn Sie einen Benutzer a
 
 #: dashboards/project/databases/workflows/create_instance.py:228
 msgid "Source for Initial State"
-msgstr ""
+msgstr "Quelle für initialen Status"
 
 #: dashboards/project/databases/workflows/create_instance.py:230
 msgid "Choose initial state."
-msgstr ""
+msgstr "Initialen Status auswählen."
 
 #: dashboards/project/databases/workflows/create_instance.py:233
 msgid "Restore from Backup"
@@ -9787,11 +9788,11 @@ msgstr "Wählen Sie eine Sicherungskopie zur Wiederherstellung aus"
 #: dashboards/project/databases/workflows/create_instance.py:249
 #: dashboards/project/databases/workflows/create_instance.py:255
 msgid "Master Instance Name"
-msgstr ""
+msgstr "Master-Instanz Name"
 
 #: dashboards/project/databases/workflows/create_instance.py:251
 msgid "Select a master instance"
-msgstr ""
+msgstr "Wählen Sie eine Master-Instanz"
 
 #: dashboards/project/databases/workflows/create_instance.py:259
 msgid "Advanced"
@@ -9815,11 +9816,11 @@ msgstr "Es muss eine Sicherungskopie ausgewählt werden!"
 
 #: dashboards/project/databases/workflows/create_instance.py:314
 msgid "Unable to find master instance!"
-msgstr ""
+msgstr "Master-Instanz kann nicht gefunden werden!"
 
 #: dashboards/project/databases/workflows/create_instance.py:317
 msgid "A master instance must be selected!"
-msgstr ""
+msgstr "Es muss eine Master-Instanz ausgewählt werden!"
 
 #: dashboards/project/databases/workflows/create_instance.py:336
 #: dashboards/project/instances/workflows/create_instance.py:821
@@ -9948,7 +9949,7 @@ msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr "Fehler beim Aktualisieren der Richtlinie %(name)s: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:130
-#: dashboards/project/firewalls/tables.py:284
+#: dashboards/project/firewalls/tables.py:289
 #: dashboards/project/firewalls/workflows.py:235
 msgid "Policy"
 msgstr "Richtlinie"
@@ -10016,7 +10017,7 @@ msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr "Entfernen der Regel von Richtlinie %(name)s fehlgeschlagen: %(reason)s"
 
 #: dashboards/project/firewalls/panel.py:26
-#: dashboards/project/firewalls/tables.py:291
+#: dashboards/project/firewalls/tables.py:299
 #: dashboards/project/firewalls/tabs.py:69
 #: dashboards/project/firewalls/views.py:110
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
@@ -10163,6 +10164,16 @@ msgstr "Geplantes Löschen"
 msgctxt "Current status of a Firewall"
 msgid "Inactive"
 msgstr "Inaktiv"
+
+#: dashboards/project/firewalls/tables.py:280
+msgctxt "Admin state of a Firewall"
+msgid "UP"
+msgstr "HOCH"
+
+#: dashboards/project/firewalls/tables.py:281
+msgctxt "Admin state of a Firewall"
+msgid "DOWN"
+msgstr "RUNTER"
 
 #: dashboards/project/firewalls/tabs.py:31
 msgid "Firewall Rules"
@@ -11067,7 +11078,7 @@ msgstr "Abschaltung"
 #: dashboards/project/instances/tables.py:864
 msgctxt "Current status of an Instance"
 msgid "Suspended"
-msgstr "Unterbrochen"
+msgstr "Ausgesetzt"
 
 #: dashboards/project/instances/tables.py:865
 msgctxt "Current status of an Instance"
@@ -11393,7 +11404,7 @@ msgstr "Abgestürzt"
 #: dashboards/project/instances/tables.py:978
 msgctxt "Power state of an Instance"
 msgid "Suspended"
-msgstr "Unterbrochen"
+msgstr "Ausgesetzt"
 
 #: dashboards/project/instances/tables.py:979
 msgctxt "Power state of an Instance"
@@ -11442,7 +11453,7 @@ msgstr ""
 
 #: dashboards/project/instances/utils.py:94
 msgid "Failed to get network list {0}"
-msgstr ""
+msgstr "Fehler beim Abruf der Netzwerkliste {0}"
 
 #: dashboards/project/instances/utils.py:99
 #: dashboards/project/routers/ports/forms.py:176
@@ -11806,7 +11817,7 @@ msgstr "Gerätename"
 msgid ""
 "Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank"
 " to let the system choose a device name for you."
-msgstr ""
+msgstr "Datenträger-Einhängepunkt (z.B. 'vda' hängt bei '/dev/vda' ein). Lassen Sie dieses Feld leer, um den Gerätenamen vom System bestimmen zu lassen."
 
 #: dashboards/project/instances/workflows/create_instance.py:131
 msgid "Delete on Terminate"
@@ -13089,7 +13100,7 @@ msgstr "Netzwerkdetails können nicht abgerufen werden."
 
 #: dashboards/project/networks/workflows.py:50
 msgid "The state to start the network in."
-msgstr "Status in dem das Netzwerk gestartet werden soll."
+msgstr "Status, in dem das Netzwerk gestartet werden soll."
 
 #: dashboards/project/networks/workflows.py:79
 msgid ""
@@ -13357,13 +13368,13 @@ msgstr ""
 
 #: dashboards/project/networks/subnets/utils.py:24
 msgid "DHCPv6 stateful: Address discovered from OpenStack DHCP"
-msgstr ""
+msgstr "DHCPv6 stateful: vom OpenStack DHCP angebotene Adressen"
 
 #: dashboards/project/networks/subnets/utils.py:26
 msgid ""
 "DHCPv6 stateless: Address discovered from OpenStack Router and additional "
 "information from OpenStack DHCP"
-msgstr ""
+msgstr "DHCPv6 stateless: vom OpenStack Router angebotene Adressen und weitere Informationen vom OpenStack DHCP"
 
 #: dashboards/project/networks/subnets/views.py:67
 msgid "Unable to retrieve subnet details"
@@ -14296,17 +14307,17 @@ msgstr ""
 #: dashboards/project/stacks/tables.py:228
 msgctxt "current status of stack"
 msgid "Suspend In Progress"
-msgstr ""
+msgstr "Aussetzen läuft"
 
 #: dashboards/project/stacks/tables.py:230
 msgctxt "current status of stack"
 msgid "Suspend Complete"
-msgstr ""
+msgstr "Aussetzen abgeschlossen"
 
 #: dashboards/project/stacks/tables.py:232
 msgctxt "current status of stack"
 msgid "Suspend Failed"
-msgstr ""
+msgstr "Aussetzen fehlgeschlagen"
 
 #: dashboards/project/stacks/tables.py:234
 msgctxt "current status of stack"
@@ -14935,7 +14946,7 @@ msgid ""
 "      perform volume migration. Note that migration may take a significant\n"
 "      amount of time to complete, in some cases hours.\n"
 "     "
-msgstr ""
+msgstr "\nDie \"Migrationsrichtlinie\" wird nur verwendet, wenn die Änderung des Datenträgertyps nicht abgeschlossen werden kann. Ist die \"Migrationsrichtlinie\" \"Auf Abruf\", führt das Backend die Datenträgermigration durch. Beachten Sie, dass die Migration erhebliche Zeit zur Durchführung benötigt, in einigen Fällen Stunden."
 
 #: dashboards/project/volumes/templates/volumes/volumes/_show_transfer.html:6
 msgid ""

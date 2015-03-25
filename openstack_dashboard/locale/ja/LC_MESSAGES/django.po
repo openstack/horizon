@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-23 21:49-0500\n"
-"PO-Revision-Date: 2015-03-23 07:52+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-03-24 17:11-0500\n"
+"PO-Revision-Date: 2015-03-25 04:40+0000\n"
+"Last-Translator: myamamot <myamamot@redhat.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -79,7 +79,7 @@ msgstr "All ICMP"
 
 #: api/ceilometer.py:743
 msgid "Unable to retrieve Ceilometer meter list."
-msgstr ""
+msgstr "Ceilometer の計測情報を取得できません。"
 
 #: api/ceilometer.py:931
 msgid "Existence of instance"
@@ -91,7 +91,7 @@ msgstr ""
 
 #: api/ceilometer.py:940
 msgid "Volume of RAM"
-msgstr ""
+msgstr "RAM 数"
 
 #: api/ceilometer.py:944
 msgid "Volume of RAM used"
@@ -144,11 +144,11 @@ msgstr ""
 
 #: api/ceilometer.py:992
 msgid "Size of root disk"
-msgstr ""
+msgstr "root ディスクのサイズ"
 
 #: api/ceilometer.py:996
 msgid "Size of ephemeral disk"
-msgstr ""
+msgstr "一時ディスクのサイズ"
 
 #: api/ceilometer.py:1000
 msgid "Number of incoming bytes on the network for a VM interface"
@@ -600,7 +600,7 @@ msgstr "管理"
 #: dashboards/project/firewalls/forms.py:125
 #: dashboards/project/firewalls/tables.py:211
 #: dashboards/project/firewalls/tables.py:244
-#: dashboards/project/firewalls/tables.py:280
+#: dashboards/project/firewalls/tables.py:285
 #: dashboards/project/firewalls/workflows.py:30
 #: dashboards/project/firewalls/workflows.py:173
 #: dashboards/project/firewalls/workflows.py:230
@@ -1859,7 +1859,7 @@ msgstr "ゾーン"
 #: dashboards/project/databases/tables.py:333
 #: dashboards/project/databases/tables.py:399
 #: dashboards/project/databases/templates/databases/_detail_overview.html:18
-#: dashboards/project/firewalls/tables.py:286
+#: dashboards/project/firewalls/tables.py:291
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
 #: dashboards/project/images/images/tables.py:247
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
@@ -3173,6 +3173,7 @@ msgstr "DOWN"
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:19
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:15
 #: dashboards/project/firewalls/forms.py:133
+#: dashboards/project/firewalls/tables.py:294
 #: dashboards/project/firewalls/workflows.py:241
 #: dashboards/project/loadbalancers/forms.py:40
 #: dashboards/project/loadbalancers/forms.py:95
@@ -9861,7 +9862,7 @@ msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr "ポリシー %(name)s の更新に失敗しました: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:130
-#: dashboards/project/firewalls/tables.py:284
+#: dashboards/project/firewalls/tables.py:289
 #: dashboards/project/firewalls/workflows.py:235
 msgid "Policy"
 msgstr "ポリシー"
@@ -9929,7 +9930,7 @@ msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr "ポリシー %(name)s からのルールの削除に失敗しました: %(reason)s"
 
 #: dashboards/project/firewalls/panel.py:26
-#: dashboards/project/firewalls/tables.py:291
+#: dashboards/project/firewalls/tables.py:299
 #: dashboards/project/firewalls/tabs.py:69
 #: dashboards/project/firewalls/views.py:110
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
@@ -10071,6 +10072,16 @@ msgstr ""
 msgctxt "Current status of a Firewall"
 msgid "Inactive"
 msgstr ""
+
+#: dashboards/project/firewalls/tables.py:280
+msgctxt "Admin state of a Firewall"
+msgid "UP"
+msgstr "UP"
+
+#: dashboards/project/firewalls/tables.py:281
+msgctxt "Admin state of a Firewall"
+msgid "DOWN"
+msgstr "DOWN"
 
 #: dashboards/project/firewalls/tabs.py:31
 msgid "Firewall Rules"

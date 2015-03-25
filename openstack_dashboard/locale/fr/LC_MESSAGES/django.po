@@ -10,14 +10,16 @@
 # Damien Grauet, 2015
 # François Bureau, 2015
 # Frédéric <frosmont@free.fr>, 2014
+# Jean Pny, 2015
+# JF Taltavull <jftalta@gmail.com>, 2015
 # Maxime COQUEREL <max.coquerel@gmail.com>, 2014-2015
 # Paul Gonin <paul.gonin@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-23 21:49-0500\n"
-"PO-Revision-Date: 2015-03-24 06:10+0000\n"
+"POT-Creation-Date: 2015-03-24 17:11-0500\n"
+"PO-Revision-Date: 2015-03-25 01:51+0000\n"
 "Last-Translator: Corina Roe <croe@redhat.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -605,7 +607,7 @@ msgstr "Admin"
 #: dashboards/project/firewalls/forms.py:125
 #: dashboards/project/firewalls/tables.py:211
 #: dashboards/project/firewalls/tables.py:244
-#: dashboards/project/firewalls/tables.py:280
+#: dashboards/project/firewalls/tables.py:285
 #: dashboards/project/firewalls/workflows.py:30
 #: dashboards/project/firewalls/workflows.py:173
 #: dashboards/project/firewalls/workflows.py:230
@@ -1872,7 +1874,7 @@ msgstr "Zone"
 #: dashboards/project/databases/tables.py:333
 #: dashboards/project/databases/tables.py:399
 #: dashboards/project/databases/templates/databases/_detail_overview.html:18
-#: dashboards/project/firewalls/tables.py:286
+#: dashboards/project/firewalls/tables.py:291
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
 #: dashboards/project/images/images/tables.py:247
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
@@ -3190,6 +3192,7 @@ msgstr ""
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:19
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:15
 #: dashboards/project/firewalls/forms.py:133
+#: dashboards/project/firewalls/tables.py:294
 #: dashboards/project/firewalls/workflows.py:241
 #: dashboards/project/loadbalancers/forms.py:40
 #: dashboards/project/loadbalancers/forms.py:95
@@ -4787,7 +4790,7 @@ msgstr "Type d'identifiant"
 
 #: dashboards/admin/volumes/volumes/forms.py:52
 msgid "Type of backend device identifier provided"
-msgstr ""
+msgstr "Type d'identifiant du backend fourni"
 
 #: dashboards/admin/volumes/volumes/forms.py:56
 msgid ""
@@ -7175,7 +7178,7 @@ msgstr "Ce modèle de cluster sera créé pour:"
 msgid ""
 "The Cluster Template object should specify Node Group Templates that will be used to build a Cluster.\n"
 "    You can add Node Groups using Node Group Templates on a &quot;Node Groups&quot; tab."
-msgstr "L'objet Modèle de Cluster doit spécifier les Modèles de Groupe de Nœuds qui seront utilisés pour construire un Cluster.\nVous pouvez ajouter des Groupes de Nœuds en utilisant les Modèles de Groupe de Nœuds sur l'onglet &quot;Groupes de Noeuds&quot."
+msgstr "L'objet Modèle de Cluster doit spécifier les Modèles de Groupe de Nœud qui seront utilisés pour construire un Cluster.\nVous pouvez ajouter des Groupes de Nœud en utilisant les Modèles de Groupe de Nœud sur l'onglet &quot;Groupes de Noeud&quot."
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:16
 msgid ""
@@ -8519,7 +8522,7 @@ msgid ""
 "        that will be launched on each instance. Check one or more processes.\n"
 "        When processes are selected, you may set <b>node</b> scoped\n"
 "        configurations on corresponding tabs."
-msgstr "L'objet de Modèle de groupe de nœuds précise les processus\nà lancer sur chaque instance. Choisissez un ou plusieurs processus.\nQuand les processus seront sélectionnés, vous pourrez définir les configurations de <b>noeud</b> scoped dans les onglets correspondant."
+msgstr "L'objet de Modèle de groupe de nœud précise les processus\nà lancer sur chaque instance. Choisissez un ou plusieurs processus.\nQuand les processus seront sélectionnés, vous pourrez définir les configurations de <b>noeud</b> scoped dans les onglets correspondant."
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:18
 msgid ""
@@ -8660,7 +8663,7 @@ msgstr "Contrôlez l'accès aux instances du groupe de nœuds."
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:251
 #, python-format
 msgid "Created Node Group Template %s"
-msgstr "Modèle de groupe de nœuds %s créé"
+msgstr "Modèle de groupe de nœud %s créé"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:373
 msgid "Select plugin and hadoop version"
@@ -8835,11 +8838,11 @@ msgid ""
 "Repeat the Node Group Template\n"
 "                        creation process, but this time you are creating\n"
 "                        your \"worker\" Node Group Template."
-msgstr ""
+msgstr "Répéter le processus de création.\nmais cette fois-ci, vous créerez votre \nModèle de groupe de noeud \"worker\"."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:89
 msgid "Create a Worker Node Group Template"
-msgstr "Créer un Modèle de groupe de nœuds Worker"
+msgstr "Créer un Modèle de groupe de nœud Worker"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:94
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:126
@@ -8848,7 +8851,7 @@ msgstr "Modèles de groupe de nœuds Worker"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:99
 msgid "No Worker Node Group Template Created"
-msgstr "Aucun Modèle de groupe de nœuds Worker créé"
+msgstr "Aucun Modèle de groupe de nœud Worker créé"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:108
 msgid ""
@@ -8860,7 +8863,7 @@ msgid ""
 "                        you will have a chance to set any cluster-specific\n"
 "                        configuration items in the additional tabs on the\n"
 "                        create Cluster Template form."
-msgstr ""
+msgstr "Maintenant, vous devez définir la disposition de votre\ncluster. En créant un modèle de cluster, vous devrez choisir le\nnombre d'instances de chaque modèle de groupe de nœud \nqui apparaîtra dans votre cluster. De plus, \nvous aurez une chance de mettre n'importe quels éléments \nde configuration spécifiques à votre cluster dans les onglets \nsupplémentaires du formulaire Modèle de cluster."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:121
 msgid "Create a Cluster Template"
@@ -8880,7 +8883,7 @@ msgid ""
 "                        click on \"Create\", your instances will begin to\n"
 "                        spawn.  Your cluster should be operational in a few\n"
 "                        minutes."
-msgstr ""
+msgstr "Vous êtes maintenant prêt à\ndémarrer votre cluster. Après avoir cliqué sur le link ci-dessous, vous devrez donner un nom à votre cluster.\nChoisissez le modèle de cluster à utiliser et choisir l'image à utiliser pour construire vos instances. Après avoir cliqué sur « Créer », vos instances commenceront à se multiplier. Votre cluster sera opérationnel dans les minutes qui suivent."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:153
 msgid "Launch a Cluster"
@@ -8904,7 +8907,7 @@ msgid ""
 "                            you want to run.  This choice will determine which\n"
 "                            other steps are required\n"
 "                        "
-msgstr ""
+msgstr "Tout d'abord, sélectionner le type de tâche que vous souhaitez excécuter. Ce choix déterminera les autres étapes nécessaires."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:25
 msgid "Select type"
@@ -8926,7 +8929,7 @@ msgid ""
 "                            or more data sources.  You can create multiple data\n"
 "                            sources by repeating this step.\n"
 "                        "
-msgstr ""
+msgstr "Les sources de données sont ce que\nvotre tâche utilise pour ses entrées et sorties. Selon le type\nde tâche que vous exécutez, vous devrez sans doute définir une\nou plusieurs sources de données. Vous pouvez créer plusieurs sources\nde données en répétant cette étape à nouveau."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:56
 msgid "Create a data source"
@@ -8940,7 +8943,7 @@ msgid ""
 "                        or upload the files necessary to run it.  The inputs\n"
 "                        and outputs will be defined later.\n"
 "                    "
-msgstr ""
+msgstr "Définir votre Modèle de tâche.\nC'est là où vous choisissez le type de tâche\nà exécuter (Pig, Action Java, Spark, etc.) et sélectionner\nou télécharger les fichiers nécessaires pour l'exécuter. Les entrées\net les sorties seront définies par la suite."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:75
 msgid "Create a job template"
@@ -8963,7 +8966,7 @@ msgid ""
 "                        or arguments that you need to pass along\n"
 "                        to your job.\n"
 "                        "
-msgstr ""
+msgstr "Démarrez votre tâche. Au moment du \nlancement de la tâche, vous devrez choisir vos sources de données\nd'entrée et de sortie. C'est où vous pourrez également\najouter des valeurs de configuration spéciales, des paramètres, ou des\narguments que vous devez passer à\nà votre tâche."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:103
 msgid "Launch job"
@@ -8989,7 +8992,7 @@ msgid ""
 "                 this guide to help take you through the steps of\n"
 "                 Cluster creation.\n"
 "             "
-msgstr ""
+msgstr "\nChaque framework de traitement de données nécessite un groupement de machines\npour pouvoir réaliser le travail qu'on lui donne. Un cluster se forme \nquand on crée un ensemble de Modèles de groupes de noeuds, que l'on réunit\ndans un modèle de cluster et que l'on démarre alors un cluster. \nChacune de ces étapes peut être réalisée manuellement, mais vous pouvez aussi \nsuivre ce guide qui vous aidera à créer un cluster, étape par étape."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:29
 msgid "Cluster Guide"
@@ -9006,7 +9009,7 @@ msgid ""
 "                  manually or you can follow this guide to help take you\n"
 "                  through the steps to run a job on an existing cluster.\n"
 "            "
-msgstr ""
+msgstr "\nAfin d'exécuter une tâche de traitement de données, vous devez rendre les fichiers utilisés par votre programme disponibles pour le système de Traitement de Données, définir les entrées et les sorties et créer un modèle décrivant comment exécuter votre tâche. Chacune de ces étapes peut être réalisée manuellement, mais vous pouvez aussi suivre ce guide qui vous aidera à exécuter une tâche sur un cluster existant, étape par étape."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:51
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:53
@@ -9950,7 +9953,7 @@ msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr "Echec de la mise à jour de la politique %(name)s : %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:130
-#: dashboards/project/firewalls/tables.py:284
+#: dashboards/project/firewalls/tables.py:289
 #: dashboards/project/firewalls/workflows.py:235
 msgid "Policy"
 msgstr "Politique"
@@ -10018,7 +10021,7 @@ msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr "Echec de la suppression de la règle de la politique %(name)s : %(reason)s"
 
 #: dashboards/project/firewalls/panel.py:26
-#: dashboards/project/firewalls/tables.py:291
+#: dashboards/project/firewalls/tables.py:299
 #: dashboards/project/firewalls/tabs.py:69
 #: dashboards/project/firewalls/views.py:110
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
@@ -10165,6 +10168,16 @@ msgstr "Suppression de Mise en attente"
 msgctxt "Current status of a Firewall"
 msgid "Inactive"
 msgstr "Inactif"
+
+#: dashboards/project/firewalls/tables.py:280
+msgctxt "Admin state of a Firewall"
+msgid "UP"
+msgstr ""
+
+#: dashboards/project/firewalls/tables.py:281
+msgctxt "Admin state of a Firewall"
+msgid "DOWN"
+msgstr ""
 
 #: dashboards/project/firewalls/tabs.py:31
 msgid "Firewall Rules"
@@ -10412,7 +10425,7 @@ msgid ""
 "Choose the rule you want to insert. Specify either the rule you want to "
 "insert immediately before, or the rule to insert immediately after. If both "
 "are specified, the prior takes precedence."
-msgstr ""
+msgstr "Choisissez la règle que vous souhaitez insérer. Spécifiez la règle qui doit précéder immédiatement votre nouvelle règle, ou la règle qui doit suivre immédiatement votre nouvelle règle. Si vous spécifiez les deux, le premier critère est prioritaire."
 
 #: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:6
 msgid "Choose the rule you want to remove."
@@ -10983,7 +10996,7 @@ msgstr "Il n'y a pas assez de capacité pour ce gabarit dans la zone de disponib
 msgid ""
 "Failed to perform requested operation on instance \"%s\", the instance has "
 "an error status"
-msgstr ""
+msgstr "N'a pas pu effectuer l'opération demandée sur l'instance \"%s\", l'instance a un statut d'erreur"
 
 #: dashboards/project/instances/tables.py:673
 #: dashboards/project/instances/views.py:395
@@ -11005,7 +11018,7 @@ msgstr[1] "Instances Démarrées"
 
 #: dashboards/project/instances/tables.py:715
 msgid "To power off a specific instance."
-msgstr ""
+msgstr "Pour éteindre une instance spécifique."
 
 #: dashboards/project/instances/tables.py:721
 msgctxt "Action to perform (the instance is currently running)"
@@ -11239,12 +11252,12 @@ msgstr "Redémarrage"
 #: dashboards/project/instances/tables.py:927
 msgctxt "Task status of an Instance"
 msgid "Reboot Pending"
-msgstr ""
+msgstr "Redémarrage en attente"
 
 #: dashboards/project/instances/tables.py:929
 msgctxt "Task status of an Instance"
 msgid "Reboot Started"
-msgstr ""
+msgstr "Redémarrage en cours"
 
 #: dashboards/project/instances/tables.py:931
 msgctxt "Task status of an Instance"
@@ -13462,7 +13475,7 @@ msgstr "ID du segment :"
 
 #: dashboards/project/networks/templates/networks/create.html:9
 msgid "&laquo;&nbsp;Back"
-msgstr ""
+msgstr "Retour"
 
 #: dashboards/project/networks/templates/networks/create.html:10
 msgid "Next&nbsp;&raquo;"
@@ -13951,7 +13964,7 @@ msgid ""
 "\n"
 "     <b>Note:</b> Rules only affect one direction of traffic. The opposite direction is outlined when hovering over an intersection.\n"
 " "
-msgstr ""
+msgstr "La couleur et l'icône d'une intersection indique si oui ou non le trafic est autorisé à partir de la source (row) à la destination (column).<br/>\nCliqué sur le bouton <i class=\"fa fa-random\"></i>  à l'intersection va installer une règle pour basculer le comportement de la circulation.<br/>\n<br/>\n<b>Note:</b> Les règles affecte une direction de la circulation. Le sens inverse est présentée lors du survol d'une intersection."
 
 #: dashboards/project/routers/templates/routers/ports/_create.html:20
 msgid "You can connect a specified subnet to the router."
@@ -14821,7 +14834,7 @@ msgid ""
 "Accepting a transfer requires obtaining the Transfer ID and Authorization "
 "Key from the donor.  This is equivalent to the <tt>cinder transfer-"
 "accept</tt> command."
-msgstr ""
+msgstr "Les droits de propriétaire d'un volume peuvent être transférés d'un projet à un autre. Pour accepter un transfert, il faut obtenir l'ID de transfert et le Code d'Autorisation du donneur. C'est l'équivalent de la commande <tt> cinder transfer-accept</tt>."
 
 #: dashboards/project/volumes/templates/volumes/volumes/_attach.html:9
 msgid "Attach To Instance"
@@ -14847,7 +14860,7 @@ msgid ""
 " volume transfer is created in a donor project, it then can be \"accepted\" "
 "by a recipient project. This is equivalent to the <tt>cinder transfer-"
 "create</tt> command."
-msgstr ""
+msgstr "Les droits de propriétaire d'un volume peuvent être transférés d'un projet à un autre. Une fois que le transfert est créé dans le projet du donneur, il est en mesure de pouvoir être accepté par le projet qui reçoit. C'est l'équivalent de la commande <tt> cinder transfer-accept<\\tt>."
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:4
 msgid "Volume Overview"
@@ -14920,7 +14933,7 @@ msgid ""
 "      Change the volume type of a volume after its creation.\n"
 "      This is equivalent to the <tt>cinder retype</tt> command.\n"
 "     "
-msgstr ""
+msgstr "\n      Changer le type de volume après sa création.\n      Équivaut à la commande <tt>cinder retype</tt>.\n     "
 
 #: dashboards/project/volumes/templates/volumes/volumes/_retype.html:11
 msgid ""
@@ -14937,20 +14950,20 @@ msgid ""
 "      perform volume migration. Note that migration may take a significant\n"
 "      amount of time to complete, in some cases hours.\n"
 "     "
-msgstr ""
+msgstr "\nLa \"Politique de migration\" est uniquement utilisée si le volume retapé ne peut être complété. Si la \"Politique de migration\" est \"Sur Demande\", le backend\nréalisera la migration du volume. Noter que cette migration peut demander une quantité\nimportante de temps pour être achevée, plusieurs heures dans certains cas."
 
 #: dashboards/project/volumes/templates/volumes/volumes/_show_transfer.html:6
 msgid ""
 "The Transfer ID and the Authorization Key are needed by the recipient in "
 "order to accept the transfer. Please capture both the Transfer ID and the "
 "Authorization Key and provide them to your transfer recipient."
-msgstr ""
+msgstr "Le receveur a besoin de l'ID de transfert et de la clé d'autorisation pour pouvoir accepter le transfert. Veuillez donc vous appropriez-vous l'ID de transfert et la clé d'autorisation, puis transférez les au receveur."
 
 #: dashboards/project/volumes/templates/volumes/volumes/_show_transfer.html:7
 msgid ""
 "The Authorization Key will not be available after closing this page, so you "
 "must capture it now, or else you will be unable to use the transfer."
-msgstr ""
+msgstr "La clé d'autorisation ne sera plus disponible une fois que cette page sera fermée. Vous devez donc vous l'approprier dès maintenant, sinon, vous ne pourrez pas l'utiliser pour le transfert."
 
 #: dashboards/project/volumes/templates/volumes/volumes/_snapshot_limits.html:5
 msgid "From here you can create a snapshot of a volume."
@@ -14972,7 +14985,7 @@ msgstr "Modifier le nom et la description du volume."
 msgid ""
 "The \"Bootable\" flag specifies that this volume can be used to launch an "
 "instance."
-msgstr ""
+msgstr "Le flag \"Amorçable\" indique que ce volume peut être utilisé pour démarrer une instance."
 
 #: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:6
 msgid ""
@@ -14980,7 +14993,7 @@ msgid ""
 "      Upload the volume to the Image Service as an image.\n"
 "      This is equivalent to the <tt>cinder upload-to-image</tt> command.\n"
 "     "
-msgstr ""
+msgstr "\nTélécharger le volume dans le Service Image comme une image.\nCeci est équivalent à la commande <tt>cinder upload-to-image</tt>."
 
 #: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:11
 msgid ""
@@ -14988,7 +15001,7 @@ msgid ""
 "      Choose \"Disk Format\" for the image. The volume images are created with\n"
 "      the QEMU disk image utility.\n"
 "     "
-msgstr ""
+msgstr "\nChoisir \"Format de Disque\" pour l'image. Les image de volume sont créées avec\nl'utilitaire d'image disque QEMU."
 
 #: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:17
 msgid ""
@@ -14996,7 +15009,7 @@ msgid ""
 "        When the volume status is \"in-use\", you can use \"Force\" to upload the\n"
 "        volume to an image.\n"
 "       "
-msgstr ""
+msgstr "\nQuand le statut du volume est \"en cours d'utilisation\", vous pouvez utiliser \"Force\" pour télécharger le volume dans une image."
 
 #: dashboards/project/volumes/templates/volumes/volumes/accept_transfer.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/accept_transfer.html:6
@@ -15284,7 +15297,7 @@ msgstr "Impossible de mettre à jour le volume."
 
 #: dashboards/project/volumes/volumes/forms.py:626
 msgid "Unable to set bootable flag on volume."
-msgstr ""
+msgstr "Impossible de positionner le flag amorçable sur le volume."
 
 #: dashboards/project/volumes/volumes/forms.py:629
 #, python-format
@@ -15463,7 +15476,7 @@ msgstr "Chiffré"
 msgid ""
 "The data will remain in the volume and another instance will be able to "
 "access the data if you attach this volume to it."
-msgstr ""
+msgstr "Les données persisteront dans le volume et une autre instance pourra y accéder si vous lui attacher le volulme."
 
 #: dashboards/project/volumes/volumes/tables.py:450
 msgid "Detach Volume"
