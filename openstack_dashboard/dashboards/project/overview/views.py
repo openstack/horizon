@@ -31,7 +31,7 @@ class ProjectUsageCsvRenderer(csvbase.BaseCsvResponse):
 
     columns = [_("Instance Name"), _("VCPUs"), _("RAM (MB)"),
                _("Disk (GB)"), _("Usage (Hours)"),
-               _("Uptime (Seconds)"), _("State")]
+               _("Time since created (Seconds)"), _("State")]
 
     def get_row_data(self):
 
