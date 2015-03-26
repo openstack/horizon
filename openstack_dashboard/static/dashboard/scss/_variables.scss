@@ -2,6 +2,9 @@
 to our variables */
 @import "/bootstrap/scss/bootstrap/variables";
 
+/* This variable can be used to change the web root of horizon
+default value is already '/' */
+$webroot: "" !default;
 
 /* Bootstrap variables overrides */
 
@@ -62,7 +65,7 @@ $rbrowser-footer-background-color: #f1f1f1;
 //       .table-striped-datatable styles.
 
 // Font-awesome path to the icon fonts
-$fa-font-path: "/static/horizon/lib/font-awesome/fonts";
+$fa-font-path: $webroot + "/static/horizon/lib/font-awesome/fonts";
 
 /* Charts */
 

@@ -951,9 +951,27 @@ Specifies the location where the access to the dashboard is configured in
 the web server.
 
 For example, if you're accessing the Dashboard via
-https://<your server>/horizon, you'd set this to ``"/horizon"``.
+https://<your server>/dashboard, you would set this to ``"/dashboard/"``.
 
+Additionally, setting the ``"$webroot"`` SCSS variable is required. You
+can change this directly in
+``"openstack_dasbboard/static/dashboard/scss/_variables.scss"`` or in the
+``"_variables.scss"`` file in your custom theme. For more information on
+custom themes, see: ``"CUSTOM_THEME_PATH"``.
 
+For your convenience, a custom theme for only setting the web root has been
+provided see: ``"/horizon/openstack_dashboard/static/themes/webroot"``
+
+.. note::
+
+    Additional settings may be required in the config files of your webserver
+    of choice. For example to make ``"/dashboard/"`` the web root in apache,
+    the ``"sites-available/horizon.conf"`` requires a couple of additional
+    aliases set::
+
+        Alias /dashboard/static %HORIZON_DIR%/static
+
+        Alias /dashboard/media %HORIZON_DIR%/openstack_dashboard/static
 
 
 Django Settings (Partial)
