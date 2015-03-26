@@ -17,16 +17,26 @@
   'use strict';
 
   describe('Launch Instance Keypair Step', function() {
+
     describe('LaunchInstanceKeypairCtrl', function() {
       var ctrl;
 
-      beforeEach(module('hz.dashboard.launch-instance'));
+      beforeEach(module(function ($provide) {
+        $provide.value('$modal', {});
+      }));
+
+      beforeEach(module('hz.dashboard'));
 
       beforeEach(inject(function($controller) {
-        var model = { newInstanceSpec: { key_pair: ['key1'] },
-                      keypairs: ['key1', 'key2'] };
+        var model = {
+          newInstanceSpec: {
+            key_pair: ['key1']
+          },
+          keypairs: ['key1', 'key2']
+        };
+
         ctrl = $controller('LaunchInstanceKeypairCtrl',
-                           {launchInstanceModel: model});
+                          { launchInstanceModel: model });
       }));
 
       it('contains its general labels', function() {
@@ -67,13 +77,12 @@
     });
 
     describe('LaunchInstanceKeypairHelpCtrl', function() {
-      var scope, ctrl;
+      var ctrl;
 
       beforeEach(module('hz.dashboard.launch-instance'));
 
       beforeEach(inject(function($controller) {
-        scope = {};
-        ctrl = $controller('LaunchInstanceKeypairHelpCtrl', {$scope:scope});
+        ctrl = $controller('LaunchInstanceKeypairHelpCtrl');
       }));
 
       it('defines the title', function() {
@@ -86,6 +95,115 @@
       });
     });
 
+    describe('LaunchInstanceCreateKeyPairCtrl', function() {
+      var ctrl;
+
+      beforeEach(module(function ($provide) {
+        $provide.value('$modalInstance', {});
+        $provide.value('novaAPI', {});
+      }));
+
+      beforeEach(module('hz.dashboard'));
+
+      beforeEach(inject(function($controller) {
+        ctrl = $controller('LaunchInstanceCreateKeyPairCtrl');
+      }));
+
+      it('contains its general labels', function() {
+        expect(ctrl.labels).toBeDefined();
+      });
+
+      it('defines a model with a empty name', function() {
+        expect(ctrl.model).toBeDefined();
+        expect(ctrl.model.name).toBe('');
+      });
+
+      it('defines a submit function', function() {
+        expect(ctrl.submit).toBeDefined();
+      });
+
+      it('defines a cancel function', function() {
+        expect(ctrl.cancel).toBeDefined();
+      });
+    });
+
+    describe('LaunchInstanceNewKeyPairCtrl', function() {
+      var ctrl;
+
+      beforeEach(module(function ($provide) {
+        $provide.value('$modalInstance', {});
+      }));
+
+      beforeEach(module('hz.dashboard'));
+
+      beforeEach(inject(function($controller) {
+        ctrl = $controller('LaunchInstanceNewKeyPairCtrl', { keypair: {} });
+      }));
+
+      it('contains its general labels', function() {
+        expect(ctrl.labels).toBeDefined();
+      });
+
+      it('defines an empty keypair', function() {
+        expect(ctrl.keypair).toBeDefined();
+      });
+
+      it('defines an OK function', function() {
+        expect(ctrl.ok).toBeDefined();
+      });
+    });
+
+    describe('LaunchInstanceImportKeyPairCtrl', function() {
+      var ctrl;
+
+      beforeEach(module(function ($provide) {
+        $provide.value('$modalInstance', {});
+        $provide.value('novaAPI', {});
+      }));
+
+      beforeEach(module('hz.dashboard'));
+
+      beforeEach(inject(function($controller) {
+        ctrl = $controller('LaunchInstanceImportKeyPairCtrl');
+      }));
+
+      it('contains its general labels', function() {
+        expect(ctrl.labels).toBeDefined();
+      });
+
+      it('defines a model with a empty name and public key', function() {
+        expect(ctrl.model).toBeDefined();
+        expect(ctrl.model.name).toBe('');
+        expect(ctrl.model.public_key).toBe('');
+      });
+
+      it('defines a submit function', function() {
+        expect(ctrl.submit).toBeDefined();
+      });
+
+      it('defines a cancel function', function() {
+        expect(ctrl.cancel).toBeDefined();
+      });
+    });
+
+    describe('LaunchInstanceImportKeyPairHelpCtrl', function() {
+      var ctrl;
+
+      beforeEach(module('hz.dashboard.launch-instance'));
+
+      beforeEach(inject(function($controller) {
+        ctrl = $controller('LaunchInstanceImportKeyPairHelpCtrl');
+      }));
+
+      it('defines the title', function() {
+        expect(ctrl.title).toBeDefined();
+      });
+
+      it('has paragraphs', function() {
+        expect(ctrl.paragraphs).toBeDefined();
+        expect(ctrl.paragraphs.length).toBeGreaterThan(0);
+      });
+    });
 
   });
 

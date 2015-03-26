@@ -297,3 +297,10 @@
     margin-top: 3px;
   }
 }
+
+.form-control {
+  @include input-placeholder {
+    font-weight: normal;
+    color: $placeholder-text-color;
+  }
+}

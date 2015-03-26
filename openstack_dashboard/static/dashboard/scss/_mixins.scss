@@ -3,7 +3,7 @@
  * check out http://www.sass-lang.com/guide#topic-6
  */
 
-@mixin search-placeholder {
+@mixin input-placeholder {
   &::-webkit-input-placeholder {
     @content;
   }

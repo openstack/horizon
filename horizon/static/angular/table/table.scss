@@ -59,7 +59,7 @@ $em-per-priority: floor($table-col-avg-width / $font-size-base) * 3;
       }
 
       input[type="text"] {
-       @include search-placeholder {
+       @include input-placeholder {
          font-weight: normal;
          color: $placeholder-text-color;
        }
