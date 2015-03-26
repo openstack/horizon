@@ -134,6 +134,21 @@ Available options:
   the dashboard module's directory structure. Default: A new directory within
   the current directory.
 
+JavaScript
+----------
+
+You can also run JavaScript unit tests using Karma.  Karma is a test
+environment that allows for multiple test runners and reporters, including
+such features as code coverage.  Karma allows developer to run tests live,
+as it can watch source and test files for changes.
+
+To run the Karma tests for Horizon and Dashboard::
+
+    ./run_tests.sh --karma
+
+The default configuration also performs coverage reports, which are saved
+to ``horizon/.coverage-karma/`` and ``openstack_dashboard/.coverage-karma/``.
+
 Give me metrics!
 ================
 

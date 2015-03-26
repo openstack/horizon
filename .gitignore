@@ -24,6 +24,8 @@ doc/source/sourcecode
 /static/
 .venv
 .tox
+node_modules
+npm-debug.log
 build
 dist
 AUTHORS

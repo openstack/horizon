@@ -28,6 +28,7 @@ function usage {
   echo "  -y, --pylint             Just run pylint"
   echo "  -j, --jshint             Just run jshint"
   echo "  -s, --jscs               Just run jscs"
+  echo "  -k, --karma              Just run karma"
   echo "  -q, --quiet              Run non-interactively. (Relatively) quiet."
   echo "                           Implies -V if -N is not set."
   echo "  --only-selenium          Run only the Selenium unit tests"
@@ -72,6 +73,7 @@ just_docs=0
 just_tabs=0
 just_jscs=0
 just_jshint=0
+just_karma=0
 never_venv=0
 quiet=0
 restore_env=0
@@ -109,6 +111,7 @@ function process_option {
     -y|--pylint) just_pylint=1;;
     -j|--jshint) just_jshint=1;;
     -s|--jscs) just_jscs=1;;
+    -k|--karma) just_karma=1;;
     -f|--force) force=1;;
     -t|--tabs) just_tabs=1;;
     -q|--quiet) quiet=1;;
@@ -172,6 +175,12 @@ function run_jscs {
     jscs horizon/static/horizon/js horizon/static/horizon/tests \
          horizon/static/framework/ openstack_dashboard/static/dashboard/
   fi
+}
+
+function run_karma {
+  echo "Running karma ..."
+  npm install
+  npm run test
 }
 
 function warn_on_flake8_without_venv {
@@ -575,6 +584,12 @@ fi
 # Jscs
 if [ $just_jscs -eq 1 ]; then
     run_jscs
+    exit $?
+fi
+
+# Karma
+if [ $just_karma -eq 1 ]; then
+    run_karma
     exit $?
 fi
 
