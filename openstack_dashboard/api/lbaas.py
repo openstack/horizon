@@ -37,6 +37,8 @@ class Pool(neutron.NeutronAPIDictWrapper):
     def __init__(self, apiresource):
         if 'provider' not in apiresource:
             apiresource['provider'] = None
+        apiresource['admin_state'] = \
+            'UP' if apiresource['admin_state_up'] else 'DOWN'
         super(Pool, self).__init__(apiresource)
 
 
@@ -44,6 +46,8 @@ class Member(neutron.NeutronAPIDictWrapper):
     """Wrapper for neutron load balancer member."""
 
     def __init__(self, apiresource):
+        apiresource['admin_state'] = \
+            'UP' if apiresource['admin_state_up'] else 'DOWN'
         super(Member, self).__init__(apiresource)
 
 
@@ -58,6 +62,8 @@ class PoolMonitor(neutron.NeutronAPIDictWrapper):
     """Wrapper for neutron load balancer pool health monitor."""
 
     def __init__(self, apiresource):
+        apiresource['admin_state'] = \
+            'UP' if apiresource['admin_state_up'] else 'DOWN'
         super(PoolMonitor, self).__init__(apiresource)
 
 
