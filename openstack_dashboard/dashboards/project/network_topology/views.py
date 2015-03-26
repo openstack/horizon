@@ -170,7 +170,7 @@ class JSONView(View):
                     request, console_type, server)[0].lower()
             except exceptions.NotAvailable:
                 console = None
-                exceptions.handle(request, _('No console available.'))
+
             server_data = {'name': server.name,
                            'status': server.status,
                            'task': getattr(server, 'OS-EXT-STS:task_state'),
