@@ -17,7 +17,7 @@
 (function() {
   'use strict';
 
-  describe('Launch Instance Access and Security Step', function() {
+  describe('Launch Instance Keypair Step', function() {
   });
 
 })();
