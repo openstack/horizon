@@ -59,8 +59,8 @@ class CreateView(forms.ModalFormView):
     modal_header = _("Create Group")
     form_id = "create_group_form"
     form_class = project_forms.CreateGroupForm
-    submit_url = "horizon:identity:groups:create"
     submit_label = _("Create Group")
+    submit_url = reverse_lazy(constants.GROUPS_CREATE_URL)
     success_url = reverse_lazy(constants.GROUPS_INDEX_URL)
     page_title = _("Create Group")
 
