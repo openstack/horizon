@@ -125,6 +125,17 @@ class DetailView(tabs.TabbedTableView):
                 router.external_gateway_info['network'] = ext_net_id
         return router
 
+    @memoized.memoized_method
+    def _get_ports(self):
+        try:
+            ports = api.neutron.port_list(self.request,
+                                          device_id=self.kwargs['router_id'])
+        except Exception:
+            ports = []
+            msg = _('Unable to retrieve port details.')
+            exceptions.handle(self.request, msg)
+        return ports
+
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
         router = self._get_data()
@@ -140,10 +151,11 @@ class DetailView(tabs.TabbedTableView):
 
         return context
 
-    def get(self, request, *args, **kwargs):
+    def get_tabs(self, request, *args, **kwargs):
         router = self._get_data()
-        self.kwargs['router'] = router
-        return super(DetailView, self).get(request, *args, **kwargs)
+        ports = self._get_ports()
+        return self.tab_group_class(request, router=router,
+                                    ports=ports, **kwargs)
 
 
 class CreateView(forms.ModalFormView):

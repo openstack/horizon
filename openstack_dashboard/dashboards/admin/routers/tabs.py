@@ -12,16 +12,14 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from openstack_dashboard.dashboards.admin.\
-    routers.extensions.routerrules import tables as rrtbl
 from openstack_dashboard.dashboards.admin.routers.ports import tables as ptbl
 from openstack_dashboard.dashboards.project.routers.extensions.routerrules\
     import tabs as rr_tabs
 from openstack_dashboard.dashboards.project.routers import tabs as r_tabs
 
 
-class RouterRulesTab(rr_tabs.RouterRulesTab):
-    table_classes = (rrtbl.RouterRulesTable,)
+class OverviewTab(r_tabs.OverviewTab):
+    template_name = "project/routers/_detail_overview.html"
 
 
 class InterfacesTab(r_tabs.InterfacesTab):
@@ -29,6 +27,6 @@ class InterfacesTab(r_tabs.InterfacesTab):
 
 
 class RouterDetailTabs(r_tabs.RouterDetailTabs):
-    slug = "router_details"
-    tabs = (InterfacesTab, rr_tabs.RouterRulesTab)
+    tabs = (OverviewTab, InterfacesTab, rr_tabs.RulesGridTab,
+            rr_tabs.RouterRulesTab)
     sticky = True

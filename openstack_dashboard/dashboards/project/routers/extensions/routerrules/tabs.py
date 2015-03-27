@@ -35,14 +35,15 @@ class RouterRulesTab(tabs.TableTab):
 
     def allowed(self, request):
         try:
-            getattr(self.tab_group.router, 'router_rules')
+            getattr(self.tab_group.kwargs['router'], 'router_rules')
             return True
         except Exception:
             return False
 
     def get_routerrules_data(self):
         try:
-            routerrules = getattr(self.tab_group.router, 'router_rules')
+            routerrules = getattr(self.tab_group.kwargs['router'],
+                                  'router_rules')
         except Exception:
             routerrules = []
         return [rulemanager.RuleObject(r) for r in routerrules]
@@ -51,8 +52,8 @@ class RouterRulesTab(tabs.TableTab):
         if request.POST['action'] == 'routerrules__resetrules':
             kwargs['reset_rules'] = True
             rulemanager.remove_rules(request, [], **kwargs)
-            self.tab_group.router = api.neutron.router_get(request,
-                                                           kwargs['router_id'])
+            self.tab_group.kwargs['router'] = \
+                api.neutron.router_get(request, kwargs['router_id'])
 
 
 class RulesGridTab(tabs.Tab):
@@ -62,7 +63,7 @@ class RulesGridTab(tabs.Tab):
 
     def allowed(self, request):
         try:
-            getattr(self.tab_group.router, 'router_rules')
+            getattr(self.tab_group.kwargs['router'], 'router_rules')
             return True
         except Exception:
             return False
@@ -82,7 +83,7 @@ class RulesGridTab(tabs.Tab):
         return data
 
     def get_routerrulesgrid_data(self, rules):
-        ports = self.tab_group.ports
+        ports = self.tab_group.kwargs['ports']
         networks = api.neutron.network_list_for_tenant(
             self.request, self.request.user.tenant_id)
         netnamemap = {}
@@ -214,7 +215,8 @@ class RulesGridTab(tabs.Tab):
 
     def get_routerrules_data(self, checksupport=False):
         try:
-            routerrules = getattr(self.tab_group.router, 'router_rules')
+            routerrules = getattr(self.tab_group.kwargs['router'],
+                                  'router_rules')
             supported = True
         except Exception:
             routerrules = []

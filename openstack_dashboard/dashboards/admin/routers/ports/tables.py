@@ -27,3 +27,6 @@ class PortsTable(routers_tables.PortsTable):
     class Meta(object):
         name = "interfaces"
         verbose_name = _("Interfaces")
+        table_actions = (routers_tables.AddInterface,
+                         routers_tables.RemoveInterface)
+        row_actions = (routers_tables.RemoveInterface,)

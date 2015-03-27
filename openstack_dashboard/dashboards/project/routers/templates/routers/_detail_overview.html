@@ -1,17 +1,15 @@
 {% load i18n sizeformat parse_date %}
 
-<h3>
-  {% blocktrans with router_name=router.name|default:_("None") %}Router Overview: {{ router_name }}{% endblocktrans %}
-</h3>
-
-<div class="info detail">
+<div class="detail">
   <dl class="dl-horizontal">
     <dt>{% trans "Name" %}</dt>
     <dd>{{ router.name|default:_("None") }}</dd>
     <dt>{% trans "ID" %}</dt>
-    <dd>{{ router.id|default:_("None") }}</dd>
+    <dd>{{ router.id }}</dd>
+    <dt>{% trans "Project ID" %}</dt>
+    <dd>{{ router.tenant_id }}</dd>
     <dt>{% trans "Status" %}</dt>
-    <dd>{{ router.status|default:_("Unknown") }}</dd>
+    <dd>{{ router.status|capfirst }}</dd>
     <dt>{% trans "Admin State" %}</dt>
     <dd>{{ router.admin_state|default:_("Unknown") }}</dd>
     {% if dvr_supported %}
@@ -22,11 +20,38 @@
       <dt>{% trans "High Availability Mode" %}</dt>
       <dd>{{ router.ha|yesno|capfirst }}</dd>
     {% endif %}
+
     {% if router.external_gateway_info %}
-    <dt>{% trans "External Gateway" %}</dt>
-    <dd>{% trans "Connected External Network:" %}
-      {{ router.external_gateway_info.network }}</dd>
+    </dl>
+    <h4>{% trans "External Gateway" %}</h4>
+    <hr class="header_rule">
+    <dl class="dl-horizontal">
+      <dt>{% trans "Network Name" %}</dt>
+      <dd>{{ router.external_gateway_info.network|default:_("None") }}</dd>
+      {% url 'horizon:admin:networks:detail' router.external_gateway_info.network_id as network_url %}
+      <dt>{% trans "Network ID" %}</dt>
+      <dd><a href="{{ network_url }}">{{ router.external_gateway_info.network_id|default:_("Unknown") }}</a></dd>
+      <dt>{% trans "External Fixed IPs" %}</dt>
+      <dd>
+        <ul>
+          {% for ip in router.external_gateway_info.external_fixed_ips %}
+            {% url 'horizon:project:networks:subnets:detail' ip.subnet_id as subnet_url %}
+            <li><strong>{% trans "Subnet ID" %}</strong> <a href="{{ subnet_url }}">{{ ip.subnet_id|default:_("Unknown") }}</a></li>
+            <li><strong>{% trans "IP Address" %}</strong> {{ ip.ip_address }}</li>
+          {% empty %}
+            {% trans "None" %}
+          {% endfor %}
+        </ul>
+      </dd>
+      <dt>{% trans "SNAT" %}</dt>
+      {% if router.external_gateway_info.enable_snat %}
+        <dd>{% trans "Enabled" %}</dd>
+      {% else %}
+        <dd>{% trans "Disabled" %}</dd>
+      {% endif %}
+    {% else %}
+      <dt>{% trans "External Gateway"%}</dt>
+      <dd>{% trans "None" %}</dd>
     {% endif %}
   </dl>
 </div>
-
