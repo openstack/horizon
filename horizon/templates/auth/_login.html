@@ -9,6 +9,15 @@
 {% block autocomplete %}{{ HORIZON_CONFIG.password_autocomplete }}{% endblock %}
 
 {% block modal-body %}
+  {% comment %}
+    These fake fields are required to prevent Chrome v34+ from autofilling form.
+  {% endcomment %}
+  {% if HORIZON_CONFIG.password_autocomplete != "on" %}
+  <div class="fake_credentials" style="display: none">
+    <input type="text" name="fake_email" value="" />
+    <input type="password" name="fake_password" value="" />
+  </div>
+  {%endif%}
   <fieldset>
     {% if request.user.is_authenticated and 'next' in request.GET %}
     <div class="form-group clearfix error">
