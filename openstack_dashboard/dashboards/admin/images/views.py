@@ -122,8 +122,13 @@ class UpdateView(views.UpdateView):
 
 
 class DetailView(views.DetailView):
-    """Admin placeholder for image detail view."""
-    pass
+
+    def get_context_data(self, **kwargs):
+        context = super(DetailView, self).get_context_data(**kwargs)
+        table = project_tables.AdminImagesTable(self.request)
+        context["url"] = reverse('horizon:admin:images:index')
+        context["actions"] = table.render_row_actions(context["image"])
+        return context
 
 
 class UpdateMetadataView(forms.ModalFormView):
