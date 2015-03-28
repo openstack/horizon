@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var module = angular.module('hz.dashboard.launch-instance', [ 'ngSanitize' ]);
+  var module = angular.module('hz.dashboard.launch-instance', [ 'ngSanitize']);
 
   module.factory('launchInstanceWorkflow', ['dashboardBasePath', function (path) {
 

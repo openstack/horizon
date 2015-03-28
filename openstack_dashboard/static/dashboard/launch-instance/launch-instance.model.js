@@ -131,25 +131,24 @@
 
       // Local function.
       function initializeNewInstanceSpec(){
-        // This might be a bad idea, but hopefully it will help step developers.
 
         model.newInstanceSpec = {
           availability_zone: null,
           admin_pass: null,
           config_drive: false,
-          user_data: '', // REQUIRED Server Key.  Null allowed.
+          user_data: '',                  // REQUIRED Server Key.  Null allowed.
           disk_config: 'AUTO',
-          flavor: [], // REQUIRED
+          flavor: null,                   // REQUIRED
           instance_count: 1,
-          key_pair: [], // REQUIRED Server Key
-          name: null, // REQUIRED
+          key_pair: [],                   // REQUIRED Server Key
+          name: null,                     // REQUIRED
           networks: [],
           profile: {},
-          security_groups: [], // REQUIRED Server Key. May be empty.
-          source_type: null, // REQUIRED for JS logic (image | snapshot | volume | volume_snapshot)
+          security_groups: [],            // REQUIRED Server Key. May be empty.
+          source_type: null,              // REQUIRED for JS logic (image | snapshot | volume | volume_snapshot)
           source: [],
-          vol_create: false, // REQUIRED for JS logic
-          vol_device_name: 'vda', // May be null
+          vol_create: false,              // REQUIRED for JS logic
+          vol_device_name: 'vda',         // May be null
           vol_delete_on_terminate: false,
           vol_size: 1
         };
@@ -265,8 +264,10 @@
       }
 
       function setFinalSpecFlavor(finalSpec) {
-        if(!finalSpec.flavor_id && finalSpec.flavor && (finalSpec.flavor.length === 1)){
-          finalSpec.flavor_id = finalSpec.flavor[0].id;
+        if ( finalSpec.flavor ) {
+          finalSpec.flavor_id = finalSpec.flavor.id;
+        } else {
+          delete finalSpec.flavor_id;
         }
 
         delete finalSpec.flavor;
