@@ -5,12 +5,13 @@
 # Translators:
 # Chen, Shang-Pin <dreamerwolf.tw@gmail.com>, 2015
 # Xiao Xi LIU <liuxx@cn.ibm.com>, 2014
+# Zhang Xiaowei <zero00072@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-19 21:47+0000\n"
+"POT-Creation-Date: 2015-03-28 00:18-0500\n"
+"PO-Revision-Date: 2015-03-27 06:00+0000\n"
 "Last-Translator: Zhang Xiaowei <zero00072@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +24,7 @@ msgstr ""
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
 "missing information."
-msgstr "無法執行動作。這一欄的內容有錯或者缺少資訊。"
+msgstr "無法執行動作。這欄的內容有錯或者缺少資訊。"
 
 #: static/angular/metadata-display/metadata-display.js:33
 msgid "Detail Information"
@@ -35,7 +36,7 @@ msgid ""
 "the right column. In the left columns there are metadata definitions from "
 "the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
 "the key of your choice."
-msgstr "您可以從左欄移動物件到右欄來指定資源描述資料。左欄是來自 Glance 描述資料類別的描述檔定義。使用「其他」選項來加入您的選擇到描述資料裡。"
+msgstr "您可以從左欄移動項目到右欄來指定資源詮釋資料。左欄是來自 Glance 詮釋資料類別的詮釋檔定義。使用「其他」選項來加入您的選擇到詮釋資料裡。"
 
 #: static/angular/metadata-tree/metadata-tree.js:36
 msgid "Min"
@@ -74,17 +75,18 @@ msgid "Duplicate keys are not allowed"
 msgstr "不允許重複的鍵值"
 
 #: static/angular/metadata-tree/metadata-tree.js:45
+#: static/angular/table/basic-table.js:6
 #: static/horizon/js/horizon.forms.js:184
 msgid "Filter"
 msgstr "篩選"
 
 #: static/angular/metadata-tree/metadata-tree.js:46
 msgid "Available Metadata"
-msgstr "可用的描述資料"
+msgstr "可用的詮釋資料"
 
 #: static/angular/metadata-tree/metadata-tree.js:47
 msgid "Existing Metadata"
-msgstr "已存在的描述資料"
+msgstr "已存在的詮釋資料"
 
 #: static/angular/metadata-tree/metadata-tree.js:48
 msgid "Custom"
@@ -92,11 +94,11 @@ msgstr "自訂"
 
 #: static/angular/metadata-tree/metadata-tree.js:49
 msgid "No available metadata"
-msgstr "無可用的描述資料"
+msgstr "無可用的詮釋資料"
 
 #: static/angular/metadata-tree/metadata-tree.js:50
 msgid "No existing metadata"
-msgstr "不存在描述資料"
+msgstr "不存在詮釋資料"
 
 #: static/angular/modal/modal.js:83
 msgid "Submit"
@@ -121,19 +123,19 @@ msgstr "擇一"
 
 #: static/angular/transfer-table/transfer-table.js:42
 msgid "Select an item from Available items below"
-msgstr "從下列可用的物件中選擇一項"
+msgstr "從下列可用的項目中選擇"
 
 #: static/angular/transfer-table/transfer-table.js:43
 msgid "No available items"
-msgstr "無可用的物件"
+msgstr "無可用的項目"
 
 #: static/angular/transfer-table/transfer-table.js:44
 msgid "Expand to see allocated items"
-msgstr "展開來顯示已分配的物件"
+msgstr "展開來顯示已分配的項目"
 
 #: static/angular/transfer-table/transfer-table.js:45
 msgid "Expand to see available items"
-msgstr "展開來顯示可用的物件"
+msgstr "展開來顯示可用的項目"
 
 #: static/angular/transfer-table/transfer-table.js:46
 msgid "Click to show or hide"
@@ -153,7 +155,7 @@ msgstr "已找到 %(total)s 中的 %(found)s 個"
 
 #: static/angular/wizard/wizard.js:8
 msgid "Back"
-msgstr "上一頁"
+msgstr "上一步"
 
 #: static/angular/wizard/wizard.js:9
 msgid "Next"
@@ -259,7 +261,7 @@ msgstr "刪除網路卡介面"
 
 #: static/horizon/js/horizon.networktopology.js:556
 msgid "Open Console"
-msgstr "開啟 Console"
+msgstr "開啟終端機"
 
 #: static/horizon/js/horizon.networktopology.js:557
 msgid "View Details"
@@ -279,11 +281,11 @@ msgstr "加入網路卡介面"
 
 #: static/horizon/js/horizon.networktopology.js:570
 msgid "Terminate Instance"
-msgstr "終止執行實例"
+msgstr "終止雲實例"
 
 #: static/horizon/js/horizon.networktopology.js:571
 msgid "View Instance Details"
-msgstr "檢視執行實例詳細資訊"
+msgstr "檢視雲實例詳細資訊"
 
 #: static/horizon/js/horizon.tables.js:39
 #: static/horizon/js/horizon.tables.js:382
@@ -310,10 +312,11 @@ msgid "Please confirm your selection. "
 msgstr "請確認您的選擇。"
 
 #: static/horizon/js/horizon.tables.js:369
+#: static/horizon/js/angular/filters/filters.js:163
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
-msgstr[0] "正在顯示 %s 項"
+msgstr[0] "顯示 %s 項"
 
 #: static/horizon/js/horizon.tables_inline_edit.js:88
 #: static/horizon/js/horizon.tables_inline_edit.js:151
@@ -377,39 +380,39 @@ msgstr "位元組"
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:47
 msgid "Unable to retrieve volumes."
-msgstr "無法取回儲存空間。"
+msgstr "無法獲得雲硬碟。"
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:74
 msgid "Unable to retrieve volume snapshots."
-msgstr "無法取回儲存空間即時存檔。"
+msgstr "無法獲得雲硬碟即時存檔。"
 
 #: static/horizon/js/angular/services/hz.api.config.js:42
 msgid "Unable to retrieve user configuration."
-msgstr "無法取回使用者設置。"
+msgstr "無法獲得使用者設定檔。"
 
 #: static/horizon/js/angular/services/hz.api.config.js:61
 msgid "Unable to retrieve admin configuration."
-msgstr "無法取回管理員設置。"
+msgstr "無法獲得管理員設定檔。"
 
 #: static/horizon/js/angular/services/hz.api.glance.js:38
 msgid "Unable to retrieve image."
-msgstr "無法取回映像檔。"
+msgstr "無法獲得映像檔。"
 
 #: static/horizon/js/angular/services/hz.api.glance.js:81
 msgid "Unable to retrieve images."
-msgstr "無法取回映像檔。"
+msgstr "無法獲得映像檔。"
 
 #: static/horizon/js/angular/services/hz.api.glance.js:133
 msgid "Unable to retrieve namespaces."
-msgstr "無法取回名稱空間。"
+msgstr "無法獲得名稱空間。"
 
 #: static/horizon/js/angular/services/hz.api.glance.js:147
 msgid "Unable to retrieve namespace."
-msgstr "無法取回名稱空間。"
+msgstr "無法獲得名稱空間。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:24
 msgid "Unable to retrieve users"
-msgstr "無法取回名稱使用者。"
+msgstr "無法獲得名稱使用者。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:31
 msgid "Unable to create the user."
@@ -421,7 +424,7 @@ msgstr "無法刪除使用者。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:45
 msgid "Unable to retrieve the user"
-msgstr "無法取回使用者。"
+msgstr "無法獲得使用者。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:53
 msgid "Unable to edit the user."
@@ -433,7 +436,7 @@ msgstr "無法刪除使用者。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:68
 msgid "Unable to retrieve role"
-msgstr "無法取回角色"
+msgstr "無法獲得角色"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:75
 msgid "Unable to create the role."
@@ -445,7 +448,7 @@ msgstr "無法刪除角色"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:89
 msgid "Unable to retrieve the role"
-msgstr "無法取回角色"
+msgstr "無法獲得角色"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:97
 msgid "Unable to edit the role."
@@ -457,7 +460,7 @@ msgstr "無法刪除角色"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:112
 msgid "Unable to retrieve domains"
-msgstr "無法取回地域"
+msgstr "無法獲得地域"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:119
 msgid "Unable to create the domain."
@@ -469,7 +472,7 @@ msgstr "無法刪除地域。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:133
 msgid "Unable to retrieve the domain"
-msgstr "無法取回地域"
+msgstr "無法獲得地域"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:141
 msgid "Unable to edit the domain."
@@ -481,7 +484,7 @@ msgstr "無法刪除地域。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:157
 msgid "Unable to retrieve projects"
-msgstr "無法取回專案"
+msgstr "無法獲得專案"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:164
 msgid "Unable to create the project."
@@ -493,7 +496,7 @@ msgstr "無法刪除專案。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:178
 msgid "Unable to retrieve the project"
-msgstr "無法取回專案"
+msgstr "無法獲得專案"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:186
 msgid "Unable to edit the project."
@@ -509,11 +512,11 @@ msgstr "無法賦予角色權力。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:215
 msgid "Unable to fetch the service catalog."
-msgstr "無法取回服務類別。"
+msgstr "無法獲得伺服器類別。"
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:39
 msgid "Unable to retrieve networks."
-msgstr "無法取回網路。"
+msgstr "無法獲得網路。"
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:88
 msgid "Unable to create the network."
@@ -521,7 +524,7 @@ msgstr "無法新增網路。"
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:108
 msgid "Unable to retrieve subnets."
-msgstr "無法取回子網路。"
+msgstr "無法獲得子網路。"
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:172
 msgid "Unable to create the subnet."
@@ -529,11 +532,11 @@ msgstr "無法新增子網路。"
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:192
 msgid "Unable to retrieve ports."
-msgstr "無法取回接口。"
+msgstr "無法獲得接口。"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:40
 msgid "Unable to retrieve keypairs."
-msgstr "無法取回密鑰對。"
+msgstr "無法獲得密鑰對。"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:61
 msgid "Unable to create the keypair."
@@ -541,11 +544,11 @@ msgstr "無法新增密鑰對。"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:79
 msgid "Unable to retrieve availability zones."
-msgstr "無法取回可用區域。"
+msgstr "無法獲得可用區域。"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:117
 msgid "Unable to retrieve limits."
-msgstr "無法取回限制。"
+msgstr "無法獲得限制。"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:144
 msgid "Unable to create the server."
@@ -553,23 +556,23 @@ msgstr "無法新增伺服器。"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:158
 msgid "Unable to retrieve server."
-msgstr "無法取回伺服器。"
+msgstr "無法獲得伺服器。"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:188
 msgid "Unable to retrieve extensions."
-msgstr "無法取回擴充套件。"
+msgstr "無法獲得擴充套件。"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:233
 msgid "Unable to retrieve flavors."
-msgstr "無法取回虛擬硬體樣板。"
+msgstr "無法獲得虛擬硬體樣板。"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:251
 msgid "Unable to retrieve flavor."
-msgstr "無法取回虛擬硬體樣板。"
+msgstr "無法獲得虛擬硬體樣板。"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:265
 msgid "Unable to retrieve flavor extra specs."
-msgstr "無法取回虛擬硬體樣板額外規格。"
+msgstr "無法獲得虛擬硬體樣板額外規格。"
 
 #: static/horizon/js/angular/services/hz.api.policy.js:65
 msgid "Policy check failed."
@@ -577,4 +580,4 @@ msgstr "檢查政策時失敗。"
 
 #: static/horizon/js/angular/services/hz.api.security-group.js:64
 msgid "Unable to retrieve security groups."
-msgstr "無法取回安全性群組。"
+msgstr "無法獲得安全性群組。"

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-19 10:28+0000\n"
+"POT-Creation-Date: 2015-03-28 00:18-0500\n"
+"PO-Revision-Date: 2015-03-26 13:52+0000\n"
 "Last-Translator: Robert Simai\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -35,7 +35,7 @@ msgid ""
 "the right column. In the left columns there are metadata definitions from "
 "the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
 "the key of your choice."
-msgstr "Sie können Ressourcen-Metadaten bestimmen, indem Sie Positionen aus der linken Spalte in die rechte bewegen."
+msgstr "Sie können Ressourcen-Metadaten bestimmen, indem Sie Positionen aus der linken Spalte in die rechte bewegen. In der linken Spalte finden Sie Metadaten-Definitionen aus dem Glace Metadaten-Katalog. Verwenden Sie die \"Andere\" Option, um Metadaten mit dem Schlüssel Ihrer Wahl hinzuzufügen."
 
 #: static/angular/metadata-tree/metadata-tree.js:36
 msgid "Min"
@@ -74,6 +74,7 @@ msgid "Duplicate keys are not allowed"
 msgstr "Doppelte Schlüssel sind nicht erlaubt"
 
 #: static/angular/metadata-tree/metadata-tree.js:45
+#: static/angular/table/basic-table.js:6
 #: static/horizon/js/horizon.forms.js:184
 msgid "Filter"
 msgstr "Filter"
@@ -109,7 +110,7 @@ msgstr "Abbrechen"
 
 #: static/angular/transfer-table/transfer-table.js:39
 msgid "Allocated"
-msgstr "zugeteilt"
+msgstr "Zugewiesen"
 
 #: static/angular/transfer-table/transfer-table.js:40
 msgid "Available"
@@ -121,7 +122,7 @@ msgstr "Eines auswählen"
 
 #: static/angular/transfer-table/transfer-table.js:42
 msgid "Select an item from Available items below"
-msgstr "Wählen Sie eine Sache aus den verfügbaren Positionen aus"
+msgstr "Wählen Sie einen Eintrag aus den verfügbaren Positionen aus"
 
 #: static/angular/transfer-table/transfer-table.js:43
 msgid "No available items"
@@ -141,7 +142,7 @@ msgstr "Klicken zum zeigen oder verbergen"
 
 #: static/angular/transfer-table/transfer-table.js:47
 msgid "Re-order items using drag and drop"
-msgstr "Umsortieren der Positionen durch ziehen und fallen lassen"
+msgstr "Umsortieren der Positionen durch ziehen und ablegen"
 
 #: static/angular/transfer-table/transfer-table.js:48
 msgid "Click to see more details"
@@ -161,7 +162,7 @@ msgstr "Weiter"
 
 #: static/angular/wizard/wizard.js:10
 msgid "Finish"
-msgstr "beenden"
+msgstr "Beenden"
 
 #: static/horizon/js/horizon.accordion_nav.js:78
 #: static/horizon/js/horizon.modals.js:315
@@ -279,7 +280,7 @@ msgstr "Schnittstelle hinzufügen"
 
 #: static/horizon/js/horizon.networktopology.js:570
 msgid "Terminate Instance"
-msgstr "Instanz beenden"
+msgstr "Instanz terminieren"
 
 #: static/horizon/js/horizon.networktopology.js:571
 msgid "View Instance Details"
@@ -310,6 +311,7 @@ msgid "Please confirm your selection. "
 msgstr "Bitte bestätigen Sie Ihre Auswahl."
 
 #: static/horizon/js/horizon.tables.js:369
+#: static/horizon/js/angular/filters/filters.js:163
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
@@ -327,19 +329,19 @@ msgstr "Die Passwörter stimmen nicht überein."
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Connecting"
-msgstr "verbinde"
+msgstr "Verbinde"
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Open"
-msgstr "offen"
+msgstr "Öffnen"
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Closing"
-msgstr "schließen"
+msgstr "Schließen"
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Closed"
-msgstr "geschlossen"
+msgstr "Geschlossen"
 
 #: static/horizon/js/angular/directives/serialConsole.js:85
 #, c-format
@@ -382,7 +384,7 @@ msgstr "Datenträger können nicht abgerufen werden."
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:74
 msgid "Unable to retrieve volume snapshots."
-msgstr "Datenträger-Schattenkopien können nicht aufgerufen werden."
+msgstr "Datenträger-Schattenkopien können nicht abgerufen werden."
 
 #: static/horizon/js/angular/services/hz.api.config.js:42
 msgid "Unable to retrieve user configuration."
@@ -422,7 +424,7 @@ msgstr "Benutzer können nicht gelöscht werden."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:45
 msgid "Unable to retrieve the user"
-msgstr "Benutzers kann nicht abgerufen werden"
+msgstr "Benutzer kann nicht abgerufen werden"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:53
 msgid "Unable to edit the user."
@@ -518,7 +520,7 @@ msgstr "Netzwerke können nicht abgerufen werden."
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:88
 msgid "Unable to create the network."
-msgstr "Netzwerk konnte nicht angelegt werden."
+msgstr "Netzwerk kann nicht angelegt werden."
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:108
 msgid "Unable to retrieve subnets."
@@ -546,7 +548,7 @@ msgstr "Verfügbarkeitszonen können nicht abgerufen werden."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:117
 msgid "Unable to retrieve limits."
-msgstr "Grenzwerte können nicht abgerufen werden."
+msgstr "Begrenzungen können nicht abgerufen werden."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:144
 msgid "Unable to create the server."

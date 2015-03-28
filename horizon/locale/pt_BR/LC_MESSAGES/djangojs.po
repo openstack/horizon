@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-24 17:11-0500\n"
-"PO-Revision-Date: 2015-03-25 04:21+0000\n"
+"POT-Creation-Date: 2015-03-28 00:18-0500\n"
+"PO-Revision-Date: 2015-03-25 14:38+0000\n"
 "Last-Translator: maurosr <maurosmrodrigues@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -40,11 +40,11 @@ msgstr ""
 
 #: static/angular/metadata-tree/metadata-tree.js:36
 msgid "Min"
-msgstr ""
+msgstr "Mín. "
 
 #: static/angular/metadata-tree/metadata-tree.js:37
 msgid "Max"
-msgstr ""
+msgstr "Máx."
 
 #: static/angular/metadata-tree/metadata-tree.js:38
 msgid "Min length"

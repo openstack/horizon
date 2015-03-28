@@ -5,12 +5,13 @@
 # Translators:
 # Chen, Shang-Pin <dreamerwolf.tw@gmail.com>, 2015
 # Xiao Xi LIU <liuxx@cn.ibm.com>, 2014
+# Zhang Xiaowei <zero00072@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-19 19:24+0000\n"
+"POT-Creation-Date: 2015-03-28 00:18-0500\n"
+"PO-Revision-Date: 2015-03-27 02:41+0000\n"
 "Last-Translator: Zhang Xiaowei <zero00072@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -35,7 +36,7 @@ msgstr "您沒有足夠的權限存取 %s"
 #: exceptions.py:163
 #, python-format
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
-msgstr "一個名為「%(name)s」的 %(resource)s 已經存在。"
+msgstr "名為「%(name)s」的 %(resource)s 已經存在。"
 
 #: exceptions.py:235
 #, python-format
@@ -165,7 +166,7 @@ msgstr "沒有符合識別號「%s」的結果。"
 
 #: tables/base.py:1486
 msgid "Please select a row before taking that action."
-msgstr "執行動作前請選擇一個欄位。"
+msgstr "執行動作前請選擇欄位。"
 
 #: tables/base.py:1570
 msgid "N/A"
@@ -188,18 +189,18 @@ msgstr "登出"
 msgid "Log In"
 msgstr "登入"
 
-#: templates/auth/_login.html:15
+#: templates/auth/_login.html:25
 msgid "You do not have permission to access the resource:"
 msgstr "您沒有權限存取資源："
 
-#: templates/auth/_login.html:17
+#: templates/auth/_login.html:27
 #, python-format
 msgid ""
 "Login as different user or go back to <a href=\"%(home_url)s\"> home "
 "page</a>"
 msgstr "以不同的使用者身份登入，或者回到<a href=\"%(home_url)s\">首頁</a>"
 
-#: templates/auth/_login.html:32
+#: templates/auth/_login.html:42
 msgid "Sign In"
 msgstr "登入"
 
@@ -231,7 +232,7 @@ msgstr "摘要"
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] "正在顯示 %(counter)s 項"
+msgstr[0] "顯示 %(counter)s 項"
 
 #: templates/horizon/common/_data_table.html:77
 msgid "&laquo;&nbsp;Prev"
@@ -265,7 +266,7 @@ msgstr "限制摘要"
 
 #: templates/horizon/common/_limit_summary.html:7
 msgid "Instances"
-msgstr "執行實例"
+msgstr "雲實例"
 
 #: templates/horizon/common/_limit_summary.html:8
 #: templates/horizon/common/_limit_summary.html:15
@@ -279,7 +280,7 @@ msgstr "已使用 <span>%(available)s</span> 個中的 <span>%(used)s</span> 個
 
 #: templates/horizon/common/_limit_summary.html:14
 msgid "VCPUs"
-msgstr "虛擬 CPU 數"
+msgstr "虛擬處理器數"
 
 #: templates/horizon/common/_limit_summary.html:21
 msgid "RAM"
@@ -300,11 +301,11 @@ msgstr "安全性群組"
 
 #: templates/horizon/common/_limit_summary.html:42
 msgid "Volumes"
-msgstr "儲存空間"
+msgstr "雲硬碟"
 
 #: templates/horizon/common/_limit_summary.html:49
 msgid "Volume Storage"
-msgstr "儲存空間"
+msgstr "雲硬碟儲存空間"
 
 #: templates/horizon/common/_modal_form_update_metadata.html:26
 #: workflows/base.py:594
@@ -315,13 +316,13 @@ msgstr "儲存"
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] "正在顯示 %(nav_items)s 項"
+msgstr[0] "顯示 %(nav_items)s 項"
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] "正在顯示 %(content_items)s 項"
+msgstr[0] "顯示 %(content_items)s 項"
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
@@ -329,7 +330,7 @@ msgstr "使用量摘要"
 
 #: templates/horizon/common/_usage_summary.html:7
 msgid "Select a period of time to query its usage:"
-msgstr "選擇一段時期查詢其間的使用量："
+msgstr "選擇時段查詢使用量："
 
 #: templates/horizon/common/_usage_summary.html:9
 #, python-format
@@ -351,23 +352,23 @@ msgstr "日期的格式應該為 YY-mm-dd。"
 
 #: templates/horizon/common/_usage_summary.html:20
 msgid "Active Instances:"
-msgstr "有效的執行實例："
+msgstr "使用中的雲實例："
 
 #: templates/horizon/common/_usage_summary.html:21
 msgid "Active RAM:"
-msgstr "有效的RAM："
+msgstr "使用中的隨機存取記憶體："
 
 #: templates/horizon/common/_usage_summary.html:22
 msgid "This Period's VCPU-Hours:"
-msgstr "此段時期的VCPU-小時數："
+msgstr "此時段的虛擬處理器時數："
 
 #: templates/horizon/common/_usage_summary.html:23
 msgid "This Period's GB-Hours:"
-msgstr "此段時期的GB-小時數："
+msgstr "此時段的硬碟GB時數："
 
 #: templates/horizon/common/_usage_summary.html:24
 msgid "This Period's RAM-Hours:"
-msgstr "此時段的記憶體時數"
+msgstr "此時段的虛擬記憶體時數："
 
 #: templates/horizon/common/_workflow.html:40
 msgid "Back"
@@ -375,7 +376,7 @@ msgstr "上一頁"
 
 #: templates/horizon/common/_workflow.html:43
 msgid "Next"
-msgstr "下一步"
+msgstr "下一頁"
 
 #: templatetags/branding.py:34
 msgid "Horizon"
@@ -428,7 +429,7 @@ msgstr "0 位元組"
 #: test/test_dashboards/dogs/puppies/tables.py:31
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
-msgstr[0] "售賣小狗"
+msgstr[0] "販賣小狗"
 
 #. Translators: test code, don't really have to translate
 #: test/test_dashboards/dogs/puppies/tables.py:40
@@ -438,7 +439,7 @@ msgstr[0] "已賣出小狗"
 
 #: test/tests/views.py:59
 msgid "Fake"
-msgstr "Fake"
+msgstr "假冒"
 
 #: utils/filters.py:49
 msgid "Never"
@@ -446,11 +447,11 @@ msgstr "永不"
 
 #: utils/validators.py:26 utils/validators.py:50
 msgid "Not a valid port number"
-msgstr "不是一個有效的埠口號碼"
+msgstr "不是有效的埠口號碼"
 
 #: utils/validators.py:31
 msgid "Not a valid IP protocol number"
-msgstr "不是一個有效的 IP 協定號碼"
+msgstr "不是有效的 IP 協定號碼"
 
 #: utils/validators.py:45
 msgid "One colon allowed in port range"
@@ -466,7 +467,7 @@ msgstr "字串只能包含 ASCII 可印出的字元。"
 
 #: workflows/base.py:71
 msgid "Processing..."
-msgstr "處理中…"
+msgstr "處理中……"
 
 #: workflows/base.py:475
 msgid "All available"

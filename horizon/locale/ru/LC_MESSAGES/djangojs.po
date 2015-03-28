@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015
 # Yury Sakarinen, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-21 06:55+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-03-28 00:18-0500\n"
+"PO-Revision-Date: 2015-03-25 14:38+0000\n"
+"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,11 +23,11 @@ msgstr ""
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
 "missing information."
-msgstr ""
+msgstr "Действие не может быть выполнено. Эта строка содержит ошибки или недостаточную информацию.  "
 
 #: static/angular/metadata-display/metadata-display.js:33
 msgid "Detail Information"
-msgstr ""
+msgstr "Детальная информация"
 
 #: static/angular/metadata-tree/metadata-tree.js:35
 msgid ""
@@ -38,15 +39,15 @@ msgstr ""
 
 #: static/angular/metadata-tree/metadata-tree.js:36
 msgid "Min"
-msgstr ""
+msgstr "Мин."
 
 #: static/angular/metadata-tree/metadata-tree.js:37
 msgid "Max"
-msgstr ""
+msgstr "Макс."
 
 #: static/angular/metadata-tree/metadata-tree.js:38
 msgid "Min length"
-msgstr ""
+msgstr "Минимальная длина"
 
 #: static/angular/metadata-tree/metadata-tree.js:39
 msgid "Max length"
@@ -73,6 +74,7 @@ msgid "Duplicate keys are not allowed"
 msgstr "Повторяющиеся ключи не допускаются"
 
 #: static/angular/metadata-tree/metadata-tree.js:45
+#: static/angular/table/basic-table.js:6
 #: static/horizon/js/horizon.forms.js:184
 msgid "Filter"
 msgstr "Фильтр"
@@ -309,6 +311,7 @@ msgid "Please confirm your selection. "
 msgstr ""
 
 #: static/horizon/js/horizon.tables.js:369
+#: static/horizon/js/angular/filters/filters.js:163
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"

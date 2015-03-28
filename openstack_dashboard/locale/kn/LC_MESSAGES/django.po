@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-24 17:11-0500\n"
-"PO-Revision-Date: 2015-03-24 14:19+0000\n"
+"POT-Creation-Date: 2015-03-28 00:18-0500\n"
+"PO-Revision-Date: 2015-03-28 01:31+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Kannada (http://www.transifex.com/projects/p/horizon/language/kn/)\n"
 "MIME-Version: 1.0\n"
@@ -18,59 +18,59 @@ msgstr ""
 "Language: kn\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: settings.py:85
+#: settings.py:80
 msgid "Select format"
 msgstr "ನಮೂನೆಯನ್ನು ಆರಿಸಿ"
 
-#: settings.py:86
+#: settings.py:81
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - ಅಮೆಜಾನ್ ಕರ್ನಲ್ ಇಮೇಜ್"
 
-#: settings.py:87
+#: settings.py:82
 msgid "AMI - Amazon Machine Image"
 msgstr "AKI - ಅಮೆಜಾನ್ ಮೆಶೀನ್ ಇಮೇಜ್"
 
-#: settings.py:88
+#: settings.py:83
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "AKI - ಅಮೆಜಾನ್ ರಾಮ್‌ಡಿಸ್ಕ್ ಇಮೇಜ್"
 
-#: settings.py:89
+#: settings.py:84
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - ಆಪ್ಟಿಕಲ್ ಡಿಸ್ಕ್ ಇಮೇಜ್"
 
-#: settings.py:90
+#: settings.py:85
 msgid "OVA - Open Virtual Appliance"
 msgstr ""
 
-#: settings.py:91
+#: settings.py:86
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU ಎಮ್ಯುಲೇಟರ್"
 
-#: settings.py:92
+#: settings.py:87
 msgid "Raw"
 msgstr "ಕಚ್ಛಾ"
 
-#: settings.py:93
+#: settings.py:88
 msgid "VDI - Virtual Disk Image"
 msgstr ""
 
-#: settings.py:94
+#: settings.py:89
 msgid "VHD - Virtual Hard Disk"
 msgstr ""
 
-#: settings.py:95
+#: settings.py:90
 msgid "VMDK - Virtual Machine Disk"
 msgstr ""
 
-#: settings.py:242
+#: settings.py:237
 msgid "All TCP"
 msgstr "All TCP"
 
-#: settings.py:248
+#: settings.py:243
 msgid "All UDP"
 msgstr "All UDP"
 
-#: settings.py:254
+#: settings.py:249
 msgid "All ICMP"
 msgstr "All ICMP"
 
@@ -541,7 +541,6 @@ msgstr "ವ್ಯವಸ್ಥಾಪಕ"
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:6
 #: dashboards/admin/routers/tables.py:41
 #: dashboards/admin/routers/ports/tables.py:24
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:7
 #: dashboards/admin/volumes/snapshots/tables.py:59
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:10
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:11
@@ -568,7 +567,7 @@ msgstr "ವ್ಯವಸ್ಥಾಪಕ"
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:6
 #: dashboards/project/data_processing/clusters/tables.py:35
 #: dashboards/project/data_processing/clusters/tables.py:146
-#: dashboards/project/data_processing/clusters/tabs.py:137
+#: dashboards/project/data_processing/clusters/tabs.py:136
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:6
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:9
 #: dashboards/project/data_processing/data_sources/tables.py:57
@@ -628,7 +627,7 @@ msgstr "ವ್ಯವಸ್ಥಾಪಕ"
 #: dashboards/project/routers/forms.py:117
 #: dashboards/project/routers/tables.py:209
 #: dashboards/project/routers/ports/tables.py:107
-#: dashboards/project/routers/templates/routers/_detail_overview.html:9
+#: dashboards/project/routers/templates/routers/_detail_overview.html:5
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:9
 #: dashboards/project/volumes/backups/tables.py:117
 #: dashboards/project/volumes/snapshots/tables.py:147
@@ -1108,10 +1107,10 @@ msgstr "VCPUಗಳು"
 #: dashboards/admin/hypervisors/tables.py:57
 #: dashboards/admin/instances/panel.py:27
 #: dashboards/admin/instances/tables.py:164
-#: dashboards/admin/instances/views.py:67
+#: dashboards/admin/instances/views.py:68
 #: dashboards/admin/instances/templates/instances/index.html:3
 #: dashboards/identity/projects/workflows.py:52
-#: dashboards/project/data_processing/clusters/tabs.py:151
+#: dashboards/project/data_processing/clusters/tabs.py:150
 #: dashboards/project/databases/panel.py:23
 #: dashboards/project/databases/tables.py:340
 #: dashboards/project/databases/views.py:48
@@ -1363,7 +1362,6 @@ msgstr "ಸ್ವಾಪ್‌ ಡಿಸ್ಕ್"
 #: dashboards/admin/flavors/workflows.py:41
 #: dashboards/admin/networks/agents/tables.py:90
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:8
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:9
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:12
 #: dashboards/admin/volumes/volumes/forms.py:87
 #: dashboards/admin/volumes/volumes/forms.py:146
@@ -1376,7 +1374,7 @@ msgstr "ಸ್ವಾಪ್‌ ಡಿಸ್ಕ್"
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:7
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:7
 #: dashboards/project/data_processing/job_executions/tables.py:37
-#: dashboards/project/data_processing/job_executions/tables.py:168
+#: dashboards/project/data_processing/job_executions/tables.py:186
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:8
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:8
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:8
@@ -1402,7 +1400,7 @@ msgstr "ಸ್ವಾಪ್‌ ಡಿಸ್ಕ್"
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:8
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:12
 #: dashboards/project/routers/forms.py:121
-#: dashboards/project/routers/templates/routers/_detail_overview.html:11
+#: dashboards/project/routers/templates/routers/_detail_overview.html:7
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:11
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:14
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:12
@@ -1753,7 +1751,7 @@ msgid "Running Instance Migration Type"
 msgstr ""
 
 #: dashboards/admin/hypervisors/compute/forms.py:108
-#: dashboards/admin/instances/views.py:156
+#: dashboards/admin/instances/views.py:157
 #: dashboards/admin/instances/templates/instances/_live_migrate.html:8
 #: dashboards/admin/instances/templates/instances/live_migrate.html:3
 msgid "Live Migrate"
@@ -1839,7 +1837,6 @@ msgstr "ವಲಯ"
 #: dashboards/admin/networks/tables.py:102
 #: dashboards/admin/networks/agents/tables.py:92
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:17
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:13
 #: dashboards/admin/volumes/snapshots/forms.py:34
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/admin/volumes/volumes/forms.py:187
@@ -1848,7 +1845,7 @@ msgstr "ವಲಯ"
 #: dashboards/project/data_processing/clusters/tables.py:152
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:12
 #: dashboards/project/data_processing/job_executions/tables.py:40
-#: dashboards/project/data_processing/job_executions/tables.py:185
+#: dashboards/project/data_processing/job_executions/tables.py:205
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:6
 #: dashboards/project/database_backups/tables.py:174
 #: dashboards/project/database_backups/templates/database_backups/details.html:26
@@ -1873,7 +1870,7 @@ msgstr "ವಲಯ"
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:17
 #: dashboards/project/routers/tables.py:212
 #: dashboards/project/routers/ports/tables.py:112
-#: dashboards/project/routers/templates/routers/_detail_overview.html:13
+#: dashboards/project/routers/templates/routers/_detail_overview.html:11
 #: dashboards/project/stacks/tables.py:275
 #: dashboards/project/stacks/tables.py:320
 #: dashboards/project/stacks/tables.py:371
@@ -2026,18 +2023,18 @@ msgstr "ಒಂದು ಚಿತ್ರಿಕೆಯನ್ನು ರಚಿಸಿ"
 msgid "Update Image"
 msgstr "ಚಿತ್ರಿಕೆಯನ್ನು ಅಪ್‌ಡೇಟ್‌ ಮಾಡಿ"
 
-#: dashboards/admin/images/views.py:133
+#: dashboards/admin/images/views.py:138
 #: dashboards/admin/images/templates/images/_update_metadata.html:4
 #: dashboards/admin/images/templates/images/_update_metadata.html:7
 #: dashboards/admin/images/templates/images/update_metadata.html:3
 msgid "Update Image Metadata"
 msgstr "ಚಿತ್ರಿಕೆಯ ಮೆಟಾಡೇಟವನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡಿ"
 
-#: dashboards/admin/images/views.py:184
+#: dashboards/admin/images/views.py:189
 msgid "Unable to retrieve available properties for image."
 msgstr "ಚಿತ್ರಿಕೆಗಾಗಿ ಲಭ್ಯವಿರುವ ಗುಣಗಳನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: dashboards/admin/images/views.py:197
+#: dashboards/admin/images/views.py:202
 msgid "Unable to retrieve the image to be updated."
 msgstr "ಅಪ್‌ಡೇಟ್‌ ಮಾಡಬೇಕಿರುವ ಚಿತ್ರಿಕೆಯನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
@@ -2098,6 +2095,7 @@ msgstr "ವ್ಯವಸ್ಥೆಯ ಮಾಹಿತಿ"
 #: dashboards/project/firewalls/tables.py:229
 #: dashboards/project/firewalls/workflows.py:67
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:53
+#: dashboards/project/routers/templates/routers/_detail_overview.html:48
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:65
 msgid "Enabled"
 msgstr "ಸಕ್ರಿಯ"
@@ -2105,6 +2103,7 @@ msgstr "ಸಕ್ರಿಯ"
 #: dashboards/admin/info/tables.py:27 dashboards/admin/info/tables.py:157
 #: dashboards/admin/info/templates/info/_cell_status.html:3
 #: dashboards/admin/networks/agents/tables.py:80
+#: dashboards/project/routers/templates/routers/_detail_overview.html:50
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:65
 msgid "Disabled"
 msgstr "ನಿಷ್ಕ್ರಿಯಗೊಂಡ"
@@ -2289,6 +2288,7 @@ msgstr "ಪರಿಯೋಜನೆ"
 #: dashboards/project/instances/tables.py:1013
 #: dashboards/project/loadbalancers/tables.py:367
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:29
+#: dashboards/project/routers/templates/routers/_detail_overview.html:40
 msgid "IP Address"
 msgstr "IP ವಿಳಾಸ"
 
@@ -2325,31 +2325,31 @@ msgstr "ವಿದ್ಯುಚ್ಛಕ್ತಿ ಸ್ಥಿತಿ"
 msgid "Time since created"
 msgstr "ರಚಿಸಿದ ನಂತರದ ಸಮಯ"
 
-#: dashboards/admin/instances/views.py:82
+#: dashboards/admin/instances/views.py:83
 msgid "Unable to retrieve instance project information."
 msgstr "ಇನ್‌ಸ್ಟೆನ್ಸ್ ಪರಿಯೋಜನೆಯ ಮಾಹಿತಿಯನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: dashboards/admin/instances/views.py:103
+#: dashboards/admin/instances/views.py:104
 #: dashboards/project/access_and_security/tabs.py:112
 #: dashboards/project/access_and_security/floating_ips/workflows.py:91
 msgid "Unable to retrieve instance list."
 msgstr "ಇನ್‌ಸ್ಟೆನ್ಸ್‌ ಪಟ್ಟಿಯನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: dashboards/admin/instances/views.py:111
+#: dashboards/admin/instances/views.py:112
 #: dashboards/project/instances/views.py:81
 msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "ನ್ಯೂಟ್ರಾನ್‌ನಿಂದ IP ವಿಳಾಸಗಳನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: dashboards/admin/instances/views.py:135
+#: dashboards/admin/instances/views.py:136
 #: dashboards/project/instances/views.py:122
 msgid "Unable to retrieve instance size information."
 msgstr "ಇನ್‌ಸ್ಟೆನ್ಸ್ ಗಾತ್ರದ ಮಾಹಿತಿಯನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: dashboards/admin/instances/views.py:169
+#: dashboards/admin/instances/views.py:170
 msgid "Unable to retrieve host information."
 msgstr "ಆತಿಥೇಯಗಣಕದ ಮಾಹಿತಿಯನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: dashboards/admin/instances/views.py:179
+#: dashboards/admin/instances/views.py:180
 #: dashboards/project/databases/views.py:153
 #: dashboards/project/databases/views.py:193
 #: dashboards/project/instances/views.py:242
@@ -2637,7 +2637,6 @@ msgstr ""
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:51
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:53
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:66
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:8
 #: dashboards/admin/volumes/volume_types/forms.py:89
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:16
 #: dashboards/identity/users/templates/users/_detail_overview.html:22
@@ -2680,9 +2679,10 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:20
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:48
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:56
-#: dashboards/project/routers/templates/routers/_detail_overview.html:4
-#: dashboards/project/routers/templates/routers/_detail_overview.html:10
-#: dashboards/project/routers/templates/routers/_detail_overview.html:12
+#: dashboards/project/routers/templates/routers/_detail_overview.html:6
+#: dashboards/project/routers/templates/routers/_detail_overview.html:30
+#: dashboards/project/routers/templates/routers/_detail_overview.html:42
+#: dashboards/project/routers/templates/routers/_detail_overview.html:54
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:77
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:7
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:10
@@ -2721,7 +2721,6 @@ msgstr "ರಚಿಸಿದ್ದು"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:23
 #: dashboards/admin/networks/views.py:59
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:16
 #: dashboards/project/images/templates/images/images/_detail_overview.html:20
 #: dashboards/project/images/templates/images/images/_detail_overview.html:31
 #: dashboards/project/instances/tables.py:642
@@ -2729,7 +2728,8 @@ msgstr "ರಚಿಸಿದ್ದು"
 #: dashboards/project/networks/templates/networks/_detail_overview.html:16
 #: dashboards/project/networks/templates/networks/_detail_overview.html:23
 #: dashboards/project/routers/templates/routers/_detail_overview.html:14
-#: dashboards/project/routers/templates/routers/_detail_overview.html:16
+#: dashboards/project/routers/templates/routers/_detail_overview.html:33
+#: dashboards/project/routers/templates/routers/_detail_overview.html:39
 #: dashboards/project/volumes/backups/tables.py:37
 #: dashboards/project/volumes/snapshots/tables.py:126
 msgid "Unknown"
@@ -3168,7 +3168,6 @@ msgstr ""
 #: dashboards/admin/networks/agents/tables.py:93
 #: dashboards/admin/networks/ports/forms.py:47
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:19
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:15
 #: dashboards/project/firewalls/forms.py:133
 #: dashboards/project/firewalls/tables.py:294
 #: dashboards/project/firewalls/workflows.py:241
@@ -3191,7 +3190,7 @@ msgstr ""
 #: dashboards/project/routers/forms.py:120
 #: dashboards/project/routers/tables.py:225
 #: dashboards/project/routers/ports/tables.py:117
-#: dashboards/project/routers/templates/routers/_detail_overview.html:15
+#: dashboards/project/routers/templates/routers/_detail_overview.html:13
 #: dashboards/project/vpn/forms.py:39 dashboards/project/vpn/forms.py:263
 #: dashboards/project/vpn/workflows.py:33
 #: dashboards/project/vpn/workflows.py:419
@@ -3360,6 +3359,7 @@ msgstr ""
 #: dashboards/admin/networks/agents/forms.py:32
 #: dashboards/admin/networks/ports/forms.py:36
 #: dashboards/project/networks/workflows.py:37
+#: dashboards/project/routers/templates/routers/_detail_overview.html:29
 msgid "Network Name"
 msgstr "ಜಾಲಬಂಧದ ಹೆಸರು"
 
@@ -3488,6 +3488,7 @@ msgstr ""
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:11
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:11
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:15
+#: dashboards/project/routers/templates/routers/_detail_overview.html:32
 msgid "Network ID"
 msgstr "ಜಾಲಬಂಧದ ID"
 
@@ -3700,7 +3701,6 @@ msgid ""
 msgstr "ನೀವು ಜಾಲಬಂಧಕ್ಕಾಗಿ ಒಂದು ಪೋರ್ಟ್‌ ಅನ್ನು ರಚಿಸಬಹುದು. ಒಂದು ಸಾಧನ ID ಯನ್ನು ಲಗತ್ತಿಸಲು ನೀವು ಆಯ್ಕೆ ಮಾಡಿದಲ್ಲಿ, ರಚಿಸಲಾದ ಪೋರ್ಟ್‌ಗೆ ಸೂಚಿಸಲಾದ ಸಾಧನವನ್ನು ಲಗತ್ತಿಸಲಾಗುತ್ತದೆ."
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:13
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:11
 #: dashboards/identity/projects/tables.py:236
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:11
 #: dashboards/identity/users/templates/users/_detail_overview.html:25
@@ -3715,6 +3715,7 @@ msgstr "ನೀವು ಜಾಲಬಂಧಕ್ಕಾಗಿ ಒಂದು ಪೋರ
 #: dashboards/project/networks/templates/networks/_detail_overview.html:11
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:13
 #: dashboards/project/overview/templates/overview/usage.csv:2
+#: dashboards/project/routers/templates/routers/_detail_overview.html:9
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:15
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:15
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:16
@@ -3738,6 +3739,7 @@ msgstr "ನಿಶ್ಚಿತ IP"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:32
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:32
+#: dashboards/project/routers/templates/routers/_detail_overview.html:39
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:23
 msgid "Subnet ID"
 msgstr "ಸಬ್‌ನೆಟ್ ID"
@@ -3800,6 +3802,7 @@ msgstr "ಜಾಲಬಂಧದ ವಿವರಗಳು"
 #: dashboards/project/networks/ports/tabs.py:21
 #: dashboards/project/networks/subnets/tabs.py:21
 #: dashboards/project/overview/panel.py:27
+#: dashboards/project/routers/tabs.py:25
 #: dashboards/project/routers/ports/tabs.py:24
 #: dashboards/project/stacks/tabs.py:53 dashboards/project/stacks/tabs.py:67
 #: dashboards/project/stacks/resource_types/tabs.py:21
@@ -3882,77 +3885,12 @@ msgstr "ರೌಟರ್‌ಗಳು"
 msgid "Unable to retrieve router list."
 msgstr "ರೌಟರ್‌ ಪಟ್ಟಿಯನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: dashboards/admin/routers/extensions/routerrules/tables.py:21
-#: dashboards/project/routers/extensions/routerrules/forms.py:48
-#: dashboards/project/routers/extensions/routerrules/tables.py:70
-msgid "Source CIDR"
-msgstr "ಮೂಲ CIDR"
-
-#: dashboards/admin/routers/extensions/routerrules/tables.py:23
-#: dashboards/project/routers/extensions/routerrules/forms.py:50
-#: dashboards/project/routers/extensions/routerrules/tables.py:72
-msgid "Destination CIDR"
-msgstr "ಗುರಿ CIDR"
-
-#: dashboards/admin/routers/extensions/routerrules/tables.py:24
-#: dashboards/project/firewalls/forms.py:43
-#: dashboards/project/firewalls/tables.py:227
-#: dashboards/project/firewalls/workflows.py:43
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:19
-#: dashboards/project/instances/audit_tables.py:25
-#: dashboards/project/routers/extensions/routerrules/forms.py:52
-#: dashboards/project/routers/extensions/routerrules/tables.py:73
-msgid "Action"
-msgstr "ಕಾರ್ಯ"
-
-#: dashboards/admin/routers/extensions/routerrules/tables.py:25
-#: dashboards/project/routers/extensions/routerrules/tables.py:74
-msgid "Next Hops"
-msgstr "ಮುಂದಿನ ಹಾರಿಕೆಗಳು (ಹಾಪ್ಸ್‌)"
-
-#: dashboards/admin/routers/extensions/routerrules/tables.py:29
-#: dashboards/project/routers/extensions/routerrules/tables.py:81
-#: dashboards/project/routers/extensions/routerrules/tabs.py:32
-msgid "Router Rules"
-msgstr "ರೌಟರ್ ನಿಯಮಗಳು"
-
 #: dashboards/admin/routers/ports/tables.py:29
 #: dashboards/project/network_topology/ports/tables.py:28
-#: dashboards/project/routers/tabs.py:27
+#: dashboards/project/routers/tabs.py:35
 #: dashboards/project/routers/ports/tables.py:125
 msgid "Interfaces"
 msgstr "ಇಂಟರ್‌ಫೇಸ್‌ಗಳು"
-
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:3
-#: dashboards/project/routers/templates/routers/_detail_overview.html:4
-#, python-format
-msgid "Router Overview: %(router_name)s"
-msgstr "ರೌಟರ್‌ ಅವಲೋಕನ: %(router_name)s"
-
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:18
-#: dashboards/project/routers/forms.py:53
-#: dashboards/project/routers/forms.py:138
-#: dashboards/project/routers/forms.py:144
-#: dashboards/project/routers/tables.py:217
-#: dashboards/project/routers/templates/routers/_detail_overview.html:18
-msgid "Distributed"
-msgstr "ಚದುರಿದ"
-
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:22
-#: dashboards/project/routers/forms.py:43
-#: dashboards/project/routers/forms.py:125
-#: dashboards/project/routers/templates/routers/_detail_overview.html:22
-msgid "High Availability Mode"
-msgstr "ಹೈ ಅವೆಲಿಬಿಲಿಟಿ ಸ್ಥಿತಿ"
-
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:26
-msgid "External Gateway Information"
-msgstr "ಬಾಹ್ಯ ಗೇಟ್‌ವೇ ಮಾಹಿತಿ"
-
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:28
-#, python-format
-msgid "Connected External Network: %(router_gw_info_network)s"
-msgstr "ಬಾಹ್ಯ ಜಾಲಬಂಧ ಸಂಪರ್ಕಿತಗೊಂಡಿದೆ: %(router_gw_info_network)s"
 
 #: dashboards/admin/routers/templates/routers/detail.html:3
 #: dashboards/project/routers/views.py:102
@@ -3961,7 +3899,7 @@ msgid "Router Details"
 msgstr "ರೌಟರ್‌ ವಿವರಗಳು"
 
 #: dashboards/admin/routers/templates/routers/update.html:3
-#: dashboards/project/routers/views.py:166
+#: dashboards/project/routers/views.py:178
 #: dashboards/project/routers/templates/routers/update.html:3
 msgid "Update Router"
 msgstr "ರೌಟರ್‌ ಅನ್ನು ಅಪ್‌ಡೇಟ್‌ ಮಾಡಿ"
@@ -4024,7 +3962,7 @@ msgstr "ಪರಿಮಾಣ ಸ್ನ್ಯಾಪ್‌ಶಾಟ್‌ ಸ್ಥ�
 
 #: dashboards/admin/volumes/snapshots/tables.py:29
 #: dashboards/admin/volumes/snapshots/views.py:36
-#: dashboards/admin/volumes/volumes/views.py:98
+#: dashboards/admin/volumes/volumes/views.py:107
 msgid "Update Status"
 msgstr "ಸ್ಥಿತಿಯನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡು"
 
@@ -4393,7 +4331,7 @@ msgstr "ಪರಿಮಾಣದ ವಿವರಗಳು"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/manage_volume.html:3
 #: dashboards/admin/volumes/volumes/tables.py:33
-#: dashboards/admin/volumes/volumes/views.py:38
+#: dashboards/admin/volumes/volumes/views.py:47
 msgid "Manage Volume"
 msgstr ""
 
@@ -4412,8 +4350,8 @@ msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volumes/update_status.html:3
 #: dashboards/admin/volumes/volumes/tables.py:69
-#: dashboards/admin/volumes/volumes/views.py:95
-#: dashboards/admin/volumes/volumes/views.py:101
+#: dashboards/admin/volumes/volumes/views.py:104
+#: dashboards/admin/volumes/volumes/views.py:110
 msgid "Update Volume Status"
 msgstr "ಪರಿಮಾಣದ ಸ್ಥಿತಿಯನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡಿ"
 
@@ -4849,20 +4787,20 @@ msgstr "QoS ಸ್ಪೆಕ್‌ನನ್ನು ರಚಿಸಲು ಸಾಧ್
 msgid "Unable to retrieve snapshot data."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/views.py:40
+#: dashboards/admin/volumes/volumes/views.py:49
 msgid "Manage"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/views.py:53
+#: dashboards/admin/volumes/volumes/views.py:62
 msgid "Confirm Unmanage Volume"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/views.py:55
+#: dashboards/admin/volumes/volumes/views.py:64
 msgid "Unmanage"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/views.py:73
-#: dashboards/admin/volumes/volumes/views.py:117
+#: dashboards/admin/volumes/volumes/views.py:82
+#: dashboards/admin/volumes/volumes/views.py:126
 #: dashboards/project/volumes/volumes/views.py:68
 #: dashboards/project/volumes/volumes/views.py:457
 msgid "Unable to retrieve volume details."
@@ -6996,7 +6934,7 @@ msgstr "ಪ್ಲಗ್ಇನ್"
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:88
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:8
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:32
-#: dashboards/project/data_processing/utils/workflow_helpers.py:200
+#: dashboards/project/data_processing/utils/workflow_helpers.py:193
 #: dashboards/project/data_processing/wizard/forms.py:64
 msgid "Version"
 msgstr "ಆವೃತ್ತಿ"
@@ -7051,13 +6989,13 @@ msgstr "ಕ್ಲಸ್ಟರ್ ಸಿದ್ಧವಿನ್ಯಾಸವನ್�
 #: dashboards/project/data_processing/cluster_templates/tabs.py:48
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:3
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:217
-#: dashboards/project/data_processing/clusters/tabs.py:85
+#: dashboards/project/data_processing/clusters/tabs.py:84
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:6
 msgid "Node Groups"
 msgstr "ನೋಡ್ ಗುಂಪುಗಳು"
 
 #: dashboards/project/data_processing/cluster_templates/tabs.py:31
-#: dashboards/project/data_processing/clusters/tabs.py:37
+#: dashboards/project/data_processing/clusters/tabs.py:36
 #: dashboards/project/data_processing/data_sources/tabs.py:27
 #: dashboards/project/data_processing/job_binaries/tabs.py:27
 #: dashboards/project/data_processing/job_executions/tabs.py:26
@@ -7339,24 +7277,24 @@ msgstr "ಕ್ಲಸ್ಟರ್ ಅನ್ನು ಸಂರಚಿಸಿ"
 msgid "Instances Count"
 msgstr "ಇನ್‌ಸ್ಟನ್ಸ್‌ಗಳ ಎಣಿಕೆ"
 
-#: dashboards/project/data_processing/clusters/tabs.py:114
+#: dashboards/project/data_processing/clusters/tabs.py:113
 msgid "Unable to get node group details."
 msgstr "ನೋಡ್ ಗುಂಪಿನ ವಿವರಗಳನ್ನು ಪಡೆಯಲಾಗಿಲ್ಲ."
 
-#: dashboards/project/data_processing/clusters/tabs.py:140
+#: dashboards/project/data_processing/clusters/tabs.py:139
 msgid "Internal IP"
 msgstr "ಆಂತರಿಕ IP"
 
-#: dashboards/project/data_processing/clusters/tabs.py:143
+#: dashboards/project/data_processing/clusters/tabs.py:142
 msgid "Management IP"
 msgstr "ನಿರ್ವಹಣಾ IP"
 
-#: dashboards/project/data_processing/clusters/tabs.py:147
+#: dashboards/project/data_processing/clusters/tabs.py:146
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_instances_details.html:2
 msgid "Cluster Instances"
 msgstr "ಕ್ಲಸ್ಟರ್‌ ಇನ್‌ಸ್ಟನ್ಸ್‌ಗಳು"
 
-#: dashboards/project/data_processing/clusters/tabs.py:176
+#: dashboards/project/data_processing/clusters/tabs.py:175
 msgid "Unable to fetch instance details."
 msgstr "ಇನ್‌ಸ್ಟೆನ್ಸ್‌ ವಿವರಗಳನ್ನು ಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
@@ -7938,7 +7876,7 @@ msgid "Download job binary"
 msgstr "ಕೆಲಸದ ಬೈನರಿಯನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ"
 
 #: dashboards/project/data_processing/job_executions/panel.py:22
-#: dashboards/project/data_processing/job_executions/tables.py:194
+#: dashboards/project/data_processing/job_executions/tables.py:214
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/job_executions.html:6
 #: dashboards/project/data_processing/jobs/views.py:41
 msgid "Jobs"
@@ -7952,7 +7890,7 @@ msgid "Job"
 msgstr "ಕೆಲಸ"
 
 #: dashboards/project/data_processing/job_executions/tables.py:39
-#: dashboards/project/data_processing/job_executions/tables.py:179
+#: dashboards/project/data_processing/job_executions/tables.py:198
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:16
 #: dashboards/project/data_processing/jobs/workflows/launch.py:104
 msgid "Cluster"
@@ -7999,27 +7937,43 @@ msgstr "ಈಗಿರುವ ಕ್ಲಸ್ಟರ್‌ನಲ್ಲಿ ಮರಳ�
 msgid "Relaunch On New Cluster"
 msgstr "ಹೊಸ ಕ್ಲಸ್ಟರ್‌ನಲ್ಲಿ ಮರಳಿ ಆರಂಭಿಸು"
 
-#: dashboards/project/data_processing/job_executions/tables.py:158
+#: dashboards/project/data_processing/job_executions/tables.py:151
+#: dashboards/project/data_processing/job_executions/tables.py:166
+#: dashboards/project/database_backups/tables.py:144
+#: dashboards/project/database_backups/tables.py:150
+#: dashboards/project/databases/tables.py:242
+#: dashboards/project/databases/tables.py:248
+#: dashboards/project/databases/tables.py:265
+#: dashboards/project/databases/tables.py:271
+#: dashboards/project/instances/tables.py:845
+#: dashboards/project/instances/tables.py:852
+#: dashboards/project/instances/views.py:398
+#: dashboards/project/instances/templates/instances/_detail_overview.html:64
+#: dashboards/project/instances/templates/instances/_detail_overview.html:100
+msgid "Not available"
+msgstr "ಲಭ್ಯವಿಲ್ಲ"
+
+#: dashboards/project/data_processing/job_executions/tables.py:176
 msgctxt "Current status of a Job"
 msgid "Done with Error"
 msgstr ""
 
-#: dashboards/project/data_processing/job_executions/tables.py:160
+#: dashboards/project/data_processing/job_executions/tables.py:178
 msgctxt "Current status of a Job"
 msgid "Failed"
 msgstr "ವಿಫಲಗೊಂಡಿದೆ"
 
-#: dashboards/project/data_processing/job_executions/tables.py:162
+#: dashboards/project/data_processing/job_executions/tables.py:180
 msgctxt "Current status of a Job"
 msgid "Killed"
 msgstr ""
 
-#: dashboards/project/data_processing/job_executions/tables.py:164
+#: dashboards/project/data_processing/job_executions/tables.py:182
 msgctxt "Current status of a Job"
 msgid "Succeeded"
 msgstr ""
 
-#: dashboards/project/data_processing/job_executions/tables.py:175
+#: dashboards/project/data_processing/job_executions/tables.py:193
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:10
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:3
 msgid "Job Template"
@@ -8614,12 +8568,12 @@ msgstr "ನೋಡ್ ಗುಂಪಿನ ಕ್ಲಸ್ಟರ್"
 msgid "Count"
 msgstr "ಎಣಿಕೆ"
 
-#: dashboards/project/data_processing/utils/workflow_helpers.py:158
+#: dashboards/project/data_processing/utils/workflow_helpers.py:151
 #, python-format
 msgid "Unable to retrieve security group %(group)s."
 msgstr ""
 
-#: dashboards/project/data_processing/utils/workflow_helpers.py:193
+#: dashboards/project/data_processing/utils/workflow_helpers.py:186
 #: dashboards/project/data_processing/wizard/forms.py:56
 msgid "Plugin Name"
 msgstr "ಪ್ಲಗಿನ್‌ ಹೆಸರು"
@@ -8994,20 +8948,6 @@ msgstr[0] ""
 msgid "Deleted Backup"
 msgid_plural "Deleted Backups"
 msgstr[0] ""
-
-#: dashboards/project/database_backups/tables.py:144
-#: dashboards/project/database_backups/tables.py:150
-#: dashboards/project/databases/tables.py:242
-#: dashboards/project/databases/tables.py:248
-#: dashboards/project/databases/tables.py:265
-#: dashboards/project/databases/tables.py:271
-#: dashboards/project/instances/tables.py:845
-#: dashboards/project/instances/tables.py:852
-#: dashboards/project/instances/views.py:398
-#: dashboards/project/instances/templates/instances/_detail_overview.html:64
-#: dashboards/project/instances/templates/instances/_detail_overview.html:100
-msgid "Not available"
-msgstr "ಲಭ್ಯವಿಲ್ಲ"
 
 #: dashboards/project/database_backups/tables.py:162
 #: dashboards/project/database_backups/templates/database_backups/details.html:21
@@ -9781,6 +9721,16 @@ msgstr "ಯಾವುದೆ"
 msgid "Protocol for the firewall rule"
 msgstr "ಫೈರ್‌ವಾಲ್‌ ನಿಯಮಕ್ಕಾಗಿನ ಪ್ರೊಟೊಕಾಲ್"
 
+#: dashboards/project/firewalls/forms.py:43
+#: dashboards/project/firewalls/tables.py:227
+#: dashboards/project/firewalls/workflows.py:43
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:19
+#: dashboards/project/instances/audit_tables.py:25
+#: dashboards/project/routers/extensions/routerrules/forms.py:52
+#: dashboards/project/routers/extensions/routerrules/tables.py:73
+msgid "Action"
+msgstr "ಕಾರ್ಯ"
+
 #: dashboards/project/firewalls/forms.py:44
 #: dashboards/project/firewalls/workflows.py:44
 msgid "ALLOW"
@@ -10185,7 +10135,7 @@ msgstr "ಹೊಸ ಫೈರ್‌ವಾಲ್‌ ಅನ್ನು ಸೇರಿಸ
 #: dashboards/project/loadbalancers/views.py:358
 #: dashboards/project/networks/views.py:69
 #: dashboards/project/networks/ports/views.py:88
-#: dashboards/project/routers/views.py:167
+#: dashboards/project/routers/views.py:179
 #: dashboards/project/volumes/snapshots/views.py:37
 #: dashboards/project/vpn/views.py:274 dashboards/project/vpn/views.py:310
 #: dashboards/project/vpn/views.py:353 dashboards/project/vpn/views.py:395
@@ -12892,19 +12842,15 @@ msgstr "ಜಾಲಬಂಧ ಟೊಪೊಲಜಿ"
 msgid "Create a Router"
 msgstr "ಒಂದು ರೌಟರ್‌ ರಚಿಸಿ"
 
-#: dashboards/project/network_topology/views.py:173
-msgid "No console available."
-msgstr ""
-
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:9
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:20
 #: dashboards/project/network_topology/templates/network_topology/create_router.html:3
 #: dashboards/project/network_topology/templates/network_topology/index.html:37
 #: dashboards/project/routers/tables.py:85
 #: dashboards/project/routers/tables.py:98
-#: dashboards/project/routers/views.py:152
-#: dashboards/project/routers/views.py:155
-#: dashboards/project/routers/views.py:156
+#: dashboards/project/routers/views.py:164
+#: dashboards/project/routers/views.py:167
+#: dashboards/project/routers/views.py:168
 #: dashboards/project/routers/templates/routers/create.html:3
 msgid "Create Router"
 msgstr "ರೌಟರ್‌ ರಚಿಸಿ"
@@ -13222,6 +13168,7 @@ msgid "Port Details"
 msgstr "ಪೋರ್ಟ್ ವಿವರಗಳು"
 
 #: dashboards/project/networks/ports/views.py:54
+#: dashboards/project/routers/views.py:135
 #: dashboards/project/routers/ports/tabs.py:35
 msgid "Unable to retrieve port details."
 msgstr "ಪೋರ್ಟ್ ವಿವರಗಳನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
@@ -13417,6 +13364,12 @@ msgstr "ರೌಟರ್ ಹೆಸರು"
 msgid "Router Type"
 msgstr "ರೌಟರ್ ಬಗೆ"
 
+#: dashboards/project/routers/forms.py:43
+#: dashboards/project/routers/forms.py:125
+#: dashboards/project/routers/templates/routers/_detail_overview.html:20
+msgid "High Availability Mode"
+msgstr "ಹೈ ಅವೆಲಿಬಿಲಿಟಿ ಸ್ಥಿತಿ"
+
 #: dashboards/project/routers/forms.py:51
 #: dashboards/project/routers/forms.py:61
 msgid "Use Server Default"
@@ -13426,6 +13379,14 @@ msgstr "ಪೂರೈಕೆಗಣಕದ ಪೂರ್ವನಿಯೋಜಿತವ�
 #: dashboards/project/routers/forms.py:143
 msgid "Centralized"
 msgstr "ಕೇಂದ್ರೀಕೃತ"
+
+#: dashboards/project/routers/forms.py:53
+#: dashboards/project/routers/forms.py:138
+#: dashboards/project/routers/forms.py:144
+#: dashboards/project/routers/tables.py:217
+#: dashboards/project/routers/templates/routers/_detail_overview.html:16
+msgid "Distributed"
+msgstr "ಚದುರಿದ"
 
 #: dashboards/project/routers/forms.py:62
 msgid "Enable HA mode"
@@ -13485,7 +13446,7 @@ msgid "Unable to delete router \"%s\""
 msgstr "\"%s\" ರೌಟರ್‌ ಅನ್ನು ಅಳಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ"
 
 #: dashboards/project/routers/tables.py:106
-#: dashboards/project/routers/views.py:163
+#: dashboards/project/routers/views.py:175
 msgid "Edit Router"
 msgstr "ರೌಟರ್ ಸಂಪಾದಿಸಿ"
 
@@ -13543,11 +13504,6 @@ msgstr ""
 msgid "HA mode"
 msgstr "HA ಸ್ಥಿತಿ"
 
-#: dashboards/project/routers/tabs.py:52
-#: dashboards/project/routers/views.py:183
-msgid "Unable to retrieve router details."
-msgstr "ರೌಟರ್‌ ವಿವರಗಳನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
-
 #: dashboards/project/routers/views.py:74
 #, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
@@ -13577,9 +13533,23 @@ msgstr "\"%s\" ರೌಟರ್‌ನ ವಿವರಗಳನ್ನು ಹಿಂಪ
 msgid "Unable to retrieve an external network \"%s\"."
 msgstr "ಬಾಹ್ಯ ಜಾಲಬಂಧ \"%s\" ಅನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
+#: dashboards/project/routers/views.py:195
+msgid "Unable to retrieve router details."
+msgstr "ರೌಟರ್‌ ವಿವರಗಳನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
+
 #: dashboards/project/routers/extensions/routerrules/forms.py:43
 msgid "Input must be in CIDR format"
 msgstr "ಇನ್‌ಪುಟ್ CIDR ರೂಪದಲ್ಲಿ ಇರಬೇಕು"
+
+#: dashboards/project/routers/extensions/routerrules/forms.py:48
+#: dashboards/project/routers/extensions/routerrules/tables.py:70
+msgid "Source CIDR"
+msgstr "ಮೂಲ CIDR"
+
+#: dashboards/project/routers/extensions/routerrules/forms.py:50
+#: dashboards/project/routers/extensions/routerrules/tables.py:72
+msgid "Destination CIDR"
+msgstr "ಗುರಿ CIDR"
 
 #: dashboards/project/routers/extensions/routerrules/forms.py:53
 msgid "Optional: Next Hop Addresses (comma delimited)"
@@ -13630,7 +13600,16 @@ msgid "Deleted Router Rule"
 msgid_plural "Deleted Router Rules"
 msgstr[0] ""
 
-#: dashboards/project/routers/extensions/routerrules/tabs.py:59
+#: dashboards/project/routers/extensions/routerrules/tables.py:74
+msgid "Next Hops"
+msgstr "ಮುಂದಿನ ಹಾರಿಕೆಗಳು (ಹಾಪ್ಸ್‌)"
+
+#: dashboards/project/routers/extensions/routerrules/tables.py:81
+#: dashboards/project/routers/extensions/routerrules/tabs.py:32
+msgid "Router Rules"
+msgstr "ರೌಟರ್ ನಿಯಮಗಳು"
+
+#: dashboards/project/routers/extensions/routerrules/tabs.py:60
 msgid "Router Rules Grid"
 msgstr "ರೌಟರ್ ನಿಯಮಗಳ ಗ್ರಿಡ್"
 
@@ -13691,6 +13670,7 @@ msgstr "%s ಗೇಟ್‌ವೇ ಅನ್ನು ಹೊಂದಿಸಲು ವಿ
 
 #: dashboards/project/routers/ports/tables.py:34
 #: dashboards/project/routers/templates/routers/_detail_overview.html:26
+#: dashboards/project/routers/templates/routers/_detail_overview.html:53
 msgid "External Gateway"
 msgstr "ಬಾಹ್ಯ ಗೇಟ್‌ವೇ"
 
@@ -13748,9 +13728,13 @@ msgstr "ಗೇಟ್‌ವೇ ಅನ್ನು ಹೊಂದಿಸಲು ಸಾಧ
 msgid "Creates a router with specified parameters."
 msgstr ""
 
-#: dashboards/project/routers/templates/routers/_detail_overview.html:27
-msgid "Connected External Network:"
-msgstr "ಬಾಹ್ಯ ಜಾಲಬಂಧ ಸಂಪರ್ಕಿತಗೊಂಡಿದೆ:"
+#: dashboards/project/routers/templates/routers/_detail_overview.html:34
+msgid "External Fixed IPs"
+msgstr ""
+
+#: dashboards/project/routers/templates/routers/_detail_overview.html:46
+msgid "SNAT"
+msgstr ""
 
 #: dashboards/project/routers/templates/routers/_update.html:6
 msgid "You may update the editable properties of your router here."

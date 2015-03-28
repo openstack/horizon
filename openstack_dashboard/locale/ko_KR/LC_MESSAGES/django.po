@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-24 17:11-0500\n"
-"PO-Revision-Date: 2015-03-24 14:32+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-03-28 00:18-0500\n"
+"PO-Revision-Date: 2015-03-28 02:51+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,59 +24,59 @@ msgstr ""
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: settings.py:85
+#: settings.py:80
 msgid "Select format"
 msgstr "포맷 선택"
 
-#: settings.py:86
+#: settings.py:81
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Kernel Image"
 
-#: settings.py:87
+#: settings.py:82
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Image"
 
-#: settings.py:88
+#: settings.py:83
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon Ramdisk Image"
 
-#: settings.py:89
+#: settings.py:84
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - Optical Disk Image"
 
-#: settings.py:90
+#: settings.py:85
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - Open Virtual Appliance"
 
-#: settings.py:91
+#: settings.py:86
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Emulator"
 
-#: settings.py:92
+#: settings.py:87
 msgid "Raw"
 msgstr "Raw"
 
-#: settings.py:93
+#: settings.py:88
 msgid "VDI - Virtual Disk Image"
 msgstr "VDI - Virtual Disk Image"
 
-#: settings.py:94
+#: settings.py:89
 msgid "VHD - Virtual Hard Disk"
 msgstr "VHD - Virtual Hard Disk"
 
-#: settings.py:95
+#: settings.py:90
 msgid "VMDK - Virtual Machine Disk"
 msgstr "VMDK - Virtual Machine Disk"
 
-#: settings.py:242
+#: settings.py:237
 msgid "All TCP"
 msgstr "모든 TCP"
 
-#: settings.py:248
+#: settings.py:243
 msgid "All UDP"
 msgstr "모든 UDP"
 
-#: settings.py:254
+#: settings.py:249
 msgid "All ICMP"
 msgstr "모든 ICMP"
 
@@ -547,7 +547,6 @@ msgstr "관리자"
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:6
 #: dashboards/admin/routers/tables.py:41
 #: dashboards/admin/routers/ports/tables.py:24
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:7
 #: dashboards/admin/volumes/snapshots/tables.py:59
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:10
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:11
@@ -574,7 +573,7 @@ msgstr "관리자"
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:6
 #: dashboards/project/data_processing/clusters/tables.py:35
 #: dashboards/project/data_processing/clusters/tables.py:146
-#: dashboards/project/data_processing/clusters/tabs.py:137
+#: dashboards/project/data_processing/clusters/tabs.py:136
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:6
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:9
 #: dashboards/project/data_processing/data_sources/tables.py:57
@@ -634,7 +633,7 @@ msgstr "관리자"
 #: dashboards/project/routers/forms.py:117
 #: dashboards/project/routers/tables.py:209
 #: dashboards/project/routers/ports/tables.py:107
-#: dashboards/project/routers/templates/routers/_detail_overview.html:9
+#: dashboards/project/routers/templates/routers/_detail_overview.html:5
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:9
 #: dashboards/project/volumes/backups/tables.py:117
 #: dashboards/project/volumes/snapshots/tables.py:147
@@ -1114,10 +1113,10 @@ msgstr "VCPUs"
 #: dashboards/admin/hypervisors/tables.py:57
 #: dashboards/admin/instances/panel.py:27
 #: dashboards/admin/instances/tables.py:164
-#: dashboards/admin/instances/views.py:67
+#: dashboards/admin/instances/views.py:68
 #: dashboards/admin/instances/templates/instances/index.html:3
 #: dashboards/identity/projects/workflows.py:52
-#: dashboards/project/data_processing/clusters/tabs.py:151
+#: dashboards/project/data_processing/clusters/tabs.py:150
 #: dashboards/project/databases/panel.py:23
 #: dashboards/project/databases/tables.py:340
 #: dashboards/project/databases/views.py:48
@@ -1369,7 +1368,6 @@ msgstr "Swap 디스크"
 #: dashboards/admin/flavors/workflows.py:41
 #: dashboards/admin/networks/agents/tables.py:90
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:8
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:9
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:12
 #: dashboards/admin/volumes/volumes/forms.py:87
 #: dashboards/admin/volumes/volumes/forms.py:146
@@ -1382,7 +1380,7 @@ msgstr "Swap 디스크"
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:7
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:7
 #: dashboards/project/data_processing/job_executions/tables.py:37
-#: dashboards/project/data_processing/job_executions/tables.py:168
+#: dashboards/project/data_processing/job_executions/tables.py:186
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:8
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:8
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:8
@@ -1408,7 +1406,7 @@ msgstr "Swap 디스크"
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:8
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:12
 #: dashboards/project/routers/forms.py:121
-#: dashboards/project/routers/templates/routers/_detail_overview.html:11
+#: dashboards/project/routers/templates/routers/_detail_overview.html:7
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:11
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:14
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:12
@@ -1759,7 +1757,7 @@ msgid "Running Instance Migration Type"
 msgstr "인스턴스 마이그레이션 타입 작동중"
 
 #: dashboards/admin/hypervisors/compute/forms.py:108
-#: dashboards/admin/instances/views.py:156
+#: dashboards/admin/instances/views.py:157
 #: dashboards/admin/instances/templates/instances/_live_migrate.html:8
 #: dashboards/admin/instances/templates/instances/live_migrate.html:3
 msgid "Live Migrate"
@@ -1845,7 +1843,6 @@ msgstr "영역"
 #: dashboards/admin/networks/tables.py:102
 #: dashboards/admin/networks/agents/tables.py:92
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:17
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:13
 #: dashboards/admin/volumes/snapshots/forms.py:34
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/admin/volumes/volumes/forms.py:187
@@ -1854,7 +1851,7 @@ msgstr "영역"
 #: dashboards/project/data_processing/clusters/tables.py:152
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:12
 #: dashboards/project/data_processing/job_executions/tables.py:40
-#: dashboards/project/data_processing/job_executions/tables.py:185
+#: dashboards/project/data_processing/job_executions/tables.py:205
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:6
 #: dashboards/project/database_backups/tables.py:174
 #: dashboards/project/database_backups/templates/database_backups/details.html:26
@@ -1879,7 +1876,7 @@ msgstr "영역"
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:17
 #: dashboards/project/routers/tables.py:212
 #: dashboards/project/routers/ports/tables.py:112
-#: dashboards/project/routers/templates/routers/_detail_overview.html:13
+#: dashboards/project/routers/templates/routers/_detail_overview.html:11
 #: dashboards/project/stacks/tables.py:275
 #: dashboards/project/stacks/tables.py:320
 #: dashboards/project/stacks/tables.py:371
@@ -2032,18 +2029,18 @@ msgstr "이미지 생성"
 msgid "Update Image"
 msgstr "이미지 업데이트"
 
-#: dashboards/admin/images/views.py:133
+#: dashboards/admin/images/views.py:138
 #: dashboards/admin/images/templates/images/_update_metadata.html:4
 #: dashboards/admin/images/templates/images/_update_metadata.html:7
 #: dashboards/admin/images/templates/images/update_metadata.html:3
 msgid "Update Image Metadata"
 msgstr "이미지 메타데이터 업데이트"
 
-#: dashboards/admin/images/views.py:184
+#: dashboards/admin/images/views.py:189
 msgid "Unable to retrieve available properties for image."
 msgstr "이미지의 사용 가능한 속성을 찾지 못했습니다."
 
-#: dashboards/admin/images/views.py:197
+#: dashboards/admin/images/views.py:202
 msgid "Unable to retrieve the image to be updated."
 msgstr "업데이트한 이미지를 찾지 못했습니다."
 
@@ -2104,6 +2101,7 @@ msgstr "시스템 정보"
 #: dashboards/project/firewalls/tables.py:229
 #: dashboards/project/firewalls/workflows.py:67
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:53
+#: dashboards/project/routers/templates/routers/_detail_overview.html:48
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:65
 msgid "Enabled"
 msgstr "활성화"
@@ -2111,6 +2109,7 @@ msgstr "활성화"
 #: dashboards/admin/info/tables.py:27 dashboards/admin/info/tables.py:157
 #: dashboards/admin/info/templates/info/_cell_status.html:3
 #: dashboards/admin/networks/agents/tables.py:80
+#: dashboards/project/routers/templates/routers/_detail_overview.html:50
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:65
 msgid "Disabled"
 msgstr "비활성화"
@@ -2295,6 +2294,7 @@ msgstr "프로젝트"
 #: dashboards/project/instances/tables.py:1013
 #: dashboards/project/loadbalancers/tables.py:367
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:29
+#: dashboards/project/routers/templates/routers/_detail_overview.html:40
 msgid "IP Address"
 msgstr "IP 주소"
 
@@ -2331,31 +2331,31 @@ msgstr "전원 상태"
 msgid "Time since created"
 msgstr "생성된 이후 시간"
 
-#: dashboards/admin/instances/views.py:82
+#: dashboards/admin/instances/views.py:83
 msgid "Unable to retrieve instance project information."
 msgstr "인스턴스 프로젝트 정보를 찾지 못했습니다."
 
-#: dashboards/admin/instances/views.py:103
+#: dashboards/admin/instances/views.py:104
 #: dashboards/project/access_and_security/tabs.py:112
 #: dashboards/project/access_and_security/floating_ips/workflows.py:91
 msgid "Unable to retrieve instance list."
 msgstr "인스턴스 목록을 찾지 못했습니다."
 
-#: dashboards/admin/instances/views.py:111
+#: dashboards/admin/instances/views.py:112
 #: dashboards/project/instances/views.py:81
 msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "Neutron에서 IP 주소를 찾지 못했습니다."
 
-#: dashboards/admin/instances/views.py:135
+#: dashboards/admin/instances/views.py:136
 #: dashboards/project/instances/views.py:122
 msgid "Unable to retrieve instance size information."
 msgstr "인스턴스 크기 정보를 찾지 못했습니다."
 
-#: dashboards/admin/instances/views.py:169
+#: dashboards/admin/instances/views.py:170
 msgid "Unable to retrieve host information."
 msgstr "호스트 정보를 찾지 못했습니다."
 
-#: dashboards/admin/instances/views.py:179
+#: dashboards/admin/instances/views.py:180
 #: dashboards/project/databases/views.py:153
 #: dashboards/project/databases/views.py:193
 #: dashboards/project/instances/views.py:242
@@ -2643,7 +2643,6 @@ msgstr "디스플레이 이름"
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:51
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:53
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:66
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:8
 #: dashboards/admin/volumes/volume_types/forms.py:89
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:16
 #: dashboards/identity/users/templates/users/_detail_overview.html:22
@@ -2686,9 +2685,10 @@ msgstr "디스플레이 이름"
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:20
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:48
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:56
-#: dashboards/project/routers/templates/routers/_detail_overview.html:4
-#: dashboards/project/routers/templates/routers/_detail_overview.html:10
-#: dashboards/project/routers/templates/routers/_detail_overview.html:12
+#: dashboards/project/routers/templates/routers/_detail_overview.html:6
+#: dashboards/project/routers/templates/routers/_detail_overview.html:30
+#: dashboards/project/routers/templates/routers/_detail_overview.html:42
+#: dashboards/project/routers/templates/routers/_detail_overview.html:54
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:77
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:7
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:10
@@ -2727,7 +2727,6 @@ msgstr "생성"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:23
 #: dashboards/admin/networks/views.py:59
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:16
 #: dashboards/project/images/templates/images/images/_detail_overview.html:20
 #: dashboards/project/images/templates/images/images/_detail_overview.html:31
 #: dashboards/project/instances/tables.py:642
@@ -2735,7 +2734,8 @@ msgstr "생성"
 #: dashboards/project/networks/templates/networks/_detail_overview.html:16
 #: dashboards/project/networks/templates/networks/_detail_overview.html:23
 #: dashboards/project/routers/templates/routers/_detail_overview.html:14
-#: dashboards/project/routers/templates/routers/_detail_overview.html:16
+#: dashboards/project/routers/templates/routers/_detail_overview.html:33
+#: dashboards/project/routers/templates/routers/_detail_overview.html:39
 #: dashboards/project/volumes/backups/tables.py:37
 #: dashboards/project/volumes/snapshots/tables.py:126
 msgid "Unknown"
@@ -3174,7 +3174,6 @@ msgstr "DOWN"
 #: dashboards/admin/networks/agents/tables.py:93
 #: dashboards/admin/networks/ports/forms.py:47
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:19
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:15
 #: dashboards/project/firewalls/forms.py:133
 #: dashboards/project/firewalls/tables.py:294
 #: dashboards/project/firewalls/workflows.py:241
@@ -3197,7 +3196,7 @@ msgstr "DOWN"
 #: dashboards/project/routers/forms.py:120
 #: dashboards/project/routers/tables.py:225
 #: dashboards/project/routers/ports/tables.py:117
-#: dashboards/project/routers/templates/routers/_detail_overview.html:15
+#: dashboards/project/routers/templates/routers/_detail_overview.html:13
 #: dashboards/project/vpn/forms.py:39 dashboards/project/vpn/forms.py:263
 #: dashboards/project/vpn/workflows.py:33
 #: dashboards/project/vpn/workflows.py:419
@@ -3366,6 +3365,7 @@ msgstr "DOWN"
 #: dashboards/admin/networks/agents/forms.py:32
 #: dashboards/admin/networks/ports/forms.py:36
 #: dashboards/project/networks/workflows.py:37
+#: dashboards/project/routers/templates/routers/_detail_overview.html:29
 msgid "Network Name"
 msgstr "네트워크 이름"
 
@@ -3494,6 +3494,7 @@ msgstr "MacVTap"
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:11
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:11
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:15
+#: dashboards/project/routers/templates/routers/_detail_overview.html:32
 msgid "Network ID"
 msgstr "네트워크 ID"
 
@@ -3706,7 +3707,6 @@ msgid ""
 msgstr "네트워크의 포트를 만들 수 있습니다. 연결할 장치 ID를 지정하면, 장치에 포트를 만들어 연결합니다."
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:13
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:11
 #: dashboards/identity/projects/tables.py:236
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:11
 #: dashboards/identity/users/templates/users/_detail_overview.html:25
@@ -3721,6 +3721,7 @@ msgstr "네트워크의 포트를 만들 수 있습니다. 연결할 장치 ID�
 #: dashboards/project/networks/templates/networks/_detail_overview.html:11
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:13
 #: dashboards/project/overview/templates/overview/usage.csv:2
+#: dashboards/project/routers/templates/routers/_detail_overview.html:9
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:15
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:15
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:16
@@ -3744,6 +3745,7 @@ msgstr "고정 IP"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:32
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:32
+#: dashboards/project/routers/templates/routers/_detail_overview.html:39
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:23
 msgid "Subnet ID"
 msgstr "서브넷 ID"
@@ -3806,6 +3808,7 @@ msgstr "네트워크 세부사항"
 #: dashboards/project/networks/ports/tabs.py:21
 #: dashboards/project/networks/subnets/tabs.py:21
 #: dashboards/project/overview/panel.py:27
+#: dashboards/project/routers/tabs.py:25
 #: dashboards/project/routers/ports/tabs.py:24
 #: dashboards/project/stacks/tabs.py:53 dashboards/project/stacks/tabs.py:67
 #: dashboards/project/stacks/resource_types/tabs.py:21
@@ -3888,77 +3891,12 @@ msgstr "라우터"
 msgid "Unable to retrieve router list."
 msgstr "라우터 목록을 찾지 못 했습니다."
 
-#: dashboards/admin/routers/extensions/routerrules/tables.py:21
-#: dashboards/project/routers/extensions/routerrules/forms.py:48
-#: dashboards/project/routers/extensions/routerrules/tables.py:70
-msgid "Source CIDR"
-msgstr "소스 CIDR"
-
-#: dashboards/admin/routers/extensions/routerrules/tables.py:23
-#: dashboards/project/routers/extensions/routerrules/forms.py:50
-#: dashboards/project/routers/extensions/routerrules/tables.py:72
-msgid "Destination CIDR"
-msgstr "목적지 CIDR"
-
-#: dashboards/admin/routers/extensions/routerrules/tables.py:24
-#: dashboards/project/firewalls/forms.py:43
-#: dashboards/project/firewalls/tables.py:227
-#: dashboards/project/firewalls/workflows.py:43
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:19
-#: dashboards/project/instances/audit_tables.py:25
-#: dashboards/project/routers/extensions/routerrules/forms.py:52
-#: dashboards/project/routers/extensions/routerrules/tables.py:73
-msgid "Action"
-msgstr "동작"
-
-#: dashboards/admin/routers/extensions/routerrules/tables.py:25
-#: dashboards/project/routers/extensions/routerrules/tables.py:74
-msgid "Next Hops"
-msgstr "다음 홉"
-
-#: dashboards/admin/routers/extensions/routerrules/tables.py:29
-#: dashboards/project/routers/extensions/routerrules/tables.py:81
-#: dashboards/project/routers/extensions/routerrules/tabs.py:32
-msgid "Router Rules"
-msgstr "라우터 규칙"
-
 #: dashboards/admin/routers/ports/tables.py:29
 #: dashboards/project/network_topology/ports/tables.py:28
-#: dashboards/project/routers/tabs.py:27
+#: dashboards/project/routers/tabs.py:35
 #: dashboards/project/routers/ports/tables.py:125
 msgid "Interfaces"
 msgstr "인터페이스"
-
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:3
-#: dashboards/project/routers/templates/routers/_detail_overview.html:4
-#, python-format
-msgid "Router Overview: %(router_name)s"
-msgstr "라우터 개요: %(router_name)s"
-
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:18
-#: dashboards/project/routers/forms.py:53
-#: dashboards/project/routers/forms.py:138
-#: dashboards/project/routers/forms.py:144
-#: dashboards/project/routers/tables.py:217
-#: dashboards/project/routers/templates/routers/_detail_overview.html:18
-msgid "Distributed"
-msgstr "분산"
-
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:22
-#: dashboards/project/routers/forms.py:43
-#: dashboards/project/routers/forms.py:125
-#: dashboards/project/routers/templates/routers/_detail_overview.html:22
-msgid "High Availability Mode"
-msgstr "고가용성 모드"
-
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:26
-msgid "External Gateway Information"
-msgstr "외부 게이트웨이 정보"
-
-#: dashboards/admin/routers/templates/routers/_detail_overview.html:28
-#, python-format
-msgid "Connected External Network: %(router_gw_info_network)s"
-msgstr "연결된 외부 네트워크: %(router_gw_info_network)s"
 
 #: dashboards/admin/routers/templates/routers/detail.html:3
 #: dashboards/project/routers/views.py:102
@@ -3967,7 +3905,7 @@ msgid "Router Details"
 msgstr "라우터 세부 정보"
 
 #: dashboards/admin/routers/templates/routers/update.html:3
-#: dashboards/project/routers/views.py:166
+#: dashboards/project/routers/views.py:178
 #: dashboards/project/routers/templates/routers/update.html:3
 msgid "Update Router"
 msgstr "라우터 업데이트"
@@ -4030,7 +3968,7 @@ msgstr "볼륨 스냅샷 상태를 업데이트 하지 못했습니다."
 
 #: dashboards/admin/volumes/snapshots/tables.py:29
 #: dashboards/admin/volumes/snapshots/views.py:36
-#: dashboards/admin/volumes/volumes/views.py:98
+#: dashboards/admin/volumes/volumes/views.py:107
 msgid "Update Status"
 msgstr "업데이트 상태"
 
@@ -4399,7 +4337,7 @@ msgstr "볼륨 세부 정보"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/manage_volume.html:3
 #: dashboards/admin/volumes/volumes/tables.py:33
-#: dashboards/admin/volumes/volumes/views.py:38
+#: dashboards/admin/volumes/volumes/views.py:47
 msgid "Manage Volume"
 msgstr "볼륨 관리"
 
@@ -4418,8 +4356,8 @@ msgstr "볼륨 관리 취소"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/update_status.html:3
 #: dashboards/admin/volumes/volumes/tables.py:69
-#: dashboards/admin/volumes/volumes/views.py:95
-#: dashboards/admin/volumes/volumes/views.py:101
+#: dashboards/admin/volumes/volumes/views.py:104
+#: dashboards/admin/volumes/volumes/views.py:110
 msgid "Update Volume Status"
 msgstr "볼륨 스냅샷 업데이트"
 
@@ -4855,20 +4793,20 @@ msgstr "QOS 사양을 생성할 수 없습니다. "
 msgid "Unable to retrieve snapshot data."
 msgstr "스냅샷 데이터를 가져올 수 없습니다."
 
-#: dashboards/admin/volumes/volumes/views.py:40
+#: dashboards/admin/volumes/volumes/views.py:49
 msgid "Manage"
 msgstr "관리"
 
-#: dashboards/admin/volumes/volumes/views.py:53
+#: dashboards/admin/volumes/volumes/views.py:62
 msgid "Confirm Unmanage Volume"
 msgstr "볼륨 관리 취소 확인"
 
-#: dashboards/admin/volumes/volumes/views.py:55
+#: dashboards/admin/volumes/volumes/views.py:64
 msgid "Unmanage"
 msgstr "관리 취소"
 
-#: dashboards/admin/volumes/volumes/views.py:73
-#: dashboards/admin/volumes/volumes/views.py:117
+#: dashboards/admin/volumes/volumes/views.py:82
+#: dashboards/admin/volumes/volumes/views.py:126
 #: dashboards/project/volumes/volumes/views.py:68
 #: dashboards/project/volumes/volumes/views.py:457
 msgid "Unable to retrieve volume details."
@@ -7002,7 +6940,7 @@ msgstr "플러그인"
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:88
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:8
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:32
-#: dashboards/project/data_processing/utils/workflow_helpers.py:200
+#: dashboards/project/data_processing/utils/workflow_helpers.py:193
 #: dashboards/project/data_processing/wizard/forms.py:64
 msgid "Version"
 msgstr "버전"
@@ -7057,13 +6995,13 @@ msgstr "클러스터 템플릿 구성"
 #: dashboards/project/data_processing/cluster_templates/tabs.py:48
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:3
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:217
-#: dashboards/project/data_processing/clusters/tabs.py:85
+#: dashboards/project/data_processing/clusters/tabs.py:84
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:6
 msgid "Node Groups"
 msgstr "노드 그룹"
 
 #: dashboards/project/data_processing/cluster_templates/tabs.py:31
-#: dashboards/project/data_processing/clusters/tabs.py:37
+#: dashboards/project/data_processing/clusters/tabs.py:36
 #: dashboards/project/data_processing/data_sources/tabs.py:27
 #: dashboards/project/data_processing/job_binaries/tabs.py:27
 #: dashboards/project/data_processing/job_executions/tabs.py:26
@@ -7345,24 +7283,24 @@ msgstr "클러스터 구성"
 msgid "Instances Count"
 msgstr "인스턴스 개수"
 
-#: dashboards/project/data_processing/clusters/tabs.py:114
+#: dashboards/project/data_processing/clusters/tabs.py:113
 msgid "Unable to get node group details."
 msgstr "노드 그룹에 대한 자세한 정보를 가져올 수 없습니다."
 
-#: dashboards/project/data_processing/clusters/tabs.py:140
+#: dashboards/project/data_processing/clusters/tabs.py:139
 msgid "Internal IP"
 msgstr "내부 IP"
 
-#: dashboards/project/data_processing/clusters/tabs.py:143
+#: dashboards/project/data_processing/clusters/tabs.py:142
 msgid "Management IP"
 msgstr "관리 IP"
 
-#: dashboards/project/data_processing/clusters/tabs.py:147
+#: dashboards/project/data_processing/clusters/tabs.py:146
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_instances_details.html:2
 msgid "Cluster Instances"
 msgstr "클러스터 인스턴스"
 
-#: dashboards/project/data_processing/clusters/tabs.py:176
+#: dashboards/project/data_processing/clusters/tabs.py:175
 msgid "Unable to fetch instance details."
 msgstr "인스턴스에 대한 자세한 정보를 가져오지 못 했습니다."
 
@@ -7944,7 +7882,7 @@ msgid "Download job binary"
 msgstr "Job 바이너리 다운로드"
 
 #: dashboards/project/data_processing/job_executions/panel.py:22
-#: dashboards/project/data_processing/job_executions/tables.py:194
+#: dashboards/project/data_processing/job_executions/tables.py:214
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/job_executions.html:6
 #: dashboards/project/data_processing/jobs/views.py:41
 msgid "Jobs"
@@ -7958,7 +7896,7 @@ msgid "Job"
 msgstr "Job"
 
 #: dashboards/project/data_processing/job_executions/tables.py:39
-#: dashboards/project/data_processing/job_executions/tables.py:179
+#: dashboards/project/data_processing/job_executions/tables.py:198
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:16
 #: dashboards/project/data_processing/jobs/workflows/launch.py:104
 msgid "Cluster"
@@ -8005,27 +7943,43 @@ msgstr "기존 클러스터에서 재싫행"
 msgid "Relaunch On New Cluster"
 msgstr "새로운 클러스터에서 재실행"
 
-#: dashboards/project/data_processing/job_executions/tables.py:158
+#: dashboards/project/data_processing/job_executions/tables.py:151
+#: dashboards/project/data_processing/job_executions/tables.py:166
+#: dashboards/project/database_backups/tables.py:144
+#: dashboards/project/database_backups/tables.py:150
+#: dashboards/project/databases/tables.py:242
+#: dashboards/project/databases/tables.py:248
+#: dashboards/project/databases/tables.py:265
+#: dashboards/project/databases/tables.py:271
+#: dashboards/project/instances/tables.py:845
+#: dashboards/project/instances/tables.py:852
+#: dashboards/project/instances/views.py:398
+#: dashboards/project/instances/templates/instances/_detail_overview.html:64
+#: dashboards/project/instances/templates/instances/_detail_overview.html:100
+msgid "Not available"
+msgstr "사용할 수 없음"
+
+#: dashboards/project/data_processing/job_executions/tables.py:176
 msgctxt "Current status of a Job"
 msgid "Done with Error"
 msgstr "Done with Error"
 
-#: dashboards/project/data_processing/job_executions/tables.py:160
+#: dashboards/project/data_processing/job_executions/tables.py:178
 msgctxt "Current status of a Job"
 msgid "Failed"
 msgstr "Failed"
 
-#: dashboards/project/data_processing/job_executions/tables.py:162
+#: dashboards/project/data_processing/job_executions/tables.py:180
 msgctxt "Current status of a Job"
 msgid "Killed"
 msgstr "Killed"
 
-#: dashboards/project/data_processing/job_executions/tables.py:164
+#: dashboards/project/data_processing/job_executions/tables.py:182
 msgctxt "Current status of a Job"
 msgid "Succeeded"
 msgstr "Succeeded"
 
-#: dashboards/project/data_processing/job_executions/tables.py:175
+#: dashboards/project/data_processing/job_executions/tables.py:193
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:10
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:3
 msgid "Job Template"
@@ -8620,12 +8574,12 @@ msgstr "노드 그룹 클러스터"
 msgid "Count"
 msgstr "개수"
 
-#: dashboards/project/data_processing/utils/workflow_helpers.py:158
+#: dashboards/project/data_processing/utils/workflow_helpers.py:151
 #, python-format
 msgid "Unable to retrieve security group %(group)s."
 msgstr "시큐리티 그룹 %(group)s를 찾지 못 했습니다."
 
-#: dashboards/project/data_processing/utils/workflow_helpers.py:193
+#: dashboards/project/data_processing/utils/workflow_helpers.py:186
 #: dashboards/project/data_processing/wizard/forms.py:56
 msgid "Plugin Name"
 msgstr "플러그인 이름"
@@ -8704,7 +8658,7 @@ msgid ""
 "                    Choosing this up front will allow the rest of the cluster\n"
 "                    creation steps to focus only on options that are pertinent\n"
 "                    to your desired cluster type."
-msgstr "첫 번째 단계에서는 실행하고자 하는 클러스터 \n유형을 결정합니다. 시스템 구성에 따라 선택 가능한 몇몇 \n선택지가 있을 것입니다.\n\"플러그인 선택\"을 클릭하여 데이터 처리 플러그인 목록을 \n보이도록 합니다. 여기서 버전 번호와 함께 놓여 있는 \n데이터 처리 플러그인을 선택할 수 있습니다.\n이를 위에 두어 남은 클러스터 생성 과정에서 원하는 클러스터 \n유형에 적합한 옵션에만 집중할 수 있도록 합니다."
+msgstr "첫 번째 단계에서는 실행하고자 하는 클러스터 \n유형을 결정합니다. 시스템 구성에 따라 선택 가능한 몇몇 \n선택지가 있을 것입니다.\n\"플러그인 선택\"을 클릭하여 데이터 프로세싱 플러그인 목록을 \n보이도록 합니다. 여기서 버전 번호와 함께 놓여 있는 \n데이터 프로세싱 플러그인을 선택할 수 있습니다.\n이를 위에 두어 남은 클러스터 생성 과정에서는 원하는 클러스터 \n유형에 적합한 옵션에만 집중할 수 있도록 합니다."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:27
 msgid "Choose plugin"
@@ -8901,7 +8855,7 @@ msgstr "Job실행 가이드 리셋"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:7
 msgid "Data Processing Guides"
-msgstr "데이터 처리 가이드"
+msgstr "데이터 프로세싱 가이드"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:16
 msgid ""
@@ -8914,7 +8868,7 @@ msgid ""
 "                 this guide to help take you through the steps of\n"
 "                 Cluster creation.\n"
 "             "
-msgstr ""
+msgstr "\n각 데이터 프로세싱 프레임워크에서는 할당된 작업을 수행하기 위한 \n머신 클러스터를 필요로 합니다. 클러스터는 \n노드 그룹 템플릿 집합을 생성하여 클러스터 템플릿으로 \n조합함으로써 생성되고, 그 다음 해당 클러스터를 실행합니다. \n해당 과정들 각각은 수동으로 진행 가능하고, 또는 클러스터 \n생성 과정들을 진행하도록 도와주는 이 가이드를 \n따라서 진행 가능합니다."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:29
 msgid "Cluster Guide"
@@ -8931,7 +8885,7 @@ msgid ""
 "                  manually or you can follow this guide to help take you\n"
 "                  through the steps to run a job on an existing cluster.\n"
 "            "
-msgstr ""
+msgstr "\n데이터 프로세싱 job을 실행하기 위해, 데이터 프로세싱 \n시스템에 사용 가능한 프로그램에 대한 파일들을 \n만들어야 하고, 입력 및 출력이 어디로 가야 하는지를 정의하며, \n그리고 어떻게 job을 실행하는지를 설명하는 Job 템플릿을 \n생성할 필요가 있습니다. 해당 과정들 각각은 수동으로 \n진행 가능하고, 또는 현존하는 클러스터 내 job 실행 단계들을  \n진행하도록 돕는 이 가이드를 따라서 진행 가능합니다."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:51
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:53
@@ -9000,20 +8954,6 @@ msgstr[0] "백업 삭제"
 msgid "Deleted Backup"
 msgid_plural "Deleted Backups"
 msgstr[0] "백업 삭제함"
-
-#: dashboards/project/database_backups/tables.py:144
-#: dashboards/project/database_backups/tables.py:150
-#: dashboards/project/databases/tables.py:242
-#: dashboards/project/databases/tables.py:248
-#: dashboards/project/databases/tables.py:265
-#: dashboards/project/databases/tables.py:271
-#: dashboards/project/instances/tables.py:845
-#: dashboards/project/instances/tables.py:852
-#: dashboards/project/instances/views.py:398
-#: dashboards/project/instances/templates/instances/_detail_overview.html:64
-#: dashboards/project/instances/templates/instances/_detail_overview.html:100
-msgid "Not available"
-msgstr "사용할 수 없음"
 
 #: dashboards/project/database_backups/tables.py:162
 #: dashboards/project/database_backups/templates/database_backups/details.html:21
@@ -9787,6 +9727,16 @@ msgstr "ANY"
 msgid "Protocol for the firewall rule"
 msgstr "방화벽 규칙에 대한 프로토콜"
 
+#: dashboards/project/firewalls/forms.py:43
+#: dashboards/project/firewalls/tables.py:227
+#: dashboards/project/firewalls/workflows.py:43
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:19
+#: dashboards/project/instances/audit_tables.py:25
+#: dashboards/project/routers/extensions/routerrules/forms.py:52
+#: dashboards/project/routers/extensions/routerrules/tables.py:73
+msgid "Action"
+msgstr "동작"
+
 #: dashboards/project/firewalls/forms.py:44
 #: dashboards/project/firewalls/workflows.py:44
 msgid "ALLOW"
@@ -10191,7 +10141,7 @@ msgstr "새로운 방화벽 추가"
 #: dashboards/project/loadbalancers/views.py:358
 #: dashboards/project/networks/views.py:69
 #: dashboards/project/networks/ports/views.py:88
-#: dashboards/project/routers/views.py:167
+#: dashboards/project/routers/views.py:179
 #: dashboards/project/volumes/snapshots/views.py:37
 #: dashboards/project/vpn/views.py:274 dashboards/project/vpn/views.py:310
 #: dashboards/project/vpn/views.py:353 dashboards/project/vpn/views.py:395
@@ -12898,19 +12848,15 @@ msgstr "네트워크 토폴로지"
 msgid "Create a Router"
 msgstr "라우터 생성"
 
-#: dashboards/project/network_topology/views.py:173
-msgid "No console available."
-msgstr "사용 가능한 콘솔이 없음."
-
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:9
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:20
 #: dashboards/project/network_topology/templates/network_topology/create_router.html:3
 #: dashboards/project/network_topology/templates/network_topology/index.html:37
 #: dashboards/project/routers/tables.py:85
 #: dashboards/project/routers/tables.py:98
-#: dashboards/project/routers/views.py:152
-#: dashboards/project/routers/views.py:155
-#: dashboards/project/routers/views.py:156
+#: dashboards/project/routers/views.py:164
+#: dashboards/project/routers/views.py:167
+#: dashboards/project/routers/views.py:168
 #: dashboards/project/routers/templates/routers/create.html:3
 msgid "Create Router"
 msgstr "라우터 생성"
@@ -13228,6 +13174,7 @@ msgid "Port Details"
 msgstr "포트 세부 정보들"
 
 #: dashboards/project/networks/ports/views.py:54
+#: dashboards/project/routers/views.py:135
 #: dashboards/project/routers/ports/tabs.py:35
 msgid "Unable to retrieve port details."
 msgstr "포트에 대한 세부 정보를 찾지 못 했습니다."
@@ -13423,6 +13370,12 @@ msgstr "라우터 이름"
 msgid "Router Type"
 msgstr "라우터 타입"
 
+#: dashboards/project/routers/forms.py:43
+#: dashboards/project/routers/forms.py:125
+#: dashboards/project/routers/templates/routers/_detail_overview.html:20
+msgid "High Availability Mode"
+msgstr "고가용성 모드"
+
 #: dashboards/project/routers/forms.py:51
 #: dashboards/project/routers/forms.py:61
 msgid "Use Server Default"
@@ -13432,6 +13385,14 @@ msgstr "사용하는 서버 기본"
 #: dashboards/project/routers/forms.py:143
 msgid "Centralized"
 msgstr "중앙 집중"
+
+#: dashboards/project/routers/forms.py:53
+#: dashboards/project/routers/forms.py:138
+#: dashboards/project/routers/forms.py:144
+#: dashboards/project/routers/tables.py:217
+#: dashboards/project/routers/templates/routers/_detail_overview.html:16
+msgid "Distributed"
+msgstr "분산"
 
 #: dashboards/project/routers/forms.py:62
 msgid "Enable HA mode"
@@ -13491,7 +13452,7 @@ msgid "Unable to delete router \"%s\""
 msgstr "라우터 \"%s\"를 삭제할 수 없습니다."
 
 #: dashboards/project/routers/tables.py:106
-#: dashboards/project/routers/views.py:163
+#: dashboards/project/routers/views.py:175
 msgid "Edit Router"
 msgstr "라우터 편집"
 
@@ -13549,11 +13510,6 @@ msgstr "DOWN"
 msgid "HA mode"
 msgstr "HA 모드"
 
-#: dashboards/project/routers/tabs.py:52
-#: dashboards/project/routers/views.py:183
-msgid "Unable to retrieve router details."
-msgstr "라우터 세부 정보를 찾지 못 했습니다."
-
 #: dashboards/project/routers/views.py:74
 #, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
@@ -13583,9 +13539,23 @@ msgstr "라우터 \"%s\"의 세부 정보를 찾지 못 했습니다."
 msgid "Unable to retrieve an external network \"%s\"."
 msgstr "외부 네트워크 \"%s\"를 찾지 못 했습니다."
 
+#: dashboards/project/routers/views.py:195
+msgid "Unable to retrieve router details."
+msgstr "라우터 세부 정보를 찾지 못 했습니다."
+
 #: dashboards/project/routers/extensions/routerrules/forms.py:43
 msgid "Input must be in CIDR format"
 msgstr "입력은 반드시 CIDR 포맷이어야 합니다."
+
+#: dashboards/project/routers/extensions/routerrules/forms.py:48
+#: dashboards/project/routers/extensions/routerrules/tables.py:70
+msgid "Source CIDR"
+msgstr "소스 CIDR"
+
+#: dashboards/project/routers/extensions/routerrules/forms.py:50
+#: dashboards/project/routers/extensions/routerrules/tables.py:72
+msgid "Destination CIDR"
+msgstr "목적지 CIDR"
 
 #: dashboards/project/routers/extensions/routerrules/forms.py:53
 msgid "Optional: Next Hop Addresses (comma delimited)"
@@ -13636,7 +13606,16 @@ msgid "Deleted Router Rule"
 msgid_plural "Deleted Router Rules"
 msgstr[0] " 라우터 규칙 삭제됨"
 
-#: dashboards/project/routers/extensions/routerrules/tabs.py:59
+#: dashboards/project/routers/extensions/routerrules/tables.py:74
+msgid "Next Hops"
+msgstr "다음 홉"
+
+#: dashboards/project/routers/extensions/routerrules/tables.py:81
+#: dashboards/project/routers/extensions/routerrules/tabs.py:32
+msgid "Router Rules"
+msgstr "라우터 규칙"
+
+#: dashboards/project/routers/extensions/routerrules/tabs.py:60
 msgid "Router Rules Grid"
 msgstr "라우터 규칙 그리드"
 
@@ -13697,6 +13676,7 @@ msgstr "게이트웨이 %s를 설정하지 못하였습니다."
 
 #: dashboards/project/routers/ports/tables.py:34
 #: dashboards/project/routers/templates/routers/_detail_overview.html:26
+#: dashboards/project/routers/templates/routers/_detail_overview.html:53
 msgid "External Gateway"
 msgstr "외부 게이트웨이"
 
@@ -13754,9 +13734,13 @@ msgstr "게이트웨이를 설정하지 못 했습니다."
 msgid "Creates a router with specified parameters."
 msgstr "지정한 매개변수로 라우터를 생성합니다."
 
-#: dashboards/project/routers/templates/routers/_detail_overview.html:27
-msgid "Connected External Network:"
-msgstr "외부 네트워크 연결합니다."
+#: dashboards/project/routers/templates/routers/_detail_overview.html:34
+msgid "External Fixed IPs"
+msgstr "외부 고정 IP"
+
+#: dashboards/project/routers/templates/routers/_detail_overview.html:46
+msgid "SNAT"
+msgstr "SNAT"
 
 #: dashboards/project/routers/templates/routers/_update.html:6
 msgid "You may update the editable properties of your router here."
@@ -14810,7 +14794,7 @@ msgid ""
 "      perform volume migration. Note that migration may take a significant\n"
 "      amount of time to complete, in some cases hours.\n"
 "     "
-msgstr ""
+msgstr "\n볼륨의 형식을 변경할 수 없는 경우, \"마이그레이션 정책\"만 사용됩니다.\n만약 \"마이그레이션 정책\"이 \"On Demand\"일 경우, 백엔드 볼륨 \n마이그레이션만 작동합니다. 어떤 경우엔 완료하는데 \n시간이 오래 걸릴 수 있습니다."
 
 #: dashboards/project/volumes/templates/volumes/volumes/_show_transfer.html:6
 msgid ""

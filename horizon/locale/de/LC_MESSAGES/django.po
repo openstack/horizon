@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-17 11:54+0000\n"
+"POT-Creation-Date: 2015-03-28 00:18-0500\n"
+"PO-Revision-Date: 2015-03-26 13:41+0000\n"
 "Last-Translator: Robert Simai\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -35,7 +35,7 @@ msgstr "Sie sind nicht berechtigt für den Zugriff auf %s"
 #: exceptions.py:163
 #, python-format
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
-msgstr "Eine %(resource)s mit dem Namen \"%(name)s\" existiert bereits."
+msgstr "Ein(e) %(resource)s mit dem Namen \"%(name)s\" existiert bereits."
 
 #: exceptions.py:235
 #, python-format
@@ -95,7 +95,7 @@ msgstr "Filter"
 
 #: tables/actions.py:645
 msgid "This action cannot be undone."
-msgstr "Diese Aktion kann nicht rückgängig gemacht werden"
+msgstr "Diese Aktion kann nicht rückgängig gemacht werden."
 
 #: tables/actions.py:767
 #, python-format
@@ -151,7 +151,7 @@ msgstr "Das Attribut %(attr)s existiert nicht für %(obj)s."
 
 #: tables/base.py:990
 msgid "No items to display."
-msgstr "Kein Eintrag zum anzeigen."
+msgstr "Keine Einträge zum anzeigen."
 
 #: tables/base.py:1099
 #: templates/horizon/common/_data_table_table_actions.html:47
@@ -186,20 +186,20 @@ msgstr "Abmelden"
 
 #: templates/auth/_login.html:5
 msgid "Log In"
-msgstr "Einloggen"
+msgstr "Anmelden"
 
-#: templates/auth/_login.html:15
+#: templates/auth/_login.html:25
 msgid "You do not have permission to access the resource:"
 msgstr "Sie haben keine Zugriffsrechte auf die Ressource:"
 
-#: templates/auth/_login.html:17
+#: templates/auth/_login.html:27
 #, python-format
 msgid ""
 "Login as different user or go back to <a href=\"%(home_url)s\"> home "
 "page</a>"
 msgstr "Melden Sie sich als anderer Benutzer an oder gehen Sie zurück auf die <a href=\"%(home_url)s\"> Startseite</a>"
 
-#: templates/auth/_login.html:32
+#: templates/auth/_login.html:42
 msgid "Sign In"
 msgstr "Anmelden"
 
@@ -386,7 +386,7 @@ msgstr "Horizon"
 
 #: templatetags/horizon.py:137 templatetags/horizon.py:148
 msgid "No Limit"
-msgstr "Kein Limit"
+msgstr "Keine Begrenzung"
 
 #: templatetags/horizon.py:140 templatetags/horizon.py:142
 msgid "Available"
@@ -422,7 +422,7 @@ msgstr "%s TB"
 #: templatetags/sizeformat.py:66
 #, python-format
 msgid "%s PB"
-msgstr "%s TB"
+msgstr "%s PB"
 
 #: templatetags/sizeformat.py:74
 msgid "0 Bytes"
@@ -476,7 +476,7 @@ msgstr "Verarbeite..."
 
 #: workflows/base.py:475
 msgid "All available"
-msgstr "Alle verfügbar"
+msgstr "Alle verfügbaren"
 
 #: workflows/base.py:476
 msgid "Members"
@@ -484,7 +484,7 @@ msgstr "Mitglieder"
 
 #: workflows/base.py:477
 msgid "None available."
-msgstr "Keines verfügbar."
+msgstr "Keine verfügbar."
 
 #: workflows/base.py:478
 msgid "No members."
