@@ -168,6 +168,51 @@ class SelectRulesStep(workflows.Step):
             return context
 
 
+class SelectRoutersAction(workflows.Action):
+    router = forms.MultipleChoiceField(
+        label=_("Routers"),
+        required=False,
+        widget=forms.CheckboxSelectMultiple(),
+        help_text=_("Create a firewall with selected routers."))
+
+    class Meta(object):
+        name = _("Routers")
+        permissions = ('openstack.services.network',)
+        help_text = _("Select routers for your firewall.")
+
+    def populate_router_choices(self, request, context):
+        try:
+            tenant_id = self.request.user.tenant_id
+            routers_list = api.fwaas.firewall_unassociated_routers_list(
+                request, tenant_id)
+
+        except Exception as e:
+            routers_list = []
+            exceptions.handle(request,
+                              _('Unable to retrieve routers (%(error)s).') % {
+                                  'error': str(e)})
+        routers_list = [(router.id, router.name_or_id)
+                        for router in routers_list]
+        return routers_list
+
+
+class SelectRoutersStep(workflows.Step):
+    action_class = SelectRoutersAction
+    template_name = "project/firewalls/_update_routers.html"
+    contributes = ("router_ids", "all_routers_selected",
+                   "Select No Routers")
+
+    def contribute(self, data, context):
+        if data:
+            routers = self.workflow.request.POST.getlist("router")
+            if routers:
+                routers = [r for r in routers if r != '']
+                context['router_ids'] = routers
+            else:
+                context['router_ids'] = []
+            return context
+
+
 class AddPolicyAction(workflows.Action):
     name = forms.CharField(max_length=80,
                            label=_("Name"))
@@ -293,7 +338,7 @@ class AddFirewall(workflows.Workflow):
     # involve more complex configuration over time. Hence,
     # a workflow instead of a single form is used for
     # firewall_rule add to be ready for future extension.
-    default_steps = (AddFirewallStep,)
+    default_steps = (AddFirewallStep, )
 
     def format_status_message(self, message):
         return message % self.context.get('name')

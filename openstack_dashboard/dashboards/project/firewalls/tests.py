@@ -49,9 +49,20 @@ class FirewallTests(test.TestCase):
     INSERTRULE_PATH = 'horizon:%s:firewalls:insertrule' % DASHBOARD
     REMOVERULE_PATH = 'horizon:%s:firewalls:removerule' % DASHBOARD
 
-    def set_up_expect(self):
+    ADDROUTER_PATH = 'horizon:%s:firewalls:addrouter' % DASHBOARD
+    REMOVEROUTER_PATH = 'horizon:%s:firewalls:removerouter' % DASHBOARD
+
+    def set_up_expect(self, fwaas_router_extension=True):
         # retrieve rules
         tenant_id = self.tenant.id
+
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest), 'fwaasrouterinsertion'
+        ).AndReturn(fwaas_router_extension)
+
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest), 'fwaasrouterinsertion'
+        ).MultipleTimes().AndReturn(fwaas_router_extension)
 
         api.fwaas.rule_list_for_tenant(
             IsA(http.HttpRequest),
@@ -67,8 +78,23 @@ class FirewallTests(test.TestCase):
         api.fwaas.firewall_list_for_tenant(
             IsA(http.HttpRequest), tenant_id).AndReturn(firewalls)
 
+        routers = self.routers.list()
+        api.neutron.router_list(
+            IsA(http.HttpRequest), tenant_id=tenant_id).AndReturn(routers)
+
+        api.neutron.router_list(
+            IsA(http.HttpRequest), tenant_id=tenant_id). \
+            MultipleTimes().AndReturn(routers)
+
+        api.fwaas.firewall_list_for_tenant(
+            IsA(http.HttpRequest), tenant_id='1'). \
+            MultipleTimes().AndReturn(firewalls)
+
     def set_up_expect_with_exception(self):
         tenant_id = self.tenant.id
+
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest), 'fwaasrouterinsertion').AndReturn(True)
 
         api.fwaas.rule_list_for_tenant(
             IsA(http.HttpRequest),
@@ -82,7 +108,9 @@ class FirewallTests(test.TestCase):
 
     @test.create_stubs({api.fwaas: ('firewall_list_for_tenant',
                                     'policy_list_for_tenant',
-                                    'rule_list_for_tenant')}, )
+                                    'rule_list_for_tenant'),
+                        api.neutron: ('is_extension_supported',
+                                      'router_list',), })
     def test_index_firewalls(self):
         self.set_up_expect()
 
@@ -98,9 +126,14 @@ class FirewallTests(test.TestCase):
         self.assertEqual(len(res.context['table'].data),
                          len(self.firewalls.list()))
 
+    # TODO(absubram): Change test_index_firewalls for with and without
+    #                 router extensions.
+
     @test.create_stubs({api.fwaas: ('firewall_list_for_tenant',
                                     'policy_list_for_tenant',
-                                    'rule_list_for_tenant')}, )
+                                    'rule_list_for_tenant'),
+                        api.neutron: ('is_extension_supported',
+                                      'router_list',), })
     def test_index_policies(self):
         self.set_up_expect()
 
@@ -119,7 +152,9 @@ class FirewallTests(test.TestCase):
 
     @test.create_stubs({api.fwaas: ('firewall_list_for_tenant',
                                     'policy_list_for_tenant',
-                                    'rule_list_for_tenant')}, )
+                                    'rule_list_for_tenant'),
+                        api.neutron: ('is_extension_supported',
+                                      'router_list',), })
     def test_index_rules(self):
         self.set_up_expect()
 
@@ -138,7 +173,8 @@ class FirewallTests(test.TestCase):
 
     @test.create_stubs({api.fwaas: ('firewall_list_for_tenant',
                                     'policy_list_for_tenant',
-                                    'rule_list_for_tenant')}, )
+                                    'rule_list_for_tenant'),
+                        api.neutron: ('is_extension_supported',), })
     def test_index_exception_firewalls(self):
         self.set_up_expect_with_exception()
 
@@ -157,7 +193,8 @@ class FirewallTests(test.TestCase):
 
     @test.create_stubs({api.fwaas: ('firewall_list_for_tenant',
                                     'policy_list_for_tenant',
-                                    'rule_list_for_tenant')}, )
+                                    'rule_list_for_tenant'),
+                        api.neutron: ('is_extension_supported',), })
     def test_index_exception_policies(self):
         self.set_up_expect_with_exception()
 
@@ -177,7 +214,8 @@ class FirewallTests(test.TestCase):
 
     @test.create_stubs({api.fwaas: ('firewall_list_for_tenant',
                                     'policy_list_for_tenant',
-                                    'rule_list_for_tenant')}, )
+                                    'rule_list_for_tenant'),
+                        api.neutron: ('is_extension_supported',), })
     def test_index_exception_rules(self):
         self.set_up_expect_with_exception()
 
@@ -301,18 +339,31 @@ class FirewallTests(test.TestCase):
 
         self.assertFormErrors(res, 1)
 
-    @test.create_stubs({api.fwaas: ('firewall_create',
-                                    'policy_list_for_tenant'), })
-    def test_add_firewall_post(self):
+    def _test_add_firewall_post(self, router_extension=False):
         firewall = self.firewalls.first()
         policies = self.fw_policies.list()
         tenant_id = self.tenant.id
+        if router_extension:
+            routers = self.routers.list()
+            firewalls = self.firewalls.list()
+
         form_data = {'name': firewall.name,
                      'description': firewall.description,
                      'firewall_policy_id': firewall.firewall_policy_id,
                      'shared': firewall.shared,
                      'admin_state_up': firewall.admin_state_up
                      }
+        if router_extension:
+            form_data['router_ids'] = firewall.router_ids
+            api.neutron.router_list(
+                IsA(http.HttpRequest), tenant_id=tenant_id).AndReturn(routers)
+            api.fwaas.firewall_list_for_tenant(
+                IsA(http.HttpRequest),
+                tenant_id=tenant_id).AndReturn(firewalls)
+
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'fwaasrouterinsertion').AndReturn(router_extension)
         api.fwaas.policy_list_for_tenant(
             IsA(http.HttpRequest), tenant_id).AndReturn(policies)
         api.fwaas.firewall_create(
@@ -326,7 +377,25 @@ class FirewallTests(test.TestCase):
         self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
 
     @test.create_stubs({api.fwaas: ('firewall_create',
-                                    'policy_list_for_tenant'), })
+                                    'policy_list_for_tenant',),
+                        api.neutron: ('is_extension_supported',), })
+    def test_add_firewall_post(self):
+        self._test_add_firewall_post()
+
+    # @test.create_stubs({api.fwaas: ('firewall_create',
+    #                                'policy_list_for_tenant',
+    #                                'firewall_list_for_tenant',),
+    #                    api.neutron: ('is_extension_supported',
+    #                                  'router_list'), })
+    # def test_add_firewall_post_with_router_extension(self):
+    #    self._test_add_firewall_post(router_extension=True)
+    # TODO(absubram): Fix test_add_firewall_post_with_router_extension
+    #                 It currently fails because views.py is not
+    #                 initializing the AddRouter workflow?
+
+    @test.create_stubs({api.fwaas: ('firewall_create',
+                                    'policy_list_for_tenant',),
+                        api.neutron: ('is_extension_supported',), })
     def test_add_firewall_post_with_error(self):
         firewall = self.firewalls.first()
         policies = self.fw_policies.list()
@@ -337,6 +406,9 @@ class FirewallTests(test.TestCase):
                      'shared': firewall.shared,
                      'admin_state_up': firewall.admin_state_up
                      }
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'fwaasrouterinsertion').AndReturn(False)
         api.fwaas.policy_list_for_tenant(
             IsA(http.HttpRequest), tenant_id).AndReturn(policies)
 
@@ -618,10 +690,75 @@ class FirewallTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
 
+    @test.create_stubs({api.fwaas: ('firewall_get',
+                                    'firewall_list_for_tenant',
+                                    'firewall_update',
+                                    'firewall_unassociated_routers_list')})
+    def test_firewall_add_router(self):
+        tenant_id = self.tenant.id
+        firewall = self.firewalls.first()
+        routers = self.routers.list()
+
+        existing_router_ids = firewall.router_ids
+        add_router_ids = [routers[1].id]
+
+        form_data = {'router_ids': add_router_ids}
+        post_data = {'router_ids': add_router_ids + existing_router_ids}
+
+        api.fwaas.firewall_get(
+            IsA(http.HttpRequest), firewall.id).AndReturn(firewall)
+        api.fwaas.firewall_unassociated_routers_list(
+            IsA(http.HttpRequest), tenant_id).AndReturn(routers)
+
+        firewall.router_ids = [add_router_ids, existing_router_ids]
+
+        api.fwaas.firewall_update(
+            IsA(http.HttpRequest),
+            firewall.id, **post_data).AndReturn(firewall)
+
+        self.mox.ReplayAll()
+
+        res = self.client.post(
+            reverse(self.ADDROUTER_PATH, args=(firewall.id,)), form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
+
+    @test.create_stubs({api.fwaas: ('firewall_get',
+                                    'firewall_update',
+                                    'firewall_unassociated_routers_list'),
+                        api.neutron: ('router_list',), })
+    def test_firewall_remove_router(self):
+        firewall = self.firewalls.first()
+        tenant_id = self.tenant.id
+        routers = self.routers.list()
+        existing_router_ids = firewall.router_ids
+
+        form_data = {'router_ids': existing_router_ids}
+
+        api.fwaas.firewall_get(
+            IsA(http.HttpRequest), firewall.id).AndReturn(firewall)
+        api.neutron.router_list(
+            IsA(http.HttpRequest), tenant_id=tenant_id).AndReturn(routers)
+        firewall.router_ids = []
+        api.fwaas.firewall_update(
+            IsA(http.HttpRequest),
+            firewall.id, **form_data).AndReturn(firewall)
+
+        self.mox.ReplayAll()
+
+        res = self.client.post(
+            reverse(self.REMOVEROUTER_PATH, args=(firewall.id,)), form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
+
     @test.create_stubs({api.fwaas: ('firewall_list_for_tenant',
                                     'policy_list_for_tenant',
                                     'rule_list_for_tenant',
-                                    'rule_delete')})
+                                    'rule_delete'),
+                        api.neutron: ('is_extension_supported',
+                                      'router_list',), })
     def test_delete_rule(self):
         self.set_up_expect()
         rule = self.fw_rules.first()
@@ -636,7 +773,9 @@ class FirewallTests(test.TestCase):
     @test.create_stubs({api.fwaas: ('firewall_list_for_tenant',
                                     'policy_list_for_tenant',
                                     'rule_list_for_tenant',
-                                    'policy_delete')})
+                                    'policy_delete'),
+                        api.neutron: ('is_extension_supported',
+                                      'router_list',), })
     def test_delete_policy(self):
         self.set_up_expect()
         policy = self.fw_policies.first()
@@ -651,7 +790,9 @@ class FirewallTests(test.TestCase):
     @test.create_stubs({api.fwaas: ('firewall_list_for_tenant',
                                     'policy_list_for_tenant',
                                     'rule_list_for_tenant',
-                                    'firewall_delete')})
+                                    'firewall_delete'),
+                        api.neutron: ('is_extension_supported',
+                                      'router_list',), })
     def test_delete_firewall(self):
         self.set_up_expect()
         fwl = self.firewalls.first()

@@ -12,14 +12,20 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import logging
+
 from django.core.urlresolvers import reverse
 from django.template import defaultfilters as filters
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
+from horizon import exceptions
 from horizon import tables
+from openstack_dashboard import api
 from openstack_dashboard import policy
+
+LOG = logging.getLogger(__name__)
 
 
 class AddRuleLink(tables.LinkAction):
@@ -187,9 +193,57 @@ class RemoveRuleFromPolicyLink(policy.PolicyTargetMixin,
         return base_url
 
 
+class AddRouterToFirewallLink(policy.PolicyTargetMixin,
+                              tables.LinkAction):
+    name = "addrouter"
+    verbose_name = _("Add Router")
+    classes = ("ajax-modal", "btn-update",)
+    policy_rules = (("network", "get_firewall"),
+                    ("network", "add_router"),)
+
+    def get_link_url(self, firewall):
+        base_url = reverse("horizon:project:firewalls:addrouter",
+                           kwargs={'firewall_id': firewall.id})
+        return base_url
+
+    def allowed(self, request, firewall):
+        if not api.neutron.is_extension_supported(request,
+                                                  'fwaasrouterinsertion'):
+            return False
+        tenant_id = firewall['tenant_id']
+        available_routers = api.fwaas.firewall_unassociated_routers_list(
+            request, tenant_id)
+        return bool(available_routers)
+
+
+class RemoveRouterFromFirewallLink(policy.PolicyTargetMixin,
+                                   tables.LinkAction):
+    name = "removerouter"
+    verbose_name = _("Remove Router")
+    classes = ("ajax-modal", "btn-update",)
+    policy_rules = (("network", "get_firewall"),
+                    ("network", "remove_router"),)
+
+    def get_link_url(self, firewall):
+        base_url = reverse("horizon:project:firewalls:removerouter",
+                           kwargs={'firewall_id': firewall.id})
+        return base_url
+
+    def allowed(self, request, firewall):
+        if not api.neutron.is_extension_supported(request,
+                                                  'fwaasrouterinsertion'):
+            return False
+        return bool(firewall['router_ids'])
+
+
 def get_rules_name(datum):
     return ', '.join([rule.name or rule.id[:13]
                       for rule in datum.rules])
+
+
+def get_routers_name(firewall):
+    if firewall.routers:
+        return ', '.join(router['name'] for router in firewall.routers)
 
 
 def get_policy_name(datum):
@@ -287,6 +341,8 @@ class FirewallsTable(tables.DataTable):
     firewall_policy_id = tables.Column(get_policy_name,
                                        link=get_policy_link,
                                        verbose_name=_("Policy"))
+    router_ids = tables.Column(get_routers_name,
+                               verbose_name=_("Associated Routers"))
     status = tables.Column("status",
                            verbose_name=_("Status"),
                            display_choices=STATUS_DISPLAY_CHOICES)
@@ -298,4 +354,19 @@ class FirewallsTable(tables.DataTable):
         name = "firewallstable"
         verbose_name = _("Firewalls")
         table_actions = (AddFirewallLink, DeleteFirewallLink)
-        row_actions = (UpdateFirewallLink, DeleteFirewallLink)
+        row_actions = (UpdateFirewallLink, DeleteFirewallLink,
+                       AddRouterToFirewallLink, RemoveRouterFromFirewallLink)
+
+    def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
+        super(FirewallsTable, self).__init__(
+            request, data=data,
+            needs_form_wrapper=needs_form_wrapper, **kwargs)
+        try:
+            if not api.neutron.is_extension_supported(request,
+                                                      'fwaasrouterinsertion'):
+                del self.columns['router_ids']
+        except Exception as e:
+            msg = _('Failed to verify extension support %(reason)s') % {
+                'reason': e}
+            LOG.error(msg)
+            exceptions.handle(request, msg)

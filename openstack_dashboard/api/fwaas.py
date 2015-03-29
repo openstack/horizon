@@ -16,6 +16,8 @@ from __future__ import absolute_import
 
 from django.utils.datastructures import SortedDict
 
+from horizon.utils import memoized
+
 from openstack_dashboard.api import neutron
 
 neutronclient = neutron.neutronclient
@@ -41,6 +43,11 @@ class Policy(neutron.NeutronAPIDictWrapper):
 
 class Firewall(neutron.NeutronAPIDictWrapper):
     """Wrapper for neutron firewall."""
+
+    def __init__(self, apiresource):
+        apiresource['admin_state'] = \
+            'UP' if apiresource['admin_state_up'] else 'DOWN'
+        super(Firewall, self).__init__(apiresource)
 
     def __init__(self, apiresource):
         apiresource['admin_state'] = \
@@ -288,3 +295,18 @@ def firewall_update(request, firewall_id, **kwargs):
     firewall = neutronclient(request).update_firewall(
         firewall_id, body).get('firewall')
     return Firewall(firewall)
+
+
+@memoized.memoized
+def firewall_unassociated_routers_list(request, tenant_id):
+    all_routers = neutron.router_list(request, tenant_id=tenant_id)
+    tenant_firewalls = firewall_list_for_tenant(request, tenant_id=tenant_id)
+    firewall_router_ids = [rid
+                           for fw in tenant_firewalls
+                           for rid in getattr(fw, 'router_ids', [])]
+
+    available_routers = [r for r in all_routers
+                         if r.id not in firewall_router_ids]
+    available_routers = sorted(available_routers,
+                               key=lambda router: router.name_or_id)
+    return available_routers

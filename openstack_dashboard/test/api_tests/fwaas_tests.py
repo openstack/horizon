@@ -346,6 +346,9 @@ class FwaasApiTests(test.APITestCase):
         self.assertEqual(exp_firewall.firewall_policy_id, ret_val.policy.id)
         self.assertEqual(exp_firewall.policy.name, ret_val.policy.name)
 
+    # TODO(absubram) : Add API tests for firewall_create with routers,
+    #                  add router to firewal and remove router from fw.
+
     @test.create_stubs({neutronclient: ('list_firewalls',
                                         'list_firewall_policies')})
     def test_firewall_list(self):

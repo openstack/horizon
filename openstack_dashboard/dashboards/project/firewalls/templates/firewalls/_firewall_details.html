@@ -27,5 +27,17 @@
 
     <dt>{% trans "Admin State Up" %}</dt>
     <dd>{{ firewall.admin_state_up|yesno|capfirst }}</dd>
+
+    <dt>{% trans "Routers" %}</dt>
+    <dd>
+      {% if routers %}
+      {% for router in routers %}
+      {% url 'horizon:project:routers:detail' router.id as router_url %}
+      <a href="{{ router_url }}">{{ router.name|default:router.id}}</a><br>
+      {% endfor %}
+      {% else %}
+      {% trans "-" %}
+      {% endif %}
+    </dd>
   </dl>
 </div>
