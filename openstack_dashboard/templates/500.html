@@ -1,7 +1,7 @@
 {% load branding i18n staticfiles %}
 {% load load_config from horizon %}
 
-{% load_config as HORIZON_CONFIG %}
+{% load_config as CONF %}
 
 
 {% comment %}
@@ -70,8 +70,8 @@
       </div>
       <div id="links">
         {% block links %}
-        <p><a href="/">{% trans "Home" %}</a></p>
-        <p><a href="{{ HORIZON_CONFIG.help_url }}">{% trans "Help" %}</a></p>
+        <p><a href="{{ CONF.WEBROOT }}">{% trans "Home" %}</a></p>
+        <p><a href="{{ CONF.HORIZON_CONFIG.help_url }}">{% trans "Help" %}</a></p>
         {% endblock %}
       </div>
     </div>

@@ -190,7 +190,7 @@ def jstemplate(parser, token):
 
 @register.assignment_tag
 def load_config():
-    return conf.HORIZON_CONFIG
+    return conf
 
 
 @register.assignment_tag
