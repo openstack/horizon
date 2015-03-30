@@ -6,14 +6,14 @@
 # Akihiro Motoki <amotoki@gmail.com>, 2014-2015
 # myamamot <myamamot@redhat.com>, 2014-2015
 # Tom Fifield <tom@openstack.org>, 2014
-# ykatabam <ykatabam@redhat.com>, 2014
+# ykatabam <ykatabam@redhat.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-28 00:18-0500\n"
-"PO-Revision-Date: 2015-03-28 01:31+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"POT-Creation-Date: 2015-03-29 10:30-0500\n"
+"PO-Revision-Date: 2015-03-29 21:23+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -83,11 +83,11 @@ msgstr "Ceilometer の計測情報を取得できません。"
 
 #: api/ceilometer.py:931
 msgid "Existence of instance"
-msgstr ""
+msgstr "インスタンスの有無"
 
 #: api/ceilometer.py:935
 msgid "Existence of instance <type> (openstack types)"
-msgstr ""
+msgstr "インスタンス <type> (OpenStack タイプ) の有無"
 
 #: api/ceilometer.py:940
 msgid "Volume of RAM"
@@ -95,7 +95,7 @@ msgstr "RAM 数"
 
 #: api/ceilometer.py:944
 msgid "Volume of RAM used"
-msgstr ""
+msgstr "使用済みのメモリー量"
 
 #: api/ceilometer.py:948
 msgid "CPU time used"
@@ -120,19 +120,19 @@ msgstr "ディスク書き込み要求数"
 
 #: api/ceilometer.py:968
 msgid "Volume of reads"
-msgstr ""
+msgstr "読み出し量"
 
 #: api/ceilometer.py:972
 msgid "Volume of writes"
-msgstr ""
+msgstr "書き込み量"
 
 #: api/ceilometer.py:976
 msgid "Average rate of read requests"
-msgstr ""
+msgstr "ボリュームの平均読み出し要求数"
 
 #: api/ceilometer.py:980
 msgid "Average rate of write requests"
-msgstr ""
+msgstr "ボリュームの平均書き込み要求数"
 
 #: api/ceilometer.py:984
 msgid "Average rate of reads"
@@ -189,7 +189,7 @@ msgstr "インスタンスタイプ %s (openstack フレーバー) の存在期�
 
 #: api/ceilometer.py:1067
 msgid "Existence of network"
-msgstr ""
+msgstr "ネットワークの有無"
 
 #: api/ceilometer.py:1071
 msgid "Creation requests for this network"
@@ -201,7 +201,7 @@ msgstr "このネットワークの更新要求数"
 
 #: api/ceilometer.py:1079
 msgid "Existence of subnet"
-msgstr ""
+msgstr "サブネットの有無"
 
 #: api/ceilometer.py:1083
 msgid "Creation requests for this subnet"
@@ -213,7 +213,7 @@ msgstr "このサブネットの更新要求数"
 
 #: api/ceilometer.py:1091
 msgid "Existence of port"
-msgstr ""
+msgstr "ポートの有無"
 
 #: api/ceilometer.py:1095
 msgid "Creation requests for this port"
@@ -225,7 +225,7 @@ msgstr "このポートの更新要求数"
 
 #: api/ceilometer.py:1103
 msgid "Existence of router"
-msgstr ""
+msgstr "ルーターの有無"
 
 #: api/ceilometer.py:1107
 msgid "Creation requests for this router"
@@ -237,7 +237,7 @@ msgstr "このルーターの更新要求数"
 
 #: api/ceilometer.py:1115
 msgid "Existence of floating ip"
-msgstr ""
+msgstr "Floating IP の有無"
 
 #: api/ceilometer.py:1119
 msgid "Creation requests for this floating ip"
@@ -257,15 +257,15 @@ msgstr "アップロードされたイメージサイズ"
 
 #: api/ceilometer.py:1148
 msgid "Number of image updates"
-msgstr ""
+msgstr "イメージの更新件数"
 
 #: api/ceilometer.py:1152
 msgid "Number of image uploads"
-msgstr ""
+msgstr "イメージのアップロード件数"
 
 #: api/ceilometer.py:1156
 msgid "Number of image deletions"
-msgstr ""
+msgstr "イメージの削除件数"
 
 #: api/ceilometer.py:1160
 msgid "Image is downloaded"
@@ -277,7 +277,7 @@ msgstr "イメージ利用回数"
 
 #: api/ceilometer.py:1181
 msgid "Existence of volume"
-msgstr ""
+msgstr "ボリュームの有無"
 
 #: api/ceilometer.py:1185
 msgid "Size of volume"
@@ -329,15 +329,15 @@ msgstr "ファンの RPM"
 
 #: api/ceilometer.py:1272
 msgid "Sensor Temperature Reading"
-msgstr ""
+msgstr "センサーの温度測定値"
 
 #: api/ceilometer.py:1276
 msgid "Sensor Current Reading"
-msgstr ""
+msgstr "センサーの現在の測定値"
 
 #: api/ceilometer.py:1280
 msgid "Sensor Voltage Reading"
-msgstr ""
+msgstr "センサーの電圧測定値"
 
 #: api/cinder.py:46 dashboards/admin/volumes/volume_types/forms.py:33
 msgid "back-end"
@@ -438,6 +438,7 @@ msgstr "Neutron が '%s' 拡張に対応しているか確認できませんで�
 #: dashboards/project/databases/tables.py:279
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:8
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:11
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:39
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:8
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:11
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:27
@@ -509,7 +510,7 @@ msgstr "インスタンスの退避に失敗しました: %s"
 #: api/nova.py:836
 #, python-format
 msgid "Failed to migrate instances: %s"
-msgstr ""
+msgstr "インスタンス %s のマイグレーションに失敗しました。"
 
 #: api/swift.py:203
 msgid "The container cannot be deleted since it is not empty."
@@ -594,15 +595,15 @@ msgstr "管理"
 #: dashboards/project/database_backups/workflows/create_backup.py:32
 #: dashboards/project/databases/tables.py:387
 #: dashboards/project/databases/templates/databases/_detail_overview.html:10
-#: dashboards/project/firewalls/forms.py:33
-#: dashboards/project/firewalls/forms.py:98
-#: dashboards/project/firewalls/forms.py:125
-#: dashboards/project/firewalls/tables.py:211
-#: dashboards/project/firewalls/tables.py:244
-#: dashboards/project/firewalls/tables.py:285
+#: dashboards/project/firewalls/forms.py:34
+#: dashboards/project/firewalls/forms.py:99
+#: dashboards/project/firewalls/forms.py:126
+#: dashboards/project/firewalls/tables.py:265
+#: dashboards/project/firewalls/tables.py:298
+#: dashboards/project/firewalls/tables.py:339
 #: dashboards/project/firewalls/workflows.py:30
-#: dashboards/project/firewalls/workflows.py:173
-#: dashboards/project/firewalls/workflows.py:230
+#: dashboards/project/firewalls/workflows.py:218
+#: dashboards/project/firewalls/workflows.py:275
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:7
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:7
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:7
@@ -968,7 +969,9 @@ msgstr "ホストの追加、削除中にエラーがありました。"
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:19
 #: dashboards/project/containers/templates/containers/_update.html:20
 #: dashboards/project/containers/templates/containers/_upload.html:21
+#: dashboards/project/firewalls/templates/firewalls/_add_router_to_firewall.html:5
 #: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:5
+#: dashboards/project/firewalls/templates/firewalls/_remove_router_from_firewall.html:5
 #: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:5
 #: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:5
 #: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:5
@@ -1527,7 +1530,7 @@ msgstr "すべてのプロジェクト"
 
 #: dashboards/admin/flavors/workflows.py:161
 msgid "Selected Projects"
-msgstr "選択済のプロジェクト"
+msgstr "選択済みのプロジェクト"
 
 #: dashboards/admin/flavors/workflows.py:162
 msgid "No projects found."
@@ -1779,12 +1782,12 @@ msgstr "ブロックマイグレーション"
 #: dashboards/admin/hypervisors/compute/forms.py:159
 #, python-format
 msgid "Starting to migrate host: %(current)s"
-msgstr ""
+msgstr "ホスト %(current)s のマイグレーションを開始します。"
 
 #: dashboards/admin/hypervisors/compute/forms.py:164
 #, python-format
 msgid "Failed to migrate host \"%s\"."
-msgstr ""
+msgstr "ホスト \"%s\" のマイグレーションに失敗しました。"
 
 #: dashboards/admin/hypervisors/compute/tables.py:26
 #: dashboards/admin/hypervisors/compute/views.py:30
@@ -1856,7 +1859,7 @@ msgstr "ゾーン"
 #: dashboards/project/databases/tables.py:333
 #: dashboards/project/databases/tables.py:399
 #: dashboards/project/databases/templates/databases/_detail_overview.html:18
-#: dashboards/project/firewalls/tables.py:291
+#: dashboards/project/firewalls/tables.py:347
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
 #: dashboards/project/images/images/tables.py:247
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
@@ -2063,7 +2066,7 @@ msgstr "注意: "
 msgid ""
 "The Image Location field MUST be a valid and direct URL to the image binary."
 " URLs that redirect or serve error pages will result in unusable images."
-msgstr "イメージの場所のフィールドは、イメージ（バイナリ）への有効かつ直接の URL を入力する必要があります。 URL がリダイレクトのページの場合や、エラーページが返ってきた場合には、登録されたイメージは使用できない可能性があります。"
+msgstr "イメージの場所のフィールドは、イメージ（バイナリー）への有効かつ直接の URL を入力する必要があります。 URL がリダイレクトのページの場合や、エラーページが返ってきた場合には、登録されたイメージは使用できない可能性があります。"
 
 #: dashboards/admin/images/templates/images/_create.html:34
 #: dashboards/project/images/images/tables.py:98
@@ -2094,8 +2097,8 @@ msgstr "システム情報"
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:13
 #: dashboards/identity/users/tables.py:236
 #: dashboards/identity/users/templates/users/_detail_overview.html:23
-#: dashboards/project/firewalls/forms.py:70
-#: dashboards/project/firewalls/tables.py:229
+#: dashboards/project/firewalls/forms.py:71
+#: dashboards/project/firewalls/tables.py:283
 #: dashboards/project/firewalls/workflows.py:67
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:53
 #: dashboards/project/routers/templates/routers/_detail_overview.html:48
@@ -2503,12 +2506,12 @@ msgstr "関連付けの更新"
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:43
 #: dashboards/project/database_backups/templates/database_backups/details.html:16
 #: dashboards/project/database_backups/workflows/create_backup.py:34
-#: dashboards/project/firewalls/forms.py:36
-#: dashboards/project/firewalls/forms.py:100
-#: dashboards/project/firewalls/forms.py:128
+#: dashboards/project/firewalls/forms.py:37
+#: dashboards/project/firewalls/forms.py:101
+#: dashboards/project/firewalls/forms.py:129
 #: dashboards/project/firewalls/workflows.py:34
-#: dashboards/project/firewalls/workflows.py:175
-#: dashboards/project/firewalls/workflows.py:233
+#: dashboards/project/firewalls/workflows.py:220
+#: dashboards/project/firewalls/workflows.py:278
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:10
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:10
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:10
@@ -3122,8 +3125,8 @@ msgstr "セグメント ID"
 #: dashboards/admin/networks/forms.py:77
 #: dashboards/admin/networks/forms.py:236
 #: dashboards/admin/networks/ports/forms.py:45
-#: dashboards/project/firewalls/forms.py:131
-#: dashboards/project/firewalls/workflows.py:239
+#: dashboards/project/firewalls/forms.py:132
+#: dashboards/project/firewalls/workflows.py:284
 #: dashboards/project/loadbalancers/forms.py:38
 #: dashboards/project/loadbalancers/forms.py:93
 #: dashboards/project/loadbalancers/forms.py:176
@@ -3145,8 +3148,8 @@ msgstr "UP"
 #: dashboards/admin/networks/forms.py:78
 #: dashboards/admin/networks/forms.py:237
 #: dashboards/admin/networks/ports/forms.py:46
-#: dashboards/project/firewalls/forms.py:132
-#: dashboards/project/firewalls/workflows.py:240
+#: dashboards/project/firewalls/forms.py:133
+#: dashboards/project/firewalls/workflows.py:285
 #: dashboards/project/loadbalancers/forms.py:39
 #: dashboards/project/loadbalancers/forms.py:94
 #: dashboards/project/loadbalancers/forms.py:177
@@ -3171,9 +3174,9 @@ msgstr "DOWN"
 #: dashboards/admin/networks/agents/tables.py:93
 #: dashboards/admin/networks/ports/forms.py:47
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:19
-#: dashboards/project/firewalls/forms.py:133
-#: dashboards/project/firewalls/tables.py:294
-#: dashboards/project/firewalls/workflows.py:241
+#: dashboards/project/firewalls/forms.py:134
+#: dashboards/project/firewalls/tables.py:350
+#: dashboards/project/firewalls/workflows.py:286
 #: dashboards/project/loadbalancers/forms.py:40
 #: dashboards/project/loadbalancers/forms.py:95
 #: dashboards/project/loadbalancers/forms.py:178
@@ -3205,11 +3208,11 @@ msgstr "管理状態"
 #: dashboards/admin/networks/forms.py:80
 #: dashboards/admin/networks/forms.py:239
 #: dashboards/admin/networks/tables.py:100
-#: dashboards/project/firewalls/forms.py:69
-#: dashboards/project/firewalls/forms.py:101
+#: dashboards/project/firewalls/forms.py:70
+#: dashboards/project/firewalls/forms.py:102
 #: dashboards/project/firewalls/workflows.py:65
-#: dashboards/project/firewalls/workflows.py:177
-#: dashboards/project/firewalls/workflows.py:236
+#: dashboards/project/firewalls/workflows.py:222
+#: dashboards/project/firewalls/workflows.py:281
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:31
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:50
 #: dashboards/project/networks/tables.py:172
@@ -3875,6 +3878,9 @@ msgstr "監視:"
 #: dashboards/admin/routers/panel.py:24 dashboards/admin/routers/tables.py:46
 #: dashboards/admin/routers/templates/routers/index.html:3
 #: dashboards/identity/projects/workflows.py:77
+#: dashboards/project/firewalls/workflows.py:173
+#: dashboards/project/firewalls/workflows.py:179
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:31
 #: dashboards/project/network_topology/routers/tables.py:27
 #: dashboards/project/routers/panel.py:24
 #: dashboards/project/routers/tables.py:244
@@ -6310,13 +6316,13 @@ msgstr "ルールの管理"
 #: dashboards/project/access_and_security/security_groups/views.py:108
 #: dashboards/project/access_and_security/security_groups/views.py:113
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:3
-#: dashboards/project/firewalls/tables.py:27
+#: dashboards/project/firewalls/tables.py:33
 #: dashboards/project/firewalls/workflows.py:103
 msgid "Add Rule"
 msgstr "ルールの追加"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:177
-#: dashboards/project/firewalls/tables.py:58
+#: dashboards/project/firewalls/tables.py:64
 msgid "Delete Rule"
 msgid_plural "Delete Rules"
 msgstr[0] "ルールの削除"
@@ -6353,8 +6359,8 @@ msgstr "セキュリティーグループ情報を取得できません。"
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:59
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:69
 #: dashboards/project/firewalls/workflows.py:104
-#: dashboards/project/firewalls/workflows.py:209
-#: dashboards/project/firewalls/workflows.py:286
+#: dashboards/project/firewalls/workflows.py:254
+#: dashboards/project/firewalls/workflows.py:331
 #: dashboards/project/loadbalancers/workflows.py:136
 #: dashboards/project/loadbalancers/workflows.py:260
 #: dashboards/project/loadbalancers/workflows.py:426
@@ -9681,8 +9687,8 @@ msgstr ""
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "名前が \"%(name)s\" の %(count)s を起動しました。"
 
-#: dashboards/project/firewalls/forms.py:38
-#: dashboards/project/firewalls/tables.py:216
+#: dashboards/project/firewalls/forms.py:39
+#: dashboards/project/firewalls/tables.py:270
 #: dashboards/project/firewalls/workflows.py:37
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:22
 #: dashboards/project/loadbalancers/tables.py:322
@@ -9693,24 +9699,24 @@ msgstr "名前が \"%(name)s\" の %(count)s を起動しました。"
 msgid "Protocol"
 msgstr "プロトコル"
 
-#: dashboards/project/firewalls/forms.py:39
+#: dashboards/project/firewalls/forms.py:40
 #: dashboards/project/firewalls/workflows.py:38
 #: dashboards/project/loadbalancers/workflows.py:488
 msgid "TCP"
 msgstr "TCP"
 
-#: dashboards/project/firewalls/forms.py:39
+#: dashboards/project/firewalls/forms.py:40
 #: dashboards/project/firewalls/workflows.py:39
 msgid "UDP"
 msgstr "UDP"
 
-#: dashboards/project/firewalls/forms.py:39
+#: dashboards/project/firewalls/forms.py:40
 #: dashboards/project/firewalls/workflows.py:40
 msgid "ICMP"
 msgstr "ICMP"
 
-#: dashboards/project/firewalls/forms.py:40
-#: dashboards/project/firewalls/tables.py:214
+#: dashboards/project/firewalls/forms.py:41
+#: dashboards/project/firewalls/tables.py:268
 #: dashboards/project/firewalls/workflows.py:41
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:23
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:26
@@ -9720,12 +9726,12 @@ msgstr "ICMP"
 msgid "ANY"
 msgstr "ANY"
 
-#: dashboards/project/firewalls/forms.py:41
+#: dashboards/project/firewalls/forms.py:42
 msgid "Protocol for the firewall rule"
 msgstr "ファイアウォールルールのプロトコル"
 
-#: dashboards/project/firewalls/forms.py:43
-#: dashboards/project/firewalls/tables.py:227
+#: dashboards/project/firewalls/forms.py:44
+#: dashboards/project/firewalls/tables.py:281
 #: dashboards/project/firewalls/workflows.py:43
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:19
 #: dashboards/project/instances/audit_tables.py:25
@@ -9734,304 +9740,367 @@ msgstr "ファイアウォールルールのプロトコル"
 msgid "Action"
 msgstr "アクション"
 
-#: dashboards/project/firewalls/forms.py:44
+#: dashboards/project/firewalls/forms.py:45
 #: dashboards/project/firewalls/workflows.py:44
 msgid "ALLOW"
 msgstr "ALLOW"
 
-#: dashboards/project/firewalls/forms.py:44
+#: dashboards/project/firewalls/forms.py:45
 #: dashboards/project/firewalls/workflows.py:45
 msgid "DENY"
 msgstr "DENY"
 
-#: dashboards/project/firewalls/forms.py:45
+#: dashboards/project/firewalls/forms.py:46
 msgid "Action for the firewall rule"
 msgstr "ファイアウォールルールのアクション"
 
-#: dashboards/project/firewalls/forms.py:47
+#: dashboards/project/firewalls/forms.py:48
 #: dashboards/project/firewalls/workflows.py:47
 msgid "Source IP Address/Subnet"
 msgstr "送信元 IP アドレス/サブネット"
 
-#: dashboards/project/firewalls/forms.py:50
+#: dashboards/project/firewalls/forms.py:51
 msgid "Source IP address or subnet"
 msgstr "送信元 IP アドレスまたはサブネット"
 
-#: dashboards/project/firewalls/forms.py:52
+#: dashboards/project/firewalls/forms.py:53
 #: dashboards/project/firewalls/workflows.py:51
 msgid "Destination IP Address/Subnet"
 msgstr "宛先 IP アドレス/サブネット"
 
-#: dashboards/project/firewalls/forms.py:55
+#: dashboards/project/firewalls/forms.py:56
 msgid "Destination IP address or subnet"
 msgstr "宛先 IP アドレスまたはサブネット"
 
-#: dashboards/project/firewalls/forms.py:58
+#: dashboards/project/firewalls/forms.py:59
 #: dashboards/project/firewalls/workflows.py:56
 msgid "Source Port/Port Range"
 msgstr "送信元ポート/ポートの範囲"
 
-#: dashboards/project/firewalls/forms.py:61
+#: dashboards/project/firewalls/forms.py:62
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "送信元ポート ([1, 65535] の整数か a:b 形式の範囲)"
 
-#: dashboards/project/firewalls/forms.py:64
+#: dashboards/project/firewalls/forms.py:65
 #: dashboards/project/firewalls/workflows.py:61
 msgid "Destination Port/Port Range"
 msgstr "宛先ポート/ポートの範囲"
 
-#: dashboards/project/firewalls/forms.py:67
+#: dashboards/project/firewalls/forms.py:68
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "宛先ポート ([1, 65535] の整数か a:b 形式の範囲)"
 
-#: dashboards/project/firewalls/forms.py:85
+#: dashboards/project/firewalls/forms.py:86
 #, python-format
 msgid "Rule %s was successfully updated."
 msgstr "ルール %s が正常に更新されました。"
 
-#: dashboards/project/firewalls/forms.py:90
+#: dashboards/project/firewalls/forms.py:91
 #, python-format
 msgid "Failed to update rule %(name)s: %(reason)s"
 msgstr "ルール %(name)s の更新に失敗しました: %(reason)s"
 
-#: dashboards/project/firewalls/forms.py:102
-#: dashboards/project/firewalls/tables.py:249
-#: dashboards/project/firewalls/workflows.py:180
+#: dashboards/project/firewalls/forms.py:103
+#: dashboards/project/firewalls/tables.py:303
+#: dashboards/project/firewalls/workflows.py:225
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:34
 msgid "Audited"
 msgstr "監査対象（Audited）"
 
-#: dashboards/project/firewalls/forms.py:111
+#: dashboards/project/firewalls/forms.py:112
 #, python-format
 msgid "Policy %s was successfully updated."
 msgstr "ポリシー %s が正常に更新されました。"
 
-#: dashboards/project/firewalls/forms.py:116
+#: dashboards/project/firewalls/forms.py:117
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr "ポリシー %(name)s の更新に失敗しました: %(reason)s"
 
-#: dashboards/project/firewalls/forms.py:130
-#: dashboards/project/firewalls/tables.py:289
-#: dashboards/project/firewalls/workflows.py:235
+#: dashboards/project/firewalls/forms.py:131
+#: dashboards/project/firewalls/tables.py:343
+#: dashboards/project/firewalls/workflows.py:280
 msgid "Policy"
 msgstr "ポリシー"
 
-#: dashboards/project/firewalls/forms.py:146
+#: dashboards/project/firewalls/forms.py:147
 msgid "Unable to retrieve policy list."
 msgstr "ポリシー一覧を取得できません。"
 
-#: dashboards/project/firewalls/forms.py:166
+#: dashboards/project/firewalls/forms.py:167
 #, python-format
 msgid "Firewall %s was successfully updated."
 msgstr "ファイアウォール %s が正常に更新されました。"
 
-#: dashboards/project/firewalls/forms.py:171
+#: dashboards/project/firewalls/forms.py:172
 #, python-format
 msgid "Failed to update firewall %(name)s: %(reason)s"
 msgstr "ファイアウォール %(name)s の更新に失敗しました: %(reason)s"
 
-#: dashboards/project/firewalls/forms.py:179
-#: dashboards/project/firewalls/tables.py:165
+#: dashboards/project/firewalls/forms.py:180
+#: dashboards/project/firewalls/tables.py:171
 msgid "Insert Rule"
 msgstr "ルールの挿入"
 
-#: dashboards/project/firewalls/forms.py:180
+#: dashboards/project/firewalls/forms.py:181
 msgid "Before"
 msgstr "前に挿入"
 
-#: dashboards/project/firewalls/forms.py:182
+#: dashboards/project/firewalls/forms.py:183
 msgid "After"
 msgstr "後に挿入"
 
-#: dashboards/project/firewalls/forms.py:207
+#: dashboards/project/firewalls/forms.py:208
 #, python-format
 msgid "Failed to retrieve available rules: %s"
 msgstr "利用可能なルールの取得に失敗しました: %s"
 
-#: dashboards/project/firewalls/forms.py:226
+#: dashboards/project/firewalls/forms.py:227
 #, python-format
 msgid "Rule %(rule)s was successfully inserted to policy %(policy)s."
 msgstr "ルール %(rule)s のポリシー %(policy)s への挿入に成功しました。"
 
-#: dashboards/project/firewalls/forms.py:234
+#: dashboards/project/firewalls/forms.py:235
 #, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr "ポリシー %(name)s へのルールの挿入に失敗しました: %(reason)s"
 
-#: dashboards/project/firewalls/forms.py:242
-#: dashboards/project/firewalls/tables.py:179
+#: dashboards/project/firewalls/forms.py:243
+#: dashboards/project/firewalls/tables.py:185
 msgid "Remove Rule"
 msgstr "ルールの削除"
 
-#: dashboards/project/firewalls/forms.py:260
+#: dashboards/project/firewalls/forms.py:261
 #, python-format
 msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
 msgstr "ポリシー %(name)s の現在のルールの取得に失敗しました: %(reason)s"
 
-#: dashboards/project/firewalls/forms.py:276
+#: dashboards/project/firewalls/forms.py:277
 #, python-format
 msgid "Rule %(rule)s was successfully removed from policy %(policy)s."
 msgstr "ルール %(rule)s のポリシー %(policy)s からの削除に成功しました。"
 
-#: dashboards/project/firewalls/forms.py:284
+#: dashboards/project/firewalls/forms.py:285
 #, python-format
 msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr "ポリシー %(name)s からのルールの削除に失敗しました: %(reason)s"
 
+#: dashboards/project/firewalls/forms.py:334
+msgid "Add Routers"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:337
+msgid "Add selected router(s) to the firewall."
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:340
+#, python-format
+msgid "Router(s) was/were successfully added to firewall %(firewall)s."
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:342
+#, python-format
+msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:343
+#, python-format
+msgid "Failed to retrieve available routers: %(reason)s"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:359
+msgid "Remove Routers"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:362
+msgid "Unselect the router(s) to be removed from firewall."
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:365
+#, python-format
+msgid "Router(s)  was successfully removed from firewall %(firewall)s."
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:367
+#, python-format
+msgid "Failed to remove router(s) from firewall %(name)s: %(reason)s"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:369
+#, python-format
+msgid "Failed to retrieve current routers in firewall %(name)s: %(reason)s"
+msgstr ""
+
 #: dashboards/project/firewalls/panel.py:26
-#: dashboards/project/firewalls/tables.py:299
+#: dashboards/project/firewalls/tables.py:355
 #: dashboards/project/firewalls/tabs.py:69
-#: dashboards/project/firewalls/views.py:110
+#: dashboards/project/firewalls/views.py:119
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
 msgid "Firewalls"
 msgstr "ファイアウォール"
 
-#: dashboards/project/firewalls/tables.py:36
-#: dashboards/project/firewalls/workflows.py:208
+#: dashboards/project/firewalls/tables.py:42
+#: dashboards/project/firewalls/workflows.py:253
 msgid "Add Policy"
 msgstr "ポリシーの追加"
 
-#: dashboards/project/firewalls/tables.py:45
+#: dashboards/project/firewalls/tables.py:51
 msgid "Create Firewall"
 msgstr "ファイアウォールの作成"
 
-#: dashboards/project/firewalls/tables.py:66
+#: dashboards/project/firewalls/tables.py:72
 msgid "Scheduled deletion of Rule"
 msgid_plural "Scheduled deletion of Rules"
 msgstr[0] "ルールの削除を予約しました"
 
-#: dashboards/project/firewalls/tables.py:80
+#: dashboards/project/firewalls/tables.py:86
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
 msgstr[0] "ポリシーの削除"
 
-#: dashboards/project/firewalls/tables.py:88
+#: dashboards/project/firewalls/tables.py:94
 msgid "Scheduled deletion of Policy"
 msgid_plural "Scheduled deletion of Policies"
 msgstr[0] "ポリシーの削除を予約しました"
 
-#: dashboards/project/firewalls/tables.py:103
+#: dashboards/project/firewalls/tables.py:109
 msgid "Delete Firewall"
 msgid_plural "Delete Firewalls"
 msgstr[0] "ファイアウォールの削除"
 
-#: dashboards/project/firewalls/tables.py:111
+#: dashboards/project/firewalls/tables.py:117
 msgid "Scheduled deletion of Firewall"
 msgid_plural "Scheduled deletion of Firewalls"
 msgstr[0] "ファイアウェールの削除を予約しました"
 
-#: dashboards/project/firewalls/tables.py:121
-#: dashboards/project/firewalls/views.py:130
+#: dashboards/project/firewalls/tables.py:127
+#: dashboards/project/firewalls/views.py:139
 #: dashboards/project/firewalls/templates/firewalls/updaterule.html:3
 msgid "Edit Rule"
 msgstr "ルールの編集"
 
-#: dashboards/project/firewalls/tables.py:133
-#: dashboards/project/firewalls/views.py:171
+#: dashboards/project/firewalls/tables.py:139
+#: dashboards/project/firewalls/views.py:180
 #: dashboards/project/firewalls/templates/firewalls/updatepolicy.html:3
 msgid "Edit Policy"
 msgstr "ポリシーの編集"
 
-#: dashboards/project/firewalls/tables.py:145
-#: dashboards/project/firewalls/views.py:209
+#: dashboards/project/firewalls/tables.py:151
+#: dashboards/project/firewalls/views.py:218
 #: dashboards/project/firewalls/templates/firewalls/updatefirewall.html:3
 msgid "Edit Firewall"
 msgstr "ファイアウォールの編集"
 
-#: dashboards/project/firewalls/tables.py:207
+#: dashboards/project/firewalls/tables.py:199
+msgid "Add Router"
+msgstr ""
+
+#: dashboards/project/firewalls/tables.py:222
+msgid "Remove Router"
+msgstr ""
+
+#: dashboards/project/firewalls/tables.py:261
 msgctxt "Action Name of a Firewall Rule"
 msgid "ALLOW"
 msgstr "ALLOW"
 
-#: dashboards/project/firewalls/tables.py:208
+#: dashboards/project/firewalls/tables.py:262
 msgctxt "Action Name of a Firewall Rule"
 msgid "DENY"
 msgstr "DENY"
 
-#: dashboards/project/firewalls/tables.py:218
+#: dashboards/project/firewalls/tables.py:272
 msgid "Source IP"
 msgstr "送信元 IP アドレス"
 
-#: dashboards/project/firewalls/tables.py:220
+#: dashboards/project/firewalls/tables.py:274
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:28
 msgid "Source Port"
 msgstr "送信元ポート番号"
 
-#: dashboards/project/firewalls/tables.py:222
+#: dashboards/project/firewalls/tables.py:276
 msgid "Destination IP"
 msgstr "宛先 IP アドレス"
 
-#: dashboards/project/firewalls/tables.py:224
+#: dashboards/project/firewalls/tables.py:278
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:34
 msgid "Destination Port"
 msgstr "宛先ポート番号"
 
-#: dashboards/project/firewalls/tables.py:233
+#: dashboards/project/firewalls/tables.py:287
 msgid "In Policy"
 msgstr "利用中のポリシー"
 
-#: dashboards/project/firewalls/tables.py:237
-#: dashboards/project/firewalls/tables.py:247
+#: dashboards/project/firewalls/tables.py:291
+#: dashboards/project/firewalls/tables.py:301
 #: dashboards/project/firewalls/workflows.py:131
 #: dashboards/project/firewalls/workflows.py:137
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:19
 msgid "Rules"
 msgstr "ルール"
 
-#: dashboards/project/firewalls/tables.py:254
+#: dashboards/project/firewalls/tables.py:308
 msgid "Policies"
 msgstr "ポリシー"
 
-#: dashboards/project/firewalls/tables.py:263
+#: dashboards/project/firewalls/tables.py:317
 msgctxt "Current status of a Firewall"
 msgid "Active"
 msgstr "稼働中"
 
-#: dashboards/project/firewalls/tables.py:265
+#: dashboards/project/firewalls/tables.py:319
 msgctxt "Current status of a Firewall"
 msgid "Down"
 msgstr "停止中"
 
-#: dashboards/project/firewalls/tables.py:267
+#: dashboards/project/firewalls/tables.py:321
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "エラー"
 
-#: dashboards/project/firewalls/tables.py:269
+#: dashboards/project/firewalls/tables.py:323
 msgctxt "Current status of a Firewall"
 msgid "Created"
 msgstr "作成時刻"
 
-#: dashboards/project/firewalls/tables.py:271
+#: dashboards/project/firewalls/tables.py:325
 msgctxt "Current status of a Firewall"
 msgid "Pending Create"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:273
+#: dashboards/project/firewalls/tables.py:327
 msgctxt "Current status of a Firewall"
 msgid "Pending Update"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:275
+#: dashboards/project/firewalls/tables.py:329
 msgctxt "Current status of a Firewall"
 msgid "Pending Delete"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:277
+#: dashboards/project/firewalls/tables.py:331
 msgctxt "Current status of a Firewall"
 msgid "Inactive"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:280
+#: dashboards/project/firewalls/tables.py:334
 msgctxt "Admin state of a Firewall"
 msgid "UP"
 msgstr "UP"
 
-#: dashboards/project/firewalls/tables.py:281
+#: dashboards/project/firewalls/tables.py:335
 msgctxt "Admin state of a Firewall"
 msgid "DOWN"
 msgstr "DOWN"
+
+#: dashboards/project/firewalls/tables.py:345
+msgid "Associated Routers"
+msgstr ""
+
+#: dashboards/project/firewalls/tables.py:369
+#, python-format
+msgid "Failed to verify extension support %(reason)s"
+msgstr ""
 
 #: dashboards/project/firewalls/tabs.py:31
 msgid "Firewall Rules"
@@ -10049,89 +10118,91 @@ msgstr "ファイアウォールポリシー"
 msgid "Unable to retrieve policies list."
 msgstr "ポリシー一覧を取得できません。"
 
-#: dashboards/project/firewalls/tabs.py:81
+#: dashboards/project/firewalls/tabs.py:91
 msgid "Unable to retrieve firewall list."
 msgstr "ファイアウォール一覧を取得できません。"
 
-#: dashboards/project/firewalls/tabs.py:87
+#: dashboards/project/firewalls/tabs.py:97
 msgid "Firewall Rule Details"
 msgstr "ファイアウォールルールの詳細"
 
-#: dashboards/project/firewalls/tabs.py:98
-#: dashboards/project/firewalls/views.py:154
+#: dashboards/project/firewalls/tabs.py:108
+#: dashboards/project/firewalls/views.py:163
 msgid "Unable to retrieve rule details."
 msgstr "ルールの詳細を取得できません。"
 
-#: dashboards/project/firewalls/tabs.py:104
+#: dashboards/project/firewalls/tabs.py:114
 msgid "Firewall Policy Details"
 msgstr "ファイアウォールポリシーの詳細"
 
-#: dashboards/project/firewalls/tabs.py:115
-#: dashboards/project/firewalls/views.py:195
-#: dashboards/project/firewalls/views.py:273
-#: dashboards/project/firewalls/views.py:313
+#: dashboards/project/firewalls/tabs.py:125
+#: dashboards/project/firewalls/views.py:204
+#: dashboards/project/firewalls/views.py:282
+#: dashboards/project/firewalls/views.py:322
 msgid "Unable to retrieve policy details."
 msgstr "ポリシーの詳細を取得できません。"
 
-#: dashboards/project/firewalls/tabs.py:121
+#: dashboards/project/firewalls/tabs.py:131
 msgid "Firewall Details"
 msgstr "ファイアウォールの詳細"
 
-#: dashboards/project/firewalls/tabs.py:132
-#: dashboards/project/firewalls/views.py:234
+#: dashboards/project/firewalls/tabs.py:152
+#: dashboards/project/firewalls/views.py:243
+#: dashboards/project/firewalls/views.py:357
 msgid "Unable to retrieve firewall details."
 msgstr "ファイアウォールの詳細を取得できません。"
 
-#: dashboards/project/firewalls/views.py:66
+#: dashboards/project/firewalls/views.py:68
 #, python-format
 msgid "Deleted rule %s"
 msgstr "ルール %s を削除しました"
 
-#: dashboards/project/firewalls/views.py:69
+#: dashboards/project/firewalls/views.py:71
 #, python-format
 msgid "Unable to delete rule. %s"
 msgstr "ルールを削除できません: %s"
 
-#: dashboards/project/firewalls/views.py:74
+#: dashboards/project/firewalls/views.py:76
 #, python-format
 msgid "Deleted policy %s"
 msgstr "ポリシー %s を削除しました"
 
-#: dashboards/project/firewalls/views.py:77
+#: dashboards/project/firewalls/views.py:79
 #, python-format
 msgid "Unable to delete policy. %s"
 msgstr "ポリシーを削除できません: %s"
 
-#: dashboards/project/firewalls/views.py:83
+#: dashboards/project/firewalls/views.py:85
 #, python-format
 msgid "Deleted firewall %s"
 msgstr "ファイアウォール %s を削除しました。"
 
-#: dashboards/project/firewalls/views.py:86
+#: dashboards/project/firewalls/views.py:88
 #, python-format
 msgid "Unable to delete firewall. %s"
 msgstr "ファイアウォールを削除できません: %s"
 
-#: dashboards/project/firewalls/views.py:93
+#: dashboards/project/firewalls/views.py:95
 #: dashboards/project/firewalls/templates/firewalls/addrule.html:3
 msgid "Add New Rule"
 msgstr "ルールの追加"
 
-#: dashboards/project/firewalls/views.py:99
+#: dashboards/project/firewalls/views.py:101
 #: dashboards/project/firewalls/templates/firewalls/addpolicy.html:3
 msgid "Add New Policy"
 msgstr "ポリシーの追加"
 
-#: dashboards/project/firewalls/views.py:105
+#: dashboards/project/firewalls/views.py:107
 #: dashboards/project/firewalls/templates/firewalls/addfirewall.html:3
 msgid "Add New Firewall"
 msgstr "ファイアウォールの追加"
 
-#: dashboards/project/firewalls/views.py:131
-#: dashboards/project/firewalls/views.py:172
-#: dashboards/project/firewalls/views.py:210
-#: dashboards/project/firewalls/views.py:250
-#: dashboards/project/firewalls/views.py:289
+#: dashboards/project/firewalls/views.py:140
+#: dashboards/project/firewalls/views.py:181
+#: dashboards/project/firewalls/views.py:219
+#: dashboards/project/firewalls/views.py:259
+#: dashboards/project/firewalls/views.py:298
+#: dashboards/project/firewalls/views.py:335
 #: dashboards/project/loadbalancers/views.py:234
 #: dashboards/project/loadbalancers/views.py:271
 #: dashboards/project/loadbalancers/views.py:322
@@ -10146,32 +10217,44 @@ msgstr "ファイアウォールの追加"
 msgid "Save Changes"
 msgstr "変更の保存"
 
-#: dashboards/project/firewalls/views.py:134
+#: dashboards/project/firewalls/views.py:143
 msgid "Edit Rule {{ name }}"
 msgstr "ルール {{ name }} の編集"
 
-#: dashboards/project/firewalls/views.py:175
+#: dashboards/project/firewalls/views.py:184
 msgid "Edit Policy {{ name }}"
 msgstr "ポリシー {{ name }} の編集"
 
-#: dashboards/project/firewalls/views.py:213
+#: dashboards/project/firewalls/views.py:222
 msgid "Edit Firewall {{ name }}"
 msgstr "ファイアウォール {{ name }} の編集"
 
-#: dashboards/project/firewalls/views.py:246
+#: dashboards/project/firewalls/views.py:255
 msgid "Insert Rule into Policy"
 msgstr "ポリシーへのルールの挿入"
 
-#: dashboards/project/firewalls/views.py:252
+#: dashboards/project/firewalls/views.py:261
 #: dashboards/project/firewalls/templates/firewalls/insert_rule_to_policy.html:3
 msgid "Insert Rule to Policy"
 msgstr "ポリシーへのルールの挿入"
 
-#: dashboards/project/firewalls/views.py:286
-#: dashboards/project/firewalls/views.py:292
+#: dashboards/project/firewalls/views.py:295
+#: dashboards/project/firewalls/views.py:301
 #: dashboards/project/firewalls/templates/firewalls/remove_rule_from_policy.html:3
 msgid "Remove Rule from Policy"
 msgstr "ポリシーからのルールの削除"
+
+#: dashboards/project/firewalls/views.py:368
+#: dashboards/project/firewalls/views.py:371
+#: dashboards/project/firewalls/templates/firewalls/add_router_to_firewall.html:3
+msgid "Add Router to Firewall"
+msgstr ""
+
+#: dashboards/project/firewalls/views.py:376
+#: dashboards/project/firewalls/views.py:379
+#: dashboards/project/firewalls/templates/firewalls/remove_router_from_firewall.html:3
+msgid "Remove Router from Firewall"
+msgstr ""
 
 #: dashboards/project/firewalls/workflows.py:73
 msgid "AddRule"
@@ -10207,60 +10290,77 @@ msgstr "ポリシーに追加するルールの選択"
 msgid "Unable to retrieve rules (%(error)s)."
 msgstr "ルール一覧を取得できません (%(error)s)"
 
-#: dashboards/project/firewalls/workflows.py:188
+#: dashboards/project/firewalls/workflows.py:176
+msgid "Create a firewall with selected routers."
+msgstr ""
+
+#: dashboards/project/firewalls/workflows.py:181
+msgid "Select routers for your firewall."
+msgstr ""
+
+#: dashboards/project/firewalls/workflows.py:192
+#, python-format
+msgid "Unable to retrieve routers (%(error)s)."
+msgstr ""
+
+#: dashboards/project/firewalls/workflows.py:233
 msgid "AddPolicy"
 msgstr "ポリシーの追加"
 
-#: dashboards/project/firewalls/workflows.py:190
+#: dashboards/project/firewalls/workflows.py:235
 msgid ""
 "Create a firewall policy with an ordered list of firewall rules.\n"
 "\n"
 "A name must be given. Firewall rules are added in the order placed under the Rules tab."
 msgstr "ルールを指定してファイアウォールポリシーを作成します。ファイアウォールルールは順序を持ったリストです。\n\n名前は必須項目です。ファイアウォールルールは「ルール」タブで指定した順序で追加されます。"
 
-#: dashboards/project/firewalls/workflows.py:210
+#: dashboards/project/firewalls/workflows.py:255
 #, python-format
 msgid "Added Policy \"%s\"."
 msgstr "ポリシー \"%s\" を追加しました。"
 
-#: dashboards/project/firewalls/workflows.py:211
+#: dashboards/project/firewalls/workflows.py:256
 #, python-format
 msgid "Unable to add Policy \"%s\"."
 msgstr "ポリシー \"%s\" を追加できません。"
 
-#: dashboards/project/firewalls/workflows.py:246
+#: dashboards/project/firewalls/workflows.py:291
 msgid "Select a Policy"
 msgstr "ポリシーの選択"
 
-#: dashboards/project/firewalls/workflows.py:254
+#: dashboards/project/firewalls/workflows.py:299
 #, python-format
 msgid "Unable to retrieve policy list (%(error)s)."
 msgstr "ポリシー覧を取得できません (%(error)s)"
 
-#: dashboards/project/firewalls/workflows.py:265
+#: dashboards/project/firewalls/workflows.py:310
 msgid "AddFirewall"
 msgstr "ファイアウォールの追加"
 
-#: dashboards/project/firewalls/workflows.py:267
+#: dashboards/project/firewalls/workflows.py:312
 msgid ""
 "Create a firewall based on a policy.\n"
 "\n"
 "A policy must be selected. Other fields are optional."
 msgstr "ポリシーを元にファイアウォールを作成します。\n\nポリシーは選択しなければなりません。他のフィールドは省略可能です。"
 
-#: dashboards/project/firewalls/workflows.py:285
+#: dashboards/project/firewalls/workflows.py:330
 msgid "Add Firewall"
 msgstr "ファイアウォールの追加"
 
-#: dashboards/project/firewalls/workflows.py:287
+#: dashboards/project/firewalls/workflows.py:332
 #, python-format
 msgid "Added Firewall \"%s\"."
 msgstr "ファイアウォール \"%s\" を追加しました。"
 
-#: dashboards/project/firewalls/workflows.py:288
+#: dashboards/project/firewalls/workflows.py:333
 #, python-format
 msgid "Unable to add Firewall \"%s\"."
 msgstr "ファイアウォール \"%s\" を追加できません。"
+
+#: dashboards/project/firewalls/templates/firewalls/_add_router_to_firewall.html:6
+msgid "Choose the router(s) you want to add."
+msgstr ""
 
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:19
 msgid "Policy ID"
@@ -10281,6 +10381,10 @@ msgid ""
 "are specified, the prior takes precedence."
 msgstr "挿入したいルールを選択してください。ルールをどのルールの直前、または直後に挿入するかを指定してください。両方指定した場合は指定したルールの直前に挿入されます。"
 
+#: dashboards/project/firewalls/templates/firewalls/_remove_router_from_firewall.html:6
+msgid "Unselect the routers you want to disassociate from the firewall."
+msgstr ""
+
 #: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:6
 msgid "Choose the rule you want to remove."
 msgstr "削除したいルールを選択してください。"
@@ -10300,6 +10404,20 @@ msgstr "利用中のポリシー"
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:47
 msgid "Position in Policy"
 msgstr "ポリシー内の位置"
+
+#: dashboards/project/firewalls/templates/firewalls/_update_router_help.html:3
+msgid ""
+"Choose router(s) from Available Routers to Selected Routers by push button "
+"or drag and drop. "
+msgstr ""
+
+#: dashboards/project/firewalls/templates/firewalls/_update_routers.html:8
+msgid "Selected Routers"
+msgstr ""
+
+#: dashboards/project/firewalls/templates/firewalls/_update_routers.html:11
+msgid "Available Routers"
+msgstr ""
 
 #: dashboards/project/firewalls/templates/firewalls/_update_rule_help.html:3
 msgid ""
@@ -10558,7 +10676,7 @@ msgid ""
 "valid and direct URL to the image binary; it must also be accessible to the "
 "Image Service. URLs that redirect or serve error pages will result in "
 "unusable images."
-msgstr "HTTP URL で指定する場合、イメージの場所のフィールドには、イメージ（バイナリ）への有効かつ直接の URL を入力する必要があります。イメージの場所へ Image Service がアクセスできるようにしてください。URL がリダイレクトのページの場合や、エラーページが返ってきた場合には、登録されたイメージは使用できない可能性があります。"
+msgstr "HTTP URL で指定する場合、イメージの場所のフィールドには、イメージ（バイナリー）への有効かつ直接の URL を入力する必要があります。イメージの場所へ Image Service がアクセスできるようにしてください。URL がリダイレクトのページの場合や、エラーページが返ってきた場合には、登録されたイメージは使用できない可能性があります。"
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:3
 msgid "Image Overview"

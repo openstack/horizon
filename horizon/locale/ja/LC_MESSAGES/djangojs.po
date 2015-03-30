@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-22 12:08+0000\n"
+"POT-Creation-Date: 2015-03-29 10:30-0500\n"
+"PO-Revision-Date: 2015-03-28 22:44+0000\n"
 "Last-Translator: ykatabam <ykatabam@redhat.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -56,15 +56,15 @@ msgstr "最大長"
 
 #: static/angular/metadata-tree/metadata-tree.js:40
 msgid "Pattern mismatch"
-msgstr ""
+msgstr "パターンが一致しません。"
 
 #: static/angular/metadata-tree/metadata-tree.js:41
 msgid "Integer required"
-msgstr ""
+msgstr "整数を指定する必要があります。"
 
 #: static/angular/metadata-tree/metadata-tree.js:42
 msgid "Decimal required"
-msgstr ""
+msgstr "十進数を指定する必要があります。"
 
 #: static/angular/metadata-tree/metadata-tree.js:43
 msgid "Required"
@@ -75,6 +75,7 @@ msgid "Duplicate keys are not allowed"
 msgstr "重複するキーは使用できません"
 
 #: static/angular/metadata-tree/metadata-tree.js:45
+#: static/angular/table/basic-table.js:6
 #: static/horizon/js/horizon.forms.js:184
 msgid "Filter"
 msgstr "フィルター"
@@ -110,7 +111,7 @@ msgstr "取り消し"
 
 #: static/angular/transfer-table/transfer-table.js:39
 msgid "Allocated"
-msgstr ""
+msgstr "割り当て済み"
 
 #: static/angular/transfer-table/transfer-table.js:40
 msgid "Available"
@@ -118,11 +119,11 @@ msgstr "利用可能"
 
 #: static/angular/transfer-table/transfer-table.js:41
 msgid "Select one"
-msgstr ""
+msgstr "1 つ選択してください。"
 
 #: static/angular/transfer-table/transfer-table.js:42
 msgid "Select an item from Available items below"
-msgstr ""
+msgstr "以下の利用可能なアイテムから 1 つ選択してください。"
 
 #: static/angular/transfer-table/transfer-table.js:43
 msgid "No available items"
@@ -130,27 +131,27 @@ msgstr "利用できるアイテムがありません。"
 
 #: static/angular/transfer-table/transfer-table.js:44
 msgid "Expand to see allocated items"
-msgstr ""
+msgstr "割り当て済みのアイテムを表示するには展開してください。"
 
 #: static/angular/transfer-table/transfer-table.js:45
 msgid "Expand to see available items"
-msgstr ""
+msgstr "利用可能なアイテムを表示するには展開してください。"
 
 #: static/angular/transfer-table/transfer-table.js:46
 msgid "Click to show or hide"
-msgstr ""
+msgstr "クリックして表示/非表示を切り替えてください。"
 
 #: static/angular/transfer-table/transfer-table.js:47
 msgid "Re-order items using drag and drop"
-msgstr ""
+msgstr "順番を並べ替えるには、アイテムをドラッグ＆ドロップしてください。"
 
 #: static/angular/transfer-table/transfer-table.js:48
 msgid "Click to see more details"
-msgstr ""
+msgstr "クリックすると詳しい情報が表示されます。"
 
 #: static/angular/transfer-table/transfer-table.js:100
 msgid "Found %(found)s of %(total)s"
-msgstr ""
+msgstr "%(total)s 中 %(found)s 見つかりました。"
 
 #: static/angular/wizard/wizard.js:8
 msgid "Back"
@@ -182,7 +183,7 @@ msgstr "データがありません。"
 msgid "An error occurred. Please try again later."
 msgstr "エラーが発生しました。後からもう一度お試しください。"
 
-#: static/horizon/js/horizon.firewalls.js:30
+#: static/horizon/js/horizon.firewalls.js:32
 #: static/horizon/js/horizon.instances.js:31
 msgid "There was a problem communicating with the server, please try again."
 msgstr "サーバーとの通信中に問題がありました。再度お試しください。"
@@ -311,6 +312,7 @@ msgid "Please confirm your selection. "
 msgstr "選択内容を確認してください。"
 
 #: static/horizon/js/horizon.tables.js:369
+#: static/horizon/js/angular/filters/filters.js:163
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
@@ -327,7 +329,7 @@ msgstr "パスワードが一致しません。"
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Connecting"
-msgstr ""
+msgstr "接続中"
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Open"
@@ -335,11 +337,11 @@ msgstr "オープン"
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Closing"
-msgstr ""
+msgstr "切断中"
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Closed"
-msgstr ""
+msgstr "切断済み"
 
 #: static/horizon/js/angular/directives/serialConsole.js:85
 #, c-format

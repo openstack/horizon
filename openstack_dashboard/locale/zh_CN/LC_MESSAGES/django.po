@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-28 00:18-0500\n"
-"PO-Revision-Date: 2015-03-28 01:31+0000\n"
+"POT-Creation-Date: 2015-03-29 10:30-0500\n"
+"PO-Revision-Date: 2015-03-29 20:44+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -440,6 +440,7 @@ msgstr "检查Neutron '%s'失败，扩展不被支持。"
 #: dashboards/project/databases/tables.py:279
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:8
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:11
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:39
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:8
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:11
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:27
@@ -596,15 +597,15 @@ msgstr "管理员"
 #: dashboards/project/database_backups/workflows/create_backup.py:32
 #: dashboards/project/databases/tables.py:387
 #: dashboards/project/databases/templates/databases/_detail_overview.html:10
-#: dashboards/project/firewalls/forms.py:33
-#: dashboards/project/firewalls/forms.py:98
-#: dashboards/project/firewalls/forms.py:125
-#: dashboards/project/firewalls/tables.py:211
-#: dashboards/project/firewalls/tables.py:244
-#: dashboards/project/firewalls/tables.py:285
+#: dashboards/project/firewalls/forms.py:34
+#: dashboards/project/firewalls/forms.py:99
+#: dashboards/project/firewalls/forms.py:126
+#: dashboards/project/firewalls/tables.py:265
+#: dashboards/project/firewalls/tables.py:298
+#: dashboards/project/firewalls/tables.py:339
 #: dashboards/project/firewalls/workflows.py:30
-#: dashboards/project/firewalls/workflows.py:173
-#: dashboards/project/firewalls/workflows.py:230
+#: dashboards/project/firewalls/workflows.py:218
+#: dashboards/project/firewalls/workflows.py:275
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:7
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:7
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:7
@@ -970,7 +971,9 @@ msgstr "增加或删除主机时错误"
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:19
 #: dashboards/project/containers/templates/containers/_update.html:20
 #: dashboards/project/containers/templates/containers/_upload.html:21
+#: dashboards/project/firewalls/templates/firewalls/_add_router_to_firewall.html:5
 #: dashboards/project/firewalls/templates/firewalls/_insert_rule_to_policy.html:5
+#: dashboards/project/firewalls/templates/firewalls/_remove_router_from_firewall.html:5
 #: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:5
 #: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:5
 #: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:5
@@ -1858,7 +1861,7 @@ msgstr "域"
 #: dashboards/project/databases/tables.py:333
 #: dashboards/project/databases/tables.py:399
 #: dashboards/project/databases/templates/databases/_detail_overview.html:18
-#: dashboards/project/firewalls/tables.py:291
+#: dashboards/project/firewalls/tables.py:347
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
 #: dashboards/project/images/images/tables.py:247
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
@@ -2096,8 +2099,8 @@ msgstr "系统信息"
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:13
 #: dashboards/identity/users/tables.py:236
 #: dashboards/identity/users/templates/users/_detail_overview.html:23
-#: dashboards/project/firewalls/forms.py:70
-#: dashboards/project/firewalls/tables.py:229
+#: dashboards/project/firewalls/forms.py:71
+#: dashboards/project/firewalls/tables.py:283
 #: dashboards/project/firewalls/workflows.py:67
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:53
 #: dashboards/project/routers/templates/routers/_detail_overview.html:48
@@ -2505,12 +2508,12 @@ msgstr ""
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:43
 #: dashboards/project/database_backups/templates/database_backups/details.html:16
 #: dashboards/project/database_backups/workflows/create_backup.py:34
-#: dashboards/project/firewalls/forms.py:36
-#: dashboards/project/firewalls/forms.py:100
-#: dashboards/project/firewalls/forms.py:128
+#: dashboards/project/firewalls/forms.py:37
+#: dashboards/project/firewalls/forms.py:101
+#: dashboards/project/firewalls/forms.py:129
 #: dashboards/project/firewalls/workflows.py:34
-#: dashboards/project/firewalls/workflows.py:175
-#: dashboards/project/firewalls/workflows.py:233
+#: dashboards/project/firewalls/workflows.py:220
+#: dashboards/project/firewalls/workflows.py:278
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:10
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:10
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:10
@@ -3124,8 +3127,8 @@ msgstr "段ID"
 #: dashboards/admin/networks/forms.py:77
 #: dashboards/admin/networks/forms.py:236
 #: dashboards/admin/networks/ports/forms.py:45
-#: dashboards/project/firewalls/forms.py:131
-#: dashboards/project/firewalls/workflows.py:239
+#: dashboards/project/firewalls/forms.py:132
+#: dashboards/project/firewalls/workflows.py:284
 #: dashboards/project/loadbalancers/forms.py:38
 #: dashboards/project/loadbalancers/forms.py:93
 #: dashboards/project/loadbalancers/forms.py:176
@@ -3147,8 +3150,8 @@ msgstr ""
 #: dashboards/admin/networks/forms.py:78
 #: dashboards/admin/networks/forms.py:237
 #: dashboards/admin/networks/ports/forms.py:46
-#: dashboards/project/firewalls/forms.py:132
-#: dashboards/project/firewalls/workflows.py:240
+#: dashboards/project/firewalls/forms.py:133
+#: dashboards/project/firewalls/workflows.py:285
 #: dashboards/project/loadbalancers/forms.py:39
 #: dashboards/project/loadbalancers/forms.py:94
 #: dashboards/project/loadbalancers/forms.py:177
@@ -3173,9 +3176,9 @@ msgstr ""
 #: dashboards/admin/networks/agents/tables.py:93
 #: dashboards/admin/networks/ports/forms.py:47
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:19
-#: dashboards/project/firewalls/forms.py:133
-#: dashboards/project/firewalls/tables.py:294
-#: dashboards/project/firewalls/workflows.py:241
+#: dashboards/project/firewalls/forms.py:134
+#: dashboards/project/firewalls/tables.py:350
+#: dashboards/project/firewalls/workflows.py:286
 #: dashboards/project/loadbalancers/forms.py:40
 #: dashboards/project/loadbalancers/forms.py:95
 #: dashboards/project/loadbalancers/forms.py:178
@@ -3207,11 +3210,11 @@ msgstr "管理员状态"
 #: dashboards/admin/networks/forms.py:80
 #: dashboards/admin/networks/forms.py:239
 #: dashboards/admin/networks/tables.py:100
-#: dashboards/project/firewalls/forms.py:69
-#: dashboards/project/firewalls/forms.py:101
+#: dashboards/project/firewalls/forms.py:70
+#: dashboards/project/firewalls/forms.py:102
 #: dashboards/project/firewalls/workflows.py:65
-#: dashboards/project/firewalls/workflows.py:177
-#: dashboards/project/firewalls/workflows.py:236
+#: dashboards/project/firewalls/workflows.py:222
+#: dashboards/project/firewalls/workflows.py:281
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:31
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:50
 #: dashboards/project/networks/tables.py:172
@@ -3877,6 +3880,9 @@ msgstr "监控："
 #: dashboards/admin/routers/panel.py:24 dashboards/admin/routers/tables.py:46
 #: dashboards/admin/routers/templates/routers/index.html:3
 #: dashboards/identity/projects/workflows.py:77
+#: dashboards/project/firewalls/workflows.py:173
+#: dashboards/project/firewalls/workflows.py:179
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:31
 #: dashboards/project/network_topology/routers/tables.py:27
 #: dashboards/project/routers/panel.py:24
 #: dashboards/project/routers/tables.py:244
@@ -6312,13 +6318,13 @@ msgstr "管理规则"
 #: dashboards/project/access_and_security/security_groups/views.py:108
 #: dashboards/project/access_and_security/security_groups/views.py:113
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:3
-#: dashboards/project/firewalls/tables.py:27
+#: dashboards/project/firewalls/tables.py:33
 #: dashboards/project/firewalls/workflows.py:103
 msgid "Add Rule"
 msgstr "添加规则"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:177
-#: dashboards/project/firewalls/tables.py:58
+#: dashboards/project/firewalls/tables.py:64
 msgid "Delete Rule"
 msgid_plural "Delete Rules"
 msgstr[0] "删除规则"
@@ -6355,8 +6361,8 @@ msgstr "找不到安全组"
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:59
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:69
 #: dashboards/project/firewalls/workflows.py:104
-#: dashboards/project/firewalls/workflows.py:209
-#: dashboards/project/firewalls/workflows.py:286
+#: dashboards/project/firewalls/workflows.py:254
+#: dashboards/project/firewalls/workflows.py:331
 #: dashboards/project/loadbalancers/workflows.py:136
 #: dashboards/project/loadbalancers/workflows.py:260
 #: dashboards/project/loadbalancers/workflows.py:426
@@ -9683,8 +9689,8 @@ msgstr ""
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "启动了%(count)s 名称\"%(name)s\"."
 
-#: dashboards/project/firewalls/forms.py:38
-#: dashboards/project/firewalls/tables.py:216
+#: dashboards/project/firewalls/forms.py:39
+#: dashboards/project/firewalls/tables.py:270
 #: dashboards/project/firewalls/workflows.py:37
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:22
 #: dashboards/project/loadbalancers/tables.py:322
@@ -9695,24 +9701,24 @@ msgstr "启动了%(count)s 名称\"%(name)s\"."
 msgid "Protocol"
 msgstr "协议"
 
-#: dashboards/project/firewalls/forms.py:39
+#: dashboards/project/firewalls/forms.py:40
 #: dashboards/project/firewalls/workflows.py:38
 #: dashboards/project/loadbalancers/workflows.py:488
 msgid "TCP"
 msgstr "TCP"
 
-#: dashboards/project/firewalls/forms.py:39
+#: dashboards/project/firewalls/forms.py:40
 #: dashboards/project/firewalls/workflows.py:39
 msgid "UDP"
 msgstr "UDP"
 
-#: dashboards/project/firewalls/forms.py:39
+#: dashboards/project/firewalls/forms.py:40
 #: dashboards/project/firewalls/workflows.py:40
 msgid "ICMP"
 msgstr "ICMP"
 
-#: dashboards/project/firewalls/forms.py:40
-#: dashboards/project/firewalls/tables.py:214
+#: dashboards/project/firewalls/forms.py:41
+#: dashboards/project/firewalls/tables.py:268
 #: dashboards/project/firewalls/workflows.py:41
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:23
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:26
@@ -9722,12 +9728,12 @@ msgstr "ICMP"
 msgid "ANY"
 msgstr "任何"
 
-#: dashboards/project/firewalls/forms.py:41
+#: dashboards/project/firewalls/forms.py:42
 msgid "Protocol for the firewall rule"
 msgstr "防火墙规则的协议"
 
-#: dashboards/project/firewalls/forms.py:43
-#: dashboards/project/firewalls/tables.py:227
+#: dashboards/project/firewalls/forms.py:44
+#: dashboards/project/firewalls/tables.py:281
 #: dashboards/project/firewalls/workflows.py:43
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:19
 #: dashboards/project/instances/audit_tables.py:25
@@ -9736,303 +9742,366 @@ msgstr "防火墙规则的协议"
 msgid "Action"
 msgstr "动作"
 
-#: dashboards/project/firewalls/forms.py:44
+#: dashboards/project/firewalls/forms.py:45
 #: dashboards/project/firewalls/workflows.py:44
 msgid "ALLOW"
 msgstr "允许"
 
-#: dashboards/project/firewalls/forms.py:44
+#: dashboards/project/firewalls/forms.py:45
 #: dashboards/project/firewalls/workflows.py:45
 msgid "DENY"
 msgstr "拒绝"
 
-#: dashboards/project/firewalls/forms.py:45
+#: dashboards/project/firewalls/forms.py:46
 msgid "Action for the firewall rule"
 msgstr "防火墙规则的动作"
 
-#: dashboards/project/firewalls/forms.py:47
+#: dashboards/project/firewalls/forms.py:48
 #: dashboards/project/firewalls/workflows.py:47
 msgid "Source IP Address/Subnet"
 msgstr "源IP地址/子网"
 
-#: dashboards/project/firewalls/forms.py:50
+#: dashboards/project/firewalls/forms.py:51
 msgid "Source IP address or subnet"
 msgstr "源IP地址或子网"
 
-#: dashboards/project/firewalls/forms.py:52
+#: dashboards/project/firewalls/forms.py:53
 #: dashboards/project/firewalls/workflows.py:51
 msgid "Destination IP Address/Subnet"
 msgstr "目的IP地址/子网"
 
-#: dashboards/project/firewalls/forms.py:55
+#: dashboards/project/firewalls/forms.py:56
 msgid "Destination IP address or subnet"
 msgstr "目的IP地址或子网"
 
-#: dashboards/project/firewalls/forms.py:58
+#: dashboards/project/firewalls/forms.py:59
 #: dashboards/project/firewalls/workflows.py:56
 msgid "Source Port/Port Range"
 msgstr "源端口/端口范围"
 
-#: dashboards/project/firewalls/forms.py:61
+#: dashboards/project/firewalls/forms.py:62
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "源端口([1, 65535]区间内的整数或者以a:b形式表示的范围)"
 
-#: dashboards/project/firewalls/forms.py:64
+#: dashboards/project/firewalls/forms.py:65
 #: dashboards/project/firewalls/workflows.py:61
 msgid "Destination Port/Port Range"
 msgstr "目的端口/端口范围"
 
-#: dashboards/project/firewalls/forms.py:67
+#: dashboards/project/firewalls/forms.py:68
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "目的端口 ([1, 65535]区间内的整数或者以a:b形式表示的范围)"
 
-#: dashboards/project/firewalls/forms.py:85
+#: dashboards/project/firewalls/forms.py:86
 #, python-format
 msgid "Rule %s was successfully updated."
 msgstr "规则 %s 被成功更新。"
 
-#: dashboards/project/firewalls/forms.py:90
+#: dashboards/project/firewalls/forms.py:91
 #, python-format
 msgid "Failed to update rule %(name)s: %(reason)s"
 msgstr "无法更新规则 %(name)s: %(reason)s"
 
-#: dashboards/project/firewalls/forms.py:102
-#: dashboards/project/firewalls/tables.py:249
-#: dashboards/project/firewalls/workflows.py:180
+#: dashboards/project/firewalls/forms.py:103
+#: dashboards/project/firewalls/tables.py:303
+#: dashboards/project/firewalls/workflows.py:225
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:34
 msgid "Audited"
 msgstr "已审计"
 
-#: dashboards/project/firewalls/forms.py:111
+#: dashboards/project/firewalls/forms.py:112
 #, python-format
 msgid "Policy %s was successfully updated."
 msgstr "策略 %s 被成功更新。"
 
-#: dashboards/project/firewalls/forms.py:116
+#: dashboards/project/firewalls/forms.py:117
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr "无法更新策略 %(name)s: %(reason)s"
 
-#: dashboards/project/firewalls/forms.py:130
-#: dashboards/project/firewalls/tables.py:289
-#: dashboards/project/firewalls/workflows.py:235
+#: dashboards/project/firewalls/forms.py:131
+#: dashboards/project/firewalls/tables.py:343
+#: dashboards/project/firewalls/workflows.py:280
 msgid "Policy"
 msgstr "策略"
 
-#: dashboards/project/firewalls/forms.py:146
+#: dashboards/project/firewalls/forms.py:147
 msgid "Unable to retrieve policy list."
 msgstr "无法获取策略列表。"
 
-#: dashboards/project/firewalls/forms.py:166
+#: dashboards/project/firewalls/forms.py:167
 #, python-format
 msgid "Firewall %s was successfully updated."
 msgstr "防火墙 %s 被成功更新。"
 
-#: dashboards/project/firewalls/forms.py:171
+#: dashboards/project/firewalls/forms.py:172
 #, python-format
 msgid "Failed to update firewall %(name)s: %(reason)s"
 msgstr "无法更新防火墙 %(name)s: %(reason)s"
 
-#: dashboards/project/firewalls/forms.py:179
-#: dashboards/project/firewalls/tables.py:165
+#: dashboards/project/firewalls/forms.py:180
+#: dashboards/project/firewalls/tables.py:171
 msgid "Insert Rule"
 msgstr "插入规则"
 
-#: dashboards/project/firewalls/forms.py:180
+#: dashboards/project/firewalls/forms.py:181
 msgid "Before"
 msgstr "前于"
 
-#: dashboards/project/firewalls/forms.py:182
+#: dashboards/project/firewalls/forms.py:183
 msgid "After"
 msgstr "后于"
 
-#: dashboards/project/firewalls/forms.py:207
+#: dashboards/project/firewalls/forms.py:208
 #, python-format
 msgid "Failed to retrieve available rules: %s"
 msgstr "无法获取可用的规则: %s"
 
-#: dashboards/project/firewalls/forms.py:226
+#: dashboards/project/firewalls/forms.py:227
 #, python-format
 msgid "Rule %(rule)s was successfully inserted to policy %(policy)s."
 msgstr "规则 %(rule)s 被成功插入至策略 %(policy)s。"
 
-#: dashboards/project/firewalls/forms.py:234
+#: dashboards/project/firewalls/forms.py:235
 #, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr "无法插入规则至策略 %(name)s: %(reason)s"
 
-#: dashboards/project/firewalls/forms.py:242
-#: dashboards/project/firewalls/tables.py:179
+#: dashboards/project/firewalls/forms.py:243
+#: dashboards/project/firewalls/tables.py:185
 msgid "Remove Rule"
 msgstr "移除规则"
 
-#: dashboards/project/firewalls/forms.py:260
+#: dashboards/project/firewalls/forms.py:261
 #, python-format
 msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
 msgstr "无法获取策略中的当前规则 %(name)s: %(reason)s"
 
-#: dashboards/project/firewalls/forms.py:276
+#: dashboards/project/firewalls/forms.py:277
 #, python-format
 msgid "Rule %(rule)s was successfully removed from policy %(policy)s."
 msgstr "规则 %(rule)s 被从策略 %(policy)s 中成功移除。"
 
-#: dashboards/project/firewalls/forms.py:284
+#: dashboards/project/firewalls/forms.py:285
 #, python-format
 msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr "无法从策略中移除规则 %(name)s: %(reason)s"
 
+#: dashboards/project/firewalls/forms.py:334
+msgid "Add Routers"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:337
+msgid "Add selected router(s) to the firewall."
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:340
+#, python-format
+msgid "Router(s) was/were successfully added to firewall %(firewall)s."
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:342
+#, python-format
+msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:343
+#, python-format
+msgid "Failed to retrieve available routers: %(reason)s"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:359
+msgid "Remove Routers"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:362
+msgid "Unselect the router(s) to be removed from firewall."
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:365
+#, python-format
+msgid "Router(s)  was successfully removed from firewall %(firewall)s."
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:367
+#, python-format
+msgid "Failed to remove router(s) from firewall %(name)s: %(reason)s"
+msgstr ""
+
+#: dashboards/project/firewalls/forms.py:369
+#, python-format
+msgid "Failed to retrieve current routers in firewall %(name)s: %(reason)s"
+msgstr ""
+
 #: dashboards/project/firewalls/panel.py:26
-#: dashboards/project/firewalls/tables.py:299
+#: dashboards/project/firewalls/tables.py:355
 #: dashboards/project/firewalls/tabs.py:69
-#: dashboards/project/firewalls/views.py:110
+#: dashboards/project/firewalls/views.py:119
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
 msgid "Firewalls"
 msgstr "防火墙"
 
-#: dashboards/project/firewalls/tables.py:36
-#: dashboards/project/firewalls/workflows.py:208
+#: dashboards/project/firewalls/tables.py:42
+#: dashboards/project/firewalls/workflows.py:253
 msgid "Add Policy"
 msgstr "增加策略"
 
-#: dashboards/project/firewalls/tables.py:45
+#: dashboards/project/firewalls/tables.py:51
 msgid "Create Firewall"
 msgstr "创建防火墙"
 
-#: dashboards/project/firewalls/tables.py:66
+#: dashboards/project/firewalls/tables.py:72
 msgid "Scheduled deletion of Rule"
 msgid_plural "Scheduled deletion of Rules"
 msgstr[0] "已安排规则的删除"
 
-#: dashboards/project/firewalls/tables.py:80
+#: dashboards/project/firewalls/tables.py:86
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
 msgstr[0] "删除策略"
 
-#: dashboards/project/firewalls/tables.py:88
+#: dashboards/project/firewalls/tables.py:94
 msgid "Scheduled deletion of Policy"
 msgid_plural "Scheduled deletion of Policies"
 msgstr[0] "已安排策略的删除"
 
-#: dashboards/project/firewalls/tables.py:103
+#: dashboards/project/firewalls/tables.py:109
 msgid "Delete Firewall"
 msgid_plural "Delete Firewalls"
 msgstr[0] "删除防火墙"
 
-#: dashboards/project/firewalls/tables.py:111
+#: dashboards/project/firewalls/tables.py:117
 msgid "Scheduled deletion of Firewall"
 msgid_plural "Scheduled deletion of Firewalls"
 msgstr[0] "已安排防火墙的删除"
 
-#: dashboards/project/firewalls/tables.py:121
-#: dashboards/project/firewalls/views.py:130
+#: dashboards/project/firewalls/tables.py:127
+#: dashboards/project/firewalls/views.py:139
 #: dashboards/project/firewalls/templates/firewalls/updaterule.html:3
 msgid "Edit Rule"
 msgstr "编辑规则"
 
-#: dashboards/project/firewalls/tables.py:133
-#: dashboards/project/firewalls/views.py:171
+#: dashboards/project/firewalls/tables.py:139
+#: dashboards/project/firewalls/views.py:180
 #: dashboards/project/firewalls/templates/firewalls/updatepolicy.html:3
 msgid "Edit Policy"
 msgstr "编辑策略"
 
-#: dashboards/project/firewalls/tables.py:145
-#: dashboards/project/firewalls/views.py:209
+#: dashboards/project/firewalls/tables.py:151
+#: dashboards/project/firewalls/views.py:218
 #: dashboards/project/firewalls/templates/firewalls/updatefirewall.html:3
 msgid "Edit Firewall"
 msgstr "编辑防火墙"
 
-#: dashboards/project/firewalls/tables.py:207
+#: dashboards/project/firewalls/tables.py:199
+msgid "Add Router"
+msgstr ""
+
+#: dashboards/project/firewalls/tables.py:222
+msgid "Remove Router"
+msgstr ""
+
+#: dashboards/project/firewalls/tables.py:261
 msgctxt "Action Name of a Firewall Rule"
 msgid "ALLOW"
 msgstr "允许"
 
-#: dashboards/project/firewalls/tables.py:208
+#: dashboards/project/firewalls/tables.py:262
 msgctxt "Action Name of a Firewall Rule"
 msgid "DENY"
 msgstr "拒绝"
 
-#: dashboards/project/firewalls/tables.py:218
+#: dashboards/project/firewalls/tables.py:272
 msgid "Source IP"
 msgstr "源IP"
 
-#: dashboards/project/firewalls/tables.py:220
+#: dashboards/project/firewalls/tables.py:274
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:28
 msgid "Source Port"
 msgstr "源端口"
 
-#: dashboards/project/firewalls/tables.py:222
+#: dashboards/project/firewalls/tables.py:276
 msgid "Destination IP"
 msgstr "目的IP"
 
-#: dashboards/project/firewalls/tables.py:224
+#: dashboards/project/firewalls/tables.py:278
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:34
 msgid "Destination Port"
 msgstr "目的端口"
 
-#: dashboards/project/firewalls/tables.py:233
+#: dashboards/project/firewalls/tables.py:287
 msgid "In Policy"
 msgstr "在策略"
 
-#: dashboards/project/firewalls/tables.py:237
-#: dashboards/project/firewalls/tables.py:247
+#: dashboards/project/firewalls/tables.py:291
+#: dashboards/project/firewalls/tables.py:301
 #: dashboards/project/firewalls/workflows.py:131
 #: dashboards/project/firewalls/workflows.py:137
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:19
 msgid "Rules"
 msgstr "规则"
 
-#: dashboards/project/firewalls/tables.py:254
+#: dashboards/project/firewalls/tables.py:308
 msgid "Policies"
 msgstr "策略"
 
-#: dashboards/project/firewalls/tables.py:263
+#: dashboards/project/firewalls/tables.py:317
 msgctxt "Current status of a Firewall"
 msgid "Active"
 msgstr "运行中"
 
-#: dashboards/project/firewalls/tables.py:265
+#: dashboards/project/firewalls/tables.py:319
 msgctxt "Current status of a Firewall"
 msgid "Down"
 msgstr "停止"
 
-#: dashboards/project/firewalls/tables.py:267
+#: dashboards/project/firewalls/tables.py:321
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "错误"
 
-#: dashboards/project/firewalls/tables.py:269
+#: dashboards/project/firewalls/tables.py:323
 msgctxt "Current status of a Firewall"
 msgid "Created"
 msgstr "已创建"
 
-#: dashboards/project/firewalls/tables.py:271
+#: dashboards/project/firewalls/tables.py:325
 msgctxt "Current status of a Firewall"
 msgid "Pending Create"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:273
+#: dashboards/project/firewalls/tables.py:327
 msgctxt "Current status of a Firewall"
 msgid "Pending Update"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:275
+#: dashboards/project/firewalls/tables.py:329
 msgctxt "Current status of a Firewall"
 msgid "Pending Delete"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:277
+#: dashboards/project/firewalls/tables.py:331
 msgctxt "Current status of a Firewall"
 msgid "Inactive"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:280
+#: dashboards/project/firewalls/tables.py:334
 msgctxt "Admin state of a Firewall"
 msgid "UP"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:281
+#: dashboards/project/firewalls/tables.py:335
 msgctxt "Admin state of a Firewall"
 msgid "DOWN"
+msgstr ""
+
+#: dashboards/project/firewalls/tables.py:345
+msgid "Associated Routers"
+msgstr ""
+
+#: dashboards/project/firewalls/tables.py:369
+#, python-format
+msgid "Failed to verify extension support %(reason)s"
 msgstr ""
 
 #: dashboards/project/firewalls/tabs.py:31
@@ -10051,89 +10120,91 @@ msgstr "防火墙策略"
 msgid "Unable to retrieve policies list."
 msgstr "无法获取策略列表。"
 
-#: dashboards/project/firewalls/tabs.py:81
+#: dashboards/project/firewalls/tabs.py:91
 msgid "Unable to retrieve firewall list."
 msgstr "无法获取防火墙列表。"
 
-#: dashboards/project/firewalls/tabs.py:87
+#: dashboards/project/firewalls/tabs.py:97
 msgid "Firewall Rule Details"
 msgstr "防火墙规则详情"
 
-#: dashboards/project/firewalls/tabs.py:98
-#: dashboards/project/firewalls/views.py:154
+#: dashboards/project/firewalls/tabs.py:108
+#: dashboards/project/firewalls/views.py:163
 msgid "Unable to retrieve rule details."
 msgstr "无法获取规则详情。"
 
-#: dashboards/project/firewalls/tabs.py:104
+#: dashboards/project/firewalls/tabs.py:114
 msgid "Firewall Policy Details"
 msgstr "防火墙策略详情"
 
-#: dashboards/project/firewalls/tabs.py:115
-#: dashboards/project/firewalls/views.py:195
-#: dashboards/project/firewalls/views.py:273
-#: dashboards/project/firewalls/views.py:313
+#: dashboards/project/firewalls/tabs.py:125
+#: dashboards/project/firewalls/views.py:204
+#: dashboards/project/firewalls/views.py:282
+#: dashboards/project/firewalls/views.py:322
 msgid "Unable to retrieve policy details."
 msgstr "无法获取策略详情。"
 
-#: dashboards/project/firewalls/tabs.py:121
+#: dashboards/project/firewalls/tabs.py:131
 msgid "Firewall Details"
 msgstr "防火墙详情"
 
-#: dashboards/project/firewalls/tabs.py:132
-#: dashboards/project/firewalls/views.py:234
+#: dashboards/project/firewalls/tabs.py:152
+#: dashboards/project/firewalls/views.py:243
+#: dashboards/project/firewalls/views.py:357
 msgid "Unable to retrieve firewall details."
 msgstr "无法获取防火墙详情。"
 
-#: dashboards/project/firewalls/views.py:66
+#: dashboards/project/firewalls/views.py:68
 #, python-format
 msgid "Deleted rule %s"
 msgstr "删除规则%s"
 
-#: dashboards/project/firewalls/views.py:69
+#: dashboards/project/firewalls/views.py:71
 #, python-format
 msgid "Unable to delete rule. %s"
 msgstr "无法删除规则  %s"
 
-#: dashboards/project/firewalls/views.py:74
+#: dashboards/project/firewalls/views.py:76
 #, python-format
 msgid "Deleted policy %s"
 msgstr "删除策略%s"
 
-#: dashboards/project/firewalls/views.py:77
+#: dashboards/project/firewalls/views.py:79
 #, python-format
 msgid "Unable to delete policy. %s"
 msgstr "无法删除策略  %s"
 
-#: dashboards/project/firewalls/views.py:83
+#: dashboards/project/firewalls/views.py:85
 #, python-format
 msgid "Deleted firewall %s"
 msgstr "删除防火墙%s"
 
-#: dashboards/project/firewalls/views.py:86
+#: dashboards/project/firewalls/views.py:88
 #, python-format
 msgid "Unable to delete firewall. %s"
 msgstr "无法删除防火墙  %s"
 
-#: dashboards/project/firewalls/views.py:93
+#: dashboards/project/firewalls/views.py:95
 #: dashboards/project/firewalls/templates/firewalls/addrule.html:3
 msgid "Add New Rule"
 msgstr "添加新的规则"
 
-#: dashboards/project/firewalls/views.py:99
+#: dashboards/project/firewalls/views.py:101
 #: dashboards/project/firewalls/templates/firewalls/addpolicy.html:3
 msgid "Add New Policy"
 msgstr "添加新的策略"
 
-#: dashboards/project/firewalls/views.py:105
+#: dashboards/project/firewalls/views.py:107
 #: dashboards/project/firewalls/templates/firewalls/addfirewall.html:3
 msgid "Add New Firewall"
 msgstr "添加新的防火墙"
 
-#: dashboards/project/firewalls/views.py:131
-#: dashboards/project/firewalls/views.py:172
-#: dashboards/project/firewalls/views.py:210
-#: dashboards/project/firewalls/views.py:250
-#: dashboards/project/firewalls/views.py:289
+#: dashboards/project/firewalls/views.py:140
+#: dashboards/project/firewalls/views.py:181
+#: dashboards/project/firewalls/views.py:219
+#: dashboards/project/firewalls/views.py:259
+#: dashboards/project/firewalls/views.py:298
+#: dashboards/project/firewalls/views.py:335
 #: dashboards/project/loadbalancers/views.py:234
 #: dashboards/project/loadbalancers/views.py:271
 #: dashboards/project/loadbalancers/views.py:322
@@ -10148,32 +10219,44 @@ msgstr "添加新的防火墙"
 msgid "Save Changes"
 msgstr "保存"
 
-#: dashboards/project/firewalls/views.py:134
+#: dashboards/project/firewalls/views.py:143
 msgid "Edit Rule {{ name }}"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:175
+#: dashboards/project/firewalls/views.py:184
 msgid "Edit Policy {{ name }}"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:213
+#: dashboards/project/firewalls/views.py:222
 msgid "Edit Firewall {{ name }}"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:246
+#: dashboards/project/firewalls/views.py:255
 msgid "Insert Rule into Policy"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:252
+#: dashboards/project/firewalls/views.py:261
 #: dashboards/project/firewalls/templates/firewalls/insert_rule_to_policy.html:3
 msgid "Insert Rule to Policy"
 msgstr "向策略中添加规则"
 
-#: dashboards/project/firewalls/views.py:286
-#: dashboards/project/firewalls/views.py:292
+#: dashboards/project/firewalls/views.py:295
+#: dashboards/project/firewalls/views.py:301
 #: dashboards/project/firewalls/templates/firewalls/remove_rule_from_policy.html:3
 msgid "Remove Rule from Policy"
 msgstr "从策略中移除规则"
+
+#: dashboards/project/firewalls/views.py:368
+#: dashboards/project/firewalls/views.py:371
+#: dashboards/project/firewalls/templates/firewalls/add_router_to_firewall.html:3
+msgid "Add Router to Firewall"
+msgstr ""
+
+#: dashboards/project/firewalls/views.py:376
+#: dashboards/project/firewalls/views.py:379
+#: dashboards/project/firewalls/templates/firewalls/remove_router_from_firewall.html:3
+msgid "Remove Router from Firewall"
+msgstr ""
 
 #: dashboards/project/firewalls/workflows.py:73
 msgid "AddRule"
@@ -10209,60 +10292,77 @@ msgstr "为你的策略选择规则。"
 msgid "Unable to retrieve rules (%(error)s)."
 msgstr "无法获取规则 (%(error)s).。"
 
-#: dashboards/project/firewalls/workflows.py:188
+#: dashboards/project/firewalls/workflows.py:176
+msgid "Create a firewall with selected routers."
+msgstr ""
+
+#: dashboards/project/firewalls/workflows.py:181
+msgid "Select routers for your firewall."
+msgstr ""
+
+#: dashboards/project/firewalls/workflows.py:192
+#, python-format
+msgid "Unable to retrieve routers (%(error)s)."
+msgstr ""
+
+#: dashboards/project/firewalls/workflows.py:233
 msgid "AddPolicy"
 msgstr "增加策略"
 
-#: dashboards/project/firewalls/workflows.py:190
+#: dashboards/project/firewalls/workflows.py:235
 msgid ""
 "Create a firewall policy with an ordered list of firewall rules.\n"
 "\n"
 "A name must be given. Firewall rules are added in the order placed under the Rules tab."
 msgstr "使用一个按序的防火墙规则列表来创建防火墙策略。\n\n此处必须指定一个策略名称。在\"规则\"选项卡下按顺序添加防火墙规则。"
 
-#: dashboards/project/firewalls/workflows.py:210
+#: dashboards/project/firewalls/workflows.py:255
 #, python-format
 msgid "Added Policy \"%s\"."
 msgstr "添加策略 \"%s\"。"
 
-#: dashboards/project/firewalls/workflows.py:211
+#: dashboards/project/firewalls/workflows.py:256
 #, python-format
 msgid "Unable to add Policy \"%s\"."
 msgstr "无法添加策略 \"%s\"。"
 
-#: dashboards/project/firewalls/workflows.py:246
+#: dashboards/project/firewalls/workflows.py:291
 msgid "Select a Policy"
 msgstr "选择一个策略"
 
-#: dashboards/project/firewalls/workflows.py:254
+#: dashboards/project/firewalls/workflows.py:299
 #, python-format
 msgid "Unable to retrieve policy list (%(error)s)."
 msgstr "无法获取策略列表 (%(error)s)。"
 
-#: dashboards/project/firewalls/workflows.py:265
+#: dashboards/project/firewalls/workflows.py:310
 msgid "AddFirewall"
 msgstr "添加防火墙"
 
-#: dashboards/project/firewalls/workflows.py:267
+#: dashboards/project/firewalls/workflows.py:312
 msgid ""
 "Create a firewall based on a policy.\n"
 "\n"
 "A policy must be selected. Other fields are optional."
 msgstr "基于策略创建防火墙。\n\n策略必须被选定。其他域为可选。"
 
-#: dashboards/project/firewalls/workflows.py:285
+#: dashboards/project/firewalls/workflows.py:330
 msgid "Add Firewall"
 msgstr "添加防火墙"
 
-#: dashboards/project/firewalls/workflows.py:287
+#: dashboards/project/firewalls/workflows.py:332
 #, python-format
 msgid "Added Firewall \"%s\"."
 msgstr "防火墙 \"%s\" 已添加。"
 
-#: dashboards/project/firewalls/workflows.py:288
+#: dashboards/project/firewalls/workflows.py:333
 #, python-format
 msgid "Unable to add Firewall \"%s\"."
 msgstr "无法添加防火墙 \"%s\"。"
+
+#: dashboards/project/firewalls/templates/firewalls/_add_router_to_firewall.html:6
+msgid "Choose the router(s) you want to add."
+msgstr ""
 
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:19
 msgid "Policy ID"
@@ -10281,6 +10381,10 @@ msgid ""
 "Choose the rule you want to insert. Specify either the rule you want to "
 "insert immediately before, or the rule to insert immediately after. If both "
 "are specified, the prior takes precedence."
+msgstr ""
+
+#: dashboards/project/firewalls/templates/firewalls/_remove_router_from_firewall.html:6
+msgid "Unselect the routers you want to disassociate from the firewall."
 msgstr ""
 
 #: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:6
@@ -10302,6 +10406,20 @@ msgstr "已使用在策略"
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:47
 msgid "Position in Policy"
 msgstr "在策略中的位置"
+
+#: dashboards/project/firewalls/templates/firewalls/_update_router_help.html:3
+msgid ""
+"Choose router(s) from Available Routers to Selected Routers by push button "
+"or drag and drop. "
+msgstr ""
+
+#: dashboards/project/firewalls/templates/firewalls/_update_routers.html:8
+msgid "Selected Routers"
+msgstr ""
+
+#: dashboards/project/firewalls/templates/firewalls/_update_routers.html:11
+msgid "Available Routers"
+msgstr ""
 
 #: dashboards/project/firewalls/templates/firewalls/_update_rule_help.html:3
 msgid ""
