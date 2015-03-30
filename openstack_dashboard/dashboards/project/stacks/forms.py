@@ -327,6 +327,10 @@ class CreateStackForm(forms.SelfHandlingForm):
                 field_args['choices'] = choices
                 field = forms.ChoiceField(**field_args)
 
+            elif param_type == 'Json' and 'Default' in param:
+                field_args['initial'] = json.dumps(param['Default'])
+                field = forms.CharField(**field_args)
+
             elif param_type in ('CommaDelimitedList', 'String', 'Json'):
                 if 'MinLength' in param:
                     field_args['min_length'] = int(param['MinLength'])
