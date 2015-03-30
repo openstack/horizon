@@ -166,35 +166,11 @@
 </div>
 
 <script type="text/javascript">
-  if (typeof horizon.d3_line_chart !== 'undefined') {
-    horizon.d3_line_chart.init("div[data-chart-type='line_chart']",
-      {'auto_resize': true});
-  }
-
   if (typeof $ !== 'undefined') {
-    show_hide_datepickers();
+    horizon.metering.init_stats_page();
   } else {
     addHorizonLoadEvent(function() {
-      show_hide_datepickers();
+      horizon.metering.init_stats_page();
     });
-  }
-
-  function show_hide_datepickers() {
-    $("#date_options").change(function(evt) {
-        // Enhancing behaviour of selectbox, on 'other' value selected, I don't
-        // want to refresh, but show hide the date fields
-        if ($(this).find("option:selected").val() == "other"){
-          evt.stopPropagation();
-          $("#date_from input, #date_to input").val('');
-          $("#date_from, #date_to").show();
-        } else {
-          $("#date_from, #date_to").hide();
-        }
-    });
-    if ($("#date_options").find("option:selected").val() == "other"){
-      $("#date_from, #date_to").show();
-    } else {
-      $("#date_from, #date_to").hide();
-    }
   }
 </script>

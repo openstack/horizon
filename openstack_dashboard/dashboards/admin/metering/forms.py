@@ -34,12 +34,10 @@ class UsageReportForm(forms.SelfHandlingForm):
                                choices=PERIOD_CHOICES)
     date_from = forms.DateField(label=_("From"), required=False,
                                 widget=forms.TextInput(
-                                attrs={'data-line-chart-command':
-                                       'date_picker_change'}))
+                                attrs={'data-date-picker': True}))
     date_to = forms.DateField(label=_("To"), required=False,
                               widget=forms.TextInput(
-                              attrs={'data-line-chart-command':
-                                     'date_picker_change'}))
+                              attrs={'data-date-picker': True}))
 
     def clean_date_from(self):
         period = self.cleaned_data['period']
