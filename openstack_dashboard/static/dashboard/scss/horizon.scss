@@ -935,17 +935,6 @@ form label {
     display: inline-block;
 }
 
-form .form-group > div.dynamic-select {
-  display: table;
-  border-collapse: separate;
-  > * {
-    display: table-cell;
-  }
-  > a {
-    width: 1%;
-  }
-}
-
 .modal.fullscreen .modal-dialog {
   width: 90%;
   margin: auto;
