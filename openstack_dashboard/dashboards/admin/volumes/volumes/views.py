@@ -50,6 +50,7 @@ class ManageVolumeView(forms.ModalFormView):
     success_url = reverse_lazy('horizon:admin:volumes:volumes_tab')
     submit_url = reverse_lazy('horizon:admin:volumes:volumes:manage')
     cancel_url = reverse_lazy("horizon:admin:volumes:index")
+    page_title = _("Manage a Volume")
 
     def get_context_data(self, **kwargs):
         context = super(ManageVolumeView, self).get_context_data(**kwargs)
@@ -65,6 +66,7 @@ class UnmanageVolumeView(forms.ModalFormView):
     success_url = reverse_lazy('horizon:admin:volumes:volumes_tab')
     submit_url = 'horizon:admin:volumes:volumes:unmanage'
     cancel_url = reverse_lazy("horizon:admin:volumes:index")
+    page_title = _("Unmanage a Volume")
 
     def get_context_data(self, **kwargs):
         context = super(UnmanageVolumeView, self).get_context_data(**kwargs)

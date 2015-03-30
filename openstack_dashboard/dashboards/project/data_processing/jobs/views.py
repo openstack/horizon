@@ -38,7 +38,7 @@ LOG = logging.getLogger(__name__)
 class JobsView(tables.DataTableView):
     table_class = _tables.JobsTable
     template_name = 'project/data_processing.jobs/jobs.html'
-    page_title = _("Jobs")
+    page_title = _("Job Templates")
 
     def get_data(self):
         try:
@@ -59,13 +59,13 @@ class CreateJobView(workflows.WorkflowView):
     success_url = "horizon:project:data_processing.jobs:create-job"
     classes = ("ajax-modal",)
     template_name = "project/data_processing.jobs/create.html"
-    page_title = _("Create Job")
+    page_title = _("Create Job Template")
 
 
 class JobDetailsView(tabs.TabView):
     tab_group_class = _tabs.JobDetailsTabs
     template_name = 'project/data_processing.jobs/details.html'
-    page_title = _("Job Details")
+    page_title = _("Job Template Details")
 
     def get_context_data(self, **kwargs):
         context = super(JobDetailsView, self).get_context_data(**kwargs)

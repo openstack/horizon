@@ -37,6 +37,7 @@ class UpdateView(forms.ModalFormView):
     submit_label = _("Save Changes")
     submit_url = "horizon:project:volumes:snapshots:update"
     success_url = reverse_lazy("horizon:project:volumes:index")
+    page_title = _("Edit Snapshot")
 
     @memoized.memoized_method
     def get_object(self):

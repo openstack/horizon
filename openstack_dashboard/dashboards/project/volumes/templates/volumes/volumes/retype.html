@@ -2,10 +2,6 @@
 {% load i18n %}
 {% block title %}{% trans "Change Volume Type" %}{% endblock %}
 
-{% block page_header %}
-  {% include "horizon/common/_page_header.html" with title=_("Change Volume Type") %}
-{% endblock page_header %}
-
 {% block main %}
     {% include 'project/volumes/volumes/_retype.html' %}
 {% endblock %}

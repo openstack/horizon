@@ -53,6 +53,7 @@ class QosSpecMixin(object):
 class IndexView(QosSpecMixin, forms.ModalFormMixin, tables.DataTableView):
     table_class = project_tables.SpecsTable
     template_name = 'admin/volumes/volume_types/qos_specs/index.html'
+    page_title = _("QoS Spec: {{ qos_spec_name }}")
 
     def get_data(self):
         try:
@@ -75,6 +76,7 @@ class CreateKeyValuePairView(QosSpecMixin, forms.ModalFormView):
     submit_label = _("Create")
     submit_url = "horizon:admin:volumes:volume_types:qos_specs:create"
     success_url = 'horizon:admin:volumes:volume_types:qos_specs:index'
+    page_title = _("Spec: {{ qos_spec_name }}")
 
     def get_initial(self):
         qos_spec_id = self.kwargs['qos_spec_id']
@@ -101,6 +103,7 @@ class EditKeyValuePairView(QosSpecMixin, forms.ModalFormView):
     submit_label = _("Save")
     submit_url = "horizon:admin:volumes:volume_types:qos_specs_edit"
     success_url = 'horizon:admin:volumes:volume_types:qos_specs:index'
+    page_title = _("QoS Spec: {{ qos_spec_name }}")
 
     def get_success_url(self):
         return reverse(self.success_url,
