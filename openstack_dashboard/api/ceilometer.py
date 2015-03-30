@@ -1259,10 +1259,6 @@ class Meters(object):
                 'label': '',
                 'description': _("System Current Power"),
             }),
-            ('hardware.ipmi.node.temperature', {
-                'label': '',
-                'description': _("System Current Temperature"),
-            }),
             ('hardware.ipmi.fan', {
                 'label': '',
                 'description': _("Fan RPM"),
@@ -1278,5 +1274,33 @@ class Meters(object):
             ('hardware.ipmi.voltage', {
                 'label': '',
                 'description': _("Sensor Voltage Reading"),
+            }),
+            ('hardware.ipmi.node.inlet_temperature', {
+                'label': '',
+                'description': _("System Inlet Temperature Reading"),
+            }),
+            ('hardware.ipmi.node.outlet_temperature', {
+                'label': '',
+                'description': _("System Outlet Temperature Reading"),
+            }),
+            ('hardware.ipmi.node.airflow', {
+                'label': '',
+                'description': _("System Airflow Reading"),
+            }),
+            ('hardware.ipmi.node.cups', {
+                'label': '',
+                'description': _("System CUPS Reading"),
+            }),
+            ('hardware.ipmi.node.cpu_util', {
+                'label': '',
+                'description': _("System CPU Utility Reading"),
+            }),
+            ('hardware.ipmi.node.mem_util', {
+                'label': '',
+                'description': _("System Memory Utility Reading"),
+            }),
+            ('hardware.ipmi.node.io_util', {
+                'label': '',
+                'description': _("System IO Utility Reading"),
             }),
         ])
