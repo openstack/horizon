@@ -12,6 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+
 from django.core.urlresolvers import reverse
 from django import template
 from django.utils.translation import pgettext_lazy
@@ -253,20 +254,53 @@ class UpdateIPSecSiteConnectionLink(tables.LinkAction):
         return False
 
 
+STATUS_CHOICES = (
+    ("active", True),
+    ("down", True),
+    ("created", True),
+    ("error", False),
+    ("inactive", False),
+)
+
+
+STATUS_DISPLAY_CHOICES = (
+    ("active", pgettext_lazy("Current status of an IPSec Site Connection"
+                             " and VPN Service", u"Active")),
+    ("down", pgettext_lazy("Current status of an IPSec Site Connection"
+                           " and VPN Service", u"Down")),
+    ("error", pgettext_lazy("Current status of an IPSec Site Connection"
+                            " and VPN Service", u"Error")),
+    ("created", pgettext_lazy("Current status of an IPSec Site Connection"
+                              " and VPN Service", u"Created")),
+    ("pending_create", pgettext_lazy("Current status of an"
+                                     " IPSec Site Connection and VPN Service",
+                                     u"Pending Create")),
+    ("pending_update", pgettext_lazy("Current status of an"
+                                     " IPSec Site Connection and VPN Service",
+                                     u"Pending Update")),
+    ("pending_delete", pgettext_lazy("Current status of an"
+                                     " IPSec Site Connection and VPN Service",
+                                     u"Pending Delete")),
+    ("inactive", pgettext_lazy("Current status of an IPSec Site Connection"
+                               " and VPN Service", u"Inactive")),
+)
+
+
+class UpdateIPSecSiteConnectionRow(tables.Row):
+    ajax = True
+
+    def get_data(self, request, conn_id):
+        conn = api.vpn.ipsecsiteconnection_get(request, conn_id)
+        conn.ikepolicy_name = conn['ikepolicy'].get('name',
+                                                    conn['ikepolicy_id'])
+        conn.ipsecpolicy_name = conn['ipsecpolicy'].get('name',
+                                                        conn['ipsecpolicy_id'])
+        conn.vpnservice_name = conn['vpnservice'].get('name',
+                                                      conn['vpnservice_id'])
+        return conn
+
+
 class IPSecSiteConnectionsTable(tables.DataTable):
-    STATUS_CHOICES = (
-        ("Active", True),
-        ("Down", True),
-        ("Error", False),
-    )
-    STATUS_DISPLAY_CHOICES = (
-        ("Active", pgettext_lazy("Current status of an IPSec Site Connection",
-                                 u"Active")),
-        ("Down", pgettext_lazy("Current status of an IPSec Site Connection",
-                               u"Down")),
-        ("Error", pgettext_lazy("Current status of an IPSec Site Connection",
-                                u"Error")),
-    )
     id = tables.Column('id', hidden=True)
     name = tables.Column('name_or_id', verbose_name=_('Name'),
                          link="horizon:project:vpn:ipsecsiteconnectiondetails")
@@ -286,6 +320,8 @@ class IPSecSiteConnectionsTable(tables.DataTable):
     class Meta(object):
         name = "ipsecsiteconnectionstable"
         verbose_name = _("IPSec Site Connections")
+        status_columns = ['status']
+        row_class = UpdateIPSecSiteConnectionRow
         table_actions = (AddIPSecSiteConnectionLink,
                          DeleteIPSecSiteConnectionLink,
                          tables.NameFilterAction)
@@ -300,30 +336,17 @@ def get_local_ips(vpn):
     return template.loader.render_to_string(template_name, context)
 
 
+class UpdateVPNServiceRow(tables.Row):
+    ajax = True
+
+    def get_data(self, request, vpn_id):
+        vpn = api.vpn.vpnservice_get(request, vpn_id)
+        vpn.router_name = vpn['router'].get('name', vpn['router_id'])
+        vpn.subnet_name = vpn['subnet'].get('cidr', vpn['subnet_id'])
+        return vpn
+
+
 class VPNServicesTable(tables.DataTable):
-    STATUS_CHOICES = (
-        ("Active", True),
-        ("Down", True),
-        ("Error", False),
-    )
-    STATUS_DISPLAY_CHOICES = (
-        ("Active", pgettext_lazy("Current status of a VPN Service",
-                                 u"Active")),
-        ("Down", pgettext_lazy("Current status of a VPN Service",
-                               u"Down")),
-        ("Error", pgettext_lazy("Current status of a VPN Service",
-                                u"Error")),
-        ("Created", pgettext_lazy("Current status of a VPN Service",
-                                  u"Created")),
-        ("Pending_Create", pgettext_lazy("Current status of a VPN Service",
-                                         u"Pending Create")),
-        ("Pending_Update", pgettext_lazy("Current status of a VPN Service",
-                                         u"Pending Update")),
-        ("Pending_Delete", pgettext_lazy("Current status of a VPN Service",
-                                         u"Pending Delete")),
-        ("Inactive", pgettext_lazy("Current status of a VPN Service",
-                                   u"Inactive")),
-    )
     id = tables.Column('id', hidden=True)
     name = tables.Column("name_or_id", verbose_name=_('Name'),
                          link="horizon:project:vpn:vpnservicedetails")
@@ -341,6 +364,8 @@ class VPNServicesTable(tables.DataTable):
     class Meta(object):
         name = "vpnservicestable"
         verbose_name = _("VPN Services")
+        status_columns = ['status']
+        row_class = UpdateVPNServiceRow
         table_actions = (AddVPNServiceLink,
                          DeleteVPNServiceLink,
                          tables.NameFilterAction)
