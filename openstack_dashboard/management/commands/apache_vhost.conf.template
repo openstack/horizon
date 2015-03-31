@@ -24,12 +24,16 @@
     WSGIPassAuthorization On
 
     WSGIScriptAlias / {{ WSGI_FILE }}
-
+{% if APACHE2_VERSION >= 2.4 %}
+    <Location "/">
+        Require all granted
+    </Location>
+{% else %}
     <Location "/">
         Order Allow,Deny
         Allow from all
     </Location>
-
+{% endif %}
     Alias /static {{ STATIC_PATH }}
     <Location "/static">
         SetHandler None

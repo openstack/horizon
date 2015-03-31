@@ -15,7 +15,9 @@ from __future__ import print_function
 
 from optparse import make_option  # noqa
 import os
+import re
 import socket
+import subprocess
 import sys
 import warnings
 
@@ -32,6 +34,14 @@ cmd_name = __name__.split('.')[-1]
 CURDIR = os.path.realpath(os.path.dirname(__file__))
 PROJECT_PATH = os.path.realpath(os.path.join(CURDIR, '../..'))
 STATIC_PATH = os.path.realpath(os.path.join(PROJECT_PATH, '../static'))
+
+# Known apache regular expression to retrieve it's version
+APACHE_VERSION_REG = r'Apache/(?P<version>[\d.]*)'
+# Known apache commands to retrieve it's version
+APACHE2_VERSION_CMDS = (
+    (('/usr/sbin/apache2ctl', '-V'), APACHE_VERSION_REG),
+    (('/usr/sbin/apache2', '-v'), APACHE_VERSION_REG),
+)
 
 # Known apache log directory locations
 APACHE_LOG_DIRS = (
@@ -93,6 +103,29 @@ if virtualenv:
         virtualenv, 'bin/activate_this.py')
     if os.path.exists(activate_this):
         context['ACTIVATE_THIS'] = activate_this
+
+# Try to detect apache's version
+# We fallback on 2.4.
+context['APACHE2_VERSION'] = 2.4
+APACHE2_VERSION = None
+for cmd in APACHE2_VERSION_CMDS:
+    if os.path.exists(cmd[0][0]):
+        try:
+            reg = re.compile(cmd[1])
+            res = reg.search(
+                subprocess.check_output(cmd[0], stderr=subprocess.STDOUT))
+            if res:
+                APACHE2_VERSION = res.group('version')
+                break
+        except subprocess.CalledProcessError:
+            pass
+if APACHE2_VERSION:
+    ver_nums = APACHE2_VERSION.split('.')
+    if len(ver_nums) >= 2:
+        try:
+            context['APACHE2_VERSION'] = float('.'.join(ver_nums[:2]))
+        except ValueError:
+            pass
 
 
 def find_apache_log_dir():
@@ -190,6 +223,14 @@ location you desire, e.g.::
                           "the path to the SSLCertificateKeyFile "
                           "(default : %s)") % context['SSLKEY'],
                     metavar="SSLKEY"),
+        make_option("--apache-version",
+                    dest="apache_version",
+                    type="float",
+                    help=("Use with the --apache option to define the apache "
+                          "major (as a floating point number) version "
+                          "(default : %s)."
+                          % context['APACHE2_VERSION']),
+                    metavar="APACHE_VERSION"),
         make_option("-w", "--wsgi",
                     default=False, action="store_true", dest="wsgi",
                     help="generate the horizon.wsgi file"),
@@ -213,6 +254,8 @@ location you desire, e.g.::
             context['SSLCERT'] = options['sslcert']
         if options.get('sslkey'):
             context['SSLKEY'] = options['sslkey']
+        if options.get('apache_version'):
+            context['APACHE2_VERSION'] = options['apache_version']
 
         if options.get('namedhost'):
             context['NAMEDHOST'] = context['VHOSTNAME']
