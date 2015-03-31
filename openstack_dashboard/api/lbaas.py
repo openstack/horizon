@@ -286,7 +286,9 @@ def _pool_health_monitor_get(request, monitor_id, expand_resource=False):
 
 
 def pool_health_monitor_update(request, monitor_id, **kwargs):
-    monitor = neutronclient(request).update_health_monitor(monitor_id, kwargs)
+    monitor = neutronclient(request
+                            ).update_health_monitor(monitor_id, kwargs
+                                                    ).get('health_monitor')
     return PoolMonitor(monitor)
 
 
@@ -341,7 +343,8 @@ def _member_get(request, member_id, expand_pool):
 
 
 def member_update(request, member_id, **kwargs):
-    member = neutronclient(request).update_member(member_id, kwargs)
+    member = neutronclient(request).update_member(member_id, kwargs
+                                                  ).get('member')
     return Member(member)
 
 
