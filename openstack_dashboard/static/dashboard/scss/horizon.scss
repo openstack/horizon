@@ -16,6 +16,7 @@
 @import "/horizon/lib/font-awesome/scss/font-awesome.scss";
 
 // Dashboard Components
+@import "splash";
 @import "components/resource_browser";
 @import "components/topbar";
 @import "components/accordion_nav";
@@ -57,7 +58,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 
 body {
   background-color: $body-bg;
@@ -123,45 +123,9 @@ h2 {
   font-weight: normal;
 }
 
-
-
-/* Login Splash Page */
-
-#splash .login {
-  background: url(../img/logo-splash.png) no-repeat center 35px;
-  position: absolute;
-  top: 80px;
-  left: 50%;
-  margin: 0 0 0 -195px;
-  padding-top: 170px;
-  width: 390px;
-  border: 1px solid $border-color;
-  max-height: none;
-  border-radius: 6px;
-  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-  background-clip: padding-box;
-
-  form {
-    .error {
-      width: 100%;
-    }
-    input {
-      width: 100%;
-    }
-    select {
-      width: 360px;
-    }
-  }
-}
-
-#splash p.help-block {
-  display: none;
-}
-
 #create_container_form .modal-footer{
   margin-top: 190px;
 }
-
 
 .sidebar {
   background-color: $sidebar-background-color;

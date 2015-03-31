@@ -6,6 +6,7 @@
 {% block modal_class %}login {% if hide %}modal hide{% endif %}{% endblock %}
 
 {% block form_action %}{% url 'login' %}{% endblock %}
+{% block ng_controller %}hzLoginCtrl{% endblock %}
 {% block autocomplete %}{{ HORIZON_CONFIG.password_autocomplete }}{% endblock %}
 
 {% block modal-body %}
@@ -18,7 +19,8 @@
     <input type="password" name="fake_password" value="" />
   </div>
   {%endif%}
-  <fieldset>
+  {% include "auth/_description.html" %}
+  <fieldset hz-login-finder>
     {% if request.user.is_authenticated and 'next' in request.GET %}
     <div class="form-group clearfix error">
       <span class="help-block"><p>{% trans "You do not have permission to access the resource:" %}</p>
@@ -38,5 +40,8 @@
 {% endblock %}
 
 {% block modal-footer %}
-  <button id="loginBtn" type="submit" class="btn btn-primary pull-right">{% trans "Sign In" %}</button>
+  <button id="loginBtn" type="submit" class="btn btn-primary pull-right">
+    <span ng-show="auth_type==='credentials'">{% trans "Sign In" %}</span>
+    <span ng-hide="auth_type==='credentials'" ng-cloak>{% trans "Connect" %}</span>
+  </button>
 {% endblock %}

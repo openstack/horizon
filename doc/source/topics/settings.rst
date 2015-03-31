@@ -663,6 +663,49 @@ are using HTTPS, running your Keystone server on a nonstandard port, or using
 a nonstandard URL scheme you shouldn't need to touch this setting.
 
 
+``WEBSSO_ENABLED``
+------------------
+
+.. versionadded:: 2015.1(Kilo)
+
+Default: ``False``
+
+Enables keystone web single-sign-on if set to True. For this feature to work,
+make sure that you are using Keystone V3 and Django OpenStack Auth V1.2.0 or
+later.
+
+
+``WEBSSO_INITIAL_CHOICE``
+-------------------------
+
+.. versionadded:: 2015.1(Kilo)
+
+Default: ``"credentials"``
+
+Determines the default authentication mechanism. When user lands on the login
+page, this is the first choice they will see.
+
+
+``WEBSSO_CHOICES``
+------------------
+
+.. versionadded:: 2015.1(Kilo)
+
+Default::
+
+        (
+          ("credentials", _("Keystone Credentials")),
+          ("oidc", _("OpenID Connect")),
+          ("saml2", _("Security Assertion Markup Language"))
+        )
+
+This is the list of authentication mechanisms available to the user. It includes
+Keystone federation protocols such as OpenID Connect and SAML. The list of
+choices is completely configurable, so as long as the id remains intact. Do not
+remove the credentials mechanism unless you are sure. Once removed, even admins
+will have no way to log into the system via the dashboard.
+
+
 ``OPENSTACK_CINDER_FEATURES``
 -----------------------------
 

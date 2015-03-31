@@ -1,0 +1,33 @@
+
+/**
+ * Styling for the splash/login page.
+ * Restyled for federated login.
+ */
+
+#splash {
+
+  .login {
+    background: url(../img/logo-splash.png) no-repeat center 35px;
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    margin: 0 0 0 -195px;
+    padding-top: 170px;
+    width: 390px;
+    border: 1px solid $border-color;
+    max-height: none;
+    border-radius: 6px;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    background-clip: padding-box;
+
+    p#help_text {
+      display: none;
+      padding: 1em 0.5em;
+      margin: 0;
+    }
+  }
+
+  p.help-block {
+    display: none;
+  }
+}
