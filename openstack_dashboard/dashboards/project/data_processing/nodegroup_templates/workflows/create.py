@@ -129,6 +129,13 @@ class GeneralConfigAction(workflows.Action):
                 choices=pool_choices,
                 required=False)
 
+        self.fields["proxygateway"] = forms.BooleanField(
+            label=_("Proxy Gateway"),
+            widget=forms.CheckboxInput(),
+            help_text=_("Sahara will use instances of this node group to "
+                        "access other cluster instances."),
+            required=False)
+
         self.fields["processes"] = forms.MultipleChoiceField(
             label=_("Processes"),
             widget=forms.CheckboxSelectMultiple(),
@@ -338,6 +345,7 @@ class ConfigureNodegroupTemplate(workflow_helpers.ServiceParametersWorkflow,
                 floating_ip_pool=context.get("general_floating_ip_pool"),
                 security_groups=context["security_groups"],
                 auto_security_group=context["security_autogroup"],
+                is_proxy_gateway=context["general_proxygateway"],
                 availability_zone=context["general_availability_zone"])
 
             hlps = helpers.Helpers(request)
