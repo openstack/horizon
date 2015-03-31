@@ -191,7 +191,7 @@
           promise = $q.all([
             getImages(),
             novaAPI.getAvailabilityZones().then(onGetAvailabilityZones, noop),
-            novaAPI.getFlavors().then(onGetFlavors, noop),
+            novaAPI.getFlavors(true, true).then(onGetFlavors, noop),
             novaAPI.getKeypairs().then(onGetKeypairs, noop),
             novaAPI.getLimits().then(onGetNovaLimits, noop),
             securityGroup.query().then(onGetSecurityGroups, noop),
