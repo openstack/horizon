@@ -321,7 +321,7 @@ def get_attachment_name(request, attachment):
         url = reverse("horizon:project:instances:detail", args=(server_id,))
         instance = '<a href="%s">%s</a>' % (url, html.escape(name))
     except NoReverseMatch:
-        instance = name
+        instance = html.escape(name)
     return instance
 
 
