@@ -79,6 +79,15 @@ class Users(generic.View):
             enabled=True,
             domain=domain.id
         )
+
+        # assign role to user
+        api.keystone.add_tenant_user_role(
+            request,
+            project=request.DATA.get('project_id'),
+            user=new_user.id,
+            role=request.DATA.get('role_id')
+        )
+
         return rest_utils.CreatedResponse(
             '/api/keystone/users/%s' % new_user.id,
             new_user.to_dict()
@@ -130,27 +139,31 @@ class User(generic.View):
         """Update a single user.
 
         The PATCH data should be an application/json object with attributes to
-        set to new values: password (string), project_id (string),
-        enabled (boolean). A PATCH may contain any one of those attributes, but
-        if it contains more than one it must contain the project_id, even
+        set to new values: password (string), project (string),
+        enabled (boolean).
+
+        A PATCH may contain any one of those attributes, but
+        if it contains more than one it must contain the project, even
         if it is not being altered.
 
         This method returns HTTP 204 (no content) on success.
         """
         keys = tuple(request.DATA)
-        if keys == ('password', ):
-            api.keystone.user_update_password(request, id, **request.DATA)
-        elif keys == ('enabled', ):
-            api.keystone.user_update_enabled(request, id, **request.DATA)
-        elif keys == ('project_id', ):
-            api.keystone.user_update_tenant(request, id,
-                                            project=request.DATA['project_id'])
+        user = api.keystone.user_get(request, id)
+
+        if 'password' in keys:
+            password = request.DATA['password']
+            api.keystone.user_update_password(request, user, password)
+
+        elif 'enabled' in keys:
+            enabled = request.DATA['enabled']
+            api.keystone.user_update_enabled(request, user, enabled)
+
         else:
-            # update mutiple things, and hope the caller has supplied
-            # everything
-            request.DATA['project'] = request.DATA.pop('project_id', None)
-            request.DATA.setdefault('password', None)
-            api.keystone.user_update(request, id, **request.DATA)
+            # note that project is actually project_id
+            # but we can not rename due to legacy compatibility
+            # refer to keystone.api user_update method
+            api.keystone.user_update(request, user, **request.DATA)
 
 
 @urls.register
