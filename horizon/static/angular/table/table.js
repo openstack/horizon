@@ -109,6 +109,11 @@
             $scope.numSelected--;
           }
         };
+
+        this.isSelected = function(row) {
+          var rowState = $scope.selected[row.id];
+          return rowState && rowState.checked;
+        };
       },
       link: function(scope, element, attrs, stTableCtrl) {
         if (attrs.defaultSort) {
@@ -126,25 +131,31 @@
    * @description
    * The `hzSelectAll` directive updates the checkbox selection state of
    * every row in the table. Assign this as an attribute to a checkbox
-   * input element, passing in the row collection data.
+   * input element, passing in the displayed row collection data.
+   *
+   * Required: Use `st-table` attribute to pass in the displayed
+   * row collection and `st-safe-src` attribute to pass in the
+   * safe row collection.
    *
    * @restrict A
    * @scope rows: '=hzSelectAll'
    * @example
    *
    * ```
-   * <input type='checkbox' hz-select-all='rowCollection'/>
+   * <input type='checkbox' hz-select-all='displayedCollection'/>
    * ```
    *
    */
-  app.directive('hzSelectAll', function($timeout) {
+  app.directive('hzSelectAll', [ '$timeout', function($timeout) {
     return {
       restrict: 'A',
-      require: '^hzTable',
+      require: [ '^hzTable', '^stTable' ],
       scope: {
         rows: '=hzSelectAll'
       },
-      link: function(scope, element, attrs, hzTableCtrl) {
+      link: function(scope, element, attrs, ctrls) {
+        var hzTableCtrl = ctrls[0];
+        var stTableCtrl = ctrls[1];
 
         // select or unselect all
         function clickHandler() {
@@ -156,13 +167,30 @@
           });
         }
 
-        // we need to watch rows so that
-        // new rows are added to the hzTable selected
+        // update the select all checkbox when table
+        // state changes (sort, filter, paginate)
+        function updateSelectAll() {
+          var visibleRows = scope.rows;
+          var checkedCnt = visibleRows.filter(hzTableCtrl.isSelected).length;
+          element.prop('checked', visibleRows.length === checkedCnt);
+        }
+
         element.click(clickHandler);
-        scope.$watch('rows.length', clickHandler);
+
+        // watch the table state for changes
+        // on sort, filter and pagination
+        scope.$watch(function() {
+            return stTableCtrl.tableState();
+          },
+          updateSelectAll,
+          true
+        );
+
+        // watch the row length for add/removed rows
+        scope.$watch('rows.length', updateSelectAll);
       }
     };
-  });
+  }]);
 
   /**
    * @ngdoc directive
