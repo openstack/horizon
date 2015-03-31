@@ -78,6 +78,7 @@ class IndexView(tables.DataTableView):
         marker = self.request.GET.get(
             project_tables.TenantsTable._meta.pagination_param, None)
         domain_context = self.request.session.get('domain_context', None)
+        self._more = False
         if policy.check((("identity", "identity:list_projects"),),
                         self.request):
             try:
@@ -87,7 +88,6 @@ class IndexView(tables.DataTableView):
                     paginate=True,
                     marker=marker)
             except Exception:
-                self._more = False
                 exceptions.handle(self.request,
                                   _("Unable to retrieve project list."))
         elif policy.check((("identity", "identity:list_user_projects"),),
@@ -100,11 +100,9 @@ class IndexView(tables.DataTableView):
                     marker=marker,
                     admin=False)
             except Exception:
-                self._more = False
                 exceptions.handle(self.request,
                                   _("Unable to retrieve project information."))
         else:
-            self._more = False
             msg = \
                 _("Insufficient privilege level to view project information.")
             messages.info(self.request, msg)
