@@ -556,6 +556,8 @@ class AssociateIP(policy.PolicyTargetMixin, tables.LinkAction):
             return False
         if api.network.floating_ip_simple_associate_supported(request):
             return False
+        if instance.status == "ERROR":
+            return False
         return not is_deleting(instance)
 
     def get_link_url(self, datum):
@@ -576,6 +578,8 @@ class SimpleAssociateIP(policy.PolicyTargetMixin, tables.Action):
 
     def allowed(self, request, instance):
         if not api.network.floating_ip_simple_associate_supported(request):
+            return False
+        if instance.status == "ERROR":
             return False
         return not is_deleting(instance)
 
