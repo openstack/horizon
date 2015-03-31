@@ -245,6 +245,8 @@ class QuotaSet(Sequence):
 def get_service_from_catalog(catalog, service_type):
     if catalog:
         for service in catalog:
+            if 'type' not in service:
+                continue
             if service['type'] == service_type:
                 return service
     return None
@@ -269,25 +271,29 @@ ENDPOINT_TYPE_TO_INTERFACE = {
 
 
 def get_url_for_service(service, region, endpoint_type):
+    if 'type' not in service:
+        return None
+
     identity_version = get_version_from_service(service)
-    available_endpoints = [endpoint for endpoint in service['endpoints']
-                           if region == endpoint['region']]
+    service_endpoints = service.get('endpoints', [])
+    available_endpoints = [endpoint for endpoint in service_endpoints
+                           if region == _get_endpoint_region(endpoint)]
     """if we are dealing with the identity service and there is no endpoint
     in the current region, it is okay to use the first endpoint for any
     identity service endpoints and we can assume that it is global
     """
     if service['type'] == 'identity' and not available_endpoints:
-        available_endpoints = [endpoint for endpoint in service['endpoints']]
+        available_endpoints = [endpoint for endpoint in service_endpoints]
 
     for endpoint in available_endpoints:
         try:
             if identity_version < 3:
-                return endpoint[endpoint_type]
+                return endpoint.get(endpoint_type)
             else:
                 interface = \
                     ENDPOINT_TYPE_TO_INTERFACE.get(endpoint_type, '')
-                if endpoint['interface'] == interface:
-                    return endpoint['url']
+                if endpoint.get('interface') == interface:
+                    return endpoint.get('url')
         except (IndexError, KeyError):
             """it could be that the current endpoint just doesn't match the
             type, continue trying the next one
@@ -324,12 +330,26 @@ def is_service_enabled(request, service_type, service_name=None):
                                        service_type)
     if service:
         region = request.user.services_region
-        for endpoint in service['endpoints']:
+        for endpoint in service.get('endpoints', []):
+            if 'type' not in service:
+                continue
             # ignore region for identity
             if service['type'] == 'identity' or \
-               endpoint['region'] == region:
+               _get_endpoint_region(endpoint) == region:
                 if service_name:
-                    return service['name'] == service_name
+                    return service.get('name') == service_name
                 else:
                     return True
     return False
+
+
+def _get_endpoint_region(endpoint):
+    """Common function for getting the region from endpoint.
+
+    In Keystone V3, region has been deprecated in favor of
+    region_id.
+
+    This method provides a way to get region that works for
+    both Keystone V2 and V3.
+    """
+    return endpoint.get('region_id') or endpoint.get('region')
