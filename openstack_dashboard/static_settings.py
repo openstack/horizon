@@ -20,7 +20,7 @@ to match their distribution's standards.
 import xstatic.main
 import xstatic.pkg.angular
 import xstatic.pkg.angular_bootstrap
-import xstatic.pkg.angular_irdragndrop
+import xstatic.pkg.angular_lrdragndrop
 import xstatic.pkg.angular_smart_table
 import xstatic.pkg.bootstrap_datepicker
 import xstatic.pkg.bootstrap_scss
@@ -50,7 +50,7 @@ def get_staticfiles_dirs(webroot='/'):
             xstatic.main.XStatic(xstatic.pkg.angular_bootstrap,
                                  root_url=webroot).base_dir),
         ('horizon/lib/angular',
-            xstatic.main.XStatic(xstatic.pkg.angular_irdragndrop,
+            xstatic.main.XStatic(xstatic.pkg.angular_lrdragndrop,
                                  root_url=webroot).base_dir),
         ('horizon/lib/angular',
             xstatic.main.XStatic(xstatic.pkg.angular_smart_table,
