@@ -180,6 +180,7 @@ horizon.datatables.confirm = function (action) {
     return;
   }
   action_string = $action.text();
+  help_text = $action.attr("help_text") || "";
   name_string = "";
   // Add the display name defined by table.get_object_display(datum)
   closest_table_id = $(action).closest("table").attr("id");
@@ -199,7 +200,6 @@ horizon.datatables.confirm = function (action) {
     }
     name_string = interpolate(gettext("You have selected %s. "), [name_string]);
   }
-  help_text = $(action).attr("help_text");
   title = interpolate(gettext("Confirm %s"), [action_string]);
   body = name_string + gettext("Please confirm your selection. ") + help_text;
   modal = horizon.modals.create(title, body, action_string);

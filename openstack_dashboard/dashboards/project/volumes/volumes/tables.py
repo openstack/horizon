@@ -274,6 +274,7 @@ class DeleteTransfer(VolumePolicyTargetMixin, tables.Action):
     verbose_name = _("Cancel Transfer")
     policy_rules = (("volume", "volume:delete_transfer"),)
     classes = ('btn-danger',)
+    help_text = _("This action cannot be undone.")
 
     def allowed(self, request, volume):
         return (volume.status == "awaiting-transfer" and
