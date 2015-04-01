@@ -40,7 +40,7 @@ IMAGES_INDEX_URL = reverse('horizon:project:images:index')
 
 class CreateImageFormTests(test.TestCase):
     def test_no_location_or_file(self):
-        """The form will not be valid if both copy_from and image_file are not
+        """The form will not be valid if both image_url and image_file are not
         provided.
         """
         post = {
@@ -96,7 +96,7 @@ class UpdateImageFormTests(test.TestCase):
             'image_id': str(image.id),
             'description': u'Login with admin/admin',
             'source_type': u'url',
-            'copy_from': u'http://cloud-images.ubuntu.com/releases/'
+            'image_url': u'http://cloud-images.ubuntu.com/releases/'
                          u'oneiric/release/ubuntu-11.10-server-cloudimg'
                          u'-amd64-disk1.img',
             'disk_format': u'qcow2',
@@ -139,40 +139,26 @@ class ImageViewTests(test.TestCase):
     @test.create_stubs({api.glance: ('image_create',)})
     def test_image_create_post_copy_from(self):
         data = {
-            'name': u'Ubuntu 11.10',
-            'description': u'Login with admin/admin',
             'source_type': u'url',
-            'copy_from': u'http://cloud-images.ubuntu.com/releases/'
+            'image_url': u'http://cloud-images.ubuntu.com/releases/'
                          u'oneiric/release/ubuntu-11.10-server-cloudimg'
                          u'-amd64-disk1.img',
-            'disk_format': u'qcow2',
-            'architecture': u'x86-64',
-            'minimum_disk': 15,
-            'minimum_ram': 512,
-            'is_public': True,
-            'protected': False,
-            'method': 'CreateImageForm'}
+            'is_copying': True}
 
-        api.glance.image_create(IsA(http.HttpRequest),
-                                container_format="bare",
-                                copy_from=data['copy_from'],
-                                disk_format=data['disk_format'],
-                                is_public=True,
-                                protected=False,
-                                min_disk=data['minimum_disk'],
-                                min_ram=data['minimum_ram'],
-                                properties={
-                                    'description': data['description'],
-                                    'architecture': data['architecture']},
-                                name=data['name']). \
-            AndReturn(self.images.first())
-        self.mox.ReplayAll()
+        api_data = {'copy_from': data['image_url']}
+        self._test_image_create(data, api_data)
 
-        url = reverse('horizon:project:images:images:create')
-        res = self.client.post(url, data)
+    @test.create_stubs({api.glance: ('image_create',)})
+    def test_image_create_post_location(self):
+        data = {
+            'source_type': u'url',
+            'image_url': u'http://cloud-images.ubuntu.com/releases/'
+                         u'oneiric/release/ubuntu-11.10-server-cloudimg'
+                         u'-amd64-disk1.img',
+            'is_copying': False}
 
-        self.assertNoFormErrors(res)
-        self.assertEqual(res.status_code, 302)
+        api_data = {'location': data['image_url']}
+        self._test_image_create(data, api_data)
 
     @test.create_stubs({api.glance: ('image_create',)})
     def test_image_create_post_upload(self):
@@ -180,11 +166,17 @@ class ImageViewTests(test.TestCase):
         temp_file.write('123')
         temp_file.flush()
         temp_file.seek(0)
+
+        data = {'source_type': u'file',
+                'image_file': temp_file}
+
+        api_data = {'data': IsA(InMemoryUploadedFile)}
+        self._test_image_create(data, api_data)
+
+    def _test_image_create(self, extra_form_data, extra_api_data):
         data = {
-            'name': u'Test Image',
+            'name': u'Ubuntu 11.10',
             'description': u'Login with admin/admin',
-            'source_type': u'file',
-            'image_file': temp_file,
             'disk_format': u'qcow2',
             'architecture': u'x86-64',
             'minimum_disk': 15,
@@ -192,20 +184,23 @@ class ImageViewTests(test.TestCase):
             'is_public': True,
             'protected': False,
             'method': 'CreateImageForm'}
+        data.update(extra_form_data)
 
-        api.glance.image_create(IsA(http.HttpRequest),
-                                container_format="bare",
-                                disk_format=data['disk_format'],
-                                is_public=True,
-                                protected=False,
-                                min_disk=data['minimum_disk'],
-                                min_ram=data['minimum_ram'],
-                                properties={
-                                    'description': data['description'],
-                                    'architecture': data['architecture']},
-                                name=data['name'],
-                                data=IsA(InMemoryUploadedFile)). \
-            AndReturn(self.images.first())
+        api_data = {'container_format': 'bare',
+                    'disk_format': data['disk_format'],
+                    'is_public': True,
+                    'protected': False,
+                    'min_disk': data['minimum_disk'],
+                    'min_ram': data['minimum_ram'],
+                    'properties': {
+                        'description': data['description'],
+                        'architecture': data['architecture']},
+                    'name': data['name']}
+        api_data.update(extra_api_data)
+
+        api.glance.image_create(
+            IsA(http.HttpRequest),
+            **api_data).AndReturn(self.images.first())
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:images:images:create')

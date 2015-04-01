@@ -125,6 +125,7 @@ def image_update(request, image_id, **kwargs):
 def image_create(request, **kwargs):
     copy_from = kwargs.pop('copy_from', None)
     data = kwargs.pop('data', None)
+    location = kwargs.pop('location', None)
 
     image = glanceclient(request).images.create(**kwargs)
 
@@ -137,6 +138,11 @@ def image_create(request, **kwargs):
         thread.start_new_thread(image_update,
                                 (request, image.id),
                                 {'copy_from': copy_from,
+                                 'purge_props': False})
+    elif location:
+        thread.start_new_thread(image_update,
+                                (request, image.id),
+                                {'location': location,
                                  'purge_props': False})
 
     return image
