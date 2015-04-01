@@ -25,7 +25,6 @@
   ]);
 
   module.controller('LaunchInstanceFlavorHelpCtrl', [
-    '$scope',
     LaunchInstanceFlavorHelpCtrl
   ]);
 
@@ -279,7 +278,7 @@
     };
   }
 
-  function LaunchInstanceFlavorHelpCtrl($scope) {
+  function LaunchInstanceFlavorHelpCtrl() {
     var ctrl = this;
 
     ctrl.title = gettext('Flavor Help');

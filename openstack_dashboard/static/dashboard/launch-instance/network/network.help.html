@@ -1,6 +1,8 @@
 <div ng-controller="LaunchInstanceNetworkHelpCtrl as networkHelpCtrl">
   <h1>{$ ::networkHelpCtrl.title $}</h1>
-  <p ng-repeat="paragraph in networkHelpCtrl.paragraphs" ng-bind-html="::paragraph"></p>
+  <p ng-repeat="paragraph in ::networkHelpCtrl.paragraphs"
+    ng-bind-html="::paragraph"></p>
   <h4>{$ ::networkHelpCtrl.networkCharTitle $}</h4>
-  <p ng-repeat="networkCharParagraph in networkHelpCtrl.networkCharParagraphs" ng-bind-html="::networkCharParagraph"></p>
+  <p ng-repeat="networkCharParagraph in ::networkHelpCtrl.networkCharParagraphs"
+    ng-bind-html="::networkCharParagraph"></p>
 </div>
