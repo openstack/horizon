@@ -123,19 +123,34 @@ class SwiftApiTests(test.APITestCase):
         self.assertEqual(len(objects), len(objs))
         self.assertFalse(more)
 
-    def test_swift_get_object_with_data(self):
+    def test_swift_get_object_with_data_non_chunked(self):
         container = self.containers.first()
         object = self.objects.first()
 
         swift_api = self.stub_swiftclient()
-        swift_api.get_object(container.name, object.name) \
-            .AndReturn([object, object.data])
+        swift_api.get_object(
+            container.name, object.name, resp_chunk_size=None
+        ).AndReturn([object, object.data])
 
         self.mox.ReplayAll()
 
-        obj = api.swift.swift_get_object(self.request,
-                                         container.name,
-                                         object.name)
+        obj = api.swift.swift_get_object(self.request, container.name,
+                                         object.name, resp_chunk_size=None)
+        self.assertEqual(object.name, obj.name)
+
+    def test_swift_get_object_with_data_chunked(self):
+        container = self.containers.first()
+        object = self.objects.first()
+
+        swift_api = self.stub_swiftclient()
+        swift_api.get_object(
+            container.name, object.name, resp_chunk_size=api.swift.CHUNK_SIZE
+        ).AndReturn([object, object.data])
+
+        self.mox.ReplayAll()
+
+        obj = api.swift.swift_get_object(
+            self.request, container.name, object.name)
         self.assertEqual(object.name, obj.name)
 
     def test_swift_get_object_without_data(self):

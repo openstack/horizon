@@ -347,6 +347,19 @@ Valid values are  ``"AUTO"``(default), ``"VNC"``, ``"SPICE"``, ``"RDP"``,
 ``"SERIAL"`` is available since 2005.1(Kilo).
 
 
+``SWIFT_FILE_TRANSFER_CHUNK_SIZE``
+----------------------------------
+
+.. versionadded:: 2015.1(Kilo)
+
+Default: ``512 * 1024``
+
+This setting specifies the size of the chunk (in bytes) for downloading objects
+from Swift. Do not make it very large (higher than several dozens of Megabytes,
+exact number depends on your connection speed), otherwise you may encounter
+socket timeout. The default value is 524288 bytes (or 512 Kilobytes).
+
+
 ``INSTANCE_LOG_LENGTH``
 -----------------------
 

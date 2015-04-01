@@ -33,6 +33,7 @@ from openstack_dashboard.api import base
 
 LOG = logging.getLogger(__name__)
 FOLDER_DELIMITER = "/"
+CHUNK_SIZE = getattr(settings, 'SWIFT_FILE_TRANSFER_CHUNK_SIZE', 512 * 1024)
 # Swift ACL
 GLOBAL_READ_ACL = ".r:*"
 LIST_CONTENTS_ACL = ".rlistings"
@@ -326,10 +327,11 @@ def swift_delete_object(request, container_name, object_name):
     return True
 
 
-def swift_get_object(request, container_name, object_name, with_data=True):
+def swift_get_object(request, container_name, object_name, with_data=True,
+                     resp_chunk_size=CHUNK_SIZE):
     if with_data:
-        headers, data = swift_api(request).get_object(container_name,
-                                                      object_name)
+        headers, data = swift_api(request).get_object(
+            container_name, object_name, resp_chunk_size=resp_chunk_size)
     else:
         data = None
         headers = swift_api(request).head_object(container_name,

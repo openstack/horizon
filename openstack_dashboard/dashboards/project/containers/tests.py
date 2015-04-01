@@ -16,8 +16,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import copy
 import tempfile
 
+import django
 from django.core.files.uploadedfile import InMemoryUploadedFile  # noqa
 from django import http
 from django.utils import http as utils_http
@@ -338,19 +340,34 @@ class SwiftTests(test.TestCase):
         for container in self.containers.list():
             for obj in self.objects.list():
                 self.mox.ResetAll()  # mandatory in a for loop
-                api.swift.swift_get_object(IsA(http.HttpRequest),
-                                           container.name,
-                                           obj.name).AndReturn(obj)
+                obj = copy.copy(obj)
+                _data = obj.data
+
+                def make_iter():
+                    yield _data
+
+                obj.data = make_iter()
+                api.swift.swift_get_object(
+                    IsA(http.HttpRequest),
+                    container.name,
+                    obj.name,
+                    resp_chunk_size=api.swift.CHUNK_SIZE).AndReturn(obj)
                 self.mox.ReplayAll()
 
                 download_url = reverse(
                     'horizon:project:containers:object_download',
                     args=[container.name, obj.name])
                 res = self.client.get(download_url)
-                self.assertEqual(res.content, obj.data)
+
                 self.assertTrue(res.has_header('Content-Disposition'))
-                self.assertNotContains(res, INVALID_CONTAINER_NAME_1)
-                self.assertNotContains(res, INVALID_CONTAINER_NAME_2)
+                if django.VERSION >= (1, 5):
+                    self.assertEqual(b''.join(res.streaming_content), _data)
+                    self.assertNotContains(res, INVALID_CONTAINER_NAME_1)
+                    self.assertNotContains(res, INVALID_CONTAINER_NAME_2)
+                else:
+                    self.assertEqual(res.content, _data)
+                    self.assertNotContains(res, INVALID_CONTAINER_NAME_1)
+                    self.assertNotContains(res, INVALID_CONTAINER_NAME_2)
 
                 # Check that the returned Content-Disposition filename is well
                 # surrounded by double quotes and with commas removed
