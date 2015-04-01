@@ -103,6 +103,9 @@ limitations under the License.
      * @param {Object} params
      * Query parameters. Optional.
      *
+     * @param {string} params.resource_type
+     * Namespace resource type.
+     *
      * @param {boolean} params.paginate
      * True to paginate automatically.
      *
@@ -131,20 +134,6 @@ limitations under the License.
       return apiService.get('/api/glance/metadefs/namespaces/', config)
         .error(function () {
           horizon.alert('error', gettext('Unable to retrieve namespaces.'));
-      });
-    };
-
-     /**
-     * @name hz.api.glanceAPI.getImages
-     * @description
-     * Get a specific namespace.
-     *
-     * http://docs.openstack.org/developer/glance/metadefs-concepts.html
-     */
-    this.getNamespace = function(namespace) {
-      return apiService.get('/api/glance/metadefs/namespaces/' + namespace)
-        .error(function () {
-          horizon.alert('error', gettext('Unable to retrieve namespace.'));
       });
     };
 

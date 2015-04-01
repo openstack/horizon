@@ -15,6 +15,7 @@
 """API for the glance service.
 """
 
+from itertools import izip
 from django.views import generic
 
 from openstack_dashboard import api
@@ -22,7 +23,7 @@ from openstack_dashboard.api.rest import utils as rest_utils
 from openstack_dashboard.api.rest import urls
 
 
-CLIENT_KEYWORDS = {'marker', 'sort_dir', 'sort_key', 'paginate'}
+CLIENT_KEYWORDS = {'resource_type', 'marker', 'sort_dir', 'sort_key', 'paginate'}
 
 
 @urls.register
@@ -89,26 +90,6 @@ class Images(generic.View):
 
 
 @urls.register
-class MetadefsNamespace(generic.View):
-    """API for Glance Metadata Definitions.
-
-       http://docs.openstack.org/developer/glance/metadefs-concepts.html
-    """
-    url_regex = r'glance/metadefs/namespaces/(?P<namespace>.+|default)$'
-
-    @rest_utils.ajax()
-    def get(self, request, namespace):
-        """Get a specific metadata definition namespaces.
-
-        Returns the namespace. GET params are passed through.
-
-        Example GET:
-        http://localhost/api/glance/metadefs/namespaces/OS::Compute::Watchdog
-        """
-        return api.glance.metadefs_namespace_get(request, namespace)
-
-
-@urls.register
 class MetadefsNamespaces(generic.View):
     """API for Single Glance Metadata Definitions.
 
@@ -129,6 +110,9 @@ class MetadefsNamespaces(generic.View):
         The following get parameters may be passed in the GET
         request:
 
+        :param resource_type: Namespace resource type.
+            If specified returned namespace properties will have prefixes
+            proper for selected resource type.
         :param paginate: If true will perform pagination based on settings.
         :param marker: Specifies the namespace of the last-seen namespace.
              The typical pattern of limit and marker is to make an
@@ -147,14 +131,11 @@ class MetadefsNamespaces(generic.View):
         filters.
         """
 
-        filters, kwargs = rest_utils.parse_filters_kwargs(request,
-                                                          CLIENT_KEYWORDS)
+        filters, kwargs = rest_utils.parse_filters_kwargs(
+            request, CLIENT_KEYWORDS
+        )
 
-        namespaces, has_more, has_prev = api.glance.metadefs_namespace_list(
-            request, filters=filters, **kwargs)
-
-        return {
-            'items': [n.to_dict() for n in namespaces],
-            'has_more_data': has_more,
-            'has_prev_data': has_prev,
-        }
+        names = ('items', 'has_more_data', 'has_prev_data')
+        return dict(izip(names, api.glance.metadefs_namespace_full_list(
+            request, filters=filters, **kwargs
+        )))
