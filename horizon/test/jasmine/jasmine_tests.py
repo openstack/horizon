@@ -41,6 +41,7 @@ class ServicesTests(test.JasmineTests):
         'angular/transfer-table/transfer-table.js',
         'angular/validators/validators.js',
         'angular/wizard/wizard.js',
+        'angular/workflow/workflow.js',
         'angular/metadata-display/metadata-display.js',
         'horizon/js/angular/filters/filters.js',
     ]
@@ -59,6 +60,7 @@ class ServicesTests(test.JasmineTests):
         'angular/transfer-table/transfer-table.spec.js',
         'angular/wizard/wizard.spec.js',
         'angular/validators/validators.spec.js',
+        'angular/workflow/workflow.spec.js',
         'angular/metadata-tree/metadata-tree.spec.js',
         'angular/metadata-display/metadata-display.spec.js',
         'horizon/js/angular/filters/filters.spec.js',

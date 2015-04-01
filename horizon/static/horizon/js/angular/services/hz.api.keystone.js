@@ -39,6 +39,41 @@ limitations under the License.
         });
     };
 
+    /**
+    * @name hz.api.keystoneApi.getCurrentUserSession
+    * @description
+    * Gets the current User Session Information
+    * @example
+    * {
+    * "available_services_regions": [
+    *     "RegionOne"
+    * ],
+    * "domain_id": null,
+    * "domain_name": null,
+    * "enabled": true,
+    * "id": "2138efda19264c64b69551c6b08054c9",
+    * "is_superuser": true,
+    * "project_id": "53fafe441399439a852d3bd81c22caf6",
+    * "project_name": "demo",
+    * "roles": [
+    *     {
+    *         "name": "admin"
+    *     }
+    * ],
+    * "services_region": "RegionOne",
+    * "user_domain_id": "default",
+    * "user_domain_name": "Default",
+    * "username": "admin"
+    * }
+    */
+    this.getCurrentUserSession = function(config) {
+      return apiService.get('/api/keystone/user-session/', config)
+        .error(function () {
+          horizon.alert('error',
+            gettext('Unable to retrieve the current user session.'));
+        });
+    };
+
     this.getUser = function(user_id) {
       return apiService.get('/api/keystone/users/' + user_id)
         .error(function () {
@@ -220,6 +255,46 @@ limitations under the License.
   angular.module('hz.api')
     .service('keystoneAPI', ['apiService', KeystoneAPI]);
 
+   /**
+   * @ngdoc service
+   * @name hz.api.userSession
+   * @description
+   * Provides cached access to the user session. The cache may be reset
+   * at any time by accessing the cache and calling removeAll, which means
+   * that the next call to any function in this service will retrieve fresh
+   * results after the cache is cleared. This allows programmatic refresh of
+   * the cache.
+   *
+   * The cache in current horizon (Kilo non-single page app) only has a
+   * lifetime of the current page. The cache is reloaded every time you change
+   * panels. It also happens when you change the region selector at the top
+   * of the page, and when you log back in.
+   *
+   * So, at least for now, this seems to be a reliable way that will
+   * make only a single request to get user information for a
+   * particular page or modal. Making this a service allows it to be injected
+   * and used transparently where needed without making every single use of it
+   * pass it through as an argument.
+   */
+  function userSession($cacheFactory, keystoneAPI) {
+
+    var service = {};
+
+    service.cache = $cacheFactory('hz.api.userSession', {capacity: 1});
+
+    service.get = function () {
+      return keystoneAPI.getCurrentUserSession({cache: service.cache})
+        .then(function (response) {
+          return response.data;
+        }
+      );
+    };
+
+    return service;
+  }
+
+  angular.module('hz.api')
+    .factory('userSession', ['$cacheFactory', 'keystoneAPI', userSession]);
 
   /**
    * @ngdoc service
@@ -230,49 +305,133 @@ limitations under the License.
    * by accessing the cache and calling removeAll. The next call to any
    * function will retrieve fresh results.
    *
-   * The enabled extensions do not change often, so using cached data will
-   * speed up results. Even on a local devstack in informal testing,
-   * this saved between 30 - 100 ms per request.
+   * The cache in current horizon (Kilo non-single page app) only has a
+   * lifetime of the current page. The cache is reloaded every time you change
+   * panels. It also happens when you change the region selector at the top
+   * of the page, and when you log back in.
+   *
+   * So, at least for now, this seems to be a reliable way that will
+   * make only a single request to get user information for a
+   * particular page or modal. Making this a service allows it to be injected
+   * and used transparently where needed without making every single use of it
+   * pass it through as an argument.
    */
-  function ServiceCatalog($cacheFactory, $q, keystoneAPI) {
+  function serviceCatalog($cacheFactory, $q, keystoneAPI, userSession) {
 
     var service = {};
     service.cache = $cacheFactory('hz.api.serviceCatalog', {capacity: 1});
 
+     /**
+     * @name hz.api.serviceCatalog.get
+     * @description
+     * Returns the service catalog. This is cached.
+     *
+     * @example
+     *
+     ```js
+        serviceCatalog.get()
+          .then(doSomething, doSomethingElse);
+     ```
+     */
     service.get = function() {
       return keystoneAPI.serviceCatalog({cache: service.cache})
-        .then(function(data){
-          return data.data;
+        .then(function(response){
+          return response.data;
         }
       );
     };
 
-    service.ifTypeEnabled = function(desired, doThis) {
-      return service.get().then(function(result){
-          if (enabled(result, 'type', desired)){
-            return $q.when(doThis());
-          }
+    /**
+     * @name hz.api.serviceCatalog.ifTypeEnabled
+     * @description
+     * Checks if the desired service is enabled.  If it is enabled, use the
+     * promise returned to execute the desired function.  If it is not enabled,
+     * The promise will be rejected.
+     *
+     * @param {string} desiredType The type of service desired.
+     *
+     * @example
+     * Assume if the network service is enabled, you want to get networks,
+     * if it isn't, then you will do something else.
+     * Assume getNetworks is a function that hits Neutron.
+     * Assume doSomethingElse is a function that does something else if
+     * the network service is not enabled (optional)
+     *
+     ```js
+        serviceCatalog.ifTypeEnabled('network')
+          .then(getNetworks, doSomethingElse);
+     ```
+     */
+    service.ifTypeEnabled = function (desiredType) {
+      var deferred = $q.defer();
+
+      $q.all(
+        {
+          session: userSession.get(),
+          catalog: service.get()
         }
+      ).then(
+        onDataLoaded,
+        onDataFailure
       );
+
+      function onDataLoaded(d) {
+        if (typeHasEndpointsInRegion(d.catalog,
+                                     desiredType,
+                                     d.session.services_region)) {
+          deferred.resolve();
+        } else {
+          deferred.reject(interpolate(
+            gettext('Service type is not enabled: %(desiredType)s'),
+            {desiredType: desiredType},
+            true));
+        }
+      }
+
+      function onDataFailure() {
+        deferred.reject(gettext('Cannot get service catalog from keystone.'));
+      }
+
+      return deferred.promise;
     };
 
-    function enabled(resources, key, desired) {
-      if(resources) {
-        return resources.some(function (resource) {
-          return resource[key] === desired;
-        });
+    function typeHasEndpointsInRegion(catalog, desiredType, desiredRegion) {
+      var matchingSvcs = catalog.filter(function (svc) {
+        return svc.type === desiredType;
+      });
+
+      // Ignore region for identity. Identity service endpoint
+      // should not change for different regions.
+      if (desiredType === 'identity' && matchingSvcs.length > 0) {
+        return true;
       } else {
-        return false;
+        return matchingSvcs.some(function (svc) {
+          return svc.endpoints.some(function (endpoint) {
+            return getEndpointRegion(endpoint) === desiredRegion;
+          });
+        });
       }
     }
 
-     return service;
+    /*
+    * In Keystone V3, region has been deprecated in favor of
+    * region_id.
+    *
+    * This method provides a way to get region that works for
+    * both Keystone V2 and V3.
+    */
+    function getEndpointRegion(endpoint) {
+      return endpoint.region_id || endpoint.region;
+    }
+
+    return service;
   }
 
   angular.module('hz.api')
     .factory('serviceCatalog', ['$cacheFactory',
                                 '$q',
                                 'keystoneAPI',
-                                ServiceCatalog]);
+                                'userSession',
+                                serviceCatalog]);
 
 }());

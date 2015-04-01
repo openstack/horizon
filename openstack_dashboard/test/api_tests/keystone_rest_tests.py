@@ -581,3 +581,21 @@ class KeystoneRestTestCase(test.TestCase):
         content = jsonutils.dumps(request.user.service_catalog,
                                   sort_keys=settings.DEBUG)
         self.assertEqual(content, response.content)
+
+    #
+    # User Session
+    #
+    @mock.patch.object(keystone.api, 'keystone')
+    def test_user_session_get(self, kc):
+        request = self.mock_rest_request()
+        request.user = mock.Mock(
+            services_region='some region',
+            super_secret_thing='not here',
+            is_authenticated=lambda: True,
+            spec=['services_region', 'super_secret_thing']
+        )
+        response = keystone.UserSession().get(request)
+        self.assertStatusCode(response, 200)
+        content = jsonutils.loads(response.content)
+        self.assertEqual(content['services_region'], 'some region')
+        self.assertNotIn('super_secret_thing', content)

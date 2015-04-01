@@ -48,7 +48,7 @@
   function LaunchInstanceNetworkCtrl($scope) {
 
     $scope.label = {
-      title: gettext('Network'),
+      title: gettext('Networks'),
       subtitle: gettext('Networks provide the communication channels for instances in the cloud.'),
       network: gettext('Network'),
       subnet_associated: gettext('Subnets Associated'),

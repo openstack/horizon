@@ -27,6 +27,7 @@ LAUNCH_INST = 'dashboard/launch-instance/'
 
 ADD_JS_FILES = [
     'dashboard/dashboard.module.js',
+    'dashboard/workflow/workflow.js',
     LAUNCH_INST + 'launch-instance.js',
     LAUNCH_INST + 'launch-instance.model.js',
     LAUNCH_INST + 'source/source.js',
@@ -40,6 +41,7 @@ ADD_JS_FILES = [
 
 ADD_JS_SPEC_FILES = [
     'dashboard/dashboard.module.spec.js',
+    'dashboard/workflow/workflow.spec.js',
     LAUNCH_INST + 'launch-instance.spec.js',
     LAUNCH_INST + 'launch-instance.model.spec.js',
     LAUNCH_INST + 'source/source.spec.js',

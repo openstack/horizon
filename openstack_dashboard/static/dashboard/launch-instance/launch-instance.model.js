@@ -1,7 +1,8 @@
 (function () {
   'use strict';
 
-  var push = Array.prototype.push;
+  var push = Array.prototype.push,
+      noop = angular.noop;
 
   /**
    * @ngdoc overview
@@ -183,22 +184,27 @@
 
           model.allowedBootSources.length = 0;
 
-          promise = $q.all(
+          promise = $q.all([
             getImages(),
-            neutronAPI.getNetworks().then(onGetNetworks),
-            novaAPI.getAvailabilityZones().then(onGetAvailabilityZones),
-            novaAPI.getFlavors().then(onGetFlavors),
-            novaAPI.getKeypairs().then(onGetKeypairs),
-            novaAPI.getLimits().then(onGetNovaLimits),
-            securityGroup.query().then(onGetSecurityGroups),
-            serviceCatalog.ifTypeEnabled('volume', onLoadVolumes)
-          );
+            novaAPI.getAvailabilityZones().then(onGetAvailabilityZones, noop),
+            novaAPI.getFlavors().then(onGetFlavors, noop),
+            novaAPI.getKeypairs().then(onGetKeypairs, noop),
+            novaAPI.getLimits().then(onGetNovaLimits, noop),
+            securityGroup.query().then(onGetSecurityGroups, noop),
+            serviceCatalog.ifTypeEnabled('network').then(getNetworks, noop),
+            serviceCatalog.ifTypeEnabled('volume').then(getVolumes, noop)
+          ]);
 
-          promise.then(function() {
-            model.initializing = false;
-            model.initialized = true;
-            initPromise = null;
-          });
+          promise.then(
+            function() {
+              model.initializing = false;
+              model.initialized = true;
+            },
+            function () {
+              model.initializing = false;
+              model.initialized = false;
+            }
+          );
         }
 
         return promise;
@@ -322,6 +328,10 @@
 
       // Networks
 
+      function getNetworks() {
+        return neutronAPI.getNetworks().then(onGetNetworks, noop);
+      }
+
       function onGetNetworks(data) {
         model.networks.length = 0;
         push.apply(model.networks, data.data.items);
@@ -369,21 +379,21 @@
         addAllowedBootSource(model.imageSnapshots, SOURCE_TYPE_SNAPSHOT, gettext('Instance Snapshot'));
       }
 
-      function onLoadVolumes(){
-        var volumeLoadPromises = [];
+      function getVolumes(){
+        var volumePromises = [];
         // Need to check if Volume service is enabled before getting volumes
         model.volumeBootable = true;
-        addAllowedBootSource(model.volumes, SOURCE_TYPE_VOLUME, 'Volume');
+        addAllowedBootSource(model.volumes, SOURCE_TYPE_VOLUME, gettext('Volume'));
         addAllowedBootSource(model.volumeSnapshots, SOURCE_TYPE_VOLUME_SNAPSHOT, gettext('Volume Snapshot'));
-        volumeLoadPromises.push(cinderAPI.getVolumes({ status: 'available',  bootable: 1 }).then(onGetVolumes));
-        volumeLoadPromises.push(cinderAPI.getVolumeSnapshots({ status: 'available' }).then(onGetVolumeSnapshots));
+        volumePromises.push(cinderAPI.getVolumes({ status: 'available',  bootable: 1 }).then(onGetVolumes));
+        volumePromises.push(cinderAPI.getVolumeSnapshots({ status: 'available' }).then(onGetVolumeSnapshots));
 
         // Can only boot image to volume if the Nova extension is enabled.
         novaExtensions.ifNameEnabled('BlockDeviceMappingV2Boot', function(){
           model.allowCreateVolumeFromImage = true;
         });
 
-        return $q.all(volumeLoadPromises);
+        return $q.all(volumePromises);
       }
 
       function onGetVolumes(data) {

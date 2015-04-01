@@ -529,3 +529,31 @@ class ServiceCatalog(generic.View):
         user.
         """
         return request.user.service_catalog
+
+
+@urls.register
+class UserSession(generic.View):
+    """API for a single keystone user.
+    """
+    url_regex = r'keystone/user-session/$'
+    allowed_fields = {
+        'available_services_regions',
+        'domain_id',
+        'domain_name',
+        'enabled',
+        'id',
+        'is_superuser',
+        'project_id',
+        'project_name',
+        'roles',
+        'services_region',
+        'user_domain_id',
+        'user_domain_name',
+        'username'
+    }
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """Get the current user session.
+        """
+        return {k: getattr(request.user, k, None) for k in self.allowed_fields}
