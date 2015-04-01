@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-19 11:25+0000\n"
-"Last-Translator: Orizhial <contact@prunier.es>\n"
+"POT-Creation-Date: 2015-03-31 23:04-0500\n"
+"PO-Revision-Date: 2015-04-01 02:20+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -186,24 +186,35 @@ msgstr "Ayuda"
 msgid "Sign Out"
 msgstr "Salir"
 
+#: templates/auth/_description.html:9
+msgid ""
+"\n"
+"      If you are not sure which authentication method to use, contact your administrator.\n"
+"    "
+msgstr ""
+
 #: templates/auth/_login.html:5
 msgid "Log In"
 msgstr "Iniciar sesión"
 
-#: templates/auth/_login.html:15
+#: templates/auth/_login.html:27
 msgid "You do not have permission to access the resource:"
 msgstr "No tiene permisos para acceder al recurso:"
 
-#: templates/auth/_login.html:17
+#: templates/auth/_login.html:29
 #, python-format
 msgid ""
 "Login as different user or go back to <a href=\"%(home_url)s\"> home "
 "page</a>"
 msgstr "Inicie sesión con otro usuario o volver a la <a href=\"%(home_url)s\"> página de inicio</a>"
 
-#: templates/auth/_login.html:32
+#: templates/auth/_login.html:45
 msgid "Sign In"
 msgstr "Iniciar sesión"
+
+#: templates/auth/_login.html:46
+msgid "Connect"
+msgstr ""
 
 #: templates/auth/login.html:4
 msgid "Login"

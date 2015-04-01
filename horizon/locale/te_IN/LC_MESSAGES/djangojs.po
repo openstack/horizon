@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-18 20:07-0500\n"
-"PO-Revision-Date: 2015-03-18 23:58+0000\n"
+"POT-Creation-Date: 2015-03-31 23:04-0500\n"
+"PO-Revision-Date: 2015-04-01 04:04+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Telugu (India) (http://www.transifex.com/projects/p/horizon/language/te_IN/)\n"
 "MIME-Version: 1.0\n"
@@ -72,6 +72,7 @@ msgid "Duplicate keys are not allowed"
 msgstr ""
 
 #: static/angular/metadata-tree/metadata-tree.js:45
+#: static/angular/table/basic-table.js:6
 #: static/horizon/js/horizon.forms.js:184
 msgid "Filter"
 msgstr "వడియగట్టు"
@@ -149,6 +150,10 @@ msgstr ""
 msgid "Found %(found)s of %(total)s"
 msgstr ""
 
+#: static/angular/transfer-table/transfer-table.js:166
+msgid "Click here to expand the row and view the errors."
+msgstr ""
+
 #: static/angular/wizard/wizard.js:8
 msgid "Back"
 msgstr ""
@@ -179,7 +184,7 @@ msgstr "  సమాచారం అందుబాటు లో లేదు"
 msgid "An error occurred. Please try again later."
 msgstr "లోపము జరిగినది.  దయచేసి మరల  ప్రయత్నించండి"
 
-#: static/horizon/js/horizon.firewalls.js:30
+#: static/horizon/js/horizon.firewalls.js:32
 #: static/horizon/js/horizon.instances.js:31
 msgid "There was a problem communicating with the server, please try again."
 msgstr "సర్వరు తొ సంభాషించుటలో లోపము జరిగినది. దయచేసి మరల  ప్రయత్నించండి"
@@ -308,6 +313,7 @@ msgid "Please confirm your selection. "
 msgstr ""
 
 #: static/horizon/js/horizon.tables.js:369
+#: static/horizon/js/angular/filters/filters.js:163
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"

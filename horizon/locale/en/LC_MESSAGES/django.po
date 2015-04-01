@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-20 01:51-0500\n"
+"POT-Creation-Date: 2015-04-01 01:16-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -182,22 +182,34 @@ msgstr ""
 msgid "Sign Out"
 msgstr ""
 
+#: templates/auth/_description.html:9
+msgid ""
+"\n"
+"      If you are not sure which authentication method to use, contact your "
+"administrator.\n"
+"    "
+msgstr ""
+
 #: templates/auth/_login.html:5
 msgid "Log In"
 msgstr ""
 
-#: templates/auth/_login.html:15
+#: templates/auth/_login.html:27
 msgid "You do not have permission to access the resource:"
 msgstr ""
 
-#: templates/auth/_login.html:17
+#: templates/auth/_login.html:29
 #, python-format
 msgid ""
 "Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
 msgstr ""
 
-#: templates/auth/_login.html:32
+#: templates/auth/_login.html:45
 msgid "Sign In"
+msgstr ""
+
+#: templates/auth/_login.html:46
+msgid "Connect"
 msgstr ""
 
 #: templates/auth/login.html:4

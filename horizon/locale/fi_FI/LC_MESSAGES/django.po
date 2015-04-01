@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-17 03:17+0000\n"
+"POT-Creation-Date: 2015-03-31 23:04-0500\n"
+"PO-Revision-Date: 2015-04-01 02:20+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/horizon/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
@@ -183,24 +183,35 @@ msgstr "Apua"
 msgid "Sign Out"
 msgstr "Kirjaudu Ulos"
 
+#: templates/auth/_description.html:9
+msgid ""
+"\n"
+"      If you are not sure which authentication method to use, contact your administrator.\n"
+"    "
+msgstr ""
+
 #: templates/auth/_login.html:5
 msgid "Log In"
 msgstr "Kirjaudu"
 
-#: templates/auth/_login.html:15
+#: templates/auth/_login.html:27
 msgid "You do not have permission to access the resource:"
 msgstr "Sinulla ei ole oikeutta käyttää resurssia:"
 
-#: templates/auth/_login.html:17
+#: templates/auth/_login.html:29
 #, python-format
 msgid ""
 "Login as different user or go back to <a href=\"%(home_url)s\"> home "
 "page</a>"
 msgstr "Kirjaudu toisena käyttäjänä tai mene takaisin <a href=\"%(home_url)s\">kotisivulle</a>"
 
-#: templates/auth/_login.html:32
+#: templates/auth/_login.html:45
 msgid "Sign In"
 msgstr "Kirjaudu"
+
+#: templates/auth/_login.html:46
+msgid "Connect"
+msgstr ""
 
 #: templates/auth/login.html:4
 msgid "Login"

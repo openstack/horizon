@@ -9,12 +9,13 @@
 # Shang Wu <wu1982@gmail.com>, 2015
 # Tom Fifield <tom@openstack.org>, 2015
 # Zhang Xiaowei <zero00072@gmail.com>, 2014
+# Zhang Xiaowei <zero00072@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-29 10:30-0500\n"
-"PO-Revision-Date: 2015-03-30 02:21+0000\n"
+"POT-Creation-Date: 2015-03-31 23:04-0500\n"
+"PO-Revision-Date: 2015-03-31 17:52+0000\n"
 "Last-Translator: Zhang Xiaowei <zero00072@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -105,7 +106,7 @@ msgstr "已使用的處理器時數"
 
 #: api/ceilometer.py:952
 msgid "Average CPU utilization"
-msgstr "平均 CPU 使用量"
+msgstr "平均處理器使用量"
 
 #: api/ceilometer.py:956
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:28
@@ -666,7 +667,7 @@ msgstr "名稱"
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:22
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:19
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:50
-#: dashboards/project/instances/tables.py:1026
+#: dashboards/project/instances/tables.py:1030
 #: dashboards/project/instances/templates/instances/_detail_overview.html:16
 #: dashboards/project/instances/workflows/create_instance.py:81
 #: dashboards/project/volumes/volumes/forms.py:122
@@ -913,7 +914,6 @@ msgstr "加入/移除主機到聚合中"
 #: dashboards/identity/users/views.py:209
 #: dashboards/project/instances/workflows/update_instance.py:133
 #: dashboards/project/networks/subnets/workflows.py:159
-#: dashboards/project/volumes/volumes/views.py:278
 #: dashboards/settings/user/views.py:30
 msgid "Save"
 msgstr "儲存"
@@ -1108,7 +1108,7 @@ msgstr "詮釋資料的項目"
 #: dashboards/project/overview/views.py:32 usage/quotas.py:63
 #: usage/tables.py:33
 msgid "VCPUs"
-msgstr "虛擬 CPU 數"
+msgstr "虛擬處理器數"
 
 #: dashboards/admin/defaults/tables.py:46
 #: dashboards/admin/defaults/workflows.py:42
@@ -1124,7 +1124,7 @@ msgstr "虛擬 CPU 數"
 #: dashboards/project/databases/views.py:48
 #: dashboards/project/databases/templates/databases/index.html:3
 #: dashboards/project/instances/panel.py:23
-#: dashboards/project/instances/tables.py:1045
+#: dashboards/project/instances/tables.py:1049
 #: dashboards/project/instances/views.py:55
 #: dashboards/project/instances/templates/instances/index.html:3
 #: dashboards/project/network_topology/instances/tables.py:23
@@ -1194,10 +1194,10 @@ msgstr "浮動 IP"
 #: dashboards/identity/projects/workflows.py:71
 #: dashboards/project/access_and_security/tabs.py:43
 #: dashboards/project/access_and_security/security_groups/tables.py:149
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:29
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:32
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:42
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:215
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:32
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:35
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:47
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:222
 #: dashboards/project/instances/templates/instances/_detail_overview.html:85
 #: dashboards/project/instances/workflows/create_instance.py:544
 #: dashboards/project/instances/workflows/update_instance.py:80
@@ -1494,7 +1494,7 @@ msgstr "虛擬硬體樣板資訊"
 msgid ""
 "Flavors define the sizes for RAM, disk, number of cores, and other resources"
 " and can be selected when users deploy instances."
-msgstr "虛擬硬體樣板定義用戶布署雲實例時的隨機存取記憶體容量、硬碟容量、核心數和其他可被選擇的資源。"
+msgstr "虛擬硬體樣板定義用戶布署雲實例時的隨機存取記憶體容量、硬碟容量、核心數和其他可選擇的資源。"
 
 #: dashboards/admin/flavors/workflows.py:72
 #: dashboards/admin/flavors/workflows.py:239
@@ -1524,7 +1524,7 @@ msgstr "虛擬硬體樣板存取權"
 msgid ""
 "Select the projects where the flavors will be used. If no projects are "
 "selected, then the flavor will be available in all projects."
-msgstr "選擇要使用虛擬硬體樣板的專案。若未選擇專案，此虛擬硬體樣板將被用於所有的專案。"
+msgstr "選擇要使用虛擬硬體樣板的專案。若未選擇專案，此虛擬硬體樣板將用於所有的專案。"
 
 #: dashboards/admin/flavors/workflows.py:160
 msgid "All Projects"
@@ -1639,8 +1639,8 @@ msgstr "當地儲存容量（總共）"
 #: dashboards/admin/hypervisors/tables.py:71
 #: dashboards/project/databases/tables.py:320
 #: dashboards/project/databases/workflows/create_instance.py:35
-#: dashboards/project/instances/tables.py:986
-#: dashboards/project/instances/tables.py:1009
+#: dashboards/project/instances/tables.py:990
+#: dashboards/project/instances/tables.py:1013
 #: dashboards/project/instances/workflows/create_instance.py:84
 #: dashboards/project/overview/views.py:32 usage/tables.py:80
 msgid "Instance Name"
@@ -1865,7 +1865,7 @@ msgstr "區域"
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
 #: dashboards/project/images/images/tables.py:247
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
-#: dashboards/project/instances/tables.py:1021
+#: dashboards/project/instances/tables.py:1025
 #: dashboards/project/instances/templates/instances/_detail_overview.html:14
 #: dashboards/project/loadbalancers/tables.py:324
 #: dashboards/project/loadbalancers/tables.py:377
@@ -1981,7 +1981,7 @@ msgstr "映像檔名稱 ="
 
 #: dashboards/admin/images/tables.py:62
 #: dashboards/admin/instances/tables.py:99
-#: dashboards/project/instances/tables.py:987
+#: dashboards/project/instances/tables.py:991
 msgid "Status ="
 msgstr "狀態 ="
 
@@ -2000,7 +2000,7 @@ msgstr "最大容量（GB）"
 #: dashboards/admin/images/tables.py:71
 #: dashboards/admin/instances/tables.py:132
 #: dashboards/project/images/images/tables.py:242
-#: dashboards/project/instances/tables.py:1011
+#: dashboards/project/instances/tables.py:1015
 #: dashboards/project/instances/templates/instances/_detail_overview.html:114
 #: dashboards/project/instances/workflows/create_instance.py:108
 #: dashboards/project/volumes/volumes/forms.py:638
@@ -2261,12 +2261,12 @@ msgid "IPv6 Address ="
 msgstr "IPv6 位址 ="
 
 #: dashboards/admin/instances/tables.py:100
-#: dashboards/project/instances/tables.py:988
+#: dashboards/project/instances/tables.py:992
 msgid "Image ID ="
 msgstr "映像檔識別號 ="
 
 #: dashboards/admin/instances/tables.py:101
-#: dashboards/project/instances/tables.py:989
+#: dashboards/project/instances/tables.py:993
 msgid "Flavor ID ="
 msgstr "虛擬硬體樣板識別號 ="
 
@@ -2293,7 +2293,7 @@ msgstr "專案"
 #: dashboards/project/access_and_security/floating_ips/tables.py:194
 #: dashboards/project/access_and_security/floating_ips/workflows.py:33
 #: dashboards/project/access_and_security/floating_ips/workflows.py:40
-#: dashboards/project/instances/tables.py:1013
+#: dashboards/project/instances/tables.py:1017
 #: dashboards/project/loadbalancers/tables.py:367
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:29
 #: dashboards/project/routers/templates/routers/_detail_overview.html:40
@@ -2308,7 +2308,7 @@ msgstr "IP 位址"
 #: dashboards/project/databases/tables.py:327
 #: dashboards/project/images/images/tables.py:263
 #: dashboards/project/images/templates/images/images/_detail_overview.html:46
-#: dashboards/project/instances/tables.py:1016
+#: dashboards/project/instances/tables.py:1020
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:7
 #: dashboards/project/volumes/backups/tables.py:123
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:37
@@ -2319,17 +2319,17 @@ msgid "Size"
 msgstr "容量"
 
 #: dashboards/admin/instances/tables.py:147
-#: dashboards/project/instances/tables.py:1028
+#: dashboards/project/instances/tables.py:1032
 msgid "Task"
 msgstr "任務"
 
 #: dashboards/admin/instances/tables.py:154
-#: dashboards/project/instances/tables.py:1035
+#: dashboards/project/instances/tables.py:1039
 msgid "Power State"
 msgstr "電源狀態"
 
 #: dashboards/admin/instances/tables.py:157
-#: dashboards/project/instances/tables.py:1038 usage/tables.py:83
+#: dashboards/project/instances/tables.py:1042 usage/tables.py:83
 msgid "Time since created"
 msgstr "壽命"
 
@@ -2712,7 +2712,7 @@ msgstr "命名空間"
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:18
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:82
 #: dashboards/project/data_processing/jobs/workflows/launch.py:407
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:394
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:402
 #: dashboards/project/database_backups/tables.py:165
 #: dashboards/project/database_backups/templates/database_backups/details.html:32
 #: dashboards/project/databases/tables.py:388
@@ -2731,7 +2731,7 @@ msgstr "已新增"
 #: dashboards/admin/networks/views.py:59
 #: dashboards/project/images/templates/images/images/_detail_overview.html:20
 #: dashboards/project/images/templates/images/images/_detail_overview.html:31
-#: dashboards/project/instances/tables.py:642
+#: dashboards/project/instances/tables.py:646
 #: dashboards/project/networks/templates/networks/_detail_overview.html:14
 #: dashboards/project/networks/templates/networks/_detail_overview.html:16
 #: dashboards/project/networks/templates/networks/_detail_overview.html:23
@@ -2797,7 +2797,7 @@ msgid ""
 "Namespaces can be associated to different resource types. This makes the "
 "properties in the namespace visible in the 'Update Metadata' action for that"
 " type of resource."
-msgstr "可被連結到不同資源類型的命名空間。這會讓那資源類型的「更新詮釋資料」行為裡看到命名空間這個屬性。"
+msgstr "可連結到不同資源類型的命名空間。這會讓那資源類型的「更新詮釋資料」行為裡看到命名空間這個屬性。"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:61
 msgid ""
@@ -4248,6 +4248,7 @@ msgstr "雲硬碟類型的額外規格"
 #: dashboards/project/containers/templates/containers/_object_detail.html:25
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:104
 #: dashboards/project/stacks/templates/stacks/_preview_details.html:58
+#: dashboards/project/volumes/volumes/views.py:245
 msgid "Close"
 msgstr "關閉"
 
@@ -4525,7 +4526,7 @@ msgstr "新增 QoS 規格"
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
 #: dashboards/project/data_processing/jobs/workflows/create.py:156
 #: dashboards/project/data_processing/jobs/workflows/launch.py:406
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:250
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:257
 #: dashboards/project/networks/workflows.py:342
 #: dashboards/project/networks/subnets/workflows.py:57
 msgid "Create"
@@ -5878,7 +5879,7 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr "已成功解除了浮動 IP 的聯結：%s"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:155
-#: dashboards/project/instances/tables.py:636
+#: dashboards/project/instances/tables.py:640
 msgid "Unable to disassociate floating IP."
 msgstr "無法解除浮動 IP 的連結。"
 
@@ -6483,7 +6484,7 @@ msgstr "規則："
 msgid ""
 "You can specify the desired rule template or use custom rules, the options "
 "are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
-msgstr "您可以指定想要的規則樣板或者使用自訂規則，這個選項可自訂 TCP 規則、自訂 UDP 規則或者是自訂 ICMP 規則。"
+msgstr "您可以指定想要的規則範本或者使用自訂規則，這個選項可自訂 TCP 規則、自訂 UDP 規則或者是自訂 ICMP 規則。"
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/_add_rule.html:8
 msgid "Open Port/Port Range:"
@@ -6899,7 +6900,7 @@ msgstr "上傳物件到容器：%(container_name)s"
 
 #: dashboards/project/data_processing/cluster_templates/forms.py:31
 msgid "Cluster Template Name"
-msgstr "叢集樣板名稱"
+msgstr "叢集範本名稱"
 
 #: dashboards/project/data_processing/cluster_templates/forms.py:39
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:14
@@ -6907,17 +6908,17 @@ msgstr "叢集樣板名稱"
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:22
 #: dashboards/project/stacks/tabs.py:143
 msgid "Template"
-msgstr "樣板"
+msgstr "範本"
 
 #: dashboards/project/data_processing/cluster_templates/forms.py:57
 msgid "Unable to upload cluster template file"
-msgstr "無法上傳叢集樣板檔案"
+msgstr "無法上傳叢集範本檔案"
 
 #: dashboards/project/data_processing/cluster_templates/panel.py:22
 #: dashboards/project/data_processing/cluster_templates/tables.py:132
 #: dashboards/project/data_processing/cluster_templates/views.py:44
 msgid "Cluster Templates"
-msgstr "叢集樣板"
+msgstr "叢集範本"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:32
 #: dashboards/project/data_processing/cluster_templates/tables.py:120
@@ -6955,7 +6956,7 @@ msgstr "版本"
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_upload_file.html:11
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/upload_file.html:3
 msgid "Upload Template"
-msgstr "上傳樣板"
+msgstr "上傳範本"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:47
 #: dashboards/project/data_processing/clusters/tables.py:47
@@ -6972,29 +6973,29 @@ msgstr "發動叢集"
 #: dashboards/project/data_processing/cluster_templates/tables.py:63
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:54
 msgid "Copy Template"
-msgstr "複製樣板"
+msgstr "複製範本"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:72
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:63
 msgid "Delete Template"
 msgid_plural "Delete Templates"
-msgstr[0] "刪除樣板"
+msgstr[0] "刪除範本"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:80
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:71
 msgid "Deleted Template"
 msgid_plural "Deleted Templates"
-msgstr[0] "已刪除樣板"
+msgstr[0] "已刪除範本"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:91
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:35
 msgid "Create Template"
-msgstr "新增樣板"
+msgstr "新增範本"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:100
 #: dashboards/project/data_processing/cluster_templates/views.py:97
 msgid "Configure Cluster Template"
-msgstr "設置叢集樣板"
+msgstr "設置叢集範本"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:124
 #: dashboards/project/data_processing/cluster_templates/tabs.py:48
@@ -7017,7 +7018,7 @@ msgstr "一般資訊"
 
 #: dashboards/project/data_processing/cluster_templates/tabs.py:43
 msgid "Unable to fetch cluster template details."
-msgstr "無法獲得叢集樣板詳細資訊。"
+msgstr "無法獲得叢集範本詳細資訊。"
 
 #: dashboards/project/data_processing/cluster_templates/tabs.py:70
 msgid "Unable to fetch node group details."
@@ -7025,12 +7026,12 @@ msgstr "無法獲得節點群組詳細資訊。"
 
 #: dashboards/project/data_processing/cluster_templates/views.py:57
 msgid "Unable to fetch cluster template list"
-msgstr "無法獲得叢集樣板列表"
+msgstr "無法獲得叢集範本列表"
 
 #: dashboards/project/data_processing/cluster_templates/views.py:64
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/details.html:3
 msgid "Cluster Template Details"
-msgstr "叢集樣板詳細資訊"
+msgstr "叢集範本詳細資訊"
 
 #: dashboards/project/data_processing/cluster_templates/views.py:90
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/configure.html:3
@@ -7038,26 +7039,26 @@ msgstr "叢集樣板詳細資訊"
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:80
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:235
 msgid "Create Cluster Template"
-msgstr "新增叢集樣板"
+msgstr "新增叢集範本"
 
 #: dashboards/project/data_processing/cluster_templates/views.py:104
 msgid "Copy Cluster Template"
-msgstr "複製叢集樣板"
+msgstr "複製叢集範本"
 
 #: dashboards/project/data_processing/cluster_templates/views.py:122
 #: dashboards/project/data_processing/clusters/views.py:111
 msgid "Unable to fetch cluster template."
-msgstr "無法獲得叢集樣板。"
+msgstr "無法獲得叢集範本。"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:4
 msgid "This Cluster Template will be created for:"
-msgstr "此叢集樣板將新增予："
+msgstr "此叢集範本將新增予："
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:12
 msgid ""
 "The Cluster Template object should specify Node Group Templates that will be used to build a Cluster.\n"
 "    You can add Node Groups using Node Group Templates on a &quot;Node Groups&quot; tab."
-msgstr "叢集樣板物件應該指定用於建立叢集的節點群組樣板。\n    您可以用節點群組樣板來加入節點群組於「節點群組」標籤上。"
+msgstr "叢集範本物件應該指定用於建立叢集的節點群組範本。\n    您可以用節點群組範本來加入節點群組於「節點群組」標籤上。"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:16
 msgid ""
@@ -7068,16 +7069,16 @@ msgstr "您可能要在對應的標籤上設定用於<b>叢集</b>的設置。"
 msgid ""
 "The Cluster Template object may specify a list of processes in anti-affinity group.\n"
 "    That means these processes may not be launched more than once on a single host."
-msgstr "叢集樣板物件可能要在反共鳴群組內指定處理行程列表。\n    也就是說可能不會在同一個主機裡發動這些處理行程多於一次。"
+msgstr "叢集範本物件可能要在反共鳴群組內指定處理行程列表。\n    也就是說可能不會在同一個主機裡發動這些處理行程多於一次。"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_create_general_help.html:3
 msgid "Select a plugin and version for a new Cluster template."
-msgstr "為新的叢集樣板選擇插件和版本。"
+msgstr "為新的叢集範本選擇插件和版本。"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:3
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:3
 msgid "Template Overview"
-msgstr "樣板概觀"
+msgstr "範本概觀"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:20
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:46
@@ -7090,24 +7091,24 @@ msgid "no processes"
 msgstr "無處理行程"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:34
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:55
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:58
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:60
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:58
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:61
 msgid "Node Configurations"
 msgstr "節點設置"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:42
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:63
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:66
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:68
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:66
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:69
 #, python-format
 msgid "%(conf_name)s: %(conf_value)s"
 msgstr "%(conf_name)s：%(conf_value)s"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:46
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:67
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:70
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:72
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:70
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:73
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_service_confs.html:17
 msgid "No configurations"
 msgstr "沒有設置"
@@ -7145,29 +7146,36 @@ msgstr "未指定虛擬硬體樣板"
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:34
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:26
 msgid "Template not specified"
-msgstr "未指定樣板"
+msgstr "未指定範本"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:26
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:29
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:37
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:200
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:133
+msgid "Proxy Gateway"
+msgstr "代理閘道"
+
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:29
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:32
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:42
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:207
 msgid "Auto Security Group"
 msgstr "自動安全性群組"
 
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:42
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:45
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:45
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:48
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:90
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:57
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:62
 msgid "Node Processes"
 msgstr "節點處理行程"
 
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:52
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:55
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:55
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:58
 msgid "Node processes are not specified"
 msgstr "未指定節點處理行程"
 
-#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:72
-#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:75
+#: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:75
+#: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:78
 msgid "Node configurations are not specified"
 msgstr "未指定節點設置"
 
@@ -7178,7 +7186,7 @@ msgstr "上傳"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_node_groups_template.html:95
 msgid "Select a Node Group Template to add:"
-msgstr "選擇節點群組樣板來加入："
+msgstr "選擇節點群組範本來加入："
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_templates.html:19
 msgid "Add Node Group"
@@ -7187,11 +7195,11 @@ msgstr "加入節點群組"
 #: dashboards/project/data_processing/cluster_templates/workflows/copy.py:32
 #, python-format
 msgid "Cluster Template copy %s created"
-msgstr "已新增叢集樣板複本 %s"
+msgstr "已新增叢集範本複本 %s"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/copy.py:96
 msgid "Unable to fetch template to copy."
-msgstr "無法獲得樣板來複製。"
+msgstr "無法獲得範本來複製。"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:49
 msgid "Unable to fetch plugin list."
@@ -7204,10 +7212,10 @@ msgstr "插件名稱"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:69
 msgid "Select plugin and hadoop version for cluster template"
-msgstr "為叢集樣板選擇插件和 Hadoop 版本"
+msgstr "為叢集範本選擇插件和 Hadoop 版本"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:81
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:393
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:401
 #: dashboards/project/stacks/views.py:93
 #: dashboards/project/stacks/views.py:109
 #: dashboards/project/stacks/views.py:149
@@ -7216,14 +7224,14 @@ msgstr "下一步"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:83
 #: dashboards/project/data_processing/jobs/workflows/launch.py:408
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:395
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:403
 msgid "Could not create"
 msgstr "不能新增"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:97
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:41
 msgid "Template Name"
-msgstr "樣板名稱"
+msgstr "範本名稱"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:138
 #: dashboards/project/data_processing/data_plugins/tabs.py:26
@@ -7238,11 +7246,11 @@ msgstr "詳細資訊"
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:237
 #, python-format
 msgid "Created Cluster Template %s"
-msgstr "已新增叢集樣板 %s"
+msgstr "已新增叢集範本 %s"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:326
 msgid "Cluster template creation failed"
-msgstr "叢集樣板的建立失敗"
+msgstr "叢集範本的建立失敗"
 
 #: dashboards/project/data_processing/clusters/panel.py:22
 #: dashboards/project/data_processing/clusters/tables.py:161
@@ -7324,7 +7332,7 @@ msgstr "此叢集將開始以："
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:12
 msgid "Cluster can be launched using existing Cluster Templates."
-msgstr "可用已存在的叢集樣板來發動叢集。"
+msgstr "可用已存在的叢集範本來發動叢集。"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:15
 msgid ""
@@ -7398,7 +7406,7 @@ msgstr "叢集名稱"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:79
 msgid "Cluster Template"
-msgstr "叢集樣板"
+msgstr "叢集範本"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:90
 msgid "Which keypair to use for authentication."
@@ -7422,7 +7430,7 @@ msgstr "無密鑰對"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:162
 msgid "No Templates Available"
-msgstr "無可用的樣板"
+msgstr "無可用的範本"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:220
 #: dashboards/project/data_processing/jobs/workflows/launch.py:331
@@ -7956,8 +7964,8 @@ msgstr "重新在新的叢集發動"
 #: dashboards/project/databases/tables.py:248
 #: dashboards/project/databases/tables.py:265
 #: dashboards/project/databases/tables.py:271
-#: dashboards/project/instances/tables.py:845
-#: dashboards/project/instances/tables.py:852
+#: dashboards/project/instances/tables.py:849
+#: dashboards/project/instances/tables.py:856
 #: dashboards/project/instances/views.py:398
 #: dashboards/project/instances/templates/instances/_detail_overview.html:64
 #: dashboards/project/instances/templates/instances/_detail_overview.html:100
@@ -7988,7 +7996,7 @@ msgstr "已成功"
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:10
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:3
 msgid "Job Template"
-msgstr "工作樣板"
+msgstr "工作範本"
 
 #: dashboards/project/data_processing/job_executions/views.py:39
 msgid "Job Executions"
@@ -8064,7 +8072,7 @@ msgstr "工作詳細資訊"
 #: dashboards/project/data_processing/jobs/tables.py:111
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/jobs.html:6
 msgid "Job Templates"
-msgstr "工作樣板"
+msgstr "工作範本"
 
 #: dashboards/project/data_processing/jobs/tables.py:36
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:3
@@ -8072,17 +8080,17 @@ msgstr "工作樣板"
 #: dashboards/project/data_processing/jobs/workflows/create.py:124
 #: dashboards/project/data_processing/jobs/workflows/create.py:155
 msgid "Create Job Template"
-msgstr "新增工作樣板"
+msgstr "新增工作範本"
 
 #: dashboards/project/data_processing/jobs/tables.py:46
 msgid "Delete Job Template"
 msgid_plural "Delete Job Templates"
-msgstr[0] "刪除工作樣板"
+msgstr[0] "刪除工作範本"
 
 #: dashboards/project/data_processing/jobs/tables.py:54
 msgid "Deleted Job Template"
 msgid_plural "Deleted Jobs Templates"
-msgstr[0] "已刪除工作樣板"
+msgstr[0] "已刪除工作範本"
 
 #: dashboards/project/data_processing/jobs/tables.py:65
 msgid "Launch On Existing Cluster"
@@ -8104,7 +8112,7 @@ msgstr "新增工作"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:4
 msgid "Create a job template with a specified name."
-msgstr "以指定的名稱新增工作樣板。"
+msgstr "以指定的名稱新增工作範本。"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:7
 msgid "Select the type of your job:"
@@ -8157,17 +8165,17 @@ msgstr "對於 MapReduce 或 Java Action 工作，不會用到「主程式」。
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:27
 msgid "You may also enter an optional description for your job template."
-msgstr "您也可能要為您的工作樣板輸入選填的描述。"
+msgstr "您也可能要為您的工作範本輸入選填的描述。"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_libs_help.html:4
 msgid "Add libraries to your job template."
-msgstr "加入程式庫到您的工作樣板。"
+msgstr "加入程式庫到您的工作範本。"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_libs_help.html:7
 msgid ""
 "Choose from the list of binaries and click \"choose\" to add the library to "
 "your job template.  This can be repeated for additional libraries."
-msgstr "在程式列表裡選擇並點擊「選擇」來加入程式庫到您的工作樣板。可以一直重復這個動作來加入額外程式庫。"
+msgstr "在程式列表裡選擇並點擊「選擇」來加入程式庫到您的工作範本。可以一直重復這個動作來加入額外程式庫。"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:12
 msgid "Mains"
@@ -8184,7 +8192,7 @@ msgstr "為您的工作執行任務輸入任何需要的自訂設置。"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_launch_job_help.html:4
 msgid "Launch the given job template on a cluster."
-msgstr "在叢集上發動給定的工作樣板。"
+msgstr "在叢集上發動給定的工作範本。"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_launch_job_help.html:7
 msgid "Choose the cluster to use for the job."
@@ -8225,7 +8233,7 @@ msgstr "輸入參數"
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/details.html:3
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/details.html:6
 msgid "Job Template Details"
-msgstr "工作樣板詳細資訊"
+msgstr "工作範本詳細資訊"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/library_template.html:86
 msgid "Choose"
@@ -8272,7 +8280,7 @@ msgstr "已新增工作"
 
 #: dashboards/project/data_processing/jobs/workflows/create.py:158
 msgid "Could not create job template"
-msgstr "不能新增工作樣板"
+msgstr "不能新增工作範本"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:40
 msgid "Input"
@@ -8348,20 +8356,20 @@ msgstr "無法發動工作。"
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:96
 #: dashboards/project/data_processing/nodegroup_templates/views.py:41
 msgid "Node Group Templates"
-msgstr "節點群組樣板"
+msgstr "節點群組範本"
 
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:44
 msgid "Configure Template"
-msgstr "設置樣板"
+msgstr "設置範本"
 
 #: dashboards/project/data_processing/nodegroup_templates/tabs.py:46
 #: dashboards/project/data_processing/nodegroup_templates/tabs.py:91
 msgid "Unable to fetch node group template."
-msgstr "無法獲得節點群組樣板。"
+msgstr "無法獲得節點群組範本。"
 
 #: dashboards/project/data_processing/nodegroup_templates/tabs.py:52
 msgid "Unable to fetch flavor for template."
-msgstr "無法獲得此樣板的虛擬硬體樣板。"
+msgstr "無法獲得此範本的虛擬硬體樣板。"
 
 #: dashboards/project/data_processing/nodegroup_templates/tabs.py:61
 msgid "Unable to fetch floating ip pools."
@@ -8374,28 +8382,28 @@ msgstr "伺服器設置"
 
 #: dashboards/project/data_processing/nodegroup_templates/views.py:54
 msgid "Unable to fetch node group template list."
-msgstr "無法獲得節點群組樣板列表。"
+msgstr "無法獲得節點群組範本列表。"
 
 #: dashboards/project/data_processing/nodegroup_templates/views.py:61
 msgid "Node Group Template Details"
-msgstr "節點群組樣板詳細資訊"
+msgstr "節點群組範本詳細資訊"
 
 #: dashboards/project/data_processing/nodegroup_templates/views.py:79
 #: dashboards/project/data_processing/nodegroup_templates/views.py:87
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:3
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/create.html:3
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:249
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:392
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:256
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:400
 msgid "Create Node Group Template"
-msgstr "新增節點群組樣板"
+msgstr "新增節點群組範本"
 
 #: dashboards/project/data_processing/nodegroup_templates/views.py:117
 msgid "Unable to fetch template object."
-msgstr "無法獲得樣板物件。"
+msgstr "無法獲得範本物件。"
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:4
 msgid "This Node Group Template will be created for:"
-msgstr "將新增此節點群組樣板予："
+msgstr "將新增此節點群組範本予："
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:12
 msgid ""
@@ -8403,7 +8411,7 @@ msgid ""
 "        that will be launched on each instance. Check one or more processes.\n"
 "        When processes are selected, you may set <b>node</b> scoped\n"
 "        configurations on corresponding tabs."
-msgstr "節點群組樣板物件指定將要在每一個雲實例發動的處理行程。\n        檢查一個或多個。當選擇了處理行程，您將要在\n        對應的標籤上設定用於<b>節點</b>的設置。"
+msgstr "節點群組範本物件指定將要在每一個雲實例發動的處理行程。\n        檢查一個或多個。當選擇了處理行程，您將要在\n        對應的標籤上設定用於<b>節點</b>的設置。"
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:18
 msgid ""
@@ -8419,33 +8427,33 @@ msgstr "資料處理提供不同儲存空間位置的選項。您可能要選擇
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_create_general_help.html:3
 msgid "Select a plugin and version for the new Node Group template."
-msgstr "為新節點群組樣板選擇插件和版本。"
+msgstr "為新節點群組範本選擇插件和版本。"
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:67
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:72
 msgid "HDFS placement"
 msgstr "HDFS 放置"
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:69
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:74
 msgid "Cinder volumes"
 msgstr "Cinder 雲硬碟"
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:70
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:75
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:67
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:73
 msgid "Volumes per node"
 msgstr "每一節點雲硬碟數"
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:72
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:77
 msgid "Volumes size"
 msgstr "雲硬碟容量"
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:75
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:80
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:89
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:95
 msgid "Volumes Availability Zone"
 msgstr "雲硬碟可用區域"
 
-#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:79
+#: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:84
 msgid "Ephemeral drive"
 msgstr "暫時性硬碟"
 
@@ -8464,12 +8472,12 @@ msgstr "%(conf_name)s：%(conf_val)s"
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/details.html:3
 msgid "Nodegroup Template Details"
-msgstr "節點群組樣板詳細資訊"
+msgstr "節點群組範本詳細資訊"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/copy.py:29
 #, python-format
 msgid "Node Group Template copy %s created"
-msgstr "已新增節點群組樣板複本 %s"
+msgstr "已新增節點群組範本複本 %s"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/copy.py:93
 msgid "Unable to fetch plugin details."
@@ -8504,49 +8512,55 @@ msgstr "在此可用區域新增雲硬碟。"
 msgid "Unable to generate process choices."
 msgstr "無法產生處理的選項。"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:133
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:135
+msgid ""
+"Sahara will use instances of this node group to access other cluster "
+"instances."
+msgstr "Sahara 會用到這個節點群組的雲實例來存取其他叢集的雲實例。"
+
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:140
 msgid "Processes"
 msgstr "處理行程"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:135
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:142
 msgid "Processes to be launched in node group"
 msgstr "要在節點群裡裡發動的處理行程"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:167
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:174
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:181
 msgid "No availability zone specified"
 msgstr "未指定可用區域"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:189
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:196
 msgid "Configure Node Group Template"
-msgstr "設置節點群組樣板"
+msgstr "設置節點群組範本"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:202
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:209
 msgid "Create security group for this Node Group."
 msgstr "為此節點群組新增安全性群組。"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:210
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:217
 msgid "Unable to get security group list."
 msgstr "無法獲得安全性群組列表。"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:217
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:224
 msgid "Launch instances in these security groups."
 msgstr "用這些安全性群組來發動雲實例。"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:222
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:229
 msgid "Security"
 msgstr "安全性"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:223
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:230
 msgid "Control access to instances of the node group."
 msgstr "存取節點群組的雲實例。"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:251
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:258
 #, python-format
 msgid "Created Node Group Template %s"
-msgstr "已新增節點群組樣板 %s"
+msgstr "已新增節點群組範本 %s"
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:373
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:381
 msgid "Select plugin and hadoop version"
 msgstr "選擇插件和 Hadoop 版本"
 
@@ -8700,39 +8714,39 @@ msgid ""
 "                        you will define the Node Group Template for your\n"
 "                        \"master\" node(s).\n"
 "                     "
-msgstr "下一步，您需要定義您叢集裡不同類型的機器。\n                        這會定義節點群組樣板給每一種機器類型。\n                        常見的情況是您會需要一個或多個機器組合執行「主管」\n                        處理行程，而其他機器組合執行「從屬」處理行程。\n                        在此，您將為您的「主管」節點定義節點群組樣板。\n                        "
+msgstr "下一步，您需要定義您叢集裡不同類型的機器。\n                        這會定義節點群組範本給每一種機器類型。\n                        常見的情況是您會需要一個或多個機器組合執行「主管」\n                        處理行程，而其他機器組合執行「從屬」處理行程。\n                        在此，您將為您的「主管」節點定義節點群組範本。\n                        "
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:62
 msgid "Create a Master Node Group Template"
-msgstr "新增主管節點群組樣板"
+msgstr "新增主管節點群組範本"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:67
 msgid "Master Node Group Template:"
-msgstr "主管節點群組樣板："
+msgstr "主管節點群組範本："
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:72
 msgid "No Master Node Group Template Created"
-msgstr "沒有已建立的主管節點群組樣板"
+msgstr "沒有已建立的主管節點群組範本"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:81
 msgid ""
 "Repeat the Node Group Template\n"
 "                        creation process, but this time you are creating\n"
 "                        your \"worker\" Node Group Template."
-msgstr "重覆建立節點群組樣板行程，\n                        但這次您要建立的是「從屬」節點樣板。"
+msgstr "重覆建立節點群組範本行程，\n                        但這次您要建立的是「從屬」節點範本。"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:89
 msgid "Create a Worker Node Group Template"
-msgstr "新增從屬節點群組樣板"
+msgstr "新增從屬節點群組範本"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:94
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:126
 msgid "Worker Node Group Template:"
-msgstr "從屬節點群組樣板："
+msgstr "從屬節點群組範本："
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:99
 msgid "No Worker Node Group Template Created"
-msgstr "沒有已建立的從屬節點群組樣板"
+msgstr "沒有已建立的從屬節點群組範本"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:108
 msgid ""
@@ -8744,15 +8758,15 @@ msgid ""
 "                        you will have a chance to set any cluster-specific\n"
 "                        configuration items in the additional tabs on the\n"
 "                        create Cluster Template form."
-msgstr "現在，您需要設定您叢集的布局。\n                        利用新增叢集樣板的時候，您將要\n                        針對節點群組樣板選擇要套用的\n                        雲實例的數量。另外，您將有機會在\n                        新增叢集樣板的表單額外的標籤裡\n                        設定叢集專用的設定項目。"
+msgstr "現在，您需要設定您叢集的布局。\n                        利用新增叢集範本的時候，您將要\n                        針對節點群組範本選擇要套用的\n                        雲實例的數量。另外，您將有機會在\n                        新增叢集範本的表單額外的標籤裡\n                        設定叢集專用的設定項目。"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:121
 msgid "Create a Cluster Template"
-msgstr "新增叢集樣板"
+msgstr "新增叢集範本"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:131
 msgid "No Cluster Template Created"
-msgstr "沒有已建立的叢集樣板"
+msgstr "沒有已建立的叢集範本"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:140
 msgid ""
@@ -8764,7 +8778,7 @@ msgid ""
 "                        click on \"Create\", your instances will begin to\n"
 "                        spawn.  Your cluster should be operational in a few\n"
 "                        minutes."
-msgstr "您現在已經準備好要發動您的叢集了。\n                        當您點擊下列的超連結，您需要為您的叢集取名、\n                        選擇叢集樣板來使用以及選擇建立雲實例的映像檔。\n                        點擊「新增」後，將會開始生成您的雲實例。\n                        您的叢集應該會在一些時間後作成。"
+msgstr "您現在已經準備好要發動您的叢集了。\n                        當您點擊下列的超連結，您需要為您的叢集取名、\n                        選擇叢集範本來使用以及選擇建立雲實例的映像檔。\n                        點擊「新增」後，將會開始生成您的雲實例。\n                        您的叢集應該會在一些時間後作成。"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:153
 msgid "Launch a Cluster"
@@ -8824,19 +8838,19 @@ msgid ""
 "                        or upload the files necessary to run it.  The inputs\n"
 "                        and outputs will be defined later.\n"
 "                    "
-msgstr "定義您工作的樣板。\n                        這可以選擇您所想要執行的工作類型\n                        （Pig、Java Action 或 Spark 等等）\n                        並選擇或上傳所需的資料來執行。\n                        將在稍後定義輸入及輸出。\n                    "
+msgstr "定義您工作的範本。\n                        這可以選擇您所想要執行的工作類型\n                        （Pig、Java Action 或 Spark 等等）\n                        並選擇或上傳所需的資料來執行。\n                        將在稍後定義輸入及輸出。\n                    "
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:75
 msgid "Create a job template"
-msgstr "新增工作樣板"
+msgstr "新增工作範本"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:77
 msgid "Job template:"
-msgstr "工作樣板："
+msgstr "工作範本："
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:84
 msgid "No job template created"
-msgstr "沒有已建立的工作樣板"
+msgstr "沒有已建立的工作範本"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:93
 msgid ""
@@ -8847,7 +8861,7 @@ msgid ""
 "                        or arguments that you need to pass along\n"
 "                        to your job.\n"
 "                        "
-msgstr "發動您的工作。\n                        當發動時，您可能需要選擇您的輸入及輸出\n                        資料來源。您也可以在這加入任何您想丟給\n                        您工作的專用設定值、參數或自訂參數。\n                        "
+msgstr "發動您的工作。\n                        當發動時，您可能需要選擇您的輸入及輸出\n                        資料來源。您也可以在這加入任何您想丟給\n                        您工作的專用設置、參數或自訂參數。\n                        "
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:103
 msgid "Launch job"
@@ -8873,7 +8887,7 @@ msgid ""
 "                 this guide to help take you through the steps of\n"
 "                 Cluster creation.\n"
 "             "
-msgstr "\n                 每種資料處理架構都需要機器叢集\n                 來完成您指定的工作。叢集以新增\n                 節點群組樣板的集合來統一，組合\n                 它們到叢集樣板並發動叢集。\n                 您可以手動來作每一步，或者您\n                 可以跟著這個精靈來幫助您建立\n                 叢集。\n             "
+msgstr "\n                 每種資料處理架構都需要機器叢集\n                 來完成您指定的工作。叢集以新增\n                 節點群組範本的集合來統一，組合\n                 它們到叢集範本並發動叢集。\n                 您可以手動來作每一步，或者您\n                 可以跟著這個精靈來幫助您建立\n                 叢集。\n             "
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:29
 msgid "Cluster Guide"
@@ -8890,7 +8904,7 @@ msgid ""
 "                  manually or you can follow this guide to help take you\n"
 "                  through the steps to run a job on an existing cluster.\n"
 "            "
-msgstr "\n                  為了執行資料處理工作，您需要讓您的檔案\n                  可以用於資料處理系統，定義輸入及輸出\n                  的流向並新增工作樣板來描述如何執行您的\n                  工作。每一步都可以手動來作或使用這個\n                  精靈來幫助您在已存在的叢集上執行工作。\n            "
+msgstr "\n                  為了執行資料處理工作，您需要讓您的檔案\n                  可以用於資料處理系統，定義輸入及輸出\n                  的流向並新增工作範本來描述如何執行您的\n                  工作。每一步都可以手動來作或使用這個\n                  精靈來幫助您在已存在的叢集上執行工作。\n            "
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:51
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:53
@@ -10916,465 +10930,465 @@ msgid "Retrieve Password"
 msgstr "獲得密碼"
 
 #: dashboards/project/instances/tables.py:548
-#: dashboards/project/instances/tables.py:573
+#: dashboards/project/instances/tables.py:575
 msgid "Associate Floating IP"
 msgstr "聯結浮動 IP"
 
-#: dashboards/project/instances/tables.py:592
+#: dashboards/project/instances/tables.py:596
 #, python-format
 msgid "Successfully associated floating IP: %s"
 msgstr "已成功聯結浮動 IP：%s"
 
-#: dashboards/project/instances/tables.py:596
+#: dashboards/project/instances/tables.py:600
 msgid "Unable to associate floating IP."
 msgstr "無法聯結浮動 IP。"
 
-#: dashboards/project/instances/tables.py:602
+#: dashboards/project/instances/tables.py:606
 msgid "Disassociate Floating IP"
 msgstr "解除浮動 IP 聯結"
 
-#: dashboards/project/instances/tables.py:630
+#: dashboards/project/instances/tables.py:634
 #, python-format
 msgid "Successfully disassociated floating IP: %s"
 msgstr "已成功解除浮動 IP 聯結：%s"
 
-#: dashboards/project/instances/tables.py:633
+#: dashboards/project/instances/tables.py:637
 msgid "No floating IPs to disassociate."
 msgstr "無浮動 IP 可以解除聯結。"
 
-#: dashboards/project/instances/tables.py:643
+#: dashboards/project/instances/tables.py:647
 #, python-format
 msgid "Please try again later [Error: %s]."
 msgstr "請稍後再試一次。[錯誤：%s]"
 
-#: dashboards/project/instances/tables.py:645
+#: dashboards/project/instances/tables.py:649
 msgid ""
 "There is not enough capacity for this flavor in the selected availability "
 "zone. Try again later or select a different availability zone."
 msgstr "在所選的可用區域中，沒有足夠的容量給這個虛擬硬體樣板。請稍後再試一次或者選擇不同的可用區域。"
 
-#: dashboards/project/instances/tables.py:657
+#: dashboards/project/instances/tables.py:661
 #, python-format
 msgid ""
 "Failed to perform requested operation on instance \"%s\", the instance has "
 "an error status"
 msgstr "在雲實例「%s」上履行作業請求時失敗，雲實例有錯誤狀態"
 
-#: dashboards/project/instances/tables.py:673
+#: dashboards/project/instances/tables.py:677
 #: dashboards/project/instances/views.py:395
 #, python-format
 msgid "Unable to retrieve flavor information for instance \"%s\"."
 msgstr "無法為雲實例「%s」獲得虛擬硬體樣板資訊。"
 
-#: dashboards/project/instances/tables.py:690
+#: dashboards/project/instances/tables.py:694
 msgid "Start Instance"
 msgid_plural "Start Instances"
 msgstr[0] "開始雲實例"
 
-#: dashboards/project/instances/tables.py:698
+#: dashboards/project/instances/tables.py:702
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "已開始雲實例"
 
-#: dashboards/project/instances/tables.py:715
+#: dashboards/project/instances/tables.py:719
 msgid "To power off a specific instance."
 msgstr "關掉指定的雲實例。"
 
-#: dashboards/project/instances/tables.py:721
+#: dashboards/project/instances/tables.py:725
 msgctxt "Action to perform (the instance is currently running)"
 msgid "Shut Off Instance"
 msgid_plural "Shut Off Instances"
 msgstr[0] "關機雲實例"
 
-#: dashboards/project/instances/tables.py:730
+#: dashboards/project/instances/tables.py:734
 msgctxt "Past action (the instance is currently already Shut Off)"
 msgid "Shut Off Instance"
 msgid_plural "Shut Off Instances"
 msgstr[0] "已關機雲實例"
 
-#: dashboards/project/instances/tables.py:751
+#: dashboards/project/instances/tables.py:755
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
 msgstr[0] "鎖住雲實例"
 
-#: dashboards/project/instances/tables.py:759
+#: dashboards/project/instances/tables.py:763
 msgid "Locked Instance"
 msgid_plural "Locked Instances"
 msgstr[0] "已鎖住雲實例"
 
-#: dashboards/project/instances/tables.py:782
+#: dashboards/project/instances/tables.py:786
 msgid "Unlock Instance"
 msgid_plural "Unlock Instances"
 msgstr[0] "解鎖雲實例"
 
-#: dashboards/project/instances/tables.py:790
+#: dashboards/project/instances/tables.py:794
 msgid "Unlocked Instance"
 msgid_plural "Unlocked Instances"
 msgstr[0] "已解鎖雲實例"
 
-#: dashboards/project/instances/tables.py:835
+#: dashboards/project/instances/tables.py:839
 #, python-format
 msgid "%s GB"
 msgstr "%s GB"
 
-#: dashboards/project/instances/tables.py:860
-#: dashboards/project/instances/tables.py:882
+#: dashboards/project/instances/tables.py:864
+#: dashboards/project/instances/tables.py:886
 msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "已刪除"
 
-#: dashboards/project/instances/tables.py:861
+#: dashboards/project/instances/tables.py:865
 msgctxt "Current status of an Instance"
 msgid "Active"
 msgstr "使用中"
 
-#: dashboards/project/instances/tables.py:862
+#: dashboards/project/instances/tables.py:866
 msgctxt "Current status of an Instance"
 msgid "Shutoff"
 msgstr "關機"
 
-#: dashboards/project/instances/tables.py:864
+#: dashboards/project/instances/tables.py:868
 msgctxt "Current status of an Instance"
 msgid "Suspended"
 msgstr "已停止"
 
-#: dashboards/project/instances/tables.py:865
+#: dashboards/project/instances/tables.py:869
 msgctxt "Current status of an Instance"
 msgid "Paused"
 msgstr "已暫停"
 
-#: dashboards/project/instances/tables.py:866
+#: dashboards/project/instances/tables.py:870
 msgctxt "Current status of an Instance"
 msgid "Error"
 msgstr "錯誤"
 
-#: dashboards/project/instances/tables.py:868
+#: dashboards/project/instances/tables.py:872
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
 msgstr "調整容量中/轉移中"
 
-#: dashboards/project/instances/tables.py:870
+#: dashboards/project/instances/tables.py:874
 msgctxt "Current status of an Instance"
 msgid "Confirm or Revert Resize/Migrate"
 msgstr "等待確認或還原調整容量/轉移"
 
-#: dashboards/project/instances/tables.py:872
+#: dashboards/project/instances/tables.py:876
 msgctxt "Current status of an Instance"
 msgid "Revert Resize/Migrate"
 msgstr "還原調整容量/還原轉移"
 
-#: dashboards/project/instances/tables.py:873
+#: dashboards/project/instances/tables.py:877
 msgctxt "Current status of an Instance"
 msgid "Reboot"
 msgstr "重開機中"
 
-#: dashboards/project/instances/tables.py:875
+#: dashboards/project/instances/tables.py:879
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr "強制重開機中"
 
-#: dashboards/project/instances/tables.py:876
+#: dashboards/project/instances/tables.py:880
 msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "產生密碼"
 
-#: dashboards/project/instances/tables.py:877
+#: dashboards/project/instances/tables.py:881
 msgctxt "Current status of an Instance"
 msgid "Rebuild"
 msgstr "重建中"
 
-#: dashboards/project/instances/tables.py:879
+#: dashboards/project/instances/tables.py:883
 msgctxt "Current status of an Instance"
 msgid "Migrating"
 msgstr "正在轉移"
 
-#: dashboards/project/instances/tables.py:880
+#: dashboards/project/instances/tables.py:884
 msgctxt "Current status of an Instance"
 msgid "Build"
 msgstr "建立中"
 
-#: dashboards/project/instances/tables.py:881
+#: dashboards/project/instances/tables.py:885
 msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr "救援中"
 
-#: dashboards/project/instances/tables.py:884
+#: dashboards/project/instances/tables.py:888
 msgctxt "Current status of an Instance"
 msgid "Soft Deleted"
 msgstr "已刪除"
 
-#: dashboards/project/instances/tables.py:885
+#: dashboards/project/instances/tables.py:889
 msgctxt "Current status of an Instance"
 msgid "Shelved"
 msgstr "已擱置"
 
-#: dashboards/project/instances/tables.py:887
+#: dashboards/project/instances/tables.py:891
 msgctxt "Current status of an Instance"
 msgid "Shelved Offloaded"
 msgstr "已擱置卸載"
 
-#: dashboards/project/instances/tables.py:890
+#: dashboards/project/instances/tables.py:894
 msgctxt "Task status of an Instance"
 msgid "None"
 msgstr "無"
 
-#: dashboards/project/instances/tables.py:895
+#: dashboards/project/instances/tables.py:899
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "正在排程"
 
-#: dashboards/project/instances/tables.py:897
+#: dashboards/project/instances/tables.py:901
 msgctxt "Task status of an Instance"
 msgid "Block Device Mapping"
 msgstr "正在映射區塊裝置"
 
-#: dashboards/project/instances/tables.py:899
+#: dashboards/project/instances/tables.py:903
 msgctxt "Task status of an Instance"
 msgid "Networking"
 msgstr "正在網路連線"
 
-#: dashboards/project/instances/tables.py:900
+#: dashboards/project/instances/tables.py:904
 msgctxt "Task status of an Instance"
 msgid "Spawning"
 msgstr "正在生成"
 
-#: dashboards/project/instances/tables.py:902
+#: dashboards/project/instances/tables.py:906
 msgctxt "Task status of an Instance"
 msgid "Snapshotting"
 msgstr "正在儲存即時存檔"
 
-#: dashboards/project/instances/tables.py:904
+#: dashboards/project/instances/tables.py:908
 msgctxt "Task status of an Instance"
 msgid "Image Snapshot Pending"
 msgstr "等候儲存映像檔即時存檔"
 
-#: dashboards/project/instances/tables.py:906
+#: dashboards/project/instances/tables.py:910
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
 msgstr "等候映像檔上傳"
 
-#: dashboards/project/instances/tables.py:908
+#: dashboards/project/instances/tables.py:912
 msgctxt "Task status of an Instance"
 msgid "Image Uploading"
 msgstr "正在上傳映像檔"
 
-#: dashboards/project/instances/tables.py:910
+#: dashboards/project/instances/tables.py:914
 msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "映像檔備份"
 
-#: dashboards/project/instances/tables.py:912
+#: dashboards/project/instances/tables.py:916
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "正在更新密碼"
 
-#: dashboards/project/instances/tables.py:914
+#: dashboards/project/instances/tables.py:918
 msgctxt "Task status of an Instance"
 msgid "Preparing Resize or Migrate"
 msgstr "正在準備調整容量或轉移"
 
-#: dashboards/project/instances/tables.py:916
+#: dashboards/project/instances/tables.py:920
 msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "正在調整容量或轉移"
 
-#: dashboards/project/instances/tables.py:918
+#: dashboards/project/instances/tables.py:922
 msgctxt "Task status of an Instance"
 msgid "Resized or Migrated"
 msgstr "已調整容量或轉移"
 
-#: dashboards/project/instances/tables.py:920
+#: dashboards/project/instances/tables.py:924
 msgctxt "Task status of an Instance"
 msgid "Finishing Resize or Migrate"
 msgstr "正在完成調整容量或轉移"
 
-#: dashboards/project/instances/tables.py:922
+#: dashboards/project/instances/tables.py:926
 msgctxt "Task status of an Instance"
 msgid "Reverting Resize or Migrate"
 msgstr "正在還原調整容量或轉移"
 
-#: dashboards/project/instances/tables.py:924
+#: dashboards/project/instances/tables.py:928
 msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "正在確認調整容量或轉移"
 
-#: dashboards/project/instances/tables.py:925
+#: dashboards/project/instances/tables.py:929
 msgctxt "Task status of an Instance"
 msgid "Rebooting"
 msgstr "正在重開機"
 
-#: dashboards/project/instances/tables.py:927
+#: dashboards/project/instances/tables.py:931
 msgctxt "Task status of an Instance"
 msgid "Reboot Pending"
 msgstr "等候重開機"
 
-#: dashboards/project/instances/tables.py:929
+#: dashboards/project/instances/tables.py:933
 msgctxt "Task status of an Instance"
 msgid "Reboot Started"
 msgstr "已開始重開機"
 
-#: dashboards/project/instances/tables.py:931
+#: dashboards/project/instances/tables.py:935
 msgctxt "Task status of an Instance"
 msgid "Rebooting Hard"
 msgstr "正在強制重開機"
 
-#: dashboards/project/instances/tables.py:933
+#: dashboards/project/instances/tables.py:937
 msgctxt "Task status of an Instance"
 msgid "Reboot Pending Hard"
 msgstr "等候強制重開機"
 
-#: dashboards/project/instances/tables.py:935
+#: dashboards/project/instances/tables.py:939
 msgctxt "Task status of an Instance"
 msgid "Reboot Started Hard"
 msgstr "已開始強制重開機"
 
-#: dashboards/project/instances/tables.py:936
+#: dashboards/project/instances/tables.py:940
 msgctxt "Task status of an Instance"
 msgid "Pausing"
 msgstr "正在暫停"
 
-#: dashboards/project/instances/tables.py:937
-#: dashboards/project/instances/tables.py:940
+#: dashboards/project/instances/tables.py:941
+#: dashboards/project/instances/tables.py:944
 msgctxt "Task status of an Instance"
 msgid "Resuming"
 msgstr "正在回復"
 
-#: dashboards/project/instances/tables.py:939
+#: dashboards/project/instances/tables.py:943
 msgctxt "Task status of an Instance"
 msgid "Suspending"
 msgstr "正在停止"
 
-#: dashboards/project/instances/tables.py:942
+#: dashboards/project/instances/tables.py:946
 msgctxt "Task status of an Instance"
 msgid "Powering Off"
 msgstr "正在關機"
 
-#: dashboards/project/instances/tables.py:944
+#: dashboards/project/instances/tables.py:948
 msgctxt "Task status of an Instance"
 msgid "Powering On"
 msgstr "正在開機"
 
-#: dashboards/project/instances/tables.py:945
+#: dashboards/project/instances/tables.py:949
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "正在救援"
 
-#: dashboards/project/instances/tables.py:947
+#: dashboards/project/instances/tables.py:951
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "正在取消救援"
 
-#: dashboards/project/instances/tables.py:949
+#: dashboards/project/instances/tables.py:953
 msgctxt "Task status of an Instance"
 msgid "Rebuilding"
 msgstr "正在重建"
 
-#: dashboards/project/instances/tables.py:951
+#: dashboards/project/instances/tables.py:955
 msgctxt "Task status of an Instance"
 msgid "Rebuild Block Device Mapping"
 msgstr "重建區塊裝置映射"
 
-#: dashboards/project/instances/tables.py:953
+#: dashboards/project/instances/tables.py:957
 msgctxt "Task status of an Instance"
 msgid "Rebuild Spawning"
 msgstr "重建生成"
 
-#: dashboards/project/instances/tables.py:954
+#: dashboards/project/instances/tables.py:958
 msgctxt "Task status of an Instance"
 msgid "Migrating"
 msgstr "正在轉移"
 
-#: dashboards/project/instances/tables.py:955
+#: dashboards/project/instances/tables.py:959
 msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr "正在刪除"
 
-#: dashboards/project/instances/tables.py:957
+#: dashboards/project/instances/tables.py:961
 msgctxt "Task status of an Instance"
 msgid "Soft Deleting"
 msgstr "正在刪除"
 
-#: dashboards/project/instances/tables.py:958
+#: dashboards/project/instances/tables.py:962
 msgctxt "Task status of an Instance"
 msgid "Restoring"
 msgstr "正在恢復"
 
-#: dashboards/project/instances/tables.py:959
+#: dashboards/project/instances/tables.py:963
 msgctxt "Task status of an Instance"
 msgid "Shelving"
 msgstr "正在擱置"
 
-#: dashboards/project/instances/tables.py:961
+#: dashboards/project/instances/tables.py:965
 msgctxt "Task status of an Instance"
 msgid "Shelving Image Pending Upload"
 msgstr "正在擱置映像檔上傳的等候"
 
-#: dashboards/project/instances/tables.py:963
+#: dashboards/project/instances/tables.py:967
 msgctxt "Task status of an Instance"
 msgid "Shelving Image Uploading"
 msgstr "正在擱置映像檔上傳"
 
-#: dashboards/project/instances/tables.py:965
+#: dashboards/project/instances/tables.py:969
 msgctxt "Task status of an Instance"
 msgid "Shelving Offloading"
 msgstr "正在擱置卸載"
 
-#: dashboards/project/instances/tables.py:967
+#: dashboards/project/instances/tables.py:971
 msgctxt "Task status of an Instance"
 msgid "Unshelving"
 msgstr "取消擱置"
 
-#: dashboards/project/instances/tables.py:971
+#: dashboards/project/instances/tables.py:975
 msgctxt "Power state of an Instance"
 msgid "No State"
 msgstr "沒有狀態"
 
-#: dashboards/project/instances/tables.py:972
+#: dashboards/project/instances/tables.py:976
 msgctxt "Power state of an Instance"
 msgid "Running"
 msgstr "正在執行"
 
-#: dashboards/project/instances/tables.py:973
+#: dashboards/project/instances/tables.py:977
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr "已故障"
 
-#: dashboards/project/instances/tables.py:974
+#: dashboards/project/instances/tables.py:978
 msgctxt "Power state of an Instance"
 msgid "Paused"
 msgstr "已暫停"
 
-#: dashboards/project/instances/tables.py:975
+#: dashboards/project/instances/tables.py:979
 msgctxt "Power state of an Instance"
 msgid "Shut Down"
 msgstr "關機中"
 
-#: dashboards/project/instances/tables.py:976
+#: dashboards/project/instances/tables.py:980
 msgctxt "Power state of an Instance"
 msgid "Shut Off"
 msgstr "已關機"
 
-#: dashboards/project/instances/tables.py:977
+#: dashboards/project/instances/tables.py:981
 msgctxt "Power state of an Instance"
 msgid "Crashed"
 msgstr "已崩潰"
 
-#: dashboards/project/instances/tables.py:978
+#: dashboards/project/instances/tables.py:982
 msgctxt "Power state of an Instance"
 msgid "Suspended"
 msgstr "已停止"
 
-#: dashboards/project/instances/tables.py:979
+#: dashboards/project/instances/tables.py:983
 msgctxt "Power state of an Instance"
 msgid "Failed"
 msgstr "已失敗"
 
-#: dashboards/project/instances/tables.py:980
+#: dashboards/project/instances/tables.py:984
 msgctxt "Power state of an Instance"
 msgid "Building"
 msgstr "正在建立"
 
-#: dashboards/project/instances/tables.py:1018
+#: dashboards/project/instances/tables.py:1022
 #: dashboards/project/instances/workflows/create_instance.py:529
 msgid "Key Pair"
 msgstr "密鑰對"
@@ -12019,13 +12033,13 @@ msgstr "自動：全部的硬碟是同一個分割並會自動地調整容量。
 
 #: dashboards/project/instances/workflows/create_instance.py:771
 msgid "Configuration Drive"
-msgstr "設置硬碟"
+msgstr "設定檔硬碟"
 
 #: dashboards/project/instances/workflows/create_instance.py:772
 msgid ""
 "Configure OpenStack to write metadata to a special configuration drive that "
 "attaches to the instance when it boots."
-msgstr "設置 OpenStack 來寫入詮釋資料到一個特別設置在雲實例一開機會附加的硬碟。"
+msgstr "設置 OpenStack 來寫入詮釋資料到一個特別的在雲實例一開機會附加的設定檔硬碟。"
 
 #: dashboards/project/instances/workflows/create_instance.py:798
 msgid "Advanced Options"
@@ -12831,7 +12845,7 @@ msgid ""
 "Create a monitor template.\n"
 "\n"
 "Select type of monitoring. Specify delay, timeout, and retry limits required by the monitor. Specify method, URL path, and expected HTTP codes upon success."
-msgstr "新增監視器樣板。\n\n選擇監視的類型。指定監視器的延遲、逾期和重試限制。指定方法、網址路徑和預期 HTTP 代碼直到成功。"
+msgstr "新增監視器範本。\n\n選擇監視的類型。指定監視器的延遲、逾期和重試限制。指定方法、網址路徑和預期 HTTP 代碼直到成功。"
 
 #: dashboards/project/loadbalancers/workflows.py:611
 msgid "Added monitor"
@@ -12853,7 +12867,7 @@ msgstr "監視器"
 #: dashboards/project/loadbalancers/workflows.py:633
 #, python-format
 msgid "Select a monitor template for %s"
-msgstr "為 %s 選擇監視器樣板"
+msgstr "為 %s 選擇監視器範本"
 
 #: dashboards/project/loadbalancers/workflows.py:636
 #: dashboards/project/loadbalancers/workflows.py:700
@@ -13473,8 +13487,8 @@ msgid "DNS name server"
 msgstr "DNS 名稱伺服器"
 
 #: dashboards/project/overview/views.py:34
-msgid "Uptime (Seconds)"
-msgstr "上線時間（秒）"
+msgid "Time since created (Seconds)"
+msgstr "壽命（秒）"
 
 #: dashboards/project/routers/forms.py:35
 #: dashboards/project/routers/ports/forms.py:35
@@ -13965,39 +13979,39 @@ msgstr "您可以連接指定的對外網路到路由器。對外網路是視為
 #: dashboards/project/stacks/views.py:106
 #: dashboards/project/stacks/templates/stacks/select_template.html:3
 msgid "Select Template"
-msgstr "選擇樣板"
+msgstr "選擇範本"
 
 #: dashboards/project/stacks/forms.py:57
 msgid "Select a template to launch a stack."
-msgstr "選擇樣板來發動機櫃。"
+msgstr "選擇範本來發動機櫃。"
 
 #: dashboards/project/stacks/forms.py:65
 msgid "Template Source"
-msgstr "樣板來源"
+msgstr "範本來源"
 
 #: dashboards/project/stacks/forms.py:72 dashboards/project/stacks/forms.py:74
 msgid "Template File"
-msgstr "樣板檔案"
+msgstr "範本檔案"
 
 #: dashboards/project/stacks/forms.py:75
 msgid "A local template to upload."
-msgstr "上傳本地的樣板。"
+msgstr "上傳本地的範本。"
 
 #: dashboards/project/stacks/forms.py:82 dashboards/project/stacks/forms.py:84
 msgid "Template URL"
-msgstr "樣板網址"
+msgstr "範本網址"
 
 #: dashboards/project/stacks/forms.py:85
 msgid "An external (HTTP) URL to load the template from."
-msgstr "可讀取樣板的外部（HTTP）網址。"
+msgstr "可讀取範本的外部（HTTP）網址。"
 
 #: dashboards/project/stacks/forms.py:92 dashboards/project/stacks/forms.py:94
 msgid "Template Data"
-msgstr "樣板資料"
+msgstr "範本資料"
 
 #: dashboards/project/stacks/forms.py:95
 msgid "The raw contents of the template."
-msgstr "樣板的直接內容。"
+msgstr "範本的直接內容。"
 
 #: dashboards/project/stacks/forms.py:101
 msgid "Environment Source"
@@ -14023,7 +14037,7 @@ msgstr "環境檔案的直接內容"
 
 #: dashboards/project/stacks/forms.py:134
 msgid "template"
-msgstr "樣板"
+msgstr "範本"
 
 #: dashboards/project/stacks/forms.py:135
 msgid "environment"
@@ -14036,15 +14050,15 @@ msgstr "請用只有一個來源的方法來指定 %s。"
 
 #: dashboards/project/stacks/forms.py:204
 msgid "You must specify a template via one of the available sources."
-msgstr "您必須經由一個可用的來源來指定樣板。"
+msgstr "您必須經由一個可用的來源來指定範本。"
 
 #: dashboards/project/stacks/forms.py:229
 msgid "Edit Template"
-msgstr "編輯樣板"
+msgstr "編輯範本"
 
 #: dashboards/project/stacks/forms.py:230
 msgid "Select a new template to re-launch a stack."
-msgstr "選擇新的樣板來重新發動機櫃。"
+msgstr "選擇新的範本來重新發動機櫃。"
 
 #: dashboards/project/stacks/forms.py:231
 #: dashboards/project/stacks/forms.py:402
@@ -14063,11 +14077,11 @@ msgstr "機櫃名稱"
 #: dashboards/project/stacks/views.py:152
 #: dashboards/project/stacks/templates/stacks/preview_template.html:3
 msgid "Preview Template"
-msgstr "預覽樣板"
+msgstr "預覽範本"
 
 #: dashboards/project/stacks/forms.py:241
 msgid "Select a new template to preview a stack."
-msgstr "選擇新的樣板來預覽機櫃。"
+msgstr "選擇新的範本來預覽機櫃。"
 
 #: dashboards/project/stacks/forms.py:249
 msgid "Create Stack"
@@ -14184,7 +14198,7 @@ msgstr[0] "已恢復機櫃"
 
 #: dashboards/project/stacks/tables.py:124
 msgid "Change Stack Template"
-msgstr "更換機櫃樣板"
+msgstr "更換機櫃範本"
 
 #: dashboards/project/stacks/tables.py:137
 msgid "Delete Stack"
@@ -14413,7 +14427,7 @@ msgstr "無法獲得機櫃列表。"
 #: dashboards/project/stacks/views.py:113
 #: dashboards/project/stacks/templates/stacks/change_template.html:3
 msgid "Change Template"
-msgstr "更換樣板"
+msgstr "更換範本"
 
 #: dashboards/project/stacks/views.py:127
 #: dashboards/project/stacks/views.py:231
@@ -14444,7 +14458,7 @@ msgstr "機櫃詳細資訊：{{ stack.stack_name }}"
 
 #: dashboards/project/stacks/views.py:298
 msgid "Unable to retrieve stack template."
-msgstr "無法獲得機櫃樣板。"
+msgstr "無法獲得機櫃範本。"
 
 #: dashboards/project/stacks/views.py:315
 msgid "Resource Details: {{ resource.resource_name }}"
@@ -14500,7 +14514,7 @@ msgstr "自訂屬性"
 msgid ""
 "Use one of the available template source options to specify the template to "
 "be used in creating this stack."
-msgstr "指定可用的樣板來源選項來給新增這個機櫃所用。"
+msgstr "指定可用的範本來源選項來給新增這個機櫃所用。"
 
 #: dashboards/project/stacks/templates/stacks/_create.html:5
 msgid "Create a new stack with the provided values."
@@ -14551,7 +14565,7 @@ msgstr "超連結"
 msgid ""
 "Use one of the available template source options to specify the template to "
 "be used in previewing this stack."
-msgstr "使用可用樣板來源裡的一個選項來指定用來預覽機櫃的樣板。"
+msgstr "使用可用範本來源裡的一個選項來指定用來預覽機櫃的範本。"
 
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:3
 msgid "Resource Overview"
@@ -14576,7 +14590,7 @@ msgstr "資源詮釋資料"
 
 #: dashboards/project/stacks/templates/stacks/_stack_template.html:3
 msgid "Stack Template"
-msgstr "機櫃樣板"
+msgstr "機櫃範本"
 
 #: dashboards/project/stacks/templates/stacks/_update.html:5
 msgid ""
@@ -15031,7 +15045,7 @@ msgstr "雲硬碟轉移詳細資訊"
 #: dashboards/project/volumes/templates/volumes/volumes/update.html:3
 #: dashboards/project/volumes/templates/volumes/volumes/update.html:6
 #: dashboards/project/volumes/volumes/tables.py:232
-#: dashboards/project/volumes/volumes/views.py:275
+#: dashboards/project/volumes/volumes/views.py:276
 msgid "Edit Volume"
 msgstr "編輯雲硬碟"
 
@@ -15478,7 +15492,7 @@ msgstr "此雲硬碟目前正附加到雲實例。某些狀況下，從附加的
 msgid "Unable to retrieve volume information for volume: \"%s\""
 msgstr "無法為雲硬碟獲得雲硬碟資訊：「%s」"
 
-#: dashboards/project/volumes/volumes/views.py:256
+#: dashboards/project/volumes/volumes/views.py:257
 msgid "Unable to retrieve volume transfer."
 msgstr "無法獲得雲硬碟轉移。"
 

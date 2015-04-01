@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-28 00:18-0500\n"
-"PO-Revision-Date: 2015-03-27 02:41+0000\n"
+"POT-Creation-Date: 2015-03-31 23:04-0500\n"
+"PO-Revision-Date: 2015-04-01 05:41+0000\n"
 "Last-Translator: Zhang Xiaowei <zero00072@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -62,7 +62,7 @@ msgstr "選擇 %s 來瀏覽。"
 
 #: conf/default.py:41
 msgid "Password is not accepted"
-msgstr "密碼不被允許"
+msgstr "不允許密碼"
 
 #: forms/fields.py:64
 msgid "Incorrect format for IP address"
@@ -185,24 +185,35 @@ msgstr "幫助"
 msgid "Sign Out"
 msgstr "登出"
 
+#: templates/auth/_description.html:9
+msgid ""
+"\n"
+"      If you are not sure which authentication method to use, contact your administrator.\n"
+"    "
+msgstr "\n      若您不確定要用哪個驗證方法，請聯絡您的管理員。\n    "
+
 #: templates/auth/_login.html:5
 msgid "Log In"
 msgstr "登入"
 
-#: templates/auth/_login.html:25
+#: templates/auth/_login.html:27
 msgid "You do not have permission to access the resource:"
 msgstr "您沒有權限存取資源："
 
-#: templates/auth/_login.html:27
+#: templates/auth/_login.html:29
 #, python-format
 msgid ""
 "Login as different user or go back to <a href=\"%(home_url)s\"> home "
 "page</a>"
 msgstr "以不同的使用者身份登入，或者回到<a href=\"%(home_url)s\">首頁</a>"
 
-#: templates/auth/_login.html:42
+#: templates/auth/_login.html:45
 msgid "Sign In"
 msgstr "登入"
+
+#: templates/auth/_login.html:46
+msgid "Connect"
+msgstr "連線"
 
 #: templates/auth/login.html:4
 msgid "Login"
