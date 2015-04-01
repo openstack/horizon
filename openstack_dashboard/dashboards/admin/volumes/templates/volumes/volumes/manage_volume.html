@@ -2,10 +2,6 @@
 {% load i18n %}
 {% block title %}{% trans "Manage Volume" %}{% endblock %}
 
-{% block page_header %}
-  {% include "horizon/common/_page_header.html" with title=_("Manage a Volume") %}
-{% endblock page_header %}
-
 {% block main %}
     {% include 'project/volumes/volumes/_manage_volume.html' %}
 {% endblock %}

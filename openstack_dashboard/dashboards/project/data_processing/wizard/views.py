@@ -32,6 +32,7 @@ LOG = logging.getLogger(__name__)
 
 class WizardView(horizon_views.APIView):
     template_name = 'project/data_processing.wizard/wizard.html'
+    page_title = _("Data Processing Guides")
 
     def get_data(self, request, context, *args, **kwargs):
         try:
@@ -44,6 +45,7 @@ class WizardView(horizon_views.APIView):
 
 class ClusterGuideView(horizon_views.APIView):
     template_name = 'project/data_processing.wizard/cluster_guide.html'
+    page_title = _("Guided Cluster Creation")
 
 
 class ResetClusterGuideView(generic.RedirectView):
@@ -58,6 +60,7 @@ class ResetClusterGuideView(generic.RedirectView):
 
 class JobExecutionGuideView(horizon_views.APIView):
     template_name = 'project/data_processing.wizard/jobex_guide.html'
+    page_title = _("Guided Job Execution")
 
     def show_data_sources(self):
         try:
@@ -84,6 +87,7 @@ class PluginSelectView(forms.ModalFormView):
         'horizon:project:data_processing.wizard:cluster_guide')
     classes = ("ajax-modal")
     template_name = "project/data_processing.wizard/plugin_select.html"
+    page_title = _("Choose plugin and version")
 
 
 class JobTypeSelectView(forms.ModalFormView):
@@ -92,3 +96,4 @@ class JobTypeSelectView(forms.ModalFormView):
         'horizon:project:data_processing.wizard:jobex_guide')
     classes = ("ajax-modal")
     template_name = "project/data_processing.wizard/job_type_select.html"
+    page_title = _("Choose job type")

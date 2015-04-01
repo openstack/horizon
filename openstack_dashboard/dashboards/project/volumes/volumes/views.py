@@ -84,6 +84,7 @@ class CreateView(forms.ModalFormView):
     submit_label = _("Create Volume")
     submit_url = reverse_lazy("horizon:project:volumes:volumes:create")
     success_url = reverse_lazy('horizon:project:volumes:volumes_tab')
+    page_title = _("Create a Volume")
 
     def get_context_data(self, **kwargs):
         context = super(CreateView, self).get_context_data(**kwargs)
@@ -101,6 +102,7 @@ class ExtendView(forms.ModalFormView):
     submit_label = _("Extend Volume")
     submit_url = "horizon:project:volumes:volumes:extend"
     success_url = reverse_lazy("horizon:project:volumes:index")
+    page_title = _("Extend Volume")
 
     def get_object(self):
         if not hasattr(self, "_object"):
@@ -140,6 +142,7 @@ class CreateSnapshotView(forms.ModalFormView):
     template_name = 'project/volumes/volumes/create_snapshot.html'
     submit_url = "horizon:project:volumes:volumes:create_snapshot"
     success_url = reverse_lazy('horizon:project:volumes:snapshots_tab')
+    page_title = _("Create a Volume Snapshot")
 
     def get_context_data(self, **kwargs):
         context = super(CreateSnapshotView, self).get_context_data(**kwargs)
@@ -173,6 +176,7 @@ class UploadToImageView(forms.ModalFormView):
     submit_label = _("Upload")
     submit_url = "horizon:project:volumes:volumes:upload_to_image"
     success_url = reverse_lazy("horizon:project:volumes:index")
+    page_title = _("Upload Volume to Image")
 
     @memoized.memoized_method
     def get_data(self):
@@ -212,6 +216,7 @@ class CreateTransferView(forms.ModalFormView):
     modal_header = _("Create Volume Transfer")
     submit_label = _("Create Volume Transfer")
     submit_url = "horizon:project:volumes:volumes:create_transfer"
+    page_title = _("Create a Volume Transfer")
 
     def get_context_data(self, *args, **kwargs):
         context = super(CreateTransferView, self).get_context_data(**kwargs)
@@ -233,6 +238,7 @@ class AcceptTransferView(forms.ModalFormView):
     submit_label = _("Accept Volume Transfer")
     submit_url = reverse_lazy(
         "horizon:project:volumes:volumes:accept_transfer")
+    page_title = _("Accept Volume Transfer")
 
 
 class ShowTransferView(forms.ModalFormView):
@@ -243,6 +249,7 @@ class ShowTransferView(forms.ModalFormView):
     modal_header = _("Volume Transfer")
     submit_url = "horizon:project:volumes:volumes:show_transfer"
     cancel_label = _("Close")
+    page_title = _("Volume Transfer Details")
 
     def get_object(self):
         try:
@@ -278,6 +285,7 @@ class UpdateView(forms.ModalFormView):
     template_name = 'project/volumes/volumes/update.html'
     submit_url = "horizon:project:volumes:volumes:update"
     success_url = reverse_lazy("horizon:project:volumes:index")
+    page_title = _("Edit Volume")
 
     def get_object(self):
         if not hasattr(self, "_object"):
@@ -314,6 +322,7 @@ class EditAttachmentsView(tables.DataTableView, forms.ModalFormView):
     template_name = 'project/volumes/volumes/attach.html'
     submit_url = "horizon:project:volumes:volumes:attach"
     success_url = reverse_lazy("horizon:project:volumes:index")
+    page_title = _("Manage Volume Attachments")
 
     @memoized.memoized_method
     def get_object(self):
@@ -387,6 +396,7 @@ class RetypeView(forms.ModalFormView):
     submit_label = _("Change Volume Type")
     submit_url = "horizon:project:volumes:volumes:retype"
     success_url = reverse_lazy("horizon:project:volumes:index")
+    page_title = _("Change Volume Type")
 
     @memoized.memoized_method
     def get_data(self):
@@ -420,6 +430,7 @@ class RetypeView(forms.ModalFormView):
 
 class EncryptionDetailView(generic.TemplateView):
     template_name = 'project/volumes/volumes/encryption_detail.html'
+    page_title = _("Volume Encryption Details: {{ volume.name }}")
 
     def get_context_data(self, **kwargs):
         context = super(EncryptionDetailView, self).get_context_data(**kwargs)

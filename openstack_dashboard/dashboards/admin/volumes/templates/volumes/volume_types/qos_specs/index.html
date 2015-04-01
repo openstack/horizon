@@ -1,10 +1,6 @@
 {% extends 'base.html' %}
 {% load i18n %}
 
-{% block page_header %}
-  <h2>{% blocktrans %}QoS Spec: {{ qos_spec_name }}{% endblocktrans %}</h2>
-{% endblock page_header %}
-
 {% block main %}
   {% include "admin/volumes/volume_types/qos_specs/_index.html" %}
 {% endblock %}

@@ -77,6 +77,7 @@ class MigrateHostView(forms.ModalFormView):
         template_name = 'admin/hypervisors/compute/migrate_host.html'
         context_object_name = 'compute_host'
         success_url = reverse_lazy("horizon:admin:hypervisors:index")
+        page_title = _("Migrate Host")
 
         def get_context_data(self, **kwargs):
             context = super(MigrateHostView, self).get_context_data(**kwargs)
