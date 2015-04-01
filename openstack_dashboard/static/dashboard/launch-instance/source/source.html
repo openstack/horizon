@@ -82,24 +82,21 @@
               </div>
             </div>
 
-            <div class="col-xs-12 col-sm-9 volume-create" ng-if="model.newInstanceSpec.vol_create == true">
-
-              <div class="col-xs-12 col-sm-5 volume-size-wrapper">
-                <div class="form-field volume-size">
-                  <label class="on-top">{$ ::label.volumeSize $}</label>
-                  <input type="number" class="form-control input-sm volume-size"
-                         ng-model="model.newInstanceSpec.vol_size">
-                </div>
+            <div class="col-xs-12 col-sm-4 volume-size-wrapper" ng-if="model.newInstanceSpec.vol_create == true">
+              <div class="form-field volume-size">
+                <label class="on-top">{$ ::label.volumeSize $}</label>
+                <input type="number" class="form-control input-sm volume-size"
+                       ng-model="model.newInstanceSpec.vol_size">
               </div>
+            </div>
 
-              <div class="col-xs-12 col-sm-6">
-                <div class="form-group delete-volume">
-                  <div class="checkbox">
-                    <label class="on-top">
-                      <input type="checkbox"
-                             ng-model="model.newInstanceSpec.vol_delete_on_terminate">
-                      {$ ::label.deleteVolumeOnTerminate $}</label>
-                  </div>
+            <div class="col-xs-12 col-sm-4" ng-if="model.newInstanceSpec.vol_create == true">
+              <div class="form-group delete-volume">
+                <div class="checkbox">
+                  <label class="on-top">
+                    <input type="checkbox"
+                           ng-model="model.newInstanceSpec.vol_delete_on_terminate">
+                    {$ ::label.deleteVolumeOnTerminate $}</label>
                 </div>
               </div>
             </div>

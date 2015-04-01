@@ -286,3 +286,9 @@
     }
   }
 }
+/* workaround for odd Bootstrap checkbox vertical alignment */
+.checkbox {
+  input[type="checkbox"] {
+    margin-top: 3px;
+  }
+}
