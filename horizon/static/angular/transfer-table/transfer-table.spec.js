@@ -10,7 +10,7 @@
 
   describe('transfer-table directive', function() {
 
-    var $scope, $element;
+    var $scope, $timeout, $element;
 
     beforeEach(module('templates'));
     beforeEach(module('smart-table'));
@@ -25,6 +25,7 @@
       beforeEach(inject(function($injector) {
         var $compile = $injector.get('$compile');
         $scope = $injector.get('$rootScope').$new();
+        $timeout = $injector.get('$timeout');
 
         var available = [
           { id: '1', animal: 'cat' },
@@ -85,7 +86,7 @@
         expect($element.find('.transfer-allocated tr[ng-repeat]').length).toBe(1);
       });
 
-      it('should swap allocated row if one already exists', function(done) {
+      it('should swap allocated row if one already exists', function() {
         var available = $element.find('.transfer-available tbody tr:first-child button');
         available.click();
 
@@ -98,13 +99,11 @@
         available = $element.find('.transfer-available tbody tr:first-child button');
         available.click();
 
-        setTimeout(function() {
-          console.log($element.html());
-          allocated = $element.find('.transfer-allocated tr[ng-repeat]');
-          expect(allocated.length).toBe(1);
-          expect(allocated.find('td:nth-child(1)').text().trim()).toBe('dog');
-          done();
-        }, 100);
+        $timeout.flush();
+
+        allocated = $element.find('.transfer-allocated tr[ng-repeat]');
+        expect(allocated.length).toBe(1);
+        expect(allocated.find('td:nth-child(1)').text().trim()).toBe('dog');
       });
 
       it('should have 0 allocated row if allocated row de-allocated', function() {

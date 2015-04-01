@@ -11,10 +11,16 @@
         <div class="col-xs-12 col-sm-8">
           <div class="row form-group">
             <div class="col-sm-12 col-md-5">
-              <div class="form-field required instance-name">
+              <div class="form-field required instance-name"
+                ng-class="{ 'has-warning': launchInstanceSourceForm['instance-name'].$invalid && launchInstanceSourceForm['instance-name'].$dirty }">
                 <label class="on-top">{$ ::label.instanceName $}</label>
-                <input type="text" class="form-control input-sm" ng-required="true"
-                       ng-model="model.newInstanceSpec.name">
+                <span class="fa fa-exclamation-triangle invalid"
+                    ng-show="launchInstanceSourceForm['instance-name'].$invalid && launchInstanceSourceForm.$dirty"
+                    popover="{$ instanceNameError $}"
+                    popover-placement="top" popover-append-to-body="true"
+                    popover-trigger="hover"></span>
+                <input name="instance-name" type="text" class="form-control input-sm"
+                       ng-model="model.newInstanceSpec.name" ng-required="true">
               </div>
             </div>
 
@@ -29,10 +35,19 @@
             </div>
 
             <div class="col-sm-6 col-md-2">
-              <div class="form-field instance_count">
+              <div class="form-field instance_count"
+                ng-class="{ 'has-warning': launchInstanceSourceForm['instance-count'].$invalid }">
                 <label class="on-top">{$ ::label.instance_count $}</label>
-                <input type="number" class="form-control input-sm"
-                       ng-model="model.newInstanceSpec.instance_count">
+                <span class="fa fa-exclamation-triangle invalid"
+                    ng-show="launchInstanceSourceForm['instance-count'].$invalid"
+                    popover="{$ launchInstanceSourceForm['instance-count'].$error.validateNumberMax ? instanceCountMaxError : instanceCountError $}"
+                    popover-placement="top" popover-append-to-body="true"
+                    popover-trigger="hover"></span>
+                <input name="instance-count" type="number" class="form-control input-sm"
+                       ng-model="model.newInstanceSpec.instance_count"
+                       ng-required="true" ng-pattern="/^[0-9]+$/"
+                       validate-number-min="1"
+                       validate-number-max="{$ maxInstanceCount $}">
               </div>
             </div>
           </div>
@@ -58,9 +73,15 @@
       <div class="form-horizontal">
         <div class="row">
           <div class="col-xs-12 col-sm-3">
-            <div class="form-field image">
+            <div class="form-field image"
+              ng-class="{ 'has-warning': launchInstanceSourceForm['boot-source-type'].$invalid }">
               <label class="on-top">{$ ::label.bootSource $}</label>
-              <select class="form-control input-sm"
+              <span class="fa fa-exclamation-triangle invalid"
+                    ng-show="launchInstanceSourceForm['boot-source-type'].$invalid"
+                    popover="{$ bootSourceTypeError $}"
+                    popover-placement="top" popover-append-to-body="true"
+                    popover-trigger="hover"></span>
+              <select name="boot-source-type" class="form-control input-sm"
                       ng-options="src.label for src in bootSourcesOptions track by src.type"
                       ng-change="updateBootSourceSelection(model.newInstanceSpec.source_type)"
                       ng-model="model.newInstanceSpec.source_type">
@@ -83,10 +104,19 @@
             </div>
 
             <div class="col-xs-12 col-sm-4 volume-size-wrapper" ng-if="model.newInstanceSpec.vol_create == true">
-              <div class="form-field volume-size">
+              <div class="form-field volume-size"
+                ng-class="{ 'has-warning': launchInstanceSourceForm['volume-size'].$invalid }">
                 <label class="on-top">{$ ::label.volumeSize $}</label>
-                <input type="number" class="form-control input-sm volume-size"
-                       ng-model="model.newInstanceSpec.vol_size">
+                <span class="fa fa-exclamation-triangle invalid"
+                    ng-show="launchInstanceSourceForm['volume-size'].$invalid"
+                    popover="{$ launchInstanceSourceForm['volume-size'].$error.validateNumberMin ? minVolumeSizeError : volumeSizeError $}"
+                    popover-placement="top" popover-append-to-body="true"
+                    popover-trigger="hover"></span>
+                <input name="volume-size" type="number"
+                       class="form-control input-sm volume-size"
+                       ng-model="model.newInstanceSpec.vol_size"
+                       ng-pattern="/^[0-9]+$/" ng-required="true"
+                       validate-number-min="{$ minVolumeSize $}">
               </div>
             </div>
 
@@ -124,7 +154,7 @@
 
     <transfer-table help-text="helpText"
                     tr-model="tableData">
-      <allocated>
+      <allocated validate-number-min="1" ng-model="tableData.allocated.length">
         <table class="table-striped table-rsp table-detail modern"
                hz-table
                st-safe-src="tableData.allocated"
@@ -311,18 +341,9 @@
                 {$ tableBodyCells[4].filter ? tableBodyCells[4].filter(row[tableBodyCells[4].key], tableBodyCells[4].filterArg) : row[tableBodyCells[4].key] $}
               </td>
               <td class="action-col">
-                <action-list button-tooltip="row.warningMessage"
-                             bt-disabled="!row.disabled"
-                             bt-model="trCtrl.tooltipModel"
-                             warning-classes="'invalid'">
-                  <notifications>
-                    <span class="fa fa-exclamation-circle invalid"
-                          ng-show="row.disabled">
-                    </span>
-                  </notifications>
+                <action-list>
                   <action action-classes="'btn btn-sm btn-default'"
                           callback="trCtrl.allocate"
-                          disabled="row.disabled"
                           item="row">
                     <span class="fa fa-plus"></span>
                   </action>

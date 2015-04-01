@@ -19,7 +19,8 @@ limitations under the License.
     <transfer-table
         tr-model="selectFlavorCtrl.transferTableModel"
         limits="selectFlavorCtrl.allocationLimits">
-      <allocated>
+      <allocated ng-model="selectFlavorCtrl.allocatedFlavorFacades.length"
+        validate-number-min="1" name="allocated-flavor">
         <select-flavor-table
             items="selectFlavorCtrl.allocatedFlavorFacades"
             displayed-items="selectFlavorCtrl.displayedAllocatedFlavorFacades">

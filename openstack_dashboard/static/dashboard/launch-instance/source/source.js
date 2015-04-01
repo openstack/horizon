@@ -15,6 +15,17 @@
   var module = angular.module('hz.dashboard.launch-instance');
 
   /**
+   * @name bootSourceTypes
+   * @description Boot source types
+   */
+  module.constant('bootSourceTypes', {
+    IMAGE: 'image',
+    INSTANCE_SNAPSHOT: 'snapshot',
+    VOLUME: 'volume',
+    VOLUME_SNAPSHOT: 'volume_snapshot'
+  });
+
+  /**
    * @ngdoc filter
    * @name diskFormat
    * @description
@@ -43,6 +54,7 @@
    */
   module.controller('LaunchInstanceSourceCtrl', [
     '$scope',
+    'bootSourceTypes',
     'bytesFilter',
     'dateFilter',
     'decodeFilter',
@@ -53,6 +65,7 @@
   ]);
 
   function LaunchInstanceSourceCtrl($scope,
+                                    bootSourceTypes,
                                     bytesFilter,
                                     dateFilter,
                                     decodeFilter,
@@ -77,6 +90,12 @@
     };
 
 
+    // Error text for invalid fields
+    $scope.bootSourceTypeError = gettext('Volumes can only be attached to 1 active instance at a time. Please either set your instance count to 1 or select a different source type.');
+    $scope.instanceNameError = gettext('A name is required for your instance.');
+    $scope.instanceCountError = gettext('Instance count is required and must be an integer of at least 1');
+    $scope.volumeSizeError = gettext('Volume size is required and must be an integer');
+
     //
     // Boot Sources
     //
@@ -93,6 +112,7 @@
       $scope.model.newInstanceSpec.vol_create = false;
       $scope.model.newInstanceSpec.vol_delete_on_terminate = false;
       changeBootSource(selectedSource.type);
+      validateBootSourceType();
     };
 
     //
@@ -103,6 +123,7 @@
     $scope.tableBodyCells= [];
     $scope.tableData = {};
     $scope.helpText = {};
+    $scope.maxInstanceCount = 1;
 
     var selection = $scope.model.newInstanceSpec.source;
 
@@ -166,7 +187,7 @@
     };
 
     // map Visibility data so we can decode true/false to Public/Private
-    var _visibilitymap = {true: gettext('Public'), false: gettext('Private')};
+    var _visibilitymap = { true: gettext('Public'), false: gettext('Private') };
 
     // mapping for dynamic table data
     var tableBodyCellsMap = {
@@ -210,6 +231,7 @@
       updateTableHeadCells(key);
       updateTableBodyCells(key);
       updateChart();
+      updateMaxInstanceCount();
     }
 
     function updateDataSource(key) {
@@ -236,7 +258,6 @@
       arrayToRefill.length = 0;
       Array.prototype.push.apply(arrayToRefill, contentArray);
     }
-
 
     //
     // Donut chart
@@ -283,6 +304,7 @@
       function (newValue, oldValue) {
         if (newValue !== oldValue) {
           updateChart();
+          validateBootSourceType();
         }
       }
     );
@@ -295,6 +317,7 @@
         if (newValue !== oldValue) {
           maxTotalInstances = Math.max(1, newValue);
           updateChart();
+          updateMaxInstanceCount();
         }
       }
     );
@@ -307,6 +330,7 @@
         if (newValue !== oldValue) {
           totalInstancesUsed = newValue;
           updateChart();
+          updateMaxInstanceCount();
         }
       }
     );
@@ -319,6 +343,7 @@
         if (newValue !== oldValue) {
           updateChart();
         }
+        checkVolumeForImage(newValue);
       }
     );
 
@@ -331,20 +356,63 @@
 
       var data = $scope.instanceStats.data;
       var remaining = Math.max(0, maxTotalInstances - totalInstancesUsed - selection.length * instance_count);
-      // If a user has entered a count that will result in them exceeding their
-      // quota, automatically decrease the count so that it stays within quota
-      if (instance_count + totalInstancesUsed > maxTotalInstances) {
-        $scope.model.newInstanceSpec.instance_count = maxTotalInstances - totalInstancesUsed;
-      }
 
       data[0].value = totalInstancesUsed;
       data[1].value = selection.length * instance_count;
       data[2].value = remaining;
       $scope.instanceStats.label =
-        Math.round((maxTotalInstances - remaining) * 100 / maxTotalInstances) + '%';
+        Math.ceil((maxTotalInstances - remaining) * 100 / maxTotalInstances) + '%';
       $scope.instanceStats = angular.extend({}, $scope.instanceStats);
     }
 
+    //
+    // Validations
+    //
+
+    // If boot source type is 'image' and 'Create New Volume'
+    // is checked, set the minimum volume size for validating
+    // vol_size field
+    function checkVolumeForImage(newLength) {
+      var source = selection ? selection[0] : undefined;
+
+      if (source && $scope.currentBootSource === bootSourceTypes.IMAGE) {
+        var imageGb = source.size * 1e-9;
+        var imageDisk = source.min_disk;
+        $scope.minVolumeSize = Math.ceil(Math.max(imageGb, imageDisk));
+
+        var volumeSizeText = gettext('The volume size must be at least %(minVolumeSize)s GB');
+        var volumeSizeObj = { minVolumeSize: $scope.minVolumeSize };
+        $scope.minVolumeSizeError = interpolate(volumeSizeText, volumeSizeObj, true);
+      } else {
+        $scope.minVolumeSize = undefined;
+      }
+    }
+
+    // Update the maximum instance count based on nova limits
+    function updateMaxInstanceCount() {
+      $scope.maxInstanceCount = maxTotalInstances - totalInstancesUsed;
+
+      var instanceCountText = gettext('The instance count must not exceed your quota available of %(maxInstanceCount)s instances');
+      var instanceCountObj = { maxInstanceCount: $scope.maxInstanceCount };
+      $scope.instanceCountMaxError = interpolate(instanceCountText, instanceCountObj, true);
+    }
+
+    // Validator for boot source type.
+    // Instance count must to be 1 if volume selected
+    function validateBootSourceType() {
+      var bootSourceType = $scope.currentBootSource;
+      var instanceCount = $scope.model.newInstanceSpec.instance_count;
+
+      // Field is valid if boot source type is not volume,
+      // instance count is blank/undefined (this is an error with instance count)
+      // or instance count is 1
+      var isValid = bootSourceType !== bootSourceTypes.VOLUME ||
+                    !instanceCount ||
+                    instanceCount === 1;
+
+      $scope.launchInstanceSourceForm['boot-source-type']
+            .$setValidity('bootSourceType', isValid);
+    }
 
     //
     // initialize

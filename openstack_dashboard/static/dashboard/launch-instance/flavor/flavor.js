@@ -92,10 +92,13 @@
     $scope.$watch(function () {
       return launchInstanceModel.newInstanceSpec.instance_count;
     }, function (newValue, oldValue, scope) {
-      var ctrl = scope.selectFlavorCtrl;
-      // Ignore any values <1
-      ctrl.instanceCount = Math.max(1, newValue);
-      ctrl.updateFlavorFacades();
+      if (angular.isDefined(newValue)) {
+        var ctrl = scope.selectFlavorCtrl;
+        // Ignore any values <1
+        ctrl.instanceCount = Math.max(1, newValue);
+        ctrl.updateFlavorFacades();
+        ctrl.validateFlavor();
+      }
     });
 
     // Update the new instance model when the allocated flavor changes
@@ -103,16 +106,39 @@
       function (newValue, oldValue, scope) {
         if (newValue && newValue.length > 0) {
           launchInstanceModel.newInstanceSpec.flavor = newValue[0].flavor;
+          scope.selectFlavorCtrl.validateFlavor();
         } else {
           delete launchInstanceModel.newInstanceSpec.flavor;
         }
       }
     );
 
+    $scope.$watchCollection(function() {
+      return launchInstanceModel.newInstanceSpec.source;
+    }, function (newValue, oldValue, scope) {
+      var ctrl = scope.selectFlavorCtrl;
+      ctrl.source = newValue && newValue.length ? newValue[0] : null;
+      ctrl.updateFlavorFacades();
+      ctrl.validateFlavor();
+    });
+
     // Convenience function to return a sensible value instead of
     // undefined
     this.defaultIfUndefined = function (value, defaultValue) {
       return (value === undefined) ? defaultValue : value;
+    };
+
+    // Validator for flavor selected. Checks if this flavor is
+    // valid based on instance count and source selected.
+    // If flavor is invalid, enabled is false.
+    this.validateFlavor = function() {
+      var allocatedFlavors = this.allocatedFlavorFacades;
+      if (allocatedFlavors && allocatedFlavors.length > 0) {
+        var allocatedFlavorFacade = allocatedFlavors[0];
+        var isValid = allocatedFlavorFacade.enabled;
+        $scope.launchInstanceFlavorForm['allocated-flavor']
+              .$setValidity('flavor', isValid);
+      }
     };
 
     /*
@@ -175,6 +201,10 @@
           this.instanceCount * facade.ram,
           launchInstanceModel.novaLimits.totalRAMUsed,
           launchInstanceModel.novaLimits.maxTotalRAMSize);
+
+        var errors = this.getErrors(facade.flavor);
+        facade.errors = errors;
+        facade.enabled = Object.keys(errors).length === 0;
       }
     };
 
@@ -205,6 +235,47 @@
       };
 
       return chartData;
+    };
+
+    // Generate error messages for flavor based on
+    // source (if selected) and instance count
+    this.getErrors = function(flavor) {
+      var messages = {},
+          source = this.source,
+          instanceCount = this.instanceCount;
+
+      // Check RAM resources
+      var totalRamUsed = this.defaultIfUndefined(this.novaLimits.totalRAMUsed, 0);
+      var maxTotalRam = this.defaultIfUndefined(this.novaLimits.maxTotalRAMSize, 0);
+      var availableRam = maxTotalRam - totalRamUsed;
+      var ramRequired = instanceCount * flavor.ram;
+      if (ramRequired > availableRam) {
+        messages.ram = gettext('This flavor requires more RAM than your quota allows. Please select a smaller flavor or decrease the instance count.');
+      }
+
+      // Check VCPU resources
+      var totalCoresUsed = this.defaultIfUndefined(this.novaLimits.totalCoresUsed, 0);
+      var maxTotalCores = this.defaultIfUndefined(this.novaLimits.maxTotalCores, 0);
+      var availableCores = maxTotalCores - totalCoresUsed;
+      var coresRequired = instanceCount * flavor.vcpus;
+      if (coresRequired > availableCores) {
+        messages.vcpus = gettext('This flavor requires more VCPUs than your quota allows. Please select a smaller flavor or decrease the instance count.');
+      }
+
+      // Check source minimum requirements against this flavor
+      var sourceType = launchInstanceModel.newInstanceSpec.source_type;
+      if (source && sourceType && sourceType.type === 'image') {
+        if (source.min_disk > 0 && source.min_disk > flavor.disk) {
+          var srcMinDiskMsg = gettext('The selected image source requires a flavor with at least %(minDisk)s GB of root disk. Select a flavor with a larger root disk or use a different image source.');
+          messages.disk = interpolate(srcMinDiskMsg, { minDisk: source.min_disk }, true);
+        }
+        if (source.min_ram > 0 && source.min_ram > flavor.ram) {
+          var srcMinRamMsg = gettext('The selected image source requires a flavor with at least %(minRam)s MB of RAM. Select a flavor with more RAM or use a different image source.');
+          messages.ram = interpolate(srcMinRamMsg, { minRam: source.min_ram }, true);
+        }
+      }
+
+      return messages;
     };
   }
 

@@ -77,6 +77,8 @@
           scope.noneAvailableText = transferTableHelpText.noneAvailText;
           scope.rowExpandText = transferTableHelpText.expandDetailsText;
           scope.itemButtonClasses = "fa fa-plus";
+
+          scope.tooltipModel = transferTableCtrl.tooltipModel;
         } else {
           /*
            * This table used in "allocated" portion of transfer table
