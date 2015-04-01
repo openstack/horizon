@@ -32,7 +32,7 @@
    */
   app.constant('expandSettings', {
     expandIconClasses: 'fa-chevron-right fa-chevron-down',
-    duration: 400
+    duration: 100
   });
 
   /**
