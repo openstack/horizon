@@ -12,6 +12,7 @@
 
 import os
 import time
+import traceback
 import uuid
 
 import testtools
@@ -43,6 +44,8 @@ def gen_random_resource_name(resource="", timestamp=True):
 
 class BaseTestCase(testtools.TestCase):
 
+    CONFIG = config.get_config()
+
     def setUp(self):
         if os.environ.get('INTEGRATION_TESTS', False):
             # Start a virtual display server for running the tests headless.
@@ -57,13 +60,37 @@ class BaseTestCase(testtools.TestCase):
             # Start the Selenium webdriver and setup configuration.
             self.driver = webdriver.WebDriverWrapper()
             self.driver.maximize_window()
-            self.conf = config.get_config()
-            self.driver.implicitly_wait(self.conf.selenium.implicit_wait)
-            self.driver.set_page_load_timeout(self.conf.selenium.page_timeout)
+            self.driver.implicitly_wait(self.CONFIG.selenium.implicit_wait)
+            self.driver.set_page_load_timeout(
+                self.CONFIG.selenium.page_timeout)
+            self.addOnException(self._dump_page_html_source)
         else:
             msg = "The INTEGRATION_TESTS env variable is not set."
             raise self.skipException(msg)
         super(BaseTestCase, self).setUp()
+
+    def _dump_page_html_source(self, exc_info):
+        content = None
+        try:
+            pg_source = self._get_page_html_source()
+            content = testtools.content.Content(
+                testtools.content_type.ContentType('text', 'html'),
+                lambda: pg_source)
+        except Exception:
+            exc_traceback = traceback.format_exc()
+            content = testtools.content.text_content(exc_traceback)
+        finally:
+            self.addDetail("PageHTMLSource.html", content)
+
+    def _get_page_html_source(self):
+        """Gets html page source.
+
+        self.driver.page_source is not used on purpose because it does not
+        display html code generated/changed by javascript.
+        """
+
+        html_elem = self.driver.find_element_by_tag_name("html")
+        return html_elem.get_attribute("innerHTML").encode("UTF-8")
 
     def tearDown(self):
         if os.environ.get('INTEGRATION_TESTS', False):
@@ -75,11 +102,15 @@ class BaseTestCase(testtools.TestCase):
 
 class TestCase(BaseTestCase):
 
+    TEST_USER_NAME = BaseTestCase.CONFIG.identity.username
+    TEST_PASSWORD = BaseTestCase.CONFIG.identity.password
+
     def setUp(self):
         super(TestCase, self).setUp()
-        self.login_pg = loginpage.LoginPage(self.driver, self.conf)
+        self.login_pg = loginpage.LoginPage(self.driver, self.CONFIG)
         self.login_pg.go_to_login_page()
-        self.home_pg = self.login_pg.login()
+        self.home_pg = self.login_pg.login(self.TEST_USER_NAME,
+                                           self.TEST_PASSWORD)
 
     def tearDown(self):
         try:
@@ -90,18 +121,7 @@ class TestCase(BaseTestCase):
             super(TestCase, self).tearDown()
 
 
-class AdminTestCase(BaseTestCase):
-    def setUp(self):
-        super(AdminTestCase, self).setUp()
-        self.login_pg = loginpage.LoginPage(self.driver, self.conf)
-        self.login_pg.go_to_login_page()
-        self.home_pg = self.login_pg.login(
-            user=self.conf.identity.admin_username,
-            password=self.conf.identity.admin_password)
+class AdminTestCase(TestCase):
 
-    def tearDown(self):
-        try:
-            if self.home_pg.is_logged_in:
-                self.home_pg.log_out()
-        finally:
-            super(AdminTestCase, self).tearDown()
+    TEST_USER_NAME = TestCase.CONFIG.identity.admin_username
+    TEST_PASSWORD = TestCase.CONFIG.identity.admin_password

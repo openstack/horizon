@@ -33,11 +33,11 @@ class TestPasswordChange(helpers.TestCase):
         passwordchange_page = self.home_pg.go_to_settings_changepasswordpage()
 
         try:
-            passwordchange_page.change_password(self.conf.identity.password,
+            passwordchange_page.change_password(self.TEST_PASSWORD,
                                                 NEW_PASSWORD)
 
-            self.home_pg = self.login_pg.login(
-                user=self.conf.identity.username, password=NEW_PASSWORD)
+            self.home_pg = self.login_pg.login(user=self.TEST_USER_NAME,
+                                               password=NEW_PASSWORD)
             self.assertTrue(self.home_pg.is_logged_in,
                             "Failed to login with new password")
         finally:
@@ -51,13 +51,13 @@ class TestPasswordChange(helpers.TestCase):
         passwordchange_page = self.home_pg.go_to_settings_changepasswordpage()
 
         try:
-            passwordchange_page.change_password(self.conf.identity.password,
+            passwordchange_page.change_password(self.TEST_PASSWORD,
                                                 NEW_PASSWORD)
             self.assertTrue(
                 self.login_pg.is_logout_reason_displayed(),
                 "The logout reason message was not found on the login page")
         finally:
-            self.login_pg.login(user=self.conf.identity.username,
+            self.login_pg.login(user=self.TEST_USER_NAME,
                                 password=NEW_PASSWORD)
             self._reset_password()
             self._login()
