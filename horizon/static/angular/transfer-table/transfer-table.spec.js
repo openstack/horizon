@@ -1,4 +1,18 @@
-/* jshint browser: true */
+/*
+ *    (c) Copyright 2015 Hewlett-Packard Development Company, L.P.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 (function() {
   'use strict';
 
@@ -6,6 +20,64 @@
     it('should have been defined', function() {
       expect(angular.module('hz.widget.transfer-table')).toBeDefined();
     });
+  });
+
+  describe("Filters", function() {
+    var filter;
+
+    beforeEach(module('hz.widget.transfer-table'));
+
+    describe("warningText", function() {
+
+      beforeEach(inject(function(warningTextFilter) {
+        filter = warningTextFilter;
+      }));
+
+      it('returns value if present', function() {
+        expect(filter({ thing: 'stuff'}, 'thing')).toBe('stuff');
+      });
+
+      it('returns empty string if not present', function() {
+        expect(filter({ thing: 'stuff'}, 'other')).toBe('');
+      });
+
+    });
+
+    describe("rowFilter", function() {
+
+      beforeEach(inject(function(rowFilterFilter) {
+        filter = rowFilterFilter;
+      }));
+
+      it('returns item if field is falsy', function() {
+        expect(filter({ hi: 'there' }, false)).toEqual({ hi: 'there' });
+      });
+
+      it('returns items only where field property is falsy', function() {
+        var items = [
+          {hi: 'there'},
+          {},
+          {hi: true},
+          {hi: false}
+        ];
+        expect(filter(items, 'hi')).toEqual([{}, {hi: false}]);
+      });
+
+    });
+
+    describe("foundText", function() {
+
+      beforeEach(inject(function(foundTextFilter) {
+        filter = foundTextFilter;
+      }));
+
+      it('returns expected text', function() {
+        var items = [1,2,3];
+        expect(filter(items, 6)).toBe('Found 3 of 6');
+      });
+
+    });
+
   });
 
   describe('transfer-table directive', function() {
