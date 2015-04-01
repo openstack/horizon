@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-28 00:18-0500\n"
-"PO-Revision-Date: 2015-03-27 06:00+0000\n"
+"POT-Creation-Date: 2015-03-31 23:04-0500\n"
+"PO-Revision-Date: 2015-04-01 05:31+0000\n"
 "Last-Translator: Zhang Xiaowei <zero00072@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -153,6 +153,10 @@ msgstr "點擊來顯示更多詳細資訊"
 msgid "Found %(found)s of %(total)s"
 msgstr "已找到 %(total)s 中的 %(found)s 個"
 
+#: static/angular/transfer-table/transfer-table.js:166
+msgid "Click here to expand the row and view the errors."
+msgstr "展開這列來檢視錯誤。"
+
 #: static/angular/wizard/wizard.js:8
 msgid "Back"
 msgstr "上一步"
@@ -183,7 +187,7 @@ msgstr "無可用的資料。"
 msgid "An error occurred. Please try again later."
 msgstr "發生錯誤。請稍後再試。"
 
-#: static/horizon/js/horizon.firewalls.js:30
+#: static/horizon/js/horizon.firewalls.js:32
 #: static/horizon/js/horizon.instances.js:31
 msgid "There was a problem communicating with the server, please try again."
 msgstr "與伺服器間的通訊有問題，請再試一次。"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-17 03:17+0000\n"
+"POT-Creation-Date: 2015-03-31 23:04-0500\n"
+"PO-Revision-Date: 2015-04-01 02:20+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -183,24 +183,35 @@ msgstr "Nápověda"
 msgid "Sign Out"
 msgstr "Odhlásit"
 
+#: templates/auth/_description.html:9
+msgid ""
+"\n"
+"      If you are not sure which authentication method to use, contact your administrator.\n"
+"    "
+msgstr ""
+
 #: templates/auth/_login.html:5
 msgid "Log In"
 msgstr "Přihlásit"
 
-#: templates/auth/_login.html:15
+#: templates/auth/_login.html:27
 msgid "You do not have permission to access the resource:"
 msgstr "Nemáte oprávnění k přístupu do zdroje:"
 
-#: templates/auth/_login.html:17
+#: templates/auth/_login.html:29
 #, python-format
 msgid ""
 "Login as different user or go back to <a href=\"%(home_url)s\"> home "
 "page</a>"
 msgstr "Přihlaste se jako jiný uživatel nebo se vraťte na <a href=\"%(home_url)s\"> domovskou stránku</a>"
 
-#: templates/auth/_login.html:32
+#: templates/auth/_login.html:45
 msgid "Sign In"
 msgstr "Přihlásit"
+
+#: templates/auth/_login.html:46
+msgid "Connect"
+msgstr ""
 
 #: templates/auth/login.html:4
 msgid "Login"

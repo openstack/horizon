@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-17 03:17+0000\n"
+"POT-Creation-Date: 2015-03-31 23:04-0500\n"
+"PO-Revision-Date: 2015-04-01 02:20+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -186,24 +186,35 @@ msgstr "도움말"
 msgid "Sign Out"
 msgstr "로그아웃"
 
+#: templates/auth/_description.html:9
+msgid ""
+"\n"
+"      If you are not sure which authentication method to use, contact your administrator.\n"
+"    "
+msgstr ""
+
 #: templates/auth/_login.html:5
 msgid "Log In"
 msgstr "로그인"
 
-#: templates/auth/_login.html:15
+#: templates/auth/_login.html:27
 msgid "You do not have permission to access the resource:"
 msgstr "당신은 리소스에 접근할 권한이 없습니다.:"
 
-#: templates/auth/_login.html:17
+#: templates/auth/_login.html:29
 #, python-format
 msgid ""
 "Login as different user or go back to <a href=\"%(home_url)s\"> home "
 "page</a>"
 msgstr "다른 사용자로 로그인하거나 <a href=\"%(home_url)s\">홈페이지</a>로 되돌아가기"
 
-#: templates/auth/_login.html:32
+#: templates/auth/_login.html:45
 msgid "Sign In"
 msgstr "등록"
+
+#: templates/auth/_login.html:46
+msgid "Connect"
+msgstr ""
 
 #: templates/auth/login.html:4
 msgid "Login"

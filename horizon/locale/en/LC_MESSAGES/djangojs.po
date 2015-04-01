@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-19 01:16-0500\n"
+"POT-Creation-Date: 2015-04-01 01:16-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -72,6 +72,7 @@ msgid "Duplicate keys are not allowed"
 msgstr ""
 
 #: static/angular/metadata-tree/metadata-tree.js:45
+#: static/angular/table/basic-table.js:6
 #: static/horizon/js/horizon.forms.js:184
 msgid "Filter"
 msgstr ""
@@ -149,6 +150,10 @@ msgstr ""
 msgid "Found %(found)s of %(total)s"
 msgstr ""
 
+#: static/angular/transfer-table/transfer-table.js:166
+msgid "Click here to expand the row and view the errors."
+msgstr ""
+
 #: static/angular/wizard/wizard.js:8
 msgid "Back"
 msgstr ""
@@ -179,7 +184,7 @@ msgstr ""
 msgid "An error occurred. Please try again later."
 msgstr ""
 
-#: static/horizon/js/horizon.firewalls.js:30
+#: static/horizon/js/horizon.firewalls.js:32
 #: static/horizon/js/horizon.instances.js:31
 msgid "There was a problem communicating with the server, please try again."
 msgstr ""
@@ -308,6 +313,7 @@ msgid "Please confirm your selection. "
 msgstr ""
 
 #: static/horizon/js/horizon.tables.js:369
+#: static/horizon/js/angular/filters/filters.js:163
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"

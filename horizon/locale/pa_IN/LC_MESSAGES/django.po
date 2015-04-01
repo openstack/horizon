@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-20 00:51-0500\n"
-"PO-Revision-Date: 2015-03-20 06:04+0000\n"
-"Last-Translator: Amandeep Singh Saini <jimidar@gmail.com>\n"
+"POT-Creation-Date: 2015-03-31 23:04-0500\n"
+"PO-Revision-Date: 2015-04-01 02:20+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/projects/p/horizon/language/pa_IN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -183,24 +183,35 @@ msgstr "ਮਦਦ"
 msgid "Sign Out"
 msgstr "ਸਾਈਨ ਆਊਟ"
 
+#: templates/auth/_description.html:9
+msgid ""
+"\n"
+"      If you are not sure which authentication method to use, contact your administrator.\n"
+"    "
+msgstr ""
+
 #: templates/auth/_login.html:5
 msgid "Log In"
 msgstr "ਲਾਗ ਇਨ"
 
-#: templates/auth/_login.html:15
+#: templates/auth/_login.html:27
 msgid "You do not have permission to access the resource:"
 msgstr "ਤੁਹਾਡੇ ਕੋਲ ਵਸੀਲੇ ਤੱਕ ਦਖਲ ਦੀ ਪਰਵਾਨਗੀ ਨਹੀਂ ਹੈ:"
 
-#: templates/auth/_login.html:17
+#: templates/auth/_login.html:29
 #, python-format
 msgid ""
 "Login as different user or go back to <a href=\"%(home_url)s\"> home "
 "page</a>"
 msgstr "ਵੱਖਰੇ ਵਰਤੋਂਕਾਰ ਵਜੋਂ ਲਾਗਇਨ ਹੋਵੋ ਜਾਂ ਵਾਪਸ <a href=\"%(home_url)s\"> ਘਰ ਵਰਕਾ</a> ਤੇ ਜਾਉ।"
 
-#: templates/auth/_login.html:32
+#: templates/auth/_login.html:45
 msgid "Sign In"
 msgstr "ਸਾਈਨ ਇਨ ਕਰੋ"
+
+#: templates/auth/_login.html:46
+msgid "Connect"
+msgstr ""
 
 #: templates/auth/login.html:4
 msgid "Login"

@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-23 21:49-0500\n"
-"PO-Revision-Date: 2015-03-24 06:00+0000\n"
-"Last-Translator: Ying Chun Guo <daisy.ycguo@gmail.com>\n"
+"POT-Creation-Date: 2015-03-31 23:04-0500\n"
+"PO-Revision-Date: 2015-04-01 04:04+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,39 +37,39 @@ msgid ""
 "the right column. In the left columns there are metadata definitions from "
 "the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
 "the key of your choice."
-msgstr ""
+msgstr "你可以通过从左边栏目目录选择到右边栏目来指定资源的元数据。在左边栏目是按照glance 元数据目录来定义的元数据。使用\"其他\"选项来增加元数据。"
 
 #: static/angular/metadata-tree/metadata-tree.js:36
 msgid "Min"
-msgstr ""
+msgstr "最小"
 
 #: static/angular/metadata-tree/metadata-tree.js:37
 msgid "Max"
-msgstr ""
+msgstr "最大"
 
 #: static/angular/metadata-tree/metadata-tree.js:38
 msgid "Min length"
-msgstr ""
+msgstr "最小长度"
 
 #: static/angular/metadata-tree/metadata-tree.js:39
 msgid "Max length"
-msgstr ""
+msgstr "最大长度"
 
 #: static/angular/metadata-tree/metadata-tree.js:40
 msgid "Pattern mismatch"
-msgstr ""
+msgstr "模式不匹配"
 
 #: static/angular/metadata-tree/metadata-tree.js:41
 msgid "Integer required"
-msgstr ""
+msgstr "必须是整数"
 
 #: static/angular/metadata-tree/metadata-tree.js:42
 msgid "Decimal required"
-msgstr ""
+msgstr "必须是小数"
 
 #: static/angular/metadata-tree/metadata-tree.js:43
 msgid "Required"
-msgstr ""
+msgstr "必须"
 
 #: static/angular/metadata-tree/metadata-tree.js:44
 msgid "Duplicate keys are not allowed"
@@ -91,7 +91,7 @@ msgstr "已存在的元数据"
 
 #: static/angular/metadata-tree/metadata-tree.js:48
 msgid "Custom"
-msgstr ""
+msgstr "定制"
 
 #: static/angular/metadata-tree/metadata-tree.js:49
 msgid "No available metadata"
@@ -124,34 +124,38 @@ msgstr "选择一个"
 
 #: static/angular/transfer-table/transfer-table.js:42
 msgid "Select an item from Available items below"
-msgstr ""
+msgstr "从以下可选项中选择一项"
 
 #: static/angular/transfer-table/transfer-table.js:43
 msgid "No available items"
-msgstr ""
+msgstr "没有可选项"
 
 #: static/angular/transfer-table/transfer-table.js:44
 msgid "Expand to see allocated items"
-msgstr ""
+msgstr "展开可见已分配项"
 
 #: static/angular/transfer-table/transfer-table.js:45
 msgid "Expand to see available items"
-msgstr ""
+msgstr "展开可见可选项"
 
 #: static/angular/transfer-table/transfer-table.js:46
 msgid "Click to show or hide"
-msgstr ""
+msgstr "点击此处展现或隐藏"
 
 #: static/angular/transfer-table/transfer-table.js:47
 msgid "Re-order items using drag and drop"
-msgstr ""
+msgstr "使用拖放重新排序"
 
 #: static/angular/transfer-table/transfer-table.js:48
 msgid "Click to see more details"
-msgstr ""
+msgstr "点击查看更多细节"
 
 #: static/angular/transfer-table/transfer-table.js:100
 msgid "Found %(found)s of %(total)s"
+msgstr "共有%(total)s已找到%(found)s"
+
+#: static/angular/transfer-table/transfer-table.js:166
+msgid "Click here to expand the row and view the errors."
 msgstr ""
 
 #: static/angular/wizard/wizard.js:8
@@ -184,7 +188,7 @@ msgstr "没有可用数据"
 msgid "An error occurred. Please try again later."
 msgstr "发生错误。请稍后重试。"
 
-#: static/horizon/js/horizon.firewalls.js:30
+#: static/horizon/js/horizon.firewalls.js:32
 #: static/horizon/js/horizon.instances.js:31
 msgid "There was a problem communicating with the server, please try again."
 msgstr "与服务器通信出现问题，请再试一次。"
@@ -369,19 +373,19 @@ msgstr "MB"
 
 #: static/horizon/js/angular/filters/filters.js:138
 msgid "TB"
-msgstr ""
+msgstr "TB"
 
 #: static/horizon/js/angular/filters/filters.js:144
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 #: static/horizon/js/angular/filters/filters.js:146
 msgid "bytes"
-msgstr ""
+msgstr "字节数"
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:47
 msgid "Unable to retrieve volumes."
-msgstr ""
+msgstr "无法获取云硬盘"
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:74
 msgid "Unable to retrieve volume snapshots."
@@ -389,11 +393,11 @@ msgstr "找不到云硬盘快照。"
 
 #: static/horizon/js/angular/services/hz.api.config.js:42
 msgid "Unable to retrieve user configuration."
-msgstr ""
+msgstr "无法获取用户配置"
 
 #: static/horizon/js/angular/services/hz.api.config.js:61
 msgid "Unable to retrieve admin configuration."
-msgstr ""
+msgstr "无法获取管理员配置"
 
 #: static/horizon/js/angular/services/hz.api.glance.js:38
 msgid "Unable to retrieve image."
@@ -405,115 +409,115 @@ msgstr "找不到镜像。"
 
 #: static/horizon/js/angular/services/hz.api.glance.js:133
 msgid "Unable to retrieve namespaces."
-msgstr ""
+msgstr "无法获取命名空间"
 
 #: static/horizon/js/angular/services/hz.api.glance.js:147
 msgid "Unable to retrieve namespace."
-msgstr ""
+msgstr "无法获取命名空间"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:24
 msgid "Unable to retrieve users"
-msgstr ""
+msgstr "无法获取用户"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:31
 msgid "Unable to create the user."
-msgstr ""
+msgstr "无法创建用户。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:38
 msgid "Unable to delete the users."
-msgstr ""
+msgstr "无法删除用户"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:45
 msgid "Unable to retrieve the user"
-msgstr ""
+msgstr "无法获取用户"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:53
 msgid "Unable to edit the user."
-msgstr ""
+msgstr "无法编辑用户"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:60
 msgid "Unable to delete the user."
-msgstr ""
+msgstr "无法删除用户"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:68
 msgid "Unable to retrieve role"
-msgstr ""
+msgstr "无法获取角色"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:75
 msgid "Unable to create the role."
-msgstr ""
+msgstr "无法创建角色。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:82
 msgid "Unable to delete the roles."
-msgstr ""
+msgstr "无法删除角色"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:89
 msgid "Unable to retrieve the role"
-msgstr ""
+msgstr "无法获取角色"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:97
 msgid "Unable to edit the role."
-msgstr ""
+msgstr "无法编辑角色"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:104
 msgid "Unable to delete the role."
-msgstr ""
+msgstr "无法删除角色"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:112
 msgid "Unable to retrieve domains"
-msgstr ""
+msgstr "无法获取域"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:119
 msgid "Unable to create the domain."
-msgstr ""
+msgstr "无法创建域"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:126
 msgid "Unable to delete the domains."
-msgstr ""
+msgstr "无法删除域"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:133
 msgid "Unable to retrieve the domain"
-msgstr ""
+msgstr "无法获取域"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:141
 msgid "Unable to edit the domain."
-msgstr ""
+msgstr "无法编辑域"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:148
 msgid "Unable to delete the domain."
-msgstr ""
+msgstr "无法删除域"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:157
 msgid "Unable to retrieve projects"
-msgstr ""
+msgstr "无法获取项目"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:164
 msgid "Unable to create the project."
-msgstr ""
+msgstr "无法创建项目"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:171
 msgid "Unable to delete the projects."
-msgstr ""
+msgstr "无法删除项目"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:178
 msgid "Unable to retrieve the project"
-msgstr ""
+msgstr "无法获取项目"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:186
 msgid "Unable to edit the project."
-msgstr ""
+msgstr "无法编辑项目"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:193
 msgid "Unable to delete the project."
-msgstr ""
+msgstr "无法删除项目"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:201
 msgid "Unable to grant the role."
-msgstr ""
+msgstr "无法授予角色"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:215
 msgid "Unable to fetch the service catalog."
-msgstr ""
+msgstr "无法取得服务目录"
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:39
 msgid "Unable to retrieve networks."
@@ -521,19 +525,19 @@ msgstr "无法获取网络"
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:88
 msgid "Unable to create the network."
-msgstr ""
+msgstr "无法创建网络"
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:108
 msgid "Unable to retrieve subnets."
-msgstr ""
+msgstr "无法获取子网"
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:172
 msgid "Unable to create the subnet."
-msgstr ""
+msgstr "无法创建子网"
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:192
 msgid "Unable to retrieve ports."
-msgstr ""
+msgstr "无法获取端口"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:40
 msgid "Unable to retrieve keypairs."
@@ -541,7 +545,7 @@ msgstr "无法获取密钥对"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:61
 msgid "Unable to create the keypair."
-msgstr ""
+msgstr "无法创建密匙对"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:79
 msgid "Unable to retrieve availability zones."
@@ -549,19 +553,19 @@ msgstr "无法获取可用域。"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:117
 msgid "Unable to retrieve limits."
-msgstr ""
+msgstr "无法获取界限"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:144
 msgid "Unable to create the server."
-msgstr ""
+msgstr "无法创建服务器"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:158
 msgid "Unable to retrieve server."
-msgstr ""
+msgstr "无法获取服务器"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:188
 msgid "Unable to retrieve extensions."
-msgstr ""
+msgstr "无法获取扩展"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:233
 msgid "Unable to retrieve flavors."
@@ -569,15 +573,15 @@ msgstr "无法获取云主机类型列表。"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:251
 msgid "Unable to retrieve flavor."
-msgstr ""
+msgstr "无法获取云主机类型"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:265
 msgid "Unable to retrieve flavor extra specs."
-msgstr ""
+msgstr "无法获取云主机类型特别设定"
 
 #: static/horizon/js/angular/services/hz.api.policy.js:65
 msgid "Policy check failed."
-msgstr ""
+msgstr "策略检查失败"
 
 #: static/horizon/js/angular/services/hz.api.security-group.js:64
 msgid "Unable to retrieve security groups."
