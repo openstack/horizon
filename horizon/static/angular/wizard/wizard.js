@@ -122,15 +122,19 @@
             function checkAllReadiness() {
               var stepReadyPromises = [];
 
-              forEach($scope.steps, function (step) {
+              forEach($scope.steps, function (step, index) {
                 step.ready = !step.checkReadiness;
 
                 if (step.checkReadiness) {
                   var promise = step.checkReadiness();
                   stepReadyPromises.push(promise);
                   promise.then(
-                    function () { step.ready = true; },
-                    noop
+                    function () {
+                      step.ready = true;
+                    },
+                    function () {
+                      $scope.steps.splice(index, 1);
+                    }
                   );
                 }
               });
