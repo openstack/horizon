@@ -134,7 +134,7 @@ def horizon_dashboard_nav(context):
 @register.filter
 def quota(val, units=None):
     if val == float("inf"):
-        return _("No Limit")
+        return _("(No Limit)")
     elif units is not None:
         return "%s %s %s" % (val, force_text(units),
                              force_text(_("Available")))
@@ -145,7 +145,7 @@ def quota(val, units=None):
 @register.filter
 def quotainf(val, units=None):
     if val == float("inf"):
-        return _("No Limit")
+        return '-1'
     elif units is not None:
         return "%s %s" % (val, units)
     else:
