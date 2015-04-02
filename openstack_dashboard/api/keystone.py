@@ -264,7 +264,13 @@ def tenant_list(request, paginate=False, marker=None, domain=None, user=None,
         limit = page_size + 1
 
     has_more_data = False
-    if VERSIONS.active < 3:
+
+    # if requesting the projects for the current user,
+    # return the list from the cache
+    if user == request.user.id:
+        tenants = request.user.authorized_tenants
+
+    elif VERSIONS.active < 3:
         tenants = manager.list(limit, marker)
         if paginate and len(tenants) > page_size:
             tenants.pop(-1)
