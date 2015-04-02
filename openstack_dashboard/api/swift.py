@@ -204,7 +204,6 @@ def swift_delete_container(request, name):
         error_msg = _("The container cannot be deleted "
                       "since it is not empty.")
         exc = exceptions.Conflict(error_msg)
-        exc._safe_message = error_msg
         raise exc
     swift_api(request).delete_container(name)
     return True
@@ -321,7 +320,6 @@ def swift_delete_object(request, container_name, object_name):
         error_msg = _("The pseudo folder cannot be deleted "
                       "since it is not empty.")
         exc = exceptions.Conflict(error_msg)
-        exc._safe_message = error_msg
         raise exc
     swift_api(request).delete_object(container_name, object_name)
     return True

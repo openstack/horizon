@@ -219,7 +219,7 @@ def check_message(keywords, message):
     """
     exc_type, exc_value, exc_traceback = sys.exc_info()
     if set(str(exc_value).split(" ")).issuperset(set(keywords)):
-        exc_value._safe_message = message
+        exc_value.message = message
         raise
 
 
@@ -337,9 +337,6 @@ def handle(request, message=None, redirect=None, ignore=False,
     # We trust messages from our own exceptions
     if issubclass(exc_type, HorizonException):
         message = exc_value
-    # Check for an override message
-    elif getattr(exc_value, "_safe_message", None):
-        message = exc_value._safe_message
     # If the message has a placeholder for the exception, fill it in
     elif message and "%(exc)s" in message:
         message = encoding.force_text(message) % {"exc": log_entry}
