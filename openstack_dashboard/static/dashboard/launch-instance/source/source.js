@@ -86,7 +86,9 @@
       volumeSize: gettext('Volume Size (GB)'),
       volumeCreate: gettext('Create New Volume'),
       deleteVolumeOnTerminate: gettext('Delete Volume on Terminate'),
-      id: gettext('ID')
+      id: gettext('ID'),
+      min_ram: gettext('Min Ram'),
+      min_disk: gettext('Min Disk')
     };
 
 
@@ -124,6 +126,8 @@
     $scope.tableData = {};
     $scope.helpText = {};
     $scope.maxInstanceCount = 1;
+    $scope.sourceDetails =
+        '/static/dashboard/launch-instance/source/source-details.html';
 
     var selection = $scope.model.newInstanceSpec.source;
 

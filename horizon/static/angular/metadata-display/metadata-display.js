@@ -87,7 +87,7 @@
 
         });
         // select first item
-        $scope.tree.tree.some(function (item) {
+        $scope.tree.flatTree.some(function (item) {
           if($scope.listFilter(item)) {
             $scope.selected = item;
             item.expand(true);

@@ -113,7 +113,11 @@
         arePortProfilesSupported: false,
         imageSnapshots: [],
         keypairs: [],
-        metadataDefs: [],
+        metadataDefs: {
+          flavor: null,
+          image: null,
+          volume: null
+        },
         networks: [],
         novaLimits: {},
         profiles: [],
@@ -199,6 +203,10 @@
             function() {
               model.initializing = false;
               model.initialized = true;
+              // This provides supplemental data non-critical to launching
+              // an instance.  Therefore we load it only if the critical data
+              // all loads successfully.
+              getMetadataDefinitions();
             },
             function () {
               model.initializing = false;
@@ -488,21 +496,37 @@
 
       // Metadata Definitions
 
-      function onGetNamespaces(data) {
-        var promises = [];
+      /**
+       * Metadata definitions provide supplemental information in detail
+       * rows and should not slow down any of the other load processes.
+       * All code should be written to treat metadata definitions as
+       * optional, because they are never guaranteed to exist.
+       */
+      function getMetadataDefinitions() {
+        // Metadata definitions often apply to multiple
+        // resource types. It is optimal to make a single
+        // request for all desired resource types.
+        var resourceTypes = {
+          flavor: 'OS::Nova::Flavor',
+          image: 'OS::Glance::Image',
+          volume: 'OS::Cinder::Volumes'
+        };
 
-        data.data.items.forEach(function (ns) {
-          var promise = glanceAPI.getNamespace(ns.namespace);
-          promise.then(onGetNamespace);
-          promises.push(promise);
+        angular.forEach(resourceTypes, function (resourceType, key) {
+          glanceAPI.getNamespaces({
+            'resource_type': resourceType
+          }, true)
+          .then(function (data) {
+            var namespaces = data.data.items;
+            // This will ensure that the metaDefs model object remains
+            // unchanged until metadefs are fully loaded. Otherwise,
+            // partial results are loaded and can result in some odd
+            // display behavior.
+            if(namespaces.length) {
+              model.metadataDefs[key] = namespaces;
+            }
+          });
         });
-
-        allNamespacesPromise = $q.all(promises);
-      }
-
-      function onGetNamespace(data) {
-        model.metadataDefs.length = 0;
-        push.apply(model.metadataDefs, data.data);
       }
 
       return model;

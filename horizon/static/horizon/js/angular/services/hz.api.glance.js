@@ -128,13 +128,21 @@ limitations under the License.
      * @param {string} params.other
      * Any additional request parameters will be passed through the API as
      * filters.
+     *
+     * @param {boolean} suppressError
+     * If passed in, this will not show the default error handling
+     * (horizon alert). The glance API may not have metadata definitions
+     * enabled.
      */
-    this.getNamespaces = function(params) {
-      var config = (params) ? { 'params' : params} : {};
-      return apiService.get('/api/glance/metadefs/namespaces/', config)
-        .error(function () {
+    this.getNamespaces = function(params, suppressError) {
+      var config = (params) ? {'params' : params} : {};
+      config.cache = true;
+
+      var promise = apiService.get('/api/glance/metadefs/namespaces/', config);
+
+      return suppressError ? promise : promise.error(function() {
           horizon.alert('error', gettext('Unable to retrieve namespaces.'));
-      });
+        });
     };
 
   }
