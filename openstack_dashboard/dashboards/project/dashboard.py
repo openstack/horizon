@@ -45,22 +45,22 @@ class ObjectStorePanels(horizon.PanelGroup):
 
 
 class OrchestrationPanels(horizon.PanelGroup):
-    name = _("Orchestration")
     slug = "orchestration"
+    name = _("Orchestration")
     panels = ('stacks',
               'stacks.resource_types',)
 
 
 class DatabasePanels(horizon.PanelGroup):
-    name = _("Database")
     slug = "database"
+    name = _("Database")
     panels = ('databases',
               'database_backups',)
 
 
 class DataProcessingPanels(horizon.PanelGroup):
-    name = _("Data Processing")
     slug = "data_processing"
+    name = _("Data Processing")
     panels = ('data_processing.wizard',
               'data_processing.clusters',
               'data_processing.job_executions',
