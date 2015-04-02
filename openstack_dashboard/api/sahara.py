@@ -82,44 +82,49 @@ def client(request):
 
 
 def image_list(request, search_opts=None):
-    return client(request).images.list(search_opts)
+    return client(request).images.list(search_opts=search_opts)
 
 
 def image_get(request, image_id):
-    return client(request).images.get(image_id)
+    return client(request).images.get(id=image_id)
 
 
 def image_unregister(request, image_id):
-    client(request).images.unregister_image(image_id)
+    client(request).images.unregister_image(image_id=image_id)
 
 
 def image_update(request, image_id, user_name, desc):
-    client(request).images.update_image(image_id, user_name, desc)
+    client(request).images.update_image(image_id=image_id,
+                                        user_name=user_name,
+                                        desc=desc)
 
 
 def image_tags_update(request, image_id, image_tags):
-    client(request).images.update_tags(image_id, image_tags)
+    client(request).images.update_tags(image_id=image_id,
+                                       new_tags=image_tags)
 
 
 def plugin_list(request, search_opts=None):
-    return client(request).plugins.list(search_opts)
+    return client(request).plugins.list(search_opts=search_opts)
 
 
 def plugin_get(request, plugin_name):
-    return client(request).plugins.get(plugin_name)
+    return client(request).plugins.get(plugin_name=plugin_name)
 
 
 def plugin_get_version_details(request, plugin_name, hadoop_version):
-    return client(request).plugins.get_version_details(plugin_name,
-                                                       hadoop_version)
+    return client(request).plugins.get_version_details(
+        plugin_name=plugin_name,
+        hadoop_version=hadoop_version)
 
 
 def plugin_convert_to_template(request, plugin_name, hadoop_version,
                                template_name, file_content):
-    return client(request).plugins.convert_to_cluster_template(plugin_name,
-                                                               hadoop_version,
-                                                               template_name,
-                                                               file_content)
+    return client(request).plugins.convert_to_cluster_template(
+        plugin_name=plugin_name,
+        hadoop_version=hadoop_version,
+        template_name=template_name,
+        filecontent=file_content)
 
 
 def nodegroup_template_create(request, name, plugin_name, hadoop_version,
@@ -132,29 +137,29 @@ def nodegroup_template_create(request, name, plugin_name, hadoop_version,
                               volumes_availability_zone=False,
                               is_proxy_gateway=False):
     return client(request).node_group_templates.create(
-        name,
-        plugin_name,
-        hadoop_version,
-        flavor_id,
-        description,
-        volumes_per_node,
-        volumes_size,
-        node_processes,
-        node_configs,
-        floating_ip_pool,
-        security_groups,
-        auto_security_group,
-        availability_zone,
-        volumes_availability_zone,
-        is_proxy_gateway)
+        name=name,
+        plugin_name=plugin_name,
+        hadoop_version=hadoop_version,
+        flavor_id=flavor_id,
+        description=description,
+        volumes_per_node=volumes_per_node,
+        volumes_size=volumes_size,
+        node_processes=node_processes,
+        node_configs=node_configs,
+        floating_ip_pool=floating_ip_pool,
+        security_groups=security_groups,
+        auto_security_group=auto_security_group,
+        availability_zone=availability_zone,
+        volumes_availability_zone=volumes_availability_zone,
+        is_proxy_gateway=is_proxy_gateway)
 
 
 def nodegroup_template_list(request, search_opts=None):
-    return client(request).node_group_templates.list(search_opts)
+    return client(request).node_group_templates.list(search_opts=search_opts)
 
 
 def nodegroup_template_get(request, ngt_id):
-    return client(request).node_group_templates.get(ngt_id)
+    return client(request).node_group_templates.get(ng_template_id=ngt_id)
 
 
 def nodegroup_template_find(request, **kwargs):
@@ -162,7 +167,7 @@ def nodegroup_template_find(request, **kwargs):
 
 
 def nodegroup_template_delete(request, ngt_id):
-    client(request).node_group_templates.delete(ngt_id)
+    client(request).node_group_templates.delete(ng_template_id=ngt_id)
 
 
 def nodegroup_template_update(request, ngt_id, name, plugin_name,
@@ -175,61 +180,65 @@ def nodegroup_template_update(request, ngt_id, name, plugin_name,
                               volumes_availability_zone=False,
                               is_proxy_gateway=False):
     return client(request).node_group_templates.update(
-        ngt_id,
-        name,
-        plugin_name,
-        hadoop_version,
-        flavor_id,
-        description,
-        volumes_per_node,
-        volumes_size,
-        node_processes,
-        node_configs,
-        floating_ip_pool,
-        security_groups,
-        auto_security_group,
-        availability_zone,
-        volumes_availability_zone,
-        is_proxy_gateway)
+        ng_template_id=ngt_id,
+        name=name,
+        plugin_name=plugin_name,
+        hadoop_version=hadoop_version,
+        flavor_id=flavor_id,
+        description=description,
+        volumes_per_node=volumes_per_node,
+        volumes_size=volumes_size,
+        node_processes=node_processes,
+        node_configs=node_configs,
+        floating_ip_pool=floating_ip_pool,
+        security_groups=security_groups,
+        auto_security_group=auto_security_group,
+        availability_zone=availability_zone,
+        volumes_availability_zone=volumes_availability_zone,
+        is_proxy_gateway=is_proxy_gateway)
 
 
 def cluster_template_create(request, name, plugin_name, hadoop_version,
                             description=None, cluster_configs=None,
                             node_groups=None, anti_affinity=None,
                             net_id=None):
-    return client(request).cluster_templates.create(name, plugin_name,
-                                                    hadoop_version,
-                                                    description,
-                                                    cluster_configs,
-                                                    node_groups,
-                                                    anti_affinity,
-                                                    net_id)
+    return client(request).cluster_templates.create(
+        name=name,
+        plugin_name=plugin_name,
+        hadoop_version=hadoop_version,
+        description=description,
+        cluster_configs=cluster_configs,
+        node_groups=node_groups,
+        anti_affinity=anti_affinity,
+        net_id=net_id)
 
 
 def cluster_template_list(request, search_opts=None):
-    return client(request).cluster_templates.list(search_opts)
+    return client(request).cluster_templates.list(search_opts=search_opts)
 
 
 def cluster_template_get(request, ct_id):
-    return client(request).cluster_templates.get(ct_id)
+    return client(request).cluster_templates.get(cluster_template_id=ct_id)
 
 
 def cluster_template_delete(request, ct_id):
-    client(request).cluster_templates.delete(ct_id)
+    client(request).cluster_templates.delete(cluster_template_id=ct_id)
 
 
 def cluster_template_update(request, ct_id, name, plugin_name,
                             hadoop_version, description=None,
                             cluster_configs=None, node_groups=None,
                             anti_affinity=None, net_id=None):
-    return client(request).cluster_templates.update(ct_id, name,
-                                                    plugin_name,
-                                                    hadoop_version,
-                                                    description,
-                                                    cluster_configs,
-                                                    node_groups,
-                                                    anti_affinity,
-                                                    net_id)
+    return client(request).cluster_templates.update(
+        cluster_template_id=ct_id,
+        name=name,
+        plugin_name=plugin_name,
+        hadoop_version=hadoop_version,
+        description=description,
+        cluster_configs=cluster_configs,
+        node_groups=node_groups,
+        anti_affinity=anti_affinity,
+        net_id=net_id)
 
 
 def cluster_create(request, name, plugin_name, hadoop_version,
@@ -237,111 +246,141 @@ def cluster_create(request, name, plugin_name, hadoop_version,
                    is_transient=None, description=None, cluster_configs=None,
                    node_groups=None, user_keypair_id=None,
                    anti_affinity=None, net_id=None):
-    return client(request).clusters.create(name, plugin_name, hadoop_version,
-                                           cluster_template_id,
-                                           default_image_id,
-                                           is_transient, description,
-                                           cluster_configs, node_groups,
-                                           user_keypair_id, anti_affinity,
-                                           net_id)
+    return client(request).clusters.create(
+        name=name,
+        plugin_name=plugin_name,
+        hadoop_version=hadoop_version,
+        cluster_template_id=cluster_template_id,
+        default_image_id=default_image_id,
+        is_transient=is_transient,
+        description=description,
+        cluster_configs=cluster_configs,
+        node_groups=node_groups,
+        user_keypair_id=user_keypair_id,
+        anti_affinity=anti_affinity,
+        net_id=net_id)
 
 
 def cluster_scale(request, cluster_id, scale_object):
-    return client(request).clusters.scale(cluster_id, scale_object)
+    return client(request).clusters.scale(
+        cluster_id=cluster_id,
+        scale_object=scale_object)
 
 
 def cluster_list(request, search_opts=None):
-    return client(request).clusters.list(search_opts)
+    return client(request).clusters.list(search_opts=search_opts)
 
 
 def cluster_get(request, cluster_id):
-    return client(request).clusters.get(cluster_id)
+    return client(request).clusters.get(cluster_id=cluster_id)
 
 
 def cluster_delete(request, cluster_id):
-    client(request).clusters.delete(cluster_id)
+    client(request).clusters.delete(cluster_id=cluster_id)
 
 
 def data_source_create(request, name, description, ds_type, url,
                        credential_user=None, credential_pass=None):
-    return client(request).data_sources.create(name, description, ds_type,
-                                               url, credential_user,
-                                               credential_pass)
+    return client(request).data_sources.create(
+        name=name,
+        description=description,
+        data_source_type=ds_type,
+        url=url,
+        credential_user=credential_user,
+        credential_pass=credential_pass)
 
 
 def data_source_list(request, search_opts=None):
-    return client(request).data_sources.list(search_opts)
+    return client(request).data_sources.list(search_opts=search_opts)
 
 
 def data_source_get(request, ds_id):
-    return client(request).data_sources.get(ds_id)
+    return client(request).data_sources.get(data_source_id=ds_id)
 
 
 def data_source_delete(request, ds_id):
-    client(request).data_sources.delete(ds_id)
+    client(request).data_sources.delete(data_source_id=ds_id)
 
 
 def job_binary_create(request, name, url, description, extra):
-    return client(request).job_binaries.create(name, url, description, extra)
+    return client(request).job_binaries.create(
+        name=name,
+        url=url,
+        description=description,
+        extra=extra)
 
 
 def job_binary_list(request, search_opts=None):
-    return client(request).job_binaries.list(search_opts)
+    return client(request).job_binaries.list(search_opts=search_opts)
 
 
 def job_binary_get(request, jb_id):
-    return client(request).job_binaries.get(jb_id)
+    return client(request).job_binaries.get(job_binary_id=jb_id)
 
 
 def job_binary_delete(request, jb_id):
-    client(request).job_binaries.delete(jb_id)
+    client(request).job_binaries.delete(job_binary_id=jb_id)
 
 
 def job_binary_get_file(request, jb_id):
-    return client(request).job_binaries.get_file(jb_id)
+    return client(request).job_binaries.get_file(job_binary_id=jb_id)
 
 
 def job_binary_internal_create(request, name, data):
-    return client(request).job_binary_internals.create(name, data)
+    return client(request).job_binary_internals.create(
+        name=name,
+        data=data)
 
 
 def job_binary_internal_list(request, search_opts=None):
-    return client(request).job_binary_internals.list(search_opts)
+    return client(request).job_binary_internals.list(search_opts=search_opts)
 
 
 def job_binary_internal_get(request, jbi_id):
-    return client(request).job_binary_internals.get(jbi_id)
+    # The argument name looks wrong. This should be changed in the sahara
+    # client first and then updated here
+    return client(request).job_binary_internals.get(job_binary_id=jbi_id)
 
 
 def job_binary_internal_delete(request, jbi_id):
-    client(request).job_binary_internals.delete(jbi_id)
+    # The argument name looks wrong. This should be changed in the sahara
+    # client first and then updated here
+    client(request).job_binary_internals.delete(job_binary_id=jbi_id)
 
 
 def job_create(request, name, j_type, mains, libs, description):
-    return client(request).jobs.create(name, j_type, mains, libs, description)
+    return client(request).jobs.create(
+        name=name,
+        type=j_type,
+        mains=mains,
+        libs=libs,
+        description=description)
 
 
 def job_list(request, search_opts=None):
-    return client(request).jobs.list(search_opts)
+    return client(request).jobs.list(search_opts=search_opts)
 
 
 def job_get(request, job_id):
-    return client(request).jobs.get(job_id)
+    return client(request).jobs.get(job_id=job_id)
 
 
 def job_delete(request, job_id):
-    client(request).jobs.delete(job_id)
+    client(request).jobs.delete(job_id=job_id)
 
 
 def job_get_configs(request, job_type):
-    return client(request).jobs.get_configs(job_type)
+    return client(request).jobs.get_configs(job_type=job_type)
 
 
 def job_execution_create(request, job_id, cluster_id,
                          input_id, output_id, configs):
-    return client(request).job_executions.create(job_id, cluster_id,
-                                                 input_id, output_id,
-                                                 configs)
+    return client(request).job_executions.create(
+        job_id=job_id,
+        cluster_id=cluster_id,
+        input_id=input_id,
+        output_id=output_id,
+        configs=configs)
 
 
 def _resolve_job_execution_names(job_execution, cluster=None,
@@ -359,7 +398,8 @@ def _resolve_job_execution_names(job_execution, cluster=None,
 
 
 def job_execution_list(request, search_opts=None):
-    job_execution_list = client(request).job_executions.list(search_opts)
+    job_execution_list = client(request).job_executions.list(
+        search_opts=search_opts)
     job_dict = dict((j.id, j) for j in job_list(request))
     cluster_dict = dict((c.id, c) for c in cluster_list(request))
 
@@ -375,7 +415,7 @@ def job_execution_list(request, search_opts=None):
 
 
 def job_execution_get(request, jex_id):
-    jex = client(request).job_executions.get(jex_id)
+    jex = client(request).job_executions.get(obj_id=jex_id)
     cluster = safe_call(client(request).clusters.get, jex.cluster_id)
     job = safe_call(client(request).jobs.get, jex.job_id)
 
@@ -383,4 +423,4 @@ def job_execution_get(request, jex_id):
 
 
 def job_execution_delete(request, jex_id):
-    client(request).job_executions.delete(jex_id)
+    client(request).job_executions.delete(obj_id=jex_id)
