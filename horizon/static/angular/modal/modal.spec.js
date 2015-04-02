@@ -125,8 +125,7 @@
           expect(passedContext.submit).toBe('Yes');
         });
 
-        // THIS IS AN EXTANT FAILURE
-        xit('sets the cancel', function() {
+        it('sets the cancel', function() {
           expect(passedContext.cancel).toBe('No');
         });
 
