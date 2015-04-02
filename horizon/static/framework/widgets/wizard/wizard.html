@@ -6,7 +6,7 @@
       ng-class="{'current': currentIndex===$index}"
       ng-click="switchTo($index)"
       ng-repeat="step in steps"
-      ng-show="ready">
+      ng-show="viewModel.ready">
       <span ng-bind="::step.title"></span>
       <span class="status-indicator fa fa-lg fa-warning"
         ng-show="wizardForm[steps[$index].formName].$invalid"></span>
@@ -26,8 +26,8 @@
     <div class="secondary-btn-grp">
       <button class="cancel btn btn-sm btn-default"
         ng-click="cancel()">
-        <span ng-class="btnIcon.cancel||'fa fa-close'"></span>
-        <span ng-bind="::btnText.cancel"></span>
+        <span ng-class="::viewModel.btnIcon.cancel||'fa fa-close'"></span>
+        <span ng-bind="::viewModel.btnText.cancel"></span>
       </button>
     </div>
 
@@ -35,15 +35,15 @@
       <button class="back btn btn-sm btn-default"
         ng-click="switchTo(currentIndex - 1)"
         ng-hide="currentIndex===0">
-        <span ng-class="btnIcon.back||'fa fa-chevron-left'"></span>
-        <span ng-bind="::btnText.back"></span>
+        <span ng-class="::viewModel.btnIcon.back||'fa fa-chevron-left'"></span>
+        <span ng-bind="::viewModel.btnText.back"></span>
       </button>
 
       <button class="next btn btn-sm btn-primary"
         ng-click="switchTo(currentIndex + 1)"
         ng-hide="currentIndex===steps.length - 1">
-        <span ng-bind="::btnText.next"></span>
-        <span ng-class="btnIcon.next||'fa fa-chevron-right'"></span>
+        <span ng-bind="::viewModel.btnText.next"></span>
+        <span ng-class="::viewModel.btnIcon.next||'fa fa-chevron-right'"></span>
       </button>
 
       <span class="separator"></span>
@@ -51,13 +51,13 @@
       <button class="finish btn btn-sm btn-success"
         ng-click="onClickFinishBtn()"
         ng-disabled="wizardForm.$invalid">
-        <span ng-class="btnIcon.finish||'fa fa-check'"></span>
-        <span ng-bind="::btnText.finish"></span>
+        <span ng-class="::viewModel.btnIcon.finish||'fa fa-check'"></span>
+        <span ng-bind="::viewModel.btnText.finish"></span>
       </button>
     </div>
   </div>
 
-  <div class="error-message" ng-show="hasError" ng-bind="errorMessage"></div>
+  <div class="error-message" ng-show="viewModel.hasError" ng-bind="viewModel.errorMessage"></div>
 
   <help-panel>
     <ng-include src="step.helpUrl"
