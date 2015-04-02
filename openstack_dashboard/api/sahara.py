@@ -70,11 +70,15 @@ def client(request):
         service_type = SAHARA_SERVICE_FALLBACK
         sahara_url = base.url_for(request, service_type)
 
+    insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
+    cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
     return api_client.Client(VERSIONS.get_active_version()["version"],
                              sahara_url=sahara_url,
                              service_type=service_type,
                              project_id=request.user.project_id,
-                             input_auth_token=request.user.token.id)
+                             input_auth_token=request.user.token.id,
+                             insecure=insecure,
+                             cacert=cacert)
 
 
 def image_list(request, search_opts=None):
