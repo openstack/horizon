@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 23:04-0500\n"
-"PO-Revision-Date: 2015-04-01 05:41+0000\n"
+"POT-Creation-Date: 2015-04-01 22:59-0500\n"
+"PO-Revision-Date: 2015-04-02 05:22+0000\n"
 "Last-Translator: Zhang Xiaowei <zero00072@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -205,7 +205,7 @@ msgstr "您沒有權限存取資源："
 msgid ""
 "Login as different user or go back to <a href=\"%(home_url)s\"> home "
 "page</a>"
-msgstr "以不同的使用者身份登入，或者回到<a href=\"%(home_url)s\">首頁</a>"
+msgstr "以不同的用戶身份登入，或者回到<a href=\"%(home_url)s\">首頁</a>"
 
 #: templates/auth/_login.html:45
 msgid "Sign In"
@@ -375,7 +375,7 @@ msgstr "此時段的虛擬處理器時數："
 
 #: templates/horizon/common/_usage_summary.html:23
 msgid "This Period's GB-Hours:"
-msgstr "此時段的硬碟GB時數："
+msgstr "此時段的硬碟 GB 時數："
 
 #: templates/horizon/common/_usage_summary.html:24
 msgid "This Period's RAM-Hours:"

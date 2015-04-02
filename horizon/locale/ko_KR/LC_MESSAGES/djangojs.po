@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 23:04-0500\n"
-"PO-Revision-Date: 2015-04-01 04:04+0000\n"
+"POT-Creation-Date: 2015-04-01 22:59-0500\n"
+"PO-Revision-Date: 2015-04-02 00:44+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -104,7 +104,7 @@ msgstr "기존 메타데이터가 없습니다."
 msgid "Submit"
 msgstr "제출"
 
-#: static/angular/modal/modal.js:84 static/angular/wizard/wizard.js:7
+#: static/angular/modal/modal.js:84 static/angular/wizard/wizard.js:11
 #: static/horizon/js/horizon.modals.js:33
 msgid "Cancel"
 msgstr "취소"
@@ -157,15 +157,15 @@ msgstr "%(total)s 의 %(found)s 찾기"
 msgid "Click here to expand the row and view the errors."
 msgstr ""
 
-#: static/angular/wizard/wizard.js:8
+#: static/angular/wizard/wizard.js:12
 msgid "Back"
 msgstr "뒤로"
 
-#: static/angular/wizard/wizard.js:9
+#: static/angular/wizard/wizard.js:13
 msgid "Next"
 msgstr "다음"
 
-#: static/angular/wizard/wizard.js:10
+#: static/angular/wizard/wizard.js:14
 msgid "Finish"
 msgstr "완료"
 
@@ -301,7 +301,7 @@ msgstr "표시할 항목이 없습니다."
 msgid "An error occurred while updating."
 msgstr "업데이트 도중 오류가 발생하였습니다."
 
-#: static/horizon/js/horizon.tables.js:200
+#: static/horizon/js/horizon.tables.js:201
 #, c-format
 msgid "You have selected %s. "
 msgstr "%s를 선택하였습니다. "
@@ -426,97 +426,109 @@ msgstr "사용자를 만들지 못했습니다."
 msgid "Unable to delete the users."
 msgstr "사용자를 삭제하지 못했습니다."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:45
+#: static/horizon/js/angular/services/hz.api.keystone.js:73
+msgid "Unable to retrieve the current user session."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.keystone.js:80
 msgid "Unable to retrieve the user"
 msgstr "사용자를 찾지 못했습니다"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:53
+#: static/horizon/js/angular/services/hz.api.keystone.js:88
 msgid "Unable to edit the user."
 msgstr "사용자를 수정하지 못했습니다."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:60
+#: static/horizon/js/angular/services/hz.api.keystone.js:95
 msgid "Unable to delete the user."
 msgstr "사용자를 삭제하지 못했습니다."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:68
+#: static/horizon/js/angular/services/hz.api.keystone.js:103
 msgid "Unable to retrieve role"
 msgstr "Role을 찾지 못했습니다"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:75
+#: static/horizon/js/angular/services/hz.api.keystone.js:110
 msgid "Unable to create the role."
 msgstr "Role을 만들지 못했습니다."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:82
+#: static/horizon/js/angular/services/hz.api.keystone.js:117
 msgid "Unable to delete the roles."
 msgstr "Role을 삭제하지 못했습니다."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:89
+#: static/horizon/js/angular/services/hz.api.keystone.js:124
 msgid "Unable to retrieve the role"
 msgstr "Role을 찾지 못했습니다."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:97
+#: static/horizon/js/angular/services/hz.api.keystone.js:132
 msgid "Unable to edit the role."
 msgstr "Role을 수정하지 못했습니다."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:104
+#: static/horizon/js/angular/services/hz.api.keystone.js:139
 msgid "Unable to delete the role."
 msgstr "Role을 삭제하지 못했습니다."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:112
+#: static/horizon/js/angular/services/hz.api.keystone.js:147
 msgid "Unable to retrieve domains"
 msgstr "도메인을 찾지 못했습니다"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:119
+#: static/horizon/js/angular/services/hz.api.keystone.js:154
 msgid "Unable to create the domain."
 msgstr "도메인을 만들지 못했습니다."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:126
+#: static/horizon/js/angular/services/hz.api.keystone.js:161
 msgid "Unable to delete the domains."
 msgstr "도메인을 삭제하지 못했습니다."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:133
+#: static/horizon/js/angular/services/hz.api.keystone.js:168
 msgid "Unable to retrieve the domain"
 msgstr "도메인을 찾지 못했습니다"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:141
+#: static/horizon/js/angular/services/hz.api.keystone.js:176
 msgid "Unable to edit the domain."
 msgstr "도메인을 수정하지 못했습니다."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:148
+#: static/horizon/js/angular/services/hz.api.keystone.js:183
 msgid "Unable to delete the domain."
 msgstr "도메인을 삭제하지 못했습니다."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:157
+#: static/horizon/js/angular/services/hz.api.keystone.js:192
 msgid "Unable to retrieve projects"
 msgstr "프로젝트를 찾지 못했습니다"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:164
+#: static/horizon/js/angular/services/hz.api.keystone.js:199
 msgid "Unable to create the project."
 msgstr "프로젝트를 만들지 못했습니다."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:171
+#: static/horizon/js/angular/services/hz.api.keystone.js:206
 msgid "Unable to delete the projects."
 msgstr "프로젝트를 삭제하지 못했습니다."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:178
+#: static/horizon/js/angular/services/hz.api.keystone.js:213
 msgid "Unable to retrieve the project"
 msgstr "프로젝트를 찾지 못했습니다"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:186
+#: static/horizon/js/angular/services/hz.api.keystone.js:221
 msgid "Unable to edit the project."
 msgstr "프로젝트를 수정하지 못했습니다."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:193
+#: static/horizon/js/angular/services/hz.api.keystone.js:228
 msgid "Unable to delete the project."
 msgstr "프로젝트를 삭제하지 못했습니다."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:201
+#: static/horizon/js/angular/services/hz.api.keystone.js:236
 msgid "Unable to grant the role."
 msgstr "Role을 부여하지 못했습니다."
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:215
+#: static/horizon/js/angular/services/hz.api.keystone.js:250
 msgid "Unable to fetch the service catalog."
 msgstr "서비스 카탈로그를 가져올 수 없습니다."
+
+#: static/horizon/js/angular/services/hz.api.keystone.js:385
+msgid "Service type is not enabled: %(desiredType)s"
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.keystone.js:392
+msgid "Cannot get service catalog from keystone."
+msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:39
 msgid "Unable to retrieve networks."

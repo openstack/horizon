@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 23:04-0500\n"
-"PO-Revision-Date: 2015-04-01 04:04+0000\n"
+"POT-Creation-Date: 2015-04-01 22:59-0500\n"
+"PO-Revision-Date: 2015-04-02 00:44+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/projects/p/horizon/language/pa_IN/)\n"
 "MIME-Version: 1.0\n"
@@ -102,7 +102,7 @@ msgstr "ਕੋਈ ਮੌਜੂਦਾ ਮੈਟਾਡਾਟਾ ਨਹੀਂ"
 msgid "Submit"
 msgstr "ਦਾਖਲ ਕਰੋ"
 
-#: static/angular/modal/modal.js:84 static/angular/wizard/wizard.js:7
+#: static/angular/modal/modal.js:84 static/angular/wizard/wizard.js:11
 #: static/horizon/js/horizon.modals.js:33
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
@@ -155,15 +155,15 @@ msgstr "%(found)s ਲੱਭੇ %(total)s ਵਿੱਚੋਂ"
 msgid "Click here to expand the row and view the errors."
 msgstr ""
 
-#: static/angular/wizard/wizard.js:8
+#: static/angular/wizard/wizard.js:12
 msgid "Back"
 msgstr "ਪਿੱਛੇ"
 
-#: static/angular/wizard/wizard.js:9
+#: static/angular/wizard/wizard.js:13
 msgid "Next"
 msgstr "ਅਗਲਾ"
 
-#: static/angular/wizard/wizard.js:10
+#: static/angular/wizard/wizard.js:14
 msgid "Finish"
 msgstr "ਮੁਕੰਮਲ"
 
@@ -299,7 +299,7 @@ msgstr "ਪਰਦਰਸ਼ਿਤ ਕਰਨ ਲਈ ਕੋਈ ਚੀਜ਼ ਨਹੀ�
 msgid "An error occurred while updating."
 msgstr "ਅੱਪਡੇਟ ਕਰਨ ਵੇਲੇ ਇੱਕ ਗਲਤੀ ਹੋਈ।"
 
-#: static/horizon/js/horizon.tables.js:200
+#: static/horizon/js/horizon.tables.js:201
 #, c-format
 msgid "You have selected %s. "
 msgstr "ਤੁਸੀਂ %s ਦੀ ਚੋਣ ਕੀਤੀ ਹੈ।"
@@ -425,97 +425,109 @@ msgstr "ਵਰਤੋਂਕਾਰ ਨੂੰ ਬਣਾਉਣ ਤੋਂ ਅਸਮ�
 msgid "Unable to delete the users."
 msgstr "ਵਰਤੋਂਕਾਰਾਂ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:45
+#: static/horizon/js/angular/services/hz.api.keystone.js:73
+msgid "Unable to retrieve the current user session."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.keystone.js:80
 msgid "Unable to retrieve the user"
 msgstr "ਵਰਤੋਂਕਾਰ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:53
+#: static/horizon/js/angular/services/hz.api.keystone.js:88
 msgid "Unable to edit the user."
 msgstr "ਵਰਤੋਂਕਾਰ ਵਿੱਚ ਸੋਧ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:60
+#: static/horizon/js/angular/services/hz.api.keystone.js:95
 msgid "Unable to delete the user."
 msgstr "ਵਰਤੋਂਕਾਰ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:68
+#: static/horizon/js/angular/services/hz.api.keystone.js:103
 msgid "Unable to retrieve role"
 msgstr "ਰੋਲ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:75
+#: static/horizon/js/angular/services/hz.api.keystone.js:110
 msgid "Unable to create the role."
 msgstr "ਰੋਲ ਨੂੰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:82
+#: static/horizon/js/angular/services/hz.api.keystone.js:117
 msgid "Unable to delete the roles."
 msgstr "ਰੋਲਾਂ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:89
+#: static/horizon/js/angular/services/hz.api.keystone.js:124
 msgid "Unable to retrieve the role"
 msgstr "ਰੋਲ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:97
+#: static/horizon/js/angular/services/hz.api.keystone.js:132
 msgid "Unable to edit the role."
 msgstr "ਰੋਲ ਵਿੱਚ ਸੋਧ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:104
+#: static/horizon/js/angular/services/hz.api.keystone.js:139
 msgid "Unable to delete the role."
 msgstr "ਰੋਲ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:112
+#: static/horizon/js/angular/services/hz.api.keystone.js:147
 msgid "Unable to retrieve domains"
 msgstr "ਡੋਮੇਨਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:119
+#: static/horizon/js/angular/services/hz.api.keystone.js:154
 msgid "Unable to create the domain."
 msgstr "ਡੋਮੇਨ ਨੂੰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:126
+#: static/horizon/js/angular/services/hz.api.keystone.js:161
 msgid "Unable to delete the domains."
 msgstr "ਡੋਮੇਨਾਂ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:133
+#: static/horizon/js/angular/services/hz.api.keystone.js:168
 msgid "Unable to retrieve the domain"
 msgstr "ਡੋਮੇਨ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:141
+#: static/horizon/js/angular/services/hz.api.keystone.js:176
 msgid "Unable to edit the domain."
 msgstr "ਡੋਮੇਨ ਵਿੱਚ ਸੋਧ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:148
+#: static/horizon/js/angular/services/hz.api.keystone.js:183
 msgid "Unable to delete the domain."
 msgstr "ਡੋਮੇਨ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:157
+#: static/horizon/js/angular/services/hz.api.keystone.js:192
 msgid "Unable to retrieve projects"
 msgstr "ਪ੍ਰੋਜੈਕਟਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:164
+#: static/horizon/js/angular/services/hz.api.keystone.js:199
 msgid "Unable to create the project."
 msgstr "ਪ੍ਰੋਜੈਕਟ ਨੂੰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:171
+#: static/horizon/js/angular/services/hz.api.keystone.js:206
 msgid "Unable to delete the projects."
 msgstr "ਪ੍ਰੋਜੈਕਟਾਂ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:178
+#: static/horizon/js/angular/services/hz.api.keystone.js:213
 msgid "Unable to retrieve the project"
 msgstr "ਪ੍ਰੋਜੈਕਟ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:186
+#: static/horizon/js/angular/services/hz.api.keystone.js:221
 msgid "Unable to edit the project."
 msgstr "ਪ੍ਰੋਜੈਕਟ ਵਿੱਚ ਸੋਧ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:193
+#: static/horizon/js/angular/services/hz.api.keystone.js:228
 msgid "Unable to delete the project."
 msgstr "ਪ੍ਰੋਜੈਕਟ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:201
+#: static/horizon/js/angular/services/hz.api.keystone.js:236
 msgid "Unable to grant the role."
 msgstr "ਰੋਲ ਦੀ ਮਨਜ਼ੂਰੀ ਦੇਣ ਤੋਂ ਅਸਮਰੱਥ।"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:215
+#: static/horizon/js/angular/services/hz.api.keystone.js:250
 msgid "Unable to fetch the service catalog."
 msgstr "ਸੇਵਾ ਕਿਤਾਬਚਾ ਹਾਸਲ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
+
+#: static/horizon/js/angular/services/hz.api.keystone.js:385
+msgid "Service type is not enabled: %(desiredType)s"
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.keystone.js:392
+msgid "Cannot get service catalog from keystone."
+msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:39
 msgid "Unable to retrieve networks."

@@ -4,15 +4,15 @@
 # 
 # Translators:
 # Akihiro Motoki <amotoki@gmail.com>, 2014-2015
-# myamamot <myamamot@redhat.com>, 2014
+# myamamot <myamamot@redhat.com>, 2014-2015
 # ykatabam <ykatabam@redhat.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 23:04-0500\n"
-"PO-Revision-Date: 2015-04-01 02:20+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-04-01 22:59-0500\n"
+"PO-Revision-Date: 2015-04-01 23:41+0000\n"
+"Last-Translator: myamamot <myamamot@redhat.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -190,7 +190,7 @@ msgid ""
 "\n"
 "      If you are not sure which authentication method to use, contact your administrator.\n"
 "    "
-msgstr ""
+msgstr "\n      使用する認証メソッドが不明な場合は、管理者に問い合わせてください。\n    "
 
 #: templates/auth/_login.html:5
 msgid "Log In"
@@ -213,7 +213,7 @@ msgstr "ログイン"
 
 #: templates/auth/_login.html:46
 msgid "Connect"
-msgstr ""
+msgstr "接続"
 
 #: templates/auth/login.html:4
 msgid "Login"

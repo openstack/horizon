@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Ambroise Christea <ambroise.christea@cloudwatt.com>, 2014
+# Bruno Cornec <bruno.cornec@hp.com>, 2015
 # Combebias <jb.combebias@gmail.com>, 2015
 # Orizhial <contact@prunier.es>, 2015
 # Corina Roe <croe@redhat.com>, 2015
@@ -19,8 +20,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 23:04-0500\n"
-"PO-Revision-Date: 2015-03-31 15:47+0000\n"
+"POT-Creation-Date: 2015-04-01 22:59-0500\n"
+"PO-Revision-Date: 2015-04-01 23:47+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -136,7 +137,7 @@ msgstr "Volume d'écritures"
 
 #: api/ceilometer.py:976
 msgid "Average rate of read requests"
-msgstr "Nombre moyen de requêtes de lecture"
+msgstr "Fréquence moyenne des requêtes de lecture"
 
 #: api/ceilometer.py:980
 msgid "Average rate of write requests"
@@ -144,7 +145,7 @@ msgstr "Fréquence moyenne des requêtes d'écriture"
 
 #: api/ceilometer.py:984
 msgid "Average rate of reads"
-msgstr "Nombre moyen de lecture"
+msgstr "Fréquence moyenne des lectures"
 
 #: api/ceilometer.py:988
 msgid "Average volume of writes"
@@ -168,11 +169,11 @@ msgstr "Nombre d'octets sortant sur le réseau pour une interface VM"
 
 #: api/ceilometer.py:1010
 msgid "Number of incoming packets for a VM interface"
-msgstr "Nombre de paquets entrants pour une interface VM"
+msgstr "Nombre de paquets entrants pour une interface de VM"
 
 #: api/ceilometer.py:1015
 msgid "Number of outgoing packets for a VM interface"
-msgstr "Nombre de paquets sortants pour une interface VM"
+msgstr "Nombre de paquets sortants pour une interface de VM"
 
 #: api/ceilometer.py:1020
 msgid "Average rate per sec of incoming bytes on a VM network interface"
@@ -261,7 +262,7 @@ msgstr "Controle de l'existence de l'image"
 
 #: api/ceilometer.py:1144
 msgid "Uploaded image size"
-msgstr "Taille de l'image téléversée"
+msgstr "Taille de l'image téléchargée"
 
 #: api/ceilometer.py:1148
 msgid "Number of image updates"
@@ -269,7 +270,7 @@ msgstr "Nombre de mises à jour de l'image"
 
 #: api/ceilometer.py:1152
 msgid "Number of image uploads"
-msgstr "Nombre de téléversements de l'image"
+msgstr "Nombre de téléchargements de l'image"
 
 #: api/ceilometer.py:1156
 msgid "Number of image deletions"
@@ -333,7 +334,7 @@ msgstr "Température actuelle du système"
 
 #: api/ceilometer.py:1268
 msgid "Fan RPM"
-msgstr "RPM Éventail"
+msgstr "RPM du ventilateur"
 
 #: api/ceilometer.py:1272
 msgid "Sensor Temperature Reading"
@@ -369,16 +370,16 @@ msgstr "Instance inconnue"
 msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s backend)"
 
-#: api/keystone.py:338
+#: api/keystone.py:344
 msgid "Identity service does not allow editing user data."
 msgstr "Le service d'identité n'autorise pas la modification de données utilisateur."
 
-#: api/keystone.py:364
+#: api/keystone.py:370
 #, python-format
 msgid "User %s has no role defined for that project."
 msgstr "L'utilisateur %s n'a pas de rôle défini pour ce projet."
 
-#: api/keystone.py:391
+#: api/keystone.py:397
 msgid "Identity service does not allow editing user password."
 msgstr "Le service d'identité n'autorise pas la modification du mot de passe utilisateur."
 
@@ -465,13 +466,13 @@ msgstr "Echec de la vérification de la validité de l'extension Neutron '%s'"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:10
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:13
 #: dashboards/project/networks/templates/networks/_detail_overview.html:12
-#: dashboards/project/networks/templates/networks/_detail_overview.html:24
-#: dashboards/project/networks/templates/networks/_detail_overview.html:25
+#: dashboards/project/networks/templates/networks/_detail_overview.html:26
+#: dashboards/project/networks/templates/networks/_detail_overview.html:27
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:14
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:18
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:29
 #: dashboards/project/routers/tables.py:186
-#: dashboards/project/volumes/volumes/tables.py:355
+#: dashboards/project/volumes/volumes/tables.py:356
 msgid "-"
 msgstr "-"
 
@@ -520,11 +521,11 @@ msgstr "Echec lors de l'évacuation des instances %s"
 msgid "Failed to migrate instances: %s"
 msgstr "Échec de migration des instances: %s"
 
-#: api/swift.py:203
+#: api/swift.py:204
 msgid "The container cannot be deleted since it is not empty."
 msgstr "Le conteneur ne peut pas être supprimé car il n'est pas vide."
 
-#: api/swift.py:320
+#: api/swift.py:321
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "Le dossier-pseudo ne peut pas être supprimé car il n'est pas vide."
 
@@ -616,7 +617,7 @@ msgstr "Admin"
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:7
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:7
 #: dashboards/project/images/images/forms.py:40
-#: dashboards/project/images/images/forms.py:200
+#: dashboards/project/images/images/forms.py:211
 #: dashboards/project/images/templates/images/images/_detail_overview.html:9
 #: dashboards/project/instances/templates/instances/_detail_overview.html:10
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:9
@@ -647,8 +648,8 @@ msgstr "Admin"
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:10
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:10
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:91
-#: dashboards/project/volumes/volumes/tables.py:381
-#: dashboards/project/volumes/volumes/tables.py:410
+#: dashboards/project/volumes/volumes/tables.py:382
+#: dashboards/project/volumes/volumes/tables.py:411
 #: dashboards/project/vpn/forms.py:31 dashboards/project/vpn/forms.py:65
 #: dashboards/project/vpn/forms.py:137 dashboards/project/vpn/forms.py:208
 #: dashboards/project/vpn/tables.py:237 dashboards/project/vpn/tables.py:285
@@ -678,7 +679,7 @@ msgstr "Nom"
 #: dashboards/project/volumes/volumes/forms.py:122
 #: dashboards/project/volumes/volumes/forms.py:127
 #: dashboards/project/volumes/volumes/forms.py:128
-#: dashboards/project/volumes/volumes/tables.py:417
+#: dashboards/project/volumes/volumes/tables.py:418
 msgid "Availability Zone"
 msgstr "Zone de disponibilité"
 
@@ -711,14 +712,14 @@ msgstr "Agrégats d'hôtes"
 #: dashboards/admin/aggregates/tables.py:29
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
-msgstr[0] "Supprimer l'Agrégation d'hôte"
-msgstr[1] "Supprimer les Agrégations d'hôte"
+msgstr[0] "Supprimer l'Agrégation d'hôtes"
+msgstr[1] "Supprimer les Agrégations d'hôtes"
 
 #: dashboards/admin/aggregates/tables.py:37
 msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
-msgstr[0] "Agrégation d'hôte supprimée"
-msgstr[1] "Agrégations d'hôte supprimées"
+msgstr[0] "Agrégation d'hôtes supprimée"
+msgstr[1] "Agrégations d'hôtes supprimées"
 
 #: dashboards/admin/aggregates/tables.py:48
 #: dashboards/admin/aggregates/views.py:72
@@ -915,7 +916,7 @@ msgstr "Ajouter/Enlever des hôtes dans l'agrégat."
 #: dashboards/admin/flavors/workflows.py:266
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:79
 #: dashboards/admin/volumes/volume_types/extras/views.py:88
-#: dashboards/admin/volumes/volume_types/qos_specs/views.py:101
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:103
 #: dashboards/identity/domains/workflows.py:300
 #: dashboards/identity/projects/workflows.py:569
 #: dashboards/identity/users/views.py:209
@@ -1154,9 +1155,9 @@ msgstr "Fichiers injectés"
 #: dashboards/identity/projects/workflows.py:57
 #: dashboards/project/volumes/panel.py:23
 #: dashboards/project/volumes/tabs.py:83
+#: dashboards/project/volumes/views.py:26
 #: dashboards/project/volumes/templates/volumes/index.html:3
-#: dashboards/project/volumes/templates/volumes/index.html:6
-#: dashboards/project/volumes/volumes/tables.py:428 usage/quotas.py:74
+#: dashboards/project/volumes/volumes/tables.py:429 usage/quotas.py:74
 msgid "Volumes"
 msgstr "Volumes"
 
@@ -1274,7 +1275,7 @@ msgid "Unable to get quota info."
 msgstr "Impossible d'obtenir les informations de quota."
 
 #: dashboards/admin/defaults/views.py:45
-#: dashboards/identity/projects/views.py:162
+#: dashboards/identity/projects/views.py:160
 msgid "Unable to retrieve default quota values."
 msgstr "Impossible de récupérer les valeurs par défaut des quotas."
 
@@ -1342,7 +1343,7 @@ msgstr "%sMo"
 #: dashboards/admin/flavors/tables.py:110
 #: dashboards/admin/flavors/tables.py:114
 #: dashboards/project/volumes/backups/tables.py:96
-#: dashboards/project/volumes/volumes/tables.py:305
+#: dashboards/project/volumes/volumes/tables.py:306
 #, python-format
 msgid "%sGB"
 msgstr "%sGo"
@@ -1440,8 +1441,8 @@ msgstr "ID"
 #: dashboards/project/containers/forms.py:42
 #: dashboards/project/containers/templates/containers/_container_detail.html:14
 #: dashboards/project/containers/templates/containers/_container_metadata.html:7
-#: dashboards/project/images/images/forms.py:95
-#: dashboards/project/images/images/forms.py:239
+#: dashboards/project/images/images/forms.py:104
+#: dashboards/project/images/images/forms.py:250
 #: dashboards/project/images/images/tables.py:163
 #: dashboards/project/images/images/tables.py:252
 #: dashboards/project/images/templates/images/images/_detail_overview.html:21
@@ -1617,7 +1618,7 @@ msgstr "Nom d'Hôte"
 #: dashboards/project/volumes/volumes/forms.py:118
 #: dashboards/project/volumes/volumes/forms.py:119
 #: dashboards/project/volumes/volumes/forms.py:745
-#: dashboards/project/volumes/volumes/tables.py:413
+#: dashboards/project/volumes/volumes/tables.py:414
 msgid "Type"
 msgstr "Type"
 
@@ -1830,10 +1831,10 @@ msgstr[1] "Services activés"
 
 #: dashboards/admin/hypervisors/compute/tables.py:90
 #: dashboards/admin/hypervisors/compute/tables.py:96
+#: dashboards/admin/hypervisors/compute/views.py:80
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_migrate_host.html:8
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_migrate_host.html:22
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/migrate_host.html:3
-#: dashboards/admin/hypervisors/templates/hypervisors/compute/migrate_host.html:6
 msgid "Migrate Host"
 msgid_plural "Migrate Hosts"
 msgstr[0] "Migrer Hôte"
@@ -1903,7 +1904,7 @@ msgstr "Zone"
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:20
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:18
-#: dashboards/project/volumes/volumes/tables.py:390
+#: dashboards/project/volumes/volumes/tables.py:391
 #: dashboards/project/vpn/tables.py:246 dashboards/project/vpn/tables.py:291
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:71
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:38
@@ -2329,7 +2330,7 @@ msgstr "Adresse IP"
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:37
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:37
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:27
-#: dashboards/project/volumes/volumes/tables.py:387
+#: dashboards/project/volumes/volumes/tables.py:388
 msgid "Size"
 msgstr "Taille"
 
@@ -2416,8 +2417,8 @@ msgstr "Le contenu JSON formaté d'un espace de nom."
 #: dashboards/admin/metadata_defs/forms.py:62
 #: dashboards/admin/metadata_defs/tables.py:149
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:20
-#: dashboards/project/images/images/forms.py:96
-#: dashboards/project/images/images/forms.py:240
+#: dashboards/project/images/images/forms.py:105
+#: dashboards/project/images/images/forms.py:251
 #: dashboards/project/images/images/tables.py:256
 #: dashboards/project/images/templates/images/images/_detail_overview.html:23
 msgid "Protected"
@@ -2535,7 +2536,7 @@ msgstr "Mise à jour des associations"
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:10
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:10
 #: dashboards/project/images/images/forms.py:41
-#: dashboards/project/images/images/forms.py:201
+#: dashboards/project/images/images/forms.py:212
 #: dashboards/project/images/templates/images/images/_detail_overview.html:12
 #: dashboards/project/loadbalancers/forms.py:36
 #: dashboards/project/loadbalancers/forms.py:78
@@ -2556,7 +2557,7 @@ msgstr "Mise à jour des associations"
 #: dashboards/project/volumes/volumes/forms.py:84
 #: dashboards/project/volumes/volumes/forms.py:492
 #: dashboards/project/volumes/volumes/forms.py:600
-#: dashboards/project/volumes/volumes/tables.py:384
+#: dashboards/project/volumes/volumes/tables.py:385
 #: dashboards/project/vpn/forms.py:36 dashboards/project/vpn/forms.py:70
 #: dashboards/project/vpn/forms.py:142 dashboards/project/vpn/forms.py:213
 #: dashboards/project/vpn/tables.py:287 dashboards/project/vpn/workflows.py:28
@@ -2751,7 +2752,8 @@ msgstr "Créé"
 #: dashboards/project/instances/tables.py:646
 #: dashboards/project/networks/templates/networks/_detail_overview.html:14
 #: dashboards/project/networks/templates/networks/_detail_overview.html:16
-#: dashboards/project/networks/templates/networks/_detail_overview.html:23
+#: dashboards/project/networks/templates/networks/_detail_overview.html:22
+#: dashboards/project/networks/templates/networks/_detail_overview.html:25
 #: dashboards/project/routers/templates/routers/_detail_overview.html:14
 #: dashboards/project/routers/templates/routers/_detail_overview.html:33
 #: dashboards/project/routers/templates/routers/_detail_overview.html:39
@@ -3821,12 +3823,6 @@ msgstr "Ici, vous pouvez mettre à jour les propriétés modifiables de votre po
 msgid "Update Port"
 msgstr "Mettre à jour un port"
 
-#: dashboards/admin/networks/templates/networks/subnets/index.html:3
-#: dashboards/admin/networks/templates/networks/subnets/index.html:6
-#: dashboards/project/networks/templates/networks/detail.html:3
-msgid "Network Details"
-msgstr "Détails du réseau"
-
 #: dashboards/admin/overview/panel.py:27
 #: dashboards/admin/volumes/snapshots/tabs.py:23
 #: dashboards/project/databases/tabs.py:26
@@ -3998,7 +3994,7 @@ msgstr "Impossible d'actualiser le volume utilisé par les snapshots."
 
 #: dashboards/admin/volumes/snapshots/tables.py:29
 #: dashboards/admin/volumes/snapshots/views.py:36
-#: dashboards/admin/volumes/volumes/views.py:107
+#: dashboards/admin/volumes/volumes/views.py:109
 msgid "Update Status"
 msgstr "Actualisation des états"
 
@@ -4022,7 +4018,7 @@ msgid "Update Volume Snapshot Status"
 msgstr "Actualiser les volumes de snapshots"
 
 #: dashboards/admin/volumes/snapshots/views.py:49
-#: dashboards/project/volumes/snapshots/views.py:48
+#: dashboards/project/volumes/snapshots/views.py:49
 msgid "Unable to retrieve volume snapshot."
 msgstr "Impossible de récupérer l'instantané du volume."
 
@@ -4273,7 +4269,7 @@ msgstr "Spécificités Supplémentaires du Type de Volume"
 #: dashboards/project/containers/templates/containers/_object_detail.html:25
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:104
 #: dashboards/project/stacks/templates/stacks/_preview_details.html:58
-#: dashboards/project/volumes/volumes/views.py:245
+#: dashboards/project/volumes/volumes/views.py:251
 msgid "Close"
 msgstr "Fermer"
 
@@ -4308,14 +4304,9 @@ msgid "Update the spec value for \"%(key)s\""
 msgstr "Mise à jour de la valeur de spécification pour \"%(key)s\""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/create.html:4
-#: dashboards/admin/volumes/volume_types/qos_specs/views.py:72
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:73
 msgid "Create Spec"
 msgstr "Créer une Spécification"
-
-#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/create.html:7
-#, python-format
-msgid "Spec: %(qos_spec_name)s"
-msgstr "Spécifications : %(qos_spec_name)s"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/edit.html:4
 msgid "Edit Spec"
@@ -4324,11 +4315,6 @@ msgstr "Éditer Spécification"
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/edit.html:7
 msgid "QoS Spec: "
 msgstr "Spécification QoS :"
-
-#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/index.html:5
-#, python-format
-msgid "QoS Spec: %(qos_spec_name)s"
-msgstr "Spécifications QoS : %(qos_spec_name)s"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/_manage_volume.html:6
 msgid ""
@@ -4372,23 +4358,15 @@ msgstr "Détails du Volume"
 msgid "Manage Volume"
 msgstr "Volume géré"
 
-#: dashboards/admin/volumes/templates/volumes/volumes/manage_volume.html:6
-msgid "Manage a Volume"
-msgstr "Gérer un volume"
-
 #: dashboards/admin/volumes/templates/volumes/volumes/unmanage_volume.html:3
 #: dashboards/admin/volumes/volumes/tables.py:43
 msgid "Unmanage Volume"
 msgstr "Volume non-géré"
 
-#: dashboards/admin/volumes/templates/volumes/volumes/unmanage_volume.html:6
-msgid "Unmanage a Volume"
-msgstr "Volume non-géré"
-
 #: dashboards/admin/volumes/templates/volumes/volumes/update_status.html:3
 #: dashboards/admin/volumes/volumes/tables.py:69
-#: dashboards/admin/volumes/volumes/views.py:104
-#: dashboards/admin/volumes/volumes/views.py:110
+#: dashboards/admin/volumes/volumes/views.py:106
+#: dashboards/admin/volumes/volumes/views.py:112
 msgid "Update Volume Status"
 msgstr "Actualiser l'état du Volume"
 
@@ -4550,7 +4528,7 @@ msgstr "Créer une Spécification QoS"
 #: dashboards/admin/volumes/volume_types/extras/tables.py:48
 #: dashboards/admin/volumes/volume_types/extras/views.py:64
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:24
-#: dashboards/admin/volumes/volume_types/qos_specs/views.py:75
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:76
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:25
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:236
 #: dashboards/project/data_processing/data_sources/workflows/create.py:95
@@ -4654,7 +4632,6 @@ msgstr[1] "Spécifications supplémentaires supprimées"
 #: dashboards/identity/roles/tables.py:37
 #: dashboards/identity/users/tables.py:46
 #: dashboards/project/containers/tables.py:313
-#: dashboards/project/images/images/tables.py:107
 msgid "Edit"
 msgstr "Editer"
 
@@ -4705,15 +4682,24 @@ msgstr "Paires de clé-valeur"
 msgid "undefined"
 msgstr "Indéfini"
 
-#: dashboards/admin/volumes/volume_types/qos_specs/views.py:64
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:56
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:106
+msgid "QoS Spec: {{ qos_spec_name }}"
+msgstr ""
+
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:65
 msgid "Unable to retrieve QoS spec list."
 msgstr "Incapable de récupérer la liste de la spécification QoS."
 
-#: dashboards/admin/volumes/volume_types/qos_specs/views.py:98
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:79
+msgid "Spec: {{ qos_spec_name }}"
+msgstr ""
+
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:100
 msgid "Edit Spec Value"
 msgstr "Modifier valeur Spec"
 
-#: dashboards/admin/volumes/volume_types/qos_specs/views.py:117
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:120
 msgid "Unable to retrieve QoS spec details."
 msgstr "Incapable de récupérer les détails de la spécification QoS."
 
@@ -4757,7 +4743,7 @@ msgstr "Type de Volume"
 
 #: dashboards/admin/volumes/volumes/forms.py:79
 #: dashboards/project/volumes/volumes/forms.py:602
-#: dashboards/project/volumes/volumes/tables.py:419
+#: dashboards/project/volumes/volumes/tables.py:420
 msgid "Bootable"
 msgstr "Amorçable"
 
@@ -4836,18 +4822,26 @@ msgstr "Impossible d'extraire les données d'instantané."
 msgid "Manage"
 msgstr "Gérer"
 
-#: dashboards/admin/volumes/volumes/views.py:62
+#: dashboards/admin/volumes/volumes/views.py:53
+msgid "Manage a Volume"
+msgstr "Gérer un volume"
+
+#: dashboards/admin/volumes/volumes/views.py:63
 msgid "Confirm Unmanage Volume"
 msgstr "Confirmer Volume « non-géré »"
 
-#: dashboards/admin/volumes/volumes/views.py:64
+#: dashboards/admin/volumes/volumes/views.py:65
 msgid "Unmanage"
 msgstr "Ne pas gérer"
 
-#: dashboards/admin/volumes/volumes/views.py:82
-#: dashboards/admin/volumes/volumes/views.py:126
+#: dashboards/admin/volumes/volumes/views.py:69
+msgid "Unmanage a Volume"
+msgstr "Volume non-géré"
+
+#: dashboards/admin/volumes/volumes/views.py:84
+#: dashboards/admin/volumes/volumes/views.py:128
 #: dashboards/project/volumes/volumes/views.py:68
-#: dashboards/project/volumes/volumes/views.py:457
+#: dashboards/project/volumes/volumes/views.py:468
 msgid "Unable to retrieve volume details."
 msgstr "Impossible de retrouver les détails du volume."
 
@@ -5100,7 +5094,7 @@ msgstr "Groupes"
 
 #: dashboards/identity/groups/tables.py:39
 #: dashboards/identity/groups/views.py:59
-#: dashboards/identity/groups/views.py:63
+#: dashboards/identity/groups/views.py:62
 #: dashboards/identity/groups/views.py:65
 #: dashboards/identity/groups/templates/groups/create.html:3
 msgid "Create Group"
@@ -5297,35 +5291,35 @@ msgid "This name is already taken."
 msgstr "Ce nom est déjà pris."
 
 #: dashboards/identity/projects/views.py:59
-#: dashboards/identity/projects/views.py:105
+#: dashboards/identity/projects/views.py:104
 #: dashboards/router/nexus1000v/views.py:42
 msgid "Unable to retrieve project information."
 msgstr "Impossible de récupérer les informations du projet."
 
-#: dashboards/identity/projects/views.py:109
+#: dashboards/identity/projects/views.py:107
 msgid "Insufficient privilege level to view project information."
 msgstr "Niveau de privilèges insuffisant pour voir les informations du projet."
 
-#: dashboards/identity/projects/views.py:120
+#: dashboards/identity/projects/views.py:118
 msgid "Project Usage"
 msgstr "Utilisation du projet"
 
-#: dashboards/identity/projects/views.py:154
+#: dashboards/identity/projects/views.py:152
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "Impossible de récupérer les valeurs par défaut des quotas Neutron."
 
-#: dashboards/identity/projects/views.py:192
+#: dashboards/identity/projects/views.py:190
 #: dashboards/identity/users/views.py:116
 #: dashboards/identity/users/views.py:178
 msgid "Unable to retrieve project domain."
 msgstr "Impossible de récupérer le domaine du projet."
 
-#: dashboards/identity/projects/views.py:206
-#: dashboards/identity/projects/views.py:231
+#: dashboards/identity/projects/views.py:204
+#: dashboards/identity/projects/views.py:229
 msgid "Unable to retrieve project details."
 msgstr "Impossible de récupérer les détails du projet."
 
-#: dashboards/identity/projects/views.py:219
+#: dashboards/identity/projects/views.py:217
 #, python-format
 msgid "Project Details: %s"
 msgstr "Détail du projet: %s"
@@ -5753,8 +5747,6 @@ msgstr "Calcul"
 
 #: dashboards/project/dashboard.py:32
 #: dashboards/project/networks/workflows.py:78
-#: dashboards/project/networks/templates/networks/subnets/index.html:3
-#: dashboards/project/networks/templates/networks/subnets/index.html:6
 msgid "Network"
 msgstr "Réseau"
 
@@ -5980,7 +5972,7 @@ msgstr "Pas de pools d'IP flottantes disponibles"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:37
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:202
-#: dashboards/project/volumes/volumes/tables.py:485
+#: dashboards/project/volumes/volumes/tables.py:486
 msgid "Instance"
 msgstr "Instance"
 
@@ -6746,7 +6738,7 @@ msgid "Unable to delete container."
 msgstr "Impossible de supprimer le conteneur."
 
 #: dashboards/project/containers/tables.py:144
-#: dashboards/project/containers/views.py:129
+#: dashboards/project/containers/views.py:130
 #: dashboards/project/containers/templates/containers/_create.html:8
 #: dashboards/project/containers/templates/containers/_create.html:24
 #: dashboards/project/containers/templates/containers/create.html:3
@@ -6758,7 +6750,7 @@ msgid "View Container"
 msgstr "Voir le Conteneur"
 
 #: dashboards/project/containers/tables.py:164
-#: dashboards/project/containers/views.py:153
+#: dashboards/project/containers/views.py:154
 #: dashboards/project/containers/templates/containers/create_pseudo_folder.html:3
 msgid "Create Pseudo-folder"
 msgstr "Créer un pseudo-dossier"
@@ -6770,7 +6762,7 @@ msgid "Upload Object"
 msgstr "Télécharger un Objet"
 
 #: dashboards/project/containers/tables.py:262
-#: dashboards/project/containers/views.py:266
+#: dashboards/project/containers/views.py:275
 #: dashboards/project/containers/templates/containers/_container_detail.html:5
 #: dashboards/project/containers/templates/containers/container_detail.html:3
 msgid "Container Details"
@@ -6805,44 +6797,44 @@ msgstr "pseudo-dossier"
 msgid "Objects"
 msgstr "Objets"
 
-#: dashboards/project/containers/views.py:57
+#: dashboards/project/containers/views.py:58
 msgid "Unable to retrieve container list."
 msgstr "Impossible de récupérer la liste des conteneurs."
 
-#: dashboards/project/containers/views.py:86
+#: dashboards/project/containers/views.py:87
 msgid "Unable to retrieve object list."
 msgstr "Impossible de récupérer la liste des objets."
 
-#: dashboards/project/containers/views.py:176
+#: dashboards/project/containers/views.py:177
 msgid "Upload Objects"
 msgstr "Charger des Objets"
 
-#: dashboards/project/containers/views.py:200
+#: dashboards/project/containers/views.py:202
 msgid "Unable to retrieve object."
 msgstr "Impossible de retrouver l'objet."
 
-#: dashboards/project/containers/views.py:220
+#: dashboards/project/containers/views.py:229
 #: dashboards/project/containers/templates/containers/_copy.html:23
 #: dashboards/project/containers/templates/containers/copy.html:3
 msgid "Copy Object"
 msgstr "Copier l'Objet"
 
-#: dashboards/project/containers/views.py:236
+#: dashboards/project/containers/views.py:245
 msgid "Unable to list containers."
 msgstr "Impossible de lister les conteneurs."
 
-#: dashboards/project/containers/views.py:278
-#: dashboards/project/containers/views.py:302
+#: dashboards/project/containers/views.py:287
+#: dashboards/project/containers/views.py:311
 msgid "Unable to retrieve details."
 msgstr "Impossible de récupérer les détails."
 
-#: dashboards/project/containers/views.py:289
+#: dashboards/project/containers/views.py:298
 #: dashboards/project/containers/templates/containers/_object_detail.html:5
 #: dashboards/project/containers/templates/containers/object_detail.html:3
 msgid "Object Details"
 msgstr "Détails de l'Objet"
 
-#: dashboards/project/containers/views.py:315
+#: dashboards/project/containers/views.py:324
 #: dashboards/project/containers/templates/containers/_update.html:27
 #: dashboards/project/containers/templates/containers/update.html:3
 msgid "Update Object"
@@ -7218,7 +7210,7 @@ msgstr "Modèle non spécifié"
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:37
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:133
 msgid "Proxy Gateway"
-msgstr ""
+msgstr "Passerelle"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:29
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:32
@@ -7245,7 +7237,7 @@ msgid "Node configurations are not specified"
 msgstr "Les configurations du noeud ne sont pas spécifiées"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_upload_file.html:22
-#: dashboards/project/volumes/volumes/views.py:173
+#: dashboards/project/volumes/volumes/views.py:176
 msgid "Upload"
 msgstr "Mettre en ligne"
 
@@ -7324,7 +7316,7 @@ msgid "Clusters"
 msgstr "Clusters"
 
 #: dashboards/project/data_processing/clusters/tables.py:41
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:31
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:27
 msgid "Cluster Creation Guide"
 msgstr "Guide de création d'un cluster"
 
@@ -7503,7 +7495,6 @@ msgstr "Pas de templates disponible"
 #: dashboards/project/data_processing/jobs/workflows/launch.py:331
 #: dashboards/project/data_processing/jobs/workflows/launch.py:416
 #: dashboards/project/databases/workflows/create_instance.py:335
-#: dashboards/project/images/images/tables.py:36
 #: dashboards/project/instances/workflows/create_instance.py:820
 #: dashboards/project/stacks/views.py:165
 msgid "Launch"
@@ -7969,8 +7960,6 @@ msgstr "Télécharger le binaire de tâche"
 
 #: dashboards/project/data_processing/job_executions/panel.py:22
 #: dashboards/project/data_processing/job_executions/tables.py:214
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/job_executions.html:6
-#: dashboards/project/data_processing/jobs/views.py:41
 msgid "Jobs"
 msgstr "Tâches"
 
@@ -8140,20 +8129,18 @@ msgid "%(group)s:"
 msgstr "%(group)s :"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/details.html:3
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/details.html:6
-#: dashboards/project/data_processing/jobs/views.py:68
 msgid "Job Details"
 msgstr "Détails de la tâche"
 
 #: dashboards/project/data_processing/jobs/panel.py:22
 #: dashboards/project/data_processing/jobs/tables.py:111
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/jobs.html:6
+#: dashboards/project/data_processing/jobs/views.py:41
 msgid "Job Templates"
 msgstr "Modèles de tâches"
 
 #: dashboards/project/data_processing/jobs/tables.py:36
+#: dashboards/project/data_processing/jobs/views.py:62
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:3
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:6
 #: dashboards/project/data_processing/jobs/workflows/create.py:124
 #: dashboards/project/data_processing/jobs/workflows/create.py:155
 msgid "Create Job Template"
@@ -8185,9 +8172,10 @@ msgstr "Lancer sur un nouveau cluster"
 msgid "Unable to fetch jobs."
 msgstr "Impossible de charger les tâches."
 
-#: dashboards/project/data_processing/jobs/views.py:62
-msgid "Create Job"
-msgstr "Créer une tâche"
+#: dashboards/project/data_processing/jobs/views.py:68
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/details.html:3
+msgid "Job Template Details"
+msgstr "Informations Modèle Tâches"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:4
 msgid "Create a job template with a specified name."
@@ -8308,11 +8296,6 @@ msgstr "Paramètres"
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:226
 msgid "Arguments"
 msgstr "Arguments"
-
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/details.html:3
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/details.html:6
-msgid "Job Template Details"
-msgstr "Informations Modèle Tâches"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/library_template.html:86
 msgid "Choose"
@@ -8595,7 +8578,7 @@ msgstr "Impossible de générer des choix de processus."
 msgid ""
 "Sahara will use instances of this node group to access other cluster "
 "instances."
-msgstr ""
+msgstr "Sahara utilisera les instances de ce groupe de noeuds pour accéder aux autres instances du cluster."
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:140
 msgid "Processes"
@@ -8706,13 +8689,31 @@ msgstr "Impossible de définir le type de tâche"
 msgid "Guides"
 msgstr "Guides"
 
-#: dashboards/project/data_processing/wizard/views.py:40
+#: dashboards/project/data_processing/wizard/views.py:35
+msgid "Data Processing Guides"
+msgstr "Guides de traitement des données"
+
+#: dashboards/project/data_processing/wizard/views.py:41
 msgid "Unable to show guides"
 msgstr "Impossible d'afficher les guides"
 
+#: dashboards/project/data_processing/wizard/views.py:48
+msgid "Guided Cluster Creation"
+msgstr "Création de cluster guidée"
+
+#: dashboards/project/data_processing/wizard/views.py:63
+msgid "Guided Job Execution"
+msgstr "Exécution de tâche guidée"
+
+#: dashboards/project/data_processing/wizard/views.py:90
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_plugin_select.html:13
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/plugin_select.html:3
+msgid "Choose plugin and version"
+msgstr "Sélectionner un plugin et une version"
+
+#: dashboards/project/data_processing/wizard/views.py:99
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_job_type_select.html:13
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/job_type_select.html:3
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/job_type_select.html:6
 msgid "Choose job type"
 msgstr "Sélectionner le type de tâche"
 
@@ -8729,23 +8730,13 @@ msgid ""
 "    "
 msgstr "Sélectionner le type de tâche que vous souhaitez exécuter.\nCe choix va dicter les étapes pour pouvoir la réussir."
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_plugin_select.html:13
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/plugin_select.html:3
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/plugin_select.html:6
-msgid "Choose plugin and version"
-msgstr "Sélectionner un plugin et une version"
-
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_plugin_select_help.html:3
 msgid ""
 "Select which plugin and version that you\n"
 "    want to use to create your cluster."
 msgstr "Sélectionner la version et le plugin\nque vous souhaitez utiliser pour créer votre cluster."
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:7
-msgid "Guided Cluster Creation"
-msgstr "Création de cluster guidée"
-
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:16
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:12
 msgid ""
 "The first step is to determine which type of\n"
 "                    cluster you want to run.  You may have several choices\n"
@@ -8758,30 +8749,30 @@ msgid ""
 "                    to your desired cluster type."
 msgstr "La première étape consiste à déterminer quel type de\ncluster exécuter. Vous pouvez avoir plusieurs choix\ndisponibles selon la configuration de votre système.\nCliquez sur « choisir le plugin » pour faire apparaître la liste des plugins\nde traitement des données. Là, vous serez en mesure de choisir le\nplugin de traitement des données ainsi que le numéro de version.\nCe choix dès le départ permettra au reste des étapes de création\nde cluster de se concentrer uniquement sur les options qui sont pertinentes\nau type de cluster que vous souhaitez."
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:27
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:23
 msgid "Choose plugin"
 msgstr "Sélectionner un plugin"
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:28
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:64
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:91
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:123
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:24
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:60
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:87
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:119
 msgid "Current choice:"
 msgstr "Choix actuel :"
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:31
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:27
 msgid "Plugin:"
 msgstr "Plugin :"
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:33
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:29
 msgid "Version:"
 msgstr "Version:"
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:38
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:34
 msgid "No plugin chosen"
 msgstr "Aucun plugin sélectionné"
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:47
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:43
 msgid ""
 "Next, you need to define the different\n"
 "                        types of machines in your cluster.  This is done by\n"
@@ -8795,39 +8786,39 @@ msgid ""
 "                     "
 msgstr "Ensuite, vous devrez définir les différents\ntypes de machines de votre cluster. Cela se fait en\ndéfinissant un Modèle de groupe de nœuds pour chaque type de\nmachine. Un cas très courant consiste à \nvouloir qu'une ou plusieurs machines exécutent un certain nombre de \nprocessus ou « master » tandis qu'un autre ensemble de machines\ntentent d'exécuter des processus de « travail ». Vous allez pouvoir \ndéfinir ici le Modèle de groupe de nœuds de vos noeud(s) \n« maître »."
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:62
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:58
 msgid "Create a Master Node Group Template"
 msgstr "Créer un Modèle de groupe de nœuds Master"
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:67
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:63
 msgid "Master Node Group Template:"
 msgstr "Modèle de groupe de nœuds Master :"
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:72
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:68
 msgid "No Master Node Group Template Created"
 msgstr "Aucun Modèle de groupe de nœuds Master créé"
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:81
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:77
 msgid ""
 "Repeat the Node Group Template\n"
 "                        creation process, but this time you are creating\n"
 "                        your \"worker\" Node Group Template."
 msgstr "Répéter le processus de création.\nmais cette fois-ci, vous créerez votre \nModèle de groupe de noeud \"worker\"."
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:89
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:85
 msgid "Create a Worker Node Group Template"
 msgstr "Créer un Modèle de groupe de nœud Worker"
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:94
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:126
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:90
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:122
 msgid "Worker Node Group Template:"
 msgstr "Modèles de groupe de nœuds Worker"
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:99
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:95
 msgid "No Worker Node Group Template Created"
 msgstr "Aucun Modèle de groupe de nœud Worker créé"
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:108
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:104
 msgid ""
 "Now you need to set the layout of your\n"
 "                        cluster.  By\n"
@@ -8839,15 +8830,15 @@ msgid ""
 "                        create Cluster Template form."
 msgstr "Maintenant, vous devez définir la disposition de votre\ncluster. En créant un modèle de cluster, vous devrez choisir le\nnombre d'instances de chaque modèle de groupe de nœud \nqui apparaîtra dans votre cluster. De plus, \nvous aurez une chance de mettre n'importe quels éléments \nde configuration spécifiques à votre cluster dans les onglets \nsupplémentaires du formulaire Modèle de cluster."
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:121
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:117
 msgid "Create a Cluster Template"
 msgstr "Créer un modèle de cluster"
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:131
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:127
 msgid "No Cluster Template Created"
 msgstr "Aucun modèle de cluster créé"
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:140
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:136
 msgid ""
 "You are now ready to\n"
 "                        launch your cluster.  When you click on the link\n"
@@ -8859,23 +8850,19 @@ msgid ""
 "                        minutes."
 msgstr "Vous êtes maintenant prêt à\ndémarrer votre cluster. Après avoir cliqué sur le link ci-dessous, vous devrez donner un nom à votre cluster.\nChoisissez le modèle de cluster à utiliser et choisir l'image à utiliser pour construire vos instances. Après avoir cliqué sur « Créer », vos instances commenceront à se multiplier. Votre cluster sera opérationnel dans les minutes qui suivent."
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:153
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:149
 msgid "Launch a Cluster"
 msgstr "Lancer un Cluster"
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:161
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:157
 msgid "Reset Cluster Guide"
 msgstr "Réinitialiser le guide de cluster"
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:163
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:159
 msgid "Reset Cluster Creation Guide"
 msgstr "Réinitialiser le guide de création de clusters"
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:7
-msgid "Guided Job Execution"
-msgstr "Exécution de tâche guidée"
-
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:17
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:13
 msgid ""
 "First, select which type of job that\n"
 "                            you want to run.  This choice will determine which\n"
@@ -8883,19 +8870,19 @@ msgid ""
 "                        "
 msgstr "Tout d'abord, sélectionner le type de tâche que vous souhaitez excécuter. Ce choix déterminera les autres étapes nécessaires."
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:25
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:21
 msgid "Select type"
 msgstr "Sélectionner le type"
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:28
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:24
 msgid "Current type:"
 msgstr "Type actuellement en cours :"
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:35
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:31
 msgid "No type chosen"
 msgstr "Aucun type choisi"
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:46
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:42
 msgid ""
 "Data Sources are what your\n"
 "                            job uses for input and output.  Depending on the type\n"
@@ -8905,11 +8892,11 @@ msgid ""
 "                        "
 msgstr "Les sources de données sont ce que\nvotre tâche utilise pour ses entrées et sorties. Selon le type\nde tâche que vous exécutez, vous devrez sans doute définir une\nou plusieurs sources de données. Vous pouvez créer plusieurs sources\nde données en répétant cette étape à nouveau."
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:56
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:52
 msgid "Create a data source"
 msgstr "Création d'une source de donnée"
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:65
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:61
 msgid ""
 "Define your Job Template.\n"
 "                        This is where you choose the type of job that you\n"
@@ -8919,19 +8906,19 @@ msgid ""
 "                    "
 msgstr "Définir votre Modèle de tâche.\nC'est là où vous choisissez le type de tâche\nà exécuter (Pig, Action Java, Spark, etc.) et sélectionner\nou télécharger les fichiers nécessaires pour l'exécuter. Les entrées\net les sorties seront définies par la suite."
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:75
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:71
 msgid "Create a job template"
 msgstr "Créer un modèle de tâche"
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:77
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:73
 msgid "Job template:"
 msgstr "Modèle de tâche :"
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:84
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:80
 msgid "No job template created"
 msgstr "Aucun modèle de tâche n'a été créé"
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:93
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:89
 msgid ""
 "Launch your job.  When\n"
 "                        launching, you may need to choose your input and\n"
@@ -8942,20 +8929,16 @@ msgid ""
 "                        "
 msgstr "Démarrez votre tâche. Au moment du \nlancement de la tâche, vous devrez choisir vos sources de données\nd'entrée et de sortie. C'est où vous pourrez également\najouter des valeurs de configuration spéciales, des paramètres, ou des\narguments que vous devez passer à\nà votre tâche."
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:103
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:99
 msgid "Launch job"
 msgstr "Démarrer un travail"
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:112
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:114
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:108
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:110
 msgid "Reset Job Execution Guide"
 msgstr "Réinitialiser le guide d'exécution de tâches"
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:7
-msgid "Data Processing Guides"
-msgstr "Guides de traitement des données"
-
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:16
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:12
 msgid ""
 "\n"
 "                 Each of the Data Processing frameworks require a cluster of machines\n"
@@ -8968,11 +8951,11 @@ msgid ""
 "             "
 msgstr "\nChaque framework de traitement de données nécessite un groupement de machines\npour pouvoir réaliser le travail qu'on lui donne. Un cluster se forme \nquand on crée un ensemble de Modèles de groupes de noeuds, que l'on réunit\ndans un modèle de cluster et que l'on démarre alors un cluster. \nChacune de ces étapes peut être réalisée manuellement, mais vous pouvez aussi \nsuivre ce guide qui vous aidera à créer un cluster, étape par étape."
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:29
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:25
 msgid "Cluster Guide"
 msgstr "Guide Cluster"
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:38
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:34
 msgid ""
 "\n"
 "                  In order to run a Data Processing job, you need to make\n"
@@ -8985,8 +8968,8 @@ msgid ""
 "            "
 msgstr "\nAfin d'exécuter une tâche de traitement de données, vous devez rendre les fichiers utilisés par votre programme disponibles pour le système de Traitement de Données, définir les entrées et les sorties et créer un modèle décrivant comment exécuter votre tâche. Chacune de ces étapes peut être réalisée manuellement, mais vous pouvez aussi suivre ce guide qui vous aidera à exécuter une tâche sur un cluster existant, étape par étape."
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:51
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:53
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:47
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:49
 msgid "Job Execution Guide"
 msgstr "Guide d'exécution de tâches"
 
@@ -9336,6 +9319,7 @@ msgstr "Erreur lors de la suppression de la base de données sur l'instance."
 #: dashboards/project/databases/tables.py:174
 #: dashboards/project/databases/templates/databases/launch.html:3
 #: dashboards/project/databases/workflows/create_instance.py:334
+#: dashboards/project/images/images/tables.py:36
 #: dashboards/project/instances/tables.py:308
 #: dashboards/project/instances/tables.py:336
 #: dashboards/project/instances/workflows/create_instance.py:819
@@ -9646,13 +9630,6 @@ msgstr "<strong>Attention :</strong> La nouvelle valeur doit être plus grande q
 #: dashboards/project/instances/templates/instances/detail.html:3
 msgid "Instance Details"
 msgstr "Détails de l'instance"
-
-#: dashboards/project/databases/templates/databases/update.html:3
-#: dashboards/project/databases/templates/databases/update.html:6
-#: dashboards/project/instances/tables.py:372
-#: dashboards/project/instances/workflows/update_instance.py:132
-msgid "Edit Instance"
-msgstr "Editer l'instance"
 
 #: dashboards/project/databases/workflows/create_instance.py:37
 #: dashboards/project/instances/workflows/create_instance.py:88
@@ -10586,6 +10563,7 @@ msgstr "Source de l'image"
 #: dashboards/project/images/images/forms.py:47
 #: dashboards/project/images/images/forms.py:54
 #: dashboards/project/images/images/forms.py:60
+#: dashboards/project/images/images/forms.py:102
 msgid "Image Location"
 msgstr "Emplacement de l'image"
 
@@ -10604,80 +10582,90 @@ msgid "A local image to upload."
 msgstr "Une image locale à télécharger."
 
 #: dashboards/project/images/images/forms.py:76
-#: dashboards/project/images/images/forms.py:221
+#: dashboards/project/images/images/forms.py:232
 #: dashboards/project/images/images/tables.py:259
 msgid "Format"
 msgstr "Format"
 
 #: dashboards/project/images/images/forms.py:81
-#: dashboards/project/images/images/forms.py:216
+#: dashboards/project/images/images/forms.py:227
 msgid "Architecture"
 msgstr "Architecture"
 
 #: dashboards/project/images/images/forms.py:84
-#: dashboards/project/images/images/forms.py:223
+#: dashboards/project/images/images/forms.py:234
 msgid "Minimum Disk (GB)"
 msgstr "Espace disque minimal (Go)"
 
 #: dashboards/project/images/images/forms.py:86
-#: dashboards/project/images/images/forms.py:225
+#: dashboards/project/images/images/forms.py:236
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value"
 " defaults to 0 (no minimum)."
 msgstr "La taille minimale du disque nécessaire pour démarrer l'image. Si non spécifiée, la valeur par défaut est 0 (pas de minimum)."
 
 #: dashboards/project/images/images/forms.py:90
-#: dashboards/project/images/images/forms.py:231
+#: dashboards/project/images/images/forms.py:242
 msgid "Minimum RAM (MB)"
 msgstr "RAM minimale (Mo)"
 
 #: dashboards/project/images/images/forms.py:92
-#: dashboards/project/images/images/forms.py:233
+#: dashboards/project/images/images/forms.py:244
 msgid ""
 "The minimum memory size required to boot the image. If unspecified, this "
 "value defaults to 0 (no minimum)."
 msgstr "La taille minimale de mémoire vive nécessaire pour démarrer l'image. Si non spécifiée, la valeur par défaut est 0 (pas de minimum)."
 
-#: dashboards/project/images/images/forms.py:139
+#: dashboards/project/images/images/forms.py:96
+msgid "Copy Data"
+msgstr ""
+
+#: dashboards/project/images/images/forms.py:97
+msgid ""
+"Specify this option to copy image data to the image service. If unspecified,"
+" image data will be used in its current location."
+msgstr ""
+
+#: dashboards/project/images/images/forms.py:148
 msgid "A image or external image location must be specified."
 msgstr "Vous devez spécifier une image ou l'emplacement d'une image externe. "
 
-#: dashboards/project/images/images/forms.py:142
+#: dashboards/project/images/images/forms.py:151
 msgid "Can not specify both image and external image location."
 msgstr "Impossible de spécifier à la fois une image et un emplacement d'image externe."
 
-#: dashboards/project/images/images/forms.py:180
+#: dashboards/project/images/images/forms.py:191
 #, python-format
 msgid "Your image %s has been queued for creation."
 msgstr "Votre image %s a été placée en file d'attente pour création."
 
-#: dashboards/project/images/images/forms.py:184
+#: dashboards/project/images/images/forms.py:195
 msgid "Unable to create new image"
 msgstr "Impossible de créer une nouvelle image"
 
-#: dashboards/project/images/images/forms.py:188
+#: dashboards/project/images/images/forms.py:199
 #, python-format
 msgid "Unable to create new image: Invalid disk format %s for image."
 msgstr "Impossible de créer une nouvelle image : format de disque %s non valide pour cette image."
 
-#: dashboards/project/images/images/forms.py:191
+#: dashboards/project/images/images/forms.py:202
 msgid "Unable to create new image: Image name too long."
 msgstr "Impossible de créer la nouvelle image : nom de l'image est trop long."
 
-#: dashboards/project/images/images/forms.py:205
+#: dashboards/project/images/images/forms.py:216
 msgid "Kernel ID"
 msgstr "ID Noyau"
 
-#: dashboards/project/images/images/forms.py:211
+#: dashboards/project/images/images/forms.py:222
 msgid "Ramdisk ID"
 msgstr "ID Ramdisk"
 
-#: dashboards/project/images/images/forms.py:253
+#: dashboards/project/images/images/forms.py:264
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr "Impossible de mettre à jour l'image \"%s\"."
 
-#: dashboards/project/images/images/forms.py:280
+#: dashboards/project/images/images/forms.py:291
 msgid "Image was successfully updated."
 msgstr "Image mise à jour avec succès."
 
@@ -10696,6 +10684,10 @@ msgid "Deleted Image"
 msgid_plural "Deleted Images"
 msgstr[0] "Image Supprimée"
 msgstr[1] "Images Supprimées"
+
+#: dashboards/project/images/images/tables.py:107
+msgid "Edit Image"
+msgstr "Editer l'Image"
 
 #: dashboards/project/images/images/tables.py:124
 #: dashboards/project/volumes/snapshots/tables.py:93
@@ -11001,6 +10993,11 @@ msgstr[1] "Instances Suspendues"
 #: dashboards/project/instances/tables.py:352
 msgid "Launch Instance NG"
 msgstr "Démarrer l'instance NG"
+
+#: dashboards/project/instances/tables.py:372
+#: dashboards/project/instances/workflows/update_instance.py:132
+msgid "Edit Instance"
+msgstr "Editer l'instance"
 
 #: dashboards/project/instances/tables.py:395
 msgid "Edit Security Groups"
@@ -11741,7 +11738,7 @@ msgstr "Volumes attachés"
 #: dashboards/project/instances/templates/instances/_detail_overview.html:136
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:47
-#: dashboards/project/volumes/volumes/tables.py:415
+#: dashboards/project/volumes/volumes/tables.py:416
 msgid "Attached To"
 msgstr "Attaché à"
 
@@ -13536,19 +13533,24 @@ msgstr "Sélectionner un nom pour votre réseau."
 msgid "Network Overview"
 msgstr "Aperçu du réseau"
 
-#: dashboards/project/networks/templates/networks/_detail_overview.html:22
+#: dashboards/project/networks/templates/networks/_detail_overview.html:21
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:47
+msgid "MTU"
+msgstr "MTU"
+
+#: dashboards/project/networks/templates/networks/_detail_overview.html:24
 msgid "Provider Network"
 msgstr "Réseau fournisseur"
 
-#: dashboards/project/networks/templates/networks/_detail_overview.html:23
+#: dashboards/project/networks/templates/networks/_detail_overview.html:25
 msgid "Network Type:"
 msgstr "Type de Réseau :"
 
-#: dashboards/project/networks/templates/networks/_detail_overview.html:24
+#: dashboards/project/networks/templates/networks/_detail_overview.html:26
 msgid "Physical Network:"
 msgstr "Réseau Physique :"
 
-#: dashboards/project/networks/templates/networks/_detail_overview.html:25
+#: dashboards/project/networks/templates/networks/_detail_overview.html:27
 msgid "Segmentation ID:"
 msgstr "ID du segment :"
 
@@ -13559,6 +13561,10 @@ msgstr "Retour"
 #: dashboards/project/networks/templates/networks/create.html:10
 msgid "Next&nbsp;&raquo;"
 msgstr "Suivant&nbsp;&raquo;"
+
+#: dashboards/project/networks/templates/networks/detail.html:3
+msgid "Network Details"
+msgstr "Détails du réseau"
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:4
 msgid "Subnet Overview"
@@ -14830,7 +14836,7 @@ msgid "Restoring"
 msgstr "Restauration"
 
 #: dashboards/project/volumes/backups/tabs.py:41
-#: dashboards/project/volumes/backups/views.py:72
+#: dashboards/project/volumes/backups/views.py:73
 msgid "Unable to retrieve backup details."
 msgstr "Impossible de retrouver les détails de la sauvegarde."
 
@@ -14840,18 +14846,26 @@ msgstr "Impossible de retrouver les détails de la sauvegarde."
 msgid "Create Volume Backup"
 msgstr "Créer un volume de sauvegarde"
 
-#: dashboards/project/volumes/backups/views.py:53
+#: dashboards/project/volumes/backups/views.py:38
+msgid "Create a Volume Backup"
+msgstr "Créer un volume de sauvegarde"
+
+#: dashboards/project/volumes/backups/views.py:54
 msgid "Volume Backup Details: {{ backup.name }}"
 msgstr "Détail du volume de sauvegarde: {{ backup.name }}"
 
-#: dashboards/project/volumes/backups/views.py:87
+#: dashboards/project/volumes/backups/views.py:88
 #: dashboards/project/volumes/templates/volumes/backups/restore_backup.html:3
 msgid "Restore Volume Backup"
 msgstr "Restaurer le volume de sauvegarde"
 
-#: dashboards/project/volumes/backups/views.py:89
+#: dashboards/project/volumes/backups/views.py:90
 msgid "Restore Backup to Volume"
 msgstr "Restaurer la sauvegarde sur le volume"
+
+#: dashboards/project/volumes/backups/views.py:93
+msgid "Restore a Volume Backup"
+msgstr "Restaurer un volume de sauvegarde"
 
 #: dashboards/project/volumes/snapshots/forms.py:39
 #, python-format
@@ -14876,17 +14890,17 @@ msgstr[1] "Suppression des Instantanés de Volume planifiée"
 
 #: dashboards/project/volumes/snapshots/tables.py:79
 #: dashboards/project/volumes/snapshots/views.py:35
+#: dashboards/project/volumes/snapshots/views.py:40
 #: dashboards/project/volumes/templates/volumes/snapshots/update.html:3
-#: dashboards/project/volumes/templates/volumes/snapshots/update.html:6
 msgid "Edit Snapshot"
 msgstr "Modifier l'Instantané"
 
 #: dashboards/project/volumes/snapshots/tabs.py:36
-#: dashboards/project/volumes/snapshots/views.py:90
+#: dashboards/project/volumes/snapshots/views.py:91
 msgid "Unable to retrieve snapshot details."
 msgstr "Impossible de récupérer les détails de l'instantané."
 
-#: dashboards/project/volumes/snapshots/views.py:70
+#: dashboards/project/volumes/snapshots/views.py:71
 msgid "Volume Snapshot Details: {{ snapshot.name }}"
 msgstr "Détail de l'instantanée de volume: {{ snapshot.name }}"
 
@@ -14924,17 +14938,9 @@ msgstr "Sélectionner le volume à restaurer."
 msgid "Optionally, you may choose to create a new volume."
 msgstr "Optionnel, vous pouvez choisir de créer un nouveau volume."
 
-#: dashboards/project/volumes/templates/volumes/backups/create_backup.html:6
-msgid "Create a Volume Backup"
-msgstr "Créer un volume de sauvegarde"
-
 #: dashboards/project/volumes/templates/volumes/backups/detail.html:3
 msgid "Volume Backup Details"
 msgstr "Détails du volume de sauvegarde"
-
-#: dashboards/project/volumes/templates/volumes/backups/restore_backup.html:6
-msgid "Restore a Volume Backup"
-msgstr "Restaurer un volume de sauvegarde"
 
 #: dashboards/project/volumes/templates/volumes/snapshots/_update.html:6
 msgid "Modify the name and description of a snapshot."
@@ -14966,7 +14972,7 @@ msgstr "Créer un instantané de volume (Forcer)"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_create_snapshot.html:15
 #: dashboards/project/volumes/templates/volumes/volumes/create_snapshot.html:3
-#: dashboards/project/volumes/volumes/views.py:139
+#: dashboards/project/volumes/volumes/views.py:141
 msgid "Create Volume Snapshot"
 msgstr "Création d'un instantané du volume"
 
@@ -14983,7 +14989,7 @@ msgid "Volume Overview"
 msgstr "Vue d'ensemble du volume"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:35
-#: dashboards/project/volumes/volumes/tables.py:506
+#: dashboards/project/volumes/volumes/tables.py:507
 msgid "Attachments"
 msgstr "Attachements"
 
@@ -15005,7 +15011,7 @@ msgid "Volume Source"
 msgstr "Source du volume"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:84
-#: dashboards/project/volumes/volumes/views.py:243
+#: dashboards/project/volumes/volumes/views.py:249
 msgid "Volume Transfer"
 msgstr "Volume de transfère"
 
@@ -15128,34 +15134,22 @@ msgid ""
 msgstr "\nQuand le statut du volume est \"en cours d'utilisation\", vous pouvez utiliser \"Force\" pour télécharger le volume dans une image."
 
 #: dashboards/project/volumes/templates/volumes/volumes/accept_transfer.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/accept_transfer.html:6
-#: dashboards/project/volumes/volumes/views.py:232
-#: dashboards/project/volumes/volumes/views.py:233
+#: dashboards/project/volumes/volumes/views.py:237
+#: dashboards/project/volumes/volumes/views.py:238
+#: dashboards/project/volumes/volumes/views.py:241
 msgid "Accept Volume Transfer"
 msgstr "Accepter le transfert de volume"
 
 #: dashboards/project/volumes/templates/volumes/volumes/attach.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/attach.html:6
-#: dashboards/project/volumes/volumes/views.py:312
+#: dashboards/project/volumes/volumes/views.py:320
+#: dashboards/project/volumes/volumes/views.py:325
 msgid "Manage Volume Attachments"
 msgstr "Gérer les attachements de Volume"
 
-#: dashboards/project/volumes/templates/volumes/volumes/create.html:6
-msgid "Create a Volume"
-msgstr "Créer un Volume"
-
-#: dashboards/project/volumes/templates/volumes/volumes/create_snapshot.html:6
-msgid "Create a Volume Snapshot"
-msgstr "Création d'un instantané du volume"
-
 #: dashboards/project/volumes/templates/volumes/volumes/create_transfer.html:3
-#: dashboards/project/volumes/volumes/views.py:212
-#: dashboards/project/volumes/volumes/views.py:213
+#: dashboards/project/volumes/volumes/views.py:216
+#: dashboards/project/volumes/volumes/views.py:217
 msgid "Create Volume Transfer"
-msgstr "Création d'un volume de transfère"
-
-#: dashboards/project/volumes/templates/volumes/volumes/create_transfer.html:6
-msgid "Create a Volume Transfer"
 msgstr "Création d'un volume de transfère"
 
 #: dashboards/project/volumes/templates/volumes/volumes/encryption_detail.html:3
@@ -15163,36 +15157,36 @@ msgid "Volume Encryption Details"
 msgstr "Détailsdu chiffrement du volume"
 
 #: dashboards/project/volumes/templates/volumes/volumes/extend.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/extend.html:6
 #: dashboards/project/volumes/volumes/tables.py:133
-#: dashboards/project/volumes/volumes/views.py:99
-#: dashboards/project/volumes/volumes/views.py:101
+#: dashboards/project/volumes/volumes/views.py:100
+#: dashboards/project/volumes/volumes/views.py:102
+#: dashboards/project/volumes/volumes/views.py:105
 msgid "Extend Volume"
 msgstr "Étendre un volume."
 
 #: dashboards/project/volumes/templates/volumes/volumes/retype.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/retype.html:6
 #: dashboards/project/volumes/volumes/tables.py:244
-#: dashboards/project/volumes/volumes/views.py:385
-#: dashboards/project/volumes/volumes/views.py:387
+#: dashboards/project/volumes/volumes/views.py:394
+#: dashboards/project/volumes/volumes/views.py:396
+#: dashboards/project/volumes/volumes/views.py:399
 msgid "Change Volume Type"
 msgstr "Changer le Type de Volume"
 
 #: dashboards/project/volumes/templates/volumes/volumes/show_transfer.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/show_transfer.html:6
+#: dashboards/project/volumes/volumes/views.py:252
 msgid "Volume Transfer Details"
 msgstr "Détails du transfère du volume"
 
 #: dashboards/project/volumes/templates/volumes/volumes/update.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/update.html:6
 #: dashboards/project/volumes/volumes/tables.py:232
-#: dashboards/project/volumes/volumes/views.py:276
+#: dashboards/project/volumes/volumes/views.py:283
+#: dashboards/project/volumes/volumes/views.py:288
 msgid "Edit Volume"
 msgstr "Modifier le volume"
 
 #: dashboards/project/volumes/templates/volumes/volumes/upload_to_image.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/upload_to_image.html:6
-#: dashboards/project/volumes/volumes/views.py:171
+#: dashboards/project/volumes/volumes/views.py:174
+#: dashboards/project/volumes/volumes/views.py:179
 msgid "Upload Volume to Image"
 msgstr "Télécharger le Volume dans l'Image"
 
@@ -15528,89 +15522,93 @@ msgstr "Acceptation du transfère"
 msgid "Cancel Transfer"
 msgstr "Annulation du transfère"
 
-#: dashboards/project/volumes/volumes/tables.py:287
+#: dashboards/project/volumes/volumes/tables.py:277
+msgid "This action cannot be undone."
+msgstr "Cette action ne peut pas être réalisée."
+
+#: dashboards/project/volumes/volumes/tables.py:288
 #, python-format
 msgid "Successfully deleted volume transfer \"%s\""
 msgstr "Suppression avec succès du volume de transfère \"%s\""
 
-#: dashboards/project/volumes/volumes/tables.py:290
+#: dashboards/project/volumes/volumes/tables.py:291
 msgid "Successfully deleted volume transfer"
 msgstr "Suppression avec succès du volume de transfère"
 
-#: dashboards/project/volumes/volumes/tables.py:293
+#: dashboards/project/volumes/volumes/tables.py:294
 msgid "Unable to delete volume transfer."
 msgstr "Impossible de supprimer un transfert de volume."
 
-#: dashboards/project/volumes/volumes/tables.py:318
-#: dashboards/project/volumes/volumes/views.py:343
+#: dashboards/project/volumes/volumes/tables.py:319
+#: dashboards/project/volumes/volumes/views.py:352
 msgid "Unable to retrieve attachment information."
 msgstr "Impossible de récupérer les informations d'attachement."
 
-#: dashboards/project/volumes/volumes/tables.py:336
+#: dashboards/project/volumes/volumes/tables.py:337
 #, python-format
 msgid "Attached to %(instance)s on %(dev)s"
 msgstr "Attaché à %(instance)s sur %(dev)s"
 
-#: dashboards/project/volumes/volumes/tables.py:357
+#: dashboards/project/volumes/volumes/tables.py:358
 msgid "No"
 msgstr "Non"
 
-#: dashboards/project/volumes/volumes/tables.py:359
+#: dashboards/project/volumes/volumes/tables.py:360
 msgid "Yes"
 msgstr "Oui"
 
-#: dashboards/project/volumes/volumes/tables.py:372
+#: dashboards/project/volumes/volumes/tables.py:373
 msgctxt "Current status of a Volume"
 msgid "Available"
 msgstr "disponible(s)"
 
-#: dashboards/project/volumes/volumes/tables.py:373
+#: dashboards/project/volumes/volumes/tables.py:374
 msgctxt "Current status of a Volume"
 msgid "In-use"
 msgstr "En cours d'utiisation"
 
-#: dashboards/project/volumes/volumes/tables.py:374
+#: dashboards/project/volumes/volumes/tables.py:375
 msgctxt "Current status of a Volume"
 msgid "Error"
 msgstr "Erreur"
 
-#: dashboards/project/volumes/volumes/tables.py:376
+#: dashboards/project/volumes/volumes/tables.py:377
 msgctxt "Current status of a Volume"
 msgid "Creating"
 msgstr "Création en cours"
 
-#: dashboards/project/volumes/volumes/tables.py:378
+#: dashboards/project/volumes/volumes/tables.py:379
 msgctxt "Current status of a Volume"
 msgid "Error Extending"
 msgstr "Personnalisation d'Erreur"
 
-#: dashboards/project/volumes/volumes/tables.py:422
+#: dashboards/project/volumes/volumes/tables.py:423
 msgid "Encrypted"
 msgstr "Chiffré"
 
-#: dashboards/project/volumes/volumes/tables.py:443
+#: dashboards/project/volumes/volumes/tables.py:444
 msgid ""
 "The data will remain in the volume and another instance will be able to "
 "access the data if you attach this volume to it."
 msgstr "Les données persisteront dans le volume et une autre instance pourra y accéder si vous lui attacher le volulme."
 
-#: dashboards/project/volumes/volumes/tables.py:450
+#: dashboards/project/volumes/volumes/tables.py:451
 msgid "Detach Volume"
 msgid_plural "Detach Volumes"
 msgstr[0] "Détacher le Volume"
 msgstr[1] "Détacher les Volumes"
 
-#: dashboards/project/volumes/volumes/tables.py:459
+#: dashboards/project/volumes/volumes/tables.py:460
 msgid "Detaching Volume"
 msgid_plural "Detaching Volumes"
 msgstr[0] "retrait du Volume"
 msgstr[1] "Retrait de Volumes"
 
-#: dashboards/project/volumes/volumes/tables.py:487
+#: dashboards/project/volumes/volumes/tables.py:488
 msgid "Device"
 msgstr "Périphérique"
 
-#: dashboards/project/volumes/volumes/tables.py:496
+#: dashboards/project/volumes/volumes/tables.py:497
 #, python-format
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr "Volume %(volume_name)s sur l'instance %(instance_name)s"
@@ -15619,38 +15617,54 @@ msgstr "Volume %(volume_name)s sur l'instance %(instance_name)s"
 msgid "Volume Details: {{ volume.name }}"
 msgstr "Détails du volume: {{ volume.name }}"
 
-#: dashboards/project/volumes/volumes/views.py:113
-#: dashboards/project/volumes/volumes/views.py:162
-#: dashboards/project/volumes/volumes/views.py:326
+#: dashboards/project/volumes/volumes/views.py:87
+msgid "Create a Volume"
+msgstr "Créer un Volume"
+
+#: dashboards/project/volumes/volumes/views.py:115
+#: dashboards/project/volumes/volumes/views.py:165
+#: dashboards/project/volumes/volumes/views.py:335
 msgid "Unable to retrieve volume information."
 msgstr "Impossible de récupérer les informations du volume."
 
-#: dashboards/project/volumes/volumes/views.py:153
+#: dashboards/project/volumes/volumes/views.py:145
+msgid "Create a Volume Snapshot"
+msgstr "Création d'un instantané du volume"
+
+#: dashboards/project/volumes/volumes/views.py:156
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
 msgstr "Ce volume est attaché à une instance. Dans certains cas, la création d'un instantané depuis un volume attaché peut produire un instantané endommagé."
 
-#: dashboards/project/volumes/volumes/views.py:184
-#: dashboards/project/volumes/volumes/views.py:398
+#: dashboards/project/volumes/volumes/views.py:188
+#: dashboards/project/volumes/volumes/views.py:408
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
 msgstr "Impossible de récupérer les informations du volume : \"%s\""
 
-#: dashboards/project/volumes/volumes/views.py:257
+#: dashboards/project/volumes/volumes/views.py:219
+msgid "Create a Volume Transfer"
+msgstr "Création d'un volume de transfère"
+
+#: dashboards/project/volumes/volumes/views.py:264
 msgid "Unable to retrieve volume transfer."
 msgstr "Impossible d'extraire le transfert de volume."
 
-#: dashboards/project/volumes/volumes/views.py:288
+#: dashboards/project/volumes/volumes/views.py:296
 msgid "Unable to retrieve volume."
 msgstr "Impossible de récupérer le volume."
 
-#: dashboards/project/volumes/volumes/views.py:429
+#: dashboards/project/volumes/volumes/views.py:433
+msgid "Volume Encryption Details: {{ volume.name }}"
+msgstr ""
+
+#: dashboards/project/volumes/volumes/views.py:440
 #, python-format
 msgid "Volume Encryption Details: %(volume_name)s"
 msgstr "Informations de codification du volume : %(volume_name)s"
 
-#: dashboards/project/volumes/volumes/views.py:444
+#: dashboards/project/volumes/volumes/views.py:455
 msgid "Unable to retrieve volume encryption details."
 msgstr "Impossible de récupérer les informations sur la codification du volume."
 
@@ -16377,10 +16391,6 @@ msgstr "Sous-réseau du peer distant"
 msgid "Pre-Shared Key string"
 msgstr "Clé de chiffrement (PSK)"
 
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:47
-msgid "MTU"
-msgstr "MTU"
-
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:53
 msgid "Dead peer detection action"
 msgstr "Action de Dead peer detection"
@@ -16816,7 +16826,7 @@ msgstr "VCPU Heures"
 
 #: usage/tables.py:47
 msgid "Disk GB Hours"
-msgstr "Go Heures Disque"
+msgstr "Go Disque Heures"
 
 #: usage/tables.py:48
 msgid "Total disk usage (GB * Hours Used) for the project"
@@ -16824,7 +16834,7 @@ msgstr "Utilisation totale du disque (Go*Heures utilisés) pour le projet"
 
 #: usage/tables.py:52
 msgid "Memory MB Hours"
-msgstr "Heures Mémoire Mo"
+msgstr "Mo Mémoire Heures"
 
 #: usage/tables.py:53
 msgid "Total memory usage (MB * Hours Used) for the project"
@@ -16836,7 +16846,7 @@ msgstr "Usage"
 
 #: utils/metering.py:46
 msgid "To date to must be greater than From date."
-msgstr "Jusqu'à-la-date doit être plus grand que depuis-la-date."
+msgstr "La date Jusqu'à doit être postérieure à la date Depuis."
 
 #: utils/metering.py:81
 msgid "The dates haven't been recognized"

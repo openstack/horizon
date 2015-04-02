@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 23:04-0500\n"
-"PO-Revision-Date: 2015-04-01 02:20+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-04-01 22:59-0500\n"
+"PO-Revision-Date: 2015-04-01 22:52+0000\n"
+"Last-Translator: Robert Simai\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -117,7 +117,7 @@ msgstr "Sie haben keine Berechtigung für %(action)s: %(objs)s"
 #: tables/actions.py:839
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
-msgstr "Außerstande zu %(action)s: %(objs)s"
+msgstr "Nicht möglich: %(action)s: %(objs)s"
 
 #: tables/actions.py:845
 #, python-format
@@ -189,7 +189,7 @@ msgid ""
 "\n"
 "      If you are not sure which authentication method to use, contact your administrator.\n"
 "    "
-msgstr ""
+msgstr "\nWenn Sie nicht sicher sind, welche Authentifizierungsmethode zu verwenden ist, kontaktieren Sie Ihren Administrator."
 
 #: templates/auth/_login.html:5
 msgid "Log In"
@@ -212,7 +212,7 @@ msgstr "Anmelden"
 
 #: templates/auth/_login.html:46
 msgid "Connect"
-msgstr ""
+msgstr "Verbinden"
 
 #: templates/auth/login.html:4
 msgid "Login"

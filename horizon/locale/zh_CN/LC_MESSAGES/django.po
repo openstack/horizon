@@ -7,13 +7,14 @@
 # LIU Yulong <dragon889@163.com>, 2014-2015
 # Xiao Xi LIU <liuxx@cn.ibm.com>, 2014
 # Ying Chun Guo <daisy.ycguo@gmail.com>, 2015
+# 颜海峰 <yanheven@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 23:04-0500\n"
-"PO-Revision-Date: 2015-04-01 02:20+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-04-01 22:59-0500\n"
+"PO-Revision-Date: 2015-04-01 22:52+0000\n"
+"Last-Translator: 颜海峰 <yanheven@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -191,7 +192,7 @@ msgid ""
 "\n"
 "      If you are not sure which authentication method to use, contact your administrator.\n"
 "    "
-msgstr ""
+msgstr "\n如果你不确定使用哪种认证方式，请联系管理员。"
 
 #: templates/auth/_login.html:5
 msgid "Log In"
@@ -214,7 +215,7 @@ msgstr "登入"
 
 #: templates/auth/_login.html:46
 msgid "Connect"
-msgstr ""
+msgstr "连接"
 
 #: templates/auth/login.html:4
 msgid "Login"

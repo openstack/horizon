@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 23:04-0500\n"
-"PO-Revision-Date: 2015-03-31 15:47+0000\n"
+"POT-Creation-Date: 2015-04-01 22:59-0500\n"
+"PO-Revision-Date: 2015-04-01 23:47+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -359,16 +359,16 @@ msgstr "अज्ञात इंस्टेंस"
 msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s backend)"
 
-#: api/keystone.py:338
+#: api/keystone.py:344
 msgid "Identity service does not allow editing user data."
 msgstr "पहचान सेवा उपयोगकर्ता डेटा का संपादन की अनुमति नहीं है."
 
-#: api/keystone.py:364
+#: api/keystone.py:370
 #, python-format
 msgid "User %s has no role defined for that project."
 msgstr " इस परियोजना के लिए उपयोगकर्ता %s का कोई परिभाषित भूमिका नहीं है."
 
-#: api/keystone.py:391
+#: api/keystone.py:397
 msgid "Identity service does not allow editing user password."
 msgstr ""
 
@@ -455,13 +455,13 @@ msgstr "समर्थित Neutron '%s' एक्सटेंशन की �
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:10
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:13
 #: dashboards/project/networks/templates/networks/_detail_overview.html:12
-#: dashboards/project/networks/templates/networks/_detail_overview.html:24
-#: dashboards/project/networks/templates/networks/_detail_overview.html:25
+#: dashboards/project/networks/templates/networks/_detail_overview.html:26
+#: dashboards/project/networks/templates/networks/_detail_overview.html:27
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:14
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:18
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:29
 #: dashboards/project/routers/tables.py:186
-#: dashboards/project/volumes/volumes/tables.py:355
+#: dashboards/project/volumes/volumes/tables.py:356
 msgid "-"
 msgstr "-"
 
@@ -510,11 +510,11 @@ msgstr "इंस्टेंस को खाली करने में अ�
 msgid "Failed to migrate instances: %s"
 msgstr ""
 
-#: api/swift.py:203
+#: api/swift.py:204
 msgid "The container cannot be deleted since it is not empty."
 msgstr ""
 
-#: api/swift.py:320
+#: api/swift.py:321
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr ""
 
@@ -606,7 +606,7 @@ msgstr "प्रशासक"
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:7
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:7
 #: dashboards/project/images/images/forms.py:40
-#: dashboards/project/images/images/forms.py:200
+#: dashboards/project/images/images/forms.py:211
 #: dashboards/project/images/templates/images/images/_detail_overview.html:9
 #: dashboards/project/instances/templates/instances/_detail_overview.html:10
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:9
@@ -637,8 +637,8 @@ msgstr "प्रशासक"
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:10
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:10
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:91
-#: dashboards/project/volumes/volumes/tables.py:381
-#: dashboards/project/volumes/volumes/tables.py:410
+#: dashboards/project/volumes/volumes/tables.py:382
+#: dashboards/project/volumes/volumes/tables.py:411
 #: dashboards/project/vpn/forms.py:31 dashboards/project/vpn/forms.py:65
 #: dashboards/project/vpn/forms.py:137 dashboards/project/vpn/forms.py:208
 #: dashboards/project/vpn/tables.py:237 dashboards/project/vpn/tables.py:285
@@ -668,7 +668,7 @@ msgstr "नाम"
 #: dashboards/project/volumes/volumes/forms.py:122
 #: dashboards/project/volumes/volumes/forms.py:127
 #: dashboards/project/volumes/volumes/forms.py:128
-#: dashboards/project/volumes/volumes/tables.py:417
+#: dashboards/project/volumes/volumes/tables.py:418
 msgid "Availability Zone"
 msgstr "उपलब्धता क्षेत्र"
 
@@ -905,7 +905,7 @@ msgstr "सकल से होस्ट जोड़ें / हटाये"
 #: dashboards/admin/flavors/workflows.py:266
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:79
 #: dashboards/admin/volumes/volume_types/extras/views.py:88
-#: dashboards/admin/volumes/volume_types/qos_specs/views.py:101
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:103
 #: dashboards/identity/domains/workflows.py:300
 #: dashboards/identity/projects/workflows.py:569
 #: dashboards/identity/users/views.py:209
@@ -1144,9 +1144,9 @@ msgstr "इंजेक्ट फ़ाइलें "
 #: dashboards/identity/projects/workflows.py:57
 #: dashboards/project/volumes/panel.py:23
 #: dashboards/project/volumes/tabs.py:83
+#: dashboards/project/volumes/views.py:26
 #: dashboards/project/volumes/templates/volumes/index.html:3
-#: dashboards/project/volumes/templates/volumes/index.html:6
-#: dashboards/project/volumes/volumes/tables.py:428 usage/quotas.py:74
+#: dashboards/project/volumes/volumes/tables.py:429 usage/quotas.py:74
 msgid "Volumes"
 msgstr "वॉल्यूम"
 
@@ -1264,7 +1264,7 @@ msgid "Unable to get quota info."
 msgstr "कोटा जानकारी प्राप्त करने में असमर्थ."
 
 #: dashboards/admin/defaults/views.py:45
-#: dashboards/identity/projects/views.py:162
+#: dashboards/identity/projects/views.py:160
 msgid "Unable to retrieve default quota values."
 msgstr "डिफ़ॉल्ट कोटा मान प्राप्त करने में असमर्थ."
 
@@ -1332,7 +1332,7 @@ msgstr "%sMB"
 #: dashboards/admin/flavors/tables.py:110
 #: dashboards/admin/flavors/tables.py:114
 #: dashboards/project/volumes/backups/tables.py:96
-#: dashboards/project/volumes/volumes/tables.py:305
+#: dashboards/project/volumes/volumes/tables.py:306
 #, python-format
 msgid "%sGB"
 msgstr "%sGB"
@@ -1430,8 +1430,8 @@ msgstr "आईडी"
 #: dashboards/project/containers/forms.py:42
 #: dashboards/project/containers/templates/containers/_container_detail.html:14
 #: dashboards/project/containers/templates/containers/_container_metadata.html:7
-#: dashboards/project/images/images/forms.py:95
-#: dashboards/project/images/images/forms.py:239
+#: dashboards/project/images/images/forms.py:104
+#: dashboards/project/images/images/forms.py:250
 #: dashboards/project/images/images/tables.py:163
 #: dashboards/project/images/images/tables.py:252
 #: dashboards/project/images/templates/images/images/_detail_overview.html:21
@@ -1607,7 +1607,7 @@ msgstr "होस्टनाम"
 #: dashboards/project/volumes/volumes/forms.py:118
 #: dashboards/project/volumes/volumes/forms.py:119
 #: dashboards/project/volumes/volumes/forms.py:745
-#: dashboards/project/volumes/volumes/tables.py:413
+#: dashboards/project/volumes/volumes/tables.py:414
 msgid "Type"
 msgstr "प्रकार"
 
@@ -1820,10 +1820,10 @@ msgstr[1] ""
 
 #: dashboards/admin/hypervisors/compute/tables.py:90
 #: dashboards/admin/hypervisors/compute/tables.py:96
+#: dashboards/admin/hypervisors/compute/views.py:80
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_migrate_host.html:8
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_migrate_host.html:22
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/migrate_host.html:3
-#: dashboards/admin/hypervisors/templates/hypervisors/compute/migrate_host.html:6
 msgid "Migrate Host"
 msgid_plural "Migrate Hosts"
 msgstr[0] ""
@@ -1893,7 +1893,7 @@ msgstr "क्षेत्र"
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:20
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:18
-#: dashboards/project/volumes/volumes/tables.py:390
+#: dashboards/project/volumes/volumes/tables.py:391
 #: dashboards/project/vpn/tables.py:246 dashboards/project/vpn/tables.py:291
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:71
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:38
@@ -2319,7 +2319,7 @@ msgstr "IP पता"
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:37
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:37
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:27
-#: dashboards/project/volumes/volumes/tables.py:387
+#: dashboards/project/volumes/volumes/tables.py:388
 msgid "Size"
 msgstr "आकार"
 
@@ -2406,8 +2406,8 @@ msgstr ""
 #: dashboards/admin/metadata_defs/forms.py:62
 #: dashboards/admin/metadata_defs/tables.py:149
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:20
-#: dashboards/project/images/images/forms.py:96
-#: dashboards/project/images/images/forms.py:240
+#: dashboards/project/images/images/forms.py:105
+#: dashboards/project/images/images/forms.py:251
 #: dashboards/project/images/images/tables.py:256
 #: dashboards/project/images/templates/images/images/_detail_overview.html:23
 msgid "Protected"
@@ -2525,7 +2525,7 @@ msgstr ""
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:10
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:10
 #: dashboards/project/images/images/forms.py:41
-#: dashboards/project/images/images/forms.py:201
+#: dashboards/project/images/images/forms.py:212
 #: dashboards/project/images/templates/images/images/_detail_overview.html:12
 #: dashboards/project/loadbalancers/forms.py:36
 #: dashboards/project/loadbalancers/forms.py:78
@@ -2546,7 +2546,7 @@ msgstr ""
 #: dashboards/project/volumes/volumes/forms.py:84
 #: dashboards/project/volumes/volumes/forms.py:492
 #: dashboards/project/volumes/volumes/forms.py:600
-#: dashboards/project/volumes/volumes/tables.py:384
+#: dashboards/project/volumes/volumes/tables.py:385
 #: dashboards/project/vpn/forms.py:36 dashboards/project/vpn/forms.py:70
 #: dashboards/project/vpn/forms.py:142 dashboards/project/vpn/forms.py:213
 #: dashboards/project/vpn/tables.py:287 dashboards/project/vpn/workflows.py:28
@@ -2741,7 +2741,8 @@ msgstr "निर्मित"
 #: dashboards/project/instances/tables.py:646
 #: dashboards/project/networks/templates/networks/_detail_overview.html:14
 #: dashboards/project/networks/templates/networks/_detail_overview.html:16
-#: dashboards/project/networks/templates/networks/_detail_overview.html:23
+#: dashboards/project/networks/templates/networks/_detail_overview.html:22
+#: dashboards/project/networks/templates/networks/_detail_overview.html:25
 #: dashboards/project/routers/templates/routers/_detail_overview.html:14
 #: dashboards/project/routers/templates/routers/_detail_overview.html:33
 #: dashboards/project/routers/templates/routers/_detail_overview.html:39
@@ -3811,12 +3812,6 @@ msgstr "आप यहाँ अपने पोर्ट के संपाद�
 msgid "Update Port"
 msgstr "पोर्ट अद्यतन करें "
 
-#: dashboards/admin/networks/templates/networks/subnets/index.html:3
-#: dashboards/admin/networks/templates/networks/subnets/index.html:6
-#: dashboards/project/networks/templates/networks/detail.html:3
-msgid "Network Details"
-msgstr ""
-
 #: dashboards/admin/overview/panel.py:27
 #: dashboards/admin/volumes/snapshots/tabs.py:23
 #: dashboards/project/databases/tabs.py:26
@@ -3988,7 +3983,7 @@ msgstr "स्नैपशॉट स्थिति को अद्यतन �
 
 #: dashboards/admin/volumes/snapshots/tables.py:29
 #: dashboards/admin/volumes/snapshots/views.py:36
-#: dashboards/admin/volumes/volumes/views.py:107
+#: dashboards/admin/volumes/volumes/views.py:109
 msgid "Update Status"
 msgstr "स्थिति अपडेट करें"
 
@@ -4012,7 +4007,7 @@ msgid "Update Volume Snapshot Status"
 msgstr "वॉल्यूम स्नैपशॉट स्थिति अद्यतन करें"
 
 #: dashboards/admin/volumes/snapshots/views.py:49
-#: dashboards/project/volumes/snapshots/views.py:48
+#: dashboards/project/volumes/snapshots/views.py:49
 msgid "Unable to retrieve volume snapshot."
 msgstr "स्नैपशॉट को पुनः प्राप्त करने में असमर्थ."
 
@@ -4263,7 +4258,7 @@ msgstr "वॉल्यूम प्रकार अतिरिक्त स्
 #: dashboards/project/containers/templates/containers/_object_detail.html:25
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:104
 #: dashboards/project/stacks/templates/stacks/_preview_details.html:58
-#: dashboards/project/volumes/volumes/views.py:245
+#: dashboards/project/volumes/volumes/views.py:251
 msgid "Close"
 msgstr "बंद करें"
 
@@ -4298,14 +4293,9 @@ msgid "Update the spec value for \"%(key)s\""
 msgstr "\"%(key)s\" के लिए स्पेक मान अद्यतन करें"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/create.html:4
-#: dashboards/admin/volumes/volume_types/qos_specs/views.py:72
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:73
 msgid "Create Spec"
 msgstr "Spec बनाएँ"
-
-#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/create.html:7
-#, python-format
-msgid "Spec: %(qos_spec_name)s"
-msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/edit.html:4
 msgid "Edit Spec"
@@ -4313,11 +4303,6 @@ msgstr "स्पेक संपादित करें"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/edit.html:7
 msgid "QoS Spec: "
-msgstr ""
-
-#: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/index.html:5
-#, python-format
-msgid "QoS Spec: %(qos_spec_name)s"
 msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volumes/_manage_volume.html:6
@@ -4362,23 +4347,15 @@ msgstr "वॉल्यूम विवरण"
 msgid "Manage Volume"
 msgstr ""
 
-#: dashboards/admin/volumes/templates/volumes/volumes/manage_volume.html:6
-msgid "Manage a Volume"
-msgstr ""
-
 #: dashboards/admin/volumes/templates/volumes/volumes/unmanage_volume.html:3
 #: dashboards/admin/volumes/volumes/tables.py:43
 msgid "Unmanage Volume"
 msgstr ""
 
-#: dashboards/admin/volumes/templates/volumes/volumes/unmanage_volume.html:6
-msgid "Unmanage a Volume"
-msgstr ""
-
 #: dashboards/admin/volumes/templates/volumes/volumes/update_status.html:3
 #: dashboards/admin/volumes/volumes/tables.py:69
-#: dashboards/admin/volumes/volumes/views.py:104
-#: dashboards/admin/volumes/volumes/views.py:110
+#: dashboards/admin/volumes/volumes/views.py:106
+#: dashboards/admin/volumes/volumes/views.py:112
 msgid "Update Volume Status"
 msgstr "वॉल्यूम स्थिति को अद्यतन करें"
 
@@ -4540,7 +4517,7 @@ msgstr ""
 #: dashboards/admin/volumes/volume_types/extras/tables.py:48
 #: dashboards/admin/volumes/volume_types/extras/views.py:64
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:24
-#: dashboards/admin/volumes/volume_types/qos_specs/views.py:75
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:76
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:25
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:236
 #: dashboards/project/data_processing/data_sources/workflows/create.py:95
@@ -4644,7 +4621,6 @@ msgstr[1] "अतिरिक्त स्पेक मिटाया"
 #: dashboards/identity/roles/tables.py:37
 #: dashboards/identity/users/tables.py:46
 #: dashboards/project/containers/tables.py:313
-#: dashboards/project/images/images/tables.py:107
 msgid "Edit"
 msgstr "संपादन"
 
@@ -4695,15 +4671,24 @@ msgstr "कुंजीमान युग्म"
 msgid "undefined"
 msgstr "अपारिभाषित"
 
-#: dashboards/admin/volumes/volume_types/qos_specs/views.py:64
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:56
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:106
+msgid "QoS Spec: {{ qos_spec_name }}"
+msgstr ""
+
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:65
 msgid "Unable to retrieve QoS spec list."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/qos_specs/views.py:98
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:79
+msgid "Spec: {{ qos_spec_name }}"
+msgstr ""
+
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:100
 msgid "Edit Spec Value"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/qos_specs/views.py:117
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:120
 msgid "Unable to retrieve QoS spec details."
 msgstr ""
 
@@ -4747,7 +4732,7 @@ msgstr "वॉल्यूम प्रकार"
 
 #: dashboards/admin/volumes/volumes/forms.py:79
 #: dashboards/project/volumes/volumes/forms.py:602
-#: dashboards/project/volumes/volumes/tables.py:419
+#: dashboards/project/volumes/volumes/tables.py:420
 msgid "Bootable"
 msgstr "बूट करने योग्य"
 
@@ -4826,18 +4811,26 @@ msgstr ""
 msgid "Manage"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/views.py:62
+#: dashboards/admin/volumes/volumes/views.py:53
+msgid "Manage a Volume"
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/views.py:63
 msgid "Confirm Unmanage Volume"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/views.py:64
+#: dashboards/admin/volumes/volumes/views.py:65
 msgid "Unmanage"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/views.py:82
-#: dashboards/admin/volumes/volumes/views.py:126
+#: dashboards/admin/volumes/volumes/views.py:69
+msgid "Unmanage a Volume"
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/views.py:84
+#: dashboards/admin/volumes/volumes/views.py:128
 #: dashboards/project/volumes/volumes/views.py:68
-#: dashboards/project/volumes/volumes/views.py:457
+#: dashboards/project/volumes/volumes/views.py:468
 msgid "Unable to retrieve volume details."
 msgstr "वॉल्यूम विवरण को पुनः प्राप्त करने में असमर्थ."
 
@@ -5090,7 +5083,7 @@ msgstr "समूह"
 
 #: dashboards/identity/groups/tables.py:39
 #: dashboards/identity/groups/views.py:59
-#: dashboards/identity/groups/views.py:63
+#: dashboards/identity/groups/views.py:62
 #: dashboards/identity/groups/views.py:65
 #: dashboards/identity/groups/templates/groups/create.html:3
 msgid "Create Group"
@@ -5287,35 +5280,35 @@ msgid "This name is already taken."
 msgstr "यह नाम पहले ही ले लिया गया है."
 
 #: dashboards/identity/projects/views.py:59
-#: dashboards/identity/projects/views.py:105
+#: dashboards/identity/projects/views.py:104
 #: dashboards/router/nexus1000v/views.py:42
 msgid "Unable to retrieve project information."
 msgstr "परियोजना की जानकारी प्राप्त करने में असमर्थ."
 
-#: dashboards/identity/projects/views.py:109
+#: dashboards/identity/projects/views.py:107
 msgid "Insufficient privilege level to view project information."
 msgstr "परियोजना सूचना देखने के लिए अपर्याप्त अधिकार स्तर."
 
-#: dashboards/identity/projects/views.py:120
+#: dashboards/identity/projects/views.py:118
 msgid "Project Usage"
 msgstr "परियोजना उपयोग"
 
-#: dashboards/identity/projects/views.py:154
+#: dashboards/identity/projects/views.py:152
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "मूलभूत मान न्यूट्रॉन कोटा प्राप्त करने में असमर्थ."
 
-#: dashboards/identity/projects/views.py:192
+#: dashboards/identity/projects/views.py:190
 #: dashboards/identity/users/views.py:116
 #: dashboards/identity/users/views.py:178
 msgid "Unable to retrieve project domain."
 msgstr "परियोजना डोमेन को पुनः प्राप्त करने में असमर्थ."
 
-#: dashboards/identity/projects/views.py:206
-#: dashboards/identity/projects/views.py:231
+#: dashboards/identity/projects/views.py:204
+#: dashboards/identity/projects/views.py:229
 msgid "Unable to retrieve project details."
 msgstr "परियोजना के विवरण को पुनः प्राप्त करने में असमर्थ."
 
-#: dashboards/identity/projects/views.py:219
+#: dashboards/identity/projects/views.py:217
 #, python-format
 msgid "Project Details: %s"
 msgstr ""
@@ -5743,8 +5736,6 @@ msgstr "कंप्यूट"
 
 #: dashboards/project/dashboard.py:32
 #: dashboards/project/networks/workflows.py:78
-#: dashboards/project/networks/templates/networks/subnets/index.html:3
-#: dashboards/project/networks/templates/networks/subnets/index.html:6
 msgid "Network"
 msgstr "संजाल"
 
@@ -5970,7 +5961,7 @@ msgstr " कोई अस्थायी आईपी पूल उपलब्�
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:37
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:202
-#: dashboards/project/volumes/volumes/tables.py:485
+#: dashboards/project/volumes/volumes/tables.py:486
 msgid "Instance"
 msgstr "इंस्टेंस"
 
@@ -6736,7 +6727,7 @@ msgid "Unable to delete container."
 msgstr "कंटेनर मिटाने में असमर्थ."
 
 #: dashboards/project/containers/tables.py:144
-#: dashboards/project/containers/views.py:129
+#: dashboards/project/containers/views.py:130
 #: dashboards/project/containers/templates/containers/_create.html:8
 #: dashboards/project/containers/templates/containers/_create.html:24
 #: dashboards/project/containers/templates/containers/create.html:3
@@ -6748,7 +6739,7 @@ msgid "View Container"
 msgstr "कंटेनर देखें "
 
 #: dashboards/project/containers/tables.py:164
-#: dashboards/project/containers/views.py:153
+#: dashboards/project/containers/views.py:154
 #: dashboards/project/containers/templates/containers/create_pseudo_folder.html:3
 msgid "Create Pseudo-folder"
 msgstr "छद्म फ़ोल्डर बनाएँ"
@@ -6760,7 +6751,7 @@ msgid "Upload Object"
 msgstr "वस्तु अपलोड करें"
 
 #: dashboards/project/containers/tables.py:262
-#: dashboards/project/containers/views.py:266
+#: dashboards/project/containers/views.py:275
 #: dashboards/project/containers/templates/containers/_container_detail.html:5
 #: dashboards/project/containers/templates/containers/container_detail.html:3
 msgid "Container Details"
@@ -6795,44 +6786,44 @@ msgstr "छद्म फ़ोल्डर"
 msgid "Objects"
 msgstr "वस्तु"
 
-#: dashboards/project/containers/views.py:57
+#: dashboards/project/containers/views.py:58
 msgid "Unable to retrieve container list."
 msgstr "कंटेनर सूची को प्राप्त करने में असमर्थ."
 
-#: dashboards/project/containers/views.py:86
+#: dashboards/project/containers/views.py:87
 msgid "Unable to retrieve object list."
 msgstr "वस्तु सूची को प्राप्त करने में असमर्थ."
 
-#: dashboards/project/containers/views.py:176
+#: dashboards/project/containers/views.py:177
 msgid "Upload Objects"
 msgstr "वस्तुएँ अपलोड करें"
 
-#: dashboards/project/containers/views.py:200
+#: dashboards/project/containers/views.py:202
 msgid "Unable to retrieve object."
 msgstr "वस्तु को पुनः प्राप्त करने में असमर्थ."
 
-#: dashboards/project/containers/views.py:220
+#: dashboards/project/containers/views.py:229
 #: dashboards/project/containers/templates/containers/_copy.html:23
 #: dashboards/project/containers/templates/containers/copy.html:3
 msgid "Copy Object"
 msgstr "वस्तु कॉपी करें"
 
-#: dashboards/project/containers/views.py:236
+#: dashboards/project/containers/views.py:245
 msgid "Unable to list containers."
 msgstr "कंटेनरों को सूचीबद्ध करने में असमर्थ."
 
-#: dashboards/project/containers/views.py:278
-#: dashboards/project/containers/views.py:302
+#: dashboards/project/containers/views.py:287
+#: dashboards/project/containers/views.py:311
 msgid "Unable to retrieve details."
 msgstr "विवरण को पुनः प्राप्त करने में असमर्थ."
 
-#: dashboards/project/containers/views.py:289
+#: dashboards/project/containers/views.py:298
 #: dashboards/project/containers/templates/containers/_object_detail.html:5
 #: dashboards/project/containers/templates/containers/object_detail.html:3
 msgid "Object Details"
 msgstr "वस्तु विवरण"
 
-#: dashboards/project/containers/views.py:315
+#: dashboards/project/containers/views.py:324
 #: dashboards/project/containers/templates/containers/_update.html:27
 #: dashboards/project/containers/templates/containers/update.html:3
 msgid "Update Object"
@@ -7235,7 +7226,7 @@ msgid "Node configurations are not specified"
 msgstr "नोड विन्यास निर्दिष्ट नहीं"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_upload_file.html:22
-#: dashboards/project/volumes/volumes/views.py:173
+#: dashboards/project/volumes/volumes/views.py:176
 msgid "Upload"
 msgstr "अपलोड"
 
@@ -7314,7 +7305,7 @@ msgid "Clusters"
 msgstr "क्लस्टर"
 
 #: dashboards/project/data_processing/clusters/tables.py:41
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:31
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:27
 msgid "Cluster Creation Guide"
 msgstr ""
 
@@ -7493,7 +7484,6 @@ msgstr ""
 #: dashboards/project/data_processing/jobs/workflows/launch.py:331
 #: dashboards/project/data_processing/jobs/workflows/launch.py:416
 #: dashboards/project/databases/workflows/create_instance.py:335
-#: dashboards/project/images/images/tables.py:36
 #: dashboards/project/instances/workflows/create_instance.py:820
 #: dashboards/project/stacks/views.py:165
 msgid "Launch"
@@ -7959,8 +7949,6 @@ msgstr "कार्य द्विपदीय डाउनलोड करे
 
 #: dashboards/project/data_processing/job_executions/panel.py:22
 #: dashboards/project/data_processing/job_executions/tables.py:214
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/job_executions.html:6
-#: dashboards/project/data_processing/jobs/views.py:41
 msgid "Jobs"
 msgstr "कार्य"
 
@@ -8130,20 +8118,18 @@ msgid "%(group)s:"
 msgstr ""
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/details.html:3
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/details.html:6
-#: dashboards/project/data_processing/jobs/views.py:68
 msgid "Job Details"
 msgstr "कार्य विवरण"
 
 #: dashboards/project/data_processing/jobs/panel.py:22
 #: dashboards/project/data_processing/jobs/tables.py:111
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/jobs.html:6
+#: dashboards/project/data_processing/jobs/views.py:41
 msgid "Job Templates"
 msgstr ""
 
 #: dashboards/project/data_processing/jobs/tables.py:36
+#: dashboards/project/data_processing/jobs/views.py:62
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:3
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:6
 #: dashboards/project/data_processing/jobs/workflows/create.py:124
 #: dashboards/project/data_processing/jobs/workflows/create.py:155
 msgid "Create Job Template"
@@ -8175,8 +8161,9 @@ msgstr ""
 msgid "Unable to fetch jobs."
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/views.py:62
-msgid "Create Job"
+#: dashboards/project/data_processing/jobs/views.py:68
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/details.html:3
+msgid "Job Template Details"
 msgstr ""
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:4
@@ -8298,11 +8285,6 @@ msgstr "पैरामीटर्स"
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:226
 msgid "Arguments"
 msgstr "आर्गुमेंट्स"
-
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/details.html:3
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/details.html:6
-msgid "Job Template Details"
-msgstr ""
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/library_template.html:86
 msgid "Choose"
@@ -8696,13 +8678,31 @@ msgstr ""
 msgid "Guides"
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/views.py:40
+#: dashboards/project/data_processing/wizard/views.py:35
+msgid "Data Processing Guides"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/views.py:41
 msgid "Unable to show guides"
 msgstr ""
 
+#: dashboards/project/data_processing/wizard/views.py:48
+msgid "Guided Cluster Creation"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/views.py:63
+msgid "Guided Job Execution"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/views.py:90
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_plugin_select.html:13
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/plugin_select.html:3
+msgid "Choose plugin and version"
+msgstr ""
+
+#: dashboards/project/data_processing/wizard/views.py:99
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_job_type_select.html:13
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/job_type_select.html:3
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/job_type_select.html:6
 msgid "Choose job type"
 msgstr ""
 
@@ -8719,23 +8719,13 @@ msgid ""
 "    "
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_plugin_select.html:13
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/plugin_select.html:3
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/plugin_select.html:6
-msgid "Choose plugin and version"
-msgstr ""
-
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_plugin_select_help.html:3
 msgid ""
 "Select which plugin and version that you\n"
 "    want to use to create your cluster."
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:7
-msgid "Guided Cluster Creation"
-msgstr ""
-
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:16
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:12
 msgid ""
 "The first step is to determine which type of\n"
 "                    cluster you want to run.  You may have several choices\n"
@@ -8748,30 +8738,30 @@ msgid ""
 "                    to your desired cluster type."
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:27
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:23
 msgid "Choose plugin"
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:28
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:64
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:91
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:123
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:24
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:60
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:87
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:119
 msgid "Current choice:"
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:31
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:27
 msgid "Plugin:"
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:33
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:29
 msgid "Version:"
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:38
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:34
 msgid "No plugin chosen"
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:47
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:43
 msgid ""
 "Next, you need to define the different\n"
 "                        types of machines in your cluster.  This is done by\n"
@@ -8785,39 +8775,39 @@ msgid ""
 "                     "
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:62
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:58
 msgid "Create a Master Node Group Template"
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:67
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:63
 msgid "Master Node Group Template:"
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:72
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:68
 msgid "No Master Node Group Template Created"
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:81
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:77
 msgid ""
 "Repeat the Node Group Template\n"
 "                        creation process, but this time you are creating\n"
 "                        your \"worker\" Node Group Template."
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:89
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:85
 msgid "Create a Worker Node Group Template"
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:94
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:126
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:90
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:122
 msgid "Worker Node Group Template:"
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:99
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:95
 msgid "No Worker Node Group Template Created"
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:108
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:104
 msgid ""
 "Now you need to set the layout of your\n"
 "                        cluster.  By\n"
@@ -8829,15 +8819,15 @@ msgid ""
 "                        create Cluster Template form."
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:121
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:117
 msgid "Create a Cluster Template"
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:131
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:127
 msgid "No Cluster Template Created"
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:140
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:136
 msgid ""
 "You are now ready to\n"
 "                        launch your cluster.  When you click on the link\n"
@@ -8849,23 +8839,19 @@ msgid ""
 "                        minutes."
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:153
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:149
 msgid "Launch a Cluster"
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:161
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:157
 msgid "Reset Cluster Guide"
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:163
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:159
 msgid "Reset Cluster Creation Guide"
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:7
-msgid "Guided Job Execution"
-msgstr ""
-
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:17
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:13
 msgid ""
 "First, select which type of job that\n"
 "                            you want to run.  This choice will determine which\n"
@@ -8873,19 +8859,19 @@ msgid ""
 "                        "
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:25
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:21
 msgid "Select type"
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:28
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:24
 msgid "Current type:"
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:35
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:31
 msgid "No type chosen"
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:46
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:42
 msgid ""
 "Data Sources are what your\n"
 "                            job uses for input and output.  Depending on the type\n"
@@ -8895,11 +8881,11 @@ msgid ""
 "                        "
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:56
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:52
 msgid "Create a data source"
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:65
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:61
 msgid ""
 "Define your Job Template.\n"
 "                        This is where you choose the type of job that you\n"
@@ -8909,19 +8895,19 @@ msgid ""
 "                    "
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:75
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:71
 msgid "Create a job template"
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:77
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:73
 msgid "Job template:"
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:84
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:80
 msgid "No job template created"
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:93
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:89
 msgid ""
 "Launch your job.  When\n"
 "                        launching, you may need to choose your input and\n"
@@ -8932,20 +8918,16 @@ msgid ""
 "                        "
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:103
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:99
 msgid "Launch job"
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:112
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:114
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:108
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:110
 msgid "Reset Job Execution Guide"
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:7
-msgid "Data Processing Guides"
-msgstr ""
-
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:16
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:12
 msgid ""
 "\n"
 "                 Each of the Data Processing frameworks require a cluster of machines\n"
@@ -8958,11 +8940,11 @@ msgid ""
 "             "
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:29
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:25
 msgid "Cluster Guide"
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:38
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:34
 msgid ""
 "\n"
 "                  In order to run a Data Processing job, you need to make\n"
@@ -8975,8 +8957,8 @@ msgid ""
 "            "
 msgstr ""
 
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:51
-#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:53
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:47
+#: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:49
 msgid "Job Execution Guide"
 msgstr ""
 
@@ -9326,6 +9308,7 @@ msgstr "उदाहरण पर डेटाबेस हटाने मे�
 #: dashboards/project/databases/tables.py:174
 #: dashboards/project/databases/templates/databases/launch.html:3
 #: dashboards/project/databases/workflows/create_instance.py:334
+#: dashboards/project/images/images/tables.py:36
 #: dashboards/project/instances/tables.py:308
 #: dashboards/project/instances/tables.py:336
 #: dashboards/project/instances/workflows/create_instance.py:819
@@ -9636,13 +9619,6 @@ msgstr ""
 #: dashboards/project/instances/templates/instances/detail.html:3
 msgid "Instance Details"
 msgstr "इंस्टांस विवरण"
-
-#: dashboards/project/databases/templates/databases/update.html:3
-#: dashboards/project/databases/templates/databases/update.html:6
-#: dashboards/project/instances/tables.py:372
-#: dashboards/project/instances/workflows/update_instance.py:132
-msgid "Edit Instance"
-msgstr "इंस्टांस संपादित करें "
 
 #: dashboards/project/databases/workflows/create_instance.py:37
 #: dashboards/project/instances/workflows/create_instance.py:88
@@ -10576,6 +10552,7 @@ msgstr "बिंब श्रोत"
 #: dashboards/project/images/images/forms.py:47
 #: dashboards/project/images/images/forms.py:54
 #: dashboards/project/images/images/forms.py:60
+#: dashboards/project/images/images/forms.py:102
 msgid "Image Location"
 msgstr "बिंब अवस्थिति"
 
@@ -10594,80 +10571,90 @@ msgid "A local image to upload."
 msgstr "अपलोड करने के लिए स्थानीय बिंब।"
 
 #: dashboards/project/images/images/forms.py:76
-#: dashboards/project/images/images/forms.py:221
+#: dashboards/project/images/images/forms.py:232
 #: dashboards/project/images/images/tables.py:259
 msgid "Format"
 msgstr "प्रारूप"
 
 #: dashboards/project/images/images/forms.py:81
-#: dashboards/project/images/images/forms.py:216
+#: dashboards/project/images/images/forms.py:227
 msgid "Architecture"
 msgstr "आर्किटेक्चर"
 
 #: dashboards/project/images/images/forms.py:84
-#: dashboards/project/images/images/forms.py:223
+#: dashboards/project/images/images/forms.py:234
 msgid "Minimum Disk (GB)"
 msgstr "न्यूनतम डिस्क (जीबी)"
 
 #: dashboards/project/images/images/forms.py:86
-#: dashboards/project/images/images/forms.py:225
+#: dashboards/project/images/images/forms.py:236
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value"
 " defaults to 0 (no minimum)."
 msgstr "बिंब बूट करने के लिए आवश्यक न्यूनतम डिस्क आकार. 0 को अनिर्दिष्ट, तो यह मान चूक (कोई न्यूनतम)."
 
 #: dashboards/project/images/images/forms.py:90
-#: dashboards/project/images/images/forms.py:231
+#: dashboards/project/images/images/forms.py:242
 msgid "Minimum RAM (MB)"
 msgstr "न्यूनतम रैम (एमबी)"
 
 #: dashboards/project/images/images/forms.py:92
-#: dashboards/project/images/images/forms.py:233
+#: dashboards/project/images/images/forms.py:244
 msgid ""
 "The minimum memory size required to boot the image. If unspecified, this "
 "value defaults to 0 (no minimum)."
 msgstr "बिंब बूट करने के लिए आवश्यक न्यूनतम स्मृति आकार. 0 को अनिर्दिष्ट, तो यह मान चूक (कोई न्यूनतम)."
 
-#: dashboards/project/images/images/forms.py:139
+#: dashboards/project/images/images/forms.py:96
+msgid "Copy Data"
+msgstr ""
+
+#: dashboards/project/images/images/forms.py:97
+msgid ""
+"Specify this option to copy image data to the image service. If unspecified,"
+" image data will be used in its current location."
+msgstr ""
+
+#: dashboards/project/images/images/forms.py:148
 msgid "A image or external image location must be specified."
 msgstr "बिंब या बाहरी बिंब स्थान निर्दिष्ट किया जाना चाहिए."
 
-#: dashboards/project/images/images/forms.py:142
+#: dashboards/project/images/images/forms.py:151
 msgid "Can not specify both image and external image location."
 msgstr "बिंब और बिंब छवि स्थान दोनों निर्दिष्ट नहीं कर सकते."
 
-#: dashboards/project/images/images/forms.py:180
+#: dashboards/project/images/images/forms.py:191
 #, python-format
 msgid "Your image %s has been queued for creation."
 msgstr "आपकी बिंब %s के निर्माण के लिए कतारबद्ध किया गया है."
 
-#: dashboards/project/images/images/forms.py:184
+#: dashboards/project/images/images/forms.py:195
 msgid "Unable to create new image"
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:188
+#: dashboards/project/images/images/forms.py:199
 #, python-format
 msgid "Unable to create new image: Invalid disk format %s for image."
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:191
+#: dashboards/project/images/images/forms.py:202
 msgid "Unable to create new image: Image name too long."
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:205
+#: dashboards/project/images/images/forms.py:216
 msgid "Kernel ID"
 msgstr "कर्नेल आईडी"
 
-#: dashboards/project/images/images/forms.py:211
+#: dashboards/project/images/images/forms.py:222
 msgid "Ramdisk ID"
 msgstr "रैमडिस्क आईडी"
 
-#: dashboards/project/images/images/forms.py:253
+#: dashboards/project/images/images/forms.py:264
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr "बिंब को अद्यतन करने में असमर्थ \"%s\"."
 
-#: dashboards/project/images/images/forms.py:280
+#: dashboards/project/images/images/forms.py:291
 msgid "Image was successfully updated."
 msgstr "बिंब सफलतापूर्वक अद्यतन किया गया था."
 
@@ -10686,6 +10673,10 @@ msgid "Deleted Image"
 msgid_plural "Deleted Images"
 msgstr[0] ""
 msgstr[1] ""
+
+#: dashboards/project/images/images/tables.py:107
+msgid "Edit Image"
+msgstr ""
 
 #: dashboards/project/images/images/tables.py:124
 #: dashboards/project/volumes/snapshots/tables.py:93
@@ -10991,6 +10982,11 @@ msgstr[1] ""
 #: dashboards/project/instances/tables.py:352
 msgid "Launch Instance NG"
 msgstr ""
+
+#: dashboards/project/instances/tables.py:372
+#: dashboards/project/instances/workflows/update_instance.py:132
+msgid "Edit Instance"
+msgstr "इंस्टांस संपादित करें "
 
 #: dashboards/project/instances/tables.py:395
 msgid "Edit Security Groups"
@@ -11731,7 +11727,7 @@ msgstr "वॉल्यूम संलग्न "
 #: dashboards/project/instances/templates/instances/_detail_overview.html:136
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:47
-#: dashboards/project/volumes/volumes/tables.py:415
+#: dashboards/project/volumes/volumes/tables.py:416
 msgid "Attached To"
 msgstr "से जुड़ा "
 
@@ -13526,19 +13522,24 @@ msgstr "अपने नेटवर्क के लिए नाम का च
 msgid "Network Overview"
 msgstr "नेटवर्क अवलोकन"
 
-#: dashboards/project/networks/templates/networks/_detail_overview.html:22
+#: dashboards/project/networks/templates/networks/_detail_overview.html:21
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:47
+msgid "MTU"
+msgstr "MTU"
+
+#: dashboards/project/networks/templates/networks/_detail_overview.html:24
 msgid "Provider Network"
 msgstr "प्रदाता नेटवर्क"
 
-#: dashboards/project/networks/templates/networks/_detail_overview.html:23
+#: dashboards/project/networks/templates/networks/_detail_overview.html:25
 msgid "Network Type:"
 msgstr ""
 
-#: dashboards/project/networks/templates/networks/_detail_overview.html:24
+#: dashboards/project/networks/templates/networks/_detail_overview.html:26
 msgid "Physical Network:"
 msgstr ""
 
-#: dashboards/project/networks/templates/networks/_detail_overview.html:25
+#: dashboards/project/networks/templates/networks/_detail_overview.html:27
 msgid "Segmentation ID:"
 msgstr ""
 
@@ -13549,6 +13550,10 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/create.html:10
 msgid "Next&nbsp;&raquo;"
 msgstr "अगला&nbsp;&raquo;"
+
+#: dashboards/project/networks/templates/networks/detail.html:3
+msgid "Network Details"
+msgstr ""
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:4
 msgid "Subnet Overview"
@@ -14820,7 +14825,7 @@ msgid "Restoring"
 msgstr "पुनर्भंडारण"
 
 #: dashboards/project/volumes/backups/tabs.py:41
-#: dashboards/project/volumes/backups/views.py:72
+#: dashboards/project/volumes/backups/views.py:73
 msgid "Unable to retrieve backup details."
 msgstr "बैकअप विवरण को पुनः प्राप्त करने में असमर्थ."
 
@@ -14830,17 +14835,25 @@ msgstr "बैकअप विवरण को पुनः प्राप्�
 msgid "Create Volume Backup"
 msgstr "वॉल्यूम बैकअप बनाएँ"
 
-#: dashboards/project/volumes/backups/views.py:53
+#: dashboards/project/volumes/backups/views.py:38
+msgid "Create a Volume Backup"
+msgstr ""
+
+#: dashboards/project/volumes/backups/views.py:54
 msgid "Volume Backup Details: {{ backup.name }}"
 msgstr ""
 
-#: dashboards/project/volumes/backups/views.py:87
+#: dashboards/project/volumes/backups/views.py:88
 #: dashboards/project/volumes/templates/volumes/backups/restore_backup.html:3
 msgid "Restore Volume Backup"
 msgstr "वॉल्यूम बैकअप बहाल करें"
 
-#: dashboards/project/volumes/backups/views.py:89
+#: dashboards/project/volumes/backups/views.py:90
 msgid "Restore Backup to Volume"
+msgstr ""
+
+#: dashboards/project/volumes/backups/views.py:93
+msgid "Restore a Volume Backup"
 msgstr ""
 
 #: dashboards/project/volumes/snapshots/forms.py:39
@@ -14866,17 +14879,17 @@ msgstr[1] "वॉल्यूम स्नैपशॉट का नियोज
 
 #: dashboards/project/volumes/snapshots/tables.py:79
 #: dashboards/project/volumes/snapshots/views.py:35
+#: dashboards/project/volumes/snapshots/views.py:40
 #: dashboards/project/volumes/templates/volumes/snapshots/update.html:3
-#: dashboards/project/volumes/templates/volumes/snapshots/update.html:6
 msgid "Edit Snapshot"
 msgstr "स्नैपशॉट संपादित करें"
 
 #: dashboards/project/volumes/snapshots/tabs.py:36
-#: dashboards/project/volumes/snapshots/views.py:90
+#: dashboards/project/volumes/snapshots/views.py:91
 msgid "Unable to retrieve snapshot details."
 msgstr "स्नैपशॉट जानकारी प्राप्त करने में असमर्थ."
 
-#: dashboards/project/volumes/snapshots/views.py:70
+#: dashboards/project/volumes/snapshots/views.py:71
 msgid "Volume Snapshot Details: {{ snapshot.name }}"
 msgstr ""
 
@@ -14914,16 +14927,8 @@ msgstr ""
 msgid "Optionally, you may choose to create a new volume."
 msgstr ""
 
-#: dashboards/project/volumes/templates/volumes/backups/create_backup.html:6
-msgid "Create a Volume Backup"
-msgstr ""
-
 #: dashboards/project/volumes/templates/volumes/backups/detail.html:3
 msgid "Volume Backup Details"
-msgstr ""
-
-#: dashboards/project/volumes/templates/volumes/backups/restore_backup.html:6
-msgid "Restore a Volume Backup"
 msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/snapshots/_update.html:6
@@ -14956,7 +14961,7 @@ msgstr "वॉल्यूम स्नैपशॉट बनाएँ ( बल�
 
 #: dashboards/project/volumes/templates/volumes/volumes/_create_snapshot.html:15
 #: dashboards/project/volumes/templates/volumes/volumes/create_snapshot.html:3
-#: dashboards/project/volumes/volumes/views.py:139
+#: dashboards/project/volumes/volumes/views.py:141
 msgid "Create Volume Snapshot"
 msgstr "वॉल्यूम स्नैपशॉट बनाएँ"
 
@@ -14973,7 +14978,7 @@ msgid "Volume Overview"
 msgstr "वॉल्यूम अवलोकन"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:35
-#: dashboards/project/volumes/volumes/tables.py:506
+#: dashboards/project/volumes/volumes/tables.py:507
 msgid "Attachments"
 msgstr "संलग्नक"
 
@@ -14995,7 +15000,7 @@ msgid "Volume Source"
 msgstr "वॉल्यूम स्रोत"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:84
-#: dashboards/project/volumes/volumes/views.py:243
+#: dashboards/project/volumes/volumes/views.py:249
 msgid "Volume Transfer"
 msgstr ""
 
@@ -15118,34 +15123,22 @@ msgid ""
 msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/volumes/accept_transfer.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/accept_transfer.html:6
-#: dashboards/project/volumes/volumes/views.py:232
-#: dashboards/project/volumes/volumes/views.py:233
+#: dashboards/project/volumes/volumes/views.py:237
+#: dashboards/project/volumes/volumes/views.py:238
+#: dashboards/project/volumes/volumes/views.py:241
 msgid "Accept Volume Transfer"
 msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/volumes/attach.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/attach.html:6
-#: dashboards/project/volumes/volumes/views.py:312
+#: dashboards/project/volumes/volumes/views.py:320
+#: dashboards/project/volumes/volumes/views.py:325
 msgid "Manage Volume Attachments"
 msgstr "वॉल्यूम अनुलग्नक प्रबंधन"
 
-#: dashboards/project/volumes/templates/volumes/volumes/create.html:6
-msgid "Create a Volume"
-msgstr "वॉल्यूम बनाएँ"
-
-#: dashboards/project/volumes/templates/volumes/volumes/create_snapshot.html:6
-msgid "Create a Volume Snapshot"
-msgstr "वॉल्यूम स्नैपशॉट बनाएँ"
-
 #: dashboards/project/volumes/templates/volumes/volumes/create_transfer.html:3
-#: dashboards/project/volumes/volumes/views.py:212
-#: dashboards/project/volumes/volumes/views.py:213
+#: dashboards/project/volumes/volumes/views.py:216
+#: dashboards/project/volumes/volumes/views.py:217
 msgid "Create Volume Transfer"
-msgstr ""
-
-#: dashboards/project/volumes/templates/volumes/volumes/create_transfer.html:6
-msgid "Create a Volume Transfer"
 msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/volumes/encryption_detail.html:3
@@ -15153,36 +15146,36 @@ msgid "Volume Encryption Details"
 msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/volumes/extend.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/extend.html:6
 #: dashboards/project/volumes/volumes/tables.py:133
-#: dashboards/project/volumes/volumes/views.py:99
-#: dashboards/project/volumes/volumes/views.py:101
+#: dashboards/project/volumes/volumes/views.py:100
+#: dashboards/project/volumes/volumes/views.py:102
+#: dashboards/project/volumes/volumes/views.py:105
 msgid "Extend Volume"
 msgstr "वॉल्यूम विस्तार"
 
 #: dashboards/project/volumes/templates/volumes/volumes/retype.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/retype.html:6
 #: dashboards/project/volumes/volumes/tables.py:244
-#: dashboards/project/volumes/volumes/views.py:385
-#: dashboards/project/volumes/volumes/views.py:387
+#: dashboards/project/volumes/volumes/views.py:394
+#: dashboards/project/volumes/volumes/views.py:396
+#: dashboards/project/volumes/volumes/views.py:399
 msgid "Change Volume Type"
 msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/volumes/show_transfer.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/show_transfer.html:6
+#: dashboards/project/volumes/volumes/views.py:252
 msgid "Volume Transfer Details"
 msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/volumes/update.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/update.html:6
 #: dashboards/project/volumes/volumes/tables.py:232
-#: dashboards/project/volumes/volumes/views.py:276
+#: dashboards/project/volumes/volumes/views.py:283
+#: dashboards/project/volumes/volumes/views.py:288
 msgid "Edit Volume"
 msgstr " वॉल्यूम संपादित करें"
 
 #: dashboards/project/volumes/templates/volumes/volumes/upload_to_image.html:3
-#: dashboards/project/volumes/templates/volumes/volumes/upload_to_image.html:6
-#: dashboards/project/volumes/volumes/views.py:171
+#: dashboards/project/volumes/volumes/views.py:174
+#: dashboards/project/volumes/volumes/views.py:179
 msgid "Upload Volume to Image"
 msgstr ""
 
@@ -15518,89 +15511,93 @@ msgstr ""
 msgid "Cancel Transfer"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:287
+#: dashboards/project/volumes/volumes/tables.py:277
+msgid "This action cannot be undone."
+msgstr "यह क्रिया पूर्ववत नहीं किया जा सकता।"
+
+#: dashboards/project/volumes/volumes/tables.py:288
 #, python-format
 msgid "Successfully deleted volume transfer \"%s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:290
+#: dashboards/project/volumes/volumes/tables.py:291
 msgid "Successfully deleted volume transfer"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:293
+#: dashboards/project/volumes/volumes/tables.py:294
 msgid "Unable to delete volume transfer."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:318
-#: dashboards/project/volumes/volumes/views.py:343
+#: dashboards/project/volumes/volumes/tables.py:319
+#: dashboards/project/volumes/volumes/views.py:352
 msgid "Unable to retrieve attachment information."
 msgstr "अनुलग्नक सूचना पाने में असमर्थ."
 
-#: dashboards/project/volumes/volumes/tables.py:336
+#: dashboards/project/volumes/volumes/tables.py:337
 #, python-format
 msgid "Attached to %(instance)s on %(dev)s"
 msgstr " %(dev)s पर  %(instance)s संलग्न करने के लिए"
 
-#: dashboards/project/volumes/volumes/tables.py:357
+#: dashboards/project/volumes/volumes/tables.py:358
 msgid "No"
 msgstr "नहीं"
 
-#: dashboards/project/volumes/volumes/tables.py:359
+#: dashboards/project/volumes/volumes/tables.py:360
 msgid "Yes"
 msgstr "हाँ"
 
-#: dashboards/project/volumes/volumes/tables.py:372
+#: dashboards/project/volumes/volumes/tables.py:373
 msgctxt "Current status of a Volume"
 msgid "Available"
 msgstr "उपलब्ध"
 
-#: dashboards/project/volumes/volumes/tables.py:373
+#: dashboards/project/volumes/volumes/tables.py:374
 msgctxt "Current status of a Volume"
 msgid "In-use"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:374
+#: dashboards/project/volumes/volumes/tables.py:375
 msgctxt "Current status of a Volume"
 msgid "Error"
 msgstr "त्रुटि"
 
-#: dashboards/project/volumes/volumes/tables.py:376
+#: dashboards/project/volumes/volumes/tables.py:377
 msgctxt "Current status of a Volume"
 msgid "Creating"
 msgstr "बनाया जा रहा है"
 
-#: dashboards/project/volumes/volumes/tables.py:378
+#: dashboards/project/volumes/volumes/tables.py:379
 msgctxt "Current status of a Volume"
 msgid "Error Extending"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:422
+#: dashboards/project/volumes/volumes/tables.py:423
 msgid "Encrypted"
 msgstr "गुप्त"
 
-#: dashboards/project/volumes/volumes/tables.py:443
+#: dashboards/project/volumes/volumes/tables.py:444
 msgid ""
 "The data will remain in the volume and another instance will be able to "
 "access the data if you attach this volume to it."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:450
+#: dashboards/project/volumes/volumes/tables.py:451
 msgid "Detach Volume"
 msgid_plural "Detach Volumes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/volumes/volumes/tables.py:459
+#: dashboards/project/volumes/volumes/tables.py:460
 msgid "Detaching Volume"
 msgid_plural "Detaching Volumes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/volumes/volumes/tables.py:487
+#: dashboards/project/volumes/volumes/tables.py:488
 msgid "Device"
 msgstr "युक्ति"
 
-#: dashboards/project/volumes/volumes/tables.py:496
+#: dashboards/project/volumes/volumes/tables.py:497
 #, python-format
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr ""
@@ -15609,38 +15606,54 @@ msgstr ""
 msgid "Volume Details: {{ volume.name }}"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/views.py:113
-#: dashboards/project/volumes/volumes/views.py:162
-#: dashboards/project/volumes/volumes/views.py:326
+#: dashboards/project/volumes/volumes/views.py:87
+msgid "Create a Volume"
+msgstr "वॉल्यूम बनाएँ"
+
+#: dashboards/project/volumes/volumes/views.py:115
+#: dashboards/project/volumes/volumes/views.py:165
+#: dashboards/project/volumes/volumes/views.py:335
 msgid "Unable to retrieve volume information."
 msgstr "वॉल्यूम सूचना पाने में असमर्थ."
 
-#: dashboards/project/volumes/volumes/views.py:153
+#: dashboards/project/volumes/volumes/views.py:145
+msgid "Create a Volume Snapshot"
+msgstr "वॉल्यूम स्नैपशॉट बनाएँ"
+
+#: dashboards/project/volumes/volumes/views.py:156
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
 msgstr "यह मात्रा वर्तमान में एक इंस्टेंस से जुड़ा हुआ है. कुछ मामलों में, एक संलग्न वॉल्यूम से एक स्नैपशॉट बनाने के एक भ्रष्ट स्नैपशॉट में परिणाम कर सकते हैं."
 
-#: dashboards/project/volumes/volumes/views.py:184
-#: dashboards/project/volumes/volumes/views.py:398
+#: dashboards/project/volumes/volumes/views.py:188
+#: dashboards/project/volumes/volumes/views.py:408
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/views.py:257
+#: dashboards/project/volumes/volumes/views.py:219
+msgid "Create a Volume Transfer"
+msgstr ""
+
+#: dashboards/project/volumes/volumes/views.py:264
 msgid "Unable to retrieve volume transfer."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/views.py:288
+#: dashboards/project/volumes/volumes/views.py:296
 msgid "Unable to retrieve volume."
 msgstr "वॉल्यूम को पुनः प्राप्त करने में असमर्थ."
 
-#: dashboards/project/volumes/volumes/views.py:429
+#: dashboards/project/volumes/volumes/views.py:433
+msgid "Volume Encryption Details: {{ volume.name }}"
+msgstr ""
+
+#: dashboards/project/volumes/volumes/views.py:440
 #, python-format
 msgid "Volume Encryption Details: %(volume_name)s"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/views.py:444
+#: dashboards/project/volumes/volumes/views.py:455
 msgid "Unable to retrieve volume encryption details."
 msgstr ""
 
@@ -16366,10 +16379,6 @@ msgstr "दूरस्थ सहकर्मी सबनेट"
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:44
 msgid "Pre-Shared Key string"
 msgstr "पूर्व साझा कुंजी स्ट्रिंग"
-
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:47
-msgid "MTU"
-msgstr "MTU"
 
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:53
 msgid "Dead peer detection action"

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 23:04-0500\n"
-"PO-Revision-Date: 2015-04-01 05:31+0000\n"
+"POT-Creation-Date: 2015-04-01 22:59-0500\n"
+"PO-Revision-Date: 2015-04-02 05:22+0000\n"
 "Last-Translator: Zhang Xiaowei <zero00072@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -104,7 +104,7 @@ msgstr "不存在詮釋資料"
 msgid "Submit"
 msgstr "提交"
 
-#: static/angular/modal/modal.js:84 static/angular/wizard/wizard.js:7
+#: static/angular/modal/modal.js:84 static/angular/wizard/wizard.js:11
 #: static/horizon/js/horizon.modals.js:33
 msgid "Cancel"
 msgstr "取消"
@@ -157,15 +157,15 @@ msgstr "已找到 %(total)s 中的 %(found)s 個"
 msgid "Click here to expand the row and view the errors."
 msgstr "展開這列來檢視錯誤。"
 
-#: static/angular/wizard/wizard.js:8
+#: static/angular/wizard/wizard.js:12
 msgid "Back"
 msgstr "上一步"
 
-#: static/angular/wizard/wizard.js:9
+#: static/angular/wizard/wizard.js:13
 msgid "Next"
 msgstr "下一步"
 
-#: static/angular/wizard/wizard.js:10
+#: static/angular/wizard/wizard.js:14
 msgid "Finish"
 msgstr "完成"
 
@@ -301,7 +301,7 @@ msgstr "沒有項目可以列出。"
 msgid "An error occurred while updating."
 msgstr "更新時發生錯誤。"
 
-#: static/horizon/js/horizon.tables.js:200
+#: static/horizon/js/horizon.tables.js:201
 #, c-format
 msgid "You have selected %s. "
 msgstr "您選擇了 %s。"
@@ -392,7 +392,7 @@ msgstr "無法獲得雲硬碟即時存檔。"
 
 #: static/horizon/js/angular/services/hz.api.config.js:42
 msgid "Unable to retrieve user configuration."
-msgstr "無法獲得使用者設定檔。"
+msgstr "無法獲得用戶設定檔。"
 
 #: static/horizon/js/angular/services/hz.api.config.js:61
 msgid "Unable to retrieve admin configuration."
@@ -416,107 +416,119 @@ msgstr "無法獲得名稱空間。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:24
 msgid "Unable to retrieve users"
-msgstr "無法獲得名稱使用者。"
+msgstr "無法獲得名稱用戶。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:31
 msgid "Unable to create the user."
-msgstr "無法新增使用者。"
+msgstr "無法新增用戶。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:38
 msgid "Unable to delete the users."
-msgstr "無法刪除使用者。"
+msgstr "無法刪除用戶。"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:45
+#: static/horizon/js/angular/services/hz.api.keystone.js:73
+msgid "Unable to retrieve the current user session."
+msgstr "無法獲得目前用戶連線階段。"
+
+#: static/horizon/js/angular/services/hz.api.keystone.js:80
 msgid "Unable to retrieve the user"
-msgstr "無法獲得使用者。"
+msgstr "無法獲得用戶。"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:53
+#: static/horizon/js/angular/services/hz.api.keystone.js:88
 msgid "Unable to edit the user."
-msgstr "無法編輯使用者。"
+msgstr "無法編輯用戶。"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:60
+#: static/horizon/js/angular/services/hz.api.keystone.js:95
 msgid "Unable to delete the user."
-msgstr "無法刪除使用者。"
+msgstr "無法刪除用戶。"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:68
+#: static/horizon/js/angular/services/hz.api.keystone.js:103
 msgid "Unable to retrieve role"
 msgstr "無法獲得角色"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:75
+#: static/horizon/js/angular/services/hz.api.keystone.js:110
 msgid "Unable to create the role."
 msgstr "無法新增角色。"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:82
+#: static/horizon/js/angular/services/hz.api.keystone.js:117
 msgid "Unable to delete the roles."
 msgstr "無法刪除角色"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:89
+#: static/horizon/js/angular/services/hz.api.keystone.js:124
 msgid "Unable to retrieve the role"
 msgstr "無法獲得角色"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:97
+#: static/horizon/js/angular/services/hz.api.keystone.js:132
 msgid "Unable to edit the role."
 msgstr "無法編輯角色"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:104
+#: static/horizon/js/angular/services/hz.api.keystone.js:139
 msgid "Unable to delete the role."
 msgstr "無法刪除角色"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:112
+#: static/horizon/js/angular/services/hz.api.keystone.js:147
 msgid "Unable to retrieve domains"
 msgstr "無法獲得地域"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:119
+#: static/horizon/js/angular/services/hz.api.keystone.js:154
 msgid "Unable to create the domain."
 msgstr "無法新增地域。"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:126
+#: static/horizon/js/angular/services/hz.api.keystone.js:161
 msgid "Unable to delete the domains."
 msgstr "無法刪除地域。"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:133
+#: static/horizon/js/angular/services/hz.api.keystone.js:168
 msgid "Unable to retrieve the domain"
 msgstr "無法獲得地域"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:141
+#: static/horizon/js/angular/services/hz.api.keystone.js:176
 msgid "Unable to edit the domain."
 msgstr "無法編輯地域。"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:148
+#: static/horizon/js/angular/services/hz.api.keystone.js:183
 msgid "Unable to delete the domain."
 msgstr "無法刪除地域。"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:157
+#: static/horizon/js/angular/services/hz.api.keystone.js:192
 msgid "Unable to retrieve projects"
 msgstr "無法獲得專案"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:164
+#: static/horizon/js/angular/services/hz.api.keystone.js:199
 msgid "Unable to create the project."
 msgstr "無法新增專案。"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:171
+#: static/horizon/js/angular/services/hz.api.keystone.js:206
 msgid "Unable to delete the projects."
 msgstr "無法刪除專案。"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:178
+#: static/horizon/js/angular/services/hz.api.keystone.js:213
 msgid "Unable to retrieve the project"
 msgstr "無法獲得專案"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:186
+#: static/horizon/js/angular/services/hz.api.keystone.js:221
 msgid "Unable to edit the project."
 msgstr "無法編輯專案。"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:193
+#: static/horizon/js/angular/services/hz.api.keystone.js:228
 msgid "Unable to delete the project."
 msgstr "無法刪除專案。"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:201
+#: static/horizon/js/angular/services/hz.api.keystone.js:236
 msgid "Unable to grant the role."
 msgstr "無法賦予角色權力。"
 
-#: static/horizon/js/angular/services/hz.api.keystone.js:215
+#: static/horizon/js/angular/services/hz.api.keystone.js:250
 msgid "Unable to fetch the service catalog."
 msgstr "無法獲得伺服器類別。"
+
+#: static/horizon/js/angular/services/hz.api.keystone.js:385
+msgid "Service type is not enabled: %(desiredType)s"
+msgstr "未啟用伺服器類型：%(desiredType)s"
+
+#: static/horizon/js/angular/services/hz.api.keystone.js:392
+msgid "Cannot get service catalog from keystone."
+msgstr "不能從 Keystone 獲得伺服器類別。"
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:39
 msgid "Unable to retrieve networks."
