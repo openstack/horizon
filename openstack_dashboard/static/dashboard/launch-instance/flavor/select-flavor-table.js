@@ -115,7 +115,8 @@
         scope:       {
           items:              '=',
           displayedItems:     '=',
-          isAvailableTable:   '=?'
+          isAvailableTable:   '=?',
+          metadataDefs:       '='
         },
         templateUrl: path + 'launch-instance/flavor/select-flavor-table.html'
       };

@@ -23,14 +23,16 @@ limitations under the License.
         validate-number-min="1" name="allocated-flavor">
         <select-flavor-table
             items="selectFlavorCtrl.allocatedFlavorFacades"
-            displayed-items="selectFlavorCtrl.displayedAllocatedFlavorFacades">
+            displayed-items="selectFlavorCtrl.displayedAllocatedFlavorFacades"
+            metadata-defs="selectFlavorCtrl.metadataDefs">
         </select-flavor-table>
       </allocated>
       <available>
         <select-flavor-table
             is-available-table="true"
             items="selectFlavorCtrl.availableFlavorFacades"
-            displayed-items="selectFlavorCtrl.displayedAvailableFlavorFacades">
+            displayed-items="selectFlavorCtrl.displayedAvailableFlavorFacades"
+            metadata-defs="selectFlavorCtrl.metadataDefs">
         </select-flavor-table>
       </available>
     </transfer-table>

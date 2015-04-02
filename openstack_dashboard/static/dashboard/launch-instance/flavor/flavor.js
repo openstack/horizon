@@ -50,6 +50,7 @@
 
     // Convenience references to launch instance model elements
     this.flavors = [];
+    this.metadataDefs = launchInstanceModel.metadataDefs;
     this.novaLimits = {};
     this.instanceCount = 1;
 
@@ -121,6 +122,7 @@
       ctrl.validateFlavor();
     });
 
+
     // Convenience function to return a sensible value instead of
     // undefined
     this.defaultIfUndefined = function (value, defaultValue) {
@@ -160,6 +162,7 @@
           rootDisk:      flavor.disk,
           ephemeralDisk: flavor['OS-FLV-EXT-DATA:ephemeral'],
           isPublic:      flavor['os-flavor-access:is_public'],
+          extras:        flavor.extras
         };
         this.availableFlavorFacades.push(facade);
       }
