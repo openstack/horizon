@@ -98,16 +98,6 @@
         availabilityZones: [],
         flavors: [],
         allowedBootSources: [],
-        allowedDiskConfigOptions:[
-          {
-            id:'AUTO',
-            label: gettext('Automatic')
-          },
-          {
-            id:'MANUAL',
-            label: gettext('Manual')
-          }
-        ],
         images: [],
         allowCreateVolumeFromImage: false,
         arePortProfilesSupported: false,

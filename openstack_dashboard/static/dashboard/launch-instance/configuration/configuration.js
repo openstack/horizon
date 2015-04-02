@@ -1,43 +1,92 @@
 (function () {
   'use strict';
 
+  var MAX_SCRIPT_SIZE = 16 * 1024,
+      DEFAULT_CONFIG_DRIVE = false,
+      DEFAULT_USER_DATA = '',
+      DEFAULT_DISK_CONFIG = 'AUTO';
+
+  /**
+   * @ngdoc overview
+   * @name hz.dashboard.launch-instance
+   * @description
+   *
+   * # hz.dashboard.launch-instance
+   *
+   * The `hz.dashboard.launch-instance` module allows a user
+   * to launch an instance via the multi-step wizard framework
+   *
+   */
   var module = angular.module('hz.dashboard.launch-instance');
 
+  /**
+   * @ngdoc controller
+   * @name LaunchInstanceConfigurationCtrl
+   * @description
+   * The `LaunchInstanceConfigurationCtrl` controller is responsible for
+   * setting the following instance properties:
+   *
+   * @property {string} user_data, default to empty string.
+   *    The maximum size of user_data is 16 * 1024.
+   * @property {string} disk_config, default to `AUTO`.
+   * @property {boolean} config_drive, default to false.
+   */
   module.controller('LaunchInstanceConfigurationCtrl', [
     '$scope',
+    '$element',
+    '$timeout',
+    'wizardEvents',
     LaunchInstanceConfigurationCtrl
   ]);
 
-  module.controller('LaunchInstanceConfigurationHelpCtrl', [
-    LaunchInstanceConfigurationHelpCtrl
-  ]);
+  function LaunchInstanceConfigurationCtrl(
+    $scope,
+    $element,
+    $timeout,
+    wizardEvents) {
 
-  function LaunchInstanceConfigurationCtrl($scope) {
-    $scope.label = {
+    var config = this,
+        newInstanceSpec = $scope.model.newInstanceSpec;
+
+    newInstanceSpec.user_data = DEFAULT_USER_DATA;
+    newInstanceSpec.disk_config = DEFAULT_DISK_CONFIG;
+    newInstanceSpec.config_drive = DEFAULT_CONFIG_DRIVE;
+
+    config.MAX_SCRIPT_SIZE = MAX_SCRIPT_SIZE;
+
+    config.label = {
       title: gettext('Configuration'),
       subtitle: gettext(''),
-      customizationScriptSource: gettext('Customization Script Source'),
       customizationScript: gettext('Customization Script'),
+      customizationScriptMax: gettext('(Max: 16Kb)'),
+      loadScriptFromFile: gettext('Load script from a file'),
       configurationDrive: gettext('Configuration Drive'),
       diskPartition: gettext('Disk Partition'),
-      scriptFile: gettext('Script File')
+      scriptSize: gettext('Script size'),
+      scriptModified: gettext('Modified'),
+      scriptSizeWarningMsg: gettext('Script size > 16Kb'),
+      bytes: gettext('bytes'),
+      scriptSizeHoverWarningMsg: gettext('The maximum script size is 16Kb.')
     };
 
-    $scope.scriptSourceOptions = [
-      { value: 'selected', text: gettext('Select Script Source') },
-      { value: 'raw', text: gettext('Direct Input') },
-      { value: 'file', text: gettext('File') }
-    ];
-
-    $scope.model.newInstanceSpec.script_source = $scope.scriptSourceOptions[0].value;
-
-    $scope.diskConfigOptions = [
+    config.diskConfigOptions = [
       { value: 'AUTO', text: gettext('Automatic') },
       { value: 'MANUAL', text: gettext('Manual') }
     ];
-
-    $scope.model.newInstanceSpec.disk_config = $scope.diskConfigOptions[0].value;
   }
+
+  /**
+   * @ngdoc controller
+   * @name LaunchInstanceConfigurationHelpCtrl
+   * @description
+   * The `LaunchInstanceConfigurationHelpCtrl` controller provides functions for
+   * configuring the help text used within the configuration step of the
+   * Launch Instance Wizard.
+   *
+   */
+  module.controller('LaunchInstanceConfigurationHelpCtrl', [
+    LaunchInstanceConfigurationHelpCtrl
+  ]);
 
   function LaunchInstanceConfigurationHelpCtrl() {
     var ctrl = this;
@@ -49,9 +98,9 @@
 
     ctrl.paragraphs = [
       interpolate(customScriptText, customScriptMap, true),
-      gettext('The <b>Customization Script Source</b> field determines how the script information is delivered. Use <b>Direct Input</b> if you want to type the script directly into the <b>Customization Script</b> field.'),
-      gettext('Check the <b>Configuration Drive</b> box if you want to write metadata to a special configuration drive. When the instance boots, it attaches to the <b>Configuration Drive</b> and accesses the metadata.'),
-      gettext('An advanced option available when launching an instance is disk partitioning. There are two disk partition options. Selecting <b>Automatic</b> resizes the disk and sets it to a single partition. Selecting <b>Manual</b> allows you to create multiple partitions on the disk.')
+      gettext('Type your script directly into the Customization Script field. If your browser supports the HTML5 File API, you may choose to load your script from a file. The size of your script should not exceed 16 Kb.'),
+      gettext('An advanced option available when launching an instance is disk partitioning. There are two disk partition options. Selecting <b>Automatic</b> resizes the disk and sets it to a single partition. Selecting <b>Manual</b> allows you to create multiple partitions on the disk.'),
+      gettext('Check the <b>Configuration Drive</b> box if you want to write metadata to a special configuration drive. When the instance boots, it attaches to the <b>Configuration Drive</b> and accesses the metadata.')
     ];
   }
 

@@ -16,6 +16,7 @@ $gray-light: #cccccc;
 
 /* Horizon Custom Variables */
 
+$code-font-family: Menlo, Monaco, Consolas, 'Courier New' !default;
 $body-min-width: 900px !default;
 $sidebar-background-color: #f9f9f9 !default;
 $sidebar-width: 220px !default;
@@ -120,6 +121,7 @@ $WizardFinishBtnDisabledBgColor: #ccc !default;
 $WizardFinishBtnDisabledBdColor: #ccc !default;
 $WizardToolbarBgColor: #f5f5f5 !default;
 $WizardToolbarVerticalSeparatorBdColor: #e3e3e3 !default;
+$WizardValidationErrorColor: #d43f3a !default;
 
 $wizard-textarea-border-color: #eee;
 
