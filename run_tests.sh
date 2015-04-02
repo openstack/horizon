@@ -27,6 +27,7 @@ function usage {
   echo "  -t, --tabs               Check for tab characters in files."
   echo "  -y, --pylint             Just run pylint"
   echo "  -j, --jshint             Just run jshint"
+  echo "  -s, --jscs               Just run jscs"
   echo "  -q, --quiet              Run non-interactively. (Relatively) quiet."
   echo "                           Implies -V if -N is not set."
   echo "  --only-selenium          Run only the Selenium unit tests"
@@ -106,6 +107,7 @@ function process_option {
     -P|--no-pep8) no_pep8=1;;
     -y|--pylint) just_pylint=1;;
     -j|--jshint) just_jshint=1;;
+    -s|--jscs) just_jscs=1;;
     -f|--force) force=1;;
     -t|--tabs) just_tabs=1;;
     -q|--quiet) quiet=1;;
@@ -159,6 +161,16 @@ function run_jshint {
   jshint horizon/static/horizon/tests
   jshint horizon/static/angular/
   jshint openstack_dashboard/static/dashboard/
+}
+
+function run_jscs {
+  echo "Running jscs ..."
+  if [ "`which jscs`" == '' ] ; then
+    echo "jscs is not present; please install, e.g. sudo npm install jscs -g"
+  else
+    jscs horizon/static/horizon/js horizon/static/horizon/tests \
+         horizon/static/angular/ openstack_dashboard/static/dashboard/
+  fi
 }
 
 function warn_on_flake8_without_venv {
@@ -552,6 +564,12 @@ fi
 # Jshint
 if [ $just_jshint -eq 1 ]; then
     run_jshint
+    exit $?
+fi
+
+# Jscs
+if [ $just_jscs -eq 1 ]; then
+    run_jscs
     exit $?
 fi
 
