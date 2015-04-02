@@ -199,6 +199,7 @@ class Namespace(BaseGlanceMetadefAPIResourceWrapper):
             return False
 
 
+@memoized
 def metadefs_namespace_get(request, namespace, resource_type=None, wrap=False):
     namespace = glanceclient(request, '2').\
         metadefs_namespace.get(namespace, resource_type=resource_type)
@@ -277,6 +278,18 @@ def metadefs_namespace_list(request,
 
     namespaces = [Namespace(namespace) for namespace in namespaces]
     return namespaces, has_more_data, has_prev_data
+
+
+def metadefs_namespace_full_list(request, resource_type, filters={},
+                                 *args, **kwargs):
+    filters['resource_types'] = [resource_type]
+    namespaces, has_more_data, has_prev_data = metadefs_namespace_list(
+        request, filters, *args, **kwargs
+    )
+    return [
+        metadefs_namespace_get(request, x.namespace, resource_type)
+        for x in namespaces
+    ], has_more_data, has_prev_data
 
 
 def metadefs_namespace_create(request, namespace):

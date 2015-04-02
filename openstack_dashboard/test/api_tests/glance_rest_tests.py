@@ -56,19 +56,18 @@ class ImagesRestTestCase(test.TestCase):
     @mock.patch.object(glance.api, 'glance')
     def test_namespace_get_list(self, gc):
         request = self.mock_rest_request(**{'GET': {}})
-        gc.metadefs_namespace_list.return_value = ([
-            mock.Mock(**{'to_dict.return_value': {'namespace': '1'}}),
-            mock.Mock(**{'to_dict.return_value': {'namespace': '2'}})
-        ], False, False)
+        gc.metadefs_namespace_full_list.return_value = (
+            [{'namespace': '1'}, {'namespace': '2'}], False, False
+        )
 
         response = glance.MetadefsNamespaces().get(request)
         self.assertStatusCode(response, 200)
         self.assertEqual(response.content,
                          '{"items": [{"namespace": "1"}, {"namespace": "2"}]'
                          ', "has_more_data": false, "has_prev_data": false}')
-        gc.metadefs_namespace_list.assert_called_once_with(request,
-                                                           filters={},
-                                                           **{})
+        gc.metadefs_namespace_full_list.assert_called_once_with(
+            request, filters={}
+        )
 
     @mock.patch.object(glance.api, 'glance')
     def test_namespace_get_list_kwargs_and_filters(self, gc):
@@ -81,28 +80,15 @@ class ImagesRestTestCase(test.TestCase):
         filters = {'resource_types': 'type'}
         request = self.mock_rest_request(
             **{'GET': dict(kwargs, **filters)})
-        gc.metadefs_namespace_list.return_value = ([
-            mock.Mock(**{'to_dict.return_value': {'namespace': '1'}}),
-            mock.Mock(**{'to_dict.return_value': {'namespace': '2'}})
-        ], False, False)
+        gc.metadefs_namespace_full_list.return_value = (
+            [{'namespace': '1'}, {'namespace': '2'}], False, False
+        )
 
         response = glance.MetadefsNamespaces().get(request)
         self.assertStatusCode(response, 200)
         self.assertEqual(response.content,
                          '{"items": [{"namespace": "1"}, {"namespace": "2"}]'
                          ', "has_more_data": false, "has_prev_data": false}')
-        gc.metadefs_namespace_list.assert_called_once_with(request,
-                                                           filters=filters,
-                                                           **kwargs)
-
-    @mock.patch.object(glance.api, 'glance')
-    def test_namespace_get_namespace(self, gc):
-        kwargs = {'resource_type': ['OS::Nova::Flavor']}
-        request = self.mock_rest_request(**{'GET': dict(kwargs)})
-        gc.metadefs_namespace_get.return_value\
-            .to_dict.return_value = {'namespace': '1'}
-
-        response = glance.MetadefsNamespace().get(request, "1")
-        self.assertStatusCode(response, 200)
-        gc.metadefs_namespace_get.assert_called_once_with(request,
-                                                          "1")
+        gc.metadefs_namespace_full_list.assert_called_once_with(
+            request, filters=filters, **kwargs
+        )
