@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-01 22:59-0500\n"
-"PO-Revision-Date: 2015-04-01 23:47+0000\n"
+"POT-Creation-Date: 2015-04-02 20:58-0500\n"
+"PO-Revision-Date: 2015-04-03 01:59+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -324,24 +324,48 @@ msgid "System Current Power"
 msgstr "Aktuelle Systemleistung"
 
 #: api/ceilometer.py:1264
-msgid "System Current Temperature"
-msgstr "Aktuelle Systemtemperatur"
-
-#: api/ceilometer.py:1268
 msgid "Fan RPM"
 msgstr "Lüfter U/min"
 
-#: api/ceilometer.py:1272
+#: api/ceilometer.py:1268
 msgid "Sensor Temperature Reading"
 msgstr "Sensor Temperaturablesung"
 
-#: api/ceilometer.py:1276
+#: api/ceilometer.py:1272
 msgid "Sensor Current Reading"
 msgstr "Sensor aktuelle Ablesung"
 
-#: api/ceilometer.py:1280
+#: api/ceilometer.py:1276
 msgid "Sensor Voltage Reading"
 msgstr "Sensor Spannungsablesung"
+
+#: api/ceilometer.py:1280
+msgid "System Inlet Temperature Reading"
+msgstr ""
+
+#: api/ceilometer.py:1284
+msgid "System Outlet Temperature Reading"
+msgstr ""
+
+#: api/ceilometer.py:1288
+msgid "System Airflow Reading"
+msgstr ""
+
+#: api/ceilometer.py:1292
+msgid "System CUPS Reading"
+msgstr ""
+
+#: api/ceilometer.py:1296
+msgid "System CPU Utility Reading"
+msgstr ""
+
+#: api/ceilometer.py:1300
+msgid "System Memory Utility Reading"
+msgstr ""
+
+#: api/ceilometer.py:1304
+msgid "System IO Utility Reading"
+msgstr ""
 
 #: api/cinder.py:46 dashboards/admin/volumes/volume_types/forms.py:33
 msgid "back-end"
@@ -1647,7 +1671,7 @@ msgstr "Lokaler Speicher (insgesamt)"
 #: dashboards/project/instances/tables.py:990
 #: dashboards/project/instances/tables.py:1013
 #: dashboards/project/instances/workflows/create_instance.py:84
-#: dashboards/project/overview/views.py:32 usage/tables.py:80
+#: dashboards/project/overview/views.py:32 usage/tables.py:83
 msgid "Instance Name"
 msgstr "Instanzname"
 
@@ -2106,7 +2130,7 @@ msgstr "Systeminformation"
 #: dashboards/identity/projects/workflows.py:153
 #: dashboards/identity/projects/workflows.py:527
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:13
-#: dashboards/identity/users/tables.py:236
+#: dashboards/identity/users/tables.py:237
 #: dashboards/identity/users/templates/users/_detail_overview.html:23
 #: dashboards/project/firewalls/forms.py:71
 #: dashboards/project/firewalls/tables.py:283
@@ -2340,7 +2364,7 @@ msgid "Power State"
 msgstr "Zustand"
 
 #: dashboards/admin/instances/tables.py:157
-#: dashboards/project/instances/tables.py:1042 usage/tables.py:83
+#: dashboards/project/instances/tables.py:1042 usage/tables.py:86
 msgid "Time since created"
 msgstr "Zeit seit Erzeugung"
 
@@ -2990,7 +3014,7 @@ msgstr "Ressourcenverwendung Übersicht"
 #: dashboards/admin/overview/views.py:33
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:9
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:18
-#: usage/tables.py:45
+#: usage/tables.py:43
 msgid "Project Name"
 msgstr "Projektname"
 
@@ -4680,7 +4704,7 @@ msgstr "undefiniert"
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:56
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:106
 msgid "QoS Spec: {{ qos_spec_name }}"
-msgstr ""
+msgstr "QoS Spezifikationen: {{ qos_spec_name }}"
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:65
 msgid "Unable to retrieve QoS spec list."
@@ -4688,7 +4712,7 @@ msgstr "Die Liste der QOS Spezifikationen kann nicht abgerufen werden."
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:79
 msgid "Spec: {{ qos_spec_name }}"
-msgstr ""
+msgstr "Spezifikationen: {{ qos_spec_name }}"
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:100
 msgid "Edit Spec Value"
@@ -5618,7 +5642,7 @@ msgid "Unable to update the user password."
 msgstr "Das Benutzerpasswort kann nicht aktualisiert werden."
 
 #: dashboards/identity/users/panel.py:27
-#: dashboards/identity/users/tables.py:245
+#: dashboards/identity/users/tables.py:246
 #: dashboards/identity/users/views.py:46
 #: dashboards/identity/users/templates/users/index.html:3
 #: dashboards/project/databases/tables.py:359
@@ -5749,16 +5773,16 @@ msgstr "Netzwerk"
 msgid "Object Store"
 msgstr "Objektspeicher"
 
-#: dashboards/project/dashboard.py:48
+#: dashboards/project/dashboard.py:49
 msgid "Orchestration"
 msgstr "Orchestrierung"
 
-#: dashboards/project/dashboard.py:55
+#: dashboards/project/dashboard.py:56
 #: dashboards/project/database_backups/tables.py:168
 msgid "Database"
 msgstr "Datenbank"
 
-#: dashboards/project/dashboard.py:62
+#: dashboards/project/dashboard.py:63
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_templates.html:3
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/clusters.html:3
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/image_registry.html:3
@@ -10613,13 +10637,13 @@ msgstr "Die minimale Größe des Speichers, um das Abbild zu starten. Falls nich
 
 #: dashboards/project/images/images/forms.py:96
 msgid "Copy Data"
-msgstr ""
+msgstr "Daten kopieren"
 
 #: dashboards/project/images/images/forms.py:97
 msgid ""
 "Specify this option to copy image data to the image service. If unspecified,"
 " image data will be used in its current location."
-msgstr ""
+msgstr "Wählen Sie diese Option, um Abbilddaten in den Abbilddienst zu kopieren. Ohne Angabe wird der aktuelle Ort für Abbilddaten verwendet."
 
 #: dashboards/project/images/images/forms.py:148
 msgid "A image or external image location must be specified."
@@ -10682,7 +10706,7 @@ msgstr[1] "Gelöschte Abbilder"
 
 #: dashboards/project/images/images/tables.py:107
 msgid "Edit Image"
-msgstr ""
+msgstr "Abbild bearbeiten"
 
 #: dashboards/project/images/images/tables.py:124
 #: dashboards/project/volumes/snapshots/tables.py:93
@@ -15652,7 +15676,7 @@ msgstr "Datenträger kann nicht abgerufen werden."
 
 #: dashboards/project/volumes/volumes/views.py:433
 msgid "Volume Encryption Details: {{ volume.name }}"
-msgstr ""
+msgstr "Datenträger Verschlüsselungsdetails: {{ volume.name }}"
 
 #: dashboards/project/volumes/volumes/views.py:440
 #, python-format
@@ -16815,27 +16839,32 @@ msgstr "Anzahl Bytes der injizierten Dateipfade"
 msgid "Unable to retrieve compute limit information."
 msgstr "Compute-Begrenzungsinformationen können nicht abgerufen werden."
 
-#: usage/tables.py:40
+#: usage/tables.py:44
 msgid "VCPU Hours"
 msgstr "VCPU Stunden"
 
-#: usage/tables.py:47
+#: usage/tables.py:45
+msgid ""
+"Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
+msgstr ""
+
+#: usage/tables.py:50
 msgid "Disk GB Hours"
 msgstr "Festplatte GB Stunden"
 
-#: usage/tables.py:48
+#: usage/tables.py:51
 msgid "Total disk usage (GB * Hours Used) for the project"
 msgstr "Gesamte Festplattenauslastung (GB * ausgelastete Stunden) für das Projekt"
 
-#: usage/tables.py:52
+#: usage/tables.py:55
 msgid "Memory MB Hours"
 msgstr "Speicherverwendung MB Stunden"
 
-#: usage/tables.py:53
+#: usage/tables.py:56
 msgid "Total memory usage (MB * Hours Used) for the project"
 msgstr "Gesamte Speicherverwendung (MB * Stunden) für das Projekt"
 
-#: usage/tables.py:63 usage/tables.py:93
+#: usage/tables.py:66 usage/tables.py:96
 msgid "Usage"
 msgstr "Verwendung"
 

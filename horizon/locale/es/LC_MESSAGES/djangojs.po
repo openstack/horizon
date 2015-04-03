@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-01 22:59-0500\n"
-"PO-Revision-Date: 2015-04-02 00:44+0000\n"
+"POT-Creation-Date: 2015-04-02 20:58-0500\n"
+"PO-Revision-Date: 2015-04-02 22:17+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -292,7 +292,7 @@ msgid "View Instance Details"
 msgstr "Ver detalles de la instancia"
 
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:382
+#: static/horizon/js/horizon.tables.js:406
 msgid "No items to display."
 msgstr "No hay ítems que mostrar."
 
@@ -315,7 +315,7 @@ msgstr "Confirmar %s"
 msgid "Please confirm your selection. "
 msgstr "Confirme su selección."
 
-#: static/horizon/js/horizon.tables.js:369
+#: static/horizon/js/horizon.tables.js:393
 #: static/horizon/js/angular/filters/filters.js:163
 #, c-format
 msgid "Displaying %s item"
@@ -407,13 +407,9 @@ msgstr "No ha sido posible obtener la imagen."
 msgid "Unable to retrieve images."
 msgstr "No ha sido posible obtener las imágenes."
 
-#: static/horizon/js/angular/services/hz.api.glance.js:133
+#: static/horizon/js/angular/services/hz.api.glance.js:144
 msgid "Unable to retrieve namespaces."
 msgstr "No ha sido posible obtener los espacios de nombres."
-
-#: static/horizon/js/angular/services/hz.api.glance.js:147
-msgid "Unable to retrieve namespace."
-msgstr "No ha sido posible obtener el espacio de nombres."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:24
 msgid "Unable to retrieve users"

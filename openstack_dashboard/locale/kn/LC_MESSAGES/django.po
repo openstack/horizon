@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-01 22:59-0500\n"
-"PO-Revision-Date: 2015-04-01 23:47+0000\n"
+"POT-Creation-Date: 2015-04-02 20:58-0500\n"
+"PO-Revision-Date: 2015-04-03 01:59+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Kannada (http://www.transifex.com/projects/p/horizon/language/kn/)\n"
 "MIME-Version: 1.0\n"
@@ -317,23 +317,47 @@ msgid "System Current Power"
 msgstr ""
 
 #: api/ceilometer.py:1264
-msgid "System Current Temperature"
-msgstr ""
-
-#: api/ceilometer.py:1268
 msgid "Fan RPM"
 msgstr ""
 
-#: api/ceilometer.py:1272
+#: api/ceilometer.py:1268
 msgid "Sensor Temperature Reading"
 msgstr ""
 
-#: api/ceilometer.py:1276
+#: api/ceilometer.py:1272
 msgid "Sensor Current Reading"
 msgstr ""
 
-#: api/ceilometer.py:1280
+#: api/ceilometer.py:1276
 msgid "Sensor Voltage Reading"
+msgstr ""
+
+#: api/ceilometer.py:1280
+msgid "System Inlet Temperature Reading"
+msgstr ""
+
+#: api/ceilometer.py:1284
+msgid "System Outlet Temperature Reading"
+msgstr ""
+
+#: api/ceilometer.py:1288
+msgid "System Airflow Reading"
+msgstr ""
+
+#: api/ceilometer.py:1292
+msgid "System CUPS Reading"
+msgstr ""
+
+#: api/ceilometer.py:1296
+msgid "System CPU Utility Reading"
+msgstr ""
+
+#: api/ceilometer.py:1300
+msgid "System Memory Utility Reading"
+msgstr ""
+
+#: api/ceilometer.py:1304
+msgid "System IO Utility Reading"
 msgstr ""
 
 #: api/cinder.py:46 dashboards/admin/volumes/volume_types/forms.py:33
@@ -1636,7 +1660,7 @@ msgstr "ಸ್ಥಳೀಯ ಶೇಖರಣೆ (ಒಟ್ಟು)"
 #: dashboards/project/instances/tables.py:990
 #: dashboards/project/instances/tables.py:1013
 #: dashboards/project/instances/workflows/create_instance.py:84
-#: dashboards/project/overview/views.py:32 usage/tables.py:80
+#: dashboards/project/overview/views.py:32 usage/tables.py:83
 msgid "Instance Name"
 msgstr "ಇನ್‌ಸ್ಟೆನ್ಸ್ ಹೆಸರು"
 
@@ -2091,7 +2115,7 @@ msgstr "ವ್ಯವಸ್ಥೆಯ ಮಾಹಿತಿ"
 #: dashboards/identity/projects/workflows.py:153
 #: dashboards/identity/projects/workflows.py:527
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:13
-#: dashboards/identity/users/tables.py:236
+#: dashboards/identity/users/tables.py:237
 #: dashboards/identity/users/templates/users/_detail_overview.html:23
 #: dashboards/project/firewalls/forms.py:71
 #: dashboards/project/firewalls/tables.py:283
@@ -2323,7 +2347,7 @@ msgid "Power State"
 msgstr "ವಿದ್ಯುಚ್ಛಕ್ತಿ ಸ್ಥಿತಿ"
 
 #: dashboards/admin/instances/tables.py:157
-#: dashboards/project/instances/tables.py:1042 usage/tables.py:83
+#: dashboards/project/instances/tables.py:1042 usage/tables.py:86
 msgid "Time since created"
 msgstr "ರಚಿಸಿದ ನಂತರದ ಸಮಯ"
 
@@ -2971,7 +2995,7 @@ msgstr "ಸಂಪನ್ಮೂಲಗಳು ಬಳಕೆಯ ಅವಲೋಕನ"
 #: dashboards/admin/overview/views.py:33
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:9
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:18
-#: usage/tables.py:45
+#: usage/tables.py:43
 msgid "Project Name"
 msgstr "ಪರಿಯೋಜನೆಯ ಹೆಸರು"
 
@@ -5571,7 +5595,7 @@ msgid "Unable to update the user password."
 msgstr ""
 
 #: dashboards/identity/users/panel.py:27
-#: dashboards/identity/users/tables.py:245
+#: dashboards/identity/users/tables.py:246
 #: dashboards/identity/users/views.py:46
 #: dashboards/identity/users/templates/users/index.html:3
 #: dashboards/project/databases/tables.py:359
@@ -5696,16 +5720,16 @@ msgstr "ಜಾಲಬಂಧ"
 msgid "Object Store"
 msgstr "ವಸ್ತು ಶೇಖರಣೆ"
 
-#: dashboards/project/dashboard.py:48
+#: dashboards/project/dashboard.py:49
 msgid "Orchestration"
 msgstr "ಆರ್ಕೆಸ್ಟ್ರೇಶನ್"
 
-#: dashboards/project/dashboard.py:55
+#: dashboards/project/dashboard.py:56
 #: dashboards/project/database_backups/tables.py:168
 msgid "Database"
 msgstr "ದತ್ತಸಂಚಯ"
 
-#: dashboards/project/dashboard.py:62
+#: dashboards/project/dashboard.py:63
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_templates.html:3
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/clusters.html:3
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/image_registry.html:3
@@ -16658,27 +16682,32 @@ msgstr "ಇಂಜೆಕ್ಟ್‌ ಮಾಡಲಾದ ಕಡತದ ಮಾರ್
 msgid "Unable to retrieve compute limit information."
 msgstr "ಕಂಪ್ಯೂಟ್‌ ಮಿತಿಯ ಮಾಹಿತಿಯನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: usage/tables.py:40
+#: usage/tables.py:44
 msgid "VCPU Hours"
 msgstr "VCPU ಗಂಟೆಗಳು"
 
-#: usage/tables.py:47
+#: usage/tables.py:45
+msgid ""
+"Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
+msgstr ""
+
+#: usage/tables.py:50
 msgid "Disk GB Hours"
 msgstr "ಡಿಸ್ಕ್‌ GB ಗಂಟೆಗಳು"
 
-#: usage/tables.py:48
+#: usage/tables.py:51
 msgid "Total disk usage (GB * Hours Used) for the project"
 msgstr "ಪರಿಯೋಜನೆಗಾಗಿ ಒಟ್ಟು ಡಿಸ್ಕ್‌ ಬಳಕೆ (GB * ಗಂಟೆಗಳನ್ನು ಬಳಸಲಾಗಿದೆ)"
 
-#: usage/tables.py:52
+#: usage/tables.py:55
 msgid "Memory MB Hours"
 msgstr ""
 
-#: usage/tables.py:53
+#: usage/tables.py:56
 msgid "Total memory usage (MB * Hours Used) for the project"
 msgstr ""
 
-#: usage/tables.py:63 usage/tables.py:93
+#: usage/tables.py:66 usage/tables.py:96
 msgid "Usage"
 msgstr "ಬಳಕೆ"
 

@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-01 22:59-0500\n"
-"PO-Revision-Date: 2015-04-02 04:43+0000\n"
-"Last-Translator: myamamot <myamamot@redhat.com>\n"
+"POT-Creation-Date: 2015-04-02 20:58-0500\n"
+"PO-Revision-Date: 2015-04-03 01:59+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -320,24 +320,48 @@ msgid "System Current Power"
 msgstr "現在のシステム電力"
 
 #: api/ceilometer.py:1264
-msgid "System Current Temperature"
-msgstr "現在のシステム温度"
-
-#: api/ceilometer.py:1268
 msgid "Fan RPM"
 msgstr "ファンの RPM"
 
-#: api/ceilometer.py:1272
+#: api/ceilometer.py:1268
 msgid "Sensor Temperature Reading"
 msgstr "センサーの温度測定値"
 
-#: api/ceilometer.py:1276
+#: api/ceilometer.py:1272
 msgid "Sensor Current Reading"
 msgstr "センサーの現在の測定値"
 
-#: api/ceilometer.py:1280
+#: api/ceilometer.py:1276
 msgid "Sensor Voltage Reading"
 msgstr "センサーの電圧測定値"
+
+#: api/ceilometer.py:1280
+msgid "System Inlet Temperature Reading"
+msgstr ""
+
+#: api/ceilometer.py:1284
+msgid "System Outlet Temperature Reading"
+msgstr ""
+
+#: api/ceilometer.py:1288
+msgid "System Airflow Reading"
+msgstr ""
+
+#: api/ceilometer.py:1292
+msgid "System CUPS Reading"
+msgstr ""
+
+#: api/ceilometer.py:1296
+msgid "System CPU Utility Reading"
+msgstr ""
+
+#: api/ceilometer.py:1300
+msgid "System Memory Utility Reading"
+msgstr ""
+
+#: api/ceilometer.py:1304
+msgid "System IO Utility Reading"
+msgstr ""
 
 #: api/cinder.py:46 dashboards/admin/volumes/volume_types/forms.py:33
 msgid "back-end"
@@ -1639,7 +1663,7 @@ msgstr "ローカルストレージ (総量)"
 #: dashboards/project/instances/tables.py:990
 #: dashboards/project/instances/tables.py:1013
 #: dashboards/project/instances/workflows/create_instance.py:84
-#: dashboards/project/overview/views.py:32 usage/tables.py:80
+#: dashboards/project/overview/views.py:32 usage/tables.py:83
 msgid "Instance Name"
 msgstr "インスタンス名"
 
@@ -2094,7 +2118,7 @@ msgstr "システム情報"
 #: dashboards/identity/projects/workflows.py:153
 #: dashboards/identity/projects/workflows.py:527
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:13
-#: dashboards/identity/users/tables.py:236
+#: dashboards/identity/users/tables.py:237
 #: dashboards/identity/users/templates/users/_detail_overview.html:23
 #: dashboards/project/firewalls/forms.py:71
 #: dashboards/project/firewalls/tables.py:283
@@ -2326,7 +2350,7 @@ msgid "Power State"
 msgstr "電源状態"
 
 #: dashboards/admin/instances/tables.py:157
-#: dashboards/project/instances/tables.py:1042 usage/tables.py:83
+#: dashboards/project/instances/tables.py:1042 usage/tables.py:86
 msgid "Time since created"
 msgstr "作成後経過時間"
 
@@ -2974,7 +2998,7 @@ msgstr "リソース使用状況の概要"
 #: dashboards/admin/overview/views.py:33
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:9
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:18
-#: usage/tables.py:45
+#: usage/tables.py:43
 msgid "Project Name"
 msgstr "プロジェクト名"
 
@@ -4327,12 +4351,12 @@ msgstr "ボリュームの詳細"
 #: dashboards/admin/volumes/volumes/tables.py:33
 #: dashboards/admin/volumes/volumes/views.py:47
 msgid "Manage Volume"
-msgstr ""
+msgstr "ボリュームの管理"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/unmanage_volume.html:3
 #: dashboards/admin/volumes/volumes/tables.py:43
 msgid "Unmanage Volume"
-msgstr ""
+msgstr "ボリュームの管理解除"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/update_status.html:3
 #: dashboards/admin/volumes/volumes/tables.py:69
@@ -4609,7 +4633,7 @@ msgstr "追加スペックの一覧を取得できません。"
 #: dashboards/admin/volumes/volume_types/extras/views.py:86
 #, python-format
 msgid "Edit Extra Spec Value: %s"
-msgstr ""
+msgstr "追加スペック値の編集: %s"
 
 #: dashboards/admin/volumes/volume_types/extras/views.py:107
 msgid "Unable to retrieve volume type extra spec details."
@@ -4648,7 +4672,7 @@ msgstr "未定義"
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:56
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:106
 msgid "QoS Spec: {{ qos_spec_name }}"
-msgstr ""
+msgstr "QoS スペック: {{ qos_spec_name }}"
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:65
 msgid "Unable to retrieve QoS spec list."
@@ -4656,11 +4680,11 @@ msgstr "QoS スペック一覧を取得できません。"
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:79
 msgid "Spec: {{ qos_spec_name }}"
-msgstr ""
+msgstr "スペック: {{ qos_spec_name }}"
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:100
 msgid "Edit Spec Value"
-msgstr ""
+msgstr "スペック値の編集"
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:120
 msgid "Unable to retrieve QoS spec details."
@@ -4668,37 +4692,37 @@ msgstr "QoS スペックの詳細を取得できません。"
 
 #: dashboards/admin/volumes/volumes/forms.py:33
 msgid "Invalid metadata entry. Use comma-separated key=value pairs"
-msgstr ""
+msgstr "メタデータのエントリーが無効です。コンマ区切りの key=value ペアを使用してください。"
 
 #: dashboards/admin/volumes/volumes/forms.py:48
 msgid "Identifier"
-msgstr ""
+msgstr "識別子"
 
 #: dashboards/admin/volumes/volumes/forms.py:49
 msgid "Name or other identifier for existing volume"
-msgstr ""
+msgstr "既存のボリュームの名前またはその他の識別子"
 
 #: dashboards/admin/volumes/volumes/forms.py:51
 msgid "Identifier Type"
-msgstr ""
+msgstr "識別子の種別"
 
 #: dashboards/admin/volumes/volumes/forms.py:52
 msgid "Type of backend device identifier provided"
-msgstr ""
+msgstr "指定するバックエンドデバイスの識別子の種別"
 
 #: dashboards/admin/volumes/volumes/forms.py:56
 msgid ""
 "Cinder host on which the existing volume resides; takes the form: host"
 "@backend-name#pool"
-msgstr ""
+msgstr "既存のボリュームが存在する Cinder ホスト (形式: host@backend-name#pool)"
 
 #: dashboards/admin/volumes/volumes/forms.py:62
 msgid "Volume name to be assigned"
-msgstr ""
+msgstr "割り当てるボリューム名"
 
 #: dashboards/admin/volumes/volumes/forms.py:69
 msgid "Comma-separated key=value pairs"
-msgstr ""
+msgstr "コンマ区切りの key=value ペア"
 
 #: dashboards/admin/volumes/volumes/forms.py:72
 msgid "Volume Type"
@@ -4712,7 +4736,7 @@ msgstr "起動可能"
 
 #: dashboards/admin/volumes/volumes/forms.py:81
 msgid "Specifies that the newly created volume should be marked as bootable"
-msgstr ""
+msgstr "新規作成するボリュームがブート可能とマークされる必要があることを指定"
 
 #: dashboards/admin/volumes/volumes/forms.py:89
 #: dashboards/project/volumes/volumes/forms.py:268
@@ -4722,7 +4746,7 @@ msgstr "ボリュームタイプの指定なし"
 #: dashboards/admin/volumes/volumes/forms.py:128
 #, python-format
 msgid "Successfully sent the request to manage volume: %s"
-msgstr ""
+msgstr "ボリューム %s の管理要求は正常に行われました。"
 
 #: dashboards/admin/volumes/volumes/forms.py:133
 msgid "Unable to manage volume."
@@ -4731,11 +4755,11 @@ msgstr ""
 #: dashboards/admin/volumes/volumes/forms.py:159
 #, python-format
 msgid "Successfully sent the request to unmanage volume: %s"
-msgstr ""
+msgstr "ボリューム %s の管理解除要求は正常に行われました。"
 
 #: dashboards/admin/volumes/volumes/forms.py:164
 msgid "Unable to unmanage volume."
-msgstr ""
+msgstr "ボリュームの管理を解除できません。"
 
 #: dashboards/admin/volumes/volumes/forms.py:176
 #, python-format
@@ -4779,19 +4803,19 @@ msgstr "QoS スペックを作成できません。"
 
 #: dashboards/admin/volumes/volumes/tables.py:61
 msgid "Unable to retrieve snapshot data."
-msgstr ""
+msgstr "スナップショットのデータを取得できません。"
 
 #: dashboards/admin/volumes/volumes/views.py:49
 msgid "Manage"
-msgstr ""
+msgstr "管理"
 
 #: dashboards/admin/volumes/volumes/views.py:53
 msgid "Manage a Volume"
-msgstr ""
+msgstr "ボリュームの管理"
 
 #: dashboards/admin/volumes/volumes/views.py:63
 msgid "Confirm Unmanage Volume"
-msgstr ""
+msgstr "ボリュームの管理解除の確認"
 
 #: dashboards/admin/volumes/volumes/views.py:65
 msgid "Unmanage"
@@ -5574,7 +5598,7 @@ msgid "Unable to update the user password."
 msgstr "ユーザーのパスワードを更新できません。"
 
 #: dashboards/identity/users/panel.py:27
-#: dashboards/identity/users/tables.py:245
+#: dashboards/identity/users/tables.py:246
 #: dashboards/identity/users/views.py:46
 #: dashboards/identity/users/templates/users/index.html:3
 #: dashboards/project/databases/tables.py:359
@@ -5699,16 +5723,16 @@ msgstr "ネットワーク"
 msgid "Object Store"
 msgstr "オブジェクトストア"
 
-#: dashboards/project/dashboard.py:48
+#: dashboards/project/dashboard.py:49
 msgid "Orchestration"
 msgstr "オーケストレーション"
 
-#: dashboards/project/dashboard.py:55
+#: dashboards/project/dashboard.py:56
 #: dashboards/project/database_backups/tables.py:168
 msgid "Database"
 msgstr "データベース"
 
-#: dashboards/project/dashboard.py:62
+#: dashboards/project/dashboard.py:63
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_templates.html:3
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/clusters.html:3
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/image_registry.html:3
@@ -16661,27 +16685,32 @@ msgstr "injected file のパス長"
 msgid "Unable to retrieve compute limit information."
 msgstr "コンピュートのリソース上限情報を取得できません。"
 
-#: usage/tables.py:40
+#: usage/tables.py:44
 msgid "VCPU Hours"
 msgstr "仮想 CPU 時間"
 
-#: usage/tables.py:47
+#: usage/tables.py:45
+msgid ""
+"Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
+msgstr ""
+
+#: usage/tables.py:50
 msgid "Disk GB Hours"
 msgstr "ディスク GB 時間"
 
-#: usage/tables.py:48
+#: usage/tables.py:51
 msgid "Total disk usage (GB * Hours Used) for the project"
 msgstr "このプロジェクトの全ディスク使用量 (使用 GB 時間)"
 
-#: usage/tables.py:52
+#: usage/tables.py:55
 msgid "Memory MB Hours"
 msgstr ""
 
-#: usage/tables.py:53
+#: usage/tables.py:56
 msgid "Total memory usage (MB * Hours Used) for the project"
 msgstr ""
 
-#: usage/tables.py:63 usage/tables.py:93
+#: usage/tables.py:66 usage/tables.py:96
 msgid "Usage"
 msgstr "使用状況"
 
