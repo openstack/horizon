@@ -16,6 +16,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import django
 import logging
 import os
 import socket
@@ -34,6 +35,12 @@ from django.test.client import RequestFactory  # noqa
 from django.test import testcases
 from django.utils.encoding import force_text
 from django.utils import unittest
+
+if django.VERSION < (1, 7):
+    from django.test import LiveServerTestCase  # noqa
+else:
+    from django.contrib.staticfiles.testing \
+            import StaticLiveServerTestCase as LiveServerTestCase  # noqa
 
 LOG = logging.getLogger(__name__)
 
@@ -254,7 +261,7 @@ class TestCase(django_test.TestCase):
 
 @unittest.skipUnless(os.environ.get('WITH_SELENIUM', False),
                      "The WITH_SELENIUM env variable is not set.")
-class SeleniumTestCase(django_test.LiveServerTestCase):
+class SeleniumTestCase(LiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         socket.setdefaulttimeout(60)
