@@ -47,7 +47,7 @@ class ServicesTests(test.JasmineTests):
     ]
     specs = [
         'horizon/js/angular/services/hz.api.service.spec.js',
-        'horizon/tests/jasmine/utilsSpec.js',
+        'horizon/tests/jasmine/utils.spec.js',
         'angular/action-list/action-list.spec.js',
         'angular/bind-scope/bind-scope.spec.js',
         'angular/charts/pie-chart.spec.js',
