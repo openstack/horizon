@@ -54,8 +54,8 @@ class RebuildInstanceForm(forms.SelfHandlingForm):
         label=_("Confirm Rebuild Password"),
         required=False,
         widget=forms.PasswordInput(render_value=False))
-    disk_config = forms.ThemableChoiceField(label=_("Disk Partition"),
-                                            required=False)
+    # disk_config = forms.ThemableChoiceField(label=_("Disk Partition"),
+    #                                         required=False)
 
     def __init__(self, request, *args, **kwargs):
         super(RebuildInstanceForm, self).__init__(request, *args, **kwargs)
@@ -75,17 +75,17 @@ class RebuildInstanceForm(forms.SelfHandlingForm):
             del self.fields['password']
             del self.fields['confirm_password']
 
-        try:
-            if not api.nova.extension_supported("DiskConfig", request):
-                del self.fields['disk_config']
-            else:
-                # Set our disk_config choices
-                config_choices = [("AUTO", _("Automatic")),
-                                  ("MANUAL", _("Manual"))]
-                self.fields['disk_config'].choices = config_choices
-        except Exception:
-            exceptions.handle(request, _('Unable to retrieve extensions '
-                                         'information.'))
+        # try:
+        #     if not api.nova.extension_supported("DiskConfig", request):
+        #         del self.fields['disk_config']
+        #     else:
+        #         # Set our disk_config choices
+        #         config_choices = [("AUTO", _("Automatic")),
+        #                           ("MANUAL", _("Manual"))]
+        #         self.fields['disk_config'].choices = config_choices
+        # except Exception:
+        #     exceptions.handle(request, _('Unable to retrieve extensions '
+        #                                  'information.'))
 
     def clean(self):
         cleaned_data = super(RebuildInstanceForm, self).clean()
