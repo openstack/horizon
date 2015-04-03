@@ -44,8 +44,8 @@
    * </select-flavor-table>
    * '''
    */
-  module.directive('selectFlavorTable', ['dashboardBasePath', 'helpText',
-    function (path, transferTableHelpText) {
+  module.directive('selectFlavorTable', ['dashboardBasePath', 'helpText', 'donutChartSettings',
+    function (path, transferTableHelpText, donutChartSettings) {
       var link = function (scope, element, attrs, transferTableCtrl) {
 
         /*
@@ -100,12 +100,7 @@
         scope.rootDiskLabel = gettext("Root Disk");
         scope.ephemeralDiskLabel = gettext("Ephemeral Disk");
         scope.isPublicLabel = gettext("Public");
-
-        // Settings for the quota charts
-        scope.donutSettings = {
-          innerRadius: 24,
-          outerRadius: 30
-        };
+        scope.chartSettings = donutChartSettings;
       };
 
       return {

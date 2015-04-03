@@ -18,8 +18,38 @@
     padding: $tooltip-key-padding;
   }
 
-  i.fa {
+  .tooltip-value {
+    color: $tooltip-value-color;
+  }
+
+  span.fa {
     background-color: inherit;
     fill: none;
+    &.usage {
+      color: $chart-quota-usage-color;
+    }
+
+    &.added {
+      color: $chart-quota-added-color;
+    }
+
+    &.remaining {
+      color: $chart-quota-remaining-color;
+    }
+
+    &.danger {
+      color: $chart-quota-danger-color;
+    }
+  }
+}
+
+// styles for donut chart tooltips over quota
+.pie-chart.danger {
+  .chart-tooltip {
+    span.fa {
+      &.added {
+        color: $chart-quota-danger-color;
+      }
+    }
   }
 }

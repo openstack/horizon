@@ -1,9 +1,9 @@
-<div class="pie-chart">
+<div class="pie-chart" ng-class="{ 'danger': chartData.overMax }">
   <chart-tooltip tooltip-data="model.tooltipData"></chart-tooltip>
 
   <div ng-if="::model.settings.showTitle && chartData.title"
-    class="pie-chart-title">
-    {$ ::chartData.title $} ({$ model.total $} Max)
+       class="pie-chart-title {$ ::model.settings.titleClass $}">
+    {$ ::chartData.title $} ({$ model.total $} {$ model.totalLabel $})
   </div>
 
   <svg class="svg-pie-chart"
@@ -13,7 +13,8 @@
       ng-attr-transform="translate({$ ::model.settings.outerRadius $},{$ ::model.settings.outerRadius $})">
       <g class="slices"></g>
       <g ng-if="::model.settings.showLabel && chartData.label" class="pie-chart-label">
-        <text dy="0.35em" ng-style="model.settings.label">{$ chartData.label $}</text>
+        <text dy="0.35em" ng-style="model.settings.label"
+              ng-class="{ 'danger': chartData.overMax }">{$ chartData.label $}</text>
       </g>
     </g>
   </svg>

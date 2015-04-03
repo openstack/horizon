@@ -101,11 +101,11 @@ limitations under the License.
     <td colspan="7" class="detail">
       <h5>{$ ::quotaImpactLabel $}</h5>
       <pie-chart chart-data="item.instancesChartData"
-                 chart-settings="donutSettings"></pie-chart>
+                 chart-settings="chartSettings"></pie-chart>
       <pie-chart chart-data="item.vcpusChartData"
-                 chart-settings="donutSettings"></pie-chart>
+                 chart-settings="chartSettings"></pie-chart>
       <pie-chart chart-data="item.ramChartData"
-                 chart-settings="donutSettings"></pie-chart>
+                 chart-settings="chartSettings"></pie-chart>
       <div ng-if="metadataDefs.flavor">
         <hr>
         <div class="row" ng-if="item.extras">

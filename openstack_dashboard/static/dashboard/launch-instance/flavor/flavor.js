@@ -20,15 +20,14 @@
 
   module.controller('LaunchInstanceFlavorCtrl', [
     '$scope',
+    'quotaChartDefaults',
     'launchInstanceModel',
     LaunchInstanceFlavorCtrl
   ]);
 
-  module.controller('LaunchInstanceFlavorHelpCtrl', [
-    LaunchInstanceFlavorHelpCtrl
-  ]);
-
-  function LaunchInstanceFlavorCtrl($scope, launchInstanceModel) {
+  function LaunchInstanceFlavorCtrl($scope,
+                                    quotaChartDefaults,
+                                    launchInstanceModel) {
 
     // Labels for the flavor step
     this.title = gettext('Flavor');
@@ -214,25 +213,29 @@
 
       var used = this.defaultIfUndefined(totalUsed, 0);
       var allowed = this.defaultIfUndefined(maxAllowed, 1);
+      var quotaCalc = Math.round((used + added) / allowed * 100);
+      var overMax = quotaCalc > 100 ? true : false;
 
       var usageData = {
-        label: gettext('Current Usage'),
+        label: quotaChartDefaults.usageLabel,
         value: used,
-        color: '#1f83c6'
+        colorClass: quotaChartDefaults.usageColorClass
       };
       var addedData = {
-        label: gettext('Added'),
+        label: quotaChartDefaults.addedLabel,
         value: added,
-        color: '#81c1e7'
+        colorClass: quotaChartDefaults.addedColorClass
       };
       var remainingData = {
-        label: gettext('Remaining'),
+        label: quotaChartDefaults.remainingLabel,
         value: Math.max(0, allowed - used - added),
-        color: '#d1d3d4'
+        colorClass: quotaChartDefaults.remainingColorClass
       };
       var chartData = {
         title: title,
-        label: Math.ceil((used + added) / allowed * 100) + '%',
+        maxLimit: allowed,
+        label: quotaCalc + '%',
+        overMax: overMax,
         data:  [usageData, addedData, remainingData]
       };
 
@@ -280,6 +283,10 @@
       return messages;
     };
   }
+
+  module.controller('LaunchInstanceFlavorHelpCtrl', [
+    LaunchInstanceFlavorHelpCtrl
+  ]);
 
   function LaunchInstanceFlavorHelpCtrl() {
     var ctrl = this;

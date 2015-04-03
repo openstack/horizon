@@ -7,18 +7,43 @@
 
     .slice {
       cursor: pointer;
+
+      &.usage {
+        fill: $chart-quota-usage-color;
+      }
+
+      &.added {
+        fill: $chart-quota-added-color;
+      }
+
+      &.remaining {
+        fill: $chart-quota-remaining-color;
+      }
     }
   }
 
   .pie-chart-title {
-    font-size: $chart-title-font-size;
+    color: $chart-title-font-color;
     font-weight: $chart-title-weight;
     padding: $chart-title-padding;
+  }
+
+  .pie-chart-title-medium {
+    font-size: $chart-title-font-size;
+  }
+
+  .pie-chart-title-large {
+    font-size: $chart-title-font-size-large;
   }
 
   .pie-chart-label {
     font-size: 1.2em;
     text-anchor: middle;
+
+    text {
+      font-size: $chart-label-font-size;
+      fill: $chart-label-color;
+    }
   }
 
   .pie-chart-legend {
@@ -28,16 +53,58 @@
     padding: $chart-legend-padding;
 
     .slice-legend {
-      padding: 0.1em 0;
+      padding: $chart-slice-legend-padding;
 
       .slice-key {
         color: transparent;
         display: inline-block;
-        height: 1em;
-        line-height: 1em;
+        height: 1.1em;
+        line-height: 1.1em;
         position: relative;
         top: 0.12em;
-        width: 0.5em;
+        width: 0.45em;
+        margin-right: 3px;
+
+        &.usage {
+          background-color: $chart-quota-usage-color;
+        }
+
+        &.added {
+          background-color: $chart-quota-added-color;
+        }
+
+        &.remaining {
+          background-color: $chart-quota-remaining-color;
+        }
+      }
+    }
+  }
+}
+
+// styles for donut charts over quota
+.pie-chart.danger {
+  .svg-pie-chart {
+    .slice {
+      &.added,
+      &.usage,
+      &.remaining {
+        fill: $chart-quota-danger-color;
+      }
+    }
+  }
+
+  .pie-chart-label {
+    text {
+      fill: $brand-danger;
+    }
+  }
+
+  .pie-chart-legend {
+    .slice-legend {
+      .slice-key {
+        &.added {
+          background-color: $chart-quota-danger-color;
+        }
       }
     }
   }

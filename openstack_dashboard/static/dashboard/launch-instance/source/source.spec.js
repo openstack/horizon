@@ -25,11 +25,13 @@
       var scope, ctrl, $browser, deferred;
 
       beforeEach(module(function($provide) {
+        $provide.value('bootSourceTypes', noop);
         $provide.value('bytesFilter', noop);
+        $provide.value('donutChartSettings', noop);
         $provide.value('dateFilter', noop);
         $provide.value('decodeFilter', noop);
         $provide.value('gbFilter', noop);
-        $provide.value('yesnoFilter', noop);
+        $provide.value('quotaChartDefaults', noop);
       }));
 
       beforeEach(inject(function($controller, $rootScope, _$browser_, $q) {

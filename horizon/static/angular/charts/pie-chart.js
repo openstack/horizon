@@ -19,21 +19,39 @@
      * var chartData = {
      *    title: 'Total Instances',
      *    label: '25%',
+     *    maxLimit: 10,
+     *    overMax: false,
      *    data: [
-     *      { label: 'Current', value: 1, color: '#1f83c6' },
-     *      { label: 'Added', value: 1, color: '#81c1e7' },
-     *      { label: 'Remaining', value: 6, colorClass: 'remaining', hideKey: true }
+     *      { label: quotaChartDefaults.usageLabel, value: 1, colorClass: quotaChartDefaults.usageColorClass},
+     *      { label: quotaChartDefaults.addedLabel, value: 1, colorClass: quotaChartDefaults.addedColorClass },
+     *      { label: quotaChartDefaults.remainingLabel, value: 1, colorClass: quotaChartDefaults.remainingColorClass }
      *    ]
      * };
      *
      * title - the chart title
      * label - the text to show in center of chart
+     * maxLimit - the max limit for current item (optional)
+     *  - if a maxLimit is specified, (# Max) will get added to the chart title
+     *  - otherwise (# Total) will be added to the chart title
+     * overMax - used to notify view when max is surpassed so that we can
+     *  dynamically alter UI to warn the user (optional)
      * data - the data used to render chart
      *
+     * Donut chart settings (donutChartSettings) and pie chart settings (pieChartSettings)
+     * are conveniently defined as angular constants in order to encourage consistency.
+     * To leverage the constant values, you will need to specify them as dependencies
+     * in your controller or directive. You can also create a custom styled chart
+     * by defining a chartSettings object in your controller and passing it in as
+     * the chart-settings attribute value.
+     *
      * var chartSettings = {
-     *   innerRadius: 35,
-     *   outerRadius: 50,
-     *   showLabel: false
+     *    innerRadius: 24,
+     *    outerRadius: 30,
+     *    titleClass: 'pie-chart-title-medium',
+     *    showTitle: true,
+     *    showLabel: true,
+     *    showLegend: true,
+     *    tooltipIcon: 'fa-square'
      * };
      * ```
      *
@@ -42,16 +60,21 @@
      *
      * @example
      * ```
-     * Pie Chart:
-     * <pie-chart chart-data='chartData'></pie-chart>
+     * Pie Chart using predefined constant:
+     * <pie-chart chart-data='chartData'
+     *            chart-settings='pieChartSettings'></pie-chart>
      *
-     * Donut Chart:
+     * Donut Chart using predefined constant:
+     * <pie-chart chart-data='chartData'
+     *            chart-settings='donutChartSettings'></pie-chart>
+     *
+     * Custom Chart using custom settings:
      * <pie-chart chart-data='chartData'
      *            chart-settings='chartSettings'></pie-chart>
      * ```
      *
      */
-    .directive('pieChart', [ 'basePath', 'chartSettings', function (path, chartSettings) {
+    .directive('pieChart', [ 'basePath', 'donutChartSettings', function (path, donutChartSettings) {
       return {
         restrict: 'E',
         scope: {
@@ -61,7 +84,14 @@
         replace: true,
         templateUrl: path + 'charts/pie-chart.html',
         link: function (scope, element) {
-          var settings = angular.extend({}, chartSettings, scope.chartSettings);
+          var settings = {};
+          // if chartSettings is defined via the attribute value, use it
+          if (angular.isObject(scope.chartSettings)) {
+            settings = scope.chartSettings;
+          } else {
+            // else default to a donut chart
+            settings = angular.extend({}, donutChartSettings, scope.chartSettings);
+          }
           settings.diameter = settings.outerRadius * 2;
 
           var model = {
@@ -89,7 +119,14 @@
           scope.model = model;
 
           function updateChart() {
-            scope.model.total = d3.sum(scope.chartData.data, function(d) { return d.value; });
+            // set labels depending on whether this is a max or total chart
+            if (angular.isDefined(scope.chartData.maxLimit)) {
+              scope.model.total = scope.chartData.maxLimit;
+              scope.model.totalLabel = gettext('Max');
+            } else {
+              scope.model.total = d3.sum(scope.chartData.data, function(d) { return d.value; });
+              scope.model.totalLabel = gettext('Total');
+            }
             scope.model.tooltipData.enabled = false;
 
             // Generate or update slices

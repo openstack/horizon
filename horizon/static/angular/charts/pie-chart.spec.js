@@ -10,7 +10,8 @@
 
   describe('pie chart directive', function() {
 
-    var $scope, $element;
+    var $scope, $elementMax, $elementTotal, $elementOverMax,
+        donutChartSettings, quotaChartDefaults;
 
     beforeEach(module('templates'));
     beforeEach(module('hz'));
@@ -20,71 +21,185 @@
     beforeEach(inject(function($injector) {
       var $compile = $injector.get('$compile');
       $scope = $injector.get('$rootScope').$new();
+      donutChartSettings = $injector.get('donutChartSettings');
+      quotaChartDefaults = $injector.get('quotaChartDefaults');
 
-      $scope.testData = {
+      $scope.testDataTotal = {
         title: 'Total Instances',
         label: '25%',
         data: [
-          { label: 'Current', value: 1, color: '#1f83c6' },
-          { label: 'Added', value: 1, color: '#81c1e7' },
-          { label: 'Remaining', value: 6, color: '#d1d3d4', hideKey: true }
+          { label: quotaChartDefaults.usageLabel,
+            value: 1,
+            colorClass: quotaChartDefaults.usageColorClass },
+          { label: quotaChartDefaults.addedLabel,
+            value: 1,
+            colorClass: quotaChartDefaults.addedColorClass },
+          { label: quotaChartDefaults.remainingLabel,
+            value: 6,
+            colorClass: quotaChartDefaults.remainingColorClass,
+            hideKey: true }
         ]
       };
 
-      var settings = '{ "innerRadius": 25 }';
-      var markup = "<pie-chart chart-data='testData' chart-settings='" + settings + "'></pie-chart>";
-      $element = angular.element(markup);
-      $compile($element)($scope);
+      $scope.testDataMax = {};
+      $scope.testDataOverMax = {};
+      // Max chart is similar to Total chart data structure
+      // but has an additional 'maxLimit' property
+      angular.copy($scope.testDataTotal, $scope.testDataMax);
+      $scope.testDataMax.maxLimit = 8;
+      // using the Max chart, assign values to test for overMax
+      angular.copy($scope.testDataMax, $scope.testDataOverMax);
+      $scope.testDataOverMax.data[0].value = 6;
+      $scope.testDataOverMax.data[1].value = 3;
+      $scope.testDataOverMax.data[2].value = 0;
+      $scope.testDataOverMax.overMax = true;
+
+      $scope.chartSettings = {
+        innerRadius: 24,
+        outerRadius: 30,
+        titleClass: 'pie-chart-title-medium',
+        showTitle: true,
+        showLabel: true,
+        showLegend: true,
+        tooltipIcon: 'fa-square'
+      };
+
+      // Max/quota chart markup
+      var markupMax = "<pie-chart chart-data='testDataMax' chart-settings='chartSettings'></pie-chart>";
+      $elementMax = angular.element(markupMax);
+      $compile($elementMax)($scope);
+
+      // Over Max/quota chart markup
+      var markupOverMax = "<pie-chart chart-data='testDataOverMax' chart-settings='chartSettings'></pie-chart>";
+      $elementOverMax = angular.element(markupOverMax);
+      $compile($elementOverMax)($scope);
+
+      // Total chart markup
+      var markupTotal = "<pie-chart chart-data='testDataTotal' chart-settings='chartSettings'></pie-chart>";
+      $elementTotal = angular.element(markupTotal);
+      $compile($elementTotal)($scope);
 
       $scope.$digest();
     }));
 
-    it('should be compiled', function() {
-      expect($element.html().trim()).not.toBe('');
+    it('Max chart should be compiled', function() {
+      expect($elementMax.html().trim()).not.toBe('');
     });
 
-    it('should have svg element', function() {
-      expect($element.find('svg')).toBeDefined();
+    it('OverMax chart should be compiled', function() {
+      expect($elementOverMax.html().trim()).not.toBe('');
     });
 
-    it('should have 3 path elements', function() {
-      expect($element.find('path.slice').length).toBe(3);
+    it('Total chart should be compiled', function() {
+      expect($elementTotal.html().trim()).not.toBe('');
     });
 
-    it('should have correct colors for slices', function() {
-      var slices = $element.find('path.slice');
-
-      var slice1Color = slices[0].style.fill;
-
-      if (slice1Color.indexOf('rgb') === 0) {
-        expect(slices[0].style.fill).toBe('rgb(31, 131, 198)');
-        expect(slices[1].style.fill).toBe('rgb(129, 193, 231)');
-        expect(slices[2].style.fill).toBe('rgb(209, 211, 212)');
-      } else {
-        expect(slices[0].style.fill).toBe('#1f83c6');
-        expect(slices[1].style.fill).toBe('#81c1e7');
-        expect(slices[2].style.fill).toBe('#d1d3d4');
-      }
+    it('Max chart should have svg element', function() {
+      expect($elementMax.find('svg')).toBeDefined();
     });
 
-    it('should have a correct title "Total Instances (8 Max)"', function() {
-      var title = $element.find('.pie-chart-title').text().trim();
+    it('OverMax chart should have svg element', function() {
+      expect($elementOverMax.find('svg')).toBeDefined();
+    });
+
+    it('Total chart should have svg element', function() {
+      expect($elementTotal.find('svg')).toBeDefined();
+    });
+
+    it('Max chart should have 3 path elements', function() {
+      expect($elementMax.find('path.slice').length).toBe(3);
+    });
+
+    it('OverMax chart should have 3 path elements', function() {
+      expect($elementOverMax.find('path.slice').length).toBe(3);
+    });
+
+    it('Total chart should have 3 path elements', function() {
+      expect($elementTotal.find('path.slice').length).toBe(3);
+    });
+
+    it('Max chart should have correct css classes for slices', function() {
+      var slices = $elementMax.find('path.slice');
+      expect(angular.element(slices[0]).attr('class')).toBe('slice usage');
+      expect(angular.element(slices[1]).attr('class')).toBe('slice added');
+      expect(angular.element(slices[2]).attr('class')).toBe('slice remaining');
+    });
+
+    it('OverMax chart should have correct css classes for slices', function() {
+      var slices = $elementOverMax.find('path.slice');
+      expect(angular.element(slices[0]).attr('class')).toBe('slice usage');
+      expect(angular.element(slices[1]).attr('class')).toBe('slice added');
+      expect(angular.element(slices[2]).attr('class')).toBe('slice remaining');
+    });
+
+    it('Total chart should have correct css classes for slices', function() {
+      var slices = $elementTotal.find('path.slice');
+      expect(angular.element(slices[0]).attr('class')).toBe('slice usage');
+      expect(angular.element(slices[1]).attr('class')).toBe('slice added');
+      expect(angular.element(slices[2]).attr('class')).toBe('slice remaining');
+    });
+
+    it('Max chart should have a correct title "Total Instances (8 Max)"', function() {
+      var title = $elementMax.find('.pie-chart-title').text().trim();
       expect(title).toBe('Total Instances (8 Max)');
     });
 
-    it('should have a legend', function() {
-      expect($element.find('.pie-chart-legend')).toBeDefined();
+    it('OverMax chart should have a correct title "Total Instances (8 Max)"', function() {
+      var title = $elementOverMax.find('.pie-chart-title').text().trim();
+      expect(title).toBe('Total Instances (8 Max)');
     });
 
-    it ('should have correct legend keys and labels', function() {
-      var legendKeys = $element.find('.pie-chart-legend .slice-legend');
+    it('Total chart should have a correct title "Total Instances (8 Total)"', function() {
+      var title = $elementTotal.find('.pie-chart-title').text().trim();
+      expect(title).toBe('Total Instances (8 Total)');
+    });
+
+    it('Max chart should have a legend', function() {
+      expect($elementMax.find('.pie-chart-legend')).toBeDefined();
+    });
+
+    it('OverMax chart should have a legend', function() {
+      expect($elementOverMax.find('.pie-chart-legend')).toBeDefined();
+    });
+
+    it('Total chart should have a legend', function() {
+      expect($elementTotal.find('.pie-chart-legend')).toBeDefined();
+    });
+
+    it ('Max chart should have correct legend keys and labels', function() {
+      var legendKeys = $elementMax.find('.pie-chart-legend .slice-legend');
 
       var firstKeyLabel = legendKeys[0];
       var secondKeyLabel = legendKeys[1];
 
-      expect(firstKeyLabel.textContent.trim()).toBe('1 Current');
+      expect(firstKeyLabel.textContent.trim()).toBe('1 Current Usage');
       expect(secondKeyLabel.textContent.trim()).toBe('1 Added');
     });
 
+    it ('OverMax chart should have correct legend keys and labels', function() {
+      var legendKeys = $elementOverMax.find('.pie-chart-legend .slice-legend');
+
+      var firstKeyLabel = legendKeys[0];
+      var secondKeyLabel = legendKeys[1];
+
+      expect(firstKeyLabel.textContent.trim()).toBe('6 Current Usage');
+      expect(secondKeyLabel.textContent.trim()).toBe('3 Added');
+    });
+
+    it ('OverMax chart should have "danger" class', function() {
+      var pieChart = $elementOverMax.find('svg').parent();
+      expect(pieChart.hasClass('danger')).toBe(true);
+    });
+
+    it ('Total chart should have correct legend keys and labels', function() {
+      var legendKeys = $elementTotal.find('.pie-chart-legend .slice-legend');
+
+      var firstKeyLabel = legendKeys[0];
+      var secondKeyLabel = legendKeys[1];
+
+      expect(firstKeyLabel.textContent.trim()).toBe('1 Current Usage');
+      expect(secondKeyLabel.textContent.trim()).toBe('1 Added');
+    });
   });
+
 })();
