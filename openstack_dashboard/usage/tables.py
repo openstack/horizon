@@ -37,12 +37,15 @@ class BaseUsageTable(tables.DataTable):
                            verbose_name=_("RAM"),
                            filters=(sizeformat.mb_float_format,),
                            attrs={"data-type": "size"})
-    hours = tables.Column('vcpu_hours', verbose_name=_("VCPU Hours"),
-                          filters=(lambda v: floatformat(v, 2),))
 
 
 class GlobalUsageTable(BaseUsageTable):
     project = tables.Column('project_name', verbose_name=_("Project Name"))
+    vcpu_hours = tables.Column('vcpu_hours', verbose_name=_("VCPU Hours"),
+                               help_text=_("Total VCPU usage (Number of "
+                                           "VCPU in instance * Hours Used) "
+                                           "for the project"),
+                               filters=(lambda v: floatformat(v, 2),))
     disk_hours = tables.Column('disk_gb_hours',
                                verbose_name=_("Disk GB Hours"),
                                help_text=_("Total disk usage (GB * "
@@ -62,7 +65,7 @@ class GlobalUsageTable(BaseUsageTable):
         hidden_title = False
         verbose_name = _("Usage")
         columns = ("project", "vcpus", "disk", "memory",
-                   "hours", "disk_hours", "memory_hours")
+                   "vcpu_hours", "disk_hours", "memory_hours")
         table_actions = (CSVSummary,)
         multi_select = False
 
