@@ -60,7 +60,6 @@
     'decodeFilter',
     'diskFormatFilter',
     'gbFilter',
-    'yesnoFilter',
     LaunchInstanceSourceCtrl
   ]);
 
@@ -70,8 +69,7 @@
                                     dateFilter,
                                     decodeFilter,
                                     diskFormatFilter,
-                                    gbFilter,
-                                    yesnoFilter) {
+                                    gbFilter) {
 
     $scope.label = {
       title: gettext('Instance Details'),
@@ -179,7 +177,7 @@
         { text: gettext('Description'), style: { width: '20%' }, sortable: true },
         { text: gettext('Size'), style: { width: '15%' }, classList: ['number'], sortable: true },
         { text: gettext('Type'), style: { width: '20%' }, sortable: true },
-        { text: gettext('Encrypted'), style: { width: '20%' }, sortable: true }
+        { text: gettext('Availability Zone'), style: { width: '20%' }, sortable: true }
       ],
       volume_snapshot: [
         { text: gettext('Name'), style: { width: '25%' }, sortable: true, sortDefault: true },
@@ -217,7 +215,7 @@
         { key: 'size', filter: gbFilter, classList: ['number'] },
         { key: 'volume_image_metadata', filter: diskFormatFilter,
           style: { 'text-transform': 'uppercase' } },
-        { key: 'encrypted', filter: yesnoFilter }
+        { key: 'availability_zone' }
       ],
       volume_snapshot: [
         { key: 'name', classList: ['hi-light'] },
@@ -246,7 +244,8 @@
     function updateHelpText(key) {
       angular.extend($scope.helpText, {
         noneAllocText: gettext('Select a source from those listed below.'),
-        availHelpText: gettext('Select one')
+        availHelpText: gettext('Select one'),
+        volumeAZHelpText: gettext("When selecting volume as boot source, please ensure the instance's availability zone is compatible with your volume's availability zone.")
       });
     }
 
