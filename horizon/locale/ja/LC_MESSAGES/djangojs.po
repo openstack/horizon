@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-01 22:59-0500\n"
-"PO-Revision-Date: 2015-04-02 00:44+0000\n"
+"POT-Creation-Date: 2015-04-02 20:58-0500\n"
+"PO-Revision-Date: 2015-04-02 22:17+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -293,7 +293,7 @@ msgid "View Instance Details"
 msgstr "インスタンスの詳細の表示"
 
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:382
+#: static/horizon/js/horizon.tables.js:406
 msgid "No items to display."
 msgstr "表示する項目がありません"
 
@@ -316,7 +316,7 @@ msgstr "%sの確認"
 msgid "Please confirm your selection. "
 msgstr "選択内容を確認してください。"
 
-#: static/horizon/js/horizon.tables.js:369
+#: static/horizon/js/horizon.tables.js:393
 #: static/horizon/js/angular/filters/filters.js:163
 #, c-format
 msgid "Displaying %s item"
@@ -407,12 +407,8 @@ msgstr "イメージ情報を取得できません。"
 msgid "Unable to retrieve images."
 msgstr "イメージ一覧を取得できません。"
 
-#: static/horizon/js/angular/services/hz.api.glance.js:133
+#: static/horizon/js/angular/services/hz.api.glance.js:144
 msgid "Unable to retrieve namespaces."
-msgstr "名前空間を取得できません。"
-
-#: static/horizon/js/angular/services/hz.api.glance.js:147
-msgid "Unable to retrieve namespace."
 msgstr "名前空間を取得できません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:24
@@ -429,7 +425,7 @@ msgstr "ユーザーを削除できません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:73
 msgid "Unable to retrieve the current user session."
-msgstr ""
+msgstr "現在のユーザーセッションを取得できません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:80
 msgid "Unable to retrieve the user"
@@ -525,11 +521,11 @@ msgstr "サービスカタログを取得できません。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:385
 msgid "Service type is not enabled: %(desiredType)s"
-msgstr ""
+msgstr "サービスタイプが有効化されていません: %(desiredType)s"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:392
 msgid "Cannot get service catalog from keystone."
-msgstr ""
+msgstr "keystone からサービスカタログを取得できません。"
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:39
 msgid "Unable to retrieve networks."

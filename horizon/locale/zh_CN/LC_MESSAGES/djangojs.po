@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Alfred <alfredhuang211@qq.com>, 2015
 # johnwoo_lee <lijiangsheng1@gmail.com>, 2015
 # LIU Yulong <dragon889@163.com>, 2014-2015
 # Tom Fifield <tom@openstack.org>, 2015
@@ -12,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-01 22:59-0500\n"
-"PO-Revision-Date: 2015-04-02 00:44+0000\n"
+"POT-Creation-Date: 2015-04-02 20:58-0500\n"
+"PO-Revision-Date: 2015-04-02 22:17+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -294,7 +295,7 @@ msgid "View Instance Details"
 msgstr "查看实例详情"
 
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:382
+#: static/horizon/js/horizon.tables.js:406
 msgid "No items to display."
 msgstr "没有条目显示。"
 
@@ -317,7 +318,7 @@ msgstr "确认 %s"
 msgid "Please confirm your selection. "
 msgstr "请确认您的选择。"
 
-#: static/horizon/js/horizon.tables.js:369
+#: static/horizon/js/horizon.tables.js:393
 #: static/horizon/js/angular/filters/filters.js:163
 #, c-format
 msgid "Displaying %s item"
@@ -408,12 +409,8 @@ msgstr "无法检索到镜像。"
 msgid "Unable to retrieve images."
 msgstr "找不到镜像。"
 
-#: static/horizon/js/angular/services/hz.api.glance.js:133
+#: static/horizon/js/angular/services/hz.api.glance.js:144
 msgid "Unable to retrieve namespaces."
-msgstr "无法获取命名空间"
-
-#: static/horizon/js/angular/services/hz.api.glance.js:147
-msgid "Unable to retrieve namespace."
 msgstr "无法获取命名空间"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:24
@@ -430,7 +427,7 @@ msgstr "无法删除用户"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:73
 msgid "Unable to retrieve the current user session."
-msgstr ""
+msgstr "无法获取当前用户会话。"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:80
 msgid "Unable to retrieve the user"
@@ -526,11 +523,11 @@ msgstr "无法取得服务目录"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:385
 msgid "Service type is not enabled: %(desiredType)s"
-msgstr ""
+msgstr "服务类型未激活：%(desiredType)s"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:392
 msgid "Cannot get service catalog from keystone."
-msgstr ""
+msgstr "无法由keystone获取服务目录。"
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:39
 msgid "Unable to retrieve networks."

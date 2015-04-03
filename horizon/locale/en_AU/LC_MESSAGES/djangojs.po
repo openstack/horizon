@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-01 22:59-0500\n"
-"PO-Revision-Date: 2015-04-02 00:44+0000\n"
+"POT-Creation-Date: 2015-04-02 20:58-0500\n"
+"PO-Revision-Date: 2015-04-02 22:17+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: English (Australia) (http://www.transifex.com/projects/p/horizon/language/en_AU/)\n"
 "MIME-Version: 1.0\n"
@@ -290,7 +290,7 @@ msgid "View Instance Details"
 msgstr "View Instance Details"
 
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:382
+#: static/horizon/js/horizon.tables.js:406
 msgid "No items to display."
 msgstr "No items to display."
 
@@ -313,7 +313,7 @@ msgstr "Confirm %s"
 msgid "Please confirm your selection. "
 msgstr "Please confirm your selection. "
 
-#: static/horizon/js/horizon.tables.js:369
+#: static/horizon/js/horizon.tables.js:393
 #: static/horizon/js/angular/filters/filters.js:163
 #, c-format
 msgid "Displaying %s item"
@@ -405,13 +405,9 @@ msgstr "Unable to retrieve image."
 msgid "Unable to retrieve images."
 msgstr "Unable to retrieve images."
 
-#: static/horizon/js/angular/services/hz.api.glance.js:133
+#: static/horizon/js/angular/services/hz.api.glance.js:144
 msgid "Unable to retrieve namespaces."
 msgstr "Unable to retrieve namespaces."
-
-#: static/horizon/js/angular/services/hz.api.glance.js:147
-msgid "Unable to retrieve namespace."
-msgstr "Unable to retrieve namespace."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:24
 msgid "Unable to retrieve users"

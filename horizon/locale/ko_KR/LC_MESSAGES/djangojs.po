@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-01 22:59-0500\n"
-"PO-Revision-Date: 2015-04-02 00:44+0000\n"
+"POT-Creation-Date: 2015-04-02 20:58-0500\n"
+"PO-Revision-Date: 2015-04-02 22:17+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -292,7 +292,7 @@ msgid "View Instance Details"
 msgstr "인스턴스 정보 자세히 보기"
 
 #: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:382
+#: static/horizon/js/horizon.tables.js:406
 msgid "No items to display."
 msgstr "표시할 항목이 없습니다."
 
@@ -315,7 +315,7 @@ msgstr "%s를 확인하세요."
 msgid "Please confirm your selection. "
 msgstr "선택 사항을 확인하십시오."
 
-#: static/horizon/js/horizon.tables.js:369
+#: static/horizon/js/horizon.tables.js:393
 #: static/horizon/js/angular/filters/filters.js:163
 #, c-format
 msgid "Displaying %s item"
@@ -406,12 +406,8 @@ msgstr "이미지를 찾지 못했습니다."
 msgid "Unable to retrieve images."
 msgstr "이미지를 찾지 못했습니다."
 
-#: static/horizon/js/angular/services/hz.api.glance.js:133
+#: static/horizon/js/angular/services/hz.api.glance.js:144
 msgid "Unable to retrieve namespaces."
-msgstr "네임스페이스를 찾지 못했습니다."
-
-#: static/horizon/js/angular/services/hz.api.glance.js:147
-msgid "Unable to retrieve namespace."
 msgstr "네임스페이스를 찾지 못했습니다."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:24
