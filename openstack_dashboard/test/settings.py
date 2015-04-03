@@ -205,3 +205,9 @@ POLICY_FILES = {
 
 # The openstack_auth.user.Token object isn't JSON-serializable ATM
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+
+REST_API_SETTING_1 = 'foo'
+REST_API_SETTING_2 = 'bar'
+REST_API_SECURITY = 'SECURITY'
+REST_API_REQUIRED_SETTINGS = ['REST_API_SETTING_1']
+REST_API_ADDITIONAL_SETTINGS = ['REST_API_SETTING_2']

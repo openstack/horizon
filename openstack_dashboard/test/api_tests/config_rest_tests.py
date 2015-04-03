@@ -51,6 +51,14 @@ class ConfigRestTestCase(test.TestCase):
             self.assertStatusCode(response, 200)
             self.assertContains(response.content, content)
 
+    def test_settings_config_get(self):
+        request = self.mock_rest_request()
+        response = config.Settings().get(request)
+        self.assertStatusCode(response, 200)
+        self.assertContains(response.content, "REST_API_SETTING_1")
+        self.assertContains(response.content, "REST_API_SETTING_2")
+        self.assertNotContains(response.content, "REST_API_SECURITY")
+
     def test_ignore_list(self):
         ignore_config = {"password_validator": "someobject"}
         content = '"password_validator": "someobject"'

@@ -22,6 +22,7 @@ class ServicesTests(test.JasmineTests):
         'horizon/js/angular/services/horizon.utils.js',
         'horizon/js/angular/hz.api.module.js',
         'horizon/js/angular/services/hz.api.service.js',
+        'horizon/js/angular/services/hz.api.config.js',
         'angular/widget.module.js',
         'angular/action-list/action-list.js',
         'angular/action-list/button-tooltip.js',
@@ -47,6 +48,7 @@ class ServicesTests(test.JasmineTests):
     ]
     specs = [
         'horizon/js/angular/services/hz.api.service.spec.js',
+        'horizon/js/angular/services/hz.api.config.spec.js',
         'horizon/tests/jasmine/utils.spec.js',
         'angular/action-list/action-list.spec.js',
         'angular/bind-scope/bind-scope.spec.js',
