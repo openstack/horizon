@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-08 17:54+0000\n"
+"POT-Creation-Date: 2015-04-03 11:06-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: static/horizon/js/horizon.accordion_nav.js:83
+#: static/horizon/js/horizon.accordion_nav.js:84
 #: static/horizon/js/horizon.modals.js:309
 #: static/horizon/js/horizon.tabs.js:21
 msgid "Loading"
@@ -40,7 +40,7 @@ msgstr ""
 msgid "There was a problem communicating with the server, please try again."
 msgstr ""
 
-#: static/horizon/js/horizon.forms.js:195
+#: static/horizon/js/horizon.forms.js:184
 msgid "Filter"
 msgstr ""
 
@@ -94,33 +94,57 @@ msgstr ""
 msgid "There was an error submitting the form. Please try again."
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:535
+#: static/horizon/js/horizon.networktopology.js:511
+#: static/horizon/js/horizon.networktopology.js:517
+msgid "None"
+msgstr ""
+
+#: static/horizon/js/horizon.networktopology.js:530
+msgid "Delete"
+msgstr ""
+
+#: static/horizon/js/horizon.networktopology.js:533
 msgid "STATUS"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:536
+#: static/horizon/js/horizon.networktopology.js:534
 msgid "ID"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:537
+#: static/horizon/js/horizon.networktopology.js:535
 msgid "Interfaces"
 msgstr ""
 
+#: static/horizon/js/horizon.networktopology.js:536
+msgid "Delete Interface"
+msgstr ""
+
+#: static/horizon/js/horizon.networktopology.js:537
+msgid "Open Console"
+msgstr ""
+
 #: static/horizon/js/horizon.networktopology.js:538
-msgid "Interface"
+msgid "View Details"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:539
-msgid "open console"
+#: static/horizon/js/horizon.networktopology.js:541
+msgid "Delete Router"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:540
-#, c-format
-msgid "view %s details"
+#: static/horizon/js/horizon.networktopology.js:542
+msgid "View Router Details"
 msgstr ""
 
 #: static/horizon/js/horizon.networktopology.js:545
 msgid "Add Interface"
+msgstr ""
+
+#: static/horizon/js/horizon.networktopology.js:551
+msgid "Terminate Instance"
+msgstr ""
+
+#: static/horizon/js/horizon.networktopology.js:552
+msgid "View Instance Details"
 msgstr ""
 
 #: static/horizon/js/horizon.tables.js:39

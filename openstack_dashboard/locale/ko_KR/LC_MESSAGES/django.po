@@ -6,13 +6,13 @@
 # HyunWoo Jo <showaid@gmail.com>, 2014
 # Mario Cho <hephaex@gmail.com>, 2014
 # muhanpong <muhanpong@gmail.com>, 2014
-# Sungjin Kang <potopro@gmail.com>, 2014
+# Sungjin Kang <potopro@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-05 14:55+0000\n"
-"PO-Revision-Date: 2014-10-08 15:51+0000\n"
+"POT-Creation-Date: 2014-12-02 00:51-0600\n"
+"PO-Revision-Date: 2015-04-03 14:42+0000\n"
 "Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -61,21 +61,21 @@ msgstr "VHD"
 msgid "VMDK"
 msgstr "VMDK"
 
-#: settings.py:298
+#: settings.py:296
 msgid "All TCP"
 msgstr "모든 TCP"
 
-#: settings.py:304
+#: settings.py:302
 msgid "All UDP"
 msgstr "모든 UDP"
 
-#: settings.py:310
+#: settings.py:308
 msgid "All ICMP"
 msgstr "모든 ICMP"
 
 #: api/ceilometer.py:738
 msgid "Unable to retrieve Ceilometer meterlist."
-msgstr "Ceilometer 미터리스트를 찾지 못했습니다."
+msgstr "Ceilometer 측정 목록을 찾지 못했습니다."
 
 #: api/ceilometer.py:912
 msgid "Duration of instance"
@@ -311,22 +311,22 @@ msgstr "사용자 %s는 해당 프로젝트에 정의된 역할이 없습니다.
 msgid "Password changed. Please log in again to continue."
 msgstr "암호 변경하였습니다. 다시 로그인 해주십시오."
 
-#: api/neutron.py:206
+#: api/neutron.py:207
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "%(ethertype)s %(proto_port)s %(direction)s %(remote)s 허용"
 
-#: api/neutron.py:852
+#: api/neutron.py:853
 msgid "Unable to connect to Neutron."
 msgstr "Neutron에 접속할 수 없습니다."
 
-#: api/neutron.py:889
+#: api/neutron.py:890
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "IP 주소 %s를 구문 분석할 수 없습니다."
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1022
+#: api/neutron.py:1029
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -334,14 +334,14 @@ msgid ""
 msgstr "요청된 기능 '%(feature)s'를 알수 없습니다. FEATURE_MAP에 정의된 기능을 지정해야합니다."
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1040
+#: api/neutron.py:1047
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
 "invalid. It should be one of %(allowed)s"
 msgstr "get_feature_permission의 'operation' 매개 변수의 '%(feature)s'가 잘못되었습니다. 이것은 %(allowed)s 중 하나여야 합니다."
 
-#: api/neutron.py:1055
+#: api/neutron.py:1062
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr "Neutron '%s' 확장을 실패에대해 확인을 지원하지 않습니다."
@@ -1183,7 +1183,7 @@ msgstr "Quota 이름"
 
 #: dashboards/admin/defaults/tables.py:67
 msgid "Limit"
-msgstr "제한"
+msgstr "Limit"
 
 #: dashboards/admin/defaults/tables.py:74
 msgid "Quotas"
@@ -1847,17 +1847,17 @@ msgstr "이미지"
 
 #: dashboards/admin/images/tables.py:61
 msgid "Image Name ="
-msgstr "이미지 이름 ="
+msgstr "Image Name ="
 
 #: dashboards/admin/images/tables.py:62
 #: dashboards/admin/instances/tables.py:85
 #: dashboards/project/instances/tables.py:864
 msgid "Status ="
-msgstr "상태 ="
+msgstr "Status ="
 
 #: dashboards/admin/images/tables.py:63
 msgid "Format ="
-msgstr "포멧 ="
+msgstr "Format ="
 
 #: dashboards/admin/images/tables.py:64
 msgid "Min. Size (MB)"
@@ -2122,20 +2122,20 @@ msgstr "프로젝트"
 
 #: dashboards/admin/instances/tables.py:81
 msgid "Host ="
-msgstr "호스트 ="
+msgstr "Host ="
 
 #: dashboards/admin/instances/tables.py:83
 msgid "IPv4 Address ="
-msgstr "IPv4 주소 ="
+msgstr "IPv4 Address ="
 
 #: dashboards/admin/instances/tables.py:84
 msgid "IPv6 Address ="
-msgstr "IPv6 주소 ="
+msgstr "IPv6 Address ="
 
 #: dashboards/admin/instances/tables.py:86
 #: dashboards/project/instances/tables.py:865
 msgid "Image ID ="
-msgstr "이미지 ID ="
+msgstr "Image ID ="
 
 #: dashboards/admin/instances/tables.py:87
 #: dashboards/project/instances/tables.py:866
@@ -2212,7 +2212,7 @@ msgstr "호스트 정보를 찾지 못했습니다."
 #: dashboards/admin/instances/views.py:167
 #: dashboards/project/databases/views.py:138
 #: dashboards/project/instances/views.py:208
-#: dashboards/project/instances/views.py:318
+#: dashboards/project/instances/views.py:326
 msgid "Unable to retrieve instance details."
 msgstr "인스턴스 세부 정보를 찾지 못했습니다."
 
@@ -2438,19 +2438,19 @@ msgstr "값"
 
 #: dashboards/admin/metering/templates/metering/stats.html:94
 msgid "Avg."
-msgstr "평균."
+msgstr "평균"
 
 #: dashboards/admin/metering/templates/metering/stats.html:95
 msgid "Min."
-msgstr "최소."
+msgstr "최소"
 
 #: dashboards/admin/metering/templates/metering/stats.html:96
 msgid "Max."
-msgstr "최대."
+msgstr "최대"
 
 #: dashboards/admin/metering/templates/metering/stats.html:97
 msgid "Sum."
-msgstr "총합."
+msgstr "총합"
 
 #: dashboards/admin/metering/templates/metering/stats.html:136
 msgid "Statistics of all resources"
@@ -2462,7 +2462,7 @@ msgstr "로컬"
 
 #: dashboards/admin/networks/forms.py:29
 msgid "Flat"
-msgstr "평면"
+msgstr "Flat"
 
 #: dashboards/admin/networks/forms.py:44
 #: dashboards/project/networks/workflows.py:43
@@ -5003,12 +5003,12 @@ msgstr "키 패어를 가져오지 못했습니다."
 #: dashboards/project/access_and_security/keypairs/tables.py:31
 msgid "Delete Key Pair"
 msgid_plural "Delete Key Pairs"
-msgstr[0] "키 페어 삭제"
+msgstr[0] "키 패어 삭제"
 
 #: dashboards/project/access_and_security/keypairs/tables.py:39
 msgid "Deleted Key Pair"
 msgid_plural "Deleted Key Pairs"
-msgstr[0] "키 페어 삭제됨"
+msgstr[0] "키 패어 삭제됨"
 
 #: dashboards/project/access_and_security/keypairs/tables.py:50
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:8
@@ -5025,7 +5025,7 @@ msgstr "키 패어 가져오기"
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/create.html:3
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/create.html:6
 msgid "Create Key Pair"
-msgstr "캐 패어 생성"
+msgstr "키 패어 생성"
 
 #: dashboards/project/access_and_security/keypairs/tables.py:83
 msgid "Fingerprint"
@@ -5049,7 +5049,7 @@ msgstr "문자열은 ASCII 문자와 숫자만 포함할 수 있습니다."
 #: dashboards/project/access_and_security/security_groups/forms.py:52
 #, python-format
 msgid "Successfully created security group: %s"
-msgstr "시큐리티 그룹을 성공적으로 생성하였습니다.: %s"
+msgstr "시큐리티 그룹을 성공적으로 생성하였습니다: %s"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:58
 msgid "Unable to create security group."
@@ -5058,7 +5058,7 @@ msgstr "시큐리티 그룹을 생성할 수 없습니다."
 #: dashboards/project/access_and_security/security_groups/forms.py:80
 #, python-format
 msgid "Successfully updated security group: %s"
-msgstr "시큐리티 그룹을 성공적으로 업데이트 하였습니다.: %s"
+msgstr "시큐리티 그룹을 성공적으로 업데이트 하였습니다: %s"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:86
 msgid "Unable to update security group."
@@ -5089,7 +5089,7 @@ msgstr "IP 프로토콜"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:117
 msgid "Enter an integer value between 0 and 255 (or -1 which means wildcard)."
-msgstr "0~255 사이의 정수 값을 입력하세요. (-1은 와일드카드)"
+msgstr "0 ~ 255 사이의 정수 값을 입력하세요. (-1은 와일드카드)"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:126
 #: dashboards/project/access_and_security/security_groups/forms.py:133
@@ -5372,7 +5372,7 @@ msgstr "SSH 키 패어를 ssh-keygen 명령어로 생성할 수 있습니다:"
 msgid ""
 "This generates a pair of keys: a key you keep private (cloud.key) and a "
 "public key (cloud.key.pub). Paste the contents of the public key file here."
-msgstr "키 쌍을 만듭니다: 개인키(cloud.key)와 공개키(cloud.key.pub)로 유지할 키입니다. 공개 키 파일의 내용을 여기에 붙여넣으십시오."
+msgstr "키 패어를 만듭니다: 개인키(cloud.key)와 공개키(cloud.key.pub)로 유지할 키입니다. 공개 키 파일의 내용을 여기에 붙여넣으십시오."
 
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/_import.html:23
 msgid ""
@@ -7727,7 +7727,7 @@ msgstr "PASSWORD"
 #: dashboards/project/databases/templates/databases/_detail_overview_mongodb.html:19
 #: dashboards/project/databases/templates/databases/_detail_overview_mysql.html:19
 msgid "DATABASE"
-msgstr "데이터베이스"
+msgstr "DATABASE"
 
 #: dashboards/project/databases/templates/databases/_launch_details_help.html:3
 #: dashboards/project/instances/templates/instances/_launch_details_help.html:5
@@ -7890,7 +7890,7 @@ msgstr "인스턴스 네트워크 선택"
 
 #: dashboards/project/databases/workflows/create_instance.py:191
 msgid "Comma separated list of databases to create"
-msgstr "쉼표로 구분한 생성할 데이터베이스의 목록"
+msgstr "생성할 데이터베이스 목록을 쉼표로 구분합니다."
 
 #: dashboards/project/databases/workflows/create_instance.py:195
 msgid "Initial admin user to add"
@@ -8278,7 +8278,7 @@ msgstr "룰을 삭제할 수 없습니다. %s"
 #: dashboards/project/firewalls/views.py:75
 #, python-format
 msgid "Deleted policy %s"
-msgstr "Policy %s 삭제됨"
+msgstr "정책 %s 삭제됨"
 
 #: dashboards/project/firewalls/views.py:78
 #, python-format
@@ -8987,13 +8987,13 @@ msgstr[0] "인스턴스 시작됨"
 msgctxt "Action to perform (the instance is currently running)"
 msgid "Shut Off Instance"
 msgid_plural "Shut Off Instances"
-msgstr[0] "인스턴스 전원 끔"
+msgstr[0] "Shut Off Instances"
 
 #: dashboards/project/instances/tables.py:696
 msgctxt "Past action (the instance is currently already Shut Off)"
 msgid "Shut Off Instance"
 msgid_plural "Shut Off Instances"
-msgstr[0] "인스턴스 전원 끔"
+msgstr[0] "Shut Off Instances"
 
 #: dashboards/project/instances/tables.py:723
 #, python-format
@@ -9004,97 +9004,97 @@ msgstr "%s GB"
 #: dashboards/project/instances/tables.py:769
 msgctxt "Current status of an Instance"
 msgid "Deleted"
-msgstr "삭제됨"
+msgstr "Deleted"
 
 #: dashboards/project/instances/tables.py:748
 msgctxt "Current status of an Instance"
 msgid "Active"
-msgstr "작동중"
+msgstr "Acive"
 
 #: dashboards/project/instances/tables.py:749
 msgctxt "Current status of an Instance"
 msgid "Shutoff"
-msgstr "전원 끔"
+msgstr "Shutoff"
 
 #: dashboards/project/instances/tables.py:751
 msgctxt "Current status of an Instance"
 msgid "Suspended"
-msgstr "일시 중단됨"
+msgstr "Suspended"
 
 #: dashboards/project/instances/tables.py:752
 msgctxt "Current status of an Instance"
 msgid "Paused"
-msgstr "정지됨"
+msgstr "Paused"
 
 #: dashboards/project/instances/tables.py:753
 msgctxt "Current status of an Instance"
 msgid "Error"
-msgstr "에러"
+msgstr "Error"
 
 #: dashboards/project/instances/tables.py:755
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
-msgstr "크기 재조정 / 마이그레이션"
+msgstr "Resize/Migrate"
 
 #: dashboards/project/instances/tables.py:757
 msgctxt "Current status of an Instance"
 msgid "Confirm or Revert Resize/Migrate"
-msgstr "크기 재조정 / 마이그레이션 확인 또는 되돌리기"
+msgstr "Confirm or Revert Resize/Migrate"
 
 #: dashboards/project/instances/tables.py:759
 msgctxt "Current status of an Instance"
 msgid "Revert Resize/Migrate"
-msgstr "크기 재조정 / 마이그레이션 되돌리기"
+msgstr "Revert Resize/Migrate"
 
 #: dashboards/project/instances/tables.py:760
 msgctxt "Current status of an Instance"
 msgid "Reboot"
-msgstr "재시작"
+msgstr "Reboot"
 
 #: dashboards/project/instances/tables.py:762
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
-msgstr "하드 재시작"
+msgstr "Hard Reboot"
 
 #: dashboards/project/instances/tables.py:763
 msgctxt "Current status of an Instance"
 msgid "Password"
-msgstr "암호"
+msgstr "Password"
 
 #: dashboards/project/instances/tables.py:764
 msgctxt "Current status of an Instance"
 msgid "Rebuild"
-msgstr "리빌드"
+msgstr "Rebuild"
 
 #: dashboards/project/instances/tables.py:766
 msgctxt "Current status of an Instance"
 msgid "Migrating"
-msgstr "마이그레이션중"
+msgstr "Migrating"
 
 #: dashboards/project/instances/tables.py:767
 msgctxt "Current status of an Instance"
 msgid "Build"
-msgstr "빌드"
+msgstr "Build"
 
 #: dashboards/project/instances/tables.py:768
 msgctxt "Current status of an Instance"
 msgid "Rescue"
-msgstr "복구"
+msgstr "Rescue"
 
 #: dashboards/project/instances/tables.py:771
 msgctxt "Current status of an Instance"
 msgid "Soft Deleted"
-msgstr "소프트 삭제됨"
+msgstr "Soft Deleted"
 
 #: dashboards/project/instances/tables.py:772
 msgctxt "Current status of an Instance"
 msgid "Shelved"
-msgstr "보류함"
+msgstr "Shelved"
 
 #: dashboards/project/instances/tables.py:774
 msgctxt "Current status of an Instance"
 msgid "Shelved Offloaded"
-msgstr "오프로드 보류함"
+msgstr "Shelved Offloaded"
 
 #: dashboards/project/instances/tables.py:780
 msgctxt "Task status of an Instance"
@@ -9104,12 +9104,12 @@ msgstr "Scheduling"
 #: dashboards/project/instances/tables.py:782
 msgctxt "Task status of an Instance"
 msgid "Block Device Mapping"
-msgstr "블록 디바이스 맵핑"
+msgstr "Block Device Mapping"
 
 #: dashboards/project/instances/tables.py:784
 msgctxt "Task status of an Instance"
 msgid "Networking"
-msgstr "네트워크"
+msgstr "Networking"
 
 #: dashboards/project/instances/tables.py:785
 msgctxt "Task status of an Instance"
@@ -9119,118 +9119,118 @@ msgstr "Spawning"
 #: dashboards/project/instances/tables.py:787
 msgctxt "Task status of an Instance"
 msgid "Snapshotting"
-msgstr "스냅샷 실행 중"
+msgstr "Snapshotting"
 
 #: dashboards/project/instances/tables.py:789
 msgctxt "Task status of an Instance"
 msgid "Image Snapshot Pending"
-msgstr "이미지 스냅샷 보류"
+msgstr "Image Snapshot Pending"
 
 #: dashboards/project/instances/tables.py:791
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
-msgstr "이미지 보류 업로드"
+msgstr "Image Pending Upload"
 
 #: dashboards/project/instances/tables.py:793
 msgctxt "Task status of an Instance"
 msgid "Image Uploading"
-msgstr "이미지 업로드중"
+msgstr "Image Uploading"
 
 #: dashboards/project/instances/tables.py:795
 msgctxt "Task status of an Instance"
 msgid "Image Backup"
-msgstr "이미지 백업"
+msgstr "Image Backup"
 
 #: dashboards/project/instances/tables.py:797
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
-msgstr "업데이트 암호"
+msgstr "Updating Password"
 
 #: dashboards/project/instances/tables.py:799
 msgctxt "Task status of an Instance"
 msgid "Preparing Resize or Migrate"
-msgstr "크기 변경 또는 마이그레이션 준비 중"
+msgstr "Preparing Resize or Migrate"
 
 #: dashboards/project/instances/tables.py:801
 msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
-msgstr "크기 변경 또는 마이그레이션 실행 중"
+msgstr "Resizing or Migrating"
 
 #: dashboards/project/instances/tables.py:803
 msgctxt "Task status of an Instance"
 msgid "Resized or Migrated"
-msgstr "크기 변경 완료 또는 마이그레이션 완료"
+msgstr "Resized or Migrated"
 
 #: dashboards/project/instances/tables.py:805
 msgctxt "Task status of an Instance"
 msgid "Finishing Resize or Migrate"
-msgstr "크기 변경 또는 마이그레이션 마무리 중"
+msgstr "Finishing Resize or Migrate"
 
 #: dashboards/project/instances/tables.py:807
 msgctxt "Task status of an Instance"
 msgid "Reverting Resize or Migrate"
-msgstr "크기 변경 또는 마이그레이션 되돌리기 중"
+msgstr "Reverting Resize or Migrate"
 
 #: dashboards/project/instances/tables.py:809
 msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
-msgstr "크기 변경 또는 마이그레이션 확인 중"
+msgstr "Confirming Resize or Migrate"
 
 #: dashboards/project/instances/tables.py:810
 msgctxt "Task status of an Instance"
 msgid "Rebooting"
-msgstr "재시작 중"
+msgstr "Rebooting"
 
 #: dashboards/project/instances/tables.py:812
 msgctxt "Task status of an Instance"
 msgid "Rebooting Hard"
-msgstr "하드 재시작중"
+msgstr "Rebooting Hard"
 
 #: dashboards/project/instances/tables.py:813
 msgctxt "Task status of an Instance"
 msgid "Pausing"
-msgstr "일시정지 중"
+msgstr "Pausing"
 
 #: dashboards/project/instances/tables.py:814
 #: dashboards/project/instances/tables.py:817
 msgctxt "Task status of an Instance"
 msgid "Resuming"
-msgstr "재개 중"
+msgstr "Resuming"
 
 #: dashboards/project/instances/tables.py:816
 msgctxt "Task status of an Instance"
 msgid "Suspending"
-msgstr "일시 중지중"
+msgstr "Suspending"
 
 #: dashboards/project/instances/tables.py:819
 msgctxt "Task status of an Instance"
 msgid "Powering Off"
-msgstr "전원 차단 중"
+msgstr "Powering Off"
 
 #: dashboards/project/instances/tables.py:821
 msgctxt "Task status of an Instance"
 msgid "Powering On"
-msgstr "전원 공급 중"
+msgstr "Powering On"
 
 #: dashboards/project/instances/tables.py:822
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
-msgstr "구조 중"
+msgstr "Rescuing"
 
 #: dashboards/project/instances/tables.py:824
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
-msgstr "비구조 중"
+msgstr "Unrescuing"
 
 #: dashboards/project/instances/tables.py:826
 msgctxt "Task status of an Instance"
 msgid "Rebuilding"
-msgstr "새로 빌드 중"
+msgstr "Rebuilding"
 
 #: dashboards/project/instances/tables.py:828
 msgctxt "Task status of an Instance"
 msgid "Rebuild Block Device Mapping"
-msgstr "블록 디바이스 맵핑 재구성"
+msgstr "Rebuild Block Device Mapping"
 
 #: dashboards/project/instances/tables.py:830
 msgctxt "Task status of an Instance"
@@ -9240,97 +9240,97 @@ msgstr "Rebuild Spawning"
 #: dashboards/project/instances/tables.py:831
 msgctxt "Task status of an Instance"
 msgid "Migrating"
-msgstr "마이그레이션중"
+msgstr "Migrating"
 
 #: dashboards/project/instances/tables.py:832
 msgctxt "Task status of an Instance"
 msgid "Deleting"
-msgstr "삭제 중"
+msgstr "Deleting"
 
 #: dashboards/project/instances/tables.py:834
 msgctxt "Task status of an Instance"
 msgid "Soft Deleting"
-msgstr "소프트 삭제중"
+msgstr "Soft Deleting"
 
 #: dashboards/project/instances/tables.py:835
 msgctxt "Task status of an Instance"
 msgid "Restoring"
-msgstr "복구 중"
+msgstr "Restoring"
 
 #: dashboards/project/instances/tables.py:836
 msgctxt "Task status of an Instance"
 msgid "Shelving"
-msgstr "보류"
+msgstr "Shelving"
 
 #: dashboards/project/instances/tables.py:838
 msgctxt "Task status of an Instance"
 msgid "Shelving Image Pending Upload"
-msgstr "이미지 업로드 중 보류"
+msgstr "Shelving Image Pending Upload"
 
 #: dashboards/project/instances/tables.py:840
 msgctxt "Task status of an Instance"
 msgid "Shelving Image Uploading"
-msgstr "이미지 업로드 중 보류"
+msgstr "Shelving Image Uploading"
 
 #: dashboards/project/instances/tables.py:842
 msgctxt "Task status of an Instance"
 msgid "Shelving Offloading"
-msgstr "오프로딩 보류중"
+msgstr "Shelving Offloading"
 
 #: dashboards/project/instances/tables.py:844
 msgctxt "Task status of an Instance"
 msgid "Unshelving"
-msgstr "보류 해제중"
+msgstr "Unshelving"
 
 #: dashboards/project/instances/tables.py:848
 msgctxt "Power state of an Instance"
 msgid "No State"
-msgstr "상태 아님"
+msgstr "No State"
 
 #: dashboards/project/instances/tables.py:849
 msgctxt "Power state of an Instance"
 msgid "Running"
-msgstr "실행"
+msgstr "Running"
 
 #: dashboards/project/instances/tables.py:850
 msgctxt "Power state of an Instance"
 msgid "Blocked"
-msgstr "블록함"
+msgstr "Blocked"
 
 #: dashboards/project/instances/tables.py:851
 msgctxt "Power state of an Instance"
 msgid "Paused"
-msgstr "정지됨"
+msgstr "Paused"
 
 #: dashboards/project/instances/tables.py:852
 msgctxt "Power state of an Instance"
 msgid "Shut Down"
-msgstr "종료"
+msgstr "Shut Down"
 
 #: dashboards/project/instances/tables.py:853
 msgctxt "Power state of an Instance"
 msgid "Shut Off"
-msgstr "정지"
+msgstr "Shut Off"
 
 #: dashboards/project/instances/tables.py:854
 msgctxt "Power state of an Instance"
 msgid "Crashed"
-msgstr "충돌남"
+msgstr "Crashed"
 
 #: dashboards/project/instances/tables.py:855
 msgctxt "Power state of an Instance"
 msgid "Suspended"
-msgstr "일시 중단됨"
+msgstr "Suspended"
 
 #: dashboards/project/instances/tables.py:856
 msgctxt "Power state of an Instance"
 msgid "Failed"
-msgstr "실패함"
+msgstr "Failed"
 
 #: dashboards/project/instances/tables.py:857
 msgctxt "Power state of an Instance"
 msgid "Building"
-msgstr "빌드 중"
+msgstr "Building"
 
 #: dashboards/project/instances/tables.py:894
 #: dashboards/project/instances/workflows/create_instance.py:478
@@ -9382,17 +9382,17 @@ msgstr "인스턴스 \"%s\" SPICE 콘솔을 가져올 수 없습니다."
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "인스턴스 \"%s\"의 RDP 콘솔을 가져올 수 없습니다."
 
-#: dashboards/project/instances/views.py:275
+#: dashboards/project/instances/views.py:283
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "인스턴스 \"%s\"에 대한 세부 정보를 찾지 못했습니다."
 
-#: dashboards/project/instances/views.py:286
+#: dashboards/project/instances/views.py:294
 #, python-format
 msgid "Unable to retrieve IP addresses from Neutron for instance \"%s\"."
 msgstr "인스턴스 \"%s\"에 대한 IP 주소를 Neutron에서 찾지 못했습니다."
 
-#: dashboards/project/instances/views.py:330
+#: dashboards/project/instances/views.py:338
 msgid "Unable to retrieve flavors."
 msgstr "Flavor를 찾지 못했습니다."
 
@@ -10986,22 +10986,22 @@ msgstr "서브넷에 대한 추가 속성을 명시하세요."
 #: dashboards/project/networks/workflows.py:229
 #, python-format
 msgid "%s (Default)"
-msgstr "%s (디폴트)"
+msgstr "%s (기본)"
 
 #: dashboards/project/networks/workflows.py:238
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
-msgstr "%(field_name)s: 잘못된 IP 주소 (값=%(ip)s)"
+msgstr "%(field_name)s: 잘못된 IP 주소 (값 = %(ip)s)"
 
 #: dashboards/project/networks/workflows.py:246
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
-msgstr "%(field_name)s: 잘못된 IP 주소 (값=%(network)s)"
+msgstr "%(field_name)s: 잘못된 IP 주소 (값 = %(network)s)"
 
 #: dashboards/project/networks/workflows.py:257
 #, python-format
 msgid "Start and end addresses must be specified (value=%s)"
-msgstr "시작과 끝 주소를 꼭 명시해줘야 합니다. (값=%s)"
+msgstr "시작과 끝 주소를 꼭 명시해줘야 합니다. (값 = %s)"
 
 #: dashboards/project/networks/workflows.py:263
 #, python-format
@@ -13266,7 +13266,7 @@ msgstr "원격 피어 서브넷"
 
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:44
 msgid "Pre-Shared Key string"
-msgstr "사전 공유키 문자\t"
+msgstr "사전 공유키 문자"
 
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:47
 msgid "MTU"

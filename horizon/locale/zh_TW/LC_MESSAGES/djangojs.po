@@ -3,13 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Chen, Shang-Pin <dreamerwolf.tw@gmail.com>, 2015
 # Tom Fifield <tom@openstack.org>, 2014
+# Xiao Xi LIU <liuxx@cn.ibm.com>, 2014
+# Zhang Xiaowei <zero00072@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-02 00:51-0600\n"
-"PO-Revision-Date: 2014-12-02 08:24+0000\n"
+"PO-Revision-Date: 2015-04-02 05:22+0000\n"
 "Last-Translator: Zhang Xiaowei <zero00072@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -142,11 +145,11 @@ msgstr "加入網路卡介面"
 
 #: static/horizon/js/horizon.networktopology.js:551
 msgid "Terminate Instance"
-msgstr "中止執行實例"
+msgstr "終止雲實例"
 
 #: static/horizon/js/horizon.networktopology.js:552
 msgid "View Instance Details"
-msgstr "檢視執行實例詳細資訊"
+msgstr "檢視雲實例詳細資訊"
 
 #: static/horizon/js/horizon.tables.js:39
 #: static/horizon/js/horizon.tables.js:377
@@ -170,13 +173,13 @@ msgstr "確認 %s"
 
 #: static/horizon/js/horizon.tables.js:207
 msgid "Please confirm your selection. This action cannot be undone."
-msgstr "請確認您的選擇。這個動作將無法回復。"
+msgstr "請確認您的選擇。不能反悔這個動作。"
 
 #: static/horizon/js/horizon.tables.js:364
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
-msgstr[0] "顯示 %s 個項目"
+msgstr[0] "顯示 %s 項"
 
 #: static/horizon/js/horizon.tables_inline_edit.js:88
 #: static/horizon/js/horizon.tables_inline_edit.js:169
@@ -185,4 +188,4 @@ msgstr "沒有足夠的權限執行這個操作。"
 
 #: static/horizon/js/horizon.users.js:18
 msgid "Passwords do not match."
-msgstr "密碼沒有符合。"
+msgstr "密碼沒有相配。"

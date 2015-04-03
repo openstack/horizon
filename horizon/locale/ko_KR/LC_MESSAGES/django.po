@@ -6,13 +6,13 @@
 # Chun-Kil Kang <gilbird@gmail.com>, 2014
 # Mario Cho <hephaex@gmail.com>, 2014
 # muhanpong <muhanpong@gmail.com>, 2014
-# Sungjin Kang <potopro@gmail.com>, 2014
+# Sungjin Kang <potopro@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-05 14:55+0000\n"
-"PO-Revision-Date: 2014-10-05 15:50+0000\n"
+"POT-Creation-Date: 2014-12-02 00:51-0600\n"
+"PO-Revision-Date: 2015-03-24 06:52+0000\n"
 "Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: base.py:454
+#: base.py:454 templates/horizon/common/_modal_form_update_metadata.html:38
 msgid "Other"
 msgstr "다른"
 
@@ -90,6 +90,8 @@ msgstr "취소"
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:16
 #: templates/horizon/common/_data_table_table_actions.html:26
+#: templates/horizon/common/_modal_form_update_metadata.html:28
+#: templates/horizon/common/_modal_form_update_metadata.html:101
 #: templates/horizon/common/_workflow_step_update_members.html:12
 #: templates/horizon/common/_workflow_step_update_members.html:21
 msgid "Filter"
@@ -449,7 +451,7 @@ msgstr[0] "강아지 판매"
 #: test/test_dashboards/dogs/puppies/tables.py:40
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
-msgstr[0] "강아지 판매함"
+msgstr[0] "강아지 판매됨"
 
 #: utils/filters.py:49
 msgid "Never"

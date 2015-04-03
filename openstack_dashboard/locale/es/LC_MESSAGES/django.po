@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Alberto Molina Coballes <alb.molina@gmail.com>, 2014
+# Alberto Molina Coballes <alb.molina@gmail.com>, 2014-2015
 # cametiope <aldohcasa@hotmail.com>, 2014
 # egongu90 <dabarren@gmail.com>, 2014
 # David Martinez Morata, 2014
 # Guillermo Vitas Gil <gvitgo@gmail.com>, 2014
 # Marian Tort <marian.tort@gmail.com>, 2014
-# Milton Mazzarri <milmazz@gmail.com>, 2014
+# Milton Mazzarri <inactive+milmazz@transifex.com>, 2014
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2014
 # Victoria Martínez de la Cruz <vickymsee@gmail.com>, 2014
 msgid ""
@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-02 00:51-0600\n"
-"PO-Revision-Date: 2014-12-03 01:18+0000\n"
-"Last-Translator: Victoria Martínez de la Cruz <vickymsee@gmail.com>\n"
+"PO-Revision-Date: 2015-04-03 14:42+0000\n"
+"Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,7 +52,7 @@ msgstr "QCOW2 - Emulador QEMU"
 
 #: settings.py:109
 msgid "Raw"
-msgstr "Fila"
+msgstr "Raw"
 
 #: settings.py:110
 msgid "VDI"
@@ -105,7 +105,7 @@ msgstr "Uso promedio del CPU"
 #: api/ceilometer.py:933
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:28
 msgid "Number of VCPUs"
-msgstr "Número de VCPU"
+msgstr "Número de VCPUs"
 
 #: api/ceilometer.py:937
 msgid "Number of read requests"
@@ -344,7 +344,7 @@ msgstr "The requested feature '%(feature)s' is unknown. Please make sure to spec
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
 "invalid. It should be one of %(allowed)s"
-msgstr "The 'operation' parameter for get_feature_permission '%(feature)s' is invalid. It should be one of %(allowed)s"
+msgstr "No es válido el parámetro 'operation' para get_feature_permission '%(feature)s'.Debe ser uno de %(allowed)s"
 
 #: api/neutron.py:1062
 #, python-format
@@ -1072,7 +1072,7 @@ msgstr "Instancias"
 #: dashboards/admin/defaults/workflows.py:46
 #: dashboards/identity/projects/workflows.py:50 usage/quotas.py:65
 msgid "Injected Files"
-msgstr "Archivos inyectados"
+msgstr "Ficheros inyectados"
 
 #: dashboards/admin/defaults/tables.py:47
 #: dashboards/admin/defaults/workflows.py:53
@@ -1098,13 +1098,13 @@ msgstr "Volúmenes"
 #: dashboards/project/volumes/tabs.py:76
 #: dashboards/project/volumes/snapshots/tables.py:147 usage/quotas.py:75
 msgid "Volume Snapshots"
-msgstr "Snapshots de volumen"
+msgstr "Instantáneas de volumen"
 
 #: dashboards/admin/defaults/tables.py:49
 #: dashboards/admin/defaults/workflows.py:51
 #: dashboards/identity/projects/workflows.py:56 usage/quotas.py:76
 msgid "Total Size of Volumes and Snapshots (GB)"
-msgstr "Tamaño total de volúmenes y snapshots (GB)"
+msgstr "Tamaño total de volúmenes e instantáneas (GB)"
 
 #: dashboards/admin/defaults/tables.py:50
 #: dashboards/admin/defaults/workflows.py:37
@@ -1174,7 +1174,7 @@ msgstr "Volúmenes LUKS"
 
 #: dashboards/admin/defaults/tables.py:57
 msgid "LUKS Volume Snapshots"
-msgstr "Snapshots de volumen LUKS"
+msgstr "Instantáneas de volumen LUKS"
 
 #: dashboards/admin/defaults/tables.py:59
 msgid "Total Size of LUKS Volumes and Snapshots (GB)"
@@ -1840,7 +1840,7 @@ msgstr "Descripción:"
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:18
 msgid ""
 "Evacuate the servers from the selected down host to an active target host."
-msgstr "Evacuar los servidores del anfitrión caido a un anfitrión objetivo activo."
+msgstr "Evacuar los servidores del anfitrión caído a un anfitrión destino activo."
 
 #: dashboards/admin/images/forms.py:65
 msgid "Unable to update the image metadata."
@@ -3008,7 +3008,7 @@ msgstr "Ha habido un fallo al obtener la red %s para la subred"
 
 #: dashboards/admin/networks/templates/networks/_create.html:19
 msgid "Create a new network for any project as you need."
-msgstr "Crear una nueva red para cada proyecto según lo necesites."
+msgstr "Crear una nueva red para cada proyecto según se necesite."
 
 #: dashboards/admin/networks/templates/networks/_create.html:20
 msgid ""
@@ -3060,7 +3060,7 @@ msgstr "Actualizar red"
 
 #: dashboards/admin/networks/templates/networks/agents/_add.html:19
 msgid "From here you can add a DHCP agent for the network."
-msgstr "Desde aquí puedes añadir un agente DHCP para la red."
+msgstr "Desde aquí puede añadir un agente DHCP para la red."
 
 #: dashboards/admin/networks/templates/networks/ports/_create.html:19
 msgid ""
@@ -3276,7 +3276,7 @@ msgstr "ID del proyecto"
 #: dashboards/project/routers/tables.py:173
 #: dashboards/project/routers/templates/routers/_detail_overview.html:16
 msgid "Distributed"
-msgstr "Distribuido.¡"
+msgstr "Distribuido"
 
 #: dashboards/admin/routers/templates/routers/_detail_overview.html:22
 #: dashboards/project/routers/forms.py:37
@@ -3299,7 +3299,7 @@ msgstr "Red exterior conectada"
 #: dashboards/project/routers/tables.py:83
 #: dashboards/project/routers/templates/routers/_update.html:8
 msgid "Edit Router"
-msgstr "Editar enrutador"
+msgstr "Editar router"
 
 #: dashboards/admin/routers/templates/routers/_update.html:18
 #: dashboards/project/routers/templates/routers/_update.html:18
@@ -3321,7 +3321,7 @@ msgstr "Detalle del router"
 #: dashboards/project/routers/templates/routers/update.html:3
 #: dashboards/project/routers/templates/routers/update.html:6
 msgid "Update Router"
-msgstr "Actualizar enrutador"
+msgstr "Actualizar router"
 
 #: dashboards/admin/volumes/tabs.py:50 dashboards/admin/volumes/tabs.py:117
 #: dashboards/admin/volumes/snapshots/tables.py:51
@@ -3369,11 +3369,11 @@ msgstr "Error borrando"
 #: dashboards/admin/volumes/snapshots/forms.py:43
 #, python-format
 msgid "Successfully updated volume snapshot status: \"%s\"."
-msgstr "Actualización satisfactoria del estado de la snapshot del volumen: \"%s\"."
+msgstr "Se ha actualizado correctamente el estado de la instantánea de volumen: \"%s\"."
 
 #: dashboards/admin/volumes/snapshots/forms.py:48
 msgid "Unable to update volume snapshot status."
-msgstr "No ha sido posible actualizar el estado de la snapshot del volumen."
+msgstr "No ha sido posible actualizar el estado de la instantánea de volumen."
 
 #: dashboards/admin/volumes/snapshots/tables.py:29
 #: dashboards/admin/volumes/templates/volumes/snapshots/_update_status.html:28

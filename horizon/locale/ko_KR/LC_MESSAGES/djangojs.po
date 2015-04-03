@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Akihiro Motoki <amotoki@gmail.com>, 2014
-# Sungjin Kang <potopro@gmail.com>, 2014
+# Sungjin Kang <potopro@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-02 00:51-0600\n"
-"PO-Revision-Date: 2014-12-02 19:18+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"PO-Revision-Date: 2015-02-21 13:51+0000\n"
+"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +28,7 @@ msgstr "로딩"
 #: static/horizon/js/horizon.d3linechart.js:394
 #: static/horizon/js/horizon.d3linechart.js:404
 msgid "No data available."
-msgstr "데이터 없음."
+msgstr "데이터가 없습니다."
 
 #: static/horizon/js/horizon.d3linechart.js:410
 #: static/horizon/js/horizon.modals.js:328
@@ -40,7 +40,7 @@ msgstr "오류가 발생했습니다. 나중에 다시 시도하십시오."
 #: static/horizon/js/horizon.firewalls.js:30
 #: static/horizon/js/horizon.instances.js:30
 msgid "There was a problem communicating with the server, please try again."
-msgstr "서버와의 통신에 문제가 발생하였으니, 다시 시도하세요."
+msgstr "서버와의 통신에 문제가 발생하였으니, 다시 시도하십시오."
 
 #: static/horizon/js/horizon.forms.js:195
 msgid "Filter"
