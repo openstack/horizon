@@ -205,8 +205,8 @@ OPENSTACK_KEYSTONE_BACKEND = {
 # Toggle LAUNCH_INSTANCE_LEGACY_ENABLED and LAUNCH_INSTANCE_NG_ENABLED to
 # determine the experience to enable.  Set them both to true to enable
 # both.
-LAUNCH_INSTANCE_LEGACY_ENABLED = False
-LAUNCH_INSTANCE_NG_ENABLED = True
+#LAUNCH_INSTANCE_LEGACY_ENABLED = True
+#LAUNCH_INSTANCE_NG_ENABLED = False
 
 # The Xen Hypervisor has the ability to set the mount point for volumes
 # attached to instances (other Hypervisors currently do not). Setting
