@@ -183,6 +183,46 @@
           return $scope.text.required;
         }
       };
+
+      function remove(array, value) {
+        var index = array.indexOf(value);
+        if (index > -1) {
+          array.splice(index, 1);
+        }
+        return array;
+      }
+
+      $scope.opened = false;
+
+      if($scope.item.leaf.type === 'array') {
+
+        $scope.values = $scope.item.leaf.items.enum.filter(function(i) {
+          return $scope.item.leaf.value.indexOf(i) < 0;
+        }).sort();
+
+        if(!$scope.item.leaf.readonly) {
+          $scope.add = function (val) {
+            $scope.item.leaf.value.push(val);
+            $scope.item.leaf.value.sort();
+            remove($scope.values, val);
+          };
+
+          $scope.remove = function (val) {
+            remove($scope.item.leaf.value, val);
+            $scope.values.push(val);
+            $scope.values.sort();
+            if ($scope.item.leaf.value.length === 0) {
+              $scope.opened = true;
+            }
+          };
+
+          $scope.open = function () {
+            $scope.opened = !$scope.opened;
+          };
+
+          $scope.opened = $scope.item.leaf.value.length === 0;
+        }
+      }
     }
   ]);
 
