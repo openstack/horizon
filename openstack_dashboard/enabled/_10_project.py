@@ -37,6 +37,7 @@ ADD_JS_FILES = [
     LAUNCH_INST + 'security-groups/security-groups.js',
     LAUNCH_INST + 'keypair/keypair.js',
     LAUNCH_INST + 'configuration/configuration.js',
+    LAUNCH_INST + 'configuration/load-edit.js',
 ]
 
 ADD_JS_SPEC_FILES = [
