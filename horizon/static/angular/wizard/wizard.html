@@ -5,7 +5,6 @@
     <button class="btn nav-item"
       ng-class="{'current': currentIndex===$index}"
       ng-click="switchTo($index)"
-      ng-if="step.ready"
       ng-repeat="step in steps"
       ng-show="ready">
       <span ng-bind="::step.title"></span>
@@ -15,7 +14,6 @@
   </div>
 
   <div class="step"
-    ng-if="step.ready"
     ng-repeat="step in steps"
     ng-show="currentIndex===$index">
     <ng-include
@@ -63,7 +61,6 @@
 
   <help-panel>
     <ng-include src="step.helpUrl"
-      ng-if="step.ready"
       ng-repeat="step in steps"
       ng-show="currentIndex===$index"></ng-include>
   </help-panel>
