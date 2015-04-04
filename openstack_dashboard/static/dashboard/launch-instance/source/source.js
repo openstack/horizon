@@ -1,6 +1,9 @@
 (function () {
   'use strict';
 
+  var push = [].push,
+      forEach = angular.forEach;
+
   /**
    * @ngdoc overview
    * @name hz.dashboard.launch-instance
@@ -101,17 +104,17 @@
     //
 
     $scope.bootSourcesOptions = [
-      { type: 'image', label: gettext('Image') },
-      { type: 'snapshot', label: gettext('Instance Snapshot') },
-      { type: 'volume', label: gettext('Volume') },
-      { type: 'volume_snapshot', label: gettext('Volume Snapshot') }
+      { type: bootSourceTypes.IMAGE, label: gettext('Image') },
+      { type: bootSourceTypes.INSTANCE_SNAPSHOT, label: gettext('Instance Snapshot') },
+      { type: bootSourceTypes.VOLUME, label: gettext('Volume') },
+      { type: bootSourceTypes.VOLUME_SNAPSHOT, label: gettext('Volume Snapshot') }
     ];
 
     $scope.updateBootSourceSelection = function (selectedSource) {
-      $scope.currentBootSource = selectedSource.type;
+      $scope.currentBootSource = selectedSource;
       $scope.model.newInstanceSpec.vol_create = false;
       $scope.model.newInstanceSpec.vol_delete_on_terminate = false;
-      changeBootSource(selectedSource.type);
+      changeBootSource(selectedSource);
       validateBootSourceType();
     };
 
@@ -127,7 +130,7 @@
     $scope.sourceDetails =
         '/static/dashboard/launch-instance/source/source-details.html';
 
-    var selection = $scope.model.newInstanceSpec.source;
+    var selection = $scope.selection = $scope.model.newInstanceSpec.source;
 
     var bootSources = {
       image: {
@@ -227,8 +230,8 @@
     };
 
     // dynamically update page based on boot source selection
-    function changeBootSource(key) {
-      updateDataSource(key);
+    function changeBootSource(key, preSelection) {
+      updateDataSource(key, preSelection);
       updateHelpText(key);
       updateTableHeadCells(key);
       updateTableBodyCells(key);
@@ -236,9 +239,12 @@
       updateMaxInstanceCount();
     }
 
-    function updateDataSource(key) {
-      angular.extend($scope.tableData, bootSources[key]);
+    function updateDataSource(key, preSelection) {
       selection.length = 0;
+      if (preSelection) {
+        push.apply(selection, preSelection);
+      }
+      angular.extend($scope.tableData, bootSources[key]);
     }
 
     function updateHelpText(key) {
@@ -416,6 +422,40 @@
       $scope.launchInstanceSourceForm['boot-source-type']
             .$setValidity('bootSourceType', isValid);
     }
+
+    function findSourceById(sources, id) {
+      var i = 0, len = sources.length, source;
+      for (; i < len; i++) {
+        source = sources[i];
+        if (source.id === id) {
+          return source;
+        }
+      }
+    }
+
+    function setSourceImageWithId(id) {
+      var pre = findSourceById($scope.model.images, id);
+      if (pre) {
+        changeBootSource(bootSourceTypes.IMAGE, [pre]);
+        $scope.model.newInstanceSpec.source_type = $scope.bootSourcesOptions[0];
+        $scope.currentBootSource = $scope.bootSourcesOptions[0].type;
+      }
+    }
+
+    $scope.$watchCollection(
+      function () {
+        return $scope.model.images;
+      },
+      function (newValue, oldValue) {
+        $scope.initPromise.then(function () {
+          $scope.$applyAsync(function () {
+            if ($scope.launchContext.imageId) {
+              setSourceImageWithId($scope.launchContext.imageId);
+            }
+          });
+        });
+      }
+    );
 
     //
     // initialize

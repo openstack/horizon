@@ -57,6 +57,28 @@ class LaunchImage(tables.LinkAction):
         return False
 
 
+class LaunchImageNG(LaunchImage):
+    name = "launch_image_ng"
+    verbose_name = _("Launch")
+    classes = ("btn-launch")
+    ajax = False
+
+    def __init__(self,
+                 attrs={
+                     "ng-controller": "LaunchInstanceModalCtrl"
+                 },
+                 **kwargs):
+        kwargs['preempt'] = True
+        super(LaunchImage, self).__init__(attrs, **kwargs)
+
+    def get_link_url(self, datum):
+        imageId = self.table.get_object_id(datum)
+        clickValue = "openLaunchInstanceWizard({successUrl: " +\
+                     "'/project/images/', imageId: '%s'})" % (imageId)
+        self.attrs['ng-click'] = clickValue
+        return "javascript:void(0);"
+
+
 class DeleteImage(tables.DeleteAction):
     # NOTE: The bp/add-batchactions-help-text
     # will add appropriate help text to some batch/delete actions.
@@ -268,6 +290,11 @@ class ImagesTable(tables.DataTable):
         status_columns = ["status"]
         verbose_name = _("Images")
         table_actions = (OwnerFilter, CreateImage, DeleteImage,)
-        row_actions = (LaunchImage, CreateVolumeFromImage,
-                       EditImage, DeleteImage,)
+        launch_actions = ()
+        if getattr(settings, 'LAUNCH_INSTANCE_LEGACY_ENABLED', True):
+            launch_actions = (LaunchImage,) + launch_actions
+        if getattr(settings, 'LAUNCH_INSTANCE_NG_ENABLED', False):
+            launch_actions = (LaunchImageNG,) + launch_actions
+        row_actions = launch_actions + (CreateVolumeFromImage,
+                                        EditImage, DeleteImage,)
         pagination_param = "image_marker"
