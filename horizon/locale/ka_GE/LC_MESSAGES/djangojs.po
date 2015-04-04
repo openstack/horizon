@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-02 20:58-0500\n"
-"PO-Revision-Date: 2015-04-02 22:17+0000\n"
+"POT-Creation-Date: 2015-04-03 23:00-0500\n"
+"PO-Revision-Date: 2015-04-04 04:00+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Georgian (Georgia) (http://www.transifex.com/projects/p/horizon/language/ka_GE/)\n"
 "MIME-Version: 1.0\n"
@@ -582,6 +582,14 @@ msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.nova.js:265
 msgid "Unable to retrieve flavor extra specs."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.nova.js:307
+msgid "Extension is not enabled: %(extension)s"
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.nova.js:314
+msgid "Cannot get nova extension list."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.policy.js:65
