@@ -489,18 +489,33 @@ Horizon, follow those steps:
     the right version, contact the original packager.
  2. Package the library as an Xstatic package by following the instructions in
     Xstatic documentation_.
- 3. Register and upload your library to PyPi. Add "openstackci" user as an
-    owner of that package. Don't forget to tag your release in the repository.
- 4. Create a new repository on StackForge_. Use "xstatic-core" and
-    "xstatic-ptl" groups for the ACLs.
- 5. Add the package to global-requirements_. Make sure to mention the license.
- 6. Add the package to Horizon's ``requirements.txt`` file, to its
+ 3. `Create a new repository on StackForge`_. Use "xstatic-core" and
+    "xstatic-ptl" groups for the ACLs. Make sure to include the
+    ``publish-to-pypi`` job.
+ 4. `Setup PyPi`_ to allow OpenStack to publish your package.
+ 5. `Tag your release`_. That will cause it to be automatically packaged and
+    released to PyPi.
+ 6. Add the package to global-requirements_. Make sure to mention the license.
+ 7. Add the package to Horizon's ``requirements.txt`` file, to its
     ``settings.py``, and to the ``_scripts.html`` or ``_stylesheets.html``
     templates. Make sure to keep the order alphabetic.
 
 .. _documentation: http://xstatic.rtfd.org/en/latest/packaging.html
-.. _StackForge: http://ci.openstack.org/stackforge.html#add-a-project-to-stackforge
+.. _`Create a new repository on StackForge`: http://docs.openstack.org/infra/manual/creators.html
 .. _global-requirements: https://github.com/openstack/requirements/blob/master/global-requirements.txt
+.. _`Tag your release`: http://docs.openstack.org/infra/manual/drivers.html#tagging-a-release
+.. _`Setup PyPi`: http://docs.openstack.org/infra/manual/creators.html#give-openstack-permission-to-publish-releases
+
+
+.. warning::
+
+    Note that once a package is released, you can not "unrealease" it. You
+    should never attempt to modify, delete or rename a released package without
+    a lot of careful planning and feedback from all projects that use it.
+
+    For the purpose of fixing packaging mistakes, XStatic has the build number
+    mechanism. Simply fix the error, increment the build number and release the
+    newer package.
 
 
 HTML
