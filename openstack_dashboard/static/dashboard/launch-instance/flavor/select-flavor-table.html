@@ -118,11 +118,14 @@ limitations under the License.
       <pie-chart chart-data="item.ramChartData"
                  chart-settings="donutSettings"></pie-chart>
       <div ng-if="metadataDefs.flavor">
-        <div class="row detail" ng-if="item.extras">
-          <hz-metadata-display
-            available="::metadataDefs.flavor"
-            existing="::item.extras">
-          </hz-metadata-display>
+        <hr>
+        <div class="row" ng-if="item.extras">
+          <div class="col-sm-12">
+            <hz-metadata-display
+              available="::metadataDefs.flavor"
+              existing="::item.extras">
+            </hz-metadata-display>
+          </div>
         </div>
       </div>
     </td>
