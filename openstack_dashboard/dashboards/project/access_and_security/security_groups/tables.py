@@ -210,7 +210,7 @@ def get_remote_ip_prefix(rule):
             range = '::/0' if rule.ethertype == 'IPv6' else '0.0.0.0/0'
         else:
             range = rule.ip_range['cidr']
-        return range + ' (CIDR)'
+        return range
     else:
         return None
 
