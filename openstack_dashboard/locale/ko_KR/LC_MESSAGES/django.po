@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-02 20:58-0500\n"
-"PO-Revision-Date: 2015-04-03 01:59+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-04-03 23:00-0500\n"
+"PO-Revision-Date: 2015-04-04 13:01+0000\n"
+"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -340,31 +340,31 @@ msgstr "센서 볼트값 읽기"
 
 #: api/ceilometer.py:1280
 msgid "System Inlet Temperature Reading"
-msgstr ""
+msgstr "시스템 입구 온도 읽기"
 
 #: api/ceilometer.py:1284
 msgid "System Outlet Temperature Reading"
-msgstr ""
+msgstr "시스템 출구 온도 읽기"
 
 #: api/ceilometer.py:1288
 msgid "System Airflow Reading"
-msgstr ""
+msgstr "시스템 공기흐름 읽기"
 
 #: api/ceilometer.py:1292
 msgid "System CUPS Reading"
-msgstr ""
+msgstr "시스템 CPUS 읽기"
 
 #: api/ceilometer.py:1296
 msgid "System CPU Utility Reading"
-msgstr ""
+msgstr "시스템 CPU 유틸 읽기"
 
 #: api/ceilometer.py:1300
 msgid "System Memory Utility Reading"
-msgstr ""
+msgstr "시스템 메모리 유틸 읽기"
 
 #: api/ceilometer.py:1304
 msgid "System IO Utility Reading"
-msgstr ""
+msgstr "시스템 IO 유틸 읽기"
 
 #: api/cinder.py:46 dashboards/admin/volumes/volume_types/forms.py:33
 msgid "back-end"
@@ -1457,8 +1457,8 @@ msgstr "ID"
 #: dashboards/project/containers/templates/containers/_container_metadata.html:7
 #: dashboards/project/images/images/forms.py:104
 #: dashboards/project/images/images/forms.py:250
-#: dashboards/project/images/images/tables.py:163
-#: dashboards/project/images/images/tables.py:252
+#: dashboards/project/images/images/tables.py:185
+#: dashboards/project/images/images/tables.py:274
 #: dashboards/project/images/templates/images/images/_detail_overview.html:21
 msgid "Public"
 msgstr "공용"
@@ -1623,7 +1623,7 @@ msgstr "호스트 이름"
 #: dashboards/project/access_and_security/security_groups/forms.py:185
 #: dashboards/project/data_processing/data_sources/tables.py:61
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:9
-#: dashboards/project/images/images/tables.py:244
+#: dashboards/project/images/images/tables.py:266
 #: dashboards/project/loadbalancers/workflows.py:486
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/routers/ports/tables.py:115
@@ -1887,7 +1887,7 @@ msgstr "영역"
 #: dashboards/project/databases/templates/databases/_detail_overview.html:18
 #: dashboards/project/firewalls/tables.py:347
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
-#: dashboards/project/images/images/tables.py:247
+#: dashboards/project/images/images/tables.py:269
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
 #: dashboards/project/instances/tables.py:1025
 #: dashboards/project/instances/templates/instances/_detail_overview.html:14
@@ -1994,7 +1994,7 @@ msgstr "이미지 메타데이터를 업데이트할 수 없습니다."
 #: dashboards/admin/images/views.py:47
 #: dashboards/admin/images/templates/images/index.html:3
 #: dashboards/project/images/panel.py:24 dashboards/project/images/views.py:38
-#: dashboards/project/images/images/tables.py:269
+#: dashboards/project/images/images/tables.py:291
 #: dashboards/project/images/templates/images/index.html:3
 msgid "Images"
 msgstr "이미지"
@@ -2023,7 +2023,7 @@ msgstr "최대 크기 (MB)"
 
 #: dashboards/admin/images/tables.py:71
 #: dashboards/admin/instances/tables.py:132
-#: dashboards/project/images/images/tables.py:242
+#: dashboards/project/images/images/tables.py:264
 #: dashboards/project/instances/tables.py:1015
 #: dashboards/project/instances/templates/instances/_detail_overview.html:114
 #: dashboards/project/instances/workflows/create_instance.py:108
@@ -2095,7 +2095,7 @@ msgid ""
 msgstr "이미지가 있는 위치를 작성하는 필드에는 이미지 바이너리에 대한 유효하고 직접연결하는 URL이여야 합니다. 사용할 수 없는 이미지는 리다이렉트되거나 서비스 에러 페이지를 나타냅니다."
 
 #: dashboards/admin/images/templates/images/_create.html:34
-#: dashboards/project/images/images/tables.py:98
+#: dashboards/project/images/images/tables.py:120
 #: dashboards/project/images/templates/images/images/_create.html:32
 msgid "Create Image"
 msgstr "이미지 생성"
@@ -2303,7 +2303,7 @@ msgstr "Flavor ID ="
 #: dashboards/admin/volumes/snapshots/tables.py:65
 #: dashboards/admin/volumes/volumes/tables.py:82
 #: dashboards/project/dashboard.py:77
-#: dashboards/project/images/images/tables.py:156
+#: dashboards/project/images/images/tables.py:178
 #: dashboards/project/instances/workflows/create_instance.py:54
 #: dashboards/router/nexus1000v/forms.py:119
 #: dashboards/router/nexus1000v/forms.py:177
@@ -2330,7 +2330,7 @@ msgstr "IP 주소"
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
 #: dashboards/project/databases/tables.py:327
-#: dashboards/project/images/images/tables.py:263
+#: dashboards/project/images/images/tables.py:285
 #: dashboards/project/images/templates/images/images/_detail_overview.html:46
 #: dashboards/project/instances/tables.py:1020
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:7
@@ -2427,7 +2427,7 @@ msgstr "JSON 포맷화된 네임스페이스 내용"
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:20
 #: dashboards/project/images/images/forms.py:105
 #: dashboards/project/images/images/forms.py:251
-#: dashboards/project/images/images/tables.py:256
+#: dashboards/project/images/images/tables.py:278
 #: dashboards/project/images/templates/images/images/_detail_overview.html:23
 msgid "Protected"
 msgstr "보호됨"
@@ -3361,7 +3361,7 @@ msgstr "네트워크 %s 삭제하지 못하였습니다."
 #: dashboards/admin/networks/templates/networks/_create.html:9
 #: dashboards/admin/networks/templates/networks/_create.html:26
 #: dashboards/admin/networks/templates/networks/create.html:3
-#: dashboards/project/network_topology/templates/network_topology/index.html:34
+#: dashboards/project/network_topology/templates/network_topology/index.html:37
 #: dashboards/project/networks/tables.py:87
 #: dashboards/project/networks/tables.py:100
 #: dashboards/project/networks/workflows.py:341
@@ -4675,7 +4675,7 @@ msgstr "정의되지 않은"
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:56
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:106
 msgid "QoS Spec: {{ qos_spec_name }}"
-msgstr ""
+msgstr "QoS 스펙: {{ qos_spec_name }}"
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:65
 msgid "Unable to retrieve QoS spec list."
@@ -4683,7 +4683,7 @@ msgstr "QOS 사양 목록을 찾지 못 했습니다."
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:79
 msgid "Spec: {{ qos_spec_name }}"
-msgstr ""
+msgstr "스펙: {{ qos_spec_name }}"
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:100
 msgid "Edit Spec Value"
@@ -7168,7 +7168,7 @@ msgstr "템플릿이 선택되지 않았습니다."
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:37
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:133
 msgid "Proxy Gateway"
-msgstr ""
+msgstr "프록시 게이트웨이"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:29
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:32
@@ -7451,6 +7451,7 @@ msgstr "사용 가능한 템플릿 없음"
 #: dashboards/project/data_processing/jobs/workflows/launch.py:331
 #: dashboards/project/data_processing/jobs/workflows/launch.py:416
 #: dashboards/project/databases/workflows/create_instance.py:335
+#: dashboards/project/images/images/tables.py:62
 #: dashboards/project/instances/workflows/create_instance.py:820
 #: dashboards/project/stacks/views.py:165
 msgid "Launch"
@@ -8522,7 +8523,7 @@ msgstr "프로세스 선택을 생성할 수 없습니다."
 msgid ""
 "Sahara will use instances of this node group to access other cluster "
 "instances."
-msgstr ""
+msgstr "Sahara는 다른 클러스터 인스턴스에 접근하여 노드 그룹의 인스턴스를 사용합니다."
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:140
 msgid "Processes"
@@ -9257,7 +9258,8 @@ msgstr "인스턴스에서 데이터베이스를 삭제하는 동안 오류가 �
 #: dashboards/project/instances/tables.py:308
 #: dashboards/project/instances/tables.py:336
 #: dashboards/project/instances/workflows/create_instance.py:819
-#: dashboards/project/network_topology/templates/network_topology/index.html:31
+#: dashboards/project/network_topology/templates/network_topology/index.html:32
+#: dashboards/project/network_topology/templates/network_topology/index.html:34
 msgid "Launch Instance"
 msgstr "인스턴스 구동"
 
@@ -9903,16 +9905,16 @@ msgstr "규칙을 정책 %(name)s에서 제거하지 못하였습니다.: %(reas
 
 #: dashboards/project/firewalls/forms.py:334
 msgid "Add Routers"
-msgstr ""
+msgstr "라우터 추가"
 
 #: dashboards/project/firewalls/forms.py:337
 msgid "Add selected router(s) to the firewall."
-msgstr ""
+msgstr "방화벽에서 라우터를 선택하여 추가합니다."
 
 #: dashboards/project/firewalls/forms.py:340
 #, python-format
 msgid "Router(s) was/were successfully added to firewall %(firewall)s."
-msgstr ""
+msgstr "라우터를 방화벽 %(firewall)s 에 성공적으로 추가했습니다."
 
 #: dashboards/project/firewalls/forms.py:342
 #, python-format
@@ -10512,7 +10514,7 @@ msgstr "업로드할 로컬 이미지."
 
 #: dashboards/project/images/images/forms.py:76
 #: dashboards/project/images/images/forms.py:232
-#: dashboards/project/images/images/tables.py:259
+#: dashboards/project/images/images/tables.py:281
 msgid "Format"
 msgstr "포멧"
 
@@ -10598,25 +10600,25 @@ msgstr "이미지 \"%s\"를 업데이트 할 수 없습니다."
 msgid "Image was successfully updated."
 msgstr "이미지를 성공적으로 업데이트 하였습니다."
 
-#: dashboards/project/images/images/tables.py:63
+#: dashboards/project/images/images/tables.py:85
 msgid "Deleted images are not recoverable."
 msgstr "삭제된 이미지는 복구 불가능합니다."
 
-#: dashboards/project/images/images/tables.py:68
+#: dashboards/project/images/images/tables.py:90
 msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] "이미지 삭제"
 
-#: dashboards/project/images/images/tables.py:76
+#: dashboards/project/images/images/tables.py:98
 msgid "Deleted Image"
 msgid_plural "Deleted Images"
 msgstr[0] "이미지 삭제함"
 
-#: dashboards/project/images/images/tables.py:107
+#: dashboards/project/images/images/tables.py:129
 msgid "Edit Image"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:124
+#: dashboards/project/images/images/tables.py:146
 #: dashboards/project/volumes/snapshots/tables.py:93
 #: dashboards/project/volumes/templates/volumes/volumes/create.html:3
 #: dashboards/project/volumes/volumes/tables.py:96
@@ -10626,36 +10628,36 @@ msgstr ""
 msgid "Create Volume"
 msgstr "볼륨 생성"
 
-#: dashboards/project/images/images/tables.py:161
+#: dashboards/project/images/images/tables.py:183
 msgid "Shared with Me"
 msgstr "나에게 공유됨"
 
-#: dashboards/project/images/images/tables.py:232
+#: dashboards/project/images/images/tables.py:254
 msgctxt "Current status of an Image"
 msgid "Active"
 msgstr "Active"
 
-#: dashboards/project/images/images/tables.py:233
+#: dashboards/project/images/images/tables.py:255
 msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "Saving"
 
-#: dashboards/project/images/images/tables.py:234
+#: dashboards/project/images/images/tables.py:256
 msgctxt "Current status of an Image"
 msgid "Queued"
 msgstr "Queued"
 
-#: dashboards/project/images/images/tables.py:236
+#: dashboards/project/images/images/tables.py:258
 msgctxt "Current status of an Image"
 msgid "Pending Delete"
 msgstr "Pending Delete"
 
-#: dashboards/project/images/images/tables.py:237
+#: dashboards/project/images/images/tables.py:259
 msgctxt "Current status of an Image"
 msgid "Killed"
 msgstr "Killed"
 
-#: dashboards/project/images/images/tables.py:238
+#: dashboards/project/images/images/tables.py:260
 msgctxt "Current status of an Image"
 msgid "Deleted"
 msgstr "Deleted"
@@ -13002,7 +13004,7 @@ msgstr "라우터 생성"
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:9
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:20
 #: dashboards/project/network_topology/templates/network_topology/create_router.html:3
-#: dashboards/project/network_topology/templates/network_topology/index.html:37
+#: dashboards/project/network_topology/templates/network_topology/index.html:40
 #: dashboards/project/routers/tables.py:85
 #: dashboards/project/routers/tables.py:98
 #: dashboards/project/routers/views.py:164
@@ -13026,21 +13028,22 @@ msgstr "이 부분은 자바스크립트 지원이 필요합니다."
 msgid "Small"
 msgstr "작음"
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:31
+#: dashboards/project/network_topology/templates/network_topology/index.html:32
+#: dashboards/project/network_topology/templates/network_topology/index.html:34
 msgid "Launch Instance (Quota exceeded)"
 msgstr "인스턴스 구동 (Quota 초과)"
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:34
+#: dashboards/project/network_topology/templates/network_topology/index.html:37
 #: dashboards/project/networks/tables.py:98
 msgid "Create Network (Quota exceeded)"
 msgstr "네트워크 생성 (Quota 초과)"
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:37
+#: dashboards/project/network_topology/templates/network_topology/index.html:40
 #: dashboards/project/routers/tables.py:96
 msgid "Create Router (Quota exceeded)"
 msgstr "라우터 생성 (Quota 초과)"
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:43
+#: dashboards/project/network_topology/templates/network_topology/index.html:46
 msgid "There are no networks, routers, or connected instances to display."
 msgstr "표시할 네트워크, 라우터, 연결한 인스턴스가 없습니다."
 

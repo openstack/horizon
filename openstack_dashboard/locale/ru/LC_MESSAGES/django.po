@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Ainur Shakirov <ainur.shakirov.tt@gmail.com>, 2015
 # Dasha Sher <sher.dasha@gmail.com>, 2014
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015
 # Kyrylo Romanenko <kromanenko@mirantis.com>, 2015
@@ -10,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-02 20:58-0500\n"
-"PO-Revision-Date: 2015-04-03 01:59+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-04-03 23:00-0500\n"
+"PO-Revision-Date: 2015-04-04 20:47+0000\n"
+"Last-Translator: Ainur Shakirov <ainur.shakirov.tt@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -82,11 +83,11 @@ msgstr "Не удалось получить список замеров Ceilome
 
 #: api/ceilometer.py:931
 msgid "Existence of instance"
-msgstr "Наличие инстанса"
+msgstr "Наличие машины"
 
 #: api/ceilometer.py:935
 msgid "Existence of instance <type> (openstack types)"
-msgstr "Наличие инстанса типа <type> (типы openstack)"
+msgstr "Наличие машины типа <type> (типы openstack)"
 
 #: api/ceilometer.py:940
 msgid "Volume of RAM"
@@ -192,11 +193,11 @@ msgstr "Наличие сети"
 
 #: api/ceilometer.py:1071
 msgid "Creation requests for this network"
-msgstr "Запросы на создание для этой сети"
+msgstr "Запросы на создание этой сети"
 
 #: api/ceilometer.py:1075
 msgid "Update requests for this network"
-msgstr "Запросы на обновление для этой сети"
+msgstr "Запросы на обновление этой сети"
 
 #: api/ceilometer.py:1079
 msgid "Existence of subnet"
@@ -204,11 +205,11 @@ msgstr "Наличие подсети"
 
 #: api/ceilometer.py:1083
 msgid "Creation requests for this subnet"
-msgstr "Запросы на создание для этой подсети"
+msgstr "Запросы на создание этой подсети"
 
 #: api/ceilometer.py:1087
 msgid "Update requests for this subnet"
-msgstr "Запросы на обновление для этой подсети"
+msgstr "Запросы на обновление этой подсети"
 
 #: api/ceilometer.py:1091
 msgid "Existence of port"
@@ -216,11 +217,11 @@ msgstr "Наличие порта"
 
 #: api/ceilometer.py:1095
 msgid "Creation requests for this port"
-msgstr "Запросы на создание для этого порта"
+msgstr "Запросы на создание этого порта"
 
 #: api/ceilometer.py:1099
 msgid "Update requests for this port"
-msgstr "Запросы на обновление для этого порта"
+msgstr "Запросы на обновление этого порта"
 
 #: api/ceilometer.py:1103
 msgid "Existence of router"
@@ -228,23 +229,23 @@ msgstr "Наличие маршрутизатора"
 
 #: api/ceilometer.py:1107
 msgid "Creation requests for this router"
-msgstr "Запросы на создание для этого маршрутизатора"
+msgstr "Запросы на создание этого маршрутизатора"
 
 #: api/ceilometer.py:1111
 msgid "Update requests for this router"
-msgstr "Запросы на обновление для этого маршрутизатора"
+msgstr "Запросы на обновление этого маршрутизатора"
 
 #: api/ceilometer.py:1115
 msgid "Existence of floating ip"
-msgstr "Наличие плавающего IP"
+msgstr "Наличие внешнего IP"
 
 #: api/ceilometer.py:1119
 msgid "Creation requests for this floating ip"
-msgstr "Запросы на создание для этого назначаемого IP"
+msgstr "Запросы на создание этого внешнего IP"
 
 #: api/ceilometer.py:1123
 msgid "Update requests for this floating ip"
-msgstr "Запросы на обновление для этого назначаемого IP"
+msgstr "Запросы на обновление этого внешнего IP"
 
 #: api/ceilometer.py:1140
 msgid "Image existence check"
@@ -264,7 +265,7 @@ msgstr "Количество загрузок образа"
 
 #: api/ceilometer.py:1156
 msgid "Number of image deletions"
-msgstr "Количество удалений образов"
+msgstr "Количество удалений образв"
 
 #: api/ceilometer.py:1160
 msgid "Image is downloaded"
@@ -276,7 +277,7 @@ msgstr "Образ не обслуживается"
 
 #: api/ceilometer.py:1181
 msgid "Existence of volume"
-msgstr "Наличие тома"
+msgstr "Наличие диска"
 
 #: api/ceilometer.py:1185
 msgid "Size of volume"
@@ -316,7 +317,7 @@ msgstr "Потребляемая мощность"
 
 #: api/ceilometer.py:1260
 msgid "System Current Power"
-msgstr "Текущее питание системы"
+msgstr "Текущая мощность системы"
 
 #: api/ceilometer.py:1264
 msgid "Fan RPM"
@@ -336,31 +337,31 @@ msgstr "Показания сенсора напряжения"
 
 #: api/ceilometer.py:1280
 msgid "System Inlet Temperature Reading"
-msgstr ""
+msgstr "Показания температуры на входе"
 
 #: api/ceilometer.py:1284
 msgid "System Outlet Temperature Reading"
-msgstr ""
+msgstr "Показания температуры на выходе"
 
 #: api/ceilometer.py:1288
 msgid "System Airflow Reading"
-msgstr ""
+msgstr "Показания воздушного потока"
 
 #: api/ceilometer.py:1292
 msgid "System CUPS Reading"
-msgstr ""
+msgstr "Показания CUPS"
 
 #: api/ceilometer.py:1296
 msgid "System CPU Utility Reading"
-msgstr ""
+msgstr "Показания по использованию CPU"
 
 #: api/ceilometer.py:1300
 msgid "System Memory Utility Reading"
-msgstr ""
+msgstr "Показания по использованию ОЗУ"
 
 #: api/ceilometer.py:1304
 msgid "System IO Utility Reading"
-msgstr ""
+msgstr "Показания по использованию IO"
 
 #: api/cinder.py:46 dashboards/admin/volumes/volume_types/forms.py:33
 msgid "back-end"
@@ -391,35 +392,35 @@ msgstr "Служба идентификации запретила редакт�
 #: api/keystone.py:370
 #, python-format
 msgid "User %s has no role defined for that project."
-msgstr "У пользователя %s отсутствует назанченная роль в этом проекте."
+msgstr "У пользователя %s отсутствует назначенная роль в этом проекте."
 
 #: api/keystone.py:397
 msgid "Identity service does not allow editing user password."
-msgstr "Сервис Identity не разрешает редактирование пароля пользователя."
+msgstr "Служба идентификации не разрешает менять пароль пользователя."
 
 #: api/lbaas.py:152
 #, python-format
 msgid "Unable to get VIP for pool %(pool)s."
-msgstr "Невозможно получить VIP для пула %(pool)s."
+msgstr "Не удалось получить VIP из пула %(pool)s."
 
 #: api/lbaas.py:191
 msgid "Unable to get pool detail."
-msgstr "Невозможно получить детали пула."
+msgstr "Не удалось получить детали пула."
 
 #: api/lbaas.py:203
 #, python-format
 msgid "Unable to get subnet for pool %(pool)s."
-msgstr "Невозможно получить подсеть для пула %(pool)s."
+msgstr "Не удалось получить подсеть из пула %(pool)s."
 
 #: api/lbaas.py:211
 #, python-format
 msgid "Unable to get members for pool %(pool)s."
-msgstr "Невозможно получить участников пула %(pool)s."
+msgstr "Не удалось получить участников из пула %(pool)s."
 
 #: api/lbaas.py:218
 #, python-format
 msgid "Unable to get health monitors for pool %(pool)s."
-msgstr ""
+msgstr "Не удалось получить мониторы здоровья из пула %(pool)s."
 
 #: api/neutron.py:225
 #, python-format
@@ -441,7 +442,7 @@ msgstr "Не удалось получить IP адрес %s."
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
 "a feature defined in FEATURE_MAP."
-msgstr "The requested feature '%(feature)s' is unknown. Please make sure to specify a feature defined in FEATURE_MAP."
+msgstr "Запрошенная функция '%(feature)s' недоступна. Убедитесь, что указанная функция определена в FEATURE_MAP."
 
 #. Translators: Only used inside Horizon code and invisible to users
 #: api/neutron.py:1151
@@ -449,12 +450,12 @@ msgstr "The requested feature '%(feature)s' is unknown. Please make sure to spec
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
 "invalid. It should be one of %(allowed)s"
-msgstr "The 'operation' parameter for get_feature_permission '%(feature)s' is invalid. It should be one of %(allowed)s"
+msgstr "Параметр 'operation' функции получения доступа '%(feature)s' неправилен. Следует указать один из %(allowed)s"
 
 #: api/neutron.py:1166
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
-msgstr "Невозможно проверить отсутствие поддержки расширения Neutron '%s'"
+msgstr "Не удалось проверить отсутствие поддержки расширения Neutron '%s'"
 
 #: api/nova.py:110 api/nova.py:120
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:14
@@ -507,18 +508,18 @@ msgstr "Не удалось получить список групп безоп�
 #: api/nova.py:319
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
-msgstr "Невозможно получить текущую группу безопасности для машины %s."
+msgstr "Не удалось получить текущую группу безопасности машины %s."
 
 #: api/nova.py:336
 #, python-format
 msgid ""
 "Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
-msgstr "Не удалось изменить %(num_groups_to_modify)d групп безопасности инстанса: %(err)s"
+msgstr "Не удалось изменить %(num_groups_to_modify)d групп безопасности машины: %(err)s"
 
 #: api/nova.py:351
 #, python-format
 msgid "Failed to modify %d instance security groups"
-msgstr "Не удалось изменить %d групп безопасности инстанса"
+msgstr "Не удалось изменить %d групп безопасности машины"
 
 #: api/nova.py:795 api/nova.py:831
 #, python-format
@@ -528,20 +529,20 @@ msgstr "Имя: %(name)s ID: %(uuid)s"
 #: api/nova.py:800
 #, python-format
 msgid "Failed to evacuate instances: %s"
-msgstr "Не удалось эвакуировать инстанс: %s"
+msgstr "Не удалось эвакуировать машину: %s"
 
 #: api/nova.py:836
 #, python-format
 msgid "Failed to migrate instances: %s"
-msgstr "Не удалось смигрировать инстанс: %s"
+msgstr "Не удалось смигрировать машину: %s"
 
 #: api/swift.py:204
 msgid "The container cannot be deleted since it is not empty."
-msgstr ""
+msgstr "Нельзя удалить непустой контейнер."
 
 #: api/swift.py:321
 msgid "The pseudo folder cannot be deleted since it is not empty."
-msgstr ""
+msgstr "Нельзя удалить непустой псевдокаталог."
 
 #: dashboards/admin/dashboard.py:22
 msgid "System"
@@ -700,7 +701,7 @@ msgstr "Зона доступности"
 #: dashboards/admin/aggregates/forms.py:45
 #, python-format
 msgid "Successfully updated aggregate: \"%s.\""
-msgstr "Агрегат «%s» успешно обновлён."
+msgstr "Агрегат «%s» успешно обновлен."
 
 #: dashboards/admin/aggregates/forms.py:50
 #: dashboards/admin/aggregates/workflows.py:211
@@ -721,20 +722,20 @@ msgstr "Невозможно обновить метаданные агрега�
 #: dashboards/admin/aggregates/views.py:43
 #: dashboards/admin/aggregates/templates/aggregates/index.html:3
 msgid "Host Aggregates"
-msgstr "Сборники узлов"
+msgstr "Агрегация узлов"
 
 #: dashboards/admin/aggregates/tables.py:29
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Удалить агрегацию узлов"
+msgstr[1] "Удалить агрегации узлов"
 msgstr[2] "Удалить агрегации узлов"
 
 #: dashboards/admin/aggregates/tables.py:37
 msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Агрегация узлов удалена"
+msgstr[1] "Агрегации узлов удалены"
 msgstr[2] "Агрегации узлов удалены"
 
 #: dashboards/admin/aggregates/tables.py:48
@@ -743,7 +744,7 @@ msgstr[2] "Агрегации узлов удалены"
 #: dashboards/admin/aggregates/workflows.py:177
 #: dashboards/admin/aggregates/templates/aggregates/create.html:3
 msgid "Create Host Aggregate"
-msgstr "Создать сборник узлов"
+msgstr "Создать агрегацию узлов"
 
 #: dashboards/admin/aggregates/tables.py:56
 msgid "Manage Hosts"
@@ -763,7 +764,7 @@ msgstr "Обновить метаданные"
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:9
 #: dashboards/admin/aggregates/templates/aggregates/update.html:3
 msgid "Edit Host Aggregate"
-msgstr "Изменить сборник узлов"
+msgstr "Изменить агрегацию узлов"
 
 #: dashboards/admin/aggregates/tables.py:118
 msgid "Services Up"
@@ -803,7 +804,7 @@ msgstr "Зоны доступности"
 
 #: dashboards/admin/aggregates/views.py:52
 msgid "Unable to retrieve host aggregates list."
-msgstr "Невозможно получить список сборников узлов."
+msgstr "Невозможно получить список агрегации узлов."
 
 #: dashboards/admin/aggregates/views.py:64
 msgid "Unable to retrieve availability zone list."
@@ -811,7 +812,7 @@ msgstr "Невозможно получить список зон доступн
 
 #: dashboards/admin/aggregates/views.py:99
 msgid "Unable to retrieve the aggregate to be updated"
-msgstr "Невозможно загрузить сборник для обновления"
+msgstr "Невозможно загрузить агрегат для обновления"
 
 #: dashboards/admin/aggregates/views.py:108
 #: dashboards/admin/aggregates/templates/aggregates/_update_metadata.html:4
@@ -822,7 +823,7 @@ msgstr " Обновить метаданные агрегата"
 
 #: dashboards/admin/aggregates/views.py:134
 msgid "Unable to retrieve available metadata for aggregate."
-msgstr "Невозможно получить все доступные метаданные для агрегата"
+msgstr "Невозможно получить все доступные метаданные для агрегата."
 
 #: dashboards/admin/aggregates/views.py:147
 msgid "Unable to retrieve the aggregate to be updated."
@@ -831,11 +832,11 @@ msgstr "Невозможно получить агрегат для обновл
 #: dashboards/admin/aggregates/views.py:157
 #: dashboards/admin/aggregates/templates/aggregates/manage_hosts.html:3
 msgid "Manage Hosts Aggregate"
-msgstr "Управление сборников узлов"
+msgstr "Управление агрегацией узлов"
 
 #: dashboards/admin/aggregates/workflows.py:31
 msgid "Host Aggregate Information"
-msgstr "Информация о агрегате хостов"
+msgstr "Информация об агрегации узлов"
 
 #: dashboards/admin/aggregates/workflows.py:32
 msgid ""
@@ -1461,8 +1462,8 @@ msgstr "ID"
 #: dashboards/project/containers/templates/containers/_container_metadata.html:7
 #: dashboards/project/images/images/forms.py:104
 #: dashboards/project/images/images/forms.py:250
-#: dashboards/project/images/images/tables.py:163
-#: dashboards/project/images/images/tables.py:252
+#: dashboards/project/images/images/tables.py:185
+#: dashboards/project/images/images/tables.py:274
 #: dashboards/project/images/templates/images/images/_detail_overview.html:21
 msgid "Public"
 msgstr "Публичный"
@@ -1627,7 +1628,7 @@ msgstr "Имя узла"
 #: dashboards/project/access_and_security/security_groups/forms.py:185
 #: dashboards/project/data_processing/data_sources/tables.py:61
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:9
-#: dashboards/project/images/images/tables.py:244
+#: dashboards/project/images/images/tables.py:266
 #: dashboards/project/loadbalancers/workflows.py:486
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/routers/ports/tables.py:115
@@ -1899,7 +1900,7 @@ msgstr "Зона"
 #: dashboards/project/databases/templates/databases/_detail_overview.html:18
 #: dashboards/project/firewalls/tables.py:347
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
-#: dashboards/project/images/images/tables.py:247
+#: dashboards/project/images/images/tables.py:269
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
 #: dashboards/project/instances/tables.py:1025
 #: dashboards/project/instances/templates/instances/_detail_overview.html:14
@@ -2006,7 +2007,7 @@ msgstr "Невозможно обновить метаданные образа"
 #: dashboards/admin/images/views.py:47
 #: dashboards/admin/images/templates/images/index.html:3
 #: dashboards/project/images/panel.py:24 dashboards/project/images/views.py:38
-#: dashboards/project/images/images/tables.py:269
+#: dashboards/project/images/images/tables.py:291
 #: dashboards/project/images/templates/images/index.html:3
 msgid "Images"
 msgstr "Образы"
@@ -2035,7 +2036,7 @@ msgstr "Максимальный размер (МБ)"
 
 #: dashboards/admin/images/tables.py:71
 #: dashboards/admin/instances/tables.py:132
-#: dashboards/project/images/images/tables.py:242
+#: dashboards/project/images/images/tables.py:264
 #: dashboards/project/instances/tables.py:1015
 #: dashboards/project/instances/templates/instances/_detail_overview.html:114
 #: dashboards/project/instances/workflows/create_instance.py:108
@@ -2107,7 +2108,7 @@ msgid ""
 msgstr "Поле расположение образа ДОЛЖНО содержать корректный и прямой URL на файл образа. URL с переадресацией или содержащий ошибки приведет к невозможности использования образа."
 
 #: dashboards/admin/images/templates/images/_create.html:34
-#: dashboards/project/images/images/tables.py:98
+#: dashboards/project/images/images/tables.py:120
 #: dashboards/project/images/templates/images/images/_create.html:32
 msgid "Create Image"
 msgstr "Создать образ"
@@ -2319,7 +2320,7 @@ msgstr "Схема ID ="
 #: dashboards/admin/volumes/snapshots/tables.py:65
 #: dashboards/admin/volumes/volumes/tables.py:82
 #: dashboards/project/dashboard.py:77
-#: dashboards/project/images/images/tables.py:156
+#: dashboards/project/images/images/tables.py:178
 #: dashboards/project/instances/workflows/create_instance.py:54
 #: dashboards/router/nexus1000v/forms.py:119
 #: dashboards/router/nexus1000v/forms.py:177
@@ -2346,7 +2347,7 @@ msgstr "IP-адрес"
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
 #: dashboards/project/databases/tables.py:327
-#: dashboards/project/images/images/tables.py:263
+#: dashboards/project/images/images/tables.py:285
 #: dashboards/project/images/templates/images/images/_detail_overview.html:46
 #: dashboards/project/instances/tables.py:1020
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:7
@@ -2443,7 +2444,7 @@ msgstr ""
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:20
 #: dashboards/project/images/images/forms.py:105
 #: dashboards/project/images/images/forms.py:251
-#: dashboards/project/images/images/tables.py:256
+#: dashboards/project/images/images/tables.py:278
 #: dashboards/project/images/templates/images/images/_detail_overview.html:23
 msgid "Protected"
 msgstr "Защищенный"
@@ -3385,7 +3386,7 @@ msgstr "Не удалось удалить сеть %s"
 #: dashboards/admin/networks/templates/networks/_create.html:9
 #: dashboards/admin/networks/templates/networks/_create.html:26
 #: dashboards/admin/networks/templates/networks/create.html:3
-#: dashboards/project/network_topology/templates/network_topology/index.html:34
+#: dashboards/project/network_topology/templates/network_topology/index.html:37
 #: dashboards/project/networks/tables.py:87
 #: dashboards/project/networks/tables.py:100
 #: dashboards/project/networks/workflows.py:341
@@ -7571,6 +7572,7 @@ msgstr ""
 #: dashboards/project/data_processing/jobs/workflows/launch.py:331
 #: dashboards/project/data_processing/jobs/workflows/launch.py:416
 #: dashboards/project/databases/workflows/create_instance.py:335
+#: dashboards/project/images/images/tables.py:62
 #: dashboards/project/instances/workflows/create_instance.py:820
 #: dashboards/project/stacks/views.py:165
 msgid "Launch"
@@ -9421,7 +9423,8 @@ msgstr "Ошибка удаления БД на инстансе."
 #: dashboards/project/instances/tables.py:308
 #: dashboards/project/instances/tables.py:336
 #: dashboards/project/instances/workflows/create_instance.py:819
-#: dashboards/project/network_topology/templates/network_topology/index.html:31
+#: dashboards/project/network_topology/templates/network_topology/index.html:32
+#: dashboards/project/network_topology/templates/network_topology/index.html:34
 msgid "Launch Instance"
 msgstr "Запустить экземпляр"
 
@@ -10686,7 +10689,7 @@ msgstr "Локальный образ для загрузки."
 
 #: dashboards/project/images/images/forms.py:76
 #: dashboards/project/images/images/forms.py:232
-#: dashboards/project/images/images/tables.py:259
+#: dashboards/project/images/images/tables.py:281
 msgid "Format"
 msgstr "Формат"
 
@@ -10772,29 +10775,29 @@ msgstr "Невозможно обновить образ \"%s\"."
 msgid "Image was successfully updated."
 msgstr "Образ успешно обновлён."
 
-#: dashboards/project/images/images/tables.py:63
+#: dashboards/project/images/images/tables.py:85
 msgid "Deleted images are not recoverable."
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:68
+#: dashboards/project/images/images/tables.py:90
 msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/images/images/tables.py:76
+#: dashboards/project/images/images/tables.py:98
 msgid "Deleted Image"
 msgid_plural "Deleted Images"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: dashboards/project/images/images/tables.py:107
+#: dashboards/project/images/images/tables.py:129
 msgid "Edit Image"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:124
+#: dashboards/project/images/images/tables.py:146
 #: dashboards/project/volumes/snapshots/tables.py:93
 #: dashboards/project/volumes/templates/volumes/volumes/create.html:3
 #: dashboards/project/volumes/volumes/tables.py:96
@@ -10804,36 +10807,36 @@ msgstr ""
 msgid "Create Volume"
 msgstr "Создать диск"
 
-#: dashboards/project/images/images/tables.py:161
+#: dashboards/project/images/images/tables.py:183
 msgid "Shared with Me"
 msgstr "В совместном доступе"
 
-#: dashboards/project/images/images/tables.py:232
+#: dashboards/project/images/images/tables.py:254
 msgctxt "Current status of an Image"
 msgid "Active"
 msgstr "Активный"
 
-#: dashboards/project/images/images/tables.py:233
+#: dashboards/project/images/images/tables.py:255
 msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:234
+#: dashboards/project/images/images/tables.py:256
 msgctxt "Current status of an Image"
 msgid "Queued"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:236
+#: dashboards/project/images/images/tables.py:258
 msgctxt "Current status of an Image"
 msgid "Pending Delete"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:237
+#: dashboards/project/images/images/tables.py:259
 msgctxt "Current status of an Image"
 msgid "Killed"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:238
+#: dashboards/project/images/images/tables.py:260
 msgctxt "Current status of an Image"
 msgid "Deleted"
 msgstr "Удалено"
@@ -13234,7 +13237,7 @@ msgstr "Создать Маршрутизатор"
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:9
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:20
 #: dashboards/project/network_topology/templates/network_topology/create_router.html:3
-#: dashboards/project/network_topology/templates/network_topology/index.html:37
+#: dashboards/project/network_topology/templates/network_topology/index.html:40
 #: dashboards/project/routers/tables.py:85
 #: dashboards/project/routers/tables.py:98
 #: dashboards/project/routers/views.py:164
@@ -13258,21 +13261,22 @@ msgstr "Эта панель требует поддержки javascript."
 msgid "Small"
 msgstr "Маленький"
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:31
+#: dashboards/project/network_topology/templates/network_topology/index.html:32
+#: dashboards/project/network_topology/templates/network_topology/index.html:34
 msgid "Launch Instance (Quota exceeded)"
 msgstr ""
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:34
+#: dashboards/project/network_topology/templates/network_topology/index.html:37
 #: dashboards/project/networks/tables.py:98
 msgid "Create Network (Quota exceeded)"
 msgstr ""
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:37
+#: dashboards/project/network_topology/templates/network_topology/index.html:40
 #: dashboards/project/routers/tables.py:96
 msgid "Create Router (Quota exceeded)"
 msgstr ""
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:43
+#: dashboards/project/network_topology/templates/network_topology/index.html:46
 msgid "There are no networks, routers, or connected instances to display."
 msgstr "Нет сетей, маршрутизаторов или подключенных инстансов для отображения."
 

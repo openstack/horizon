@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-03 23:00-0500\n"
-"PO-Revision-Date: 2015-04-04 02:24+0000\n"
-"Last-Translator: ykatabam <ykatabam@redhat.com>\n"
+"PO-Revision-Date: 2015-04-04 23:41+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3760,7 +3760,7 @@ msgstr "MAC アドレス"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:23
 msgid "On"
-msgstr ""
+msgstr "オン"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:25
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:25
@@ -5583,7 +5583,7 @@ msgstr "管理者パスワード"
 
 #: dashboards/identity/users/forms.py:249
 msgid "The admin password is incorrect."
-msgstr ""
+msgstr "管理者パスワードが正しくありません。"
 
 #: dashboards/identity/users/forms.py:258
 msgid "Password changed. Please log in to continue."
@@ -6353,11 +6353,11 @@ msgstr "ANY"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:270
 msgid "Remote IP Prefix"
-msgstr ""
+msgstr "接続相手の IP 範囲"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:272
 msgid "Remote Security Group"
-msgstr ""
+msgstr "接続相手のセキュリティーグループ"
 
 #: dashboards/project/access_and_security/security_groups/views.py:43
 msgid ""
@@ -9190,13 +9190,13 @@ msgstr "インスタンスをリサイズできません。 %s"
 #: dashboards/project/databases/tables.py:35
 #: dashboards/project/instances/tables.py:86
 msgid "Terminated instances are not recoverable."
-msgstr ""
+msgstr "削除されたインスタンスは元に戻すことはできません。"
 
 #: dashboards/project/databases/tables.py:40
 #: dashboards/project/instances/tables.py:91
 msgid "Terminate Instance"
 msgid_plural "Terminate Instances"
-msgstr[0] "インスタンスの終了"
+msgstr[0] "インスタンスの削除"
 
 #: dashboards/project/databases/tables.py:48
 #: dashboards/project/instances/tables.py:99
@@ -9902,49 +9902,49 @@ msgstr "ポリシー %(name)s からのルールの削除に失敗しました: 
 
 #: dashboards/project/firewalls/forms.py:334
 msgid "Add Routers"
-msgstr ""
+msgstr "ルーターの追加"
 
 #: dashboards/project/firewalls/forms.py:337
 msgid "Add selected router(s) to the firewall."
-msgstr ""
+msgstr "選択したルーターをファイアウォールに追加します。"
 
 #: dashboards/project/firewalls/forms.py:340
 #, python-format
 msgid "Router(s) was/were successfully added to firewall %(firewall)s."
-msgstr ""
+msgstr "ルーターはファイアウォール %(firewall)s に正常に追加されました。"
 
 #: dashboards/project/firewalls/forms.py:342
 #, python-format
 msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
-msgstr ""
+msgstr "ルータのファイアウォール %(name)s への追加に失敗しました: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:343
 #, python-format
 msgid "Failed to retrieve available routers: %(reason)s"
-msgstr ""
+msgstr "利用可能なルーターの一覧を取得できませんでした: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:359
 msgid "Remove Routers"
-msgstr ""
+msgstr "ルーターの削除"
 
 #: dashboards/project/firewalls/forms.py:362
 msgid "Unselect the router(s) to be removed from firewall."
-msgstr ""
+msgstr "ファイアウォールの適用を解除するルーターの選択を外してください。"
 
 #: dashboards/project/firewalls/forms.py:365
 #, python-format
 msgid "Router(s)  was successfully removed from firewall %(firewall)s."
-msgstr ""
+msgstr "ルーターはファイアウォール %(firewall)s から正常に削除されました。"
 
 #: dashboards/project/firewalls/forms.py:367
 #, python-format
 msgid "Failed to remove router(s) from firewall %(name)s: %(reason)s"
-msgstr ""
+msgstr "ルータのファイアウォール %(name)s からの削除に失敗しました: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:369
 #, python-format
 msgid "Failed to retrieve current routers in firewall %(name)s: %(reason)s"
-msgstr ""
+msgstr "ファイアウォール %(name)s が現在適用されているルーターの取得に失敗しました: %(reason)s"
 
 #: dashboards/project/firewalls/panel.py:26
 #: dashboards/project/firewalls/tables.py:355
@@ -10008,11 +10008,11 @@ msgstr "ファイアウォールの編集"
 
 #: dashboards/project/firewalls/tables.py:199
 msgid "Add Router"
-msgstr ""
+msgstr "ルーターの追加"
 
 #: dashboards/project/firewalls/tables.py:222
 msgid "Remove Router"
-msgstr ""
+msgstr "ルーターの削除"
 
 #: dashboards/project/firewalls/tables.py:261
 msgctxt "Action Name of a Firewall Rule"
@@ -10081,17 +10081,17 @@ msgstr "作成時刻"
 #: dashboards/project/firewalls/tables.py:325
 msgctxt "Current status of a Firewall"
 msgid "Pending Create"
-msgstr ""
+msgstr "作成待ち"
 
 #: dashboards/project/firewalls/tables.py:327
 msgctxt "Current status of a Firewall"
 msgid "Pending Update"
-msgstr ""
+msgstr "更新待ち"
 
 #: dashboards/project/firewalls/tables.py:329
 msgctxt "Current status of a Firewall"
 msgid "Pending Delete"
-msgstr ""
+msgstr "削除待ち"
 
 #: dashboards/project/firewalls/tables.py:331
 msgctxt "Current status of a Firewall"
@@ -10110,7 +10110,7 @@ msgstr "DOWN"
 
 #: dashboards/project/firewalls/tables.py:345
 msgid "Associated Routers"
-msgstr ""
+msgstr "適用先ルーター"
 
 #: dashboards/project/firewalls/tables.py:369
 #, python-format
@@ -10263,13 +10263,13 @@ msgstr "ポリシーからのルールの削除"
 #: dashboards/project/firewalls/views.py:371
 #: dashboards/project/firewalls/templates/firewalls/add_router_to_firewall.html:3
 msgid "Add Router to Firewall"
-msgstr ""
+msgstr "ファイアウォールへのルーターの追加"
 
 #: dashboards/project/firewalls/views.py:376
 #: dashboards/project/firewalls/views.py:379
 #: dashboards/project/firewalls/templates/firewalls/remove_router_from_firewall.html:3
 msgid "Remove Router from Firewall"
-msgstr ""
+msgstr "ファイアウォールからのルーターの削除"
 
 #: dashboards/project/firewalls/workflows.py:73
 msgid "AddRule"
@@ -10307,16 +10307,16 @@ msgstr "ルール一覧を取得できません (%(error)s)"
 
 #: dashboards/project/firewalls/workflows.py:176
 msgid "Create a firewall with selected routers."
-msgstr ""
+msgstr "適用するルーターを指定してファイアウォールを作成します。"
 
 #: dashboards/project/firewalls/workflows.py:181
 msgid "Select routers for your firewall."
-msgstr ""
+msgstr "ファイアウォールを適用するルーターを選択してください。"
 
 #: dashboards/project/firewalls/workflows.py:192
 #, python-format
 msgid "Unable to retrieve routers (%(error)s)."
-msgstr ""
+msgstr "ルーターの一覧を取得できません (%(error)s)"
 
 #: dashboards/project/firewalls/workflows.py:233
 msgid "AddPolicy"
@@ -10375,7 +10375,7 @@ msgstr "ファイアウォール \"%s\" を追加できません。"
 
 #: dashboards/project/firewalls/templates/firewalls/_add_router_to_firewall.html:6
 msgid "Choose the router(s) you want to add."
-msgstr ""
+msgstr "追加したいルーターを選択してください。"
 
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:19
 msgid "Policy ID"
@@ -10398,7 +10398,7 @@ msgstr "挿入したいルールを選択してください。ルールをどの
 
 #: dashboards/project/firewalls/templates/firewalls/_remove_router_from_firewall.html:6
 msgid "Unselect the routers you want to disassociate from the firewall."
-msgstr ""
+msgstr "ファイアウォールの適用を解除したいルーターの選択を外してください。"
 
 #: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:6
 msgid "Choose the rule you want to remove."
@@ -10424,15 +10424,15 @@ msgstr "ポリシー内の位置"
 msgid ""
 "Choose router(s) from Available Routers to Selected Routers by push button "
 "or drag and drop. "
-msgstr ""
+msgstr "ボタンを押すかドラッグアンドドロップで、「利用可能なルーター」から「選択済みルーター」にルーターを移動します。"
 
 #: dashboards/project/firewalls/templates/firewalls/_update_routers.html:8
 msgid "Selected Routers"
-msgstr ""
+msgstr "選択済みルーター"
 
 #: dashboards/project/firewalls/templates/firewalls/_update_routers.html:11
 msgid "Available Routers"
-msgstr ""
+msgstr "利用可能なルーター"
 
 #: dashboards/project/firewalls/templates/firewalls/_update_rule_help.html:3
 msgid ""
@@ -10647,7 +10647,7 @@ msgstr ""
 #: dashboards/project/images/images/tables.py:258
 msgctxt "Current status of an Image"
 msgid "Pending Delete"
-msgstr ""
+msgstr "削除待ち"
 
 #: dashboards/project/images/images/tables.py:259
 msgctxt "Current status of an Image"
@@ -11812,11 +11812,11 @@ msgstr "ボリュームのマウントポイント (例 'vda' と指定すると
 
 #: dashboards/project/instances/workflows/create_instance.py:131
 msgid "Delete on Terminate"
-msgstr "終了時に削除"
+msgstr "インスタンス削除時に削除"
 
 #: dashboards/project/instances/workflows/create_instance.py:134
 msgid "Delete volume on instance terminate"
-msgstr "インスタンス終了時にボリュームを削除します"
+msgstr "インスタンス削除時にボリュームを削除します"
 
 #: dashboards/project/instances/workflows/create_instance.py:154
 msgid "Select source"
@@ -12413,17 +12413,17 @@ msgstr "作成時刻"
 #: dashboards/project/loadbalancers/tables.py:304
 msgctxt "Current status of a Pool"
 msgid "Pending Create"
-msgstr ""
+msgstr "作成待ち"
 
 #: dashboards/project/loadbalancers/tables.py:306
 msgctxt "Current status of a Pool"
 msgid "Pending Update"
-msgstr ""
+msgstr "更新待ち"
 
 #: dashboards/project/loadbalancers/tables.py:308
 msgctxt "Current status of a Pool"
 msgid "Pending Delete"
-msgstr ""
+msgstr "削除待ち"
 
 #: dashboards/project/loadbalancers/tables.py:310
 msgctxt "Current status of a Pool"
@@ -13892,15 +13892,15 @@ msgstr "ゲートウェイを設定できません。"
 
 #: dashboards/project/routers/templates/routers/_create.html:6
 msgid "Creates a router with specified parameters."
-msgstr ""
+msgstr "指定したパラメーターでルーターを作成します。"
 
 #: dashboards/project/routers/templates/routers/_detail_overview.html:34
 msgid "External Fixed IPs"
-msgstr ""
+msgstr "外部 IP アドレス"
 
 #: dashboards/project/routers/templates/routers/_detail_overview.html:46
 msgid "SNAT"
-msgstr ""
+msgstr "SNAT"
 
 #: dashboards/project/routers/templates/routers/_update.html:6
 msgid "You may update the editable properties of your router here."
@@ -15956,17 +15956,17 @@ msgstr "作成時刻"
 #: dashboards/project/vpn/tables.py:276
 msgctxt "Current status of a VPN Service"
 msgid "Pending Create"
-msgstr ""
+msgstr "作成待ち"
 
 #: dashboards/project/vpn/tables.py:278
 msgctxt "Current status of a VPN Service"
 msgid "Pending Update"
-msgstr ""
+msgstr "更新待ち"
 
 #: dashboards/project/vpn/tables.py:280
 msgctxt "Current status of a VPN Service"
 msgid "Pending Delete"
-msgstr ""
+msgstr "削除待ち"
 
 #: dashboards/project/vpn/tables.py:282
 msgctxt "Current status of a VPN Service"
