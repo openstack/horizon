@@ -220,6 +220,10 @@ def get_remote_security_group(rule):
 
 
 def get_port_range(rule):
+    # There is no case where from_port is None and to_port has a value,
+    # so it is enough to check only from_port.
+    if rule.from_port is None:
+        return _('Any')
     ip_proto = rule.ip_protocol
     if rule.from_port == rule.to_port:
         return check_rule_template(rule.from_port, ip_proto)
