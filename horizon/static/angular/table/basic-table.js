@@ -35,7 +35,8 @@
       return {
         restrict: 'E',
         templateUrl: path + 'table/search-bar.html',
-        link: function (scope, element, attrs) {
+        transclude: true,
+        link: function (scope, element, attrs, ctrl, transclude) {
           if (angular.isDefined(attrs.groupClasses)) {
             element.find('.input-group').addClass(attrs.groupClasses);
           }
@@ -49,6 +50,10 @@
           }
           var placeholderText = attrs.placeholder || FILTER_PLACEHOLDER_TEXT;
           searchInput.attr('placeholder', placeholderText);
+
+          transclude(scope, function(clone){
+            element.find('.input-group').append(clone);
+          });
         }
       };
     }]);
