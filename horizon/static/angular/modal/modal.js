@@ -78,10 +78,10 @@
               resolve: {
                 context: function() {
                   return {
-                    title: params.title? params.title: '',
-                    body: params.body? params.body: '',
-                    submit: params.submit? params.submit: gettext('Submit'),
-                    cancel: gettext('Cancel')
+                    title: params.title,
+                    body: params.body,
+                    submit: params.submit || gettext('Submit'),
+                    cancel: params.cancel || gettext('Cancel')
                   };
                 }
               }
