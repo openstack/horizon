@@ -22,7 +22,6 @@ import sys
 
 import six
 
-from django.conf import settings
 from django.core.management import color_style  # noqa
 from django.http import HttpRequest  # noqa
 from django.utils import encoding
@@ -30,6 +29,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.views.debug import CLEANSED_SUBSTITUTE  # noqa
 from django.views.debug import SafeExceptionReporterFilter  # noqa
 
+from horizon.conf import HORIZON_CONFIG  # noqa
 from horizon import messages
 
 LOG = logging.getLogger(__name__)
@@ -202,6 +202,12 @@ class HandledException(HorizonException):
         self.wrapped = wrapped
 
 
+UNAUTHORIZED = tuple(HORIZON_CONFIG['exceptions']['unauthorized'])
+NOT_FOUND = tuple(HORIZON_CONFIG['exceptions']['not_found'])
+RECOVERABLE = (AlreadyExists, Conflict, NotAvailable, ServiceCatalogException)
+RECOVERABLE += tuple(HORIZON_CONFIG['exceptions']['recoverable'])
+
+
 def error_color(msg):
     return color_style().ERROR_OUTPUT(msg)
 
@@ -274,6 +280,13 @@ def handle_recoverable(request, message, redirect, ignore, escalate, handled,
         return RecoverableError  # return to normal code flow
 
 
+HANDLE_EXC_METHODS = [
+    {'exc': UNAUTHORIZED, 'handler': handle_unauthorized, 'set_wrap': False},
+    {'exc': NOT_FOUND, 'handler': handle_notfound, 'set_wrap': True},
+    {'exc': RECOVERABLE, 'handler': handle_recoverable, 'set_wrap': True},
+]
+
+
 def handle(request, message=None, redirect=None, ignore=False,
            escalate=False, log_level=None, force_log=None):
     """Centralized error handling for Horizon.
@@ -303,19 +316,6 @@ def handle(request, message=None, redirect=None, ignore=False,
     class indicating the type of exception that was encountered will be
     returned.
     """
-    HORIZON_CONFIG = settings.HORIZON_CONFIG
-    UNAUTHORIZED = tuple(HORIZON_CONFIG['exceptions']['unauthorized'])
-    NOT_FOUND = tuple(HORIZON_CONFIG['exceptions']['not_found'])
-    RECOVERABLE = (AlreadyExists, Conflict, NotAvailable,
-                   ServiceCatalogException)
-    RECOVERABLE += tuple(HORIZON_CONFIG['exceptions']['recoverable'])
-    HANDLE_EXC_METHODS = [
-        {'exc': UNAUTHORIZED, 'handler': handle_unauthorized,
-         'set_wrap': False},
-        {'exc': NOT_FOUND, 'handler': handle_notfound, 'set_wrap': True},
-        {'exc': RECOVERABLE, 'handler': handle_recoverable, 'set_wrap': True}
-    ]
-
     exc_type, exc_value, exc_traceback = sys.exc_info()
     log_method = getattr(LOG, log_level or "exception")
     force_log = force_log or os.environ.get("HORIZON_TEST_RUN", False)

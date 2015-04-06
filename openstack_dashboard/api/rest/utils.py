@@ -12,7 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 import functools
-import itertools
 import json
 import logging
 
@@ -22,6 +21,7 @@ from django.utils import decorators
 
 from oslo_serialization import jsonutils
 
+from horizon import exceptions
 
 log = logging.getLogger(__name__)
 
@@ -30,6 +30,9 @@ class AjaxError(Exception):
     def __init__(self, http_status, msg):
         self.http_status = http_status
         super(AjaxError, self).__init__(msg)
+
+http_errors = exceptions.UNAUTHORIZED + exceptions.NOT_FOUND + \
+    exceptions.RECOVERABLE + (AjaxError, )
 
 
 class CreatedResponse(http.HttpResponse):
@@ -107,8 +110,6 @@ def ajax(authenticated=True, data_required=False):
                     return JSONResponse('request requires JSON body', 400)
 
             # invoke the wrapped function, handling exceptions sanely
-            horizon_exc = settings.HORIZON_CONFIG['exceptions'].values()
-            api_exc = itertools.chain([AjaxError, ], *horizon_exc)
             try:
                 data = function(self, request, *args, **kw)
                 if isinstance(data, http.HttpResponse):
@@ -116,15 +117,18 @@ def ajax(authenticated=True, data_required=False):
                 elif data is None:
                     return JSONResponse('', status=204)
                 return JSONResponse(data)
-            except tuple(api_exc) as e:
+            except http_errors as e:
+                # exception was raised with a specific HTTP status
                 if hasattr(e, 'http_status'):
                     http_status = e.http_status
+                elif hasattr(e, 'code'):
+                    http_status = e.code
                 else:
-                    http_status = getattr(e, 'code', 500)
-                log.exception('API Error: %s', e)
+                    log.exception('HTTP exception with no status/code')
+                    return JSONResponse(str(e), 500)
                 return JSONResponse(str(e), http_status)
             except Exception as e:
-                log.exception('Internal Error: %s', e)
+                log.exception('error invoking apiclient')
                 return JSONResponse(str(e), 500)
 
         return _wrapped
