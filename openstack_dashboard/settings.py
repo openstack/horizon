@@ -21,10 +21,20 @@ import os
 import sys
 import warnings
 
+from cinderclient import exceptions as cinderclient
+from glanceclient.common import exceptions as glanceclient
+from heatclient import exc as heatclient
+from keystoneclient import exceptions as keystoneclient
+from neutronclient.common import exceptions as neutronclient
+from novaclient import exceptions as novaclient
+from requests import exceptions as requests
+from saharaclient.api import base as saharaclient
+from swiftclient import client as swiftclient
+from troveclient import exceptions as troveclient
+
 import django
 from django.utils.translation import ugettext_lazy as _
 
-from openstack_dashboard import exceptions
 from openstack_dashboard.static_settings import get_staticfiles_dirs  # noqa
 
 
@@ -59,9 +69,37 @@ HORIZON_CONFIG = {
         'types': ['alert-success', 'alert-info']
     },
     'help_url': "http://docs.openstack.org",
-    'exceptions': {'recoverable': exceptions.RECOVERABLE,
-                   'not_found': exceptions.NOT_FOUND,
-                   'unauthorized': exceptions.UNAUTHORIZED},
+    'exceptions': {'recoverable': (keystoneclient.ClientException,
+                                   keystoneclient.AuthorizationFailure,
+                                   keystoneclient.Forbidden,
+                                   cinderclient.ClientException,
+                                   cinderclient.ConnectionError,
+                                   cinderclient.Forbidden,
+                                   novaclient.ClientException,
+                                   novaclient.Forbidden,
+                                   glanceclient.ClientException,
+                                   neutronclient.Forbidden,
+                                   neutronclient.NeutronClientException,
+                                   swiftclient.ClientException,
+                                   heatclient.HTTPForbidden,
+                                   heatclient.HTTPException,
+                                   troveclient.ClientException,
+                                   saharaclient.APIException,
+                                   requests.RequestException),
+                   'not_found': (keystoneclient.NotFound,
+                                 cinderclient.NotFound,
+                                 novaclient.NotFound,
+                                 glanceclient.NotFound,
+                                 neutronclient.NotFound,
+                                 heatclient.HTTPNotFound,
+                                 troveclient.NotFound),
+                   'unauthorized': (keystoneclient.Unauthorized,
+                                    cinderclient.Unauthorized,
+                                    novaclient.Unauthorized,
+                                    glanceclient.Unauthorized,
+                                    neutronclient.Unauthorized,
+                                    heatclient.HTTPUnauthorized,
+                                    troveclient.Unauthorized)},
     'angular_modules': [],
     'js_files': [],
     'js_spec_files': [],

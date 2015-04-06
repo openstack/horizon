@@ -31,11 +31,6 @@ HORIZON_CONFIG = {
     # URL for additional help with this site.
     'help_url': None,
 
-    # Exception configuration.
-    'exceptions': {'unauthorized': [],
-                   'not_found': [],
-                   'recoverable': []},
-
     # Password configuration.
     'password_validator': {'regex': '.*',
                            'help_text': _("Password is not accepted")},

@@ -23,12 +23,6 @@ class LazySettings(LazyObject):
         HORIZON_CONFIG = copy.copy(DEFAULT_CONFIG)
         HORIZON_CONFIG.update(settings.HORIZON_CONFIG)
 
-        # Ensure we always have our exception configuration...
-        for exc_category in ['unauthorized', 'not_found', 'recoverable']:
-            if exc_category not in HORIZON_CONFIG['exceptions']:
-                default_exc_config = DEFAULT_CONFIG['exceptions'][exc_category]
-                HORIZON_CONFIG['exceptions'][exc_category] = default_exc_config
-
         # Ensure our password validator always exists...
         if 'regex' not in HORIZON_CONFIG['password_validator']:
             default_pw_regex = DEFAULT_CONFIG['password_validator']['regex']
