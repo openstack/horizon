@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-01 22:59-0500\n"
-"PO-Revision-Date: 2015-04-01 23:41+0000\n"
-"Last-Translator: myamamot <myamamot@redhat.com>\n"
+"POT-Creation-Date: 2015-04-03 23:00-0500\n"
+"PO-Revision-Date: 2015-04-05 19:05+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -81,7 +81,7 @@ msgid "Submit"
 msgstr "送信"
 
 #: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:27
+#: templates/horizon/common/_modal_form_update_metadata.html:25
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "取り消し"
@@ -287,7 +287,7 @@ msgstr "インスタンス"
 #: templates/horizon/common/_limit_summary.html:50
 #, python-format
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "<span> %(available)s </span> 中 <span> %(used)s </span> 使用中"
+msgstr "<span>%(used)s</span> / <span>%(available)s</span> 使用中"
 
 #: templates/horizon/common/_limit_summary.html:14
 msgid "VCPUs"
@@ -304,7 +304,7 @@ msgstr "Floating IP"
 #: templates/horizon/common/_limit_summary.html:29
 #, python-format
 msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "<span> %(available)s </span> 中 <span> %(used)s </span> 割り当て済み"
+msgstr "<span> %(used)s </span> / <span> %(available)s </span> 割り当て済み"
 
 #: templates/horizon/common/_limit_summary.html:35
 msgid "Security Groups"
@@ -318,7 +318,7 @@ msgstr "ボリューム"
 msgid "Volume Storage"
 msgstr "ボリューム容量"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:26
+#: templates/horizon/common/_modal_form_update_metadata.html:24
 #: workflows/base.py:594
 msgid "Save"
 msgstr "保存"

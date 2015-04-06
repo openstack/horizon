@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-03 23:00-0500\n"
-"PO-Revision-Date: 2015-04-04 23:41+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"PO-Revision-Date: 2015-04-06 03:25+0000\n"
+"Last-Translator: ykatabam <ykatabam@redhat.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -95,7 +95,7 @@ msgstr "RAM 数"
 
 #: api/ceilometer.py:944
 msgid "Volume of RAM used"
-msgstr "使用済みのメモリー量"
+msgstr "メモリー使用量"
 
 #: api/ceilometer.py:948
 msgid "CPU time used"
@@ -257,15 +257,15 @@ msgstr "アップロードされたイメージサイズ"
 
 #: api/ceilometer.py:1148
 msgid "Number of image updates"
-msgstr "イメージの更新件数"
+msgstr "イメージの更新数"
 
 #: api/ceilometer.py:1152
 msgid "Number of image uploads"
-msgstr "イメージのアップロード件数"
+msgstr "イメージのアップロード数"
 
 #: api/ceilometer.py:1156
 msgid "Number of image deletions"
-msgstr "イメージの削除件数"
+msgstr "イメージの削除数"
 
 #: api/ceilometer.py:1160
 msgid "Image is downloaded"
@@ -337,31 +337,31 @@ msgstr "センサーの電圧測定値"
 
 #: api/ceilometer.py:1280
 msgid "System Inlet Temperature Reading"
-msgstr ""
+msgstr "システムインレットの温度測定値"
 
 #: api/ceilometer.py:1284
 msgid "System Outlet Temperature Reading"
-msgstr ""
+msgstr "システムアウトレットの温度測定値"
 
 #: api/ceilometer.py:1288
 msgid "System Airflow Reading"
-msgstr ""
+msgstr "システムエアフローの測定値"
 
 #: api/ceilometer.py:1292
 msgid "System CUPS Reading"
-msgstr ""
+msgstr "システム CUPS の測定値"
 
 #: api/ceilometer.py:1296
 msgid "System CPU Utility Reading"
-msgstr ""
+msgstr "システム CPU ユーティリティーの測定値"
 
 #: api/ceilometer.py:1300
 msgid "System Memory Utility Reading"
-msgstr ""
+msgstr "システムメモリーユーティリティーの測定値"
 
 #: api/ceilometer.py:1304
 msgid "System IO Utility Reading"
-msgstr ""
+msgstr "システム IO ユーティリティーの測定値"
 
 #: api/cinder.py:46 dashboards/admin/volumes/volume_types/forms.py:33
 msgid "back-end"
@@ -1956,7 +1956,7 @@ msgstr "仮想 CPU 使用量"
 #: dashboards/admin/hypervisors/templates/hypervisors/index.html:26
 #, python-format
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "<span> %(available)s </span> 中 <span> %(used)s </span> 使用中"
+msgstr "<span> %(used)s </span> / <span> %(available)s </span>  使用中"
 
 #: dashboards/admin/hypervisors/templates/hypervisors/index.html:18
 msgid "Memory Usage"
@@ -1981,7 +1981,7 @@ msgid ""
 "Optionally you can choose type of migration. All running instances of the "
 "host can be Live Migrated. Cold Migration is trying to use 'nova migrate' on"
 " each instance of migrated host."
-msgstr ""
+msgstr "nova-compute サービスが無効となったホストから全インスタンスを移行します。オプションとして、マイグレーションのタイプを選択することができます。ホストで実行中のインスタンスはすべてライブマイグレーションすることができます。 コールドマイグレーションでは、移行するホストの各インスタンスに対して「nova migrate」の使用を試みます。 "
 
 #: dashboards/admin/images/forms.py:65
 msgid "Unable to update the image metadata."
@@ -3556,7 +3556,7 @@ msgstr "バインド: ホスト"
 msgid ""
 "The ID of the host where the port is allocated. In some cases, different "
 "implementations can run on different hosts."
-msgstr ""
+msgstr "ポートが割り当てられたホストの ID。場合によっては、ホスト別に異なる実装を実行している可能性があります。"
 
 #: dashboards/admin/networks/ports/forms.py:81
 #: dashboards/project/networks/ports/forms.py:64
@@ -4097,13 +4097,13 @@ msgstr "このボリューム種別に関連付けられている QoS スペッ�
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
 "setting the QoS Spec to \"None\" will remove the current association."
-msgstr ""
+msgstr "「なし」は QoS スペックが現在関連付けられていないことを示します。 また、QoS スペックを「なし」に設定すると、現在の関連付けが削除されます。 "
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:8
 msgid ""
 "This is equivalent to the <tt>cinder qos-associate</tt> and <tt>cinder qos-"
 "disassociate</tt> commands."
-msgstr ""
+msgstr "これは <tt>cinder qos-associate</tt> および <tt>cinder qos-disassociate</tt> のコマンドに相当します。"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:6
 msgid ""
@@ -4119,7 +4119,7 @@ msgid ""
 "      administrator would like the QoS policy to be enforced. This value can be \"front-end\"\n"
 "      (Nova Compute), \"back-end\" (Cinder back-end), or \"both\".\n"
 "  "
-msgstr ""
+msgstr "\nQoS スペックにより、ボリューム種別と関連付けることができます。これは、ボリュームの所有者が要求する QoS 機能セットにマップするために使用され、<tt>cinder qos-create</tt> コマンドに相当します。QoS スペックが作成されたら、「スペックの管理」ボタンをクリックして、その QoS スペックのキーと値のスペックを管理します。各 QoS スペックのエンティティーには「使用者」の値が含まれます。これは、管理者による QoS ポリシーの適用先を示します。この値は、「フロントエンド」(Nova Compute)、「バックエンド」(Cinder back-end)、または「両方」です。\n  "
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:6
 msgid ""
@@ -4320,7 +4320,7 @@ msgid ""
 "    <br>\n"
 "    This is equivalent to the <tt>cinder manage</tt> command.\n"
 "    "
-msgstr ""
+msgstr "\nCinder ホストの既存のボリュームを「管理対象」にします。この操作を行うと、そのボリュームは OpenStack で見えるようになります。\nこの操作は <tt>cinder manage</tt> コマンドに相当します。\n    "
 
 #: dashboards/admin/volumes/templates/volumes/volumes/_unmanage_volume.html:6
 msgid ""
@@ -4331,7 +4331,7 @@ msgid ""
 "    <br>\n"
 "    This is equivalent to the <tt>cinder unmanage</tt> command.\n"
 "    "
-msgstr ""
+msgstr "\nボリュームが「管理解除」されると、そのボリュームは OpenStack 内では見えなくなります。ボリュームは Cinder ホストから削除されるわけではない点に注意してください。この操作は <tt>cinder unmanage</tt> コマンドに相当します。\n\n    "
 
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:6
 msgid ""
@@ -4819,11 +4819,11 @@ msgstr "ボリュームの管理解除の確認"
 
 #: dashboards/admin/volumes/volumes/views.py:65
 msgid "Unmanage"
-msgstr ""
+msgstr "管理解除"
 
 #: dashboards/admin/volumes/volumes/views.py:69
 msgid "Unmanage a Volume"
-msgstr ""
+msgstr "ボリュームの管理解除"
 
 #: dashboards/admin/volumes/volumes/views.py:84
 #: dashboards/admin/volumes/volumes/views.py:128
@@ -5868,7 +5868,7 @@ msgstr "(クォータを超過しました)"
 msgid ""
 "Once a floating IP is released, there is no guarantee the same IP can be "
 "allocated again."
-msgstr ""
+msgstr "Floating IP が開放された後には、同じ IP アドレスが再び確保されるという保証はありません。"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:82
 msgid "Release Floating IP"
@@ -6074,7 +6074,7 @@ msgstr "キーペアの詳細"
 #: dashboards/project/access_and_security/keypairs/views.py:82
 #, python-format
 msgid "Unable to retrieve details for keypair \"%s\"."
-msgstr ""
+msgstr "キーペア \"%s\" の詳細を取得できません。"
 
 #: dashboards/project/access_and_security/keypairs/views.py:97
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:4
@@ -6094,7 +6094,7 @@ msgstr "セキュリティーグループ %s を正常に作成しました。"
 #: dashboards/project/access_and_security/security_groups/forms.py:78
 #, python-format
 msgid "Unable to create security group: %s"
-msgstr ""
+msgstr "セキュリティーグループを作成できません: %s"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:87
 #, python-format
@@ -6104,7 +6104,7 @@ msgstr "セキュリティーグループ %s が正常に更新されました�
 #: dashboards/project/access_and_security/security_groups/forms.py:88
 #, python-format
 msgid "Unable to update security group: %s"
-msgstr ""
+msgstr "セキュリティーグループを更新できません: %s"
 
 #: dashboards/project/access_and_security/security_groups/forms.py:101
 msgid "Rule"
@@ -6849,7 +6849,7 @@ msgstr "注意：パブリックコンテナーは公開URLを使って誰でも
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:9
 #, python-format
 msgid "Create pseudo-folder in container %(container_name)s"
-msgstr ""
+msgstr "コンテナー %(container_name)s に疑似フォルダーを作成"
 
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:20
 #: dashboards/project/containers/templates/containers/_upload.html:23
@@ -7055,7 +7055,7 @@ msgstr "クラスターテンプレートの作成"
 
 #: dashboards/project/data_processing/cluster_templates/views.py:104
 msgid "Copy Cluster Template"
-msgstr ""
+msgstr "クラスターテンプレートのコピー"
 
 #: dashboards/project/data_processing/cluster_templates/views.py:122
 #: dashboards/project/data_processing/clusters/views.py:111
@@ -7165,7 +7165,7 @@ msgstr "テンプレートは指定されていません"
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:37
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:133
 msgid "Proxy Gateway"
-msgstr ""
+msgstr "プロキシーゲートウェイ"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:29
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:32
@@ -7273,7 +7273,7 @@ msgstr "クラスター"
 #: dashboards/project/data_processing/clusters/tables.py:41
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:27
 msgid "Cluster Creation Guide"
-msgstr ""
+msgstr "クラスター作成のガイド"
 
 #: dashboards/project/data_processing/clusters/tables.py:55
 #: dashboards/project/data_processing/clusters/views.py:93
@@ -7457,7 +7457,7 @@ msgstr "起動"
 #: dashboards/project/data_processing/clusters/workflows/create.py:221
 #, python-format
 msgid "Launched Cluster %s"
-msgstr ""
+msgstr "クラスター %s を起動しました"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:253
 msgid "Unable to create the cluster"
@@ -7927,7 +7927,7 @@ msgstr "クラスター"
 
 #: dashboards/project/data_processing/job_executions/tables.py:45
 msgid "Job Guide"
-msgstr ""
+msgstr "ジョブのガイド"
 
 #: dashboards/project/data_processing/job_executions/tables.py:53
 msgid "Delete Job"
@@ -7985,7 +7985,7 @@ msgstr "N/A"
 #: dashboards/project/data_processing/job_executions/tables.py:176
 msgctxt "Current status of a Job"
 msgid "Done with Error"
-msgstr ""
+msgstr "エラー終了"
 
 #: dashboards/project/data_processing/job_executions/tables.py:178
 msgctxt "Current status of a Job"
@@ -7995,18 +7995,18 @@ msgstr "失敗"
 #: dashboards/project/data_processing/job_executions/tables.py:180
 msgctxt "Current status of a Job"
 msgid "Killed"
-msgstr ""
+msgstr "強制終了"
 
 #: dashboards/project/data_processing/job_executions/tables.py:182
 msgctxt "Current status of a Job"
 msgid "Succeeded"
-msgstr ""
+msgstr "正常終了"
 
 #: dashboards/project/data_processing/job_executions/tables.py:193
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:10
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:3
 msgid "Job Template"
-msgstr ""
+msgstr "ジョブテンプレート"
 
 #: dashboards/project/data_processing/job_executions/views.py:39
 msgid "Job Executions"
@@ -8022,7 +8022,7 @@ msgstr "ジョブ実行の詳細"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:3
 msgid "Job Overview"
-msgstr ""
+msgstr "ジョブの概要"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:12
 msgid "Input Data Source"
@@ -8080,7 +8080,7 @@ msgstr "ジョブ詳細"
 #: dashboards/project/data_processing/jobs/tables.py:111
 #: dashboards/project/data_processing/jobs/views.py:41
 msgid "Job Templates"
-msgstr ""
+msgstr "ジョブテンプレート"
 
 #: dashboards/project/data_processing/jobs/tables.py:36
 #: dashboards/project/data_processing/jobs/views.py:62
@@ -8088,17 +8088,17 @@ msgstr ""
 #: dashboards/project/data_processing/jobs/workflows/create.py:124
 #: dashboards/project/data_processing/jobs/workflows/create.py:155
 msgid "Create Job Template"
-msgstr ""
+msgstr "ジョブテンプレートの作成"
 
 #: dashboards/project/data_processing/jobs/tables.py:46
 msgid "Delete Job Template"
 msgid_plural "Delete Job Templates"
-msgstr[0] ""
+msgstr[0] "ジョブテンプレートの削除"
 
 #: dashboards/project/data_processing/jobs/tables.py:54
 msgid "Deleted Job Template"
 msgid_plural "Deleted Jobs Templates"
-msgstr[0] ""
+msgstr[0] "ジョブテンプレートを削除しました"
 
 #: dashboards/project/data_processing/jobs/tables.py:65
 msgid "Launch On Existing Cluster"
@@ -8117,11 +8117,11 @@ msgstr "ジョブ一覧を取得できません"
 #: dashboards/project/data_processing/jobs/views.py:68
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/details.html:3
 msgid "Job Template Details"
-msgstr ""
+msgstr "ジョブテンプレートの詳細"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:4
 msgid "Create a job template with a specified name."
-msgstr ""
+msgstr "指定した名前でジョブテンプレートを作成します。"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:7
 msgid "Select the type of your job:"
@@ -8174,17 +8174,17 @@ msgstr "MapReduce と Java アクションのジョブでは、「メイン」�
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:27
 msgid "You may also enter an optional description for your job template."
-msgstr ""
+msgstr "任意ですが、ジョブテンプレートの説明を入力することができます。"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_libs_help.html:4
 msgid "Add libraries to your job template."
-msgstr ""
+msgstr "ジョブテンプレートにライブラリを追加します。"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_libs_help.html:7
 msgid ""
 "Choose from the list of binaries and click \"choose\" to add the library to "
 "your job template.  This can be repeated for additional libraries."
-msgstr ""
+msgstr "ライブラリーをジョブテンプレートに追加するには、バイナリーの一覧から選択し「選択」をクリックします。追加するライブラリの分だけ繰り返すことができます。"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:12
 msgid "Mains"
@@ -8201,11 +8201,11 @@ msgstr "ジョブ実行で必要なカスタム設定をここで入力してく
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_launch_job_help.html:4
 msgid "Launch the given job template on a cluster."
-msgstr ""
+msgstr "指定されたジョブテンプレートをクラスターで起動します。"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_launch_job_help.html:7
 msgid "Choose the cluster to use for the job."
-msgstr ""
+msgstr "ジョブで使用するクラスターを選択してください。"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_launch_job_help.html:10
 msgid "Choose the Input Data Source (n/a for Java jobs)."
@@ -8284,7 +8284,7 @@ msgstr "ジョブが作成されました"
 
 #: dashboards/project/data_processing/jobs/workflows/create.py:158
 msgid "Could not create job template"
-msgstr ""
+msgstr "ジョブテンプレートを作成できません"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:40
 msgid "Input"
@@ -8415,13 +8415,13 @@ msgid ""
 "        that will be launched on each instance. Check one or more processes.\n"
 "        When processes are selected, you may set <b>node</b> scoped\n"
 "        configurations on corresponding tabs."
-msgstr ""
+msgstr "ノードグループテンプレートオブジェクトは各インスタンスで起動されるプロセスを指定します。1 つまたは複数のプロセスをチェックしてください。プロセスが選択されたら、対応するタブで<b>ノード</b>を対象とする構成を設定することができます。"
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:18
 msgid ""
 "You must choose a flavor to determine the size (VCPUs, memory and storage) "
 "of all launched VMs."
-msgstr ""
+msgstr "起動する全仮想マシンのサイズ (仮想 CPU、メモリー、ストレージ) を決定するためのフレーバーを選択する必要があります。"
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:21
 msgid ""
@@ -8431,7 +8431,7 @@ msgstr "データ処理基盤ではストレージの場所を選択できます
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_create_general_help.html:3
 msgid "Select a plugin and version for the new Node Group template."
-msgstr ""
+msgstr "新規ノードグループテンプレートのプラグインとバージョンを選択します。"
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:72
 msgid "HDFS placement"
@@ -8455,7 +8455,7 @@ msgstr "ボリュームサイズ"
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:89
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:95
 msgid "Volumes Availability Zone"
-msgstr ""
+msgstr "ボリュームアベイラビリティゾーン"
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:84
 msgid "Ephemeral drive"
@@ -8510,7 +8510,7 @@ msgstr "ボリュームサイズ (GB)"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:90
 msgid "Create volumes in this availability zone."
-msgstr ""
+msgstr "このアベイラビリティーゾーンにボリュームを作成します。"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:120
 msgid "Unable to generate process choices."
@@ -8520,7 +8520,7 @@ msgstr "プロセスの選択肢を生成できません"
 msgid ""
 "Sahara will use instances of this node group to access other cluster "
 "instances."
-msgstr ""
+msgstr "Sahara は、このノードグループのインスタンスを使用して他のクラスターインスタンスにアクセスします。"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:140
 msgid "Processes"
@@ -8557,7 +8557,7 @@ msgstr "セキュリティ"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:230
 msgid "Control access to instances of the node group."
-msgstr ""
+msgstr "ノードグループのインスタンスへのアクセスを制御します。"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:258
 #, python-format
@@ -8609,23 +8609,23 @@ msgstr "プラグイン名"
 
 #: dashboards/project/data_processing/wizard/forms.py:43
 msgid "Cluster type chosen"
-msgstr ""
+msgstr "選択したクラスター種別"
 
 #: dashboards/project/data_processing/wizard/forms.py:47
 msgid "Unable to set cluster type"
-msgstr ""
+msgstr "クラスター種別を設定できません"
 
 #: dashboards/project/data_processing/wizard/forms.py:86
 msgid "Choose plugin type and version"
-msgstr ""
+msgstr "プラグイン種別とバージョンを選択します"
 
 #: dashboards/project/data_processing/wizard/forms.py:116
 msgid "Job type chosen"
-msgstr ""
+msgstr "選択したジョブ種別"
 
 #: dashboards/project/data_processing/wizard/forms.py:120
 msgid "Unable to set job type"
-msgstr ""
+msgstr "ジョブ種別を設定できません"
 
 #: dashboards/project/data_processing/wizard/panel.py:22
 msgid "Guides"
@@ -8633,31 +8633,31 @@ msgstr "ガイド"
 
 #: dashboards/project/data_processing/wizard/views.py:35
 msgid "Data Processing Guides"
-msgstr ""
+msgstr "データ処理のガイド"
 
 #: dashboards/project/data_processing/wizard/views.py:41
 msgid "Unable to show guides"
-msgstr ""
+msgstr "ガイドを表示できません"
 
 #: dashboards/project/data_processing/wizard/views.py:48
 msgid "Guided Cluster Creation"
-msgstr ""
+msgstr "ガイド付きクラスター作成"
 
 #: dashboards/project/data_processing/wizard/views.py:63
 msgid "Guided Job Execution"
-msgstr ""
+msgstr "ガイド付きジョブ実行"
 
 #: dashboards/project/data_processing/wizard/views.py:90
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_plugin_select.html:13
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/plugin_select.html:3
 msgid "Choose plugin and version"
-msgstr ""
+msgstr "プラグインとバージョンを選択してください"
 
 #: dashboards/project/data_processing/wizard/views.py:99
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_job_type_select.html:13
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/job_type_select.html:3
 msgid "Choose job type"
-msgstr ""
+msgstr "ジョブ種別を選択します"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_job_type_select.html:28
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_plugin_select.html:28
@@ -8670,13 +8670,13 @@ msgid ""
 "      This choice will dictate which steps are required to successfully\n"
 "      execute your job.\n"
 "    "
-msgstr ""
+msgstr "実行するジョブの種別を選択します。この選択により、ジョブを正常に実行するために必要なステップが決定されます。"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_plugin_select_help.html:3
 msgid ""
 "Select which plugin and version that you\n"
 "    want to use to create your cluster."
-msgstr ""
+msgstr "クラスターの作成に使用するプラグインとバージョンを選択します。"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:12
 msgid ""
@@ -8689,7 +8689,7 @@ msgid ""
 "                    Choosing this up front will allow the rest of the cluster\n"
 "                    creation steps to focus only on options that are pertinent\n"
 "                    to your desired cluster type."
-msgstr ""
+msgstr "まず最初に、実行するクラスターの種別を決定します。システムの構成に応じて複数の選択肢がある場合があります。「プラグインの選択」をクリックするとデータ処理プラグインの一覧が表示され、データ処理プラグインとバージョン番号を選択することができます。 この設定をあらかじめ行っておくと、以降のクラスターの作成ステップでは、希望するクラスター種別に適切なオプションのみに集中することができます。"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:23
 msgid "Choose plugin"
@@ -8712,7 +8712,7 @@ msgstr "バージョン:"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:34
 msgid "No plugin chosen"
-msgstr ""
+msgstr "プラグインが選択されていません"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:43
 msgid ""
@@ -8726,39 +8726,39 @@ msgid ""
 "                        you will define the Node Group Template for your\n"
 "                        \"master\" node(s).\n"
 "                     "
-msgstr ""
+msgstr "次にクラスター内のマシンの種別を定義します。これは、マシン種別ごとにノードグループテンプレートを定義することによって行います。ごく一般的なのは、プロセスの「マスター」セットを実行するマシンが 1 台または複数必要なのに加えて、「ワーカー」プロセスを実行する他のマシンセットも必要とされるケースです。ここでは、「マスター」ノード用にノードグループテンプレートを定義します。            "
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:58
 msgid "Create a Master Node Group Template"
-msgstr ""
+msgstr "マスターノードグループテンプレートの作成"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:63
 msgid "Master Node Group Template:"
-msgstr ""
+msgstr "マスターノードグループテンプレート:"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:68
 msgid "No Master Node Group Template Created"
-msgstr ""
+msgstr "マスターノードグループテンプレートが作成されていません"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:77
 msgid ""
 "Repeat the Node Group Template\n"
 "                        creation process, but this time you are creating\n"
 "                        your \"worker\" Node Group Template."
-msgstr ""
+msgstr "ノードグループテンプレート作成のプロセスを再度実行しますが、今回は「worker」ノードグループテンプレートを作成します。"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:85
 msgid "Create a Worker Node Group Template"
-msgstr ""
+msgstr "ワーカーノードグループテンプレートの作成"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:90
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:122
 msgid "Worker Node Group Template:"
-msgstr ""
+msgstr "ワーカーノードグループテンプレート:"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:95
 msgid "No Worker Node Group Template Created"
-msgstr ""
+msgstr "ワーカーノードグループテンプレートが作成されていません"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:104
 msgid ""
@@ -8770,15 +8770,15 @@ msgid ""
 "                        you will have a chance to set any cluster-specific\n"
 "                        configuration items in the additional tabs on the\n"
 "                        create Cluster Template form."
-msgstr ""
+msgstr "次にクラスターのレイアウトを設定する必要があります。クラスターテンプレートを作成して、クラスター内に表示される各ノードグループテンプレートのインスタンス数を選択します。また、クラスターテンプレート作成のフォームの追加のタブで、クラスター固有の設定項目を指定することもできます。"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:117
 msgid "Create a Cluster Template"
-msgstr ""
+msgstr "クラスターテンプレートの作成"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:127
 msgid "No Cluster Template Created"
-msgstr ""
+msgstr "クラスターテンプレートが作成されていません"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:136
 msgid ""
@@ -8790,19 +8790,19 @@ msgid ""
 "                        click on \"Create\", your instances will begin to\n"
 "                        spawn.  Your cluster should be operational in a few\n"
 "                        minutes."
-msgstr ""
+msgstr "これでクラスターを起動できる準備が整いました。以下のリンクをクリックして、クラスターの名前を指定し、使用するクラスターテンプレートとインスタンスのビルドに使用するイメージを選択する必要があります。「作成」をクリックした後には、インスタンスの起動が開始します。クラスターは数分後には稼働状態となるはずです。"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:149
 msgid "Launch a Cluster"
-msgstr ""
+msgstr "クラスターの起動"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:157
 msgid "Reset Cluster Guide"
-msgstr ""
+msgstr "クラスターのガイドのリセット"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:159
 msgid "Reset Cluster Creation Guide"
-msgstr ""
+msgstr "クラスター作成のガイドのリセット"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:13
 msgid ""
@@ -8810,7 +8810,7 @@ msgid ""
 "                            you want to run.  This choice will determine which\n"
 "                            other steps are required\n"
 "                        "
-msgstr ""
+msgstr "まず最初に、実行するジョブ種別を選択します。この選択により、他の必要なステップが決定されます。"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:21
 msgid "Select type"
@@ -8822,7 +8822,7 @@ msgstr "現在の種別:"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:31
 msgid "No type chosen"
-msgstr "種別が選択されていません。"
+msgstr "種別が選択されていません"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:42
 msgid ""
@@ -8846,7 +8846,7 @@ msgid ""
 "                        or upload the files necessary to run it.  The inputs\n"
 "                        and outputs will be defined later.\n"
 "                    "
-msgstr ""
+msgstr "ジョブテンプレートを定義します。実行するジョブ種別 (Pig、Java Action、Spark など) の選択およびそれを実行するのに必要なファイルの選択とアップロードはここで行います。入力/出力は後で定義されます。"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:71
 msgid "Create a job template"
@@ -8858,7 +8858,7 @@ msgstr "ジョブテンプレート:"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:80
 msgid "No job template created"
-msgstr ""
+msgstr "ジョブテンプレートが作成されていません"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:89
 msgid ""
@@ -8869,16 +8869,16 @@ msgid ""
 "                        or arguments that you need to pass along\n"
 "                        to your job.\n"
 "                        "
-msgstr ""
+msgstr "ジョブを起動します。起動中には、入力と出力のデータソースを選択する必要がある場合があります。また、ジョブに渡す必要のある特別な設定値、パラメーター、引数もここで追加します。 "
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:99
 msgid "Launch job"
-msgstr ""
+msgstr "ジョブの起動"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:108
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:110
 msgid "Reset Job Execution Guide"
-msgstr ""
+msgstr "ジョブ実行のガイドのリセット"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:12
 msgid ""
@@ -8891,11 +8891,11 @@ msgid ""
 "                 this guide to help take you through the steps of\n"
 "                 Cluster creation.\n"
 "             "
-msgstr ""
+msgstr "\n各データ処理フレームワークが割り当てられた作業を処理するには、マシンのクラスターが必要です。クラスターを編成するには、ノードグループテンプレートのセットを作成し、それらをクラスターテンプレートに統合してからクラスターを起動します。これらのステップはそれぞれ手動で実行することができます。もしくは、このガイドに従ってクラスターの作成ステップを段階的に進めることもできます。\n             "
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:25
 msgid "Cluster Guide"
-msgstr ""
+msgstr "クラスターのガイド"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:34
 msgid ""
@@ -8908,12 +8908,12 @@ msgid ""
 "                  manually or you can follow this guide to help take you\n"
 "                  through the steps to run a job on an existing cluster.\n"
 "            "
-msgstr ""
+msgstr "\nデータ処理のジョブを実行するには、データ処理システムに対して提供することのできるプログラムのファイルを作成し、入力先/出力先を定義してジョブの実行方法を説明するジョブテンプレートを作成する必要があります。これらの各ステップは、手動で実行することができます。もしくは、このガイドに従って既存のクラスターでジョブを実行するステップを段階的に進めることもできます。"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:47
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:49
 msgid "Job Execution Guide"
-msgstr ""
+msgstr "ジョブ実行のガイド"
 
 #: dashboards/project/database_backups/panel.py:23
 #: dashboards/project/database_backups/tables.py:181
@@ -8931,7 +8931,7 @@ msgstr "作成中"
 #: dashboards/project/database_backups/tables.py:39
 msgctxt "Current status of a Database Backup"
 msgid "Completed"
-msgstr ""
+msgstr "完了"
 
 #: dashboards/project/database_backups/tables.py:41
 msgctxt "Current status of a Database Backup"
@@ -8951,7 +8951,7 @@ msgstr ""
 #: dashboards/project/database_backups/tables.py:47
 msgctxt "Current status of a Database Backup"
 msgid "Saving"
-msgstr ""
+msgstr "保存中"
 
 #: dashboards/project/database_backups/tables.py:53
 #: dashboards/project/databases/tables.py:182
@@ -9014,7 +9014,7 @@ msgstr "データベースのバックアップ"
 
 #: dashboards/project/database_backups/views.py:80
 msgid "Backup Details: {{ backup.name }}"
-msgstr ""
+msgstr "バックアップの詳細: {{ backup.name }}"
 
 #: dashboards/project/database_backups/views.py:91
 #, python-format
@@ -9208,7 +9208,7 @@ msgstr[0] "インスタンスの終了を予約しました。"
 #: dashboards/project/instances/tables.py:116
 msgid ""
 "Restarted instances will lose any data not saved in persistent storage."
-msgstr ""
+msgstr "インスタンスが再起動されると、永続ストレージに保存されていないデータはすべて失われます。 "
 
 #: dashboards/project/databases/tables.py:68
 msgid "Restart Instance"
@@ -9223,7 +9223,7 @@ msgstr[0] "インスタンスを再起動しました"
 #: dashboards/project/databases/tables.py:96
 msgid "Detach Replica"
 msgid_plural "Detach Replicas"
-msgstr[0] ""
+msgstr[0] "複製の解除"
 
 #: dashboards/project/databases/tables.py:104
 msgid "Replica Detached"
@@ -9322,7 +9322,7 @@ msgstr "バックアップ"
 #: dashboards/project/databases/tables.py:311
 msgctxt "Current status of a Database Instance"
 msgid "Shutdown"
-msgstr ""
+msgstr "シャットダウン"
 
 #: dashboards/project/databases/tables.py:313
 msgctxt "Current status of a Database Instance"
@@ -9332,7 +9332,7 @@ msgstr "エラー"
 #: dashboards/project/databases/tables.py:316
 msgctxt "Current status of a Database Instance"
 msgid "Restart Required"
-msgstr ""
+msgstr "再起動が必要です"
 
 #: dashboards/project/databases/tables.py:330
 #: dashboards/project/databases/templates/databases/_detail_overview.html:32
@@ -9635,19 +9635,19 @@ msgstr "ユーザーを作成する場合、少なくとも 1 つデータベー
 
 #: dashboards/project/databases/workflows/create_instance.py:228
 msgid "Source for Initial State"
-msgstr ""
+msgstr "初期状態の元情報"
 
 #: dashboards/project/databases/workflows/create_instance.py:230
 msgid "Choose initial state."
-msgstr ""
+msgstr "初期状態を選択してください"
 
 #: dashboards/project/databases/workflows/create_instance.py:233
 msgid "Restore from Backup"
-msgstr ""
+msgstr "バックアップからの復元"
 
 #: dashboards/project/databases/workflows/create_instance.py:234
 msgid "Replicate from Instance"
-msgstr ""
+msgstr "インスタンスから複製"
 
 #: dashboards/project/databases/workflows/create_instance.py:240
 #: dashboards/project/databases/workflows/create_instance.py:246
@@ -9662,15 +9662,15 @@ msgstr "リストアするバックアップを選択"
 #: dashboards/project/databases/workflows/create_instance.py:249
 #: dashboards/project/databases/workflows/create_instance.py:255
 msgid "Master Instance Name"
-msgstr ""
+msgstr "マスターインスタンス名"
 
 #: dashboards/project/databases/workflows/create_instance.py:251
 msgid "Select a master instance"
-msgstr ""
+msgstr "マスターインスタンスを選択してください"
 
 #: dashboards/project/databases/workflows/create_instance.py:259
 msgid "Advanced"
-msgstr ""
+msgstr "高度な設定"
 
 #: dashboards/project/databases/workflows/create_instance.py:271
 msgid "Select backup"
@@ -9678,7 +9678,7 @@ msgstr "バックアップを選択してください"
 
 #: dashboards/project/databases/workflows/create_instance.py:285
 msgid "Select instance"
-msgstr ""
+msgstr "インスタンスを選択してください"
 
 #: dashboards/project/databases/workflows/create_instance.py:302
 msgid "Unable to find backup!"
@@ -9686,15 +9686,15 @@ msgstr "バックアップが見つかりません！"
 
 #: dashboards/project/databases/workflows/create_instance.py:304
 msgid "A backup must be selected!"
-msgstr ""
+msgstr "バックアップを選択する必要があります。"
 
 #: dashboards/project/databases/workflows/create_instance.py:314
 msgid "Unable to find master instance!"
-msgstr ""
+msgstr "マスターインスタンスが見つかりません。"
 
 #: dashboards/project/databases/workflows/create_instance.py:317
 msgid "A master instance must be selected!"
-msgstr ""
+msgstr "マスターインスタンスを選択する必要があります"
 
 #: dashboards/project/databases/workflows/create_instance.py:336
 #: dashboards/project/instances/workflows/create_instance.py:821
@@ -10096,7 +10096,7 @@ msgstr "削除待ち"
 #: dashboards/project/firewalls/tables.py:331
 msgctxt "Current status of a Firewall"
 msgid "Inactive"
-msgstr ""
+msgstr "非稼働"
 
 #: dashboards/project/firewalls/tables.py:334
 msgctxt "Admin state of a Firewall"
@@ -10115,7 +10115,7 @@ msgstr "適用先ルーター"
 #: dashboards/project/firewalls/tables.py:369
 #, python-format
 msgid "Failed to verify extension support %(reason)s"
-msgstr ""
+msgstr "拡張機能に対応しているか確認できません: %(reason)s"
 
 #: dashboards/project/firewalls/tabs.py:31
 msgid "Firewall Rules"
@@ -10472,7 +10472,7 @@ msgstr "このプロジェクト向けのイメージ一覧を取得できませ
 
 #: dashboards/project/images/utils.py:95
 msgid "Unable to retrieve images"
-msgstr ""
+msgstr "イメージ一覧を取得できません"
 
 #: dashboards/project/images/utils.py:104
 #: dashboards/project/instances/forms.py:66
@@ -10546,13 +10546,13 @@ msgstr "イメージを起動するために必要となる最小メモリー容
 
 #: dashboards/project/images/images/forms.py:96
 msgid "Copy Data"
-msgstr ""
+msgstr "データのコピー"
 
 #: dashboards/project/images/images/forms.py:97
 msgid ""
 "Specify this option to copy image data to the image service. If unspecified,"
 " image data will be used in its current location."
-msgstr ""
+msgstr "このオプションを指定すると、イメージデータをイメージサービスにコピーします。指定しなかった場合は、イメージデータはイメージの場所の URL にあるものが使用されます。"
 
 #: dashboards/project/images/images/forms.py:148
 msgid "A image or external image location must be specified."
@@ -10578,7 +10578,7 @@ msgstr "新しいイメージを作成できません。無効なディスクフ
 
 #: dashboards/project/images/images/forms.py:202
 msgid "Unable to create new image: Image name too long."
-msgstr ""
+msgstr "新しいイメージを作成できません。イメージ名が長過ぎます。"
 
 #: dashboards/project/images/images/forms.py:216
 msgid "Kernel ID"
@@ -10613,7 +10613,7 @@ msgstr[0] "イメージを削除しました"
 
 #: dashboards/project/images/images/tables.py:129
 msgid "Edit Image"
-msgstr ""
+msgstr "イメージの編集"
 
 #: dashboards/project/images/images/tables.py:146
 #: dashboards/project/volumes/snapshots/tables.py:93
@@ -10637,12 +10637,12 @@ msgstr "稼働中"
 #: dashboards/project/images/images/tables.py:255
 msgctxt "Current status of an Image"
 msgid "Saving"
-msgstr ""
+msgstr "保存中"
 
 #: dashboards/project/images/images/tables.py:256
 msgctxt "Current status of an Image"
 msgid "Queued"
-msgstr ""
+msgstr "処理待ち"
 
 #: dashboards/project/images/images/tables.py:258
 msgctxt "Current status of an Image"
@@ -10652,7 +10652,7 @@ msgstr "削除待ち"
 #: dashboards/project/images/images/tables.py:259
 msgctxt "Current status of an Image"
 msgid "Killed"
-msgstr ""
+msgstr "中止"
 
 #: dashboards/project/images/images/tables.py:260
 msgctxt "Current status of an Image"
@@ -10722,7 +10722,7 @@ msgstr "チェックサム"
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:49
 msgid "Virtual Size"
-msgstr ""
+msgstr "仮想サイズ"
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:52
 msgid "Container Format"
@@ -10908,7 +10908,7 @@ msgstr[0] "インスタンスを休止しました"
 
 #: dashboards/project/instances/tables.py:352
 msgid "Launch Instance NG"
-msgstr ""
+msgstr "インスタンス起動不可"
 
 #: dashboards/project/instances/tables.py:372
 #: dashboards/project/instances/workflows/update_instance.py:132
@@ -10991,7 +10991,7 @@ msgstr "選択されたアベイラビリティーゾーンに十分な容量が
 msgid ""
 "Failed to perform requested operation on instance \"%s\", the instance has "
 "an error status"
-msgstr ""
+msgstr "インスタンス \"%s\" に対して要求された操作を実行できませんでした。このインスタンスはエラー状態です。"
 
 #: dashboards/project/instances/tables.py:677
 #: dashboards/project/instances/views.py:395
@@ -11011,7 +11011,7 @@ msgstr[0] "インスタンスを開始しました"
 
 #: dashboards/project/instances/tables.py:719
 msgid "To power off a specific instance."
-msgstr ""
+msgstr "指定したインスタンスの電源を停止します。"
 
 #: dashboards/project/instances/tables.py:725
 msgctxt "Action to perform (the instance is currently running)"
@@ -11444,7 +11444,7 @@ msgstr "Nova のアベイラビリティーゾーンを取得できません。"
 
 #: dashboards/project/instances/utils.py:94
 msgid "Failed to get network list {0}"
-msgstr ""
+msgstr "ネットワーク一覧を取得できません: {0}"
 
 #: dashboards/project/instances/utils.py:99
 #: dashboards/project/routers/ports/forms.py:176
@@ -11453,7 +11453,7 @@ msgstr "ネットワークがありません"
 
 #: dashboards/project/instances/utils.py:103
 msgid "Select Network"
-msgstr ""
+msgstr "ネットワークを選択してください"
 
 #: dashboards/project/instances/utils.py:123
 msgid "Unable to retrieve key pairs."
@@ -11469,7 +11469,7 @@ msgstr "キーペアを選択してください"
 
 #: dashboards/project/instances/utils.py:151
 msgid "Select Flavor"
-msgstr ""
+msgstr "フレーバーを選択してください"
 
 #: dashboards/project/instances/views.py:73
 msgid "Unable to retrieve instances."
@@ -11497,12 +11497,12 @@ msgstr "インスタンス \"%s\" の RDP コンソールを取得できませ�
 #: dashboards/project/instances/views.py:209
 #, python-format
 msgid "Cannot find instance %s."
-msgstr ""
+msgstr "インスタンス %s が見つかりません。"
 
 #: dashboards/project/instances/views.py:221
 #, python-format
 msgid "Cannot get console for instance %s."
-msgstr ""
+msgstr "インスタンス %s のコンソールを取得できません。"
 
 #: dashboards/project/instances/views.py:272
 #: dashboards/project/instances/templates/instances/_decryptpassword.html:10
@@ -11686,7 +11686,7 @@ msgstr "インスタンス数"
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:29
 #, python-format
 msgid "<p>%(used)s of %(quota)s Used</p>"
-msgstr "<p>%(quota)s 中 %(used)s 使用中</p>"
+msgstr "<p>%(used)s / %(quota)s 使用中</p>"
 
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:35
 msgid "Total RAM"
@@ -11695,7 +11695,7 @@ msgstr "合計メモリー"
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:36
 #, python-format
 msgid "<p>%(used)s of %(quota)s MB Used</p>"
-msgstr "<p>%(quota)s MB 中 %(used)s MB 使用中</p>"
+msgstr "<p>%(used)s MB / %(quota)s MB 使用中</p>"
 
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:43
 msgid ""
@@ -12428,7 +12428,7 @@ msgstr "削除待ち"
 #: dashboards/project/loadbalancers/tables.py:310
 msgctxt "Current status of a Pool"
 msgid "Inactive"
-msgstr ""
+msgstr "非稼働"
 
 #: dashboards/project/loadbalancers/tables.py:321
 #: dashboards/project/loadbalancers/workflows.py:43
@@ -12839,7 +12839,7 @@ msgstr "コードの期待値には、数値 (例: 200)、数値のリスト (�
 
 #: dashboards/project/loadbalancers/workflows.py:562
 msgid "Delay must be greater than or equal to Timeout"
-msgstr ""
+msgstr "「遅延」の値は「タイムアウト」以上でなければいけません。"
 
 #: dashboards/project/loadbalancers/workflows.py:571
 msgid "Please choose a HTTP method"
@@ -13456,7 +13456,7 @@ msgstr "セグメント ID:"
 
 #: dashboards/project/networks/templates/networks/create.html:9
 msgid "&laquo;&nbsp;Back"
-msgstr ""
+msgstr "&laquo;&nbsp;戻る"
 
 #: dashboards/project/networks/templates/networks/create.html:10
 msgid "Next&nbsp;&raquo;"
@@ -13517,7 +13517,7 @@ msgstr "DNS サーバー"
 
 #: dashboards/project/overview/views.py:34
 msgid "Time since created (Seconds)"
-msgstr ""
+msgstr "作成後経過時間 (秒)"
 
 #: dashboards/project/routers/forms.py:35
 #: dashboards/project/routers/ports/forms.py:35
@@ -13564,7 +13564,7 @@ msgstr "HA モード無効"
 
 #: dashboards/project/routers/forms.py:78
 msgid "Failed to get network list."
-msgstr ""
+msgstr "ネットワーク一覧を取得できません。"
 
 #: dashboards/project/routers/forms.py:86
 #: dashboards/project/routers/ports/forms.py:174
@@ -13628,7 +13628,7 @@ msgstr "ゲートウェイの設定"
 msgid ""
 "You may reset the gateway later by using the set gateway action, but the "
 "gateway IP may change."
-msgstr ""
+msgstr "「ゲートウェイの設定」を使って再度ゲートウェイを設定することはできますが、ゲートウェイ側の IP アドレスが変化するかもしれません。"
 
 #: dashboards/project/routers/tables.py:134
 msgid "Clear Gateway"
@@ -14106,11 +14106,11 @@ msgstr "スタック名"
 #: dashboards/project/stacks/views.py:152
 #: dashboards/project/stacks/templates/stacks/preview_template.html:3
 msgid "Preview Template"
-msgstr ""
+msgstr "テンプレートのプレビュー"
 
 #: dashboards/project/stacks/forms.py:241
 msgid "Select a new template to preview a stack."
-msgstr ""
+msgstr "プレビューするスタックのテンプレートを選択してください。"
 
 #: dashboards/project/stacks/forms.py:249
 msgid "Create Stack"
@@ -14169,7 +14169,7 @@ msgstr "スタックの更新を開始しました。"
 
 #: dashboards/project/stacks/forms.py:443
 msgid "Preview Stack Parameters"
-msgstr ""
+msgstr "プレビューするスタックのパラメーター"
 
 #: dashboards/project/stacks/panel.py:21
 #: dashboards/project/stacks/tables.py:283
@@ -14190,18 +14190,18 @@ msgstr "スタックの起動"
 #: dashboards/project/stacks/views.py:245
 #: dashboards/project/stacks/templates/stacks/preview.html:3
 msgid "Preview Stack"
-msgstr ""
+msgstr "スタックのプレビュー"
 
 #: dashboards/project/stacks/tables.py:49
 #: dashboards/project/stacks/tables.py:55
 msgid "Check Stack"
 msgid_plural "Check Stacks"
-msgstr[0] ""
+msgstr[0] "スタックのチェック"
 
 #: dashboards/project/stacks/tables.py:63
 msgid "Checked Stack"
 msgid_plural "Checked Stacks"
-msgstr[0] ""
+msgstr[0] "チェック済みのスタック"
 
 #: dashboards/project/stacks/tables.py:74
 #: dashboards/project/stacks/tables.py:80
@@ -14242,27 +14242,27 @@ msgstr[0] "スタックを削除しました"
 #: dashboards/project/stacks/tables.py:198
 msgctxt "current status of stack"
 msgid "Init In Progress"
-msgstr ""
+msgstr "init 実行中"
 
 #: dashboards/project/stacks/tables.py:200
 msgctxt "current status of stack"
 msgid "Init Complete"
-msgstr ""
+msgstr "init 完了"
 
 #: dashboards/project/stacks/tables.py:202
 msgctxt "current status of stack"
 msgid "Init Failed"
-msgstr ""
+msgstr "init 失敗"
 
 #: dashboards/project/stacks/tables.py:204
 msgctxt "current status of stack"
 msgid "Create In Progress"
-msgstr ""
+msgstr "作成中"
 
 #: dashboards/project/stacks/tables.py:206
 msgctxt "current status of stack"
 msgid "Create Complete"
-msgstr ""
+msgstr "作成完了"
 
 #: dashboards/project/stacks/tables.py:208
 msgctxt "current status of stack"
@@ -14272,12 +14272,12 @@ msgstr ""
 #: dashboards/project/stacks/tables.py:210
 msgctxt "current status of stack"
 msgid "Delete In Progress"
-msgstr ""
+msgstr "削除中"
 
 #: dashboards/project/stacks/tables.py:212
 msgctxt "current status of stack"
 msgid "Delete Complete"
-msgstr ""
+msgstr "削除完了"
 
 #: dashboards/project/stacks/tables.py:214
 msgctxt "current status of stack"
@@ -14287,62 +14287,62 @@ msgstr "削除に失敗しました"
 #: dashboards/project/stacks/tables.py:216
 msgctxt "current status of stack"
 msgid "Update In Progress"
-msgstr ""
+msgstr "更新中"
 
 #: dashboards/project/stacks/tables.py:218
 msgctxt "current status of stack"
 msgid "Update Complete"
-msgstr ""
+msgstr "更新完了"
 
 #: dashboards/project/stacks/tables.py:220
 msgctxt "current status of stack"
 msgid "Update Failed"
-msgstr ""
+msgstr "更新失敗"
 
 #: dashboards/project/stacks/tables.py:222
 msgctxt "current status of stack"
 msgid "Rollback In Progress"
-msgstr ""
+msgstr "ロールバック中"
 
 #: dashboards/project/stacks/tables.py:224
 msgctxt "current status of stack"
 msgid "Rollback Complete"
-msgstr ""
+msgstr "ロールバック完了"
 
 #: dashboards/project/stacks/tables.py:226
 msgctxt "current status of stack"
 msgid "Rollback Failed"
-msgstr ""
+msgstr "ロールバック失敗"
 
 #: dashboards/project/stacks/tables.py:228
 msgctxt "current status of stack"
 msgid "Suspend In Progress"
-msgstr ""
+msgstr "休止中"
 
 #: dashboards/project/stacks/tables.py:230
 msgctxt "current status of stack"
 msgid "Suspend Complete"
-msgstr ""
+msgstr "休止完了"
 
 #: dashboards/project/stacks/tables.py:232
 msgctxt "current status of stack"
 msgid "Suspend Failed"
-msgstr ""
+msgstr "休止失敗"
 
 #: dashboards/project/stacks/tables.py:234
 msgctxt "current status of stack"
 msgid "Resume In Progress"
-msgstr ""
+msgstr "再開中"
 
 #: dashboards/project/stacks/tables.py:236
 msgctxt "current status of stack"
 msgid "Resume Complete"
-msgstr ""
+msgstr "再開完了"
 
 #: dashboards/project/stacks/tables.py:238
 msgctxt "current status of stack"
 msgid "Resume Failed"
-msgstr ""
+msgstr "再開失敗"
 
 #: dashboards/project/stacks/tables.py:240
 msgctxt "current status of stack"
@@ -14377,17 +14377,17 @@ msgstr ""
 #: dashboards/project/stacks/tables.py:252
 msgctxt "current status of stack"
 msgid "Check In Progress"
-msgstr ""
+msgstr "チェック中"
 
 #: dashboards/project/stacks/tables.py:254
 msgctxt "current status of stack"
 msgid "Check Complete"
-msgstr ""
+msgstr "チェック完了"
 
 #: dashboards/project/stacks/tables.py:256
 msgctxt "current status of stack"
 msgid "Check Failed"
-msgstr ""
+msgstr "チェック失敗"
 
 #: dashboards/project/stacks/tables.py:309
 #: dashboards/project/stacks/tables.py:359
@@ -14474,12 +14474,12 @@ msgstr "スタックの更新"
 
 #: dashboards/project/stacks/views.py:242
 msgid "Preview"
-msgstr ""
+msgstr "プレビュー"
 
 #: dashboards/project/stacks/views.py:255
 #: dashboards/project/stacks/templates/stacks/preview_details.html:3
 msgid "Preview Stack Details"
-msgstr ""
+msgstr "プレビューしたスタックの詳細"
 
 #: dashboards/project/stacks/views.py:267
 msgid "Stack Details: {{ stack.stack_name }}"
@@ -14503,7 +14503,7 @@ msgstr "メタデータを取得できません。"
 
 #: dashboards/project/stacks/resource_types/tables.py:26
 msgid "AWS compatible"
-msgstr ""
+msgstr "AWS 互換"
 
 #: dashboards/project/stacks/resource_types/tables.py:34
 msgid "Implementation"
@@ -14580,21 +14580,21 @@ msgstr "ロールバック"
 
 #: dashboards/project/stacks/templates/stacks/_preview.html:5
 msgid "Preview a new stack with the provided values."
-msgstr ""
+msgstr "指定された値を用いて新しいスタックをプレビューを行います。"
 
 #: dashboards/project/stacks/templates/stacks/_preview_details.html:5
 msgid "Stack Preview"
-msgstr ""
+msgstr "スタックのプレビュー"
 
 #: dashboards/project/stacks/templates/stacks/_preview_details.html:31
 msgid "Links"
-msgstr ""
+msgstr "リンク"
 
 #: dashboards/project/stacks/templates/stacks/_preview_template.html:6
 msgid ""
 "Use one of the available template source options to specify the template to "
 "be used in previewing this stack."
-msgstr ""
+msgstr "このスタックをプレビューするために使用するテンプレートを指定するために、利用可能なテンプレートの指定方法からどれかを選択してください。"
 
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:3
 msgid "Resource Overview"
@@ -14660,7 +14660,7 @@ msgstr "ボリュームバックアップ一覧を取得できません。"
 
 #: dashboards/project/volumes/utils.py:28
 msgid "Unable to retrieve volumes availability zones."
-msgstr ""
+msgstr "ボリュームアベイラビリティゾーンを取得できません。"
 
 #: dashboards/project/volumes/backups/forms.py:56
 #, python-format
@@ -14899,15 +14899,15 @@ msgstr "ボリュームの譲渡"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_encryption_detail_overview.html:4
 msgid "Volume Encryption Overview"
-msgstr ""
+msgstr "ボリュームの暗号化の概要"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_encryption_detail_overview.html:11
 msgid "Volume Type Name"
-msgstr ""
+msgstr "ボリューム種別名"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_encryption_detail_overview.html:25
 msgid "Volume is Unencrypted"
-msgstr ""
+msgstr "ボリュームは暗号化されていません。"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_extend_limits.html:5
 msgid "Extend the size of a volume."
@@ -14937,14 +14937,14 @@ msgid ""
 "      Change the volume type of a volume after its creation.\n"
 "      This is equivalent to the <tt>cinder retype</tt> command.\n"
 "     "
-msgstr ""
+msgstr "\nボリューム作成後にボリュームの種別を変更します。\n<tt>cinder retype</tt> と同じです。"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_retype.html:11
 msgid ""
 "\n"
 "      The \"Volume Type\" selected must be different from the current volume type.\n"
 "     "
-msgstr ""
+msgstr "\n選択する「ボリューム種別」は現在のボリューム種別とは違うものでなければいけません。"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_retype.html:15
 msgid ""
@@ -14954,7 +14954,7 @@ msgid ""
 "      perform volume migration. Note that migration may take a significant\n"
 "      amount of time to complete, in some cases hours.\n"
 "     "
-msgstr ""
+msgstr "\n「移行ポリシー」は、ボリューム種別の変更がすぐに完了できない場合にのみ使用されます。「移行ポリシー」に「要求時」を指定すると、ストレージバックエンドはボリュームの移行を実行します。移行には長い時間、ときとして数時間、かかる場合がある点に注意してください。"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_show_transfer.html:6
 msgid ""
@@ -14997,7 +14997,7 @@ msgid ""
 "      Upload the volume to the Image Service as an image.\n"
 "      This is equivalent to the <tt>cinder upload-to-image</tt> command.\n"
 "     "
-msgstr ""
+msgstr "\nこのボリュームをイメージサービスにイメージとしてアップロードします。\n<tt>cinder upload-to-image</tt> と同じです。"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:11
 msgid ""
@@ -15005,7 +15005,7 @@ msgid ""
 "      Choose \"Disk Format\" for the image. The volume images are created with\n"
 "      the QEMU disk image utility.\n"
 "     "
-msgstr ""
+msgstr "\nイメージの「ディスク形式」を選択してください。ボリュームイメージの作成は QEMU ディスクイメージツールを使って行われます。"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:17
 msgid ""
@@ -15013,7 +15013,7 @@ msgid ""
 "        When the volume status is \"in-use\", you can use \"Force\" to upload the\n"
 "        volume to an image.\n"
 "       "
-msgstr ""
+msgstr "\nボリュームの状態が「使用中」の場合、ボリュームをイメージにアップロードするには「強制アップロード」をチェックしてください。"
 
 #: dashboards/project/volumes/templates/volumes/volumes/accept_transfer.html:3
 #: dashboards/project/volumes/volumes/views.py:237
@@ -15036,7 +15036,7 @@ msgstr "ボリュームの譲渡の作成"
 
 #: dashboards/project/volumes/templates/volumes/volumes/encryption_detail.html:3
 msgid "Volume Encryption Details"
-msgstr ""
+msgstr "ボリュームの暗号化の詳細"
 
 #: dashboards/project/volumes/templates/volumes/volumes/extend.html:3
 #: dashboards/project/volumes/volumes/tables.py:133
@@ -15240,7 +15240,7 @@ msgstr "ボリュームのスナップショットを作成できません。"
 
 #: dashboards/project/volumes/volumes/forms.py:525
 msgid "Requested snapshot would exceed the allowed quota."
-msgstr ""
+msgstr "要求があったスナップショットを作成すると、許可されたクォータを超えてしまいます。"
 
 #: dashboards/project/volumes/volumes/forms.py:532
 #: dashboards/project/volumes/volumes/forms.py:578
@@ -15445,7 +15445,7 @@ msgstr "利用可能"
 #: dashboards/project/volumes/volumes/tables.py:374
 msgctxt "Current status of a Volume"
 msgid "In-use"
-msgstr ""
+msgstr "使用中"
 
 #: dashboards/project/volumes/volumes/tables.py:375
 msgctxt "Current status of a Volume"
@@ -15460,7 +15460,7 @@ msgstr "作成中"
 #: dashboards/project/volumes/volumes/tables.py:379
 msgctxt "Current status of a Volume"
 msgid "Error Extending"
-msgstr ""
+msgstr "拡張でエラーが発生しました"
 
 #: dashboards/project/volumes/volumes/tables.py:423
 msgid "Encrypted"
@@ -15470,7 +15470,7 @@ msgstr "暗号化"
 msgid ""
 "The data will remain in the volume and another instance will be able to "
 "access the data if you attach this volume to it."
-msgstr ""
+msgstr "データーはボリュームに残ります。このボリュームを別のインスタンスに接続すると、そのインスタンスはデータにアクセスすることができます。"
 
 #: dashboards/project/volumes/volumes/tables.py:451
 msgid "Detach Volume"
@@ -15493,7 +15493,7 @@ msgstr "インスタンス %(instance_name)s のボリューム %(volume_name)s"
 
 #: dashboards/project/volumes/volumes/views.py:46
 msgid "Volume Details: {{ volume.name }}"
-msgstr ""
+msgstr "ボリュームの詳細: {{ volume.name }}"
 
 #: dashboards/project/volumes/volumes/views.py:87
 msgid "Create a Volume"
@@ -15535,16 +15535,16 @@ msgstr "ボリューム情報を取得できません。"
 
 #: dashboards/project/volumes/volumes/views.py:433
 msgid "Volume Encryption Details: {{ volume.name }}"
-msgstr ""
+msgstr "ボリュームの暗号化の詳細: {{ volume.name }}"
 
 #: dashboards/project/volumes/volumes/views.py:440
 #, python-format
 msgid "Volume Encryption Details: %(volume_name)s"
-msgstr ""
+msgstr "ボリュームの暗号化の詳細: %(volume_name)s"
 
 #: dashboards/project/volumes/volumes/views.py:455
 msgid "Unable to retrieve volume encryption details."
-msgstr ""
+msgstr "ボリューム種別の暗号化の詳細を取得できません。"
 
 #: dashboards/project/vpn/forms.py:52
 #, python-format
@@ -15971,7 +15971,7 @@ msgstr "削除待ち"
 #: dashboards/project/vpn/tables.py:282
 msgctxt "Current status of a VPN Service"
 msgid "Inactive"
-msgstr ""
+msgstr "非稼働"
 
 #: dashboards/project/vpn/tables.py:298 dashboards/project/vpn/tabs.py:46
 msgid "VPN Services"
@@ -16589,7 +16589,7 @@ msgid ""
 "You do not have the required\n"
 "          privileges to access this content. If you believe this message to\n"
 "          be in error, please contact your project manager."
-msgstr ""
+msgstr "このコンテンツにアクセスするために必要な権限がありません。このメッセージがエラーで表示されていると思われる場合には、担当のプロジェクトマネージャーにお問い合わせください。"
 
 #: templates/403.html:23 templates/404.html:20 templates/500.html:73
 msgid "Home"
@@ -16695,7 +16695,7 @@ msgstr "仮想 CPU 時間"
 #: usage/tables.py:45
 msgid ""
 "Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
-msgstr ""
+msgstr "このプロジェクトの全仮想 CPU 使用量 (インスタンス内の仮想 CPU 数 * 使用時間)"
 
 #: usage/tables.py:50
 msgid "Disk GB Hours"
@@ -16707,11 +16707,11 @@ msgstr "このプロジェクトの全ディスク使用量 (使用 GB 時間)"
 
 #: usage/tables.py:55
 msgid "Memory MB Hours"
-msgstr ""
+msgstr "メモリーの MB 時間"
 
 #: usage/tables.py:56
 msgid "Total memory usage (MB * Hours Used) for the project"
-msgstr ""
+msgstr "このプロジェクトの全メモリー使用量 (MB * 使用時間)"
 
 #: usage/tables.py:66 usage/tables.py:96
 msgid "Usage"

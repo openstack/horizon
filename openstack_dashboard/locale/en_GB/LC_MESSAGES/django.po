@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-02 20:58-0500\n"
-"PO-Revision-Date: 2015-04-03 01:59+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-04-03 23:00-0500\n"
+"PO-Revision-Date: 2015-04-05 15:01+0000\n"
+"Last-Translator: Rob Cresswell <robert.cresswell@outlook.com>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/horizon/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -335,31 +335,31 @@ msgstr "Sensor Voltage Reading"
 
 #: api/ceilometer.py:1280
 msgid "System Inlet Temperature Reading"
-msgstr ""
+msgstr "System Inlet Temperature Reading"
 
 #: api/ceilometer.py:1284
 msgid "System Outlet Temperature Reading"
-msgstr ""
+msgstr "System Outlet Temperature Reading"
 
 #: api/ceilometer.py:1288
 msgid "System Airflow Reading"
-msgstr ""
+msgstr "System Airflow Reading"
 
 #: api/ceilometer.py:1292
 msgid "System CUPS Reading"
-msgstr ""
+msgstr "System CUPS Reading"
 
 #: api/ceilometer.py:1296
 msgid "System CPU Utility Reading"
-msgstr ""
+msgstr "System CPU Utility Reading"
 
 #: api/ceilometer.py:1300
 msgid "System Memory Utility Reading"
-msgstr ""
+msgstr "System Memory Utility Reading"
 
 #: api/ceilometer.py:1304
 msgid "System IO Utility Reading"
-msgstr ""
+msgstr "System IO Utility Reading"
 
 #: api/cinder.py:46 dashboards/admin/volumes/volume_types/forms.py:33
 msgid "back-end"
@@ -1456,8 +1456,8 @@ msgstr "ID"
 #: dashboards/project/containers/templates/containers/_container_metadata.html:7
 #: dashboards/project/images/images/forms.py:104
 #: dashboards/project/images/images/forms.py:250
-#: dashboards/project/images/images/tables.py:163
-#: dashboards/project/images/images/tables.py:252
+#: dashboards/project/images/images/tables.py:185
+#: dashboards/project/images/images/tables.py:274
 #: dashboards/project/images/templates/images/images/_detail_overview.html:21
 msgid "Public"
 msgstr "Public"
@@ -1622,7 +1622,7 @@ msgstr "Hostname"
 #: dashboards/project/access_and_security/security_groups/forms.py:185
 #: dashboards/project/data_processing/data_sources/tables.py:61
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:9
-#: dashboards/project/images/images/tables.py:244
+#: dashboards/project/images/images/tables.py:266
 #: dashboards/project/loadbalancers/workflows.py:486
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/routers/ports/tables.py:115
@@ -1890,7 +1890,7 @@ msgstr "Zone"
 #: dashboards/project/databases/templates/databases/_detail_overview.html:18
 #: dashboards/project/firewalls/tables.py:347
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
-#: dashboards/project/images/images/tables.py:247
+#: dashboards/project/images/images/tables.py:269
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
 #: dashboards/project/instances/tables.py:1025
 #: dashboards/project/instances/templates/instances/_detail_overview.html:14
@@ -1997,7 +1997,7 @@ msgstr "Unable to update the image metadata."
 #: dashboards/admin/images/views.py:47
 #: dashboards/admin/images/templates/images/index.html:3
 #: dashboards/project/images/panel.py:24 dashboards/project/images/views.py:38
-#: dashboards/project/images/images/tables.py:269
+#: dashboards/project/images/images/tables.py:291
 #: dashboards/project/images/templates/images/index.html:3
 msgid "Images"
 msgstr "Images"
@@ -2026,7 +2026,7 @@ msgstr "Max. Size (MB)"
 
 #: dashboards/admin/images/tables.py:71
 #: dashboards/admin/instances/tables.py:132
-#: dashboards/project/images/images/tables.py:242
+#: dashboards/project/images/images/tables.py:264
 #: dashboards/project/instances/tables.py:1015
 #: dashboards/project/instances/templates/instances/_detail_overview.html:114
 #: dashboards/project/instances/workflows/create_instance.py:108
@@ -2098,7 +2098,7 @@ msgid ""
 msgstr "The Image Location field MUST be a valid and direct URL to the image binary. URLs that redirect or serve error pages will result in unusable images."
 
 #: dashboards/admin/images/templates/images/_create.html:34
-#: dashboards/project/images/images/tables.py:98
+#: dashboards/project/images/images/tables.py:120
 #: dashboards/project/images/templates/images/images/_create.html:32
 msgid "Create Image"
 msgstr "Create Image"
@@ -2308,7 +2308,7 @@ msgstr "Flavour ID ="
 #: dashboards/admin/volumes/snapshots/tables.py:65
 #: dashboards/admin/volumes/volumes/tables.py:82
 #: dashboards/project/dashboard.py:77
-#: dashboards/project/images/images/tables.py:156
+#: dashboards/project/images/images/tables.py:178
 #: dashboards/project/instances/workflows/create_instance.py:54
 #: dashboards/router/nexus1000v/forms.py:119
 #: dashboards/router/nexus1000v/forms.py:177
@@ -2335,7 +2335,7 @@ msgstr "IP Address"
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
 #: dashboards/project/databases/tables.py:327
-#: dashboards/project/images/images/tables.py:263
+#: dashboards/project/images/images/tables.py:285
 #: dashboards/project/images/templates/images/images/_detail_overview.html:46
 #: dashboards/project/instances/tables.py:1020
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:7
@@ -2432,7 +2432,7 @@ msgstr "The JSON formatted contents of a namespace."
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:20
 #: dashboards/project/images/images/forms.py:105
 #: dashboards/project/images/images/forms.py:251
-#: dashboards/project/images/images/tables.py:256
+#: dashboards/project/images/images/tables.py:278
 #: dashboards/project/images/templates/images/images/_detail_overview.html:23
 msgid "Protected"
 msgstr "Protected"
@@ -3370,7 +3370,7 @@ msgstr "Failed to delete network %s"
 #: dashboards/admin/networks/templates/networks/_create.html:9
 #: dashboards/admin/networks/templates/networks/_create.html:26
 #: dashboards/admin/networks/templates/networks/create.html:3
-#: dashboards/project/network_topology/templates/network_topology/index.html:34
+#: dashboards/project/network_topology/templates/network_topology/index.html:37
 #: dashboards/project/networks/tables.py:87
 #: dashboards/project/networks/tables.py:100
 #: dashboards/project/networks/workflows.py:341
@@ -4698,7 +4698,7 @@ msgstr "undefined"
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:56
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:106
 msgid "QoS Spec: {{ qos_spec_name }}"
-msgstr ""
+msgstr "QoS Spec: {{ qos_spec_name }}"
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:65
 msgid "Unable to retrieve QoS spec list."
@@ -4706,7 +4706,7 @@ msgstr "Unable to retrieve QoS spec list."
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:79
 msgid "Spec: {{ qos_spec_name }}"
-msgstr ""
+msgstr "Spec: {{ qos_spec_name }}"
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:100
 msgid "Edit Spec Value"
@@ -7508,6 +7508,7 @@ msgstr "No Templates Available"
 #: dashboards/project/data_processing/jobs/workflows/launch.py:331
 #: dashboards/project/data_processing/jobs/workflows/launch.py:416
 #: dashboards/project/databases/workflows/create_instance.py:335
+#: dashboards/project/images/images/tables.py:62
 #: dashboards/project/instances/workflows/create_instance.py:820
 #: dashboards/project/stacks/views.py:165
 msgid "Launch"
@@ -9336,7 +9337,8 @@ msgstr "Error deleting database on instance."
 #: dashboards/project/instances/tables.py:308
 #: dashboards/project/instances/tables.py:336
 #: dashboards/project/instances/workflows/create_instance.py:819
-#: dashboards/project/network_topology/templates/network_topology/index.html:31
+#: dashboards/project/network_topology/templates/network_topology/index.html:32
+#: dashboards/project/network_topology/templates/network_topology/index.html:34
 msgid "Launch Instance"
 msgstr "Launch Instance"
 
@@ -10596,7 +10598,7 @@ msgstr "A local image to upload."
 
 #: dashboards/project/images/images/forms.py:76
 #: dashboards/project/images/images/forms.py:232
-#: dashboards/project/images/images/tables.py:259
+#: dashboards/project/images/images/tables.py:281
 msgid "Format"
 msgstr "Format"
 
@@ -10631,13 +10633,13 @@ msgstr "The minimum memory size required to boot the image. If unspecified, this
 
 #: dashboards/project/images/images/forms.py:96
 msgid "Copy Data"
-msgstr ""
+msgstr "Copy Data"
 
 #: dashboards/project/images/images/forms.py:97
 msgid ""
 "Specify this option to copy image data to the image service. If unspecified,"
 " image data will be used in its current location."
-msgstr ""
+msgstr "Specify this option to copy image data to the image service. If unspecified, image data will be used in its current location."
 
 #: dashboards/project/images/images/forms.py:148
 msgid "A image or external image location must be specified."
@@ -10682,27 +10684,27 @@ msgstr "Unable to update image \"%s\"."
 msgid "Image was successfully updated."
 msgstr "Image was successfully updated."
 
-#: dashboards/project/images/images/tables.py:63
+#: dashboards/project/images/images/tables.py:85
 msgid "Deleted images are not recoverable."
 msgstr "Deleted images are not recoverable."
 
-#: dashboards/project/images/images/tables.py:68
+#: dashboards/project/images/images/tables.py:90
 msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] "Delete Image"
 msgstr[1] "Delete Images"
 
-#: dashboards/project/images/images/tables.py:76
+#: dashboards/project/images/images/tables.py:98
 msgid "Deleted Image"
 msgid_plural "Deleted Images"
 msgstr[0] "Deleted Image"
 msgstr[1] "Deleted Images"
 
-#: dashboards/project/images/images/tables.py:107
+#: dashboards/project/images/images/tables.py:129
 msgid "Edit Image"
-msgstr ""
+msgstr "Edit Image"
 
-#: dashboards/project/images/images/tables.py:124
+#: dashboards/project/images/images/tables.py:146
 #: dashboards/project/volumes/snapshots/tables.py:93
 #: dashboards/project/volumes/templates/volumes/volumes/create.html:3
 #: dashboards/project/volumes/volumes/tables.py:96
@@ -10712,36 +10714,36 @@ msgstr ""
 msgid "Create Volume"
 msgstr "Create Volume"
 
-#: dashboards/project/images/images/tables.py:161
+#: dashboards/project/images/images/tables.py:183
 msgid "Shared with Me"
 msgstr "Shared with Me"
 
-#: dashboards/project/images/images/tables.py:232
+#: dashboards/project/images/images/tables.py:254
 msgctxt "Current status of an Image"
 msgid "Active"
 msgstr "Active"
 
-#: dashboards/project/images/images/tables.py:233
+#: dashboards/project/images/images/tables.py:255
 msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "Saving"
 
-#: dashboards/project/images/images/tables.py:234
+#: dashboards/project/images/images/tables.py:256
 msgctxt "Current status of an Image"
 msgid "Queued"
 msgstr "Queued"
 
-#: dashboards/project/images/images/tables.py:236
+#: dashboards/project/images/images/tables.py:258
 msgctxt "Current status of an Image"
 msgid "Pending Delete"
 msgstr "Pending Delete"
 
-#: dashboards/project/images/images/tables.py:237
+#: dashboards/project/images/images/tables.py:259
 msgctxt "Current status of an Image"
 msgid "Killed"
 msgstr "Killed"
 
-#: dashboards/project/images/images/tables.py:238
+#: dashboards/project/images/images/tables.py:260
 msgctxt "Current status of an Image"
 msgid "Deleted"
 msgstr "Deleted"
@@ -13115,7 +13117,7 @@ msgstr "Create a Router"
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:9
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:20
 #: dashboards/project/network_topology/templates/network_topology/create_router.html:3
-#: dashboards/project/network_topology/templates/network_topology/index.html:37
+#: dashboards/project/network_topology/templates/network_topology/index.html:40
 #: dashboards/project/routers/tables.py:85
 #: dashboards/project/routers/tables.py:98
 #: dashboards/project/routers/views.py:164
@@ -13139,21 +13141,22 @@ msgstr "This pane needs javascript support."
 msgid "Small"
 msgstr "Small"
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:31
+#: dashboards/project/network_topology/templates/network_topology/index.html:32
+#: dashboards/project/network_topology/templates/network_topology/index.html:34
 msgid "Launch Instance (Quota exceeded)"
 msgstr "Launch Instance (Quota exceeded)"
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:34
+#: dashboards/project/network_topology/templates/network_topology/index.html:37
 #: dashboards/project/networks/tables.py:98
 msgid "Create Network (Quota exceeded)"
 msgstr "Create Network (Quota exceeded)"
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:37
+#: dashboards/project/network_topology/templates/network_topology/index.html:40
 #: dashboards/project/routers/tables.py:96
 msgid "Create Router (Quota exceeded)"
 msgstr "Create Router (Quota exceeded)"
 
-#: dashboards/project/network_topology/templates/network_topology/index.html:43
+#: dashboards/project/network_topology/templates/network_topology/index.html:46
 msgid "There are no networks, routers, or connected instances to display."
 msgstr "There are no networks, routers, or connected instances to display."
 
@@ -15670,7 +15673,7 @@ msgstr "Unable to retrieve volume."
 
 #: dashboards/project/volumes/volumes/views.py:433
 msgid "Volume Encryption Details: {{ volume.name }}"
-msgstr ""
+msgstr "Volume Encryption Details: {{ volume.name }}"
 
 #: dashboards/project/volumes/volumes/views.py:440
 #, python-format
@@ -16840,7 +16843,7 @@ msgstr "VCPU Hours"
 #: usage/tables.py:45
 msgid ""
 "Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
-msgstr ""
+msgstr "Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
 
 #: usage/tables.py:50
 msgid "Disk GB Hours"
