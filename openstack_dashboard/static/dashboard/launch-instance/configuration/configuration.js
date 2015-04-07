@@ -33,17 +33,10 @@
    */
   module.controller('LaunchInstanceConfigurationCtrl', [
     '$scope',
-    '$element',
-    '$timeout',
-    'wizardEvents',
     LaunchInstanceConfigurationCtrl
   ]);
 
-  function LaunchInstanceConfigurationCtrl(
-    $scope,
-    $element,
-    $timeout,
-    wizardEvents) {
+  function LaunchInstanceConfigurationCtrl($scope) {
 
     var config = this,
         newInstanceSpec = $scope.model.newInstanceSpec;
