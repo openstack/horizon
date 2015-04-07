@@ -18,7 +18,6 @@
 
   describe('hz.widget.modal module', function() {
 
-    //beforeEach(module('ui.bootstrap'));
     beforeEach(module('hz.widget.modal'));
 
     describe('simpleModalCtrl', function() {

@@ -2,14 +2,15 @@
 'use strict';
 
 describe('hz.widget.wizard module', function () {
-  it('should have been defined".', function () {
+  it('should have been defined', function () {
     expect(angular.module('hz.widget.wizard')).toBeDefined();
   });
 });
 
 describe('wizard directive', function () {
   var $compile,
-      $scope;
+      $scope,
+      element;
 
   beforeEach(module('templates'));
   beforeEach(module('hz'));
@@ -18,6 +19,7 @@ describe('wizard directive', function () {
   beforeEach(inject(function ($injector) {
     $scope = $injector.get('$rootScope').$new();
     $compile = $injector.get('$compile');
+    element = $compile('<wizard></wizard>')($scope);
   }));
 
   it('should be compiled', function () {
@@ -27,7 +29,6 @@ describe('wizard directive', function () {
   });
 
   it('should have empty title by default', function () {
-    var element = $compile('<wizard></wizard>')($scope);
     $scope.workflow = {};
     $scope.$digest();
     expect(element[0].querySelector('.title').textContent).toBe('');
@@ -35,7 +36,6 @@ describe('wizard directive', function () {
 
   it('should have title if it is specified by workflow', function () {
     var titleText = 'Some title';
-    var element = $compile('<wizard></wizard>')($scope);
     $scope.workflow = {};
     $scope.workflow.title = titleText;
     $scope.$digest();
@@ -43,14 +43,12 @@ describe('wizard directive', function () {
   });
 
   it('should have no steps if no steps defined', function () {
-    var element = $compile('<wizard></wizard>')($scope);
     $scope.workflow = {};
     $scope.$digest();
     expect(element[0].querySelectorAll('.step').length).toBe(0);
   });
 
   it('should have 3 steps if 3 steps defined', function () {
-    var element = $compile('<wizard></wizard>')($scope);
     $scope.workflow = {
       steps: [ {}, {}, {} ]
     };
@@ -59,14 +57,12 @@ describe('wizard directive', function () {
   });
 
   it('should have no nav items if no steps defined', function () {
-    var element = $compile('<wizard></wizard>')($scope);
     $scope.workflow = {};
     $scope.$digest();
     expect(element[0].querySelectorAll('.nav-item').length).toBe(0);
   });
 
   it('should have 3 nav items if 3 steps defined', function () {
-    var element = $compile('<wizard></wizard>')($scope);
     $scope.workflow = {
       steps: [ {}, {}, {} ]
     };
@@ -75,7 +71,6 @@ describe('wizard directive', function () {
   });
 
   it('should navigate correctly', function () {
-    var element = $compile('<wizard></wizard>')($scope);
     $scope.workflow = {
       steps: [ {}, {}, {} ]
     };
@@ -111,7 +106,6 @@ describe('wizard directive', function () {
   });
 
   it('should not show back button in step 1/3', function () {
-    var element = $compile('<wizard></wizard>')($scope);
     $scope.workflow = {
       steps: [{}, {}, {}]
     };
@@ -121,7 +115,6 @@ describe('wizard directive', function () {
   });
 
   it('should show both back and next button in step 2/3', function () {
-    var element = $compile('<wizard></wizard>')($scope);
     $scope.workflow = {
       steps: [{}, {}, {}]
     };
@@ -133,7 +126,6 @@ describe('wizard directive', function () {
   });
 
   it('should not show next button in step 3/3', function () {
-    var element = $compile('<wizard></wizard>')($scope);
     $scope.workflow = {
       steps: [{}, {}, {}]
     };
@@ -145,7 +137,6 @@ describe('wizard directive', function () {
   });
 
   it('should have finish button disabled if wizardForm is invalid', function () {
-    var element = $compile('<wizard></wizard>')($scope);
     $scope.wizardForm = { };
     $scope.$digest();
     $scope.wizardForm.$invalid = true;
@@ -154,7 +145,6 @@ describe('wizard directive', function () {
   });
 
   it('should have finish button enabled if wizardForm is valid', function () {
-    var element = $compile('<wizard></wizard>')($scope);
     $scope.wizardForm = { };
     $scope.$digest();
     $scope.wizardForm.$invalid = false;
@@ -164,7 +154,6 @@ describe('wizard directive', function () {
 
   it('should show error message after calling method showError', function () {
     var errorMessage = 'some error message';
-    var element = $compile('<wizard></wizard>')($scope);
     $scope.$digest();
     $scope.showError(errorMessage);
     $scope.$digest();
