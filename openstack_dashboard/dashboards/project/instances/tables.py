@@ -612,7 +612,11 @@ class SimpleDisassociateIP(policy.PolicyTargetMixin, tables.Action):
             return False
         if not conf.HORIZON_CONFIG["simple_ip_management"]:
             return False
-        return not is_deleting(instance)
+        for addresses in instance.addresses.values():
+            for address in addresses:
+                if address.get('OS-EXT-IPS:type') == "floating":
+                    return not is_deleting(instance)
+        return False
 
     def single(self, table, request, instance_id):
         try:
