@@ -253,7 +253,8 @@ class IPSecSiteConnectionsTable(tables.DataTable):
         name = "ipsecsiteconnectionstable"
         verbose_name = _("IPSec Site Connections")
         table_actions = (AddIPSecSiteConnectionLink,
-                         DeleteIPSecSiteConnectionLink)
+                         DeleteIPSecSiteConnectionLink,
+                         tables.NameFilterAction)
         row_actions = (UpdateIPSecSiteConnectionLink,
                        DeleteIPSecSiteConnectionLink)
 
@@ -297,7 +298,9 @@ class VPNServicesTable(tables.DataTable):
     class Meta(object):
         name = "vpnservicestable"
         verbose_name = _("VPN Services")
-        table_actions = (AddVPNServiceLink, DeleteVPNServiceLink)
+        table_actions = (AddVPNServiceLink,
+                         DeleteVPNServiceLink,
+                         tables.NameFilterAction)
         row_actions = (UpdateVPNServiceLink, DeleteVPNServiceLink)
 
 
@@ -316,7 +319,9 @@ class IKEPoliciesTable(tables.DataTable):
     class Meta(object):
         name = "ikepoliciestable"
         verbose_name = _("IKE Policies")
-        table_actions = (AddIKEPolicyLink, DeleteIKEPolicyLink)
+        table_actions = (AddIKEPolicyLink,
+                         DeleteIKEPolicyLink,
+                         tables.NameFilterAction)
         row_actions = (UpdateIKEPolicyLink, DeleteIKEPolicyLink)
 
 
@@ -335,5 +340,7 @@ class IPSecPoliciesTable(tables.DataTable):
     class Meta(object):
         name = "ipsecpoliciestable"
         verbose_name = _("IPSec Policies")
-        table_actions = (AddIPSecPolicyLink, DeleteIPSecPolicyLink,)
+        table_actions = (AddIPSecPolicyLink,
+                         DeleteIPSecPolicyLink,
+                         tables.NameFilterAction)
         row_actions = (UpdateIPSecPolicyLink, DeleteIPSecPolicyLink)
