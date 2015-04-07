@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-03 23:00-0500\n"
-"PO-Revision-Date: 2015-04-05 19:05+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"POT-Creation-Date: 2015-04-06 21:07-0500\n"
+"PO-Revision-Date: 2015-04-06 23:21+0000\n"
+"Last-Translator: myamamot <myamamot@redhat.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,6 +23,19 @@ msgstr ""
 #: base.py:475
 msgid "Other"
 msgstr "その他"
+
+#: browsers/base.py:88
+msgid "Navigation Item"
+msgstr "ナビゲーション項目"
+
+#: browsers/views.py:41
+#, python-format
+msgid "Select a %s to browse."
+msgstr "表示する %s を選択してください。"
+
+#: conf/default.py:41
+msgid "Password is not accepted"
+msgstr "パスワードを受け付けられません"
 
 #: decorators.py:53
 msgid "Please log in to continue."
@@ -47,23 +60,6 @@ msgstr "権限がありません: %s"
 msgid "Unauthorized. Please try logging in again."
 msgstr "認証されていません。もう一度ログインしてください。"
 
-#: middleware.py:103
-msgid "Session timed out."
-msgstr "セッションがタイムアウトしました。"
-
-#: browsers/base.py:88
-msgid "Navigation Item"
-msgstr "ナビゲーション項目"
-
-#: browsers/views.py:41
-#, python-format
-msgid "Select a %s to browse."
-msgstr "表示する %s を選択してください。"
-
-#: conf/default.py:41
-msgid "Password is not accepted"
-msgstr "パスワードを受け付けられません"
-
 #: forms/fields.py:64
 msgid "Incorrect format for IP address"
 msgstr "不正な形式の IP アドレス"
@@ -85,6 +81,10 @@ msgstr "送信"
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "取り消し"
+
+#: middleware.py:103
+msgid "Session timed out."
+msgstr "セッションがタイムアウトしました。"
 
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:21
@@ -247,7 +247,7 @@ msgstr[0] "%(counter)s件表示"
 
 #: templates/horizon/common/_data_table.html:77
 msgid "&laquo;&nbsp;Prev"
-msgstr "&laquo;&nbsp;前"
+msgstr "&laquo;&nbsp;前へ"
 
 #: templates/horizon/common/_data_table.html:80
 msgid "Next&nbsp;&raquo;"
@@ -337,7 +337,7 @@ msgstr[0] "%(content_items)s件表示"
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
-msgstr "使用状況概要"
+msgstr "使用状況の概要"
 
 #: templates/horizon/common/_usage_summary.html:7
 msgid "Select a period of time to query its usage:"

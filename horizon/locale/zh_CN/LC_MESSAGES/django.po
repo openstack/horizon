@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-01 22:59-0500\n"
+"POT-Creation-Date: 2015-04-06 21:07-0500\n"
 "PO-Revision-Date: 2015-04-01 22:52+0000\n"
 "Last-Translator: 颜海峰 <yanheven@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
@@ -25,6 +25,19 @@ msgstr ""
 #: base.py:475
 msgid "Other"
 msgstr "其它"
+
+#: browsers/base.py:88
+msgid "Navigation Item"
+msgstr "导航条目"
+
+#: browsers/views.py:41
+#, python-format
+msgid "Select a %s to browse."
+msgstr "选择一个%s 浏览。"
+
+#: conf/default.py:41
+msgid "Password is not accepted"
+msgstr "密码没有接受"
 
 #: decorators.py:53
 msgid "Please log in to continue."
@@ -49,23 +62,6 @@ msgstr "无权: %s"
 msgid "Unauthorized. Please try logging in again."
 msgstr "未授权。请尝试重新登录。"
 
-#: middleware.py:103
-msgid "Session timed out."
-msgstr "会话超时。"
-
-#: browsers/base.py:88
-msgid "Navigation Item"
-msgstr "导航条目"
-
-#: browsers/views.py:41
-#, python-format
-msgid "Select a %s to browse."
-msgstr "选择一个%s 浏览。"
-
-#: conf/default.py:41
-msgid "Password is not accepted"
-msgstr "密码没有接受"
-
 #: forms/fields.py:64
 msgid "Incorrect format for IP address"
 msgstr "不正确的IP地址格式"
@@ -83,10 +79,14 @@ msgid "Submit"
 msgstr "提交"
 
 #: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:27
+#: templates/horizon/common/_modal_form_update_metadata.html:25
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "取消"
+
+#: middleware.py:103
+msgid "Session timed out."
+msgstr "会话超时。"
 
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:21
@@ -320,7 +320,7 @@ msgstr "云硬盘"
 msgid "Volume Storage"
 msgstr "卷存储"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:26
+#: templates/horizon/common/_modal_form_update_metadata.html:24
 #: workflows/base.py:594
 msgid "Save"
 msgstr "保存"

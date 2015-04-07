@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-01 01:16-0500\n"
+"POT-Creation-Date: 2015-04-07 01:16-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,19 @@ msgstr ""
 
 #: base.py:475
 msgid "Other"
+msgstr ""
+
+#: browsers/base.py:88
+msgid "Navigation Item"
+msgstr ""
+
+#: browsers/views.py:41
+#, python-format
+msgid "Select a %s to browse."
+msgstr ""
+
+#: conf/default.py:41
+msgid "Password is not accepted"
 msgstr ""
 
 #: decorators.py:53
@@ -44,23 +57,6 @@ msgstr ""
 msgid "Unauthorized. Please try logging in again."
 msgstr ""
 
-#: middleware.py:103
-msgid "Session timed out."
-msgstr ""
-
-#: browsers/base.py:88
-msgid "Navigation Item"
-msgstr ""
-
-#: browsers/views.py:41
-#, python-format
-msgid "Select a %s to browse."
-msgstr ""
-
-#: conf/default.py:41
-msgid "Password is not accepted"
-msgstr ""
-
 #: forms/fields.py:64
 msgid "Incorrect format for IP address"
 msgstr ""
@@ -78,9 +74,13 @@ msgid "Submit"
 msgstr ""
 
 #: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:27
+#: templates/horizon/common/_modal_form_update_metadata.html:25
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
+msgstr ""
+
+#: middleware.py:103
+msgid "Session timed out."
 msgstr ""
 
 #: tables/actions.py:460
@@ -316,7 +316,7 @@ msgstr ""
 msgid "Volume Storage"
 msgstr ""
 
-#: templates/horizon/common/_modal_form_update_metadata.html:26
+#: templates/horizon/common/_modal_form_update_metadata.html:24
 #: workflows/base.py:594
 msgid "Save"
 msgstr ""

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-03 23:00-0500\n"
+"POT-Creation-Date: 2015-04-06 21:08-0500\n"
 "PO-Revision-Date: 2015-04-04 04:00+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
@@ -172,168 +172,6 @@ msgstr "下一步"
 msgid "Finish"
 msgstr "结束"
 
-#: static/horizon/js/horizon.accordion_nav.js:78
-#: static/horizon/js/horizon.modals.js:315
-#: static/horizon/js/horizon.tabs.js:21
-msgid "Loading"
-msgstr "加载中"
-
-#: static/horizon/js/horizon.d3linechart.js:394
-#: static/horizon/js/horizon.d3linechart.js:404
-msgid "No data available."
-msgstr "没有可用数据"
-
-#: static/horizon/js/horizon.d3linechart.js:410
-#: static/horizon/js/horizon.modals.js:334
-#: static/horizon/js/horizon.tables_inline_edit.js:94
-#: static/horizon/js/horizon.tables_inline_edit.js:157
-msgid "An error occurred. Please try again later."
-msgstr "发生错误。请稍后重试。"
-
-#: static/horizon/js/horizon.firewalls.js:32
-#: static/horizon/js/horizon.instances.js:31
-msgid "There was a problem communicating with the server, please try again."
-msgstr "与服务器通信出现问题，请再试一次。"
-
-#: static/horizon/js/horizon.instances.js:273
-msgid "Could not read the file"
-msgstr "不能读取文件"
-
-#: static/horizon/js/horizon.instances.js:279
-#: static/horizon/js/horizon.instances.js:308
-msgid "Could not decrypt the password"
-msgstr "不能解密密码"
-
-#: static/horizon/js/horizon.membership.js:190
-msgid "No roles"
-msgstr "不存在任何角色"
-
-#: static/horizon/js/horizon.membership.js:222
-msgid "Roles"
-msgstr "角色"
-
-#: static/horizon/js/horizon.messages.js:9
-msgid "Danger: "
-msgstr "危险："
-
-#: static/horizon/js/horizon.messages.js:10
-msgid "Warning: "
-msgstr "警告："
-
-#: static/horizon/js/horizon.messages.js:11
-msgid "Notice: "
-msgstr "注意："
-
-#: static/horizon/js/horizon.messages.js:12
-msgid "Success: "
-msgstr "成功："
-
-#: static/horizon/js/horizon.messages.js:13
-msgid "Error: "
-msgstr "错误："
-
-#: static/horizon/js/horizon.modals.js:229
-#: static/horizon/js/horizon.tables.js:218
-msgid "Working"
-msgstr "进行中"
-
-#: static/horizon/js/horizon.modals.js:263
-msgid "There was an error submitting the form. Please try again."
-msgstr "在提交表单的时候出现错误，请再次尝试。"
-
-#: static/horizon/js/horizon.networktopology.js:530
-#: static/horizon/js/horizon.networktopology.js:536
-msgid "None"
-msgstr "无"
-
-#: static/horizon/js/horizon.networktopology.js:549
-msgid "Delete"
-msgstr "删除"
-
-#: static/horizon/js/horizon.networktopology.js:552
-msgid "STATUS"
-msgstr "状态"
-
-#: static/horizon/js/horizon.networktopology.js:553
-msgid "ID"
-msgstr "ID"
-
-#: static/horizon/js/horizon.networktopology.js:554
-msgid "Interfaces"
-msgstr "接口"
-
-#: static/horizon/js/horizon.networktopology.js:555
-msgid "Delete Interface"
-msgstr "删除接口"
-
-#: static/horizon/js/horizon.networktopology.js:556
-msgid "Open Console"
-msgstr "打开控制台"
-
-#: static/horizon/js/horizon.networktopology.js:557
-msgid "View Details"
-msgstr "查看详情"
-
-#: static/horizon/js/horizon.networktopology.js:560
-msgid "Delete Router"
-msgstr "删除路由"
-
-#: static/horizon/js/horizon.networktopology.js:561
-msgid "View Router Details"
-msgstr "查看路由详情"
-
-#: static/horizon/js/horizon.networktopology.js:564
-msgid "Add Interface"
-msgstr "增加接口"
-
-#: static/horizon/js/horizon.networktopology.js:570
-msgid "Terminate Instance"
-msgstr "终止实例"
-
-#: static/horizon/js/horizon.networktopology.js:571
-msgid "View Instance Details"
-msgstr "查看实例详情"
-
-#: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:406
-msgid "No items to display."
-msgstr "没有条目显示。"
-
-#: static/horizon/js/horizon.tables.js:52
-#: static/horizon/js/horizon.tables.js:120
-msgid "An error occurred while updating."
-msgstr "更新时发生错误。"
-
-#: static/horizon/js/horizon.tables.js:201
-#, c-format
-msgid "You have selected %s. "
-msgstr "你已经选择了 %s 。 "
-
-#: static/horizon/js/horizon.tables.js:203
-#, c-format
-msgid "Confirm %s"
-msgstr "确认 %s"
-
-#: static/horizon/js/horizon.tables.js:204
-msgid "Please confirm your selection. "
-msgstr "请确认您的选择。"
-
-#: static/horizon/js/horizon.tables.js:393
-#: static/horizon/js/angular/filters/filters.js:163
-#, c-format
-msgid "Displaying %s item"
-msgid_plural "Displaying %s items"
-msgstr[0] "正在显示 %s 项"
-
-#: static/horizon/js/horizon.tables_inline_edit.js:88
-#: static/horizon/js/horizon.tables_inline_edit.js:151
-msgid "Not authorized to do this operation."
-msgstr "未授权不能进行此操作。"
-
-#: static/horizon/js/horizon.users.js:18
-msgid "Passwords do not match."
-msgstr "密码不匹配。"
-
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Connecting"
 msgstr "连接中"
@@ -384,6 +222,13 @@ msgstr "KB"
 #: static/horizon/js/angular/filters/filters.js:146
 msgid "bytes"
 msgstr "字节数"
+
+#: static/horizon/js/angular/filters/filters.js:163
+#: static/horizon/js/horizon.tables.js:393
+#, c-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] "正在显示 %s 项"
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:47
 msgid "Unable to retrieve volumes."
@@ -604,3 +449,158 @@ msgstr "策略检查失败"
 #: static/horizon/js/angular/services/hz.api.security-group.js:64
 msgid "Unable to retrieve security groups."
 msgstr "无法获取安全组。"
+
+#: static/horizon/js/horizon.accordion_nav.js:78
+#: static/horizon/js/horizon.modals.js:315
+#: static/horizon/js/horizon.tabs.js:21
+msgid "Loading"
+msgstr "加载中"
+
+#: static/horizon/js/horizon.d3linechart.js:394
+#: static/horizon/js/horizon.d3linechart.js:404
+msgid "No data available."
+msgstr "没有可用数据"
+
+#: static/horizon/js/horizon.d3linechart.js:410
+#: static/horizon/js/horizon.modals.js:334
+#: static/horizon/js/horizon.tables_inline_edit.js:94
+#: static/horizon/js/horizon.tables_inline_edit.js:157
+msgid "An error occurred. Please try again later."
+msgstr "发生错误。请稍后重试。"
+
+#: static/horizon/js/horizon.firewalls.js:32
+#: static/horizon/js/horizon.instances.js:31
+msgid "There was a problem communicating with the server, please try again."
+msgstr "与服务器通信出现问题，请再试一次。"
+
+#: static/horizon/js/horizon.instances.js:273
+msgid "Could not read the file"
+msgstr "不能读取文件"
+
+#: static/horizon/js/horizon.instances.js:279
+#: static/horizon/js/horizon.instances.js:308
+msgid "Could not decrypt the password"
+msgstr "不能解密密码"
+
+#: static/horizon/js/horizon.membership.js:190
+msgid "No roles"
+msgstr "不存在任何角色"
+
+#: static/horizon/js/horizon.membership.js:222
+msgid "Roles"
+msgstr "角色"
+
+#: static/horizon/js/horizon.messages.js:9
+msgid "Danger: "
+msgstr "危险："
+
+#: static/horizon/js/horizon.messages.js:10
+msgid "Warning: "
+msgstr "警告："
+
+#: static/horizon/js/horizon.messages.js:11
+msgid "Notice: "
+msgstr "注意："
+
+#: static/horizon/js/horizon.messages.js:12
+msgid "Success: "
+msgstr "成功："
+
+#: static/horizon/js/horizon.messages.js:13
+msgid "Error: "
+msgstr "错误："
+
+#: static/horizon/js/horizon.modals.js:229
+#: static/horizon/js/horizon.tables.js:218
+msgid "Working"
+msgstr "进行中"
+
+#: static/horizon/js/horizon.modals.js:263
+msgid "There was an error submitting the form. Please try again."
+msgstr "在提交表单的时候出现错误，请再次尝试。"
+
+#: static/horizon/js/horizon.networktopology.js:530
+#: static/horizon/js/horizon.networktopology.js:536
+msgid "None"
+msgstr "无"
+
+#: static/horizon/js/horizon.networktopology.js:549
+msgid "Delete"
+msgstr "删除"
+
+#: static/horizon/js/horizon.networktopology.js:552
+msgid "STATUS"
+msgstr "状态"
+
+#: static/horizon/js/horizon.networktopology.js:553
+msgid "ID"
+msgstr "ID"
+
+#: static/horizon/js/horizon.networktopology.js:554
+msgid "Interfaces"
+msgstr "接口"
+
+#: static/horizon/js/horizon.networktopology.js:555
+msgid "Delete Interface"
+msgstr "删除接口"
+
+#: static/horizon/js/horizon.networktopology.js:556
+msgid "Open Console"
+msgstr "打开控制台"
+
+#: static/horizon/js/horizon.networktopology.js:557
+msgid "View Details"
+msgstr "查看详情"
+
+#: static/horizon/js/horizon.networktopology.js:560
+msgid "Delete Router"
+msgstr "删除路由"
+
+#: static/horizon/js/horizon.networktopology.js:561
+msgid "View Router Details"
+msgstr "查看路由详情"
+
+#: static/horizon/js/horizon.networktopology.js:564
+msgid "Add Interface"
+msgstr "增加接口"
+
+#: static/horizon/js/horizon.networktopology.js:570
+msgid "Terminate Instance"
+msgstr "终止实例"
+
+#: static/horizon/js/horizon.networktopology.js:571
+msgid "View Instance Details"
+msgstr "查看实例详情"
+
+#: static/horizon/js/horizon.tables.js:39
+#: static/horizon/js/horizon.tables.js:406
+msgid "No items to display."
+msgstr "没有条目显示。"
+
+#: static/horizon/js/horizon.tables.js:52
+#: static/horizon/js/horizon.tables.js:120
+msgid "An error occurred while updating."
+msgstr "更新时发生错误。"
+
+#: static/horizon/js/horizon.tables.js:201
+#, c-format
+msgid "You have selected %s. "
+msgstr "你已经选择了 %s 。 "
+
+#: static/horizon/js/horizon.tables.js:203
+#, c-format
+msgid "Confirm %s"
+msgstr "确认 %s"
+
+#: static/horizon/js/horizon.tables.js:204
+msgid "Please confirm your selection. "
+msgstr "请确认您的选择。"
+
+#: static/horizon/js/horizon.tables_inline_edit.js:88
+#: static/horizon/js/horizon.tables_inline_edit.js:151
+msgid "Not authorized to do this operation."
+msgstr "未授权不能进行此操作。"
+
+#: static/horizon/js/horizon.users.js:18
+msgid "Passwords do not match."
+msgstr "密码不匹配。"

@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 23:04-0500\n"
-"PO-Revision-Date: 2015-04-01 02:20+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-04-06 21:07-0500\n"
+"PO-Revision-Date: 2015-04-06 17:01+0000\n"
+"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,6 +24,19 @@ msgstr ""
 #: base.py:475
 msgid "Other"
 msgstr "기타"
+
+#: browsers/base.py:88
+msgid "Navigation Item"
+msgstr "네비게이션 항목"
+
+#: browsers/views.py:41
+#, python-format
+msgid "Select a %s to browse."
+msgstr "브라우져에서 %s를 선택하십시오."
+
+#: conf/default.py:41
+msgid "Password is not accepted"
+msgstr "허용되지 않는 비밀번호입니다."
 
 #: decorators.py:53
 msgid "Please log in to continue."
@@ -48,23 +61,6 @@ msgstr "권한이 없습니다: %s"
 msgid "Unauthorized. Please try logging in again."
 msgstr "권한이 없습니다. 다시 로그인 해주십시오."
 
-#: middleware.py:103
-msgid "Session timed out."
-msgstr "세션 타임 아웃."
-
-#: browsers/base.py:88
-msgid "Navigation Item"
-msgstr "네비게이션 항목"
-
-#: browsers/views.py:41
-#, python-format
-msgid "Select a %s to browse."
-msgstr "브라우져에서 %s를 선택하십시오."
-
-#: conf/default.py:41
-msgid "Password is not accepted"
-msgstr "허용되지 않는 비밀번호입니다."
-
 #: forms/fields.py:64
 msgid "Incorrect format for IP address"
 msgstr "IP 주소 형식이 잘못 되었습니다."
@@ -82,10 +78,14 @@ msgid "Submit"
 msgstr "제출"
 
 #: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:27
+#: templates/horizon/common/_modal_form_update_metadata.html:25
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "취소"
+
+#: middleware.py:103
+msgid "Session timed out."
+msgstr "세션 타임 아웃."
 
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:21
@@ -191,7 +191,7 @@ msgid ""
 "\n"
 "      If you are not sure which authentication method to use, contact your administrator.\n"
 "    "
-msgstr ""
+msgstr "\n당신이 인증 방법을 모르는경우, 관리자에게 문의하십시오."
 
 #: templates/auth/_login.html:5
 msgid "Log In"
@@ -214,7 +214,7 @@ msgstr "등록"
 
 #: templates/auth/_login.html:46
 msgid "Connect"
-msgstr ""
+msgstr "연결"
 
 #: templates/auth/login.html:4
 msgid "Login"
@@ -319,7 +319,7 @@ msgstr "볼륨"
 msgid "Volume Storage"
 msgstr "볼륨 스토리지"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:26
+#: templates/horizon/common/_modal_form_update_metadata.html:24
 #: workflows/base.py:594
 msgid "Save"
 msgstr "저장"

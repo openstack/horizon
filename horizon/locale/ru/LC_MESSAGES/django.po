@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 23:04-0500\n"
-"PO-Revision-Date: 2015-04-01 02:20+0000\n"
+"POT-Creation-Date: 2015-04-06 21:07-0500\n"
+"PO-Revision-Date: 2015-04-01 22:52+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,19 @@ msgstr ""
 #: base.py:475
 msgid "Other"
 msgstr "Другое"
+
+#: browsers/base.py:88
+msgid "Navigation Item"
+msgstr "Элемент навигации"
+
+#: browsers/views.py:41
+#, python-format
+msgid "Select a %s to browse."
+msgstr "Выберите %s для просмотра"
+
+#: conf/default.py:41
+msgid "Password is not accepted"
+msgstr "Пароль не принят"
 
 #: decorators.py:53
 msgid "Please log in to continue."
@@ -45,23 +58,6 @@ msgstr "Не авторизован: %s"
 msgid "Unauthorized. Please try logging in again."
 msgstr "Вы не авторизованы. Попробуйте войти в систему еще раз."
 
-#: middleware.py:103
-msgid "Session timed out."
-msgstr "Время сеанса истекло."
-
-#: browsers/base.py:88
-msgid "Navigation Item"
-msgstr "Элемент навигации"
-
-#: browsers/views.py:41
-#, python-format
-msgid "Select a %s to browse."
-msgstr "Выберите %s для просмотра"
-
-#: conf/default.py:41
-msgid "Password is not accepted"
-msgstr "Пароль не принят"
-
 #: forms/fields.py:64
 msgid "Incorrect format for IP address"
 msgstr "Неправильный формат IP-адреса"
@@ -79,10 +75,14 @@ msgid "Submit"
 msgstr "Отправить"
 
 #: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:27
+#: templates/horizon/common/_modal_form_update_metadata.html:25
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "Отмена"
+
+#: middleware.py:103
+msgid "Session timed out."
+msgstr "Время сеанса истекло."
 
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:21
@@ -318,7 +318,7 @@ msgstr "Диски"
 msgid "Volume Storage"
 msgstr "Хранилище"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:26
+#: templates/horizon/common/_modal_form_update_metadata.html:24
 #: workflows/base.py:594
 msgid "Save"
 msgstr "Сохранить"

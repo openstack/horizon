@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 23:04-0500\n"
-"PO-Revision-Date: 2015-04-01 02:20+0000\n"
+"POT-Creation-Date: 2015-04-06 21:07-0500\n"
+"PO-Revision-Date: 2015-04-01 22:52+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/projects/p/horizon/language/pa_IN/)\n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,19 @@ msgstr ""
 #: base.py:475
 msgid "Other"
 msgstr "ਹੋਰ"
+
+#: browsers/base.py:88
+msgid "Navigation Item"
+msgstr "ਨੈਵੀਗੇਸ਼ਨ ਚੀਜ਼"
+
+#: browsers/views.py:41
+#, python-format
+msgid "Select a %s to browse."
+msgstr "ਬਰਾਊਜ਼ ਕਰਨ ਲਈ ਇੱਕ %s ਚੁਣੋ।"
+
+#: conf/default.py:41
+msgid "Password is not accepted"
+msgstr "ਪਛਾਣ-ਸ਼ਬਦ ਪਰਵਾਨਿਤ ਨਹੀਂ ਹੈ"
 
 #: decorators.py:53
 msgid "Please log in to continue."
@@ -45,23 +58,6 @@ msgstr "ਅਣ-ਅਧਿਕਾਰਤ ਕੀਤਾ: %s"
 msgid "Unauthorized. Please try logging in again."
 msgstr "ਅਣਅਧਿਕਾਰਤ। ਕਿਰਪਾ ਕਰ ਕੇ ਦੁਬਾਰਾ ਲਾਗਇਨ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
 
-#: middleware.py:103
-msgid "Session timed out."
-msgstr "ਸੈਸ਼ਨ ਸਮਾਂ ਮਿਆਦ ਪੁੱਗੀ।"
-
-#: browsers/base.py:88
-msgid "Navigation Item"
-msgstr "ਨੈਵੀਗੇਸ਼ਨ ਚੀਜ਼"
-
-#: browsers/views.py:41
-#, python-format
-msgid "Select a %s to browse."
-msgstr "ਬਰਾਊਜ਼ ਕਰਨ ਲਈ ਇੱਕ %s ਚੁਣੋ।"
-
-#: conf/default.py:41
-msgid "Password is not accepted"
-msgstr "ਪਛਾਣ-ਸ਼ਬਦ ਪਰਵਾਨਿਤ ਨਹੀਂ ਹੈ"
-
 #: forms/fields.py:64
 msgid "Incorrect format for IP address"
 msgstr "IP ਪਤੇ ਲਈ ਗਲਤ ਬਣਤਰ"
@@ -79,10 +75,14 @@ msgid "Submit"
 msgstr "ਦਾਖਲ ਕਰੋ"
 
 #: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:27
+#: templates/horizon/common/_modal_form_update_metadata.html:25
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
+
+#: middleware.py:103
+msgid "Session timed out."
+msgstr "ਸੈਸ਼ਨ ਸਮਾਂ ਮਿਆਦ ਪੁੱਗੀ।"
 
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:21
@@ -317,7 +317,7 @@ msgstr "ਆਇਤਨ"
 msgid "Volume Storage"
 msgstr "ਆਇਤਨ ਭੰਡਾਰਣ"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:26
+#: templates/horizon/common/_modal_form_update_metadata.html:24
 #: workflows/base.py:594
 msgid "Save"
 msgstr "ਸੰਭਾਲੋ"

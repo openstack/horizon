@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-03 23:00-0500\n"
+"POT-Creation-Date: 2015-04-06 21:07-0500\n"
 "PO-Revision-Date: 2015-04-03 13:28+0000\n"
 "Last-Translator: François Bureau\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
@@ -24,6 +24,19 @@ msgstr ""
 #: base.py:475
 msgid "Other"
 msgstr "Autre"
+
+#: browsers/base.py:88
+msgid "Navigation Item"
+msgstr "Elément de navigation"
+
+#: browsers/views.py:41
+#, python-format
+msgid "Select a %s to browse."
+msgstr "Sélectionner une %s à parcourir."
+
+#: conf/default.py:41
+msgid "Password is not accepted"
+msgstr "Le mot de passe n'est pas accepté"
 
 #: decorators.py:53
 msgid "Please log in to continue."
@@ -48,23 +61,6 @@ msgstr "%s : non autorisé"
 msgid "Unauthorized. Please try logging in again."
 msgstr "Accès non autorisé. Merci de vous reconnecter."
 
-#: middleware.py:103
-msgid "Session timed out."
-msgstr "La session a expiré."
-
-#: browsers/base.py:88
-msgid "Navigation Item"
-msgstr "Elément de navigation"
-
-#: browsers/views.py:41
-#, python-format
-msgid "Select a %s to browse."
-msgstr "Sélectionner une %s à parcourir."
-
-#: conf/default.py:41
-msgid "Password is not accepted"
-msgstr "Le mot de passe n'est pas accepté"
-
 #: forms/fields.py:64
 msgid "Incorrect format for IP address"
 msgstr "Format d'adresse IP incorrect"
@@ -86,6 +82,10 @@ msgstr "Envoyer"
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "Annuler"
+
+#: middleware.py:103
+msgid "Session timed out."
+msgstr "La session a expiré."
 
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:21

@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 23:04-0500\n"
-"PO-Revision-Date: 2015-04-01 02:20+0000\n"
+"POT-Creation-Date: 2015-04-06 21:07-0500\n"
+"PO-Revision-Date: 2015-04-01 22:52+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -24,6 +24,19 @@ msgstr ""
 #: base.py:475
 msgid "Other"
 msgstr "Otro"
+
+#: browsers/base.py:88
+msgid "Navigation Item"
+msgstr "Ítem de navegación"
+
+#: browsers/views.py:41
+#, python-format
+msgid "Select a %s to browse."
+msgstr "Seleccione una %s para navegar."
+
+#: conf/default.py:41
+msgid "Password is not accepted"
+msgstr "La contraseña no se ha aceptado"
 
 #: decorators.py:53
 msgid "Please log in to continue."
@@ -48,23 +61,6 @@ msgstr "No autorizado: %s"
 msgid "Unauthorized. Please try logging in again."
 msgstr "No autorizado. Inicie sesión de nuevo."
 
-#: middleware.py:103
-msgid "Session timed out."
-msgstr "La sesión ha expirado."
-
-#: browsers/base.py:88
-msgid "Navigation Item"
-msgstr "Ítem de navegación"
-
-#: browsers/views.py:41
-#, python-format
-msgid "Select a %s to browse."
-msgstr "Seleccione una %s para navegar."
-
-#: conf/default.py:41
-msgid "Password is not accepted"
-msgstr "La contraseña no se ha aceptado"
-
 #: forms/fields.py:64
 msgid "Incorrect format for IP address"
 msgstr "Formato de dirección IP incorrecto"
@@ -82,10 +78,14 @@ msgid "Submit"
 msgstr "Enviar"
 
 #: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:27
+#: templates/horizon/common/_modal_form_update_metadata.html:25
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "Cancelar "
+
+#: middleware.py:103
+msgid "Session timed out."
+msgstr "La sesión ha expirado."
 
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:21
@@ -320,7 +320,7 @@ msgstr "Volúmenes"
 msgid "Volume Storage"
 msgstr "Almacenamiento de volúmenes"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:26
+#: templates/horizon/common/_modal_form_update_metadata.html:24
 #: workflows/base.py:594
 msgid "Save"
 msgstr "Guardar"

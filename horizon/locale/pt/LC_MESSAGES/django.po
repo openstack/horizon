@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 23:04-0500\n"
+"POT-Creation-Date: 2015-04-06 21:07-0500\n"
 "PO-Revision-Date: 2015-04-01 02:20+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/horizon/language/pt/)\n"
@@ -21,6 +21,19 @@ msgstr ""
 #: base.py:475
 msgid "Other"
 msgstr "Outros"
+
+#: browsers/base.py:88
+msgid "Navigation Item"
+msgstr "Item de Navegação"
+
+#: browsers/views.py:41
+#, python-format
+msgid "Select a %s to browse."
+msgstr "Selecione um %s para explorar."
+
+#: conf/default.py:41
+msgid "Password is not accepted"
+msgstr "A senha não foi aceite"
 
 #: decorators.py:53
 msgid "Please log in to continue."
@@ -45,23 +58,6 @@ msgstr "Não autorizado: %s"
 msgid "Unauthorized. Please try logging in again."
 msgstr "Não autorizado. Por favor, tente iniciar a sessão novamente."
 
-#: middleware.py:103
-msgid "Session timed out."
-msgstr "Sessão expirada."
-
-#: browsers/base.py:88
-msgid "Navigation Item"
-msgstr "Item de Navegação"
-
-#: browsers/views.py:41
-#, python-format
-msgid "Select a %s to browse."
-msgstr "Selecione um %s para explorar."
-
-#: conf/default.py:41
-msgid "Password is not accepted"
-msgstr "A senha não foi aceite"
-
 #: forms/fields.py:64
 msgid "Incorrect format for IP address"
 msgstr "Formato incorreto para o endereço de IP"
@@ -79,10 +75,14 @@ msgid "Submit"
 msgstr "Submeter"
 
 #: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:27
+#: templates/horizon/common/_modal_form_update_metadata.html:25
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "Cancelar"
+
+#: middleware.py:103
+msgid "Session timed out."
+msgstr "Sessão expirada."
 
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:21
@@ -317,7 +317,7 @@ msgstr "Volumes"
 msgid "Volume Storage"
 msgstr "Volume Armazenamento"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:26
+#: templates/horizon/common/_modal_form_update_metadata.html:24
 #: workflows/base.py:594
 msgid "Save"
 msgstr "Guardar"

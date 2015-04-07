@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 23:04-0500\n"
+"POT-Creation-Date: 2015-04-06 21:07-0500\n"
 "PO-Revision-Date: 2015-04-01 02:20+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/cs/)\n"
@@ -21,6 +21,19 @@ msgstr ""
 #: base.py:475
 msgid "Other"
 msgstr "Ostatní"
+
+#: browsers/base.py:88
+msgid "Navigation Item"
+msgstr "Položka navigace"
+
+#: browsers/views.py:41
+#, python-format
+msgid "Select a %s to browse."
+msgstr "Vyberte %s pro prohlížení."
+
+#: conf/default.py:41
+msgid "Password is not accepted"
+msgstr "Heslo není přijato"
 
 #: decorators.py:53
 msgid "Please log in to continue."
@@ -45,23 +58,6 @@ msgstr "Neoprávněné: %s"
 msgid "Unauthorized. Please try logging in again."
 msgstr "Neoprávněný přístup. Prosím zkuste se přihlásit znovu."
 
-#: middleware.py:103
-msgid "Session timed out."
-msgstr "Relace vypršela."
-
-#: browsers/base.py:88
-msgid "Navigation Item"
-msgstr "Položka navigace"
-
-#: browsers/views.py:41
-#, python-format
-msgid "Select a %s to browse."
-msgstr "Vyberte %s pro prohlížení."
-
-#: conf/default.py:41
-msgid "Password is not accepted"
-msgstr "Heslo není přijato"
-
 #: forms/fields.py:64
 msgid "Incorrect format for IP address"
 msgstr "Nesprávný formát IP adresy"
@@ -79,10 +75,14 @@ msgid "Submit"
 msgstr "Odeslat"
 
 #: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:27
+#: templates/horizon/common/_modal_form_update_metadata.html:25
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "Zrušit"
+
+#: middleware.py:103
+msgid "Session timed out."
+msgstr "Relace vypršela."
 
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:21
@@ -318,7 +318,7 @@ msgstr "Svazky"
 msgid "Volume Storage"
 msgstr "Úložiště svazků"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:26
+#: templates/horizon/common/_modal_form_update_metadata.html:24
 #: workflows/base.py:594
 msgid "Save"
 msgstr "Uložit"

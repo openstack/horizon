@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-03 23:00-0500\n"
+"POT-Creation-Date: 2015-04-06 21:08-0500\n"
 "PO-Revision-Date: 2015-04-04 23:05+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
@@ -170,168 +170,6 @@ msgstr "次へ"
 msgid "Finish"
 msgstr "完了"
 
-#: static/horizon/js/horizon.accordion_nav.js:78
-#: static/horizon/js/horizon.modals.js:315
-#: static/horizon/js/horizon.tabs.js:21
-msgid "Loading"
-msgstr "読み込み中"
-
-#: static/horizon/js/horizon.d3linechart.js:394
-#: static/horizon/js/horizon.d3linechart.js:404
-msgid "No data available."
-msgstr "データがありません。"
-
-#: static/horizon/js/horizon.d3linechart.js:410
-#: static/horizon/js/horizon.modals.js:334
-#: static/horizon/js/horizon.tables_inline_edit.js:94
-#: static/horizon/js/horizon.tables_inline_edit.js:157
-msgid "An error occurred. Please try again later."
-msgstr "エラーが発生しました。後からもう一度お試しください。"
-
-#: static/horizon/js/horizon.firewalls.js:32
-#: static/horizon/js/horizon.instances.js:31
-msgid "There was a problem communicating with the server, please try again."
-msgstr "サーバーとの通信中に問題がありました。再度お試しください。"
-
-#: static/horizon/js/horizon.instances.js:273
-msgid "Could not read the file"
-msgstr "ファイルを読み取ることができませんでした。"
-
-#: static/horizon/js/horizon.instances.js:279
-#: static/horizon/js/horizon.instances.js:308
-msgid "Could not decrypt the password"
-msgstr "パスワードの復号化できませんでした。"
-
-#: static/horizon/js/horizon.membership.js:190
-msgid "No roles"
-msgstr "ロールがありません"
-
-#: static/horizon/js/horizon.membership.js:222
-msgid "Roles"
-msgstr "ロール"
-
-#: static/horizon/js/horizon.messages.js:9
-msgid "Danger: "
-msgstr "危険:"
-
-#: static/horizon/js/horizon.messages.js:10
-msgid "Warning: "
-msgstr "警告: "
-
-#: static/horizon/js/horizon.messages.js:11
-msgid "Notice: "
-msgstr "注意:"
-
-#: static/horizon/js/horizon.messages.js:12
-msgid "Success: "
-msgstr "成功: "
-
-#: static/horizon/js/horizon.messages.js:13
-msgid "Error: "
-msgstr "エラー: "
-
-#: static/horizon/js/horizon.modals.js:229
-#: static/horizon/js/horizon.tables.js:218
-msgid "Working"
-msgstr "反映中"
-
-#: static/horizon/js/horizon.modals.js:263
-msgid "There was an error submitting the form. Please try again."
-msgstr "フォームの送信中にエラーが発生しました。再度お試しください。"
-
-#: static/horizon/js/horizon.networktopology.js:530
-#: static/horizon/js/horizon.networktopology.js:536
-msgid "None"
-msgstr "なし"
-
-#: static/horizon/js/horizon.networktopology.js:549
-msgid "Delete"
-msgstr "削除"
-
-#: static/horizon/js/horizon.networktopology.js:552
-msgid "STATUS"
-msgstr "ステータス"
-
-#: static/horizon/js/horizon.networktopology.js:553
-msgid "ID"
-msgstr "ID"
-
-#: static/horizon/js/horizon.networktopology.js:554
-msgid "Interfaces"
-msgstr "インターフェース"
-
-#: static/horizon/js/horizon.networktopology.js:555
-msgid "Delete Interface"
-msgstr "インタフェースの削除"
-
-#: static/horizon/js/horizon.networktopology.js:556
-msgid "Open Console"
-msgstr "コンソールを開く"
-
-#: static/horizon/js/horizon.networktopology.js:557
-msgid "View Details"
-msgstr "詳細の表示"
-
-#: static/horizon/js/horizon.networktopology.js:560
-msgid "Delete Router"
-msgstr "ルーターの削除"
-
-#: static/horizon/js/horizon.networktopology.js:561
-msgid "View Router Details"
-msgstr "ルーターの詳細の表示"
-
-#: static/horizon/js/horizon.networktopology.js:564
-msgid "Add Interface"
-msgstr "インターフェースの追加"
-
-#: static/horizon/js/horizon.networktopology.js:570
-msgid "Terminate Instance"
-msgstr "インスタンスの終了"
-
-#: static/horizon/js/horizon.networktopology.js:571
-msgid "View Instance Details"
-msgstr "インスタンスの詳細の表示"
-
-#: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:406
-msgid "No items to display."
-msgstr "表示する項目がありません"
-
-#: static/horizon/js/horizon.tables.js:52
-#: static/horizon/js/horizon.tables.js:120
-msgid "An error occurred while updating."
-msgstr "更新中にエラーが発生しました。"
-
-#: static/horizon/js/horizon.tables.js:201
-#, c-format
-msgid "You have selected %s. "
-msgstr "%s を選択しました。"
-
-#: static/horizon/js/horizon.tables.js:203
-#, c-format
-msgid "Confirm %s"
-msgstr "%sの確認"
-
-#: static/horizon/js/horizon.tables.js:204
-msgid "Please confirm your selection. "
-msgstr "選択内容を確認してください。"
-
-#: static/horizon/js/horizon.tables.js:393
-#: static/horizon/js/angular/filters/filters.js:163
-#, c-format
-msgid "Displaying %s item"
-msgid_plural "Displaying %s items"
-msgstr[0] "%s件表示"
-
-#: static/horizon/js/horizon.tables_inline_edit.js:88
-#: static/horizon/js/horizon.tables_inline_edit.js:151
-msgid "Not authorized to do this operation."
-msgstr "この操作を行う権限がありません。"
-
-#: static/horizon/js/horizon.users.js:18
-msgid "Passwords do not match."
-msgstr "パスワードが一致しません。"
-
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Connecting"
 msgstr "接続中"
@@ -382,6 +220,13 @@ msgstr "KB"
 #: static/horizon/js/angular/filters/filters.js:146
 msgid "bytes"
 msgstr "B"
+
+#: static/horizon/js/angular/filters/filters.js:163
+#: static/horizon/js/horizon.tables.js:393
+#, c-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] "%s件表示"
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:47
 msgid "Unable to retrieve volumes."
@@ -602,3 +447,158 @@ msgstr "ポリシーチェックに失敗しました。"
 #: static/horizon/js/angular/services/hz.api.security-group.js:64
 msgid "Unable to retrieve security groups."
 msgstr "セキュリティーグループの一覧を取得できません。"
+
+#: static/horizon/js/horizon.accordion_nav.js:78
+#: static/horizon/js/horizon.modals.js:315
+#: static/horizon/js/horizon.tabs.js:21
+msgid "Loading"
+msgstr "読み込み中"
+
+#: static/horizon/js/horizon.d3linechart.js:394
+#: static/horizon/js/horizon.d3linechart.js:404
+msgid "No data available."
+msgstr "データがありません。"
+
+#: static/horizon/js/horizon.d3linechart.js:410
+#: static/horizon/js/horizon.modals.js:334
+#: static/horizon/js/horizon.tables_inline_edit.js:94
+#: static/horizon/js/horizon.tables_inline_edit.js:157
+msgid "An error occurred. Please try again later."
+msgstr "エラーが発生しました。後からもう一度お試しください。"
+
+#: static/horizon/js/horizon.firewalls.js:32
+#: static/horizon/js/horizon.instances.js:31
+msgid "There was a problem communicating with the server, please try again."
+msgstr "サーバーとの通信中に問題がありました。再度お試しください。"
+
+#: static/horizon/js/horizon.instances.js:273
+msgid "Could not read the file"
+msgstr "ファイルを読み取ることができませんでした。"
+
+#: static/horizon/js/horizon.instances.js:279
+#: static/horizon/js/horizon.instances.js:308
+msgid "Could not decrypt the password"
+msgstr "パスワードの復号化できませんでした。"
+
+#: static/horizon/js/horizon.membership.js:190
+msgid "No roles"
+msgstr "ロールがありません"
+
+#: static/horizon/js/horizon.membership.js:222
+msgid "Roles"
+msgstr "ロール"
+
+#: static/horizon/js/horizon.messages.js:9
+msgid "Danger: "
+msgstr "危険:"
+
+#: static/horizon/js/horizon.messages.js:10
+msgid "Warning: "
+msgstr "警告: "
+
+#: static/horizon/js/horizon.messages.js:11
+msgid "Notice: "
+msgstr "注意:"
+
+#: static/horizon/js/horizon.messages.js:12
+msgid "Success: "
+msgstr "成功: "
+
+#: static/horizon/js/horizon.messages.js:13
+msgid "Error: "
+msgstr "エラー: "
+
+#: static/horizon/js/horizon.modals.js:229
+#: static/horizon/js/horizon.tables.js:218
+msgid "Working"
+msgstr "反映中"
+
+#: static/horizon/js/horizon.modals.js:263
+msgid "There was an error submitting the form. Please try again."
+msgstr "フォームの送信中にエラーが発生しました。再度お試しください。"
+
+#: static/horizon/js/horizon.networktopology.js:530
+#: static/horizon/js/horizon.networktopology.js:536
+msgid "None"
+msgstr "なし"
+
+#: static/horizon/js/horizon.networktopology.js:549
+msgid "Delete"
+msgstr "削除"
+
+#: static/horizon/js/horizon.networktopology.js:552
+msgid "STATUS"
+msgstr "ステータス"
+
+#: static/horizon/js/horizon.networktopology.js:553
+msgid "ID"
+msgstr "ID"
+
+#: static/horizon/js/horizon.networktopology.js:554
+msgid "Interfaces"
+msgstr "インターフェース"
+
+#: static/horizon/js/horizon.networktopology.js:555
+msgid "Delete Interface"
+msgstr "インタフェースの削除"
+
+#: static/horizon/js/horizon.networktopology.js:556
+msgid "Open Console"
+msgstr "コンソールを開く"
+
+#: static/horizon/js/horizon.networktopology.js:557
+msgid "View Details"
+msgstr "詳細の表示"
+
+#: static/horizon/js/horizon.networktopology.js:560
+msgid "Delete Router"
+msgstr "ルーターの削除"
+
+#: static/horizon/js/horizon.networktopology.js:561
+msgid "View Router Details"
+msgstr "ルーターの詳細の表示"
+
+#: static/horizon/js/horizon.networktopology.js:564
+msgid "Add Interface"
+msgstr "インターフェースの追加"
+
+#: static/horizon/js/horizon.networktopology.js:570
+msgid "Terminate Instance"
+msgstr "インスタンスの終了"
+
+#: static/horizon/js/horizon.networktopology.js:571
+msgid "View Instance Details"
+msgstr "インスタンスの詳細の表示"
+
+#: static/horizon/js/horizon.tables.js:39
+#: static/horizon/js/horizon.tables.js:406
+msgid "No items to display."
+msgstr "表示する項目がありません"
+
+#: static/horizon/js/horizon.tables.js:52
+#: static/horizon/js/horizon.tables.js:120
+msgid "An error occurred while updating."
+msgstr "更新中にエラーが発生しました。"
+
+#: static/horizon/js/horizon.tables.js:201
+#, c-format
+msgid "You have selected %s. "
+msgstr "%s を選択しました。"
+
+#: static/horizon/js/horizon.tables.js:203
+#, c-format
+msgid "Confirm %s"
+msgstr "%sの確認"
+
+#: static/horizon/js/horizon.tables.js:204
+msgid "Please confirm your selection. "
+msgstr "選択内容を確認してください。"
+
+#: static/horizon/js/horizon.tables_inline_edit.js:88
+#: static/horizon/js/horizon.tables_inline_edit.js:151
+msgid "Not authorized to do this operation."
+msgstr "この操作を行う権限がありません。"
+
+#: static/horizon/js/horizon.users.js:18
+msgid "Passwords do not match."
+msgstr "パスワードが一致しません。"

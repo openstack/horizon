@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 23:04-0500\n"
+"POT-Creation-Date: 2015-04-06 21:07-0500\n"
 "PO-Revision-Date: 2015-04-01 02:20+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/projects/p/horizon/language/sl_SI/)\n"
@@ -20,6 +20,19 @@ msgstr ""
 #: base.py:475
 msgid "Other"
 msgstr "Ostalo"
+
+#: browsers/base.py:88
+msgid "Navigation Item"
+msgstr "Navigacijska postavka"
+
+#: browsers/views.py:41
+#, python-format
+msgid "Select a %s to browse."
+msgstr "Izberite %s za iskanje"
+
+#: conf/default.py:41
+msgid "Password is not accepted"
+msgstr "Geslo ni bilo sprejeto"
 
 #: decorators.py:53
 msgid "Please log in to continue."
@@ -44,23 +57,6 @@ msgstr "Niste avtorizirani: %s"
 msgid "Unauthorized. Please try logging in again."
 msgstr "Neavtoriziran dostop. Poskusite se prijaviti in poskusite znova."
 
-#: middleware.py:103
-msgid "Session timed out."
-msgstr "Seja je potekla."
-
-#: browsers/base.py:88
-msgid "Navigation Item"
-msgstr "Navigacijska postavka"
-
-#: browsers/views.py:41
-#, python-format
-msgid "Select a %s to browse."
-msgstr "Izberite %s za iskanje"
-
-#: conf/default.py:41
-msgid "Password is not accepted"
-msgstr "Geslo ni bilo sprejeto"
-
 #: forms/fields.py:64
 msgid "Incorrect format for IP address"
 msgstr "Neveljaven zapis IP-naslova"
@@ -78,10 +74,14 @@ msgid "Submit"
 msgstr "Potrdi"
 
 #: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:27
+#: templates/horizon/common/_modal_form_update_metadata.html:25
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "Prekliči"
+
+#: middleware.py:103
+msgid "Session timed out."
+msgstr "Seja je potekla."
 
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:21
@@ -318,7 +318,7 @@ msgstr "Nosilci"
 msgid "Volume Storage"
 msgstr "Diskovni prostor nosilca"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:26
+#: templates/horizon/common/_modal_form_update_metadata.html:24
 #: workflows/base.py:594
 msgid "Save"
 msgstr "Shrani"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-03 23:00-0500\n"
+"POT-Creation-Date: 2015-04-06 21:08-0500\n"
 "PO-Revision-Date: 2015-04-04 04:00+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/projects/p/horizon/language/pa_IN/)\n"
@@ -167,169 +167,6 @@ msgstr "ਅਗਲਾ"
 msgid "Finish"
 msgstr "ਮੁਕੰਮਲ"
 
-#: static/horizon/js/horizon.accordion_nav.js:78
-#: static/horizon/js/horizon.modals.js:315
-#: static/horizon/js/horizon.tabs.js:21
-msgid "Loading"
-msgstr "ਲੋਡ ਹੋ ਰਿਹਾ"
-
-#: static/horizon/js/horizon.d3linechart.js:394
-#: static/horizon/js/horizon.d3linechart.js:404
-msgid "No data available."
-msgstr "ਕੋਈ ਡਾਟਾ ਉਪਲੱਬਧ ਨਹੀ।"
-
-#: static/horizon/js/horizon.d3linechart.js:410
-#: static/horizon/js/horizon.modals.js:334
-#: static/horizon/js/horizon.tables_inline_edit.js:94
-#: static/horizon/js/horizon.tables_inline_edit.js:157
-msgid "An error occurred. Please try again later."
-msgstr "ਇੱਕ ਗਲਤੀ ਵਾਪਰੀ। ਕਿਰਪਾ ਕਰ ਕੇ ਬਾਅਦ ਵਿੱਚ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
-
-#: static/horizon/js/horizon.firewalls.js:32
-#: static/horizon/js/horizon.instances.js:31
-msgid "There was a problem communicating with the server, please try again."
-msgstr "ਸਰਵਰ ਨਾਲ ਸੰਚਾਰ ਕਰਨ ਵੇਲੇ ਇੱਕ ਮੁਸ਼ਕਿਲ ਸੀ, ਕਿਰਪਾ ਕਰ ਕੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
-
-#: static/horizon/js/horizon.instances.js:273
-msgid "Could not read the file"
-msgstr "ਫਾਈਲ ਪੜ੍ਹ ਨਹੀਂ ਸਕਿਆ"
-
-#: static/horizon/js/horizon.instances.js:279
-#: static/horizon/js/horizon.instances.js:308
-msgid "Could not decrypt the password"
-msgstr "ਪਛਾਣ-ਸ਼ਬਦ ਨੂੰ ਡੀ-ਕ੍ਰਿਪਟ ਨਹੀਂ ਕਰ ਸਕਿਆ"
-
-#: static/horizon/js/horizon.membership.js:190
-msgid "No roles"
-msgstr "ਕੋਈ ਰੋਲ ਨਹੀੰ"
-
-#: static/horizon/js/horizon.membership.js:222
-msgid "Roles"
-msgstr "ਰੋਲ"
-
-#: static/horizon/js/horizon.messages.js:9
-msgid "Danger: "
-msgstr "ਖਤਰਾ:"
-
-#: static/horizon/js/horizon.messages.js:10
-msgid "Warning: "
-msgstr "ਚੇਤਾਵਨੀ: "
-
-#: static/horizon/js/horizon.messages.js:11
-msgid "Notice: "
-msgstr "ਸੂਚਨਾ:"
-
-#: static/horizon/js/horizon.messages.js:12
-msgid "Success: "
-msgstr "ਸਫਲਤਾ: "
-
-#: static/horizon/js/horizon.messages.js:13
-msgid "Error: "
-msgstr "ਗਲਤੀ: "
-
-#: static/horizon/js/horizon.modals.js:229
-#: static/horizon/js/horizon.tables.js:218
-msgid "Working"
-msgstr "ਕੰਮ ਕਰ ਰਿਹਾ"
-
-#: static/horizon/js/horizon.modals.js:263
-msgid "There was an error submitting the form. Please try again."
-msgstr "ਫਾਰਮ ਸਮਰਪਣ ਵੇਲੇ ਇੱਕ ਗਲਤੀ ਸੀ। ਕਿਰਪਾ ਕਰ ਕੇ ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
-
-#: static/horizon/js/horizon.networktopology.js:530
-#: static/horizon/js/horizon.networktopology.js:536
-msgid "None"
-msgstr "ਕੋਈ ਨਹੀਂ"
-
-#: static/horizon/js/horizon.networktopology.js:549
-msgid "Delete"
-msgstr "ਮਿਟਾਉ"
-
-#: static/horizon/js/horizon.networktopology.js:552
-msgid "STATUS"
-msgstr "ਹਾਲਾਤ"
-
-#: static/horizon/js/horizon.networktopology.js:553
-msgid "ID"
-msgstr "ID"
-
-#: static/horizon/js/horizon.networktopology.js:554
-msgid "Interfaces"
-msgstr "ਇੰਟਰਫੇਸ"
-
-#: static/horizon/js/horizon.networktopology.js:555
-msgid "Delete Interface"
-msgstr "ਇੰਟਰਫੇਸ ਮਿਟਾਉ"
-
-#: static/horizon/js/horizon.networktopology.js:556
-msgid "Open Console"
-msgstr "ਕੰਸੋਲ ਖੋਲ੍ਹੋ"
-
-#: static/horizon/js/horizon.networktopology.js:557
-msgid "View Details"
-msgstr "ਵੇਰਵੇ ਵੇਖੋ"
-
-#: static/horizon/js/horizon.networktopology.js:560
-msgid "Delete Router"
-msgstr "ਰਊਟਰ ਮਿਟਾਉ"
-
-#: static/horizon/js/horizon.networktopology.js:561
-msgid "View Router Details"
-msgstr "ਰਊਟਰ ਦੇ ਵੇਰਵੇ ਵੇਖੋ"
-
-#: static/horizon/js/horizon.networktopology.js:564
-msgid "Add Interface"
-msgstr "ਇੰਟਰਫੇਸ ਜੋੜ੍ਹੋ"
-
-#: static/horizon/js/horizon.networktopology.js:570
-msgid "Terminate Instance"
-msgstr "ਇੰਸਟਾਂਸ ਨੂੰ ਖਤਮ ਕਰ ਦਿਉ"
-
-#: static/horizon/js/horizon.networktopology.js:571
-msgid "View Instance Details"
-msgstr "ਇੰਸਟਾਸ ਦੇ ਵੇਰਵੇ ਵੇਖੋ"
-
-#: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:406
-msgid "No items to display."
-msgstr "ਪਰਦਰਸ਼ਿਤ ਕਰਨ ਲਈ ਕੋਈ ਚੀਜ਼ ਨਹੀਂ।"
-
-#: static/horizon/js/horizon.tables.js:52
-#: static/horizon/js/horizon.tables.js:120
-msgid "An error occurred while updating."
-msgstr "ਅੱਪਡੇਟ ਕਰਨ ਵੇਲੇ ਇੱਕ ਗਲਤੀ ਹੋਈ।"
-
-#: static/horizon/js/horizon.tables.js:201
-#, c-format
-msgid "You have selected %s. "
-msgstr "ਤੁਸੀਂ %s ਦੀ ਚੋਣ ਕੀਤੀ ਹੈ।"
-
-#: static/horizon/js/horizon.tables.js:203
-#, c-format
-msgid "Confirm %s"
-msgstr "%s ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ"
-
-#: static/horizon/js/horizon.tables.js:204
-msgid "Please confirm your selection. "
-msgstr "ਕਿਰਪਾ ਕਰ ਕੇ ਆਪਣੀ ਚੋਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ।"
-
-#: static/horizon/js/horizon.tables.js:393
-#: static/horizon/js/angular/filters/filters.js:163
-#, c-format
-msgid "Displaying %s item"
-msgid_plural "Displaying %s items"
-msgstr[0] ""
-msgstr[1] "%s ਚੀਜ਼ਾਂ ਵਿਖਾਈਆਂ ਜਾ ਰਹੀਆਂ"
-
-#: static/horizon/js/horizon.tables_inline_edit.js:88
-#: static/horizon/js/horizon.tables_inline_edit.js:151
-msgid "Not authorized to do this operation."
-msgstr "ਇਹ ਕਾਰਵਾਈ ਕਰਨ ਲਈ ਅਧਿਕਾਰਤ ਨਹੀੰ ਕੀਤਾ ਹੋਇਆ।"
-
-#: static/horizon/js/horizon.users.js:18
-msgid "Passwords do not match."
-msgstr "ਪਛਾਣ-ਸ਼ਬਦ ਮੇਲ ਨਹੀੰ ਖਾਂਦੇ।"
-
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Connecting"
 msgstr "ਜੁੜ ਰਿਹਾ"
@@ -380,6 +217,14 @@ msgstr "KB"
 #: static/horizon/js/angular/filters/filters.js:146
 msgid "bytes"
 msgstr "ਬਾਈਟਾਂ"
+
+#: static/horizon/js/angular/filters/filters.js:163
+#: static/horizon/js/horizon.tables.js:393
+#, c-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] ""
+msgstr[1] "%s ਚੀਜ਼ਾਂ ਵਿਖਾਈਆਂ ਜਾ ਰਹੀਆਂ"
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:47
 msgid "Unable to retrieve volumes."
@@ -600,3 +445,158 @@ msgstr "ਨੀਤੀ ਪੜਤਾਲ ਅਸਫਲ ਹੋਈ।"
 #: static/horizon/js/angular/services/hz.api.security-group.js:64
 msgid "Unable to retrieve security groups."
 msgstr "ਸੁਰੱਖਿਆ ਸਮੂਹਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
+
+#: static/horizon/js/horizon.accordion_nav.js:78
+#: static/horizon/js/horizon.modals.js:315
+#: static/horizon/js/horizon.tabs.js:21
+msgid "Loading"
+msgstr "ਲੋਡ ਹੋ ਰਿਹਾ"
+
+#: static/horizon/js/horizon.d3linechart.js:394
+#: static/horizon/js/horizon.d3linechart.js:404
+msgid "No data available."
+msgstr "ਕੋਈ ਡਾਟਾ ਉਪਲੱਬਧ ਨਹੀ।"
+
+#: static/horizon/js/horizon.d3linechart.js:410
+#: static/horizon/js/horizon.modals.js:334
+#: static/horizon/js/horizon.tables_inline_edit.js:94
+#: static/horizon/js/horizon.tables_inline_edit.js:157
+msgid "An error occurred. Please try again later."
+msgstr "ਇੱਕ ਗਲਤੀ ਵਾਪਰੀ। ਕਿਰਪਾ ਕਰ ਕੇ ਬਾਅਦ ਵਿੱਚ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+
+#: static/horizon/js/horizon.firewalls.js:32
+#: static/horizon/js/horizon.instances.js:31
+msgid "There was a problem communicating with the server, please try again."
+msgstr "ਸਰਵਰ ਨਾਲ ਸੰਚਾਰ ਕਰਨ ਵੇਲੇ ਇੱਕ ਮੁਸ਼ਕਿਲ ਸੀ, ਕਿਰਪਾ ਕਰ ਕੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+
+#: static/horizon/js/horizon.instances.js:273
+msgid "Could not read the file"
+msgstr "ਫਾਈਲ ਪੜ੍ਹ ਨਹੀਂ ਸਕਿਆ"
+
+#: static/horizon/js/horizon.instances.js:279
+#: static/horizon/js/horizon.instances.js:308
+msgid "Could not decrypt the password"
+msgstr "ਪਛਾਣ-ਸ਼ਬਦ ਨੂੰ ਡੀ-ਕ੍ਰਿਪਟ ਨਹੀਂ ਕਰ ਸਕਿਆ"
+
+#: static/horizon/js/horizon.membership.js:190
+msgid "No roles"
+msgstr "ਕੋਈ ਰੋਲ ਨਹੀੰ"
+
+#: static/horizon/js/horizon.membership.js:222
+msgid "Roles"
+msgstr "ਰੋਲ"
+
+#: static/horizon/js/horizon.messages.js:9
+msgid "Danger: "
+msgstr "ਖਤਰਾ:"
+
+#: static/horizon/js/horizon.messages.js:10
+msgid "Warning: "
+msgstr "ਚੇਤਾਵਨੀ: "
+
+#: static/horizon/js/horizon.messages.js:11
+msgid "Notice: "
+msgstr "ਸੂਚਨਾ:"
+
+#: static/horizon/js/horizon.messages.js:12
+msgid "Success: "
+msgstr "ਸਫਲਤਾ: "
+
+#: static/horizon/js/horizon.messages.js:13
+msgid "Error: "
+msgstr "ਗਲਤੀ: "
+
+#: static/horizon/js/horizon.modals.js:229
+#: static/horizon/js/horizon.tables.js:218
+msgid "Working"
+msgstr "ਕੰਮ ਕਰ ਰਿਹਾ"
+
+#: static/horizon/js/horizon.modals.js:263
+msgid "There was an error submitting the form. Please try again."
+msgstr "ਫਾਰਮ ਸਮਰਪਣ ਵੇਲੇ ਇੱਕ ਗਲਤੀ ਸੀ। ਕਿਰਪਾ ਕਰ ਕੇ ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+
+#: static/horizon/js/horizon.networktopology.js:530
+#: static/horizon/js/horizon.networktopology.js:536
+msgid "None"
+msgstr "ਕੋਈ ਨਹੀਂ"
+
+#: static/horizon/js/horizon.networktopology.js:549
+msgid "Delete"
+msgstr "ਮਿਟਾਉ"
+
+#: static/horizon/js/horizon.networktopology.js:552
+msgid "STATUS"
+msgstr "ਹਾਲਾਤ"
+
+#: static/horizon/js/horizon.networktopology.js:553
+msgid "ID"
+msgstr "ID"
+
+#: static/horizon/js/horizon.networktopology.js:554
+msgid "Interfaces"
+msgstr "ਇੰਟਰਫੇਸ"
+
+#: static/horizon/js/horizon.networktopology.js:555
+msgid "Delete Interface"
+msgstr "ਇੰਟਰਫੇਸ ਮਿਟਾਉ"
+
+#: static/horizon/js/horizon.networktopology.js:556
+msgid "Open Console"
+msgstr "ਕੰਸੋਲ ਖੋਲ੍ਹੋ"
+
+#: static/horizon/js/horizon.networktopology.js:557
+msgid "View Details"
+msgstr "ਵੇਰਵੇ ਵੇਖੋ"
+
+#: static/horizon/js/horizon.networktopology.js:560
+msgid "Delete Router"
+msgstr "ਰਊਟਰ ਮਿਟਾਉ"
+
+#: static/horizon/js/horizon.networktopology.js:561
+msgid "View Router Details"
+msgstr "ਰਊਟਰ ਦੇ ਵੇਰਵੇ ਵੇਖੋ"
+
+#: static/horizon/js/horizon.networktopology.js:564
+msgid "Add Interface"
+msgstr "ਇੰਟਰਫੇਸ ਜੋੜ੍ਹੋ"
+
+#: static/horizon/js/horizon.networktopology.js:570
+msgid "Terminate Instance"
+msgstr "ਇੰਸਟਾਂਸ ਨੂੰ ਖਤਮ ਕਰ ਦਿਉ"
+
+#: static/horizon/js/horizon.networktopology.js:571
+msgid "View Instance Details"
+msgstr "ਇੰਸਟਾਸ ਦੇ ਵੇਰਵੇ ਵੇਖੋ"
+
+#: static/horizon/js/horizon.tables.js:39
+#: static/horizon/js/horizon.tables.js:406
+msgid "No items to display."
+msgstr "ਪਰਦਰਸ਼ਿਤ ਕਰਨ ਲਈ ਕੋਈ ਚੀਜ਼ ਨਹੀਂ।"
+
+#: static/horizon/js/horizon.tables.js:52
+#: static/horizon/js/horizon.tables.js:120
+msgid "An error occurred while updating."
+msgstr "ਅੱਪਡੇਟ ਕਰਨ ਵੇਲੇ ਇੱਕ ਗਲਤੀ ਹੋਈ।"
+
+#: static/horizon/js/horizon.tables.js:201
+#, c-format
+msgid "You have selected %s. "
+msgstr "ਤੁਸੀਂ %s ਦੀ ਚੋਣ ਕੀਤੀ ਹੈ।"
+
+#: static/horizon/js/horizon.tables.js:203
+#, c-format
+msgid "Confirm %s"
+msgstr "%s ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ"
+
+#: static/horizon/js/horizon.tables.js:204
+msgid "Please confirm your selection. "
+msgstr "ਕਿਰਪਾ ਕਰ ਕੇ ਆਪਣੀ ਚੋਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ।"
+
+#: static/horizon/js/horizon.tables_inline_edit.js:88
+#: static/horizon/js/horizon.tables_inline_edit.js:151
+msgid "Not authorized to do this operation."
+msgstr "ਇਹ ਕਾਰਵਾਈ ਕਰਨ ਲਈ ਅਧਿਕਾਰਤ ਨਹੀੰ ਕੀਤਾ ਹੋਇਆ।"
+
+#: static/horizon/js/horizon.users.js:18
+msgid "Passwords do not match."
+msgstr "ਪਛਾਣ-ਸ਼ਬਦ ਮੇਲ ਨਹੀੰ ਖਾਂਦੇ।"

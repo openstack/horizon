@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 23:04-0500\n"
-"PO-Revision-Date: 2015-04-01 02:20+0000\n"
+"POT-Creation-Date: 2015-04-06 21:07-0500\n"
+"PO-Revision-Date: 2015-04-01 22:52+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/horizon/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -22,6 +22,19 @@ msgstr ""
 #: base.py:475
 msgid "Other"
 msgstr "Diğer"
+
+#: browsers/base.py:88
+msgid "Navigation Item"
+msgstr "Gezinme öğesi"
+
+#: browsers/views.py:41
+#, python-format
+msgid "Select a %s to browse."
+msgstr "Göz atmak için bir %s seçin."
+
+#: conf/default.py:41
+msgid "Password is not accepted"
+msgstr "Şifre kabul edilmedi"
 
 #: decorators.py:53
 msgid "Please log in to continue."
@@ -46,23 +59,6 @@ msgstr "Yetkisiz: %s"
 msgid "Unauthorized. Please try logging in again."
 msgstr "Yetkisiz Giriş. Lütfen tekrar giriş yapın. "
 
-#: middleware.py:103
-msgid "Session timed out."
-msgstr "Oturum sona erdi."
-
-#: browsers/base.py:88
-msgid "Navigation Item"
-msgstr "Gezinme öğesi"
-
-#: browsers/views.py:41
-#, python-format
-msgid "Select a %s to browse."
-msgstr "Göz atmak için bir %s seçin."
-
-#: conf/default.py:41
-msgid "Password is not accepted"
-msgstr "Şifre kabul edilmedi"
-
 #: forms/fields.py:64
 msgid "Incorrect format for IP address"
 msgstr "Hatalı IP adres formatı"
@@ -80,10 +76,14 @@ msgid "Submit"
 msgstr "Gönder"
 
 #: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:27
+#: templates/horizon/common/_modal_form_update_metadata.html:25
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "İptal"
+
+#: middleware.py:103
+msgid "Session timed out."
+msgstr "Oturum sona erdi."
 
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:21
@@ -317,7 +317,7 @@ msgstr "Diskler"
 msgid "Volume Storage"
 msgstr "Disk Depolama Birimi"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:26
+#: templates/horizon/common/_modal_form_update_metadata.html:24
 #: workflows/base.py:594
 msgid "Save"
 msgstr "Kaydet"

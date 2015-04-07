@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 23:04-0500\n"
+"POT-Creation-Date: 2015-04-06 21:07-0500\n"
 "PO-Revision-Date: 2015-04-01 02:20+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/horizon/language/sr/)\n"
@@ -20,6 +20,19 @@ msgstr ""
 #: base.py:475
 msgid "Other"
 msgstr "Drugi"
+
+#: browsers/base.py:88
+msgid "Navigation Item"
+msgstr "Stavka za navigaciju"
+
+#: browsers/views.py:41
+#, python-format
+msgid "Select a %s to browse."
+msgstr "Odaberite %s za pregledanje."
+
+#: conf/default.py:41
+msgid "Password is not accepted"
+msgstr "Lozinka nije prihvaćena"
 
 #: decorators.py:53
 msgid "Please log in to continue."
@@ -44,23 +57,6 @@ msgstr "Neovlašćen: %s"
 msgid "Unauthorized. Please try logging in again."
 msgstr "Niste ovlašćeni. Molim, pokušajte da se ulogujete ponovo."
 
-#: middleware.py:103
-msgid "Session timed out."
-msgstr "Seansa istekla."
-
-#: browsers/base.py:88
-msgid "Navigation Item"
-msgstr "Stavka za navigaciju"
-
-#: browsers/views.py:41
-#, python-format
-msgid "Select a %s to browse."
-msgstr "Odaberite %s za pregledanje."
-
-#: conf/default.py:41
-msgid "Password is not accepted"
-msgstr "Lozinka nije prihvaćena"
-
 #: forms/fields.py:64
 msgid "Incorrect format for IP address"
 msgstr "Neispravan format za IP adresu"
@@ -78,10 +74,14 @@ msgid "Submit"
 msgstr "Predaj"
 
 #: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:27
+#: templates/horizon/common/_modal_form_update_metadata.html:25
 #: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "Odustani"
+
+#: middleware.py:103
+msgid "Session timed out."
+msgstr "Seansa istekla."
 
 #: tables/actions.py:460
 #: templates/horizon/common/_data_table_table_actions.html:21
@@ -317,7 +317,7 @@ msgstr "Volume-i"
 msgid "Volume Storage"
 msgstr "Volume storage"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:26
+#: templates/horizon/common/_modal_form_update_metadata.html:24
 #: workflows/base.py:594
 msgid "Save"
 msgstr "Sačuvaj"
