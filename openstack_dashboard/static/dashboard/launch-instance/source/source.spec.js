@@ -1,4 +1,3 @@
-/* jshint globalstrict: true */
 /*
  *    (c) Copyright 2015 Hewlett-Packard Development Company, L.P.
  *
