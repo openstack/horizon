@@ -95,15 +95,31 @@
 
             <div class="col-xs-12 col-sm-3">
               <div class="form-group create-volume">
-                <div class="checkbox">
-                  <label class="on-top">
-                    <input type="checkbox" ng-model="model.newInstanceSpec.vol_create">
-                    {$ ::label.volumeCreate $}</label>
+                <label class="on-top">{$ ::label.volumeCreate $}</label>
+                <div class="form-field">
+                  <div class="btn-group">
+                    <label class="btn btn-toggle"
+                      ng-repeat="option in toggleButtonOptions"
+                      ng-model="model.newInstanceSpec.vol_create"
+                      btn-radio="option.value">{$ ::option.label $}</label>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div class="col-xs-12 col-sm-4 volume-size-wrapper" ng-if="model.newInstanceSpec.vol_create == true">
+            <settings-service required-settings='["OPENSTACK_HYPERVISOR_FEATURES.can_set_mount_point"]'
+              ng-if="model.newInstanceSpec.vol_create === true">
+              <div class="col-xs-12 col-sm-3">
+                <div class="form-field">
+                  <label>{$ ::label.volumeDeviceName $}</label>
+                  <input class="form-control input-sm"
+                         ng-model="model.newInstanceSpec.vol_device_name"
+                         type="text">
+                </div>
+              </div>
+            </settings-service>
+
+            <div class="col-xs-12 col-sm-2 volume-size-wrapper" ng-if="model.newInstanceSpec.vol_create == true">
               <div class="form-field volume-size"
                 ng-class="{ 'has-warning': launchInstanceSourceForm['volume-size'].$invalid }">
                 <label class="on-top">{$ ::label.volumeSize $}</label>
@@ -122,11 +138,14 @@
 
             <div class="col-xs-12 col-sm-4" ng-if="model.newInstanceSpec.vol_create == true">
               <div class="form-group delete-volume">
-                <div class="checkbox">
-                  <label class="on-top">
-                    <input type="checkbox"
-                           ng-model="model.newInstanceSpec.vol_delete_on_terminate">
-                    {$ ::label.deleteVolumeOnTerminate $}</label>
+                <label class="on-top">{$ ::label.deleteVolumeOnTerminate $}</label>
+                <div class="form-field">
+                  <div class="btn-group">
+                    <label class="btn btn-toggle"
+                      ng-repeat="option in toggleButtonOptions"
+                      ng-model="model.newInstanceSpec.vol_delete_on_terminate"
+                      btn-radio="option.value">{$ ::option.label $}</label>
+                  </div>
                 </div>
               </div>
             </div>
@@ -136,14 +155,19 @@
           <div class="col-xs-12 col-sm-9"
                ng-if="model.newInstanceSpec.source_type.type == 'volume' || model.newInstanceSpec.source_type.type == 'volume_snapshot'">
             <div class="col-xs-12 col-sm-6">
+
               <div class="form-group delete-volume">
-                <div class="checkbox">
-                  <label class="on-top">
-                    <input type="checkbox"
-                           ng-model="model.newInstanceSpec.vol_delete_on_terminate">
-                    {$ ::label.deleteVolumeOnTerminate $}</label>
+                <label class="on-top">{$ ::label.deleteVolumeOnTerminate $}</label>
+                <div class="form-field">
+                  <div class="btn-group">
+                    <label class="btn btn-toggle"
+                      ng-repeat="option in toggleButtonOptions"
+                      ng-model="model.newInstanceSpec.vol_delete_on_terminate"
+                      btn-radio="option.value">{$ ::option.label $}</label>
+                  </div>
                 </div>
               </div>
+
             </div>
           </div><!-- end volume select options -->
 

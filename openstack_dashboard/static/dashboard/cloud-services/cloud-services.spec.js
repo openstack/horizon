@@ -35,6 +35,7 @@
         $provide.value('novaExtensions', {});
         $provide.value('securityGroup', {});
         $provide.value('serviceCatalog', {});
+        $provide.value('settingsService', {});
       }));
 
       beforeEach(inject(function ($injector) {
@@ -69,14 +70,18 @@
         expect(cloudServices.novaExtensions).toBeDefined();
       });
 
+      it('should have `cloudServices.settingsService` defined.', function () {
+        expect(cloudServices.settingsService).toBeDefined();
+      });
+
     });
 
     //
-    // factory:ifExtensionsEnabled
+    // factory:ifFeaturesEnabled
     //
 
-    describe('factory:ifExtensionsEnabled', function () {
-      var ifExtensionsEnabled,
+    describe('factory:ifFeaturesEnabled', function () {
+      var ifFeaturesEnabled,
           $q,
           cloudServices;
 
@@ -103,44 +108,44 @@
       }));
 
       beforeEach(inject(function ($injector) {
-        ifExtensionsEnabled = $injector.get('ifExtensionsEnabled');
+        ifFeaturesEnabled = $injector.get('ifFeaturesEnabled');
       }));
 
-      it('should have `ifExtensionsEnabled` defined as a function.', function () {
-        expect(ifExtensionsEnabled).toBeDefined();
-        expect(angular.isFunction(ifExtensionsEnabled)).toBe(true);
+      it('should have `ifFeaturesEnabled` defined as a function.', function () {
+        expect(ifFeaturesEnabled).toBeDefined();
+        expect(angular.isFunction(ifFeaturesEnabled)).toBe(true);
       });
 
-      it('should call $q.all() and someService.ifEnabled() when invoking ifExtensionsEnabled().', function () {
+      it('should call $q.all() and someService.ifEnabled() when invoking ifFeaturesEnabled().', function () {
         var extensions = ['ext1', 'ext2'];
-        ifExtensionsEnabled('someService', extensions);
+        ifFeaturesEnabled('someService', extensions);
         expect($q.all).toHaveBeenCalled();
         expect(cloudServices.someService.ifEnabled).toHaveBeenCalled();
       });
 
       it('should not throw when passing in an empty extensions list.', function () {
         expect(function () {
-          ifExtensionsEnabled('someService', []);
+          ifFeaturesEnabled('someService', []);
         }).not.toThrow();
       });
 
       it('should throw when extensions is null or undefined or not an array', function () {
         expect(function () {
-          ifExtensionsEnabled('someService', null);
+          ifFeaturesEnabled('someService', null);
         }).toThrow();
 
         expect(function () {
-          ifExtensionsEnabled('someService');
+          ifFeaturesEnabled('someService');
         }).toThrow();
 
         expect(function () {
-          ifExtensionsEnabled('123');
+          ifFeaturesEnabled('123');
         }).toThrow();
       });
 
       it('should not throw when the provided serviceName is not a key in the services hash table', function () {
         expect(function () {
-          ifExtensionsEnabled('invlidServiceName', []);
+          ifFeaturesEnabled('invlidServiceName', []);
         }).not.toThrow();
       });
     });
@@ -151,16 +156,16 @@
 
     describe('factory:createDirectiveSpec', function () {
       var createDirectiveSpec,
-          ifExtensionsEnabled;
+          ifFeaturesEnabled;
 
       beforeEach(module('hz.dashboard', function ($provide) {
-        ifExtensionsEnabled = function () {
+        ifFeaturesEnabled = function () {
           return {
             then: function (successCallback, errorCallback) {
             }
           };
         };
-        $provide.value('ifExtensionsEnabled', ifExtensionsEnabled);
+        $provide.value('ifFeaturesEnabled', ifFeaturesEnabled);
       }));
 
       beforeEach(inject(function ($injector) {
@@ -176,7 +181,7 @@
         var directiveSpec;
 
         beforeEach(function () {
-          directiveSpec = createDirectiveSpec('someService');
+          directiveSpec = createDirectiveSpec('someService', 'someFeature');
         });
 
         it('should be defined.', function () {
@@ -215,7 +220,7 @@
           element;
 
       beforeEach(module('hz.dashboard', function ($provide) {
-        $provide.value('ifExtensionsEnabled', function () {
+        $provide.value('ifFeaturesEnabled', function () {
           return {
             then: function (successCallback, errorCallback) {
               $timeout(successCallback);
@@ -250,6 +255,58 @@
         expect(element.children().first().hasClass('child-element')).toBe(true);
       });
 
+    });
+
+    //
+    // directive:settingsService
+    //
+
+    describe('directive:settingsService', function () {
+      var $timeout,
+          $scope,
+          html = [
+            '<settings-service required-settings=\'["something"]\'>',
+              '<div class="child-element">',
+              '</div>',
+            '</settings-service>'
+          ].join(''),
+          element;
+
+      beforeEach(module('hz.dashboard', function ($provide) {
+        $provide.value('ifFeaturesEnabled', function () {
+          return {
+            then: function (successCallback, errorCallback) {
+              $timeout(successCallback);
+            }
+          };
+        });
+      }));
+
+      beforeEach(inject(function ($injector) {
+        var $compile = $injector.get('$compile');
+        $scope = $injector.get('$rootScope').$new();
+        $timeout = $injector.get('$timeout');
+        element = $compile(html)($scope);
+      }));
+
+      it('should be compiled.', function () {
+        expect(element.hasClass('ng-scope')).toBe(true);
+      });
+
+      it('should have class name `ng-hide` by default.', function () {
+        expect(element.hasClass('ng-hide')).toBe(true);
+      });
+
+      it('should have no class name `ng-hide` after an asyncs callback.', function () {
+        $timeout(function () {
+          expect(element.hasClass('ng-hide')).toBe(false);
+        });
+        $timeout.flush();
+      });
+
+      it('should have the right child element.', function () {
+        expect(element.children().first().hasClass('child-element')).toBe(true);
+      });
     });
 
   })

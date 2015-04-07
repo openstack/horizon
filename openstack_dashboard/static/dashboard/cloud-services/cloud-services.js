@@ -50,6 +50,7 @@
     'novaExtensions',
     'securityGroup',
     'serviceCatalog',
+    'settingsService',
 
     function (cinderAPI,
               glanceAPI,
@@ -58,7 +59,8 @@
               novaAPI,
               novaExtensions,
               securityGroup,
-              serviceCatalog) {
+              serviceCatalog,
+              settingsService) {
 
       return {
         cinder:           cinderAPI,
@@ -68,35 +70,39 @@
         nova:             novaAPI,
         novaExtensions:   novaExtensions,
         securityGroup:    securityGroup,
-        serviceCatalog:   serviceCatalog
+        serviceCatalog:   serviceCatalog,
+        settingsService:  settingsService
       };
     }
   ])
 
   /**
    * @ngdoc factory
-   * @name hz.dashboard:factory:ifExtensionsEnabled
+   * @name hz.dashboard:factory:ifFeaturesEnabled
    * @module hz.dashboard
    * @kind function
    * @description
    *
-   * Check to see if all the listed extensions are enabled on a certain service,
+   * Check to see if all the listed features are enabled on a certain service,
    * which is described by the service name.
    *
    * This is an asynchronous operation.
    *
    * @param String serviceName The name of the service, e.g. `novaExtensions`.
-   * @param Array<String> extensions A list of extension's names.
+   * @param Array<String> features A list of feature's names.
    * @return Promise the promise of the deferred task that gets resolved
    * when all the sub-tasks are resolved.
    */
 
-  .factory('ifExtensionsEnabled', ['$q', 'cloudServices',
+  .factory('ifFeaturesEnabled', ['$q', 'cloudServices',
     function ($q, cloudServices) {
-      return function ifExtensionsEnabled(serviceName, extensions) {
+      return function ifFeaturesEnabled(serviceName, features) {
+        // each cloudServices[serviceName].ifEnabled(feature) is an asynchronous
+        // operation which returns a promise, thus requiring the use of $q.all
+        // to defer.
         return $q.all(
-          extensions.map(function (extension) {
-            return cloudServices[serviceName].ifEnabled(extension);
+          features.map(function (feature) {
+            return cloudServices[serviceName].ifEnabled(feature);
           })
         );//return
       };//return
@@ -114,35 +120,41 @@
    * based on `serviceName`.
    *
    * @param String serviceName The name of the service, e.g. `novaExtensions`.
+   * @param String attrName The name of the attribute in the service.
    * @return Object a directive specification object that can be used to
    * create an angular directive.
    */
 
-  .factory('createDirectiveSpec', ['ifExtensionsEnabled',
-    function (ifExtensionsEnabled) {
-      return function createDirectiveSpec(serviceName) {
+  .factory('createDirectiveSpec', ['ifFeaturesEnabled',
+    function (ifFeaturesEnabled) {
+      return function createDirectiveSpec(serviceName, attrName) {
+
+        function link(scope, element, attrs, ctrl, transclude) {
+          element.addClass('ng-hide');
+          var features = fromJson(attrs[attrName]);
+          if (isArray(features)) {
+            ifFeaturesEnabled(serviceName, features).then(
+              // if the feature is enabled:
+              function () {
+                element.removeClass('ng-hide');
+              },
+              // if the feature is not enabled:
+              function () {
+                element.remove();
+              }
+            );
+          }
+          transclude(scope, function (clone) {
+            element.append(clone);
+          });
+        }
+
         return {
+          link: link,
           restrict: 'E',
-          transclude: true,
-          link: function link(scope, element, attrs, ctrl, transclude) {
-            element.addClass('ng-hide');
-            var extensions = fromJson(attrs.requiredExtensions);
-            if (isArray(extensions)) {
-              ifExtensionsEnabled(serviceName, extensions).then(
-                function () {
-                  element.removeClass('ng-hide');
-                },
-                function () {
-                  element.remove();
-                }
-              );//if-then
-            }
-            transclude(scope, function (clone) {
-              element.append(clone);
-            });
-          }//link
-        };//return
-      };//return
+          transclude: true
+        };
+      };
     }
   ])
 
@@ -158,7 +170,7 @@
    *
    * @example
    *
-  ```html
+   ```html
     <nova-extension required-extensions='["config_drive"]'>
       <div class="checkbox customization-script-source">
         <label>
@@ -181,12 +193,37 @@
         </select>
       </div>
     </nova-extension>
-  ```
+   ```
    */
 
   .directive('novaExtension', ['createDirectiveSpec',
     function (createDirectiveSpec) {
-      return createDirectiveSpec('novaExtensions');
+      return createDirectiveSpec('novaExtensions', 'requiredExtensions');
+    }
+  ])
+
+  /**
+   * @ngdoc directive
+   * @name hz.dashboard:directive:settingsService
+   * @module hz.dashboard
+   * @description
+   *
+   * This is to enable specifying conditional UI in a declarative way.
+   * Some UI components should be showing only when some certain settings
+   * are enabled on `settingsService` service.
+   *
+   * @example
+   *
+   ```html
+    <settings-service required-settings='["something"]'>
+      <!-- ui code here -->
+    </settings-service>
+   ```
+   */
+
+  .directive('settingsService', ['createDirectiveSpec',
+    function (createDirectiveSpec) {
+      return createDirectiveSpec('settingsService', 'requiredSettings');
     }
   ])
 

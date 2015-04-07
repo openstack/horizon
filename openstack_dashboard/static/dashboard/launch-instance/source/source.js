@@ -83,9 +83,9 @@
       instanceSourceTitle: gettext('Instance Source'),
       instanceSourceSubTitle: gettext('Instance source is the template used to create an instance. You can use a snapshot of an existing instance, an image, or a volume (if enabled). You can also choose to use persistent storage by creating a new volume.'),
       bootSource: gettext('Select Boot Source'),
-      deviceSize: gettext('Device Size (GB)'),
-      volumeSize: gettext('Volume Size (GB)'),
+      volumeSize: gettext('Size (GB)'),
       volumeCreate: gettext('Create New Volume'),
+      volumeDeviceName: gettext('Device Name'),
       deleteVolumeOnTerminate: gettext('Delete Volume on Terminate'),
       id: gettext('ID'),
       min_ram: gettext('Min Ram'),
@@ -98,6 +98,13 @@
     $scope.instanceNameError = gettext('A name is required for your instance.');
     $scope.instanceCountError = gettext('Instance count is required and must be an integer of at least 1');
     $scope.volumeSizeError = gettext('Volume size is required and must be an integer');
+
+
+    // toggle button label/value defaults
+    $scope.toggleButtonOptions = [
+      { label: gettext('Yes'), value: true },
+      { label: gettext('No'), value: false }
+    ];
 
     //
     // Boot Sources
