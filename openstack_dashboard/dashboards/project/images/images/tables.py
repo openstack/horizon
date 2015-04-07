@@ -220,8 +220,13 @@ def get_format(image):
     format = getattr(image, "disk_format", "")
     # The "container_format" attribute can actually be set to None,
     # which will raise an error if you call upper() on it.
-    if format is not None:
-        return format.upper()
+    if not format:
+        return format
+    # Most image formats are untranslated acronyms, but raw is a word
+    # and should be translated
+    if format == "raw":
+        return pgettext_lazy("Image format for display in table", u"Raw")
+    return format.upper()
 
 
 class UpdateRow(tables.Row):
