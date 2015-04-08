@@ -79,7 +79,7 @@ class CreateGroup(tables.LinkAction):
             policy = (("compute", "compute_extension:security_groups"),)
 
         usages = quotas.tenant_quota_usages(request)
-        if usages['security_groups']['available'] <= 0:
+        if usages['security_groups'].get('available', 1) <= 0:
             if "disabled" not in self.classes:
                 self.classes = [c for c in self.classes] + ["disabled"]
                 self.verbose_name = _("Create Security Group (Quota exceeded)")
