@@ -42,4 +42,4 @@ var Horizon = function () {
 };
 
 // Create the one and only horizon object.
-var horizon = new Horizon();
+var horizon = new Horizon(); // jshint ignore:line
