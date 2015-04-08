@@ -5,14 +5,15 @@
 # Translators:
 # Fernando F. Rodrigues <rodrigues_fernando@hotmail.com>, 2015
 # Gabriel Wainer, 2015
+# Remulo Carvalho <remulo@gmail.com>, 2015
 # Rodrigo Felix de Almeida <rodrigofelixdealmeida@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-06 21:07-0500\n"
-"PO-Revision-Date: 2015-04-01 22:52+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"PO-Revision-Date: 2015-04-07 15:52+0000\n"
+"Last-Translator: Remulo Carvalho <remulo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -190,7 +191,7 @@ msgid ""
 "\n"
 "      If you are not sure which authentication method to use, contact your administrator.\n"
 "    "
-msgstr ""
+msgstr "\nSe você não tem certeza do método de autenticação a ser utilizado, entre em contato com o seu administrador."
 
 #: templates/auth/_login.html:5
 msgid "Log In"
@@ -213,7 +214,7 @@ msgstr "Entrar"
 
 #: templates/auth/_login.html:46
 msgid "Connect"
-msgstr ""
+msgstr "Conectado"
 
 #: templates/auth/login.html:4
 msgid "Login"
@@ -480,7 +481,7 @@ msgstr "Número de porta deve ser inteiro"
 
 #: utils/validators.py:59
 msgid "The string may only contain ASCII printable characters."
-msgstr ""
+msgstr "A string somente deve conter caracteres ASCII imprimíveis."
 
 #: workflows/base.py:71
 msgid "Processing..."
