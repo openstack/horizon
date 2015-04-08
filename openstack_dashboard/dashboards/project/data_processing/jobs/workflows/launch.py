@@ -39,12 +39,14 @@ class JobExecutionGeneralConfigAction(workflows.Action):
     job_input = forms.DynamicChoiceField(
         label=_("Input"),
         initial=(None, "None"),
-        add_item_link=DATA_SOURCE_CREATE_URL)
+        add_item_link=DATA_SOURCE_CREATE_URL,
+        required=False)
 
     job_output = forms.DynamicChoiceField(
         label=_("Output"),
         initial=(None, "None"),
-        add_item_link=DATA_SOURCE_CREATE_URL)
+        add_item_link=DATA_SOURCE_CREATE_URL,
+        required=False)
 
     def __init__(self, request, *args, **kwargs):
         super(JobExecutionGeneralConfigAction, self).__init__(request,
@@ -238,7 +240,7 @@ class JobExecutionGeneralConfig(workflows.Step):
     def contribute(self, data, context):
         for k, v in data.items():
             if k in ["job_input", "job_output"]:
-                context["job_general_" + k] = None if v == "None" else v
+                context["job_general_" + k] = None if (v in [None, ""]) else v
             else:
                 context["job_general_" + k] = v
 
@@ -251,7 +253,7 @@ class JobExecutionExistingGeneralConfig(workflows.Step):
     def contribute(self, data, context):
         for k, v in data.items():
             if k in ["job_input", "job_output"]:
-                context["job_general_" + k] = None if v == "None" else v
+                context["job_general_" + k] = None if (v in [None, ""]) else v
             else:
                 context["job_general_" + k] = v
 
