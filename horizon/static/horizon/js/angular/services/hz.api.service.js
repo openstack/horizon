@@ -16,7 +16,7 @@ limitations under the License.
 /*global angular*/
 (function () {
   'use strict';
-  function ApiService($http, $log) {
+  function ApiService($http) {
 
     var httpCall = function (method, url, data, config) {
       if (!angular.isDefined(config)) {

@@ -6,7 +6,6 @@
 
       $scope.saveResourceTypes = function () {
         $scope.resource_types = JSON.stringify($scope.resource_types);
-        $scope.namespace = namespace;
       };
     });
 }());

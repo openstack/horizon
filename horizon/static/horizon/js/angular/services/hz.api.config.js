@@ -50,7 +50,7 @@ limitations under the License.
      *
      * Returns an object with admin configuration settings.
      */
-    this.getAdminDefaults = function(params) {
+    this.getAdminDefaults = function() {
       return apiService.get('/api/config/admin/')
         .success(function(data) {
           // store this in localStorage

@@ -29,7 +29,7 @@ describe('hzLoginCtrl', function(){
   describe('$scope.auth_type', function(){
     it('should initialize to credentials', function(){
       var scope = {};
-      var controller = $controller('hzLoginCtrl', { $scope: scope });
+      $controller('hzLoginCtrl', { $scope: scope });
       expect(scope.auth_type).toEqual('credentials');
     });
   });

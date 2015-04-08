@@ -143,14 +143,14 @@
      *
      */
     .controller('transferTableCtrl',
-      [ 'basePath', '$scope', '$timeout', '$parse', '$attrs', 'helpText', 'limits',
-      function(path, $scope, $timeout, $parse, $attrs, helpText, limits) {
+      [ 'basePath', '$scope', '$timeout', '$parse', '$attrs', '$log', 'helpText', 'limits',
+      function(path, $scope, $timeout, $parse, $attrs, $log, helpText, limits) {
         var trModel = $parse($attrs.trModel)($scope);
         var trHelpText = $parse($attrs.helpText)($scope);
         var trLimits = $parse($attrs.limits)($scope);
 
         if (!angular.isArray(trModel.allocated)) {
-          console.error('Allocated is not an array as required.');
+          $log.error('Allocated is not an array as required.');
         }
 
         var model = this;

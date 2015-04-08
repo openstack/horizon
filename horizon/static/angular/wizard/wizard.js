@@ -2,8 +2,7 @@
   'use strict';
 
   var extend = angular.extend,
-      forEach = angular.forEach,
-      noop = angular.noop;
+      forEach = angular.forEach;
 
   angular.module('hz.widget.wizard', ['ui.bootstrap'])
 
