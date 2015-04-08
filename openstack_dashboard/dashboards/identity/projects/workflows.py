@@ -609,48 +609,49 @@ class UpdateProject(workflows.Workflow):
             exceptions.handle(request, ignore=True)
             return
 
-    def _add_roles_to_users(self, request, data, project_id, user,
-                            current_roles, available_roles):
+    def _add_roles_to_users(self, request, data, project_id, user_id,
+                            role_ids, available_roles):
         member_step = self.get_step(PROJECT_USER_MEMBER_SLUG)
-        current_role_ids = [role.id for role in current_roles]
+        current_role_ids = list(role_ids)
 
         for role in available_roles:
             field_name = member_step.get_member_field_name(role.id)
             # Check if the user is in the list of users with this role.
-            if user.id in data[field_name]:
+            if user_id in data[field_name]:
                 # Add it if necessary
                 if role.id not in current_role_ids:
                     # user role has changed
                     api.keystone.add_tenant_user_role(
                         request,
                         project=project_id,
-                        user=user.id,
+                        user=user_id,
                         role=role.id)
                 else:
                     # User role is unchanged, so remove it from the
                     # remaining roles list to avoid removing it later.
                     index = current_role_ids.index(role.id)
                     current_role_ids.pop(index)
-
         return current_role_ids
 
-    def _remove_roles_from_user(self, request, project_id, user,
+    def _remove_roles_from_user(self, request, project_id, user_id,
                                 current_role_ids):
         for id_to_delete in current_role_ids:
             api.keystone.remove_tenant_user_role(
                 request,
                 project=project_id,
-                user=user.id,
+                user=user_id,
                 role=id_to_delete)
 
-    def _is_removing_self_admin_role(self, request, project_id, user,
-                                     current_roles, current_role_ids):
-        is_current_user = user.id == request.user.id
+    def _is_removing_self_admin_role(self, request, project_id, user_id,
+                                     available_roles, current_role_ids):
+        is_current_user = user_id == request.user.id
         is_current_project = project_id == request.user.tenant_id
-        admin_roles = [role for role in current_roles
-                       if role.name.lower() == 'admin']
+        available_admin_role_ids = [role.id for role in available_roles
+                                    if role.name.lower() == 'admin']
+        admin_roles = [role for role in current_role_ids
+                       if role in available_admin_role_ids]
         if len(admin_roles):
-            removing_admin = any([role.id in current_role_ids
+            removing_admin = any([role in current_role_ids
                                   for role in admin_roles])
         else:
             removing_admin = False
@@ -677,25 +678,25 @@ class UpdateProject(workflows.Workflow):
             available_roles = self._get_available_roles(request)
             # Get the users currently associated with this project so we
             # can diff against it.
-            project_members = api.keystone.user_list(request,
-                                                     project=project_id)
-            users_to_modify = len(project_members)
+            users_roles = api.keystone.get_project_users_roles(
+                request, project=project_id)
+            users_to_modify = len(users_roles)
 
-            for user in project_members:
+            for user_id in users_roles.keys():
                 # Check if there have been any changes in the roles of
                 # Existing project members.
-                current_roles = api.keystone.roles_for_user(
-                    self.request, user.id, project_id)
-                current_role_ids = self._add_roles_to_users(
-                    request, data, project_id, user,
-                    current_roles, available_roles)
+                current_role_ids = list(users_roles[user_id])
+                modified_role_ids = self._add_roles_to_users(
+                    request, data, project_id, user_id,
+                    current_role_ids, available_roles)
                 # Prevent admins from doing stupid things to themselves.
                 removing_admin = self._is_removing_self_admin_role(
-                    request, project_id, user, current_roles, current_role_ids)
+                    request, project_id, user_id, available_roles,
+                    modified_role_ids)
                 # Otherwise go through and revoke any removed roles.
                 if not removing_admin:
-                    self._remove_roles_from_user(request, project_id, user,
-                                                 current_role_ids)
+                    self._remove_roles_from_user(request, project_id, user_id,
+                                                 modified_role_ids)
                 users_to_modify -= 1
 
             # Grant new roles on the project.
@@ -707,7 +708,7 @@ class UpdateProject(workflows.Workflow):
                 users_added = 0
                 field_name = member_step.get_member_field_name(role.id)
                 for user_id in data[field_name]:
-                    if not filter(lambda x: user_id == x.id, project_members):
+                    if user_id not in users_roles:
                         api.keystone.add_tenant_user_role(request,
                                                           project=project_id,
                                                           user=user_id,

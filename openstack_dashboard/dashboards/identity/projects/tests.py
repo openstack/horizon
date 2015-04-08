@@ -46,8 +46,8 @@ from socket import timeout as socket_timeout  # noqa
 
 
 INDEX_URL = reverse('horizon:identity:projects:index')
-USER_ROLE_PREFIX = workflows.PROJECT_GROUP_MEMBER_SLUG + "_role_"
-GROUP_ROLE_PREFIX = workflows.PROJECT_USER_MEMBER_SLUG + "_role_"
+USER_ROLE_PREFIX = workflows.PROJECT_USER_MEMBER_SLUG + "_role_"
+GROUP_ROLE_PREFIX = workflows.PROJECT_GROUP_MEMBER_SLUG + "_role_"
 PROJECT_DETAIL_URL = reverse('horizon:identity:projects:detail', args=[1])
 
 
@@ -762,6 +762,83 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         project_scope = {'project': {'id': project_id}}
         return self.role_assignments.filter(scope=project_scope)
 
+    def _check_role_list(self, keystone_api_version, role_assignments, groups,
+                         proj_users, roles, workflow_data):
+        if keystone_api_version >= 3:
+            # admin role with attempt to remove current admin, results in
+            # warning message
+            workflow_data[USER_ROLE_PREFIX + "1"] = ['3']
+
+            # member role
+            workflow_data[USER_ROLE_PREFIX + "2"] = ['1', '3']
+
+            # admin role
+            workflow_data[GROUP_ROLE_PREFIX + "1"] = ['2', '3']
+
+            # member role
+            workflow_data[GROUP_ROLE_PREFIX + "2"] = ['1', '2', '3']
+            api.keystone.role_assignments_list(IsA(http.HttpRequest),
+                                               project=self.tenant.id) \
+               .AndReturn(role_assignments)
+            # Give user 1 role 2
+            api.keystone.add_tenant_user_role(IsA(http.HttpRequest),
+                                              project=self.tenant.id,
+                                              user='1',
+                                              role='2',)
+            # remove role 2 from user 2
+            api.keystone.remove_tenant_user_role(IsA(http.HttpRequest),
+                                                 project=self.tenant.id,
+                                                 user='2',
+                                                 role='2')
+
+            # Give user 3 role 1
+            api.keystone.add_tenant_user_role(IsA(http.HttpRequest),
+                                              project=self.tenant.id,
+                                              user='3',
+                                              role='1',)
+            api.keystone.group_list(IsA(http.HttpRequest),
+                                    domain=self.domain.id,
+                                    project=self.tenant.id) \
+                .AndReturn(groups)
+            api.keystone.roles_for_group(IsA(http.HttpRequest),
+                                         group='1',
+                                         project=self.tenant.id) \
+                .AndReturn(roles)
+            api.keystone.remove_group_role(IsA(http.HttpRequest),
+                                           project=self.tenant.id,
+                                           group='1',
+                                           role='1')
+            api.keystone.roles_for_group(IsA(http.HttpRequest),
+                                         group='2',
+                                         project=self.tenant.id) \
+                .AndReturn(roles)
+            api.keystone.roles_for_group(IsA(http.HttpRequest),
+                                         group='3',
+                                         project=self.tenant.id) \
+                .AndReturn(roles)
+        else:
+            api.keystone.user_list(IsA(http.HttpRequest),
+                                   project=self.tenant.id) \
+               .AndReturn(proj_users)
+
+            # admin user - try to remove all roles on current project, warning
+            api.keystone.roles_for_user(IsA(http.HttpRequest), '1',
+                                        self.tenant.id).AndReturn(roles)
+
+            # member user 1 - has role 1, will remove it
+            api.keystone.roles_for_user(IsA(http.HttpRequest), '2',
+                                        self.tenant.id).AndReturn((roles[1],))
+
+            # member user 3 - has role 2
+            api.keystone.roles_for_user(IsA(http.HttpRequest), '3',
+                                        self.tenant.id).AndReturn((roles[0],))
+            # add role 2
+            api.keystone.add_tenant_user_role(IsA(http.HttpRequest),
+                                              project=self.tenant.id,
+                                              user='3',
+                                              role='2')\
+                .AndRaise(self.exceptions.keystone)
+
     @test.create_stubs({api.keystone: ('get_default_role',
                                        'roles_for_user',
                                        'tenant_get',
@@ -879,7 +956,6 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         users = self._get_all_users(domain_id)
         proj_users = self._get_proj_users(project.id)
         groups = self._get_all_groups(domain_id)
-        proj_groups = self._get_proj_groups(project.id)
         roles = self.roles.list()
         role_assignments = self._get_proj_role_assignment(project.id)
         quota_usages = self.quota_usages.first()
@@ -952,91 +1028,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                                    **updated_project) \
             .AndReturn(project)
 
-        api.keystone.user_list(IsA(http.HttpRequest),
-                               project=self.tenant.id).AndReturn(proj_users)
-
-        # admin user - try to remove all roles on current project, warning
-        api.keystone.roles_for_user(IsA(http.HttpRequest), '1',
-                                    self.tenant.id) \
-            .AndReturn(roles)
-
-        # member user 1 - has role 1, will remove it
-        api.keystone.roles_for_user(IsA(http.HttpRequest), '2',
-                                    self.tenant.id) \
-            .AndReturn((roles[0],))
-        # remove role 1
-        api.keystone.remove_tenant_user_role(IsA(http.HttpRequest),
-                                             project=self.tenant.id,
-                                             user='2',
-                                             role='1')
-        # add role 2
-        api.keystone.add_tenant_user_role(IsA(http.HttpRequest),
-                                          project=self.tenant.id,
-                                          user='2',
-                                          role='2')
-
-        # member user 3 - has role 2
-        api.keystone.roles_for_user(IsA(http.HttpRequest), '3',
-                                    self.tenant.id) \
-            .AndReturn((roles[1],))
-        # remove role 2
-        api.keystone.remove_tenant_user_role(IsA(http.HttpRequest),
-                                             project=self.tenant.id,
-                                             user='3',
-                                             role='2')
-        # add role 1
-        api.keystone.add_tenant_user_role(IsA(http.HttpRequest),
-                                          project=self.tenant.id,
-                                          user='3',
-                                          role='1')
-
-        # Group assignments
-        api.keystone.group_list(IsA(http.HttpRequest),
-                                domain=domain_id,
-                                project=self.tenant.id).AndReturn(proj_groups)
-
-        # admin group - try to remove all roles on current project
-        api.keystone.roles_for_group(IsA(http.HttpRequest),
-                                     group='1',
-                                     project=self.tenant.id) \
-            .AndReturn(roles)
-        for role in roles:
-            api.keystone.remove_group_role(IsA(http.HttpRequest),
-                                           role=role.id,
-                                           group='1',
-                                           project=self.tenant.id)
-
-        # member group 1 - has role 1, will remove it
-        api.keystone.roles_for_group(IsA(http.HttpRequest),
-                                     group='2',
-                                     project=self.tenant.id) \
-            .AndReturn((roles[0],))
-        # remove role 1
-        api.keystone.remove_group_role(IsA(http.HttpRequest),
-                                       role='1',
-                                       group='2',
-                                       project=self.tenant.id)
-        # add role 2
-        api.keystone.add_group_role(IsA(http.HttpRequest),
-                                    role='2',
-                                    group='2',
-                                    project=self.tenant.id)
-
-        # member group 3 - has role 2
-        api.keystone.roles_for_group(IsA(http.HttpRequest),
-                                     group='3',
-                                     project=self.tenant.id) \
-            .AndReturn((roles[1],))
-        # remove role 2
-        api.keystone.remove_group_role(IsA(http.HttpRequest),
-                                       role='2',
-                                       group='3',
-                                       project=self.tenant.id)
-        # add role 1
-        api.keystone.add_group_role(IsA(http.HttpRequest),
-                                    role='1',
-                                    group='3',
-                                    project=self.tenant.id)
+        self._check_role_list(keystone_api_version, role_assignments, groups,
+                              proj_users, roles, workflow_data)
 
         quotas.tenant_quota_usages(IsA(http.HttpRequest), tenant_id=project.id) \
             .AndReturn(quota_usages)
@@ -1253,7 +1246,6 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         users = self._get_all_users(domain_id)
         proj_users = self._get_proj_users(project.id)
         groups = self._get_all_groups(domain_id)
-        proj_groups = self._get_proj_groups(project.id)
         roles = self.roles.list()
         role_assignments = self._get_proj_role_assignment(project.id)
         quota_usages = self.quota_usages.first()
@@ -1323,57 +1315,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                                    **updated_project) \
             .AndReturn(project)
 
-        api.keystone.user_list(IsA(http.HttpRequest),
-                               project=self.tenant.id).AndReturn(proj_users)
-
-        # admin user - try to remove all roles on current project, warning
-        api.keystone.roles_for_user(IsA(http.HttpRequest), '1',
-                                    self.tenant.id) \
-            .AndReturn(roles)
-
-        # member user 1 - has role 1, will remove it
-        api.keystone.roles_for_user(IsA(http.HttpRequest), '2',
-                                    self.tenant.id) \
-            .AndReturn((roles[1],))
-
-        # member user 3 - has role 2
-        api.keystone.roles_for_user(IsA(http.HttpRequest), '3',
-                                    self.tenant.id) \
-            .AndReturn((roles[0],))
-        # add role 2
-        api.keystone.add_tenant_user_role(IsA(http.HttpRequest),
-                                          project=self.tenant.id,
-                                          user='3',
-                                          role='2')
-
-        # Group assignment
-        api.keystone.group_list(IsA(http.HttpRequest),
-                                domain=domain_id,
-                                project=self.tenant.id).AndReturn(proj_groups)
-
-        # admin group 1- try to remove all roles on current project
-        api.keystone.roles_for_group(IsA(http.HttpRequest),
-                                     group='1',
-                                     project=self.tenant.id) \
-            .AndReturn(roles)
-
-        # member group 1 - has no change
-        api.keystone.roles_for_group(IsA(http.HttpRequest),
-                                     group='2',
-                                     project=self.tenant.id) \
-            .AndReturn((roles[1],))
-
-        # member group 3 - has role 1
-        api.keystone.roles_for_group(IsA(http.HttpRequest),
-                                     group='3',
-                                     project=self.tenant.id) \
-            .AndReturn((roles[0],))
-
-        # add role 2
-        api.keystone.add_group_role(IsA(http.HttpRequest),
-                                    role='2',
-                                    group='3',
-                                    project=self.tenant.id)
+        self._check_role_list(keystone_api_version, role_assignments, groups,
+                              proj_users, roles, workflow_data)
 
         quotas.tenant_quota_usages(IsA(http.HttpRequest), tenant_id=project.id) \
             .AndReturn(quota_usages)
@@ -1400,7 +1343,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         res = self.client.post(url, workflow_data)
 
         self.assertNoFormErrors(res)
-        self.assertMessageCount(error=2, warning=0)
+        self.assertMessageCount(error=2, warning=1)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api.keystone: ('tenant_get',
@@ -1500,27 +1443,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                                    **updated_project) \
             .AndReturn(project)
 
-        api.keystone.user_list(IsA(http.HttpRequest),
-                               project=self.tenant.id).AndReturn(proj_users)
-
-        # admin user - try to remove all roles on current project, warning
-        api.keystone.roles_for_user(IsA(http.HttpRequest), '1',
-                                    self.tenant.id).AndReturn(roles)
-
-        # member user 1 - has role 1, will remove it
-        api.keystone.roles_for_user(IsA(http.HttpRequest), '2',
-                                    self.tenant.id).AndReturn((roles[1],))
-
-        # member user 3 - has role 2
-        api.keystone.roles_for_user(IsA(http.HttpRequest), '3',
-                                    self.tenant.id).AndReturn((roles[0],))
-        # add role 2
-        api.keystone.add_tenant_user_role(IsA(http.HttpRequest),
-                                          project=self.tenant.id,
-                                          user='3',
-                                          role='2')\
-            .AndRaise(self.exceptions.keystone)
-
+        self._check_role_list(keystone_api_version, role_assignments, groups,
+                              proj_users, roles, workflow_data)
         self.mox.ReplayAll()
 
         # submit form data
@@ -1536,7 +1460,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         res = self.client.post(url, workflow_data)
 
         self.assertNoFormErrors(res)
-        self.assertMessageCount(error=2, warning=0)
+        self.assertMessageCount(error=2, warning=1)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
         # django 1.7 and later does not handle the thrown keystoneclient
