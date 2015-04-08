@@ -71,7 +71,7 @@
     };
 
     // Flavor facades and the new instance chart depend on nova limit data
-    $scope.$watch(function (scope) {
+    $scope.$watch(function () {
       return launchInstanceModel.novaLimits;
     }, function (newValue, oldValue, scope) {
       var ctrl = scope.selectFlavorCtrl;

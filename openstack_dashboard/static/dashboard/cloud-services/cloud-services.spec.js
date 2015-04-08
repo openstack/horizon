@@ -156,7 +156,7 @@
       beforeEach(module('hz.dashboard', function ($provide) {
         ifExtensionsEnabled = function () {
           return {
-            then: function (successCallback, errorCallback) {
+            then: function () {
             }
           };
         };
@@ -217,7 +217,7 @@
       beforeEach(module('hz.dashboard', function ($provide) {
         $provide.value('ifExtensionsEnabled', function () {
           return {
-            then: function (successCallback, errorCallback) {
+            then: function (successCallback) {
               $timeout(successCallback);
             }
           };

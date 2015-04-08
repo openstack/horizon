@@ -1,8 +1,7 @@
 (function () {
   'use strict';
 
-  var push = [].push,
-      forEach = angular.forEach;
+  var push = [].push;
 
   /**
    * @ngdoc overview
@@ -247,7 +246,7 @@
       angular.extend($scope.tableData, bootSources[key]);
     }
 
-    function updateHelpText(key) {
+    function updateHelpText() {
       angular.extend($scope.helpText, {
         noneAllocText: gettext('Select a source from those listed below.'),
         availHelpText: gettext('Select one'),
@@ -273,8 +272,7 @@
     //
 
     var maxTotalInstances = 1, // Must has default value > 0
-        totalInstancesUsed = 0,
-        remaining = 0;
+        totalInstancesUsed = 0;
 
     if ($scope.model.novaLimits && $scope.model.novaLimits.maxTotalInstances) {
       maxTotalInstances = $scope.model.novaLimits.maxTotalInstances;
@@ -381,7 +379,7 @@
     // If boot source type is 'image' and 'Create New Volume'
     // is checked, set the minimum volume size for validating
     // vol_size field
-    function checkVolumeForImage(newLength) {
+    function checkVolumeForImage() {
       var source = selection ? selection[0] : undefined;
 
       if (source && $scope.currentBootSource === bootSourceTypes.IMAGE) {
@@ -446,7 +444,7 @@
       function () {
         return $scope.model.images;
       },
-      function (newValue, oldValue) {
+      function () {
         $scope.initPromise.then(function () {
           $scope.$applyAsync(function () {
             if ($scope.launchContext.imageId) {
