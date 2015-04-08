@@ -259,12 +259,16 @@ class ImagesTable(tables.DataTable):
         ("killed", pgettext_lazy("Current status of an Image", u"Killed")),
         ("deleted", pgettext_lazy("Current status of an Image", u"Deleted")),
     )
+    TYPE_CHOICES = (
+        ("image", pgettext_lazy("Type of an image", u"Image")),
+        ("snapshot", pgettext_lazy("Type of an image", u"Snapshot")),
+    )
     name = tables.Column(get_image_name,
                          link="horizon:project:images:images:detail",
                          verbose_name=_("Image Name"))
     image_type = tables.Column(get_image_type,
                                verbose_name=_("Type"),
-                               filters=(filters.title,))
+                               display_choices=TYPE_CHOICES)
     status = tables.Column("status",
                            verbose_name=_("Status"),
                            status=True,
