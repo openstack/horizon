@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-06 21:08-0500\n"
-"PO-Revision-Date: 2015-04-06 18:42+0000\n"
+"PO-Revision-Date: 2015-04-07 16:41+0000\n"
 "Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -10064,7 +10064,7 @@ msgstr "라우터 연결"
 #: dashboards/project/firewalls/tables.py:369
 #, python-format
 msgid "Failed to verify extension support %(reason)s"
-msgstr ""
+msgstr "확장 지원을 확인하지 못 하였습니다. %(reason)s"
 
 #: dashboards/project/firewalls/tabs.py:31
 msgid "Firewall Rules"
@@ -10167,15 +10167,15 @@ msgstr "정책 위치"
 msgid ""
 "Choose router(s) from Available Routers to Selected Routers by push button "
 "or drag and drop. "
-msgstr ""
+msgstr "푸시 버튼이나 드래그 앤 드롭으로 선택한 라우터에서 사용가능한 라우터로 라우터를 선택합니다."
 
 #: dashboards/project/firewalls/templates/firewalls/_update_routers.html:8
 msgid "Selected Routers"
-msgstr ""
+msgstr "선택된 라우터"
 
 #: dashboards/project/firewalls/templates/firewalls/_update_routers.html:11
 msgid "Available Routers"
-msgstr ""
+msgstr "사용 가능한 라우터"
 
 #: dashboards/project/firewalls/templates/firewalls/_update_rule_help.html:3
 msgid ""
@@ -10473,7 +10473,7 @@ msgstr "이미지가 부팅에 필요한 최소한의 메모리 크기입니다.
 
 #: dashboards/project/images/images/forms.py:96
 msgid "Copy Data"
-msgstr ""
+msgstr "데이터 복사"
 
 #: dashboards/project/images/images/forms.py:97
 msgid ""
@@ -10540,7 +10540,7 @@ msgstr[0] "이미지 삭제함"
 
 #: dashboards/project/images/images/tables.py:129
 msgid "Edit Image"
-msgstr ""
+msgstr "이미지 편집"
 
 #: dashboards/project/images/images/tables.py:146
 #: dashboards/project/volumes/snapshots/tables.py:93
@@ -13466,7 +13466,7 @@ msgstr "네트워크 \"%s\"를 삭제하지 못하였습니다."
 
 #: dashboards/project/overview/views.py:34
 msgid "Time since created (Seconds)"
-msgstr ""
+msgstr "생성된 이후 시간 (초)"
 
 #: dashboards/project/routers/extensions/routerrules/forms.py:43
 msgid "Input must be in CIDR format"
@@ -15484,7 +15484,7 @@ msgstr "볼륨을 찾지 못 했습니다."
 
 #: dashboards/project/volumes/volumes/views.py:433
 msgid "Volume Encryption Details: {{ volume.name }}"
-msgstr ""
+msgstr "볼륨 암호화 세부 정보: {{ volume.name }}"
 
 #: dashboards/project/volumes/volumes/views.py:440
 #, python-format
@@ -16709,7 +16709,7 @@ msgstr "VCPU 시간"
 #: usage/tables.py:45
 msgid ""
 "Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
-msgstr ""
+msgstr "프로젝트에 대한 총 VCPU (인스턴스 내 VCPU 개수 * 사용 시간) 사용량"
 
 #: usage/tables.py:50
 msgid "Disk GB Hours"

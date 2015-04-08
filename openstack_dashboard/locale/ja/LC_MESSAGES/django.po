@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-06 21:08-0500\n"
-"PO-Revision-Date: 2015-04-07 04:51+0000\n"
+"PO-Revision-Date: 2015-04-07 21:41+0000\n"
 "Last-Translator: myamamot <myamamot@redhat.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -6990,7 +6990,7 @@ msgstr "以下のプラグイン用のクラスターテンプレートを作成
 msgid ""
 "The Cluster Template object should specify Node Group Templates that will be used to build a Cluster.\n"
 "    You can add Node Groups using Node Group Templates on a &quot;Node Groups&quot; tab."
-msgstr "クラスターテンプレートでは、クラスターを作成するために使用するノードグループテンプレートを指定する必要があります。\nまた、「ノードグループ」タブでノードグループテンプレートを使ってノードグループを追加できます。"
+msgstr "クラスターテンプレートのオブジェクトでは、クラスターの作成に使用するノードグループテンプレートを指定する必要があります。\nまた、「ノードグループ」タブでノードグループテンプレートを使用してノードグループを追加できます。"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:16
 msgid ""
@@ -8762,7 +8762,7 @@ msgid ""
 "                            or more data sources.  You can create multiple data\n"
 "                            sources by repeating this step.\n"
 "                        "
-msgstr "データソースとは、ジョブが出力/入力に使用するものです。ジョブの種別により、データソースを 1 つ以上定義する必要がある場合があります。このステップを繰り返すことで複数のデータソースを作成できます。"
+msgstr "データソースとは、ジョブが出入力に使用するものです。ジョブの種別により、データソースを 1 つ以上定義する必要がある場合があります。このステップを繰り返すことで複数のデータソースを作成できます。"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:52
 msgid "Create a data source"
@@ -8776,7 +8776,7 @@ msgid ""
 "                        or upload the files necessary to run it.  The inputs\n"
 "                        and outputs will be defined later.\n"
 "                    "
-msgstr "ジョブテンプレートを定義します。実行するジョブ種別 (Pig、Java Action、Spark など) の選択およびそれを実行するのに必要なファイルの選択とアップロードはここで行います。入力/出力は後で定義されます。"
+msgstr "ジョブテンプレートを定義します。実行するジョブ種別 (Pig、Java Action、Spark など) の選択およびそれを実行するのに必要なファイルの選択とアップロードはここで行います。出入力は後で定義されます。"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:71
 msgid "Create a job template"
@@ -9513,7 +9513,7 @@ msgstr "フレーバーの一覧を取得できません。"
 #: dashboards/project/databases/workflows/create_instance.py:37
 #: dashboards/project/instances/workflows/create_instance.py:88
 msgid "Size of image to launch."
-msgstr "起動するイメージの容量。"
+msgstr "起動するイメージの容量"
 
 #: dashboards/project/databases/workflows/create_instance.py:41
 msgid "Size of the volume in GB."
@@ -10115,7 +10115,7 @@ msgstr "ファイアウォールの詳細を取得できません。"
 
 #: dashboards/project/firewalls/templates/firewalls/_add_router_to_firewall.html:6
 msgid "Choose the router(s) you want to add."
-msgstr "追加したいルーターを選択してください。"
+msgstr "追加するルーターを選択してください。"
 
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:19
 msgid "Policy ID"
@@ -10134,15 +10134,15 @@ msgid ""
 "Choose the rule you want to insert. Specify either the rule you want to "
 "insert immediately before, or the rule to insert immediately after. If both "
 "are specified, the prior takes precedence."
-msgstr "挿入したいルールを選択してください。ルールをどのルールの直前、または直後に挿入するかを指定してください。両方指定した場合は指定したルールの直前に挿入されます。"
+msgstr "挿入するルールを選択してください。ルールをどのルールの直前、または直後に挿入するかを指定してください。両方指定した場合は指定したルールの直前に挿入されます。"
 
 #: dashboards/project/firewalls/templates/firewalls/_remove_router_from_firewall.html:6
 msgid "Unselect the routers you want to disassociate from the firewall."
-msgstr "ファイアウォールの適用を解除したいルーターの選択を外してください。"
+msgstr "ファイアウォールの適用を解除するルーターの選択を外してください。"
 
 #: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:6
 msgid "Choose the rule you want to remove."
-msgstr "削除したいルールを選択してください。"
+msgstr "削除するルールを選択してください。"
 
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:25
 msgid "Source IP Address"
@@ -11938,7 +11938,7 @@ msgstr "これらのセキュリティーグループでインスタンスを起
 msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
-msgstr "インスタンスへのアクセスを、キーペア、セキュリティーグループやその他の仕組みを使って制御します。"
+msgstr "キーペア、セキュリティーグループやその他の仕組みを使用して、インスタンスへのアクセスを制御します。"
 
 #: dashboards/project/instances/workflows/create_instance.py:574
 msgid "Unable to retrieve list of security groups"
@@ -12774,7 +12774,7 @@ msgstr "指定できるサーバーがありません。メンバーを追加す
 
 #: dashboards/project/loadbalancers/workflows.py:392
 msgid "At least one member must be specified"
-msgstr "少なくともメンバーを1 つ指定する必要があります。"
+msgstr "少なくともメンバーを 1 つ指定する必要があります。"
 
 #: dashboards/project/loadbalancers/workflows.py:396
 msgid "Member IP address must be specified"
@@ -13419,7 +13419,7 @@ msgstr "開始アドレスが終了アドレスより大きい (値=%s)"
 msgid ""
 "Host Routes format error: Destination CIDR and nexthop must be specified "
 "(value=%s)"
-msgstr "追加のルート設定の形式エラー: 宛先 CIDR およびネクストホップを指定する必要があります (値=%s)"
+msgstr "ホストルートの形式エラー: 宛先 CIDR およびネクストホップを指定する必要があります (値=%s)"
 
 #: dashboards/project/networks/workflows.py:343
 #, python-format
@@ -13571,7 +13571,7 @@ msgstr "デフォルト設定を使用"
 #: dashboards/project/routers/forms.py:52
 #: dashboards/project/routers/forms.py:143
 msgid "Centralized"
-msgstr "集中ルータ"
+msgstr "集中ルーター"
 
 #: dashboards/project/routers/forms.py:53
 #: dashboards/project/routers/forms.py:138
@@ -13579,7 +13579,7 @@ msgstr "集中ルータ"
 #: dashboards/project/routers/tables.py:217
 #: dashboards/project/routers/templates/routers/_detail_overview.html:16
 msgid "Distributed"
-msgstr "分散ルータ"
+msgstr "分散ルーター"
 
 #: dashboards/project/routers/forms.py:62
 msgid "Enable HA mode"
@@ -13761,7 +13761,7 @@ msgstr "ルーターの編集"
 msgid ""
 "You may reset the gateway later by using the set gateway action, but the "
 "gateway IP may change."
-msgstr "「ゲートウェイの設定」を使って再度ゲートウェイを設定することはできますが、ゲートウェイ側の IP アドレスが変化するかもしれません。"
+msgstr "「ゲートウェイの設定」で再度ゲートウェイを設定することはできますが、ゲートウェイ側の IP アドレスが変更される可能性があります。"
 
 #: dashboards/project/routers/tables.py:134
 msgid "Clear Gateway"
@@ -13970,7 +13970,7 @@ msgstr "テンプレートファイル"
 
 #: dashboards/project/stacks/forms.py:75
 msgid "A local template to upload."
-msgstr "ローカルにあるアップロードするテンプレート"
+msgstr "アップロードする必要のあるローカルのテンプレート"
 
 #: dashboards/project/stacks/forms.py:82 dashboards/project/stacks/forms.py:84
 msgid "Template URL"
@@ -13999,7 +13999,7 @@ msgstr "環境設定ファイル"
 
 #: dashboards/project/stacks/forms.py:112
 msgid "A local environment to upload."
-msgstr "アップロードするローカルにある環境設定データ"
+msgstr "アップロードする必要のあるローカルの環境設定データ"
 
 #: dashboards/project/stacks/forms.py:119
 #: dashboards/project/stacks/forms.py:121
@@ -14070,7 +14070,7 @@ msgstr "作成するスタックの名前。"
 msgid ""
 "Name must start with a letter and may only contain letters, numbers, "
 "underscores, periods and hyphens."
-msgstr "名前の一文字目はアルファベットして下さい。また、名前には、鋭意数字、アンダースコア、ピリオド、ハイフンだけが使用できます。"
+msgstr "名前の 1 文字目にはアルファベットを指定する必要があります。また、名前には、英数字、アンダースコア、ピリオド、ハイフンだけが使用できます。"
 
 #: dashboards/project/stacks/forms.py:273
 msgid "Creation Timeout (minutes)"
@@ -16581,15 +16581,15 @@ msgstr "VMDK - 仮想マシンディスク"
 
 #: settings.py:237
 msgid "All TCP"
-msgstr "All TCP"
+msgstr "すべての TCP"
 
 #: settings.py:243
 msgid "All UDP"
-msgstr "All UDP"
+msgstr "すべての UDP"
 
 #: settings.py:249
 msgid "All ICMP"
-msgstr "All ICMP"
+msgstr "すべての ICMP"
 
 #: templates/403.html:5 templates/403.html.py:10
 msgid "Forbidden"
@@ -16616,7 +16616,7 @@ msgstr "お探しのページが見つかりません"
 
 #: templates/404.html:11
 msgid "You may have mistyped the address or the page may have moved."
-msgstr "入力したアドレスが間違っている、またはそのページが移動してしまった。"
+msgstr "入力したアドレスが間違っているか、またはそのページが移動された可能性があります。"
 
 #: templates/500.html:20
 msgid "Server error"
@@ -16693,7 +16693,7 @@ msgstr "指定された期間が不正です。存在しない未来のデータ
 
 #: usage/quotas.py:73
 msgid "Injected File Path Bytes"
-msgstr "injected file のパス長"
+msgstr "注入ファイル のパス長"
 
 #: usage/quotas.py:368
 msgid "Unable to retrieve compute limit information."
