@@ -3,14 +3,14 @@ Django>=1.4,<1.7
 django_compressor>=1.3
 django_openstack_auth>=1.1.4,!=1.1.6,<1.1.8
 eventlet>=0.13.0,<0.16.0
-httplib2>=0.7.5
-iso8601>=0.1.9
-kombu>=2.4.8
+httplib2>=0.7.5,<=0.9
+iso8601>=0.1.9,<=0.1.10
+kombu>=2.5.0,<=3.0.7
 lesscpy>=0.9j
 # Horizon Utility Requirements
 # for SECURE_KEY generation
-lockfile>=0.8
-netaddr>=0.7.6
+lockfile>=0.8,<=0.10.2
+netaddr>=0.7.6,<=0.7.14
 pbr>=0.6,<1.0
 python-ceilometerclient>=1.0.6,<=1.0.12
 python-cinderclient>=1.0.6,<=1.1.1
@@ -21,5 +21,5 @@ python-neutronclient>=2.3.4,<2.3.11
 python-novaclient>=2.17.0,<2.21
 python-swiftclient>=1.6,<=2.3.1
 python-troveclient>=1.0.3,<=1.0.8
-pytz>=2010h
-six>=1.6.0
+pytz>=2010h,<=2015.2
+six>=1.6.0,<=1.9.0
