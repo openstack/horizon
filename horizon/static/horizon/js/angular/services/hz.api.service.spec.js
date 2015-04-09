@@ -3,7 +3,7 @@
   'use strict';
 
   describe('hz.api.service module', function() {
-    it('should have been defined".', function () {
+    it('should have been defined', function () {
       expect(angular.module('hz.api.service')).toBeDefined();
     });
   });
@@ -15,8 +15,6 @@
     beforeEach(inject(function ($injector, apiService) {
       api = apiService;
       $httpBackend = $injector.get('$httpBackend');
-
-
     }));
 
     afterEach(function() {

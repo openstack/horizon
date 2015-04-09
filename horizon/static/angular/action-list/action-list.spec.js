@@ -30,16 +30,17 @@
 
         $scope.item = 'test';
 
-        var markup = '<action-list dropdown>' +
-          ' <action button-type="single-button">Actions</action>' +
-          ' <menu>' +
-          ' <action button-type="menu-item" callback="clickMe" item="item">' +
-          '  Edit' +
-          ' </action>' +
-          ' <action button-type="menu-item" callback="clickMe" item="item">' +
-          '   Delete' +
-          ' </action>' +
-          ' </menu>' +
+        var markup = 
+          '<action-list dropdown>' +
+          '  <action button-type="single-button">Actions</action>' +
+          '  <menu>' +
+          '    <action button-type="menu-item" callback="clickMe" item="item">' +
+          '      Edit' +
+          '    </action>' +
+          '    <action button-type="menu-item" callback="clickMe" item="item">' +
+          '      Delete' +
+          '    </action>' +
+          '  </menu>' +
           '</action-list>';
 
         $element = angular.element(markup);
@@ -85,18 +86,19 @@
 
         $scope.item = 'test';
 
-        var markup = '<action-list dropdown>' +
-          ' <action button-type="split-button" callback="clickMe" item="item">' +
-          '   View' +
-          ' </action>' +
-          ' <menu>' +
-          ' <action button-type="menu-item" callback="clickMe" item="item">' +
-          '  Edit' +
-          ' </action>' +
-          ' <action button-type="menu-item" callback="clickMe" item="item">' +
-          '   Delete' +
-          ' </action>' +
-          ' </menu>' +
+        var markup =
+          '<action-list dropdown>' +
+          '  <action button-type="split-button" callback="clickMe" item="item">' +
+          '    View' +
+          '  </action>' +
+          '  <menu>' +
+          '    <action button-type="menu-item" callback="clickMe" item="item">' +
+          '      Edit' +
+          '    </action>' +
+          '    <action button-type="menu-item" callback="clickMe" item="item">' +
+          '      Delete' +
+          '    </action>' +
+          '  </menu>' +
           '</action-list>';
 
         $element = angular.element(markup);

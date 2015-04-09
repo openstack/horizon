@@ -3,7 +3,7 @@
   'use strict';
 
   describe('hz.widget.table module', function() {
-    it('should have been defined".', function () {
+    it('should have been defined', function () {
       expect(angular.module('hz.widget.table')).toBeDefined();
     });
   });
@@ -94,9 +94,14 @@
     });
 
     describe('hzSelect directive', function() {
+      var checkboxes;
+
+      beforeEach(function() {
+        checkboxes = $element.find('input[hz-select]');
+      });
 
       it('should have numSelected === 1 when first checkbox is clicked', function() {
-        var checkbox = $element.find('input[hz-select]').first();
+        var checkbox = checkboxes.first();
         checkbox[0].checked = true;
         checkbox.triggerHandler('click');
 
@@ -104,7 +109,7 @@
       });
 
       it('should have numSelected === 0 when first checkbox is clicked, then unclicked', function() {
-        var checkbox = $element.find('input[hz-select]').first();
+        var checkbox = checkboxes.first();
         checkbox[0].checked = true;
         checkbox.triggerHandler('click');
 
@@ -117,7 +122,6 @@
       });
 
       it('should have numSelected === 3 and select-all checked when all rows selected', function() {
-        var checkboxes = $element.find('input[hz-select]');
         angular.forEach(checkboxes, function(checkbox) {
           checkbox.checked = true;
           angular.element(checkbox).triggerHandler('click');
@@ -128,7 +132,6 @@
       });
 
       it('should have select-all unchecked when all rows selected, then one deselected', function() {
-        var checkboxes = $element.find('input[hz-select]');
         angular.forEach(checkboxes, function(checkbox) {
           checkbox.checked = true;
           angular.element(checkbox).triggerHandler('click');

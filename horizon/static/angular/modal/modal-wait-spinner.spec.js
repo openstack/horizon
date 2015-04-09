@@ -22,11 +22,8 @@
 
     beforeEach(module('hz.widget.modal-wait-spinner'));
 
-    beforeEach(inject(function(modalWaitSpinnerService) {
+    beforeEach(inject(function(modalWaitSpinnerService, $modal) {
       service = modalWaitSpinnerService;
-    }));
-
-    beforeEach(inject(function($modal) {
       modal = $modal;
     }));
 
