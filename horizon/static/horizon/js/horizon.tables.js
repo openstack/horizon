@@ -1,30 +1,29 @@
 /* Namespace for core functionality related to DataTables. */
 horizon.datatables = {
   update: function () {
-    var $rows_to_update = $('tr.status_unknown.ajax-update'),
-      rows_to_update = $rows_to_update.length;
-    if ( rows_to_update > 0 ) {
-      var interval = $rows_to_update.attr('data-update-interval'),
-        $table = $rows_to_update.closest('table'),
-        submit_in_progress = $table.closest('form').attr('data-submitted'),
-        decay_constant = $table.attr('decay_constant');
+    var $rows_to_update = $('tr.status_unknown.ajax-update');
+    var $table = $rows_to_update.closest('table');
+    var interval = $rows_to_update.attr('data-update-interval');
+    var decay_constant = $table.attr('decay_constant');
+    var requests = [];
 
-      // Do not update this row if the action column is expanded or the form
-      // is in the process of being submitted. If we update the row while the
-      // form is still submitting any disabled action buttons would potentially
-      // be enabled again, allowing for multiple form submits.
-      if ($rows_to_update.find('.actions_column .btn-group.open').length ||
-          submit_in_progress) {
-        // Wait and try to update again in next interval instead
-        setTimeout(horizon.datatables.update, interval);
-        // Remove interval decay, since this will not hit server
-        $table.removeAttr('decay_constant');
-        return;
-      }
-      // Trigger the update handlers.
-      $rows_to_update.each(function() {
-        var $row = $(this),
-          $table = $row.closest('table.datatable');
+    // do nothing if there are no rows to update.
+    if($rows_to_update.length <= 0) { return; }
+
+    // Do not update this row if the action column is expanded
+    if ($rows_to_update.find('.actions_column .btn-group.open').length) {
+      // Wait and try to update again in next interval instead
+      setTimeout(horizon.datatables.update, interval);
+      // Remove interval decay, since this will not hit server
+      $table.removeAttr('decay_constant');
+      return;
+    }
+
+    $rows_to_update.each(function() {
+      var $row = $(this);
+      var $table = $row.closest('table.datatable');
+
+      requests.push(
         horizon.ajax.queue({
           url: $row.attr('data-update-url'),
           error: function (jqXHR) {
@@ -98,26 +97,20 @@ horizon.datatables = {
           complete: function () {
             // Revalidate the button check for the updated table
             horizon.datatables.validate_button();
-            rows_to_update--;
-            // Schedule next poll when all the rows are updated
-            if ( rows_to_update === 0 ) {
-              // Set interval decay to this table, and increase if it already exist
-              if(decay_constant === undefined) {
-                decay_constant = 1;
-              } else {
-                decay_constant++;
-              }
-              $table.attr('decay_constant', decay_constant);
-              // Poll until there are no rows in an "unknown" state on the page.
-              var next_poll = interval * decay_constant;
-              // Limit the interval to 30 secs
-              if(next_poll > 30 * 1000) { next_poll = 30 * 1000; }
-              setTimeout(horizon.datatables.update, next_poll);
-            }
           }
-        });
-      });
-    }
+        })
+      );
+    });
+
+    $.when.apply($, requests).always(function() {
+      decay_constant = decay_constant || 0;
+      decay_constant++;
+      $table.attr('decay_constant', decay_constant);
+      var next_poll = interval * decay_constant;
+      // Limit the interval to 30 secs
+      if(next_poll > 30 * 1000) { next_poll = 30 * 1000; }
+      setTimeout(horizon.datatables.update, next_poll);
+    });
   },
 
   update_actions: function() {

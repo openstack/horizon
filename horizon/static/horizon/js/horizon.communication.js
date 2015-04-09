@@ -14,38 +14,39 @@ horizon.ajax = {
   },
   // Function to add a new call to the queue.
   queue: function(opts) {
-    var complete = opts.complete,
-        active = horizon.ajax._active;
-
-    opts.complete = function () {
-      var index = $.inArray(request, active);
-      if (index > -1) {
-        active.splice(index, 1);
-      }
-      horizon.ajax.next();
-      if (complete) {
-        complete.apply(this, arguments);
-      }
-    };
-
-    function request() {
-      return $.ajax(opts);
-    }
-
-    // Queue the request
-    horizon.ajax._queue.push(request);
-
+    var def = $.Deferred();
+    horizon.ajax._queue.push({opts: opts, deferred: def});
     // Start up the queue handler in case it's stopped.
     horizon.ajax.next();
+    return def.promise();
   },
   next: function () {
-    var queue = horizon.ajax._queue,
-        limit = horizon.conf.ajax.queue_limit,
-        request;
+    var queue = horizon.ajax._queue;
+    var limit = horizon.conf.ajax.queue_limit;
+
+    function process_queue(request) {
+      return function() {
+        // TODO(sambetts) Add some processing for error cases
+        // such as unauthorised etc.
+        var active = horizon.ajax._active;
+        var index = $.inArray(request, active);
+        if (index > -1) {
+          active.splice(index, 1);
+        }
+        horizon.ajax.next();
+      };
+    }
+
     if (queue.length && (!limit || horizon.ajax._active.length < limit)) {
-      request = queue.pop();
+      var item = queue.shift();
+      var request = $.ajax(item.opts);
       horizon.ajax._active.push(request);
-      return request();
+
+      // Add an always callback that processes the next part of the queue,
+      // as well as success and fail callbacks that resolved/rejects
+      // the deferred.
+      request.always(process_queue(request));
+      request.then(item.deferred.resolve, item.deferred.reject);
     }
   }
 };
