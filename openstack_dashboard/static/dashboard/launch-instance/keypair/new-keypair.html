@@ -1,0 +1,31 @@
+<div class="ng-wizard no-navigation">
+  <div class="title" ng-bind="::ctrl.labels.wizardTitle"></div>
+
+  <div class="step">
+    <h1>{$ ::ctrl.labels.title $}</h1>
+    <div class="content">
+      <div class="subtitle">{$ ::ctrl.labels.help $}</div>
+
+      <dl class="dl-horizontal key-pair-details">
+        <dt>{$ ::ctrl.labels.keyPairName $}</dt>
+        <dd><pre><code>{$ ctrl.keypair.name $}</code></pre></dd>
+        <dt>{$ ::ctrl.labels.fingerprint $}</dt>
+        <dd><pre><code>{$ ctrl.keypair.fingerprint $}</code></pre></dd>
+        <dt>{$ ::ctrl.labels.publicKey $}</dt>
+        <dd><pre><code>{$ ctrl.keypair.public_key $}</code></pre></dd>
+        <dt>{$ ::ctrl.labels.privateKey $}</dt>
+        <dd><pre><code>{$ ctrl.keypair.private_key $}</code></pre></dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <div class="primary-btn-grp">
+      <button class="finish btn btn-sm btn-success"
+              ng-click="ctrl.ok()">
+        <span class="fa fa-check"></span>
+        {$ ::ctrl.labels.ok $}
+      </button>
+    </div>
+  </div>
+</div>

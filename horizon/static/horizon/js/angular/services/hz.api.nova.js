@@ -58,7 +58,11 @@ limitations under the License.
     this.createKeypair = function(newKeypair) {
       return apiService.post('/api/nova/keypairs/', newKeypair)
         .error(function () {
-          horizon.alert('error', gettext('Unable to create the keypair.'));
+          if (angular.isDefined(newKeypair.public_key)) {
+            horizon.alert('error', gettext('Unable to import the keypair.'));
+          } else {
+            horizon.alert('error', gettext('Unable to create the keypair.'));
+          }
         });
     };
 

@@ -1,0 +1,34 @@
+<div class="ng-wizard no-navigation" ng-form="wizardForm">
+  <div class="title" ng-bind="::ctrl.labels.wizardTitle"></div>
+
+  <div class="step">
+    <h1>{$ ::ctrl.labels.title $}</h1>
+    <div class="content">
+      <div class="subtitle">{$ ::ctrl.labels.help $}</div>
+      <div class="form-group">
+        <div class="form-field required">
+          <label>{$ ::ctrl.labels.keyPairName $}</label>
+          <input class="form-control" name="name"
+                 ng-model="ctrl.model.name"
+                 ng-required="true" placeholder="{$ ::ctrl.labels.required $}">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <div class="secondary-btn-grp">
+      <button class="cancel btn btn-sm btn-default" ng-click="ctrl.cancel()">
+        <span class="fa fa-close"></span>
+        {$ ::ctrl.labels.cancel $}
+      </button>
+    </div>
+    <div class="primary-btn-grp">
+      <button class="finish btn btn-sm btn-success"
+        ng-click="ctrl.submit()" ng-disabled="wizardForm.$invalid">
+        <span class="fa fa-plus"></span>
+        {$ ::ctrl.labels.ok $}
+      </button>
+    </div>
+  </div>
+</div>

@@ -15,4 +15,19 @@
       }
     }
   }
+
+  textarea {
+    font-family: $code-font-family;
+  }
+}
+
+.no-navigation {
+
+  .step {
+    left: 25px;
+  }
+
+  .form-field {
+    margin-bottom: 1em;
+  }
 }
