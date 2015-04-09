@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-06 21:07-0500\n"
-"PO-Revision-Date: 2015-04-01 02:20+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-04-08 17:57-0500\n"
+"PO-Revision-Date: 2015-04-08 18:15+0000\n"
+"Last-Translator: Łukasz Jernaś <deejay1@srem.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -94,7 +94,7 @@ msgstr "Filtr"
 
 #: tables/actions.py:645
 msgid "This action cannot be undone."
-msgstr ""
+msgstr "Tej czynności nie można cofnąć."
 
 #: tables/actions.py:767
 #, python-format
@@ -188,7 +188,7 @@ msgid ""
 "\n"
 "      If you are not sure which authentication method to use, contact your administrator.\n"
 "    "
-msgstr ""
+msgstr "\nJeśli nie wiadomo, którego sposobu uwierzytelniania użyć, należy skontaktować się z administratorem."
 
 #: templates/auth/_login.html:5
 msgid "Log In"
@@ -211,7 +211,7 @@ msgstr "Wpisz się"
 
 #: templates/auth/_login.html:46
 msgid "Connect"
-msgstr ""
+msgstr "Połącz"
 
 #: templates/auth/login.html:4
 msgid "Login"
@@ -304,7 +304,7 @@ msgstr "Pływające adresy IP"
 #: templates/horizon/common/_limit_summary.html:29
 #, python-format
 msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr ""
+msgstr "Przydzielono  <span> %(used)s </span> z <span> %(available)s </span>"
 
 #: templates/horizon/common/_limit_summary.html:35
 msgid "Security Groups"
@@ -327,17 +327,17 @@ msgstr "Zapisz"
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Wyświetlanie %(nav_items)s pozycję"
+msgstr[1] "Wyświetlanie %(nav_items)s pozycji"
+msgstr[2] "Wyświetlanie %(nav_items)s pozycji"
 
 #: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Wyświetlanie %(content_items)s pozycji"
+msgstr[1] "Wyświetlanie %(content_items)s pozycji"
+msgstr[2] "Wyświetlanie %(content_items)s pozycji"
 
 #: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
@@ -345,7 +345,7 @@ msgstr "Podsumowanie wykorzystania"
 
 #: templates/horizon/common/_usage_summary.html:7
 msgid "Select a period of time to query its usage:"
-msgstr ""
+msgstr "Wybierz okres za który nalezy wyświetlić wykorzystanie:"
 
 #: templates/horizon/common/_usage_summary.html:9
 #, python-format
@@ -367,23 +367,23 @@ msgstr "Data powinna być podana w formacie YYYY-mm-dd."
 
 #: templates/horizon/common/_usage_summary.html:20
 msgid "Active Instances:"
-msgstr ""
+msgstr "Aktywne instancje:"
 
 #: templates/horizon/common/_usage_summary.html:21
 msgid "Active RAM:"
-msgstr ""
+msgstr "Aktywna pamięć RAM:"
 
 #: templates/horizon/common/_usage_summary.html:22
 msgid "This Period's VCPU-Hours:"
-msgstr ""
+msgstr "VCPU-godziny w tym okresie:"
 
 #: templates/horizon/common/_usage_summary.html:23
 msgid "This Period's GB-Hours:"
-msgstr ""
+msgstr "GB-godziny w tym okresie:"
 
 #: templates/horizon/common/_usage_summary.html:24
 msgid "This Period's RAM-Hours:"
-msgstr ""
+msgstr "RAM-godziny w tym okresie:"
 
 #: templates/horizon/common/_workflow.html:40
 msgid "Back"
@@ -460,7 +460,7 @@ msgstr[2] "Sprzedano pieski"
 
 #: test/tests/views.py:59
 msgid "Fake"
-msgstr ""
+msgstr "Fałszywe"
 
 #: utils/filters.py:49
 msgid "Never"
@@ -484,7 +484,7 @@ msgstr "Numer portu musi być liczbą całkowitą"
 
 #: utils/validators.py:59
 msgid "The string may only contain ASCII printable characters."
-msgstr ""
+msgstr "Ciąg może zawierać wyłącznie drukowalne znaki ASCII."
 
 #: workflows/base.py:71
 msgid "Processing..."

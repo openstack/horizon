@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-06 21:08-0500\n"
-"PO-Revision-Date: 2015-04-07 06:11+0000\n"
+"POT-Creation-Date: 2015-04-08 17:57-0500\n"
+"PO-Revision-Date: 2015-04-09 06:52+0000\n"
 "Last-Translator: Zhang Xiaowei <zero00072@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -1404,7 +1404,7 @@ msgstr "識別號"
 #: dashboards/project/images/images/forms.py:104
 #: dashboards/project/images/images/forms.py:250
 #: dashboards/project/images/images/tables.py:185
-#: dashboards/project/images/images/tables.py:274
+#: dashboards/project/images/images/tables.py:283
 #: dashboards/project/images/templates/images/images/_detail_overview.html:21
 msgid "Public"
 msgstr "公開"
@@ -1734,7 +1734,7 @@ msgstr "區域"
 #: dashboards/project/databases/templates/databases/_detail_overview.html:18
 #: dashboards/project/firewalls/tables.py:347
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
-#: dashboards/project/images/images/tables.py:269
+#: dashboards/project/images/images/tables.py:278
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
 #: dashboards/project/instances/tables.py:1025
 #: dashboards/project/instances/templates/instances/_detail_overview.html:14
@@ -1810,7 +1810,7 @@ msgstr "主機名稱"
 #: dashboards/project/access_and_security/security_groups/forms.py:185
 #: dashboards/project/data_processing/data_sources/tables.py:61
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:9
-#: dashboards/project/images/images/tables.py:266
+#: dashboards/project/images/images/tables.py:275
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/loadbalancers/workflows.py:486
 #: dashboards/project/routers/ports/tables.py:115
@@ -1939,7 +1939,7 @@ msgstr "無法更新此映像檔的詮釋資料。"
 #: dashboards/admin/images/panel.py:27 dashboards/admin/images/tables.py:77
 #: dashboards/admin/images/templates/images/index.html:3
 #: dashboards/admin/images/views.py:47
-#: dashboards/project/images/images/tables.py:291
+#: dashboards/project/images/images/tables.py:300
 #: dashboards/project/images/panel.py:24
 #: dashboards/project/images/templates/images/index.html:3
 #: dashboards/project/images/views.py:38
@@ -1970,7 +1970,7 @@ msgstr "最大容量（GB）"
 
 #: dashboards/admin/images/tables.py:71
 #: dashboards/admin/instances/tables.py:132
-#: dashboards/project/images/images/tables.py:264
+#: dashboards/project/images/images/tables.py:273
 #: dashboards/project/instances/tables.py:1015
 #: dashboards/project/instances/templates/instances/_detail_overview.html:114
 #: dashboards/project/instances/workflows/create_instance.py:108
@@ -2278,7 +2278,7 @@ msgstr "IP 位址"
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
 #: dashboards/project/databases/tables.py:327
-#: dashboards/project/images/images/tables.py:285
+#: dashboards/project/images/images/tables.py:294
 #: dashboards/project/images/templates/images/images/_detail_overview.html:46
 #: dashboards/project/instances/tables.py:1020
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:7
@@ -2375,7 +2375,7 @@ msgstr "命名空間的 JSON 格式內容。"
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:20
 #: dashboards/project/images/images/forms.py:105
 #: dashboards/project/images/images/forms.py:251
-#: dashboards/project/images/images/tables.py:278
+#: dashboards/project/images/images/tables.py:287
 #: dashboards/project/images/templates/images/images/_detail_overview.html:23
 msgid "Protected"
 msgstr "保護"
@@ -5365,32 +5365,32 @@ msgstr "已更改專案「%s」。"
 msgid "Unable to modify project \"%s\"."
 msgstr "無法更改專案「%s」。"
 
-#: dashboards/identity/projects/workflows.py:660
+#: dashboards/identity/projects/workflows.py:661
 msgid ""
 "You cannot revoke your administrative privileges from the project you are "
 "currently logged into. Please switch to another project with administrative "
 "privileges or remove the administrative role manually via the CLI."
 msgstr "您不能從此專案裡撤銷您目前已登入的管理員權限。請以管理員權限交換到其他專案或者用命令列介面手動移除管理員角色。"
 
-#: dashboards/identity/projects/workflows.py:720
+#: dashboards/identity/projects/workflows.py:721
 msgid ", update project groups"
 msgstr "、更新專案群組"
 
-#: dashboards/identity/projects/workflows.py:724
+#: dashboards/identity/projects/workflows.py:725
 #, python-format
 msgid ""
 "Failed to modify %(users_to_modify)s project members%(group_msg)s and update"
 " project quotas."
 msgstr "更改 %(users_to_modify)s 專案成員%(group_msg)s以及更新專案配額時失敗。"
 
-#: dashboards/identity/projects/workflows.py:801
+#: dashboards/identity/projects/workflows.py:802
 #, python-format
 msgid ""
 "Failed to modify %s project members, update project groups and update "
 "project quotas."
 msgstr "更改 %s 專案成員、更新專案群組以及更新專案配額時失敗。"
 
-#: dashboards/identity/projects/workflows.py:835
+#: dashboards/identity/projects/workflows.py:836
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
@@ -10438,7 +10438,7 @@ msgstr "上傳本地的映像檔。"
 
 #: dashboards/project/images/images/forms.py:76
 #: dashboards/project/images/images/forms.py:232
-#: dashboards/project/images/images/tables.py:281
+#: dashboards/project/images/images/tables.py:290
 msgid "Format"
 msgstr "格式"
 
@@ -10556,35 +10556,50 @@ msgstr "新增雲硬碟"
 msgid "Shared with Me"
 msgstr "與我分享"
 
-#: dashboards/project/images/images/tables.py:254
+#: dashboards/project/images/images/tables.py:228
+msgctxt "Image format for display in table"
+msgid "Raw"
+msgstr "Raw"
+
+#: dashboards/project/images/images/tables.py:259
 msgctxt "Current status of an Image"
 msgid "Active"
 msgstr "使用中"
 
-#: dashboards/project/images/images/tables.py:255
+#: dashboards/project/images/images/tables.py:260
 msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "正在儲存"
 
-#: dashboards/project/images/images/tables.py:256
+#: dashboards/project/images/images/tables.py:261
 msgctxt "Current status of an Image"
 msgid "Queued"
 msgstr "已排入"
 
-#: dashboards/project/images/images/tables.py:258
+#: dashboards/project/images/images/tables.py:263
 msgctxt "Current status of an Image"
 msgid "Pending Delete"
 msgstr "等候刪除"
 
-#: dashboards/project/images/images/tables.py:259
+#: dashboards/project/images/images/tables.py:264
 msgctxt "Current status of an Image"
 msgid "Killed"
 msgstr "已中斷"
 
-#: dashboards/project/images/images/tables.py:260
+#: dashboards/project/images/images/tables.py:265
 msgctxt "Current status of an Image"
 msgid "Deleted"
 msgstr "已刪除"
+
+#: dashboards/project/images/images/tables.py:268
+msgctxt "Type of an image"
+msgid "Image"
+msgstr "映像檔"
+
+#: dashboards/project/images/images/tables.py:269
+msgctxt "Type of an image"
+msgid "Snapshot"
+msgstr "即時存檔"
 
 #: dashboards/project/images/images/views.py:60
 msgid "Unable to retrieve image."

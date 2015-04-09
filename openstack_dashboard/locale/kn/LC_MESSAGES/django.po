@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-06 21:08-0500\n"
-"PO-Revision-Date: 2015-04-06 18:42+0000\n"
+"POT-Creation-Date: 2015-04-08 17:57-0500\n"
+"PO-Revision-Date: 2015-04-08 23:13+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Kannada (http://www.transifex.com/projects/p/horizon/language/kn/)\n"
 "MIME-Version: 1.0\n"
@@ -1398,7 +1398,7 @@ msgstr "ID"
 #: dashboards/project/images/images/forms.py:104
 #: dashboards/project/images/images/forms.py:250
 #: dashboards/project/images/images/tables.py:185
-#: dashboards/project/images/images/tables.py:274
+#: dashboards/project/images/images/tables.py:283
 #: dashboards/project/images/templates/images/images/_detail_overview.html:21
 msgid "Public"
 msgstr "ಸಾರ್ವಜನಿಕ"
@@ -1728,7 +1728,7 @@ msgstr "ವಲಯ"
 #: dashboards/project/databases/templates/databases/_detail_overview.html:18
 #: dashboards/project/firewalls/tables.py:347
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
-#: dashboards/project/images/images/tables.py:269
+#: dashboards/project/images/images/tables.py:278
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
 #: dashboards/project/instances/tables.py:1025
 #: dashboards/project/instances/templates/instances/_detail_overview.html:14
@@ -1804,7 +1804,7 @@ msgstr "ಆತಿಥೇಯದ ಹೆಸರು"
 #: dashboards/project/access_and_security/security_groups/forms.py:185
 #: dashboards/project/data_processing/data_sources/tables.py:61
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:9
-#: dashboards/project/images/images/tables.py:266
+#: dashboards/project/images/images/tables.py:275
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/loadbalancers/workflows.py:486
 #: dashboards/project/routers/ports/tables.py:115
@@ -1933,7 +1933,7 @@ msgstr "ಮೆಟಾಡೇಟ ಚಿತ್ರಿಕೆಯನ್ನು ಅಪ್�
 #: dashboards/admin/images/panel.py:27 dashboards/admin/images/tables.py:77
 #: dashboards/admin/images/templates/images/index.html:3
 #: dashboards/admin/images/views.py:47
-#: dashboards/project/images/images/tables.py:291
+#: dashboards/project/images/images/tables.py:300
 #: dashboards/project/images/panel.py:24
 #: dashboards/project/images/templates/images/index.html:3
 #: dashboards/project/images/views.py:38
@@ -1964,7 +1964,7 @@ msgstr "ಗರಿಷ್ಟ ಗಾತ್ರ (MB)"
 
 #: dashboards/admin/images/tables.py:71
 #: dashboards/admin/instances/tables.py:132
-#: dashboards/project/images/images/tables.py:264
+#: dashboards/project/images/images/tables.py:273
 #: dashboards/project/instances/tables.py:1015
 #: dashboards/project/instances/templates/instances/_detail_overview.html:114
 #: dashboards/project/instances/workflows/create_instance.py:108
@@ -2272,7 +2272,7 @@ msgstr "IP ವಿಳಾಸ"
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
 #: dashboards/project/databases/tables.py:327
-#: dashboards/project/images/images/tables.py:285
+#: dashboards/project/images/images/tables.py:294
 #: dashboards/project/images/templates/images/images/_detail_overview.html:46
 #: dashboards/project/instances/tables.py:1020
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:7
@@ -2369,7 +2369,7 @@ msgstr ""
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:20
 #: dashboards/project/images/images/forms.py:105
 #: dashboards/project/images/images/forms.py:251
-#: dashboards/project/images/images/tables.py:278
+#: dashboards/project/images/images/tables.py:287
 #: dashboards/project/images/templates/images/images/_detail_overview.html:23
 msgid "Protected"
 msgstr "ಸಂರಕ್ಷಿತ"
@@ -5359,32 +5359,32 @@ msgstr "ಮಾರ್ಪಡಿಸಲಾದ ಪರಿಯೋಜನೆ \"%s\"."
 msgid "Unable to modify project \"%s\"."
 msgstr "ಪರಿಯೋಜನೆ \"%s\" ಅನ್ನು ಮಾರ್ಪಡಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: dashboards/identity/projects/workflows.py:660
+#: dashboards/identity/projects/workflows.py:661
 msgid ""
 "You cannot revoke your administrative privileges from the project you are "
 "currently logged into. Please switch to another project with administrative "
 "privileges or remove the administrative role manually via the CLI."
 msgstr "ನೀವು ಪ್ರಸಕ್ತ ಲಾಗಿನ್ ಆದಂತಹ ಪರಿಯೋಜನೆಯಿಂದ ವ್ಯವಸ್ಥಾಪಕ ಅಧಿಕಾರಗಳನ್ನು ರದ್ದುಗೊಳಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ದಯವಿಟ್ಟು ವ್ಯವಸ್ಥಾಪಕ ಅಧಿಕಾರಗಳಿಂದ ಇನ್ನೊಂದು ಪರಿಯೋಜನೆಗೆ ಬದಲಾಯಿಸಿ  ಅಥವ CLI ಬಳಸಿಕೊಂಡು ವ್ಯವಸ್ಥಾಪಕ ಪಾತ್ರವನ್ನು ಕೈಯಾರೆ ತೆಗೆದುಹಾಕಿ."
 
-#: dashboards/identity/projects/workflows.py:720
+#: dashboards/identity/projects/workflows.py:721
 msgid ", update project groups"
 msgstr ", ಪರಿಯೋಜನೆ ಗುಂಪುಗಳನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡಿ"
 
-#: dashboards/identity/projects/workflows.py:724
+#: dashboards/identity/projects/workflows.py:725
 #, python-format
 msgid ""
 "Failed to modify %(users_to_modify)s project members%(group_msg)s and update"
 " project quotas."
 msgstr "%(users_to_modify)s ಪರಿಯೋಜನೆಯ ಅಂಗಗಳನ್ನು %(group_msg)s ಮಾರ್ಪಡಿಸಲು ಮತ್ತು ಪರಿಯೋಜನೆಯ ಕೋಟಾಗಳನ್ನು ಅಪ್‌ಡೇಟ್‌ ಮಾಡಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: dashboards/identity/projects/workflows.py:801
+#: dashboards/identity/projects/workflows.py:802
 #, python-format
 msgid ""
 "Failed to modify %s project members, update project groups and update "
 "project quotas."
 msgstr "%s ಪರಿಯೋಜನೆಯ ಅಂಗಗಳನ್ನು ಮಾರ್ಪಡಿಸಲು, ಪರಿಯೋಜನೆ ಗುಂಪುಗಳನ್ನು ಅಪ್‌ಡೇಟ್‌ ಮಾಡಲು ಮತ್ತು ಪರಿಯೋಜನೆಯ ಕೋಟಾಗಳನ್ನು ಅಪ್‌ಡೇಟ್‌ ಮಾಡಲು ವಿಫಲಗೊಂಡಿದೆ."
 
-#: dashboards/identity/projects/workflows.py:835
+#: dashboards/identity/projects/workflows.py:836
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
@@ -10432,7 +10432,7 @@ msgstr "ಅಪ್‌ಲೋಡ್ ಮಾಡಬೇಕಿರುವ ಒಂದು ಸ
 
 #: dashboards/project/images/images/forms.py:76
 #: dashboards/project/images/images/forms.py:232
-#: dashboards/project/images/images/tables.py:281
+#: dashboards/project/images/images/tables.py:290
 msgid "Format"
 msgstr "ವಿನ್ಯಾಸ"
 
@@ -10550,35 +10550,50 @@ msgstr "ಪರಿಮಾಣಯನ್ನು ರಚಿಸಿ"
 msgid "Shared with Me"
 msgstr "ನನ್ನೊಂದಿಗೆ ಹಂಚಲಾಗಿದೆ"
 
-#: dashboards/project/images/images/tables.py:254
+#: dashboards/project/images/images/tables.py:228
+msgctxt "Image format for display in table"
+msgid "Raw"
+msgstr "ಕಚ್ಛಾ"
+
+#: dashboards/project/images/images/tables.py:259
 msgctxt "Current status of an Image"
 msgid "Active"
 msgstr "ಸಕ್ರಿಯ"
 
-#: dashboards/project/images/images/tables.py:255
+#: dashboards/project/images/images/tables.py:260
 msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:256
+#: dashboards/project/images/images/tables.py:261
 msgctxt "Current status of an Image"
 msgid "Queued"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:258
+#: dashboards/project/images/images/tables.py:263
 msgctxt "Current status of an Image"
 msgid "Pending Delete"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:259
+#: dashboards/project/images/images/tables.py:264
 msgctxt "Current status of an Image"
 msgid "Killed"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:260
+#: dashboards/project/images/images/tables.py:265
 msgctxt "Current status of an Image"
 msgid "Deleted"
 msgstr "ಅಳಿಸಲಾದ"
+
+#: dashboards/project/images/images/tables.py:268
+msgctxt "Type of an image"
+msgid "Image"
+msgstr "ಚಿತ್ರಿಕೆ"
+
+#: dashboards/project/images/images/tables.py:269
+msgctxt "Type of an image"
+msgid "Snapshot"
+msgstr "ಸ್ನ್ಯಾಪ್‌ಶಾಟ್‌"
 
 #: dashboards/project/images/images/views.py:60
 msgid "Unable to retrieve image."

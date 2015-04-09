@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-06 21:08-0500\n"
-"PO-Revision-Date: 2015-04-06 18:42+0000\n"
-"Last-Translator: Ainur Shakirov <ainur.shakirov.tt@gmail.com>\n"
+"POT-Creation-Date: 2015-04-08 17:57-0500\n"
+"PO-Revision-Date: 2015-04-09 06:52+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1409,7 +1409,7 @@ msgstr "ID"
 #: dashboards/project/images/images/forms.py:104
 #: dashboards/project/images/images/forms.py:250
 #: dashboards/project/images/images/tables.py:185
-#: dashboards/project/images/images/tables.py:274
+#: dashboards/project/images/images/tables.py:283
 #: dashboards/project/images/templates/images/images/_detail_overview.html:21
 msgid "Public"
 msgstr "Публичный"
@@ -1623,12 +1623,12 @@ msgstr "Причина"
 #: dashboards/admin/hypervisors/compute/forms.py:86
 #, python-format
 msgid "Disabled compute service for host: %s."
-msgstr ""
+msgstr "Служба вычислений запрещена для хоста: %s."
 
 #: dashboards/admin/hypervisors/compute/forms.py:91
 #, python-format
 msgid "Failed to disable compute service for host: %s."
-msgstr ""
+msgstr "Не удалось запретить службу вычислений для хоста: %s."
 
 #: dashboards/admin/hypervisors/compute/forms.py:106
 msgid "Running Instance Migration Type"
@@ -1643,7 +1643,7 @@ msgstr "Живая миграция"
 
 #: dashboards/admin/hypervisors/compute/forms.py:109
 msgid "Cold Migrate"
-msgstr ""
+msgstr "Холодная миграция"
 
 #: dashboards/admin/hypervisors/compute/forms.py:120
 #: dashboards/admin/hypervisors/compute/forms.py:127
@@ -1660,12 +1660,12 @@ msgstr "Блочная миграция"
 #: dashboards/admin/hypervisors/compute/forms.py:159
 #, python-format
 msgid "Starting to migrate host: %(current)s"
-msgstr ""
+msgstr "Запуск миграции хоста: %(current)s"
 
 #: dashboards/admin/hypervisors/compute/forms.py:164
 #, python-format
 msgid "Failed to migrate host \"%s\"."
-msgstr ""
+msgstr "Не удалось мигрировать хост \"%s\"."
 
 #: dashboards/admin/hypervisors/compute/tables.py:26
 #: dashboards/admin/hypervisors/compute/views.py:30
@@ -1747,7 +1747,7 @@ msgstr "Зона"
 #: dashboards/project/databases/templates/databases/_detail_overview.html:18
 #: dashboards/project/firewalls/tables.py:347
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
-#: dashboards/project/images/images/tables.py:269
+#: dashboards/project/images/images/tables.py:278
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
 #: dashboards/project/instances/tables.py:1025
 #: dashboards/project/instances/templates/instances/_detail_overview.html:14
@@ -1823,7 +1823,7 @@ msgstr "Имя узла"
 #: dashboards/project/access_and_security/security_groups/forms.py:185
 #: dashboards/project/data_processing/data_sources/tables.py:61
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:9
-#: dashboards/project/images/images/tables.py:266
+#: dashboards/project/images/images/tables.py:275
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/loadbalancers/workflows.py:486
 #: dashboards/project/routers/ports/tables.py:115
@@ -1952,7 +1952,7 @@ msgstr "Невозможно обновить метаданные образа"
 #: dashboards/admin/images/panel.py:27 dashboards/admin/images/tables.py:77
 #: dashboards/admin/images/templates/images/index.html:3
 #: dashboards/admin/images/views.py:47
-#: dashboards/project/images/images/tables.py:291
+#: dashboards/project/images/images/tables.py:300
 #: dashboards/project/images/panel.py:24
 #: dashboards/project/images/templates/images/index.html:3
 #: dashboards/project/images/views.py:38
@@ -1983,7 +1983,7 @@ msgstr "Максимальный размер (МБ)"
 
 #: dashboards/admin/images/tables.py:71
 #: dashboards/admin/instances/tables.py:132
-#: dashboards/project/images/images/tables.py:264
+#: dashboards/project/images/images/tables.py:273
 #: dashboards/project/instances/tables.py:1015
 #: dashboards/project/instances/templates/instances/_detail_overview.html:114
 #: dashboards/project/instances/workflows/create_instance.py:108
@@ -2295,7 +2295,7 @@ msgstr "IP-адрес"
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
 #: dashboards/project/databases/tables.py:327
-#: dashboards/project/images/images/tables.py:285
+#: dashboards/project/images/images/tables.py:294
 #: dashboards/project/images/templates/images/images/_detail_overview.html:46
 #: dashboards/project/instances/tables.py:1020
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:7
@@ -2392,7 +2392,7 @@ msgstr ""
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:20
 #: dashboards/project/images/images/forms.py:105
 #: dashboards/project/images/images/forms.py:251
-#: dashboards/project/images/images/tables.py:278
+#: dashboards/project/images/images/tables.py:287
 #: dashboards/project/images/templates/images/images/_detail_overview.html:23
 msgid "Protected"
 msgstr "Защищенный"
@@ -5438,32 +5438,32 @@ msgstr "Проект «%s» изменён."
 msgid "Unable to modify project \"%s\"."
 msgstr "Не удалось изменить проект «%s»."
 
-#: dashboards/identity/projects/workflows.py:660
+#: dashboards/identity/projects/workflows.py:661
 msgid ""
 "You cannot revoke your administrative privileges from the project you are "
 "currently logged into. Please switch to another project with administrative "
 "privileges or remove the administrative role manually via the CLI."
 msgstr "Вы не можете удалить административные привилегии, будучи в данном проекте. Переключитесь в другой проект с административными привилегиями или удалите роль администратора с помощью интерфейса командной строки."
 
-#: dashboards/identity/projects/workflows.py:720
+#: dashboards/identity/projects/workflows.py:721
 msgid ", update project groups"
 msgstr ", обновление групп проекта"
 
-#: dashboards/identity/projects/workflows.py:724
+#: dashboards/identity/projects/workflows.py:725
 #, python-format
 msgid ""
 "Failed to modify %(users_to_modify)s project members%(group_msg)s and update"
 " project quotas."
 msgstr "Не удалось изменить пользователей %(users_to_modify)s в проекте %(group_msg)s и обновить квоты проекта."
 
-#: dashboards/identity/projects/workflows.py:801
+#: dashboards/identity/projects/workflows.py:802
 #, python-format
 msgid ""
 "Failed to modify %s project members, update project groups and update "
 "project quotas."
 msgstr "Не удалось изменить пользователей %s в проекте, обновить группы и квоты проекта."
 
-#: dashboards/identity/projects/workflows.py:835
+#: dashboards/identity/projects/workflows.py:836
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
@@ -10613,7 +10613,7 @@ msgstr "Локальный образ для загрузки."
 
 #: dashboards/project/images/images/forms.py:76
 #: dashboards/project/images/images/forms.py:232
-#: dashboards/project/images/images/tables.py:281
+#: dashboards/project/images/images/tables.py:290
 msgid "Format"
 msgstr "Формат"
 
@@ -10735,35 +10735,50 @@ msgstr "Создать диск"
 msgid "Shared with Me"
 msgstr "В совместном доступе"
 
-#: dashboards/project/images/images/tables.py:254
+#: dashboards/project/images/images/tables.py:228
+msgctxt "Image format for display in table"
+msgid "Raw"
+msgstr "Raw"
+
+#: dashboards/project/images/images/tables.py:259
 msgctxt "Current status of an Image"
 msgid "Active"
 msgstr "Активный"
 
-#: dashboards/project/images/images/tables.py:255
+#: dashboards/project/images/images/tables.py:260
 msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:256
+#: dashboards/project/images/images/tables.py:261
 msgctxt "Current status of an Image"
 msgid "Queued"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:258
+#: dashboards/project/images/images/tables.py:263
 msgctxt "Current status of an Image"
 msgid "Pending Delete"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:259
+#: dashboards/project/images/images/tables.py:264
 msgctxt "Current status of an Image"
 msgid "Killed"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:260
+#: dashboards/project/images/images/tables.py:265
 msgctxt "Current status of an Image"
 msgid "Deleted"
 msgstr "Удалено"
+
+#: dashboards/project/images/images/tables.py:268
+msgctxt "Type of an image"
+msgid "Image"
+msgstr "образ"
+
+#: dashboards/project/images/images/tables.py:269
+msgctxt "Type of an image"
+msgid "Snapshot"
+msgstr "снимок"
 
 #: dashboards/project/images/images/views.py:60
 msgid "Unable to retrieve image."

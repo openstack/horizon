@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-06 21:08-0500\n"
-"PO-Revision-Date: 2015-04-06 18:42+0000\n"
+"POT-Creation-Date: 2015-04-08 17:57-0500\n"
+"PO-Revision-Date: 2015-04-08 23:13+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: api/ceilometer.py:743
 msgid "Unable to retrieve Ceilometer meter list."
-msgstr ""
+msgstr "Nie można pobrać listy metryk Ceilometer."
 
 #: api/ceilometer.py:931
 msgid "Existence of instance"
@@ -1406,7 +1406,7 @@ msgstr "ID"
 #: dashboards/project/images/images/forms.py:104
 #: dashboards/project/images/images/forms.py:250
 #: dashboards/project/images/images/tables.py:185
-#: dashboards/project/images/images/tables.py:274
+#: dashboards/project/images/images/tables.py:283
 #: dashboards/project/images/templates/images/images/_detail_overview.html:21
 msgid "Public"
 msgstr "Publiczny"
@@ -1744,7 +1744,7 @@ msgstr "Strefa"
 #: dashboards/project/databases/templates/databases/_detail_overview.html:18
 #: dashboards/project/firewalls/tables.py:347
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
-#: dashboards/project/images/images/tables.py:269
+#: dashboards/project/images/images/tables.py:278
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
 #: dashboards/project/instances/tables.py:1025
 #: dashboards/project/instances/templates/instances/_detail_overview.html:14
@@ -1820,7 +1820,7 @@ msgstr "Nazwa hosta"
 #: dashboards/project/access_and_security/security_groups/forms.py:185
 #: dashboards/project/data_processing/data_sources/tables.py:61
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:9
-#: dashboards/project/images/images/tables.py:266
+#: dashboards/project/images/images/tables.py:275
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/loadbalancers/workflows.py:486
 #: dashboards/project/routers/ports/tables.py:115
@@ -1949,7 +1949,7 @@ msgstr "Nie można zaktualizować metadanych obrazu."
 #: dashboards/admin/images/panel.py:27 dashboards/admin/images/tables.py:77
 #: dashboards/admin/images/templates/images/index.html:3
 #: dashboards/admin/images/views.py:47
-#: dashboards/project/images/images/tables.py:291
+#: dashboards/project/images/images/tables.py:300
 #: dashboards/project/images/panel.py:24
 #: dashboards/project/images/templates/images/index.html:3
 #: dashboards/project/images/views.py:38
@@ -1980,7 +1980,7 @@ msgstr "Maks. rozmiar (MB)"
 
 #: dashboards/admin/images/tables.py:71
 #: dashboards/admin/instances/tables.py:132
-#: dashboards/project/images/images/tables.py:264
+#: dashboards/project/images/images/tables.py:273
 #: dashboards/project/instances/tables.py:1015
 #: dashboards/project/instances/templates/instances/_detail_overview.html:114
 #: dashboards/project/instances/workflows/create_instance.py:108
@@ -2292,7 +2292,7 @@ msgstr "Adres IP"
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
 #: dashboards/project/databases/tables.py:327
-#: dashboards/project/images/images/tables.py:285
+#: dashboards/project/images/images/tables.py:294
 #: dashboards/project/images/templates/images/images/_detail_overview.html:46
 #: dashboards/project/instances/tables.py:1020
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:7
@@ -2389,7 +2389,7 @@ msgstr ""
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:20
 #: dashboards/project/images/images/forms.py:105
 #: dashboards/project/images/images/forms.py:251
-#: dashboards/project/images/images/tables.py:278
+#: dashboards/project/images/images/tables.py:287
 #: dashboards/project/images/templates/images/images/_detail_overview.html:23
 msgid "Protected"
 msgstr "Chroniony"
@@ -5435,32 +5435,32 @@ msgstr "Zmodyfikowano projekt „%s”."
 msgid "Unable to modify project \"%s\"."
 msgstr "Nie można zmodyfikować projektu „%s”."
 
-#: dashboards/identity/projects/workflows.py:660
+#: dashboards/identity/projects/workflows.py:661
 msgid ""
 "You cannot revoke your administrative privileges from the project you are "
 "currently logged into. Please switch to another project with administrative "
 "privileges or remove the administrative role manually via the CLI."
 msgstr "Nie można odwołać administracyjnych praw dostępu w projekcie, do którego jest się obecnie zalogowanym. Należy przełączyć się na innych projekt z uprawnieniami administracyjnymi lub ręcznie usunąć rolę administracyjną używając linii poleceń."
 
-#: dashboards/identity/projects/workflows.py:720
+#: dashboards/identity/projects/workflows.py:721
 msgid ", update project groups"
 msgstr ", zaktualizować grup projektów"
 
-#: dashboards/identity/projects/workflows.py:724
+#: dashboards/identity/projects/workflows.py:725
 #, python-format
 msgid ""
 "Failed to modify %(users_to_modify)s project members%(group_msg)s and update"
 " project quotas."
 msgstr "Nie można zmodyfikować %(users_to_modify)s członków projektu%(group_msg)s i zaktualizować limitów projektu."
 
-#: dashboards/identity/projects/workflows.py:801
+#: dashboards/identity/projects/workflows.py:802
 #, python-format
 msgid ""
 "Failed to modify %s project members, update project groups and update "
 "project quotas."
 msgstr "Nie można zmodyfikować %s członków projektu, zaktualizować grup projektów oraz limitów projektu."
 
-#: dashboards/identity/projects/workflows.py:835
+#: dashboards/identity/projects/workflows.py:836
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
@@ -10610,7 +10610,7 @@ msgstr "Lokalny obraz do wysłania."
 
 #: dashboards/project/images/images/forms.py:76
 #: dashboards/project/images/images/forms.py:232
-#: dashboards/project/images/images/tables.py:281
+#: dashboards/project/images/images/tables.py:290
 msgid "Format"
 msgstr "Format"
 
@@ -10732,35 +10732,50 @@ msgstr "Utwórz wolumen"
 msgid "Shared with Me"
 msgstr "Współdzielone ze mną"
 
-#: dashboards/project/images/images/tables.py:254
+#: dashboards/project/images/images/tables.py:228
+msgctxt "Image format for display in table"
+msgid "Raw"
+msgstr "Nieprzetworzone"
+
+#: dashboards/project/images/images/tables.py:259
 msgctxt "Current status of an Image"
 msgid "Active"
 msgstr "Aktywny"
 
-#: dashboards/project/images/images/tables.py:255
+#: dashboards/project/images/images/tables.py:260
 msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:256
+#: dashboards/project/images/images/tables.py:261
 msgctxt "Current status of an Image"
 msgid "Queued"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:258
+#: dashboards/project/images/images/tables.py:263
 msgctxt "Current status of an Image"
 msgid "Pending Delete"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:259
+#: dashboards/project/images/images/tables.py:264
 msgctxt "Current status of an Image"
 msgid "Killed"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:260
+#: dashboards/project/images/images/tables.py:265
 msgctxt "Current status of an Image"
 msgid "Deleted"
 msgstr "Usunięto"
+
+#: dashboards/project/images/images/tables.py:268
+msgctxt "Type of an image"
+msgid "Image"
+msgstr "Obraz"
+
+#: dashboards/project/images/images/tables.py:269
+msgctxt "Type of an image"
+msgid "Snapshot"
+msgstr "Migawka"
 
 #: dashboards/project/images/images/views.py:60
 msgid "Unable to retrieve image."
@@ -13271,7 +13286,7 @@ msgstr "Budowanie"
 #: dashboards/project/networks/ports/views.py:39
 #: dashboards/project/networks/templates/networks/ports/detail.html:3
 msgid "Port Details"
-msgstr ""
+msgstr "Szczegóły portu"
 
 #: dashboards/project/networks/ports/views.py:54
 #: dashboards/project/routers/ports/tabs.py:35
@@ -13445,19 +13460,19 @@ msgstr "Sieć dostawcy"
 
 #: dashboards/project/networks/templates/networks/_detail_overview.html:25
 msgid "Network Type:"
-msgstr ""
+msgstr "Typ sieci:"
 
 #: dashboards/project/networks/templates/networks/_detail_overview.html:26
 msgid "Physical Network:"
-msgstr ""
+msgstr "Sieć fizyczna:"
 
 #: dashboards/project/networks/templates/networks/_detail_overview.html:27
 msgid "Segmentation ID:"
-msgstr ""
+msgstr "ID segmentacji:"
 
 #: dashboards/project/networks/templates/networks/create.html:9
 msgid "&laquo;&nbsp;Back"
-msgstr ""
+msgstr "&laquo;&nbsp;Wstecz"
 
 #: dashboards/project/networks/templates/networks/create.html:10
 msgid "Next&nbsp;&raquo;"
@@ -13465,7 +13480,7 @@ msgstr "Następne&nbsp;&raquo;"
 
 #: dashboards/project/networks/templates/networks/detail.html:3
 msgid "Network Details"
-msgstr ""
+msgstr "Szczegóły sieci"
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:4
 msgid "Subnet Overview"
@@ -13980,16 +13995,16 @@ msgstr "Nie można ustawić bramki."
 #: dashboards/project/routers/tables.py:40
 msgid "Delete Router"
 msgid_plural "Delete Routers"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Usuń router"
+msgstr[1] "Usuń routery"
+msgstr[2] "Usuń routery"
 
 #: dashboards/project/routers/tables.py:48
 msgid "Deleted Router"
 msgid_plural "Deleted Routers"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Usunięto router"
+msgstr[1] "Usunięto routery"
+msgstr[2] "Usunięto routery"
 
 #: dashboards/project/routers/tables.py:67
 #: dashboards/project/routers/tables.py:75
@@ -14062,7 +14077,7 @@ msgstr ""
 
 #: dashboards/project/routers/templates/routers/_detail_overview.html:46
 msgid "SNAT"
-msgstr ""
+msgstr "SNAT"
 
 #: dashboards/project/routers/templates/routers/_update.html:6
 msgid "You may update the editable properties of your router here."
@@ -14123,15 +14138,15 @@ msgstr "Konfliktująca reguła"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:99
 msgid "Source:"
-msgstr ""
+msgstr "Źródło:"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:100
 msgid "Destination:"
-msgstr ""
+msgstr "Cel:"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:101
 msgid "Action:"
-msgstr ""
+msgstr "Czynność:"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:123
 msgid ""
@@ -14375,15 +14390,15 @@ msgstr "Stosy"
 
 #: dashboards/project/stacks/resource_types/tables.py:26
 msgid "AWS compatible"
-msgstr ""
+msgstr "Kompatybilne z AWS"
 
 #: dashboards/project/stacks/resource_types/tables.py:34
 msgid "Implementation"
-msgstr ""
+msgstr "Implementacja"
 
 #: dashboards/project/stacks/resource_types/tables.py:36
 msgid "Component"
-msgstr ""
+msgstr "Komponent"
 
 #: dashboards/project/stacks/resource_types/tables.py:38
 #: dashboards/project/stacks/tables.py:312
@@ -14393,11 +14408,11 @@ msgstr "Zasób"
 
 #: dashboards/project/stacks/resource_types/templates/stacks.resource_types/_details.html:4
 msgid "Resource Type"
-msgstr ""
+msgstr "Typ zasobu"
 
 #: dashboards/project/stacks/resource_types/templates/stacks.resource_types/_details.html:12
 msgid "Attributes"
-msgstr ""
+msgstr "Atrybuty"
 
 #: dashboards/project/stacks/resource_types/templates/stacks.resource_types/_details.html:18
 msgid "Properties"
@@ -15623,7 +15638,7 @@ msgstr ""
 
 #: dashboards/project/volumes/volumes/tables.py:277
 msgid "This action cannot be undone."
-msgstr ""
+msgstr "Tej czynności nie można cofnąć."
 
 #: dashboards/project/volumes/volumes/tables.py:288
 #, python-format

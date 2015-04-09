@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-06 21:07-0500\n"
-"PO-Revision-Date: 2015-04-01 22:52+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-04-08 17:57-0500\n"
+"PO-Revision-Date: 2015-04-09 06:52+0000\n"
+"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -188,7 +188,7 @@ msgid ""
 "\n"
 "      If you are not sure which authentication method to use, contact your administrator.\n"
 "    "
-msgstr ""
+msgstr "\n      Если вы не уверены какой метод аутентификации выбрать, свяжитесь с вашим системным администратором.\n    "
 
 #: templates/auth/_login.html:5
 msgid "Log In"
@@ -211,7 +211,7 @@ msgstr "Вход"
 
 #: templates/auth/_login.html:46
 msgid "Connect"
-msgstr ""
+msgstr "Подключение"
 
 #: templates/auth/login.html:4
 msgid "Login"
@@ -291,11 +291,11 @@ msgstr "Использовано <span> %(used)s </span> из <span> %(available
 
 #: templates/horizon/common/_limit_summary.html:14
 msgid "VCPUs"
-msgstr "ВЦПУ"
+msgstr "VCPU"
 
 #: templates/horizon/common/_limit_summary.html:21
 msgid "RAM"
-msgstr "ОЗУ"
+msgstr "RAM"
 
 #: templates/horizon/common/_limit_summary.html:28
 msgid "Floating IPs"
@@ -460,7 +460,7 @@ msgstr[2] "Sold Puppies"
 
 #: test/tests/views.py:59
 msgid "Fake"
-msgstr ""
+msgstr "Fake"
 
 #: utils/filters.py:49
 msgid "Never"
@@ -484,7 +484,7 @@ msgstr "Номер порта должен быть целым числом"
 
 #: utils/validators.py:59
 msgid "The string may only contain ASCII printable characters."
-msgstr ""
+msgstr "Строка может содержать только печатные ASCII символы."
 
 #: workflows/base.py:71
 msgid "Processing..."
