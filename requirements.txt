@@ -27,7 +27,7 @@ python-cinderclient>=1.1.0,<=1.1.1
 python-glanceclient>=0.14.0,<=0.15.0
 python-heatclient>=0.2.9,<0.3.0
 python-keystoneclient>=0.10.0,<=1.1.0
-python-neutronclient>=2.3.6,<3
+python-neutronclient>=2.3.6,<2.4.0
 python-novaclient>=2.18.0,<=2.20.0
 python-saharaclient>=0.7.3,<=0.7.6
 python-swiftclient>=2.2.0,<=2.3.1
