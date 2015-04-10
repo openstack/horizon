@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-06 21:08-0500\n"
-"PO-Revision-Date: 2015-04-04 04:00+0000\n"
+"POT-Creation-Date: 2015-04-09 22:29-0500\n"
+"PO-Revision-Date: 2015-04-10 03:30+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -206,25 +206,30 @@ msgstr "Non"
 
 #: static/horizon/js/angular/filters/filters.js:53
 #: static/horizon/js/angular/filters/filters.js:140
-msgid "GB"
-msgstr "Go"
+#, c-format
+msgid "%s GB"
+msgstr ""
 
 #: static/horizon/js/angular/filters/filters.js:70
 #: static/horizon/js/angular/filters/filters.js:142
-msgid "MB"
-msgstr "Mo"
+#, c-format
+msgid "%s MB"
+msgstr ""
 
 #: static/horizon/js/angular/filters/filters.js:138
-msgid "TB"
-msgstr "To"
+#, c-format
+msgid "%s TB"
+msgstr ""
 
 #: static/horizon/js/angular/filters/filters.js:144
-msgid "KB"
-msgstr "Ko"
+#, c-format
+msgid "%s KB"
+msgstr ""
 
 #: static/horizon/js/angular/filters/filters.js:146
-msgid "bytes"
-msgstr "octets"
+#, c-format
+msgid "%s bytes"
+msgstr ""
 
 #: static/horizon/js/angular/filters/filters.js:163
 #: static/horizon/js/horizon.tables.js:393
@@ -402,47 +407,51 @@ msgstr "Impossible de récupérer les ports."
 msgid "Unable to retrieve keypairs."
 msgstr "Impossible de récupérer les paires de clés."
 
-#: static/horizon/js/angular/services/hz.api.nova.js:61
+#: static/horizon/js/angular/services/hz.api.nova.js:62
+msgid "Unable to import the keypair."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.nova.js:64
 msgid "Unable to create the keypair."
 msgstr "Impossible de créer la paire de clés"
 
-#: static/horizon/js/angular/services/hz.api.nova.js:79
+#: static/horizon/js/angular/services/hz.api.nova.js:83
 msgid "Unable to retrieve availability zones."
 msgstr "Impossible de récupérer les zones de disponibilité."
 
-#: static/horizon/js/angular/services/hz.api.nova.js:117
+#: static/horizon/js/angular/services/hz.api.nova.js:121
 msgid "Unable to retrieve limits."
 msgstr "Impossible de récupérer les limites."
 
-#: static/horizon/js/angular/services/hz.api.nova.js:144
+#: static/horizon/js/angular/services/hz.api.nova.js:148
 msgid "Unable to create the server."
 msgstr "Impossible de créer le serveur."
 
-#: static/horizon/js/angular/services/hz.api.nova.js:158
+#: static/horizon/js/angular/services/hz.api.nova.js:162
 msgid "Unable to retrieve server."
 msgstr "Impossible de récupérer le serveur."
 
-#: static/horizon/js/angular/services/hz.api.nova.js:188
+#: static/horizon/js/angular/services/hz.api.nova.js:192
 msgid "Unable to retrieve extensions."
 msgstr "Impossible d'obtenir les extensions."
 
-#: static/horizon/js/angular/services/hz.api.nova.js:233
+#: static/horizon/js/angular/services/hz.api.nova.js:237
 msgid "Unable to retrieve flavors."
 msgstr "Impossible de récupérer les gabarits."
 
-#: static/horizon/js/angular/services/hz.api.nova.js:251
+#: static/horizon/js/angular/services/hz.api.nova.js:255
 msgid "Unable to retrieve flavor."
 msgstr "Impossible de récupérer le gabarit."
 
-#: static/horizon/js/angular/services/hz.api.nova.js:265
+#: static/horizon/js/angular/services/hz.api.nova.js:269
 msgid "Unable to retrieve flavor extra specs."
 msgstr "Impossible de récupérer les paramètres suppl. de gabarits."
 
-#: static/horizon/js/angular/services/hz.api.nova.js:307
+#: static/horizon/js/angular/services/hz.api.nova.js:311
 msgid "Extension is not enabled: %(extension)s"
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.nova.js:314
+#: static/horizon/js/angular/services/hz.api.nova.js:318
 msgid "Cannot get nova extension list."
 msgstr ""
 

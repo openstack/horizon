@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-07 01:16-0500\n"
+"POT-Creation-Date: 2015-04-10 01:17-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -197,24 +197,29 @@ msgstr ""
 
 #: static/horizon/js/angular/filters/filters.js:53
 #: static/horizon/js/angular/filters/filters.js:140
-msgid "GB"
+#, c-format
+msgid "%s GB"
 msgstr ""
 
 #: static/horizon/js/angular/filters/filters.js:70
 #: static/horizon/js/angular/filters/filters.js:142
-msgid "MB"
+#, c-format
+msgid "%s MB"
 msgstr ""
 
 #: static/horizon/js/angular/filters/filters.js:138
-msgid "TB"
+#, c-format
+msgid "%s TB"
 msgstr ""
 
 #: static/horizon/js/angular/filters/filters.js:144
-msgid "KB"
+#, c-format
+msgid "%s KB"
 msgstr ""
 
 #: static/horizon/js/angular/filters/filters.js:146
-msgid "bytes"
+#, c-format
+msgid "%s bytes"
 msgstr ""
 
 #: static/horizon/js/angular/filters/filters.js:163
@@ -393,47 +398,51 @@ msgstr ""
 msgid "Unable to retrieve keypairs."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.nova.js:61
+#: static/horizon/js/angular/services/hz.api.nova.js:62
+msgid "Unable to import the keypair."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.nova.js:64
 msgid "Unable to create the keypair."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.nova.js:79
+#: static/horizon/js/angular/services/hz.api.nova.js:83
 msgid "Unable to retrieve availability zones."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.nova.js:117
+#: static/horizon/js/angular/services/hz.api.nova.js:121
 msgid "Unable to retrieve limits."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.nova.js:144
+#: static/horizon/js/angular/services/hz.api.nova.js:148
 msgid "Unable to create the server."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.nova.js:158
+#: static/horizon/js/angular/services/hz.api.nova.js:162
 msgid "Unable to retrieve server."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.nova.js:188
+#: static/horizon/js/angular/services/hz.api.nova.js:192
 msgid "Unable to retrieve extensions."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.nova.js:233
+#: static/horizon/js/angular/services/hz.api.nova.js:237
 msgid "Unable to retrieve flavors."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.nova.js:251
+#: static/horizon/js/angular/services/hz.api.nova.js:255
 msgid "Unable to retrieve flavor."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.nova.js:265
+#: static/horizon/js/angular/services/hz.api.nova.js:269
 msgid "Unable to retrieve flavor extra specs."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.nova.js:307
+#: static/horizon/js/angular/services/hz.api.nova.js:311
 msgid "Extension is not enabled: %(extension)s"
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.nova.js:314
+#: static/horizon/js/angular/services/hz.api.nova.js:318
 msgid "Cannot get nova extension list."
 msgstr ""
 
