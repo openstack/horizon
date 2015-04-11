@@ -344,7 +344,7 @@ Valid values are  ``"AUTO"``(default), ``"VNC"``, ``"SPICE"``, ``"RDP"``,
 ``"SERIAL"``, and ``None``.
 ``None`` deactivates the in-browser console and is available in version
 2014.2(Juno).
-``"SERIAL"`` is available since 2005.1(Kilo).
+``"SERIAL"`` is available since 2015.1(Kilo).
 
 
 ``SWIFT_FILE_TRANSFER_CHUNK_SIZE``
