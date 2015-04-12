@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-09 22:29-0500\n"
-"PO-Revision-Date: 2015-04-10 03:30+0000\n"
+"POT-Creation-Date: 2015-04-11 11:47-0500\n"
+"PO-Revision-Date: 2015-04-11 00:07+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hebrew (http://www.transifex.com/projects/p/horizon/language/he/)\n"
 "MIME-Version: 1.0\n"
@@ -199,23 +199,23 @@ msgstr ""
 #: static/horizon/js/angular/filters/filters.js:140
 #, c-format
 msgid "%s GB"
-msgstr ""
+msgstr "%s ג״ב"
 
 #: static/horizon/js/angular/filters/filters.js:70
 #: static/horizon/js/angular/filters/filters.js:142
 #, c-format
 msgid "%s MB"
-msgstr ""
+msgstr "%s מ״ב"
 
 #: static/horizon/js/angular/filters/filters.js:138
 #, c-format
 msgid "%s TB"
-msgstr ""
+msgstr "%s ט״ב"
 
 #: static/horizon/js/angular/filters/filters.js:144
 #, c-format
 msgid "%s KB"
-msgstr ""
+msgstr "%s ק״ב"
 
 #: static/horizon/js/angular/filters/filters.js:146
 #, c-format
@@ -238,12 +238,20 @@ msgstr ""
 msgid "Unable to retrieve volume snapshots."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.config.js:42
+#: static/horizon/js/angular/services/hz.api.config.js:43
 msgid "Unable to retrieve user configuration."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.config.js:61
+#: static/horizon/js/angular/services/hz.api.config.js:62
 msgid "Unable to retrieve admin configuration."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.config.js:105
+msgid "Unable to retrieve settings."
+msgstr ""
+
+#: static/horizon/js/angular/services/hz.api.config.js:289
+msgid "Setting is not enabled: %(setting)s"
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.glance.js:38

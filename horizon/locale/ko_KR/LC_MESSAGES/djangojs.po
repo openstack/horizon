@@ -5,14 +5,15 @@
 # Translators:
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2015
 # jaekwon.park <jaekwon.park@rockplace.co.kr>, 2014
+# jaekwon.park <jaekwon.park@rockplace.co.kr>, 2014
 # Sungjin Kang <potopro@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-09 22:29-0500\n"
-"PO-Revision-Date: 2015-04-10 03:30+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-04-11 11:47-0500\n"
+"PO-Revision-Date: 2015-04-12 02:21+0000\n"
+"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -202,28 +203,28 @@ msgstr "아니오"
 #: static/horizon/js/angular/filters/filters.js:140
 #, c-format
 msgid "%s GB"
-msgstr ""
+msgstr "%s GB"
 
 #: static/horizon/js/angular/filters/filters.js:70
 #: static/horizon/js/angular/filters/filters.js:142
 #, c-format
 msgid "%s MB"
-msgstr ""
+msgstr "%s MB"
 
 #: static/horizon/js/angular/filters/filters.js:138
 #, c-format
 msgid "%s TB"
-msgstr ""
+msgstr "%s TB"
 
 #: static/horizon/js/angular/filters/filters.js:144
 #, c-format
 msgid "%s KB"
-msgstr ""
+msgstr "%s KB"
 
 #: static/horizon/js/angular/filters/filters.js:146
 #, c-format
 msgid "%s bytes"
-msgstr ""
+msgstr "%s 바이트"
 
 #: static/horizon/js/angular/filters/filters.js:163
 #: static/horizon/js/horizon.tables.js:393
@@ -240,13 +241,21 @@ msgstr "볼륨을 찾지 못했습니다."
 msgid "Unable to retrieve volume snapshots."
 msgstr "볼륨 스냅샷을 찾지 못했습니다."
 
-#: static/horizon/js/angular/services/hz.api.config.js:42
+#: static/horizon/js/angular/services/hz.api.config.js:43
 msgid "Unable to retrieve user configuration."
 msgstr "사용자 구성을 찾지 못했습니다."
 
-#: static/horizon/js/angular/services/hz.api.config.js:61
+#: static/horizon/js/angular/services/hz.api.config.js:62
 msgid "Unable to retrieve admin configuration."
 msgstr "관리자 구성을 찾지 못했습니다."
+
+#: static/horizon/js/angular/services/hz.api.config.js:105
+msgid "Unable to retrieve settings."
+msgstr "설정을 찾지 못했습니다."
+
+#: static/horizon/js/angular/services/hz.api.config.js:289
+msgid "Setting is not enabled: %(setting)s"
+msgstr "설정을 활성하지 못했습니다: %(setting)s"
 
 #: static/horizon/js/angular/services/hz.api.glance.js:38
 msgid "Unable to retrieve image."
@@ -402,7 +411,7 @@ msgstr "Keypair를 찾을 수 없습니다."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:62
 msgid "Unable to import the keypair."
-msgstr ""
+msgstr "키페어를 가져올 수 없습니다."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:64
 msgid "Unable to create the keypair."

@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-09 22:29-0500\n"
-"PO-Revision-Date: 2015-04-09 22:51+0000\n"
+"POT-Creation-Date: 2015-04-11 11:47-0500\n"
+"PO-Revision-Date: 2015-04-12 03:09+0000\n"
 "Last-Translator: Remulo Carvalho <remulo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -182,7 +182,7 @@ msgstr "Requisições de atualização para este roteador"
 
 #: api/ceilometer.py:1115
 msgid "Existence of floating ip"
-msgstr ""
+msgstr "Existência de ip flutuante"
 
 #: api/ceilometer.py:1119
 msgid "Creation requests for this floating ip"
@@ -302,11 +302,11 @@ msgstr ""
 
 #: api/ceilometer.py:1300
 msgid "System Memory Utility Reading"
-msgstr ""
+msgstr "Utilitário de Leitura da Memória do Sistema"
 
 #: api/ceilometer.py:1304
 msgid "System IO Utility Reading"
-msgstr ""
+msgstr "Utilitário de Leitura do Sistema de IO"
 
 #: api/cinder.py:46 dashboards/admin/volumes/volume_types/forms.py:33
 msgid "back-end"
@@ -346,7 +346,7 @@ msgstr "O serviço de identidade não permite editar a senha do usuário."
 #: api/lbaas.py:152
 #, python-format
 msgid "Unable to get VIP for pool %(pool)s."
-msgstr ""
+msgstr "Não é possível obter o VIP do pool %(pool)s."
 
 #: api/lbaas.py:191
 msgid "Unable to get pool detail."
@@ -355,12 +355,12 @@ msgstr "Não foi possível obter os detalhes do pool."
 #: api/lbaas.py:203
 #, python-format
 msgid "Unable to get subnet for pool %(pool)s."
-msgstr ""
+msgstr "Não é possível obter a sub-net do pool %(pool)s."
 
 #: api/lbaas.py:211
 #, python-format
 msgid "Unable to get members for pool %(pool)s."
-msgstr ""
+msgstr "Não é possível obter os membros do pool %(pool)s."
 
 #: api/lbaas.py:218
 #, python-format
@@ -487,7 +487,7 @@ msgstr "O contêiner não pode ser excluído por não está vazio."
 
 #: api/swift.py:321
 msgid "The pseudo folder cannot be deleted since it is not empty."
-msgstr ""
+msgstr "A pseudo pasta não pode ser excluída, uma vez que não está vazia."
 
 #: dashboards/admin/aggregates/forms.py:28
 #: dashboards/admin/aggregates/tables.py:128
@@ -1095,7 +1095,7 @@ msgstr "vCPUs"
 #: dashboards/project/instances/panel.py:23
 #: dashboards/project/instances/tables.py:1049
 #: dashboards/project/instances/templates/instances/index.html:3
-#: dashboards/project/instances/views.py:55
+#: dashboards/project/instances/views.py:59
 #: dashboards/project/network_topology/instances/tables.py:23
 #: usage/quotas.py:64
 msgid "Instances"
@@ -2163,7 +2163,7 @@ msgstr "Serviço de orquestração está desabilitado."
 
 #: dashboards/admin/info/tabs.py:123
 msgid "Unable to get Orchestration service list."
-msgstr ""
+msgstr "Não é possível obter a lista do serviço de Orquestração."
 
 #: dashboards/admin/info/templates/info/_cell_status.html:5
 #, python-format
@@ -2328,12 +2328,11 @@ msgid "Unable to retrieve instance list."
 msgstr "Não foi possível recuperar a lista de instâncias."
 
 #: dashboards/admin/instances/views.py:112
-#: dashboards/project/instances/views.py:81
+#: dashboards/project/instances/views.py:85
 msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "Não foi possível obter um endereço IP do Neutron."
 
 #: dashboards/admin/instances/views.py:136
-#: dashboards/project/instances/views.py:122
 msgid "Unable to retrieve instance size information."
 msgstr "Não é possível recuperar informações de tamanho instância."
 
@@ -2344,8 +2343,8 @@ msgstr "Não é possível recuperar informações do host."
 #: dashboards/admin/instances/views.py:180
 #: dashboards/project/databases/views.py:153
 #: dashboards/project/databases/views.py:193
-#: dashboards/project/instances/views.py:242
-#: dashboards/project/instances/views.py:384
+#: dashboards/project/instances/views.py:247
+#: dashboards/project/instances/views.py:389
 msgid "Unable to retrieve instance details."
 msgstr "Não foi possível recuperar os detalhes da instância."
 
@@ -2390,7 +2389,7 @@ msgstr "Protegido"
 
 #: dashboards/admin/metadata_defs/forms.py:77
 msgid "Cannot specify both file and direct input."
-msgstr ""
+msgstr "Não é permitido especificar simultaneamente um arquivo e uma entrada direta."
 
 #: dashboards/admin/metadata_defs/forms.py:80
 msgid "No input was provided for the namespace content."
@@ -3388,7 +3387,7 @@ msgstr ""
 #: dashboards/admin/networks/ports/forms.py:32
 #: dashboards/project/networks/ports/forms.py:30
 msgid "MacVTap"
-msgstr ""
+msgstr "MacVTap"
 
 #: dashboards/admin/networks/ports/forms.py:39
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:11
@@ -7997,7 +7996,7 @@ msgstr "Reiniciar em um novo cluster"
 #: dashboards/project/instances/tables.py:856
 #: dashboards/project/instances/templates/instances/_detail_overview.html:64
 #: dashboards/project/instances/templates/instances/_detail_overview.html:100
-#: dashboards/project/instances/views.py:398
+#: dashboards/project/instances/views.py:403
 msgid "Not available"
 msgstr "Não disponível"
 
@@ -8952,7 +8951,7 @@ msgstr "Construindo"
 #: dashboards/project/database_backups/tables.py:39
 msgctxt "Current status of a Database Backup"
 msgid "Completed"
-msgstr ""
+msgstr "Completo"
 
 #: dashboards/project/database_backups/tables.py:41
 msgctxt "Current status of a Database Backup"
@@ -9581,7 +9580,7 @@ msgid "Launch Database"
 msgstr "Disparar Base de Dados"
 
 #: dashboards/project/databases/views.py:101
-#: dashboards/project/instances/views.py:289
+#: dashboards/project/instances/views.py:294
 msgid "Instance Details: {{ instance.name }}"
 msgstr ""
 
@@ -9591,7 +9590,7 @@ msgid "Unable to retrieve details for database instance: %s"
 msgstr "Não foi possível obter detalhes para a instância da base de dados: %s"
 
 #: dashboards/project/databases/views.py:209
-#: dashboards/project/instances/views.py:409
+#: dashboards/project/instances/views.py:414
 msgid "Unable to retrieve flavors."
 msgstr "Não foi possível recuperar flavors."
 
@@ -9965,7 +9964,7 @@ msgstr ""
 #: dashboards/project/firewalls/forms.py:365
 #, python-format
 msgid "Router(s)  was successfully removed from firewall %(firewall)s."
-msgstr ""
+msgstr "Roteador(es) foram removidos com sucesso do firewall %(firewall)s."
 
 #: dashboards/project/firewalls/forms.py:367
 #, python-format
@@ -10205,7 +10204,7 @@ msgstr "Não foi possível recuperar detalhes do firewall"
 
 #: dashboards/project/firewalls/templates/firewalls/_add_router_to_firewall.html:6
 msgid "Choose the router(s) you want to add."
-msgstr ""
+msgstr "Escolha os roteador(es) que quer adicionar."
 
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:19
 msgid "Policy ID"
@@ -10382,7 +10381,7 @@ msgstr "Salvar Alterações"
 
 #: dashboards/project/firewalls/views.py:143
 msgid "Edit Rule {{ name }}"
-msgstr ""
+msgstr "Editar Regra {{ name }}"
 
 #: dashboards/project/firewalls/views.py:184
 msgid "Edit Policy {{ name }}"
@@ -10436,7 +10435,7 @@ msgstr ""
 
 #: dashboards/project/firewalls/workflows.py:181
 msgid "Select routers for your firewall."
-msgstr ""
+msgstr "Selecione os roteadores para o seu firewall."
 
 #: dashboards/project/firewalls/workflows.py:192
 #, python-format
@@ -10753,7 +10752,7 @@ msgstr "Checksum"
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:49
 msgid "Virtual Size"
-msgstr ""
+msgstr "Tamanho Virtual"
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:52
 msgid "Container Format"
@@ -10803,7 +10802,7 @@ msgstr "Não foi possível obter imagens para o projeto atual."
 
 #: dashboards/project/images/utils.py:95
 msgid "Unable to retrieve images"
-msgstr ""
+msgstr "Não é possível recuperar as imagens"
 
 #: dashboards/project/images/utils.py:104
 #: dashboards/project/instances/forms.py:66
@@ -11003,7 +11002,7 @@ msgstr "Reverter Redimensionamento/Migração"
 #: dashboards/project/instances/templates/instances/_rebuild.html:9
 #: dashboards/project/instances/templates/instances/_rebuild.html:27
 #: dashboards/project/instances/templates/instances/rebuild.html:3
-#: dashboards/project/instances/views.py:256
+#: dashboards/project/instances/views.py:261
 msgid "Rebuild Instance"
 msgstr "Reconstruir Instância"
 
@@ -11057,7 +11056,7 @@ msgid ""
 msgstr ""
 
 #: dashboards/project/instances/tables.py:677
-#: dashboards/project/instances/views.py:395
+#: dashboards/project/instances/views.py:400
 #, python-format
 msgid "Unable to retrieve flavor information for instance \"%s\"."
 msgstr "Não foi possível obter informação de flavor para instância \"%s\"."
@@ -11488,7 +11487,7 @@ msgid "Log"
 msgstr "Log"
 
 #: dashboards/project/instances/tabs.py:53
-#: dashboards/project/instances/views.py:148
+#: dashboards/project/instances/views.py:153
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr "Não foi possível obter o log da instância \"%s\"."
@@ -11502,7 +11501,7 @@ msgid "Unable to retrieve instance action list."
 msgstr "Não é possível recuperar lista de ações da instância."
 
 #: dashboards/project/instances/templates/instances/_decryptpassword.html:10
-#: dashboards/project/instances/views.py:272
+#: dashboards/project/instances/views.py:277
 msgid "Retrieve Instance Password"
 msgstr "Recuperar Senha da Instância"
 
@@ -11770,60 +11769,60 @@ msgstr "Selecionar um par de chaves"
 msgid "Select Flavor"
 msgstr ""
 
-#: dashboards/project/instances/views.py:73
+#: dashboards/project/instances/views.py:77
 msgid "Unable to retrieve instances."
 msgstr "Não foi possível recuperar instâncias."
 
-#: dashboards/project/instances/views.py:151
+#: dashboards/project/instances/views.py:156
 msgid "Log length must be a nonnegative integer."
 msgstr ""
 
-#: dashboards/project/instances/views.py:170
+#: dashboards/project/instances/views.py:175
 #, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr "Não foi possível acessar o console VNC da instância \"%s\"."
 
-#: dashboards/project/instances/views.py:182
+#: dashboards/project/instances/views.py:187
 #, python-format
 msgid "Unable to get SPICE console for instance \"%s\"."
 msgstr "Não foi possível obter o console SPICE para a instância \"%s\"."
 
-#: dashboards/project/instances/views.py:193
+#: dashboards/project/instances/views.py:198
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "Não foi possível obter console RDP para a instância \"%s\"."
 
-#: dashboards/project/instances/views.py:209
+#: dashboards/project/instances/views.py:214
 #, python-format
 msgid "Cannot find instance %s."
 msgstr ""
 
-#: dashboards/project/instances/views.py:221
+#: dashboards/project/instances/views.py:226
 #, python-format
 msgid "Cannot get console for instance %s."
 msgstr ""
 
-#: dashboards/project/instances/views.py:309
+#: dashboards/project/instances/views.py:314
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "Não foi possível recuperar os detalhes da instância \"%s\"."
 
-#: dashboards/project/instances/views.py:330
+#: dashboards/project/instances/views.py:335
 #, python-format
 msgid "Unable to retrieve volume list for instance \"%(name)s\" (%(id)s)."
 msgstr "Não foi possível obter lista de volumes para instância \"%(name)s\" (%(id)s)."
 
-#: dashboards/project/instances/views.py:339
+#: dashboards/project/instances/views.py:344
 #, python-format
 msgid "Unable to retrieve flavor information for instance \"%(name)s\" (%(id)s)."
 msgstr "Não foi possível obter informação de flavor para instância \"%(name)s\" (%(id)s)."
 
-#: dashboards/project/instances/views.py:348
+#: dashboards/project/instances/views.py:353
 #, python-format
 msgid "Unable to retrieve security groups for instance \"%(name)s\" (%(id)s)."
 msgstr "Não foi possível obter grupos de segurança para instância \"%(name)s\" (%(id)s)."
 
-#: dashboards/project/instances/views.py:356
+#: dashboards/project/instances/views.py:361
 #, python-format
 msgid ""
 "Unable to retrieve IP addresses from Neutron for instance \"%(name)s\" "
@@ -13172,7 +13171,7 @@ msgstr "Fazer"
 #: dashboards/project/networks/ports/views.py:39
 #: dashboards/project/networks/templates/networks/ports/detail.html:3
 msgid "Port Details"
-msgstr ""
+msgstr "Detalhes da Porta"
 
 #: dashboards/project/networks/ports/views.py:54
 #: dashboards/project/routers/ports/tabs.py:35
@@ -13727,7 +13726,7 @@ msgstr "Desabilitar modo HA"
 
 #: dashboards/project/routers/forms.py:78
 msgid "Failed to get network list."
-msgstr ""
+msgstr "Falha ao obter a lista de redes."
 
 #: dashboards/project/routers/forms.py:86
 #: dashboards/project/routers/ports/forms.py:174
@@ -13951,7 +13950,7 @@ msgstr ""
 
 #: dashboards/project/routers/templates/routers/_detail_overview.html:34
 msgid "External Fixed IPs"
-msgstr ""
+msgstr "IPs fixos externos"
 
 #: dashboards/project/routers/templates/routers/_detail_overview.html:46
 msgid "SNAT"
@@ -14506,12 +14505,12 @@ msgstr ""
 #: dashboards/project/stacks/tables.py:248
 msgctxt "current status of stack"
 msgid "Snapshot Complete"
-msgstr ""
+msgstr "Snapshot Completo"
 
 #: dashboards/project/stacks/tables.py:250
 msgctxt "current status of stack"
 msgid "Snapshot Failed"
-msgstr ""
+msgstr "Snapshot Falhou"
 
 #: dashboards/project/stacks/tables.py:252
 msgctxt "current status of stack"

@@ -3,15 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Ainur Shakirov <ainur.shakirov.tt@gmail.com>, 2015
+# Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2015
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015
 # Yury Sakarinen, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-09 22:29-0500\n"
-"PO-Revision-Date: 2015-04-10 03:30+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-04-11 11:47-0500\n"
+"PO-Revision-Date: 2015-04-11 23:09+0000\n"
+"Last-Translator: Ainur Shakirov <ainur.shakirov.tt@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +29,7 @@ msgstr "Действие не может быть выполнено. Эта с�
 
 #: static/angular/metadata-display/metadata-display.js:33
 msgid "Detail Information"
-msgstr "Детальная информация"
+msgstr "Подробная информация"
 
 #: static/angular/metadata-tree/metadata-tree.js:35
 msgid ""
@@ -35,7 +37,7 @@ msgid ""
 "the right column. In the left columns there are metadata definitions from "
 "the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
 "the key of your choice."
-msgstr ""
+msgstr "Вы можете указать метаданные ресурса перемещением элементов с левого столбца в правый. В левом столбце имеются определения метаданных из каталога метаданных Glance. Используйте опцию \"Другой\" для добавления выбранных вами ключей."
 
 #: static/angular/metadata-tree/metadata-tree.js:36
 msgid "Min"
@@ -47,27 +49,27 @@ msgstr "Макс."
 
 #: static/angular/metadata-tree/metadata-tree.js:38
 msgid "Min length"
-msgstr "Минимальная длина"
+msgstr "Мин. длина"
 
 #: static/angular/metadata-tree/metadata-tree.js:39
 msgid "Max length"
-msgstr ""
+msgstr "Макс. длина"
 
 #: static/angular/metadata-tree/metadata-tree.js:40
 msgid "Pattern mismatch"
-msgstr ""
+msgstr "Несоответствие шаблону"
 
 #: static/angular/metadata-tree/metadata-tree.js:41
 msgid "Integer required"
-msgstr ""
+msgstr "Требуется целое число"
 
 #: static/angular/metadata-tree/metadata-tree.js:42
 msgid "Decimal required"
-msgstr ""
+msgstr "Требуется десятичное число"
 
 #: static/angular/metadata-tree/metadata-tree.js:43
 msgid "Required"
-msgstr ""
+msgstr "Требуется"
 
 #: static/angular/metadata-tree/metadata-tree.js:44
 msgid "Duplicate keys are not allowed"
@@ -89,7 +91,7 @@ msgstr "Имеющиеся метаданные"
 
 #: static/angular/metadata-tree/metadata-tree.js:48
 msgid "Custom"
-msgstr ""
+msgstr "Выборочный"
 
 #: static/angular/metadata-tree/metadata-tree.js:49
 msgid "No available metadata"
@@ -110,7 +112,7 @@ msgstr "Отмена"
 
 #: static/angular/transfer-table/transfer-table.js:39
 msgid "Allocated"
-msgstr ""
+msgstr "Выделенный"
 
 #: static/angular/transfer-table/transfer-table.js:40
 msgid "Available"
@@ -118,43 +120,43 @@ msgstr "Доступно"
 
 #: static/angular/transfer-table/transfer-table.js:41
 msgid "Select one"
-msgstr ""
+msgstr "Выберите один"
 
 #: static/angular/transfer-table/transfer-table.js:42
 msgid "Select an item from Available items below"
-msgstr ""
+msgstr "Выберите элемент из доступных элементов ниже"
 
 #: static/angular/transfer-table/transfer-table.js:43
 msgid "No available items"
-msgstr ""
+msgstr "Нет доступных элементов"
 
 #: static/angular/transfer-table/transfer-table.js:44
 msgid "Expand to see allocated items"
-msgstr ""
+msgstr "Показать выделенные элементы"
 
 #: static/angular/transfer-table/transfer-table.js:45
 msgid "Expand to see available items"
-msgstr ""
+msgstr "Показать все доступные элементы"
 
 #: static/angular/transfer-table/transfer-table.js:46
 msgid "Click to show or hide"
-msgstr ""
+msgstr "Нажмите для показа или скрытия"
 
 #: static/angular/transfer-table/transfer-table.js:47
 msgid "Re-order items using drag and drop"
-msgstr ""
+msgstr "Переопределите элементы перемещением"
 
 #: static/angular/transfer-table/transfer-table.js:48
 msgid "Click to see more details"
-msgstr ""
+msgstr "Нажмите для подробностей"
 
 #: static/angular/transfer-table/transfer-table.js:100
 msgid "Found %(found)s of %(total)s"
-msgstr ""
+msgstr "Найдено %(found)s из %(total)s"
 
 #: static/angular/transfer-table/transfer-table.js:166
 msgid "Click here to expand the row and view the errors."
-msgstr ""
+msgstr "Нажмите для показа ошибок."
 
 #: static/angular/wizard/wizard.js:12
 msgid "Back"
@@ -162,32 +164,32 @@ msgstr "Назад"
 
 #: static/angular/wizard/wizard.js:13
 msgid "Next"
-msgstr "Следующий"
+msgstr "Вперёд"
 
 #: static/angular/wizard/wizard.js:14
 msgid "Finish"
-msgstr ""
+msgstr "Закончить"
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Connecting"
-msgstr ""
+msgstr "Подключение"
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Open"
-msgstr ""
+msgstr "Открыт"
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Closing"
-msgstr ""
+msgstr "Закрытие"
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Closed"
-msgstr ""
+msgstr "Закрыт"
 
 #: static/horizon/js/angular/directives/serialConsole.js:85
 #, c-format
 msgid "Status: %s"
-msgstr ""
+msgstr "Статус: %s"
 
 #: static/horizon/js/angular/filters/filters.js:37
 msgid "Yes"
@@ -201,28 +203,28 @@ msgstr "Нет"
 #: static/horizon/js/angular/filters/filters.js:140
 #, c-format
 msgid "%s GB"
-msgstr ""
+msgstr "%s ГБ"
 
 #: static/horizon/js/angular/filters/filters.js:70
 #: static/horizon/js/angular/filters/filters.js:142
 #, c-format
 msgid "%s MB"
-msgstr ""
+msgstr "%s МБ"
 
 #: static/horizon/js/angular/filters/filters.js:138
 #, c-format
 msgid "%s TB"
-msgstr ""
+msgstr "%s ТБ"
 
 #: static/horizon/js/angular/filters/filters.js:144
 #, c-format
 msgid "%s KB"
-msgstr ""
+msgstr "%s кБ"
 
 #: static/horizon/js/angular/filters/filters.js:146
 #, c-format
 msgid "%s bytes"
-msgstr ""
+msgstr "%s байт"
 
 #: static/horizon/js/angular/filters/filters.js:163
 #: static/horizon/js/horizon.tables.js:393
@@ -235,19 +237,27 @@ msgstr[2] "Отображено %s значений"
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:47
 msgid "Unable to retrieve volumes."
-msgstr ""
+msgstr "Не удалось получить диски."
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:74
 msgid "Unable to retrieve volume snapshots."
 msgstr "Не удалось получить снимки диска."
 
-#: static/horizon/js/angular/services/hz.api.config.js:42
+#: static/horizon/js/angular/services/hz.api.config.js:43
 msgid "Unable to retrieve user configuration."
-msgstr ""
+msgstr "Не удалось получить конфигурацию пользователя."
 
-#: static/horizon/js/angular/services/hz.api.config.js:61
+#: static/horizon/js/angular/services/hz.api.config.js:62
 msgid "Unable to retrieve admin configuration."
-msgstr ""
+msgstr "Не удалось получить конфигурацию администратора."
+
+#: static/horizon/js/angular/services/hz.api.config.js:105
+msgid "Unable to retrieve settings."
+msgstr "Не удалось получить настройки."
+
+#: static/horizon/js/angular/services/hz.api.config.js:289
+msgid "Setting is not enabled: %(setting)s"
+msgstr "Настройка не включена: %(setting)s"
 
 #: static/horizon/js/angular/services/hz.api.glance.js:38
 msgid "Unable to retrieve image."
@@ -259,123 +269,123 @@ msgstr "Не удалось получить образы."
 
 #: static/horizon/js/angular/services/hz.api.glance.js:144
 msgid "Unable to retrieve namespaces."
-msgstr ""
+msgstr "Не удалось получить пространство имён."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:24
 msgid "Unable to retrieve users"
-msgstr ""
+msgstr "Не удалось получить пользователей."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:31
 msgid "Unable to create the user."
-msgstr ""
+msgstr "Не удалось создать пользователя."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:38
 msgid "Unable to delete the users."
-msgstr ""
+msgstr "Не удалось удалить пользователя."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:73
 msgid "Unable to retrieve the current user session."
-msgstr ""
+msgstr "Не удалось получить текущую сессию пользователя."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:80
 msgid "Unable to retrieve the user"
-msgstr ""
+msgstr "Не удалось получить пользователя."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:88
 msgid "Unable to edit the user."
-msgstr ""
+msgstr "Не удалось изменить пользователя."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:95
 msgid "Unable to delete the user."
-msgstr ""
+msgstr "Не удалось удалить пользователя."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:103
 msgid "Unable to retrieve role"
-msgstr ""
+msgstr "Не удалось получить роль."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:110
 msgid "Unable to create the role."
-msgstr ""
+msgstr "Не удалось создать роль."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:117
 msgid "Unable to delete the roles."
-msgstr ""
+msgstr "Не удалось удалить роли."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:124
 msgid "Unable to retrieve the role"
-msgstr ""
+msgstr "Не удалось получить роль"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:132
 msgid "Unable to edit the role."
-msgstr ""
+msgstr "Не удалось изменить роль."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:139
 msgid "Unable to delete the role."
-msgstr ""
+msgstr "Не удалось удалить роль."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:147
 msgid "Unable to retrieve domains"
-msgstr ""
+msgstr "Не удалось получить домены."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:154
 msgid "Unable to create the domain."
-msgstr ""
+msgstr "Не удалось создать домен."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:161
 msgid "Unable to delete the domains."
-msgstr ""
+msgstr "Не удалось удалить домены."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:168
 msgid "Unable to retrieve the domain"
-msgstr ""
+msgstr "Не удалось получить домен."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:176
 msgid "Unable to edit the domain."
-msgstr ""
+msgstr "Не удалось изменить домен."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:183
 msgid "Unable to delete the domain."
-msgstr ""
+msgstr "Не удалось удалить домен."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:192
 msgid "Unable to retrieve projects"
-msgstr ""
+msgstr "Не удалось получить проекты"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:199
 msgid "Unable to create the project."
-msgstr ""
+msgstr "Не удалось создать проект"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:206
 msgid "Unable to delete the projects."
-msgstr ""
+msgstr "Не удалось удалить проекты."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:213
 msgid "Unable to retrieve the project"
-msgstr ""
+msgstr "Не удалось получить проект"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:221
 msgid "Unable to edit the project."
-msgstr ""
+msgstr "Не удалось изменить проект."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:228
 msgid "Unable to delete the project."
-msgstr ""
+msgstr "Не удалось удалить проект."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:236
 msgid "Unable to grant the role."
-msgstr ""
+msgstr "Не удалось принять роль."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:250
 msgid "Unable to fetch the service catalog."
-msgstr ""
+msgstr "Не удалось получить службу каталогов."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:385
 msgid "Service type is not enabled: %(desiredType)s"
-msgstr ""
+msgstr "Тип службы не включен: %(desiredType)s"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:392
 msgid "Cannot get service catalog from keystone."
-msgstr ""
+msgstr "Не удалось получить службу каталогов с Keystone."
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:39
 msgid "Unable to retrieve networks."
@@ -383,31 +393,31 @@ msgstr "Не удалось получить сети."
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:88
 msgid "Unable to create the network."
-msgstr ""
+msgstr "Не удалось создать сеть."
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:108
 msgid "Unable to retrieve subnets."
-msgstr ""
+msgstr "Не удалось получить подсети."
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:172
 msgid "Unable to create the subnet."
-msgstr ""
+msgstr "Не удалось создать подсеть."
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:192
 msgid "Unable to retrieve ports."
-msgstr ""
+msgstr "Не удалось получить порты."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:40
 msgid "Unable to retrieve keypairs."
-msgstr "Невозможно получить ключевые пары."
+msgstr "Не удалось получить пары ключей."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:62
 msgid "Unable to import the keypair."
-msgstr ""
+msgstr "Не удалось импортировать пару ключей."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:64
 msgid "Unable to create the keypair."
-msgstr ""
+msgstr "Не удалось создать пару ключей."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:83
 msgid "Unable to retrieve availability zones."
@@ -415,19 +425,19 @@ msgstr "Не удалось получить зоны доступности."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:121
 msgid "Unable to retrieve limits."
-msgstr ""
+msgstr "Не удалось получить ограничители."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:148
 msgid "Unable to create the server."
-msgstr ""
+msgstr "Не удалось создать сервер."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:162
 msgid "Unable to retrieve server."
-msgstr ""
+msgstr "Не удалось получить сервер."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:192
 msgid "Unable to retrieve extensions."
-msgstr ""
+msgstr "Не удалось получить расширения."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:237
 msgid "Unable to retrieve flavors."
@@ -435,23 +445,23 @@ msgstr "Не удалось получить схемы."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:255
 msgid "Unable to retrieve flavor."
-msgstr ""
+msgstr "Не удалось получить схему."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:269
 msgid "Unable to retrieve flavor extra specs."
-msgstr ""
+msgstr "Не удалось получить доп. параметры схемы."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:311
 msgid "Extension is not enabled: %(extension)s"
-msgstr ""
+msgstr "Расширение не включено: %(extension)s"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:318
 msgid "Cannot get nova extension list."
-msgstr ""
+msgstr "Не удалось получить список расширений nova."
 
 #: static/horizon/js/angular/services/hz.api.policy.js:65
 msgid "Policy check failed."
-msgstr ""
+msgstr "Проверка политики не удалась."
 
 #: static/horizon/js/angular/services/hz.api.security-group.js:64
 msgid "Unable to retrieve security groups."
@@ -557,7 +567,7 @@ msgstr "Открыть консоль"
 
 #: static/horizon/js/horizon.networktopology.js:557
 msgid "View Details"
-msgstr "Просмотреть Детали"
+msgstr "Просмотреть детали"
 
 #: static/horizon/js/horizon.networktopology.js:560
 msgid "Delete Router"
@@ -573,11 +583,11 @@ msgstr "Добавить Интерфейс"
 
 #: static/horizon/js/horizon.networktopology.js:570
 msgid "Terminate Instance"
-msgstr "Удалить инстанс"
+msgstr "Удалить машину"
 
 #: static/horizon/js/horizon.networktopology.js:571
 msgid "View Instance Details"
-msgstr "Посмотреть информацию об инстансе"
+msgstr "Посмотреть информацию о машине."
 
 #: static/horizon/js/horizon.tables.js:39
 #: static/horizon/js/horizon.tables.js:406
@@ -601,7 +611,7 @@ msgstr "Подтвердите %s"
 
 #: static/horizon/js/horizon.tables.js:204
 msgid "Please confirm your selection. "
-msgstr ""
+msgstr "Подтвердите свой выбор."
 
 #: static/horizon/js/horizon.tables_inline_edit.js:88
 #: static/horizon/js/horizon.tables_inline_edit.js:151
