@@ -34,6 +34,9 @@ LOG = logging.getLogger(__name__)
 class UpdateNetwork(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), required=False)
     tenant_id = forms.CharField(widget=forms.HiddenInput)
+    network_id = forms.CharField(label=_("ID"),
+                                 widget=forms.TextInput(
+                                     attrs={'readonly': 'readonly'}))
     admin_state = forms.ChoiceField(choices=[(True, _('UP')),
                                              (False, _('DOWN'))],
                                     label=_("Admin State"))
@@ -44,7 +47,7 @@ class UpdateNetwork(forms.SelfHandlingForm):
             params = {'admin_state_up': (data['admin_state'] == 'True'),
                       'name': data['name']}
             network = api.neutron.network_update(request,
-                                                 self.initial['network_id'],
+                                                 data['network_id'],
                                                  **params)
             msg = _('Network %s was successfully updated.') % data['name']
             LOG.debug(msg)
