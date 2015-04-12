@@ -77,10 +77,9 @@
                   domainInput.hide();
                   regionInput.hide();
               }
-              scope.$digest();
 
-            }); // end of apply
-          } // end of function
+            }); // end of timeout
+          } // end of onChange
 
           // if authType field exists
           // then websso was enabled
