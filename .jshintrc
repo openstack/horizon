@@ -4,6 +4,7 @@
   "evil": true,
 
   "globals": {
+    "horizon": false,
     "jQuery": false,
     "$": false,
 
