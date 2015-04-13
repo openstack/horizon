@@ -203,6 +203,7 @@ LANGUAGES = (
     ('nl', 'Dutch (Netherlands)'),
     ('pl', 'Polish'),
     ('pt-br', 'Portuguese (Brazil)'),
+    ('ru', 'Russian'),
     ('sr', 'Serbian'),
     ('zh-cn', 'Simplified Chinese'),
     ('zh-tw', 'Chinese (Taiwan)'),
