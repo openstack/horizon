@@ -20,9 +20,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-08 17:57-0500\n"
-"PO-Revision-Date: 2015-04-09 06:52+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-04-12 16:36-0500\n"
+"PO-Revision-Date: 2015-04-12 23:00+0000\n"
+"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -926,7 +926,7 @@ msgstr "Impossible de récupérer la liste des zones de disponibilité"
 
 #: dashboards/admin/aggregates/views.py:99
 msgid "Unable to retrieve the aggregate to be updated"
-msgstr "impossible de retrouver l'agrégat à mettre à jour"
+msgstr "impossible de récupérer l'agrégat à mettre à jour"
 
 #: dashboards/admin/aggregates/views.py:134
 msgid "Unable to retrieve available metadata for aggregate."
@@ -1103,7 +1103,7 @@ msgstr "VCPUs"
 #: dashboards/project/instances/panel.py:23
 #: dashboards/project/instances/tables.py:1049
 #: dashboards/project/instances/templates/instances/index.html:3
-#: dashboards/project/instances/views.py:55
+#: dashboards/project/instances/views.py:59
 #: dashboards/project/network_topology/instances/tables.py:23
 #: usage/quotas.py:64
 msgid "Instances"
@@ -1383,6 +1383,7 @@ msgstr "Disque d'échange"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:6
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:6
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:6
+#: dashboards/project/networks/forms.py:37
 #: dashboards/project/networks/ports/forms.py:35
 #: dashboards/project/networks/templates/networks/_detail_overview.html:9
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:8
@@ -2056,7 +2057,7 @@ msgstr "Mettre à jour les métadonnées de l'image"
 
 #: dashboards/admin/images/views.py:83
 msgid "Unable to retrieve image list."
-msgstr "Impossible de retrouver la liste des images."
+msgstr "Impossible de récupérer la liste des images."
 
 #: dashboards/admin/images/views.py:189
 msgid "Unable to retrieve available properties for image."
@@ -2336,12 +2337,11 @@ msgid "Unable to retrieve instance list."
 msgstr "Impossible de récupérer la liste des instances."
 
 #: dashboards/admin/instances/views.py:112
-#: dashboards/project/instances/views.py:81
+#: dashboards/project/instances/views.py:85
 msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "Impossible de récupérer les adresses IP de Neutron."
 
 #: dashboards/admin/instances/views.py:136
-#: dashboards/project/instances/views.py:122
 msgid "Unable to retrieve instance size information."
 msgstr "Impossible de récupérer la taille de l'instance."
 
@@ -2352,8 +2352,8 @@ msgstr "Impossible de récupérer les information sur l’hôte."
 #: dashboards/admin/instances/views.py:180
 #: dashboards/project/databases/views.py:153
 #: dashboards/project/databases/views.py:193
-#: dashboards/project/instances/views.py:242
-#: dashboards/project/instances/views.py:384
+#: dashboards/project/instances/views.py:247
+#: dashboards/project/instances/views.py:389
 msgid "Unable to retrieve instance details."
 msgstr "Impossible de récupérer les détails de l'instance."
 
@@ -2683,7 +2683,7 @@ msgstr "Espace de nom"
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:35
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:18
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:82
-#: dashboards/project/data_processing/jobs/workflows/launch.py:407
+#: dashboards/project/data_processing/jobs/workflows/launch.py:409
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:402
 #: dashboards/project/database_backups/tables.py:165
 #: dashboards/project/database_backups/templates/database_backups/details.html:32
@@ -3140,7 +3140,7 @@ msgstr "Ajouter un agent DHCP"
 #: dashboards/project/loadbalancers/workflows.py:195
 #: dashboards/project/loadbalancers/workflows.py:347
 #: dashboards/project/loadbalancers/workflows.py:550
-#: dashboards/project/networks/forms.py:39
+#: dashboards/project/networks/forms.py:42
 #: dashboards/project/networks/ports/forms.py:43
 #: dashboards/project/networks/ports/tables.py:77
 #: dashboards/project/networks/tables.py:177
@@ -3244,7 +3244,7 @@ msgstr "ID du segment"
 #: dashboards/project/loadbalancers/workflows.py:193
 #: dashboards/project/loadbalancers/workflows.py:345
 #: dashboards/project/loadbalancers/workflows.py:548
-#: dashboards/project/networks/forms.py:37
+#: dashboards/project/networks/forms.py:40
 #: dashboards/project/networks/ports/forms.py:41
 #: dashboards/project/networks/workflows.py:47
 #: dashboards/project/routers/forms.py:37
@@ -3267,7 +3267,7 @@ msgstr "HAUT"
 #: dashboards/project/loadbalancers/workflows.py:194
 #: dashboards/project/loadbalancers/workflows.py:346
 #: dashboards/project/loadbalancers/workflows.py:549
-#: dashboards/project/networks/forms.py:38
+#: dashboards/project/networks/forms.py:41
 #: dashboards/project/networks/ports/forms.py:42
 #: dashboards/project/networks/workflows.py:48
 #: dashboards/project/routers/forms.py:38
@@ -3357,13 +3357,13 @@ msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
 msgstr "Pour les réseaux VXLAN, les IDs de tunnel valides doivent être compris entre %(min)s et %(max)s."
 
 #: dashboards/admin/networks/forms.py:252
-#: dashboards/project/networks/forms.py:49
+#: dashboards/project/networks/forms.py:52
 #, python-format
 msgid "Network %s was successfully updated."
 msgstr "Le réseau %s a été mis à jour avec succès."
 
 #: dashboards/admin/networks/forms.py:257
-#: dashboards/project/networks/forms.py:54
+#: dashboards/project/networks/forms.py:57
 #, python-format
 msgid "Failed to update network %s"
 msgstr "Echec lors de la mise à jour du réseau %s"
@@ -4399,7 +4399,7 @@ msgstr[1] "Spécifications supplémentaires supprimées"
 #: dashboards/project/data_processing/data_sources/workflows/create.py:95
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
 #: dashboards/project/data_processing/jobs/workflows/create.py:156
-#: dashboards/project/data_processing/jobs/workflows/launch.py:406
+#: dashboards/project/data_processing/jobs/workflows/launch.py:408
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:257
 #: dashboards/project/networks/subnets/workflows.py:57
 #: dashboards/project/networks/workflows.py:342
@@ -4814,7 +4814,7 @@ msgstr "Volume non-géré"
 #: dashboards/project/volumes/volumes/views.py:68
 #: dashboards/project/volumes/volumes/views.py:468
 msgid "Unable to retrieve volume details."
-msgstr "Impossible de retrouver les détails du volume."
+msgstr "Impossible de récupérer les détails du volume."
 
 #: dashboards/identity/dashboard.py:22
 msgid "Identity"
@@ -6874,7 +6874,7 @@ msgstr "Charger des Objets"
 
 #: dashboards/project/containers/views.py:202
 msgid "Unable to retrieve object."
-msgstr "Impossible de retrouver l'objet."
+msgstr "Impossible de récupérer l'objet."
 
 #: dashboards/project/containers/views.py:245
 msgid "Unable to list containers."
@@ -7045,11 +7045,11 @@ msgstr "Informations générales"
 
 #: dashboards/project/data_processing/cluster_templates/tabs.py:43
 msgid "Unable to fetch cluster template details."
-msgstr "Impossible de charger les détails du modèle de cluster."
+msgstr "Impossible de récupérer les détails du modèle de cluster."
 
 #: dashboards/project/data_processing/cluster_templates/tabs.py:70
 msgid "Unable to fetch node group details."
-msgstr "Impossible de charger les détails du groupe de noeud"
+msgstr "Impossible de récupérer les détails du groupe de noeud"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:4
 msgid "This Cluster Template will be created for:"
@@ -7208,7 +7208,7 @@ msgstr "Détails du modèle de cluster"
 
 #: dashboards/project/data_processing/cluster_templates/views.py:57
 msgid "Unable to fetch cluster template list"
-msgstr "Impossible de charger la liste des modèles de cluster"
+msgstr "Impossible de récupérer la liste des modèles de cluster"
 
 #: dashboards/project/data_processing/cluster_templates/views.py:104
 msgid "Copy Cluster Template"
@@ -7217,7 +7217,7 @@ msgstr "Modèle de copie d'un cluster"
 #: dashboards/project/data_processing/cluster_templates/views.py:122
 #: dashboards/project/data_processing/clusters/views.py:111
 msgid "Unable to fetch cluster template."
-msgstr "Impossible de charger le modèle de cluster"
+msgstr "Impossible de récupérer le modèle de cluster"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/copy.py:32
 #, python-format
@@ -7226,14 +7226,14 @@ msgstr "Copie du modèle de cluster %s créée"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/copy.py:96
 msgid "Unable to fetch template to copy."
-msgstr "Impossible de trouver le modèle à copier"
+msgstr "Impossible de récupérer le modèle à copier"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:49
 msgid "Unable to fetch plugin list."
-msgstr "Impossible de trouver la list des composants"
+msgstr "Impossible de récupérer la liste des plugins"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:53
-#: dashboards/project/data_processing/jobs/workflows/launch.py:354
+#: dashboards/project/data_processing/jobs/workflows/launch.py:356
 msgid "Plugin name"
 msgstr "Nom du composant"
 
@@ -7250,7 +7250,7 @@ msgid "Next"
 msgstr "Suivant"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:83
-#: dashboards/project/data_processing/jobs/workflows/launch.py:408
+#: dashboards/project/data_processing/jobs/workflows/launch.py:410
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:403
 msgid "Could not create"
 msgstr "Ne peut pas être créé"
@@ -7317,7 +7317,7 @@ msgstr "Impossible de modifier la ligne"
 #: dashboards/project/data_processing/clusters/tables.py:136
 #: dashboards/project/data_processing/clusters/views.py:80
 #: dashboards/project/data_processing/clusters/workflows/create.py:201
-#: dashboards/project/data_processing/jobs/workflows/launch.py:312
+#: dashboards/project/data_processing/jobs/workflows/launch.py:314
 msgid "Configure Cluster"
 msgstr "Configurer le cluster"
 
@@ -7344,7 +7344,7 @@ msgstr "Instances de cluster"
 
 #: dashboards/project/data_processing/clusters/tabs.py:175
 msgid "Unable to fetch instance details."
-msgstr "Impossible de charger les détails de l'instance"
+msgstr "Impossible de récupérer les détails de l'instance"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:4
 msgid "This Cluster will be started with:"
@@ -7422,10 +7422,10 @@ msgstr "Détails du cluster"
 
 #: dashboards/project/data_processing/clusters/views.py:52
 msgid "Unable to fetch cluster list"
-msgstr "Impossible de charge la liste de cluster"
+msgstr "Impossible de récupérer la liste de clusters"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:46
-#: dashboards/project/data_processing/jobs/workflows/launch.py:394
+#: dashboards/project/data_processing/jobs/workflows/launch.py:396
 msgid "Select plugin and hadoop version for cluster"
 msgstr "Sélectionner les composants et la version d'hadoop pour le cluster"
 
@@ -7443,7 +7443,7 @@ msgstr "Quelle paire de clés utiliser pour l'authentification."
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:131
 msgid "Unable to fetch image choices."
-msgstr "Impossible de charger les choix d'image."
+msgstr "Impossible de récupérer les choix d'image."
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:134
 msgid "No Images Available"
@@ -7451,7 +7451,7 @@ msgstr "Pas d'images disponible"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:144
 msgid "Unable to fetch keypair choices."
-msgstr "Echec de la récupération du choix de paires de clés."
+msgstr "Impossible de récupérer les choix de paires de clés."
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:146
 msgid "No keypair"
@@ -7462,8 +7462,8 @@ msgid "No Templates Available"
 msgstr "Pas de templates disponible"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:220
-#: dashboards/project/data_processing/jobs/workflows/launch.py:331
-#: dashboards/project/data_processing/jobs/workflows/launch.py:416
+#: dashboards/project/data_processing/jobs/workflows/launch.py:333
+#: dashboards/project/data_processing/jobs/workflows/launch.py:418
 #: dashboards/project/databases/workflows/create_instance.py:335
 #: dashboards/project/images/images/tables.py:62
 #: dashboards/project/instances/workflows/create_instance.py:820
@@ -7653,7 +7653,7 @@ msgstr "Versions supportées"
 
 #: dashboards/project/data_processing/data_plugins/tabs.py:39
 msgid "Unable to retrieve plugin."
-msgstr "Impossible de retrouver le plugin"
+msgstr "Impossible de récupérer le plugin."
 
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:3
 msgid "Data Processing Plugin Overview"
@@ -7689,18 +7689,18 @@ msgstr "Créer une source de données"
 #: dashboards/project/data_processing/data_sources/tables.py:38
 msgid "Delete Data Source"
 msgid_plural "Delete Data Sources"
-msgstr[0] "Supprimer les Sources de Données"
-msgstr[1] "Supprimer les Sources de Données"
+msgstr[0] "Supprimer la source de données"
+msgstr[1] "Supprimer les sources de données"
 
 #: dashboards/project/data_processing/data_sources/tables.py:46
 msgid "Deleted Data Source"
 msgid_plural "Deleted Data Sources"
-msgstr[0] "Sources de Données Supprimées"
-msgstr[1] "Sources de Données Supprimées"
+msgstr[0] "Source de données supprimée"
+msgstr[1] "Sources de données supprimées"
 
 #: dashboards/project/data_processing/data_sources/tabs.py:38
 msgid "Unable to retrieve data source details"
-msgstr "Impossible de retrouver les détails des données sources"
+msgstr "Impossible de récupérer les détails de la source de données"
 
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_create_data_source_help.html:4
 msgid "Create a Data Source with a specified name."
@@ -7712,11 +7712,11 @@ msgstr "Sélectionner le type de source de données."
 
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_create_data_source_help.html:10
 msgid "You may need to enter the username and password for your Data Source."
-msgstr "Vous devez peut-être entrer le nom d'utilisateur et le mot de passe pour votre Source de Donnée."
+msgstr "Vous devez peut-être entrer le nom d'utilisateur et le mot de passe pour votre source de données."
 
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_create_data_source_help.html:13
 msgid "You may also enter an optional description for your Data Source."
-msgstr "Vous pouvez aussi fournir une description optionnelle pour votre Source de Donnée."
+msgstr "Vous pouvez aussi fournir une description optionnelle pour votre source de données."
 
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:2
 msgid "Data Source Overview"
@@ -7746,9 +7746,9 @@ msgid "Data Source Details"
 msgstr "Détails de la source de données"
 
 #: dashboards/project/data_processing/data_sources/views.py:46
-#: dashboards/project/data_processing/jobs/workflows/launch.py:75
+#: dashboards/project/data_processing/jobs/workflows/launch.py:77
 msgid "Unable to fetch data sources."
-msgstr "Impossible de charger les données sources"
+msgstr "Impossible de charger les sources de données"
 
 #: dashboards/project/data_processing/data_sources/workflows/create.py:33
 msgid "Data Source Type"
@@ -7935,16 +7935,16 @@ msgid "Jobs"
 msgstr "Tâches"
 
 #: dashboards/project/data_processing/job_executions/tables.py:38
-#: dashboards/project/data_processing/jobs/workflows/launch.py:56
-#: dashboards/project/data_processing/jobs/workflows/launch.py:97
-#: dashboards/project/data_processing/jobs/workflows/launch.py:122
+#: dashboards/project/data_processing/jobs/workflows/launch.py:58
+#: dashboards/project/data_processing/jobs/workflows/launch.py:99
+#: dashboards/project/data_processing/jobs/workflows/launch.py:124
 msgid "Job"
 msgstr "Tâche"
 
 #: dashboards/project/data_processing/job_executions/tables.py:39
 #: dashboards/project/data_processing/job_executions/tables.py:198
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:16
-#: dashboards/project/data_processing/jobs/workflows/launch.py:104
+#: dashboards/project/data_processing/jobs/workflows/launch.py:106
 msgid "Cluster"
 msgstr "Cluster"
 
@@ -7970,9 +7970,9 @@ msgstr[1] "Tâches supprimées"
 #: dashboards/project/data_processing/jobs/views.py:83
 #: dashboards/project/data_processing/jobs/views.py:104
 #: dashboards/project/data_processing/jobs/views.py:117
-#: dashboards/project/data_processing/jobs/workflows/launch.py:330
-#: dashboards/project/data_processing/jobs/workflows/launch.py:405
-#: dashboards/project/data_processing/jobs/workflows/launch.py:415
+#: dashboards/project/data_processing/jobs/workflows/launch.py:332
+#: dashboards/project/data_processing/jobs/workflows/launch.py:407
+#: dashboards/project/data_processing/jobs/workflows/launch.py:417
 msgid "Launch Job"
 msgid_plural "Launch Jobs"
 msgstr[0] "Démarrer une tâche"
@@ -8005,7 +8005,7 @@ msgstr "Relancer sur le nouveau cluster"
 #: dashboards/project/instances/tables.py:856
 #: dashboards/project/instances/templates/instances/_detail_overview.html:64
 #: dashboards/project/instances/templates/instances/_detail_overview.html:100
-#: dashboards/project/instances/views.py:398
+#: dashboards/project/instances/views.py:403
 msgid "Not available"
 msgstr "Non disponible"
 
@@ -8041,11 +8041,11 @@ msgstr "Aperçu de la tâche"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:12
 msgid "Input Data Source"
-msgstr "Source de Donnée d'Entrée"
+msgstr "Source de données d'entrée"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:14
 msgid "Output Data Source"
-msgstr "Source de Donnée de Sortie"
+msgstr "Source de données de sortie"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:18
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:24
@@ -8272,7 +8272,7 @@ msgid "Chosen Libraries"
 msgstr "Bibliothèques choisies"
 
 #: dashboards/project/data_processing/jobs/views.py:53
-#: dashboards/project/data_processing/jobs/workflows/launch.py:89
+#: dashboards/project/data_processing/jobs/workflows/launch.py:91
 msgid "Unable to fetch jobs."
 msgstr "Impossible de charger les tâches."
 
@@ -8319,69 +8319,69 @@ msgstr "N'a pas pu créer de modèle de tâche"
 msgid "Input"
 msgstr "Entréé"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:45
+#: dashboards/project/data_processing/jobs/workflows/launch.py:46
 msgid "Output"
 msgstr "Sortie"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:114
+#: dashboards/project/data_processing/jobs/workflows/launch.py:116
 msgid "Unable to fetch clusters."
 msgstr "Impossible de contacter les clusters."
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:154
+#: dashboards/project/data_processing/jobs/workflows/launch.py:156
 msgid "Main Class"
 msgstr "Classe principale"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:157
+#: dashboards/project/data_processing/jobs/workflows/launch.py:159
 msgid "Java Opts"
 msgstr "Java Opts"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:160
+#: dashboards/project/data_processing/jobs/workflows/launch.py:162
 msgid "Mapper"
 msgstr "Mapper"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:162
+#: dashboards/project/data_processing/jobs/workflows/launch.py:164
 msgid "Reducer"
 msgstr "Reducer"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:230
+#: dashboards/project/data_processing/jobs/workflows/launch.py:232
 msgid "Configure"
 msgstr "Configurer"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:308
+#: dashboards/project/data_processing/jobs/workflows/launch.py:310
 msgid "Persist cluster after job exit"
 msgstr "Sauvegarder le cluster après la fin de la tâche"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:332
-#: dashboards/project/data_processing/jobs/workflows/launch.py:417
+#: dashboards/project/data_processing/jobs/workflows/launch.py:334
+#: dashboards/project/data_processing/jobs/workflows/launch.py:419
 msgid "Job launched"
 msgstr "Tâche démarrée"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:333
-#: dashboards/project/data_processing/jobs/workflows/launch.py:418
+#: dashboards/project/data_processing/jobs/workflows/launch.py:335
+#: dashboards/project/data_processing/jobs/workflows/launch.py:420
 msgid "Could not launch job"
 msgstr "Impossible de démarrer la tâche"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:359
+#: dashboards/project/data_processing/jobs/workflows/launch.py:361
 msgid "Job configs"
 msgstr "Configurations des tâches"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:363
+#: dashboards/project/data_processing/jobs/workflows/launch.py:365
 msgid "Job args"
 msgstr "Arguments de la tâche"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:367
+#: dashboards/project/data_processing/jobs/workflows/launch.py:369
 msgid "Job params"
 msgstr "Paramètres de la tâche"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:373
+#: dashboards/project/data_processing/jobs/workflows/launch.py:375
 msgid "Job Execution ID"
 msgstr "ID de l'exécution du job"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:449
+#: dashboards/project/data_processing/jobs/workflows/launch.py:451
 msgid "Unable to create new cluster for job."
 msgstr "Impossible de créer le nouveau cluster pour la tâche"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:462
+#: dashboards/project/data_processing/jobs/workflows/launch.py:464
 msgid "Unable to launch job."
 msgstr "Impossible de démarrer la tâche."
 
@@ -8845,11 +8845,11 @@ msgid ""
 "                            or more data sources.  You can create multiple data\n"
 "                            sources by repeating this step.\n"
 "                        "
-msgstr "Les sources de données sont ce que\nvotre tâche utilise pour ses entrées et sorties. Selon le type\nde tâche que vous exécutez, vous devrez sans doute définir une\nou plusieurs sources de données. Vous pouvez créer plusieurs sources\nde données en répétant cette étape à nouveau."
+msgstr "Les sources de données sont ce que\nvotre tâche utilise pour ses entrées et sorties. Selon le type\nde tâche que vous exécutez, vous devrez sans doute définir une\nou plusieurs sources de données. Vous pouvez créer plusieurs sources\nde données en répétant cette étape."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:52
 msgid "Create a data source"
-msgstr "Création d'une source de donnée"
+msgstr "Créer une source de données"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:61
 msgid ""
@@ -8882,7 +8882,7 @@ msgid ""
 "                        or arguments that you need to pass along\n"
 "                        to your job.\n"
 "                        "
-msgstr "Démarrez votre tâche. Au moment du \nlancement de la tâche, vous devrez choisir vos sources de données\nd'entrée et de sortie. C'est où vous pourrez également\najouter des valeurs de configuration spéciales, des paramètres, ou des\narguments que vous devez passer à\nà votre tâche."
+msgstr "Démarrez votre tâche. Au moment du \nlancement de la tâche, vous devrez choisir vos sources de données\nd'entrée et de sortie. C'est ici que vous pourrez également\najouter des valeurs de configuration spéciales, des paramètres\nou des arguments que vous devez passer à\nà votre tâche."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:99
 msgid "Launch job"
@@ -9589,7 +9589,7 @@ msgid "Launch Database"
 msgstr "Lancer la Base de Données"
 
 #: dashboards/project/databases/views.py:101
-#: dashboards/project/instances/views.py:289
+#: dashboards/project/instances/views.py:294
 msgid "Instance Details: {{ instance.name }}"
 msgstr "Détails de l'instance : {{ instance.name }}"
 
@@ -9599,7 +9599,7 @@ msgid "Unable to retrieve details for database instance: %s"
 msgstr "Impossible de récupérer les détails pour l'instance %s de base de données"
 
 #: dashboards/project/databases/views.py:209
-#: dashboards/project/instances/views.py:409
+#: dashboards/project/instances/views.py:414
 msgid "Unable to retrieve flavors."
 msgstr "Impossible de récupérer les gabarits."
 
@@ -11011,7 +11011,7 @@ msgstr "Annulation Redimensionnement/Migration"
 #: dashboards/project/instances/templates/instances/_rebuild.html:9
 #: dashboards/project/instances/templates/instances/_rebuild.html:27
 #: dashboards/project/instances/templates/instances/rebuild.html:3
-#: dashboards/project/instances/views.py:256
+#: dashboards/project/instances/views.py:261
 msgid "Rebuild Instance"
 msgstr "Reconstruire l'instance"
 
@@ -11065,7 +11065,7 @@ msgid ""
 msgstr "N'a pas pu effectuer l'opération demandée sur l'instance \"%s\", l'instance a un statut d'erreur"
 
 #: dashboards/project/instances/tables.py:677
-#: dashboards/project/instances/views.py:395
+#: dashboards/project/instances/views.py:400
 #, python-format
 msgid "Unable to retrieve flavor information for instance \"%s\"."
 msgstr "Impossible d'extraire l'information sur le gabarit pour l'instance \"%s\"."
@@ -11496,7 +11496,7 @@ msgid "Log"
 msgstr "Journal"
 
 #: dashboards/project/instances/tabs.py:53
-#: dashboards/project/instances/views.py:148
+#: dashboards/project/instances/views.py:153
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr "Impossible de récupérer le journal d'événements pour l'instance \"%s\"."
@@ -11510,7 +11510,7 @@ msgid "Unable to retrieve instance action list."
 msgstr "Impossible de récupérer la liste d'actions de l'instance."
 
 #: dashboards/project/instances/templates/instances/_decryptpassword.html:10
-#: dashboards/project/instances/views.py:272
+#: dashboards/project/instances/views.py:277
 msgid "Retrieve Instance Password"
 msgstr "Récupérer le mot de passe de l'instance"
 
@@ -11778,60 +11778,60 @@ msgstr "Choisir une paire de clés."
 msgid "Select Flavor"
 msgstr "Sélectionner le gabarit"
 
-#: dashboards/project/instances/views.py:73
+#: dashboards/project/instances/views.py:77
 msgid "Unable to retrieve instances."
 msgstr "Impossible de récupérer les instances."
 
-#: dashboards/project/instances/views.py:151
+#: dashboards/project/instances/views.py:156
 msgid "Log length must be a nonnegative integer."
 msgstr "La longueur du journal doit correspondre à un nombre non négatif."
 
-#: dashboards/project/instances/views.py:170
+#: dashboards/project/instances/views.py:175
 #, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr "Impossible d'obtenir la console VNC pour l'instance \"%s\"."
 
-#: dashboards/project/instances/views.py:182
+#: dashboards/project/instances/views.py:187
 #, python-format
 msgid "Unable to get SPICE console for instance \"%s\"."
 msgstr "Impossible d'obtenir la console SPICE pour l'instance \"%s\"."
 
-#: dashboards/project/instances/views.py:193
+#: dashboards/project/instances/views.py:198
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "Impossible d'obtenir la console RDP pour l'instance \"%s\"."
 
-#: dashboards/project/instances/views.py:209
+#: dashboards/project/instances/views.py:214
 #, python-format
 msgid "Cannot find instance %s."
 msgstr "Impossible de trouver l'instance %s."
 
-#: dashboards/project/instances/views.py:221
+#: dashboards/project/instances/views.py:226
 #, python-format
 msgid "Cannot get console for instance %s."
 msgstr "Impossible d'obtenir la console pour l'instance %s."
 
-#: dashboards/project/instances/views.py:309
+#: dashboards/project/instances/views.py:314
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "Impossible de récupérer les détails de l'instance \"%s\"."
 
-#: dashboards/project/instances/views.py:330
+#: dashboards/project/instances/views.py:335
 #, python-format
 msgid "Unable to retrieve volume list for instance \"%(name)s\" (%(id)s)."
 msgstr "Impossible de récupérer la liste de volumes de l'instance \"%(name)s\" (%(id)s)."
 
-#: dashboards/project/instances/views.py:339
+#: dashboards/project/instances/views.py:344
 #, python-format
 msgid "Unable to retrieve flavor information for instance \"%(name)s\" (%(id)s)."
 msgstr "Impossible d'extraire l'information sur le gabarit pour l'instance \"%(name)s\" (%(id)s)."
 
-#: dashboards/project/instances/views.py:348
+#: dashboards/project/instances/views.py:353
 #, python-format
 msgid "Unable to retrieve security groups for instance \"%(name)s\" (%(id)s)."
 msgstr "Impossible de récupérer les groupes de sécurité pour l'instance \"%(name)s\" (%(id)s)."
 
-#: dashboards/project/instances/views.py:356
+#: dashboards/project/instances/views.py:361
 #, python-format
 msgid ""
 "Unable to retrieve IP addresses from Neutron for instance \"%(name)s\" "
@@ -13186,7 +13186,7 @@ msgstr "Détails du port "
 #: dashboards/project/routers/ports/tabs.py:35
 #: dashboards/project/routers/views.py:135
 msgid "Unable to retrieve port details."
-msgstr "Impossible de retrouver les détails du port."
+msgstr "Impossible de récupérer les détails du port."
 
 #: dashboards/project/networks/ports/views.py:104
 msgid "Unable to retrieve port details"
@@ -14667,7 +14667,7 @@ msgstr "%(resource_status)s : %(resource_status_reason)s"
 
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:48
 msgid "Resource Metadata"
-msgstr "Métadonnée de la ressource"
+msgstr "Métadonnées de la ressource"
 
 #: dashboards/project/stacks/templates/stacks/_stack_template.html:3
 msgid "Stack Template"
@@ -14806,7 +14806,7 @@ msgstr "Restauration"
 #: dashboards/project/volumes/backups/tabs.py:41
 #: dashboards/project/volumes/backups/views.py:73
 msgid "Unable to retrieve backup details."
-msgstr "Impossible de retrouver les détails de la sauvegarde."
+msgstr "Impossible de récupérer les détails de la sauvegarde."
 
 #: dashboards/project/volumes/backups/views.py:33
 #: dashboards/project/volumes/backups/views.py:35
