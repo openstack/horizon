@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-11 11:47-0500\n"
-"PO-Revision-Date: 2015-04-11 23:09+0000\n"
-"Last-Translator: Nikita Burtsev\n"
+"POT-Creation-Date: 2015-04-12 16:36-0500\n"
+"PO-Revision-Date: 2015-04-13 15:16+0000\n"
+"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,7 +45,7 @@ msgstr "Использованный объем RAM"
 
 #: api/ceilometer.py:948
 msgid "CPU time used"
-msgstr "Использованное время CPU (наносекунды)"
+msgstr "Использованное время CPU"
 
 #: api/ceilometer.py:952
 msgid "Average CPU utilization"
@@ -347,21 +347,21 @@ msgstr "Служба идентификации не разрешает меня
 #: api/lbaas.py:152
 #, python-format
 msgid "Unable to get VIP for pool %(pool)s."
-msgstr "Не удалось получить VIP из пула %(pool)s."
+msgstr "Не удалось получить VIP для пула %(pool)s."
 
 #: api/lbaas.py:191
 msgid "Unable to get pool detail."
-msgstr "Не удалось получить детали пула."
+msgstr "Новозможно получить детали пула."
 
 #: api/lbaas.py:203
 #, python-format
 msgid "Unable to get subnet for pool %(pool)s."
-msgstr "Не удалось получить подсеть из пула %(pool)s."
+msgstr "Невозможно получить подсеть из пула %(pool)s."
 
 #: api/lbaas.py:211
 #, python-format
 msgid "Unable to get members for pool %(pool)s."
-msgstr "Не удалось получить участников из пула %(pool)s."
+msgstr "Невозможно  получить участников из пула %(pool)s."
 
 #: api/lbaas.py:218
 #, python-format
@@ -375,7 +375,7 @@ msgstr "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
 #: api/neutron.py:957
 msgid "Unable to connect to Neutron."
-msgstr "Не удалось подключиться к Neutron."
+msgstr "Невозможно подключиться к Neutron."
 
 #: api/neutron.py:994
 #, python-format
@@ -925,7 +925,7 @@ msgstr "Не удалось получить агрегатор для обно�
 
 #: dashboards/admin/aggregates/views.py:134
 msgid "Unable to retrieve available metadata for aggregate."
-msgstr "Не удалось получить доступные метаданные для агрегатора."
+msgstr "Не удалось получить доступные метаданные агрегатора."
 
 #: dashboards/admin/aggregates/views.py:147
 msgid "Unable to retrieve the aggregate to be updated."
@@ -1380,6 +1380,7 @@ msgstr "Диск подкачки"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:6
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:6
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:6
+#: dashboards/project/networks/forms.py:37
 #: dashboards/project/networks/ports/forms.py:35
 #: dashboards/project/networks/templates/networks/_detail_overview.html:9
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:8
@@ -1553,7 +1554,7 @@ msgstr "Изменен тип инстанса «%s»."
 #: dashboards/admin/flavors/workflows.py:268
 #, python-format
 msgid "Unable to modify flavor \"%s\"."
-msgstr "Не удалось изменить тип инстансов «%s»."
+msgstr "Не удалось изменить тип инстанса «%s»."
 
 #: dashboards/admin/flavors/workflows.py:313
 msgid "Modified flavor information, but unable to modify flavor access."
@@ -1840,7 +1841,7 @@ msgstr "Тип"
 
 #: dashboards/admin/hypervisors/tables.py:31
 msgid "VCPUs (used)"
-msgstr "VCPUs (используется)"
+msgstr "VCPUs (использовано)"
 
 #: dashboards/admin/hypervisors/tables.py:34
 msgid "VCPUs (total)"
@@ -1848,7 +1849,7 @@ msgstr "VCPUs (всего)"
 
 #: dashboards/admin/hypervisors/tables.py:37
 msgid "RAM (used)"
-msgstr "RAM (используется)"
+msgstr "RAM (использовано)"
 
 #: dashboards/admin/hypervisors/tables.py:42
 msgid "RAM (total)"
@@ -1856,7 +1857,7 @@ msgstr "RAM (всего)"
 
 #: dashboards/admin/hypervisors/tables.py:47
 msgid "Local Storage (used)"
-msgstr "Локальное хранилище (используется)"
+msgstr "Локальное хранилище (использовано)"
 
 #: dashboards/admin/hypervisors/tables.py:52
 msgid "Local Storage (total)"
@@ -3146,7 +3147,7 @@ msgstr "Добавить DHCP агент"
 #: dashboards/project/loadbalancers/workflows.py:195
 #: dashboards/project/loadbalancers/workflows.py:347
 #: dashboards/project/loadbalancers/workflows.py:550
-#: dashboards/project/networks/forms.py:39
+#: dashboards/project/networks/forms.py:42
 #: dashboards/project/networks/ports/forms.py:43
 #: dashboards/project/networks/ports/tables.py:77
 #: dashboards/project/networks/tables.py:177
@@ -3250,7 +3251,7 @@ msgstr "ID сегмента"
 #: dashboards/project/loadbalancers/workflows.py:193
 #: dashboards/project/loadbalancers/workflows.py:345
 #: dashboards/project/loadbalancers/workflows.py:548
-#: dashboards/project/networks/forms.py:37
+#: dashboards/project/networks/forms.py:40
 #: dashboards/project/networks/ports/forms.py:41
 #: dashboards/project/networks/workflows.py:47
 #: dashboards/project/routers/forms.py:37
@@ -3273,7 +3274,7 @@ msgstr "UP"
 #: dashboards/project/loadbalancers/workflows.py:194
 #: dashboards/project/loadbalancers/workflows.py:346
 #: dashboards/project/loadbalancers/workflows.py:549
-#: dashboards/project/networks/forms.py:38
+#: dashboards/project/networks/forms.py:41
 #: dashboards/project/networks/ports/forms.py:42
 #: dashboards/project/networks/workflows.py:48
 #: dashboards/project/routers/forms.py:38
@@ -3363,13 +3364,13 @@ msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
 msgstr "Для VXLAN сетей допустимые ID туннелей от %(min)s до %(max)s."
 
 #: dashboards/admin/networks/forms.py:252
-#: dashboards/project/networks/forms.py:49
+#: dashboards/project/networks/forms.py:52
 #, python-format
 msgid "Network %s was successfully updated."
 msgstr "Сеть %s была успешно обновлена."
 
 #: dashboards/admin/networks/forms.py:257
-#: dashboards/project/networks/forms.py:54
+#: dashboards/project/networks/forms.py:57
 #, python-format
 msgid "Failed to update network %s"
 msgstr "Не удалось обновить сеть %s"

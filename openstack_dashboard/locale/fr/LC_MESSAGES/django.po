@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-12 16:36-0500\n"
-"PO-Revision-Date: 2015-04-12 23:00+0000\n"
+"PO-Revision-Date: 2015-04-13 19:47+0000\n"
 "Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -7748,7 +7748,7 @@ msgstr "Détails de la source de données"
 #: dashboards/project/data_processing/data_sources/views.py:46
 #: dashboards/project/data_processing/jobs/workflows/launch.py:77
 msgid "Unable to fetch data sources."
-msgstr "Impossible de charger les sources de données"
+msgstr "Impossible de récupérer les sources de données"
 
 #: dashboards/project/data_processing/data_sources/workflows/create.py:33
 msgid "Data Source Type"
@@ -7857,7 +7857,7 @@ msgstr "Url"
 
 #: dashboards/project/data_processing/job_binaries/tabs.py:38
 msgid "Unable to fetch job binary."
-msgstr "Impossible d'obtenir le binaire de tâche"
+msgstr "Impossible de récupérer le binaire de tâche."
 
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:4
 msgid ""
@@ -7922,12 +7922,12 @@ msgstr "Détails du Binaire de Tâche"
 
 #: dashboards/project/data_processing/job_binaries/views.py:53
 msgid "Unable to fetch job binary list."
-msgstr "Impossible d'obtenir la liste des binaires de tâche"
+msgstr "Impossible de récupérer la liste des binaires de tâche."
 
 #: dashboards/project/data_processing/job_binaries/views.py:96
 #, python-format
 msgid "Unable to fetch job binary: %(exc)s"
-msgstr "Impossible d'obtenir le binaire de tâche : %(exc)s"
+msgstr "Impossible de récupérer le binaire de tâche : %(exc)s"
 
 #: dashboards/project/data_processing/job_executions/panel.py:22
 #: dashboards/project/data_processing/job_executions/tables.py:214
@@ -8274,7 +8274,7 @@ msgstr "Bibliothèques choisies"
 #: dashboards/project/data_processing/jobs/views.py:53
 #: dashboards/project/data_processing/jobs/workflows/launch.py:91
 msgid "Unable to fetch jobs."
-msgstr "Impossible de charger les tâches."
+msgstr "Impossible de récupérer les tâches."
 
 #: dashboards/project/data_processing/jobs/workflows/create.py:38
 msgid "Choose libraries"
@@ -8497,7 +8497,7 @@ msgstr "Détails du modèle de groupe de noeud"
 
 #: dashboards/project/data_processing/nodegroup_templates/views.py:54
 msgid "Unable to fetch node group template list."
-msgstr "Impossible de charger la liste des modèles de groupe de noeud."
+msgstr "Impossible de récupérer la liste des modèles de groupe de noeud."
 
 #: dashboards/project/data_processing/nodegroup_templates/views.py:61
 msgid "Node Group Template Details"
@@ -8505,7 +8505,7 @@ msgstr "Détails du modèle de groupe de noeud"
 
 #: dashboards/project/data_processing/nodegroup_templates/views.py:117
 msgid "Unable to fetch template object."
-msgstr "Impossible de charger l'objet modèle."
+msgstr "Impossible de récupérer l'objet modèle."
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/copy.py:29
 #, python-format
@@ -8514,7 +8514,7 @@ msgstr "Copie du modèle de groupe de noeud %s créée"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/copy.py:93
 msgid "Unable to fetch plugin details."
-msgstr "Impossible de charger les détails du composant."
+msgstr "Impossible de récupérer les détails du plugin."
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:47
 msgid "OpenStack Flavor"

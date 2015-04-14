@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-11 11:47-0500\n"
-"PO-Revision-Date: 2015-04-11 17:11+0000\n"
-"Last-Translator: Nikita Burtsev\n"
+"POT-Creation-Date: 2015-04-12 16:36-0500\n"
+"PO-Revision-Date: 2015-04-13 12:42+0000\n"
+"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -197,7 +197,7 @@ msgstr "Войти"
 
 #: templates/auth/_login.html:27
 msgid "You do not have permission to access the resource:"
-msgstr "Вы не имеете права доступа к ресурсу:"
+msgstr "Вы не имеете права на доступ к ресурсу:"
 
 #: templates/auth/_login.html:29
 #, python-format
@@ -274,7 +274,7 @@ msgstr "%(name)s: %(error)s"
 
 #: templates/horizon/common/_limit_summary.html:4
 msgid "Limit Summary"
-msgstr "Краткая сводка"
+msgstr "Сводка лимитов"
 
 #: templates/horizon/common/_limit_summary.html:7
 msgid "Instances"

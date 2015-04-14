@@ -3,8 +3,10 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Fernando Pimenta <fernando.c.pimenta@gmail.com>, 2015
 # Gabriel Wainer, 2015
 # Luís Eduardo Tenório Silva <eduardovansilva@gmail.com>, 2015
+# Marcelo Dieder <marcelodieder@gmail.com>, 2015
 # maurosr <maurosmrodrigues@gmail.com>, 2014-2015
 # Remulo Carvalho <remulo@gmail.com>, 2015
 # Rodrigo Felix de Almeida <rodrigofelixdealmeida@gmail.com>, 2014
@@ -12,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-11 11:47-0500\n"
-"PO-Revision-Date: 2015-04-12 03:09+0000\n"
-"Last-Translator: Remulo Carvalho <remulo@gmail.com>\n"
+"POT-Creation-Date: 2015-04-12 16:36-0500\n"
+"PO-Revision-Date: 2015-04-14 03:23+0000\n"
+"Last-Translator: Marcelo Dieder <marcelodieder@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +26,7 @@ msgstr ""
 
 #: api/ceilometer.py:743
 msgid "Unable to retrieve Ceilometer meter list."
-msgstr ""
+msgstr "Não é possível obter a lista de medição do Ceilometer."
 
 #: api/ceilometer.py:931
 msgid "Existence of instance"
@@ -32,7 +34,7 @@ msgstr "Instância Já existe"
 
 #: api/ceilometer.py:935
 msgid "Existence of instance <type> (openstack types)"
-msgstr ""
+msgstr "Existência de intância <type> (tipos openstack)"
 
 #: api/ceilometer.py:940
 msgid "Volume of RAM"
@@ -282,23 +284,23 @@ msgstr "Leitura do Sensor de Voltagem"
 
 #: api/ceilometer.py:1280
 msgid "System Inlet Temperature Reading"
-msgstr ""
+msgstr "Leitura da Temperatura de entrada do Sistema"
 
 #: api/ceilometer.py:1284
 msgid "System Outlet Temperature Reading"
-msgstr ""
+msgstr "Leitura da Temperatura de saída do Sistema"
 
 #: api/ceilometer.py:1288
 msgid "System Airflow Reading"
-msgstr ""
+msgstr "Leitura do Fluxo de Ar"
 
 #: api/ceilometer.py:1292
 msgid "System CUPS Reading"
-msgstr ""
+msgstr "Leitura do Sistema CUPS"
 
 #: api/ceilometer.py:1296
 msgid "System CPU Utility Reading"
-msgstr ""
+msgstr "Leitura do Utilitário de Sistema CPU"
 
 #: api/ceilometer.py:1300
 msgid "System Memory Utility Reading"
@@ -365,7 +367,7 @@ msgstr "Não é possível obter os membros do pool %(pool)s."
 #: api/lbaas.py:218
 #, python-format
 msgid "Unable to get health monitors for pool %(pool)s."
-msgstr ""
+msgstr "Não é possível obter monitores de saúde para o conjunto %(pool)s"
 
 #: api/neutron.py:225
 #, python-format
@@ -1375,6 +1377,7 @@ msgstr "Disco de Swap"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:6
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:6
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:6
+#: dashboards/project/networks/forms.py:37
 #: dashboards/project/networks/ports/forms.py:35
 #: dashboards/project/networks/templates/networks/_detail_overview.html:9
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:8
@@ -1629,7 +1632,7 @@ msgstr "Falha ao desabilitar serviço de computação para host: %s."
 
 #: dashboards/admin/hypervisors/compute/forms.py:106
 msgid "Running Instance Migration Type"
-msgstr ""
+msgstr "Executando Migração de Tipo de Instância"
 
 #: dashboards/admin/hypervisors/compute/forms.py:108
 #: dashboards/admin/instances/templates/instances/_live_migrate.html:8
@@ -1700,14 +1703,14 @@ msgstr[1] "Serviços Habilitados"
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/migrate_host.html:3
 msgid "Migrate Host"
 msgid_plural "Migrate Hosts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Migrar Hosts"
+msgstr[1] "Migrar Hosts"
 
 #: dashboards/admin/hypervisors/compute/tables.py:104
 msgid "Migrated Host"
 msgid_plural "Migrated Hosts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Hosts Migrados"
+msgstr[1] "Hosts Migrados"
 
 #: dashboards/admin/hypervisors/compute/tables.py:125
 #: dashboards/admin/info/tables.py:96 dashboards/admin/info/tables.py:120
@@ -2350,7 +2353,7 @@ msgstr "Não foi possível recuperar os detalhes da instância."
 
 #: dashboards/admin/metadata_defs/forms.py:38
 msgid "Namespace Definition Source"
-msgstr ""
+msgstr "Fonte de definição de Namespace"
 
 #: dashboards/admin/metadata_defs/forms.py:40
 #: dashboards/admin/metadata_defs/forms.py:46
@@ -2371,11 +2374,11 @@ msgstr "Um arquivo local com definições de metadados para fazer upload."
 #: dashboards/admin/metadata_defs/forms.py:54
 #: dashboards/admin/metadata_defs/forms.py:58
 msgid "Namespace JSON"
-msgstr ""
+msgstr "Namespace JSON"
 
 #: dashboards/admin/metadata_defs/forms.py:55
 msgid "The JSON formatted contents of a namespace."
-msgstr ""
+msgstr "Conteúdo formatado em JSON de um namesapce."
 
 #: dashboards/admin/metadata_defs/forms.py:62
 #: dashboards/admin/metadata_defs/tables.py:149
@@ -2393,32 +2396,32 @@ msgstr "Não é permitido especificar simultaneamente um arquivo e uma entrada d
 
 #: dashboards/admin/metadata_defs/forms.py:80
 msgid "No input was provided for the namespace content."
-msgstr ""
+msgstr "Nenhuma entrada foi fornecida para o conteúdo do namespace."
 
 #: dashboards/admin/metadata_defs/forms.py:100
 #, python-format
 msgid "There was a problem loading the namespace: %s."
-msgstr ""
+msgstr "Houve um problema ao carregar o namespace: %s."
 
 #: dashboards/admin/metadata_defs/forms.py:110
 #, python-format
 msgid "Namespace %s has been created."
-msgstr ""
+msgstr "O Namspace %s foi criado."
 
 #: dashboards/admin/metadata_defs/forms.py:114
 #, python-format
 msgid "Unable to create new namespace. %s"
-msgstr ""
+msgstr "Não foi possível criar novo namespace. %s"
 
 #: dashboards/admin/metadata_defs/forms.py:140
 #, python-format
 msgid "Resource types updated for namespace %s."
-msgstr ""
+msgstr "Tipos de recursos atualizados para o namespace %s."
 
 #: dashboards/admin/metadata_defs/forms.py:144
 #, python-format
 msgid "Error updating resource types for namespace %s."
-msgstr ""
+msgstr "Erro ao atualizar tipo sde recursos para o namespace %s."
 
 #: dashboards/admin/metadata_defs/panel.py:25
 #: dashboards/admin/metadata_defs/templates/metadata_defs/index.html:3
@@ -2430,23 +2433,23 @@ msgstr "Definição de Metadados"
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:9
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:35
 msgid "Import Namespace"
-msgstr ""
+msgstr "Importar Namespace"
 
 #: dashboards/admin/metadata_defs/tables.py:41
 msgid "Delete Namespace"
 msgid_plural "Delete Namespaces"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Deletar Namespace."
+msgstr[1] "Deletar Namespaces"
 
 #: dashboards/admin/metadata_defs/tables.py:49
 msgid "Deleted Namespace"
 msgid_plural "Deleted Namespaces"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Namespace deletado."
+msgstr[1] "Namespaces Deletados"
 
 #: dashboards/admin/metadata_defs/tables.py:69
 msgid "Update Associations"
-msgstr ""
+msgstr "Associações Atualizadas"
 
 #: dashboards/admin/metadata_defs/tables.py:132
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:15
@@ -2545,17 +2548,17 @@ msgstr "Tipo de recusos"
 
 #: dashboards/admin/metadata_defs/tables.py:165
 msgid "Namespaces"
-msgstr ""
+msgstr "Namespaces"
 
 #: dashboards/admin/metadata_defs/tabs.py:26
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:3
 msgid "Namespace Overview"
-msgstr ""
+msgstr "Visão Geral de Namespaces"
 
 #: dashboards/admin/metadata_defs/tabs.py:38
 #: dashboards/admin/metadata_defs/views.py:108
 msgid "Unable to retrieve namespace details."
-msgstr ""
+msgstr "Não é possível obter detalhes do namespace."
 
 #: dashboards/admin/metadata_defs/tabs.py:45
 msgid "Contents"
@@ -2563,21 +2566,21 @@ msgstr "Conteúdos"
 
 #: dashboards/admin/metadata_defs/tabs.py:57
 msgid "Unable to retrieve namespace contents."
-msgstr ""
+msgstr "Não é possível recuperar o conteúdo do namspace."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:20
 msgid "Specify a metadata definition namespace to import."
-msgstr ""
+msgstr "Especifique uma definição de metadados para importar."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:23
 msgid "Only definitions in raw JSON format are supported."
-msgstr ""
+msgstr "Somente definições em formato JSON raw são suportadas."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:26
 msgid ""
 "Administrator Note: Use the following CLI command to import the default "
 "definitions into Glance: "
-msgstr ""
+msgstr "Nota de Administrador: Utilize o seguinte comando CLI para importar as definições padrão dentro do Glance:"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_contents.html:4
 msgid "Undefined"
@@ -2591,7 +2594,7 @@ msgstr "Info"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:10
 msgid "Display Name"
-msgstr ""
+msgstr "Nome de exibição."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:11
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:13
@@ -2668,7 +2671,7 @@ msgstr "Nenhum"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:12
 msgid "Namespace"
-msgstr ""
+msgstr "Namespace"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:22
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:35
@@ -2723,7 +2726,7 @@ msgstr "Nunca atualizado"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:32
 msgid "Associated Resource Types"
-msgstr ""
+msgstr "Tipos de Recurso Associado"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:39
 msgid "Prefix: "
@@ -2731,26 +2734,26 @@ msgstr "Prefixo:"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:42
 msgid "Properties Target: "
-msgstr ""
+msgstr "Propriedades dos Alvos:"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:47
 msgid "No associations defined."
-msgstr ""
+msgstr "Nenhuma associação definida."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_resource_types.html:5
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_resource_types.html:8
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_resource_types.html:14
 msgid "Namespace Resource Type Associations"
-msgstr ""
+msgstr "Associações de Tipos de Recurso de Namespace"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/create.html:3
 #: dashboards/admin/metadata_defs/views.py:86
 msgid "Create a Metadata Namespace"
-msgstr ""
+msgstr "Criar um Metadado de Namespace"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/detail.html:4
 msgid "Namespace Details"
-msgstr ""
+msgstr "Detalhes do Namespace"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:15
 msgid "Available Types"
@@ -2766,14 +2769,14 @@ msgid ""
 "Namespaces can be associated to different resource types. This makes the "
 "properties in the namespace visible in the 'Update Metadata' action for that"
 " type of resource."
-msgstr ""
+msgstr "Namespaces podem ser associados a diferentes tipos de recurso. Isto torna as propriedades no namespace visivel na ação 'Atualizar Metadado' para este tipo de recurso."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:61
 msgid ""
 "Additionally, some resource types may require a prefix to be used when "
 "applying the metadata. In certain cases, the prefix may differ between the "
 "resource type (for example, flavor vs image)."
-msgstr ""
+msgstr "Adicionalmente, alguns tipos de recurso podem requerer um prefixo para ser utilizado quando da aplicação do metadado. Em certos casos, o prefixo pode diferir entre o tipo de recurso (por exemplo, flavor versus imagem)."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:63
 msgid ""
@@ -3131,7 +3134,7 @@ msgstr "Adicionar agende DHCP"
 #: dashboards/project/loadbalancers/workflows.py:195
 #: dashboards/project/loadbalancers/workflows.py:347
 #: dashboards/project/loadbalancers/workflows.py:550
-#: dashboards/project/networks/forms.py:39
+#: dashboards/project/networks/forms.py:42
 #: dashboards/project/networks/ports/forms.py:43
 #: dashboards/project/networks/ports/tables.py:77
 #: dashboards/project/networks/tables.py:177
@@ -3235,7 +3238,7 @@ msgstr "ID de Segmentação"
 #: dashboards/project/loadbalancers/workflows.py:193
 #: dashboards/project/loadbalancers/workflows.py:345
 #: dashboards/project/loadbalancers/workflows.py:548
-#: dashboards/project/networks/forms.py:37
+#: dashboards/project/networks/forms.py:40
 #: dashboards/project/networks/ports/forms.py:41
 #: dashboards/project/networks/workflows.py:47
 #: dashboards/project/routers/forms.py:37
@@ -3243,7 +3246,7 @@ msgstr "ID de Segmentação"
 #: dashboards/project/vpn/forms.py:261 dashboards/project/vpn/workflows.py:31
 #: dashboards/project/vpn/workflows.py:417
 msgid "UP"
-msgstr ""
+msgstr "CIMA"
 
 #: dashboards/admin/networks/forms.py:78
 #: dashboards/admin/networks/forms.py:237
@@ -3258,7 +3261,7 @@ msgstr ""
 #: dashboards/project/loadbalancers/workflows.py:194
 #: dashboards/project/loadbalancers/workflows.py:346
 #: dashboards/project/loadbalancers/workflows.py:549
-#: dashboards/project/networks/forms.py:38
+#: dashboards/project/networks/forms.py:41
 #: dashboards/project/networks/ports/forms.py:42
 #: dashboards/project/networks/workflows.py:48
 #: dashboards/project/routers/forms.py:38
@@ -3266,7 +3269,7 @@ msgstr ""
 #: dashboards/project/vpn/forms.py:262 dashboards/project/vpn/workflows.py:32
 #: dashboards/project/vpn/workflows.py:418
 msgid "DOWN"
-msgstr ""
+msgstr "BAIXO"
 
 #: dashboards/admin/networks/forms.py:80
 #: dashboards/admin/networks/forms.py:239
@@ -3348,13 +3351,13 @@ msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
 msgstr "Para redes VXLAN, IDs válidos de tunnel estão entre: %(min)s até %(max)s."
 
 #: dashboards/admin/networks/forms.py:252
-#: dashboards/project/networks/forms.py:49
+#: dashboards/project/networks/forms.py:52
 #, python-format
 msgid "Network %s was successfully updated."
 msgstr "Rede %s foi atualizado com sucesso."
 
 #: dashboards/admin/networks/forms.py:257
-#: dashboards/project/networks/forms.py:54
+#: dashboards/project/networks/forms.py:57
 #, python-format
 msgid "Failed to update network %s"
 msgstr "Falha ao atualizar rede %s"
@@ -3382,7 +3385,7 @@ msgstr "Normal"
 #: dashboards/admin/networks/ports/forms.py:31
 #: dashboards/project/networks/ports/forms.py:29
 msgid "Direct"
-msgstr ""
+msgstr "Direto"
 
 #: dashboards/admin/networks/ports/forms.py:32
 #: dashboards/project/networks/ports/forms.py:30
@@ -3623,13 +3626,13 @@ msgstr "Editar Rede"
 #: dashboards/project/networks/tables.py:146
 msgctxt "Admin state of a Network"
 msgid "UP"
-msgstr ""
+msgstr "CIMA"
 
 #: dashboards/admin/networks/tables.py:88
 #: dashboards/project/networks/tables.py:147
 msgctxt "Admin state of a Network"
 msgid "DOWN"
-msgstr ""
+msgstr "BAIXO"
 
 #: dashboards/admin/networks/tables.py:97
 #: dashboards/project/networks/tables.py:171
@@ -3734,11 +3737,11 @@ msgstr "Perfil"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:54
 msgid "VIF Type"
-msgstr ""
+msgstr "Tipo VIF"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:56
 msgid "VIF Details"
-msgstr ""
+msgstr "Detalhes do VIF"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:69
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:51
@@ -3764,7 +3767,7 @@ msgstr "Atualizar Rede"
 
 #: dashboards/admin/networks/views.py:50
 msgid "Unable to retrieve information about the networks' projects."
-msgstr ""
+msgstr "Não foi possível obter informações sobre os projetos das redes."
 
 #: dashboards/admin/networks/views.py:78
 #: dashboards/project/networks/views.py:54
@@ -3973,7 +3976,7 @@ msgstr "Não foi possível recuperar tipos de volume"
 
 #: dashboards/admin/volumes/tabs.py:88
 msgid "Unable to retrieve volume type encryption information."
-msgstr ""
+msgstr "Não é possível recuperar as informações de criptografia do volume."
 
 #: dashboards/admin/volumes/tabs.py:109
 msgid "Unable to retrieve QoS specs"
@@ -4058,7 +4061,7 @@ msgstr "\n    O status de um snapshot de volume é normalmente gerenciado automa
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:6
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
-msgstr ""
+msgstr "Adicionar, Modificar ou remover o QoS associado com este tipo de volume."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:7
 msgid ""
@@ -4198,7 +4201,7 @@ msgstr "Criar Tipo de Volume"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_volume_type_encryption.html:3
 msgid "Create Encrypted Volume Type"
-msgstr ""
+msgstr "Criar Tipo de Volume Criptografado"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/edit_qos_spec_consumer.html:3
 #: dashboards/admin/volumes/volume_types/views.py:142
@@ -4276,7 +4279,7 @@ msgstr "Especificação de QoS:"
 #: dashboards/admin/volumes/templates/volumes/volume_types/volume_encryption_type_detail.html:3
 #: dashboards/admin/volumes/volume_types/views.py:50
 msgid "Volume Type Encryption Details"
-msgstr ""
+msgstr "Detalhes do tipo de Volume Criptografado"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/_manage_volume.html:6
 msgid ""
@@ -4323,7 +4326,7 @@ msgstr "Gerenciar Volume"
 #: dashboards/admin/volumes/templates/volumes/volumes/unmanage_volume.html:3
 #: dashboards/admin/volumes/volumes/tables.py:43
 msgid "Unmanage Volume"
-msgstr ""
+msgstr "Liberar Volume"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/update_status.html:3
 #: dashboards/admin/volumes/volumes/tables.py:69
@@ -4619,15 +4622,15 @@ msgstr ""
 #: dashboards/admin/volumes/volume_types/views.py:83
 #: dashboards/admin/volumes/volume_types/views.py:87
 msgid "Create Volume Type Encryption"
-msgstr ""
+msgstr "Criar tipo de Volume Criptografado"
 
 #: dashboards/admin/volumes/volume_types/views.py:90
 msgid "Create an Encrypted Volume Type"
-msgstr ""
+msgstr "Criar um tipo de volume encriptado"
 
 #: dashboards/admin/volumes/volume_types/views.py:100
 msgid "Unable to retrieve volume type name."
-msgstr ""
+msgstr "Não é possível recuperar o tipo do nome do volume."
 
 #: dashboards/admin/volumes/volume_types/views.py:125
 msgid "Create a QoS Spec"
@@ -4734,7 +4737,7 @@ msgstr ""
 
 #: dashboards/admin/volumes/volumes/forms.py:164
 msgid "Unable to unmanage volume."
-msgstr ""
+msgstr "Não foi possível liberar o volume."
 
 #: dashboards/admin/volumes/volumes/forms.py:176
 #, python-format
@@ -4778,7 +4781,7 @@ msgstr "Não foi possível criar Especificação de QoS."
 
 #: dashboards/admin/volumes/volumes/tables.py:61
 msgid "Unable to retrieve snapshot data."
-msgstr ""
+msgstr "Não foi possível recuperar os dados do snapshot."
 
 #: dashboards/admin/volumes/volumes/views.py:49
 msgid "Manage"
@@ -4790,15 +4793,15 @@ msgstr "Gerenciar um Volume"
 
 #: dashboards/admin/volumes/volumes/views.py:63
 msgid "Confirm Unmanage Volume"
-msgstr ""
+msgstr "Confirmar a liberação do Volume"
 
 #: dashboards/admin/volumes/volumes/views.py:65
 msgid "Unmanage"
-msgstr ""
+msgstr "Liberar"
 
 #: dashboards/admin/volumes/volumes/views.py:69
 msgid "Unmanage a Volume"
-msgstr ""
+msgstr "Liberar um Volume"
 
 #: dashboards/admin/volumes/volumes/views.py:84
 #: dashboards/admin/volumes/volumes/views.py:128
@@ -7203,7 +7206,7 @@ msgstr "Não foi possível obter a lista de modelo de cluster"
 
 #: dashboards/project/data_processing/cluster_templates/views.py:104
 msgid "Copy Cluster Template"
-msgstr ""
+msgstr "Copiar Modelo Cluster"
 
 #: dashboards/project/data_processing/cluster_templates/views.py:122
 #: dashboards/project/data_processing/clusters/views.py:111
@@ -7279,7 +7282,7 @@ msgstr "Clusters"
 #: dashboards/project/data_processing/clusters/tables.py:41
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:27
 msgid "Cluster Creation Guide"
-msgstr ""
+msgstr "Guia de Criação de Cluster"
 
 #: dashboards/project/data_processing/clusters/tables.py:55
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/scale.html:3
@@ -7465,7 +7468,7 @@ msgstr "Disparar"
 #: dashboards/project/data_processing/clusters/workflows/create.py:221
 #, python-format
 msgid "Launched Cluster %s"
-msgstr ""
+msgstr "Carregamento do Cluster %s"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:253
 msgid "Unable to create the cluster"
@@ -8028,7 +8031,7 @@ msgstr "Modelo de Tarefa"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:3
 msgid "Job Overview"
-msgstr ""
+msgstr "Visão Global do Trabalho"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:12
 msgid "Input Data Source"
@@ -8530,7 +8533,7 @@ msgstr "Tamanho dos Volumes (GB)"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:90
 msgid "Create volumes in this availability zone."
-msgstr ""
+msgstr "Criar volumes nesta zona de disponível."
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:120
 msgid "Unable to generate process choices."
@@ -8565,7 +8568,7 @@ msgstr "Criar grupo de segurança para este Grupo de Nodos"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:217
 msgid "Unable to get security group list."
-msgstr ""
+msgstr "Não foi possível obter a lista de grupo de segurança."
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:224
 msgid "Launch instances in these security groups."
@@ -8629,7 +8632,7 @@ msgstr "Nome Plugin"
 
 #: dashboards/project/data_processing/wizard/forms.py:43
 msgid "Cluster type chosen"
-msgstr ""
+msgstr "Escolha o tipo de Cluster"
 
 #: dashboards/project/data_processing/wizard/forms.py:47
 msgid "Unable to set cluster type"
@@ -8971,7 +8974,7 @@ msgstr "Novo"
 #: dashboards/project/database_backups/tables.py:47
 msgctxt "Current status of a Database Backup"
 msgid "Saving"
-msgstr ""
+msgstr "Salvando"
 
 #: dashboards/project/database_backups/tables.py:53
 #: dashboards/project/databases/tables.py:182
@@ -9191,7 +9194,7 @@ msgstr ""
 
 #: dashboards/project/databases/forms.py:77
 msgid "Select a new flavor"
-msgstr ""
+msgstr "Selecionar um novo sabor"
 
 #: dashboards/project/databases/forms.py:79
 #: dashboards/project/instances/utils.py:155
@@ -9202,7 +9205,7 @@ msgstr "Nenhum flavor disponível."
 #: dashboards/project/databases/forms.py:88
 #, python-format
 msgid "Resizing instance \"%s\""
-msgstr ""
+msgstr "Redimensionando a instancia \"%s\""
 
 #: dashboards/project/databases/forms.py:91
 #, python-format
@@ -9696,7 +9699,7 @@ msgstr ""
 
 #: dashboards/project/databases/workflows/create_instance.py:251
 msgid "Select a master instance"
-msgstr ""
+msgstr "Selecione a instância mestre"
 
 #: dashboards/project/databases/workflows/create_instance.py:259
 msgid "Advanced"
@@ -9716,7 +9719,7 @@ msgstr "Não foi possível encontrar o backup!"
 
 #: dashboards/project/databases/workflows/create_instance.py:304
 msgid "A backup must be selected!"
-msgstr ""
+msgstr "Um backup deve ser selecionado!"
 
 #: dashboards/project/databases/workflows/create_instance.py:314
 msgid "Unable to find master instance!"
@@ -9724,7 +9727,7 @@ msgstr ""
 
 #: dashboards/project/databases/workflows/create_instance.py:317
 msgid "A master instance must be selected!"
-msgstr ""
+msgstr "Uma instância mestre deve ser selecionada!"
 
 #: dashboards/project/databases/workflows/create_instance.py:336
 #: dashboards/project/instances/workflows/create_instance.py:821
@@ -9932,7 +9935,7 @@ msgstr "Falha ao remover regra da política %(name)s: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:334
 msgid "Add Routers"
-msgstr ""
+msgstr "Adicionar Roteadores"
 
 #: dashboards/project/firewalls/forms.py:337
 msgid "Add selected router(s) to the firewall."
@@ -9955,7 +9958,7 @@ msgstr ""
 
 #: dashboards/project/firewalls/forms.py:359
 msgid "Remove Routers"
-msgstr ""
+msgstr "Remover Roteadores"
 
 #: dashboards/project/firewalls/forms.py:362
 msgid "Unselect the router(s) to be removed from firewall."
@@ -10136,12 +10139,12 @@ msgstr "Inativo"
 #: dashboards/project/firewalls/tables.py:334
 msgctxt "Admin state of a Firewall"
 msgid "UP"
-msgstr ""
+msgstr "CIMA"
 
 #: dashboards/project/firewalls/tables.py:335
 msgctxt "Admin state of a Firewall"
 msgid "DOWN"
-msgstr ""
+msgstr "BAIXO"
 
 #: dashboards/project/firewalls/tables.py:345
 msgid "Associated Routers"
@@ -10657,7 +10660,7 @@ msgstr "Ativo"
 #: dashboards/project/images/images/tables.py:260
 msgctxt "Current status of an Image"
 msgid "Saving"
-msgstr ""
+msgstr "Salvando"
 
 #: dashboards/project/images/images/tables.py:261
 msgctxt "Current status of an Image"
@@ -13140,13 +13143,13 @@ msgstr "Editar Porta"
 #: dashboards/project/routers/ports/tables.py:94
 msgctxt "Admin state of a Port"
 msgid "UP"
-msgstr ""
+msgstr "CIMA"
 
 #: dashboards/project/networks/ports/tables.py:56
 #: dashboards/project/routers/ports/tables.py:95
 msgctxt "Admin state of a Port"
 msgid "DOWN"
-msgstr ""
+msgstr "BAIXO"
 
 #: dashboards/project/networks/ports/tables.py:60
 msgctxt "status of a network port"
@@ -13932,12 +13935,12 @@ msgstr "Erro"
 #: dashboards/project/routers/tables.py:204
 msgctxt "Admin state of a Router"
 msgid "UP"
-msgstr ""
+msgstr "CIMA"
 
 #: dashboards/project/routers/tables.py:205
 msgctxt "Admin state of a Router"
 msgid "DOWN"
-msgstr ""
+msgstr "BAIXO"
 
 #. Translators: High Availability mode of Neutron router
 #: dashboards/project/routers/tables.py:221

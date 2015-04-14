@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Fernando Pimenta <fernando.c.pimenta@gmail.com>, 2015
 # Gabriel Wainer, 2015
 # maurosr <maurosmrodrigues@gmail.com>, 2015
 # Rodrigo Felix de Almeida <rodrigofelixdealmeida@gmail.com>, 2014
@@ -10,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-11 11:47-0500\n"
-"PO-Revision-Date: 2015-04-11 00:07+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-04-12 16:36-0500\n"
+"PO-Revision-Date: 2015-04-14 01:40+0000\n"
+"Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,7 +37,7 @@ msgid ""
 "the right column. In the left columns there are metadata definitions from "
 "the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
 "the key of your choice."
-msgstr ""
+msgstr "Você pode especificar metadados de recurso movendo itens da coluna da esquerda para a coluna da direita. Nas colunas da esquerda existem definições de metadados do catálogo de metadados do Glance. Utilize a opção \"Outros\" para adicionar metadados com a chave de sua escolha."
 
 #: static/angular/metadata-tree/metadata-tree.js:36
 msgid "Min"
@@ -56,19 +57,19 @@ msgstr "Tamanho máximo"
 
 #: static/angular/metadata-tree/metadata-tree.js:40
 msgid "Pattern mismatch"
-msgstr ""
+msgstr "Incompatibilidade de padrão"
 
 #: static/angular/metadata-tree/metadata-tree.js:41
 msgid "Integer required"
-msgstr ""
+msgstr "Inteiro requerido"
 
 #: static/angular/metadata-tree/metadata-tree.js:42
 msgid "Decimal required"
-msgstr ""
+msgstr "Decimal requerido"
 
 #: static/angular/metadata-tree/metadata-tree.js:43
 msgid "Required"
-msgstr ""
+msgstr "Requerido"
 
 #: static/angular/metadata-tree/metadata-tree.js:44
 msgid "Duplicate keys are not allowed"
@@ -151,11 +152,11 @@ msgstr "Clique para ver mais detalhes."
 
 #: static/angular/transfer-table/transfer-table.js:100
 msgid "Found %(found)s of %(total)s"
-msgstr ""
+msgstr "Encontrado %(found)s de %(total)s"
 
 #: static/angular/transfer-table/transfer-table.js:166
 msgid "Click here to expand the row and view the errors."
-msgstr ""
+msgstr "Clique aqui para expandir a linha e ver os erros."
 
 #: static/angular/wizard/wizard.js:12
 msgid "Back"
@@ -179,11 +180,11 @@ msgstr "Abrir"
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Closing"
-msgstr ""
+msgstr "Encerramento"
 
 #: static/horizon/js/angular/directives/serialConsole.js:23
 msgid "Closed"
-msgstr ""
+msgstr "Encerrado"
 
 #: static/horizon/js/angular/directives/serialConsole.js:85
 #, c-format
@@ -223,7 +224,7 @@ msgstr "%s KB"
 #: static/horizon/js/angular/filters/filters.js:146
 #, c-format
 msgid "%s bytes"
-msgstr ""
+msgstr "%s bytes"
 
 #: static/horizon/js/angular/filters/filters.js:163
 #: static/horizon/js/horizon.tables.js:393
@@ -251,11 +252,11 @@ msgstr "Não foi possível recuperar as configurações de administrador"
 
 #: static/horizon/js/angular/services/hz.api.config.js:105
 msgid "Unable to retrieve settings."
-msgstr ""
+msgstr "Não é possível recuperar as configurações."
 
 #: static/horizon/js/angular/services/hz.api.config.js:289
 msgid "Setting is not enabled: %(setting)s"
-msgstr ""
+msgstr "Configuração não está habilitada: %(setting)s"
 
 #: static/horizon/js/angular/services/hz.api.glance.js:38
 msgid "Unable to retrieve image."
@@ -267,7 +268,7 @@ msgstr "Não foi possível obter as imagems"
 
 #: static/horizon/js/angular/services/hz.api.glance.js:144
 msgid "Unable to retrieve namespaces."
-msgstr ""
+msgstr "Não é possível recuperar namespaces."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:24
 msgid "Unable to retrieve users"
@@ -283,7 +284,7 @@ msgstr "Não foi possível excluir os usuários."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:73
 msgid "Unable to retrieve the current user session."
-msgstr ""
+msgstr "Não é possível recuperar a sessão atual do usuário."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:80
 msgid "Unable to retrieve the user"
@@ -375,15 +376,15 @@ msgstr "Não foi possível permitir o papel."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:250
 msgid "Unable to fetch the service catalog."
-msgstr ""
+msgstr "Não é possível obter o catálogo de serviços."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:385
 msgid "Service type is not enabled: %(desiredType)s"
-msgstr ""
+msgstr "Tipo de serviço não está habilitado: %(desiredType)s"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:392
 msgid "Cannot get service catalog from keystone."
-msgstr ""
+msgstr "Não é possível obter o catálogo de serviços a partir do keystone."
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:39
 msgid "Unable to retrieve networks."
@@ -395,7 +396,7 @@ msgstr "Não foi possível criar a rede"
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:108
 msgid "Unable to retrieve subnets."
-msgstr ""
+msgstr "Não é possível recuperar a subredes."
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:172
 msgid "Unable to create the subnet."
@@ -411,7 +412,7 @@ msgstr "Não é possível recuperar pares de chaves."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:62
 msgid "Unable to import the keypair."
-msgstr ""
+msgstr "Não é possível importar o par de chaves."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:64
 msgid "Unable to create the keypair."
@@ -431,11 +432,11 @@ msgstr "Não foi possível criar a instância"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:162
 msgid "Unable to retrieve server."
-msgstr ""
+msgstr "Não é possível recuperar servidor."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:192
 msgid "Unable to retrieve extensions."
-msgstr ""
+msgstr "Não é possível recuperar extensões."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:237
 msgid "Unable to retrieve flavors."
@@ -443,23 +444,23 @@ msgstr "Não foi possível recuperar flavors."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:255
 msgid "Unable to retrieve flavor."
-msgstr ""
+msgstr "Não é possível recuperar flavor."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:269
 msgid "Unable to retrieve flavor extra specs."
-msgstr ""
+msgstr "Não é possível recuperar especificações extras do flavor."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:311
 msgid "Extension is not enabled: %(extension)s"
-msgstr ""
+msgstr "Extensão não está habilitada: %(extension)s"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:318
 msgid "Cannot get nova extension list."
-msgstr ""
+msgstr "Não é possível obter lista de extensão do nova."
 
 #: static/horizon/js/angular/services/hz.api.policy.js:65
 msgid "Policy check failed."
-msgstr ""
+msgstr "Verificação de política falhou."
 
 #: static/horizon/js/angular/services/hz.api.security-group.js:64
 msgid "Unable to retrieve security groups."
