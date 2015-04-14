@@ -289,6 +289,12 @@ def volume_get_encryption_metadata(request, volume_id):
     return cinderclient(request).volumes.get_encryption_metadata(volume_id)
 
 
+def volume_migrate(request, volume_id, host, force_host_copy=False):
+    return cinderclient(request).volumes.migrate_volume(volume_id,
+                                                        host,
+                                                        force_host_copy)
+
+
 def volume_snapshot_get(request, snapshot_id):
     snapshot = cinderclient(request).volume_snapshots.get(snapshot_id)
     return VolumeSnapshot(snapshot)
