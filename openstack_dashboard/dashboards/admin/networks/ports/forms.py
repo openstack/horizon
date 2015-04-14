@@ -35,7 +35,8 @@ VNIC_TYPES = [('normal', _('Normal')), ('direct', _('Direct')),
 class CreatePort(forms.SelfHandlingForm):
     network_name = forms.CharField(label=_("Network Name"),
                                    widget=forms.TextInput(
-                                       attrs={'readonly': 'readonly'}))
+                                       attrs={'readonly': 'readonly'}),
+                                   required=False)
     network_id = forms.CharField(label=_("Network ID"),
                                  widget=forms.TextInput(
                                      attrs={'readonly': 'readonly'}))
