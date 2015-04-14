@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-11 11:47-0500\n"
-"PO-Revision-Date: 2015-04-11 23:09+0000\n"
-"Last-Translator: Ainur Shakirov <ainur.shakirov.tt@gmail.com>\n"
+"POT-Creation-Date: 2015-04-12 16:36-0500\n"
+"PO-Revision-Date: 2015-04-13 12:00+0000\n"
+"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,7 +37,7 @@ msgid ""
 "the right column. In the left columns there are metadata definitions from "
 "the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
 "the key of your choice."
-msgstr "Вы можете указать метаданные ресурса перемещением элементов с левого столбца в правый. В левом столбце имеются определения метаданных из каталога метаданных Glance. Используйте опцию \"Другой\" для добавления выбранных вами ключей."
+msgstr "Вы можете указать метаданные ресурса перемещением элементов из левого столбца в правый. В левом столбце имеются определения метаданных из каталога метаданных Glance. Используйте опцию \"Другой\" для добавления выбранных вами ключей."
 
 #: static/angular/metadata-tree/metadata-tree.js:36
 msgid "Min"
@@ -373,7 +373,7 @@ msgstr "Не удалось удалить проект."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:236
 msgid "Unable to grant the role."
-msgstr "Не удалось принять роль."
+msgstr "Не удалось предоставить роль."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:250
 msgid "Unable to fetch the service catalog."
@@ -425,7 +425,7 @@ msgstr "Не удалось получить зоны доступности."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:121
 msgid "Unable to retrieve limits."
-msgstr "Не удалось получить ограничители."
+msgstr "Не удалось получить лимиты."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:148
 msgid "Unable to create the server."
@@ -441,15 +441,15 @@ msgstr "Не удалось получить расширения."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:237
 msgid "Unable to retrieve flavors."
-msgstr "Не удалось получить схемы."
+msgstr "Не удалось получить типы инстанса."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:255
 msgid "Unable to retrieve flavor."
-msgstr "Не удалось получить схему."
+msgstr "Не удалось получить тип инстанса."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:269
 msgid "Unable to retrieve flavor extra specs."
-msgstr "Не удалось получить доп. параметры схемы."
+msgstr "Не удалось получить доп. параметры типа интанса."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:311
 msgid "Extension is not enabled: %(extension)s"
@@ -583,11 +583,11 @@ msgstr "Добавить Интерфейс"
 
 #: static/horizon/js/horizon.networktopology.js:570
 msgid "Terminate Instance"
-msgstr "Удалить машину"
+msgstr "Удалить инстанс"
 
 #: static/horizon/js/horizon.networktopology.js:571
 msgid "View Instance Details"
-msgstr "Посмотреть информацию о машине."
+msgstr "Посмотреть информацию об инстансе."
 
 #: static/horizon/js/horizon.tables.js:39
 #: static/horizon/js/horizon.tables.js:406
