@@ -357,6 +357,7 @@ TIME_ZONE = "UTC"
 #    'image': 'glance_policy.json',
 #    'orchestration': 'heat_policy.json',
 #    'network': 'neutron_policy.json',
+#    'telemetry': 'ceilometer_policy.json',
 #}
 
 # Trove user and database extension support. By default support for
