@@ -13,6 +13,7 @@
 #   under the License.
 
 
+from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
@@ -20,9 +21,25 @@ from horizon.utils import filters
 
 
 class AuditTable(tables.DataTable):
+    ACTION_DISPLAY_CHOICES = (
+        ("create", pgettext_lazy("Action log of an instance", u"Create")),
+        ("pause", pgettext_lazy("Action log of an instance", u"Pause")),
+        ("unpause", pgettext_lazy("Action log of an instance", u"Unpause")),
+        ("rebuild", pgettext_lazy("Action log of an instance", u"Rebuild")),
+        ("resize", pgettext_lazy("Action log of an instance", u"Resize")),
+        ("confirmresize", pgettext_lazy("Action log of an instance",
+                                        u"Confirm Resize")),
+        ("suspend", pgettext_lazy("Action log of an instance", u"Suspend")),
+        ("resume", pgettext_lazy("Action log of an instance", u"Resume")),
+        ("reboot", pgettext_lazy("Action log of an instance", u"Reboot")),
+        ("stop", pgettext_lazy("Action log of an instance", u"Stop")),
+        ("start", pgettext_lazy("Action log of an instance", u"Start")),
+    )
+
     request_id = tables.Column('request_id',
                                verbose_name=_('Request ID'))
-    action = tables.Column('action', verbose_name=_('Action'))
+    action = tables.Column('action', verbose_name=_('Action'),
+                           display_choices=ACTION_DISPLAY_CHOICES)
     start_time = tables.Column('start_time', verbose_name=_('Start Time'),
                                filters=[filters.parse_isotime])
     user_id = tables.Column('user_id', verbose_name=_('User ID'))
