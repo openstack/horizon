@@ -3,6 +3,17 @@ action-list.btn-group {
     cursor: pointer;
   }
 
+  .dropdown-menu > li {
+
+     &.disabled {
+      opacity: 0.65;
+     }
+
+     > a.text-danger {
+      color: $brand-danger;
+    }
+  }
+
   notifications {
     bottom: -0.5em;
     font-size: 1.1em;
