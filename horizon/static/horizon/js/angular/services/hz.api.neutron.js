@@ -21,7 +21,7 @@
    * @name hz.api.NeutronAPI
    * @description Provides access to Neutron APIs.
    */
-  function NeutronAPI(apiService) {
+  function NeutronAPI(apiService, toastService) {
 
      // Networks
 
@@ -36,7 +36,7 @@
     this.getNetworks = function() {
       return apiService.get('/api/neutron/networks/')
         .error(function () {
-          horizon.alert('error', gettext('Unable to retrieve networks.'));
+          toastService.add('error', gettext('Unable to retrieve networks.'));
         });
     };
 
@@ -85,7 +85,7 @@
     this.createNetwork = function(newNetwork) {
       return apiService.post('/api/neutron/networks/', newNetwork)
         .error(function () {
-          horizon.alert('error', gettext('Unable to create the network.'));
+          toastService.add('error', gettext('Unable to create the network.'));
         });
     };
 
@@ -105,7 +105,7 @@
     this.getSubnets = function(network_id) {
       return apiService.get('/api/neutron/subnets/', network_id)
         .error(function () {
-          horizon.alert('error', gettext('Unable to retrieve subnets.'));
+          toastService.add('error', gettext('Unable to retrieve subnets.'));
         });
     };
 
@@ -169,7 +169,7 @@
     this.createSubnet = function(newSubnet) {
       return apiService.post('/api/neutron/subnets/', newSubnet)
         .error(function () {
-          horizon.alert('error', gettext('Unable to create the subnet.'));
+          toastService.add('error', gettext('Unable to create the subnet.'));
         });
     };
 
@@ -189,12 +189,12 @@
     this.getPorts = function(network_id) {
       return apiService.get('/api/neutron/ports/', network_id)
         .error(function () {
-          horizon.alert('error', gettext('Unable to retrieve ports.'));
+          toastService.add('error', gettext('Unable to retrieve ports.'));
         });
     };
 
   }
 
   angular.module('hz.api')
-    .service('neutronAPI', ['apiService', NeutronAPI]);
+    .service('neutronAPI', ['apiService', 'toastService', NeutronAPI]);
 }());

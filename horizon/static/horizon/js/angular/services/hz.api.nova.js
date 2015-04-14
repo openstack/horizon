@@ -22,7 +22,7 @@ limitations under the License.
    * @name hz.api.novaAPI
    * @description Provides access to Nova APIs.
    */
-  function NovaAPI(apiService) {
+  function NovaAPI(apiService, toastService) {
 
      // Keypairs
 
@@ -37,7 +37,7 @@ limitations under the License.
     this.getKeypairs = function() {
       return apiService.get('/api/nova/keypairs/')
         .error(function () {
-          horizon.alert('error', gettext('Unable to retrieve keypairs.'));
+          toastService.add('error', gettext('Unable to retrieve keypairs.'));
         });
     };
 
@@ -59,9 +59,9 @@ limitations under the License.
       return apiService.post('/api/nova/keypairs/', newKeypair)
         .error(function () {
           if (angular.isDefined(newKeypair.public_key)) {
-            horizon.alert('error', gettext('Unable to import the keypair.'));
+            toastService.add('error', gettext('Unable to import the keypair.'));
           } else {
-            horizon.alert('error', gettext('Unable to create the keypair.'));
+            toastService.add('error', gettext('Unable to create the keypair.'));
           }
         });
     };
@@ -79,7 +79,7 @@ limitations under the License.
     this.getAvailabilityZones = function() {
       return apiService.get('/api/nova/availzones/')
         .error(function () {
-          horizon.alert('error',
+          toastService.add('error',
                         gettext('Unable to retrieve availability zones.'));
         });
     };
@@ -118,7 +118,7 @@ limitations under the License.
     this.getLimits = function() {
       return apiService.get('/api/nova/limits/')
         .error(function () {
-          horizon.alert('error', gettext('Unable to retrieve limits.'));
+          toastService.add('error', gettext('Unable to retrieve limits.'));
         });
     };
 
@@ -145,7 +145,7 @@ limitations under the License.
     this.createServer = function(newServer) {
       return apiService.post('/api/nova/servers/', newServer)
         .error(function () {
-          horizon.alert('error', gettext('Unable to create the server.'));
+          toastService.add('error', gettext('Unable to create the server.'));
         });
     };
 
@@ -159,7 +159,7 @@ limitations under the License.
     this.getServer = function(id) {
       return apiService.get('/api/nova/servers/' + id)
         .error(function () {
-          horizon.alert('error', gettext('Unable to retrieve server.'));
+          toastService.add('error', gettext('Unable to retrieve server.'));
       });
     };
 
@@ -189,7 +189,7 @@ limitations under the License.
     this.getExtensions = function(config) {
       return apiService.get('/api/nova/extensions/', config)
         .error(function () {
-          horizon.alert('error', gettext('Unable to retrieve extensions.'));
+          toastService.add('error', gettext('Unable to retrieve extensions.'));
         });
     };
 
@@ -234,7 +234,7 @@ limitations under the License.
           }
         })
         .error(function () {
-          horizon.alert('error', gettext('Unable to retrieve flavors.'));
+          toastService.add('error', gettext('Unable to retrieve flavors.'));
         });
     };
 
@@ -252,7 +252,7 @@ limitations under the License.
       if (getExtras) { config.params.get_extras = 'true'; }
       return apiService.get('/api/nova/flavors/' + id, config)
         .error(function () {
-          horizon.alert('error', gettext('Unable to retrieve flavor.'));
+          toastService.add('error', gettext('Unable to retrieve flavor.'));
       });
     };
 
@@ -266,13 +266,13 @@ limitations under the License.
     this.getFlavorExtraSpecs = function(id) {
       return apiService.get('/api/nova/flavors/' + id + '/extra-specs')
         .error(function () {
-          horizon.alert('error', gettext('Unable to retrieve flavor extra specs.'));
+          toastService.add('error', gettext('Unable to retrieve flavor extra specs.'));
       });
     };
   }
 
   angular.module('hz.api')
-    .service('novaAPI', ['apiService', NovaAPI]);
+    .service('novaAPI', ['apiService', 'toastService', NovaAPI]);
 
     /**
     * @ngdoc service

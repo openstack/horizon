@@ -15,27 +15,27 @@ limitations under the License.
 */
 (function () {
   'use strict';
-  function KeystoneAPI(apiService) {
+  function KeystoneAPI(apiService, toastService) {
     // Users
     this.getUsers = function(params) {
       var config = (params) ? {'params': params} : {};
       return apiService.get('/api/keystone/users/', config)
         .error(function () {
-          horizon.alert('error', gettext('Unable to retrieve users'));
+          toastService.add('error', gettext('Unable to retrieve users'));
         });
     };
 
     this.createUser = function(newUser) {
       return apiService.post('/api/keystone/users/', newUser)
         .error(function () {
-          horizon.alert('error', gettext('Unable to create the user.'));
+          toastService.add('error', gettext('Unable to create the user.'));
         });
     };
 
     this.deleteUsers = function(user_ids) {
       return apiService.delete('/api/keystone/users/', user_ids)
         .error(function () {
-          horizon.alert('error', gettext('Unable to delete the users.'));
+          toastService.add('error', gettext('Unable to delete the users.'));
         });
     };
 
@@ -69,7 +69,7 @@ limitations under the License.
     this.getCurrentUserSession = function(config) {
       return apiService.get('/api/keystone/user-session/', config)
         .error(function () {
-          horizon.alert('error',
+          toastService.add('error',
             gettext('Unable to retrieve the current user session.'));
         });
     };
@@ -77,7 +77,7 @@ limitations under the License.
     this.getUser = function(user_id) {
       return apiService.get('/api/keystone/users/' + user_id)
         .error(function () {
-          horizon.alert('error', gettext('Unable to retrieve the user'));
+          toastService.add('error', gettext('Unable to retrieve the user'));
         });
     };
 
@@ -85,14 +85,14 @@ limitations under the License.
       var url = '/api/keystone/users/' + updatedUser.id;
       return apiService.patch(url, updatedUser)
         .error(function () {
-          horizon.alert('error', gettext('Unable to edit the user.'));
+          toastService.add('error', gettext('Unable to edit the user.'));
         });
     };
 
     this.deleteUser = function(user_id) {
       return apiService.delete('/api/keystone/users/' + user_id)
         .error(function () {
-          horizon.alert('error', gettext('Unable to delete the user.'));
+          toastService.add('error', gettext('Unable to delete the user.'));
         });
     };
 
@@ -100,28 +100,28 @@ limitations under the License.
     this.getRoles = function() {
       return apiService.get('/api/keystone/roles/')
         .error(function () {
-          horizon.alert('error', gettext('Unable to retrieve role'));
+          toastService.add('error', gettext('Unable to retrieve role'));
         });
     };
 
     this.createRole = function(newRole) {
       return apiService.post('/api/keystone/roles/', newRole)
         .error(function () {
-          horizon.alert('error', gettext('Unable to create the role.'));
+          toastService.add('error', gettext('Unable to create the role.'));
         });
     };
 
     this.deleteRoles = function(role_ids) {
       return apiService.delete('/api/keystone/roles/', role_ids)
         .error(function () {
-          horizon.alert('error', gettext('Unable to delete the roles.'));
+          toastService.add('error', gettext('Unable to delete the roles.'));
         });
     };
 
     this.getRole = function(role_id) {
       return apiService.get('/api/keystone/roles/' + role_id)
         .error(function () {
-          horizon.alert('error', gettext('Unable to retrieve the role'));
+          toastService.add('error', gettext('Unable to retrieve the role'));
         });
     };
 
@@ -129,14 +129,14 @@ limitations under the License.
       var url = '/api/keystone/roles/' + updatedRole.id;
       return apiService.patch(url, updatedRole)
         .error(function () {
-          horizon.alert('error', gettext('Unable to edit the role.'));
+          toastService.add('error', gettext('Unable to edit the role.'));
         });
     };
 
     this.deleteRole = function(role_id) {
       return apiService.delete('/api/keystone/roles/' + role_id)
         .error(function () {
-          horizon.alert('error', gettext('Unable to delete the role.'));
+          toastService.add('error', gettext('Unable to delete the role.'));
         });
     };
 
@@ -144,28 +144,28 @@ limitations under the License.
     this.getDomains = function() {
       return apiService.get('/api/keystone/domains/')
         .error(function () {
-          horizon.alert('error', gettext('Unable to retrieve domains'));
+          toastService.add('error', gettext('Unable to retrieve domains'));
         });
     };
 
     this.createDomain = function(newDomain) {
       return apiService.post('/api/keystone/domains/', newDomain)
         .error(function () {
-          horizon.alert('error', gettext('Unable to create the domain.'));
+          toastService.add('error', gettext('Unable to create the domain.'));
         });
     };
 
     this.deleteDomains = function(domain_ids) {
       return apiService.delete('/api/keystone/domains/', domain_ids)
         .error(function () {
-          horizon.alert('error', gettext('Unable to delete the domains.'));
+          toastService.add('error', gettext('Unable to delete the domains.'));
         });
     };
 
     this.getDomain = function(domain_id) {
       return apiService.get('/api/keystone/domains/' + domain_id)
         .error(function () {
-          horizon.alert('error', gettext('Unable to retrieve the domain'));
+          toastService.add('error', gettext('Unable to retrieve the domain'));
         });
     };
 
@@ -173,14 +173,14 @@ limitations under the License.
       var url = '/api/keystone/domains/' + updatedDomain.id;
       return apiService.patch(url, updatedDomain)
         .error(function () {
-          horizon.alert('error', gettext('Unable to edit the domain.'));
+          toastService.add('error', gettext('Unable to edit the domain.'));
         });
     };
 
     this.deleteDomain = function(domain_id) {
       return apiService.delete('/api/keystone/domains/' + domain_id)
         .error(function () {
-          horizon.alert('error', gettext('Unable to delete the domain.'));
+          toastService.add('error', gettext('Unable to delete the domain.'));
         });
     };
 
@@ -189,28 +189,28 @@ limitations under the License.
       var config = (params) ? {'params': params} : {};
       return apiService.get('/api/keystone/projects/', config)
         .error(function () {
-          horizon.alert('error', gettext('Unable to retrieve projects'));
+          toastService.add('error', gettext('Unable to retrieve projects'));
         });
     };
 
     this.createProject = function(newProject) {
       return apiService.post('/api/keystone/projects/', newProject)
         .error(function () {
-          horizon.alert('error', gettext('Unable to create the project.'));
+          toastService.add('error', gettext('Unable to create the project.'));
         });
     };
 
     this.deleteProjects = function(project_ids) {
       return apiService.delete('/api/keystone/projects/', project_ids)
         .error(function () {
-          horizon.alert('error', gettext('Unable to delete the projects.'));
+          toastService.add('error', gettext('Unable to delete the projects.'));
         });
     };
 
     this.getProject = function(project_id) {
       return apiService.get('/api/keystone/projects/' + project_id)
         .error(function () {
-          horizon.alert('error', gettext('Unable to retrieve the project'));
+          toastService.add('error', gettext('Unable to retrieve the project'));
         });
     };
 
@@ -218,14 +218,14 @@ limitations under the License.
       var url = '/api/keystone/projects/' + updatedProject.id;
       return apiService.patch(url, updatedProject)
         .error(function () {
-          horizon.alert('error', gettext('Unable to edit the project.'));
+          toastService.add('error', gettext('Unable to edit the project.'));
         });
     };
 
     this.deleteProject = function(project_id) {
       return apiService.delete('/api/keystone/projects/' + project_id)
         .error(function () {
-          horizon.alert('error', gettext('Unable to delete the project.'));
+          toastService.add('error', gettext('Unable to delete the project.'));
         });
     };
 
@@ -233,7 +233,7 @@ limitations under the License.
       return apiService.delete('/api/keystone/projects/' + project_id + '/' +
                                role_id + '/' + user_id)
         .error(function () {
-          horizon.alert('error', gettext('Unable to grant the role.'));
+          toastService.add('error', gettext('Unable to grant the role.'));
         });
     };
 
@@ -247,13 +247,13 @@ limitations under the License.
     this.serviceCatalog = function(config) {
       return apiService.get('/api/keystone/svc-catalog/', config)
         .error(function () {
-          horizon.alert('error', gettext('Unable to fetch the service catalog.'));
+          toastService.add('error', gettext('Unable to fetch the service catalog.'));
         });
     };
   }
 
   angular.module('hz.api')
-    .service('keystoneAPI', ['apiService', KeystoneAPI]);
+    .service('keystoneAPI', ['apiService', 'toastService', KeystoneAPI]);
 
    /**
    * @ngdoc service

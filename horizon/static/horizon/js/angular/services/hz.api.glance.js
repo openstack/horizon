@@ -21,7 +21,7 @@ limitations under the License.
    * @name hz.api.glanceAPI
    * @description Provides direct pass through to Glance with NO abstraction.
    */
-  function GlanceAPI(apiService) {
+  function GlanceAPI(apiService, toastService) {
 
     // Images
 
@@ -35,7 +35,7 @@ limitations under the License.
     this.getImage = function(id) {
       return apiService.get('/api/glance/images/' + id)
         .error(function () {
-          horizon.alert('error', gettext('Unable to retrieve image.'));
+          toastService.add('error', gettext('Unable to retrieve image.'));
       });
     };
 
@@ -78,7 +78,7 @@ limitations under the License.
       var config = (params) ? { 'params' : params} : {};
       return apiService.get('/api/glance/images/', config)
         .error(function () {
-          horizon.alert('error', gettext('Unable to retrieve images.'));
+          toastService.add('error', gettext('Unable to retrieve images.'));
       });
     };
 
@@ -141,7 +141,7 @@ limitations under the License.
       var promise = apiService.get('/api/glance/metadefs/namespaces/', config);
 
       return suppressError ? promise : promise.error(function() {
-          horizon.alert('error', gettext('Unable to retrieve namespaces.'));
+          toastService.add('error', gettext('Unable to retrieve namespaces.'));
         });
     };
 
@@ -151,6 +151,6 @@ limitations under the License.
   // API module will have access to the Glance APIs.
 
   angular.module('hz.api')
-    .service('glanceAPI', ['apiService', GlanceAPI]);
+    .service('glanceAPI', ['apiService', 'toastService', GlanceAPI]);
 
 }());

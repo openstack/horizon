@@ -21,7 +21,7 @@ limitations under the License.
    * @name hz.api.cinderAPI
    * @description Provides direct access to Cinder APIs.
    */
-  function CinderAPI(apiService) {
+  function CinderAPI(apiService, toastService) {
 
     // Volumes
 
@@ -44,7 +44,7 @@ limitations under the License.
       var config = (params) ? {'params': params} : {};
       return apiService.get('/api/cinder/volumes/', config)
         .error(function () {
-          horizon.alert('error', gettext('Unable to retrieve volumes.'));
+          toastService.add('error', gettext('Unable to retrieve volumes.'));
         });
     };
 
@@ -70,7 +70,7 @@ limitations under the License.
       var config = (params) ? {'params': params} : {};
       return apiService.get('/api/cinder/volumesnapshots/', config)
         .error(function () {
-          horizon.alert('error',
+          toastService.add('error',
                         gettext('Unable to retrieve volume snapshots.'));
         });
     };
@@ -79,5 +79,5 @@ limitations under the License.
   // Register it with the API module so that anybody using the
   // API module will have access to the Cinder APIs.
   angular.module('hz.api')
-    .service('cinderAPI', ['apiService', CinderAPI]);
+    .service('cinderAPI', ['apiService', 'toastService', CinderAPI]);
 }());
