@@ -59,7 +59,6 @@
     .factory('modalWaitSpinnerService', [
       '$modal',
       function ($modal) {
-        var modalInstance;
 
         var service = {
           showModalSpinner: function (spinnerText) {
@@ -99,7 +98,7 @@
         template: '<p><i>{$text$}&hellip;</i></p>'
       };
 
-      function link($scope, element, attrs) {
+      function link($scope, element) {
         element.spin(horizon.conf.spinner_options.modal);
         /*
          At the time link is executed, element may not have been sized by the browser.

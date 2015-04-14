@@ -57,7 +57,7 @@
 
           // update the visuals
           // when user selects item from dropdown
-          function onChange(e) {
+          function onChange() {
             $timeout(function() {
 
               // if type is credential

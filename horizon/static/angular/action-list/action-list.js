@@ -80,10 +80,10 @@
    * </action-list>
    * ```
    */
-  .directive('actionList', [ 'basePath', function(path) {
+  .directive('actionList', [ 'basePath', function() {
       return {
         restrict: 'E',
-        link: function (scope, element, attrs, ctrl, transclude) {
+        link: function (scope, element) {
           element.addClass('btn-group');
         }
       };
@@ -194,7 +194,7 @@
           return path + 'action-list/' + buttonType + '.html';
         },
         transclude: true,
-        link: function(scope, element, attrs, ctrl, transclude) {
+        link: function(scope, element) {
           // Don't include directive element since
           // it will misalign component look
           element.children().first().unwrap();

@@ -65,7 +65,7 @@
           btPlacement: '=?',
           btDisabled: '=?'
         },
-        link: function (scope, element, attrs) {
+        link: function (scope, element) {
 
           var tooltip = scope.btModel || {};
           var template = tooltip.template || tooltipConfig.defaultTemplate;
@@ -100,7 +100,7 @@
             element.popover('show');
           }
 
-          element.on('mousedown', function(e) {
+          element.on('mousedown', function() {
             if (!scope.btDisabled) {
               var popoverElt = element.next('.popover');
               if (popoverElt.length) {
@@ -118,7 +118,7 @@
             }
           });
 
-          element.on('blur', 'button', function(e) {
+          element.on('blur', 'button', function() {
             element.popover('destroy');
           });
         }

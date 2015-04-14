@@ -60,7 +60,7 @@
         },
         replace: true,
         templateUrl: path + 'charts/pie-chart.html',
-        link: function (scope, element, attrs) {
+        link: function (scope, element) {
           var settings = angular.extend({}, chartSettings, scope.chartSettings);
           settings.diameter = settings.outerRadius * 2;
 
@@ -82,8 +82,6 @@
           var pie = d3.layout.pie()
                               .sort(null)
                               .value(function(d) { return d.value; });
-
-          var tooltip = d3Elt.select('chart-tooltip');
 
           var unwatch = scope.$watch('chartData', updateChart);
           scope.$on('$destroy', unwatch);
