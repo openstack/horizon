@@ -51,6 +51,8 @@ class JobsView(tables.DataTableView):
             jobs = []
             exceptions.handle(self.request,
                               _("Unable to fetch jobs."))
+
+        jobs = sorted(jobs, key=lambda job: job.created_at)
         return jobs
 
 
