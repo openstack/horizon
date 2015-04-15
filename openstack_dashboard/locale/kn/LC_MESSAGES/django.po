@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-08 17:57-0500\n"
-"PO-Revision-Date: 2015-04-08 23:13+0000\n"
+"POT-Creation-Date: 2015-04-14 20:34-0500\n"
+"PO-Revision-Date: 2015-04-15 01:34+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Kannada (http://www.transifex.com/projects/p/horizon/language/kn/)\n"
 "MIME-Version: 1.0\n"
@@ -496,7 +496,7 @@ msgstr "ನಕಲಿ (ಸೂಡೊ) ಕಡತಕೋಶವು ಖಾಲಿ ಇರ
 #: dashboards/admin/metadata_defs/tables.py:128
 #: dashboards/admin/networks/forms.py:38
 #: dashboards/admin/networks/forms.py:234
-#: dashboards/admin/networks/ports/forms.py:43
+#: dashboards/admin/networks/ports/forms.py:44
 #: dashboards/admin/networks/ports/tables.py:82
 #: dashboards/admin/networks/subnets/tables.py:92
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:6
@@ -839,7 +839,7 @@ msgstr "ಆತಿಥೇಯ ಒಟ್ಟುಗೂಡಿಕೆಗಳು ಆತಿ�
 #: dashboards/admin/volumes/volume_types/extras/views.py:88
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:103
 #: dashboards/identity/domains/workflows.py:300
-#: dashboards/identity/projects/workflows.py:569
+#: dashboards/identity/projects/workflows.py:575
 #: dashboards/identity/users/views.py:209
 #: dashboards/project/instances/workflows/update_instance.py:133
 #: dashboards/project/networks/subnets/workflows.py:159
@@ -1089,7 +1089,7 @@ msgstr "VCPUಗಳು"
 #: dashboards/project/instances/panel.py:23
 #: dashboards/project/instances/tables.py:1049
 #: dashboards/project/instances/templates/instances/index.html:3
-#: dashboards/project/instances/views.py:55
+#: dashboards/project/instances/views.py:59
 #: dashboards/project/network_topology/instances/tables.py:23
 #: usage/quotas.py:64
 msgid "Instances"
@@ -1367,6 +1367,7 @@ msgstr "ಸ್ವಾಪ್‌ ಡಿಸ್ಕ್"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:6
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:6
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:6
+#: dashboards/project/networks/forms.py:37
 #: dashboards/project/networks/ports/forms.py:35
 #: dashboards/project/networks/templates/networks/_detail_overview.html:9
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:8
@@ -2062,7 +2063,7 @@ msgstr "ವ್ಯವಸ್ಥೆಯ ಮಾಹಿತಿ"
 #: dashboards/identity/projects/tables.py:240
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:13
 #: dashboards/identity/projects/workflows.py:153
-#: dashboards/identity/projects/workflows.py:527
+#: dashboards/identity/projects/workflows.py:533
 #: dashboards/identity/users/tables.py:237
 #: dashboards/identity/users/templates/users/_detail_overview.html:23
 #: dashboards/project/firewalls/forms.py:71
@@ -2314,12 +2315,11 @@ msgid "Unable to retrieve instance list."
 msgstr "ಇನ್‌ಸ್ಟೆನ್ಸ್‌ ಪಟ್ಟಿಯನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
 #: dashboards/admin/instances/views.py:112
-#: dashboards/project/instances/views.py:81
+#: dashboards/project/instances/views.py:85
 msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "ನ್ಯೂಟ್ರಾನ್‌ನಿಂದ IP ವಿಳಾಸಗಳನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
 #: dashboards/admin/instances/views.py:136
-#: dashboards/project/instances/views.py:122
 msgid "Unable to retrieve instance size information."
 msgstr "ಇನ್‌ಸ್ಟೆನ್ಸ್ ಗಾತ್ರದ ಮಾಹಿತಿಯನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
@@ -2330,8 +2330,8 @@ msgstr "ಆತಿಥೇಯಗಣಕದ ಮಾಹಿತಿಯನ್ನು ಹಿ�
 #: dashboards/admin/instances/views.py:180
 #: dashboards/project/databases/views.py:153
 #: dashboards/project/databases/views.py:193
-#: dashboards/project/instances/views.py:242
-#: dashboards/project/instances/views.py:384
+#: dashboards/project/instances/views.py:247
+#: dashboards/project/instances/views.py:389
 msgid "Unable to retrieve instance details."
 msgstr "ಇನ್‌ಸ್ಟೆನ್ಸ್‌ ವಿವರಗಳನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
@@ -2659,7 +2659,7 @@ msgstr ""
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:35
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:18
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:82
-#: dashboards/project/data_processing/jobs/workflows/launch.py:407
+#: dashboards/project/data_processing/jobs/workflows/launch.py:409
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:402
 #: dashboards/project/database_backups/tables.py:165
 #: dashboards/project/database_backups/templates/database_backups/details.html:32
@@ -3100,7 +3100,7 @@ msgstr "DHCP ಮಧ್ಯವರ್ತಿಯನ್ನು ಸೇರಿಸು"
 #: dashboards/admin/networks/agents/tables.py:93
 #: dashboards/admin/networks/forms.py:79
 #: dashboards/admin/networks/forms.py:238
-#: dashboards/admin/networks/ports/forms.py:47
+#: dashboards/admin/networks/ports/forms.py:48
 #: dashboards/admin/networks/tables.py:104
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:19
 #: dashboards/project/firewalls/forms.py:134
@@ -3114,7 +3114,7 @@ msgstr "DHCP ಮಧ್ಯವರ್ತಿಯನ್ನು ಸೇರಿಸು"
 #: dashboards/project/loadbalancers/workflows.py:195
 #: dashboards/project/loadbalancers/workflows.py:347
 #: dashboards/project/loadbalancers/workflows.py:550
-#: dashboards/project/networks/forms.py:39
+#: dashboards/project/networks/forms.py:42
 #: dashboards/project/networks/ports/forms.py:43
 #: dashboards/project/networks/ports/tables.py:77
 #: dashboards/project/networks/tables.py:177
@@ -3207,7 +3207,7 @@ msgstr "ಸೆಗ್ಮೆಂಟೇಶನ್ ID"
 
 #: dashboards/admin/networks/forms.py:77
 #: dashboards/admin/networks/forms.py:236
-#: dashboards/admin/networks/ports/forms.py:45
+#: dashboards/admin/networks/ports/forms.py:46
 #: dashboards/project/firewalls/forms.py:132
 #: dashboards/project/firewalls/workflows.py:284
 #: dashboards/project/loadbalancers/forms.py:38
@@ -3218,7 +3218,7 @@ msgstr "ಸೆಗ್ಮೆಂಟೇಶನ್ ID"
 #: dashboards/project/loadbalancers/workflows.py:193
 #: dashboards/project/loadbalancers/workflows.py:345
 #: dashboards/project/loadbalancers/workflows.py:548
-#: dashboards/project/networks/forms.py:37
+#: dashboards/project/networks/forms.py:40
 #: dashboards/project/networks/ports/forms.py:41
 #: dashboards/project/networks/workflows.py:47
 #: dashboards/project/routers/forms.py:37
@@ -3230,7 +3230,7 @@ msgstr ""
 
 #: dashboards/admin/networks/forms.py:78
 #: dashboards/admin/networks/forms.py:237
-#: dashboards/admin/networks/ports/forms.py:46
+#: dashboards/admin/networks/ports/forms.py:47
 #: dashboards/project/firewalls/forms.py:133
 #: dashboards/project/firewalls/workflows.py:285
 #: dashboards/project/loadbalancers/forms.py:39
@@ -3241,7 +3241,7 @@ msgstr ""
 #: dashboards/project/loadbalancers/workflows.py:194
 #: dashboards/project/loadbalancers/workflows.py:346
 #: dashboards/project/loadbalancers/workflows.py:549
-#: dashboards/project/networks/forms.py:38
+#: dashboards/project/networks/forms.py:41
 #: dashboards/project/networks/ports/forms.py:42
 #: dashboards/project/networks/workflows.py:48
 #: dashboards/project/routers/forms.py:38
@@ -3331,13 +3331,13 @@ msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
 msgstr "VXLAN ಜಾಲಬಂಧಗಳಿಗಾಗಿನ, ಸರಿಯಾದ ಟನಲ್‌ IDಗಳು %(max)s ಮುಖಾಂತರದ %(min)s ಆಗಿವೆ."
 
 #: dashboards/admin/networks/forms.py:252
-#: dashboards/project/networks/forms.py:49
+#: dashboards/project/networks/forms.py:52
 #, python-format
 msgid "Network %s was successfully updated."
 msgstr "%s ಜಾಲಬಂಧವನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಅಪ್‌ಡೇಟ್‌ ಮಾಡಲಾಗಿದೆ."
 
 #: dashboards/admin/networks/forms.py:257
-#: dashboards/project/networks/forms.py:54
+#: dashboards/project/networks/forms.py:57
 #, python-format
 msgid "Failed to update network %s"
 msgstr "%s ಜಾಲಬಂಧವನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡಲು ವಿಫಲಗೊಂಡಿದೆ"
@@ -3372,7 +3372,7 @@ msgstr ""
 msgid "MacVTap"
 msgstr ""
 
-#: dashboards/admin/networks/ports/forms.py:39
+#: dashboards/admin/networks/ports/forms.py:40
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:11
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:11
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:15
@@ -3380,53 +3380,53 @@ msgstr ""
 msgid "Network ID"
 msgstr "ಜಾಲಬಂಧದ ID"
 
-#: dashboards/admin/networks/ports/forms.py:48
-#: dashboards/admin/networks/ports/forms.py:118
+#: dashboards/admin/networks/ports/forms.py:49
+#: dashboards/admin/networks/ports/forms.py:119
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:43
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:43
 msgid "Device ID"
 msgstr "ಸಾಧನ ID"
 
-#: dashboards/admin/networks/ports/forms.py:49
-#: dashboards/admin/networks/ports/forms.py:119
+#: dashboards/admin/networks/ports/forms.py:50
+#: dashboards/admin/networks/ports/forms.py:120
 msgid "Device ID attached to the port"
 msgstr "ಸಾಧನ ID ಯನ್ನು ಪೋರ್ಟ್‌ಗೆ ಲಗತ್ತಿಸಲಾಗಿದೆ"
 
-#: dashboards/admin/networks/ports/forms.py:51
-#: dashboards/admin/networks/ports/forms.py:121
+#: dashboards/admin/networks/ports/forms.py:52
+#: dashboards/admin/networks/ports/forms.py:122
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:41
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:41
 msgid "Device Owner"
 msgstr "ಸಾಧನದ ಮಾಲಿಕ"
 
-#: dashboards/admin/networks/ports/forms.py:52
-#: dashboards/admin/networks/ports/forms.py:122
+#: dashboards/admin/networks/ports/forms.py:53
+#: dashboards/admin/networks/ports/forms.py:123
 msgid "Device owner attached to the port"
 msgstr "ಸಾಧನ ಮಾಲಿಕನನ್ನು ಪೋರ್ಟ್‌ಗೆ ಲಗತ್ತಿಸಲಾಗಿದೆ"
 
-#: dashboards/admin/networks/ports/forms.py:56
-#: dashboards/admin/networks/ports/forms.py:126
+#: dashboards/admin/networks/ports/forms.py:57
+#: dashboards/admin/networks/ports/forms.py:127
 msgid "Binding: Host"
 msgstr ""
 
-#: dashboards/admin/networks/ports/forms.py:57
-#: dashboards/admin/networks/ports/forms.py:127
+#: dashboards/admin/networks/ports/forms.py:58
+#: dashboards/admin/networks/ports/forms.py:128
 msgid ""
 "The ID of the host where the port is allocated. In some cases, different "
 "implementations can run on different hosts."
 msgstr ""
 
-#: dashboards/admin/networks/ports/forms.py:81
+#: dashboards/admin/networks/ports/forms.py:82
 #: dashboards/project/networks/ports/forms.py:64
 msgid "Binding: VNIC Type"
 msgstr ""
 
-#: dashboards/admin/networks/ports/forms.py:82
+#: dashboards/admin/networks/ports/forms.py:83
 #: dashboards/project/networks/ports/forms.py:65
 msgid "The VNIC type that is bound to the neutron port"
 msgstr ""
 
-#: dashboards/admin/networks/ports/forms.py:87
+#: dashboards/admin/networks/ports/forms.py:88
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:22
 #: dashboards/project/networks/ports/forms.py:70
 #: dashboards/project/networks/ports/tables.py:80
@@ -3434,23 +3434,23 @@ msgstr ""
 msgid "MAC Learning State"
 msgstr "MAC ಕಲಿಕೆಯ ಶೈಲಿ"
 
-#: dashboards/admin/networks/ports/forms.py:103
+#: dashboards/admin/networks/ports/forms.py:104
 #, python-format
 msgid "Port %s was successfully created."
 msgstr "%s ಪೋರ್ಟ್‌ ಅನ್ನು ಯಶಸ್ವಿಯಾಗಿ ರಚಿಸಲಾಗಿದೆ."
 
-#: dashboards/admin/networks/ports/forms.py:108
+#: dashboards/admin/networks/ports/forms.py:109
 #, python-format
 msgid "Failed to create a port for network %s"
 msgstr "%s ಜಾಲಬಂಧಕ್ಕಾಗಿ ಒಂದು ಪೋರ್ಟ್‌ ಅನ್ನು ರಚಿಸಲು ವಿಫಲಗೊಂಡಿದೆ"
 
-#: dashboards/admin/networks/ports/forms.py:155
+#: dashboards/admin/networks/ports/forms.py:156
 #: dashboards/project/networks/ports/forms.py:87
 #, python-format
 msgid "Port %s was successfully updated."
 msgstr "%s ಪೋರ್ಟ್‌ ಅನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಅಪ್‌ಡೇಟ್‌ ಮಾಡಲಾಗಿದೆ."
 
-#: dashboards/admin/networks/ports/forms.py:160
+#: dashboards/admin/networks/ports/forms.py:161
 #: dashboards/project/networks/ports/forms.py:92
 #, python-format
 msgid "Failed to update port %s"
@@ -3659,7 +3659,6 @@ msgstr "ನೀವು ಜಾಲಬಂಧಕ್ಕಾಗಿ ಒಂದು ಪೋರ
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:15
 #: dashboards/project/networks/templates/networks/_detail_overview.html:11
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:13
-#: dashboards/project/overview/templates/overview/usage.csv:2
 #: dashboards/project/routers/templates/routers/_detail_overview.html:9
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:15
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:15
@@ -3783,38 +3782,38 @@ msgstr "ಅವಲೋಕನ"
 
 #: dashboards/admin/overview/templates/overview/usage.csv:1
 #: dashboards/project/overview/templates/overview/usage.csv:1
-msgid "Usage Report For Period"
-msgstr "ಒಂದು ಅವಧಿಗಾಗಿನ ಬಳಕೆಯ ವರದಿ"
+msgid "Usage Report For Period:"
+msgstr ""
 
 #: dashboards/admin/overview/templates/overview/usage.csv:2
 #: dashboards/project/overview/templates/overview/usage.csv:3
-msgid "Active Instances"
-msgstr "ಸಕ್ರಿಯ ಇನ್‌ಸ್ಟನ್ಸ್‌ಗಳು"
+msgid "Active Instances:"
+msgstr ""
 
 #: dashboards/admin/overview/templates/overview/usage.csv:3
 #: dashboards/project/overview/templates/overview/usage.csv:4
-msgid "Total VCPU Usage (Hours)"
-msgstr "ಒಟ್ಟು VCPU ಬಳಕೆ (ಗಂಟೆಗಳು)"
+msgid "Total VCPU Usage (Hours):"
+msgstr ""
 
 #: dashboards/admin/overview/templates/overview/usage.csv:4
 #: dashboards/project/overview/templates/overview/usage.csv:5
-msgid "Total Active RAM (MB)"
-msgstr "ಒಟ್ಟು ಸಕ್ರಿಯ RAM (MB)"
+msgid "Total Active RAM (MB):"
+msgstr ""
 
 #: dashboards/admin/overview/templates/overview/usage.csv:5
 #: dashboards/project/overview/templates/overview/usage.csv:6
-msgid "Total Memory Usage (Hours)"
+msgid "Total Memory Usage (Hours):"
 msgstr ""
 
 #: dashboards/admin/overview/templates/overview/usage.csv:6
 #: dashboards/project/overview/templates/overview/usage.csv:7
-msgid "Total Disk Size (GB)"
-msgstr "ಒಟ್ಟು ಡಿಸ್ಕ್‌ ಗಾತ್ರ (GB)"
+msgid "Total Disk Size (GB):"
+msgstr ""
 
 #: dashboards/admin/overview/templates/overview/usage.csv:7
 #: dashboards/project/overview/templates/overview/usage.csv:8
-msgid "Total Disk Usage (Hours)"
-msgstr "ಒಟ್ಟು ಡಿಸ್ಕ್‌ ಬಳಕೆ (ಗಂಟೆಗಳು)"
+msgid "Total Disk Usage (Hours):"
+msgstr ""
 
 #: dashboards/admin/overview/templates/overview/usage.html:3
 msgid "Usage Overview"
@@ -4365,7 +4364,7 @@ msgstr[0] ""
 #: dashboards/project/data_processing/data_sources/workflows/create.py:95
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
 #: dashboards/project/data_processing/jobs/workflows/create.py:156
-#: dashboards/project/data_processing/jobs/workflows/launch.py:406
+#: dashboards/project/data_processing/jobs/workflows/launch.py:408
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:257
 #: dashboards/project/networks/subnets/workflows.py:57
 #: dashboards/project/networks/workflows.py:342
@@ -5182,13 +5181,13 @@ msgid "View Usage"
 msgstr "ಬಳಕೆಯನ್ನು ನೋಡಿ"
 
 #: dashboards/identity/projects/tables.py:99
-#: dashboards/identity/projects/workflows.py:381
-#: dashboards/identity/projects/workflows.py:382
+#: dashboards/identity/projects/workflows.py:407
+#: dashboards/identity/projects/workflows.py:408
 msgid "Create Project"
 msgstr "ಪರಿಯೋಜನೆಯನ್ನು ರಚಿಸಿ"
 
 #: dashboards/identity/projects/tables.py:111
-#: dashboards/identity/projects/workflows.py:568
+#: dashboards/identity/projects/workflows.py:574
 msgid "Edit Project"
 msgstr "ಪರಿಯೋಜನೆಯನ್ನು ಸಂಪಾದಿಸಿ"
 
@@ -5289,7 +5288,7 @@ msgid "Domain Name"
 msgstr "ಡೊಮೇನ್ ಹೆಸರು"
 
 #: dashboards/identity/projects/workflows.py:168
-#: dashboards/identity/projects/workflows.py:550
+#: dashboards/identity/projects/workflows.py:556
 msgid "Project Information"
 msgstr "ಪರಿಯೋಜನೆಯ ಮಾಹಿತಿ"
 
@@ -5311,80 +5310,80 @@ msgstr "ಪರಿಯೋಜನೆ ಅಂಗಗಳು"
 msgid "Project Groups"
 msgstr "ಪರಿಯೋಜನೆ ಗುಂಪುಗಳು"
 
-#: dashboards/identity/projects/workflows.py:383
+#: dashboards/identity/projects/workflows.py:409
 #, python-format
 msgid "Created new project \"%s\"."
 msgstr "ಹೊಸ ಪರಿಯೋಜನೆ \"%s\" ಅನ್ನು ರಚಿಸಲಾಗಿದೆ."
 
-#: dashboards/identity/projects/workflows.py:384
+#: dashboards/identity/projects/workflows.py:410
 #, python-format
 msgid "Unable to create project \"%s\"."
 msgstr "ಪರಿಯೋಜನೆ \"%s\" ಅನ್ನು ರಚಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: dashboards/identity/projects/workflows.py:446
+#: dashboards/identity/projects/workflows.py:472
 msgid ", add project groups"
 msgstr ", ಪರಿಯೋಜನೆ ಗುಂಪುಗಳನ್ನು ಸೇರಿಸಿ"
 
-#: dashboards/identity/projects/workflows.py:450
+#: dashboards/identity/projects/workflows.py:476
 #, python-format
 msgid ""
 "Failed to add %(users_to_add)s project members%(group_msg)s and set project "
 "quotas."
 msgstr "%(users_to_add)s ಪರಿಯೋಜನೆಯ ಅಂಗಗಳನ್ನು %(group_msg)s ಸೇರಿಸಲು ಮತ್ತು ಪರಿಯೋಜನೆಯ ಕೋಟಾಗಳನ್ನು ಹೊಂದಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: dashboards/identity/projects/workflows.py:483
+#: dashboards/identity/projects/workflows.py:509
 #, python-format
 msgid "Failed to add %s project groups and update project quotas."
 msgstr "%s ಪರಿಯೋಜನೆಯ ಗುಂಪುಗಳನ್ನು ಸೇರಿಸಲು ಮತ್ತು ಪರಿಯೋಜನೆಯ ಕೋಟಾಗಳನ್ನು ಅಪ್‌ಡೇಟ್‌ ಮಾಡಲಾಗಿಲ್ಲ."
 
-#: dashboards/identity/projects/workflows.py:512
+#: dashboards/identity/projects/workflows.py:518
 msgid "Unable to set project quotas."
 msgstr "ಪರಿಯೋಜನೆಗಾಗಿ ಕೋಟಾವನ್ನು ಹೊಂದಿಸಲಾಗಿಲ್ಲ."
 
-#: dashboards/identity/projects/workflows.py:535
+#: dashboards/identity/projects/workflows.py:541
 msgid "You cannot disable your current project"
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:552
+#: dashboards/identity/projects/workflows.py:558
 msgid "Edit the project details."
 msgstr "ಪರಿಯೋಜನೆಯ ವಿವರಗಳನ್ನು ಸಂಪಾದಿಸಿ."
 
-#: dashboards/identity/projects/workflows.py:570
+#: dashboards/identity/projects/workflows.py:576
 #, python-format
 msgid "Modified project \"%s\"."
 msgstr "ಮಾರ್ಪಡಿಸಲಾದ ಪರಿಯೋಜನೆ \"%s\"."
 
-#: dashboards/identity/projects/workflows.py:571
+#: dashboards/identity/projects/workflows.py:577
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr "ಪರಿಯೋಜನೆ \"%s\" ಅನ್ನು ಮಾರ್ಪಡಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: dashboards/identity/projects/workflows.py:661
+#: dashboards/identity/projects/workflows.py:667
 msgid ""
 "You cannot revoke your administrative privileges from the project you are "
 "currently logged into. Please switch to another project with administrative "
 "privileges or remove the administrative role manually via the CLI."
 msgstr "ನೀವು ಪ್ರಸಕ್ತ ಲಾಗಿನ್ ಆದಂತಹ ಪರಿಯೋಜನೆಯಿಂದ ವ್ಯವಸ್ಥಾಪಕ ಅಧಿಕಾರಗಳನ್ನು ರದ್ದುಗೊಳಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ದಯವಿಟ್ಟು ವ್ಯವಸ್ಥಾಪಕ ಅಧಿಕಾರಗಳಿಂದ ಇನ್ನೊಂದು ಪರಿಯೋಜನೆಗೆ ಬದಲಾಯಿಸಿ  ಅಥವ CLI ಬಳಸಿಕೊಂಡು ವ್ಯವಸ್ಥಾಪಕ ಪಾತ್ರವನ್ನು ಕೈಯಾರೆ ತೆಗೆದುಹಾಕಿ."
 
-#: dashboards/identity/projects/workflows.py:721
+#: dashboards/identity/projects/workflows.py:727
 msgid ", update project groups"
 msgstr ", ಪರಿಯೋಜನೆ ಗುಂಪುಗಳನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡಿ"
 
-#: dashboards/identity/projects/workflows.py:725
+#: dashboards/identity/projects/workflows.py:731
 #, python-format
 msgid ""
 "Failed to modify %(users_to_modify)s project members%(group_msg)s and update"
 " project quotas."
 msgstr "%(users_to_modify)s ಪರಿಯೋಜನೆಯ ಅಂಗಗಳನ್ನು %(group_msg)s ಮಾರ್ಪಡಿಸಲು ಮತ್ತು ಪರಿಯೋಜನೆಯ ಕೋಟಾಗಳನ್ನು ಅಪ್‌ಡೇಟ್‌ ಮಾಡಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: dashboards/identity/projects/workflows.py:802
+#: dashboards/identity/projects/workflows.py:808
 #, python-format
 msgid ""
 "Failed to modify %s project members, update project groups and update "
 "project quotas."
 msgstr "%s ಪರಿಯೋಜನೆಯ ಅಂಗಗಳನ್ನು ಮಾರ್ಪಡಿಸಲು, ಪರಿಯೋಜನೆ ಗುಂಪುಗಳನ್ನು ಅಪ್‌ಡೇಟ್‌ ಮಾಡಲು ಮತ್ತು ಪರಿಯೋಜನೆಯ ಕೋಟಾಗಳನ್ನು ಅಪ್‌ಡೇಟ್‌ ಮಾಡಲು ವಿಫಲಗೊಂಡಿದೆ."
 
-#: dashboards/identity/projects/workflows.py:836
+#: dashboards/identity/projects/workflows.py:820
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
@@ -7161,7 +7160,7 @@ msgid "Unable to fetch plugin list."
 msgstr "ಪ್ಲಗಿನ್‌ ಪಟ್ಟಿಯನ್ನು ಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:53
-#: dashboards/project/data_processing/jobs/workflows/launch.py:354
+#: dashboards/project/data_processing/jobs/workflows/launch.py:356
 msgid "Plugin name"
 msgstr "ಪ್ಲಗಿನ್‌ ಹೆಸರು"
 
@@ -7178,7 +7177,7 @@ msgid "Next"
 msgstr "ಮುಂದಿನ"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:83
-#: dashboards/project/data_processing/jobs/workflows/launch.py:408
+#: dashboards/project/data_processing/jobs/workflows/launch.py:410
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:403
 msgid "Could not create"
 msgstr "ರಚಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ"
@@ -7243,7 +7242,7 @@ msgstr "ಅಡ್ಡಸಾಲನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡಲ�
 #: dashboards/project/data_processing/clusters/tables.py:136
 #: dashboards/project/data_processing/clusters/views.py:80
 #: dashboards/project/data_processing/clusters/workflows/create.py:201
-#: dashboards/project/data_processing/jobs/workflows/launch.py:312
+#: dashboards/project/data_processing/jobs/workflows/launch.py:314
 msgid "Configure Cluster"
 msgstr "ಕ್ಲಸ್ಟರ್ ಅನ್ನು ಸಂರಚಿಸಿ"
 
@@ -7351,7 +7350,7 @@ msgid "Unable to fetch cluster list"
 msgstr "ಕ್ಲಸ್ಟರ್‌ ಪಟ್ಟಿಯನ್ನು ಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:46
-#: dashboards/project/data_processing/jobs/workflows/launch.py:394
+#: dashboards/project/data_processing/jobs/workflows/launch.py:396
 msgid "Select plugin and hadoop version for cluster"
 msgstr "ಕ್ಲಸ್ಟರ್‌ಗಾಗಿ ಪ್ಲಗ್‌ಇನ್ ಮತ್ತು ಹಡೂಪ್ ಆವೃತ್ತಿಯನ್ನು ಆರಿಸಿ"
 
@@ -7388,8 +7387,8 @@ msgid "No Templates Available"
 msgstr "ಯಾವುದೆ ಸಿದ್ಧವಿನ್ಯಾಸಗಳು ಲಭ್ಯವಿಲ್ಲ"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:220
-#: dashboards/project/data_processing/jobs/workflows/launch.py:331
-#: dashboards/project/data_processing/jobs/workflows/launch.py:416
+#: dashboards/project/data_processing/jobs/workflows/launch.py:333
+#: dashboards/project/data_processing/jobs/workflows/launch.py:418
 #: dashboards/project/databases/workflows/create_instance.py:335
 #: dashboards/project/images/images/tables.py:62
 #: dashboards/project/instances/workflows/create_instance.py:820
@@ -7668,7 +7667,7 @@ msgid "Data Source Details"
 msgstr "ದತ್ತಾಂಶ ಆಕರದ ವಿವರಗಳು"
 
 #: dashboards/project/data_processing/data_sources/views.py:46
-#: dashboards/project/data_processing/jobs/workflows/launch.py:75
+#: dashboards/project/data_processing/jobs/workflows/launch.py:77
 msgid "Unable to fetch data sources."
 msgstr "ದತ್ತಾಂಶ ಆಕರಗಳನ್ನು ಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
@@ -7855,16 +7854,16 @@ msgid "Jobs"
 msgstr "ಕೆಲಸಗಳು"
 
 #: dashboards/project/data_processing/job_executions/tables.py:38
-#: dashboards/project/data_processing/jobs/workflows/launch.py:56
-#: dashboards/project/data_processing/jobs/workflows/launch.py:97
-#: dashboards/project/data_processing/jobs/workflows/launch.py:122
+#: dashboards/project/data_processing/jobs/workflows/launch.py:58
+#: dashboards/project/data_processing/jobs/workflows/launch.py:99
+#: dashboards/project/data_processing/jobs/workflows/launch.py:124
 msgid "Job"
 msgstr "ಕೆಲಸ"
 
 #: dashboards/project/data_processing/job_executions/tables.py:39
 #: dashboards/project/data_processing/job_executions/tables.py:198
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:16
-#: dashboards/project/data_processing/jobs/workflows/launch.py:104
+#: dashboards/project/data_processing/jobs/workflows/launch.py:106
 msgid "Cluster"
 msgstr "ಕ್ಲಸ್ಟರ್"
 
@@ -7885,12 +7884,12 @@ msgstr[0] ""
 #: dashboards/project/data_processing/job_executions/tables.py:74
 #: dashboards/project/data_processing/job_executions/tables.py:103
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/launch.html:3
-#: dashboards/project/data_processing/jobs/views.py:83
-#: dashboards/project/data_processing/jobs/views.py:104
-#: dashboards/project/data_processing/jobs/views.py:117
-#: dashboards/project/data_processing/jobs/workflows/launch.py:330
-#: dashboards/project/data_processing/jobs/workflows/launch.py:405
-#: dashboards/project/data_processing/jobs/workflows/launch.py:415
+#: dashboards/project/data_processing/jobs/views.py:85
+#: dashboards/project/data_processing/jobs/views.py:106
+#: dashboards/project/data_processing/jobs/views.py:119
+#: dashboards/project/data_processing/jobs/workflows/launch.py:332
+#: dashboards/project/data_processing/jobs/workflows/launch.py:407
+#: dashboards/project/data_processing/jobs/workflows/launch.py:417
 msgid "Launch Job"
 msgid_plural "Launch Jobs"
 msgstr[0] ""
@@ -7921,7 +7920,7 @@ msgstr "ಹೊಸ ಕ್ಲಸ್ಟರ್‌ನಲ್ಲಿ ಮರಳಿ ಆರ
 #: dashboards/project/instances/tables.py:856
 #: dashboards/project/instances/templates/instances/_detail_overview.html:64
 #: dashboards/project/instances/templates/instances/_detail_overview.html:100
-#: dashboards/project/instances/views.py:398
+#: dashboards/project/instances/views.py:403
 msgid "Not available"
 msgstr "ಲಭ್ಯವಿಲ್ಲ"
 
@@ -8027,7 +8026,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/jobs/tables.py:36
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:3
-#: dashboards/project/data_processing/jobs/views.py:62
+#: dashboards/project/data_processing/jobs/views.py:64
 #: dashboards/project/data_processing/jobs/workflows/create.py:124
 #: dashboards/project/data_processing/jobs/workflows/create.py:155
 msgid "Create Job Template"
@@ -8173,7 +8172,7 @@ msgid "Arguments"
 msgstr "ಆರ್ಗ್ಯುಮೆಂಟ್‌ಗಳು"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/details.html:3
-#: dashboards/project/data_processing/jobs/views.py:68
+#: dashboards/project/data_processing/jobs/views.py:70
 msgid "Job Template Details"
 msgstr ""
 
@@ -8186,7 +8185,7 @@ msgid "Chosen Libraries"
 msgstr "ಆರಿಸಲಾದ ಲೈಬ್ರರಿಗಳು"
 
 #: dashboards/project/data_processing/jobs/views.py:53
-#: dashboards/project/data_processing/jobs/workflows/launch.py:89
+#: dashboards/project/data_processing/jobs/workflows/launch.py:91
 msgid "Unable to fetch jobs."
 msgstr "ಕೆಲಸಗಳನ್ನು ಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
@@ -8233,69 +8232,69 @@ msgstr ""
 msgid "Input"
 msgstr "ಇನ್‌ಪುಟ್‌"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:45
+#: dashboards/project/data_processing/jobs/workflows/launch.py:46
 msgid "Output"
 msgstr "ಔಟ್‌ಪುಟ್"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:114
+#: dashboards/project/data_processing/jobs/workflows/launch.py:116
 msgid "Unable to fetch clusters."
 msgstr "ಕ್ಲಸ್ಟರ್‌ಗಳನ್ನು ಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:154
+#: dashboards/project/data_processing/jobs/workflows/launch.py:156
 msgid "Main Class"
 msgstr "ಮುಖ್ಯ ವರ್ಗ"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:157
+#: dashboards/project/data_processing/jobs/workflows/launch.py:159
 msgid "Java Opts"
 msgstr "Java Opts"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:160
+#: dashboards/project/data_processing/jobs/workflows/launch.py:162
 msgid "Mapper"
 msgstr "ಮ್ಯಾಪರ್"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:162
+#: dashboards/project/data_processing/jobs/workflows/launch.py:164
 msgid "Reducer"
 msgstr "ರೆಡ್ಯೂಸರ್"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:230
+#: dashboards/project/data_processing/jobs/workflows/launch.py:232
 msgid "Configure"
 msgstr "ಸಂರಚಿಸು"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:308
+#: dashboards/project/data_processing/jobs/workflows/launch.py:310
 msgid "Persist cluster after job exit"
 msgstr "ಕೆಲಸ ನಿರ್ಗಮಿಸಿದ ನಂತರ ಕ್ಲಸ್ಟರ್ ಅನ್ನು ಸ್ಥಿರಗೊಳಿಸು"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:332
-#: dashboards/project/data_processing/jobs/workflows/launch.py:417
+#: dashboards/project/data_processing/jobs/workflows/launch.py:334
+#: dashboards/project/data_processing/jobs/workflows/launch.py:419
 msgid "Job launched"
 msgstr "ಆರಂಭಿಸಲಾದ ಕೆಲಸ"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:333
-#: dashboards/project/data_processing/jobs/workflows/launch.py:418
+#: dashboards/project/data_processing/jobs/workflows/launch.py:335
+#: dashboards/project/data_processing/jobs/workflows/launch.py:420
 msgid "Could not launch job"
 msgstr "ಕೆಲಸವನ್ನು ಆರಂಭಿಸಲಾಗಿಲ್ಲ"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:359
+#: dashboards/project/data_processing/jobs/workflows/launch.py:361
 msgid "Job configs"
 msgstr "ಕೆಲಸದ ಸಂರಚನೆಗಳು"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:363
+#: dashboards/project/data_processing/jobs/workflows/launch.py:365
 msgid "Job args"
 msgstr "ಕೆಲಸ ಆರ್ಗ್‌ಗಳು"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:367
+#: dashboards/project/data_processing/jobs/workflows/launch.py:369
 msgid "Job params"
 msgstr "ಕೆಲಸದ ಪರಮ್‌ಗಳು"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:373
+#: dashboards/project/data_processing/jobs/workflows/launch.py:375
 msgid "Job Execution ID"
 msgstr "ಕೆಲಸ ನಿರ್ವಹಣೆಯ ID"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:449
+#: dashboards/project/data_processing/jobs/workflows/launch.py:451
 msgid "Unable to create new cluster for job."
 msgstr "ಕೆಲಸಕ್ಕಾಗಿ ಹೊಸ ಕ್ಲಸ್ಟರ್ ಅನ್ನು ರಚಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:462
+#: dashboards/project/data_processing/jobs/workflows/launch.py:464
 msgid "Unable to launch job."
 msgstr "ಕೆಲಸವನ್ನು ಆರಂಭಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
@@ -9493,7 +9492,7 @@ msgid "Launch Database"
 msgstr "ದತ್ತಸಂಚಯವನ್ನು ಆರಂಭಿಸಿ"
 
 #: dashboards/project/databases/views.py:101
-#: dashboards/project/instances/views.py:289
+#: dashboards/project/instances/views.py:294
 msgid "Instance Details: {{ instance.name }}"
 msgstr ""
 
@@ -9503,7 +9502,7 @@ msgid "Unable to retrieve details for database instance: %s"
 msgstr "ದತ್ತಸಂಚಯ ಇನ್‌ಸ್ಟೆನ್ಸ್‌ ವಿವರಗಳನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ: %s"
 
 #: dashboards/project/databases/views.py:209
-#: dashboards/project/instances/views.py:409
+#: dashboards/project/instances/views.py:414
 msgid "Unable to retrieve flavors."
 msgstr "ಫ್ಲೇವರ್‌ಗಳನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
@@ -10898,7 +10897,7 @@ msgstr "ಮರುಗಾತ್ರಿಸುವಿಕೆ/ವರ್ಗಾಯಿಸ�
 #: dashboards/project/instances/templates/instances/_rebuild.html:9
 #: dashboards/project/instances/templates/instances/_rebuild.html:27
 #: dashboards/project/instances/templates/instances/rebuild.html:3
-#: dashboards/project/instances/views.py:256
+#: dashboards/project/instances/views.py:261
 msgid "Rebuild Instance"
 msgstr "ಇನ್‌ಸ್ಟೆನ್ಸ್ ಅನ್ನು ಮರಳಿನಿರ್ಮಿಸಿ"
 
@@ -10952,7 +10951,7 @@ msgid ""
 msgstr ""
 
 #: dashboards/project/instances/tables.py:677
-#: dashboards/project/instances/views.py:395
+#: dashboards/project/instances/views.py:400
 #, python-format
 msgid "Unable to retrieve flavor information for instance \"%s\"."
 msgstr "\"%s\" ಇನ್‌ಸ್ಟೆನ್ಸ್‌ಗಾಗಿ ಫ್ಲೇವರ್‌ ಮಾಹಿತಿಯನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
@@ -11375,7 +11374,7 @@ msgid "Log"
 msgstr "ಲಾಗ್"
 
 #: dashboards/project/instances/tabs.py:53
-#: dashboards/project/instances/views.py:148
+#: dashboards/project/instances/views.py:153
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr "\"%s\" ಇನ್‌ಸ್ಟೆನ್ಸ್‌ಗಾಗಿ ಲಾಗ್ ಅನ್ನು ಪಡೆಯಲಾಗಿಲ್ಲ."
@@ -11389,7 +11388,7 @@ msgid "Unable to retrieve instance action list."
 msgstr "ಇನ್‌ಸ್ಟೆನ್ಸ್‌ ಕ್ರಿಯೆಯ ಪಟ್ಟಿಯನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
 #: dashboards/project/instances/templates/instances/_decryptpassword.html:10
-#: dashboards/project/instances/views.py:272
+#: dashboards/project/instances/views.py:277
 msgid "Retrieve Instance Password"
 msgstr "ಇನ್‌ಸ್ಟೆನ್ಸ್‌ ಗುಪ್ತಪದವನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ"
 
@@ -11657,60 +11656,60 @@ msgstr "ಕೀಲಿ ಜೋಡಿಯನ್ನು ಆರಿಸಿ"
 msgid "Select Flavor"
 msgstr ""
 
-#: dashboards/project/instances/views.py:73
+#: dashboards/project/instances/views.py:77
 msgid "Unable to retrieve instances."
 msgstr "ಇನ್‌ಸ್ಟೆನ್ಸ್‌ಗಳನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: dashboards/project/instances/views.py:151
+#: dashboards/project/instances/views.py:156
 msgid "Log length must be a nonnegative integer."
 msgstr ""
 
-#: dashboards/project/instances/views.py:170
+#: dashboards/project/instances/views.py:175
 #, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr "\"%s\" ಇನ್‌ಸ್ಟೆನ್ಸ್‌ಗಾಗಿ VNC ಕನ್ಸೋಲ್ ಅನ್ನು ಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: dashboards/project/instances/views.py:182
+#: dashboards/project/instances/views.py:187
 #, python-format
 msgid "Unable to get SPICE console for instance \"%s\"."
 msgstr "\"%s\" ಇನ್‌ಸ್ಟೆನ್ಸ್‌ಗಾಗಿ SPICE ಕನ್ಸೋಲ್ ಅನ್ನು ಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: dashboards/project/instances/views.py:193
+#: dashboards/project/instances/views.py:198
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "\"%s\" ಇನ್‌ಸ್ಟೆನ್ಸ್‌ಗಾಗಿ RDP ಕನ್ಸೋಲ್ ಅನ್ನು ಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: dashboards/project/instances/views.py:209
+#: dashboards/project/instances/views.py:214
 #, python-format
 msgid "Cannot find instance %s."
 msgstr ""
 
-#: dashboards/project/instances/views.py:221
+#: dashboards/project/instances/views.py:226
 #, python-format
 msgid "Cannot get console for instance %s."
 msgstr ""
 
-#: dashboards/project/instances/views.py:309
+#: dashboards/project/instances/views.py:314
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "\"%s\" ಇನ್‌ಸ್ಟೆನ್ಸ್‌ ವಿವರಗಳನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: dashboards/project/instances/views.py:330
+#: dashboards/project/instances/views.py:335
 #, python-format
 msgid "Unable to retrieve volume list for instance \"%(name)s\" (%(id)s)."
 msgstr "\"%(name)s\" ಇನ್‌ಸ್ಟೆನ್ಸ್‌ಗಾಗಿ ಪರಿಮಾಣದ ಪಟ್ಟಿಯನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ (%(id)s)."
 
-#: dashboards/project/instances/views.py:339
+#: dashboards/project/instances/views.py:344
 #, python-format
 msgid "Unable to retrieve flavor information for instance \"%(name)s\" (%(id)s)."
 msgstr "\"%(name)s\" ಇನ್‌ಸ್ಟೆನ್ಸ್‌ಗಾಗಿ ಫ್ಲೇವರ್‌ ಮಾಹಿತಿಯನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ (%(id)s)."
 
-#: dashboards/project/instances/views.py:348
+#: dashboards/project/instances/views.py:353
 #, python-format
 msgid "Unable to retrieve security groups for instance \"%(name)s\" (%(id)s)."
 msgstr "\"%(name)s\" ಇನ್‌ಸ್ಟೆನ್ಸ್‌ಗಾಗಿ ಸುರಕ್ಷತಾ ಗುಂಪುಗಳನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ (%(id)s)."
 
-#: dashboards/project/instances/views.py:356
+#: dashboards/project/instances/views.py:361
 #, python-format
 msgid ""
 "Unable to retrieve IP addresses from Neutron for instance \"%(name)s\" "
@@ -13472,6 +13471,10 @@ msgstr "ಸಬ್‌ನೆಟ್‌ ರಚಿಸುವಲ್ಲಿನ ವಿಫ�
 #, python-format
 msgid "Failed to delete network \"%s\""
 msgstr "\"%s\" ಜಾಲಬಂಧವನ್ನು ಅಳಿಸಲು ವಿಫಲಗೊಂಡಿದೆ"
+
+#: dashboards/project/overview/templates/overview/usage.csv:2
+msgid "Project ID:"
+msgstr ""
 
 #: dashboards/project/overview/views.py:34
 msgid "Time since created (Seconds)"
@@ -16591,15 +16594,15 @@ msgstr ""
 msgid "VMDK - Virtual Machine Disk"
 msgstr ""
 
-#: settings.py:237
+#: settings.py:238
 msgid "All TCP"
 msgstr "All TCP"
 
-#: settings.py:243
+#: settings.py:244
 msgid "All UDP"
 msgstr "All UDP"
 
-#: settings.py:249
+#: settings.py:250
 msgid "All ICMP"
 msgstr "All ICMP"
 

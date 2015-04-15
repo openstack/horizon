@@ -20,9 +20,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-12 16:36-0500\n"
-"PO-Revision-Date: 2015-04-13 19:47+0000\n"
-"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
+"POT-Creation-Date: 2015-04-14 20:34-0500\n"
+"PO-Revision-Date: 2015-04-15 01:52+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -508,7 +508,7 @@ msgstr "Le dossier-pseudo ne peut pas être supprimé car il n'est pas vide."
 #: dashboards/admin/metadata_defs/tables.py:128
 #: dashboards/admin/networks/forms.py:38
 #: dashboards/admin/networks/forms.py:234
-#: dashboards/admin/networks/ports/forms.py:43
+#: dashboards/admin/networks/ports/forms.py:44
 #: dashboards/admin/networks/ports/tables.py:82
 #: dashboards/admin/networks/subnets/tables.py:92
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:6
@@ -853,7 +853,7 @@ msgstr "Les agrégats d'hôtes permettent de définir des zones logiques au sein
 #: dashboards/admin/volumes/volume_types/extras/views.py:88
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:103
 #: dashboards/identity/domains/workflows.py:300
-#: dashboards/identity/projects/workflows.py:569
+#: dashboards/identity/projects/workflows.py:575
 #: dashboards/identity/users/views.py:209
 #: dashboards/project/instances/workflows/update_instance.py:133
 #: dashboards/project/networks/subnets/workflows.py:159
@@ -2083,7 +2083,7 @@ msgstr "Informations du système"
 #: dashboards/identity/projects/tables.py:240
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:13
 #: dashboards/identity/projects/workflows.py:153
-#: dashboards/identity/projects/workflows.py:527
+#: dashboards/identity/projects/workflows.py:533
 #: dashboards/identity/users/tables.py:237
 #: dashboards/identity/users/templates/users/_detail_overview.html:23
 #: dashboards/project/firewalls/forms.py:71
@@ -3126,7 +3126,7 @@ msgstr "Ajouter un agent DHCP"
 #: dashboards/admin/networks/agents/tables.py:93
 #: dashboards/admin/networks/forms.py:79
 #: dashboards/admin/networks/forms.py:238
-#: dashboards/admin/networks/ports/forms.py:47
+#: dashboards/admin/networks/ports/forms.py:48
 #: dashboards/admin/networks/tables.py:104
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:19
 #: dashboards/project/firewalls/forms.py:134
@@ -3233,7 +3233,7 @@ msgstr "ID du segment"
 
 #: dashboards/admin/networks/forms.py:77
 #: dashboards/admin/networks/forms.py:236
-#: dashboards/admin/networks/ports/forms.py:45
+#: dashboards/admin/networks/ports/forms.py:46
 #: dashboards/project/firewalls/forms.py:132
 #: dashboards/project/firewalls/workflows.py:284
 #: dashboards/project/loadbalancers/forms.py:38
@@ -3256,7 +3256,7 @@ msgstr "HAUT"
 
 #: dashboards/admin/networks/forms.py:78
 #: dashboards/admin/networks/forms.py:237
-#: dashboards/admin/networks/ports/forms.py:46
+#: dashboards/admin/networks/ports/forms.py:47
 #: dashboards/project/firewalls/forms.py:133
 #: dashboards/project/firewalls/workflows.py:285
 #: dashboards/project/loadbalancers/forms.py:39
@@ -3398,7 +3398,7 @@ msgstr "Direct"
 msgid "MacVTap"
 msgstr "MacVTap"
 
-#: dashboards/admin/networks/ports/forms.py:39
+#: dashboards/admin/networks/ports/forms.py:40
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:11
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:11
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:15
@@ -3406,53 +3406,53 @@ msgstr "MacVTap"
 msgid "Network ID"
 msgstr "ID Réseau"
 
-#: dashboards/admin/networks/ports/forms.py:48
-#: dashboards/admin/networks/ports/forms.py:118
+#: dashboards/admin/networks/ports/forms.py:49
+#: dashboards/admin/networks/ports/forms.py:119
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:43
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:43
 msgid "Device ID"
 msgstr "ID du périphérique"
 
-#: dashboards/admin/networks/ports/forms.py:49
-#: dashboards/admin/networks/ports/forms.py:119
+#: dashboards/admin/networks/ports/forms.py:50
+#: dashboards/admin/networks/ports/forms.py:120
 msgid "Device ID attached to the port"
 msgstr "ID du périphérique attaché au port."
 
-#: dashboards/admin/networks/ports/forms.py:51
-#: dashboards/admin/networks/ports/forms.py:121
+#: dashboards/admin/networks/ports/forms.py:52
+#: dashboards/admin/networks/ports/forms.py:122
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:41
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:41
 msgid "Device Owner"
 msgstr "Propriétaire du périphérique"
 
-#: dashboards/admin/networks/ports/forms.py:52
-#: dashboards/admin/networks/ports/forms.py:122
+#: dashboards/admin/networks/ports/forms.py:53
+#: dashboards/admin/networks/ports/forms.py:123
 msgid "Device owner attached to the port"
 msgstr "Propriétaire du périphérique attaché au port."
 
-#: dashboards/admin/networks/ports/forms.py:56
-#: dashboards/admin/networks/ports/forms.py:126
+#: dashboards/admin/networks/ports/forms.py:57
+#: dashboards/admin/networks/ports/forms.py:127
 msgid "Binding: Host"
 msgstr "Liaison : hôte"
 
-#: dashboards/admin/networks/ports/forms.py:57
-#: dashboards/admin/networks/ports/forms.py:127
+#: dashboards/admin/networks/ports/forms.py:58
+#: dashboards/admin/networks/ports/forms.py:128
 msgid ""
 "The ID of the host where the port is allocated. In some cases, different "
 "implementations can run on different hosts."
 msgstr "L'ID de l'hôte où se trouve le port. Dans certains cas, des implémentations différentes peuvent exécuter sur des hôtes différents."
 
-#: dashboards/admin/networks/ports/forms.py:81
+#: dashboards/admin/networks/ports/forms.py:82
 #: dashboards/project/networks/ports/forms.py:64
 msgid "Binding: VNIC Type"
 msgstr "Liaison : type VNIC"
 
-#: dashboards/admin/networks/ports/forms.py:82
+#: dashboards/admin/networks/ports/forms.py:83
 #: dashboards/project/networks/ports/forms.py:65
 msgid "The VNIC type that is bound to the neutron port"
 msgstr "Le type de VNIC lié au port neutron"
 
-#: dashboards/admin/networks/ports/forms.py:87
+#: dashboards/admin/networks/ports/forms.py:88
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:22
 #: dashboards/project/networks/ports/forms.py:70
 #: dashboards/project/networks/ports/tables.py:80
@@ -3460,23 +3460,23 @@ msgstr "Le type de VNIC lié au port neutron"
 msgid "MAC Learning State"
 msgstr "État de l'apprentissage des MAC"
 
-#: dashboards/admin/networks/ports/forms.py:103
+#: dashboards/admin/networks/ports/forms.py:104
 #, python-format
 msgid "Port %s was successfully created."
 msgstr "Le port %s a été créé avec succès."
 
-#: dashboards/admin/networks/ports/forms.py:108
+#: dashboards/admin/networks/ports/forms.py:109
 #, python-format
 msgid "Failed to create a port for network %s"
 msgstr "Echec lors de la création d'un port pour le réseau %s"
 
-#: dashboards/admin/networks/ports/forms.py:155
+#: dashboards/admin/networks/ports/forms.py:156
 #: dashboards/project/networks/ports/forms.py:87
 #, python-format
 msgid "Port %s was successfully updated."
 msgstr "Le port %s a été mis à jour avec succès."
 
-#: dashboards/admin/networks/ports/forms.py:160
+#: dashboards/admin/networks/ports/forms.py:161
 #: dashboards/project/networks/ports/forms.py:92
 #, python-format
 msgid "Failed to update port %s"
@@ -3691,7 +3691,6 @@ msgstr "Vous pouvez créer un port pour le réseau. Si vous spécifiez un ID de 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:15
 #: dashboards/project/networks/templates/networks/_detail_overview.html:11
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:13
-#: dashboards/project/overview/templates/overview/usage.csv:2
 #: dashboards/project/routers/templates/routers/_detail_overview.html:9
 #: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:15
 #: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:15
@@ -3815,38 +3814,38 @@ msgstr "Vue d'ensemble"
 
 #: dashboards/admin/overview/templates/overview/usage.csv:1
 #: dashboards/project/overview/templates/overview/usage.csv:1
-msgid "Usage Report For Period"
-msgstr "Rapport d'utilisation pour la période"
+msgid "Usage Report For Period:"
+msgstr ""
 
 #: dashboards/admin/overview/templates/overview/usage.csv:2
 #: dashboards/project/overview/templates/overview/usage.csv:3
-msgid "Active Instances"
-msgstr "Instances actives"
+msgid "Active Instances:"
+msgstr "Instances Actives :"
 
 #: dashboards/admin/overview/templates/overview/usage.csv:3
 #: dashboards/project/overview/templates/overview/usage.csv:4
-msgid "Total VCPU Usage (Hours)"
-msgstr "Utilisation totale des vCPU (heures)"
+msgid "Total VCPU Usage (Hours):"
+msgstr ""
 
 #: dashboards/admin/overview/templates/overview/usage.csv:4
 #: dashboards/project/overview/templates/overview/usage.csv:5
-msgid "Total Active RAM (MB)"
-msgstr "RAM active totale (Mo)"
+msgid "Total Active RAM (MB):"
+msgstr ""
 
 #: dashboards/admin/overview/templates/overview/usage.csv:5
 #: dashboards/project/overview/templates/overview/usage.csv:6
-msgid "Total Memory Usage (Hours)"
-msgstr "Total utilisation mémoire (heures)"
+msgid "Total Memory Usage (Hours):"
+msgstr ""
 
 #: dashboards/admin/overview/templates/overview/usage.csv:6
 #: dashboards/project/overview/templates/overview/usage.csv:7
-msgid "Total Disk Size (GB)"
-msgstr "Taille totale du disque (Go)"
+msgid "Total Disk Size (GB):"
+msgstr ""
 
 #: dashboards/admin/overview/templates/overview/usage.csv:7
 #: dashboards/project/overview/templates/overview/usage.csv:8
-msgid "Total Disk Usage (Hours)"
-msgstr "Utilisation totale des disques (heures)"
+msgid "Total Disk Usage (Hours):"
+msgstr ""
 
 #: dashboards/admin/overview/templates/overview/usage.html:3
 msgid "Usage Overview"
@@ -5230,13 +5229,13 @@ msgid "View Usage"
 msgstr "Afficher l'utilisation"
 
 #: dashboards/identity/projects/tables.py:99
-#: dashboards/identity/projects/workflows.py:381
-#: dashboards/identity/projects/workflows.py:382
+#: dashboards/identity/projects/workflows.py:407
+#: dashboards/identity/projects/workflows.py:408
 msgid "Create Project"
 msgstr "Créer un projet"
 
 #: dashboards/identity/projects/tables.py:111
-#: dashboards/identity/projects/workflows.py:568
+#: dashboards/identity/projects/workflows.py:574
 msgid "Edit Project"
 msgstr "Editer le projet"
 
@@ -5339,7 +5338,7 @@ msgid "Domain Name"
 msgstr "Nom de Domaine"
 
 #: dashboards/identity/projects/workflows.py:168
-#: dashboards/identity/projects/workflows.py:550
+#: dashboards/identity/projects/workflows.py:556
 msgid "Project Information"
 msgstr "Informations du projet"
 
@@ -5361,80 +5360,80 @@ msgstr "Membres du projet"
 msgid "Project Groups"
 msgstr "Groupes du projet"
 
-#: dashboards/identity/projects/workflows.py:383
+#: dashboards/identity/projects/workflows.py:409
 #, python-format
 msgid "Created new project \"%s\"."
 msgstr "Nouveau projet \"%s\" créé."
 
-#: dashboards/identity/projects/workflows.py:384
+#: dashboards/identity/projects/workflows.py:410
 #, python-format
 msgid "Unable to create project \"%s\"."
 msgstr "Impossible de créer le projet \"%s\"."
 
-#: dashboards/identity/projects/workflows.py:446
+#: dashboards/identity/projects/workflows.py:472
 msgid ", add project groups"
 msgstr ", ajouter des groupes de projet"
 
-#: dashboards/identity/projects/workflows.py:450
+#: dashboards/identity/projects/workflows.py:476
 #, python-format
 msgid ""
 "Failed to add %(users_to_add)s project members%(group_msg)s and set project "
 "quotas."
 msgstr "Echec de l'ajout des membres %(users_to_add)s %(group_msg)s et de la définition des quotas du projet."
 
-#: dashboards/identity/projects/workflows.py:483
+#: dashboards/identity/projects/workflows.py:509
 #, python-format
 msgid "Failed to add %s project groups and update project quotas."
 msgstr "Echec de l'ajout des groupes %s et de la mise à jour des quotas du projet."
 
-#: dashboards/identity/projects/workflows.py:512
+#: dashboards/identity/projects/workflows.py:518
 msgid "Unable to set project quotas."
 msgstr "Impossible de définir les quotas du projet."
 
-#: dashboards/identity/projects/workflows.py:535
+#: dashboards/identity/projects/workflows.py:541
 msgid "You cannot disable your current project"
 msgstr "Vous ne pouvez pas désactiver votre projet en cours"
 
-#: dashboards/identity/projects/workflows.py:552
+#: dashboards/identity/projects/workflows.py:558
 msgid "Edit the project details."
 msgstr "Éditer les détails du projet."
 
-#: dashboards/identity/projects/workflows.py:570
+#: dashboards/identity/projects/workflows.py:576
 #, python-format
 msgid "Modified project \"%s\"."
 msgstr "Projet \"%s\" modifié."
 
-#: dashboards/identity/projects/workflows.py:571
+#: dashboards/identity/projects/workflows.py:577
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr "Impossible de modifier le projet \"%s\"."
 
-#: dashboards/identity/projects/workflows.py:661
+#: dashboards/identity/projects/workflows.py:667
 msgid ""
 "You cannot revoke your administrative privileges from the project you are "
 "currently logged into. Please switch to another project with administrative "
 "privileges or remove the administrative role manually via the CLI."
 msgstr "Vous ne pouvez pas révoquer vos droits administrateur du projet auquel vous êtes actuellement connecté. Merci de basculer sur un autre projet avec des droits administrateur ou supprimez manuellement le rôle administrateur en utilisant les lignes de commandes (CLI).  "
 
-#: dashboards/identity/projects/workflows.py:721
+#: dashboards/identity/projects/workflows.py:727
 msgid ", update project groups"
 msgstr ", mise à jour des groupes du projet"
 
-#: dashboards/identity/projects/workflows.py:725
+#: dashboards/identity/projects/workflows.py:731
 #, python-format
 msgid ""
 "Failed to modify %(users_to_modify)s project members%(group_msg)s and update"
 " project quotas."
 msgstr "Echec de la modification des membres %(users_to_modify)s  %(group_msg)s et de la mise à jour des quotas du projet."
 
-#: dashboards/identity/projects/workflows.py:802
+#: dashboards/identity/projects/workflows.py:808
 #, python-format
 msgid ""
 "Failed to modify %s project members, update project groups and update "
 "project quotas."
 msgstr "Echec de la modification des membres du projet %s, de la mise à jour des groupes et des quotas du projet."
 
-#: dashboards/identity/projects/workflows.py:836
+#: dashboards/identity/projects/workflows.py:820
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
@@ -7967,9 +7966,9 @@ msgstr[1] "Tâches supprimées"
 #: dashboards/project/data_processing/job_executions/tables.py:74
 #: dashboards/project/data_processing/job_executions/tables.py:103
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/launch.html:3
-#: dashboards/project/data_processing/jobs/views.py:83
-#: dashboards/project/data_processing/jobs/views.py:104
-#: dashboards/project/data_processing/jobs/views.py:117
+#: dashboards/project/data_processing/jobs/views.py:85
+#: dashboards/project/data_processing/jobs/views.py:106
+#: dashboards/project/data_processing/jobs/views.py:119
 #: dashboards/project/data_processing/jobs/workflows/launch.py:332
 #: dashboards/project/data_processing/jobs/workflows/launch.py:407
 #: dashboards/project/data_processing/jobs/workflows/launch.py:417
@@ -8111,7 +8110,7 @@ msgstr "Modèles de tâches"
 
 #: dashboards/project/data_processing/jobs/tables.py:36
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:3
-#: dashboards/project/data_processing/jobs/views.py:62
+#: dashboards/project/data_processing/jobs/views.py:64
 #: dashboards/project/data_processing/jobs/workflows/create.py:124
 #: dashboards/project/data_processing/jobs/workflows/create.py:155
 msgid "Create Job Template"
@@ -8259,7 +8258,7 @@ msgid "Arguments"
 msgstr "Arguments"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/details.html:3
-#: dashboards/project/data_processing/jobs/views.py:68
+#: dashboards/project/data_processing/jobs/views.py:70
 msgid "Job Template Details"
 msgstr "Informations Modèle Tâches"
 
@@ -13603,6 +13602,10 @@ msgstr "Le réseau \"%s\" créé a été détruit suite à un échec de créatio
 msgid "Failed to delete network \"%s\""
 msgstr "Échec lors de la suppression du réseau \"%s\""
 
+#: dashboards/project/overview/templates/overview/usage.csv:2
+msgid "Project ID:"
+msgstr ""
+
 #: dashboards/project/overview/views.py:34
 msgid "Time since created (Seconds)"
 msgstr "Temps depuis la création (Secondes)"
@@ -16753,15 +16756,15 @@ msgstr "VHD - Disque dur virtuel"
 msgid "VMDK - Virtual Machine Disk"
 msgstr "VMDK - Disque de machine virtuelle"
 
-#: settings.py:237
+#: settings.py:238
 msgid "All TCP"
 msgstr "Tout TCP"
 
-#: settings.py:243
+#: settings.py:244
 msgid "All UDP"
 msgstr "Tout UDP"
 
-#: settings.py:249
+#: settings.py:250
 msgid "All ICMP"
 msgstr "All ICMP"
 
