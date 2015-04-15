@@ -26,8 +26,9 @@ class CeilometerApiTests(test.APITestCase):
         meter_name = "meter_name"
         ceilometerclient = self.stub_ceilometerclient()
         ceilometerclient.samples = self.mox.CreateMockAnything()
-        ceilometerclient.samples.list(meter_name=meter_name, q=[]).\
-            AndReturn(samples)
+        ceilometerclient.samples.list(meter_name=meter_name,
+                                      q=[],
+                                      limit=None).AndReturn(samples)
         self.mox.ReplayAll()
 
         ret_list = api.ceilometer.sample_list(self.request,

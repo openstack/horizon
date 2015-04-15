@@ -165,6 +165,14 @@ def normalize_series_by_unit(series):
     return series
 
 
+def get_unit(meter, request):
+    sample_list = api.ceilometer.sample_list(request, meter, limit=1)
+    unit = ""
+    if sample_list:
+        unit = sample_list[0].counter_unit
+    return unit
+
+
 class ProjectAggregatesQuery(object):
     def __init__(self, request, date_from, date_to,
                  period=None, additional_query=[]):
@@ -196,11 +204,7 @@ class ProjectAggregatesQuery(object):
             self.queries[tenant.name] = tenant_query
 
     def query(self, meter):
-        meter_list = [m for m in api.ceilometer.meter_list(self.request)
-                      if m.name == meter]
-        unit = ""
-        if len(meter_list) > 0:
-            unit = meter_list[0].unit
+        unit = get_unit(meter, self.request)
         ceilometer_usage = api.ceilometer.CeilometerUsage(self.request)
         resources = ceilometer_usage.resource_aggregates_with_statistics(
             self.queries, [meter], period=self.period,
@@ -231,12 +235,7 @@ class MeterQuery(ProjectAggregatesQuery):
                     return True
             return False
 
-        meter_list = [m for m in api.ceilometer.meter_list(self.request)
-                      if m.name == meter]
-
-        unit = ""
-        if len(meter_list) > 0:
-            unit = meter_list[0].unit
+        unit = get_unit(meter, self.request)
 
         ceilometer_usage = api.ceilometer.CeilometerUsage(self.request)
         resources = ceilometer_usage.resources_with_statistics(

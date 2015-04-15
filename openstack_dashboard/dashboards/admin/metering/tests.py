@@ -77,12 +77,13 @@ class MeteringLineChartTabTests(test.BaseAdminViewTests):
         self.assertEqual(data.get('settings'), {})
 
     @test.create_stubs({api.keystone: ('tenant_list',),
-                        api.ceilometer: ('meter_list',
+                        api.ceilometer: ('sample_list',
                                          'statistic_list',
                                          ), })
     def test_stats_for_line_chart(self):
-        api.ceilometer.meter_list(IsA(http.HttpRequest))\
-            .AndReturn(self.testdata.meters.list())
+        api.ceilometer.sample_list(IsA(http.HttpRequest),
+                                   IsA(unicode),
+                                   limit=IsA(int)).AndReturn([])
         api.ceilometer.statistic_list(IsA(http.HttpRequest),
                                       'memory',
                                       period=IsA(int),
@@ -109,12 +110,13 @@ class MeteringLineChartTabTests(test.BaseAdminViewTests):
                             expected_names)
 
     @test.create_stubs({api.keystone: ('tenant_list',),
-                        api.ceilometer: ('meter_list',
+                        api.ceilometer: ('sample_list',
                                          'statistic_list',
                                          ), })
     def test_stats_for_line_chart_attr_max(self):
-        api.ceilometer.meter_list(IsA(http.HttpRequest))\
-            .AndReturn(self.testdata.meters.list())
+        api.ceilometer.sample_list(IsA(http.HttpRequest),
+                                   IsA(unicode),
+                                   limit=IsA(int)).AndReturn([])
         api.ceilometer.statistic_list(IsA(http.HttpRequest),
                                       'memory', period=IsA(int),
                                       query=IsA(list))\
@@ -141,13 +143,14 @@ class MeteringLineChartTabTests(test.BaseAdminViewTests):
                             expected_names)
 
     @test.create_stubs({api.keystone: ('tenant_list',),
-                        api.ceilometer: ('meter_list',
+                        api.ceilometer: ('sample_list',
                                          'resource_list',
                                          'statistic_list'
                                          ), })
     def test_stats_for_line_chart_no_group(self):
-        api.ceilometer.meter_list(IsA(http.HttpRequest))\
-            .AndReturn(self.testdata.meters.list())
+        api.ceilometer.sample_list(IsA(http.HttpRequest),
+                                   IsA(unicode),
+                                   limit=IsA(int)).AndReturn([])
         api.ceilometer.resource_list(IsA(http.HttpRequest), query=None,
                                      ceilometer_usage_object=None)\
             .AndReturn(self.testdata.api_resources.list())
