@@ -2,7 +2,7 @@
 Tutorial: Building a Dashboard using Horizon
 ============================================
 
-This tutorial covers how to use the various components in Horizon to build
+This tutorial covers how to use the various components in horizon to build
 an example dashboard and a panel with a tab which has a table containing data
 from the back end.
 
@@ -346,7 +346,7 @@ Defining tabs
 ~~~~~~~~~~~~~
 
 So we have a table, ready to receive our data. We could go straight to a view
-from here, but in this case we're also going to use Horizon's
+from here, but in this case we're also going to use horizon's
 :class:`~horizon.tabs.TabGroup` class.
 
 Create a ``tabs.py`` file under the ``mypanel`` directory. Let's make a tab
@@ -405,7 +405,7 @@ Additionally, the displaying of the table is handled by a reusable template,
 ``horizon/common/_detail_table.html``. Some simple pagination code was added
 to handle large instance lists.
 
-Lastly, this code introduces the concept of error handling in Horizon.
+Lastly, this code introduces the concept of error handling in horizon.
 The :func:`horizon.exceptions.handle` function is a centralized error
 handling mechanism that takes all the guess-work and inconsistency out of
 dealing with exceptions from the API. Use it everywhere.
@@ -413,7 +413,7 @@ dealing with exceptions from the API. Use it everywhere.
 Tying it together in a view
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-There are lots of pre-built class-based views in Horizon. We try to provide
+There are lots of pre-built class-based views in horizon. We try to provide
 the starting points for all the common combinations of components.
 
 Open the ``views.py`` file, the auto-generated code is like the following::
@@ -571,7 +571,7 @@ Enable and show the dashboard
 =============================
 
 In order to make ``My Dashboard`` show up along with the existing dashboards
-like ``Project`` or ``Admin`` on Horizon, you need to create a file called
+like ``Project`` or ``Admin`` on horizon, you need to create a file called
 ``_50_mydashboard.py`` under ``openstack_dashboard/enabled`` and add the
 following::
 
@@ -596,7 +596,7 @@ Everything is in place, now run ``Horizon`` on the different port::
 
 
 Go to ``http://<your server>:8877`` using a browser. After login as an admin
-you should be able see ``My Dashboard`` shows up at the left side on Horizon.
+you should be able see ``My Dashboard`` shows up at the left side on horizon.
 Click it, ``My Group`` will expand with ``My Panel``. Click on ``My Panel``,
 the right side panel will display an ``Instances Tab`` which has an
 ``Instances`` table.
@@ -604,7 +604,7 @@ the right side panel will display an ``Instances Tab`` which has an
 If you don't see any instance data, you haven't created any instances yet.  Go to
 dashboard ``Project`` -> ``Images``, select a small image, for example,
 ``crioos-0.3.1-x86_64-uec`` , click ``Launch`` and enter an ``Instance Name``,
-click the button ``Launch``. It should create an instance if the openstack or
+click the button ``Launch``. It should create an instance if the OpenStack or
 devstack is correctly set up. Once the creation of an instance is successful, go
 to ``My Dashboard`` again to check the data.
 
@@ -621,7 +621,7 @@ Conclusion
 ==========
 
 What you've learned here is the fundamentals of how to write interfaces for
-your own project based on the components Horizon provides.
+your own project based on the components horizon provides.
 
 If you have feedback on how this tutorial could be improved, please feel free
 to submit a bug against ``Horizon`` in `launchpad`_.
