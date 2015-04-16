@@ -4,7 +4,6 @@
 # 
 # Translators:
 # ChangBo Guo(gcb) <glongwave@gmail.com>, 2014
-# LIU Yulong <dragon889@163.com>, 2014-2015
 # Xiao Xi LIU <liuxx@cn.ibm.com>, 2014
 # Ying Chun Guo <daisy.ycguo@gmail.com>, 2015
 # 颜海峰 <yanheven@gmail.com>, 2015
@@ -12,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-06 21:07-0500\n"
-"PO-Revision-Date: 2015-04-01 22:52+0000\n"
-"Last-Translator: 颜海峰 <yanheven@gmail.com>\n"
+"POT-Creation-Date: 2015-04-15 02:00-0500\n"
+"PO-Revision-Date: 2015-04-15 10:54+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"

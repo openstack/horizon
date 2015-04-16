@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-14 20:34-0500\n"
-"PO-Revision-Date: 2015-04-15 01:52+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-04-15 02:00-0500\n"
+"PO-Revision-Date: 2015-04-15 10:53+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1724,7 +1724,7 @@ msgstr "Zóna"
 #: dashboards/admin/info/tables.py:217
 #: dashboards/admin/instances/tables.py:142
 #: dashboards/admin/networks/agents/tables.py:92
-#: dashboards/admin/networks/tables.py:102
+#: dashboards/admin/networks/tables.py:103
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:17
 #: dashboards/admin/volumes/snapshots/forms.py:34
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:18
@@ -3128,7 +3128,7 @@ msgstr "Přidat agenta DHCP"
 #: dashboards/admin/networks/forms.py:79
 #: dashboards/admin/networks/forms.py:238
 #: dashboards/admin/networks/ports/forms.py:48
-#: dashboards/admin/networks/tables.py:104
+#: dashboards/admin/networks/tables.py:106
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:19
 #: dashboards/project/firewalls/forms.py:134
 #: dashboards/project/firewalls/tables.py:350
@@ -3370,7 +3370,7 @@ msgid "Failed to update network %s"
 msgstr "Aktualizace sítě %s selhala"
 
 #: dashboards/admin/networks/panel.py:23
-#: dashboards/admin/networks/tables.py:109
+#: dashboards/admin/networks/tables.py:111
 #: dashboards/admin/networks/templates/networks/index.html:3
 #: dashboards/admin/networks/views.py:42
 #: dashboards/identity/projects/workflows.py:75
