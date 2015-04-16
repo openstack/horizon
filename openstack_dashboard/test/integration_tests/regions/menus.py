@@ -9,6 +9,7 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+from selenium.common import exceptions
 from selenium.webdriver.common import by
 
 from openstack_dashboard.test.integration_tests.regions import baseregion
@@ -129,8 +130,10 @@ class NavigationAccordionRegion(baseregion.BaseRegion):
 class DropDownMenuRegion(baseregion.BaseRegion):
     """Drop down menu region."""
 
-    _menu_items_locator = (by.By.CSS_SELECTOR, 'ul.dropdown-menu > li > *')
-    _menu_first_child_locator = (by.By.CSS_SELECTOR, '*')
+    _menu_items_locator = (by.By.CSS_SELECTOR,
+                           'ul.dropdown-menu > li > *')
+    _menu_first_child_locator = (by.By.CSS_SELECTOR,
+                                 'a[data-toggle="dropdown"]')
 
     @property
     def menu_items(self):
@@ -152,6 +155,7 @@ class UserDropDownMenuRegion(DropDownMenuRegion):
     """Drop down menu located in the right side of the topbar,
     contains links to settings and help.
     """
+    _menu_first_child_locator = (by.By.CSS_SELECTOR, '*')
     _settings_link_locator = (by.By.CSS_SELECTOR,
                               'a[href*="/settings/"]')
     _help_link_locator = (by.By.CSS_SELECTOR,
@@ -186,8 +190,24 @@ class UserDropDownMenuRegion(DropDownMenuRegion):
 
 class TabbedMenuRegion(baseregion.BaseRegion):
 
-    _tab_locator = (by.By.CSS_SELECTOR, 'li')
-    _default_src_locator = (by.By.CSS_SELECTOR, 'ul.nav-tabs')
+    _tab_locator = (by.By.CSS_SELECTOR, 'a')
+    _default_src_locator = (by.By.CSS_SELECTOR, 'ul.nav.nav-tabs')
 
     def switch_to(self, index=0):
         self._get_elements(*self._tab_locator)[index].click()
+
+
+class ProjectDropDownRegion(DropDownMenuRegion):
+
+    _menu_first_child_locator = (by.By.CSS_SELECTOR, '*')
+    _menu_items_locator = (by.By.CSS_SELECTOR,
+                           'div.context-lists a')
+
+    def click_on_project(self, name):
+        for item in self.menu_items:
+            if item.text == name:
+                item.click()
+                break
+        else:
+            raise exceptions.NoSuchElementException(
+                "Not found element with text: %s" % name)
