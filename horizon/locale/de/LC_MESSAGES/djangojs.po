@@ -5,14 +5,13 @@
 # Translators:
 # Andreas Jaeger <jaegerandi@gmail.com>, 2015
 # Ettore Atalan <atalanttore@googlemail.com>, 2015
-# Robert Simai, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-11 11:47-0500\n"
-"PO-Revision-Date: 2015-04-12 03:25+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"POT-Creation-Date: 2015-04-12 01:16-0500\n"
+"PO-Revision-Date: 2015-04-15 07:32+0000\n"
+"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"

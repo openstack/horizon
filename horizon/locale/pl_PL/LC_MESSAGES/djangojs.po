@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-14 20:34-0500\n"
-"PO-Revision-Date: 2015-04-14 07:02+0000\n"
-"Last-Translator: Łukasz Jernaś <deejay1@srem.org>\n"
+"POT-Creation-Date: 2015-04-12 01:16-0500\n"
+"PO-Revision-Date: 2015-04-15 10:57+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -102,7 +102,7 @@ msgstr "Brak metadanych"
 msgid "Submit"
 msgstr "Wyślij"
 
-#: static/angular/modal/modal.js:84 static/angular/wizard/wizard.js:10
+#: static/angular/modal/modal.js:84 static/angular/wizard/wizard.js:11
 #: static/horizon/js/horizon.modals.js:33
 msgid "Cancel"
 msgstr "Anuluj"
@@ -155,15 +155,15 @@ msgstr "Znaleziono %(found)s z %(total)s"
 msgid "Click here to expand the row and view the errors."
 msgstr "Kliknij tutaj, aby rozszerzyć wiersz i wyświetlić błędy."
 
-#: static/angular/wizard/wizard.js:11
+#: static/angular/wizard/wizard.js:12
 msgid "Back"
 msgstr "Wstecz"
 
-#: static/angular/wizard/wizard.js:12
+#: static/angular/wizard/wizard.js:13
 msgid "Next"
 msgstr "Następny"
 
-#: static/angular/wizard/wizard.js:13
+#: static/angular/wizard/wizard.js:14
 msgid "Finish"
 msgstr "Zakończ"
 

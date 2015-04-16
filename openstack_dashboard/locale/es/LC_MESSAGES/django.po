@@ -6,15 +6,14 @@
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2015
 # cametiope <aldohcasa@hotmail.com>, 2014
 # egongu90 <dabarren@gmail.com>, 2014
-# Marian Tort <marian.tort@gmail.com>, 2014-2015
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-14 20:34-0500\n"
-"PO-Revision-Date: 2015-04-15 01:52+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-04-15 02:00-0500\n"
+"PO-Revision-Date: 2015-04-15 17:31+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,11 +27,11 @@ msgstr "No ha sido posible obtener la lista de medidas de Ceilometer"
 
 #: api/ceilometer.py:931
 msgid "Existence of instance"
-msgstr ""
+msgstr "Existencia de instancia"
 
 #: api/ceilometer.py:935
 msgid "Existence of instance <type> (openstack types)"
-msgstr ""
+msgstr "Existencia de instancia <type> (tipos openstack)"
 
 #: api/ceilometer.py:940
 msgid "Volume of RAM"
@@ -262,7 +261,7 @@ msgstr "Consumo de energía"
 
 #: api/ceilometer.py:1260
 msgid "System Current Power"
-msgstr ""
+msgstr "Sistema de energía actual"
 
 #: api/ceilometer.py:1264
 msgid "Fan RPM"
@@ -274,7 +273,7 @@ msgstr "Lectura del sensor de temperatura"
 
 #: api/ceilometer.py:1272
 msgid "Sensor Current Reading"
-msgstr ""
+msgstr "Lectura actual del sensor"
 
 #: api/ceilometer.py:1276
 msgid "Sensor Voltage Reading"
@@ -282,31 +281,31 @@ msgstr "Lectura del sensor de voltaje"
 
 #: api/ceilometer.py:1280
 msgid "System Inlet Temperature Reading"
-msgstr ""
+msgstr "Leyendo Sistema Inlet de temperatura"
 
 #: api/ceilometer.py:1284
 msgid "System Outlet Temperature Reading"
-msgstr ""
+msgstr "Leyendo Sistema Outlet de temperatura"
 
 #: api/ceilometer.py:1288
 msgid "System Airflow Reading"
-msgstr ""
+msgstr "Leyendo Sistema de flujo de aire "
 
 #: api/ceilometer.py:1292
 msgid "System CUPS Reading"
-msgstr ""
+msgstr "Leyendo Sistema CUPS"
 
 #: api/ceilometer.py:1296
 msgid "System CPU Utility Reading"
-msgstr ""
+msgstr "Leyendo utilidades de CPU del Sistema"
 
 #: api/ceilometer.py:1300
 msgid "System Memory Utility Reading"
-msgstr ""
+msgstr "Leyendo Utilidades del Sistema de Memoria"
 
 #: api/ceilometer.py:1304
 msgid "System IO Utility Reading"
-msgstr ""
+msgstr "Leyendo Utilidades del Sistema de IO "
 
 #: api/cinder.py:46 dashboards/admin/volumes/volume_types/forms.py:33
 msgid "back-end"
@@ -355,17 +354,17 @@ msgstr "No ha sido posible obtener los detalles del pool."
 #: api/lbaas.py:203
 #, python-format
 msgid "Unable to get subnet for pool %(pool)s."
-msgstr ""
+msgstr "No ha sido posible obtener la subred para pool %(pool)s."
 
 #: api/lbaas.py:211
 #, python-format
 msgid "Unable to get members for pool %(pool)s."
-msgstr ""
+msgstr "No ha sido posible obtener los miembros para pool %(pool)s."
 
 #: api/lbaas.py:218
 #, python-format
 msgid "Unable to get health monitors for pool %(pool)s."
-msgstr ""
+msgstr "No ha sido posible obtener los monitores de salud para pool %(pool)s."
 
 #: api/neutron.py:225
 #, python-format
@@ -479,7 +478,7 @@ msgstr "Fallo al evacuar las instancias: %s"
 #: api/nova.py:836
 #, python-format
 msgid "Failed to migrate instances: %s"
-msgstr ""
+msgstr "Error al migrar instancias: %s"
 
 #: api/swift.py:204
 msgid "The container cannot be deleted since it is not empty."
@@ -487,7 +486,7 @@ msgstr "No se puede eliminar el contenedor porque no está vacío."
 
 #: api/swift.py:321
 msgid "The pseudo folder cannot be deleted since it is not empty."
-msgstr ""
+msgstr "No se puede eliminar la pseudo carpeta hasta que no esté vacía."
 
 #: dashboards/admin/aggregates/forms.py:28
 #: dashboards/admin/aggregates/tables.py:128
@@ -1626,11 +1625,11 @@ msgstr "Deshabilitar el servicio de computación para el host %s."
 #: dashboards/admin/hypervisors/compute/forms.py:91
 #, python-format
 msgid "Failed to disable compute service for host: %s."
-msgstr ""
+msgstr "Error al deshabilitar el servicio de computación para el host: %s."
 
 #: dashboards/admin/hypervisors/compute/forms.py:106
 msgid "Running Instance Migration Type"
-msgstr ""
+msgstr "Ejecutar instancia de Tipo Migración"
 
 #: dashboards/admin/hypervisors/compute/forms.py:108
 #: dashboards/admin/instances/templates/instances/_live_migrate.html:8
@@ -1702,13 +1701,13 @@ msgstr[1] "Servicios habilitados"
 msgid "Migrate Host"
 msgid_plural "Migrate Hosts"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Migrar Servidores"
 
 #: dashboards/admin/hypervisors/compute/tables.py:104
 msgid "Migrated Host"
 msgid_plural "Migrated Hosts"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Servidores Migrados"
 
 #: dashboards/admin/hypervisors/compute/tables.py:125
 #: dashboards/admin/info/tables.py:96 dashboards/admin/info/tables.py:120
@@ -1721,7 +1720,7 @@ msgstr "Zona"
 #: dashboards/admin/info/tables.py:217
 #: dashboards/admin/instances/tables.py:142
 #: dashboards/admin/networks/agents/tables.py:92
-#: dashboards/admin/networks/tables.py:102
+#: dashboards/admin/networks/tables.py:103
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:17
 #: dashboards/admin/volumes/snapshots/forms.py:34
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:18
@@ -1897,7 +1896,7 @@ msgid ""
 "Optionally you can choose type of migration. All running instances of the "
 "host can be Live Migrated. Cold Migration is trying to use 'nova migrate' on"
 " each instance of migrated host."
-msgstr ""
+msgstr "Migrar todas las instancias desde el servidor deshabilitando el servicio nova-compute. Opcionalmente puedes elegir el tipo de migración. Todas las instancias que se están ejecutando en el servidor pueden ser Migradas en Vivo. La migración en frío esta intentando usar 'nova migrate' en cada instancia del servidor migrado."
 
 #: dashboards/admin/hypervisors/templates/hypervisors/detail.html:3
 #: dashboards/admin/hypervisors/views.py:59
@@ -2136,11 +2135,11 @@ msgstr "Agentes de red"
 
 #: dashboards/admin/info/tables.py:208
 msgid "Engine Id"
-msgstr ""
+msgstr "Identificación del motor"
 
 #: dashboards/admin/info/tables.py:210
 msgid "Topic"
-msgstr ""
+msgstr "Tema"
 
 #: dashboards/admin/info/tables.py:225
 msgid "Orchestration Services"
@@ -2227,7 +2226,7 @@ msgstr "Migrar en vivo instancia"
 
 #: dashboards/admin/instances/tables.py:94
 msgid "Project ="
-msgstr ""
+msgstr "Proyecto="
 
 #: dashboards/admin/instances/tables.py:95
 msgid "Host ="
@@ -2351,13 +2350,13 @@ msgstr "No ha sido posible obtener los detalles de las instancias."
 
 #: dashboards/admin/metadata_defs/forms.py:38
 msgid "Namespace Definition Source"
-msgstr ""
+msgstr "Definición de la fuente Namespace"
 
 #: dashboards/admin/metadata_defs/forms.py:40
 #: dashboards/admin/metadata_defs/forms.py:46
 #: dashboards/admin/metadata_defs/forms.py:50
 msgid "Metadata Definition File"
-msgstr ""
+msgstr "Definición de archivo de Metadatos"
 
 #: dashboards/admin/metadata_defs/forms.py:41
 #: dashboards/project/instances/workflows/create_instance.py:611
@@ -2367,12 +2366,12 @@ msgstr "Entrada Directa"
 
 #: dashboards/admin/metadata_defs/forms.py:47
 msgid "A local metadata definition file to upload."
-msgstr ""
+msgstr "Definición de un archivo de metadatos local para cargar."
 
 #: dashboards/admin/metadata_defs/forms.py:54
 #: dashboards/admin/metadata_defs/forms.py:58
 msgid "Namespace JSON"
-msgstr ""
+msgstr "JSON Namespace"
 
 #: dashboards/admin/metadata_defs/forms.py:55
 msgid "The JSON formatted contents of a namespace."
@@ -2437,7 +2436,7 @@ msgstr "Importar Espacio de Nombres"
 msgid "Delete Namespace"
 msgid_plural "Delete Namespaces"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Delete Namespaces"
 
 #: dashboards/admin/metadata_defs/tables.py:49
 msgid "Deleted Namespace"
@@ -2582,7 +2581,7 @@ msgstr "Nota del administrador: Utilizar el siguiente comando CLI para importar 
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_contents.html:4
 msgid "Undefined"
-msgstr ""
+msgstr "No definido"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:7
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:8
@@ -3119,7 +3118,7 @@ msgstr "Añadir agente DHCP"
 #: dashboards/admin/networks/forms.py:79
 #: dashboards/admin/networks/forms.py:238
 #: dashboards/admin/networks/ports/forms.py:48
-#: dashboards/admin/networks/tables.py:104
+#: dashboards/admin/networks/tables.py:106
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:19
 #: dashboards/project/firewalls/forms.py:134
 #: dashboards/project/firewalls/tables.py:350
@@ -3361,7 +3360,7 @@ msgid "Failed to update network %s"
 msgstr "Ha habido un fallo al actualizar la red %s"
 
 #: dashboards/admin/networks/panel.py:23
-#: dashboards/admin/networks/tables.py:109
+#: dashboards/admin/networks/tables.py:111
 #: dashboards/admin/networks/templates/networks/index.html:3
 #: dashboards/admin/networks/views.py:42
 #: dashboards/identity/projects/workflows.py:75

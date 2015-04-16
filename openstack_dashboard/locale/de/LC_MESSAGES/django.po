@@ -3,21 +3,19 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Andreas Jaeger <jaegerandi@gmail.com>, 2014-2015
+# Andreas Jaeger <jaegerandi@gmail.com>, 2015
 # avarx <a.vonarx@frappant.ch>, 2015
 # Christian Berendt <berendt@b1-systems.de>, 2015
-# Ettore Atalan <atalanttore@googlemail.com>, 2014-2015
 # Frank Kloeker <eumel@arcor.de>, 2014
-# Robert Simai, 2014-2015
 # Thorsten Michels, 2014
 # Uwe Krieg, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-14 20:34-0500\n"
-"PO-Revision-Date: 2015-04-15 01:52+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-04-15 02:00-0500\n"
+"PO-Revision-Date: 2015-04-15 10:53+0000\n"
+"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1724,7 +1722,7 @@ msgstr "Zone"
 #: dashboards/admin/info/tables.py:217
 #: dashboards/admin/instances/tables.py:142
 #: dashboards/admin/networks/agents/tables.py:92
-#: dashboards/admin/networks/tables.py:102
+#: dashboards/admin/networks/tables.py:103
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:17
 #: dashboards/admin/volumes/snapshots/forms.py:34
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:18
@@ -3122,7 +3120,7 @@ msgstr "DHCP Agent hinzufügen"
 #: dashboards/admin/networks/forms.py:79
 #: dashboards/admin/networks/forms.py:238
 #: dashboards/admin/networks/ports/forms.py:48
-#: dashboards/admin/networks/tables.py:104
+#: dashboards/admin/networks/tables.py:106
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:19
 #: dashboards/project/firewalls/forms.py:134
 #: dashboards/project/firewalls/tables.py:350
@@ -3364,7 +3362,7 @@ msgid "Failed to update network %s"
 msgstr "Das Netzwerk %s konnte nicht aktualisiert werden."
 
 #: dashboards/admin/networks/panel.py:23
-#: dashboards/admin/networks/tables.py:109
+#: dashboards/admin/networks/tables.py:111
 #: dashboards/admin/networks/templates/networks/index.html:3
 #: dashboards/admin/networks/views.py:42
 #: dashboards/identity/projects/workflows.py:75
@@ -3810,7 +3808,7 @@ msgstr "Übersicht"
 #: dashboards/admin/overview/templates/overview/usage.csv:1
 #: dashboards/project/overview/templates/overview/usage.csv:1
 msgid "Usage Report For Period:"
-msgstr ""
+msgstr "Verwendungsbericht für den Zeitraum:"
 
 #: dashboards/admin/overview/templates/overview/usage.csv:2
 #: dashboards/project/overview/templates/overview/usage.csv:3
@@ -3820,27 +3818,27 @@ msgstr "Aktive Instanzen:"
 #: dashboards/admin/overview/templates/overview/usage.csv:3
 #: dashboards/project/overview/templates/overview/usage.csv:4
 msgid "Total VCPU Usage (Hours):"
-msgstr ""
+msgstr "Gesamte VCPU-Verwendung (Stunden):"
 
 #: dashboards/admin/overview/templates/overview/usage.csv:4
 #: dashboards/project/overview/templates/overview/usage.csv:5
 msgid "Total Active RAM (MB):"
-msgstr ""
+msgstr "Gesamtes aktives RAM (MB):"
 
 #: dashboards/admin/overview/templates/overview/usage.csv:5
 #: dashboards/project/overview/templates/overview/usage.csv:6
 msgid "Total Memory Usage (Hours):"
-msgstr ""
+msgstr "Gesamte Speicherverwendung (Stunden):"
 
 #: dashboards/admin/overview/templates/overview/usage.csv:6
 #: dashboards/project/overview/templates/overview/usage.csv:7
 msgid "Total Disk Size (GB):"
-msgstr ""
+msgstr "Gesamte Disk-Größe (GB):"
 
 #: dashboards/admin/overview/templates/overview/usage.csv:7
 #: dashboards/project/overview/templates/overview/usage.csv:8
 msgid "Total Disk Usage (Hours):"
-msgstr ""
+msgstr "Gesamte Festplattenverwendung (Stunden):"
 
 #: dashboards/admin/overview/templates/overview/usage.html:3
 msgid "Usage Overview"
@@ -13599,7 +13597,7 @@ msgstr "Das Netzwerk \"%s\" konnte nicht gelöscht werden."
 
 #: dashboards/project/overview/templates/overview/usage.csv:2
 msgid "Project ID:"
-msgstr ""
+msgstr "Projekt-ID:"
 
 #: dashboards/project/overview/views.py:34
 msgid "Time since created (Seconds)"
