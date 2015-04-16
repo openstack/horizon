@@ -424,3 +424,7 @@ def job_execution_get(request, jex_id):
 
 def job_execution_delete(request, jex_id):
     client(request).job_executions.delete(obj_id=jex_id)
+
+
+def job_types_list(request):
+    return client(request).job_types.list()

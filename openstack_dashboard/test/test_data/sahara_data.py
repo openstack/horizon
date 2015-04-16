@@ -19,6 +19,7 @@ from saharaclient.api import clusters
 from saharaclient.api import data_sources
 from saharaclient.api import job_binaries
 from saharaclient.api import job_executions
+from saharaclient.api import job_types
 from saharaclient.api import jobs
 from saharaclient.api import node_group_templates
 from saharaclient.api import plugins
@@ -35,6 +36,7 @@ def data(TEST):
     TEST.jobs = utils.TestDataContainer()
     TEST.job_executions = utils.TestDataContainer()
     TEST.registered_images = copy.copy(TEST.images)
+    TEST.job_types = utils.TestDataContainer()
 
     plugin1_dict = {
         "description": "vanilla plugin",
@@ -497,3 +499,23 @@ def data(TEST):
     augmented_image.tags = {}
     augmented_image.username = 'myusername'
     augmented_image.description = 'mydescription'
+
+    job_type1_dict = {
+        "name": "Pig",
+        "plugins": [
+            {
+                "description": "Fake description",
+                "versions": {
+                    "2.6.0": {
+                    },
+                    "1.2.1": {
+                    }
+                },
+                "name": "vanilla",
+                "title": "Vanilla Apache Hadoop"
+            },
+        ]
+    }
+    job_types1 = job_types.JobType(
+        job_types.JobTypesManager(None), job_type1_dict)
+    TEST.job_types.add(job_types1)

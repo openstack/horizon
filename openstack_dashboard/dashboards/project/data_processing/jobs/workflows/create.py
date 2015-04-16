@@ -96,11 +96,13 @@ class GeneralConfigAction(workflows.Action):
                 resolver_match.kwargs["guide_job_type"].lower())
 
     def populate_job_type_choices(self, request, context):
-        choices = [("pig", _("Pig")), ("hive", _("Hive")),
-                   ("spark", _("Spark")),
-                   ("mapreduce", _("MapReduce")),
-                   ("mapreduce.streaming", _("Streaming MapReduce")),
-                   ("java", _("Java Action"))]
+        choices = []
+        choices_list = saharaclient.job_types_list(request)
+
+        for choice in choices_list:
+            job_type = choice.name.lower()
+            if job_type in helpers.JOB_TYPE_MAP:
+                choices.append((job_type, helpers.JOB_TYPE_MAP[job_type][0]))
         return choices
 
     def populate_main_binary_choices(self, request, context):
