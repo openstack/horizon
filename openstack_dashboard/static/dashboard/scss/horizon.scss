@@ -962,6 +962,7 @@ tr.terminated {
         &:hover,
         &:focus {
           border-color: $nav-tabs-border-color $nav-tabs-border-color #fff;
+          outline: none;
         }
       }
     }
