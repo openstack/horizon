@@ -109,6 +109,7 @@
           volume: null
         },
         networks: [],
+        neutronEnabled: false,
         novaLimits: {},
         profiles: [],
         securityGroups: [],
@@ -319,7 +320,11 @@
         // pull out the ids from the security groups objects
         var security_group_ids = [];
         finalSpec.security_groups.forEach(function(securityGroup){
-          security_group_ids.push(securityGroup.id);
+          if(model.neutronEnabled) {
+            security_group_ids.push(securityGroup.id);
+          } else {
+            security_group_ids.push(securityGroup.name);
+          }
         });
         finalSpec.security_groups = security_group_ids;
       }
@@ -331,6 +336,7 @@
       }
 
       function onGetNetworks(data) {
+        model.neutronEnabled = true;
         model.networks.length = 0;
         push.apply(model.networks, data.data.items);
       }
