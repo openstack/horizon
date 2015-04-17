@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-15 02:00-0500\n"
-"PO-Revision-Date: 2015-04-15 13:42+0000\n"
+"PO-Revision-Date: 2015-04-16 11:21+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -285,31 +285,31 @@ msgstr "传感器电压值"
 
 #: api/ceilometer.py:1280
 msgid "System Inlet Temperature Reading"
-msgstr ""
+msgstr "系统入口温度值"
 
 #: api/ceilometer.py:1284
 msgid "System Outlet Temperature Reading"
-msgstr ""
+msgstr "系统出口温度值"
 
 #: api/ceilometer.py:1288
 msgid "System Airflow Reading"
-msgstr ""
+msgstr "系统气流数值"
 
 #: api/ceilometer.py:1292
 msgid "System CUPS Reading"
-msgstr ""
+msgstr "系统CPU数值"
 
 #: api/ceilometer.py:1296
 msgid "System CPU Utility Reading"
-msgstr ""
+msgstr "系统CPU利用率"
 
 #: api/ceilometer.py:1300
 msgid "System Memory Utility Reading"
-msgstr ""
+msgstr "系统内存利用率"
 
 #: api/ceilometer.py:1304
 msgid "System IO Utility Reading"
-msgstr ""
+msgstr "系统IO利用率"
 
 #: api/cinder.py:46 dashboards/admin/volumes/volume_types/forms.py:33
 msgid "back-end"
@@ -16728,7 +16728,7 @@ msgstr "虚拟内核小时数"
 #: usage/tables.py:45
 msgid ""
 "Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
-msgstr ""
+msgstr "项目总VCPU用量 (每个云主机中的VCPU数 * 小时)"
 
 #: usage/tables.py:50
 msgid "Disk GB Hours"

@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-12 01:16-0500\n"
-"PO-Revision-Date: 2015-04-15 10:57+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"PO-Revision-Date: 2015-04-17 04:01+0000\n"
+"Last-Translator: Amandeep Singh Saini <jimidar@gmail.com>\n"
 "Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/projects/p/horizon/language/pa_IN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -153,7 +153,7 @@ msgstr "%(found)s ਲੱਭੇ %(total)s ਵਿੱਚੋਂ"
 
 #: static/angular/transfer-table/transfer-table.js:166
 msgid "Click here to expand the row and view the errors."
-msgstr ""
+msgstr "ਸਤਰ੍ਹ ਨੂੰ ਫੈਲਾਉਣ ਤੇ ਗਲਤੀਆਂ ਨੂੰ ਵੇਖਣ ਲਈ ਇੱਥੇ ਕਲਿੱਕ ਕਰੋ।"
 
 #: static/angular/wizard/wizard.js:12
 msgid "Back"
@@ -221,7 +221,7 @@ msgstr "%s KB"
 #: static/horizon/js/angular/filters/filters.js:146
 #, c-format
 msgid "%s bytes"
-msgstr ""
+msgstr "%s ਬਾਈਟਾਂ"
 
 #: static/horizon/js/angular/filters/filters.js:163
 #: static/horizon/js/horizon.tables.js:393
@@ -249,11 +249,11 @@ msgstr "ਐਡਮਿਨ ਸੰਰਚਨਾ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤ�
 
 #: static/horizon/js/angular/services/hz.api.config.js:105
 msgid "Unable to retrieve settings."
-msgstr ""
+msgstr "ਸੈਟਿੰਗਾਂ ਨੂੰ ਮੁੜ ਪ੍ਰਾਪਤ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.config.js:289
 msgid "Setting is not enabled: %(setting)s"
-msgstr ""
+msgstr "ਸੈਟਿੰਗ ਯੋਗ ਨਹੀਂ ਕੀਤੀ ਹੋਈ ਹੈ: %(setting)s"
 
 #: static/horizon/js/angular/services/hz.api.glance.js:38
 msgid "Unable to retrieve image."
@@ -281,7 +281,7 @@ msgstr "ਵਰਤੋਂਕਾਰਾਂ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ �
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:73
 msgid "Unable to retrieve the current user session."
-msgstr ""
+msgstr "ਮੌਜੂਦਾ ਵਰਤੋਂਕਾਰ ਸੈਸ਼ਨ ਨੂੰ ਮੁੜ ਪ੍ਰਾਪਤ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:80
 msgid "Unable to retrieve the user"
@@ -377,11 +377,11 @@ msgstr "ਸੇਵਾ ਕਿਤਾਬਚਾ ਹਾਸਲ ਕਰਨ ਤੋਂ ਅ�
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:385
 msgid "Service type is not enabled: %(desiredType)s"
-msgstr ""
+msgstr "ਸੇਵਾ ਕਿਸਮ ਯੋਗ ਨਹੀਂ ਕੀਤੀ ਹੋਈ ਹੈ: %(desiredType)s"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:392
 msgid "Cannot get service catalog from keystone."
-msgstr ""
+msgstr "ਕੀਅਸਟੋਨ ਤੋਂ ਸੇਵਾ ਕੈਟਾਲੌਗ ਨਹੀਂ ਲੈ ਸਕਦਾ।"
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:39
 msgid "Unable to retrieve networks."
@@ -409,7 +409,7 @@ msgstr "ਚਾਬੀ-ਜੋੜੀਆਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ �
 
 #: static/horizon/js/angular/services/hz.api.nova.js:62
 msgid "Unable to import the keypair."
-msgstr ""
+msgstr "ਕੀਅ-ਪੇਅਰ ਨੂੰ ਆਯਾਤ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:64
 msgid "Unable to create the keypair."
@@ -449,11 +449,11 @@ msgstr "ਮਹਿਕ-ਕਿਸਮ (ਫਲੇਵਰ) ਵਾਧੂ ਵਿਸ਼ੇਸ਼
 
 #: static/horizon/js/angular/services/hz.api.nova.js:311
 msgid "Extension is not enabled: %(extension)s"
-msgstr ""
+msgstr "ਐਕਸਟੈਂਸ਼ਨ ਯੋਗ ਨਹੀਂ ਕੀਤੀ ਹੋਈ ਹੈ: %(extension)s"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:318
 msgid "Cannot get nova extension list."
-msgstr ""
+msgstr "ਨੋਵਾ ਐਕਸਟੈਂਸ਼ਨ ਸੂਚੀ ਪ੍ਰਾਪਤ ਨਹੀਂ ਕਰ ਸਕਦਾ।"
 
 #: static/horizon/js/angular/services/hz.api.policy.js:65
 msgid "Policy check failed."

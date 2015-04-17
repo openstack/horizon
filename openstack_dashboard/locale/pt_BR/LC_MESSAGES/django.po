@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-15 02:00-0500\n"
-"PO-Revision-Date: 2015-04-16 02:51+0000\n"
+"PO-Revision-Date: 2015-04-16 23:11+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -8195,7 +8195,7 @@ msgstr "Adicionar bibliotecas ao seu modelo de tarefa"
 msgid ""
 "Choose from the list of binaries and click \"choose\" to add the library to "
 "your job template.  This can be repeated for additional libraries."
-msgstr ""
+msgstr "Escolha na lista de binários e clique em \"escolher\" para adicionar a biblioteca para o seu modelo de trabalho. Isto pode ser repetido para bibliotecas adicionais."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:12
 msgid "Mains"
@@ -8415,7 +8415,7 @@ msgid ""
 "        that will be launched on each instance. Check one or more processes.\n"
 "        When processes are selected, you may set <b>node</b> scoped\n"
 "        configurations on corresponding tabs."
-msgstr ""
+msgstr "O objeto do grupo de modelo de nó especifica os processos que serão iniciados em cada instância. Assinale um ou mais processos.\nQuando os processos são selecionados, você pode definir o escopo do <b>nó</b> nas guias correspondentes de configurações."
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:18
 msgid ""
@@ -8803,7 +8803,7 @@ msgstr "Iniciar um Cluster"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:157
 msgid "Reset Cluster Guide"
-msgstr ""
+msgstr "Guia de Reset de Cluster"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:159
 msgid "Reset Cluster Creation Guide"
@@ -8874,7 +8874,7 @@ msgid ""
 "                        or arguments that you need to pass along\n"
 "                        to your job.\n"
 "                        "
-msgstr ""
+msgstr "Iniciar sua tarefa. Quando\nestiver iniciando, você precisará escolher suas fontes de dados de\nentrada e saída. Onde também vai adicionar \nqualquer valor especial de configuração, parâmetros\nou argumentos que você precisa para passar\npara sua tarefa."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:99
 msgid "Launch job"
@@ -8883,7 +8883,7 @@ msgstr "Disparar tarefa"
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:108
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:110
 msgid "Reset Job Execution Guide"
-msgstr ""
+msgstr "Guia de Reset de Execução de Tarefa"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:12
 msgid ""
@@ -8934,7 +8934,7 @@ msgstr "Criação Cluster Guiado"
 
 #: dashboards/project/data_processing/wizard/views.py:63
 msgid "Guided Job Execution"
-msgstr ""
+msgstr "Execução de Tarefa Guiada"
 
 #: dashboards/project/database_backups/panel.py:23
 #: dashboards/project/database_backups/tables.py:181
@@ -9461,7 +9461,7 @@ msgstr "BANCO DE DADOS"
 msgid ""
 "Optionally choose to create this database using a previous backup, or as a "
 "replica of another database instance."
-msgstr ""
+msgstr "Opcionalmente pode-se optar por criar esse banco de dados usando um backup anterior, ou como uma réplica de outra instância de banco de dados."
 
 #: dashboards/project/databases/templates/databases/_launch_details_help.html:3
 #: dashboards/project/instances/templates/instances/_launch_details_help.html:5
@@ -9544,7 +9544,7 @@ msgstr "Redimensionar Instância de Banco de Dados"
 
 #: dashboards/project/databases/templates/databases/_resize_instance.html:18
 msgid "Specify a new flavor for the database instance."
-msgstr ""
+msgstr "Especifique um novo sabor para a instância do banco de dados."
 
 #: dashboards/project/databases/templates/databases/_resize_volume.html:9
 #: dashboards/project/databases/templates/databases/_resize_volume.html:24
@@ -9583,7 +9583,7 @@ msgstr "Disparar Base de Dados"
 #: dashboards/project/databases/views.py:101
 #: dashboards/project/instances/views.py:294
 msgid "Instance Details: {{ instance.name }}"
-msgstr ""
+msgstr "Detalhes da Instância: {{ instance.name }} "
 
 #: dashboards/project/databases/views.py:120
 #, python-format
@@ -9937,22 +9937,22 @@ msgstr "Adicionar Roteadores"
 
 #: dashboards/project/firewalls/forms.py:337
 msgid "Add selected router(s) to the firewall."
-msgstr ""
+msgstr "Adicionar roteador(es) selecionado(s) ao firewall."
 
 #: dashboards/project/firewalls/forms.py:340
 #, python-format
 msgid "Router(s) was/were successfully added to firewall %(firewall)s."
-msgstr ""
+msgstr "Roteador(es) foi/foram adicionados ao firewall %(firewall)s."
 
 #: dashboards/project/firewalls/forms.py:342
 #, python-format
 msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
-msgstr ""
+msgstr "Falha ao adicionar roteador(es) ao firewall %(name)s: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:343
 #, python-format
 msgid "Failed to retrieve available routers: %(reason)s"
-msgstr ""
+msgstr "Falha ao recuperar roteadores disponíveis: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:359
 msgid "Remove Routers"
@@ -9960,7 +9960,7 @@ msgstr "Remover Roteadores"
 
 #: dashboards/project/firewalls/forms.py:362
 msgid "Unselect the router(s) to be removed from firewall."
-msgstr ""
+msgstr "Desmarque o(s) roteador(es) para ser(em) removido(s) do firewall."
 
 #: dashboards/project/firewalls/forms.py:365
 #, python-format
@@ -9970,12 +9970,12 @@ msgstr "Roteador(es) foram removidos com sucesso do firewall %(firewall)s."
 #: dashboards/project/firewalls/forms.py:367
 #, python-format
 msgid "Failed to remove router(s) from firewall %(name)s: %(reason)s"
-msgstr ""
+msgstr "Falha ao remover o(s) roteador(es) do firewall %(name)s: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:369
 #, python-format
 msgid "Failed to retrieve current routers in firewall %(name)s: %(reason)s"
-msgstr ""
+msgstr "Falha ao recuperar os roteadores atuais no firewall %(name)s: %(reason)s"
 
 #: dashboards/project/firewalls/panel.py:26
 #: dashboards/project/firewalls/tables.py:355
@@ -10151,7 +10151,7 @@ msgstr "Roteadores Relacionados"
 #: dashboards/project/firewalls/tables.py:369
 #, python-format
 msgid "Failed to verify extension support %(reason)s"
-msgstr ""
+msgstr "Falha ao verificar o suporte a extensão %(reason)s"
 
 #: dashboards/project/firewalls/tabs.py:31
 msgid "Firewall Rules"
@@ -10224,11 +10224,11 @@ msgid ""
 "Choose the rule you want to insert. Specify either the rule you want to "
 "insert immediately before, or the rule to insert immediately after. If both "
 "are specified, the prior takes precedence."
-msgstr ""
+msgstr "Escolha a regra que você deseja inserir. Especifique a regra que você deseja inserir imediatamente antes, ou a regra para inserir imediatamente após. Se ambos forem especificados, o anterior tem precedência."
 
 #: dashboards/project/firewalls/templates/firewalls/_remove_router_from_firewall.html:6
 msgid "Unselect the routers you want to disassociate from the firewall."
-msgstr ""
+msgstr "Desmarcar o roteador que você deseja desassociar do firewall."
 
 #: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:6
 msgid "Choose the rule you want to remove."
@@ -10254,7 +10254,7 @@ msgstr "Posição na Política"
 msgid ""
 "Choose router(s) from Available Routers to Selected Routers by push button "
 "or drag and drop. "
-msgstr ""
+msgstr "Escolha roteador(es) a partir de roteadores disponíveis para os roteadores selecionados por botão ou arrastar e soltar."
 
 #: dashboards/project/firewalls/templates/firewalls/_update_routers.html:8
 msgid "Selected Routers"
@@ -10566,7 +10566,7 @@ msgstr "Copiar Dados"
 msgid ""
 "Specify this option to copy image data to the image service. If unspecified,"
 " image data will be used in its current location."
-msgstr ""
+msgstr "Especifique esta opção para copiar dados de imagem para o servidor de imagem. Se não for especificado, os dados de imagem serão usados em sua localização atual."
 
 #: dashboards/project/images/images/forms.py:148
 msgid "A image or external image location must be specified."
@@ -10588,7 +10588,7 @@ msgstr "Não foi possível criar a nova imagem"
 #: dashboards/project/images/images/forms.py:199
 #, python-format
 msgid "Unable to create new image: Invalid disk format %s for image."
-msgstr ""
+msgstr "Não é possível criar nova imagem: Formado de disco %s inválido para imagem."
 
 #: dashboards/project/images/images/forms.py:202
 msgid "Unable to create new image: Image name too long."
@@ -11054,7 +11054,7 @@ msgstr "Não há capacidade suficiente para este flavor na zona de disponibilida
 msgid ""
 "Failed to perform requested operation on instance \"%s\", the instance has "
 "an error status"
-msgstr ""
+msgstr "Falha na execução da operação solicitada na instância \"%s\", a instância tem um status de erro"
 
 #: dashboards/project/instances/tables.py:677
 #: dashboards/project/instances/views.py:400
@@ -11330,7 +11330,7 @@ msgstr "Reinicialização forçada pendente"
 #: dashboards/project/instances/tables.py:939
 msgctxt "Task status of an Instance"
 msgid "Reboot Started Hard"
-msgstr ""
+msgstr "Reinicio Forcado Iniciado"
 
 #: dashboards/project/instances/tables.py:940
 msgctxt "Task status of an Instance"
@@ -11683,7 +11683,7 @@ msgstr "Detalhes Flavor: %(name)s\">%(name)s"
 
 #: dashboards/project/instances/templates/instances/_instance_ips.html:12
 msgid "Floating IPs:"
-msgstr ""
+msgstr "IPs Flutuantes:"
 
 #: dashboards/project/instances/templates/instances/_launch_advanced_help.html:2
 msgid "Specify advanced options to use when launching an instance."
@@ -11743,7 +11743,7 @@ msgstr "Não foi possível obter zonas de disponibilidade Nova."
 
 #: dashboards/project/instances/utils.py:94
 msgid "Failed to get network list {0}"
-msgstr ""
+msgstr "Falha para obter lista de rede {0}"
 
 #: dashboards/project/instances/utils.py:99
 #: dashboards/project/routers/ports/forms.py:176
@@ -11776,7 +11776,7 @@ msgstr "Não foi possível recuperar instâncias."
 
 #: dashboards/project/instances/views.py:156
 msgid "Log length must be a nonnegative integer."
-msgstr ""
+msgstr "Comprimento do Log deve ser um inteiro não negativo."
 
 #: dashboards/project/instances/views.py:175
 #, python-format
@@ -12144,7 +12144,7 @@ msgstr "%s instâncias"
 #: dashboards/project/instances/workflows/create_instance.py:920
 #, python-format
 msgid "Unable to create port for profile \"%(profile_id)s\": %(reason)s"
-msgstr ""
+msgstr "Incapaz de criar a porta para o perfil %(profile_id)s\": %(reason)s"
 
 #: dashboards/project/instances/workflows/create_instance.py:930
 #, python-format
@@ -13210,7 +13210,7 @@ msgstr "DHCPv6 stateful: Endereço descoberto a partir do DHCP do OpenStack "
 msgid ""
 "DHCPv6 stateless: Address discovered from OpenStack Router and additional "
 "information from OpenStack DHCP"
-msgstr ""
+msgstr "DHCPv6 stateless: Endereço descoberto a partir de um Roteador do OpenStack e informações adicionais a partir do DHCP do OpenStack"
 
 #: dashboards/project/networks/subnets/views.py:67
 msgid "Unable to retrieve subnet details"
@@ -13235,7 +13235,7 @@ msgstr "Especifique \"Endereço de Rede\""
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
 "available by clicking on the \"Subnet Details\" tab."
-msgstr ""
+msgstr "Criar uma sub-rede associado com a rede. A configuração avançada está disponível clicando na guia \"Detalhes de sub-rede\"."
 
 #: dashboards/project/networks/subnets/workflows.py:58
 #, python-format
@@ -13271,7 +13271,7 @@ msgstr "Desabilitar Gateway"
 msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
 "available at \"Subnet Details\" tab."
-msgstr ""
+msgstr "Atualizar uma sub-rede associada com a rede. As configurações avançada estão disponíveis na guia \"Detalhes de sub-rede\"."
 
 #: dashboards/project/networks/subnets/workflows.py:149
 #: dashboards/project/networks/workflows.py:256
@@ -13358,7 +13358,7 @@ msgstr "ID de Segmentação:"
 
 #: dashboards/project/networks/templates/networks/create.html:9
 msgid "&laquo;&nbsp;Back"
-msgstr ""
+msgstr "&laquo;&nbsp;Voltar"
 
 #: dashboards/project/networks/templates/networks/create.html:10
 msgid "Next&nbsp;&raquo;"
@@ -13435,7 +13435,7 @@ msgstr "O estado para iniciar a rede em."
 msgid ""
 "Create a new network. In addition, a subnet associated with the network can "
 "be created in the next panel."
-msgstr ""
+msgstr "Criar uma nova rede. Além disso, uma sub-rede associada com a rede pode ser criada no painel seguinte."
 
 #: dashboards/project/networks/workflows.py:106
 msgid "Subnet Name"
@@ -13905,7 +13905,7 @@ msgstr "Editar Roteador"
 msgid ""
 "You may reset the gateway later by using the set gateway action, but the "
 "gateway IP may change."
-msgstr ""
+msgstr "Você pode redefinir o gateway mais tarde usando a ação set gateway, mas o IP do gateway pode mudar."
 
 #: dashboards/project/routers/tables.py:134
 msgid "Clear Gateway"
@@ -13951,7 +13951,7 @@ msgstr "Modo HA"
 
 #: dashboards/project/routers/templates/routers/_create.html:6
 msgid "Creates a router with specified parameters."
-msgstr ""
+msgstr "Criar um roteador com parâmetros específicos."
 
 #: dashboards/project/routers/templates/routers/_detail_overview.html:34
 msgid "External Fixed IPs"
@@ -14307,11 +14307,11 @@ msgstr "Detalhes do tipo de Recursos"
 
 #: dashboards/project/stacks/resource_types/views.py:41
 msgid "Unable to retrieve stack resource types."
-msgstr ""
+msgstr "Não é possível recuperar os tipos de recursos da pilha."
 
 #: dashboards/project/stacks/resource_types/views.py:58
 msgid "Unable to retrieve resource type details."
-msgstr ""
+msgstr "Não foi possível obter detalhes de tipo de recurso."
 
 #: dashboards/project/stacks/tables.py:32
 #: dashboards/project/stacks/templates/stacks/create.html:3
@@ -14628,7 +14628,7 @@ msgstr "Rollback"
 
 #: dashboards/project/stacks/templates/stacks/_preview.html:5
 msgid "Preview a new stack with the provided values."
-msgstr ""
+msgstr "Visualizar uma nova pilha com os valores fornecidos."
 
 #: dashboards/project/stacks/templates/stacks/_preview_details.html:5
 msgid "Stack Preview"
@@ -14636,13 +14636,13 @@ msgstr "Pre visualização da Pilha"
 
 #: dashboards/project/stacks/templates/stacks/_preview_details.html:31
 msgid "Links"
-msgstr ""
+msgstr "Links"
 
 #: dashboards/project/stacks/templates/stacks/_preview_template.html:6
 msgid ""
 "Use one of the available template source options to specify the template to "
 "be used in previewing this stack."
-msgstr ""
+msgstr "Use uma das opções de fonte de modelo disponíveis para especificar o modelo a ser usado em pré-visualização desta pilha."
 
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:3
 msgid "Resource Overview"
@@ -14683,16 +14683,16 @@ msgstr "Alterar modelo"
 
 #: dashboards/project/stacks/templates/stacks/detail.html:3
 msgid "Stack Details"
-msgstr ""
+msgstr "Detalhes da Pilha."
 
 #: dashboards/project/stacks/templates/stacks/preview_details.html:3
 #: dashboards/project/stacks/views.py:255
 msgid "Preview Stack Details"
-msgstr ""
+msgstr "Pré Visualização de Detalhes da Pilha"
 
 #: dashboards/project/stacks/templates/stacks/resource.html:3
 msgid "Resource Details"
-msgstr ""
+msgstr "Detalhes dos Recursos"
 
 #: dashboards/project/stacks/views.py:83
 msgid "Unable to retrieve stack list."
@@ -14714,11 +14714,11 @@ msgstr "Atualizar Stack"
 
 #: dashboards/project/stacks/views.py:242
 msgid "Preview"
-msgstr ""
+msgstr "Pré-Visualização."
 
 #: dashboards/project/stacks/views.py:267
 msgid "Stack Details: {{ stack.stack_name }}"
-msgstr ""
+msgstr "Detalhes da Pilha: {{ stack.stack_name }}"
 
 #: dashboards/project/stacks/views.py:298
 msgid "Unable to retrieve stack template."
@@ -14726,7 +14726,7 @@ msgstr "Não foi possível obter modelo de stack."
 
 #: dashboards/project/stacks/views.py:315
 msgid "Resource Details: {{ resource.resource_name }}"
-msgstr ""
+msgstr "Detalhes do Recurso: {{ resource.resource_name }}"
 
 #: dashboards/project/stacks/views.py:332
 msgid "Unable to retrieve resource."
@@ -14816,7 +14816,7 @@ msgstr "Criar Backup de Volume"
 
 #: dashboards/project/volumes/backups/views.py:54
 msgid "Volume Backup Details: {{ backup.name }}"
-msgstr ""
+msgstr "Detalhes do Backup do Volume: {{ backup.name }}"
 
 #: dashboards/project/volumes/backups/views.py:88
 #: dashboards/project/volumes/templates/volumes/backups/restore_backup.html:3
@@ -14866,7 +14866,7 @@ msgstr "Não foi possível obter detalhes do snapshot."
 
 #: dashboards/project/volumes/snapshots/views.py:71
 msgid "Volume Snapshot Details: {{ snapshot.name }}"
-msgstr ""
+msgstr "Detalhes do Snapshot do Volume: {{ snapshot.name }}"
 
 #: dashboards/project/volumes/tabs.py:38
 msgid "Unable to retrieve volume list."
@@ -14878,7 +14878,7 @@ msgstr "Não foi possível obter informações sobre a anexação de volume/inst
 
 #: dashboards/project/volumes/tabs.py:62
 msgid "Unable to retrieve snapshot list."
-msgstr ""
+msgstr "Não é possível recuperar lista de snapshot."
 
 #: dashboards/project/volumes/tabs.py:144
 msgid "Unable to retrieve volume backups."
@@ -14993,19 +14993,19 @@ msgstr "Origem do Volume"
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:84
 #: dashboards/project/volumes/volumes/views.py:249
 msgid "Volume Transfer"
-msgstr ""
+msgstr " Transferência de Volume"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_encryption_detail_overview.html:4
 msgid "Volume Encryption Overview"
-msgstr ""
+msgstr "Visão geral da Criptografia do Volume"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_encryption_detail_overview.html:11
 msgid "Volume Type Name"
-msgstr ""
+msgstr "Nome do Tipo de Volume"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_encryption_detail_overview.html:25
 msgid "Volume is Unencrypted"
-msgstr ""
+msgstr "Volume não é Criptografado"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_extend_limits.html:5
 msgid "Extend the size of a volume."
@@ -15035,14 +15035,14 @@ msgid ""
 "      Change the volume type of a volume after its creation.\n"
 "      This is equivalent to the <tt>cinder retype</tt> command.\n"
 "     "
-msgstr ""
+msgstr "\nAlterar o tipo de volume de um volume após a sua criação. Isso é equivalente ao comando <tt>cinde retype<tt/>."
 
 #: dashboards/project/volumes/templates/volumes/volumes/_retype.html:11
 msgid ""
 "\n"
 "      The \"Volume Type\" selected must be different from the current volume type.\n"
 "     "
-msgstr ""
+msgstr "\nO \"Tipo de Volume\" selecionada deve ser diferente do tipo de volume atual."
 
 #: dashboards/project/volumes/templates/volumes/volumes/_retype.html:15
 msgid ""
@@ -15052,7 +15052,7 @@ msgid ""
 "      perform volume migration. Note that migration may take a significant\n"
 "      amount of time to complete, in some cases hours.\n"
 "     "
-msgstr ""
+msgstr "\nA \"Política de Migração\" só é usado se o volume reescrito não pode ser concluída. Se a \"Política de Migração\" é \"On Demand\", o back-end irá realizar a migração volume. Note-se que a migração pode levar uma quantidade significativa de tempo para concluir, em alguns casos horas."
 
 #: dashboards/project/volumes/templates/volumes/volumes/_show_transfer.html:6
 msgid ""
@@ -15118,7 +15118,7 @@ msgstr ""
 #: dashboards/project/volumes/volumes/views.py:238
 #: dashboards/project/volumes/volumes/views.py:241
 msgid "Accept Volume Transfer"
-msgstr ""
+msgstr "Aceitar Transferência de Volume"
 
 #: dashboards/project/volumes/templates/volumes/volumes/attach.html:3
 #: dashboards/project/volumes/volumes/views.py:320
@@ -15130,11 +15130,11 @@ msgstr "Gerenciar Anexos de Volume"
 #: dashboards/project/volumes/volumes/views.py:216
 #: dashboards/project/volumes/volumes/views.py:217
 msgid "Create Volume Transfer"
-msgstr ""
+msgstr "Criar Transferência de Volume"
 
 #: dashboards/project/volumes/templates/volumes/volumes/encryption_detail.html:3
 msgid "Volume Encryption Details"
-msgstr ""
+msgstr "Detalhes do Volume Criptografado"
 
 #: dashboards/project/volumes/templates/volumes/volumes/extend.html:3
 #: dashboards/project/volumes/volumes/tables.py:133
@@ -15155,7 +15155,7 @@ msgstr "Alterar Tipo de Volume"
 #: dashboards/project/volumes/templates/volumes/volumes/show_transfer.html:3
 #: dashboards/project/volumes/volumes/views.py:252
 msgid "Volume Transfer Details"
-msgstr ""
+msgstr "Detalhes da transferência de Volume"
 
 #: dashboards/project/volumes/templates/volumes/volumes/update.html:3
 #: dashboards/project/volumes/volumes/tables.py:232
@@ -15172,7 +15172,7 @@ msgstr "Enviar Volume para Imagem"
 
 #: dashboards/project/volumes/utils.py:28
 msgid "Unable to retrieve volumes availability zones."
-msgstr ""
+msgstr "Não é possível recuperar as zonas de disponibilidades do volume."
 
 #: dashboards/project/volumes/volumes/forms.py:55
 msgid "Unable to determine if availability zones extension is supported."
@@ -15347,25 +15347,25 @@ msgstr ""
 #: dashboards/project/volumes/volumes/forms.py:532
 #: dashboards/project/volumes/volumes/forms.py:578
 msgid "Transfer Name"
-msgstr ""
+msgstr "Transferência de Nome"
 
 #: dashboards/project/volumes/volumes/forms.py:541
 #, python-format
 msgid "Created volume transfer: \"%s\"."
-msgstr ""
+msgstr "Criada transferência de volume: \"%s\"."
 
 #: dashboards/project/volumes/volumes/forms.py:543
 msgid "Created volume transfer."
-msgstr ""
+msgstr "Criada transferência de volume."
 
 #: dashboards/project/volumes/volumes/forms.py:551
 msgid "Unable to create volume transfer."
-msgstr ""
+msgstr "Incapaz de criar a transferência de volume."
 
 #: dashboards/project/volumes/volumes/forms.py:557
 #: dashboards/project/volumes/volumes/forms.py:582
 msgid "Transfer ID"
-msgstr ""
+msgstr "Transferência de ID"
 
 #: dashboards/project/volumes/volumes/forms.py:558
 #: dashboards/project/volumes/volumes/forms.py:586
@@ -15375,15 +15375,15 @@ msgstr "Chave de autorização"
 #: dashboards/project/volumes/volumes/forms.py:566
 #, python-format
 msgid "Successfully accepted volume transfer: \"%s\""
-msgstr ""
+msgstr "Transferência de volume aceito com sucesso: \"%s\""
 
 #: dashboards/project/volumes/volumes/forms.py:572
 msgid "Unable to accept volume transfer."
-msgstr ""
+msgstr "Incapaz de aceitar a transferência de volume."
 
 #: dashboards/project/volumes/volumes/forms.py:604
 msgid "Specifies that the volume can be used to launch an instance"
-msgstr ""
+msgstr "Especifica que o volume pode ser usado para iniciar uma instância"
 
 #: dashboards/project/volumes/volumes/forms.py:615
 msgid "Unable to update volume."
@@ -15391,7 +15391,7 @@ msgstr "Não é possível atualizar volume."
 
 #: dashboards/project/volumes/volumes/forms.py:626
 msgid "Unable to set bootable flag on volume."
-msgstr ""
+msgstr "Incapaz de setar a flag de iniciável no volume."
 
 #: dashboards/project/volumes/volumes/forms.py:629
 #, python-format
@@ -15492,7 +15492,7 @@ msgstr "Não é possível recuperar os limites do tenant."
 
 #: dashboards/project/volumes/volumes/tables.py:193
 msgid "Create Transfer"
-msgstr ""
+msgstr "Criar Transferência"
 
 #: dashboards/project/volumes/volumes/tables.py:216
 msgid "Upload to Image"
@@ -15500,11 +15500,11 @@ msgstr "Enviar para Imagem"
 
 #: dashboards/project/volumes/volumes/tables.py:256
 msgid "Accept Transfer"
-msgstr ""
+msgstr "Aceitar Transferência"
 
 #: dashboards/project/volumes/volumes/tables.py:274
 msgid "Cancel Transfer"
-msgstr ""
+msgstr "Cancelar Transferência"
 
 #: dashboards/project/volumes/volumes/tables.py:277
 msgid "This action cannot be undone."
@@ -15513,15 +15513,15 @@ msgstr "Esta ação não pode ser desfeita."
 #: dashboards/project/volumes/volumes/tables.py:288
 #, python-format
 msgid "Successfully deleted volume transfer \"%s\""
-msgstr ""
+msgstr "Transferência de volume excluída com sucesso \"%s\""
 
 #: dashboards/project/volumes/volumes/tables.py:291
 msgid "Successfully deleted volume transfer"
-msgstr ""
+msgstr "Transferência de volume excluída com sucesso"
 
 #: dashboards/project/volumes/volumes/tables.py:294
 msgid "Unable to delete volume transfer."
-msgstr ""
+msgstr "Não é possível excluir a transferência de volume."
 
 #: dashboards/project/volumes/volumes/tables.py:319
 #: dashboards/project/volumes/volumes/views.py:352
@@ -15549,7 +15549,7 @@ msgstr "Disponível"
 #: dashboards/project/volumes/volumes/tables.py:374
 msgctxt "Current status of a Volume"
 msgid "In-use"
-msgstr ""
+msgstr "Em uso"
 
 #: dashboards/project/volumes/volumes/tables.py:375
 msgctxt "Current status of a Volume"
@@ -15564,7 +15564,7 @@ msgstr "Criando"
 #: dashboards/project/volumes/volumes/tables.py:379
 msgctxt "Current status of a Volume"
 msgid "Error Extending"
-msgstr ""
+msgstr "Erro Estendendo"
 
 #: dashboards/project/volumes/volumes/tables.py:423
 msgid "Encrypted"
@@ -15574,7 +15574,7 @@ msgstr "Encriptado"
 msgid ""
 "The data will remain in the volume and another instance will be able to "
 "access the data if you attach this volume to it."
-msgstr ""
+msgstr "Os dados permanecem no volume e outra instância será capaz de acessar os dados se você anexar esse volume a ele."
 
 #: dashboards/project/volumes/volumes/tables.py:451
 msgid "Detach Volume"
@@ -15599,7 +15599,7 @@ msgstr "Volume%(volume_name)s na instância%(instance_name)s"
 
 #: dashboards/project/volumes/volumes/views.py:46
 msgid "Volume Details: {{ volume.name }}"
-msgstr ""
+msgstr "Detalhes do volume: {{ volume.name }}"
 
 #: dashboards/project/volumes/volumes/views.py:87
 msgid "Create a Volume"
@@ -15629,11 +15629,11 @@ msgstr "Não é possível recuperar as informações de volume para volume: \"%s
 
 #: dashboards/project/volumes/volumes/views.py:219
 msgid "Create a Volume Transfer"
-msgstr ""
+msgstr "Criar uma Transferência de Volume"
 
 #: dashboards/project/volumes/volumes/views.py:264
 msgid "Unable to retrieve volume transfer."
-msgstr ""
+msgstr "Não é possível recuperar transferência volume."
 
 #: dashboards/project/volumes/volumes/views.py:296
 msgid "Unable to retrieve volume."
@@ -15641,16 +15641,16 @@ msgstr "Não foi possível obter o volume."
 
 #: dashboards/project/volumes/volumes/views.py:433
 msgid "Volume Encryption Details: {{ volume.name }}"
-msgstr ""
+msgstr "Detalhes do Volume Criptografado:  {{ volume.name }}"
 
 #: dashboards/project/volumes/volumes/views.py:440
 #, python-format
 msgid "Volume Encryption Details: %(volume_name)s"
-msgstr ""
+msgstr "Detalhes do Volume Criptografado: %(volume_name)s"
 
 #: dashboards/project/volumes/volumes/views.py:455
 msgid "Unable to retrieve volume encryption details."
-msgstr ""
+msgstr "Não foi possível obter detalhes do volume criptografado."
 
 #: dashboards/project/vpn/forms.py:52
 #, python-format
@@ -16666,11 +16666,11 @@ msgstr "Número de ítens exibidos por página"
 
 #: dashboards/settings/user/forms.py:48
 msgid "Log Lines Per Instance"
-msgstr ""
+msgstr "Logar linhas por instância"
 
 #: dashboards/settings/user/forms.py:49
 msgid "Number of log lines to be shown per instance"
-msgstr ""
+msgstr "Número de linhas de registro para ser mostrado por instância"
 
 #: dashboards/settings/user/forms.py:83
 #, python-format
@@ -16770,7 +16770,7 @@ msgid ""
 "You do not have the required\n"
 "          privileges to access this content. If you believe this message to\n"
 "          be in error, please contact your project manager."
-msgstr ""
+msgstr "Você não tem os privilégios necessários para acessar este conteúdo. Se você acredita que esta mensagem é um erro, por favor, entre em contato com seu gerente de projeto."
 
 #: templates/403.html:23 templates/404.html:20 templates/500.html:73
 msgid "Home"
@@ -16876,7 +16876,7 @@ msgstr "Horas vCPU"
 #: usage/tables.py:45
 msgid ""
 "Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
-msgstr ""
+msgstr "O uso total de VCPU (número de VCPU em instância * horas de utilização) para o projeto"
 
 #: usage/tables.py:50
 msgid "Disk GB Hours"
@@ -16888,11 +16888,11 @@ msgstr "Uso total de disco (GB * Horas usadas) para o projeto"
 
 #: usage/tables.py:55
 msgid "Memory MB Hours"
-msgstr ""
+msgstr "MB de Memória por Horas"
 
 #: usage/tables.py:56
 msgid "Total memory usage (MB * Hours Used) for the project"
-msgstr ""
+msgstr "O uso total de memória (MB * horas de utilização) para o projeto"
 
 #: usage/tables.py:66 usage/tables.py:96
 msgid "Usage"
@@ -16904,13 +16904,13 @@ msgstr "Data Inicial deve ser maior que data Final."
 
 #: utils/metering.py:81
 msgid "The dates haven't been recognized"
-msgstr ""
+msgstr "As datas não foram reconhecidas"
 
 #: utils/metering.py:87
 msgid "The time delta must be a number representing the time span in days"
-msgstr ""
+msgstr "O delta de tempo deve ser um número que representa o intervalo de tempo em dias"
 
 #: utils/metering.py:104
 #, python-format
 msgid "Failed to get the resource name: %s"
-msgstr ""
+msgstr "Falha ao obter o nome do recurso: %s"

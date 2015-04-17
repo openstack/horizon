@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-15 02:00-0500\n"
-"PO-Revision-Date: 2015-04-15 10:53+0000\n"
+"PO-Revision-Date: 2015-04-17 04:51+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -9041,7 +9041,7 @@ msgstr ""
 #: dashboards/project/database_backups/tables.py:47
 msgctxt "Current status of a Database Backup"
 msgid "Saving"
-msgstr ""
+msgstr "Zapisywanie"
 
 #: dashboards/project/database_backups/tables.py:53
 #: dashboards/project/databases/tables.py:182
@@ -10704,14 +10704,14 @@ msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Usuń obrazy"
 
 #: dashboards/project/images/images/tables.py:98
 msgid "Deleted Image"
 msgid_plural "Deleted Images"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Usunięto obrazy"
 
 #: dashboards/project/images/images/tables.py:129
 msgid "Edit Image"
@@ -10744,7 +10744,7 @@ msgstr "Aktywny"
 #: dashboards/project/images/images/tables.py:260
 msgctxt "Current status of an Image"
 msgid "Saving"
-msgstr ""
+msgstr "Zapisywanie"
 
 #: dashboards/project/images/images/tables.py:261
 msgctxt "Current status of an Image"
@@ -11163,14 +11163,14 @@ msgid "Start Instance"
 msgid_plural "Start Instances"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Uruchom instancje"
 
 #: dashboards/project/instances/tables.py:702
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Uruchomiono instancje"
 
 #: dashboards/project/instances/tables.py:719
 msgid "To power off a specific instance."
@@ -16953,7 +16953,7 @@ msgstr "Pomoc"
 
 #: templates/_header.html:21
 msgid "More Projects"
-msgstr ""
+msgstr "Więcej projektów"
 
 #: templates/_header.html:54
 msgid "Sign Out"

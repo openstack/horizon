@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-15 02:00-0500\n"
-"PO-Revision-Date: 2015-04-15 17:31+0000\n"
+"PO-Revision-Date: 2015-04-17 06:11+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -2375,7 +2375,7 @@ msgstr "JSON Namespace"
 
 #: dashboards/admin/metadata_defs/forms.py:55
 msgid "The JSON formatted contents of a namespace."
-msgstr ""
+msgstr "El formato JSON contenidos en un namespace  "
 
 #: dashboards/admin/metadata_defs/forms.py:62
 #: dashboards/admin/metadata_defs/tables.py:149
@@ -2389,36 +2389,36 @@ msgstr "Protegido"
 
 #: dashboards/admin/metadata_defs/forms.py:77
 msgid "Cannot specify both file and direct input."
-msgstr ""
+msgstr "No se pudo especificar ni en el archivo ni el acceso directo"
 
 #: dashboards/admin/metadata_defs/forms.py:80
 msgid "No input was provided for the namespace content."
-msgstr ""
+msgstr "No se proporcionó ninguna entrada para el contenido del namespace"
 
 #: dashboards/admin/metadata_defs/forms.py:100
 #, python-format
 msgid "There was a problem loading the namespace: %s."
-msgstr ""
+msgstr "Hubo un problema al cargar el namespace: %s."
 
 #: dashboards/admin/metadata_defs/forms.py:110
 #, python-format
 msgid "Namespace %s has been created."
-msgstr ""
+msgstr "Namespace %s ha sido creado."
 
 #: dashboards/admin/metadata_defs/forms.py:114
 #, python-format
 msgid "Unable to create new namespace. %s"
-msgstr ""
+msgstr "No se pudo crear un nuevo namespace. %s"
 
 #: dashboards/admin/metadata_defs/forms.py:140
 #, python-format
 msgid "Resource types updated for namespace %s."
-msgstr ""
+msgstr "Tipos de recursos actualizados para namespace %s."
 
 #: dashboards/admin/metadata_defs/forms.py:144
 #, python-format
 msgid "Error updating resource types for namespace %s."
-msgstr ""
+msgstr "Error al actualizar los tipos de recursos para namespace %s."
 
 #: dashboards/admin/metadata_defs/panel.py:25
 #: dashboards/admin/metadata_defs/templates/metadata_defs/index.html:3
@@ -2442,7 +2442,7 @@ msgstr[1] "Delete Namespaces"
 msgid "Deleted Namespace"
 msgid_plural "Deleted Namespaces"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Namespaces Borrados"
 
 #: dashboards/admin/metadata_defs/tables.py:69
 msgid "Update Associations"
@@ -2555,7 +2555,7 @@ msgstr "Vista general de Espacios de Nombres"
 #: dashboards/admin/metadata_defs/tabs.py:38
 #: dashboards/admin/metadata_defs/views.py:108
 msgid "Unable to retrieve namespace details."
-msgstr ""
+msgstr "No ha sido posible recuperar los detalles del namespace"
 
 #: dashboards/admin/metadata_defs/tabs.py:45
 msgid "Contents"
@@ -2563,15 +2563,15 @@ msgstr "Contenidos"
 
 #: dashboards/admin/metadata_defs/tabs.py:57
 msgid "Unable to retrieve namespace contents."
-msgstr ""
+msgstr "No ha sido posible recuperar los contenidos del namespace"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:20
 msgid "Specify a metadata definition namespace to import."
-msgstr ""
+msgstr "Especifica un namespace de definición de metadatos para importar "
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:23
 msgid "Only definitions in raw JSON format are supported."
-msgstr ""
+msgstr "Sólo definiciones en formato JSON raw son compatibles."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:26
 msgid ""
@@ -2723,7 +2723,7 @@ msgstr "Nunca actualizada"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:32
 msgid "Associated Resource Types"
-msgstr ""
+msgstr "Tipos de Recursos Asociados"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:39
 msgid "Prefix: "
@@ -2731,26 +2731,26 @@ msgstr "Prefijo:"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:42
 msgid "Properties Target: "
-msgstr ""
+msgstr "Propiedades del Objetivo:"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:47
 msgid "No associations defined."
-msgstr ""
+msgstr "No se definieron asociaciones."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_resource_types.html:5
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_resource_types.html:8
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_resource_types.html:14
 msgid "Namespace Resource Type Associations"
-msgstr ""
+msgstr "Namespace de las Asociaciones de Tipos de Recursos"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/create.html:3
 #: dashboards/admin/metadata_defs/views.py:86
 msgid "Create a Metadata Namespace"
-msgstr ""
+msgstr "Crear un Namespace de Metadatos"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/detail.html:4
 msgid "Namespace Details"
-msgstr ""
+msgstr "Detalles de Namespace"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:15
 msgid "Available Types"
@@ -2766,27 +2766,27 @@ msgid ""
 "Namespaces can be associated to different resource types. This makes the "
 "properties in the namespace visible in the 'Update Metadata' action for that"
 " type of resource."
-msgstr ""
+msgstr "Los espacios de nombres podrán ser asociados a diferentes tipos de recursos. Esto hace que las propiedades en el espacio de nombres sean visibles en la acción 'Actualizar Metadatos' para ese tipo de recursos."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:61
 msgid ""
 "Additionally, some resource types may require a prefix to be used when "
 "applying the metadata. In certain cases, the prefix may differ between the "
 "resource type (for example, flavor vs image)."
-msgstr ""
+msgstr "Adicionalmente, algunos tipos de recursos podrán solicitar un prefijo para ser usado cuando aplique los metadatos. En algunos casos, el prefijo puede diferir entre los tipos de recursos (por ejemplo, sabor vs imagen)"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:63
 msgid ""
 "Example: The prefix 'hw:' is added to OS::Nova::Flavor for the Virtual CPU "
 "Topology namespace so that the properties will be prefixed with 'hw:' when "
 "applied to flavors."
-msgstr ""
+msgstr "Ejemplo: El prefijo 'hw:' es agregado a OS::Nova::Flavor para la Topología de espacio de nombres del CPU Virtual de esta manera las propiedades serán prefijadas con 'hw:' cuando se apliquen a flavors."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:65
 msgid ""
 "Do not use a colon ':' with OS::Glance::Images. This resource type does not "
 "support the use of colons."
-msgstr ""
+msgstr "No usar dos puntos ':' en OS::Glance::Images. Este tipo de recurso no soporta el uso de dos puntos."
 
 #: dashboards/admin/metadata_defs/views.py:76
 msgid "Error getting metadata definitions."
@@ -2794,13 +2794,13 @@ msgstr "Error al obtener las definiciones de metadatos."
 
 #: dashboards/admin/metadata_defs/views.py:93
 msgid "Namespace Details: {{ namespace.namespace }}"
-msgstr ""
+msgstr "Detalles del espacio de nombres: {{ namespace.namespace }}"
 
 #: dashboards/admin/metadata_defs/views.py:129
 #: dashboards/admin/metadata_defs/views.py:147
 #: dashboards/admin/metadata_defs/views.py:161
 msgid "Error getting resource type associations."
-msgstr ""
+msgstr "Error al obtener las asociaciones de tipos de recursos"
 
 #: dashboards/admin/metering/forms.py:24
 #: dashboards/admin/metering/templates/metering/stats.html:116
@@ -2867,7 +2867,7 @@ msgstr "Uso de los recursos"
 #: dashboards/admin/metering/templates/metering/daily.html:3
 #: dashboards/admin/metering/views.py:48
 msgid "Modify Usage Report Parameters"
-msgstr ""
+msgstr "Modificar Reporte de Parametros de Uso"
 
 #: dashboards/admin/metering/tables.py:34 usage/tables.py:25
 msgid "Download CSV Summary"
@@ -3243,7 +3243,7 @@ msgstr "ID de segmentación"
 #: dashboards/project/vpn/forms.py:261 dashboards/project/vpn/workflows.py:31
 #: dashboards/project/vpn/workflows.py:417
 msgid "UP"
-msgstr ""
+msgstr "ARRIBA"
 
 #: dashboards/admin/networks/forms.py:78
 #: dashboards/admin/networks/forms.py:237
@@ -3266,7 +3266,7 @@ msgstr ""
 #: dashboards/project/vpn/forms.py:262 dashboards/project/vpn/workflows.py:32
 #: dashboards/project/vpn/workflows.py:418
 msgid "DOWN"
-msgstr ""
+msgstr "ABAJO"
 
 #: dashboards/admin/networks/forms.py:80
 #: dashboards/admin/networks/forms.py:239
@@ -3382,12 +3382,12 @@ msgstr "Normal"
 #: dashboards/admin/networks/ports/forms.py:31
 #: dashboards/project/networks/ports/forms.py:29
 msgid "Direct"
-msgstr ""
+msgstr "Directo"
 
 #: dashboards/admin/networks/ports/forms.py:32
 #: dashboards/project/networks/ports/forms.py:30
 msgid "MacVTap"
-msgstr ""
+msgstr "MacVTap"
 
 #: dashboards/admin/networks/ports/forms.py:40
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:11
@@ -3424,24 +3424,24 @@ msgstr "Propietario del dispositivo asociado al puerto"
 #: dashboards/admin/networks/ports/forms.py:57
 #: dashboards/admin/networks/ports/forms.py:127
 msgid "Binding: Host"
-msgstr ""
+msgstr "Enlace: Servidor"
 
 #: dashboards/admin/networks/ports/forms.py:58
 #: dashboards/admin/networks/ports/forms.py:128
 msgid ""
 "The ID of the host where the port is allocated. In some cases, different "
 "implementations can run on different hosts."
-msgstr ""
+msgstr "La Identidad del servidor donde el puerto esta hospedado. En algunos casos, implementaciones diferentes pueden ejecutarse en diferentes servidores."
 
 #: dashboards/admin/networks/ports/forms.py:82
 #: dashboards/project/networks/ports/forms.py:64
 msgid "Binding: VNIC Type"
-msgstr ""
+msgstr "Enlace: Tipo VNIC"
 
 #: dashboards/admin/networks/ports/forms.py:83
 #: dashboards/project/networks/ports/forms.py:65
 msgid "The VNIC type that is bound to the neutron port"
-msgstr ""
+msgstr "El tipo VNIC que está unido al puerto de neutrones"
 
 #: dashboards/admin/networks/ports/forms.py:88
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:22
@@ -3623,13 +3623,13 @@ msgstr "Editar red"
 #: dashboards/project/networks/tables.py:146
 msgctxt "Admin state of a Network"
 msgid "UP"
-msgstr ""
+msgstr "ARRIBA"
 
 #: dashboards/admin/networks/tables.py:88
 #: dashboards/project/networks/tables.py:147
 msgctxt "Admin state of a Network"
 msgid "DOWN"
-msgstr ""
+msgstr "ABAJO"
 
 #: dashboards/admin/networks/tables.py:97
 #: dashboards/project/networks/tables.py:171
@@ -3693,11 +3693,11 @@ msgstr "ID del proyecto"
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:15
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:15
 msgid "MAC Address"
-msgstr ""
+msgstr "Dirección MAC"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:23
 msgid "On"
-msgstr ""
+msgstr "Encendido"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:25
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:25
@@ -3725,24 +3725,24 @@ msgstr "Ningún dispositivo asociado"
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:48
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:48
 msgid "Binding"
-msgstr ""
+msgstr "Enlace"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:52
 msgid "Profile"
-msgstr ""
+msgstr "Perfil"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:54
 msgid "VIF Type"
-msgstr ""
+msgstr "Tipo VIF"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:56
 msgid "VIF Details"
-msgstr ""
+msgstr "Detalles VIF"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:69
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:51
 msgid "VNIC Type"
-msgstr ""
+msgstr "Tipo VNIC"
 
 #: dashboards/admin/networks/templates/networks/ports/_update.html:6
 #: dashboards/project/networks/templates/networks/ports/_update.html:6
@@ -3763,7 +3763,7 @@ msgstr "Actualizar red"
 
 #: dashboards/admin/networks/views.py:50
 msgid "Unable to retrieve information about the networks' projects."
-msgstr ""
+msgstr "No ha sido posible recuperar la información sobre los proyectos de redes."
 
 #: dashboards/admin/networks/views.py:78
 #: dashboards/project/networks/views.py:54
@@ -3773,7 +3773,7 @@ msgstr "No ha sido posible obtener la lista de redes."
 #: dashboards/admin/networks/views.py:107
 #: dashboards/project/networks/views.py:103
 msgid "Network Details: {{ network.name }}"
-msgstr ""
+msgstr "Detalles de Redes:  {{ network.name }}"
 
 #: dashboards/admin/networks/views.py:116
 #: dashboards/project/networks/views.py:112
@@ -4057,19 +4057,19 @@ msgstr "\nEl estado de la snapshot de un volumen normalmente es manejado de mane
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:6
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
-msgstr ""
+msgstr "Agregar, modificar o quitar las especificaciones QoS asociadas con el tipo de volumen."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:7
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
 "setting the QoS Spec to \"None\" will remove the current association."
-msgstr ""
+msgstr "\"Ninguna\" indica que no existen actualmente especificaciones QoS asociadas. Por el contrario, establecer las especificaciones QoS a \"Ninguna\" borrara las asociaciones actuales."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:8
 msgid ""
 "This is equivalent to the <tt>cinder qos-associate</tt> and <tt>cinder qos-"
 "disassociate</tt> commands."
-msgstr ""
+msgstr "Esto es equivalente a los comandos <tt> cinder qos-asociado </ tt> y <tt> cinder qos-disassociate </ tt>."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_qos_spec.html:6
 msgid ""
@@ -4085,7 +4085,7 @@ msgid ""
 "      administrator would like the QoS policy to be enforced. This value can be \"front-end\"\n"
 "      (Nova Compute), \"back-end\" (Cinder back-end), or \"both\".\n"
 "  "
-msgstr ""
+msgstr "\nLas especificaciones QOS puden asociarse a los tipos de volumen. Se utiliza para mapear un conjunto de funcionalidades del servicio solicitado por el propietario del volumen. Esto es equivalente al comando <tt>cinder qos-create</tt>. Una vez creadas las especificaciones QOS, haz clic en el botón \"Gestión de especificaciones\" para gestionar las especificaciones clave para QOS. Cada entidad de las especificaciones QOS tendrá un valor \"consumidor\" que indicará el lugar done el administrador quiere que las polítticas QOS se apliquen obligatoriamente. Este valor puede ser \"front-end\" (Nova Compute), \"back-end\" (Cinder back-end), o ambos."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:6
 msgid ""
@@ -4105,13 +4105,13 @@ msgid ""
 "Creating encryption for a volume type causes all volumes with that volume "
 "type to be encrypted.  Encryption information cannot be added to a volume "
 "type if volumes are currently in use with that volume type."
-msgstr ""
+msgstr "La creación de cifrado para un tipo de volumen causa que todos los volúmenes de el mismo tipo sean encriptados. Información de cifrado no se puede añadir a un tipo de volumen si los volúmenes están actualmente en uso con ese mismo tipo de volumen."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:10
 msgid ""
 "The <strong>Provider</strong> is the class providing encryption support "
 "(e.g. LuksEncryptor)."
-msgstr ""
+msgstr "El <strong> Proveedor </ strong> es la clase que proporciona soporte de cifrado (por ejemplo LuksEncryptor)."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:13
 msgid ""
@@ -4145,7 +4145,7 @@ msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:4
 msgid "Volume Type Encryption Overview"
-msgstr ""
+msgstr "Vision general de Volumen tipo cifrado."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:13
 #: dashboards/admin/volumes/volume_types/forms.py:28
@@ -4160,23 +4160,23 @@ msgstr "Proveedor"
 #: dashboards/admin/volumes/volume_types/forms.py:29
 #: dashboards/project/volumes/templates/volumes/volumes/_encryption_detail_overview.html:15
 msgid "Control Location"
-msgstr ""
+msgstr "Ubicación de Controles"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:17
 #: dashboards/admin/volumes/volume_types/forms.py:35
 #: dashboards/project/volumes/templates/volumes/volumes/_encryption_detail_overview.html:17
 msgid "Cipher"
-msgstr ""
+msgstr "Cifrado"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:19
 #: dashboards/admin/volumes/volume_types/forms.py:36
 #: dashboards/project/volumes/templates/volumes/volumes/_encryption_detail_overview.html:19
 msgid "Key Size (bits)"
-msgstr ""
+msgstr "Tamaño de clave (bits)"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:25
 msgid "Volume Type is Unencrypted."
-msgstr ""
+msgstr "Tipo de Volumen sin encifrar."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/associate_qos_spec.html:3
 msgid "Associate QoS Spec"
@@ -4275,7 +4275,7 @@ msgstr "Especificación QoS:"
 #: dashboards/admin/volumes/templates/volumes/volume_types/volume_encryption_type_detail.html:3
 #: dashboards/admin/volumes/volume_types/views.py:50
 msgid "Volume Type Encryption Details"
-msgstr ""
+msgstr "Detalle de cifrado de tipo Volumen."
 
 #: dashboards/admin/volumes/templates/volumes/volumes/_manage_volume.html:6
 msgid ""
@@ -4317,12 +4317,12 @@ msgstr "Detalles del volumen"
 #: dashboards/admin/volumes/volumes/tables.py:33
 #: dashboards/admin/volumes/volumes/views.py:47
 msgid "Manage Volume"
-msgstr ""
+msgstr "Gestionar volumen"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/unmanage_volume.html:3
 #: dashboards/admin/volumes/volumes/tables.py:43
 msgid "Unmanage Volume"
-msgstr ""
+msgstr "Volumen no administrado"
 
 #: dashboards/admin/volumes/templates/volumes/volumes/update_status.html:3
 #: dashboards/admin/volumes/volumes/tables.py:69
@@ -4371,13 +4371,13 @@ msgstr "No ha sido posible editar una especificaciones adicionales para el tipo 
 msgid "Delete Extra Spec"
 msgid_plural "Delete Extra Specs"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Eliminar Specs extra"
 
 #: dashboards/admin/volumes/volume_types/extras/tables.py:35
 msgid "Deleted Extra Spec"
 msgid_plural "Deleted Extra Specs"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Extra Specs eliminadas"
 
 #: dashboards/admin/volumes/volume_types/extras/tables.py:48
 #: dashboards/admin/volumes/volume_types/extras/views.py:64
@@ -4421,7 +4421,7 @@ msgstr "No ha sido posible obtener la lista de especificaciones adicionales."
 #: dashboards/admin/volumes/volume_types/extras/views.py:86
 #, python-format
 msgid "Edit Extra Spec Value: %s"
-msgstr ""
+msgstr "Editar extra Spec Valor: %s"
 
 #: dashboards/admin/volumes/volume_types/extras/views.py:107
 msgid "Unable to retrieve volume type extra spec details."
@@ -4434,7 +4434,7 @@ msgstr "Se ha creado correctamente la encriptación de volumen: %s"
 
 #: dashboards/admin/volumes/volume_types/forms.py:58
 msgid "Unable to create encrypted volume type."
-msgstr ""
+msgstr "No se puede crear el tipo de volumen cifrado"
 
 #: dashboards/admin/volumes/volume_types/forms.py:64
 msgid "QoS Spec to be associated"
@@ -4512,23 +4512,23 @@ msgstr "No definido"
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:56
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:106
 msgid "QoS Spec: {{ qos_spec_name }}"
-msgstr ""
+msgstr "QoS Spec: {{ qos_spec_name }}"
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:65
 msgid "Unable to retrieve QoS spec list."
-msgstr ""
+msgstr "No se puede recuperar la lista de especificaciones de QoS"
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:79
 msgid "Spec: {{ qos_spec_name }}"
-msgstr ""
+msgstr "Spec: {{ qos_spec_name }}"
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:100
 msgid "Edit Spec Value"
-msgstr ""
+msgstr "Editar el valor del Spec."
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:120
 msgid "Unable to retrieve QoS spec details."
-msgstr ""
+msgstr "No se puede recuperar de QoS detalles de especificaciones."
 
 #: dashboards/admin/volumes/volume_types/tables.py:34
 msgid "View Extra Specs"
@@ -4564,15 +4564,15 @@ msgstr[1] "Eliminar encriptaciones"
 msgid "Deleted Encryption"
 msgid_plural "Deleted Encryptions"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Cifrados Eliminados"
 
 #: dashboards/admin/volumes/volume_types/tables.py:122
 msgid "Unable to determine if volume type encryption is supported."
-msgstr ""
+msgstr "No se puede determinar si el cifrado tipo de volumen es apoyado."
 
 #: dashboards/admin/volumes/volume_types/tables.py:148
 msgid "Associated QoS Spec"
-msgstr ""
+msgstr "Spec de QoS Asociado"
 
 #: dashboards/admin/volumes/volume_types/tables.py:150
 msgid "Encryption"
@@ -4586,13 +4586,13 @@ msgstr "Gestion de especificaciones"
 msgid "Delete QoS Spec"
 msgid_plural "Delete QoS Specs"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Eliminar QoS Specs"
 
 #: dashboards/admin/volumes/volume_types/tables.py:209
 msgid "Deleted QoS Spec"
 msgid_plural "Deleted QoS Specs"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "QoS Specs Eliminados"
 
 #: dashboards/admin/volumes/volume_types/tables.py:221
 msgid "Edit Consumer"
@@ -4605,7 +4605,7 @@ msgstr "Consumidor"
 
 #: dashboards/admin/volumes/volume_types/tables.py:245
 msgid "QoS Specs"
-msgstr ""
+msgstr "Specs QoS"
 
 #: dashboards/admin/volumes/volume_types/views.py:41
 msgid "Create a Volume Type"
@@ -4613,7 +4613,7 @@ msgstr "Crear un tipo de volumen"
 
 #: dashboards/admin/volumes/volume_types/views.py:72
 msgid "Unable to retrieve volume type encryption details."
-msgstr ""
+msgstr "No se puede obtener el detalle del tipo de cifrado del volumen"
 
 #: dashboards/admin/volumes/volume_types/views.py:83
 #: dashboards/admin/volumes/volume_types/views.py:87
@@ -4622,11 +4622,11 @@ msgstr "Crear tipo de cifrado de volumen"
 
 #: dashboards/admin/volumes/volume_types/views.py:90
 msgid "Create an Encrypted Volume Type"
-msgstr ""
+msgstr "Crear un  volumen del tipo encriptado"
 
 #: dashboards/admin/volumes/volume_types/views.py:100
 msgid "Unable to retrieve volume type name."
-msgstr ""
+msgstr "No ha sido posible obtener los tipos de volúmenes."
 
 #: dashboards/admin/volumes/volume_types/views.py:125
 msgid "Create a QoS Spec"
@@ -4642,7 +4642,7 @@ msgstr "Modificar consumidores"
 
 #: dashboards/admin/volumes/volume_types/views.py:161
 msgid "Unable to retrieve QoS Spec details."
-msgstr ""
+msgstr "Imposible obtener los detalles de las caracteristicas de QoS"
 
 #: dashboards/admin/volumes/volume_types/views.py:175
 #: dashboards/admin/volumes/volume_types/views.py:182
@@ -4658,15 +4658,15 @@ msgstr "Asociar"
 
 #: dashboards/admin/volumes/volume_types/views.py:211
 msgid "Unable to retrieve QoS Specs."
-msgstr ""
+msgstr "Imposible obtener las caracteristica de QoS."
 
 #: dashboards/admin/volumes/volume_types/views.py:231
 msgid "Unable to retrieve QoS Spec association."
-msgstr ""
+msgstr "Imposible obtener la asociación de caracteritica de  QoS."
 
 #: dashboards/admin/volumes/volumes/forms.py:33
 msgid "Invalid metadata entry. Use comma-separated key=value pairs"
-msgstr ""
+msgstr "Entrada de metadata invalida, pares clave=valor separado por coma"
 
 #: dashboards/admin/volumes/volumes/forms.py:48
 msgid "Identifier"
@@ -4674,7 +4674,7 @@ msgstr "Identificador"
 
 #: dashboards/admin/volumes/volumes/forms.py:49
 msgid "Name or other identifier for existing volume"
-msgstr ""
+msgstr "Nombre u otro identificador para el volumen existente"
 
 #: dashboards/admin/volumes/volumes/forms.py:51
 msgid "Identifier Type"
@@ -4682,13 +4682,13 @@ msgstr "Tipo de identificador"
 
 #: dashboards/admin/volumes/volumes/forms.py:52
 msgid "Type of backend device identifier provided"
-msgstr ""
+msgstr "Tipo de indentificador dispositivo posterior previsto. "
 
 #: dashboards/admin/volumes/volumes/forms.py:56
 msgid ""
 "Cinder host on which the existing volume resides; takes the form: host"
 "@backend-name#pool"
-msgstr ""
+msgstr "Anfitrión de Cinder en el que reside el volumen existente; toma la forma: host@backend-name#pool"
 
 #: dashboards/admin/volumes/volumes/forms.py:62
 msgid "Volume name to be assigned"
@@ -4720,11 +4720,11 @@ msgstr "Sin tipo de volumen"
 #: dashboards/admin/volumes/volumes/forms.py:128
 #, python-format
 msgid "Successfully sent the request to manage volume: %s"
-msgstr ""
+msgstr "Enviado con éxito la petición para gestionar el volumen: %s"
 
 #: dashboards/admin/volumes/volumes/forms.py:133
 msgid "Unable to manage volume."
-msgstr ""
+msgstr "Incapaz de manejar el volumen."
 
 #: dashboards/admin/volumes/volumes/forms.py:159
 #, python-format
@@ -4781,7 +4781,7 @@ msgstr ""
 
 #: dashboards/admin/volumes/volumes/views.py:49
 msgid "Manage"
-msgstr ""
+msgstr "Gestionar"
 
 #: dashboards/admin/volumes/volumes/views.py:53
 msgid "Manage a Volume"
@@ -5069,13 +5069,13 @@ msgstr "Editar grupo"
 msgid "Delete Group"
 msgid_plural "Delete Groups"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Borrar Grupos"
 
 #: dashboards/identity/groups/tables.py:73
 msgid "Deleted Group"
 msgid_plural "Deleted Groups"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Grupos borrados"
 
 #: dashboards/identity/groups/tables.py:118
 msgid "Group ID"
@@ -5085,13 +5085,13 @@ msgstr "ID de grupo"
 msgid "Remove User"
 msgid_plural "Remove Users"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Eliminar usuarios"
 
 #: dashboards/identity/groups/tables.py:149
 msgid "Removed User"
 msgid_plural "Removed Users"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Usuarios eliminados"
 
 #: dashboards/identity/groups/tables.py:175
 msgid "Add Users"
@@ -5238,7 +5238,7 @@ msgstr "Modificar cuotas"
 msgid "Delete Project"
 msgid_plural "Delete Projects"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Eleminar proyectos "
 
 #: dashboards/identity/projects/tables.py:148
 msgid "Deleted Project"
@@ -7291,13 +7291,13 @@ msgstr "Escalar Clúster"
 msgid "Delete Cluster"
 msgid_plural "Delete Clusters"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Eliminar clústers"
 
 #: dashboards/project/data_processing/clusters/tables.py:75
 msgid "Deleted Cluster"
 msgid_plural "Deleted Clusters"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Clusters eliminados"
 
 #: dashboards/project/data_processing/clusters/tables.py:95
 #: dashboards/project/data_processing/job_executions/tables.py:132
@@ -10135,12 +10135,12 @@ msgstr ""
 #: dashboards/project/firewalls/tables.py:334
 msgctxt "Admin state of a Firewall"
 msgid "UP"
-msgstr ""
+msgstr "ARRIBA"
 
 #: dashboards/project/firewalls/tables.py:335
 msgctxt "Admin state of a Firewall"
 msgid "DOWN"
-msgstr ""
+msgstr "ABAJO"
 
 #: dashboards/project/firewalls/tables.py:345
 msgid "Associated Routers"
@@ -10617,13 +10617,13 @@ msgstr ""
 msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Eliminar imágenes"
 
 #: dashboards/project/images/images/tables.py:98
 msgid "Deleted Image"
 msgid_plural "Deleted Images"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Imágenes eliminadas"
 
 #: dashboards/project/images/images/tables.py:129
 msgid "Edit Image"
@@ -13139,13 +13139,13 @@ msgstr "Editar puerto"
 #: dashboards/project/routers/ports/tables.py:94
 msgctxt "Admin state of a Port"
 msgid "UP"
-msgstr ""
+msgstr "ARRIBA"
 
 #: dashboards/project/networks/ports/tables.py:56
 #: dashboards/project/routers/ports/tables.py:95
 msgctxt "Admin state of a Port"
 msgid "DOWN"
-msgstr ""
+msgstr "ABAJO"
 
 #: dashboards/project/networks/ports/tables.py:60
 msgctxt "status of a network port"
@@ -13935,12 +13935,12 @@ msgstr "Error"
 #: dashboards/project/routers/tables.py:204
 msgctxt "Admin state of a Router"
 msgid "UP"
-msgstr ""
+msgstr "ARRIBA"
 
 #: dashboards/project/routers/tables.py:205
 msgctxt "Admin state of a Router"
 msgid "DOWN"
-msgstr ""
+msgstr "ABAJO"
 
 #. Translators: High Availability mode of Neutron router
 #: dashboards/project/routers/tables.py:221
