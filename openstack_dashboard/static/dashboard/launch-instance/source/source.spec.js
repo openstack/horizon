@@ -128,8 +128,8 @@
       describe('Scope Functions', function() {
 
         describe('updateBootSourceSelection', function() {
-          var tableKeys = [ 'available', 'allocated',
-                            'displayedAvailable', 'displayedAllocated' ];
+          var tableKeys = ['available', 'allocated',
+            'displayedAvailable', 'displayedAllocated'];
 
           it('updates the scope appropriately', function() {
             var selSource = 'image';
@@ -144,11 +144,14 @@
             expect(Object.keys(scope.tableData)).toEqual(tableKeys);
             expect(scope.tableHeadCells.length).toBeGreaterThan(0);
             expect(scope.tableBodyCells.length).toBeGreaterThan(0);
+
             expect(scope.maxInstanceCount).toBe(10);
-            expect(scope.instanceStats.label).toBe('0%');
+
+            // check chart data and labels
+            expect(scope.instanceStats.label).toBe('10%');
             expect(scope.instanceStats.data[0].value).toEqual(0);
-            expect(scope.instanceStats.data[1].value).toEqual(0);
-            expect(scope.instanceStats.data[2].value).toEqual(10);
+            expect(scope.instanceStats.data[1].value).toEqual(1);
+            expect(scope.instanceStats.data[2].value).toEqual(9);
           });
         });
 
@@ -159,10 +162,12 @@
             scope.$digest();
 
             expect(scope.maxInstanceCount).toBe(9);
-            expect(scope.instanceStats.label).toBe('0%');
+
+            // check chart data and labels
+            expect(scope.instanceStats.label).toBe('11%');
             expect(scope.instanceStats.data[0].value).toEqual(0);
-            expect(scope.instanceStats.data[1].value).toEqual(0);
-            expect(scope.instanceStats.data[2].value).toEqual(9);
+            expect(scope.instanceStats.data[1].value).toEqual(1);
+            expect(scope.instanceStats.data[2].value).toEqual(8);
           });
         });
 
@@ -173,10 +178,38 @@
             scope.$digest();
 
             expect(scope.maxInstanceCount).toBe(9);
-            expect(scope.instanceStats.label).toBe('10%');
+
+            // check chart data and labels
+            expect(scope.instanceStats.label).toBe('20%');
             expect(scope.instanceStats.data[0].value).toEqual(1);
-            expect(scope.instanceStats.data[1].value).toEqual(0);
-            expect(scope.instanceStats.data[2].value).toEqual(9);
+            expect(scope.instanceStats.data[1].value).toEqual(1);
+            expect(scope.instanceStats.data[2].value).toEqual(8);
+          });
+        });
+
+        describe('the instanceStats chart is set up correctly', function() {
+
+          it('chart should have a title of "Total Instances"', function() {
+            expect(scope.instanceStats.title).toBe('Total Instances');
+          });
+
+          it('chart should have a maxLimit value defined', function() {
+            expect(scope.instanceStats.maxLimit).toBeDefined();
+          });
+
+
+          it('instanceStats.overMax should get set to true if instance_count exceeds maxLimit', function() {
+            scope.tableData.allocated.push({ name: 'image-1', size: 0, min_disk: 0 });
+            scope.model.newInstanceSpec.instance_count = 11;
+            scope.$digest();
+
+            // check chart data and labels
+            expect(scope.instanceStats.label).toBe('110%');
+            expect(scope.instanceStats.data[0].value).toEqual(0);
+            expect(scope.instanceStats.data[1].value).toEqual(11);
+            expect(scope.instanceStats.data[2].value).toEqual(0);
+            // check to ensure overMax
+            expect(scope.instanceStats.overMax).toBe(true);
           });
         });
 
@@ -200,10 +233,11 @@
             scope.model.newInstanceSpec.instance_count = 2;
             scope.$digest();
 
-            expect(scope.instanceStats.label).toBe('0%');
+             // check chart data and labels
+            expect(scope.instanceStats.label).toBe('20%');
             expect(scope.instanceStats.data[0].value).toEqual(0);
-            expect(scope.instanceStats.data[1].value).toEqual(0);
-            expect(scope.instanceStats.data[2].value).toEqual(10);
+            expect(scope.instanceStats.data[1].value).toEqual(2);
+            expect(scope.instanceStats.data[2].value).toEqual(8);
           });
 
           it('should update chart stats if instance count = 2 and source selected', function() {
@@ -211,6 +245,7 @@
             scope.model.newInstanceSpec.instance_count = 2;
             scope.$digest();
 
+            // check chart data and labels
             expect(scope.instanceStats.label).toBe('20%');
             expect(scope.instanceStats.data[0].value).toEqual(0);
             expect(scope.instanceStats.data[1].value).toEqual(2);
@@ -224,28 +259,11 @@
             scope.tableData.allocated.push({ name: 'image-1', size: 0, min_disk: 0 });
             scope.$digest();
 
+            // check chart data and labels
             expect(scope.instanceStats.label).toBe('10%');
             expect(scope.instanceStats.data[0].value).toEqual(0);
             expect(scope.instanceStats.data[1].value).toEqual(1);
             expect(scope.instanceStats.data[2].value).toEqual(9);
-          });
-
-          it('should update chart stats if source allocated, then deallocated', function() {
-            scope.tableData.allocated.push({ name: 'image-1', size: 0, min_disk: 0 });
-            scope.$digest();
-
-            expect(scope.instanceStats.label).toBe('10%');
-            expect(scope.instanceStats.data[0].value).toEqual(0);
-            expect(scope.instanceStats.data[1].value).toEqual(1);
-            expect(scope.instanceStats.data[2].value).toEqual(9);
-
-            scope.tableData.allocated.pop();
-            scope.$digest();
-
-            expect(scope.instanceStats.label).toBe('0%');
-            expect(scope.instanceStats.data[0].value).toEqual(0);
-            expect(scope.instanceStats.data[1].value).toEqual(0);
-            expect(scope.instanceStats.data[2].value).toEqual(10);
           });
 
           it('should set minVolumeSize to 1 if source allocated and size = min_disk = 1GB', function() {

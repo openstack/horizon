@@ -375,7 +375,7 @@
       var instance_count = $scope.model.newInstanceSpec.instance_count || 1;
 
       var data = $scope.instanceStats.data;
-      var added = selection.length * instance_count;
+      var added = instance_count;
       var remaining = Math.max(0, maxTotalInstances - totalInstancesUsed - added);
 
       $scope.instanceStats.maxLimit = maxTotalInstances;
