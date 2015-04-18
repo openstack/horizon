@@ -7,13 +7,14 @@
 # cametiope <aldohcasa@hotmail.com>, 2014
 # egongu90 <dabarren@gmail.com>, 2014
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2014
+# Sergio Cuellar Valdes <scuellarv@kionetworks.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-15 02:00-0500\n"
-"PO-Revision-Date: 2015-04-17 06:11+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"PO-Revision-Date: 2015-04-17 22:43+0000\n"
+"Last-Translator: Sergio Cuellar Valdes <scuellarv@kionetworks.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3831,12 +3832,12 @@ msgstr ""
 #: dashboards/admin/overview/templates/overview/usage.csv:6
 #: dashboards/project/overview/templates/overview/usage.csv:7
 msgid "Total Disk Size (GB):"
-msgstr ""
+msgstr "Tamaño Total del Disco (GB):"
 
 #: dashboards/admin/overview/templates/overview/usage.csv:7
 #: dashboards/project/overview/templates/overview/usage.csv:8
 msgid "Total Disk Usage (Hours):"
-msgstr ""
+msgstr "Total de Uso del Disco (Horas):"
 
 #: dashboards/admin/overview/templates/overview/usage.html:3
 msgid "Usage Overview"
@@ -4125,14 +4126,14 @@ msgid ""
 "The <strong>Cipher</strong> is the encryption algorithm/mode to use (e.g., "
 "aes-xts-plain64). If the field is left empty, the provider default will be "
 "used."
-msgstr ""
+msgstr "<strong>Cipher</strong> es el algoritmo de encripción/modo a utilizar (ej., aes-xts-plain64). Si el campo se deja vacío, se utilizará el proveedor determinado."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:19
 msgid ""
 "The <strong>Key Size</strong> is the size of the encryption key, in bits "
 "(e.g., 128, 256). If the field is left empty, the provider default will be "
 "used."
-msgstr ""
+msgstr "El <strong>Tamaño de la Llave</strong> es el tamaño de la llave de cifrado, en bits (por ejemplo, 128, 256). Si el campo es dejado vacío, se usará el valor por defecto."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:6
 msgid ""
@@ -4286,7 +4287,7 @@ msgid ""
 "    <br>\n"
 "    This is equivalent to the <tt>cinder manage</tt> command.\n"
 "    "
-msgstr ""
+msgstr "\n    \"Administrar\" un volúmen existente de un host Cinder. Esto hará el volúmen visible dentro de\n    OpenStack.\n    <br>\n    <br>\n    Equivalente al comando <tt>cinder manage</tt>.\n    "
 
 #: dashboards/admin/volumes/templates/volumes/volumes/_unmanage_volume.html:6
 msgid ""
@@ -4297,7 +4298,7 @@ msgid ""
 "    <br>\n"
 "    This is equivalent to the <tt>cinder unmanage</tt> command.\n"
 "    "
-msgstr ""
+msgstr "\n    Cuando un volúmen se encuentra \"sin administrar\", el volúmen dejará de ser visible dentro de OpenStack. El volúmen no será eliminado del host Cinder.\n    <br>\n    <br>\n    Esto es equivalente al comando <tt>cinder unmanage</tt>.\n    "
 
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:6
 msgid ""
@@ -4729,11 +4730,11 @@ msgstr "Incapaz de manejar el volumen."
 #: dashboards/admin/volumes/volumes/forms.py:159
 #, python-format
 msgid "Successfully sent the request to unmanage volume: %s"
-msgstr ""
+msgstr "Se ha enviado correctamente la peticion para dejar manejar el volumen: %s"
 
 #: dashboards/admin/volumes/volumes/forms.py:164
 msgid "Unable to unmanage volume."
-msgstr ""
+msgstr "Incapaz de dejar de manejar el volumen."
 
 #: dashboards/admin/volumes/volumes/forms.py:176
 #, python-format
@@ -4769,15 +4770,15 @@ msgstr "No ha sido posible actualizar el estado del volumen a \"%s\"."
 #: dashboards/admin/volumes/volumes/forms.py:239
 #, python-format
 msgid "Successfully created QoS Spec: %s"
-msgstr ""
+msgstr "La especification de QoS: %s se ha creado correctamente."
 
 #: dashboards/admin/volumes/volumes/forms.py:245
 msgid "Unable to create QoS Spec."
-msgstr ""
+msgstr "No se ha podido crear la especificación de QoS."
 
 #: dashboards/admin/volumes/volumes/tables.py:61
 msgid "Unable to retrieve snapshot data."
-msgstr ""
+msgstr "No se puede recuperar datos del snapshot.."
 
 #: dashboards/admin/volumes/volumes/views.py:49
 msgid "Manage"
@@ -4785,19 +4786,19 @@ msgstr "Gestionar"
 
 #: dashboards/admin/volumes/volumes/views.py:53
 msgid "Manage a Volume"
-msgstr ""
+msgstr "Administrar un Volumen"
 
 #: dashboards/admin/volumes/volumes/views.py:63
 msgid "Confirm Unmanage Volume"
-msgstr ""
+msgstr "Confirme dejar de administrar el volumen"
 
 #: dashboards/admin/volumes/volumes/views.py:65
 msgid "Unmanage"
-msgstr ""
+msgstr "Dejar de administrar"
 
 #: dashboards/admin/volumes/volumes/views.py:69
 msgid "Unmanage a Volume"
-msgstr ""
+msgstr "Dejar de administrar un volumen."
 
 #: dashboards/admin/volumes/volumes/views.py:84
 #: dashboards/admin/volumes/volumes/views.py:128
@@ -4821,7 +4822,7 @@ msgstr "Dominios"
 #: dashboards/identity/groups/tables.py:91
 #: dashboards/identity/projects/tables.py:54
 msgid "Manage Members"
-msgstr ""
+msgstr "Administrar Miembros"
 
 #: dashboards/identity/domains/tables.py:55
 #: dashboards/identity/projects/tables.py:70
@@ -4838,13 +4839,13 @@ msgstr "Crear dominio"
 msgid "Delete Domain"
 msgid_plural "Delete Domains"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Eliminar Dominios"
 
 #: dashboards/identity/domains/tables.py:103
 msgid "Deleted Domain"
 msgid_plural "Deleted Domains"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Dominios Eliminados"
 
 #: dashboards/identity/domains/tables.py:117
 #, python-format
@@ -5193,7 +5194,7 @@ msgstr "No ha sido posible actualizar el grupo."
 
 #: dashboards/identity/groups/views.py:126
 msgid "Group Management: {{ group.name }}"
-msgstr ""
+msgstr "Administracion de Grupo: {{ group.name }}"
 
 #: dashboards/identity/groups/views.py:139
 msgid "Unable to retrieve group users."
@@ -5244,7 +5245,7 @@ msgstr[1] "Eleminar proyectos "
 msgid "Deleted Project"
 msgid_plural "Deleted Projects"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Proyectos Eliminados"
 
 #: dashboards/identity/projects/tables.py:217
 #: dashboards/identity/users/tables.py:205
@@ -5295,7 +5296,7 @@ msgstr "No ha sido posible obtener los detalles del proyecto."
 #: dashboards/identity/projects/views.py:217
 #, python-format
 msgid "Project Details: %s"
-msgstr ""
+msgstr "Detalles del Proyecto: %s"
 
 #: dashboards/identity/projects/workflows.py:48
 msgid "Injected File Content (Bytes)"
@@ -5469,13 +5470,13 @@ msgstr "Crear rol"
 msgid "Delete Role"
 msgid_plural "Delete Roles"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Eliminar Roles"
 
 #: dashboards/identity/roles/tables.py:59
 msgid "Deleted Role"
 msgid_plural "Deleted Roles"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Roles Eliminados"
 
 #: dashboards/identity/roles/tables.py:82
 msgid "Role ID"
@@ -5565,7 +5566,7 @@ msgstr "No ha sido posible actualizar el usuario."
 #: dashboards/identity/users/forms.py:229
 #: dashboards/project/instances/workflows/create_instance.py:535
 msgid "Admin Password"
-msgstr ""
+msgstr "Contraseña de Administrador"
 
 #: dashboards/identity/users/forms.py:249
 msgid "The admin password is incorrect."
@@ -5615,25 +5616,25 @@ msgstr "Cambiar contraseña"
 msgid "Enable User"
 msgid_plural "Enable Users"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Habilitar Usuarios"
 
 #: dashboards/identity/users/tables.py:83
 msgid "Disable User"
 msgid_plural "Disable Users"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Deshabilitar Usuarios"
 
 #: dashboards/identity/users/tables.py:93
 msgid "Enabled User"
 msgid_plural "Enabled Users"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Usuarios Habilitados"
 
 #: dashboards/identity/users/tables.py:98
 msgid "Disabled User"
 msgid_plural "Disabled Users"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Usuarios Deshabilitados"
 
 #: dashboards/identity/users/tables.py:128
 msgid "You cannot disable the user you are currently logged in as."
@@ -5644,14 +5645,14 @@ msgstr "No puede deshabilitar el usuario que está utilizando actualmente."
 msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Eliminar usuarios"
 
 #: dashboards/identity/users/tables.py:151
 #: dashboards/project/databases/tables.py:132
 msgid "Deleted User"
 msgid_plural "Deleted Users"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Usuarios Eliminados "
 
 #: dashboards/identity/users/templates/users/_change_password.html:6
 msgid "Change user's password. We highly recommend you create a strong one."
@@ -5696,7 +5697,7 @@ msgstr "No ha sido posible obtener los roles de usuario."
 
 #: dashboards/identity/users/views.py:164
 msgid "User Details: {{ user.name }}"
-msgstr ""
+msgstr "Detalles de Usuario:  {{ user.name }}"
 
 #: dashboards/identity/users/views.py:195
 msgid "Unable to retrieve user details."
@@ -5797,13 +5798,13 @@ msgstr "Una vez que una IP flotante es liberada, no se puede garantizar que la m
 msgid "Release Floating IP"
 msgid_plural "Release Floating IPs"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Liberar IPs Flotantes"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:90
 msgid "Released Floating IP"
 msgid_plural "Released Floating IPs"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "IPs Flotantes Liberadas"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:132
 #: dashboards/project/loadbalancers/workflows.py:736
@@ -5973,13 +5974,13 @@ msgstr "No ha sido posible importar el par de claves."
 msgid "Delete Key Pair"
 msgid_plural "Delete Key Pairs"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Borrar pares de claves"
 
 #: dashboards/project/access_and_security/keypairs/tables.py:39
 msgid "Deleted Key Pair"
 msgid_plural "Deleted Key Pairs"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Pares de claves borradas"
 
 #: dashboards/project/access_and_security/keypairs/tables.py:50
 #: dashboards/project/access_and_security/keypairs/views.py:59
@@ -6239,13 +6240,13 @@ msgstr "No ha sido posible agregar la regla al grupo de seguridad."
 msgid "Delete Security Group"
 msgid_plural "Delete Security Groups"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Borrar grupos de seguridad"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:45
 msgid "Deleted Security Group"
 msgid_plural "Deleted Security Groups"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Grupos de seguridad borrados"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:70
 #: dashboards/project/access_and_security/security_groups/tables.py:87
@@ -6258,7 +6259,7 @@ msgstr "Crear grupo de seguridad"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:85
 msgid "Create Security Group (Quota exceeded)"
-msgstr ""
+msgstr "Crear grupo de seguridad (cuota superada)"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:95
 #: dashboards/project/access_and_security/security_groups/views.py:73
@@ -6286,13 +6287,13 @@ msgstr "Agregar regla"
 msgid "Delete Rule"
 msgid_plural "Delete Rules"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Eliminar Reglas"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:185
 msgid "Deleted Rule"
 msgid_plural "Deleted Rules"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Reglas Eliminadas"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:226
 #: dashboards/project/access_and_security/security_groups/tables.py:245
@@ -6301,11 +6302,11 @@ msgstr "Cualquier"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:274
 msgid "Remote IP Prefix"
-msgstr ""
+msgstr "Prefijo de IP Remota"
 
 #: dashboards/project/access_and_security/security_groups/tables.py:276
 msgid "Remote Security Group"
-msgstr ""
+msgstr "Grupo de Seguridad Remoto"
 
 #: dashboards/project/access_and_security/security_groups/views.py:43
 msgid ""
@@ -6647,13 +6648,13 @@ msgstr "Se ha modificado correctamente a acceso privado el contenedor."
 msgid "Delete Container"
 msgid_plural "Delete Containers"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Borrar contenedores"
 
 #: dashboards/project/containers/tables.py:113
 msgid "Deleted Container"
 msgid_plural "Deleted Containers"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Contenedores borrados"
 
 #: dashboards/project/containers/tables.py:127
 msgid "Unable to delete container."
@@ -6693,14 +6694,14 @@ msgstr "Detalle de contenedor"
 #: dashboards/project/containers/tables.py:328
 msgid "Delete Object"
 msgid_plural "Delete Objects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Eliminar Objeto"
+msgstr[1] "Eliminar Objetos"
 
 #: dashboards/project/containers/tables.py:336
 msgid "Deleted Object"
 msgid_plural "Deleted Objects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Objeto Eliminado"
+msgstr[1] "Objetos eliminados"
 
 #: dashboards/project/containers/tables.py:363
 msgid "Copy"
@@ -6995,14 +6996,14 @@ msgstr "Copiar plantilla"
 msgid "Delete Template"
 msgid_plural "Delete Templates"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Eliminar plantillas"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:80
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:71
 msgid "Deleted Template"
 msgid_plural "Deleted Templates"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Plantillas eliminadas"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:91
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:35
@@ -7144,7 +7145,7 @@ msgstr "Plantilla no especificada"
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:37
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:133
 msgid "Proxy Gateway"
-msgstr ""
+msgstr "Salto hacia puerta de enlace"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:29
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:32
@@ -7202,7 +7203,7 @@ msgstr "No ha sido posible obtener la lista de plantillas de clúster"
 
 #: dashboards/project/data_processing/cluster_templates/views.py:104
 msgid "Copy Cluster Template"
-msgstr ""
+msgstr "Copiar Plantilla de Cluster"
 
 #: dashboards/project/data_processing/cluster_templates/views.py:122
 #: dashboards/project/data_processing/clusters/views.py:111
@@ -7278,7 +7279,7 @@ msgstr "Clusters"
 #: dashboards/project/data_processing/clusters/tables.py:41
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:27
 msgid "Cluster Creation Guide"
-msgstr ""
+msgstr "Guía de creación del clúster"
 
 #: dashboards/project/data_processing/clusters/tables.py:55
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/scale.html:3
@@ -7360,7 +7361,7 @@ msgstr "Hecho"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_create_general_help.html:3
 msgid "Select a plugin and version for a new Cluster."
-msgstr ""
+msgstr "Seleccione un plugin y versión para el nuevo Cluster."
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:3
 msgid "Cluster Overview"
@@ -7388,12 +7389,12 @@ msgstr "Par de clave"
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:86
 #, python-format
 msgid "%(key)s: %(val)s"
-msgstr ""
+msgstr "%(key)s: %(val)s"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:10
 #, python-format
 msgid "Name: %(node_group_name)s"
-msgstr ""
+msgstr "Nombre: %(node_group_name)s"
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:11
 msgid "Number of Nodes"
@@ -7464,7 +7465,7 @@ msgstr "Lanzar"
 #: dashboards/project/data_processing/clusters/workflows/create.py:221
 #, python-format
 msgid "Launched Cluster %s"
-msgstr ""
+msgstr "Clúster lanzado %s"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:253
 msgid "Unable to create the cluster"
@@ -7680,13 +7681,13 @@ msgstr "Crear origen de datos"
 msgid "Delete Data Source"
 msgid_plural "Delete Data Sources"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Eliminar orígenes de datos"
 
 #: dashboards/project/data_processing/data_sources/tables.py:46
 msgid "Deleted Data Source"
 msgid_plural "Deleted Data Sources"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Orígenes de datos eliminados"
 
 #: dashboards/project/data_processing/data_sources/tabs.py:38
 msgid "Unable to retrieve data source details"
@@ -7829,13 +7830,13 @@ msgstr "Archivos binarios del trabajo"
 msgid "Delete Job Binary"
 msgid_plural "Delete Job Binaries"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Eliminar binarios de los trabajos"
 
 #: dashboards/project/data_processing/job_binaries/tables.py:49
 msgid "Deleted Job Binary"
 msgid_plural "Deleted Job Binaries"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Trabajos eliminados"
 
 #: dashboards/project/data_processing/job_binaries/tables.py:71
 msgid "Download Job Binary"
@@ -7940,19 +7941,19 @@ msgstr "Cluster"
 
 #: dashboards/project/data_processing/job_executions/tables.py:45
 msgid "Job Guide"
-msgstr ""
+msgstr "Guía del trabajo"
 
 #: dashboards/project/data_processing/job_executions/tables.py:53
 msgid "Delete Job"
 msgid_plural "Delete Jobs"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Eliminar trabajos"
 
 #: dashboards/project/data_processing/job_executions/tables.py:61
 msgid "Deleted Job"
 msgid_plural "Deleted Jobs"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Trabajos eliminados"
 
 #: dashboards/project/data_processing/job_executions/tables.py:74
 #: dashboards/project/data_processing/job_executions/tables.py:103
@@ -7966,14 +7967,14 @@ msgstr[1] ""
 msgid "Launch Job"
 msgid_plural "Launch Jobs"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Lanzar trabajos"
 
 #: dashboards/project/data_processing/job_executions/tables.py:82
 #: dashboards/project/data_processing/job_executions/tables.py:111
 msgid "Launched Job"
 msgid_plural "Launched Jobs"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Trabajos lanzados"
 
 #: dashboards/project/data_processing/job_executions/tables.py:88
 msgid "Relaunch On Existing Cluster"
@@ -8002,7 +8003,7 @@ msgstr "No disponible"
 #: dashboards/project/data_processing/job_executions/tables.py:176
 msgctxt "Current status of a Job"
 msgid "Done with Error"
-msgstr ""
+msgstr "Hecho con Error"
 
 #: dashboards/project/data_processing/job_executions/tables.py:178
 msgctxt "Current status of a Job"
@@ -8023,11 +8024,11 @@ msgstr ""
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:10
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:3
 msgid "Job Template"
-msgstr ""
+msgstr "Plantilla de Trabajo"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:3
 msgid "Job Overview"
-msgstr ""
+msgstr "Vista General del Trabajo"
 
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:12
 msgid "Input Data Source"
@@ -8097,7 +8098,7 @@ msgstr "Detalles de la ejecución del trabajo"
 #: dashboards/project/data_processing/jobs/tables.py:111
 #: dashboards/project/data_processing/jobs/views.py:41
 msgid "Job Templates"
-msgstr ""
+msgstr "Plantillas de Trabajo"
 
 #: dashboards/project/data_processing/jobs/tables.py:36
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:3
@@ -8130,7 +8131,7 @@ msgstr "Ejecutar en un nuevo Clúster"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:4
 msgid "Create a job template with a specified name."
-msgstr ""
+msgstr "Crear una plantilla de trabajo con un nombre específico."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:7
 msgid "Select the type of your job:"
@@ -8183,11 +8184,11 @@ msgstr "Para trabajos MapReduce o Java Action no se aplican los prinicipales bin
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:27
 msgid "You may also enter an optional description for your job template."
-msgstr ""
+msgstr "También puede incluir una descripción opcional de su plantilla de trabajo."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_libs_help.html:4
 msgid "Add libraries to your job template."
-msgstr ""
+msgstr "Añada librerías a su plantilla de trabajo."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_libs_help.html:7
 msgid ""
@@ -8214,7 +8215,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_launch_job_help.html:7
 msgid "Choose the cluster to use for the job."
-msgstr ""
+msgstr "Elegir el clúster a usar para el trabajo"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_launch_job_help.html:10
 msgid "Choose the Input Data Source (n/a for Java jobs)."
@@ -8251,7 +8252,7 @@ msgstr "Argumentos"
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/details.html:3
 #: dashboards/project/data_processing/jobs/views.py:70
 msgid "Job Template Details"
-msgstr ""
+msgstr "Detalles de la Plantilla de Trabajo"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/library_template.html:86
 msgid "Choose"
@@ -8539,7 +8540,7 @@ msgstr "No es posible generar opciones de proceso."
 msgid ""
 "Sahara will use instances of this node group to access other cluster "
 "instances."
-msgstr ""
+msgstr "Sahara usará instancias de este grupo de nodos para accesar otras instancias del cluster."
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:140
 msgid "Processes"
@@ -8619,7 +8620,7 @@ msgstr "Elementos"
 #: dashboards/project/data_processing/utils/workflow_helpers.py:151
 #, python-format
 msgid "Unable to retrieve security group %(group)s."
-msgstr ""
+msgstr "No ha sido posible obtener el grupo de seguridad %(group)s."
 
 #: dashboards/project/data_processing/utils/workflow_helpers.py:186
 #: dashboards/project/data_processing/wizard/forms.py:56
@@ -8628,7 +8629,7 @@ msgstr "Nombre del plugin"
 
 #: dashboards/project/data_processing/wizard/forms.py:43
 msgid "Cluster type chosen"
-msgstr ""
+msgstr "Tipo de Cluster elegido"
 
 #: dashboards/project/data_processing/wizard/forms.py:47
 msgid "Unable to set cluster type"
@@ -8636,11 +8637,11 @@ msgstr ""
 
 #: dashboards/project/data_processing/wizard/forms.py:86
 msgid "Choose plugin type and version"
-msgstr ""
+msgstr "Elegir la versión y el tipo de plugin"
 
 #: dashboards/project/data_processing/wizard/forms.py:116
 msgid "Job type chosen"
-msgstr ""
+msgstr "Tipo de trabajo elegido"
 
 #: dashboards/project/data_processing/wizard/forms.py:120
 msgid "Unable to set job type"
@@ -8648,18 +8649,18 @@ msgstr ""
 
 #: dashboards/project/data_processing/wizard/panel.py:22
 msgid "Guides"
-msgstr ""
+msgstr "Guías"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_job_type_select.html:13
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/job_type_select.html:3
 #: dashboards/project/data_processing/wizard/views.py:99
 msgid "Choose job type"
-msgstr ""
+msgstr "Seleccionar el tipo de trabajo"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_job_type_select.html:28
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_plugin_select.html:28
 msgid "Select"
-msgstr ""
+msgstr "Seleccionar"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_job_type_select_help.html:3
 msgid ""
@@ -8673,13 +8674,13 @@ msgstr ""
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/plugin_select.html:3
 #: dashboards/project/data_processing/wizard/views.py:90
 msgid "Choose plugin and version"
-msgstr ""
+msgstr "Seleccionar plugin y versión"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_plugin_select_help.html:3
 msgid ""
 "Select which plugin and version that you\n"
 "    want to use to create your cluster."
-msgstr ""
+msgstr "Seleccione cuál plugin  y versión quiere\nusted usar para crear su cluster."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:12
 msgid ""
@@ -8696,26 +8697,26 @@ msgstr ""
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:23
 msgid "Choose plugin"
-msgstr ""
+msgstr "Seleccione plugin"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:24
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:60
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:87
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:119
 msgid "Current choice:"
-msgstr ""
+msgstr "Selección actual:"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:27
 msgid "Plugin:"
-msgstr ""
+msgstr "Plugin:"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:29
 msgid "Version:"
-msgstr ""
+msgstr "Versión:"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:34
 msgid "No plugin chosen"
-msgstr ""
+msgstr "No hay plugin seleccionado"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:43
 msgid ""
@@ -8817,7 +8818,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:21
 msgid "Select type"
-msgstr ""
+msgstr "Seleccionar tipo"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:24
 msgid "Current type:"
@@ -8916,23 +8917,23 @@ msgstr ""
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:47
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:49
 msgid "Job Execution Guide"
-msgstr ""
+msgstr "Guía de ejecución del trabajo"
 
 #: dashboards/project/data_processing/wizard/views.py:35
 msgid "Data Processing Guides"
-msgstr ""
+msgstr "Guía de procesamiento de datos"
 
 #: dashboards/project/data_processing/wizard/views.py:41
 msgid "Unable to show guides"
-msgstr ""
+msgstr "Imposible mostrar guías"
 
 #: dashboards/project/data_processing/wizard/views.py:48
 msgid "Guided Cluster Creation"
-msgstr ""
+msgstr "Creación de clúster guiada"
 
 #: dashboards/project/data_processing/wizard/views.py:63
 msgid "Guided Job Execution"
-msgstr ""
+msgstr "Ejecución guiada del trabajo"
 
 #: dashboards/project/database_backups/panel.py:23
 #: dashboards/project/database_backups/tables.py:181
@@ -8991,13 +8992,13 @@ msgstr "Descargar copia de seguridad"
 msgid "Delete Backup"
 msgid_plural "Delete Backups"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Eliminar Respaldos"
 
 #: dashboards/project/database_backups/tables.py:104
 msgid "Deleted Backup"
 msgid_plural "Deleted Backups"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Respaldos Eliminados"
 
 #: dashboards/project/database_backups/tables.py:162
 #: dashboards/project/database_backups/templates/database_backups/details.html:21
@@ -9218,14 +9219,14 @@ msgstr "Las instancias terminadas no son recuperables."
 msgid "Terminate Instance"
 msgid_plural "Terminate Instances"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Terminar instancias"
 
 #: dashboards/project/databases/tables.py:48
 #: dashboards/project/instances/tables.py:99
 msgid "Scheduled termination of Instance"
 msgid_plural "Scheduled termination of Instances"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Terminación agendada de instancias"
 
 #: dashboards/project/databases/tables.py:62
 #: dashboards/project/instances/tables.py:116
@@ -9237,25 +9238,25 @@ msgstr "Las instancias reiniciadas perderán todos los datos no guardados en alm
 msgid "Restart Instance"
 msgid_plural "Restart Instances"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Reiniciar instancias"
 
 #: dashboards/project/databases/tables.py:76
 msgid "Restarted Instance"
 msgid_plural "Restarted Instances"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Instancias reiniciadas"
 
 #: dashboards/project/databases/tables.py:96
 msgid "Detach Replica"
 msgid_plural "Detach Replicas"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Desacoplar réplicas"
 
 #: dashboards/project/databases/tables.py:104
 msgid "Replica Detached"
 msgid_plural "Replicas Detached"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Réplicas desacopladas"
 
 #: dashboards/project/databases/tables.py:142
 msgid "Error deleting database user."
@@ -9265,13 +9266,13 @@ msgstr "Error al borrar el usuario de la base de datos."
 msgid "Delete Database"
 msgid_plural "Delete Databases"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Eliminar Bases de Datos"
 
 #: dashboards/project/databases/tables.py:158
 msgid "Deleted Database"
 msgid_plural "Deleted Databases"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Bases"
 
 #: dashboards/project/databases/tables.py:168
 msgid "Error deleting database on instance."
@@ -9361,7 +9362,7 @@ msgstr "Error"
 #: dashboards/project/databases/tables.py:316
 msgctxt "Current status of a Database Instance"
 msgid "Restart Required"
-msgstr ""
+msgstr "Reinicio Requerido"
 
 #: dashboards/project/databases/tables.py:330
 #: dashboards/project/databases/templates/databases/_detail_overview.html:32
@@ -9699,7 +9700,7 @@ msgstr "Seleccione una instancia maestra"
 
 #: dashboards/project/databases/workflows/create_instance.py:259
 msgid "Advanced"
-msgstr ""
+msgstr "Avanzado"
 
 #: dashboards/project/databases/workflows/create_instance.py:271
 msgid "Select backup"
@@ -9707,7 +9708,7 @@ msgstr "Seleccionar copia de seguridad"
 
 #: dashboards/project/databases/workflows/create_instance.py:285
 msgid "Select instance"
-msgstr ""
+msgstr "Seleccione una instancia"
 
 #: dashboards/project/databases/workflows/create_instance.py:302
 msgid "Unable to find backup!"
@@ -9715,15 +9716,15 @@ msgstr "¡No se ha podido encontrar la copia de seguridad!"
 
 #: dashboards/project/databases/workflows/create_instance.py:304
 msgid "A backup must be selected!"
-msgstr ""
+msgstr "¡Debe seleccionar un respaldo!"
 
 #: dashboards/project/databases/workflows/create_instance.py:314
 msgid "Unable to find master instance!"
-msgstr ""
+msgstr "¡No es posible encontrar la instancia maestra!"
 
 #: dashboards/project/databases/workflows/create_instance.py:317
 msgid "A master instance must be selected!"
-msgstr ""
+msgstr "¡Una instancia maestra debe ser seleccionada!"
 
 #: dashboards/project/databases/workflows/create_instance.py:336
 #: dashboards/project/instances/workflows/create_instance.py:821
@@ -9931,7 +9932,7 @@ msgstr "Ha ocurrido un fallo al eliminar la regla de la política %(name)s: %(re
 
 #: dashboards/project/firewalls/forms.py:334
 msgid "Add Routers"
-msgstr ""
+msgstr "Añadir Routers"
 
 #: dashboards/project/firewalls/forms.py:337
 msgid "Add selected router(s) to the firewall."
@@ -10115,22 +10116,22 @@ msgstr "Creada"
 #: dashboards/project/firewalls/tables.py:325
 msgctxt "Current status of a Firewall"
 msgid "Pending Create"
-msgstr ""
+msgstr "Creación Pendiente"
 
 #: dashboards/project/firewalls/tables.py:327
 msgctxt "Current status of a Firewall"
 msgid "Pending Update"
-msgstr ""
+msgstr "Actualización Pendiente"
 
 #: dashboards/project/firewalls/tables.py:329
 msgctxt "Current status of a Firewall"
 msgid "Pending Delete"
-msgstr ""
+msgstr "Pendiente a Eliminar"
 
 #: dashboards/project/firewalls/tables.py:331
 msgctxt "Current status of a Firewall"
 msgid "Inactive"
-msgstr ""
+msgstr "Inactivo"
 
 #: dashboards/project/firewalls/tables.py:334
 msgctxt "Admin state of a Firewall"
@@ -10380,15 +10381,15 @@ msgstr "Guardar cambios"
 
 #: dashboards/project/firewalls/views.py:143
 msgid "Edit Rule {{ name }}"
-msgstr ""
+msgstr "Editar Regla {{ name }}"
 
 #: dashboards/project/firewalls/views.py:184
 msgid "Edit Policy {{ name }}"
-msgstr ""
+msgstr "Editar Política {{ name }}"
 
 #: dashboards/project/firewalls/views.py:222
 msgid "Edit Firewall {{ name }}"
-msgstr ""
+msgstr "Editar Cortafuegos {{ name }}"
 
 #: dashboards/project/firewalls/views.py:255
 msgid "Insert Rule into Policy"
@@ -10581,7 +10582,7 @@ msgstr "Su imagen %s se ha añadido a la cola para crearla."
 
 #: dashboards/project/images/images/forms.py:195
 msgid "Unable to create new image"
-msgstr ""
+msgstr "No ha sido posible crear la nueva imagen"
 
 #: dashboards/project/images/images/forms.py:199
 #, python-format
@@ -10590,7 +10591,7 @@ msgstr ""
 
 #: dashboards/project/images/images/forms.py:202
 msgid "Unable to create new image: Image name too long."
-msgstr ""
+msgstr "No ha sido posible crear la nueva imagen: Nombre de la imagen muy largo."
 
 #: dashboards/project/images/images/forms.py:216
 msgid "Kernel ID"
@@ -10627,7 +10628,7 @@ msgstr[1] "Imágenes eliminadas"
 
 #: dashboards/project/images/images/tables.py:129
 msgid "Edit Image"
-msgstr ""
+msgstr "Editar Imagen"
 
 #: dashboards/project/images/images/tables.py:146
 #: dashboards/project/volumes/snapshots/tables.py:93
@@ -10661,12 +10662,12 @@ msgstr "Guardando"
 #: dashboards/project/images/images/tables.py:261
 msgctxt "Current status of an Image"
 msgid "Queued"
-msgstr ""
+msgstr "Encolado"
 
 #: dashboards/project/images/images/tables.py:263
 msgctxt "Current status of an Image"
 msgid "Pending Delete"
-msgstr ""
+msgstr "Pendiente a Eliminar"
 
 #: dashboards/project/images/images/tables.py:264
 msgctxt "Current status of an Image"
@@ -10751,7 +10752,7 @@ msgstr "Suma de comprobación"
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:49
 msgid "Virtual Size"
-msgstr ""
+msgstr "Tamaño Virtual"
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:52
 msgid "Container Format"
@@ -10801,7 +10802,7 @@ msgstr "No ha sido posible obtener imágenes para el proyecto actual."
 
 #: dashboards/project/images/utils.py:95
 msgid "Unable to retrieve images"
-msgstr ""
+msgstr "No ha sido posible obtener las imágenes."
 
 #: dashboards/project/images/utils.py:104
 #: dashboards/project/instances/forms.py:66
@@ -10933,14 +10934,14 @@ msgstr[1] ""
 msgid "Pause Instance"
 msgid_plural "Pause Instances"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Pausar Instancias"
 
 #: dashboards/project/instances/tables.py:183
 #: dashboards/project/instances/tables.py:251
 msgid "Resume Instance"
 msgid_plural "Resume Instances"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Reanudar Instancias"
 
 #: dashboards/project/instances/tables.py:193
 msgid "Paused Instance"
@@ -10959,13 +10960,13 @@ msgstr[1] ""
 msgid "Suspend Instance"
 msgid_plural "Suspend Instances"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Suspender Instancias"
 
 #: dashboards/project/instances/tables.py:261
 msgid "Suspended Instance"
 msgid_plural "Suspended Instances"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Instancias Suspendidas"
 
 #: dashboards/project/instances/tables.py:352
 msgid "Launch Instance NG"
@@ -11064,7 +11065,7 @@ msgstr ""
 msgid "Start Instance"
 msgid_plural "Start Instances"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Iniciar instancias"
 
 #: dashboards/project/instances/tables.py:702
 msgid "Started Instance"
@@ -11681,7 +11682,7 @@ msgstr ""
 
 #: dashboards/project/instances/templates/instances/_instance_ips.html:12
 msgid "Floating IPs:"
-msgstr ""
+msgstr "IPs flotantes:"
 
 #: dashboards/project/instances/templates/instances/_launch_advanced_help.html:2
 msgid "Specify advanced options to use when launching an instance."
@@ -11750,7 +11751,7 @@ msgstr "No hay redes disponibles"
 
 #: dashboards/project/instances/utils.py:103
 msgid "Select Network"
-msgstr ""
+msgstr "Seleccionar Red"
 
 #: dashboards/project/instances/utils.py:123
 msgid "Unable to retrieve key pairs."
@@ -11766,7 +11767,7 @@ msgstr "Seleccione un par de claves"
 
 #: dashboards/project/instances/utils.py:151
 msgid "Select Flavor"
-msgstr ""
+msgstr "Seleccionar Sabor"
 
 #: dashboards/project/instances/views.py:77
 msgid "Unable to retrieve instances."
@@ -11774,7 +11775,7 @@ msgstr "No ha sido posible obtener las instancias."
 
 #: dashboards/project/instances/views.py:156
 msgid "Log length must be a nonnegative integer."
-msgstr ""
+msgstr "La longitud del log debe ser un entero no negativo."
 
 #: dashboards/project/instances/views.py:175
 #, python-format
@@ -11794,12 +11795,12 @@ msgstr "No ha sido posible obtener la consola RDP para la instancia \"%s\"."
 #: dashboards/project/instances/views.py:214
 #, python-format
 msgid "Cannot find instance %s."
-msgstr ""
+msgstr "No se puede encontrar la instancia %s."
 
 #: dashboards/project/instances/views.py:226
 #, python-format
 msgid "Cannot get console for instance %s."
-msgstr ""
+msgstr "No se puede obtener la consola para la instancia %s."
 
 #: dashboards/project/instances/views.py:314
 #, python-format
@@ -11809,24 +11810,24 @@ msgstr "No ha sido posible obtener los detalles de la instancia \"%s\"."
 #: dashboards/project/instances/views.py:335
 #, python-format
 msgid "Unable to retrieve volume list for instance \"%(name)s\" (%(id)s)."
-msgstr ""
+msgstr "No ha sido posible obtener la lista de volúmenes para la instancia  \"%(name)s\" (%(id)s)."
 
 #: dashboards/project/instances/views.py:344
 #, python-format
 msgid "Unable to retrieve flavor information for instance \"%(name)s\" (%(id)s)."
-msgstr ""
+msgstr "No ha sido posible obtener la información del sabor para la instancia \"%(name)s\" (%(id)s)."
 
 #: dashboards/project/instances/views.py:353
 #, python-format
 msgid "Unable to retrieve security groups for instance \"%(name)s\" (%(id)s)."
-msgstr ""
+msgstr "No ha sido posible obtener los grupos de seguridad para la instancia \"%(name)s\" (%(id)s)."
 
 #: dashboards/project/instances/views.py:361
 #, python-format
 msgid ""
 "Unable to retrieve IP addresses from Neutron for instance \"%(name)s\" "
 "(%(id)s)."
-msgstr ""
+msgstr "No ha sido posible obtener las direcciones IP de Neutron para la instancia \"%(name)s\" (%(id)s)."
 
 #: dashboards/project/instances/workflows/create_instance.py:55
 msgid "User"
@@ -11877,7 +11878,7 @@ msgstr "Nombre de dispositivo"
 msgid ""
 "Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank"
 " to let the system choose a device name for you."
-msgstr ""
+msgstr "Punto de montaje del volumen (por ejemplo, 'vda' se monta en '/dev/vda'). Deje vacío este campo para permitir al sistema seleccionar un nombre para usted."
 
 #: dashboards/project/instances/workflows/create_instance.py:131
 msgid "Delete on Terminate"
@@ -12052,7 +12053,7 @@ msgstr "Pareja de claves a utilizar para la autentificación."
 
 #: dashboards/project/instances/workflows/create_instance.py:541
 msgid "Confirm Admin Password"
-msgstr ""
+msgstr "Confirme la Contraseña de Administrador"
 
 #: dashboards/project/instances/workflows/create_instance.py:548
 msgid "Launch instance in these security groups."
@@ -12147,7 +12148,7 @@ msgstr ""
 #: dashboards/project/instances/workflows/create_instance.py:930
 #, python-format
 msgid " Also failed to delete port %s"
-msgstr ""
+msgstr "También falló eliminar el puerto %s"
 
 #: dashboards/project/instances/workflows/resize_instance.py:39
 msgid "Choose the flavor to launch."
@@ -12491,22 +12492,22 @@ msgstr "Creada"
 #: dashboards/project/loadbalancers/tables.py:304
 msgctxt "Current status of a Pool"
 msgid "Pending Create"
-msgstr ""
+msgstr "Creación Pendiente"
 
 #: dashboards/project/loadbalancers/tables.py:306
 msgctxt "Current status of a Pool"
 msgid "Pending Update"
-msgstr ""
+msgstr "Actualización Pendiente"
 
 #: dashboards/project/loadbalancers/tables.py:308
 msgctxt "Current status of a Pool"
 msgid "Pending Delete"
-msgstr ""
+msgstr "Pendiente a Eliminar"
 
 #: dashboards/project/loadbalancers/tables.py:310
 msgctxt "Current status of a Pool"
 msgid "Inactive"
-msgstr ""
+msgstr "Inactivo"
 
 #: dashboards/project/loadbalancers/tables.py:321
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:29
@@ -12647,7 +12648,7 @@ msgstr ""
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:47
 #, python-format
 msgid "Cookie Name: %(cookie_name)s"
-msgstr ""
+msgstr "Nombre de la Cookie: %(cookie_name)s"
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/details_tabs.html:3
 #: dashboards/project/loadbalancers/views.py:43
@@ -12971,7 +12972,7 @@ msgstr "El código esperado puede ser un valor simple (por ejemplo, 200), una li
 
 #: dashboards/project/loadbalancers/workflows.py:562
 msgid "Delay must be greater than or equal to Timeout"
-msgstr ""
+msgstr "El retraso debe ser mayor o igual al Timeout"
 
 #: dashboards/project/loadbalancers/workflows.py:571
 msgid "Please choose a HTTP method"
@@ -13102,12 +13103,12 @@ msgstr "Pequeño"
 #: dashboards/project/network_topology/templates/network_topology/index.html:32
 #: dashboards/project/network_topology/templates/network_topology/index.html:34
 msgid "Launch Instance (Quota exceeded)"
-msgstr ""
+msgstr "Lanzar Instancia (cuota superada)"
 
 #: dashboards/project/network_topology/templates/network_topology/index.html:37
 #: dashboards/project/networks/tables.py:98
 msgid "Create Network (Quota exceeded)"
-msgstr ""
+msgstr "Crear Red (Cuota superada)"
 
 #: dashboards/project/network_topology/templates/network_topology/index.html:40
 #: dashboards/project/routers/tables.py:96
@@ -13170,7 +13171,7 @@ msgstr "Construir"
 #: dashboards/project/networks/ports/views.py:39
 #: dashboards/project/networks/templates/networks/ports/detail.html:3
 msgid "Port Details"
-msgstr ""
+msgstr "Detalles del puerto"
 
 #: dashboards/project/networks/ports/views.py:54
 #: dashboards/project/routers/ports/tabs.py:35
@@ -13184,7 +13185,7 @@ msgstr "No ha sido posible obtener los detalles del puerto"
 
 #: dashboards/project/networks/subnets/tables.py:106
 msgid "Create Subnet (Quota exceeded)"
-msgstr ""
+msgstr "Crear Subred (Cuota superada)"
 
 #: dashboards/project/networks/subnets/tables.py:131
 #: dashboards/project/networks/subnets/workflows.py:81
@@ -13219,7 +13220,7 @@ msgstr "No ha sido posible obtener los detalles de la subred"
 #: dashboards/project/networks/templates/networks/subnets/detail.html:3
 #: dashboards/project/networks/workflows.py:255
 msgid "Subnet Details"
-msgstr ""
+msgstr "Detalles de Subred"
 
 #: dashboards/project/networks/subnets/views.py:112
 msgid "Unable to retrieve subnet details."
@@ -13344,7 +13345,7 @@ msgstr "Red de proveedor"
 
 #: dashboards/project/networks/templates/networks/_detail_overview.html:25
 msgid "Network Type:"
-msgstr ""
+msgstr "Tipo de Red: "
 
 #: dashboards/project/networks/templates/networks/_detail_overview.html:26
 msgid "Physical Network:"
@@ -13356,7 +13357,7 @@ msgstr ""
 
 #: dashboards/project/networks/templates/networks/create.html:9
 msgid "&laquo;&nbsp;Back"
-msgstr ""
+msgstr "&laquo;&nbsp;Atrás"
 
 #: dashboards/project/networks/templates/networks/create.html:10
 msgid "Next&nbsp;&raquo;"
@@ -13957,7 +13958,7 @@ msgstr ""
 
 #: dashboards/project/routers/templates/routers/_detail_overview.html:46
 msgid "SNAT"
-msgstr ""
+msgstr "SNAT"
 
 #: dashboards/project/routers/templates/routers/_update.html:6
 msgid "You may update the editable properties of your router here."
@@ -14022,11 +14023,11 @@ msgstr ""
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:100
 msgid "Destination:"
-msgstr ""
+msgstr "Destino:"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:101
 msgid "Action:"
-msgstr ""
+msgstr "Acción:"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:123
 msgid ""
@@ -14292,7 +14293,7 @@ msgstr ""
 
 #: dashboards/project/stacks/resource_types/templates/stacks.resource_types/_details.html:12
 msgid "Attributes"
-msgstr ""
+msgstr "Atributos"
 
 #: dashboards/project/stacks/resource_types/templates/stacks.resource_types/_details.html:18
 msgid "Properties"
@@ -14403,7 +14404,7 @@ msgstr ""
 #: dashboards/project/stacks/tables.py:206
 msgctxt "current status of stack"
 msgid "Create Complete"
-msgstr ""
+msgstr "Creación Finalizada"
 
 #: dashboards/project/stacks/tables.py:208
 msgctxt "current status of stack"
@@ -14413,7 +14414,7 @@ msgstr ""
 #: dashboards/project/stacks/tables.py:210
 msgctxt "current status of stack"
 msgid "Delete In Progress"
-msgstr ""
+msgstr "Eliminación en Progreso"
 
 #: dashboards/project/stacks/tables.py:212
 msgctxt "current status of stack"
@@ -16077,22 +16078,22 @@ msgstr "Creada"
 #: dashboards/project/vpn/tables.py:276
 msgctxt "Current status of a VPN Service"
 msgid "Pending Create"
-msgstr ""
+msgstr "Creación Pendiente"
 
 #: dashboards/project/vpn/tables.py:278
 msgctxt "Current status of a VPN Service"
 msgid "Pending Update"
-msgstr ""
+msgstr "Actualización Pendiente"
 
 #: dashboards/project/vpn/tables.py:280
 msgctxt "Current status of a VPN Service"
 msgid "Pending Delete"
-msgstr ""
+msgstr "Pendiente a Eliminar"
 
 #: dashboards/project/vpn/tables.py:282
 msgctxt "Current status of a VPN Service"
 msgid "Inactive"
-msgstr ""
+msgstr "Inactivo"
 
 #: dashboards/project/vpn/tables.py:298 dashboards/project/vpn/tabs.py:46
 msgid "VPN Services"
@@ -16886,7 +16887,7 @@ msgstr ""
 
 #: usage/tables.py:55
 msgid "Memory MB Hours"
-msgstr ""
+msgstr "Horas Memoria MB"
 
 #: usage/tables.py:56
 msgid "Total memory usage (MB * Hours Used) for the project"
@@ -16911,4 +16912,4 @@ msgstr ""
 #: utils/metering.py:104
 #, python-format
 msgid "Failed to get the resource name: %s"
-msgstr ""
+msgstr "Error al obtener el nombre del recurso: %s"

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-15 02:00-0500\n"
-"PO-Revision-Date: 2015-04-17 04:51+0000\n"
+"PO-Revision-Date: 2015-04-17 15:32+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -69,19 +69,19 @@ msgstr "Ilość zapisów"
 
 #: api/ceilometer.py:976
 msgid "Average rate of read requests"
-msgstr ""
+msgstr "Średnia ilość żądań odczytu"
 
 #: api/ceilometer.py:980
 msgid "Average rate of write requests"
-msgstr ""
+msgstr "Średnia ilość żądań zapisu"
 
 #: api/ceilometer.py:984
 msgid "Average rate of reads"
-msgstr ""
+msgstr "Średnia ilość odczytów"
 
 #: api/ceilometer.py:988
 msgid "Average volume of writes"
-msgstr ""
+msgstr "Średni wolumen zapisów"
 
 #: api/ceilometer.py:992
 msgid "Size of root disk"
@@ -109,19 +109,19 @@ msgstr "Ilość wychodzących pakietów z interfejsu VM"
 
 #: api/ceilometer.py:1020
 msgid "Average rate per sec of incoming bytes on a VM network interface"
-msgstr ""
+msgstr "Średnia ilość przychodzących bajtów na sekundę na interfejsie sieciowym VM"
 
 #: api/ceilometer.py:1025
 msgid "Average rate per sec of outgoing bytes on a VM network interface"
-msgstr ""
+msgstr "Średnia ilość wychodzących bajtów na sekundę na interfejsie sieciowym VM"
 
 #: api/ceilometer.py:1030
 msgid "Average rate per sec of incoming packets on a VM network interface"
-msgstr ""
+msgstr "Średnia ilość przychodzących pakietów na sekundę na interfejsie sieciowym VM"
 
 #: api/ceilometer.py:1035
 msgid "Average rate per sec of outgoing packets on a VM network interface"
-msgstr ""
+msgstr "Średnia ilość wychodzących pakietów na sekundę na interfejsie sieciowym VM"
 
 #: api/ceilometer.py:1047
 #, python-format
@@ -342,21 +342,21 @@ msgstr ""
 #: api/lbaas.py:152
 #, python-format
 msgid "Unable to get VIP for pool %(pool)s."
-msgstr ""
+msgstr "Nie można pobrać VIP dla pulo %(pool)s."
 
 #: api/lbaas.py:191
 msgid "Unable to get pool detail."
-msgstr ""
+msgstr "Nie można pobrać szczegółów puli."
 
 #: api/lbaas.py:203
 #, python-format
 msgid "Unable to get subnet for pool %(pool)s."
-msgstr ""
+msgstr "Nie można pobrać podsieci dla puli %(pool)s."
 
 #: api/lbaas.py:211
 #, python-format
 msgid "Unable to get members for pool %(pool)s."
-msgstr ""
+msgstr "Nie można pobrać członków dla puli %(pool)s."
 
 #: api/lbaas.py:218
 #, python-format
@@ -475,11 +475,11 @@ msgstr "Nie można ewakuować instancji: %s"
 #: api/nova.py:836
 #, python-format
 msgid "Failed to migrate instances: %s"
-msgstr ""
+msgstr "Nie można zmigrować instancji: %s"
 
 #: api/swift.py:204
 msgid "The container cannot be deleted since it is not empty."
-msgstr ""
+msgstr "Kontener nie może zostać usunięty, ponieważ nie jest pusty."
 
 #: api/swift.py:321
 msgid "The pseudo folder cannot be deleted since it is not empty."
@@ -662,14 +662,14 @@ msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Usuń agregaty hostów"
 
 #: dashboards/admin/aggregates/tables.py:37
 msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Usunięto agregaty hostów"
 
 #: dashboards/admin/aggregates/tables.py:48
 #: dashboards/admin/aggregates/templates/aggregates/create.html:3
@@ -1269,14 +1269,14 @@ msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Usuń odmiany"
 
 #: dashboards/admin/flavors/tables.py:43
 msgid "Deleted Flavor"
 msgid_plural "Deleted Flavors"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Usunięto odmiany"
 
 #: dashboards/admin/flavors/tables.py:54
 #: dashboards/admin/flavors/templates/flavors/create.html:3
@@ -3710,11 +3710,11 @@ msgstr "ID projektu"
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:15
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:15
 msgid "MAC Address"
-msgstr ""
+msgstr "Adres MAC"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:23
 msgid "On"
-msgstr ""
+msgstr "Włączone"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:25
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:25
@@ -3742,24 +3742,24 @@ msgstr "Brak przyłączonych urządzeń"
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:48
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:48
 msgid "Binding"
-msgstr ""
+msgstr "Dowiązanie"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:52
 msgid "Profile"
-msgstr ""
+msgstr "Profil"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:54
 msgid "VIF Type"
-msgstr ""
+msgstr "Typ VIF"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:56
 msgid "VIF Details"
-msgstr ""
+msgstr "Szczegóły VIF"
 
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:69
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:51
 msgid "VNIC Type"
-msgstr ""
+msgstr "Typ VNIC"
 
 #: dashboards/admin/networks/templates/networks/ports/_update.html:6
 #: dashboards/project/networks/templates/networks/ports/_update.html:6
@@ -3780,7 +3780,7 @@ msgstr "Aktualizacja sieci"
 
 #: dashboards/admin/networks/views.py:50
 msgid "Unable to retrieve information about the networks' projects."
-msgstr ""
+msgstr "Nie można pobrać informacji o sieciach projektu."
 
 #: dashboards/admin/networks/views.py:78
 #: dashboards/project/networks/views.py:54
@@ -3790,7 +3790,7 @@ msgstr "Nie można pobrać listy sieci."
 #: dashboards/admin/networks/views.py:107
 #: dashboards/project/networks/views.py:103
 msgid "Network Details: {{ network.name }}"
-msgstr ""
+msgstr "Szczegóły sieci: {{ network.name }}"
 
 #: dashboards/admin/networks/views.py:116
 #: dashboards/project/networks/views.py:112
@@ -3861,7 +3861,7 @@ msgstr "Przegląd wykorzystania"
 
 #: dashboards/admin/overview/templates/overview/usage.html:8
 msgid "Monitoring:"
-msgstr ""
+msgstr "Monitoring:"
 
 #: dashboards/admin/overview/views.py:34
 #: dashboards/project/overview/views.py:33
@@ -3989,11 +3989,11 @@ msgstr "Nie można pobrać typów wolumenów."
 
 #: dashboards/admin/volumes/tabs.py:88
 msgid "Unable to retrieve volume type encryption information."
-msgstr ""
+msgstr "Nie można pobrać informacji o typie szyfrowania wolumenu."
 
 #: dashboards/admin/volumes/tabs.py:109
 msgid "Unable to retrieve QoS specs"
-msgstr ""
+msgstr "Nie można pobrać specyfikacji QOS"
 
 #: dashboards/admin/volumes/tabs.py:133 dashboards/project/volumes/tabs.py:113
 #: dashboards/project/volumes/volumes/forms.py:232
@@ -4021,7 +4021,7 @@ msgstr "Szczegóły migawki wolumenu"
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:7
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:7
 msgid "Information"
-msgstr ""
+msgstr "Informacja"
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/instances/templates/instances/_detail_overview.html:144
@@ -4074,7 +4074,7 @@ msgstr "\nStan migawki wolumenu zazwyczaj jest zarządzany automatycznie. W niek
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:6
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
-msgstr ""
+msgstr "Pozwala na dodanie, modyfikację lub usunięcie specyfikacji QOS dla tego typu wolumenu."
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_associate_qos_spec.html:7
 msgid ""
@@ -8012,14 +8012,14 @@ msgid "Delete Job"
 msgid_plural "Delete Jobs"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Usuń zadania"
 
 #: dashboards/project/data_processing/job_executions/tables.py:61
 msgid "Deleted Job"
 msgid_plural "Deleted Jobs"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Usunięto zadania"
 
 #: dashboards/project/data_processing/job_executions/tables.py:74
 #: dashboards/project/data_processing/job_executions/tables.py:103
@@ -14796,7 +14796,7 @@ msgstr "Metadane zasobu"
 
 #: dashboards/project/stacks/templates/stacks/_stack_template.html:3
 msgid "Stack Template"
-msgstr ""
+msgstr "Szablon stosu"
 
 #: dashboards/project/stacks/templates/stacks/_update.html:5
 msgid ""
@@ -14812,16 +14812,16 @@ msgstr "Zmień szablon"
 
 #: dashboards/project/stacks/templates/stacks/detail.html:3
 msgid "Stack Details"
-msgstr ""
+msgstr "Szczegóły stosu"
 
 #: dashboards/project/stacks/templates/stacks/preview_details.html:3
 #: dashboards/project/stacks/views.py:255
 msgid "Preview Stack Details"
-msgstr ""
+msgstr "Podgląd szczegółów stosu"
 
 #: dashboards/project/stacks/templates/stacks/resource.html:3
 msgid "Resource Details"
-msgstr ""
+msgstr "Szczegóły zasobu"
 
 #: dashboards/project/stacks/views.py:83
 msgid "Unable to retrieve stack list."
@@ -14843,15 +14843,15 @@ msgstr "Zaktualizuj stos"
 
 #: dashboards/project/stacks/views.py:242
 msgid "Preview"
-msgstr ""
+msgstr "Podgląd"
 
 #: dashboards/project/stacks/views.py:267
 msgid "Stack Details: {{ stack.stack_name }}"
-msgstr ""
+msgstr "Szczegóły stosu: {{ stack.stack_name }}"
 
 #: dashboards/project/stacks/views.py:298
 msgid "Unable to retrieve stack template."
-msgstr ""
+msgstr "Nie można pobrać szablonu stosu."
 
 #: dashboards/project/stacks/views.py:315
 msgid "Resource Details: {{ resource.resource_name }}"
@@ -15501,7 +15501,7 @@ msgstr ""
 #: dashboards/project/volumes/volumes/forms.py:558
 #: dashboards/project/volumes/volumes/forms.py:586
 msgid "Authorization Key"
-msgstr ""
+msgstr "Klucz autoryzacji"
 
 #: dashboards/project/volumes/volumes/forms.py:566
 #, python-format
@@ -15606,18 +15606,18 @@ msgid "Delete Volume"
 msgid_plural "Delete Volumes"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Usuń wolumeny"
 
 #: dashboards/project/volumes/volumes/tables.py:77
 msgid "Scheduled deletion of Volume"
 msgid_plural "Scheduled deletion of Volumes"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Skolejkowano usunięcie wolumenów"
 
 #: dashboards/project/volumes/volumes/tables.py:144
 msgid "Manage Attachments"
-msgstr ""
+msgstr "Zarządzanie dowiązaniami"
 
 #: dashboards/project/volumes/volumes/tables.py:178
 msgid "Unable to retrieve tenant limits."
@@ -15682,7 +15682,7 @@ msgstr "Dostępne"
 #: dashboards/project/volumes/volumes/tables.py:374
 msgctxt "Current status of a Volume"
 msgid "In-use"
-msgstr ""
+msgstr "W użyciu"
 
 #: dashboards/project/volumes/volumes/tables.py:375
 msgctxt "Current status of a Volume"
@@ -15714,14 +15714,14 @@ msgid "Detach Volume"
 msgid_plural "Detach Volumes"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Odłącz wolumeny"
 
 #: dashboards/project/volumes/volumes/tables.py:460
 msgid "Detaching Volume"
 msgid_plural "Detaching Volumes"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Odłączanie wolumenów"
 
 #: dashboards/project/volumes/volumes/tables.py:488
 msgid "Device"
@@ -15734,7 +15734,7 @@ msgstr "Wolumen %(volume_name)s w instancji %(instance_name)s"
 
 #: dashboards/project/volumes/volumes/views.py:46
 msgid "Volume Details: {{ volume.name }}"
-msgstr ""
+msgstr "Szczegóły wolumenu: {{ volume.name }}"
 
 #: dashboards/project/volumes/volumes/views.py:87
 msgid "Create a Volume"
@@ -16698,7 +16698,7 @@ msgstr "Wybór nazwy profilu sieciowego."
 
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:7
 msgid "Segment Type:"
-msgstr ""
+msgstr "Typ segmentu:"
 
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:7
 msgid " Segment types available are VLAN, Overlay and Trunk."
@@ -16706,7 +16706,7 @@ msgstr "Dostępne typy segmentów to VLAN, Overlay oraz Trunk."
 
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:8
 msgid "Segment Sub Type:"
-msgstr ""
+msgstr "Podtyp segmentu:"
 
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:8
 msgid ""
@@ -16718,7 +16718,7 @@ msgstr "Dla segmentów Overlay oraz Trunk dostępne są podtypy. Dostępne podty
 
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:9
 msgid "Segment Range:"
-msgstr ""
+msgstr "Rozmiar segmentu:"
 
 #: dashboards/router/nexus1000v/templates/nexus1000v/_create_network_profile.html:9
 msgid ""
@@ -16811,7 +16811,7 @@ msgstr "Ilość pozycji do wyświetlenia na stronie"
 
 #: dashboards/settings/user/forms.py:48
 msgid "Log Lines Per Instance"
-msgstr ""
+msgstr "Ilość linii logów dla instancji"
 
 #: dashboards/settings/user/forms.py:49
 msgid "Number of log lines to be shown per instance"
@@ -16820,21 +16820,21 @@ msgstr ""
 #: dashboards/settings/user/forms.py:83
 #, python-format
 msgid "UTC %(hour)s:%(min)s"
-msgstr ""
+msgstr "UTC %(hour)s:%(min)s"
 
 #: dashboards/settings/user/forms.py:89
 msgid "UTC"
-msgstr ""
+msgstr "UTC"
 
 #: dashboards/settings/user/forms.py:91
 msgid "GMT"
-msgstr ""
+msgstr "GMT"
 
 #. Translators:  UTC offset and timezone label
 #: dashboards/settings/user/forms.py:96
 #, python-format
 msgid "%(offset)s: %(label)s"
-msgstr ""
+msgstr "%(offset)s: %(label)s"
 
 #: dashboards/settings/user/forms.py:128
 msgid "Settings saved."
@@ -17058,4 +17058,4 @@ msgstr ""
 #: utils/metering.py:104
 #, python-format
 msgid "Failed to get the resource name: %s"
-msgstr ""
+msgstr "Nie można pobrać nazwy zasobu: %s"
