@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-15 02:00-0500\n"
-"PO-Revision-Date: 2015-04-17 15:32+0000\n"
+"PO-Revision-Date: 2015-04-18 18:13+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -258,7 +258,7 @@ msgstr "Zużycie energii"
 
 #: api/ceilometer.py:1260
 msgid "System Current Power"
-msgstr ""
+msgstr "Prąd zasilania systemu"
 
 #: api/ceilometer.py:1264
 msgid "Fan RPM"
@@ -266,43 +266,43 @@ msgstr "RPM wiatraka"
 
 #: api/ceilometer.py:1268
 msgid "Sensor Temperature Reading"
-msgstr ""
+msgstr "Odczyt czujnika temparatury"
 
 #: api/ceilometer.py:1272
 msgid "Sensor Current Reading"
-msgstr ""
+msgstr "Odczyt czytnika prądu"
 
 #: api/ceilometer.py:1276
 msgid "Sensor Voltage Reading"
-msgstr ""
+msgstr "Odczyt czytnika napięcia"
 
 #: api/ceilometer.py:1280
 msgid "System Inlet Temperature Reading"
-msgstr ""
+msgstr "Odczyt temperatury powietrza wlotu powietrza do systemu"
 
 #: api/ceilometer.py:1284
 msgid "System Outlet Temperature Reading"
-msgstr ""
+msgstr "Odczyt temperatury powietrza wylotu powietrza z systemu"
 
 #: api/ceilometer.py:1288
 msgid "System Airflow Reading"
-msgstr ""
+msgstr "Odczyt przeływu powietrza systemu"
 
 #: api/ceilometer.py:1292
 msgid "System CUPS Reading"
-msgstr ""
+msgstr "Odczyt CUPS systemu"
 
 #: api/ceilometer.py:1296
 msgid "System CPU Utility Reading"
-msgstr ""
+msgstr "Odczyt wykorzystania CPU systemu"
 
 #: api/ceilometer.py:1300
 msgid "System Memory Utility Reading"
-msgstr ""
+msgstr "Odczyt wykorzystania pamięci systemu"
 
 #: api/ceilometer.py:1304
 msgid "System IO Utility Reading"
-msgstr ""
+msgstr "Odczyt wykorzystania IO systemu"
 
 #: api/cinder.py:46 dashboards/admin/volumes/volume_types/forms.py:33
 msgid "back-end"
@@ -337,7 +337,7 @@ msgstr "Użytkownik %s nie posiada zdefiniowanych ról dla tego projektu."
 
 #: api/keystone.py:397
 msgid "Identity service does not allow editing user password."
-msgstr ""
+msgstr "Usługa tożsamości nie pozwala na edycję hasła użytkownika."
 
 #: api/lbaas.py:152
 #, python-format
@@ -361,7 +361,7 @@ msgstr "Nie można pobrać członków dla puli %(pool)s."
 #: api/lbaas.py:218
 #, python-format
 msgid "Unable to get health monitors for pool %(pool)s."
-msgstr ""
+msgstr "Nie można pobrać monitorów zdrowia dla puli %(pool)s."
 
 #: api/neutron.py:225
 #, python-format
@@ -483,7 +483,7 @@ msgstr "Kontener nie może zostać usunięty, ponieważ nie jest pusty."
 
 #: api/swift.py:321
 msgid "The pseudo folder cannot be deleted since it is not empty."
-msgstr ""
+msgstr "Pseudo katalog nie może zostać usunięty, gdyż nie jest on pusty."
 
 #: dashboards/admin/aggregates/forms.py:28
 #: dashboards/admin/aggregates/tables.py:128
@@ -1621,16 +1621,16 @@ msgstr "Powód"
 #: dashboards/admin/hypervisors/compute/forms.py:86
 #, python-format
 msgid "Disabled compute service for host: %s."
-msgstr ""
+msgstr "Wyłączono usługę obliczeniową dla serwera: %s."
 
 #: dashboards/admin/hypervisors/compute/forms.py:91
 #, python-format
 msgid "Failed to disable compute service for host: %s."
-msgstr ""
+msgstr "Nie można wyłączyć usługi obliczeniowej dla hosta: %s/."
 
 #: dashboards/admin/hypervisors/compute/forms.py:106
 msgid "Running Instance Migration Type"
-msgstr ""
+msgstr "Typ migracji pracującej instancji"
 
 #: dashboards/admin/hypervisors/compute/forms.py:108
 #: dashboards/admin/instances/templates/instances/_live_migrate.html:8
@@ -1641,7 +1641,7 @@ msgstr "Migruj na żywo"
 
 #: dashboards/admin/hypervisors/compute/forms.py:109
 msgid "Cold Migrate"
-msgstr ""
+msgstr "Zimna migracja"
 
 #: dashboards/admin/hypervisors/compute/forms.py:120
 #: dashboards/admin/hypervisors/compute/forms.py:127
@@ -1658,12 +1658,12 @@ msgstr "Migracja bloków"
 #: dashboards/admin/hypervisors/compute/forms.py:159
 #, python-format
 msgid "Starting to migrate host: %(current)s"
-msgstr ""
+msgstr "Rozpoczynanie migracji serwera: %(current)s"
 
 #: dashboards/admin/hypervisors/compute/forms.py:164
 #, python-format
 msgid "Failed to migrate host \"%s\"."
-msgstr ""
+msgstr "Nie można zmigrować serwera „%s”."
 
 #: dashboards/admin/hypervisors/compute/tables.py:26
 #: dashboards/admin/hypervisors/compute/views.py:30
@@ -1671,7 +1671,7 @@ msgstr ""
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:23
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/evacuate_host.html:3
 msgid "Evacuate Host"
-msgstr ""
+msgstr "Ewakuuj serwer"
 
 #: dashboards/admin/hypervisors/compute/tables.py:44
 #: dashboards/admin/hypervisors/compute/views.py:62
@@ -1679,21 +1679,21 @@ msgstr ""
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_disable_service.html:23
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/disable_service.html:3
 msgid "Disable Service"
-msgstr ""
+msgstr "Wyłącz usługę"
 
 #: dashboards/admin/hypervisors/compute/tables.py:63
 msgid "Enable Service"
 msgid_plural "Enable Services"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Włącz usługi"
 
 #: dashboards/admin/hypervisors/compute/tables.py:71
 msgid "Enabled Service"
 msgid_plural "Enabled Services"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Włączono usługi"
 
 #: dashboards/admin/hypervisors/compute/tables.py:90
 #: dashboards/admin/hypervisors/compute/tables.py:96
@@ -1705,14 +1705,14 @@ msgid "Migrate Host"
 msgid_plural "Migrate Hosts"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Migruj serwery"
 
 #: dashboards/admin/hypervisors/compute/tables.py:104
 msgid "Migrated Host"
 msgid_plural "Migrated Hosts"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Zmigrowano serwery"
 
 #: dashboards/admin/hypervisors/compute/tables.py:125
 #: dashboards/admin/info/tables.py:96 dashboards/admin/info/tables.py:120
@@ -1852,11 +1852,11 @@ msgstr "RAM (łącznie)"
 
 #: dashboards/admin/hypervisors/tables.py:47
 msgid "Local Storage (used)"
-msgstr ""
+msgstr "Lokalna pamięć masowa (wykorzystana)"
 
 #: dashboards/admin/hypervisors/tables.py:52
 msgid "Local Storage (total)"
-msgstr ""
+msgstr "Lokalna pamięć masowa (łącznie)"
 
 #: dashboards/admin/hypervisors/tables.py:71
 #: dashboards/project/databases/tables.py:320
@@ -1888,7 +1888,7 @@ msgstr "Nie można pobrać informacji o hipernadzorcy."
 
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_disable_service.html:18
 msgid "Disable the compute service."
-msgstr ""
+msgstr "Wyłącz usługę obliczeniową."
 
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:18
 msgid ""
@@ -1901,7 +1901,7 @@ msgid ""
 "Optionally you can choose type of migration. All running instances of the "
 "host can be Live Migrated. Cold Migration is trying to use 'nova migrate' on"
 " each instance of migrated host."
-msgstr ""
+msgstr "Migruje wszystkie instancje z serwera z wyłączoną usługą nova-compute. Pozwala na wybranie typu migracji. Wszystkie instancje działające na serwerze mogą by migrowane na żywo. Zimna migracja próbuje wykorzystać 'nova migrate' dla każdej instancji na migrowanym serwerze."
 
 #: dashboards/admin/hypervisors/templates/hypervisors/detail.html:3
 #: dashboards/admin/hypervisors/views.py:59
@@ -1929,7 +1929,7 @@ msgstr "Wykorzystanie pamięci"
 
 #: dashboards/admin/hypervisors/templates/hypervisors/index.html:25
 msgid "Local Disk Usage"
-msgstr ""
+msgstr "Wykorzystanie lokalnych dysków"
 
 #: dashboards/admin/hypervisors/views.py:32
 msgid "All Hypervisors"
@@ -2140,15 +2140,15 @@ msgstr "Agenci sieciowi"
 
 #: dashboards/admin/info/tables.py:208
 msgid "Engine Id"
-msgstr ""
+msgstr "ID silnika"
 
 #: dashboards/admin/info/tables.py:210
 msgid "Topic"
-msgstr ""
+msgstr "Temat"
 
 #: dashboards/admin/info/tables.py:225
 msgid "Orchestration Services"
-msgstr ""
+msgstr "Usługi orkiestracji"
 
 #: dashboards/admin/info/tabs.py:74
 msgid "Unable to get cinder services list."
@@ -2164,16 +2164,16 @@ msgstr "Nie można pobrać listy agentów sieciowych."
 
 #: dashboards/admin/info/tabs.py:116
 msgid "Orchestration service is disabled."
-msgstr ""
+msgstr "Usługa orkiestracji jest wyłączona."
 
 #: dashboards/admin/info/tabs.py:123
 msgid "Unable to get Orchestration service list."
-msgstr ""
+msgstr "Nie można pobrać listy usług orkiestracji."
 
 #: dashboards/admin/info/templates/info/_cell_status.html:5
 #, python-format
 msgid "Reason: %(disabled_reason)s"
-msgstr ""
+msgstr "Powód: %(disabled_reason)s"
 
 #: dashboards/admin/info/templates/info/index.html:10
 #, python-format
@@ -2210,21 +2210,21 @@ msgstr "Nie można wykonać migracji na żywo instancji na hosta „%s”."
 
 #: dashboards/admin/instances/tables.py:37
 msgid "Migrating instances may cause some unrecoverable results."
-msgstr ""
+msgstr "Migrowanie instancji może spowodować nieprzywracalne skutki."
 
 #: dashboards/admin/instances/tables.py:42
 msgid "Migrate Instance"
 msgid_plural "Migrate Instances"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Migruj instancje"
 
 #: dashboards/admin/instances/tables.py:50
 msgid "Scheduled migration (pending confirmation) of Instance"
 msgid_plural "Scheduled migration (pending confirmation) of Instances"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Zaplanowano migrację instancji (oczekuje na potwierdzenie)"
 
 #: dashboards/admin/instances/tables.py:67
 #: dashboards/admin/instances/templates/instances/_live_migrate.html:23
@@ -2233,7 +2233,7 @@ msgstr "Migruj na żywo instancję"
 
 #: dashboards/admin/instances/tables.py:94
 msgid "Project ="
-msgstr ""
+msgstr "Projekt="
 
 #: dashboards/admin/instances/tables.py:95
 msgid "Host ="
@@ -2357,13 +2357,13 @@ msgstr "Nie można pobrać szczegółów instancji."
 
 #: dashboards/admin/metadata_defs/forms.py:38
 msgid "Namespace Definition Source"
-msgstr ""
+msgstr "Źródło definicji przestrzeni nazw"
 
 #: dashboards/admin/metadata_defs/forms.py:40
 #: dashboards/admin/metadata_defs/forms.py:46
 #: dashboards/admin/metadata_defs/forms.py:50
 msgid "Metadata Definition File"
-msgstr ""
+msgstr "Plik definicji metadanych"
 
 #: dashboards/admin/metadata_defs/forms.py:41
 #: dashboards/project/instances/workflows/create_instance.py:611
@@ -2373,16 +2373,16 @@ msgstr "Bezpośrednio"
 
 #: dashboards/admin/metadata_defs/forms.py:47
 msgid "A local metadata definition file to upload."
-msgstr ""
+msgstr "Lokalny plik metadanych, który ma zostać przesłany"
 
 #: dashboards/admin/metadata_defs/forms.py:54
 #: dashboards/admin/metadata_defs/forms.py:58
 msgid "Namespace JSON"
-msgstr ""
+msgstr "JSON przestrzeni nazw"
 
 #: dashboards/admin/metadata_defs/forms.py:55
 msgid "The JSON formatted contents of a namespace."
-msgstr ""
+msgstr "Zawartość przestrzeni nazw w formacie JSON."
 
 #: dashboards/admin/metadata_defs/forms.py:62
 #: dashboards/admin/metadata_defs/tables.py:149
@@ -2396,26 +2396,26 @@ msgstr "Chroniony"
 
 #: dashboards/admin/metadata_defs/forms.py:77
 msgid "Cannot specify both file and direct input."
-msgstr ""
+msgstr "Nie można podawać zarówno źródła z pliku jak i wprowadzonego bezpośrednio."
 
 #: dashboards/admin/metadata_defs/forms.py:80
 msgid "No input was provided for the namespace content."
-msgstr ""
+msgstr "Nie podano żadnego źródła zawartości z przestrzenią nazw."
 
 #: dashboards/admin/metadata_defs/forms.py:100
 #, python-format
 msgid "There was a problem loading the namespace: %s."
-msgstr ""
+msgstr "Wystąpił problem podczas wczytywania przestrzeni nazwy: %s."
 
 #: dashboards/admin/metadata_defs/forms.py:110
 #, python-format
 msgid "Namespace %s has been created."
-msgstr ""
+msgstr "Utworzono przestrzeń nazw %s."
 
 #: dashboards/admin/metadata_defs/forms.py:114
 #, python-format
 msgid "Unable to create new namespace. %s"
-msgstr ""
+msgstr "Nie można utworzyć nowej przestrzeni nazw. %s"
 
 #: dashboards/admin/metadata_defs/forms.py:140
 #, python-format
@@ -2431,31 +2431,31 @@ msgstr ""
 #: dashboards/admin/metadata_defs/templates/metadata_defs/index.html:3
 #: dashboards/admin/metadata_defs/views.py:40
 msgid "Metadata Definitions"
-msgstr ""
+msgstr "Definicje metadanych"
 
 #: dashboards/admin/metadata_defs/tables.py:30
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:9
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:35
 msgid "Import Namespace"
-msgstr ""
+msgstr "Importuj przestrzeń nazw"
 
 #: dashboards/admin/metadata_defs/tables.py:41
 msgid "Delete Namespace"
 msgid_plural "Delete Namespaces"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Usuń przestrzenie nazw"
 
 #: dashboards/admin/metadata_defs/tables.py:49
 msgid "Deleted Namespace"
 msgid_plural "Deleted Namespaces"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Usunięto przestrzenie nazw"
 
 #: dashboards/admin/metadata_defs/tables.py:69
 msgid "Update Associations"
-msgstr ""
+msgstr "Aktualizacja powiązań"
 
 #: dashboards/admin/metadata_defs/tables.py:132
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:15
@@ -2550,29 +2550,29 @@ msgstr "Opis"
 #: dashboards/project/stacks/resource_types/templates/stacks.resource_types/index.html:3
 #: dashboards/project/stacks/resource_types/views.py:33
 msgid "Resource Types"
-msgstr ""
+msgstr "Typy zasobów"
 
 #: dashboards/admin/metadata_defs/tables.py:165
 msgid "Namespaces"
-msgstr ""
+msgstr "Przestrzenie nazw"
 
 #: dashboards/admin/metadata_defs/tabs.py:26
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:3
 msgid "Namespace Overview"
-msgstr ""
+msgstr "Przegląd przestrzeni nazw"
 
 #: dashboards/admin/metadata_defs/tabs.py:38
 #: dashboards/admin/metadata_defs/views.py:108
 msgid "Unable to retrieve namespace details."
-msgstr ""
+msgstr "Nie można pobrać szczegółów przestrzeni nazw."
 
 #: dashboards/admin/metadata_defs/tabs.py:45
 msgid "Contents"
-msgstr ""
+msgstr "Zawartość"
 
 #: dashboards/admin/metadata_defs/tabs.py:57
 msgid "Unable to retrieve namespace contents."
-msgstr ""
+msgstr "Nie można pobrać zawartości przestrzeni nazw."
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:20
 msgid "Specify a metadata definition namespace to import."
@@ -2677,7 +2677,7 @@ msgstr "Brak"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:12
 msgid "Namespace"
-msgstr ""
+msgstr "Przestrzeń nazw"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:22
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:35
@@ -2736,7 +2736,7 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:39
 msgid "Prefix: "
-msgstr ""
+msgstr "Prefiks:"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:42
 msgid "Properties Target: "
@@ -2759,11 +2759,11 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/detail.html:4
 msgid "Namespace Details"
-msgstr ""
+msgstr "Szczegóły przestrzeni nazw"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:15
 msgid "Available Types"
-msgstr ""
+msgstr "Dostępne typy"
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:19
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_fields_help.html:3
@@ -2902,7 +2902,7 @@ msgstr "Wartość (śr.)"
 #: dashboards/admin/metering/tables.py:49
 #: dashboards/admin/metering/views.py:107
 msgid "Unit"
-msgstr ""
+msgstr "Jednostka"
 
 #: dashboards/admin/metering/tables.py:56
 msgid "Daily Usage Report"
@@ -2946,7 +2946,7 @@ msgstr "Kwapi"
 
 #: dashboards/admin/metering/tabs.py:69 dashboards/admin/metering/views.py:131
 msgid "IPMI"
-msgstr ""
+msgstr "IPMI"
 
 #: dashboards/admin/metering/tabs.py:82 dashboards/admin/metering/views.py:70
 #: dashboards/admin/metering/views.py:142
@@ -2974,7 +2974,7 @@ msgstr "Przegląd wykorzystania zasobów"
 
 #: dashboards/admin/metering/templates/metering/stats.html:10
 msgid "Metric:"
-msgstr ""
+msgstr "Metryka:"
 
 #: dashboards/admin/metering/templates/metering/stats.html:16
 msgid "Compute (Nova)"
@@ -3006,7 +3006,7 @@ msgstr ""
 
 #: dashboards/admin/metering/templates/metering/stats.html:89
 msgid "Group by:"
-msgstr ""
+msgstr "Grupuj wg:"
 
 #: dashboards/admin/metering/templates/metering/stats.html:93
 msgid "--"
@@ -3193,7 +3193,7 @@ msgstr "VLAN"
 
 #: dashboards/admin/networks/forms.py:30
 msgid "GRE"
-msgstr ""
+msgstr "GRE"
 
 #: dashboards/admin/networks/forms.py:31
 msgid "VXLAN"
@@ -4189,21 +4189,21 @@ msgstr ""
 #: dashboards/admin/volumes/volume_types/forms.py:36
 #: dashboards/project/volumes/templates/volumes/volumes/_encryption_detail_overview.html:19
 msgid "Key Size (bits)"
-msgstr ""
+msgstr "Rozmiar klucza (w bitach)"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:25
 msgid "Volume Type is Unencrypted."
-msgstr ""
+msgstr "Typ wolumenu jest niezaszyfrowany"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/associate_qos_spec.html:3
 msgid "Associate QoS Spec"
-msgstr ""
+msgstr "Powiąż specyfikację QoS"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_qos_spec.html:3
 #: dashboards/admin/volumes/volume_types/tables.py:190
 #: dashboards/admin/volumes/volume_types/views.py:121
 msgid "Create QoS Spec"
-msgstr ""
+msgstr "Utwórz specyfikację QoS"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_volume_type.html:3
 #: dashboards/admin/volumes/volume_types/tables.py:25
@@ -4214,7 +4214,7 @@ msgstr "Utwórz typ wolumenu"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_volume_type_encryption.html:3
 msgid "Create Encrypted Volume Type"
-msgstr ""
+msgstr "Utwórz zaszyfrowany wolumen"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/edit_qos_spec_consumer.html:3
 #: dashboards/admin/volumes/volume_types/views.py:142
@@ -4255,7 +4255,7 @@ msgstr "Tworzenie dodatkowej specyfikacji typu wolumenu"
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/edit.html:8
 #, python-format
 msgid "Volume Type: %(volume_type_name)s "
-msgstr ""
+msgstr "Typ wolumenu: %(volume_type_name)s"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/edit.html:4
 msgid "Edit Volume Type Extra Spec"
@@ -4264,7 +4264,7 @@ msgstr "Edycja dodatkowej specyfikacji typu wolumenu"
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/index.html:7
 #, python-format
 msgid "Volume Type: %(volume_type_name)s"
-msgstr ""
+msgstr "Typ wolumenu: %(volume_type_name)s"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_create.html:6
 #, python-format
@@ -6837,7 +6837,7 @@ msgstr ""
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:20
 #: dashboards/project/containers/templates/containers/_upload.html:23
 msgid "Pseudo-folder:"
-msgstr ""
+msgstr "Pseudo-katalog:"
 
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:20
 #: dashboards/project/containers/templates/containers/_upload.html:23
@@ -6874,7 +6874,7 @@ msgstr "Edytuj obiekt"
 #: dashboards/project/containers/templates/containers/_update.html:21
 #: dashboards/project/containers/templates/containers/_upload.html:22
 msgid "Object:"
-msgstr ""
+msgstr "Obiekt:"
 
 #: dashboards/project/containers/templates/containers/_update.html:21
 #: dashboards/project/containers/templates/containers/_upload.html:22
@@ -6888,7 +6888,7 @@ msgstr "Obiekt jest podstawową jednostką przechowywania reprezentującą plik 
 
 #: dashboards/project/containers/templates/containers/_update.html:22
 msgid "File:"
-msgstr ""
+msgstr "Plik:"
 
 #: dashboards/project/containers/templates/containers/_update.html:22
 msgid "A new uploaded file will replace the content of the current object"
@@ -7051,7 +7051,7 @@ msgid "Delete Template"
 msgid_plural "Delete Templates"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Usuń szablony"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:80
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:71
@@ -7059,7 +7059,7 @@ msgid "Deleted Template"
 msgid_plural "Deleted Templates"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Usunięto szablony"
 
 #: dashboards/project/data_processing/cluster_templates/tables.py:91
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:35
@@ -8524,7 +8524,7 @@ msgstr "Rozmiar wolumenu"
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:89
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:95
 msgid "Volumes Availability Zone"
-msgstr ""
+msgstr "Strefa dostępności wolumenu"
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:84
 msgid "Ephemeral drive"
@@ -8643,7 +8643,7 @@ msgstr "Uruchomienie instancji z podanymi grupami zabezpieczeń."
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:229
 msgid "Security"
-msgstr ""
+msgstr "Bezpieczeństwo"
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:230
 msgid "Control access to instances of the node group."
@@ -8672,7 +8672,7 @@ msgstr "Nie można wypełnić procesów anti-affinity."
 
 #: dashboards/project/data_processing/utils/helpers.py:132
 msgid "Java"
-msgstr ""
+msgstr "Java"
 
 #: dashboards/project/data_processing/utils/neutron_support.py:31
 #: dashboards/project/databases/workflows/create_instance.py:160
@@ -8744,7 +8744,7 @@ msgstr ""
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/plugin_select.html:3
 #: dashboards/project/data_processing/wizard/views.py:90
 msgid "Choose plugin and version"
-msgstr ""
+msgstr "Wybór wtyczki i wersji"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_plugin_select_help.html:3
 msgid ""
@@ -8767,26 +8767,26 @@ msgstr ""
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:23
 msgid "Choose plugin"
-msgstr ""
+msgstr "Wybór wtyczki"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:24
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:60
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:87
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:119
 msgid "Current choice:"
-msgstr ""
+msgstr "Obecny wybór:"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:27
 msgid "Plugin:"
-msgstr ""
+msgstr "Wtyczka:"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:29
 msgid "Version:"
-msgstr ""
+msgstr "Wersja:"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:34
 msgid "No plugin chosen"
-msgstr ""
+msgstr "Nie wybrano wtyczki"
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:43
 msgid ""
@@ -9780,7 +9780,7 @@ msgstr ""
 
 #: dashboards/project/databases/workflows/create_instance.py:259
 msgid "Advanced"
-msgstr ""
+msgstr "Zaawansowane"
 
 #: dashboards/project/databases/workflows/create_instance.py:271
 msgid "Select backup"
@@ -10012,11 +10012,11 @@ msgstr "Nie można usunąć reguły z zasady %(name)s: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:334
 msgid "Add Routers"
-msgstr ""
+msgstr "Dodaj routery"
 
 #: dashboards/project/firewalls/forms.py:337
 msgid "Add selected router(s) to the firewall."
-msgstr ""
+msgstr "Dodaj wybrany router/y do zapory ogniowej."
 
 #: dashboards/project/firewalls/forms.py:340
 #, python-format
@@ -10201,22 +10201,22 @@ msgstr "Utworzono"
 #: dashboards/project/firewalls/tables.py:325
 msgctxt "Current status of a Firewall"
 msgid "Pending Create"
-msgstr ""
+msgstr "Oczekuje na utworzenie"
 
 #: dashboards/project/firewalls/tables.py:327
 msgctxt "Current status of a Firewall"
 msgid "Pending Update"
-msgstr ""
+msgstr "Oczekuje na aktualizację"
 
 #: dashboards/project/firewalls/tables.py:329
 msgctxt "Current status of a Firewall"
 msgid "Pending Delete"
-msgstr ""
+msgstr "Oczekuje na usunięcie"
 
 #: dashboards/project/firewalls/tables.py:331
 msgctxt "Current status of a Firewall"
 msgid "Inactive"
-msgstr ""
+msgstr "Nieaktywne"
 
 #: dashboards/project/firewalls/tables.py:334
 msgctxt "Admin state of a Firewall"
@@ -10754,7 +10754,7 @@ msgstr ""
 #: dashboards/project/images/images/tables.py:263
 msgctxt "Current status of an Image"
 msgid "Pending Delete"
-msgstr ""
+msgstr "Oczekuje na usunięcie"
 
 #: dashboards/project/images/images/tables.py:264
 msgctxt "Current status of an Image"
@@ -12606,22 +12606,22 @@ msgstr "Utworzono"
 #: dashboards/project/loadbalancers/tables.py:304
 msgctxt "Current status of a Pool"
 msgid "Pending Create"
-msgstr ""
+msgstr "Oczekuje na utworzenie"
 
 #: dashboards/project/loadbalancers/tables.py:306
 msgctxt "Current status of a Pool"
 msgid "Pending Update"
-msgstr ""
+msgstr "Oczekuje na aktualizację"
 
 #: dashboards/project/loadbalancers/tables.py:308
 msgctxt "Current status of a Pool"
 msgid "Pending Delete"
-msgstr ""
+msgstr "Oczekuje na usunięcie"
 
 #: dashboards/project/loadbalancers/tables.py:310
 msgctxt "Current status of a Pool"
 msgid "Inactive"
-msgstr ""
+msgstr "Nieaktywne"
 
 #: dashboards/project/loadbalancers/tables.py:321
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:29
@@ -13949,14 +13949,14 @@ msgid "Delete Interface"
 msgid_plural "Delete Interfaces"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Usuń interfejsy"
 
 #: dashboards/project/routers/ports/tables.py:66
 msgid "Deleted Interface"
 msgid_plural "Deleted Interfaces"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Usunięto interfejsy"
 
 #: dashboards/project/routers/ports/tables.py:85
 #, python-format
@@ -14117,12 +14117,12 @@ msgstr "Źródło"
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:30
 #, python-format
 msgid "Subnet: %(dest_subnetname)s"
-msgstr ""
+msgstr "Podsieć: %(dest_subnetname)s"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:45
 #, python-format
 msgid "Subnet: %(row_source_subnetname)s"
-msgstr ""
+msgstr "Podsieć: %(row_source_subnetname)s"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:93
 msgid "Rule Conflict"
@@ -14319,7 +14319,7 @@ msgstr "Nazwa stosu"
 #: dashboards/project/stacks/views.py:146
 #: dashboards/project/stacks/views.py:152
 msgid "Preview Template"
-msgstr ""
+msgstr "Podgląd szablonu"
 
 #: dashboards/project/stacks/forms.py:241
 msgid "Select a new template to preview a stack."
@@ -16222,22 +16222,22 @@ msgstr "Utworzono"
 #: dashboards/project/vpn/tables.py:276
 msgctxt "Current status of a VPN Service"
 msgid "Pending Create"
-msgstr ""
+msgstr "Oczekuje na utworzenie"
 
 #: dashboards/project/vpn/tables.py:278
 msgctxt "Current status of a VPN Service"
 msgid "Pending Update"
-msgstr ""
+msgstr "Oczekuje na aktualizację"
 
 #: dashboards/project/vpn/tables.py:280
 msgctxt "Current status of a VPN Service"
 msgid "Pending Delete"
-msgstr ""
+msgstr "Oczekuje na usunięcie"
 
 #: dashboards/project/vpn/tables.py:282
 msgctxt "Current status of a VPN Service"
 msgid "Inactive"
-msgstr ""
+msgstr "Nieaktywne"
 
 #: dashboards/project/vpn/tables.py:298 dashboards/project/vpn/tabs.py:46
 msgid "VPN Services"
@@ -16659,14 +16659,14 @@ msgid "Delete Network Profile"
 msgid_plural "Delete Network Profiles"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Usuń profile sieciowe"
 
 #: dashboards/router/nexus1000v/tables.py:47
 msgid "Deleted Network Profile"
 msgid_plural "Deleted Network Profiles"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Usunięto profile sieciowe"
 
 #: dashboards/router/nexus1000v/tables.py:56
 #, python-format
@@ -16815,7 +16815,7 @@ msgstr "Ilość linii logów dla instancji"
 
 #: dashboards/settings/user/forms.py:49
 msgid "Number of log lines to be shown per instance"
-msgstr ""
+msgstr "Ilość linii logów wyświetlana per instancja"
 
 #: dashboards/settings/user/forms.py:83
 #, python-format
@@ -16872,7 +16872,7 @@ msgstr "ISO - Optical Disk Image"
 
 #: settings.py:85
 msgid "OVA - Open Virtual Appliance"
-msgstr ""
+msgstr "OVA - Open Virtual Appliance"
 
 #: settings.py:86
 msgid "QCOW2 - QEMU Emulator"
@@ -16884,15 +16884,15 @@ msgstr "Nieprzetworzone"
 
 #: settings.py:88
 msgid "VDI - Virtual Disk Image"
-msgstr ""
+msgstr "VDI - Virtual Disk Image"
 
 #: settings.py:89
 msgid "VHD - Virtual Hard Disk"
-msgstr ""
+msgstr "VHD - Virtual Hard Disk"
 
 #: settings.py:90
 msgid "VMDK - Virtual Machine Disk"
-msgstr ""
+msgstr "VMDK - Virtual Machine Disk"
 
 #: settings.py:238
 msgid "All TCP"
@@ -17029,11 +17029,11 @@ msgstr "GB godziny dysku"
 
 #: usage/tables.py:51
 msgid "Total disk usage (GB * Hours Used) for the project"
-msgstr ""
+msgstr "Łączne wykorzystanie dysku (GB * godziny wykorzystania) dla projektu"
 
 #: usage/tables.py:55
 msgid "Memory MB Hours"
-msgstr ""
+msgstr "MB pamięci (w godzinach)"
 
 #: usage/tables.py:56
 msgid "Total memory usage (MB * Hours Used) for the project"
@@ -17049,11 +17049,11 @@ msgstr ""
 
 #: utils/metering.py:81
 msgid "The dates haven't been recognized"
-msgstr ""
+msgstr "Nie rozpoznano dat."
 
 #: utils/metering.py:87
 msgid "The time delta must be a number representing the time span in days"
-msgstr ""
+msgstr "Różnica czasu musi być liczbą przedstawiającą przedział czasu liczony w dniach."
 
 #: utils/metering.py:104
 #, python-format
