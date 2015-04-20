@@ -3094,7 +3094,8 @@ class InstanceTests(helpers.TestCase):
                                     'volume_snapshot_list',),
                            quotas: ('tenant_quota_usages',)})
     def _test_launch_form_instance_volume_size(self, image, volume_size, msg,
-                                               test_with_profile=False):
+                                               test_with_profile=False,
+                                               volumes=None):
         flavor = self.flavors.get(name='m1.massive')
         keypair = self.keypairs.first()
         server = self.servers.first()
@@ -3104,12 +3105,15 @@ class InstanceTests(helpers.TestCase):
         device_name = u'vda'
         quota_usages = self.quota_usages.first()
         quota_usages['cores']['available'] = 2000
+        if volumes is not None:
+            quota_usages['volumes']['available'] = volumes
+        else:
+            api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
 
         api.nova.extension_supported('BlockDeviceMappingV2Boot',
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
-        api.nova.flavor_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.flavors.list())
         api.nova.keypair_list(IsA(http.HttpRequest)) \
             .AndReturn(self.keypairs.list())
         api.network.security_group_list(IsA(http.HttpRequest)) \
@@ -3197,6 +3201,12 @@ class InstanceTests(helpers.TestCase):
         msg = "Enter a whole number."
         self._test_launch_form_instance_volume_size(image, 1.5, msg,
                                                     test_with_profile)
+
+    def test_launch_form_instance_volume_exceed_quota(self):
+        image = self.images.get(name='protected_images')
+        msg = "Requested volume exceeds quota: Available: 0, Requested: 1"
+        self._test_launch_form_instance_volume_size(image, image.min_disk,
+                                                    msg, False, 0)
 
     @helpers.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})

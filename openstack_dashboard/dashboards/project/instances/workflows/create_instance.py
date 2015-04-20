@@ -219,6 +219,16 @@ class SetInstanceDetailsAction(workflows.Action):
                       'avail': available_count}
             raise forms.ValidationError(error_message % params)
 
+        source_type = cleaned_data.get('source_type')
+        if source_type in ('volume_image_id', 'volume_snapshot_id'):
+            available_volume = usages['volumes']['available']
+            if available_volume < count:
+                msg = (_('The requested instance cannot be launched. '
+                         'Requested volume exceeds quota: Available: '
+                         '%(avail)s, Requested: %(req)s.')
+                       % {'avail': available_volume, 'req': count})
+                raise forms.ValidationError(msg)
+
         flavor_id = cleaned_data.get('flavor')
         flavor = self._get_flavor(flavor_id)
 
