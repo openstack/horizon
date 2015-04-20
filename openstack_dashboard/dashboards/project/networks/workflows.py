@@ -47,6 +47,7 @@ class CreateNetworkInfoAction(workflows.Action):
     admin_state = forms.ChoiceField(choices=[(True, _('UP')),
                                              (False, _('DOWN'))],
                                     label=_("Admin State"),
+                                    required=False,
                                     help_text=_("The state to start"
                                                 " the network in."))
 

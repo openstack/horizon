@@ -39,6 +39,7 @@ class UpdateNetwork(forms.SelfHandlingForm):
                                      attrs={'readonly': 'readonly'}))
     admin_state = forms.ChoiceField(choices=[(True, _('UP')),
                                              (False, _('DOWN'))],
+                                    required=False,
                                     label=_("Admin State"))
     failure_url = 'horizon:project:networks:index'
 
