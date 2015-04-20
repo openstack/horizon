@@ -43,7 +43,9 @@ class UserSettingsForm(forms.SelfHandlingForm):
                                                     'API_RESULT_LIMIT',
                                                     1000),
                                   help_text=_("Number of items to show per "
-                                              "page"))
+                                              "page (applies to the pages "
+                                              "that have API supported "
+                                              "pagination)"))
     instance_log_length = forms.IntegerField(
         label=_("Log Lines Per Instance"), min_value=1,
         help_text=_("Number of log lines to be shown per instance"))
