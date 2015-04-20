@@ -4372,3 +4372,41 @@ class ConsoleManagerTests(helpers.TestCase):
 
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @helpers.create_stubs({api.neutron: ('port_list',)})
+    def test_interface_detach_get(self):
+        server = self.servers.first()
+        api.neutron.port_list(IsA(http.HttpRequest),
+                              device_id=server.id)\
+            .AndReturn([self.ports.first()])
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:instances:detach_interface',
+                      args=[server.id])
+        res = self.client.get(url)
+
+        self.assertTemplateUsed(res,
+                                'project/instances/detach_interface.html')
+
+    @helpers.create_stubs({api.neutron: ('port_list',),
+                           api.nova: ('interface_detach',)})
+    def test_interface_detach_post(self):
+        server = self.servers.first()
+        port = self.ports.first()
+        api.neutron.port_list(IsA(http.HttpRequest),
+                              device_id=server.id)\
+            .AndReturn([port])
+        api.nova.interface_detach(IsA(http.HttpRequest), server.id, port.id)
+
+        self.mox.ReplayAll()
+
+        form_data = {'instance_id': server.id,
+                     'port': port.id}
+
+        url = reverse('horizon:project:instances:detach_interface',
+                      args=[server.id])
+        res = self.client.post(url, form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)

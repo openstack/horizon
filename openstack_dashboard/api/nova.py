@@ -925,6 +925,10 @@ def interface_attach(request,
                                                         fixed_ip)
 
 
+def interface_detach(request, server, port_id):
+    return novaclient(request).servers.interface_detach(server, port_id)
+
+
 @memoized
 def list_extensions(request):
     return nova_list_extensions.ListExtManager(novaclient(request)).show_all()

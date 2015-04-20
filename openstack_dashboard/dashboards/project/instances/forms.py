@@ -192,3 +192,44 @@ class AttachInterface(forms.SelfHandlingForm):
             exceptions.handle(request, _("Unable to attach interface."),
                               redirect=redirect)
         return True
+
+
+class DetachInterface(forms.SelfHandlingForm):
+    instance_id = forms.CharField(widget=forms.HiddenInput())
+    port = forms.ChoiceField(label=_("Port"))
+
+    def __init__(self, request, *args, **kwargs):
+        super(DetachInterface, self).__init__(request, *args, **kwargs)
+        instance_id = kwargs.get('initial', {}).get('instance_id')
+        self.fields['instance_id'].initial = instance_id
+        ports = []
+        try:
+            ports = api.neutron.port_list(request, device_id=instance_id)
+        except Exception:
+            exceptions.handle(request, _('Unable to retrieve ports '
+                                         'information.'))
+        choices = []
+        for port in ports:
+            ips = []
+            for ip in port.fixed_ips:
+                ips.append(ip['ip_address'])
+            choices.append((port.id, ','.join(ips) or port.id))
+        if choices:
+            choices.insert(0, ("", _("Select Port")))
+        else:
+            choices.insert(0, ("", _("No Ports available")))
+        self.fields['port'].choices = choices
+
+    def handle(self, request, data):
+        instance = data.get('instance_id')
+        port = data.get('port')
+        try:
+            api.nova.interface_detach(request, instance, port)
+            msg = _('Detached interface %(port)s for instance '
+                    '%(instance)s.') % {'port': port, 'instance': instance}
+            messages.success(request, msg)
+        except Exception:
+            redirect = reverse('horizon:project:instances:index')
+            exceptions.handle(request, _("Unable to detach interface."),
+                              redirect=redirect)
+        return True
