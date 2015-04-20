@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-15 02:00-0500\n"
-"PO-Revision-Date: 2015-04-16 23:11+0000\n"
+"PO-Revision-Date: 2015-04-20 00:11+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -8694,7 +8694,7 @@ msgid ""
 "                    Choosing this up front will allow the rest of the cluster\n"
 "                    creation steps to focus only on options that are pertinent\n"
 "                    to your desired cluster type."
-msgstr ""
+msgstr "O primeiro passo é determinar que tipo de\ncluster você deseja executar. Você poderá ter várias escolhas\ndisponíveis dependendo da configuração do seu sistema.\nClique em \"escolher plugin\" para trazer a lista de plugins de\nprocessamento de dados. Lá você será capaz de escolher\no plugin de processamento de dados juntamente com o número da versão.\nEscolhendo isto primeiro, vai permitir que o resto dos passos de criação do cluster foque somente nas opções que são pertinentes ao seu tipo de cluster desejado."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:23
 msgid "Choose plugin"
@@ -8731,7 +8731,7 @@ msgid ""
 "                        you will define the Node Group Template for your\n"
 "                        \"master\" node(s).\n"
 "                     "
-msgstr ""
+msgstr "Depois, você precisa definir os diferentes\ntipos de máquinas em seu cluster. Isto é feito através\nda definição de um Modelo de Grupo de Nodo para cada tipo\nde máquina. Um caso muito comum é quando você\nprecisa ter uma ou mais máquinas executando um conjunto \"master\"\nde processos, enquanto outro conjunto de máquinas precisam\nestar executando os processos \"worker\". Aqui,\nvocê irá definir o Modelo de Grupo de Nodo para seus\nnodo(s) \"master\"."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:58
 msgid "Create a Master Node Group Template"
@@ -8775,7 +8775,7 @@ msgid ""
 "                        you will have a chance to set any cluster-specific\n"
 "                        configuration items in the additional tabs on the\n"
 "                        create Cluster Template form."
-msgstr ""
+msgstr "Agora, você precisa definir o layout do seu\ncluster. Através\nda criação do Modelo de Cluster, você estará escolhendo o\nnúmero de instâncias de cada Modelo de Grupo de Nodo que\nirá aparecer em seu cluster. Adicionalmente,\nvocê terá a chance de definir qualquer item de configuração\nespecífica de cluster nas guias adicionais no\nformulário Modelo de Criação de Cluster."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:117
 msgid "Create a Cluster Template"
@@ -8795,7 +8795,7 @@ msgid ""
 "                        click on \"Create\", your instances will begin to\n"
 "                        spawn.  Your cluster should be operational in a few\n"
 "                        minutes."
-msgstr ""
+msgstr "Agora você está pronto para\nlançar seu cluster. Quando você clicar no link\nabaixo, você precisará dar um nome para seu cluster,\nescolher o Modelo de Cluster para usar, e escolher qual\nimagem utilizar para construir suas instâncias. Depois que\nvocê clicar em \"Criar\", suas instâncias começarão a\ngerar. Seu cluster deve estar operacional em poucos\nminutos."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:149
 msgid "Launch a Cluster"
@@ -8837,7 +8837,7 @@ msgid ""
 "                            or more data sources.  You can create multiple data\n"
 "                            sources by repeating this step.\n"
 "                        "
-msgstr ""
+msgstr "Fontes de Dados são o que suas\ntarefas utilizam para entrada e saída. Dependendo do tipo\nde tarefa que você estará executando, você poderá precisar definir uma\nou mais fontes de dados. Você pode criar múltiplas\nfontes de dados através da repetição deste passo."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:52
 msgid "Create a data source"
@@ -8851,7 +8851,7 @@ msgid ""
 "                        or upload the files necessary to run it.  The inputs\n"
 "                        and outputs will be defined later.\n"
 "                    "
-msgstr ""
+msgstr "Definir seu Modelo de Tarefa.\nEste é o lugar onde você escolhe o tipo de tarefa  que você\nquer executar (Pig, Java Action, Spark, etc) e escolhe\nou carrega os arquivos necessários para executá-la. As entradas\ne saídas serão definidas depois."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:71
 msgid "Create a job template"
@@ -8896,7 +8896,7 @@ msgid ""
 "                 this guide to help take you through the steps of\n"
 "                 Cluster creation.\n"
 "             "
-msgstr ""
+msgstr "\nCada infraestrutura de Procesamento de Dados requer um cluster de máquinas\npara fazer o trabalho a ela atribuído. Um cluster é\nformado pela criação de um conjunto de Modelos de Grupo de Nodo, combinando-os\nem um Modelo de Cluster e, então, lançando um Cluster.\nVocê pode fazer cada um desses passos manualmente, ou você pode seguir\neste guia para ajudá-lo a seguir os passos da criação do Cluster.\n             "
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:25
 msgid "Cluster Guide"
@@ -8913,7 +8913,7 @@ msgid ""
 "                  manually or you can follow this guide to help take you\n"
 "                  through the steps to run a job on an existing cluster.\n"
 "            "
-msgstr ""
+msgstr "\nPara executar a tarefa de Processamento de Dados, você precisa tornar\nos arquivos para seu programa disponíveis para o\nsistema de Processamento de Dados, definir onde a entrada e a saída\nprecisam ir e criar um Modelo de Tarefa que descreva\ncomo executar sua tarefa. Cada passo destes pode ser feito\nmanualmente ou você pode seguir este guia para ajudá-lo a\nseguir os passos para executar uma tarefa em um cluster existente."
 
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:47
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/wizard.html:49
@@ -14037,7 +14037,7 @@ msgid ""
 "\n"
 "     <b>Note:</b> Rules only affect one direction of traffic. The opposite direction is outlined when hovering over an intersection.\n"
 " "
-msgstr ""
+msgstr "A cor e o ícone de uma intersecção indica se o tráfego é permitido ou não da fornte (linha) para o destino (coluna).\nClicando o botão <i class=\"fa fa-random\"></i> na instersecção irá instalar uma regra para chavear o comportamento do tráfego.<br/>\n\n<b>Nota:</b> Regras somente afetam uma direção do tráfego. A direção oposta é utilizada quando estiver sobre uma interseção."
 
 #: dashboards/project/routers/templates/routers/ports/_create.html:20
 msgid "You can connect a specified subnet to the router."
@@ -14936,7 +14936,7 @@ msgid ""
 "Accepting a transfer requires obtaining the Transfer ID and Authorization "
 "Key from the donor.  This is equivalent to the <tt>cinder transfer-"
 "accept</tt> command."
-msgstr ""
+msgstr "A posse de um volume pode ser transferida de um projeto para outro. O aceite de uma transferência requer a obtenção do ID de Transferência e da Chave de Autorização do doador. Isto é equivalente ao comando <tt>cinder transfer-accept</tt>."
 
 #: dashboards/project/volumes/templates/volumes/volumes/_attach.html:9
 msgid "Attach To Instance"
@@ -14962,7 +14962,7 @@ msgid ""
 " volume transfer is created in a donor project, it then can be \"accepted\" "
 "by a recipient project. This is equivalent to the <tt>cinder transfer-"
 "create</tt> command."
-msgstr ""
+msgstr "A posse de um volume pode ser transferida de um projeto para outro. Uma vez que a transferência de volume é criada em um projeto doador, ele então, pode ser \"aceito\" por um projeto destinatário. Isto é equivalente ao comando <tt>cinder transfer-create</tt>."
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:4
 msgid "Volume Overview"
@@ -14979,7 +14979,7 @@ msgid ""
 "\n"
 "      <a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s\n"
 "      "
-msgstr ""
+msgstr "\n<a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:48
 msgid "Not attached"
@@ -15059,13 +15059,13 @@ msgid ""
 "The Transfer ID and the Authorization Key are needed by the recipient in "
 "order to accept the transfer. Please capture both the Transfer ID and the "
 "Authorization Key and provide them to your transfer recipient."
-msgstr ""
+msgstr "O ID de Transferência e a Chave de Autorização são necessárias pelo destinatário de forma a aceitar a transferência. Por favor, capture ambos, o ID de Transferência e a Chave de Autorização e forneça-os ao seu destinatário de transferência."
 
 #: dashboards/project/volumes/templates/volumes/volumes/_show_transfer.html:7
 msgid ""
 "The Authorization Key will not be available after closing this page, so you "
 "must capture it now, or else you will be unable to use the transfer."
-msgstr ""
+msgstr "A Chave de Autorização não estará disponível depois de fechar esta página, assim, você deve capturá-la agora, ou então, você não será capaz de usar a transferência."
 
 #: dashboards/project/volumes/templates/volumes/volumes/_snapshot_limits.html:5
 msgid "From here you can create a snapshot of a volume."
@@ -15087,7 +15087,7 @@ msgstr "Modifica o nome e descrição de um volume."
 msgid ""
 "The \"Bootable\" flag specifies that this volume can be used to launch an "
 "instance."
-msgstr ""
+msgstr "O flag \"Bootável\" especifica que este volume pode ser utilizado para lançar uma instância."
 
 #: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:6
 msgid ""
@@ -15095,7 +15095,7 @@ msgid ""
 "      Upload the volume to the Image Service as an image.\n"
 "      This is equivalent to the <tt>cinder upload-to-image</tt> command.\n"
 "     "
-msgstr ""
+msgstr "\nCarregar o volume para o Serviço de Imagem como uma imagem.\nIsto é equivalente ao comando <tt>cinder upload-to-image</tt>."
 
 #: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:11
 msgid ""
@@ -15103,7 +15103,7 @@ msgid ""
 "      Choose \"Disk Format\" for the image. The volume images are created with\n"
 "      the QEMU disk image utility.\n"
 "     "
-msgstr ""
+msgstr "\nEscolher \"Formato de Disco\" para a imagem. As imagens de volume são criadas com\no utilitário de imagem de disco QEMU."
 
 #: dashboards/project/volumes/templates/volumes/volumes/_upload_to_image.html:17
 msgid ""
@@ -15111,7 +15111,7 @@ msgid ""
 "        When the volume status is \"in-use\", you can use \"Force\" to upload the\n"
 "        volume to an image.\n"
 "       "
-msgstr ""
+msgstr "\nQuando o estado do volume é \"em-uso\", você pode \"Forçar\" para carregar o\nvolume para uma imagem."
 
 #: dashboards/project/volumes/templates/volumes/volumes/accept_transfer.html:3
 #: dashboards/project/volumes/volumes/views.py:237
@@ -15342,7 +15342,7 @@ msgstr "Não foi possível criar um snapshot de volume."
 
 #: dashboards/project/volumes/volumes/forms.py:525
 msgid "Requested snapshot would exceed the allowed quota."
-msgstr ""
+msgstr "O instantâneo requisitado iria exceder a quota permitida."
 
 #: dashboards/project/volumes/volumes/forms.py:532
 #: dashboards/project/volumes/volumes/forms.py:578
@@ -16828,7 +16828,7 @@ msgstr "Regiões:"
 
 #: test/test_panels/plugin_panel/views.py:20
 msgid "Plugin-based Panel"
-msgstr ""
+msgstr "Painel baseado em Plugin"
 
 #: usage/base.py:74
 msgid "Invalid date format: Using today as default."
