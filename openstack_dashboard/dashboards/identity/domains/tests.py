@@ -359,48 +359,21 @@ class UpdateDomainWorkflowTests(test.BaseAdminViewTests):
                                    enabled=domain.enabled,
                                    name=domain.name).AndReturn(None)
 
-        api.keystone.user_list(IsA(http.HttpRequest),
-                               domain=domain.id).AndReturn(users)
+        api.keystone.role_assignments_list(IsA(http.HttpRequest),
+                                           domain=domain.id) \
+            .AndReturn(role_assignments)
 
-        # admin user - try to remove all roles on current domain, warning
-        api.keystone.roles_for_user(IsA(http.HttpRequest), '1',
-                                    domain=domain.id) \
-            .AndReturn(roles)
-
-        # member user 1 - has role 1, will remove it
-        api.keystone.roles_for_user(IsA(http.HttpRequest), '2',
-                                    domain=domain.id) \
-            .AndReturn((roles[0],))
-        # remove role 1
-        api.keystone.remove_domain_user_role(IsA(http.HttpRequest),
-                                             domain=domain.id,
-                                             user='2',
-                                             role='1')
-        # add role 2
-        api.keystone.add_domain_user_role(IsA(http.HttpRequest),
-                                          domain=domain.id,
-                                          user='2',
-                                          role='2')
-
-        # member user 3 - has role 2
-        api.keystone.roles_for_user(IsA(http.HttpRequest), '3',
-                                    domain=domain.id) \
-            .AndReturn((roles[1],))
-        # remove role 2
-        api.keystone.remove_domain_user_role(IsA(http.HttpRequest),
-                                             domain=domain.id,
-                                             user='3',
-                                             role='2')
-        # add role 1
+        # Give user 3 role 1
         api.keystone.add_domain_user_role(IsA(http.HttpRequest),
                                           domain=domain.id,
                                           user='3',
                                           role='1')
 
-        # member user 5 - do nothing
-        api.keystone.roles_for_user(IsA(http.HttpRequest), '5',
-                                    domain=domain.id) \
-            .AndReturn([])
+        # remove role 2 from user 3
+        api.keystone.remove_domain_user_role(IsA(http.HttpRequest),
+                                             domain=domain.id,
+                                             user='3',
+                                             role='2')
 
         # Group assignments
         api.keystone.group_list(IsA(http.HttpRequest),
