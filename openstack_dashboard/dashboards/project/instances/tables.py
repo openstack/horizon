@@ -349,7 +349,6 @@ class LaunchLink(tables.LinkAction):
 
 class LaunchLinkNG(LaunchLink):
     name = "launch-ng"
-    verbose_name = _("Launch Instance NG")
     ajax = False
     classes = ("btn-launch")
 
