@@ -9,14 +9,14 @@
 # Shang Wu <wu1982@gmail.com>, 2015
 # Tom Fifield <tom@openstack.org>, 2015
 # Zhang Xiaowei <zero00072@gmail.com>, 2014
-# Zhang Xiaowei <zero00072@gmail.com>, 2015
+# Zhang Xiaowei <zero00072@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-14 20:34-0500\n"
-"PO-Revision-Date: 2015-04-15 04:31+0000\n"
-"Last-Translator: Zhang Xiaowei <zero00072@gmail.com>\n"
+"POT-Creation-Date: 2015-04-21 00:09-0500\n"
+"PO-Revision-Date: 2015-04-20 10:51+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1168,7 +1168,7 @@ msgstr "浮動 IP"
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:47
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:222
 #: dashboards/project/instances/templates/instances/_detail_overview.html:85
-#: dashboards/project/instances/workflows/create_instance.py:544
+#: dashboards/project/instances/workflows/create_instance.py:554
 #: dashboards/project/instances/workflows/update_instance.py:80
 #: usage/quotas.py:70 usage/quotas.py:82
 msgid "Security Groups"
@@ -1715,7 +1715,7 @@ msgstr "區域"
 #: dashboards/admin/info/tables.py:217
 #: dashboards/admin/instances/tables.py:142
 #: dashboards/admin/networks/agents/tables.py:92
-#: dashboards/admin/networks/tables.py:102
+#: dashboards/admin/networks/tables.py:103
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:17
 #: dashboards/admin/volumes/snapshots/forms.py:34
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:18
@@ -2352,7 +2352,7 @@ msgid "Metadata Definition File"
 msgstr "詮釋資料定義檔"
 
 #: dashboards/admin/metadata_defs/forms.py:41
-#: dashboards/project/instances/workflows/create_instance.py:611
+#: dashboards/project/instances/workflows/create_instance.py:621
 #: dashboards/project/stacks/forms.py:62
 msgid "Direct Input"
 msgstr "直接輸入"
@@ -3107,7 +3107,7 @@ msgstr "加入 DHCP 媒介"
 #: dashboards/admin/networks/forms.py:79
 #: dashboards/admin/networks/forms.py:238
 #: dashboards/admin/networks/ports/forms.py:48
-#: dashboards/admin/networks/tables.py:104
+#: dashboards/admin/networks/tables.py:106
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:19
 #: dashboards/project/firewalls/forms.py:134
 #: dashboards/project/firewalls/tables.py:350
@@ -3120,7 +3120,7 @@ msgstr "加入 DHCP 媒介"
 #: dashboards/project/loadbalancers/workflows.py:195
 #: dashboards/project/loadbalancers/workflows.py:347
 #: dashboards/project/loadbalancers/workflows.py:550
-#: dashboards/project/networks/forms.py:42
+#: dashboards/project/networks/forms.py:43
 #: dashboards/project/networks/ports/forms.py:43
 #: dashboards/project/networks/ports/tables.py:77
 #: dashboards/project/networks/tables.py:177
@@ -3299,14 +3299,14 @@ msgid ""
 msgstr "在虛擬區域網路裡，識別虛擬網路於實體網路上的虛擬區域網路虛擬 ID。有效的虛擬區域網路識別號從 %(vlan_min)s 到 %(vlan_max)s。若是 GRE 或 VXLAN 網路，則是通道識別號。GRE 網路有效的通道識別號從 %(gre_min)s 到 %(gre_max)s。在 VXLAN 網路，從 %(vxlan_min)s 到 %(vxlan_max)s。"
 
 #: dashboards/admin/networks/forms.py:145
-#: dashboards/project/instances/workflows/create_instance.py:724
-#: dashboards/project/networks/workflows.py:61
+#: dashboards/project/instances/workflows/create_instance.py:734
+#: dashboards/project/networks/workflows.py:62
 msgid "Select a profile"
 msgstr "選擇基本資料"
 
 #: dashboards/admin/networks/forms.py:155
-#: dashboards/project/instances/workflows/create_instance.py:734
-#: dashboards/project/networks/workflows.py:71
+#: dashboards/project/instances/workflows/create_instance.py:744
+#: dashboards/project/networks/workflows.py:72
 #: dashboards/router/nexus1000v/views.py:53
 msgid "Network Profiles could not be retrieved."
 msgstr "不能獲得網路基本資料。"
@@ -3337,24 +3337,24 @@ msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
 msgstr "在 VXLAN 網路裡，有效的通道識別號從 %(min)s 到 %(max)s。"
 
 #: dashboards/admin/networks/forms.py:252
-#: dashboards/project/networks/forms.py:52
+#: dashboards/project/networks/forms.py:53
 #, python-format
 msgid "Network %s was successfully updated."
 msgstr "已成功更新網路 %s。"
 
 #: dashboards/admin/networks/forms.py:257
-#: dashboards/project/networks/forms.py:57
+#: dashboards/project/networks/forms.py:58
 #, python-format
 msgid "Failed to update network %s"
 msgstr "更新網路 %s 時失敗"
 
 #: dashboards/admin/networks/panel.py:23
-#: dashboards/admin/networks/tables.py:109
+#: dashboards/admin/networks/tables.py:111
 #: dashboards/admin/networks/templates/networks/index.html:3
 #: dashboards/admin/networks/views.py:42
 #: dashboards/identity/projects/workflows.py:75
 #: dashboards/project/databases/workflows/create_instance.py:131
-#: dashboards/project/instances/workflows/create_instance.py:688
+#: dashboards/project/instances/workflows/create_instance.py:698
 #: dashboards/project/networks/panel.py:23
 #: dashboards/project/networks/tables.py:182
 #: dashboards/project/networks/templates/networks/index.html:3
@@ -3513,7 +3513,7 @@ msgstr "刪除子網路 %s 時失敗"
 #: dashboards/project/networks/subnets/tables.py:91
 #: dashboards/project/networks/subnets/tables.py:108
 #: dashboards/project/networks/subnets/workflows.py:56
-#: dashboards/project/networks/workflows.py:90
+#: dashboards/project/networks/workflows.py:91
 msgid "Create Subnet"
 msgstr "新增子網路"
 
@@ -3534,14 +3534,14 @@ msgstr "CIDR"
 #: dashboards/admin/networks/subnets/tables.py:95
 #: dashboards/project/networks/subnets/tables.py:132
 #: dashboards/project/networks/subnets/workflows.py:100
-#: dashboards/project/networks/workflows.py:126
+#: dashboards/project/networks/workflows.py:127
 msgid "IP Version"
 msgstr "IP 版本"
 
 #: dashboards/admin/networks/subnets/tables.py:96
 #: dashboards/project/networks/subnets/tables.py:133
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:28
-#: dashboards/project/networks/workflows.py:128
+#: dashboards/project/networks/workflows.py:129
 msgid "Gateway IP"
 msgstr "閘道 IP"
 
@@ -3592,7 +3592,7 @@ msgstr "刪除網路 %s 時失敗"
 #: dashboards/project/networks/tables.py:100
 #: dashboards/project/networks/templates/networks/_create.html:8
 #: dashboards/project/networks/templates/networks/_create.html:23
-#: dashboards/project/networks/workflows.py:341
+#: dashboards/project/networks/workflows.py:342
 msgid "Create Network"
 msgstr "新增網路"
 
@@ -3992,7 +3992,7 @@ msgstr "資訊"
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/instances/templates/instances/_detail_overview.html:144
 #: dashboards/project/instances/workflows/create_instance.py:102
-#: dashboards/project/instances/workflows/create_instance.py:415
+#: dashboards/project/instances/workflows/create_instance.py:425
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:23
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/volumes/volumes/forms.py:249
@@ -4203,7 +4203,7 @@ msgstr "雲硬碟類型的額外規格"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_index.html:13
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_index.html:14
-#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:61
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:63
 #: dashboards/project/containers/templates/containers/_container_detail.html:29
 #: dashboards/project/containers/templates/containers/_object_detail.html:25
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:104
@@ -4373,7 +4373,7 @@ msgstr[0] "已刪除額外規格"
 #: dashboards/project/data_processing/jobs/workflows/launch.py:408
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:257
 #: dashboards/project/networks/subnets/workflows.py:57
-#: dashboards/project/networks/workflows.py:342
+#: dashboards/project/networks/workflows.py:343
 msgid "Create"
 msgstr "新增"
 
@@ -5089,7 +5089,7 @@ msgstr "電子郵件信箱"
 #: dashboards/identity/groups/tables.py:194
 #: dashboards/identity/users/tables.py:235
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:24
-#: dashboards/project/instances/audit_tables.py:28
+#: dashboards/project/instances/audit_tables.py:45
 msgid "User ID"
 msgstr "用戶識別號"
 
@@ -5480,7 +5480,7 @@ msgstr "確認密碼"
 
 #: dashboards/identity/users/forms.py:56
 #: dashboards/project/instances/forms.py:92
-#: dashboards/project/instances/workflows/create_instance.py:584
+#: dashboards/project/instances/workflows/create_instance.py:594
 #: dashboards/settings/password/forms.py:50
 msgid "Passwords do not match."
 msgstr "密碼沒有相配。"
@@ -5526,7 +5526,7 @@ msgid "Unable to update the user."
 msgstr "無法更新用戶。"
 
 #: dashboards/identity/users/forms.py:229
-#: dashboards/project/instances/workflows/create_instance.py:535
+#: dashboards/project/instances/workflows/create_instance.py:545
 msgid "Admin Password"
 msgstr "管理員密碼"
 
@@ -5978,7 +5978,7 @@ msgstr "無法新增密鑰對：%(exc)s"
 
 #: dashboards/project/access_and_security/panel.py:24
 #: dashboards/project/access_and_security/views.py:35
-#: dashboards/project/instances/workflows/create_instance.py:552
+#: dashboards/project/instances/workflows/create_instance.py:562
 msgid "Access & Security"
 msgstr "存取權以及安全性"
 
@@ -6494,7 +6494,7 @@ msgid "Unable to create container."
 msgstr "無法新增容器。"
 
 #: dashboards/project/containers/forms.py:84
-#: dashboards/project/instances/workflows/create_instance.py:612
+#: dashboards/project/instances/workflows/create_instance.py:622
 #: dashboards/project/stacks/forms.py:61
 msgid "File"
 msgstr "檔案"
@@ -6825,7 +6825,7 @@ msgid "Compute"
 msgstr "運算"
 
 #: dashboards/project/dashboard.py:32
-#: dashboards/project/networks/workflows.py:78
+#: dashboards/project/networks/workflows.py:79
 msgid "Network"
 msgstr "網路"
 
@@ -7397,7 +7397,7 @@ msgstr "無可用的範本"
 #: dashboards/project/data_processing/jobs/workflows/launch.py:418
 #: dashboards/project/databases/workflows/create_instance.py:335
 #: dashboards/project/images/images/tables.py:62
-#: dashboards/project/instances/workflows/create_instance.py:820
+#: dashboards/project/instances/workflows/create_instance.py:830
 #: dashboards/project/stacks/views.py:165
 msgid "Launch"
 msgstr "發動"
@@ -7450,7 +7450,7 @@ msgstr "映像檔"
 #: dashboards/project/images/utils.py:97
 #: dashboards/project/instances/forms.py:39
 #: dashboards/project/instances/forms.py:64
-#: dashboards/project/instances/workflows/create_instance.py:437
+#: dashboards/project/instances/workflows/create_instance.py:447
 msgid "Select Image"
 msgstr "選擇映像檔"
 
@@ -7868,7 +7868,7 @@ msgstr "工作"
 
 #: dashboards/project/data_processing/job_executions/tables.py:39
 #: dashboards/project/data_processing/job_executions/tables.py:198
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:16
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:20
 #: dashboards/project/data_processing/jobs/workflows/launch.py:106
 msgid "Cluster"
 msgstr "叢集"
@@ -7960,50 +7960,50 @@ msgstr "工作範本"
 msgid "Job Overview"
 msgstr "工作概觀"
 
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:12
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:13
 msgid "Input Data Source"
 msgstr "輸入資料來源"
 
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:14
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:17
 msgid "Output Data Source"
 msgstr "輸出資料來源"
 
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:18
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:22
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:24
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:38
 msgid "Last Updated"
 msgstr "最近一次更新"
 
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:20
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:24
 msgctxt "Start time"
 msgid "Started"
 msgstr "開始於"
 
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:22
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:26
 msgctxt "End time"
 msgid "Ended"
 msgstr "結束於"
 
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:24
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:28
 msgid "Return Code"
 msgstr "回傳碼"
 
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:26
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:30
 msgid "Oozie Job ID"
 msgstr "Oozie 工作識別號"
 
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:28
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:32
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:29
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:95
 msgctxt "Created time"
 msgid "Created"
 msgstr "新增於"
 
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:30
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:34
 msgid "Job Configuration"
 msgstr "工作設置"
 
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:32
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:36
 #, python-format
 msgid "%(group)s:"
 msgstr "%(group)s："
@@ -9062,14 +9062,14 @@ msgstr "已排程備份「%(name)s」。"
 
 #: dashboards/project/database_backups/workflows/create_backup.py:85
 #: dashboards/project/databases/workflows/create_instance.py:337
-#: dashboards/project/instances/workflows/create_instance.py:822
+#: dashboards/project/instances/workflows/create_instance.py:832
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "無法發動名為「%(name)s」%(count)s 個。"
 
 #: dashboards/project/database_backups/workflows/create_backup.py:95
 #: dashboards/project/databases/workflows/create_instance.py:353
-#: dashboards/project/instances/workflows/create_instance.py:839
+#: dashboards/project/instances/workflows/create_instance.py:849
 msgid "instance"
 msgstr "雲實例"
 
@@ -9202,7 +9202,7 @@ msgstr "刪除雲實例上的資料庫出錯。"
 #: dashboards/project/images/images/tables.py:36
 #: dashboards/project/instances/tables.py:308
 #: dashboards/project/instances/tables.py:336
-#: dashboards/project/instances/workflows/create_instance.py:819
+#: dashboards/project/instances/workflows/create_instance.py:829
 #: dashboards/project/network_topology/templates/network_topology/index.html:32
 #: dashboards/project/network_topology/templates/network_topology/index.html:34
 msgid "Launch Instance"
@@ -9538,22 +9538,22 @@ msgid "Select datastore type and version"
 msgstr "選擇資料倉庫類型和版本"
 
 #: dashboards/project/databases/workflows/create_instance.py:135
-#: dashboards/project/instances/workflows/create_instance.py:692
+#: dashboards/project/instances/workflows/create_instance.py:702
 msgid "At least one network must be specified."
 msgstr "最少要指定一組網路。"
 
 #: dashboards/project/databases/workflows/create_instance.py:137
-#: dashboards/project/instances/workflows/create_instance.py:694
+#: dashboards/project/instances/workflows/create_instance.py:704
 msgid "Launch instance with these networks"
 msgstr "以這些網路發動雲實例"
 
 #: dashboards/project/databases/workflows/create_instance.py:147
-#: dashboards/project/instances/workflows/create_instance.py:716
+#: dashboards/project/instances/workflows/create_instance.py:726
 msgid "Networking"
 msgstr "網路連線"
 
 #: dashboards/project/databases/workflows/create_instance.py:149
-#: dashboards/project/instances/workflows/create_instance.py:718
+#: dashboards/project/instances/workflows/create_instance.py:728
 msgid "Select networks for your instance."
 msgstr "為您的雲實例選擇網路。"
 
@@ -9645,7 +9645,7 @@ msgid "A master instance must be selected!"
 msgstr "必須選擇主管雲實例！"
 
 #: dashboards/project/databases/workflows/create_instance.py:336
-#: dashboards/project/instances/workflows/create_instance.py:821
+#: dashboards/project/instances/workflows/create_instance.py:831
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "已發動名為「%(name)s」%(count)s 個。"
@@ -9697,7 +9697,7 @@ msgstr "為防火牆規則設定的協定"
 #: dashboards/project/firewalls/tables.py:281
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:19
 #: dashboards/project/firewalls/workflows.py:43
-#: dashboards/project/instances/audit_tables.py:25
+#: dashboards/project/instances/audit_tables.py:41
 #: dashboards/project/routers/extensions/routerrules/forms.py:52
 #: dashboards/project/routers/extensions/routerrules/tables.py:73
 msgid "Action"
@@ -10717,7 +10717,7 @@ msgstr "無法獲得映像檔"
 
 #: dashboards/project/images/utils.py:104
 #: dashboards/project/instances/forms.py:66
-#: dashboards/project/instances/workflows/create_instance.py:439
+#: dashboards/project/instances/workflows/create_instance.py:449
 msgid "No images available"
 msgstr "無可用的映像檔"
 
@@ -10725,20 +10725,75 @@ msgstr "無可用的映像檔"
 msgid "Unable to retrieve images."
 msgstr "無法獲得映像檔。"
 
-#: dashboards/project/instances/audit_tables.py:24
+#: dashboards/project/instances/audit_tables.py:25
+msgctxt "Action log of an instance"
+msgid "Create"
+msgstr "新增"
+
+#: dashboards/project/instances/audit_tables.py:26
+msgctxt "Action log of an instance"
+msgid "Pause"
+msgstr "暫停"
+
+#: dashboards/project/instances/audit_tables.py:27
+msgctxt "Action log of an instance"
+msgid "Unpause"
+msgstr ""
+
+#: dashboards/project/instances/audit_tables.py:28
+msgctxt "Action log of an instance"
+msgid "Rebuild"
+msgstr "重建中"
+
+#: dashboards/project/instances/audit_tables.py:29
+msgctxt "Action log of an instance"
+msgid "Resize"
+msgstr "調整容量"
+
+#: dashboards/project/instances/audit_tables.py:31
+msgctxt "Action log of an instance"
+msgid "Confirm Resize"
+msgstr ""
+
+#: dashboards/project/instances/audit_tables.py:32
+msgctxt "Action log of an instance"
+msgid "Suspend"
+msgstr "停止"
+
+#: dashboards/project/instances/audit_tables.py:33
+msgctxt "Action log of an instance"
+msgid "Resume"
+msgstr "恢復"
+
+#: dashboards/project/instances/audit_tables.py:34
+msgctxt "Action log of an instance"
+msgid "Reboot"
+msgstr "重開機中"
+
+#: dashboards/project/instances/audit_tables.py:35
+msgctxt "Action log of an instance"
+msgid "Stop"
+msgstr ""
+
+#: dashboards/project/instances/audit_tables.py:36
+msgctxt "Action log of an instance"
+msgid "Start"
+msgstr "開始"
+
+#: dashboards/project/instances/audit_tables.py:40
 msgid "Request ID"
 msgstr "請求識別號"
 
-#: dashboards/project/instances/audit_tables.py:26
+#: dashboards/project/instances/audit_tables.py:43
 msgid "Start Time"
 msgstr "開始時間"
 
-#: dashboards/project/instances/audit_tables.py:29
+#: dashboards/project/instances/audit_tables.py:46
 #: dashboards/project/instances/templates/instances/_detail_overview.html:32
 msgid "Message"
 msgstr "訊息"
 
-#: dashboards/project/instances/audit_tables.py:33
+#: dashboards/project/instances/audit_tables.py:50
 msgid "Instance Action List"
 msgstr "雲實例行為列表"
 
@@ -10760,23 +10815,23 @@ msgid "Confirm Rebuild Password"
 msgstr "確認重建密碼"
 
 #: dashboards/project/instances/forms.py:53
-#: dashboards/project/instances/workflows/create_instance.py:766
+#: dashboards/project/instances/workflows/create_instance.py:776
 msgid "Disk Partition"
 msgstr "硬碟分割"
 
 #: dashboards/project/instances/forms.py:78
-#: dashboards/project/instances/workflows/create_instance.py:784
+#: dashboards/project/instances/workflows/create_instance.py:794
 msgid "Automatic"
 msgstr "自動"
 
 #: dashboards/project/instances/forms.py:79
-#: dashboards/project/instances/workflows/create_instance.py:785
+#: dashboards/project/instances/workflows/create_instance.py:795
 msgid "Manual"
 msgstr "手動"
 
 #: dashboards/project/instances/forms.py:82
 #: dashboards/project/instances/workflows/create_instance.py:168
-#: dashboards/project/instances/workflows/create_instance.py:794
+#: dashboards/project/instances/workflows/create_instance.py:804
 msgid "Unable to retrieve extensions information."
 msgstr "無法獲得擴充套件的資訊。"
 
@@ -11371,7 +11426,7 @@ msgid "Building"
 msgstr "正在建立"
 
 #: dashboards/project/instances/tables.py:1022
-#: dashboards/project/instances/workflows/create_instance.py:529
+#: dashboards/project/instances/workflows/create_instance.py:539
 msgid "Key Pair"
 msgstr "密鑰對"
 
@@ -11815,229 +11870,236 @@ msgid_plural ""
 "%(avail)i of your quota available."
 msgstr[0] "所請求的 %(req)i 雲實例無法發動因為您只剩下 %(avail)i 個可用配額。"
 
-#: dashboards/project/instances/workflows/create_instance.py:229
+#: dashboards/project/instances/workflows/create_instance.py:226
+#, python-format
+msgid ""
+"The requested instance cannot be launched. Requested volume exceeds quota: "
+"Available: %(avail)s, Requested: %(req)s."
+msgstr ""
+
+#: dashboards/project/instances/workflows/create_instance.py:239
 #, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
 msgstr "核心數（可用：%(avail)s、已請求：%(req)s）"
 
-#: dashboards/project/instances/workflows/create_instance.py:236
+#: dashboards/project/instances/workflows/create_instance.py:246
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "隨機存取記憶體（可用：%(avail)s、已請求：%(req)s）"
 
-#: dashboards/project/instances/workflows/create_instance.py:243
+#: dashboards/project/instances/workflows/create_instance.py:253
 #, python-format
 msgid ""
 "The requested instance cannot be launched. The following requested "
 "resource(s) exceed quota(s): %s."
 msgstr "不能發動所請求的雲實例。以下所請求的資源已超過配額了：%s。"
 
-#: dashboards/project/instances/workflows/create_instance.py:263
+#: dashboards/project/instances/workflows/create_instance.py:273
 #, python-format
 msgid ""
 "The flavor '%(flavor)s' is too small for requested image.\n"
 "Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
 msgstr "虛擬硬體樣板「%(flavor)s」對所要求的映像檔太小。\n最低需求：%(min_ram)s MB 記憶體及 %(min_disk)s GB 根硬碟。"
 
-#: dashboards/project/instances/workflows/create_instance.py:284
+#: dashboards/project/instances/workflows/create_instance.py:294
 #, python-format
 msgid ""
 "The Volume size is too small for the '%(image_name)s' image and has to be "
 "greater than or equal to '%(smallest_size)d' GB."
 msgstr "雲硬碟容量對映像檔「%(image_name)s」太小，要大於等於「%(smallest_size)d」GB。"
 
-#: dashboards/project/instances/workflows/create_instance.py:294
-#: dashboards/project/instances/workflows/create_instance.py:308
+#: dashboards/project/instances/workflows/create_instance.py:304
+#: dashboards/project/instances/workflows/create_instance.py:318
 msgid "You must select an image."
 msgstr "您必須選擇映像檔。"
 
-#: dashboards/project/instances/workflows/create_instance.py:302
+#: dashboards/project/instances/workflows/create_instance.py:312
 msgid "You must set volume size"
 msgstr "您必須設定雲硬碟容量"
 
-#: dashboards/project/instances/workflows/create_instance.py:305
+#: dashboards/project/instances/workflows/create_instance.py:315
 msgid "Volume size must be greater than 0"
 msgstr "雲硬碟容量必須大於 0。"
 
-#: dashboards/project/instances/workflows/create_instance.py:319
-#: dashboards/project/instances/workflows/create_instance.py:337
+#: dashboards/project/instances/workflows/create_instance.py:329
+#: dashboards/project/instances/workflows/create_instance.py:347
 msgid "You must select a snapshot."
 msgstr "您必須選擇即時存檔。"
 
-#: dashboards/project/instances/workflows/create_instance.py:324
+#: dashboards/project/instances/workflows/create_instance.py:334
 msgid "You must select a volume."
 msgstr "您必須選擇雲硬碟。"
 
-#: dashboards/project/instances/workflows/create_instance.py:331
+#: dashboards/project/instances/workflows/create_instance.py:341
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
 msgstr "只提供映像檔和雲實例的即時存檔發動多個雲實例。"
 
-#: dashboards/project/instances/workflows/create_instance.py:371
+#: dashboards/project/instances/workflows/create_instance.py:381
 #: dashboards/project/volumes/volumes/forms.py:69
 msgid "Unable to retrieve availability zones."
 msgstr "無法獲得可用區域。"
 
-#: dashboards/project/instances/workflows/create_instance.py:377
+#: dashboards/project/instances/workflows/create_instance.py:387
 #: dashboards/project/volumes/volumes/forms.py:72
 msgid "No availability zones found"
 msgstr "找不到可用區域"
 
-#: dashboards/project/instances/workflows/create_instance.py:379
+#: dashboards/project/instances/workflows/create_instance.py:389
 #: dashboards/project/volumes/volumes/forms.py:74
 msgid "Any Availability Zone"
 msgstr "任何可用區域"
 
-#: dashboards/project/instances/workflows/create_instance.py:402
+#: dashboards/project/instances/workflows/create_instance.py:412
 #: dashboards/project/instances/workflows/resize_instance.py:72
 #: usage/base.py:237
 msgid "Unable to retrieve quota information."
 msgstr "無法獲得配額資訊。"
 
-#: dashboards/project/instances/workflows/create_instance.py:412
+#: dashboards/project/instances/workflows/create_instance.py:422
 #: dashboards/project/volumes/volumes/forms.py:224
 msgid "Snapshot"
 msgstr "即時存檔"
 
-#: dashboards/project/instances/workflows/create_instance.py:417
+#: dashboards/project/instances/workflows/create_instance.py:427
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB（%(label)s）"
 
-#: dashboards/project/instances/workflows/create_instance.py:451
+#: dashboards/project/instances/workflows/create_instance.py:461
 msgid "Select Instance Snapshot"
 msgstr "選擇雲實例即時存檔"
 
-#: dashboards/project/instances/workflows/create_instance.py:453
+#: dashboards/project/instances/workflows/create_instance.py:463
 msgid "No snapshots available"
 msgstr "無可用的即時存檔"
 
-#: dashboards/project/instances/workflows/create_instance.py:466
+#: dashboards/project/instances/workflows/create_instance.py:476
 #: dashboards/project/volumes/volumes/forms.py:306
 msgid "Unable to retrieve list of volumes."
 msgstr "無法獲得雲硬碟列表。"
 
-#: dashboards/project/instances/workflows/create_instance.py:468
+#: dashboards/project/instances/workflows/create_instance.py:478
 #: dashboards/project/volumes/backups/forms.py:68
 msgid "Select Volume"
 msgstr "選擇雲硬碟"
 
-#: dashboards/project/instances/workflows/create_instance.py:470
+#: dashboards/project/instances/workflows/create_instance.py:480
 msgid "No volumes available"
 msgstr "無可用的雲硬碟"
 
-#: dashboards/project/instances/workflows/create_instance.py:483
+#: dashboards/project/instances/workflows/create_instance.py:493
 msgid "Unable to retrieve list of volume snapshots."
 msgstr "無法獲得雲硬碟的即時存檔列表。"
 
-#: dashboards/project/instances/workflows/create_instance.py:486
+#: dashboards/project/instances/workflows/create_instance.py:496
 msgid "Select Volume Snapshot"
 msgstr "選擇雲硬碟的即時存檔"
 
-#: dashboards/project/instances/workflows/create_instance.py:488
+#: dashboards/project/instances/workflows/create_instance.py:498
 msgid "No volume snapshots available"
 msgstr "無可用的雲硬碟的即時存檔"
 
-#: dashboards/project/instances/workflows/create_instance.py:531
+#: dashboards/project/instances/workflows/create_instance.py:541
 msgid "Key pair to use for authentication."
 msgstr "用於認證的密鑰對。"
 
-#: dashboards/project/instances/workflows/create_instance.py:541
+#: dashboards/project/instances/workflows/create_instance.py:551
 msgid "Confirm Admin Password"
 msgstr "確認管理員密碼"
 
-#: dashboards/project/instances/workflows/create_instance.py:548
+#: dashboards/project/instances/workflows/create_instance.py:558
 msgid "Launch instance in these security groups."
 msgstr "在這些安全性群組中發動雲實例。"
 
-#: dashboards/project/instances/workflows/create_instance.py:553
+#: dashboards/project/instances/workflows/create_instance.py:563
 msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
 msgstr "從密鑰對、安全性群組及其他機制控制存取您的雲實例。"
 
-#: dashboards/project/instances/workflows/create_instance.py:574
+#: dashboards/project/instances/workflows/create_instance.py:584
 msgid "Unable to retrieve list of security groups"
 msgstr "無法獲得安全性群組列表"
 
-#: dashboards/project/instances/workflows/create_instance.py:606
+#: dashboards/project/instances/workflows/create_instance.py:616
 msgid "Post-Creation"
 msgstr "前置作業"
 
-#: dashboards/project/instances/workflows/create_instance.py:610
+#: dashboards/project/instances/workflows/create_instance.py:620
 msgid "Select Script Source"
 msgstr "選擇腳本來源"
 
-#: dashboards/project/instances/workflows/create_instance.py:615
+#: dashboards/project/instances/workflows/create_instance.py:625
 msgid "Customization Script Source"
 msgstr "客製化腳本來源"
 
-#: dashboards/project/instances/workflows/create_instance.py:620
+#: dashboards/project/instances/workflows/create_instance.py:630
 msgid ""
 "A script or set of commands to be executed after the instance has been built"
 " (max 16kb)."
 msgstr "會在建立雲實例後執行的腳本或一組指令（最大 16kb）。"
 
-#: dashboards/project/instances/workflows/create_instance.py:624
-#: dashboards/project/instances/workflows/create_instance.py:629
+#: dashboards/project/instances/workflows/create_instance.py:634
+#: dashboards/project/instances/workflows/create_instance.py:639
 msgid "Script File"
 msgstr "腳本檔案"
 
-#: dashboards/project/instances/workflows/create_instance.py:633
-#: dashboards/project/instances/workflows/create_instance.py:638
+#: dashboards/project/instances/workflows/create_instance.py:643
+#: dashboards/project/instances/workflows/create_instance.py:648
 msgid "Script Data"
 msgstr "腳本資料"
 
-#: dashboards/project/instances/workflows/create_instance.py:665
+#: dashboards/project/instances/workflows/create_instance.py:675
 msgid "File exceeds maximum size (16kb)"
 msgstr "檔案超過最大容量（16kb）"
 
-#: dashboards/project/instances/workflows/create_instance.py:673
+#: dashboards/project/instances/workflows/create_instance.py:683
 #: dashboards/project/stacks/forms.py:189
 #, python-format
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr "解析 %(prefix)s 時出了問題：%(error)s"
 
-#: dashboards/project/instances/workflows/create_instance.py:700
+#: dashboards/project/instances/workflows/create_instance.py:710
 msgid "Policy Profiles"
 msgstr "政策基本資料"
 
-#: dashboards/project/instances/workflows/create_instance.py:703
+#: dashboards/project/instances/workflows/create_instance.py:713
 msgid "Launch instance with this policy profile"
 msgstr "以這個政策基本資料發動雲實例"
 
-#: dashboards/project/instances/workflows/create_instance.py:767
+#: dashboards/project/instances/workflows/create_instance.py:777
 msgid ""
 "Automatic: The entire disk is a single partition and automatically resizes. "
 "Manual: Results in faster build times but requires manual partitioning."
 msgstr "自動：全部的硬碟是同一個分割並會自動地調整容量。手動：較快建立但需要手動分割硬碟。"
 
-#: dashboards/project/instances/workflows/create_instance.py:771
+#: dashboards/project/instances/workflows/create_instance.py:781
 msgid "Configuration Drive"
 msgstr "設定檔硬碟"
 
-#: dashboards/project/instances/workflows/create_instance.py:772
+#: dashboards/project/instances/workflows/create_instance.py:782
 msgid ""
 "Configure OpenStack to write metadata to a special configuration drive that "
 "attaches to the instance when it boots."
 msgstr "設置 OpenStack 來寫入詮釋資料到一個特別的在雲實例一開機會附加的設定檔硬碟。"
 
-#: dashboards/project/instances/workflows/create_instance.py:798
+#: dashboards/project/instances/workflows/create_instance.py:808
 msgid "Advanced Options"
 msgstr "進階選項"
 
-#: dashboards/project/instances/workflows/create_instance.py:836
+#: dashboards/project/instances/workflows/create_instance.py:846
 #, python-format
 msgid "%s instances"
 msgstr "%s 個雲實例"
 
-#: dashboards/project/instances/workflows/create_instance.py:920
+#: dashboards/project/instances/workflows/create_instance.py:930
 #, python-format
 msgid "Unable to create port for profile \"%(profile_id)s\": %(reason)s"
 msgstr "無法為基本資料「%(profile_id)s」新增接口：%(reason)s"
 
-#: dashboards/project/instances/workflows/create_instance.py:930
+#: dashboards/project/instances/workflows/create_instance.py:940
 #, python-format
 msgid " Also failed to delete port %s"
 msgstr "並且刪除接口 %s 時失敗"
@@ -12400,7 +12462,7 @@ msgstr "未使用"
 #: dashboards/project/networks/subnets/workflows.py:38
 #: dashboards/project/networks/subnets/workflows.py:116
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:7
-#: dashboards/project/networks/workflows.py:158
+#: dashboards/project/networks/workflows.py:159
 #: dashboards/project/routers/ports/forms.py:29
 #: dashboards/project/vpn/tables.py:288 dashboards/project/vpn/workflows.py:30
 msgid "Subnet"
@@ -13073,7 +13135,7 @@ msgstr "新增子網路（超過配額）"
 
 #: dashboards/project/networks/subnets/tables.py:131
 #: dashboards/project/networks/subnets/workflows.py:81
-#: dashboards/project/networks/workflows.py:108
+#: dashboards/project/networks/workflows.py:109
 msgid "Network Address"
 msgstr "網路位址"
 
@@ -13102,7 +13164,7 @@ msgstr "無法獲得子網路詳細資訊"
 #: dashboards/project/networks/subnets/views.py:103
 #: dashboards/project/networks/subnets/workflows.py:148
 #: dashboards/project/networks/templates/networks/subnets/detail.html:3
-#: dashboards/project/networks/workflows.py:255
+#: dashboards/project/networks/workflows.py:256
 msgid "Subnet Details"
 msgstr "子網路詳細資訊"
 
@@ -13146,7 +13208,7 @@ msgid ""
 msgstr "閘道的 IP 位址（如 192.168.0.254）。指定正確的位址給閘道。假如您不想要使用閘道，勾選下面的「關閉閘道」。"
 
 #: dashboards/project/networks/subnets/workflows.py:112
-#: dashboards/project/networks/workflows.py:145
+#: dashboards/project/networks/workflows.py:146
 msgid "Disable Gateway"
 msgstr "關閉閘道"
 
@@ -13157,7 +13219,7 @@ msgid ""
 msgstr "更新子網路與此網路聯結。進階的設置會在「子網路詳細資訊」標籤裡。"
 
 #: dashboards/project/networks/subnets/workflows.py:149
-#: dashboards/project/networks/workflows.py:256
+#: dashboards/project/networks/workflows.py:257
 msgid "Specify additional attributes for the subnet."
 msgstr "為子網路指定額外的屬性。"
 
@@ -13276,8 +13338,8 @@ msgid "DHCP Enable"
 msgstr "DHCP 啟用"
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:33
-#: dashboards/project/networks/workflows.py:217
-#: dashboards/project/networks/workflows.py:221
+#: dashboards/project/networks/workflows.py:218
+#: dashboards/project/networks/workflows.py:222
 msgid "IPv6 Address Configuration Mode"
 msgstr "IPv6 位址設置模式"
 
@@ -13310,25 +13372,25 @@ msgstr "DNS 名稱伺服器"
 msgid "Unable to retrieve network details."
 msgstr "無法獲得網路詳細資訊。"
 
-#: dashboards/project/networks/workflows.py:50
+#: dashboards/project/networks/workflows.py:51
 msgid "The state to start the network in."
 msgstr "網路一開始的狀態。"
 
-#: dashboards/project/networks/workflows.py:79
+#: dashboards/project/networks/workflows.py:80
 msgid ""
 "Create a new network. In addition, a subnet associated with the network can "
 "be created in the next panel."
 msgstr "新增新的網路。另外，可以在下一個面板新增子網路與這個網路的聯結。"
 
-#: dashboards/project/networks/workflows.py:106
+#: dashboards/project/networks/workflows.py:107
 msgid "Subnet Name"
 msgstr "子網路名稱"
 
-#: dashboards/project/networks/workflows.py:116
+#: dashboards/project/networks/workflows.py:117
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 msgstr "用 CIDR 格式的網路位址（如 192.168.0.0/24、2001:DB8::/48）"
 
-#: dashboards/project/networks/workflows.py:135
+#: dashboards/project/networks/workflows.py:136
 msgid ""
 "IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP"
 " of the network address (e.g. 192.168.0.1 for 192.168.0.0/24, 2001:DB8::1 "
@@ -13336,39 +13398,39 @@ msgid ""
 "to use a gateway, check 'Disable Gateway' below."
 msgstr "閘道 IP 位址（如 192.168.0.254）預設值是網路位址的第一個 IP（如 192.168.0.0/24 裡的 192.168.0.1、2001:DB8::/48 裡的 2001:DB8::1）。假如您使用預設值，保留欄位為空。假如您不想使用閘道，勾選下列的「關閉閘道」。"
 
-#: dashboards/project/networks/workflows.py:154
+#: dashboards/project/networks/workflows.py:155
 msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
 msgstr "指定「網路位址」或清除「新增子網路」方格。"
 
-#: dashboards/project/networks/workflows.py:159
+#: dashboards/project/networks/workflows.py:160
 msgid ""
 "Create a subnet associated with the new network, in which case \"Network "
 "Address\" must be specified. If you wish to create a network without a "
 "subnet, uncheck the \"Create Subnet\" checkbox."
 msgstr "新增子網路聯結新的網路，但「網路位址」必須指定。假如您希望新增不包含子網路的網路，取消勾選「新增子網路」方格。"
 
-#: dashboards/project/networks/workflows.py:182
+#: dashboards/project/networks/workflows.py:183
 msgid "Network Address and IP version are inconsistent."
 msgstr "網路位址和 IP 版本不一致。"
 
-#: dashboards/project/networks/workflows.py:186
+#: dashboards/project/networks/workflows.py:187
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "網路位址裡的子網路太小（/%s）。"
 
-#: dashboards/project/networks/workflows.py:191
+#: dashboards/project/networks/workflows.py:192
 msgid "Gateway IP and IP version are inconsistent."
 msgstr "閘道 IP 和 IP 版本不一致。"
 
-#: dashboards/project/networks/workflows.py:194
+#: dashboards/project/networks/workflows.py:195
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr "指定閘道的 IP 位址或勾選「關閉閘道」。"
 
-#: dashboards/project/networks/workflows.py:214
+#: dashboards/project/networks/workflows.py:215
 msgid "Enable DHCP"
 msgstr "啟用 DHCP"
 
-#: dashboards/project/networks/workflows.py:225
+#: dashboards/project/networks/workflows.py:226
 msgid ""
 "Specifies how IPv6 addresses and additional information are configured. We "
 "can specify SLAAC/DHCPv6 stateful/DHCPv6 stateless provided by OpenStack, or"
@@ -13376,104 +13438,104 @@ msgid ""
 "manually or configured by a non-OpenStack system."
 msgstr "這指定 IPv6 位址和額外的資訊要如何設置。我們可以指定 OpenStack 提供的 SLAAC/DHCPv6 有態/DHCPv6 無態，或者不指定選項。「未指定選項」意味著位址要手動設置或以非 OpenStack 系統設置。"
 
-#: dashboards/project/networks/workflows.py:233
+#: dashboards/project/networks/workflows.py:234
 msgid "Allocation Pools"
 msgstr "分配倉庫"
 
-#: dashboards/project/networks/workflows.py:234
+#: dashboards/project/networks/workflows.py:235
 msgid ""
 "IP address allocation pools. Each entry is: start_ip_address,end_ip_address "
 "(e.g., 192.168.1.100,192.168.1.120) and one entry per line."
 msgstr "IP 位址分配倉庫。每個條目長得像：start_ip_address,end_ip_address（如 192.168.1.100,192.168.1.120）並且一行一個條目。"
 
-#: dashboards/project/networks/workflows.py:241
+#: dashboards/project/networks/workflows.py:242
 msgid "DNS Name Servers"
 msgstr "DNS 名稱伺服器"
 
-#: dashboards/project/networks/workflows.py:242
+#: dashboards/project/networks/workflows.py:243
 msgid ""
 "IP address list of DNS name servers for this subnet. One entry per line."
 msgstr "此子網路的 DNS 名稱伺服器 IP 位址列表。一行一個條目。"
 
-#: dashboards/project/networks/workflows.py:247
+#: dashboards/project/networks/workflows.py:248
 msgid "Host Routes"
 msgstr "主機路由"
 
-#: dashboards/project/networks/workflows.py:248
+#: dashboards/project/networks/workflows.py:249
 msgid ""
 "Additional routes announced to the hosts. Each entry is: "
 "destination_cidr,nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry "
 "per line."
 msgstr "額外的路由發佈到主機。每個條目就像：destination_cidr,nexthop（如 192.168.200.0/24,10.56.1.254）並且一行一個條目。"
 
-#: dashboards/project/networks/workflows.py:266
+#: dashboards/project/networks/workflows.py:267
 #, python-format
 msgid "%s (Default)"
 msgstr "%s（預設值）"
 
-#: dashboards/project/networks/workflows.py:275
+#: dashboards/project/networks/workflows.py:276
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
 msgstr "%(field_name)s：無效的 IP 位址（值為 %(ip)s）"
 
-#: dashboards/project/networks/workflows.py:283
+#: dashboards/project/networks/workflows.py:284
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
 msgstr "%(field_name)s：無效的 IP 位址（值為 %(network)s）"
 
-#: dashboards/project/networks/workflows.py:294
+#: dashboards/project/networks/workflows.py:295
 #, python-format
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "必須指定開始與結束位址（值為 %s）"
 
-#: dashboards/project/networks/workflows.py:300
+#: dashboards/project/networks/workflows.py:301
 #, python-format
 msgid "Start address is larger than end address (value=%s)"
 msgstr "開始位址要大於結束位址（值為 %s）"
 
-#: dashboards/project/networks/workflows.py:318
+#: dashboards/project/networks/workflows.py:319
 #, python-format
 msgid ""
 "Host Routes format error: Destination CIDR and nexthop must be specified "
 "(value=%s)"
 msgstr "主機路由格式錯誤：必須指定目標 CIDR 與下一跳點（值為 %s）"
 
-#: dashboards/project/networks/workflows.py:343
+#: dashboards/project/networks/workflows.py:344
 #, python-format
 msgid "Created network \"%s\"."
 msgstr "已新增網路「%s」。"
 
-#: dashboards/project/networks/workflows.py:344
+#: dashboards/project/networks/workflows.py:345
 #, python-format
 msgid "Unable to create network \"%s\"."
 msgstr "無法新增網路「%s」。"
 
-#: dashboards/project/networks/workflows.py:368
+#: dashboards/project/networks/workflows.py:369
 #, python-format
 msgid "Network \"%s\" was successfully created."
 msgstr "已成功新增網路「%s」。"
 
-#: dashboards/project/networks/workflows.py:373
+#: dashboards/project/networks/workflows.py:374
 #, python-format
 msgid "Failed to create network \"%(network)s\": %(reason)s"
 msgstr "新增網路「%(network)s」時失敗：%(reason)s"
 
-#: dashboards/project/networks/workflows.py:436
+#: dashboards/project/networks/workflows.py:437
 #, python-format
 msgid "Subnet \"%s\" was successfully created."
 msgstr "已成功新增子網路「%s」。"
 
-#: dashboards/project/networks/workflows.py:440
+#: dashboards/project/networks/workflows.py:441
 #, python-format
 msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\":  %(reason)s"
 msgstr "為網路「%(net)s」新增子網路「%(sub)s」時失敗：%(reason)s"
 
-#: dashboards/project/networks/workflows.py:456
+#: dashboards/project/networks/workflows.py:457
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "刪除已新增的網路「%s」直到子網路建立失敗。"
 
-#: dashboards/project/networks/workflows.py:463
+#: dashboards/project/networks/workflows.py:464
 #, python-format
 msgid "Failed to delete network \"%s\""
 msgstr "刪除網路「%s」時失敗"
@@ -16512,37 +16574,39 @@ msgid "Items Per Page"
 msgstr "每頁的項目"
 
 #: dashboards/settings/user/forms.py:45
-msgid "Number of items to show per page"
-msgstr "每頁顯示項目數"
+msgid ""
+"Number of items to show per page (applies to the pages that have API "
+"supported pagination)"
+msgstr ""
 
-#: dashboards/settings/user/forms.py:48
+#: dashboards/settings/user/forms.py:50
 msgid "Log Lines Per Instance"
 msgstr "每個雲實例多少記錄行數"
 
-#: dashboards/settings/user/forms.py:49
+#: dashboards/settings/user/forms.py:51
 msgid "Number of log lines to be shown per instance"
 msgstr "要為每個雲實例顯示多少行數的記錄"
 
-#: dashboards/settings/user/forms.py:83
+#: dashboards/settings/user/forms.py:85
 #, python-format
 msgid "UTC %(hour)s:%(min)s"
 msgstr "UTC %(hour)s:%(min)s"
 
-#: dashboards/settings/user/forms.py:89
+#: dashboards/settings/user/forms.py:91
 msgid "UTC"
 msgstr "UTC"
 
-#: dashboards/settings/user/forms.py:91
+#: dashboards/settings/user/forms.py:93
 msgid "GMT"
 msgstr "GMT"
 
 #. Translators:  UTC offset and timezone label
-#: dashboards/settings/user/forms.py:96
+#: dashboards/settings/user/forms.py:98
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s：%(label)s"
 
-#: dashboards/settings/user/forms.py:128
+#: dashboards/settings/user/forms.py:130
 msgid "Settings saved."
 msgstr "已儲存設定。"
 
