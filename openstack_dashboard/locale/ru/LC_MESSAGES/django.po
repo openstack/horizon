@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-15 02:00-0500\n"
-"PO-Revision-Date: 2015-04-15 10:53+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"POT-Creation-Date: 2015-04-21 00:09-0500\n"
+"PO-Revision-Date: 2015-04-20 10:51+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1171,7 +1171,7 @@ msgstr "Плавающие IP"
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:47
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:222
 #: dashboards/project/instances/templates/instances/_detail_overview.html:85
-#: dashboards/project/instances/workflows/create_instance.py:544
+#: dashboards/project/instances/workflows/create_instance.py:554
 #: dashboards/project/instances/workflows/update_instance.py:80
 #: usage/quotas.py:70 usage/quotas.py:82
 msgid "Security Groups"
@@ -2371,7 +2371,7 @@ msgid "Metadata Definition File"
 msgstr "Файл определения метаданных"
 
 #: dashboards/admin/metadata_defs/forms.py:41
-#: dashboards/project/instances/workflows/create_instance.py:611
+#: dashboards/project/instances/workflows/create_instance.py:621
 #: dashboards/project/stacks/forms.py:62
 msgid "Direct Input"
 msgstr "Непосредственный вход"
@@ -3147,7 +3147,7 @@ msgstr "Добавить DHCP агент"
 #: dashboards/project/loadbalancers/workflows.py:195
 #: dashboards/project/loadbalancers/workflows.py:347
 #: dashboards/project/loadbalancers/workflows.py:550
-#: dashboards/project/networks/forms.py:42
+#: dashboards/project/networks/forms.py:43
 #: dashboards/project/networks/ports/forms.py:43
 #: dashboards/project/networks/ports/tables.py:77
 #: dashboards/project/networks/tables.py:177
@@ -3326,14 +3326,14 @@ msgid ""
 msgstr "Для VLAN сетей VLAN VID физической сети, которая реализует виртуальную сеть. Допустимые VLAN VIDs от %(vlan_min)s до %(vlan_max)s. Для GRE или VXLAN сетей ID туннеля. Допустимые ID туннелей для GRE сетей от %(gre_min)s до %(gre_max)s. Для VXLAN сетей от %(vxlan_min)s до %(vxlan_max)s."
 
 #: dashboards/admin/networks/forms.py:145
-#: dashboards/project/instances/workflows/create_instance.py:724
-#: dashboards/project/networks/workflows.py:61
+#: dashboards/project/instances/workflows/create_instance.py:734
+#: dashboards/project/networks/workflows.py:62
 msgid "Select a profile"
 msgstr "Выберите профиль"
 
 #: dashboards/admin/networks/forms.py:155
-#: dashboards/project/instances/workflows/create_instance.py:734
-#: dashboards/project/networks/workflows.py:71
+#: dashboards/project/instances/workflows/create_instance.py:744
+#: dashboards/project/networks/workflows.py:72
 #: dashboards/router/nexus1000v/views.py:53
 msgid "Network Profiles could not be retrieved."
 msgstr "Не удалось получить список профилей сети."
@@ -3364,13 +3364,13 @@ msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
 msgstr "Для VXLAN сетей допустимые ID туннелей от %(min)s до %(max)s."
 
 #: dashboards/admin/networks/forms.py:252
-#: dashboards/project/networks/forms.py:52
+#: dashboards/project/networks/forms.py:53
 #, python-format
 msgid "Network %s was successfully updated."
 msgstr "Сеть %s была успешно обновлена."
 
 #: dashboards/admin/networks/forms.py:257
-#: dashboards/project/networks/forms.py:57
+#: dashboards/project/networks/forms.py:58
 #, python-format
 msgid "Failed to update network %s"
 msgstr "Не удалось обновить сеть %s"
@@ -3381,7 +3381,7 @@ msgstr "Не удалось обновить сеть %s"
 #: dashboards/admin/networks/views.py:42
 #: dashboards/identity/projects/workflows.py:75
 #: dashboards/project/databases/workflows/create_instance.py:131
-#: dashboards/project/instances/workflows/create_instance.py:688
+#: dashboards/project/instances/workflows/create_instance.py:698
 #: dashboards/project/networks/panel.py:23
 #: dashboards/project/networks/tables.py:182
 #: dashboards/project/networks/templates/networks/index.html:3
@@ -3548,7 +3548,7 @@ msgstr "Не удалось удалить подсеть %s"
 #: dashboards/project/networks/subnets/tables.py:91
 #: dashboards/project/networks/subnets/tables.py:108
 #: dashboards/project/networks/subnets/workflows.py:56
-#: dashboards/project/networks/workflows.py:90
+#: dashboards/project/networks/workflows.py:91
 msgid "Create Subnet"
 msgstr "Создать подсеть"
 
@@ -3569,14 +3569,14 @@ msgstr "CIDR"
 #: dashboards/admin/networks/subnets/tables.py:95
 #: dashboards/project/networks/subnets/tables.py:132
 #: dashboards/project/networks/subnets/workflows.py:100
-#: dashboards/project/networks/workflows.py:126
+#: dashboards/project/networks/workflows.py:127
 msgid "IP Version"
 msgstr "Версия IP"
 
 #: dashboards/admin/networks/subnets/tables.py:96
 #: dashboards/project/networks/subnets/tables.py:133
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:28
-#: dashboards/project/networks/workflows.py:128
+#: dashboards/project/networks/workflows.py:129
 msgid "Gateway IP"
 msgstr "IP шлюза"
 
@@ -3631,7 +3631,7 @@ msgstr "Не удалось удалить сеть %s"
 #: dashboards/project/networks/tables.py:100
 #: dashboards/project/networks/templates/networks/_create.html:8
 #: dashboards/project/networks/templates/networks/_create.html:23
-#: dashboards/project/networks/workflows.py:341
+#: dashboards/project/networks/workflows.py:342
 msgid "Create Network"
 msgstr "Создать сеть"
 
@@ -4031,7 +4031,7 @@ msgstr "Информация"
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/instances/templates/instances/_detail_overview.html:144
 #: dashboards/project/instances/workflows/create_instance.py:102
-#: dashboards/project/instances/workflows/create_instance.py:415
+#: dashboards/project/instances/workflows/create_instance.py:425
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:23
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:20
 #: dashboards/project/volumes/volumes/forms.py:249
@@ -4242,7 +4242,7 @@ msgstr "Доп. параметры типа дисков"
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_index.html:13
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_index.html:14
-#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:61
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:63
 #: dashboards/project/containers/templates/containers/_container_detail.html:29
 #: dashboards/project/containers/templates/containers/_object_detail.html:25
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:104
@@ -4416,7 +4416,7 @@ msgstr[2] "Доп. параметры удалены"
 #: dashboards/project/data_processing/jobs/workflows/launch.py:408
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:257
 #: dashboards/project/networks/subnets/workflows.py:57
-#: dashboards/project/networks/workflows.py:342
+#: dashboards/project/networks/workflows.py:343
 msgid "Create"
 msgstr "Создать"
 
@@ -5156,7 +5156,7 @@ msgstr "E-mail"
 #: dashboards/identity/groups/tables.py:194
 #: dashboards/identity/users/tables.py:235
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:24
-#: dashboards/project/instances/audit_tables.py:28
+#: dashboards/project/instances/audit_tables.py:45
 msgid "User ID"
 msgstr "ID пользователя"
 
@@ -5559,7 +5559,7 @@ msgstr "Подтверждение пароля"
 
 #: dashboards/identity/users/forms.py:56
 #: dashboards/project/instances/forms.py:92
-#: dashboards/project/instances/workflows/create_instance.py:584
+#: dashboards/project/instances/workflows/create_instance.py:594
 #: dashboards/settings/password/forms.py:50
 msgid "Passwords do not match."
 msgstr "Пароли не совпадают."
@@ -5605,7 +5605,7 @@ msgid "Unable to update the user."
 msgstr "Не удалось обновить пользователя."
 
 #: dashboards/identity/users/forms.py:229
-#: dashboards/project/instances/workflows/create_instance.py:535
+#: dashboards/project/instances/workflows/create_instance.py:545
 msgid "Admin Password"
 msgstr "Пароль администратора"
 
@@ -6077,7 +6077,7 @@ msgstr "Не удалось создать пару ключей: %(exc)s"
 
 #: dashboards/project/access_and_security/panel.py:24
 #: dashboards/project/access_and_security/views.py:35
-#: dashboards/project/instances/workflows/create_instance.py:552
+#: dashboards/project/instances/workflows/create_instance.py:562
 msgid "Access & Security"
 msgstr "Доступ и безопасность"
 
@@ -6601,7 +6601,7 @@ msgid "Unable to create container."
 msgstr "Не удалось создать контейнер."
 
 #: dashboards/project/containers/forms.py:84
-#: dashboards/project/instances/workflows/create_instance.py:612
+#: dashboards/project/instances/workflows/create_instance.py:622
 #: dashboards/project/stacks/forms.py:61
 msgid "File"
 msgstr "Файл"
@@ -6940,7 +6940,7 @@ msgid "Compute"
 msgstr "Compute"
 
 #: dashboards/project/dashboard.py:32
-#: dashboards/project/networks/workflows.py:78
+#: dashboards/project/networks/workflows.py:79
 msgid "Network"
 msgstr "Сеть"
 
@@ -7520,7 +7520,7 @@ msgstr "Нет доступных шаблонов"
 #: dashboards/project/data_processing/jobs/workflows/launch.py:418
 #: dashboards/project/databases/workflows/create_instance.py:335
 #: dashboards/project/images/images/tables.py:62
-#: dashboards/project/instances/workflows/create_instance.py:820
+#: dashboards/project/instances/workflows/create_instance.py:830
 #: dashboards/project/stacks/views.py:165
 msgid "Launch"
 msgstr "Запустить"
@@ -7573,7 +7573,7 @@ msgstr "Образ"
 #: dashboards/project/images/utils.py:97
 #: dashboards/project/instances/forms.py:39
 #: dashboards/project/instances/forms.py:64
-#: dashboards/project/instances/workflows/create_instance.py:437
+#: dashboards/project/instances/workflows/create_instance.py:447
 msgid "Select Image"
 msgstr "Выберите Образ"
 
@@ -8003,7 +8003,7 @@ msgstr "Задача"
 
 #: dashboards/project/data_processing/job_executions/tables.py:39
 #: dashboards/project/data_processing/job_executions/tables.py:198
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:16
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:20
 #: dashboards/project/data_processing/jobs/workflows/launch.py:106
 msgid "Cluster"
 msgstr "Кластер"
@@ -8103,50 +8103,50 @@ msgstr "Шаблон задачи"
 msgid "Job Overview"
 msgstr "Обзор задачи"
 
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:12
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:13
 msgid "Input Data Source"
 msgstr "Источник входных данных"
 
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:14
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:17
 msgid "Output Data Source"
 msgstr "Источник выходных данных"
 
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:18
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:22
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:24
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:38
 msgid "Last Updated"
 msgstr "Обновлено"
 
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:20
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:24
 msgctxt "Start time"
 msgid "Started"
 msgstr "Начато"
 
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:22
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:26
 msgctxt "End time"
 msgid "Ended"
 msgstr "Завершено"
 
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:24
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:28
 msgid "Return Code"
 msgstr "Код возврата"
 
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:26
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:30
 msgid "Oozie Job ID"
 msgstr "ID задачи в Oozie"
 
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:28
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:32
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:29
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:95
 msgctxt "Created time"
 msgid "Created"
 msgstr "Создан"
 
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:30
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:34
 msgid "Job Configuration"
 msgstr "Конфигурация задачи"
 
-#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:32
+#: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:36
 #, python-format
 msgid "%(group)s:"
 msgstr "%(group)s:"
@@ -9213,14 +9213,14 @@ msgstr "Запланированная резервная копия \"%(name)s\
 
 #: dashboards/project/database_backups/workflows/create_backup.py:85
 #: dashboards/project/databases/workflows/create_instance.py:337
-#: dashboards/project/instances/workflows/create_instance.py:822
+#: dashboards/project/instances/workflows/create_instance.py:832
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "Не удалось запустить %(count)s названных \"%(name)s\"."
 
 #: dashboards/project/database_backups/workflows/create_backup.py:95
 #: dashboards/project/databases/workflows/create_instance.py:353
-#: dashboards/project/instances/workflows/create_instance.py:839
+#: dashboards/project/instances/workflows/create_instance.py:849
 msgid "instance"
 msgstr "инстанс"
 
@@ -9369,7 +9369,7 @@ msgstr "Ошибка удаления БД на машине."
 #: dashboards/project/images/images/tables.py:36
 #: dashboards/project/instances/tables.py:308
 #: dashboards/project/instances/tables.py:336
-#: dashboards/project/instances/workflows/create_instance.py:819
+#: dashboards/project/instances/workflows/create_instance.py:829
 #: dashboards/project/network_topology/templates/network_topology/index.html:32
 #: dashboards/project/network_topology/templates/network_topology/index.html:34
 msgid "Launch Instance"
@@ -9705,22 +9705,22 @@ msgid "Select datastore type and version"
 msgstr "Выбрать тип и версию хранилища данных."
 
 #: dashboards/project/databases/workflows/create_instance.py:135
-#: dashboards/project/instances/workflows/create_instance.py:692
+#: dashboards/project/instances/workflows/create_instance.py:702
 msgid "At least one network must be specified."
 msgstr "По крайней мере одна сеть должна быть указана."
 
 #: dashboards/project/databases/workflows/create_instance.py:137
-#: dashboards/project/instances/workflows/create_instance.py:694
+#: dashboards/project/instances/workflows/create_instance.py:704
 msgid "Launch instance with these networks"
 msgstr "Запустить инстанс с этими сетями"
 
 #: dashboards/project/databases/workflows/create_instance.py:147
-#: dashboards/project/instances/workflows/create_instance.py:716
+#: dashboards/project/instances/workflows/create_instance.py:726
 msgid "Networking"
 msgstr "Сеть"
 
 #: dashboards/project/databases/workflows/create_instance.py:149
-#: dashboards/project/instances/workflows/create_instance.py:718
+#: dashboards/project/instances/workflows/create_instance.py:728
 msgid "Select networks for your instance."
 msgstr "выберите сети для вашего инстанса."
 
@@ -9812,7 +9812,7 @@ msgid "A master instance must be selected!"
 msgstr "Должна быть выбрана основная инстанс!"
 
 #: dashboards/project/databases/workflows/create_instance.py:336
-#: dashboards/project/instances/workflows/create_instance.py:821
+#: dashboards/project/instances/workflows/create_instance.py:831
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "Запущено %(count)s названных \"%(name)s\"."
@@ -9864,7 +9864,7 @@ msgstr "Протокол для правила межсетевого экран
 #: dashboards/project/firewalls/tables.py:281
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:19
 #: dashboards/project/firewalls/workflows.py:43
-#: dashboards/project/instances/audit_tables.py:25
+#: dashboards/project/instances/audit_tables.py:41
 #: dashboards/project/routers/extensions/routerrules/forms.py:52
 #: dashboards/project/routers/extensions/routerrules/tables.py:73
 msgid "Action"
@@ -10898,7 +10898,7 @@ msgstr "Не удалось получить образы"
 
 #: dashboards/project/images/utils.py:104
 #: dashboards/project/instances/forms.py:66
-#: dashboards/project/instances/workflows/create_instance.py:439
+#: dashboards/project/instances/workflows/create_instance.py:449
 msgid "No images available"
 msgstr "Нет доступных образов"
 
@@ -10906,20 +10906,75 @@ msgstr "Нет доступных образов"
 msgid "Unable to retrieve images."
 msgstr "Не удалось получить образы."
 
-#: dashboards/project/instances/audit_tables.py:24
+#: dashboards/project/instances/audit_tables.py:25
+msgctxt "Action log of an instance"
+msgid "Create"
+msgstr "Создать"
+
+#: dashboards/project/instances/audit_tables.py:26
+msgctxt "Action log of an instance"
+msgid "Pause"
+msgstr "Пауза"
+
+#: dashboards/project/instances/audit_tables.py:27
+msgctxt "Action log of an instance"
+msgid "Unpause"
+msgstr ""
+
+#: dashboards/project/instances/audit_tables.py:28
+msgctxt "Action log of an instance"
+msgid "Rebuild"
+msgstr "Восстановить"
+
+#: dashboards/project/instances/audit_tables.py:29
+msgctxt "Action log of an instance"
+msgid "Resize"
+msgstr "Замена схемы"
+
+#: dashboards/project/instances/audit_tables.py:31
+msgctxt "Action log of an instance"
+msgid "Confirm Resize"
+msgstr ""
+
+#: dashboards/project/instances/audit_tables.py:32
+msgctxt "Action log of an instance"
+msgid "Suspend"
+msgstr "Приостановить"
+
+#: dashboards/project/instances/audit_tables.py:33
+msgctxt "Action log of an instance"
+msgid "Resume"
+msgstr "Продолжить"
+
+#: dashboards/project/instances/audit_tables.py:34
+msgctxt "Action log of an instance"
+msgid "Reboot"
+msgstr "Перезагрузка"
+
+#: dashboards/project/instances/audit_tables.py:35
+msgctxt "Action log of an instance"
+msgid "Stop"
+msgstr ""
+
+#: dashboards/project/instances/audit_tables.py:36
+msgctxt "Action log of an instance"
+msgid "Start"
+msgstr "Начало"
+
+#: dashboards/project/instances/audit_tables.py:40
 msgid "Request ID"
 msgstr "ID запроса"
 
-#: dashboards/project/instances/audit_tables.py:26
+#: dashboards/project/instances/audit_tables.py:43
 msgid "Start Time"
 msgstr "Время начала"
 
-#: dashboards/project/instances/audit_tables.py:29
+#: dashboards/project/instances/audit_tables.py:46
 #: dashboards/project/instances/templates/instances/_detail_overview.html:32
 msgid "Message"
 msgstr "Сообщение"
 
-#: dashboards/project/instances/audit_tables.py:33
+#: dashboards/project/instances/audit_tables.py:50
 msgid "Instance Action List"
 msgstr "Список действий инстанса"
 
@@ -10941,23 +10996,23 @@ msgid "Confirm Rebuild Password"
 msgstr "Подтвердите Замену Пароля"
 
 #: dashboards/project/instances/forms.py:53
-#: dashboards/project/instances/workflows/create_instance.py:766
+#: dashboards/project/instances/workflows/create_instance.py:776
 msgid "Disk Partition"
 msgstr "Разделение диска"
 
 #: dashboards/project/instances/forms.py:78
-#: dashboards/project/instances/workflows/create_instance.py:784
+#: dashboards/project/instances/workflows/create_instance.py:794
 msgid "Automatic"
 msgstr "Автоматически"
 
 #: dashboards/project/instances/forms.py:79
-#: dashboards/project/instances/workflows/create_instance.py:785
+#: dashboards/project/instances/workflows/create_instance.py:795
 msgid "Manual"
 msgstr "Вручную"
 
 #: dashboards/project/instances/forms.py:82
 #: dashboards/project/instances/workflows/create_instance.py:168
-#: dashboards/project/instances/workflows/create_instance.py:794
+#: dashboards/project/instances/workflows/create_instance.py:804
 msgid "Unable to retrieve extensions information."
 msgstr "Не удалось получить информацию о расширениях."
 
@@ -11588,7 +11643,7 @@ msgid "Building"
 msgstr "Создание"
 
 #: dashboards/project/instances/tables.py:1022
-#: dashboards/project/instances/workflows/create_instance.py:529
+#: dashboards/project/instances/workflows/create_instance.py:539
 msgid "Key Pair"
 msgstr "Ключевая пара"
 
@@ -12034,229 +12089,236 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] "%(req)i запрошенных машин не могут быть запущены из-за наличия только %(avail)i доступных ресурсов. "
 
-#: dashboards/project/instances/workflows/create_instance.py:229
+#: dashboards/project/instances/workflows/create_instance.py:226
+#, python-format
+msgid ""
+"The requested instance cannot be launched. Requested volume exceeds quota: "
+"Available: %(avail)s, Requested: %(req)s."
+msgstr ""
+
+#: dashboards/project/instances/workflows/create_instance.py:239
 #, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
 msgstr "Ядра(Доступные: %(avail)s, Запрашиваемые: %(req)s)"
 
-#: dashboards/project/instances/workflows/create_instance.py:236
+#: dashboards/project/instances/workflows/create_instance.py:246
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "RAM(Доступные: %(avail)s, Запрашиваемые: %(req)s)"
 
-#: dashboards/project/instances/workflows/create_instance.py:243
+#: dashboards/project/instances/workflows/create_instance.py:253
 #, python-format
 msgid ""
 "The requested instance cannot be launched. The following requested "
 "resource(s) exceed quota(s): %s."
 msgstr "Запрашиваемые инстансы не могут быть запущены. Следующие запрашиваемые ресурс(ы) превышают квоту(ы): %s."
 
-#: dashboards/project/instances/workflows/create_instance.py:263
+#: dashboards/project/instances/workflows/create_instance.py:273
 #, python-format
 msgid ""
 "The flavor '%(flavor)s' is too small for requested image.\n"
 "Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
 msgstr "Тип инстанса '%(flavor)s' слишком мал для запрашиваемого образа.\nМинимальные требования: %(min_ram)s МБ RAM и  %(min_disk)s ГБ корневого диска."
 
-#: dashboards/project/instances/workflows/create_instance.py:284
+#: dashboards/project/instances/workflows/create_instance.py:294
 #, python-format
 msgid ""
 "The Volume size is too small for the '%(image_name)s' image and has to be "
 "greater than or equal to '%(smallest_size)d' GB."
 msgstr "Размер диска слишком мал для  '%(image_name)s' образа и он должен быть больше или равен '%(smallest_size)d' ГБ."
 
-#: dashboards/project/instances/workflows/create_instance.py:294
-#: dashboards/project/instances/workflows/create_instance.py:308
+#: dashboards/project/instances/workflows/create_instance.py:304
+#: dashboards/project/instances/workflows/create_instance.py:318
 msgid "You must select an image."
 msgstr "Необходимо выбрать образ"
 
-#: dashboards/project/instances/workflows/create_instance.py:302
+#: dashboards/project/instances/workflows/create_instance.py:312
 msgid "You must set volume size"
 msgstr "Вы должны указать размер диска"
 
-#: dashboards/project/instances/workflows/create_instance.py:305
+#: dashboards/project/instances/workflows/create_instance.py:315
 msgid "Volume size must be greater than 0"
 msgstr "Размер диска должен быть больше 0"
 
-#: dashboards/project/instances/workflows/create_instance.py:319
-#: dashboards/project/instances/workflows/create_instance.py:337
+#: dashboards/project/instances/workflows/create_instance.py:329
+#: dashboards/project/instances/workflows/create_instance.py:347
 msgid "You must select a snapshot."
 msgstr "Вы должны выбрать снимок."
 
-#: dashboards/project/instances/workflows/create_instance.py:324
+#: dashboards/project/instances/workflows/create_instance.py:334
 msgid "You must select a volume."
 msgstr "Необходимо выбрать диск."
 
-#: dashboards/project/instances/workflows/create_instance.py:331
+#: dashboards/project/instances/workflows/create_instance.py:341
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
 msgstr "Запуск нескольких инстансов поддерживается только для образов и снимков инстансов."
 
-#: dashboards/project/instances/workflows/create_instance.py:371
+#: dashboards/project/instances/workflows/create_instance.py:381
 #: dashboards/project/volumes/volumes/forms.py:69
 msgid "Unable to retrieve availability zones."
 msgstr "Не удалось получить зоны доступности."
 
-#: dashboards/project/instances/workflows/create_instance.py:377
+#: dashboards/project/instances/workflows/create_instance.py:387
 #: dashboards/project/volumes/volumes/forms.py:72
 msgid "No availability zones found"
 msgstr "Не найдены зоны доступности."
 
-#: dashboards/project/instances/workflows/create_instance.py:379
+#: dashboards/project/instances/workflows/create_instance.py:389
 #: dashboards/project/volumes/volumes/forms.py:74
 msgid "Any Availability Zone"
 msgstr "Любая зона доступности"
 
-#: dashboards/project/instances/workflows/create_instance.py:402
+#: dashboards/project/instances/workflows/create_instance.py:412
 #: dashboards/project/instances/workflows/resize_instance.py:72
 #: usage/base.py:237
 msgid "Unable to retrieve quota information."
 msgstr "Не удалось получить информацию о квоте."
 
-#: dashboards/project/instances/workflows/create_instance.py:412
+#: dashboards/project/instances/workflows/create_instance.py:422
 #: dashboards/project/volumes/volumes/forms.py:224
 msgid "Snapshot"
 msgstr "Снимок"
 
-#: dashboards/project/instances/workflows/create_instance.py:417
+#: dashboards/project/instances/workflows/create_instance.py:427
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s ГБ (%(label)s)"
 
-#: dashboards/project/instances/workflows/create_instance.py:451
+#: dashboards/project/instances/workflows/create_instance.py:461
 msgid "Select Instance Snapshot"
 msgstr "Выберите снимок инстанса"
 
-#: dashboards/project/instances/workflows/create_instance.py:453
+#: dashboards/project/instances/workflows/create_instance.py:463
 msgid "No snapshots available"
 msgstr "Нет доступных снимков."
 
-#: dashboards/project/instances/workflows/create_instance.py:466
+#: dashboards/project/instances/workflows/create_instance.py:476
 #: dashboards/project/volumes/volumes/forms.py:306
 msgid "Unable to retrieve list of volumes."
 msgstr "Не удалось получить список дисков."
 
-#: dashboards/project/instances/workflows/create_instance.py:468
+#: dashboards/project/instances/workflows/create_instance.py:478
 #: dashboards/project/volumes/backups/forms.py:68
 msgid "Select Volume"
 msgstr "Выберите диск"
 
-#: dashboards/project/instances/workflows/create_instance.py:470
+#: dashboards/project/instances/workflows/create_instance.py:480
 msgid "No volumes available"
 msgstr "Нет доступных дисков"
 
-#: dashboards/project/instances/workflows/create_instance.py:483
+#: dashboards/project/instances/workflows/create_instance.py:493
 msgid "Unable to retrieve list of volume snapshots."
 msgstr "Не удалось получить список снимков дисков."
 
-#: dashboards/project/instances/workflows/create_instance.py:486
+#: dashboards/project/instances/workflows/create_instance.py:496
 msgid "Select Volume Snapshot"
 msgstr "Выбрать снимок диска"
 
-#: dashboards/project/instances/workflows/create_instance.py:488
+#: dashboards/project/instances/workflows/create_instance.py:498
 msgid "No volume snapshots available"
 msgstr "Нет доступных снимков дисков"
 
-#: dashboards/project/instances/workflows/create_instance.py:531
+#: dashboards/project/instances/workflows/create_instance.py:541
 msgid "Key pair to use for authentication."
 msgstr "Пары ключей используют для аутентификации."
 
-#: dashboards/project/instances/workflows/create_instance.py:541
+#: dashboards/project/instances/workflows/create_instance.py:551
 msgid "Confirm Admin Password"
 msgstr "Подтвердите пароль администратора"
 
-#: dashboards/project/instances/workflows/create_instance.py:548
+#: dashboards/project/instances/workflows/create_instance.py:558
 msgid "Launch instance in these security groups."
 msgstr "Запустить инстанс в этих группах безопасности."
 
-#: dashboards/project/instances/workflows/create_instance.py:553
+#: dashboards/project/instances/workflows/create_instance.py:563
 msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
 msgstr "Контроль доступа к инстансу с помощью пары ключей, групп безопасности и других механизмов."
 
-#: dashboards/project/instances/workflows/create_instance.py:574
+#: dashboards/project/instances/workflows/create_instance.py:584
 msgid "Unable to retrieve list of security groups"
 msgstr "Не удалось получить список групп безопасности"
 
-#: dashboards/project/instances/workflows/create_instance.py:606
+#: dashboards/project/instances/workflows/create_instance.py:616
 msgid "Post-Creation"
 msgstr "После Создания"
 
-#: dashboards/project/instances/workflows/create_instance.py:610
+#: dashboards/project/instances/workflows/create_instance.py:620
 msgid "Select Script Source"
 msgstr "Выберите источник скрипта"
 
-#: dashboards/project/instances/workflows/create_instance.py:615
+#: dashboards/project/instances/workflows/create_instance.py:625
 msgid "Customization Script Source"
 msgstr "Настройка источника скрипта"
 
-#: dashboards/project/instances/workflows/create_instance.py:620
+#: dashboards/project/instances/workflows/create_instance.py:630
 msgid ""
 "A script or set of commands to be executed after the instance has been built"
 " (max 16kb)."
 msgstr "Скрипт или набор команд, который будет выполнен после построения инстанса (максимально 16 Кб)"
 
-#: dashboards/project/instances/workflows/create_instance.py:624
-#: dashboards/project/instances/workflows/create_instance.py:629
+#: dashboards/project/instances/workflows/create_instance.py:634
+#: dashboards/project/instances/workflows/create_instance.py:639
 msgid "Script File"
 msgstr "Файл скрипта"
 
-#: dashboards/project/instances/workflows/create_instance.py:633
-#: dashboards/project/instances/workflows/create_instance.py:638
+#: dashboards/project/instances/workflows/create_instance.py:643
+#: dashboards/project/instances/workflows/create_instance.py:648
 msgid "Script Data"
 msgstr "Скрипт данных"
 
-#: dashboards/project/instances/workflows/create_instance.py:665
+#: dashboards/project/instances/workflows/create_instance.py:675
 msgid "File exceeds maximum size (16kb)"
 msgstr "Файл превышает максимальный размер (16кб)"
 
-#: dashboards/project/instances/workflows/create_instance.py:673
+#: dashboards/project/instances/workflows/create_instance.py:683
 #: dashboards/project/stacks/forms.py:189
 #, python-format
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr "Возникла проблема при разборе %(prefix)s: %(error)s"
 
-#: dashboards/project/instances/workflows/create_instance.py:700
+#: dashboards/project/instances/workflows/create_instance.py:710
 msgid "Policy Profiles"
 msgstr "Профили политики"
 
-#: dashboards/project/instances/workflows/create_instance.py:703
+#: dashboards/project/instances/workflows/create_instance.py:713
 msgid "Launch instance with this policy profile"
 msgstr "Запустить инстанс с этим профилем политики"
 
-#: dashboards/project/instances/workflows/create_instance.py:767
+#: dashboards/project/instances/workflows/create_instance.py:777
 msgid ""
 "Automatic: The entire disk is a single partition and automatically resizes. "
 "Manual: Results in faster build times but requires manual partitioning."
 msgstr "Автоматически: Целый диск это единственный раздел размер которого меняется автоматически. Руководство: Сокращается время создания, но требует ручного разделения"
 
-#: dashboards/project/instances/workflows/create_instance.py:771
+#: dashboards/project/instances/workflows/create_instance.py:781
 msgid "Configuration Drive"
 msgstr "Конфигурация накопителя"
 
-#: dashboards/project/instances/workflows/create_instance.py:772
+#: dashboards/project/instances/workflows/create_instance.py:782
 msgid ""
 "Configure OpenStack to write metadata to a special configuration drive that "
 "attaches to the instance when it boots."
 msgstr "Настройке OpenStack для записи метаданных в специальный конфигурационный диск, которые подключается к инстансу при загрузке."
 
-#: dashboards/project/instances/workflows/create_instance.py:798
+#: dashboards/project/instances/workflows/create_instance.py:808
 msgid "Advanced Options"
 msgstr "Расширенные настройки"
 
-#: dashboards/project/instances/workflows/create_instance.py:836
+#: dashboards/project/instances/workflows/create_instance.py:846
 #, python-format
 msgid "%s instances"
 msgstr "%s инстансов"
 
-#: dashboards/project/instances/workflows/create_instance.py:920
+#: dashboards/project/instances/workflows/create_instance.py:930
 #, python-format
 msgid "Unable to create port for profile \"%(profile_id)s\": %(reason)s"
 msgstr "Не удалось создать пор для профиля \"%(profile_id)s\": %(reason)s"
 
-#: dashboards/project/instances/workflows/create_instance.py:930
+#: dashboards/project/instances/workflows/create_instance.py:940
 #, python-format
 msgid " Also failed to delete port %s"
 msgstr "Так же не удалось удалить порт %s"
@@ -12635,7 +12697,7 @@ msgstr "Неактивный"
 #: dashboards/project/networks/subnets/workflows.py:38
 #: dashboards/project/networks/subnets/workflows.py:116
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:7
-#: dashboards/project/networks/workflows.py:158
+#: dashboards/project/networks/workflows.py:159
 #: dashboards/project/routers/ports/forms.py:29
 #: dashboards/project/vpn/tables.py:288 dashboards/project/vpn/workflows.py:30
 msgid "Subnet"
@@ -13308,7 +13370,7 @@ msgstr "Создать подсеть (превышена квота)"
 
 #: dashboards/project/networks/subnets/tables.py:131
 #: dashboards/project/networks/subnets/workflows.py:81
-#: dashboards/project/networks/workflows.py:108
+#: dashboards/project/networks/workflows.py:109
 msgid "Network Address"
 msgstr "Сетевой Адрес"
 
@@ -13337,7 +13399,7 @@ msgstr "Не удалось получить  детальную информа�
 #: dashboards/project/networks/subnets/views.py:103
 #: dashboards/project/networks/subnets/workflows.py:148
 #: dashboards/project/networks/templates/networks/subnets/detail.html:3
-#: dashboards/project/networks/workflows.py:255
+#: dashboards/project/networks/workflows.py:256
 msgid "Subnet Details"
 msgstr "Детали подсети"
 
@@ -13381,7 +13443,7 @@ msgid ""
 msgstr "IP-адрес шлюза (напр.192.168.0.254). Указать адрес для настройки шлюза. Если вы не хотите использовать шлюз, галочкой выберите \"Отключить шлюз\" ниже."
 
 #: dashboards/project/networks/subnets/workflows.py:112
-#: dashboards/project/networks/workflows.py:145
+#: dashboards/project/networks/workflows.py:146
 msgid "Disable Gateway"
 msgstr "Запретить шлюз"
 
@@ -13392,7 +13454,7 @@ msgid ""
 msgstr "Изменение подсети связанной с сетью. Дополнительная конфигурация доступна на закладке \"Детали подсети\"."
 
 #: dashboards/project/networks/subnets/workflows.py:149
-#: dashboards/project/networks/workflows.py:256
+#: dashboards/project/networks/workflows.py:257
 msgid "Specify additional attributes for the subnet."
 msgstr "Указать дополнительные атрибуты для подсети."
 
@@ -13511,8 +13573,8 @@ msgid "DHCP Enable"
 msgstr "Разрешить DHCP"
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:33
-#: dashboards/project/networks/workflows.py:217
-#: dashboards/project/networks/workflows.py:221
+#: dashboards/project/networks/workflows.py:218
+#: dashboards/project/networks/workflows.py:222
 msgid "IPv6 Address Configuration Mode"
 msgstr "IPv6 адрес, режим кофигурации"
 
@@ -13545,25 +13607,25 @@ msgstr "сервер DNS"
 msgid "Unable to retrieve network details."
 msgstr "Не удалось получить детали сети."
 
-#: dashboards/project/networks/workflows.py:50
+#: dashboards/project/networks/workflows.py:51
 msgid "The state to start the network in."
 msgstr "Состояние для начала в сети."
 
-#: dashboards/project/networks/workflows.py:79
+#: dashboards/project/networks/workflows.py:80
 msgid ""
 "Create a new network. In addition, a subnet associated with the network can "
 "be created in the next panel."
 msgstr "Создание новой сети. Дополнительно подсеть связанная с сетью может быть создана в следующем окне."
 
-#: dashboards/project/networks/workflows.py:106
+#: dashboards/project/networks/workflows.py:107
 msgid "Subnet Name"
 msgstr "Название подсети"
 
-#: dashboards/project/networks/workflows.py:116
+#: dashboards/project/networks/workflows.py:117
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 msgstr "Адрес сети в CIDR формате (например 192.168.0.0/24, 2001:DB8::/48)"
 
-#: dashboards/project/networks/workflows.py:135
+#: dashboards/project/networks/workflows.py:136
 msgid ""
 "IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP"
 " of the network address (e.g. 192.168.0.1 for 192.168.0.0/24, 2001:DB8::1 "
@@ -13571,39 +13633,39 @@ msgid ""
 "to use a gateway, check 'Disable Gateway' below."
 msgstr "IP-адрес шлюза (например 192.168.0.254) Величина по умолчанию - это первый сетевой IP-адрес (например 192.168.0.1 for 192.168.0.0/24, 2001:DB8::1 for 2001:DB8::/48). Если вы используете по умолчанию, оставьте поле пустым. Если вы не хотите использовать шлюз, галочкой отметьте \"Отключить шлюз\" ниже."
 
-#: dashboards/project/networks/workflows.py:154
+#: dashboards/project/networks/workflows.py:155
 msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
 msgstr "Задайте \"Сетевой адрес\" или снимите флаг \"Создать подсеть\"."
 
-#: dashboards/project/networks/workflows.py:159
+#: dashboards/project/networks/workflows.py:160
 msgid ""
 "Create a subnet associated with the new network, in which case \"Network "
 "Address\" must be specified. If you wish to create a network without a "
 "subnet, uncheck the \"Create Subnet\" checkbox."
 msgstr "Создать подсеть, связанную с новой сетью, в этом случае \"Сетевой адрес\" должен быть указан. Если вы хотите создать сеть без подсети, то снимите флажок в \"Создать подсеть\"."
 
-#: dashboards/project/networks/workflows.py:182
+#: dashboards/project/networks/workflows.py:183
 msgid "Network Address and IP version are inconsistent."
 msgstr "Сетевой адрес и версия IP протокола несовместимы."
 
-#: dashboards/project/networks/workflows.py:186
+#: dashboards/project/networks/workflows.py:187
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "Подсеть в сетевом адресе слишком мала (/%s)."
 
-#: dashboards/project/networks/workflows.py:191
+#: dashboards/project/networks/workflows.py:192
 msgid "Gateway IP and IP version are inconsistent."
 msgstr "IP шлюза и версия IP протокола несовместимы."
 
-#: dashboards/project/networks/workflows.py:194
+#: dashboards/project/networks/workflows.py:195
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr "Задайте IP адрес шлюза или установите флашок \"Не использовать шлюз\"."
 
-#: dashboards/project/networks/workflows.py:214
+#: dashboards/project/networks/workflows.py:215
 msgid "Enable DHCP"
 msgstr "Разрешить DHCP"
 
-#: dashboards/project/networks/workflows.py:225
+#: dashboards/project/networks/workflows.py:226
 msgid ""
 "Specifies how IPv6 addresses and additional information are configured. We "
 "can specify SLAAC/DHCPv6 stateful/DHCPv6 stateless provided by OpenStack, or"
@@ -13611,104 +13673,104 @@ msgid ""
 "manually or configured by a non-OpenStack system."
 msgstr "Указывает как настраиваются IPv6-адресы и дополнительная информация. Можно указать SLAAC/DHCPv6 stateful/DHCPv6 stateless provided by OpenStack или не указывать ничего. Без указания опции адресы необходимо настраивать вручную или внешними системами независимыми от OpenStack."
 
-#: dashboards/project/networks/workflows.py:233
+#: dashboards/project/networks/workflows.py:234
 msgid "Allocation Pools"
 msgstr "Выделение пулов"
 
-#: dashboards/project/networks/workflows.py:234
+#: dashboards/project/networks/workflows.py:235
 msgid ""
 "IP address allocation pools. Each entry is: start_ip_address,end_ip_address "
 "(e.g., 192.168.1.100,192.168.1.120) and one entry per line."
 msgstr "Распределение IP-адресов пула. Каждый ввод: start_ip_address,end_ip_address (напр. 192.168.1.100,192.168.1.120) по одной записи в строке."
 
-#: dashboards/project/networks/workflows.py:241
+#: dashboards/project/networks/workflows.py:242
 msgid "DNS Name Servers"
 msgstr "Сервера DNS"
 
-#: dashboards/project/networks/workflows.py:242
+#: dashboards/project/networks/workflows.py:243
 msgid ""
 "IP address list of DNS name servers for this subnet. One entry per line."
 msgstr "Список IP адресов DNS серверов для этой подсети. Одна запись на строку."
 
-#: dashboards/project/networks/workflows.py:247
+#: dashboards/project/networks/workflows.py:248
 msgid "Host Routes"
 msgstr "Маршруты узла"
 
-#: dashboards/project/networks/workflows.py:248
+#: dashboards/project/networks/workflows.py:249
 msgid ""
 "Additional routes announced to the hosts. Each entry is: "
 "destination_cidr,nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry "
 "per line."
 msgstr "Дополнительные маршруты объявленные для узла. Каждый ввод: destination_cidr,nexthop (напр. 192.168.200.0/24,10.56.1.254) по одной записи в строке."
 
-#: dashboards/project/networks/workflows.py:266
+#: dashboards/project/networks/workflows.py:267
 #, python-format
 msgid "%s (Default)"
 msgstr "%s (По умолчанию)"
 
-#: dashboards/project/networks/workflows.py:275
+#: dashboards/project/networks/workflows.py:276
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
 msgstr "%(field_name)s: Неверный IP адрес (значение=%(ip)s)"
 
-#: dashboards/project/networks/workflows.py:283
+#: dashboards/project/networks/workflows.py:284
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
 msgstr "%(field_name)s: Неверный IP адрес (значение=%(network)s)"
 
-#: dashboards/project/networks/workflows.py:294
+#: dashboards/project/networks/workflows.py:295
 #, python-format
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "Начальный и конечный адреса должны быть заданы  (значение=%s)"
 
-#: dashboards/project/networks/workflows.py:300
+#: dashboards/project/networks/workflows.py:301
 #, python-format
 msgid "Start address is larger than end address (value=%s)"
 msgstr "Начальный адрес больше чем конечный (значение=%s)"
 
-#: dashboards/project/networks/workflows.py:318
+#: dashboards/project/networks/workflows.py:319
 #, python-format
 msgid ""
 "Host Routes format error: Destination CIDR and nexthop must be specified "
 "(value=%s)"
 msgstr "Ошибка формата маршрутов узла: конечный CIDR и nexthop должны быть заданы (значение=%s)"
 
-#: dashboards/project/networks/workflows.py:343
+#: dashboards/project/networks/workflows.py:344
 #, python-format
 msgid "Created network \"%s\"."
 msgstr "Создана сеть \"%s\"."
 
-#: dashboards/project/networks/workflows.py:344
+#: dashboards/project/networks/workflows.py:345
 #, python-format
 msgid "Unable to create network \"%s\"."
 msgstr "Не удалось создать сеть \"%s\"."
 
-#: dashboards/project/networks/workflows.py:368
+#: dashboards/project/networks/workflows.py:369
 #, python-format
 msgid "Network \"%s\" was successfully created."
 msgstr "Сеть \"%s\" успешно создана."
 
-#: dashboards/project/networks/workflows.py:373
+#: dashboards/project/networks/workflows.py:374
 #, python-format
 msgid "Failed to create network \"%(network)s\": %(reason)s"
 msgstr "Не удалось создать сеть \"%(network)s\": %(reason)s"
 
-#: dashboards/project/networks/workflows.py:436
+#: dashboards/project/networks/workflows.py:437
 #, python-format
 msgid "Subnet \"%s\" was successfully created."
 msgstr "Подсеть \"%s\" успешно создана."
 
-#: dashboards/project/networks/workflows.py:440
+#: dashboards/project/networks/workflows.py:441
 #, python-format
 msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\":  %(reason)s"
 msgstr "Не удалось создать подсеть \"%(sub)s\" для сети \"%(net)s\": %(reason)s"
 
-#: dashboards/project/networks/workflows.py:456
+#: dashboards/project/networks/workflows.py:457
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "Удалите созданную сеть \"%s\" в связи со сбоем создания подсети."
 
-#: dashboards/project/networks/workflows.py:463
+#: dashboards/project/networks/workflows.py:464
 #, python-format
 msgid "Failed to delete network \"%s\""
 msgstr "Неудалось удалить сеть \"%s\""
@@ -16811,37 +16873,39 @@ msgid "Items Per Page"
 msgstr "Элементов на странице"
 
 #: dashboards/settings/user/forms.py:45
-msgid "Number of items to show per page"
-msgstr "Количество элементов отображаемых на странице"
+msgid ""
+"Number of items to show per page (applies to the pages that have API "
+"supported pagination)"
+msgstr ""
 
-#: dashboards/settings/user/forms.py:48
+#: dashboards/settings/user/forms.py:50
 msgid "Log Lines Per Instance"
 msgstr "Строк журнала для инстансы"
 
-#: dashboards/settings/user/forms.py:49
+#: dashboards/settings/user/forms.py:51
 msgid "Number of log lines to be shown per instance"
 msgstr "Количество строк журнала отображаемое для одной инстансы"
 
-#: dashboards/settings/user/forms.py:83
+#: dashboards/settings/user/forms.py:85
 #, python-format
 msgid "UTC %(hour)s:%(min)s"
 msgstr "UTC %(hour)s:%(min)s"
 
-#: dashboards/settings/user/forms.py:89
+#: dashboards/settings/user/forms.py:91
 msgid "UTC"
 msgstr "UTC"
 
-#: dashboards/settings/user/forms.py:91
+#: dashboards/settings/user/forms.py:93
 msgid "GMT"
 msgstr "GMT"
 
 #. Translators:  UTC offset and timezone label
-#: dashboards/settings/user/forms.py:96
+#: dashboards/settings/user/forms.py:98
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
 
-#: dashboards/settings/user/forms.py:128
+#: dashboards/settings/user/forms.py:130
 msgid "Settings saved."
 msgstr "Настройки сохранены."
 
