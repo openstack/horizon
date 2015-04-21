@@ -40,10 +40,12 @@
     </div>
     <div class="modal-footer">
       {% block modal-footer %}
+        {% if cancel_url %}
         <a href="{% block cancel_url %}{{ cancel_url }}{% endblock %}"
            class="btn btn-default cancel">
           {{ cancel_label }}
         </a>
+        {% endif %}
         <input class="btn btn-primary" type="submit" value="{{ submit_label }}">
       {% endblock %}
     </div>
