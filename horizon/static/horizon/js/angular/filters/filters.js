@@ -23,7 +23,7 @@
    * hz.filters provides common filters to be used within Horizon.
    *
    */
-  angular.module('hz.filters', [])
+  angular.module('hz.filters', ['hz.i18n'])
 
     /**
      * @ngdoc filter
@@ -32,11 +32,11 @@
      * Evaluates given input as boolean and returns translation
      * of 'Yes' and 'No' for true/false respectively.
      */
-    .filter('yesno', function() {
+    .filter('yesno', ['hz.i18n.gettext', function(gettext) {
       return function(input) {
         return (input ? gettext("Yes") : gettext("No"));
       };
-    })
+    }])
 
     /**
      * @ngdoc filter
@@ -163,6 +163,19 @@
       var format = ngettext('Displaying %s item', 'Displaying %s items', count);
       return interpolate(format, [count]);
     };
-  });
+  })
+
+  /**
+   * @ngdoc filter
+   * @name trans
+   * @description
+   * Returns translated text.
+   */
+  .filter('trans', ['hz.i18n.gettext', function(gettextFunc) {
+    return function(input) {
+      // NOTE: uses 'gettextFunc' to avoid message collection.
+      return gettextFunc(input);
+    };
+  }]);
 
 }());

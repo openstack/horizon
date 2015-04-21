@@ -1,6 +1,7 @@
 describe('hz.filters', function () {
   'use strict';
 
+   beforeEach(module('hz.i18n'));
    beforeEach(module('hz.filters'));
 
    describe('yesno', function() {
@@ -144,4 +145,11 @@ describe('hz.filters', function () {
 
   });
 
+  describe('trans', function() {
+
+    it('should return translated text', inject(function(transFilter) {
+      expect(transFilter("Howdy")).toBe("Howdy");
+    }));
+
+  });
 });

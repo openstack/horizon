@@ -45,6 +45,7 @@ class ServicesTests(test.JasmineTests):
         'angular/workflow/workflow.js',
         'angular/metadata-display/metadata-display.js',
         'angular/toast/toast.js',
+        'angular/i18n/i18n.js',
         'horizon/js/angular/filters/filters.js',
     ]
     specs = [
@@ -68,6 +69,7 @@ class ServicesTests(test.JasmineTests):
         'angular/metadata-tree/metadata-tree.spec.js',
         'angular/metadata-display/metadata-display.spec.js',
         'angular/toast/toast.spec.js',
+        'angular/i18n/i18n.spec.js',
         'horizon/js/angular/filters/filters.spec.js',
     ]
     externalTemplates = [
