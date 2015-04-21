@@ -61,6 +61,7 @@ class CreateView(forms.ModalFormView):
         context['network'] = self.get_object()
         args = (self.kwargs['network_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
+        context['cancel_url'] = reverse(self.url, args=args)
         return context
 
     def get_initial(self):
