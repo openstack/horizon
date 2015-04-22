@@ -95,8 +95,8 @@ horizon.Quota = {
        */
       return true;
     } else {
-      overDisk = horizon.Quota.belowMinimum(image.min_disk, flavor.disk);
-      overRAM = horizon.Quota.belowMinimum(image.min_ram, flavor.ram);
+      var overDisk = horizon.Quota.belowMinimum(image.min_disk, flavor.disk);
+      var overRAM = horizon.Quota.belowMinimum(image.min_ram, flavor.ram);
       return !(overDisk || overRAM);
     }
   },
@@ -106,7 +106,7 @@ horizon.Quota = {
    */
   noteDisabledFlavors: function(allDisabled) {
     if ($('#some_flavors_disabled').length === 0) {
-      message = allDisabled ? horizon.Quota.allFlavorsDisabledMessage :
+      var message = allDisabled ? horizon.Quota.allFlavorsDisabledMessage :
         horizon.Quota.disabledFlavorMessage;
       $('#id_flavor').parent().append("<span id='some_flavors_disabled'>" +
         message + '</span>');
@@ -130,7 +130,7 @@ horizon.Quota = {
    A convenience method to find an image object by its id.
    */
   findImageById: function(id) {
-    _image = undefined;
+    var _image;
     $.each(horizon.Quota.images, function(i, image){
       if(image.id === id) {
         _image = image;
@@ -143,7 +143,7 @@ horizon.Quota = {
    Return an image Object based on which image ID is selected
    */
   getSelectedImage: function() {
-    selected = $('#id_image_id option:selected').val();
+    var selected = $('#id_image_id option:selected').val();
     return horizon.Quota.findImageById(selected);
   },
 
@@ -153,7 +153,7 @@ horizon.Quota = {
    */
   disableFlavorsForImage: function(image) {
     image = horizon.Quota.getSelectedImage();
-    to_disable = []; // an array of flavor names to disable
+    var to_disable = []; // an array of flavor names to disable
 
     horizon.Quota.resetFlavors(); // clear any previous messages
 
@@ -163,7 +163,7 @@ horizon.Quota = {
       }
     });
 
-    flavors = $('#id_flavor option');
+    var flavors = $('#id_flavor option');
     // Now, disable anything from above:
     $.each(to_disable, function(i, flavor_name) {
       flavors.each(function(){
@@ -175,7 +175,7 @@ horizon.Quota = {
 
     // And then, finally, clean up:
     if (to_disable.length > 0) {
-      selected = ($('#id_flavor option').filter(':selected'))[0];
+      var selected = ($('#id_flavor option').filter(':selected'))[0];
       if (to_disable.length < flavors.length && selected.disabled) {
         // we need to find a new flavor to select
         flavors.each(function(index, element) {
@@ -312,8 +312,8 @@ horizon.Quota = {
                  scope.selected_flavor) {
         // Dealing with resizing instance where update_amount should be the
         // difference of old and new ram.
-        old_ram = scope.old_flavor.ram;
-        new_ram = scope.selected_flavor.ram;
+        var old_ram = scope.old_flavor.ram;
+        var new_ram = scope.selected_flavor.ram;
         update_amount = (new_ram - old_ram < 0) ? 0 : (new_ram - old_ram);
       } else if (scope.selected_flavor) {
         update_amount = (scope.selected_flavor[progress_stat] * instance_count);
@@ -329,9 +329,7 @@ horizon.Quota = {
 
     //var update_indicator = progress_element.find('.progress_bar_selected');
     var quota_limit = parseInt(progress_element.attr('data-quota-limit'), 10);
-    var quota_used = parseInt(progress_element.attr('data-quota-used'), 10);
     var percentage_to_update = ((increment_by / quota_limit) * 100);
-    var percentage_used = ((quota_used / quota_limit) * 100);
 
     this.update($(progress_element).attr('id'), percentage_to_update);
   },
@@ -377,7 +375,7 @@ horizon.Quota = {
       .style("fill", function () { return addition; });
 
     // used resources
-    var used_bar = bar.insert("rect")
+    bar.insert("rect")
       .attr("class", "usedbar")
       .attr("y", 0)
       .attr("id", "test")
@@ -430,12 +428,12 @@ horizon.Quota = {
     var scope = this;
 
     if(this.is_flavor_quota) {
-      var eventCallback = function(evt) {
+      var eventCallback = function() {
         scope.showFlavorDetails();
         scope.updateFlavorUsage();
       };
 
-      var imageChangeCallback = function(event) {
+      var imageChangeCallback = function() {
         scope.disableFlavorsForImage();
       };
 
