@@ -40,7 +40,7 @@ horizon.modals.create = function (title, body, confirm, cancel) {
   return $(template.render(params)).appendTo("#modal_wrapper");
 };
 
-horizon.modals.success = function (data, textStatus, jqXHR) {
+horizon.modals.success = function (data) {
   var modal;
   $('#modal_wrapper').append(data);
   modal = $('.modal:last');
@@ -148,7 +148,7 @@ horizon.modals.init_wizard = function () {
         $footer.find('.button-final').hide();
       }
       $navs.each(function(i) {
-        $this = $(this);
+        var $this = $(this);
         if (i <= _max_visited_step) {
           $this.addClass('done');
         } else {
@@ -254,7 +254,7 @@ horizon.addInitFunction(horizon.modals.init = function() {
           horizon.modals.success(data, textStatus, jqXHR);
         }
       },
-      error: function (jqXHR, status, errorThrown) {
+      error: function (jqXHR) {
         if (jqXHR.getResponseHeader('logout')) {
           location.href = jqXHR.getResponseHeader("X-Horizon-Location");
         } else {
@@ -319,7 +319,7 @@ horizon.addInitFunction(horizon.modals.init = function() {
         horizon.modals._request = null;
         horizon.modals.spinner.modal('hide');
       },
-      error: function(jqXHR, status, errorThrown) {
+      error: function(jqXHR) {
         if (jqXHR.status === 401){
           var redir_url = jqXHR.getResponseHeader("X-Horizon-Location");
           if (redir_url){
