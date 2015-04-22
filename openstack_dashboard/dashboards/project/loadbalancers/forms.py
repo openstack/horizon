@@ -224,12 +224,13 @@ class UpdateMonitor(forms.SelfHandlingForm):
         min_value=1,
         label=_("Delay"),
         help_text=_("The minimum time in seconds between regular checks "
-                    "of a member"))
+                    "of a member. It must be greater than or equal to "
+                    "timeout"))
     timeout = forms.IntegerField(
         min_value=1,
         label=_("Timeout"),
         help_text=_("The maximum time in seconds for a monitor to wait "
-                    "for a reply"))
+                    "for a reply. It must be less than or equal to delay"))
     max_retries = forms.IntegerField(
         max_value=10, min_value=1,
         label=_("Max Retries (1~10)"),
@@ -243,6 +244,15 @@ class UpdateMonitor(forms.SelfHandlingForm):
 
     def __init__(self, request, *args, **kwargs):
         super(UpdateMonitor, self).__init__(request, *args, **kwargs)
+
+    def clean(self):
+        cleaned_data = super(UpdateMonitor, self).clean()
+        delay = cleaned_data.get('delay')
+        timeout = cleaned_data.get('timeout')
+        if not delay >= timeout:
+            msg = _('Delay must be greater than or equal to timeout')
+            self._errors['delay'] = self.error_class([msg])
+        return cleaned_data
 
     def handle(self, request, context):
         context['admin_state_up'] = (context['admin_state_up'] == 'True')
