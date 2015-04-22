@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-11 11:47-0500\n"
-"PO-Revision-Date: 2015-04-11 00:07+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-04-12 01:16-0500\n"
+"PO-Revision-Date: 2015-04-20 07:06+0000\n"
+"Last-Translator: Tom Fifield <tom@openstack.org>\n"
 "Language-Team: English (Australia) (http://www.transifex.com/projects/p/horizon/language/en_AU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -153,7 +153,7 @@ msgstr "Found %(found)s of %(total)s"
 
 #: static/angular/transfer-table/transfer-table.js:166
 msgid "Click here to expand the row and view the errors."
-msgstr ""
+msgstr "Click here to expand the row and view the errors."
 
 #: static/angular/wizard/wizard.js:12
 msgid "Back"
@@ -221,7 +221,7 @@ msgstr "%s KB"
 #: static/horizon/js/angular/filters/filters.js:146
 #, c-format
 msgid "%s bytes"
-msgstr ""
+msgstr "%s bytes"
 
 #: static/horizon/js/angular/filters/filters.js:163
 #: static/horizon/js/horizon.tables.js:393
@@ -249,11 +249,11 @@ msgstr "Unable to retrieve admin configuration."
 
 #: static/horizon/js/angular/services/hz.api.config.js:105
 msgid "Unable to retrieve settings."
-msgstr ""
+msgstr "Unable to retrieve settings."
 
 #: static/horizon/js/angular/services/hz.api.config.js:289
 msgid "Setting is not enabled: %(setting)s"
-msgstr ""
+msgstr "Setting is not enabled: %(setting)s"
 
 #: static/horizon/js/angular/services/hz.api.glance.js:38
 msgid "Unable to retrieve image."
@@ -281,7 +281,7 @@ msgstr "Unable to delete the users."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:73
 msgid "Unable to retrieve the current user session."
-msgstr ""
+msgstr "Unable to retrieve the current user session."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:80
 msgid "Unable to retrieve the user"
@@ -377,11 +377,11 @@ msgstr "Unable to fetch the service catalog."
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:385
 msgid "Service type is not enabled: %(desiredType)s"
-msgstr ""
+msgstr "Service type is not enabled: %(desiredType)s"
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:392
 msgid "Cannot get service catalog from keystone."
-msgstr ""
+msgstr "Cannot get service catalog from keystone."
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:39
 msgid "Unable to retrieve networks."
@@ -409,7 +409,7 @@ msgstr "Unable to retrieve keypairs."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:62
 msgid "Unable to import the keypair."
-msgstr ""
+msgstr "Unable to import the keypair."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:64
 msgid "Unable to create the keypair."
@@ -449,11 +449,11 @@ msgstr "Unable to retrieve flavor extra specs."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:311
 msgid "Extension is not enabled: %(extension)s"
-msgstr ""
+msgstr "Extension is not enabled: %(extension)s"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:318
 msgid "Cannot get nova extension list."
-msgstr ""
+msgstr "Cannot get nova extension list."
 
 #: static/horizon/js/angular/services/hz.api.policy.js:65
 msgid "Policy check failed."

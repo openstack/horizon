@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-11 11:47-0500\n"
-"PO-Revision-Date: 2015-04-11 00:07+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-04-12 01:16-0500\n"
+"PO-Revision-Date: 2015-04-20 07:06+0000\n"
+"Last-Translator: Łukasz Jernaś <deejay1@srem.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -221,7 +221,7 @@ msgstr "%s KB"
 #: static/horizon/js/angular/filters/filters.js:146
 #, c-format
 msgid "%s bytes"
-msgstr ""
+msgstr "%s bajtów"
 
 #: static/horizon/js/angular/filters/filters.js:163
 #: static/horizon/js/horizon.tables.js:393
@@ -250,11 +250,11 @@ msgstr "Nie można pobrać ustawień administratora."
 
 #: static/horizon/js/angular/services/hz.api.config.js:105
 msgid "Unable to retrieve settings."
-msgstr ""
+msgstr "Nie można pobrać ustawień."
 
 #: static/horizon/js/angular/services/hz.api.config.js:289
 msgid "Setting is not enabled: %(setting)s"
-msgstr ""
+msgstr "Ustawienie jest wyłączone: %(setting)s"
 
 #: static/horizon/js/angular/services/hz.api.glance.js:38
 msgid "Unable to retrieve image."
@@ -410,7 +410,7 @@ msgstr "Nie można pobrać par kluczy."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:62
 msgid "Unable to import the keypair."
-msgstr ""
+msgstr "Nie można zaimportować pary kluczy."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:64
 msgid "Unable to create the keypair."

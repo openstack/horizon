@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-08 17:57-0500\n"
-"PO-Revision-Date: 2015-04-08 23:13+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-04-09 02:13-0500\n"
+"PO-Revision-Date: 2015-04-21 19:43+0000\n"
+"Last-Translator: Tom Fifield <tom@openstack.org>\n"
 "Language-Team: English (Australia) (http://www.transifex.com/projects/p/horizon/language/en_AU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -278,31 +278,31 @@ msgstr "Sensor Voltage Reading"
 
 #: api/ceilometer.py:1280
 msgid "System Inlet Temperature Reading"
-msgstr ""
+msgstr "System Inlet Temperature Reading"
 
 #: api/ceilometer.py:1284
 msgid "System Outlet Temperature Reading"
-msgstr ""
+msgstr "System Outlet Temperature Reading"
 
 #: api/ceilometer.py:1288
 msgid "System Airflow Reading"
-msgstr ""
+msgstr "System Airflow Reading"
 
 #: api/ceilometer.py:1292
 msgid "System CUPS Reading"
-msgstr ""
+msgstr "System CUPS Reading"
 
 #: api/ceilometer.py:1296
 msgid "System CPU Utility Reading"
-msgstr ""
+msgstr "System CPU Utility Reading"
 
 #: api/ceilometer.py:1300
 msgid "System Memory Utility Reading"
-msgstr ""
+msgstr "System Memory Utility Reading"
 
 #: api/ceilometer.py:1304
 msgid "System IO Utility Reading"
-msgstr ""
+msgstr "System IO Utility Reading"
 
 #: api/cinder.py:46 dashboards/admin/volumes/volume_types/forms.py:33
 msgid "back-end"
@@ -4510,7 +4510,7 @@ msgstr "undefined"
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:56
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:106
 msgid "QoS Spec: {{ qos_spec_name }}"
-msgstr ""
+msgstr "QoS Spec: {{ qos_spec_name }}"
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:65
 msgid "Unable to retrieve QoS spec list."
@@ -4518,7 +4518,7 @@ msgstr "Unable to retrieve QoS spec list."
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:79
 msgid "Spec: {{ qos_spec_name }}"
-msgstr ""
+msgstr "Spec: {{ qos_spec_name }}"
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:100
 msgid "Edit Spec Value"
@@ -7142,7 +7142,7 @@ msgstr "Template not specified"
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:37
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:133
 msgid "Proxy Gateway"
-msgstr ""
+msgstr "Proxy Gateway"
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:29
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:32
@@ -8537,7 +8537,7 @@ msgstr "Unable to generate process choices."
 msgid ""
 "Sahara will use instances of this node group to access other cluster "
 "instances."
-msgstr ""
+msgstr "Sahara will use instances of this node group to access other cluster instances."
 
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:140
 msgid "Processes"
@@ -9929,49 +9929,49 @@ msgstr "Failed to remove rule from policy %(name)s: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:334
 msgid "Add Routers"
-msgstr ""
+msgstr "Add Routers"
 
 #: dashboards/project/firewalls/forms.py:337
 msgid "Add selected router(s) to the firewall."
-msgstr ""
+msgstr "Add selected router(s) to the firewall."
 
 #: dashboards/project/firewalls/forms.py:340
 #, python-format
 msgid "Router(s) was/were successfully added to firewall %(firewall)s."
-msgstr ""
+msgstr "Router(s) was/were successfully added to firewall %(firewall)s."
 
 #: dashboards/project/firewalls/forms.py:342
 #, python-format
 msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
-msgstr ""
+msgstr "Failed to add router(s) to firewall %(name)s: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:343
 #, python-format
 msgid "Failed to retrieve available routers: %(reason)s"
-msgstr ""
+msgstr "Failed to retrieve available routers: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:359
 msgid "Remove Routers"
-msgstr ""
+msgstr "Remove Routers"
 
 #: dashboards/project/firewalls/forms.py:362
 msgid "Unselect the router(s) to be removed from firewall."
-msgstr ""
+msgstr "Unselect the router(s) to be removed from firewall."
 
 #: dashboards/project/firewalls/forms.py:365
 #, python-format
 msgid "Router(s)  was successfully removed from firewall %(firewall)s."
-msgstr ""
+msgstr "Router(s)  was successfully removed from firewall %(firewall)s."
 
 #: dashboards/project/firewalls/forms.py:367
 #, python-format
 msgid "Failed to remove router(s) from firewall %(name)s: %(reason)s"
-msgstr ""
+msgstr "Failed to remove router(s) from firewall %(name)s: %(reason)s"
 
 #: dashboards/project/firewalls/forms.py:369
 #, python-format
 msgid "Failed to retrieve current routers in firewall %(name)s: %(reason)s"
-msgstr ""
+msgstr "Failed to retrieve current routers in firewall %(name)s: %(reason)s"
 
 #: dashboards/project/firewalls/panel.py:26
 #: dashboards/project/firewalls/tables.py:355
@@ -10040,11 +10040,11 @@ msgstr "Edit Firewall"
 
 #: dashboards/project/firewalls/tables.py:199
 msgid "Add Router"
-msgstr ""
+msgstr "Add Router"
 
 #: dashboards/project/firewalls/tables.py:222
 msgid "Remove Router"
-msgstr ""
+msgstr "Remove Router"
 
 #: dashboards/project/firewalls/tables.py:261
 msgctxt "Action Name of a Firewall Rule"
@@ -10142,12 +10142,12 @@ msgstr "DOWN"
 
 #: dashboards/project/firewalls/tables.py:345
 msgid "Associated Routers"
-msgstr ""
+msgstr "Associated Routers"
 
 #: dashboards/project/firewalls/tables.py:369
 #, python-format
 msgid "Failed to verify extension support %(reason)s"
-msgstr ""
+msgstr "Failed to verify extension support %(reason)s"
 
 #: dashboards/project/firewalls/tabs.py:31
 msgid "Firewall Rules"
@@ -10201,7 +10201,7 @@ msgstr "Unable to retrieve firewall details."
 
 #: dashboards/project/firewalls/templates/firewalls/_add_router_to_firewall.html:6
 msgid "Choose the router(s) you want to add."
-msgstr ""
+msgstr "Choose the router(s) you want to add."
 
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:19
 msgid "Policy ID"
@@ -10224,7 +10224,7 @@ msgstr "Choose the rule you want to insert. Specify either the rule you want to 
 
 #: dashboards/project/firewalls/templates/firewalls/_remove_router_from_firewall.html:6
 msgid "Unselect the routers you want to disassociate from the firewall."
-msgstr ""
+msgstr "Unselect the routers you want to disassociate from the firewall."
 
 #: dashboards/project/firewalls/templates/firewalls/_remove_rule_from_policy.html:6
 msgid "Choose the rule you want to remove."
@@ -10250,15 +10250,15 @@ msgstr "Position in Policy"
 msgid ""
 "Choose router(s) from Available Routers to Selected Routers by push button "
 "or drag and drop. "
-msgstr ""
+msgstr "Choose router(s) from Available Routers to Selected Routers by push button or drag and drop. "
 
 #: dashboards/project/firewalls/templates/firewalls/_update_routers.html:8
 msgid "Selected Routers"
-msgstr ""
+msgstr "Selected Routers"
 
 #: dashboards/project/firewalls/templates/firewalls/_update_routers.html:11
 msgid "Available Routers"
-msgstr ""
+msgstr "Available Routers"
 
 #: dashboards/project/firewalls/templates/firewalls/_update_rule_help.html:3
 msgid ""
@@ -10292,7 +10292,7 @@ msgstr "You may update rule details here."
 #: dashboards/project/firewalls/views.py:368
 #: dashboards/project/firewalls/views.py:371
 msgid "Add Router to Firewall"
-msgstr ""
+msgstr "Add Router to Firewall"
 
 #: dashboards/project/firewalls/templates/firewalls/addfirewall.html:3
 #: dashboards/project/firewalls/views.py:107
@@ -10318,7 +10318,7 @@ msgstr "Insert Rule to Policy"
 #: dashboards/project/firewalls/views.py:376
 #: dashboards/project/firewalls/views.py:379
 msgid "Remove Router from Firewall"
-msgstr ""
+msgstr "Remove Router from Firewall"
 
 #: dashboards/project/firewalls/templates/firewalls/remove_rule_from_policy.html:3
 #: dashboards/project/firewalls/views.py:295
@@ -10428,16 +10428,16 @@ msgstr "Unable to retrieve rules (%(error)s)."
 
 #: dashboards/project/firewalls/workflows.py:176
 msgid "Create a firewall with selected routers."
-msgstr ""
+msgstr "Create a firewall with selected routers."
 
 #: dashboards/project/firewalls/workflows.py:181
 msgid "Select routers for your firewall."
-msgstr ""
+msgstr "Select routers for your firewall."
 
 #: dashboards/project/firewalls/workflows.py:192
 #, python-format
 msgid "Unable to retrieve routers (%(error)s)."
-msgstr ""
+msgstr "Unable to retrieve routers (%(error)s)."
 
 #: dashboards/project/firewalls/workflows.py:233
 msgid "AddPolicy"
@@ -10556,13 +10556,13 @@ msgstr "The minimum memory size required to boot the image. If unspecified, this
 
 #: dashboards/project/images/images/forms.py:96
 msgid "Copy Data"
-msgstr ""
+msgstr "Copy Data"
 
 #: dashboards/project/images/images/forms.py:97
 msgid ""
 "Specify this option to copy image data to the image service. If unspecified,"
 " image data will be used in its current location."
-msgstr ""
+msgstr "Specify this option to copy image data to the image service. If unspecified, image data will be used in its current location."
 
 #: dashboards/project/images/images/forms.py:148
 msgid "A image or external image location must be specified."
@@ -10625,7 +10625,7 @@ msgstr[1] "Deleted Images"
 
 #: dashboards/project/images/images/tables.py:129
 msgid "Edit Image"
-msgstr ""
+msgstr "Edit Image"
 
 #: dashboards/project/images/images/tables.py:146
 #: dashboards/project/volumes/snapshots/tables.py:93
@@ -13593,7 +13593,7 @@ msgstr "Failed to delete network \"%s\""
 
 #: dashboards/project/overview/views.py:34
 msgid "Time since created (Seconds)"
-msgstr ""
+msgstr "Time since created (Seconds)"
 
 #: dashboards/project/routers/extensions/routerrules/forms.py:43
 msgid "Input must be in CIDR format"
@@ -13947,11 +13947,11 @@ msgstr "Creates a router with specified parameters."
 
 #: dashboards/project/routers/templates/routers/_detail_overview.html:34
 msgid "External Fixed IPs"
-msgstr ""
+msgstr "External Fixed IPs"
 
 #: dashboards/project/routers/templates/routers/_detail_overview.html:46
 msgid "SNAT"
-msgstr ""
+msgstr "SNAT"
 
 #: dashboards/project/routers/templates/routers/_update.html:6
 msgid "You may update the editable properties of your router here."
@@ -15633,7 +15633,7 @@ msgstr "Unable to retrieve volume."
 
 #: dashboards/project/volumes/volumes/views.py:433
 msgid "Volume Encryption Details: {{ volume.name }}"
-msgstr ""
+msgstr "Volume Encryption Details: {{ volume.name }}"
 
 #: dashboards/project/volumes/volumes/views.py:440
 #, python-format
@@ -16868,7 +16868,7 @@ msgstr "VCPU Hours"
 #: usage/tables.py:45
 msgid ""
 "Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
-msgstr ""
+msgstr "Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
 
 #: usage/tables.py:50
 msgid "Disk GB Hours"

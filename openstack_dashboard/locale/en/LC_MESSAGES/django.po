@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-09 02:13-0500\n"
+"POT-Creation-Date: 2015-04-22 16:51-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -495,7 +495,7 @@ msgstr ""
 #: dashboards/admin/metadata_defs/tables.py:128
 #: dashboards/admin/networks/forms.py:38
 #: dashboards/admin/networks/forms.py:234
-#: dashboards/admin/networks/ports/forms.py:43
+#: dashboards/admin/networks/ports/forms.py:44
 #: dashboards/admin/networks/ports/tables.py:82
 #: dashboards/admin/networks/subnets/tables.py:92
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:6
@@ -1090,7 +1090,7 @@ msgstr ""
 #: dashboards/project/instances/panel.py:23
 #: dashboards/project/instances/tables.py:1049
 #: dashboards/project/instances/templates/instances/index.html:3
-#: dashboards/project/instances/views.py:55
+#: dashboards/project/instances/views.py:59
 #: dashboards/project/network_topology/instances/tables.py:23
 #: usage/quotas.py:64
 msgid "Instances"
@@ -1370,6 +1370,7 @@ msgstr ""
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:6
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:6
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:6
+#: dashboards/project/networks/forms.py:37
 #: dashboards/project/networks/ports/forms.py:35
 #: dashboards/project/networks/templates/networks/_detail_overview.html:9
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:8
@@ -2326,12 +2327,11 @@ msgid "Unable to retrieve instance list."
 msgstr ""
 
 #: dashboards/admin/instances/views.py:112
-#: dashboards/project/instances/views.py:81
+#: dashboards/project/instances/views.py:85
 msgid "Unable to retrieve IP addresses from Neutron."
 msgstr ""
 
 #: dashboards/admin/instances/views.py:136
-#: dashboards/project/instances/views.py:122
 msgid "Unable to retrieve instance size information."
 msgstr ""
 
@@ -2342,8 +2342,8 @@ msgstr ""
 #: dashboards/admin/instances/views.py:180
 #: dashboards/project/databases/views.py:153
 #: dashboards/project/databases/views.py:193
-#: dashboards/project/instances/views.py:242
-#: dashboards/project/instances/views.py:384
+#: dashboards/project/instances/views.py:247
+#: dashboards/project/instances/views.py:389
 msgid "Unable to retrieve instance details."
 msgstr ""
 
@@ -2673,7 +2673,7 @@ msgstr ""
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:35
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:18
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:82
-#: dashboards/project/data_processing/jobs/workflows/launch.py:407
+#: dashboards/project/data_processing/jobs/workflows/launch.py:409
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:402
 #: dashboards/project/database_backups/tables.py:165
 #: dashboards/project/database_backups/templates/database_backups/details.html:32
@@ -3116,7 +3116,7 @@ msgstr ""
 #: dashboards/admin/networks/agents/tables.py:93
 #: dashboards/admin/networks/forms.py:79
 #: dashboards/admin/networks/forms.py:238
-#: dashboards/admin/networks/ports/forms.py:47
+#: dashboards/admin/networks/ports/forms.py:48
 #: dashboards/admin/networks/tables.py:104
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:19
 #: dashboards/project/firewalls/forms.py:134
@@ -3130,7 +3130,7 @@ msgstr ""
 #: dashboards/project/loadbalancers/workflows.py:195
 #: dashboards/project/loadbalancers/workflows.py:347
 #: dashboards/project/loadbalancers/workflows.py:550
-#: dashboards/project/networks/forms.py:39
+#: dashboards/project/networks/forms.py:42
 #: dashboards/project/networks/ports/forms.py:43
 #: dashboards/project/networks/ports/tables.py:77
 #: dashboards/project/networks/tables.py:177
@@ -3223,7 +3223,7 @@ msgstr ""
 
 #: dashboards/admin/networks/forms.py:77
 #: dashboards/admin/networks/forms.py:236
-#: dashboards/admin/networks/ports/forms.py:45
+#: dashboards/admin/networks/ports/forms.py:46
 #: dashboards/project/firewalls/forms.py:132
 #: dashboards/project/firewalls/workflows.py:284
 #: dashboards/project/loadbalancers/forms.py:38
@@ -3234,7 +3234,7 @@ msgstr ""
 #: dashboards/project/loadbalancers/workflows.py:193
 #: dashboards/project/loadbalancers/workflows.py:345
 #: dashboards/project/loadbalancers/workflows.py:548
-#: dashboards/project/networks/forms.py:37
+#: dashboards/project/networks/forms.py:40
 #: dashboards/project/networks/ports/forms.py:41
 #: dashboards/project/networks/workflows.py:47
 #: dashboards/project/routers/forms.py:37
@@ -3246,7 +3246,7 @@ msgstr ""
 
 #: dashboards/admin/networks/forms.py:78
 #: dashboards/admin/networks/forms.py:237
-#: dashboards/admin/networks/ports/forms.py:46
+#: dashboards/admin/networks/ports/forms.py:47
 #: dashboards/project/firewalls/forms.py:133
 #: dashboards/project/firewalls/workflows.py:285
 #: dashboards/project/loadbalancers/forms.py:39
@@ -3257,7 +3257,7 @@ msgstr ""
 #: dashboards/project/loadbalancers/workflows.py:194
 #: dashboards/project/loadbalancers/workflows.py:346
 #: dashboards/project/loadbalancers/workflows.py:549
-#: dashboards/project/networks/forms.py:38
+#: dashboards/project/networks/forms.py:41
 #: dashboards/project/networks/ports/forms.py:42
 #: dashboards/project/networks/workflows.py:48
 #: dashboards/project/routers/forms.py:38
@@ -3347,13 +3347,13 @@ msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
 msgstr ""
 
 #: dashboards/admin/networks/forms.py:252
-#: dashboards/project/networks/forms.py:49
+#: dashboards/project/networks/forms.py:52
 #, python-format
 msgid "Network %s was successfully updated."
 msgstr ""
 
 #: dashboards/admin/networks/forms.py:257
-#: dashboards/project/networks/forms.py:54
+#: dashboards/project/networks/forms.py:57
 #, python-format
 msgid "Failed to update network %s"
 msgstr ""
@@ -3388,7 +3388,7 @@ msgstr ""
 msgid "MacVTap"
 msgstr ""
 
-#: dashboards/admin/networks/ports/forms.py:39
+#: dashboards/admin/networks/ports/forms.py:40
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:11
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:11
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:15
@@ -3396,53 +3396,53 @@ msgstr ""
 msgid "Network ID"
 msgstr ""
 
-#: dashboards/admin/networks/ports/forms.py:48
-#: dashboards/admin/networks/ports/forms.py:118
+#: dashboards/admin/networks/ports/forms.py:49
+#: dashboards/admin/networks/ports/forms.py:119
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:43
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:43
 msgid "Device ID"
 msgstr ""
 
-#: dashboards/admin/networks/ports/forms.py:49
-#: dashboards/admin/networks/ports/forms.py:119
+#: dashboards/admin/networks/ports/forms.py:50
+#: dashboards/admin/networks/ports/forms.py:120
 msgid "Device ID attached to the port"
 msgstr ""
 
-#: dashboards/admin/networks/ports/forms.py:51
-#: dashboards/admin/networks/ports/forms.py:121
+#: dashboards/admin/networks/ports/forms.py:52
+#: dashboards/admin/networks/ports/forms.py:122
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:41
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:41
 msgid "Device Owner"
 msgstr ""
 
-#: dashboards/admin/networks/ports/forms.py:52
-#: dashboards/admin/networks/ports/forms.py:122
+#: dashboards/admin/networks/ports/forms.py:53
+#: dashboards/admin/networks/ports/forms.py:123
 msgid "Device owner attached to the port"
-msgstr ""
-
-#: dashboards/admin/networks/ports/forms.py:56
-#: dashboards/admin/networks/ports/forms.py:126
-msgid "Binding: Host"
 msgstr ""
 
 #: dashboards/admin/networks/ports/forms.py:57
 #: dashboards/admin/networks/ports/forms.py:127
+msgid "Binding: Host"
+msgstr ""
+
+#: dashboards/admin/networks/ports/forms.py:58
+#: dashboards/admin/networks/ports/forms.py:128
 msgid ""
 "The ID of the host where the port is allocated. In some cases, different "
 "implementations can run on different hosts."
 msgstr ""
 
-#: dashboards/admin/networks/ports/forms.py:81
+#: dashboards/admin/networks/ports/forms.py:82
 #: dashboards/project/networks/ports/forms.py:64
 msgid "Binding: VNIC Type"
 msgstr ""
 
-#: dashboards/admin/networks/ports/forms.py:82
+#: dashboards/admin/networks/ports/forms.py:83
 #: dashboards/project/networks/ports/forms.py:65
 msgid "The VNIC type that is bound to the neutron port"
 msgstr ""
 
-#: dashboards/admin/networks/ports/forms.py:87
+#: dashboards/admin/networks/ports/forms.py:88
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:22
 #: dashboards/project/networks/ports/forms.py:70
 #: dashboards/project/networks/ports/tables.py:80
@@ -3450,23 +3450,23 @@ msgstr ""
 msgid "MAC Learning State"
 msgstr ""
 
-#: dashboards/admin/networks/ports/forms.py:103
+#: dashboards/admin/networks/ports/forms.py:104
 #, python-format
 msgid "Port %s was successfully created."
 msgstr ""
 
-#: dashboards/admin/networks/ports/forms.py:108
+#: dashboards/admin/networks/ports/forms.py:109
 #, python-format
 msgid "Failed to create a port for network %s"
 msgstr ""
 
-#: dashboards/admin/networks/ports/forms.py:155
+#: dashboards/admin/networks/ports/forms.py:156
 #: dashboards/project/networks/ports/forms.py:87
 #, python-format
 msgid "Port %s was successfully updated."
 msgstr ""
 
-#: dashboards/admin/networks/ports/forms.py:160
+#: dashboards/admin/networks/ports/forms.py:161
 #: dashboards/project/networks/ports/forms.py:92
 #, python-format
 msgid "Failed to update port %s"
@@ -4404,7 +4404,7 @@ msgstr[1] ""
 #: dashboards/project/data_processing/data_sources/workflows/create.py:95
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
 #: dashboards/project/data_processing/jobs/workflows/create.py:156
-#: dashboards/project/data_processing/jobs/workflows/launch.py:406
+#: dashboards/project/data_processing/jobs/workflows/launch.py:408
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:257
 #: dashboards/project/networks/subnets/workflows.py:57
 #: dashboards/project/networks/workflows.py:342
@@ -7240,7 +7240,7 @@ msgid "Unable to fetch plugin list."
 msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:53
-#: dashboards/project/data_processing/jobs/workflows/launch.py:354
+#: dashboards/project/data_processing/jobs/workflows/launch.py:356
 msgid "Plugin name"
 msgstr ""
 
@@ -7257,7 +7257,7 @@ msgid "Next"
 msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:83
-#: dashboards/project/data_processing/jobs/workflows/launch.py:408
+#: dashboards/project/data_processing/jobs/workflows/launch.py:410
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:403
 msgid "Could not create"
 msgstr ""
@@ -7324,7 +7324,7 @@ msgstr ""
 #: dashboards/project/data_processing/clusters/tables.py:136
 #: dashboards/project/data_processing/clusters/views.py:80
 #: dashboards/project/data_processing/clusters/workflows/create.py:201
-#: dashboards/project/data_processing/jobs/workflows/launch.py:312
+#: dashboards/project/data_processing/jobs/workflows/launch.py:314
 msgid "Configure Cluster"
 msgstr ""
 
@@ -7432,7 +7432,7 @@ msgid "Unable to fetch cluster list"
 msgstr ""
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:46
-#: dashboards/project/data_processing/jobs/workflows/launch.py:394
+#: dashboards/project/data_processing/jobs/workflows/launch.py:396
 msgid "Select plugin and hadoop version for cluster"
 msgstr ""
 
@@ -7469,8 +7469,8 @@ msgid "No Templates Available"
 msgstr ""
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:220
-#: dashboards/project/data_processing/jobs/workflows/launch.py:331
-#: dashboards/project/data_processing/jobs/workflows/launch.py:416
+#: dashboards/project/data_processing/jobs/workflows/launch.py:333
+#: dashboards/project/data_processing/jobs/workflows/launch.py:418
 #: dashboards/project/databases/workflows/create_instance.py:335
 #: dashboards/project/images/images/tables.py:62
 #: dashboards/project/instances/workflows/create_instance.py:820
@@ -7755,7 +7755,7 @@ msgid "Data Source Details"
 msgstr ""
 
 #: dashboards/project/data_processing/data_sources/views.py:46
-#: dashboards/project/data_processing/jobs/workflows/launch.py:75
+#: dashboards/project/data_processing/jobs/workflows/launch.py:77
 msgid "Unable to fetch data sources."
 msgstr ""
 
@@ -7945,16 +7945,16 @@ msgid "Jobs"
 msgstr ""
 
 #: dashboards/project/data_processing/job_executions/tables.py:38
-#: dashboards/project/data_processing/jobs/workflows/launch.py:56
-#: dashboards/project/data_processing/jobs/workflows/launch.py:97
-#: dashboards/project/data_processing/jobs/workflows/launch.py:122
+#: dashboards/project/data_processing/jobs/workflows/launch.py:58
+#: dashboards/project/data_processing/jobs/workflows/launch.py:99
+#: dashboards/project/data_processing/jobs/workflows/launch.py:124
 msgid "Job"
 msgstr ""
 
 #: dashboards/project/data_processing/job_executions/tables.py:39
 #: dashboards/project/data_processing/job_executions/tables.py:198
 #: dashboards/project/data_processing/job_executions/templates/data_processing.job_executions/_details.html:16
-#: dashboards/project/data_processing/jobs/workflows/launch.py:104
+#: dashboards/project/data_processing/jobs/workflows/launch.py:106
 msgid "Cluster"
 msgstr ""
 
@@ -7980,9 +7980,9 @@ msgstr[1] ""
 #: dashboards/project/data_processing/jobs/views.py:83
 #: dashboards/project/data_processing/jobs/views.py:104
 #: dashboards/project/data_processing/jobs/views.py:117
-#: dashboards/project/data_processing/jobs/workflows/launch.py:330
-#: dashboards/project/data_processing/jobs/workflows/launch.py:405
-#: dashboards/project/data_processing/jobs/workflows/launch.py:415
+#: dashboards/project/data_processing/jobs/workflows/launch.py:332
+#: dashboards/project/data_processing/jobs/workflows/launch.py:407
+#: dashboards/project/data_processing/jobs/workflows/launch.py:417
 msgid "Launch Job"
 msgid_plural "Launch Jobs"
 msgstr[0] ""
@@ -8015,7 +8015,7 @@ msgstr ""
 #: dashboards/project/instances/tables.py:856
 #: dashboards/project/instances/templates/instances/_detail_overview.html:64
 #: dashboards/project/instances/templates/instances/_detail_overview.html:100
-#: dashboards/project/instances/views.py:398
+#: dashboards/project/instances/views.py:403
 msgid "Not available"
 msgstr ""
 
@@ -8283,7 +8283,7 @@ msgid "Chosen Libraries"
 msgstr ""
 
 #: dashboards/project/data_processing/jobs/views.py:53
-#: dashboards/project/data_processing/jobs/workflows/launch.py:89
+#: dashboards/project/data_processing/jobs/workflows/launch.py:91
 msgid "Unable to fetch jobs."
 msgstr ""
 
@@ -8330,69 +8330,69 @@ msgstr ""
 msgid "Input"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:45
+#: dashboards/project/data_processing/jobs/workflows/launch.py:46
 msgid "Output"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:114
+#: dashboards/project/data_processing/jobs/workflows/launch.py:116
 msgid "Unable to fetch clusters."
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:154
+#: dashboards/project/data_processing/jobs/workflows/launch.py:156
 msgid "Main Class"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:157
+#: dashboards/project/data_processing/jobs/workflows/launch.py:159
 msgid "Java Opts"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:160
+#: dashboards/project/data_processing/jobs/workflows/launch.py:162
 msgid "Mapper"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:162
+#: dashboards/project/data_processing/jobs/workflows/launch.py:164
 msgid "Reducer"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:230
+#: dashboards/project/data_processing/jobs/workflows/launch.py:232
 msgid "Configure"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:308
+#: dashboards/project/data_processing/jobs/workflows/launch.py:310
 msgid "Persist cluster after job exit"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:332
-#: dashboards/project/data_processing/jobs/workflows/launch.py:417
+#: dashboards/project/data_processing/jobs/workflows/launch.py:334
+#: dashboards/project/data_processing/jobs/workflows/launch.py:419
 msgid "Job launched"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:333
-#: dashboards/project/data_processing/jobs/workflows/launch.py:418
+#: dashboards/project/data_processing/jobs/workflows/launch.py:335
+#: dashboards/project/data_processing/jobs/workflows/launch.py:420
 msgid "Could not launch job"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:359
+#: dashboards/project/data_processing/jobs/workflows/launch.py:361
 msgid "Job configs"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:363
+#: dashboards/project/data_processing/jobs/workflows/launch.py:365
 msgid "Job args"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:367
+#: dashboards/project/data_processing/jobs/workflows/launch.py:369
 msgid "Job params"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:373
+#: dashboards/project/data_processing/jobs/workflows/launch.py:375
 msgid "Job Execution ID"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:449
+#: dashboards/project/data_processing/jobs/workflows/launch.py:451
 msgid "Unable to create new cluster for job."
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:462
+#: dashboards/project/data_processing/jobs/workflows/launch.py:464
 msgid "Unable to launch job."
 msgstr ""
 
@@ -9617,7 +9617,7 @@ msgid "Launch Database"
 msgstr ""
 
 #: dashboards/project/databases/views.py:101
-#: dashboards/project/instances/views.py:289
+#: dashboards/project/instances/views.py:294
 msgid "Instance Details: {{ instance.name }}"
 msgstr ""
 
@@ -9627,7 +9627,7 @@ msgid "Unable to retrieve details for database instance: %s"
 msgstr ""
 
 #: dashboards/project/databases/views.py:209
-#: dashboards/project/instances/views.py:409
+#: dashboards/project/instances/views.py:414
 msgid "Unable to retrieve flavors."
 msgstr ""
 
@@ -11041,7 +11041,7 @@ msgstr ""
 #: dashboards/project/instances/templates/instances/_rebuild.html:9
 #: dashboards/project/instances/templates/instances/_rebuild.html:27
 #: dashboards/project/instances/templates/instances/rebuild.html:3
-#: dashboards/project/instances/views.py:256
+#: dashboards/project/instances/views.py:261
 msgid "Rebuild Instance"
 msgstr ""
 
@@ -11095,7 +11095,7 @@ msgid ""
 msgstr ""
 
 #: dashboards/project/instances/tables.py:677
-#: dashboards/project/instances/views.py:395
+#: dashboards/project/instances/views.py:400
 #, python-format
 msgid "Unable to retrieve flavor information for instance \"%s\"."
 msgstr ""
@@ -11526,7 +11526,7 @@ msgid "Log"
 msgstr ""
 
 #: dashboards/project/instances/tabs.py:53
-#: dashboards/project/instances/views.py:148
+#: dashboards/project/instances/views.py:153
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr ""
@@ -11540,7 +11540,7 @@ msgid "Unable to retrieve instance action list."
 msgstr ""
 
 #: dashboards/project/instances/templates/instances/_decryptpassword.html:10
-#: dashboards/project/instances/views.py:272
+#: dashboards/project/instances/views.py:277
 msgid "Retrieve Instance Password"
 msgstr ""
 
@@ -11780,6 +11780,7 @@ msgid "Unable to retrieve Nova availability zones."
 msgstr ""
 
 #: dashboards/project/instances/utils.py:94
+#, python-brace-format
 msgid "Failed to get network list {0}"
 msgstr ""
 
@@ -11808,61 +11809,61 @@ msgstr ""
 msgid "Select Flavor"
 msgstr ""
 
-#: dashboards/project/instances/views.py:73
+#: dashboards/project/instances/views.py:77
 msgid "Unable to retrieve instances."
 msgstr ""
 
-#: dashboards/project/instances/views.py:151
+#: dashboards/project/instances/views.py:156
 msgid "Log length must be a nonnegative integer."
 msgstr ""
 
-#: dashboards/project/instances/views.py:170
+#: dashboards/project/instances/views.py:175
 #, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr ""
 
-#: dashboards/project/instances/views.py:182
+#: dashboards/project/instances/views.py:187
 #, python-format
 msgid "Unable to get SPICE console for instance \"%s\"."
 msgstr ""
 
-#: dashboards/project/instances/views.py:193
+#: dashboards/project/instances/views.py:198
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr ""
 
-#: dashboards/project/instances/views.py:209
+#: dashboards/project/instances/views.py:214
 #, python-format
 msgid "Cannot find instance %s."
 msgstr ""
 
-#: dashboards/project/instances/views.py:221
+#: dashboards/project/instances/views.py:226
 #, python-format
 msgid "Cannot get console for instance %s."
 msgstr ""
 
-#: dashboards/project/instances/views.py:309
+#: dashboards/project/instances/views.py:314
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr ""
 
-#: dashboards/project/instances/views.py:330
+#: dashboards/project/instances/views.py:335
 #, python-format
 msgid "Unable to retrieve volume list for instance \"%(name)s\" (%(id)s)."
 msgstr ""
 
-#: dashboards/project/instances/views.py:339
+#: dashboards/project/instances/views.py:344
 #, python-format
 msgid ""
 "Unable to retrieve flavor information for instance \"%(name)s\" (%(id)s)."
 msgstr ""
 
-#: dashboards/project/instances/views.py:348
+#: dashboards/project/instances/views.py:353
 #, python-format
 msgid "Unable to retrieve security groups for instance \"%(name)s\" (%(id)s)."
 msgstr ""
 
-#: dashboards/project/instances/views.py:356
+#: dashboards/project/instances/views.py:361
 #, python-format
 msgid ""
 "Unable to retrieve IP addresses from Neutron for instance \"%(name)s"
@@ -11976,8 +11977,8 @@ msgstr ""
 #: dashboards/project/instances/workflows/create_instance.py:243
 #, python-format
 msgid ""
-"The requested instance cannot be launched. The following requested resource"
-"(s) exceed quota(s): %s."
+"The requested instance cannot be launched. The following requested "
+"resource(s) exceed quota(s): %s."
 msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:263
@@ -12965,8 +12966,8 @@ msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
 "Choose one or more listed instances to be added to the pool as member(s). "
-"Assign a numeric weight and port number for the selected member(s) to operate"
-"(s) on; e.g., 80. \n"
+"Assign a numeric weight and port number for the selected member(s) to "
+"operate(s) on; e.g., 80. \n"
 "\n"
 "Only one port can be associated with each instance."
 msgstr ""
@@ -16799,15 +16800,15 @@ msgstr ""
 msgid "VMDK - Virtual Machine Disk"
 msgstr ""
 
-#: settings.py:237
+#: settings.py:238
 msgid "All TCP"
 msgstr ""
 
-#: settings.py:243
+#: settings.py:244
 msgid "All UDP"
 msgstr ""
 
-#: settings.py:249
+#: settings.py:250
 msgid "All ICMP"
 msgstr ""
 

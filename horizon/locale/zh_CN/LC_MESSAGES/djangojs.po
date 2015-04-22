@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-11 11:47-0500\n"
-"PO-Revision-Date: 2015-04-11 00:07+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-04-12 01:16-0500\n"
+"PO-Revision-Date: 2015-04-20 07:06+0000\n"
+"Last-Translator: Ying Chun Guo <daisy.ycguo@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -226,7 +226,7 @@ msgstr "%s KB"
 #: static/horizon/js/angular/filters/filters.js:146
 #, c-format
 msgid "%s bytes"
-msgstr ""
+msgstr "%s 字节"
 
 #: static/horizon/js/angular/filters/filters.js:163
 #: static/horizon/js/horizon.tables.js:393
@@ -253,11 +253,11 @@ msgstr "无法获取管理员配置"
 
 #: static/horizon/js/angular/services/hz.api.config.js:105
 msgid "Unable to retrieve settings."
-msgstr ""
+msgstr "无法获取配置"
 
 #: static/horizon/js/angular/services/hz.api.config.js:289
 msgid "Setting is not enabled: %(setting)s"
-msgstr ""
+msgstr "配置没有启用: %(setting)s"
 
 #: static/horizon/js/angular/services/hz.api.glance.js:38
 msgid "Unable to retrieve image."
@@ -413,7 +413,7 @@ msgstr "无法获取密钥对"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:62
 msgid "Unable to import the keypair."
-msgstr ""
+msgstr "无法导入密钥对"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:64
 msgid "Unable to create the keypair."
@@ -453,11 +453,11 @@ msgstr "无法获取云主机类型特别设定"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:311
 msgid "Extension is not enabled: %(extension)s"
-msgstr ""
+msgstr "扩展没有启动: %(extension)s"
 
 #: static/horizon/js/angular/services/hz.api.nova.js:318
 msgid "Cannot get nova extension list."
-msgstr ""
+msgstr "无法查询nova扩展列表"
 
 #: static/horizon/js/angular/services/hz.api.policy.js:65
 msgid "Policy check failed."

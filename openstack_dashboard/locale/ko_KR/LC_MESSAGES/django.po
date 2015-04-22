@@ -6,17 +6,19 @@
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2015
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2015
 # jaekwon.park <jaekwon.park@rockplace.co.kr>, 2014
+# jaekwon.park <jaekwon.park@rockplace.co.kr>, 2014
 # Yongbok Kim <ruo91@yongbok.net>, 2014
 # Sungjin Kang <potopro@gmail.com>, 2014-2015
+# whitekid <whitekid@gmail.com>, 2015
 # whitekid <whitekid@gmail.com>, 2015
 # Yongbok Kim <ruo91@yongbok.net>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-08 17:57-0500\n"
-"PO-Revision-Date: 2015-04-09 06:52+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-04-09 02:13-0500\n"
+"PO-Revision-Date: 2015-04-21 19:43+0000\n"
+"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10981,13 +10983,13 @@ msgstr "특정 인스턴스 전원 종료"
 msgctxt "Action to perform (the instance is currently running)"
 msgid "Shut Off Instance"
 msgid_plural "Shut Off Instances"
-msgstr[0] "Shut Off Instances"
+msgstr[0] "인스턴스 전원 끔"
 
 #: dashboards/project/instances/tables.py:734
 msgctxt "Past action (the instance is currently already Shut Off)"
 msgid "Shut Off Instance"
 msgid_plural "Shut Off Instances"
-msgstr[0] "Shut Off Instances"
+msgstr[0] "인스턴스 전원 끔"
 
 #: dashboards/project/instances/tables.py:755
 msgid "Lock Instance"
