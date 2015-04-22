@@ -86,6 +86,7 @@ def network_field_data(request, include_empty_option=False):
     :return: list of (id, name) tuples
     """
     tenant_id = request.user.tenant_id
+    networks = []
     try:
         networks = api.neutron.network_list_for_tenant(request, tenant_id)
         networks = [(n.id, n.name_or_id) for n in networks]
@@ -121,7 +122,6 @@ def keypair_field_data(request, include_empty_option=False):
         keypair_list = [(kp.name, kp.name) for kp in keypairs]
     except Exception:
         exceptions.handle(request, _('Unable to retrieve key pairs.'))
-        keypair_list = []
 
     if not keypair_list:
         if include_empty_option:
