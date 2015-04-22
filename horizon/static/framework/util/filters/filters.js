@@ -29,7 +29,7 @@
      * @ngdoc filter
      * @name yesno
      * @description
-     * Evaluates given input as boolean and returns translation
+     * Evaluates given input for standard truthiness and returns translation
      * of 'Yes' and 'No' for true/false respectively.
      */
     .filter('yesno', ['horizon.framework.util.i18n.gettext', function(gettext) {
