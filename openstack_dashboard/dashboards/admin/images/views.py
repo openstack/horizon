@@ -110,6 +110,7 @@ class IndexView(tables.DataTableView):
 class CreateView(views.CreateView):
     template_name = 'admin/images/create.html'
     form_class = project_forms.AdminCreateImageForm
+    submit_url = reverse_lazy('horizon:admin:images:create')
     success_url = reverse_lazy('horizon:admin:images:index')
     page_title = _("Create An Image")
 
@@ -117,6 +118,7 @@ class CreateView(views.CreateView):
 class UpdateView(views.UpdateView):
     template_name = 'admin/images/update.html'
     form_class = project_forms.AdminUpdateImageForm
+    submit_url = "horizon:admin:images:update"
     success_url = reverse_lazy('horizon:admin:images:index')
     page_title = _("Update Image")
 
@@ -133,7 +135,10 @@ class DetailView(views.DetailView):
 
 class UpdateMetadataView(forms.ModalFormView):
     template_name = "admin/images/update_metadata.html"
+    modal_header = _("Update Image")
+    form_id = "update_image_form"
     form_class = project_forms.UpdateMetadataForm
+    submit_url = "horizon:admin:images:update_metadata"
     success_url = reverse_lazy('horizon:admin:images:index')
     page_title = _("Update Image Metadata")
 
@@ -151,6 +156,8 @@ class UpdateMetadataView(forms.ModalFormView):
                                 for (k, v) in image.properties.iteritems()
                                 if k not in reserved_props)
         context['existing_metadata'] = json.dumps(image.properties)
+        args = (self.kwargs['id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
 
         resource_type = 'OS::Glance::Image'
         namespaces = []
