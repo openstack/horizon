@@ -8,7 +8,7 @@
 
 <div class="quota_title clearfix">
     <strong>{% trans "Total Gigabytes" %} <span>({% block gigabytes_used %}{{ usages.gigabytesUsed|intcomma }}{% endblock %} {% trans "GB" %})</span></strong>
-  <p>{{ usages.maxTotalVolumeGigabytes|quota:_("GB")|intcomma }}</p>
+  <p>{{ usages.maxTotalVolumeGigabytes|intcomma|quota:_("GB") }}</p>
 </div>
 
 <div id="quota_size" data-progress-indicator-for="id_size" data-quota-limit="{{ usages.maxTotalVolumeGigabytes }}" data-quota-used={% block gigabytes_used_progress %}"{{ usages.gigabytesUsed }}"{% endblock %} class="quota_bar">
@@ -16,7 +16,7 @@
 
 <div class="quota_title clearfix">
     <strong>{% block type_title %}{% trans "Number of Volumes" %}{% endblock %} <span>({% block used %}{{ usages.volumesUsed|intcomma }}{% endblock %})</span></strong>
-  <p>{% block total %}{{ usages.maxTotalVolumes|quota|intcomma }}{% endblock %}</p>
+  <p>{% block total %}{{ usages.maxTotalVolumes|intcomma|quota }}{% endblock %}</p>
 </div>
 
 <div id={% block type_id %}"quota_volumes"{% endblock %} data-progress-indicator-step-by="1" data-quota-limit={% block total_progress %}"{{ usages.maxTotalVolumes }}"{% endblock %} data-quota-used={% block used_progress %}"{{ usages.volumesUsed }}"{% endblock %} class="quota_bar">
