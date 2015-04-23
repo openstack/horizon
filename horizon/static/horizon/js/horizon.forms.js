@@ -1,7 +1,7 @@
 /* Namespace for core functionality related to Forms. */
 horizon.forms = {
   handle_snapshot_source: function() {
-    $("div.table_wrapper, #modal_wrapper").on("change", "select#id_snapshot_source", function(evt) {
+    $("div.table_wrapper, #modal_wrapper").on("change", "select#id_snapshot_source", function() {
       var $option = $(this).find("option:selected");
       var $form = $(this).closest('form');
       var $volName = $form.find('input#id_name');
@@ -18,7 +18,7 @@ horizon.forms = {
   },
 
   handle_volume_source: function() {
-    $("div.table_wrapper, #modal_wrapper").on("change", "select#id_volume_source", function(evt) {
+    $("div.table_wrapper, #modal_wrapper").on("change", "select#id_volume_source", function() {
       var $option = $(this).find("option:selected");
       var $form = $(this).closest('form');
       var $volName = $form.find('input#id_name');
@@ -35,7 +35,7 @@ horizon.forms = {
   },
 
   handle_image_source: function() {
-    $("div.table_wrapper, #modal_wrapper").on("change", "select#id_image_source", function(evt) {
+    $("div.table_wrapper, #modal_wrapper").on("change", "select#id_image_source", function() {
       var $option = $(this).find("option:selected");
       var $form = $(this).closest('form');
       var $volName = $form.find('input#id_name');
@@ -63,7 +63,7 @@ horizon.forms = {
    * compare with the value of the new filename string.
    */
   handle_object_upload_source: function() {
-    $("div.table_wrapper, #modal_wrapper").on("change", "input#id_object_file", function(evt) {
+    $("div.table_wrapper, #modal_wrapper").on("change", "input#id_object_file", function() {
       if (typeof($(this).attr("filename")) === 'undefined') {
         $(this).attr("filename", "");
       }
@@ -102,7 +102,7 @@ horizon.forms = {
     var endDate = $('input#id_end').datepicker({
       language: horizon.datepickerLocale,
       startDate: startDate ? startDate.dates[0] : null
-    }).on('changeDate', function(ev) {
+    }).on('changeDate', function() {
         endDate.hide();
       }).data('datepicker');
 
@@ -313,7 +313,7 @@ horizon.addInitFunction(horizon.forms.init = function () {
     $(modal).find('input.switchable').trigger('change');
   });
 
-  $document.on('shown.bs.tab', function(evt) {
+  $document.on('shown.bs.tab', function() {
     var $fieldset = $('fieldset.active');
     var $btnfinal = $('.button-final');
     if ($btnfinal.data('show-on-tab')) {
@@ -341,7 +341,7 @@ horizon.addInitFunction(horizon.forms.init = function () {
     });
   }
 
-  $document.on('change', '#id_volume_source_type', function (evt) {
+  $document.on('change', '#id_volume_source_type', function () {
     update_volume_source_displayed_fields(this);
   });
 
@@ -366,7 +366,7 @@ horizon.addInitFunction(horizon.forms.init = function () {
   });
   // Hide the tooltip upon interaction with the field for select boxes.
   // We use mousedown and keydown since those "open" the select dropdown.
-  $document.on('mousedown keydown', '.form-group select', function (evt) {
+  $document.on('mousedown keydown', '.form-group select', function () {
     $(this).tooltip('hide');
   });
   // Hide the tooltip after escape button pressed

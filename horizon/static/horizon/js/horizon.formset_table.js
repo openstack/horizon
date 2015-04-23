@@ -24,7 +24,7 @@ horizon.formset_table = (function () {
   };
 
   // mark a row as deleted and hide it
-  module.delete_row = function (e) {
+  module.delete_row = function () {
     $(this).closest('tr').hide();
     $(this).prev('input[name$="-DELETE"]').attr('checked', true);
   };
