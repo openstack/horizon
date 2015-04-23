@@ -21,7 +21,7 @@ limitations under the License.
    * @name hz.api.SecurityGroup
    * @description Provides access to Security Groups
    */
-  function SecurityGroup(apiService) {
+  function SecurityGroup(apiService, toastService) {
 
     /**
      * @name hz.api.SecurityGroup.list
@@ -61,7 +61,7 @@ limitations under the License.
     this.query = function() {
       return apiService.get('/api/network/securitygroups/')
         .error(function () {
-          horizon.alert('error', gettext('Unable to retrieve security groups.'));
+          toastService.add('error', gettext('Unable to retrieve security groups.'));
       });
     };
   }
@@ -70,6 +70,6 @@ limitations under the License.
   // API module will have access to the Security Group APIs.
 
   angular.module('hz.api')
-    .service('securityGroup', ['apiService', SecurityGroup]);
+    .service('securityGroup', ['apiService', 'toastService', SecurityGroup]);
 
 }());

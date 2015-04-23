@@ -101,6 +101,7 @@
       beforeEach(module(function ($provide) {
         $provide.value('$modalInstance', {});
         $provide.value('novaAPI', {});
+        $provide.value('toastService', {});
       }));
 
       beforeEach(module('hz.dashboard'));
@@ -159,6 +160,7 @@
       beforeEach(module(function ($provide) {
         $provide.value('$modalInstance', {});
         $provide.value('novaAPI', {});
+        $provide.value('toastService', {});
       }));
 
       beforeEach(module('hz.dashboard'));

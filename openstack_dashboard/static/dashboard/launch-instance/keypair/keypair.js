@@ -151,10 +151,11 @@
   module.controller('LaunchInstanceCreateKeyPairCtrl', [
     '$modalInstance',
     'novaAPI',
+    'toastService',
     LaunchInstanceCreateKeyPairCtrl
   ]);
 
-  function LaunchInstanceCreateKeyPairCtrl($modalInstance, novaAPI) {
+  function LaunchInstanceCreateKeyPairCtrl($modalInstance, novaAPI, toastService) {
     var ctrl = this;
 
     ctrl.labels = {
@@ -174,7 +175,7 @@
           $modalInstance.close(data);
 
           var successMsg = gettext('Successfully created key pair %(name)s');
-          horizon.alert('success', interpolate(successMsg, { name: data.name }, true));
+          toastService.add('success', interpolate(successMsg, { name: data.name }, true));
         });
     };
     ctrl.cancel = function () {
@@ -224,10 +225,11 @@
   module.controller('LaunchInstanceImportKeyPairCtrl', [
     '$modalInstance',
     'novaAPI',
+    'toastService',
     LaunchInstanceImportKeyPairCtrl
   ]);
 
-  function LaunchInstanceImportKeyPairCtrl($modalInstance, novaAPI) {
+  function LaunchInstanceImportKeyPairCtrl($modalInstance, novaAPI, toastService) {
     var ctrl = this;
 
     ctrl.labels = {
@@ -248,7 +250,7 @@
           $modalInstance.close(data);
 
           var successMsg = gettext('Successfully imported key pair %(name)s');
-          horizon.alert('success', interpolate(successMsg, { name: data.name }, true));
+          toastService.add('success', interpolate(successMsg, { name: data.name }, true));
         });
     };
     ctrl.cancel = function () {

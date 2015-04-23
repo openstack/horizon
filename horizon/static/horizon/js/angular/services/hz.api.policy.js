@@ -20,7 +20,7 @@ limitations under the License.
    * @description Provides a direct pass through to the policy engine in
    * Horizon.
    */
-  function PolicyService(apiService) {
+  function PolicyService(apiService, toastService) {
 
     /**
      * @name hz.api.policyAPI.check
@@ -62,12 +62,11 @@ limitations under the License.
     this.check = function (policy_rules) {
       return apiService.post('/api/policy/', policy_rules)
         .error(function() {
-          horizon.alert('warning', gettext('Policy check failed.'));
-          horizon.autoDismissAlerts();
+          toastService.add('warning', gettext('Policy check failed.'));
         });
     };
   }
 
   angular.module('hz.api')
-    .service('policyAPI', ['apiService', PolicyService]);
+    .service('policyAPI', ['apiService', 'toastService', PolicyService]);
 }());
