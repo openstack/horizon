@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-12 01:16-0500\n"
+"POT-Creation-Date: 2015-04-23 01:38-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -101,9 +101,29 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: static/angular/modal/modal.js:84 static/angular/wizard/wizard.js:11
+#: static/angular/modal/modal.js:84 static/angular/wizard/wizard.js:10
 #: static/horizon/js/horizon.modals.js:33
 msgid "Cancel"
+msgstr ""
+
+#: static/angular/toast/toast.js:77
+msgid "Danger"
+msgstr ""
+
+#: static/angular/toast/toast.js:78
+msgid "Warning"
+msgstr ""
+
+#: static/angular/toast/toast.js:79
+msgid "Info"
+msgstr ""
+
+#: static/angular/toast/toast.js:80
+msgid "Success"
+msgstr ""
+
+#: static/angular/toast/toast.js:81
+msgid "Error"
 msgstr ""
 
 #: static/angular/transfer-table/transfer-table.js:39
@@ -154,15 +174,15 @@ msgstr ""
 msgid "Click here to expand the row and view the errors."
 msgstr ""
 
-#: static/angular/wizard/wizard.js:12
+#: static/angular/wizard/wizard.js:11
 msgid "Back"
 msgstr ""
 
-#: static/angular/wizard/wizard.js:13
+#: static/angular/wizard/wizard.js:12
 msgid "Next"
 msgstr ""
 
-#: static/angular/wizard/wizard.js:14
+#: static/angular/wizard/wizard.js:13
 msgid "Finish"
 msgstr ""
 

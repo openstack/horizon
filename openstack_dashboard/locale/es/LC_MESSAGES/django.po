@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-21 00:09-0500\n"
-"PO-Revision-Date: 2015-04-20 19:32+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-04-22 23:36-0500\n"
+"PO-Revision-Date: 2015-04-22 20:42+0000\n"
+"Last-Translator: Sergio Cuellar Valdes <scuellarv@kionetworks.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3817,7 +3817,7 @@ msgstr "Instancias activas:"
 #: dashboards/admin/overview/templates/overview/usage.csv:3
 #: dashboards/project/overview/templates/overview/usage.csv:4
 msgid "Total VCPU Usage (Hours):"
-msgstr ""
+msgstr "Uso total VCPU (Horas):"
 
 #: dashboards/admin/overview/templates/overview/usage.csv:4
 #: dashboards/project/overview/templates/overview/usage.csv:5
@@ -8211,7 +8211,7 @@ msgstr "Introduzca cualquier configuración personalizada necesaria para la ejec
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_launch_job_help.html:4
 msgid "Launch the given job template on a cluster."
-msgstr ""
+msgstr "Ejecutar la plantilla de trabajo en un clúster."
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_launch_job_help.html:7
 msgid "Choose the cluster to use for the job."
@@ -8304,7 +8304,7 @@ msgstr "Trabajo creado"
 
 #: dashboards/project/data_processing/jobs/workflows/create.py:158
 msgid "Could not create job template"
-msgstr ""
+msgstr "No se puedo crear la plantilla de trabajo"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:40
 msgid "Input"
@@ -9955,7 +9955,7 @@ msgstr ""
 
 #: dashboards/project/firewalls/forms.py:359
 msgid "Remove Routers"
-msgstr ""
+msgstr "Quitar Routers"
 
 #: dashboards/project/firewalls/forms.py:362
 msgid "Unselect the router(s) to be removed from firewall."
@@ -10003,7 +10003,7 @@ msgstr[1] ""
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Eliminar políticas"
 
 #: dashboards/project/firewalls/tables.py:94
 msgid "Scheduled deletion of Policy"
@@ -10015,7 +10015,7 @@ msgstr[1] ""
 msgid "Delete Firewall"
 msgid_plural "Delete Firewalls"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Eliminar cortafuegos"
 
 #: dashboards/project/firewalls/tables.py:117
 msgid "Scheduled deletion of Firewall"
@@ -10043,11 +10043,11 @@ msgstr "Editar cortafuegos"
 
 #: dashboards/project/firewalls/tables.py:199
 msgid "Add Router"
-msgstr ""
+msgstr "Añadir Router"
 
 #: dashboards/project/firewalls/tables.py:222
 msgid "Remove Router"
-msgstr ""
+msgstr "Quitar Router"
 
 #: dashboards/project/firewalls/tables.py:261
 msgctxt "Action Name of a Firewall Rule"
@@ -10204,7 +10204,7 @@ msgstr "No ha sido posible obtener los detalles de cortafuegos."
 
 #: dashboards/project/firewalls/templates/firewalls/_add_router_to_firewall.html:6
 msgid "Choose the router(s) you want to add."
-msgstr ""
+msgstr "Escoger router(s) que desea agregar."
 
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:19
 msgid "Policy ID"
@@ -10257,11 +10257,11 @@ msgstr ""
 
 #: dashboards/project/firewalls/templates/firewalls/_update_routers.html:8
 msgid "Selected Routers"
-msgstr ""
+msgstr "Routers Seleccionados"
 
 #: dashboards/project/firewalls/templates/firewalls/_update_routers.html:11
 msgid "Available Routers"
-msgstr ""
+msgstr "Routers Disponibles"
 
 #: dashboards/project/firewalls/templates/firewalls/_update_rule_help.html:3
 msgid ""
@@ -10295,7 +10295,7 @@ msgstr "Aquí puede actualizar los detalles de la regla."
 #: dashboards/project/firewalls/views.py:368
 #: dashboards/project/firewalls/views.py:371
 msgid "Add Router to Firewall"
-msgstr ""
+msgstr "Añadir Router al Cortafuegos"
 
 #: dashboards/project/firewalls/templates/firewalls/addfirewall.html:3
 #: dashboards/project/firewalls/views.py:107
@@ -10435,7 +10435,7 @@ msgstr ""
 
 #: dashboards/project/firewalls/workflows.py:181
 msgid "Select routers for your firewall."
-msgstr ""
+msgstr "Seleccionar routers para su cortafuegos."
 
 #: dashboards/project/firewalls/workflows.py:192
 #, python-format
@@ -10587,7 +10587,7 @@ msgstr "No ha sido posible crear la nueva imagen"
 #: dashboards/project/images/images/forms.py:199
 #, python-format
 msgid "Unable to create new image: Invalid disk format %s for image."
-msgstr ""
+msgstr "No ha sido posible crear una nueva imagen: Formato de disco inválido %s para la imagen."
 
 #: dashboards/project/images/images/forms.py:202
 msgid "Unable to create new image: Image name too long."
@@ -10695,7 +10695,7 @@ msgstr "No ha sido posible obtener la imagen."
 
 #: dashboards/project/images/images/views.py:88
 msgid "Image Details: {{ image.name }}"
-msgstr ""
+msgstr "Detalles de la Imagen: {{ image.name }}"
 
 #: dashboards/project/images/images/views.py:109
 msgid "Unable to retrieve image details."
@@ -11126,11 +11126,11 @@ msgstr[1] "Iniciar instancias"
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Instancias iniciadas"
 
 #: dashboards/project/instances/tables.py:719
 msgid "To power off a specific instance."
-msgstr ""
+msgstr "Para apagar una instancia específica."
 
 #: dashboards/project/instances/tables.py:725
 msgctxt "Action to perform (the instance is currently running)"
@@ -11364,12 +11364,12 @@ msgstr "Reiniciando"
 #: dashboards/project/instances/tables.py:931
 msgctxt "Task status of an Instance"
 msgid "Reboot Pending"
-msgstr ""
+msgstr "Reinicio Pendiente"
 
 #: dashboards/project/instances/tables.py:933
 msgctxt "Task status of an Instance"
 msgid "Reboot Started"
-msgstr ""
+msgstr "Reinicio Iniciado"
 
 #: dashboards/project/instances/tables.py:935
 msgctxt "Task status of an Instance"
@@ -11793,11 +11793,11 @@ msgstr "No ha sido posible ordenar los sabores de instancia."
 
 #: dashboards/project/instances/utils.py:73
 msgid "Unable to retrieve Nova availability zones."
-msgstr ""
+msgstr "No ha sido posible obtener las zonas de disponibilidad de Nova."
 
 #: dashboards/project/instances/utils.py:94
 msgid "Failed to get network list {0}"
-msgstr ""
+msgstr "Fallo al obtener la lista de redes {0}"
 
 #: dashboards/project/instances/utils.py:99
 #: dashboards/project/routers/ports/forms.py:176
@@ -13366,7 +13366,7 @@ msgstr "Añadir subred"
 
 #: dashboards/project/networks/tables.py:131
 msgid "Add Subnet (Quota exceeded)"
-msgstr ""
+msgstr "Crear Subred (Cuota superada)"
 
 #: dashboards/project/networks/tables.py:150
 msgctxt "Current status of a Network"
@@ -13792,7 +13792,7 @@ msgstr "Deshabilitar modo HA"
 
 #: dashboards/project/routers/forms.py:78
 msgid "Failed to get network list."
-msgstr ""
+msgstr "Fallo al obtener la lista de redes."
 
 #: dashboards/project/routers/forms.py:86
 #: dashboards/project/routers/ports/forms.py:174
@@ -13894,7 +13894,7 @@ msgstr "Añadir interfaz"
 msgid "Delete Interface"
 msgid_plural "Delete Interfaces"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Eliminar Interfaces"
 
 #: dashboards/project/routers/ports/tables.py:66
 msgid "Deleted Interface"
@@ -16871,7 +16871,7 @@ msgstr "Ayuda"
 
 #: templates/_header.html:21
 msgid "More Projects"
-msgstr ""
+msgstr "Más proyectos"
 
 #: templates/_header.html:54
 msgid "Sign Out"
