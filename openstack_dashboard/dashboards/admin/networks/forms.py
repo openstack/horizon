@@ -233,6 +233,9 @@ class CreateNetwork(forms.SelfHandlingForm):
 class UpdateNetwork(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), required=False)
     tenant_id = forms.CharField(widget=forms.HiddenInput)
+    network_id = forms.CharField(label=_("ID"),
+                                 widget=forms.TextInput(
+                                     attrs={'readonly': 'readonly'}))
     admin_state = forms.ChoiceField(choices=[(True, _('UP')),
                                              (False, _('DOWN'))],
                                     label=_("Admin State"))
