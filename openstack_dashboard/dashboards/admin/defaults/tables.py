@@ -59,6 +59,10 @@ def get_quota_name(quota):
         'gigabytes_volume_luks':
         _('Total Size of LUKS Volumes and Snapshots (GB)'),
         'dm-crypt': _('dm-crypt'),
+        'server_group_members': _('Server Group Members'),
+        'server_groups': _('Server Groups'),
+        'backup_gigabytes': _('Backup Gigabytes'),
+        'backups': _('Backups')
     }
     return QUOTA_NAMES.get(quota.name, quota.name.replace("_", " ").title())
 
