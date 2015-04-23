@@ -871,14 +871,21 @@ class Site(Registry, HorizonComponent):
         """
         panel_customization = self._conf.get("panel_customization", [])
 
+        # Process all the panel groups first so that they exist before panels
+        # are added to them and Dashboard._autodiscover() doesn't wipe out any
+        # panels previously added when its panel groups are instantiated.
+        panel_configs = []
         for config in panel_customization:
             if config.get('PANEL'):
-                self._process_panel_configuration(config)
+                panel_configs.append(config)
             elif config.get('PANEL_GROUP'):
                 self._process_panel_group_configuration(config)
             else:
                 LOG.warning("Skipping %s because it doesn't have PANEL or "
                             "PANEL_GROUP defined.", config.__name__)
+        # Now process the panels.
+        for config in panel_configs:
+            self._process_panel_configuration(config)
 
     def _process_panel_configuration(self, config):
         """Add, remove and set default panels on the dashboard."""
@@ -914,8 +921,6 @@ class Site(Registry, HorizonComponent):
                 panel = getattr(mod, panel_cls)
                 dashboard_cls.register(panel)
                 if panel_group:
-                    dashboard_cls.get_panel_group(panel_group).__class__.\
-                        panels.append(panel.slug)
                     dashboard_cls.get_panel_group(panel_group).\
                         panels.append(panel.slug)
                 else:

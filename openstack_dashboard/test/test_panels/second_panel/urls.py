@@ -10,9 +10,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from horizon import views
+from django.conf.urls import patterns
+from django.conf.urls import url
 
+from openstack_dashboard.test.test_panels.second_panel import views
 
-class IndexView(views.HorizonTemplateView):
-    template_name = 'admin/plugin_panel/index.html'
-    page_title = 'Plugin-based Panel'
+urlpatterns = patterns(
+    '',
+    url(r'^$', views.IndexView.as_view(), name='index'),
+)
