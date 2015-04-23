@@ -10,9 +10,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from horizon import views
+import horizon
 
 
-class IndexView(views.HorizonTemplateView):
-    template_name = 'admin/plugin_panel/index.html'
-    page_title = 'Plugin-based Panel'
+class SecondPanel(horizon.Panel):
+    name = "Second Plugin Panel"
+    slug = 'second_panel'
