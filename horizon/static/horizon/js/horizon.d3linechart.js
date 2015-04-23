@@ -1,3 +1,4 @@
+/* global Rickshaw */
 /*
   Draw line chart in d3.
 
@@ -380,7 +381,7 @@ horizon.d3_line_chart = {
       self.start_loading();
       horizon.ajax.queue({
         url: self.final_url,
-        success: function (data, textStatus, jqXHR) {
+        success: function (data) {
           // Clearing the old chart data.
           self.jquery_element.empty();
           $(self.legend_element).empty();
@@ -400,7 +401,7 @@ horizon.d3_line_chart = {
             self.render();
           }
         },
-        error: function (jqXHR, textStatus, errorThrown) {
+        error: function () {
           $(self.html_element).html(gettext('No data available.'));
           $(self.legend_element).empty();
           // Setting a fix height breaks things when legend is getting
@@ -409,7 +410,7 @@ horizon.d3_line_chart = {
           // FIXME add proper fail message
           horizon.alert('error', gettext('An error occurred. Please try again later.'));
         },
-        complete: function (jqXHR, textStatus) {
+        complete: function () {
           self.finish_loading();
         }
       });
@@ -474,7 +475,7 @@ horizon.d3_line_chart = {
       graph.render();
 
       if (self.hover_formatter === 'verbose'){
-        var hoverDetail = new Rickshaw.Graph.HoverDetail({
+        new Rickshaw.Graph.HoverDetail({
           graph: graph,
           formatter: function(series, x, y) {
             if(y % 1 === 0) {
@@ -505,17 +506,17 @@ horizon.d3_line_chart = {
           element:  self.legend_element
         });
 
-        var shelving = new Rickshaw.Graph.Behavior.Series.Toggle({
+        new Rickshaw.Graph.Behavior.Series.Toggle({
           graph: graph,
           legend: legend
         });
 
-        var order = new Rickshaw.Graph.Behavior.Series.Order({
+        new Rickshaw.Graph.Behavior.Series.Order({
           graph: graph,
           legend: legend
         });
 
-        var highlighter = new Rickshaw.Graph.Behavior.Series.Highlight({
+        new Rickshaw.Graph.Behavior.Series.Highlight({
           graph: graph,
           legend: legend
         });
@@ -532,7 +533,7 @@ horizon.d3_line_chart = {
         };
         if (!self.settings.axes_y_label){
           // hiding label of Y axis if setting is set to false
-          axes_y_settings.tickFormat = (function (d) { return ''; });
+          axes_y_settings.tickFormat = (function () { return ''; });
         }
         var axes_y = new Rickshaw.Graph.Axis.Y(axes_y_settings);
         axes_y.render();
@@ -701,7 +702,7 @@ horizon.d3_line_chart = {
      * has to be projected to forms. So when form input is changed,
      * all connected charts are refreshed.
      */
-    connect_forms_to_charts = function(){
+    var connect_forms_to_charts = function(){
       $(selector).each(function() {
         var chart = $(this);
         $(chart.data('form-selector')).each(function(){
@@ -724,7 +725,7 @@ horizon.d3_line_chart = {
      * @param event_name Event name we want to delegate.
      * @param settings An object containing settings of the chart.
      */
-    delegate_event_and_refresh_charts = function(selector, event_name, settings) {
+    var delegate_event_and_refresh_charts = function(selector, event_name, settings) {
       $('form').delegate(selector, event_name, function() {
         /*
           Registering 'any event' on form element by delegating. This way it
@@ -747,7 +748,7 @@ horizon.d3_line_chart = {
      * A helper function for catching change event of form selectboxes
      * connected to charts.
      */
-    bind_select_box_change = function(settings) {
+    var bind_select_box_change = function(settings) {
       delegate_event_and_refresh_charts(select_box_selector, 'change', settings);
     };
 
@@ -755,8 +756,7 @@ horizon.d3_line_chart = {
      * A helper function for catching changeDate event of form datepickers
      * connected to charts.
      */
-    bind_datepicker_change = function(settings) {
-      var now = new Date();
+    var bind_datepicker_change = function(settings) {
 
       $(datepicker_selector).each(function() {
         var el = $(this);

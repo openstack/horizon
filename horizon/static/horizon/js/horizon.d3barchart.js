@@ -442,20 +442,20 @@ horizon.d3_bar_chart = {
         .style('stroke-width', 0)
         .attr('d', self.wrapper.percentage_used_value())
         .attr('tooltip-used', self.wrapper.tooltip_used_value())
-        .on('mouseover', function(d){
+        .on('mouseover', function(){
           if ($(this).attr('tooltip-used')){
             tooltip.html($(this).attr('tooltip-used'));
           }
           tooltip.style('visibility', 'visible');
         })
-        .on('mousemove', function(d){
+        .on('mousemove', function(){
           var eventX = event.offsetX || event.layerX;
           var eventY = event.offsetY || event.layerY;
           tooltip
             .style('top', (eventY - 10) + 'px')
             .style('left',(eventX + 10) + 'px');
         })
-        .on('mouseout', function(d){
+        .on('mouseout', function(){
           tooltip.style('visibility', 'hidden');
         })
         .transition()
@@ -614,17 +614,17 @@ horizon.d3_bar_chart = {
         .attr('ry', self.wrapper.lvl_curve)
         .style('fill', self.wrapper.bkgrnd)
 
-        .on('mouseover', function(d){
+        .on('mouseover', function(){
           tooltip_free.style('visibility', 'visible');
         })
-        .on('mousemove', function(d){
+        .on('mousemove', function(){
           var eventX = event.offsetX || event.layerX;
           var eventY = event.offsetY || event.layerY;
           tooltip_free
             .style('top',(eventY - 10) + 'px')
             .style('left',(eventX + 10) + 'px');
         })
-        .on('mouseout', function(d){tooltip_free.style('visibility', 'hidden');});
+        .on('mouseout', function(){tooltip_free.style('visibility', 'hidden');});
 
       self.wrapper.bar.append('rect')
         .attr('class', 'unused_component_border')
