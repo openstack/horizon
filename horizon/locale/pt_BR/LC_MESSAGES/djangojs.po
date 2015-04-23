@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-12 01:16-0500\n"
-"PO-Revision-Date: 2015-04-15 10:57+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"POT-Creation-Date: 2015-04-22 23:36-0500\n"
+"PO-Revision-Date: 2015-04-21 19:43+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -105,10 +105,30 @@ msgstr "Metadados não existente"
 msgid "Submit"
 msgstr "Enviar"
 
-#: static/angular/modal/modal.js:84 static/angular/wizard/wizard.js:11
+#: static/angular/modal/modal.js:84 static/angular/wizard/wizard.js:10
 #: static/horizon/js/horizon.modals.js:33
 msgid "Cancel"
 msgstr "Cancelar"
+
+#: static/angular/toast/toast.js:77
+msgid "Danger"
+msgstr "Perigo"
+
+#: static/angular/toast/toast.js:78
+msgid "Warning"
+msgstr "Aviso"
+
+#: static/angular/toast/toast.js:79
+msgid "Info"
+msgstr "Info"
+
+#: static/angular/toast/toast.js:80
+msgid "Success"
+msgstr "Sucesso"
+
+#: static/angular/toast/toast.js:81
+msgid "Error"
+msgstr "Erro"
 
 #: static/angular/transfer-table/transfer-table.js:39
 msgid "Allocated"
@@ -158,15 +178,15 @@ msgstr "Encontrado %(found)s de %(total)s"
 msgid "Click here to expand the row and view the errors."
 msgstr "Clique aqui para expandir a linha e ver os erros."
 
-#: static/angular/wizard/wizard.js:12
+#: static/angular/wizard/wizard.js:11
 msgid "Back"
 msgstr "Voltar"
 
-#: static/angular/wizard/wizard.js:13
+#: static/angular/wizard/wizard.js:12
 msgid "Next"
 msgstr "Próximo"
 
-#: static/angular/wizard/wizard.js:14
+#: static/angular/wizard/wizard.js:13
 msgid "Finish"
 msgstr "Encerrar"
 

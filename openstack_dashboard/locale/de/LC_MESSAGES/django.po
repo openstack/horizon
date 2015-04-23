@@ -8,15 +8,16 @@
 # Christian Berendt <berendt@b1-systems.de>, 2015
 # Ettore Atalan <atalanttore@googlemail.com>, 2015
 # Frank Kloeker <eumel@arcor.de>, 2014
+# Robert Simai, 2015
 # Thorsten Michels, 2014
 # Uwe Krieg, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-21 00:09-0500\n"
-"PO-Revision-Date: 2015-04-20 13:32+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"POT-Creation-Date: 2015-04-22 23:36-0500\n"
+"PO-Revision-Date: 2015-04-21 19:43+0000\n"
+"Last-Translator: Robert Simai\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10829,7 +10830,7 @@ msgstr "Pausieren"
 #: dashboards/project/instances/audit_tables.py:27
 msgctxt "Action log of an instance"
 msgid "Unpause"
-msgstr ""
+msgstr "Pausieren aufheben"
 
 #: dashboards/project/instances/audit_tables.py:28
 msgctxt "Action log of an instance"
@@ -11985,7 +11986,7 @@ msgstr[1] "Die angeforderten %(req)i Instanzen können nicht gestartet werden, d
 msgid ""
 "The requested instance cannot be launched. Requested volume exceeds quota: "
 "Available: %(avail)s, Requested: %(req)s."
-msgstr ""
+msgstr "Die angeforderte Instanz kann nicht gestartet werden. Der angeforderte Datenträger überschreitet das Kontingent:: Verfügbar: %(avail)s, Angefordert: %(req)s."
 
 #: dashboards/project/instances/workflows/create_instance.py:239
 #, python-format
@@ -16727,7 +16728,7 @@ msgstr "Einträge pro Seite"
 msgid ""
 "Number of items to show per page (applies to the pages that have API "
 "supported pagination)"
-msgstr ""
+msgstr "Anzahl der anzuzeigenden Einträge pro Seite (betrifft Seiten mit von der API unterstützten Nummerierung)"
 
 #: dashboards/settings/user/forms.py:50
 msgid "Log Lines Per Instance"
