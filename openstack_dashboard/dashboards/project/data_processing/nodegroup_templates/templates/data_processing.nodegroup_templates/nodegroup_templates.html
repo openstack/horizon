@@ -12,7 +12,7 @@
         addHorizonLoadEvent(function () {
             function get_service_tab(service) {
                 return $("a").filter(function (idx, e) {
-                    return $(e).attr("data-target") && $(e).attr("data-target").indexOf(service.toLowerCase()) != -1
+                    return $(e).attr("data-target") && $(e).attr("data-target").indexOf('_'+service.toLowerCase()+'-') != -1
                 }).closest("li");
             }
 
