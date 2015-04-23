@@ -12,7 +12,7 @@ horizon.tabs.initTabLoad = function (tab) {
   });
 };
 
-horizon.tabs.load_tab = function (evt) {
+horizon.tabs.load_tab = function () {
   var $this = $(this),
     tab_id = $this.attr('data-target'),
     tab_pane = $(tab_id);
@@ -60,7 +60,7 @@ horizon.addInitFunction(horizon.tabs.init = function () {
   });
 
   // Initialize stored tab state for tab groups on this page.
-  $(".nav-tabs[data-sticky-tabs='sticky']").each(function (index, item) {
+  $(".nav-tabs[data-sticky-tabs='sticky']").each(function () {
     var $this = $(this),
       id = $this.attr("id"),
       active_tab = data[id];
