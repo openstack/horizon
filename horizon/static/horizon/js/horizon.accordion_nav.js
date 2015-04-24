@@ -58,7 +58,7 @@ horizon.addInitFunction(function() {
   // panel group click
   $('.nav_accordion > dd > div > h4').click(function() {
     var myPanelGroupHeader = $(this);
-    myPanelGroupWasActive = myPanelGroupHeader.hasClass("active");
+    var myPanelGroupWasActive = myPanelGroupHeader.hasClass("active");
 
     // collapse all panel groups
     var allPanelGroupHeaders = $('.nav_accordion > dd > div > h4');
