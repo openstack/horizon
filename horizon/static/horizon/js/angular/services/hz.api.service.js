@@ -13,7 +13,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-/*global angular*/
+
 (function () {
   'use strict';
   function ApiService($http) {
@@ -29,11 +29,6 @@ limitations under the License.
         config.data = data;
       }
 
-      //
-      // TODO: need discussion with Richard for this change.
-      // The reason for this change is to get a promise object compatible
-      // to $q.defer().promise.
-      //
       return $http(config);
     };
 
