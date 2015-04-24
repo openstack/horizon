@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-21 00:09-0500\n"
-"PO-Revision-Date: 2015-04-20 12:43+0000\n"
+"POT-Creation-Date: 2015-04-23 20:22-0500\n"
+"PO-Revision-Date: 2015-04-23 15:20+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -685,7 +685,6 @@ msgstr "ホストの管理"
 #: dashboards/admin/flavors/tables.py:71
 #: dashboards/admin/flavors/templates/flavors/_update_metadata.html:11
 #: dashboards/admin/images/tables.py:46
-#: dashboards/admin/images/templates/images/_update_metadata.html:11
 msgid "Update Metadata"
 msgstr "メタデータの更新"
 
@@ -736,8 +735,8 @@ msgstr "アベイラビリティーゾーン"
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_disable_service.html:17
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:17
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_migrate_host.html:16
-#: dashboards/admin/images/templates/images/_create.html:19
-#: dashboards/admin/images/templates/images/_update.html:18
+#: dashboards/admin/images/templates/images/_create.html:8
+#: dashboards/admin/images/templates/images/_update.html:5
 #: dashboards/admin/instances/templates/instances/_live_migrate.html:17
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:18
 #: dashboards/admin/metering/templates/metering/_daily.html:18
@@ -784,9 +783,9 @@ msgstr "アベイラビリティーゾーン"
 #: dashboards/project/firewalls/templates/firewalls/_updatefirewall.html:5
 #: dashboards/project/firewalls/templates/firewalls/_updatepolicy.html:5
 #: dashboards/project/firewalls/templates/firewalls/_updaterule.html:5
-#: dashboards/project/images/templates/images/images/_create.html:13
-#: dashboards/project/images/templates/images/images/_update.html:11
-#: dashboards/project/images/templates/images/snapshots/_create.html:18
+#: dashboards/project/images/templates/images/images/_create.html:9
+#: dashboards/project/images/templates/images/images/_update.html:5
+#: dashboards/project/images/templates/images/snapshots/_create.html:5
 #: dashboards/project/instances/templates/instances/_decryptpassword.html:20
 #: dashboards/project/instances/templates/instances/_rebuild.html:18
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:5
@@ -852,8 +851,6 @@ msgstr "保存"
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_disable_service.html:24
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:24
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_migrate_host.html:23
-#: dashboards/admin/images/templates/images/_create.html:35
-#: dashboards/admin/images/templates/images/_update.html:25
 #: dashboards/admin/instances/templates/instances/_live_migrate.html:24
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:36
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:80
@@ -874,9 +871,6 @@ msgstr "保存"
 #: dashboards/project/data_processing/wizard/templates/data_processing.wizard/_plugin_select.html:30
 #: dashboards/project/databases/templates/databases/_resize_instance.html:24
 #: dashboards/project/databases/templates/databases/_resize_volume.html:25
-#: dashboards/project/images/templates/images/images/_create.html:33
-#: dashboards/project/images/templates/images/images/_update.html:17
-#: dashboards/project/images/templates/images/snapshots/_create.html:25
 #: dashboards/project/instances/templates/instances/_decryptpassword.html:34
 #: dashboards/project/instances/templates/instances/_rebuild.html:28
 #: dashboards/project/network_topology/templates/network_topology/_create_router.html:21
@@ -1334,6 +1328,7 @@ msgstr "スワップディスク"
 #: dashboards/admin/flavors/tables.py:136
 #: dashboards/admin/flavors/workflows.py:41
 #: dashboards/admin/networks/agents/tables.py:90
+#: dashboards/admin/networks/forms.py:236
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:8
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:12
 #: dashboards/admin/volumes/volumes/forms.py:87
@@ -1974,65 +1969,54 @@ msgstr "最大サイズ (MB)"
 msgid "Image Name"
 msgstr "イメージ名"
 
-#: dashboards/admin/images/templates/images/_create.html:10
-#: dashboards/admin/images/templates/images/create.html:3
-#: dashboards/admin/images/views.py:114
-#: dashboards/project/images/images/views.py:46
-#: dashboards/project/images/templates/images/images/_create.html:10
-#: dashboards/project/images/templates/images/images/create.html:3
-msgid "Create An Image"
-msgstr "イメージの作成"
-
-#: dashboards/admin/images/templates/images/_create.html:21
+#: dashboards/admin/images/templates/images/_create.html:9
 msgid "Specify an image to upload to the Image Service."
 msgstr "イメージサービスにアップロードするイメージを指定します。"
 
-#: dashboards/admin/images/templates/images/_create.html:24
-#: dashboards/project/images/templates/images/images/_create.html:18
+#: dashboards/admin/images/templates/images/_create.html:11
+#: dashboards/project/images/templates/images/images/_create.html:14
 msgid ""
 "Currently only images available via an HTTP URL are supported. The image "
 "location must be accessible to the Image Service. Compressed image binaries "
 "are supported (.zip and .tar.gz.)"
 msgstr "現在、HTTP URLから取得できるイメージのみがサポートされています。イメージの場所から Image Service へアクセスできるようにしてください。また、圧縮イメージがサポートされています(.zip および .tar.gz.)。"
 
-#: dashboards/admin/images/templates/images/_create.html:27
-#: dashboards/project/images/templates/images/images/_create.html:22
+#: dashboards/admin/images/templates/images/_create.html:14
+#: dashboards/project/images/templates/images/images/_create.html:18
 msgid "Please note: "
 msgstr "注意: "
 
-#: dashboards/admin/images/templates/images/_create.html:28
-#: dashboards/project/images/templates/images/images/_create.html:26
+#: dashboards/admin/images/templates/images/_create.html:15
+#: dashboards/project/images/templates/images/images/_create.html:22
 msgid ""
 "The Image Location field MUST be a valid and direct URL to the image binary."
 " URLs that redirect or serve error pages will result in unusable images."
 msgstr "イメージの場所のフィールドは、イメージ（バイナリー）への有効かつ直接の URL を入力する必要があります。 URL がリダイレクトのページの場合や、エラーページが返ってきた場合には、登録されたイメージは使用できない可能性があります。"
 
-#: dashboards/admin/images/templates/images/_create.html:34
-#: dashboards/project/images/images/tables.py:120
-#: dashboards/project/images/templates/images/images/_create.html:32
-msgid "Create Image"
+#: dashboards/admin/images/templates/images/_update.html:6
+#: dashboards/project/images/templates/images/images/_update.html:6
+msgid "Edit the image details."
+msgstr "イメージ詳細を編集します。"
+
+#: dashboards/admin/images/templates/images/create.html:3
+#: dashboards/admin/images/views.py:115
+#: dashboards/project/images/images/views.py:44
+#: dashboards/project/images/images/views.py:50
+#: dashboards/project/images/templates/images/images/create.html:3
+msgid "Create An Image"
 msgstr "イメージの作成"
 
-#: dashboards/admin/images/templates/images/_update.html:9
-#: dashboards/admin/images/templates/images/_update.html:24
 #: dashboards/admin/images/templates/images/update.html:4
-#: dashboards/admin/images/views.py:121
-#: dashboards/project/images/images/views.py:53
-#: dashboards/project/images/templates/images/images/_update.html:8
-#: dashboards/project/images/templates/images/images/_update.html:16
+#: dashboards/admin/images/views.py:123 dashboards/admin/images/views.py:138
+#: dashboards/project/images/images/views.py:56
+#: dashboards/project/images/images/views.py:57
+#: dashboards/project/images/images/views.py:61
 #: dashboards/project/images/templates/images/images/update.html:3
 msgid "Update Image"
 msgstr "イメージの更新"
 
-#: dashboards/admin/images/templates/images/_update.html:19
-#: dashboards/project/images/templates/images/images/_update.html:12
-msgid "Edit the image details."
-msgstr "イメージ詳細を編集します。"
-
-#: dashboards/admin/images/templates/images/_update_metadata.html:4
-#: dashboards/admin/images/templates/images/_update_metadata.html:7
 #: dashboards/admin/images/templates/images/update_metadata.html:3
-#: dashboards/admin/images/views.py:138
+#: dashboards/admin/images/views.py:143
 msgid "Update Image Metadata"
 msgstr "イメージメタデータの更新"
 
@@ -2040,11 +2024,11 @@ msgstr "イメージメタデータの更新"
 msgid "Unable to retrieve image list."
 msgstr "イメージの一覧を取得できません。"
 
-#: dashboards/admin/images/views.py:189
+#: dashboards/admin/images/views.py:196
 msgid "Unable to retrieve available properties for image."
 msgstr "イメージに使用できる属性の一覧を取得できません。"
 
-#: dashboards/admin/images/views.py:202
+#: dashboards/admin/images/views.py:209
 msgid "Unable to retrieve the image to be updated."
 msgstr "更新対象のイメージ情報を取得できません。"
 
@@ -3100,7 +3084,7 @@ msgstr "DHCP エージェントの追加"
 
 #: dashboards/admin/networks/agents/tables.py:93
 #: dashboards/admin/networks/forms.py:79
-#: dashboards/admin/networks/forms.py:238
+#: dashboards/admin/networks/forms.py:241
 #: dashboards/admin/networks/ports/forms.py:48
 #: dashboards/admin/networks/tables.py:106
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:19
@@ -3207,7 +3191,7 @@ msgid "Segmentation ID"
 msgstr "セグメント ID"
 
 #: dashboards/admin/networks/forms.py:77
-#: dashboards/admin/networks/forms.py:236
+#: dashboards/admin/networks/forms.py:239
 #: dashboards/admin/networks/ports/forms.py:46
 #: dashboards/project/firewalls/forms.py:132
 #: dashboards/project/firewalls/workflows.py:284
@@ -3230,7 +3214,7 @@ msgid "UP"
 msgstr "UP"
 
 #: dashboards/admin/networks/forms.py:78
-#: dashboards/admin/networks/forms.py:237
+#: dashboards/admin/networks/forms.py:240
 #: dashboards/admin/networks/ports/forms.py:47
 #: dashboards/project/firewalls/forms.py:133
 #: dashboards/project/firewalls/workflows.py:285
@@ -3253,7 +3237,7 @@ msgid "DOWN"
 msgstr "DOWN"
 
 #: dashboards/admin/networks/forms.py:80
-#: dashboards/admin/networks/forms.py:239
+#: dashboards/admin/networks/forms.py:242
 #: dashboards/admin/networks/tables.py:100
 #: dashboards/project/firewalls/forms.py:70
 #: dashboards/project/firewalls/forms.py:102
@@ -3268,7 +3252,7 @@ msgid "Shared"
 msgstr "共有"
 
 #: dashboards/admin/networks/forms.py:82
-#: dashboards/admin/networks/forms.py:240
+#: dashboards/admin/networks/forms.py:243
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:177
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:220
 #: dashboards/project/networks/templates/networks/_detail_overview.html:19
@@ -3331,13 +3315,13 @@ msgstr "GRE ネットワークでは、有効なトンネル ID は %(min)s か�
 msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
 msgstr "VXLAN ネットワークでは、有効なトンネル ID は %(min)s から %(max)s までです。"
 
-#: dashboards/admin/networks/forms.py:252
+#: dashboards/admin/networks/forms.py:255
 #: dashboards/project/networks/forms.py:53
 #, python-format
 msgid "Network %s was successfully updated."
 msgstr "ネットワーク %s が正常に更新されました。"
 
-#: dashboards/admin/networks/forms.py:257
+#: dashboards/admin/networks/forms.py:260
 #: dashboards/project/networks/forms.py:58
 #, python-format
 msgid "Failed to update network %s"
@@ -10532,6 +10516,11 @@ msgid "Deleted Image"
 msgid_plural "Deleted Images"
 msgstr[0] "イメージを削除しました"
 
+#: dashboards/project/images/images/tables.py:120
+#: dashboards/project/images/images/views.py:45
+msgid "Create Image"
+msgstr "イメージの作成"
+
 #: dashboards/project/images/images/tables.py:129
 msgid "Edit Image"
 msgstr "イメージの編集"
@@ -10595,15 +10584,15 @@ msgctxt "Type of an image"
 msgid "Snapshot"
 msgstr "スナップショット"
 
-#: dashboards/project/images/images/views.py:60
+#: dashboards/project/images/images/views.py:68
 msgid "Unable to retrieve image."
 msgstr "イメージ情報を取得できません。"
 
-#: dashboards/project/images/images/views.py:88
+#: dashboards/project/images/images/views.py:98
 msgid "Image Details: {{ image.name }}"
 msgstr "イメージの詳細: {{ image.name }}"
 
-#: dashboards/project/images/images/views.py:109
+#: dashboards/project/images/images/views.py:119
 msgid "Unable to retrieve image details."
 msgstr "イメージの詳細を取得できません。"
 
@@ -10623,20 +10612,28 @@ msgid "Unable to create snapshot."
 msgstr "スナップショットを作成できません。"
 
 #: dashboards/project/images/snapshots/views.py:40
+#: dashboards/project/images/snapshots/views.py:41
+#: dashboards/project/images/templates/images/snapshots/create.html:3
+#: dashboards/project/instances/tables.py:408
+#: dashboards/project/volumes/volumes/tables.py:168
+msgid "Create Snapshot"
+msgstr "スナップショットの作成"
+
+#: dashboards/project/images/snapshots/views.py:45
 msgid "Create a Snapshot"
 msgstr "スナップショットの作成"
 
-#: dashboards/project/images/snapshots/views.py:50
+#: dashboards/project/images/snapshots/views.py:55
 msgid "Unable to retrieve instance."
 msgstr "インスタンス情報を取得できません。"
 
-#: dashboards/project/images/templates/images/images/_create.html:16
+#: dashboards/project/images/templates/images/images/_create.html:12
 msgid ""
 "Images can be provided via an HTTP URL or be uploaded from your local file "
 "system. Compressed image binaries are supported (.zip and .tar.gz.)"
 msgstr "イメージの作成は HTTP URL 経由で指定する方法と、ローカルファイルシステムからアップロードする方法があります。圧縮イメージがサポートされています (.zip および .tar.gz)。"
 
-#: dashboards/project/images/templates/images/images/_create.html:24
+#: dashboards/project/images/templates/images/images/_create.html:20
 msgid ""
 "If you select an image via an HTTP URL, the Image Location field MUST be a "
 "valid and direct URL to the image binary; it must also be accessible to the "
@@ -10685,15 +10682,7 @@ msgstr "カスタム属性"
 msgid "Image Details"
 msgstr "イメージの詳細"
 
-#: dashboards/project/images/templates/images/snapshots/_create.html:9
-#: dashboards/project/images/templates/images/snapshots/_create.html:24
-#: dashboards/project/images/templates/images/snapshots/create.html:3
-#: dashboards/project/instances/tables.py:408
-#: dashboards/project/volumes/volumes/tables.py:168
-msgid "Create Snapshot"
-msgstr "スナップショットの作成"
-
-#: dashboards/project/images/templates/images/snapshots/_create.html:19
+#: dashboards/project/images/templates/images/snapshots/_create.html:6
 msgid ""
 "A snapshot is an image which preserves the disk state of a running instance."
 msgstr "スナップショットは、実行中のインスタンスのディスク状態を保存したイメージです。"
@@ -11683,20 +11672,20 @@ msgstr "インスタンスのフレーバーの並び替えができません。
 msgid "Unable to retrieve Nova availability zones."
 msgstr "Nova のアベイラビリティーゾーンを取得できません。"
 
-#: dashboards/project/instances/utils.py:94
+#: dashboards/project/instances/utils.py:95
 msgid "Failed to get network list {0}"
 msgstr "ネットワーク一覧を取得できません: {0}"
 
-#: dashboards/project/instances/utils.py:99
+#: dashboards/project/instances/utils.py:100
 #: dashboards/project/routers/ports/forms.py:176
 msgid "No networks available"
 msgstr "ネットワークがありません"
 
-#: dashboards/project/instances/utils.py:103
+#: dashboards/project/instances/utils.py:104
 msgid "Select Network"
 msgstr "ネットワークを選択してください"
 
-#: dashboards/project/instances/utils.py:123
+#: dashboards/project/instances/utils.py:124
 msgid "Unable to retrieve key pairs."
 msgstr "キーペアの一覧を取得できません。"
 
@@ -16735,10 +16724,6 @@ msgstr "プロジェクト:"
 #: templates/context_selection/_region_list.html:7
 msgid "Regions:"
 msgstr "リージョン:"
-
-#: test/test_panels/plugin_panel/views.py:20
-msgid "Plugin-based Panel"
-msgstr "Plugin-based Panel"
 
 #: usage/base.py:74
 msgid "Invalid date format: Using today as default."

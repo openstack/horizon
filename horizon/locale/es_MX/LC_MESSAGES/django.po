@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-15 02:00-0500\n"
-"PO-Revision-Date: 2015-04-15 10:54+0000\n"
+"POT-Creation-Date: 2015-04-23 20:22-0500\n"
+"PO-Revision-Date: 2015-04-23 16:45+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Spanish (Mexico) (http://www.transifex.com/projects/p/horizon/language/es_MX/)\n"
 "MIME-Version: 1.0\n"
@@ -216,19 +216,19 @@ msgstr ""
 msgid "Login"
 msgstr "Nombre de usuario"
 
-#: templates/horizon/_messages.html:7
+#: templates/horizon/_messages.html:8
 msgid "Info: "
 msgstr "Info:"
 
-#: templates/horizon/_messages.html:13
+#: templates/horizon/_messages.html:14
 msgid "Warning: "
 msgstr "Advertencia:"
 
-#: templates/horizon/_messages.html:19
+#: templates/horizon/_messages.html:20
 msgid "Success: "
 msgstr "Correcto:"
 
-#: templates/horizon/_messages.html:25
+#: templates/horizon/_messages.html:26
 msgid "Error: "
 msgstr "Error: "
 
@@ -383,11 +383,11 @@ msgstr ""
 
 #: templates/horizon/common/_workflow.html:40
 msgid "Back"
-msgstr ""
+msgstr "Regresar"
 
 #: templates/horizon/common/_workflow.html:43
 msgid "Next"
-msgstr ""
+msgstr "Siguiente"
 
 #: templatetags/branding.py:34
 msgid "Horizon"
