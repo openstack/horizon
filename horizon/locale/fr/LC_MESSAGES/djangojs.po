@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-12 16:36-0500\n"
-"PO-Revision-Date: 2015-04-13 19:52+0000\n"
+"POT-Creation-Date: 2015-04-12 01:16-0500\n"
+"PO-Revision-Date: 2015-04-23 12:36+0000\n"
 "Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -236,8 +236,8 @@ msgstr "%s octets"
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
-msgstr[0] "Affichage de l'item %s"
-msgstr[1] "Affichage des items %s"
+msgstr[0] "Affichage de %s élément"
+msgstr[1] "Affichage de %s éléments"
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:47
 msgid "Unable to retrieve volumes."
@@ -453,7 +453,7 @@ msgstr "Impossible de récupérer le gabarit."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:269
 msgid "Unable to retrieve flavor extra specs."
-msgstr "Impossible de récupérer les paramètres suppl. de gabarits."
+msgstr "Impossible de récupérer les paramètres supplémentaires du gabarit."
 
 #: static/horizon/js/angular/services/hz.api.nova.js:311
 msgid "Extension is not enabled: %(extension)s"
@@ -465,7 +465,7 @@ msgstr "Impossible d'obtenir la liste des extensions Nova."
 
 #: static/horizon/js/angular/services/hz.api.policy.js:65
 msgid "Policy check failed."
-msgstr "Échec de vérification de la politique"
+msgstr "La vérification de la stratégie a échoué."
 
 #: static/horizon/js/angular/services/hz.api.security-group.js:64
 msgid "Unable to retrieve security groups."

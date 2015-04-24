@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-08 17:57-0500\n"
-"PO-Revision-Date: 2015-04-08 18:15+0000\n"
+"POT-Creation-Date: 2015-04-07 01:16-0500\n"
+"PO-Revision-Date: 2015-04-21 12:54+0000\n"
 "Last-Translator: Łukasz Jernaś <deejay1@srem.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -345,7 +345,7 @@ msgstr "Podsumowanie wykorzystania"
 
 #: templates/horizon/common/_usage_summary.html:7
 msgid "Select a period of time to query its usage:"
-msgstr "Wybierz okres za który nalezy wyświetlić wykorzystanie:"
+msgstr "Wybierz okres, za który należy wyświetlić wykorzystanie:"
 
 #: templates/horizon/common/_usage_summary.html:9
 #, python-format

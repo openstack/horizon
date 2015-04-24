@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-08 17:57-0500\n"
-"PO-Revision-Date: 2015-04-09 06:52+0000\n"
+"POT-Creation-Date: 2015-04-09 02:13-0500\n"
+"PO-Revision-Date: 2015-04-21 19:43+0000\n"
 "Last-Translator: Zhang Xiaowei <zero00072@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -2858,7 +2858,7 @@ msgstr "資源使用量"
 #: dashboards/admin/metering/templates/metering/daily.html:3
 #: dashboards/admin/metering/views.py:48
 msgid "Modify Usage Report Parameters"
-msgstr "更改使用率報告參數"
+msgstr "更改使用量報告參數"
 
 #: dashboards/admin/metering/tables.py:34 usage/tables.py:25
 msgid "Download CSV Summary"
@@ -2888,7 +2888,7 @@ msgstr "單位"
 
 #: dashboards/admin/metering/tables.py:56
 msgid "Daily Usage Report"
-msgstr "日使用率報告"
+msgstr "日使用量報告"
 
 #: dashboards/admin/metering/tabs.py:29
 msgid "Stats"
@@ -2900,7 +2900,7 @@ msgstr "尚未定義量測器。"
 
 #: dashboards/admin/metering/tabs.py:55
 msgid "Usage Report"
-msgstr "使用率報告"
+msgstr "使用量報告"
 
 #: dashboards/admin/metering/tabs.py:63 dashboards/admin/metering/views.py:125
 msgid "Nova"
@@ -2947,7 +2947,7 @@ msgstr "選擇預先定義好的時段或指定的日期。"
 
 #: dashboards/admin/metering/templates/metering/_daily.html:24
 msgid "View Usage Report"
-msgstr "檢視使用率報告"
+msgstr "檢視使用量報告"
 
 #: dashboards/admin/metering/templates/metering/index.html:3
 #: dashboards/admin/metering/views.py:41
@@ -3790,7 +3790,7 @@ msgstr "概觀"
 #: dashboards/admin/overview/templates/overview/usage.csv:1
 #: dashboards/project/overview/templates/overview/usage.csv:1
 msgid "Usage Report For Period"
-msgstr "有效期內的使用率報告"
+msgstr "指定時段內的使用量報告"
 
 #: dashboards/admin/overview/templates/overview/usage.csv:2
 #: dashboards/project/overview/templates/overview/usage.csv:3
@@ -3820,7 +3820,7 @@ msgstr "硬碟容量總合（GB）"
 #: dashboards/admin/overview/templates/overview/usage.csv:7
 #: dashboards/project/overview/templates/overview/usage.csv:8
 msgid "Total Disk Usage (Hours)"
-msgstr "硬碟使用率總合（小時）"
+msgstr "硬碟使用量總合（小時）"
 
 #: dashboards/admin/overview/templates/overview/usage.html:3
 msgid "Usage Overview"
@@ -11234,7 +11234,7 @@ msgstr "正在暫停"
 #: dashboards/project/instances/tables.py:944
 msgctxt "Task status of an Instance"
 msgid "Resuming"
-msgstr "正在回復"
+msgstr "正在恢復"
 
 #: dashboards/project/instances/tables.py:943
 msgctxt "Task status of an Instance"
