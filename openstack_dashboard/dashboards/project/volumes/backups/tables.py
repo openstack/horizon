@@ -112,6 +112,10 @@ class BackupsTable(tables.DataTable):
                                    u"Creating")),
         ("restoring", pgettext_lazy("Current status of a Volume Backup",
                                     u"Restoring")),
+        ("deleting", pgettext_lazy("Current status of a Volume Backup",
+                                   u"Deleting")),
+        ("error_restoring", pgettext_lazy("Current status of a Volume Backup",
+                                          u"Error Restoring")),
     )
     name = tables.Column("name",
                          verbose_name=_("Name"),
