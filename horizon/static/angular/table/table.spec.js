@@ -155,6 +155,16 @@
 
     describe('hzSelectAll directive', function() {
 
+      it('should not be selected if there are no rows in the table', function() {
+        var selectAll = $element.find('input[hz-select-all]').first();
+
+        $scope.safeFakeData = [];
+        $scope.fakeData = [];
+        $scope.$digest();
+
+        expect(selectAll[0].checked).toBe(false);
+      });
+
       it('should select all checkboxes if select-all checked', function() {
         var selectAll = $element.find('input[hz-select-all]').first();
         selectAll[0].checked = true;
