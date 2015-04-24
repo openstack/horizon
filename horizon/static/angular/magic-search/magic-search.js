@@ -7,8 +7,9 @@
    * @description
    * A directive to modify / extend Magic Search functionality for use in
    * Horizon.
-   * 1. The base magic search uses Foundation, and in showMenu and
-   * hide menu makes a Foundation call, therefore we need to override.
+   * 1. The base magic search widget makes Foundation (a responsive front-end
+   * framework) specific calls in showMenu and hideMenu.  In Horizon we use
+   * Bootstrap, therefore we need to override those methods.
    *
    * 2.  Added 'facetsChanged' listener so we can notify base magic search
    * widget that new facets are available so they will be picked up.  (Use
