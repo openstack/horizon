@@ -111,6 +111,8 @@ class UpdateView(forms.ModalFormView):
         context['network_id'] = port['network_id']
         args = (self.kwargs['network_id'], self.kwargs['port_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
+        context['cancel_url'] = reverse(self.success_url,
+                                        args=(self.kwargs['network_id'],))
         return context
 
     def get_initial(self):
