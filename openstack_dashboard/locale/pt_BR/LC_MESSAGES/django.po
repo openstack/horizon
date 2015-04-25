@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-23 20:22-0500\n"
-"PO-Revision-Date: 2015-04-23 15:20+0000\n"
+"POT-Creation-Date: 2015-04-24 20:36-0500\n"
+"PO-Revision-Date: 2015-04-25 01:51+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -595,14 +595,14 @@ msgstr "A pseudo pasta não pode ser excluída, uma vez que não está vazia."
 #: dashboards/project/routers/tables.py:209
 #: dashboards/project/routers/templates/routers/_detail_overview.html:5
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:9
-#: dashboards/project/volumes/backups/tables.py:117
+#: dashboards/project/volumes/backups/tables.py:121
 #: dashboards/project/volumes/snapshots/tables.py:147
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:12
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:10
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:10
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:91
-#: dashboards/project/volumes/volumes/tables.py:382
-#: dashboards/project/volumes/volumes/tables.py:411
+#: dashboards/project/volumes/volumes/tables.py:396
+#: dashboards/project/volumes/volumes/tables.py:425
 #: dashboards/project/vpn/forms.py:31 dashboards/project/vpn/forms.py:65
 #: dashboards/project/vpn/forms.py:137 dashboards/project/vpn/forms.py:208
 #: dashboards/project/vpn/tables.py:237 dashboards/project/vpn/tables.py:285
@@ -632,7 +632,7 @@ msgstr "Nome"
 #: dashboards/project/volumes/volumes/forms.py:122
 #: dashboards/project/volumes/volumes/forms.py:127
 #: dashboards/project/volumes/volumes/forms.py:128
-#: dashboards/project/volumes/volumes/tables.py:418
+#: dashboards/project/volumes/volumes/tables.py:432
 msgid "Availability Zone"
 msgstr "Zona de Disponibilidade"
 
@@ -1113,7 +1113,7 @@ msgstr "Arquivos Injetados"
 #: dashboards/project/volumes/tabs.py:83
 #: dashboards/project/volumes/templates/volumes/index.html:3
 #: dashboards/project/volumes/views.py:26
-#: dashboards/project/volumes/volumes/tables.py:429 usage/quotas.py:74
+#: dashboards/project/volumes/volumes/tables.py:443 usage/quotas.py:74
 msgid "Volumes"
 msgstr "Volumes"
 
@@ -1208,15 +1208,36 @@ msgstr "Tamanho total de volumes LUKS e Snapshots (GB)"
 msgid "dm-crypt"
 msgstr "dm-crypt"
 
-#: dashboards/admin/defaults/tables.py:67
+#: dashboards/admin/defaults/tables.py:62
+msgid "Server Group Members"
+msgstr ""
+
+#: dashboards/admin/defaults/tables.py:63
+msgid "Server Groups"
+msgstr ""
+
+#: dashboards/admin/defaults/tables.py:64
+msgid "Backup Gigabytes"
+msgstr ""
+
+#: dashboards/admin/defaults/tables.py:65
+#: dashboards/project/database_backups/panel.py:23
+#: dashboards/project/database_backups/tables.py:181
+#: dashboards/project/database_backups/views.py:35
+#: dashboards/project/databases/tables.py:406
+#: dashboards/project/databases/tabs.py:104
+msgid "Backups"
+msgstr "Backups"
+
+#: dashboards/admin/defaults/tables.py:71
 msgid "Quota Name"
 msgstr "Nome de Cota"
 
-#: dashboards/admin/defaults/tables.py:68
+#: dashboards/admin/defaults/tables.py:72
 msgid "Limit"
 msgstr "Limite"
 
-#: dashboards/admin/defaults/tables.py:75
+#: dashboards/admin/defaults/tables.py:79
 msgid "Quotas"
 msgstr "Cotas"
 
@@ -1760,11 +1781,11 @@ msgstr "Zona"
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:26
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:35
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:40
-#: dashboards/project/volumes/backups/tables.py:126
+#: dashboards/project/volumes/backups/tables.py:130
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:20
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:18
-#: dashboards/project/volumes/volumes/tables.py:391
+#: dashboards/project/volumes/volumes/tables.py:405
 #: dashboards/project/vpn/tables.py:246 dashboards/project/vpn/tables.py:291
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:71
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:38
@@ -1822,7 +1843,7 @@ msgstr "Nome do host"
 #: dashboards/project/volumes/volumes/forms.py:118
 #: dashboards/project/volumes/volumes/forms.py:119
 #: dashboards/project/volumes/volumes/forms.py:745
-#: dashboards/project/volumes/volumes/tables.py:414
+#: dashboards/project/volumes/volumes/tables.py:428
 msgid "Type"
 msgstr "Tipo"
 
@@ -2276,11 +2297,11 @@ msgstr "Endereço IP"
 #: dashboards/project/images/templates/images/images/_detail_overview.html:46
 #: dashboards/project/instances/tables.py:1020
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:7
-#: dashboards/project/volumes/backups/tables.py:123
+#: dashboards/project/volumes/backups/tables.py:127
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:37
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:37
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:27
-#: dashboards/project/volumes/volumes/tables.py:388
+#: dashboards/project/volumes/volumes/tables.py:402
 msgid "Size"
 msgstr "Tamanho"
 
@@ -2498,7 +2519,7 @@ msgstr "Associações Atualizadas"
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:13
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:29
 #: dashboards/project/volumes/backups/forms.py:35
-#: dashboards/project/volumes/backups/tables.py:120
+#: dashboards/project/volumes/backups/tables.py:124
 #: dashboards/project/volumes/snapshots/forms.py:28
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:17
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:15
@@ -2506,7 +2527,7 @@ msgstr "Associações Atualizadas"
 #: dashboards/project/volumes/volumes/forms.py:84
 #: dashboards/project/volumes/volumes/forms.py:492
 #: dashboards/project/volumes/volumes/forms.py:600
-#: dashboards/project/volumes/volumes/tables.py:385
+#: dashboards/project/volumes/volumes/tables.py:399
 #: dashboards/project/vpn/forms.py:36 dashboards/project/vpn/forms.py:70
 #: dashboards/project/vpn/forms.py:142 dashboards/project/vpn/forms.py:213
 #: dashboards/project/vpn/tables.py:287
@@ -3142,13 +3163,13 @@ msgstr "Estado de Admin"
 msgid "DHCP Agents"
 msgstr "Agentes DHCP"
 
-#: dashboards/admin/networks/agents/views.py:62
+#: dashboards/admin/networks/agents/views.py:63
 #: dashboards/admin/networks/ports/views.py:56
 #: dashboards/project/networks/subnets/views.py:48
 msgid "Unable to retrieve network."
 msgstr "Não é possível recuperar redes."
 
-#: dashboards/admin/networks/agents/views.py:73
+#: dashboards/admin/networks/agents/views.py:74
 msgid "Unable to retrieve agent list."
 msgstr "Não foi possível ler a lista de agentes."
 
@@ -3926,7 +3947,7 @@ msgstr "Não é possível recuperar informação de volume de projeto."
 #: dashboards/admin/volumes/snapshots/tables.py:62
 #: dashboards/admin/volumes/volumes/forms.py:60
 #: dashboards/admin/volumes/volumes/forms.py:138
-#: dashboards/project/volumes/backups/tables.py:131
+#: dashboards/project/volumes/backups/tables.py:135
 #: dashboards/project/volumes/snapshots/tables.py:151
 #: dashboards/project/volumes/volumes/forms.py:80
 #: dashboards/project/volumes/volumes/forms.py:596
@@ -4690,7 +4711,7 @@ msgstr "Tipo de Volume"
 
 #: dashboards/admin/volumes/volumes/forms.py:79
 #: dashboards/project/volumes/volumes/forms.py:602
-#: dashboards/project/volumes/volumes/tables.py:420
+#: dashboards/project/volumes/volumes/tables.py:434
 msgid "Bootable"
 msgstr "Bootável"
 
@@ -5855,7 +5876,7 @@ msgstr "Não há pools de IP disponíveis"
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:37
 #: dashboards/project/network_topology/templates/network_topology/_svg_element.html:202
-#: dashboards/project/volumes/volumes/tables.py:486
+#: dashboards/project/volumes/volumes/tables.py:500
 msgid "Instance"
 msgstr "Instância"
 
@@ -8920,14 +8941,6 @@ msgstr "Criação Cluster Guiado"
 msgid "Guided Job Execution"
 msgstr "Execução de Tarefa Guiada"
 
-#: dashboards/project/database_backups/panel.py:23
-#: dashboards/project/database_backups/tables.py:181
-#: dashboards/project/database_backups/views.py:35
-#: dashboards/project/databases/tables.py:406
-#: dashboards/project/databases/tabs.py:104
-msgid "Backups"
-msgstr "Backups"
-
 #: dashboards/project/database_backups/tables.py:37
 msgctxt "Current status of a Database Backup"
 msgid "Building"
@@ -11660,7 +11673,7 @@ msgstr "Volumes Anexados"
 #: dashboards/project/instances/templates/instances/_detail_overview.html:136
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:47
-#: dashboards/project/volumes/volumes/tables.py:416
+#: dashboards/project/volumes/volumes/tables.py:430
 msgid "Attached To"
 msgstr "Anexado a"
 
@@ -14820,7 +14833,7 @@ msgid "Volume Backup"
 msgstr "Backup do Volume"
 
 #: dashboards/project/volumes/backups/tables.py:49
-#: dashboards/project/volumes/backups/tables.py:137
+#: dashboards/project/volumes/backups/tables.py:141
 #: dashboards/project/volumes/tabs.py:127
 msgid "Volume Backups"
 msgstr "Backups dos Volumes"
@@ -14849,6 +14862,16 @@ msgstr "Criando"
 msgctxt "Current status of a Volume Backup"
 msgid "Restoring"
 msgstr "Restaurando"
+
+#: dashboards/project/volumes/backups/tables.py:116
+msgctxt "Current status of a Volume Backup"
+msgid "Deleting"
+msgstr "Deletando"
+
+#: dashboards/project/volumes/backups/tables.py:118
+msgctxt "Current status of a Volume Backup"
+msgid "Error Restoring"
+msgstr ""
 
 #: dashboards/project/volumes/backups/tabs.py:41
 #: dashboards/project/volumes/backups/views.py:73
@@ -15020,7 +15043,7 @@ msgid "Volume Overview"
 msgstr "Visão Geral de Volume"
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:35
-#: dashboards/project/volumes/volumes/tables.py:507
+#: dashboards/project/volumes/volumes/tables.py:521
 msgid "Attachments"
 msgstr "Anexos"
 
@@ -15617,33 +15640,68 @@ msgctxt "Current status of a Volume"
 msgid "Error Extending"
 msgstr "Erro Estendendo"
 
-#: dashboards/project/volumes/volumes/tables.py:423
+#: dashboards/project/volumes/volumes/tables.py:381
+msgctxt "Current status of a Volume"
+msgid "Extending"
+msgstr ""
+
+#: dashboards/project/volumes/volumes/tables.py:383
+msgctxt "Current status of a Volume"
+msgid "Attaching"
+msgstr "Anexando"
+
+#: dashboards/project/volumes/volumes/tables.py:385
+msgctxt "Current status of a Volume"
+msgid "Deleting"
+msgstr "Deletando"
+
+#: dashboards/project/volumes/volumes/tables.py:387
+msgctxt "Current status of a Volume"
+msgid "Error deleting"
+msgstr ""
+
+#: dashboards/project/volumes/volumes/tables.py:389
+msgctxt "Current status of a Volume"
+msgid "Backing Up"
+msgstr ""
+
+#: dashboards/project/volumes/volumes/tables.py:391
+msgctxt "Current status of a Volume"
+msgid "Restoring Backup"
+msgstr ""
+
+#: dashboards/project/volumes/volumes/tables.py:393
+msgctxt "Current status of a Volume"
+msgid "Error Restoring"
+msgstr ""
+
+#: dashboards/project/volumes/volumes/tables.py:437
 msgid "Encrypted"
 msgstr "Encriptado"
 
-#: dashboards/project/volumes/volumes/tables.py:444
+#: dashboards/project/volumes/volumes/tables.py:458
 msgid ""
 "The data will remain in the volume and another instance will be able to "
 "access the data if you attach this volume to it."
 msgstr "Os dados permanecem no volume e outra instância será capaz de acessar os dados se você anexar esse volume a ele."
 
-#: dashboards/project/volumes/volumes/tables.py:451
+#: dashboards/project/volumes/volumes/tables.py:465
 msgid "Detach Volume"
 msgid_plural "Detach Volumes"
 msgstr[0] "Desanexar Volume"
 msgstr[1] "Desanexar Volumes"
 
-#: dashboards/project/volumes/volumes/tables.py:460
+#: dashboards/project/volumes/volumes/tables.py:474
 msgid "Detaching Volume"
 msgid_plural "Detaching Volumes"
 msgstr[0] "Desanexando Volume"
 msgstr[1] "Desanexando Volumes"
 
-#: dashboards/project/volumes/volumes/tables.py:488
+#: dashboards/project/volumes/volumes/tables.py:502
 msgid "Device"
 msgstr "Dispositivo"
 
-#: dashboards/project/volumes/volumes/tables.py:497
+#: dashboards/project/volumes/volumes/tables.py:511
 #, python-format
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr "Volume%(volume_name)s na instância%(instance_name)s"
