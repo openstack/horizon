@@ -1,10 +1,11 @@
 // Augments magic_search.scss with styles for bootstrap/Horizon.
 
 .search-bar {
-  min-width: 500px;
-  border-color: #ccc;
-  border-radius: 3px;
-  margin-bottom: 0;
+  min-width: $magic-search-min-width;
+  border-color: $magic-search-border-color;
+  border-radius: $magic-search-border-radius;
+  margin-bottom: $magic-search-margin-bottom;
+  padding: $magic-search-margin-padding;
 
   .search-entry {
     .search-input {
