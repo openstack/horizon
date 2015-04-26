@@ -1,3 +1,4 @@
+/* global JSEncrypt */
 horizon.instances = {
   user_decided_length: false,
   user_volume_size: false,
@@ -25,7 +26,7 @@ horizon.instances = {
       success: function(response_body) {
         $('pre.logs').text(response_body);
       },
-      error: function(response) {
+      error: function() {
         if(via_user_submit) {
           horizon.clearErrorMessages();
           horizon.alert('error', gettext('There was a problem communicating with the server, please try again.'));
@@ -138,17 +139,17 @@ horizon.instances = {
       connectWith: "ul.networklist",
       placeholder: "ui-state-highlight",
       distance: 5,
-      start:function(e,info){
+      start:function(){
         selected_network.addClass("dragging");
       },
-      stop:function(e,info){
+      stop:function(){
         selected_network.removeClass("dragging");
         updateForm();
       }
     }).disableSelection();
   },
 
-  workflow_init: function(modal) {
+  workflow_init: function() {
     // Initialise the drag and drop network list
     horizon.instances.generate_networklist_html();
   }
@@ -198,7 +199,7 @@ horizon.addInitFunction(horizon.instances.init = function () {
     elements_list_group.show();
   }
 
-  $document.on('change', '.workflow #id_source_type', function (evt) {
+  $document.on('change', '.workflow #id_source_type', function () {
     update_launch_source_displayed_fields(this);
   });
 
@@ -240,15 +241,15 @@ horizon.addInitFunction(horizon.instances.init = function () {
     size_field.val(volume_size);
   }
 
-  $document.on('change', '.workflow #id_flavor', function (evt) {
+  $document.on('change', '.workflow #id_flavor', function () {
     update_device_size();
   });
 
-  $document.on('change', '.workflow #id_image_id', function (evt) {
+  $document.on('change', '.workflow #id_image_id', function () {
     update_device_size();
   });
 
-  $document.on('input', '.workflow #id_volume_size', function (evt) {
+  $document.on('input', '.workflow #id_volume_size', function () {
     horizon.instances.user_volume_size = true;
     // We only need to listen for the first user input to this field,
     // so remove the listener after the first time it gets called.
@@ -268,7 +269,7 @@ horizon.addInitFunction(horizon.instances.init = function () {
       reader.onloadend = function(event) {
         $("#id_private_key").val(event.target.result);
       };
-      reader.onerror = function(event) {
+      reader.onerror = function() {
         horizon.clearErrorMessages();
         horizon.alert('error', gettext('Could not read the file'));
       };
@@ -283,7 +284,7 @@ horizon.addInitFunction(horizon.instances.init = function () {
     The font-family is changed because with the default policy the major I
     and minor the l cannot be distinguished.
   */
-  $document.on('show.bs.modal', '#password_instance_modal', function (evt) {
+  $document.on('show.bs.modal', '#password_instance_modal', function () {
     $("#id_decrypted_password").css({
       "font-family": "monospace",
       "cursor": "text"
@@ -293,8 +294,8 @@ horizon.addInitFunction(horizon.instances.init = function () {
   });
 
   $document.on('click', '#decryptpassword_button', function (evt) {
-    encrypted_password = $("#id_encrypted_password").val();
-    private_key = $('#id_private_key').val();
+    var encrypted_password = $("#id_encrypted_password").val();
+    var private_key = $('#id_private_key').val();
     if (!private_key) {
       evt.preventDefault();
       $(this).closest('.modal').modal('hide');
@@ -302,7 +303,7 @@ horizon.addInitFunction(horizon.instances.init = function () {
     else {
       if (private_key.length > 0) {
         evt.preventDefault();
-        decrypted_password = horizon.instances.decrypt_password(encrypted_password, private_key);
+        var decrypted_password = horizon.instances.decrypt_password(encrypted_password, private_key);
         if (decrypted_password === false || decrypted_password === null) {
           horizon.clearErrorMessages();
           horizon.alert('error', gettext('Could not decrypt the password'));
