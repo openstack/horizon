@@ -1,5 +1,5 @@
 horizon.alert = function (type, message, extra_tags) {
-  safe = false;
+  var safe = false;
   // Check if the message is tagged as safe.
   if (typeof(extra_tags) !== "undefined" && $.inArray('safe', extra_tags.split(' ')) !== -1) {
     safe = true;
@@ -44,7 +44,7 @@ horizon.clearAllMessages = function() {
 horizon.autoDismissAlerts = function() {
   var $alerts = $('#main_content .messages .alert');
 
-  $alerts.each(function(index, alert) {
+  $alerts.each(function() {
     var $alert = $(this),
       types = $alert.attr('class').split(' '),
       intersection = $.grep(types, function (value) {
@@ -61,7 +61,7 @@ horizon.autoDismissAlerts = function() {
 
 horizon.addInitFunction(function () {
   // Bind AJAX message handling.
-  $(document).ajaxComplete(function(event, request, settings){
+  $(document).ajaxComplete(function(event, request){
     var message_array = $.parseJSON(horizon.ajax.get_messages(request));
     $(message_array).each(function (index, item) {
       horizon.alert(item[0], item[1], item[2]);
