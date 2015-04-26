@@ -6,7 +6,7 @@ horizon.inline_edit = {
       td_element.data("cell-name")
     ].join('');
   },
-  get_object_container: function (td_element) {
+  get_object_container: function () {
     // global cell object container
     if (!window.cell_object_container) {
       window.cell_object_container = [];
@@ -63,8 +63,6 @@ horizon.inline_edit = {
             var success = $('<div class="success"></div>');
             self.td_element.find('.inline-edit-status').append(success);
 
-            var background_color = self.td_element.css('background-color');
-
             // edit pencil will disappear and appear again once the check sign has faded
             // also green background will disappear
             self.td_element.addClass("no-transition");
@@ -79,7 +77,7 @@ horizon.inline_edit = {
             });
           }
         },
-        error: function(jqXHR, status, errorThrown) {
+        error: function(jqXHR) {
           if (jqXHR.status === 401){
             var redir_url = jqXHR.getResponseHeader("X-Horizon-Location");
             if (redir_url){
@@ -95,7 +93,7 @@ horizon.inline_edit = {
             }
           }
         },
-        success: function (data, textStatus, jqXHR) {
+        success: function (data) {
           var td_element = $(data);
           self.form_element = self.get_form_element(td_element);
 
@@ -129,7 +127,7 @@ horizon.inline_edit = {
             self.stop_loading();
           }
         },
-        error: function(jqXHR, status, errorThrown) {
+        error: function(jqXHR) {
           if (jqXHR.status === 400){
             // make place for error icon, only if the error icon is not already present
             if (self.td_element.find(".inline-edit-error .error").length <= 0) {
@@ -137,7 +135,7 @@ horizon.inline_edit = {
               self.form_element.width(self.form_element.width() - 20);
             }
             // obtain the error message from response body
-            error_message = $.parseJSON(jqXHR.responseText).message;
+            var error_message = $.parseJSON(jqXHR.responseText).message;
             // insert the error icon
             var error = $('<div title="' + error_message + '" class="error"></div>');
             self.td_element.find(".inline-edit-error").html(error);
@@ -158,7 +156,7 @@ horizon.inline_edit = {
             }
           }
         },
-        success: function (data, textStatus, jqXHR) {
+        success: function () {
           // if update was successful
           self.successful_update = true;
           self.refresh();
@@ -241,11 +239,11 @@ horizon.addInitFunction(horizon.inline_edit.init = function(parent) {
     evt.preventDefault();
   });
 
-  $table.on('mouseenter', '.inline_edit_available', function (evt) {
+  $table.on('mouseenter', '.inline_edit_available', function () {
     $(this).find(".table_cell_action").fadeIn(100);
   });
 
-  $table.on('mouseleave', '.inline_edit_available', function (evt) {
+  $table.on('mouseleave', '.inline_edit_available', function () {
     $(this).find(".table_cell_action").fadeOut(200);
   });
 });
