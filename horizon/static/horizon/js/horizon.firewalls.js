@@ -26,7 +26,7 @@ horizon.firewalls = {
       success: function(response_body) {
         $('pre.logs').text(response_body);
       },
-      error: function(response) {
+      error: function() {
         if(via_user_submit) {
           horizon.clearErrorMessages();
           horizon.alert('error', gettext('There was a problem communicating with the server, please try again.'));
@@ -70,7 +70,7 @@ horizon.firewalls = {
    * Generates the HTML structure for a rule that will be displayed
    * as a list item in the rule list.
    **/
-  generate_rule_element: function(name, id, value) {
+  generate_rule_element: function(name, value) {
     var $li = $('<li>');
     $li.attr('name', value).html(name + '<em class="rule_id">(' + value + ')</em><a href="#" class="btn btn-primary"></a>');
     return $li;
@@ -106,12 +106,12 @@ horizon.firewalls = {
     // Make sure we don't duplicate the rules in the list
     $("#available_rule").empty();
     $.each(self.rules_available, function(index, value){
-      $("#available_rule").append(self.generate_rule_element(value.name, value.id, value.value));
+      $("#available_rule").append(self.generate_rule_element(value.name, value.value));
     });
     // Make sure we don't duplicate the rules in the list
     $("#selected_rule").empty();
     $.each(self.rules_selected, function(index, value){
-      $("#selected_rule").append(self.generate_rule_element(value.name, value.id, value.value));
+      $("#selected_rule").append(self.generate_rule_element(value.name, value.value));
     });
     $(".rulelist > li > a.btn").click(function(e){
       var $this = $(this);
@@ -132,10 +132,10 @@ horizon.firewalls = {
       connectWith: "ul.rulelist",
       placeholder: "ui-state-highlight",
       distance: 5,
-      start:function(e,info){
+      start:function(){
         $("#selected_rule").addClass("dragging");
       },
-      stop:function(e,info){
+      stop:function(){
         $("#selected_rule").removeClass("dragging");
         updateForm();
       }
@@ -177,7 +177,7 @@ horizon.firewalls = {
    * Generates the HTML structure for a router that will be displayed
    * as a list item in the router list.
    **/
-  generate_router_element: function(name, id, value) {
+  generate_router_element: function(name, value) {
     var $li = $('<li>');
     $li.attr('name', value).html(name + '<em class="router_id">(' + value + ')</em><a href="#" class="btn btn-primary"></a>');
     return $li;
@@ -213,12 +213,12 @@ horizon.firewalls = {
     // Make sure we don't duplicate the routers in the list
     $("#available_router").empty();
     $.each(self.routers_available, function(index, value){
-      $("#available_router").append(self.generate_router_element(value.name, value.id, value.value));
+      $("#available_router").append(self.generate_router_element(value.name, value.value));
     });
     // Make sure we don't duplicate the routers in the list
     $("#selected_router").empty();
     $.each(self.routers_selected, function(index, value){
-      $("#selected_router").append(self.generate_router_element(value.name, value.id, value.value));
+      $("#selected_router").append(self.generate_router_element(value.name, value.value));
     });
     $(".routerlist > li > a.btn").click(function(e){
       var $this = $(this);
@@ -239,17 +239,17 @@ horizon.firewalls = {
       connectWith: "ul.routerlist",
       placeholder: "ui-state-highlight",
       distance: 5,
-      start:function(e,info){
+      start:function(){
         $("#selected_router").addClass("dragging");
       },
-      stop:function(e,info){
+      stop:function(){
         $("#selected_router").removeClass("dragging");
         updateForm();
       }
     }).disableSelection();
   },
 
-  workflow_init: function(modal) {
+  workflow_init: function() {
     // Initialise the drag and drop rule list
     horizon.firewalls.generate_rulelist_html();
     horizon.firewalls.generate_routerlist_html();
