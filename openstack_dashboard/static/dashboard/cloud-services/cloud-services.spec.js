@@ -161,7 +161,7 @@
       beforeEach(module('hz.dashboard', function ($provide) {
         ifFeaturesEnabled = function () {
           return {
-            then: function (successCallback, errorCallback) {
+            then: function () {
             }
           };
         };
@@ -222,7 +222,7 @@
       beforeEach(module('hz.dashboard', function ($provide) {
         $provide.value('ifFeaturesEnabled', function () {
           return {
-            then: function (successCallback, errorCallback) {
+            then: function (successCallback) {
               $timeout(successCallback);
             }
           };

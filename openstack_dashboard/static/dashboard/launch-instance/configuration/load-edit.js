@@ -8,8 +8,7 @@
 
       function link($scope, $element) {
         var textarea = $element.find('textarea'),
-            fileInput = $element.find('input[type="file"]'),
-            userInput = $scope.userInput;
+            fileInput = $element.find('input[type="file"]');
 
         $scope.textContent = '';
 

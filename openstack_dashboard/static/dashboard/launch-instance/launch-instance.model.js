@@ -27,7 +27,7 @@
    * UI and services API.
    */
 
-  module.factory('launchInstanceModel', ['$q',
+  module.factory('launchInstanceModel', ['$q', '$log',
     'cinderAPI',
     'glanceAPI',
     'keystoneAPI',
@@ -38,6 +38,7 @@
     'serviceCatalog',
 
     function ($q,
+              $log,
               cinderAPI,
               glanceAPI,
               keystoneAPI,
@@ -47,8 +48,7 @@
               securityGroup,
               serviceCatalog) {
 
-      var initPromise,
-          allNamespacesPromise;
+      var initPromise;
 
       // Constants (const in ES6)
       var NON_BOOTABLE_IMAGE_TYPES = ['aki', 'ari'],
@@ -435,8 +435,7 @@
             setFinalSpecBootFromVolumeDevice(finalSpec, 'snap');
             break;
           default:
-            // error condition
-            console.log("Unknown source type: " + finalSpec.source_type);
+            $log.error("Unknown source type: " + finalSpec.source_type);
         }
 
         // The following are all fields gathered into simple fields by
