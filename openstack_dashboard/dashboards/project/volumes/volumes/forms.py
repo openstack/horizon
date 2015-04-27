@@ -319,7 +319,7 @@ class CreateForm(forms.SelfHandlingForm):
             source_type = data.get('volume_source_type', None)
             az = data.get('availability_zone', None) or None
             if (data.get("snapshot_source", None) and
-                    source_type in [None, 'snapshot_source']):
+                    source_type in ['', None, 'snapshot_source']):
                 # Create from Snapshot
                 snapshot = self.get_snapshot(request,
                                              data["snapshot_source"])
@@ -331,7 +331,7 @@ class CreateForm(forms.SelfHandlingForm):
                     raise ValidationError(error_message)
                 az = None
             elif (data.get("image_source", None) and
-                  source_type in [None, 'image_source']):
+                  source_type in ['', None, 'image_source']):
                 # Create from Snapshot
                 image = self.get_image(request,
                                        data["image_source"])
@@ -351,7 +351,7 @@ class CreateForm(forms.SelfHandlingForm):
                                      % min_disk_size)
                     raise ValidationError(error_message)
             elif (data.get("volume_source", None) and
-                  source_type in [None, 'volume_source']):
+                  source_type in ['', None, 'volume_source']):
                 # Create from volume
                 volume = self.get_volume(request, data["volume_source"])
                 volume_id = volume.id
