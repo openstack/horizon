@@ -1,0 +1,29 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}add_routerroute_form{% endblock %}
+{% block form_action %}{% url 'horizon:project:routers:addrouterroute' router.id %}
+{% endblock %}
+
+{% block modal-header %}{% trans "Add Static Route" %}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+    <fieldset>
+        {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+</div>
+<div class="right">
+    <h3>{% trans "Description:" %}</h3>
+    <p>
+    {% trans "Add static route to the router." %}<br/>
+    {% trans "Next Hop IP must be a part of one of the subnets to which the router interfaces are connected." %}
+    </p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Add route" %}" />
+  <a href="{% url 'horizon:project:routers:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}

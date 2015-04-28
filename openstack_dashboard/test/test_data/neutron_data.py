@@ -31,6 +31,7 @@ def data(TEST):
     TEST.ports = utils.TestDataContainer()
     TEST.routers = utils.TestDataContainer()
     TEST.routers_with_rules = utils.TestDataContainer()
+    TEST.routers_with_routes = utils.TestDataContainer()
     TEST.q_floating_ips = utils.TestDataContainer()
     TEST.q_secgroups = utils.TestDataContainer()
     TEST.q_secgroup_rules = utils.TestDataContainer()
@@ -58,6 +59,7 @@ def data(TEST):
     TEST.api_subnets = utils.TestDataContainer()
     TEST.api_ports = utils.TestDataContainer()
     TEST.api_routers = utils.TestDataContainer()
+    TEST.api_routers_with_routes = utils.TestDataContainer()
     TEST.api_q_floating_ips = utils.TestDataContainer()
     TEST.api_q_secgroups = utils.TestDataContainer()
     TEST.api_q_secgroup_rules = utils.TestDataContainer()
@@ -404,6 +406,20 @@ def data(TEST):
                                      'nexthops': ['1.0.0.2', '1.0.0.1']}]}
     TEST.api_routers.add(router_dict)
     TEST.routers_with_rules.add(neutron.Router(router_dict))
+    router_dict_with_route = {'id': '725c24c9-061b-416b-b9d4-012392b32fd9',
+                              'name': 'routerouter',
+                              'status': 'ACTIVE',
+                              'admin_state_up': True,
+                              'distributed': False,
+                              'external_gateway_info':
+                                  {'network_id': ext_net['id']},
+                              'tenant_id': '1',
+                              'routes': [{'nexthop': '10.0.0.1',
+                                          'destination': '172.0.0.0/24'},
+                                         {'nexthop': '10.0.0.2',
+                                          'destination': '172.1.0.0/24'}]}
+    TEST.api_routers_with_routes.add(router_dict_with_route)
+    TEST.routers_with_routes.add(neutron.Router(router_dict_with_route))
 
     # Floating IP.
     # Unassociated.

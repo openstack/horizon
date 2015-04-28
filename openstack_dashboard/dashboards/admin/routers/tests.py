@@ -162,3 +162,9 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
         self.assertNoFormErrors(res)
         self.assertMessageCount(response=res, success=1)
         self.assertIn('Deleted Router: ' + router.name, res.content)
+
+
+class RouterRouteTest(test.BaseAdminViewTests, r_test.RouterRouteTests):
+    DASHBOARD = 'admin'
+    INDEX_URL = reverse('horizon:%s:routers:index' % DASHBOARD)
+    DETAIL_PATH = 'horizon:%s:routers:detail' % DASHBOARD

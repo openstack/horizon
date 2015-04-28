@@ -142,6 +142,15 @@ class Router(NeutronAPIDictWrapper):
         super(Router, self).__init__(apiresource)
 
 
+class RouterStaticRoute(NeutronAPIDictWrapper):
+    """Wrapper for neutron routes extra route."""
+
+    def __init__(self, route):
+        super(RouterStaticRoute, self).__init__(route)
+        # Horizon references id property for table operations
+        self.id = route['nexthop'] + ":" + route['destination']
+
+
 class SecurityGroup(NeutronAPIDictWrapper):
     # Required attributes: id, name, description, tenant_id, rules
 
@@ -894,6 +903,39 @@ def router_add_gateway(request, router_id, network_id):
 
 def router_remove_gateway(request, router_id):
     neutronclient(request).remove_gateway_router(router_id)
+
+
+def router_static_route_list(request, router_id=None):
+    router = router_get(request, router_id)
+    try:
+        routes = [RouterStaticRoute(r) for r in router.routes]
+    except AttributeError:
+        LOG.debug("router_static_route_list(): router_id=%s, "
+                  "router=%s", (router_id, router))
+        return []
+    return routes
+
+
+def router_static_route_remove(request, router_id, route_ids):
+    currentroutes = router_static_route_list(request, router_id=router_id)
+    newroutes = []
+    for oldroute in currentroutes:
+        if oldroute.id not in route_ids:
+            newroutes.append({'nexthop': oldroute.nexthop,
+                              'destination': oldroute.destination})
+    body = {'routes': newroutes}
+    new = router_update(request, router_id, **body)
+    return new
+
+
+def router_static_route_add(request, router_id, newroute):
+    body = {}
+    currentroutes = router_static_route_list(request, router_id=router_id)
+    body['routes'] = [newroute] + [{'nexthop': r.nexthop,
+                                    'destination': r.destination}
+                                   for r in currentroutes]
+    new = router_update(request, router_id, **body)
+    return new
 
 
 def tenant_quota_get(request, tenant_id):
