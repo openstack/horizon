@@ -2,6 +2,8 @@
   "browser": true,
   "trailing": true,
   "evil": true,
+  "unused": true,
+  "undef": true,
 
   "globals": {
     "horizon": false,
@@ -20,6 +22,7 @@
     "afterAll": false,
     "it": false,
     "expect": false,
+    "fail": false,
     "spyOn": false,
     "jasmine": false,
 

@@ -92,7 +92,6 @@
       });
 
       it("default is returned when doesn't exist", function () {
-        var actual;
         settingsService.getSetting('will.not.exist', 'hello')
           .then(function (actual) {
             expect(actual).toEqual('hello');

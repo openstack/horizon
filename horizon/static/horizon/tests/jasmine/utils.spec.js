@@ -1,4 +1,4 @@
-/*global describe, it, expect, jasmine, beforeEach, spyOn, angular*/
+/*global describe, it, expect, beforeEach, spyOn, angular*/
 describe('hz.utils', function () {
   'use strict';
   describe('hz.utils.hzUtils', function () {

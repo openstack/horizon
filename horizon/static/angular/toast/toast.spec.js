@@ -26,7 +26,6 @@
 
     var $compile,
         $scope,
-        $element,
         service;
 
     var successMsg = "I am success.";

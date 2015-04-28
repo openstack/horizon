@@ -75,9 +75,9 @@
                 $scope.strings.prompt = '';
               });
             }
-            angular.forEach(initialFacets, function(facet, idx) {
+            angular.forEach(initialFacets, function(facet) {
               var facetParts = facet.split('=');
-              angular.forEach($scope.facetsObj, function(value, idx) {
+              angular.forEach($scope.facetsObj, function(value) {
                 if (value.name == facetParts[0]) {
                   if (value.options === undefined) {
                     $scope.currentSearch.push({
@@ -90,7 +90,7 @@
                     $scope.deleteFacetEntirely(facetParts);
 
                   } else {
-                    angular.forEach(value.options, function(option, idx) {
+                    angular.forEach(value.options, function(option) {
                       if (option.key == facetParts[1]) {
                         $scope.currentSearch.push({
                           'name': facet,
@@ -122,7 +122,7 @@
           // Override magic_search.js removeFacet to emit('checkFacets')
           // to flag facets as isServer after removing facet and
           // either update filter or search
-          $scope.removeFacet = function($index, $event) {
+          $scope.removeFacet = function($index) {
             var removed = $scope.currentSearch[$index].name;
             $scope.currentSearch.splice($index, 1);
             if ($scope.facetSelected === undefined) {
