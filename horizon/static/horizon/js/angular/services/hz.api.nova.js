@@ -36,7 +36,7 @@ limitations under the License.
     this.getKeypairs = function() {
       return apiService.get('/api/nova/keypairs/')
         .error(function () {
-          toastService.add('error', gettext('Unable to retrieve keypairs.'));
+          toastService.add('error', gettext('Unable to retrieve the keypairs.'));
         });
     };
 
@@ -79,7 +79,7 @@ limitations under the License.
       return apiService.get('/api/nova/availzones/')
         .error(function () {
           toastService.add('error',
-                        gettext('Unable to retrieve availability zones.'));
+                        gettext('Unable to retrieve the availability zones.'));
         });
     };
 
@@ -117,7 +117,7 @@ limitations under the License.
     this.getLimits = function() {
       return apiService.get('/api/nova/limits/')
         .error(function () {
-          toastService.add('error', gettext('Unable to retrieve limits.'));
+          toastService.add('error', gettext('Unable to retrieve the limits.'));
         });
     };
 
@@ -158,7 +158,7 @@ limitations under the License.
     this.getServer = function(id) {
       return apiService.get('/api/nova/servers/' + id)
         .error(function () {
-          toastService.add('error', gettext('Unable to retrieve server.'));
+          toastService.add('error', gettext('Unable to retrieve the server.'));
       });
     };
 
@@ -188,7 +188,7 @@ limitations under the License.
     this.getExtensions = function(config) {
       return apiService.get('/api/nova/extensions/', config)
         .error(function () {
-          toastService.add('error', gettext('Unable to retrieve extensions.'));
+          toastService.add('error', gettext('Unable to retrieve the extensions.'));
         });
     };
 
@@ -233,7 +233,7 @@ limitations under the License.
           }
         })
         .error(function () {
-          toastService.add('error', gettext('Unable to retrieve flavors.'));
+          toastService.add('error', gettext('Unable to retrieve the flavors.'));
         });
     };
 
@@ -251,7 +251,7 @@ limitations under the License.
       if (getExtras) { config.params.get_extras = 'true'; }
       return apiService.get('/api/nova/flavors/' + id, config)
         .error(function () {
-          toastService.add('error', gettext('Unable to retrieve flavor.'));
+          toastService.add('error', gettext('Unable to retrieve the flavor.'));
       });
     };
 
@@ -265,7 +265,7 @@ limitations under the License.
     this.getFlavorExtraSpecs = function(id) {
       return apiService.get('/api/nova/flavors/' + id + '/extra-specs')
         .error(function () {
-          toastService.add('error', gettext('Unable to retrieve flavor extra specs.'));
+          toastService.add('error', gettext('Unable to retrieve the flavor extra specs.'));
       });
     };
   }
@@ -314,7 +314,7 @@ limitations under the License.
       }
 
       function onDataFailure() {
-        deferred.reject(gettext('Cannot get nova extension list.'));
+        deferred.reject(gettext('Cannot get Nova extension list.'));
       }
 
       return deferred.promise;

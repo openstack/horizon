@@ -35,7 +35,7 @@ limitations under the License.
     this.getImage = function(id) {
       return apiService.get('/api/glance/images/' + id)
         .error(function () {
-          toastService.add('error', gettext('Unable to retrieve image.'));
+          toastService.add('error', gettext('Unable to retrieve the image.'));
       });
     };
 
@@ -78,7 +78,7 @@ limitations under the License.
       var config = (params) ? { 'params' : params} : {};
       return apiService.get('/api/glance/images/', config)
         .error(function () {
-          toastService.add('error', gettext('Unable to retrieve images.'));
+          toastService.add('error', gettext('Unable to retrieve the images.'));
       });
     };
 
@@ -141,7 +141,7 @@ limitations under the License.
       var promise = apiService.get('/api/glance/metadefs/namespaces/', config);
 
       return suppressError ? promise : promise.error(function() {
-          toastService.add('error', gettext('Unable to retrieve namespaces.'));
+          toastService.add('error', gettext('Unable to retrieve the namespaces.'));
         });
     };
 

@@ -44,7 +44,7 @@ limitations under the License.
       var config = (params) ? {'params': params} : {};
       return apiService.get('/api/cinder/volumes/', config)
         .error(function () {
-          toastService.add('error', gettext('Unable to retrieve volumes.'));
+          toastService.add('error', gettext('Unable to retrieve the volumes.'));
         });
     };
 
@@ -71,7 +71,7 @@ limitations under the License.
       return apiService.get('/api/cinder/volumesnapshots/', config)
         .error(function () {
           toastService.add('error',
-                        gettext('Unable to retrieve volume snapshots.'));
+                        gettext('Unable to retrieve the volume snapshots.'));
         });
     };
   }

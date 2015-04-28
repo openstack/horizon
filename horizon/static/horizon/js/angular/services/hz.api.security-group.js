@@ -61,7 +61,7 @@ limitations under the License.
     this.query = function() {
       return apiService.get('/api/network/securitygroups/')
         .error(function () {
-          toastService.add('error', gettext('Unable to retrieve security groups.'));
+          toastService.add('error', gettext('Unable to retrieve the security groups.'));
       });
     };
   }

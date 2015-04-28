@@ -21,7 +21,7 @@ limitations under the License.
       var config = (params) ? {'params': params} : {};
       return apiService.get('/api/keystone/users/', config)
         .error(function () {
-          toastService.add('error', gettext('Unable to retrieve users'));
+          toastService.add('error', gettext('Unable to retrieve users.'));
         });
     };
 
@@ -77,7 +77,7 @@ limitations under the License.
     this.getUser = function(user_id) {
       return apiService.get('/api/keystone/users/' + user_id)
         .error(function () {
-          toastService.add('error', gettext('Unable to retrieve the user'));
+          toastService.add('error', gettext('Unable to retrieve the user.'));
         });
     };
 
@@ -100,7 +100,7 @@ limitations under the License.
     this.getRoles = function() {
       return apiService.get('/api/keystone/roles/')
         .error(function () {
-          toastService.add('error', gettext('Unable to retrieve role'));
+          toastService.add('error', gettext('Unable to retrieve the roles.'));
         });
     };
 
@@ -121,7 +121,7 @@ limitations under the License.
     this.getRole = function(role_id) {
       return apiService.get('/api/keystone/roles/' + role_id)
         .error(function () {
-          toastService.add('error', gettext('Unable to retrieve the role'));
+          toastService.add('error', gettext('Unable to retrieve the role.'));
         });
     };
 
@@ -144,7 +144,7 @@ limitations under the License.
     this.getDomains = function() {
       return apiService.get('/api/keystone/domains/')
         .error(function () {
-          toastService.add('error', gettext('Unable to retrieve domains'));
+          toastService.add('error', gettext('Unable to retrieve the domains.'));
         });
     };
 
@@ -165,7 +165,7 @@ limitations under the License.
     this.getDomain = function(domain_id) {
       return apiService.get('/api/keystone/domains/' + domain_id)
         .error(function () {
-          toastService.add('error', gettext('Unable to retrieve the domain'));
+          toastService.add('error', gettext('Unable to retrieve the domain.'));
         });
     };
 
@@ -189,7 +189,7 @@ limitations under the License.
       var config = (params) ? {'params': params} : {};
       return apiService.get('/api/keystone/projects/', config)
         .error(function () {
-          toastService.add('error', gettext('Unable to retrieve projects'));
+          toastService.add('error', gettext('Unable to retrieve the projects.'));
         });
     };
 
@@ -210,7 +210,7 @@ limitations under the License.
     this.getProject = function(project_id) {
       return apiService.get('/api/keystone/projects/' + project_id)
         .error(function () {
-          toastService.add('error', gettext('Unable to retrieve the project'));
+          toastService.add('error', gettext('Unable to retrieve the project.'));
         });
     };
 
@@ -230,7 +230,7 @@ limitations under the License.
     };
 
     this.grantRole = function(project_id, role_id, user_id) {
-      return apiService.delete('/api/keystone/projects/' + project_id + '/' +
+      return apiService.put('/api/keystone/projects/' + project_id + '/' +
                                role_id + '/' + user_id)
         .error(function () {
           toastService.add('error', gettext('Unable to grant the role.'));

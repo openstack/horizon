@@ -36,7 +36,7 @@
     this.getNetworks = function() {
       return apiService.get('/api/neutron/networks/')
         .error(function () {
-          toastService.add('error', gettext('Unable to retrieve networks.'));
+          toastService.add('error', gettext('Unable to retrieve the networks.'));
         });
     };
 
@@ -105,7 +105,7 @@
     this.getSubnets = function(network_id) {
       return apiService.get('/api/neutron/subnets/', network_id)
         .error(function () {
-          toastService.add('error', gettext('Unable to retrieve subnets.'));
+          toastService.add('error', gettext('Unable to retrieve the subnets.'));
         });
     };
 
@@ -189,7 +189,7 @@
     this.getPorts = function(network_id) {
       return apiService.get('/api/neutron/ports/', network_id)
         .error(function () {
-          toastService.add('error', gettext('Unable to retrieve ports.'));
+          toastService.add('error', gettext('Unable to retrieve the ports.'));
         });
     };
 

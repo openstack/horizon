@@ -19,7 +19,15 @@ class ServicesTests(test.JasmineTests):
         'horizon/js/horizon.js',
         'horizon/js/angular/hz.api.module.js',
         'horizon/js/angular/services/hz.api.common.js',
+        'horizon/js/angular/services/hz.api.service.js',
+        'horizon/js/angular/services/hz.api.cinder.js',
         'horizon/js/angular/services/hz.api.config.js',
+        'horizon/js/angular/services/hz.api.glance.js',
+        'horizon/js/angular/services/hz.api.keystone.js',
+        'horizon/js/angular/services/hz.api.neutron.js',
+        'horizon/js/angular/services/hz.api.nova.js',
+        'horizon/js/angular/services/hz.api.policy.js',
+        'horizon/js/angular/services/hz.api.security-group.js',
 
         'dashboard-app/dashboard-app.module.js',
         'dashboard-app/login/login.js',
@@ -60,10 +68,18 @@ class ServicesTests(test.JasmineTests):
     ]
     specs = [
         'horizon/js/angular/services/hz.api.common.spec.js',
+        'horizon/js/angular/services/hz.api.common-test.spec.js',
+        'horizon/js/angular/services/hz.api.cinder.spec.js',
         'horizon/js/angular/services/hz.api.config.spec.js',
-
         'dashboard-app/login/login.spec.js',
         'dashboard-app/utils/helper-functions.spec.js',
+        'horizon/js/angular/services/hz.api.glance.spec.js',
+        'horizon/js/angular/services/hz.api.keystone.spec.js',
+        'horizon/js/angular/services/hz.api.neutron.spec.js',
+        'horizon/js/angular/services/hz.api.nova.spec.js',
+        'horizon/js/angular/services/hz.api.policy.spec.js',
+        'horizon/js/angular/services/hz.api.security-group.spec.js',
+        'horizon/tests/jasmine/utils.spec.js',
 
         'framework/util/bind-scope/bind-scope.spec.js',
         'framework/util/filters/filters.spec.js',
