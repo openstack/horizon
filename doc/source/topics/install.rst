@@ -2,7 +2,7 @@
 Installing Horizon
 ==================
 
-This page covers the basic installation of Horizon.
+This page covers the basic installation of horizon, the OpenStack dashboard.
 
 .. _system-requirements-label:
 
@@ -13,22 +13,22 @@ System Requirements
 * Django 1.6 (1.4 and 1.5 are supported too)
 * Minimum required set of running OpenStack services are:
 
-  * Nova
-  * Keystone
-  * Glance
-  * Neutron (unless nova-network is used)
+  * nova: OpenStack Compute
+  * keystone: OpenStack Identity
+  * glance: OpenStack Image service
+  * neutron: OpenStack Networking (unless nova-network is used)
 
 * All other services are optional.
-  Horizon supports the following services in Juno release.
-  If Keystone endpoint for a service is configured,
-  Horizon detects it and enables its support automatically.
+  Horizon supports the following services in the Juno release.
+  If the keystone endpoint for a service is configured,
+  horizon detects it and enables its support automatically.
 
-  * Swift
-  * Cinder
-  * Heat
-  * Ceilometer
-  * Trove
-  * Sahara
+  * swift: OpenStack Object Storage
+  * cinder: OpenStack Block Storage
+  * heat: Orchestration
+  * ceilometer: Telemetry
+  * trove: Database service for OpenStack
+  * sahara: Data processing service for OpenStack
 
 Installation
 ============
@@ -45,7 +45,7 @@ Installation
    virtualenv named ``.venv``. After this step, you can remove
    ``.venv`` directory safely.
 
-2. Install Horizon python module into your system. Run the following
+2. Install the horizon python module into your system. Run the following
    in the top directory::
 
     $ sudo pip install .
@@ -60,7 +60,7 @@ Installation
 
    For more details, please refer to :doc:`deployment` and :doc:`settings`.
 
-4. Optional: Django has a Compressor feature that performs many enhancements
+4. Optional: Django has a compressor feature that performs many enhancements
    for the delivery of static files, including standardization and
    minification/uglification. This processing can be run either online or
    offline (pre-processed). Letting the compression process occur at runtime
@@ -80,7 +80,7 @@ Installation
 
     $ sudo apt-get install apache2 libapache2-mod-wsgi
 
-   Then configure the web server to host OpenStack Dashboard via WSGI.
+   Then configure the web server to host OpenStack dashboard via WSGI.
    For apache2 web server, you may need to create
    ``/etc/apache2/sites-available/horizon.conf``.
    The template in devstack is a good example of the file.
@@ -95,6 +95,6 @@ Next Steps
 ==========
 
 * :doc:`deployment` covers some common questions, concerns and pitfalls you
-  may encounter when deploying Horizon in a production environment.
-* :doc:`settings` lists the available settings for Horizon.
-* :doc:`customizing` describes how to customizing Horizon as you want.
+  may encounter when deploying horizon in a production environment.
+* :doc:`settings` lists the available settings for horizon.
+* :doc:`customizing` describes how to customizing horizon as you want.
