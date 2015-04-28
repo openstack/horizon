@@ -87,13 +87,14 @@ def network_field_data(request, include_empty_option=False):
     """
     tenant_id = request.user.tenant_id
     networks = []
-    try:
-        networks = api.neutron.network_list_for_tenant(request, tenant_id)
-        networks = [(n.id, n.name_or_id) for n in networks]
-        networks.sort(key=lambda obj: obj[1])
-    except Exception as e:
-        msg = _('Failed to get network list {0}').format(six.text_type(e))
-        exceptions.handle(request, msg)
+    if api.base.is_service_enabled(request, 'network'):
+        try:
+            networks = api.neutron.network_list_for_tenant(request, tenant_id)
+            networks = [(n.id, n.name_or_id) for n in networks]
+            networks.sort(key=lambda obj: obj[1])
+        except Exception as e:
+            msg = _('Failed to get network list {0}').format(six.text_type(e))
+            exceptions.handle(request, msg)
 
     if not networks:
         if include_empty_option:
