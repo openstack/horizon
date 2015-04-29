@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Dayvidson dos Santos Bezerra <dayvidsonbezerra@gmail.com>, 2015
 # Fernando Pimenta <fernando.c.pimenta@gmail.com>, 2015
 # Gabriel Wainer, 2015
 # Luís Eduardo Tenório Silva <eduardovansilva@gmail.com>, 2015
@@ -13,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-24 20:36-0500\n"
-"PO-Revision-Date: 2015-04-25 01:51+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-04-28 18:43-0500\n"
+"PO-Revision-Date: 2015-04-28 14:39+0000\n"
+"Last-Translator: Dayvidson dos Santos Bezerra <dayvidsonbezerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -368,22 +369,22 @@ msgstr "Não é possível obter os membros do pool %(pool)s."
 msgid "Unable to get health monitors for pool %(pool)s."
 msgstr "Não é possível obter monitores de saúde para o conjunto %(pool)s"
 
-#: api/neutron.py:225
+#: api/neutron.py:233
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
-#: api/neutron.py:957
+#: api/neutron.py:998
 msgid "Unable to connect to Neutron."
 msgstr "Não é possível conectar ao Neutron."
 
-#: api/neutron.py:994
+#: api/neutron.py:1035
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "Não é possível interpretar o endereço IP %s"
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1133
+#: api/neutron.py:1167
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -391,14 +392,14 @@ msgid ""
 msgstr "A função solicitada  '%(feature)s' não é conhecida. Por favor tenha a certeza de especificar uma função definida na FEATURE_MAP."
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1151
+#: api/neutron.py:1185
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
 "invalid. It should be one of %(allowed)s"
 msgstr "O parâmetro 'operação' para get_feature_permission '%(feature)s' é inválido. Ele deve ser um dos %(allowed)s"
 
-#: api/neutron.py:1166
+#: api/neutron.py:1200
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr "Falha para checar a extensão Neutron '%s' não suportada"
@@ -803,6 +804,7 @@ msgstr "Zonas de Disponibilidade"
 #: dashboards/project/networks/templates/networks/ports/_update.html:5
 #: dashboards/project/routers/templates/routers/_create.html:5
 #: dashboards/project/routers/templates/routers/_update.html:5
+#: dashboards/project/routers/templates/routers/extensions/routerroutes/_create.html:18
 #: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:18
 #: dashboards/project/routers/templates/routers/ports/_create.html:18
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:18
@@ -883,6 +885,7 @@ msgstr "Salvar"
 #: dashboards/project/networks/templates/networks/_create.html:24
 #: dashboards/project/networks/templates/networks/create.html:8
 #: dashboards/project/networks/templates/networks/create.html:15
+#: dashboards/project/routers/templates/routers/extensions/routerroutes/_create.html:28
 #: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:28
 #: dashboards/project/routers/templates/routers/ports/_create.html:30
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:25
@@ -1210,15 +1213,15 @@ msgstr "dm-crypt"
 
 #: dashboards/admin/defaults/tables.py:62
 msgid "Server Group Members"
-msgstr ""
+msgstr "Membros do Grupo Servidor"
 
 #: dashboards/admin/defaults/tables.py:63
 msgid "Server Groups"
-msgstr ""
+msgstr "Grupos de Servidores"
 
 #: dashboards/admin/defaults/tables.py:64
 msgid "Backup Gigabytes"
-msgstr ""
+msgstr "Gigabytes de Backup"
 
 #: dashboards/admin/defaults/tables.py:65
 #: dashboards/project/database_backups/panel.py:23
@@ -3801,7 +3804,7 @@ msgstr "Lista de portas não pode ser recuperada."
 #: dashboards/project/networks/subnets/tabs.py:21
 #: dashboards/project/overview/panel.py:27
 #: dashboards/project/routers/ports/tabs.py:24
-#: dashboards/project/routers/tabs.py:25
+#: dashboards/project/routers/tabs.py:27
 #: dashboards/project/stacks/resource_types/tabs.py:21
 #: dashboards/project/stacks/tabs.py:53 dashboards/project/stacks/tabs.py:67
 #: dashboards/project/volumes/backups/tabs.py:24
@@ -3867,6 +3870,12 @@ msgstr "Utilização (Horas)"
 msgid "Deleted"
 msgstr "Excluído"
 
+#: dashboards/admin/routers/extensions/extraroutes/tables.py:27
+#: dashboards/project/routers/extensions/extraroutes/tables.py:75
+#: dashboards/project/routers/extensions/extraroutes/tabs.py:32
+msgid "Static Routes"
+msgstr "Rotas estáticas "
+
 #: dashboards/admin/routers/panel.py:24 dashboards/admin/routers/tables.py:46
 #: dashboards/admin/routers/templates/routers/index.html:3
 #: dashboards/identity/projects/workflows.py:77
@@ -3884,7 +3893,7 @@ msgstr "Roteadores"
 #: dashboards/admin/routers/ports/tables.py:29
 #: dashboards/project/network_topology/ports/tables.py:28
 #: dashboards/project/routers/ports/tables.py:125
-#: dashboards/project/routers/tabs.py:35
+#: dashboards/project/routers/tabs.py:37
 msgid "Interfaces"
 msgstr "Interfaces"
 
@@ -10830,7 +10839,7 @@ msgstr "Interromper"
 #: dashboards/project/instances/audit_tables.py:27
 msgctxt "Action log of an instance"
 msgid "Unpause"
-msgstr ""
+msgstr "Cancelar Pausa"
 
 #: dashboards/project/instances/audit_tables.py:28
 msgctxt "Action log of an instance"
@@ -10845,7 +10854,7 @@ msgstr "Redimensionar"
 #: dashboards/project/instances/audit_tables.py:31
 msgctxt "Action log of an instance"
 msgid "Confirm Resize"
-msgstr ""
+msgstr "Confirmar Redimensionamento"
 
 #: dashboards/project/instances/audit_tables.py:32
 msgctxt "Action log of an instance"
@@ -10865,7 +10874,7 @@ msgstr "Reiniciar"
 #: dashboards/project/instances/audit_tables.py:35
 msgctxt "Action log of an instance"
 msgid "Stop"
-msgstr ""
+msgstr "Parado"
 
 #: dashboards/project/instances/audit_tables.py:36
 msgctxt "Action log of an instance"
@@ -13667,6 +13676,59 @@ msgstr "ID do Projeto"
 msgid "Time since created (Seconds)"
 msgstr "Tempo desde a criação (Segundos)"
 
+#: dashboards/project/routers/extensions/extraroutes/forms.py:33
+#: dashboards/project/routers/extensions/extraroutes/tables.py:65
+#: dashboards/project/routers/extensions/routerrules/forms.py:50
+#: dashboards/project/routers/extensions/routerrules/tables.py:72
+msgid "Destination CIDR"
+msgstr "Destino CIDR"
+
+#: dashboards/project/routers/extensions/extraroutes/forms.py:34
+#: dashboards/project/routers/extensions/extraroutes/tables.py:66
+msgid "Next Hop"
+msgstr "Próximo salto"
+
+#: dashboards/project/routers/extensions/extraroutes/forms.py:45
+msgid "Static route added"
+msgstr "Rota estática adicionada"
+
+#: dashboards/project/routers/extensions/extraroutes/forms.py:50
+#, python-format
+msgid "Invalid format for routes : %s"
+msgstr "Formato inválido para rotas: %s"
+
+#: dashboards/project/routers/extensions/extraroutes/forms.py:56
+#, python-format
+msgid "Failed to add route : %s"
+msgstr "Falha em adicionar rotas: %s"
+
+#: dashboards/project/routers/extensions/extraroutes/tables.py:28
+#: dashboards/project/routers/templates/routers/extensions/routerroutes/_create.html:9
+msgid "Add Static Route"
+msgstr "Adicionar rota estática"
+
+#: dashboards/project/routers/extensions/extraroutes/tables.py:43
+msgid "Delete Static Route"
+msgid_plural "Delete Static Routes"
+msgstr[0] "Excluir rota estática"
+msgstr[1] "deddedede"
+
+#: dashboards/project/routers/extensions/extraroutes/tables.py:51
+msgid "Deleted Static Route"
+msgid_plural "Deleted Static Routes"
+msgstr[0] "Rotas estáticas excluídas"
+msgstr[1] "Rotas estáticas excluídas "
+
+#: dashboards/project/routers/extensions/extraroutes/tabs.py:40
+msgid "Failed to check if Neutron extraroute extension is supported"
+msgstr "Falha ao verificar se a extensão extraroute Neutron é suportada"
+
+#: dashboards/project/routers/extensions/extraroutes/views.py:48
+#: dashboards/project/routers/extensions/routerrules/views.py:50
+#: dashboards/project/routers/ports/views.py:49
+msgid "Unable to retrieve router."
+msgstr "Não foi possível obter o roteador."
+
 #: dashboards/project/routers/extensions/routerrules/forms.py:43
 msgid "Input must be in CIDR format"
 msgstr "A entrada deve estar no formato CIDR"
@@ -13675,11 +13737,6 @@ msgstr "A entrada deve estar no formato CIDR"
 #: dashboards/project/routers/extensions/routerrules/tables.py:70
 msgid "Source CIDR"
 msgstr "Origem CIDR"
-
-#: dashboards/project/routers/extensions/routerrules/forms.py:50
-#: dashboards/project/routers/extensions/routerrules/tables.py:72
-msgid "Destination CIDR"
-msgstr "Destino CIDR"
 
 #: dashboards/project/routers/extensions/routerrules/forms.py:53
 msgid "Optional: Next Hop Addresses (comma delimited)"
@@ -13744,11 +13801,6 @@ msgstr "Regras de roteamento"
 #: dashboards/project/routers/extensions/routerrules/tabs.py:60
 msgid "Router Rules Grid"
 msgstr "Grid de regras de roteamento"
-
-#: dashboards/project/routers/extensions/routerrules/views.py:50
-#: dashboards/project/routers/ports/views.py:49
-msgid "Unable to retrieve router."
-msgstr "Não foi possível obter o roteador."
 
 #: dashboards/project/routers/forms.py:35
 #: dashboards/project/routers/ports/forms.py:35
@@ -14028,6 +14080,25 @@ msgstr "SNAT"
 #: dashboards/project/routers/templates/routers/_update.html:6
 msgid "You may update the editable properties of your router here."
 msgstr "Você pode atualizar as propriedades editáveis do seu roteador aqui."
+
+#: dashboards/project/routers/templates/routers/extensions/routerroutes/_create.html:20
+msgid "Add static route to the router."
+msgstr "Adicionar rota estática no roteador"
+
+#: dashboards/project/routers/templates/routers/extensions/routerroutes/_create.html:21
+msgid ""
+"Next Hop IP must be a part of one of the subnets to which the router "
+"interfaces are connected."
+msgstr "IP do próximo salto deve ser uma parte de uma das sub-redes para que as interfaces de roteadores estejam conectados."
+
+#: dashboards/project/routers/templates/routers/extensions/routerroutes/_create.html:27
+msgid "Add route"
+msgstr "Adicionar rota"
+
+#: dashboards/project/routers/templates/routers/extensions/routerroutes/create.html:3
+#: dashboards/project/routers/templates/routers/extensions/routerroutes/create.html:6
+msgid "Add Router Route"
+msgstr "Adicionar rota no roteador"
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:20
 msgid ""
@@ -14871,7 +14942,7 @@ msgstr "Deletando"
 #: dashboards/project/volumes/backups/tables.py:118
 msgctxt "Current status of a Volume Backup"
 msgid "Error Restoring"
-msgstr ""
+msgstr "Erro ao Restaurar"
 
 #: dashboards/project/volumes/backups/tabs.py:41
 #: dashboards/project/volumes/backups/views.py:73
@@ -15643,7 +15714,7 @@ msgstr "Erro Estendendo"
 #: dashboards/project/volumes/volumes/tables.py:381
 msgctxt "Current status of a Volume"
 msgid "Extending"
-msgstr ""
+msgstr "Estendendo"
 
 #: dashboards/project/volumes/volumes/tables.py:383
 msgctxt "Current status of a Volume"
@@ -15658,22 +15729,22 @@ msgstr "Deletando"
 #: dashboards/project/volumes/volumes/tables.py:387
 msgctxt "Current status of a Volume"
 msgid "Error deleting"
-msgstr ""
+msgstr "Erro de exclusão"
 
 #: dashboards/project/volumes/volumes/tables.py:389
 msgctxt "Current status of a Volume"
 msgid "Backing Up"
-msgstr ""
+msgstr "Fazendo Backup"
 
 #: dashboards/project/volumes/volumes/tables.py:391
 msgctxt "Current status of a Volume"
 msgid "Restoring Backup"
-msgstr ""
+msgstr "Restaurando Backup"
 
 #: dashboards/project/volumes/volumes/tables.py:393
 msgctxt "Current status of a Volume"
 msgid "Error Restoring"
-msgstr ""
+msgstr "Erro ao Restaurar"
 
 #: dashboards/project/volumes/volumes/tables.py:437
 msgid "Encrypted"

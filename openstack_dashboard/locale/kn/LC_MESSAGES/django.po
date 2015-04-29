@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-24 20:36-0500\n"
-"PO-Revision-Date: 2015-04-25 01:51+0000\n"
+"POT-Creation-Date: 2015-04-28 18:43-0500\n"
+"PO-Revision-Date: 2015-04-28 14:04+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Kannada (http://www.transifex.com/projects/p/horizon/language/kn/)\n"
 "MIME-Version: 1.0\n"
@@ -363,22 +363,22 @@ msgstr ""
 msgid "Unable to get health monitors for pool %(pool)s."
 msgstr ""
 
-#: api/neutron.py:225
+#: api/neutron.py:233
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "%(ethertype)s %(proto_port)s %(direction)s %(remote)s ಅನ್ನು ಅನುಮತಿಸು"
 
-#: api/neutron.py:957
+#: api/neutron.py:998
 msgid "Unable to connect to Neutron."
 msgstr "ನ್ಯೂಟ್ರಾನ್‌ಗೆ ಸಂಪರ್ಕ ಹೊಂದಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: api/neutron.py:994
+#: api/neutron.py:1035
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "IP ವಿಳಾಸ %s ಅನ್ನು ಪಾರ್ಸ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1133
+#: api/neutron.py:1167
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -386,14 +386,14 @@ msgid ""
 msgstr "ಮನವಿ ಮಾಡಲಾದ ಸೌಲಭ್ಯ '%(feature)s' ದ ಬಗ್ಗೆ ತಿಳಿದಿಲ್ಲ. FEATURE_MAP ನಲ್ಲಿ ವಿವರಿಸಲಾದ ಸೌಲಭ್ಯವನ್ನು ಸೂಚಿಸಲು ಮರೆಯದಿರಿ."
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1151
+#: api/neutron.py:1185
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
 "invalid. It should be one of %(allowed)s"
 msgstr "get_feature_permission '%(feature)s' ಗಾಗಿನ 'operation' ನಿಯತಾಂಕವು ಅಮಾನ್ಯವಾಗಿದೆ. ಇದು %(allowed)s ರಲ್ಲಿ ಒಂದು ಆಗಿರಬೇಕು"
 
-#: api/neutron.py:1166
+#: api/neutron.py:1200
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr "ನ್ಯೂಟ್ರಾನ್ ಅನ್ನು ಪರಿಶೀಲಿಸಲು ವಿಫಲಗೊಂಡಿದೆ, '%s' ವಿಸ್ತರಣೆಯನ್ನು ಬೆಂಬಲಿಸಲಾಗುವುದಿಲ್ಲ"
@@ -796,6 +796,7 @@ msgstr "ಲಭ್ಯತೆಯ ವಲಯಗಳು"
 #: dashboards/project/networks/templates/networks/ports/_update.html:5
 #: dashboards/project/routers/templates/routers/_create.html:5
 #: dashboards/project/routers/templates/routers/_update.html:5
+#: dashboards/project/routers/templates/routers/extensions/routerroutes/_create.html:18
 #: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:18
 #: dashboards/project/routers/templates/routers/ports/_create.html:18
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:18
@@ -876,6 +877,7 @@ msgstr "ಉಳಿಸಿ"
 #: dashboards/project/networks/templates/networks/_create.html:24
 #: dashboards/project/networks/templates/networks/create.html:8
 #: dashboards/project/networks/templates/networks/create.html:15
+#: dashboards/project/routers/templates/routers/extensions/routerroutes/_create.html:28
 #: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:28
 #: dashboards/project/routers/templates/routers/ports/_create.html:30
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:25
@@ -3776,7 +3778,7 @@ msgstr "ಪೋರ್ಟ್ ಪಟ್ಟಿಯನ್ನು ಹಿಂದಕ್ಕ�
 #: dashboards/project/networks/subnets/tabs.py:21
 #: dashboards/project/overview/panel.py:27
 #: dashboards/project/routers/ports/tabs.py:24
-#: dashboards/project/routers/tabs.py:25
+#: dashboards/project/routers/tabs.py:27
 #: dashboards/project/stacks/resource_types/tabs.py:21
 #: dashboards/project/stacks/tabs.py:53 dashboards/project/stacks/tabs.py:67
 #: dashboards/project/volumes/backups/tabs.py:24
@@ -3842,6 +3844,12 @@ msgstr "ಬಳಕೆ (ಗಂಟೆಗಳು)"
 msgid "Deleted"
 msgstr "ಅಳಿಸಲಾದ"
 
+#: dashboards/admin/routers/extensions/extraroutes/tables.py:27
+#: dashboards/project/routers/extensions/extraroutes/tables.py:75
+#: dashboards/project/routers/extensions/extraroutes/tabs.py:32
+msgid "Static Routes"
+msgstr ""
+
 #: dashboards/admin/routers/panel.py:24 dashboards/admin/routers/tables.py:46
 #: dashboards/admin/routers/templates/routers/index.html:3
 #: dashboards/identity/projects/workflows.py:77
@@ -3859,7 +3867,7 @@ msgstr "ರೌಟರ್‌ಗಳು"
 #: dashboards/admin/routers/ports/tables.py:29
 #: dashboards/project/network_topology/ports/tables.py:28
 #: dashboards/project/routers/ports/tables.py:125
-#: dashboards/project/routers/tabs.py:35
+#: dashboards/project/routers/tabs.py:37
 msgid "Interfaces"
 msgstr "ಇಂಟರ್‌ಫೇಸ್‌ಗಳು"
 
@@ -13544,6 +13552,57 @@ msgstr ""
 msgid "Time since created (Seconds)"
 msgstr ""
 
+#: dashboards/project/routers/extensions/extraroutes/forms.py:33
+#: dashboards/project/routers/extensions/extraroutes/tables.py:65
+#: dashboards/project/routers/extensions/routerrules/forms.py:50
+#: dashboards/project/routers/extensions/routerrules/tables.py:72
+msgid "Destination CIDR"
+msgstr "ಗುರಿ CIDR"
+
+#: dashboards/project/routers/extensions/extraroutes/forms.py:34
+#: dashboards/project/routers/extensions/extraroutes/tables.py:66
+msgid "Next Hop"
+msgstr ""
+
+#: dashboards/project/routers/extensions/extraroutes/forms.py:45
+msgid "Static route added"
+msgstr ""
+
+#: dashboards/project/routers/extensions/extraroutes/forms.py:50
+#, python-format
+msgid "Invalid format for routes : %s"
+msgstr ""
+
+#: dashboards/project/routers/extensions/extraroutes/forms.py:56
+#, python-format
+msgid "Failed to add route : %s"
+msgstr ""
+
+#: dashboards/project/routers/extensions/extraroutes/tables.py:28
+#: dashboards/project/routers/templates/routers/extensions/routerroutes/_create.html:9
+msgid "Add Static Route"
+msgstr ""
+
+#: dashboards/project/routers/extensions/extraroutes/tables.py:43
+msgid "Delete Static Route"
+msgid_plural "Delete Static Routes"
+msgstr[0] ""
+
+#: dashboards/project/routers/extensions/extraroutes/tables.py:51
+msgid "Deleted Static Route"
+msgid_plural "Deleted Static Routes"
+msgstr[0] ""
+
+#: dashboards/project/routers/extensions/extraroutes/tabs.py:40
+msgid "Failed to check if Neutron extraroute extension is supported"
+msgstr ""
+
+#: dashboards/project/routers/extensions/extraroutes/views.py:48
+#: dashboards/project/routers/extensions/routerrules/views.py:50
+#: dashboards/project/routers/ports/views.py:49
+msgid "Unable to retrieve router."
+msgstr "ರೌಟರ್‌ ಅನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
+
 #: dashboards/project/routers/extensions/routerrules/forms.py:43
 msgid "Input must be in CIDR format"
 msgstr "ಇನ್‌ಪುಟ್ CIDR ರೂಪದಲ್ಲಿ ಇರಬೇಕು"
@@ -13552,11 +13611,6 @@ msgstr "ಇನ್‌ಪುಟ್ CIDR ರೂಪದಲ್ಲಿ ಇರಬೇಕ�
 #: dashboards/project/routers/extensions/routerrules/tables.py:70
 msgid "Source CIDR"
 msgstr "ಮೂಲ CIDR"
-
-#: dashboards/project/routers/extensions/routerrules/forms.py:50
-#: dashboards/project/routers/extensions/routerrules/tables.py:72
-msgid "Destination CIDR"
-msgstr "ಗುರಿ CIDR"
 
 #: dashboards/project/routers/extensions/routerrules/forms.py:53
 msgid "Optional: Next Hop Addresses (comma delimited)"
@@ -13619,11 +13673,6 @@ msgstr "ರೌಟರ್ ನಿಯಮಗಳು"
 #: dashboards/project/routers/extensions/routerrules/tabs.py:60
 msgid "Router Rules Grid"
 msgstr "ರೌಟರ್ ನಿಯಮಗಳ ಗ್ರಿಡ್"
-
-#: dashboards/project/routers/extensions/routerrules/views.py:50
-#: dashboards/project/routers/ports/views.py:49
-msgid "Unable to retrieve router."
-msgstr "ರೌಟರ್‌ ಅನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
 #: dashboards/project/routers/forms.py:35
 #: dashboards/project/routers/ports/forms.py:35
@@ -13897,6 +13946,25 @@ msgstr ""
 #: dashboards/project/routers/templates/routers/_update.html:6
 msgid "You may update the editable properties of your router here."
 msgstr "ಇಲ್ಲಿ ನೀವು ನಿಮ್ಮ ರೌಟರ್‌ನ ಸಂಪಾದಿಸಬಹುದಾದ ಗುಣಗಳನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡಬಹುದು."
+
+#: dashboards/project/routers/templates/routers/extensions/routerroutes/_create.html:20
+msgid "Add static route to the router."
+msgstr ""
+
+#: dashboards/project/routers/templates/routers/extensions/routerroutes/_create.html:21
+msgid ""
+"Next Hop IP must be a part of one of the subnets to which the router "
+"interfaces are connected."
+msgstr ""
+
+#: dashboards/project/routers/templates/routers/extensions/routerroutes/_create.html:27
+msgid "Add route"
+msgstr ""
+
+#: dashboards/project/routers/templates/routers/extensions/routerroutes/create.html:3
+#: dashboards/project/routers/templates/routers/extensions/routerroutes/create.html:6
+msgid "Add Router Route"
+msgstr ""
 
 #: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:20
 msgid ""
