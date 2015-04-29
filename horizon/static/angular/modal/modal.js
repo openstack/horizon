@@ -17,7 +17,7 @@
    * | {@link hz.widget.modal.factory:simpleModalService `simpleModalService`}  |
    *
    */
-  angular.module('hz.widget.modal', ['ui.bootstrap'])
+  angular.module('hz.widget.modal', ['ui.bootstrap', 'hz.i18n'])
 
     /**
      * @ngdoc controller
@@ -68,8 +68,8 @@
      *    }
      *  ]);
      */
-    .factory('simpleModalService', ['$modal', 'basePath',
-      function($modal, path) {
+    .factory('simpleModalService', ['$modal', 'basePath', 'hz.i18n.gettext',
+      function($modal, path, gettext) {
         return function(params) {
           if (params && params.title && params.body){
             var options = {
