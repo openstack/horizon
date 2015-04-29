@@ -46,12 +46,16 @@ class DataProcessingJobTests(test.TestCase):
                                 'project/data_processing.jobs/details.html')
         self.assertContains(res, 'pigjob')
 
-    @test.create_stubs({api.sahara: ('job_binary_list', 'job_create',)})
+    @test.create_stubs({api.sahara: ('job_binary_list',
+                                     'job_create',
+                                     'job_types_list')})
     def test_create(self):
         api.sahara.job_binary_list(IsA(http.HttpRequest)).AndReturn([])
         api.sahara.job_binary_list(IsA(http.HttpRequest)).AndReturn([])
         api.sahara.job_create(IsA(http.HttpRequest),
                               'test', 'Pig', [], [], 'test create')
+        api.sahara.job_types_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.job_types.list())
         self.mox.ReplayAll()
         form_data = {'job_name': 'test',
                      'job_type': 'pig',
