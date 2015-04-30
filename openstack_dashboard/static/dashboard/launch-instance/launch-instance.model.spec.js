@@ -1,2 +1,4 @@
-/* jshint globalstrict: true */
-'use strict';
+(function(){
+  'use strict';
+
+})();
