@@ -17,7 +17,7 @@ Horizon
 
 .. attribute:: urls
 
-    The auto-generated URLconf for Horizon. Usage::
+    The auto-generated URLconf for horizon. Usage::
 
         url(r'', include(horizon.urls)),
 
