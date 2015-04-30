@@ -11,6 +11,7 @@
 # under the License.
 
 from django.template import defaultfilters as filters
+from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
@@ -121,10 +122,35 @@ class ComputeHostFilterAction(tables.FilterAction):
 
 
 class ComputeHostTable(tables.DataTable):
+    STATUS_CHOICES = (
+        ("enabled", True),
+        ("disabled", False),
+        ("up", True),
+        ("down", False),
+    )
+    STATUS_DISPLAY_CHOICES = (
+        ("enabled", pgettext_lazy("Current status of a Hypervisor",
+                                  u"Enabled")),
+        ("disabled", pgettext_lazy("Current status of a Hypervisor",
+                                   u"Disabled")),
+        ("up", pgettext_lazy("Current state of a Hypervisor",
+                             u"Up")),
+        ("down", pgettext_lazy("Current state of a Hypervisor",
+                               u"Down")),
+    )
+
     host = tables.Column('host', verbose_name=_('Host'))
     zone = tables.Column('zone', verbose_name=_('Zone'))
-    status = tables.Column('status', verbose_name=_('Status'))
-    state = tables.Column('state', verbose_name=_('State'))
+    status = tables.Column('status',
+                           status=True,
+                           status_choices=STATUS_CHOICES,
+                           display_choices=STATUS_DISPLAY_CHOICES,
+                           verbose_name=_('Status'))
+    state = tables.Column('state',
+                          status=True,
+                          status_choices=STATUS_CHOICES,
+                          display_choices=STATUS_DISPLAY_CHOICES,
+                          verbose_name=_('State'))
     updated_at = tables.Column('updated_at',
                                verbose_name=_('Updated At'),
                                filters=(utils_filters.parse_isotime,
