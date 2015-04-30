@@ -73,6 +73,8 @@ class ServicesTests(test.JasmineTests):
         'framework/util/workflow/workflow.spec.js',
 
         'framework/widgets/action-list/action-list.spec.js',
+        'framework/widgets/charts/charts.spec.js',
+        'framework/widgets/charts/chart-tooltip.spec.js',
         'framework/widgets/charts/pie-chart.spec.js',
         'framework/widgets/help-panel/help-panel.spec.js',
         'framework/widgets/magic-search/magic-search.spec.js',
