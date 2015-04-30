@@ -12,7 +12,6 @@
 # limitations under the License.
 import logging
 
-from django.core import urlresolvers
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import forms
@@ -156,13 +155,11 @@ def get_security_groups(request, security_group_ids):
 
 
 def get_plugin_and_hadoop_version(request):
+    plugin_name = None
+    hadoop_version = None
     if request.REQUEST.get("plugin_name"):
         plugin_name = request.REQUEST["plugin_name"]
         hadoop_version = request.REQUEST["hadoop_version"]
-    else:
-        resolver_match = urlresolvers.resolve(request.path)
-        plugin_name = resolver_match.kwargs["plugin_name"]
-        hadoop_version = resolver_match.kwargs["hadoop_version"]
     return (plugin_name, hadoop_version)
 
 
