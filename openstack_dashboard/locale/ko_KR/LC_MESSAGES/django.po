@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-28 18:43-0500\n"
-"PO-Revision-Date: 2015-04-28 14:04+0000\n"
+"POT-Creation-Date: 2015-04-29 22:09-0500\n"
+"PO-Revision-Date: 2015-04-29 19:44+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -4380,7 +4380,7 @@ msgstr[0] "추가 스펙 삭제함"
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:236
 #: dashboards/project/data_processing/data_sources/workflows/create.py:95
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
-#: dashboards/project/data_processing/jobs/workflows/create.py:156
+#: dashboards/project/data_processing/jobs/workflows/create.py:158
 #: dashboards/project/data_processing/jobs/workflows/launch.py:408
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:257
 #: dashboards/project/networks/subnets/workflows.py:57
@@ -8044,8 +8044,8 @@ msgstr "Job 템플릿"
 #: dashboards/project/data_processing/jobs/tables.py:36
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:3
 #: dashboards/project/data_processing/jobs/views.py:64
-#: dashboards/project/data_processing/jobs/workflows/create.py:124
-#: dashboards/project/data_processing/jobs/workflows/create.py:155
+#: dashboards/project/data_processing/jobs/workflows/create.py:126
+#: dashboards/project/data_processing/jobs/workflows/create.py:157
 msgid "Create Job Template"
 msgstr "Job 템플릿 생성"
 
@@ -8077,31 +8077,26 @@ msgid "Select the type of your job:"
 msgstr "Job 유형을 선택하십시오:"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:9
-#: dashboards/project/data_processing/jobs/workflows/create.py:99
 #: dashboards/project/data_processing/utils/helpers.py:126
 msgid "Pig"
 msgstr "Pig"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:10
-#: dashboards/project/data_processing/jobs/workflows/create.py:99
 #: dashboards/project/data_processing/utils/helpers.py:127
 msgid "Hive"
 msgstr "Hive"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:11
-#: dashboards/project/data_processing/jobs/workflows/create.py:100
 #: dashboards/project/data_processing/utils/helpers.py:128
 msgid "Spark"
 msgstr "Spark"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:12
-#: dashboards/project/data_processing/jobs/workflows/create.py:101
 #: dashboards/project/data_processing/utils/helpers.py:129
 msgid "MapReduce"
 msgstr "MapReduce"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:13
-#: dashboards/project/data_processing/jobs/workflows/create.py:103
 msgid "Java Action"
 msgstr "Java 실행"
 
@@ -8211,7 +8206,7 @@ msgid "Choose libraries"
 msgstr "라이브러리 선택"
 
 #: dashboards/project/data_processing/jobs/workflows/create.py:51
-#: dashboards/project/data_processing/jobs/workflows/create.py:111
+#: dashboards/project/data_processing/jobs/workflows/create.py:113
 msgid "-- not selected --"
 msgstr "- 선택하지 않음 -"
 
@@ -8232,16 +8227,11 @@ msgstr "메인 바이너리 선택"
 msgid "Choose the binary which should be used in this Job."
 msgstr "Job에 사용될 바이너리를 선택합니다."
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:102
-#: dashboards/project/data_processing/utils/helpers.py:130
-msgid "Streaming MapReduce"
-msgstr "스트리밍 MapReduce"
-
-#: dashboards/project/data_processing/jobs/workflows/create.py:157
+#: dashboards/project/data_processing/jobs/workflows/create.py:159
 msgid "Job created"
 msgstr "Job 생성됨"
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:158
+#: dashboards/project/data_processing/jobs/workflows/create.py:160
 msgid "Could not create job template"
 msgstr "Job 템플릿 생성 불가"
 
@@ -8538,6 +8528,10 @@ msgstr "프로세스에서 anti-affinity 그룹 사용"
 #: dashboards/project/data_processing/utils/anti_affinity.py:66
 msgid "Unable to populate anti-affinity processes."
 msgstr "Anti-affinity 프로세스를 채우지 못 했습니다."
+
+#: dashboards/project/data_processing/utils/helpers.py:130
+msgid "Streaming MapReduce"
+msgstr "스트리밍 MapReduce"
 
 #: dashboards/project/data_processing/utils/helpers.py:132
 msgid "Java"
@@ -9123,7 +9117,7 @@ msgid "Select a new flavor"
 msgstr "새로운 flavor 선택"
 
 #: dashboards/project/databases/forms.py:79
-#: dashboards/project/instances/utils.py:155
+#: dashboards/project/instances/utils.py:156
 #: dashboards/project/instances/workflows/resize_instance.py:58
 msgid "No flavors available"
 msgstr "Flavor가 존재하지 않습니다"
@@ -11696,32 +11690,32 @@ msgstr "인스턴스 flavor를 분류할 수 없습니다."
 msgid "Unable to retrieve Nova availability zones."
 msgstr "nova에서 가용성 존을 찾을 수 없습니다."
 
-#: dashboards/project/instances/utils.py:95
+#: dashboards/project/instances/utils.py:96
 msgid "Failed to get network list {0}"
 msgstr "네트워크 목록 {0}를 가져오지 못했습니다."
 
-#: dashboards/project/instances/utils.py:100
+#: dashboards/project/instances/utils.py:101
 #: dashboards/project/routers/ports/forms.py:176
 msgid "No networks available"
 msgstr "사용 가능한 네트워크가 없습니다"
 
-#: dashboards/project/instances/utils.py:104
+#: dashboards/project/instances/utils.py:105
 msgid "Select Network"
 msgstr "네트워크 선택"
 
-#: dashboards/project/instances/utils.py:124
+#: dashboards/project/instances/utils.py:125
 msgid "Unable to retrieve key pairs."
 msgstr "키 페어를 찾지 못 했습니다."
 
-#: dashboards/project/instances/utils.py:128
+#: dashboards/project/instances/utils.py:129
 msgid "No key pairs available"
 msgstr "사용할 수 있는 키 패어가 없습니다"
 
-#: dashboards/project/instances/utils.py:132
+#: dashboards/project/instances/utils.py:133
 msgid "Select a key pair"
 msgstr "키 패어 선택"
 
-#: dashboards/project/instances/utils.py:151
+#: dashboards/project/instances/utils.py:152
 msgid "Select Flavor"
 msgstr "Flavor 선택"
 

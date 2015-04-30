@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-28 18:43-0500\n"
-"PO-Revision-Date: 2015-04-28 14:04+0000\n"
+"POT-Creation-Date: 2015-04-29 22:09-0500\n"
+"PO-Revision-Date: 2015-04-29 19:44+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Bodo (http://www.transifex.com/projects/p/horizon/language/brx/)\n"
 "MIME-Version: 1.0\n"
@@ -4397,7 +4397,7 @@ msgstr[1] "बांद्राय Spec खौ खोमोरबाय"
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:236
 #: dashboards/project/data_processing/data_sources/workflows/create.py:95
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
-#: dashboards/project/data_processing/jobs/workflows/create.py:156
+#: dashboards/project/data_processing/jobs/workflows/create.py:158
 #: dashboards/project/data_processing/jobs/workflows/launch.py:408
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:257
 #: dashboards/project/networks/subnets/workflows.py:57
@@ -8111,8 +8111,8 @@ msgstr ""
 #: dashboards/project/data_processing/jobs/tables.py:36
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:3
 #: dashboards/project/data_processing/jobs/views.py:64
-#: dashboards/project/data_processing/jobs/workflows/create.py:124
-#: dashboards/project/data_processing/jobs/workflows/create.py:155
+#: dashboards/project/data_processing/jobs/workflows/create.py:126
+#: dashboards/project/data_processing/jobs/workflows/create.py:157
 msgid "Create Job Template"
 msgstr ""
 
@@ -8146,31 +8146,26 @@ msgid "Select the type of your job:"
 msgstr "नोंथांनि खामानिनि रोखोमखौ सायख:"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:9
-#: dashboards/project/data_processing/jobs/workflows/create.py:99
 #: dashboards/project/data_processing/utils/helpers.py:126
 msgid "Pig"
 msgstr "पिग"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:10
-#: dashboards/project/data_processing/jobs/workflows/create.py:99
 #: dashboards/project/data_processing/utils/helpers.py:127
 msgid "Hive"
 msgstr "हाइभ"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:11
-#: dashboards/project/data_processing/jobs/workflows/create.py:100
 #: dashboards/project/data_processing/utils/helpers.py:128
 msgid "Spark"
 msgstr "अर सालाय"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:12
-#: dashboards/project/data_processing/jobs/workflows/create.py:101
 #: dashboards/project/data_processing/utils/helpers.py:129
 msgid "MapReduce"
 msgstr "MapReduce"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:13
-#: dashboards/project/data_processing/jobs/workflows/create.py:103
 msgid "Java Action"
 msgstr "जाभा हाबा"
 
@@ -8280,7 +8275,7 @@ msgid "Choose libraries"
 msgstr "बिजाब बाख्रिखौ बासिख"
 
 #: dashboards/project/data_processing/jobs/workflows/create.py:51
-#: dashboards/project/data_processing/jobs/workflows/create.py:111
+#: dashboards/project/data_processing/jobs/workflows/create.py:113
 msgid "-- not selected --"
 msgstr "-- सायखआखै --"
 
@@ -8301,16 +8296,11 @@ msgstr "गाहाय बाइनारि"
 msgid "Choose the binary which should be used in this Job."
 msgstr "बाइनारिखौ बासिख जायखौ बे खामानिआव बाहायनांगोन।"
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:102
-#: dashboards/project/data_processing/utils/helpers.py:130
-msgid "Streaming MapReduce"
-msgstr "MapReduce खौ स्ट्रिम खालामगासिनो दं"
-
-#: dashboards/project/data_processing/jobs/workflows/create.py:157
+#: dashboards/project/data_processing/jobs/workflows/create.py:159
 msgid "Job created"
 msgstr "खामानि सोरजिबाय"
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:158
+#: dashboards/project/data_processing/jobs/workflows/create.py:160
 msgid "Could not create job template"
 msgstr ""
 
@@ -8607,6 +8597,10 @@ msgstr "प्रसेसनि थाखाय गोरोबथि-नङै
 #: dashboards/project/data_processing/utils/anti_affinity.py:66
 msgid "Unable to populate anti-affinity processes."
 msgstr "गोरोबथि-नङै प्रसेसखौ बाहायनो हायाखै।"
+
+#: dashboards/project/data_processing/utils/helpers.py:130
+msgid "Streaming MapReduce"
+msgstr "MapReduce खौ स्ट्रिम खालामगासिनो दं"
 
 #: dashboards/project/data_processing/utils/helpers.py:132
 msgid "Java"
@@ -9194,7 +9188,7 @@ msgid "Select a new flavor"
 msgstr ""
 
 #: dashboards/project/databases/forms.py:79
-#: dashboards/project/instances/utils.py:155
+#: dashboards/project/instances/utils.py:156
 #: dashboards/project/instances/workflows/resize_instance.py:58
 msgid "No flavors available"
 msgstr "जेबो फ्लेभार मोननो हाथाव नङा"
@@ -11800,32 +11794,32 @@ msgstr "बिदिन्थि फ्लेभारखौ थख' साज�
 msgid "Unable to retrieve Nova availability zones."
 msgstr "नभा मोननो हाथाव ओनसोलखौ मोनफिननो हायाखै"
 
-#: dashboards/project/instances/utils.py:95
+#: dashboards/project/instances/utils.py:96
 msgid "Failed to get network list {0}"
 msgstr ""
 
-#: dashboards/project/instances/utils.py:100
+#: dashboards/project/instances/utils.py:101
 #: dashboards/project/routers/ports/forms.py:176
 msgid "No networks available"
 msgstr "जेबो नेटवार्क गैया"
 
-#: dashboards/project/instances/utils.py:104
+#: dashboards/project/instances/utils.py:105
 msgid "Select Network"
 msgstr ""
 
-#: dashboards/project/instances/utils.py:124
+#: dashboards/project/instances/utils.py:125
 msgid "Unable to retrieve key pairs."
 msgstr "साबि जराखौ मोनफिननो हाया।"
 
-#: dashboards/project/instances/utils.py:128
+#: dashboards/project/instances/utils.py:129
 msgid "No key pairs available"
 msgstr "जेबो जरा साबि मोनाखै"
 
-#: dashboards/project/instances/utils.py:132
+#: dashboards/project/instances/utils.py:133
 msgid "Select a key pair"
 msgstr "जरा साबिखौ सायख"
 
-#: dashboards/project/instances/utils.py:151
+#: dashboards/project/instances/utils.py:152
 msgid "Select Flavor"
 msgstr ""
 

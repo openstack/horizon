@@ -5,13 +5,14 @@
 # Translators:
 # Akihiro Motoki <amotoki@gmail.com>, 2015
 # Tom Fifield <tom@openstack.org>, 2014
+# Tomoyuki KATO <tomo@dream.daynight.jp>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-28 18:43-0500\n"
-"PO-Revision-Date: 2015-04-28 14:04+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-04-29 22:09-0500\n"
+"PO-Revision-Date: 2015-04-30 02:22+0000\n"
+"Last-Translator: Tomoyuki KATO <tomo@dream.daynight.jp>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4377,7 +4378,7 @@ msgstr[0] "追加スペックを削除しました"
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:236
 #: dashboards/project/data_processing/data_sources/workflows/create.py:95
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
-#: dashboards/project/data_processing/jobs/workflows/create.py:156
+#: dashboards/project/data_processing/jobs/workflows/create.py:158
 #: dashboards/project/data_processing/jobs/workflows/launch.py:408
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:257
 #: dashboards/project/networks/subnets/workflows.py:57
@@ -8041,8 +8042,8 @@ msgstr "ジョブテンプレート"
 #: dashboards/project/data_processing/jobs/tables.py:36
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:3
 #: dashboards/project/data_processing/jobs/views.py:64
-#: dashboards/project/data_processing/jobs/workflows/create.py:124
-#: dashboards/project/data_processing/jobs/workflows/create.py:155
+#: dashboards/project/data_processing/jobs/workflows/create.py:126
+#: dashboards/project/data_processing/jobs/workflows/create.py:157
 msgid "Create Job Template"
 msgstr "ジョブテンプレートの作成"
 
@@ -8074,31 +8075,26 @@ msgid "Select the type of your job:"
 msgstr "ジョブの種別を選択してください。"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:9
-#: dashboards/project/data_processing/jobs/workflows/create.py:99
 #: dashboards/project/data_processing/utils/helpers.py:126
 msgid "Pig"
 msgstr "Pig"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:10
-#: dashboards/project/data_processing/jobs/workflows/create.py:99
 #: dashboards/project/data_processing/utils/helpers.py:127
 msgid "Hive"
 msgstr "Hive"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:11
-#: dashboards/project/data_processing/jobs/workflows/create.py:100
 #: dashboards/project/data_processing/utils/helpers.py:128
 msgid "Spark"
 msgstr "Spark"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:12
-#: dashboards/project/data_processing/jobs/workflows/create.py:101
 #: dashboards/project/data_processing/utils/helpers.py:129
 msgid "MapReduce"
 msgstr "MapReduce"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:13
-#: dashboards/project/data_processing/jobs/workflows/create.py:103
 msgid "Java Action"
 msgstr "Java アクション"
 
@@ -8208,7 +8204,7 @@ msgid "Choose libraries"
 msgstr "ライブラリーの選択"
 
 #: dashboards/project/data_processing/jobs/workflows/create.py:51
-#: dashboards/project/data_processing/jobs/workflows/create.py:111
+#: dashboards/project/data_processing/jobs/workflows/create.py:113
 msgid "-- not selected --"
 msgstr "-- 選択されていません --"
 
@@ -8229,16 +8225,11 @@ msgstr "メインバイナリーを選択してください"
 msgid "Choose the binary which should be used in this Job."
 msgstr "このジョブで使用するバイナリーを選択してください。"
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:102
-#: dashboards/project/data_processing/utils/helpers.py:130
-msgid "Streaming MapReduce"
-msgstr "ストリーミング MapReduce"
-
-#: dashboards/project/data_processing/jobs/workflows/create.py:157
+#: dashboards/project/data_processing/jobs/workflows/create.py:159
 msgid "Job created"
 msgstr "ジョブが作成されました"
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:158
+#: dashboards/project/data_processing/jobs/workflows/create.py:160
 msgid "Could not create job template"
 msgstr "ジョブテンプレートを作成できません"
 
@@ -8535,6 +8526,10 @@ msgstr "プロセスに対して anti-affinity グループを使用します"
 #: dashboards/project/data_processing/utils/anti_affinity.py:66
 msgid "Unable to populate anti-affinity processes."
 msgstr "anti-affinity グループを展開できません。"
+
+#: dashboards/project/data_processing/utils/helpers.py:130
+msgid "Streaming MapReduce"
+msgstr "ストリーミング MapReduce"
 
 #: dashboards/project/data_processing/utils/helpers.py:132
 msgid "Java"
@@ -9120,7 +9115,7 @@ msgid "Select a new flavor"
 msgstr "新しいフレーバーを選択してください"
 
 #: dashboards/project/databases/forms.py:79
-#: dashboards/project/instances/utils.py:155
+#: dashboards/project/instances/utils.py:156
 #: dashboards/project/instances/workflows/resize_instance.py:58
 msgid "No flavors available"
 msgstr "利用可能なフレーバーはありません"
@@ -10979,7 +10974,7 @@ msgstr "Floating IP の割り当て"
 #: dashboards/project/instances/tables.py:596
 #, python-format
 msgid "Successfully associated floating IP: %s"
-msgstr "Floating IP の割り当て解除に成功しました: %s"
+msgstr "Floating IP の割り当てに成功しました: %s"
 
 #: dashboards/project/instances/tables.py:600
 msgid "Unable to associate floating IP."
@@ -11693,32 +11688,32 @@ msgstr "インスタンスのフレーバーの並び替えができません。
 msgid "Unable to retrieve Nova availability zones."
 msgstr "Nova のアベイラビリティーゾーンを取得できません。"
 
-#: dashboards/project/instances/utils.py:95
+#: dashboards/project/instances/utils.py:96
 msgid "Failed to get network list {0}"
 msgstr "ネットワーク一覧を取得できません: {0}"
 
-#: dashboards/project/instances/utils.py:100
+#: dashboards/project/instances/utils.py:101
 #: dashboards/project/routers/ports/forms.py:176
 msgid "No networks available"
 msgstr "ネットワークがありません"
 
-#: dashboards/project/instances/utils.py:104
+#: dashboards/project/instances/utils.py:105
 msgid "Select Network"
 msgstr "ネットワークを選択してください"
 
-#: dashboards/project/instances/utils.py:124
+#: dashboards/project/instances/utils.py:125
 msgid "Unable to retrieve key pairs."
 msgstr "キーペアの一覧を取得できません。"
 
-#: dashboards/project/instances/utils.py:128
+#: dashboards/project/instances/utils.py:129
 msgid "No key pairs available"
 msgstr "キーペアがありません"
 
-#: dashboards/project/instances/utils.py:132
+#: dashboards/project/instances/utils.py:133
 msgid "Select a key pair"
 msgstr "キーペアを選択してください"
 
-#: dashboards/project/instances/utils.py:151
+#: dashboards/project/instances/utils.py:152
 msgid "Select Flavor"
 msgstr "フレーバーを選択してください"
 

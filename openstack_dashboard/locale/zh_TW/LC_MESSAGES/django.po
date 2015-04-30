@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-28 18:43-0500\n"
-"PO-Revision-Date: 2015-04-28 14:04+0000\n"
+"POT-Creation-Date: 2015-04-29 22:09-0500\n"
+"PO-Revision-Date: 2015-04-29 19:44+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -4382,7 +4382,7 @@ msgstr[0] "已刪除額外規格"
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:236
 #: dashboards/project/data_processing/data_sources/workflows/create.py:95
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
-#: dashboards/project/data_processing/jobs/workflows/create.py:156
+#: dashboards/project/data_processing/jobs/workflows/create.py:158
 #: dashboards/project/data_processing/jobs/workflows/launch.py:408
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:257
 #: dashboards/project/networks/subnets/workflows.py:57
@@ -8046,8 +8046,8 @@ msgstr "工作範本"
 #: dashboards/project/data_processing/jobs/tables.py:36
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:3
 #: dashboards/project/data_processing/jobs/views.py:64
-#: dashboards/project/data_processing/jobs/workflows/create.py:124
-#: dashboards/project/data_processing/jobs/workflows/create.py:155
+#: dashboards/project/data_processing/jobs/workflows/create.py:126
+#: dashboards/project/data_processing/jobs/workflows/create.py:157
 msgid "Create Job Template"
 msgstr "新增工作範本"
 
@@ -8079,31 +8079,26 @@ msgid "Select the type of your job:"
 msgstr "為您的工作選擇類型："
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:9
-#: dashboards/project/data_processing/jobs/workflows/create.py:99
 #: dashboards/project/data_processing/utils/helpers.py:126
 msgid "Pig"
 msgstr "Pig"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:10
-#: dashboards/project/data_processing/jobs/workflows/create.py:99
 #: dashboards/project/data_processing/utils/helpers.py:127
 msgid "Hive"
 msgstr "Hive"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:11
-#: dashboards/project/data_processing/jobs/workflows/create.py:100
 #: dashboards/project/data_processing/utils/helpers.py:128
 msgid "Spark"
 msgstr "Spark"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:12
-#: dashboards/project/data_processing/jobs/workflows/create.py:101
 #: dashboards/project/data_processing/utils/helpers.py:129
 msgid "MapReduce"
 msgstr "MapReduce"
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:13
-#: dashboards/project/data_processing/jobs/workflows/create.py:103
 msgid "Java Action"
 msgstr "Java Action"
 
@@ -8213,7 +8208,7 @@ msgid "Choose libraries"
 msgstr "選擇程式庫"
 
 #: dashboards/project/data_processing/jobs/workflows/create.py:51
-#: dashboards/project/data_processing/jobs/workflows/create.py:111
+#: dashboards/project/data_processing/jobs/workflows/create.py:113
 msgid "-- not selected --"
 msgstr "-- 未選擇 --"
 
@@ -8234,16 +8229,11 @@ msgstr "選擇主要的程式"
 msgid "Choose the binary which should be used in this Job."
 msgstr "選擇用於此工作的程式。"
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:102
-#: dashboards/project/data_processing/utils/helpers.py:130
-msgid "Streaming MapReduce"
-msgstr "串流 MapReduce"
-
-#: dashboards/project/data_processing/jobs/workflows/create.py:157
+#: dashboards/project/data_processing/jobs/workflows/create.py:159
 msgid "Job created"
 msgstr "已新增工作"
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:158
+#: dashboards/project/data_processing/jobs/workflows/create.py:160
 msgid "Could not create job template"
 msgstr "不能新增工作範本"
 
@@ -8540,6 +8530,10 @@ msgstr "給予處理行程使用反共鳴群組"
 #: dashboards/project/data_processing/utils/anti_affinity.py:66
 msgid "Unable to populate anti-affinity processes."
 msgstr "無法套用反共鳴處理行程。"
+
+#: dashboards/project/data_processing/utils/helpers.py:130
+msgid "Streaming MapReduce"
+msgstr "串流 MapReduce"
 
 #: dashboards/project/data_processing/utils/helpers.py:132
 msgid "Java"
@@ -9125,7 +9119,7 @@ msgid "Select a new flavor"
 msgstr "選擇新的虛擬硬體樣板"
 
 #: dashboards/project/databases/forms.py:79
-#: dashboards/project/instances/utils.py:155
+#: dashboards/project/instances/utils.py:156
 #: dashboards/project/instances/workflows/resize_instance.py:58
 msgid "No flavors available"
 msgstr "無可用的虛擬硬體樣板"
@@ -11698,32 +11692,32 @@ msgstr "無法排序雲實例的虛擬硬體樣板。"
 msgid "Unable to retrieve Nova availability zones."
 msgstr "無法獲得 Nova 可用區域。"
 
-#: dashboards/project/instances/utils.py:95
+#: dashboards/project/instances/utils.py:96
 msgid "Failed to get network list {0}"
 msgstr "獲得網路列表 {0} 時失敗"
 
-#: dashboards/project/instances/utils.py:100
+#: dashboards/project/instances/utils.py:101
 #: dashboards/project/routers/ports/forms.py:176
 msgid "No networks available"
 msgstr "無可用的網路"
 
-#: dashboards/project/instances/utils.py:104
+#: dashboards/project/instances/utils.py:105
 msgid "Select Network"
 msgstr "選擇網路"
 
-#: dashboards/project/instances/utils.py:124
+#: dashboards/project/instances/utils.py:125
 msgid "Unable to retrieve key pairs."
 msgstr "無法獲得密鑰對。"
 
-#: dashboards/project/instances/utils.py:128
+#: dashboards/project/instances/utils.py:129
 msgid "No key pairs available"
 msgstr "無可用的密鑰對"
 
-#: dashboards/project/instances/utils.py:132
+#: dashboards/project/instances/utils.py:133
 msgid "Select a key pair"
 msgstr "選擇密鑰對"
 
-#: dashboards/project/instances/utils.py:151
+#: dashboards/project/instances/utils.py:152
 msgid "Select Flavor"
 msgstr "選擇虛擬硬體樣板"
 
