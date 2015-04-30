@@ -165,6 +165,9 @@
         $("[name=streaming_mapper]").closest(".form-group").hide();
         $("[name=streaming_reducer]").closest(".form-group").hide();
       }
+      if (job_type != "Java") {
+        $("[name=hbase_common_lib]").closest(".form-group").hide();
+      }
     }
 
     properties = {};

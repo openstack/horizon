@@ -132,6 +132,7 @@ class JobConfigAction(workflows.Action):
     EDP_MAPPER = "edp.streaming.mapper"
     EDP_REDUCER = "edp.streaming.reducer"
     EDP_PREFIX = "edp."
+    EDP_HBASE_COMMON_LIB = "edp.hbase_common_lib"
 
     property_name = forms.ChoiceField(
         required=False,
@@ -162,6 +163,11 @@ class JobConfigAction(workflows.Action):
     streaming_mapper = forms.CharField(label=_("Mapper"))
 
     streaming_reducer = forms.CharField(label=_("Reducer"))
+
+    hbase_common_lib = forms.BooleanField(
+        label=_("Use HBase Common library"),
+        help_text=_("Run HBase EDP Jobs with common HBase library on HDFS"),
+        required=False, initial=True)
 
     def __init__(self, request, *args, **kwargs):
         super(JobConfigAction, self).__init__(request, *args, **kwargs)
@@ -197,6 +203,9 @@ class JobConfigAction(workflows.Action):
             if self.EDP_REDUCER in edp_configs:
                 self.fields['streaming_reducer'].initial = (
                     edp_configs[self.EDP_REDUCER])
+            if self.EDP_HBASE_COMMON_LIB in edp_configs:
+                self.fields['hbase_common_lib'].initial = (
+                    edp_configs[self.EDP_HBASE_COMMON_LIB])
 
     def clean(self):
         cleaned_data = super(workflows.Action, self).clean()
@@ -282,6 +291,9 @@ class JobConfig(workflows.Step):
                 data.get("main_class", ""))
             context["job_config"]["configs"][JobConfigAction.JAVA_OPTS] = (
                 data.get("java_opts", ""))
+            context["job_config"]["configs"][
+                JobConfigAction.EDP_HBASE_COMMON_LIB] = (
+                    data.get("hbase_common_lib", True))
         elif job_type == "MapReduce.Streaming":
             context["job_config"]["configs"][JobConfigAction.EDP_MAPPER] = (
                 data.get("streaming_mapper", ""))
