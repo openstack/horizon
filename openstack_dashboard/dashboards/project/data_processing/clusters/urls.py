@@ -30,12 +30,6 @@ urlpatterns = patterns('',
                        url(r'^configure-cluster$',
                            views.ConfigureClusterView.as_view(),
                            name='configure-cluster'),
-                       url(r'^configure-cluster'
-                           '/(?P<plugin_name>[^/]+)'
-                           '/(?P<hadoop_version>[^/]+)'
-                           '/(?P<cluster_template_name>[^/]+)/$',
-                           views.ConfigureClusterView.as_view(),
-                           name='configure-cluster'),
                        url(r'^(?P<cluster_id>[^/]+)$',
                            views.ClusterDetailsView.as_view(),
                            name='details'),

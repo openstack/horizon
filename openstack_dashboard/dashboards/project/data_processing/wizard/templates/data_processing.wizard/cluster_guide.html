@@ -54,7 +54,7 @@
                     <div>
                           <a class="btn btn-default btn-small btn-create btn-inline ajax-modal
                             {% if not request.session.plugin_name or not request.session.plugin_version %} disabled {% endif %}"
-                            href="{% if request.session.plugin_name and request.session.plugin_version %}{% url 'horizon:project:data_processing.nodegroup_templates:configure-nodegroup-template-defaults' request.session.plugin_name request.session.plugin_version 'master' %}{% endif %}">
+                            href="{% if request.session.plugin_name and request.session.plugin_version %}{% url 'horizon:project:data_processing.nodegroup_templates:configure-nodegroup-template'%}?plugin_name={{ request.session.plugin_name }}&hadoop_version={{ request.session.plugin_version }}&guide_template_type=master{% endif %}">
                             <span class="fa fa-plus"></span> {% trans "Create a Master Node Group Template" %}</a>
                     </div>
                     <div>{% trans "Current choice:" %}
@@ -81,7 +81,7 @@
                     <div>
                         <a class="btn btn-default btn-small btn-create btn-inline ajax-modal
                             {% if not request.session.master_name %} disabled{% endif %}"
-                            href="{% if request.session.plugin_name and request.session.plugin_version %}{% url 'horizon:project:data_processing.nodegroup_templates:configure-nodegroup-template-defaults' request.session.plugin_name request.session.plugin_version 'worker' %}{% endif %}">
+                            href="{% if request.session.plugin_name and request.session.plugin_version %}{% url 'horizon:project:data_processing.nodegroup_templates:configure-nodegroup-template'%}?plugin_name={{ request.session.plugin_name }}&hadoop_version={{ request.session.plugin_version }}&guide_template_type=worker{% endif %}">
                             <span class="fa fa-plus"></span> {% trans "Create a Worker Node Group Template" %}</a>
                     </div>
                     <div>{% trans "Current choice:" %}
@@ -145,7 +145,7 @@
                     <div>
                         <a class="btn btn-default btn-small btn-create btn-inline ajax-modal
                             {% if not request.session.guide_cluster_template_name %} disabled{% endif %}"
-                            href="{% if request.session.guide_cluster_template_name %}{% url 'horizon:project:data_processing.clusters:configure-cluster' request.session.plugin_name request.session.plugin_version request.session.guide_cluster_template_name%}{% endif %}">
+                            href="{% if request.session.guide_cluster_template_name %}{% url 'horizon:project:data_processing.clusters:configure-cluster'%}?plugin_name={{ request.session.plugin_name }}&hadoop_version={{ request.session.plugin_version }}&cluster_template_name={{ request.session.guide_cluster_template_name }}{% endif %}">
                             <span class="fa fa-plus"></span> {% trans "Launch a Cluster" %}</a>
                     </div>
                 </div>
