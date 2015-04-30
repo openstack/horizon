@@ -1,8 +1,9 @@
 /* Namespace for core functionality related to DataTables. */
 horizon.datatables = {
   update: function () {
-    var $rows_to_update = $('tr.status_unknown.ajax-update');
-    if ($rows_to_update.length) {
+    var $rows_to_update = $('tr.status_unknown.ajax-update'),
+      rows_to_update = $rows_to_update.length;
+    if ( rows_to_update > 0 ) {
       var interval = $rows_to_update.attr('data-update-interval'),
         $table = $rows_to_update.closest('table'),
         decay_constant = $table.attr('decay_constant');
@@ -91,19 +92,22 @@ horizon.datatables = {
           complete: function (jqXHR, textStatus) {
             // Revalidate the button check for the updated table
             horizon.datatables.validate_button();
-
-            // Set interval decay to this table, and increase if it already exist
-            if(decay_constant === undefined) {
-              decay_constant = 1;
-            } else {
-              decay_constant++;
+            rows_to_update--;
+            // Schedule next poll when all the rows are updated
+            if ( rows_to_update === 0 ) {
+              // Set interval decay to this table, and increase if it already exist
+              if(decay_constant === undefined) {
+                decay_constant = 1;
+              } else {
+                decay_constant++;
+              }
+              $table.attr('decay_constant', decay_constant);
+              // Poll until there are no rows in an "unknown" state on the page.
+              var next_poll = interval * decay_constant;
+              // Limit the interval to 30 secs
+              if(next_poll > 30 * 1000) { next_poll = 30 * 1000; }
+              setTimeout(horizon.datatables.update, next_poll);
             }
-            $table.attr('decay_constant', decay_constant);
-            // Poll until there are no rows in an "unknown" state on the page.
-            next_poll = interval * decay_constant;
-            // Limit the interval to 30 secs
-            if(next_poll > 30 * 1000) { next_poll = 30 * 1000; }
-            setTimeout(horizon.datatables.update, next_poll);
           }
         });
       });
