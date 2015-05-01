@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-29 22:09-0500\n"
-"PO-Revision-Date: 2015-04-29 19:44+0000\n"
+"POT-Creation-Date: 2015-04-30 23:00-0500\n"
+"PO-Revision-Date: 2015-04-30 17:44+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Bodo (http://www.transifex.com/projects/p/horizon/language/brx/)\n"
 "MIME-Version: 1.0\n"
@@ -2677,7 +2677,7 @@ msgstr ""
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:35
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:18
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:82
-#: dashboards/project/data_processing/jobs/workflows/launch.py:409
+#: dashboards/project/data_processing/jobs/workflows/launch.py:421
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:402
 #: dashboards/project/database_backups/tables.py:165
 #: dashboards/project/database_backups/templates/database_backups/details.html:32
@@ -4398,7 +4398,7 @@ msgstr[1] "बांद्राय Spec खौ खोमोरबाय"
 #: dashboards/project/data_processing/data_sources/workflows/create.py:95
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
 #: dashboards/project/data_processing/jobs/workflows/create.py:158
-#: dashboards/project/data_processing/jobs/workflows/launch.py:408
+#: dashboards/project/data_processing/jobs/workflows/launch.py:420
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:257
 #: dashboards/project/networks/subnets/workflows.py:57
 #: dashboards/project/networks/workflows.py:343
@@ -7232,7 +7232,7 @@ msgid "Unable to fetch plugin list."
 msgstr "प्लागिन लिस्टखौ लाबोनो हायाखै।"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:53
-#: dashboards/project/data_processing/jobs/workflows/launch.py:356
+#: dashboards/project/data_processing/jobs/workflows/launch.py:368
 msgid "Plugin name"
 msgstr "प्लागिन मुं"
 
@@ -7249,7 +7249,7 @@ msgid "Next"
 msgstr "उननि"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:83
-#: dashboards/project/data_processing/jobs/workflows/launch.py:410
+#: dashboards/project/data_processing/jobs/workflows/launch.py:422
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:403
 msgid "Could not create"
 msgstr "सोरजिनो हायाखै"
@@ -7316,7 +7316,7 @@ msgstr "सारिखौ आपडेट खालामनो हायाख
 #: dashboards/project/data_processing/clusters/tables.py:136
 #: dashboards/project/data_processing/clusters/views.py:80
 #: dashboards/project/data_processing/clusters/workflows/create.py:201
-#: dashboards/project/data_processing/jobs/workflows/launch.py:314
+#: dashboards/project/data_processing/jobs/workflows/launch.py:326
 msgid "Configure Cluster"
 msgstr "क्लास्टारखौ बाइजोमहर दा"
 
@@ -7424,7 +7424,7 @@ msgid "Unable to fetch cluster list"
 msgstr "बिदिन्थि लिस्टखौ लाबोनो हायाखै।"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:46
-#: dashboards/project/data_processing/jobs/workflows/launch.py:396
+#: dashboards/project/data_processing/jobs/workflows/launch.py:408
 msgid "Select plugin and hadoop version for cluster"
 msgstr "क्लास्टारनि थाखाय प्लागिन आरो hadoop बिसानखौ सायख"
 
@@ -7461,8 +7461,8 @@ msgid "No Templates Available"
 msgstr "जेबो टेमप्लेट गैया"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:220
-#: dashboards/project/data_processing/jobs/workflows/launch.py:333
-#: dashboards/project/data_processing/jobs/workflows/launch.py:418
+#: dashboards/project/data_processing/jobs/workflows/launch.py:345
+#: dashboards/project/data_processing/jobs/workflows/launch.py:430
 #: dashboards/project/databases/workflows/create_instance.py:335
 #: dashboards/project/images/images/tables.py:62
 #: dashboards/project/instances/workflows/create_instance.py:830
@@ -7969,9 +7969,9 @@ msgstr[1] "खोमोरखानाय खामानिफोर"
 #: dashboards/project/data_processing/jobs/views.py:85
 #: dashboards/project/data_processing/jobs/views.py:106
 #: dashboards/project/data_processing/jobs/views.py:119
-#: dashboards/project/data_processing/jobs/workflows/launch.py:332
-#: dashboards/project/data_processing/jobs/workflows/launch.py:407
-#: dashboards/project/data_processing/jobs/workflows/launch.py:417
+#: dashboards/project/data_processing/jobs/workflows/launch.py:344
+#: dashboards/project/data_processing/jobs/workflows/launch.py:419
+#: dashboards/project/data_processing/jobs/workflows/launch.py:429
 msgid "Launch Job"
 msgid_plural "Launch Jobs"
 msgstr[0] ""
@@ -8239,16 +8239,16 @@ msgstr "आखुथाय मुंखौ सायख"
 msgid "Remove"
 msgstr "बोखार"
 
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:220
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:223
 msgid "Configuration"
 msgstr "बाइजोमहर"
 
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:223
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:226
 #: dashboards/project/stacks/templates/stacks/_preview_details.html:20
 msgid "Parameters"
 msgstr "पेरामिटार"
 
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:226
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:229
 msgid "Arguments"
 msgstr "बाथ्राबान"
 
@@ -8316,61 +8316,69 @@ msgstr "आउटपुट"
 msgid "Unable to fetch clusters."
 msgstr "क्लास्टारखौ लाबोनो हायाखै।"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:156
+#: dashboards/project/data_processing/jobs/workflows/launch.py:157
 msgid "Main Class"
 msgstr "गाहाय थाखो"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:159
+#: dashboards/project/data_processing/jobs/workflows/launch.py:160
 msgid "Java Opts"
 msgstr "जाभा अप्ट"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:162
+#: dashboards/project/data_processing/jobs/workflows/launch.py:163
 msgid "Mapper"
 msgstr "मेपार"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:164
+#: dashboards/project/data_processing/jobs/workflows/launch.py:165
 msgid "Reducer"
 msgstr "खमायग्रा"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:232
+#: dashboards/project/data_processing/jobs/workflows/launch.py:168
+msgid "Use HBase Common library"
+msgstr ""
+
+#: dashboards/project/data_processing/jobs/workflows/launch.py:169
+msgid "Run HBase EDP Jobs with common HBase library on HDFS"
+msgstr ""
+
+#: dashboards/project/data_processing/jobs/workflows/launch.py:241
 msgid "Configure"
 msgstr "बाइजोमहर दा"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:310
+#: dashboards/project/data_processing/jobs/workflows/launch.py:322
 msgid "Persist cluster after job exit"
 msgstr "खामानि निफ्राय ओंखारनायनि उनाव दिदोम क्लास्टार"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:334
-#: dashboards/project/data_processing/jobs/workflows/launch.py:419
+#: dashboards/project/data_processing/jobs/workflows/launch.py:346
+#: dashboards/project/data_processing/jobs/workflows/launch.py:431
 msgid "Job launched"
 msgstr "खामानि जागायबाय"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:335
-#: dashboards/project/data_processing/jobs/workflows/launch.py:420
+#: dashboards/project/data_processing/jobs/workflows/launch.py:347
+#: dashboards/project/data_processing/jobs/workflows/launch.py:432
 msgid "Could not launch job"
 msgstr "खामानिखौ जागायनो हायाखै"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:361
+#: dashboards/project/data_processing/jobs/workflows/launch.py:373
 msgid "Job configs"
 msgstr "खामानि बाइजोमहर"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:365
+#: dashboards/project/data_processing/jobs/workflows/launch.py:377
 msgid "Job args"
 msgstr "खामानि बाथ्राबान"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:369
+#: dashboards/project/data_processing/jobs/workflows/launch.py:381
 msgid "Job params"
 msgstr "खामानि पेरामिटार"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:375
+#: dashboards/project/data_processing/jobs/workflows/launch.py:387
 msgid "Job Execution ID"
 msgstr "खामानि मावफुंनाय ID"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:451
+#: dashboards/project/data_processing/jobs/workflows/launch.py:463
 msgid "Unable to create new cluster for job."
 msgstr "खामानिनि थाखाय गोदान क्लास्टार सोरजिनो हायाखै।"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:464
+#: dashboards/project/data_processing/jobs/workflows/launch.py:476
 msgid "Unable to launch job."
 msgstr "खामानिखौ जागायनो हायाखै।"
 

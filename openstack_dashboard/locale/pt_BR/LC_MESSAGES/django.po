@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-29 22:09-0500\n"
-"PO-Revision-Date: 2015-04-29 19:44+0000\n"
-"Last-Translator: Dayvidson dos Santos Bezerra <dayvidsonbezerra@gmail.com>\n"
+"POT-Creation-Date: 2015-04-30 23:00-0500\n"
+"PO-Revision-Date: 2015-04-30 17:44+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2684,7 +2684,7 @@ msgstr "Namespace"
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:35
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:18
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:82
-#: dashboards/project/data_processing/jobs/workflows/launch.py:409
+#: dashboards/project/data_processing/jobs/workflows/launch.py:421
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:402
 #: dashboards/project/database_backups/tables.py:165
 #: dashboards/project/database_backups/templates/database_backups/details.html:32
@@ -4405,7 +4405,7 @@ msgstr[1] "Especificações Extras Excluídas"
 #: dashboards/project/data_processing/data_sources/workflows/create.py:95
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
 #: dashboards/project/data_processing/jobs/workflows/create.py:158
-#: dashboards/project/data_processing/jobs/workflows/launch.py:408
+#: dashboards/project/data_processing/jobs/workflows/launch.py:420
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:257
 #: dashboards/project/networks/subnets/workflows.py:57
 #: dashboards/project/networks/workflows.py:343
@@ -7239,7 +7239,7 @@ msgid "Unable to fetch plugin list."
 msgstr "Não foi possível obter lista de plugin"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:53
-#: dashboards/project/data_processing/jobs/workflows/launch.py:356
+#: dashboards/project/data_processing/jobs/workflows/launch.py:368
 msgid "Plugin name"
 msgstr "Nome do Plugin"
 
@@ -7256,7 +7256,7 @@ msgid "Next"
 msgstr "Próximo"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:83
-#: dashboards/project/data_processing/jobs/workflows/launch.py:410
+#: dashboards/project/data_processing/jobs/workflows/launch.py:422
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:403
 msgid "Could not create"
 msgstr "Não foi possível criar"
@@ -7323,7 +7323,7 @@ msgstr "Não foi possível atualizar a linha"
 #: dashboards/project/data_processing/clusters/tables.py:136
 #: dashboards/project/data_processing/clusters/views.py:80
 #: dashboards/project/data_processing/clusters/workflows/create.py:201
-#: dashboards/project/data_processing/jobs/workflows/launch.py:314
+#: dashboards/project/data_processing/jobs/workflows/launch.py:326
 msgid "Configure Cluster"
 msgstr "Configurar Cluster"
 
@@ -7431,7 +7431,7 @@ msgid "Unable to fetch cluster list"
 msgstr "Não foi possível obter a lista de cluster"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:46
-#: dashboards/project/data_processing/jobs/workflows/launch.py:396
+#: dashboards/project/data_processing/jobs/workflows/launch.py:408
 msgid "Select plugin and hadoop version for cluster"
 msgstr "Escolha um plugin e versão do Hadoop para clusters"
 
@@ -7468,8 +7468,8 @@ msgid "No Templates Available"
 msgstr "Nenhum Modelo Disponível"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:220
-#: dashboards/project/data_processing/jobs/workflows/launch.py:333
-#: dashboards/project/data_processing/jobs/workflows/launch.py:418
+#: dashboards/project/data_processing/jobs/workflows/launch.py:345
+#: dashboards/project/data_processing/jobs/workflows/launch.py:430
 #: dashboards/project/databases/workflows/create_instance.py:335
 #: dashboards/project/images/images/tables.py:62
 #: dashboards/project/instances/workflows/create_instance.py:830
@@ -7976,9 +7976,9 @@ msgstr[1] "Jobs Excluídos"
 #: dashboards/project/data_processing/jobs/views.py:85
 #: dashboards/project/data_processing/jobs/views.py:106
 #: dashboards/project/data_processing/jobs/views.py:119
-#: dashboards/project/data_processing/jobs/workflows/launch.py:332
-#: dashboards/project/data_processing/jobs/workflows/launch.py:407
-#: dashboards/project/data_processing/jobs/workflows/launch.py:417
+#: dashboards/project/data_processing/jobs/workflows/launch.py:344
+#: dashboards/project/data_processing/jobs/workflows/launch.py:419
+#: dashboards/project/data_processing/jobs/workflows/launch.py:429
 msgid "Launch Job"
 msgid_plural "Launch Jobs"
 msgstr[0] "Disparar Job"
@@ -8246,16 +8246,16 @@ msgstr "Selecionar nome de propriedade"
 msgid "Remove"
 msgstr "Remover"
 
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:220
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:223
 msgid "Configuration"
 msgstr "Configuração"
 
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:223
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:226
 #: dashboards/project/stacks/templates/stacks/_preview_details.html:20
 msgid "Parameters"
 msgstr "parâmetros"
 
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:226
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:229
 msgid "Arguments"
 msgstr "argumentos"
 
@@ -8323,61 +8323,69 @@ msgstr "Output"
 msgid "Unable to fetch clusters."
 msgstr "Não foi possível obter clusters."
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:156
+#: dashboards/project/data_processing/jobs/workflows/launch.py:157
 msgid "Main Class"
 msgstr "Classe principal"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:159
+#: dashboards/project/data_processing/jobs/workflows/launch.py:160
 msgid "Java Opts"
 msgstr "Java Opts"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:162
+#: dashboards/project/data_processing/jobs/workflows/launch.py:163
 msgid "Mapper"
 msgstr "Mapeador"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:164
+#: dashboards/project/data_processing/jobs/workflows/launch.py:165
 msgid "Reducer"
 msgstr "Redutor"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:232
+#: dashboards/project/data_processing/jobs/workflows/launch.py:168
+msgid "Use HBase Common library"
+msgstr ""
+
+#: dashboards/project/data_processing/jobs/workflows/launch.py:169
+msgid "Run HBase EDP Jobs with common HBase library on HDFS"
+msgstr ""
+
+#: dashboards/project/data_processing/jobs/workflows/launch.py:241
 msgid "Configure"
 msgstr "Configurar"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:310
+#: dashboards/project/data_processing/jobs/workflows/launch.py:322
 msgid "Persist cluster after job exit"
 msgstr "Persistir cluster após sair do job"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:334
-#: dashboards/project/data_processing/jobs/workflows/launch.py:419
+#: dashboards/project/data_processing/jobs/workflows/launch.py:346
+#: dashboards/project/data_processing/jobs/workflows/launch.py:431
 msgid "Job launched"
 msgstr "Job iniciado"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:335
-#: dashboards/project/data_processing/jobs/workflows/launch.py:420
+#: dashboards/project/data_processing/jobs/workflows/launch.py:347
+#: dashboards/project/data_processing/jobs/workflows/launch.py:432
 msgid "Could not launch job"
 msgstr "Não foi possível iniciar o trabalho"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:361
+#: dashboards/project/data_processing/jobs/workflows/launch.py:373
 msgid "Job configs"
 msgstr "Job configurações"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:365
+#: dashboards/project/data_processing/jobs/workflows/launch.py:377
 msgid "Job args"
 msgstr "Job Argumentos"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:369
+#: dashboards/project/data_processing/jobs/workflows/launch.py:381
 msgid "Job params"
 msgstr "Job parâmetros"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:375
+#: dashboards/project/data_processing/jobs/workflows/launch.py:387
 msgid "Job Execution ID"
 msgstr "ID de execução do JOB"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:451
+#: dashboards/project/data_processing/jobs/workflows/launch.py:463
 msgid "Unable to create new cluster for job."
 msgstr "Não é possível criar novo cluster para o JOB."
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:464
+#: dashboards/project/data_processing/jobs/workflows/launch.py:476
 msgid "Unable to launch job."
 msgstr "Não é possível iniciar o job."
 

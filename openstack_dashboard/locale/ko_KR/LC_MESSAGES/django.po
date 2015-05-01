@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-29 22:09-0500\n"
-"PO-Revision-Date: 2015-04-29 19:44+0000\n"
+"POT-Creation-Date: 2015-04-30 23:00-0500\n"
+"PO-Revision-Date: 2015-04-30 17:44+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -2670,7 +2670,7 @@ msgstr "네임스페이스"
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:35
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:18
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:82
-#: dashboards/project/data_processing/jobs/workflows/launch.py:409
+#: dashboards/project/data_processing/jobs/workflows/launch.py:421
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:402
 #: dashboards/project/database_backups/tables.py:165
 #: dashboards/project/database_backups/templates/database_backups/details.html:32
@@ -4381,7 +4381,7 @@ msgstr[0] "추가 스펙 삭제함"
 #: dashboards/project/data_processing/data_sources/workflows/create.py:95
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
 #: dashboards/project/data_processing/jobs/workflows/create.py:158
-#: dashboards/project/data_processing/jobs/workflows/launch.py:408
+#: dashboards/project/data_processing/jobs/workflows/launch.py:420
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:257
 #: dashboards/project/networks/subnets/workflows.py:57
 #: dashboards/project/networks/workflows.py:343
@@ -7177,7 +7177,7 @@ msgid "Unable to fetch plugin list."
 msgstr "플러그인 목록을 가져오지 못 했습니다."
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:53
-#: dashboards/project/data_processing/jobs/workflows/launch.py:356
+#: dashboards/project/data_processing/jobs/workflows/launch.py:368
 msgid "Plugin name"
 msgstr "플러그인 이름"
 
@@ -7194,7 +7194,7 @@ msgid "Next"
 msgstr "다음"
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:83
-#: dashboards/project/data_processing/jobs/workflows/launch.py:410
+#: dashboards/project/data_processing/jobs/workflows/launch.py:422
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:403
 msgid "Could not create"
 msgstr "생성할 수 없음"
@@ -7259,7 +7259,7 @@ msgstr "행을 업데이트 할 수 없습니다."
 #: dashboards/project/data_processing/clusters/tables.py:136
 #: dashboards/project/data_processing/clusters/views.py:80
 #: dashboards/project/data_processing/clusters/workflows/create.py:201
-#: dashboards/project/data_processing/jobs/workflows/launch.py:314
+#: dashboards/project/data_processing/jobs/workflows/launch.py:326
 msgid "Configure Cluster"
 msgstr "클러스터 구성"
 
@@ -7367,7 +7367,7 @@ msgid "Unable to fetch cluster list"
 msgstr "클러스터 목록을 가져오지 못 했습니다."
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:46
-#: dashboards/project/data_processing/jobs/workflows/launch.py:396
+#: dashboards/project/data_processing/jobs/workflows/launch.py:408
 msgid "Select plugin and hadoop version for cluster"
 msgstr "클러스터의 Hadoop 버전과 플러그인 선택"
 
@@ -7404,8 +7404,8 @@ msgid "No Templates Available"
 msgstr "사용 가능한 템플릿 없음"
 
 #: dashboards/project/data_processing/clusters/workflows/create.py:220
-#: dashboards/project/data_processing/jobs/workflows/launch.py:333
-#: dashboards/project/data_processing/jobs/workflows/launch.py:418
+#: dashboards/project/data_processing/jobs/workflows/launch.py:345
+#: dashboards/project/data_processing/jobs/workflows/launch.py:430
 #: dashboards/project/databases/workflows/create_instance.py:335
 #: dashboards/project/images/images/tables.py:62
 #: dashboards/project/instances/workflows/create_instance.py:830
@@ -7904,9 +7904,9 @@ msgstr[0] "Job 삭제함"
 #: dashboards/project/data_processing/jobs/views.py:85
 #: dashboards/project/data_processing/jobs/views.py:106
 #: dashboards/project/data_processing/jobs/views.py:119
-#: dashboards/project/data_processing/jobs/workflows/launch.py:332
-#: dashboards/project/data_processing/jobs/workflows/launch.py:407
-#: dashboards/project/data_processing/jobs/workflows/launch.py:417
+#: dashboards/project/data_processing/jobs/workflows/launch.py:344
+#: dashboards/project/data_processing/jobs/workflows/launch.py:419
+#: dashboards/project/data_processing/jobs/workflows/launch.py:429
 msgid "Launch Job"
 msgid_plural "Launch Jobs"
 msgstr[0] "Job 실행"
@@ -8170,16 +8170,16 @@ msgstr "등록 이름 선택"
 msgid "Remove"
 msgstr "삭제"
 
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:220
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:223
 msgid "Configuration"
 msgstr "구성"
 
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:223
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:226
 #: dashboards/project/stacks/templates/stacks/_preview_details.html:20
 msgid "Parameters"
 msgstr "매개 변수"
 
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:226
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:229
 msgid "Arguments"
 msgstr "인수"
 
@@ -8247,61 +8247,69 @@ msgstr "출력"
 msgid "Unable to fetch clusters."
 msgstr "클러스터를 가져올 수 없습니다."
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:156
+#: dashboards/project/data_processing/jobs/workflows/launch.py:157
 msgid "Main Class"
 msgstr "메인 클레스"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:159
+#: dashboards/project/data_processing/jobs/workflows/launch.py:160
 msgid "Java Opts"
 msgstr "Java 옵션"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:162
+#: dashboards/project/data_processing/jobs/workflows/launch.py:163
 msgid "Mapper"
 msgstr "Mapper"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:164
+#: dashboards/project/data_processing/jobs/workflows/launch.py:165
 msgid "Reducer"
 msgstr "Reducer"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:232
+#: dashboards/project/data_processing/jobs/workflows/launch.py:168
+msgid "Use HBase Common library"
+msgstr ""
+
+#: dashboards/project/data_processing/jobs/workflows/launch.py:169
+msgid "Run HBase EDP Jobs with common HBase library on HDFS"
+msgstr ""
+
+#: dashboards/project/data_processing/jobs/workflows/launch.py:241
 msgid "Configure"
 msgstr "구성"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:310
+#: dashboards/project/data_processing/jobs/workflows/launch.py:322
 msgid "Persist cluster after job exit"
 msgstr "작업 종료 후 클러스터 지속"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:334
-#: dashboards/project/data_processing/jobs/workflows/launch.py:419
+#: dashboards/project/data_processing/jobs/workflows/launch.py:346
+#: dashboards/project/data_processing/jobs/workflows/launch.py:431
 msgid "Job launched"
 msgstr "Job 실행함"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:335
-#: dashboards/project/data_processing/jobs/workflows/launch.py:420
+#: dashboards/project/data_processing/jobs/workflows/launch.py:347
+#: dashboards/project/data_processing/jobs/workflows/launch.py:432
 msgid "Could not launch job"
 msgstr "Job을 실행시키지 못 했습니다."
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:361
+#: dashboards/project/data_processing/jobs/workflows/launch.py:373
 msgid "Job configs"
 msgstr "Job 구성"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:365
+#: dashboards/project/data_processing/jobs/workflows/launch.py:377
 msgid "Job args"
 msgstr "Job args"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:369
+#: dashboards/project/data_processing/jobs/workflows/launch.py:381
 msgid "Job params"
 msgstr "Job 매개 변수"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:375
+#: dashboards/project/data_processing/jobs/workflows/launch.py:387
 msgid "Job Execution ID"
 msgstr "Job 실행 ID"
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:451
+#: dashboards/project/data_processing/jobs/workflows/launch.py:463
 msgid "Unable to create new cluster for job."
 msgstr "Job에대한 새로운 클러스터를 생성할 수 없습니다."
 
-#: dashboards/project/data_processing/jobs/workflows/launch.py:464
+#: dashboards/project/data_processing/jobs/workflows/launch.py:476
 msgid "Unable to launch job."
 msgstr "Job을 실행할 수 없습니다."
 
