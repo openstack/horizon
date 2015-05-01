@@ -25,7 +25,7 @@ limitations under the License.
     /**
     * @ngdoc directive
     * @ngname serialConsole
-    * 
+    *
     * @description
     * The serial-console element creates a terminal based on the widely-used term.js.
     * The "connection" attribute is input to a WebSocket object, which connects
