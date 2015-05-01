@@ -70,6 +70,7 @@ no_pep8=0
 just_pylint=0
 just_docs=0
 just_tabs=0
+just_jscs=0
 just_jshint=0
 never_venv=0
 quiet=0
