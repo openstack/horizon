@@ -13,8 +13,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import time
-
 from django.conf import settings
 
 from django.http import HttpResponseRedirect  # noqa
@@ -34,19 +32,6 @@ class MiddlewareTests(test.TestCase):
         resp.client = self.client
 
         self.assertRedirects(resp, url)
-
-    def test_session_timeout(self):
-        requested_url = '/project/instances/'
-        request = self.factory.get(requested_url)
-        try:
-            timeout = settings.SESSION_TIMEOUT
-        except AttributeError:
-            timeout = 1800
-        request.session['last_activity'] = int(time.time()) - (timeout + 10)
-        mw = middleware.HorizonMiddleware()
-        resp = mw.process_request(request)
-        self.assertEqual(302, resp.status_code)
-        self.assertEqual(requested_url, resp.get('Location'))
 
     def test_process_response_redirect_on_ajax_request(self):
         url = settings.LOGIN_URL
