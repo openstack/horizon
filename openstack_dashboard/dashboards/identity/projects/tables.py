@@ -193,7 +193,7 @@ class UpdateCell(tables.UpdateAction):
         policy_rule = (("identity", "identity:update_project"),)
         return (
             (cell.column.name != 'enabled' or
-             request.user.token.project['id'] != cell.datum.id) and
+             request.user.project_id != cell.datum.id) and
             api.keystone.keystone_can_edit_project() and
             policy.check(policy_rule, request))
 
