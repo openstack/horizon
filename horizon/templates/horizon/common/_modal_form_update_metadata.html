@@ -11,8 +11,8 @@
                     existing="existing"
                     model="tree"></hz-metadata-tree>
   <script type="text/javascript">
-    var existing_metadata = {{ existing_metadata|safe }};
-    var available_metadata = {{ available_metadata|safe }};
+    var existing_metadata = JSON.parse('{{ existing_metadata|escapejs }}');
+    var available_metadata = JSON.parse('{{ available_metadata|escapejs }}');
   </script>
 {% endblock %}
 
