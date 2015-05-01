@@ -140,6 +140,13 @@ Give me metrics!
 You can generate various reports and metrics using command line arguments
 to ``run_tests.sh``.
 
+JSCS
+----
+
+To run JSCS, a JavaScript code style checker::
+
+    ./run_tests.sh --jscs
+
 Coverage
 --------
 
