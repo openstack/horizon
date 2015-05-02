@@ -74,13 +74,20 @@ horizon.d3_pie_chart_usage = {
     self.chart = d3.selectAll(".d3_pie_chart_usage");
 
     for (var i = 0; i < pie_chart_data.length; i++) {
-      var used = Math.min(parseInt($(pie_chart_data[i]).data("used")), 100);
-      self.data = [{"percentage":used}, {"percentage":100 - used}];
-      self.pieChart(i);
+      var data = $(pie_chart_data[i]).data("used");
+      // When true is passed in only show the number, not the actual pie chart
+      if (data[1] === true) {
+        self.data = data[0];
+        self.pieChart(i, false);
+      } else {
+        var used = Math.min(parseInt(data), 100);
+        self.data = [{"percentage":used}, {"percentage":100 - used}];
+        self.pieChart(i, true);
+      }
     }
   },
   // Draw a pie chart
-  pieChart: function(i) {
+  pieChart: function(i, fill) {
     var self = this;
     var vis = create_vis(self.chart[0][i]);
     var arc = create_arc();
@@ -135,7 +142,20 @@ horizon.d3_pie_chart_usage = {
         });
     };
 
-    animate(self.data);
+    var show_numbers = function() {
+      vis.append("text")
+        .style("fill", "black")
+        .style("font-size","28px")
+        .attr('text-anchor', 'middle')
+        .attr('dominant-baseline', 'central')
+        .text(self.data);
+    };
+
+    if (fill) {
+      animate(self.data);
+    } else {
+      show_numbers(self.data);
+    }
   }
 };
 
