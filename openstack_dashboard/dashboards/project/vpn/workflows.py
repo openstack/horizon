@@ -408,7 +408,7 @@ class AddIPSecSiteConnectionOptionalAction(workflows.Action):
     dpd_interval = forms.IntegerField(
         min_value=1, label=_("Dead peer detection interval"),
         initial=30,
-        help_text=_("Valid integer"))
+        help_text=_("Valid integer lesser than DPD timeout"))
     dpd_timeout = forms.IntegerField(
         min_value=1, label=_("Dead peer detection timeout"),
         initial=120,
@@ -435,6 +435,17 @@ class AddIPSecSiteConnectionOptionalAction(workflows.Action):
                               ("restart-by-peer", "restart-by-peer")]
         self.fields['dpd_action'].choices = dpd_action_choices
         return dpd_action_choices
+
+    def clean(self):
+        cleaned_data = super(AddIPSecSiteConnectionOptionalAction,
+                             self).clean()
+        interval = cleaned_data.get('dpd_interval')
+        timeout = cleaned_data.get('dpd_timeout')
+
+        if not interval < timeout:
+            msg = _("DPD Timeout must be greater than DPD Interval")
+            self._errors['dpd_timeout'] = self.error_class([msg])
+        return cleaned_data
 
     class Meta(object):
         name = _("Optional Parameters")
