@@ -185,7 +185,7 @@ class LbaasApiTests(test.APITestCase):
 
     @test.create_stubs({neutronclient: ('show_pool', 'show_vip',
                                         'list_members',
-                                        'list_health_monitors',),
+                                        'show_health_monitor',),
                         api.neutron: ('subnet_get',)})
     def test_pool_get(self):
         pool = self.pools.first()
@@ -198,8 +198,10 @@ class LbaasApiTests(test.APITestCase):
         neutronclient.show_vip(pool.vip_id).AndReturn(vip_dict)
         neutronclient.list_members(pool_id=pool.id).AndReturn(
             {'members': self.api_members.list()})
-        neutronclient.list_health_monitors(id=pool.health_monitors).AndReturn(
-            {'health_monitors': [self.api_monitors.first()]})
+        monitor = self.api_monitors.first()
+        for pool_mon in pool.health_monitors:
+            neutronclient.show_health_monitor(pool_mon).AndReturn(
+                {'health_monitors': [monitor]})
         self.mox.ReplayAll()
 
         ret_val = api.lbaas.pool_get(self.request, pool.id)
@@ -210,7 +212,8 @@ class LbaasApiTests(test.APITestCase):
         self.assertEqual(ret_val.subnet.id, subnet.id)
         self.assertEqual(2, len(ret_val.members))
         self.assertIsInstance(ret_val.members[0], api.lbaas.Member)
-        self.assertEqual(1, len(ret_val.health_monitors))
+        self.assertEqual(len(pool.health_monitors),
+                         len(ret_val.health_monitors))
         self.assertIsInstance(ret_val.health_monitors[0],
                               api.lbaas.PoolMonitor)
 

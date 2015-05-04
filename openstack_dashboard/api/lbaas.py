@@ -210,13 +210,18 @@ def _pool_get(request, pool_id, expand_resource=False):
         except Exception:
             messages.warning(request, _("Unable to get members for pool "
                                         "%(pool)s.") % {"pool": pool_id})
-        try:
-            pool['health_monitors'] = pool_health_monitor_list(
-                request, id=pool['health_monitors'])
-        except Exception:
-            messages.warning(request,
-                             _("Unable to get health monitors "
-                               "for pool %(pool)s.") % {"pool": pool_id})
+        monitors = []
+        for monitor_id in pool['health_monitors']:
+            try:
+                monitors.append(_pool_health_monitor_get(request, monitor_id,
+                                                         False))
+            except Exception:
+                messages.warning(request,
+                                 _("Unable to get health monitor "
+                                   "%(monitor_id)s for pool %(pool)s.")
+                                 % {"pool": pool_id,
+                                    "monitor_id": monitor_id})
+        pool['health_monitors'] = monitors
     return Pool(pool)
 
 
