@@ -32,7 +32,17 @@ IMAGE_METADATA_URL = reverse('horizon:admin:images:update_metadata',
 
 
 class ImageCreateViewTest(test.BaseAdminViewTests):
+    @test.create_stubs({api.glance: ('image_list_detailed',)})
     def test_admin_image_create_view_uses_admin_template(self):
+        filters = {'disk_format': 'aki'}
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest), filters=filters).AndReturn(
+            [self.images.list(), False, False])
+        filters = {'disk_format': 'ari'}
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest), filters=filters).AndReturn(
+            [self.images.list(), False, False])
+        self.mox.ReplayAll()
         res = self.client.get(
             reverse('horizon:admin:images:create'))
         self.assertTemplateUsed(res, 'admin/images/create.html')
