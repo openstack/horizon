@@ -61,7 +61,8 @@ class AddPoolAction(workflows.Action):
             networks = []
         for n in networks:
             for s in n['subnets']:
-                subnet_id_choices.append((s.id, s.cidr))
+                name = "%s (%s)" % (s.name, s.cidr)
+                subnet_id_choices.append((s.id, name))
         self.fields['subnet_id'].choices = subnet_id_choices
 
         protocol_choices = [('', _("Select a Protocol"))]
