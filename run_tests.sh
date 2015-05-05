@@ -439,12 +439,15 @@ function run_makemessages {
   cd ../openstack_dashboard
   ${command_wrapper} $root/manage.py makemessages $DASHBOARD_OPTS $OPTS
   DASHBOARD_RESULT=$?
+  echo -n "openstack_dashboard javascript: "
+  ${command_wrapper} $root/manage.py makemessages -d djangojs $OPTS
+  DASHBOARD_JS_RESULT=$?
   cd ..
   if [ $check_only -eq 1 ]; then
     git checkout -- horizon/locale/en/LC_MESSAGES/django*.po
     git checkout -- openstack_dashboard/locale/en/LC_MESSAGES/django.po
   fi
-  exit $(($HORIZON_PY_RESULT || $HORIZON_JS_RESULT || $DASHBOARD_RESULT))
+  exit $(($HORIZON_PY_RESULT || $HORIZON_JS_RESULT || $DASHBOARD_RESULT || $DASHBOARD_JS_RESULT))
 }
 
 function run_compilemessages {
@@ -457,7 +460,7 @@ function run_compilemessages {
   cd ..
   # English is the source language, so compiled catalogs are unnecessary.
   rm -vf horizon/locale/en/LC_MESSAGES/django*.mo
-  rm -vf openstack_dashboard/locale/en/LC_MESSAGES/django.mo
+  rm -vf openstack_dashboard/locale/en/LC_MESSAGES/django*.mo
   exit $(($HORIZON_PY_RESULT || $DASHBOARD_RESULT))
 }
 
@@ -466,6 +469,7 @@ function run_pseudo {
   # Use English po file as the source file/pot file just like real Horizon translations
   do
       ${command_wrapper} $root/tools/pseudo.py openstack_dashboard/locale/en/LC_MESSAGES/django.po openstack_dashboard/locale/$lang/LC_MESSAGES/django.po $lang
+      ${command_wrapper} $root/tools/pseudo.py openstack_dashboard/locale/en/LC_MESSAGES/djangojs.po openstack_dashboard/locale/$lang/LC_MESSAGES/djangojs.po $lang
       ${command_wrapper} $root/tools/pseudo.py horizon/locale/en/LC_MESSAGES/django.po horizon/locale/$lang/LC_MESSAGES/django.po $lang
       ${command_wrapper} $root/tools/pseudo.py horizon/locale/en/LC_MESSAGES/djangojs.po horizon/locale/$lang/LC_MESSAGES/djangojs.po $lang
   done
