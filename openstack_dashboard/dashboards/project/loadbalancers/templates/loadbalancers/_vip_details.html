@@ -22,6 +22,11 @@
     <dt>{% trans "Address" %}</dt>
     <dd>{{ vip.address }}</dd>
 
+    {% if vip.fip %}
+    <dt>{% trans "Floating IP" %}</dt>
+    <dd>{{ vip.fip.floating_ip_address }}</dd>
+    {% endif %}
+
     <dt>{% trans "Protocol Port" %}</dt>
     <dd>{{ vip.protocol_port }}</dd>
 

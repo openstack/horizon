@@ -14,6 +14,7 @@
 
 
 from django.core.urlresolvers import reverse
+from django import template
 from django.template import defaultfilters as filters
 from django.utils import http
 from django.utils.translation import pgettext_lazy
@@ -220,14 +221,6 @@ class UpdateMonitorLink(policy.PolicyTargetMixin, tables.LinkAction):
         return base_url
 
 
-def get_vip_link(pool):
-    if pool.vip_id:
-        return reverse("horizon:project:loadbalancers:vipdetails",
-                       args=(http.urlquote(pool.vip_id),))
-    else:
-        return None
-
-
 class AddPMAssociationLink(policy.PolicyTargetMixin,
                            tables.LinkAction):
     name = "addassociation"
@@ -273,9 +266,9 @@ class UpdatePoolsRow(tables.Row):
         pool = api.lbaas.pool_get(request, pool_id)
         try:
             vip = api.lbaas.vip_get(request, pool.vip_id)
-            pool.vip_name = vip.name
+            pool.vip = vip
         except Exception:
-            pool.vip_name = pool.vip_id
+            pass
         try:
             subnet = api.neutron.subnet_get(request, pool.subnet_id)
             pool.subnet_name = subnet.cidr
@@ -311,6 +304,15 @@ STATUS_DISPLAY_CHOICES = (
 )
 
 
+def get_vip_name(pool):
+    if hasattr(pool, "vip") and pool.vip:
+        template_name = 'project/loadbalancers/_pool_table_vip_cell.html'
+        context = {"vip": pool.vip, }
+        return template.loader.render_to_string(template_name, context)
+    else:
+        return None
+
+
 class PoolsTable(tables.DataTable):
     METHOD_DISPLAY_CHOICES = (
         ("round_robin", pgettext_lazy("load balancing method",
@@ -337,8 +339,7 @@ class PoolsTable(tables.DataTable):
                            status=True,
                            status_choices=STATUS_CHOICES,
                            display_choices=STATUS_DISPLAY_CHOICES)
-    vip_name = tables.Column('vip_name', verbose_name=_("VIP"),
-                             link=get_vip_link)
+    vip_name = tables.Column(get_vip_name, verbose_name=_("VIP"))
 
     class Meta(object):
         name = "poolstable"
