@@ -7,7 +7,6 @@
 
   "globals": {
     "horizon": false,
-    "STATIC_URL": false,
     "jQuery": false,
     "$": false,
 
@@ -27,7 +26,6 @@
     "jasmine": false,
 
     "d3": false,
-    "Hogan": false,
     "test": false,
     "equal": false,
     "ok": false,

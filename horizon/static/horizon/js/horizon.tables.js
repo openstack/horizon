@@ -1,3 +1,4 @@
+/* global STATIC_URL */
 /* Namespace for core functionality related to DataTables. */
 horizon.datatables = {
   update: function () {

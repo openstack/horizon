@@ -1,3 +1,4 @@
+/* global Hogan */
 /* Namespace for core functionality related to Network Topology. */
 
 horizon.network_topology = {
