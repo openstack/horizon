@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-30 23:00-0500\n"
-"PO-Revision-Date: 2015-04-30 17:44+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"PO-Revision-Date: 2015-05-04 07:52+0000\n"
+"Last-Translator: Robert Simai\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8342,11 +8342,11 @@ msgstr "Reducer"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:168
 msgid "Use HBase Common library"
-msgstr ""
+msgstr "Allgemeine HBase Bibliothek verwenden"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:169
 msgid "Run HBase EDP Jobs with common HBase library on HDFS"
-msgstr ""
+msgstr "HBase EDP Aufgaben mit der allgemeinen HBase Bibliothek auf HDFS laufen lassen"
 
 #: dashboards/project/data_processing/jobs/workflows/launch.py:241
 msgid "Configure"
@@ -13689,7 +13689,7 @@ msgstr "Ziel-CIDR"
 #: dashboards/project/routers/extensions/extraroutes/forms.py:34
 #: dashboards/project/routers/extensions/extraroutes/tables.py:66
 msgid "Next Hop"
-msgstr ""
+msgstr "Nächster Hop"
 
 #: dashboards/project/routers/extensions/extraroutes/forms.py:45
 msgid "Static route added"
@@ -13703,7 +13703,7 @@ msgstr "Ungültiges Format für Routen : %s"
 #: dashboards/project/routers/extensions/extraroutes/forms.py:56
 #, python-format
 msgid "Failed to add route : %s"
-msgstr ""
+msgstr "Fehler beim Hinzufügen der Route: %s"
 
 #: dashboards/project/routers/extensions/extraroutes/tables.py:28
 #: dashboards/project/routers/templates/routers/extensions/routerroutes/_create.html:9
@@ -13724,7 +13724,7 @@ msgstr[1] "Gelöschte statische Routen"
 
 #: dashboards/project/routers/extensions/extraroutes/tabs.py:40
 msgid "Failed to check if Neutron extraroute extension is supported"
-msgstr ""
+msgstr "Fehler bei der Überprüfung der Untersützung der Neutron extraroute Erweiterung"
 
 #: dashboards/project/routers/extensions/extraroutes/views.py:48
 #: dashboards/project/routers/extensions/routerrules/views.py:50
@@ -14092,7 +14092,7 @@ msgstr "Statische Route zum Router hinzufügen."
 msgid ""
 "Next Hop IP must be a part of one of the subnets to which the router "
 "interfaces are connected."
-msgstr ""
+msgstr "Die nächste Hop-IP muss Teil des Subnetzes sein, an das sich die Routerschnittstellen verbinden."
 
 #: dashboards/project/routers/templates/routers/extensions/routerroutes/_create.html:27
 msgid "Add route"
