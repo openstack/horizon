@@ -49,7 +49,7 @@
 
     config.label = {
       title: gettext('Configuration'),
-      subtitle: gettext(''),
+      subtitle: '',
       customizationScript: gettext('Customization Script'),
       customizationScriptMax: gettext('(Max: 16Kb)'),
       loadScriptFromFile: gettext('Load script from a file'),

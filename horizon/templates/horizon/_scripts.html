@@ -4,8 +4,7 @@
 
 {% datepicker_locale as DATEPICKER_LOCALE %}
 
-{% comment %} Django's JavaScript i18n Implementation {% endcomment %}
-<script type="text/javascript" src="{% url 'horizon:jsi18n' 'horizon' %}"></script>
+{% include "horizon/_script_i18n.html" %}
 
 {% comment %} Compress jQuery, Angular, Plugins, Bootstrap, Hogan.js and Horizon-specific JS. {% endcomment %}
 {% compress js %}
