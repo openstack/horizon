@@ -14,14 +14,16 @@
 # under the License.
 
 
-from horizon.test import helpers as test
+from horizon.test.jasmine import jasmine_tests as test
 
 LAUNCH_INST = "dashboard/launch-instance"
 
 
-class ServicesTests(test.JasmineTests):
-    # sources would go here
-    sources = [
+class ServicesTests(test.ServicesTests):
+
+    # We rely on sources from horizon
+    # therefore, we must append the sources
+    dashboard_sources = [
         'dashboard/dashboard.module.js',
         'dashboard/workflow/workflow.js',
         LAUNCH_INST + '/launch-instance.js',
@@ -33,7 +35,9 @@ class ServicesTests(test.JasmineTests):
         LAUNCH_INST + '/network/network.js',
         LAUNCH_INST + '/source/source.js',
     ]
-    # spec files would go here
+
+    # We are only testing dashboard specs here
+    # so we override the parent specs
     specs = [
         'dashboard/dashboard.module.js',
         'dashboard/workflow/workflow.js',
@@ -46,5 +50,8 @@ class ServicesTests(test.JasmineTests):
         LAUNCH_INST + '/network/network.spec.js',
         LAUNCH_INST + '/source/source.spec.js',
     ]
-    externalTemplates = [
-    ]
+    externalTemplates = []
+
+    def __init__(self, *args, **kwargs):
+        super(test.ServicesTests, self).__init__(*args, **kwargs)
+        self.sources = self.sources.extend(self.dashboard_sources)

@@ -30,7 +30,7 @@ def dispatcher(request, test_name):
     if not test_name:
         return django.shortcuts.render(
             request,
-            "jasmine/index.html",
+            "horizon/jasmine/index.html",
             {'classes': (cls_name for cls_name, _ in classes)}
         )
     else:
@@ -39,7 +39,7 @@ def dispatcher(request, test_name):
                 template = cls.template_name
 
                 if not template:
-                    template = "jasmine/jasmine.html"
+                    template = "horizon/jasmine/jasmine.html"
 
                 return django.shortcuts.render(
                     request,
