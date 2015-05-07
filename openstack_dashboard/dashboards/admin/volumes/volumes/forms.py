@@ -168,6 +168,13 @@ class UnmanageVolume(forms.SelfHandlingForm):
 class CreateVolumeType(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255, label=_("Name"))
 
+    def clean_name(self):
+        cleaned_name = self.cleaned_data['name']
+        if len(cleaned_name.strip()) == 0:
+            raise ValidationError(_('Volume type name can not be empty.'))
+
+        return cleaned_name
+
     def handle(self, request, data):
         try:
             # Remove any new lines in the public key
