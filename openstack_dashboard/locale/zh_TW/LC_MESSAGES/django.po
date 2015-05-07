@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-30 23:00-0500\n"
-"PO-Revision-Date: 2015-04-30 17:44+0000\n"
+"POT-Creation-Date: 2015-05-06 14:44-0500\n"
+"PO-Revision-Date: 2015-05-06 19:45+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -582,7 +582,7 @@ msgstr "虛擬資料夾仍然不是空的，不能刪除。"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:9
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:9
 #: dashboards/project/loadbalancers/workflows.py:36
-#: dashboards/project/loadbalancers/workflows.py:155
+#: dashboards/project/loadbalancers/workflows.py:150
 #: dashboards/project/networks/forms.py:35
 #: dashboards/project/networks/ports/forms.py:39
 #: dashboards/project/networks/ports/tables.py:69
@@ -1609,7 +1609,7 @@ msgid "Failed to evacuate host: %s."
 msgstr "撤離主機時失敗：%s。"
 
 #: dashboards/admin/hypervisors/compute/forms.py:73
-#: dashboards/admin/hypervisors/compute/tables.py:124
+#: dashboards/admin/hypervisors/compute/tables.py:142
 #: dashboards/admin/info/tables.py:66 dashboards/admin/info/tables.py:95
 #: dashboards/admin/info/tables.py:119 dashboards/admin/info/tables.py:170
 #: dashboards/admin/info/tables.py:209
@@ -1681,7 +1681,7 @@ msgstr "正在轉移主機：%(current)s"
 msgid "Failed to migrate host \"%s\"."
 msgstr "轉移主機「%s」時失敗。"
 
-#: dashboards/admin/hypervisors/compute/tables.py:26
+#: dashboards/admin/hypervisors/compute/tables.py:27
 #: dashboards/admin/hypervisors/compute/views.py:30
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:8
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:23
@@ -1689,7 +1689,7 @@ msgstr "轉移主機「%s」時失敗。"
 msgid "Evacuate Host"
 msgstr "撤離主機"
 
-#: dashboards/admin/hypervisors/compute/tables.py:44
+#: dashboards/admin/hypervisors/compute/tables.py:45
 #: dashboards/admin/hypervisors/compute/views.py:62
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_disable_service.html:8
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_disable_service.html:23
@@ -1697,18 +1697,18 @@ msgstr "撤離主機"
 msgid "Disable Service"
 msgstr "關閉伺服器"
 
-#: dashboards/admin/hypervisors/compute/tables.py:63
+#: dashboards/admin/hypervisors/compute/tables.py:64
 msgid "Enable Service"
 msgid_plural "Enable Services"
 msgstr[0] "啟用伺服器"
 
-#: dashboards/admin/hypervisors/compute/tables.py:71
+#: dashboards/admin/hypervisors/compute/tables.py:72
 msgid "Enabled Service"
 msgid_plural "Enabled Services"
 msgstr[0] "已啟用伺服器"
 
-#: dashboards/admin/hypervisors/compute/tables.py:90
-#: dashboards/admin/hypervisors/compute/tables.py:96
+#: dashboards/admin/hypervisors/compute/tables.py:91
+#: dashboards/admin/hypervisors/compute/tables.py:97
 #: dashboards/admin/hypervisors/compute/views.py:80
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_migrate_host.html:8
 #: dashboards/admin/hypervisors/templates/hypervisors/compute/_migrate_host.html:22
@@ -1717,17 +1717,37 @@ msgid "Migrate Host"
 msgid_plural "Migrate Hosts"
 msgstr[0] "轉移主機"
 
-#: dashboards/admin/hypervisors/compute/tables.py:104
+#: dashboards/admin/hypervisors/compute/tables.py:105
 msgid "Migrated Host"
 msgid_plural "Migrated Hosts"
 msgstr[0] "已轉移主機"
 
-#: dashboards/admin/hypervisors/compute/tables.py:125
+#: dashboards/admin/hypervisors/compute/tables.py:133
+msgctxt "Current status of a Hypervisor"
+msgid "Enabled"
+msgstr "已啟用"
+
+#: dashboards/admin/hypervisors/compute/tables.py:135
+msgctxt "Current status of a Hypervisor"
+msgid "Disabled"
+msgstr "已關閉"
+
+#: dashboards/admin/hypervisors/compute/tables.py:137
+msgctxt "Current state of a Hypervisor"
+msgid "Up"
+msgstr "上線"
+
+#: dashboards/admin/hypervisors/compute/tables.py:139
+msgctxt "Current state of a Hypervisor"
+msgid "Down"
+msgstr "離線"
+
+#: dashboards/admin/hypervisors/compute/tables.py:143
 #: dashboards/admin/info/tables.py:96 dashboards/admin/info/tables.py:120
 msgid "Zone"
 msgstr "區域"
 
-#: dashboards/admin/hypervisors/compute/tables.py:126
+#: dashboards/admin/hypervisors/compute/tables.py:148
 #: dashboards/admin/info/tables.py:68 dashboards/admin/info/tables.py:97
 #: dashboards/admin/info/tables.py:121 dashboards/admin/info/tables.py:171
 #: dashboards/admin/info/tables.py:217
@@ -1787,18 +1807,18 @@ msgstr "區域"
 msgid "Status"
 msgstr "狀態"
 
-#: dashboards/admin/hypervisors/compute/tables.py:127
+#: dashboards/admin/hypervisors/compute/tables.py:153
 #: dashboards/admin/info/tables.py:98 dashboards/admin/info/tables.py:122
 #: dashboards/admin/info/tables.py:172 dashboards/project/overview/views.py:34
 msgid "State"
 msgstr "狀態"
 
-#: dashboards/admin/hypervisors/compute/tables.py:129
+#: dashboards/admin/hypervisors/compute/tables.py:155
 #: dashboards/admin/networks/agents/tables.py:95
 msgid "Updated At"
 msgstr "已更新"
 
-#: dashboards/admin/hypervisors/compute/tables.py:141
+#: dashboards/admin/hypervisors/compute/tables.py:167
 #: dashboards/admin/hypervisors/compute/tabs.py:24
 msgid "Compute Host"
 msgstr "運算主機"
@@ -1831,7 +1851,7 @@ msgstr "主機名稱"
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:9
 #: dashboards/project/images/images/tables.py:275
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
-#: dashboards/project/loadbalancers/workflows.py:486
+#: dashboards/project/loadbalancers/workflows.py:482
 #: dashboards/project/routers/ports/tables.py:115
 #: dashboards/project/stacks/resource_types/tables.py:31
 #: dashboards/project/volumes/volumes/forms.py:113
@@ -2505,7 +2525,7 @@ msgstr "更新聯結"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:12
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:12
 #: dashboards/project/loadbalancers/workflows.py:39
-#: dashboards/project/loadbalancers/workflows.py:158
+#: dashboards/project/loadbalancers/workflows.py:153
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:122
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:13
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:29
@@ -3124,9 +3144,9 @@ msgstr "加入 DHCP 媒介"
 #: dashboards/project/loadbalancers/forms.py:178
 #: dashboards/project/loadbalancers/forms.py:240
 #: dashboards/project/loadbalancers/workflows.py:48
-#: dashboards/project/loadbalancers/workflows.py:195
-#: dashboards/project/loadbalancers/workflows.py:347
-#: dashboards/project/loadbalancers/workflows.py:550
+#: dashboards/project/loadbalancers/workflows.py:190
+#: dashboards/project/loadbalancers/workflows.py:343
+#: dashboards/project/loadbalancers/workflows.py:546
 #: dashboards/project/networks/forms.py:43
 #: dashboards/project/networks/ports/forms.py:43
 #: dashboards/project/networks/ports/tables.py:77
@@ -3228,9 +3248,9 @@ msgstr "分段識別號"
 #: dashboards/project/loadbalancers/forms.py:176
 #: dashboards/project/loadbalancers/forms.py:238
 #: dashboards/project/loadbalancers/workflows.py:46
-#: dashboards/project/loadbalancers/workflows.py:193
-#: dashboards/project/loadbalancers/workflows.py:345
-#: dashboards/project/loadbalancers/workflows.py:548
+#: dashboards/project/loadbalancers/workflows.py:188
+#: dashboards/project/loadbalancers/workflows.py:341
+#: dashboards/project/loadbalancers/workflows.py:544
 #: dashboards/project/networks/forms.py:40
 #: dashboards/project/networks/ports/forms.py:41
 #: dashboards/project/networks/workflows.py:47
@@ -3251,9 +3271,9 @@ msgstr "上線"
 #: dashboards/project/loadbalancers/forms.py:177
 #: dashboards/project/loadbalancers/forms.py:239
 #: dashboards/project/loadbalancers/workflows.py:47
-#: dashboards/project/loadbalancers/workflows.py:194
-#: dashboards/project/loadbalancers/workflows.py:346
-#: dashboards/project/loadbalancers/workflows.py:549
+#: dashboards/project/loadbalancers/workflows.py:189
+#: dashboards/project/loadbalancers/workflows.py:342
+#: dashboards/project/loadbalancers/workflows.py:545
 #: dashboards/project/networks/forms.py:41
 #: dashboards/project/networks/ports/forms.py:42
 #: dashboards/project/networks/workflows.py:48
@@ -4640,7 +4660,7 @@ msgstr "以雲硬碟類型聯結 QoS 規格"
 #: dashboards/admin/volumes/volume_types/views.py:178
 #: dashboards/project/access_and_security/floating_ips/tables.py:110
 #: dashboards/project/access_and_security/floating_ips/workflows.py:137
-#: dashboards/project/loadbalancers/workflows.py:673
+#: dashboards/project/loadbalancers/workflows.py:669
 msgid "Associate"
 msgstr "聯結"
 
@@ -5727,7 +5747,7 @@ msgstr "無法獲得 EC2 格式的憑證"
 #: dashboards/project/loadbalancers/tables.py:375
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:12
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:31
-#: dashboards/project/loadbalancers/workflows.py:301
+#: dashboards/project/loadbalancers/workflows.py:297
 msgid "Pool"
 msgstr "倉庫"
 
@@ -5774,7 +5794,7 @@ msgid_plural "Released Floating IPs"
 msgstr[0] "已釋放浮動 IP"
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:132
-#: dashboards/project/loadbalancers/workflows.py:736
+#: dashboards/project/loadbalancers/workflows.py:732
 msgid "Disassociate"
 msgstr "取消聯結"
 
@@ -6061,7 +6081,7 @@ msgstr "埠口範圍"
 #: dashboards/project/access_and_security/security_groups/forms.py:147
 #: dashboards/project/access_and_security/security_groups/forms.py:158
 #: dashboards/project/access_and_security/security_groups/forms.py:169
-#: dashboards/project/loadbalancers/workflows.py:169
+#: dashboards/project/loadbalancers/workflows.py:164
 msgid "Enter an integer value between 1 and 65535."
 msgstr "輸入 1 到 65535 之間的整數。"
 
@@ -6286,10 +6306,10 @@ msgstr "無法獲得安全性群組。"
 #: dashboards/project/firewalls/workflows.py:104
 #: dashboards/project/firewalls/workflows.py:254
 #: dashboards/project/firewalls/workflows.py:331
-#: dashboards/project/loadbalancers/workflows.py:136
-#: dashboards/project/loadbalancers/workflows.py:260
-#: dashboards/project/loadbalancers/workflows.py:426
-#: dashboards/project/loadbalancers/workflows.py:610
+#: dashboards/project/loadbalancers/workflows.py:131
+#: dashboards/project/loadbalancers/workflows.py:256
+#: dashboards/project/loadbalancers/workflows.py:422
+#: dashboards/project/loadbalancers/workflows.py:606
 #: dashboards/project/vpn/workflows.py:92
 #: dashboards/project/vpn/workflows.py:191
 #: dashboards/project/vpn/workflows.py:288
@@ -7667,9 +7687,9 @@ msgstr "資料來源概觀"
 #: dashboards/project/data_processing/job_binaries/forms.py:59
 #: dashboards/project/data_processing/job_binaries/forms.py:65
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:9
+#: dashboards/project/loadbalancers/workflows.py:522
 #: dashboards/project/loadbalancers/workflows.py:526
-#: dashboards/project/loadbalancers/workflows.py:530
-#: dashboards/project/loadbalancers/workflows.py:531
+#: dashboards/project/loadbalancers/workflows.py:527
 #: dashboards/project/stacks/forms.py:63
 msgid "URL"
 msgstr "網址"
@@ -9665,13 +9685,13 @@ msgstr "已發動名為「%(name)s」%(count)s 個。"
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:33
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:28
 #: dashboards/project/loadbalancers/workflows.py:44
-#: dashboards/project/loadbalancers/workflows.py:172
+#: dashboards/project/loadbalancers/workflows.py:167
 msgid "Protocol"
 msgstr "協定"
 
 #: dashboards/project/firewalls/forms.py:40
 #: dashboards/project/firewalls/workflows.py:38
-#: dashboards/project/loadbalancers/workflows.py:488
+#: dashboards/project/loadbalancers/workflows.py:484
 msgid "TCP"
 msgstr "TCP"
 
@@ -9980,6 +10000,7 @@ msgid "DENY"
 msgstr "拒絕"
 
 #: dashboards/project/firewalls/tables.py:272
+#: dashboards/project/loadbalancers/templates/loadbalancers/_create_pool_help.html:16
 msgid "Source IP"
 msgstr "來源 IP"
 
@@ -12183,6 +12204,7 @@ msgid "Unable to modify instance \"%s\"."
 msgstr "無法更改雲實例「%s」。"
 
 #: dashboards/project/loadbalancers/forms.py:37
+#: dashboards/project/loadbalancers/templates/loadbalancers/_create_pool_help.html:10
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:36
 #: dashboards/project/loadbalancers/workflows.py:45
 msgid "Load Balancing Method"
@@ -12200,28 +12222,28 @@ msgstr "更新倉庫 %s 時失敗"
 
 #: dashboards/project/loadbalancers/forms.py:81
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:39
-#: dashboards/project/loadbalancers/workflows.py:174
+#: dashboards/project/loadbalancers/workflows.py:169
 msgid "Session Persistence"
 msgstr "維持連線階段"
 
 #: dashboards/project/loadbalancers/forms.py:85
-#: dashboards/project/loadbalancers/workflows.py:181
+#: dashboards/project/loadbalancers/workflows.py:176
 msgid "Cookie Name"
 msgstr "Cookie 名稱"
 
 #: dashboards/project/loadbalancers/forms.py:86
-#: dashboards/project/loadbalancers/workflows.py:182
+#: dashboards/project/loadbalancers/workflows.py:177
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr "APP_COOKIE 維持需要；否則忽略。"
 
 #: dashboards/project/loadbalancers/forms.py:90
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:54
-#: dashboards/project/loadbalancers/workflows.py:190
+#: dashboards/project/loadbalancers/workflows.py:185
 msgid "Connection Limit"
 msgstr "連線數限制"
 
 #: dashboards/project/loadbalancers/forms.py:91
-#: dashboards/project/loadbalancers/workflows.py:191
+#: dashboards/project/loadbalancers/workflows.py:186
 msgid ""
 "Maximum number of connections allowed for the VIP or '-1' if the limit is "
 "not set"
@@ -12230,7 +12252,7 @@ msgstr "允許虛擬 IP 的最大連線數或者以「-1」來代表不設限制
 #: dashboards/project/loadbalancers/forms.py:109
 #: dashboards/project/loadbalancers/forms.py:192
 #: dashboards/project/loadbalancers/tabs.py:40
-#: dashboards/project/loadbalancers/workflows.py:359
+#: dashboards/project/loadbalancers/workflows.py:355
 msgid "Unable to retrieve pools list."
 msgstr "無法獲得倉庫列表"
 
@@ -12239,7 +12261,7 @@ msgid "No session persistence"
 msgstr "沒有維持連線階段"
 
 #: dashboards/project/loadbalancers/forms.py:130
-#: dashboards/project/loadbalancers/workflows.py:228
+#: dashboards/project/loadbalancers/workflows.py:224
 msgid "Cookie name is required for APP_COOKIE persistence."
 msgstr "維持 APP_COOKIE 需要 Cookie 名稱。"
 
@@ -12256,7 +12278,7 @@ msgstr "更新虛擬 IP %s 時失敗"
 #: dashboards/project/loadbalancers/forms.py:173
 #: dashboards/project/loadbalancers/tables.py:373
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:22
-#: dashboards/project/loadbalancers/workflows.py:332
+#: dashboards/project/loadbalancers/workflows.py:328
 msgid "Weight"
 msgstr "權重"
 
@@ -12277,35 +12299,35 @@ msgstr "更新成員 %s 時失敗"
 #: dashboards/project/loadbalancers/forms.py:225
 #: dashboards/project/loadbalancers/tables.py:405
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:15
-#: dashboards/project/loadbalancers/workflows.py:497
+#: dashboards/project/loadbalancers/workflows.py:493
 msgid "Delay"
 msgstr "延遲"
 
 #: dashboards/project/loadbalancers/forms.py:226
-#: dashboards/project/loadbalancers/workflows.py:498
+#: dashboards/project/loadbalancers/workflows.py:494
 msgid "The minimum time in seconds between regular checks of a member"
 msgstr "定期檢查成員的最短間隔秒數"
 
 #: dashboards/project/loadbalancers/forms.py:230
 #: dashboards/project/loadbalancers/tables.py:406
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:18
-#: dashboards/project/loadbalancers/workflows.py:502
+#: dashboards/project/loadbalancers/workflows.py:498
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:62
 msgid "Timeout"
 msgstr "逾期"
 
 #: dashboards/project/loadbalancers/forms.py:231
-#: dashboards/project/loadbalancers/workflows.py:503
+#: dashboards/project/loadbalancers/workflows.py:499
 msgid "The maximum time in seconds for a monitor to wait for a reply"
 msgstr "等待監視器回應的最長間隔秒數"
 
 #: dashboards/project/loadbalancers/forms.py:235
-#: dashboards/project/loadbalancers/workflows.py:507
+#: dashboards/project/loadbalancers/workflows.py:503
 msgid "Max Retries (1~10)"
 msgstr "最大重試數（1~10）"
 
 #: dashboards/project/loadbalancers/forms.py:236
-#: dashboards/project/loadbalancers/workflows.py:508
+#: dashboards/project/loadbalancers/workflows.py:504
 msgid ""
 "Number of permissible failures before changing the status of member to "
 "inactive"
@@ -12326,22 +12348,22 @@ msgid "Load Balancers"
 msgstr "負載平衡器"
 
 #: dashboards/project/loadbalancers/tables.py:32
-#: dashboards/project/loadbalancers/workflows.py:135
+#: dashboards/project/loadbalancers/workflows.py:130
 msgid "Add Pool"
 msgstr "加入倉庫"
 
 #: dashboards/project/loadbalancers/tables.py:41
-#: dashboards/project/loadbalancers/workflows.py:259
+#: dashboards/project/loadbalancers/workflows.py:255
 msgid "Add VIP"
 msgstr "加入虛擬 IP"
 
 #: dashboards/project/loadbalancers/tables.py:59
-#: dashboards/project/loadbalancers/workflows.py:425
+#: dashboards/project/loadbalancers/workflows.py:421
 msgid "Add Member"
 msgstr "加入成員"
 
 #: dashboards/project/loadbalancers/tables.py:68
-#: dashboards/project/loadbalancers/workflows.py:609
+#: dashboards/project/loadbalancers/workflows.py:605
 msgid "Add Monitor"
 msgstr "加入監視器"
 
@@ -12414,7 +12436,7 @@ msgid "Edit Monitor"
 msgstr "編輯監視器"
 
 #: dashboards/project/loadbalancers/tables.py:234
-#: dashboards/project/loadbalancers/workflows.py:672
+#: dashboards/project/loadbalancers/workflows.py:668
 msgid "Associate Monitor"
 msgstr "聯結監視器"
 
@@ -12423,7 +12445,7 @@ msgid "Failed to retrieve health monitors."
 msgstr "獲得健康監視器時失敗。"
 
 #: dashboards/project/loadbalancers/tables.py:257
-#: dashboards/project/loadbalancers/workflows.py:735
+#: dashboards/project/loadbalancers/workflows.py:731
 msgid "Disassociate Monitor"
 msgstr "解除監視器聯結"
 
@@ -12494,8 +12516,8 @@ msgstr "倉庫"
 #: dashboards/project/loadbalancers/tables.py:371
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:19
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:25
-#: dashboards/project/loadbalancers/workflows.py:168
-#: dashboards/project/loadbalancers/workflows.py:339
+#: dashboards/project/loadbalancers/workflows.py:163
+#: dashboards/project/loadbalancers/workflows.py:335
 msgid "Protocol Port"
 msgstr "協定埠口"
 
@@ -12547,15 +12569,53 @@ msgstr "成員詳細資訊"
 msgid "Monitor Details"
 msgstr "監視器詳細資訊"
 
+#: dashboards/project/loadbalancers/templates/loadbalancers/_create_pool_help.html:3
+msgid ""
+"\n"
+"  Assign a name and description for the pool. Choose one subnet where all\n"
+"  members of this pool must be on. Select the protocol and load balancing\n"
+"  method for this pool. Admin State is UP (checked) by default.\n"
+"  "
+msgstr ""
+
+#: dashboards/project/loadbalancers/templates/loadbalancers/_create_pool_help.html:11
+msgid ""
+"Use one of these load balancing methods to distribute incoming requests:"
+msgstr ""
+
+#: dashboards/project/loadbalancers/templates/loadbalancers/_create_pool_help.html:14
+msgid "Round robin"
+msgstr ""
+
+#: dashboards/project/loadbalancers/templates/loadbalancers/_create_pool_help.html:15
+msgid "Rotates requests evenly between multiple instances."
+msgstr ""
+
+#: dashboards/project/loadbalancers/templates/loadbalancers/_create_pool_help.html:17
+msgid ""
+"Requests from a unique source IP address are consistently\n"
+"          directed to the same instance."
+msgstr ""
+
+#: dashboards/project/loadbalancers/templates/loadbalancers/_create_pool_help.html:19
+msgid "Least connections"
+msgstr ""
+
+#: dashboards/project/loadbalancers/templates/loadbalancers/_create_pool_help.html:20
+msgid ""
+"Allocates requests to the instance with the least number of\n"
+"          active connections."
+msgstr ""
+
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:16
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:22
 msgid "Address"
 msgstr "位址"
 
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:25
-#: dashboards/project/loadbalancers/workflows.py:514
-#: dashboards/project/loadbalancers/workflows.py:519
-#: dashboards/project/loadbalancers/workflows.py:520
+#: dashboards/project/loadbalancers/workflows.py:510
+#: dashboards/project/loadbalancers/workflows.py:515
+#: dashboards/project/loadbalancers/workflows.py:516
 msgid "HTTP Method"
 msgstr "HTTP 方法"
 
@@ -12714,168 +12774,161 @@ msgid "Unable to retrieve pool. %s"
 msgstr "無法獲得倉庫。%s"
 
 #: dashboards/project/loadbalancers/workflows.py:55
-#: dashboards/project/loadbalancers/workflows.py:200
+#: dashboards/project/loadbalancers/workflows.py:195
 #: dashboards/project/vpn/workflows.py:40
 msgid "Select a Subnet"
 msgstr "選擇子網路"
 
 #: dashboards/project/loadbalancers/workflows.py:60
-#: dashboards/project/loadbalancers/workflows.py:205
+#: dashboards/project/loadbalancers/workflows.py:200
 #: dashboards/project/vpn/workflows.py:46
 msgid "Unable to retrieve networks list."
 msgstr "無法獲得網路列表。"
 
-#: dashboards/project/loadbalancers/workflows.py:67
-#: dashboards/project/loadbalancers/workflows.py:211
+#: dashboards/project/loadbalancers/workflows.py:68
+#: dashboards/project/loadbalancers/workflows.py:207
 msgid "Select a Protocol"
 msgstr "選擇協定"
 
-#: dashboards/project/loadbalancers/workflows.py:71
+#: dashboards/project/loadbalancers/workflows.py:72
 msgid "Select a Method"
 msgstr "選擇方法"
 
-#: dashboards/project/loadbalancers/workflows.py:85
+#: dashboards/project/loadbalancers/workflows.py:86
 msgid "Unable to retrieve providers list."
 msgstr "無法獲得提供者列表。"
 
-#: dashboards/project/loadbalancers/workflows.py:99
+#: dashboards/project/loadbalancers/workflows.py:100
 #, python-format
 msgid "%s (default)"
 msgstr "%s（預設值）"
 
-#: dashboards/project/loadbalancers/workflows.py:102
+#: dashboards/project/loadbalancers/workflows.py:103
 msgid "Provider for Load Balancer is not supported"
 msgstr "不支援負載平衡器的提供者"
 
-#: dashboards/project/loadbalancers/workflows.py:104
+#: dashboards/project/loadbalancers/workflows.py:105
 msgid "No provider is available"
 msgstr "無可用的提供者"
 
-#: dashboards/project/loadbalancers/workflows.py:110
+#: dashboards/project/loadbalancers/workflows.py:111
 msgid "Add New Pool"
 msgstr "加入新倉庫"
 
-#: dashboards/project/loadbalancers/workflows.py:112
-msgid ""
-"Create Pool for current project.\n"
-"\n"
-"Assign a name and description for the pool. Choose one subnet where all members of this pool must be on. Select the protocol and load balancing method for this pool. Admin State is UP (checked) by default."
-msgstr "為目前的專案新增倉庫。\n\n為倉庫指定名稱和描述。選擇一個所有這個倉庫的成員可用的子網路。選擇此倉庫的協定和負載平衡方法。預設管理員狀態是上線的（已勾選）。"
-
-#: dashboards/project/loadbalancers/workflows.py:137
+#: dashboards/project/loadbalancers/workflows.py:132
 #, python-format
 msgid "Added pool \"%s\"."
 msgstr "加入了倉庫「%s」。"
 
-#: dashboards/project/loadbalancers/workflows.py:138
+#: dashboards/project/loadbalancers/workflows.py:133
 #, python-format
 msgid "Unable to add pool \"%s\"."
 msgstr "無法加入倉庫「%s」。"
 
-#: dashboards/project/loadbalancers/workflows.py:159
+#: dashboards/project/loadbalancers/workflows.py:154
 msgid "VIP Subnet"
 msgstr "虛擬 IP 子網路"
 
-#: dashboards/project/loadbalancers/workflows.py:162
+#: dashboards/project/loadbalancers/workflows.py:157
 msgid "Specify a free IP address from the selected subnet"
 msgstr "從選擇的子網路指定自由的 IP 位址"
 
-#: dashboards/project/loadbalancers/workflows.py:215
+#: dashboards/project/loadbalancers/workflows.py:211
 msgid "No Session Persistence"
 msgstr "沒有維持連線階段"
 
-#: dashboards/project/loadbalancers/workflows.py:233
+#: dashboards/project/loadbalancers/workflows.py:229
 msgid "Specify VIP"
 msgstr "指定虛擬 IP"
 
-#: dashboards/project/loadbalancers/workflows.py:235
+#: dashboards/project/loadbalancers/workflows.py:231
 msgid ""
 "Create a VIP for this pool. Assign a name, description, IP address, port, "
 "and maximum connections allowed for the VIP. Choose the protocol and session"
 " persistence method for the VIP. Admin State is UP (checked) by default."
 msgstr "為此倉庫新增虛擬 IP。為此虛擬 IP 指定名稱、描述、IP 位址、埠口及虛擬 IP 的最大允許連接數。為虛擬 IP 選擇協定和連線階段維持方法。預設管理員狀態是上線的（已勾選）。"
 
-#: dashboards/project/loadbalancers/workflows.py:261
+#: dashboards/project/loadbalancers/workflows.py:257
 #, python-format
 msgid "Added VIP \"%s\"."
 msgstr "已加入虛擬 IP「%s」。"
 
-#: dashboards/project/loadbalancers/workflows.py:262
+#: dashboards/project/loadbalancers/workflows.py:258
 #, python-format
 msgid "Unable to add VIP \"%s\"."
 msgstr "無法加入虛擬 IP「%s」。"
 
-#: dashboards/project/loadbalancers/workflows.py:278
+#: dashboards/project/loadbalancers/workflows.py:274
 #, python-format
 msgid "Unable to retrieve the specified pool. Unable to add VIP \"%s\"."
 msgstr "無法獲得指定的倉庫。無法加入虛擬 IP「%s」。"
 
-#: dashboards/project/loadbalancers/workflows.py:303
+#: dashboards/project/loadbalancers/workflows.py:299
 msgid "Member Source"
 msgstr "成員來源"
 
-#: dashboards/project/loadbalancers/workflows.py:304
+#: dashboards/project/loadbalancers/workflows.py:300
 msgid "Select from active instances"
 msgstr "從使用中的雲實例裡選擇"
 
-#: dashboards/project/loadbalancers/workflows.py:305
-#: dashboards/project/loadbalancers/workflows.py:322
+#: dashboards/project/loadbalancers/workflows.py:301
+#: dashboards/project/loadbalancers/workflows.py:318
 msgid "Specify member IP address"
 msgstr "指定成員的 IP 位址"
 
-#: dashboards/project/loadbalancers/workflows.py:312
-#: dashboards/project/loadbalancers/workflows.py:318
+#: dashboards/project/loadbalancers/workflows.py:308
+#: dashboards/project/loadbalancers/workflows.py:314
 msgid "Member(s)"
 msgstr "成員"
 
-#: dashboards/project/loadbalancers/workflows.py:320
+#: dashboards/project/loadbalancers/workflows.py:316
 msgid "Select members for this pool "
 msgstr "為此倉庫選擇成員"
 
-#: dashboards/project/loadbalancers/workflows.py:321
-#: dashboards/project/loadbalancers/workflows.py:327
+#: dashboards/project/loadbalancers/workflows.py:317
+#: dashboards/project/loadbalancers/workflows.py:323
 msgid "Member address"
 msgstr "成員位址"
 
-#: dashboards/project/loadbalancers/workflows.py:333
+#: dashboards/project/loadbalancers/workflows.py:329
 msgid ""
 "Relative part of requests this pool member serves compared to others. \n"
 "The same weight will be applied to all the selected members and can be modified later. Weight must be in the range 1 to 256."
 msgstr "用於與其他請求此倉庫的成員服務比較的相關部份。\n相同的權重會套用到所有所選的成員並可以在稍後更改。權重必須是在範圍 1 到 256 內。"
 
-#: dashboards/project/loadbalancers/workflows.py:340
+#: dashboards/project/loadbalancers/workflows.py:336
 msgid ""
 "Enter an integer value between 1 and 65535. The same port will be used for "
 "all the selected members and can be modified later."
 msgstr "輸入在 1 到 65535 間的整數值。會使用同樣的埠口於所有所選的成員並可以在稍後更改。"
 
-#: dashboards/project/loadbalancers/workflows.py:352
+#: dashboards/project/loadbalancers/workflows.py:348
 msgid "Select a Pool"
 msgstr "選擇倉庫"
 
-#: dashboards/project/loadbalancers/workflows.py:372
+#: dashboards/project/loadbalancers/workflows.py:368
 msgid "Unable to retrieve instances list."
 msgstr "無法獲得雲實例列表。"
 
-#: dashboards/project/loadbalancers/workflows.py:376
+#: dashboards/project/loadbalancers/workflows.py:372
 msgid ""
 "No servers available. To add a member, you need at least one running "
 "instance."
 msgstr "無可用的伺服器。要加入成員，您需要最少一個執行中的雲實例。"
 
-#: dashboards/project/loadbalancers/workflows.py:392
+#: dashboards/project/loadbalancers/workflows.py:388
 msgid "At least one member must be specified"
 msgstr "最少要指定一個成員"
 
-#: dashboards/project/loadbalancers/workflows.py:396
+#: dashboards/project/loadbalancers/workflows.py:392
 msgid "Member IP address must be specified"
 msgstr "必須指定成員的 IP 位址"
 
-#: dashboards/project/loadbalancers/workflows.py:401
+#: dashboards/project/loadbalancers/workflows.py:397
 msgid "Add New Member"
 msgstr "加入新成員"
 
-#: dashboards/project/loadbalancers/workflows.py:403
+#: dashboards/project/loadbalancers/workflows.py:399
 msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
@@ -12884,144 +12937,144 @@ msgid ""
 "Only one port can be associated with each instance."
 msgstr "加入成員到已選擇的倉庫。\n\n選擇一個或多個列表的雲實例來加入到倉庫的成員。分配一個權重數和埠口號給選擇的成員來處理；如 80。\n\n每個雲實例只有一個埠口能分配。"
 
-#: dashboards/project/loadbalancers/workflows.py:427
+#: dashboards/project/loadbalancers/workflows.py:423
 msgid "Added member(s)."
 msgstr "已加入成員。"
 
-#: dashboards/project/loadbalancers/workflows.py:428
+#: dashboards/project/loadbalancers/workflows.py:424
 msgid "Unable to add member(s)"
 msgstr "無法加入成員"
 
-#: dashboards/project/loadbalancers/workflows.py:438
+#: dashboards/project/loadbalancers/workflows.py:434
 msgid "Unable to retrieve the specified pool."
 msgstr "無法獲得指定的倉庫。"
 
-#: dashboards/project/loadbalancers/workflows.py:487
+#: dashboards/project/loadbalancers/workflows.py:483
 msgid "PING"
 msgstr "PING"
 
-#: dashboards/project/loadbalancers/workflows.py:489
+#: dashboards/project/loadbalancers/workflows.py:485
 msgid "HTTP"
 msgstr "HTTP"
 
-#: dashboards/project/loadbalancers/workflows.py:490
+#: dashboards/project/loadbalancers/workflows.py:486
 msgid "HTTPS"
 msgstr "HTTPS"
 
-#: dashboards/project/loadbalancers/workflows.py:513
+#: dashboards/project/loadbalancers/workflows.py:509
 msgid "GET"
 msgstr "GET"
 
-#: dashboards/project/loadbalancers/workflows.py:515
+#: dashboards/project/loadbalancers/workflows.py:511
 msgid "HTTP method used to check health status of a member"
 msgstr "HTTP 方法使用於檢查成員的健康狀態"
 
-#: dashboards/project/loadbalancers/workflows.py:538
-#: dashboards/project/loadbalancers/workflows.py:545
-#: dashboards/project/loadbalancers/workflows.py:546
+#: dashboards/project/loadbalancers/workflows.py:534
+#: dashboards/project/loadbalancers/workflows.py:541
+#: dashboards/project/loadbalancers/workflows.py:542
 msgid "Expected HTTP Status Codes"
 msgstr "預期 HTTP 狀態代碼"
 
-#: dashboards/project/loadbalancers/workflows.py:539
+#: dashboards/project/loadbalancers/workflows.py:535
 msgid ""
 "Expected code may be a single value (e.g. 200), a list of values (e.g. 200, "
 "202), or range of values (e.g. 200-204)"
 msgstr "預期代碼是單獨的值（如 200），一個列表的值（如 200, 202）或者是一個範圍的值（如 200-204）"
 
-#: dashboards/project/loadbalancers/workflows.py:562
+#: dashboards/project/loadbalancers/workflows.py:558
 msgid "Delay must be greater than or equal to Timeout"
 msgstr "延遲必須大於等於逾期"
 
-#: dashboards/project/loadbalancers/workflows.py:571
+#: dashboards/project/loadbalancers/workflows.py:567
 msgid "Please choose a HTTP method"
 msgstr "請選擇 HTTP 方法"
 
-#: dashboards/project/loadbalancers/workflows.py:574
+#: dashboards/project/loadbalancers/workflows.py:570
 msgid "Please specify an URL"
 msgstr "請指定網址"
 
-#: dashboards/project/loadbalancers/workflows.py:577
+#: dashboards/project/loadbalancers/workflows.py:573
 msgid ""
 "Please enter a single value (e.g. 200), a list of values (e.g. 200, 202), or"
 " range of values (e.g. 200-204)"
 msgstr "請輸入單獨的值（如 200）、一個列表的值（200, 202）或者是一個範圍的值（如 200-204）"
 
-#: dashboards/project/loadbalancers/workflows.py:584
+#: dashboards/project/loadbalancers/workflows.py:580
 msgid "Add New Monitor"
 msgstr "加入新的監視器"
 
-#: dashboards/project/loadbalancers/workflows.py:586
+#: dashboards/project/loadbalancers/workflows.py:582
 msgid ""
 "Create a monitor template.\n"
 "\n"
 "Select type of monitoring. Specify delay, timeout, and retry limits required by the monitor. Specify method, URL path, and expected HTTP codes upon success."
 msgstr "新增監視器範本。\n\n選擇監視的類型。指定監視器的延遲、逾期和重試限制。指定方法、網址路徑和預期 HTTP 代碼直到成功。"
 
-#: dashboards/project/loadbalancers/workflows.py:611
+#: dashboards/project/loadbalancers/workflows.py:607
 msgid "Added monitor"
 msgstr "已加入監視器"
 
-#: dashboards/project/loadbalancers/workflows.py:612
+#: dashboards/project/loadbalancers/workflows.py:608
 msgid "Unable to add monitor"
 msgstr "無法加入監視器"
 
-#: dashboards/project/loadbalancers/workflows.py:622
+#: dashboards/project/loadbalancers/workflows.py:618
 msgid "Unable to add monitor."
 msgstr "無法加入監視器。"
 
-#: dashboards/project/loadbalancers/workflows.py:627
-#: dashboards/project/loadbalancers/workflows.py:690
+#: dashboards/project/loadbalancers/workflows.py:623
+#: dashboards/project/loadbalancers/workflows.py:686
 msgid "Monitor"
 msgstr "監視器"
 
-#: dashboards/project/loadbalancers/workflows.py:633
+#: dashboards/project/loadbalancers/workflows.py:629
 #, python-format
 msgid "Select a monitor template for %s"
 msgstr "為 %s 選擇監視器範本"
 
-#: dashboards/project/loadbalancers/workflows.py:636
-#: dashboards/project/loadbalancers/workflows.py:700
+#: dashboards/project/loadbalancers/workflows.py:632
+#: dashboards/project/loadbalancers/workflows.py:696
 msgid "Select a Monitor"
 msgstr "選擇監視器"
 
-#: dashboards/project/loadbalancers/workflows.py:648
-#: dashboards/project/loadbalancers/workflows.py:710
+#: dashboards/project/loadbalancers/workflows.py:644
+#: dashboards/project/loadbalancers/workflows.py:706
 msgid "Unable to retrieve monitors list."
 msgstr "無法獲得監視器列表。"
 
-#: dashboards/project/loadbalancers/workflows.py:654
-#: dashboards/project/loadbalancers/workflows.py:716
+#: dashboards/project/loadbalancers/workflows.py:650
+#: dashboards/project/loadbalancers/workflows.py:712
 msgid "Association Details"
 msgstr "聯結的詳細資訊"
 
-#: dashboards/project/loadbalancers/workflows.py:656
+#: dashboards/project/loadbalancers/workflows.py:652
 msgid "Associate a health monitor with target pool."
 msgstr "以目標倉庫聯結健康監視器。"
 
-#: dashboards/project/loadbalancers/workflows.py:674
+#: dashboards/project/loadbalancers/workflows.py:670
 msgid "Associated monitor."
 msgstr "已聯結的監視器。"
 
-#: dashboards/project/loadbalancers/workflows.py:675
-#: dashboards/project/loadbalancers/workflows.py:685
+#: dashboards/project/loadbalancers/workflows.py:671
+#: dashboards/project/loadbalancers/workflows.py:681
 msgid "Unable to associate monitor."
 msgstr "無法聯結監視器。"
 
-#: dashboards/project/loadbalancers/workflows.py:697
+#: dashboards/project/loadbalancers/workflows.py:693
 #, python-format
 msgid "Select a health monitor of %s"
 msgstr "選擇 %s 的健康監視器"
 
-#: dashboards/project/loadbalancers/workflows.py:718
+#: dashboards/project/loadbalancers/workflows.py:714
 msgid "Disassociate a health monitor from target pool. "
 msgstr "從目標倉庫解除健康監視器的聯結。"
 
-#: dashboards/project/loadbalancers/workflows.py:737
+#: dashboards/project/loadbalancers/workflows.py:733
 msgid "Disassociated monitor."
 msgstr "已解除監視器的聯結。"
 
-#: dashboards/project/loadbalancers/workflows.py:738
-#: dashboards/project/loadbalancers/workflows.py:748
+#: dashboards/project/loadbalancers/workflows.py:734
+#: dashboards/project/loadbalancers/workflows.py:744
 msgid "Unable to disassociate monitor."
 msgstr "無法解除監視器的聯結。"
 
