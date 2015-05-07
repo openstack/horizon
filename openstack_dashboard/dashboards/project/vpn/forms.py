@@ -249,7 +249,7 @@ class UpdateIPSecSiteConnection(forms.SelfHandlingForm):
     dpd_interval = forms.IntegerField(
         min_value=1,
         label=_("Dead peer detection interval"),
-        help_text=_("Valid integer"))
+        help_text=_("Valid integer lesser than the DPD timeout"))
     dpd_timeout = forms.IntegerField(
         min_value=1,
         label=_("Dead peer detection timeout"),
@@ -263,6 +263,16 @@ class UpdateIPSecSiteConnection(forms.SelfHandlingForm):
                                        label=_("Admin State"))
 
     failure_url = 'horizon:project:vpn:index'
+
+    def clean(self):
+        cleaned_data = super(UpdateIPSecSiteConnection, self).clean()
+        interval = cleaned_data.get('dpd_interval')
+        timeout = cleaned_data.get('dpd_timeout')
+
+        if not interval < timeout:
+            msg = _("DPD Timeout must be greater than DPD Interval")
+            self._errors['dpd_timeout'] = self.error_class([msg])
+        return cleaned_data
 
     def handle(self, request, context):
         context['admin_state_up'] = (context['admin_state_up'] == 'True')
