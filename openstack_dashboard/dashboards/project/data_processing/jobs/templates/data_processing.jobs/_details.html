@@ -7,6 +7,8 @@
       <dd>{{ job.name }}</dd>
       <dt>{% trans "ID" %}</dt>
       <dd>{{ job.id }}</dd>
+      <dt>{% trans "Type" %}</dt>
+      <dd>{{ job.type }}</dd>
       <dt>{% trans "Description" %}</dt>
       <dd>{{ job.description|default:_("None") }}</dd>
       <dt>{% trans "Mains" %}</dt>
@@ -21,7 +23,9 @@
       {% empty %}
         <dd>{% trans "None" %}</dd>
       {% endfor %}
-      <dt>{% trans "Create time" %}</dt>
-      <dd>{{ job.created_at }}</dd>
+      <dt>{% trans "Created time" %}</dt>
+      <dd>{{ job.created_at|parse_isotime }}</dd>
+      <dt>{% trans "Updated time" %}</dt>
+      <dd>{{ job.updated_at|parse_isotime|default:_("Never") }}</dd>
   </dl>
 </div>
