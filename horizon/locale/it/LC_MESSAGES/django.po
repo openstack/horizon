@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-15 02:00-0500\n"
-"PO-Revision-Date: 2015-04-15 10:54+0000\n"
+"POT-Creation-Date: 2015-05-06 14:44-0500\n"
+"PO-Revision-Date: 2015-05-05 08:26+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/horizon/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -46,7 +46,7 @@ msgstr "Accesso non autorizzato a %s"
 #: exceptions.py:163
 #, python-format
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
-msgstr ""
+msgstr "La risorsa %(resource)s con il nome \"%(name)s\" esiste."
 
 #: exceptions.py:235
 #, python-format
@@ -216,19 +216,19 @@ msgstr ""
 msgid "Login"
 msgstr "Login"
 
-#: templates/horizon/_messages.html:7
+#: templates/horizon/_messages.html:8
 msgid "Info: "
 msgstr "Info: "
 
-#: templates/horizon/_messages.html:13
+#: templates/horizon/_messages.html:14
 msgid "Warning: "
 msgstr "Attenzione:"
 
-#: templates/horizon/_messages.html:19
+#: templates/horizon/_messages.html:20
 msgid "Success: "
 msgstr "Successo:"
 
-#: templates/horizon/_messages.html:25
+#: templates/horizon/_messages.html:26
 msgid "Error: "
 msgstr "Errore:"
 
