@@ -28,6 +28,7 @@ LOG = logging.getLogger(__name__)
 class JobsFilterAction(tables.FilterAction):
     filter_type = "server"
     filter_choices = (('name', _("Name"), True),
+                      ('type', _("Type"), True),
                       ('description', _("Description"), True))
 
 
@@ -103,6 +104,8 @@ class JobsTable(tables.DataTable):
     name = tables.Column("name",
                          verbose_name=_("Name"),
                          link="horizon:project:data_processing.jobs:details")
+    type = tables.Column("type",
+                         verbose_name=_("Type"))
     description = tables.Column("description",
                                 verbose_name=_("Description"))
 
