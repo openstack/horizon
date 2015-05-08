@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 01:19-0500\n"
+"POT-Creation-Date: 2015-05-08 01:19-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -537,7 +537,7 @@ msgstr ""
 #: dashboards/project/data_processing/job_binaries/tables.py:79
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:5
 #: dashboards/project/data_processing/jobs/tables.py:30
-#: dashboards/project/data_processing/jobs/tables.py:104
+#: dashboards/project/data_processing/jobs/tables.py:105
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:6
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:54
 #: dashboards/project/data_processing/jobs/workflows/create.py:62
@@ -1853,6 +1853,8 @@ msgstr ""
 #: dashboards/project/access_and_security/security_groups/forms.py:185
 #: dashboards/project/data_processing/data_sources/tables.py:61
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:9
+#: dashboards/project/data_processing/jobs/tables.py:31
+#: dashboards/project/data_processing/jobs/tables.py:108
 #: dashboards/project/images/images/tables.py:275
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/loadbalancers/workflows.py:482
@@ -2507,8 +2509,8 @@ msgstr ""
 #: dashboards/project/data_processing/job_binaries/forms.py:131
 #: dashboards/project/data_processing/job_binaries/tables.py:84
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:11
-#: dashboards/project/data_processing/jobs/tables.py:31
-#: dashboards/project/data_processing/jobs/tables.py:107
+#: dashboards/project/data_processing/jobs/tables.py:32
+#: dashboards/project/data_processing/jobs/tables.py:110
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:10
 #: dashboards/project/data_processing/jobs/workflows/create.py:86
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:10
@@ -6377,7 +6379,7 @@ msgstr ""
 #: dashboards/project/vpn/workflows.py:92
 #: dashboards/project/vpn/workflows.py:191
 #: dashboards/project/vpn/workflows.py:288
-#: dashboards/project/vpn/workflows.py:473
+#: dashboards/project/vpn/workflows.py:484
 msgid "Add"
 msgstr ""
 
@@ -8146,12 +8148,12 @@ msgid "Job Execution Details"
 msgstr ""
 
 #: dashboards/project/data_processing/jobs/panel.py:22
-#: dashboards/project/data_processing/jobs/tables.py:111
+#: dashboards/project/data_processing/jobs/tables.py:114
 #: dashboards/project/data_processing/jobs/views.py:41
 msgid "Job Templates"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/tables.py:36
+#: dashboards/project/data_processing/jobs/tables.py:37
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:3
 #: dashboards/project/data_processing/jobs/views.py:64
 #: dashboards/project/data_processing/jobs/workflows/create.py:126
@@ -8159,24 +8161,24 @@ msgstr ""
 msgid "Create Job Template"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/tables.py:46
+#: dashboards/project/data_processing/jobs/tables.py:47
 msgid "Delete Job Template"
 msgid_plural "Delete Job Templates"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/data_processing/jobs/tables.py:54
+#: dashboards/project/data_processing/jobs/tables.py:55
 msgid "Deleted Job Template"
 msgid_plural "Deleted Jobs Templates"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/data_processing/jobs/tables.py:65
+#: dashboards/project/data_processing/jobs/tables.py:66
 msgid "Launch On Existing Cluster"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/tables.py:78
-#: dashboards/project/data_processing/jobs/tables.py:91
+#: dashboards/project/data_processing/jobs/tables.py:79
+#: dashboards/project/data_processing/jobs/tables.py:92
 msgid "Launch On New Cluster"
 msgstr ""
 
@@ -16178,8 +16180,8 @@ msgstr ""
 msgid "Dead peer detection interval"
 msgstr ""
 
-#: dashboards/project/vpn/forms.py:252 dashboards/project/vpn/workflows.py:411
-msgid "Valid integer"
+#: dashboards/project/vpn/forms.py:252
+msgid "Valid integer lesser than the DPD timeout"
 msgstr ""
 
 #: dashboards/project/vpn/forms.py:255
@@ -16206,12 +16208,16 @@ msgstr ""
 msgid "response-only"
 msgstr ""
 
-#: dashboards/project/vpn/forms.py:287
+#: dashboards/project/vpn/forms.py:273 dashboards/project/vpn/workflows.py:446
+msgid "DPD Timeout must be greater than DPD Interval"
+msgstr ""
+
+#: dashboards/project/vpn/forms.py:297
 #, python-format
 msgid "IPSec Site Connection %s was successfully updated."
 msgstr ""
 
-#: dashboards/project/vpn/forms.py:293
+#: dashboards/project/vpn/forms.py:303
 #, python-format
 msgid "Failed to update IPSec Site Connection %s"
 msgstr ""
@@ -16232,7 +16238,7 @@ msgstr ""
 msgid "Add VPN Service"
 msgstr ""
 
-#: dashboards/project/vpn/tables.py:55 dashboards/project/vpn/workflows.py:472
+#: dashboards/project/vpn/tables.py:55 dashboards/project/vpn/workflows.py:483
 msgid "Add IPSec Site Connection"
 msgstr ""
 
@@ -16682,22 +16688,26 @@ msgid ""
 "this tab are required."
 msgstr ""
 
-#: dashboards/project/vpn/workflows.py:440
+#: dashboards/project/vpn/workflows.py:411
+msgid "Valid integer lesser than DPD timeout"
+msgstr ""
+
+#: dashboards/project/vpn/workflows.py:451
 msgid "Optional Parameters"
 msgstr ""
 
-#: dashboards/project/vpn/workflows.py:442
+#: dashboards/project/vpn/workflows.py:453
 msgid ""
 "Fields in this tab are optional. You can configure the detail of IPSec site "
 "connection created."
 msgstr ""
 
-#: dashboards/project/vpn/workflows.py:474
+#: dashboards/project/vpn/workflows.py:485
 #, python-format
 msgid "Added IPSec Site Connection \"%s\"."
 msgstr ""
 
-#: dashboards/project/vpn/workflows.py:475
+#: dashboards/project/vpn/workflows.py:486
 #, python-format
 msgid "Unable to add IPSec Site Connection \"%s\"."
 msgstr ""

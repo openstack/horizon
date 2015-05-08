@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2015
 # jaekwon.park <jaekwon.park@rockplace.co.kr>, 2014
@@ -9,498 +9,387 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-15 02:00-0500\n"
-"PO-Revision-Date: 2015-04-15 10:54+0000\n"
+"POT-Creation-Date: 2015-05-07 20:21-0500\n"
+"PO-Revision-Date: 2015-04-20 07:07+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
-"Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/language/ko_KR/)\n"
+"Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/"
+"language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: base.py:475
 msgid "Other"
 msgstr "기타"
 
-#: browsers/base.py:88
 msgid "Navigation Item"
 msgstr "네비게이션 항목"
 
-#: browsers/views.py:41
 #, python-format
 msgid "Select a %s to browse."
 msgstr "브라우져에서 %s를 선택하십시오."
 
-#: conf/default.py:41
 msgid "Password is not accepted"
 msgstr "허용되지 않는 비밀번호입니다."
 
-#: decorators.py:53
 msgid "Please log in to continue."
 msgstr "계속 진행하려면 로그인하십시오."
 
-#: decorators.py:85
 #, python-format
 msgid "You are not authorized to access %s"
 msgstr "%s에 접근 권한이 없습니다. "
 
-#: exceptions.py:163
 #, python-format
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
 msgstr "이름 \"%(name)s\"과 %(resource)s이 이미 존재합니다."
 
-#: exceptions.py:235
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "권한이 없습니다: %s"
 
-#: exceptions.py:238
 msgid "Unauthorized. Please try logging in again."
 msgstr "권한이 없습니다. 다시 로그인 해주십시오."
 
-#: forms/fields.py:64
 msgid "Incorrect format for IP address"
 msgstr "IP 주소 형식이 잘못 되었습니다."
 
-#: forms/fields.py:65
 msgid "Invalid version for IP address"
 msgstr "IP 주소 버전이 잘못되었습니다."
 
-#: forms/fields.py:66
 msgid "Invalid subnet mask"
 msgstr "서브넷 마스크가 잘못되었습니다."
 
-#: forms/views.py:132 templates/horizon/common/_usage_summary.html:16
 msgid "Submit"
 msgstr "제출"
 
-#: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:25
-#: templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr "취소"
 
-#: middleware.py:103
 msgid "Session timed out."
 msgstr "세션 타임 아웃."
 
-#: tables/actions.py:460
-#: templates/horizon/common/_data_table_table_actions.html:21
-#: templates/horizon/common/_data_table_table_actions.html:33
-#: templates/horizon/common/_workflow_step_update_members.html:14
-#: templates/horizon/common/_workflow_step_update_members.html:23
 msgid "Filter"
 msgstr "필터"
 
-#: tables/actions.py:645
 msgid "This action cannot be undone."
 msgstr "이 작업은 취소할 수 없습니다."
 
-#: tables/actions.py:767
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr "%(data_type)s %(action)s"
 
-#: tables/actions.py:769
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr "%(data_type)s %(action)s"
 
-#: tables/actions.py:832
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr " %(action)s 이(가) 허용되지 않습니다: %(objs)s "
 
-#: tables/actions.py:839
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr "%(action)s을(를) 할 수 없습니다.: %(objs)s"
 
-#: tables/actions.py:845
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-#: tables/actions.py:915
 msgid "Delete"
 msgstr "삭제"
 
-#: tables/actions.py:917
 msgid "Deleted"
 msgstr "삭제 완료"
 
-#: tables/actions.py:948
 msgid "Update"
 msgstr "업데이트"
 
-#: tables/actions.py:949
 msgid "Updated"
 msgstr "업데이트 완료"
 
-#: tables/base.py:305
 msgid "-"
 msgstr "-"
 
-#: tables/base.py:361
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "%(obj)s 에 %(attr)s 속성이 없습니다."
 
-#: tables/base.py:990
 msgid "No items to display."
 msgstr "표시할 항목이 없습니다."
 
-#: tables/base.py:1099
-#: templates/horizon/common/_data_table_table_actions.html:47
 msgid "Actions"
 msgstr "작업"
 
-#: tables/base.py:1329
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr "ID \"%s\" 에 일치되는 항목이 없습니다."
 
-#: tables/base.py:1486
 msgid "Please select a row before taking that action."
 msgstr "해당 작업을 실행하기 전에 열(row)을 선택하십시오."
 
-#: tables/base.py:1570
 msgid "N/A"
 msgstr "N/A"
 
-#: templates/_header.html:5
 #, python-format
 msgid "Logged in as: %(username)s"
 msgstr "로그인됨: %(username)s"
 
-#: templates/_header.html:7
 msgid "Help"
 msgstr "도움말"
 
-#: templates/_header.html:9
 msgid "Sign Out"
 msgstr "로그아웃"
 
-#: templates/auth/_description.html:9
 msgid ""
 "\n"
-"      If you are not sure which authentication method to use, contact your administrator.\n"
+"      If you are not sure which authentication method to use, contact your "
+"administrator.\n"
 "    "
-msgstr "\n당신이 인증 방법을 모르는경우, 관리자에게 문의하십시오."
+msgstr ""
+"\n"
+"당신이 인증 방법을 모르는경우, 관리자에게 문의하십시오."
 
-#: templates/auth/_login.html:5
 msgid "Log In"
 msgstr "로그인"
 
-#: templates/auth/_login.html:27
 msgid "You do not have permission to access the resource:"
 msgstr "당신은 리소스에 접근할 권한이 없습니다.:"
 
-#: templates/auth/_login.html:29
 #, python-format
 msgid ""
-"Login as different user or go back to <a href=\"%(home_url)s\"> home "
-"page</a>"
-msgstr "다른 사용자로 로그인하거나 <a href=\"%(home_url)s\">홈페이지</a>로 되돌아가기"
+"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
+msgstr ""
+"다른 사용자로 로그인하거나 <a href=\"%(home_url)s\">홈페이지</a>로 되돌아가기"
 
-#: templates/auth/_login.html:45
 msgid "Sign In"
 msgstr "등록"
 
-#: templates/auth/_login.html:46
 msgid "Connect"
 msgstr "연결"
 
-#: templates/auth/login.html:4
 msgid "Login"
 msgstr "로그인"
 
-#: templates/horizon/_messages.html:7
 msgid "Info: "
 msgstr "정보:"
 
-#: templates/horizon/_messages.html:13
 msgid "Warning: "
 msgstr "경고:"
 
-#: templates/horizon/_messages.html:19
 msgid "Success: "
 msgstr "완료:"
 
-#: templates/horizon/_messages.html:25
 msgid "Error: "
 msgstr "오류:"
 
-#: templates/horizon/common/_data_table.html:63
 msgid "Summary"
 msgstr "요약"
 
-#: templates/horizon/common/_data_table.html:72
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
 msgstr[0] "%(counter)s 항목 표시"
 
-#: templates/horizon/common/_data_table.html:77
 msgid "&laquo;&nbsp;Prev"
 msgstr "&laquo;&nbsp;이전"
 
-#: templates/horizon/common/_data_table.html:80
 msgid "Next&nbsp;&raquo;"
 msgstr "다음&nbsp;&raquo;"
 
-#: templates/horizon/common/_data_table_table_actions.html:45
 msgid "More Actions"
 msgstr "기타 작업"
 
-#: templates/horizon/common/_domain_page_header.html:6
 #, python-format
 msgid "%(context_name)s:"
 msgstr "%(context_name)s:"
 
-#: templates/horizon/common/_formset_table.html:35
 msgid "Add a row"
 msgstr "열 추가"
 
-#: templates/horizon/common/_formset_table_row.html:15
 #, python-format
 msgid "%(name)s: %(error)s"
 msgstr "%(name)s: %(error)s"
 
-#: templates/horizon/common/_limit_summary.html:4
 msgid "Limit Summary"
 msgstr "간략한 요약"
 
-#: templates/horizon/common/_limit_summary.html:7
 msgid "Instances"
 msgstr "인스턴스"
 
-#: templates/horizon/common/_limit_summary.html:8
-#: templates/horizon/common/_limit_summary.html:15
-#: templates/horizon/common/_limit_summary.html:22
-#: templates/horizon/common/_limit_summary.html:36
-#: templates/horizon/common/_limit_summary.html:43
-#: templates/horizon/common/_limit_summary.html:50
 #, python-format
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
 msgstr "<span> %(available)s </span> 중에서 <span> %(used)s </span> 사용"
 
-#: templates/horizon/common/_limit_summary.html:14
 msgid "VCPUs"
 msgstr "VCPUs"
 
-#: templates/horizon/common/_limit_summary.html:21
 msgid "RAM"
 msgstr "RAM"
 
-#: templates/horizon/common/_limit_summary.html:28
 msgid "Floating IPs"
 msgstr "유동 IP"
 
-#: templates/horizon/common/_limit_summary.html:29
 #, python-format
 msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
 msgstr "<span> %(available)s </span> 중에서 <span> %(used)s </span> 할당"
 
-#: templates/horizon/common/_limit_summary.html:35
 msgid "Security Groups"
 msgstr "보안 그룹"
 
-#: templates/horizon/common/_limit_summary.html:42
 msgid "Volumes"
 msgstr "볼륨"
 
-#: templates/horizon/common/_limit_summary.html:49
 msgid "Volume Storage"
 msgstr "볼륨 스토리지"
 
-#: templates/horizon/common/_modal_form_update_metadata.html:24
-#: workflows/base.py:594
 msgid "Save"
 msgstr "저장"
 
-#: templates/horizon/common/_resource_browser.html:10
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
 msgstr[0] "%(nav_items)s 항목 표시"
 
-#: templates/horizon/common/_resource_browser.html:11
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
 msgstr[0] "%(content_items)s 항목 표시"
 
-#: templates/horizon/common/_usage_summary.html:3
 msgid "Usage Summary"
 msgstr "사용량 요약"
 
-#: templates/horizon/common/_usage_summary.html:7
 msgid "Select a period of time to query its usage:"
 msgstr "사용량을 조회할 기간을 선택하세요:"
 
-#: templates/horizon/common/_usage_summary.html:9
 #, python-format
 msgid ""
 "\n"
 "      <label>From:</label> %(start)s"
-msgstr "\n<label>시작:</label> %(start)s"
+msgstr ""
+"\n"
+"<label>시작:</label> %(start)s"
 
-#: templates/horizon/common/_usage_summary.html:13
 #, python-format
 msgid ""
 "\n"
 "      <label>To:</label>%(end)s"
-msgstr "\n<label>끝:</label>%(end)s"
+msgstr ""
+"\n"
+"<label>끝:</label>%(end)s"
 
-#: templates/horizon/common/_usage_summary.html:17
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "날짜는 YYYY-mm-dd 형식이어야 합니다."
 
-#: templates/horizon/common/_usage_summary.html:20
 msgid "Active Instances:"
 msgstr "동작 중인 인스턴스:"
 
-#: templates/horizon/common/_usage_summary.html:21
 msgid "Active RAM:"
 msgstr "사용 중인 RAM:"
 
-#: templates/horizon/common/_usage_summary.html:22
 msgid "This Period's VCPU-Hours:"
 msgstr "이 기간의 VCPU 사용 시간:"
 
-#: templates/horizon/common/_usage_summary.html:23
 msgid "This Period's GB-Hours:"
 msgstr "이 기간의 GB-Hours 사용 시간:"
 
-#: templates/horizon/common/_usage_summary.html:24
 msgid "This Period's RAM-Hours:"
 msgstr "이 기간의 RAM 사용 시간:"
 
-#: templates/horizon/common/_workflow.html:40
 msgid "Back"
 msgstr "뒤로"
 
-#: templates/horizon/common/_workflow.html:43
 msgid "Next"
 msgstr "다음"
 
-#: templatetags/branding.py:34
 msgid "Horizon"
 msgstr "Horizon"
 
-#: templatetags/horizon.py:137 templatetags/horizon.py:148
 msgid "No Limit"
 msgstr "제한 없음"
 
-#: templatetags/horizon.py:140 templatetags/horizon.py:142
 msgid "Available"
 msgstr "사용 가능"
 
-#: templatetags/sizeformat.py:51 templatetags/sizeformat.py:56
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
 msgstr[0] "%(size)d 바이트"
 
-#: templatetags/sizeformat.py:59
 #, python-format
 msgid "%s KB"
 msgstr "%s KB"
 
-#: templatetags/sizeformat.py:61
 #, python-format
 msgid "%s MB"
 msgstr "%s MB"
 
-#: templatetags/sizeformat.py:63
 #, python-format
 msgid "%s GB"
 msgstr "%s GB"
 
-#: templatetags/sizeformat.py:65
 #, python-format
 msgid "%s TB"
 msgstr "%s TB"
 
-#: templatetags/sizeformat.py:66
 #, python-format
 msgid "%s PB"
 msgstr "%s PB"
 
-#: templatetags/sizeformat.py:74
 msgid "0 Bytes"
 msgstr "0 Bytes"
 
 #. Translators: test code, don't really have to translate
-#: test/test_dashboards/dogs/puppies/tables.py:31
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
 msgstr[0] "강아지 판매"
 
 #. Translators: test code, don't really have to translate
-#: test/test_dashboards/dogs/puppies/tables.py:40
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
 msgstr[0] "강아지 판매함"
 
-#: test/tests/views.py:59
 msgid "Fake"
 msgstr "페이크"
 
-#: utils/filters.py:49
 msgid "Never"
 msgstr "없음"
 
-#: utils/validators.py:26 utils/validators.py:50
 msgid "Not a valid port number"
 msgstr "유효하지 않은 포트 번호"
 
-#: utils/validators.py:31
 msgid "Not a valid IP protocol number"
 msgstr "유효하지 않은 IP 프로토콜 번호"
 
-#: utils/validators.py:45
 msgid "One colon allowed in port range"
 msgstr "포트 범위에서 콜론은 하나만 사용할 수 있습니다."
 
-#: utils/validators.py:52
 msgid "Port number must be integer"
 msgstr "포트 번호는 정수이어야 합니다."
 
-#: utils/validators.py:59
 msgid "The string may only contain ASCII printable characters."
 msgstr "문자열은 ASCII 인쇄 문자를 포함할 수 있습니다."
 
-#: workflows/base.py:71
 msgid "Processing..."
 msgstr "작업 중..."
 
-#: workflows/base.py:475
 msgid "All available"
 msgstr "모두 사용가능"
 
-#: workflows/base.py:476
 msgid "Members"
 msgstr "구성원"
 
-#: workflows/base.py:477
 msgid "None available."
 msgstr "사용할 수 있는 것이 없음."
 
-#: workflows/base.py:478
 msgid "No members."
 msgstr "구성원이 없습니다."
 
-#: workflows/base.py:595
 #, python-format
 msgid "%s completed successfully."
 msgstr "%s가 성공적으로 완료되었습니다."
 
-#: workflows/base.py:596
 #, python-format
 msgid "%s did not complete."
 msgstr "%s가 완료되지 않았습니다."

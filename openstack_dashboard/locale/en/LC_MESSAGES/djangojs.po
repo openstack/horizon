@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 01:19-0500\n"
+"POT-Creation-Date: 2015-05-08 01:19-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -104,81 +104,66 @@ msgid ""
 "<b>Configuration Drive</b> and accesses the metadata."
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:34
+#: static/dashboard/launch-instance/flavor/flavor.js:33
 #: static/dashboard/launch-instance/launch-instance.js:23
 msgid "Flavor"
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:35
+#: static/dashboard/launch-instance/flavor/flavor.js:34
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
 "the instance."
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:38
-#: static/dashboard/launch-instance/source/source.js:305
+#: static/dashboard/launch-instance/flavor/flavor.js:37
+#: static/dashboard/launch-instance/source/source.js:297
 msgid "Total Instances"
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:39
+#: static/dashboard/launch-instance/flavor/flavor.js:38
 msgid "Total VCPUs"
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:40
+#: static/dashboard/launch-instance/flavor/flavor.js:39
 msgid "Total RAM"
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:219
-#: static/dashboard/launch-instance/source/source.js:308
-msgid "Current Usage"
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/flavor.js:224
-#: static/dashboard/launch-instance/source/source.js:309
-msgid "Added"
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/flavor.js:229
-#: static/dashboard/launch-instance/source/source.js:310
-msgid "Remaining"
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/flavor.js:255
+#: static/dashboard/launch-instance/flavor/flavor.js:258
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:264
+#: static/dashboard/launch-instance/flavor/flavor.js:267
 msgid ""
 "This flavor requires more VCPUs than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:271
+#: static/dashboard/launch-instance/flavor/flavor.js:274
 msgid ""
 "The selected image source requires a flavor with at least %(minDisk)s GB of "
 "root disk. Select a flavor with a larger root disk or use a different image "
 "source."
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:275
+#: static/dashboard/launch-instance/flavor/flavor.js:278
 msgid ""
 "The selected image source requires a flavor with at least %(minRam)s MB of "
 "RAM. Select a flavor with more RAM or use a different image source."
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:287
+#: static/dashboard/launch-instance/flavor/flavor.js:294
 msgid "Flavor Help"
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:290
+#: static/dashboard/launch-instance/flavor/flavor.js:297
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
 "storage and memory resources that will be carved out for the instance."
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:291
+#: static/dashboard/launch-instance/flavor/flavor.js:298
 msgid ""
 "The flavor you select must have enough resources allocated to support the "
 "type of instance you are trying to create. Flavors that don't provide enough "
@@ -186,7 +171,7 @@ msgid ""
 "with a yellow warning icon."
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:292
+#: static/dashboard/launch-instance/flavor/flavor.js:299
 msgid ""
 "Administrators are responsible for creating and managing flavors. A custom "
 "flavor can be created for you or for a specific project where it is shared "
@@ -201,10 +186,10 @@ msgstr ""
 #: static/dashboard/launch-instance/flavor/select-flavor-table.js:96
 #: static/dashboard/launch-instance/keypair/keypair.js:27
 #: static/dashboard/launch-instance/security-groups/security-groups.js:20
-#: static/dashboard/launch-instance/source/source.js:171
-#: static/dashboard/launch-instance/source/source.js:178
-#: static/dashboard/launch-instance/source/source.js:185
-#: static/dashboard/launch-instance/source/source.js:192
+#: static/dashboard/launch-instance/source/source.js:175
+#: static/dashboard/launch-instance/source/source.js:182
+#: static/dashboard/launch-instance/source/source.js:189
+#: static/dashboard/launch-instance/source/source.js:196
 msgid "Name"
 msgstr ""
 
@@ -229,7 +214,7 @@ msgid "Ephemeral Disk"
 msgstr ""
 
 #: static/dashboard/launch-instance/flavor/select-flavor-table.js:102
-#: static/dashboard/launch-instance/source/source.js:201
+#: static/dashboard/launch-instance/source/source.js:205
 msgid "Public"
 msgstr ""
 
@@ -246,8 +231,8 @@ msgstr ""
 
 #: static/dashboard/launch-instance/keypair/keypair.js:28
 #: static/dashboard/launch-instance/security-groups/security-groups.js:21
-#: static/dashboard/launch-instance/source/source.js:186
-#: static/dashboard/launch-instance/source/source.js:193
+#: static/dashboard/launch-instance/source/source.js:190
+#: static/dashboard/launch-instance/source/source.js:197
 msgid "Description"
 msgstr ""
 
@@ -386,22 +371,22 @@ msgid "Security Groups"
 msgstr ""
 
 #: static/dashboard/launch-instance/launch-instance.model.js:375
-#: static/dashboard/launch-instance/source/source.js:113
+#: static/dashboard/launch-instance/source/source.js:117
 msgid "Image"
 msgstr ""
 
 #: static/dashboard/launch-instance/launch-instance.model.js:383
-#: static/dashboard/launch-instance/source/source.js:114
+#: static/dashboard/launch-instance/source/source.js:118
 msgid "Instance Snapshot"
 msgstr ""
 
 #: static/dashboard/launch-instance/launch-instance.model.js:390
-#: static/dashboard/launch-instance/source/source.js:115
+#: static/dashboard/launch-instance/source/source.js:119
 msgid "Volume"
 msgstr ""
 
 #: static/dashboard/launch-instance/launch-instance.model.js:391
-#: static/dashboard/launch-instance/source/source.js:116
+#: static/dashboard/launch-instance/source/source.js:120
 msgid "Volume Snapshot"
 msgstr ""
 
@@ -426,7 +411,7 @@ msgid "Admin State"
 msgstr ""
 
 #: static/dashboard/launch-instance/network/network.js:57
-#: static/dashboard/launch-instance/source/source.js:196
+#: static/dashboard/launch-instance/source/source.js:200
 msgid "Status"
 msgstr ""
 
@@ -439,7 +424,7 @@ msgid "(None)"
 msgstr ""
 
 #: static/dashboard/launch-instance/network/network.js:60
-#: static/dashboard/launch-instance/source/source.js:89
+#: static/dashboard/launch-instance/source/source.js:93
 msgid "ID"
 msgstr ""
 
@@ -456,9 +441,9 @@ msgid "Provider Network"
 msgstr ""
 
 #: static/dashboard/launch-instance/network/network.js:64
-#: static/dashboard/launch-instance/source/source.js:174
-#: static/dashboard/launch-instance/source/source.js:181
-#: static/dashboard/launch-instance/source/source.js:188
+#: static/dashboard/launch-instance/source/source.js:178
+#: static/dashboard/launch-instance/source/source.js:185
+#: static/dashboard/launch-instance/source/source.js:192
 msgid "Type"
 msgstr ""
 
@@ -620,188 +605,188 @@ msgid ""
 "deployed. You will only be able to access the instance from a VNC console."
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:77
-#: static/dashboard/launch-instance/source/source.js:495
+#: static/dashboard/launch-instance/source/source.js:81
+#: static/dashboard/launch-instance/source/source.js:504
 msgid "Instance Details"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:78
+#: static/dashboard/launch-instance/source/source.js:82
 msgid ""
 "Please provide the initial host name for the instance, the availability zone "
 "where it will be deployed, and the instance count. Increase the Count to "
 "create multiple instances with the same settings."
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:79
+#: static/dashboard/launch-instance/source/source.js:83
 msgid "Instance Name"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:80
-#: static/dashboard/launch-instance/source/source.js:189
+#: static/dashboard/launch-instance/source/source.js:84
+#: static/dashboard/launch-instance/source/source.js:193
 msgid "Availability Zone"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:81
+#: static/dashboard/launch-instance/source/source.js:85
 msgid "Count"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:82
-#: static/dashboard/launch-instance/source/source.js:501
+#: static/dashboard/launch-instance/source/source.js:86
+#: static/dashboard/launch-instance/source/source.js:510
 msgid "Instance Source"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:83
+#: static/dashboard/launch-instance/source/source.js:87
 msgid ""
 "Instance source is the template used to create an instance. You can use a "
 "snapshot of an existing instance, an image, or a volume (if enabled). You "
 "can also choose to use persistent storage by creating a new volume."
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:84
+#: static/dashboard/launch-instance/source/source.js:88
 msgid "Select Boot Source"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:85
+#: static/dashboard/launch-instance/source/source.js:89
 msgid "Size (GB)"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:86
+#: static/dashboard/launch-instance/source/source.js:90
 msgid "Create New Volume"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:87
+#: static/dashboard/launch-instance/source/source.js:91
 msgid "Device Name"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:88
+#: static/dashboard/launch-instance/source/source.js:92
 msgid "Delete Volume on Terminate"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:90
+#: static/dashboard/launch-instance/source/source.js:94
 msgid "Min Ram"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:91
+#: static/dashboard/launch-instance/source/source.js:95
 msgid "Min Disk"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:96
+#: static/dashboard/launch-instance/source/source.js:100
 msgid ""
 "Volumes can only be attached to 1 active instance at a time. Please either "
 "set your instance count to 1 or select a different source type."
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:97
+#: static/dashboard/launch-instance/source/source.js:101
 msgid "A name is required for your instance."
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:98
+#: static/dashboard/launch-instance/source/source.js:102
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:99
+#: static/dashboard/launch-instance/source/source.js:103
 msgid "Volume size is required and must be an integer"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:104
+#: static/dashboard/launch-instance/source/source.js:108
 msgid "Yes"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:105
+#: static/dashboard/launch-instance/source/source.js:109
 msgid "No"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:172
-#: static/dashboard/launch-instance/source/source.js:179
+#: static/dashboard/launch-instance/source/source.js:176
+#: static/dashboard/launch-instance/source/source.js:183
 msgid "Updated"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:173
-#: static/dashboard/launch-instance/source/source.js:180
-#: static/dashboard/launch-instance/source/source.js:187
-#: static/dashboard/launch-instance/source/source.js:194
+#: static/dashboard/launch-instance/source/source.js:177
+#: static/dashboard/launch-instance/source/source.js:184
+#: static/dashboard/launch-instance/source/source.js:191
+#: static/dashboard/launch-instance/source/source.js:198
 msgid "Size"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:175
-#: static/dashboard/launch-instance/source/source.js:182
+#: static/dashboard/launch-instance/source/source.js:179
+#: static/dashboard/launch-instance/source/source.js:186
 msgid "Visibility"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:195
+#: static/dashboard/launch-instance/source/source.js:199
 msgid "Created"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:201
+#: static/dashboard/launch-instance/source/source.js:205
 msgid "Private"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:258
+#: static/dashboard/launch-instance/source/source.js:262
 msgid "Select a source from those listed below."
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:259
+#: static/dashboard/launch-instance/source/source.js:263
 msgid "Select one"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:260
+#: static/dashboard/launch-instance/source/source.js:264
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "
 "availability zone is compatible with your volume's availability zone."
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:397
+#: static/dashboard/launch-instance/source/source.js:406
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:409
+#: static/dashboard/launch-instance/source/source.js:418
 msgid ""
 "The instance count must not exceed your quota available of "
 "%(maxInstanceCount)s instances"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:493
+#: static/dashboard/launch-instance/source/source.js:502
 msgid "Select Source Help"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:497
+#: static/dashboard/launch-instance/source/source.js:506
 msgid ""
 "An instance name is required and used to help you uniquely identify your "
 "instance in the dashboard."
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:498
+#: static/dashboard/launch-instance/source/source.js:507
 msgid ""
 "If you select an availability zone and plan to use the boot from volume "
 "option, make sure that the availability zone you select for the instance is "
 "the same availability zone where your bootable volume resides."
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:503
+#: static/dashboard/launch-instance/source/source.js:512
 msgid ""
 "If you want to create an instance that uses ephemeral storage, meaning the "
 "instance data is lost when the instance is deleted, then choose one of the "
 "following boot sources:"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:504
+#: static/dashboard/launch-instance/source/source.js:513
 msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:505
+#: static/dashboard/launch-instance/source/source.js:514
 msgid ""
 "<li><b>Instance Snapshot</b>: This option uses an instance snapshot to boot "
 "the instance.</li>"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:506
+#: static/dashboard/launch-instance/source/source.js:515
 msgid ""
 "If you want to create an instance that uses persistent storage, meaning the "
 "instance data is saved when the instance is deleted, then select one of the "
 "following boot options:"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:507
+#: static/dashboard/launch-instance/source/source.js:516
 msgid ""
 "<li><b>Image (with Create New Volume checked)</b>: This options uses an "
 "image to boot the instance, and creates a new volume to persist instance "
@@ -809,7 +794,7 @@ msgid ""
 "termination of the instance.</li>"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:508
+#: static/dashboard/launch-instance/source/source.js:517
 msgid ""
 "<li><b>Volume</b>: This option uses a volume that already exists. It does "
 "not create a new volume. You can choose to delete the volume on termination "
@@ -817,7 +802,7 @@ msgid ""
 "instance.</em></li>"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:509
+#: static/dashboard/launch-instance/source/source.js:518
 msgid ""
 "<li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
 "instance, and creates a new volume to persist instance data. You can choose "

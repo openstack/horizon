@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-23 01:38-0500\n"
+"POT-Creation-Date: 2015-05-08 01:19-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,6 +21,27 @@ msgstr ""
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
 "missing information."
+msgstr ""
+
+#: static/angular/charts/charts.js:91
+msgid "Current Usage"
+msgstr ""
+
+#: static/angular/charts/charts.js:93
+msgid "Added"
+msgstr ""
+
+#: static/angular/charts/charts.js:95
+msgid "Remaining"
+msgstr ""
+
+#: static/angular/charts/pie-chart.js:125
+#: static/angular/metadata-tree/metadata-tree.js:37
+msgid "Max"
+msgstr ""
+
+#: static/angular/charts/pie-chart.js:128
+msgid "Total"
 msgstr ""
 
 #: static/angular/metadata-display/metadata-display.js:33
@@ -37,10 +58,6 @@ msgstr ""
 
 #: static/angular/metadata-tree/metadata-tree.js:36
 msgid "Min"
-msgstr ""
-
-#: static/angular/metadata-tree/metadata-tree.js:37
-msgid "Max"
 msgstr ""
 
 #: static/angular/metadata-tree/metadata-tree.js:38
@@ -243,7 +260,7 @@ msgid "%s bytes"
 msgstr ""
 
 #: static/horizon/js/angular/filters/filters.js:163
-#: static/horizon/js/horizon.tables.js:393
+#: static/horizon/js/horizon.tables.js:398
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
@@ -422,55 +439,55 @@ msgstr ""
 msgid "Unable to retrieve ports."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.nova.js:40
+#: static/horizon/js/angular/services/hz.api.nova.js:39
 msgid "Unable to retrieve keypairs."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.nova.js:62
+#: static/horizon/js/angular/services/hz.api.nova.js:61
 msgid "Unable to import the keypair."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.nova.js:64
+#: static/horizon/js/angular/services/hz.api.nova.js:63
 msgid "Unable to create the keypair."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.nova.js:83
+#: static/horizon/js/angular/services/hz.api.nova.js:82
 msgid "Unable to retrieve availability zones."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.nova.js:121
+#: static/horizon/js/angular/services/hz.api.nova.js:120
 msgid "Unable to retrieve limits."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.nova.js:148
+#: static/horizon/js/angular/services/hz.api.nova.js:147
 msgid "Unable to create the server."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.nova.js:162
+#: static/horizon/js/angular/services/hz.api.nova.js:161
 msgid "Unable to retrieve server."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.nova.js:192
+#: static/horizon/js/angular/services/hz.api.nova.js:191
 msgid "Unable to retrieve extensions."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.nova.js:237
+#: static/horizon/js/angular/services/hz.api.nova.js:236
 msgid "Unable to retrieve flavors."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.nova.js:255
+#: static/horizon/js/angular/services/hz.api.nova.js:254
 msgid "Unable to retrieve flavor."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.nova.js:269
+#: static/horizon/js/angular/services/hz.api.nova.js:268
 msgid "Unable to retrieve flavor extra specs."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.nova.js:311
+#: static/horizon/js/angular/services/hz.api.nova.js:310
 msgid "Extension is not enabled: %(extension)s"
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.nova.js:318
+#: static/horizon/js/angular/services/hz.api.nova.js:317
 msgid "Cannot get nova extension list."
 msgstr ""
 
@@ -488,29 +505,29 @@ msgstr ""
 msgid "Loading"
 msgstr ""
 
-#: static/horizon/js/horizon.d3linechart.js:394
-#: static/horizon/js/horizon.d3linechart.js:404
+#: static/horizon/js/horizon.d3linechart.js:395
+#: static/horizon/js/horizon.d3linechart.js:405
 msgid "No data available."
 msgstr ""
 
-#: static/horizon/js/horizon.d3linechart.js:410
+#: static/horizon/js/horizon.d3linechart.js:411
 #: static/horizon/js/horizon.modals.js:334
-#: static/horizon/js/horizon.tables_inline_edit.js:94
-#: static/horizon/js/horizon.tables_inline_edit.js:157
+#: static/horizon/js/horizon.tables_inline_edit.js:92
+#: static/horizon/js/horizon.tables_inline_edit.js:155
 msgid "An error occurred. Please try again later."
 msgstr ""
 
 #: static/horizon/js/horizon.firewalls.js:32
-#: static/horizon/js/horizon.instances.js:31
+#: static/horizon/js/horizon.instances.js:32
 msgid "There was a problem communicating with the server, please try again."
 msgstr ""
 
-#: static/horizon/js/horizon.instances.js:273
+#: static/horizon/js/horizon.instances.js:274
 msgid "Could not read the file"
 msgstr ""
 
-#: static/horizon/js/horizon.instances.js:279
-#: static/horizon/js/horizon.instances.js:308
+#: static/horizon/js/horizon.instances.js:280
+#: static/horizon/js/horizon.instances.js:309
 msgid "Could not decrypt the password"
 msgstr ""
 
@@ -543,7 +560,7 @@ msgid "Error: "
 msgstr ""
 
 #: static/horizon/js/horizon.modals.js:229
-#: static/horizon/js/horizon.tables.js:218
+#: static/horizon/js/horizon.tables.js:223
 msgid "Working"
 msgstr ""
 
@@ -551,85 +568,85 @@ msgstr ""
 msgid "There was an error submitting the form. Please try again."
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:530
-#: static/horizon/js/horizon.networktopology.js:536
+#: static/horizon/js/horizon.networktopology.js:531
+#: static/horizon/js/horizon.networktopology.js:537
 msgid "None"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:549
+#: static/horizon/js/horizon.networktopology.js:551
 msgid "Delete"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:552
+#: static/horizon/js/horizon.networktopology.js:554
 msgid "STATUS"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:553
+#: static/horizon/js/horizon.networktopology.js:555
 msgid "ID"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:554
+#: static/horizon/js/horizon.networktopology.js:556
 msgid "Interfaces"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:555
+#: static/horizon/js/horizon.networktopology.js:557
 msgid "Delete Interface"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:556
+#: static/horizon/js/horizon.networktopology.js:558
 msgid "Open Console"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:557
+#: static/horizon/js/horizon.networktopology.js:559
 msgid "View Details"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:560
+#: static/horizon/js/horizon.networktopology.js:562
 msgid "Delete Router"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:561
+#: static/horizon/js/horizon.networktopology.js:563
 msgid "View Router Details"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:564
+#: static/horizon/js/horizon.networktopology.js:566
 msgid "Add Interface"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:570
+#: static/horizon/js/horizon.networktopology.js:572
 msgid "Terminate Instance"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:571
+#: static/horizon/js/horizon.networktopology.js:573
 msgid "View Instance Details"
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:39
-#: static/horizon/js/horizon.tables.js:406
+#: static/horizon/js/horizon.tables.js:41
+#: static/horizon/js/horizon.tables.js:411
 msgid "No items to display."
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:52
-#: static/horizon/js/horizon.tables.js:120
+#: static/horizon/js/horizon.tables.js:54
+#: static/horizon/js/horizon.tables.js:125
 msgid "An error occurred while updating."
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:201
+#: static/horizon/js/horizon.tables.js:206
 #, c-format
 msgid "You have selected %s. "
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:203
+#: static/horizon/js/horizon.tables.js:208
 #, c-format
 msgid "Confirm %s"
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:204
+#: static/horizon/js/horizon.tables.js:209
 msgid "Please confirm your selection. "
 msgstr ""
 
-#: static/horizon/js/horizon.tables_inline_edit.js:88
-#: static/horizon/js/horizon.tables_inline_edit.js:151
+#: static/horizon/js/horizon.tables_inline_edit.js:86
+#: static/horizon/js/horizon.tables_inline_edit.js:149
 msgid "Not authorized to do this operation."
 msgstr ""
 
