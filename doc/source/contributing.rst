@@ -234,7 +234,7 @@ Required
              // code...
            })();
 
-* Use ``forEach`` | ``each`` when looping whenever possible. AngularJS, and
+* Use ``forEach`` | ``each`` when looping whenever possible. AngularJS and
   jQuery both provide for each loops that provide both iteration and scope.
 
   AngularJS:
@@ -364,35 +364,61 @@ Recommended
 
 AngularJS
 ---------
-The following standards are divided into required and recommended sections.
+
+"John Papa Style Guide"
+~~~~~~~~~~~~~~~~~~~~~~~
+
+The John Papa Style Guide is the primary point of reference for Angular
+code style. This style guide has been endorsed by the AngularJS
+team::
+
+ "The most current and detailed Angular Style Guide is the
+ community-driven effort led by John Papa and Todd Motto."
+
+ - http://angularjs.blogspot.com/2014/02/an-angularjs-style-guide-and-best.html
+
+The style guide is found at the below location:
+
+https://github.com/johnpapa/angular-styleguide
+
+When reviewing / writing, please refer to the sections of this guide.
+If an issue is encountered, note it with a comment and provide a link back
+to the specific issue. For example, code should use named functions. A
+review noting this should provide the following link in the comments:
+
+https://github.com/johnpapa/angular-styleguide#style-y024
+
+In addition to John Papa, the following guidelines are divided into
+required and recommended sections.
 
 Required
 ~~~~~~~~
 
 * Organization: Define your Angular app under the root Angular folder (such
-  as ``horizon/static/horizon/js/angular/hz.table.js``). If your application is
-  small enough you can choose to lump your Controllers, Directives, Filters,
-  etc.. all in the one file. But if you find your file is growing too large and
-  readability is becoming an issue, consider moving functionality into their
-  own files under sub folders as described in the Recommended section.
-* Separate presentation and business logic. Controllers are for business logic,
-  and directives for presentation.
+  as ``horizon/static/horizon/js/angular/hz.table.js``).
 
   * Controllers and Services should not contain DOM references. Directives
     should.
   * Services are singletons and contain logic independent of view.
 * Scope is not the model (model is your JavaScript Objects). The scope
-  references the model.
+  references the model. Use isolate scopes wherever possible.
 
+  * https://github.com/angular/angular.js/wiki/Understanding-Scopes
   * Read-only in templates.
   * Write-only in controllers.
 * Since Django already uses ``{{ }}``, use ``{$ $}`` or ``{% verbatim %}``
   instead.
-* For localization in JavaScript files use either ``gettext`` or ``ngettext``.
+* For localization in Angular files, use the Angular service hz.i18n.gettext.
+  For regular Javascript files, use either ``gettext`` or ``ngettext``.
   Only those two methods are recognized by our tools and will be included in
   the .po file after running ``./run_tests --makemessages``.
 
   .. code ::
+
+     // Angular
+     angular.module('hz.widget.modal', ['ui.bootstrap', 'hz.i18n'])
+      .factory('simpleModalService', ['$modal', 'basePath', 'hz.i18n.gettext',
+         function($modal, path, gettext) { gettext('translatable text'); };
 
     // recognized
     gettext("translatable text");
@@ -404,27 +430,8 @@ Required
 
     $window.gettext('translatable text');
 
-* For localization of AngularJS templates in Horizon, there are a couple of
-  ways to do it.
-
-  * Using ``gettext`` or ``ngettext`` function that is passed from server to
-    client. If you're only translating a few things, this methodology is ok
-    to use.
-
-  * Use an Angular directive that will fetch a django template instead of a
-    static HTML file. The advantage here is that you can now use
-    ``{% trans %}`` and anything else Django has to offer. You can also cache
-    the page according to the locale if you know that the content is static.
-
 Recommended
 ~~~~~~~~~~~
-
-* Use these directories: filters, directives, controllers, and templates.
-
-  .. Note ::
-
-     When you use the directory name, the file name does not have to include
-     words like "directive" or "filter".
 
 * Put "Ctrl" on the end of a controller file name.
 * Don't use variables like "app" that are at the highest level in the file,
