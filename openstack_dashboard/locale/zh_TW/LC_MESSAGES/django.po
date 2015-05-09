@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-05-07 08:02+0000\n"
+"POT-Creation-Date: 2015-05-08 12:21-0500\n"
+"PO-Revision-Date: 2015-05-08 17:21+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/"
 "language/zh_TW/)\n"
@@ -4961,6 +4961,9 @@ msgstr "主程式"
 
 msgid "Libs"
 msgstr "程式庫"
+
+msgid "Never"
+msgstr "永不"
 
 msgid "Enter any custom configuration required for your job's execution."
 msgstr "為您的工作執行任務輸入任何需要的自訂設置。"
@@ -10430,9 +10433,6 @@ msgstr "正在擴充雲硬碟：「%s」"
 
 msgid "Unable to extend volume."
 msgstr "無法擴充雲硬碟。"
-
-msgid "Never"
-msgstr "永不"
 
 msgid "On Demand"
 msgstr "必要時轉移"

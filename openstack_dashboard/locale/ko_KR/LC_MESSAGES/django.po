@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-05-07 09:53+0000\n"
-"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"POT-Creation-Date: 2015-05-08 12:21-0500\n"
+"PO-Revision-Date: 2015-05-08 17:21+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/"
 "language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -5038,6 +5038,9 @@ msgstr "Mains"
 
 msgid "Libs"
 msgstr "Libs"
+
+msgid "Never"
+msgstr "없음"
 
 msgid "Enter any custom configuration required for your job's execution."
 msgstr "Job 실행하는데 있어서 필요한 사용자 정의 구성요소를 입력하십시오."
@@ -10649,9 +10652,6 @@ msgstr "선택한 볼륨 확장중: \"%s\""
 
 msgid "Unable to extend volume."
 msgstr "볼륨을 확장할 수 없습니다."
-
-msgid "Never"
-msgstr "없음"
 
 msgid "On Demand"
 msgstr "필요에 따름"

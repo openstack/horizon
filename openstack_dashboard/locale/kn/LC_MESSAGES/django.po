@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-05-07 08:02+0000\n"
+"POT-Creation-Date: 2015-05-08 12:21-0500\n"
+"PO-Revision-Date: 2015-05-08 17:21+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Kannada (http://www.transifex.com/projects/p/horizon/language/"
 "kn/)\n"
@@ -4024,6 +4024,9 @@ msgstr "ಮೇನ್ಸ್"
 
 msgid "Libs"
 msgstr "ಲಿಬ್ಸ್"
+
+msgid "Never"
+msgstr "ಎಂದೂ ಇಲ್ಲ"
 
 msgid "Enter any custom configuration required for your job's execution."
 msgstr "ನಿಮ್ಮ ಕೆಲಸದ ನಿರ್ವಹಣೆಗಾಗಿ ಅಗತ್ಯವಿರುವ ಯಾವುದೆ ಅಗತ್ಯಾನುಗುಣ ಸಂರಚನೆಯನ್ನು ನಮೂದಿಸಿ."
@@ -8150,9 +8153,6 @@ msgstr "ಪರಿಮಾಣದ ವಿಸ್ತರಿಸುವಿಕೆ: \"%s\""
 
 msgid "Unable to extend volume."
 msgstr "ಪರಿಮಾಣವನ್ನು ವಿಸ್ತರಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
-
-msgid "Never"
-msgstr "ಎಂದೂ ಇಲ್ಲ"
 
 msgid "On Demand"
 msgstr "ಬೇಡಿಕೆಯ ಮೇರೆಗೆ"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-05-07 08:02+0000\n"
+"POT-Creation-Date: 2015-05-08 12:21-0500\n"
+"PO-Revision-Date: 2015-05-08 17:21+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/"
 "language/pl_PL/)\n"
@@ -4936,6 +4936,9 @@ msgstr "Pliki główne"
 
 msgid "Libs"
 msgstr "Biblioteki"
+
+msgid "Never"
+msgstr "Nigdy"
 
 msgid "Enter any custom configuration required for your job's execution."
 msgstr "Podanie dodatkowej konfiguracji wymaganej do uruchomienia zadania."
@@ -10306,9 +10309,6 @@ msgstr "Rozszerzanie wolumenu: \"%s\""
 
 msgid "Unable to extend volume."
 msgstr "Nie można rozszerzyć wolumenu."
-
-msgid "Never"
-msgstr "Nigdy"
 
 msgid "On Demand"
 msgstr "Na żądanie"

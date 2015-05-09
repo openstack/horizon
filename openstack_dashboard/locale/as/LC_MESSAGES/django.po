@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-05-07 08:02+0000\n"
+"POT-Creation-Date: 2015-05-08 12:21-0500\n"
+"PO-Revision-Date: 2015-05-08 17:21+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Assamese (http://www.transifex.com/projects/p/horizon/"
 "language/as/)\n"
@@ -4000,6 +4000,9 @@ msgstr "মুখ্যবোৰ"
 
 msgid "Libs"
 msgstr "লাইব্ৰেৰীবোৰ"
+
+msgid "Never"
+msgstr "কেতিয়াও নহয়"
 
 msgid "Enter any custom configuration required for your job's execution."
 msgstr "আপোনাৰ কামৰ কাৰ্যকৰীকৰণৰ বাবে যিকোনো ব্যৱস্থাৰ ৰূপৰেখা ভৰাওক."
@@ -8102,9 +8105,6 @@ msgstr "প্ৰসাৰিত আয়তন: \"%s\""
 
 msgid "Unable to extend volume."
 msgstr "আয়তন প্ৰসাৰ কৰিবলৈ অক্ষম."
-
-msgid "Never"
-msgstr "কেতিয়াও নহয়"
 
 msgid "On Demand"
 msgstr "দাবী মতে"

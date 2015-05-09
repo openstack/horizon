@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-05-07 08:02+0000\n"
+"POT-Creation-Date: 2015-05-08 12:21-0500\n"
+"PO-Revision-Date: 2015-05-08 17:21+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/"
 "horizon/language/en_GB/)\n"
@@ -5081,6 +5081,9 @@ msgstr "Mains"
 msgid "Libs"
 msgstr "Libs"
 
+msgid "Never"
+msgstr "Never"
+
 msgid "Enter any custom configuration required for your job's execution."
 msgstr "Enter any custom configuration required for your job's execution."
 
@@ -8502,6 +8505,47 @@ msgstr "Member Details"
 msgid "Monitor Details"
 msgstr "Monitor Details"
 
+msgid ""
+"\n"
+"  Assign a name and description for the pool. Choose one subnet where all\n"
+"  members of this pool must be on. Select the protocol and load balancing\n"
+"  method for this pool. Admin State is UP (checked) by default.\n"
+"  "
+msgstr ""
+"\n"
+"  Assign a name and description for the pool. Choose one subnet where all\n"
+"  members of this pool must be on. Select the protocol and load balancing\n"
+"  method for this pool. Admin State is UP (checked) by default.\n"
+"  "
+
+msgid ""
+"Use one of these load balancing methods to distribute incoming requests:"
+msgstr ""
+"Use one of these load balancing methods to distribute incoming requests:"
+
+msgid "Round robin"
+msgstr "Round robin"
+
+msgid "Rotates requests evenly between multiple instances."
+msgstr "Rotates requests evenly between multiple instances."
+
+msgid ""
+"Requests from a unique source IP address are consistently\n"
+"          directed to the same instance."
+msgstr ""
+"Requests from a unique source IP address are consistently\n"
+"          directed to the same instance."
+
+msgid "Least connections"
+msgstr "Least connections"
+
+msgid ""
+"Allocates requests to the instance with the least number of\n"
+"          active connections."
+msgstr ""
+"Allocates requests to the instance with the least number of\n"
+"          active connections."
+
 msgid "Address"
 msgstr "Address"
 
@@ -10784,9 +10828,6 @@ msgstr "Extending volume: \"%s\""
 msgid "Unable to extend volume."
 msgstr "Unable to extend volume."
 
-msgid "Never"
-msgstr "Never"
-
 msgid "On Demand"
 msgstr "On Demand"
 
@@ -11145,6 +11186,9 @@ msgstr "restart-by-peer"
 msgid "Dead peer detection interval"
 msgstr "Dead peer detection interval"
 
+msgid "Valid integer lesser than the DPD timeout"
+msgstr "Valid integer lesser than the DPD timeout"
+
 msgid "Dead peer detection timeout"
 msgstr "Dead peer detection timeout"
 
@@ -11159,6 +11203,9 @@ msgstr "bi-directional"
 
 msgid "response-only"
 msgstr "response-only"
+
+msgid "DPD Timeout must be greater than DPD Interval"
+msgstr "DPD Timeout must be greater than DPD Interval"
 
 #, python-format
 msgid "IPSec Site Connection %s was successfully updated."
@@ -11534,6 +11581,9 @@ msgstr ""
 "\n"
 "Assign a name and description for the IPSec Site Connection. All fields in "
 "this tab are required."
+
+msgid "Valid integer lesser than DPD timeout"
+msgstr "Valid integer lesser than DPD timeout"
 
 msgid "Optional Parameters"
 msgstr "Optional Parameters"

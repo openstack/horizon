@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-05-07 08:02+0000\n"
+"POT-Creation-Date: 2015-05-08 12:21-0500\n"
+"PO-Revision-Date: 2015-05-08 17:21+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/"
 "ru/)\n"
@@ -5266,6 +5266,9 @@ msgstr "Сети"
 
 msgid "Libs"
 msgstr "Libs"
+
+msgid "Never"
+msgstr "Никогда"
 
 msgid "Enter any custom configuration required for your job's execution."
 msgstr ""
@@ -11043,9 +11046,6 @@ msgstr "Расширить диск: \"%s\""
 
 msgid "Unable to extend volume."
 msgstr "Не удалось расширить диск."
-
-msgid "Never"
-msgstr "Никогда"
 
 msgid "On Demand"
 msgstr "По требованию"

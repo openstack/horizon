@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-08 01:19-0500\n"
+"POT-Creation-Date: 2015-05-09 01:18-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1855,6 +1855,7 @@ msgstr ""
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:9
 #: dashboards/project/data_processing/jobs/tables.py:31
 #: dashboards/project/data_processing/jobs/tables.py:108
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:10
 #: dashboards/project/images/images/tables.py:275
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/loadbalancers/workflows.py:482
@@ -2511,7 +2512,7 @@ msgstr ""
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:11
 #: dashboards/project/data_processing/jobs/tables.py:32
 #: dashboards/project/data_processing/jobs/tables.py:110
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:10
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:12
 #: dashboards/project/data_processing/jobs/workflows/create.py:86
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:10
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:43
@@ -2648,9 +2649,9 @@ msgstr ""
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:11
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:14
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:12
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:11
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:16
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:22
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:13
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:18
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:24
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:11
 #: dashboards/project/databases/workflows/create_instance.py:232
 #: dashboards/project/images/templates/images/images/_detail_overview.html:10
@@ -7779,7 +7780,6 @@ msgstr ""
 
 #: dashboards/project/data_processing/data_sources/templates/data_processing.data_sources/_details.html:15
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:13
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:24
 msgid "Create time"
 msgstr ""
 
@@ -8245,13 +8245,26 @@ msgid ""
 "your job template.  This can be repeated for additional libraries."
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:12
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:14
 msgid "Mains"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:18
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:20
 #: dashboards/project/data_processing/jobs/workflows/create.py:56
 msgid "Libs"
+msgstr ""
+
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:26
+msgid "Created time"
+msgstr ""
+
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:28
+msgid "Updated time"
+msgstr ""
+
+#: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:29
+#: dashboards/project/volumes/volumes/forms.py:746
+msgid "Never"
 msgstr ""
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_launch_job_configure_help.html:4
@@ -15682,10 +15695,6 @@ msgstr ""
 
 #: dashboards/project/volumes/volumes/forms.py:737
 msgid "Unable to extend volume."
-msgstr ""
-
-#: dashboards/project/volumes/volumes/forms.py:746
-msgid "Never"
 msgstr ""
 
 #: dashboards/project/volumes/volumes/forms.py:747

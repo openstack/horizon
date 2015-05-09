@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-05-07 18:03+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-05-08 12:21-0500\n"
+"PO-Revision-Date: 2015-05-08 10:32+0000\n"
+"Last-Translator: Rob Cresswell <robert.cresswell@outlook.com>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/"
 "horizon/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
@@ -27,11 +27,20 @@ msgstr ""
 "The action cannot be performed. The contents of this row have errors or are "
 "missing information."
 
+msgid "Current Usage"
+msgstr "Current Usage"
+
 msgid "Added"
 msgstr "Added"
 
+msgid "Remaining"
+msgstr "Remaining"
+
 msgid "Max"
 msgstr "Max"
+
+msgid "Total"
+msgstr "Total"
 
 msgid "Detail Information"
 msgstr "Detail Information"

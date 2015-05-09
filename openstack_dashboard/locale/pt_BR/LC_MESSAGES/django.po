@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-05-07 08:02+0000\n"
+"POT-Creation-Date: 2015-05-08 12:21-0500\n"
+"PO-Revision-Date: 2015-05-08 17:21+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
 "horizon/language/pt_BR/)\n"
@@ -5230,6 +5230,9 @@ msgstr "Mains"
 
 msgid "Libs"
 msgstr "Libs"
+
+msgid "Never"
+msgstr "Nunca"
 
 msgid "Enter any custom configuration required for your job's execution."
 msgstr ""
@@ -10983,9 +10986,6 @@ msgstr "Estendendo o volume: \"%s\""
 
 msgid "Unable to extend volume."
 msgstr "Incapaz de estender o volume."
-
-msgid "Never"
-msgstr "Nunca"
 
 msgid "On Demand"
 msgstr "Sob Demanda"

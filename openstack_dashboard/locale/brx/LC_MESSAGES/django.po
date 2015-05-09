@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-05-07 08:02+0000\n"
+"POT-Creation-Date: 2015-05-08 12:21-0500\n"
+"PO-Revision-Date: 2015-05-08 17:21+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Bodo (http://www.transifex.com/projects/p/horizon/language/"
 "brx/)\n"
@@ -3987,6 +3987,9 @@ msgstr "गाहाय"
 
 msgid "Libs"
 msgstr "Libs"
+
+msgid "Never"
+msgstr "माब्लाबाबो"
 
 msgid "Enter any custom configuration required for your job's execution."
 msgstr ""
@@ -8071,9 +8074,6 @@ msgstr "भलिउमखौ फेहेरगासिनो दं: \"%s\""
 
 msgid "Unable to extend volume."
 msgstr "भलिउमखौ फेहेरनो हायाखै।"
-
-msgid "Never"
-msgstr "माब्लाबाबो"
 
 msgid "On Demand"
 msgstr "दाबिआव"

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-05-07 08:02+0000\n"
+"POT-Creation-Date: 2015-05-08 12:21-0500\n"
+"PO-Revision-Date: 2015-05-08 17:21+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/"
 "hi/)\n"
@@ -3562,6 +3562,9 @@ msgstr "शूकर"
 msgid "Hive"
 msgstr "हाइव"
 
+msgid "Never"
+msgstr "कभी नहीं"
+
 msgid "Remove"
 msgstr "हटाएँ"
 
@@ -6760,9 +6763,6 @@ msgstr "बाध्य करें"
 
 msgid "Unable to extend volume."
 msgstr "वॉल्यूम का विस्तार करने में असमर्थ."
-
-msgid "Never"
-msgstr "कभी नहीं"
 
 msgid "On Demand"
 msgstr "मांग पर"
