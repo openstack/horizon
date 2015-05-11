@@ -8,13 +8,14 @@
 # Tom Fifield <tom@openstack.org>, 2015
 # Xiao Xi LIU <liuxx@cn.ibm.com>, 2014
 # Ying Chun Guo <daisy.ycguo@gmail.com>, 2015
+# 颜海峰 <yanheven@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-05-07 18:03+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-05-08 12:21-0500\n"
+"PO-Revision-Date: 2015-05-10 11:43+0000\n"
+"Last-Translator: 颜海峰 <yanheven@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/"
 "language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -28,11 +29,20 @@ msgid ""
 "missing information."
 msgstr "不能执行该操作。该列的内容有错或是缺少信息。"
 
+msgid "Current Usage"
+msgstr "当前使用量"
+
 msgid "Added"
 msgstr "已添加"
 
+msgid "Remaining"
+msgstr "剩余量"
+
 msgid "Max"
 msgstr "最大"
+
+msgid "Total"
+msgstr "总共"
 
 msgid "Detail Information"
 msgstr "详细信息"
