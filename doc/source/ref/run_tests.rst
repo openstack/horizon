@@ -189,15 +189,6 @@ For more detailed code analysis you can run::
 
 The output will be saved in ``./pylint.txt``.
 
-JsHint
-------
-
-For code analysis of JavaScript files::
-
-    ./run_tests.sh --jshint
-
-You need to have jshint installed before running the command.
-
 Tab Characters
 --------------
 

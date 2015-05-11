@@ -125,6 +125,8 @@ The community's guidelines for etiquette are fairly simple:
   a piece of code, it's polite (though not required) to thank them in your
   commit message.
 
+.. _translatability:
+
 Translatability
 ===============
 Horizon gets translated into multiple languages. The pseudo translation tool
@@ -430,32 +432,6 @@ Required
     _('translatable text');
 
     $window.gettext('translatable text');
-
-
-JSHint
-------
-JSHint is a great tool to be used during your code editing to improve
-JavaScript quality by checking your code against a configurable list of checks.
-Therefore, JavaScript developers should configure their editors to use JSHint
-to warn them of any such errors so they can be addressed. Since JSHint has a
-ton of configuration options to choose from, links are provided below to the
-options Horizon wants enforced along with the instructions for setting up
-JSHint for Eclipse, Sublime Text, Notepad++ and WebStorm/PyCharm.
-
-JSHint configuration file: `.jshintrc`_
-
-Instructions for setting up JSHint: `JSHint setup instructions`_
-
-..  Note ::
-    JSHint is part of the automated unit tests performed by Jenkins. The
-    automated test use the default configurations, which are less strict than
-    the configurations we recommended to run in your local development
-    environment.
-
-.. _.jshintrc: https://wiki.openstack.org/wiki/Horizon/Javascript/EditorConfig/Settings#.jshintrc
-.. _JSHint setup instructions: https://wiki.openstack.org/wiki/Horizon/Javascript/EditorConfig
-.. _provided: https://wiki.openstack.org/wiki/Horizon/Javascript/EditorConfig
-
 
 
 CSS
