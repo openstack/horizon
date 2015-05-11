@@ -67,7 +67,7 @@
                     </div>
                     <div>
                         <a class="btn btn-default btn-small btn-create btn-inline ajax-modal{% if not request.session.guide_job_type %} disabled{% endif %}"
-                           href="{% url 'horizon:project:data_processing.jobs:create-job' request.session.guide_job_type %}">
+                           href="{% url 'horizon:project:data_processing.jobs:create-job'%}?guide_job_type={{ request.session.guide_job_type }}">
                             <span class="fa fa-plus"></span> {% trans "Create a job template" %}</a>
                     </div>
                     <div>{% trans "Job template:" %}

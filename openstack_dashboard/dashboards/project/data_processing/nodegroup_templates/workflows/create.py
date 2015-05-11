@@ -13,7 +13,6 @@
 
 import logging
 
-from django.core import urlresolvers
 from django.utils.translation import ugettext_lazy as _
 
 from saharaclient.api import base as api_base
@@ -156,12 +155,11 @@ class GeneralConfigAction(workflows.Action):
         for param in node_parameters:
             self.fields[param.name] = workflow_helpers.build_control(param)
 
-        resolver_match = urlresolvers.resolve(request.path)
-        if "guide_template_type" in resolver_match.kwargs:
+        if request.REQUEST.get("guide_template_type"):
             self.fields["guide_template_type"] = forms.CharField(
                 required=False,
                 widget=forms.HiddenInput(),
-                initial=resolver_match.kwargs["guide_template_type"])
+                initial=request.REQUEST.get("guide_template_type"))
 
     def populate_flavor_choices(self, request, context):
         flavors = nova_utils.flavor_list(request)
