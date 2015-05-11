@@ -30,7 +30,7 @@
 
         $scope.item = 'test';
 
-        var markup = 
+        var markup =
           '<action-list dropdown>' +
           '  <action button-type="single-button">Actions</action>' +
           '  <menu>' +
