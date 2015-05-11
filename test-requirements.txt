@@ -10,7 +10,7 @@
 hacking>=0.10.0,<0.11
 #
 coverage>=3.6
-django-nose
+django-nose>=1.2
 mock>=1.0
 mox>=0.5.3
 nodeenv>=0.9.4 # BSD License
