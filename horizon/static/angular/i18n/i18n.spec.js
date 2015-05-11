@@ -45,7 +45,7 @@
           var $window = {gettext: function(x) { return x.replace(/good/, 'bad'); }};
           $provide.value('$window', $window);
         }));
- 
+
         // Get the factory by name.
         beforeEach(inject(function($injector) {
           factory = $injector.get("hz.i18n.gettext");
