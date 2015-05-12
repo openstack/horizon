@@ -162,6 +162,30 @@ class CreateVolumeFromImage(tables.LinkAction):
         return False
 
 
+class UpdateMetadata(tables.LinkAction):
+    name = "update_metadata"
+    verbose_name = _("Update Metadata")
+    ajax = False
+    icon = "pencil"
+    attrs = {"ng-controller": "MetadataModalHelperController as modal"}
+
+    def __init__(self, attrs=None, **kwargs):
+        kwargs['preempt'] = True
+        super(UpdateMetadata, self).__init__(attrs, **kwargs)
+
+    def get_link_url(self, datum):
+        image_id = self.table.get_object_id(datum)
+        self.attrs['ng-click'] = (
+            "modal.openMetadataModal('image', '%s', true)" % image_id)
+        return "javascript:void(0);"
+
+    def allowed(self, request, image=None):
+        return (api.glance.VERSIONS.active >= 2 and
+                image and
+                image.status == "active" and
+                image.owner == request.user.project_id)
+
+
 def filter_tenants():
     return getattr(settings, 'IMAGES_LIST_FILTER_TENANTS', [])
 
@@ -310,5 +334,6 @@ class ImagesTable(tables.DataTable):
         if getattr(settings, 'LAUNCH_INSTANCE_NG_ENABLED', False):
             launch_actions = (LaunchImageNG,) + launch_actions
         row_actions = launch_actions + (CreateVolumeFromImage,
-                                        EditImage, DeleteImage,)
+                                        EditImage, UpdateMetadata,
+                                        DeleteImage,)
         pagination_param = "image_marker"
