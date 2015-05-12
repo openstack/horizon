@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-08 12:21-0500\n"
-"PO-Revision-Date: 2015-05-08 17:21+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-05-11 14:56-0500\n"
+"PO-Revision-Date: 2015-05-11 22:11+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/"
 "de/)\n"
 "MIME-Version: 1.0\n"
@@ -2772,6 +2772,9 @@ msgstr ""
 
 msgid "Unable to unmanage volume."
 msgstr "Datenträgerverwaltung kann nicht aufgehoben werden."
+
+msgid "Volume type name can not be empty."
+msgstr "Datenträgertypname darf nicht leer sein."
 
 #, python-format
 msgid "Successfully created volume type: %s"
@@ -8704,6 +8707,15 @@ msgstr "Mitglied Details"
 msgid "Monitor Details"
 msgstr "Monitor-Details"
 
+msgid ""
+"Use one of these load balancing methods to distribute incoming requests:"
+msgstr ""
+"Verwende einer dieser Methoden zur Lastverteilung um eingehende Anfragen zu "
+"verteilen:"
+
+msgid "Round robin"
+msgstr "Rundlauf-Verfahren"
+
 msgid "Address"
 msgstr "Adresse"
 
@@ -11436,6 +11448,9 @@ msgstr "neustart bei Peer"
 msgid "Dead peer detection interval"
 msgstr "Intervall zum Aufspüren von toten Peers"
 
+msgid "Valid integer lesser than the DPD timeout"
+msgstr "Gültige Ganzzahl kleiner als die DPD-Zeitüberschreitung"
+
 msgid "Dead peer detection timeout"
 msgstr "Zeitüberschreitung zum Aufspüren von toten Peers"
 
@@ -11450,6 +11465,9 @@ msgstr "bidirektional"
 
 msgid "response-only"
 msgstr "nur Response"
+
+msgid "DPD Timeout must be greater than DPD Interval"
+msgstr "DPD-Zeitüberschreitung muss größer als das DPD-Intervall sein"
 
 #, python-format
 msgid "IPSec Site Connection %s was successfully updated."
@@ -11825,6 +11843,9 @@ msgstr ""
 "\n"
 " Weisen Sie einen Namen und eine Beschreibung für die IPSec Seiten-"
 "Verbindung zu. Alle Felderangaben in  diesem Tab werden benötigt."
+
+msgid "Valid integer lesser than DPD timeout"
+msgstr "Gültige Ganzzahl kleiner als DPD-Zeitüberschreitung"
 
 msgid "Optional Parameters"
 msgstr "Optionale Parameter"
