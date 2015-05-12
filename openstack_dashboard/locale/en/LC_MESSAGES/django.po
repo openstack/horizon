@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-09 01:18-0500\n"
+"POT-Creation-Date: 2015-05-12 01:19-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -509,7 +509,7 @@ msgstr ""
 #: dashboards/admin/volumes/volume_types/tables.py:229
 #: dashboards/admin/volumes/volumes/forms.py:86
 #: dashboards/admin/volumes/volumes/forms.py:169
-#: dashboards/admin/volumes/volumes/forms.py:229
+#: dashboards/admin/volumes/volumes/forms.py:236
 #: dashboards/admin/volumes/volumes/tables.py:79
 #: dashboards/identity/domains/tables.py:199
 #: dashboards/identity/domains/workflows.py:34
@@ -540,11 +540,11 @@ msgstr ""
 #: dashboards/project/data_processing/jobs/tables.py:105
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:6
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/config_template.html:54
-#: dashboards/project/data_processing/jobs/workflows/create.py:62
+#: dashboards/project/data_processing/jobs/workflows/create.py:61
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:28
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:83
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:6
-#: dashboards/project/data_processing/utils/workflow_helpers.py:113
+#: dashboards/project/data_processing/utils/workflow_helpers.py:112
 #: dashboards/project/database_backups/tables.py:160
 #: dashboards/project/database_backups/templates/database_backups/details.html:14
 #: dashboards/project/database_backups/templates/database_backups/details.html:60
@@ -619,7 +619,7 @@ msgstr ""
 #: dashboards/admin/volumes/volumes/forms.py:75
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:22
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:19
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:50
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:49
 #: dashboards/project/instances/tables.py:1030
 #: dashboards/project/instances/templates/instances/_detail_overview.html:16
 #: dashboards/project/instances/workflows/create_instance.py:81
@@ -723,7 +723,7 @@ msgstr ""
 
 #: dashboards/admin/aggregates/tables.py:161
 #: dashboards/admin/volumes/snapshots/forms.py:25
-#: dashboards/admin/volumes/volumes/forms.py:195
+#: dashboards/admin/volumes/volumes/forms.py:202
 msgid "Available"
 msgstr ""
 
@@ -1157,7 +1157,7 @@ msgstr ""
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:32
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:35
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:47
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:222
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:220
 #: dashboards/project/instances/templates/instances/_detail_overview.html:85
 #: dashboards/project/instances/workflows/create_instance.py:554
 #: dashboards/project/instances/workflows/update_instance.py:80
@@ -1761,7 +1761,7 @@ msgstr ""
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:17
 #: dashboards/admin/volumes/snapshots/forms.py:34
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:18
-#: dashboards/admin/volumes/volumes/forms.py:187
+#: dashboards/admin/volumes/volumes/forms.py:194
 #: dashboards/project/access_and_security/floating_ips/tables.py:202
 #: dashboards/project/data_processing/clusters/tables.py:36
 #: dashboards/project/data_processing/clusters/tables.py:152
@@ -2500,7 +2500,7 @@ msgstr ""
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:10
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:99
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:10
-#: dashboards/project/data_processing/clusters/workflows/create.py:76
+#: dashboards/project/data_processing/clusters/workflows/create.py:75
 #: dashboards/project/data_processing/data_image_registry/forms.py:30
 #: dashboards/project/data_processing/data_plugins/tables.py:36
 #: dashboards/project/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:13
@@ -2513,9 +2513,9 @@ msgstr ""
 #: dashboards/project/data_processing/jobs/tables.py:32
 #: dashboards/project/data_processing/jobs/tables.py:110
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:12
-#: dashboards/project/data_processing/jobs/workflows/create.py:86
+#: dashboards/project/data_processing/jobs/workflows/create.py:85
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:10
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:43
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:42
 #: dashboards/project/database_backups/templates/database_backups/details.html:16
 #: dashboards/project/database_backups/workflows/create_backup.py:34
 #: dashboards/project/firewalls/forms.py:37
@@ -2704,7 +2704,7 @@ msgstr ""
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:18
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:82
 #: dashboards/project/data_processing/jobs/workflows/launch.py:421
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:402
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:400
 #: dashboards/project/database_backups/tables.py:165
 #: dashboards/project/database_backups/templates/database_backups/details.html:32
 #: dashboards/project/databases/tables.py:388
@@ -3933,22 +3933,22 @@ msgid "Unable to retrieve router list."
 msgstr ""
 
 #: dashboards/admin/volumes/snapshots/forms.py:26
-#: dashboards/admin/volumes/volumes/forms.py:196
+#: dashboards/admin/volumes/volumes/forms.py:203
 msgid "Creating"
 msgstr ""
 
 #: dashboards/admin/volumes/snapshots/forms.py:27
-#: dashboards/admin/volumes/volumes/forms.py:197
+#: dashboards/admin/volumes/volumes/forms.py:204
 msgid "Deleting"
 msgstr ""
 
 #: dashboards/admin/volumes/snapshots/forms.py:28
-#: dashboards/admin/volumes/volumes/forms.py:199
+#: dashboards/admin/volumes/volumes/forms.py:206
 msgid "Error"
 msgstr ""
 
 #: dashboards/admin/volumes/snapshots/forms.py:29
-#: dashboards/admin/volumes/volumes/forms.py:200
+#: dashboards/admin/volumes/volumes/forms.py:207
 msgid "Error Deleting"
 msgstr ""
 
@@ -4438,9 +4438,9 @@ msgstr[1] ""
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:236
 #: dashboards/project/data_processing/data_sources/workflows/create.py:95
 #: dashboards/project/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
-#: dashboards/project/data_processing/jobs/workflows/create.py:158
+#: dashboards/project/data_processing/jobs/workflows/create.py:156
 #: dashboards/project/data_processing/jobs/workflows/launch.py:420
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:257
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:255
 #: dashboards/project/networks/subnets/workflows.py:57
 #: dashboards/project/networks/workflows.py:343
 msgid "Create"
@@ -4649,7 +4649,7 @@ msgid "Edit Consumer"
 msgstr ""
 
 #: dashboards/admin/volumes/volume_types/tables.py:230
-#: dashboards/admin/volumes/volumes/forms.py:230
+#: dashboards/admin/volumes/volumes/forms.py:237
 msgid "Consumer"
 msgstr ""
 
@@ -4785,43 +4785,47 @@ msgstr ""
 msgid "Unable to unmanage volume."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:176
+#: dashboards/admin/volumes/volumes/forms.py:174
+msgid "Volume type name can not be empty."
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/forms.py:183
 #, python-format
 msgid "Successfully created volume type: %s"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:182
+#: dashboards/admin/volumes/volumes/forms.py:189
 msgid "Unable to create volume type."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:194
+#: dashboards/admin/volumes/volumes/forms.py:201
 msgid "Attaching"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:198
+#: dashboards/admin/volumes/volumes/forms.py:205
 msgid "Detaching"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:201
+#: dashboards/admin/volumes/volumes/forms.py:208
 msgid "In Use"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:218
+#: dashboards/admin/volumes/volumes/forms.py:225
 #, python-format
 msgid "Successfully updated volume status to \"%s\"."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:224
+#: dashboards/admin/volumes/volumes/forms.py:231
 #, python-format
 msgid "Unable to update volume status to \"%s\"."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:239
+#: dashboards/admin/volumes/volumes/forms.py:246
 #, python-format
 msgid "Successfully created QoS Spec: %s"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:245
+#: dashboards/admin/volumes/volumes/forms.py:252
 msgid "Unable to create QoS Spec."
 msgstr ""
 
@@ -7010,7 +7014,7 @@ msgstr ""
 #: dashboards/project/data_processing/nodegroup_templates/tables.py:88
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:8
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:32
-#: dashboards/project/data_processing/utils/workflow_helpers.py:193
+#: dashboards/project/data_processing/utils/workflow_helpers.py:190
 #: dashboards/project/data_processing/wizard/forms.py:64
 msgid "Version"
 msgstr ""
@@ -7029,8 +7033,8 @@ msgstr ""
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/create.html:3
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/create_cluster.html:3
 #: dashboards/project/data_processing/clusters/views.py:73
-#: dashboards/project/data_processing/clusters/workflows/create.py:57
-#: dashboards/project/data_processing/clusters/workflows/create.py:219
+#: dashboards/project/data_processing/clusters/workflows/create.py:56
+#: dashboards/project/data_processing/clusters/workflows/create.py:217
 msgid "Launch Cluster"
 msgstr ""
 
@@ -7194,14 +7198,14 @@ msgstr ""
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:26
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:29
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:37
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:133
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:132
 msgid "Proxy Gateway"
 msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:29
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:32
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:42
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:207
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:205
 msgid "Auto Security Group"
 msgstr ""
 
@@ -7284,7 +7288,7 @@ msgid "Select plugin and hadoop version for cluster template"
 msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:81
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:401
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:399
 #: dashboards/project/stacks/views.py:93
 #: dashboards/project/stacks/views.py:109
 #: dashboards/project/stacks/views.py:149
@@ -7293,12 +7297,12 @@ msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:83
 #: dashboards/project/data_processing/jobs/workflows/launch.py:422
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:403
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:401
 msgid "Could not create"
 msgstr ""
 
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:97
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:41
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:40
 msgid "Template Name"
 msgstr ""
 
@@ -7358,7 +7362,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/clusters/tables.py:136
 #: dashboards/project/data_processing/clusters/views.py:80
-#: dashboards/project/data_processing/clusters/workflows/create.py:201
+#: dashboards/project/data_processing/clusters/workflows/create.py:199
 #: dashboards/project/data_processing/jobs/workflows/launch.py:326
 msgid "Configure Cluster"
 msgstr ""
@@ -7423,17 +7427,17 @@ msgid "Error Details"
 msgstr ""
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:36
-#: dashboards/project/data_processing/clusters/workflows/create.py:84
+#: dashboards/project/data_processing/clusters/workflows/create.py:83
 msgid "Base Image"
 msgstr ""
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:39
-#: dashboards/project/data_processing/clusters/workflows/create.py:101
+#: dashboards/project/data_processing/clusters/workflows/create.py:100
 msgid "Neutron Management Network"
 msgstr ""
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:42
-#: dashboards/project/data_processing/clusters/workflows/create.py:88
+#: dashboards/project/data_processing/clusters/workflows/create.py:87
 msgid "Keypair"
 msgstr ""
 
@@ -7453,7 +7457,7 @@ msgstr ""
 
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:18
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:25
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:128
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:127
 msgid "Floating IP Pool"
 msgstr ""
 
@@ -7466,44 +7470,44 @@ msgstr ""
 msgid "Unable to fetch cluster list"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:46
+#: dashboards/project/data_processing/clusters/workflows/create.py:45
 #: dashboards/project/data_processing/jobs/workflows/launch.py:408
 msgid "Select plugin and hadoop version for cluster"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:74
+#: dashboards/project/data_processing/clusters/workflows/create.py:73
 msgid "Cluster Name"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:79
+#: dashboards/project/data_processing/clusters/workflows/create.py:78
 msgid "Cluster Template"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:90
+#: dashboards/project/data_processing/clusters/workflows/create.py:89
 msgid "Which keypair to use for authentication."
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:131
+#: dashboards/project/data_processing/clusters/workflows/create.py:130
 msgid "Unable to fetch image choices."
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:134
+#: dashboards/project/data_processing/clusters/workflows/create.py:133
 msgid "No Images Available"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:144
+#: dashboards/project/data_processing/clusters/workflows/create.py:143
 msgid "Unable to fetch keypair choices."
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:146
+#: dashboards/project/data_processing/clusters/workflows/create.py:145
 msgid "No keypair"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:162
+#: dashboards/project/data_processing/clusters/workflows/create.py:161
 msgid "No Templates Available"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:220
+#: dashboards/project/data_processing/clusters/workflows/create.py:218
 #: dashboards/project/data_processing/jobs/workflows/launch.py:345
 #: dashboards/project/data_processing/jobs/workflows/launch.py:430
 #: dashboards/project/databases/workflows/create_instance.py:335
@@ -7513,12 +7517,12 @@ msgstr ""
 msgid "Launch"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:221
+#: dashboards/project/data_processing/clusters/workflows/create.py:219
 #, python-format
 msgid "Launched Cluster %s"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/workflows/create.py:253
+#: dashboards/project/data_processing/clusters/workflows/create.py:251
 msgid "Unable to create the cluster"
 msgstr ""
 
@@ -8156,8 +8160,8 @@ msgstr ""
 #: dashboards/project/data_processing/jobs/tables.py:37
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/create.html:3
 #: dashboards/project/data_processing/jobs/views.py:64
-#: dashboards/project/data_processing/jobs/workflows/create.py:126
-#: dashboards/project/data_processing/jobs/workflows/create.py:157
+#: dashboards/project/data_processing/jobs/workflows/create.py:124
+#: dashboards/project/data_processing/jobs/workflows/create.py:155
 msgid "Create Job Template"
 msgstr ""
 
@@ -8250,7 +8254,7 @@ msgid "Mains"
 msgstr ""
 
 #: dashboards/project/data_processing/jobs/templates/data_processing.jobs/_details.html:20
-#: dashboards/project/data_processing/jobs/workflows/create.py:56
+#: dashboards/project/data_processing/jobs/workflows/create.py:55
 msgid "Libs"
 msgstr ""
 
@@ -8329,37 +8333,37 @@ msgstr ""
 msgid "Unable to fetch jobs."
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:38
+#: dashboards/project/data_processing/jobs/workflows/create.py:37
 msgid "Choose libraries"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:51
-#: dashboards/project/data_processing/jobs/workflows/create.py:113
+#: dashboards/project/data_processing/jobs/workflows/create.py:50
+#: dashboards/project/data_processing/jobs/workflows/create.py:111
 msgid "-- not selected --"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:64
+#: dashboards/project/data_processing/jobs/workflows/create.py:63
 #: dashboards/project/data_processing/wizard/forms.py:91
 msgid "Job Type"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:71
+#: dashboards/project/data_processing/jobs/workflows/create.py:70
+#: dashboards/project/data_processing/jobs/workflows/create.py:79
 #: dashboards/project/data_processing/jobs/workflows/create.py:80
 #: dashboards/project/data_processing/jobs/workflows/create.py:81
 #: dashboards/project/data_processing/jobs/workflows/create.py:82
-#: dashboards/project/data_processing/jobs/workflows/create.py:83
 msgid "Choose a main binary"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:73
+#: dashboards/project/data_processing/jobs/workflows/create.py:72
 msgid "Choose the binary which should be used in this Job."
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:159
+#: dashboards/project/data_processing/jobs/workflows/create.py:157
 msgid "Job created"
 msgstr ""
 
-#: dashboards/project/data_processing/jobs/workflows/create.py:160
+#: dashboards/project/data_processing/jobs/workflows/create.py:158
 msgid "Could not create job template"
 msgstr ""
 
@@ -8507,8 +8511,8 @@ msgid "Cinder volumes"
 msgstr ""
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:75
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:67
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:73
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:66
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:72
 msgid "Volumes per node"
 msgstr ""
 
@@ -8517,8 +8521,8 @@ msgid "Volumes size"
 msgstr ""
 
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:80
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:89
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:95
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:88
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:94
 msgid "Volumes Availability Zone"
 msgstr ""
 
@@ -8543,8 +8547,8 @@ msgstr ""
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/create.html:3
 #: dashboards/project/data_processing/nodegroup_templates/views.py:79
 #: dashboards/project/data_processing/nodegroup_templates/views.py:87
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:256
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:400
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:254
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:398
 msgid "Create Node Group Template"
 msgstr ""
 
@@ -8573,84 +8577,84 @@ msgstr ""
 msgid "Unable to fetch plugin details."
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:47
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:46
 msgid "OpenStack Flavor"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:51
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:50
 msgid "Launch instances in this availability zone."
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:57
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:56
 msgid "Storage location"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:58
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:57
 msgid "Choose a storage location"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:78
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:84
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:77
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:83
 msgid "Volumes size (GB)"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:90
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:89
 msgid "Create volumes in this availability zone."
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:120
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:119
 msgid "Unable to generate process choices."
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:135
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:134
 msgid ""
 "Sahara will use instances of this node group to access other cluster "
 "instances."
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:140
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:139
 msgid "Processes"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:142
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:141
 msgid "Processes to be launched in node group"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:174
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:181
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:172
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:179
 msgid "No availability zone specified"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:196
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:194
 msgid "Configure Node Group Template"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:209
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:207
 msgid "Create security group for this Node Group."
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:217
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:215
 msgid "Unable to get security group list."
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:224
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:222
 msgid "Launch instances in these security groups."
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:229
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:227
 msgid "Security"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:230
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:228
 msgid "Control access to instances of the node group."
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:258
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:256
 #, python-format
 msgid "Created Node Group Template %s"
 msgstr ""
 
-#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:381
+#: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:379
 msgid "Select plugin and hadoop version"
 msgstr ""
 
@@ -8679,20 +8683,20 @@ msgstr ""
 msgid "Unable to retrieve networks."
 msgstr ""
 
-#: dashboards/project/data_processing/utils/workflow_helpers.py:117
+#: dashboards/project/data_processing/utils/workflow_helpers.py:116
 msgid "Node group cluster"
 msgstr ""
 
-#: dashboards/project/data_processing/utils/workflow_helpers.py:121
+#: dashboards/project/data_processing/utils/workflow_helpers.py:120
 msgid "Count"
 msgstr ""
 
-#: dashboards/project/data_processing/utils/workflow_helpers.py:151
+#: dashboards/project/data_processing/utils/workflow_helpers.py:150
 #, python-format
 msgid "Unable to retrieve security group %(group)s."
 msgstr ""
 
-#: dashboards/project/data_processing/utils/workflow_helpers.py:186
+#: dashboards/project/data_processing/utils/workflow_helpers.py:183
 #: dashboards/project/data_processing/wizard/forms.py:56
 msgid "Plugin Name"
 msgstr ""

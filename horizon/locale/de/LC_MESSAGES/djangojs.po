@@ -5,13 +5,14 @@
 # Translators:
 # Andreas Jaeger <jaegerandi@gmail.com>, 2015
 # Ettore Atalan <atalanttore@googlemail.com>, 2015
+# Robert Simai, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-05-07 18:03+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-05-11 14:56-0500\n"
+"PO-Revision-Date: 2015-05-11 12:32+0000\n"
+"Last-Translator: Robert Simai\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/"
 "de/)\n"
 "MIME-Version: 1.0\n"
@@ -27,11 +28,20 @@ msgstr ""
 "Die Aktion kann nicht ausgeführt werden. Der Inhalt dieser Spalte enthält "
 "Fehler oder es fehlen Informationen."
 
+msgid "Current Usage"
+msgstr "Aktuelle Verwendung"
+
 msgid "Added"
 msgstr "Hinzugefügt"
 
+msgid "Remaining"
+msgstr "Übrig"
+
 msgid "Max"
 msgstr "Max"
+
+msgid "Total"
+msgstr "Total"
 
 msgid "Detail Information"
 msgstr "Detail-Informationen"
