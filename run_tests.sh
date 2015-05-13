@@ -160,7 +160,7 @@ function run_jshint {
   echo "Running jshint ..."
   jshint horizon/static/horizon/js
   jshint horizon/static/horizon/tests
-  jshint horizon/static/angular/
+  jshint horizon/static/framework/
   jshint openstack_dashboard/static/dashboard/
 }
 
@@ -170,7 +170,7 @@ function run_jscs {
     echo "jscs is not present; please install, e.g. sudo npm install jscs -g"
   else
     jscs horizon/static/horizon/js horizon/static/horizon/tests \
-         horizon/static/angular/ openstack_dashboard/static/dashboard/
+         horizon/static/framework/ openstack_dashboard/static/dashboard/
   fi
 }
 
