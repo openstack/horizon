@@ -29,12 +29,15 @@ class HypervisorViewTest(test.BaseAdminViewTests):
         hypervisors = self.hypervisors.list()
         services = self.services.list()
         stats = self.hypervisors.stats
+        compute_services = [service for service in services
+                            if service.binary == 'nova-compute']
         api.nova.extension_supported('AdminActions',
                                      IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.nova.hypervisor_list(IsA(http.HttpRequest)).AndReturn(hypervisors)
         api.nova.hypervisor_stats(IsA(http.HttpRequest)).AndReturn(stats)
-        api.nova.service_list(IsA(http.HttpRequest)).AndReturn(services)
+        api.nova.service_list(IsA(http.HttpRequest), binary='nova-compute') \
+            .AndReturn(compute_services)
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:admin:hypervisors:index'))
@@ -46,8 +49,6 @@ class HypervisorViewTest(test.BaseAdminViewTests):
 
         host_tab = res.context['tab_group'].get_tab('compute_host')
         host_table = host_tab._tables['compute_host']
-        compute_services = [service for service in services
-                            if service.binary == 'nova-compute']
         self.assertItemsEqual(host_table.data, compute_services)
         actions_host_up = host_table.get_row_actions(host_table.data[0])
         self.assertEqual(1, len(actions_host_up))
@@ -77,8 +78,8 @@ class HypervisorViewTest(test.BaseAdminViewTests):
         stats = self.hypervisors.stats
         api.nova.hypervisor_list(IsA(http.HttpRequest)).AndReturn(hypervisors)
         api.nova.hypervisor_stats(IsA(http.HttpRequest)).AndReturn(stats)
-        api.nova.service_list(IsA(http.HttpRequest)).AndRaise(
-            self.exceptions.nova)
+        api.nova.service_list(IsA(http.HttpRequest), binary='nova-compute') \
+            .AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
 
         resp = self.client.get(reverse('horizon:admin:hypervisors:index'))
