@@ -6,15 +6,16 @@
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2015
 # cametiope <aldohcasa@hotmail.com>, 2014
 # egongu90 <dabarren@gmail.com>, 2014
+# Guillermo Vitas Gil <gvitgo@gmail.com>, 2015
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2014
 # Sergio Cuellar Valdes <scuellarv@kionetworks.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-08 12:21-0500\n"
-"PO-Revision-Date: 2015-05-08 17:21+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-05-12 02:24-0500\n"
+"PO-Revision-Date: 2015-05-12 20:56+0000\n"
+"Last-Translator: Guillermo Vitas Gil <gvitgo@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/"
 "es/)\n"
 "MIME-Version: 1.0\n"
@@ -624,6 +625,15 @@ msgstr "Tamaño total de volúmenes e instantáneas LUKS (GB)"
 
 msgid "dm-crypt"
 msgstr "dm-crypt"
+
+msgid "Server Group Members"
+msgstr "Miembro del grupo de servidores"
+
+msgid "Server Groups"
+msgstr "Grupo de servidores"
+
+msgid "Backup Gigabytes"
+msgstr "Gigabytes de respaldo"
 
 msgid "Backups"
 msgstr "Copias de seguridad"
@@ -2035,11 +2045,20 @@ msgstr "No ha sido posible obtener la lista de puertos."
 msgid "Overview"
 msgstr "Vista general"
 
+msgid "Usage Report For Period:"
+msgstr "Informe de uso para el periodo:"
+
 msgid "Active Instances:"
 msgstr "Instancias activas:"
 
 msgid "Total VCPU Usage (Hours):"
 msgstr "Uso total VCPU (Horas):"
+
+msgid "Total Active RAM (MB):"
+msgstr "Total de RAM en uso (MB):"
+
+msgid "Total Memory Usage (Hours):"
+msgstr "Uso total de Memoria (Horas)"
 
 msgid "Total Disk Size (GB):"
 msgstr "Tamaño Total del Disco (GB):"
@@ -2061,6 +2080,9 @@ msgstr "Uso (Horas)"
 
 msgid "Deleted"
 msgstr "Eliminado"
+
+msgid "Static Routes"
+msgstr "Rutas estáticas"
 
 msgid "Routers"
 msgstr "Routers"
@@ -2688,6 +2710,9 @@ msgstr ""
 
 msgid "Unable to unmanage volume."
 msgstr "Incapaz de dejar de manejar el volumen."
+
+msgid "Volume type name can not be empty."
+msgstr "EL nombre de tipo de volumen no puede estar vacío."
 
 #, python-format
 msgid "Successfully created volume type: %s"
@@ -3498,6 +3523,9 @@ msgstr "Crear par de claves"
 msgid "Fingerprint"
 msgstr "Fingerprint"
 
+msgid "Key Pair Details"
+msgstr "Detalles del par de claves"
+
 #, python-format
 msgid "Unable to retrieve details for keypair \"%s\"."
 msgstr "No ha sido posible obtener los pares de claves \"%s\"."
@@ -4043,6 +4071,10 @@ msgid ""
 msgstr ""
 "Nota: Un contenedor público permitirá que cualquiera que conozca la URL "
 "pública acceda a sus objetos en el contenedor."
+
+#, python-format
+msgid "Create pseudo-folder in container %(container_name)s"
+msgstr "Crear pseudo-carpeta en el contenedor %(container_name)s"
 
 msgid "Pseudo-folder:"
 msgstr "Pseudo-carpeta:"
@@ -4788,6 +4820,10 @@ msgctxt "Current status of a Job"
 msgid "Failed"
 msgstr "Erróneo"
 
+msgctxt "Current status of a Job"
+msgid "Killed"
+msgstr "Terminado forzosamente"
+
 msgid "Job Template"
 msgstr "Plantilla de Trabajo"
 
@@ -5004,6 +5040,9 @@ msgstr "Mapper"
 msgid "Reducer"
 msgstr "Reducer"
 
+msgid "Use HBase Common library"
+msgstr "Utiliza la librería HBase Common"
+
 msgid "Configure"
 msgstr "Configurar"
 
@@ -5069,6 +5108,11 @@ msgstr ""
 "El procesamiento de datos provee opciones diferentes de ubicaciones de "
 "almacenamiento. Puede seleccionar un disco Ephemeral o un Cinder Volume para "
 "ser adjuntados a las instancias."
+
+msgid "Select a plugin and version for the new Node Group template."
+msgstr ""
+"Seleccione un plugin y versión para una nueva plantilla de Agrupación de "
+"Nodos"
 
 msgid "HDFS placement"
 msgstr "Ubicación HDFS"
@@ -5271,6 +5315,24 @@ msgstr "Versión:"
 
 msgid "No plugin chosen"
 msgstr "No hay plugin seleccionado"
+
+msgid "Create a Master Node Group Template"
+msgstr "Crear una platilla maestras de Agrupación de Nodos"
+
+msgid "Master Node Group Template:"
+msgstr "Plantilla de Agrupación de Nodos maestra:"
+
+msgid "No Master Node Group Template Created"
+msgstr "No se ha creado una plantilla maestra de Agrupación de Nodos"
+
+msgid "Create a Worker Node Group Template"
+msgstr "Crear una plantilla de Agrupación de Nodos Worker:"
+
+msgid "Worker Node Group Template:"
+msgstr "Plantilla de Agrupación de Nodos Worker:"
+
+msgid "No Worker Node Group Template Created"
+msgstr "No se ha creado una plantilla de Agrupación de Nodos Worker:"
 
 msgid "Create a Cluster Template"
 msgstr "Crear una Plantilla del Clúster"
@@ -6039,6 +6101,9 @@ msgstr ""
 msgid "Add Routers"
 msgstr "Añadir Routers"
 
+msgid "Add selected router(s) to the firewall."
+msgstr "Añade el/los router(s) seleccionados al cortafuegos."
+
 msgid "Remove Routers"
 msgstr "Quitar Routers"
 
@@ -6484,6 +6549,10 @@ msgstr "Encolado"
 msgctxt "Current status of an Image"
 msgid "Pending Delete"
 msgstr "Pendiente a Eliminar"
+
+msgctxt "Current status of an Image"
+msgid "Killed"
+msgstr "Terminado forzosamente"
 
 msgctxt "Current status of an Image"
 msgid "Deleted"
