@@ -72,12 +72,6 @@ class BaseCinderAPIResourceWrapper(base.APIResourceWrapper):
         return (getattr(self._apiresource, 'description', None) or
                 getattr(self._apiresource, 'display_description', None))
 
-    def to_dict(self):
-        obj = {}
-        for key in self._attrs:
-            obj[key] = getattr(self._apiresource, key, None)
-        return obj
-
 
 class Volume(BaseCinderAPIResourceWrapper):
 
@@ -140,6 +134,14 @@ class VolumeTransfer(base.APIResourceWrapper):
     _attrs = ['id', 'name', 'created_at', 'volume_id', 'auth_key']
 
 
+class VolumePool(base.APIResourceWrapper):
+
+    _attrs = ['name', 'pool_name', 'total_capacity_gb', 'free_capacity_gb',
+              'allocated_capacity_gb', 'QoS_support', 'reserved_percentage',
+              'volume_backend_name', 'vendor_name', 'driver_version',
+              'storage_protocol', 'extra_specs']
+
+
 @memoized
 def cinderclient(request):
     api_version = VERSIONS.get_active_version()
@@ -189,6 +191,7 @@ def volume_list(request, search_opts=None):
     """To see all volumes in the cloud as an admin you can pass in a special
     search option: {'all_tenants': 1}
     """
+
     c_client = cinderclient(request)
     if c_client is None:
         return []
@@ -213,8 +216,8 @@ def volume_get(request, volume_id):
             instance = nova.server_get(request, attachment['server_id'])
             attachment['instance_name'] = instance.name
         else:
-            # Nova volume can occasionally send attachments in error state
-            # that lack a server_id property; to work around that we'll
+            # Nova volume can occasionally send back error'd attachments
+            # the lack a server_id property; to work around that we'll
             # give the attached instance a generic name.
             attachment['instance_name'] = _("Unknown instance")
 
@@ -618,3 +621,12 @@ def transfer_accept(request, transfer_id, auth_key):
 
 def transfer_delete(request, transfer_id):
     return cinderclient(request).transfers.delete(transfer_id)
+
+
+def pool_list(request, detailed=False):
+    c_client = cinderclient(request)
+    if c_client is None:
+        return []
+
+    return [VolumePool(v) for v in c_client.pools.list(
+        detailed=detailed)]

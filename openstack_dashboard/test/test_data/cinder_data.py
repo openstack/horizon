@@ -13,6 +13,7 @@
 #    under the License.
 
 from cinderclient.v2 import availability_zones
+from cinderclient.v2 import pools
 from cinderclient.v2 import qos_specs
 from cinderclient.v2 import quotas
 from cinderclient.v2 import services
@@ -44,6 +45,7 @@ def data(TEST):
     TEST.cinder_quota_usages = utils.TestDataContainer()
     TEST.cinder_availability_zones = utils.TestDataContainer()
     TEST.cinder_volume_transfers = utils.TestDataContainer()
+    TEST.cinder_pools = utils.TestDataContainer()
 
     # Services
     service_1 = services.Service(services.ServiceManager(None), {
@@ -314,3 +316,47 @@ def data(TEST):
             'auth_key': 'blah',
             'created_at': ''})
     TEST.cinder_volume_transfers.add(transfer_1)
+
+    # Pools
+    pool1 = pools.Pool(
+        pools.PoolManager(None), {
+            "QoS_support": False,
+            "allocated_capacity_gb": 0,
+            "driver_version": "3.0.0",
+            "free_capacity_gb": 10,
+            "extra_specs": {
+                "description": "LVM Extra specs",
+                "display_name": "LVMDriver",
+                "namespace": "OS::Cinder::LVMDriver",
+                "type": "object",
+            },
+            "name": "devstack@lvmdriver-1#lvmdriver-1",
+            "pool_name": "lvmdriver-1",
+            "reserved_percentage": 0,
+            "storage_protocol": "iSCSI",
+            "total_capacity_gb": 10,
+            "vendor_name": "Open Source",
+            "volume_backend_name": "lvmdriver-1"})
+
+    pool2 = pools.Pool(
+        pools.PoolManager(None), {
+            "QoS_support": False,
+            "allocated_capacity_gb": 2,
+            "driver_version": "3.0.0",
+            "free_capacity_gb": 15,
+            "extra_specs": {
+                "description": "LVM Extra specs",
+                "display_name": "LVMDriver",
+                "namespace": "OS::Cinder::LVMDriver",
+                "type": "object",
+            },
+            "name": "devstack@lvmdriver-2#lvmdriver-2",
+            "pool_name": "lvmdriver-2",
+            "reserved_percentage": 0,
+            "storage_protocol": "iSCSI",
+            "total_capacity_gb": 10,
+            "vendor_name": "Open Source",
+            "volume_backend_name": "lvmdriver-2"})
+
+    TEST.cinder_pools.add(pool1)
+    TEST.cinder_pools.add(pool2)

@@ -116,6 +116,16 @@ class CinderApiTests(test.APITestCase):
         for key in expected_results.keys():
             self.assertEqual(expected_results[key], ret_val[key])
 
+    def test_pool_list(self):
+        pools = self.cinder_pools.list()
+        cinderclient = self.stub_cinderclient()
+        cinderclient.pools = self.mox.CreateMockAnything()
+        cinderclient.pools.list(detailed=True).AndReturn(pools)
+        self.mox.ReplayAll()
+
+        # No assertions are necessary. Verification is handled by mox.
+        api.cinder.pool_list(self.request, detailed=True)
+
 
 class CinderApiVersionTests(test.TestCase):
 
