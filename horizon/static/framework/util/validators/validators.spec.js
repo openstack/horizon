@@ -10,7 +10,7 @@
   describe('validators directive', function() {
 
     beforeEach(module('hz'));
-    beforeEach(module('hz.widgets'));
+    beforeEach(module('horizon.framework.widgets'));
     beforeEach(module('hz.framework.validators'));
 
     describe('validateNumberMax directive', function() {

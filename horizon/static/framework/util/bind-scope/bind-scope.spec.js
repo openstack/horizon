@@ -12,7 +12,7 @@
     var $scope, $element;
 
     beforeEach(module('hz'));
-    beforeEach(module('hz.widgets'));
+    beforeEach(module('horizon.framework.widgets'));
     beforeEach(module('hz.framework.bind-scope'));
 
     beforeEach(module('hz.framework.bind-scope', function($compileProvider) {
