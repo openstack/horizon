@@ -3,10 +3,10 @@
 
   /**
    * @ngdoc overview
-   * @name hz.framework.bind-scope
+   * @name horizon.framework.util.bind-scope
    * @description
    *
-   * # hz.framework.bind-scope
+   * # horizon.framework.util.bind-scope
    *
    * This utility widget supports binding the scope where the directive is
    * instantiated with the transcluded content. This is useful when trying
@@ -14,14 +14,14 @@
    *
    * | Directives                                                               |
    * |--------------------------------------------------------------------------|
-   * | {@link hz.framework.bind-scope.directive:bindScope `bindScope`}          |
+   * | {@link horizon.framework.util.bind-scope.directive:bindScope `bindScope`}          |
    *
    */
-  angular.module('hz.framework.bind-scope', [])
+  angular.module('horizon.framework.util.bind-scope', [])
 
   /**
    * @ngdoc directive
-   * @name hz.framework.bind-scope.directive:bindScope
+   * @name horizon.framework.util.bind-scope.directive:bindScope
    * @element ng-repeat
    * @description
    * The `bindScope` directive injects the scope where it is

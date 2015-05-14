@@ -1,11 +1,11 @@
 (function () {
   'use strict';
 
-  angular.module('hz.widget.metadata-tree')
+  angular.module('horizon.framework.widgets.metadata-tree')
 
   /**
    * @ngdoc service
-   * @name hz.widget.metadata-tree.metadataTreeService
+   * @name horizon.framework.widgets.metadata-tree.metadataTreeService
    */
   .factory('metadataTreeService', [function () {
 

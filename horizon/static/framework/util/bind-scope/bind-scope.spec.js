@@ -1,9 +1,9 @@
 (function() {
   'use strict';
 
-  describe('hz.framework.bind-scope module', function() {
+  describe('horizon.framework.util.bind-scope module', function() {
     it('should have been defined', function() {
-      expect(angular.module('hz.framework.bind-scope')).toBeDefined();
+      expect(angular.module('horizon.framework.util.bind-scope')).toBeDefined();
     });
   });
 
@@ -13,9 +13,9 @@
 
     beforeEach(module('hz'));
     beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('hz.framework.bind-scope'));
+    beforeEach(module('horizon.framework.util.bind-scope'));
 
-    beforeEach(module('hz.framework.bind-scope', function($compileProvider) {
+    beforeEach(module('horizon.framework.util.bind-scope', function($compileProvider) {
       $compileProvider.directive('testBindScope', function() {
         return {
           restrict: 'E',

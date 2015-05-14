@@ -2,18 +2,17 @@
  'use strict';
 
   angular.module('horizon.framework.widgets', [
-    'hz.widget.form',
-    'hz.widget.help-panel',
-    'hz.widget.wizard',
-    'hz.widget.table',
-    'hz.widget.modal',
-    'hz.widget.modal-wait-spinner',
-    'hz.widget.transfer-table',
-    'hz.widget.charts',
-    'hz.widget.action-list',
-    'hz.widget.metadata-tree',
-    'hz.widget.metadata-display',
-    'hz.widget.toast'
+    'horizon.framework.widgets.help-panel',
+    'horizon.framework.widgets.wizard',
+    'horizon.framework.widgets.table',
+    'horizon.framework.widgets.modal',
+    'horizon.framework.widgets.modal-wait-spinner',
+    'horizon.framework.widgets.transfer-table',
+    'horizon.framework.widgets.charts',
+    'horizon.framework.widgets.action-list',
+    'horizon.framework.widgets.metadata-tree',
+    'horizon.framework.widgets.metadata-display',
+    'horizon.framework.widgets.toast'
   ])
     .constant('horizon.framework.widgets.basePath', '/static/framework/widgets/');
 

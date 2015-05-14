@@ -1,9 +1,9 @@
 (function(){
   'use strict';
 
-  describe('hz.widget.help-panel module', function() {
+  describe('horizon.framework.widgets.help-panel module', function() {
     it('should have been defined', function () {
-      expect(angular.module('hz.widget.help-panel')).toBeDefined();
+      expect(angular.module('horizon.framework.widgets.help-panel')).toBeDefined();
     });
   });
 
@@ -15,7 +15,7 @@
     beforeEach(module('templates'));
     beforeEach(module('hz'));
     beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('hz.widget.help-panel'));
+    beforeEach(module('horizon.framework.widgets.help-panel'));
     beforeEach(inject(function ($injector) {
       $scope = $injector.get('$rootScope').$new();
       $compile = $injector.get('$compile');

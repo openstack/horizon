@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('hz.widget.help-panel', [])
+  angular.module('horizon.framework.widgets.help-panel', [])
     .directive('helpPanel', ['horizon.framework.widgets.basePath',
       function (path) {
         return {

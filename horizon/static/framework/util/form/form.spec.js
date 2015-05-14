@@ -1,16 +1,16 @@
 (function(){
   'use strict';
 
-  describe('hz.widget.form module', function(){
+  describe('horizon.framework.util.form module', function(){
     it('should have been defined', function(){
-      expect(angular.module('hz.widget.form')).toBeDefined();
+      expect(angular.module('horizon.framework.util.form')).toBeDefined();
     });
   });
 
   describe('form directives', function() {
     beforeEach(module('hz'));
     beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('hz.widget.form'));
+    beforeEach(module('horizon.framework.util.form'));
 
     describe('hzPasswordMatch directive', function() {
 

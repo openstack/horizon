@@ -3,29 +3,29 @@
 
   /**
    * @ngdoc overview
-   * @name hz.widget.metadata-display
+   * @name horizon.framework.widgets.metadata-display
    * @description
    *
-   * # hz.widget.metadata-display
+   * # horizon.framework.widgets.metadata-display
    *
-   * The `hz.widget.metadata-display` provides widget displaying metadata.
+   * The `horizon.framework.widgets.metadata-display` provides widget displaying metadata.
    *
    * | Directives                                                                                  |
    * |---------------------------------------------------------------------------------------------|
-   * | {@link hz.widget.metadata-display.directive:hzMetadataDisplay `hzMetadataDisplay`}          |
+   * | {@link horizon.framework.widgets.metadata-display.directive:hzMetadataDisplay `hzMetadataDisplay`}          |
    * |---------------------------------------------------------------------------------------------|
    * | Controllers                                                                                 |
    * |---------------------------------------------------------------------------------------------|
-   * | {@link hz.widget.metadata-display.controller:hzMetadataDisplayCtrl `hzMetadataDisplayCtrl`} |
+   * | {@link horizon.framework.widgets.metadata-display.controller:hzMetadataDisplayCtrl `hzMetadataDisplayCtrl`} |
    *
    */
-  angular.module('hz.widget.metadata-display', [
-    'hz.widget.metadata-tree'
+  angular.module('horizon.framework.widgets.metadata-display', [
+    'horizon.framework.widgets.metadata-tree'
   ])
 
   /**
    * @ngdoc parameters
-   * @name hz.widget.metadata-display:metadataTreeDefaults
+   * @name horizon.framework.widgets.metadata-display:metadataTreeDefaults
    * @param {object} text Text constants
    */
   .constant('metadataDisplayDefaults', {
@@ -36,7 +36,7 @@
 
   /**
    * @ngdoc directive
-   * @name hz.widget.metadata-display.directive:hzMetadataDisplay
+   * @name horizon.framework.widgets.metadata-display.directive:hzMetadataDisplay
    * @scope
    *
    * @description
@@ -62,7 +62,7 @@
 
   /**
    * @ngdoc controller
-   * @name hz.widget.metadata-display.controller:hzMetadataDisplayCtrl
+   * @name horizon.framework.widgets.metadata-display.controller:hzMetadataDisplayCtrl
    * @description
    * Controller used by `hzMetadataDisplay`
    */

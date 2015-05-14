@@ -1,12 +1,12 @@
 (function() {
   'use strict';
 
-  angular.module('hz.widget.table')
+  angular.module('horizon.framework.widgets.table')
 
     .constant('FILTER_PLACEHOLDER_TEXT', gettext('Filter'))
     /**
      * @ngdoc directive
-     * @name hz.widget.table.directive:searchBar
+     * @name horizon.framework.widgets.table.directive:searchBar
      * @element
      * @param {string} {array} groupClasses Input group classes (optional)
      * @param {string} {array} iconClasses Icon classes (optional)

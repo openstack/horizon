@@ -3,31 +3,31 @@
 
   /**
    * @ngdoc overview
-   * @name hz.framework.workflow
+   * @name horizon.framework.util.workflow
    * @description
    *
-   * # hz.framework.workflow
+   * # horizon.framework.util.workflow
    *
    * This module provides utility function service `workflow` to allow
    * decorating a workflow object.  A user (developer) friendly workflow
    * specification object can be shaped into a format that is friendly to
-   * {@link hz.widget.wizard `wizard`} by utilizing this service.
+   * {@link horizon.framework.widgets.wizard `wizard`} by utilizing this service.
    *
    * The service provides a mechanism of decoupling general wizard UI component
    * from business components.
    *
    * | Factories                                                               |
    * |--------------------------------------------------------------------------|
-   * | {@link hz.framework.workflow.factory:workflow `workflow`}                |
+   * | {@link horizon.framework.util.workflow.factory:workflow `workflow`}                |
    *
    */
 
-  angular.module('hz.framework.workflow', [])
+  angular.module('horizon.framework.util.workflow', [])
 
   /**
    * @ngdoc factory
-   * @name hz.framework.workflow.factory:workflow
-   * @module hz.framework.workflow
+   * @name horizon.framework.util.workflow.factory:workflow
+   * @module horizon.framework.util.workflow
    * @kind function
    * @description
    *

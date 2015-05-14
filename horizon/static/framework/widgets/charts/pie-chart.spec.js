@@ -2,9 +2,9 @@
 
   'use strict';
 
-  describe('hz.widget.charts module', function () {
+  describe('horizon.framework.widgets.charts module', function () {
     it('should be defined', function () {
-      expect(angular.module('hz.widget.charts')).toBeDefined();
+      expect(angular.module('horizon.framework.widgets.charts')).toBeDefined();
     });
   });
 
@@ -16,7 +16,7 @@
     beforeEach(module('templates'));
     beforeEach(module('hz'));
     beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('hz.widget.charts'));
+    beforeEach(module('horizon.framework.widgets.charts'));
 
     beforeEach(inject(function($injector) {
       var $compile = $injector.get('$compile');

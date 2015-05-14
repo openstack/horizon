@@ -3,18 +3,18 @@
 
   /**
    * @ngdoc overview
-   * @name hz.widget.form
+   * @name horizon.framework.util.form
    *
-   * # hz.widget.form
+   * # horizon.framework.util.form
    *
-   * The `hz.widget.form` provides form directives and services.
+   * The `horizon.framework.util.form` provides form directives and services.
    *
    * | Components                                               |
    * |----------------------------------------------------------|
-   * | {@link hz.widget.form.hzPasswordMatch `hzPasswordMatch`} |
+   * | {@link horizon.framework.util.form.hzPasswordMatch `hzPasswordMatch`} |
    *
    */
-  var app = angular.module('hz.widget.form', []);
+  var app = angular.module('horizon.framework.util.form', []);
 
   /**
    * @ngdoc directive

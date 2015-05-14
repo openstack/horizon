@@ -1,9 +1,9 @@
 (function() {
   'use strict';
 
-  describe('hz.framework.validators module', function() {
+  describe('horizon.framework.util.validators module', function() {
     it('should have been defined', function() {
-      expect(angular.module('hz.framework.validators')).toBeDefined();
+      expect(angular.module('horizon.framework.util.validators')).toBeDefined();
     });
   });
 
@@ -11,7 +11,7 @@
 
     beforeEach(module('hz'));
     beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('hz.framework.validators'));
+    beforeEach(module('horizon.framework.util.validators'));
 
     describe('validateNumberMax directive', function() {
 

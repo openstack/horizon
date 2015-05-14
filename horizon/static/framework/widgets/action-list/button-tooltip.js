@@ -1,11 +1,11 @@
 (function() {
   'use strict';
 
-  angular.module('hz.widget.action-list')
+  angular.module('horizon.framework.widgets.action-list')
 
   /**
    * @ngdoc parameters
-   * @name hz.widget.action-list.constant:tooltipConfig
+   * @name horizon.framework.widgets.action-list.constant:tooltipConfig
    * @param {string} defaultTemplate Default warning tooltip template
    * @param {string} defaultMessage Default warning tooltip message
    */
@@ -18,7 +18,7 @@
 
   /**
    * @ngdoc directive
-   * @name hz.widget.action-list.directive:buttonTooltip
+   * @name horizon.framework.widgets.action-list.directive:buttonTooltip
    * @element action-list
    * @param {string} buttonTooltip The tooltip message
    * @param {object} btModel Custom tooltip model (optional)

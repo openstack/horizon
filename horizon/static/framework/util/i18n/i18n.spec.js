@@ -17,9 +17,9 @@
 (function() {
   'use strict';
 
-  describe('hz.i18n', function() {
+  describe('horizon.framework.util.i18n', function() {
 
-    beforeEach(module('hz.i18n'));
+    beforeEach(module('horizon.framework.util.i18n'));
 
     describe('gettext', function() {
       var factory;
@@ -27,7 +27,7 @@
       describe('Normal operation', function() {
 
         beforeEach(inject(function($injector) {
-          factory = $injector.get("hz.i18n.gettext");
+          factory = $injector.get("horizon.framework.util.i18n.gettext");
         }));
 
         it('defines the factory', function() {
@@ -48,7 +48,7 @@
 
         // Get the factory by name.
         beforeEach(inject(function($injector) {
-          factory = $injector.get("hz.i18n.gettext");
+          factory = $injector.get("horizon.framework.util.i18n.gettext");
         }));
 
         it('uses the window gettext when available', function() {

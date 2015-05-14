@@ -2,9 +2,11 @@
  'use strict';
 
   angular.module('horizon.framework.util', [
-    'hz.framework.bind-scope',
-    'hz.framework.workflow',
-    'hz.framework.validators'
+    'horizon.framework.util.bind-scope',
+    'horizon.framework.util.form',
+    'horizon.framework.util.i18n',
+    'horizon.framework.util.workflow',
+    'horizon.framework.util.validators'
   ])
     .constant('horizon.framework.util.basePath', '/static/framework/util/');
 

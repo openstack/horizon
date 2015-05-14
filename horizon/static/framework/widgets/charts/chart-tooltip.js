@@ -1,11 +1,11 @@
 (function() {
   'use strict';
 
-  angular.module('hz.widget.charts')
+  angular.module('horizon.framework.widgets.charts')
 
     /**
      * @ngdoc directive
-     * @name hz.widget.charts.directive:chartTooltip
+     * @name horizon.framework.widgets.charts.directive:chartTooltip
      * @element
      * @param {object} tooltip-data The tooltip data model and styles
      * @description

@@ -3,26 +3,26 @@
 
   /**
    * @ngdoc overview
-   * @name hz.widget.action-list
+   * @name horizon.framework.widgets.action-list
    * @description
    *
-   * # hz.widget.action-list
+   * # horizon.framework.widgets.action-list
    *
    * The `actionList` directive supports displaying a set of buttons
    * in a Bootstrap button group or button dropdown (single or split).
    *
    * | Directives                                                      |
    * |-----------------------------------------------------------------|
-   * | {@link hz.widget.action-list.directive:actionList `actionList`} |
-   * | {@link hz.widget.menu.directive:menu `menu`}                    |
-   * | {@link hz.widget.action.directive:action `action`}              |
+   * | {@link horizon.framework.widgets.action-list.directive:actionList `actionList`} |
+   * | {@link horizon.framework.widgets.menu.directive:menu `menu`}                    |
+   * | {@link horizon.framework.widgets.action.directive:action `action`}              |
    *
    */
-  angular.module('hz.widget.action-list', [ 'ui.bootstrap' ])
+  angular.module('horizon.framework.widgets.action-list', [ 'ui.bootstrap' ])
 
   /**
    * @ngdoc directive
-   * @name hz.widget.action-list.directive:actionList
+   * @name horizon.framework.widgets.action-list.directive:actionList
    * @element
    * @description
    * The `actionList` directive is the wrapper for the set of
@@ -92,7 +92,7 @@
 
   /**
    * @ngdoc directive
-   * @name hz.widget.action-list.directive:menu
+   * @name horizon.framework.widgets.action-list.directive:menu
    * @element
    * @description
    * The `menu` directive is the wrapper for the set of
@@ -138,7 +138,7 @@
 
   /**
    * @ngdoc directive
-   * @name hz.widget.action-list.directive:action
+   * @name horizon.framework.widgets.action-list.directive:action
    * @element
    * @description
    * The `action` directive represents the actions to be

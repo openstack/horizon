@@ -19,7 +19,7 @@
 
 /**
  @ngdoc overview
- @name hz.widget.modal-wait-spinner
+ @name horizon.framework.widgets.modal-wait-spinner
  @description
  A "global" wait spinner that displays a line of text followed by "...".
 
@@ -53,7 +53,7 @@
  component.
  */
 
-  angular.module('hz.widget.modal-wait-spinner', [
+  angular.module('horizon.framework.widgets.modal-wait-spinner', [
     'ui.bootstrap',
   ])
     .factory('modalWaitSpinnerService', [

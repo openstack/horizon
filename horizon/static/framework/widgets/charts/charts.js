@@ -3,12 +3,12 @@
 
   /**
    * @ngdoc overview
-   * @name hz.widget.charts
+   * @name horizon.framework.widgets.charts
    * @description
    *
-   * # hz.widget.charts
+   * # horizon.framework.widgets.charts
    *
-   * The `hz.widget.charts` module provides directives for simple charts
+   * The `horizon.framework.widgets.charts` module provides directives for simple charts
    * used in Horizon, such as the pie and donut chart. Charts are
    * implemented using D3.
    *
@@ -16,19 +16,19 @@
    *
    * | Constants                                                                 |
    * |---------------------------------------------------------------------------|
-   * | {@link hz.widget.charts.constant:donutChartSettings `donutChartSettings`} |
-   * | {@link hz.widget.charts.constant:quotaChartDefaults `quotaChartDefaults`} |
+   * | {@link horizon.framework.widgets.charts.constant:donutChartSettings `donutChartSettings`} |
+   * | {@link horizon.framework.widgets.charts.constant:quotaChartDefaults `quotaChartDefaults`} |
    *
    * | Directives                                                                |
    * |---------------------------------------------------------------------------|
-   * | {@link hz.widget.charts.directive:pieChart `pieChart`}                    |
+   * | {@link horizon.framework.widgets.charts.directive:pieChart `pieChart`}                    |
    *
    */
-  angular.module('hz.widget.charts', [])
+  angular.module('horizon.framework.widgets.charts', [])
 
     /**
      * @ngdoc parameters
-     * @name hz.widget.charts.constant:donutChartSettings
+     * @name horizon.framework.widgets.charts.constant:donutChartSettings
      * @param {number} innerRadius Pie chart inner radius in pixels, default: 24
      * @param {number} outerRadius Pie chart outer radius in pixels, default: 30
      * @param {object} label with properties font-size and fill (optional)
@@ -53,7 +53,7 @@
 
     /**
      * @ngdoc parameters
-     * @name hz.widget.charts.constant:pieChartSettings
+     * @name horizon.framework.widgets.charts.constant:pieChartSettings
      * @param {number} innerRadius Pie chart inner radius in pixels, default: 0
      * @param {number} outerRadius Pie chart outer radius in pixels, default: 30
      * @param {object} label with properties font-size and fill (optional)
@@ -78,7 +78,7 @@
 
     /**
      * @ngdoc parameters
-     * @name hz.widget.charts.constant:quotaChartDefaults
+     * @name horizon.framework.widgets.charts.constant:quotaChartDefaults
      * @param {string} usageLabel label text for Usage, default: 'Current Usage'
      * @param {string} usageColorClass css class for Usage , default: 'usage'
      * @param {string} addedLabel label text for Added, default: 'Added'
@@ -98,7 +98,7 @@
 
     /**
      * @ngdoc filter
-     * @name hz.widget.charts.filter:showKeyFilter
+     * @name horizon.framework.widgets.charts.filter:showKeyFilter
      * @function Filter based on 'hideKey' value of each slice
      * @returns {function} A filtered list of keys to show in legend
      *

@@ -9,7 +9,7 @@
     beforeEach(module('smart-table'));
     beforeEach(module('hz'));
     beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('hz.widget.table'));
+    beforeEach(module('horizon.framework.widgets.table'));
 
     describe('search bar', function() {
 

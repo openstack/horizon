@@ -1,9 +1,9 @@
 (function(){
   'use strict';
 
-  describe('hz.widget.wizard module', function () {
+  describe('horizon.framework.widgets.wizard module', function () {
     it('should have been defined', function () {
-      expect(angular.module('hz.widget.wizard')).toBeDefined();
+      expect(angular.module('horizon.framework.widgets.wizard')).toBeDefined();
     });
   });
 
@@ -15,7 +15,7 @@
     beforeEach(module('templates'));
     beforeEach(module('hz'));
     beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('hz.widget.wizard'));
+    beforeEach(module('horizon.framework.widgets.wizard'));
     beforeEach(inject(function ($injector) {
       $scope = $injector.get('$rootScope').$new();
       $compile = $injector.get('$compile');

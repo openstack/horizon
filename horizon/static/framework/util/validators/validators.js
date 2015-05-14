@@ -3,25 +3,25 @@
 
   /**
    * @ngdoc overview
-   * @name hz.framework.validators
+   * @name horizon.framework.util.validators
    * @description
    *
-   * # hz.framework.validators
+   * # horizon.framework.util.validators
    *
-   * The `hz.framework.validators` module provides support for validating
+   * The `horizon.framework.util.validators` module provides support for validating
    * forms.
    *
    * | Directives                                                                      |
    * |---------------------------------------------------------------------------------|
-   * | {@link hz.framework.validators.directive:validateNumberMax `validateNumberMax`} |
-   * | {@link hz.framework.validators.directive:validateNumberMin `validateNumberMin`} |
+   * | {@link horizon.framework.util.validators.directive:validateNumberMax `validateNumberMax`} |
+   * | {@link horizon.framework.util.validators.directive:validateNumberMin `validateNumberMin`} |
    *
    */
-  angular.module('hz.framework.validators', [])
+  angular.module('horizon.framework.util.validators', [])
 
     /**
      * @ngdoc directive
-     * @name hz.framework.validators.directive:validateNumberMax
+     * @name horizon.framework.util.validators.directive:validateNumberMax
      * @element ng-model
      * @description
      * The `validateNumberMax` directive provides max validation
@@ -81,7 +81,7 @@
 
     /**
      * @ngdoc directive
-     * @name hz.framework.validators.directive:validateNumberMin
+     * @name horizon.framework.util.validators.directive:validateNumberMin
      * @element ng-model
      * @description
      * The `validateNumberMin` directive provides min validation

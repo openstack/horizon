@@ -3,27 +3,27 @@
 
   /**
    * @ngdoc overview
-   * @name hz.widget.transfer-table
+   * @name horizon.framework.widgets.transfer-table
    * @description
    *
-   * # hz.widget.transfer-table
+   * # horizon.framework.widgets.transfer-table
    *
-   * The `hz.widget.transfer-table` module provides support for transferring
+   * The `horizon.framework.widgets.transfer-table` module provides support for transferring
    * rows between two tables (allocated and available).
    *
-   * Requires {@link hz.widget.table.directive:hzTable `hzTable`} module to
+   * Requires {@link horizon.framework.widgets.table.directive:hzTable `hzTable`} module to
    * be installed.
    *
    * | Directives                                                               |
    * |--------------------------------------------------------------------------|
-   * | {@link hz.widget.transfer-table.directive:transferTable `transferTable`} |
+   * | {@link horizon.framework.widgets.transfer-table.directive:transferTable `transferTable`} |
    *
    */
-  angular.module('hz.widget.transfer-table', [ 'ui.bootstrap' ])
+  angular.module('horizon.framework.widgets.transfer-table', [ 'ui.bootstrap' ])
 
     /**
      * @ngdoc parameters
-     * @name hz.widget.transfer-table.constant:helpText
+     * @name horizon.framework.widgets.transfer-table.constant:helpText
      * @param {string} allocTitle Title for allocation section
      * @param {string} availTitle Title for available section
      * @param {string} availHelpText Help text shown in available section
@@ -50,7 +50,7 @@
 
     /**
      * @ngdoc parameters
-     * @name hz.widget.transfer-table.constant:limits
+     * @name horizon.framework.widgets.transfer-table.constant:limits
      * @param {number} maxAllocation Maximum allocation allowed
      */
     .constant('limits', {
@@ -59,7 +59,7 @@
 
     /*
      * @ngdoc filter
-     * @name hz.widget.transfer-table.filter:warningText
+     * @name horizon.framework.widgets.transfer-table.filter:warningText
      * @returns {string} Warning text if exists or empty string
      */
     .filter('warningText', function() {
@@ -73,7 +73,7 @@
 
     /**
      * @ngdoc filter
-     * @name hz.widget.transfer-table.filter:rowFilter
+     * @name horizon.framework.widgets.transfer-table.filter:rowFilter
      * @returns {array} List of filtered items based on field passed in
      */
     .filter('rowFilter', function() {
@@ -90,7 +90,7 @@
 
     /**
      * @ngdoc filter
-     * @name hz.widget.transfer-table.filter:foundText
+     * @name horizon.framework.widgets.transfer-table.filter:foundText
      * @returns {string} Help text for filter results
      */
     .filter('foundText', function() {
@@ -104,7 +104,7 @@
 
     /**
      * @ngdoc controller
-     * @name hz.widget.transfer-table.controller:transferTableCtrl
+     * @name horizon.framework.widgets.transfer-table.controller:transferTableCtrl
      * @description
      * The `transferTableCtrl` controller provides functions for allocating
      * and deallocating to and from the 'allocated' array, respectively.
@@ -278,7 +278,7 @@
 
     /**
      * @ngdoc directive
-     * @name hz.widget.transfer-table.directive:transferTable
+     * @name horizon.framework.widgets.transfer-table.directive:transferTable
      * @element
      * @param {object} trModel Table data model (required)
      * @param {object} helpText Help text (optional)

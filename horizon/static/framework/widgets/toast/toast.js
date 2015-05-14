@@ -18,12 +18,12 @@
 
   /**
    * @ngdoc overview
-   * @name hz.widget.toast
+   * @name horizon.framework.widgets.toast
    * description
    *
-   * # hz.widget.toast
+   * # horizon.framework.widgets.toast
    *
-   * The `hz.widget.toast` module provides pop-up notifications to Horizon.
+   * The `horizon.framework.widgets.toast` module provides pop-up notifications to Horizon.
    * A toast is a short text message triggered by a user action to provide
    * real-time information. Toasts do not disrupt the page's behavior and
    * typically auto-expire and fade. Also, toasts do not accept any user
@@ -32,11 +32,11 @@
    *
    * | Components                                                               |
    * |--------------------------------------------------------------------------|
-   * | {@link hz.widget.toast.factory:toastService `toastService`}              |
-   * | {@link hz.widget.toast.directive:toast `toast`}                          |
+   * | {@link horizon.framework.widgets.toast.factory:toastService `toastService`}              |
+   * | {@link horizon.framework.widgets.toast.directive:toast `toast`}                          |
    *
    */
-  angular.module('hz.widget.toast', [])
+  angular.module('horizon.framework.widgets.toast', [])
 
     /**
      * @ngdoc service
@@ -137,7 +137,7 @@
 
     /**
      * @ngdoc directive
-     * @name hz.widget.toast.directive:toast
+     * @name horizon.framework.widgets.toast.directive:toast
      *
      * @description
      * The `toast` directive allows you to place the toasts wherever you

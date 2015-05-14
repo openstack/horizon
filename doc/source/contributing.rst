@@ -408,7 +408,7 @@ Required
   * Write-only in controllers.
 * Since Django already uses ``{{ }}``, use ``{$ $}`` or ``{% verbatim %}``
   instead.
-* For localization in Angular files, use the Angular service hz.i18n.gettext.
+* For localization in Angular files, use the Angular service horizon.framework.util.i18n.gettext.
   For regular Javascript files, use either ``gettext`` or ``ngettext``.
   Only those two methods are recognized by our tools and will be included in
   the .po file after running ``./run_tests --makemessages``.
@@ -416,8 +416,8 @@ Required
   .. code ::
 
      // Angular
-     angular.module('hz.widget.modal', ['ui.bootstrap', 'hz.i18n'])
-      .factory('simpleModalService', ['$modal', 'basePath', 'hz.i18n.gettext',
+     angular.module('horizon.framework.widgets.modal', ['ui.bootstrap', 'horizon.framework.util.i18n'])
+      .factory('simpleModalService', ['$modal', 'basePath', 'horizon.framework.util.i18n.gettext',
          function($modal, path, gettext) { gettext('translatable text'); };
 
     // recognized

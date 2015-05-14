@@ -3,31 +3,31 @@
 
   /**
    * @ngdoc overview
-   * @name hz.widget.metadata-tree
+   * @name horizon.framework.widgets.metadata-tree
    * @description
    *
-   * # hz.widget.metadata-tree
+   * # horizon.framework.widgets.metadata-tree
    *
-   * The `hz.widget.metadata-tree` provides widgets and service
+   * The `horizon.framework.widgets.metadata-tree` provides widgets and service
    * with logic for editing metadata.
    *
    * | Directives                                                                                 |
    * |--------------------------------------------------------------------------------------------|
-   * | {@link hz.widget.metadata-tree.directive:hzMetadataTree `hzMetadataTree`}                  |
-   * | {@link hz.widget.metadata-tree.directive:hzMetadataTreeItem `hzMetadataTreeItem`}          |
-   * | {@link hz.widget.metadata-tree.directive:hzMetadataTreeUnique `hzMetadataTreeUnique`}      |
+   * | {@link horizon.framework.widgets.metadata-tree.directive:hzMetadataTree `hzMetadataTree`}                  |
+   * | {@link horizon.framework.widgets.metadata-tree.directive:hzMetadataTreeItem `hzMetadataTreeItem`}          |
+   * | {@link horizon.framework.widgets.metadata-tree.directive:hzMetadataTreeUnique `hzMetadataTreeUnique`}      |
    * |--------------------------------------------------------------------------------------------|
    * | Controllers                                                                                |
    * |--------------------------------------------------------------------------------------------|
-   * | {@link hz.widget.metadata-tree.controller:hzMetadataTreeCtrl `hzMetadataTreeCtrl`}         |
-   * | {@link hz.widget.metadata-tree.controller:hzMetadataTreeItemCtrl `hzMetadataTreeItemCtrl`} |
+   * | {@link horizon.framework.widgets.metadata-tree.controller:hzMetadataTreeCtrl `hzMetadataTreeCtrl`}         |
+   * | {@link horizon.framework.widgets.metadata-tree.controller:hzMetadataTreeItemCtrl `hzMetadataTreeItemCtrl`} |
    *
    */
-  angular.module('hz.widget.metadata-tree', [])
+  angular.module('horizon.framework.widgets.metadata-tree', [])
 
   /**
    * @ngdoc parameters
-   * @name hz.widget.metadata-tree.constant:metadataTreeDefaults
+   * @name horizon.framework.widgets.metadata-tree.constant:metadataTreeDefaults
    * @param {object} text Text constants
    */
   .constant('metadataTreeDefaults', {
@@ -53,7 +53,7 @@
 
   /**
    * @ngdoc directive
-   * @name hz.widget.metadata-tree.directive:hzMetadataTree
+   * @name horizon.framework.widgets.metadata-tree.directive:hzMetadataTree
    * @scope
    *
    * @description
@@ -82,7 +82,7 @@
 
   /**
    * @ngdoc directive
-   * @name hz.widget.metadata-tree.directive:hzMetadataTreeItem
+   * @name horizon.framework.widgets.metadata-tree.directive:hzMetadataTreeItem
    * @scope
    *
    * @description
@@ -109,7 +109,7 @@
 
   /**
    * @ngdoc directive
-   * @name hz.widget.metadata-tree.directive:hzMetadataTreeUnique
+   * @name horizon.framework.widgets.metadata-tree.directive:hzMetadataTreeUnique
    * @restrict A
    *
    * @description
@@ -132,7 +132,7 @@
 
   /**
    * @ngdoc controller
-   * @name hz.widget.metadata-tree.controller:hzMetadataTreeCtrl
+   * @name horizon.framework.widgets.metadata-tree.controller:hzMetadataTreeCtrl
    * @description
    * Controller used by `hzMetadataTree`
    */
@@ -159,7 +159,7 @@
 
   /**
    * @ngdoc controller
-   * @name hz.widget.metadata-tree.controller:hzMetadataTreeItemCtrl
+   * @name horizon.framework.widgets.metadata-tree.controller:hzMetadataTreeItemCtrl
    * @description
    * Controller used by `hzMetadataTreeItem`
    */

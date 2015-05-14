@@ -28,6 +28,8 @@ class ServicesTests(test.JasmineTests):
 
         'framework/util/util.module.js',
         'framework/util/bind-scope/bind-scope.js',
+        'framework/util/form/form.js',
+        'framework/util/i18n/i18n.js',
         'framework/util/validators/validators.js',
         'framework/util/workflow/workflow.js',
 
@@ -37,7 +39,6 @@ class ServicesTests(test.JasmineTests):
         'framework/widgets/charts/charts.js',
         'framework/widgets/charts/chart-tooltip.js',
         'framework/widgets/charts/pie-chart.js',
-        'framework/widgets/form/form.js',
         'framework/widgets/help-panel/help-panel.js',
         'framework/widgets/login/login.js',
         'framework/widgets/metadata-tree/metadata-tree.js',
@@ -50,7 +51,6 @@ class ServicesTests(test.JasmineTests):
         'framework/widgets/wizard/wizard.js',
         'framework/widgets/metadata-display/metadata-display.js',
         'framework/widgets/toast/toast.js',
-        'framework/widgets/i18n/i18n.js',
         'horizon/js/angular/filters/filters.js',
     ]
     specs = [
@@ -59,12 +59,13 @@ class ServicesTests(test.JasmineTests):
         'horizon/tests/jasmine/utils.spec.js',
 
         'framework/util/bind-scope/bind-scope.spec.js',
+        'framework/util/form/form.spec.js',
+        'framework/util/i18n/i18n.spec.js',
         'framework/util/validators/validators.spec.js',
         'framework/util/workflow/workflow.spec.js',
 
         'framework/widgets/action-list/action-list.spec.js',
         'framework/widgets/charts/pie-chart.spec.js',
-        'framework/widgets/form/form.spec.js',
         'framework/widgets/help-panel/help-panel.spec.js',
         'framework/widgets/login/login.spec.js',
         'framework/widgets/modal/modal.spec.js',
@@ -76,7 +77,6 @@ class ServicesTests(test.JasmineTests):
         'framework/widgets/metadata-tree/metadata-tree.spec.js',
         'framework/widgets/metadata-display/metadata-display.spec.js',
         'framework/widgets/toast/toast.spec.js',
-        'framework/widgets/i18n/i18n.spec.js',
         'horizon/js/angular/filters/filters.spec.js',
     ]
     externalTemplates = [

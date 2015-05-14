@@ -3,21 +3,21 @@
 
   /**
    * @ngdoc overview
-   * @name hz.widget.modal
+   * @name horizon.framework.widgets.modal
    *
-   * # hz.widget.modal
+   * # horizon.framework.widgets.modal
    *
-   * The `hz.widget.modal` provides modal services.
+   * The `horizon.framework.widgets.modal` provides modal services.
    *
    * Requires {@link http://angular-ui.github.io/bootstrap/ `Angular-bootstrap`}
    *
    * | Components                                                               |
    * |--------------------------------------------------------------------------|
-   * | {@link hz.widget.modal.controller:simpleModalCtrl `simpleModalCtrl`}     |
-   * | {@link hz.widget.modal.factory:simpleModalService `simpleModalService`}  |
+   * | {@link horizon.framework.widgets.modal.controller:simpleModalCtrl `simpleModalCtrl`}     |
+   * | {@link horizon.framework.widgets.modal.factory:simpleModalService `simpleModalService`}  |
    *
    */
-  angular.module('hz.widget.modal', ['ui.bootstrap', 'hz.i18n'])
+  angular.module('horizon.framework.widgets.modal', ['ui.bootstrap', 'horizon.framework.util.i18n'])
 
     /**
      * @ngdoc controller
@@ -68,7 +68,7 @@
      *    }
      *  ]);
      */
-    .factory('simpleModalService', ['$modal', 'horizon.framework.widgets.basePath', 'hz.i18n.gettext',
+    .factory('simpleModalService', ['$modal', 'horizon.framework.widgets.basePath', 'horizon.framework.util.i18n.gettext',
       function($modal, path, gettext) {
         return function(params) {
           if (params && params.title && params.body){

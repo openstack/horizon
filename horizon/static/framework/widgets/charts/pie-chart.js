@@ -1,11 +1,11 @@
 (function() {
   'use strict';
 
-  angular.module('hz.widget.charts')
+  angular.module('horizon.framework.widgets.charts')
 
     /**
      * @ngdoc directive
-     * @name hz.widget.charts.directive:pieChart
+     * @name horizon.framework.widgets.charts.directive:pieChart
      * @element
      * @param {object} chart-data The chart data model
      * @param {string} chart-settings The custom chart settings (JSON), optional

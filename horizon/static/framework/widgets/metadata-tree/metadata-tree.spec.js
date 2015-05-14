@@ -1,9 +1,9 @@
 (function(){
   'use strict';
 
-  describe('hz.widget.metadata-tree module', function() {
+  describe('horizon.framework.widgets.metadata-tree module', function() {
     it('should have been defined', function () {
-      expect(angular.module('hz.widget.metadata-tree')).toBeDefined();
+      expect(angular.module('horizon.framework.widgets.metadata-tree')).toBeDefined();
     });
 
     var namespaces = [
@@ -89,7 +89,7 @@
       beforeEach(module('templates'));
       beforeEach(module('hz'));
       beforeEach(module('horizon.framework.widgets'));
-      beforeEach(module('hz.widget.metadata-tree'));
+      beforeEach(module('horizon.framework.widgets.metadata-tree'));
 
       describe('hzMetadataTree directive', function() {
         beforeEach(inject(function ($injector) {

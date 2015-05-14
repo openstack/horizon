@@ -17,10 +17,10 @@
 (function() {
   'use strict';
 
-   angular.module("hz.i18n", [])
+   angular.module("horizon.framework.util.i18n", [])
 
    /*
-    * @name hz.i18n.gettext
+    * @name horizon.framework.util.i18n.gettext
     * @description
     * Provides a wrapper for translation, using the global 'gettext'
     * function if it is present.  Provides a method that
@@ -37,7 +37,7 @@
     * (translation) from filters, which are arguably more
     * presentation-oriented.
     */
-   .factory("hz.i18n.gettext", ['$window', function($window) {
+   .factory("horizon.framework.util.i18n.gettext", ['$window', function($window) {
 
      // If no global function, revert to just returning given text.
      var gettextFunc = $window.gettext || function(x) { return x; };

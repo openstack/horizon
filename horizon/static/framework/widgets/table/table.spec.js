@@ -2,9 +2,9 @@
 (function() {
   'use strict';
 
-  describe('hz.widget.table module', function() {
+  describe('horizon.framework.widgets.table module', function() {
     it('should have been defined', function () {
-      expect(angular.module('hz.widget.table')).toBeDefined();
+      expect(angular.module('horizon.framework.widgets.table')).toBeDefined();
     });
   });
 
@@ -15,7 +15,7 @@
     beforeEach(module('smart-table'));
     beforeEach(module('hz'));
     beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('hz.widget.table'));
+    beforeEach(module('horizon.framework.widgets.table'));
 
     beforeEach(inject(function($injector) {
       var $compile = $injector.get('$compile');

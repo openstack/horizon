@@ -1,9 +1,9 @@
 (function(){
   'use strict';
 
-  describe('hz.widget.metadata-display module', function() {
+  describe('horizon.framework.widgets.metadata-display module', function() {
     it('should have been defined', function () {
-      expect(angular.module('hz.widget.metadata-display')).toBeDefined();
+      expect(angular.module('horizon.framework.widgets.metadata-display')).toBeDefined();
     });
 
     var namespaces = [
@@ -95,8 +95,8 @@
       beforeEach(module('templates'));
       beforeEach(module('hz'));
       beforeEach(module('horizon.framework.widgets'));
-      beforeEach(module('hz.widget.metadata-tree'));
-      beforeEach(module('hz.widget.metadata-display'));
+      beforeEach(module('horizon.framework.widgets.metadata-tree'));
+      beforeEach(module('horizon.framework.widgets.metadata-display'));
       beforeEach(inject(function ($injector) {
         var $compile = $injector.get('$compile');
         $scope = $injector.get('$rootScope').$new();

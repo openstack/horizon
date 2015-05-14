@@ -4,7 +4,7 @@
   var extend = angular.extend,
       forEach = angular.forEach;
 
-  angular.module('hz.widget.wizard', ['ui.bootstrap'])
+  angular.module('horizon.framework.widgets.wizard', ['ui.bootstrap'])
 
     .constant('wizardLabels', {
       cancel: gettext('Cancel'),

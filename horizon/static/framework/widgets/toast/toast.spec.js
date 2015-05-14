@@ -16,9 +16,9 @@
 (function(){
   'use strict';
 
-  describe('hz.widget.toast module', function() {
+  describe('horizon.framework.widgets.toast module', function() {
     it('should have been defined', function () {
-      expect(angular.module('hz.widget.toast')).toBeDefined();
+      expect(angular.module('horizon.framework.widgets.toast')).toBeDefined();
      });
   });
 
@@ -35,7 +35,7 @@
     beforeEach(module('templates'));
     beforeEach(module('hz'));
     beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('hz.widget.toast'));
+    beforeEach(module('horizon.framework.widgets.toast'));
     beforeEach(inject(function ($injector, toastService) {
       service = toastService;
       $scope = $injector.get('$rootScope').$new();
@@ -110,7 +110,7 @@
     beforeEach(module('templates'));
     beforeEach(module('hz'));
     beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('hz.widget.toast'));
+    beforeEach(module('horizon.framework.widgets.toast'));
     beforeEach(inject(function ($injector, toastService) {
       $scope = $injector.get('$rootScope').$new();
       $compile = $injector.get('$compile');

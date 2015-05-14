@@ -1,9 +1,9 @@
 (function() {
   'use strict';
 
-  describe('hz.widget.action-list module', function() {
+  describe('horizon.framework.widgets.action-list module', function() {
     it('should have been defined', function() {
-      expect(angular.module('hz.widget.action-list')).toBeDefined();
+      expect(angular.module('horizon.framework.widgets.action-list')).toBeDefined();
     });
   });
 
@@ -12,7 +12,7 @@
     beforeEach(module('templates'));
     beforeEach(module('hz'));
     beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('hz.widget.action-list'));
+    beforeEach(module('horizon.framework.widgets.action-list'));
 
     describe('single button dropdown', function() {
 

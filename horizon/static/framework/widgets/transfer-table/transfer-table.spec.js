@@ -16,16 +16,16 @@
 (function() {
   'use strict';
 
-  describe('hz.widget.transfer-table module', function() {
+  describe('horizon.framework.widgets.transfer-table module', function() {
     it('should have been defined', function() {
-      expect(angular.module('hz.widget.transfer-table')).toBeDefined();
+      expect(angular.module('horizon.framework.widgets.transfer-table')).toBeDefined();
     });
   });
 
   describe("Filters", function() {
     var filter;
 
-    beforeEach(module('hz.widget.transfer-table'));
+    beforeEach(module('horizon.framework.widgets.transfer-table'));
 
     describe("warningText", function() {
 
@@ -88,9 +88,9 @@
     beforeEach(module('smart-table'));
     beforeEach(module('hz'));
     beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('hz.widget.action-list'));
-    beforeEach(module('hz.widget.table'));
-    beforeEach(module('hz.widget.transfer-table'));
+    beforeEach(module('horizon.framework.widgets.action-list'));
+    beforeEach(module('horizon.framework.widgets.table'));
+    beforeEach(module('horizon.framework.widgets.transfer-table'));
 
     describe('max 1 allocation', function() {
 

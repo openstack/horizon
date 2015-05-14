@@ -16,9 +16,9 @@
 (function() {
   "use strict";
 
-  describe('hz.widget.modal module', function() {
+  describe('horizon.framework.widgets.modal module', function() {
 
-    beforeEach(module('hz.widget.modal'));
+    beforeEach(module('horizon.framework.widgets.modal'));
 
     describe('simpleModalCtrl', function() {
       var scope, modalInstance, context, ctrl;

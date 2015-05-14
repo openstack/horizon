@@ -3,12 +3,12 @@
 
   /**
    * @ngdoc overview
-   * @name hz.widget.table
+   * @name horizon.framework.widgets.table
    * @description
    *
-   * # hz.widget.table
+   * # horizon.framework.widgets.table
    *
-   * The `hz.widget.table` provides support for user interactions and checkbox
+   * The `horizon.framework.widgets.table` provides support for user interactions and checkbox
    * selection in tables.
    *
    * Requires {@link https://github.com/lorenzofox3/Smart-Table `Smart-Table`}
@@ -16,17 +16,17 @@
    *
    * | Directives                                                        |
    * |-------------------------------------------------------------------|
-   * | {@link hz.widget.table.directive:hzTable `hzTable`}               |
-   * | {@link hz.widget.table.directive:hzSelect `hzSelect`}             |
-   * | {@link hz.widget.table.directive:hzSelectAll `hzSelectAll`}       |
-   * | {@link hz.widget.table.directive:hzExpandDetail `hzExpandDetail`} |
+   * | {@link horizon.framework.widgets.table.directive:hzTable `hzTable`}               |
+   * | {@link horizon.framework.widgets.table.directive:hzSelect `hzSelect`}             |
+   * | {@link horizon.framework.widgets.table.directive:hzSelectAll `hzSelectAll`}       |
+   * | {@link horizon.framework.widgets.table.directive:hzExpandDetail `hzExpandDetail`} |
    *
    */
-  var app = angular.module('hz.widget.table', [ 'smart-table', 'lrDragNDrop' ]);
+  var app = angular.module('horizon.framework.widgets.table', [ 'smart-table', 'lrDragNDrop' ]);
 
   /**
    * @ngdoc parameters
-   * @name hz.widget.table.constant:expandSettings
+   * @name horizon.framework.widgets.table.constant:expandSettings
    * @param {string} expandIconClasses Icon classes to be used for expand icon
    * @param {number} duration The slide down animation duration/speed
    */
@@ -37,7 +37,7 @@
 
   /**
    * @ngdoc directive
-   * @name hz.widget.table.directive:hzTable
+   * @name horizon.framework.widgets.table.directive:hzTable
    * @element table st-table='rowCollection'
    * @description
    * The `hzTable` directive extends the Smart-Table module to provide
@@ -125,7 +125,7 @@
 
   /**
    * @ngdoc directive
-   * @name hz.widget.table.directive:hzSelect
+   * @name horizon.framework.widgets.table.directive:hzSelect
    * @element input type='checkbox'
    * @description
    * The `hzSelect` directive updates the checkbox selection state of
@@ -170,7 +170,7 @@
 
   /**
    * @ngdoc directive
-   * @name hz.widget.table.directive:hzSelectAll
+   * @name horizon.framework.widgets.table.directive:hzSelectAll
    * @element input type='checkbox'
    * @description
    * The `hzSelectAll` directive updates the checkbox selection state of
@@ -264,7 +264,7 @@
 
   /**
    * @ngdoc directive
-   * @name hz.widget.table.directive:hzExpandDetail
+   * @name horizon.framework.widgets.table.directive:hzExpandDetail
    * @element i class='fa fa-chevron-right'
    * @param {number} duration The duration for drawer slide animation
    * @description

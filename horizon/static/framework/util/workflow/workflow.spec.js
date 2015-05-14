@@ -1,9 +1,9 @@
 (function () {
   'use strict';
 
-  describe('hz.framework.workflow module', function () {
+  describe('horizon.framework.util.workflow module', function () {
     it('should have been defined', function () {
-      expect(angular.module('hz.framework.workflow')).toBeDefined();
+      expect(angular.module('horizon.framework.util.workflow')).toBeDefined();
     });
   });
 
@@ -21,7 +21,7 @@
           }
         ];
 
-    beforeEach(module('hz.framework.workflow'));
+    beforeEach(module('horizon.framework.util.workflow'));
 
     beforeEach(inject(function ($injector) {
       workflow = $injector.get('workflow');
