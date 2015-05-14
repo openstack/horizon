@@ -23,6 +23,8 @@ from mox import IsA  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.access_and_security.\
+    keypairs.forms import CreateKeypair
+from openstack_dashboard.dashboards.project.access_and_security.\
     keypairs.forms import KEYPAIR_ERROR_MESSAGES
 from openstack_dashboard.test import helpers as test
 
@@ -239,3 +241,16 @@ class KeyPairViewTests(test.TestCase):
         res = self.client.get(url, context)
         self.assertTemplateUsed(
             res, 'project/access_and_security/keypairs/download.html')
+
+    @test.create_stubs({api.nova: ('keypair_list',)})
+    def test_create_duplicate_keypair(self):
+        keypair_name = self.keypairs.first().name
+
+        api.nova.keypair_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.keypairs.list())
+        self.mox.ReplayAll()
+
+        form = CreateKeypair(self.request, data={'name': keypair_name})
+        self.assertFalse(form.is_valid())
+        self.assertIn('The name is already in use.',
+                      form.errors['__all__'][0])
