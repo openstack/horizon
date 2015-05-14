@@ -36,7 +36,7 @@ class JobExecutionsView(tables.DataTableView):
     table_class = je_tables.JobExecutionsTable
     template_name = (
         'project/data_processing.job_executions/job_executions.html')
-    page_title = _("Job Executions")
+    page_title = _("Jobs")
 
     def get_data(self):
         try:
