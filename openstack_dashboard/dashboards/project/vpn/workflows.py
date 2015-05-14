@@ -22,7 +22,7 @@ from openstack_dashboard import api
 
 
 class AddVPNServiceAction(workflows.Action):
-    name = forms.CharField(max_length=80, label=_("Name"))
+    name = forms.CharField(max_length=80, label=_("Name"), required=False)
     description = forms.CharField(
         initial="", required=False,
         max_length=80, label=_("Description"))
@@ -31,7 +31,8 @@ class AddVPNServiceAction(workflows.Action):
     admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
                                                 (False, _('DOWN'))],
                                        label=_("Admin State"),
-                                       help_text=_("The state to start in."))
+                                       help_text=_("The state to start in."),
+                                       required=False)
 
     def __init__(self, request, *args, **kwargs):
         super(AddVPNServiceAction, self).__init__(request, *args, **kwargs)
@@ -107,21 +108,25 @@ class AddVPNService(workflows.Workflow):
 
 
 class AddIKEPolicyAction(workflows.Action):
-    name = forms.CharField(max_length=80, label=_("Name"))
+    name = forms.CharField(max_length=80, label=_("Name"), required=False)
     description = forms.CharField(
         initial="", required=False,
         max_length=80, label=_("Description"))
-    auth_algorithm = forms.ChoiceField(label=_("Authorization algorithm"))
-    encryption_algorithm = forms.ChoiceField(label=_("Encryption algorithm"))
-    ike_version = forms.ChoiceField(label=_("IKE version"))
-    lifetime_units = forms.ChoiceField(label=_("Lifetime units for IKE keys"))
+    auth_algorithm = forms.ChoiceField(label=_("Authorization algorithm"),
+                                       required=False)
+    encryption_algorithm = forms.ChoiceField(label=_("Encryption algorithm"),
+                                             required=False)
+    ike_version = forms.ChoiceField(label=_("IKE version"), required=False)
+    lifetime_units = forms.ChoiceField(label=_("Lifetime units for IKE keys"),
+                                       required=False)
     lifetime_value = forms.IntegerField(
         min_value=60, label=_("Lifetime value for IKE keys"),
         initial=3600,
-        help_text=_("Equal to or greater than 60"))
-    pfs = forms.ChoiceField(label=_("Perfect Forward Secrecy"))
+        help_text=_("Equal to or greater than 60"),
+        required=False)
+    pfs = forms.ChoiceField(label=_("Perfect Forward Secrecy"), required=False)
     phase1_negotiation_mode = forms.ChoiceField(
-        label=_("IKE Phase1 negotiation mode"))
+        label=_("IKE Phase1 negotiation mode"), required=False)
 
     def __init__(self, request, *args, **kwargs):
         super(AddIKEPolicyAction, self).__init__(request, *args, **kwargs)
@@ -206,20 +211,26 @@ class AddIKEPolicy(workflows.Workflow):
 
 
 class AddIPSecPolicyAction(workflows.Action):
-    name = forms.CharField(max_length=80, label=_("Name"))
+    name = forms.CharField(max_length=80, label=_("Name"), required=False)
     description = forms.CharField(
         initial="", required=False,
         max_length=80, label=_("Description"))
-    auth_algorithm = forms.ChoiceField(label=_("Authorization algorithm"))
-    encapsulation_mode = forms.ChoiceField(label=_("Encapsulation mode"))
-    encryption_algorithm = forms.ChoiceField(label=_("Encryption algorithm"))
-    lifetime_units = forms.ChoiceField(label=_("Lifetime units"))
+    auth_algorithm = forms.ChoiceField(label=_("Authorization algorithm"),
+                                       required=False)
+    encapsulation_mode = forms.ChoiceField(label=_("Encapsulation mode"),
+                                           required=False)
+    encryption_algorithm = forms.ChoiceField(label=_("Encryption algorithm"),
+                                             required=False)
+    lifetime_units = forms.ChoiceField(label=_("Lifetime units"),
+                                       required=False)
     lifetime_value = forms.IntegerField(
         min_value=60, label=_("Lifetime value for IKE keys "),
         initial=3600,
-        help_text=_("Equal to or greater than 60"))
-    pfs = forms.ChoiceField(label=_("Perfect Forward Secrecy"))
-    transform_protocol = forms.ChoiceField(label=_("Transform Protocol"))
+        help_text=_("Equal to or greater than 60"),
+        required=False)
+    pfs = forms.ChoiceField(label=_("Perfect Forward Secrecy"), required=False)
+    transform_protocol = forms.ChoiceField(label=_("Transform Protocol"),
+                                           required=False)
 
     def __init__(self, request, *args, **kwargs):
         super(AddIPSecPolicyAction, self).__init__(request, *args, **kwargs)
@@ -303,7 +314,7 @@ class AddIPSecPolicy(workflows.Workflow):
 
 
 class AddIPSecSiteConnectionAction(workflows.Action):
-    name = forms.CharField(max_length=80, label=_("Name"))
+    name = forms.CharField(max_length=80, label=_("Name"), required=False)
     description = forms.CharField(
         initial="", required=False,
         max_length=80, label=_("Description"))
@@ -401,22 +412,27 @@ class AddIPSecSiteConnectionOptionalAction(workflows.Action):
         min_value=68,
         label=_("Maximum Transmission Unit size for the connection"),
         initial=1500,
+        required=False,
         help_text=_("Equal to or greater than 68 if the local subnet is IPv4. "
                     "Equal to or greater than 1280 if the local subnet "
                     "is IPv6."))
-    dpd_action = forms.ChoiceField(label=_("Dead peer detection actions"))
+    dpd_action = forms.ChoiceField(label=_("Dead peer detection actions"),
+                                   required=False)
     dpd_interval = forms.IntegerField(
         min_value=1, label=_("Dead peer detection interval"),
         initial=30,
+        required=False,
         help_text=_("Valid integer lesser than DPD timeout"))
     dpd_timeout = forms.IntegerField(
         min_value=1, label=_("Dead peer detection timeout"),
         initial=120,
+        required=False,
         help_text=_("Valid integer greater than the DPD interval"))
-    initiator = forms.ChoiceField(label=_("Initiator state"))
+    initiator = forms.ChoiceField(label=_("Initiator state"), required=False)
     admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
                                                 (False, _('DOWN'))],
                                        label=_("Admin State"),
+                                       required=False,
                                        help_text=_("The state to start in."))
 
     def __init__(self, request, *args, **kwargs):

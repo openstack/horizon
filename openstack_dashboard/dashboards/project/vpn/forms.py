@@ -36,7 +36,8 @@ class UpdateVPNService(forms.SelfHandlingForm):
         required=False, max_length=80, label=_("Description"))
     admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
                                                 (False, _('DOWN'))],
-                                       label=_("Admin State"))
+                                       label=_("Admin State"),
+                                       required=False)
 
     failure_url = 'horizon:project:vpn:index'
 
@@ -72,36 +73,43 @@ class UpdateIKEPolicy(forms.SelfHandlingForm):
     auth_algorithm = forms.ChoiceField(
         label=_("Authorization algorithm"),
         choices=[('sha1', _('sha1'))],
-        widget=forms.Select(attrs={'readonly': 'readonly'}))
+        widget=forms.Select(attrs={'readonly': 'readonly'}),
+        required=False)
     encryption_algorithm = forms.ChoiceField(
         label=_("Encryption algorithm"),
         choices=[('3des', _('3des')),
                  ('aes-128', _('aes-128')),
                  ('aes-192', _('aes-192')),
-                 ('aes-256', _('aes-256'))])
+                 ('aes-256', _('aes-256'))],
+        required=False)
     ike_version = forms.ChoiceField(
         label=_("IKE version"),
         choices=[('v1', _('v1')),
-                 ('v2', _('v2'))])
+                 ('v2', _('v2'))],
+        required=False)
     # Currently this field has only one choice, so mark it as readonly.
     lifetime_units = forms.ChoiceField(
         label=_("Lifetime units for IKE keys"),
         choices=[('seconds', _('seconds'))],
-        widget=forms.Select(attrs={'readonly': 'readonly'}))
+        widget=forms.Select(attrs={'readonly': 'readonly'}),
+        required=False)
     lifetime_value = forms.IntegerField(
         min_value=60,
         label=_("Lifetime value for IKE keys"),
-        help_text=_("Equal to or greater than 60"))
+        help_text=_("Equal to or greater than 60"),
+        required=False)
     pfs = forms.ChoiceField(
         label=_("Perfect Forward Secrecy"),
         choices=[('group2', _('group2')),
                  ('group5', _('group5')),
-                 ('group14', _('group14'))])
+                 ('group14', _('group14'))],
+        required=False)
     # Currently this field has only one choice, so mark it as readonly.
     phase1_negotiation_mode = forms.ChoiceField(
         label=_("IKE Phase1 negotiation mode"),
         choices=[('main', 'main')],
-        widget=forms.Select(attrs={'readonly': 'readonly'}))
+        widget=forms.Select(attrs={'readonly': 'readonly'}),
+        required=False)
 
     failure_url = 'horizon:project:vpn:index'
 
@@ -144,36 +152,43 @@ class UpdateIPSecPolicy(forms.SelfHandlingForm):
     auth_algorithm = forms.ChoiceField(
         label=_("Authorization algorithm"),
         choices=[('sha1', _('sha1'))],
-        widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+        widget=forms.TextInput(attrs={'readonly': 'readonly'}),
+        required=False)
     encapsulation_mode = forms.ChoiceField(
         label=_("Encapsulation mode"),
         choices=[('tunnel', _('tunnel')),
-                 ('transport', _('transport'))])
+                 ('transport', _('transport'))],
+        required=False)
     encryption_algorithm = forms.ChoiceField(
         label=_("Encryption algorithm"),
         choices=[('3des', _('3des')),
                  ('aes-128', _('aes-128')),
                  ('aes-192', _('aes-192')),
-                 ('aes-256', _('aes-256'))])
+                 ('aes-256', _('aes-256'))],
+        required=False)
     # Currently this field has only one choice, so mark it as readonly.
     lifetime_units = forms.ChoiceField(
         label=_("Lifetime units"),
         choices=[('seconds', _('seconds'))],
-        widget=forms.Select(attrs={'readonly': 'readonly'}))
+        widget=forms.Select(attrs={'readonly': 'readonly'}),
+        required=False)
     lifetime_value = forms.IntegerField(
         min_value=60,
         label=_("Lifetime value"),
-        help_text=_("Equal to or greater than 60"))
+        help_text=_("Equal to or greater than 60"),
+        required=False)
     pfs = forms.ChoiceField(
         label=_("Perfect Forward Secrecy"),
         choices=[('group2', _('group2')),
                  ('group5', _('group5')),
-                 ('group14', _('group14'))])
+                 ('group14', _('group14'))],
+        required=False)
     transform_protocol = forms.ChoiceField(
         label=_("Transform Protocol"),
         choices=[('esp', _('esp')),
                  ('ah', _('ah')),
-                 ('ah-esp', _('ah-esp'))])
+                 ('ah-esp', _('ah-esp'))],
+        required=False)
 
     failure_url = 'horizon:project:vpn:index'
 
@@ -235,12 +250,14 @@ class UpdateIPSecSiteConnection(forms.SelfHandlingForm):
         max_length=80, label=_("Pre-Shared Key (PSK) string"))
     mtu = forms.IntegerField(
         min_value=68,
+        required=False,
         label=_("Maximum Transmission Unit size for the connection"),
         help_text=_("Equal to or greater than 68 if the local subnet is IPv4. "
                     "Equal to or greater than 1280 if the local subnet "
                     "is IPv6."))
     dpd_action = forms.ChoiceField(
         label=_("Dead peer detection actions"),
+        required=False,
         choices=[('hold', _('hold')),
                  ('clear', _('clear')),
                  ('disabled', _('disabled')),
@@ -248,19 +265,23 @@ class UpdateIPSecSiteConnection(forms.SelfHandlingForm):
                  ('restart-by-peer', _('restart-by-peer'))])
     dpd_interval = forms.IntegerField(
         min_value=1,
+        required=False,
         label=_("Dead peer detection interval"),
         help_text=_("Valid integer lesser than the DPD timeout"))
     dpd_timeout = forms.IntegerField(
         min_value=1,
+        required=False,
         label=_("Dead peer detection timeout"),
         help_text=_("Valid integer greater than the DPD interval"))
     initiator = forms.ChoiceField(
         label=_("Initiator state"),
+        required=False,
         choices=[('bi-directional', _('bi-directional')),
                  ('response-only', _('response-only'))])
     admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
                                                 (False, _('DOWN'))],
-                                       label=_("Admin State"))
+                                       label=_("Admin State"),
+                                       required=False)
 
     failure_url = 'horizon:project:vpn:index'
 
