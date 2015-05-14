@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-11 14:56-0500\n"
-"PO-Revision-Date: 2015-05-11 18:51+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-05-12 02:24-0500\n"
+"PO-Revision-Date: 2015-05-13 19:22+0000\n"
+"Last-Translator: Rob Cresswell <robert.cresswell@outlook.com>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/"
 "horizon/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
@@ -2734,6 +2734,9 @@ msgstr "Successfully sent the request to unmanage volume: %s"
 
 msgid "Unable to unmanage volume."
 msgstr "Unable to unmanage volume."
+
+msgid "Volume type name can not be empty."
+msgstr "Volume type name can not be empty."
 
 #, python-format
 msgid "Successfully created volume type: %s"
