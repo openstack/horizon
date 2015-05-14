@@ -46,8 +46,9 @@
   ]);
 
   function LaunchInstanceNetworkCtrl($scope) {
+    var ctrl = this;
 
-    $scope.label = {
+    ctrl.label = {
       title: gettext('Networks'),
       subtitle: gettext('Networks provide the communication channels for instances in the cloud.'),
       network: gettext('Network'),
@@ -66,28 +67,28 @@
       provider_physical_network: gettext('Physical Network')
     };
 
-    $scope.networkStatuses = {
+    ctrl.networkStatuses = {
       'ACTIVE': gettext('Active'),
       'DOWN': gettext('Down')
     };
 
-    $scope.networkAdminStates = {
+    ctrl.networkAdminStates = {
       'UP': gettext('Up'),
       'DOWN': gettext('Down')
     };
 
-    $scope.tableDataMulti = {
+    ctrl.tableDataMulti = {
       available: $scope.model.networks,
       allocated: $scope.model.newInstanceSpec.networks,
       displayedAvailable: [],
       displayedAllocated: []
     };
 
-    $scope.tableLimits = {
+    ctrl.tableLimits = {
       maxAllocation: -1
     };
 
-    $scope.tableHelpText = {
+    ctrl.tableHelpText = {
       allocHelpText: gettext('Select networks from those listed below.'),
       availHelpText: gettext('Select at least one network')
     };

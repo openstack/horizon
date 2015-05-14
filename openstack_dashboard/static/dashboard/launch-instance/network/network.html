@@ -1,42 +1,42 @@
-<div ng-controller="LaunchInstanceNetworkCtrl">
-  <h1>{$ ::label.title $}</h1>
+<div ng-controller="LaunchInstanceNetworkCtrl as ctrl">
+  <h1>{$ ::ctrl.label.title $}</h1>
   <div class="content">
-    <div class="subtitle">{$ ::label.subtitle $}</div>
+    <div class="subtitle">{$ ::ctrl.label.subtitle $}</div>
 
 
   <div class="form-group" ng-if="model.arePortProfilesSupported">
-    <label class="control-label required" for="profile">{$ ::label.profile $}</label>
+    <label class="control-label required" for="profile">{$ ::ctrl.label.profile $}</label>
     <select class="form-control" id="profile" ng-model="model.newInstanceSpec.profile" ng-options="profile.name for profile in model.profiles">
-      <option value="">{$ ::label.none_option $}</option>
+      <option value="">{$ ::ctrl.label.none_option $}</option>
     </select>
   </div>
 
-  <transfer-table tr-model="tableDataMulti" help-text="tableHelpText" limits="tableLimits">
-    <allocated validate-number-min="1" ng-model="tableDataMulti.allocated.length">
-      <table st-table="tableDataMulti.displayedAllocated" st-safe-src="tableDataMulti.allocated" hz-table
+  <transfer-table tr-model="ctrl.tableDataMulti" help-text="ctrl.tableHelpText" limits="ctrl.tableLimits">
+    <allocated validate-number-min="1" ng-model="ctrl.tableDataMulti.allocated.length">
+      <table st-table="ctrl.tableDataMulti.displayedAllocated" st-safe-src="ctrl.tableDataMulti.allocated" hz-table
         class="table-striped table-rsp table-detail modern">
         <thead>
           <tr>
             <th class="reorder"></th>
             <th class="expander"></th>
-            <th class="rsp-p1">{$ ::label.network $}</th>
-            <th class="rsp-p2">{$ ::label.subnet_associated $}</th>
-            <th class="rsp-p1">{$ ::label.shared $}</th>
-            <th class="rsp-p1">{$ ::label.admin_state $}</th>
-            <th class="rsp-p1">{$ ::label.status $}</th>
+            <th class="rsp-p1">{$ ::ctrl.label.network $}</th>
+            <th class="rsp-p2">{$ ::ctrl.label.subnet_associated $}</th>
+            <th class="rsp-p1">{$ ::ctrl.label.shared $}</th>
+            <th class="rsp-p1">{$ ::ctrl.label.admin_state $}</th>
+            <th class="rsp-p1">{$ ::ctrl.label.status $}</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr ng-if="tableDataMulti.allocated.length === 0">
+          <tr ng-if="ctrl.tableDataMulti.allocated.length === 0">
             <td colspan="8">
               <div class="no-rows-help">
                 {$ ::trCtrl.helpText.noneAllocText $}
               </div>
             </td>
           </tr>
-          <tr ng-repeat-start="row in tableDataMulti.displayedAllocated track by row.id"
-            lr-drag-data="tableDataMulti.displayedAllocated" lr-drag-src="reorder"
+          <tr ng-repeat-start="row in ctrl.tableDataMulti.displayedAllocated track by row.id"
+            lr-drag-data="ctrl.tableDataMulti.displayedAllocated" lr-drag-src="reorder"
             lr-drop-target="reorder" lr-drop-success="trCtrl.updateAllocated(e, item, collection)">
             <td class="reorder">
               <span class="fa fa-sort" title="{$ ::trCtrl.helpText.orderText $}"></span>
@@ -51,8 +51,8 @@
               <div ng-repeat="subnet in row.subnets">{$ subnet.name $}</div>
             </td>
             <td class="rsp-p1">{$ row.shared | yesno $}</td>
-            <td class="rsp-p1">{$ row.admin_state | decode:networkAdminStates $}</td>
-            <td class="rsp-p1">{$ row.status | decode:networkStatuses $}</td>
+            <td class="rsp-p1">{$ row.admin_state | decode:ctrl.networkAdminStates $}</td>
+            <td class="rsp-p1">{$ row.status | decode:ctrl.networkStatuses $}</td>
             <td class="action-col">
               <action-list>
                 <action action-classes="'btn btn-sm btn-default'"
@@ -66,25 +66,25 @@
             <td colspan="2"></td>
             <td colspan="7" class="detail">
               <dl class="dl-horizontal">
-                <dt>{$ ::label.id $}</dt>
+                <dt>{$ ::ctrl.label.id $}</dt>
                 <dd>{$ row.id $}</dd>
-                <dt>{$ ::label.project_id $}</dt>
+                <dt>{$ ::ctrl.label.project_id $}</dt>
                 <dd>{$ row.tenant_id $}</dd>
-                <dt>{$ ::label.external_network $}</dt>
+                <dt>{$ ::ctrl.label.external_network $}</dt>
                 <dd>{$ row['router:external'] | yesno $}</dd>
               </dl>
-              <div><b>{$ ::label.provider_network $}</b></div>
+              <div><b>{$ ::ctrl.label.provider_network $}</b></div>
               <div class="row" class="detail">
                 <dl class="col-sm-3">
-                  <dt>{$ ::label.provider_network_type $}</dt>
+                  <dt>{$ ::ctrl.label.provider_network_type $}</dt>
                   <dd>{$ row['provider:network_type'] $}</dd>
                 </dl>
                 <dl class="col-sm-3">
-                  <dt>{$ ::label.provider_segmentation_id $}</dt>
+                  <dt>{$ ::ctrl.label.provider_segmentation_id $}</dt>
                   <dd>{$ row['provider:segmentation_id'] $}</dd>
                 </dl>
                 <dl class="col-sm-3">
-                  <dt>{$ ::label.provider_physical_network $}</dt>
+                  <dt>{$ ::ctrl.label.provider_physical_network $}</dt>
                   <dd>{$ row['provider:physical_network'] $}</dd>
                 </dl>
               </div>
@@ -94,7 +94,7 @@
       </table>
     </allocated>
     <available>
-      <table st-table="tableDataMulti.displayedAvailable" st-safe-src="tableDataMulti.available"
+      <table st-table="ctrl.tableDataMulti.displayedAvailable" st-safe-src="ctrl.tableDataMulti.available"
         hz-table class="table-striped table-rsp table-detail modern">
         <thead>
           <tr>
@@ -106,11 +106,11 @@
           <tr>
             <th class="reorder"></th>
             <th class="expander"></th>
-            <th st-sort-default class="rsp-p1">{$ ::label.network $}</th>
-            <th class="rsp-p2">{$ ::label.subnet_associated $}</th>
-            <th class="rsp-p1">{$ ::label.shared $}</th>
-            <th class="rsp-p1">{$ ::label.admin_state $}</th>
-            <th class="rsp-p1">{$ ::label.status $}</th>
+            <th st-sort-default class="rsp-p1">{$ ::ctrl.label.network $}</th>
+            <th class="rsp-p2">{$ ::ctrl.label.subnet_associated $}</th>
+            <th class="rsp-p1">{$ ::ctrl.label.shared $}</th>
+            <th class="rsp-p1">{$ ::ctrl.label.admin_state $}</th>
+            <th class="rsp-p1">{$ ::ctrl.label.status $}</th>
             <th></th>
           </tr>
         </thead>
@@ -122,7 +122,7 @@
               </div>
             </td>
           </tr>
-          <tr ng-repeat-start="row in tableDataMulti.displayedAvailable track by row.id" ng-if="!trCtrl.allocatedIds[row.id]">
+          <tr ng-repeat-start="row in ctrl.tableDataMulti.displayedAvailable track by row.id" ng-if="!trCtrl.allocatedIds[row.id]">
             <td class="reorder"></td>
             <td class="expander">
               <span class="fa fa-chevron-right" hz-expand-detail
@@ -133,8 +133,8 @@
               <div ng-repeat="subnet in row.subnets">{$ subnet.name $}</div>
             </td>
             <td class="rsp-p1">{$ row.shared | yesno $}</td>
-            <td class="rsp-p1">{$ row.admin_state | decode:networkAdminStates $}</td>
-            <td class="rsp-p1">{$ row.status | decode:networkStatuses $}</td>
+            <td class="rsp-p1">{$ row.admin_state | decode:ctrl.networkAdminStates $}</td>
+            <td class="rsp-p1">{$ row.status | decode:ctrl.networkStatuses $}</td>
             <td class="action-col">
               <action-list button-tooltip="row.warningMessage"
                 bt-model="trCtrl.tooltipModel" bt-disabled="!row.disabled"
@@ -153,25 +153,25 @@
             <td colspan="2"></td>
             <td colspan="7" class="detail">
               <dl class="dl-horizontal">
-                <dt>{$ ::label.id $}</dt>
+                <dt>{$ ::ctrl.label.id $}</dt>
                 <dd>{$ row.id $}</dd>
-                <dt>{$ ::label.project_id $}</dt>
+                <dt>{$ ::ctrl.label.project_id $}</dt>
                 <dd>{$ row.tenant_id $}</dd>
-                <dt>{$ ::label.external_network $}</dt>
+                <dt>{$ ::ctrl.label.external_network $}</dt>
                 <dd>{$ row['router:external'] | yesno $}</dd>
               </dl>
-              <div><b>{$ ::label.provider_network $}</b></div>
+              <div><b>{$ ::ctrl.label.provider_network $}</b></div>
               <div class="row">
                 <dl class="col-sm-3">
-                  <dt>{$ ::label.provider_network_type $}</dt>
+                  <dt>{$ ::ctrl.label.provider_network_type $}</dt>
                   <dd>{$ row['provider:network_type'] $}</dd>
                 </dl>
                 <dl class="col-sm-3">
-                  <dt>{$ ::label.provider_segmentation_id $}</dt>
+                  <dt>{$ ::ctrl.label.provider_segmentation_id $}</dt>
                   <dd>{$ row['provider:segmentation_id'] $}</dd>
                 </dl>
                 <dl class="col-sm-3">
-                  <dt>{$ ::label.provider_physical_network $}</dt>
+                  <dt>{$ ::ctrl.label.provider_physical_network $}</dt>
                   <dd>{$ row['provider:physical_network'] $}</dd>
                 </dl>
               </div>
