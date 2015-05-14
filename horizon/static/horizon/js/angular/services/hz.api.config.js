@@ -19,59 +19,6 @@
 
   /**
    * @ngdoc service
-   * @name hz.api.configAPI
-   * @description Provides access to dashboard configuration.
-   */
-  function ConfigAPI(apiService) {
-
-    /**
-     * @name hz.api.configAPI.getUserDefaults
-     * @description
-     * Get the default user configuration settings.
-     *
-     * Returns an object with user configuration settings.
-     */
-    this.getUserDefaults = function() {
-      return apiService.get('/api/config/user/')
-        .success(function(data) {
-          // store config in localStorage
-          // should be call only when defaults are needed
-          // or when user wants to reset it
-          localStorage.user_config = angular.toJson(data);
-        })
-        .error(function () {
-          horizon.alert('error', gettext('Unable to retrieve user configuration.'));
-        });
-    };
-
-    /**
-     * @name hz.api.configAPI.getAdminDefaults
-     * @description
-     * Get the default admin configuration settings.
-     *
-     * Returns an object with admin configuration settings.
-     */
-    this.getAdminDefaults = function() {
-      return apiService.get('/api/config/admin/')
-        .success(function(data) {
-          // store this in localStorage
-          // should be call once each page load
-          localStorage.admin_config = angular.toJson(data);
-        })
-        .error(function () {
-          horizon.alert('error', gettext('Unable to retrieve admin configuration.'));
-        });
-    };
-
-  }
-
-  // Register it with the API module so that anybody using the
-  // API module will have access to the Config APIs.
-  angular.module('hz.api')
-    .service('hz.api.config', ['hz.api.common.service', ConfigAPI]);
-
-  /**
-   * @ngdoc service
    * @name hz.api.settingsService
    * @description
    * Provides utilities to the cached settings data. This helps
