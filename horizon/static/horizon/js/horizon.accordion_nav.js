@@ -37,6 +37,7 @@ horizon.addInitFunction(function() {
         // collapse the inactive panel groups
         var nonActivePanels = myDashBody.find("div:not(:first) > ul");
         nonActivePanels.slideUp();
+        nonActivePanels.closest('div').find("h4").removeClass("active");
       }
       // the expanded dashboard contains the active panel
       else
@@ -48,6 +49,7 @@ horizon.addInitFunction(function() {
           var activePanels = $(value).find('li > a.active');
           if(activePanels.length === 0) {
             $(this).slideUp();
+            $(this).closest('div').find("h4").removeClass("active");
           }
         });
       }
