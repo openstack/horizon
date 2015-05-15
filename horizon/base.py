@@ -33,6 +33,7 @@ from django.conf.urls import url
 from django.core.exceptions import ImproperlyConfigured  # noqa
 from django.core.urlresolvers import reverse
 from django.utils.datastructures import SortedDict
+from django.utils.encoding import python_2_unicode_compatible
 from django.utils.functional import SimpleLazyObject  # noqa
 from django.utils.importlib import import_module  # noqa
 from django.utils.module_loading import module_has_submodule  # noqa
@@ -77,6 +78,7 @@ class NotRegistered(Exception):
     pass
 
 
+@python_2_unicode_compatible
 class HorizonComponent(object):
     policy_rules = None
 
@@ -86,9 +88,9 @@ class HorizonComponent(object):
             raise ImproperlyConfigured('Every %s must have a slug.'
                                        % self.__class__)
 
-    def __unicode__(self):
+    def __str__(self):
         name = getattr(self, 'name', u"Unnamed %s" % self.__class__.__name__)
-        return unicode(name)
+        return name
 
     def _get_default_urlpatterns(self):
         package_string = '.'.join(self.__module__.split('.')[:-1])
