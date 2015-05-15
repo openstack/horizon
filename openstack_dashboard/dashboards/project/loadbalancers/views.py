@@ -122,6 +122,7 @@ class AddMonitorView(workflows.WorkflowView):
 class PoolDetailsView(tabs.TabView):
     tab_group_class = project_tabs.PoolDetailsTabs
     template_name = 'project/loadbalancers/details_tabs.html'
+    page_title = _("Pool Details")
 
     @memoized.memoized_method
     def get_data(self):
@@ -161,11 +162,13 @@ class PoolDetailsView(tabs.TabView):
 class VipDetailsView(tabs.TabView):
     tab_group_class = project_tabs.VipDetailsTabs
     template_name = 'project/loadbalancers/details_tabs.html'
+    page_title = _("VIP Details")
 
 
 class MemberDetailsView(tabs.TabView):
     tab_group_class = project_tabs.MemberDetailsTabs
     template_name = 'project/loadbalancers/details_tabs.html'
+    page_title = _("Member Details")
 
     @memoized.memoized_method
     def get_data(self):
@@ -197,6 +200,7 @@ class MemberDetailsView(tabs.TabView):
 class MonitorDetailsView(tabs.TabView):
     tab_group_class = project_tabs.MonitorDetailsTabs
     template_name = 'project/loadbalancers/details_tabs.html'
+    page_title = _("Monitor Details")
 
     @memoized.memoized_method
     def get_data(self):
