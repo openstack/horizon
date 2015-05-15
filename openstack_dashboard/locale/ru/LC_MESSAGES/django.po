@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-08 12:21-0500\n"
-"PO-Revision-Date: 2015-05-08 17:21+0000\n"
+"POT-Creation-Date: 2015-05-14 16:02-0500\n"
+"PO-Revision-Date: 2015-05-14 21:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/"
 "ru/)\n"
@@ -284,10 +284,6 @@ msgstr "Невозможно получить подсеть из пула %(poo
 #, python-format
 msgid "Unable to get members for pool %(pool)s."
 msgstr "Невозможно  получить участников из пула %(pool)s."
-
-#, python-format
-msgid "Unable to get health monitors for pool %(pool)s."
-msgstr "Не удалось получить мониторы здоровья из пула %(pool)s."
 
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
@@ -5169,9 +5165,6 @@ msgstr "%(group)s:"
 
 msgid "Job Details"
 msgstr "Данные задачи"
-
-msgid "Job Executions"
-msgstr "Выполнение задачи"
 
 msgid "Unable to fetch job executions."
 msgstr "Не удалось получить выполнение задачи"

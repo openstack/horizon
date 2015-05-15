@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-08 12:21-0500\n"
-"PO-Revision-Date: 2015-05-08 17:21+0000\n"
+"POT-Creation-Date: 2015-05-14 16:02-0500\n"
+"PO-Revision-Date: 2015-05-14 21:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
 "horizon/language/pt_BR/)\n"
@@ -288,10 +288,6 @@ msgstr "Não é possível obter a sub-net do pool %(pool)s."
 #, python-format
 msgid "Unable to get members for pool %(pool)s."
 msgstr "Não é possível obter os membros do pool %(pool)s."
-
-#, python-format
-msgid "Unable to get health monitors for pool %(pool)s."
-msgstr "Não é possível obter monitores de saúde para o conjunto %(pool)s"
 
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
@@ -5137,9 +5133,6 @@ msgstr "%(group)s:"
 
 msgid "Job Details"
 msgstr "Detalhes do job"
-
-msgid "Job Executions"
-msgstr "Execução Job"
 
 msgid "Unable to fetch job executions."
 msgstr "Não foi possível obter as execuções de job."

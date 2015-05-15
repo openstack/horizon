@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-08 12:21-0500\n"
-"PO-Revision-Date: 2015-05-08 17:21+0000\n"
+"POT-Creation-Date: 2015-05-14 16:02-0500\n"
+"PO-Revision-Date: 2015-05-14 21:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/horizon/language/"
 "sr/)\n"
@@ -251,10 +251,6 @@ msgstr "Ne može se dobiti podmreža za bazen %(pool)s."
 #, python-format
 msgid "Unable to get members for pool %(pool)s."
 msgstr "Nije moguće dobiti članove za ovu grupu %(pool)s."
-
-#, python-format
-msgid "Unable to get health monitors for pool %(pool)s."
-msgstr "Nije moguce dobiti monitore sistema za ovu grupu  %(pool)s."
 
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
