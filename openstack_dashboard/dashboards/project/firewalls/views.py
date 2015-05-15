@@ -54,6 +54,7 @@ AddRule = fw_workflows.AddRule
 class IndexView(tabs.TabView):
     tab_group_class = (FirewallTabs)
     template_name = 'project/firewalls/details_tabs.html'
+    page_title = _("Firewalls")
 
     def post(self, request, *args, **kwargs):
         obj_ids = request.POST.getlist('object_ids')
@@ -116,19 +117,21 @@ class AddFirewallView(workflows.WorkflowView):
 
 class FireWallDetailTabs(tabs.TabView):
     template_name = 'project/firewalls/details_tabs.html'
-    page_title = _("Firewalls")
 
 
 class RuleDetailsView(FireWallDetailTabs):
     tab_group_class = (RuleDetailsTabs)
+    page_title = _("Firewall Rule Details")
 
 
 class PolicyDetailsView(FireWallDetailTabs):
     tab_group_class = (PolicyDetailsTabs)
+    page_title = _("Firewall Policy Details")
 
 
 class FirewallDetailsView(FireWallDetailTabs):
     tab_group_class = (FirewallDetailsTabs)
+    page_title = _("Firewall Details")
 
 
 class UpdateRuleView(forms.ModalFormView):
