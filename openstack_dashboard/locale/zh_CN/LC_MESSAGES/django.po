@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-11 14:56-0500\n"
-"PO-Revision-Date: 2015-05-11 18:51+0000\n"
+"POT-Creation-Date: 2015-05-14 16:02-0500\n"
+"PO-Revision-Date: 2015-05-14 21:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/"
 "language/zh_CN/)\n"
@@ -281,10 +281,6 @@ msgstr "无法获取资源池 %(pool)s 的子网 。"
 #, python-format
 msgid "Unable to get members for pool %(pool)s."
 msgstr "无法获得资源池 %(pool)s 的成员。"
-
-#, python-format
-msgid "Unable to get health monitors for pool %(pool)s."
-msgstr "无法获得资源池 %(pool)s 的健康状况监控。"
 
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
@@ -4880,9 +4876,6 @@ msgstr "%(group)s："
 
 msgid "Job Details"
 msgstr "任务详情"
-
-msgid "Job Executions"
-msgstr "任务执行"
 
 msgid "Unable to fetch job executions."
 msgstr "无法获取任务执行列表。"

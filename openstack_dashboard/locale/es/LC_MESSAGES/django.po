@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-12 02:24-0500\n"
-"PO-Revision-Date: 2015-05-12 20:56+0000\n"
-"Last-Translator: Guillermo Vitas Gil <gvitgo@gmail.com>\n"
+"POT-Creation-Date: 2015-05-14 16:02-0500\n"
+"PO-Revision-Date: 2015-05-14 21:03+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/"
 "es/)\n"
 "MIME-Version: 1.0\n"
@@ -283,10 +283,6 @@ msgstr "No ha sido posible obtener la subred para pool %(pool)s."
 #, python-format
 msgid "Unable to get members for pool %(pool)s."
 msgstr "No ha sido posible obtener los miembros para pool %(pool)s."
-
-#, python-format
-msgid "Unable to get health monitors for pool %(pool)s."
-msgstr "No ha sido posible obtener los monitores de salud para pool %(pool)s."
 
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
@@ -4866,9 +4862,6 @@ msgstr "%(group)s:"
 
 msgid "Job Details"
 msgstr "Detalles del trabajo"
-
-msgid "Job Executions"
-msgstr "Ejecución de trabajos"
 
 msgid "Unable to fetch job executions."
 msgstr "No se pueden obtener las ejecuciones de trabajo."

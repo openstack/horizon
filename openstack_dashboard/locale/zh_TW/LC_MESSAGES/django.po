@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-08 12:21-0500\n"
-"PO-Revision-Date: 2015-05-08 17:21+0000\n"
+"POT-Creation-Date: 2015-05-14 16:02-0500\n"
+"PO-Revision-Date: 2015-05-14 21:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/"
 "language/zh_TW/)\n"
@@ -280,10 +280,6 @@ msgstr "無法為倉庫 %(pool)s 獲得子網路。"
 #, python-format
 msgid "Unable to get members for pool %(pool)s."
 msgstr "無法為倉庫 %(pool)s 獲得成員。"
-
-#, python-format
-msgid "Unable to get health monitors for pool %(pool)s."
-msgstr "無法為倉庫 %(pool)s 獲得健康監視器。"
 
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
@@ -4876,9 +4872,6 @@ msgstr "%(group)s："
 
 msgid "Job Details"
 msgstr "工作詳細資訊"
-
-msgid "Job Executions"
-msgstr "工作執行任務"
 
 msgid "Unable to fetch job executions."
 msgstr "無法獲得工作執行任務。"

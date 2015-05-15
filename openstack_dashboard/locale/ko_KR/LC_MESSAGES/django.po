@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-08 12:21-0500\n"
-"PO-Revision-Date: 2015-05-08 17:21+0000\n"
+"POT-Creation-Date: 2015-05-14 16:02-0500\n"
+"PO-Revision-Date: 2015-05-14 21:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/"
 "language/ko_KR/)\n"
@@ -278,10 +278,6 @@ msgstr "Pool %(pool)s에 대한 서브넷을 가져오지 못했습니다."
 #, python-format
 msgid "Unable to get members for pool %(pool)s."
 msgstr "Pool %(pool)s에 대한 멤버를 가져오지 못했습니다."
-
-#, python-format
-msgid "Unable to get health monitors for pool %(pool)s."
-msgstr "Pool %(pool)s에 대한 상태 모니터를 가져오지 못했습니다."
 
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
@@ -4950,9 +4946,6 @@ msgstr "%(group)s:"
 
 msgid "Job Details"
 msgstr "Job에대한 자세한 정보"
-
-msgid "Job Executions"
-msgstr "Job 실행"
 
 msgid "Unable to fetch job executions."
 msgstr "Job 실행을 가져올 수 없습니다."

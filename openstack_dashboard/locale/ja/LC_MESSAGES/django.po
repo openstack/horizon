@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-08 12:21-0500\n"
-"PO-Revision-Date: 2015-05-08 17:21+0000\n"
+"POT-Creation-Date: 2015-05-14 16:02-0500\n"
+"PO-Revision-Date: 2015-05-14 21:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/"
 "language/ja/)\n"
@@ -276,10 +276,6 @@ msgstr "プール %(pool)s のサブネットを取得できません。"
 #, python-format
 msgid "Unable to get members for pool %(pool)s."
 msgstr "プール %(pool)s のメンバーを取得できません。"
-
-#, python-format
-msgid "Unable to get health monitors for pool %(pool)s."
-msgstr "プール %(pool)s のヘルスモニターを取得できません。"
 
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
@@ -4991,9 +4987,6 @@ msgstr "%(group)s:"
 
 msgid "Job Details"
 msgstr "ジョブ詳細"
-
-msgid "Job Executions"
-msgstr "ジョブ実行"
 
 msgid "Unable to fetch job executions."
 msgstr "ジョブ実行の一覧を取得できません。"

@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-11 14:56-0500\n"
-"PO-Revision-Date: 2015-05-11 22:11+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"POT-Creation-Date: 2015-05-14 16:02-0500\n"
+"PO-Revision-Date: 2015-05-14 21:03+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/"
 "de/)\n"
 "MIME-Version: 1.0\n"
@@ -285,11 +285,6 @@ msgstr "Subnetz für den Pool %(pool)s kann nicht abgerufen werden."
 #, python-format
 msgid "Unable to get members for pool %(pool)s."
 msgstr "Mitglieder des Pools %(pool)s können nicht abgerufen werden."
-
-#, python-format
-msgid "Unable to get health monitors for pool %(pool)s."
-msgstr ""
-"Gesundheitsmonitore für den Pool %(pool)s können nicht abgerufen werden."
 
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
@@ -5150,9 +5145,6 @@ msgstr "%(group)s:"
 
 msgid "Job Details"
 msgstr "Aufgaben Details"
-
-msgid "Job Executions"
-msgstr "Aufgaben Ausführungen"
 
 msgid "Unable to fetch job executions."
 msgstr "Aufgabenausführungen können nicht abgerufen werden."
