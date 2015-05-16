@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-04-20 07:07+0000\n"
+"POT-Creation-Date: 2015-05-15 04:49-0500\n"
+"PO-Revision-Date: 2015-05-15 09:43+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/"
 "cs/)\n"
@@ -70,6 +70,9 @@ msgstr "Relace vypršela."
 
 msgid "Filter"
 msgstr "Filtr"
+
+msgid "This action cannot be undone."
+msgstr "Toto nelze vrátit."
 
 #, python-format
 msgctxt "past"
@@ -138,6 +141,17 @@ msgstr "Nápověda"
 msgid "Sign Out"
 msgstr "Odhlásit"
 
+msgid ""
+"\n"
+"      If you are not sure which authentication method to use, contact your "
+"administrator.\n"
+"    "
+msgstr ""
+"\n"
+"      Pokud nevíte, kterou metodu ověření použít, kontaktujte svého správce "
+"systému.\n"
+"    "
+
 msgid "Log In"
 msgstr "Přihlásit"
 
@@ -153,6 +167,9 @@ msgstr ""
 
 msgid "Sign In"
 msgstr "Přihlásit"
+
+msgid "Connect"
+msgstr "Připojit"
 
 msgid "Login"
 msgstr "Přihlášení"
@@ -218,6 +235,10 @@ msgstr "RAM"
 msgid "Floating IPs"
 msgstr "Plovoucí IP adresy"
 
+#, python-format
+msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr "Přiděleno <span> %(used)s </span> z <span> %(available)s </span>"
+
 msgid "Security Groups"
 msgstr "Bezpečnostní skupiny"
 
@@ -281,6 +302,9 @@ msgstr "VCPU hodin za toto období:"
 msgid "This Period's GB-Hours:"
 msgstr "GB hodin za toto období:"
 
+msgid "This Period's RAM-Hours:"
+msgstr "RAM hodin za toto období:"
+
 msgid "Back"
 msgstr "Zpět"
 
@@ -326,6 +350,9 @@ msgstr "%s PB"
 msgid "0 Bytes"
 msgstr "0 bajtů"
 
+msgid "Fake"
+msgstr "Falešné"
+
 msgid "Never"
 msgstr "Nikdy"
 
@@ -340,6 +367,9 @@ msgstr "V rozsahu portů povolena pouze jedna pomlčka"
 
 msgid "Port number must be integer"
 msgstr "Číslo portu musí být celé číslo"
+
+msgid "The string may only contain ASCII printable characters."
+msgstr "Řetězec může obsahovat pouze zobrazitelné znaky ASCII."
 
 msgid "Processing..."
 msgstr "Zpracovávaní..."

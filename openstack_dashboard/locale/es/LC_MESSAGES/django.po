@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 16:02-0500\n"
-"PO-Revision-Date: 2015-05-14 21:03+0000\n"
+"POT-Creation-Date: 2015-05-15 04:49-0500\n"
+"PO-Revision-Date: 2015-05-15 17:14+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/"
 "es/)\n"
@@ -7940,6 +7940,10 @@ msgid "Port ID"
 msgstr "ID puerto"
 
 #, python-format
+msgid "Type: %(persistence_type)s"
+msgstr "Tipo: %(persistence_type)s"
+
+#, python-format
 msgid "Cookie Name: %(cookie_name)s"
 msgstr "Nombre de la Cookie: %(cookie_name)s"
 
@@ -8309,6 +8313,9 @@ msgstr "Lanzar Instancia (cuota superada)"
 
 msgid "Create Network (Quota exceeded)"
 msgstr "Crear Red (Cuota superada)"
+
+msgid "Create Router (Quota exceeded)"
+msgstr "Crear router (Cuota superada)"
 
 msgid "There are no networks, routers, or connected instances to display."
 msgstr "No hay redes, routers o instancias conectadas que mostrar."
@@ -9322,6 +9329,9 @@ msgstr "ID de recurso"
 msgid "Resource Metadata"
 msgstr "Metadatos de los recursos"
 
+msgid "Stack Template"
+msgstr "Plantilla de la pila"
+
 msgid ""
 "Update a stack with the provided values. Please note that any encrypted "
 "parameters, such as passwords, will be reset to default if you do not change "
@@ -9333,6 +9343,12 @@ msgstr ""
 
 msgid "Change Template"
 msgstr "Cambiar plantilla"
+
+msgid "Stack Details"
+msgstr "Detalles de  la pila"
+
+msgid "Preview Stack Details"
+msgstr "Previsualizar detalles de la pila"
 
 msgid "Resource Details"
 msgstr "Detalles del Recurso"
@@ -9348,6 +9364,12 @@ msgstr "Actualizar"
 
 msgid "Update Stack"
 msgstr "Actualizar plantilla"
+
+msgid "Preview"
+msgstr "Previsualizar"
+
+msgid "Unable to retrieve stack template."
+msgstr "No es posible recuperar la plantilla de la pila"
 
 msgid "Unable to retrieve resource."
 msgstr "No ha sido posible obtener el recurso."

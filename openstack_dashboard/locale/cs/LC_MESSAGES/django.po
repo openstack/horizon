@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-08 12:21-0500\n"
-"PO-Revision-Date: 2015-05-08 17:21+0000\n"
+"POT-Creation-Date: 2015-05-15 04:49-0500\n"
+"PO-Revision-Date: 2015-05-15 12:55+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/"
 "cs/)\n"
@@ -17,6 +17,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+msgid "Unable to retrieve Ceilometer meter list."
+msgstr "Nelze získat seznam měření z Ceilometer."
+
+msgid "Existence of instance"
+msgstr "Existence instance"
+
+msgid "Volume of RAM"
+msgstr "Svazek RAM"
+
+msgid "Volume of RAM used"
+msgstr "Svazek použité RAM"
 
 msgid "CPU time used"
 msgstr "Využitého času procesoru"
@@ -33,6 +45,30 @@ msgstr "Počet žádostí o čtení"
 msgid "Number of write requests"
 msgstr "Počet žádostí o zápis"
 
+msgid "Volume of reads"
+msgstr "Svazek čtení"
+
+msgid "Volume of writes"
+msgstr "Svazek zápisů"
+
+msgid "Average rate of read requests"
+msgstr "Průměrná míra žádostí o čtení"
+
+msgid "Average rate of write requests"
+msgstr "Průměrná míra žádostí o zápis"
+
+msgid "Average rate of reads"
+msgstr "Průměrná míra čtení"
+
+msgid "Average volume of writes"
+msgstr "Průměrná míra zápisů"
+
+msgid "Size of root disk"
+msgstr "Velikost kořenového disku"
+
+msgid "Size of ephemeral disk"
+msgstr "Velikost efemérního disku"
+
 msgid "Number of incoming bytes on the network for a VM interface"
 msgstr "Počet příchozích bajtů v síti pro rozhraní VM"
 
@@ -45,9 +81,24 @@ msgstr "Počet příchozích paketů pro rozhraní VM"
 msgid "Number of outgoing packets for a VM interface"
 msgstr "Počet odchozích paketů pro rozhraní VM"
 
+msgid "Average rate per sec of incoming bytes on a VM network interface"
+msgstr "Průměrná míra příchozích bajtů za sekundu v síťovém rozhraní VM"
+
+msgid "Average rate per sec of outgoing bytes on a VM network interface"
+msgstr "Průměrná míra odchozích bajtů za sekundu v síťovém rozhraní VM"
+
+msgid "Average rate per sec of incoming packets on a VM network interface"
+msgstr "Průměrná míra příchozích paketů za sekundu v síťovém rozhraní VM"
+
+msgid "Average rate per sec of outgoing packets on a VM network interface"
+msgstr "Průměrná míra odchozích paketů za sekundu v síťovém rozhraní VM"
+
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
 msgstr "Trvání typu instance %s (konfigurace openstack)"
+
+msgid "Existence of network"
+msgstr "Existence sítě"
 
 msgid "Creation requests for this network"
 msgstr "Žádosti o vytvoření pro tuto síť"
@@ -55,11 +106,17 @@ msgstr "Žádosti o vytvoření pro tuto síť"
 msgid "Update requests for this network"
 msgstr "Žádosti o aktualizaci pro tuto síť"
 
+msgid "Existence of subnet"
+msgstr "Existence podsítě"
+
 msgid "Creation requests for this subnet"
 msgstr "Žádosti o vytvoření pro tuto podsíť"
 
 msgid "Update requests for this subnet"
 msgstr "Žádosti o aktualizaci pro tuto podsíť"
+
+msgid "Existence of port"
+msgstr "Existence portu"
 
 msgid "Creation requests for this port"
 msgstr "Žádosti o vytvoření pro tento port"
@@ -67,11 +124,17 @@ msgstr "Žádosti o vytvoření pro tento port"
 msgid "Update requests for this port"
 msgstr "Žádosti o aktualizaci pro tento port"
 
+msgid "Existence of router"
+msgstr "Existence směrovače"
+
 msgid "Creation requests for this router"
 msgstr "Žádosti o vytvoření pro tento směrovač"
 
 msgid "Update requests for this router"
 msgstr "Žádosti o aktualizaci pro tento směrovač"
+
+msgid "Existence of floating ip"
+msgstr "Existence plovoucí ip"
 
 msgid "Creation requests for this floating ip"
 msgstr "Žádosti o vytvoření pro tuto plovoucí IP"
@@ -85,11 +148,23 @@ msgstr "Kontrola existence obrazu"
 msgid "Uploaded image size"
 msgstr "Velikost nahraného obrazu"
 
+msgid "Number of image updates"
+msgstr "Počet aktualizací obrazu"
+
+msgid "Number of image uploads"
+msgstr "Počet nahrání obrazu"
+
+msgid "Number of image deletions"
+msgstr "Počet smazání obrazu"
+
 msgid "Image is downloaded"
 msgstr "Obraz je smazán"
 
 msgid "Image is served out"
 msgstr "Obraz je vydáván"
+
+msgid "Existence of volume"
+msgstr "Existence svazku"
 
 msgid "Size of volume"
 msgstr "Velikost svazku"
@@ -118,6 +193,39 @@ msgstr "Množství energie"
 msgid "Power consumption"
 msgstr "Spotřeba energie"
 
+msgid "Fan RPM"
+msgstr "Otáčky ventilátoru"
+
+msgid "Sensor Temperature Reading"
+msgstr "Měření senzoru teploty"
+
+msgid "Sensor Current Reading"
+msgstr "Měření senzoru proudu"
+
+msgid "Sensor Voltage Reading"
+msgstr "Měření senzoru napětí"
+
+msgid "System Inlet Temperature Reading"
+msgstr "Měření vstupní teploty systému"
+
+msgid "System Outlet Temperature Reading"
+msgstr "Měření výstupní teploty systému"
+
+msgid "System Airflow Reading"
+msgstr "Měření proudění vzduchu systému"
+
+msgid "System CUPS Reading"
+msgstr "Měření CUPS systému"
+
+msgid "System CPU Utility Reading"
+msgstr "Měření využití procesoru systému"
+
+msgid "System Memory Utility Reading"
+msgstr "Měření využití paměti systému"
+
+msgid "System IO Utility Reading"
+msgstr "Měření využití vstupu/výstupu systému"
+
 msgid "back-end"
 msgstr "jádro"
 
@@ -141,6 +249,24 @@ msgstr "Služba identity nepovoluje úpravu dat uživatele."
 #, python-format
 msgid "User %s has no role defined for that project."
 msgstr "Uživatel %s nemá pro tento projekt určenu roli."
+
+msgid "Identity service does not allow editing user password."
+msgstr "Služba identity nepovoluje úpravu hesla uživatele."
+
+#, python-format
+msgid "Unable to get VIP for pool %(pool)s."
+msgstr "Nelze získat VIP pro zásobu %(pool)s."
+
+msgid "Unable to get pool detail."
+msgstr "Nelze získat podrobnosti zásoby,"
+
+#, python-format
+msgid "Unable to get subnet for pool %(pool)s."
+msgstr "Nelze získat podsíť zásoby %(pool)s."
+
+#, python-format
+msgid "Unable to get members for pool %(pool)s."
+msgstr "Nelze získat členy zásoby %(pool)s."
 
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
@@ -211,6 +337,16 @@ msgstr "Název: %(name)s ID: %(uuid)s"
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr "Nelze vyklidit instance: %s"
+
+#, python-format
+msgid "Failed to migrate instances: %s"
+msgstr "Nelze přesunout instance: %s"
+
+msgid "The container cannot be deleted since it is not empty."
+msgstr "Kontejner nelze smazat protože není prázdný."
+
+msgid "The pseudo folder cannot be deleted since it is not empty."
+msgstr "Pseudo složku nelze smazat protože není prázdná."
 
 msgid "Name"
 msgstr "Jméno"
@@ -682,6 +818,17 @@ msgstr "Hostitel"
 msgid "Reason"
 msgstr "Důvod"
 
+#, python-format
+msgid "Disabled compute service for host: %s."
+msgstr "Služba výpočtu zakázána pro hostitele: %s"
+
+#, python-format
+msgid "Failed to disable compute service for host: %s."
+msgstr "Zakázání služby výpočtu selhalo pro hostitele: %s."
+
+msgid "Running Instance Migration Type"
+msgstr "Spuštěn typ přesunutí instance"
+
 msgid "Live Migrate"
 msgstr "Přesunout za běhu"
 
@@ -690,6 +837,20 @@ msgstr "Disk přes odevzdání"
 
 msgid "Block Migration"
 msgstr "Přesunutí bloku"
+
+#, python-format
+msgid "Starting to migrate host: %(current)s"
+msgstr "Zahájeno přesunutí hostitele: %(current)s"
+
+#, python-format
+msgid "Failed to migrate host \"%s\"."
+msgstr "Přesunování hostitele \"%s\" selhalo."
+
+msgid "Evacuate Host"
+msgstr "Vyklidit hostitele"
+
+msgid "Disable Service"
+msgstr "Zakázat službu"
 
 msgctxt "Current status of a Hypervisor"
 msgid "Enabled"
@@ -749,6 +910,12 @@ msgstr "RAM (Využitá)"
 msgid "RAM (total)"
 msgstr "RAM (celkem)"
 
+msgid "Local Storage (used)"
+msgstr "Místní kapacita (použitá)"
+
+msgid "Local Storage (total)"
+msgstr "Místní kapacita (celkem)"
+
 msgid "Instance Name"
 msgstr "Název instance"
 
@@ -763,6 +930,9 @@ msgstr "Hypervisor"
 
 msgid "Unable to retrieve hypervisor information."
 msgstr "Nelze získat informace o hypervisoru."
+
+msgid "Disable the compute service."
+msgstr "Zakázat službu výpočtu."
 
 msgid ""
 "Evacuate the servers from the selected down host to an active target host."
@@ -784,6 +954,9 @@ msgstr "Využito  <span> %(used)s </span> z <span> %(available)s </span>"
 
 msgid "Memory Usage"
 msgstr "Využití paměti"
+
+msgid "Local Disk Usage"
+msgstr "Využití místního disku"
 
 msgid "All Hypervisors"
 msgstr "Všechny hypervisory"
@@ -896,6 +1069,12 @@ msgstr "Služby blokového úložiště"
 msgid "Network Agents"
 msgstr "Síťoví agenti"
 
+msgid "Engine Id"
+msgstr "Id jádra"
+
+msgid "Topic"
+msgstr "Téma"
+
 msgid "Unable to get cinder services list."
 msgstr "Nelze získat seznam služeb cinder."
 
@@ -904,6 +1083,10 @@ msgstr "Nelze získat informace o síťových agentech."
 
 msgid "Unable to get network agents list."
 msgstr "Nelze získat seznam síťových agentů."
+
+#, python-format
+msgid "Reason: %(disabled_reason)s"
+msgstr "Důvod: %(disabled_reason)s"
 
 #, python-format
 msgid ""
@@ -936,6 +1119,9 @@ msgstr "Instanci nelze přesunout za běhu na hostitele \"%s\".."
 
 msgid "Live Migrate Instance"
 msgstr "Přesunout instanci za běhu"
+
+msgid "Project ="
+msgstr "Projekt ="
 
 msgid "Host ="
 msgstr "Hostitel ="
@@ -997,14 +1183,63 @@ msgstr "Přímý vstup"
 msgid "Protected"
 msgstr "Chráněno"
 
+#, python-format
+msgid "There was a problem loading the namespace: %s."
+msgstr "Při načítání jmenného prostoru došlo k chybě: %s."
+
+#, python-format
+msgid "Namespace %s has been created."
+msgstr "Jmenný prostor %s byl vytvořen."
+
+#, python-format
+msgid "Unable to create new namespace. %s"
+msgstr "Nelze vytvořit nový jmenný prostor. %s"
+
+msgid "Import Namespace"
+msgstr "Importovat jmenný prostor"
+
+msgid "Update Associations"
+msgstr "Aktualizovat přidružení"
+
 msgid "Description"
 msgstr "Popis"
+
+msgid "Resource Types"
+msgstr "Typy zdrojů"
+
+msgid "Namespaces"
+msgstr "Jmenné prostory"
+
+msgid "Namespace Overview"
+msgstr "Přehled jmenného prostoru"
+
+msgid "Unable to retrieve namespace details."
+msgstr "Nelze získat podrobnosti jmenného prostoru. "
+
+msgid "Contents"
+msgstr "Obsahy"
+
+msgid ""
+"Administrator Note: Use the following CLI command to import the default "
+"definitions into Glance: "
+msgstr ""
+"Poznámka správce: Použijte následující příkaz v příkazovém řádku pro import "
+"výchozích definic do Glance:"
+
+msgid "Undefined"
+msgstr "Neurčeno"
 
 msgid "Info"
 msgstr "Informace"
 
+msgid "Display Name"
+msgstr "Zobrazovaný název"
+
 msgid "None"
 msgstr "Žádný"
+
+msgid "Namespace"
+msgstr "Jmenný prostor"
 
 msgid "Created"
 msgstr "Vytvořeno"
@@ -1018,8 +1253,29 @@ msgstr "Aktualizováno"
 msgid "Never updated"
 msgstr "Nikdy neaktualizováno"
 
+msgid "Associated Resource Types"
+msgstr "Přidružené typy zdroje"
+
+msgid "Prefix: "
+msgstr "Předpona:"
+
+msgid "Properties Target: "
+msgstr "Vlastnosti cíle:"
+
+msgid "Namespace Resource Type Associations"
+msgstr "Přidružení typu zdroje jmenného prostoru"
+
+msgid "Namespace Details"
+msgstr "Podrobnosti jmenného prostoru"
+
+msgid "Available Types"
+msgstr "Dostupné typy"
+
 msgid "Filter"
 msgstr "Filtr"
+
+msgid "Error getting resource type associations."
+msgstr "Chyba při získávání přidružení k typu zdroje"
 
 msgid "Last day"
 msgstr "Včera"
@@ -1054,6 +1310,9 @@ msgstr "Do"
 msgid "Resource Usage"
 msgstr "Využití zdrojů."
 
+msgid "Modify Usage Report Parameters"
+msgstr "Změnit parametry zprávy o využití"
+
 msgid "Download CSV Summary"
 msgstr "Stáhnout souhrn v CSV"
 
@@ -1065,6 +1324,12 @@ msgstr "Den"
 
 msgid "Value (Avg)"
 msgstr "Hodnota (Prům)"
+
+msgid "Unit"
+msgstr "Jednotka"
+
+msgid "Daily Usage Report"
+msgstr "Denní zpráva o využití"
 
 msgid "Stats"
 msgstr "Statistiky"
@@ -1093,11 +1358,23 @@ msgstr "Swift_metry"
 msgid "Kwapi"
 msgstr "Kwapi"
 
+msgid "IPMI"
+msgstr "IPMI"
+
+msgid "Dates cannot be recognized."
+msgstr "Data nelze rozeznat."
+
 msgid "Unable to retrieve project list."
 msgstr "Nelze získaz seznam projektu."
 
+msgid "View Usage Report"
+msgstr "Zobrazit zprávu o využití"
+
 msgid "Resources Usage Overview"
 msgstr "Přehled využití zdrojů"
+
+msgid "Metric:"
+msgstr "Metriky:"
 
 msgid "Compute (Nova)"
 msgstr "Compute (Nova)"
@@ -1117,8 +1394,17 @@ msgstr "Úložiště objektů (Swift)"
 msgid "Energy (Kwapi)"
 msgstr "Energie (Kwapi)"
 
+msgid "Intelligent Platform Management Interface (IPMI)"
+msgstr "Rozhraní inteligentní správy platformy (IPMI)"
+
+msgid "Group by:"
+msgstr "Seskupit podle:"
+
 msgid "--"
 msgstr "--"
+
+msgid "Value:"
+msgstr "Hodnota:"
 
 msgid "Avg."
 msgstr "Prům."
@@ -1131,6 +1417,15 @@ msgstr "Max."
 
 msgid "Sum."
 msgstr "Suma"
+
+msgid "Period:"
+msgstr "Období:"
+
+msgid "From:"
+msgstr "Od:"
+
+msgid "To:"
+msgstr "Do:"
 
 msgid "Statistics of all resources"
 msgstr "Statistiky všech zdrojů"
@@ -1218,6 +1513,12 @@ msgstr "Název fyzické sítě, přes který je zavedena virtuální síť."
 msgid "Segmentation ID"
 msgstr "ID členění"
 
+msgid "UP"
+msgstr "NAHORU"
+
+msgid "DOWN"
+msgstr "DOLŮ"
+
 msgid "Shared"
 msgstr "Sdíleno"
 
@@ -1280,6 +1581,9 @@ msgstr "Sítě"
 msgid "Normal"
 msgstr "Normální"
 
+msgid "Direct"
+msgstr "Přímo"
+
 msgid "Network ID"
 msgstr "ID sítě"
 
@@ -1294,6 +1598,12 @@ msgstr "Vlastník zařízení"
 
 msgid "Device owner attached to the port"
 msgstr "Vlastník zařízení připojeného k portu"
+
+msgid "Binding: Host"
+msgstr "Svázání: Hostitel"
+
+msgid "Binding: VNIC Type"
+msgstr "Svázání: Typ VNIC"
 
 msgid "MAC Learning State"
 msgstr "Stav naučení adres MAC"
@@ -1364,6 +1674,14 @@ msgstr "Vytvořit síť"
 msgid "Edit Network"
 msgstr "Upravit síť"
 
+msgctxt "Admin state of a Network"
+msgid "UP"
+msgstr "NAHORU"
+
+msgctxt "Admin state of a Network"
+msgid "DOWN"
+msgstr "DOLŮ"
+
 msgid "Subnets Associated"
 msgstr "Podsítě připojeny"
 
@@ -1392,6 +1710,12 @@ msgstr ""
 msgid "Project ID"
 msgstr "ID projektu"
 
+msgid "MAC Address"
+msgstr "MAC adresa"
+
+msgid "On"
+msgstr "Na"
+
 msgid "Fixed IP"
 msgstr "Pevná IP"
 
@@ -1400,6 +1724,15 @@ msgstr "ID podsítě"
 
 msgid "Attached Device"
 msgstr "Připojené zařízení"
+
+msgid "Binding"
+msgstr "Svázání"
+
+msgid "VIF Type"
+msgstr "Typ VIF"
+
+msgid "VNIC Type"
+msgstr "Typ VNIC"
 
 msgid "You may update the editable properties of your port here."
 msgstr "Zde můžete aktualizovat upravitelné vlastnosti vašeho portu."
@@ -1412,6 +1745,9 @@ msgstr "Aktualizovat síť"
 
 msgid "Network list can not be retrieved."
 msgstr "Nelze získat seznam sítí."
+
+msgid "Network Details: {{ network.name }}"
+msgstr "Podrobnosti sítě: {{ network.name }}"
 
 msgid "Subnet list can not be retrieved."
 msgstr "Nelze získat seznam podsítí."
@@ -1427,6 +1763,9 @@ msgstr "Aktivní instance:"
 
 msgid "Usage Overview"
 msgstr "Přehled využití"
+
+msgid "Monitoring:"
+msgstr "Sledování:"
 
 msgid "Disk (GB)"
 msgstr "Disk (GB)"
@@ -1446,8 +1785,14 @@ msgstr "Rozhraní"
 msgid "Router Details"
 msgstr "Podrobnosti směrovače"
 
+msgid "Update Router"
+msgstr "Aktualizace směrovače"
+
 msgid "Unable to retrieve router list."
 msgstr "Nelze získat seznam směrovačů."
+
+msgid "Creating"
+msgstr "Vytváření"
 
 msgid "Deleting"
 msgstr "Mazání"
@@ -1455,11 +1800,27 @@ msgstr "Mazání"
 msgid "Error"
 msgstr "Chyba"
 
+msgid "Error Deleting"
+msgstr "Chyba při mazání"
+
+#, python-format
+msgid "Successfully updated volume snapshot status: \"%s\"."
+msgstr "Aktualizace stavu snímku svazku úspěšně dokončena: \"%s\"."
+
+msgid "Unable to update volume snapshot status."
+msgstr "Nelze aktualizovat stav snímku svazku."
+
+msgid "Update Status"
+msgstr "Aktualizovat stav"
+
 msgid "Unable to retrieve volume project information."
 msgstr "Nelze získat informace o svazku projektu."
 
 msgid "Volume Name"
 msgstr "Název svazku"
+
+msgid "Update Volume Snapshot Status"
+msgstr "Aktualizovat stav snímku svazku"
 
 msgid "Unable to retrieve volume snapshot."
 msgstr "Nelze získat snímek svazku."
@@ -1470,11 +1831,17 @@ msgstr "Typy svazku"
 msgid "Unable to retrieve volume types"
 msgstr "Nelze získat typy svazků"
 
+msgid "Unable to retrieve volume type encryption information."
+msgstr "Nelze získat informace o šifrování typu svazku."
+
 msgid "Unable to retrieve volume snapshots."
 msgstr "Nelze získat svazky snímků."
 
 msgid "Volume Snapshot Overview"
 msgstr "Přehled snímku svazku"
+
+msgid "Information"
+msgstr "Informace"
 
 msgid "Volume"
 msgstr "Svazek"
@@ -1488,11 +1855,30 @@ msgstr "GB"
 msgid "Provider"
 msgstr "Poskytovatel"
 
+msgid "Key Size (bits)"
+msgstr "Velikost klíče (v bitech)"
+
+msgid "Volume Type is Unencrypted."
+msgstr "Typ svazku není zašifrován"
+
 msgid "Create Volume Type"
 msgstr "Vytvořit typ svazku"
 
 msgid "Close"
 msgstr "Zavřít"
+
+msgid "Edit Volume Type Extra Spec"
+msgstr "Upravit dodatečnou specifikaci typu svazku"
+
+#, python-format
+msgid "Update the spec value for \"%(key)s\""
+msgstr "Aktualizovat hodnotu specifikace \"%(key)s\""
+
+msgid "Create Spec"
+msgstr "Vytvořit specifikaci"
+
+msgid "Edit Spec"
+msgstr "Upravit specifikaci"
 
 msgid "Volume Details"
 msgstr "Podrobnosti svazku"
@@ -3120,6 +3506,14 @@ msgstr "Chyba"
 msgctxt "Current status of a Firewall"
 msgid "Created"
 msgstr "Vytvořeno"
+
+msgctxt "Admin state of a Firewall"
+msgid "UP"
+msgstr "NAHORU"
+
+msgctxt "Admin state of a Firewall"
+msgid "DOWN"
+msgstr "DOLŮ"
 
 msgid "Firewall Rules"
 msgstr "Pravidla brány firewall"
@@ -4843,6 +5237,14 @@ msgstr "Odpojeno"
 msgid "Edit Port"
 msgstr "Upravit port"
 
+msgctxt "Admin state of a Port"
+msgid "UP"
+msgstr "NAHORU"
+
+msgctxt "Admin state of a Port"
+msgid "DOWN"
+msgstr "DOLŮ"
+
 msgctxt "status of a network port"
 msgid "Active"
 msgstr "Aktivní"
@@ -5230,6 +5632,14 @@ msgctxt "current status of router"
 msgid "Error"
 msgstr "Chyba"
 
+msgctxt "Admin state of a Router"
+msgid "UP"
+msgstr "NAHORU"
+
+msgctxt "Admin state of a Router"
+msgid "DOWN"
+msgstr "DOLŮ"
+
 msgid ""
 "Routing rules to apply to router. Rules are matched by most specific source "
 "first and then by most specific destination."
@@ -5543,6 +5953,10 @@ msgid "Error"
 msgstr "Chyba"
 
 msgctxt "Current status of a Volume Backup"
+msgid "Creating"
+msgstr "Vytváření"
+
+msgctxt "Current status of a Volume Backup"
 msgid "Restoring"
 msgstr "Obnovování"
 
@@ -5757,6 +6171,9 @@ msgstr "Nelze rozšířit svazek."
 msgid "Launch as Instance"
 msgstr "Spustit jako instanci"
 
+msgid "This action cannot be undone."
+msgstr "Toto nelze vrátit."
+
 msgid "Unable to retrieve attachment information."
 msgstr "Nelze získat informace o připojeném svazku."
 
@@ -5771,6 +6188,10 @@ msgstr "Dostupné"
 msgctxt "Current status of a Volume"
 msgid "Error"
 msgstr "Chyba"
+
+msgctxt "Current status of a Volume"
+msgid "Creating"
+msgstr "Vytváření"
 
 msgctxt "Current status of a Volume"
 msgid "Deleting"

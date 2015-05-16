@@ -12,6 +12,7 @@
 # Frédéric <frosmont@free.fr>, 2014
 # Jean Pny, 2015
 # JF Taltavull <jftalta@gmail.com>, 2015
+# Maxime COQUEREL <max.coquerel@gmail.com>, 2015
 # Orizhial <contact@prunier.es>, 2015
 # Patte D <pattedeph@gmail.com>, 2015
 # Paul Gonin <paul.gonin@gmail.com>, 2015
@@ -19,9 +20,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 16:02-0500\n"
-"PO-Revision-Date: 2015-05-14 21:03+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-05-15 04:49-0500\n"
+"PO-Revision-Date: 2015-05-15 17:28+0000\n"
+"Last-Translator: Maxime COQUEREL <max.coquerel@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/"
 "fr/)\n"
 "MIME-Version: 1.0\n"
@@ -634,6 +635,9 @@ msgstr "Taille totale des volumes et clichés instantanés LUKS (GB)"
 
 msgid "dm-crypt"
 msgstr "dm-crypt"
+
+msgid "Server Groups"
+msgstr "Groupe de serveurs"
 
 msgid "Backups"
 msgstr "Sauvegardes"
@@ -2083,6 +2087,9 @@ msgstr "Utilisation (Heures)"
 
 msgid "Deleted"
 msgstr "Supprimée"
+
+msgid "Static Routes"
+msgstr "Routes Statiques"
 
 msgid "Routers"
 msgstr "Routeurs"
@@ -9474,11 +9481,24 @@ msgstr ""
 msgid "Failed to delete network \"%s\""
 msgstr "Échec lors de la suppression du réseau \"%s\""
 
+msgid "Project ID:"
+msgstr "ID du projet:"
+
 msgid "Time since created (Seconds)"
 msgstr "Temps depuis la création (Secondes)"
 
 msgid "Destination CIDR"
 msgstr "Destination CIDR"
+
+msgid "Next Hop"
+msgstr "Prochain sauts"
+
+#, python-format
+msgid "Failed to add route : %s"
+msgstr "Echec d'ajout de la route: %s"
+
+msgid "Add Static Route"
+msgstr "Ajouter une route statique"
 
 msgid "Unable to retrieve router."
 msgstr "Impossible de récupérer le routeur."
@@ -9727,6 +9747,9 @@ msgstr "NAT de source"
 msgid "You may update the editable properties of your router here."
 msgstr ""
 "Ici, vous pouvez mettre à jour les propriétés modifiables de votre routeur."
+
+msgid "Add route"
+msgstr "Ajout d'une route"
 
 msgid ""
 "Routing rules to apply to router. Rules are matched by most specific source "
@@ -10392,6 +10415,10 @@ msgctxt "Current status of a Volume Backup"
 msgid "Deleting"
 msgstr "Suppression"
 
+msgctxt "Current status of a Volume Backup"
+msgid "Error Restoring"
+msgstr "Erreur de restauration"
+
 msgid "Unable to retrieve backup details."
 msgstr "Impossible de récupérer les détails de la sauvegarde."
 
@@ -11038,6 +11065,14 @@ msgstr "Assignation"
 msgctxt "Current status of a Volume"
 msgid "Deleting"
 msgstr "Suppression"
+
+msgctxt "Current status of a Volume"
+msgid "Error deleting"
+msgstr "Erreur de suppression"
+
+msgctxt "Current status of a Volume"
+msgid "Error Restoring"
+msgstr "Erreur de restauration"
 
 msgid "Encrypted"
 msgstr "Chiffré"

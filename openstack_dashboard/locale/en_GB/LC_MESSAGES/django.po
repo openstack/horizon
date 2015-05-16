@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 16:02-0500\n"
-"PO-Revision-Date: 2015-05-14 21:03+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-05-15 04:49-0500\n"
+"PO-Revision-Date: 2015-05-15 11:21+0000\n"
+"Last-Translator: Rob Cresswell <robert.cresswell@outlook.com>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/"
 "horizon/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
@@ -275,6 +275,10 @@ msgstr "Unable to get subnet for pool %(pool)s."
 #, python-format
 msgid "Unable to get members for pool %(pool)s."
 msgstr "Unable to get members for pool %(pool)s."
+
+#, python-format
+msgid "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
+msgstr "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
 
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
