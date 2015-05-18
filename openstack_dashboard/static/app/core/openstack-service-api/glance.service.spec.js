@@ -50,6 +50,28 @@
         ]
       },
       {
+        "func": "getImageProps",
+        "method": "get",
+        "path": "/api/glance/images/42/properties/",
+        "error": "Unable to retrieve the image custom properties.",
+        "testInput": [
+          42
+        ]
+      },
+      {
+        "func": "editImageProps",
+        "method": "patch",
+        "path": "/api/glance/images/42/properties/",
+        "data": {
+          "updated": {a: '1', b: '2'},
+          "removed": ['c', 'd']
+        },
+        "error": "Unable to edit the image custom properties.",
+        "testInput": [
+          42, {a: '1', b: '2'}, ['c', 'd']
+        ]
+      },
+      {
         "func": "getImages",
         "method": "get",
         "path": "/api/glance/images/",

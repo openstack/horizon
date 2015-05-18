@@ -28,10 +28,18 @@
    */
   angular
     .module('horizon.app.core', [
+      'horizon.app.core.cloud-services',
       'horizon.app.core.images',
-      'horizon.app.core.workflow',
+      'horizon.app.core.metadata',
       'horizon.app.core.openstack-service-api',
-      'horizon.app.core.cloud-services'
-    ]);
+      'horizon.app.core.workflow'
+    ], config);
+
+  config.$inject = ['$provide', '$windowProvider'];
+
+  function config($provide, $windowProvider) {
+    var path = $windowProvider.$get().STATIC_URL + 'app/core/';
+    $provide.constant('horizon.app.core.basePath', path);
+  }
 
 })();

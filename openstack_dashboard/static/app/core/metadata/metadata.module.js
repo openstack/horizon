@@ -1,5 +1,5 @@
 /*
- *    (c) Copyright 2015 Hewlett-Packard Development Company, L.P.
+ * Copyright 2015, Intel Corp.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,22 +16,23 @@
 (function () {
   'use strict';
 
-  describe('horizon.app.core', function () {
-    it('should be defined', function () {
-      expect(angular.module('horizon.app.core')).toBeDefined();
-    });
-  });
-
-  describe('horizon.app.core.basePath', function () {
-    beforeEach(module('horizon.app.core'));
-
-    it('should be defined and set correctly', inject([
-      'horizon.app.core.basePath', '$window',
-      function (basePath, $window) {
-        expect(basePath).toBeDefined();
-        expect(basePath).toBe($window.STATIC_URL + 'app/core/');
-      }])
-    );
-  });
+  /**
+   * @ngdoc overview
+   * @name horizon.app.core.metadata
+   * @description
+   *
+   * # horizon.app.core.metadata
+   *
+   * The `horizon.app.core.metadata` provides provides metadata service.
+   *
+   * | Components                                                                   |
+   * |------------------------------------------------------------------------------|
+   * | {@link horizon.app.core.metadata.service:metadataService `metadataService`} |
+   *
+   */
+  angular
+    .module('horizon.app.core.metadata', [
+      'horizon.app.core.metadata.modal'
+    ]);
 
 })();

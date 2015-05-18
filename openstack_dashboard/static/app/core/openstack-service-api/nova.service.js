@@ -42,7 +42,10 @@
       getExtensions: getExtensions,
       getFlavors: getFlavors,
       getFlavor: getFlavor,
-      getFlavorExtraSpecs: getFlavorExtraSpecs
+      getFlavorExtraSpecs: getFlavorExtraSpecs,
+      editFlavorExtraSpecs: editFlavorExtraSpecs,
+      getAggregateExtraSpecs: getAggregateExtraSpecs,
+      editAggregateExtraSpecs: editAggregateExtraSpecs
     };
 
     return service;
@@ -289,10 +292,64 @@
      * Specifies the id of the flavor to request the extra specs.
      */
     function getFlavorExtraSpecs(id) {
-      return apiService.get('/api/nova/flavors/' + id + '/extra-specs')
+      return apiService.get('/api/nova/flavors/' + id + '/extra-specs/')
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the flavor extra specs.'));
         });
+    }
+
+    /**
+     * @name horizon.openstack-service-api.nova.editFlavorExtraSpecs
+     * @description
+     * Update a single flavor's extra specs by ID.
+     * @param {string} id
+     * @param {object} updated New extra specs.
+     * @param {[]} removed Names of removed extra specs.
+     */
+    function editFlavorExtraSpecs(id, updated, removed) {
+      return apiService.patch(
+        '/api/nova/flavors/' + id + '/extra-specs/',
+        {
+          updated: updated,
+          removed: removed
+        }
+      ).error(function () {
+        toastService.add('error', gettext('Unable to edit the flavor extra specs.'));
+      });
+    }
+
+    /**
+     * @name horizon.openstack-service-api.nova.getAggregateExtraSpecs
+     * @description
+     * Get a single aggregate's extra specs by ID.
+     * @param {string} id
+     * Specifies the id of the flavor to request the extra specs.
+     */
+    function getAggregateExtraSpecs(id) {
+      return apiService.get('/api/nova/aggregates/' + id + '/extra-specs/')
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve the aggregate extra specs.'));
+      });
+    }
+
+    /**
+     * @name horizon.openstack-service-api.nova.editAggregateExtraSpecs
+     * @description
+     * Update a single aggregate's extra specs by ID.
+     * @param {string} id
+     * @param {object} updated New extra specs.
+     * @param {[]} removed Names of removed extra specs.
+     */
+    function editAggregateExtraSpecs(id, updated, removed) {
+      return apiService.patch(
+        '/api/nova/aggregates/' + id + '/extra-specs/',
+        {
+          updated: updated,
+          removed: removed
+        }
+      ).error(function () {
+        toastService.add('error', gettext('Unable to edit the aggregate extra specs.'));
+      });
     }
   }
 

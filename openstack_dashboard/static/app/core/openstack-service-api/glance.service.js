@@ -33,6 +33,8 @@
   function GlanceAPI(apiService, toastService) {
     var service = {
       getImage: getImage,
+      getImageProps: getImageProps,
+      editImageProps: editImageProps,
       getImages: getImages,
       getNamespaces: getNamespaces
     };
@@ -55,6 +57,40 @@
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the image.'));
         });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.glance.getImageProps
+     * @description
+     * Get an image custom properties by image ID
+     * @param {string} id Specifies the id of the image to request.
+     */
+    function getImageProps(id) {
+      return apiService.get('/api/glance/images/' + id + '/properties/')
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve the image custom properties.'));
+        });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.glance.editImageProps
+     * @description
+     * Update an image custom properties by image ID
+     * @param {string} id Specifies the id of the image to request.
+     * @param {object} updated New metadata definitions.
+     * @param {[]} removed Names of removed metadata definitions.
+     */
+    function editImageProps(id, updated, removed) {
+      return apiService.patch(
+        '/api/glance/images/' + id + '/properties/',
+        {
+          updated: updated,
+          removed: removed
+        }
+      )
+      .error(function () {
+        toastService.add('error', gettext('Unable to edit the image custom properties.'));
+      });
     }
 
     /**
