@@ -147,6 +147,12 @@ class ClustersTable(tables.DataTable):
                          link=("horizon:project:data_processing."
                                "clusters:details"))
 
+    plugin = tables.Column("plugin_name",
+                           verbose_name=_("Plugin"))
+
+    version = tables.Column("hadoop_version",
+                            verbose_name=_("Version"))
+
     # Status field need the whole cluster object to build the rich status.
     status = tables.Column(get_rich_status_info,
                            verbose_name=_("Status"),
