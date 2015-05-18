@@ -181,8 +181,10 @@ class JobConfigAction(workflows.Action):
             if 'params' in job_configs:
                 self.fields['job_params'].initial = (
                     json.dumps(job_configs['params']))
-            job_args = json.dumps(job_configs['args'])
-            self.fields['job_args_array'].initial = job_args
+
+            if 'args' in job_configs:
+                self.fields['job_args_array'].initial = (
+                    json.dumps(job_configs['args']))
 
             if self.MAIN_CLASS in edp_configs:
                 self.fields['main_class'].initial = (
