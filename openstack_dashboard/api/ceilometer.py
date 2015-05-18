@@ -1275,9 +1275,9 @@ class Meters(object):
                 'label': '',
                 'description': _("Sensor Voltage Reading"),
             }),
-            ('hardware.ipmi.node.inlet_temperature', {
+            ('hardware.ipmi.node.temperature', {
                 'label': '',
-                'description': _("System Inlet Temperature Reading"),
+                'description': _("System Temperature Reading"),
             }),
             ('hardware.ipmi.node.outlet_temperature', {
                 'label': '',
