@@ -79,5 +79,5 @@ limitations under the License.
   // Register it with the API module so that anybody using the
   // API module will have access to the Cinder APIs.
   angular.module('hz.api')
-    .service('cinderAPI', ['apiService', 'toastService', CinderAPI]);
+    .service('hz.api.cinder', ['hz.api.common.service', 'horizon.framework.widgets.toast.service', CinderAPI]);
 }());

@@ -22,8 +22,8 @@
 
     beforeEach(module('horizon.framework.widgets.modal-wait-spinner'));
 
-    beforeEach(inject(function(modalWaitSpinnerService, $modal) {
-      service = modalWaitSpinnerService;
+    beforeEach(inject(function($injector, $modal) {
+      service = $injector.get('horizon.framework.widgets.modal-wait-spinner.service');
       modal = $modal;
     }));
 

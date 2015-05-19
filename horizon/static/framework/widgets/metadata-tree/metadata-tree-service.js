@@ -7,7 +7,7 @@
    * @ngdoc service
    * @name horizon.framework.widgets.metadata-tree.metadataTreeService
    */
-  .factory('metadataTreeService', [function () {
+  .factory('horizon.framework.widgets.metadata-tree.service', [function () {
 
     /**
      * Parse value into boolean

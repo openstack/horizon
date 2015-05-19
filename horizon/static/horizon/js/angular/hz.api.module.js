@@ -16,5 +16,5 @@ limitations under the License.
 /*global angular*/
 (function () {
   'use strict';
-  angular.module('hz.api', ['hz.api.service']);
+  angular.module('hz.api', ['hz.api.common']);
 }());

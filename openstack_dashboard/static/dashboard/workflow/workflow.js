@@ -46,7 +46,7 @@
      *
      */
 
-    .factory('dashboardWorkflowDecorator', ['$q', 'serviceCatalog',
+    .factory('dashboardWorkflowDecorator', ['$q', 'hz.api.serviceCatalog',
 
       function ($q, serviceCatalog) {
 
@@ -94,7 +94,7 @@
      */
 
     .factory('dashboardWorkflow', [
-      'workflow',
+      'horizon.framework.util.workflow.service',
       'dashboardWorkflowDecorator',
       function (workflow, dashboardWorkflowDecorator) {
         var decorators = [dashboardWorkflowDecorator];

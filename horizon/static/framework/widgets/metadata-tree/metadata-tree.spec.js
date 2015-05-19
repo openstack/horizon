@@ -155,7 +155,7 @@
           var $compile = $injector.get('$compile');
           $scope = $injector.get('$rootScope').$new();
 
-          item = new ($injector.get('metadataTreeService').Item)();
+          item = new ($injector.get('horizon.framework.widgets.metadata-tree.service').Item)();
           $scope.item = item.fromProperty('test', namespaces[0].properties['test:A:6']);
 
           var markup =

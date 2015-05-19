@@ -35,7 +35,7 @@
      * @param {string} orderText Title for drag and drop re-order icon
      * @param {string} expandDetailsText Title for expand icon
      */
-    .constant('helpText', {
+    .constant('horizon.framework.widgets.transfer-table.helpText', {
       allocTitle: gettext('Allocated'),
       availTitle: gettext('Available'),
       availHelpText: gettext('Select one'),
@@ -53,7 +53,7 @@
      * @name horizon.framework.widgets.transfer-table.constant:limits
      * @param {number} maxAllocation Maximum allocation allowed
      */
-    .constant('limits', {
+    .constant('horizon.framework.widgets.transfer-table.limits', {
       maxAllocation: 1
     })
 
@@ -142,8 +142,15 @@
      *     </action-list>
      *
      */
-    .controller('transferTableCtrl',
-      [ 'horizon.framework.widgets.basePath', '$scope', '$timeout', '$parse', '$attrs', '$log', 'helpText', 'limits',
+    .controller('transferTableCtrl', [
+      'horizon.framework.widgets.basePath',
+      '$scope',
+      '$timeout',
+      '$parse',
+      '$attrs',
+      '$log',
+      'horizon.framework.widgets.transfer-table.helpText',
+      'horizon.framework.widgets.transfer-table.limits',
       function(path, $scope, $timeout, $parse, $attrs, $log, helpText, limits) {
         var trModel = $parse($attrs.trModel)($scope);
         var trHelpText = $parse($attrs.helpText)($scope);

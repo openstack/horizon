@@ -50,6 +50,6 @@ limitations under the License.
     };
   }
 
-  angular.module('hz.api.service', [])
-    .service('apiService', ['$http', '$log', ApiService]);
+  angular.module('hz.api.common', [])
+    .service('hz.api.common.service', ['$http', '$log', ApiService]);
 }());

@@ -53,7 +53,7 @@
      * @param {object} the object returned from angular-bootstrap $modal
      *
      * @example:
-     *  angular.controller('modalExampleCtrl', [ '$scope', 'simpleModalService',
+     *  angular.controller('modalExampleCtrl', [ '$scope', 'horizon.framework.widgets.modal.service',
      *    function($scope, simpleModalService){
      *      var options = {
      *        title: 'Confirm Delete',
@@ -68,7 +68,10 @@
      *    }
      *  ]);
      */
-    .factory('simpleModalService', ['$modal', 'horizon.framework.widgets.basePath', 'horizon.framework.util.i18n.gettext',
+    .factory('horizon.framework.widgets.modal.service', [
+      '$modal',
+      'horizon.framework.widgets.basePath',
+      'horizon.framework.util.i18n.gettext',
       function($modal, path, gettext) {
         return function(params) {
           if (params && params.title && params.body){

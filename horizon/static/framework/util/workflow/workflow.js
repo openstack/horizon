@@ -43,7 +43,7 @@
 
     angular.module('MyModule', [])
 
-      .factory('myService', ['$q', 'workflow', function ($q, workflow) {
+      .factory('myService', ['$q', 'horizon.framework.util.workflow.service', function ($q, workflow) {
 
         // a workflow specification object:
         var spec = {
@@ -87,7 +87,7 @@
    ```
    */
 
-  .factory('workflow', [
+  .factory('horizon.framework.util.workflow.service', [
     function () {
       return function (spec, decorators) {
         angular.forEach(decorators, function (decorator) {

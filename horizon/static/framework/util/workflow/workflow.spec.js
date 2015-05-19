@@ -24,7 +24,7 @@
     beforeEach(module('horizon.framework.util.workflow'));
 
     beforeEach(inject(function ($injector) {
-      workflow = $injector.get('workflow');
+      workflow = $injector.get('horizon.framework.util.workflow.service');
       spec = {
         steps: [
           { requireSomeServices: true },

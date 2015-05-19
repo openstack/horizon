@@ -68,7 +68,7 @@
   // Register it with the API module so that anybody using the
   // API module will have access to the Config APIs.
   angular.module('hz.api')
-    .service('configAPI', ['apiService', ConfigAPI]);
+    .service('hz.api.config', ['hz.api.common.service', ConfigAPI]);
 
   /**
    * @ngdoc service
@@ -308,6 +308,6 @@
   }
 
   angular.module('hz.api')
-    .factory('settingsService', ['$q', 'apiService', settingsService]);
+    .factory('hz.api.settingsService', ['$q', 'hz.api.common.service', settingsService]);
 
 }());

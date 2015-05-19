@@ -74,7 +74,7 @@
      * ```
      *
      */
-    .directive('pieChart', [ 'horizon.framework.widgets.basePath', 'donutChartSettings', function (path, donutChartSettings) {
+    .directive('pieChart', [ 'horizon.framework.widgets.basePath', 'horizon.framework.widgets.charts.donutChartSettings', function (path, donutChartSettings) {
       return {
         restrict: 'E',
         scope: {

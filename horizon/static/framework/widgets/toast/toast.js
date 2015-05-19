@@ -44,7 +44,7 @@
      *
      * @description
      * This service can be used to display user messages, toasts, in Horizon.
-     * To create a new toast, inject the 'toastService' module into your
+     * To create a new toast, inject the 'horizon.framework.widgets.toast.service' module into your
      * current module. Then, use the service methods.
      *
      * For example to add a 'success' message:
@@ -53,7 +53,7 @@
      * All actions (add, clearAll, etc.) taken on the data are automatically
      * sync-ed with the HTML.
      */
-    .factory('toastService', function() {
+    .factory('horizon.framework.widgets.toast.service', function() {
 
       var toasts = [];
       var service = {};
@@ -147,7 +147,7 @@
      * @scope true
      *
      */
-    .directive('toast', ['toastService', 'horizon.framework.widgets.basePath', function(toastService, path) {
+    .directive('toast', ['horizon.framework.widgets.toast.service', 'horizon.framework.widgets.basePath', function(toastService, path) {
       return {
         restrict: 'EA',
         templateUrl: path + 'toast/toast.html',

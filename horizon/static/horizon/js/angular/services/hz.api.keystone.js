@@ -253,7 +253,7 @@ limitations under the License.
   }
 
   angular.module('hz.api')
-    .service('keystoneAPI', ['apiService', 'toastService', KeystoneAPI]);
+    .service('hz.api.keystone', ['hz.api.common.service', 'horizon.framework.widgets.toast.service', KeystoneAPI]);
 
    /**
    * @ngdoc service
@@ -294,7 +294,7 @@ limitations under the License.
   }
 
   angular.module('hz.api')
-    .factory('userSession', ['$cacheFactory', 'keystoneAPI', userSession]);
+    .factory('hz.api.userSession', ['$cacheFactory', 'hz.api.keystone', userSession]);
 
   /**
    * @ngdoc service
@@ -428,10 +428,10 @@ limitations under the License.
   }
 
   angular.module('hz.api')
-    .factory('serviceCatalog', ['$cacheFactory',
+    .factory('hz.api.serviceCatalog', ['$cacheFactory',
                                 '$q',
-                                'keystoneAPI',
-                                'userSession',
+                                'hz.api.keystone',
+                                'hz.api.userSession',
                                 serviceCatalog]);
 
 }());

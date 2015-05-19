@@ -28,14 +28,14 @@
    */
 
   module.factory('launchInstanceModel', ['$q', '$log',
-    'cinderAPI',
-    'glanceAPI',
-    'keystoneAPI',
-    'neutronAPI',
-    'novaAPI',
-    'novaExtensions',
-    'securityGroup',
-    'serviceCatalog',
+    'hz.api.cinder',
+    'hz.api.glance',
+    'hz.api.keystone',
+    'hz.api.neutron',
+    'hz.api.nova',
+    'hz.api.novaExtensions',
+    'hz.api.security-group',
+    'hz.api.serviceCatalog',
 
     function ($q,
               $log,

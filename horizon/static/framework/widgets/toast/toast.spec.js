@@ -36,8 +36,8 @@
     beforeEach(module('hz'));
     beforeEach(module('horizon.framework.widgets'));
     beforeEach(module('horizon.framework.widgets.toast'));
-    beforeEach(inject(function ($injector, toastService) {
-      service = toastService;
+    beforeEach(inject(function ($injector) {
+      service = $injector.get('horizon.framework.widgets.toast.service');
       $scope = $injector.get('$rootScope').$new();
       $compile = $injector.get('$compile');
     }));
@@ -111,10 +111,10 @@
     beforeEach(module('hz'));
     beforeEach(module('horizon.framework.widgets'));
     beforeEach(module('horizon.framework.widgets.toast'));
-    beforeEach(inject(function ($injector, toastService) {
+    beforeEach(inject(function ($injector) {
       $scope = $injector.get('$rootScope').$new();
       $compile = $injector.get('$compile');
-      service = toastService;
+      service = $injector.get('horizon.framework.widgets.toast.service');
 
       var markup = '<toast></toast>';
       $element = $compile(markup)($scope);

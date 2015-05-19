@@ -33,7 +33,7 @@
           };
         });
       }])
-    .run(['hzConfig', 'hzUtils', '$cookieStore', '$http', '$cookies',
+    .run(['hz.conf.hzConfig', 'hz.utils.hzUtils.service', '$cookieStore', '$http', '$cookies',
       function (hzConfig, hzUtils, $cookieStore, $http, $cookies) {
         $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
         //expose the configuration for horizon legacy variable
