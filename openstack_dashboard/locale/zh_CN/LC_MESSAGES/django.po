@@ -7,6 +7,7 @@
 # blkart <blkart.org@gmail.com>, 2015
 # ChangBo Guo(gcb) <glongwave@gmail.com>, 2014
 # johnwoo_lee <lijiangsheng1@gmail.com>, 2015
+# LIU Yulong <dragon889@163.com>, 2015
 # Tom Fifield <tom@openstack.org>, 2014
 # Xiao Xi LIU <liuxx@cn.ibm.com>, 2014
 # Ying Chun Guo <daisy.ycguo@gmail.com>, 2015
@@ -15,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 16:02-0500\n"
-"PO-Revision-Date: 2015-05-14 21:03+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-05-18 12:47-0500\n"
+"PO-Revision-Date: 2015-05-18 14:25+0000\n"
+"Last-Translator: LIU Yulong <dragon889@163.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/"
 "language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -219,8 +220,8 @@ msgstr "传感器电流值"
 msgid "Sensor Voltage Reading"
 msgstr "传感器电压值"
 
-msgid "System Inlet Temperature Reading"
-msgstr "系统入口温度值"
+msgid "System Temperature Reading"
+msgstr "系统温度读取中"
 
 msgid "System Outlet Temperature Reading"
 msgstr "系统出口温度值"
@@ -281,6 +282,10 @@ msgstr "无法获取资源池 %(pool)s 的子网 。"
 #, python-format
 msgid "Unable to get members for pool %(pool)s."
 msgstr "无法获得资源池 %(pool)s 的成员。"
+
+#, python-format
+msgid "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
+msgstr "无法获得资源池 %(pool)s 的健康监控%(monitor_id)s."
 
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
@@ -2657,6 +2662,9 @@ msgstr "成功发送不管理卷: %s 的请求"
 
 msgid "Unable to unmanage volume."
 msgstr "无法不管理卷。"
+
+msgid "Volume type name can not be empty."
+msgstr "卷类型名称不能为 空."
 
 #, python-format
 msgid "Successfully created volume type: %s"
