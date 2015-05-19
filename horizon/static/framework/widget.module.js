@@ -18,6 +18,6 @@
     'hz.framework.validators',
     'hz.widget.toast'
   ])
-    .constant('basePath', '/static/angular/');
+    .constant('basePath', '/static/framework/');
 
 })();
