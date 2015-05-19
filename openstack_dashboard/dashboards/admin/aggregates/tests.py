@@ -10,8 +10,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import json
-
 import mock
 
 from django.core.urlresolvers import reverse
@@ -451,82 +449,3 @@ class ManageHostsTests(test.BaseAdminViewTests):
                                        form_data,
                                        addAggregate=False,
                                        cleanAggregates=True)
-
-
-class HostAggregateMetadataTests(test.BaseAdminViewTests):
-
-    @test.create_stubs({api.nova: ('aggregate_get',),
-                        api.glance: ('metadefs_namespace_list',
-                                     'metadefs_namespace_get')})
-    def test_host_aggregate_metadata_get(self):
-        aggregate = self.aggregates.first()
-        api.nova.aggregate_get(
-            IsA(http.HttpRequest),
-            str(aggregate.id)
-        ).AndReturn(aggregate)
-
-        namespaces = self.metadata_defs.list()
-
-        api.glance.metadefs_namespace_list(
-            IsA(http.HttpRequest),
-            filters={'resource_types': ['OS::Nova::Aggregate']}
-        ).AndReturn((namespaces, False, False))
-
-        for namespace in namespaces:
-            api.glance.metadefs_namespace_get(
-                IsA(http.HttpRequest),
-                namespace.namespace,
-                'OS::Nova::Aggregate'
-            ).AndReturn(namespace)
-
-        self.mox.ReplayAll()
-
-        res = self.client.get(
-            reverse(constants.AGGREGATES_UPDATE_METADATA_URL,
-                    args=[aggregate.id]))
-
-        self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(
-            res,
-            constants.AGGREGATES_UPDATE_METADATA_TEMPLATE
-        )
-        self.assertTemplateUsed(
-            res,
-            constants.AGGREGATES_UPDATE_METADATA_SUBTEMPLATE
-        )
-        self.assertContains(res, 'namespace_1')
-        self.assertContains(res, 'namespace_2')
-        self.assertContains(res, 'namespace_3')
-        self.assertContains(res, 'namespace_4')
-
-    @test.create_stubs({api.nova: ('aggregate_get', 'aggregate_set_metadata')})
-    def test_host_aggregate_metadata_update(self):
-        aggregate = self.aggregates.first()
-        aggregate.metadata = {'key': 'test_key', 'value': 'test_value'}
-
-        api.nova.aggregate_get(
-            IsA(http.HttpRequest),
-            str(aggregate.id)
-        ).AndReturn(aggregate)
-
-        api.nova.aggregate_set_metadata(
-            IsA(http.HttpRequest),
-            str(aggregate.id),
-            {'value': None, 'key': None, 'test_key': 'test_value'}
-        ).AndReturn(None)
-
-        self.mox.ReplayAll()
-
-        form_data = {"metadata": json.dumps([aggregate.metadata])}
-
-        res = self.client.post(
-            reverse(constants.AGGREGATES_UPDATE_METADATA_URL,
-                    args=(aggregate.id,)), form_data)
-
-        self.assertEqual(res.status_code, 302)
-        self.assertNoFormErrors(res)
-        self.assertMessageCount(success=1)
-        self.assertRedirectsNoFollow(
-            res,
-            reverse(constants.AGGREGATES_INDEX_URL)
-        )

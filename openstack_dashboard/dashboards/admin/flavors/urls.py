@@ -26,7 +26,5 @@ urlpatterns = patterns(
     'openstack_dashboard.dashboards.admin.flavors.views',
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^create/$', views.CreateView.as_view(), name='create'),
-    url(r'^(?P<id>[^/]+)/update_metadata/$',
-        views.UpdateMetadataView.as_view(), name='update_metadata'),
     url(r'^(?P<id>[^/]+)/update/$', views.UpdateView.as_view(), name='update'),
 )
