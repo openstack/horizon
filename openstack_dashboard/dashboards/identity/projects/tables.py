@@ -161,7 +161,7 @@ class DeleteTenantsAction(tables.DeleteAction):
     def handle(self, table, request, obj_ids):
         response = \
             super(DeleteTenantsAction, self).handle(table, request, obj_ids)
-        auth_utils.remove_project_cache(request.user.token.id)
+        auth_utils.remove_project_cache(request.user.token.unscoped_token)
         return response
 
 
