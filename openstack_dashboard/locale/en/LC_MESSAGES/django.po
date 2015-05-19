@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-15 01:23-0500\n"
+"POT-Creation-Date: 2015-05-19 01:19-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -276,7 +276,7 @@ msgid "Sensor Voltage Reading"
 msgstr ""
 
 #: api/ceilometer.py:1280
-msgid "System Inlet Temperature Reading"
+msgid "System Temperature Reading"
 msgstr ""
 
 #: api/ceilometer.py:1284
@@ -1764,7 +1764,7 @@ msgstr ""
 #: dashboards/admin/volumes/volumes/forms.py:194
 #: dashboards/project/access_and_security/floating_ips/tables.py:202
 #: dashboards/project/data_processing/clusters/tables.py:36
-#: dashboards/project/data_processing/clusters/tables.py:152
+#: dashboards/project/data_processing/clusters/tables.py:158
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:12
 #: dashboards/project/data_processing/job_executions/tables.py:40
 #: dashboards/project/data_processing/job_executions/tables.py:205
@@ -6992,6 +6992,7 @@ msgstr ""
 #: dashboards/project/data_processing/cluster_templates/tables.py:120
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:6
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:14
+#: dashboards/project/data_processing/clusters/tables.py:151
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:6
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:24
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:7
@@ -7007,6 +7008,7 @@ msgstr ""
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:8
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:16
 #: dashboards/project/data_processing/cluster_templates/workflows/create.py:60
+#: dashboards/project/data_processing/clusters/tables.py:154
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:8
 #: dashboards/project/data_processing/clusters/templates/data_processing.clusters/_details.html:26
 #: dashboards/project/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:8
@@ -7326,7 +7328,7 @@ msgid "Cluster template creation failed"
 msgstr ""
 
 #: dashboards/project/data_processing/clusters/panel.py:22
-#: dashboards/project/data_processing/clusters/tables.py:161
+#: dashboards/project/data_processing/clusters/tables.py:167
 #: dashboards/project/data_processing/clusters/views.py:40
 msgid "Clusters"
 msgstr ""
@@ -7367,7 +7369,7 @@ msgstr ""
 msgid "Configure Cluster"
 msgstr ""
 
-#: dashboards/project/data_processing/clusters/tables.py:157
+#: dashboards/project/data_processing/clusters/tables.py:163
 msgid "Instances Count"
 msgstr ""
 
@@ -10059,7 +10061,7 @@ msgstr ""
 #: dashboards/project/firewalls/tables.py:355
 #: dashboards/project/firewalls/tabs.py:69
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
-#: dashboards/project/firewalls/views.py:119
+#: dashboards/project/firewalls/views.py:57
 msgid "Firewalls"
 msgstr ""
 
@@ -10104,19 +10106,19 @@ msgstr[1] ""
 
 #: dashboards/project/firewalls/tables.py:127
 #: dashboards/project/firewalls/templates/firewalls/updaterule.html:3
-#: dashboards/project/firewalls/views.py:139
+#: dashboards/project/firewalls/views.py:142
 msgid "Edit Rule"
 msgstr ""
 
 #: dashboards/project/firewalls/tables.py:139
 #: dashboards/project/firewalls/templates/firewalls/updatepolicy.html:3
-#: dashboards/project/firewalls/views.py:180
+#: dashboards/project/firewalls/views.py:183
 msgid "Edit Policy"
 msgstr ""
 
 #: dashboards/project/firewalls/tables.py:151
 #: dashboards/project/firewalls/templates/firewalls/updatefirewall.html:3
-#: dashboards/project/firewalls/views.py:218
+#: dashboards/project/firewalls/views.py:221
 msgid "Edit Firewall"
 msgstr ""
 
@@ -10253,32 +10255,35 @@ msgid "Unable to retrieve firewall list."
 msgstr ""
 
 #: dashboards/project/firewalls/tabs.py:97
+#: dashboards/project/firewalls/views.py:124
 msgid "Firewall Rule Details"
 msgstr ""
 
 #: dashboards/project/firewalls/tabs.py:108
-#: dashboards/project/firewalls/views.py:163
+#: dashboards/project/firewalls/views.py:166
 msgid "Unable to retrieve rule details."
 msgstr ""
 
 #: dashboards/project/firewalls/tabs.py:114
+#: dashboards/project/firewalls/views.py:129
 msgid "Firewall Policy Details"
 msgstr ""
 
 #: dashboards/project/firewalls/tabs.py:125
-#: dashboards/project/firewalls/views.py:204
-#: dashboards/project/firewalls/views.py:282
-#: dashboards/project/firewalls/views.py:322
+#: dashboards/project/firewalls/views.py:207
+#: dashboards/project/firewalls/views.py:285
+#: dashboards/project/firewalls/views.py:325
 msgid "Unable to retrieve policy details."
 msgstr ""
 
 #: dashboards/project/firewalls/tabs.py:131
+#: dashboards/project/firewalls/views.py:134
 msgid "Firewall Details"
 msgstr ""
 
 #: dashboards/project/firewalls/tabs.py:152
-#: dashboards/project/firewalls/views.py:243
-#: dashboards/project/firewalls/views.py:357
+#: dashboards/project/firewalls/views.py:246
+#: dashboards/project/firewalls/views.py:360
 msgid "Unable to retrieve firewall details."
 msgstr ""
 
@@ -10373,106 +10378,106 @@ msgid "You may update rule details here."
 msgstr ""
 
 #: dashboards/project/firewalls/templates/firewalls/add_router_to_firewall.html:3
-#: dashboards/project/firewalls/views.py:368
 #: dashboards/project/firewalls/views.py:371
+#: dashboards/project/firewalls/views.py:374
 msgid "Add Router to Firewall"
 msgstr ""
 
 #: dashboards/project/firewalls/templates/firewalls/addfirewall.html:3
-#: dashboards/project/firewalls/views.py:107
+#: dashboards/project/firewalls/views.py:108
 msgid "Add New Firewall"
 msgstr ""
 
 #: dashboards/project/firewalls/templates/firewalls/addpolicy.html:3
-#: dashboards/project/firewalls/views.py:101
+#: dashboards/project/firewalls/views.py:102
 msgid "Add New Policy"
 msgstr ""
 
 #: dashboards/project/firewalls/templates/firewalls/addrule.html:3
-#: dashboards/project/firewalls/views.py:95
+#: dashboards/project/firewalls/views.py:96
 msgid "Add New Rule"
 msgstr ""
 
 #: dashboards/project/firewalls/templates/firewalls/insert_rule_to_policy.html:3
-#: dashboards/project/firewalls/views.py:261
+#: dashboards/project/firewalls/views.py:264
 msgid "Insert Rule to Policy"
 msgstr ""
 
 #: dashboards/project/firewalls/templates/firewalls/remove_router_from_firewall.html:3
-#: dashboards/project/firewalls/views.py:376
 #: dashboards/project/firewalls/views.py:379
+#: dashboards/project/firewalls/views.py:382
 msgid "Remove Router from Firewall"
 msgstr ""
 
 #: dashboards/project/firewalls/templates/firewalls/remove_rule_from_policy.html:3
-#: dashboards/project/firewalls/views.py:295
-#: dashboards/project/firewalls/views.py:301
+#: dashboards/project/firewalls/views.py:298
+#: dashboards/project/firewalls/views.py:304
 msgid "Remove Rule from Policy"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:68
+#: dashboards/project/firewalls/views.py:69
 #, python-format
 msgid "Deleted rule %s"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:71
+#: dashboards/project/firewalls/views.py:72
 #, python-format
 msgid "Unable to delete rule. %s"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:76
+#: dashboards/project/firewalls/views.py:77
 #, python-format
 msgid "Deleted policy %s"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:79
+#: dashboards/project/firewalls/views.py:80
 #, python-format
 msgid "Unable to delete policy. %s"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:85
+#: dashboards/project/firewalls/views.py:86
 #, python-format
 msgid "Deleted firewall %s"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:88
+#: dashboards/project/firewalls/views.py:89
 #, python-format
 msgid "Unable to delete firewall. %s"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:140
-#: dashboards/project/firewalls/views.py:181
-#: dashboards/project/firewalls/views.py:219
-#: dashboards/project/firewalls/views.py:259
-#: dashboards/project/firewalls/views.py:298
-#: dashboards/project/firewalls/views.py:335
-#: dashboards/project/loadbalancers/views.py:234
-#: dashboards/project/loadbalancers/views.py:271
-#: dashboards/project/loadbalancers/views.py:322
-#: dashboards/project/loadbalancers/views.py:358
+#: dashboards/project/firewalls/views.py:143
+#: dashboards/project/firewalls/views.py:184
+#: dashboards/project/firewalls/views.py:222
+#: dashboards/project/firewalls/views.py:262
+#: dashboards/project/firewalls/views.py:301
+#: dashboards/project/firewalls/views.py:338
+#: dashboards/project/loadbalancers/views.py:238
+#: dashboards/project/loadbalancers/views.py:275
+#: dashboards/project/loadbalancers/views.py:326
+#: dashboards/project/loadbalancers/views.py:362
 #: dashboards/project/networks/ports/views.py:88
 #: dashboards/project/networks/views.py:69
 #: dashboards/project/routers/views.py:179
 #: dashboards/project/volumes/snapshots/views.py:37
-#: dashboards/project/vpn/views.py:274 dashboards/project/vpn/views.py:310
-#: dashboards/project/vpn/views.py:353 dashboards/project/vpn/views.py:395
+#: dashboards/project/vpn/views.py:277 dashboards/project/vpn/views.py:313
+#: dashboards/project/vpn/views.py:356 dashboards/project/vpn/views.py:398
 #: dashboards/router/nexus1000v/views.py:122
 msgid "Save Changes"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:143
+#: dashboards/project/firewalls/views.py:146
 msgid "Edit Rule {{ name }}"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:184
+#: dashboards/project/firewalls/views.py:187
 msgid "Edit Policy {{ name }}"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:222
+#: dashboards/project/firewalls/views.py:225
 msgid "Edit Firewall {{ name }}"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:255
+#: dashboards/project/firewalls/views.py:258
 msgid "Insert Rule into Policy"
 msgstr ""
 
@@ -12580,29 +12585,29 @@ msgstr[1] ""
 
 #: dashboards/project/loadbalancers/tables.py:172
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatepool.html:3
-#: dashboards/project/loadbalancers/views.py:231
-#: dashboards/project/loadbalancers/views.py:237
+#: dashboards/project/loadbalancers/views.py:235
+#: dashboards/project/loadbalancers/views.py:241
 msgid "Edit Pool"
 msgstr ""
 
 #: dashboards/project/loadbalancers/tables.py:184
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatevip.html:3
-#: dashboards/project/loadbalancers/views.py:268
-#: dashboards/project/loadbalancers/views.py:274
+#: dashboards/project/loadbalancers/views.py:272
+#: dashboards/project/loadbalancers/views.py:278
 msgid "Edit VIP"
 msgstr ""
 
 #: dashboards/project/loadbalancers/tables.py:201
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatemember.html:3
-#: dashboards/project/loadbalancers/views.py:319
-#: dashboards/project/loadbalancers/views.py:325
+#: dashboards/project/loadbalancers/views.py:323
+#: dashboards/project/loadbalancers/views.py:329
 msgid "Edit Member"
 msgstr ""
 
 #: dashboards/project/loadbalancers/tables.py:213
 #: dashboards/project/loadbalancers/templates/loadbalancers/updatemonitor.html:3
-#: dashboards/project/loadbalancers/views.py:355
-#: dashboards/project/loadbalancers/views.py:361
+#: dashboards/project/loadbalancers/views.py:359
+#: dashboards/project/loadbalancers/views.py:365
 msgid "Edit Monitor"
 msgstr ""
 
@@ -12721,10 +12726,12 @@ msgid "Unable to retrieve monitor list."
 msgstr ""
 
 #: dashboards/project/loadbalancers/tabs.py:87
+#: dashboards/project/loadbalancers/views.py:125
 msgid "Pool Details"
 msgstr ""
 
 #: dashboards/project/loadbalancers/tabs.py:97
+#: dashboards/project/loadbalancers/views.py:165
 msgid "VIP Details"
 msgstr ""
 
@@ -12733,10 +12740,12 @@ msgid "Unable to retrieve VIP details."
 msgstr ""
 
 #: dashboards/project/loadbalancers/tabs.py:113
+#: dashboards/project/loadbalancers/views.py:171
 msgid "Member Details"
 msgstr ""
 
 #: dashboards/project/loadbalancers/tabs.py:123
+#: dashboards/project/loadbalancers/views.py:203
 msgid "Monitor Details"
 msgstr ""
 
@@ -12906,40 +12915,40 @@ msgstr ""
 msgid "Unable to retrieve pool subnet. %s"
 msgstr ""
 
-#: dashboards/project/loadbalancers/views.py:135
+#: dashboards/project/loadbalancers/views.py:136
 msgid "Unable to retrieve pool details."
 msgstr ""
 
-#: dashboards/project/loadbalancers/views.py:177
+#: dashboards/project/loadbalancers/views.py:180
 msgid "Unable to retrieve member details."
 msgstr ""
 
-#: dashboards/project/loadbalancers/views.py:208
+#: dashboards/project/loadbalancers/views.py:212
 msgid "Unable to retrieve monitor details."
 msgstr ""
 
-#: dashboards/project/loadbalancers/views.py:253
+#: dashboards/project/loadbalancers/views.py:257
 #, python-format
 msgid "Unable to retrieve pool details. %s"
 msgstr ""
 
-#: dashboards/project/loadbalancers/views.py:290
+#: dashboards/project/loadbalancers/views.py:294
 #, python-format
 msgid "Unable to retrieve VIP details. %s"
 msgstr ""
 
-#: dashboards/project/loadbalancers/views.py:341
+#: dashboards/project/loadbalancers/views.py:345
 #, python-format
 msgid "Unable to retrieve member details. %s"
 msgstr ""
 
-#: dashboards/project/loadbalancers/views.py:377
+#: dashboards/project/loadbalancers/views.py:381
 #, python-format
 msgid "Unable to retrieve health monitor details. %s"
 msgstr ""
 
-#: dashboards/project/loadbalancers/views.py:400
-#: dashboards/project/loadbalancers/views.py:416
+#: dashboards/project/loadbalancers/views.py:404
+#: dashboards/project/loadbalancers/views.py:420
 #, python-format
 msgid "Unable to retrieve pool. %s"
 msgstr ""
@@ -16302,19 +16311,19 @@ msgstr[1] ""
 
 #: dashboards/project/vpn/tables.py:163
 #: dashboards/project/vpn/templates/vpn/update_vpnservice.html:3
-#: dashboards/project/vpn/views.py:271 dashboards/project/vpn/views.py:277
+#: dashboards/project/vpn/views.py:274 dashboards/project/vpn/views.py:280
 msgid "Edit VPN Service"
 msgstr ""
 
 #: dashboards/project/vpn/tables.py:179
 #: dashboards/project/vpn/templates/vpn/update_ikepolicy.html:3
-#: dashboards/project/vpn/views.py:307 dashboards/project/vpn/views.py:313
+#: dashboards/project/vpn/views.py:310 dashboards/project/vpn/views.py:316
 msgid "Edit IKE Policy"
 msgstr ""
 
 #: dashboards/project/vpn/tables.py:193
 #: dashboards/project/vpn/templates/vpn/update_ipsecpolicy.html:3
-#: dashboards/project/vpn/views.py:350 dashboards/project/vpn/views.py:356
+#: dashboards/project/vpn/views.py:353 dashboards/project/vpn/views.py:359
 msgid "Edit IPSec Policy"
 msgstr ""
 
@@ -16428,19 +16437,19 @@ msgstr ""
 msgid "Unable to retrieve IPSec Policies list."
 msgstr ""
 
-#: dashboards/project/vpn/tabs.py:106
+#: dashboards/project/vpn/tabs.py:106 dashboards/project/vpn/views.py:128
 msgid "IKE Policy Details"
 msgstr ""
 
-#: dashboards/project/vpn/tabs.py:121
+#: dashboards/project/vpn/tabs.py:121 dashboards/project/vpn/views.py:161
 msgid "IPSec Policy Details"
 msgstr ""
 
-#: dashboards/project/vpn/tabs.py:136
+#: dashboards/project/vpn/tabs.py:136 dashboards/project/vpn/views.py:195
 msgid "VPN Service Details"
 msgstr ""
 
-#: dashboards/project/vpn/tabs.py:151
+#: dashboards/project/vpn/tabs.py:151 dashboards/project/vpn/views.py:238
 msgid "IPSec Site Connection Details"
 msgstr ""
 
@@ -16496,12 +16505,12 @@ msgstr ""
 
 #: dashboards/project/vpn/templates/vpn/details_tabs.html:3
 #: dashboards/project/vpn/templates/vpn/index.html:3
-#: dashboards/project/vpn/views.py:41 dashboards/project/vpn/views.py:128
+#: dashboards/project/vpn/views.py:41
 msgid "Virtual Private Network"
 msgstr ""
 
 #: dashboards/project/vpn/templates/vpn/update_ipsecsiteconnection.html:3
-#: dashboards/project/vpn/views.py:392 dashboards/project/vpn/views.py:398
+#: dashboards/project/vpn/views.py:395 dashboards/project/vpn/views.py:401
 msgid "Edit IPSec Site Connection"
 msgstr ""
 
@@ -16549,34 +16558,34 @@ msgstr ""
 msgid "Unable to retrieve IKE Policy details."
 msgstr ""
 
-#: dashboards/project/vpn/views.py:168
+#: dashboards/project/vpn/views.py:169
 msgid "Unable to retrieve IPSec Policy details."
 msgstr ""
 
-#: dashboards/project/vpn/views.py:203
+#: dashboards/project/vpn/views.py:205
 msgid "Unable to retrieve VPN Service details."
 msgstr ""
 
-#: dashboards/project/vpn/views.py:243
+#: dashboards/project/vpn/views.py:246
 msgid "Unable to retrieve IPSec Site Connection details."
 msgstr ""
 
-#: dashboards/project/vpn/views.py:293
+#: dashboards/project/vpn/views.py:296
 #, python-format
 msgid "Unable to retrieve VPN Service details. %s"
 msgstr ""
 
-#: dashboards/project/vpn/views.py:329
+#: dashboards/project/vpn/views.py:332
 #, python-format
 msgid "Unable to retrieve IKE Policy details. %s"
 msgstr ""
 
-#: dashboards/project/vpn/views.py:372
+#: dashboards/project/vpn/views.py:375
 #, python-format
 msgid "Unable to retrieve IPSec Policy details. %s"
 msgstr ""
 
-#: dashboards/project/vpn/views.py:416
+#: dashboards/project/vpn/views.py:419
 #, python-format
 msgid "Unable to retrieve IPSec Site Connection details. %s"
 msgstr ""

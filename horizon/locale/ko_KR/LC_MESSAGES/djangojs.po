@@ -5,13 +5,14 @@
 # Translators:
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2015
 # jaekwon.park <jaekwon.park@rockplace.co.kr>, 2014
+# Sungjin Kang <potopro@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-05-07 18:03+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-05-18 12:47-0500\n"
+"PO-Revision-Date: 2015-05-18 16:59+0000\n"
+"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/"
 "language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -27,11 +28,20 @@ msgstr ""
 "작업을 진행할 수 없습니다. 이 행의 내용에 오류가 있거나 정보가 누락되어 있습"
 "니다."
 
+msgid "Current Usage"
+msgstr "현재 사용량"
+
 msgid "Added"
 msgstr "추가됨"
 
+msgid "Remaining"
+msgstr "기억하기"
+
 msgid "Max"
 msgstr "최대"
+
+msgid "Total"
+msgstr "총합"
 
 msgid "Detail Information"
 msgstr "상세 정보"

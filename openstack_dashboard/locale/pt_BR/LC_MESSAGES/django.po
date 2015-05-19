@@ -6,6 +6,7 @@
 # Dayvidson dos Santos Bezerra <dayvidsonbezerra@gmail.com>, 2015
 # Fernando Pimenta <fernando.c.pimenta@gmail.com>, 2015
 # Gabriel Wainer, 2015
+# Gabriel Wainer, 2015
 # Luís Eduardo Tenório Silva <eduardovansilva@gmail.com>, 2015
 # Marcelo Dieder <marcelodieder@gmail.com>, 2015
 # Remulo Carvalho <remulo@gmail.com>, 2015
@@ -14,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 16:02-0500\n"
-"PO-Revision-Date: 2015-05-14 21:03+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-05-18 12:47-0500\n"
+"PO-Revision-Date: 2015-05-18 16:59+0000\n"
+"Last-Translator: Gabriel Wainer\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
 "horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -29,10 +30,10 @@ msgid "Unable to retrieve Ceilometer meter list."
 msgstr "Não é possível obter a lista de medição do Ceilometer."
 
 msgid "Existence of instance"
-msgstr "Instância Já existe"
+msgstr "Existência de instância"
 
 msgid "Existence of instance <type> (openstack types)"
-msgstr "Existência de intância <type> (tipos openstack)"
+msgstr "Existência de instância <type> (tipos openstack)"
 
 msgid "Volume of RAM"
 msgstr "Volume de RAM"
@@ -226,8 +227,8 @@ msgstr "Leitura atual do sensor"
 msgid "Sensor Voltage Reading"
 msgstr "Leitura do Sensor de Voltagem"
 
-msgid "System Inlet Temperature Reading"
-msgstr "Leitura da Temperatura de entrada do Sistema"
+msgid "System Temperature Reading"
+msgstr "Leitura de temperatura do sistema"
 
 msgid "System Outlet Temperature Reading"
 msgstr "Leitura da Temperatura de saída do Sistema"
@@ -288,6 +289,12 @@ msgstr "Não é possível obter a sub-net do pool %(pool)s."
 #, python-format
 msgid "Unable to get members for pool %(pool)s."
 msgstr "Não é possível obter os membros do pool %(pool)s."
+
+#, python-format
+msgid "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
+msgstr ""
+"Não foi possível obter o monitor de saúde %(monitor_id)s para o pool "
+"%(pool)s."
 
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
@@ -2770,6 +2777,9 @@ msgstr "Requisição enviada com sucesso para volume não-gerenciado: %s"
 msgid "Unable to unmanage volume."
 msgstr "Não foi possível liberar o volume."
 
+msgid "Volume type name can not be empty."
+msgstr "Nome de tipo de volume não pode ser vazio."
+
 #, python-format
 msgid "Successfully created volume type: %s"
 msgstr "Volume %s criado com sucesso."
@@ -5224,6 +5234,12 @@ msgstr "Mains"
 msgid "Libs"
 msgstr "Libs"
 
+msgid "Created time"
+msgstr "Hora da criação"
+
+msgid "Updated time"
+msgstr "Hora da atualização"
+
 msgid "Never"
 msgstr "Nunca"
 
@@ -5312,6 +5328,12 @@ msgstr "Mapeador"
 
 msgid "Reducer"
 msgstr "Redutor"
+
+msgid "Use HBase Common library"
+msgstr "Usar boblioteca HBase Common"
+
+msgid "Run HBase EDP Jobs with common HBase library on HDFS"
+msgstr "Execute os jobs HBase EDP com a biblioteca HBase common no HDFS"
 
 msgid "Configure"
 msgstr "Configurar"
@@ -8163,6 +8185,14 @@ msgstr[1] ""
 "%(avail)i de sua quota disponível."
 
 #, python-format
+msgid ""
+"The requested instance cannot be launched. Requested volume exceeds quota: "
+"Available: %(avail)s, Requested: %(req)s."
+msgstr ""
+"A instância solicitada não pode ser disparadas. Volume solicitado excede a "
+"cota: Disponível: %(avail)s, Solicitado: %(req)s."
+
+#, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
 msgstr "Cores(Disponível: %(avail)s, Requisitado: %(req)s)"
 
@@ -8646,6 +8676,48 @@ msgstr "Detalhes do Membro"
 
 msgid "Monitor Details"
 msgstr "Detalhes do Monitor"
+
+msgid ""
+"\n"
+"  Assign a name and description for the pool. Choose one subnet where all\n"
+"  members of this pool must be on. Select the protocol and load balancing\n"
+"  method for this pool. Admin State is UP (checked) by default.\n"
+"  "
+msgstr ""
+"\n"
+"Atribui um nome e uma descrição ao pool. Escolha uma sub-rede onde todos\n"
+"membros deste poll devem estar. Selecione o protocolo e o método de "
+"balanceamento\n"
+"de carga para este pool. Estado Admin está ativo (marcado) por padrão."
+
+msgid ""
+"Use one of these load balancing methods to distribute incoming requests:"
+msgstr ""
+"Utilize um destes métodos de balanceamento de carga para distribuir as "
+"requisições:"
+
+msgid "Round robin"
+msgstr "Round robin"
+
+msgid "Rotates requests evenly between multiple instances."
+msgstr "Rotaciona requisições igualmente entre as múltiplas instâncias."
+
+msgid ""
+"Requests from a unique source IP address are consistently\n"
+"          directed to the same instance."
+msgstr ""
+"Requisições de um endereço IP único são constantemente\n"
+"dirigidas para a mesma instância."
+
+msgid "Least connections"
+msgstr "Menos conexões"
+
+msgid ""
+"Allocates requests to the instance with the least number of\n"
+"          active connections."
+msgstr ""
+"Aloca requisições para as instâncias com a menor número\n"
+"de conexões ativas."
 
 msgid "Address"
 msgstr "Endereço"
@@ -11348,6 +11420,9 @@ msgstr "reniciar-por-par"
 msgid "Dead peer detection interval"
 msgstr "Intervalo de detecção de peer morto"
 
+msgid "Valid integer lesser than the DPD timeout"
+msgstr "Inteiro válido menos que o tempo limite DPD"
+
 msgid "Dead peer detection timeout"
 msgstr "Tempo limite de detecção de peer morto"
 
@@ -11362,6 +11437,9 @@ msgstr "bi-direcional"
 
 msgid "response-only"
 msgstr "somente-resposta"
+
+msgid "DPD Timeout must be greater than DPD Interval"
+msgstr "Tempo limite DPD deve ser maior que o intervalo DPD"
 
 #, python-format
 msgid "IPSec Site Connection %s was successfully updated."
@@ -11737,6 +11815,9 @@ msgstr ""
 "Atribua um nome e descrição para o Site de conexão IPSec. Todos os campos "
 "nesta aba são requeridos."
 
+msgid "Valid integer lesser than DPD timeout"
+msgstr "Inteiro válido menor que o tempo limite DPD"
+
 msgid "Optional Parameters"
 msgstr "Parâmetros Opcionais"
 
@@ -11932,6 +12013,13 @@ msgstr "Fuso-Horário"
 
 msgid "Items Per Page"
 msgstr "Ítens por página"
+
+msgid ""
+"Number of items to show per page (applies to the pages that have API "
+"supported pagination)"
+msgstr ""
+"Número de items a serem exibidos por página (aplica-se a páginas que possuem "
+"paginação suportada na API)"
 
 msgid "Log Lines Per Instance"
 msgstr "Logar linhas por instância"
