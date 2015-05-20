@@ -28,6 +28,7 @@ class ServicesTests(test.JasmineTests):
 
         'framework/util/util.module.js',
         'framework/util/bind-scope/bind-scope.js',
+        'framework/util/filters/filters.js',
         'framework/util/form/form.js',
         'framework/util/i18n/i18n.js',
         'framework/util/validators/validators.js',
@@ -59,6 +60,7 @@ class ServicesTests(test.JasmineTests):
         'horizon/tests/jasmine/utils.spec.js',
 
         'framework/util/bind-scope/bind-scope.spec.js',
+        'framework/util/filters/filters.spec.js',
         'framework/util/form/form.spec.js',
         'framework/util/i18n/i18n.spec.js',
         'framework/util/validators/validators.spec.js',
