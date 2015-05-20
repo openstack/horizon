@@ -1,19 +1,18 @@
 /*global describe, it, expect, beforeEach, spyOn, angular*/
-describe('hz.utils', function () {
+describe('horizon.dashboard-app.utils', function () {
   'use strict';
-  describe('hz.utils.hzUtils', function () {
+  describe('horizon.dashboard-app.utils.helper-functions', function () {
 
+    beforeEach(module('horizon.dashboard-app'));
     beforeEach(function () {
-      angular.mock.module('hz.conf');
-      angular.mock.module('hz.utils.hzUtils');
+      angular.mock.module('horizon.dashboard-app.utils');
     });
 
-    describe('hz.utils.hzUtils.service', function () {
+    describe('horizon.dashboard-app.utils.helper-functions', function () {
       var hzUtils;
-
       beforeEach(function () {
         angular.mock.inject(function ($injector) {
-          hzUtils = $injector.get('hz.utils.hzUtils.service');
+          hzUtils = $injector.get('horizon.dashboard-app.utils.helper-functions');
         });
       });
 
@@ -24,7 +23,7 @@ describe('hz.utils', function () {
           log = 'display a log';
           angular.mock.inject(function ($injector) {
             $log = $injector.get('$log');
-            hzConfig = $injector.get('hz.conf.hzConfig');
+            hzConfig = $injector.get('horizon.dashboard-app.conf');
             //jasmine cannot mock properties
             hzConfig.debug = true;
           });

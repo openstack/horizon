@@ -1,5 +1,5 @@
 (function () {
   'use strict';
-  angular.module('hz')
+  angular.module('horizon.dashboard-app')
     .controller('DummyCtrl', function () {});
 }());

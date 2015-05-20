@@ -93,7 +93,6 @@
       var $scope, $element;
 
       beforeEach(module('templates'));
-      beforeEach(module('hz'));
       beforeEach(module('horizon.framework.widgets'));
       beforeEach(module('horizon.framework.widgets.metadata-tree'));
       beforeEach(module('horizon.framework.widgets.metadata-display'));

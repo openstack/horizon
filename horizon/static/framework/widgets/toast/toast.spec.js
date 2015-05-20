@@ -33,7 +33,6 @@
     var infoMsg = "I am info.";
 
     beforeEach(module('templates'));
-    beforeEach(module('hz'));
     beforeEach(module('horizon.framework.widgets'));
     beforeEach(module('horizon.framework.widgets.toast'));
     beforeEach(inject(function ($injector) {
@@ -108,7 +107,6 @@
     }
 
     beforeEach(module('templates'));
-    beforeEach(module('hz'));
     beforeEach(module('horizon.framework.widgets'));
     beforeEach(module('horizon.framework.widgets.toast'));
     beforeEach(inject(function ($injector) {

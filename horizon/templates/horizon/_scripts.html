@@ -14,12 +14,15 @@
 <script src="{{ STATIC_URL }}horizon/lib/angular/lrdragndrop.js"></script>
 <script src="{{ STATIC_URL }}horizon/lib/angular/smart-table.js"></script>
 
-<script src='{{ STATIC_URL }}horizon/js/angular/controllers/namespace-controller.js'></script>
-<script src='{{ STATIC_URL }}horizon/js/angular/controllers/dummy.js'></script>
-<script src='{{ STATIC_URL }}horizon/js/angular/controllers/modal-form-update-metadata-ctrl.js'></script>
+<script src="{{ STATIC_URL }}dashboard-app/login/login.js"></script>
+<script src='{{ STATIC_URL }}dashboard-app/utils/utils.module.js'></script>
+<script src='{{ STATIC_URL }}dashboard-app/utils/helper-functions.js'></script>
+<script src='{{ STATIC_URL }}dashboard-app/utils/image-file-on-change.js'></script>
 
-<script src='{{ STATIC_URL }}horizon/js/angular/horizon.conf.js'></script>
-<script src='{{ STATIC_URL }}horizon/js/angular/services/horizon.utils.js'></script>
+<script src='{{ STATIC_URL }}dashboard-app/controllers/namespace-controller.js'></script>
+<script src='{{ STATIC_URL }}dashboard-app/controllers/dummy.js'></script>
+<script src='{{ STATIC_URL }}dashboard-app/controllers/modal-form-update-metadata-ctrl.js'></script>
+
 <script src='{{ STATIC_URL }}horizon/js/angular/hz.api.module.js'></script>
 <script src='{{ STATIC_URL }}horizon/js/angular/services/hz.api.cinder.js'></script>
 <script src='{{ STATIC_URL }}horizon/js/angular/services/hz.api.common.js'></script>
@@ -34,6 +37,8 @@
 <script src="{{ STATIC_URL }}horizon/lib/d3.js"></script>
 
 <script src='{{ STATIC_URL }}framework/framework.module.js'></script>
+
+<script src='{{ STATIC_URL }}framework/conf/conf.js'></script>
 
 <script src='{{ STATIC_URL }}framework/util/util.module.js'></script>
 <script src='{{ STATIC_URL }}framework/util/bind-scope/bind-scope.js'></script>
@@ -50,7 +55,6 @@
 <script src='{{ STATIC_URL }}framework/widgets/action-list/button-tooltip.js'></script>
 <script src='{{ STATIC_URL }}framework/widgets/table/table.js'></script>
 <script src='{{ STATIC_URL }}framework/widgets/table/basic-table.js'></script>
-<script src="{{ STATIC_URL }}framework/widgets/login/login.js"></script>
 <script src='{{ STATIC_URL }}framework/widgets/modal/modal.js'></script>
 <script src='{{ STATIC_URL }}framework/widgets/modal-wait-spinner/modal-wait-spinner.js'></script>
 <script src='{{ STATIC_URL }}framework/widgets/transfer-table/transfer-table.js'></script>
@@ -103,8 +107,6 @@
 <script src='{{ STATIC_URL }}horizon/js/horizon.d3barchart.js'></script>
 <script src='{{ STATIC_URL }}horizon/js/horizon.firewalls.js'></script>
 <script src='{{ STATIC_URL }}horizon/lib/jsencrypt/jsencrypt.js'></script>
-
-<script src='{{ STATIC_URL }}horizon/js/horizon.images.js'></script>
 
 {% for file in HORIZON_CONFIG.js_files %}
     <script src='{{ STATIC_URL }}{{ file }}'></script>

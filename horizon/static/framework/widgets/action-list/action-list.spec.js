@@ -10,7 +10,6 @@
   describe('action-list directive', function() {
 
     beforeEach(module('templates'));
-    beforeEach(module('hz'));
     beforeEach(module('horizon.framework.widgets'));
     beforeEach(module('horizon.framework.widgets.action-list'));
 

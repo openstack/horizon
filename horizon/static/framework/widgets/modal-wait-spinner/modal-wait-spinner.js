@@ -87,7 +87,9 @@
       }
     ])
 
-    .directive('waitSpinner', function () {
+    .directive('waitSpinner', [
+      'horizon.framework.conf.spinner_options',
+      function (spinner_options) {
 
       return {
         scope:    {
@@ -99,7 +101,7 @@
       };
 
       function link($scope, element) {
-        element.spin(horizon.conf.spinner_options.modal);
+        element.spin(spinner_options.modal);
         /*
          At the time link is executed, element may not have been sized by the browser.
          Spin.js may mistakenly places the spinner at 50% of 0 (left:0, top:0). To work around
@@ -108,5 +110,5 @@
          */
         element.find('.spinner').css({'left': '50%', 'top': '50%'});
       }
-    });
+    }]);
 })();

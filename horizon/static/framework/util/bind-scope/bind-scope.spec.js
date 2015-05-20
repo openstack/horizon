@@ -11,7 +11,7 @@
 
     var $scope, $element;
 
-    beforeEach(module('hz'));
+    beforeEach(module('horizon.framework'));
     beforeEach(module('horizon.framework.widgets'));
     beforeEach(module('horizon.framework.util.bind-scope'));
 

@@ -16,7 +16,7 @@
 (function() {
   'use strict';
 
-  angular.module('hz')
+  angular.module('horizon.dashboard-app.login', [])
 
     /**
      * @ngdoc hzLoginCtrl
