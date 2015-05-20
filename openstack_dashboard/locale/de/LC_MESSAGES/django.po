@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-18 12:47-0500\n"
-"PO-Revision-Date: 2015-05-18 09:12+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-05-19 06:10-0500\n"
+"PO-Revision-Date: 2015-05-19 11:54+0000\n"
+"Last-Translator: Robert Simai\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/"
 "de/)\n"
 "MIME-Version: 1.0\n"
@@ -223,6 +223,9 @@ msgstr "Sensor aktuelle Ablesung"
 msgid "Sensor Voltage Reading"
 msgstr "Sensor Spannungsablesung"
 
+msgid "System Temperature Reading"
+msgstr "Systemtemperatur Ablesung"
+
 msgid "System Outlet Temperature Reading"
 msgstr "System Auslass Temperaturablesung"
 
@@ -282,6 +285,12 @@ msgstr "Subnetz für den Pool %(pool)s kann nicht abgerufen werden."
 #, python-format
 msgid "Unable to get members for pool %(pool)s."
 msgstr "Mitglieder des Pools %(pool)s können nicht abgerufen werden."
+
+#, python-format
+msgid "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
+msgstr ""
+"Gesundheitsmonitor %(monitor_id)s für Pool %(pool)s kann nicht abgerufen "
+"werden."
 
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
@@ -5232,6 +5241,12 @@ msgstr "Mains"
 msgid "Libs"
 msgstr "Libs"
 
+msgid "Created time"
+msgstr "Erstellungszeit"
+
+msgid "Updated time"
+msgstr "Aktualisierte Zeit"
+
 msgid "Never"
 msgstr "Niemals"
 
@@ -8697,6 +8712,19 @@ msgid "Monitor Details"
 msgstr "Monitor-Details"
 
 msgid ""
+"\n"
+"  Assign a name and description for the pool. Choose one subnet where all\n"
+"  members of this pool must be on. Select the protocol and load balancing\n"
+"  method for this pool. Admin State is UP (checked) by default.\n"
+"  "
+msgstr ""
+"\n"
+"Fügen Sie einen Namen und eine Beschreibung für den Pool hinzu. Wählen Sie "
+"ein Subnetz, in dem sich alle Mitglieder des Pools befinden. Wählen Sie das "
+"Protokoll und die Lastverteilungsmethode für diesen Pool. Als Admin State "
+"ist UP vorausgewählt (markiert)."
+
+msgid ""
 "Use one of these load balancing methods to distribute incoming requests:"
 msgstr ""
 "Verwende einer dieser Methoden zur Lastverteilung um eingehende Anfragen zu "
@@ -8704,6 +8732,26 @@ msgstr ""
 
 msgid "Round robin"
 msgstr "Rundlauf-Verfahren"
+
+msgid "Rotates requests evenly between multiple instances."
+msgstr "Verteilt Anfragen gleichmäßig auf multiple Instanzen."
+
+msgid ""
+"Requests from a unique source IP address are consistently\n"
+"          directed to the same instance."
+msgstr ""
+"Anfragen von einer eindeutigen Quell-IP-Adresse werden konsequent an die "
+"selbe Instanz geleitet."
+
+msgid "Least connections"
+msgstr "Geringste Anzahl Verbindungen"
+
+msgid ""
+"Allocates requests to the instance with the least number of\n"
+"          active connections."
+msgstr ""
+"Zuweisen von Anfragen an die Instanz mit der geringsten Anzahl von aktiven "
+"Verbindungen."
 
 msgid "Address"
 msgstr "Adresse"

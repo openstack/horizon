@@ -4,14 +4,15 @@
 #
 # Translators:
 # myamamot <myamamot@redhat.com>, 2015
+# naoki yoshida <oimotanaka1122@gmail.com>, 2015
 # Tom Fifield <tom@openstack.org>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-05-07 18:03+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-05-19 06:10-0500\n"
+"PO-Revision-Date: 2015-05-19 08:36+0000\n"
+"Last-Translator: naoki yoshida <oimotanaka1122@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/"
 "language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -26,11 +27,20 @@ msgid ""
 msgstr ""
 "操作を実行できません。この行の内容にエラーがあるか、情報が見つかりません。"
 
+msgid "Current Usage"
+msgstr "現在の使用状況"
+
 msgid "Added"
 msgstr "追加しました"
 
+msgid "Remaining"
+msgstr "残り"
+
 msgid "Max"
 msgstr "最大値"
+
+msgid "Total"
+msgstr "総計"
 
 msgid "Detail Information"
 msgstr "詳細情報"

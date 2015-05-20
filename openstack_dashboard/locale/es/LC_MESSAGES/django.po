@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-18 12:47-0500\n"
-"PO-Revision-Date: 2015-05-18 09:12+0000\n"
+"POT-Creation-Date: 2015-05-19 06:10-0500\n"
+"PO-Revision-Date: 2015-05-19 21:22+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/"
 "es/)\n"
@@ -9068,6 +9068,9 @@ msgstr "ID de pila"
 msgid "Stack Name"
 msgstr "Nombre de la pila"
 
+msgid "Preview Template"
+msgstr "Previsualizar Plantilla"
+
 msgid "Create Stack"
 msgstr "Crear pila"
 
@@ -9145,6 +9148,9 @@ msgstr "No es posible recuperar detalles del tipo de recurso."
 
 msgid "Launch Stack"
 msgstr "Lanzar pila"
+
+msgid "Preview Stack"
+msgstr "Previsualizar Pila"
 
 msgid "Change Stack Template"
 msgstr "Cambiar plantilla de la pila"
