@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-19 06:10-0500\n"
-"PO-Revision-Date: 2015-05-19 21:22+0000\n"
+"PO-Revision-Date: 2015-05-20 15:55+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/"
 "es/)\n"
@@ -6093,6 +6093,21 @@ msgstr "Añadir Routers"
 
 msgid "Add selected router(s) to the firewall."
 msgstr "Añade el/los router(s) seleccionados al cortafuegos."
+
+#, python-format
+msgid "Router(s) was/were successfully added to firewall %(firewall)s."
+msgstr ""
+"El/los enrutador(es) fue/fueron añadidos satisfactoriamente al cortafuegos "
+"%(firewall)s."
+
+#, python-format
+msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
+msgstr ""
+"Falló el añadir el/los enrutador(es) al cortafuegos %(name)s: %(reason)s"
+
+#, python-format
+msgid "Failed to retrieve available routers: %(reason)s"
+msgstr "Fallo al obtener los enrutadores disponibles: %(reason)s"
 
 msgid "Remove Routers"
 msgstr "Quitar Routers"

@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Andre Campos Bezerra <andrecbezerra@gmail.com>, 2015
 # Fernando Pimenta <fernando.c.pimenta@gmail.com>, 2015
 # Gabriel Wainer, 2015
 # maurosr <maurosmrodrigues@gmail.com>, 2015
@@ -11,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-05-07 18:03+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-05-19 06:10-0500\n"
+"PO-Revision-Date: 2015-05-21 04:58+0000\n"
+"Last-Translator: Andre Campos Bezerra <andrecbezerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
 "horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -29,11 +30,20 @@ msgstr ""
 "A ação não pôde ser executada. O conteúdo desta linha possui erros ou "
 "informações indisponíveis"
 
+msgid "Current Usage"
+msgstr "Uso atual"
+
 msgid "Added"
 msgstr "Adicionado"
 
+msgid "Remaining"
+msgstr "Restante"
+
 msgid "Max"
 msgstr "Máx."
+
+msgid "Total"
+msgstr "Total"
 
 msgid "Detail Information"
 msgstr "Informações delhadas"
