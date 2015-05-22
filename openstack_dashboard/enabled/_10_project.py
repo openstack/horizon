@@ -39,6 +39,9 @@ ADD_JS_FILES = [
     LAUNCH_INST + 'keypair/keypair.js',
     LAUNCH_INST + 'configuration/configuration.js',
     LAUNCH_INST + 'configuration/load-edit.js',
+
+    'dashboard/tech-debt/tech-debt.module.js',
+    'dashboard/tech-debt/image-form-controller.js',
 ]
 
 ADD_JS_SPEC_FILES = [

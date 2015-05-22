@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  angular.module('horizon.dashboard-app')
+  angular.module('hz.dashboard.tech-debt')
     .controller('hzNamespaceResourceTypeFormController', function($scope, $window) {
       $scope.resource_types = $window.resource_types;
 

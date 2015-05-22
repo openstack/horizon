@@ -116,7 +116,10 @@ def update_dashboards(modules, horizon_config, installed_apps):
                                              + exc_list))
 
         angular_modules.extend(config.get('ADD_ANGULAR_MODULES', []))
-        js_files.extend(config.get('ADD_JS_FILES', []))
+        # avoid pulling in dashboard javascript dependencies multiple times
+        existing = set(js_files)
+        js_files.extend([f for f in config.get('ADD_JS_FILES', [])
+                         if f not in existing])
         js_spec_files.extend(config.get('ADD_JS_SPEC_FILES', []))
         update_horizon_config.update(
             config.get('UPDATE_HORIZON_CONFIG', {}))
