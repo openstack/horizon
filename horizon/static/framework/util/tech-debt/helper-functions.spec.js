@@ -1,18 +1,17 @@
-/*global describe, it, expect, beforeEach, spyOn, angular*/
-describe('horizon.dashboard-app.utils', function () {
+describe('horizon.framework.util.tech-debt', function () {
   'use strict';
-  describe('horizon.dashboard-app.utils.helper-functions', function () {
+  describe('horizon.framework.util.tech-debt.helper-functions', function () {
 
     beforeEach(module('horizon.dashboard-app'));
     beforeEach(function () {
-      angular.mock.module('horizon.dashboard-app.utils');
+      angular.mock.module('horizon.framework.util.tech-debt');
     });
 
-    describe('horizon.dashboard-app.utils.helper-functions', function () {
+    describe('horizon.framework.util.tech-debt.helper-functions', function () {
       var hzUtils;
       beforeEach(function () {
         angular.mock.inject(function ($injector) {
-          hzUtils = $injector.get('horizon.dashboard-app.utils.helper-functions');
+          hzUtils = $injector.get('horizon.framework.util.tech-debt.helper-functions');
         });
       });
 

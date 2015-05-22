@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  angular.module('horizon.dashboard-app.utils')
+  angular.module('horizon.framework.util.tech-debt')
 
   .directive('imageFileOnChange', function () {
     return {

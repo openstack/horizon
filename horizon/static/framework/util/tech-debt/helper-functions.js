@@ -1,9 +1,8 @@
-/*global angular*/
 (function () {
   'use strict';
 
-  angular.module('horizon.dashboard-app.utils')
-    .service('horizon.dashboard-app.utils.helper-functions', utils);
+  angular.module('horizon.framework.util.tech-debt')
+    .service('horizon.framework.util.tech-debt.helper-functions', utils);
 
   // An example of using the John Papa recommended $inject instead of in-line
   // array syntax
@@ -12,6 +11,7 @@
       '$log',
       '$rootScope',
       '$compile'];
+
   function utils(hzConfig, $log, $rootScope, $compile) {
     return {
       /*
