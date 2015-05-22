@@ -66,9 +66,6 @@ module.exports = function(config) {
 
       // from jasmine_tests.py; only those that are deps for others
       'horizon/js/horizon.js',
-      '../../openstack_dashboard/static/openstack-service-api/openstack-service-api.module.js',
-      'dashboard-app/dashboard-app.module.js',
-      'dashboard-app/**/*.js',
       'auth/auth.module.js',
       'auth/login/login.module.js',
       'framework/framework.module.js',

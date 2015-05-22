@@ -71,7 +71,8 @@ module.exports = function(config) {
       'openstack-service-api/openstack-service-api.module.js',
       'openstack-service-api/**/*.js',
 
-      // This one seems to have to come first.
+      // first load dependencies in order that matters
+      "app/app.module.js",
       "dashboard/dashboard.module.js",
       "dashboard/workflow/workflow.js",
       "dashboard/launch-instance/launch-instance.js",

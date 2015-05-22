@@ -32,8 +32,6 @@ class ServicesTests(test.JasmineTests):
         'auth/login/login.controller.js',
         'auth/login/login-finder.directive.js',
 
-        'dashboard-app/dashboard-app.module.js',
-
         'framework/framework.module.js',
 
         'framework/conf/conf.js',
