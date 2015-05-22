@@ -16,18 +16,7 @@
 (function() {
   'use strict';
 
-  angular.module('horizon.dashboard-app.login', [])
-
-    /**
-     * @ngdoc hzLoginCtrl
-     * @description
-     * controller for determining which
-     * authentication method user picked.
-     */
-    .controller('hzLoginCtrl', function($scope) {
-      $scope.auth_type = 'credentials';
-    })
-
+  angular.module('horizon.auth.login')
     /**
      * @ngdoc hzLoginFinder
      * @description
