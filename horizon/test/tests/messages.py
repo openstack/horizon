@@ -38,7 +38,7 @@ class MessageTests(test.TestCase):
         self.assertEqual(json.dumps([expected]),
                          res['X-Horizon-Messages'])
 
-    def test_safe_message(self):
+    def test_error_message(self):
         req = self.request
         string = mark_safe("We are now safe from ants! Go <a>here</a>!")
         expected = ["error", force_text(string), " safe"]
