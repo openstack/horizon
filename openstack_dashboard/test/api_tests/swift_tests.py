@@ -184,16 +184,18 @@ class SwiftApiTests(test.APITestCase):
         headers = {'X-Object-Meta-Orig-Filename': fake_name}
 
         swift_api = self.stub_swiftclient()
+        test_file = FakeFile()
         swift_api.put_object(container.name,
                              obj.name,
                              IsA(FakeFile),
+                             content_length=test_file.size,
                              headers=headers)
         self.mox.ReplayAll()
 
         api.swift.swift_upload_object(self.request,
                                       container.name,
                                       obj.name,
-                                      FakeFile())
+                                      test_file)
 
     def test_swift_upload_object_without_file(self):
         container = self.containers.first()
@@ -203,6 +205,7 @@ class SwiftApiTests(test.APITestCase):
         swift_api.put_object(container.name,
                              obj.name,
                              None,
+                             content_length=0,
                              headers={})
         self.mox.ReplayAll()
 
