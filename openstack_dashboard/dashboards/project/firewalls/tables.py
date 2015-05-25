@@ -192,6 +192,11 @@ class RemoveRuleFromPolicyLink(policy.PolicyTargetMixin,
                            kwargs={'policy_id': policy.id})
         return base_url
 
+    def allowed(self, request, policy):
+        if len(policy.rules) > 0:
+            return True
+        return False
+
 
 class AddRouterToFirewallLink(policy.PolicyTargetMixin,
                               tables.LinkAction):
