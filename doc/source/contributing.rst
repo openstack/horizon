@@ -394,57 +394,42 @@ required and recommended sections.
 Required
 ~~~~~~~~
 
-* Organization: Define your Angular app under the root Angular folder (such
-  as ``horizon/static/horizon/js/angular/hz.table.js``).
-
-  * Controllers and Services should not contain DOM references. Directives
-    should.
-  * Services are singletons and contain logic independent of view.
 * Scope is not the model (model is your JavaScript Objects). The scope
   references the model. Use isolate scopes wherever possible.
 
   * https://github.com/angular/angular.js/wiki/Understanding-Scopes
   * Read-only in templates.
   * Write-only in controllers.
+
 * Since Django already uses ``{{ }}``, use ``{$ $}`` or ``{% verbatim %}``
   instead.
-* For localization in Angular files, use the Angular service horizon.framework.util.i18n.gettext.
-  For regular Javascript files, use either ``gettext`` or ``ngettext``.
-  Only those two methods are recognized by our tools and will be included in
-  the .po file after running ``./run_tests --makemessages``.
+
+* For localization in Angular files, use the Angular service
+  horizon.framework.util.i18n.gettext. Ensure that the injected dependency
+  is named ``gettext``. For regular Javascript files, use either ``gettext`` or
+  ``ngettext``. Only those two methods are recognized by our tools and will be
+  included in the .po file after running ``./run_tests --makemessages``.
 
   .. code ::
 
-     // Angular
-     angular.module('horizon.framework.widgets.modal', ['ui.bootstrap', 'horizon.framework.util.i18n'])
-      .factory('horizon.framework.widgets.modal.service', ['$modal', 'basePath', 'horizon.framework.util.i18n.gettext',
-         function($modal, path, gettext) { gettext('translatable text'); };
+    // Angular
+    angular.module('myModule')
+      .factory('myFactory', myFactory);
 
-    // recognized
+    myFactory.$inject = ['horizon.framework.util.i18n.gettext'];
+    function myFactory(gettext) {
+      gettext('translatable text');
+    }
+
+    // Javascript
     gettext("translatable text");
     ngettext("translatable text");
 
-    // not recognized
+    // Not valid
     var _ = gettext;
     _('translatable text');
 
     $window.gettext('translatable text');
-
-Recommended
-~~~~~~~~~~~
-
-* Put "Ctrl" on the end of a controller file name.
-* Don't use variables like "app" that are at the highest level in the file,
-  when Angular gives an alternative. For example use function chaining:
-
-  .. code ::
-
-    angular.module('my_module')
-       .controller('my_controller', ['$scope', function($scope) {
-      // controller code
-    }]).service('my_module.my_service', ['$scope', function($scope) {
-      // service code
-    }]);
 
 
 JSHint
