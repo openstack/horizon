@@ -18,12 +18,12 @@
 
   /**
    * @ngdoc overview
-   * @name hz.filters
+   * @name horizon.framework.util.filters
    * @description
-   * hz.filters provides common filters to be used within Horizon.
+   * horizon.framework.util.filters provides common filters to be used within Horizon.
    *
    */
-  angular.module('hz.filters', ['horizon.framework.util.i18n'])
+  angular.module('horizon.framework.util.filters', ['horizon.framework.util.i18n'])
 
     /**
      * @ngdoc filter

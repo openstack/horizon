@@ -1,8 +1,8 @@
-describe('hz.filters', function () {
+describe('horizon.framework.util.filters', function () {
   'use strict';
 
    beforeEach(module('horizon.framework.util.i18n'));
-   beforeEach(module('hz.filters'));
+   beforeEach(module('horizon.framework.util.filters'));
 
    describe('yesno', function() {
 
