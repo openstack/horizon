@@ -492,12 +492,13 @@ class AddMonitorAction(workflows.Action):
         min_value=1,
         label=_("Delay"),
         help_text=_("The minimum time in seconds between regular checks "
-                    "of a member"))
+                    "of a member. It must be greater than or equal to "
+                    "timeout"))
     timeout = forms.IntegerField(
         min_value=1,
         label=_("Timeout"),
         help_text=_("The maximum time in seconds for a monitor to wait "
-                    "for a reply"))
+                    "for a reply. It must be less than or equal to delay"))
     max_retries = forms.IntegerField(
         max_value=10, min_value=1,
         label=_("Max Retries (1~10)"),
