@@ -22,6 +22,7 @@ Views for managing images.
 from django.conf import settings
 from django.forms import ValidationError  # noqa
 from django.forms.widgets import HiddenInput  # noqa
+from django.template import defaultfilters
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -73,6 +74,18 @@ class CreateImageForm(forms.SelfHandlingForm):
                                      'selectImageFormat(imageFile.name)',
                                      'image-file-on-change': None}),
                                  required=False)
+    kernel = forms.ChoiceField(
+        label=_('Kernel'),
+        required=False,
+        widget=forms.SelectWidget(
+            transform=lambda x: "%s (%s)" % (
+                x.name, defaultfilters.filesizeformat(x.size))))
+    ramdisk = forms.ChoiceField(
+        label=_('Ramdisk'),
+        required=False,
+        widget=forms.SelectWidget(
+            transform=lambda x: "%s (%s)" % (
+                x.name, defaultfilters.filesizeformat(x.size))))
     disk_format = forms.ChoiceField(label=_('Format'),
                                     choices=[],
                                     widget=forms.Select(attrs={
@@ -106,6 +119,7 @@ class CreateImageForm(forms.SelfHandlingForm):
 
     def __init__(self, request, *args, **kwargs):
         super(CreateImageForm, self).__init__(request, *args, **kwargs)
+
         if (not settings.HORIZON_IMAGES_ALLOW_UPLOAD or
                 not policy.check((("image", "upload_image"),), request)):
             self._hide_file_source_type()
@@ -113,7 +127,40 @@ class CreateImageForm(forms.SelfHandlingForm):
             self._hide_url_source_type()
         if not policy.check((("image", "publicize_image"),), request):
             self._hide_is_public()
+
         self.fields['disk_format'].choices = IMAGE_FORMAT_CHOICES
+
+        try:
+            kernel_images = api.glance.image_list_detailed(
+                request, filters={'disk_format': 'aki'})[0]
+        except Exception:
+            kernel_images = []
+            msg = _('Unable to retrieve image list.')
+            messages.error(request, msg)
+
+        if kernel_images:
+            choices = [('', _("Choose an image"))]
+            for image in kernel_images:
+                choices.append((image.id, image))
+            self.fields['kernel'].choices = choices
+        else:
+            del self.fields['kernel']
+
+        try:
+            ramdisk_images = api.glance.image_list_detailed(
+                request, filters={'disk_format': 'ari'})[0]
+        except Exception:
+            ramdisk_images = []
+            msg = _('Unable to retrieve image list.')
+            messages.error(request, msg)
+
+        if ramdisk_images:
+            choices = [('', _("Choose an image"))]
+            for image in ramdisk_images:
+                choices.append((image.id, image))
+            self.fields['ramdisk'].choices = choices
+        else:
+            del self.fields['ramdisk']
 
     def _hide_file_source_type(self):
         self.fields['image_file'].widget = HiddenInput()
@@ -174,7 +221,11 @@ class CreateImageForm(forms.SelfHandlingForm):
 
         if data['description']:
             meta['properties']['description'] = data['description']
-        if data['architecture']:
+        if data.get('kernel'):
+            meta['properties']['kernel_id'] = data['kernel']
+        if data.get('ramdisk'):
+            meta['properties']['ramdisk_id'] = data['ramdisk']
+        if data.get('architecture'):
             meta['properties']['architecture'] = data['architecture']
         if (settings.HORIZON_IMAGES_ALLOW_UPLOAD and
                 policy.check((("image", "upload_image"),), request) and
@@ -276,11 +327,11 @@ class UpdateImageForm(forms.SelfHandlingForm):
                 'min_ram': (data['minimum_ram'] or 0),
                 'min_disk': (data['minimum_disk'] or 0),
                 'properties': {'description': data['description']}}
-        if data['kernel']:
+        if data.get('kernel'):
             meta['properties']['kernel_id'] = data['kernel']
-        if data['ramdisk']:
+        if data.get('ramdisk'):
             meta['properties']['ramdisk_id'] = data['ramdisk']
-        if data['architecture']:
+        if data.get('architecture'):
             meta['properties']['architecture'] = data['architecture']
         # Ensure we do not delete properties that have already been
         # set on an image.
