@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  angular.module('hz')
+  angular.module('horizon.dashboard-app')
     .controller('hzModalFormUpdateMetadataCtrl', [
       '$scope', '$window',
       function ($scope, $window) {

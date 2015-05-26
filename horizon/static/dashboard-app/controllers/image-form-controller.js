@@ -1,6 +1,7 @@
 (function () {
   'use strict';
-  angular.module('hz')
+
+  angular.module('horizon.dashboard-app')
   .controller('ImageFormCtrl', ['$scope', function ($scope) {
     $scope.selectImageFormat = function (path) {
       if (!path) { return; }
@@ -12,18 +13,6 @@
         $scope.diskFormat = "";
       }
     };
-  }])
-  .directive('imageFileOnChange', function () {
-    return {
-      require: 'ngModel',
-      restrict: 'A',
-      link: function ($scope, element, attrs, ngModel) {
-        element.bind('change', function (event) {
-          var files = event.target.files, file = files[0];
-          ngModel.$setViewValue(file);
-          $scope.$apply();
-        });
-      }
-    };
-  });
+  }]);
+
 }());

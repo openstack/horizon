@@ -14,7 +14,7 @@
         donutChartSettings, quotaChartDefaults;
 
     beforeEach(module('templates'));
-    beforeEach(module('hz'));
+    beforeEach(module('horizon.framework'));
     beforeEach(module('horizon.framework.widgets'));
     beforeEach(module('horizon.framework.widgets.charts'));
 

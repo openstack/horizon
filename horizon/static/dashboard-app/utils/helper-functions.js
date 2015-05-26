@@ -1,6 +1,17 @@
 /*global angular*/
 (function () {
   'use strict';
+
+  angular.module('horizon.dashboard-app.utils')
+    .service('horizon.dashboard-app.utils.helper-functions', utils);
+
+  // An example of using the John Papa recommended $inject instead of in-line
+  // array syntax
+  utils.$inject = [
+      'horizon.dashboard-app.conf',
+      '$log',
+      '$rootScope',
+      '$compile'];
   function utils(hzConfig, $log, $rootScope, $compile) {
     return {
       /*
@@ -59,8 +70,4 @@
 
     };
   }
-  angular.module('hz.utils.hzUtils', ['hz.conf'])
-    .service('hz.utils.hzUtils.service', ['hz.conf.hzConfig', '$log', '$rootScope', '$compile', utils]);
-
-  angular.module('hz.utils', ['hz.utils.hzUtils']);
 }());

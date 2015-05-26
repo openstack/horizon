@@ -17,14 +17,19 @@ from horizon.test import helpers as test
 class ServicesTests(test.JasmineTests):
     sources = [
         'horizon/js/horizon.js',
-        'horizon/js/angular/horizon.conf.js',
-        'horizon/js/angular/horizon.js',
-        'horizon/js/angular/services/horizon.utils.js',
         'horizon/js/angular/hz.api.module.js',
         'horizon/js/angular/services/hz.api.common.js',
         'horizon/js/angular/services/hz.api.config.js',
 
+        'dashboard-app/dashboard-app.module.js',
+        'dashboard-app/login/login.js',
+        'dashboard-app/utils/utils.module.js',
+        'dashboard-app/utils/helper-functions.js',
+        'dashboard-app/utils/image-file-on-change.js',
+
         'framework/framework.module.js',
+
+        'framework/conf/conf.js',
 
         'framework/util/util.module.js',
         'framework/util/bind-scope/bind-scope.js',
@@ -41,7 +46,6 @@ class ServicesTests(test.JasmineTests):
         'framework/widgets/charts/chart-tooltip.js',
         'framework/widgets/charts/pie-chart.js',
         'framework/widgets/help-panel/help-panel.js',
-        'framework/widgets/login/login.js',
         'framework/widgets/metadata-tree/metadata-tree.js',
         'framework/widgets/metadata-tree/metadata-tree-service.js',
         'framework/widgets/modal/modal.js',
@@ -52,12 +56,13 @@ class ServicesTests(test.JasmineTests):
         'framework/widgets/wizard/wizard.js',
         'framework/widgets/metadata-display/metadata-display.js',
         'framework/widgets/toast/toast.js',
-        'horizon/js/angular/filters/filters.js',
     ]
     specs = [
         'horizon/js/angular/services/hz.api.common.spec.js',
         'horizon/js/angular/services/hz.api.config.spec.js',
-        'horizon/tests/jasmine/utils.spec.js',
+
+        'dashboard-app/login/login.spec.js',
+        'dashboard-app/utils/helper-functions.spec.js',
 
         'framework/util/bind-scope/bind-scope.spec.js',
         'framework/util/filters/filters.spec.js',
@@ -69,7 +74,6 @@ class ServicesTests(test.JasmineTests):
         'framework/widgets/action-list/action-list.spec.js',
         'framework/widgets/charts/pie-chart.spec.js',
         'framework/widgets/help-panel/help-panel.spec.js',
-        'framework/widgets/login/login.spec.js',
         'framework/widgets/modal/modal.spec.js',
         'framework/widgets/modal-wait-spinner/modal-wait-spinner.spec.js',
         'framework/widgets/table/table.spec.js',
@@ -79,7 +83,6 @@ class ServicesTests(test.JasmineTests):
         'framework/widgets/metadata-tree/metadata-tree.spec.js',
         'framework/widgets/metadata-display/metadata-display.spec.js',
         'framework/widgets/toast/toast.spec.js',
-        'horizon/js/angular/filters/filters.spec.js',
     ]
     externalTemplates = [
         'framework/widgets/action-list/action.html',

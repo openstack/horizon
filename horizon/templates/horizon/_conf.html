@@ -23,7 +23,7 @@
 </script>
 
 {% compress js %}
-<script src='{{ STATIC_URL }}horizon/js/angular/horizon.js' type='text/javascript' charset='utf-8'></script>
+<script src='{{ STATIC_URL }}dashboard-app/dashboard-app.module.js' type='text/javascript' charset='utf-8'></script>
 {% endcompress %}
 
 <script type='text/javascript' charset='utf-8'>
@@ -31,8 +31,8 @@
  * should be aware of.
  */
 
-angular.module('hz')
-  .config(['hz.conf.hzConfig', function (hzConfig) {
+angular.module('horizon.dashboard-app')
+  .config(['horizon.dashboard-app.conf', function (hzConfig) {
     hzConfig.debug = {{ debug|yesno:"true,false" }};
     hzConfig.static_url = "{{ STATIC_URL }}";
     hzConfig.ajax = {

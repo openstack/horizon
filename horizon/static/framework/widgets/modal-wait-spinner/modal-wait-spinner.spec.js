@@ -19,7 +19,7 @@
   describe('Wait Spinner Tests', function() {
 
     var service, modal;
-
+    beforeEach(module('horizon.framework.conf'));
     beforeEach(module('horizon.framework.widgets.modal-wait-spinner'));
 
     beforeEach(inject(function($injector, $modal) {
@@ -74,6 +74,7 @@
     var $scope, $element, $timeout;
 
     beforeEach(module('ui.bootstrap'));
+    beforeEach(module('horizon.framework.conf'));
     beforeEach(module('horizon.framework.widgets.modal-wait-spinner'));
 
     beforeEach(inject(function($injector) {
