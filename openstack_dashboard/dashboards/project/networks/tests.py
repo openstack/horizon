@@ -1412,11 +1412,15 @@ class NetworkSubnetTests(test.TestCase):
             .AndReturn(subnet)
         api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
             .AndReturn(subnet)
+        start = subnet.allocation_pools[0]['start']
+        end = subnet.allocation_pools[0]['end']
         api.neutron.subnet_update(IsA(http.HttpRequest), subnet.id,
                                   name=subnet.name,
                                   enable_dhcp=False,
                                   dns_nameservers=subnet.dns_nameservers,
-                                  host_routes=subnet.host_routes)\
+                                  host_routes=subnet.host_routes,
+                                  allocation_pools=[{'start': start,
+                                                     'end': end}])\
             .AndReturn(subnet)
         self.mox.ReplayAll()
 
