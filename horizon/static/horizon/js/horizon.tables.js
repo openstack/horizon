@@ -454,7 +454,8 @@ horizon.datatables.set_table_sorting = function (parent) {
         headers: header_options,
         widgets: ['zebra'],
         selectorHeaders: "thead th[class!='table_header']",
-        cancelSelection: false
+        cancelSelection: false,
+        emptyTo: 'none'
       });
     }
   });
