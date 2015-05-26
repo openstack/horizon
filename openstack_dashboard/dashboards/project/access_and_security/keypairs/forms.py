@@ -18,6 +18,7 @@
 
 import re
 
+from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -43,6 +44,18 @@ class CreateKeypair(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         return True  # We just redirect to the download view.
+
+    def clean(self):
+        cleaned_data = super(CreateKeypair, self).clean()
+        name = cleaned_data.get('name')
+        try:
+            keypairs = api.nova.keypair_list(self.request)
+        except Exception:
+            exceptions.handle(self.request, ignore=True)
+            keypairs = []
+        if name in [keypair.name for keypair in keypairs]:
+            raise ValidationError(_('The name is already in use.'))
+        return cleaned_data
 
 
 class ImportKeypair(forms.SelfHandlingForm):
