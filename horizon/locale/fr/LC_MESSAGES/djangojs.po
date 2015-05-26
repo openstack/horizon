@@ -17,9 +17,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-05-07 18:03+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-05-19 06:10-0500\n"
+"PO-Revision-Date: 2015-05-26 00:20+0000\n"
+"Last-Translator: Maxime COQUEREL <max.coquerel@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/"
 "fr/)\n"
 "MIME-Version: 1.0\n"
@@ -35,11 +35,20 @@ msgstr ""
 "L'action n'a pas pu être effectuée. Le contenu de cette ligne contient des "
 "erreurs ou des informations manquantes."
 
+msgid "Current Usage"
+msgstr "Utilisation actuelle"
+
 msgid "Added"
 msgstr "Ajouté"
 
+msgid "Remaining"
+msgstr "Restant"
+
 msgid "Max"
 msgstr "Max"
+
+msgid "Total"
+msgstr "Total"
 
 msgid "Detail Information"
 msgstr "Informations détaillées"
