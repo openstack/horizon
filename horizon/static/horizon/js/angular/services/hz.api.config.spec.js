@@ -17,7 +17,7 @@
 (function () {
   'use strict';
 
-  describe('settingsService', function () {
+  describe('hz.api.settingsService', function () {
     var settingsService,
       $httpBackend,
       responseMockOpts = {succeed: true},
@@ -30,9 +30,9 @@
       };
 
     beforeEach(module('hz.api'));
-    beforeEach(inject(function (_$httpBackend_, _settingsService_) {
+    beforeEach(inject(function (_$httpBackend_, $injector) {
       responseMockOpts.succeed = true;
-      settingsService = _settingsService_;
+      settingsService = $injector.get('hz.api.settingsService');
       $httpBackend = _$httpBackend_;
       $httpBackend.whenGET('/api/settings/').respond(
         function () {

@@ -21,8 +21,8 @@
     beforeEach(inject(function($injector) {
       var $compile = $injector.get('$compile');
       $scope = $injector.get('$rootScope').$new();
-      donutChartSettings = $injector.get('donutChartSettings');
-      quotaChartDefaults = $injector.get('quotaChartDefaults');
+      donutChartSettings = $injector.get('horizon.framework.widgets.charts.donutChartSettings');
+      quotaChartDefaults = $injector.get('horizon.framework.widgets.charts.quotaChartDefaults');
 
       $scope.testDataTotal = {
         title: 'Total Instances',

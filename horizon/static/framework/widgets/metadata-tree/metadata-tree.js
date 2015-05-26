@@ -30,7 +30,7 @@
    * @name horizon.framework.widgets.metadata-tree.constant:metadataTreeDefaults
    * @param {object} text Text constants
    */
-  .constant('metadataTreeDefaults', {
+  .constant('horizon.framework.widgets.metadata-tree.defaults', {
     text: {
       help: gettext('You can specify resource metadata by moving items from the left column to the right column. In the left columns there are metadata definitions from the Glance Metadata Catalog. Use the "Other" option to add metadata with the key of your choice.'),
       min: gettext('Min'),
@@ -137,7 +137,7 @@
    * Controller used by `hzMetadataTree`
    */
   .controller('hzMetadataTreeCtrl', [
-    '$scope', 'metadataTreeService', 'metadataTreeDefaults',
+    '$scope', 'horizon.framework.widgets.metadata-tree.service', 'horizon.framework.widgets.metadata-tree.defaults',
     function ($scope, metadataTreeService, defaults) {
 
       $scope.availableFilter = function (item) {

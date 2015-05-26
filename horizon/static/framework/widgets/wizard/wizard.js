@@ -6,14 +6,14 @@
 
   angular.module('horizon.framework.widgets.wizard', ['ui.bootstrap'])
 
-    .constant('wizardLabels', {
+    .constant('horizon.framework.widgets.wizard.labels', {
       cancel: gettext('Cancel'),
       back: gettext('Back'),
       next: gettext('Next'),
       finish: gettext('Finish')
     })
 
-    .constant('wizardEvents', {
+    .constant('horizon.framework.widgets.wizard.events', {
       ON_INIT_SUCCESS: 'ON_INIT_SUCCESS',
       ON_INIT_ERROR: 'ON_INIT_ERROR',
       ON_SWITCH: 'ON_SWITCH',
@@ -23,7 +23,11 @@
 
     .directive('wizard', ['horizon.framework.widgets.basePath', function (path) {
       return {
-        controller: ['$scope', '$q', 'wizardLabels', 'wizardEvents',
+        controller: [
+          '$scope',
+          '$q',
+          'horizon.framework.widgets.wizard.labels',
+          'horizon.framework.widgets.wizard.events',
           function ($scope, $q, wizardLabels, wizardEvents) {
             $scope.currentIndex = -1;
             $scope.openHelp = false;

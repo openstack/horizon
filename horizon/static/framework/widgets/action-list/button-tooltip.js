@@ -9,7 +9,7 @@
    * @param {string} defaultTemplate Default warning tooltip template
    * @param {string} defaultMessage Default warning tooltip message
    */
-  .constant('tooltipConfig', {
+  .constant('horizon.framework.widgets.action-list.tooltipConfig', {
     defaultTemplate: '<div>{$ ::message $}</div>',
     defaultMessage: {
       message: gettext('The action cannot be performed. The contents of this row have errors or are missing information.')
@@ -55,7 +55,7 @@
    * ```
    */
   .directive('buttonTooltip',
-    [ 'horizon.framework.widgets.basePath', '$compile', '$http', '$templateCache', 'tooltipConfig',
+    [ 'horizon.framework.widgets.basePath', '$compile', '$http', '$templateCache', 'horizon.framework.widgets.action-list.tooltipConfig',
     function(path, $compile, $http, $templateCache, tooltipConfig) {
       return {
         restrict: 'A',

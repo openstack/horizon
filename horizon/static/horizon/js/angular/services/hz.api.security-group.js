@@ -70,6 +70,6 @@ limitations under the License.
   // API module will have access to the Security Group APIs.
 
   angular.module('hz.api')
-    .service('securityGroup', ['apiService', 'toastService', SecurityGroup]);
+    .service('hz.api.security-group', ['hz.api.common.service', 'horizon.framework.widgets.toast.service', SecurityGroup]);
 
 }());

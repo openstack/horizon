@@ -28,7 +28,7 @@
    * @name horizon.framework.widgets.metadata-display:metadataTreeDefaults
    * @param {object} text Text constants
    */
-  .constant('metadataDisplayDefaults', {
+  .constant('horizon.framework.widgets.metadata-display.defaults', {
     text: {
       detail: gettext('Detail Information')
     }
@@ -67,7 +67,7 @@
    * Controller used by `hzMetadataDisplay`
    */
   .controller('hzMetadataDisplayCtrl', [
-    '$scope', 'metadataTreeService', 'metadataDisplayDefaults',
+    '$scope', 'horizon.framework.widgets.metadata-tree.service', 'horizon.framework.widgets.metadata-display.defaults',
     function ($scope, metadataTreeService, defaults) {
 
       function init() {

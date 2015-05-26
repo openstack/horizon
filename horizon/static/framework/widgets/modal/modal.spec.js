@@ -65,7 +65,7 @@
 
     });
 
-    describe('simpleModalService', function() {
+    describe('horizon.framework.widgets.modal.service', function() {
       var service, modal;
 
       beforeEach(module(function($provide) {
@@ -74,8 +74,8 @@
         $provide.value('$modal', modal);
       }));
 
-      beforeEach(inject(function(simpleModalService) {
-        service = simpleModalService;
+      beforeEach(inject(function($injector) {
+        service = $injector.get('horizon.framework.widgets.modal.service');
       }));
 
       it('defines the service', function() {

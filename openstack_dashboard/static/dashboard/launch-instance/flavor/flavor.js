@@ -20,7 +20,7 @@
 
   module.controller('LaunchInstanceFlavorCtrl', [
     '$scope',
-    'quotaChartDefaults',
+    'horizon.framework.widgets.charts.quotaChartDefaults',
     'launchInstanceModel',
     LaunchInstanceFlavorCtrl
   ]);

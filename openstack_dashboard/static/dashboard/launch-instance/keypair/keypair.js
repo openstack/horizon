@@ -150,8 +150,8 @@
    */
   module.controller('LaunchInstanceCreateKeyPairCtrl', [
     '$modalInstance',
-    'novaAPI',
-    'toastService',
+    'hz.api.nova',
+    'horizon.framework.widgets.toast.service',
     LaunchInstanceCreateKeyPairCtrl
   ]);
 
@@ -224,8 +224,8 @@
    */
   module.controller('LaunchInstanceImportKeyPairCtrl', [
     '$modalInstance',
-    'novaAPI',
-    'toastService',
+    'hz.api.nova',
+    'horizon.framework.widgets.toast.service',
     LaunchInstanceImportKeyPairCtrl
   ]);
 

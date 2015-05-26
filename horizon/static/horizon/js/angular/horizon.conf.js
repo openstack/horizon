@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   angular.module('hz.conf', [])
-    .constant('hzConfig', {
+    .constant('hz.conf.hzConfig', {
       // Placeholders; updated by Django.
       debug: null,  //
       static_url: null,

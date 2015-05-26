@@ -30,7 +30,7 @@
    * @param {string} expandIconClasses Icon classes to be used for expand icon
    * @param {number} duration The slide down animation duration/speed
    */
-  app.constant('expandSettings', {
+  app.constant('horizon.framework.widgets.table.expandSettings', {
     expandIconClasses: 'fa-chevron-right fa-chevron-down',
     duration: 100
   });
@@ -295,7 +295,7 @@
    * ```
    *
    */
-  app.directive('hzExpandDetail', [ 'expandSettings', function(settings) {
+  app.directive('hzExpandDetail', ['horizon.framework.widgets.table.expandSettings', function(settings) {
     return {
       restrict: 'A',
       scope: {

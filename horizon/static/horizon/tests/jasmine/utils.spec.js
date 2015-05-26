@@ -8,12 +8,12 @@ describe('hz.utils', function () {
       angular.mock.module('hz.utils.hzUtils');
     });
 
-    describe('hzUtils', function () {
+    describe('hz.utils.hzUtils.service', function () {
       var hzUtils;
 
       beforeEach(function () {
         angular.mock.inject(function ($injector) {
-          hzUtils = $injector.get('hzUtils');
+          hzUtils = $injector.get('hz.utils.hzUtils.service');
         });
       });
 
@@ -24,7 +24,7 @@ describe('hz.utils', function () {
           log = 'display a log';
           angular.mock.inject(function ($injector) {
             $log = $injector.get('$log');
-            hzConfig = $injector.get('hzConfig');
+            hzConfig = $injector.get('hz.conf.hzConfig');
             //jasmine cannot mock properties
             hzConfig.debug = true;
           });

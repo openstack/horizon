@@ -2,18 +2,18 @@
 (function () {
   'use strict';
 
-  describe('hz.api.service module', function() {
+  describe('hz.api.common module', function() {
     it('should have been defined', function () {
-      expect(angular.module('hz.api.service')).toBeDefined();
+      expect(angular.module('hz.api.common')).toBeDefined();
     });
   });
 
   describe('api service', function () {
     var api, $httpBackend;
 
-    beforeEach(module('hz.api.service'));
-    beforeEach(inject(function ($injector, apiService) {
-      api = apiService;
+    beforeEach(module('hz.api.common'));
+    beforeEach(inject(function ($injector) {
+      api = $injector.get('hz.api.common.service');
       $httpBackend = $injector.get('$httpBackend');
     }));
 

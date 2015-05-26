@@ -417,7 +417,7 @@ Required
 
      // Angular
      angular.module('horizon.framework.widgets.modal', ['ui.bootstrap', 'horizon.framework.util.i18n'])
-      .factory('simpleModalService', ['$modal', 'basePath', 'horizon.framework.util.i18n.gettext',
+      .factory('horizon.framework.widgets.modal.service', ['$modal', 'basePath', 'horizon.framework.util.i18n.gettext',
          function($modal, path, gettext) { gettext('translatable text'); };
 
     // recognized
@@ -442,7 +442,7 @@ Recommended
     angular.module('my_module')
        .controller('my_controller', ['$scope', function($scope) {
       // controller code
-    }]).service('my_service', ['$scope', function($scope) {
+    }]).service('my_module.my_service', ['$scope', function($scope) {
       // service code
     }]);
 

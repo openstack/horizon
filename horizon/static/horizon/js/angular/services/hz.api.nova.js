@@ -271,7 +271,7 @@ limitations under the License.
   }
 
   angular.module('hz.api')
-    .service('novaAPI', ['apiService', 'toastService', NovaAPI]);
+    .service('hz.api.nova', ['hz.api.common.service', 'horizon.framework.widgets.toast.service', NovaAPI]);
 
     /**
     * @ngdoc service
@@ -337,9 +337,9 @@ limitations under the License.
   }
 
   angular.module('hz.api')
-    .factory('novaExtensions', ['$cacheFactory',
+    .factory('hz.api.novaExtensions', ['$cacheFactory',
                                 '$q',
-                                'novaAPI',
+                                'hz.api.nova',
                                 NovaExtensions]);
 
 }());

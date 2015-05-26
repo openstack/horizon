@@ -151,6 +151,6 @@ limitations under the License.
   // API module will have access to the Glance APIs.
 
   angular.module('hz.api')
-    .service('glanceAPI', ['apiService', 'toastService', GlanceAPI]);
+    .service('hz.api.glance', ['hz.api.common.service', 'horizon.framework.widgets.toast.service', GlanceAPI]);
 
 }());

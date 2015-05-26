@@ -60,7 +60,7 @@
     };
   }
   angular.module('hz.utils.hzUtils', ['hz.conf'])
-    .service('hzUtils', ['hzConfig', '$log', '$rootScope', '$compile', utils]);
+    .service('hz.utils.hzUtils.service', ['hz.conf.hzConfig', '$log', '$rootScope', '$compile', utils]);
 
   angular.module('hz.utils', ['hz.utils.hzUtils']);
 }());

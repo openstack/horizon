@@ -68,5 +68,5 @@ limitations under the License.
   }
 
   angular.module('hz.api')
-    .service('policyAPI', ['apiService', 'toastService', PolicyService]);
+    .service('hz.api.policy', ['hz.api.common.service', 'horizon.framework.widgets.toast.service', PolicyService]);
 }());

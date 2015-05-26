@@ -41,7 +41,7 @@
      * @param {string} tooltipIcon Tooltip key icon, default: 'fa-square'
      *
      */
-    .constant('donutChartSettings', {
+    .constant('horizon.framework.widgets.charts.donutChartSettings', {
       innerRadius: 24,
       outerRadius: 30,
       titleClass: 'pie-chart-title-medium',
@@ -66,7 +66,7 @@
      * @param {string} tooltipIcon Tooltip key icon, default: 'fa-square'
      *
      */
-    .constant('pieChartSettings', {
+    .constant('horizon.framework.widgets.charts.pieChartSettings', {
       innerRadius: 0,
       outerRadius: 30,
       titleClass: 'pie-chart-title-medium',
@@ -87,7 +87,7 @@
      * @param {string} remainingColorClass CSS class for Remaining , default: 'remaining'
      *
      */
-    .constant('quotaChartDefaults', {
+    .constant('horizon.framework.widgets.charts.quotaChartDefaults', {
       usageLabel: gettext('Current Usage'),
       usageColorClass: 'usage',
       addedLabel: gettext('Added'),

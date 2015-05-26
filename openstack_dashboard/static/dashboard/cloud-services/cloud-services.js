@@ -42,15 +42,15 @@
    */
 
   .factory('cloudServices', [
-    'cinderAPI',
-    'glanceAPI',
-    'keystoneAPI',
-    'neutronAPI',
-    'novaAPI',
-    'novaExtensions',
-    'securityGroup',
-    'serviceCatalog',
-    'settingsService',
+    'hz.api.cinder',
+    'hz.api.glance',
+    'hz.api.keystone',
+    'hz.api.neutron',
+    'hz.api.nova',
+    'hz.api.novaExtensions',
+    'hz.api.security-group',
+    'hz.api.serviceCatalog',
+    'hz.api.settingsService',
 
     function (cinderAPI,
               glanceAPI,

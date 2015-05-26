@@ -44,7 +44,10 @@
    * </select-flavor-table>
    * '''
    */
-  module.directive('selectFlavorTable', ['dashboardBasePath', 'helpText', 'donutChartSettings',
+  module.directive('selectFlavorTable', [
+    'dashboardBasePath',
+    'horizon.framework.widgets.transfer-table.helpText',
+    'horizon.framework.widgets.charts.donutChartSettings',
     function (path, transferTableHelpText, donutChartSettings) {
       var link = function (scope, element, attrs, transferTableCtrl) {
 

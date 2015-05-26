@@ -27,15 +27,15 @@
       var cloudServices;
 
       beforeEach(module('hz.dashboard', function ($provide) {
-        $provide.value('cinderAPI', {});
-        $provide.value('glanceAPI', {});
-        $provide.value('keystoneAPI', {});
-        $provide.value('neutronAPI', {});
-        $provide.value('novaAPI', {});
-        $provide.value('novaExtensions', {});
-        $provide.value('securityGroup', {});
-        $provide.value('serviceCatalog', {});
-        $provide.value('settingsService', {});
+        $provide.value('hz.api.cinder', {});
+        $provide.value('hz.api.glance', {});
+        $provide.value('hz.api.keystone', {});
+        $provide.value('hz.api.neutron', {});
+        $provide.value('hz.api.nova', {});
+        $provide.value('hz.api.novaExtensions', {});
+        $provide.value('hz.api.security-group', {});
+        $provide.value('hz.api.serviceCatalog', {});
+        $provide.value('hz.api.settingsService', {});
       }));
 
       beforeEach(inject(function ($injector) {

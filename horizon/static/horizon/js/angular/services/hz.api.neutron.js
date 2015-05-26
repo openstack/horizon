@@ -196,5 +196,5 @@
   }
 
   angular.module('hz.api')
-    .service('neutronAPI', ['apiService', 'toastService', NeutronAPI]);
+    .service('hz.api.neutron', ['hz.api.common.service', 'horizon.framework.widgets.toast.service', NeutronAPI]);
 }());

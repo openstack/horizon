@@ -3,7 +3,7 @@
 
   angular.module('horizon.framework.widgets.table')
 
-    .constant('FILTER_PLACEHOLDER_TEXT', gettext('Filter'))
+    .constant('horizon.framework.widgets.table.filterPlaceholderText', gettext('Filter'))
     /**
      * @ngdoc directive
      * @name horizon.framework.widgets.table.directive:searchBar
@@ -30,7 +30,7 @@
      * </search-bar>
      * ```
      */
-    .directive('searchBar', [ 'FILTER_PLACEHOLDER_TEXT', 'horizon.framework.widgets.basePath',
+    .directive('searchBar', [ 'horizon.framework.widgets.table.filterPlaceholderText', 'horizon.framework.widgets.basePath',
       function(FILTER_PLACEHOLDER_TEXT, path) {
       return {
         restrict: 'E',

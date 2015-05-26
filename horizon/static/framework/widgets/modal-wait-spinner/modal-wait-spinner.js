@@ -32,7 +32,7 @@
    <pre>
     .controller('MyController', [
       '$scope',
-      'modalWaitSpinnerService',
+      'horizon.framework.widgets.modal.modal-wait-spinner.service',
       function (modalWaitSpinnerService) {
         $scope.showSpinner = function () {
           modalWaitSpinnerService.showModalSpinner(gettext("Loading"));
@@ -56,7 +56,7 @@
   angular.module('horizon.framework.widgets.modal-wait-spinner', [
     'ui.bootstrap',
   ])
-    .factory('modalWaitSpinnerService', [
+    .factory('horizon.framework.widgets.modal-wait-spinner.service', [
       '$modal',
       function ($modal) {
 

@@ -58,12 +58,12 @@
     '$scope',
     'bootSourceTypes',
     'bytesFilter',
-    'donutChartSettings',
+    'horizon.framework.widgets.charts.donutChartSettings',
     'dateFilter',
     'decodeFilter',
     'diskFormatFilter',
     'gbFilter',
-    'quotaChartDefaults',
+    'horizon.framework.widgets.charts.quotaChartDefaults',
     LaunchInstanceSourceCtrl
   ]);
 
