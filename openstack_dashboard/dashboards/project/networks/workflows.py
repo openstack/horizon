@@ -393,7 +393,7 @@ class CreateNetwork(workflows.Workflow):
                 params['ipv6_ra_mode'] = ipv6_modes[0]
             if ipv6_modes[1] or is_update:
                 params['ipv6_address_mode'] = ipv6_modes[1]
-        if is_create and data['allocation_pools']:
+        if data['allocation_pools']:
             pools = [dict(zip(['start', 'end'], pool.strip().split(',')))
                      for pool in data['allocation_pools'].split('\n')
                      if pool.strip()]
