@@ -44,6 +44,7 @@ class ServicesViewTests(test.BaseAdminViewTests):
         self.mox.StubOutWithMock(api.base, 'is_service_enabled')
         if neutron_enabled:
             self.mox.StubOutWithMock(api.neutron, 'is_extension_supported')
+            self.mox.StubOutWithMock(api.neutron, 'is_router_enabled')
 
         api.cinder.is_volume_service_enabled(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
@@ -60,6 +61,8 @@ class ServicesViewTests(test.BaseAdminViewTests):
             api.neutron.is_extension_supported(
                 IsA(http.HttpRequest),
                 'security-group').MultipleTimes().AndReturn(neutron_sg_enabled)
+            api.neutron.is_router_enabled(
+                IsA(http.HttpRequest)).AndReturn(True)
 
         self.mox.ReplayAll()
 

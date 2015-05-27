@@ -359,6 +359,7 @@ class FloatingIpNeutronViewTests(FloatingIpViewTests):
                                       'security_group_list',
                                       'tenant_floating_ip_list'),
                         api.neutron: ('is_extension_supported',
+                                      'is_router_enabled',
                                       'tenant_quota_get',
                                       'network_list',
                                       'router_list',
@@ -386,6 +387,8 @@ class FloatingIpNeutronViewTests(FloatingIpViewTests):
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest), 'security-group').AndReturn(True)
         api.neutron.is_extension_supported(IsA(http.HttpRequest), 'quotas') \
+            .AndReturn(True)
+        api.neutron.is_router_enabled(IsA(http.HttpRequest)) \
             .AndReturn(True)
         api.neutron.tenant_quota_get(IsA(http.HttpRequest), self.tenant.id) \
             .AndReturn(self.neutron_quotas.first())
@@ -421,6 +424,7 @@ class FloatingIpNeutronViewTests(FloatingIpViewTests):
                                       'security_group_list',
                                       'tenant_floating_ip_list'),
                         api.neutron: ('is_extension_supported',
+                                      'is_router_enabled',
                                       'tenant_quota_get',
                                       'network_list',
                                       'router_list',
@@ -449,6 +453,8 @@ class FloatingIpNeutronViewTests(FloatingIpViewTests):
             IsA(http.HttpRequest), 'security-group').AndReturn(True)
         api.neutron.is_extension_supported(IsA(http.HttpRequest), 'quotas') \
             .AndReturn(True)
+        api.neutron.is_router_enabled(
+            IsA(http.HttpRequest)).AndReturn(True)
         api.neutron.tenant_quota_get(IsA(http.HttpRequest), self.tenant.id) \
             .AndReturn(self.neutron_quotas.first())
         api.neutron.router_list(IsA(http.HttpRequest)) \

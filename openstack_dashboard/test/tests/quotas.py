@@ -395,3 +395,29 @@ class QuotaTests(test.APITestCase):
                           _("Unable to retrieve volume limit information."))
         self.mox.ReplayAll()
         quotas.tenant_limit_usages(self.request)
+
+    @test.create_stubs({api.neutron: ('is_router_enabled',
+                                      'is_extension_supported',
+                                      'is_quotas_extension_supported',),
+                        api.cinder: ('is_volume_service_enabled',),
+                        api.base: ('is_service_enabled',)})
+    def test_get_disabled_quotas_router_disabled(self):
+        api.cinder.is_volume_service_enabled(
+            IsA(http.HttpRequest)
+        ).AndReturn(True)
+        api.base.is_service_enabled(IsA(http.HttpRequest),
+                                    'network').AndReturn(True)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'security-group').AndReturn(True)
+        api.neutron.is_router_enabled(IsA(http.HttpRequest)).AndReturn(False)
+        api.neutron.is_quotas_extension_supported(IsA(http.HttpRequest)) \
+            .AndReturn(True)
+        api.base.is_service_enabled(IsA(http.HttpRequest),
+                                    'compute').AndReturn(True)
+
+        self.mox.ReplayAll()
+
+        disabled_quotas = quotas.get_disabled_quotas(self.request)
+        expected = set(['floating_ips', 'fixed_ips', 'security_groups',
+                        'security_group_rules', 'router', 'floatingip'])
+        self.assertEqual(expected, disabled_quotas)

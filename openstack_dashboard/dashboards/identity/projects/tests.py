@@ -189,7 +189,8 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
                                        'role_list'),
                         api.base: ('is_service_enabled',),
                         api.cinder: ('is_volume_service_enabled',),
-                        api.neutron: ('is_extension_supported',),
+                        api.neutron: ('is_extension_supported',
+                                      'is_router_enabled',),
                         quotas: ('get_default_quota_data',)})
     def test_add_project_get(self):
         quota = self.quotas.first()
@@ -211,6 +212,8 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
             .AndReturn(default_domain)
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest), 'security-group').AndReturn(True)
+        api.neutron.is_router_enabled(
+            IsA(http.HttpRequest)).AndReturn(True)
         quotas.get_default_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
 
         api.keystone.get_default_role(IsA(http.HttpRequest)) \
@@ -258,7 +261,8 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
                                        'role_list',
                                        'domain_get'),
                         api.neutron: ('is_extension_supported',
-                                      'tenant_quota_get'),
+                                      'tenant_quota_get',
+                                      'is_router_enabled',),
                         quotas: ('get_default_quota_data',)})
     @test.update_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
     def test_add_project_get_with_neutron(self):
@@ -271,6 +275,8 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
             .MultipleTimes().AndReturn(True)
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest), 'security-group').AndReturn(True)
+        api.neutron.is_router_enabled(
+            IsA(http.HttpRequest)).AndReturn(True)
         api.neutron.tenant_quota_get(IsA(http.HttpRequest),
                                      tenant_id=self.tenant.id) \
             .AndReturn(neutron_quotas)

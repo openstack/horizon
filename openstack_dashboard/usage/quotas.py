@@ -186,8 +186,8 @@ def get_tenant_quota_data(request, disabled_quotas=None, tenant_id=None):
     if not disabled_quotas:
         return qs
 
-    # Check if neutron is enabled by looking for network and router
-    if 'network' and 'router' not in disabled_quotas:
+    # Check if neutron is enabled by looking for network
+    if 'network' not in disabled_quotas:
         tenant_id = tenant_id or request.user.tenant_id
         neutron_quotas = neutron.tenant_quota_get(request, tenant_id)
     if 'floating_ips' in disabled_quotas:
@@ -257,6 +257,9 @@ def get_disabled_quotas(request):
         else:
             # If Nova security group is used, disable Neutron quotas
             disabled_quotas.update(['security_group', 'security_group_rule'])
+
+        if not neutron.is_router_enabled(request):
+            disabled_quotas.update(['router', 'floatingip'])
 
         try:
             if not neutron.is_quotas_extension_supported(request):

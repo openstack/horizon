@@ -1223,6 +1223,12 @@ def is_quotas_extension_supported(request):
             is_extension_supported(request, 'quotas'))
 
 
+@memoized
+def is_router_enabled(request):
+    return (is_enabled_by_config('enable_router') and
+            is_extension_supported(request, 'router'))
+
+
 # Using this mechanism till a better plugin/sub-plugin detection
 # mechanism is available.
 # When using specific plugins the profile_support can be
