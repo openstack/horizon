@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-05-07 18:03+0000\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-27 03:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/horizon/"
 "language/pt/)\n"
@@ -17,6 +17,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Yes"
+msgstr "Sim"
+
+#, c-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#, c-format
+msgid "%s MB"
+msgstr "%s MB"
+
+#, c-format
+msgid "%s TB"
+msgstr "%s TB"
+
+#, c-format
+msgid "%s KB"
+msgstr "%s KB"
 
 msgid "Added"
 msgstr "Adicionado"
@@ -56,25 +75,6 @@ msgstr "Voltar"
 
 msgid "Next"
 msgstr "Seguinte"
-
-msgid "Yes"
-msgstr "Sim"
-
-#, c-format
-msgid "%s GB"
-msgstr "%s GB"
-
-#, c-format
-msgid "%s MB"
-msgstr "%s MB"
-
-#, c-format
-msgid "%s TB"
-msgstr "%s TB"
-
-#, c-format
-msgid "%s KB"
-msgstr "%s KB"
 
 msgid "Loading"
 msgstr "A carregar"

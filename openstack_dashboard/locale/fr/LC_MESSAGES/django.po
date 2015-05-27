@@ -20,9 +20,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-19 06:10-0500\n"
-"PO-Revision-Date: 2015-05-26 00:20+0000\n"
-"Last-Translator: Maxime COQUEREL <max.coquerel@gmail.com>\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-26 21:02+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/"
 "fr/)\n"
 "MIME-Version: 1.0\n"
@@ -7047,6 +7047,9 @@ msgstr ""
 "image. Si l'option n'est pas spécifiée, les données de l'image seront "
 "utilisées à leur emplacement actuel."
 
+msgid "Choose an image"
+msgstr "Choisir une image"
+
 msgid "A image or external image location must be specified."
 msgstr "Vous devez spécifier une image ou l'emplacement d'une image externe. "
 
@@ -8494,14 +8497,8 @@ msgstr "Echec lors de la mise à jour du membre %s"
 msgid "Delay"
 msgstr "Retard"
 
-msgid "The minimum time in seconds between regular checks of a member"
-msgstr "Temps minimal, en secondes, entre deux vérifications d'un membre"
-
 msgid "Timeout"
 msgstr "Délai d'expiration"
-
-msgid "The maximum time in seconds for a monitor to wait for a reply"
-msgstr "Temps d'attente maximal, en secondes, d'une réponse par un moniteur"
 
 msgid "Max Retries (1~10)"
 msgstr "Max tentatives (1~10)"
@@ -10809,9 +10806,6 @@ msgstr ""
 
 msgid "Choose a snapshot"
 msgstr "Choisir un instantané"
-
-msgid "Choose an image"
-msgstr "Choisir une image"
 
 msgid "Choose a volume"
 msgstr "Choisissez un volume"

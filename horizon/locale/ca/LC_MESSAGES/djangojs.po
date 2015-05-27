@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-05-07 17:48+0000\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-27 03:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/horizon/language/"
 "ca/)\n"
@@ -17,21 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "Filter"
-msgstr "Filtre"
-
-msgid "Submit"
-msgstr "Transmet"
-
-msgid "Cancel"
-msgstr "Cancel·la"
-
-msgid "Info"
-msgstr "Informació"
-
-msgid "Available"
-msgstr "Disponible"
 
 #, c-format
 msgid "%s GB"
@@ -48,6 +33,21 @@ msgstr "%s TB"
 #, c-format
 msgid "%s KB"
 msgstr "%s KB"
+
+msgid "Filter"
+msgstr "Filtre"
+
+msgid "Submit"
+msgstr "Transmet"
+
+msgid "Cancel"
+msgstr "Cancel·la"
+
+msgid "Info"
+msgstr "Informació"
+
+msgid "Available"
+msgstr "Disponible"
 
 msgid "Unable to retrieve security groups."
 msgstr "No s'han pogut obtenir els grups de seguretat."

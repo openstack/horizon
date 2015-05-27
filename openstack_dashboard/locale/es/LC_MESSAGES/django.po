@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-19 06:10-0500\n"
-"PO-Revision-Date: 2015-05-20 15:55+0000\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-26 21:02+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/"
 "es/)\n"
@@ -6484,6 +6484,9 @@ msgstr ""
 msgid "Copy Data"
 msgstr "Copiar Datos"
 
+msgid "Choose an image"
+msgstr "Seleccione una imagen"
+
 msgid "A image or external image location must be specified."
 msgstr "Debe especificar una imagen o una localización de la misma."
 
@@ -7764,15 +7767,8 @@ msgstr "Ha ocurrido un fallo al actualizar el miembro %s"
 msgid "Delay"
 msgstr "Demora"
 
-msgid "The minimum time in seconds between regular checks of a member"
-msgstr "El tiempo mínimo en segundos entre revisiones regulares de un miembro"
-
 msgid "Timeout"
 msgstr "Tiempo de espera"
-
-msgid "The maximum time in seconds for a monitor to wait for a reply"
-msgstr ""
-"El tiempo máximo en segundos para un monitor para esperar a una respuesta"
 
 msgid "Max Retries (1~10)"
 msgstr "Reintentos máximos (1~10)"
@@ -9646,9 +9642,6 @@ msgstr ""
 
 msgid "Choose a snapshot"
 msgstr "Seleccione una instantánea"
-
-msgid "Choose an image"
-msgstr "Seleccione una imagen"
 
 msgid "Choose a volume"
 msgstr "Seleccione un volumen"

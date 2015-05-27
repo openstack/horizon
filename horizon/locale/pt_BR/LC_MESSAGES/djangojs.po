@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-19 06:10-0500\n"
-"PO-Revision-Date: 2015-05-21 04:58+0000\n"
-"Last-Translator: Andre Campos Bezerra <andrecbezerra@gmail.com>\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-27 03:11+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
 "horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -22,6 +22,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Yes"
+msgstr "Sim"
+
+msgid "No"
+msgstr "Não"
+
+#, c-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#, c-format
+msgid "%s MB"
+msgstr "%s MB"
+
+#, c-format
+msgid "%s TB"
+msgstr "%s TB"
+
+#, c-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#, c-format
+msgid "%s bytes"
+msgstr "%s bytes"
+
+#, c-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] "Exibindo %s item"
+msgstr[1] "Exibindo %s itens"
 
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
@@ -183,49 +215,11 @@ msgstr "Encerrado"
 msgid "Status: %s"
 msgstr "Status: %s"
 
-msgid "Yes"
-msgstr "Sim"
-
-msgid "No"
-msgstr "Não"
-
-#, c-format
-msgid "%s GB"
-msgstr "%s GB"
-
-#, c-format
-msgid "%s MB"
-msgstr "%s MB"
-
-#, c-format
-msgid "%s TB"
-msgstr "%s TB"
-
-#, c-format
-msgid "%s KB"
-msgstr "%s KB"
-
-#, c-format
-msgid "%s bytes"
-msgstr "%s bytes"
-
-#, c-format
-msgid "Displaying %s item"
-msgid_plural "Displaying %s items"
-msgstr[0] "Exibindo %s item"
-msgstr[1] "Exibindo %s itens"
-
 msgid "Unable to retrieve volumes."
 msgstr "Não foi possível obter a lista de volumes."
 
 msgid "Unable to retrieve volume snapshots."
 msgstr "Não é possível recuperar snapshots de volume."
-
-msgid "Unable to retrieve user configuration."
-msgstr "Não foi possível recuperar as configurações de usuário"
-
-msgid "Unable to retrieve admin configuration."
-msgstr "Não foi possível recuperar as configurações de administrador"
 
 msgid "Unable to retrieve settings."
 msgstr "Não é possível recuperar as configurações."

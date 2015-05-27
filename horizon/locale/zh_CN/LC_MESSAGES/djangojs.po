@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-08 12:21-0500\n"
-"PO-Revision-Date: 2015-05-10 11:43+0000\n"
-"Last-Translator: 颜海峰 <yanheven@gmail.com>\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-27 03:11+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/"
 "language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -23,6 +23,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Yes"
+msgstr "是"
+
+msgid "No"
+msgstr "不"
+
+#, c-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#, c-format
+msgid "%s MB"
+msgstr "%s MB"
+
+#, c-format
+msgid "%s TB"
+msgstr "%s TB"
+
+#, c-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#, c-format
+msgid "%s bytes"
+msgstr "%s 字节"
+
+#, c-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] "正在显示 %s 项"
 
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
@@ -180,48 +211,11 @@ msgstr "已关闭"
 msgid "Status: %s"
 msgstr "状态: %s"
 
-msgid "Yes"
-msgstr "是"
-
-msgid "No"
-msgstr "不"
-
-#, c-format
-msgid "%s GB"
-msgstr "%s GB"
-
-#, c-format
-msgid "%s MB"
-msgstr "%s MB"
-
-#, c-format
-msgid "%s TB"
-msgstr "%s TB"
-
-#, c-format
-msgid "%s KB"
-msgstr "%s KB"
-
-#, c-format
-msgid "%s bytes"
-msgstr "%s 字节"
-
-#, c-format
-msgid "Displaying %s item"
-msgid_plural "Displaying %s items"
-msgstr[0] "正在显示 %s 项"
-
 msgid "Unable to retrieve volumes."
 msgstr "无法获取云硬盘"
 
 msgid "Unable to retrieve volume snapshots."
 msgstr "找不到云硬盘快照。"
-
-msgid "Unable to retrieve user configuration."
-msgstr "无法获取用户配置"
-
-msgid "Unable to retrieve admin configuration."
-msgstr "无法获取管理员配置"
 
 msgid "Unable to retrieve settings."
 msgstr "无法获取配置"

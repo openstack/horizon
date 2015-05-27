@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-05-07 18:03+0000\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-27 03:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/"
 "es/)\n"
@@ -21,6 +21,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Yes"
+msgstr "Sí"
+
+msgid "No"
+msgstr "No"
+
+#, c-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#, c-format
+msgid "%s MB"
+msgstr "%s MB"
+
+#, c-format
+msgid "%s TB"
+msgstr "%s TB"
+
+#, c-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#, c-format
+msgid "%s bytes"
+msgstr "%s bytes"
+
+#, c-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] "Mostrando %s articulo"
+msgstr[1] "Mostrando %s articulos"
 
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
@@ -173,49 +205,11 @@ msgstr "Cerrada"
 msgid "Status: %s"
 msgstr "Estado: %s"
 
-msgid "Yes"
-msgstr "Sí"
-
-msgid "No"
-msgstr "No"
-
-#, c-format
-msgid "%s GB"
-msgstr "%s GB"
-
-#, c-format
-msgid "%s MB"
-msgstr "%s MB"
-
-#, c-format
-msgid "%s TB"
-msgstr "%s TB"
-
-#, c-format
-msgid "%s KB"
-msgstr "%s KB"
-
-#, c-format
-msgid "%s bytes"
-msgstr "%s bytes"
-
-#, c-format
-msgid "Displaying %s item"
-msgid_plural "Displaying %s items"
-msgstr[0] "Mostrando %s articulo"
-msgstr[1] "Mostrando %s articulos"
-
 msgid "Unable to retrieve volumes."
 msgstr "No ha sido posible obtener volúmenes."
 
 msgid "Unable to retrieve volume snapshots."
 msgstr "No ha sido posible obtener las snapshots de volúmenes."
-
-msgid "Unable to retrieve user configuration."
-msgstr "No ha sido posible obtener la configuración de usuario."
-
-msgid "Unable to retrieve admin configuration."
-msgstr "No ha sido posible obtener la configuración de admin."
 
 msgid "Unable to retrieve settings."
 msgstr "No ha sido posible obtener los ajustes."

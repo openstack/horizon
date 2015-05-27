@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-05-07 18:03+0000\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-27 03:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/"
 "language/zh_TW/)\n"
@@ -20,6 +20,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Yes"
+msgstr "是"
+
+msgid "No"
+msgstr "否"
+
+#, c-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#, c-format
+msgid "%s MB"
+msgstr "%s MB"
+
+#, c-format
+msgid "%s TB"
+msgstr "%s TB"
+
+#, c-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#, c-format
+msgid "%s bytes"
+msgstr "%s 位元組"
+
+#, c-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] "顯示 %s 項"
 
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
@@ -159,48 +190,11 @@ msgstr "已關閉"
 msgid "Status: %s"
 msgstr "狀態：%s"
 
-msgid "Yes"
-msgstr "是"
-
-msgid "No"
-msgstr "否"
-
-#, c-format
-msgid "%s GB"
-msgstr "%s GB"
-
-#, c-format
-msgid "%s MB"
-msgstr "%s MB"
-
-#, c-format
-msgid "%s TB"
-msgstr "%s TB"
-
-#, c-format
-msgid "%s KB"
-msgstr "%s KB"
-
-#, c-format
-msgid "%s bytes"
-msgstr "%s 位元組"
-
-#, c-format
-msgid "Displaying %s item"
-msgid_plural "Displaying %s items"
-msgstr[0] "顯示 %s 項"
-
 msgid "Unable to retrieve volumes."
 msgstr "無法獲得雲硬碟。"
 
 msgid "Unable to retrieve volume snapshots."
 msgstr "無法獲得雲硬碟即時存檔。"
-
-msgid "Unable to retrieve user configuration."
-msgstr "無法獲得用戶設定檔。"
-
-msgid "Unable to retrieve admin configuration."
-msgstr "無法獲得管理員設定檔。"
 
 msgid "Unable to retrieve settings."
 msgstr "無法設定。"

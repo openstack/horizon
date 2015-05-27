@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-18 12:47-0500\n"
-"PO-Revision-Date: 2015-05-18 09:12+0000\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-26 21:02+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/"
 "language/pl_PL/)\n"
@@ -6663,6 +6663,9 @@ msgstr ""
 "Po wybraniu tej opcji dane obrazu zostaną przekopiowane do usługi obrazów. "
 "Jeśli nie podano nic, dane obrazu zostaną wykorzystane z bieżącego położenia."
 
+msgid "Choose an image"
+msgstr "Wybierz obraz"
+
 msgid "A image or external image location must be specified."
 msgstr "Obraz lub zewnętrzne położenie obrazu musi zostać podane."
 
@@ -7965,14 +7968,8 @@ msgstr "Nie można zaktualizować członka %s"
 msgid "Delay"
 msgstr "Opóźnienie"
 
-msgid "The minimum time in seconds between regular checks of a member"
-msgstr "Minimalny odstęp czasu w sekundach pomiędzy testami członka"
-
 msgid "Timeout"
 msgstr "Limit czasu"
-
-msgid "The maximum time in seconds for a monitor to wait for a reply"
-msgstr "Maksymalny czas oczekiwania w sekundach na odpowiedź z monitora"
 
 msgid "Max Retries (1~10)"
 msgstr "Maks. powtórzeń (1-10)"
@@ -10134,9 +10131,6 @@ msgstr ""
 
 msgid "Choose a snapshot"
 msgstr "Wybierz migawkę"
-
-msgid "Choose an image"
-msgstr "Wybierz obraz"
 
 msgid "Choose a volume"
 msgstr "Wybierz wolumen"

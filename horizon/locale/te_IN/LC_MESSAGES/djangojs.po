@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-05-07 17:48+0000\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-27 03:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Telugu (India) (http://www.transifex.com/projects/p/horizon/"
 "language/te_IN/)\n"
@@ -17,18 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: te_IN\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "Filter"
-msgstr "వడియగట్టు"
-
-msgid "Cancel"
-msgstr "రద్దుచేయు"
-
-msgid "Info"
-msgstr "సమాచారం"
-
-msgid "Available"
-msgstr "లభ్యమగును"
 
 #, c-format
 msgid "%s GB"
@@ -41,6 +29,18 @@ msgstr "%s TB"
 #, c-format
 msgid "%s KB"
 msgstr "%s KB"
+
+msgid "Filter"
+msgstr "వడియగట్టు"
+
+msgid "Cancel"
+msgstr "రద్దుచేయు"
+
+msgid "Info"
+msgstr "సమాచారం"
+
+msgid "Available"
+msgstr "లభ్యమగును"
 
 msgid "Loading"
 msgstr "లొడవుతుంది"

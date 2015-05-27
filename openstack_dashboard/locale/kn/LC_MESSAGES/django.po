@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 16:02-0500\n"
-"PO-Revision-Date: 2015-05-14 21:03+0000\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-26 21:02+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Kannada (http://www.transifex.com/projects/p/horizon/language/"
 "kn/)\n"
@@ -5114,6 +5114,9 @@ msgstr ""
 "ಚಿತ್ರಿಕೆಯನ್ನು ಬೂಟ್‌ ಮಾಡಲು ಅಗತ್ಯವಿರುವ ಕನಿಷ್ಟ ಮೆಮೊರಿಯ ಗಾತ್ರ. ಸೂಚಿಸಲಾಗದೆ ಇದ್ದರೆ, ಈ "
 "ಮೌಲ್ಯವು 0 ಗೆ (ಕನಿಷ್ಟವಲ್ಲ) ಪೂರ್ವನಿಯೋಜಿತಗೊಳ್ಳುತ್ತದೆ."
 
+msgid "Choose an image"
+msgstr "ಒಂದು ಚಿತ್ರಿಕೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ"
+
 msgid "A image or external image location must be specified."
 msgstr "ಚಿತ್ರಿಕೆ ಅಥವ ಬಾಹ್ಯ ಚಿತ್ರಿಕೆಯ ಸ್ಥಳವನ್ನು ಸೂಚಿಸಬೇಕು."
 
@@ -6291,14 +6294,8 @@ msgstr "%s ಅಂಗವನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡಲು ವ
 msgid "Delay"
 msgstr "ವಿಳಂಬ"
 
-msgid "The minimum time in seconds between regular checks of a member"
-msgstr "ಒಂದು ಅಂಗದ ಕ್ರಮಬದ್ಧ ಪರಿಶೀಲನೆಗಳ ನಡುವಿನ ಕನಿಷ್ಟ ಸಮಯ, ಸೆಕೆಂಡುಗಳಲ್ಲಿ"
-
 msgid "Timeout"
 msgstr "ಕಾಲಾವಧಿ ತೀರಿದೆ"
-
-msgid "The maximum time in seconds for a monitor to wait for a reply"
-msgstr "ಮೇಲ್ವಿಚಾರಕವು ಒಂದು ಪ್ರತಿಕ್ರಿಯೆಗಾಗಿ ಕಾಯಬೇಕಿರುವ ಗರಿಷ್ಟ ಸಮಯ, ಸೆಕೆಂಡುಗಳಲ್ಲಿ"
 
 msgid "Max Retries (1~10)"
 msgstr "ಗರಿಷ್ಟ ಮರುಪ್ರಯತ್ನಗಳು (1~10)"
@@ -8024,9 +8021,6 @@ msgstr "ಪರಿಮಾಣದ ಗಾತ್ರವು ಮೂಲ ಪರಿಮಾಣ
 
 msgid "Choose a snapshot"
 msgstr "ಒಂದು ಸ್ನ್ಯಾಪ್‌ಶಾಟ್‌ ಅನ್ನು ಆರಿಸಿ"
-
-msgid "Choose an image"
-msgstr "ಒಂದು ಚಿತ್ರಿಕೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ"
 
 msgid "Choose a volume"
 msgstr "ಒಂದು ಪರಿಮಾಣವನ್ನು ಆರಿಸಿ"

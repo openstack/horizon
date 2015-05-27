@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-08 01:19-0500\n"
+"POT-Creation-Date: 2015-05-27 01:19-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,38 +17,81 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: static/angular/action-list/button-tooltip.js:15
+#: static/framework/util/filters/filters.js:37
+msgid "Yes"
+msgstr ""
+
+#: static/framework/util/filters/filters.js:37
+msgid "No"
+msgstr ""
+
+#: static/framework/util/filters/filters.js:53
+#: static/framework/util/filters/filters.js:140
+#, c-format
+msgid "%s GB"
+msgstr ""
+
+#: static/framework/util/filters/filters.js:70
+#: static/framework/util/filters/filters.js:142
+#, c-format
+msgid "%s MB"
+msgstr ""
+
+#: static/framework/util/filters/filters.js:138
+#, c-format
+msgid "%s TB"
+msgstr ""
+
+#: static/framework/util/filters/filters.js:144
+#, c-format
+msgid "%s KB"
+msgstr ""
+
+#: static/framework/util/filters/filters.js:146
+#, c-format
+msgid "%s bytes"
+msgstr ""
+
+#: static/framework/util/filters/filters.js:163
+#: static/horizon/js/horizon.tables.js:398
+#, c-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: static/framework/widgets/action-list/button-tooltip.js:15
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
 "missing information."
 msgstr ""
 
-#: static/angular/charts/charts.js:91
+#: static/framework/widgets/charts/charts.js:91
 msgid "Current Usage"
 msgstr ""
 
-#: static/angular/charts/charts.js:93
+#: static/framework/widgets/charts/charts.js:93
 msgid "Added"
 msgstr ""
 
-#: static/angular/charts/charts.js:95
+#: static/framework/widgets/charts/charts.js:95
 msgid "Remaining"
 msgstr ""
 
-#: static/angular/charts/pie-chart.js:125
-#: static/angular/metadata-tree/metadata-tree.js:37
+#: static/framework/widgets/charts/pie-chart.js:125
+#: static/framework/widgets/metadata-tree/metadata-tree.js:37
 msgid "Max"
 msgstr ""
 
-#: static/angular/charts/pie-chart.js:128
+#: static/framework/widgets/charts/pie-chart.js:128
 msgid "Total"
 msgstr ""
 
-#: static/angular/metadata-display/metadata-display.js:33
+#: static/framework/widgets/metadata-display/metadata-display.js:33
 msgid "Detail Information"
 msgstr ""
 
-#: static/angular/metadata-tree/metadata-tree.js:35
+#: static/framework/widgets/metadata-tree/metadata-tree.js:35
 msgid ""
 "You can specify resource metadata by moving items from the left column to "
 "the right column. In the left columns there are metadata definitions from "
@@ -56,150 +99,151 @@ msgid ""
 "the key of your choice."
 msgstr ""
 
-#: static/angular/metadata-tree/metadata-tree.js:36
+#: static/framework/widgets/metadata-tree/metadata-tree.js:36
 msgid "Min"
 msgstr ""
 
-#: static/angular/metadata-tree/metadata-tree.js:38
+#: static/framework/widgets/metadata-tree/metadata-tree.js:38
 msgid "Min length"
 msgstr ""
 
-#: static/angular/metadata-tree/metadata-tree.js:39
+#: static/framework/widgets/metadata-tree/metadata-tree.js:39
 msgid "Max length"
 msgstr ""
 
-#: static/angular/metadata-tree/metadata-tree.js:40
+#: static/framework/widgets/metadata-tree/metadata-tree.js:40
 msgid "Pattern mismatch"
 msgstr ""
 
-#: static/angular/metadata-tree/metadata-tree.js:41
+#: static/framework/widgets/metadata-tree/metadata-tree.js:41
 msgid "Integer required"
 msgstr ""
 
-#: static/angular/metadata-tree/metadata-tree.js:42
+#: static/framework/widgets/metadata-tree/metadata-tree.js:42
 msgid "Decimal required"
 msgstr ""
 
-#: static/angular/metadata-tree/metadata-tree.js:43
+#: static/framework/widgets/metadata-tree/metadata-tree.js:43
 msgid "Required"
 msgstr ""
 
-#: static/angular/metadata-tree/metadata-tree.js:44
+#: static/framework/widgets/metadata-tree/metadata-tree.js:44
 msgid "Duplicate keys are not allowed"
 msgstr ""
 
-#: static/angular/metadata-tree/metadata-tree.js:45
-#: static/angular/table/basic-table.js:6
+#: static/framework/widgets/metadata-tree/metadata-tree.js:45
+#: static/framework/widgets/table/basic-table.js:6
 #: static/horizon/js/horizon.forms.js:184
 msgid "Filter"
 msgstr ""
 
-#: static/angular/metadata-tree/metadata-tree.js:46
+#: static/framework/widgets/metadata-tree/metadata-tree.js:46
 msgid "Available Metadata"
 msgstr ""
 
-#: static/angular/metadata-tree/metadata-tree.js:47
+#: static/framework/widgets/metadata-tree/metadata-tree.js:47
 msgid "Existing Metadata"
 msgstr ""
 
-#: static/angular/metadata-tree/metadata-tree.js:48
+#: static/framework/widgets/metadata-tree/metadata-tree.js:48
 msgid "Custom"
 msgstr ""
 
-#: static/angular/metadata-tree/metadata-tree.js:49
+#: static/framework/widgets/metadata-tree/metadata-tree.js:49
 msgid "No available metadata"
 msgstr ""
 
-#: static/angular/metadata-tree/metadata-tree.js:50
+#: static/framework/widgets/metadata-tree/metadata-tree.js:50
 msgid "No existing metadata"
 msgstr ""
 
-#: static/angular/modal/modal.js:83
+#: static/framework/widgets/modal/modal.js:86
 msgid "Submit"
 msgstr ""
 
-#: static/angular/modal/modal.js:84 static/angular/wizard/wizard.js:10
+#: static/framework/widgets/modal/modal.js:87
+#: static/framework/widgets/wizard/wizard.js:10
 #: static/horizon/js/horizon.modals.js:33
 msgid "Cancel"
 msgstr ""
 
-#: static/angular/toast/toast.js:77
+#: static/framework/widgets/toast/toast.js:77
 msgid "Danger"
 msgstr ""
 
-#: static/angular/toast/toast.js:78
+#: static/framework/widgets/toast/toast.js:78
 msgid "Warning"
 msgstr ""
 
-#: static/angular/toast/toast.js:79
+#: static/framework/widgets/toast/toast.js:79
 msgid "Info"
 msgstr ""
 
-#: static/angular/toast/toast.js:80
+#: static/framework/widgets/toast/toast.js:80
 msgid "Success"
 msgstr ""
 
-#: static/angular/toast/toast.js:81
+#: static/framework/widgets/toast/toast.js:81
 msgid "Error"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:39
+#: static/framework/widgets/transfer-table/transfer-table.js:39
 msgid "Allocated"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:40
+#: static/framework/widgets/transfer-table/transfer-table.js:40
 msgid "Available"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:41
+#: static/framework/widgets/transfer-table/transfer-table.js:41
 msgid "Select one"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:42
+#: static/framework/widgets/transfer-table/transfer-table.js:42
 msgid "Select an item from Available items below"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:43
+#: static/framework/widgets/transfer-table/transfer-table.js:43
 msgid "No available items"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:44
+#: static/framework/widgets/transfer-table/transfer-table.js:44
 msgid "Expand to see allocated items"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:45
+#: static/framework/widgets/transfer-table/transfer-table.js:45
 msgid "Expand to see available items"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:46
+#: static/framework/widgets/transfer-table/transfer-table.js:46
 msgid "Click to show or hide"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:47
+#: static/framework/widgets/transfer-table/transfer-table.js:47
 msgid "Re-order items using drag and drop"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:48
+#: static/framework/widgets/transfer-table/transfer-table.js:48
 msgid "Click to see more details"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:100
+#: static/framework/widgets/transfer-table/transfer-table.js:100
 msgid "Found %(found)s of %(total)s"
 msgstr ""
 
-#: static/angular/transfer-table/transfer-table.js:166
+#: static/framework/widgets/transfer-table/transfer-table.js:173
 msgid "Click here to expand the row and view the errors."
 msgstr ""
 
-#: static/angular/wizard/wizard.js:11
+#: static/framework/widgets/wizard/wizard.js:11
 msgid "Back"
 msgstr ""
 
-#: static/angular/wizard/wizard.js:12
+#: static/framework/widgets/wizard/wizard.js:12
 msgid "Next"
 msgstr ""
 
-#: static/angular/wizard/wizard.js:13
+#: static/framework/widgets/wizard/wizard.js:13
 msgid "Finish"
 msgstr ""
 
@@ -224,49 +268,6 @@ msgstr ""
 msgid "Status: %s"
 msgstr ""
 
-#: static/horizon/js/angular/filters/filters.js:37
-msgid "Yes"
-msgstr ""
-
-#: static/horizon/js/angular/filters/filters.js:37
-msgid "No"
-msgstr ""
-
-#: static/horizon/js/angular/filters/filters.js:53
-#: static/horizon/js/angular/filters/filters.js:140
-#, c-format
-msgid "%s GB"
-msgstr ""
-
-#: static/horizon/js/angular/filters/filters.js:70
-#: static/horizon/js/angular/filters/filters.js:142
-#, c-format
-msgid "%s MB"
-msgstr ""
-
-#: static/horizon/js/angular/filters/filters.js:138
-#, c-format
-msgid "%s TB"
-msgstr ""
-
-#: static/horizon/js/angular/filters/filters.js:144
-#, c-format
-msgid "%s KB"
-msgstr ""
-
-#: static/horizon/js/angular/filters/filters.js:146
-#, c-format
-msgid "%s bytes"
-msgstr ""
-
-#: static/horizon/js/angular/filters/filters.js:163
-#: static/horizon/js/horizon.tables.js:398
-#, c-format
-msgid "Displaying %s item"
-msgid_plural "Displaying %s items"
-msgstr[0] ""
-msgstr[1] ""
-
 #: static/horizon/js/angular/services/hz.api.cinder.js:47
 msgid "Unable to retrieve volumes."
 msgstr ""
@@ -275,19 +276,11 @@ msgstr ""
 msgid "Unable to retrieve volume snapshots."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.config.js:43
-msgid "Unable to retrieve user configuration."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.config.js:62
-msgid "Unable to retrieve admin configuration."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.config.js:105
+#: static/horizon/js/angular/services/hz.api.config.js:52
 msgid "Unable to retrieve settings."
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.config.js:289
+#: static/horizon/js/angular/services/hz.api.config.js:236
 msgid "Setting is not enabled: %(setting)s"
 msgstr ""
 
@@ -499,7 +492,7 @@ msgstr ""
 msgid "Unable to retrieve security groups."
 msgstr ""
 
-#: static/horizon/js/horizon.accordion_nav.js:78
+#: static/horizon/js/horizon.accordion_nav.js:80
 #: static/horizon/js/horizon.modals.js:315
 #: static/horizon/js/horizon.tabs.js:21
 msgid "Loading"

@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-05-07 18:03+0000\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-27 03:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/"
 "ru/)\n"
@@ -23,6 +23,40 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "No"
+msgstr "Нет"
+
+#, c-format
+msgid "%s GB"
+msgstr "%s ГБ"
+
+#, c-format
+msgid "%s MB"
+msgstr "%s МБ"
+
+#, c-format
+msgid "%s TB"
+msgstr "%s ТБ"
+
+#, c-format
+msgid "%s KB"
+msgstr "%s кБ"
+
+#, c-format
+msgid "%s bytes"
+msgstr "%s байт"
+
+#, c-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] "Отображено %s значение"
+msgstr[1] "Отображено %s значений"
+msgstr[2] ""
+msgstr[3] "Отображено %s значений"
 
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
@@ -175,51 +209,11 @@ msgstr "Закрыт"
 msgid "Status: %s"
 msgstr "Статус: %s"
 
-msgid "Yes"
-msgstr "Да"
-
-msgid "No"
-msgstr "Нет"
-
-#, c-format
-msgid "%s GB"
-msgstr "%s ГБ"
-
-#, c-format
-msgid "%s MB"
-msgstr "%s МБ"
-
-#, c-format
-msgid "%s TB"
-msgstr "%s ТБ"
-
-#, c-format
-msgid "%s KB"
-msgstr "%s кБ"
-
-#, c-format
-msgid "%s bytes"
-msgstr "%s байт"
-
-#, c-format
-msgid "Displaying %s item"
-msgid_plural "Displaying %s items"
-msgstr[0] "Отображено %s значение"
-msgstr[1] "Отображено %s значений"
-msgstr[2] ""
-msgstr[3] "Отображено %s значений"
-
 msgid "Unable to retrieve volumes."
 msgstr "Не удалось получить диски."
 
 msgid "Unable to retrieve volume snapshots."
 msgstr "Не удалось получить снимки диска."
-
-msgid "Unable to retrieve user configuration."
-msgstr "Не удалось получить конфигурацию пользователя."
-
-msgid "Unable to retrieve admin configuration."
-msgstr "Не удалось получить конфигурацию администратора."
 
 msgid "Unable to retrieve settings."
 msgstr "Не удалось получить настройки."

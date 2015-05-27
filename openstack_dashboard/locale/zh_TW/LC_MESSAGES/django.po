@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-18 12:47-0500\n"
-"PO-Revision-Date: 2015-05-18 09:12+0000\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-26 21:02+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/"
 "language/zh_TW/)\n"
@@ -6717,6 +6717,9 @@ msgstr ""
 "指定這個項目來複製映像檔資料到指定的映像檔伺服器。若未指定，會在目前的位置使"
 "用映像檔資料。"
 
+msgid "Choose an image"
+msgstr "選擇映像檔"
+
 msgid "A image or external image location must be specified."
 msgstr "映像檔或外部映像檔位置必須指定。"
 
@@ -8066,14 +8069,8 @@ msgstr "更新成員 %s 時失敗"
 msgid "Delay"
 msgstr "延遲"
 
-msgid "The minimum time in seconds between regular checks of a member"
-msgstr "定期檢查成員的最短間隔秒數"
-
 msgid "Timeout"
 msgstr "逾期"
-
-msgid "The maximum time in seconds for a monitor to wait for a reply"
-msgstr "等待監視器回應的最長間隔秒數"
 
 msgid "Max Retries (1~10)"
 msgstr "最大重試數（1~10）"
@@ -10268,9 +10265,6 @@ msgstr "雲硬碟容量必須大於等於原始的雲硬碟容量（%s）"
 
 msgid "Choose a snapshot"
 msgstr "選擇即時存檔"
-
-msgid "Choose an image"
-msgstr "選擇映像檔"
 
 msgid "Choose a volume"
 msgstr "選擇雲硬碟"

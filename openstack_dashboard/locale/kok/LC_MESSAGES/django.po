@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 16:02-0500\n"
-"PO-Revision-Date: 2015-05-15 05:03+0000\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-26 21:02+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Konkani (http://www.transifex.com/projects/p/horizon/language/"
 "kok/)\n"
@@ -5040,6 +5040,9 @@ msgstr ""
 "प्रतिमा बूट करपाक गरजेची किमान मेमरी. स्पश्ट करू ना जाल्यार, हे मोल मुळाव्यान 0 (किमान "
 "ना)."
 
+msgid "Choose an image"
+msgstr "प्रतिमा निवडात"
+
 msgid "A image or external image location must be specified."
 msgstr "प्रतिमा वो भायले प्रतिमेचे थळ स्पश्ट करपाकूच जाय."
 
@@ -6187,14 +6190,8 @@ msgstr "सदस्य %s सुदारपाक शकना."
 msgid "Delay"
 msgstr "कळाव"
 
-msgid "The minimum time in seconds between regular checks of a member"
-msgstr "सदस्याच्या नियमित तपासांभितल्लो वेळ सेकंदांनी."
-
 msgid "Timeout"
 msgstr "वेळ सोपलो"
-
-msgid "The maximum time in seconds for a monitor to wait for a reply"
-msgstr "निरीक्षकान जाप दिवपाक रावपाची कमाल वेळ सेकंदानी "
 
 msgid "Max Retries (1~10)"
 msgstr "चडांत चड परतून यत्न (1~10)"
@@ -7885,9 +7882,6 @@ msgstr "आकारमान आकार मुळाव्या आकार
 
 msgid "Choose a snapshot"
 msgstr "स्नॅपशॉट निवडात"
-
-msgid "Choose an image"
-msgstr "प्रतिमा निवडात"
 
 msgid "Choose a volume"
 msgstr "आकार निवडात"

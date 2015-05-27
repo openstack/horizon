@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-11 14:56-0500\n"
-"PO-Revision-Date: 2015-05-11 12:32+0000\n"
-"Last-Translator: Robert Simai\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-27 03:11+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/"
 "de/)\n"
 "MIME-Version: 1.0\n"
@@ -20,6 +20,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "No"
+msgstr "Nein"
+
+#, c-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#, c-format
+msgid "%s MB"
+msgstr "%s MB"
+
+#, c-format
+msgid "%s TB"
+msgstr "%s TB"
+
+#, c-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#, c-format
+msgid "%s bytes"
+msgstr "%s Bytes"
+
+#, c-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] "Zeige %s Eintrag"
+msgstr[1] "Zeige %s Einträge"
 
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
@@ -181,49 +213,11 @@ msgstr "Geschlossen"
 msgid "Status: %s"
 msgstr "Status: %s"
 
-msgid "Yes"
-msgstr "Ja"
-
-msgid "No"
-msgstr "Nein"
-
-#, c-format
-msgid "%s GB"
-msgstr "%s GB"
-
-#, c-format
-msgid "%s MB"
-msgstr "%s MB"
-
-#, c-format
-msgid "%s TB"
-msgstr "%s TB"
-
-#, c-format
-msgid "%s KB"
-msgstr "%s KB"
-
-#, c-format
-msgid "%s bytes"
-msgstr "%s Bytes"
-
-#, c-format
-msgid "Displaying %s item"
-msgid_plural "Displaying %s items"
-msgstr[0] "Zeige %s Eintrag"
-msgstr[1] "Zeige %s Einträge"
-
 msgid "Unable to retrieve volumes."
 msgstr "Datenträger können nicht abgerufen werden."
 
 msgid "Unable to retrieve volume snapshots."
 msgstr "Datenträger-Schattenkopien können nicht abgerufen werden."
-
-msgid "Unable to retrieve user configuration."
-msgstr "Benutzerkonfiguration kann nicht abgerufen werden."
-
-msgid "Unable to retrieve admin configuration."
-msgstr "Admin-Konfiguration kann nicht abgerufen werden."
 
 msgid "Unable to retrieve settings."
 msgstr "Einstellungen können nicht abgerufen werden."

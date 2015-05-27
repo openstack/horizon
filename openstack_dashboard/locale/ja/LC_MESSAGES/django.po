@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-18 12:47-0500\n"
-"PO-Revision-Date: 2015-05-18 09:12+0000\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-26 21:02+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/"
 "language/ja/)\n"
@@ -6839,6 +6839,9 @@ msgstr ""
 "指定しなかった場合は、イメージデータはイメージの場所の URL にあるものが使用さ"
 "れます。"
 
+msgid "Choose an image"
+msgstr "イメージを選択してください"
+
 msgid "A image or external image location must be specified."
 msgstr "イメージまたは外部のイメージの位置を指定する必要があります。"
 
@@ -8242,14 +8245,8 @@ msgstr "メンバー %s の更新に失敗しました"
 msgid "Delay"
 msgstr "遅延"
 
-msgid "The minimum time in seconds between regular checks of a member"
-msgstr "メンバーの通常の状態確認を行う最小時間（秒単位）"
-
 msgid "Timeout"
 msgstr "タイムアウト"
-
-msgid "The maximum time in seconds for a monitor to wait for a reply"
-msgstr "モニターが応答を待つ最大時間（秒単位）"
 
 msgid "Max Retries (1~10)"
 msgstr "最大試行回数 (1〜10)"
@@ -10499,9 +10496,6 @@ msgstr "ボリュームサイズは元のボリュームサイズ (%s) 以上で
 
 msgid "Choose a snapshot"
 msgstr "スナップショットの選択"
-
-msgid "Choose an image"
-msgstr "イメージを選択してください"
 
 msgid "Choose a volume"
 msgstr "ボリュームを選択してください"
