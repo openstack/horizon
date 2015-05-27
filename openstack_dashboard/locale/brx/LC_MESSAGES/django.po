@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 16:02-0500\n"
-"PO-Revision-Date: 2015-05-14 21:03+0000\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-26 21:02+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Bodo (http://www.transifex.com/projects/p/horizon/language/"
 "brx/)\n"
@@ -5075,6 +5075,9 @@ msgstr ""
 "मुसुखाखौ बुट खालामनो खमसिन मेमरि महर गोनांथि जायो। थि-नङैब्ला बे बेसेननि डिफल्ट 0 जायो "
 "(जेबो खमसिन गैया)।"
 
+msgid "Choose an image"
+msgstr "मोनसे मुसुखा बासिख"
+
 msgid "A image or external image location must be specified."
 msgstr "मोनसे मुसुखा एबा बाइजोनि मुसुखा जायगाखौ थि खालामथारनांगोन।"
 
@@ -6232,14 +6235,8 @@ msgstr "सोद्रोमा %s खौ आपडेट खालामनो
 msgid "Delay"
 msgstr "गोबाव"
 
-msgid "The minimum time in seconds between regular checks of a member"
-msgstr "सोद्रोमानि अरायबोनि आनजाद खालामनायनि गेजेराव खमसिन समआ सेकेन्दआव"
-
 msgid "Timeout"
 msgstr "समजोबनाय"
-
-msgid "The maximum time in seconds for a monitor to wait for a reply"
-msgstr "फिननायखौ नेथ'नो मनिटरनि थाखाय बांसिन समआ सेकेन्दआव"
 
 msgid "Max Retries (1~10)"
 msgstr "बांसिन फिन-नाजानाय (1~10)"
@@ -7945,9 +7942,6 @@ msgstr "भलिउम महरआ गुबै मुसुखा महर (
 
 msgid "Choose a snapshot"
 msgstr "मोनसे स्नेपसट बासिख"
-
-msgid "Choose an image"
-msgstr "मोनसे मुसुखा बासिख"
 
 msgid "Choose a volume"
 msgstr "मोनसे भलिउमखौ बासिख"

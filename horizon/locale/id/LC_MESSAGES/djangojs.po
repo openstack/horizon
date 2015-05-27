@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-05-07 17:48+0000\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-27 03:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/horizon/"
 "language/id/)\n"
@@ -17,6 +17,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#, c-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#, c-format
+msgid "%s MB"
+msgstr "%s MB"
+
+#, c-format
+msgid "%s TB"
+msgstr "%s TB"
+
+#, c-format
+msgid "%s KB"
+msgstr "%s KB"
 
 msgid "Duplicate keys are not allowed"
 msgstr "Duplikasi kata kunci tidak diperbolehkan"
@@ -56,22 +72,6 @@ msgstr "Kembali"
 
 msgid "Next"
 msgstr "Berikutnya"
-
-#, c-format
-msgid "%s GB"
-msgstr "%s GB"
-
-#, c-format
-msgid "%s MB"
-msgstr "%s MB"
-
-#, c-format
-msgid "%s TB"
-msgstr "%s TB"
-
-#, c-format
-msgid "%s KB"
-msgstr "%s KB"
 
 msgid "Unable to retrieve volume snapshots."
 msgstr "Tidak dapat mengambil snapshot-snapshot volume."

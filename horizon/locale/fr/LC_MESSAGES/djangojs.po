@@ -17,9 +17,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-19 06:10-0500\n"
-"PO-Revision-Date: 2015-05-26 00:20+0000\n"
-"Last-Translator: Maxime COQUEREL <max.coquerel@gmail.com>\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-27 03:11+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/"
 "fr/)\n"
 "MIME-Version: 1.0\n"
@@ -27,6 +27,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Yes"
+msgstr "Oui"
+
+msgid "No"
+msgstr "Non"
+
+#, c-format
+msgid "%s GB"
+msgstr "%s Go"
+
+#, c-format
+msgid "%s MB"
+msgstr "%s Mo"
+
+#, c-format
+msgid "%s TB"
+msgstr "%s To"
+
+#, c-format
+msgid "%s KB"
+msgstr "%s Ko"
+
+#, c-format
+msgid "%s bytes"
+msgstr "%s octets"
+
+#, c-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] "Affichage de l'item %s"
+msgstr[1] "Affichage des items %s"
 
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
@@ -190,49 +222,11 @@ msgstr "Fermé"
 msgid "Status: %s"
 msgstr "État : %s"
 
-msgid "Yes"
-msgstr "Oui"
-
-msgid "No"
-msgstr "Non"
-
-#, c-format
-msgid "%s GB"
-msgstr "%s Go"
-
-#, c-format
-msgid "%s MB"
-msgstr "%s Mo"
-
-#, c-format
-msgid "%s TB"
-msgstr "%s To"
-
-#, c-format
-msgid "%s KB"
-msgstr "%s Ko"
-
-#, c-format
-msgid "%s bytes"
-msgstr "%s octets"
-
-#, c-format
-msgid "Displaying %s item"
-msgid_plural "Displaying %s items"
-msgstr[0] "Affichage de l'item %s"
-msgstr[1] "Affichage des items %s"
-
 msgid "Unable to retrieve volumes."
 msgstr "Impossible de récupérer les volumes."
 
 msgid "Unable to retrieve volume snapshots."
 msgstr "Impossible de récupérer les instantanés de volume."
-
-msgid "Unable to retrieve user configuration."
-msgstr "Impossible de récupérer la configuration utilisateur."
-
-msgid "Unable to retrieve admin configuration."
-msgstr "Impossible d'extraire la configuration admin."
 
 msgid "Unable to retrieve settings."
 msgstr "Impossible de récupérer les paramètres."

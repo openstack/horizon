@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-05-07 17:48+0000\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-27 03:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/projects/"
 "p/horizon/language/pa_IN/)\n"
@@ -18,6 +18,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pa_IN\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Yes"
+msgstr "ਹਾਂ"
+
+msgid "No"
+msgstr "ਨਹੀਂ"
+
+#, c-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#, c-format
+msgid "%s MB"
+msgstr "%s MB"
+
+#, c-format
+msgid "%s TB"
+msgstr "%s TB"
+
+#, c-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#, c-format
+msgid "%s bytes"
+msgstr "%s ਬਾਈਟਾਂ"
 
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
@@ -164,43 +190,11 @@ msgstr "ਬੰਦ ਹੋਇਆ"
 msgid "Status: %s"
 msgstr "ਹਾਲਾਤ: %s"
 
-msgid "Yes"
-msgstr "ਹਾਂ"
-
-msgid "No"
-msgstr "ਨਹੀਂ"
-
-#, c-format
-msgid "%s GB"
-msgstr "%s GB"
-
-#, c-format
-msgid "%s MB"
-msgstr "%s MB"
-
-#, c-format
-msgid "%s TB"
-msgstr "%s TB"
-
-#, c-format
-msgid "%s KB"
-msgstr "%s KB"
-
-#, c-format
-msgid "%s bytes"
-msgstr "%s ਬਾਈਟਾਂ"
-
 msgid "Unable to retrieve volumes."
 msgstr "ਆਇਤਨਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 msgid "Unable to retrieve volume snapshots."
 msgstr "ਆਇਤਨ ਸਨੈਪਸ਼ਾਟਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to retrieve user configuration."
-msgstr "ਵਰਤੋਂਕਾਰ ਸੰਰਚਨਾ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to retrieve admin configuration."
-msgstr "ਐਡਮਿਨ ਸੰਰਚਨਾ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
 
 msgid "Unable to retrieve settings."
 msgstr "ਸੈਟਿੰਗਾਂ ਨੂੰ ਮੁੜ ਪ੍ਰਾਪਤ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"

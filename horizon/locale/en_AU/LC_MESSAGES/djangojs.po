@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-05-07 18:03+0000\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-27 03:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: English (Australia) (http://www.transifex.com/projects/p/"
 "horizon/language/en_AU/)\n"
@@ -18,6 +18,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: en_AU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Yes"
+msgstr "Yes"
+
+msgid "No"
+msgstr "No"
+
+#, c-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#, c-format
+msgid "%s MB"
+msgstr "%s MB"
+
+#, c-format
+msgid "%s TB"
+msgstr "%s TB"
+
+#, c-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#, c-format
+msgid "%s bytes"
+msgstr "%s bytes"
+
+#, c-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] "Displaying %s item"
+msgstr[1] "Displaying %s items"
 
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
@@ -170,49 +202,11 @@ msgstr "Closed"
 msgid "Status: %s"
 msgstr "Status: %s"
 
-msgid "Yes"
-msgstr "Yes"
-
-msgid "No"
-msgstr "No"
-
-#, c-format
-msgid "%s GB"
-msgstr "%s GB"
-
-#, c-format
-msgid "%s MB"
-msgstr "%s MB"
-
-#, c-format
-msgid "%s TB"
-msgstr "%s TB"
-
-#, c-format
-msgid "%s KB"
-msgstr "%s KB"
-
-#, c-format
-msgid "%s bytes"
-msgstr "%s bytes"
-
-#, c-format
-msgid "Displaying %s item"
-msgid_plural "Displaying %s items"
-msgstr[0] "Displaying %s item"
-msgstr[1] "Displaying %s items"
-
 msgid "Unable to retrieve volumes."
 msgstr "Unable to retrieve volumes."
 
 msgid "Unable to retrieve volume snapshots."
 msgstr "Unable to retrieve volume snapshots."
-
-msgid "Unable to retrieve user configuration."
-msgstr "Unable to retrieve user configuration."
-
-msgid "Unable to retrieve admin configuration."
-msgstr "Unable to retrieve admin configuration."
 
 msgid "Unable to retrieve settings."
 msgstr "Unable to retrieve settings."

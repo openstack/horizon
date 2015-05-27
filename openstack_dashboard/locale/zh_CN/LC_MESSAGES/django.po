@@ -16,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-18 12:47-0500\n"
-"PO-Revision-Date: 2015-05-18 14:25+0000\n"
-"Last-Translator: LIU Yulong <dragon889@163.com>\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-26 21:02+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/"
 "language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -6731,6 +6731,9 @@ msgid ""
 msgstr ""
 "指定此选项以使得镜像数据复制至镜像服务。如果未指定，镜像数据将使用当前位置。"
 
+msgid "Choose an image"
+msgstr "选择一个镜像"
+
 msgid "A image or external image location must be specified."
 msgstr "必须给定镜像或者外部镜像的位置"
 
@@ -8099,14 +8102,8 @@ msgstr "无法更新成员 %s。"
 msgid "Delay"
 msgstr "延迟"
 
-msgid "The minimum time in seconds between regular checks of a member"
-msgstr "两次常规成员检查之间的最小时间间隔，以秒为单位。"
-
 msgid "Timeout"
 msgstr "超时"
-
-msgid "The maximum time in seconds for a monitor to wait for a reply"
-msgstr "监控等待回复的最长等待时间，以秒为单位。"
 
 msgid "Max Retries (1~10)"
 msgstr "最大重试次数(1~10)"
@@ -10369,9 +10366,6 @@ msgstr "云硬盘大小必须大于等于原始大小(%s)"
 
 msgid "Choose a snapshot"
 msgstr "选择快照"
-
-msgid "Choose an image"
-msgstr "选择一个镜像"
 
 msgid "Choose a volume"
 msgstr "选择云硬盘"

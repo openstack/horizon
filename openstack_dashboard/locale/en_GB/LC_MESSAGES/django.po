@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-19 06:10-0500\n"
-"PO-Revision-Date: 2015-05-25 14:51+0000\n"
-"Last-Translator: Rob Cresswell <robert.cresswell@outlook.com>\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-26 21:02+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/"
 "horizon/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
@@ -6903,6 +6903,9 @@ msgstr ""
 "Specify this option to copy image data to the image service. If unspecified, "
 "image data will be used in its current location."
 
+msgid "Choose an image"
+msgstr "Choose an image"
+
 msgid "A image or external image location must be specified."
 msgstr "A image or external image location must be specified."
 
@@ -8331,14 +8334,8 @@ msgstr "Failed to update member %s"
 msgid "Delay"
 msgstr "Delay"
 
-msgid "The minimum time in seconds between regular checks of a member"
-msgstr "The minimum time in seconds between regular checks of a member"
-
 msgid "Timeout"
 msgstr "Timeout"
-
-msgid "The maximum time in seconds for a monitor to wait for a reply"
-msgstr "The maximum time in seconds for a monitor to wait for a reply"
 
 msgid "Max Retries (1~10)"
 msgstr "Max Retries (1~10)"
@@ -10673,9 +10670,6 @@ msgstr ""
 
 msgid "Choose a snapshot"
 msgstr "Choose a snapshot"
-
-msgid "Choose an image"
-msgstr "Choose an image"
 
 msgid "Choose a volume"
 msgstr "Choose a volume"

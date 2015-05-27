@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 16:02-0500\n"
-"PO-Revision-Date: 2015-05-15 04:48+0000\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-26 21:02+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Maithili (http://www.transifex.com/projects/p/horizon/"
 "language/mai/)\n"
@@ -5058,6 +5058,9 @@ msgid ""
 msgstr ""
 "बिंब बूट करबाक लेल आवश्यक न्यूनतम स्मृति आकार. 0 केँ अनिर्दिष्ट, तँ ई मान चूक (कोनो न्यूनतम)."
 
+msgid "Choose an image"
+msgstr "कोनो छवि चुनू"
+
 msgid "A image or external image location must be specified."
 msgstr "बिंब अथवा बाहरी बिंब स्थान निर्दिष्ट कएल जएनाइ चाही."
 
@@ -6210,14 +6213,8 @@ msgstr "सदस्य %s अपडेट करबामे बिफल"
 msgid "Delay"
 msgstr "विलम्ब"
 
-msgid "The minimum time in seconds between regular checks of a member"
-msgstr "सदस्य क नियमित जाँच क बीच  सेकंड मे कम सँ कम समय"
-
 msgid "Timeout"
 msgstr "समय समाप्ति"
-
-msgid "The maximum time in seconds for a monitor to wait for a reply"
-msgstr "उत्तर क लेल प्रतीक्षा करबाक लेल एकटा निगरानी क लेल सेकंड मे अधिकतम समय"
 
 msgid "Max Retries (1~10)"
 msgstr "अधिकतम कोशिश (1 ~ 10)"
@@ -7928,9 +7925,6 @@ msgstr "वाल्यूम आकार क बराबर अथवा म�
 
 msgid "Choose a snapshot"
 msgstr "स्नैपशाट चुनू"
-
-msgid "Choose an image"
-msgstr "कोनो छवि चुनू"
 
 msgid "Choose a volume"
 msgstr "वाल्यूम चुनू"

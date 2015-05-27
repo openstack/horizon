@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-19 06:10-0500\n"
-"PO-Revision-Date: 2015-05-19 09:01+0000\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-26 21:02+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Gujarati (http://www.transifex.com/projects/p/horizon/"
 "language/gu/)\n"
@@ -5047,6 +5047,9 @@ msgstr ""
 "ન્યુનત્તમ મેમરી માપ ઇમેજ બુટ કરવા માટે જરૂરી.જો અનુલ્લેખિત હોય તો, આ મૂલ્ય મૂળભૂત રીતે 0 "
 "(કોઈ ન્યૂનતમ નહી) થાય."
 
+msgid "Choose an image"
+msgstr "ઇમેજ પસંદ કરો"
+
 msgid "A image or external image location must be specified."
 msgstr "ઇમેજ અથવા બાહ્ય ઈમેજના સ્થાન સ્પષ્ટ હોવા જ જોઈએ."
 
@@ -6202,14 +6205,8 @@ msgstr "%s સભ્ય સુધારવામા નિષ્ફળ"
 msgid "Delay"
 msgstr "વિલંબ"
 
-msgid "The minimum time in seconds between regular checks of a member"
-msgstr "સભ્યની નિયમિત રીતે ચકાસણીઓની વચ્ચે સેકન્ડોમાં ન્યૂનતમ સમય"
-
 msgid "Timeout"
 msgstr "સમયસમાપ્તિ"
-
-msgid "The maximum time in seconds for a monitor to wait for a reply"
-msgstr "મોનીટરના જવાબની રાહ જોવા માટે સેકન્ડોમાં મહત્તમ સમય"
 
 msgid "Max Retries (1~10)"
 msgstr "મહત્તમ પુનઃપ્રયાસો (1 ~ 10)"
@@ -7909,9 +7906,6 @@ msgstr "વોલ્યુમ માપ મૂળ વોલ્યુમના �
 
 msgid "Choose a snapshot"
 msgstr "સ્નેપશોટ પસંદ કરો"
-
-msgid "Choose an image"
-msgstr "ઇમેજ પસંદ કરો"
 
 msgid "Choose a volume"
 msgstr "વોલ્યુમ પસંદ કરો "

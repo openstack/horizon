@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 16:02-0500\n"
-"PO-Revision-Date: 2015-05-14 21:03+0000\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-26 21:02+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/horizon/language/"
 "sr/)\n"
@@ -3336,6 +3336,9 @@ msgstr ""
 "Minimalna veličina memorije potrebna da se startuje image. Ako se ne "
 "postavi, podrazumeva se 0 (nema minimuma)."
 
+msgid "Choose an image"
+msgstr "Odaberite image"
+
 msgid "A image or external image location must be specified."
 msgstr "Lokacija image-a ili spoljnog image-a mora biti određena."
 
@@ -4156,14 +4159,8 @@ msgstr "Neuspešna izmena član %s"
 msgid "Delay"
 msgstr "Kašnjenje"
 
-msgid "The minimum time in seconds between regular checks of a member"
-msgstr "najmanje vreme u sekundama među regularnim proverama člana"
-
 msgid "Timeout"
 msgstr "Vreme je isteklo"
-
-msgid "The maximum time in seconds for a monitor to wait for a reply"
-msgstr "Maksimalno vreme nadzora u sekundama za čekanje odgovora"
 
 msgid "Max Retries (1~10)"
 msgstr "Najveći broj pokušaja (1~10)"
@@ -5368,9 +5365,6 @@ msgstr ""
 
 msgid "Choose a snapshot"
 msgstr "Odaberite snapshot"
-
-msgid "Choose an image"
-msgstr "Odaberite image"
 
 msgid "Choose a volume"
 msgstr "Odaberite volume"

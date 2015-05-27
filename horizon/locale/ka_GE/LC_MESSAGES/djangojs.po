@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-05-07 17:48+0000\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-27 03:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Georgian (Georgia) (http://www.transifex.com/projects/p/"
 "horizon/language/ka_GE/)\n"
@@ -18,24 +18,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ka_GE\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-msgid "Filter"
-msgstr "ფილტრი"
-
-msgid "Cancel"
-msgstr "გაუქმება"
-
-msgid "Info"
-msgstr "ინფო"
-
-msgid "Available"
-msgstr "ხელმისაწვდომი"
-
-msgid "Back"
-msgstr "უკან"
-
-msgid "Next"
-msgstr "შემდეგი"
 
 #, c-format
 msgid "%s GB"
@@ -57,6 +39,24 @@ msgstr "%s კბ"
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
 msgstr[0] "%s ელემენტის ჩვენება"
+
+msgid "Filter"
+msgstr "ფილტრი"
+
+msgid "Cancel"
+msgstr "გაუქმება"
+
+msgid "Info"
+msgstr "ინფო"
+
+msgid "Available"
+msgstr "ხელმისაწვდომი"
+
+msgid "Back"
+msgstr "უკან"
+
+msgid "Next"
+msgstr "შემდეგი"
 
 msgid "Loading"
 msgstr "იტვირთება"

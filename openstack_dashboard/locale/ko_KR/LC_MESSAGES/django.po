@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-18 12:47-0500\n"
-"PO-Revision-Date: 2015-05-18 09:12+0000\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-26 21:02+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/"
 "language/ko_KR/)\n"
@@ -6817,6 +6817,9 @@ msgstr ""
 "이미지 서비스에서 이미지 데이터를 복사하려면 이 옵션을 지정해야합니다. 만약 "
 "지정하지 않으면, 이미지 데이터는 현재 위치에서 사용됩니다."
 
+msgid "Choose an image"
+msgstr "이미지 선택"
+
 msgid "A image or external image location must be specified."
 msgstr "이미지 또는 외부 이미지의 위치를 지정해야 합니다."
 
@@ -8219,14 +8222,8 @@ msgstr "멤버 %s 업데이트 실패하였습니다."
 msgid "Delay"
 msgstr "지연"
 
-msgid "The minimum time in seconds between regular checks of a member"
-msgstr "멤버의 정기 정검 사이의 최소 시간"
-
 msgid "Timeout"
 msgstr "Timeout"
-
-msgid "The maximum time in seconds for a monitor to wait for a reply"
-msgstr "모니터 응답을 기다리는는 최대 시간"
 
 msgid "Max Retries (1~10)"
 msgstr "최대 재시도 (1~10)"
@@ -10483,9 +10480,6 @@ msgstr "볼륨크기는 원본 볼륨 크기 (%s) 보다 크거나 같아야 합
 
 msgid "Choose a snapshot"
 msgstr "스냅샷 선택"
-
-msgid "Choose an image"
-msgstr "이미지 선택"
 
 msgid "Choose a volume"
 msgstr "볼륨 선택"

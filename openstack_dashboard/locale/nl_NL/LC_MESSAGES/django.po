@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-08 12:21-0500\n"
-"PO-Revision-Date: 2015-05-08 17:21+0000\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-26 21:02+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/"
 "horizon/language/nl_NL/)\n"
@@ -3380,6 +3380,9 @@ msgstr ""
 "De minimum geheugengrootte benodigd om de afbeelding te starten. Indien "
 "ongespecificeerd staat deze waarde standaard op 0 (geen minimum)."
 
+msgid "Choose an image"
+msgstr "Kies een afbeelding"
+
 msgid "A image or external image location must be specified."
 msgstr ""
 "Een afbeelding of externe afbeeldingslocatie dient te worden gespecificeerd."
@@ -4220,14 +4223,8 @@ msgstr "Bijwerken van lid %s mislukt"
 msgid "Delay"
 msgstr "Vertraging"
 
-msgid "The minimum time in seconds between regular checks of a member"
-msgstr "De minimum tijd in seconden tussen reguliere controles van een lid"
-
 msgid "Timeout"
 msgstr "Verlooptijd"
-
-msgid "The maximum time in seconds for a monitor to wait for a reply"
-msgstr "Het maximum aantal seconden waarop een bewaker wacht op een reactie"
 
 msgid "Max Retries (1~10)"
 msgstr "Maximum pogingen (1-10)"
@@ -5470,9 +5467,6 @@ msgstr ""
 
 msgid "Choose a snapshot"
 msgstr "Kies een momentopname"
-
-msgid "Choose an image"
-msgstr "Kies een afbeelding"
 
 msgid "Choose a volume"
 msgstr "Selecteer een volume"

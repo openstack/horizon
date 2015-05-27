@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-19 06:10-0500\n"
-"PO-Revision-Date: 2015-05-19 11:54+0000\n"
-"Last-Translator: Robert Simai\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-26 21:02+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/"
 "de/)\n"
 "MIME-Version: 1.0\n"
@@ -3660,6 +3660,9 @@ msgstr ""
 msgid "Key Pair Name"
 msgstr "Schlüsselpaar-Name"
 
+msgid "The name is already in use."
+msgstr "Der Name wird bereits verwendet."
+
 msgid "Public Key"
 msgstr "Öffentlicher Schlüssel"
 
@@ -7067,6 +7070,9 @@ msgstr ""
 "Wählen Sie diese Option, um Abbilddaten in den Abbilddienst zu kopieren. "
 "Ohne Angabe wird der aktuelle Ort für Abbilddaten verwendet."
 
+msgid "Choose an image"
+msgstr "Wähle ein Abbild"
+
 msgid "A image or external image location must be specified."
 msgstr ""
 "Ein Abbild oder der externe Speicherort eines Abbildes muss angegeben werden."
@@ -8529,16 +8535,8 @@ msgstr "Mitglied %s konnte nicht aktualisiert werden."
 msgid "Delay"
 msgstr "Verzögerung"
 
-msgid "The minimum time in seconds between regular checks of a member"
-msgstr ""
-"Die minimale Zeit in Sekunden, die zwischen den regulären Überprüfungen des "
-"Mitglieds vergeht."
-
 msgid "Timeout"
 msgstr "Zeitüberschreitung"
-
-msgid "The maximum time in seconds for a monitor to wait for a reply"
-msgstr "Die maximale Zeit für den Monitor zum Warten auf eine Antwort"
 
 msgid "Max Retries (1~10)"
 msgstr "Maximale Versuche (1~10)"
@@ -8549,6 +8547,9 @@ msgid ""
 msgstr ""
 "Anzahl der erlaubten Fehlversuche, bevor der Status des Mitglieds auf "
 "inaktiv gesetzt wird."
+
+msgid "Delay must be greater than or equal to timeout"
+msgstr "Verzögerung muss größer oder gleich der Zeitüberschreitung sein"
 
 #, python-format
 msgid "Health monitor %s was successfully updated."
@@ -8817,12 +8818,13 @@ msgid ""
 "delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
 msgstr ""
 "%(type)s: URL:%(url_path)s Methode:%(http_method)s Codes:%(expected_codes)s "
-"Verzögerung:%(delay)d Versuche:%(max_retries)d Zeitlimit:%(timeout)d"
+"Verzögerung:%(delay)d Versuche:%(max_retries)d Zeitüberschreitung:%(timeout)d"
 
 #, python-format
 msgid "%(type)s delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
 msgstr ""
-"%(type)s Verzögerung:%(delay)d Versuche:%(max_retries)d Zeitlimit:%(timeout)d"
+"%(type)s Verzögerung:%(delay)d Versuche:%(max_retries)d Zeitüberschreitung:"
+"%(timeout)d"
 
 #, python-format
 msgid "Deleted monitor %s"
@@ -9074,7 +9076,7 @@ msgstr ""
 "Werten (z.B. 200, 202), oder ein Bereich von Werten (z.B. 200-204)"
 
 msgid "Delay must be greater than or equal to Timeout"
-msgstr "Verzögerung muss größer oder gleich Timeout sein"
+msgstr "Verzögerung muss größer oder gleich der Zeitüberschreitung sein"
 
 msgid "Please choose a HTTP method"
 msgstr "Bitte eine HTTP Methode auswaehlen"
@@ -9102,8 +9104,8 @@ msgstr ""
 "So erzeugen Sie eine Monitor-Vorlage.\n"
 "\n"
 "Wählen Sie die Art des Monitors. Geben Sie die erforderliche Verzögerung, "
-"das Zeitlimit und die Anzahl der Neuversuche an. Geben Sie die Methode,  den "
-"URL-Pfad und die erwarteten HTTP-Codes für einen Erfolg an."
+"die Zeitüberschreitung und die Anzahl der Neuversuche an. Geben Sie die "
+"Methode,  den URL-Pfad und die erwarteten HTTP-Codes für einen Erfolg an."
 
 msgid "Added monitor"
 msgstr "Monitor hinzugefügt"
@@ -10945,9 +10947,6 @@ msgstr ""
 
 msgid "Choose a snapshot"
 msgstr "Wählen Sie eine Schattenkopie"
-
-msgid "Choose an image"
-msgstr "Wähle ein Abbild"
 
 msgid "Choose a volume"
 msgstr "Wählen Sie einen Datenträger"

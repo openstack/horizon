@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-18 12:47-0500\n"
-"PO-Revision-Date: 2015-05-18 09:12+0000\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-26 21:02+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/"
 "cs/)\n"
@@ -3756,6 +3756,9 @@ msgstr ""
 "Minimální velikost paměti, jež je vyžadována pro zavedení obrazu. Pokud není "
 "zadána, je výchozí hodnota 0 (žádné minimum)."
 
+msgid "Choose an image"
+msgstr "Zvolit obraz"
+
 msgid "A image or external image location must be specified."
 msgstr "Musí být zadáno umístění (externího) obrazu."
 
@@ -4766,14 +4769,8 @@ msgstr "Aktualizace člena %s selhala"
 msgid "Delay"
 msgstr "Zpoždění"
 
-msgid "The minimum time in seconds between regular checks of a member"
-msgstr "Minimální doba ve vteřinách mezi pravidelnými kontrolami člena"
-
 msgid "Timeout"
 msgstr "Časový limit"
-
-msgid "The maximum time in seconds for a monitor to wait for a reply"
-msgstr "Maximální doba ve vteřinách kdy monitor čeká na odpověď"
 
 msgid "Max Retries (1~10)"
 msgstr "Max opakování (1~10)"
@@ -6077,9 +6074,6 @@ msgstr ""
 
 msgid "Choose a snapshot"
 msgstr "Zvolte snímek"
-
-msgid "Choose an image"
-msgstr "Zvolit obraz"
 
 msgid "Choose a volume"
 msgstr "Zvolte svazek"

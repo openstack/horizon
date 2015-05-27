@@ -9,12 +9,13 @@
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015
 # Kyrylo Romanenko <kromanenko@mirantis.com>, 2015
 # Nikita Burtsev, 2015
+# Nikita Burtsev, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-18 12:47-0500\n"
-"PO-Revision-Date: 2015-05-18 09:12+0000\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-26 21:02+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/"
 "ru/)\n"
@@ -4023,7 +4024,7 @@ msgid ""
 "instead specify an ICMP type and code in the spaces provided."
 msgstr ""
 "Для TCP и UDP правил вы можете открыть отдельный порт или диапазон портов. "
-"Выбир опции \"Диапазон Портов\" предоставит вам форму для ввода начального и "
+"Выбор опции \"Диапазон Портов\" предоставит вам форму для ввода начального и "
 "конечного портов диапазона. Для ICMP правил вам необходимо будет указать "
 "ICMP тип и код в предоставленной форме."
 
@@ -7102,6 +7103,9 @@ msgstr ""
 "противном случае данные образа будут использоваться из его текущего "
 "расположения."
 
+msgid "Choose an image"
+msgstr "Выберите образ"
+
 msgid "A image or external image location must be specified."
 msgstr "Образ или внешнее расположение образа должно быть указано."
 
@@ -8547,14 +8551,8 @@ msgstr "Неудалось обновить участника %s"
 msgid "Delay"
 msgstr "Задержка"
 
-msgid "The minimum time in seconds between regular checks of a member"
-msgstr "Минимальное время в секундах между регулярным проверками участника"
-
 msgid "Timeout"
 msgstr "Таймаут"
-
-msgid "The maximum time in seconds for a monitor to wait for a reply"
-msgstr "Максимальное время в секундах для ожидания ответа"
 
 msgid "Max Retries (1~10)"
 msgstr "Количество попыток (1~10)"
@@ -10876,9 +10874,6 @@ msgstr ""
 
 msgid "Choose a snapshot"
 msgstr "Выбрать снимок"
-
-msgid "Choose an image"
-msgstr "Выберите образ"
 
 msgid "Choose a volume"
 msgstr "Выбрать диск"

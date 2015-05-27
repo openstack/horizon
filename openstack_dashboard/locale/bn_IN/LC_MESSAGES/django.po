@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 16:02-0500\n"
-"PO-Revision-Date: 2015-05-14 21:03+0000\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-26 21:02+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Bengali (India) (http://www.transifex.com/projects/p/horizon/"
 "language/bn_IN/)\n"
@@ -5016,6 +5016,9 @@ msgstr ""
 "ইমেজ বুট করতে ন্যূনতম মেমরি আয়তন প্রয়োজন. অনির্দিষ্ট থাকলে, এই মান স্থিতকে 0 হয় "
 "(কোনো ন্যূনতম নেই)."
 
+msgid "Choose an image"
+msgstr "একটি ছবি বাছুন"
+
 msgid "A image or external image location must be specified."
 msgstr "একটি ইমেজ বা বাহ্যিক ইমেজের অবস্থান নির্দিষ্ট হওয়া চাই."
 
@@ -5952,14 +5955,8 @@ msgstr "%s সদস্য আপডেট করতে ব্যর্থ"
 msgid "Delay"
 msgstr "দেরী"
 
-msgid "The minimum time in seconds between regular checks of a member"
-msgstr "সদস্যের নিয়মিত পরীক্ষার মধ্যে সেকেন্ডে ন্যূনতম সময়"
-
 msgid "Timeout"
 msgstr "বিরতি"
-
-msgid "The maximum time in seconds for a monitor to wait for a reply"
-msgstr "উত্তরের জন্য অপেক্ষা করতে মনিটরের জন্য সেকেন্ডে সর্বাধিক সময়"
 
 msgid "Max Retries (1~10)"
 msgstr "অধিকতম প্রচেষ্টা (1~10)"
@@ -7642,9 +7639,6 @@ msgstr "ভলিয়্যুম আয়তন মূল ভলিয়্যুম
 
 msgid "Choose a snapshot"
 msgstr "একটি স্ন্যাপশট বাছুন"
-
-msgid "Choose an image"
-msgstr "একটি ছবি বাছুন"
 
 msgid "Choose a volume"
 msgstr "একটি ভলিয়্যুম বাছুন"

@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-18 12:47-0500\n"
-"PO-Revision-Date: 2015-05-18 16:59+0000\n"
-"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
+"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"PO-Revision-Date: 2015-05-27 03:11+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/"
 "language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -20,6 +20,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Yes"
+msgstr "예"
+
+msgid "No"
+msgstr "아니오"
+
+#, c-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#, c-format
+msgid "%s MB"
+msgstr "%s MB"
+
+#, c-format
+msgid "%s TB"
+msgstr "%s TB"
+
+#, c-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#, c-format
+msgid "%s bytes"
+msgstr "%s 바이트"
+
+#, c-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] "%s 항목 표시"
 
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
@@ -180,48 +211,11 @@ msgstr "닫음"
 msgid "Status: %s"
 msgstr "상태: %s"
 
-msgid "Yes"
-msgstr "예"
-
-msgid "No"
-msgstr "아니오"
-
-#, c-format
-msgid "%s GB"
-msgstr "%s GB"
-
-#, c-format
-msgid "%s MB"
-msgstr "%s MB"
-
-#, c-format
-msgid "%s TB"
-msgstr "%s TB"
-
-#, c-format
-msgid "%s KB"
-msgstr "%s KB"
-
-#, c-format
-msgid "%s bytes"
-msgstr "%s 바이트"
-
-#, c-format
-msgid "Displaying %s item"
-msgid_plural "Displaying %s items"
-msgstr[0] "%s 항목 표시"
-
 msgid "Unable to retrieve volumes."
 msgstr "볼륨을 찾지 못했습니다."
 
 msgid "Unable to retrieve volume snapshots."
 msgstr "볼륨 스냅샷을 찾지 못했습니다."
-
-msgid "Unable to retrieve user configuration."
-msgstr "사용자 구성을 찾지 못했습니다."
-
-msgid "Unable to retrieve admin configuration."
-msgstr "관리자 구성을 찾지 못했습니다."
 
 msgid "Unable to retrieve settings."
 msgstr "설정을 찾지 못했습니다."
