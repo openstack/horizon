@@ -8,10 +8,10 @@ $webroot: "" !default;
 
 /* Bootstrap variables overrides */
 
-$icon-font-path: "../../bootstrap/fonts/bootstrap/";
-$font-size-base: 13px;
-$modal-md: 732px;
-$gray-light: #cccccc;
+$icon-font-path: "../../bootstrap/fonts/bootstrap/" !default;
+$font-size-base: 13px !default;
+$modal-md: 732px !default;
+$gray-light: #cccccc !default;
 
 
 /* Horizon Custom Variables */
