@@ -8,6 +8,8 @@ css rules getting cut off if one css file to get more than 4k rules inside.
 {% load compress %}
 
 {% compress css %}
+<link href='{{ STATIC_URL }}horizon/lib/bootstrap_datepicker/datepicker3.css' type='text/scss' media='screen' rel='stylesheet' />
+<link href='{{ STATIC_URL }}horizon/lib/rickshaw.css' type='text/scss' media='screen' rel='stylesheet' />
 <link href='{{ STATIC_URL }}dashboard/scss/horizon.scss' type='text/scss' media='screen' rel='stylesheet' />
 {% endcompress %}
 
