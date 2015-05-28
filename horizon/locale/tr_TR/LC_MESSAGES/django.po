@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-04-20 07:07+0000\n"
+"POT-Creation-Date: 2015-05-27 03:00-0500\n"
+"PO-Revision-Date: 2015-05-13 19:11+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/horizon/"
 "language/tr_TR/)\n"
@@ -19,233 +19,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr_TR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-msgid "Other"
-msgstr "Diğer"
-
-msgid "Navigation Item"
-msgstr "Gezinme öğesi"
-
-#, python-format
-msgid "Select a %s to browse."
-msgstr "Göz atmak için bir %s seçin."
-
-msgid "Password is not accepted"
-msgstr "Şifre kabul edilmedi"
-
-msgid "Please log in to continue."
-msgstr "Devam etmek için lütfen oturum açın."
-
-#, python-format
-msgid "You are not authorized to access %s"
-msgstr "%s e erişim yetkiniz bulunmuyor"
-
-#, python-format
-msgid "A %(resource)s with the name \"%(name)s\" already exists."
-msgstr "\"%(name)s\" isimli bir %(resource)s zaten var."
-
-#, python-format
-msgid "Unauthorized: %s"
-msgstr "Yetkisiz: %s"
-
-msgid "Unauthorized. Please try logging in again."
-msgstr "Yetkisiz Giriş. Lütfen tekrar giriş yapın. "
-
-msgid "Incorrect format for IP address"
-msgstr "Hatalı IP adres formatı"
-
-msgid "Invalid version for IP address"
-msgstr "Geçersiz IP adres versiyonu"
-
-msgid "Invalid subnet mask"
-msgstr "Geçersiz subnet maskesi"
-
-msgid "Submit"
-msgstr "Gönder"
-
-msgid "Cancel"
-msgstr "İptal"
-
-msgid "Session timed out."
-msgstr "Oturum sona erdi."
-
-msgid "Filter"
-msgstr "Filtre"
-
-msgid "This action cannot be undone."
-msgstr "Bu işlem geri alınamaz."
-
-#, python-format
-msgctxt "past"
-msgid "%(action)s %(data_type)s"
-msgstr "%(action)s %(data_type)s"
-
-#, python-format
-msgctxt "present"
-msgid "%(action)s %(data_type)s"
-msgstr "%(action)s %(data_type)s"
-
-#, python-format
-msgid "You are not allowed to %(action)s: %(objs)s"
-msgstr "Bu işlem için izniniz yok %(action)s: %(objs)s"
-
-#, python-format
-msgid "Unable to %(action)s: %(objs)s"
-msgstr "%(action)s: %(objs)s işlemi yapılamıyor."
-
-#, python-format
-msgid "%(action)s: %(objs)s"
-msgstr "%(action)s: %(objs)s"
-
-msgid "Delete"
-msgstr "Sil"
-
-msgid "Deleted"
-msgstr "Silinmiş"
-
-msgid "Update"
-msgstr "Güncelle"
-
-msgid "Updated"
-msgstr "Güncellendi"
-
-msgid "-"
-msgstr "-"
-
-#, python-format
-msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr " %(obj)s objesinde %(attr)s özniteliği yer almıyor."
-
-msgid "No items to display."
-msgstr "Görüntülenecek öğe yok."
-
-msgid "Actions"
-msgstr "İşlemler"
-
-#, python-format
-msgid "No match returned for the id \"%s\"."
-msgstr "\"%s\" ID'si için bir eşleşme bulunamadı."
-
-msgid "Please select a row before taking that action."
-msgstr "Bir işlem yapmadan önce lütfen bir satır seçin."
-
-msgid "N/A"
-msgstr "N/A"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "%(username)s kullanıcısı ile giriş yapıldı"
-
-msgid "Help"
-msgstr "Yardım"
-
-msgid "Sign Out"
-msgstr "Çıkış"
-
-msgid "Log In"
-msgstr "Oturum Aç"
-
-msgid "You do not have permission to access the resource:"
-msgstr "Kaynağa erişim için yetkiniz bulunmuyor:"
-
-#, python-format
-msgid ""
-"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
-msgstr ""
-"Başka bir kullanıcı ile giriş yapın veya  <a href=\"%(home_url)s\"> Ana "
-"Sayfa</a>'ya gidin"
-
-msgid "Sign In"
-msgstr "Oturum Aç"
-
-msgid "Login"
-msgstr "Giriş"
-
-msgid "Info: "
-msgstr "Bilgi:"
-
-msgid "Warning: "
-msgstr "Uyarı:"
-
-msgid "Success: "
-msgstr "Başarılı:"
-
-msgid "Error: "
-msgstr "Hata:"
-
-msgid "Summary"
-msgstr "Özet"
-
-#, python-format
-msgid "Displaying %(counter)s item"
-msgid_plural "Displaying %(counter)s items"
-msgstr[0] "%(counter)s öge görüntüleniyor"
-
-msgid "&laquo;&nbsp;Prev"
-msgstr "&laquo;&nbsp;Geri"
-
-msgid "Next&nbsp;&raquo;"
-msgstr "İleri&nbsp;&raquo;"
-
-msgid "More Actions"
-msgstr "Diğer İşlemler"
-
-#, python-format
-msgid "%(context_name)s:"
-msgstr "%(context_name)s:"
-
-msgid "Add a row"
-msgstr "Yeni bir satır ekle"
-
-#, python-format
-msgid "%(name)s: %(error)s"
-msgstr "%(name)s: %(error)s"
-
-msgid "Limit Summary"
-msgstr "Özeti Sınırla"
-
-msgid "Instances"
-msgstr "Sunucular"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr ""
-"Toplam <span> %(used)s </span> 'ın <span> %(available)s </span> 'ı "
-"kullanıldı. "
-
-msgid "VCPUs"
-msgstr "VCPUlar"
-
-msgid "RAM"
-msgstr "RAM"
-
-msgid "Floating IPs"
-msgstr "Floating IP'ler"
-
-msgid "Security Groups"
-msgstr "Güvenlik Grupları"
-
-msgid "Volumes"
-msgstr "Diskler"
-
-msgid "Volume Storage"
-msgstr "Disk Depolama Birimi"
-
-msgid "Save"
-msgstr "Kaydet"
-
-#, python-format
-msgid "Displaying %(nav_items)s item"
-msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] "%(nav_items)s öge görüntüleniyor"
-
-#, python-format
-msgid "Displaying %(content_items)s item"
-msgid_plural "Displaying %(content_items)s items"
-msgstr[0] "%(content_items)s öge görüntüleniyor"
-
-msgid "Usage Summary"
-msgstr "Kullanım Özeti"
 
 #, python-format
 msgid ""
@@ -263,28 +36,36 @@ msgstr ""
 "\n"
 "<label>Bitiş:</label>%(end)s"
 
-msgid "The date should be in YYYY-mm-dd format."
-msgstr "Tarih YYYY-AA-GG formatında olmalı."
+#, python-format
+msgctxt "past"
+msgid "%(action)s %(data_type)s"
+msgstr "%(action)s %(data_type)s"
 
-msgid "Back"
-msgstr "Geri"
+#, python-format
+msgctxt "present"
+msgid "%(action)s %(data_type)s"
+msgstr "%(action)s %(data_type)s"
 
-msgid "Next"
-msgstr "İleri"
+#, python-format
+msgid "%(action)s: %(objs)s"
+msgstr "%(action)s: %(objs)s"
 
-msgid "Horizon"
-msgstr "Horizon"
+#, python-format
+msgid "%(context_name)s:"
+msgstr "%(context_name)s:"
 
-msgid "No Limit"
-msgstr "Limitsiz"
-
-msgid "Available"
-msgstr "Uygun"
+#, python-format
+msgid "%(name)s: %(error)s"
+msgstr "%(name)s: %(error)s"
 
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
 msgstr[0] "%(size)d Byte"
+
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
 
 #, python-format
 msgid "%s KB"
@@ -295,52 +76,12 @@ msgid "%s MB"
 msgstr "%s MB"
 
 #, python-format
-msgid "%s GB"
-msgstr "%s GB"
+msgid "%s PB"
+msgstr "%s PB"
 
 #, python-format
 msgid "%s TB"
 msgstr "%s TB"
-
-#, python-format
-msgid "%s PB"
-msgstr "%s PB"
-
-msgid "0 Bytes"
-msgstr "0 Byte"
-
-msgid "Fake"
-msgstr "Sahte"
-
-msgid "Never"
-msgstr "Asla"
-
-msgid "Not a valid port number"
-msgstr "Geçersiz port numarası"
-
-msgid "Not a valid IP protocol number"
-msgstr "Geçersiz IP Protokol numarası"
-
-msgid "One colon allowed in port range"
-msgstr "Port aralığında tek bir kolon girilebilir"
-
-msgid "Port number must be integer"
-msgstr "Port numarası bir tam sayı olmalıdır"
-
-msgid "Processing..."
-msgstr "İşleniyor..."
-
-msgid "All available"
-msgstr "Hepsi uygun"
-
-msgid "Members"
-msgstr "Üyeler"
-
-msgid "None available."
-msgstr "Hiçbiri uygun değil"
-
-msgid "No members."
-msgstr "Üye yok."
 
 #, python-format
 msgid "%s completed successfully."
@@ -349,3 +90,262 @@ msgstr "%s başarıyla tamamlandı."
 #, python-format
 msgid "%s did not complete."
 msgstr "%s tamamlanmadı."
+
+msgid "&laquo;&nbsp;Prev"
+msgstr "&laquo;&nbsp;Geri"
+
+msgid "-"
+msgstr "-"
+
+msgid "0 Bytes"
+msgstr "0 Byte"
+
+#, python-format
+msgid "A %(resource)s with the name \"%(name)s\" already exists."
+msgstr "\"%(name)s\" isimli bir %(resource)s zaten var."
+
+msgid "Actions"
+msgstr "İşlemler"
+
+msgid "Add a row"
+msgstr "Yeni bir satır ekle"
+
+msgid "All available"
+msgstr "Hepsi uygun"
+
+msgid "Available"
+msgstr "Uygun"
+
+msgid "Back"
+msgstr "Geri"
+
+msgid "Cancel"
+msgstr "İptal"
+
+msgid "Delete"
+msgstr "Sil"
+
+msgid "Deleted"
+msgstr "Silinmiş"
+
+#, python-format
+msgid "Displaying %(content_items)s item"
+msgid_plural "Displaying %(content_items)s items"
+msgstr[0] "%(content_items)s öge görüntüleniyor"
+
+#, python-format
+msgid "Displaying %(counter)s item"
+msgid_plural "Displaying %(counter)s items"
+msgstr[0] "%(counter)s öge görüntüleniyor"
+
+#, python-format
+msgid "Displaying %(nav_items)s item"
+msgid_plural "Displaying %(nav_items)s items"
+msgstr[0] "%(nav_items)s öge görüntüleniyor"
+
+msgid "Error: "
+msgstr "Hata:"
+
+msgid "Fake"
+msgstr "Sahte"
+
+msgid "Filter"
+msgstr "Filtre"
+
+msgid "Floating IPs"
+msgstr "Floating IP'ler"
+
+msgid "Help"
+msgstr "Yardım"
+
+msgid "Horizon"
+msgstr "Horizon"
+
+msgid "Incorrect format for IP address"
+msgstr "Hatalı IP adres formatı"
+
+msgid "Info: "
+msgstr "Bilgi:"
+
+msgid "Instances"
+msgstr "Sunucular"
+
+msgid "Invalid subnet mask"
+msgstr "Geçersiz subnet maskesi"
+
+msgid "Invalid version for IP address"
+msgstr "Geçersiz IP adres versiyonu"
+
+msgid "Limit Summary"
+msgstr "Özeti Sınırla"
+
+msgid "Log In"
+msgstr "Oturum Aç"
+
+#, python-format
+msgid "Logged in as: %(username)s"
+msgstr "%(username)s kullanıcısı ile giriş yapıldı"
+
+msgid "Login"
+msgstr "Giriş"
+
+#, python-format
+msgid ""
+"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
+msgstr ""
+"Başka bir kullanıcı ile giriş yapın veya  <a href=\"%(home_url)s\"> Ana "
+"Sayfa</a>'ya gidin"
+
+msgid "Members"
+msgstr "Üyeler"
+
+msgid "More Actions"
+msgstr "Diğer İşlemler"
+
+msgid "N/A"
+msgstr "N/A"
+
+msgid "Navigation Item"
+msgstr "Gezinme öğesi"
+
+msgid "Never"
+msgstr "Asla"
+
+msgid "Next"
+msgstr "İleri"
+
+msgid "Next&nbsp;&raquo;"
+msgstr "İleri&nbsp;&raquo;"
+
+msgid "No Limit"
+msgstr "Limitsiz"
+
+msgid "No items to display."
+msgstr "Görüntülenecek öğe yok."
+
+#, python-format
+msgid "No match returned for the id \"%s\"."
+msgstr "\"%s\" ID'si için bir eşleşme bulunamadı."
+
+msgid "No members."
+msgstr "Üye yok."
+
+msgid "None available."
+msgstr "Hiçbiri uygun değil"
+
+msgid "Not a valid IP protocol number"
+msgstr "Geçersiz IP Protokol numarası"
+
+msgid "Not a valid port number"
+msgstr "Geçersiz port numarası"
+
+msgid "One colon allowed in port range"
+msgstr "Port aralığında tek bir kolon girilebilir"
+
+msgid "Other"
+msgstr "Diğer"
+
+msgid "Password is not accepted"
+msgstr "Şifre kabul edilmedi"
+
+msgid "Please log in to continue."
+msgstr "Devam etmek için lütfen oturum açın."
+
+msgid "Please select a row before taking that action."
+msgstr "Bir işlem yapmadan önce lütfen bir satır seçin."
+
+msgid "Port number must be integer"
+msgstr "Port numarası bir tam sayı olmalıdır"
+
+msgid "Processing..."
+msgstr "İşleniyor..."
+
+msgid "RAM"
+msgstr "RAM"
+
+msgid "Save"
+msgstr "Kaydet"
+
+msgid "Security Groups"
+msgstr "Güvenlik Grupları"
+
+#, python-format
+msgid "Select a %s to browse."
+msgstr "Göz atmak için bir %s seçin."
+
+msgid "Session timed out."
+msgstr "Oturum sona erdi."
+
+msgid "Sign In"
+msgstr "Oturum Aç"
+
+msgid "Sign Out"
+msgstr "Çıkış"
+
+msgid "Submit"
+msgstr "Gönder"
+
+msgid "Success: "
+msgstr "Başarılı:"
+
+msgid "Summary"
+msgstr "Özet"
+
+#, python-format
+msgid "The attribute %(attr)s doesn't exist on %(obj)s."
+msgstr " %(obj)s objesinde %(attr)s özniteliği yer almıyor."
+
+msgid "The date should be in YYYY-mm-dd format."
+msgstr "Tarih YYYY-AA-GG formatında olmalı."
+
+msgid "This action cannot be undone."
+msgstr "Bu işlem geri alınamaz."
+
+#, python-format
+msgid "Unable to %(action)s: %(objs)s"
+msgstr "%(action)s: %(objs)s işlemi yapılamıyor."
+
+msgid "Unauthorized. Please try logging in again."
+msgstr "Yetkisiz Giriş. Lütfen tekrar giriş yapın. "
+
+#, python-format
+msgid "Unauthorized: %s"
+msgstr "Yetkisiz: %s"
+
+msgid "Update"
+msgstr "Güncelle"
+
+msgid "Updated"
+msgstr "Güncellendi"
+
+msgid "Usage Summary"
+msgstr "Kullanım Özeti"
+
+#, python-format
+msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr ""
+"Toplam <span> %(used)s </span> 'ın <span> %(available)s </span> 'ı "
+"kullanıldı. "
+
+msgid "VCPUs"
+msgstr "VCPUlar"
+
+msgid "Volume Storage"
+msgstr "Disk Depolama Birimi"
+
+msgid "Volumes"
+msgstr "Diskler"
+
+msgid "Warning: "
+msgstr "Uyarı:"
+
+#, python-format
+msgid "You are not allowed to %(action)s: %(objs)s"
+msgstr "Bu işlem için izniniz yok %(action)s: %(objs)s"
+
+#, python-format
+msgid "You are not authorized to access %s"
+msgstr "%s e erişim yetkiniz bulunmuyor"
+
+msgid "You do not have permission to access the resource:"
+msgstr "Kaynağa erişim için yetkiniz bulunmuyor:"

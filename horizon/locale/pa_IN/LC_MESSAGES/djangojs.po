@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"POT-Creation-Date: 2015-05-27 03:01-0500\n"
 "PO-Revision-Date: 2015-05-27 03:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/projects/"
@@ -19,15 +19,13 @@ msgstr ""
 "Language: pa_IN\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Yes"
-msgstr "ਹਾਂ"
-
-msgid "No"
-msgstr "ਨਹੀਂ"
-
 #, c-format
 msgid "%s GB"
 msgstr "%s GB"
+
+#, c-format
+msgid "%s KB"
+msgstr "%s KB"
 
 #, c-format
 msgid "%s MB"
@@ -38,23 +36,420 @@ msgid "%s TB"
 msgstr "%s TB"
 
 #, c-format
-msgid "%s KB"
-msgstr "%s KB"
-
-#, c-format
 msgid "%s bytes"
 msgstr "%s ਬਾਈਟਾਂ"
+
+msgid "Add Interface"
+msgstr "ਇੰਟਰਫੇਸ ਜੋੜ੍ਹੋ"
+
+msgid "Allocated"
+msgstr "ਵੰਡਿਆ ਜਾ ਚੁੱਕਾ"
+
+msgid "An error occurred while updating."
+msgstr "ਅੱਪਡੇਟ ਕਰਨ ਵੇਲੇ ਇੱਕ ਗਲਤੀ ਹੋਈ।"
+
+msgid "An error occurred. Please try again later."
+msgstr "ਇੱਕ ਗਲਤੀ ਵਾਪਰੀ। ਕਿਰਪਾ ਕਰ ਕੇ ਬਾਅਦ ਵਿੱਚ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+
+msgid "Available"
+msgstr "ਉਪਲੱਬਧ"
+
+msgid "Available Metadata"
+msgstr "ਉਪਲੱਬਧ ਮੈਟਾਡਾਟਾ"
+
+msgid "Back"
+msgstr "ਪਿੱਛੇ"
+
+msgid "Cancel"
+msgstr "ਰੱਦ ਕਰੋ"
+
+msgid "Cannot get nova extension list."
+msgstr "ਨੋਵਾ ਐਕਸਟੈਂਸ਼ਨ ਸੂਚੀ ਪ੍ਰਾਪਤ ਨਹੀਂ ਕਰ ਸਕਦਾ।"
+
+msgid "Cannot get service catalog from keystone."
+msgstr "ਕੀਅਸਟੋਨ ਤੋਂ ਸੇਵਾ ਕੈਟਾਲੌਗ ਨਹੀਂ ਲੈ ਸਕਦਾ।"
+
+msgid "Click here to expand the row and view the errors."
+msgstr "ਸਤਰ੍ਹ ਨੂੰ ਫੈਲਾਉਣ ਤੇ ਗਲਤੀਆਂ ਨੂੰ ਵੇਖਣ ਲਈ ਇੱਥੇ ਕਲਿੱਕ ਕਰੋ।"
+
+msgid "Click to see more details"
+msgstr "ਹੋਰ ਵੇਰਵੇ ਵੇਖਣ ਲਈ ਕਲਿੱਕ ਕਰੋ"
+
+msgid "Click to show or hide"
+msgstr "ਵਿਖਾਉਣ ਜਾਂ ਲੁਕਾਉਣ ਲਈ ਕਲਿੱਕ ਕਰੋ"
+
+msgid "Closed"
+msgstr "ਬੰਦ ਹੋਇਆ"
+
+msgid "Closing"
+msgstr "ਬੰਦ ਕਰ ਰਿਹਾ"
+
+#, c-format
+msgid "Confirm %s"
+msgstr "%s ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ"
+
+msgid "Connecting"
+msgstr "ਜੁੜ ਰਿਹਾ"
+
+msgid "Could not decrypt the password"
+msgstr "ਪਛਾਣ-ਸ਼ਬਦ ਨੂੰ ਡੀ-ਕ੍ਰਿਪਟ ਨਹੀਂ ਕਰ ਸਕਿਆ"
+
+msgid "Could not read the file"
+msgstr "ਫਾਈਲ ਪੜ੍ਹ ਨਹੀਂ ਸਕਿਆ"
+
+msgid "Custom"
+msgstr "ਚੁਣਿੰਦਾ"
+
+msgid "Danger"
+msgstr "ਖਤਰਾ"
+
+msgid "Danger: "
+msgstr "ਖਤਰਾ:"
+
+msgid "Decimal required"
+msgstr "ਦਸ਼ਮਲਵ ਲੋੜੀਂਦਾ"
+
+msgid "Delete"
+msgstr "ਮਿਟਾਉ"
+
+msgid "Delete Interface"
+msgstr "ਇੰਟਰਫੇਸ ਮਿਟਾਉ"
+
+msgid "Delete Router"
+msgstr "ਰਊਟਰ ਮਿਟਾਉ"
+
+msgid "Detail Information"
+msgstr "ਵਿਸਥਾਰ ਜਾਣਕਾਰੀ"
+
+msgid "Duplicate keys are not allowed"
+msgstr "ਨਕਲ ਚਾਬੀਆਂ ਪਰਵਾਨਤ ਨਹੀਂ ਹਨ"
+
+msgid "Error"
+msgstr "ਗਲਤੀ"
+
+msgid "Error: "
+msgstr "ਗਲਤੀ: "
+
+msgid "Existing Metadata"
+msgstr "ਮੌਜੂਦਾ ਮੈਟਾਡਾਟਾ"
+
+msgid "Expand to see allocated items"
+msgstr "ਵੰਡ ਹੋ ਚੁੱਕੀਆਂ ਚੀਜ਼ਾਂ ਵੇਖਣ ਲਈ ਫੈਲਾਉ"
+
+msgid "Expand to see available items"
+msgstr "ਉਪਲੱਬਧ ਚੀਜ਼ਾਂ ਵੇਖਣ ਲਈ ਫੈਲਾਉ"
+
+msgid "Extension is not enabled: %(extension)s"
+msgstr "ਐਕਸਟੈਂਸ਼ਨ ਯੋਗ ਨਹੀਂ ਕੀਤੀ ਹੋਈ ਹੈ: %(extension)s"
+
+msgid "Filter"
+msgstr "ਛਾਣਨੀ (ਫਿਲਟਰ)"
+
+msgid "Finish"
+msgstr "ਮੁਕੰਮਲ"
+
+msgid "Found %(found)s of %(total)s"
+msgstr "%(found)s ਲੱਭੇ %(total)s ਵਿੱਚੋਂ"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Info"
+msgstr "ਜਾਣਕਾਰੀ"
+
+msgid "Integer required"
+msgstr "ਅੰਕ ਲੋੜੀਂਦਾ"
+
+msgid "Interfaces"
+msgstr "ਇੰਟਰਫੇਸ"
+
+msgid "Loading"
+msgstr "ਲੋਡ ਹੋ ਰਿਹਾ"
+
+msgid "Max"
+msgstr "ਵੱਧੋ-ਵੱਧ"
+
+msgid "Max length"
+msgstr "ਵੱਧੋ-ਵੱਧ ਲੰਬਾਈ"
+
+msgid "Min"
+msgstr "ਘੱਟੋ-ਘੱਟ"
+
+msgid "Min length"
+msgstr "ਘੱਟੋ-ਘੱਟ ਲੰਬਾਈ"
+
+msgid "Next"
+msgstr "ਅਗਲਾ"
+
+msgid "No"
+msgstr "ਨਹੀਂ"
+
+msgid "No available items"
+msgstr "ਕੋਈ ਉਪਲੱਬਧ ਚੀਜ਼ ਨਹੀਂ"
+
+msgid "No available metadata"
+msgstr "ਕੋਈ ਮੈਟਾਡਾਟਾ ਉਪਲੱਬਧ ਨਹੀਂ"
+
+msgid "No data available."
+msgstr "ਕੋਈ ਡਾਟਾ ਉਪਲੱਬਧ ਨਹੀ।"
+
+msgid "No existing metadata"
+msgstr "ਕੋਈ ਮੌਜੂਦਾ ਮੈਟਾਡਾਟਾ ਨਹੀਂ"
+
+msgid "No items to display."
+msgstr "ਪਰਦਰਸ਼ਿਤ ਕਰਨ ਲਈ ਕੋਈ ਚੀਜ਼ ਨਹੀਂ।"
+
+msgid "No roles"
+msgstr "ਕੋਈ ਰੋਲ ਨਹੀੰ"
+
+msgid "None"
+msgstr "ਕੋਈ ਨਹੀਂ"
+
+msgid "Not authorized to do this operation."
+msgstr "ਇਹ ਕਾਰਵਾਈ ਕਰਨ ਲਈ ਅਧਿਕਾਰਤ ਨਹੀੰ ਕੀਤਾ ਹੋਇਆ।"
+
+msgid "Notice: "
+msgstr "ਸੂਚਨਾ:"
+
+msgid "Open"
+msgstr "ਖੋਲ੍ਹੋ"
+
+msgid "Open Console"
+msgstr "ਕੰਸੋਲ ਖੋਲ੍ਹੋ"
+
+msgid "Passwords do not match."
+msgstr "ਪਛਾਣ-ਸ਼ਬਦ ਮੇਲ ਨਹੀੰ ਖਾਂਦੇ।"
+
+msgid "Pattern mismatch"
+msgstr "ਬੇਮੇਲ ਨਮੂਨਾ"
+
+msgid "Please confirm your selection. "
+msgstr "ਕਿਰਪਾ ਕਰ ਕੇ ਆਪਣੀ ਚੋਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ।"
+
+msgid "Policy check failed."
+msgstr "ਨੀਤੀ ਪੜਤਾਲ ਅਸਫਲ ਹੋਈ।"
+
+msgid "Re-order items using drag and drop"
+msgstr "ਧੂਹ ਕੇ ਸੁੱਟਣ (ਡਰੈਗ ਐੰਡ ਡਰੌਪ) ਨਾਲ ਚੀਜ਼ਾਂ ਨੂੰ ਮੁੜ ਤਰਤੀਬ ਦਿਉ"
+
+msgid "Required"
+msgstr "ਲੋੜੀਂਦਾ"
+
+msgid "Roles"
+msgstr "ਰੋਲ"
+
+msgid "STATUS"
+msgstr "ਹਾਲਾਤ"
+
+msgid "Select an item from Available items below"
+msgstr "ਹੇਠਾਂ ਉਪਲੱਬਧ ਚੀਜ਼ਾਂ ਵਿੱਚੋਂ ਇੱਕ ਚੀਜ਼ ਚੁਣੋ"
+
+msgid "Select one"
+msgstr "ਇੱਕ ਚੁਣੋ"
+
+msgid "Service type is not enabled: %(desiredType)s"
+msgstr "ਸੇਵਾ ਕਿਸਮ ਯੋਗ ਨਹੀਂ ਕੀਤੀ ਹੋਈ ਹੈ: %(desiredType)s"
+
+msgid "Setting is not enabled: %(setting)s"
+msgstr "ਸੈਟਿੰਗ ਯੋਗ ਨਹੀਂ ਕੀਤੀ ਹੋਈ ਹੈ: %(setting)s"
+
+#, c-format
+msgid "Status: %s"
+msgstr "ਹਾਲਾਤ: %s"
+
+msgid "Submit"
+msgstr "ਦਾਖਲ ਕਰੋ"
+
+msgid "Success"
+msgstr "ਸਫਲਤਾ"
+
+msgid "Success: "
+msgstr "ਸਫਲਤਾ: "
+
+msgid "Terminate Instance"
+msgstr "ਇੰਸਟਾਂਸ ਨੂੰ ਖਤਮ ਕਰ ਦਿਉ"
 
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
 "missing information."
 msgstr "ਇਹ ਕਾਰਵਾਈ ਨਹੀਂ ਹੋ ਸਕਦੀ। ਇਸ ਸਤਰ੍ਹ ਦੇ ਅੰਸ਼ਾਂ ਵਿੱਚ ਗਲਤੀਆਂ ਹਨ ਜਾਂ ਕੋਈ ਜਾਣਕਾਰੀ ਘੱਟ ਹੈ।"
 
-msgid "Max"
-msgstr "ਵੱਧੋ-ਵੱਧ"
+msgid "There was a problem communicating with the server, please try again."
+msgstr "ਸਰਵਰ ਨਾਲ ਸੰਚਾਰ ਕਰਨ ਵੇਲੇ ਇੱਕ ਮੁਸ਼ਕਿਲ ਸੀ, ਕਿਰਪਾ ਕਰ ਕੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
 
-msgid "Detail Information"
-msgstr "ਵਿਸਥਾਰ ਜਾਣਕਾਰੀ"
+msgid "There was an error submitting the form. Please try again."
+msgstr "ਫਾਰਮ ਸਮਰਪਣ ਵੇਲੇ ਇੱਕ ਗਲਤੀ ਸੀ। ਕਿਰਪਾ ਕਰ ਕੇ ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+
+msgid "Unable to create the domain."
+msgstr "ਡੋਮੇਨ ਨੂੰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to create the keypair."
+msgstr "ਚਾਬੀ-ਜੋੜੀ ਨੂੰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to create the network."
+msgstr "ਨੈੱਟਵਰਕ ਨੂੰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to create the project."
+msgstr "ਪ੍ਰੋਜੈਕਟ ਨੂੰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to create the role."
+msgstr "ਰੋਲ ਨੂੰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to create the server."
+msgstr "ਸਰਵਰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to create the subnet."
+msgstr "ਉਪ-ਨੈੱਟ (ਸਬ-ਨੈੱਟ) ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to create the user."
+msgstr "ਵਰਤੋਂਕਾਰ ਨੂੰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to delete the domain."
+msgstr "ਡੋਮੇਨ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to delete the domains."
+msgstr "ਡੋਮੇਨਾਂ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to delete the project."
+msgstr "ਪ੍ਰੋਜੈਕਟ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to delete the projects."
+msgstr "ਪ੍ਰੋਜੈਕਟਾਂ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to delete the role."
+msgstr "ਰੋਲ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to delete the roles."
+msgstr "ਰੋਲਾਂ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to delete the user."
+msgstr "ਵਰਤੋਂਕਾਰ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to delete the users."
+msgstr "ਵਰਤੋਂਕਾਰਾਂ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to edit the domain."
+msgstr "ਡੋਮੇਨ ਵਿੱਚ ਸੋਧ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to edit the project."
+msgstr "ਪ੍ਰੋਜੈਕਟ ਵਿੱਚ ਸੋਧ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to edit the role."
+msgstr "ਰੋਲ ਵਿੱਚ ਸੋਧ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to edit the user."
+msgstr "ਵਰਤੋਂਕਾਰ ਵਿੱਚ ਸੋਧ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to fetch the service catalog."
+msgstr "ਸੇਵਾ ਕਿਤਾਬਚਾ ਹਾਸਲ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to grant the role."
+msgstr "ਰੋਲ ਦੀ ਮਨਜ਼ੂਰੀ ਦੇਣ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to import the keypair."
+msgstr "ਕੀਅ-ਪੇਅਰ ਨੂੰ ਆਯਾਤ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to retrieve availability zones."
+msgstr "ਜ਼ੋਨਾਂ ਦੀ ਉਪਲਬੱਧਤਾ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to retrieve domains"
+msgstr "ਡੋਮੇਨਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
+
+msgid "Unable to retrieve extensions."
+msgstr "ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to retrieve flavor extra specs."
+msgstr "ਮਹਿਕ-ਕਿਸਮ (ਫਲੇਵਰ) ਵਾਧੂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to retrieve flavor."
+msgstr "ਮਹਿਕ-ਕਿਸਮ (ਫਲੇਵਰ) ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to retrieve flavors."
+msgstr "ਮਹਿਕਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to retrieve image."
+msgstr "ਤਸਵੀਰ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to retrieve images."
+msgstr "ਤਸਵੀਰਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to retrieve keypairs."
+msgstr "ਚਾਬੀ-ਜੋੜੀਆਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to retrieve limits."
+msgstr "ਹੱਦਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to retrieve namespaces."
+msgstr "ਨੇਮ-ਸਪੇਸਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to retrieve networks."
+msgstr "ਨੈੱਟਵਰਕਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to retrieve ports."
+msgstr "ਪੋਰਟਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to retrieve projects"
+msgstr "ਪ੍ਰੋਜੈਕਟਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
+
+msgid "Unable to retrieve role"
+msgstr "ਰੋਲ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
+
+msgid "Unable to retrieve security groups."
+msgstr "ਸੁਰੱਖਿਆ ਸਮੂਹਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to retrieve server."
+msgstr "ਸਰਵਰ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to retrieve settings."
+msgstr "ਸੈਟਿੰਗਾਂ ਨੂੰ ਮੁੜ ਪ੍ਰਾਪਤ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to retrieve subnets."
+msgstr "ਉਪ-ਨੈੱਟਾਂ (ਸਬ-ਨੈੱਟਾਂ) ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to retrieve the current user session."
+msgstr "ਮੌਜੂਦਾ ਵਰਤੋਂਕਾਰ ਸੈਸ਼ਨ ਨੂੰ ਮੁੜ ਪ੍ਰਾਪਤ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to retrieve the domain"
+msgstr "ਡੋਮੇਨ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
+
+msgid "Unable to retrieve the project"
+msgstr "ਪ੍ਰੋਜੈਕਟ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
+
+msgid "Unable to retrieve the role"
+msgstr "ਰੋਲ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
+
+msgid "Unable to retrieve the user"
+msgstr "ਵਰਤੋਂਕਾਰ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
+
+msgid "Unable to retrieve users"
+msgstr "ਵਰਤੋਂਕਾਰਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
+
+msgid "Unable to retrieve volume snapshots."
+msgstr "ਆਇਤਨ ਸਨੈਪਸ਼ਾਟਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "Unable to retrieve volumes."
+msgstr "ਆਇਤਨਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
+
+msgid "View Details"
+msgstr "ਵੇਰਵੇ ਵੇਖੋ"
+
+msgid "View Instance Details"
+msgstr "ਇੰਸਟਾਸ ਦੇ ਵੇਰਵੇ ਵੇਖੋ"
+
+msgid "View Router Details"
+msgstr "ਰਊਟਰ ਦੇ ਵੇਰਵੇ ਵੇਖੋ"
+
+msgid "Warning"
+msgstr "ਚੇਤਾਵਨੀ"
+
+msgid "Warning: "
+msgstr "ਚੇਤਾਵਨੀ: "
+
+msgid "Working"
+msgstr "ਕੰਮ ਕਰ ਰਿਹਾ"
+
+msgid "Yes"
+msgstr "ਹਾਂ"
 
 msgid ""
 "You can specify resource metadata by moving items from the left column to "
@@ -66,401 +461,6 @@ msgstr ""
 "ਪੱਟੀਆਂ ਵਿੱਚ ਗਲਾਂਸ ਮੈਟਾਡਾਟਾ ਕੈਟਾਲੌਗ ਤੋਂ ਮੈਟਾਡਾਟਾ ਪਰਿਭਾਸ਼ਾਵਾਂ ਦਿੱਤੀਆਂ ਹੋਈਆਂ ਹਨ। ਆਪਣੀ ਪਸੰਦ ਦੀ "
 "ਚਾਬੀ ਦੇ ਨਾਲ ਮੈਟਾਡਾਟਾ ਜੋੜਨ ਲਈ \"ਹੋਰ\" ਚੋਣ ਨੂੰ ਵਰਤੋ।"
 
-msgid "Min"
-msgstr "ਘੱਟੋ-ਘੱਟ"
-
-msgid "Min length"
-msgstr "ਘੱਟੋ-ਘੱਟ ਲੰਬਾਈ"
-
-msgid "Max length"
-msgstr "ਵੱਧੋ-ਵੱਧ ਲੰਬਾਈ"
-
-msgid "Pattern mismatch"
-msgstr "ਬੇਮੇਲ ਨਮੂਨਾ"
-
-msgid "Integer required"
-msgstr "ਅੰਕ ਲੋੜੀਂਦਾ"
-
-msgid "Decimal required"
-msgstr "ਦਸ਼ਮਲਵ ਲੋੜੀਂਦਾ"
-
-msgid "Required"
-msgstr "ਲੋੜੀਂਦਾ"
-
-msgid "Duplicate keys are not allowed"
-msgstr "ਨਕਲ ਚਾਬੀਆਂ ਪਰਵਾਨਤ ਨਹੀਂ ਹਨ"
-
-msgid "Filter"
-msgstr "ਛਾਣਨੀ (ਫਿਲਟਰ)"
-
-msgid "Available Metadata"
-msgstr "ਉਪਲੱਬਧ ਮੈਟਾਡਾਟਾ"
-
-msgid "Existing Metadata"
-msgstr "ਮੌਜੂਦਾ ਮੈਟਾਡਾਟਾ"
-
-msgid "Custom"
-msgstr "ਚੁਣਿੰਦਾ"
-
-msgid "No available metadata"
-msgstr "ਕੋਈ ਮੈਟਾਡਾਟਾ ਉਪਲੱਬਧ ਨਹੀਂ"
-
-msgid "No existing metadata"
-msgstr "ਕੋਈ ਮੌਜੂਦਾ ਮੈਟਾਡਾਟਾ ਨਹੀਂ"
-
-msgid "Submit"
-msgstr "ਦਾਖਲ ਕਰੋ"
-
-msgid "Cancel"
-msgstr "ਰੱਦ ਕਰੋ"
-
-msgid "Danger"
-msgstr "ਖਤਰਾ"
-
-msgid "Warning"
-msgstr "ਚੇਤਾਵਨੀ"
-
-msgid "Info"
-msgstr "ਜਾਣਕਾਰੀ"
-
-msgid "Success"
-msgstr "ਸਫਲਤਾ"
-
-msgid "Error"
-msgstr "ਗਲਤੀ"
-
-msgid "Allocated"
-msgstr "ਵੰਡਿਆ ਜਾ ਚੁੱਕਾ"
-
-msgid "Available"
-msgstr "ਉਪਲੱਬਧ"
-
-msgid "Select one"
-msgstr "ਇੱਕ ਚੁਣੋ"
-
-msgid "Select an item from Available items below"
-msgstr "ਹੇਠਾਂ ਉਪਲੱਬਧ ਚੀਜ਼ਾਂ ਵਿੱਚੋਂ ਇੱਕ ਚੀਜ਼ ਚੁਣੋ"
-
-msgid "No available items"
-msgstr "ਕੋਈ ਉਪਲੱਬਧ ਚੀਜ਼ ਨਹੀਂ"
-
-msgid "Expand to see allocated items"
-msgstr "ਵੰਡ ਹੋ ਚੁੱਕੀਆਂ ਚੀਜ਼ਾਂ ਵੇਖਣ ਲਈ ਫੈਲਾਉ"
-
-msgid "Expand to see available items"
-msgstr "ਉਪਲੱਬਧ ਚੀਜ਼ਾਂ ਵੇਖਣ ਲਈ ਫੈਲਾਉ"
-
-msgid "Click to show or hide"
-msgstr "ਵਿਖਾਉਣ ਜਾਂ ਲੁਕਾਉਣ ਲਈ ਕਲਿੱਕ ਕਰੋ"
-
-msgid "Re-order items using drag and drop"
-msgstr "ਧੂਹ ਕੇ ਸੁੱਟਣ (ਡਰੈਗ ਐੰਡ ਡਰੌਪ) ਨਾਲ ਚੀਜ਼ਾਂ ਨੂੰ ਮੁੜ ਤਰਤੀਬ ਦਿਉ"
-
-msgid "Click to see more details"
-msgstr "ਹੋਰ ਵੇਰਵੇ ਵੇਖਣ ਲਈ ਕਲਿੱਕ ਕਰੋ"
-
-msgid "Found %(found)s of %(total)s"
-msgstr "%(found)s ਲੱਭੇ %(total)s ਵਿੱਚੋਂ"
-
-msgid "Click here to expand the row and view the errors."
-msgstr "ਸਤਰ੍ਹ ਨੂੰ ਫੈਲਾਉਣ ਤੇ ਗਲਤੀਆਂ ਨੂੰ ਵੇਖਣ ਲਈ ਇੱਥੇ ਕਲਿੱਕ ਕਰੋ।"
-
-msgid "Back"
-msgstr "ਪਿੱਛੇ"
-
-msgid "Next"
-msgstr "ਅਗਲਾ"
-
-msgid "Finish"
-msgstr "ਮੁਕੰਮਲ"
-
-msgid "Connecting"
-msgstr "ਜੁੜ ਰਿਹਾ"
-
-msgid "Open"
-msgstr "ਖੋਲ੍ਹੋ"
-
-msgid "Closing"
-msgstr "ਬੰਦ ਕਰ ਰਿਹਾ"
-
-msgid "Closed"
-msgstr "ਬੰਦ ਹੋਇਆ"
-
-#, c-format
-msgid "Status: %s"
-msgstr "ਹਾਲਾਤ: %s"
-
-msgid "Unable to retrieve volumes."
-msgstr "ਆਇਤਨਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to retrieve volume snapshots."
-msgstr "ਆਇਤਨ ਸਨੈਪਸ਼ਾਟਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to retrieve settings."
-msgstr "ਸੈਟਿੰਗਾਂ ਨੂੰ ਮੁੜ ਪ੍ਰਾਪਤ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Setting is not enabled: %(setting)s"
-msgstr "ਸੈਟਿੰਗ ਯੋਗ ਨਹੀਂ ਕੀਤੀ ਹੋਈ ਹੈ: %(setting)s"
-
-msgid "Unable to retrieve image."
-msgstr "ਤਸਵੀਰ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to retrieve images."
-msgstr "ਤਸਵੀਰਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to retrieve namespaces."
-msgstr "ਨੇਮ-ਸਪੇਸਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to retrieve users"
-msgstr "ਵਰਤੋਂਕਾਰਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
-
-msgid "Unable to create the user."
-msgstr "ਵਰਤੋਂਕਾਰ ਨੂੰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to delete the users."
-msgstr "ਵਰਤੋਂਕਾਰਾਂ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to retrieve the current user session."
-msgstr "ਮੌਜੂਦਾ ਵਰਤੋਂਕਾਰ ਸੈਸ਼ਨ ਨੂੰ ਮੁੜ ਪ੍ਰਾਪਤ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to retrieve the user"
-msgstr "ਵਰਤੋਂਕਾਰ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
-
-msgid "Unable to edit the user."
-msgstr "ਵਰਤੋਂਕਾਰ ਵਿੱਚ ਸੋਧ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to delete the user."
-msgstr "ਵਰਤੋਂਕਾਰ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to retrieve role"
-msgstr "ਰੋਲ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
-
-msgid "Unable to create the role."
-msgstr "ਰੋਲ ਨੂੰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to delete the roles."
-msgstr "ਰੋਲਾਂ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to retrieve the role"
-msgstr "ਰੋਲ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
-
-msgid "Unable to edit the role."
-msgstr "ਰੋਲ ਵਿੱਚ ਸੋਧ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to delete the role."
-msgstr "ਰੋਲ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to retrieve domains"
-msgstr "ਡੋਮੇਨਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
-
-msgid "Unable to create the domain."
-msgstr "ਡੋਮੇਨ ਨੂੰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to delete the domains."
-msgstr "ਡੋਮੇਨਾਂ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to retrieve the domain"
-msgstr "ਡੋਮੇਨ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
-
-msgid "Unable to edit the domain."
-msgstr "ਡੋਮੇਨ ਵਿੱਚ ਸੋਧ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to delete the domain."
-msgstr "ਡੋਮੇਨ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to retrieve projects"
-msgstr "ਪ੍ਰੋਜੈਕਟਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
-
-msgid "Unable to create the project."
-msgstr "ਪ੍ਰੋਜੈਕਟ ਨੂੰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to delete the projects."
-msgstr "ਪ੍ਰੋਜੈਕਟਾਂ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to retrieve the project"
-msgstr "ਪ੍ਰੋਜੈਕਟ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ"
-
-msgid "Unable to edit the project."
-msgstr "ਪ੍ਰੋਜੈਕਟ ਵਿੱਚ ਸੋਧ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to delete the project."
-msgstr "ਪ੍ਰੋਜੈਕਟ ਨੂੰ ਮਿਟਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to grant the role."
-msgstr "ਰੋਲ ਦੀ ਮਨਜ਼ੂਰੀ ਦੇਣ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to fetch the service catalog."
-msgstr "ਸੇਵਾ ਕਿਤਾਬਚਾ ਹਾਸਲ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Service type is not enabled: %(desiredType)s"
-msgstr "ਸੇਵਾ ਕਿਸਮ ਯੋਗ ਨਹੀਂ ਕੀਤੀ ਹੋਈ ਹੈ: %(desiredType)s"
-
-msgid "Cannot get service catalog from keystone."
-msgstr "ਕੀਅਸਟੋਨ ਤੋਂ ਸੇਵਾ ਕੈਟਾਲੌਗ ਨਹੀਂ ਲੈ ਸਕਦਾ।"
-
-msgid "Unable to retrieve networks."
-msgstr "ਨੈੱਟਵਰਕਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to create the network."
-msgstr "ਨੈੱਟਵਰਕ ਨੂੰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to retrieve subnets."
-msgstr "ਉਪ-ਨੈੱਟਾਂ (ਸਬ-ਨੈੱਟਾਂ) ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to create the subnet."
-msgstr "ਉਪ-ਨੈੱਟ (ਸਬ-ਨੈੱਟ) ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to retrieve ports."
-msgstr "ਪੋਰਟਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to retrieve keypairs."
-msgstr "ਚਾਬੀ-ਜੋੜੀਆਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to import the keypair."
-msgstr "ਕੀਅ-ਪੇਅਰ ਨੂੰ ਆਯਾਤ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to create the keypair."
-msgstr "ਚਾਬੀ-ਜੋੜੀ ਨੂੰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to retrieve availability zones."
-msgstr "ਜ਼ੋਨਾਂ ਦੀ ਉਪਲਬੱਧਤਾ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to retrieve limits."
-msgstr "ਹੱਦਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to create the server."
-msgstr "ਸਰਵਰ ਬਣਾਉਣ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to retrieve server."
-msgstr "ਸਰਵਰ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to retrieve extensions."
-msgstr "ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to retrieve flavors."
-msgstr "ਮਹਿਕਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to retrieve flavor."
-msgstr "ਮਹਿਕ-ਕਿਸਮ (ਫਲੇਵਰ) ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Unable to retrieve flavor extra specs."
-msgstr "ਮਹਿਕ-ਕਿਸਮ (ਫਲੇਵਰ) ਵਾਧੂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Extension is not enabled: %(extension)s"
-msgstr "ਐਕਸਟੈਂਸ਼ਨ ਯੋਗ ਨਹੀਂ ਕੀਤੀ ਹੋਈ ਹੈ: %(extension)s"
-
-msgid "Cannot get nova extension list."
-msgstr "ਨੋਵਾ ਐਕਸਟੈਂਸ਼ਨ ਸੂਚੀ ਪ੍ਰਾਪਤ ਨਹੀਂ ਕਰ ਸਕਦਾ।"
-
-msgid "Policy check failed."
-msgstr "ਨੀਤੀ ਪੜਤਾਲ ਅਸਫਲ ਹੋਈ।"
-
-msgid "Unable to retrieve security groups."
-msgstr "ਸੁਰੱਖਿਆ ਸਮੂਹਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
-
-msgid "Loading"
-msgstr "ਲੋਡ ਹੋ ਰਿਹਾ"
-
-msgid "No data available."
-msgstr "ਕੋਈ ਡਾਟਾ ਉਪਲੱਬਧ ਨਹੀ।"
-
-msgid "An error occurred. Please try again later."
-msgstr "ਇੱਕ ਗਲਤੀ ਵਾਪਰੀ। ਕਿਰਪਾ ਕਰ ਕੇ ਬਾਅਦ ਵਿੱਚ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
-
-msgid "There was a problem communicating with the server, please try again."
-msgstr "ਸਰਵਰ ਨਾਲ ਸੰਚਾਰ ਕਰਨ ਵੇਲੇ ਇੱਕ ਮੁਸ਼ਕਿਲ ਸੀ, ਕਿਰਪਾ ਕਰ ਕੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
-
-msgid "Could not read the file"
-msgstr "ਫਾਈਲ ਪੜ੍ਹ ਨਹੀਂ ਸਕਿਆ"
-
-msgid "Could not decrypt the password"
-msgstr "ਪਛਾਣ-ਸ਼ਬਦ ਨੂੰ ਡੀ-ਕ੍ਰਿਪਟ ਨਹੀਂ ਕਰ ਸਕਿਆ"
-
-msgid "No roles"
-msgstr "ਕੋਈ ਰੋਲ ਨਹੀੰ"
-
-msgid "Roles"
-msgstr "ਰੋਲ"
-
-msgid "Danger: "
-msgstr "ਖਤਰਾ:"
-
-msgid "Warning: "
-msgstr "ਚੇਤਾਵਨੀ: "
-
-msgid "Notice: "
-msgstr "ਸੂਚਨਾ:"
-
-msgid "Success: "
-msgstr "ਸਫਲਤਾ: "
-
-msgid "Error: "
-msgstr "ਗਲਤੀ: "
-
-msgid "Working"
-msgstr "ਕੰਮ ਕਰ ਰਿਹਾ"
-
-msgid "There was an error submitting the form. Please try again."
-msgstr "ਫਾਰਮ ਸਮਰਪਣ ਵੇਲੇ ਇੱਕ ਗਲਤੀ ਸੀ। ਕਿਰਪਾ ਕਰ ਕੇ ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
-
-msgid "None"
-msgstr "ਕੋਈ ਨਹੀਂ"
-
-msgid "Delete"
-msgstr "ਮਿਟਾਉ"
-
-msgid "STATUS"
-msgstr "ਹਾਲਾਤ"
-
-msgid "ID"
-msgstr "ID"
-
-msgid "Interfaces"
-msgstr "ਇੰਟਰਫੇਸ"
-
-msgid "Delete Interface"
-msgstr "ਇੰਟਰਫੇਸ ਮਿਟਾਉ"
-
-msgid "Open Console"
-msgstr "ਕੰਸੋਲ ਖੋਲ੍ਹੋ"
-
-msgid "View Details"
-msgstr "ਵੇਰਵੇ ਵੇਖੋ"
-
-msgid "Delete Router"
-msgstr "ਰਊਟਰ ਮਿਟਾਉ"
-
-msgid "View Router Details"
-msgstr "ਰਊਟਰ ਦੇ ਵੇਰਵੇ ਵੇਖੋ"
-
-msgid "Add Interface"
-msgstr "ਇੰਟਰਫੇਸ ਜੋੜ੍ਹੋ"
-
-msgid "Terminate Instance"
-msgstr "ਇੰਸਟਾਂਸ ਨੂੰ ਖਤਮ ਕਰ ਦਿਉ"
-
-msgid "View Instance Details"
-msgstr "ਇੰਸਟਾਸ ਦੇ ਵੇਰਵੇ ਵੇਖੋ"
-
-msgid "No items to display."
-msgstr "ਪਰਦਰਸ਼ਿਤ ਕਰਨ ਲਈ ਕੋਈ ਚੀਜ਼ ਨਹੀਂ।"
-
-msgid "An error occurred while updating."
-msgstr "ਅੱਪਡੇਟ ਕਰਨ ਵੇਲੇ ਇੱਕ ਗਲਤੀ ਹੋਈ।"
-
 #, c-format
 msgid "You have selected %s. "
 msgstr "ਤੁਸੀਂ %s ਦੀ ਚੋਣ ਕੀਤੀ ਹੈ।"
-
-#, c-format
-msgid "Confirm %s"
-msgstr "%s ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ"
-
-msgid "Please confirm your selection. "
-msgstr "ਕਿਰਪਾ ਕਰ ਕੇ ਆਪਣੀ ਚੋਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ।"
-
-msgid "Not authorized to do this operation."
-msgstr "ਇਹ ਕਾਰਵਾਈ ਕਰਨ ਲਈ ਅਧਿਕਾਰਤ ਨਹੀੰ ਕੀਤਾ ਹੋਇਆ।"
-
-msgid "Passwords do not match."
-msgstr "ਪਛਾਣ-ਸ਼ਬਦ ਮੇਲ ਨਹੀੰ ਖਾਂਦੇ।"

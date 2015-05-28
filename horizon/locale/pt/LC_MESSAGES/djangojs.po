@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"POT-Creation-Date: 2015-05-27 03:01-0500\n"
 "PO-Revision-Date: 2015-05-27 03:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/horizon/"
@@ -18,12 +18,13 @@ msgstr ""
 "Language: pt\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Yes"
-msgstr "Sim"
-
 #, c-format
 msgid "%s GB"
 msgstr "%s GB"
+
+#, c-format
+msgid "%s KB"
+msgstr "%s KB"
 
 #, c-format
 msgid "%s MB"
@@ -33,129 +34,128 @@ msgstr "%s MB"
 msgid "%s TB"
 msgstr "%s TB"
 
-#, c-format
-msgid "%s KB"
-msgstr "%s KB"
-
 msgid "Added"
 msgstr "Adicionado"
-
-msgid "Required"
-msgstr "Necessário"
-
-msgid "Duplicate keys are not allowed"
-msgstr "Não são permitidas chaves duplicadas"
-
-msgid "Filter"
-msgstr "Filtro"
-
-msgid "Available Metadata"
-msgstr "Metadados Disponíveis"
-
-msgid "Existing Metadata"
-msgstr "Metadados Existentes"
-
-msgid "Submit"
-msgstr "Submeter"
-
-msgid "Cancel"
-msgstr "Cancelar"
-
-msgid "Info"
-msgstr "Info"
-
-msgid "Error"
-msgstr "Erro"
-
-msgid "Available"
-msgstr "Disponível"
-
-msgid "Back"
-msgstr "Voltar"
-
-msgid "Next"
-msgstr "Seguinte"
-
-msgid "Loading"
-msgstr "A carregar"
-
-msgid "No data available."
-msgstr "Não há dados disponíveis."
-
-msgid "An error occurred. Please try again later."
-msgstr "Ocorreu um erro. Por favor, tente mais tarde."
-
-msgid "There was a problem communicating with the server, please try again."
-msgstr ""
-"Ocorreu um problema ao comunicar com o servidor, por favor, tente novamente."
-
-msgid "Could not read the file"
-msgstr "Não foi possivel ler o arquivo"
-
-msgid "Could not decrypt the password"
-msgstr "Não foi possível descriptografar a senha"
-
-msgid "No roles"
-msgstr "Sem funções"
-
-msgid "Roles"
-msgstr "Funções"
-
-msgid "Danger: "
-msgstr "Perigo:"
-
-msgid "Warning: "
-msgstr "Aviso: "
-
-msgid "Notice: "
-msgstr "Notificação:"
-
-msgid "Success: "
-msgstr "Sucesso: "
-
-msgid "Error: "
-msgstr "Erro: "
-
-msgid "Working"
-msgstr "A processar"
-
-msgid "There was an error submitting the form. Please try again."
-msgstr "Ocorreu um erro ao enviar o formulário. Por favor, tente novamente."
-
-msgid "None"
-msgstr "Nenhum"
-
-msgid "Delete"
-msgstr "Apagar"
-
-msgid "STATUS"
-msgstr "STATUS"
-
-msgid "ID"
-msgstr "Id."
-
-msgid "Interfaces"
-msgstr "Interfaces"
-
-msgid "View Details"
-msgstr "Ver Detalhes"
-
-msgid "No items to display."
-msgstr "Não há itens para exibir."
 
 msgid "An error occurred while updating."
 msgstr "Ocorreu um erro durante a atualização."
 
-#, c-format
-msgid "You have selected %s. "
-msgstr "Seleccionou %s."
+msgid "An error occurred. Please try again later."
+msgstr "Ocorreu um erro. Por favor, tente mais tarde."
+
+msgid "Available"
+msgstr "Disponível"
+
+msgid "Available Metadata"
+msgstr "Metadados Disponíveis"
+
+msgid "Back"
+msgstr "Voltar"
+
+msgid "Cancel"
+msgstr "Cancelar"
 
 #, c-format
 msgid "Confirm %s"
 msgstr "Confirmar %s"
 
+msgid "Could not decrypt the password"
+msgstr "Não foi possível descriptografar a senha"
+
+msgid "Could not read the file"
+msgstr "Não foi possivel ler o arquivo"
+
+msgid "Danger: "
+msgstr "Perigo:"
+
+msgid "Delete"
+msgstr "Apagar"
+
+msgid "Duplicate keys are not allowed"
+msgstr "Não são permitidas chaves duplicadas"
+
+msgid "Error"
+msgstr "Erro"
+
+msgid "Error: "
+msgstr "Erro: "
+
+msgid "Existing Metadata"
+msgstr "Metadados Existentes"
+
+msgid "Filter"
+msgstr "Filtro"
+
+msgid "ID"
+msgstr "Id."
+
+msgid "Info"
+msgstr "Info"
+
+msgid "Interfaces"
+msgstr "Interfaces"
+
+msgid "Loading"
+msgstr "A carregar"
+
+msgid "Next"
+msgstr "Seguinte"
+
+msgid "No data available."
+msgstr "Não há dados disponíveis."
+
+msgid "No items to display."
+msgstr "Não há itens para exibir."
+
+msgid "No roles"
+msgstr "Sem funções"
+
+msgid "None"
+msgstr "Nenhum"
+
 msgid "Not authorized to do this operation."
 msgstr "Não tem autorizacao para realizar esta operação."
 
+msgid "Notice: "
+msgstr "Notificação:"
+
 msgid "Passwords do not match."
 msgstr "As senhas não são iguais."
+
+msgid "Required"
+msgstr "Necessário"
+
+msgid "Roles"
+msgstr "Funções"
+
+msgid "STATUS"
+msgstr "STATUS"
+
+msgid "Submit"
+msgstr "Submeter"
+
+msgid "Success: "
+msgstr "Sucesso: "
+
+msgid "There was a problem communicating with the server, please try again."
+msgstr ""
+"Ocorreu um problema ao comunicar com o servidor, por favor, tente novamente."
+
+msgid "There was an error submitting the form. Please try again."
+msgstr "Ocorreu um erro ao enviar o formulário. Por favor, tente novamente."
+
+msgid "View Details"
+msgstr "Ver Detalhes"
+
+msgid "Warning: "
+msgstr "Aviso: "
+
+msgid "Working"
+msgstr "A processar"
+
+msgid "Yes"
+msgstr "Sim"
+
+#, c-format
+msgid "You have selected %s. "
+msgstr "Seleccionou %s."

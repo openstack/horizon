@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-15 04:49-0500\n"
+"POT-Creation-Date: 2015-05-27 03:00-0500\n"
 "PO-Revision-Date: 2015-05-15 09:43+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/"
@@ -18,258 +18,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-
-msgid "Other"
-msgstr "Ostatní"
-
-msgid "Navigation Item"
-msgstr "Položka navigace"
-
-#, python-format
-msgid "Select a %s to browse."
-msgstr "Vyberte %s pro prohlížení."
-
-msgid "Password is not accepted"
-msgstr "Heslo není přijato"
-
-msgid "Please log in to continue."
-msgstr "K pokračování je nutno se přihlásit."
-
-#, python-format
-msgid "You are not authorized to access %s"
-msgstr "Nemá oprávnění k přístupu %s"
-
-#, python-format
-msgid "A %(resource)s with the name \"%(name)s\" already exists."
-msgstr "%(resource)s s názvem \"%(name)s\" již existuje"
-
-#, python-format
-msgid "Unauthorized: %s"
-msgstr "Neoprávněné: %s"
-
-msgid "Unauthorized. Please try logging in again."
-msgstr "Neoprávněný přístup. Prosím zkuste se přihlásit znovu."
-
-msgid "Incorrect format for IP address"
-msgstr "Nesprávný formát IP adresy"
-
-msgid "Invalid version for IP address"
-msgstr "Neplatná verze IP adresy"
-
-msgid "Invalid subnet mask"
-msgstr "Neplatná maska podsítě"
-
-msgid "Submit"
-msgstr "Odeslat"
-
-msgid "Cancel"
-msgstr "Zrušit"
-
-msgid "Session timed out."
-msgstr "Relace vypršela."
-
-msgid "Filter"
-msgstr "Filtr"
-
-msgid "This action cannot be undone."
-msgstr "Toto nelze vrátit."
-
-#, python-format
-msgctxt "past"
-msgid "%(action)s %(data_type)s"
-msgstr "%(action)s %(data_type)s"
-
-#, python-format
-msgctxt "present"
-msgid "%(action)s %(data_type)s"
-msgstr "%(action)s %(data_type)s"
-
-#, python-format
-msgid "You are not allowed to %(action)s: %(objs)s"
-msgstr "Nemáte oprávnění pro %(action)s: %(objs)s"
-
-#, python-format
-msgid "Unable to %(action)s: %(objs)s"
-msgstr "Nelze %(action)s: %(objs)s"
-
-#, python-format
-msgid "%(action)s: %(objs)s"
-msgstr "%(action)s: %(objs)s"
-
-msgid "Delete"
-msgstr "Smazat"
-
-msgid "Deleted"
-msgstr "Smazáno"
-
-msgid "Update"
-msgstr "Aktualizovat"
-
-msgid "Updated"
-msgstr "Aktualizováno"
-
-msgid "-"
-msgstr "-"
-
-#, python-format
-msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "Vlastnost %(attr)s neexistuje v %(obj)s."
-
-msgid "No items to display."
-msgstr "Žádné položky k zobrazení."
-
-msgid "Actions"
-msgstr "Činnost"
-
-#, python-format
-msgid "No match returned for the id \"%s\"."
-msgstr "Nebyla nalezena shoda s id \"%s\"."
-
-msgid "Please select a row before taking that action."
-msgstr "Před provedením této činnosti prosím zvolte řádky."
-
-msgid "N/A"
-msgstr "Nedostupné"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "Přihlášen jako: %(username)s"
-
-msgid "Help"
-msgstr "Nápověda"
-
-msgid "Sign Out"
-msgstr "Odhlásit"
-
-msgid ""
-"\n"
-"      If you are not sure which authentication method to use, contact your "
-"administrator.\n"
-"    "
-msgstr ""
-"\n"
-"      Pokud nevíte, kterou metodu ověření použít, kontaktujte svého správce "
-"systému.\n"
-"    "
-
-msgid "Log In"
-msgstr "Přihlásit"
-
-msgid "You do not have permission to access the resource:"
-msgstr "Nemáte oprávnění k přístupu do zdroje:"
-
-#, python-format
-msgid ""
-"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
-msgstr ""
-"Přihlaste se jako jiný uživatel nebo se vraťte na <a href=\"%(home_url)s\"> "
-"domovskou stránku</a>"
-
-msgid "Sign In"
-msgstr "Přihlásit"
-
-msgid "Connect"
-msgstr "Připojit"
-
-msgid "Login"
-msgstr "Přihlášení"
-
-msgid "Info: "
-msgstr "Informace:"
-
-msgid "Warning: "
-msgstr "Varování:"
-
-msgid "Success: "
-msgstr "Úspěch:"
-
-msgid "Error: "
-msgstr "Chyba:"
-
-msgid "Summary"
-msgstr "Přehled"
-
-#, python-format
-msgid "Displaying %(counter)s item"
-msgid_plural "Displaying %(counter)s items"
-msgstr[0] "Zobrazena %(counter)s položka"
-msgstr[1] "Zobrazeny %(counter)s položky"
-msgstr[2] "Zobrazeno %(counter)s položek"
-
-msgid "&laquo;&nbsp;Prev"
-msgstr "&laquo;&nbsp;Zpět"
-
-msgid "Next&nbsp;&raquo;"
-msgstr "Další&nbsp;&raquo;"
-
-msgid "More Actions"
-msgstr "Další činnosti"
-
-#, python-format
-msgid "%(context_name)s:"
-msgstr "%(context_name)s:"
-
-msgid "Add a row"
-msgstr "Přidat řádek"
-
-#, python-format
-msgid "%(name)s: %(error)s"
-msgstr "%(name)s: %(error)s"
-
-msgid "Limit Summary"
-msgstr "Omezit souhrn"
-
-msgid "Instances"
-msgstr "Instance"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Využito  <span> %(used)s </span> z <span> %(available)s </span>"
-
-msgid "VCPUs"
-msgstr "VCPU"
-
-msgid "RAM"
-msgstr "RAM"
-
-msgid "Floating IPs"
-msgstr "Plovoucí IP adresy"
-
-#, python-format
-msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Přiděleno <span> %(used)s </span> z <span> %(available)s </span>"
-
-msgid "Security Groups"
-msgstr "Bezpečnostní skupiny"
-
-msgid "Volumes"
-msgstr "Svazky"
-
-msgid "Volume Storage"
-msgstr "Úložiště svazků"
-
-msgid "Save"
-msgstr "Uložit"
-
-#, python-format
-msgid "Displaying %(nav_items)s item"
-msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] "Zobrazena %(nav_items)s položka"
-msgstr[1] "Zobrazeny %(nav_items)s položky"
-msgstr[2] "Zobrazeno %(nav_items)s položek"
-
-#, python-format
-msgid "Displaying %(content_items)s item"
-msgid_plural "Displaying %(content_items)s items"
-msgstr[0] "Zobrazena %(content_items)s položka"
-msgstr[1] "Zobrazeny %(content_items)s položky"
-msgstr[2] "Zobrazeno %(content_items)s položek"
-
-msgid "Usage Summary"
-msgstr "Souhrn využití"
-
-msgid "Select a period of time to query its usage:"
-msgstr "Vyberte časové období pro zobrazení využití:"
 
 #, python-format
 msgid ""
@@ -287,38 +35,38 @@ msgstr ""
 "\n"
 "      <label>Do:</label>%(end)s"
 
-msgid "The date should be in YYYY-mm-dd format."
-msgstr "Datum by mělo být ve formátu RRRR-mm-dd."
+msgid ""
+"\n"
+"      If you are not sure which authentication method to use, contact your "
+"administrator.\n"
+"    "
+msgstr ""
+"\n"
+"      Pokud nevíte, kterou metodu ověření použít, kontaktujte svého správce "
+"systému.\n"
+"    "
 
-msgid "Active Instances:"
-msgstr "Aktivní instance:"
+#, python-format
+msgctxt "past"
+msgid "%(action)s %(data_type)s"
+msgstr "%(action)s %(data_type)s"
 
-msgid "Active RAM:"
-msgstr "Aktivní RAM:"
+#, python-format
+msgctxt "present"
+msgid "%(action)s %(data_type)s"
+msgstr "%(action)s %(data_type)s"
 
-msgid "This Period's VCPU-Hours:"
-msgstr "VCPU hodin za toto období:"
+#, python-format
+msgid "%(action)s: %(objs)s"
+msgstr "%(action)s: %(objs)s"
 
-msgid "This Period's GB-Hours:"
-msgstr "GB hodin za toto období:"
+#, python-format
+msgid "%(context_name)s:"
+msgstr "%(context_name)s:"
 
-msgid "This Period's RAM-Hours:"
-msgstr "RAM hodin za toto období:"
-
-msgid "Back"
-msgstr "Zpět"
-
-msgid "Next"
-msgstr "Další"
-
-msgid "Horizon"
-msgstr "Horizon"
-
-msgid "No Limit"
-msgstr "Bez limitu"
-
-msgid "Available"
-msgstr "Dostupné"
+#, python-format
+msgid "%(name)s: %(error)s"
+msgstr "%(name)s: %(error)s"
 
 #, python-format
 msgid "%(size)d Byte"
@@ -326,6 +74,10 @@ msgid_plural "%(size)d Bytes"
 msgstr[0] "%(size)d bajt"
 msgstr[1] "%(size)d bajty"
 msgstr[2] "%(size)d bajtů"
+
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
 
 #, python-format
 msgid "%s KB"
@@ -336,55 +88,12 @@ msgid "%s MB"
 msgstr "%s MB"
 
 #, python-format
-msgid "%s GB"
-msgstr "%s GB"
+msgid "%s PB"
+msgstr "%s PB"
 
 #, python-format
 msgid "%s TB"
 msgstr "%s TB"
-
-#, python-format
-msgid "%s PB"
-msgstr "%s PB"
-
-msgid "0 Bytes"
-msgstr "0 bajtů"
-
-msgid "Fake"
-msgstr "Falešné"
-
-msgid "Never"
-msgstr "Nikdy"
-
-msgid "Not a valid port number"
-msgstr "Není platné číslo portu"
-
-msgid "Not a valid IP protocol number"
-msgstr "Není platné číslo protokolu IP"
-
-msgid "One colon allowed in port range"
-msgstr "V rozsahu portů povolena pouze jedna pomlčka"
-
-msgid "Port number must be integer"
-msgstr "Číslo portu musí být celé číslo"
-
-msgid "The string may only contain ASCII printable characters."
-msgstr "Řetězec může obsahovat pouze zobrazitelné znaky ASCII."
-
-msgid "Processing..."
-msgstr "Zpracovávaní..."
-
-msgid "All available"
-msgstr "Vše dostupné"
-
-msgid "Members"
-msgstr "Členové"
-
-msgid "None available."
-msgstr "Žádné dostupné."
-
-msgid "No members."
-msgstr "Žádní členové."
 
 #, python-format
 msgid "%s completed successfully."
@@ -393,3 +102,294 @@ msgstr "%s úspěšně dokončeno"
 #, python-format
 msgid "%s did not complete."
 msgstr "%s nedokončeno"
+
+msgid "&laquo;&nbsp;Prev"
+msgstr "&laquo;&nbsp;Zpět"
+
+msgid "-"
+msgstr "-"
+
+msgid "0 Bytes"
+msgstr "0 bajtů"
+
+#, python-format
+msgid "A %(resource)s with the name \"%(name)s\" already exists."
+msgstr "%(resource)s s názvem \"%(name)s\" již existuje"
+
+msgid "Actions"
+msgstr "Činnost"
+
+msgid "Active Instances:"
+msgstr "Aktivní instance:"
+
+msgid "Active RAM:"
+msgstr "Aktivní RAM:"
+
+msgid "Add a row"
+msgstr "Přidat řádek"
+
+msgid "All available"
+msgstr "Vše dostupné"
+
+#, python-format
+msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr "Přiděleno <span> %(used)s </span> z <span> %(available)s </span>"
+
+msgid "Available"
+msgstr "Dostupné"
+
+msgid "Back"
+msgstr "Zpět"
+
+msgid "Cancel"
+msgstr "Zrušit"
+
+msgid "Connect"
+msgstr "Připojit"
+
+msgid "Delete"
+msgstr "Smazat"
+
+msgid "Deleted"
+msgstr "Smazáno"
+
+#, python-format
+msgid "Displaying %(content_items)s item"
+msgid_plural "Displaying %(content_items)s items"
+msgstr[0] "Zobrazena %(content_items)s položka"
+msgstr[1] "Zobrazeny %(content_items)s položky"
+msgstr[2] "Zobrazeno %(content_items)s položek"
+
+#, python-format
+msgid "Displaying %(counter)s item"
+msgid_plural "Displaying %(counter)s items"
+msgstr[0] "Zobrazena %(counter)s položka"
+msgstr[1] "Zobrazeny %(counter)s položky"
+msgstr[2] "Zobrazeno %(counter)s položek"
+
+#, python-format
+msgid "Displaying %(nav_items)s item"
+msgid_plural "Displaying %(nav_items)s items"
+msgstr[0] "Zobrazena %(nav_items)s položka"
+msgstr[1] "Zobrazeny %(nav_items)s položky"
+msgstr[2] "Zobrazeno %(nav_items)s položek"
+
+msgid "Error: "
+msgstr "Chyba:"
+
+msgid "Fake"
+msgstr "Falešné"
+
+msgid "Filter"
+msgstr "Filtr"
+
+msgid "Floating IPs"
+msgstr "Plovoucí IP adresy"
+
+msgid "Help"
+msgstr "Nápověda"
+
+msgid "Horizon"
+msgstr "Horizon"
+
+msgid "Incorrect format for IP address"
+msgstr "Nesprávný formát IP adresy"
+
+msgid "Info: "
+msgstr "Informace:"
+
+msgid "Instances"
+msgstr "Instance"
+
+msgid "Invalid subnet mask"
+msgstr "Neplatná maska podsítě"
+
+msgid "Invalid version for IP address"
+msgstr "Neplatná verze IP adresy"
+
+msgid "Limit Summary"
+msgstr "Omezit souhrn"
+
+msgid "Log In"
+msgstr "Přihlásit"
+
+#, python-format
+msgid "Logged in as: %(username)s"
+msgstr "Přihlášen jako: %(username)s"
+
+msgid "Login"
+msgstr "Přihlášení"
+
+#, python-format
+msgid ""
+"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
+msgstr ""
+"Přihlaste se jako jiný uživatel nebo se vraťte na <a href=\"%(home_url)s\"> "
+"domovskou stránku</a>"
+
+msgid "Members"
+msgstr "Členové"
+
+msgid "More Actions"
+msgstr "Další činnosti"
+
+msgid "N/A"
+msgstr "Nedostupné"
+
+msgid "Navigation Item"
+msgstr "Položka navigace"
+
+msgid "Never"
+msgstr "Nikdy"
+
+msgid "Next"
+msgstr "Další"
+
+msgid "Next&nbsp;&raquo;"
+msgstr "Další&nbsp;&raquo;"
+
+msgid "No Limit"
+msgstr "Bez limitu"
+
+msgid "No items to display."
+msgstr "Žádné položky k zobrazení."
+
+#, python-format
+msgid "No match returned for the id \"%s\"."
+msgstr "Nebyla nalezena shoda s id \"%s\"."
+
+msgid "No members."
+msgstr "Žádní členové."
+
+msgid "None available."
+msgstr "Žádné dostupné."
+
+msgid "Not a valid IP protocol number"
+msgstr "Není platné číslo protokolu IP"
+
+msgid "Not a valid port number"
+msgstr "Není platné číslo portu"
+
+msgid "One colon allowed in port range"
+msgstr "V rozsahu portů povolena pouze jedna pomlčka"
+
+msgid "Other"
+msgstr "Ostatní"
+
+msgid "Password is not accepted"
+msgstr "Heslo není přijato"
+
+msgid "Please log in to continue."
+msgstr "K pokračování je nutno se přihlásit."
+
+msgid "Please select a row before taking that action."
+msgstr "Před provedením této činnosti prosím zvolte řádky."
+
+msgid "Port number must be integer"
+msgstr "Číslo portu musí být celé číslo"
+
+msgid "Processing..."
+msgstr "Zpracovávaní..."
+
+msgid "RAM"
+msgstr "RAM"
+
+msgid "Save"
+msgstr "Uložit"
+
+msgid "Security Groups"
+msgstr "Bezpečnostní skupiny"
+
+#, python-format
+msgid "Select a %s to browse."
+msgstr "Vyberte %s pro prohlížení."
+
+msgid "Select a period of time to query its usage:"
+msgstr "Vyberte časové období pro zobrazení využití:"
+
+msgid "Session timed out."
+msgstr "Relace vypršela."
+
+msgid "Sign In"
+msgstr "Přihlásit"
+
+msgid "Sign Out"
+msgstr "Odhlásit"
+
+msgid "Submit"
+msgstr "Odeslat"
+
+msgid "Success: "
+msgstr "Úspěch:"
+
+msgid "Summary"
+msgstr "Přehled"
+
+#, python-format
+msgid "The attribute %(attr)s doesn't exist on %(obj)s."
+msgstr "Vlastnost %(attr)s neexistuje v %(obj)s."
+
+msgid "The date should be in YYYY-mm-dd format."
+msgstr "Datum by mělo být ve formátu RRRR-mm-dd."
+
+msgid "The string may only contain ASCII printable characters."
+msgstr "Řetězec může obsahovat pouze zobrazitelné znaky ASCII."
+
+msgid "This Period's GB-Hours:"
+msgstr "GB hodin za toto období:"
+
+msgid "This Period's RAM-Hours:"
+msgstr "RAM hodin za toto období:"
+
+msgid "This Period's VCPU-Hours:"
+msgstr "VCPU hodin za toto období:"
+
+msgid "This action cannot be undone."
+msgstr "Toto nelze vrátit."
+
+#, python-format
+msgid "Unable to %(action)s: %(objs)s"
+msgstr "Nelze %(action)s: %(objs)s"
+
+msgid "Unauthorized. Please try logging in again."
+msgstr "Neoprávněný přístup. Prosím zkuste se přihlásit znovu."
+
+#, python-format
+msgid "Unauthorized: %s"
+msgstr "Neoprávněné: %s"
+
+msgid "Update"
+msgstr "Aktualizovat"
+
+msgid "Updated"
+msgstr "Aktualizováno"
+
+msgid "Usage Summary"
+msgstr "Souhrn využití"
+
+#, python-format
+msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr "Využito  <span> %(used)s </span> z <span> %(available)s </span>"
+
+msgid "VCPUs"
+msgstr "VCPU"
+
+msgid "Volume Storage"
+msgstr "Úložiště svazků"
+
+msgid "Volumes"
+msgstr "Svazky"
+
+msgid "Warning: "
+msgstr "Varování:"
+
+#, python-format
+msgid "You are not allowed to %(action)s: %(objs)s"
+msgstr "Nemáte oprávnění pro %(action)s: %(objs)s"
+
+#, python-format
+msgid "You are not authorized to access %s"
+msgstr "Nemá oprávnění k přístupu %s"
+
+msgid "You do not have permission to access the resource:"
+msgstr "Nemáte oprávnění k přístupu do zdroje:"

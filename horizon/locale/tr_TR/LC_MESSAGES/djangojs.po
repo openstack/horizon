@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"POT-Creation-Date: 2015-05-27 03:01-0500\n"
 "PO-Revision-Date: 2015-05-27 03:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/horizon/"
@@ -25,6 +25,10 @@ msgid "%s GB"
 msgstr "%s GB"
 
 #, c-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#, c-format
 msgid "%s MB"
 msgstr "%s MB"
 
@@ -32,35 +36,17 @@ msgstr "%s MB"
 msgid "%s TB"
 msgstr "%s TB"
 
-#, c-format
-msgid "%s KB"
-msgstr "%s KB"
-
-#, c-format
-msgid "Displaying %s item"
-msgid_plural "Displaying %s items"
-msgstr[0] "%s adet gösteriliyor"
+msgid "Add Interface"
+msgstr "Arayüz ekle"
 
 msgid "Added"
 msgstr "Eklendi"
 
-msgid "Duplicate keys are not allowed"
-msgstr "Tekrarlanan anahtarlara izin verilmiyor"
+msgid "An error occurred while updating."
+msgstr "Güncelleme sırasında bir hata oluştu."
 
-msgid "Filter"
-msgstr "Filtre"
-
-msgid "Existing Metadata"
-msgstr "Varolan üstveri"
-
-msgid "No available metadata"
-msgstr "Üstveri mevcut değil"
-
-msgid "Submit"
-msgstr "Gönder"
-
-msgid "Cancel"
-msgstr "İptal"
+msgid "An error occurred. Please try again later."
+msgstr "Bir hata oluştu. Lütfen tekrar deneyin."
 
 msgid "Available"
 msgstr "Uygun"
@@ -68,65 +54,44 @@ msgstr "Uygun"
 msgid "Back"
 msgstr "Geri"
 
-msgid "Next"
-msgstr "İleri"
+msgid "Cancel"
+msgstr "İptal"
 
-msgid "Unable to retrieve security groups."
-msgstr "Güvenlik grupları alınamadı."
-
-msgid "Loading"
-msgstr "Yükleniyor"
-
-msgid "No data available."
-msgstr "Veri yok."
-
-msgid "An error occurred. Please try again later."
-msgstr "Bir hata oluştu. Lütfen tekrar deneyin."
-
-msgid "There was a problem communicating with the server, please try again."
-msgstr "Sunucu ile iletişimde bir sorun var, lütfen tekrar deneyin."
-
-msgid "Could not read the file"
-msgstr "Dosya okunamadı"
+#, c-format
+msgid "Confirm %s"
+msgstr "%s Onayla"
 
 msgid "Could not decrypt the password"
 msgstr "Şifre Çözülemedi"
 
-msgid "No roles"
-msgstr "Rol yok"
-
-msgid "Roles"
-msgstr "Roller"
+msgid "Could not read the file"
+msgstr "Dosya okunamadı"
 
 msgid "Danger: "
 msgstr "Tehlike:"
 
-msgid "Warning: "
-msgstr "Uyarı:"
+msgid "Delete"
+msgstr "Sil"
 
-msgid "Notice: "
-msgstr "Dikkat:"
+msgid "Delete Interface"
+msgstr "Arayüzü Sil"
 
-msgid "Success: "
-msgstr "Başarılı:"
+#, c-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] "%s adet gösteriliyor"
+
+msgid "Duplicate keys are not allowed"
+msgstr "Tekrarlanan anahtarlara izin verilmiyor"
 
 msgid "Error: "
 msgstr "Hata:"
 
-msgid "Working"
-msgstr "Çalışıyor"
+msgid "Existing Metadata"
+msgstr "Varolan üstveri"
 
-msgid "There was an error submitting the form. Please try again."
-msgstr "Formu gönderirken bir hata oluştu. Lütfen tekrar deneyin."
-
-msgid "None"
-msgstr "Yok"
-
-msgid "Delete"
-msgstr "Sil"
-
-msgid "STATUS"
-msgstr "DURUM"
+msgid "Filter"
+msgstr "Filtre"
 
 msgid "ID"
 msgstr "KİMLİK"
@@ -134,34 +99,69 @@ msgstr "KİMLİK"
 msgid "Interfaces"
 msgstr "Arayüzler"
 
-msgid "Delete Interface"
-msgstr "Arayüzü Sil"
+msgid "Loading"
+msgstr "Yükleniyor"
 
-msgid "Open Console"
-msgstr "Konsol Aç"
+msgid "Next"
+msgstr "İleri"
 
-msgid "View Details"
-msgstr "Ayrıntıları Göster"
+msgid "No available metadata"
+msgstr "Üstveri mevcut değil"
 
-msgid "Add Interface"
-msgstr "Arayüz ekle"
+msgid "No data available."
+msgstr "Veri yok."
 
 msgid "No items to display."
 msgstr "Görüntülenecek öğe yok."
 
-msgid "An error occurred while updating."
-msgstr "Güncelleme sırasında bir hata oluştu."
+msgid "No roles"
+msgstr "Rol yok"
 
-#, c-format
-msgid "You have selected %s. "
-msgstr "Seçili %s var."
-
-#, c-format
-msgid "Confirm %s"
-msgstr "%s Onayla"
+msgid "None"
+msgstr "Yok"
 
 msgid "Not authorized to do this operation."
 msgstr "Bu işlemi yapmak için yetkiniz yok."
 
+msgid "Notice: "
+msgstr "Dikkat:"
+
+msgid "Open Console"
+msgstr "Konsol Aç"
+
 msgid "Passwords do not match."
 msgstr "Şifreler uyuşmuyor."
+
+msgid "Roles"
+msgstr "Roller"
+
+msgid "STATUS"
+msgstr "DURUM"
+
+msgid "Submit"
+msgstr "Gönder"
+
+msgid "Success: "
+msgstr "Başarılı:"
+
+msgid "There was a problem communicating with the server, please try again."
+msgstr "Sunucu ile iletişimde bir sorun var, lütfen tekrar deneyin."
+
+msgid "There was an error submitting the form. Please try again."
+msgstr "Formu gönderirken bir hata oluştu. Lütfen tekrar deneyin."
+
+msgid "Unable to retrieve security groups."
+msgstr "Güvenlik grupları alınamadı."
+
+msgid "View Details"
+msgstr "Ayrıntıları Göster"
+
+msgid "Warning: "
+msgstr "Uyarı:"
+
+msgid "Working"
+msgstr "Çalışıyor"
+
+#, c-format
+msgid "You have selected %s. "
+msgstr "Seçili %s var."

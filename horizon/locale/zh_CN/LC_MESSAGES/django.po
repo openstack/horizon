@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-08 12:21-0500\n"
-"PO-Revision-Date: 2015-05-10 11:43+0000\n"
+"POT-Creation-Date: 2015-05-27 03:00-0500\n"
+"PO-Revision-Date: 2015-05-13 19:22+0000\n"
 "Last-Translator: 颜海峰 <yanheven@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/"
 "language/zh_CN/)\n"
@@ -21,248 +21,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-msgid "Other"
-msgstr "其它"
-
-msgid "Navigation Item"
-msgstr "导航条目"
-
-#, python-format
-msgid "Select a %s to browse."
-msgstr "选择一个%s 浏览。"
-
-msgid "Password is not accepted"
-msgstr "密码不符合要求"
-
-msgid "Please log in to continue."
-msgstr "请先登录。"
-
-#, python-format
-msgid "You are not authorized to access %s"
-msgstr "您无权访问 %s"
-
-#, python-format
-msgid "A %(resource)s with the name \"%(name)s\" already exists."
-msgstr "已经存在一个资源%(resource)s名称为\"%(name)s\"。"
-
-#, python-format
-msgid "Unauthorized: %s"
-msgstr "无权: %s"
-
-msgid "Unauthorized. Please try logging in again."
-msgstr "未授权。请尝试重新登录。"
-
-msgid "Incorrect format for IP address"
-msgstr "不正确的IP地址格式"
-
-msgid "Invalid version for IP address"
-msgstr "IP 地址版本无效"
-
-msgid "Invalid subnet mask"
-msgstr "无效的子网掩码"
-
-msgid "Submit"
-msgstr "提交"
-
-msgid "Cancel"
-msgstr "取消"
-
-msgid "Session timed out."
-msgstr "会话超时。"
-
-msgid "Filter"
-msgstr "筛选"
-
-msgid "This action cannot be undone."
-msgstr "这个动作不能撤消。"
-
-#, python-format
-msgctxt "past"
-msgid "%(action)s %(data_type)s"
-msgstr "%(action)s %(data_type)s"
-
-#, python-format
-msgctxt "present"
-msgid "%(action)s %(data_type)s"
-msgstr "%(action)s %(data_type)s"
-
-#, python-format
-msgid "You are not allowed to %(action)s: %(objs)s"
-msgstr "您被禁止执行 %(action)s: %(objs)s"
-
-#, python-format
-msgid "Unable to %(action)s: %(objs)s"
-msgstr "无法执行 %(action)s: %(objs)s"
-
-#, python-format
-msgid "%(action)s: %(objs)s"
-msgstr "%(action)s: %(objs)s"
-
-msgid "Delete"
-msgstr "删除"
-
-msgid "Deleted"
-msgstr "已删除"
-
-msgid "Update"
-msgstr "更新"
-
-msgid "Updated"
-msgstr "已更新"
-
-msgid "-"
-msgstr "-"
-
-#, python-format
-msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "属性 %(attr)s 并不存在于 %(obj)s。"
-
-msgid "No items to display."
-msgstr "没有要显示的条目。"
-
-msgid "Actions"
-msgstr "动作"
-
-#, python-format
-msgid "No match returned for the id \"%s\"."
-msgstr "id \"%s\" 没有匹配的返回顶。"
-
-msgid "Please select a row before taking that action."
-msgstr "请在执行前选择一行。"
-
-msgid "N/A"
-msgstr "无"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "登录身份： %(username)s"
-
-msgid "Help"
-msgstr "帮助"
-
-msgid "Sign Out"
-msgstr "退出"
-
-msgid ""
-"\n"
-"      If you are not sure which authentication method to use, contact your "
-"administrator.\n"
-"    "
-msgstr ""
-"\n"
-"如果你不确定使用哪种认证方式，请联系管理员。"
-
-msgid "Log In"
-msgstr "登录"
-
-msgid "You do not have permission to access the resource:"
-msgstr "你没有被授权访问这些资源："
-
-#, python-format
-msgid ""
-"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
-msgstr "使用其他用户登录或返回 <a href=\"%(home_url)s\">首页</a>"
-
-msgid "Sign In"
-msgstr "登入"
-
-msgid "Connect"
-msgstr "连接"
-
-msgid "Login"
-msgstr "登录"
-
-msgid "Info: "
-msgstr "信息："
-
-msgid "Warning: "
-msgstr "警告："
-
-msgid "Success: "
-msgstr "成功："
-
-msgid "Error: "
-msgstr "错误："
-
-msgid "Summary"
-msgstr "概要"
-
-#, python-format
-msgid "Displaying %(counter)s item"
-msgid_plural "Displaying %(counter)s items"
-msgstr[0] "正在显示 %(counter)s 项"
-
-msgid "&laquo;&nbsp;Prev"
-msgstr "&laquo;&nbsp;前页"
-
-msgid "Next&nbsp;&raquo;"
-msgstr "后页&nbsp;&raquo;"
-
-msgid "More Actions"
-msgstr "更多操作"
-
-#, python-format
-msgid "%(context_name)s:"
-msgstr "%(context_name)s:"
-
-msgid "Add a row"
-msgstr "增加一行"
-
-#, python-format
-msgid "%(name)s: %(error)s"
-msgstr "%(name)s: %(error)s"
-
-msgid "Limit Summary"
-msgstr "上限摘要"
-
-msgid "Instances"
-msgstr "实例"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "<span> %(available)s </span>中的<span> %(used)s </span>已使用"
-
-msgid "VCPUs"
-msgstr "虚拟处理器（VCPU）"
-
-msgid "RAM"
-msgstr "内存"
-
-msgid "Floating IPs"
-msgstr "浮动IP"
-
-#, python-format
-msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "已分配 <span> %(used)s </span> 于 <span> %(available)s </span>"
-
-msgid "Security Groups"
-msgstr "安全组"
-
-msgid "Volumes"
-msgstr "云硬盘"
-
-msgid "Volume Storage"
-msgstr "卷存储"
-
-msgid "Save"
-msgstr "保存"
-
-#, python-format
-msgid "Displaying %(nav_items)s item"
-msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] "正在显示 %(nav_items)s 项"
-
-#, python-format
-msgid "Displaying %(content_items)s item"
-msgid_plural "Displaying %(content_items)s items"
-msgstr[0] "正在显示 %(content_items)s 项"
-
-msgid "Usage Summary"
-msgstr "使用情况摘要"
-
-msgid "Select a period of time to query its usage:"
-msgstr "选择一段时间来查询其用量："
 
 #, python-format
 msgid ""
@@ -280,43 +38,45 @@ msgstr ""
 "\n"
 "<label>到:</label>%(end)s"
 
-msgid "The date should be in YYYY-mm-dd format."
-msgstr "日期应是YYYY-mm-dd格式。"
+msgid ""
+"\n"
+"      If you are not sure which authentication method to use, contact your "
+"administrator.\n"
+"    "
+msgstr ""
+"\n"
+"如果你不确定使用哪种认证方式，请联系管理员。"
 
-msgid "Active Instances:"
-msgstr "运行的云主机："
+#, python-format
+msgctxt "past"
+msgid "%(action)s %(data_type)s"
+msgstr "%(action)s %(data_type)s"
 
-msgid "Active RAM:"
-msgstr "活跃的内存："
+#, python-format
+msgctxt "present"
+msgid "%(action)s %(data_type)s"
+msgstr "%(action)s %(data_type)s"
 
-msgid "This Period's VCPU-Hours:"
-msgstr "这一时期的VCPU-小时数:"
+#, python-format
+msgid "%(action)s: %(objs)s"
+msgstr "%(action)s: %(objs)s"
 
-msgid "This Period's GB-Hours:"
-msgstr "这一时期的GB-小时数:"
+#, python-format
+msgid "%(context_name)s:"
+msgstr "%(context_name)s:"
 
-msgid "This Period's RAM-Hours:"
-msgstr "这一时期的内存-小时数"
-
-msgid "Back"
-msgstr "返回"
-
-msgid "Next"
-msgstr "下一步"
-
-msgid "Horizon"
-msgstr "控制面板"
-
-msgid "No Limit"
-msgstr "无限制"
-
-msgid "Available"
-msgstr "可用配额"
+#, python-format
+msgid "%(name)s: %(error)s"
+msgstr "%(name)s: %(error)s"
 
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
 msgstr[0] "%(size)d 字节"
+
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
 
 #, python-format
 msgid "%s KB"
@@ -327,65 +87,12 @@ msgid "%s MB"
 msgstr "%s MB"
 
 #, python-format
-msgid "%s GB"
-msgstr "%s GB"
+msgid "%s PB"
+msgstr "%s PB"
 
 #, python-format
 msgid "%s TB"
 msgstr "%s TB"
-
-#, python-format
-msgid "%s PB"
-msgstr "%s PB"
-
-msgid "0 Bytes"
-msgstr "0字节"
-
-#. Translators: test code, don't really have to translate
-msgid "Sell Puppy"
-msgid_plural "Sell Puppies"
-msgstr[0] "出售小狗"
-
-#. Translators: test code, don't really have to translate
-msgid "Sold Puppy"
-msgid_plural "Sold Puppies"
-msgstr[0] "已售出的小狗"
-
-msgid "Fake"
-msgstr "伪"
-
-msgid "Never"
-msgstr "从不"
-
-msgid "Not a valid port number"
-msgstr "不是一个有效的端口号"
-
-msgid "Not a valid IP protocol number"
-msgstr "不是一个有效的IP协议号"
-
-msgid "One colon allowed in port range"
-msgstr "用冒号分隔端口区间"
-
-msgid "Port number must be integer"
-msgstr "端口号必须为整数"
-
-msgid "The string may only contain ASCII printable characters."
-msgstr "字符串只能包含ASCII可印刷字符."
-
-msgid "Processing..."
-msgstr "正在处理中, 请稍候..."
-
-msgid "All available"
-msgstr "所有可用成员"
-
-msgid "Members"
-msgstr "成员"
-
-msgid "None available."
-msgstr "没有可用成员。"
-
-msgid "No members."
-msgstr "没有成员。"
 
 #, python-format
 msgid "%s completed successfully."
@@ -394,3 +101,296 @@ msgstr "%s 成功完成。"
 #, python-format
 msgid "%s did not complete."
 msgstr "%s 没有完成。"
+
+msgid "&laquo;&nbsp;Prev"
+msgstr "&laquo;&nbsp;前页"
+
+msgid "-"
+msgstr "-"
+
+msgid "0 Bytes"
+msgstr "0字节"
+
+#, python-format
+msgid "A %(resource)s with the name \"%(name)s\" already exists."
+msgstr "已经存在一个资源%(resource)s名称为\"%(name)s\"。"
+
+msgid "Actions"
+msgstr "动作"
+
+msgid "Active Instances:"
+msgstr "运行的云主机："
+
+msgid "Active RAM:"
+msgstr "活跃的内存："
+
+msgid "Add a row"
+msgstr "增加一行"
+
+msgid "All available"
+msgstr "所有可用成员"
+
+#, python-format
+msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr "已分配 <span> %(used)s </span> 于 <span> %(available)s </span>"
+
+msgid "Available"
+msgstr "可用配额"
+
+msgid "Back"
+msgstr "返回"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Connect"
+msgstr "连接"
+
+msgid "Delete"
+msgstr "删除"
+
+msgid "Deleted"
+msgstr "已删除"
+
+#, python-format
+msgid "Displaying %(content_items)s item"
+msgid_plural "Displaying %(content_items)s items"
+msgstr[0] "正在显示 %(content_items)s 项"
+
+#, python-format
+msgid "Displaying %(counter)s item"
+msgid_plural "Displaying %(counter)s items"
+msgstr[0] "正在显示 %(counter)s 项"
+
+#, python-format
+msgid "Displaying %(nav_items)s item"
+msgid_plural "Displaying %(nav_items)s items"
+msgstr[0] "正在显示 %(nav_items)s 项"
+
+msgid "Error: "
+msgstr "错误："
+
+msgid "Fake"
+msgstr "伪"
+
+msgid "Filter"
+msgstr "筛选"
+
+msgid "Floating IPs"
+msgstr "浮动IP"
+
+msgid "Help"
+msgstr "帮助"
+
+msgid "Horizon"
+msgstr "控制面板"
+
+msgid "Incorrect format for IP address"
+msgstr "不正确的IP地址格式"
+
+msgid "Info: "
+msgstr "信息："
+
+msgid "Instances"
+msgstr "实例"
+
+msgid "Invalid subnet mask"
+msgstr "无效的子网掩码"
+
+msgid "Invalid version for IP address"
+msgstr "IP 地址版本无效"
+
+msgid "Limit Summary"
+msgstr "上限摘要"
+
+msgid "Log In"
+msgstr "登录"
+
+#, python-format
+msgid "Logged in as: %(username)s"
+msgstr "登录身份： %(username)s"
+
+msgid "Login"
+msgstr "登录"
+
+#, python-format
+msgid ""
+"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
+msgstr "使用其他用户登录或返回 <a href=\"%(home_url)s\">首页</a>"
+
+msgid "Members"
+msgstr "成员"
+
+msgid "More Actions"
+msgstr "更多操作"
+
+msgid "N/A"
+msgstr "无"
+
+msgid "Navigation Item"
+msgstr "导航条目"
+
+msgid "Never"
+msgstr "从不"
+
+msgid "Next"
+msgstr "下一步"
+
+msgid "Next&nbsp;&raquo;"
+msgstr "后页&nbsp;&raquo;"
+
+msgid "No Limit"
+msgstr "无限制"
+
+msgid "No items to display."
+msgstr "没有要显示的条目。"
+
+#, python-format
+msgid "No match returned for the id \"%s\"."
+msgstr "id \"%s\" 没有匹配的返回顶。"
+
+msgid "No members."
+msgstr "没有成员。"
+
+msgid "None available."
+msgstr "没有可用成员。"
+
+msgid "Not a valid IP protocol number"
+msgstr "不是一个有效的IP协议号"
+
+msgid "Not a valid port number"
+msgstr "不是一个有效的端口号"
+
+msgid "One colon allowed in port range"
+msgstr "用冒号分隔端口区间"
+
+msgid "Other"
+msgstr "其它"
+
+msgid "Password is not accepted"
+msgstr "密码不符合要求"
+
+msgid "Please log in to continue."
+msgstr "请先登录。"
+
+msgid "Please select a row before taking that action."
+msgstr "请在执行前选择一行。"
+
+msgid "Port number must be integer"
+msgstr "端口号必须为整数"
+
+msgid "Processing..."
+msgstr "正在处理中, 请稍候..."
+
+msgid "RAM"
+msgstr "内存"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Security Groups"
+msgstr "安全组"
+
+#, python-format
+msgid "Select a %s to browse."
+msgstr "选择一个%s 浏览。"
+
+msgid "Select a period of time to query its usage:"
+msgstr "选择一段时间来查询其用量："
+
+#. Translators: test code, don't really have to translate
+msgid "Sell Puppy"
+msgid_plural "Sell Puppies"
+msgstr[0] "出售小狗"
+
+msgid "Session timed out."
+msgstr "会话超时。"
+
+msgid "Sign In"
+msgstr "登入"
+
+msgid "Sign Out"
+msgstr "退出"
+
+#. Translators: test code, don't really have to translate
+msgid "Sold Puppy"
+msgid_plural "Sold Puppies"
+msgstr[0] "已售出的小狗"
+
+msgid "Submit"
+msgstr "提交"
+
+msgid "Success: "
+msgstr "成功："
+
+msgid "Summary"
+msgstr "概要"
+
+#, python-format
+msgid "The attribute %(attr)s doesn't exist on %(obj)s."
+msgstr "属性 %(attr)s 并不存在于 %(obj)s。"
+
+msgid "The date should be in YYYY-mm-dd format."
+msgstr "日期应是YYYY-mm-dd格式。"
+
+msgid "The string may only contain ASCII printable characters."
+msgstr "字符串只能包含ASCII可印刷字符."
+
+msgid "This Period's GB-Hours:"
+msgstr "这一时期的GB-小时数:"
+
+msgid "This Period's RAM-Hours:"
+msgstr "这一时期的内存-小时数"
+
+msgid "This Period's VCPU-Hours:"
+msgstr "这一时期的VCPU-小时数:"
+
+msgid "This action cannot be undone."
+msgstr "这个动作不能撤消。"
+
+#, python-format
+msgid "Unable to %(action)s: %(objs)s"
+msgstr "无法执行 %(action)s: %(objs)s"
+
+msgid "Unauthorized. Please try logging in again."
+msgstr "未授权。请尝试重新登录。"
+
+#, python-format
+msgid "Unauthorized: %s"
+msgstr "无权: %s"
+
+msgid "Update"
+msgstr "更新"
+
+msgid "Updated"
+msgstr "已更新"
+
+msgid "Usage Summary"
+msgstr "使用情况摘要"
+
+#, python-format
+msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr "<span> %(available)s </span>中的<span> %(used)s </span>已使用"
+
+msgid "VCPUs"
+msgstr "虚拟处理器（VCPU）"
+
+msgid "Volume Storage"
+msgstr "卷存储"
+
+msgid "Volumes"
+msgstr "云硬盘"
+
+msgid "Warning: "
+msgstr "警告："
+
+#, python-format
+msgid "You are not allowed to %(action)s: %(objs)s"
+msgstr "您被禁止执行 %(action)s: %(objs)s"
+
+#, python-format
+msgid "You are not authorized to access %s"
+msgstr "您无权访问 %s"
+
+msgid "You do not have permission to access the resource:"
+msgstr "你没有被授权访问这些资源："

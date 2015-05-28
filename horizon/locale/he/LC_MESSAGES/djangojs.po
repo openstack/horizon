@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"POT-Creation-Date: 2015-05-27 03:01-0500\n"
 "PO-Revision-Date: 2015-05-27 03:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hebrew (http://www.transifex.com/projects/p/horizon/language/"
@@ -23,6 +23,10 @@ msgid "%s GB"
 msgstr "%s ג״ב"
 
 #, c-format
+msgid "%s KB"
+msgstr "%s ק״ב"
+
+#, c-format
 msgid "%s MB"
 msgstr "%s מ״ב"
 
@@ -30,78 +34,42 @@ msgstr "%s מ״ב"
 msgid "%s TB"
 msgstr "%s ט״ב"
 
-#, c-format
-msgid "%s KB"
-msgstr "%s ק״ב"
+msgid "Add Interface"
+msgstr "הוספת מנשק"
 
-msgid "Filter"
-msgstr "מסנן"
-
-msgid "Submit"
-msgstr "שליחה"
-
-msgid "Cancel"
-msgstr "ביטול"
-
-msgid "Available"
-msgstr "זמין"
-
-msgid "Next"
-msgstr "הבא"
-
-msgid "Loading"
-msgstr "בטעינה"
-
-msgid "No data available."
-msgstr "אין מידע זמין."
+msgid "An error occurred while updating."
+msgstr "אירעה שגיאה בעת העדכון."
 
 msgid "An error occurred. Please try again later."
 msgstr "אירעה שגיאה. נא לנסות שוב מאוחר יותר."
 
-msgid "There was a problem communicating with the server, please try again."
-msgstr "אירעה שגיאה ביצירת קשר עם השרת, נא לנסות שוב מאוחר יותר."
+msgid "Available"
+msgstr "זמין"
 
-msgid "Could not read the file"
-msgstr "לא ניתן לקרוא את הקובץ"
+msgid "Cancel"
+msgstr "ביטול"
+
+#, c-format
+msgid "Confirm %s"
+msgstr "אישור ה%s."
 
 msgid "Could not decrypt the password"
 msgstr "לא ניתן לפענח את הססמה"
 
-msgid "No roles"
-msgstr "אין תפקידים"
-
-msgid "Roles"
-msgstr "תפקידים"
+msgid "Could not read the file"
+msgstr "לא ניתן לקרוא את הקובץ"
 
 msgid "Danger: "
 msgstr "סכנה:"
 
-msgid "Warning: "
-msgstr "אזהרה:"
-
-msgid "Notice: "
-msgstr "הודעה:"
-
-msgid "Success: "
-msgstr "הצלחה:"
+msgid "Delete"
+msgstr "מחיקה"
 
 msgid "Error: "
 msgstr "שגיאה:"
 
-msgid "Working"
-msgstr "בפעולה"
-
-msgid "There was an error submitting the form. Please try again."
-msgstr "אירעה שגיאה בעת שליחת הטופס. נא לנסות שוב."
-
-msgid "None"
-msgstr "ללא"
-
-msgid "Delete"
-msgstr "מחיקה"
-
-msgid "STATUS"
-msgstr "מצב"
+msgid "Filter"
+msgstr "מסנן"
 
 msgid "ID"
 msgstr "מזהה"
@@ -109,25 +77,57 @@ msgstr "מזהה"
 msgid "Interfaces"
 msgstr "מנשקים"
 
-msgid "Add Interface"
-msgstr "הוספת מנשק"
+msgid "Loading"
+msgstr "בטעינה"
+
+msgid "Next"
+msgstr "הבא"
+
+msgid "No data available."
+msgstr "אין מידע זמין."
 
 msgid "No items to display."
 msgstr "אין פריטים להצגה."
 
-msgid "An error occurred while updating."
-msgstr "אירעה שגיאה בעת העדכון."
+msgid "No roles"
+msgstr "אין תפקידים"
 
-#, c-format
-msgid "You have selected %s. "
-msgstr "בחרת %s."
-
-#, c-format
-msgid "Confirm %s"
-msgstr "אישור ה%s."
+msgid "None"
+msgstr "ללא"
 
 msgid "Not authorized to do this operation."
 msgstr "אין לך הרשאה לביצוע פעולה זו."
 
+msgid "Notice: "
+msgstr "הודעה:"
+
 msgid "Passwords do not match."
 msgstr "הססמאות אינן תואמות."
+
+msgid "Roles"
+msgstr "תפקידים"
+
+msgid "STATUS"
+msgstr "מצב"
+
+msgid "Submit"
+msgstr "שליחה"
+
+msgid "Success: "
+msgstr "הצלחה:"
+
+msgid "There was a problem communicating with the server, please try again."
+msgstr "אירעה שגיאה ביצירת קשר עם השרת, נא לנסות שוב מאוחר יותר."
+
+msgid "There was an error submitting the form. Please try again."
+msgstr "אירעה שגיאה בעת שליחת הטופס. נא לנסות שוב."
+
+msgid "Warning: "
+msgstr "אזהרה:"
+
+msgid "Working"
+msgstr "בפעולה"
+
+#, c-format
+msgid "You have selected %s. "
+msgstr "בחרת %s."

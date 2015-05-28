@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"POT-Creation-Date: 2015-05-27 03:01-0500\n"
 "PO-Revision-Date: 2015-05-27 03:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/horizon/language/"
@@ -23,6 +23,10 @@ msgid "%s GB"
 msgstr "%s GB"
 
 #, c-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#, c-format
 msgid "%s MB"
 msgstr "%s MB"
 
@@ -30,27 +34,48 @@ msgstr "%s MB"
 msgid "%s TB"
 msgstr "%s TB"
 
-#, c-format
-msgid "%s KB"
-msgstr "%s KB"
+msgid "An error occurred while updating."
+msgstr "Hi ha hagut un error mentre es carregava."
 
-msgid "Filter"
-msgstr "Filtre"
-
-msgid "Submit"
-msgstr "Transmet"
-
-msgid "Cancel"
-msgstr "Cancel·la"
-
-msgid "Info"
-msgstr "Informació"
+msgid "An error occurred. Please try again later."
+msgstr "Hi ha hagut un error. Si us plau prova de nou."
 
 msgid "Available"
 msgstr "Disponible"
 
-msgid "Unable to retrieve security groups."
-msgstr "No s'han pogut obtenir els grups de seguretat."
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#, c-format
+msgid "Confirm %s"
+msgstr "Confirmat %s"
+
+msgid "Could not decrypt the password"
+msgstr "No es pot desencriptar la contrasenya"
+
+msgid "Could not read the file"
+msgstr "No es pot llegir el fitxer"
+
+msgid "Danger: "
+msgstr "Perill:"
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "Error: "
+msgstr "Error: "
+
+msgid "Filter"
+msgstr "Filtre"
+
+msgid "ID"
+msgstr "Identificador"
+
+msgid "Info"
+msgstr "Informació"
+
+msgid "Interfaces"
+msgstr "Interfícies"
 
 msgid "Loading"
 msgstr "Carregant"
@@ -58,73 +83,48 @@ msgstr "Carregant"
 msgid "No data available."
 msgstr "Sense dades disponibles"
 
-msgid "An error occurred. Please try again later."
-msgstr "Hi ha hagut un error. Si us plau prova de nou."
-
-msgid "There was a problem communicating with the server, please try again."
-msgstr "Hi ha hagut un problema de comunicació, si us plau prova de nou. "
-
-msgid "Could not read the file"
-msgstr "No es pot llegir el fitxer"
-
-msgid "Could not decrypt the password"
-msgstr "No es pot desencriptar la contrasenya"
+msgid "No items to display."
+msgstr "No hi ha articles per mostrar."
 
 msgid "No roles"
 msgstr "No hi ha regles."
 
-msgid "Roles"
-msgstr "Rols"
-
-msgid "Danger: "
-msgstr "Perill:"
-
-msgid "Warning: "
-msgstr "Advertiment:"
+msgid "Not authorized to do this operation."
+msgstr "No està autoritzat a realitzar aquesta operació."
 
 msgid "Notice: "
 msgstr "Avís:"
 
-msgid "Success: "
-msgstr "Èxit:"
+msgid "Passwords do not match."
+msgstr "Les contrasenyes no coincideixen."
 
-msgid "Error: "
-msgstr "Error: "
-
-msgid "Working"
-msgstr "Treballant"
-
-msgid "There was an error submitting the form. Please try again."
-msgstr "Hi ha hagut un error en enviar el formulari. Si us plau prova de nou."
-
-msgid "Delete"
-msgstr "Eliminar"
+msgid "Roles"
+msgstr "Rols"
 
 msgid "STATUS"
 msgstr "ESTAT"
 
-msgid "ID"
-msgstr "Identificador"
+msgid "Submit"
+msgstr "Transmet"
 
-msgid "Interfaces"
-msgstr "Interfícies"
+msgid "Success: "
+msgstr "Èxit:"
 
-msgid "No items to display."
-msgstr "No hi ha articles per mostrar."
+msgid "There was a problem communicating with the server, please try again."
+msgstr "Hi ha hagut un problema de comunicació, si us plau prova de nou. "
 
-msgid "An error occurred while updating."
-msgstr "Hi ha hagut un error mentre es carregava."
+msgid "There was an error submitting the form. Please try again."
+msgstr "Hi ha hagut un error en enviar el formulari. Si us plau prova de nou."
+
+msgid "Unable to retrieve security groups."
+msgstr "No s'han pogut obtenir els grups de seguretat."
+
+msgid "Warning: "
+msgstr "Advertiment:"
+
+msgid "Working"
+msgstr "Treballant"
 
 #, c-format
 msgid "You have selected %s. "
 msgstr "Te seleccionat %s. "
-
-#, c-format
-msgid "Confirm %s"
-msgstr "Confirmat %s"
-
-msgid "Not authorized to do this operation."
-msgstr "No està autoritzat a realitzar aquesta operació."
-
-msgid "Passwords do not match."
-msgstr "Les contrasenyes no coincideixen."

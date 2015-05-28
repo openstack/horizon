@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-04-20 07:07+0000\n"
+"POT-Creation-Date: 2015-05-27 03:00-0500\n"
+"PO-Revision-Date: 2015-05-13 19:11+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/"
 "horizon/language/fi_FI/)\n"
@@ -17,241 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi_FI\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "Other"
-msgstr "Toinen"
-
-msgid "Navigation Item"
-msgstr "Navigaatioyksikkö"
-
-#, python-format
-msgid "Select a %s to browse."
-msgstr "Valitse %s selataksesi."
-
-msgid "Password is not accepted"
-msgstr "Salasanaa ei hyväksytty"
-
-msgid "Please log in to continue."
-msgstr "Kirjaudu jatkaaksesi"
-
-#, python-format
-msgid "You are not authorized to access %s"
-msgstr "Et ole oikeutettu päästäksesi %s"
-
-#, python-format
-msgid "A %(resource)s with the name \"%(name)s\" already exists."
-msgstr "%(resource)s nimellä \"%(name)s\" on jo olemassa."
-
-#, python-format
-msgid "Unauthorized: %s"
-msgstr "Ei sallittu: %s"
-
-msgid "Unauthorized. Please try logging in again."
-msgstr "Ei oikeutettu: Yritä kirjautumista uudelleen."
-
-msgid "Incorrect format for IP address"
-msgstr "Väärä formaatti IP-osoitteelle"
-
-msgid "Invalid version for IP address"
-msgstr "Väärä versio IP-osoitteesta"
-
-msgid "Invalid subnet mask"
-msgstr "Väärä aliverkon peite"
-
-msgid "Submit"
-msgstr "Lähetä"
-
-msgid "Cancel"
-msgstr "Keskeytä"
-
-msgid "Session timed out."
-msgstr "Yhteys oli käyttämättä liian kauan."
-
-msgid "Filter"
-msgstr "Suodatin"
-
-msgid "This action cannot be undone."
-msgstr "Tätä toimintoa ei voi peruuttaa."
-
-#, python-format
-msgctxt "past"
-msgid "%(action)s %(data_type)s"
-msgstr "%(action)s %(data_type)s"
-
-#, python-format
-msgctxt "present"
-msgid "%(action)s %(data_type)s"
-msgstr "%(action)s %(data_type)s"
-
-#, python-format
-msgid "You are not allowed to %(action)s: %(objs)s"
-msgstr "Toiminto %(action)s ei ole sallittu: %(objs)s"
-
-#, python-format
-msgid "Unable to %(action)s: %(objs)s"
-msgstr "Ei voida %(action)s: %(objs)s"
-
-#, python-format
-msgid "%(action)s: %(objs)s"
-msgstr "%(action)s: %(objs)s"
-
-msgid "Delete"
-msgstr "Poista"
-
-msgid "Deleted"
-msgstr "Poistettu"
-
-msgid "Update"
-msgstr "Päivitä"
-
-msgid "Updated"
-msgstr "Päivitetty"
-
-msgid "-"
-msgstr "-"
-
-#, python-format
-msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "Arvoa %(attr)s ei löydy %(obj)s. "
-
-msgid "No items to display."
-msgstr "Ei näytettävää."
-
-msgid "Actions"
-msgstr "Toiminnot"
-
-#, python-format
-msgid "No match returned for the id \"%s\"."
-msgstr "ID \"%s\" ei palauttanut osumia."
-
-msgid "Please select a row before taking that action."
-msgstr "Valitse rivi ennen toiminnon tekemistä."
-
-msgid "N/A"
-msgstr "N/A"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "Kirjauduttu sisään käyttäjänä: %(username)s"
-
-msgid "Help"
-msgstr "Apua"
-
-msgid "Sign Out"
-msgstr "Kirjaudu Ulos"
-
-msgid "Log In"
-msgstr "Kirjaudu"
-
-msgid "You do not have permission to access the resource:"
-msgstr "Sinulla ei ole oikeutta käyttää resurssia:"
-
-#, python-format
-msgid ""
-"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
-msgstr ""
-"Kirjaudu toisena käyttäjänä tai mene takaisin <a href=\"%(home_url)s"
-"\">kotisivulle</a>"
-
-msgid "Sign In"
-msgstr "Kirjaudu"
-
-msgid "Login"
-msgstr "Kirjaudu"
-
-msgid "Info: "
-msgstr "Info:"
-
-msgid "Warning: "
-msgstr "Varoitus:"
-
-msgid "Success: "
-msgstr "Onnistui:"
-
-msgid "Error: "
-msgstr "Virhe:"
-
-msgid "Summary"
-msgstr "Yhteenveto"
-
-#, python-format
-msgid "Displaying %(counter)s item"
-msgid_plural "Displaying %(counter)s items"
-msgstr[0] "Näytetään %(counter)s kohde"
-msgstr[1] "Näytetään %(counter)s kohdetta"
-
-msgid "&laquo;&nbsp;Prev"
-msgstr "&laquo;&nbsp;Edellinen"
-
-msgid "Next&nbsp;&raquo;"
-msgstr "Seuraava&nbsp;&raquo;"
-
-msgid "More Actions"
-msgstr "Lisää Toimintoja"
-
-#, python-format
-msgid "%(context_name)s:"
-msgstr "%(context_name)s:"
-
-msgid "Add a row"
-msgstr "Lisää rivi"
-
-#, python-format
-msgid "%(name)s: %(error)s"
-msgstr "%(name)s: %(error)s"
-
-msgid "Limit Summary"
-msgstr "Rajoitusten yhteenveto"
-
-msgid "Instances"
-msgstr "Instanssit"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Käytetty <span> %(used)s </span> / <span> %(available)s </span>"
-
-msgid "VCPUs"
-msgstr "VCPU:t"
-
-msgid "RAM"
-msgstr "RAM"
-
-msgid "Floating IPs"
-msgstr "Kelluvat IP:t"
-
-#, python-format
-msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Varattu <span> %(used)s </span> / <span> %(available)s </span>"
-
-msgid "Security Groups"
-msgstr "Turvaryhmät"
-
-msgid "Volumes"
-msgstr "Verkkolevyt"
-
-msgid "Volume Storage"
-msgstr "Volume Storage"
-
-msgid "Save"
-msgstr "Tallenna"
-
-#, python-format
-msgid "Displaying %(nav_items)s item"
-msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] "Näytetään %(nav_items)s kohde"
-msgstr[1] "Näytetään %(nav_items)s kohdetta"
-
-#, python-format
-msgid "Displaying %(content_items)s item"
-msgid_plural "Displaying %(content_items)s items"
-msgstr[0] "Näytetään %(content_items)s kohde"
-msgstr[1] "Näytetään %(content_items)s kohdetta"
-
-msgid "Usage Summary"
-msgstr "Käytön yhteenveto"
-
-msgid "Select a period of time to query its usage:"
-msgstr "Valitse näytettävä ajanjakso:"
 
 #, python-format
 msgid ""
@@ -269,44 +34,37 @@ msgstr ""
 "\n"
 "<label>Päättyy:</label>%(end)s"
 
-msgid "The date should be in YYYY-mm-dd format."
-msgstr "Päivämäärän muoto pitää olla VVVV-kk-pv."
+#, python-format
+msgctxt "past"
+msgid "%(action)s %(data_type)s"
+msgstr "%(action)s %(data_type)s"
 
-msgid "Active Instances:"
-msgstr "Aktiiviset Instanssit:"
+#, python-format
+msgctxt "present"
+msgid "%(action)s %(data_type)s"
+msgstr "%(action)s %(data_type)s"
 
-msgid "Active RAM:"
-msgstr "Aktiivinen RAM:"
+#, python-format
+msgid "%(action)s: %(objs)s"
+msgstr "%(action)s: %(objs)s"
 
-msgid "This Period's VCPU-Hours:"
-msgstr "Tämän ajanjakson VCPU-tunnit:"
+#, python-format
+msgid "%(context_name)s:"
+msgstr "%(context_name)s:"
 
-msgid "This Period's GB-Hours:"
-msgstr "Tämän ajanjakson GB-tunnit:"
-
-msgid "This Period's RAM-Hours:"
-msgstr "RAM-tunteja tällä aikajaksolla:"
-
-msgid "Back"
-msgstr "Takaisin"
-
-msgid "Next"
-msgstr "Edellinen"
-
-msgid "Horizon"
-msgstr "Horizon"
-
-msgid "No Limit"
-msgstr "Ei rajaa"
-
-msgid "Available"
-msgstr "Saatavilla"
+#, python-format
+msgid "%(name)s: %(error)s"
+msgstr "%(name)s: %(error)s"
 
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
 msgstr[0] "%(size)d Tavu"
 msgstr[1] "%(size)d Tavua"
+
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
 
 #, python-format
 msgid "%s KB"
@@ -317,61 +75,12 @@ msgid "%s MB"
 msgstr "%s MB"
 
 #, python-format
-msgid "%s GB"
-msgstr "%s GB"
+msgid "%s PB"
+msgstr "%s PB"
 
 #, python-format
 msgid "%s TB"
 msgstr "%s TB"
-
-#, python-format
-msgid "%s PB"
-msgstr "%s PB"
-
-msgid "0 Bytes"
-msgstr "0 Tavua"
-
-#. Translators: test code, don't really have to translate
-msgid "Sell Puppy"
-msgid_plural "Sell Puppies"
-msgstr[0] "Myy Koiranpentu"
-msgstr[1] "Myy Koiranpentuja"
-
-#. Translators: test code, don't really have to translate
-msgid "Sold Puppy"
-msgid_plural "Sold Puppies"
-msgstr[0] "Myyty Koiranpentu"
-msgstr[1] "Myydyt Koiranpennut"
-
-msgid "Never"
-msgstr "Ei koskaan"
-
-msgid "Not a valid port number"
-msgstr "Portin numero on virheellinen"
-
-msgid "Not a valid IP protocol number"
-msgstr "IP-protokollan numero on virheellinen"
-
-msgid "One colon allowed in port range"
-msgstr "Porttialueessa sallittu vain yksi kaksoispiste"
-
-msgid "Port number must be integer"
-msgstr "Porttinumero pitää olla kokonaisluku"
-
-msgid "Processing..."
-msgstr "Käsitellään..."
-
-msgid "All available"
-msgstr "Kaikki saatavilla"
-
-msgid "Members"
-msgstr "Jäsenet"
-
-msgid "None available."
-msgstr "Ei mitään saatavilla."
-
-msgid "No members."
-msgstr "Ei käyttäjiä."
 
 #, python-format
 msgid "%s completed successfully."
@@ -380,3 +89,294 @@ msgstr "%s tehtiin onnistuneesti."
 #, python-format
 msgid "%s did not complete."
 msgstr "%s ei valmistunut."
+
+msgid "&laquo;&nbsp;Prev"
+msgstr "&laquo;&nbsp;Edellinen"
+
+msgid "-"
+msgstr "-"
+
+msgid "0 Bytes"
+msgstr "0 Tavua"
+
+#, python-format
+msgid "A %(resource)s with the name \"%(name)s\" already exists."
+msgstr "%(resource)s nimellä \"%(name)s\" on jo olemassa."
+
+msgid "Actions"
+msgstr "Toiminnot"
+
+msgid "Active Instances:"
+msgstr "Aktiiviset Instanssit:"
+
+msgid "Active RAM:"
+msgstr "Aktiivinen RAM:"
+
+msgid "Add a row"
+msgstr "Lisää rivi"
+
+msgid "All available"
+msgstr "Kaikki saatavilla"
+
+#, python-format
+msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr "Varattu <span> %(used)s </span> / <span> %(available)s </span>"
+
+msgid "Available"
+msgstr "Saatavilla"
+
+msgid "Back"
+msgstr "Takaisin"
+
+msgid "Cancel"
+msgstr "Keskeytä"
+
+msgid "Delete"
+msgstr "Poista"
+
+msgid "Deleted"
+msgstr "Poistettu"
+
+#, python-format
+msgid "Displaying %(content_items)s item"
+msgid_plural "Displaying %(content_items)s items"
+msgstr[0] "Näytetään %(content_items)s kohde"
+msgstr[1] "Näytetään %(content_items)s kohdetta"
+
+#, python-format
+msgid "Displaying %(counter)s item"
+msgid_plural "Displaying %(counter)s items"
+msgstr[0] "Näytetään %(counter)s kohde"
+msgstr[1] "Näytetään %(counter)s kohdetta"
+
+#, python-format
+msgid "Displaying %(nav_items)s item"
+msgid_plural "Displaying %(nav_items)s items"
+msgstr[0] "Näytetään %(nav_items)s kohde"
+msgstr[1] "Näytetään %(nav_items)s kohdetta"
+
+msgid "Error: "
+msgstr "Virhe:"
+
+msgid "Filter"
+msgstr "Suodatin"
+
+msgid "Floating IPs"
+msgstr "Kelluvat IP:t"
+
+msgid "Help"
+msgstr "Apua"
+
+msgid "Horizon"
+msgstr "Horizon"
+
+msgid "Incorrect format for IP address"
+msgstr "Väärä formaatti IP-osoitteelle"
+
+msgid "Info: "
+msgstr "Info:"
+
+msgid "Instances"
+msgstr "Instanssit"
+
+msgid "Invalid subnet mask"
+msgstr "Väärä aliverkon peite"
+
+msgid "Invalid version for IP address"
+msgstr "Väärä versio IP-osoitteesta"
+
+msgid "Limit Summary"
+msgstr "Rajoitusten yhteenveto"
+
+msgid "Log In"
+msgstr "Kirjaudu"
+
+#, python-format
+msgid "Logged in as: %(username)s"
+msgstr "Kirjauduttu sisään käyttäjänä: %(username)s"
+
+msgid "Login"
+msgstr "Kirjaudu"
+
+#, python-format
+msgid ""
+"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
+msgstr ""
+"Kirjaudu toisena käyttäjänä tai mene takaisin <a href=\"%(home_url)s"
+"\">kotisivulle</a>"
+
+msgid "Members"
+msgstr "Jäsenet"
+
+msgid "More Actions"
+msgstr "Lisää Toimintoja"
+
+msgid "N/A"
+msgstr "N/A"
+
+msgid "Navigation Item"
+msgstr "Navigaatioyksikkö"
+
+msgid "Never"
+msgstr "Ei koskaan"
+
+msgid "Next"
+msgstr "Edellinen"
+
+msgid "Next&nbsp;&raquo;"
+msgstr "Seuraava&nbsp;&raquo;"
+
+msgid "No Limit"
+msgstr "Ei rajaa"
+
+msgid "No items to display."
+msgstr "Ei näytettävää."
+
+#, python-format
+msgid "No match returned for the id \"%s\"."
+msgstr "ID \"%s\" ei palauttanut osumia."
+
+msgid "No members."
+msgstr "Ei käyttäjiä."
+
+msgid "None available."
+msgstr "Ei mitään saatavilla."
+
+msgid "Not a valid IP protocol number"
+msgstr "IP-protokollan numero on virheellinen"
+
+msgid "Not a valid port number"
+msgstr "Portin numero on virheellinen"
+
+msgid "One colon allowed in port range"
+msgstr "Porttialueessa sallittu vain yksi kaksoispiste"
+
+msgid "Other"
+msgstr "Toinen"
+
+msgid "Password is not accepted"
+msgstr "Salasanaa ei hyväksytty"
+
+msgid "Please log in to continue."
+msgstr "Kirjaudu jatkaaksesi"
+
+msgid "Please select a row before taking that action."
+msgstr "Valitse rivi ennen toiminnon tekemistä."
+
+msgid "Port number must be integer"
+msgstr "Porttinumero pitää olla kokonaisluku"
+
+msgid "Processing..."
+msgstr "Käsitellään..."
+
+msgid "RAM"
+msgstr "RAM"
+
+msgid "Save"
+msgstr "Tallenna"
+
+msgid "Security Groups"
+msgstr "Turvaryhmät"
+
+#, python-format
+msgid "Select a %s to browse."
+msgstr "Valitse %s selataksesi."
+
+msgid "Select a period of time to query its usage:"
+msgstr "Valitse näytettävä ajanjakso:"
+
+#. Translators: test code, don't really have to translate
+msgid "Sell Puppy"
+msgid_plural "Sell Puppies"
+msgstr[0] "Myy Koiranpentu"
+msgstr[1] "Myy Koiranpentuja"
+
+msgid "Session timed out."
+msgstr "Yhteys oli käyttämättä liian kauan."
+
+msgid "Sign In"
+msgstr "Kirjaudu"
+
+msgid "Sign Out"
+msgstr "Kirjaudu Ulos"
+
+#. Translators: test code, don't really have to translate
+msgid "Sold Puppy"
+msgid_plural "Sold Puppies"
+msgstr[0] "Myyty Koiranpentu"
+msgstr[1] "Myydyt Koiranpennut"
+
+msgid "Submit"
+msgstr "Lähetä"
+
+msgid "Success: "
+msgstr "Onnistui:"
+
+msgid "Summary"
+msgstr "Yhteenveto"
+
+#, python-format
+msgid "The attribute %(attr)s doesn't exist on %(obj)s."
+msgstr "Arvoa %(attr)s ei löydy %(obj)s. "
+
+msgid "The date should be in YYYY-mm-dd format."
+msgstr "Päivämäärän muoto pitää olla VVVV-kk-pv."
+
+msgid "This Period's GB-Hours:"
+msgstr "Tämän ajanjakson GB-tunnit:"
+
+msgid "This Period's RAM-Hours:"
+msgstr "RAM-tunteja tällä aikajaksolla:"
+
+msgid "This Period's VCPU-Hours:"
+msgstr "Tämän ajanjakson VCPU-tunnit:"
+
+msgid "This action cannot be undone."
+msgstr "Tätä toimintoa ei voi peruuttaa."
+
+#, python-format
+msgid "Unable to %(action)s: %(objs)s"
+msgstr "Ei voida %(action)s: %(objs)s"
+
+msgid "Unauthorized. Please try logging in again."
+msgstr "Ei oikeutettu: Yritä kirjautumista uudelleen."
+
+#, python-format
+msgid "Unauthorized: %s"
+msgstr "Ei sallittu: %s"
+
+msgid "Update"
+msgstr "Päivitä"
+
+msgid "Updated"
+msgstr "Päivitetty"
+
+msgid "Usage Summary"
+msgstr "Käytön yhteenveto"
+
+#, python-format
+msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr "Käytetty <span> %(used)s </span> / <span> %(available)s </span>"
+
+msgid "VCPUs"
+msgstr "VCPU:t"
+
+msgid "Volume Storage"
+msgstr "Volume Storage"
+
+msgid "Volumes"
+msgstr "Verkkolevyt"
+
+msgid "Warning: "
+msgstr "Varoitus:"
+
+#, python-format
+msgid "You are not allowed to %(action)s: %(objs)s"
+msgstr "Toiminto %(action)s ei ole sallittu: %(objs)s"
+
+#, python-format
+msgid "You are not authorized to access %s"
+msgstr "Et ole oikeutettu päästäksesi %s"
+
+msgid "You do not have permission to access the resource:"
+msgstr "Sinulla ei ole oikeutta käyttää resurssia:"

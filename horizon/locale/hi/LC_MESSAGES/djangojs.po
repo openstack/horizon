@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"POT-Creation-Date: 2015-05-27 03:01-0500\n"
 "PO-Revision-Date: 2015-05-27 03:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/"
@@ -19,15 +19,13 @@ msgstr ""
 "Language: hi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Yes"
-msgstr "हाँ"
-
-msgid "No"
-msgstr "नहीं"
-
 #, c-format
 msgid "%s GB"
 msgstr "%s GB"
+
+#, c-format
+msgid "%s KB"
+msgstr "%s केबी"
 
 #, c-format
 msgid "%s MB"
@@ -37,9 +35,45 @@ msgstr "%s MB"
 msgid "%s TB"
 msgstr "%s TB"
 
+msgid "Add Interface"
+msgstr "अंतरफलक जोड़ें"
+
+msgid "Added"
+msgstr "जोड़ा गया"
+
+msgid "An error occurred while updating."
+msgstr "अद्यतन करते समय एक त्रुटि हुई."
+
+msgid "An error occurred. Please try again later."
+msgstr "एक त्रुटि हो गई. बाद में पुन: प्रयास करें."
+
+msgid "Available"
+msgstr "उपलब्ध"
+
+msgid "Available Metadata"
+msgstr "उपलब्ध मेटाडाटा"
+
+msgid "Back"
+msgstr "पीछे"
+
+msgid "Cancel"
+msgstr "रद्द करें"
+
 #, c-format
-msgid "%s KB"
-msgstr "%s केबी"
+msgid "Confirm %s"
+msgstr "पुष्टि करें %s"
+
+msgid "Could not decrypt the password"
+msgstr "पासवर्ड को डिक्रिप्ट नहीं कर सका"
+
+msgid "Could not read the file"
+msgstr "फ़ाइल को पढ़ नहीं सका"
+
+msgid "Danger: "
+msgstr "खतरा: "
+
+msgid "Delete"
+msgstr "मिटाएँ"
 
 #, c-format
 msgid "Displaying %s item"
@@ -47,50 +81,89 @@ msgid_plural "Displaying %s items"
 msgstr[0] " %s मद प्रदर्शित"
 msgstr[1] " %s मद प्रदर्शित"
 
-msgid "Added"
-msgstr "जोड़ा गया"
-
 msgid "Duplicate keys are not allowed"
 msgstr "एक जैसे कुंजी की अनुमति नहीं है"
-
-msgid "Filter"
-msgstr "छानना शुरू..."
-
-msgid "Available Metadata"
-msgstr "उपलब्ध मेटाडाटा"
-
-msgid "Existing Metadata"
-msgstr "मौजूदा मेटाडाटा "
-
-msgid "No available metadata"
-msgstr "कोई मेटाडेटा उपलब्ध नहीं है"
-
-msgid "No existing metadata"
-msgstr "कोई मौजूदा मेटाडाटा नहीं "
-
-msgid "Submit"
-msgstr "जमा करें"
-
-msgid "Cancel"
-msgstr "रद्द करें"
-
-msgid "Info"
-msgstr "सूचना"
 
 msgid "Error"
 msgstr "त्रुटि"
 
-msgid "Available"
-msgstr "उपलब्ध"
+msgid "Error: "
+msgstr "त्रुटि: "
 
-msgid "Back"
-msgstr "पीछे"
+msgid "Existing Metadata"
+msgstr "मौजूदा मेटाडाटा "
+
+msgid "Filter"
+msgstr "छानना शुरू..."
+
+msgid "ID"
+msgstr "आईडी"
+
+msgid "Info"
+msgstr "सूचना"
+
+msgid "Interfaces"
+msgstr "अंतरफलक"
+
+msgid "Loading"
+msgstr "लोड हो रहा है"
 
 msgid "Next"
 msgstr "अगला"
 
-msgid "Unable to retrieve volume snapshots."
-msgstr "वॉल्यूम स्नैपशॉट प्राप्त करने में असमर्थ."
+msgid "No"
+msgstr "नहीं"
+
+msgid "No available metadata"
+msgstr "कोई मेटाडेटा उपलब्ध नहीं है"
+
+msgid "No data available."
+msgstr "कोई आँकड़ा उपलब्ध नहीं."
+
+msgid "No existing metadata"
+msgstr "कोई मौजूदा मेटाडाटा नहीं "
+
+msgid "No items to display."
+msgstr "दिखाने के लिए कोई सामग्रियों नहीं."
+
+msgid "No roles"
+msgstr "भूमिकाएं नहीं है"
+
+msgid "None"
+msgstr "कोई नहीं"
+
+msgid "Not authorized to do this operation."
+msgstr " इस प्रकिया को कार्यान्वयित करने की अनुमति नहीं है"
+
+msgid "Notice: "
+msgstr "सूचना: "
+
+msgid "Passwords do not match."
+msgstr "पासवर्ड मेल नहीं खाते."
+
+msgid "Roles"
+msgstr "भूमिका"
+
+msgid "STATUS"
+msgstr "स्थिति"
+
+msgid "Submit"
+msgstr "जमा करें"
+
+msgid "Success: "
+msgstr "सफलता:"
+
+msgid "There was a problem communicating with the server, please try again."
+msgstr "सर्वर के साथ संवाद स्थापित करने में कोई समस्या थी, पुन: प्रयास करें."
+
+msgid "There was an error submitting the form. Please try again."
+msgstr "फार्म जमा करने में त्रुटि हुई. पुन: प्रयास करें."
+
+msgid "Unable to retrieve availability zones."
+msgstr "उपलब्धता क्षेत्रों को पुनः प्राप्त करने में असमर्थ."
+
+msgid "Unable to retrieve flavors."
+msgstr "फ्लेवर को पुनः प्राप्त करने में असमर्थ."
 
 msgid "Unable to retrieve image."
 msgstr "बिंब को पुनः प्राप्त करने में असमर्थ."
@@ -101,97 +174,24 @@ msgstr "बिंब को पुनः प्राप्त करने म�
 msgid "Unable to retrieve networks."
 msgstr "नेटवर्क पुनः प्राप्त करने में असमर्थ."
 
-msgid "Unable to retrieve availability zones."
-msgstr "उपलब्धता क्षेत्रों को पुनः प्राप्त करने में असमर्थ."
-
-msgid "Unable to retrieve flavors."
-msgstr "फ्लेवर को पुनः प्राप्त करने में असमर्थ."
-
 msgid "Unable to retrieve security groups."
 msgstr "सुरक्षा समूहों को पुनः प्राप्त करने में असमर्थ."
 
-msgid "Loading"
-msgstr "लोड हो रहा है"
-
-msgid "No data available."
-msgstr "कोई आँकड़ा उपलब्ध नहीं."
-
-msgid "An error occurred. Please try again later."
-msgstr "एक त्रुटि हो गई. बाद में पुन: प्रयास करें."
-
-msgid "There was a problem communicating with the server, please try again."
-msgstr "सर्वर के साथ संवाद स्थापित करने में कोई समस्या थी, पुन: प्रयास करें."
-
-msgid "Could not read the file"
-msgstr "फ़ाइल को पढ़ नहीं सका"
-
-msgid "Could not decrypt the password"
-msgstr "पासवर्ड को डिक्रिप्ट नहीं कर सका"
-
-msgid "No roles"
-msgstr "भूमिकाएं नहीं है"
-
-msgid "Roles"
-msgstr "भूमिका"
-
-msgid "Danger: "
-msgstr "खतरा: "
-
-msgid "Warning: "
-msgstr "चेतावनी: "
-
-msgid "Notice: "
-msgstr "सूचना: "
-
-msgid "Success: "
-msgstr "सफलता:"
-
-msgid "Error: "
-msgstr "त्रुटि: "
-
-msgid "Working"
-msgstr "काम चालू है"
-
-msgid "There was an error submitting the form. Please try again."
-msgstr "फार्म जमा करने में त्रुटि हुई. पुन: प्रयास करें."
-
-msgid "None"
-msgstr "कोई नहीं"
-
-msgid "Delete"
-msgstr "मिटाएँ"
-
-msgid "STATUS"
-msgstr "स्थिति"
-
-msgid "ID"
-msgstr "आईडी"
-
-msgid "Interfaces"
-msgstr "अंतरफलक"
+msgid "Unable to retrieve volume snapshots."
+msgstr "वॉल्यूम स्नैपशॉट प्राप्त करने में असमर्थ."
 
 msgid "View Details"
 msgstr "विवरण देखें"
 
-msgid "Add Interface"
-msgstr "अंतरफलक जोड़ें"
+msgid "Warning: "
+msgstr "चेतावनी: "
 
-msgid "No items to display."
-msgstr "दिखाने के लिए कोई सामग्रियों नहीं."
+msgid "Working"
+msgstr "काम चालू है"
 
-msgid "An error occurred while updating."
-msgstr "अद्यतन करते समय एक त्रुटि हुई."
+msgid "Yes"
+msgstr "हाँ"
 
 #, c-format
 msgid "You have selected %s. "
 msgstr "आपने %s का चुनाव किया है. "
-
-#, c-format
-msgid "Confirm %s"
-msgstr "पुष्टि करें %s"
-
-msgid "Not authorized to do this operation."
-msgstr " इस प्रकिया को कार्यान्वयित करने की अनुमति नहीं है"
-
-msgid "Passwords do not match."
-msgstr "पासवर्ड मेल नहीं खाते."

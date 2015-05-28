@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-05-05 08:26+0000\n"
+"POT-Creation-Date: 2015-05-27 03:00-0500\n"
+"PO-Revision-Date: 2015-05-13 19:11+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/horizon/language/"
 "it/)\n"
@@ -17,58 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "Other"
-msgstr "Altro"
-
-msgid "Navigation Item"
-msgstr "Elemento di navigazione"
-
-#, python-format
-msgid "Select a %s to browse."
-msgstr "Selezionare un %s per sfogliare."
-
-msgid "Password is not accepted"
-msgstr "La password non è stata accettata."
-
-msgid "Please log in to continue."
-msgstr "Accedi per continuare"
-
-#, python-format
-msgid "You are not authorized to access %s"
-msgstr "Accesso non autorizzato a %s"
-
-#, python-format
-msgid "A %(resource)s with the name \"%(name)s\" already exists."
-msgstr "La risorsa %(resource)s con il nome \"%(name)s\" esiste."
-
-#, python-format
-msgid "Unauthorized: %s"
-msgstr "Non autorizzato: %s"
-
-msgid "Unauthorized. Please try logging in again."
-msgstr "Non autorizzato. Ritentare il login."
-
-msgid "Incorrect format for IP address"
-msgstr "Formato incorretto per l'indirizzo IP"
-
-msgid "Invalid version for IP address"
-msgstr "Versione dell'indirizzo IP non valida"
-
-msgid "Invalid subnet mask"
-msgstr "Maschera sottorete non valida."
-
-msgid "Submit"
-msgstr "Invia"
-
-msgid "Cancel"
-msgstr "Annulla"
-
-msgid "Session timed out."
-msgstr "Sessione scaduta."
-
-msgid "Filter"
-msgstr "Filtro"
 
 #, python-format
 msgctxt "past"
@@ -81,150 +29,12 @@ msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
 #, python-format
-msgid "You are not allowed to %(action)s: %(objs)s"
-msgstr "Non si è autorizzati a %(action)s: %(objs)s"
-
-#, python-format
-msgid "Unable to %(action)s: %(objs)s"
-msgstr "Impossibile %(action)s: %(objs)s"
-
-#, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-msgid "Delete"
-msgstr "Elimina"
-
-msgid "Deleted"
-msgstr "Eliminato"
-
-msgid "Update"
-msgstr "Aggiorna"
-
-msgid "Updated"
-msgstr "Aggiornato"
-
-msgid "-"
-msgstr "-"
-
 #, python-format
-msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "L'attributo %(attr)s non esiste in %(obj)s"
-
-msgid "No items to display."
-msgstr "Nessun elemento da visualizzare"
-
-msgid "Actions"
-msgstr "Azioni"
-
-#, python-format
-msgid "No match returned for the id \"%s\"."
-msgstr "Nessuna corrispondenza restituita per l'identificativo \"%s\""
-
-msgid "Please select a row before taking that action."
-msgstr "Per cortesia, selezionare una riga prima di eseguire tale azione."
-
-msgid "N/A"
-msgstr "N/A"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "Autenticato come: %(username)s"
-
-msgid "Help"
-msgstr "Aiuto"
-
-msgid "Sign Out"
-msgstr "Disconnessione"
-
-msgid "Log In"
-msgstr "Log In"
-
-msgid "You do not have permission to access the resource:"
-msgstr "Non si dispone dei permessi per accedere alla risorsa:"
-
-#, python-format
-msgid ""
-"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
-msgstr ""
-"Accedi con un dicerso utente o torna alla <a href=\"%(home_url)s\"> home "
-"page</a>"
-
-msgid "Sign In"
-msgstr "Accesso"
-
-msgid "Login"
-msgstr "Login"
-
-msgid "Info: "
-msgstr "Info: "
-
-msgid "Warning: "
-msgstr "Attenzione:"
-
-msgid "Success: "
-msgstr "Successo:"
-
-msgid "Error: "
-msgstr "Errore:"
-
-msgid "Summary"
-msgstr "Riepilogo"
-
-msgid "Add a row"
-msgstr "Aggiungi una linea"
-
-msgid "Limit Summary"
-msgstr "Riepilogo dei Limiti"
-
-msgid "Instances"
-msgstr "Istanze"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Utilizzati <span> %(used)s </span> di <span> %(available)s </span>"
-
-msgid "VCPUs"
-msgstr "VCPUs"
-
-msgid "RAM"
-msgstr "RAM"
-
-msgid "Floating IPs"
-msgstr "Floating IPs"
-
-msgid "Security Groups"
-msgstr "Gruppi di Protezione"
-
-msgid "Volumes"
-msgstr "Volumi"
-
-msgid "Volume Storage"
-msgstr "Volume Storage"
-
-msgid "Save"
-msgstr "Salva"
-
-msgid "Usage Summary"
-msgstr "Riepilogo dell'Utilizzo"
-
-msgid "The date should be in YYYY-mm-dd format."
-msgstr "La data deve essere nel formato YYYY-mm-dd."
-
-msgid "Back"
-msgstr "Indietro"
-
-msgid "Next"
-msgstr "Prossimo"
-
-msgid "Horizon"
-msgstr "Horizon"
-
-msgid "No Limit"
-msgstr "Nessun Limite"
-
-msgid "Available"
-msgstr "Disponibile"
+msgid "%s GB"
+msgstr "%s GB"
 
 #, python-format
 msgid "%s KB"
@@ -235,46 +45,12 @@ msgid "%s MB"
 msgstr "%s MB"
 
 #, python-format
-msgid "%s GB"
-msgstr "%s GB"
+msgid "%s PB"
+msgstr "%s PB"
 
 #, python-format
 msgid "%s TB"
 msgstr "%s TB"
-
-#, python-format
-msgid "%s PB"
-msgstr "%s PB"
-
-msgid "Never"
-msgstr "Mai"
-
-msgid "Not a valid port number"
-msgstr "Numero porta non valido"
-
-msgid "Not a valid IP protocol number"
-msgstr "Numero protocollo IP non valido"
-
-msgid "One colon allowed in port range"
-msgstr "Una virgola permessa nell'intervallo delle porte"
-
-msgid "Port number must be integer"
-msgstr "Il numero porta deve essere un intero"
-
-msgid "Processing..."
-msgstr "Attendere prego..."
-
-msgid "All available"
-msgstr "Tutti disponibili"
-
-msgid "Members"
-msgstr "Membri"
-
-msgid "None available."
-msgstr "Nessuno disponibile."
-
-msgid "No members."
-msgstr "Nessun membro."
 
 #, python-format
 msgid "%s completed successfully."
@@ -283,3 +59,227 @@ msgstr "%s completato correttamente."
 #, python-format
 msgid "%s did not complete."
 msgstr "%s non completato."
+
+msgid "-"
+msgstr "-"
+
+#, python-format
+msgid "A %(resource)s with the name \"%(name)s\" already exists."
+msgstr "La risorsa %(resource)s con il nome \"%(name)s\" esiste."
+
+msgid "Actions"
+msgstr "Azioni"
+
+msgid "Add a row"
+msgstr "Aggiungi una linea"
+
+msgid "All available"
+msgstr "Tutti disponibili"
+
+msgid "Available"
+msgstr "Disponibile"
+
+msgid "Back"
+msgstr "Indietro"
+
+msgid "Cancel"
+msgstr "Annulla"
+
+msgid "Delete"
+msgstr "Elimina"
+
+msgid "Deleted"
+msgstr "Eliminato"
+
+msgid "Error: "
+msgstr "Errore:"
+
+msgid "Filter"
+msgstr "Filtro"
+
+msgid "Floating IPs"
+msgstr "Floating IPs"
+
+msgid "Help"
+msgstr "Aiuto"
+
+msgid "Horizon"
+msgstr "Horizon"
+
+msgid "Incorrect format for IP address"
+msgstr "Formato incorretto per l'indirizzo IP"
+
+msgid "Info: "
+msgstr "Info: "
+
+msgid "Instances"
+msgstr "Istanze"
+
+msgid "Invalid subnet mask"
+msgstr "Maschera sottorete non valida."
+
+msgid "Invalid version for IP address"
+msgstr "Versione dell'indirizzo IP non valida"
+
+msgid "Limit Summary"
+msgstr "Riepilogo dei Limiti"
+
+msgid "Log In"
+msgstr "Log In"
+
+#, python-format
+msgid "Logged in as: %(username)s"
+msgstr "Autenticato come: %(username)s"
+
+msgid "Login"
+msgstr "Login"
+
+#, python-format
+msgid ""
+"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
+msgstr ""
+"Accedi con un dicerso utente o torna alla <a href=\"%(home_url)s\"> home "
+"page</a>"
+
+msgid "Members"
+msgstr "Membri"
+
+msgid "N/A"
+msgstr "N/A"
+
+msgid "Navigation Item"
+msgstr "Elemento di navigazione"
+
+msgid "Never"
+msgstr "Mai"
+
+msgid "Next"
+msgstr "Prossimo"
+
+msgid "No Limit"
+msgstr "Nessun Limite"
+
+msgid "No items to display."
+msgstr "Nessun elemento da visualizzare"
+
+#, python-format
+msgid "No match returned for the id \"%s\"."
+msgstr "Nessuna corrispondenza restituita per l'identificativo \"%s\""
+
+msgid "No members."
+msgstr "Nessun membro."
+
+msgid "None available."
+msgstr "Nessuno disponibile."
+
+msgid "Not a valid IP protocol number"
+msgstr "Numero protocollo IP non valido"
+
+msgid "Not a valid port number"
+msgstr "Numero porta non valido"
+
+msgid "One colon allowed in port range"
+msgstr "Una virgola permessa nell'intervallo delle porte"
+
+msgid "Other"
+msgstr "Altro"
+
+msgid "Password is not accepted"
+msgstr "La password non è stata accettata."
+
+msgid "Please log in to continue."
+msgstr "Accedi per continuare"
+
+msgid "Please select a row before taking that action."
+msgstr "Per cortesia, selezionare una riga prima di eseguire tale azione."
+
+msgid "Port number must be integer"
+msgstr "Il numero porta deve essere un intero"
+
+msgid "Processing..."
+msgstr "Attendere prego..."
+
+msgid "RAM"
+msgstr "RAM"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "Security Groups"
+msgstr "Gruppi di Protezione"
+
+#, python-format
+msgid "Select a %s to browse."
+msgstr "Selezionare un %s per sfogliare."
+
+msgid "Session timed out."
+msgstr "Sessione scaduta."
+
+msgid "Sign In"
+msgstr "Accesso"
+
+msgid "Sign Out"
+msgstr "Disconnessione"
+
+msgid "Submit"
+msgstr "Invia"
+
+msgid "Success: "
+msgstr "Successo:"
+
+msgid "Summary"
+msgstr "Riepilogo"
+
+#, python-format
+msgid "The attribute %(attr)s doesn't exist on %(obj)s."
+msgstr "L'attributo %(attr)s non esiste in %(obj)s"
+
+msgid "The date should be in YYYY-mm-dd format."
+msgstr "La data deve essere nel formato YYYY-mm-dd."
+
+#, python-format
+msgid "Unable to %(action)s: %(objs)s"
+msgstr "Impossibile %(action)s: %(objs)s"
+
+msgid "Unauthorized. Please try logging in again."
+msgstr "Non autorizzato. Ritentare il login."
+
+#, python-format
+msgid "Unauthorized: %s"
+msgstr "Non autorizzato: %s"
+
+msgid "Update"
+msgstr "Aggiorna"
+
+msgid "Updated"
+msgstr "Aggiornato"
+
+msgid "Usage Summary"
+msgstr "Riepilogo dell'Utilizzo"
+
+#, python-format
+msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr "Utilizzati <span> %(used)s </span> di <span> %(available)s </span>"
+
+msgid "VCPUs"
+msgstr "VCPUs"
+
+msgid "Volume Storage"
+msgstr "Volume Storage"
+
+msgid "Volumes"
+msgstr "Volumi"
+
+msgid "Warning: "
+msgstr "Attenzione:"
+
+#, python-format
+msgid "You are not allowed to %(action)s: %(objs)s"
+msgstr "Non si è autorizzati a %(action)s: %(objs)s"
+
+#, python-format
+msgid "You are not authorized to access %s"
+msgstr "Accesso non autorizzato a %s"
+
+msgid "You do not have permission to access the resource:"
+msgstr "Non si dispone dei permessi per accedere alla risorsa:"

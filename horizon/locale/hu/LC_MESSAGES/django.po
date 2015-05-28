@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-04-20 07:07+0000\n"
+"POT-Creation-Date: 2015-05-27 03:00-0500\n"
+"PO-Revision-Date: 2015-05-13 19:11+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/horizon/"
 "language/hu/)\n"
@@ -17,50 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "Other"
-msgstr "Egyéb"
-
-msgid "Navigation Item"
-msgstr "Navigációs elem"
-
-#, python-format
-msgid "Select a %s to browse."
-msgstr "A böngészéshez válasszon egy %s elemet"
-
-msgid "Password is not accepted"
-msgstr "A jelszó nincs elfogadva"
-
-msgid "Please log in to continue."
-msgstr "Lépjen be a folytatáshoz."
-
-#, python-format
-msgid "You are not authorized to access %s"
-msgstr "Nincsen engedélyezve a hozzáférés ehhez: %s"
-
-msgid "Unauthorized. Please try logging in again."
-msgstr "Jogosulatlan hozzáférés. Próbáljon meg belépni újra."
-
-msgid "Incorrect format for IP address"
-msgstr "Helytelen IP-cím formátum"
-
-msgid "Invalid version for IP address"
-msgstr "Érvénytelen IP-cím változat"
-
-msgid "Invalid subnet mask"
-msgstr "Érvénytelen alhálózati maszk"
-
-msgid "Submit"
-msgstr "Beküldés"
-
-msgid "Cancel"
-msgstr "Mégse"
-
-msgid "Session timed out."
-msgstr "Munkamenet időtúllépés."
-
-msgid "Filter"
-msgstr "Szűrő"
 
 #, python-format
 msgctxt "past"
@@ -73,138 +29,12 @@ msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
 #, python-format
-msgid "Unable to %(action)s: %(objs)s"
-msgstr "Nem hajtható végre: %(action)s: %(objs)s"
-
-#, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-msgid "Delete"
-msgstr "Törlés"
-
-msgid "Deleted"
-msgstr "Törölve"
-
-msgid "Update"
-msgstr "Frissítés"
-
-msgid "Updated"
-msgstr "Frissítve"
-
 #, python-format
-msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "A(z) %(attr)s attribútum nem létezik ezen: %(obj)s."
-
-msgid "No items to display."
-msgstr "Nincs megjeleníthető elem."
-
-msgid "Actions"
-msgstr "Műveletek"
-
-#, python-format
-msgid "No match returned for the id \"%s\"."
-msgstr "Nincs találat a(z) „%s” azonosítóhoz."
-
-msgid "Please select a row before taking that action."
-msgstr "Válasszon ki egy sort a művelet végrehajtása előtt."
-
-msgid "N/A"
-msgstr "---"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "Belépve mint: %(username)s"
-
-msgid "Help"
-msgstr "Súgó"
-
-msgid "Sign Out"
-msgstr "Kijelentkezés"
-
-msgid "Log In"
-msgstr "Bejelentkezés"
-
-msgid "You do not have permission to access the resource:"
-msgstr "Nincs jogosultsága a forrás eléréséhez:"
-
-#, python-format
-msgid ""
-"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
-msgstr ""
-"Bejelentkezés másik felhasználóval vagy visszatérés a <a href=\"%(home_url)s"
-"\"> főoldalra</a>"
-
-msgid "Sign In"
-msgstr "Bejelentkezés"
-
-msgid "Login"
-msgstr "Bejelentkezés"
-
-msgid "Info: "
-msgstr "Információ: "
-
-msgid "Warning: "
-msgstr "Figyelmeztetés: "
-
-msgid "Success: "
-msgstr "Siker: "
-
-msgid "Error: "
-msgstr "Hiba: "
-
-msgid "Summary"
-msgstr "Összegzés"
-
-msgid "Add a row"
-msgstr "Sor hozzáadása"
-
-msgid "Instances"
-msgstr "Példányok"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr ""
-"Felhasználva <span> %(used)s </span> a <span> %(available)s </span>-ból"
-
-msgid "VCPUs"
-msgstr "VCPU-k"
-
-msgid "RAM"
-msgstr "RAM"
-
-msgid "Floating IPs"
-msgstr "Lebegő IP-k"
-
-msgid "Security Groups"
-msgstr "Biztonsági csoportok"
-
-msgid "Volumes"
-msgstr "Kötetek"
-
-msgid "Save"
-msgstr "Mentés"
-
-msgid "Usage Summary"
-msgstr "Használati összegzés"
-
-msgid "The date should be in YYYY-mm-dd format."
-msgstr "A dátum formátuma ÉÉÉÉ-hh-nn."
-
-msgid "Back"
-msgstr "Vissza"
-
-msgid "Next"
-msgstr "Tovább"
-
-msgid "Horizon"
-msgstr "Horizon"
-
-msgid "No Limit"
-msgstr "Nincs korlát"
-
-msgid "Available"
-msgstr "Elérhető"
+msgid "%s GB"
+msgstr "%s GB"
 
 #, python-format
 msgid "%s KB"
@@ -215,40 +45,12 @@ msgid "%s MB"
 msgstr "%s MB"
 
 #, python-format
-msgid "%s GB"
-msgstr "%s GB"
+msgid "%s PB"
+msgstr "%s PB"
 
 #, python-format
 msgid "%s TB"
 msgstr "%s TB"
-
-#, python-format
-msgid "%s PB"
-msgstr "%s PB"
-
-msgid "Not a valid port number"
-msgstr "Nem érvényes port szám"
-
-msgid "Not a valid IP protocol number"
-msgstr "Nem érvényes IP protokoll szám"
-
-msgid "Port number must be integer"
-msgstr "Port számnak egész számnak kell lennie"
-
-msgid "Processing..."
-msgstr "Feldolgozás…"
-
-msgid "All available"
-msgstr "Összes elérhető"
-
-msgid "Members"
-msgstr "Tagok"
-
-msgid "None available."
-msgstr "Nincs elérhető."
-
-msgid "No members."
-msgstr "Nincsenek tagok."
 
 #, python-format
 msgid "%s completed successfully."
@@ -257,3 +59,201 @@ msgstr "%s sikeresen befejeződött."
 #, python-format
 msgid "%s did not complete."
 msgstr "%s nem fejeződött be."
+
+msgid "Actions"
+msgstr "Műveletek"
+
+msgid "Add a row"
+msgstr "Sor hozzáadása"
+
+msgid "All available"
+msgstr "Összes elérhető"
+
+msgid "Available"
+msgstr "Elérhető"
+
+msgid "Back"
+msgstr "Vissza"
+
+msgid "Cancel"
+msgstr "Mégse"
+
+msgid "Delete"
+msgstr "Törlés"
+
+msgid "Deleted"
+msgstr "Törölve"
+
+msgid "Error: "
+msgstr "Hiba: "
+
+msgid "Filter"
+msgstr "Szűrő"
+
+msgid "Floating IPs"
+msgstr "Lebegő IP-k"
+
+msgid "Help"
+msgstr "Súgó"
+
+msgid "Horizon"
+msgstr "Horizon"
+
+msgid "Incorrect format for IP address"
+msgstr "Helytelen IP-cím formátum"
+
+msgid "Info: "
+msgstr "Információ: "
+
+msgid "Instances"
+msgstr "Példányok"
+
+msgid "Invalid subnet mask"
+msgstr "Érvénytelen alhálózati maszk"
+
+msgid "Invalid version for IP address"
+msgstr "Érvénytelen IP-cím változat"
+
+msgid "Log In"
+msgstr "Bejelentkezés"
+
+#, python-format
+msgid "Logged in as: %(username)s"
+msgstr "Belépve mint: %(username)s"
+
+msgid "Login"
+msgstr "Bejelentkezés"
+
+#, python-format
+msgid ""
+"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
+msgstr ""
+"Bejelentkezés másik felhasználóval vagy visszatérés a <a href=\"%(home_url)s"
+"\"> főoldalra</a>"
+
+msgid "Members"
+msgstr "Tagok"
+
+msgid "N/A"
+msgstr "---"
+
+msgid "Navigation Item"
+msgstr "Navigációs elem"
+
+msgid "Next"
+msgstr "Tovább"
+
+msgid "No Limit"
+msgstr "Nincs korlát"
+
+msgid "No items to display."
+msgstr "Nincs megjeleníthető elem."
+
+#, python-format
+msgid "No match returned for the id \"%s\"."
+msgstr "Nincs találat a(z) „%s” azonosítóhoz."
+
+msgid "No members."
+msgstr "Nincsenek tagok."
+
+msgid "None available."
+msgstr "Nincs elérhető."
+
+msgid "Not a valid IP protocol number"
+msgstr "Nem érvényes IP protokoll szám"
+
+msgid "Not a valid port number"
+msgstr "Nem érvényes port szám"
+
+msgid "Other"
+msgstr "Egyéb"
+
+msgid "Password is not accepted"
+msgstr "A jelszó nincs elfogadva"
+
+msgid "Please log in to continue."
+msgstr "Lépjen be a folytatáshoz."
+
+msgid "Please select a row before taking that action."
+msgstr "Válasszon ki egy sort a művelet végrehajtása előtt."
+
+msgid "Port number must be integer"
+msgstr "Port számnak egész számnak kell lennie"
+
+msgid "Processing..."
+msgstr "Feldolgozás…"
+
+msgid "RAM"
+msgstr "RAM"
+
+msgid "Save"
+msgstr "Mentés"
+
+msgid "Security Groups"
+msgstr "Biztonsági csoportok"
+
+#, python-format
+msgid "Select a %s to browse."
+msgstr "A böngészéshez válasszon egy %s elemet"
+
+msgid "Session timed out."
+msgstr "Munkamenet időtúllépés."
+
+msgid "Sign In"
+msgstr "Bejelentkezés"
+
+msgid "Sign Out"
+msgstr "Kijelentkezés"
+
+msgid "Submit"
+msgstr "Beküldés"
+
+msgid "Success: "
+msgstr "Siker: "
+
+msgid "Summary"
+msgstr "Összegzés"
+
+#, python-format
+msgid "The attribute %(attr)s doesn't exist on %(obj)s."
+msgstr "A(z) %(attr)s attribútum nem létezik ezen: %(obj)s."
+
+msgid "The date should be in YYYY-mm-dd format."
+msgstr "A dátum formátuma ÉÉÉÉ-hh-nn."
+
+#, python-format
+msgid "Unable to %(action)s: %(objs)s"
+msgstr "Nem hajtható végre: %(action)s: %(objs)s"
+
+msgid "Unauthorized. Please try logging in again."
+msgstr "Jogosulatlan hozzáférés. Próbáljon meg belépni újra."
+
+msgid "Update"
+msgstr "Frissítés"
+
+msgid "Updated"
+msgstr "Frissítve"
+
+msgid "Usage Summary"
+msgstr "Használati összegzés"
+
+#, python-format
+msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr ""
+"Felhasználva <span> %(used)s </span> a <span> %(available)s </span>-ból"
+
+msgid "VCPUs"
+msgstr "VCPU-k"
+
+msgid "Volumes"
+msgstr "Kötetek"
+
+msgid "Warning: "
+msgstr "Figyelmeztetés: "
+
+#, python-format
+msgid "You are not authorized to access %s"
+msgstr "Nincsen engedélyezve a hozzáférés ehhez: %s"
+
+msgid "You do not have permission to access the resource:"
+msgstr "Nincs jogosultsága a forrás eléréséhez:"

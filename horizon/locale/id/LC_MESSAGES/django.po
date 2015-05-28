@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-04-20 07:07+0000\n"
+"POT-Creation-Date: 2015-05-27 03:00-0500\n"
+"PO-Revision-Date: 2015-05-13 19:11+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/horizon/"
 "language/id/)\n"
@@ -18,237 +18,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-msgid "Other"
-msgstr "Lainnya"
-
-msgid "Navigation Item"
-msgstr "Item Navigasi"
-
-#, python-format
-msgid "Select a %s to browse."
-msgstr "Pilih sebuah %s untuk menelusuri."
-
-msgid "Password is not accepted"
-msgstr "Kata kunci ditolak"
-
-msgid "Please log in to continue."
-msgstr "Harap masuk untuk melanjutkan"
-
-#, python-format
-msgid "You are not authorized to access %s"
-msgstr "Anda tidak diijinkan untuk mengakses %s"
-
-#, python-format
-msgid "A %(resource)s with the name \"%(name)s\" already exists."
-msgstr "Sebuah %(resource)s dengan nama \"%(name)s\" sudah ada."
-
-#, python-format
-msgid "Unauthorized: %s"
-msgstr "Tidak Diijinkan: %s"
-
-msgid "Unauthorized. Please try logging in again."
-msgstr "Tidak Diijinkan. Silahkan login kembali."
-
-msgid "Incorrect format for IP address"
-msgstr "Format alamat IP salah."
-
-msgid "Invalid version for IP address"
-msgstr "Versi alamat IP salah."
-
-msgid "Invalid subnet mask"
-msgstr "Subnet mask alamat IP tidak benar."
-
-msgid "Submit"
-msgstr "Kirim"
-
-msgid "Cancel"
-msgstr "Batal"
-
-msgid "Session timed out."
-msgstr "Sesi sudah berakhir."
-
-msgid "Filter"
-msgstr "Penyaring"
-
-msgid "This action cannot be undone."
-msgstr "Aksi ini tidak dapat diselesaikan"
-
-#, python-format
-msgctxt "past"
-msgid "%(action)s %(data_type)s"
-msgstr "%(action)s %(data_type)s"
-
-#, python-format
-msgctxt "present"
-msgid "%(action)s %(data_type)s"
-msgstr "%(action)s %(data_type)s"
-
-#, python-format
-msgid "You are not allowed to %(action)s: %(objs)s"
-msgstr "Anda tidak diijinkan untuk %(action)s: %(objs)s"
-
-#, python-format
-msgid "Unable to %(action)s: %(objs)s"
-msgstr "Tidak dapat %(action)s: %(objs)s"
-
-#, python-format
-msgid "%(action)s: %(objs)s"
-msgstr "%(action)s: %(objs)s"
-
-msgid "Delete"
-msgstr "Hapus"
-
-msgid "Deleted"
-msgstr "Terhapus"
-
-msgid "Update"
-msgstr "Perbaharui"
-
-msgid "Updated"
-msgstr "Sudah di perbaharui"
-
-msgid "-"
-msgstr "-"
-
-#, python-format
-msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "Atribut  %(attr)s  tidak tersedia di %(obj)s."
-
-msgid "No items to display."
-msgstr "Tidak ada yang ditampilkan"
-
-msgid "Actions"
-msgstr "Aksi"
-
-#, python-format
-msgid "No match returned for the id \"%s\"."
-msgstr "Tidak ada hasil yang terhubung dengan id \"%s\"."
-
-msgid "Please select a row before taking that action."
-msgstr "Mohon pilih sebuah baris terlebih dahulu sebelum aksi."
-
-msgid "N/A"
-msgstr "Tidak Tersedia"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "Anda login sebagai: %(username)s"
-
-msgid "Help"
-msgstr "Bantuan"
-
-msgid "Sign Out"
-msgstr "Keluar"
-
-msgid "Log In"
-msgstr "Masuk"
-
-msgid "You do not have permission to access the resource:"
-msgstr "Anda tidak diijinkan untuk mengakses bagian ini."
-
-#, python-format
-msgid ""
-"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
-msgstr ""
-"Masuk sebagai user lain atau kembali ke <a href=\"%(home_url)s\"> beranda</a>"
-
-msgid "Sign In"
-msgstr "Mendaftar"
-
-msgid "Login"
-msgstr "Login"
-
-msgid "Info: "
-msgstr "Informasi:"
-
-msgid "Warning: "
-msgstr "Peringatan:"
-
-msgid "Success: "
-msgstr "Berhasil:"
-
-msgid "Error: "
-msgstr "Kesalahan:"
-
-msgid "Summary"
-msgstr "Ringkasan"
-
-#, python-format
-msgid "Displaying %(counter)s item"
-msgid_plural "Displaying %(counter)s items"
-msgstr[0] "Menampilkan %(counter)s item"
-
-msgid "&laquo;&nbsp;Prev"
-msgstr "&laquo;&nbsp;Mundur"
-
-msgid "Next&nbsp;&raquo;"
-msgstr "Berikut&nbsp;&raquo;"
-
-msgid "More Actions"
-msgstr "Aksi Lebih"
-
-#, python-format
-msgid "%(context_name)s:"
-msgstr "%(context_name)s:"
-
-msgid "Add a row"
-msgstr "Tambah baris"
-
-#, python-format
-msgid "%(name)s: %(error)s"
-msgstr "%(name)s: %(error)s"
-
-msgid "Limit Summary"
-msgstr "Ringkasan Batasan"
-
-msgid "Instances"
-msgstr "Instances"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Digunakan <span> %(used)s </span> dari <span> %(available)s </span>"
-
-msgid "VCPUs"
-msgstr "VCPUs"
-
-msgid "RAM"
-msgstr "RAM"
-
-msgid "Floating IPs"
-msgstr "Floating IPs"
-
-#, python-format
-msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Teralokasi <span> %(used)s </span> of <span> %(available)s </span>"
-
-msgid "Security Groups"
-msgstr "Kelompok Keamanan"
-
-msgid "Volumes"
-msgstr "Volumes"
-
-msgid "Volume Storage"
-msgstr "Volume Penyimpanan"
-
-msgid "Save"
-msgstr "Simpan"
-
-#, python-format
-msgid "Displaying %(nav_items)s item"
-msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] "Tampilkan %(nav_items)s items"
-
-#, python-format
-msgid "Displaying %(content_items)s item"
-msgid_plural "Displaying %(content_items)s items"
-msgstr[0] "Menampilkan sebanyak %(content_items)s item"
-
-msgid "Usage Summary"
-msgstr "Ringkasan Penggunaan"
-
-msgid "Select a period of time to query its usage:"
-msgstr "Pilih sebuah periode waktu untuk mencari kegunaannya:"
 
 #, python-format
 msgid ""
@@ -266,43 +35,36 @@ msgstr ""
 "\n"
 "<label>To:</label>%(end)s"
 
-msgid "The date should be in YYYY-mm-dd format."
-msgstr "Format tanggal harus berupa YYYY-mm-dd"
+#, python-format
+msgctxt "past"
+msgid "%(action)s %(data_type)s"
+msgstr "%(action)s %(data_type)s"
 
-msgid "Active Instances:"
-msgstr "Instance aktif"
+#, python-format
+msgctxt "present"
+msgid "%(action)s %(data_type)s"
+msgstr "%(action)s %(data_type)s"
 
-msgid "Active RAM:"
-msgstr "RAM aktif:"
+#, python-format
+msgid "%(action)s: %(objs)s"
+msgstr "%(action)s: %(objs)s"
 
-msgid "This Period's VCPU-Hours:"
-msgstr "VCPU-Hours periode ini:"
+#, python-format
+msgid "%(context_name)s:"
+msgstr "%(context_name)s:"
 
-msgid "This Period's GB-Hours:"
-msgstr "GB-Hours saat ini"
-
-msgid "This Period's RAM-Hours:"
-msgstr "RAM-Hours periode ini:"
-
-msgid "Back"
-msgstr "Kembali"
-
-msgid "Next"
-msgstr "Berikutnya"
-
-msgid "Horizon"
-msgstr "Horizon"
-
-msgid "No Limit"
-msgstr "Tidak Terbatas"
-
-msgid "Available"
-msgstr "Tersedia"
+#, python-format
+msgid "%(name)s: %(error)s"
+msgstr "%(name)s: %(error)s"
 
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
 msgstr[0] "%(size)d Byte"
+
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
 
 #, python-format
 msgid "%s KB"
@@ -313,62 +75,12 @@ msgid "%s MB"
 msgstr "%s MB"
 
 #, python-format
-msgid "%s GB"
-msgstr "%s GB"
+msgid "%s PB"
+msgstr "%s PB"
 
 #, python-format
 msgid "%s TB"
 msgstr "%s TB"
-
-#, python-format
-msgid "%s PB"
-msgstr "%s PB"
-
-msgid "0 Bytes"
-msgstr "0 Bytes"
-
-#. Translators: test code, don't really have to translate
-msgid "Sell Puppy"
-msgid_plural "Sell Puppies"
-msgstr[0] "Menjual Puppies"
-
-#. Translators: test code, don't really have to translate
-msgid "Sold Puppy"
-msgid_plural "Sold Puppies"
-msgstr[0] "Puppies terjual"
-
-msgid "Fake"
-msgstr "Bohongan"
-
-msgid "Never"
-msgstr "Tidak pernah"
-
-msgid "Not a valid port number"
-msgstr "Nomor port yang salah"
-
-msgid "Not a valid IP protocol number"
-msgstr "Nomor IP yang salah"
-
-msgid "One colon allowed in port range"
-msgstr "Diijinkan sebuah titik dua dalam jangkauan port"
-
-msgid "Port number must be integer"
-msgstr "Nomor port harus bilangan bulat"
-
-msgid "Processing..."
-msgstr "Sedang di proses..."
-
-msgid "All available"
-msgstr "Semua yang tersed1a"
-
-msgid "Members"
-msgstr "Anggota"
-
-msgid "None available."
-msgstr "Tidak satupun tersedia"
-
-msgid "No members."
-msgstr "Bukan anggota."
 
 #, python-format
 msgid "%s completed successfully."
@@ -377,3 +89,291 @@ msgstr "%s berhasil diselesaikan."
 #, python-format
 msgid "%s did not complete."
 msgstr "%s tidak selesai."
+
+msgid "&laquo;&nbsp;Prev"
+msgstr "&laquo;&nbsp;Mundur"
+
+msgid "-"
+msgstr "-"
+
+msgid "0 Bytes"
+msgstr "0 Bytes"
+
+#, python-format
+msgid "A %(resource)s with the name \"%(name)s\" already exists."
+msgstr "Sebuah %(resource)s dengan nama \"%(name)s\" sudah ada."
+
+msgid "Actions"
+msgstr "Aksi"
+
+msgid "Active Instances:"
+msgstr "Instance aktif"
+
+msgid "Active RAM:"
+msgstr "RAM aktif:"
+
+msgid "Add a row"
+msgstr "Tambah baris"
+
+msgid "All available"
+msgstr "Semua yang tersed1a"
+
+#, python-format
+msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr "Teralokasi <span> %(used)s </span> of <span> %(available)s </span>"
+
+msgid "Available"
+msgstr "Tersedia"
+
+msgid "Back"
+msgstr "Kembali"
+
+msgid "Cancel"
+msgstr "Batal"
+
+msgid "Delete"
+msgstr "Hapus"
+
+msgid "Deleted"
+msgstr "Terhapus"
+
+#, python-format
+msgid "Displaying %(content_items)s item"
+msgid_plural "Displaying %(content_items)s items"
+msgstr[0] "Menampilkan sebanyak %(content_items)s item"
+
+#, python-format
+msgid "Displaying %(counter)s item"
+msgid_plural "Displaying %(counter)s items"
+msgstr[0] "Menampilkan %(counter)s item"
+
+#, python-format
+msgid "Displaying %(nav_items)s item"
+msgid_plural "Displaying %(nav_items)s items"
+msgstr[0] "Tampilkan %(nav_items)s items"
+
+msgid "Error: "
+msgstr "Kesalahan:"
+
+msgid "Fake"
+msgstr "Bohongan"
+
+msgid "Filter"
+msgstr "Penyaring"
+
+msgid "Floating IPs"
+msgstr "Floating IPs"
+
+msgid "Help"
+msgstr "Bantuan"
+
+msgid "Horizon"
+msgstr "Horizon"
+
+msgid "Incorrect format for IP address"
+msgstr "Format alamat IP salah."
+
+msgid "Info: "
+msgstr "Informasi:"
+
+msgid "Instances"
+msgstr "Instances"
+
+msgid "Invalid subnet mask"
+msgstr "Subnet mask alamat IP tidak benar."
+
+msgid "Invalid version for IP address"
+msgstr "Versi alamat IP salah."
+
+msgid "Limit Summary"
+msgstr "Ringkasan Batasan"
+
+msgid "Log In"
+msgstr "Masuk"
+
+#, python-format
+msgid "Logged in as: %(username)s"
+msgstr "Anda login sebagai: %(username)s"
+
+msgid "Login"
+msgstr "Login"
+
+#, python-format
+msgid ""
+"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
+msgstr ""
+"Masuk sebagai user lain atau kembali ke <a href=\"%(home_url)s\"> beranda</a>"
+
+msgid "Members"
+msgstr "Anggota"
+
+msgid "More Actions"
+msgstr "Aksi Lebih"
+
+msgid "N/A"
+msgstr "Tidak Tersedia"
+
+msgid "Navigation Item"
+msgstr "Item Navigasi"
+
+msgid "Never"
+msgstr "Tidak pernah"
+
+msgid "Next"
+msgstr "Berikutnya"
+
+msgid "Next&nbsp;&raquo;"
+msgstr "Berikut&nbsp;&raquo;"
+
+msgid "No Limit"
+msgstr "Tidak Terbatas"
+
+msgid "No items to display."
+msgstr "Tidak ada yang ditampilkan"
+
+#, python-format
+msgid "No match returned for the id \"%s\"."
+msgstr "Tidak ada hasil yang terhubung dengan id \"%s\"."
+
+msgid "No members."
+msgstr "Bukan anggota."
+
+msgid "None available."
+msgstr "Tidak satupun tersedia"
+
+msgid "Not a valid IP protocol number"
+msgstr "Nomor IP yang salah"
+
+msgid "Not a valid port number"
+msgstr "Nomor port yang salah"
+
+msgid "One colon allowed in port range"
+msgstr "Diijinkan sebuah titik dua dalam jangkauan port"
+
+msgid "Other"
+msgstr "Lainnya"
+
+msgid "Password is not accepted"
+msgstr "Kata kunci ditolak"
+
+msgid "Please log in to continue."
+msgstr "Harap masuk untuk melanjutkan"
+
+msgid "Please select a row before taking that action."
+msgstr "Mohon pilih sebuah baris terlebih dahulu sebelum aksi."
+
+msgid "Port number must be integer"
+msgstr "Nomor port harus bilangan bulat"
+
+msgid "Processing..."
+msgstr "Sedang di proses..."
+
+msgid "RAM"
+msgstr "RAM"
+
+msgid "Save"
+msgstr "Simpan"
+
+msgid "Security Groups"
+msgstr "Kelompok Keamanan"
+
+#, python-format
+msgid "Select a %s to browse."
+msgstr "Pilih sebuah %s untuk menelusuri."
+
+msgid "Select a period of time to query its usage:"
+msgstr "Pilih sebuah periode waktu untuk mencari kegunaannya:"
+
+#. Translators: test code, don't really have to translate
+msgid "Sell Puppy"
+msgid_plural "Sell Puppies"
+msgstr[0] "Menjual Puppies"
+
+msgid "Session timed out."
+msgstr "Sesi sudah berakhir."
+
+msgid "Sign In"
+msgstr "Mendaftar"
+
+msgid "Sign Out"
+msgstr "Keluar"
+
+#. Translators: test code, don't really have to translate
+msgid "Sold Puppy"
+msgid_plural "Sold Puppies"
+msgstr[0] "Puppies terjual"
+
+msgid "Submit"
+msgstr "Kirim"
+
+msgid "Success: "
+msgstr "Berhasil:"
+
+msgid "Summary"
+msgstr "Ringkasan"
+
+#, python-format
+msgid "The attribute %(attr)s doesn't exist on %(obj)s."
+msgstr "Atribut  %(attr)s  tidak tersedia di %(obj)s."
+
+msgid "The date should be in YYYY-mm-dd format."
+msgstr "Format tanggal harus berupa YYYY-mm-dd"
+
+msgid "This Period's GB-Hours:"
+msgstr "GB-Hours saat ini"
+
+msgid "This Period's RAM-Hours:"
+msgstr "RAM-Hours periode ini:"
+
+msgid "This Period's VCPU-Hours:"
+msgstr "VCPU-Hours periode ini:"
+
+msgid "This action cannot be undone."
+msgstr "Aksi ini tidak dapat diselesaikan"
+
+#, python-format
+msgid "Unable to %(action)s: %(objs)s"
+msgstr "Tidak dapat %(action)s: %(objs)s"
+
+msgid "Unauthorized. Please try logging in again."
+msgstr "Tidak Diijinkan. Silahkan login kembali."
+
+#, python-format
+msgid "Unauthorized: %s"
+msgstr "Tidak Diijinkan: %s"
+
+msgid "Update"
+msgstr "Perbaharui"
+
+msgid "Updated"
+msgstr "Sudah di perbaharui"
+
+msgid "Usage Summary"
+msgstr "Ringkasan Penggunaan"
+
+#, python-format
+msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr "Digunakan <span> %(used)s </span> dari <span> %(available)s </span>"
+
+msgid "VCPUs"
+msgstr "VCPUs"
+
+msgid "Volume Storage"
+msgstr "Volume Penyimpanan"
+
+msgid "Volumes"
+msgstr "Volumes"
+
+msgid "Warning: "
+msgstr "Peringatan:"
+
+#, python-format
+msgid "You are not allowed to %(action)s: %(objs)s"
+msgstr "Anda tidak diijinkan untuk %(action)s: %(objs)s"
+
+#, python-format
+msgid "You are not authorized to access %s"
+msgstr "Anda tidak diijinkan untuk mengakses %s"
+
+msgid "You do not have permission to access the resource:"
+msgstr "Anda tidak diijinkan untuk mengakses bagian ini."

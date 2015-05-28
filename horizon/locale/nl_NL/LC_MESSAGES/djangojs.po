@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"POT-Creation-Date: 2015-05-27 03:01-0500\n"
 "PO-Revision-Date: 2015-05-27 03:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/"
@@ -24,6 +24,10 @@ msgid "%s GB"
 msgstr "%s GB"
 
 #, c-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#, c-format
 msgid "%s MB"
 msgstr "%s MB"
 
@@ -31,36 +35,17 @@ msgstr "%s MB"
 msgid "%s TB"
 msgstr "%s TB"
 
-#, c-format
-msgid "%s KB"
-msgstr "%s KB"
-
-#, c-format
-msgid "Displaying %s item"
-msgid_plural "Displaying %s items"
-msgstr[0] "%s item weergeven"
-msgstr[1] "%s items weergeven"
+msgid "Add Interface"
+msgstr "Interface Toevoegen"
 
 msgid "Added"
 msgstr "Toegevoegd"
 
-msgid "Required"
-msgstr "Vereist"
+msgid "An error occurred while updating."
+msgstr "Er is een fout opgetreden tijdens het bijwerken."
 
-msgid "Filter"
-msgstr "Filter"
-
-msgid "Submit"
-msgstr "Indienen"
-
-msgid "Cancel"
-msgstr "Annuleren"
-
-msgid "Info"
-msgstr "Informatie"
-
-msgid "Error"
-msgstr "Fout"
+msgid "An error occurred. Please try again later."
+msgstr "Er is een fout opgetreden. Probeert u het later nog eens."
 
 msgid "Available"
 msgstr "Beschikbaar"
@@ -68,23 +53,109 @@ msgstr "Beschikbaar"
 msgid "Back"
 msgstr "Terug"
 
+msgid "Cancel"
+msgstr "Annuleren"
+
+#, c-format
+msgid "Confirm %s"
+msgstr "Bevestig %s"
+
+msgid "Could not decrypt the password"
+msgstr "Kon het wachtwoord niet ontcijferen"
+
+msgid "Could not read the file"
+msgstr "Kon het bestand niet lezen"
+
+msgid "Danger: "
+msgstr "Gevaar:"
+
+msgid "Delete"
+msgstr "Verwijderen"
+
+msgid "Delete Interface"
+msgstr "Interface Verwijderen"
+
+msgid "Delete Router"
+msgstr "Router Verwijderen"
+
+#, c-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] "%s item weergeven"
+msgstr[1] "%s items weergeven"
+
+msgid "Error"
+msgstr "Fout"
+
+msgid "Error: "
+msgstr "Fout: "
+
+msgid "Filter"
+msgstr "Filter"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Info"
+msgstr "Informatie"
+
+msgid "Interfaces"
+msgstr "Interfaces"
+
+msgid "Loading"
+msgstr "Aan het laden"
+
 msgid "Next"
 msgstr "Volgende"
 
-msgid "Unable to retrieve volume snapshots."
-msgstr "Niet in staat om de momentopnamen van het volume op te halen."
+msgid "No data available."
+msgstr "Geen gegevens beschikbaar."
 
-msgid "Unable to retrieve image."
-msgstr "Niet in staat om de afbeelding op te halen."
+msgid "No items to display."
+msgstr "Geen artikelen om weer te geven."
 
-msgid "Unable to retrieve images."
-msgstr "Niet in staat om de afbeeldingen op te halen."
+msgid "No roles"
+msgstr "Geen rollen"
 
-msgid "Unable to retrieve networks."
-msgstr "Niet in staat om de netwerken op te halen."
+msgid "None"
+msgstr "Geen"
 
-msgid "Unable to retrieve keypairs."
-msgstr "Niet in staat om de sleutelparen op te halen."
+msgid "Not authorized to do this operation."
+msgstr "Niet gemachtigd om deze actie uit te voeren."
+
+msgid "Notice: "
+msgstr "Kennisgeving:"
+
+msgid "Open Console"
+msgstr "Open Bedieningspaneel"
+
+msgid "Passwords do not match."
+msgstr "Wachtwoorden komen niet overeen."
+
+msgid "Required"
+msgstr "Vereist"
+
+msgid "Roles"
+msgstr "Rollen"
+
+msgid "STATUS"
+msgstr "STATUS"
+
+msgid "Submit"
+msgstr "Indienen"
+
+msgid "Success: "
+msgstr "Gelukt: "
+
+msgid "There was a problem communicating with the server, please try again."
+msgstr ""
+"Er is een fout opgetreden bij het communiceren met de server. Probeert u het "
+"nog eens."
+
+msgid "There was an error submitting the form. Please try again."
+msgstr ""
+"Er is een fout opgetreden bij het indienen van het formulier. Probeer het "
+"nog eens."
 
 msgid "Unable to retrieve availability zones."
 msgstr "Niet in staat om de beschikbaarheidszones op te halen."
@@ -92,107 +163,36 @@ msgstr "Niet in staat om de beschikbaarheidszones op te halen."
 msgid "Unable to retrieve flavors."
 msgstr "Niet in staat om de smaken op te halen."
 
+msgid "Unable to retrieve image."
+msgstr "Niet in staat om de afbeelding op te halen."
+
+msgid "Unable to retrieve images."
+msgstr "Niet in staat om de afbeeldingen op te halen."
+
+msgid "Unable to retrieve keypairs."
+msgstr "Niet in staat om de sleutelparen op te halen."
+
+msgid "Unable to retrieve networks."
+msgstr "Niet in staat om de netwerken op te halen."
+
 msgid "Unable to retrieve security groups."
 msgstr "Niet in staat om de beveiligingsgroepen op te halen."
 
-msgid "Loading"
-msgstr "Aan het laden"
-
-msgid "No data available."
-msgstr "Geen gegevens beschikbaar."
-
-msgid "An error occurred. Please try again later."
-msgstr "Er is een fout opgetreden. Probeert u het later nog eens."
-
-msgid "There was a problem communicating with the server, please try again."
-msgstr ""
-"Er is een fout opgetreden bij het communiceren met de server. Probeert u het "
-"nog eens."
-
-msgid "Could not read the file"
-msgstr "Kon het bestand niet lezen"
-
-msgid "Could not decrypt the password"
-msgstr "Kon het wachtwoord niet ontcijferen"
-
-msgid "No roles"
-msgstr "Geen rollen"
-
-msgid "Roles"
-msgstr "Rollen"
-
-msgid "Danger: "
-msgstr "Gevaar:"
-
-msgid "Warning: "
-msgstr "Waarschuwing: "
-
-msgid "Notice: "
-msgstr "Kennisgeving:"
-
-msgid "Success: "
-msgstr "Gelukt: "
-
-msgid "Error: "
-msgstr "Fout: "
-
-msgid "Working"
-msgstr "Bezig"
-
-msgid "There was an error submitting the form. Please try again."
-msgstr ""
-"Er is een fout opgetreden bij het indienen van het formulier. Probeer het "
-"nog eens."
-
-msgid "None"
-msgstr "Geen"
-
-msgid "Delete"
-msgstr "Verwijderen"
-
-msgid "STATUS"
-msgstr "STATUS"
-
-msgid "ID"
-msgstr "ID"
-
-msgid "Interfaces"
-msgstr "Interfaces"
-
-msgid "Delete Interface"
-msgstr "Interface Verwijderen"
-
-msgid "Open Console"
-msgstr "Open Bedieningspaneel"
+msgid "Unable to retrieve volume snapshots."
+msgstr "Niet in staat om de momentopnamen van het volume op te halen."
 
 msgid "View Details"
 msgstr "Bekijk Details"
 
-msgid "Delete Router"
-msgstr "Router Verwijderen"
-
 msgid "View Router Details"
 msgstr "Bekijk Routerdetails"
 
-msgid "Add Interface"
-msgstr "Interface Toevoegen"
+msgid "Warning: "
+msgstr "Waarschuwing: "
 
-msgid "No items to display."
-msgstr "Geen artikelen om weer te geven."
-
-msgid "An error occurred while updating."
-msgstr "Er is een fout opgetreden tijdens het bijwerken."
+msgid "Working"
+msgstr "Bezig"
 
 #, c-format
 msgid "You have selected %s. "
 msgstr "U heeft %s geselecteerd."
-
-#, c-format
-msgid "Confirm %s"
-msgstr "Bevestig %s"
-
-msgid "Not authorized to do this operation."
-msgstr "Niet gemachtigd om deze actie uit te voeren."
-
-msgid "Passwords do not match."
-msgstr "Wachtwoorden komen niet overeen."

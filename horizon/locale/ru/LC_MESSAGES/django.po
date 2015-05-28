@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-04-20 07:07+0000\n"
+"POT-Creation-Date: 2015-05-27 03:00-0500\n"
+"PO-Revision-Date: 2015-05-13 19:11+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/"
 "ru/)\n"
@@ -21,261 +21,6 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
-
-msgid "Other"
-msgstr "Другое"
-
-msgid "Navigation Item"
-msgstr "Элемент навигации"
-
-#, python-format
-msgid "Select a %s to browse."
-msgstr "Выберите %s для просмотра"
-
-msgid "Password is not accepted"
-msgstr "Пароль не принят"
-
-msgid "Please log in to continue."
-msgstr "Войдите в систему для продолжения."
-
-#, python-format
-msgid "You are not authorized to access %s"
-msgstr "Нет права доступа к %s"
-
-#, python-format
-msgid "A %(resource)s with the name \"%(name)s\" already exists."
-msgstr "%(resource)s с именем\"%(name)s\" уже существует."
-
-#, python-format
-msgid "Unauthorized: %s"
-msgstr "Не авторизован: %s"
-
-msgid "Unauthorized. Please try logging in again."
-msgstr "Вы не авторизованы. Попробуйте войти в систему еще раз."
-
-msgid "Incorrect format for IP address"
-msgstr "Неправильный формат IP-адреса"
-
-msgid "Invalid version for IP address"
-msgstr "Неправильная версия IP-адреса"
-
-msgid "Invalid subnet mask"
-msgstr "Неправильная маска подсети"
-
-msgid "Submit"
-msgstr "Отправить"
-
-msgid "Cancel"
-msgstr "Отмена"
-
-msgid "Session timed out."
-msgstr "Время сеанса истекло."
-
-msgid "Filter"
-msgstr "Фильтр"
-
-msgid "This action cannot be undone."
-msgstr "Это действие не может быть отменено."
-
-#, python-format
-msgctxt "past"
-msgid "%(action)s %(data_type)s"
-msgstr "%(action)s %(data_type)s"
-
-#, python-format
-msgctxt "present"
-msgid "%(action)s %(data_type)s"
-msgstr "%(action)s %(data_type)s"
-
-#, python-format
-msgid "You are not allowed to %(action)s: %(objs)s"
-msgstr "Вам не разрешено выполнение: %(action)s: %(objs)s"
-
-#, python-format
-msgid "Unable to %(action)s: %(objs)s"
-msgstr "Невозможно выполнить %(action)s: %(objs)s"
-
-#, python-format
-msgid "%(action)s: %(objs)s"
-msgstr "%(action)s: %(objs)s"
-
-msgid "Delete"
-msgstr "Удалить"
-
-msgid "Deleted"
-msgstr "Удалено"
-
-msgid "Update"
-msgstr "Обновить"
-
-msgid "Updated"
-msgstr "Обновлено"
-
-msgid "-"
-msgstr "-"
-
-#, python-format
-msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "Атрибут %(attr)s не существует для %(obj)s."
-
-msgid "No items to display."
-msgstr "Нет элементов для отображения."
-
-msgid "Actions"
-msgstr "Действия"
-
-#, python-format
-msgid "No match returned for the id \"%s\"."
-msgstr "Нет совпадений для id \"%s\"."
-
-msgid "Please select a row before taking that action."
-msgstr "Выберите строку перед выполнением этого действия."
-
-msgid "N/A"
-msgstr "Н/Д"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "Пользователь: %(username)s"
-
-msgid "Help"
-msgstr "Помощь"
-
-msgid "Sign Out"
-msgstr "Выход"
-
-msgid ""
-"\n"
-"      If you are not sure which authentication method to use, contact your "
-"administrator.\n"
-"    "
-msgstr ""
-"\n"
-"      Если вы не уверены какой метод аутентификации выбрать, свяжитесь с "
-"вашим системным администратором.\n"
-"    "
-
-msgid "Log In"
-msgstr "Войти"
-
-msgid "You do not have permission to access the resource:"
-msgstr "Вы не имеете права на доступ к ресурсу:"
-
-#, python-format
-msgid ""
-"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
-msgstr ""
-"Войдите под другим пользователем или вернитесь на<a href=\"%(home_url)s\"> "
-"домашнюю страницу</a>"
-
-msgid "Sign In"
-msgstr "Вход"
-
-msgid "Connect"
-msgstr "Подключиться"
-
-msgid "Login"
-msgstr "Имя пользователя"
-
-msgid "Info: "
-msgstr "Информация:"
-
-msgid "Warning: "
-msgstr "Внимание:"
-
-msgid "Success: "
-msgstr "Успешно:"
-
-msgid "Error: "
-msgstr "Ошибка:"
-
-msgid "Summary"
-msgstr "Итого"
-
-#, python-format
-msgid "Displaying %(counter)s item"
-msgid_plural "Displaying %(counter)s items"
-msgstr[0] "Показан %(counter)s элемент"
-msgstr[1] "Показано %(counter)s элементов"
-msgstr[2] ""
-msgstr[3] "Показано %(counter)s элементов"
-
-msgid "&laquo;&nbsp;Prev"
-msgstr "&laquo;&nbsp;Предыдущее"
-
-msgid "Next&nbsp;&raquo;"
-msgstr "Следующее&nbsp;&raquo;"
-
-msgid "More Actions"
-msgstr "Еще действия"
-
-#, python-format
-msgid "%(context_name)s:"
-msgstr "%(context_name)s:"
-
-msgid "Add a row"
-msgstr "Добавить строку"
-
-#, python-format
-msgid "%(name)s: %(error)s"
-msgstr "%(name)s: %(error)s"
-
-msgid "Limit Summary"
-msgstr "Сводка лимитов"
-
-msgid "Instances"
-msgstr "Машины"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Использовано <span> %(used)s </span> из <span> %(available)s </span>"
-
-msgid "VCPUs"
-msgstr "VCPU"
-
-msgid "RAM"
-msgstr "RAM"
-
-msgid "Floating IPs"
-msgstr "Назначаемые IP"
-
-#, python-format
-msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Выделено <span> %(used)s </span> из <span> %(available)s </span>"
-
-msgid "Security Groups"
-msgstr "Группы безопасности"
-
-msgid "Volumes"
-msgstr "Диски"
-
-msgid "Volume Storage"
-msgstr "Хранилище"
-
-msgid "Save"
-msgstr "Сохранить"
-
-#, python-format
-msgid "Displaying %(nav_items)s item"
-msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] "Показан %(nav_items)s элемент"
-msgstr[1] "Показано %(nav_items)s элементов"
-msgstr[2] ""
-msgstr[3] "Показано %(nav_items)s элементов"
-
-#, python-format
-msgid "Displaying %(content_items)s item"
-msgid_plural "Displaying %(content_items)s items"
-msgstr[0] "Показан %(content_items)s элемент"
-msgstr[1] "Показано %(content_items)s элементов"
-msgstr[2] ""
-msgstr[3] "Показано %(content_items)s элементов"
-
-msgid "Usage Summary"
-msgstr "Сводка использования"
-
-msgid "Select a period of time to query its usage:"
-msgstr "Выберите временной интервал для запроса использования:"
 
 #, python-format
 msgid ""
@@ -293,38 +38,38 @@ msgstr ""
 "\n"
 "      <label>До:</label>%(end)s"
 
-msgid "The date should be in YYYY-mm-dd format."
-msgstr "Дата должна иметь формат YYYY-mm-dd."
+msgid ""
+"\n"
+"      If you are not sure which authentication method to use, contact your "
+"administrator.\n"
+"    "
+msgstr ""
+"\n"
+"      Если вы не уверены какой метод аутентификации выбрать, свяжитесь с "
+"вашим системным администратором.\n"
+"    "
 
-msgid "Active Instances:"
-msgstr "Активные машины:"
+#, python-format
+msgctxt "past"
+msgid "%(action)s %(data_type)s"
+msgstr "%(action)s %(data_type)s"
 
-msgid "Active RAM:"
-msgstr "Используемая RAM:"
+#, python-format
+msgctxt "present"
+msgid "%(action)s %(data_type)s"
+msgstr "%(action)s %(data_type)s"
 
-msgid "This Period's VCPU-Hours:"
-msgstr "vCPU-часов за период:"
+#, python-format
+msgid "%(action)s: %(objs)s"
+msgstr "%(action)s: %(objs)s"
 
-msgid "This Period's GB-Hours:"
-msgstr "ГБ-часов за период:"
+#, python-format
+msgid "%(context_name)s:"
+msgstr "%(context_name)s:"
 
-msgid "This Period's RAM-Hours:"
-msgstr "RAM-часов за период:"
-
-msgid "Back"
-msgstr "Назад"
-
-msgid "Next"
-msgstr "Следующий"
-
-msgid "Horizon"
-msgstr "Horizon"
-
-msgid "No Limit"
-msgstr "Без ограничений"
-
-msgid "Available"
-msgstr "Доступно"
+#, python-format
+msgid "%(name)s: %(error)s"
+msgstr "%(name)s: %(error)s"
 
 #, python-format
 msgid "%(size)d Byte"
@@ -335,6 +80,10 @@ msgstr[2] ""
 msgstr[3] "%(size)d байт"
 
 #, python-format
+msgid "%s GB"
+msgstr "%s ГБ"
+
+#, python-format
 msgid "%s KB"
 msgstr "%s КБ"
 
@@ -343,55 +92,12 @@ msgid "%s MB"
 msgstr "%s МБ"
 
 #, python-format
-msgid "%s GB"
-msgstr "%s ГБ"
+msgid "%s PB"
+msgstr "%s ПБ"
 
 #, python-format
 msgid "%s TB"
 msgstr "%s ТБ"
-
-#, python-format
-msgid "%s PB"
-msgstr "%s ПБ"
-
-msgid "0 Bytes"
-msgstr "0 байт"
-
-msgid "Fake"
-msgstr "Fake"
-
-msgid "Never"
-msgstr "Никогда"
-
-msgid "Not a valid port number"
-msgstr "Недопустимый номер порта"
-
-msgid "Not a valid IP protocol number"
-msgstr "Недопустимый номер IP-протокола"
-
-msgid "One colon allowed in port range"
-msgstr "В списке портов допустима одна запятая"
-
-msgid "Port number must be integer"
-msgstr "Номер порта должен быть целым числом"
-
-msgid "The string may only contain ASCII printable characters."
-msgstr "Строка может содержать только печатные ASCII символы."
-
-msgid "Processing..."
-msgstr "Обработка…"
-
-msgid "All available"
-msgstr "Все доступные"
-
-msgid "Members"
-msgstr "Участники"
-
-msgid "None available."
-msgstr "Нет доступных."
-
-msgid "No members."
-msgstr "Нет участников."
 
 #, python-format
 msgid "%s completed successfully."
@@ -400,3 +106,297 @@ msgstr "%s успешно завершено."
 #, python-format
 msgid "%s did not complete."
 msgstr "%s не завершено."
+
+msgid "&laquo;&nbsp;Prev"
+msgstr "&laquo;&nbsp;Предыдущее"
+
+msgid "-"
+msgstr "-"
+
+msgid "0 Bytes"
+msgstr "0 байт"
+
+#, python-format
+msgid "A %(resource)s with the name \"%(name)s\" already exists."
+msgstr "%(resource)s с именем\"%(name)s\" уже существует."
+
+msgid "Actions"
+msgstr "Действия"
+
+msgid "Active Instances:"
+msgstr "Активные машины:"
+
+msgid "Active RAM:"
+msgstr "Используемая RAM:"
+
+msgid "Add a row"
+msgstr "Добавить строку"
+
+msgid "All available"
+msgstr "Все доступные"
+
+#, python-format
+msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr "Выделено <span> %(used)s </span> из <span> %(available)s </span>"
+
+msgid "Available"
+msgstr "Доступно"
+
+msgid "Back"
+msgstr "Назад"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Connect"
+msgstr "Подключиться"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Deleted"
+msgstr "Удалено"
+
+#, python-format
+msgid "Displaying %(content_items)s item"
+msgid_plural "Displaying %(content_items)s items"
+msgstr[0] "Показан %(content_items)s элемент"
+msgstr[1] "Показано %(content_items)s элементов"
+msgstr[2] ""
+msgstr[3] "Показано %(content_items)s элементов"
+
+#, python-format
+msgid "Displaying %(counter)s item"
+msgid_plural "Displaying %(counter)s items"
+msgstr[0] "Показан %(counter)s элемент"
+msgstr[1] "Показано %(counter)s элементов"
+msgstr[2] ""
+msgstr[3] "Показано %(counter)s элементов"
+
+#, python-format
+msgid "Displaying %(nav_items)s item"
+msgid_plural "Displaying %(nav_items)s items"
+msgstr[0] "Показан %(nav_items)s элемент"
+msgstr[1] "Показано %(nav_items)s элементов"
+msgstr[2] ""
+msgstr[3] "Показано %(nav_items)s элементов"
+
+msgid "Error: "
+msgstr "Ошибка:"
+
+msgid "Fake"
+msgstr "Fake"
+
+msgid "Filter"
+msgstr "Фильтр"
+
+msgid "Floating IPs"
+msgstr "Назначаемые IP"
+
+msgid "Help"
+msgstr "Помощь"
+
+msgid "Horizon"
+msgstr "Horizon"
+
+msgid "Incorrect format for IP address"
+msgstr "Неправильный формат IP-адреса"
+
+msgid "Info: "
+msgstr "Информация:"
+
+msgid "Instances"
+msgstr "Машины"
+
+msgid "Invalid subnet mask"
+msgstr "Неправильная маска подсети"
+
+msgid "Invalid version for IP address"
+msgstr "Неправильная версия IP-адреса"
+
+msgid "Limit Summary"
+msgstr "Сводка лимитов"
+
+msgid "Log In"
+msgstr "Войти"
+
+#, python-format
+msgid "Logged in as: %(username)s"
+msgstr "Пользователь: %(username)s"
+
+msgid "Login"
+msgstr "Имя пользователя"
+
+#, python-format
+msgid ""
+"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
+msgstr ""
+"Войдите под другим пользователем или вернитесь на<a href=\"%(home_url)s\"> "
+"домашнюю страницу</a>"
+
+msgid "Members"
+msgstr "Участники"
+
+msgid "More Actions"
+msgstr "Еще действия"
+
+msgid "N/A"
+msgstr "Н/Д"
+
+msgid "Navigation Item"
+msgstr "Элемент навигации"
+
+msgid "Never"
+msgstr "Никогда"
+
+msgid "Next"
+msgstr "Следующий"
+
+msgid "Next&nbsp;&raquo;"
+msgstr "Следующее&nbsp;&raquo;"
+
+msgid "No Limit"
+msgstr "Без ограничений"
+
+msgid "No items to display."
+msgstr "Нет элементов для отображения."
+
+#, python-format
+msgid "No match returned for the id \"%s\"."
+msgstr "Нет совпадений для id \"%s\"."
+
+msgid "No members."
+msgstr "Нет участников."
+
+msgid "None available."
+msgstr "Нет доступных."
+
+msgid "Not a valid IP protocol number"
+msgstr "Недопустимый номер IP-протокола"
+
+msgid "Not a valid port number"
+msgstr "Недопустимый номер порта"
+
+msgid "One colon allowed in port range"
+msgstr "В списке портов допустима одна запятая"
+
+msgid "Other"
+msgstr "Другое"
+
+msgid "Password is not accepted"
+msgstr "Пароль не принят"
+
+msgid "Please log in to continue."
+msgstr "Войдите в систему для продолжения."
+
+msgid "Please select a row before taking that action."
+msgstr "Выберите строку перед выполнением этого действия."
+
+msgid "Port number must be integer"
+msgstr "Номер порта должен быть целым числом"
+
+msgid "Processing..."
+msgstr "Обработка…"
+
+msgid "RAM"
+msgstr "RAM"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Security Groups"
+msgstr "Группы безопасности"
+
+#, python-format
+msgid "Select a %s to browse."
+msgstr "Выберите %s для просмотра"
+
+msgid "Select a period of time to query its usage:"
+msgstr "Выберите временной интервал для запроса использования:"
+
+msgid "Session timed out."
+msgstr "Время сеанса истекло."
+
+msgid "Sign In"
+msgstr "Вход"
+
+msgid "Sign Out"
+msgstr "Выход"
+
+msgid "Submit"
+msgstr "Отправить"
+
+msgid "Success: "
+msgstr "Успешно:"
+
+msgid "Summary"
+msgstr "Итого"
+
+#, python-format
+msgid "The attribute %(attr)s doesn't exist on %(obj)s."
+msgstr "Атрибут %(attr)s не существует для %(obj)s."
+
+msgid "The date should be in YYYY-mm-dd format."
+msgstr "Дата должна иметь формат YYYY-mm-dd."
+
+msgid "The string may only contain ASCII printable characters."
+msgstr "Строка может содержать только печатные ASCII символы."
+
+msgid "This Period's GB-Hours:"
+msgstr "ГБ-часов за период:"
+
+msgid "This Period's RAM-Hours:"
+msgstr "RAM-часов за период:"
+
+msgid "This Period's VCPU-Hours:"
+msgstr "vCPU-часов за период:"
+
+msgid "This action cannot be undone."
+msgstr "Это действие не может быть отменено."
+
+#, python-format
+msgid "Unable to %(action)s: %(objs)s"
+msgstr "Невозможно выполнить %(action)s: %(objs)s"
+
+msgid "Unauthorized. Please try logging in again."
+msgstr "Вы не авторизованы. Попробуйте войти в систему еще раз."
+
+#, python-format
+msgid "Unauthorized: %s"
+msgstr "Не авторизован: %s"
+
+msgid "Update"
+msgstr "Обновить"
+
+msgid "Updated"
+msgstr "Обновлено"
+
+msgid "Usage Summary"
+msgstr "Сводка использования"
+
+#, python-format
+msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr "Использовано <span> %(used)s </span> из <span> %(available)s </span>"
+
+msgid "VCPUs"
+msgstr "VCPU"
+
+msgid "Volume Storage"
+msgstr "Хранилище"
+
+msgid "Volumes"
+msgstr "Диски"
+
+msgid "Warning: "
+msgstr "Внимание:"
+
+#, python-format
+msgid "You are not allowed to %(action)s: %(objs)s"
+msgstr "Вам не разрешено выполнение: %(action)s: %(objs)s"
+
+#, python-format
+msgid "You are not authorized to access %s"
+msgstr "Нет права доступа к %s"
+
+msgid "You do not have permission to access the resource:"
+msgstr "Вы не имеете права на доступ к ресурсу:"

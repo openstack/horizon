@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"POT-Creation-Date: 2015-05-27 03:01-0500\n"
 "PO-Revision-Date: 2015-05-27 03:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/"
@@ -21,15 +21,13 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Yes"
-msgstr "Ja"
-
-msgid "No"
-msgstr "Nein"
-
 #, c-format
 msgid "%s GB"
 msgstr "%s GB"
+
+#, c-format
+msgid "%s KB"
+msgstr "%s KB"
 
 #, c-format
 msgid "%s MB"
@@ -40,18 +38,253 @@ msgid "%s TB"
 msgstr "%s TB"
 
 #, c-format
-msgid "%s KB"
-msgstr "%s KB"
-
-#, c-format
 msgid "%s bytes"
 msgstr "%s Bytes"
+
+msgid "Add Interface"
+msgstr "Schnittstelle hinzufügen"
+
+msgid "Added"
+msgstr "Hinzugefügt"
+
+msgid "Allocated"
+msgstr "Zugewiesen"
+
+msgid "An error occurred while updating."
+msgstr "Ein Fehler ist beim Aktualisieren aufgetreten."
+
+msgid "An error occurred. Please try again later."
+msgstr "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später noch einmal."
+
+msgid "Available"
+msgstr "Verfügbar"
+
+msgid "Available Metadata"
+msgstr "Verfügbare Metadaten"
+
+msgid "Back"
+msgstr "Zurück"
+
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgid "Cannot get nova extension list."
+msgstr "Liste der Nova-Erweiterungen kann nicht abgerufen werden."
+
+msgid "Cannot get service catalog from keystone."
+msgstr "Dienstekatalog kann nicht von Keystone abgerufen werden."
+
+msgid "Click here to expand the row and view the errors."
+msgstr "Klicken Sie hier um die Zeile zu erweitern und die Fehler zu sehen."
+
+msgid "Click to see more details"
+msgstr "Klicken um mehr Details zu sehen"
+
+msgid "Click to show or hide"
+msgstr "Klicken zum zeigen oder verbergen"
+
+msgid "Closed"
+msgstr "Geschlossen"
+
+msgid "Closing"
+msgstr "Schließen"
+
+#, c-format
+msgid "Confirm %s"
+msgstr "%s bestätigen"
+
+msgid "Connecting"
+msgstr "Verbinde"
+
+msgid "Could not decrypt the password"
+msgstr "Das Passwort konnte nicht entschlüsselt werden"
+
+msgid "Could not read the file"
+msgstr "Die Datei konnte nicht gelesen werden"
+
+msgid "Current Usage"
+msgstr "Aktuelle Verwendung"
+
+msgid "Custom"
+msgstr "Angepasst"
+
+msgid "Danger"
+msgstr "Gefahr"
+
+msgid "Danger: "
+msgstr "Gefahr:"
+
+msgid "Decimal required"
+msgstr "Dezimalzahl erforderlich"
+
+msgid "Delete"
+msgstr "Löschen"
+
+msgid "Delete Interface"
+msgstr "Schnittstelle löschen"
+
+msgid "Delete Router"
+msgstr "Router löschen"
+
+msgid "Detail Information"
+msgstr "Detail-Informationen"
 
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
 msgstr[0] "Zeige %s Eintrag"
 msgstr[1] "Zeige %s Einträge"
+
+msgid "Duplicate keys are not allowed"
+msgstr "Doppelte Schlüssel sind nicht erlaubt"
+
+msgid "Error"
+msgstr "Fehler"
+
+msgid "Error: "
+msgstr "Fehler:"
+
+msgid "Existing Metadata"
+msgstr "Vorhandene Metadaten"
+
+msgid "Expand to see allocated items"
+msgstr "Erweitern, um zugewiesene Positionen zu sehen"
+
+msgid "Expand to see available items"
+msgstr "Erweitern, um verfügbare Positionen zu sehen"
+
+msgid "Extension is not enabled: %(extension)s"
+msgstr "Nicht aktivierte Erweiterung: %(extension)s"
+
+msgid "Filter"
+msgstr "Filter"
+
+msgid "Finish"
+msgstr "Beenden"
+
+msgid "Found %(found)s of %(total)s"
+msgstr "%(found)s von %(total)s gefunden"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Info"
+msgstr "Info"
+
+msgid "Integer required"
+msgstr "Ganzzahl erforderlich"
+
+msgid "Interfaces"
+msgstr "Schnittstellen"
+
+msgid "Loading"
+msgstr "Lade"
+
+msgid "Max"
+msgstr "Max"
+
+msgid "Max length"
+msgstr "Maximale Länge"
+
+msgid "Min"
+msgstr "Min"
+
+msgid "Min length"
+msgstr "Minimale Länge"
+
+msgid "Next"
+msgstr "Weiter"
+
+msgid "No"
+msgstr "Nein"
+
+msgid "No available items"
+msgstr "Keine verfügbaren Positionen"
+
+msgid "No available metadata"
+msgstr "Keine Metadaten vorhanden"
+
+msgid "No data available."
+msgstr "Keine Daten verfügbar."
+
+msgid "No existing metadata"
+msgstr "Keine existierenden Metadaten"
+
+msgid "No items to display."
+msgstr "Kein Eintrag zum anzeigen."
+
+msgid "No roles"
+msgstr "Keine Rollen"
+
+msgid "None"
+msgstr "Keine"
+
+msgid "Not authorized to do this operation."
+msgstr "Keine Berechtigung für diese Aktion."
+
+msgid "Notice: "
+msgstr "Nachricht:"
+
+msgid "Open"
+msgstr "Öffnen"
+
+msgid "Open Console"
+msgstr "Konsole öffnen"
+
+msgid "Passwords do not match."
+msgstr "Die Passwörter stimmen nicht überein."
+
+msgid "Pattern mismatch"
+msgstr "Muster-Übereinstimmungsfehler"
+
+msgid "Please confirm your selection. "
+msgstr "Bitte bestätigen Sie Ihre Auswahl."
+
+msgid "Policy check failed."
+msgstr "Richtlinienüberprüfung fehlgeschlagen."
+
+msgid "Re-order items using drag and drop"
+msgstr "Umsortieren der Positionen durch ziehen und ablegen"
+
+msgid "Remaining"
+msgstr "Übrig"
+
+msgid "Required"
+msgstr "Erforderlich"
+
+msgid "Roles"
+msgstr "Rollen"
+
+msgid "STATUS"
+msgstr "STATUS"
+
+msgid "Select an item from Available items below"
+msgstr "Wählen Sie einen Eintrag aus den verfügbaren Positionen aus"
+
+msgid "Select one"
+msgstr "Eines auswählen"
+
+msgid "Service type is not enabled: %(desiredType)s"
+msgstr "Dienst-Typ ist nicht aktiviert:  %(desiredType)s"
+
+msgid "Setting is not enabled: %(setting)s"
+msgstr "Einstellung ist nicht aktiviert: %(setting)s"
+
+#, c-format
+msgid "Status: %s"
+msgstr "Status: %s"
+
+msgid "Submit"
+msgstr "Abschicken"
+
+msgid "Success"
+msgstr "Erfolg"
+
+msgid "Success: "
+msgstr "Erfolg:"
+
+msgid "Terminate Instance"
+msgstr "Instanz terminieren"
 
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
@@ -60,23 +293,189 @@ msgstr ""
 "Die Aktion kann nicht ausgeführt werden. Der Inhalt dieser Spalte enthält "
 "Fehler oder es fehlen Informationen."
 
-msgid "Current Usage"
-msgstr "Aktuelle Verwendung"
+msgid "There was a problem communicating with the server, please try again."
+msgstr ""
+"Es gab ein Problem bei der Kommunikation mit dem Server. Bitte versuchen Sie "
+"es noch einmal."
 
-msgid "Added"
-msgstr "Hinzugefügt"
-
-msgid "Remaining"
-msgstr "Übrig"
-
-msgid "Max"
-msgstr "Max"
+msgid "There was an error submitting the form. Please try again."
+msgstr ""
+"Es gab einen Fehler beim Abschicken des Formulars. Bitte versuchen Sie es "
+"noch einmal."
 
 msgid "Total"
 msgstr "Total"
 
-msgid "Detail Information"
-msgstr "Detail-Informationen"
+msgid "Unable to create the domain."
+msgstr "Die Domäne kann nicht erstellt werden."
+
+msgid "Unable to create the keypair."
+msgstr "Das Schlüsselpaar kann nicht erstellt werden."
+
+msgid "Unable to create the network."
+msgstr "Netzwerk kann nicht angelegt werden."
+
+msgid "Unable to create the project."
+msgstr "Das Projekt kann nicht erstellt werden."
+
+msgid "Unable to create the role."
+msgstr "Die Rolle kann nicht erstellt werden."
+
+msgid "Unable to create the server."
+msgstr "Der Server kann nicht erstellt werden."
+
+msgid "Unable to create the subnet."
+msgstr "Subnetz kann nicht erzeugt werden."
+
+msgid "Unable to create the user."
+msgstr "Benutzer kann nicht angelegt werden."
+
+msgid "Unable to delete the domain."
+msgstr "Die Domäne kann nicht gelöscht werden."
+
+msgid "Unable to delete the domains."
+msgstr "Die Domänen können nicht gelöscht werden."
+
+msgid "Unable to delete the project."
+msgstr "Das Projekt kann nicht gelöscht werden."
+
+msgid "Unable to delete the projects."
+msgstr "Die Projekte können nicht gelöscht werden."
+
+msgid "Unable to delete the role."
+msgstr "Die Rolle kann nicht gelöscht werden."
+
+msgid "Unable to delete the roles."
+msgstr "Die Rollen können nicht gelöscht werden."
+
+msgid "Unable to delete the user."
+msgstr "Benutzer kann nicht gelöscht werden."
+
+msgid "Unable to delete the users."
+msgstr "Benutzer können nicht gelöscht werden."
+
+msgid "Unable to edit the domain."
+msgstr "Die Domäne kann nicht bearbeitet werden."
+
+msgid "Unable to edit the project."
+msgstr "Das Projekt kann nicht bearbeitet werden."
+
+msgid "Unable to edit the role."
+msgstr "Die Rolle kann nicht bearbeitet werden."
+
+msgid "Unable to edit the user."
+msgstr "Benutzer kann nicht bearbeitet werden."
+
+msgid "Unable to fetch the service catalog."
+msgstr "Die Dienstekatalog kann nicht abgerufen werden."
+
+msgid "Unable to grant the role."
+msgstr "Die Rolle kann nicht gewährt werden."
+
+msgid "Unable to import the keypair."
+msgstr "Das Schlüsselpaar kann nicht importiert werden."
+
+msgid "Unable to retrieve availability zones."
+msgstr "Verfügbarkeitszonen können nicht abgerufen werden."
+
+msgid "Unable to retrieve domains"
+msgstr "Domänen können nicht abgerufen werden"
+
+msgid "Unable to retrieve extensions."
+msgstr "Erweiterungen können nicht abgerufen werden."
+
+msgid "Unable to retrieve flavor extra specs."
+msgstr "Extraspezifikationen zur Variante können nicht abgerufen werden."
+
+msgid "Unable to retrieve flavor."
+msgstr "Variante kann nicht abgerufen werden."
+
+msgid "Unable to retrieve flavors."
+msgstr "Varianten können nicht abgerufen werden."
+
+msgid "Unable to retrieve image."
+msgstr "Abbild kann nicht abgerufen werden."
+
+msgid "Unable to retrieve images."
+msgstr "Abbilder können nicht abgerufen werden."
+
+msgid "Unable to retrieve keypairs."
+msgstr "Schlüsselpaare können nicht abgerufen werden."
+
+msgid "Unable to retrieve limits."
+msgstr "Begrenzungen können nicht abgerufen werden."
+
+msgid "Unable to retrieve namespaces."
+msgstr "Namensräume können nicht abgerufen werden."
+
+msgid "Unable to retrieve networks."
+msgstr "Netzwerke können nicht abgerufen werden."
+
+msgid "Unable to retrieve ports."
+msgstr "Ports können nicht abgerufen werden."
+
+msgid "Unable to retrieve projects"
+msgstr "Projekte können nicht abgerufen werden"
+
+msgid "Unable to retrieve role"
+msgstr "Rolle kann nicht abgerufen werden"
+
+msgid "Unable to retrieve security groups."
+msgstr "Sicherheitsgruppen können nicht abgerufen werden."
+
+msgid "Unable to retrieve server."
+msgstr "Server kann nicht abgerufen werden."
+
+msgid "Unable to retrieve settings."
+msgstr "Einstellungen können nicht abgerufen werden."
+
+msgid "Unable to retrieve subnets."
+msgstr "Subnetze können nicht abgerufen werden."
+
+msgid "Unable to retrieve the current user session."
+msgstr "Aktuelle Benutzersitzung kann nicht abgerufen werden."
+
+msgid "Unable to retrieve the domain"
+msgstr "Die Domäne kann nicht abgerufen werden"
+
+msgid "Unable to retrieve the project"
+msgstr "Das Projekt kann nicht abgerufen werden"
+
+msgid "Unable to retrieve the role"
+msgstr "Die Rolle kann nicht abgerufen werden"
+
+msgid "Unable to retrieve the user"
+msgstr "Benutzer kann nicht abgerufen werden"
+
+msgid "Unable to retrieve users"
+msgstr "Benutzer können nicht abgerufen werden"
+
+msgid "Unable to retrieve volume snapshots."
+msgstr "Datenträger-Schattenkopien können nicht abgerufen werden."
+
+msgid "Unable to retrieve volumes."
+msgstr "Datenträger können nicht abgerufen werden."
+
+msgid "View Details"
+msgstr "Details anzeigen"
+
+msgid "View Instance Details"
+msgstr "Instanz-Details anzeigen"
+
+msgid "View Router Details"
+msgstr "Router-Details anzeigen"
+
+msgid "Warning"
+msgstr "Warnung"
+
+msgid "Warning: "
+msgstr "Warnung:"
+
+msgid "Working"
+msgstr "In Arbeit"
+
+msgid "Yes"
+msgstr "Ja"
 
 msgid ""
 "You can specify resource metadata by moving items from the left column to "
@@ -89,405 +488,6 @@ msgstr ""
 "Metadaten-Definitionen aus dem Glace Metadaten-Katalog. Verwenden Sie die "
 "\"Andere\" Option, um Metadaten mit dem Schlüssel Ihrer Wahl hinzuzufügen."
 
-msgid "Min"
-msgstr "Min"
-
-msgid "Min length"
-msgstr "Minimale Länge"
-
-msgid "Max length"
-msgstr "Maximale Länge"
-
-msgid "Pattern mismatch"
-msgstr "Muster-Übereinstimmungsfehler"
-
-msgid "Integer required"
-msgstr "Ganzzahl erforderlich"
-
-msgid "Decimal required"
-msgstr "Dezimalzahl erforderlich"
-
-msgid "Required"
-msgstr "Erforderlich"
-
-msgid "Duplicate keys are not allowed"
-msgstr "Doppelte Schlüssel sind nicht erlaubt"
-
-msgid "Filter"
-msgstr "Filter"
-
-msgid "Available Metadata"
-msgstr "Verfügbare Metadaten"
-
-msgid "Existing Metadata"
-msgstr "Vorhandene Metadaten"
-
-msgid "Custom"
-msgstr "Angepasst"
-
-msgid "No available metadata"
-msgstr "Keine Metadaten vorhanden"
-
-msgid "No existing metadata"
-msgstr "Keine existierenden Metadaten"
-
-msgid "Submit"
-msgstr "Abschicken"
-
-msgid "Cancel"
-msgstr "Abbrechen"
-
-msgid "Danger"
-msgstr "Gefahr"
-
-msgid "Warning"
-msgstr "Warnung"
-
-msgid "Info"
-msgstr "Info"
-
-msgid "Success"
-msgstr "Erfolg"
-
-msgid "Error"
-msgstr "Fehler"
-
-msgid "Allocated"
-msgstr "Zugewiesen"
-
-msgid "Available"
-msgstr "Verfügbar"
-
-msgid "Select one"
-msgstr "Eines auswählen"
-
-msgid "Select an item from Available items below"
-msgstr "Wählen Sie einen Eintrag aus den verfügbaren Positionen aus"
-
-msgid "No available items"
-msgstr "Keine verfügbaren Positionen"
-
-msgid "Expand to see allocated items"
-msgstr "Erweitern, um zugewiesene Positionen zu sehen"
-
-msgid "Expand to see available items"
-msgstr "Erweitern, um verfügbare Positionen zu sehen"
-
-msgid "Click to show or hide"
-msgstr "Klicken zum zeigen oder verbergen"
-
-msgid "Re-order items using drag and drop"
-msgstr "Umsortieren der Positionen durch ziehen und ablegen"
-
-msgid "Click to see more details"
-msgstr "Klicken um mehr Details zu sehen"
-
-msgid "Found %(found)s of %(total)s"
-msgstr "%(found)s von %(total)s gefunden"
-
-msgid "Click here to expand the row and view the errors."
-msgstr "Klicken Sie hier um die Zeile zu erweitern und die Fehler zu sehen."
-
-msgid "Back"
-msgstr "Zurück"
-
-msgid "Next"
-msgstr "Weiter"
-
-msgid "Finish"
-msgstr "Beenden"
-
-msgid "Connecting"
-msgstr "Verbinde"
-
-msgid "Open"
-msgstr "Öffnen"
-
-msgid "Closing"
-msgstr "Schließen"
-
-msgid "Closed"
-msgstr "Geschlossen"
-
-#, c-format
-msgid "Status: %s"
-msgstr "Status: %s"
-
-msgid "Unable to retrieve volumes."
-msgstr "Datenträger können nicht abgerufen werden."
-
-msgid "Unable to retrieve volume snapshots."
-msgstr "Datenträger-Schattenkopien können nicht abgerufen werden."
-
-msgid "Unable to retrieve settings."
-msgstr "Einstellungen können nicht abgerufen werden."
-
-msgid "Setting is not enabled: %(setting)s"
-msgstr "Einstellung ist nicht aktiviert: %(setting)s"
-
-msgid "Unable to retrieve image."
-msgstr "Abbild kann nicht abgerufen werden."
-
-msgid "Unable to retrieve images."
-msgstr "Abbilder können nicht abgerufen werden."
-
-msgid "Unable to retrieve namespaces."
-msgstr "Namensräume können nicht abgerufen werden."
-
-msgid "Unable to retrieve users"
-msgstr "Benutzer können nicht abgerufen werden"
-
-msgid "Unable to create the user."
-msgstr "Benutzer kann nicht angelegt werden."
-
-msgid "Unable to delete the users."
-msgstr "Benutzer können nicht gelöscht werden."
-
-msgid "Unable to retrieve the current user session."
-msgstr "Aktuelle Benutzersitzung kann nicht abgerufen werden."
-
-msgid "Unable to retrieve the user"
-msgstr "Benutzer kann nicht abgerufen werden"
-
-msgid "Unable to edit the user."
-msgstr "Benutzer kann nicht bearbeitet werden."
-
-msgid "Unable to delete the user."
-msgstr "Benutzer kann nicht gelöscht werden."
-
-msgid "Unable to retrieve role"
-msgstr "Rolle kann nicht abgerufen werden"
-
-msgid "Unable to create the role."
-msgstr "Die Rolle kann nicht erstellt werden."
-
-msgid "Unable to delete the roles."
-msgstr "Die Rollen können nicht gelöscht werden."
-
-msgid "Unable to retrieve the role"
-msgstr "Die Rolle kann nicht abgerufen werden"
-
-msgid "Unable to edit the role."
-msgstr "Die Rolle kann nicht bearbeitet werden."
-
-msgid "Unable to delete the role."
-msgstr "Die Rolle kann nicht gelöscht werden."
-
-msgid "Unable to retrieve domains"
-msgstr "Domänen können nicht abgerufen werden"
-
-msgid "Unable to create the domain."
-msgstr "Die Domäne kann nicht erstellt werden."
-
-msgid "Unable to delete the domains."
-msgstr "Die Domänen können nicht gelöscht werden."
-
-msgid "Unable to retrieve the domain"
-msgstr "Die Domäne kann nicht abgerufen werden"
-
-msgid "Unable to edit the domain."
-msgstr "Die Domäne kann nicht bearbeitet werden."
-
-msgid "Unable to delete the domain."
-msgstr "Die Domäne kann nicht gelöscht werden."
-
-msgid "Unable to retrieve projects"
-msgstr "Projekte können nicht abgerufen werden"
-
-msgid "Unable to create the project."
-msgstr "Das Projekt kann nicht erstellt werden."
-
-msgid "Unable to delete the projects."
-msgstr "Die Projekte können nicht gelöscht werden."
-
-msgid "Unable to retrieve the project"
-msgstr "Das Projekt kann nicht abgerufen werden"
-
-msgid "Unable to edit the project."
-msgstr "Das Projekt kann nicht bearbeitet werden."
-
-msgid "Unable to delete the project."
-msgstr "Das Projekt kann nicht gelöscht werden."
-
-msgid "Unable to grant the role."
-msgstr "Die Rolle kann nicht gewährt werden."
-
-msgid "Unable to fetch the service catalog."
-msgstr "Die Dienstekatalog kann nicht abgerufen werden."
-
-msgid "Service type is not enabled: %(desiredType)s"
-msgstr "Dienst-Typ ist nicht aktiviert:  %(desiredType)s"
-
-msgid "Cannot get service catalog from keystone."
-msgstr "Dienstekatalog kann nicht von Keystone abgerufen werden."
-
-msgid "Unable to retrieve networks."
-msgstr "Netzwerke können nicht abgerufen werden."
-
-msgid "Unable to create the network."
-msgstr "Netzwerk kann nicht angelegt werden."
-
-msgid "Unable to retrieve subnets."
-msgstr "Subnetze können nicht abgerufen werden."
-
-msgid "Unable to create the subnet."
-msgstr "Subnetz kann nicht erzeugt werden."
-
-msgid "Unable to retrieve ports."
-msgstr "Ports können nicht abgerufen werden."
-
-msgid "Unable to retrieve keypairs."
-msgstr "Schlüsselpaare können nicht abgerufen werden."
-
-msgid "Unable to import the keypair."
-msgstr "Das Schlüsselpaar kann nicht importiert werden."
-
-msgid "Unable to create the keypair."
-msgstr "Das Schlüsselpaar kann nicht erstellt werden."
-
-msgid "Unable to retrieve availability zones."
-msgstr "Verfügbarkeitszonen können nicht abgerufen werden."
-
-msgid "Unable to retrieve limits."
-msgstr "Begrenzungen können nicht abgerufen werden."
-
-msgid "Unable to create the server."
-msgstr "Der Server kann nicht erstellt werden."
-
-msgid "Unable to retrieve server."
-msgstr "Server kann nicht abgerufen werden."
-
-msgid "Unable to retrieve extensions."
-msgstr "Erweiterungen können nicht abgerufen werden."
-
-msgid "Unable to retrieve flavors."
-msgstr "Varianten können nicht abgerufen werden."
-
-msgid "Unable to retrieve flavor."
-msgstr "Variante kann nicht abgerufen werden."
-
-msgid "Unable to retrieve flavor extra specs."
-msgstr "Extraspezifikationen zur Variante können nicht abgerufen werden."
-
-msgid "Extension is not enabled: %(extension)s"
-msgstr "Nicht aktivierte Erweiterung: %(extension)s"
-
-msgid "Cannot get nova extension list."
-msgstr "Liste der Nova-Erweiterungen kann nicht abgerufen werden."
-
-msgid "Policy check failed."
-msgstr "Richtlinienüberprüfung fehlgeschlagen."
-
-msgid "Unable to retrieve security groups."
-msgstr "Sicherheitsgruppen können nicht abgerufen werden."
-
-msgid "Loading"
-msgstr "Lade"
-
-msgid "No data available."
-msgstr "Keine Daten verfügbar."
-
-msgid "An error occurred. Please try again later."
-msgstr "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später noch einmal."
-
-msgid "There was a problem communicating with the server, please try again."
-msgstr ""
-"Es gab ein Problem bei der Kommunikation mit dem Server. Bitte versuchen Sie "
-"es noch einmal."
-
-msgid "Could not read the file"
-msgstr "Die Datei konnte nicht gelesen werden"
-
-msgid "Could not decrypt the password"
-msgstr "Das Passwort konnte nicht entschlüsselt werden"
-
-msgid "No roles"
-msgstr "Keine Rollen"
-
-msgid "Roles"
-msgstr "Rollen"
-
-msgid "Danger: "
-msgstr "Gefahr:"
-
-msgid "Warning: "
-msgstr "Warnung:"
-
-msgid "Notice: "
-msgstr "Nachricht:"
-
-msgid "Success: "
-msgstr "Erfolg:"
-
-msgid "Error: "
-msgstr "Fehler:"
-
-msgid "Working"
-msgstr "In Arbeit"
-
-msgid "There was an error submitting the form. Please try again."
-msgstr ""
-"Es gab einen Fehler beim Abschicken des Formulars. Bitte versuchen Sie es "
-"noch einmal."
-
-msgid "None"
-msgstr "Keine"
-
-msgid "Delete"
-msgstr "Löschen"
-
-msgid "STATUS"
-msgstr "STATUS"
-
-msgid "ID"
-msgstr "ID"
-
-msgid "Interfaces"
-msgstr "Schnittstellen"
-
-msgid "Delete Interface"
-msgstr "Schnittstelle löschen"
-
-msgid "Open Console"
-msgstr "Konsole öffnen"
-
-msgid "View Details"
-msgstr "Details anzeigen"
-
-msgid "Delete Router"
-msgstr "Router löschen"
-
-msgid "View Router Details"
-msgstr "Router-Details anzeigen"
-
-msgid "Add Interface"
-msgstr "Schnittstelle hinzufügen"
-
-msgid "Terminate Instance"
-msgstr "Instanz terminieren"
-
-msgid "View Instance Details"
-msgstr "Instanz-Details anzeigen"
-
-msgid "No items to display."
-msgstr "Kein Eintrag zum anzeigen."
-
-msgid "An error occurred while updating."
-msgstr "Ein Fehler ist beim Aktualisieren aufgetreten."
-
 #, c-format
 msgid "You have selected %s. "
 msgstr "Sie haben %s ausgewählt."
-
-#, c-format
-msgid "Confirm %s"
-msgstr "%s bestätigen"
-
-msgid "Please confirm your selection. "
-msgstr "Bitte bestätigen Sie Ihre Auswahl."
-
-msgid "Not authorized to do this operation."
-msgstr "Keine Berechtigung für diese Aktion."
-
-msgid "Passwords do not match."
-msgstr "Die Passwörter stimmen nicht überein."

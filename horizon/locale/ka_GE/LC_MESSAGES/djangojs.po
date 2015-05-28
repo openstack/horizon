@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"POT-Creation-Date: 2015-05-27 03:01-0500\n"
 "PO-Revision-Date: 2015-05-27 03:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Georgian (Georgia) (http://www.transifex.com/projects/p/"
@@ -24,6 +24,10 @@ msgid "%s GB"
 msgstr "%s გბ"
 
 #, c-format
+msgid "%s KB"
+msgstr "%s კბ"
+
+#, c-format
 msgid "%s MB"
 msgstr "%s მბ"
 
@@ -31,23 +35,14 @@ msgstr "%s მბ"
 msgid "%s TB"
 msgstr "%s ტბ"
 
-#, c-format
-msgid "%s KB"
-msgstr "%s კბ"
+msgid "Add Interface"
+msgstr "ინტერფეისის დამატება"
 
-#, c-format
-msgid "Displaying %s item"
-msgid_plural "Displaying %s items"
-msgstr[0] "%s ელემენტის ჩვენება"
+msgid "An error occurred while updating."
+msgstr "შეცდომა განახლებისას."
 
-msgid "Filter"
-msgstr "ფილტრი"
-
-msgid "Cancel"
-msgstr "გაუქმება"
-
-msgid "Info"
-msgstr "ინფო"
+msgid "An error occurred. Please try again later."
+msgstr "შეცდომა. გთხოვთ კიდევ სცადოთ."
 
 msgid "Available"
 msgstr "ხელმისაწვდომი"
@@ -55,88 +50,93 @@ msgstr "ხელმისაწვდომი"
 msgid "Back"
 msgstr "უკან"
 
-msgid "Next"
-msgstr "შემდეგი"
-
-msgid "Loading"
-msgstr "იტვირთება"
-
-msgid "No data available."
-msgstr "მონაცებელი არაა."
-
-msgid "An error occurred. Please try again later."
-msgstr "შეცდომა. გთხოვთ კიდევ სცადოთ."
-
-msgid "There was a problem communicating with the server, please try again."
-msgstr "სერვერთან დაკავშირებისას მოხდა შეცდომა, გთხოვთ კიდევ სცადოთ."
-
-msgid "Could not read the file"
-msgstr "ფაილის წაკითხვა ვერ მოხერხდა"
-
-msgid "Could not decrypt the password"
-msgstr "პაროლის დეშიფრაცია ვერ მოხერხდა"
-
-msgid "No roles"
-msgstr "როლები არაა"
-
-msgid "Roles"
-msgstr "როლები"
-
-msgid "Danger: "
-msgstr "საშიშროება:"
-
-msgid "Warning: "
-msgstr "გაფრთხილება:"
-
-msgid "Notice: "
-msgstr "გაფრთხილება:"
-
-msgid "Success: "
-msgstr "წარმატება:"
-
-msgid "Error: "
-msgstr "შეცდომა:"
-
-msgid "Working"
-msgstr "ვმუშაობ"
-
-msgid "There was an error submitting the form. Please try again."
-msgstr "შეცდომა ფორმის გაგზავნისას. გთხოვთ კიდევ სცადოთ."
-
-msgid "None"
-msgstr "არცერთი"
-
-msgid "Delete"
-msgstr "წაშლა"
-
-msgid "STATUS"
-msgstr "მდგომარეობა"
-
-msgid "ID"
-msgstr "ID"
-
-msgid "Interfaces"
-msgstr "ინტერფეისები"
-
-msgid "Add Interface"
-msgstr "ინტერფეისის დამატება"
-
-msgid "No items to display."
-msgstr "საჩვენებელი ელემენტები არაა"
-
-msgid "An error occurred while updating."
-msgstr "შეცდომა განახლებისას."
-
-#, c-format
-msgid "You have selected %s. "
-msgstr "თქვენ აირჩიეთ %s. "
+msgid "Cancel"
+msgstr "გაუქმება"
 
 #, c-format
 msgid "Confirm %s"
 msgstr "%s-ის დადასტურება"
 
+msgid "Could not decrypt the password"
+msgstr "პაროლის დეშიფრაცია ვერ მოხერხდა"
+
+msgid "Could not read the file"
+msgstr "ფაილის წაკითხვა ვერ მოხერხდა"
+
+msgid "Danger: "
+msgstr "საშიშროება:"
+
+msgid "Delete"
+msgstr "წაშლა"
+
+#, c-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] "%s ელემენტის ჩვენება"
+
+msgid "Error: "
+msgstr "შეცდომა:"
+
+msgid "Filter"
+msgstr "ფილტრი"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Info"
+msgstr "ინფო"
+
+msgid "Interfaces"
+msgstr "ინტერფეისები"
+
+msgid "Loading"
+msgstr "იტვირთება"
+
+msgid "Next"
+msgstr "შემდეგი"
+
+msgid "No data available."
+msgstr "მონაცებელი არაა."
+
+msgid "No items to display."
+msgstr "საჩვენებელი ელემენტები არაა"
+
+msgid "No roles"
+msgstr "როლები არაა"
+
+msgid "None"
+msgstr "არცერთი"
+
 msgid "Not authorized to do this operation."
 msgstr "ამ ოპერაციის შესასრულებელი ავტორიზაცია არაა"
 
+msgid "Notice: "
+msgstr "გაფრთხილება:"
+
 msgid "Passwords do not match."
 msgstr "პაროლები არ ემთხვევა"
+
+msgid "Roles"
+msgstr "როლები"
+
+msgid "STATUS"
+msgstr "მდგომარეობა"
+
+msgid "Success: "
+msgstr "წარმატება:"
+
+msgid "There was a problem communicating with the server, please try again."
+msgstr "სერვერთან დაკავშირებისას მოხდა შეცდომა, გთხოვთ კიდევ სცადოთ."
+
+msgid "There was an error submitting the form. Please try again."
+msgstr "შეცდომა ფორმის გაგზავნისას. გთხოვთ კიდევ სცადოთ."
+
+msgid "Warning: "
+msgstr "გაფრთხილება:"
+
+msgid "Working"
+msgstr "ვმუშაობ"
+
+#, c-format
+msgid "You have selected %s. "
+msgstr "თქვენ აირჩიეთ %s. "

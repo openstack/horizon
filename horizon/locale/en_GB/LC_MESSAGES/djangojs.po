@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"POT-Creation-Date: 2015-05-27 03:01-0500\n"
 "PO-Revision-Date: 2015-05-27 03:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/"
@@ -20,15 +20,13 @@ msgstr ""
 "Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Yes"
-msgstr "Yes"
-
-msgid "No"
-msgstr "No"
-
 #, c-format
 msgid "%s GB"
 msgstr "%s GB"
+
+#, c-format
+msgid "%s KB"
+msgstr "%s KB"
 
 #, c-format
 msgid "%s MB"
@@ -39,12 +37,96 @@ msgid "%s TB"
 msgstr "%s TB"
 
 #, c-format
-msgid "%s KB"
-msgstr "%s KB"
-
-#, c-format
 msgid "%s bytes"
 msgstr "%s bytes"
+
+msgid "Add Interface"
+msgstr "Add Interface"
+
+msgid "Added"
+msgstr "Added"
+
+msgid "Allocated"
+msgstr "Allocated"
+
+msgid "An error occurred while updating."
+msgstr "An error occurred while updating."
+
+msgid "An error occurred. Please try again later."
+msgstr "An error occurred. Please try again later."
+
+msgid "Available"
+msgstr "Available"
+
+msgid "Available Metadata"
+msgstr "Available Metadata"
+
+msgid "Back"
+msgstr "Back"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Cannot get nova extension list."
+msgstr "Cannot get nova extension list."
+
+msgid "Cannot get service catalog from keystone."
+msgstr "Cannot get service catalogue from keystone."
+
+msgid "Click here to expand the row and view the errors."
+msgstr "Click here to expand the row and view the errors."
+
+msgid "Click to see more details"
+msgstr "Click to see more details"
+
+msgid "Click to show or hide"
+msgstr "Click to show or hide"
+
+msgid "Closed"
+msgstr "Closed"
+
+msgid "Closing"
+msgstr "Closing"
+
+#, c-format
+msgid "Confirm %s"
+msgstr "Confirm %s"
+
+msgid "Connecting"
+msgstr "Connecting"
+
+msgid "Could not decrypt the password"
+msgstr "Could not decrypt the password"
+
+msgid "Could not read the file"
+msgstr "Could not read the file"
+
+msgid "Current Usage"
+msgstr "Current Usage"
+
+msgid "Custom"
+msgstr "Custom"
+
+msgid "Danger"
+msgstr "Danger"
+
+msgid "Danger: "
+msgstr "Danger: "
+
+msgid "Decimal required"
+msgstr "Decimal required"
+
+msgid "Delete"
+msgstr "Delete"
+
+msgid "Delete Interface"
+msgstr "Delete Interface"
+
+msgid "Delete Router"
+msgstr "Delete Router"
+
+msgid "Detail Information"
+msgstr "Detail Information"
 
 #, c-format
 msgid "Displaying %s item"
@@ -52,119 +134,17 @@ msgid_plural "Displaying %s items"
 msgstr[0] "Displaying %s item"
 msgstr[1] "Displaying %s items"
 
-msgid ""
-"The action cannot be performed. The contents of this row have errors or are "
-"missing information."
-msgstr ""
-"The action cannot be performed. The contents of this row have errors or are "
-"missing information."
-
-msgid "Current Usage"
-msgstr "Current Usage"
-
-msgid "Added"
-msgstr "Added"
-
-msgid "Remaining"
-msgstr "Remaining"
-
-msgid "Max"
-msgstr "Max"
-
-msgid "Total"
-msgstr "Total"
-
-msgid "Detail Information"
-msgstr "Detail Information"
-
-msgid ""
-"You can specify resource metadata by moving items from the left column to "
-"the right column. In the left columns there are metadata definitions from "
-"the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
-"the key of your choice."
-msgstr ""
-"You can specify resource metadata by moving items from the left column to "
-"the right column. In the left columns there are metadata definitions from "
-"the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
-"the key of your choice."
-
-msgid "Min"
-msgstr "Min"
-
-msgid "Min length"
-msgstr "Min length"
-
-msgid "Max length"
-msgstr "Max length"
-
-msgid "Pattern mismatch"
-msgstr "Pattern mismatch"
-
-msgid "Integer required"
-msgstr "Integer required"
-
-msgid "Decimal required"
-msgstr "Decimal required"
-
-msgid "Required"
-msgstr "Required"
-
 msgid "Duplicate keys are not allowed"
 msgstr "Duplicate keys are not allowed"
-
-msgid "Filter"
-msgstr "Filter"
-
-msgid "Available Metadata"
-msgstr "Available Metadata"
-
-msgid "Existing Metadata"
-msgstr "Existing Metadata"
-
-msgid "Custom"
-msgstr "Custom"
-
-msgid "No available metadata"
-msgstr "No available metadata"
-
-msgid "No existing metadata"
-msgstr "No existing metadata"
-
-msgid "Submit"
-msgstr "Submit"
-
-msgid "Cancel"
-msgstr "Cancel"
-
-msgid "Danger"
-msgstr "Danger"
-
-msgid "Warning"
-msgstr "Warning"
-
-msgid "Info"
-msgstr "Info"
-
-msgid "Success"
-msgstr "Success"
 
 msgid "Error"
 msgstr "Error"
 
-msgid "Allocated"
-msgstr "Allocated"
+msgid "Error: "
+msgstr "Error: "
 
-msgid "Available"
-msgstr "Available"
-
-msgid "Select one"
-msgstr "Select one"
-
-msgid "Select an item from Available items below"
-msgstr "Select an item from Available items below"
-
-msgid "No available items"
-msgstr "No available items"
+msgid "Existing Metadata"
+msgstr "Existing Metadata"
 
 msgid "Expand to see allocated items"
 msgstr "Expand to see allocated items"
@@ -172,57 +152,241 @@ msgstr "Expand to see allocated items"
 msgid "Expand to see available items"
 msgstr "Expand to see available items"
 
-msgid "Click to show or hide"
-msgstr "Click to show or hide"
+msgid "Extension is not enabled: %(extension)s"
+msgstr "Extension is not enabled: %(extension)s"
 
-msgid "Re-order items using drag and drop"
-msgstr "Re-order items using drag and drop"
-
-msgid "Click to see more details"
-msgstr "Click to see more details"
-
-msgid "Found %(found)s of %(total)s"
-msgstr "Found %(found)s of %(total)s"
-
-msgid "Click here to expand the row and view the errors."
-msgstr "Click here to expand the row and view the errors."
-
-msgid "Back"
-msgstr "Back"
-
-msgid "Next"
-msgstr "Next"
+msgid "Filter"
+msgstr "Filter"
 
 msgid "Finish"
 msgstr "Finish"
 
-msgid "Connecting"
-msgstr "Connecting"
+msgid "Found %(found)s of %(total)s"
+msgstr "Found %(found)s of %(total)s"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Info"
+msgstr "Info"
+
+msgid "Integer required"
+msgstr "Integer required"
+
+msgid "Interfaces"
+msgstr "Interfaces"
+
+msgid "Loading"
+msgstr "Loading"
+
+msgid "Max"
+msgstr "Max"
+
+msgid "Max length"
+msgstr "Max length"
+
+msgid "Min"
+msgstr "Min"
+
+msgid "Min length"
+msgstr "Min length"
+
+msgid "Next"
+msgstr "Next"
+
+msgid "No"
+msgstr "No"
+
+msgid "No available items"
+msgstr "No available items"
+
+msgid "No available metadata"
+msgstr "No available metadata"
+
+msgid "No data available."
+msgstr "No data available."
+
+msgid "No existing metadata"
+msgstr "No existing metadata"
+
+msgid "No items to display."
+msgstr "No items to display."
+
+msgid "No roles"
+msgstr "No roles"
+
+msgid "None"
+msgstr "None"
+
+msgid "Not authorized to do this operation."
+msgstr "Not authorised to do this operation."
+
+msgid "Notice: "
+msgstr "Notice: "
 
 msgid "Open"
 msgstr "Open"
 
-msgid "Closing"
-msgstr "Closing"
+msgid "Open Console"
+msgstr "Open Console"
 
-msgid "Closed"
-msgstr "Closed"
+msgid "Passwords do not match."
+msgstr "Passwords do not match."
+
+msgid "Pattern mismatch"
+msgstr "Pattern mismatch"
+
+msgid "Please confirm your selection. "
+msgstr "Please confirm your selection. "
+
+msgid "Policy check failed."
+msgstr "Policy check failed."
+
+msgid "Re-order items using drag and drop"
+msgstr "Re-order items using drag and drop"
+
+msgid "Remaining"
+msgstr "Remaining"
+
+msgid "Required"
+msgstr "Required"
+
+msgid "Roles"
+msgstr "Roles"
+
+msgid "STATUS"
+msgstr "STATUS"
+
+msgid "Select an item from Available items below"
+msgstr "Select an item from Available items below"
+
+msgid "Select one"
+msgstr "Select one"
+
+msgid "Service type is not enabled: %(desiredType)s"
+msgstr "Service type is not enabled: %(desiredType)s"
+
+msgid "Setting is not enabled: %(setting)s"
+msgstr "Setting is not enabled: %(setting)s"
 
 #, c-format
 msgid "Status: %s"
 msgstr "Status: %s"
 
-msgid "Unable to retrieve volumes."
-msgstr "Unable to retrieve volumes."
+msgid "Submit"
+msgstr "Submit"
 
-msgid "Unable to retrieve volume snapshots."
-msgstr "Unable to retrieve volume snapshots."
+msgid "Success"
+msgstr "Success"
 
-msgid "Unable to retrieve settings."
-msgstr "Unable to retrieve settings."
+msgid "Success: "
+msgstr "Success: "
 
-msgid "Setting is not enabled: %(setting)s"
-msgstr "Setting is not enabled: %(setting)s"
+msgid "Terminate Instance"
+msgstr "Terminate Instance"
+
+msgid ""
+"The action cannot be performed. The contents of this row have errors or are "
+"missing information."
+msgstr ""
+"The action cannot be performed. The contents of this row have errors or are "
+"missing information."
+
+msgid "There was a problem communicating with the server, please try again."
+msgstr "There was a problem communicating with the server, please try again."
+
+msgid "There was an error submitting the form. Please try again."
+msgstr "There was an error submitting the form. Please try again."
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Unable to create the domain."
+msgstr "Unable to create the domain."
+
+msgid "Unable to create the keypair."
+msgstr "Unable to create the keypair."
+
+msgid "Unable to create the network."
+msgstr "Unable to create the network."
+
+msgid "Unable to create the project."
+msgstr "Unable to create the project."
+
+msgid "Unable to create the role."
+msgstr "Unable to create the role."
+
+msgid "Unable to create the server."
+msgstr "Unable to create the server."
+
+msgid "Unable to create the subnet."
+msgstr "Unable to create the subnet."
+
+msgid "Unable to create the user."
+msgstr "Unable to create the user."
+
+msgid "Unable to delete the domain."
+msgstr "Unable to delete the domain."
+
+msgid "Unable to delete the domains."
+msgstr "Unable to delete the domains."
+
+msgid "Unable to delete the project."
+msgstr "Unable to delete the project."
+
+msgid "Unable to delete the projects."
+msgstr "Unable to delete the projects."
+
+msgid "Unable to delete the role."
+msgstr "Unable to delete the role."
+
+msgid "Unable to delete the roles."
+msgstr "Unable to delete the roles."
+
+msgid "Unable to delete the user."
+msgstr "Unable to delete the user."
+
+msgid "Unable to delete the users."
+msgstr "Unable to delete the users."
+
+msgid "Unable to edit the domain."
+msgstr "Unable to edit the domain."
+
+msgid "Unable to edit the project."
+msgstr "Unable to edit the project."
+
+msgid "Unable to edit the role."
+msgstr "Unable to edit the role."
+
+msgid "Unable to edit the user."
+msgstr "Unable to edit the user."
+
+msgid "Unable to fetch the service catalog."
+msgstr "Unable to fetch the service catalogue."
+
+msgid "Unable to grant the role."
+msgstr "Unable to grant the role."
+
+msgid "Unable to import the keypair."
+msgstr "Unable to import the keypair."
+
+msgid "Unable to retrieve availability zones."
+msgstr "Unable to retrieve availability zones."
+
+msgid "Unable to retrieve domains"
+msgstr "Unable to retrieve domains"
+
+msgid "Unable to retrieve extensions."
+msgstr "Unable to retrieve extensions."
+
+msgid "Unable to retrieve flavor extra specs."
+msgstr "Unable to retrieve flavour extra specs."
+
+msgid "Unable to retrieve flavor."
+msgstr "Unable to retrieve flavour."
+
+msgid "Unable to retrieve flavors."
+msgstr "Unable to retrieve flavours."
 
 msgid "Unable to retrieve image."
 msgstr "Unable to retrieve image."
@@ -230,259 +394,95 @@ msgstr "Unable to retrieve image."
 msgid "Unable to retrieve images."
 msgstr "Unable to retrieve images."
 
-msgid "Unable to retrieve namespaces."
-msgstr "Unable to retrieve namespaces."
-
-msgid "Unable to retrieve users"
-msgstr "Unable to retrieve users"
-
-msgid "Unable to create the user."
-msgstr "Unable to create the user."
-
-msgid "Unable to delete the users."
-msgstr "Unable to delete the users."
-
-msgid "Unable to retrieve the current user session."
-msgstr "Unable to retrieve the current user session."
-
-msgid "Unable to retrieve the user"
-msgstr "Unable to retrieve the user"
-
-msgid "Unable to edit the user."
-msgstr "Unable to edit the user."
-
-msgid "Unable to delete the user."
-msgstr "Unable to delete the user."
-
-msgid "Unable to retrieve role"
-msgstr "Unable to retrieve role"
-
-msgid "Unable to create the role."
-msgstr "Unable to create the role."
-
-msgid "Unable to delete the roles."
-msgstr "Unable to delete the roles."
-
-msgid "Unable to retrieve the role"
-msgstr "Unable to retrieve the role"
-
-msgid "Unable to edit the role."
-msgstr "Unable to edit the role."
-
-msgid "Unable to delete the role."
-msgstr "Unable to delete the role."
-
-msgid "Unable to retrieve domains"
-msgstr "Unable to retrieve domains"
-
-msgid "Unable to create the domain."
-msgstr "Unable to create the domain."
-
-msgid "Unable to delete the domains."
-msgstr "Unable to delete the domains."
-
-msgid "Unable to retrieve the domain"
-msgstr "Unable to retrieve the domain"
-
-msgid "Unable to edit the domain."
-msgstr "Unable to edit the domain."
-
-msgid "Unable to delete the domain."
-msgstr "Unable to delete the domain."
-
-msgid "Unable to retrieve projects"
-msgstr "Unable to retrieve projects"
-
-msgid "Unable to create the project."
-msgstr "Unable to create the project."
-
-msgid "Unable to delete the projects."
-msgstr "Unable to delete the projects."
-
-msgid "Unable to retrieve the project"
-msgstr "Unable to retrieve the project"
-
-msgid "Unable to edit the project."
-msgstr "Unable to edit the project."
-
-msgid "Unable to delete the project."
-msgstr "Unable to delete the project."
-
-msgid "Unable to grant the role."
-msgstr "Unable to grant the role."
-
-msgid "Unable to fetch the service catalog."
-msgstr "Unable to fetch the service catalogue."
-
-msgid "Service type is not enabled: %(desiredType)s"
-msgstr "Service type is not enabled: %(desiredType)s"
-
-msgid "Cannot get service catalog from keystone."
-msgstr "Cannot get service catalogue from keystone."
-
-msgid "Unable to retrieve networks."
-msgstr "Unable to retrieve networks."
-
-msgid "Unable to create the network."
-msgstr "Unable to create the network."
-
-msgid "Unable to retrieve subnets."
-msgstr "Unable to retrieve subnets."
-
-msgid "Unable to create the subnet."
-msgstr "Unable to create the subnet."
-
-msgid "Unable to retrieve ports."
-msgstr "Unable to retrieve ports."
-
 msgid "Unable to retrieve keypairs."
 msgstr "Unable to retrieve keypairs."
-
-msgid "Unable to import the keypair."
-msgstr "Unable to import the keypair."
-
-msgid "Unable to create the keypair."
-msgstr "Unable to create the keypair."
-
-msgid "Unable to retrieve availability zones."
-msgstr "Unable to retrieve availability zones."
 
 msgid "Unable to retrieve limits."
 msgstr "Unable to retrieve limits."
 
-msgid "Unable to create the server."
-msgstr "Unable to create the server."
+msgid "Unable to retrieve namespaces."
+msgstr "Unable to retrieve namespaces."
 
-msgid "Unable to retrieve server."
-msgstr "Unable to retrieve server."
+msgid "Unable to retrieve networks."
+msgstr "Unable to retrieve networks."
 
-msgid "Unable to retrieve extensions."
-msgstr "Unable to retrieve extensions."
+msgid "Unable to retrieve ports."
+msgstr "Unable to retrieve ports."
 
-msgid "Unable to retrieve flavors."
-msgstr "Unable to retrieve flavours."
+msgid "Unable to retrieve projects"
+msgstr "Unable to retrieve projects"
 
-msgid "Unable to retrieve flavor."
-msgstr "Unable to retrieve flavour."
-
-msgid "Unable to retrieve flavor extra specs."
-msgstr "Unable to retrieve flavour extra specs."
-
-msgid "Extension is not enabled: %(extension)s"
-msgstr "Extension is not enabled: %(extension)s"
-
-msgid "Cannot get nova extension list."
-msgstr "Cannot get nova extension list."
-
-msgid "Policy check failed."
-msgstr "Policy check failed."
+msgid "Unable to retrieve role"
+msgstr "Unable to retrieve role"
 
 msgid "Unable to retrieve security groups."
 msgstr "Unable to retrieve security groups."
 
-msgid "Loading"
-msgstr "Loading"
+msgid "Unable to retrieve server."
+msgstr "Unable to retrieve server."
 
-msgid "No data available."
-msgstr "No data available."
+msgid "Unable to retrieve settings."
+msgstr "Unable to retrieve settings."
 
-msgid "An error occurred. Please try again later."
-msgstr "An error occurred. Please try again later."
+msgid "Unable to retrieve subnets."
+msgstr "Unable to retrieve subnets."
 
-msgid "There was a problem communicating with the server, please try again."
-msgstr "There was a problem communicating with the server, please try again."
+msgid "Unable to retrieve the current user session."
+msgstr "Unable to retrieve the current user session."
 
-msgid "Could not read the file"
-msgstr "Could not read the file"
+msgid "Unable to retrieve the domain"
+msgstr "Unable to retrieve the domain"
 
-msgid "Could not decrypt the password"
-msgstr "Could not decrypt the password"
+msgid "Unable to retrieve the project"
+msgstr "Unable to retrieve the project"
 
-msgid "No roles"
-msgstr "No roles"
+msgid "Unable to retrieve the role"
+msgstr "Unable to retrieve the role"
 
-msgid "Roles"
-msgstr "Roles"
+msgid "Unable to retrieve the user"
+msgstr "Unable to retrieve the user"
 
-msgid "Danger: "
-msgstr "Danger: "
+msgid "Unable to retrieve users"
+msgstr "Unable to retrieve users"
 
-msgid "Warning: "
-msgstr "Warning: "
+msgid "Unable to retrieve volume snapshots."
+msgstr "Unable to retrieve volume snapshots."
 
-msgid "Notice: "
-msgstr "Notice: "
-
-msgid "Success: "
-msgstr "Success: "
-
-msgid "Error: "
-msgstr "Error: "
-
-msgid "Working"
-msgstr "Working"
-
-msgid "There was an error submitting the form. Please try again."
-msgstr "There was an error submitting the form. Please try again."
-
-msgid "None"
-msgstr "None"
-
-msgid "Delete"
-msgstr "Delete"
-
-msgid "STATUS"
-msgstr "STATUS"
-
-msgid "ID"
-msgstr "ID"
-
-msgid "Interfaces"
-msgstr "Interfaces"
-
-msgid "Delete Interface"
-msgstr "Delete Interface"
-
-msgid "Open Console"
-msgstr "Open Console"
+msgid "Unable to retrieve volumes."
+msgstr "Unable to retrieve volumes."
 
 msgid "View Details"
 msgstr "View Details"
 
-msgid "Delete Router"
-msgstr "Delete Router"
+msgid "View Instance Details"
+msgstr "View Instance Details"
 
 msgid "View Router Details"
 msgstr "View Router Details"
 
-msgid "Add Interface"
-msgstr "Add Interface"
+msgid "Warning"
+msgstr "Warning"
 
-msgid "Terminate Instance"
-msgstr "Terminate Instance"
+msgid "Warning: "
+msgstr "Warning: "
 
-msgid "View Instance Details"
-msgstr "View Instance Details"
+msgid "Working"
+msgstr "Working"
 
-msgid "No items to display."
-msgstr "No items to display."
+msgid "Yes"
+msgstr "Yes"
 
-msgid "An error occurred while updating."
-msgstr "An error occurred while updating."
+msgid ""
+"You can specify resource metadata by moving items from the left column to "
+"the right column. In the left columns there are metadata definitions from "
+"the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
+"the key of your choice."
+msgstr ""
+"You can specify resource metadata by moving items from the left column to "
+"the right column. In the left columns there are metadata definitions from "
+"the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
+"the key of your choice."
 
 #, c-format
 msgid "You have selected %s. "
 msgstr "You have selected %s. "
-
-#, c-format
-msgid "Confirm %s"
-msgstr "Confirm %s"
-
-msgid "Please confirm your selection. "
-msgstr "Please confirm your selection. "
-
-msgid "Not authorized to do this operation."
-msgstr "Not authorised to do this operation."
-
-msgid "Passwords do not match."
-msgstr "Passwords do not match."

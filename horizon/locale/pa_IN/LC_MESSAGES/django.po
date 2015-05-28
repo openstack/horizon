@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-04-20 07:07+0000\n"
+"POT-Creation-Date: 2015-05-27 03:00-0500\n"
+"PO-Revision-Date: 2015-05-13 19:11+0000\n"
 "Last-Translator: Amandeep Singh Saini <jimidar@gmail.com>\n"
 "Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/projects/"
 "p/horizon/language/pa_IN/)\n"
@@ -18,242 +18,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pa_IN\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "Other"
-msgstr "ਹੋਰ"
-
-msgid "Navigation Item"
-msgstr "ਨੈਵੀਗੇਸ਼ਨ ਚੀਜ਼"
-
-#, python-format
-msgid "Select a %s to browse."
-msgstr "ਬਰਾਊਜ਼ ਕਰਨ ਲਈ ਇੱਕ %s ਚੁਣੋ।"
-
-msgid "Password is not accepted"
-msgstr "ਪਛਾਣ-ਸ਼ਬਦ ਪਰਵਾਨਿਤ ਨਹੀਂ ਹੈ"
-
-msgid "Please log in to continue."
-msgstr "ਜਾਰੀ ਰਹਿਣ ਲਈ ਕਿਰਪਾ ਕਰ ਕੇ ਲਾਗਇਨ ਕਰੋ।"
-
-#, python-format
-msgid "You are not authorized to access %s"
-msgstr "ਤੁਸੀਂ %s ਤੇ ਦਖਲ ਦੇਣ ਲਈ ਅਧਿਕਾਰਤ ਨਹੀਂ ਹੋ"
-
-#, python-format
-msgid "A %(resource)s with the name \"%(name)s\" already exists."
-msgstr "ਇੱਕ %(resource)s ਪਹਿਲਾਂ ਹੀ \"%(name)s\" ਨਾਂ ਨਾਲ ਮੌਜੂਦ ਹੈ।"
-
-#, python-format
-msgid "Unauthorized: %s"
-msgstr "ਅਣ-ਅਧਿਕਾਰਤ ਕੀਤਾ: %s"
-
-msgid "Unauthorized. Please try logging in again."
-msgstr "ਅਣਅਧਿਕਾਰਤ। ਕਿਰਪਾ ਕਰ ਕੇ ਦੁਬਾਰਾ ਲਾਗਇਨ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
-
-msgid "Incorrect format for IP address"
-msgstr "IP ਪਤੇ ਲਈ ਗਲਤ ਬਣਤਰ"
-
-msgid "Invalid version for IP address"
-msgstr "IP ਪਤੇ ਲਈ ਅਢੁਕਵਾਂ ਸੰਸਕਰਣ"
-
-msgid "Invalid subnet mask"
-msgstr "ਅਢੁਕਵਾਂ ਸਬਨੈੱਟ ਮਾਸਕ"
-
-msgid "Submit"
-msgstr "ਦਾਖਲ ਕਰੋ"
-
-msgid "Cancel"
-msgstr "ਰੱਦ ਕਰੋ"
-
-msgid "Session timed out."
-msgstr "ਸੈਸ਼ਨ ਸਮਾਂ ਮਿਆਦ ਪੁੱਗੀ।"
-
-msgid "Filter"
-msgstr "ਛਾਣਨੀ (ਫਿਲਟਰ)"
-
-msgid "This action cannot be undone."
-msgstr "ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀੰ ਲਈ ਜਾ ਸਕੇਗੀ।"
-
-#, python-format
-msgctxt "past"
-msgid "%(action)s %(data_type)s"
-msgstr "%(action)s %(data_type)s"
-
-#, python-format
-msgctxt "present"
-msgid "%(action)s %(data_type)s"
-msgstr "%(action)s %(data_type)s"
-
-#, python-format
-msgid "You are not allowed to %(action)s: %(objs)s"
-msgstr "ਤੁਹਾਨੂੰ %(action)s: ਦੀ ਮਨਜੂਰੀ ਨਹੀਂ ਹੈ: %(objs)s"
-
-#, python-format
-msgid "Unable to %(action)s: %(objs)s"
-msgstr "%(action)s ਤੋਂ ਅਸਮਰੱਥ: %(objs)s"
-
-#, python-format
-msgid "%(action)s: %(objs)s"
-msgstr "%(action)s: %(objs)s"
-
-msgid "Delete"
-msgstr "ਮਿਟਾਉ"
-
-msgid "Deleted"
-msgstr "ਮਿਟਾਇਆ ਗਿਆ"
-
-msgid "Update"
-msgstr "ਅਪਡੇਟ ਕਰੋ"
-
-msgid "Updated"
-msgstr "ਅਪਡੇਟ ਹੋਇਆ"
-
-msgid "-"
-msgstr "-"
-
-#, python-format
-msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "%(attr)s ਐਟਰੀਬਿਊਟ %(obj)s ਉੱਪਰ ਹੋਂਦ ਨਹੀੰ ਰਖ਼ਦਾ।"
-
-msgid "No items to display."
-msgstr "ਪਰਦਰਸ਼ਿਤ ਕਰਨ ਲਈ ਕੋਈ ਚੀਜ਼ ਨਹੀਂ।"
-
-msgid "Actions"
-msgstr "ਕਾਰਵਾਈਆਂ"
-
-#, python-format
-msgid "No match returned for the id \"%s\"."
-msgstr "id \"%s\" ਲਈ ਕੁੱਝ ਵੀ ਮੇਲ ਖਾਂਦਾ ਵਾਪਿਸ ਨਹੀਂ ਹੋਇਆ।"
-
-msgid "Please select a row before taking that action."
-msgstr "ਉਹ ਕਾਰਵਾਈ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਕਿਰਪਾ ਕਰ ਕੇ ਇੱਕ ਸਤਰ੍ਹ ਚੁਣੋ।"
-
-msgid "N/A"
-msgstr "ਲਾਗੂ ਨਹੀਂ"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "ਇਸ ਨਾਂ ਤੇ ਲਾਗਇਨ: %(username)s"
-
-msgid "Help"
-msgstr "ਮਦਦ"
-
-msgid "Sign Out"
-msgstr "ਸਾਈਨ ਆਊਟ"
-
-msgid ""
-"\n"
-"      If you are not sure which authentication method to use, contact your "
-"administrator.\n"
-"    "
-msgstr ""
-"\n"
-"      ਜੇ ਤੁਹਾਨੂੰ ਇਹ ਪੱਕਾ ਨਹੀਂ ਕਿ ਕਿਹੜਾ ਪ੍ਰਮਾਣਿਕਤਾ ਤਰੀਕਾ ਵਰਤਣਾ ਹੈ ਤਾਂ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸ਼ਕ ਨਾਲ "
-"ਰਾਬਤਾ ਕਰੋ।\n"
-"    "
-
-msgid "Log In"
-msgstr "ਲਾਗ ਇਨ"
-
-msgid "You do not have permission to access the resource:"
-msgstr "ਤੁਹਾਡੇ ਕੋਲ ਵਸੀਲੇ ਤੱਕ ਦਖਲ ਦੀ ਪਰਵਾਨਗੀ ਨਹੀਂ ਹੈ:"
-
-#, python-format
-msgid ""
-"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
-msgstr ""
-"ਵੱਖਰੇ ਵਰਤੋਂਕਾਰ ਵਜੋਂ ਲਾਗਇਨ ਹੋਵੋ ਜਾਂ ਵਾਪਸ <a href=\"%(home_url)s\"> ਘਰ ਵਰਕਾ</a> ਤੇ ਜਾਉ।"
-
-msgid "Sign In"
-msgstr "ਸਾਈਨ ਇਨ ਕਰੋ"
-
-msgid "Connect"
-msgstr "ਜੁੜੋ"
-
-msgid "Login"
-msgstr "ਲਾਗਇਨ"
-
-msgid "Info: "
-msgstr "ਜਾਣਕਾਰੀ: "
-
-msgid "Warning: "
-msgstr "ਚੇਤਾਵਨੀ: "
-
-msgid "Success: "
-msgstr "ਸਫਲਤਾ: "
-
-msgid "Error: "
-msgstr "ਗਲਤੀ: "
-
-msgid "Summary"
-msgstr "ਸਾਰ"
-
-#, python-format
-msgid "Displaying %(counter)s item"
-msgid_plural "Displaying %(counter)s items"
-msgstr[0] "%(counter)s ਚੀਜ ਵਿਖਾਈ ਜਾ ਰਹੀ"
-msgstr[1] "%(counter)s ਚੀਜਾਂ ਵਿਖਾਈਆਂ ਜਾ ਰਹੀਆਂ"
-
-msgid "&laquo;&nbsp;Prev"
-msgstr "&laquo;&nbsp;Prev"
-
-msgid "Next&nbsp;&raquo;"
-msgstr "Next&nbsp;&raquo;"
-
-msgid "More Actions"
-msgstr "ਹੋਰ ਕਾਰਵਾਈਆਂ"
-
-#, python-format
-msgid "%(context_name)s:"
-msgstr "%(context_name)s:"
-
-msgid "Add a row"
-msgstr "ਇੱਕ ਸਤਰ੍ਹ ਜੋੜੋ"
-
-#, python-format
-msgid "%(name)s: %(error)s"
-msgstr "%(name)s: %(error)s"
-
-msgid "Limit Summary"
-msgstr "ਹੱਦ ਸਾਰ"
-
-msgid "Instances"
-msgstr "ਇੰਸਟਾਂਸਜ਼"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "<span> %(used)s </span> ਵਰਤੇ <span> %(available)s </span> ਵਿੱਚੋਂ"
-
-msgid "VCPUs"
-msgstr "VCPUs"
-
-msgid "RAM"
-msgstr "RAM"
-
-msgid "Floating IPs"
-msgstr "ਫਲੋਟਿੰਗ IPs"
-
-#, python-format
-msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "<span> %(used)s </span> ਵੰਡੇ ਗਏ <span> %(available)s </span> ਵਿੱਚੋਂ"
-
-msgid "Security Groups"
-msgstr "ਸੁਰੱਖਿਆ ਸਮੂਹ"
-
-msgid "Volumes"
-msgstr "ਆਇਤਨ"
-
-msgid "Volume Storage"
-msgstr "ਆਇਤਨ ਭੰਡਾਰਣ"
-
-msgid "Save"
-msgstr "ਸੰਭਾਲੋ"
-
-msgid "Usage Summary"
-msgstr "ਵਰਤੋਂ ਸਾਰ"
-
-msgid "Select a period of time to query its usage:"
-msgstr "ਇਸਦੀ ਵਰਤੋਂ ਬਾਰੇ ਪੁੱਛ-ਗਿੱਛ ਲਈ ਇੱਕ ਸਮਾਂ ਅੰਤਰਾਲ ਚੁਣੋ:"
 
 #, python-format
 msgid ""
@@ -271,44 +35,48 @@ msgstr ""
 "\n"
 "      <label>ਵੱਲ:</label>%(end)s"
 
-msgid "The date should be in YYYY-mm-dd format."
-msgstr "ਮਿਤੀ YYYY-mm-dd ਤਰਜ ਤੇ ਹੋਣੀ ਚਾਹੀਦੀ ਹੈ।"
+msgid ""
+"\n"
+"      If you are not sure which authentication method to use, contact your "
+"administrator.\n"
+"    "
+msgstr ""
+"\n"
+"      ਜੇ ਤੁਹਾਨੂੰ ਇਹ ਪੱਕਾ ਨਹੀਂ ਕਿ ਕਿਹੜਾ ਪ੍ਰਮਾਣਿਕਤਾ ਤਰੀਕਾ ਵਰਤਣਾ ਹੈ ਤਾਂ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸ਼ਕ ਨਾਲ "
+"ਰਾਬਤਾ ਕਰੋ।\n"
+"    "
 
-msgid "Active Instances:"
-msgstr "ਕਿਰਿਆਸ਼ੀਲ ਇੰਸਟਾਸਜ਼:"
+#, python-format
+msgctxt "past"
+msgid "%(action)s %(data_type)s"
+msgstr "%(action)s %(data_type)s"
 
-msgid "Active RAM:"
-msgstr "ਕਿਰਿਆਸ਼ੀਲ RAM:"
+#, python-format
+msgctxt "present"
+msgid "%(action)s %(data_type)s"
+msgstr "%(action)s %(data_type)s"
 
-msgid "This Period's VCPU-Hours:"
-msgstr "ਇਸ ਅੰਤਰਾਲ ਦੇ VCPU-ਘੰਟੇ:"
+#, python-format
+msgid "%(action)s: %(objs)s"
+msgstr "%(action)s: %(objs)s"
 
-msgid "This Period's GB-Hours:"
-msgstr "ਇਸ ਅੰਤਰਾਲ ਦੇ GB-ਘੰਟੇ:"
+#, python-format
+msgid "%(context_name)s:"
+msgstr "%(context_name)s:"
 
-msgid "This Period's RAM-Hours:"
-msgstr "ਇਸ ਅੰਤਰਾਲ ਦੇ RAM-ਘੰਟੇ:"
-
-msgid "Back"
-msgstr "ਪਿੱਛੇ"
-
-msgid "Next"
-msgstr "ਅਗਲਾ"
-
-msgid "Horizon"
-msgstr "Horizon"
-
-msgid "No Limit"
-msgstr "ਕੋਈ ਹੱਦ ਨਹੀਂ"
-
-msgid "Available"
-msgstr "ਉਪਲੱਬਧ"
+#, python-format
+msgid "%(name)s: %(error)s"
+msgstr "%(name)s: %(error)s"
 
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
 msgstr[0] "%(size)d ਬਾਈਟ"
 msgstr[1] "%(size)d ਬਾਈਟਾਂ"
+
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
 
 #, python-format
 msgid "%s KB"
@@ -319,67 +87,12 @@ msgid "%s MB"
 msgstr "%s MB"
 
 #, python-format
-msgid "%s GB"
-msgstr "%s GB"
+msgid "%s PB"
+msgstr "%s PB"
 
 #, python-format
 msgid "%s TB"
 msgstr "%s TB"
-
-#, python-format
-msgid "%s PB"
-msgstr "%s PB"
-
-msgid "0 Bytes"
-msgstr "0 ਬਾਈਟਾਂ"
-
-#. Translators: test code, don't really have to translate
-msgid "Sell Puppy"
-msgid_plural "Sell Puppies"
-msgstr[0] "ਪਪੀ ਵੇਚੋ"
-msgstr[1] "ਪਪੀ ਵੇਚੋ"
-
-#. Translators: test code, don't really have to translate
-msgid "Sold Puppy"
-msgid_plural "Sold Puppies"
-msgstr[0] "ਵਿਕਿਆ ਹੋਇਆ ਪਪੀ"
-msgstr[1] "ਵਿਕੇ ਹੋਏ ਪਪੀ"
-
-msgid "Fake"
-msgstr "ਨਕਲੀ"
-
-msgid "Never"
-msgstr "ਕਦੇ ਨਹੀਂ"
-
-msgid "Not a valid port number"
-msgstr "ਇੱਕ ਢੁਕਵਾਂ ਪੋਰਟ ਨੰਬਰ ਨਹੀਂ"
-
-msgid "Not a valid IP protocol number"
-msgstr "ਇੱਕ ਢੁਕਵਾਂ IP ਜਾਬਤਾ ਅੰਕ ਨਹੀਂ"
-
-msgid "One colon allowed in port range"
-msgstr "ਪੋਰਟ ਹੱਦ ਵਿੱਚ ਇੱਕ ਕੌਲਨ ਦੀ ਪਰਵਾਨਗੀ ਹੈ"
-
-msgid "Port number must be integer"
-msgstr "ਪੋਰਟ ਨੰਬਰ ਦਾ ਅੰਕ ਹੋਣਾ ਲਾਜਮੀ ਹੈ"
-
-msgid "The string may only contain ASCII printable characters."
-msgstr "ਇਸ ਸਤਰ੍ਹ ਵਿੱਚ ਸਿਰਫ਼ ਛਾਪੇ ਜਾ ਸਕਣ ਵਾਲੇ ASCII ਅੱਖਰ ਹੀ ਸ਼ਾਮਲ ਹੋ ਸਕਦੇ ਹਨ।"
-
-msgid "Processing..."
-msgstr "...ਕਾਰਵਾਈ ਚੱਲ ਰਹੀ ਹੈ"
-
-msgid "All available"
-msgstr "ਸਾਰੇ ਉਪਲੱਬਧ"
-
-msgid "Members"
-msgstr "ਜੀਅ"
-
-msgid "None available."
-msgstr "ਕੋਈ ਉਪਲੱਬਧ ਨਹੀਂ"
-
-msgid "No members."
-msgstr "ਕੋਈ ਜੀਅ ਨਹੀਂ।"
 
 #, python-format
 msgid "%s completed successfully."
@@ -388,3 +101,290 @@ msgstr "%s ਸਫਲਤਾ ਪੂਰਵਕ ਪੂਰਾ ਹੋਇਆ।"
 #, python-format
 msgid "%s did not complete."
 msgstr "%s ਪੂਰਾ ਨਹੀੰ ਹੋਇਆ।"
+
+msgid "&laquo;&nbsp;Prev"
+msgstr "&laquo;&nbsp;Prev"
+
+msgid "-"
+msgstr "-"
+
+msgid "0 Bytes"
+msgstr "0 ਬਾਈਟਾਂ"
+
+#, python-format
+msgid "A %(resource)s with the name \"%(name)s\" already exists."
+msgstr "ਇੱਕ %(resource)s ਪਹਿਲਾਂ ਹੀ \"%(name)s\" ਨਾਂ ਨਾਲ ਮੌਜੂਦ ਹੈ।"
+
+msgid "Actions"
+msgstr "ਕਾਰਵਾਈਆਂ"
+
+msgid "Active Instances:"
+msgstr "ਕਿਰਿਆਸ਼ੀਲ ਇੰਸਟਾਸਜ਼:"
+
+msgid "Active RAM:"
+msgstr "ਕਿਰਿਆਸ਼ੀਲ RAM:"
+
+msgid "Add a row"
+msgstr "ਇੱਕ ਸਤਰ੍ਹ ਜੋੜੋ"
+
+msgid "All available"
+msgstr "ਸਾਰੇ ਉਪਲੱਬਧ"
+
+#, python-format
+msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr "<span> %(used)s </span> ਵੰਡੇ ਗਏ <span> %(available)s </span> ਵਿੱਚੋਂ"
+
+msgid "Available"
+msgstr "ਉਪਲੱਬਧ"
+
+msgid "Back"
+msgstr "ਪਿੱਛੇ"
+
+msgid "Cancel"
+msgstr "ਰੱਦ ਕਰੋ"
+
+msgid "Connect"
+msgstr "ਜੁੜੋ"
+
+msgid "Delete"
+msgstr "ਮਿਟਾਉ"
+
+msgid "Deleted"
+msgstr "ਮਿਟਾਇਆ ਗਿਆ"
+
+#, python-format
+msgid "Displaying %(counter)s item"
+msgid_plural "Displaying %(counter)s items"
+msgstr[0] "%(counter)s ਚੀਜ ਵਿਖਾਈ ਜਾ ਰਹੀ"
+msgstr[1] "%(counter)s ਚੀਜਾਂ ਵਿਖਾਈਆਂ ਜਾ ਰਹੀਆਂ"
+
+msgid "Error: "
+msgstr "ਗਲਤੀ: "
+
+msgid "Fake"
+msgstr "ਨਕਲੀ"
+
+msgid "Filter"
+msgstr "ਛਾਣਨੀ (ਫਿਲਟਰ)"
+
+msgid "Floating IPs"
+msgstr "ਫਲੋਟਿੰਗ IPs"
+
+msgid "Help"
+msgstr "ਮਦਦ"
+
+msgid "Horizon"
+msgstr "Horizon"
+
+msgid "Incorrect format for IP address"
+msgstr "IP ਪਤੇ ਲਈ ਗਲਤ ਬਣਤਰ"
+
+msgid "Info: "
+msgstr "ਜਾਣਕਾਰੀ: "
+
+msgid "Instances"
+msgstr "ਇੰਸਟਾਂਸਜ਼"
+
+msgid "Invalid subnet mask"
+msgstr "ਅਢੁਕਵਾਂ ਸਬਨੈੱਟ ਮਾਸਕ"
+
+msgid "Invalid version for IP address"
+msgstr "IP ਪਤੇ ਲਈ ਅਢੁਕਵਾਂ ਸੰਸਕਰਣ"
+
+msgid "Limit Summary"
+msgstr "ਹੱਦ ਸਾਰ"
+
+msgid "Log In"
+msgstr "ਲਾਗ ਇਨ"
+
+#, python-format
+msgid "Logged in as: %(username)s"
+msgstr "ਇਸ ਨਾਂ ਤੇ ਲਾਗਇਨ: %(username)s"
+
+msgid "Login"
+msgstr "ਲਾਗਇਨ"
+
+#, python-format
+msgid ""
+"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
+msgstr ""
+"ਵੱਖਰੇ ਵਰਤੋਂਕਾਰ ਵਜੋਂ ਲਾਗਇਨ ਹੋਵੋ ਜਾਂ ਵਾਪਸ <a href=\"%(home_url)s\"> ਘਰ ਵਰਕਾ</a> ਤੇ ਜਾਉ।"
+
+msgid "Members"
+msgstr "ਜੀਅ"
+
+msgid "More Actions"
+msgstr "ਹੋਰ ਕਾਰਵਾਈਆਂ"
+
+msgid "N/A"
+msgstr "ਲਾਗੂ ਨਹੀਂ"
+
+msgid "Navigation Item"
+msgstr "ਨੈਵੀਗੇਸ਼ਨ ਚੀਜ਼"
+
+msgid "Never"
+msgstr "ਕਦੇ ਨਹੀਂ"
+
+msgid "Next"
+msgstr "ਅਗਲਾ"
+
+msgid "Next&nbsp;&raquo;"
+msgstr "Next&nbsp;&raquo;"
+
+msgid "No Limit"
+msgstr "ਕੋਈ ਹੱਦ ਨਹੀਂ"
+
+msgid "No items to display."
+msgstr "ਪਰਦਰਸ਼ਿਤ ਕਰਨ ਲਈ ਕੋਈ ਚੀਜ਼ ਨਹੀਂ।"
+
+#, python-format
+msgid "No match returned for the id \"%s\"."
+msgstr "id \"%s\" ਲਈ ਕੁੱਝ ਵੀ ਮੇਲ ਖਾਂਦਾ ਵਾਪਿਸ ਨਹੀਂ ਹੋਇਆ।"
+
+msgid "No members."
+msgstr "ਕੋਈ ਜੀਅ ਨਹੀਂ।"
+
+msgid "None available."
+msgstr "ਕੋਈ ਉਪਲੱਬਧ ਨਹੀਂ"
+
+msgid "Not a valid IP protocol number"
+msgstr "ਇੱਕ ਢੁਕਵਾਂ IP ਜਾਬਤਾ ਅੰਕ ਨਹੀਂ"
+
+msgid "Not a valid port number"
+msgstr "ਇੱਕ ਢੁਕਵਾਂ ਪੋਰਟ ਨੰਬਰ ਨਹੀਂ"
+
+msgid "One colon allowed in port range"
+msgstr "ਪੋਰਟ ਹੱਦ ਵਿੱਚ ਇੱਕ ਕੌਲਨ ਦੀ ਪਰਵਾਨਗੀ ਹੈ"
+
+msgid "Other"
+msgstr "ਹੋਰ"
+
+msgid "Password is not accepted"
+msgstr "ਪਛਾਣ-ਸ਼ਬਦ ਪਰਵਾਨਿਤ ਨਹੀਂ ਹੈ"
+
+msgid "Please log in to continue."
+msgstr "ਜਾਰੀ ਰਹਿਣ ਲਈ ਕਿਰਪਾ ਕਰ ਕੇ ਲਾਗਇਨ ਕਰੋ।"
+
+msgid "Please select a row before taking that action."
+msgstr "ਉਹ ਕਾਰਵਾਈ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਕਿਰਪਾ ਕਰ ਕੇ ਇੱਕ ਸਤਰ੍ਹ ਚੁਣੋ।"
+
+msgid "Port number must be integer"
+msgstr "ਪੋਰਟ ਨੰਬਰ ਦਾ ਅੰਕ ਹੋਣਾ ਲਾਜਮੀ ਹੈ"
+
+msgid "Processing..."
+msgstr "...ਕਾਰਵਾਈ ਚੱਲ ਰਹੀ ਹੈ"
+
+msgid "RAM"
+msgstr "RAM"
+
+msgid "Save"
+msgstr "ਸੰਭਾਲੋ"
+
+msgid "Security Groups"
+msgstr "ਸੁਰੱਖਿਆ ਸਮੂਹ"
+
+#, python-format
+msgid "Select a %s to browse."
+msgstr "ਬਰਾਊਜ਼ ਕਰਨ ਲਈ ਇੱਕ %s ਚੁਣੋ।"
+
+msgid "Select a period of time to query its usage:"
+msgstr "ਇਸਦੀ ਵਰਤੋਂ ਬਾਰੇ ਪੁੱਛ-ਗਿੱਛ ਲਈ ਇੱਕ ਸਮਾਂ ਅੰਤਰਾਲ ਚੁਣੋ:"
+
+#. Translators: test code, don't really have to translate
+msgid "Sell Puppy"
+msgid_plural "Sell Puppies"
+msgstr[0] "ਪਪੀ ਵੇਚੋ"
+msgstr[1] "ਪਪੀ ਵੇਚੋ"
+
+msgid "Session timed out."
+msgstr "ਸੈਸ਼ਨ ਸਮਾਂ ਮਿਆਦ ਪੁੱਗੀ।"
+
+msgid "Sign In"
+msgstr "ਸਾਈਨ ਇਨ ਕਰੋ"
+
+msgid "Sign Out"
+msgstr "ਸਾਈਨ ਆਊਟ"
+
+#. Translators: test code, don't really have to translate
+msgid "Sold Puppy"
+msgid_plural "Sold Puppies"
+msgstr[0] "ਵਿਕਿਆ ਹੋਇਆ ਪਪੀ"
+msgstr[1] "ਵਿਕੇ ਹੋਏ ਪਪੀ"
+
+msgid "Submit"
+msgstr "ਦਾਖਲ ਕਰੋ"
+
+msgid "Success: "
+msgstr "ਸਫਲਤਾ: "
+
+msgid "Summary"
+msgstr "ਸਾਰ"
+
+#, python-format
+msgid "The attribute %(attr)s doesn't exist on %(obj)s."
+msgstr "%(attr)s ਐਟਰੀਬਿਊਟ %(obj)s ਉੱਪਰ ਹੋਂਦ ਨਹੀੰ ਰਖ਼ਦਾ।"
+
+msgid "The date should be in YYYY-mm-dd format."
+msgstr "ਮਿਤੀ YYYY-mm-dd ਤਰਜ ਤੇ ਹੋਣੀ ਚਾਹੀਦੀ ਹੈ।"
+
+msgid "The string may only contain ASCII printable characters."
+msgstr "ਇਸ ਸਤਰ੍ਹ ਵਿੱਚ ਸਿਰਫ਼ ਛਾਪੇ ਜਾ ਸਕਣ ਵਾਲੇ ASCII ਅੱਖਰ ਹੀ ਸ਼ਾਮਲ ਹੋ ਸਕਦੇ ਹਨ।"
+
+msgid "This Period's GB-Hours:"
+msgstr "ਇਸ ਅੰਤਰਾਲ ਦੇ GB-ਘੰਟੇ:"
+
+msgid "This Period's RAM-Hours:"
+msgstr "ਇਸ ਅੰਤਰਾਲ ਦੇ RAM-ਘੰਟੇ:"
+
+msgid "This Period's VCPU-Hours:"
+msgstr "ਇਸ ਅੰਤਰਾਲ ਦੇ VCPU-ਘੰਟੇ:"
+
+msgid "This action cannot be undone."
+msgstr "ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀੰ ਲਈ ਜਾ ਸਕੇਗੀ।"
+
+#, python-format
+msgid "Unable to %(action)s: %(objs)s"
+msgstr "%(action)s ਤੋਂ ਅਸਮਰੱਥ: %(objs)s"
+
+msgid "Unauthorized. Please try logging in again."
+msgstr "ਅਣਅਧਿਕਾਰਤ। ਕਿਰਪਾ ਕਰ ਕੇ ਦੁਬਾਰਾ ਲਾਗਇਨ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+
+#, python-format
+msgid "Unauthorized: %s"
+msgstr "ਅਣ-ਅਧਿਕਾਰਤ ਕੀਤਾ: %s"
+
+msgid "Update"
+msgstr "ਅਪਡੇਟ ਕਰੋ"
+
+msgid "Updated"
+msgstr "ਅਪਡੇਟ ਹੋਇਆ"
+
+msgid "Usage Summary"
+msgstr "ਵਰਤੋਂ ਸਾਰ"
+
+#, python-format
+msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr "<span> %(used)s </span> ਵਰਤੇ <span> %(available)s </span> ਵਿੱਚੋਂ"
+
+msgid "VCPUs"
+msgstr "VCPUs"
+
+msgid "Volume Storage"
+msgstr "ਆਇਤਨ ਭੰਡਾਰਣ"
+
+msgid "Volumes"
+msgstr "ਆਇਤਨ"
+
+msgid "Warning: "
+msgstr "ਚੇਤਾਵਨੀ: "
+
+#, python-format
+msgid "You are not allowed to %(action)s: %(objs)s"
+msgstr "ਤੁਹਾਨੂੰ %(action)s: ਦੀ ਮਨਜੂਰੀ ਨਹੀਂ ਹੈ: %(objs)s"
+
+#, python-format
+msgid "You are not authorized to access %s"
+msgstr "ਤੁਸੀਂ %s ਤੇ ਦਖਲ ਦੇਣ ਲਈ ਅਧਿਕਾਰਤ ਨਹੀਂ ਹੋ"
+
+msgid "You do not have permission to access the resource:"
+msgstr "ਤੁਹਾਡੇ ਕੋਲ ਵਸੀਲੇ ਤੱਕ ਦਖਲ ਦੀ ਪਰਵਾਨਗੀ ਨਹੀਂ ਹੈ:"

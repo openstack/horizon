@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-04-20 07:07+0000\n"
+"POT-Creation-Date: 2015-05-27 03:00-0500\n"
+"PO-Revision-Date: 2015-05-13 19:22+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/"
 "fr/)\n"
@@ -21,254 +21,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-
-msgid "Other"
-msgstr "Autre"
-
-msgid "Navigation Item"
-msgstr "Elément de navigation"
-
-#, python-format
-msgid "Select a %s to browse."
-msgstr "Sélectionner une %s à parcourir."
-
-msgid "Password is not accepted"
-msgstr "Le mot de passe n'est pas accepté"
-
-msgid "Please log in to continue."
-msgstr "Merci de vous connecter pour continuer."
-
-#, python-format
-msgid "You are not authorized to access %s"
-msgstr "Vous n'êtes pas autorisé à accéder à %s"
-
-#, python-format
-msgid "A %(resource)s with the name \"%(name)s\" already exists."
-msgstr "Des %(resource)s avec le nom \"%(name)s\" existent déjà."
-
-#, python-format
-msgid "Unauthorized: %s"
-msgstr "%s : non autorisé"
-
-msgid "Unauthorized. Please try logging in again."
-msgstr "Accès non autorisé. Merci de vous reconnecter."
-
-msgid "Incorrect format for IP address"
-msgstr "Format d'adresse IP incorrect"
-
-msgid "Invalid version for IP address"
-msgstr "Version d'adresse IP invalide"
-
-msgid "Invalid subnet mask"
-msgstr "Masque de sous-réseau invalide"
-
-msgid "Submit"
-msgstr "Envoyer"
-
-msgid "Cancel"
-msgstr "Annuler"
-
-msgid "Session timed out."
-msgstr "La session a expiré."
-
-msgid "Filter"
-msgstr "Filtrer"
-
-msgid "This action cannot be undone."
-msgstr "Cette action ne peut pas être réalisée."
-
-#, python-format
-msgctxt "past"
-msgid "%(action)s %(data_type)s"
-msgstr "%(action)s %(data_type)s"
-
-#, python-format
-msgctxt "present"
-msgid "%(action)s %(data_type)s"
-msgstr "%(action)s %(data_type)s"
-
-#, python-format
-msgid "You are not allowed to %(action)s: %(objs)s"
-msgstr "Vous n'êtes pas autorisé à %(action)s : %(objs)s"
-
-#, python-format
-msgid "Unable to %(action)s: %(objs)s"
-msgstr "Impossible de %(action)s : %(objs)s"
-
-#, python-format
-msgid "%(action)s: %(objs)s"
-msgstr "%(action)s : %(objs)s"
-
-msgid "Delete"
-msgstr "Supprimer"
-
-msgid "Deleted"
-msgstr "Supprimée"
-
-msgid "Update"
-msgstr "Mettre à jour"
-
-msgid "Updated"
-msgstr "Mis à jour"
-
-msgid "-"
-msgstr "-"
-
-#, python-format
-msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "L'attribut %(attr)s n'existe pas sur %(obj)s."
-
-msgid "No items to display."
-msgstr "Aucun élément à afficher."
-
-msgid "Actions"
-msgstr "Actions"
-
-#, python-format
-msgid "No match returned for the id \"%s\"."
-msgstr "Aucun résultat retourné pour l'id \"%s\"."
-
-msgid "Please select a row before taking that action."
-msgstr "Merci de sélectionner une ligne avant de faire cette action."
-
-msgid "N/A"
-msgstr "N/D"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "Utilisateur connecté : %(username)s"
-
-msgid "Help"
-msgstr "Aide"
-
-msgid "Sign Out"
-msgstr "Se déconnecter"
-
-msgid ""
-"\n"
-"      If you are not sure which authentication method to use, contact your "
-"administrator.\n"
-"    "
-msgstr ""
-"\n"
-"Si vous n'êtes pas sûr de la méthode d'identification à utiliser, veuillez "
-"contacter votre administrateur"
-
-msgid "Log In"
-msgstr "Se connecter"
-
-msgid "You do not have permission to access the resource:"
-msgstr "Vous n'avez pas la permission d'accéder à la ressource :"
-
-#, python-format
-msgid ""
-"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
-msgstr ""
-"Connectez-vous avec un autre nom d'utilisateur ou revenez à <a href="
-"\"%(home_url)s\"> la page d’accueil</a>"
-
-msgid "Sign In"
-msgstr "Se connecter"
-
-msgid "Connect"
-msgstr "Connection"
-
-msgid "Login"
-msgstr "Identifiant"
-
-msgid "Info: "
-msgstr "Information :"
-
-msgid "Warning: "
-msgstr "Avertissement :"
-
-msgid "Success: "
-msgstr "Succès :"
-
-msgid "Error: "
-msgstr "Erreur :"
-
-msgid "Summary"
-msgstr "Résumé"
-
-#, python-format
-msgid "Displaying %(counter)s item"
-msgid_plural "Displaying %(counter)s items"
-msgstr[0] "Affichage de %(counter)s item"
-msgstr[1] "Affichage de %(counter)s items"
-
-msgid "&laquo;&nbsp;Prev"
-msgstr "&laquo;&nbsp;Aperçu"
-
-msgid "Next&nbsp;&raquo;"
-msgstr "Suivant&nbsp;&raquo;"
-
-msgid "More Actions"
-msgstr "Plus d'Actions"
-
-#, python-format
-msgid "%(context_name)s:"
-msgstr "%(context_name)s : "
-
-msgid "Add a row"
-msgstr "Ajouter une ligne"
-
-#, python-format
-msgid "%(name)s: %(error)s"
-msgstr "%(name)s : %(error)s"
-
-msgid "Limit Summary"
-msgstr "Synthèse  des Quotas"
-
-msgid "Instances"
-msgstr "Instances"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "<span> %(used)s </span> utilisé(es) sur <span> %(available)s </span>"
-
-msgid "VCPUs"
-msgstr "VCPUs"
-
-msgid "RAM"
-msgstr "RAM"
-
-msgid "Floating IPs"
-msgstr "IP flottantes"
-
-#, python-format
-msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Alloué <span> %(used)s </span> de <span> %(available)s </span>"
-
-msgid "Security Groups"
-msgstr "Groupes de sécurité"
-
-msgid "Volumes"
-msgstr "Volumes"
-
-msgid "Volume Storage"
-msgstr "Stockage de volumes"
-
-msgid "Save"
-msgstr "Enregistrer"
-
-#, python-format
-msgid "Displaying %(nav_items)s item"
-msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] "Affichage de l'item %(nav_items)s"
-msgstr[1] "Affichage des items %(nav_items)s"
-
-#, python-format
-msgid "Displaying %(content_items)s item"
-msgid_plural "Displaying %(content_items)s items"
-msgstr[0] "Affichage de l'item %(content_items)s"
-msgstr[1] "Affichage des items %(content_items)s"
-
-msgid "Usage Summary"
-msgstr "Résumé de l'Utilisation"
-
-msgid "Select a period of time to query its usage:"
-msgstr "Sélectionnez une période de temps pour interroger son utilisation :"
 
 #, python-format
 msgid ""
@@ -286,44 +38,47 @@ msgstr ""
 "\n"
 "<label>au :</label>%(end)s"
 
-msgid "The date should be in YYYY-mm-dd format."
-msgstr "La date doit être au format AAAA-mm-jj"
+msgid ""
+"\n"
+"      If you are not sure which authentication method to use, contact your "
+"administrator.\n"
+"    "
+msgstr ""
+"\n"
+"Si vous n'êtes pas sûr de la méthode d'identification à utiliser, veuillez "
+"contacter votre administrateur"
 
-msgid "Active Instances:"
-msgstr "Instances Actives :"
+#, python-format
+msgctxt "past"
+msgid "%(action)s %(data_type)s"
+msgstr "%(action)s %(data_type)s"
 
-msgid "Active RAM:"
-msgstr "RAM Active :"
+#, python-format
+msgctxt "present"
+msgid "%(action)s %(data_type)s"
+msgstr "%(action)s %(data_type)s"
 
-msgid "This Period's VCPU-Hours:"
-msgstr "VCPU-Heures de cette Période :"
+#, python-format
+msgid "%(action)s: %(objs)s"
+msgstr "%(action)s : %(objs)s"
 
-msgid "This Period's GB-Hours:"
-msgstr "GB-Heures de cette période :"
+#, python-format
+msgid "%(context_name)s:"
+msgstr "%(context_name)s : "
 
-msgid "This Period's RAM-Hours:"
-msgstr "Dans cette période RAM-Heures:"
-
-msgid "Back"
-msgstr "Retour"
-
-msgid "Next"
-msgstr "Suivant"
-
-msgid "Horizon"
-msgstr "Horizon"
-
-msgid "No Limit"
-msgstr "Pas de limite"
-
-msgid "Available"
-msgstr "disponible(s)"
+#, python-format
+msgid "%(name)s: %(error)s"
+msgstr "%(name)s : %(error)s"
 
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
 msgstr[0] "%(size)d Octet"
 msgstr[1] "%(size)d Octets"
+
+#, python-format
+msgid "%s GB"
+msgstr "%s Go"
 
 #, python-format
 msgid "%s KB"
@@ -334,67 +89,12 @@ msgid "%s MB"
 msgstr "%s Mo"
 
 #, python-format
-msgid "%s GB"
-msgstr "%s Go"
+msgid "%s PB"
+msgstr "%s Po"
 
 #, python-format
 msgid "%s TB"
 msgstr "%s To"
-
-#, python-format
-msgid "%s PB"
-msgstr "%s Po"
-
-msgid "0 Bytes"
-msgstr "0 Octets"
-
-#. Translators: test code, don't really have to translate
-msgid "Sell Puppy"
-msgid_plural "Sell Puppies"
-msgstr[0] "Chiot à vendre"
-msgstr[1] "Chiots à vendre"
-
-#. Translators: test code, don't really have to translate
-msgid "Sold Puppy"
-msgid_plural "Sold Puppies"
-msgstr[0] "Chiot vendu"
-msgstr[1] "Chiots Vendus"
-
-msgid "Fake"
-msgstr "Faux"
-
-msgid "Never"
-msgstr "Jamais"
-
-msgid "Not a valid port number"
-msgstr "Numéro de port invalide"
-
-msgid "Not a valid IP protocol number"
-msgstr "Numéro de protocole IP invalide "
-
-msgid "One colon allowed in port range"
-msgstr "Un seul caractère deux-points autorisé dans une plage de ports"
-
-msgid "Port number must be integer"
-msgstr "Le numéro de port doit être un nombre entier"
-
-msgid "The string may only contain ASCII printable characters."
-msgstr "La chaîne ne peut contenir que des caractères ASCII imprimables."
-
-msgid "Processing..."
-msgstr "Traitement en cours..."
-
-msgid "All available"
-msgstr "Disponibles"
-
-msgid "Members"
-msgstr "Membres"
-
-msgid "None available."
-msgstr "Aucun disponible."
-
-msgid "No members."
-msgstr "Aucun membre."
 
 #, python-format
 msgid "%s completed successfully."
@@ -403,3 +103,303 @@ msgstr "%s terminé avec succès."
 #, python-format
 msgid "%s did not complete."
 msgstr "%s ne s'est pas terminé."
+
+msgid "&laquo;&nbsp;Prev"
+msgstr "&laquo;&nbsp;Aperçu"
+
+msgid "-"
+msgstr "-"
+
+msgid "0 Bytes"
+msgstr "0 Octets"
+
+#, python-format
+msgid "A %(resource)s with the name \"%(name)s\" already exists."
+msgstr "Des %(resource)s avec le nom \"%(name)s\" existent déjà."
+
+msgid "Actions"
+msgstr "Actions"
+
+msgid "Active Instances:"
+msgstr "Instances Actives :"
+
+msgid "Active RAM:"
+msgstr "RAM Active :"
+
+msgid "Add a row"
+msgstr "Ajouter une ligne"
+
+msgid "All available"
+msgstr "Disponibles"
+
+#, python-format
+msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr "Alloué <span> %(used)s </span> de <span> %(available)s </span>"
+
+msgid "Available"
+msgstr "disponible(s)"
+
+msgid "Back"
+msgstr "Retour"
+
+msgid "Cancel"
+msgstr "Annuler"
+
+msgid "Connect"
+msgstr "Connection"
+
+msgid "Delete"
+msgstr "Supprimer"
+
+msgid "Deleted"
+msgstr "Supprimée"
+
+#, python-format
+msgid "Displaying %(content_items)s item"
+msgid_plural "Displaying %(content_items)s items"
+msgstr[0] "Affichage de l'item %(content_items)s"
+msgstr[1] "Affichage des items %(content_items)s"
+
+#, python-format
+msgid "Displaying %(counter)s item"
+msgid_plural "Displaying %(counter)s items"
+msgstr[0] "Affichage de %(counter)s item"
+msgstr[1] "Affichage de %(counter)s items"
+
+#, python-format
+msgid "Displaying %(nav_items)s item"
+msgid_plural "Displaying %(nav_items)s items"
+msgstr[0] "Affichage de l'item %(nav_items)s"
+msgstr[1] "Affichage des items %(nav_items)s"
+
+msgid "Error: "
+msgstr "Erreur :"
+
+msgid "Fake"
+msgstr "Faux"
+
+msgid "Filter"
+msgstr "Filtrer"
+
+msgid "Floating IPs"
+msgstr "IP flottantes"
+
+msgid "Help"
+msgstr "Aide"
+
+msgid "Horizon"
+msgstr "Horizon"
+
+msgid "Incorrect format for IP address"
+msgstr "Format d'adresse IP incorrect"
+
+msgid "Info: "
+msgstr "Information :"
+
+msgid "Instances"
+msgstr "Instances"
+
+msgid "Invalid subnet mask"
+msgstr "Masque de sous-réseau invalide"
+
+msgid "Invalid version for IP address"
+msgstr "Version d'adresse IP invalide"
+
+msgid "Limit Summary"
+msgstr "Synthèse  des Quotas"
+
+msgid "Log In"
+msgstr "Se connecter"
+
+#, python-format
+msgid "Logged in as: %(username)s"
+msgstr "Utilisateur connecté : %(username)s"
+
+msgid "Login"
+msgstr "Identifiant"
+
+#, python-format
+msgid ""
+"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
+msgstr ""
+"Connectez-vous avec un autre nom d'utilisateur ou revenez à <a href="
+"\"%(home_url)s\"> la page d’accueil</a>"
+
+msgid "Members"
+msgstr "Membres"
+
+msgid "More Actions"
+msgstr "Plus d'Actions"
+
+msgid "N/A"
+msgstr "N/D"
+
+msgid "Navigation Item"
+msgstr "Elément de navigation"
+
+msgid "Never"
+msgstr "Jamais"
+
+msgid "Next"
+msgstr "Suivant"
+
+msgid "Next&nbsp;&raquo;"
+msgstr "Suivant&nbsp;&raquo;"
+
+msgid "No Limit"
+msgstr "Pas de limite"
+
+msgid "No items to display."
+msgstr "Aucun élément à afficher."
+
+#, python-format
+msgid "No match returned for the id \"%s\"."
+msgstr "Aucun résultat retourné pour l'id \"%s\"."
+
+msgid "No members."
+msgstr "Aucun membre."
+
+msgid "None available."
+msgstr "Aucun disponible."
+
+msgid "Not a valid IP protocol number"
+msgstr "Numéro de protocole IP invalide "
+
+msgid "Not a valid port number"
+msgstr "Numéro de port invalide"
+
+msgid "One colon allowed in port range"
+msgstr "Un seul caractère deux-points autorisé dans une plage de ports"
+
+msgid "Other"
+msgstr "Autre"
+
+msgid "Password is not accepted"
+msgstr "Le mot de passe n'est pas accepté"
+
+msgid "Please log in to continue."
+msgstr "Merci de vous connecter pour continuer."
+
+msgid "Please select a row before taking that action."
+msgstr "Merci de sélectionner une ligne avant de faire cette action."
+
+msgid "Port number must be integer"
+msgstr "Le numéro de port doit être un nombre entier"
+
+msgid "Processing..."
+msgstr "Traitement en cours..."
+
+msgid "RAM"
+msgstr "RAM"
+
+msgid "Save"
+msgstr "Enregistrer"
+
+msgid "Security Groups"
+msgstr "Groupes de sécurité"
+
+#, python-format
+msgid "Select a %s to browse."
+msgstr "Sélectionner une %s à parcourir."
+
+msgid "Select a period of time to query its usage:"
+msgstr "Sélectionnez une période de temps pour interroger son utilisation :"
+
+#. Translators: test code, don't really have to translate
+msgid "Sell Puppy"
+msgid_plural "Sell Puppies"
+msgstr[0] "Chiot à vendre"
+msgstr[1] "Chiots à vendre"
+
+msgid "Session timed out."
+msgstr "La session a expiré."
+
+msgid "Sign In"
+msgstr "Se connecter"
+
+msgid "Sign Out"
+msgstr "Se déconnecter"
+
+#. Translators: test code, don't really have to translate
+msgid "Sold Puppy"
+msgid_plural "Sold Puppies"
+msgstr[0] "Chiot vendu"
+msgstr[1] "Chiots Vendus"
+
+msgid "Submit"
+msgstr "Envoyer"
+
+msgid "Success: "
+msgstr "Succès :"
+
+msgid "Summary"
+msgstr "Résumé"
+
+#, python-format
+msgid "The attribute %(attr)s doesn't exist on %(obj)s."
+msgstr "L'attribut %(attr)s n'existe pas sur %(obj)s."
+
+msgid "The date should be in YYYY-mm-dd format."
+msgstr "La date doit être au format AAAA-mm-jj"
+
+msgid "The string may only contain ASCII printable characters."
+msgstr "La chaîne ne peut contenir que des caractères ASCII imprimables."
+
+msgid "This Period's GB-Hours:"
+msgstr "GB-Heures de cette période :"
+
+msgid "This Period's RAM-Hours:"
+msgstr "Dans cette période RAM-Heures:"
+
+msgid "This Period's VCPU-Hours:"
+msgstr "VCPU-Heures de cette Période :"
+
+msgid "This action cannot be undone."
+msgstr "Cette action ne peut pas être réalisée."
+
+#, python-format
+msgid "Unable to %(action)s: %(objs)s"
+msgstr "Impossible de %(action)s : %(objs)s"
+
+msgid "Unauthorized. Please try logging in again."
+msgstr "Accès non autorisé. Merci de vous reconnecter."
+
+#, python-format
+msgid "Unauthorized: %s"
+msgstr "%s : non autorisé"
+
+msgid "Update"
+msgstr "Mettre à jour"
+
+msgid "Updated"
+msgstr "Mis à jour"
+
+msgid "Usage Summary"
+msgstr "Résumé de l'Utilisation"
+
+#, python-format
+msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr "<span> %(used)s </span> utilisé(es) sur <span> %(available)s </span>"
+
+msgid "VCPUs"
+msgstr "VCPUs"
+
+msgid "Volume Storage"
+msgstr "Stockage de volumes"
+
+msgid "Volumes"
+msgstr "Volumes"
+
+msgid "Warning: "
+msgstr "Avertissement :"
+
+#, python-format
+msgid "You are not allowed to %(action)s: %(objs)s"
+msgstr "Vous n'êtes pas autorisé à %(action)s : %(objs)s"
+
+#, python-format
+msgid "You are not authorized to access %s"
+msgstr "Vous n'êtes pas autorisé à accéder à %s"
+
+msgid "You do not have permission to access the resource:"
+msgstr "Vous n'avez pas la permission d'accéder à la ressource :"

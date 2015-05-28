@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"POT-Creation-Date: 2015-05-27 03:01-0500\n"
 "PO-Revision-Date: 2015-05-27 03:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Telugu (India) (http://www.transifex.com/projects/p/horizon/"
@@ -23,24 +23,55 @@ msgid "%s GB"
 msgstr "%s GB"
 
 #, c-format
-msgid "%s TB"
-msgstr "%s TB"
-
-#, c-format
 msgid "%s KB"
 msgstr "%s KB"
 
-msgid "Filter"
-msgstr "వడియగట్టు"
+#, c-format
+msgid "%s TB"
+msgstr "%s TB"
+
+msgid "Add Interface"
+msgstr "ఇంటర్ఫేస్ ను చేర్చు"
+
+msgid "An error occurred while updating."
+msgstr "సవరించు పక్రియ లో లోపము జరిగినది."
+
+msgid "An error occurred. Please try again later."
+msgstr "లోపము జరిగినది.  దయచేసి మరల  ప్రయత్నించండి"
+
+msgid "Available"
+msgstr "లభ్యమగును"
 
 msgid "Cancel"
 msgstr "రద్దుచేయు"
 
+#, c-format
+msgid "Confirm %s"
+msgstr " %s  ను ధ్రువీకరించు "
+
+msgid "Could not decrypt the password"
+msgstr "సంకేత పదాన్ని  డీక్రిప్షన్ చేయలేము"
+
+msgid "Could not read the file"
+msgstr "దస్త్రం ను చదవలేము"
+
+msgid "Danger: "
+msgstr "అపాయం"
+
+msgid "Error: "
+msgstr "లోపము"
+
+msgid "Filter"
+msgstr "వడియగట్టు"
+
+msgid "ID"
+msgstr "ID"
+
 msgid "Info"
 msgstr "సమాచారం"
 
-msgid "Available"
-msgstr "లభ్యమగును"
+msgid "Interfaces"
+msgstr "ఇంటర్ఫేస్స్"
 
 msgid "Loading"
 msgstr "లొడవుతుంది"
@@ -48,73 +79,42 @@ msgstr "లొడవుతుంది"
 msgid "No data available."
 msgstr "  సమాచారం అందుబాటు లో లేదు"
 
-msgid "An error occurred. Please try again later."
-msgstr "లోపము జరిగినది.  దయచేసి మరల  ప్రయత్నించండి"
-
-msgid "There was a problem communicating with the server, please try again."
-msgstr "సర్వరు తొ సంభాషించుటలో లోపము జరిగినది. దయచేసి మరల  ప్రయత్నించండి"
-
-msgid "Could not read the file"
-msgstr "దస్త్రం ను చదవలేము"
-
-msgid "Could not decrypt the password"
-msgstr "సంకేత పదాన్ని  డీక్రిప్షన్ చేయలేము"
+msgid "No items to display."
+msgstr "ప్రదర్శించుటకు ఎటువంటి  అంశము/అయిటము  లు లేవు"
 
 msgid "No roles"
 msgstr "ఏటువంటి పాత్రలు లేవు"
 
-msgid "Roles"
-msgstr "పాత్రలు"
-
-msgid "Danger: "
-msgstr "అపాయం"
-
-msgid "Warning: "
-msgstr "హెచ్చరిక"
+msgid "Not authorized to do this operation."
+msgstr "ఈ పని చేయుటకు అనుమతి లేదు"
 
 msgid "Notice: "
 msgstr "నోటీసు "
 
-msgid "Success: "
-msgstr "సఫలత"
+msgid "Passwords do not match."
+msgstr "సంకేత పదాలు  సరిపోలడం లేదు. "
 
-msgid "Error: "
-msgstr "లోపము"
-
-msgid "Working"
-msgstr "పనిచేస్తున్నది"
-
-msgid "There was an error submitting the form. Please try again."
-msgstr "ఫారం దాఖలుచేయుటలో లోపము ఎర్పడినది.  దయచేసి తిరిగి ప్రయత్నించండి."
+msgid "Roles"
+msgstr "పాత్రలు"
 
 msgid "STATUS"
 msgstr "స్టేటస్‌"
 
-msgid "ID"
-msgstr "ID"
+msgid "Success: "
+msgstr "సఫలత"
 
-msgid "Interfaces"
-msgstr "ఇంటర్ఫేస్స్"
+msgid "There was a problem communicating with the server, please try again."
+msgstr "సర్వరు తొ సంభాషించుటలో లోపము జరిగినది. దయచేసి మరల  ప్రయత్నించండి"
 
-msgid "Add Interface"
-msgstr "ఇంటర్ఫేస్ ను చేర్చు"
+msgid "There was an error submitting the form. Please try again."
+msgstr "ఫారం దాఖలుచేయుటలో లోపము ఎర్పడినది.  దయచేసి తిరిగి ప్రయత్నించండి."
 
-msgid "No items to display."
-msgstr "ప్రదర్శించుటకు ఎటువంటి  అంశము/అయిటము  లు లేవు"
+msgid "Warning: "
+msgstr "హెచ్చరిక"
 
-msgid "An error occurred while updating."
-msgstr "సవరించు పక్రియ లో లోపము జరిగినది."
+msgid "Working"
+msgstr "పనిచేస్తున్నది"
 
 #, c-format
 msgid "You have selected %s. "
 msgstr "%s ను మీరు ఎంపిక చేసుకొన్నారు"
-
-#, c-format
-msgid "Confirm %s"
-msgstr " %s  ను ధ్రువీకరించు "
-
-msgid "Not authorized to do this operation."
-msgstr "ఈ పని చేయుటకు అనుమతి లేదు"
-
-msgid "Passwords do not match."
-msgstr "సంకేత పదాలు  సరిపోలడం లేదు. "

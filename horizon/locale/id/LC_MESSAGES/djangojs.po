@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"POT-Creation-Date: 2015-05-27 03:01-0500\n"
 "PO-Revision-Date: 2015-05-27 03:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/horizon/"
@@ -23,6 +23,10 @@ msgid "%s GB"
 msgstr "%s GB"
 
 #, c-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#, c-format
 msgid "%s MB"
 msgstr "%s MB"
 
@@ -30,51 +34,117 @@ msgstr "%s MB"
 msgid "%s TB"
 msgstr "%s TB"
 
-#, c-format
-msgid "%s KB"
-msgstr "%s KB"
+msgid "Add Interface"
+msgstr "Menambahkan antarmuka"
 
-msgid "Duplicate keys are not allowed"
-msgstr "Duplikasi kata kunci tidak diperbolehkan"
+msgid "An error occurred while updating."
+msgstr "Kesalahan terjadi saat melakukan pembaharuan."
 
-msgid "Filter"
-msgstr "Penyaring"
-
-msgid "Available Metadata"
-msgstr "Metadata yang tersedia"
-
-msgid "Existing Metadata"
-msgstr "Metadata yang sudah ada"
-
-msgid "No available metadata"
-msgstr "Metadata tidak tersedia"
-
-msgid "No existing metadata"
-msgstr "Tidak ada metadata yang sudah ada"
-
-msgid "Submit"
-msgstr "Kirim"
-
-msgid "Cancel"
-msgstr "Batal"
-
-msgid "Info"
-msgstr "Info"
-
-msgid "Error"
-msgstr "Error"
+msgid "An error occurred. Please try again later."
+msgstr "Tejadi kesalahan. Silahkan coba kembali."
 
 msgid "Available"
 msgstr "Tersedia"
 
+msgid "Available Metadata"
+msgstr "Metadata yang tersedia"
+
 msgid "Back"
 msgstr "Kembali"
+
+msgid "Cancel"
+msgstr "Batal"
+
+#, c-format
+msgid "Confirm %s"
+msgstr "Memastikan %s"
+
+msgid "Could not decrypt the password"
+msgstr "Password tidak dapat terdekripsi "
+
+msgid "Could not read the file"
+msgstr "File tidak terbaca"
+
+msgid "Danger: "
+msgstr "Berbahaya:"
+
+msgid "Delete"
+msgstr "Hapus"
+
+msgid "Duplicate keys are not allowed"
+msgstr "Duplikasi kata kunci tidak diperbolehkan"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Error: "
+msgstr "Kesalahan:"
+
+msgid "Existing Metadata"
+msgstr "Metadata yang sudah ada"
+
+msgid "Filter"
+msgstr "Penyaring"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Info"
+msgstr "Info"
+
+msgid "Interfaces"
+msgstr "Antarmuka"
+
+msgid "Loading"
+msgstr "Menampilkan"
 
 msgid "Next"
 msgstr "Berikutnya"
 
-msgid "Unable to retrieve volume snapshots."
-msgstr "Tidak dapat mengambil snapshot-snapshot volume."
+msgid "No available metadata"
+msgstr "Metadata tidak tersedia"
+
+msgid "No data available."
+msgstr "Data tidak tersedia."
+
+msgid "No existing metadata"
+msgstr "Tidak ada metadata yang sudah ada"
+
+msgid "No items to display."
+msgstr "Tidak ada yang ditampilkan"
+
+msgid "No roles"
+msgstr "Bukan aturan"
+
+msgid "None"
+msgstr "Tidak ada"
+
+msgid "Not authorized to do this operation."
+msgstr "Tidak ada wewenang untuk melakukan tindakan ini."
+
+msgid "Notice: "
+msgstr "Pemberitahuan:"
+
+msgid "Passwords do not match."
+msgstr "Password berbeda."
+
+msgid "Roles"
+msgstr "Aturan"
+
+msgid "STATUS"
+msgstr "STATUS"
+
+msgid "Submit"
+msgstr "Kirim"
+
+msgid "Success: "
+msgstr "Berhasil:"
+
+msgid "There was a problem communicating with the server, please try again."
+msgstr "Ada masalah komunikasi dengan server, mohon di coba kembali."
+
+msgid "There was an error submitting the form. Please try again."
+msgstr "Terjadi kesalahan pengiriman formulir. Silahkan coba kembai."
 
 msgid "Unable to retrieve image."
 msgstr "Tidak dapat mengambil image"
@@ -82,88 +152,18 @@ msgstr "Tidak dapat mengambil image"
 msgid "Unable to retrieve images."
 msgstr "Tidak dapat mengambil image."
 
-msgid "Loading"
-msgstr "Menampilkan"
-
-msgid "No data available."
-msgstr "Data tidak tersedia."
-
-msgid "An error occurred. Please try again later."
-msgstr "Tejadi kesalahan. Silahkan coba kembali."
-
-msgid "There was a problem communicating with the server, please try again."
-msgstr "Ada masalah komunikasi dengan server, mohon di coba kembali."
-
-msgid "Could not read the file"
-msgstr "File tidak terbaca"
-
-msgid "Could not decrypt the password"
-msgstr "Password tidak dapat terdekripsi "
-
-msgid "No roles"
-msgstr "Bukan aturan"
-
-msgid "Roles"
-msgstr "Aturan"
-
-msgid "Danger: "
-msgstr "Berbahaya:"
-
-msgid "Warning: "
-msgstr "Peringatan:"
-
-msgid "Notice: "
-msgstr "Pemberitahuan:"
-
-msgid "Success: "
-msgstr "Berhasil:"
-
-msgid "Error: "
-msgstr "Kesalahan:"
-
-msgid "Working"
-msgstr "Bekerja"
-
-msgid "There was an error submitting the form. Please try again."
-msgstr "Terjadi kesalahan pengiriman formulir. Silahkan coba kembai."
-
-msgid "None"
-msgstr "Tidak ada"
-
-msgid "Delete"
-msgstr "Hapus"
-
-msgid "STATUS"
-msgstr "STATUS"
-
-msgid "ID"
-msgstr "ID"
-
-msgid "Interfaces"
-msgstr "Antarmuka"
+msgid "Unable to retrieve volume snapshots."
+msgstr "Tidak dapat mengambil snapshot-snapshot volume."
 
 msgid "View Details"
 msgstr "Melihat rincian"
 
-msgid "Add Interface"
-msgstr "Menambahkan antarmuka"
+msgid "Warning: "
+msgstr "Peringatan:"
 
-msgid "No items to display."
-msgstr "Tidak ada yang ditampilkan"
-
-msgid "An error occurred while updating."
-msgstr "Kesalahan terjadi saat melakukan pembaharuan."
+msgid "Working"
+msgstr "Bekerja"
 
 #, c-format
 msgid "You have selected %s. "
 msgstr "Anda memilih %s. "
-
-#, c-format
-msgid "Confirm %s"
-msgstr "Memastikan %s"
-
-msgid "Not authorized to do this operation."
-msgstr "Tidak ada wewenang untuk melakukan tindakan ini."
-
-msgid "Passwords do not match."
-msgstr "Password berbeda."

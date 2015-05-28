@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
+"POT-Creation-Date: 2015-05-27 03:00-0500\n"
 "PO-Revision-Date: 2015-04-20 07:07+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/"
@@ -19,249 +19,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-msgid "Other"
-msgstr "기타"
-
-msgid "Navigation Item"
-msgstr "네비게이션 항목"
-
-#, python-format
-msgid "Select a %s to browse."
-msgstr "브라우져에서 %s를 선택하십시오."
-
-msgid "Password is not accepted"
-msgstr "허용되지 않는 비밀번호입니다."
-
-msgid "Please log in to continue."
-msgstr "계속 진행하려면 로그인하십시오."
-
-#, python-format
-msgid "You are not authorized to access %s"
-msgstr "%s에 접근 권한이 없습니다. "
-
-#, python-format
-msgid "A %(resource)s with the name \"%(name)s\" already exists."
-msgstr "이름 \"%(name)s\"과 %(resource)s이 이미 존재합니다."
-
-#, python-format
-msgid "Unauthorized: %s"
-msgstr "권한이 없습니다: %s"
-
-msgid "Unauthorized. Please try logging in again."
-msgstr "권한이 없습니다. 다시 로그인 해주십시오."
-
-msgid "Incorrect format for IP address"
-msgstr "IP 주소 형식이 잘못 되었습니다."
-
-msgid "Invalid version for IP address"
-msgstr "IP 주소 버전이 잘못되었습니다."
-
-msgid "Invalid subnet mask"
-msgstr "서브넷 마스크가 잘못되었습니다."
-
-msgid "Submit"
-msgstr "제출"
-
-msgid "Cancel"
-msgstr "취소"
-
-msgid "Session timed out."
-msgstr "세션 타임 아웃."
-
-msgid "Filter"
-msgstr "필터"
-
-msgid "This action cannot be undone."
-msgstr "이 작업은 취소할 수 없습니다."
-
-#, python-format
-msgctxt "past"
-msgid "%(action)s %(data_type)s"
-msgstr "%(data_type)s %(action)s"
-
-#, python-format
-msgctxt "present"
-msgid "%(action)s %(data_type)s"
-msgstr "%(data_type)s %(action)s"
-
-#, python-format
-msgid "You are not allowed to %(action)s: %(objs)s"
-msgstr " %(action)s 이(가) 허용되지 않습니다: %(objs)s "
-
-#, python-format
-msgid "Unable to %(action)s: %(objs)s"
-msgstr "%(action)s을(를) 할 수 없습니다.: %(objs)s"
-
-#, python-format
-msgid "%(action)s: %(objs)s"
-msgstr "%(action)s: %(objs)s"
-
-msgid "Delete"
-msgstr "삭제"
-
-msgid "Deleted"
-msgstr "삭제 완료"
-
-msgid "Update"
-msgstr "업데이트"
-
-msgid "Updated"
-msgstr "업데이트 완료"
-
-msgid "-"
-msgstr "-"
-
-#, python-format
-msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "%(obj)s 에 %(attr)s 속성이 없습니다."
-
-msgid "No items to display."
-msgstr "표시할 항목이 없습니다."
-
-msgid "Actions"
-msgstr "작업"
-
-#, python-format
-msgid "No match returned for the id \"%s\"."
-msgstr "ID \"%s\" 에 일치되는 항목이 없습니다."
-
-msgid "Please select a row before taking that action."
-msgstr "해당 작업을 실행하기 전에 열(row)을 선택하십시오."
-
-msgid "N/A"
-msgstr "N/A"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "로그인됨: %(username)s"
-
-msgid "Help"
-msgstr "도움말"
-
-msgid "Sign Out"
-msgstr "로그아웃"
-
-msgid ""
-"\n"
-"      If you are not sure which authentication method to use, contact your "
-"administrator.\n"
-"    "
-msgstr ""
-"\n"
-"당신이 인증 방법을 모르는경우, 관리자에게 문의하십시오."
-
-msgid "Log In"
-msgstr "로그인"
-
-msgid "You do not have permission to access the resource:"
-msgstr "당신은 리소스에 접근할 권한이 없습니다.:"
-
-#, python-format
-msgid ""
-"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
-msgstr ""
-"다른 사용자로 로그인하거나 <a href=\"%(home_url)s\">홈페이지</a>로 되돌아가기"
-
-msgid "Sign In"
-msgstr "등록"
-
-msgid "Connect"
-msgstr "연결"
-
-msgid "Login"
-msgstr "로그인"
-
-msgid "Info: "
-msgstr "정보:"
-
-msgid "Warning: "
-msgstr "경고:"
-
-msgid "Success: "
-msgstr "완료:"
-
-msgid "Error: "
-msgstr "오류:"
-
-msgid "Summary"
-msgstr "요약"
-
-#, python-format
-msgid "Displaying %(counter)s item"
-msgid_plural "Displaying %(counter)s items"
-msgstr[0] "%(counter)s 항목 표시"
-
-msgid "&laquo;&nbsp;Prev"
-msgstr "&laquo;&nbsp;이전"
-
-msgid "Next&nbsp;&raquo;"
-msgstr "다음&nbsp;&raquo;"
-
-msgid "More Actions"
-msgstr "기타 작업"
-
-#, python-format
-msgid "%(context_name)s:"
-msgstr "%(context_name)s:"
-
-msgid "Add a row"
-msgstr "열 추가"
-
-#, python-format
-msgid "%(name)s: %(error)s"
-msgstr "%(name)s: %(error)s"
-
-msgid "Limit Summary"
-msgstr "간략한 요약"
-
-msgid "Instances"
-msgstr "인스턴스"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "<span> %(available)s </span> 중에서 <span> %(used)s </span> 사용"
-
-msgid "VCPUs"
-msgstr "VCPUs"
-
-msgid "RAM"
-msgstr "RAM"
-
-msgid "Floating IPs"
-msgstr "유동 IP"
-
-#, python-format
-msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "<span> %(available)s </span> 중에서 <span> %(used)s </span> 할당"
-
-msgid "Security Groups"
-msgstr "보안 그룹"
-
-msgid "Volumes"
-msgstr "볼륨"
-
-msgid "Volume Storage"
-msgstr "볼륨 스토리지"
-
-msgid "Save"
-msgstr "저장"
-
-#, python-format
-msgid "Displaying %(nav_items)s item"
-msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] "%(nav_items)s 항목 표시"
-
-#, python-format
-msgid "Displaying %(content_items)s item"
-msgid_plural "Displaying %(content_items)s items"
-msgstr[0] "%(content_items)s 항목 표시"
-
-msgid "Usage Summary"
-msgstr "사용량 요약"
-
-msgid "Select a period of time to query its usage:"
-msgstr "사용량을 조회할 기간을 선택하세요:"
 
 #, python-format
 msgid ""
@@ -279,43 +36,45 @@ msgstr ""
 "\n"
 "<label>끝:</label>%(end)s"
 
-msgid "The date should be in YYYY-mm-dd format."
-msgstr "날짜는 YYYY-mm-dd 형식이어야 합니다."
+msgid ""
+"\n"
+"      If you are not sure which authentication method to use, contact your "
+"administrator.\n"
+"    "
+msgstr ""
+"\n"
+"당신이 인증 방법을 모르는경우, 관리자에게 문의하십시오."
 
-msgid "Active Instances:"
-msgstr "동작 중인 인스턴스:"
+#, python-format
+msgctxt "past"
+msgid "%(action)s %(data_type)s"
+msgstr "%(data_type)s %(action)s"
 
-msgid "Active RAM:"
-msgstr "사용 중인 RAM:"
+#, python-format
+msgctxt "present"
+msgid "%(action)s %(data_type)s"
+msgstr "%(data_type)s %(action)s"
 
-msgid "This Period's VCPU-Hours:"
-msgstr "이 기간의 VCPU 사용 시간:"
+#, python-format
+msgid "%(action)s: %(objs)s"
+msgstr "%(action)s: %(objs)s"
 
-msgid "This Period's GB-Hours:"
-msgstr "이 기간의 GB-Hours 사용 시간:"
+#, python-format
+msgid "%(context_name)s:"
+msgstr "%(context_name)s:"
 
-msgid "This Period's RAM-Hours:"
-msgstr "이 기간의 RAM 사용 시간:"
-
-msgid "Back"
-msgstr "뒤로"
-
-msgid "Next"
-msgstr "다음"
-
-msgid "Horizon"
-msgstr "Horizon"
-
-msgid "No Limit"
-msgstr "제한 없음"
-
-msgid "Available"
-msgstr "사용 가능"
+#, python-format
+msgid "%(name)s: %(error)s"
+msgstr "%(name)s: %(error)s"
 
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
 msgstr[0] "%(size)d 바이트"
+
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
 
 #, python-format
 msgid "%s KB"
@@ -326,65 +85,12 @@ msgid "%s MB"
 msgstr "%s MB"
 
 #, python-format
-msgid "%s GB"
-msgstr "%s GB"
+msgid "%s PB"
+msgstr "%s PB"
 
 #, python-format
 msgid "%s TB"
 msgstr "%s TB"
-
-#, python-format
-msgid "%s PB"
-msgstr "%s PB"
-
-msgid "0 Bytes"
-msgstr "0 Bytes"
-
-#. Translators: test code, don't really have to translate
-msgid "Sell Puppy"
-msgid_plural "Sell Puppies"
-msgstr[0] "강아지 판매"
-
-#. Translators: test code, don't really have to translate
-msgid "Sold Puppy"
-msgid_plural "Sold Puppies"
-msgstr[0] "강아지 판매함"
-
-msgid "Fake"
-msgstr "페이크"
-
-msgid "Never"
-msgstr "없음"
-
-msgid "Not a valid port number"
-msgstr "유효하지 않은 포트 번호"
-
-msgid "Not a valid IP protocol number"
-msgstr "유효하지 않은 IP 프로토콜 번호"
-
-msgid "One colon allowed in port range"
-msgstr "포트 범위에서 콜론은 하나만 사용할 수 있습니다."
-
-msgid "Port number must be integer"
-msgstr "포트 번호는 정수이어야 합니다."
-
-msgid "The string may only contain ASCII printable characters."
-msgstr "문자열은 ASCII 인쇄 문자를 포함할 수 있습니다."
-
-msgid "Processing..."
-msgstr "작업 중..."
-
-msgid "All available"
-msgstr "모두 사용가능"
-
-msgid "Members"
-msgstr "구성원"
-
-msgid "None available."
-msgstr "사용할 수 있는 것이 없음."
-
-msgid "No members."
-msgstr "구성원이 없습니다."
 
 #, python-format
 msgid "%s completed successfully."
@@ -393,3 +99,297 @@ msgstr "%s가 성공적으로 완료되었습니다."
 #, python-format
 msgid "%s did not complete."
 msgstr "%s가 완료되지 않았습니다."
+
+msgid "&laquo;&nbsp;Prev"
+msgstr "&laquo;&nbsp;이전"
+
+msgid "-"
+msgstr "-"
+
+msgid "0 Bytes"
+msgstr "0 Bytes"
+
+#, python-format
+msgid "A %(resource)s with the name \"%(name)s\" already exists."
+msgstr "이름 \"%(name)s\"과 %(resource)s이 이미 존재합니다."
+
+msgid "Actions"
+msgstr "작업"
+
+msgid "Active Instances:"
+msgstr "동작 중인 인스턴스:"
+
+msgid "Active RAM:"
+msgstr "사용 중인 RAM:"
+
+msgid "Add a row"
+msgstr "열 추가"
+
+msgid "All available"
+msgstr "모두 사용가능"
+
+#, python-format
+msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr "<span> %(available)s </span> 중에서 <span> %(used)s </span> 할당"
+
+msgid "Available"
+msgstr "사용 가능"
+
+msgid "Back"
+msgstr "뒤로"
+
+msgid "Cancel"
+msgstr "취소"
+
+msgid "Connect"
+msgstr "연결"
+
+msgid "Delete"
+msgstr "삭제"
+
+msgid "Deleted"
+msgstr "삭제 완료"
+
+#, python-format
+msgid "Displaying %(content_items)s item"
+msgid_plural "Displaying %(content_items)s items"
+msgstr[0] "%(content_items)s 항목 표시"
+
+#, python-format
+msgid "Displaying %(counter)s item"
+msgid_plural "Displaying %(counter)s items"
+msgstr[0] "%(counter)s 항목 표시"
+
+#, python-format
+msgid "Displaying %(nav_items)s item"
+msgid_plural "Displaying %(nav_items)s items"
+msgstr[0] "%(nav_items)s 항목 표시"
+
+msgid "Error: "
+msgstr "오류:"
+
+msgid "Fake"
+msgstr "페이크"
+
+msgid "Filter"
+msgstr "필터"
+
+msgid "Floating IPs"
+msgstr "유동 IP"
+
+msgid "Help"
+msgstr "도움말"
+
+msgid "Horizon"
+msgstr "Horizon"
+
+msgid "Incorrect format for IP address"
+msgstr "IP 주소 형식이 잘못 되었습니다."
+
+msgid "Info: "
+msgstr "정보:"
+
+msgid "Instances"
+msgstr "인스턴스"
+
+msgid "Invalid subnet mask"
+msgstr "서브넷 마스크가 잘못되었습니다."
+
+msgid "Invalid version for IP address"
+msgstr "IP 주소 버전이 잘못되었습니다."
+
+msgid "Limit Summary"
+msgstr "간략한 요약"
+
+msgid "Log In"
+msgstr "로그인"
+
+#, python-format
+msgid "Logged in as: %(username)s"
+msgstr "로그인됨: %(username)s"
+
+msgid "Login"
+msgstr "로그인"
+
+#, python-format
+msgid ""
+"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
+msgstr ""
+"다른 사용자로 로그인하거나 <a href=\"%(home_url)s\">홈페이지</a>로 되돌아가기"
+
+msgid "Members"
+msgstr "구성원"
+
+msgid "More Actions"
+msgstr "기타 작업"
+
+msgid "N/A"
+msgstr "N/A"
+
+msgid "Navigation Item"
+msgstr "네비게이션 항목"
+
+msgid "Never"
+msgstr "없음"
+
+msgid "Next"
+msgstr "다음"
+
+msgid "Next&nbsp;&raquo;"
+msgstr "다음&nbsp;&raquo;"
+
+msgid "No Limit"
+msgstr "제한 없음"
+
+msgid "No items to display."
+msgstr "표시할 항목이 없습니다."
+
+#, python-format
+msgid "No match returned for the id \"%s\"."
+msgstr "ID \"%s\" 에 일치되는 항목이 없습니다."
+
+msgid "No members."
+msgstr "구성원이 없습니다."
+
+msgid "None available."
+msgstr "사용할 수 있는 것이 없음."
+
+msgid "Not a valid IP protocol number"
+msgstr "유효하지 않은 IP 프로토콜 번호"
+
+msgid "Not a valid port number"
+msgstr "유효하지 않은 포트 번호"
+
+msgid "One colon allowed in port range"
+msgstr "포트 범위에서 콜론은 하나만 사용할 수 있습니다."
+
+msgid "Other"
+msgstr "기타"
+
+msgid "Password is not accepted"
+msgstr "허용되지 않는 비밀번호입니다."
+
+msgid "Please log in to continue."
+msgstr "계속 진행하려면 로그인하십시오."
+
+msgid "Please select a row before taking that action."
+msgstr "해당 작업을 실행하기 전에 열(row)을 선택하십시오."
+
+msgid "Port number must be integer"
+msgstr "포트 번호는 정수이어야 합니다."
+
+msgid "Processing..."
+msgstr "작업 중..."
+
+msgid "RAM"
+msgstr "RAM"
+
+msgid "Save"
+msgstr "저장"
+
+msgid "Security Groups"
+msgstr "보안 그룹"
+
+#, python-format
+msgid "Select a %s to browse."
+msgstr "브라우져에서 %s를 선택하십시오."
+
+msgid "Select a period of time to query its usage:"
+msgstr "사용량을 조회할 기간을 선택하세요:"
+
+#. Translators: test code, don't really have to translate
+msgid "Sell Puppy"
+msgid_plural "Sell Puppies"
+msgstr[0] "강아지 판매"
+
+msgid "Session timed out."
+msgstr "세션 타임 아웃."
+
+msgid "Sign In"
+msgstr "등록"
+
+msgid "Sign Out"
+msgstr "로그아웃"
+
+#. Translators: test code, don't really have to translate
+msgid "Sold Puppy"
+msgid_plural "Sold Puppies"
+msgstr[0] "강아지 판매함"
+
+msgid "Submit"
+msgstr "제출"
+
+msgid "Success: "
+msgstr "완료:"
+
+msgid "Summary"
+msgstr "요약"
+
+#, python-format
+msgid "The attribute %(attr)s doesn't exist on %(obj)s."
+msgstr "%(obj)s 에 %(attr)s 속성이 없습니다."
+
+msgid "The date should be in YYYY-mm-dd format."
+msgstr "날짜는 YYYY-mm-dd 형식이어야 합니다."
+
+msgid "The string may only contain ASCII printable characters."
+msgstr "문자열은 ASCII 인쇄 문자를 포함할 수 있습니다."
+
+msgid "This Period's GB-Hours:"
+msgstr "이 기간의 GB-Hours 사용 시간:"
+
+msgid "This Period's RAM-Hours:"
+msgstr "이 기간의 RAM 사용 시간:"
+
+msgid "This Period's VCPU-Hours:"
+msgstr "이 기간의 VCPU 사용 시간:"
+
+msgid "This action cannot be undone."
+msgstr "이 작업은 취소할 수 없습니다."
+
+#, python-format
+msgid "Unable to %(action)s: %(objs)s"
+msgstr "%(action)s을(를) 할 수 없습니다.: %(objs)s"
+
+msgid "Unauthorized. Please try logging in again."
+msgstr "권한이 없습니다. 다시 로그인 해주십시오."
+
+#, python-format
+msgid "Unauthorized: %s"
+msgstr "권한이 없습니다: %s"
+
+msgid "Update"
+msgstr "업데이트"
+
+msgid "Updated"
+msgstr "업데이트 완료"
+
+msgid "Usage Summary"
+msgstr "사용량 요약"
+
+#, python-format
+msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr "<span> %(available)s </span> 중에서 <span> %(used)s </span> 사용"
+
+msgid "VCPUs"
+msgstr "VCPUs"
+
+msgid "Volume Storage"
+msgstr "볼륨 스토리지"
+
+msgid "Volumes"
+msgstr "볼륨"
+
+msgid "Warning: "
+msgstr "경고:"
+
+#, python-format
+msgid "You are not allowed to %(action)s: %(objs)s"
+msgstr " %(action)s 이(가) 허용되지 않습니다: %(objs)s "
+
+#, python-format
+msgid "You are not authorized to access %s"
+msgstr "%s에 접근 권한이 없습니다. "
+
+msgid "You do not have permission to access the resource:"
+msgstr "당신은 리소스에 접근할 권한이 없습니다.:"

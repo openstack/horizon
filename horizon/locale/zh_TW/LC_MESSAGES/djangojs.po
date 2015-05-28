@@ -4,15 +4,16 @@
 #
 # Translators:
 # Chen, Shang-Pin <dreamerwolf.tw@gmail.com>, 2015
+# Tom Fifield <tom@openstack.org>, 2015
 # Xiao Xi LIU <liuxx@cn.ibm.com>, 2014
 # Zhang Xiaowei <zero00072@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-26 22:10-0500\n"
-"PO-Revision-Date: 2015-05-27 03:11+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-05-27 03:01-0500\n"
+"PO-Revision-Date: 2015-05-27 15:22+0000\n"
+"Last-Translator: Tom Fifield <tom@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/"
 "language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -21,15 +22,13 @@ msgstr ""
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "Yes"
-msgstr "是"
-
-msgid "No"
-msgstr "否"
-
 #, c-format
 msgid "%s GB"
 msgstr "%s GB"
+
+#, c-format
+msgid "%s KB"
+msgstr "%s KB"
 
 #, c-format
 msgid "%s MB"
@@ -40,31 +39,428 @@ msgid "%s TB"
 msgstr "%s TB"
 
 #, c-format
-msgid "%s KB"
-msgstr "%s KB"
-
-#, c-format
 msgid "%s bytes"
 msgstr "%s 位元組"
+
+msgid "Add Interface"
+msgstr "加入網路卡介面"
+
+msgid "Added"
+msgstr "已加入"
+
+msgid "Allocated"
+msgstr "已分配"
+
+msgid "An error occurred while updating."
+msgstr "更新時發生錯誤。"
+
+msgid "An error occurred. Please try again later."
+msgstr "發生錯誤。請稍後再試。"
+
+msgid "Available"
+msgstr "可用"
+
+msgid "Available Metadata"
+msgstr "可用的詮釋資料"
+
+msgid "Back"
+msgstr "上一步"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Cannot get nova extension list."
+msgstr "不能獲得 Nova 擴充套件列表。"
+
+msgid "Cannot get service catalog from keystone."
+msgstr "不能從 Keystone 獲得伺服器類別。"
+
+msgid "Click here to expand the row and view the errors."
+msgstr "展開這列來檢視錯誤。"
+
+msgid "Click to see more details"
+msgstr "點擊來顯示更多詳細資訊"
+
+msgid "Click to show or hide"
+msgstr "點擊來顯示或隱藏"
+
+msgid "Closed"
+msgstr "已關閉"
+
+msgid "Closing"
+msgstr "關閉中"
+
+#, c-format
+msgid "Confirm %s"
+msgstr "確認 %s"
+
+msgid "Connecting"
+msgstr "連線中"
+
+msgid "Could not decrypt the password"
+msgstr "不能解鎖密碼"
+
+msgid "Could not read the file"
+msgstr "不能讀取檔案"
+
+msgid "Custom"
+msgstr "自訂"
+
+msgid "Danger"
+msgstr "危險"
+
+msgid "Danger: "
+msgstr "危險："
+
+msgid "Decimal required"
+msgstr "需要十進位"
+
+msgid "Delete"
+msgstr "刪除"
+
+msgid "Delete Interface"
+msgstr "刪除網路卡介面"
+
+msgid "Delete Router"
+msgstr "刪除路由器"
+
+msgid "Detail Information"
+msgstr "詳細的資訊"
 
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
 msgstr[0] "顯示 %s 項"
 
+msgid "Duplicate keys are not allowed"
+msgstr "不允許重複的鍵值"
+
+msgid "Error"
+msgstr "錯誤"
+
+msgid "Error: "
+msgstr "錯誤："
+
+msgid "Existing Metadata"
+msgstr "已存在的詮釋資料"
+
+msgid "Expand to see allocated items"
+msgstr "展開來顯示已分配的項目"
+
+msgid "Expand to see available items"
+msgstr "展開來顯示可用的項目"
+
+msgid "Extension is not enabled: %(extension)s"
+msgstr "未啟用擴充套件：%(extension)s"
+
+msgid "Filter"
+msgstr "篩選"
+
+msgid "Finish"
+msgstr "完成"
+
+msgid "Found %(found)s of %(total)s"
+msgstr "已找到 %(total)s 中的 %(found)s 個"
+
+msgid "ID"
+msgstr "識別號"
+
+msgid "Info"
+msgstr "資訊"
+
+msgid "Integer required"
+msgstr "需要整數"
+
+msgid "Interfaces"
+msgstr "網路卡介面"
+
+msgid "Loading"
+msgstr "讀取中"
+
+msgid "Max"
+msgstr "最大"
+
+msgid "Max length"
+msgstr "最大長度"
+
+msgid "Min"
+msgstr "最小"
+
+msgid "Min length"
+msgstr "最小長度"
+
+msgid "Next"
+msgstr "下一步"
+
+msgid "No"
+msgstr "否"
+
+msgid "No available items"
+msgstr "無可用的項目"
+
+msgid "No available metadata"
+msgstr "無可用的詮釋資料"
+
+msgid "No data available."
+msgstr "無可用的資料。"
+
+msgid "No existing metadata"
+msgstr "不存在詮釋資料"
+
+msgid "No items to display."
+msgstr "沒有項目可以列出。"
+
+msgid "No roles"
+msgstr "無角色"
+
+msgid "None"
+msgstr "無"
+
+msgid "Not authorized to do this operation."
+msgstr "沒有足夠的權限執行這個操作。"
+
+msgid "Notice: "
+msgstr "注意："
+
+msgid "Open"
+msgstr "開啟"
+
+msgid "Open Console"
+msgstr "開啟終端機"
+
+msgid "Passwords do not match."
+msgstr "密碼沒有相配。"
+
+msgid "Pattern mismatch"
+msgstr "不符合的樣式"
+
+msgid "Please confirm your selection. "
+msgstr "請確認您的選擇。"
+
+msgid "Policy check failed."
+msgstr "檢查政策時失敗。"
+
+msgid "Re-order items using drag and drop"
+msgstr "使用拖拉來重新排列"
+
+msgid "Required"
+msgstr "需要"
+
+msgid "Roles"
+msgstr "角色"
+
+msgid "STATUS"
+msgstr "狀態"
+
+msgid "Select an item from Available items below"
+msgstr "從下列可用的項目中選擇"
+
+msgid "Select one"
+msgstr "擇一"
+
+msgid "Service type is not enabled: %(desiredType)s"
+msgstr "未啟用伺服器類型：%(desiredType)s"
+
+msgid "Setting is not enabled: %(setting)s"
+msgstr "未啟用設定：%(setting)s"
+
+#, c-format
+msgid "Status: %s"
+msgstr "狀態：%s"
+
+msgid "Submit"
+msgstr "提交"
+
+msgid "Success"
+msgstr "成功"
+
+msgid "Success: "
+msgstr "成功："
+
+msgid "Terminate Instance"
+msgstr "終止雲實例"
+
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
 "missing information."
 msgstr "無法執行動作。這欄的內容有錯或者缺少資訊。"
 
-msgid "Added"
-msgstr "已加入"
+msgid "There was a problem communicating with the server, please try again."
+msgstr "與伺服器間的通訊有問題，請再試一次。"
 
-msgid "Max"
-msgstr "最大"
+msgid "There was an error submitting the form. Please try again."
+msgstr "提交表單時有錯誤。請再試一次。"
 
-msgid "Detail Information"
-msgstr "詳細的資訊"
+msgid "Unable to create the domain."
+msgstr "無法新增地域。"
+
+msgid "Unable to create the keypair."
+msgstr "無法新增密鑰對。"
+
+msgid "Unable to create the network."
+msgstr "無法新增網路。"
+
+msgid "Unable to create the project."
+msgstr "無法新增專案。"
+
+msgid "Unable to create the role."
+msgstr "無法新增角色。"
+
+msgid "Unable to create the server."
+msgstr "無法新增伺服器。"
+
+msgid "Unable to create the subnet."
+msgstr "無法新增子網路。"
+
+msgid "Unable to create the user."
+msgstr "無法新增用戶。"
+
+msgid "Unable to delete the domain."
+msgstr "無法刪除地域。"
+
+msgid "Unable to delete the domains."
+msgstr "無法刪除地域。"
+
+msgid "Unable to delete the project."
+msgstr "無法刪除專案。"
+
+msgid "Unable to delete the projects."
+msgstr "無法刪除專案。"
+
+msgid "Unable to delete the role."
+msgstr "無法刪除角色"
+
+msgid "Unable to delete the roles."
+msgstr "無法刪除角色"
+
+msgid "Unable to delete the user."
+msgstr "無法刪除用戶。"
+
+msgid "Unable to delete the users."
+msgstr "無法刪除用戶。"
+
+msgid "Unable to edit the domain."
+msgstr "無法編輯地域。"
+
+msgid "Unable to edit the project."
+msgstr "無法編輯專案。"
+
+msgid "Unable to edit the role."
+msgstr "無法編輯角色"
+
+msgid "Unable to edit the user."
+msgstr "無法編輯用戶。"
+
+msgid "Unable to fetch the service catalog."
+msgstr "無法獲得伺服器類別。"
+
+msgid "Unable to grant the role."
+msgstr "無法賦予角色權力。"
+
+msgid "Unable to import the keypair."
+msgstr "無法匯入密鑰對。"
+
+msgid "Unable to retrieve availability zones."
+msgstr "無法獲得可用區域。"
+
+msgid "Unable to retrieve domains"
+msgstr "無法獲得地域"
+
+msgid "Unable to retrieve extensions."
+msgstr "無法獲得擴充套件。"
+
+msgid "Unable to retrieve flavor extra specs."
+msgstr "無法獲得虛擬硬體樣板額外規格。"
+
+msgid "Unable to retrieve flavor."
+msgstr "無法獲得虛擬硬體樣板。"
+
+msgid "Unable to retrieve flavors."
+msgstr "無法獲得虛擬硬體樣板。"
+
+msgid "Unable to retrieve image."
+msgstr "無法獲得映像檔。"
+
+msgid "Unable to retrieve images."
+msgstr "無法獲得映像檔。"
+
+msgid "Unable to retrieve keypairs."
+msgstr "無法獲得密鑰對。"
+
+msgid "Unable to retrieve limits."
+msgstr "無法獲得限制。"
+
+msgid "Unable to retrieve namespaces."
+msgstr "無法獲得名稱空間。"
+
+msgid "Unable to retrieve networks."
+msgstr "無法獲得網路。"
+
+msgid "Unable to retrieve ports."
+msgstr "無法獲得接口。"
+
+msgid "Unable to retrieve projects"
+msgstr "無法獲得專案"
+
+msgid "Unable to retrieve role"
+msgstr "無法獲得角色"
+
+msgid "Unable to retrieve security groups."
+msgstr "無法獲得安全性群組。"
+
+msgid "Unable to retrieve server."
+msgstr "無法獲得伺服器。"
+
+msgid "Unable to retrieve settings."
+msgstr "無法設定。"
+
+msgid "Unable to retrieve subnets."
+msgstr "無法獲得子網路。"
+
+msgid "Unable to retrieve the current user session."
+msgstr "無法獲得目前用戶連線階段。"
+
+msgid "Unable to retrieve the domain"
+msgstr "無法獲得地域"
+
+msgid "Unable to retrieve the project"
+msgstr "無法獲得專案"
+
+msgid "Unable to retrieve the role"
+msgstr "無法獲得角色"
+
+msgid "Unable to retrieve the user"
+msgstr "無法獲得用戶。"
+
+msgid "Unable to retrieve users"
+msgstr "無法獲得名稱用戶。"
+
+msgid "Unable to retrieve volume snapshots."
+msgstr "無法獲得雲硬碟即時存檔。"
+
+msgid "Unable to retrieve volumes."
+msgstr "無法獲得雲硬碟。"
+
+msgid "View Details"
+msgstr "檢視詳細資訊"
+
+msgid "View Instance Details"
+msgstr "檢視雲實例詳細資訊"
+
+msgid "View Router Details"
+msgstr "檢視路由器詳細資訊"
+
+msgid "Warning"
+msgstr "警告"
+
+msgid "Warning: "
+msgstr "警告："
+
+msgid "Working"
+msgstr "運作中"
+
+msgid "Yes"
+msgstr "是"
 
 msgid ""
 "You can specify resource metadata by moving items from the left column to "
@@ -75,392 +471,6 @@ msgstr ""
 "您可以從左欄移動項目到右欄來指定資源詮釋資料。左欄是來自 Glance 詮釋資料類別"
 "的詮釋檔定義。使用「其他」選項來加入您的選擇到詮釋資料裡。"
 
-msgid "Min"
-msgstr "最小"
-
-msgid "Min length"
-msgstr "最小長度"
-
-msgid "Max length"
-msgstr "最大長度"
-
-msgid "Pattern mismatch"
-msgstr "不符合的樣式"
-
-msgid "Integer required"
-msgstr "需要整數"
-
-msgid "Decimal required"
-msgstr "需要十進位"
-
-msgid "Required"
-msgstr "需要"
-
-msgid "Duplicate keys are not allowed"
-msgstr "不允許重複的鍵值"
-
-msgid "Filter"
-msgstr "篩選"
-
-msgid "Available Metadata"
-msgstr "可用的詮釋資料"
-
-msgid "Existing Metadata"
-msgstr "已存在的詮釋資料"
-
-msgid "Custom"
-msgstr "自訂"
-
-msgid "No available metadata"
-msgstr "無可用的詮釋資料"
-
-msgid "No existing metadata"
-msgstr "不存在詮釋資料"
-
-msgid "Submit"
-msgstr "提交"
-
-msgid "Cancel"
-msgstr "取消"
-
-msgid "Info"
-msgstr "資訊"
-
-msgid "Error"
-msgstr "錯誤"
-
-msgid "Allocated"
-msgstr "已分配"
-
-msgid "Available"
-msgstr "可用"
-
-msgid "Select one"
-msgstr "擇一"
-
-msgid "Select an item from Available items below"
-msgstr "從下列可用的項目中選擇"
-
-msgid "No available items"
-msgstr "無可用的項目"
-
-msgid "Expand to see allocated items"
-msgstr "展開來顯示已分配的項目"
-
-msgid "Expand to see available items"
-msgstr "展開來顯示可用的項目"
-
-msgid "Click to show or hide"
-msgstr "點擊來顯示或隱藏"
-
-msgid "Re-order items using drag and drop"
-msgstr "使用拖拉來重新排列"
-
-msgid "Click to see more details"
-msgstr "點擊來顯示更多詳細資訊"
-
-msgid "Found %(found)s of %(total)s"
-msgstr "已找到 %(total)s 中的 %(found)s 個"
-
-msgid "Click here to expand the row and view the errors."
-msgstr "展開這列來檢視錯誤。"
-
-msgid "Back"
-msgstr "上一步"
-
-msgid "Next"
-msgstr "下一步"
-
-msgid "Finish"
-msgstr "完成"
-
-msgid "Connecting"
-msgstr "連線中"
-
-msgid "Open"
-msgstr "開啟"
-
-msgid "Closing"
-msgstr "關閉中"
-
-msgid "Closed"
-msgstr "已關閉"
-
-#, c-format
-msgid "Status: %s"
-msgstr "狀態：%s"
-
-msgid "Unable to retrieve volumes."
-msgstr "無法獲得雲硬碟。"
-
-msgid "Unable to retrieve volume snapshots."
-msgstr "無法獲得雲硬碟即時存檔。"
-
-msgid "Unable to retrieve settings."
-msgstr "無法設定。"
-
-msgid "Setting is not enabled: %(setting)s"
-msgstr "未啟用設定：%(setting)s"
-
-msgid "Unable to retrieve image."
-msgstr "無法獲得映像檔。"
-
-msgid "Unable to retrieve images."
-msgstr "無法獲得映像檔。"
-
-msgid "Unable to retrieve namespaces."
-msgstr "無法獲得名稱空間。"
-
-msgid "Unable to retrieve users"
-msgstr "無法獲得名稱用戶。"
-
-msgid "Unable to create the user."
-msgstr "無法新增用戶。"
-
-msgid "Unable to delete the users."
-msgstr "無法刪除用戶。"
-
-msgid "Unable to retrieve the current user session."
-msgstr "無法獲得目前用戶連線階段。"
-
-msgid "Unable to retrieve the user"
-msgstr "無法獲得用戶。"
-
-msgid "Unable to edit the user."
-msgstr "無法編輯用戶。"
-
-msgid "Unable to delete the user."
-msgstr "無法刪除用戶。"
-
-msgid "Unable to retrieve role"
-msgstr "無法獲得角色"
-
-msgid "Unable to create the role."
-msgstr "無法新增角色。"
-
-msgid "Unable to delete the roles."
-msgstr "無法刪除角色"
-
-msgid "Unable to retrieve the role"
-msgstr "無法獲得角色"
-
-msgid "Unable to edit the role."
-msgstr "無法編輯角色"
-
-msgid "Unable to delete the role."
-msgstr "無法刪除角色"
-
-msgid "Unable to retrieve domains"
-msgstr "無法獲得地域"
-
-msgid "Unable to create the domain."
-msgstr "無法新增地域。"
-
-msgid "Unable to delete the domains."
-msgstr "無法刪除地域。"
-
-msgid "Unable to retrieve the domain"
-msgstr "無法獲得地域"
-
-msgid "Unable to edit the domain."
-msgstr "無法編輯地域。"
-
-msgid "Unable to delete the domain."
-msgstr "無法刪除地域。"
-
-msgid "Unable to retrieve projects"
-msgstr "無法獲得專案"
-
-msgid "Unable to create the project."
-msgstr "無法新增專案。"
-
-msgid "Unable to delete the projects."
-msgstr "無法刪除專案。"
-
-msgid "Unable to retrieve the project"
-msgstr "無法獲得專案"
-
-msgid "Unable to edit the project."
-msgstr "無法編輯專案。"
-
-msgid "Unable to delete the project."
-msgstr "無法刪除專案。"
-
-msgid "Unable to grant the role."
-msgstr "無法賦予角色權力。"
-
-msgid "Unable to fetch the service catalog."
-msgstr "無法獲得伺服器類別。"
-
-msgid "Service type is not enabled: %(desiredType)s"
-msgstr "未啟用伺服器類型：%(desiredType)s"
-
-msgid "Cannot get service catalog from keystone."
-msgstr "不能從 Keystone 獲得伺服器類別。"
-
-msgid "Unable to retrieve networks."
-msgstr "無法獲得網路。"
-
-msgid "Unable to create the network."
-msgstr "無法新增網路。"
-
-msgid "Unable to retrieve subnets."
-msgstr "無法獲得子網路。"
-
-msgid "Unable to create the subnet."
-msgstr "無法新增子網路。"
-
-msgid "Unable to retrieve ports."
-msgstr "無法獲得接口。"
-
-msgid "Unable to retrieve keypairs."
-msgstr "無法獲得密鑰對。"
-
-msgid "Unable to import the keypair."
-msgstr "無法匯入密鑰對。"
-
-msgid "Unable to create the keypair."
-msgstr "無法新增密鑰對。"
-
-msgid "Unable to retrieve availability zones."
-msgstr "無法獲得可用區域。"
-
-msgid "Unable to retrieve limits."
-msgstr "無法獲得限制。"
-
-msgid "Unable to create the server."
-msgstr "無法新增伺服器。"
-
-msgid "Unable to retrieve server."
-msgstr "無法獲得伺服器。"
-
-msgid "Unable to retrieve extensions."
-msgstr "無法獲得擴充套件。"
-
-msgid "Unable to retrieve flavors."
-msgstr "無法獲得虛擬硬體樣板。"
-
-msgid "Unable to retrieve flavor."
-msgstr "無法獲得虛擬硬體樣板。"
-
-msgid "Unable to retrieve flavor extra specs."
-msgstr "無法獲得虛擬硬體樣板額外規格。"
-
-msgid "Extension is not enabled: %(extension)s"
-msgstr "未啟用擴充套件：%(extension)s"
-
-msgid "Cannot get nova extension list."
-msgstr "不能獲得 Nova 擴充套件列表。"
-
-msgid "Policy check failed."
-msgstr "檢查政策時失敗。"
-
-msgid "Unable to retrieve security groups."
-msgstr "無法獲得安全性群組。"
-
-msgid "Loading"
-msgstr "讀取中"
-
-msgid "No data available."
-msgstr "無可用的資料。"
-
-msgid "An error occurred. Please try again later."
-msgstr "發生錯誤。請稍後再試。"
-
-msgid "There was a problem communicating with the server, please try again."
-msgstr "與伺服器間的通訊有問題，請再試一次。"
-
-msgid "Could not read the file"
-msgstr "不能讀取檔案"
-
-msgid "Could not decrypt the password"
-msgstr "不能解鎖密碼"
-
-msgid "No roles"
-msgstr "無角色"
-
-msgid "Roles"
-msgstr "角色"
-
-msgid "Danger: "
-msgstr "危險："
-
-msgid "Warning: "
-msgstr "警告："
-
-msgid "Notice: "
-msgstr "注意："
-
-msgid "Success: "
-msgstr "成功："
-
-msgid "Error: "
-msgstr "錯誤："
-
-msgid "Working"
-msgstr "運作中"
-
-msgid "There was an error submitting the form. Please try again."
-msgstr "提交表單時有錯誤。請再試一次。"
-
-msgid "None"
-msgstr "無"
-
-msgid "Delete"
-msgstr "刪除"
-
-msgid "STATUS"
-msgstr "狀態"
-
-msgid "ID"
-msgstr "識別號"
-
-msgid "Interfaces"
-msgstr "網路卡介面"
-
-msgid "Delete Interface"
-msgstr "刪除網路卡介面"
-
-msgid "Open Console"
-msgstr "開啟終端機"
-
-msgid "View Details"
-msgstr "檢視詳細資訊"
-
-msgid "Delete Router"
-msgstr "刪除路由器"
-
-msgid "View Router Details"
-msgstr "檢視路由器詳細資訊"
-
-msgid "Add Interface"
-msgstr "加入網路卡介面"
-
-msgid "Terminate Instance"
-msgstr "終止雲實例"
-
-msgid "View Instance Details"
-msgstr "檢視雲實例詳細資訊"
-
-msgid "No items to display."
-msgstr "沒有項目可以列出。"
-
-msgid "An error occurred while updating."
-msgstr "更新時發生錯誤。"
-
 #, c-format
 msgid "You have selected %s. "
 msgstr "您選擇了 %s。"
-
-#, c-format
-msgid "Confirm %s"
-msgstr "確認 %s"
-
-msgid "Please confirm your selection. "
-msgstr "請確認您的選擇。"
-
-msgid "Not authorized to do this operation."
-msgstr "沒有足夠的權限執行這個操作。"
-
-msgid "Passwords do not match."
-msgstr "密碼沒有相配。"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"POT-Creation-Date: 2015-05-27 03:01-0500\n"
 "PO-Revision-Date: 2015-05-27 03:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/"
@@ -24,15 +24,13 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-msgid "Yes"
-msgstr "Да"
-
-msgid "No"
-msgstr "Нет"
-
 #, c-format
 msgid "%s GB"
 msgstr "%s ГБ"
+
+#, c-format
+msgid "%s KB"
+msgstr "%s кБ"
 
 #, c-format
 msgid "%s MB"
@@ -43,12 +41,93 @@ msgid "%s TB"
 msgstr "%s ТБ"
 
 #, c-format
-msgid "%s KB"
-msgstr "%s кБ"
-
-#, c-format
 msgid "%s bytes"
 msgstr "%s байт"
+
+msgid "Add Interface"
+msgstr "Добавить Интерфейс"
+
+msgid "Added"
+msgstr "Добавлено"
+
+msgid "Allocated"
+msgstr "Выделенный"
+
+msgid "An error occurred while updating."
+msgstr "Во время обновления произошла ошибка."
+
+msgid "An error occurred. Please try again later."
+msgstr "Произошла ошибка. Повторите попытку."
+
+msgid "Available"
+msgstr "Доступно"
+
+msgid "Available Metadata"
+msgstr "Доступные метаданные"
+
+msgid "Back"
+msgstr "Назад"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Cannot get nova extension list."
+msgstr "Не удалось получить список расширений nova."
+
+msgid "Cannot get service catalog from keystone."
+msgstr "Не удалось получить службу каталогов с Keystone."
+
+msgid "Click here to expand the row and view the errors."
+msgstr "Нажмите для показа ошибок."
+
+msgid "Click to see more details"
+msgstr "Нажмите для подробностей"
+
+msgid "Click to show or hide"
+msgstr "Нажмите для показа или скрытия"
+
+msgid "Closed"
+msgstr "Закрыт"
+
+msgid "Closing"
+msgstr "Закрытие"
+
+#, c-format
+msgid "Confirm %s"
+msgstr "Подтвердите %s"
+
+msgid "Connecting"
+msgstr "Подключение"
+
+msgid "Could not decrypt the password"
+msgstr "Не удалось расшифровать пароль"
+
+msgid "Could not read the file"
+msgstr "Не удалось прочитать файл"
+
+msgid "Custom"
+msgstr "Выборочный"
+
+msgid "Danger"
+msgstr "Опасность"
+
+msgid "Danger: "
+msgstr "Опасность:"
+
+msgid "Decimal required"
+msgstr "Требуется десятичное число"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Delete Interface"
+msgstr "Удалить интерфейс"
+
+msgid "Delete Router"
+msgstr "Удалить маршрутизатор"
+
+msgid "Detail Information"
+msgstr "Подробная информация"
 
 #, c-format
 msgid "Displaying %s item"
@@ -58,6 +137,154 @@ msgstr[1] "Отображено %s значений"
 msgstr[2] ""
 msgstr[3] "Отображено %s значений"
 
+msgid "Duplicate keys are not allowed"
+msgstr "Повторяющиеся ключи не допускаются"
+
+msgid "Error"
+msgstr "Ошибка"
+
+msgid "Error: "
+msgstr "Ошибка:"
+
+msgid "Existing Metadata"
+msgstr "Имеющиеся метаданные"
+
+msgid "Expand to see allocated items"
+msgstr "Показать выделенные элементы"
+
+msgid "Expand to see available items"
+msgstr "Показать все доступные элементы"
+
+msgid "Extension is not enabled: %(extension)s"
+msgstr "Расширение не включено: %(extension)s"
+
+msgid "Filter"
+msgstr "Фильтр"
+
+msgid "Finish"
+msgstr "Закончить"
+
+msgid "Found %(found)s of %(total)s"
+msgstr "Найдено %(found)s из %(total)s"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Info"
+msgstr "Информация"
+
+msgid "Integer required"
+msgstr "Требуется целое число"
+
+msgid "Interfaces"
+msgstr "Интерфейсы"
+
+msgid "Loading"
+msgstr "Загрузка"
+
+msgid "Max"
+msgstr "Макс."
+
+msgid "Max length"
+msgstr "Макс. длина"
+
+msgid "Min"
+msgstr "Мин."
+
+msgid "Min length"
+msgstr "Мин. длина"
+
+msgid "Next"
+msgstr "Вперёд"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "No available items"
+msgstr "Нет доступных элементов"
+
+msgid "No available metadata"
+msgstr "Метаданные недоступны"
+
+msgid "No data available."
+msgstr "Нет данных."
+
+msgid "No existing metadata"
+msgstr "Нет метаданных"
+
+msgid "No items to display."
+msgstr "Нет элементов для отображения."
+
+msgid "No roles"
+msgstr "Нет ролей"
+
+msgid "None"
+msgstr "Нет"
+
+msgid "Not authorized to do this operation."
+msgstr "Нет прав для выполнения."
+
+msgid "Notice: "
+msgstr "Примечание:"
+
+msgid "Open"
+msgstr "Открыт"
+
+msgid "Open Console"
+msgstr "Открыть консоль"
+
+msgid "Passwords do not match."
+msgstr "Пароли не совпадают."
+
+msgid "Pattern mismatch"
+msgstr "Несоответствие шаблону"
+
+msgid "Please confirm your selection. "
+msgstr "Подтвердите свой выбор."
+
+msgid "Policy check failed."
+msgstr "Проверка политики не удалась."
+
+msgid "Re-order items using drag and drop"
+msgstr "Переопределите элементы перемещением"
+
+msgid "Required"
+msgstr "Требуется"
+
+msgid "Roles"
+msgstr "Роли"
+
+msgid "STATUS"
+msgstr "СОСТОЯНИЕ"
+
+msgid "Select an item from Available items below"
+msgstr "Выберите элемент из доступных элементов ниже"
+
+msgid "Select one"
+msgstr "Выберите один"
+
+msgid "Service type is not enabled: %(desiredType)s"
+msgstr "Тип службы не включен: %(desiredType)s"
+
+msgid "Setting is not enabled: %(setting)s"
+msgstr "Настройка не включена: %(setting)s"
+
+#, c-format
+msgid "Status: %s"
+msgstr "Статус: %s"
+
+msgid "Submit"
+msgstr "Отправить"
+
+msgid "Success"
+msgstr "Успешно"
+
+msgid "Success: "
+msgstr "Успешно:"
+
+msgid "Terminate Instance"
+msgstr "Удалить инстанс"
+
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
 "missing information."
@@ -65,14 +292,182 @@ msgstr ""
 "Действие не может быть выполнено. Эта строка содержит ошибки или "
 "недостаточную информацию.  "
 
-msgid "Added"
-msgstr "Добавлено"
+msgid "There was a problem communicating with the server, please try again."
+msgstr "Обнаружена проблема при соединении с сервером. Повторите попытку."
 
-msgid "Max"
-msgstr "Макс."
+msgid "There was an error submitting the form. Please try again."
+msgstr "При отправке формы произошла ошибка. Повторите попытку."
 
-msgid "Detail Information"
-msgstr "Подробная информация"
+msgid "Unable to create the domain."
+msgstr "Не удалось создать домен."
+
+msgid "Unable to create the keypair."
+msgstr "Не удалось создать пару ключей."
+
+msgid "Unable to create the network."
+msgstr "Не удалось создать сеть."
+
+msgid "Unable to create the project."
+msgstr "Не удалось создать проект"
+
+msgid "Unable to create the role."
+msgstr "Не удалось создать роль."
+
+msgid "Unable to create the server."
+msgstr "Не удалось создать сервер."
+
+msgid "Unable to create the subnet."
+msgstr "Не удалось создать подсеть."
+
+msgid "Unable to create the user."
+msgstr "Не удалось создать пользователя."
+
+msgid "Unable to delete the domain."
+msgstr "Не удалось удалить домен."
+
+msgid "Unable to delete the domains."
+msgstr "Не удалось удалить домены."
+
+msgid "Unable to delete the project."
+msgstr "Не удалось удалить проект."
+
+msgid "Unable to delete the projects."
+msgstr "Не удалось удалить проекты."
+
+msgid "Unable to delete the role."
+msgstr "Не удалось удалить роль."
+
+msgid "Unable to delete the roles."
+msgstr "Не удалось удалить роли."
+
+msgid "Unable to delete the user."
+msgstr "Не удалось удалить пользователя."
+
+msgid "Unable to delete the users."
+msgstr "Не удалось удалить пользователя."
+
+msgid "Unable to edit the domain."
+msgstr "Не удалось изменить домен."
+
+msgid "Unable to edit the project."
+msgstr "Не удалось изменить проект."
+
+msgid "Unable to edit the role."
+msgstr "Не удалось изменить роль."
+
+msgid "Unable to edit the user."
+msgstr "Не удалось изменить пользователя."
+
+msgid "Unable to fetch the service catalog."
+msgstr "Не удалось получить службу каталогов."
+
+msgid "Unable to grant the role."
+msgstr "Не удалось предоставить роль."
+
+msgid "Unable to import the keypair."
+msgstr "Не удалось импортировать пару ключей."
+
+msgid "Unable to retrieve availability zones."
+msgstr "Не удалось получить зоны доступности."
+
+msgid "Unable to retrieve domains"
+msgstr "Не удалось получить домены."
+
+msgid "Unable to retrieve extensions."
+msgstr "Не удалось получить расширения."
+
+msgid "Unable to retrieve flavor extra specs."
+msgstr "Не удалось получить доп. параметры типа интанса."
+
+msgid "Unable to retrieve flavor."
+msgstr "Не удалось получить тип инстанса."
+
+msgid "Unable to retrieve flavors."
+msgstr "Не удалось получить типы инстанса."
+
+msgid "Unable to retrieve image."
+msgstr "Не удалось получить образ."
+
+msgid "Unable to retrieve images."
+msgstr "Не удалось получить образы."
+
+msgid "Unable to retrieve keypairs."
+msgstr "Не удалось получить пары ключей."
+
+msgid "Unable to retrieve limits."
+msgstr "Не удалось получить лимиты."
+
+msgid "Unable to retrieve namespaces."
+msgstr "Не удалось получить пространство имён."
+
+msgid "Unable to retrieve networks."
+msgstr "Не удалось получить сети."
+
+msgid "Unable to retrieve ports."
+msgstr "Не удалось получить порты."
+
+msgid "Unable to retrieve projects"
+msgstr "Не удалось получить проекты"
+
+msgid "Unable to retrieve role"
+msgstr "Не удалось получить роль."
+
+msgid "Unable to retrieve security groups."
+msgstr "Не удалось получить группы безопасности."
+
+msgid "Unable to retrieve server."
+msgstr "Не удалось получить сервер."
+
+msgid "Unable to retrieve settings."
+msgstr "Не удалось получить настройки."
+
+msgid "Unable to retrieve subnets."
+msgstr "Не удалось получить подсети."
+
+msgid "Unable to retrieve the current user session."
+msgstr "Не удалось получить текущую сессию пользователя."
+
+msgid "Unable to retrieve the domain"
+msgstr "Не удалось получить домен."
+
+msgid "Unable to retrieve the project"
+msgstr "Не удалось получить проект"
+
+msgid "Unable to retrieve the role"
+msgstr "Не удалось получить роль"
+
+msgid "Unable to retrieve the user"
+msgstr "Не удалось получить пользователя."
+
+msgid "Unable to retrieve users"
+msgstr "Не удалось получить пользователей."
+
+msgid "Unable to retrieve volume snapshots."
+msgstr "Не удалось получить снимки диска."
+
+msgid "Unable to retrieve volumes."
+msgstr "Не удалось получить диски."
+
+msgid "View Details"
+msgstr "Просмотреть детали"
+
+msgid "View Instance Details"
+msgstr "Посмотреть информацию об инстансе."
+
+msgid "View Router Details"
+msgstr "Посмотреть информацию о маршрутизаторе"
+
+msgid "Warning"
+msgstr "Предупреждение"
+
+msgid "Warning: "
+msgstr "Внимание:"
+
+msgid "Working"
+msgstr "Обработка"
+
+msgid "Yes"
+msgstr "Да"
 
 msgid ""
 "You can specify resource metadata by moving items from the left column to "
@@ -85,401 +480,6 @@ msgstr ""
 "метаданных Glance. Используйте опцию \"Другой\" для добавления выбранных "
 "вами ключей."
 
-msgid "Min"
-msgstr "Мин."
-
-msgid "Min length"
-msgstr "Мин. длина"
-
-msgid "Max length"
-msgstr "Макс. длина"
-
-msgid "Pattern mismatch"
-msgstr "Несоответствие шаблону"
-
-msgid "Integer required"
-msgstr "Требуется целое число"
-
-msgid "Decimal required"
-msgstr "Требуется десятичное число"
-
-msgid "Required"
-msgstr "Требуется"
-
-msgid "Duplicate keys are not allowed"
-msgstr "Повторяющиеся ключи не допускаются"
-
-msgid "Filter"
-msgstr "Фильтр"
-
-msgid "Available Metadata"
-msgstr "Доступные метаданные"
-
-msgid "Existing Metadata"
-msgstr "Имеющиеся метаданные"
-
-msgid "Custom"
-msgstr "Выборочный"
-
-msgid "No available metadata"
-msgstr "Метаданные недоступны"
-
-msgid "No existing metadata"
-msgstr "Нет метаданных"
-
-msgid "Submit"
-msgstr "Отправить"
-
-msgid "Cancel"
-msgstr "Отмена"
-
-msgid "Danger"
-msgstr "Опасность"
-
-msgid "Warning"
-msgstr "Предупреждение"
-
-msgid "Info"
-msgstr "Информация"
-
-msgid "Success"
-msgstr "Успешно"
-
-msgid "Error"
-msgstr "Ошибка"
-
-msgid "Allocated"
-msgstr "Выделенный"
-
-msgid "Available"
-msgstr "Доступно"
-
-msgid "Select one"
-msgstr "Выберите один"
-
-msgid "Select an item from Available items below"
-msgstr "Выберите элемент из доступных элементов ниже"
-
-msgid "No available items"
-msgstr "Нет доступных элементов"
-
-msgid "Expand to see allocated items"
-msgstr "Показать выделенные элементы"
-
-msgid "Expand to see available items"
-msgstr "Показать все доступные элементы"
-
-msgid "Click to show or hide"
-msgstr "Нажмите для показа или скрытия"
-
-msgid "Re-order items using drag and drop"
-msgstr "Переопределите элементы перемещением"
-
-msgid "Click to see more details"
-msgstr "Нажмите для подробностей"
-
-msgid "Found %(found)s of %(total)s"
-msgstr "Найдено %(found)s из %(total)s"
-
-msgid "Click here to expand the row and view the errors."
-msgstr "Нажмите для показа ошибок."
-
-msgid "Back"
-msgstr "Назад"
-
-msgid "Next"
-msgstr "Вперёд"
-
-msgid "Finish"
-msgstr "Закончить"
-
-msgid "Connecting"
-msgstr "Подключение"
-
-msgid "Open"
-msgstr "Открыт"
-
-msgid "Closing"
-msgstr "Закрытие"
-
-msgid "Closed"
-msgstr "Закрыт"
-
-#, c-format
-msgid "Status: %s"
-msgstr "Статус: %s"
-
-msgid "Unable to retrieve volumes."
-msgstr "Не удалось получить диски."
-
-msgid "Unable to retrieve volume snapshots."
-msgstr "Не удалось получить снимки диска."
-
-msgid "Unable to retrieve settings."
-msgstr "Не удалось получить настройки."
-
-msgid "Setting is not enabled: %(setting)s"
-msgstr "Настройка не включена: %(setting)s"
-
-msgid "Unable to retrieve image."
-msgstr "Не удалось получить образ."
-
-msgid "Unable to retrieve images."
-msgstr "Не удалось получить образы."
-
-msgid "Unable to retrieve namespaces."
-msgstr "Не удалось получить пространство имён."
-
-msgid "Unable to retrieve users"
-msgstr "Не удалось получить пользователей."
-
-msgid "Unable to create the user."
-msgstr "Не удалось создать пользователя."
-
-msgid "Unable to delete the users."
-msgstr "Не удалось удалить пользователя."
-
-msgid "Unable to retrieve the current user session."
-msgstr "Не удалось получить текущую сессию пользователя."
-
-msgid "Unable to retrieve the user"
-msgstr "Не удалось получить пользователя."
-
-msgid "Unable to edit the user."
-msgstr "Не удалось изменить пользователя."
-
-msgid "Unable to delete the user."
-msgstr "Не удалось удалить пользователя."
-
-msgid "Unable to retrieve role"
-msgstr "Не удалось получить роль."
-
-msgid "Unable to create the role."
-msgstr "Не удалось создать роль."
-
-msgid "Unable to delete the roles."
-msgstr "Не удалось удалить роли."
-
-msgid "Unable to retrieve the role"
-msgstr "Не удалось получить роль"
-
-msgid "Unable to edit the role."
-msgstr "Не удалось изменить роль."
-
-msgid "Unable to delete the role."
-msgstr "Не удалось удалить роль."
-
-msgid "Unable to retrieve domains"
-msgstr "Не удалось получить домены."
-
-msgid "Unable to create the domain."
-msgstr "Не удалось создать домен."
-
-msgid "Unable to delete the domains."
-msgstr "Не удалось удалить домены."
-
-msgid "Unable to retrieve the domain"
-msgstr "Не удалось получить домен."
-
-msgid "Unable to edit the domain."
-msgstr "Не удалось изменить домен."
-
-msgid "Unable to delete the domain."
-msgstr "Не удалось удалить домен."
-
-msgid "Unable to retrieve projects"
-msgstr "Не удалось получить проекты"
-
-msgid "Unable to create the project."
-msgstr "Не удалось создать проект"
-
-msgid "Unable to delete the projects."
-msgstr "Не удалось удалить проекты."
-
-msgid "Unable to retrieve the project"
-msgstr "Не удалось получить проект"
-
-msgid "Unable to edit the project."
-msgstr "Не удалось изменить проект."
-
-msgid "Unable to delete the project."
-msgstr "Не удалось удалить проект."
-
-msgid "Unable to grant the role."
-msgstr "Не удалось предоставить роль."
-
-msgid "Unable to fetch the service catalog."
-msgstr "Не удалось получить службу каталогов."
-
-msgid "Service type is not enabled: %(desiredType)s"
-msgstr "Тип службы не включен: %(desiredType)s"
-
-msgid "Cannot get service catalog from keystone."
-msgstr "Не удалось получить службу каталогов с Keystone."
-
-msgid "Unable to retrieve networks."
-msgstr "Не удалось получить сети."
-
-msgid "Unable to create the network."
-msgstr "Не удалось создать сеть."
-
-msgid "Unable to retrieve subnets."
-msgstr "Не удалось получить подсети."
-
-msgid "Unable to create the subnet."
-msgstr "Не удалось создать подсеть."
-
-msgid "Unable to retrieve ports."
-msgstr "Не удалось получить порты."
-
-msgid "Unable to retrieve keypairs."
-msgstr "Не удалось получить пары ключей."
-
-msgid "Unable to import the keypair."
-msgstr "Не удалось импортировать пару ключей."
-
-msgid "Unable to create the keypair."
-msgstr "Не удалось создать пару ключей."
-
-msgid "Unable to retrieve availability zones."
-msgstr "Не удалось получить зоны доступности."
-
-msgid "Unable to retrieve limits."
-msgstr "Не удалось получить лимиты."
-
-msgid "Unable to create the server."
-msgstr "Не удалось создать сервер."
-
-msgid "Unable to retrieve server."
-msgstr "Не удалось получить сервер."
-
-msgid "Unable to retrieve extensions."
-msgstr "Не удалось получить расширения."
-
-msgid "Unable to retrieve flavors."
-msgstr "Не удалось получить типы инстанса."
-
-msgid "Unable to retrieve flavor."
-msgstr "Не удалось получить тип инстанса."
-
-msgid "Unable to retrieve flavor extra specs."
-msgstr "Не удалось получить доп. параметры типа интанса."
-
-msgid "Extension is not enabled: %(extension)s"
-msgstr "Расширение не включено: %(extension)s"
-
-msgid "Cannot get nova extension list."
-msgstr "Не удалось получить список расширений nova."
-
-msgid "Policy check failed."
-msgstr "Проверка политики не удалась."
-
-msgid "Unable to retrieve security groups."
-msgstr "Не удалось получить группы безопасности."
-
-msgid "Loading"
-msgstr "Загрузка"
-
-msgid "No data available."
-msgstr "Нет данных."
-
-msgid "An error occurred. Please try again later."
-msgstr "Произошла ошибка. Повторите попытку."
-
-msgid "There was a problem communicating with the server, please try again."
-msgstr "Обнаружена проблема при соединении с сервером. Повторите попытку."
-
-msgid "Could not read the file"
-msgstr "Не удалось прочитать файл"
-
-msgid "Could not decrypt the password"
-msgstr "Не удалось расшифровать пароль"
-
-msgid "No roles"
-msgstr "Нет ролей"
-
-msgid "Roles"
-msgstr "Роли"
-
-msgid "Danger: "
-msgstr "Опасность:"
-
-msgid "Warning: "
-msgstr "Внимание:"
-
-msgid "Notice: "
-msgstr "Примечание:"
-
-msgid "Success: "
-msgstr "Успешно:"
-
-msgid "Error: "
-msgstr "Ошибка:"
-
-msgid "Working"
-msgstr "Обработка"
-
-msgid "There was an error submitting the form. Please try again."
-msgstr "При отправке формы произошла ошибка. Повторите попытку."
-
-msgid "None"
-msgstr "Нет"
-
-msgid "Delete"
-msgstr "Удалить"
-
-msgid "STATUS"
-msgstr "СОСТОЯНИЕ"
-
-msgid "ID"
-msgstr "ID"
-
-msgid "Interfaces"
-msgstr "Интерфейсы"
-
-msgid "Delete Interface"
-msgstr "Удалить интерфейс"
-
-msgid "Open Console"
-msgstr "Открыть консоль"
-
-msgid "View Details"
-msgstr "Просмотреть детали"
-
-msgid "Delete Router"
-msgstr "Удалить маршрутизатор"
-
-msgid "View Router Details"
-msgstr "Посмотреть информацию о маршрутизаторе"
-
-msgid "Add Interface"
-msgstr "Добавить Интерфейс"
-
-msgid "Terminate Instance"
-msgstr "Удалить инстанс"
-
-msgid "View Instance Details"
-msgstr "Посмотреть информацию об инстансе."
-
-msgid "No items to display."
-msgstr "Нет элементов для отображения."
-
-msgid "An error occurred while updating."
-msgstr "Во время обновления произошла ошибка."
-
 #, c-format
 msgid "You have selected %s. "
 msgstr "Выбрано %s."
-
-#, c-format
-msgid "Confirm %s"
-msgstr "Подтвердите %s"
-
-msgid "Please confirm your selection. "
-msgstr "Подтвердите свой выбор."
-
-msgid "Not authorized to do this operation."
-msgstr "Нет прав для выполнения."
-
-msgid "Passwords do not match."
-msgstr "Пароли не совпадают."

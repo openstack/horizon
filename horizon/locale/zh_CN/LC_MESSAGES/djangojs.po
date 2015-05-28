@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"POT-Creation-Date: 2015-05-27 03:01-0500\n"
 "PO-Revision-Date: 2015-05-27 03:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/"
@@ -24,15 +24,13 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "Yes"
-msgstr "是"
-
-msgid "No"
-msgstr "不"
-
 #, c-format
 msgid "%s GB"
 msgstr "%s GB"
+
+#, c-format
+msgid "%s KB"
+msgstr "%s KB"
 
 #, c-format
 msgid "%s MB"
@@ -43,40 +41,437 @@ msgid "%s TB"
 msgstr "%s TB"
 
 #, c-format
-msgid "%s KB"
-msgstr "%s KB"
-
-#, c-format
 msgid "%s bytes"
 msgstr "%s 字节"
+
+msgid "Add Interface"
+msgstr "增加接口"
+
+msgid "Added"
+msgstr "已添加"
+
+msgid "Allocated"
+msgstr "已分配"
+
+msgid "An error occurred while updating."
+msgstr "更新时发生错误。"
+
+msgid "An error occurred. Please try again later."
+msgstr "发生错误。请稍后重试。"
+
+msgid "Available"
+msgstr "可用配额"
+
+msgid "Available Metadata"
+msgstr "可用的元数据"
+
+msgid "Back"
+msgstr "返回"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Cannot get nova extension list."
+msgstr "无法查询nova扩展列表"
+
+msgid "Cannot get service catalog from keystone."
+msgstr "无法由keystone获取服务目录。"
+
+msgid "Click here to expand the row and view the errors."
+msgstr "点击此处展开,并可浏览错误。"
+
+msgid "Click to see more details"
+msgstr "点击查看更多细节"
+
+msgid "Click to show or hide"
+msgstr "点击此处展现或隐藏"
+
+msgid "Closed"
+msgstr "已关闭"
+
+msgid "Closing"
+msgstr "关闭中"
+
+#, c-format
+msgid "Confirm %s"
+msgstr "确认 %s"
+
+msgid "Connecting"
+msgstr "连接中"
+
+msgid "Could not decrypt the password"
+msgstr "不能解密密码"
+
+msgid "Could not read the file"
+msgstr "不能读取文件"
+
+msgid "Current Usage"
+msgstr "当前使用量"
+
+msgid "Custom"
+msgstr "定制"
+
+msgid "Danger"
+msgstr "危险"
+
+msgid "Danger: "
+msgstr "危险："
+
+msgid "Decimal required"
+msgstr "必须是小数"
+
+msgid "Delete"
+msgstr "删除"
+
+msgid "Delete Interface"
+msgstr "删除接口"
+
+msgid "Delete Router"
+msgstr "删除路由"
+
+msgid "Detail Information"
+msgstr "详细信息"
 
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
 msgstr[0] "正在显示 %s 项"
 
+msgid "Duplicate keys are not allowed"
+msgstr "复制密钥是不允许的"
+
+msgid "Error"
+msgstr "错误"
+
+msgid "Error: "
+msgstr "错误："
+
+msgid "Existing Metadata"
+msgstr "已存在的元数据"
+
+msgid "Expand to see allocated items"
+msgstr "展开可见已分配项"
+
+msgid "Expand to see available items"
+msgstr "展开可见可选项"
+
+msgid "Extension is not enabled: %(extension)s"
+msgstr "扩展没有启动: %(extension)s"
+
+msgid "Filter"
+msgstr "筛选"
+
+msgid "Finish"
+msgstr "结束"
+
+msgid "Found %(found)s of %(total)s"
+msgstr "共有%(total)s已找到%(found)s"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Info"
+msgstr "信息"
+
+msgid "Integer required"
+msgstr "必须是整数"
+
+msgid "Interfaces"
+msgstr "接口"
+
+msgid "Loading"
+msgstr "加载中"
+
+msgid "Max"
+msgstr "最大"
+
+msgid "Max length"
+msgstr "最大长度"
+
+msgid "Min"
+msgstr "最小"
+
+msgid "Min length"
+msgstr "最小长度"
+
+msgid "Next"
+msgstr "下一步"
+
+msgid "No"
+msgstr "不"
+
+msgid "No available items"
+msgstr "没有可选项"
+
+msgid "No available metadata"
+msgstr "没有可用的元数据"
+
+msgid "No data available."
+msgstr "没有可用数据"
+
+msgid "No existing metadata"
+msgstr "不存在的元数据"
+
+msgid "No items to display."
+msgstr "没有条目显示。"
+
+msgid "No roles"
+msgstr "不存在任何角色"
+
+msgid "None"
+msgstr "无"
+
+msgid "Not authorized to do this operation."
+msgstr "未授权不能进行此操作。"
+
+msgid "Notice: "
+msgstr "注意："
+
+msgid "Open"
+msgstr "打开"
+
+msgid "Open Console"
+msgstr "打开控制台"
+
+msgid "Passwords do not match."
+msgstr "密码不匹配。"
+
+msgid "Pattern mismatch"
+msgstr "模式不匹配"
+
+msgid "Please confirm your selection. "
+msgstr "请确认您的选择。"
+
+msgid "Policy check failed."
+msgstr "策略检查失败"
+
+msgid "Re-order items using drag and drop"
+msgstr "使用拖放重新排序"
+
+msgid "Remaining"
+msgstr "剩余量"
+
+msgid "Required"
+msgstr "必须"
+
+msgid "Roles"
+msgstr "角色"
+
+msgid "STATUS"
+msgstr "状态"
+
+msgid "Select an item from Available items below"
+msgstr "从以下可选项中选择一项"
+
+msgid "Select one"
+msgstr "选择一个"
+
+msgid "Service type is not enabled: %(desiredType)s"
+msgstr "服务类型未激活：%(desiredType)s"
+
+msgid "Setting is not enabled: %(setting)s"
+msgstr "配置没有启用: %(setting)s"
+
+#, c-format
+msgid "Status: %s"
+msgstr "状态: %s"
+
+msgid "Submit"
+msgstr "提交"
+
+msgid "Success"
+msgstr "成功"
+
+msgid "Success: "
+msgstr "成功："
+
+msgid "Terminate Instance"
+msgstr "终止实例"
+
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
 "missing information."
 msgstr "不能执行该操作。该列的内容有错或是缺少信息。"
 
-msgid "Current Usage"
-msgstr "当前使用量"
+msgid "There was a problem communicating with the server, please try again."
+msgstr "与服务器通信出现问题，请再试一次。"
 
-msgid "Added"
-msgstr "已添加"
-
-msgid "Remaining"
-msgstr "剩余量"
-
-msgid "Max"
-msgstr "最大"
+msgid "There was an error submitting the form. Please try again."
+msgstr "在提交表单的时候出现错误，请再次尝试。"
 
 msgid "Total"
 msgstr "总共"
 
-msgid "Detail Information"
-msgstr "详细信息"
+msgid "Unable to create the domain."
+msgstr "无法创建域"
+
+msgid "Unable to create the keypair."
+msgstr "无法创建密匙对"
+
+msgid "Unable to create the network."
+msgstr "无法创建网络"
+
+msgid "Unable to create the project."
+msgstr "无法创建项目"
+
+msgid "Unable to create the role."
+msgstr "无法创建角色。"
+
+msgid "Unable to create the server."
+msgstr "无法创建服务器"
+
+msgid "Unable to create the subnet."
+msgstr "无法创建子网"
+
+msgid "Unable to create the user."
+msgstr "无法创建用户。"
+
+msgid "Unable to delete the domain."
+msgstr "无法删除域"
+
+msgid "Unable to delete the domains."
+msgstr "无法删除域"
+
+msgid "Unable to delete the project."
+msgstr "无法删除项目"
+
+msgid "Unable to delete the projects."
+msgstr "无法删除项目"
+
+msgid "Unable to delete the role."
+msgstr "无法删除角色"
+
+msgid "Unable to delete the roles."
+msgstr "无法删除角色"
+
+msgid "Unable to delete the user."
+msgstr "无法删除用户"
+
+msgid "Unable to delete the users."
+msgstr "无法删除用户"
+
+msgid "Unable to edit the domain."
+msgstr "无法编辑域"
+
+msgid "Unable to edit the project."
+msgstr "无法编辑项目"
+
+msgid "Unable to edit the role."
+msgstr "无法编辑角色"
+
+msgid "Unable to edit the user."
+msgstr "无法编辑用户"
+
+msgid "Unable to fetch the service catalog."
+msgstr "无法取得服务目录"
+
+msgid "Unable to grant the role."
+msgstr "无法授予角色"
+
+msgid "Unable to import the keypair."
+msgstr "无法导入密钥对"
+
+msgid "Unable to retrieve availability zones."
+msgstr "无法获取可用域。"
+
+msgid "Unable to retrieve domains"
+msgstr "无法获取域"
+
+msgid "Unable to retrieve extensions."
+msgstr "无法获取扩展"
+
+msgid "Unable to retrieve flavor extra specs."
+msgstr "无法获取云主机类型特别设定"
+
+msgid "Unable to retrieve flavor."
+msgstr "无法获取云主机类型"
+
+msgid "Unable to retrieve flavors."
+msgstr "无法获取云主机类型列表。"
+
+msgid "Unable to retrieve image."
+msgstr "无法检索到镜像。"
+
+msgid "Unable to retrieve images."
+msgstr "找不到镜像。"
+
+msgid "Unable to retrieve keypairs."
+msgstr "无法获取密钥对"
+
+msgid "Unable to retrieve limits."
+msgstr "无法获取界限"
+
+msgid "Unable to retrieve namespaces."
+msgstr "无法获取命名空间"
+
+msgid "Unable to retrieve networks."
+msgstr "无法获取网络"
+
+msgid "Unable to retrieve ports."
+msgstr "无法获取端口"
+
+msgid "Unable to retrieve projects"
+msgstr "无法获取项目"
+
+msgid "Unable to retrieve role"
+msgstr "无法获取角色"
+
+msgid "Unable to retrieve security groups."
+msgstr "无法获取安全组。"
+
+msgid "Unable to retrieve server."
+msgstr "无法获取服务器"
+
+msgid "Unable to retrieve settings."
+msgstr "无法获取配置"
+
+msgid "Unable to retrieve subnets."
+msgstr "无法获取子网"
+
+msgid "Unable to retrieve the current user session."
+msgstr "无法获取当前用户会话。"
+
+msgid "Unable to retrieve the domain"
+msgstr "无法获取域"
+
+msgid "Unable to retrieve the project"
+msgstr "无法获取项目"
+
+msgid "Unable to retrieve the role"
+msgstr "无法获取角色"
+
+msgid "Unable to retrieve the user"
+msgstr "无法获取用户"
+
+msgid "Unable to retrieve users"
+msgstr "无法获取用户"
+
+msgid "Unable to retrieve volume snapshots."
+msgstr "找不到云硬盘快照。"
+
+msgid "Unable to retrieve volumes."
+msgstr "无法获取云硬盘"
+
+msgid "View Details"
+msgstr "查看详情"
+
+msgid "View Instance Details"
+msgstr "查看实例详情"
+
+msgid "View Router Details"
+msgstr "查看路由详情"
+
+msgid "Warning"
+msgstr "警告"
+
+msgid "Warning: "
+msgstr "警告："
+
+msgid "Working"
+msgstr "进行中"
+
+msgid "Yes"
+msgstr "是"
 
 msgid ""
 "You can specify resource metadata by moving items from the left column to "
@@ -87,401 +482,6 @@ msgstr ""
 "你可以通过从左边栏目目录选择到右边栏目来指定资源的元数据。在左边栏目是按照"
 "glance 元数据目录来定义的元数据。使用\"其他\"选项来增加元数据。"
 
-msgid "Min"
-msgstr "最小"
-
-msgid "Min length"
-msgstr "最小长度"
-
-msgid "Max length"
-msgstr "最大长度"
-
-msgid "Pattern mismatch"
-msgstr "模式不匹配"
-
-msgid "Integer required"
-msgstr "必须是整数"
-
-msgid "Decimal required"
-msgstr "必须是小数"
-
-msgid "Required"
-msgstr "必须"
-
-msgid "Duplicate keys are not allowed"
-msgstr "复制密钥是不允许的"
-
-msgid "Filter"
-msgstr "筛选"
-
-msgid "Available Metadata"
-msgstr "可用的元数据"
-
-msgid "Existing Metadata"
-msgstr "已存在的元数据"
-
-msgid "Custom"
-msgstr "定制"
-
-msgid "No available metadata"
-msgstr "没有可用的元数据"
-
-msgid "No existing metadata"
-msgstr "不存在的元数据"
-
-msgid "Submit"
-msgstr "提交"
-
-msgid "Cancel"
-msgstr "取消"
-
-msgid "Danger"
-msgstr "危险"
-
-msgid "Warning"
-msgstr "警告"
-
-msgid "Info"
-msgstr "信息"
-
-msgid "Success"
-msgstr "成功"
-
-msgid "Error"
-msgstr "错误"
-
-msgid "Allocated"
-msgstr "已分配"
-
-msgid "Available"
-msgstr "可用配额"
-
-msgid "Select one"
-msgstr "选择一个"
-
-msgid "Select an item from Available items below"
-msgstr "从以下可选项中选择一项"
-
-msgid "No available items"
-msgstr "没有可选项"
-
-msgid "Expand to see allocated items"
-msgstr "展开可见已分配项"
-
-msgid "Expand to see available items"
-msgstr "展开可见可选项"
-
-msgid "Click to show or hide"
-msgstr "点击此处展现或隐藏"
-
-msgid "Re-order items using drag and drop"
-msgstr "使用拖放重新排序"
-
-msgid "Click to see more details"
-msgstr "点击查看更多细节"
-
-msgid "Found %(found)s of %(total)s"
-msgstr "共有%(total)s已找到%(found)s"
-
-msgid "Click here to expand the row and view the errors."
-msgstr "点击此处展开,并可浏览错误。"
-
-msgid "Back"
-msgstr "返回"
-
-msgid "Next"
-msgstr "下一步"
-
-msgid "Finish"
-msgstr "结束"
-
-msgid "Connecting"
-msgstr "连接中"
-
-msgid "Open"
-msgstr "打开"
-
-msgid "Closing"
-msgstr "关闭中"
-
-msgid "Closed"
-msgstr "已关闭"
-
-#, c-format
-msgid "Status: %s"
-msgstr "状态: %s"
-
-msgid "Unable to retrieve volumes."
-msgstr "无法获取云硬盘"
-
-msgid "Unable to retrieve volume snapshots."
-msgstr "找不到云硬盘快照。"
-
-msgid "Unable to retrieve settings."
-msgstr "无法获取配置"
-
-msgid "Setting is not enabled: %(setting)s"
-msgstr "配置没有启用: %(setting)s"
-
-msgid "Unable to retrieve image."
-msgstr "无法检索到镜像。"
-
-msgid "Unable to retrieve images."
-msgstr "找不到镜像。"
-
-msgid "Unable to retrieve namespaces."
-msgstr "无法获取命名空间"
-
-msgid "Unable to retrieve users"
-msgstr "无法获取用户"
-
-msgid "Unable to create the user."
-msgstr "无法创建用户。"
-
-msgid "Unable to delete the users."
-msgstr "无法删除用户"
-
-msgid "Unable to retrieve the current user session."
-msgstr "无法获取当前用户会话。"
-
-msgid "Unable to retrieve the user"
-msgstr "无法获取用户"
-
-msgid "Unable to edit the user."
-msgstr "无法编辑用户"
-
-msgid "Unable to delete the user."
-msgstr "无法删除用户"
-
-msgid "Unable to retrieve role"
-msgstr "无法获取角色"
-
-msgid "Unable to create the role."
-msgstr "无法创建角色。"
-
-msgid "Unable to delete the roles."
-msgstr "无法删除角色"
-
-msgid "Unable to retrieve the role"
-msgstr "无法获取角色"
-
-msgid "Unable to edit the role."
-msgstr "无法编辑角色"
-
-msgid "Unable to delete the role."
-msgstr "无法删除角色"
-
-msgid "Unable to retrieve domains"
-msgstr "无法获取域"
-
-msgid "Unable to create the domain."
-msgstr "无法创建域"
-
-msgid "Unable to delete the domains."
-msgstr "无法删除域"
-
-msgid "Unable to retrieve the domain"
-msgstr "无法获取域"
-
-msgid "Unable to edit the domain."
-msgstr "无法编辑域"
-
-msgid "Unable to delete the domain."
-msgstr "无法删除域"
-
-msgid "Unable to retrieve projects"
-msgstr "无法获取项目"
-
-msgid "Unable to create the project."
-msgstr "无法创建项目"
-
-msgid "Unable to delete the projects."
-msgstr "无法删除项目"
-
-msgid "Unable to retrieve the project"
-msgstr "无法获取项目"
-
-msgid "Unable to edit the project."
-msgstr "无法编辑项目"
-
-msgid "Unable to delete the project."
-msgstr "无法删除项目"
-
-msgid "Unable to grant the role."
-msgstr "无法授予角色"
-
-msgid "Unable to fetch the service catalog."
-msgstr "无法取得服务目录"
-
-msgid "Service type is not enabled: %(desiredType)s"
-msgstr "服务类型未激活：%(desiredType)s"
-
-msgid "Cannot get service catalog from keystone."
-msgstr "无法由keystone获取服务目录。"
-
-msgid "Unable to retrieve networks."
-msgstr "无法获取网络"
-
-msgid "Unable to create the network."
-msgstr "无法创建网络"
-
-msgid "Unable to retrieve subnets."
-msgstr "无法获取子网"
-
-msgid "Unable to create the subnet."
-msgstr "无法创建子网"
-
-msgid "Unable to retrieve ports."
-msgstr "无法获取端口"
-
-msgid "Unable to retrieve keypairs."
-msgstr "无法获取密钥对"
-
-msgid "Unable to import the keypair."
-msgstr "无法导入密钥对"
-
-msgid "Unable to create the keypair."
-msgstr "无法创建密匙对"
-
-msgid "Unable to retrieve availability zones."
-msgstr "无法获取可用域。"
-
-msgid "Unable to retrieve limits."
-msgstr "无法获取界限"
-
-msgid "Unable to create the server."
-msgstr "无法创建服务器"
-
-msgid "Unable to retrieve server."
-msgstr "无法获取服务器"
-
-msgid "Unable to retrieve extensions."
-msgstr "无法获取扩展"
-
-msgid "Unable to retrieve flavors."
-msgstr "无法获取云主机类型列表。"
-
-msgid "Unable to retrieve flavor."
-msgstr "无法获取云主机类型"
-
-msgid "Unable to retrieve flavor extra specs."
-msgstr "无法获取云主机类型特别设定"
-
-msgid "Extension is not enabled: %(extension)s"
-msgstr "扩展没有启动: %(extension)s"
-
-msgid "Cannot get nova extension list."
-msgstr "无法查询nova扩展列表"
-
-msgid "Policy check failed."
-msgstr "策略检查失败"
-
-msgid "Unable to retrieve security groups."
-msgstr "无法获取安全组。"
-
-msgid "Loading"
-msgstr "加载中"
-
-msgid "No data available."
-msgstr "没有可用数据"
-
-msgid "An error occurred. Please try again later."
-msgstr "发生错误。请稍后重试。"
-
-msgid "There was a problem communicating with the server, please try again."
-msgstr "与服务器通信出现问题，请再试一次。"
-
-msgid "Could not read the file"
-msgstr "不能读取文件"
-
-msgid "Could not decrypt the password"
-msgstr "不能解密密码"
-
-msgid "No roles"
-msgstr "不存在任何角色"
-
-msgid "Roles"
-msgstr "角色"
-
-msgid "Danger: "
-msgstr "危险："
-
-msgid "Warning: "
-msgstr "警告："
-
-msgid "Notice: "
-msgstr "注意："
-
-msgid "Success: "
-msgstr "成功："
-
-msgid "Error: "
-msgstr "错误："
-
-msgid "Working"
-msgstr "进行中"
-
-msgid "There was an error submitting the form. Please try again."
-msgstr "在提交表单的时候出现错误，请再次尝试。"
-
-msgid "None"
-msgstr "无"
-
-msgid "Delete"
-msgstr "删除"
-
-msgid "STATUS"
-msgstr "状态"
-
-msgid "ID"
-msgstr "ID"
-
-msgid "Interfaces"
-msgstr "接口"
-
-msgid "Delete Interface"
-msgstr "删除接口"
-
-msgid "Open Console"
-msgstr "打开控制台"
-
-msgid "View Details"
-msgstr "查看详情"
-
-msgid "Delete Router"
-msgstr "删除路由"
-
-msgid "View Router Details"
-msgstr "查看路由详情"
-
-msgid "Add Interface"
-msgstr "增加接口"
-
-msgid "Terminate Instance"
-msgstr "终止实例"
-
-msgid "View Instance Details"
-msgstr "查看实例详情"
-
-msgid "No items to display."
-msgstr "没有条目显示。"
-
-msgid "An error occurred while updating."
-msgstr "更新时发生错误。"
-
 #, c-format
 msgid "You have selected %s. "
 msgstr "你已经选择了 %s 。 "
-
-#, c-format
-msgid "Confirm %s"
-msgstr "确认 %s"
-
-msgid "Please confirm your selection. "
-msgstr "请确认您的选择。"
-
-msgid "Not authorized to do this operation."
-msgstr "未授权不能进行此操作。"
-
-msgid "Passwords do not match."
-msgstr "密码不匹配。"

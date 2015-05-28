@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"POT-Creation-Date: 2015-05-27 03:01-0500\n"
 "PO-Revision-Date: 2015-05-27 03:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/horizon/language/"
@@ -24,6 +24,10 @@ msgid "%s GB"
 msgstr "%s GB"
 
 #, c-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#, c-format
 msgid "%s MB"
 msgstr "%s MB"
 
@@ -31,63 +35,117 @@ msgstr "%s MB"
 msgid "%s TB"
 msgstr "%s TB"
 
-#, c-format
-msgid "%s KB"
-msgstr "%s KB"
+msgid "Add Interface"
+msgstr "Dodavanje interface-a"
 
 msgid "Added"
 msgstr "Dodato"
 
-msgid "Duplicate keys are not allowed"
-msgstr "Dupli kljucevi nisu omoguceni"
+msgid "An error occurred while updating."
+msgstr "Greška u toku ažuriranja."
 
-msgid "Filter"
-msgstr "Filter"
-
-msgid "Available Metadata"
-msgstr "Dostupni Metadata podaci"
-
-msgid "Existing Metadata"
-msgstr "Postojeci Metadata podaci"
-
-msgid "No existing metadata"
-msgstr "Nema postojecih metadata podataka"
-
-msgid "Submit"
-msgstr "Predaj"
-
-msgid "Cancel"
-msgstr "Odustani"
-
-msgid "Info"
-msgstr "Informacije"
-
-msgid "Error"
-msgstr "Greška"
+msgid "An error occurred. Please try again later."
+msgstr "Greška. Pokušajte ponovo kasnije."
 
 msgid "Available"
 msgstr "Dostupno"
 
+msgid "Available Metadata"
+msgstr "Dostupni Metadata podaci"
+
 msgid "Back"
 msgstr "Nazad"
+
+msgid "Cancel"
+msgstr "Odustani"
+
+#, c-format
+msgid "Confirm %s"
+msgstr "Potvrda %s"
+
+msgid "Could not decrypt the password"
+msgstr "Ne mogu dešifrovati lozinku"
+
+msgid "Could not read the file"
+msgstr "Ne mogu da pročitam fajl"
+
+msgid "Danger: "
+msgstr "Opasnost:"
+
+msgid "Delete"
+msgstr "Brisanje"
+
+msgid "Duplicate keys are not allowed"
+msgstr "Dupli kljucevi nisu omoguceni"
+
+msgid "Error"
+msgstr "Greška"
+
+msgid "Error: "
+msgstr "Greška:"
+
+msgid "Existing Metadata"
+msgstr "Postojeci Metadata podaci"
+
+msgid "Filter"
+msgstr "Filter"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Info"
+msgstr "Informacije"
+
+msgid "Interfaces"
+msgstr "Interfejsi"
+
+msgid "Loading"
+msgstr "Učitavanje"
 
 msgid "Next"
 msgstr "Sledeći"
 
-msgid "Unable to retrieve volume snapshots."
-msgstr "Nemoguće je izvući snapshot-ove volume-a."
+msgid "No data available."
+msgstr "Nema podataka."
 
-msgid "Unable to retrieve image."
-msgstr "Nemoguće je dobiti image."
+msgid "No existing metadata"
+msgstr "Nema postojecih metadata podataka"
 
-msgid "Unable to retrieve images."
-msgstr "Nemoguće je dobiti image-e."
+msgid "No items to display."
+msgstr "Nema stavki za prikaz."
 
-msgid "Unable to retrieve networks."
-msgstr "Nemoguće je dopreti do mreža."
+msgid "No roles"
+msgstr "Nema uloga"
 
-msgid "Unable to retrieve keypairs."
-msgstr "Nemoguće je dobiti parove ključeva."
+msgid "None"
+msgstr "Ništa"
+
+msgid "Not authorized to do this operation."
+msgstr "Niste nadležni za ovaj zahvat."
+
+msgid "Notice: "
+msgstr "Uočite:"
+
+msgid "Passwords do not match."
+msgstr "Lozinka se ne podudara."
+
+msgid "Roles"
+msgstr "Uloge"
+
+msgid "STATUS"
+msgstr "STATUS"
+
+msgid "Submit"
+msgstr "Predaj"
+
+msgid "Success: "
+msgstr "Uspeh:"
+
+msgid "There was a problem communicating with the server, please try again."
+msgstr "Postojao je problem u vezi sa serverom, pokušajte ponovo."
+
+msgid "There was an error submitting the form. Please try again."
+msgstr "Greška u predaji forme. Pokušajte ponovo."
 
 msgid "Unable to retrieve availability zones."
 msgstr "Nemoguće je dobiti zone dostupnosti."
@@ -95,91 +153,33 @@ msgstr "Nemoguće je dobiti zone dostupnosti."
 msgid "Unable to retrieve flavors."
 msgstr "Nemoguće je dobiti arome."
 
+msgid "Unable to retrieve image."
+msgstr "Nemoguće je dobiti image."
+
+msgid "Unable to retrieve images."
+msgstr "Nemoguće je dobiti image-e."
+
+msgid "Unable to retrieve keypairs."
+msgstr "Nemoguće je dobiti parove ključeva."
+
+msgid "Unable to retrieve networks."
+msgstr "Nemoguće je dopreti do mreža."
+
 msgid "Unable to retrieve security groups."
 msgstr "Nemoguće je dobiti sigurnosne grupe."
 
-msgid "Loading"
-msgstr "Učitavanje"
-
-msgid "No data available."
-msgstr "Nema podataka."
-
-msgid "An error occurred. Please try again later."
-msgstr "Greška. Pokušajte ponovo kasnije."
-
-msgid "There was a problem communicating with the server, please try again."
-msgstr "Postojao je problem u vezi sa serverom, pokušajte ponovo."
-
-msgid "Could not read the file"
-msgstr "Ne mogu da pročitam fajl"
-
-msgid "Could not decrypt the password"
-msgstr "Ne mogu dešifrovati lozinku"
-
-msgid "No roles"
-msgstr "Nema uloga"
-
-msgid "Roles"
-msgstr "Uloge"
-
-msgid "Danger: "
-msgstr "Opasnost:"
-
-msgid "Warning: "
-msgstr "Upozorenje:"
-
-msgid "Notice: "
-msgstr "Uočite:"
-
-msgid "Success: "
-msgstr "Uspeh:"
-
-msgid "Error: "
-msgstr "Greška:"
-
-msgid "Working"
-msgstr "Obrada u toku"
-
-msgid "There was an error submitting the form. Please try again."
-msgstr "Greška u predaji forme. Pokušajte ponovo."
-
-msgid "None"
-msgstr "Ništa"
-
-msgid "Delete"
-msgstr "Brisanje"
-
-msgid "STATUS"
-msgstr "STATUS"
-
-msgid "ID"
-msgstr "ID"
-
-msgid "Interfaces"
-msgstr "Interfejsi"
+msgid "Unable to retrieve volume snapshots."
+msgstr "Nemoguće je izvući snapshot-ove volume-a."
 
 msgid "View Details"
 msgstr "Pregled detalja"
 
-msgid "Add Interface"
-msgstr "Dodavanje interface-a"
+msgid "Warning: "
+msgstr "Upozorenje:"
 
-msgid "No items to display."
-msgstr "Nema stavki za prikaz."
-
-msgid "An error occurred while updating."
-msgstr "Greška u toku ažuriranja."
+msgid "Working"
+msgstr "Obrada u toku"
 
 #, c-format
 msgid "You have selected %s. "
 msgstr "Odabrali ste %s. "
-
-#, c-format
-msgid "Confirm %s"
-msgstr "Potvrda %s"
-
-msgid "Not authorized to do this operation."
-msgstr "Niste nadležni za ovaj zahvat."
-
-msgid "Passwords do not match."
-msgstr "Lozinka se ne podudara."

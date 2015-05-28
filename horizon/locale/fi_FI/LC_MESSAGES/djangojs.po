@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"POT-Creation-Date: 2015-05-27 03:01-0500\n"
 "PO-Revision-Date: 2015-05-27 03:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/"
@@ -24,6 +24,10 @@ msgid "%s GB"
 msgstr "%s GB"
 
 #, c-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#, c-format
 msgid "%s MB"
 msgstr "%s MB"
 
@@ -31,9 +35,48 @@ msgstr "%s MB"
 msgid "%s TB"
 msgstr "%s TB"
 
+msgid "Add Interface"
+msgstr "lisää Portti"
+
+msgid "An error occurred while updating."
+msgstr "Päivitys epäonnistui."
+
+msgid "An error occurred. Please try again later."
+msgstr "Tapahtui virhe. Yritä myöhemmin uudelleen."
+
+msgid "Available"
+msgstr "Saatavilla"
+
+msgid "Available Metadata"
+msgstr "Käytettävissä oleva metatieto"
+
+msgid "Back"
+msgstr "Takaisin"
+
+msgid "Cancel"
+msgstr "Keskeytä"
+
 #, c-format
-msgid "%s KB"
-msgstr "%s KB"
+msgid "Confirm %s"
+msgstr "Vahvista %s"
+
+msgid "Could not decrypt the password"
+msgstr "Salasanaa ei voitu purkaa"
+
+msgid "Could not read the file"
+msgstr "Tiedostoa ei voitu lukea"
+
+msgid "Danger: "
+msgstr "Vaara:"
+
+msgid "Delete"
+msgstr "Poista"
+
+msgid "Delete Interface"
+msgstr "Poista verkkosovitin"
+
+msgid "Delete Router"
+msgstr "Poista reititin"
 
 #, c-format
 msgid "Displaying %s item"
@@ -44,38 +87,77 @@ msgstr[1] "Näytetään %s kohdetta"
 msgid "Duplicate keys are not allowed"
 msgstr "Avaimen pitää olla uniikki"
 
-msgid "Filter"
-msgstr "Suodain"
-
-msgid "Available Metadata"
-msgstr "Käytettävissä oleva metatieto"
+msgid "Error: "
+msgstr "Virhe:"
 
 msgid "Existing Metadata"
 msgstr "Olemassa oleva metatieto"
 
-msgid "No available metadata"
-msgstr "Metatietoa ei ole saatavilla"
+msgid "Filter"
+msgstr "Suodain"
 
-msgid "Submit"
-msgstr "Lähetä"
-
-msgid "Cancel"
-msgstr "Keskeytä"
+msgid "ID"
+msgstr "ID"
 
 msgid "Info"
 msgstr "Info"
 
-msgid "Available"
-msgstr "Saatavilla"
+msgid "Interfaces"
+msgstr "Verkkosovitin"
 
-msgid "Back"
-msgstr "Takaisin"
+msgid "Loading"
+msgstr "Ladataan"
 
 msgid "Next"
 msgstr "Edellinen"
 
-msgid "Unable to retrieve volume snapshots."
-msgstr "Ei voida hakea levyjaon varmuusvedosta."
+msgid "No available metadata"
+msgstr "Metatietoa ei ole saatavilla"
+
+msgid "No data available."
+msgstr "Ei dataa saatavilla."
+
+msgid "No items to display."
+msgstr "Ei näytettävää."
+
+msgid "No roles"
+msgstr "Ei rooleja"
+
+msgid "None"
+msgstr "Tyhjä"
+
+msgid "Not authorized to do this operation."
+msgstr "Sinulla ei ole oikeutta tähän toimintoon."
+
+msgid "Notice: "
+msgstr "Huomautus:"
+
+msgid "Open Console"
+msgstr "Avaa konsoli"
+
+msgid "Passwords do not match."
+msgstr "Salasana ei täsmää"
+
+msgid "Roles"
+msgstr "Roolit"
+
+msgid "STATUS"
+msgstr "TILA"
+
+msgid "Submit"
+msgstr "Lähetä"
+
+msgid "Success: "
+msgstr "Onnistui:"
+
+msgid "Terminate Instance"
+msgstr "Tuhoa instanssi"
+
+msgid "There was a problem communicating with the server, please try again."
+msgstr "Palvelinyhteydessä tapahtui virhe, yritä myöhemmin uudelleen."
+
+msgid "There was an error submitting the form. Please try again."
+msgstr "Lomakkeen lähetys epäonnistui. Yritä uudelleen."
 
 msgid "Unable to retrieve image."
 msgstr "Ei voida hakea levykuvaa."
@@ -83,115 +165,33 @@ msgstr "Ei voida hakea levykuvaa."
 msgid "Unable to retrieve images."
 msgstr "Ei voida hakea levykuvia."
 
-msgid "Unable to retrieve networks."
-msgstr "Ei voida hakea verkkoja. "
-
 msgid "Unable to retrieve keypairs."
 msgstr "Ei voida hakea avainpareja. "
+
+msgid "Unable to retrieve networks."
+msgstr "Ei voida hakea verkkoja. "
 
 msgid "Unable to retrieve security groups."
 msgstr "Ei voida hakea turvaryhmiä."
 
-msgid "Loading"
-msgstr "Ladataan"
-
-msgid "No data available."
-msgstr "Ei dataa saatavilla."
-
-msgid "An error occurred. Please try again later."
-msgstr "Tapahtui virhe. Yritä myöhemmin uudelleen."
-
-msgid "There was a problem communicating with the server, please try again."
-msgstr "Palvelinyhteydessä tapahtui virhe, yritä myöhemmin uudelleen."
-
-msgid "Could not read the file"
-msgstr "Tiedostoa ei voitu lukea"
-
-msgid "Could not decrypt the password"
-msgstr "Salasanaa ei voitu purkaa"
-
-msgid "No roles"
-msgstr "Ei rooleja"
-
-msgid "Roles"
-msgstr "Roolit"
-
-msgid "Danger: "
-msgstr "Vaara:"
-
-msgid "Warning: "
-msgstr "Varoitus:"
-
-msgid "Notice: "
-msgstr "Huomautus:"
-
-msgid "Success: "
-msgstr "Onnistui:"
-
-msgid "Error: "
-msgstr "Virhe:"
-
-msgid "Working"
-msgstr "Käsitellään"
-
-msgid "There was an error submitting the form. Please try again."
-msgstr "Lomakkeen lähetys epäonnistui. Yritä uudelleen."
-
-msgid "None"
-msgstr "Tyhjä"
-
-msgid "Delete"
-msgstr "Poista"
-
-msgid "STATUS"
-msgstr "TILA"
-
-msgid "ID"
-msgstr "ID"
-
-msgid "Interfaces"
-msgstr "Verkkosovitin"
-
-msgid "Delete Interface"
-msgstr "Poista verkkosovitin"
-
-msgid "Open Console"
-msgstr "Avaa konsoli"
+msgid "Unable to retrieve volume snapshots."
+msgstr "Ei voida hakea levyjaon varmuusvedosta."
 
 msgid "View Details"
 msgstr "Näytä tiedot"
 
-msgid "Delete Router"
-msgstr "Poista reititin"
+msgid "View Instance Details"
+msgstr "Näytä instanssin tiedot"
 
 msgid "View Router Details"
 msgstr "Näytä reitittimen tiedot"
 
-msgid "Add Interface"
-msgstr "lisää Portti"
+msgid "Warning: "
+msgstr "Varoitus:"
 
-msgid "Terminate Instance"
-msgstr "Tuhoa instanssi"
-
-msgid "View Instance Details"
-msgstr "Näytä instanssin tiedot"
-
-msgid "No items to display."
-msgstr "Ei näytettävää."
-
-msgid "An error occurred while updating."
-msgstr "Päivitys epäonnistui."
+msgid "Working"
+msgstr "Käsitellään"
 
 #, c-format
 msgid "You have selected %s. "
 msgstr "Olet valinnut %s."
-
-#, c-format
-msgid "Confirm %s"
-msgstr "Vahvista %s"
-
-msgid "Not authorized to do this operation."
-msgstr "Sinulla ei ole oikeutta tähän toimintoon."
-
-msgid "Passwords do not match."
-msgstr "Salasana ei täsmää"

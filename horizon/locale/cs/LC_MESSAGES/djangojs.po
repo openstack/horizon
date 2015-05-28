@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-26 22:10-0500\n"
+"POT-Creation-Date: 2015-05-27 03:01-0500\n"
 "PO-Revision-Date: 2015-05-27 03:11+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/"
@@ -24,6 +24,10 @@ msgid "%s GB"
 msgstr "%s GB"
 
 #, c-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#, c-format
 msgid "%s MB"
 msgstr "%s MB"
 
@@ -31,9 +35,51 @@ msgstr "%s MB"
 msgid "%s TB"
 msgstr "%s TB"
 
+msgid "Add Interface"
+msgstr "Přidat rozhraní"
+
+msgid "Added"
+msgstr "Přidáno"
+
+msgid "An error occurred while updating."
+msgstr "Při aktualizaci nastal problém."
+
+msgid "An error occurred. Please try again later."
+msgstr "Vyskytla se chyba. Prosím zkuste to znovu později."
+
+msgid "Available"
+msgstr "Dostupné"
+
+msgid "Available Metadata"
+msgstr "Dostupná popisná data"
+
+msgid "Back"
+msgstr "Zpět"
+
+msgid "Cancel"
+msgstr "Zrušit"
+
 #, c-format
-msgid "%s KB"
-msgstr "%s KB"
+msgid "Confirm %s"
+msgstr "Potvrdit %s"
+
+msgid "Could not decrypt the password"
+msgstr "Heslo nelze dešifrovat"
+
+msgid "Could not read the file"
+msgstr "Soubor nelze přečíst"
+
+msgid "Danger: "
+msgstr "Nebezpečí:"
+
+msgid "Delete"
+msgstr "Smazat"
+
+msgid "Delete Interface"
+msgstr "Smazat rozhraní"
+
+msgid "Delete Router"
+msgstr "Smazat směrovač"
 
 #, c-format
 msgid "Displaying %s item"
@@ -42,62 +88,86 @@ msgstr[0] "Zobrazena %s položka"
 msgstr[1] "Zobrazeny %s položky"
 msgstr[2] "Zobrazeno %s položek"
 
-msgid "Added"
-msgstr "Přidáno"
-
 msgid "Duplicate keys are not allowed"
 msgstr "Duplicitní klíče nejsou povoleny"
-
-msgid "Filter"
-msgstr "Filtr"
-
-msgid "Available Metadata"
-msgstr "Dostupná popisná data"
-
-msgid "Existing Metadata"
-msgstr "Existující popisná data"
-
-msgid "No available metadata"
-msgstr "Žádná dostupná popisná data"
-
-msgid "No existing metadata"
-msgstr "Žádná existující popisná data"
-
-msgid "Submit"
-msgstr "Odeslat"
-
-msgid "Cancel"
-msgstr "Zrušit"
-
-msgid "Info"
-msgstr "Informace"
 
 msgid "Error"
 msgstr "Chyba"
 
-msgid "Available"
-msgstr "Dostupné"
+msgid "Error: "
+msgstr "Chyba:"
 
-msgid "Back"
-msgstr "Zpět"
+msgid "Existing Metadata"
+msgstr "Existující popisná data"
+
+msgid "Filter"
+msgstr "Filtr"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Info"
+msgstr "Informace"
+
+msgid "Interfaces"
+msgstr "Rozhraní"
+
+msgid "Loading"
+msgstr "Načítání"
 
 msgid "Next"
 msgstr "Další"
 
-msgid "Unable to retrieve volume snapshots."
-msgstr "Nelze získat svazky snímků."
+msgid "No available metadata"
+msgstr "Žádná dostupná popisná data"
 
-msgid "Unable to retrieve image."
-msgstr "Nelze získat obraz."
+msgid "No data available."
+msgstr "Data nejsou dostupná."
 
-msgid "Unable to retrieve images."
-msgstr "Nelze získat obrazy."
+msgid "No existing metadata"
+msgstr "Žádná existující popisná data"
 
-msgid "Unable to retrieve networks."
-msgstr "Nelze získat sítě."
+msgid "No items to display."
+msgstr "Žádné položky k zobrazení."
 
-msgid "Unable to retrieve keypairs."
-msgstr "Nelze získat pár klíčů."
+msgid "No roles"
+msgstr "Žádné role"
+
+msgid "None"
+msgstr "Žádný"
+
+msgid "Not authorized to do this operation."
+msgstr "Nemáte oprávnění provést tuto operaci."
+
+msgid "Notice: "
+msgstr "Oznámení:"
+
+msgid "Open Console"
+msgstr "Otevřít konzoli"
+
+msgid "Passwords do not match."
+msgstr "Hesla se neshodují."
+
+msgid "Roles"
+msgstr "Role"
+
+msgid "STATUS"
+msgstr "STAV"
+
+msgid "Submit"
+msgstr "Odeslat"
+
+msgid "Success: "
+msgstr "Úspěch:"
+
+msgid "Terminate Instance"
+msgstr "Ukončit instanci"
+
+msgid "There was a problem communicating with the server, please try again."
+msgstr "Při komunikaci se serverem nastal problém, zkuste to znovu."
+
+msgid "There was an error submitting the form. Please try again."
+msgstr "Při odesílání formuláře nastal problém. Zkuste to prosím znovu."
 
 msgid "Unable to retrieve availability zones."
 msgstr "Nelze získat zóny dostupnosti."
@@ -105,109 +175,39 @@ msgstr "Nelze získat zóny dostupnosti."
 msgid "Unable to retrieve flavors."
 msgstr "Nelze získat konfigurace."
 
+msgid "Unable to retrieve image."
+msgstr "Nelze získat obraz."
+
+msgid "Unable to retrieve images."
+msgstr "Nelze získat obrazy."
+
+msgid "Unable to retrieve keypairs."
+msgstr "Nelze získat pár klíčů."
+
+msgid "Unable to retrieve networks."
+msgstr "Nelze získat sítě."
+
 msgid "Unable to retrieve security groups."
 msgstr "Nelze získat bezpečnostní skupiny."
 
-msgid "Loading"
-msgstr "Načítání"
-
-msgid "No data available."
-msgstr "Data nejsou dostupná."
-
-msgid "An error occurred. Please try again later."
-msgstr "Vyskytla se chyba. Prosím zkuste to znovu později."
-
-msgid "There was a problem communicating with the server, please try again."
-msgstr "Při komunikaci se serverem nastal problém, zkuste to znovu."
-
-msgid "Could not read the file"
-msgstr "Soubor nelze přečíst"
-
-msgid "Could not decrypt the password"
-msgstr "Heslo nelze dešifrovat"
-
-msgid "No roles"
-msgstr "Žádné role"
-
-msgid "Roles"
-msgstr "Role"
-
-msgid "Danger: "
-msgstr "Nebezpečí:"
-
-msgid "Warning: "
-msgstr "Varování:"
-
-msgid "Notice: "
-msgstr "Oznámení:"
-
-msgid "Success: "
-msgstr "Úspěch:"
-
-msgid "Error: "
-msgstr "Chyba:"
-
-msgid "Working"
-msgstr "Zpracovávání"
-
-msgid "There was an error submitting the form. Please try again."
-msgstr "Při odesílání formuláře nastal problém. Zkuste to prosím znovu."
-
-msgid "None"
-msgstr "Žádný"
-
-msgid "Delete"
-msgstr "Smazat"
-
-msgid "STATUS"
-msgstr "STAV"
-
-msgid "ID"
-msgstr "ID"
-
-msgid "Interfaces"
-msgstr "Rozhraní"
-
-msgid "Delete Interface"
-msgstr "Smazat rozhraní"
-
-msgid "Open Console"
-msgstr "Otevřít konzoli"
+msgid "Unable to retrieve volume snapshots."
+msgstr "Nelze získat svazky snímků."
 
 msgid "View Details"
 msgstr "Zobrazit podrobnosti"
 
-msgid "Delete Router"
-msgstr "Smazat směrovač"
+msgid "View Instance Details"
+msgstr "Zobrazit podrobnosti instance"
 
 msgid "View Router Details"
 msgstr "Zobrazit podrobnosti směrovače"
 
-msgid "Add Interface"
-msgstr "Přidat rozhraní"
+msgid "Warning: "
+msgstr "Varování:"
 
-msgid "Terminate Instance"
-msgstr "Ukončit instanci"
-
-msgid "View Instance Details"
-msgstr "Zobrazit podrobnosti instance"
-
-msgid "No items to display."
-msgstr "Žádné položky k zobrazení."
-
-msgid "An error occurred while updating."
-msgstr "Při aktualizaci nastal problém."
+msgid "Working"
+msgstr "Zpracovávání"
 
 #, c-format
 msgid "You have selected %s. "
 msgstr "Vybrali jste %s."
-
-#, c-format
-msgid "Confirm %s"
-msgstr "Potvrdit %s"
-
-msgid "Not authorized to do this operation."
-msgstr "Nemáte oprávnění provést tuto operaci."
-
-msgid "Passwords do not match."
-msgstr "Hesla se neshodují."

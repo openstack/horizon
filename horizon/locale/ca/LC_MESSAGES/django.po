@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
+"POT-Creation-Date: 2015-05-27 03:00-0500\n"
 "PO-Revision-Date: 2015-04-20 07:07+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/horizon/language/"
@@ -17,54 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "Other"
-msgstr "Altre"
-
-msgid "Navigation Item"
-msgstr "Article de navegació"
-
-#, python-format
-msgid "Select a %s to browse."
-msgstr "Seleccionar un %s per navegar."
-
-msgid "Password is not accepted"
-msgstr "La contrasenya no ha estat acceptada"
-
-msgid "Please log in to continue."
-msgstr "Identifiqueu-vos per continuar."
-
-#, python-format
-msgid "You are not authorized to access %s"
-msgstr "No esteu autoritzats per accedir a %s"
-
-#, python-format
-msgid "Unauthorized: %s"
-msgstr "No autoritzat: %s"
-
-msgid "Unauthorized. Please try logging in again."
-msgstr "Sense autorització. Torneu a intentar-ho."
-
-msgid "Incorrect format for IP address"
-msgstr "Format incorrecte per l'adreça IP"
-
-msgid "Invalid version for IP address"
-msgstr "Versió incorrecta de l'adreça IP"
-
-msgid "Invalid subnet mask"
-msgstr "Màscara de subxarxa no vàlida"
-
-msgid "Submit"
-msgstr "Transmet"
-
-msgid "Cancel"
-msgstr "Cancel·la"
-
-msgid "Session timed out."
-msgstr "S'ha acabat la sessió."
-
-msgid "Filter"
-msgstr "Filtre"
 
 #, python-format
 msgctxt "past"
@@ -77,115 +29,12 @@ msgid "%(action)s %(data_type)s"
 msgstr "%(action)s %(data_type)s"
 
 #, python-format
-msgid "Unable to %(action)s: %(objs)s"
-msgstr "No es pot %(action)s: %(objs)s"
-
-#, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
 
-msgid "Delete"
-msgstr "Eliminar"
-
-msgid "Deleted"
-msgstr "Eliminat"
-
-msgid "Updated"
-msgstr "Actualitzada"
-
 #, python-format
-msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "L'atribut %(attr)s no existeix a %(obj)s"
-
-msgid "No items to display."
-msgstr "No hi ha articles per mostrar."
-
-msgid "Actions"
-msgstr "Accions"
-
-#, python-format
-msgid "No match returned for the id \"%s\"."
-msgstr "No hi ha resultats per l'identificador \"%s\"."
-
-msgid "Please select a row before taking that action."
-msgstr "Heu de seleccionar una fila abans de dur a terme aquesta acció."
-
-msgid "N/A"
-msgstr "N/D"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "Connectat com: %(username)s"
-
-msgid "Help"
-msgstr "Ajuda"
-
-msgid "Sign Out"
-msgstr "Sortir"
-
-msgid "Log In"
-msgstr "Inicia la sessió"
-
-msgid "Sign In"
-msgstr "Entrar"
-
-msgid "Login"
-msgstr "Login"
-
-msgid "Info: "
-msgstr "Informació:"
-
-msgid "Warning: "
-msgstr "Advertiment:"
-
-msgid "Success: "
-msgstr "Èxit:"
-
-msgid "Error: "
-msgstr "Error: "
-
-msgid "Summary"
-msgstr "Resum"
-
-msgid "Limit Summary"
-msgstr "Resum Límit"
-
-msgid "Instances"
-msgstr "Instàncies"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Usat <span> %(used)s </span> de <span> %(available)s </span>"
-
-msgid "VCPUs"
-msgstr "VCPUs"
-
-msgid "RAM"
-msgstr "RAM"
-
-msgid "Floating IPs"
-msgstr "IP flotants"
-
-msgid "Security Groups"
-msgstr "Grups de Seguretat"
-
-msgid "Save"
-msgstr "Desa"
-
-msgid "Usage Summary"
-msgstr "Resum de l'ús"
-
-msgid "The date should be in YYYY-mm-dd format."
-msgstr "La data ha d'estar en YYYY-mm-dd format."
-
-msgid "Horizon"
-msgstr "Horizon"
-
-msgid "No Limit"
-msgstr "Sense limit"
-
-msgid "Available"
-msgstr "Disponible"
+msgid "%s GB"
+msgstr "%s GB"
 
 #, python-format
 msgid "%s KB"
@@ -196,43 +45,12 @@ msgid "%s MB"
 msgstr "%s MB"
 
 #, python-format
-msgid "%s GB"
-msgstr "%s GB"
+msgid "%s PB"
+msgstr "%s PB"
 
 #, python-format
 msgid "%s TB"
 msgstr "%s TB"
-
-#, python-format
-msgid "%s PB"
-msgstr "%s PB"
-
-msgid "Not a valid port number"
-msgstr "No és un número de port vàlid"
-
-msgid "Not a valid IP protocol number"
-msgstr "No és un nombre de protocol IP vàlida"
-
-msgid "One colon allowed in port range"
-msgstr "Esta permès dos punts en rang de ports"
-
-msgid "Port number must be integer"
-msgstr "El nombre de port ha de ser un nombre enter"
-
-msgid "Processing..."
-msgstr "Processant..."
-
-msgid "All available"
-msgstr "Tots els disponibles"
-
-msgid "Members"
-msgstr "Membres"
-
-msgid "None available."
-msgstr "Cap disponible."
-
-msgid "No members."
-msgstr "No hi ha membres."
 
 #, python-format
 msgid "%s completed successfully."
@@ -241,3 +59,185 @@ msgstr "%s completat correctament."
 #, python-format
 msgid "%s did not complete."
 msgstr "%s no s'ha completat"
+
+msgid "Actions"
+msgstr "Accions"
+
+msgid "All available"
+msgstr "Tots els disponibles"
+
+msgid "Available"
+msgstr "Disponible"
+
+msgid "Cancel"
+msgstr "Cancel·la"
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "Deleted"
+msgstr "Eliminat"
+
+msgid "Error: "
+msgstr "Error: "
+
+msgid "Filter"
+msgstr "Filtre"
+
+msgid "Floating IPs"
+msgstr "IP flotants"
+
+msgid "Help"
+msgstr "Ajuda"
+
+msgid "Horizon"
+msgstr "Horizon"
+
+msgid "Incorrect format for IP address"
+msgstr "Format incorrecte per l'adreça IP"
+
+msgid "Info: "
+msgstr "Informació:"
+
+msgid "Instances"
+msgstr "Instàncies"
+
+msgid "Invalid subnet mask"
+msgstr "Màscara de subxarxa no vàlida"
+
+msgid "Invalid version for IP address"
+msgstr "Versió incorrecta de l'adreça IP"
+
+msgid "Limit Summary"
+msgstr "Resum Límit"
+
+msgid "Log In"
+msgstr "Inicia la sessió"
+
+#, python-format
+msgid "Logged in as: %(username)s"
+msgstr "Connectat com: %(username)s"
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Members"
+msgstr "Membres"
+
+msgid "N/A"
+msgstr "N/D"
+
+msgid "Navigation Item"
+msgstr "Article de navegació"
+
+msgid "No Limit"
+msgstr "Sense limit"
+
+msgid "No items to display."
+msgstr "No hi ha articles per mostrar."
+
+#, python-format
+msgid "No match returned for the id \"%s\"."
+msgstr "No hi ha resultats per l'identificador \"%s\"."
+
+msgid "No members."
+msgstr "No hi ha membres."
+
+msgid "None available."
+msgstr "Cap disponible."
+
+msgid "Not a valid IP protocol number"
+msgstr "No és un nombre de protocol IP vàlida"
+
+msgid "Not a valid port number"
+msgstr "No és un número de port vàlid"
+
+msgid "One colon allowed in port range"
+msgstr "Esta permès dos punts en rang de ports"
+
+msgid "Other"
+msgstr "Altre"
+
+msgid "Password is not accepted"
+msgstr "La contrasenya no ha estat acceptada"
+
+msgid "Please log in to continue."
+msgstr "Identifiqueu-vos per continuar."
+
+msgid "Please select a row before taking that action."
+msgstr "Heu de seleccionar una fila abans de dur a terme aquesta acció."
+
+msgid "Port number must be integer"
+msgstr "El nombre de port ha de ser un nombre enter"
+
+msgid "Processing..."
+msgstr "Processant..."
+
+msgid "RAM"
+msgstr "RAM"
+
+msgid "Save"
+msgstr "Desa"
+
+msgid "Security Groups"
+msgstr "Grups de Seguretat"
+
+#, python-format
+msgid "Select a %s to browse."
+msgstr "Seleccionar un %s per navegar."
+
+msgid "Session timed out."
+msgstr "S'ha acabat la sessió."
+
+msgid "Sign In"
+msgstr "Entrar"
+
+msgid "Sign Out"
+msgstr "Sortir"
+
+msgid "Submit"
+msgstr "Transmet"
+
+msgid "Success: "
+msgstr "Èxit:"
+
+msgid "Summary"
+msgstr "Resum"
+
+#, python-format
+msgid "The attribute %(attr)s doesn't exist on %(obj)s."
+msgstr "L'atribut %(attr)s no existeix a %(obj)s"
+
+msgid "The date should be in YYYY-mm-dd format."
+msgstr "La data ha d'estar en YYYY-mm-dd format."
+
+#, python-format
+msgid "Unable to %(action)s: %(objs)s"
+msgstr "No es pot %(action)s: %(objs)s"
+
+msgid "Unauthorized. Please try logging in again."
+msgstr "Sense autorització. Torneu a intentar-ho."
+
+#, python-format
+msgid "Unauthorized: %s"
+msgstr "No autoritzat: %s"
+
+msgid "Updated"
+msgstr "Actualitzada"
+
+msgid "Usage Summary"
+msgstr "Resum de l'ús"
+
+#, python-format
+msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr "Usat <span> %(used)s </span> de <span> %(available)s </span>"
+
+msgid "VCPUs"
+msgstr "VCPUs"
+
+msgid "Warning: "
+msgstr "Advertiment:"
+
+#, python-format
+msgid "You are not authorized to access %s"
+msgstr "No esteu autoritzats per accedir a %s"

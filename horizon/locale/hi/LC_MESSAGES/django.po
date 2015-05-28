@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-07 20:21-0500\n"
-"PO-Revision-Date: 2015-04-20 07:07+0000\n"
+"POT-Creation-Date: 2015-05-27 03:00-0500\n"
+"PO-Revision-Date: 2015-05-13 19:11+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/"
 "hi/)\n"
@@ -19,241 +19,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "Other"
-msgstr "अन्य"
-
-msgid "Navigation Item"
-msgstr "नेविगेशन आइटम"
-
-#, python-format
-msgid "Select a %s to browse."
-msgstr "एक% s को ब्राउज़ करने के लिए चयन करें."
-
-msgid "Password is not accepted"
-msgstr "पासवर्ड स्वीकार नहीं किया है"
-
-msgid "Please log in to continue."
-msgstr "जारी रखने के लिए में लॉग इन करें."
-
-#, python-format
-msgid "You are not authorized to access %s"
-msgstr "आप %sका उपयोग करने के लिए अधिकृत नहीं हैं"
-
-#, python-format
-msgid "A %(resource)s with the name \"%(name)s\" already exists."
-msgstr "एक %(resource)s , \"%(name)s\" से पहले से ही मौजूद है "
-
-#, python-format
-msgid "Unauthorized: %s"
-msgstr "अनधिकृत: %s"
-
-msgid "Unauthorized. Please try logging in again."
-msgstr "अनधिकृत. फिर लॉग इन करने का प्रयास करें."
-
-msgid "Incorrect format for IP address"
-msgstr "IP पता के लिए गलत प्रारूप"
-
-msgid "Invalid version for IP address"
-msgstr "IP पता के लिए अवैध प्रारूप संस्करण"
-
-msgid "Invalid subnet mask"
-msgstr "अवैध सबनेट मास्क"
-
-msgid "Submit"
-msgstr "जमा करें"
-
-msgid "Cancel"
-msgstr "रद्द करें"
-
-msgid "Session timed out."
-msgstr "सत्र का समय समाप्त हुआ."
-
-msgid "Filter"
-msgstr "छानना शुरू..."
-
-msgid "This action cannot be undone."
-msgstr "यह क्रिया पूर्ववत नहीं किया जा सकता।"
-
-#, python-format
-msgctxt "past"
-msgid "%(action)s %(data_type)s"
-msgstr "%(action)s %(data_type)s"
-
-#, python-format
-msgctxt "present"
-msgid "%(action)s %(data_type)s"
-msgstr "%(action)s %(data_type)s"
-
-#, python-format
-msgid "You are not allowed to %(action)s: %(objs)s"
-msgstr "आपको %(action)s की अनुमति नहीं है.: %(objs)s"
-
-#, python-format
-msgid "Unable to %(action)s: %(objs)s"
-msgstr "%(action)s की अनुमति नहीं है.: %(objs)s"
-
-#, python-format
-msgid "%(action)s: %(objs)s"
-msgstr "%(action)s: %(objs)s"
-
-msgid "Delete"
-msgstr "मिटाएँ"
-
-msgid "Deleted"
-msgstr "मिटाया"
-
-msgid "Update"
-msgstr "अद्यतन"
-
-msgid "Updated"
-msgstr "अद्यतित"
-
-msgid "-"
-msgstr "-"
-
-#, python-format
-msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "%(obj)s पर %(attr)s  गुण मौज़ूद नहीं हैं."
-
-msgid "No items to display."
-msgstr "दिखाने के लिए कोई सामग्रियों नहीं."
-
-msgid "Actions"
-msgstr "क्रियाएं"
-
-#, python-format
-msgid "No match returned for the id \"%s\"."
-msgstr "इस आइडी \"%s\" के लिए कोई मेल नहीं मिला."
-
-msgid "Please select a row before taking that action."
-msgstr "कृपया इस क्रिया को करने से पहले पंक्ति का चयन करें."
-
-msgid "N/A"
-msgstr "लागू नहीं"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "के रुप मे लॉग इन: %(username)s"
-
-msgid "Help"
-msgstr "मदद"
-
-msgid "Sign Out"
-msgstr "साइन आउट"
-
-msgid "Log In"
-msgstr "लॉगिन"
-
-msgid "You do not have permission to access the resource:"
-msgstr "संसाधन पर पहुँच के लिए आपको अनुमति नहीं है:"
-
-#, python-format
-msgid ""
-"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
-msgstr ""
-"दूसरे उपयोगकर्ता के रूप में लॉगिन हों या  <a href=\"%(home_url)s\"> मुखपृष्ठ पर वापस "
-"जायें </a>"
-
-msgid "Sign In"
-msgstr "साइन इन"
-
-msgid "Login"
-msgstr "लॉगिन"
-
-msgid "Info: "
-msgstr "सूचना: "
-
-msgid "Warning: "
-msgstr "चेतावनी: "
-
-msgid "Success: "
-msgstr "सफलता:"
-
-msgid "Error: "
-msgstr "त्रुटि: "
-
-msgid "Summary"
-msgstr "सारांश"
-
-#, python-format
-msgid "Displaying %(counter)s item"
-msgid_plural "Displaying %(counter)s items"
-msgstr[0] " %(counter)s मद प्रदर्शित"
-msgstr[1] " %(counter)s मद प्रदर्शित"
-
-msgid "&laquo;&nbsp;Prev"
-msgstr "&laquo;&nbsp;पिछला"
-
-msgid "Next&nbsp;&raquo;"
-msgstr "अगला&nbsp;&raquo;"
-
-msgid "More Actions"
-msgstr "अधिक क्रिया"
-
-#, python-format
-msgid "%(context_name)s:"
-msgstr "%(context_name)s:"
-
-msgid "Add a row"
-msgstr "पंक्ति जोड़ें"
-
-#, python-format
-msgid "%(name)s: %(error)s"
-msgstr "%(name)s: %(error)s"
-
-msgid "Limit Summary"
-msgstr "सारांश सीमा"
-
-msgid "Instances"
-msgstr "इंस्टेंस"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "<span> %(available)s </span> का <span> %(used)s </span> उपलब्ध."
-
-msgid "VCPUs"
-msgstr "VCPUs"
-
-msgid "RAM"
-msgstr "रैम"
-
-msgid "Floating IPs"
-msgstr " उत्प्लावित IP"
-
-#, python-format
-msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "<span> %(available)s </span> का <span> %(used)s </span> आवंटित"
-
-msgid "Security Groups"
-msgstr "सुरक्षा समूह"
-
-msgid "Volumes"
-msgstr "वॉल्यूम"
-
-msgid "Volume Storage"
-msgstr "खंड भंडारण"
-
-msgid "Save"
-msgstr "सहेजें"
-
-#, python-format
-msgid "Displaying %(nav_items)s item"
-msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] "%(nav_items)s मद प्रदर्शित"
-msgstr[1] "%(nav_items)s मद प्रदर्शित"
-
-#, python-format
-msgid "Displaying %(content_items)s item"
-msgid_plural "Displaying %(content_items)s items"
-msgstr[0] " %(content_items)s मद प्रदर्शित"
-msgstr[1] " %(content_items)s मद प्रदर्शित"
-
-msgid "Usage Summary"
-msgstr "प्रयोग सार"
-
-msgid "Select a period of time to query its usage:"
-msgstr "इसके उपयोग की पूछताछ करने के लिए समय की अवधि का चयन करें:"
 
 #, python-format
 msgid ""
@@ -272,44 +37,37 @@ msgstr ""
 "\n"
 "      <label>तक:</label>%(end)s"
 
-msgid "The date should be in YYYY-mm-dd format."
-msgstr "तिथि को  YYYY-mm-dd प्रारूप में होना चाहिए"
+#, python-format
+msgctxt "past"
+msgid "%(action)s %(data_type)s"
+msgstr "%(action)s %(data_type)s"
 
-msgid "Active Instances:"
-msgstr "सक्रिय इंस्टेंसेस:"
+#, python-format
+msgctxt "present"
+msgid "%(action)s %(data_type)s"
+msgstr "%(action)s %(data_type)s"
 
-msgid "Active RAM:"
-msgstr "सक्रिय रैम"
+#, python-format
+msgid "%(action)s: %(objs)s"
+msgstr "%(action)s: %(objs)s"
 
-msgid "This Period's VCPU-Hours:"
-msgstr "इस अवधि के VCPU-घंटे"
+#, python-format
+msgid "%(context_name)s:"
+msgstr "%(context_name)s:"
 
-msgid "This Period's GB-Hours:"
-msgstr "इस अवधि के गीगाबाइट-घंटे"
-
-msgid "This Period's RAM-Hours:"
-msgstr "इस अवधि के रैम-घंटे "
-
-msgid "Back"
-msgstr "पीछे"
-
-msgid "Next"
-msgstr "अगला"
-
-msgid "Horizon"
-msgstr "होरिजन"
-
-msgid "No Limit"
-msgstr "कोई सीमा नहीं"
-
-msgid "Available"
-msgstr "उपलब्ध"
+#, python-format
+msgid "%(name)s: %(error)s"
+msgstr "%(name)s: %(error)s"
 
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
 msgstr[0] "%(size)d बाइट"
 msgstr[1] "%(size)d बाइट"
+
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
 
 #, python-format
 msgid "%s KB"
@@ -320,64 +78,12 @@ msgid "%s MB"
 msgstr "%s MB"
 
 #, python-format
-msgid "%s GB"
-msgstr "%s GB"
+msgid "%s PB"
+msgstr "%s PB"
 
 #, python-format
 msgid "%s TB"
 msgstr "%s TB"
-
-#, python-format
-msgid "%s PB"
-msgstr "%s PB"
-
-msgid "0 Bytes"
-msgstr "0 बाइट"
-
-#. Translators: test code, don't really have to translate
-msgid "Sell Puppy"
-msgid_plural "Sell Puppies"
-msgstr[0] "Puppy बेचें "
-msgstr[1] "Puppies बेचें "
-
-#. Translators: test code, don't really have to translate
-msgid "Sold Puppy"
-msgid_plural "Sold Puppies"
-msgstr[0] "बेचा हुआ Puppy"
-msgstr[1] "बेचा हुआ Puppy"
-
-msgid "Fake"
-msgstr "जाली"
-
-msgid "Never"
-msgstr "कभी नहीं"
-
-msgid "Not a valid port number"
-msgstr "वैध पोर्ट संख्या नहीं है"
-
-msgid "Not a valid IP protocol number"
-msgstr "वैध IP प्रोटोकॉल संख्या नहीं है"
-
-msgid "One colon allowed in port range"
-msgstr "पोर्ट श्रेणी में एक कॉलन की अनुमति "
-
-msgid "Port number must be integer"
-msgstr "पोर्ट संख्या में एक पूर्णांक होना चाहिये"
-
-msgid "Processing..."
-msgstr "प्रोसेसिंग..."
-
-msgid "All available"
-msgstr "सभी उपलब्ध"
-
-msgid "Members"
-msgstr "सदस्य"
-
-msgid "None available."
-msgstr "कोई उपलब्ध नहीं"
-
-msgid "No members."
-msgstr "कोई सदस्य नहीं"
 
 #, python-format
 msgid "%s completed successfully."
@@ -386,3 +92,297 @@ msgstr "%s सफलतापूर्वक पूर्ण."
 #, python-format
 msgid "%s did not complete."
 msgstr "%s पूर्ण नहीं है"
+
+msgid "&laquo;&nbsp;Prev"
+msgstr "&laquo;&nbsp;पिछला"
+
+msgid "-"
+msgstr "-"
+
+msgid "0 Bytes"
+msgstr "0 बाइट"
+
+#, python-format
+msgid "A %(resource)s with the name \"%(name)s\" already exists."
+msgstr "एक %(resource)s , \"%(name)s\" से पहले से ही मौजूद है "
+
+msgid "Actions"
+msgstr "क्रियाएं"
+
+msgid "Active Instances:"
+msgstr "सक्रिय इंस्टेंसेस:"
+
+msgid "Active RAM:"
+msgstr "सक्रिय रैम"
+
+msgid "Add a row"
+msgstr "पंक्ति जोड़ें"
+
+msgid "All available"
+msgstr "सभी उपलब्ध"
+
+#, python-format
+msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr "<span> %(available)s </span> का <span> %(used)s </span> आवंटित"
+
+msgid "Available"
+msgstr "उपलब्ध"
+
+msgid "Back"
+msgstr "पीछे"
+
+msgid "Cancel"
+msgstr "रद्द करें"
+
+msgid "Delete"
+msgstr "मिटाएँ"
+
+msgid "Deleted"
+msgstr "मिटाया"
+
+#, python-format
+msgid "Displaying %(content_items)s item"
+msgid_plural "Displaying %(content_items)s items"
+msgstr[0] " %(content_items)s मद प्रदर्शित"
+msgstr[1] " %(content_items)s मद प्रदर्शित"
+
+#, python-format
+msgid "Displaying %(counter)s item"
+msgid_plural "Displaying %(counter)s items"
+msgstr[0] " %(counter)s मद प्रदर्शित"
+msgstr[1] " %(counter)s मद प्रदर्शित"
+
+#, python-format
+msgid "Displaying %(nav_items)s item"
+msgid_plural "Displaying %(nav_items)s items"
+msgstr[0] "%(nav_items)s मद प्रदर्शित"
+msgstr[1] "%(nav_items)s मद प्रदर्शित"
+
+msgid "Error: "
+msgstr "त्रुटि: "
+
+msgid "Fake"
+msgstr "जाली"
+
+msgid "Filter"
+msgstr "छानना शुरू..."
+
+msgid "Floating IPs"
+msgstr " उत्प्लावित IP"
+
+msgid "Help"
+msgstr "मदद"
+
+msgid "Horizon"
+msgstr "होरिजन"
+
+msgid "Incorrect format for IP address"
+msgstr "IP पता के लिए गलत प्रारूप"
+
+msgid "Info: "
+msgstr "सूचना: "
+
+msgid "Instances"
+msgstr "इंस्टेंस"
+
+msgid "Invalid subnet mask"
+msgstr "अवैध सबनेट मास्क"
+
+msgid "Invalid version for IP address"
+msgstr "IP पता के लिए अवैध प्रारूप संस्करण"
+
+msgid "Limit Summary"
+msgstr "सारांश सीमा"
+
+msgid "Log In"
+msgstr "लॉगिन"
+
+#, python-format
+msgid "Logged in as: %(username)s"
+msgstr "के रुप मे लॉग इन: %(username)s"
+
+msgid "Login"
+msgstr "लॉगिन"
+
+#, python-format
+msgid ""
+"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
+msgstr ""
+"दूसरे उपयोगकर्ता के रूप में लॉगिन हों या  <a href=\"%(home_url)s\"> मुखपृष्ठ पर वापस "
+"जायें </a>"
+
+msgid "Members"
+msgstr "सदस्य"
+
+msgid "More Actions"
+msgstr "अधिक क्रिया"
+
+msgid "N/A"
+msgstr "लागू नहीं"
+
+msgid "Navigation Item"
+msgstr "नेविगेशन आइटम"
+
+msgid "Never"
+msgstr "कभी नहीं"
+
+msgid "Next"
+msgstr "अगला"
+
+msgid "Next&nbsp;&raquo;"
+msgstr "अगला&nbsp;&raquo;"
+
+msgid "No Limit"
+msgstr "कोई सीमा नहीं"
+
+msgid "No items to display."
+msgstr "दिखाने के लिए कोई सामग्रियों नहीं."
+
+#, python-format
+msgid "No match returned for the id \"%s\"."
+msgstr "इस आइडी \"%s\" के लिए कोई मेल नहीं मिला."
+
+msgid "No members."
+msgstr "कोई सदस्य नहीं"
+
+msgid "None available."
+msgstr "कोई उपलब्ध नहीं"
+
+msgid "Not a valid IP protocol number"
+msgstr "वैध IP प्रोटोकॉल संख्या नहीं है"
+
+msgid "Not a valid port number"
+msgstr "वैध पोर्ट संख्या नहीं है"
+
+msgid "One colon allowed in port range"
+msgstr "पोर्ट श्रेणी में एक कॉलन की अनुमति "
+
+msgid "Other"
+msgstr "अन्य"
+
+msgid "Password is not accepted"
+msgstr "पासवर्ड स्वीकार नहीं किया है"
+
+msgid "Please log in to continue."
+msgstr "जारी रखने के लिए में लॉग इन करें."
+
+msgid "Please select a row before taking that action."
+msgstr "कृपया इस क्रिया को करने से पहले पंक्ति का चयन करें."
+
+msgid "Port number must be integer"
+msgstr "पोर्ट संख्या में एक पूर्णांक होना चाहिये"
+
+msgid "Processing..."
+msgstr "प्रोसेसिंग..."
+
+msgid "RAM"
+msgstr "रैम"
+
+msgid "Save"
+msgstr "सहेजें"
+
+msgid "Security Groups"
+msgstr "सुरक्षा समूह"
+
+#, python-format
+msgid "Select a %s to browse."
+msgstr "एक% s को ब्राउज़ करने के लिए चयन करें."
+
+msgid "Select a period of time to query its usage:"
+msgstr "इसके उपयोग की पूछताछ करने के लिए समय की अवधि का चयन करें:"
+
+#. Translators: test code, don't really have to translate
+msgid "Sell Puppy"
+msgid_plural "Sell Puppies"
+msgstr[0] "Puppy बेचें "
+msgstr[1] "Puppies बेचें "
+
+msgid "Session timed out."
+msgstr "सत्र का समय समाप्त हुआ."
+
+msgid "Sign In"
+msgstr "साइन इन"
+
+msgid "Sign Out"
+msgstr "साइन आउट"
+
+#. Translators: test code, don't really have to translate
+msgid "Sold Puppy"
+msgid_plural "Sold Puppies"
+msgstr[0] "बेचा हुआ Puppy"
+msgstr[1] "बेचा हुआ Puppy"
+
+msgid "Submit"
+msgstr "जमा करें"
+
+msgid "Success: "
+msgstr "सफलता:"
+
+msgid "Summary"
+msgstr "सारांश"
+
+#, python-format
+msgid "The attribute %(attr)s doesn't exist on %(obj)s."
+msgstr "%(obj)s पर %(attr)s  गुण मौज़ूद नहीं हैं."
+
+msgid "The date should be in YYYY-mm-dd format."
+msgstr "तिथि को  YYYY-mm-dd प्रारूप में होना चाहिए"
+
+msgid "This Period's GB-Hours:"
+msgstr "इस अवधि के गीगाबाइट-घंटे"
+
+msgid "This Period's RAM-Hours:"
+msgstr "इस अवधि के रैम-घंटे "
+
+msgid "This Period's VCPU-Hours:"
+msgstr "इस अवधि के VCPU-घंटे"
+
+msgid "This action cannot be undone."
+msgstr "यह क्रिया पूर्ववत नहीं किया जा सकता।"
+
+#, python-format
+msgid "Unable to %(action)s: %(objs)s"
+msgstr "%(action)s की अनुमति नहीं है.: %(objs)s"
+
+msgid "Unauthorized. Please try logging in again."
+msgstr "अनधिकृत. फिर लॉग इन करने का प्रयास करें."
+
+#, python-format
+msgid "Unauthorized: %s"
+msgstr "अनधिकृत: %s"
+
+msgid "Update"
+msgstr "अद्यतन"
+
+msgid "Updated"
+msgstr "अद्यतित"
+
+msgid "Usage Summary"
+msgstr "प्रयोग सार"
+
+#, python-format
+msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr "<span> %(available)s </span> का <span> %(used)s </span> उपलब्ध."
+
+msgid "VCPUs"
+msgstr "VCPUs"
+
+msgid "Volume Storage"
+msgstr "खंड भंडारण"
+
+msgid "Volumes"
+msgstr "वॉल्यूम"
+
+msgid "Warning: "
+msgstr "चेतावनी: "
+
+#, python-format
+msgid "You are not allowed to %(action)s: %(objs)s"
+msgstr "आपको %(action)s की अनुमति नहीं है.: %(objs)s"
+
+#, python-format
+msgid "You are not authorized to access %s"
+msgstr "आप %sका उपयोग करने के लिए अधिकृत नहीं हैं"
+
+msgid "You do not have permission to access the resource:"
+msgstr "संसाधन पर पहुँच के लिए आपको अनुमति नहीं है:"
