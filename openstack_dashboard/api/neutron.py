@@ -1094,11 +1094,8 @@ def is_service_enabled(request, config_name, ext_name):
 
 @memoized
 def is_quotas_extension_supported(request):
-    if (is_enabled_by_config('enable_quotas', False) and
-            is_extension_supported(request, 'quotas')):
-        return True
-    else:
-        return False
+    return (is_enabled_by_config('enable_quotas', False) and
+            is_extension_supported(request, 'quotas'))
 
 
 # Using this mechanism till a better plugin/sub-plugin detection
