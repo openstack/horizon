@@ -19,15 +19,16 @@
     })
 
     .run([
+      'horizon.framework.conf.spinner_options',
       'horizon.dashboard-app.conf',
       'horizon.dashboard-app.utils.helper-functions',
       '$cookieStore',
       '$http',
       '$cookies',
-      function (hzConfig, hzUtils, $cookieStore, $http, $cookies) {
+      function (spinnerOptions, hzConfig, hzUtils, $cookieStore, $http, $cookies) {
         $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
         //expose the configuration for horizon legacy variable
-        horizon.conf = hzConfig;
+        horizon.conf = angular.extend({spinner_options: spinnerOptions}, hzConfig);
         horizon.utils = hzUtils;
         angular.extend(horizon.cookies = {}, $cookieStore);
         horizon.cookies.put = function (key, value) {
