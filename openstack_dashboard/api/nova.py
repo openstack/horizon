@@ -227,13 +227,17 @@ class SecurityGroupRule(base.APIResourceWrapper):
         if 'name' in self.group:
             vals = {'from': self.from_port,
                     'to': self.to_port,
+                    'ip_protocol': self.ip_protocol,
                     'group': self.group['name']}
-            return _('ALLOW %(from)s:%(to)s from %(group)s') % vals
+            return (_('ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(group)s') %
+                    vals)
         else:
             vals = {'from': self.from_port,
                     'to': self.to_port,
+                    'ip_protocol': self.ip_protocol,
                     'cidr': self.ip_range['cidr']}
-            return _('ALLOW %(from)s:%(to)s from %(cidr)s') % vals
+            return (_('ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(cidr)s') %
+                    vals)
 
     # The following attributes are defined to keep compatibility with Neutron
     @property
