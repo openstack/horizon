@@ -1,0 +1,17 @@
+<!--
+  This is the base html used by Python unit tests which are
+  just testing Django templating - no Javascript.
+-->
+<html>
+<body>
+
+{% block sidebar %}
+  {% include 'horizon/common/_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+  {% block main %}{% endblock %}
+{% endblock %}
+
+</body>
+</html>
