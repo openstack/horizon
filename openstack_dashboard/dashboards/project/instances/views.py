@@ -428,3 +428,23 @@ class ResizeView(workflows.WorkflowView):
                  'old_flavor_name': getattr(_object, 'flavor_name', ''),
                  'flavors': self.get_flavors()})
         return initial
+
+
+class AttachInterfaceView(forms.ModalFormView):
+    form_class = project_forms.AttachInterface
+    template_name = 'project/instances/attach_interface.html'
+    modal_header = _("Attach Interface")
+    form_id = "attach_interface_form"
+    submit_label = _("Attach Interface")
+    submit_url = "horizon:project:instances:attach_interface"
+    success_url = reverse_lazy('horizon:project:instances:index')
+
+    def get_context_data(self, **kwargs):
+        context = super(AttachInterfaceView, self).get_context_data(**kwargs)
+        context['instance_id'] = self.kwargs['instance_id']
+        args = (self.kwargs['instance_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
+        return context
+
+    def get_initial(self):
+        return {'instance_id': self.kwargs['instance_id']}

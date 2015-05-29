@@ -24,7 +24,10 @@ from horizon import messages
 from horizon.utils import validators
 
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.images import utils
+from openstack_dashboard.dashboards.project.images \
+    import utils as image_utils
+from openstack_dashboard.dashboards.project.instances \
+    import utils as instance_utils
 
 
 def _image_choice_title(img):
@@ -58,7 +61,8 @@ class RebuildInstanceForm(forms.SelfHandlingForm):
         instance_id = kwargs.get('initial', {}).get('instance_id')
         self.fields['instance_id'].initial = instance_id
 
-        images = utils.get_available_images(request, request.user.tenant_id)
+        images = image_utils.get_available_images(request,
+                                                  request.user.tenant_id)
         choices = [(image.id, image) for image in images]
         if choices:
             choices.insert(0, ("", _("Select Image")))
@@ -161,4 +165,30 @@ class DecryptPasswordInstanceForm(forms.SelfHandlingForm):
             exceptions.handle(request, _error, redirect=redirect)
 
     def handle(self, request, data):
+        return True
+
+
+class AttachInterface(forms.SelfHandlingForm):
+    instance_id = forms.CharField(widget=forms.HiddenInput())
+    network = forms.ChoiceField(label=_("Network"))
+
+    def __init__(self, request, *args, **kwargs):
+        super(AttachInterface, self).__init__(request, *args, **kwargs)
+        instance_id = kwargs.get('initial', {}).get('instance_id')
+        self.fields['instance_id'].initial = instance_id
+        networks = instance_utils.network_field_data(request,
+                                                     include_empty_option=True)
+        self.fields['network'].choices = networks
+
+    def handle(self, request, data):
+        instance = data.get('instance_id')
+        network = data.get('network')
+        try:
+            api.nova.interface_attach(request, instance, net_id=network)
+            msg = _('Attaching interface for instance %s.') % instance
+            messages.success(request, msg)
+        except Exception:
+            redirect = reverse('horizon:project:instances:index')
+            exceptions.handle(request, _("Unable to attach interface."),
+                              redirect=redirect)
         return True

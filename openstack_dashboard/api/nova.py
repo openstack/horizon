@@ -917,6 +917,14 @@ def remove_host_from_aggregate(request, aggregate_id, host):
     return novaclient(request).aggregates.remove_host(aggregate_id, host)
 
 
+def interface_attach(request,
+                     server, port_id=None, net_id=None, fixed_ip=None):
+    return novaclient(request).servers.interface_attach(server,
+                                                        port_id,
+                                                        net_id,
+                                                        fixed_ip)
+
+
 @memoized
 def list_extensions(request):
     return nova_list_extensions.ListExtManager(novaclient(request)).show_all()
