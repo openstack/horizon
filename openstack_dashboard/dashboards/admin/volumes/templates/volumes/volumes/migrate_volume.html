@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Migrate Volume" %}{% endblock %}
+
+{% block main %}
+    {% include 'admin/volumes/volumes/_migrate_volume.html' %}
+{% endblock %}

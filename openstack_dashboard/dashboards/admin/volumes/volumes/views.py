@@ -92,6 +92,51 @@ class UnmanageVolumeView(forms.ModalFormView):
                 'host': getattr(volume, "os-vol-host-attr:host")}
 
 
+class MigrateVolumeView(forms.ModalFormView):
+    form_class = volumes_forms.MigrateVolume
+    template_name = 'admin/volumes/volumes/migrate_volume.html'
+    modal_header = _("Migrate Volume")
+    form_id = "migrate_volume_modal"
+    submit_label = _("Migrate")
+    success_url = reverse_lazy('horizon:admin:volumes:volumes_tab')
+    submit_url = 'horizon:admin:volumes:volumes:migrate'
+    cancel_url = reverse_lazy("horizon:admin:volumes:index")
+    page_title = _("Migrate Volume")
+
+    def get_context_data(self, **kwargs):
+        context = super(MigrateVolumeView, self).get_context_data(**kwargs)
+        args = (self.kwargs['volume_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
+        return context
+
+    @memoized.memoized_method
+    def get_data(self):
+        try:
+            volume_id = self.kwargs['volume_id']
+            volume = cinder.volume_get(self.request, volume_id)
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve volume details.'),
+                              redirect=self.success_url)
+        return volume
+
+    @memoized.memoized_method
+    def get_hosts(self):
+        try:
+            return cinder.pool_list(self.request)
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve pools information.'),
+                              redirect=self.success_url)
+
+    def get_initial(self):
+        volume = self.get_data()
+        return {'volume_id': self.kwargs["volume_id"],
+                'name': volume.name,
+                'current_host': getattr(volume, "os-vol-host-attr:host"),
+                'hosts': self.get_hosts()}
+
+
 class CreateVolumeTypeView(forms.ModalFormView):
     form_class = volumes_forms.CreateVolumeType
     template_name = 'admin/volumes/volumes/create_volume_type.html'
