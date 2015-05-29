@@ -1001,6 +1001,7 @@ tr.terminated {
 /* Fix tooltip z-index to show above modals. Bootstrap bug 582*/
 .tooltip {
   z-index: 12000;
+  word-wrap: break-word;
 }
 
 .volume_boot_disclosure {
