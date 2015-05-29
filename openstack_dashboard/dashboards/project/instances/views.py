@@ -448,3 +448,23 @@ class AttachInterfaceView(forms.ModalFormView):
 
     def get_initial(self):
         return {'instance_id': self.kwargs['instance_id']}
+
+
+class DetachInterfaceView(forms.ModalFormView):
+    form_class = project_forms.DetachInterface
+    template_name = 'project/instances/detach_interface.html'
+    modal_header = _("Detach Interface")
+    form_id = "detach_interface_form"
+    submit_label = _("Detach Interface")
+    submit_url = "horizon:project:instances:detach_interface"
+    success_url = reverse_lazy('horizon:project:instances:index')
+
+    def get_context_data(self, **kwargs):
+        context = super(DetachInterfaceView, self).get_context_data(**kwargs)
+        context['instance_id'] = self.kwargs['instance_id']
+        args = (self.kwargs['instance_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
+        return context
+
+    def get_initial(self):
+        return {'instance_id': self.kwargs['instance_id']}
