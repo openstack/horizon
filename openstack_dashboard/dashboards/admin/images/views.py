@@ -102,6 +102,10 @@ class IndexView(tables.DataTableView):
                         LOG.warning(invalid_msg)
                 except ValueError:
                     LOG.warning(invalid_msg)
+            elif (filter_field == 'disk_format' and
+                  filter_string.lower() == 'docker'):
+                filters['disk_format'] = 'raw'
+                filters['container_format'] = 'docker'
             else:
                 filters[filter_field] = filter_string
         return filters

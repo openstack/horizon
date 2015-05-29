@@ -566,6 +566,7 @@ Default::
             ('aki', _('AKI - Amazon Kernel Image')),
             ('ami', _('AMI - Amazon Machine Image')),
             ('ari', _('ARI - Amazon Ramdisk Image')),
+            ('docker', _('Docker')),
             ('iso', _('ISO - Optical Disk Image')),
             ('qcow2', _('QCOW2 - QEMU Emulator')),
             ('raw', _('Raw')),

@@ -79,17 +79,22 @@ class UpdateView(forms.ModalFormView):
     def get_initial(self):
         image = self.get_object()
         properties = getattr(image, 'properties', {})
-        return {'image_id': self.kwargs['image_id'],
+        data = {'image_id': self.kwargs['image_id'],
                 'name': getattr(image, 'name', None) or image.id,
                 'description': properties.get('description', ''),
                 'kernel': properties.get('kernel_id', ''),
                 'ramdisk': properties.get('ramdisk_id', ''),
                 'architecture': properties.get('architecture', ''),
-                'disk_format': getattr(image, 'disk_format', None),
                 'minimum_ram': getattr(image, 'min_ram', None),
                 'minimum_disk': getattr(image, 'min_disk', None),
                 'public': getattr(image, 'is_public', None),
                 'protected': getattr(image, 'protected', None)}
+        disk_format = getattr(image, 'disk_format', None)
+        if (disk_format == 'raw' and
+                getattr(image, 'container_format') == 'docker'):
+            disk_format = 'docker'
+        data['disk_format'] = disk_format
+        return data
 
 
 class DetailView(tabs.TabView):

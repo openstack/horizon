@@ -81,6 +81,31 @@ class CreateImageFormTests(test.TestCase):
         source_type_dict = dict(form.fields['source_type'].choices)
         self.assertNotIn('file', source_type_dict)
 
+    def test_create_image_metadata_docker(self):
+        form_data = {
+            'name': u'Docker image',
+            'description': u'Docker image test',
+            'source_type': u'url',
+            'image_url': u'/',
+            'disk_format': u'docker',
+            'architecture': u'x86-64',
+            'minimum_disk': 15,
+            'minimum_ram': 512,
+            'is_public': False,
+            'protected': False,
+            'is_copying': False
+        }
+        meta = forms.create_image_metadata(form_data)
+        self.assertEqual(meta['disk_format'], 'raw')
+        self.assertEqual(meta['container_format'], 'docker')
+        self.assertIn('properties', meta)
+        self.assertNotIn('description', meta)
+        self.assertNotIn('architecture', meta)
+        self.assertEqual(meta['properties']['description'],
+                         form_data['description'])
+        self.assertEqual(meta['properties']['architecture'],
+                         form_data['architecture'])
+
 
 class UpdateImageFormTests(test.TestCase):
     def test_is_format_field_editable(self):
