@@ -14,6 +14,7 @@
 
 from django.core.urlresolvers import reverse
 from django.http import HttpRequest  # noqa
+from django.test.utils import override_settings  # noqa
 
 from mox3.mox import IsA  # noqa
 
@@ -24,6 +25,7 @@ from openstack_dashboard.test import helpers as test
 API_URL = "horizon:project:access_and_security:api_access"
 EC2_URL = reverse(API_URL + ":ec2")
 OPENRC_URL = reverse(API_URL + ":openrc")
+OPENRCV2_URL = reverse(API_URL + ":openrcv2")
 CREDS_URL = reverse(API_URL + ":view_credentials")
 
 
@@ -51,15 +53,33 @@ class APIAccessTests(test.TestCase):
         self.assertEqual(res.status_code, 200)
         self.assertEqual(res['content-type'], 'application/zip')
 
+    def test_openrcv2_credentials(self):
+        res = self.client.get(OPENRCV2_URL)
+        self.assertEqual(res.status_code, 200)
+        openrc = 'project/access_and_security/api_access/openrc_v2.sh.template'
+        self.assertTemplateUsed(res, openrc)
+        name = 'export OS_USERNAME="{}"'.format(self.request.user.username)
+        t_id = 'export OS_TENANT_ID={}'.format(self.request.user.tenant_id)
+        domain = 'export OS_USER_DOMAIN_NAME="{}"'.format(
+            self.request.user.user_domain_name)
+        self.assertIn(name.encode('utf-8'), res.content)
+        self.assertIn(t_id.encode('utf-8'), res.content)
+        # domain content should not be present for v2
+        self.assertNotIn(domain.encode('utf-8'), res.content)
+
+    @override_settings(OPENSTACK_API_VERSIONS={"identity": 3})
     def test_openrc_credentials(self):
         res = self.client.get(OPENRC_URL)
         self.assertEqual(res.status_code, 200)
         openrc = 'project/access_and_security/api_access/openrc.sh.template'
         self.assertTemplateUsed(res, openrc)
         name = 'export OS_USERNAME="{}"'.format(self.request.user.username)
-        id = 'export OS_TENANT_ID={}'.format(self.request.user.tenant_id)
+        p_id = 'export OS_PROJECT_ID={}'.format(self.request.user.tenant_id)
+        domain = 'export OS_USER_DOMAIN_NAME="{}"'.format(
+            self.request.user.user_domain_name)
         self.assertIn(name.encode('utf-8'), res.content)
-        self.assertIn(id.encode('utf-8'), res.content)
+        self.assertIn(p_id.encode('utf-8'), res.content)
+        self.assertIn(domain.encode('utf-8'), res.content)
 
     @test.create_stubs({api.keystone: ("list_ec2_credentials",)})
     def test_credential_api(self):
