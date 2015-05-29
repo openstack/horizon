@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:01-0500\n"
-"PO-Revision-Date: 2015-05-26 21:02+0000\n"
+"POT-Creation-Date: 2015-05-28 21:51-0500\n"
+"PO-Revision-Date: 2015-05-29 02:52+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/"
 "horizon/language/en_GB/)\n"
@@ -2753,6 +2753,9 @@ msgstr "Delay"
 msgid "Delay must be greater than or equal to Timeout"
 msgstr "Delay must be greater than or equal to Timeout"
 
+msgid "Delay must be greater than or equal to timeout"
+msgstr "Delay must be greater than or equal to timeout"
+
 msgid "Delete Backup"
 msgid_plural "Delete Backups"
 msgstr[0] "Delete Backup"
@@ -5297,6 +5300,9 @@ msgstr "Job type chosen"
 msgid "Jobs"
 msgstr "Jobs"
 
+msgid "Kernel"
+msgstr "Kernel"
+
 msgid "Kernel ID"
 msgstr "Kernel ID"
 
@@ -7152,6 +7158,9 @@ msgstr "RAM (used)"
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "RAM(Available: %(avail)s, Requested: %(req)s)"
+
+msgid "Ramdisk"
+msgstr "Ramdisk"
 
 msgid "Ramdisk ID"
 msgstr "Ramdisk ID"
@@ -9226,6 +9235,13 @@ msgstr ""
 "not use the link below."
 
 msgid ""
+"The maximum time in seconds for a monitor to wait for a reply. It must be "
+"less than or equal to delay"
+msgstr ""
+"The maximum time in seconds for a monitor to wait for a reply. It must be "
+"less than or equal to delay"
+
+msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
 "defaults to 0 (no minimum)."
 msgstr ""
@@ -9239,6 +9255,13 @@ msgstr ""
 "The minimum memory size required to boot the image. If unspecified, this "
 "value defaults to 0 (no minimum)."
 
+msgid ""
+"The minimum time in seconds between regular checks of a member. It must be "
+"greater than or equal to timeout"
+msgstr ""
+"The minimum time in seconds between regular checks of a member. It must be "
+"greater than or equal to timeout"
+
 #, python-format
 msgid "The name \"%s\" is already used by another flavor."
 msgstr "The name \"%s\" is already used by another flavour."
@@ -9246,6 +9269,9 @@ msgstr "The name \"%s\" is already used by another flavour."
 #, python-format
 msgid "The name \"%s\" is already used by another host aggregate."
 msgstr "The name \"%s\" is already used by another host aggregate."
+
+msgid "The name is already in use."
+msgstr "The name is already in use."
 
 msgid ""
 "The name of the physical network over which the virtual network is "

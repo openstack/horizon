@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 01:20-0500\n"
+"POT-Creation-Date: 2015-05-29 01:21-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -377,7 +377,7 @@ msgid "Unable to parse IP address %s."
 msgstr ""
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1167
+#: api/neutron.py:1164
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -385,14 +385,14 @@ msgid ""
 msgstr ""
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1185
+#: api/neutron.py:1182
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
 "invalid. It should be one of %(allowed)s"
 msgstr ""
 
-#: api/neutron.py:1200
+#: api/neutron.py:1197
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr ""
@@ -620,7 +620,7 @@ msgstr ""
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:22
 #: dashboards/project/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:19
 #: dashboards/project/data_processing/nodegroup_templates/workflows/create.py:49
-#: dashboards/project/instances/tables.py:1030
+#: dashboards/project/instances/tables.py:1048
 #: dashboards/project/instances/templates/instances/_detail_overview.html:16
 #: dashboards/project/instances/workflows/create_instance.py:81
 #: dashboards/project/volumes/volumes/forms.py:122
@@ -786,6 +786,7 @@ msgstr ""
 #: dashboards/project/images/templates/images/images/_create.html:9
 #: dashboards/project/images/templates/images/images/_update.html:5
 #: dashboards/project/images/templates/images/snapshots/_create.html:5
+#: dashboards/project/instances/templates/instances/_attach_interface.html:5
 #: dashboards/project/instances/templates/instances/_decryptpassword.html:20
 #: dashboards/project/instances/templates/instances/_rebuild.html:18
 #: dashboards/project/loadbalancers/templates/loadbalancers/_updatemember.html:5
@@ -1084,7 +1085,7 @@ msgstr ""
 #: dashboards/project/databases/templates/databases/index.html:3
 #: dashboards/project/databases/views.py:48
 #: dashboards/project/instances/panel.py:23
-#: dashboards/project/instances/tables.py:1049
+#: dashboards/project/instances/tables.py:1067
 #: dashboards/project/instances/templates/instances/index.html:3
 #: dashboards/project/instances/views.py:59
 #: dashboards/project/network_topology/instances/tables.py:23
@@ -1779,7 +1780,7 @@ msgstr ""
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
 #: dashboards/project/images/images/tables.py:278
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
-#: dashboards/project/instances/tables.py:1025
+#: dashboards/project/instances/tables.py:1043
 #: dashboards/project/instances/templates/instances/_detail_overview.html:14
 #: dashboards/project/loadbalancers/tables.py:324
 #: dashboards/project/loadbalancers/tables.py:377
@@ -1896,8 +1897,8 @@ msgstr ""
 #: dashboards/admin/hypervisors/tables.py:71
 #: dashboards/project/databases/tables.py:320
 #: dashboards/project/databases/workflows/create_instance.py:35
-#: dashboards/project/instances/tables.py:990
-#: dashboards/project/instances/tables.py:1013
+#: dashboards/project/instances/tables.py:1008
+#: dashboards/project/instances/tables.py:1031
 #: dashboards/project/instances/workflows/create_instance.py:84
 #: dashboards/project/overview/views.py:32 usage/tables.py:83
 msgid "Instance Name"
@@ -1998,7 +1999,7 @@ msgstr ""
 
 #: dashboards/admin/images/tables.py:62
 #: dashboards/admin/instances/tables.py:107
-#: dashboards/project/instances/tables.py:991
+#: dashboards/project/instances/tables.py:1009
 msgid "Status ="
 msgstr ""
 
@@ -2017,7 +2018,7 @@ msgstr ""
 #: dashboards/admin/images/tables.py:71
 #: dashboards/admin/instances/tables.py:140
 #: dashboards/project/images/images/tables.py:273
-#: dashboards/project/instances/tables.py:1015
+#: dashboards/project/instances/tables.py:1033
 #: dashboards/project/instances/templates/instances/_detail_overview.html:114
 #: dashboards/project/instances/workflows/create_instance.py:108
 #: dashboards/project/volumes/volumes/forms.py:638
@@ -2272,12 +2273,12 @@ msgid "IPv6 Address ="
 msgstr ""
 
 #: dashboards/admin/instances/tables.py:108
-#: dashboards/project/instances/tables.py:992
+#: dashboards/project/instances/tables.py:1010
 msgid "Image ID ="
 msgstr ""
 
 #: dashboards/admin/instances/tables.py:109
-#: dashboards/project/instances/tables.py:993
+#: dashboards/project/instances/tables.py:1011
 msgid "Flavor ID ="
 msgstr ""
 
@@ -2304,7 +2305,7 @@ msgstr ""
 #: dashboards/project/access_and_security/floating_ips/tables.py:194
 #: dashboards/project/access_and_security/floating_ips/workflows.py:33
 #: dashboards/project/access_and_security/floating_ips/workflows.py:40
-#: dashboards/project/instances/tables.py:1017
+#: dashboards/project/instances/tables.py:1035
 #: dashboards/project/loadbalancers/tables.py:367
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:29
 #: dashboards/project/routers/templates/routers/_detail_overview.html:40
@@ -2319,7 +2320,7 @@ msgstr ""
 #: dashboards/project/databases/tables.py:327
 #: dashboards/project/images/images/tables.py:294
 #: dashboards/project/images/templates/images/images/_detail_overview.html:46
-#: dashboards/project/instances/tables.py:1020
+#: dashboards/project/instances/tables.py:1038
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:7
 #: dashboards/project/volumes/backups/tables.py:127
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:37
@@ -2330,17 +2331,17 @@ msgid "Size"
 msgstr ""
 
 #: dashboards/admin/instances/tables.py:155
-#: dashboards/project/instances/tables.py:1032
+#: dashboards/project/instances/tables.py:1050
 msgid "Task"
 msgstr ""
 
 #: dashboards/admin/instances/tables.py:162
-#: dashboards/project/instances/tables.py:1039
+#: dashboards/project/instances/tables.py:1057
 msgid "Power State"
 msgstr ""
 
 #: dashboards/admin/instances/tables.py:165
-#: dashboards/project/instances/tables.py:1042 usage/tables.py:86
+#: dashboards/project/instances/tables.py:1060 usage/tables.py:86
 msgid "Time since created"
 msgstr ""
 
@@ -5563,7 +5564,7 @@ msgstr ""
 #: dashboards/project/data_processing/job_binaries/forms.py:121
 #: dashboards/project/data_processing/job_binaries/forms.py:128
 #: dashboards/project/databases/workflows/create_instance.py:196
-#: dashboards/project/instances/forms.py:156
+#: dashboards/project/instances/forms.py:160
 msgid "Password"
 msgstr ""
 
@@ -5572,7 +5573,7 @@ msgid "Confirm Password"
 msgstr ""
 
 #: dashboards/identity/users/forms.py:56
-#: dashboards/project/instances/forms.py:92
+#: dashboards/project/instances/forms.py:96
 #: dashboards/project/instances/workflows/create_instance.py:594
 #: dashboards/settings/password/forms.py:50
 msgid "Passwords do not match."
@@ -6007,7 +6008,7 @@ msgstr ""
 #: dashboards/project/access_and_security/keypairs/forms.py:41
 #: dashboards/project/access_and_security/keypairs/forms.py:63
 #: dashboards/project/access_and_security/keypairs/tables.py:93
-#: dashboards/project/instances/forms.py:116
+#: dashboards/project/instances/forms.py:120
 msgid "Key Pair Name"
 msgstr ""
 
@@ -6939,6 +6940,7 @@ msgid "Compute"
 msgstr ""
 
 #: dashboards/project/dashboard.py:32
+#: dashboards/project/instances/forms.py:173
 #: dashboards/project/networks/workflows.py:79
 msgid "Network"
 msgstr ""
@@ -7571,8 +7573,8 @@ msgstr ""
 
 #: dashboards/project/data_processing/data_image_registry/forms.py:70
 #: dashboards/project/images/utils.py:97
-#: dashboards/project/instances/forms.py:39
-#: dashboards/project/instances/forms.py:64
+#: dashboards/project/instances/forms.py:42
+#: dashboards/project/instances/forms.py:68
 #: dashboards/project/instances/workflows/create_instance.py:447
 msgid "Select Image"
 msgstr ""
@@ -8058,8 +8060,8 @@ msgstr ""
 #: dashboards/project/databases/tables.py:248
 #: dashboards/project/databases/tables.py:265
 #: dashboards/project/databases/tables.py:271
-#: dashboards/project/instances/tables.py:849
-#: dashboards/project/instances/tables.py:856
+#: dashboards/project/instances/tables.py:867
+#: dashboards/project/instances/tables.py:874
 #: dashboards/project/instances/templates/instances/_detail_overview.html:64
 #: dashboards/project/instances/templates/instances/_detail_overview.html:100
 #: dashboards/project/instances/views.py:406
@@ -10917,7 +10919,7 @@ msgid "Unable to retrieve images"
 msgstr ""
 
 #: dashboards/project/images/utils.py:104
-#: dashboards/project/instances/forms.py:66
+#: dashboards/project/instances/forms.py:70
 #: dashboards/project/instances/workflows/create_instance.py:449
 msgid "No images available"
 msgstr ""
@@ -11007,70 +11009,79 @@ msgstr ""
 msgid "No available console found."
 msgstr ""
 
-#: dashboards/project/instances/forms.py:44
+#: dashboards/project/instances/forms.py:47
 msgid "Rebuild Password"
 msgstr ""
 
-#: dashboards/project/instances/forms.py:50
+#: dashboards/project/instances/forms.py:53
 msgid "Confirm Rebuild Password"
 msgstr ""
 
-#: dashboards/project/instances/forms.py:53
+#: dashboards/project/instances/forms.py:56
 #: dashboards/project/instances/workflows/create_instance.py:776
 msgid "Disk Partition"
 msgstr ""
 
-#: dashboards/project/instances/forms.py:78
+#: dashboards/project/instances/forms.py:82
 #: dashboards/project/instances/workflows/create_instance.py:794
 msgid "Automatic"
 msgstr ""
 
-#: dashboards/project/instances/forms.py:79
+#: dashboards/project/instances/forms.py:83
 #: dashboards/project/instances/workflows/create_instance.py:795
 msgid "Manual"
 msgstr ""
 
-#: dashboards/project/instances/forms.py:82
+#: dashboards/project/instances/forms.py:86
 #: dashboards/project/instances/workflows/create_instance.py:168
 #: dashboards/project/instances/workflows/create_instance.py:804
 msgid "Unable to retrieve extensions information."
 msgstr ""
 
-#: dashboards/project/instances/forms.py:106
+#: dashboards/project/instances/forms.py:110
 #, python-format
 msgid "Rebuilding instance %s."
 msgstr ""
 
-#: dashboards/project/instances/forms.py:109
+#: dashboards/project/instances/forms.py:113
 msgid "Unable to rebuild instance."
 msgstr ""
 
-#: dashboards/project/instances/forms.py:117
+#: dashboards/project/instances/forms.py:121
 msgid "The Key Pair name that was associated with the instance"
 msgstr ""
 
-#: dashboards/project/instances/forms.py:124
+#: dashboards/project/instances/forms.py:128
 msgid "The instance password encrypted with your public key."
 msgstr ""
 
-#: dashboards/project/instances/forms.py:127
+#: dashboards/project/instances/forms.py:131
 msgid "Encrypted Password"
 msgstr ""
 
-#: dashboards/project/instances/forms.py:142
+#: dashboards/project/instances/forms.py:146
 msgid "Instance Password is not set or is not yet available"
 msgstr ""
 
-#: dashboards/project/instances/forms.py:148
+#: dashboards/project/instances/forms.py:152
 msgid "Private Key File"
 msgstr ""
 
-#: dashboards/project/instances/forms.py:152
+#: dashboards/project/instances/forms.py:156
 msgid "OR Copy/Paste your Private Key"
 msgstr ""
 
-#: dashboards/project/instances/forms.py:160
+#: dashboards/project/instances/forms.py:164
 msgid "Unable to retrieve instance password."
+msgstr ""
+
+#: dashboards/project/instances/forms.py:188
+#, python-format
+msgid "Attaching interface for instance %s."
+msgstr ""
+
+#: dashboards/project/instances/forms.py:192
+msgid "Unable to attach interface."
 msgstr ""
 
 #: dashboards/project/instances/tables.py:122
@@ -11282,369 +11293,376 @@ msgid_plural "Unlocked Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/instances/tables.py:839
+#: dashboards/project/instances/tables.py:812
+#: dashboards/project/instances/templates/instances/attach_interface.html:3
+#: dashboards/project/instances/views.py:436
+#: dashboards/project/instances/views.py:438
+msgid "Attach Interface"
+msgstr ""
+
+#: dashboards/project/instances/tables.py:857
 #, python-format
 msgid "%s GB"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:864
-#: dashboards/project/instances/tables.py:886
+#: dashboards/project/instances/tables.py:882
+#: dashboards/project/instances/tables.py:904
 msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:865
+#: dashboards/project/instances/tables.py:883
 msgctxt "Current status of an Instance"
 msgid "Active"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:866
+#: dashboards/project/instances/tables.py:884
 msgctxt "Current status of an Instance"
 msgid "Shutoff"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:868
+#: dashboards/project/instances/tables.py:886
 msgctxt "Current status of an Instance"
 msgid "Suspended"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:869
+#: dashboards/project/instances/tables.py:887
 msgctxt "Current status of an Instance"
 msgid "Paused"
-msgstr ""
-
-#: dashboards/project/instances/tables.py:870
-msgctxt "Current status of an Instance"
-msgid "Error"
-msgstr ""
-
-#: dashboards/project/instances/tables.py:872
-msgctxt "Current status of an Instance"
-msgid "Resize/Migrate"
-msgstr ""
-
-#: dashboards/project/instances/tables.py:874
-msgctxt "Current status of an Instance"
-msgid "Confirm or Revert Resize/Migrate"
-msgstr ""
-
-#: dashboards/project/instances/tables.py:876
-msgctxt "Current status of an Instance"
-msgid "Revert Resize/Migrate"
-msgstr ""
-
-#: dashboards/project/instances/tables.py:877
-msgctxt "Current status of an Instance"
-msgid "Reboot"
-msgstr ""
-
-#: dashboards/project/instances/tables.py:879
-msgctxt "Current status of an Instance"
-msgid "Hard Reboot"
-msgstr ""
-
-#: dashboards/project/instances/tables.py:880
-msgctxt "Current status of an Instance"
-msgid "Password"
-msgstr ""
-
-#: dashboards/project/instances/tables.py:881
-msgctxt "Current status of an Instance"
-msgid "Rebuild"
-msgstr ""
-
-#: dashboards/project/instances/tables.py:883
-msgctxt "Current status of an Instance"
-msgid "Migrating"
-msgstr ""
-
-#: dashboards/project/instances/tables.py:884
-msgctxt "Current status of an Instance"
-msgid "Build"
-msgstr ""
-
-#: dashboards/project/instances/tables.py:885
-msgctxt "Current status of an Instance"
-msgid "Rescue"
 msgstr ""
 
 #: dashboards/project/instances/tables.py:888
 msgctxt "Current status of an Instance"
+msgid "Error"
+msgstr ""
+
+#: dashboards/project/instances/tables.py:890
+msgctxt "Current status of an Instance"
+msgid "Resize/Migrate"
+msgstr ""
+
+#: dashboards/project/instances/tables.py:892
+msgctxt "Current status of an Instance"
+msgid "Confirm or Revert Resize/Migrate"
+msgstr ""
+
+#: dashboards/project/instances/tables.py:894
+msgctxt "Current status of an Instance"
+msgid "Revert Resize/Migrate"
+msgstr ""
+
+#: dashboards/project/instances/tables.py:895
+msgctxt "Current status of an Instance"
+msgid "Reboot"
+msgstr ""
+
+#: dashboards/project/instances/tables.py:897
+msgctxt "Current status of an Instance"
+msgid "Hard Reboot"
+msgstr ""
+
+#: dashboards/project/instances/tables.py:898
+msgctxt "Current status of an Instance"
+msgid "Password"
+msgstr ""
+
+#: dashboards/project/instances/tables.py:899
+msgctxt "Current status of an Instance"
+msgid "Rebuild"
+msgstr ""
+
+#: dashboards/project/instances/tables.py:901
+msgctxt "Current status of an Instance"
+msgid "Migrating"
+msgstr ""
+
+#: dashboards/project/instances/tables.py:902
+msgctxt "Current status of an Instance"
+msgid "Build"
+msgstr ""
+
+#: dashboards/project/instances/tables.py:903
+msgctxt "Current status of an Instance"
+msgid "Rescue"
+msgstr ""
+
+#: dashboards/project/instances/tables.py:906
+msgctxt "Current status of an Instance"
 msgid "Soft Deleted"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:889
+#: dashboards/project/instances/tables.py:907
 msgctxt "Current status of an Instance"
 msgid "Shelved"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:891
+#: dashboards/project/instances/tables.py:909
 msgctxt "Current status of an Instance"
 msgid "Shelved Offloaded"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:894
+#: dashboards/project/instances/tables.py:912
 msgctxt "Task status of an Instance"
 msgid "None"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:899
+#: dashboards/project/instances/tables.py:917
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:901
+#: dashboards/project/instances/tables.py:919
 msgctxt "Task status of an Instance"
 msgid "Block Device Mapping"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:903
+#: dashboards/project/instances/tables.py:921
 msgctxt "Task status of an Instance"
 msgid "Networking"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:904
+#: dashboards/project/instances/tables.py:922
 msgctxt "Task status of an Instance"
 msgid "Spawning"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:906
+#: dashboards/project/instances/tables.py:924
 msgctxt "Task status of an Instance"
 msgid "Snapshotting"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:908
+#: dashboards/project/instances/tables.py:926
 msgctxt "Task status of an Instance"
 msgid "Image Snapshot Pending"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:910
+#: dashboards/project/instances/tables.py:928
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:912
+#: dashboards/project/instances/tables.py:930
 msgctxt "Task status of an Instance"
 msgid "Image Uploading"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:914
+#: dashboards/project/instances/tables.py:932
 msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:916
+#: dashboards/project/instances/tables.py:934
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:918
+#: dashboards/project/instances/tables.py:936
 msgctxt "Task status of an Instance"
 msgid "Preparing Resize or Migrate"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:920
+#: dashboards/project/instances/tables.py:938
 msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:922
+#: dashboards/project/instances/tables.py:940
 msgctxt "Task status of an Instance"
 msgid "Resized or Migrated"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:924
+#: dashboards/project/instances/tables.py:942
 msgctxt "Task status of an Instance"
 msgid "Finishing Resize or Migrate"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:926
+#: dashboards/project/instances/tables.py:944
 msgctxt "Task status of an Instance"
 msgid "Reverting Resize or Migrate"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:928
+#: dashboards/project/instances/tables.py:946
 msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:929
+#: dashboards/project/instances/tables.py:947
 msgctxt "Task status of an Instance"
 msgid "Rebooting"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:931
+#: dashboards/project/instances/tables.py:949
 msgctxt "Task status of an Instance"
 msgid "Reboot Pending"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:933
+#: dashboards/project/instances/tables.py:951
 msgctxt "Task status of an Instance"
 msgid "Reboot Started"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:935
+#: dashboards/project/instances/tables.py:953
 msgctxt "Task status of an Instance"
 msgid "Rebooting Hard"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:937
+#: dashboards/project/instances/tables.py:955
 msgctxt "Task status of an Instance"
 msgid "Reboot Pending Hard"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:939
+#: dashboards/project/instances/tables.py:957
 msgctxt "Task status of an Instance"
 msgid "Reboot Started Hard"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:940
+#: dashboards/project/instances/tables.py:958
 msgctxt "Task status of an Instance"
 msgid "Pausing"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:941
-#: dashboards/project/instances/tables.py:944
+#: dashboards/project/instances/tables.py:959
+#: dashboards/project/instances/tables.py:962
 msgctxt "Task status of an Instance"
 msgid "Resuming"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:943
+#: dashboards/project/instances/tables.py:961
 msgctxt "Task status of an Instance"
 msgid "Suspending"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:946
+#: dashboards/project/instances/tables.py:964
 msgctxt "Task status of an Instance"
 msgid "Powering Off"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:948
+#: dashboards/project/instances/tables.py:966
 msgctxt "Task status of an Instance"
 msgid "Powering On"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:949
+#: dashboards/project/instances/tables.py:967
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:951
+#: dashboards/project/instances/tables.py:969
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:953
+#: dashboards/project/instances/tables.py:971
 msgctxt "Task status of an Instance"
 msgid "Rebuilding"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:955
+#: dashboards/project/instances/tables.py:973
 msgctxt "Task status of an Instance"
 msgid "Rebuild Block Device Mapping"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:957
+#: dashboards/project/instances/tables.py:975
 msgctxt "Task status of an Instance"
 msgid "Rebuild Spawning"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:958
+#: dashboards/project/instances/tables.py:976
 msgctxt "Task status of an Instance"
 msgid "Migrating"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:959
+#: dashboards/project/instances/tables.py:977
 msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:961
+#: dashboards/project/instances/tables.py:979
 msgctxt "Task status of an Instance"
 msgid "Soft Deleting"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:962
+#: dashboards/project/instances/tables.py:980
 msgctxt "Task status of an Instance"
 msgid "Restoring"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:963
+#: dashboards/project/instances/tables.py:981
 msgctxt "Task status of an Instance"
 msgid "Shelving"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:965
+#: dashboards/project/instances/tables.py:983
 msgctxt "Task status of an Instance"
 msgid "Shelving Image Pending Upload"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:967
+#: dashboards/project/instances/tables.py:985
 msgctxt "Task status of an Instance"
 msgid "Shelving Image Uploading"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:969
+#: dashboards/project/instances/tables.py:987
 msgctxt "Task status of an Instance"
 msgid "Shelving Offloading"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:971
+#: dashboards/project/instances/tables.py:989
 msgctxt "Task status of an Instance"
 msgid "Unshelving"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:975
+#: dashboards/project/instances/tables.py:993
 msgctxt "Power state of an Instance"
 msgid "No State"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:976
+#: dashboards/project/instances/tables.py:994
 msgctxt "Power state of an Instance"
 msgid "Running"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:977
+#: dashboards/project/instances/tables.py:995
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:978
+#: dashboards/project/instances/tables.py:996
 msgctxt "Power state of an Instance"
 msgid "Paused"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:979
+#: dashboards/project/instances/tables.py:997
 msgctxt "Power state of an Instance"
 msgid "Shut Down"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:980
+#: dashboards/project/instances/tables.py:998
 msgctxt "Power state of an Instance"
 msgid "Shut Off"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:981
+#: dashboards/project/instances/tables.py:999
 msgctxt "Power state of an Instance"
 msgid "Crashed"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:982
+#: dashboards/project/instances/tables.py:1000
 msgctxt "Power state of an Instance"
 msgid "Suspended"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:983
+#: dashboards/project/instances/tables.py:1001
 msgctxt "Power state of an Instance"
 msgid "Failed"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:984
+#: dashboards/project/instances/tables.py:1002
 msgctxt "Power state of an Instance"
 msgid "Building"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:1022
+#: dashboards/project/instances/tables.py:1040
 #: dashboards/project/instances/workflows/create_instance.py:539
 msgid "Key Pair"
 msgstr ""
@@ -11665,6 +11683,10 @@ msgstr ""
 
 #: dashboards/project/instances/tabs.py:103
 msgid "Unable to retrieve instance action list."
+msgstr ""
+
+#: dashboards/project/instances/templates/instances/_attach_interface.html:6
+msgid "Select the network for interface attaching."
 msgstr ""
 
 #: dashboards/project/instances/templates/instances/_decryptpassword.html:10
