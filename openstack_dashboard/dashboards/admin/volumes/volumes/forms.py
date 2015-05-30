@@ -148,9 +148,6 @@ class UnmanageVolume(forms.SelfHandlingForm):
                                 widget=forms.TextInput(
                                     attrs={'readonly': 'readonly'}))
 
-    def __init__(self, request, *args, **kwargs):
-        super(UnmanageVolume, self).__init__(request, *args, **kwargs)
-
     def handle(self, request, data):
         try:
             cinder.volume_unmanage(request, self.initial['volume_id'])
