@@ -51,6 +51,19 @@ def validate_port_or_colon_separated_port_range(port_range):
         except ValueError:
             raise ValidationError(_("Port number must be integer"))
 
+
+def validate_metadata(value):
+    error_msg = _('Invalid metadata entry. Use comma-separated'
+                  ' key=value pairs')
+
+    if value:
+        specs = value.split(",")
+        for spec in specs:
+            keyval = spec.split("=")
+            # ensure both sides of "=" exist, but allow blank value
+            if not len(keyval) == 2 or not keyval[0]:
+                raise ValidationError(error_msg)
+
 # Same as POSIX [:print:]. Accordingly, diacritics are disallowed.
 PRINT_REGEX = re.compile(r'^[\x20-\x7E]*$')
 

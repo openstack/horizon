@@ -16,7 +16,6 @@ from django import http
 from mox import IsA  # noqa
 
 from openstack_dashboard.api import cinder
-from openstack_dashboard.dashboards.admin.volumes.volumes import forms
 from openstack_dashboard.test import helpers as test
 
 
@@ -81,25 +80,6 @@ class VolumeViewTests(test.BaseAdminViewTests):
             reverse('horizon:admin:volumes:volumes:manage'),
             formData)
         self.assertNoFormErrors(res)
-
-    def test_manage_volume_extra_specs(self):
-        # these should pass
-        forms.validate_metadata("key1=val1")
-        forms.validate_metadata("key1=val1,key2=val2")
-        forms.validate_metadata("key1=val1,key2=val2,key3=val3")
-        forms.validate_metadata("key1=")
-
-        # these should throw a validation error
-        self.assertRaises(forms.ValidationError,
-                          forms.validate_metadata, "key1==val1")
-        self.assertRaises(forms.ValidationError,
-                          forms.validate_metadata, "key1=val1,")
-        self.assertRaises(forms.ValidationError,
-                          forms.validate_metadata, "=val1")
-        self.assertRaises(forms.ValidationError,
-                          forms.validate_metadata, ",")
-        self.assertRaises(forms.ValidationError,
-                          forms.validate_metadata, "  ")
 
     @test.create_stubs({cinder: ('volume_unmanage',
                                  'volume_get')})

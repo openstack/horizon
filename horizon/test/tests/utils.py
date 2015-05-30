@@ -231,6 +231,24 @@ class ValidatorsTests(test.TestCase):
         for prange in INVALID_RANGE:
             self.assertRaises(ValidationError, test_call, prange)
 
+    def test_metadata_validator(self):
+        VALID_METADATA = (
+            "key1=val1", "key1=val1,key2=val2",
+            "key1=val1,key2=val2,key3=val3", "key1="
+        )
+        INVALID_METADATA = (
+            "key1==val1", "key1=val1,", "=val1",
+            "=val1", "  "
+        )
+
+        for mdata in VALID_METADATA:
+            self.assertIsNone(validators.validate_metadata(mdata))
+
+        for mdata in INVALID_METADATA:
+            self.assertRaises(ValidationError,
+                              validators.validate_metadata,
+                              mdata)
+
 
 class SecretKeyTests(test.TestCase):
     def test_generate_secret_key(self):
