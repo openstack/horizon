@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-28 21:51-0500\n"
-"PO-Revision-Date: 2015-05-29 02:52+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-05-29 20:05-0500\n"
+"PO-Revision-Date: 2015-05-29 17:21+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/"
 "de/)\n"
 "MIME-Version: 1.0\n"
@@ -1219,6 +1219,9 @@ msgstr "Mindestens ein Mitglied muss angegeben werden."
 msgid "At least one network must be specified."
 msgstr "Es muss mindestens ein Netzwerk angegeben werden."
 
+msgid "Attach Interface"
+msgstr "Schnittstelle hinzufügen"
+
 msgid "Attach To Instance"
 msgstr "An Instanz anhaengen"
 
@@ -1247,6 +1250,10 @@ msgstr "Füge hinzu"
 msgctxt "Current status of a Volume"
 msgid "Attaching"
 msgstr "Füge hinzu"
+
+#, python-format
+msgid "Attaching interface for instance %s."
+msgstr "Schnittstelle wird für Instanz %s hinzugefügt."
 
 #, python-format
 msgid "Attaching volume %(vol)s to instance %(inst)s on %(dev)s."
@@ -6629,7 +6636,7 @@ msgid "Number of incoming bytes on the network for a VM interface"
 msgstr "Anzahl der eingehenden Bytes für ein VM-Interface"
 
 msgid "Number of incoming packets for a VM interface"
-msgstr "Anzahl der eingehenden Pakete für ein VM Interface"
+msgstr "Anzahl der eingehenden Pakete für eine VM-Schnittstelle"
 
 msgid "Number of instances to launch."
 msgstr "Anzahl der zu startenden Instanzen."
@@ -6651,10 +6658,10 @@ msgid "Number of outgoing bytes"
 msgstr "Anzahl der gesendeten Bytes"
 
 msgid "Number of outgoing bytes on the network for a VM interface"
-msgstr "Anzahl der ausgehenden Bytes für ein VM Interface"
+msgstr "Anzahl der ausgehenden Bytes für eine VM-Schnittstelle"
 
 msgid "Number of outgoing packets for a VM interface"
-msgstr "Anzahl der ausgehenden Pakete für ein VM Interface"
+msgstr "Anzahl der ausgehenden Pakete für eine VM-Schnittstelle"
 
 msgid ""
 "Number of permissible failures before changing the status of member to "
@@ -9907,6 +9914,9 @@ msgstr "Floating IP kann nicht zugewiesen werden."
 
 msgid "Unable to associate monitor."
 msgstr "Monitor kann nicht zugewiesen werden."
+
+msgid "Unable to attach interface."
+msgstr "Schnittstelle konnte nicht hinzugefügt werden."
 
 msgid "Unable to attach volume."
 msgstr "Volume konnte nicht hinzugefügt werden."
