@@ -23,23 +23,11 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
+from horizon.utils import validators as utils_validators
 
 from openstack_dashboard.api import cinder
 from openstack_dashboard.dashboards.project.volumes.volumes \
     import forms as project_forms
-
-
-def validate_metadata(value):
-    error_msg = _('Invalid metadata entry. Use comma-separated'
-                  ' key=value pairs')
-
-    if value:
-        specs = value.split(",")
-        for spec in specs:
-            keyval = spec.split("=")
-            # ensure both sides of "=" exist, but allow blank value
-            if not len(keyval) == 2 or not keyval[0]:
-                raise ValidationError(error_msg)
 
 
 class ManageVolume(forms.SelfHandlingForm):
@@ -67,7 +55,7 @@ class ManageVolume(forms.SelfHandlingForm):
         attrs={'class': 'modal-body-fixed-width', 'rows': 2}),
         label=_("Metadata"), required=False,
         help_text=_("Comma-separated key=value pairs"),
-        validators=[validate_metadata])
+        validators=[utils_validators.validate_metadata])
     volume_type = forms.ChoiceField(
         label=_("Volume Type"),
         required=False)
