@@ -61,7 +61,7 @@ def calc_date_args(date_from, date_to, date_options):
         try:
             if date_from:
                 date_from = pytz.utc.localize(
-                    datetime.datetime.strptime(date_from, "%Y-%m-%d"))
+                    datetime.datetime.strptime(str(date_from), "%Y-%m-%d"))
             else:
                 # TODO(lsmola) there should be probably the date
                 # of the first sample as default, so it correctly
@@ -70,7 +70,7 @@ def calc_date_args(date_from, date_to, date_options):
                 pass
             if date_to:
                 date_to = pytz.utc.localize(
-                    datetime.datetime.strptime(date_to, "%Y-%m-%d"))
+                    datetime.datetime.strptime(str(date_to), "%Y-%m-%d"))
                 # It returns the beginning of the day, I want the end of
                 # the day, so I add one day without a second.
                 date_to = (date_to + datetime.timedelta(days=1) -
