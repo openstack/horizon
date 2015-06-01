@@ -107,8 +107,9 @@
     <hr class="header_rule">
     <dl class="dl-horizontal">
       <dt>{% trans "Key Name" %}</dt>
-      {% with default_key_name="<em>"|add:_("None")|add:"</em>" %}
-      <dd>{{ instance.key_name|default:default_key_name }}</dd>
+      {% trans "None" as default_key_name %}
+      {% with formatted_default_key_name="<em>"|add:default_key_name|add:"</em>" %}
+        <dd>{{ instance.key_name|default:formatted_default_key_name }}</dd>
       {% endwith %}
       {% url 'horizon:project:images:images:detail' instance.image.id as image_url %}
       <dt>{% trans "Image Name" %}</dt>
