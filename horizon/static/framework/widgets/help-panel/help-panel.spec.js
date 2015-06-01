@@ -1,7 +1,7 @@
-(function(){
+(function () {
   'use strict';
 
-  describe('horizon.framework.widgets.help-panel module', function() {
+  describe('horizon.framework.widgets.help-panel module', function () {
     it('should have been defined', function () {
       expect(angular.module('horizon.framework.widgets.help-panel')).toBeDefined();
     });
@@ -31,13 +31,13 @@
       expect(element[0].querySelector('.help-panel').className).toBe('help-panel');
     });
 
-    it('should add "open" to class name if $scope.openHelp===true', function () {
+    it('should add "open" to class name if $scope.openHelp is true', function () {
       $scope.openHelp = true;
       $scope.$digest();
       expect(element[0].querySelector('.help-panel').className).toBe('help-panel open');
     });
 
-    it('should remove "open" from class name if $scope.openHelp===false', function () {
+    it('should remove "open" from class name if $scope.openHelp is false', function () {
       $scope.openHelp = true;
       $scope.$digest();
       $scope.openHelp = false;
@@ -45,4 +45,5 @@
       expect(element[0].querySelector('.help-panel').className).toBe('help-panel');
     });
   });
+
 })();

@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular.module('horizon.framework.widgets.charts')
@@ -74,127 +74,133 @@
      * ```
      *
      */
-    .directive('pieChart', [ 'horizon.framework.widgets.basePath', 'horizon.framework.widgets.charts.donutChartSettings', function (path, donutChartSettings) {
-      return {
-        restrict: 'E',
-        scope: {
-          chartData: '=',
-          chartSettings: '='
-        },
-        replace: true,
-        templateUrl: path + 'charts/pie-chart.html',
-        link: function (scope, element) {
-          var settings = {};
-          // if chartSettings is defined via the attribute value, use it
-          if (angular.isObject(scope.chartSettings)) {
-            settings = scope.chartSettings;
-          } else {
-            // else default to a donut chart
-            settings = angular.extend({}, donutChartSettings, scope.chartSettings);
-          }
-          settings.diameter = settings.outerRadius * 2;
-
-          var model = {
-            settings: settings,
-            tooltipData: {
-              enabled: false,
-              icon: settings.tooltipIcon,
-              style: angular.extend({}, settings.tooltip)
-            }
-          };
-
-          var d3Elt = d3.select(element[0]);
-
-          var arc = d3.svg.arc()
-                          .outerRadius(settings.outerRadius)
-                          .innerRadius(settings.innerRadius);
-
-          var pie = d3.layout.pie()
-                              .sort(null)
-                              .value(function(d) { return d.value; });
-
-          var unwatch = scope.$watch('chartData', updateChart);
-          scope.$on('$destroy', unwatch);
-
-          scope.model = model;
-
-          function updateChart() {
-            // set labels depending on whether this is a max or total chart
-            if (angular.isDefined(scope.chartData.maxLimit)) {
-              scope.model.total = scope.chartData.maxLimit;
-              scope.model.totalLabel = gettext('Max');
+    .directive('pieChart', [
+      'horizon.framework.widgets.basePath',
+      'horizon.framework.widgets.charts.donutChartSettings',
+      function (path, donutChartSettings) {
+        return {
+          restrict: 'E',
+          scope: {
+            chartData: '=',
+            chartSettings: '='
+          },
+          replace: true,
+          templateUrl: path + 'charts/pie-chart.html',
+          link: function (scope, element) {
+            var settings = {};
+            // if chartSettings is defined via the attribute value, use it
+            if (angular.isObject(scope.chartSettings)) {
+              settings = scope.chartSettings;
             } else {
-              scope.model.total = d3.sum(scope.chartData.data, function(d) { return d.value; });
-              scope.model.totalLabel = gettext('Total');
+              // else default to a donut chart
+              settings = angular.extend({}, donutChartSettings, scope.chartSettings);
             }
-            scope.model.tooltipData.enabled = false;
+            settings.diameter = settings.outerRadius * 2;
 
-            // Generate or update slices
-            var chart = d3Elt.select('.slices')
-                            .selectAll('path.slice')
-                            .data(pie(scope.chartData.data));
-
-            chart.enter().append('path')
-                          .attr('class', 'slice')
-                          .attr('d', arc);
-
-            // Set the color or CSS class for the fill
-            chart.each(function(d) {
-              var slice = d3.select(this);
-              if (d.data.color) {
-                slice.style('fill', d.data.color);
-              } else if (d.data.colorClass) {
-                slice.classed(d.data.colorClass, true);
+            var model = {
+              settings: settings,
+              tooltipData: {
+                enabled: false,
+                icon: settings.tooltipIcon,
+                style: angular.extend({}, settings.tooltip)
               }
-            });
+            };
 
-            chart.on('mouseenter', function(d) { showTooltip(d, this); })
-              .on('mouseleave', clearTooltip);
+            var d3Elt = d3.select(element[0]);
 
-            // Animate the slice rendering
-            chart.transition()
-                  .duration(500)
-                  .attrTween('d', function animate(d) {
-                    this.lastAngle = this.lastAngle || { startAngle: 0, endAngle: 0 };
-                    var interpolate = d3.interpolate(this.lastAngle, d);
-                    this.lastAngle = interpolate(0);
+            var arc = d3.svg.arc()
+                            .outerRadius(settings.outerRadius)
+                            .innerRadius(settings.innerRadius);
 
-                    return function(t) {
-                      return arc(interpolate(t));
-                    };
-                  });
+            var pie = d3.layout.pie()
+                                .sort(null)
+                                .value(function (d) { return d.value; });
 
-            chart.exit().remove();
-          }
+            var unwatch = scope.$watch('chartData', updateChart);
+            scope.$on('$destroy', unwatch);
 
-          function showTooltip(d, elt) {
-            scope.$apply(function() {
-              var eltHeight = element[0].getBoundingClientRect().height;
-              var titleHeight = element[0].querySelector('div.pie-chart-title')
-                                            .getBoundingClientRect()
-                                            .height;
+            scope.model = model;
 
-              var point = d3.mouse(elt);
-              var x = point[0] + scope.model.settings.outerRadius;
-              var y = eltHeight - point[1] - scope.model.settings.outerRadius - titleHeight;
-
-              scope.model.tooltipData.label = d.data.label;
-              scope.model.tooltipData.value = d.data.value;
-              scope.model.tooltipData.enabled = true;
-              scope.model.tooltipData.iconColor = d.data.color;
-              scope.model.tooltipData.iconClass = d.data.colorClass;
-              scope.model.tooltipData.style.left = x + 'px';
-              scope.model.tooltipData.style.bottom = y + 'px';
-            });
-          }
-
-          function clearTooltip() {
-            scope.$apply(function() {
+            function updateChart() {
+              // set labels depending on whether this is a max or total chart
+              if (angular.isDefined(scope.chartData.maxLimit)) {
+                scope.model.total = scope.chartData.maxLimit;
+                scope.model.totalLabel = gettext('Max');
+              } else {
+                scope.model.total = d3.sum(scope.chartData.data, function (d) { return d.value; });
+                scope.model.totalLabel = gettext('Total');
+              }
               scope.model.tooltipData.enabled = false;
-            });
+
+              // Generate or update slices
+              var chart = d3Elt.select('.slices')
+                              .selectAll('path.slice')
+                              .data(pie(scope.chartData.data));
+
+              chart.enter().append('path')
+                            .attr('class', 'slice')
+                            .attr('d', arc);
+
+              // Set the color or CSS class for the fill
+              chart.each(function (d) {
+                var slice = d3.select(this);
+                if (d.data.color) {
+                  slice.style('fill', d.data.color);
+                } else if (d.data.colorClass) {
+                  slice.classed(d.data.colorClass, true);
+                }
+              });
+
+              chart.on('mouseenter', function (d) { showTooltip(d, this); })
+                .on('mouseleave', clearTooltip);
+
+              // Animate the slice rendering
+              chart.transition()
+                    .duration(500)
+                    .attrTween('d', function animate(d) {
+                      this.lastAngle = this.lastAngle || { startAngle: 0, endAngle: 0 };
+                      var interpolate = d3.interpolate(this.lastAngle, d);
+                      this.lastAngle = interpolate(0);
+
+                      return function (t) {
+                        return arc(interpolate(t));
+                      };
+                    });
+
+              chart.exit().remove();
+            }
+
+            function showTooltip(d, elt) {
+              scope.$apply(function () {
+                var chartElt = element[0];
+                var eltHeight = chartElt.getBoundingClientRect().height;
+                var titleHeight = chartElt.querySelector('div.pie-chart-title')
+                                          .getBoundingClientRect()
+                                          .height;
+
+                var point = d3.mouse(elt);
+                var outerRadius = scope.model.settings.outerRadius;
+                var x = point[0] + outerRadius;
+                var y = eltHeight - point[1] - outerRadius - titleHeight;
+
+                scope.model.tooltipData.label = d.data.label;
+                scope.model.tooltipData.value = d.data.value;
+                scope.model.tooltipData.enabled = true;
+                scope.model.tooltipData.iconColor = d.data.color;
+                scope.model.tooltipData.iconClass = d.data.colorClass;
+                scope.model.tooltipData.style.left = x + 'px';
+                scope.model.tooltipData.style.bottom = y + 'px';
+              });
+            }
+
+            function clearTooltip() {
+              scope.$apply(function () {
+                scope.model.tooltipData.enabled = false;
+              });
+            }
           }
-        }
-      };
-    }]);
+        };
+      }
+    ]);
 
 })();

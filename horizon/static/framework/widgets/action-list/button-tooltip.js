@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular.module('horizon.framework.widgets.action-list')
@@ -12,7 +12,9 @@
   .constant('horizon.framework.widgets.action-list.tooltipConfig', {
     defaultTemplate: '<div>{$ ::message $}</div>',
     defaultMessage: {
+      // jscs:disable maximumLineLength
       message: gettext('The action cannot be performed. The contents of this row have errors or are missing information.')
+      // jscs:enable maximumLineLength
     }
   })
 
@@ -36,7 +38,7 @@
    *   data: {
    *     message: 'My custom message',
    *     anotherMessage: 'Another message',
-   *     clickMe: function() {
+   *     clickMe: function () {
    *       alert('You clicked me');
    *     }
    *   },
@@ -54,9 +56,13 @@
    * </action-list>
    * ```
    */
-  .directive('buttonTooltip',
-    [ 'horizon.framework.widgets.basePath', '$compile', '$http', '$templateCache', 'horizon.framework.widgets.action-list.tooltipConfig',
-    function(path, $compile, $http, $templateCache, tooltipConfig) {
+  .directive('buttonTooltip', [
+    'horizon.framework.widgets.basePath',
+    '$compile',
+    '$http',
+    '$templateCache',
+    'horizon.framework.widgets.action-list.tooltipConfig',
+    function (path, $compile, $http, $templateCache, tooltipConfig) {
       return {
         restrict: 'A',
         scope: {
@@ -71,7 +77,7 @@
           var template = tooltip.template || tooltipConfig.defaultTemplate;
           if (tooltip.templateUrl) {
             $http.get(tooltip.templateUrl, { cache: $templateCache })
-              .then(function(response) {
+              .then(function (response) {
                 template = response.data;
               });
           }
@@ -100,7 +106,7 @@
             element.popover('show');
           }
 
-          element.on('mousedown', function() {
+          element.on('mousedown', function () {
             if (!scope.btDisabled) {
               var popoverElt = element.next('.popover');
               if (popoverElt.length) {
@@ -112,13 +118,13 @@
             }
           });
 
-          element.on('mouseup', function() {
+          element.on('mouseup', function () {
             if (!scope.btDisabled) {
               element.find('button').first().focus();
             }
           });
 
-          element.on('blur', 'button', function() {
+          element.on('blur', 'button', function () {
             element.popover('destroy');
           });
         }

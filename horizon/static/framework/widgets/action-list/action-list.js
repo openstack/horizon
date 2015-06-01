@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   /**
@@ -80,7 +80,7 @@
    * </action-list>
    * ```
    */
-  .directive('actionList', [ 'horizon.framework.widgets.basePath', function() {
+  .directive('actionList', [ 'horizon.framework.widgets.basePath', function () {
       return {
         restrict: 'E',
         link: function (scope, element) {
@@ -116,16 +116,16 @@
    * </menu>
    * ```
    */
-  .directive('menu', [ 'horizon.framework.widgets.basePath', function(path) {
+  .directive('menu', [ 'horizon.framework.widgets.basePath', function (path) {
     return {
       restrict: 'E',
       templateUrl: path + 'action-list/menu.html',
       transclude: true,
-      link: function(scope, element, attrs, ctrl, transclude) {
+      link: function (scope, element, attrs, ctrl, transclude) {
         var menu = element.find('ul');
 
         // Append menu items to menu
-        transclude(scope, function(clone) {
+        transclude(scope, function (clone) {
           menu.append(clone);
         });
 
@@ -179,7 +179,7 @@
    * </action>
    * ```
    */
-  .directive('action', [ 'horizon.framework.widgets.basePath', function(path) {
+  .directive('action', [ 'horizon.framework.widgets.basePath', function (path) {
       return {
         restrict: 'E',
         scope: {
@@ -188,13 +188,13 @@
           disabled: '=?',
           item: '=?'
         },
-        templateUrl: function(element, attrs) {
+        templateUrl: function (element, attrs) {
           // Load the template for the action type
           var buttonType = attrs.buttonType || 'action';
           return path + 'action-list/' + buttonType + '.html';
         },
         transclude: true,
-        link: function(scope, element) {
+        link: function (scope, element) {
           // Don't include directive element since
           // it will misalign component look
           element.children().first().unwrap();
@@ -203,4 +203,4 @@
     }
   ]);
 
-}());
+})();

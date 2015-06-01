@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   /**
@@ -103,8 +103,8 @@
      * @returns {function} A filtered list of keys to show in legend
      *
      */
-    .filter('showKeyFilter', function() {
-      return function(items) {
+    .filter('showKeyFilter', function () {
+      return function (items) {
         return items.filter(function (item) {
           return !item.hideKey;
         });

@@ -7,7 +7,7 @@
    * @ngdoc service
    * @name horizon.framework.widgets.metadata-tree.metadataTreeService
    */
-  .factory('horizon.framework.widgets.metadata-tree.service', [function () {
+  .factory('horizon.framework.widgets.metadata-tree.service', [ function () {
 
     /**
      * Parse value into boolean
@@ -16,18 +16,16 @@
      * @returns {boolean}
      */
     function parseBool(value) {
-      var value_type = typeof(value);
+      var valueType = typeof(value);
 
-      if(value_type === 'boolean') {
+      if (valueType === 'boolean') {
         return value;
-      }
-      else if(value_type === 'string') {
+      } else if (valueType === 'string') {
         value = value.toLowerCase();
 
-        if(value === 'true') {
+        if (value === 'true') {
           return true;
-        }
-        else if(value === 'false') {
+        } else if (value === 'false') {
           return false;
         }
       }
@@ -71,8 +69,8 @@
      *
      * @param  {string} value
      */
-    Property.prototype.setValue = function(value) {
-      if(value === null) {
+    Property.prototype.setValue = function (value) {
+      if (value === null) {
         this.value = this.type !== 'array' ? null : [];
         return;
       }
@@ -82,7 +80,7 @@
         case 'number': this.value = parseFloat(value); break;
         case 'array':
           var data = /^(<.*?>) (.*)$/.exec(value);
-          if(data) {
+          if (data) {
             this.operator = data[1];
             this.value = data[2].split(',');
           } break;
@@ -96,7 +94,7 @@
      *
      * @returns {*}
      */
-    Property.prototype.getValue = function() {
+    Property.prototype.getValue = function () {
       switch (this.type) {
         case 'array': return this.operator + ' ' + this.value.join(',');
         default: return this.value;
@@ -142,13 +140,13 @@
       this.label = namespace.display_name;
       this.description = namespace.description;
 
-      if(namespace.objects) {
+      if (namespace.objects) {
         angular.forEach(namespace.objects, function (object) {
           this.children.push(new Item(this).fromObject(object));
         }, this);
       }
 
-      if(namespace.properties) {
+      if (namespace.properties) {
         angular.forEach(namespace.properties, function (property, key) {
           this.children.push(new Item(this).fromProperty(key, property));
         }, this);
@@ -169,7 +167,7 @@
       this.label = object.name;
       this.description = object.description;
 
-      if(object.properties) {
+      if (object.properties) {
         angular.forEach(object.properties, function (property, key) {
           this.children.push(new Item(this).fromProperty(key, property));
         }, this);
@@ -217,7 +215,7 @@
     Item.prototype.expand = function (deep) {
       this.expanded = true;
       angular.forEach(this.children, function (child) {
-        if(deep) {
+        if (deep) {
           child.expand(deep);
         }
         child.visible = true;
@@ -250,14 +248,14 @@
      * @param {=} caller Used internally to prevent infinite recursion
      */
     Item.prototype.markAsAdded = function (caller) {
-      if(this.parent && !this.added) {
+      if (this.parent && !this.added) {
         this.parent.addedCount += 1;
-        if(this.parent.addedCount === this.parent.children.length) {
+        if (this.parent.addedCount === this.parent.children.length) {
           this.parent.markAsAdded(this);
         }
       }
       this.added = true;
-      if(!caller) { // prevent infinite recursion
+      if (!caller) { // prevent infinite recursion
         angular.forEach(this.children, function (item) {
           item.markAsAdded();
         }, this);
@@ -271,17 +269,17 @@
      * @param {=} caller Used internally to prevent infinite recursion
      */
     Item.prototype.unmarkAsAdded = function (expand, caller) {
-      if(this.parent) {
-        if(expand) {
+      if (this.parent) {
+        if (expand) {
           this.parent.expand();
         }
-        if(this.added) {
+        if (this.added) {
           this.parent.addedCount -= 1;
           this.parent.unmarkAsAdded(expand, this);
         }
       }
       this.added = false;
-      if(!caller) { // prevent infinite recursion
+      if (!caller) { // prevent infinite recursion
         angular.forEach(this.children, function (item) {
           item.unmarkAsAdded(expand);
         }, this);
@@ -296,7 +294,7 @@
      */
     Item.prototype.path = function (path) {
       path = typeof path !== 'undefined' ? path : [];
-      if(this.parent) {
+      if (this.parent) {
         this.parent.path(path);
       }
       path.push(this);
@@ -320,7 +318,7 @@
      * @param {string} value
      */
     Item.prototype.setLeafValue = function (value) {
-      if(this.leaf) {
+      if (this.leaf) {
         this.leaf.setValue(value);
       }
     };
@@ -331,7 +329,7 @@
      * @returns {string}
      */
     Item.prototype.getLeafValue = function () {
-      if(this.leaf) {
+      if (this.leaf) {
         return this.leaf.getValue();
       }
     };
@@ -404,14 +402,14 @@
       var itemsMapping = {};
 
       angular.forEach(this.flatTree, function (item) {
-        if(item.leaf && item.leaf.name in existing) {
+        if (item.leaf && item.leaf.name in existing) {
           itemsMapping[item.leaf.name] = item;
         }
       });
 
       angular.forEach(existing, function (value, key) {
         var item = itemsMapping[key];
-        if(typeof item === 'undefined') {
+        if (typeof item === 'undefined') {
           item = new Item().customProperty(key);
           this.flatTree.push(item);
         }
@@ -427,8 +425,8 @@
      */
     Tree.prototype.getExisting = function () {
       var existing = {};
-      angular.forEach(this.flatTree, function(item) {
-        if(item.added && item.leaf) {
+      angular.forEach(this.flatTree, function (item) {
+        if (item.added && item.leaf) {
           existing[item.leaf.name] = item.getLeafValue();
         }
       });
@@ -442,7 +440,7 @@
      */
     Tree.prototype.select = function (item) {
       this.selected = item;
-      if(!item.expanded) {
+      if (!item.expanded) {
         item.expand();
       } else {
         item.collapse();
@@ -465,13 +463,13 @@
      * @param {Item} item
      */
     Tree.prototype.unmarkAsAdded = function (item) {
-      if(!item.custom) {
+      if (!item.custom) {
         this.selected = item;
         item.unmarkAsAdded(true);
       } else {
         this.selected = null;
         var i = this.flatTree.indexOf(item);
-        if(i > -1) {
+        if (i > -1) {
           this.flatTree.splice(i, 1);
         }
       }
@@ -495,4 +493,4 @@
       Tree: Tree
     };
   }]);
-}());
+})();

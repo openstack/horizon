@@ -46,7 +46,7 @@
    * @param {object} existing Key-value pairs with existing properties
    * @param {object=} text Text override
    */
-  .directive('hzMetadataDisplay', ['horizon.framework.widgets.basePath',
+  .directive('hzMetadataDisplay', [ 'horizon.framework.widgets.basePath',
     function (path) {
       return {
         scope: {
@@ -67,20 +67,22 @@
    * Controller used by `hzMetadataDisplay`
    */
   .controller('hzMetadataDisplayCtrl', [
-    '$scope', 'horizon.framework.widgets.metadata-tree.service', 'horizon.framework.widgets.metadata-display.defaults',
+    '$scope',
+    'horizon.framework.widgets.metadata-tree.service',
+    'horizon.framework.widgets.metadata-display.defaults',
     function ($scope, metadataTreeService, defaults) {
 
       function init() {
         $scope.tree = new metadataTreeService.Tree($scope.available, $scope.existing);
         angular.forEach($scope.tree.flatTree, function (item) {
-          if(item.added) {
-            if(!item.leaf) {
+          if (item.added) {
+            if (!item.leaf) {
               item.added = false;
               if (item.parent) {
                 item.parent.addedCount -= 1;
               }
             }
-            else if(!item.custom) {
+            else if (!item.custom) {
               $scope.hide = false;
             }
           }
@@ -88,7 +90,7 @@
         });
         // select first item
         $scope.tree.flatTree.some(function (item) {
-          if($scope.listFilter(item)) {
+          if ($scope.listFilter(item)) {
             $scope.selected = item;
             item.expand(true);
             return true; // break
@@ -119,4 +121,4 @@
     }
   ]);
 
-}());
+})();

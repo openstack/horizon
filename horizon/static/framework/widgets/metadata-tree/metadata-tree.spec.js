@@ -1,7 +1,7 @@
-(function(){
+(function () {
   'use strict';
 
-  describe('horizon.framework.widgets.metadata-tree module', function() {
+  describe('horizon.framework.widgets.metadata-tree module', function () {
     it('should have been defined', function () {
       expect(angular.module('horizon.framework.widgets.metadata-tree')).toBeDefined();
     });
@@ -91,75 +91,90 @@
       beforeEach(module('horizon.framework.widgets'));
       beforeEach(module('horizon.framework.widgets.metadata-tree'));
 
-      describe('hzMetadataTree directive', function() {
+      describe('hzMetadataTree directive', function () {
+
         beforeEach(inject(function ($injector) {
           var $compile = $injector.get('$compile');
           $scope = $injector.get('$rootScope').$new();
 
           $scope.available = namespaces;
-          $scope.existing = {'test:B:A:1':'foo'};
+          $scope.existing = { 'test:B:A:1':'foo' };
 
-          var markup =
-            '<hz-metadata-tree available="available" existing="existing"></hz-metadata-tree>';
+          var markup = '<hz-metadata-tree' +
+                       '  available="available"' +
+                       '  existing="existing">' +
+                       '</hz-metadata-tree>';
 
           $element = angular.element(markup);
           $compile($element)($scope);
           $scope.$digest();
         }));
 
-        it('should have 2 rows in available list', function() {
+        it('should have 2 rows in available list', function () {
           expect($element.find('ul.list-group:first li[ng-repeat]').length).toBe(2);
         });
 
-        it('should have 1 row in existing list', function() {
+        it('should have 1 row in existing list', function () {
           expect($element.find('ul.list-group:last li[ng-repeat]').length).toBe(1);
-          expect($element.find('ul.list-group:last li[ng-repeat]:first').scope().item.leaf.name).toBe('test:B:A:1');
-          expect($element.find('ul.list-group:last li[ng-repeat]:first').scope().item.leaf.value).toBe('foo');
+          var row = $element.find('ul.list-group:last li[ng-repeat]:first');
+          expect(row.scope().item.leaf.name).toBe('test:B:A:1');
+          expect(row.scope().item.leaf.value).toBe('foo');
         });
 
-        it('should have 10 rows in available list when expanded items', function() {
+        it('should have 10 rows in available list when expanded items', function () {
           $element.find('ul.list-group:first li[ng-repeat]:first').trigger('click');
           $element.find('ul.list-group:first li[ng-repeat]:last').trigger('click');
           expect($element.find('ul.list-group:first li[ng-repeat]').length).toBe(10);
         });
 
-        it('should remove item from available and add it in existing list when added', function() {
-          $element.find('ul.list-group:first li[ng-repeat]:last').trigger('click');
-          $element.find('ul.list-group:first li[ng-repeat]:last').trigger('click');
-          expect($element.find('ul.list-group:first li[ng-repeat]').length).toBe(6);
-          $element.find('ul.list-group:first li[ng-repeat]:last .btn').trigger('click');
-          expect($element.find('ul.list-group:first li[ng-repeat]').length).toBe(5);
-          expect($element.find('ul.list-group:last li[ng-repeat]').length).toBe(2);
-          expect($element.find('ul.list-group:last li[ng-repeat].active').scope().item.leaf.name).toBe('test:B:B:2');
-        });
+        it('should remove item from available and add it in existing list when added',
+          function () {
+            $element.find('ul.list-group:first li[ng-repeat]:last') .trigger('click');
+            $element.find('ul.list-group:first li[ng-repeat]:last').trigger('click');
+            expect($element.find('ul.list-group:first li[ng-repeat]').length).toBe(6);
 
-        it('should add item to available and remove it from existing list when removed', function() {
-          $element.find('ul.list-group:last li[ng-repeat]:first .btn').trigger('click');
-          expect($element.find('ul.list-group:first li[ng-repeat]').length).toBe(6);
-          expect($element.find('ul.list-group:last li[ng-repeat]').length).toBe(0);
-          expect($element.find('ul.list-group:first li[ng-repeat].active').scope().item.leaf.name).toBe('test:B:A:1');
-        });
+            $element.find('ul.list-group:first li[ng-repeat]:last .btn').trigger('click');
+            expect($element.find('ul.list-group:first li[ng-repeat]').length).toBe(5);
+            expect($element.find('ul.list-group:last li[ng-repeat]').length).toBe(2);
+            var lastActive = $element.find('ul.list-group:last li[ng-repeat].active');
+            expect(lastActive.scope().item.leaf.name).toBe('test:B:B:2');
+          }
+        );
 
-        it('should add custom item to existing list', function() {
+        it('should add item to available and remove it from existing list when removed',
+          function () {
+            $element.find('ul.list-group:last li[ng-repeat]:first .btn').trigger('click');
+            expect($element.find('ul.list-group:first li[ng-repeat]').length).toBe(6);
+            expect($element.find('ul.list-group:last li[ng-repeat]').length).toBe(0);
+            var lastActive = $element.find('ul.list-group:first li[ng-repeat].active');
+            expect(lastActive.scope().item.leaf.name).toBe('test:B:A:1');
+          }
+        );
+
+        it('should add custom item to existing list', function () {
           $element.find('ul.list-group:first li:first input').val('custom').trigger('input');
           $element.find('ul.list-group:first li:first .btn').trigger('click');
+
           expect($element.find('ul.list-group:last li[ng-repeat]').length).toBe(2);
-          expect($element.find('ul.list-group:last li[ng-repeat].active').scope().item.leaf.name).toBe('custom');
+          var lastActive = $element.find('ul.list-group:last li[ng-repeat].active');
+          expect(lastActive.scope().item.leaf.name).toBe('custom');
         });
       });
 
-      describe('hzMetadataTreeItem directive', function() {
+      describe('hzMetadataTreeItem directive', function () {
         var $scope, $element, item;
 
         beforeEach(inject(function ($injector) {
           var $compile = $injector.get('$compile');
           $scope = $injector.get('$rootScope').$new();
 
-          item = new ($injector.get('horizon.framework.widgets.metadata-tree.service').Item)();
+          var serviceName = 'horizon.framework.widgets.metadata-tree.service';
+          item = new ($injector.get(serviceName).Item)();
           $scope.item = item.fromProperty('test', namespaces[0].properties['test:A:6']);
 
-          var markup =
-          '<hz-metadata-tree-item item="item" text="text" action=""></hz-metadata-tree-item>';
+          var markup = '<hz-metadata-tree-item' +
+                       '  item="item" text="text" action="">' +
+                       '</hz-metadata-tree-item>';
 
           $element = angular.element(markup);
           $compile($element)($scope);
@@ -187,4 +202,5 @@
       });
     });
   });
+
 })();

@@ -1,7 +1,7 @@
-(function(){
+(function () {
   'use strict';
 
-  describe('horizon.framework.widgets.metadata-display module', function() {
+  describe('horizon.framework.widgets.metadata-display module', function () {
     it('should have been defined', function () {
       expect(angular.module('horizon.framework.widgets.metadata-display')).toBeDefined();
     });
@@ -103,33 +103,37 @@
         $scope.available = namespaces;
         $scope.existing = existing;
 
-        var markup =
-          '<hz-metadata-display available="available" existing="existing"></hz-metadata-display>';
+        var markup = '<hz-metadata-display' +
+                     '  available="available"' +
+                     '  existing="existing">' +
+                     '</hz-metadata-display>';
 
         $element = angular.element(markup);
         $compile($element)($scope);
         $scope.$digest();
       }));
 
-      it('should have 3 rows in selector list', function() {
+      it('should have 3 rows in selector list', function () {
         expect($element.find('.selector .selector-item').length).toBe(3);
       });
 
-      it('should have 2 items in first group', function() {
+      it('should have 2 items in first group', function () {
         expect($element.find('div[ng-repeat] div.auto-width').length).toBe(2);
       });
 
-      it('should have 1 item in second group', function() {
+      it('should have 1 item in second group', function () {
         $element.find('.selector .selector-item:nth-child(2)').trigger('click');
         expect($element.find('div[ng-repeat] div.auto-width').length).toBe(1);
       });
 
-      it('should have proper description', function() {
-        expect($element.find('span[ng-bind="selected.description"]').text()).toBe(namespaces[0].description);
+      it('should have proper description', function () {
+        var selector = 'span[ng-bind="selected.description"]';
+        expect($element.find(selector).text()).toBe(namespaces[0].description);
         $element.find('.selector .selector-item:nth-child(2)').trigger('click');
-        expect($element.find('span[ng-bind="selected.description"]').text()).toBe(namespaces[1].objects[0].description);
+        expect($element.find(selector).text()).toBe(namespaces[1].objects[0].description);
       });
     });
 
   });
+
 })();

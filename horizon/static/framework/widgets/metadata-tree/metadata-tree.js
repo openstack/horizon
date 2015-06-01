@@ -32,7 +32,9 @@
    */
   .constant('horizon.framework.widgets.metadata-tree.defaults', {
     text: {
+      // jscs:disable maximumLineLength
       help: gettext('You can specify resource metadata by moving items from the left column to the right column. In the left columns there are metadata definitions from the Glance Metadata Catalog. Use the "Other" option to add metadata with the key of your choice.'),
+      // jscs:enable maximumLineLength
       min: gettext('Min'),
       max: gettext('Max'),
       minLength: gettext('Min length'),
@@ -65,7 +67,7 @@
    * @param {object=} existing Key-value pairs with existing properties
    * @param {object=} text Text override
    */
-  .directive('hzMetadataTree', ['horizon.framework.widgets.basePath',
+  .directive('hzMetadataTree', [ 'horizon.framework.widgets.basePath',
     function (path) {
       return {
         scope: {
@@ -93,7 +95,7 @@
    * @param {Item} item Item to display
    * @param {object} text Text override
    */
-  .directive('hzMetadataTreeItem', ['horizon.framework.widgets.basePath',
+  .directive('hzMetadataTreeItem', [ 'horizon.framework.widgets.basePath',
     function (path) {
       return {
         scope: {
@@ -121,7 +123,7 @@
       restrict: 'A',
       require: 'ngModel',
       link: function (scope, elm, attrs, ctrl) {
-        ctrl.$validators.unique = function(modelValue, viewValue) {
+        ctrl.$validators.unique = function (modelValue, viewValue) {
           return !scope.tree.flatTree.some(function (item) {
             return item.leaf && item.leaf.name === viewValue;
           });
@@ -137,7 +139,9 @@
    * Controller used by `hzMetadataTree`
    */
   .controller('hzMetadataTreeCtrl', [
-    '$scope', 'horizon.framework.widgets.metadata-tree.service', 'horizon.framework.widgets.metadata-tree.defaults',
+    '$scope',
+    'horizon.framework.widgets.metadata-tree.service',
+    'horizon.framework.widgets.metadata-tree.defaults',
     function ($scope, metadataTreeService, defaults) {
 
       $scope.availableFilter = function (item) {
@@ -146,7 +150,7 @@
       };
 
       $scope.text = angular.extend({}, defaults.text, $scope.text);
-      if(!$scope.tree) {
+      if (!$scope.tree) {
         $scope.tree = new metadataTreeService.Tree($scope.available, $scope.existing);
       }
       $scope.customItem = '';
@@ -167,19 +171,28 @@
     '$scope',
     function ($scope) {
       $scope.formatErrorMessage = function (item, error) {
-        if(error.min) return $scope.text.min + ' ' + item.leaf.minimum;
-        if(error.max) return $scope.text.max + ' ' + item.leaf.maximum;
-        if(error.minlength) return $scope.text.minLength + ' ' + item.leaf.minLength;
-        if(error.maxlength) return $scope.text.maxLength + ' ' + item.leaf.maxLength;
-        if(error.pattern) {
-          if(item.leaf.type === 'integer') return $scope.text.integerRequired;
-          else return $scope.text.patternMismatch;
+        if (error.min) { return $scope.text.min + ' ' + item.leaf.minimum; }
+        if (error.max) { return $scope.text.max + ' ' + item.leaf.maximum; }
+        if (error.minlength) { return $scope.text.minLength + ' ' + item.leaf.minLength; }
+        if (error.maxlength) { return $scope.text.maxLength + ' ' + item.leaf.maxLength; }
+
+        if (error.pattern) {
+          if (item.leaf.type === 'integer') {
+            return $scope.text.integerRequired;
+          } else {
+            return $scope.text.patternMismatch;
+          }
         }
-        if(error.number) {
-          if(item.leaf.type === 'integer') return $scope.text.integerRequired;
-          else return $scope.text.decimalRequired;
+
+        if (error.number) {
+          if (item.leaf.type === 'integer') {
+            return $scope.text.integerRequired;
+          } else {
+            return $scope.text.decimalRequired;
+          }
         }
-        if(error.required) {
+
+        if (error.required) {
           return $scope.text.required;
         }
       };
@@ -194,13 +207,13 @@
 
       $scope.opened = false;
 
-      if($scope.item.leaf.type === 'array') {
+      if ($scope.item.leaf.type === 'array') {
 
-        $scope.values = $scope.item.leaf.items.enum.filter(function(i) {
+        $scope.values = $scope.item.leaf.items.enum.filter(function (i) {
           return $scope.item.leaf.value.indexOf(i) < 0;
         }).sort();
 
-        if(!$scope.item.leaf.readonly) {
+        if (!$scope.item.leaf.readonly) {
           $scope.add = function (val) {
             $scope.item.leaf.value.push(val);
             $scope.item.leaf.value.sort();
@@ -226,4 +239,4 @@
     }
   ]);
 
-}());
+})();

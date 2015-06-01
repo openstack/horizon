@@ -1,6 +1,8 @@
-(function() {
+(function () {
   'use strict';
-  angular.module('MagicSearch', ['ui.bootstrap'])
+
+  angular.module('MagicSearch', [ 'ui.bootstrap' ])
+
   /**
    * @ngdoc directive
    * @name MagicSearch:magicOverrides
@@ -35,8 +37,8 @@
    * // facet (server icon, lighter grey color). Note: If the property
    * // 'isServer' is not set, then facet renders with client icon and darker
    * // grey color.
-   * scope.$on('checkFacets', function(event, currentSearch) {
-   *   angular.forEach(currentSearch, function(facet) {
+   * scope.$on('checkFacets', function (event, currentSearch) {
+   *   angular.forEach(currentSearch, function (facet) {
    *     if (apiVersion < 3) {
    *       facet.isServer = true;
    *     }
@@ -54,21 +56,21 @@
    * <div class="magic-search" magic-overrides>
    * ```
    */
-  .directive('magicOverrides', function() {
+  .directive('magicOverrides', function () {
     return {
       restrict: 'A',
-      controller: ['$scope', '$timeout', '$window',
-        function($scope, $timeout, $window) {
+      controller: [ '$scope', '$timeout', '$window',
+        function ($scope, $timeout, $window) {
           // showMenu and hideMenu depend on Foundation's dropdown. They need
           // to be modified to work with another dropdown implementation.
           // For Bootstrap, they are not needed at all.
-          $scope.showMenu = function() {
-            $timeout(function() {
+          $scope.showMenu = function () {
+            $timeout(function () {
               $scope.isMenuOpen = true;
             });
           };
-          $scope.hideMenu = function() {
-            $timeout(function() {
+          $scope.hideMenu = function () {
+            $timeout(function () {
               $scope.isMenuOpen = false;
             });
           };
@@ -77,8 +79,8 @@
           // Add ability to update facet
           // Broadcast event when facet options are returned via AJAX.
           // Should magic_search.js absorb this?
-          $scope.$on('facetsChanged', function() {
-            $timeout(function() {
+          $scope.$on('facetsChanged', function () {
+            $timeout(function () {
               $scope.currentSearch = [];
               $scope.initSearch();
             });
@@ -86,7 +88,7 @@
 
           // Override magic_search.js 'initFacets' to fix browser refresh issue
           // and to emit('checkFacets') to flag facets as 'isServer'
-          $scope.initFacets = function() {
+          $scope.initFacets = function () {
             // set facets selected and remove them from 'facetsObj'
             var initialFacets = $window.location.search;
             if (initialFacets.indexOf('?') === 0) {
@@ -94,13 +96,13 @@
             }
             initialFacets = initialFacets.split('&');
             if (initialFacets.length > 1 || initialFacets[0].length > 0) {
-              $timeout(function() {
+              $timeout(function () {
                 $scope.strings.prompt = '';
               });
             }
-            angular.forEach(initialFacets, function(facet) {
+            angular.forEach(initialFacets, function (facet) {
               var facetParts = facet.split('=');
-              angular.forEach($scope.facetsObj, function(value) {
+              angular.forEach($scope.facetsObj, function (value) {
                 if (value.name == facetParts[0]) {
                   if (value.options === undefined) {
                     $scope.currentSearch.push({
@@ -113,7 +115,7 @@
                     $scope.deleteFacetEntirely(facetParts);
 
                   } else {
-                    angular.forEach(value.options, function(option) {
+                    angular.forEach(value.options, function (option) {
                       if (option.key == facetParts[1]) {
                         $scope.currentSearch.push({
                           'name': facet,
@@ -145,7 +147,7 @@
           // Override magic_search.js 'removeFacet' to emit('checkFacets')
           // to flag facets as 'isServer' after removing facet and
           // either update filter or search
-          $scope.removeFacet = function($index) {
+          $scope.removeFacet = function ($index) {
             var removed = $scope.currentSearch[$index].name;
             $scope.currentSearch.splice($index, 1);
             if ($scope.facetSelected === undefined) {
@@ -170,4 +172,5 @@
       ]
     }; // end of return
   }); // end of directive
+
 })();
