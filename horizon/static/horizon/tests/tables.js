@@ -24,7 +24,7 @@ test("Footer count update", function () {
   var fixture = $("#qunit-fixture");
   var table = fixture.find("#table1");
   var tbody = table.find('tbody');
-  var table_count = table.find("span.table_count");
+  var tableCount = table.find("span.table_count");
   var rows = tbody.find('tr');
 
   // The following function returns the first set of consecutive numbers.
@@ -33,27 +33,27 @@ test("Footer count update", function () {
   // If you want to match '4' for your numeric value, the following are ok:
   // "there are 4 lights", "4 lights there are", "lights there are 4" but
   // not "there are 14 lights".
-  var get_consec_nums = function(str) { return (str.match(/\d+/) || [""])[0]; };
+  var getConsecNums = function(str) { return (str.match(/\d+/) || [""])[0]; };
 
   horizon.datatables.update_footer_count(table);
-  equal(get_consec_nums(table_count.text()), '4', "Initial count is correct");
+  equal(getConsecNums(tableCount.text()), '4', "Initial count is correct");
 
   // hide rows
   rows.first().hide();
   rows.first().next().hide();
   horizon.datatables.update_footer_count(table);
-  equal(get_consec_nums(table_count.text()), '2', "Count correct after hiding two rows");
+  equal(getConsecNums(tableCount.text()), '2', "Count correct after hiding two rows");
 
   // show a row
   rows.first().next().show();
   horizon.datatables.update_footer_count(table);
-  equal(get_consec_nums(table_count.text()), '3', "Count correct after showing one row");
+  equal(getConsecNums(tableCount.text()), '3', "Count correct after showing one row");
 
   // add rows
   $('<tr><td>cat3</td></tr>"').appendTo(tbody);
   $('<tr><td>cat4</td></tr>"').appendTo(tbody);
   horizon.datatables.update_footer_count(table);
-  equal(get_consec_nums(table_count.text()), '5', "Count correct after adding two rows");
+  equal(getConsecNums(tableCount.text()), '5', "Count correct after adding two rows");
 });
 
 test("Formset reenumerate rows", function () {
@@ -87,11 +87,12 @@ test("Formset delete row", function () {
 test("Formset add row", function() {
   var html = $('#formset');
   var table = html.find('table');
-  var empty_row_html = '<tr><td><input id="id_flavors-__prefix__-name" name="flavors-__prefix__-name"></td></tr>';
+  var emptyRowHtml = '<tr><td><input id="id_flavors-__prefix__-name" ' +
+    'name="flavors-__prefix__-name"></td></tr>';
 
   equal(table.find('tbody tr').length, 3);
   equal(html.find('#id_flavors-TOTAL_FORMS').val(), 3);
-  horizon.formset_table.add_row(table, 'flavors', empty_row_html);
+  horizon.formset_table.add_row(table, 'flavors', emptyRowHtml);
   equal(table.find('tbody tr').length, 4);
   equal(table.find('tbody tr:last input').attr('id'), 'id_flavors-3-name');
   equal(html.find('#id_flavors-TOTAL_FORMS').val(), 4);

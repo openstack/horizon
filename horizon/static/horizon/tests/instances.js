@@ -1,8 +1,8 @@
 module("Instances (horizon.instances.js)");
 
 test("decrypt password ", function () {
-  var enc_password, private_key, password;
-  enc_password = "dusPDCoY0u7PqDgVE6M+XicV+8V1qQkuPipM+KoCJ5cS" +
+  var encPassword, privateKey, password;
+  encPassword = "dusPDCoY0u7PqDgVE6M+XicV+8V1qQkuPipM+KoCJ5cS" +
     "i8Bo64WOspsgjBQwC9onGX5pHwbgZdtintG1QNiDTafNbtNNbRoZQwO" +
     "4Zm3Liiw9ymDdiy1GNwMduFiRP9WG5N4QE3TP3ChnWnVGYQE/QoHqa/" +
     "7e43LXYvLULQA7tQ7JxhJruRZVt/tskPJGEbgpyjiA3gECjFi12BAKD" +
@@ -10,7 +10,7 @@ test("decrypt password ", function () {
     "LXZhGaZgMRVKnKREkkTxfmLWtdY5lsWP4dnvHama+k9Ku8LQ+n4qB07" +
     "jFVAUmRkpbdDPJ9Nxtlep0g==";
 
-  private_key = "-----BEGIN RSA PRIVATE KEY-----" +
+  privateKey = "-----BEGIN RSA PRIVATE KEY-----" +
     "MIIEpAIBAAKCAQEAtY2Be8SoiE5XD/p7WaO2dKUES5iI4l4YAJ1FfpLGsT5mkC1t" +
     "7Zl0QTMVMdUNYH7ERIKNv8OSZ/wmm716iStiYPzwjyXUA8uVQuoprUr8hPOeNeHK" +
     "f1Nt7F87EPHk/n0VkLsUGZnwxVV1X3hgKS/f2gyPjkKwC+LOTMx81k65kp0a0Qt4" +
@@ -38,13 +38,13 @@ test("decrypt password ", function () {
     "3ns5u8JfZ0JobJ5JxiKHS3UOqfe9DV2pvVSyF3nLl8I0WPMgoEXrLw==" +
     "-----END RSA PRIVATE KEY-----";
 
-  password  = horizon.instances.decrypt_password(enc_password, private_key);
+  password  = horizon.instances.decrypt_password(encPassword, privateKey);
   ok(password === "kLhfIDlK5e7v12");
 });
 
 test("decrypt password fake key", function () {
-  var enc_password, private_key, password;
-  enc_password = "dusPDCoY0u7PqDgVE6M+XicV+8V1qQkuPipM+KoCJ5cS" +
+  var encPassword, privateKey, password;
+  encPassword = "dusPDCoY0u7PqDgVE6M+XicV+8V1qQkuPipM+KoCJ5cS" +
     "i8Bo64WOspsgjBQwC9onGX5pHwbgZdtintG1QNiDTafNbtNNbRoZQwO" +
     "4Zm3Liiw9ymDdiy1GNwMduFiRP9WG5N4QE3TP3ChnWnVGYQE/QoHqa/" +
     "7e43LXYvLULQA7tQ7JxhJruRZVt/tskPJGEbgpyjiA3gECjFi12BAKD" +
@@ -52,7 +52,7 @@ test("decrypt password fake key", function () {
     "LXZhGaZgMRVKnKREkkTxfmLWtdY5lsWP4dnvHama+k9Ku8LQ+n4qB07" +
     "jFVAUmRkpbdDPJ9Nxtlep0g==";
 
-  private_key = "-----BEGIN RSA PRIVATE KEY-----" +
+  privateKey = "-----BEGIN RSA PRIVATE KEY-----" +
     "MIIEpAIBAAKCAQEAtY2Be8SoiE5XD/p7WaO2dKUES5iI4l4YAJ1FfpLGsT5mkC1t" +
     "Lq3//CLBSnm7gWdOsdU4rBn1khGKrlNdpvIjwkbMYtGlhjbvtwX3JbLlC8If9U00" +
     "NbobtwKBgQCxp5+NmeU+NHXeG4wFLyT+hkZncapmV8QvlYmqMuEC6G2rjmplobgX" +
@@ -60,6 +60,6 @@ test("decrypt password fake key", function () {
     "3ns5u8JfZ0JobJ5JxiKHS3UOqfe9DV2pvVSyF3nLl8I0WPMgoEXrLw==" +
     "-----END RSA PRIVATE KEY-----";
 
-  password  = horizon.instances.decrypt_password(enc_password, private_key);
+  password  = horizon.instances.decrypt_password(encPassword, privateKey);
   ok(password === false || password === null);
 });
