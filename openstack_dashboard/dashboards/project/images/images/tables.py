@@ -222,9 +222,12 @@ def get_format(image):
     # which will raise an error if you call upper() on it.
     if not format:
         return format
-    # Most image formats are untranslated acronyms, but raw is a word
-    # and should be translated
     if format == "raw":
+        if getattr(image, "container_format") == 'docker':
+            return pgettext_lazy("Image format for display in table",
+                                 u"Docker")
+        # Most image formats are untranslated acronyms, but raw is a word
+        # and should be translated
         return pgettext_lazy("Image format for display in table", u"Raw")
     return format.upper()
 
