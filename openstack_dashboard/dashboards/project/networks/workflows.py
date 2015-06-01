@@ -389,9 +389,9 @@ class CreateNetwork(workflows.Workflow):
         if int(data['ip_version']) == 6:
             ipv6_modes = utils.get_ipv6_modes_attrs_from_menu(
                 data['ipv6_modes'])
-            if ipv6_modes[0] or is_update:
+            if ipv6_modes[0] and is_create:
                 params['ipv6_ra_mode'] = ipv6_modes[0]
-            if ipv6_modes[1] or is_update:
+            if ipv6_modes[1] and is_create:
                 params['ipv6_address_mode'] = ipv6_modes[1]
         if data['allocation_pools']:
             pools = [dict(zip(['start', 'end'], pool.strip().split(',')))
