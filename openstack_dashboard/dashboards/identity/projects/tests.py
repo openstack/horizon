@@ -720,6 +720,60 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
                               domain_context_name=domain.name)
         self.test_add_project_missing_field_error()
 
+    @test.create_stubs({api.keystone: ('user_list',
+                                       'role_list',
+                                       'group_list',
+                                       'get_default_domain',
+                                       'get_default_role',
+                                       'tenant_list'),
+                        quotas: ('get_default_quota_data',
+                                 'get_disabled_quotas',
+                                 'tenant_quota_usages')})
+    def test_add_project_name_already_in_use_error(self):
+        keystone_api_version = api.keystone.VERSIONS.active
+
+        if keystone_api_version < 3:
+            return
+
+        project = self.tenants.first()
+        quota = self.quotas.first()
+        default_role = self.roles.first()
+        default_domain = self._get_default_domain()
+        domain_id = default_domain.id
+        users = self._get_all_users(domain_id)
+        groups = self._get_all_groups(domain_id)
+        roles = self.roles.list()
+
+        # init
+        api.keystone.tenant_list(IgnoreArg(),
+                                 domain=domain_id,
+                                 filters={"name": project.name})\
+            .AndReturn(project)
+
+        api.keystone.get_default_domain(IsA(http.HttpRequest)) \
+            .AndReturn(default_domain)
+        quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
+            .AndReturn(self.disabled_quotas.first())
+        quotas.get_default_quota_data(IsA(http.HttpRequest)).AndReturn(quota)
+
+        api.keystone.get_default_role(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(default_role)
+        api.keystone.user_list(IsA(http.HttpRequest), domain=domain_id) \
+            .AndReturn(users)
+        api.keystone.role_list(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(roles)
+        api.keystone.group_list(IsA(http.HttpRequest), domain=domain_id) \
+            .AndReturn(groups)
+
+        self.mox.ReplayAll()
+
+        workflow_data = self._get_workflow_data(project, quota)
+
+        url = reverse('horizon:identity:projects:create')
+        res = self.client.post(url, workflow_data)
+
+        self.assertContains(res, 'already in use')
+
 
 class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
     def _get_quota_info(self, quota):
