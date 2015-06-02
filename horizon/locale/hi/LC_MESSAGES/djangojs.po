@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:01-0500\n"
-"PO-Revision-Date: 2015-05-27 03:11+0000\n"
+"POT-Creation-Date: 2015-06-01 19:48-0500\n"
+"PO-Revision-Date: 2015-06-02 01:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/"
 "hi/)\n"
@@ -34,6 +34,9 @@ msgstr "%s MB"
 #, c-format
 msgid "%s TB"
 msgstr "%s TB"
+
+msgid "Active"
+msgstr "सक्रिय"
 
 msgid "Add Interface"
 msgstr "अंतरफलक जोड़ें"
@@ -96,6 +99,9 @@ msgstr "मौजूदा मेटाडाटा "
 msgid "Filter"
 msgstr "छानना शुरू..."
 
+msgid "Flavor"
+msgstr "फ्लेवर"
+
 msgid "ID"
 msgstr "आईडी"
 
@@ -107,6 +113,9 @@ msgstr "अंतरफलक"
 
 msgid "Loading"
 msgstr "लोड हो रहा है"
+
+msgid "Name"
+msgstr "नाम"
 
 msgid "Next"
 msgstr "अगला"
@@ -141,10 +150,16 @@ msgstr "सूचना: "
 msgid "Passwords do not match."
 msgstr "पासवर्ड मेल नहीं खाते."
 
+msgid "Remove"
+msgstr "हटाएँ"
+
 msgid "Roles"
 msgstr "भूमिका"
 
 msgid "STATUS"
+msgstr "स्थिति"
+
+msgid "Status"
 msgstr "स्थिति"
 
 msgid "Submit"

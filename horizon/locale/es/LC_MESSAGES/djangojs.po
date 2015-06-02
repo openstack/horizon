@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:01-0500\n"
-"PO-Revision-Date: 2015-05-27 03:11+0000\n"
+"POT-Creation-Date: 2015-06-01 19:48-0500\n"
+"PO-Revision-Date: 2015-06-02 01:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/"
 "es/)\n"
@@ -41,6 +41,9 @@ msgstr "%s TB"
 #, c-format
 msgid "%s bytes"
 msgstr "%s bytes"
+
+msgid "Active"
+msgstr "Activo"
 
 msgid "Add Interface"
 msgstr "Añadir interfaz"
@@ -160,6 +163,9 @@ msgstr "Filtrar"
 msgid "Finish"
 msgstr "Finalizar"
 
+msgid "Flavor"
+msgstr "Sabor"
+
 msgid "Found %(found)s of %(total)s"
 msgstr "%(found)s de %(total)s encontrado"
 
@@ -189,6 +195,9 @@ msgstr "Mín."
 
 msgid "Min length"
 msgstr "Longitud mín."
+
+msgid "Name"
+msgstr "Nombre"
 
 msgid "Next"
 msgstr "Siguiente"
@@ -244,6 +253,9 @@ msgstr "Ha fallado la comprobación de política."
 msgid "Re-order items using drag and drop"
 msgstr "Reordene los ítems arrastrando y soltando."
 
+msgid "Remove"
+msgstr "Eliminar"
+
 msgid "Required"
 msgstr "Obligatorio"
 
@@ -265,6 +277,12 @@ msgstr "Tipo de servicio no habilitado: %(desiredType)s"
 msgid "Setting is not enabled: %(setting)s"
 msgstr "Ajuste no habilitado: %(setting)s"
 
+msgid "Shutdown"
+msgstr "Apagar"
+
+msgid "Status"
+msgstr "Estado"
+
 #, c-format
 msgid "Status: %s"
 msgstr "Estado: %s"
@@ -280,6 +298,9 @@ msgstr "Correcto:"
 
 msgid "Terminate Instance"
 msgstr "Terminar instancia"
+
+msgid "Text"
+msgstr "Texto"
 
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "

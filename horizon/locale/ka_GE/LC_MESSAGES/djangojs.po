@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:01-0500\n"
-"PO-Revision-Date: 2015-05-27 03:11+0000\n"
+"POT-Creation-Date: 2015-06-01 19:48-0500\n"
+"PO-Revision-Date: 2015-06-02 01:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Georgian (Georgia) (http://www.transifex.com/projects/p/"
 "horizon/language/ka_GE/)\n"
@@ -92,6 +92,9 @@ msgstr "ინტერფეისები"
 msgid "Loading"
 msgstr "იტვირთება"
 
+msgid "Name"
+msgstr "სახელი"
+
 msgid "Next"
 msgstr "შემდეგი"
 
@@ -116,11 +119,17 @@ msgstr "გაფრთხილება:"
 msgid "Passwords do not match."
 msgstr "პაროლები არ ემთხვევა"
 
+msgid "Remove"
+msgstr "წაშლა"
+
 msgid "Roles"
 msgstr "როლები"
 
 msgid "STATUS"
 msgstr "მდგომარეობა"
+
+msgid "Status"
+msgstr "სტატუსი"
 
 msgid "Success: "
 msgstr "წარმატება:"

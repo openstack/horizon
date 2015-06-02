@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:01-0500\n"
-"PO-Revision-Date: 2015-05-26 21:02+0000\n"
+"POT-Creation-Date: 2015-06-01 19:48-0500\n"
+"PO-Revision-Date: 2015-06-02 01:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/"
 "language/ko_KR/)\n"
@@ -600,14 +600,6 @@ msgstr "ALLOW"
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "%(ethertype)s %(proto_port)s %(direction)s %(remote)s 허용"
-
-#, python-format
-msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
-msgstr "%(cidr)s에서 %(from)s:%(to)s 허용 "
-
-#, python-format
-msgid "ALLOW %(from)s:%(to)s from %(group)s"
-msgstr "%(group)s에서 %(from)s:%(to)s를 허용"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Image"
@@ -5112,10 +5104,6 @@ msgstr "내부 바이너리"
 
 msgid "Invalid date format: Using today as default."
 msgstr "유효하지 않은 날짜 포맷: 오늘 날짜를 기본으로 사용"
-
-msgid "Invalid metadata entry. Use comma-separated key=value pairs"
-msgstr ""
-"유효하지 않은 메타데이터 항목. 콤마로 구분된 key=value 페어를 사용하세요."
 
 msgid ""
 "Invalid time period. The end date should be more recent than the start date."

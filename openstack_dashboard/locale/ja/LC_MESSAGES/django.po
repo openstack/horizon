@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:01-0500\n"
-"PO-Revision-Date: 2015-05-26 21:02+0000\n"
+"POT-Creation-Date: 2015-06-01 19:48-0500\n"
+"PO-Revision-Date: 2015-06-02 01:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/"
 "language/ja/)\n"
@@ -600,14 +600,6 @@ msgstr "ALLOW"
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "%(ethertype)s %(proto_port)s %(direction)s %(remote)s を許可します。"
-
-#, python-format
-msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
-msgstr "%(cidr)s からポート番号 %(from)s:%(to)s への通信を許可します"
-
-#, python-format
-msgid "ALLOW %(from)s:%(to)s from %(group)s"
-msgstr "%(group)s からポート番号 %(from)s:%(to)s への通信を許可します"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon マシンイメージ"
@@ -3262,6 +3254,13 @@ msgstr ""
 "OS::Glance::Images ではコロン ':' は使用しないこと。このリソース種別ではコロ"
 "ンは使用できません。"
 
+msgid "Docker"
+msgstr "Docker"
+
+msgctxt "Image format for display in table"
+msgid "Docker"
+msgstr "Docker"
+
 #, python-format
 msgid "Domain \"%s\" must be disabled before it can be deleted."
 msgstr "ドメイン \"%s\" は削除する前に無効化する必要があります。"
@@ -5100,11 +5099,6 @@ msgstr "内部バイナリー"
 
 msgid "Invalid date format: Using today as default."
 msgstr "不正な日付の形式です。デフォルト値として今日の日付を使用します。"
-
-msgid "Invalid metadata entry. Use comma-separated key=value pairs"
-msgstr ""
-"メタデータのエントリーが無効です。コンマ区切りの key=value ペアを使用してくだ"
-"さい。"
 
 msgid ""
 "Invalid time period. The end date should be more recent than the start date."

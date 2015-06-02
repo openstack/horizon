@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:01-0500\n"
-"PO-Revision-Date: 2015-05-26 21:02+0000\n"
+"POT-Creation-Date: 2015-06-01 19:48-0500\n"
+"PO-Revision-Date: 2015-06-02 01:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
 "horizon/language/pt_BR/)\n"
@@ -643,14 +643,6 @@ msgstr "ALLOW"
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-
-#, python-format
-msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
-msgstr "ALLOW %(from)s:%(to)s de %(cidr)s"
-
-#, python-format
-msgid "ALLOW %(from)s:%(to)s from %(group)s"
-msgstr "ALLOW %(from)s:%(to)s de %(group)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Imagem de máquina Amazon"
@@ -5331,11 +5323,6 @@ msgstr "Formato de data inválido: Utilizando hoje como padrão."
 #, python-format
 msgid "Invalid format for routes : %s"
 msgstr "Formato inválido para rotas: %s"
-
-msgid "Invalid metadata entry. Use comma-separated key=value pairs"
-msgstr ""
-"Metadados inseridos em um formato inválido. Insira os metadados em pares "
-"Chave=Valor separados por vírgula. "
 
 msgid ""
 "Invalid time period. The end date should be more recent than the start date."

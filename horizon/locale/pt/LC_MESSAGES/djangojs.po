@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:01-0500\n"
-"PO-Revision-Date: 2015-05-27 03:11+0000\n"
+"POT-Creation-Date: 2015-06-01 19:48-0500\n"
+"PO-Revision-Date: 2015-06-02 01:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/horizon/"
 "language/pt/)\n"
@@ -86,6 +86,9 @@ msgstr "Metadados Existentes"
 msgid "Filter"
 msgstr "Filtro"
 
+msgid "Flavor"
+msgstr "Flavor"
+
 msgid "ID"
 msgstr "Id."
 
@@ -97,6 +100,9 @@ msgstr "Interfaces"
 
 msgid "Loading"
 msgstr "A carregar"
+
+msgid "Name"
+msgstr "Nome"
 
 msgid "Next"
 msgstr "Seguinte"
@@ -122,6 +128,9 @@ msgstr "Notificação:"
 msgid "Passwords do not match."
 msgstr "As senhas não são iguais."
 
+msgid "Remove"
+msgstr "Remover"
+
 msgid "Required"
 msgstr "Necessário"
 
@@ -130,6 +139,9 @@ msgstr "Funções"
 
 msgid "STATUS"
 msgstr "STATUS"
+
+msgid "Status"
+msgstr "Estado"
 
 msgid "Submit"
 msgstr "Submeter"

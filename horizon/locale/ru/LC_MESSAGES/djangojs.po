@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:01-0500\n"
-"PO-Revision-Date: 2015-05-27 03:11+0000\n"
+"POT-Creation-Date: 2015-06-01 19:48-0500\n"
+"PO-Revision-Date: 2015-06-02 01:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/"
 "ru/)\n"
@@ -43,6 +43,9 @@ msgstr "%s ТБ"
 #, c-format
 msgid "%s bytes"
 msgstr "%s байт"
+
+msgid "Active"
+msgstr "Активный"
 
 msgid "Add Interface"
 msgstr "Добавить Интерфейс"
@@ -164,6 +167,9 @@ msgstr "Фильтр"
 msgid "Finish"
 msgstr "Закончить"
 
+msgid "Flavor"
+msgstr "Тип инстанса"
+
 msgid "Found %(found)s of %(total)s"
 msgstr "Найдено %(found)s из %(total)s"
 
@@ -193,6 +199,9 @@ msgstr "Мин."
 
 msgid "Min length"
 msgstr "Мин. длина"
+
+msgid "Name"
+msgstr "Название"
 
 msgid "Next"
 msgstr "Вперёд"
@@ -248,6 +257,9 @@ msgstr "Проверка политики не удалась."
 msgid "Re-order items using drag and drop"
 msgstr "Переопределите элементы перемещением"
 
+msgid "Remove"
+msgstr "Удалить"
+
 msgid "Required"
 msgstr "Требуется"
 
@@ -268,6 +280,12 @@ msgstr "Тип службы не включен: %(desiredType)s"
 
 msgid "Setting is not enabled: %(setting)s"
 msgstr "Настройка не включена: %(setting)s"
+
+msgid "Shutdown"
+msgstr "Выключение"
+
+msgid "Status"
+msgstr "Статус"
 
 #, c-format
 msgid "Status: %s"

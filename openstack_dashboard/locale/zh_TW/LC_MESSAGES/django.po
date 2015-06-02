@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:01-0500\n"
-"PO-Revision-Date: 2015-05-26 21:02+0000\n"
+"POT-Creation-Date: 2015-06-01 19:48-0500\n"
+"PO-Revision-Date: 2015-06-02 01:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/"
 "language/zh_TW/)\n"
@@ -599,14 +599,6 @@ msgstr "允許"
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "允許 %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-
-#, python-format
-msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
-msgstr "允許來自 %(cidr)s 的 %(from)s 至 %(to)s"
-
-#, python-format
-msgid "ALLOW %(from)s:%(to)s from %(group)s"
-msgstr "允許來自 %(group)s 的 %(from)s 至 %(to)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon 機器映像檔"
@@ -4995,9 +4987,6 @@ msgstr "內部程式"
 
 msgid "Invalid date format: Using today as default."
 msgstr "無效的日期格式：預設使用今日。"
-
-msgid "Invalid metadata entry. Use comma-separated key=value pairs"
-msgstr "無效的詮釋資料條目。使用以逗號分隔的 鍵=值 對"
 
 msgid ""
 "Invalid time period. The end date should be more recent than the start date."

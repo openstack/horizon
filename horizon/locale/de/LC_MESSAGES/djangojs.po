@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:01-0500\n"
-"PO-Revision-Date: 2015-05-27 03:11+0000\n"
+"POT-Creation-Date: 2015-06-01 19:48-0500\n"
+"PO-Revision-Date: 2015-06-02 01:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/"
 "de/)\n"
@@ -40,6 +40,9 @@ msgstr "%s TB"
 #, c-format
 msgid "%s bytes"
 msgstr "%s Bytes"
+
+msgid "Active"
+msgstr "Aktiv"
 
 msgid "Add Interface"
 msgstr "Schnittstelle hinzufügen"
@@ -162,6 +165,9 @@ msgstr "Filter"
 msgid "Finish"
 msgstr "Beenden"
 
+msgid "Flavor"
+msgstr "Variante"
+
 msgid "Found %(found)s of %(total)s"
 msgstr "%(found)s von %(total)s gefunden"
 
@@ -191,6 +197,9 @@ msgstr "Min"
 
 msgid "Min length"
 msgstr "Minimale Länge"
+
+msgid "Name"
+msgstr "Name"
 
 msgid "Next"
 msgstr "Weiter"
@@ -249,6 +258,9 @@ msgstr "Umsortieren der Positionen durch ziehen und ablegen"
 msgid "Remaining"
 msgstr "Übrig"
 
+msgid "Remove"
+msgstr "Entfernen"
+
 msgid "Required"
 msgstr "Erforderlich"
 
@@ -269,6 +281,12 @@ msgstr "Dienst-Typ ist nicht aktiviert:  %(desiredType)s"
 
 msgid "Setting is not enabled: %(setting)s"
 msgstr "Einstellung ist nicht aktiviert: %(setting)s"
+
+msgid "Shutdown"
+msgstr "Herunterfahren"
+
+msgid "Status"
+msgstr "Status"
 
 #, c-format
 msgid "Status: %s"

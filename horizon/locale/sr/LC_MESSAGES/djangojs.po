@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:01-0500\n"
-"PO-Revision-Date: 2015-05-27 03:11+0000\n"
+"POT-Creation-Date: 2015-06-01 19:48-0500\n"
+"PO-Revision-Date: 2015-06-02 01:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/horizon/language/"
 "sr/)\n"
@@ -90,6 +90,9 @@ msgstr "Postojeci Metadata podaci"
 msgid "Filter"
 msgstr "Filter"
 
+msgid "Flavor"
+msgstr "Aroma"
+
 msgid "ID"
 msgstr "ID"
 
@@ -101,6 +104,9 @@ msgstr "Interfejsi"
 
 msgid "Loading"
 msgstr "Učitavanje"
+
+msgid "Name"
+msgstr "Ime"
 
 msgid "Next"
 msgstr "Sledeći"
@@ -129,11 +135,17 @@ msgstr "Uočite:"
 msgid "Passwords do not match."
 msgstr "Lozinka se ne podudara."
 
+msgid "Remove"
+msgstr "Ukloni"
+
 msgid "Roles"
 msgstr "Uloge"
 
 msgid "STATUS"
 msgstr "STATUS"
+
+msgid "Status"
+msgstr "Status"
 
 msgid "Submit"
 msgstr "Predaj"

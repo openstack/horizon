@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 01:19-0500\n"
+"POT-Creation-Date: 2015-06-02 01:19-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -87,6 +87,58 @@ msgstr ""
 msgid "Total"
 msgstr ""
 
+#: static/framework/widgets/magic-search/magic-search.spec.js:50
+#: static/framework/widgets/modal/modal.js:87
+#: static/framework/widgets/wizard/wizard.js:10
+#: static/horizon/js/horizon.modals.js:33
+msgid "Cancel"
+msgstr ""
+
+#: static/framework/widgets/magic-search/magic-search.spec.js:51
+msgid "Prompt"
+msgstr ""
+
+#: static/framework/widgets/magic-search/magic-search.spec.js:52
+msgid "Remove"
+msgstr ""
+
+#: static/framework/widgets/magic-search/magic-search.spec.js:53
+msgid "Text"
+msgstr ""
+
+#: static/framework/widgets/magic-search/magic-search.spec.js:59
+msgid "Name"
+msgstr ""
+
+#: static/framework/widgets/magic-search/magic-search.spec.js:64
+msgid "Status"
+msgstr ""
+
+#: static/framework/widgets/magic-search/magic-search.spec.js:66
+msgid "Active"
+msgstr ""
+
+#: static/framework/widgets/magic-search/magic-search.spec.js:67
+msgid "Shutdown"
+msgstr ""
+
+#: static/framework/widgets/magic-search/magic-search.spec.js:68
+#: static/framework/widgets/toast/toast.js:81
+msgid "Error"
+msgstr ""
+
+#: static/framework/widgets/magic-search/magic-search.spec.js:73
+msgid "Flavor"
+msgstr ""
+
+#: static/framework/widgets/magic-search/magic-search.spec.js:76
+msgid "m1.tiny"
+msgstr ""
+
+#: static/framework/widgets/magic-search/magic-search.spec.js:77
+msgid "m1.small"
+msgstr ""
+
 #: static/framework/widgets/metadata-display/metadata-display.js:33
 msgid "Detail Information"
 msgstr ""
@@ -161,12 +213,6 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: static/framework/widgets/modal/modal.js:87
-#: static/framework/widgets/wizard/wizard.js:10
-#: static/horizon/js/horizon.modals.js:33
-msgid "Cancel"
-msgstr ""
-
 #: static/framework/widgets/toast/toast.js:77
 msgid "Danger"
 msgstr ""
@@ -181,10 +227,6 @@ msgstr ""
 
 #: static/framework/widgets/toast/toast.js:80
 msgid "Success"
-msgstr ""
-
-#: static/framework/widgets/toast/toast.js:81
-msgid "Error"
 msgstr ""
 
 #: static/framework/widgets/transfer-table/transfer-table.js:39

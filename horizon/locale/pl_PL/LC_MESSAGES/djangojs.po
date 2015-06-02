@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:01-0500\n"
-"PO-Revision-Date: 2015-05-27 03:11+0000\n"
+"POT-Creation-Date: 2015-06-01 19:48-0500\n"
+"PO-Revision-Date: 2015-06-02 01:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/"
 "language/pl_PL/)\n"
@@ -39,6 +39,9 @@ msgstr "%s TB"
 #, c-format
 msgid "%s bytes"
 msgstr "%s bajtów"
+
+msgid "Active"
+msgstr "Aktywny"
 
 msgid "Add Interface"
 msgstr "Dodaj interfejs"
@@ -159,6 +162,9 @@ msgstr "Filtr"
 msgid "Finish"
 msgstr "Zakończ"
 
+msgid "Flavor"
+msgstr "Odmiana"
+
 msgid "Found %(found)s of %(total)s"
 msgstr "Znaleziono %(found)s z %(total)s"
 
@@ -188,6 +194,9 @@ msgstr "Min."
 
 msgid "Min length"
 msgstr "Min. długość"
+
+msgid "Name"
+msgstr "Nazwa"
 
 msgid "Next"
 msgstr "Następny"
@@ -243,6 +252,9 @@ msgstr "Sprawdzenie polityki się nie powiodło."
 msgid "Re-order items using drag and drop"
 msgstr "Zmień kolejność pozycji poprzez przesuwanie i upuszczanie"
 
+msgid "Remove"
+msgstr "Usuń"
+
 msgid "Required"
 msgstr "Wymagane"
 
@@ -263,6 +275,12 @@ msgstr "Typ usługi nie jest włączony: %(desiredType)s"
 
 msgid "Setting is not enabled: %(setting)s"
 msgstr "Ustawienie jest wyłączone: %(setting)s"
+
+msgid "Shutdown"
+msgstr "Wyłącz"
+
+msgid "Status"
+msgstr "Stan"
 
 #, c-format
 msgid "Status: %s"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-07 01:16-0500\n"
+"POT-Creation-Date: 2015-06-02 01:19-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: base.py:475
+#: base.py:477
 msgid "Other"
 msgstr ""
 
@@ -83,7 +83,7 @@ msgstr ""
 msgid "Session timed out."
 msgstr ""
 
-#: tables/actions.py:460
+#: tables/actions.py:459
 #: templates/horizon/common/_data_table_table_actions.html:21
 #: templates/horizon/common/_data_table_table_actions.html:33
 #: templates/horizon/common/_workflow_step_update_members.html:14
@@ -91,50 +91,50 @@ msgstr ""
 msgid "Filter"
 msgstr ""
 
-#: tables/actions.py:645
+#: tables/actions.py:644
 msgid "This action cannot be undone."
 msgstr ""
 
-#: tables/actions.py:767
+#: tables/actions.py:766
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr ""
 
-#: tables/actions.py:769
+#: tables/actions.py:768
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr ""
 
-#: tables/actions.py:832
+#: tables/actions.py:829
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:839
+#: tables/actions.py:836
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:845
+#: tables/actions.py:842
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:915
+#: tables/actions.py:912
 msgid "Delete"
 msgstr ""
 
-#: tables/actions.py:917
+#: tables/actions.py:914
 msgid "Deleted"
 msgstr ""
 
-#: tables/actions.py:948
+#: tables/actions.py:945
 msgid "Update"
 msgstr ""
 
-#: tables/actions.py:949
+#: tables/actions.py:946
 msgid "Updated"
 msgstr ""
 
@@ -216,19 +216,19 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: templates/horizon/_messages.html:7
+#: templates/horizon/_messages.html:8
 msgid "Info: "
 msgstr ""
 
-#: templates/horizon/_messages.html:13
+#: templates/horizon/_messages.html:14
 msgid "Warning: "
 msgstr ""
 
-#: templates/horizon/_messages.html:19
+#: templates/horizon/_messages.html:20
 msgid "Success: "
 msgstr ""
 
-#: templates/horizon/_messages.html:25
+#: templates/horizon/_messages.html:26
 msgid "Error: "
 msgstr ""
 
@@ -475,7 +475,11 @@ msgstr ""
 msgid "Port number must be integer"
 msgstr ""
 
-#: utils/validators.py:59
+#: utils/validators.py:56
+msgid "Invalid metadata entry. Use comma-separated key=value pairs"
+msgstr ""
+
+#: utils/validators.py:72
 msgid "The string may only contain ASCII printable characters."
 msgstr ""
 

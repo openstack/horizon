@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:01-0500\n"
-"PO-Revision-Date: 2015-05-26 21:02+0000\n"
+"POT-Creation-Date: 2015-06-01 19:48-0500\n"
+"PO-Revision-Date: 2015-06-02 01:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/"
 "ru/)\n"
@@ -615,14 +615,6 @@ msgstr "ALLOW"
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-
-#, python-format
-msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
-msgstr "ALLOW %(from)s:%(to)s для %(cidr)s"
-
-#, python-format
-msgid "ALLOW %(from)s:%(to)s from %(group)s"
-msgstr "ALLOW %(from)s:%(to)s для %(group)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Image"
@@ -5399,11 +5391,6 @@ msgstr "Внутренний исполняемый файл"
 
 msgid "Invalid date format: Using today as default."
 msgstr "Неверный формат даты: используется текущая по умолчанию."
-
-msgid "Invalid metadata entry. Use comma-separated key=value pairs"
-msgstr ""
-"Некорректная запись метаданных. Используйте пары ключ=значение разделенный "
-"запятой."
 
 msgid ""
 "Invalid time period. The end date should be more recent than the start date."

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:01-0500\n"
-"PO-Revision-Date: 2015-05-27 03:11+0000\n"
+"POT-Creation-Date: 2015-06-01 19:48-0500\n"
+"PO-Revision-Date: 2015-06-02 01:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/projects/"
 "p/horizon/language/pa_IN/)\n"
@@ -178,6 +178,9 @@ msgstr "ਘੱਟੋ-ਘੱਟ"
 msgid "Min length"
 msgstr "ਘੱਟੋ-ਘੱਟ ਲੰਬਾਈ"
 
+msgid "Name"
+msgstr "ਨਾਂ"
+
 msgid "Next"
 msgstr "ਅਗਲਾ"
 
@@ -252,6 +255,9 @@ msgstr "ਸੇਵਾ ਕਿਸਮ ਯੋਗ ਨਹੀਂ ਕੀਤੀ ਹੋਈ 
 
 msgid "Setting is not enabled: %(setting)s"
 msgstr "ਸੈਟਿੰਗ ਯੋਗ ਨਹੀਂ ਕੀਤੀ ਹੋਈ ਹੈ: %(setting)s"
+
+msgid "Status"
+msgstr "ਹਾਲਾਤ"
 
 #, c-format
 msgid "Status: %s"

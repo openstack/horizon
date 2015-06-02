@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:01-0500\n"
-"PO-Revision-Date: 2015-05-27 03:11+0000\n"
+"POT-Creation-Date: 2015-06-01 19:48-0500\n"
+"PO-Revision-Date: 2015-06-02 01:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/"
 "language/ja/)\n"
@@ -40,6 +40,9 @@ msgstr "%s TB"
 #, c-format
 msgid "%s bytes"
 msgstr "%s バイト"
+
+msgid "Active"
+msgstr "稼働中"
 
 msgid "Add Interface"
 msgstr "インターフェースの追加"
@@ -161,6 +164,9 @@ msgstr "フィルター"
 msgid "Finish"
 msgstr "完了"
 
+msgid "Flavor"
+msgstr "フレーバー"
+
 msgid "Found %(found)s of %(total)s"
 msgstr "%(total)s 中 %(found)s 見つかりました。"
 
@@ -190,6 +196,9 @@ msgstr "最小値"
 
 msgid "Min length"
 msgstr "最小長"
+
+msgid "Name"
+msgstr "名前"
 
 msgid "Next"
 msgstr "次へ"
@@ -248,6 +257,9 @@ msgstr "順番を並べ替えるには、アイテムをドラッグ＆ドロッ
 msgid "Remaining"
 msgstr "残り"
 
+msgid "Remove"
+msgstr "削除"
+
 msgid "Required"
 msgstr "必須"
 
@@ -269,6 +281,12 @@ msgstr "サービスタイプが有効化されていません: %(desiredType)s"
 msgid "Setting is not enabled: %(setting)s"
 msgstr "設定 %(setting)s が有効になっていません。"
 
+msgid "Shutdown"
+msgstr "シャットダウン"
+
+msgid "Status"
+msgstr "ステータス"
+
 #, c-format
 msgid "Status: %s"
 msgstr "ステータス: %s"
@@ -284,6 +302,9 @@ msgstr "成功: "
 
 msgid "Terminate Instance"
 msgstr "インスタンスの終了"
+
+msgid "Text"
+msgstr "テキスト"
 
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
@@ -485,3 +506,9 @@ msgstr ""
 #, c-format
 msgid "You have selected %s. "
 msgstr "%s を選択しました。"
+
+msgid "m1.small"
+msgstr "m1.small"
+
+msgid "m1.tiny"
+msgstr "m1.tiny"

@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-28 21:51-0500\n"
-"PO-Revision-Date: 2015-05-29 02:52+0000\n"
+"POT-Creation-Date: 2015-06-01 19:48-0500\n"
+"PO-Revision-Date: 2015-06-02 01:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/"
 "language/zh_CN/)\n"
@@ -597,14 +597,6 @@ msgstr "允许"
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "允许 %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-
-#, python-format
-msgid "ALLOW %(from)s:%(to)s from %(cidr)s"
-msgstr "允许 %(cidr)s 访问 %(from)s:%(to)s"
-
-#, python-format
-msgid "ALLOW %(from)s:%(to)s from %(group)s"
-msgstr "允许 %(group)s 访问 %(from)s:%(to)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon  Machine 镜像"
@@ -3254,6 +3246,13 @@ msgid ""
 msgstr ""
 "不要在 “OS::Glance::Images” 之前使用 “:” ，因为这种资源类型不支持前缀。"
 
+msgid "Docker"
+msgstr "Docker"
+
+msgctxt "Image format for display in table"
+msgid "Docker"
+msgstr "Docker"
+
 #, python-format
 msgid "Domain \"%s\" must be disabled before it can be deleted."
 msgstr "域 \"%s\" 在可以被删除前必须被停止。"
@@ -5055,9 +5054,6 @@ msgstr "无效的日期格式：默认为今天。"
 #, python-format
 msgid "Invalid format for routes : %s"
 msgstr "无效的路由格式:%s"
-
-msgid "Invalid metadata entry. Use comma-separated key=value pairs"
-msgstr "无效的元数据实体，使用键=值"
 
 msgid ""
 "Invalid time period. The end date should be more recent than the start date."

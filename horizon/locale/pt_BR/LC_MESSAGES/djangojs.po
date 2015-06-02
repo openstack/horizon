@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:01-0500\n"
-"PO-Revision-Date: 2015-05-27 03:11+0000\n"
+"POT-Creation-Date: 2015-06-01 19:48-0500\n"
+"PO-Revision-Date: 2015-06-02 01:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
 "horizon/language/pt_BR/)\n"
@@ -42,6 +42,9 @@ msgstr "%s TB"
 #, c-format
 msgid "%s bytes"
 msgstr "%s bytes"
+
+msgid "Active"
+msgstr "Ativo"
 
 msgid "Add Interface"
 msgstr "Adicionar Interface"
@@ -164,6 +167,9 @@ msgstr "Filtro"
 msgid "Finish"
 msgstr "Encerrar"
 
+msgid "Flavor"
+msgstr "Flavor"
+
 msgid "Found %(found)s of %(total)s"
 msgstr "Encontrado %(found)s de %(total)s"
 
@@ -193,6 +199,9 @@ msgstr "Mín. "
 
 msgid "Min length"
 msgstr "Tamanho mínimo"
+
+msgid "Name"
+msgstr "Nome"
 
 msgid "Next"
 msgstr "Próximo"
@@ -251,6 +260,9 @@ msgstr "reordene os itens clicando em um deles e arrastando-o"
 msgid "Remaining"
 msgstr "Restante"
 
+msgid "Remove"
+msgstr "Remover"
+
 msgid "Required"
 msgstr "Requerido"
 
@@ -271,6 +283,12 @@ msgstr "Tipo de serviço não está habilitado: %(desiredType)s"
 
 msgid "Setting is not enabled: %(setting)s"
 msgstr "Configuração não está habilitada: %(setting)s"
+
+msgid "Shutdown"
+msgstr "Desligar"
+
+msgid "Status"
+msgstr "Status"
 
 #, c-format
 msgid "Status: %s"
@@ -490,3 +508,6 @@ msgstr ""
 #, c-format
 msgid "You have selected %s. "
 msgstr "Você selecionou %s."
+
+msgid "m1.small"
+msgstr "m1.small"

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:01-0500\n"
-"PO-Revision-Date: 2015-05-27 03:11+0000\n"
+"POT-Creation-Date: 2015-06-01 19:48-0500\n"
+"PO-Revision-Date: 2015-06-02 01:03+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/"
 "language/ko_KR/)\n"
@@ -40,6 +40,9 @@ msgstr "%s TB"
 #, c-format
 msgid "%s bytes"
 msgstr "%s 바이트"
+
+msgid "Active"
+msgstr "Active"
 
 msgid "Add Interface"
 msgstr "인터페이스 추가"
@@ -161,6 +164,9 @@ msgstr "필터"
 msgid "Finish"
 msgstr "완료"
 
+msgid "Flavor"
+msgstr "Flavor"
+
 msgid "Found %(found)s of %(total)s"
 msgstr "%(total)s 의 %(found)s 찾기"
 
@@ -190,6 +196,9 @@ msgstr "최소"
 
 msgid "Min length"
 msgstr "최소 길이"
+
+msgid "Name"
+msgstr "이름"
 
 msgid "Next"
 msgstr "다음"
@@ -248,6 +257,9 @@ msgstr "다시 주문할 아이템은 드래그 앤 드롭으로 가져옵니다
 msgid "Remaining"
 msgstr "기억하기"
 
+msgid "Remove"
+msgstr "삭제"
+
 msgid "Required"
 msgstr "필요"
 
@@ -268,6 +280,12 @@ msgstr "서비스 타입을 활성화하지 못 했습니다: %(desiredType)s"
 
 msgid "Setting is not enabled: %(setting)s"
 msgstr "설정을 활성하지 못했습니다: %(setting)s"
+
+msgid "Shutdown"
+msgstr "Shutdown"
+
+msgid "Status"
+msgstr "상태"
 
 #, c-format
 msgid "Status: %s"
@@ -485,3 +503,9 @@ msgstr ""
 #, c-format
 msgid "You have selected %s. "
 msgstr "%s를 선택하였습니다. "
+
+msgid "m1.small"
+msgstr "m1.small"
+
+msgid "m1.tiny"
+msgstr "m1.tiny"
