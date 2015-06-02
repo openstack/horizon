@@ -236,6 +236,7 @@ class IPSecSiteConnectionsTable(tables.DataTable):
     id = tables.Column('id', hidden=True)
     name = tables.Column('name_or_id', verbose_name=_('Name'),
                          link="horizon:project:vpn:ipsecsiteconnectiondetails")
+    description = tables.Column('description', verbose_name=_('Description'))
     vpnservice_name = tables.Column('vpnservice_name',
                                     verbose_name=_('VPN Service'))
     ikepolicy_name = tables.Column('ikepolicy_name',
@@ -304,6 +305,7 @@ class IKEPoliciesTable(tables.DataTable):
     id = tables.Column('id', hidden=True)
     name = tables.Column("name_or_id", verbose_name=_('Name'),
                          link="horizon:project:vpn:ikepolicydetails")
+    description = tables.Column('description', verbose_name=_('Description'))
     auth_algorithm = tables.Column('auth_algorithm',
                                    verbose_name=_('Authorization algorithm'))
     encryption_algorithm = tables.Column(
@@ -322,6 +324,7 @@ class IPSecPoliciesTable(tables.DataTable):
     id = tables.Column('id', hidden=True)
     name = tables.Column("name_or_id", verbose_name=_('Name'),
                          link="horizon:project:vpn:ipsecpolicydetails")
+    description = tables.Column('description', verbose_name=_('Description'))
     auth_algorithm = tables.Column('auth_algorithm',
                                    verbose_name=_('Authorization algorithm'))
     encryption_algorithm = tables.Column(
