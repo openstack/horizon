@@ -757,7 +757,6 @@ horizon.d3_line_chart = {
      * connected to charts.
      */
     var bind_datepicker_change = function(settings) {
-      var now = new Date();
       horizon.datepickers.add(datepicker_selector);
       delegate_event_and_refresh_charts(datepicker_selector, 'changeDate', settings);
     };
