@@ -64,6 +64,9 @@ module.exports = function(config){
       // Templates.
       './**/*.html',
 
+      // Magic search requires late ordering due to overriding.
+      xstaticPath + 'magic_search/data/magic_search.js',
+
       // TESTS
       '**/*.spec.js',
     ],
