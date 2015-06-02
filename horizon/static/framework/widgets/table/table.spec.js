@@ -107,18 +107,20 @@
         expect($element.scope().numSelected).toBe(1);
       });
 
-      it('should have numSelected === 0 when first checkbox is clicked, then unclicked', function() {
-        var checkbox = checkboxes.first();
-        checkbox[0].checked = true;
-        checkbox.triggerHandler('click');
+      it('should have numSelected === 0 when first checkbox is clicked, then unclicked',
+        function() {
+          var checkbox = checkboxes.first();
+          checkbox[0].checked = true;
+          checkbox.triggerHandler('click');
 
-        expect($element.scope().numSelected).toBe(1);
+          expect($element.scope().numSelected).toBe(1);
 
-        checkbox[0].checked = false;
-        checkbox.triggerHandler('click');
+          checkbox[0].checked = false;
+          checkbox.triggerHandler('click');
 
-        expect($element.scope().numSelected).toBe(0);
-      });
+          expect($element.scope().numSelected).toBe(0);
+        }
+      );
 
       it('should have numSelected === 3 and select-all checked when all rows selected', function() {
         angular.forEach(checkboxes, function(checkbox) {
@@ -130,25 +132,27 @@
         expect($element.find('input[hz-select-all]')[0].checked).toBe(true);
       });
 
-      it('should have select-all unchecked when all rows selected, then one deselected', function() {
-        angular.forEach(checkboxes, function(checkbox) {
-          checkbox.checked = true;
-          angular.element(checkbox).triggerHandler('click');
-        });
+      it('should have select-all unchecked when all rows selected, then one deselected',
+        function() {
+          angular.forEach(checkboxes, function(checkbox) {
+            checkbox.checked = true;
+            angular.element(checkbox).triggerHandler('click');
+          });
 
-        // all checkboxes selected so check-all should be checked
-        expect($element.scope().numSelected).toBe(3);
-        expect($element.find('input[hz-select-all]')[0].checked).toBe(true);
+          // all checkboxes selected so check-all should be checked
+          expect($element.scope().numSelected).toBe(3);
+          expect($element.find('input[hz-select-all]')[0].checked).toBe(true);
 
-        // deselect one checkbox
-        var firstCheckbox = checkboxes.first();
-        firstCheckbox[0].checked = false;
-        firstCheckbox.triggerHandler('click');
+          // deselect one checkbox
+          var firstCheckbox = checkboxes.first();
+          firstCheckbox[0].checked = false;
+          firstCheckbox.triggerHandler('click');
 
-        // check-all should be unchecked
-        expect($element.scope().numSelected).toBe(2);
-        expect($element.find('input[hz-select-all]')[0].checked).toBe(false);
-      });
+          // check-all should be unchecked
+          expect($element.scope().numSelected).toBe(2);
+          expect($element.find('input[hz-select-all]')[0].checked).toBe(false);
+        }
+      );
 
     });
 

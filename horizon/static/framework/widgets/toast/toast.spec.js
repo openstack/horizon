@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-(function(){
+(function() {
   'use strict';
 
   describe('horizon.framework.widgets.toast module', function() {
     it('should have been defined', function () {
       expect(angular.module('horizon.framework.widgets.toast')).toBeDefined();
-     });
+    });
   });
 
   describe('toast factory', function() {

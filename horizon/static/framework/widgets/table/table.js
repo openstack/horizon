@@ -295,46 +295,47 @@
    * ```
    *
    */
-  app.directive('hzExpandDetail', ['horizon.framework.widgets.table.expandSettings', function(settings) {
-    return {
-      restrict: 'A',
-      scope: {
-        icons: '@hzExpandDetail',
-        duration: '@'
-      },
-      link: function(scope, element) {
-        element.on('click', function() {
-          var iconClasses = scope.icons || settings.expandIconClasses;
-          element.toggleClass(iconClasses);
+  app.directive('hzExpandDetail', ['horizon.framework.widgets.table.expandSettings',
+    function(settings) {
+      return {
+        restrict: 'A',
+        scope: {
+          icons: '@hzExpandDetail',
+          duration: '@'
+        },
+        link: function(scope, element) {
+          element.on('click', function() {
+            var iconClasses = scope.icons || settings.expandIconClasses;
+            element.toggleClass(iconClasses);
 
-          var summaryRow = element.closest('tr');
-          var detailCell = summaryRow.next('tr').find('.detail');
-          var duration = scope.duration ? parseInt(scope.duration) : settings.duration;
+            var summaryRow = element.closest('tr');
+            var detailCell = summaryRow.next('tr').find('.detail');
+            var duration = scope.duration ? parseInt(scope.duration) : settings.duration;
 
-          if (summaryRow.hasClass('expanded')) {
-            var options = {
-              duration: duration,
-              complete: function() {
-                // Hide the row after the slide animation finishes
-                summaryRow.toggleClass('expanded');
+            if (summaryRow.hasClass('expanded')) {
+              var options = {
+                duration: duration,
+                complete: function() {
+                  // Hide the row after the slide animation finishes
+                  summaryRow.toggleClass('expanded');
+                }
+              };
+
+              detailCell.find('.detail-expanded').slideUp(options);
+            } else {
+              summaryRow.toggleClass('expanded');
+
+              if (detailCell.find('.detail-expanded').length === 0) {
+                // Slide down animation doesn't work on table cells
+                // so a <div> wrapper needs to be added
+                detailCell.wrapInner('<div class="detail-expanded"></div>');
               }
-            };
 
-            detailCell.find('.detail-expanded').slideUp(options);
-          } else {
-            summaryRow.toggleClass('expanded');
-
-            if (detailCell.find('.detail-expanded').length === 0) {
-              // Slide down animation doesn't work on table cells
-              // so a <div> wrapper needs to be added
-              detailCell.wrapInner('<div class="detail-expanded"></div>');
+              detailCell.find('.detail-expanded').slideDown(duration);
             }
-
-            detailCell.find('.detail-expanded').slideDown(duration);
-          }
-        });
-      }
-    };
-  }]);
+          });
+        }
+      };
+    }]);
 
 })();

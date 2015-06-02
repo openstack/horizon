@@ -72,7 +72,7 @@
       }));
 
       it('returns expected text', function() {
-        var items = [1,2,3];
+        var items = [1, 2, 3];
         expect(filter(items, 6)).toBe('Found 3 of 6');
       });
 
@@ -112,6 +112,7 @@
           displayedAllocated: []
         };
 
+        // jscs:disable maximumLineLength
         var markup = '<transfer-table tr-model="tableData">' +
           '<allocated>' +
           '<table st-table="tableData.displayedAllocated" st-safe-src="tableData.allocated" hz-table>' +
@@ -138,6 +139,7 @@
           '</table>' +
           '</available>' +
           '</transfer-table>';
+        // jscs:enable maximumLineLength
 
         $element = angular.element(markup);
         $compile($element)($scope);
@@ -209,6 +211,7 @@
           maxAllocation: 2
         };
 
+        // jscs:disable maximumLineLength
         var markup = '<transfer-table tr-model="tableData" limits="limits">' +
           '<available>' +
           '<table st-table="tableData.available" hz-table>' +
@@ -235,6 +238,7 @@
           '</table>' +
           '</allocated>' +
           '</transfer-table>';
+        // jscs:enable maximumLineLength
 
         $element = angular.element(markup);
         $compile($element)($scope);

@@ -30,32 +30,33 @@
      * </search-bar>
      * ```
      */
-    .directive('searchBar', [ 'horizon.framework.widgets.table.filterPlaceholderText', 'horizon.framework.widgets.basePath',
+    .directive('searchBar', ['horizon.framework.widgets.table.filterPlaceholderText',
+      'horizon.framework.widgets.basePath',
       function(FILTER_PLACEHOLDER_TEXT, path) {
-      return {
-        restrict: 'E',
-        templateUrl: path + 'table/search-bar.html',
-        transclude: true,
-        link: function (scope, element, attrs, ctrl, transclude) {
-          if (angular.isDefined(attrs.groupClasses)) {
-            element.find('.input-group').addClass(attrs.groupClasses);
-          }
-          if (angular.isDefined(attrs.iconClasses)) {
-            element.find('.fa').addClass(attrs.iconClasses);
-          }
-          var searchInput = element.find('[st-search]');
+        return {
+          restrict: 'E',
+          templateUrl: path + 'table/search-bar.html',
+          transclude: true,
+          link: function (scope, element, attrs, ctrl, transclude) {
+            if (angular.isDefined(attrs.groupClasses)) {
+              element.find('.input-group').addClass(attrs.groupClasses);
+            }
+            if (angular.isDefined(attrs.iconClasses)) {
+              element.find('.fa').addClass(attrs.iconClasses);
+            }
+            var searchInput = element.find('[st-search]');
 
-          if (angular.isDefined(attrs.inputClasses)) {
-            searchInput.addClass(attrs.inputClasses);
-          }
-          var placeholderText = attrs.placeholder || FILTER_PLACEHOLDER_TEXT;
-          searchInput.attr('placeholder', placeholderText);
+            if (angular.isDefined(attrs.inputClasses)) {
+              searchInput.addClass(attrs.inputClasses);
+            }
+            var placeholderText = attrs.placeholder || FILTER_PLACEHOLDER_TEXT;
+            searchInput.attr('placeholder', placeholderText);
 
-          transclude(scope, function(clone){
-            element.find('.input-group').append(clone);
-          });
-        }
-      };
-    }]);
+            transclude(scope, function(clone) {
+              element.find('.input-group').append(clone);
+            });
+          }
+        };
+      }]);
 
 }());
