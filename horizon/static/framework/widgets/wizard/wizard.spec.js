@@ -1,4 +1,4 @@
-(function(){
+(function() {
   'use strict';
 
   describe('horizon.framework.widgets.wizard module', function () {
@@ -39,6 +39,13 @@
       $scope.workflow.title = titleText;
       $scope.$digest();
       expect(element[0].querySelector('.title').textContent).toBe(titleText);
+    });
+
+    it('should contain one help-panel', function () {
+      $scope.workflow = {};
+      $scope.workflow.title = "doesn't matter";
+      $scope.$digest();
+      expect(element[0].querySelectorAll('help-panel').length).toBe(1);
     });
 
     it('should have no steps if no steps defined', function () {
@@ -158,5 +165,99 @@
       $scope.$digest();
       expect(element[0].querySelector('.error-message').textContent).toBe(errorMessage);
     });
+
+    it("checks steps' readiness", function() {
+      var checkedStep = {checkReadiness: function() { return true; }};
+      $scope.workflow = {
+        steps: [{}, checkedStep, {}]
+      };
+
+      spyOn(checkedStep, 'checkReadiness').and.returnValue({then: function(){}});
+      $scope.$digest();
+      expect(checkedStep.checkReadiness).toHaveBeenCalled();
+    });
+
+    describe('Broadcast Functions', function() {
+
+      beforeEach(function() {
+        $scope.workflow = {
+          steps: [{}, {}, {}]
+        };
+        $scope.$digest();
+      });
+
+      it('sets beforeSubmit to broadcast BEFORE_SUBMIT', function() {
+        expect($scope.beforeSubmit).toBeDefined();
+        spyOn($scope, '$broadcast');
+        $scope.beforeSubmit();
+        expect($scope.$broadcast).toHaveBeenCalledWith('BEFORE_SUBMIT');
+      });
+
+      it('sets afterSubmit to broadcast AFTER_SUBMIT', function() {
+        expect($scope.afterSubmit).toBeDefined();
+        spyOn($scope, '$broadcast');
+        $scope.close = angular.noop;
+        spyOn($scope, 'close');
+        $scope.afterSubmit();
+        expect($scope.$broadcast).toHaveBeenCalledWith('AFTER_SUBMIT');
+        expect($scope.close).toHaveBeenCalled();
+      });
+
+      it('sets onClickFinishBtn and submits with proper handlers', function() {
+        expect($scope.onClickFinishBtn).toBeDefined();
+        var submitObj = { then: function() { return; } };
+        $scope.submit = function() { return submitObj; };
+        spyOn($scope, 'beforeSubmit');
+        spyOn(submitObj, 'then');
+        $scope.onClickFinishBtn();
+        expect($scope.beforeSubmit).toHaveBeenCalled();
+        expect(submitObj.then).toHaveBeenCalled();
+        expect(submitObj.then.calls.count()).toBe(1);
+        expect(submitObj.then.calls.argsFor(0)).toEqual([$scope.afterSubmit,
+                                                         $scope.showError]);
+      });
+
+    });
+
   });
+
+  describe("ModalContainerCtrl", function() {
+    var ctrl, scope, modalInstance, launchContext;
+
+    beforeEach(module('horizon.framework.widgets.wizard'));
+
+    beforeEach(inject(function($controller) {
+      scope = {};
+      modalInstance = { close: angular.noop, dismiss: angular.noop };
+      launchContext = { my: 'data' };
+      ctrl = $controller('ModalContainerCtrl',
+                         { $scope: scope, $modalInstance: modalInstance,
+                           launchContext: launchContext } );
+    }));
+
+    it('is defined', function() {
+      expect(ctrl).toBeDefined();
+    });
+
+    it('sets scope.launchContext', function() {
+      expect(scope.launchContext).toBeDefined();
+      expect(scope.launchContext).toEqual({ my: 'data' });
+    });
+
+    it('sets scope.close to a function that closes the modal', function() {
+      expect(scope.close).toBeDefined();
+      spyOn(modalInstance, 'close');
+      scope.close();
+      expect(modalInstance.close).toHaveBeenCalled();
+    });
+
+    it('sets scope.cancel to a function that dismisses the modal', function() {
+      expect(scope.cancel).toBeDefined();
+      spyOn(modalInstance, 'dismiss');
+      scope.cancel();
+      expect(modalInstance.dismiss).toHaveBeenCalled();
+    });
+
+  });
+
 })();
