@@ -401,10 +401,14 @@ This example sorts flavors by vcpus in descending order::
 Default: ``"static/themes/default"``
 
 This setting allows Horizon to use a custom theme. The theme folder
-should contains one _variables.scss file and one _styles.scss file.
+should contain one _variables.scss file and one _styles.scss file.
 _variables.scss contains all the bootstrap and horizon specific variables
 which are used to style the GUI. Whereas _styles.scss contains extra styling.
 For example themes, see: /horizon/openstack_dashboard/static/themes/
+
+If the static theme folder also contains a sub-folder 'templates', then
+the path to that sub-folder will be prepended to TEMPLATE_DIRS tuple
+to allow for theme specific template customizations.
 
 ``DROPDOWN_MAX_ITEMS``
 ----------------------
