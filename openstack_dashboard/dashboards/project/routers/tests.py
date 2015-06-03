@@ -524,6 +524,8 @@ class RouterActionTests(RouterMixin, test.TestCase):
         # mock APIs used to show router detail
         api.neutron.router_get(IsA(http.HttpRequest), router.id)\
             .AndReturn(router)
+        api.neutron.port_list(IsA(http.HttpRequest), device_id=router.id)\
+            .AndReturn([])
         self._mock_network_list(router['tenant_id'])
         self.mox.ReplayAll()
 
@@ -542,13 +544,15 @@ class RouterActionTests(RouterMixin, test.TestCase):
     @test.create_stubs({api.neutron: ('router_get',
                                       'router_add_interface',
                                       'port_get',
-                                      'network_list')})
+                                      'network_list',
+                                      'port_list')})
     def test_router_addinterface(self):
         self._test_router_addinterface()
 
     @test.create_stubs({api.neutron: ('router_get',
                                       'router_add_interface',
-                                      'network_list')})
+                                      'network_list',
+                                      'port_list')})
     def test_router_addinterface_exception(self):
         self._test_router_addinterface(raise_error=True)
 
@@ -590,29 +594,33 @@ class RouterActionTests(RouterMixin, test.TestCase):
 
     @test.create_stubs({api.neutron: ('router_add_interface', 'subnet_get',
                                       'port_create',
-                                      'router_get', 'network_list')})
+                                      'router_get', 'network_list',
+                                      'port_list')})
     def test_router_addinterface_ip_addr(self):
         self._test_router_addinterface_ip_addr()
 
-    @test.create_stubs({api.neutron: ('subnet_get',
-                                      'router_get', 'network_list')})
+    @test.create_stubs({api.neutron: ('subnet_get', 'router_get',
+                                      'network_list', 'port_list')})
     def test_router_addinterface_ip_addr_exception_subnet_get(self):
         self._test_router_addinterface_ip_addr(errors=['subnet_get'])
 
     @test.create_stubs({api.neutron: ('subnet_get', 'port_create',
-                                      'router_get', 'network_list')})
+                                      'router_get', 'network_list',
+                                      'port_list')})
     def test_router_addinterface_ip_addr_exception_port_create(self):
         self._test_router_addinterface_ip_addr(errors=['port_create'])
 
     @test.create_stubs({api.neutron: ('router_add_interface', 'subnet_get',
                                       'port_create', 'port_delete',
-                                      'router_get', 'network_list')})
+                                      'router_get', 'network_list',
+                                      'port_list')})
     def test_router_addinterface_ip_addr_exception_add_interface(self):
         self._test_router_addinterface_ip_addr(errors=['add_interface'])
 
     @test.create_stubs({api.neutron: ('router_add_interface', 'subnet_get',
                                       'port_create', 'port_delete',
-                                      'router_get', 'network_list')})
+                                      'router_get', 'network_list',
+                                      'port_list')})
     def test_router_addinterface_ip_addr_exception_port_delete(self):
         self._test_router_addinterface_ip_addr(errors=['add_interface',
                                                        'port_delete'])
