@@ -7,8 +7,8 @@
     function (path, $timeout) {
 
       function link($scope, $element) {
-        var textarea = $element.find('textarea'),
-            fileInput = $element.find('input[type="file"]');
+        var textarea = $element.find('textarea');
+        var fileInput = $element.find('input[type="file"]');
 
         $scope.textContent = '';
 

@@ -3,7 +3,7 @@
 
   var module = angular.module('hz.dashboard.launch-instance');
 
-    /**
+  /**
    * @ngdoc controller
    * @name hz.dashboard.launch-instance.LaunchInstanceSecurityGroupsCtrl
    * @description
@@ -41,7 +41,9 @@
         '/static/dashboard/launch-instance/security-groups/security-group-details.html';
 
       ctrl.tableHelp = {
-        noneAllocText: gettext('Select one or more security groups from the available groups below.'),
+        noneAllocText: gettext(
+          'Select one or more security groups from the available groups below.'
+        ),
         availHelpText: gettext('Select one or more')
       };
 
@@ -51,8 +53,7 @@
     }
   ]);
 
-
-   /**
+  /**
    * @ngdoc controller
    * @name hz.dashboard.launch-instance.LaunchInstanceSecurityGroupsHelpCtrl
    * @description
@@ -64,9 +65,13 @@
       ctrl.title = gettext('Security Groups Help');
 
       ctrl.paragraphs = [
+        // jscs:disable maximumLineLength
         gettext('Security groups define a set of IP filter rules that determine how network traffic flows to and from an instance. Users can add additional rules to an existing security group to further define the access options for an instance. To create additional rules, go to the <b>Compute | Access & Security</b> view, then find the security group and click <b>Manage Rules</b>.'),
+        // jscs:enable maximumLineLength
         gettext('Security groups are project-specific and cannot be shared across projects.'),
-        gettext('If a security group is not associated with an instance before it is launched, then you will have very limited access to the instance after it is deployed. You will only be able to access the instance from a VNC console.'),
+        // jscs:disable maximumLineLength
+        gettext('If a security group is not associated with an instance before it is launched, then you will have very limited access to the instance after it is deployed. You will only be able to access the instance from a VNC console.')
+        // jscs:enable maximumLineLength
       ];
     }
   ]);

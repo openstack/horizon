@@ -31,7 +31,9 @@
 
     // Labels for the flavor step
     this.title = gettext('Flavor');
-    this.subtitle = gettext("Flavors manage the sizing for the compute, memory and storage capacity of the instance.");
+    this.subtitle = gettext(
+      'Flavors manage the sizing for the compute, memory and storage capacity of the instance.'
+    );
 
     // Labels used by quota charts
     this.chartTotalInstancesLabel = gettext('Total Instances');
@@ -81,10 +83,10 @@
     // Flavor facades depend on flavors
     $scope.$watchCollection(function() {
       return launchInstanceModel.flavors;
-    },function (newValue, oldValue, scope) {
-        var ctrl = scope.selectFlavorCtrl;
-        ctrl.flavors = newValue;
-        ctrl.updateFlavorFacades();
+    }, function (newValue, oldValue, scope) {
+      var ctrl = scope.selectFlavorCtrl;
+      ctrl.flavors = newValue;
+      ctrl.updateFlavorFacades();
     });
 
     // Flavor quota charts depend on the current instance count
@@ -120,7 +122,6 @@
       ctrl.updateFlavorFacades();
       ctrl.validateFlavor();
     });
-
 
     // Convenience function to return a sensible value instead of
     // undefined
@@ -245,38 +246,58 @@
     // Generate error messages for flavor based on
     // source (if selected) and instance count
     this.getErrors = function(flavor) {
-      var messages = {},
-          source = this.source,
-          instanceCount = this.instanceCount;
+      var messages = {};
+      var source = this.source;
+      var instanceCount = this.instanceCount;
 
       // Check RAM resources
-      var totalRamUsed = this.defaultIfUndefined(this.novaLimits.totalRAMUsed, 0);
-      var maxTotalRam = this.defaultIfUndefined(this.novaLimits.maxTotalRAMSize, 0);
+      var totalRamUsed = this.defaultIfUndefined(
+        this.novaLimits.totalRAMUsed, 0);
+      var maxTotalRam = this.defaultIfUndefined(
+        this.novaLimits.maxTotalRAMSize, 0);
       var availableRam = maxTotalRam - totalRamUsed;
       var ramRequired = instanceCount * flavor.ram;
       if (ramRequired > availableRam) {
+        // jscs:disable maximumLineLength
         messages.ram = gettext('This flavor requires more RAM than your quota allows. Please select a smaller flavor or decrease the instance count.');
+        // jscs:enable maximumLineLength
       }
 
       // Check VCPU resources
-      var totalCoresUsed = this.defaultIfUndefined(this.novaLimits.totalCoresUsed, 0);
-      var maxTotalCores = this.defaultIfUndefined(this.novaLimits.maxTotalCores, 0);
+      var totalCoresUsed = this.defaultIfUndefined(
+        this.novaLimits.totalCoresUsed, 0);
+      var maxTotalCores = this.defaultIfUndefined(
+        this.novaLimits.maxTotalCores, 0);
       var availableCores = maxTotalCores - totalCoresUsed;
       var coresRequired = instanceCount * flavor.vcpus;
       if (coresRequired > availableCores) {
+        // jscs:disable maximumLineLength
         messages.vcpus = gettext('This flavor requires more VCPUs than your quota allows. Please select a smaller flavor or decrease the instance count.');
+        // jscs:enable maximumLineLength
       }
 
       // Check source minimum requirements against this flavor
       var sourceType = launchInstanceModel.newInstanceSpec.source_type;
       if (source && sourceType && sourceType.type === 'image') {
         if (source.min_disk > 0 && source.min_disk > flavor.disk) {
+          // jscs:disable maximumLineLength
           var srcMinDiskMsg = gettext('The selected image source requires a flavor with at least %(minDisk)s GB of root disk. Select a flavor with a larger root disk or use a different image source.');
-          messages.disk = interpolate(srcMinDiskMsg, { minDisk: source.min_disk }, true);
+          // jscs:enable maximumLineLength
+          messages.disk = interpolate(
+            srcMinDiskMsg,
+            { minDisk: source.min_disk },
+            true
+          );
         }
         if (source.min_ram > 0 && source.min_ram > flavor.ram) {
+          // jscs:disable maximumLineLength
           var srcMinRamMsg = gettext('The selected image source requires a flavor with at least %(minRam)s MB of RAM. Select a flavor with more RAM or use a different image source.');
-          messages.ram = interpolate(srcMinRamMsg, { minRam: source.min_ram }, true);
+          // jscs:enable maximumLineLength
+          messages.ram = interpolate(
+            srcMinRamMsg,
+            { minRam: source.min_ram },
+            true
+          );
         }
       }
 
@@ -294,9 +315,11 @@
     ctrl.title = gettext('Flavor Help');
 
     ctrl.paragraphs = [
+      // jscs:disable maximumLineLength
       gettext('The flavor you select for an instance determines the amount of compute, storage and memory resources that will be carved out for the instance.'),
       gettext('The flavor you select must have enough resources allocated to support the type of instance you are trying to create. Flavors that don\'t provide enough resources for your instance are identified on the <b>Available</b> table with a yellow warning icon.'),
       gettext('Administrators are responsible for creating and managing flavors. A custom flavor can be created for you or for a specific project where it is shared with the users assigned to that project. If you need a custom flavor, contact your administrator.')
+      // jscs:disable maximumLineLength
     ];
   }
 

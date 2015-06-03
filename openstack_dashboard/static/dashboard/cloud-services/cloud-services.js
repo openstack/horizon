@@ -17,8 +17,8 @@
 (function () {
   'use strict';
 
-  var fromJson = angular.fromJson,
-      isArray = angular.isArray;
+  var fromJson = angular.fromJson;
+  var isArray = angular.isArray;
 
   angular.module('hz.dashboard')
 
