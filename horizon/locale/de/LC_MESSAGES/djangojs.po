@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-02 01:03+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"PO-Revision-Date: 2015-06-02 12:11+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/"
 "de/)\n"
 "MIME-Version: 1.0\n"
@@ -252,6 +252,9 @@ msgstr "Bitte bestätigen Sie Ihre Auswahl."
 msgid "Policy check failed."
 msgstr "Richtlinienüberprüfung fehlgeschlagen."
 
+msgid "Prompt"
+msgstr "Eingabeaufforderung"
+
 msgid "Re-order items using drag and drop"
 msgstr "Umsortieren der Positionen durch ziehen und ablegen"
 
@@ -303,6 +306,9 @@ msgstr "Erfolg:"
 
 msgid "Terminate Instance"
 msgstr "Instanz terminieren"
+
+msgid "Text"
+msgstr "Text"
 
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
