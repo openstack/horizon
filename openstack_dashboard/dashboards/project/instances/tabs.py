@@ -33,7 +33,8 @@ class OverviewTab(tabs.Tab):
                      "_detail_overview.html")
 
     def get_context_data(self, request):
-        return {"instance": self.tab_group.kwargs['instance']}
+        return {"instance": self.tab_group.kwargs['instance'],
+                "is_superuser": request.user.is_superuser}
 
 
 class LogTab(tabs.Tab):

@@ -19,8 +19,10 @@
     <dd>{{ instance.created|parse_isotime }}</dd>
     <dt>{% trans "Time Since Created" %}</dt>
     <dd>{{ instance.created|parse_isotime|timesince }}</dd>
-    <dt>{% trans "Host" %}</dt>
-    <dd>{{ instance.host_server|default:_("-") }}</dd>
+    {% if is_superuser %}
+      <dt>{% trans "Host" %}</dt>
+      <dd>{{ instance.host_server|default:_("-") }}</dd>
+    {% endif %}
   </dl>
 </div>
 
