@@ -269,6 +269,7 @@ class RulesTable(tables.DataTable):
     name = tables.Column("name_or_id",
                          verbose_name=_("Name"),
                          link="horizon:project:firewalls:ruledetails")
+    description = tables.Column('description', verbose_name=_('Description'))
     protocol = tables.Column("protocol",
                              filters=(lambda v: filters.default(v, _("ANY")),
                                       filters.upper,),
@@ -302,6 +303,7 @@ class PoliciesTable(tables.DataTable):
     name = tables.Column("name_or_id",
                          verbose_name=_("Name"),
                          link="horizon:project:firewalls:policydetails")
+    description = tables.Column('description', verbose_name=_('Description'))
     firewall_rules = tables.Column(get_rules_name,
                                    verbose_name=_("Rules"))
     audited = tables.Column("audited",
@@ -343,6 +345,7 @@ class FirewallsTable(tables.DataTable):
     name = tables.Column("name_or_id",
                          verbose_name=_("Name"),
                          link="horizon:project:firewalls:firewalldetails")
+    description = tables.Column('description', verbose_name=_('Description'))
     firewall_policy_id = tables.Column(get_policy_name,
                                        link=get_policy_link,
                                        verbose_name=_("Policy"))
