@@ -1,17 +1,11 @@
-/* This import is required for using bootstrap variables as value
+/* This import is required for using the current theme variables as value
 to our variables */
-@import "/bootstrap/scss/bootstrap/variables";
+@import "/custom/variables";
+
 
 /* This variable can be used to change the web root of horizon
 default value is already '/' */
 $webroot: "" !default;
-
-/* Bootstrap variables overrides */
-
-$icon-font-path: "../../bootstrap/fonts/bootstrap/";
-$font-size-base: 13px;
-$modal-md: 732px;
-$gray-light: #cccccc;
 
 
 /* Horizon Custom Variables */
