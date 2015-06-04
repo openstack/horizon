@@ -13,32 +13,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/*global angular,describe,it,expect,inject,module,beforeEach,afterEach*/
 (function () {
   'use strict';
 
-  describe('hz.api.settingsService', function () {
-    var settingsService,
-      $httpBackend,
-      responseMockOpts = {succeed: true},
-      testData = {
-        isTrue: true,
-        isFalse: false,
-        versions: {one: 1, two: 2},
-        deep: {nest: { foo: 'bar' } },
-        isNull: null
-      };
+  horizon.alert = angular.noop;
+
+  var $httpBackend;
+  var responseMockOpts = {succeed: true};
+  var testData = {
+      isTrue: true,
+      isFalse: false,
+      versions: {one: 1, two: 2},
+      deep: {nest: {foo: 'bar'}},
+      isNull: null
+    };
+
+  function responseMockReturn() {
+    return responseMockOpts.succeed ? [200, testData, {}] : [500, 'Fail', {}];
+  }
+
+  describe('settingsService', function () {
+    var settingsService;
 
     beforeEach(module('hz.api'));
     beforeEach(inject(function (_$httpBackend_, $injector) {
       responseMockOpts.succeed = true;
       settingsService = $injector.get('hz.api.settingsService');
       $httpBackend = _$httpBackend_;
-      $httpBackend.whenGET('/api/settings/').respond(
-        function () {
-          return responseMockOpts.succeed ?
-            [200, testData, {}] : [500, 'Fail', {}];
-        });
+      $httpBackend.whenGET('/api/settings/').respond(responseMockReturn);
       $httpBackend.expectGET('/api/settings/');
     }));
 
@@ -60,6 +62,7 @@
 
       it('should fail when error response', function () {
         responseMockOpts.succeed = false;
+        spyOn(horizon, 'alert');
         settingsService.getSettings().then(
           function (actual) {
             fail('Should not have succeeded: ' + angular.toJson(actual));
@@ -69,6 +72,23 @@
           }
         );
         $httpBackend.flush();
+        expect(horizon.alert).toHaveBeenCalledWith('error',
+          gettext('Unable to retrieve settings.'));
+      });
+
+      it('should suppress error messages if asked', function () {
+        responseMockOpts.succeed = false;
+        spyOn(horizon, 'alert');
+        settingsService.getSettings(true).then(
+          function (actual) {
+            fail('Should not have succeeded: ' + angular.toJson(actual));
+          },
+          function (actual) {
+            expect(actual).toBeDefined();
+          }
+        );
+        $httpBackend.flush();
+        expect(horizon.alert).not.toHaveBeenCalled();
       });
 
     });

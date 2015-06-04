@@ -1,4 +1,3 @@
-/*global angular,describe,it,expect,inject,module,beforeEach,afterEach*/
 (function () {
   'use strict';
 
@@ -17,7 +16,7 @@
       $httpBackend = $injector.get('$httpBackend');
     }));
 
-    afterEach(function() {
+    afterEach(function () {
       $httpBackend.verifyNoOutstandingExpectation();
     });
 
@@ -25,22 +24,60 @@
       expect(!!api).toBe(true);
     });
 
-    it('should call success on a good response', function () {
+    function testGoodCall(apiMethod, verb) {
       var called = {};
-      $httpBackend.when('GET', '/good').respond({status: 'good'});
-      $httpBackend.expectGET('/good');
-      api.get('/good').success(function (data) {called.data = data;});
+      var suppliedData = verb === 'GET' ? undefined : 'some complicated data';
+      $httpBackend.when(verb, '/good', suppliedData).respond({status: 'good'});
+      $httpBackend.expect(verb, '/good', suppliedData);
+      apiMethod('/good', suppliedData).success(function (data) {
+        called.data = data;
+      });
       $httpBackend.flush();
       expect(called.data.status).toBe('good');
-    });
+    }
 
-    it('should call error on a bad response', function () {
+    function testBadCall(apiMethod, verb) {
       var called = {};
-      $httpBackend.when('GET', '/bad').respond(500, '');
-      $httpBackend.expectGET('/bad');
-      api.get('/bad').error(function () {called.called = true;});
+      var suppliedData = verb === 'GET' ? undefined : 'some complicated data';
+      $httpBackend.when(verb, '/bad', suppliedData).respond(500, '');
+      $httpBackend.expect(verb, '/bad', suppliedData);
+      apiMethod('/bad', suppliedData).error(function () {
+        called.called = true;
+      });
       $httpBackend.flush();
       expect(called.called).toBe(true);
+    }
+
+    it('should call success on a good GET response', function () {
+      testGoodCall(api.get, 'GET');
+    });
+
+    it('should call error on a bad GET response', function () {
+      testBadCall(api.get, 'GET');
+    });
+
+    it('should call success on a good POST response', function () {
+      testGoodCall(api.post, 'POST');
+    });
+
+    it('should call error on a bad POST response', function () {
+      testBadCall(api.post, 'POST');
+    });
+
+    it('should call success on a good PATCH response', function () {
+      testGoodCall(api.patch, 'PATCH');
+    });
+
+    it('should call error on a bad PATCH response', function () {
+      testBadCall(api.patch, 'PATCH');
+    });
+
+    it('should call success on a good DELETE response', function () {
+      testGoodCall(api.delete, 'DELETE');
+    });
+
+    it('should call error on a bad DELETE response', function () {
+      testBadCall(api.delete, 'DELETE');
     });
 
   });
