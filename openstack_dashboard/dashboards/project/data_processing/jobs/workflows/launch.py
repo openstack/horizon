@@ -236,7 +236,14 @@ class JobConfigAction(workflows.Action):
             if key.startswith(self.EDP_PREFIX):
                 edp_configs[key] = value
         for rmkey in edp_configs.keys():
-            del configs[rmkey]
+            # remove all configs handled via other controls
+            # so they do not show up in the free entry inputs
+            if rmkey in [self.EDP_HBASE_COMMON_LIB,
+                         self.EDP_MAPPER,
+                         self.EDP_REDUCER,
+                         self.MAIN_CLASS,
+                         self.JAVA_OPTS]:
+                del configs[rmkey]
         return (configs, edp_configs)
 
     class Meta(object):
