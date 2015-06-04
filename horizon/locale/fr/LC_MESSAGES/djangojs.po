@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-02 01:03+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"PO-Revision-Date: 2015-06-04 00:00+0000\n"
+"Last-Translator: Maxime COQUEREL <max.coquerel@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/"
 "fr/)\n"
 "MIME-Version: 1.0\n"
@@ -259,6 +259,9 @@ msgstr "Merci de confirmer votre sélection."
 msgid "Policy check failed."
 msgstr "Échec de vérification de la politique"
 
+msgid "Prompt"
+msgstr "Invite de commande"
+
 msgid "Re-order items using drag and drop"
 msgstr ""
 "Ordonnancer les éléments à nouveau en utilisant l'opération glisser-déplacer"
@@ -311,6 +314,9 @@ msgstr "Succès :"
 
 msgid "Terminate Instance"
 msgstr "Terminer l'Instance"
+
+msgid "Text"
+msgstr "Text"
 
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
@@ -515,3 +521,9 @@ msgstr ""
 #, c-format
 msgid "You have selected %s. "
 msgstr "Vous avez sélectionné %s."
+
+msgid "m1.small"
+msgstr "m1.small"
+
+msgid "m1.tiny"
+msgstr "m1.tiny"

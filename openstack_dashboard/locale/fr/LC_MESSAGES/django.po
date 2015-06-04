@@ -21,8 +21,8 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-02 01:03+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"PO-Revision-Date: 2015-06-04 00:00+0000\n"
+"Last-Translator: Maxime COQUEREL <max.coquerel@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/"
 "fr/)\n"
 "MIME-Version: 1.0\n"
@@ -1202,6 +1202,9 @@ msgstr "Un membre au moins doit être spécifié"
 msgid "At least one network must be specified."
 msgstr "Au moins un réseau doit être spécifié."
 
+msgid "Attach Interface"
+msgstr "Connexion à l'interface"
+
 msgid "Attach To Instance"
 msgstr "Attacher à l'instance"
 
@@ -1230,6 +1233,10 @@ msgstr "Assignation"
 msgctxt "Current status of a Volume"
 msgid "Attaching"
 msgstr "Assignation"
+
+#, python-format
+msgid "Attaching interface for instance %s."
+msgstr "Attacher l'interface à l'instance %s."
 
 #, python-format
 msgid "Attaching volume %(vol)s to instance %(inst)s on %(dev)s."
@@ -3229,6 +3236,9 @@ msgstr ""
 msgid "Destination:"
 msgstr "Destination :"
 
+msgid "Detach Interface"
+msgstr "Déconnexion de l'interface %s"
+
 msgid "Detach Replica"
 msgid_plural "Detach Replicas"
 msgstr[0] "Détacher Réplica"
@@ -3241,6 +3251,10 @@ msgstr[1] "Détacher les Volumes"
 
 msgid "Detached"
 msgstr "Détaché"
+
+#, python-format
+msgid "Detached interface %(port)s for instance %(instance)s."
+msgstr "Détacher l'interface  %(port)s pour l'instance %(instance)s."
 
 msgid "Detaching"
 msgstr "Détachement en cours"
@@ -3361,6 +3375,13 @@ msgid ""
 msgstr ""
 "Ne pas utiliser les deux points ':' dans OS::Glance::Images. Ce type de "
 "ressource ne doit pas contenir les deux points."
+
+msgid "Docker"
+msgstr "Docker "
+
+msgctxt "Image format for display in table"
+msgid "Docker"
+msgstr "Docker"
 
 #, python-format
 msgid "Domain \"%s\" must be disabled before it can be deleted."
@@ -5253,6 +5274,10 @@ msgstr "binaire Interne"
 msgid "Invalid date format: Using today as default."
 msgstr "Format de date invalide : date du jour utilisée par défaut."
 
+#, python-format
+msgid "Invalid format for routes : %s"
+msgstr "Format non valide pour les routes: %s"
+
 msgid ""
 "Invalid time period. The end date should be more recent than the start date."
 msgstr ""
@@ -5348,6 +5373,9 @@ msgstr "Type de tâche choisie"
 
 msgid "Jobs"
 msgstr "Tâches"
+
+msgid "Kernel"
+msgstr "Noyau"
 
 msgid "Kernel ID"
 msgstr "ID Noyau"
@@ -5544,6 +5572,9 @@ msgid ""
 msgstr ""
 "Le lancement d'instances multiples n'est accepté que pour les images et les "
 "instantanés d'instance."
+
+msgid "Least connections"
+msgstr "Dernières connexions"
 
 msgid "Length of Injected File Path"
 msgstr "Longueur du chemin du fichier injecté"
@@ -6218,6 +6249,9 @@ msgstr "Pas d'images disponible"
 
 msgid "No Master Node Group Template Created"
 msgstr "Aucun Modèle de groupe de nœuds Master créé"
+
+msgid "No Ports available"
+msgstr "Pas de port disponible"
 
 msgid "No Session Persistence"
 msgstr "Pas de persistance de session"
@@ -7207,6 +7241,9 @@ msgstr "RAM (utilisée)"
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "RAM (Disponible : %(avail)s, Demandée : %(req)s)"
 
+msgid "Ramdisk"
+msgstr "Ramdisk"
+
 msgid "Ramdisk ID"
 msgstr "ID Ramdisk"
 
@@ -7992,6 +8029,9 @@ msgstr "Sélectionner un Instantané d'instance"
 msgid "Select Network"
 msgstr "Sélecter le réseau"
 
+msgid "Select Port"
+msgstr "Sélectionner un port"
+
 msgid "Select Script Source"
 msgstr "Sélection du script source"
 
@@ -8171,6 +8211,9 @@ msgstr ""
 
 msgid "Select the image to rebuild your instance."
 msgstr "Sélectionnez l'image pour reconstruire votre instance."
+
+msgid "Select the port to detach."
+msgstr "Sélectionner le port à deconnecter."
 
 msgid ""
 "Select the projects where the flavors will be used. If no projects are "
@@ -8685,6 +8728,9 @@ msgstr "Etat"
 
 msgid "Static Routes"
 msgstr "Routes Statiques"
+
+msgid "Static route added"
+msgstr "Route statique ajouté"
 
 msgid "Statistics of all resources"
 msgstr "Statistiques de toutes les ressources"
@@ -9730,6 +9776,9 @@ msgstr "Impossible d'associer l'adresse IP flottante."
 msgid "Unable to associate monitor."
 msgstr "Impossible d'associer le moniteur."
 
+msgid "Unable to attach interface."
+msgstr "Impossible de connecter l'interface"
+
 msgid "Unable to attach volume."
 msgstr "Impossible d'attacher le volume"
 
@@ -9923,6 +9972,9 @@ msgstr "Impossible de supprimer la règle %s"
 msgid "Unable to delete volume transfer."
 msgstr "Impossible de supprimer un transfert de volume."
 
+msgid "Unable to detach interface."
+msgstr "Impossible de déconnecter l'interface"
+
 msgid "Unable to determine if availability zones extension is supported."
 msgstr ""
 "Impossible de déterminer si l'extension des zones de disponibilité  est "
@@ -10083,6 +10135,11 @@ msgstr "Impossible d'obtenir les événements pour la Stack \"%s\"."
 
 msgid "Unable to get flavor list"
 msgstr "Impossible d'obtenir la liste des gabarits"
+
+#, python-format
+msgid "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
+msgstr ""
+"N'a pas pu obtenir le moniteur d'intégrité  %(monitor_id)s du pool %(pool)s."
 
 msgid "Unable to get host aggregate list"
 msgstr "Impossible d'obtenir la liste des agrégats d'hôtes"
@@ -10651,6 +10708,9 @@ msgstr "Impossible de récupérer les détails du port"
 
 msgid "Unable to retrieve port details."
 msgstr "Impossible de récupérer les détails du port."
+
+msgid "Unable to retrieve ports information."
+msgstr "Impossible de récupérer les informations des ports."
 
 msgid "Unable to retrieve project details."
 msgstr "Impossible de récupérer les détails du projet."
