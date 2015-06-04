@@ -26,6 +26,10 @@ import os
 
 
 from django.conf import settings
+from django.core.files.uploadedfile import InMemoryUploadedFile
+from django.core.files.uploadedfile import SimpleUploadedFile
+from django.core.files.uploadedfile import TemporaryUploadedFile
+
 
 import glanceclient as glance_client
 from six.moves import _thread as thread
@@ -115,9 +119,12 @@ def image_update(request, image_id, **kwargs):
             try:
                 os.remove(image_data.file.name)
             except Exception as e:
+                filename = str(image_data.file)
+                if hasattr(image_data.file, 'name'):
+                    filename = image_data.file.name
                 msg = (('Failed to remove temporary image file '
                         '%(file)s (%(e)s)') %
-                       dict(file=image_data.file.name, e=str(e)))
+                       dict(file=filename, e=str(e)))
                 LOG.warn(msg)
     return image
 
@@ -130,6 +137,15 @@ def image_create(request, **kwargs):
     image = glanceclient(request).images.create(**kwargs)
 
     if data:
+        if isinstance(data, TemporaryUploadedFile):
+            # Hack to fool Django, so we can keep file open in the new thread.
+            data.file.close_called = True
+        if isinstance(data, InMemoryUploadedFile):
+            # Clone a new file for InMemeoryUploadedFile.
+            # Because the old one will be closed by Django.
+            data = SimpleUploadedFile(data.name,
+                                      data.read(),
+                                      data.content_type)
         thread.start_new_thread(image_update,
                                 (request, image.id),
                                 {'data': data,
