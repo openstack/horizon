@@ -1406,35 +1406,6 @@ class VolumeViewTests(test.TestCase):
         redirect_url = VOLUME_INDEX_URL
         self.assertRedirectsNoFollow(res, redirect_url)
 
-    @test.create_stubs({cinder: ('volume_get',
-                                 'volume_type_list')})
-    def test_retype_volume_same_type(self):
-        volume = self.cinder_volumes.get(name='my_volume2')
-
-        volume_type = self.cinder_volume_types.get(name='vol_type_2')
-
-        form_data = {'id': volume.id,
-                     'name': volume.name,
-                     'volume_type': volume_type.name,
-                     'migration_policy': 'on-demand'}
-
-        cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
-
-        cinder.volume_type_list(
-            IsA(http.HttpRequest)).AndReturn(self.cinder_volume_types.list())
-
-        self.mox.ReplayAll()
-
-        url = reverse('horizon:project:volumes:volumes:retype',
-                      args=[volume.id])
-        res = self.client.post(url, form_data)
-
-        self.assertFormError(res,
-                             'form',
-                             'volume_type',
-                             'New volume type must be different from the '
-                             'original volume type "%s".' % volume_type.name)
-
     def test_encryption_false(self):
         self._test_encryption(False)
 
