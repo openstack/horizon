@@ -55,7 +55,7 @@ class LiveMigrateForm(forms.SelfHandlingForm):
         if host_list:
             host_list.insert(0, ("", _("Select a new host")))
         else:
-            host_list.insert(0, ("", _("No other hosts available.")))
+            host_list.insert(0, ("", _("No other hosts available")))
         return sorted(host_list)
 
     def handle(self, request, data):
