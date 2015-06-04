@@ -1,5 +1,4 @@
-{% load shellfilter %}
-#!/bin/bash
+{% load shellfilter %}#!/bin/bash
 
 # To use an OpenStack cloud you need to authenticate against the Identity
 # service named keystone, which returns a **Token** and **Service Catalog**.
