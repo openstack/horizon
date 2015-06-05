@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-02 01:03+0000\n"
+"POT-Creation-Date: 2015-06-04 21:20-0500\n"
+"PO-Revision-Date: 2015-06-04 15:51+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/"
 "language/ko_KR/)\n"
@@ -70,9 +70,6 @@ msgstr "뒤로"
 
 msgid "Cancel"
 msgstr "취소"
-
-msgid "Cannot get nova extension list."
-msgstr "Nova 확장 목록을 가져올 수 없습니다."
 
 msgid "Cannot get service catalog from keystone."
 msgstr "Keystone으로부터 서비스 목록을 가져올 수 없습니다."
@@ -251,6 +248,9 @@ msgstr "선택 사항을 확인하십시오."
 msgid "Policy check failed."
 msgstr "정책 확인 실패함."
 
+msgid "Prompt"
+msgstr "프롬프트"
+
 msgid "Re-order items using drag and drop"
 msgstr "다시 주문할 아이템은 드래그 앤 드롭으로 가져옵니다."
 
@@ -302,6 +302,9 @@ msgstr "완료:"
 
 msgid "Terminate Instance"
 msgstr "인스턴스 종료"
+
+msgid "Text"
+msgstr "텍스트"
 
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
@@ -388,86 +391,14 @@ msgstr "Role을 부여하지 못했습니다."
 msgid "Unable to import the keypair."
 msgstr "키페어를 가져올 수 없습니다."
 
-msgid "Unable to retrieve availability zones."
-msgstr "가용성 존에 대한 정보를 찾지 못했습니다."
-
-msgid "Unable to retrieve domains"
-msgstr "도메인을 찾지 못했습니다"
-
-msgid "Unable to retrieve extensions."
-msgstr "확장을 찾지 못했습니다."
-
-msgid "Unable to retrieve flavor extra specs."
-msgstr "Flavor 확장 스팩을 찾지 못했습니다."
-
-msgid "Unable to retrieve flavor."
-msgstr "Flavor를 찾지 못했습니다."
-
-msgid "Unable to retrieve flavors."
-msgstr "Flavor를 찾지 못했습니다."
-
-msgid "Unable to retrieve image."
-msgstr "이미지를 찾지 못했습니다."
-
-msgid "Unable to retrieve images."
-msgstr "이미지를 찾지 못했습니다."
-
-msgid "Unable to retrieve keypairs."
-msgstr "Keypair를 찾을 수 없습니다."
-
-msgid "Unable to retrieve limits."
-msgstr "제한을 찾지 못했습니다."
-
-msgid "Unable to retrieve namespaces."
-msgstr "네임스페이스를 찾지 못했습니다."
-
-msgid "Unable to retrieve networks."
-msgstr "네트워크를 찾지 못했습니다."
-
-msgid "Unable to retrieve ports."
-msgstr "포트를 검색하지 못했습니다"
-
-msgid "Unable to retrieve projects"
-msgstr "프로젝트를 찾지 못했습니다"
-
-msgid "Unable to retrieve role"
-msgstr "Role을 찾지 못했습니다"
-
-msgid "Unable to retrieve security groups."
-msgstr "시큐리티 그룹을 찾지 못했습니다."
-
-msgid "Unable to retrieve server."
-msgstr "서버를 찾지 못했습니다"
-
 msgid "Unable to retrieve settings."
 msgstr "설정을 찾지 못했습니다."
-
-msgid "Unable to retrieve subnets."
-msgstr "서브넷을 찾지 못했습니다."
 
 msgid "Unable to retrieve the current user session."
 msgstr "현재 사용자 섹션을 찾을 수 없습니다."
 
-msgid "Unable to retrieve the domain"
-msgstr "도메인을 찾지 못했습니다"
-
-msgid "Unable to retrieve the project"
-msgstr "프로젝트를 찾지 못했습니다"
-
-msgid "Unable to retrieve the role"
-msgstr "Role을 찾지 못했습니다."
-
-msgid "Unable to retrieve the user"
-msgstr "사용자를 찾지 못했습니다"
-
-msgid "Unable to retrieve users"
-msgstr "사용자를 찾지 못했습니다"
-
-msgid "Unable to retrieve volume snapshots."
-msgstr "볼륨 스냅샷을 찾지 못했습니다."
-
-msgid "Unable to retrieve volumes."
-msgstr "볼륨을 찾지 못했습니다."
+msgid "Unable to retrieve users."
+msgstr "사용자를 찾지 못 했습니다."
 
 msgid "View Details"
 msgstr "세부 정보 보기"

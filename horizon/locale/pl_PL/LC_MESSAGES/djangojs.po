@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-02 01:03+0000\n"
+"POT-Creation-Date: 2015-06-04 21:20-0500\n"
+"PO-Revision-Date: 2015-06-04 15:51+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/"
 "language/pl_PL/)\n"
@@ -69,9 +69,6 @@ msgstr "Wstecz"
 
 msgid "Cancel"
 msgstr "Anuluj"
-
-msgid "Cannot get nova extension list."
-msgstr "Nie można pobrać listy rozszerzeń novy."
 
 msgid "Cannot get service catalog from keystone."
 msgstr "Nie można pobrać katalogu usług z keystone."
@@ -380,86 +377,14 @@ msgstr "Nie można nadać roli."
 msgid "Unable to import the keypair."
 msgstr "Nie można zaimportować pary kluczy."
 
-msgid "Unable to retrieve availability zones."
-msgstr "Nie można pobrać stref dostępności."
-
-msgid "Unable to retrieve domains"
-msgstr "Nie można pobrać domen"
-
-msgid "Unable to retrieve extensions."
-msgstr "Nie można pobrać rozszerzeń."
-
-msgid "Unable to retrieve flavor extra specs."
-msgstr "Nie można pobrać dodatkowych danych odmiany."
-
-msgid "Unable to retrieve flavor."
-msgstr "Nie można pobrać odmiany."
-
-msgid "Unable to retrieve flavors."
-msgstr "Nie można pobrać odmian."
-
-msgid "Unable to retrieve image."
-msgstr "Nie można pobrać obrazu."
-
-msgid "Unable to retrieve images."
-msgstr "Nie można pobrać obrazów"
-
-msgid "Unable to retrieve keypairs."
-msgstr "Nie można pobrać par kluczy."
-
-msgid "Unable to retrieve limits."
-msgstr "Nie można pobrać ograniczeń."
-
-msgid "Unable to retrieve namespaces."
-msgstr "Nie można pobrać przestrzeni nazw."
-
-msgid "Unable to retrieve networks."
-msgstr "Nie można pobrać sieci."
-
-msgid "Unable to retrieve ports."
-msgstr "Nie można pobrać portów."
-
-msgid "Unable to retrieve projects"
-msgstr "Nie można pobrać projektów"
-
-msgid "Unable to retrieve role"
-msgstr "Nie można pobrać roli"
-
-msgid "Unable to retrieve security groups."
-msgstr "Nie można pobrać grup zabezpieczeń."
-
-msgid "Unable to retrieve server."
-msgstr "Nie można pobrać serwera."
-
 msgid "Unable to retrieve settings."
 msgstr "Nie można pobrać ustawień."
-
-msgid "Unable to retrieve subnets."
-msgstr "Nie można pobrać podsieci."
 
 msgid "Unable to retrieve the current user session."
 msgstr "Nie można pobrać bieżącej sesji użytkownika."
 
-msgid "Unable to retrieve the domain"
-msgstr "Nie można pobrać domeny"
-
-msgid "Unable to retrieve the project"
-msgstr "Nie można pobrać projektu."
-
-msgid "Unable to retrieve the role"
-msgstr "Nie można pobrać roli"
-
-msgid "Unable to retrieve the user"
-msgstr "Nie można pobrać użytkownika"
-
-msgid "Unable to retrieve users"
-msgstr "Nie można pobrać użytkowników"
-
-msgid "Unable to retrieve volume snapshots."
-msgstr "Nie można pobrać migawek wolumenów."
-
-msgid "Unable to retrieve volumes."
-msgstr "Nie można pobrać wolumenów."
+msgid "Unable to retrieve users."
+msgstr "Nie można pobrać użytkowników."
 
 msgid "View Details"
 msgstr "Wyświetl szczegóły"

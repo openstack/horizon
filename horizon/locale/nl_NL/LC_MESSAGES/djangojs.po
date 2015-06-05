@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-02 01:03+0000\n"
+"POT-Creation-Date: 2015-06-04 21:20-0500\n"
+"PO-Revision-Date: 2015-06-04 15:51+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/"
 "horizon/language/nl_NL/)\n"
@@ -41,6 +41,9 @@ msgstr "Interface Toevoegen"
 msgid "Added"
 msgstr "Toegevoegd"
 
+msgid "Allocated"
+msgstr "Toegewezen"
+
 msgid "An error occurred while updating."
 msgstr "Er is een fout opgetreden tijdens het bijwerken."
 
@@ -49,6 +52,9 @@ msgstr "Er is een fout opgetreden. Probeert u het later nog eens."
 
 msgid "Available"
 msgstr "Beschikbaar"
+
+msgid "Available Metadata"
+msgstr "Beschikbare Metadata"
 
 msgid "Back"
 msgstr "Terug"
@@ -66,8 +72,14 @@ msgstr "Kon het wachtwoord niet ontcijferen"
 msgid "Could not read the file"
 msgstr "Kon het bestand niet lezen"
 
+msgid "Custom"
+msgstr "Aangepast"
+
 msgid "Danger: "
 msgstr "Gevaar:"
+
+msgid "Decimal required"
+msgstr "Decimale vereist"
 
 msgid "Delete"
 msgstr "Verwijderen"
@@ -84,11 +96,17 @@ msgid_plural "Displaying %s items"
 msgstr[0] "%s item weergeven"
 msgstr[1] "%s items weergeven"
 
+msgid "Duplicate keys are not allowed"
+msgstr "Dubbelen sleutels zijn niet toegestaan"
+
 msgid "Error"
 msgstr "Fout"
 
 msgid "Error: "
 msgstr "Fout: "
+
+msgid "Existing Metadata"
+msgstr "Bestaande Metadata"
 
 msgid "Filter"
 msgstr "Filter"
@@ -102,11 +120,26 @@ msgstr "ID"
 msgid "Info"
 msgstr "Informatie"
 
+msgid "Integer required"
+msgstr "Nummer vereist"
+
 msgid "Interfaces"
 msgstr "Interfaces"
 
 msgid "Loading"
 msgstr "Aan het laden"
+
+msgid "Max"
+msgstr "Max"
+
+msgid "Max length"
+msgstr "Max lengte"
+
+msgid "Min"
+msgstr "Min"
+
+msgid "Min length"
+msgstr "Min lengte"
 
 msgid "Name"
 msgstr "Naam"
@@ -114,8 +147,17 @@ msgstr "Naam"
 msgid "Next"
 msgstr "Volgende"
 
+msgid "No available items"
+msgstr "Geen beschikbare items"
+
+msgid "No available metadata"
+msgstr "Geen beschikbare Metadata"
+
 msgid "No data available."
 msgstr "Geen gegevens beschikbaar."
+
+msgid "No existing metadata"
+msgstr "Geen bestaande Metadata"
 
 msgid "No items to display."
 msgstr "Geen artikelen om weer te geven."
@@ -150,6 +192,12 @@ msgstr "Rollen"
 msgid "STATUS"
 msgstr "STATUS"
 
+msgid "Select an item from Available items below"
+msgstr "Selecteer een item van de beschikbare items hier onder"
+
+msgid "Select one"
+msgstr "Selecteer er één"
+
 msgid "Status"
 msgstr "Status"
 
@@ -169,29 +217,8 @@ msgstr ""
 "Er is een fout opgetreden bij het indienen van het formulier. Probeer het "
 "nog eens."
 
-msgid "Unable to retrieve availability zones."
-msgstr "Niet in staat om de beschikbaarheidszones op te halen."
-
-msgid "Unable to retrieve flavors."
-msgstr "Niet in staat om de smaken op te halen."
-
-msgid "Unable to retrieve image."
-msgstr "Niet in staat om de afbeelding op te halen."
-
-msgid "Unable to retrieve images."
-msgstr "Niet in staat om de afbeeldingen op te halen."
-
-msgid "Unable to retrieve keypairs."
-msgstr "Niet in staat om de sleutelparen op te halen."
-
-msgid "Unable to retrieve networks."
-msgstr "Niet in staat om de netwerken op te halen."
-
-msgid "Unable to retrieve security groups."
-msgstr "Niet in staat om de beveiligingsgroepen op te halen."
-
-msgid "Unable to retrieve volume snapshots."
-msgstr "Niet in staat om de momentopnamen van het volume op te halen."
+msgid "Unable to retrieve users."
+msgstr "Niet in staat om de gebruikers op te halen."
 
 msgid "View Details"
 msgstr "Bekijk Details"
