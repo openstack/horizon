@@ -177,48 +177,6 @@
       expect(checkedStep.checkReadiness).toHaveBeenCalled();
     });
 
-    describe('Broadcast Functions', function() {
-
-      beforeEach(function() {
-        $scope.workflow = {
-          steps: [{}, {}, {}]
-        };
-        $scope.$digest();
-      });
-
-      it('sets beforeSubmit to broadcast BEFORE_SUBMIT', function() {
-        expect($scope.beforeSubmit).toBeDefined();
-        spyOn($scope, '$broadcast');
-        $scope.beforeSubmit();
-        expect($scope.$broadcast).toHaveBeenCalledWith('BEFORE_SUBMIT');
-      });
-
-      it('sets afterSubmit to broadcast AFTER_SUBMIT', function() {
-        expect($scope.afterSubmit).toBeDefined();
-        spyOn($scope, '$broadcast');
-        $scope.close = angular.noop;
-        spyOn($scope, 'close');
-        $scope.afterSubmit();
-        expect($scope.$broadcast).toHaveBeenCalledWith('AFTER_SUBMIT');
-        expect($scope.close).toHaveBeenCalled();
-      });
-
-      it('sets onClickFinishBtn and submits with proper handlers', function() {
-        expect($scope.onClickFinishBtn).toBeDefined();
-        var submitObj = { then: function() { return; } };
-        $scope.submit = function() { return submitObj; };
-        spyOn($scope, 'beforeSubmit');
-        spyOn(submitObj, 'then');
-        $scope.onClickFinishBtn();
-        expect($scope.beforeSubmit).toHaveBeenCalled();
-        expect(submitObj.then).toHaveBeenCalled();
-        expect(submitObj.then.calls.count()).toBe(1);
-        expect(submitObj.then.calls.argsFor(0)).toEqual([$scope.afterSubmit,
-                                                         $scope.showError]);
-      });
-
-    });
-
   });
 
   describe("ModalContainerCtrl", function() {
