@@ -92,7 +92,8 @@
 
           <!-- start image select options -->
           <div class="col-xs-12 col-sm-9"
-               ng-if="model.newInstanceSpec.source_type.type === 'image'">
+               ng-if="model.newInstanceSpec.source_type.type === 'image' &&
+                      model.allowCreateVolumeFromImage">
 
             <div class="col-xs-12 col-sm-3">
               <div class="form-group create-volume">
