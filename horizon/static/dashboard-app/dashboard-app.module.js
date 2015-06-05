@@ -3,9 +3,8 @@
   'use strict';
 
   angular.module('horizon.dashboard-app', [
-    'horizon.dashboard-app.utils',
-    'horizon.dashboard-app.login',
     'horizon.framework',
+    'horizon.dashboard-app.login',
     'hz.api',
     'ngCookies'].concat(angularModuleExtension))
 
@@ -21,7 +20,7 @@
     .run([
       'horizon.framework.conf.spinner_options',
       'horizon.dashboard-app.conf',
-      'horizon.dashboard-app.utils.helper-functions',
+      'horizon.framework.util.tech-debt.helper-functions',
       '$cookieStore',
       '$http',
       '$cookies',

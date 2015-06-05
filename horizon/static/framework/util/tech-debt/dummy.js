@@ -1,5 +1,5 @@
 (function () {
   'use strict';
-  angular.module('horizon.dashboard-app')
+  angular.module('horizon.framework.util.tech-debt')
     .controller('DummyCtrl', function () {});
 }());

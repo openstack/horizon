@@ -6,6 +6,7 @@
     'horizon.framework.util.filters',
     'horizon.framework.util.form',
     'horizon.framework.util.i18n',
+    'horizon.framework.util.tech-debt',
     'horizon.framework.util.workflow',
     'horizon.framework.util.validators'
   ])
