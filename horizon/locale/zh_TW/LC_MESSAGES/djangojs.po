@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-02 01:03+0000\n"
+"POT-Creation-Date: 2015-06-04 21:20-0500\n"
+"PO-Revision-Date: 2015-06-04 15:51+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/"
 "language/zh_TW/)\n"
@@ -71,9 +71,6 @@ msgstr "上一步"
 
 msgid "Cancel"
 msgstr "取消"
-
-msgid "Cannot get nova extension list."
-msgstr "不能獲得 Nova 擴充套件列表。"
 
 msgid "Cannot get service catalog from keystone."
 msgstr "不能從 Keystone 獲得伺服器類別。"
@@ -378,86 +375,14 @@ msgstr "無法賦予角色權力。"
 msgid "Unable to import the keypair."
 msgstr "無法匯入密鑰對。"
 
-msgid "Unable to retrieve availability zones."
-msgstr "無法獲得可用區域。"
-
-msgid "Unable to retrieve domains"
-msgstr "無法獲得地域"
-
-msgid "Unable to retrieve extensions."
-msgstr "無法獲得擴充套件。"
-
-msgid "Unable to retrieve flavor extra specs."
-msgstr "無法獲得虛擬硬體樣板額外規格。"
-
-msgid "Unable to retrieve flavor."
-msgstr "無法獲得虛擬硬體樣板。"
-
-msgid "Unable to retrieve flavors."
-msgstr "無法獲得虛擬硬體樣板。"
-
-msgid "Unable to retrieve image."
-msgstr "無法獲得映像檔。"
-
-msgid "Unable to retrieve images."
-msgstr "無法獲得映像檔。"
-
-msgid "Unable to retrieve keypairs."
-msgstr "無法獲得密鑰對。"
-
-msgid "Unable to retrieve limits."
-msgstr "無法獲得限制。"
-
-msgid "Unable to retrieve namespaces."
-msgstr "無法獲得名稱空間。"
-
-msgid "Unable to retrieve networks."
-msgstr "無法獲得網路。"
-
-msgid "Unable to retrieve ports."
-msgstr "無法獲得接口。"
-
-msgid "Unable to retrieve projects"
-msgstr "無法獲得專案"
-
-msgid "Unable to retrieve role"
-msgstr "無法獲得角色"
-
-msgid "Unable to retrieve security groups."
-msgstr "無法獲得安全性群組。"
-
-msgid "Unable to retrieve server."
-msgstr "無法獲得伺服器。"
-
 msgid "Unable to retrieve settings."
 msgstr "無法設定。"
-
-msgid "Unable to retrieve subnets."
-msgstr "無法獲得子網路。"
 
 msgid "Unable to retrieve the current user session."
 msgstr "無法獲得目前用戶連線階段。"
 
-msgid "Unable to retrieve the domain"
-msgstr "無法獲得地域"
-
-msgid "Unable to retrieve the project"
-msgstr "無法獲得專案"
-
-msgid "Unable to retrieve the role"
-msgstr "無法獲得角色"
-
-msgid "Unable to retrieve the user"
+msgid "Unable to retrieve users."
 msgstr "無法獲得用戶。"
-
-msgid "Unable to retrieve users"
-msgstr "無法獲得名稱用戶。"
-
-msgid "Unable to retrieve volume snapshots."
-msgstr "無法獲得雲硬碟即時存檔。"
-
-msgid "Unable to retrieve volumes."
-msgstr "無法獲得雲硬碟。"
 
 msgid "View Details"
 msgstr "檢視詳細資訊"

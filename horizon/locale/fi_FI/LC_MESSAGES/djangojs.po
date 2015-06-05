@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-02 01:03+0000\n"
+"POT-Creation-Date: 2015-06-04 21:20-0500\n"
+"PO-Revision-Date: 2015-06-04 15:51+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/"
 "horizon/language/fi_FI/)\n"
@@ -171,23 +171,8 @@ msgstr "Palvelinyhteydessä tapahtui virhe, yritä myöhemmin uudelleen."
 msgid "There was an error submitting the form. Please try again."
 msgstr "Lomakkeen lähetys epäonnistui. Yritä uudelleen."
 
-msgid "Unable to retrieve image."
-msgstr "Ei voida hakea levykuvaa."
-
-msgid "Unable to retrieve images."
-msgstr "Ei voida hakea levykuvia."
-
-msgid "Unable to retrieve keypairs."
-msgstr "Ei voida hakea avainpareja. "
-
-msgid "Unable to retrieve networks."
-msgstr "Ei voida hakea verkkoja. "
-
-msgid "Unable to retrieve security groups."
-msgstr "Ei voida hakea turvaryhmiä."
-
-msgid "Unable to retrieve volume snapshots."
-msgstr "Ei voida hakea levyjaon varmuusvedosta."
+msgid "Unable to retrieve users."
+msgstr "Ei voida hakea käyttäjiä."
 
 msgid "View Details"
 msgstr "Näytä tiedot"

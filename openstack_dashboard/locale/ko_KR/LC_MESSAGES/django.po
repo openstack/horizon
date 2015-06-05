@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-02 01:03+0000\n"
+"POT-Creation-Date: 2015-06-04 21:20-0500\n"
+"PO-Revision-Date: 2015-06-04 20:18+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/"
 "language/ko_KR/)\n"
@@ -295,6 +295,19 @@ msgstr ""
 "<br>\n"
 "<br>\n"
 "이는 <tt>cinder unmanage</tt> 명령어와 동일합니다."
+
+msgid ""
+"\n"
+"  Assign a name and description for the pool. Choose one subnet where all\n"
+"  members of this pool must be on. Select the protocol and load balancing\n"
+"  method for this pool. Admin State is UP (checked) by default.\n"
+"  "
+msgstr ""
+"\n"
+"Pool에 대한 이름 및 설명을 할당합니다. 해당 Pool의 모든 멤버들이 있어야 하"
+"는 \n"
+"서브넷 하나를 선택합니다. 해당 Pool에 대한 프로토콜 및 로드 밸런싱 \n"
+"방식을 선택합니다. 관리 상태는 디폴트로 UP (선택됨)입니다."
 
 msgid ""
 "\n"
@@ -601,6 +614,14 @@ msgstr "ALLOW"
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "%(ethertype)s %(proto_port)s %(direction)s %(remote)s 허용"
 
+#, python-format
+msgid "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(cidr)s"
+msgstr "%(cidr)s으로부터 %(from)s:%(to)s/%(ip_protocol)s 허용"
+
+#, python-format
+msgid "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(group)s"
+msgstr "%(group)s으로부터 %(from)s:%(to)s/%(ip_protocol)s 허용"
+
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Image"
 
@@ -791,6 +812,9 @@ msgstr "라우터 추가"
 msgid "Add Rule"
 msgstr "규칙 추가"
 
+msgid "Add Static Route"
+msgstr "정적 경로 추가"
+
 msgid "Add Subnet"
 msgstr "서브넷 추가"
 
@@ -868,6 +892,9 @@ msgstr "규칙 추가"
 
 msgid "Add selected router(s) to the firewall."
 msgstr "방화벽에서 라우터를 선택하여 추가합니다."
+
+msgid "Add static route to the router."
+msgstr "정적 경로를 라우터에 추가합니다."
 
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr "이 볼륨 타입에 QoS 스팩과 관련된 것을 추가, 수정, 제거합니다."
@@ -1156,6 +1183,9 @@ msgstr "최소 하나의 멤버가 지정되어야 합니다. "
 msgid "At least one network must be specified."
 msgstr "최소 하나의 네트워크가 지정되어야 합니다."
 
+msgid "Attach Interface"
+msgstr "인터페이스 연결"
+
 msgid "Attach To Instance"
 msgstr "인스터스에 연결"
 
@@ -1184,6 +1214,10 @@ msgstr "연결"
 msgctxt "Current status of a Volume"
 msgid "Attaching"
 msgstr "연결"
+
+#, python-format
+msgid "Attaching interface for instance %s."
+msgstr "인스턴스 %s에 대한 인터페이스 연결."
 
 #, python-format
 msgid "Attaching volume %(vol)s to instance %(inst)s on %(dev)s."
@@ -2369,6 +2403,9 @@ msgstr "생성된 스펙 \"%s\" ."
 msgid "Created subnet \"%s\"."
 msgstr "서브넷 \"%s\" 생성."
 
+msgid "Created time"
+msgstr "생성된 시각"
+
 msgid "Created volume transfer."
 msgstr "볼륨 이전이 생성되었습니다."
 
@@ -2660,6 +2697,9 @@ msgstr "지연"
 
 msgid "Delay must be greater than or equal to Timeout"
 msgstr "지연값은 Timeout 값 이상이어야 합니다."
+
+msgid "Delay must be greater than or equal to timeout"
+msgstr "지연값은 timeout 값 이상이어야 합니다."
 
 msgid "Delete Backup"
 msgid_plural "Delete Backups"
@@ -3141,6 +3181,9 @@ msgstr "대상 포트 ([1, 65535] 중 정수거나 a:b 범위 내)"
 msgid "Destination:"
 msgstr "대상:"
 
+msgid "Detach Interface"
+msgstr "인터페이스 해제"
+
 msgid "Detach Replica"
 msgid_plural "Detach Replicas"
 msgstr[0] "복제본으로부터 해제"
@@ -3152,12 +3195,16 @@ msgstr[0] "볼륨 연결 해제"
 msgid "Detached"
 msgstr "연결 해제됨"
 
+#, python-format
+msgid "Detached interface %(port)s for instance %(instance)s."
+msgstr "인스턴스 %(instance)s에 대해 해제된 인터페이스 %(port)s."
+
 msgid "Detaching"
 msgstr "연결 해제중"
 
 msgid "Detaching Volume"
 msgid_plural "Detaching Volumes"
-msgstr[0] "볼륨 연결 혜제중"
+msgstr[0] "볼륨 연결 해제 중"
 
 msgid "Details"
 msgstr "세부 정보"
@@ -3268,6 +3315,13 @@ msgid ""
 msgstr ""
 "OS::Glance::Images와 함께 콜론 ':'을 사용하지 마십시오. 해당 리소스 유형은 콜"
 "론 사용을 지원하지 않습니다."
+
+msgid "Docker"
+msgstr "Docker"
+
+msgctxt "Image format for display in table"
+msgid "Docker"
+msgstr "Docker"
 
 #, python-format
 msgid "Domain \"%s\" must be disabled before it can be deleted."
@@ -3930,6 +3984,10 @@ msgstr ""
 msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr ""
 "네트워크 %(network)s 의 에이전트 %(agent_name)s 를 추가하지 못했습니다."
+
+#, python-format
+msgid "Failed to add route : %s"
+msgstr "경로 추가 실패 : %s"
 
 #, python-format
 msgid "Failed to add router rule %s"
@@ -5105,6 +5163,10 @@ msgstr "내부 바이너리"
 msgid "Invalid date format: Using today as default."
 msgstr "유효하지 않은 날짜 포맷: 오늘 날짜를 기본으로 사용"
 
+#, python-format
+msgid "Invalid format for routes : %s"
+msgstr "잘못된 경로 포맷 : %s"
+
 msgid ""
 "Invalid time period. The end date should be more recent than the start date."
 msgstr ""
@@ -5200,6 +5262,9 @@ msgstr "선택된 Job 유형"
 
 msgid "Jobs"
 msgstr "Jobs"
+
+msgid "Kernel"
+msgstr "커널"
 
 msgid "Kernel ID"
 msgstr "커널 ID"
@@ -5390,6 +5455,9 @@ msgid ""
 msgstr ""
 "여러 개의 인스턴스를 구동하는 것은 이미지 및 인스턴스 스냅샷에서만 지원됩니"
 "다. "
+
+msgid "Least connections"
+msgstr "최소 연결"
 
 msgid "Length of Injected File Path"
 msgstr "첨부한 파일 경로 길이"
@@ -6044,6 +6112,9 @@ msgstr "사용 가능한 이미지 없음"
 
 msgid "No Master Node Group Template Created"
 msgstr "생성된 마스터 노드 그룹 템플릿이 없음"
+
+msgid "No Ports available"
+msgstr "사용 가능한 포트 없음"
 
 msgid "No Session Persistence"
 msgstr "세션 지속을 못함"
@@ -6888,6 +6959,9 @@ msgstr "프로젝트 사용량"
 msgid "Project Usage Overview"
 msgstr "프로젝트 사용량 개요"
 
+msgid "Project name is already in use. Please use a different name."
+msgstr "프로젝트 이름이 이미 사용 중입니다. 다른 이름을 사용하세요."
+
 msgid "Projects"
 msgstr "프로젝트"
 
@@ -7017,6 +7091,9 @@ msgstr "RAM (사용중)"
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "RAM(사용: %(avail)s, 요청: %(req)s)"
+
+msgid "Ramdisk"
+msgstr "램디스크"
 
 msgid "Ramdisk ID"
 msgstr "Ramdisk ID"
@@ -7222,6 +7299,13 @@ msgstr "요청 ID"
 
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr "요청된 스냅샷은 허용된 qouta를 초과 합니다."
+
+msgid ""
+"Requests from a unique source IP address are consistently\n"
+"          directed to the same instance."
+msgstr ""
+"하나의 고유한 소스 IP 주소로부터의 요청들은 지속적으로  \n"
+"같은 인스턴스로 이동합니다."
 
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr "APP_COOKIE 지속성을 위해 요청되었습니다. 다른 경우 무시됩니다."
@@ -7474,6 +7558,9 @@ msgstr "Root 디스크"
 msgid "Root Disk (GB)"
 msgstr "Root 디스크 (GB)"
 
+msgid "Rotates requests evenly between multiple instances."
+msgstr "여러 인스턴스들 사이에서 짝수로 요청을 순환합니다."
+
 msgid "Round robin"
 msgstr "라운드로빈"
 
@@ -7563,6 +7650,10 @@ msgid ""
 msgstr ""
 "규칙은 시큐리티 그룹에 할당된 인스턴스에게 어떤 트래픽이 허용되는지를 정의합"
 "니다. 보안 시큐리티 규칙은 세가지 주요 파트로 구성됩니다: "
+
+msgid "Run HBase EDP Jobs with common HBase library on HDFS"
+msgstr ""
+"HBase EDP 작업을 HDFS 상의 일반적인 HBase 라이브러리와 함께 실행합니다."
 
 msgctxt "Power state of an Instance"
 msgid "Running"
@@ -7780,8 +7871,11 @@ msgstr "인스턴스 스냅샷 선택"
 msgid "Select Network"
 msgstr "네트워크 선택"
 
+msgid "Select Port"
+msgstr "포트 선택"
+
 msgid "Select Script Source"
-msgstr "스크립트 원본 선택"
+msgstr "스크립트 소스 선택"
 
 msgid "Select Subnet"
 msgstr "서브넷 선택"
@@ -7954,6 +8048,12 @@ msgstr "선택한 인스턴트나 포트에 연결하고자 하는 IP 주소를 
 
 msgid "Select the image to rebuild your instance."
 msgstr "인스턴스를 재생성하기 위해 이미지를 선택하세요."
+
+msgid "Select the network for interface attaching."
+msgstr "연결할 인터페이스에 대한 네트워크를 선택합니다."
+
+msgid "Select the port to detach."
+msgstr "해제할 포트를 선택합니다."
 
 msgid ""
 "Select the projects where the flavors will be used. If no projects are "
@@ -8713,7 +8813,7 @@ msgid "System CPU Utility Reading"
 msgstr "시스템 CPU 유틸 읽기"
 
 msgid "System CUPS Reading"
-msgstr "시스템 CPUS 읽기"
+msgstr "시스템 CUPS 읽기"
 
 msgid "System Current Power"
 msgstr "시스템 현재 전력"
@@ -8729,6 +8829,9 @@ msgstr "시스템 메모리 유틸 읽기"
 
 msgid "System Outlet Temperature Reading"
 msgstr "시스템 출구 온도 읽기"
+
+msgid "System Temperature Reading"
+msgstr "시스템 온도 읽기"
 
 msgid "TCP"
 msgstr "TCP"
@@ -9045,6 +9148,11 @@ msgstr ""
 "링크를 사용하세요."
 
 msgid ""
+"The maximum time in seconds for a monitor to wait for a reply. It must be "
+"less than or equal to delay"
+msgstr "모니터 응답을 기다리는 최대 시간. 지연 값보다 작거나 같아야 합니다."
+
+msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
 "defaults to 0 (no minimum)."
 msgstr ""
@@ -9058,6 +9166,13 @@ msgstr ""
 "이미지가 부팅에 필요한 최소한의 메모리 크기입니다. 저정하지 않는 경우, 기본값"
 "은 0입니다(최소값 아님)."
 
+msgid ""
+"The minimum time in seconds between regular checks of a member. It must be "
+"greater than or equal to timeout"
+msgstr ""
+"멤버에 대한 주기적인 체크에 있어서의 초 단위 최소 시간. timeout보다 크거나 같"
+"아야 합니다"
+
 #, python-format
 msgid "The name \"%s\" is already used by another flavor."
 msgstr "이름 \"%s\"는 다른 flavor에서 즉시 사용 가능 합니다."
@@ -9065,6 +9180,9 @@ msgstr "이름 \"%s\"는 다른 flavor에서 즉시 사용 가능 합니다."
 #, python-format
 msgid "The name \"%s\" is already used by another host aggregate."
 msgstr "\"%s\"라는 이름은 다른 호스트 집합에서 사용중입니다."
+
+msgid "The name is already in use."
+msgstr "해당 이름은 이미 사용 중입니다."
 
 msgid ""
 "The name of the physical network over which the virtual network is "
@@ -9474,6 +9592,9 @@ msgstr "유동 IP를 연결 할 수 없습니다."
 msgid "Unable to associate monitor."
 msgstr "모니터를 연결할 수 없습니다."
 
+msgid "Unable to attach interface."
+msgstr "인터페이스를 연결할 수 없습니다."
+
 msgid "Unable to attach volume."
 msgstr "볼륨을 연결할 수 없습니다."
 
@@ -9662,6 +9783,9 @@ msgstr "규칙을 삭제할 수 없습니다. %s"
 msgid "Unable to delete volume transfer."
 msgstr "볼륨 이전을 삭제할 수 없습니다."
 
+msgid "Unable to detach interface."
+msgstr "인터페이스를 해제할 수 없습니다."
+
 msgid "Unable to determine if availability zones extension is supported."
 msgstr "가용성 존 확장자의 지원 여부를 확인할 수 없습니다."
 
@@ -9817,6 +9941,10 @@ msgstr "스택 \"%s\"에 대한 이벤트를 가져올 수 없습니다."
 
 msgid "Unable to get flavor list"
 msgstr "Flavor 목록을 검색할 수 없습니다."
+
+#, python-format
+msgid "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
+msgstr "Pool %(pool)s에 대한 상태 모니터 %(monitor_id)s를 가져올 수 없습니다."
 
 msgid "Unable to get host aggregate list"
 msgstr "호스트 집합 목록을 가져올 수 없습니다."
@@ -10154,7 +10282,7 @@ msgid "Unable to retrieve firewall list."
 msgstr "방화벽 목록을 찾지 못 했습니다."
 
 msgid "Unable to retrieve flavor access list. Please try again later."
-msgstr "Flavor 접근 권한 목록을 찾지 못했습니다. 잠시 후 다시 시도해주세요."
+msgstr "Flavor 접근 권한 목록을 찾지 못했습니다. 잠시 후 다시 시도해 주세요."
 
 msgid "Unable to retrieve flavor details."
 msgstr "Flavor 세부 정보를 찾지 못했습니다."
@@ -10376,6 +10504,9 @@ msgstr "포트 세부 정보를 찾지 못 했습니다."
 
 msgid "Unable to retrieve port details."
 msgstr "포트에 대한 세부 정보를 찾지 못 했습니다."
+
+msgid "Unable to retrieve ports information."
+msgstr "포트 정보를 가져올 수 없습니다."
 
 msgid "Unable to retrieve project details."
 msgstr "프로젝트 세부 정보를 찾지 못 했습니다."
@@ -10901,6 +11032,9 @@ msgstr "업데이트"
 msgid "Updated subnet \"%s\"."
 msgstr "서브넷 \"%s\" 업데이트."
 
+msgid "Updated time"
+msgstr "업데이트된 시각"
+
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "Updating Password"
@@ -10993,6 +11127,11 @@ msgid ""
 msgstr ""
 "스택 미리보기에서 사용되는 템플릿은 지정가능한 템플릿 소스중 하나를 사용합니"
 "다."
+
+msgid ""
+"Use one of these load balancing methods to distribute incoming requests:"
+msgstr ""
+"유입되는 요청을 분산하기 위해 다음 로드 밸런싱 방법들 중 하나를 사용합니다:"
 
 msgid "Use snapshot as a source"
 msgstr "소스로 스냅샷 사용"
@@ -11372,6 +11511,9 @@ msgstr "볼륨 크기는 0 이상이어야 합니다."
 msgid "Volume source must be specified"
 msgstr "볼륨 소스를 선택해야 합니다."
 
+msgid "Volume type name can not be empty."
+msgstr "볼륨 유형 이름은 빈 상태로 둘 수 없습니다."
+
 msgid "Volumes"
 msgstr "볼륨"
 
@@ -11518,7 +11660,7 @@ msgid "You may also add any custom tag."
 msgstr "사용자 정의 태그를 추가할 수 있습니다."
 
 msgid "You may also enter an optional description for your Data Source."
-msgstr "데이터 소스에대한 옵션 설명을 입력할 수 있습니다."
+msgstr "데이터 소스에 대한 옵션 설명을 입력할 수 있습니다."
 
 msgid "You may also enter an optional description for your job binary."
 msgstr "Job 바이너리에 대한 옵션 설명을 입력할 수 있습니다."

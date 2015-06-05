@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-02 01:19-0500\n"
+"POT-Creation-Date: 2015-06-05 01:18-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,7 +53,7 @@ msgid "%s bytes"
 msgstr ""
 
 #: static/framework/util/filters/filters.js:163
-#: static/horizon/js/horizon.tables.js:398
+#: static/horizon/js/horizon.tables.js:421
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
@@ -311,14 +311,15 @@ msgid "Status: %s"
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:47
-msgid "Unable to retrieve volumes."
+msgid "Unable to retrieve the volumes."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.cinder.js:74
-msgid "Unable to retrieve volume snapshots."
+msgid "Unable to retrieve the volume snapshots."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.config.js:52
+#: static/horizon/js/angular/services/hz.api.config.spec.js:76
 msgid "Unable to retrieve settings."
 msgstr ""
 
@@ -327,19 +328,19 @@ msgid "Setting is not enabled: %(setting)s"
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.glance.js:38
-msgid "Unable to retrieve image."
+msgid "Unable to retrieve the image."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.glance.js:81
-msgid "Unable to retrieve images."
+msgid "Unable to retrieve the images."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.glance.js:144
-msgid "Unable to retrieve namespaces."
+msgid "Unable to retrieve the namespaces."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:24
-msgid "Unable to retrieve users"
+msgid "Unable to retrieve users."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:31
@@ -355,7 +356,7 @@ msgid "Unable to retrieve the current user session."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:80
-msgid "Unable to retrieve the user"
+msgid "Unable to retrieve the user."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:88
@@ -367,7 +368,7 @@ msgid "Unable to delete the user."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:103
-msgid "Unable to retrieve role"
+msgid "Unable to retrieve the roles."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:110
@@ -379,7 +380,7 @@ msgid "Unable to delete the roles."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:124
-msgid "Unable to retrieve the role"
+msgid "Unable to retrieve the role."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:132
@@ -391,7 +392,7 @@ msgid "Unable to delete the role."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:147
-msgid "Unable to retrieve domains"
+msgid "Unable to retrieve the domains."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:154
@@ -403,7 +404,7 @@ msgid "Unable to delete the domains."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:168
-msgid "Unable to retrieve the domain"
+msgid "Unable to retrieve the domain."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:176
@@ -415,7 +416,7 @@ msgid "Unable to delete the domain."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:192
-msgid "Unable to retrieve projects"
+msgid "Unable to retrieve the projects."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:199
@@ -427,7 +428,7 @@ msgid "Unable to delete the projects."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:213
-msgid "Unable to retrieve the project"
+msgid "Unable to retrieve the project."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.keystone.js:221
@@ -455,7 +456,7 @@ msgid "Cannot get service catalog from keystone."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:39
-msgid "Unable to retrieve networks."
+msgid "Unable to retrieve the networks."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:88
@@ -463,7 +464,7 @@ msgid "Unable to create the network."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:108
-msgid "Unable to retrieve subnets."
+msgid "Unable to retrieve the subnets."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:172
@@ -471,11 +472,11 @@ msgid "Unable to create the subnet."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.neutron.js:192
-msgid "Unable to retrieve ports."
+msgid "Unable to retrieve the ports."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.nova.js:39
-msgid "Unable to retrieve keypairs."
+msgid "Unable to retrieve the keypairs."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.nova.js:61
@@ -487,11 +488,11 @@ msgid "Unable to create the keypair."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.nova.js:82
-msgid "Unable to retrieve availability zones."
+msgid "Unable to retrieve the availability zones."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.nova.js:120
-msgid "Unable to retrieve limits."
+msgid "Unable to retrieve the limits."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.nova.js:147
@@ -499,23 +500,23 @@ msgid "Unable to create the server."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.nova.js:161
-msgid "Unable to retrieve server."
+msgid "Unable to retrieve the server."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.nova.js:191
-msgid "Unable to retrieve extensions."
+msgid "Unable to retrieve the extensions."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.nova.js:236
-msgid "Unable to retrieve flavors."
+msgid "Unable to retrieve the flavors."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.nova.js:254
-msgid "Unable to retrieve flavor."
+msgid "Unable to retrieve the flavor."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.nova.js:268
-msgid "Unable to retrieve flavor extra specs."
+msgid "Unable to retrieve the flavor extra specs."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.nova.js:310
@@ -523,7 +524,7 @@ msgid "Extension is not enabled: %(extension)s"
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.nova.js:317
-msgid "Cannot get nova extension list."
+msgid "Cannot get Nova extension list."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.policy.js:65
@@ -531,7 +532,7 @@ msgid "Policy check failed."
 msgstr ""
 
 #: static/horizon/js/angular/services/hz.api.security-group.js:64
-msgid "Unable to retrieve security groups."
+msgid "Unable to retrieve the security groups."
 msgstr ""
 
 #: static/horizon/js/horizon.accordion_nav.js:80
@@ -595,7 +596,7 @@ msgid "Error: "
 msgstr ""
 
 #: static/horizon/js/horizon.modals.js:229
-#: static/horizon/js/horizon.tables.js:223
+#: static/horizon/js/horizon.tables.js:246
 msgid "Working"
 msgstr ""
 
@@ -656,27 +657,27 @@ msgstr ""
 msgid "View Instance Details"
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:41
-#: static/horizon/js/horizon.tables.js:411
+#: static/horizon/js/horizon.tables.js:46
+#: static/horizon/js/horizon.tables.js:434
 msgid "No items to display."
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:54
-#: static/horizon/js/horizon.tables.js:125
+#: static/horizon/js/horizon.tables.js:59
+#: static/horizon/js/horizon.tables.js:130
 msgid "An error occurred while updating."
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:206
+#: static/horizon/js/horizon.tables.js:229
 #, c-format
 msgid "You have selected %s. "
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:208
+#: static/horizon/js/horizon.tables.js:231
 #, c-format
 msgid "Confirm %s"
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:209
+#: static/horizon/js/horizon.tables.js:232
 msgid "Please confirm your selection. "
 msgstr ""
 

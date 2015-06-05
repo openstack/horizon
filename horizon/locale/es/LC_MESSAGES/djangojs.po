@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Adriana Chisco Landazábal <achisco94@gmail.com>, 2015
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2015
 # cametiope <aldohcasa@hotmail.com>, 2014
 # Marian Tort <marian.tort@gmail.com>, 2015
@@ -11,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-02 01:03+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-06-04 21:20-0500\n"
+"PO-Revision-Date: 2015-06-04 20:54+0000\n"
+"Last-Translator: Adriana Chisco Landazábal <achisco94@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/"
 "es/)\n"
 "MIME-Version: 1.0\n"
@@ -72,8 +73,8 @@ msgstr "Anterior"
 msgid "Cancel"
 msgstr "Cancelar "
 
-msgid "Cannot get nova extension list."
-msgstr "No se puede obtener la lista de extensiones de nova."
+msgid "Cannot get Nova extension list."
+msgstr "No se puede obtener la lista de extensiones de Nova."
 
 msgid "Cannot get service catalog from keystone."
 msgstr "No se puede obtener el catálogo de servicios desde keystone."
@@ -105,6 +106,9 @@ msgstr "No se ha podido descifrar la contraseña"
 
 msgid "Could not read the file"
 msgstr "No se ha podido leer el fichero"
+
+msgid "Current Usage"
+msgstr "Uso actual"
 
 msgid "Custom"
 msgstr "Personalizar"
@@ -250,8 +254,14 @@ msgstr "Confirme su selección."
 msgid "Policy check failed."
 msgstr "Ha fallado la comprobación de política."
 
+msgid "Prompt"
+msgstr "Inmediato"
+
 msgid "Re-order items using drag and drop"
 msgstr "Reordene los ítems arrastrando y soltando."
+
+msgid "Remaining"
+msgstr "Restante "
 
 msgid "Remove"
 msgstr "Eliminar"
@@ -316,6 +326,9 @@ msgstr ""
 
 msgid "There was an error submitting the form. Please try again."
 msgstr "Ha ocurrido un error al enviar el formulario. Inténtelo de nuevo."
+
+msgid "Total"
+msgstr "Total"
 
 msgid "Unable to create the domain."
 msgstr "No ha sido posible crear el dominio."
@@ -386,86 +399,87 @@ msgstr "No ha sido posible asignar el rol."
 msgid "Unable to import the keypair."
 msgstr "No ha sido posible importar el par de claves."
 
-msgid "Unable to retrieve availability zones."
-msgstr "No ha sido posible obtener las zonas de disponibilidad."
-
-msgid "Unable to retrieve domains"
-msgstr "No ha sido posible obtener los dominios"
-
-msgid "Unable to retrieve extensions."
-msgstr "No ha sido posible obtener las extensiones."
-
-msgid "Unable to retrieve flavor extra specs."
-msgstr "No ha sido posible obtener las especificaciones extra del sabor."
-
-msgid "Unable to retrieve flavor."
-msgstr "No ha sido posible obtener el sabor."
-
-msgid "Unable to retrieve flavors."
-msgstr "No ha sido posible obtener los sabores."
-
-msgid "Unable to retrieve image."
-msgstr "No ha sido posible obtener la imagen."
-
-msgid "Unable to retrieve images."
-msgstr "No ha sido posible obtener las imágenes."
-
-msgid "Unable to retrieve keypairs."
-msgstr "No ha sido posible obtener los pares de claves."
-
-msgid "Unable to retrieve limits."
-msgstr "No ha sido posible obtener los límites."
-
-msgid "Unable to retrieve namespaces."
-msgstr "No ha sido posible obtener los espacios de nombres."
-
-msgid "Unable to retrieve networks."
-msgstr "No ha sido posible obtener las redes."
-
-msgid "Unable to retrieve ports."
-msgstr "No ha sido posible obtener los puertos."
-
-msgid "Unable to retrieve projects"
-msgstr "No ha sido posible obtener los proyectos"
-
-msgid "Unable to retrieve role"
-msgstr "No ha sido posible obtener el rol"
-
-msgid "Unable to retrieve security groups."
-msgstr "No ha sido posible obtener los grupos de seguridad."
-
-msgid "Unable to retrieve server."
-msgstr "No ha sido posible obtener el servidor."
-
 msgid "Unable to retrieve settings."
 msgstr "No ha sido posible obtener los ajustes."
 
-msgid "Unable to retrieve subnets."
-msgstr "No ha sido posible obtener las subredes."
+msgid "Unable to retrieve the availability zones."
+msgstr "No ha sido posible recuperar las zonas de disponibilidad."
 
 msgid "Unable to retrieve the current user session."
 msgstr "No ha sido posible obtener la sesión de usuario actual."
 
-msgid "Unable to retrieve the domain"
-msgstr "No ha sido posible obtener el dominio"
+msgid "Unable to retrieve the domain."
+msgstr "No ha sido posible recuperar el dominio."
 
-msgid "Unable to retrieve the project"
-msgstr "No ha sido posible obtener el proyecto"
+msgid "Unable to retrieve the domains."
+msgstr "No ha sido posible recuperar los dominios."
 
-msgid "Unable to retrieve the role"
-msgstr "No ha sido posible obtener el rol"
+msgid "Unable to retrieve the extensions."
+msgstr "No ha sido posible recuperar las extensiones."
 
-msgid "Unable to retrieve the user"
-msgstr "No ha sido posible obtener el usuario"
+msgid "Unable to retrieve the flavor extra specs."
+msgstr ""
+"No ha sido posible recuperar las especificaciones adicionales del flavor."
 
-msgid "Unable to retrieve users"
-msgstr "No ha sido posible obtener los usuarios"
+msgid "Unable to retrieve the flavor."
+msgstr "No ha sido posible recuperar el flavor."
 
-msgid "Unable to retrieve volume snapshots."
-msgstr "No ha sido posible obtener las snapshots de volúmenes."
+msgid "Unable to retrieve the flavors."
+msgstr "No ha sido posible recuperar los flavors."
 
-msgid "Unable to retrieve volumes."
-msgstr "No ha sido posible obtener volúmenes."
+msgid "Unable to retrieve the image."
+msgstr "No ha sido posible restablecer la imagen."
+
+msgid "Unable to retrieve the images."
+msgstr "No ha sido posible restablecer las imágenes."
+
+msgid "Unable to retrieve the keypairs."
+msgstr "No ha sido posible recuperar las claves."
+
+msgid "Unable to retrieve the limits."
+msgstr "No ha sido posible restablecer los límites."
+
+msgid "Unable to retrieve the namespaces."
+msgstr "No ha sido posible recuperar el espacio de nombres."
+
+msgid "Unable to retrieve the networks."
+msgstr "No ha sido posible recuperar las redes."
+
+msgid "Unable to retrieve the ports."
+msgstr "No ha sido posible recuperar los puertos."
+
+msgid "Unable to retrieve the project."
+msgstr "No ha sido posible recuperar el proyecto."
+
+msgid "Unable to retrieve the projects."
+msgstr "No ha sido posible recuperar los proyectos."
+
+msgid "Unable to retrieve the role."
+msgstr "No ha sido posible recuperar el rol."
+
+msgid "Unable to retrieve the roles."
+msgstr "No ha sido posible recuperar los roles."
+
+msgid "Unable to retrieve the security groups."
+msgstr "No ha sido posible recuperar los grupos de seguridad."
+
+msgid "Unable to retrieve the server."
+msgstr "No ha sido posible recuperar el servidor."
+
+msgid "Unable to retrieve the subnets."
+msgstr "No ha sido posible restablecer las subredes."
+
+msgid "Unable to retrieve the user."
+msgstr "No ha sido posible recuperar el usuario."
+
+msgid "Unable to retrieve the volume snapshots."
+msgstr "No ha sido posible recuperar las instantáneas de volumen."
+
+msgid "Unable to retrieve the volumes."
+msgstr "No ha sido posible restablecer los volúmenes."
+
+msgid "Unable to retrieve users."
+msgstr "No ha sido posible obtener los usuarios."
 
 msgid "View Details"
 msgstr "Ver detalles"
@@ -502,3 +516,9 @@ msgstr ""
 #, c-format
 msgid "You have selected %s. "
 msgstr "Ha seleccionado %s."
+
+msgid "m1.small"
+msgstr "m1.small"
+
+msgid "m1.tiny"
+msgstr "m1.tiny"

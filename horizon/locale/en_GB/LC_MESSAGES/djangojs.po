@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-02 01:03+0000\n"
+"POT-Creation-Date: 2015-06-04 21:20-0500\n"
+"PO-Revision-Date: 2015-06-04 15:51+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/"
 "horizon/language/en_GB/)\n"
@@ -69,9 +69,6 @@ msgstr "Back"
 
 msgid "Cancel"
 msgstr "Cancel"
-
-msgid "Cannot get nova extension list."
-msgstr "Cannot get nova extension list."
 
 msgid "Cannot get service catalog from keystone."
 msgstr "Cannot get service catalogue from keystone."
@@ -388,86 +385,14 @@ msgstr "Unable to grant the role."
 msgid "Unable to import the keypair."
 msgstr "Unable to import the keypair."
 
-msgid "Unable to retrieve availability zones."
-msgstr "Unable to retrieve availability zones."
-
-msgid "Unable to retrieve domains"
-msgstr "Unable to retrieve domains"
-
-msgid "Unable to retrieve extensions."
-msgstr "Unable to retrieve extensions."
-
-msgid "Unable to retrieve flavor extra specs."
-msgstr "Unable to retrieve flavour extra specs."
-
-msgid "Unable to retrieve flavor."
-msgstr "Unable to retrieve flavour."
-
-msgid "Unable to retrieve flavors."
-msgstr "Unable to retrieve flavours."
-
-msgid "Unable to retrieve image."
-msgstr "Unable to retrieve image."
-
-msgid "Unable to retrieve images."
-msgstr "Unable to retrieve images."
-
-msgid "Unable to retrieve keypairs."
-msgstr "Unable to retrieve keypairs."
-
-msgid "Unable to retrieve limits."
-msgstr "Unable to retrieve limits."
-
-msgid "Unable to retrieve namespaces."
-msgstr "Unable to retrieve namespaces."
-
-msgid "Unable to retrieve networks."
-msgstr "Unable to retrieve networks."
-
-msgid "Unable to retrieve ports."
-msgstr "Unable to retrieve ports."
-
-msgid "Unable to retrieve projects"
-msgstr "Unable to retrieve projects"
-
-msgid "Unable to retrieve role"
-msgstr "Unable to retrieve role"
-
-msgid "Unable to retrieve security groups."
-msgstr "Unable to retrieve security groups."
-
-msgid "Unable to retrieve server."
-msgstr "Unable to retrieve server."
-
 msgid "Unable to retrieve settings."
 msgstr "Unable to retrieve settings."
-
-msgid "Unable to retrieve subnets."
-msgstr "Unable to retrieve subnets."
 
 msgid "Unable to retrieve the current user session."
 msgstr "Unable to retrieve the current user session."
 
-msgid "Unable to retrieve the domain"
-msgstr "Unable to retrieve the domain"
-
-msgid "Unable to retrieve the project"
-msgstr "Unable to retrieve the project"
-
-msgid "Unable to retrieve the role"
-msgstr "Unable to retrieve the role"
-
-msgid "Unable to retrieve the user"
-msgstr "Unable to retrieve the user"
-
-msgid "Unable to retrieve users"
-msgstr "Unable to retrieve users"
-
-msgid "Unable to retrieve volume snapshots."
-msgstr "Unable to retrieve volume snapshots."
-
-msgid "Unable to retrieve volumes."
-msgstr "Unable to retrieve volumes."
+msgid "Unable to retrieve users."
+msgstr "Unable to retrieve users."
 
 msgid "View Details"
 msgstr "View Details"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-02 01:03+0000\n"
+"POT-Creation-Date: 2015-06-04 21:20-0500\n"
+"PO-Revision-Date: 2015-06-04 15:51+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/"
 "cs/)\n"
@@ -187,29 +187,8 @@ msgstr "Při komunikaci se serverem nastal problém, zkuste to znovu."
 msgid "There was an error submitting the form. Please try again."
 msgstr "Při odesílání formuláře nastal problém. Zkuste to prosím znovu."
 
-msgid "Unable to retrieve availability zones."
-msgstr "Nelze získat zóny dostupnosti."
-
-msgid "Unable to retrieve flavors."
-msgstr "Nelze získat konfigurace."
-
-msgid "Unable to retrieve image."
-msgstr "Nelze získat obraz."
-
-msgid "Unable to retrieve images."
-msgstr "Nelze získat obrazy."
-
-msgid "Unable to retrieve keypairs."
-msgstr "Nelze získat pár klíčů."
-
-msgid "Unable to retrieve networks."
-msgstr "Nelze získat sítě."
-
-msgid "Unable to retrieve security groups."
-msgstr "Nelze získat bezpečnostní skupiny."
-
-msgid "Unable to retrieve volume snapshots."
-msgstr "Nelze získat svazky snímků."
+msgid "Unable to retrieve users."
+msgstr "Nelze získat uživatele."
 
 msgid "View Details"
 msgstr "Zobrazit podrobnosti"

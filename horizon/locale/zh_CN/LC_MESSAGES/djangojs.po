@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-02 01:03+0000\n"
+"POT-Creation-Date: 2015-06-04 21:20-0500\n"
+"PO-Revision-Date: 2015-06-04 15:51+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/"
 "language/zh_CN/)\n"
@@ -73,9 +73,6 @@ msgstr "返回"
 
 msgid "Cancel"
 msgstr "取消"
-
-msgid "Cannot get nova extension list."
-msgstr "无法查询nova扩展列表"
 
 msgid "Cannot get service catalog from keystone."
 msgstr "无法由keystone获取服务目录。"
@@ -389,86 +386,14 @@ msgstr "无法授予角色"
 msgid "Unable to import the keypair."
 msgstr "无法导入密钥对"
 
-msgid "Unable to retrieve availability zones."
-msgstr "无法获取可用域。"
-
-msgid "Unable to retrieve domains"
-msgstr "无法获取域"
-
-msgid "Unable to retrieve extensions."
-msgstr "无法获取扩展"
-
-msgid "Unable to retrieve flavor extra specs."
-msgstr "无法获取云主机类型特别设定"
-
-msgid "Unable to retrieve flavor."
-msgstr "无法获取云主机类型"
-
-msgid "Unable to retrieve flavors."
-msgstr "无法获取云主机类型列表。"
-
-msgid "Unable to retrieve image."
-msgstr "无法检索到镜像。"
-
-msgid "Unable to retrieve images."
-msgstr "找不到镜像。"
-
-msgid "Unable to retrieve keypairs."
-msgstr "无法获取密钥对"
-
-msgid "Unable to retrieve limits."
-msgstr "无法获取界限"
-
-msgid "Unable to retrieve namespaces."
-msgstr "无法获取命名空间"
-
-msgid "Unable to retrieve networks."
-msgstr "无法获取网络"
-
-msgid "Unable to retrieve ports."
-msgstr "无法获取端口"
-
-msgid "Unable to retrieve projects"
-msgstr "无法获取项目"
-
-msgid "Unable to retrieve role"
-msgstr "无法获取角色"
-
-msgid "Unable to retrieve security groups."
-msgstr "无法获取安全组。"
-
-msgid "Unable to retrieve server."
-msgstr "无法获取服务器"
-
 msgid "Unable to retrieve settings."
 msgstr "无法获取配置"
-
-msgid "Unable to retrieve subnets."
-msgstr "无法获取子网"
 
 msgid "Unable to retrieve the current user session."
 msgstr "无法获取当前用户会话。"
 
-msgid "Unable to retrieve the domain"
-msgstr "无法获取域"
-
-msgid "Unable to retrieve the project"
-msgstr "无法获取项目"
-
-msgid "Unable to retrieve the role"
-msgstr "无法获取角色"
-
-msgid "Unable to retrieve the user"
-msgstr "无法获取用户"
-
-msgid "Unable to retrieve users"
-msgstr "无法获取用户"
-
-msgid "Unable to retrieve volume snapshots."
-msgstr "找不到云硬盘快照。"
-
-msgid "Unable to retrieve volumes."
-msgstr "无法获取云硬盘"
+msgid "Unable to retrieve users."
+msgstr "无法获取用户。"
 
 msgid "View Details"
 msgstr "查看详情"

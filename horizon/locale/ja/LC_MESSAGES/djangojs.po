@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-02 01:03+0000\n"
+"POT-Creation-Date: 2015-06-04 21:20-0500\n"
+"PO-Revision-Date: 2015-06-04 15:51+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/"
 "language/ja/)\n"
@@ -70,9 +70,6 @@ msgstr "戻る"
 
 msgid "Cancel"
 msgstr "取り消し"
-
-msgid "Cannot get nova extension list."
-msgstr "nova の拡張機能一覧を取得できません。"
 
 msgid "Cannot get service catalog from keystone."
 msgstr "keystone からサービスカタログを取得できません。"
@@ -390,86 +387,14 @@ msgstr "ロールを許可できません。"
 msgid "Unable to import the keypair."
 msgstr "キーペアをインポートできません。"
 
-msgid "Unable to retrieve availability zones."
-msgstr "アベイラビリティーゾーンを取得できません。"
-
-msgid "Unable to retrieve domains"
-msgstr "ドメイン一覧を取得できません。"
-
-msgid "Unable to retrieve extensions."
-msgstr "拡張機能を取得できません。"
-
-msgid "Unable to retrieve flavor extra specs."
-msgstr "フレーバーの追加スペックを取得できません。"
-
-msgid "Unable to retrieve flavor."
-msgstr "フレーバーを取得できません。"
-
-msgid "Unable to retrieve flavors."
-msgstr "フレーバーの一覧を取得できません。"
-
-msgid "Unable to retrieve image."
-msgstr "イメージ情報を取得できません。"
-
-msgid "Unable to retrieve images."
-msgstr "イメージ一覧を取得できません。"
-
-msgid "Unable to retrieve keypairs."
-msgstr "キーペアの一覧を取得できません。"
-
-msgid "Unable to retrieve limits."
-msgstr "上限を取得できません。"
-
-msgid "Unable to retrieve namespaces."
-msgstr "名前空間を取得できません。"
-
-msgid "Unable to retrieve networks."
-msgstr "ネットワーク一覧を取得できません。"
-
-msgid "Unable to retrieve ports."
-msgstr "ポートを取得できません。"
-
-msgid "Unable to retrieve projects"
-msgstr "プロジェクト一覧を取得できません。"
-
-msgid "Unable to retrieve role"
-msgstr "ロールを取得できません。"
-
-msgid "Unable to retrieve security groups."
-msgstr "セキュリティーグループの一覧を取得できません。"
-
-msgid "Unable to retrieve server."
-msgstr "サーバーを取得できません。"
-
 msgid "Unable to retrieve settings."
 msgstr "設定を取得できません。"
-
-msgid "Unable to retrieve subnets."
-msgstr "サブネットを取得できません。"
 
 msgid "Unable to retrieve the current user session."
 msgstr "現在のユーザーセッションを取得できません。"
 
-msgid "Unable to retrieve the domain"
-msgstr "ドメインを取得できません。"
-
-msgid "Unable to retrieve the project"
-msgstr "プロジェクトを取得できません。"
-
-msgid "Unable to retrieve the role"
-msgstr "ロールを取得できません。"
-
-msgid "Unable to retrieve the user"
-msgstr "ユーザーを取得できません。"
-
-msgid "Unable to retrieve users"
+msgid "Unable to retrieve users."
 msgstr "ユーザー一覧を取得できません。"
-
-msgid "Unable to retrieve volume snapshots."
-msgstr "ボリュームスナップショットの一覧を取得できません。"
-
-msgid "Unable to retrieve volumes."
-msgstr "ボリューム情報を取得できません。"
 
 msgid "View Details"
 msgstr "詳細の表示"

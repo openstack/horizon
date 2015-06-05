@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-02 01:03+0000\n"
+"POT-Creation-Date: 2015-06-04 21:20-0500\n"
+"PO-Revision-Date: 2015-06-04 15:51+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
 "horizon/language/pt_BR/)\n"
@@ -72,9 +72,6 @@ msgstr "Voltar"
 
 msgid "Cancel"
 msgstr "Cancelar"
-
-msgid "Cannot get nova extension list."
-msgstr "Não é possível obter lista de extensão do nova."
 
 msgid "Cannot get service catalog from keystone."
 msgstr "Não é possível obter o catálogo de serviços a partir do keystone."
@@ -392,86 +389,14 @@ msgstr "Não foi possível permitir o papel."
 msgid "Unable to import the keypair."
 msgstr "Não é possível importar o par de chaves."
 
-msgid "Unable to retrieve availability zones."
-msgstr "Não é possível recuperar todas zonas de disponibilidade."
-
-msgid "Unable to retrieve domains"
-msgstr "Não foi possível obter os domínios"
-
-msgid "Unable to retrieve extensions."
-msgstr "Não é possível recuperar extensões."
-
-msgid "Unable to retrieve flavor extra specs."
-msgstr "Não é possível recuperar especificações extras do flavor."
-
-msgid "Unable to retrieve flavor."
-msgstr "Não é possível recuperar flavor."
-
-msgid "Unable to retrieve flavors."
-msgstr "Não foi possível recuperar flavors."
-
-msgid "Unable to retrieve image."
-msgstr "Não foi possível recuperar a imagem."
-
-msgid "Unable to retrieve images."
-msgstr "Não foi possível obter as imagems"
-
-msgid "Unable to retrieve keypairs."
-msgstr "Não é possível recuperar pares de chaves."
-
-msgid "Unable to retrieve limits."
-msgstr "Não foi possível obter informações de limite."
-
-msgid "Unable to retrieve namespaces."
-msgstr "Não é possível recuperar namespaces."
-
-msgid "Unable to retrieve networks."
-msgstr "Não é possível recuperar redes."
-
-msgid "Unable to retrieve ports."
-msgstr "Não foi possível obter lista de portas."
-
-msgid "Unable to retrieve projects"
-msgstr "Não foi possível obter os projetos"
-
-msgid "Unable to retrieve role"
-msgstr "Não foi possível obter o papel"
-
-msgid "Unable to retrieve security groups."
-msgstr "Não é possível recuperar grupos de segurança"
-
-msgid "Unable to retrieve server."
-msgstr "Não é possível recuperar servidor."
-
 msgid "Unable to retrieve settings."
 msgstr "Não é possível recuperar as configurações."
-
-msgid "Unable to retrieve subnets."
-msgstr "Não é possível recuperar a subredes."
 
 msgid "Unable to retrieve the current user session."
 msgstr "Não é possível recuperar a sessão atual do usuário."
 
-msgid "Unable to retrieve the domain"
-msgstr "Não foi possível obter o domínio"
-
-msgid "Unable to retrieve the project"
-msgstr "Não foi possível obter o projeto"
-
-msgid "Unable to retrieve the role"
-msgstr "Não foi possível obter o papel"
-
-msgid "Unable to retrieve the user"
-msgstr "Não foi possível obter o usuário"
-
-msgid "Unable to retrieve users"
-msgstr "Não foi possível obter os usuários"
-
-msgid "Unable to retrieve volume snapshots."
-msgstr "Não é possível recuperar snapshots de volume."
-
-msgid "Unable to retrieve volumes."
-msgstr "Não foi possível obter a lista de volumes."
+msgid "Unable to retrieve users."
+msgstr "Não foi possível obter os usuários."
 
 msgid "View Details"
 msgstr "Ver Detalhes"
