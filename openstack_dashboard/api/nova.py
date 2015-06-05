@@ -160,7 +160,7 @@ class NovaUsage(base.APIResourceWrapper):
     def get_summary(self):
         return {'instances': self.total_active_instances,
                 'memory_mb': self.memory_mb,
-                'vcpus': getattr(self, "total_vcpus_usage", 0),
+                'vcpus': self.vcpus,
                 'vcpu_hours': self.vcpu_hours,
                 'local_gb': self.local_gb,
                 'disk_gb_hours': self.disk_gb_hours,
@@ -177,7 +177,7 @@ class NovaUsage(base.APIResourceWrapper):
 
     @property
     def vcpu_hours(self):
-        return getattr(self, "total_hours", 0)
+        return getattr(self, "total_vcpus_usage", 0)
 
     @property
     def local_gb(self):
