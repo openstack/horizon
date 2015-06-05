@@ -52,6 +52,8 @@ module.exports = function(config){
       'horizon/js/angular/hz.api.module.js',
       'dashboard-app/dashboard-app.module.js',
       'dashboard-app/**/*.js',
+      'auth/auth.module.js',
+      'auth/login/login.module.js',
       'framework/framework.module.js',
       'framework/util/util.module.js',
       'framework/util/tech-debt/tech-debt.module.js',
@@ -60,6 +62,7 @@ module.exports = function(config){
       'framework/widgets/table/table.js',
 
       // Catch-all for stuff that isn't required explicitly by others.
+      'auth/**/!(*spec).js',
       'framework/**/!(*spec).js',
 
       // Templates.

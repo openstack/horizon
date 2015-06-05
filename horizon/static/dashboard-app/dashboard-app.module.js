@@ -4,7 +4,7 @@
 
   angular.module('horizon.dashboard-app', [
     'horizon.framework',
-    'horizon.dashboard-app.login',
+    'horizon.auth',
     'hz.api',
     'ngCookies'].concat(angularModuleExtension))
 

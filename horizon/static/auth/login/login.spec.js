@@ -20,7 +20,7 @@
   describe('hzLoginCtrl', function(){
 
     var $controller;
-    beforeEach(module('horizon.dashboard-app.login'));
+    beforeEach(module('horizon.auth.login'));
     beforeEach(inject(function(_$controller_){
       $controller = _$controller_;
     }));
@@ -63,7 +63,7 @@
       '</fieldset>' +
     '</form>';
 
-    beforeEach(module('horizon.dashboard-app.login'));
+    beforeEach(module('horizon.auth.login'));
     beforeEach(inject(function(_$compile_, _$rootScope_, _$timeout_){
       $compile = _$compile_;
       $rootScope = _$rootScope_;

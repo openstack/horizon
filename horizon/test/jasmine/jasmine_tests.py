@@ -29,8 +29,12 @@ class ServicesTests(test.JasmineTests):
         'horizon/js/angular/services/hz.api.policy.js',
         'horizon/js/angular/services/hz.api.security-group.js',
 
+        'auth/auth.module.js',
+        'auth/login/login.module.js',
+        'auth/login/login.controller.js',
+        'auth/login/login-finder.directive.js',
+
         'dashboard-app/dashboard-app.module.js',
-        'dashboard-app/login/login.js',
 
         'framework/framework.module.js',
 
@@ -80,8 +84,7 @@ class ServicesTests(test.JasmineTests):
         'horizon/js/angular/services/hz.api.policy.spec.js',
         'horizon/js/angular/services/hz.api.security-group.spec.js',
 
-        'dashboard-app/login/login.spec.js',
-        'dashboard-app/utils/helper-functions.spec.js',
+        'auth/login/login.spec.js',
 
         'framework/util/bind-scope/bind-scope.spec.js',
         'framework/util/filters/filters.spec.js',
