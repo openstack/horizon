@@ -592,7 +592,9 @@ horizon.addInitFunction(horizon.datatables.init = function() {
   horizon.modals.addModalInitFunction(horizon.datatables.set_table_query_filter);
   horizon.modals.addModalInitFunction(horizon.datatables.set_table_fixed_filter);
   horizon.modals.addModalInitFunction(horizon.datatables.initialize_table_tooltips);
-  horizon.modals.addModalInitFunction(horizon.datatables.disable_actions_on_submit);
+  horizon.modals.addModalInitFunction(function modalInitActionDisable(modal) {
+    horizon.datatables.disable_actions_on_submit($(modal).find(".table_wrapper > form"));
+  });
 
   // Also apply on tables in tabs views for lazy-loaded data.
   horizon.tabs.addTabLoadFunction(horizon.datatables.add_table_checkboxes);
