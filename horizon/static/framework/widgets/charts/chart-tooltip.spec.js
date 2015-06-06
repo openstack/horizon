@@ -41,7 +41,6 @@
       $element = angular.element(markup);
       $compile($element)($scope);
       $scope.$digest();
-
     }));
 
     it('compiles', function () {
@@ -77,7 +76,6 @@
     it('has the correct icon', function () {
       var iconSpan = $element.find('span.fa');
       expect(iconSpan.hasClass('fa-square')).toBe(true);
-
     });
 
     it('has the correct icon color', function () {
@@ -89,7 +87,5 @@
         expect(styleColor).toBe('#333333');
       }
     });
-
   });
-
 })();
