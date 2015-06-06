@@ -13,52 +13,46 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-(function() {
+(function () {
   'use strict';
 
-  describe('horizon.framework.util.i18n', function() {
-
+  describe('horizon.framework.util.i18n', function () {
     beforeEach(module('horizon.framework.util.i18n'));
 
-    describe('gettext', function() {
+    describe('gettext', function () {
       var factory;
 
-      describe('Normal operation', function() {
-
-        beforeEach(inject(function($injector) {
+      describe('Normal operation', function () {
+        beforeEach(inject(function ($injector) {
           factory = $injector.get("horizon.framework.util.i18n.gettext");
         }));
 
-        it('defines the factory', function() {
+        it('defines the factory', function () {
           expect(factory).toBeDefined();
         });
 
-        it('function returns what is given', function() {
+        it('function returns what is given', function () {
           expect(factory("Hello")).toBe('Hello');
         });
       });
 
-      describe("injected window.gettext", function() {
-
-        beforeEach(module(function($provide) {
-          var $window = {gettext: function(x) { return x.replace(/good/, 'bad'); }};
+      describe("injected window.gettext", function () {
+        beforeEach(module(function ($provide) {
+          var $window = { gettext: function (x) { return x.replace(/good/, 'bad'); } };
           $provide.value('$window', $window);
         }));
 
         // Get the factory by name.
-        beforeEach(inject(function($injector) {
+        beforeEach(inject(function ($injector) {
           factory = $injector.get("horizon.framework.util.i18n.gettext");
         }));
 
-        it('uses the window gettext when available', function() {
+        it('uses the window gettext when available', function () {
           // we can't spy on the window gettext due to (appropriate)
           // indirection.  But we can make sure it was called.
           expect(factory("good cop")).toBe("bad cop");
         });
       });
     });
-
   });
-
 })();

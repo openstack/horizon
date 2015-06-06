@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   /**
@@ -41,12 +41,12 @@
    * </tr>
    * ```
    */
-  .directive('bindScope', function() {
+  .directive('bindScope', function () {
     return {
       restrict: 'A',
-      link: function(scope, element, attrs, ctrl, transclude) {
+      link: function (scope, element, attrs, ctrl, transclude) {
         if (transclude) {
-          transclude(scope, function(clone) {
+          transclude(scope, function (clone) {
             var detailElt = element.find('[bind-scope-target]');
             if (detailElt.length) {
               detailElt.append(clone);
@@ -56,5 +56,4 @@
       }
     };
   });
-
 })();

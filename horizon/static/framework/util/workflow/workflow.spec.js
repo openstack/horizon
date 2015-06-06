@@ -8,18 +8,16 @@
   });
 
   describe('workflow factory', function () {
-
-    var workflow,
-        spec,
-        decorators = [
-          function (spec) {
-            angular.forEach(spec.steps, function (step) {
-              if (step.requireSomeServices) {
-                step.checkReadiness = function () {};
-              }
-            });
+    var workflow, spec;
+    var decorators = [
+      function (spec) {
+        angular.forEach(spec.steps, function (step) {
+          if (step.requireSomeServices) {
+            step.checkReadiness = function () {};
           }
-        ];
+        });
+      }
+    ];
 
     beforeEach(module('horizon.framework.util.workflow'));
 
@@ -55,5 +53,4 @@
       expect(angular.isFunction(steps[2].checkReadiness)).toBe(true);
     });
   });
-
 })();

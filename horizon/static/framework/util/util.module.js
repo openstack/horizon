@@ -1,5 +1,5 @@
 (function () {
- 'use strict';
+  'use strict';
 
   angular.module('horizon.framework.util', [
     'horizon.framework.util.bind-scope',
@@ -10,5 +10,4 @@
     'horizon.framework.util.validators'
   ])
     .constant('horizon.framework.util.basePath', '/static/framework/util/');
-
 })();

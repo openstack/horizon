@@ -1,5 +1,5 @@
 (function () {
- 'use strict';
+  'use strict';
 
   angular.module('horizon.framework.widgets', [
     'horizon.framework.widgets.help-panel',
