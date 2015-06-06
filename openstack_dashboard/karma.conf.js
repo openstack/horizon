@@ -1,7 +1,26 @@
-module.exports = function(config){
+var fs = require('fs');
+var path = require('path');
 
-  // Path to xstatic pkg path.
-  var xstaticPath = '../../.venv/lib/python2.7/site-packages/xstatic/pkg/';
+module.exports = function(config){
+  var xstaticPath;
+  var base_paths = [
+    './.venv',
+    './.tox/py27'
+  ]
+
+  for( var i = 0; i < base_paths.length; i++) {
+    var base_path = path.resolve(base_paths[i]);
+
+    if( fs.existsSync(base_path) ) {
+      xstaticPath = base_path + '/lib/python2.7/site-packages/xstatic/pkg/';
+      break;
+    }
+  }
+
+  if( !xstaticPath) {
+    console.error("xStatic libraries not found, please set up venv");
+    process.exit(1);
+  }
 
   config.set({
 

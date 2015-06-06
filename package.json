@@ -17,6 +17,7 @@
     "phantomjs": "1.9.17"
   },
   "scripts": {
+    "postinstall": "if [ ! -d .venv ]; then tox -epy27 --notest; fi",
     "test": "karma start horizon/karma.conf.js --single-run && karma start openstack_dashboard/karma.conf.js --single-run"
   },
   "dependencies": {}
