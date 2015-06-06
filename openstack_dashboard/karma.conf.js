@@ -67,6 +67,7 @@ module.exports = function(config){
       "dashboard/dashboard.module.js",
       "dashboard/workflow/workflow.js",
       "dashboard/launch-instance/launch-instance.js",
+      "dashboard/tech-debt/tech-debt.module.js",
       "dashboard/**/*.js",
 
       // Templates.

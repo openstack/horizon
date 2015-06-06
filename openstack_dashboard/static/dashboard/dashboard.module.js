@@ -1,11 +1,12 @@
 (function () {
- 'use strict';
+  'use strict';
 
-  var module = angular.module('hz.dashboard', [
+  angular.module('hz.dashboard', [
     'hz.dashboard.launch-instance',
+    'hz.dashboard.tech-debt',
     'hz.dashboard.workflow'
-  ]);
+  ])
 
-  module.constant('dashboardBasePath', '/static/dashboard/');
+  .constant('dashboardBasePath', '/static/dashboard/');
 
 })();

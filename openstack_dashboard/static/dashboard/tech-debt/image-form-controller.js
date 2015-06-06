@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('horizon.dashboard-app')
+  angular.module('hz.dashboard.tech-debt')
   .controller('ImageFormCtrl', ['$scope', function ($scope) {
     $scope.selectImageFormat = function (path) {
       if (!path) { return; }
