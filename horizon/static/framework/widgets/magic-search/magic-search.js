@@ -1,7 +1,8 @@
 (function () {
   'use strict';
 
-  angular.module('MagicSearch', [ 'ui.bootstrap' ])
+  angular
+    .module('MagicSearch', [ 'ui.bootstrap' ])
 
   /**
    * @ngdoc directive
@@ -33,10 +34,11 @@
    * to be done in the Magic Search supporting JavaScript for each table.
    *
    * Example:
-   * // Set property 'isServer' on facets that you want to render as server
-   * // facet (server icon, lighter grey color). Note: If the property
-   * // 'isServer' is not set, then facet renders with client icon and darker
-   * // grey color.
+   * Set property 'isServer' on facets that you want to render as server
+   * facet (server icon, lighter grey color). Note: If the property
+   * 'isServer' is not set, then facet renders with client icon and darker
+   * grey color.
+   *
    * scope.$on('checkFacets', function (event, currentSearch) {
    *   angular.forEach(currentSearch, function (facet) {
    *     if (apiVersion < 3) {
@@ -56,121 +58,140 @@
    * <div class="magic-search" magic-overrides>
    * ```
    */
-  .directive('magicOverrides', function () {
-    return {
+  .directive('magicOverrides', magicOverrides);
+
+  function magicOverrides() {
+    var directive =  {
       restrict: 'A',
-      controller: [ '$scope', '$timeout', '$window',
-        function ($scope, $timeout, $window) {
-          // showMenu and hideMenu depend on Foundation's dropdown. They need
-          // to be modified to work with another dropdown implementation.
-          // For Bootstrap, they are not needed at all.
-          $scope.showMenu = function () {
-            $timeout(function () {
-              $scope.isMenuOpen = true;
-            });
-          };
-          $scope.hideMenu = function () {
-            $timeout(function () {
-              $scope.isMenuOpen = false;
-            });
-          };
+      controller: magicOverridesCtrl
+    };
+
+    magicOverridesCtrl.$inject = [
+      '$scope',
+      '$timeout',
+      '$window'
+    ];
+
+    return directive;
+
+    function magicOverridesCtrl($scope, $timeout, $window) {
+      /**
+       * showMenu and hideMenu depend on Foundation's dropdown. They need
+       * to be modified to work with another dropdown implementation.
+       * For Bootstrap, they are not needed at all.
+       */
+      $scope.showMenu = function () {
+        $timeout(function () {
+          $scope.isMenuOpen = true;
+        });
+      };
+      $scope.hideMenu = function () {
+        $timeout(function () {
           $scope.isMenuOpen = false;
+        });
+      };
+      $scope.isMenuOpen = false;
 
-          // Add ability to update facet
-          // Broadcast event when facet options are returned via AJAX.
-          // Should magic_search.js absorb this?
-          $scope.$on('facetsChanged', function () {
-            $timeout(function () {
-              $scope.currentSearch = [];
-              $scope.initSearch();
-            });
+      /**
+       * Add ability to update facet
+       * Broadcast event when facet options are returned via AJAX.
+       * Should magic_search.js absorb this?
+       */
+      $scope.$on('facetsChanged', function () {
+        $timeout(function () {
+          $scope.currentSearch = [];
+          $scope.initSearch();
+        });
+      });
+
+      /**
+       * Override magic_search.js 'initFacets' to fix browser refresh issue
+       * and to emit('checkFacets') to flag facets as 'isServer'
+       */
+      $scope.initFacets = function () {
+        // set facets selected and remove them from 'facetsObj'
+        var initialFacets = $window.location.search;
+        if (initialFacets.indexOf('?') === 0) {
+          initialFacets = initialFacets.slice(1);
+        }
+        initialFacets = initialFacets.split('&');
+        if (initialFacets.length > 1 || initialFacets[0].length > 0) {
+          $timeout(function () {
+            $scope.strings.prompt = '';
           });
+        }
+        angular.forEach(initialFacets, function (facet) {
+          var facetParts = facet.split('=');
+          angular.forEach($scope.facetsObj, function (value) {
+            if (value.name == facetParts[0]) {
+              if (value.options === undefined) {
+                $scope.currentSearch.push({
+                  'name': facet,
+                  'label': [value.label, facetParts[1]]
+                });
 
-          // Override magic_search.js 'initFacets' to fix browser refresh issue
-          // and to emit('checkFacets') to flag facets as 'isServer'
-          $scope.initFacets = function () {
-            // set facets selected and remove them from 'facetsObj'
-            var initialFacets = $window.location.search;
-            if (initialFacets.indexOf('?') === 0) {
-              initialFacets = initialFacets.slice(1);
-            }
-            initialFacets = initialFacets.split('&');
-            if (initialFacets.length > 1 || initialFacets[0].length > 0) {
-              $timeout(function () {
-                $scope.strings.prompt = '';
-              });
-            }
-            angular.forEach(initialFacets, function (facet) {
-              var facetParts = facet.split('=');
-              angular.forEach($scope.facetsObj, function (value) {
-                if (value.name == facetParts[0]) {
-                  if (value.options === undefined) {
+                /**
+                 * for refresh case, need to remove facets that were
+                 * bookmarked/current when browser refresh was clicked
+                 */
+                $scope.deleteFacetEntirely(facetParts);
+
+              } else {
+                angular.forEach(value.options, function (option) {
+                  if (option.key == facetParts[1]) {
                     $scope.currentSearch.push({
                       'name': facet,
-                      'label': [value.label, facetParts[1]]
+                      'label': [value.label, option.label]
                     });
-
-                    // for refresh case, need to remove facets that were bookmarked/
-                    // current when browser refresh was clicked
-                    $scope.deleteFacetEntirely(facetParts);
-
-                  } else {
-                    angular.forEach(value.options, function (option) {
-                      if (option.key == facetParts[1]) {
-                        $scope.currentSearch.push({
-                          'name': facet,
-                          'label': [value.label, option.label]
-                        });
-                        if (value.singleton === true) {
-                          $scope.deleteFacetEntirely(facetParts);
-                        } else {
-                          $scope.deleteFacetSelection(facetParts);
-                        }
-                      }
-                    });
+                    if (value.singleton === true) {
+                      $scope.deleteFacetEntirely(facetParts);
+                    } else {
+                      $scope.deleteFacetSelection(facetParts);
+                    }
                   }
-                }
-              });
-            });
-            if ($scope.textSearch !== undefined) {
-              $scope.currentSearch.push({
-                'name': 'text=' + $scope.textSearch,
-                'label': [$scope.strings.text, $scope.textSearch]
-              });
+                });
+              }
             }
-            $scope.filteredObj = $scope.facetsObj;
-
-            // broadcast to check facets for server-side
-            $scope.$emit('checkFacets', $scope.currentSearch);
-          };
-
-          // Override magic_search.js 'removeFacet' to emit('checkFacets')
-          // to flag facets as 'isServer' after removing facet and
-          // either update filter or search
-          $scope.removeFacet = function ($index) {
-            var removed = $scope.currentSearch[$index].name;
-            $scope.currentSearch.splice($index, 1);
-            if ($scope.facetSelected === undefined) {
-              $scope.emitQuery(removed);
-            } else {
-              $scope.resetState();
-              $('.search-input').val('');
-            }
-            if ($scope.currentSearch.length === 0) {
-              $scope.strings.prompt = $scope.promptString;
-            }
-            // re-init to restore facets cleanly
-            $scope.facetsObj = $scope.copyFacets($scope.facetsSave);
-            $scope.currentSearch = [];
-            $scope.initFacets();
-
-            // broadcast to check facets for server-side
-            $scope.$emit('checkFacets', $scope.currentSearch);
-          };
-
+          });
+        });
+        if ($scope.textSearch !== undefined) {
+          $scope.currentSearch.push({
+            'name': 'text=' + $scope.textSearch,
+            'label': [$scope.strings.text, $scope.textSearch]
+          });
         }
-      ]
-    }; // end of return
-  }); // end of directive
+        $scope.filteredObj = $scope.facetsObj;
+
+        // broadcast to check facets for server-side
+        $scope.$emit('checkFacets', $scope.currentSearch);
+      };
+
+      /**
+       * Override magic_search.js 'removeFacet' to emit('checkFacets')
+       * to flag facets as 'isServer' after removing facet and
+       * either update filter or search
+       */
+      $scope.removeFacet = function ($index) {
+        var removed = $scope.currentSearch[$index].name;
+        $scope.currentSearch.splice($index, 1);
+        if ($scope.facetSelected === undefined) {
+          $scope.emitQuery(removed);
+        } else {
+          $scope.resetState();
+          $('.search-input').val('');
+        }
+        if ($scope.currentSearch.length === 0) {
+          $scope.strings.prompt = $scope.promptString;
+        }
+        // re-init to restore facets cleanly
+        $scope.facetsObj = $scope.copyFacets($scope.facetsSave);
+        $scope.currentSearch = [];
+        $scope.initFacets();
+
+        // broadcast to check facets for server-side
+        $scope.$emit('checkFacets', $scope.currentSearch);
+      };
+    }
+  }
 
 })();
