@@ -1,3 +1,18 @@
+/*
+ *    (c) Copyright 2015 Hewlett-Packard Development Company, L.P.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 (function () {
   'use strict';
 
@@ -8,13 +23,11 @@
   });
 
   describe('action-list directive', function () {
-
     beforeEach(module('templates'));
     beforeEach(module('horizon.framework.widgets'));
     beforeEach(module('horizon.framework.widgets.action-list'));
 
     describe('single button dropdown', function () {
-
       var $scope, $element;
 
       beforeEach(inject(function ($injector) {
@@ -22,12 +35,11 @@
         $scope = $injector.get('$rootScope').$new();
 
         $scope.testList = [];
+        $scope.item = 'test';
 
         $scope.clickMe = function (item) {
           $scope.testList.push(item);
         };
-
-        $scope.item = 'test';
 
         var markup =
           '<action-list dropdown>' +
@@ -66,11 +78,9 @@
         expect($scope.testList.length).toBe(1);
         expect($scope.testList[0]).toBe('test');
       });
-
     });
 
     describe('split button dropdown', function () {
-
       var $scope, $element;
 
       beforeEach(inject(function ($injector) {
@@ -78,12 +88,11 @@
         $scope = $injector.get('$rootScope').$new();
 
         $scope.testList = [];
+        $scope.item = 'test';
 
         $scope.clickMe = function (item) {
           $scope.testList.push(item);
         };
-
-        $scope.item = 'test';
 
         var markup =
           '<action-list dropdown>' +
@@ -135,11 +144,9 @@
         $element.find('li > a').click();
         expect($scope.testList.length).toBe(3);
       });
-
     });
 
     describe('button group', function () {
-
       var $scope, $element;
 
       beforeEach(inject(function ($injector) {
@@ -147,12 +154,11 @@
         $scope = $injector.get('$rootScope').$new();
 
         $scope.testList = [];
+        $scope.item = 'test';
 
         $scope.clickMe = function (item) {
           $scope.testList.push(item);
         };
-
-        $scope.item = 'test';
 
         var markup = '<action-list dropdown>' +
           ' <action callback="clickMe" item="item">View</action>' +
@@ -178,9 +184,6 @@
         $element.find('button').click();
         expect($scope.testList.length).toBe(3);
       });
-
     });
-
   });
-
 })();
