@@ -4,6 +4,7 @@
 #
 # Translators:
 # Chen, Shang-Pin <dreamerwolf.tw@gmail.com>, 2015
+# Lucas H. Xu <xuh@bu.edu>, 2015
 # Tom Fifield <tom@openstack.org>, 2015
 # Xiao Xi LIU <liuxx@cn.ibm.com>, 2014
 # Zhang Xiaowei <zero00072@gmail.com>, 2015
@@ -11,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-04 21:20-0500\n"
-"PO-Revision-Date: 2015-06-04 15:51+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-06-05 01:49-0500\n"
+"PO-Revision-Date: 2015-06-05 16:19+0000\n"
+"Last-Translator: Lucas H. Xu <xuh@bu.edu>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/"
 "language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -249,6 +250,9 @@ msgstr "檢查政策時失敗。"
 msgid "Re-order items using drag and drop"
 msgstr "使用拖拉來重新排列"
 
+msgid "Remaining"
+msgstr "剩餘的"
+
 msgid "Remove"
 msgstr "移除"
 
@@ -305,6 +309,9 @@ msgstr "與伺服器間的通訊有問題，請再試一次。"
 
 msgid "There was an error submitting the form. Please try again."
 msgstr "提交表單時有錯誤。請再試一次。"
+
+msgid "Total"
+msgstr "總共"
 
 msgid "Unable to create the domain."
 msgstr "無法新增地域。"
@@ -380,6 +387,18 @@ msgstr "無法設定。"
 
 msgid "Unable to retrieve the current user session."
 msgstr "無法獲得目前用戶連線階段。"
+
+msgid "Unable to retrieve the keypairs."
+msgstr "無法獲取密鑰對"
+
+msgid "Unable to retrieve the ports."
+msgstr "無法獲取端口"
+
+msgid "Unable to retrieve the security groups."
+msgstr "無法獲取安全組"
+
+msgid "Unable to retrieve the server."
+msgstr "無法獲得端口"
 
 msgid "Unable to retrieve users."
 msgstr "無法獲得用戶。"
