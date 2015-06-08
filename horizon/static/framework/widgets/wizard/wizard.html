@@ -49,7 +49,7 @@
       <span class="separator"></span>
 
       <button class="finish btn btn-sm btn-success"
-        ng-click="onClickFinishBtn()"
+        ng-click="viewModel.onClickFinishBtn()"
         ng-disabled="wizardForm.$invalid">
         <span ng-class="::viewModel.btnIcon.finish||'fa fa-check'"></span>
         <span ng-bind="::viewModel.btnText.finish"></span>
