@@ -22,18 +22,20 @@
 
       beforeEach(module('hz.dashboard.launch-instance'));
 
-      beforeEach(inject(function ($controller) {
-        scope = { $watch: function () {},
-                  $watchCollection: function () {},
-                  launchInstanceFlavorForm: {}
-                };
-        model = { newInstanceSpec: { instance_count: 1,
-                                     flavor: {},
-                                     source_type: { type: "image" },
-                                     source: "source_value"},
-                  novaLimits: { totalInstancesUsed: 10, maxTotalInstances: 3,
-                                totalCoresUsed: 4, maxTotalCores: 10,
-                                totalRAMUsed: 100, maxTotalRAMSize: 200 }
+      beforeEach(inject(function ($controller, $rootScope) {
+        scope = $rootScope.$new();
+
+        // Track calls to $watch and $watchCollection, and let them
+        // do their real work to register watch listeners. Remember
+        // that $watchCollection makes its own call to $watch.
+        spyOn(scope, '$watch').and.callThrough();
+        spyOn(scope, '$watchCollection').and.callThrough();
+
+        scope.launchInstanceFlavorForm = {'allocated-flavor': {}};
+
+        model = { newInstanceSpec: { },
+                  novaLimits: { },
+                  flavors: []
                 };
         defaults = { usageLabel: "label",
                      usageColorClass: "class1",
@@ -42,9 +44,8 @@
                      remainingLabel: "label3",
                      remainingColorClass: "class3"
                    };
-        spyOn(scope, '$watch');
-        spyOn(scope, '$watchCollection');
-        ctrl = $controller('LaunchInstanceFlavorCtrl',
+
+        ctrl = $controller('LaunchInstanceFlavorCtrl as selectFlavorCtrl',
                            { $scope:scope,
                              'horizon.framework.widgets.charts.quotaChartDefaults': defaults,
                              launchInstanceModel: model });
@@ -76,205 +77,171 @@
 
       describe("watches", function () {
 
-        it("establishes two watches", function () {
-          expect(scope.$watch.calls.count()).toBe(2);
+        beforeEach( function() {
+          // Mock out calls made by the watch listeners to minimize
+          // the amount of mock data needed to successfully trigger
+          // a watch listener
+          spyOn(ctrl, 'updateFlavorFacades').and.returnValue();
+          spyOn(ctrl, 'validateFlavor').and.returnValue();
+
+          // Initialize the watchers with default data
+          scope.$digest();
+
+          // Reset the spies now that we have initialized the watchers
+          // so that tests don't see the calls made during setup
+          ctrl.updateFlavorFacades.calls.reset();
+          ctrl.validateFlavor.calls.reset();
+        });
+
+        it("establishes five watches", function () {
+          // Count calls to $watch (note: $watchCollection
+          // also calls $watch)
+          expect(scope.$watch.calls.count()).toBe(5);
+        });
+
+        it("establishes three watch collections", function () {
+          expect(scope.$watchCollection.calls.count()).toBe(3);
         });
 
         describe("novaLimits watch", function () {
-          var watched, action;
-
-          beforeEach(function () {
-            // NOTE: This ordering of watches is fragile.
-            watched = scope.$watch.calls.argsFor(0)[0]();
-            action = scope.$watch.calls.argsFor(0)[1];
-          });
-
-          it("watches model.novaLimits", function () {
-            // value as injected above.
-            var novaLimits = { totalInstancesUsed: 10, maxTotalInstances: 3,
-                                totalCoresUsed: 4, maxTotalCores: 10,
-                                totalRAMUsed: 100, maxTotalRAMSize: 200 };
-            expect(watched).toEqual(novaLimits);
-          });
 
           it("sets the control novaLimits", function () {
-            var myScope = {selectFlavorCtrl: ctrl};
-            action('new', 'old', myScope);
+            model.novaLimits = "new";
+            scope.$digest();
             expect(ctrl.novaLimits).toBe('new');
           });
 
           it("calls updateFlavorFacades()", function () {
-            var myScope = {selectFlavorCtrl: ctrl};
-            spyOn(ctrl, 'updateFlavorFacades');
-            action('na', 'na', myScope);
-            expect(ctrl.updateFlavorFacades).toHaveBeenCalledWith();
+            model.novaLimits = "new";
+            scope.$digest();
+            expect(ctrl.updateFlavorFacades.calls.count()).toBe(1);
           });
         });
 
         describe("instance count watch", function () {
-          var watched, action;
-
-          beforeEach(function () {
-            // NOTE: This ordering of watches is fragile.
-            watched = scope.$watch.calls.argsFor(1)[0]();
-            action = scope.$watch.calls.argsFor(1)[1];
-          });
-
-          it("watches model.newInstanceSpec.instance_count", function () {
-            // value as injected above.
-            expect(watched).toEqual(1);
-          });
 
           it("sets the control instanceCount when 1 or more", function () {
-            var myScope = {selectFlavorCtrl: ctrl};
-            action(5, 3, myScope);
+            model.newInstanceSpec.instance_count = 5;
+            scope.$digest();
             expect(ctrl.instanceCount).toBe(5);
           });
 
           it("sets the control instanceCount to 1 when less than 1", function () {
-            var myScope = {selectFlavorCtrl: ctrl};
-            action(0, 3, myScope);
+            model.newInstanceSpec.instance_count = 0;
+            scope.$digest();
             expect(ctrl.instanceCount).toBe(1);
           });
 
           it("does nothing when new value is not defined", function () {
-            var myScope = {selectFlavorCtrl: ctrl};
-            spyOn(ctrl, 'updateFlavorFacades');
-            spyOn(ctrl, 'validateFlavor');
-            action(undefined, 3, myScope);
+            delete model.newInstanceSpec.instance_count;
+            scope.$digest();
             expect(ctrl.instanceCount).toBe(1);
             expect(ctrl.updateFlavorFacades).not.toHaveBeenCalled();
             expect(ctrl.validateFlavor).not.toHaveBeenCalled();
           });
 
           it("calls updateFlavorFacades()", function () {
-            var myScope = {selectFlavorCtrl: ctrl};
-            spyOn(ctrl, 'updateFlavorFacades');
-            action('na', 'na', myScope);
-            expect(ctrl.updateFlavorFacades).toHaveBeenCalledWith();
+            model.newInstanceSpec.instance_count = 5;
+            scope.$digest();
+            expect(ctrl.updateFlavorFacades.calls.count()).toBe(1);
           });
 
           it("calls validateFlavor()", function () {
-            var myScope = {selectFlavorCtrl: ctrl};
-            spyOn(ctrl, 'validateFlavor');
-            action('na', 'na', myScope);
-            expect(ctrl.validateFlavor).toHaveBeenCalledWith();
+            model.newInstanceSpec.instance_count = 5;
+            scope.$digest();
+            expect(ctrl.validateFlavor.calls.count()).toBe(1);
           });
-        });
-      });
-
-      describe("watch collections", function () {
-
-        it("establishes three watch collections", function () {
-          expect(scope.$watchCollection.calls.count()).toBe(3);
         });
 
         describe("model.flavors", function () {
-          var watched, action;
-
-          beforeEach(function () {
-            watched = scope.$watchCollection.calls.argsFor(0)[0];
-            action = scope.$watchCollection.calls.argsFor(0)[1];
-          });
-
-          it("watches model.flavors", function () {
-            expect(watched).toBe("model.flavors");
-          });
 
           it("sets the control flavors", function () {
-            var myScope = {selectFlavorCtrl: ctrl};
-            action('new', 'na', myScope);
+            model.flavors = "new";
+            scope.$digest();
             expect(ctrl.flavors).toBe("new");
           });
 
           it("calls updateFlavorFacades", function () {
-            var myScope = {selectFlavorCtrl: ctrl};
-            spyOn(ctrl, 'updateFlavorFacades');
-            action('na', 'na', myScope);
-            expect(ctrl.updateFlavorFacades).toHaveBeenCalledWith();
+            model.flavors = "new";
+            scope.$digest();
+            expect(ctrl.updateFlavorFacades.calls.count()).toBe(1);
           });
         });
 
         describe("selectFlavorCtrl.allocatedFlavorFacades", function () {
-          var watched, action;
-
-          beforeEach(function () {
-            watched = scope.$watchCollection.calls.argsFor(1)[0];
-            action = scope.$watchCollection.calls.argsFor(1)[1];
-          });
-
-          it("watches model.flavors", function () {
-            expect(watched).toBe("selectFlavorCtrl.allocatedFlavorFacades");
-          });
 
           it("deletes flavor if falsy facade", function () {
-            var myScope = {selectFlavorCtrl: ctrl};
-            action(false, 'na', myScope);
+            model.newInstanceSpec.flavor = "to be removed";
+            ctrl.allocatedFlavorFacades = false;
+            scope.$digest();
             expect(model.newInstanceSpec.flavor).not.toBeDefined();
           });
 
           it("deletes flavor if empty facade", function () {
-            var myScope = {selectFlavorCtrl: ctrl};
-            action([], 'na', myScope);
+            // First set a non-empty allocated facade
+            ctrl.allocatedFlavorFacades = [{flavor: "non-empty", enabled: "true"}];
+            scope.$digest();
+            expect(model.newInstanceSpec.flavor).toBe("non-empty");
+
+            // Now set the empty allocated facade and prove that the flavor is
+            // cleaned up.
+            model.newInstanceSpec.flavor = "to be removed";
+            ctrl.allocatedFlavorFacades = [];
+            scope.$digest();
             expect(model.newInstanceSpec.flavor).not.toBeDefined();
           });
 
           it("sets the model's flavor", function () {
-            var myScope = {selectFlavorCtrl: ctrl};
-            action([{flavor: "raspberry"}], 'na', myScope);
+            ctrl.allocatedFlavorFacades = [{flavor: "raspberry", enabled: "true"}];
+            scope.$digest();
             expect(model.newInstanceSpec.flavor).toEqual("raspberry");
           });
 
           it("calls validateFlavor", function () {
-            var myScope = {selectFlavorCtrl: ctrl};
-            spyOn(myScope.selectFlavorCtrl, 'validateFlavor');
-            action("na", 'na', myScope);
-            expect(myScope.selectFlavorCtrl.validateFlavor).toHaveBeenCalledWith();
+            ctrl.allocatedFlavorFacades = [{flavor: "non-empty", enabled: "true"}];
+            scope.$digest();
+            expect(ctrl.validateFlavor.calls.count()).toBe(1);
           });
         });
 
         describe("instance spec source changes", function () {
-          var watched, action;
-
-          beforeEach(function () {
-            watched = scope.$watchCollection.calls.argsFor(2)[0];
-            action = scope.$watchCollection.calls.argsFor(2)[1];
-          });
-
-          it("watches new instance source", function () {
-            expect(watched()).toBe("source_value");
-          });
 
           it("sets the source", function () {
-            var myScope = {selectFlavorCtrl: ctrl};
-            action(['new'], 'na', myScope);
+            model.newInstanceSpec.source = ["new"];
+            scope.$digest();
             expect(ctrl.source).toBe("new");
           });
 
           it("sets the source to null if not provided", function () {
-            var myScope = {selectFlavorCtrl: ctrl};
-            action(undefined, 'na', myScope);
+            model.newInstanceSpec.source = ["new"];
+            scope.$digest();
+            expect(ctrl.source).toBe("new");
+
+            delete model.newInstanceSpec.source;
+            scope.$digest();
             expect(ctrl.source).toBeNull();
           });
 
           it("sets the source to null if not an array", function () {
-            var myScope = {selectFlavorCtrl: ctrl};
-            action(5, 'na', myScope);
+            model.newInstanceSpec.source = ["new"];
+            scope.$digest();
+            expect(ctrl.source).toBe("new");
+
+            model.newInstanceSpec.source = 1;
+            scope.$digest();
             expect(ctrl.source).toBeNull();
           });
 
           it("calls updateFlavorFacades", function () {
-            var myScope = {selectFlavorCtrl: ctrl};
-            spyOn(ctrl, 'updateFlavorFacades');
-            action('na', 'na', myScope);
-            expect(ctrl.updateFlavorFacades).toHaveBeenCalledWith();
+            model.newInstanceSpec.source = ["new"];
+            scope.$digest();
+            expect(ctrl.updateFlavorFacades.calls.count()).toBe(1);
           });
 
           it("calls validateFlavor", function () {
-            var myScope = {selectFlavorCtrl: ctrl};
-            spyOn(ctrl, 'validateFlavor');
-            action('na', 'na', myScope);
-            expect(ctrl.validateFlavor).toHaveBeenCalledWith();
+            model.newInstanceSpec.source = ["new"];
+            scope.$digest();
+            expect(ctrl.validateFlavor.calls.count()).toBe(1);
           });
         });
 
@@ -294,6 +261,7 @@
           });
         });
       });
+
       describe("when not having allocated flavors", function () {
         beforeEach(function () {
           scope.launchInstanceFlavorForm['allocated-flavor'] = { $setValidity: function () {} };
@@ -350,6 +318,7 @@
             disk: 50
           }];
           ctrl.source = { min_disk:100, min_ram:100};
+          model.newInstanceSpec.source_type = {type: 'image'};
         });
         describe("and there are no cpus available", function () {
           it("presents a vcpu error message", function () {

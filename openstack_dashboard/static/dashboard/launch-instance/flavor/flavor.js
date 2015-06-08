@@ -79,13 +79,13 @@
     }, true);
 
     // Flavor facades depend on flavors
-    $scope.$watchCollection("model.flavors",
-      function (newValue, oldValue, scope) {
+    $scope.$watchCollection(function() {
+      return launchInstanceModel.flavors;
+    },function (newValue, oldValue, scope) {
         var ctrl = scope.selectFlavorCtrl;
         ctrl.flavors = newValue;
         ctrl.updateFlavorFacades();
-      }
-    );
+    });
 
     // Flavor quota charts depend on the current instance count
     $scope.$watch(function () {
