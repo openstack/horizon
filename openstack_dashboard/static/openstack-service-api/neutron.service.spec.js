@@ -17,19 +17,19 @@
 (function() {
   'use strict';
 
-  describe('Security Group API', function() {
+  describe('Neutron API', function() {
     var service;
     var apiService = {};
     var toastService = {};
 
-    beforeEach(module('hz.api'));
+    beforeEach(module('horizon.openstack-service-api'));
 
     beforeEach(module(function($provide) {
       window.apiTest.initServices($provide, apiService, toastService);
     }));
 
-    beforeEach(inject(['hz.api.security-group', function(securityGroup) {
-      service = securityGroup;
+    beforeEach(inject(['horizon.openstack-service-api.neutron', function(neutronAPI) {
+      service = neutronAPI;
     }]));
 
     it('defines the service', function() {
@@ -39,10 +39,50 @@
     var tests = [
 
       {
-        "func": "query",
+        "func": "getNetworks",
         "method": "get",
-        "path": "/api/network/securitygroups/",
-        "error": "Unable to retrieve the security groups."
+        "path": "/api/neutron/networks/",
+        "error": "Unable to retrieve the networks."
+      },
+      {
+        "func": "createNetwork",
+        "method": "post",
+        "path": "/api/neutron/networks/",
+        "data": "new net",
+        "error": "Unable to create the network.",
+        "testInput": [
+          "new net"
+        ]
+      },
+      {
+        "func": "getSubnets",
+        "method": "get",
+        "path": "/api/neutron/subnets/",
+        "data": 42,
+        "error": "Unable to retrieve the subnets.",
+        "testInput": [
+          42
+        ]
+      },
+      {
+        "func": "createSubnet",
+        "method": "post",
+        "path": "/api/neutron/subnets/",
+        "data": "new subnet",
+        "error": "Unable to create the subnet.",
+        "testInput": [
+          "new subnet"
+        ]
+      },
+      {
+        "func": "getPorts",
+        "method": "get",
+        "path": "/api/neutron/ports/",
+        "data": 42,
+        "error": "Unable to retrieve the ports.",
+        "testInput": [
+          42
+        ]
       }
 
     ];

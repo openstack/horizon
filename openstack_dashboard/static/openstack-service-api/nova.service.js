@@ -16,23 +16,30 @@ limitations under the License.
 (function () {
   'use strict';
 
-    /**
+  angular
+    .module('horizon.openstack-service-api')
+    .service('horizon.openstack-service-api.nova', NovaAPI);
+
+  NovaAPI.$inject = ['horizon.framework.util.http.service',
+                     'horizon.framework.widgets.toast.service'];
+
+  /**
    * @ngdoc service
-   * @name hz.api.novaAPI
+   * @name horizon.openstack-service-api.nova
    * @description Provides access to Nova APIs.
    */
   function NovaAPI(apiService, toastService) {
 
-     // Keypairs
+    // Keypairs
 
-     /**
-      * @name hz.api.novaAPI.getKeypairs
-      * @description
-      * Get a list of keypairs.
-      *
-      * The listing result is an object with property "items". Each item is
-      * a keypair.
-      */
+    /**
+     * @name horizon.openstack-service-api.nova.getKeypairs
+     * @description
+     * Get a list of keypairs.
+     *
+     * The listing result is an object with property "items". Each item is
+     * a keypair.
+     */
     this.getKeypairs = function() {
       return apiService.get('/api/nova/keypairs/')
         .error(function () {
@@ -40,20 +47,20 @@ limitations under the License.
         });
     };
 
-     /**
-      * @name hz.api.novaAPI.createKeypair
-      * @description
-      * Create a new keypair.  This returns the new keypair object on success.
-      *
-      * @param {Object} newKeypair
-      * The keypair to create.
-      *
-      * @param {string} newKeypair.name
-      * The name of the new keypair. Required.
-      *
-      * @param {string} newKeypair.public_key
-      * The public key.  Optional.
-      */
+    /**
+     * @name horizon.openstack-service-api.nova.createKeypair
+     * @description
+     * Create a new keypair.  This returns the new keypair object on success.
+     *
+     * @param {Object} newKeypair
+     * The keypair to create.
+     *
+     * @param {string} newKeypair.name
+     * The name of the new keypair. Required.
+     *
+     * @param {string} newKeypair.public_key
+     * The public key.  Optional.
+     */
     this.createKeypair = function(newKeypair) {
       return apiService.post('/api/nova/keypairs/', newKeypair)
         .error(function () {
@@ -67,14 +74,14 @@ limitations under the License.
 
     // Availability Zones
 
-     /**
-      * @name hz.api.novaAPI.getAvailabilityZones
-      * @description
-      * Get a list of Availability Zones.
-      *
-      * The listing result is an object with property "items". Each item is
-      * an availability zone.
-      */
+    /**
+     * @name horizon.openstack-service-api.nova.getAvailabilityZones
+     * @description
+     * Get a list of Availability Zones.
+     *
+     * The listing result is an object with property "items". Each item is
+     * an availability zone.
+     */
     this.getAvailabilityZones = function() {
       return apiService.get('/api/nova/availzones/')
         .error(function () {
@@ -86,7 +93,7 @@ limitations under the License.
     // Limits
 
     /**
-     * @name hz.api.novaAPI.getLimits
+     * @name horizon.openstack-service-api.nova.getLimits
      * @description
      * Returns current limits.
      *
@@ -124,7 +131,7 @@ limitations under the License.
     // Servers
 
     /**
-     * @name hz.api.novaAPI.createServer
+     * @name horizon.openstack-service-api.nova.createServer
      * @description
      * Create a server using the parameters supplied in the
      * newServer. The required parameters:
@@ -149,7 +156,7 @@ limitations under the License.
     };
 
     /**
-     * @name hz.api.novaAPI.getServer
+     * @name horizon.openstack-service-api.nova.getServer
      * @description
      * Get a single server by ID
      * @param {string} id
@@ -159,11 +166,11 @@ limitations under the License.
       return apiService.get('/api/nova/servers/' + id)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the server.'));
-      });
+        });
     };
 
     /**
-     * @name hz.api.novaAPI.getExtensions
+     * @name horizon.openstack-service-api.nova.getExtensions
      * @description
      * Returns a list of enabled extensions.
      *
@@ -193,7 +200,7 @@ limitations under the License.
     };
 
     /**
-     * @name hz.api.novaAPI.getFlavors
+     * @name horizon.openstack-service-api.nova.getFlavors
      * @description
      * Returns a list of flavors.
      *
@@ -238,7 +245,7 @@ limitations under the License.
     };
 
     /**
-     * @name hz.api.novaAPI.getFlavor
+     * @name horizon.openstack-service-api.nova.getFlavor
      * @description
      * Get a single flavor by ID.
      * @param {string} id
@@ -252,11 +259,11 @@ limitations under the License.
       return apiService.get('/api/nova/flavors/' + id, config)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the flavor.'));
-      });
+        });
     };
 
     /**
-     * @name hz.api.novaAPI.getFlavorExtraSpecs
+     * @name horizon.openstack-service-api.nova.getFlavorExtraSpecs
      * @description
      * Get a single flavor's extra specs by ID.
      * @param {string} id
@@ -266,38 +273,43 @@ limitations under the License.
       return apiService.get('/api/nova/flavors/' + id + '/extra-specs')
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the flavor extra specs.'));
-      });
+        });
     };
   }
 
-  angular.module('hz.api')
-    .service('hz.api.nova', ['hz.api.common.service', 'horizon.framework.widgets.toast.service', NovaAPI]);
+  /**
+   * @ngdoc service
+   * @name horizon.openstack-service-api.novaExtensions
+   * @description
+   * Provides cached access to Nova Extensions with utilities to help
+   * with asynchronous data loading. The cache may be reset at any time
+   * by accessing the cache and calling removeAll. The next call to any
+   * function will retrieve fresh results.
+   *
+   * The enabled extensions do not change often, so using cached data will
+   * speed up results. Even on a local devstack in informal testing,
+   * this saved between 30 - 100 ms per request.
+   */
+  angular
+    .module('horizon.openstack-service-api')
+    .factory('horizon.openstack-service-api.novaExtensions', NovaExtensionsAPI);
 
-    /**
-    * @ngdoc service
-    * @name hz.api.novaExtensions
-    * @description
-    * Provides cached access to Nova Extensions with utilities to help
-    * with asynchronous data loading. The cache may be reset at any time
-    * by accessing the cache and calling removeAll. The next call to any
-    * function will retrieve fresh results.
-    *
-    * The enabled extensions do not change often, so using cached data will
-    * speed up results. Even on a local devstack in informal testing,
-    * this saved between 30 - 100 ms per request.
-    */
-  function NovaExtensions($cacheFactory, $q, novaAPI) {
-      var service = {};
-      service.cache = $cacheFactory('hz.api.novaExtensions', {capacity: 1});
+  NovaExtensionsAPI.$inject = ['$cacheFactory',
+                               '$q',
+                               'horizon.openstack-service-api.nova'];
 
-      service.get = function () {
-        return novaAPI.getExtensions({cache: service.cache})
-          .then(function (data) {
-            return data.data.items;
-          });
-      };
+  function NovaExtensionsAPI($cacheFactory, $q, novaAPI) {
+    var service = {};
+    service.cache = $cacheFactory('horizon.openstack-service-api.novaExtensions', {capacity: 1});
 
-      service.ifNameEnabled = function(desired) {
+    service.get = function () {
+      return novaAPI.getExtensions({cache: service.cache})
+        .then(function (data) {
+          return data.data.items;
+        });
+    };
+
+    service.ifNameEnabled = function(desired) {
       var deferred = $q.defer();
 
       service.get().then(onDataLoaded, onDataFailure);
@@ -307,14 +319,14 @@ limitations under the License.
           deferred.resolve();
         } else {
           deferred.reject(interpolate(
-            gettext('Extension is not enabled: %(extension)s'),
+            gettext('Extension is not enabled: %(extension)s.'),
             {extension: desired},
             true));
         }
       }
 
       function onDataFailure() {
-        deferred.reject(gettext('Cannot get Nova extension list.'));
+        deferred.reject(gettext('Cannot get the Nova extension list.'));
       }
 
       return deferred.promise;
@@ -324,7 +336,7 @@ limitations under the License.
     service.ifEnabled = service.ifNameEnabled;
 
     function enabled(resources, key, desired) {
-      if(resources) {
+      if (resources) {
         return resources.some(function (resource) {
           return resource[key] === desired;
         });
@@ -335,11 +347,4 @@ limitations under the License.
 
     return service;
   }
-
-  angular.module('hz.api')
-    .factory('hz.api.novaExtensions', ['$cacheFactory',
-                                '$q',
-                                'hz.api.nova',
-                                NovaExtensions]);
-
 }());

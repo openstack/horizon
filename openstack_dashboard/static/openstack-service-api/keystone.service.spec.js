@@ -22,13 +22,13 @@
     var apiService = {};
     var toastService = {};
 
-    beforeEach(module('hz.api'));
+    beforeEach(module('horizon.openstack-service-api'));
 
     beforeEach(module(function($provide) {
       window.apiTest.initServices($provide, apiService, toastService);
     }));
 
-    beforeEach(inject(['hz.api.keystone', function(keystoneAPI) {
+    beforeEach(inject(['horizon.openstack-service-api.keystone', function(keystoneAPI) {
       service = keystoneAPI;
     }]));
 
@@ -42,7 +42,7 @@
         "method": "get",
         "path": "/api/keystone/users/",
         "data": {},
-        "error": "Unable to retrieve users."
+        "error": "Unable to retrieve the users."
       },
       {
         "func": "getUsers",
@@ -53,7 +53,7 @@
             "info": true
           }
         },
-        "error": "Unable to retrieve users.",
+        "error": "Unable to retrieve the users.",
         "testInput": [
           {
             "info": true
@@ -385,15 +385,15 @@
   describe("userSession", function() {
     var factory, keystoneAPI;
 
-    beforeEach(module('hz.api'));
+    beforeEach(module('horizon.openstack-service-api'));
 
     beforeEach(module(function($provide) {
       keystoneAPI = {getCurrentUserSession: angular.noop};
-      $provide.value('hz.api.keystone', keystoneAPI);
+      $provide.value('horizon.openstack-service-api.keystone', keystoneAPI);
       $provide.value('$cacheFactory', function() { return 'cache'; });
     }));
 
-    beforeEach(inject(['hz.api.userSession', function(userSession) {
+    beforeEach(inject(['horizon.openstack-service-api.userSession', function(userSession) {
       factory = userSession;
     }]));
 
@@ -433,13 +433,13 @@
   describe("serviceCatalog", function() {
     var factory, q, keystoneAPI, userSession, deferred;
 
-    beforeEach(module('hz.api'));
+    beforeEach(module('horizon.openstack-service-api'));
 
     beforeEach(module(function($provide) {
       keystoneAPI = {serviceCatalog: angular.noop};
-      $provide.value('hz.api.keystone', keystoneAPI);
+      $provide.value('horizon.openstack-service-api.keystone', keystoneAPI);
       userSession = {get: angular.noop};
-      $provide.value('hz.api.userSession', userSession);
+      $provide.value('horizon.openstack-service-api.userSession', userSession);
       deferred = {promise: angular.noop, reject: angular.noop, resolve: angular.noop};
       q = {all: function() {return {then: angular.noop};},
            defer: function() { return deferred;}};
@@ -447,7 +447,7 @@
       $provide.value('$cacheFactory', function() { return 'cache'; });
     }));
 
-    beforeEach(inject(['hz.api.serviceCatalog', function(serviceCatalog) {
+    beforeEach(inject(['horizon.openstack-service-api.serviceCatalog', function(serviceCatalog) {
       factory = serviceCatalog;
     }]));
 

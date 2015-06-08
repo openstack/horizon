@@ -64,6 +64,13 @@ module.exports = function(config) {
       xstaticPath + 'spin/data/spin.js',
       xstaticPath + 'spin/data/spin.jquery.js',
 
+      // TODO: Should these be mocked?
+      '../../horizon/static/horizon/js/horizon.js',
+      '../../horizon/static/framework/util/http/http.js',
+
+      'openstack-service-api/openstack-service-api.module.js',
+      'openstack-service-api/**/*.js',
+
       // This one seems to have to come first.
       "dashboard/dashboard.module.js",
       "dashboard/workflow/workflow.js",

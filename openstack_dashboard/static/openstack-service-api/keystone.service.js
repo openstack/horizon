@@ -15,13 +15,21 @@ limitations under the License.
 */
 (function () {
   'use strict';
+
+  angular
+    .module('horizon.openstack-service-api')
+    .service('horizon.openstack-service-api.keystone', KeystoneAPI);
+
+  KeystoneAPI.$inject = ['horizon.framework.util.http.service',
+                         'horizon.framework.widgets.toast.service'];
+
   function KeystoneAPI(apiService, toastService) {
     // Users
     this.getUsers = function(params) {
       var config = (params) ? {'params': params} : {};
       return apiService.get('/api/keystone/users/', config)
         .error(function () {
-          toastService.add('error', gettext('Unable to retrieve users.'));
+          toastService.add('error', gettext('Unable to retrieve the users.'));
         });
     };
 
@@ -32,15 +40,15 @@ limitations under the License.
         });
     };
 
-    this.deleteUsers = function(user_ids) {
-      return apiService.delete('/api/keystone/users/', user_ids)
+    this.deleteUsers = function(userIds) {
+      return apiService.delete('/api/keystone/users/', userIds)
         .error(function () {
           toastService.add('error', gettext('Unable to delete the users.'));
         });
     };
 
     /**
-    * @name hz.api.keystoneApi.getCurrentUserSession
+    * @name horizon.openstack-service-api.keystone.getCurrentUserSession
     * @description
     * Gets the current User Session Information
     * @example
@@ -74,8 +82,8 @@ limitations under the License.
         });
     };
 
-    this.getUser = function(user_id) {
-      return apiService.get('/api/keystone/users/' + user_id)
+    this.getUser = function(userId) {
+      return apiService.get('/api/keystone/users/' + userId)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the user.'));
         });
@@ -89,8 +97,8 @@ limitations under the License.
         });
     };
 
-    this.deleteUser = function(user_id) {
-      return apiService.delete('/api/keystone/users/' + user_id)
+    this.deleteUser = function(userId) {
+      return apiService.delete('/api/keystone/users/' + userId)
         .error(function () {
           toastService.add('error', gettext('Unable to delete the user.'));
         });
@@ -111,15 +119,15 @@ limitations under the License.
         });
     };
 
-    this.deleteRoles = function(role_ids) {
-      return apiService.delete('/api/keystone/roles/', role_ids)
+    this.deleteRoles = function(roleIds) {
+      return apiService.delete('/api/keystone/roles/', roleIds)
         .error(function () {
           toastService.add('error', gettext('Unable to delete the roles.'));
         });
     };
 
-    this.getRole = function(role_id) {
-      return apiService.get('/api/keystone/roles/' + role_id)
+    this.getRole = function(roleId) {
+      return apiService.get('/api/keystone/roles/' + roleId)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the role.'));
         });
@@ -133,8 +141,8 @@ limitations under the License.
         });
     };
 
-    this.deleteRole = function(role_id) {
-      return apiService.delete('/api/keystone/roles/' + role_id)
+    this.deleteRole = function(roleId) {
+      return apiService.delete('/api/keystone/roles/' + roleId)
         .error(function () {
           toastService.add('error', gettext('Unable to delete the role.'));
         });
@@ -155,15 +163,15 @@ limitations under the License.
         });
     };
 
-    this.deleteDomains = function(domain_ids) {
-      return apiService.delete('/api/keystone/domains/', domain_ids)
+    this.deleteDomains = function(domainIds) {
+      return apiService.delete('/api/keystone/domains/', domainIds)
         .error(function () {
           toastService.add('error', gettext('Unable to delete the domains.'));
         });
     };
 
-    this.getDomain = function(domain_id) {
-      return apiService.get('/api/keystone/domains/' + domain_id)
+    this.getDomain = function(domainId) {
+      return apiService.get('/api/keystone/domains/' + domainId)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the domain.'));
         });
@@ -177,8 +185,8 @@ limitations under the License.
         });
     };
 
-    this.deleteDomain = function(domain_id) {
-      return apiService.delete('/api/keystone/domains/' + domain_id)
+    this.deleteDomain = function(domainId) {
+      return apiService.delete('/api/keystone/domains/' + domainId)
         .error(function () {
           toastService.add('error', gettext('Unable to delete the domain.'));
         });
@@ -200,15 +208,15 @@ limitations under the License.
         });
     };
 
-    this.deleteProjects = function(project_ids) {
-      return apiService.delete('/api/keystone/projects/', project_ids)
+    this.deleteProjects = function(projectIds) {
+      return apiService.delete('/api/keystone/projects/', projectIds)
         .error(function () {
           toastService.add('error', gettext('Unable to delete the projects.'));
         });
     };
 
-    this.getProject = function(project_id) {
-      return apiService.get('/api/keystone/projects/' + project_id)
+    this.getProject = function(projectId) {
+      return apiService.get('/api/keystone/projects/' + projectId)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the project.'));
         });
@@ -222,23 +230,23 @@ limitations under the License.
         });
     };
 
-    this.deleteProject = function(project_id) {
-      return apiService.delete('/api/keystone/projects/' + project_id)
+    this.deleteProject = function(projectId) {
+      return apiService.delete('/api/keystone/projects/' + projectId)
         .error(function () {
           toastService.add('error', gettext('Unable to delete the project.'));
         });
     };
 
-    this.grantRole = function(project_id, role_id, user_id) {
-      return apiService.put('/api/keystone/projects/' + project_id + '/' +
-                               role_id + '/' + user_id)
+    this.grantRole = function(projectId, roleId, userId) {
+      return apiService.put('/api/keystone/projects/' + projectId + '/' +
+                               roleId + '/' + userId)
         .error(function () {
           toastService.add('error', gettext('Unable to grant the role.'));
         });
     };
 
-     /**
-     * @name hz.api.keyStoneAPI.serviceCatalog
+    /**
+     * @name horizon.openstack-service-api.keystone.serviceCatalog
      * @description
      * Returns the service catalog.
      * @param {Object} config
@@ -252,12 +260,9 @@ limitations under the License.
     };
   }
 
-  angular.module('hz.api')
-    .service('hz.api.keystone', ['hz.api.common.service', 'horizon.framework.widgets.toast.service', KeystoneAPI]);
-
-   /**
+  /**
    * @ngdoc service
-   * @name hz.api.userSession
+   * @name horizon.openstack-service-api.userSession
    * @description
    * Provides cached access to the user session. The cache may be reset
    * at any time by accessing the cache and calling removeAll, which means
@@ -276,11 +281,17 @@ limitations under the License.
    * and used transparently where needed without making every single use of it
    * pass it through as an argument.
    */
+  angular
+    .module('horizon.openstack-service-api')
+    .factory('horizon.openstack-service-api.userSession', userSession);
+
+  userSession.$inject = ['$cacheFactory', 'horizon.openstack-service-api.keystone'];
+
   function userSession($cacheFactory, keystoneAPI) {
 
     var service = {};
 
-    service.cache = $cacheFactory('hz.api.userSession', {capacity: 1});
+    service.cache = $cacheFactory('horizon.openstack-service-api.userSession', {capacity: 1});
 
     service.get = function () {
       return keystoneAPI.getCurrentUserSession({cache: service.cache})
@@ -293,12 +304,9 @@ limitations under the License.
     return service;
   }
 
-  angular.module('hz.api')
-    .factory('hz.api.userSession', ['$cacheFactory', 'hz.api.keystone', userSession]);
-
   /**
    * @ngdoc service
-   * @name hz.api.serviceCatalog
+   * @name horizon.openstack-service-api.serviceCatalog
    * @description
    * Provides cached access to the Service Catalog with utilities to help
    * with asynchronous data loading. The cache may be reset at any time
@@ -316,13 +324,22 @@ limitations under the License.
    * and used transparently where needed without making every single use of it
    * pass it through as an argument.
    */
+  angular
+    .module('horizon.openstack-service-api')
+    .factory('horizon.openstack-service-api.serviceCatalog', serviceCatalog);
+
+  serviceCatalog.$inject = ['$cacheFactory',
+                            '$q',
+                            'horizon.openstack-service-api.keystone',
+                            'horizon.openstack-service-api.userSession'];
+
   function serviceCatalog($cacheFactory, $q, keystoneAPI, userSession) {
 
     var service = {};
-    service.cache = $cacheFactory('hz.api.serviceCatalog', {capacity: 1});
+    service.cache = $cacheFactory('horizon.openstack-service-api.serviceCatalog', {capacity: 1});
 
-     /**
-     * @name hz.api.serviceCatalog.get
+    /**
+     * @name horizon.openstack-service-api.serviceCatalog.get
      * @description
      * Returns the service catalog. This is cached.
      *
@@ -335,14 +352,14 @@ limitations under the License.
      */
     service.get = function() {
       return keystoneAPI.serviceCatalog({cache: service.cache})
-        .then(function(response){
+        .then(function(response) {
           return response.data;
         }
       );
     };
 
     /**
-     * @name hz.api.serviceCatalog.ifTypeEnabled
+     * @name horizon.openstack-service-api.serviceCatalog.ifTypeEnabled
      * @description
      * Checks if the desired service is enabled.  If it is enabled, use the
      * promise returned to execute the desired function.  If it is not enabled,
@@ -426,12 +443,4 @@ limitations under the License.
 
     return service;
   }
-
-  angular.module('hz.api')
-    .factory('hz.api.serviceCatalog', ['$cacheFactory',
-                                '$q',
-                                'hz.api.keystone',
-                                'hz.api.userSession',
-                                serviceCatalog]);
-
 }());

@@ -17,19 +17,19 @@
 (function() {
   'use strict';
 
-  describe('Neutron API', function() {
+  describe('Policy API', function() {
     var service;
     var apiService = {};
     var toastService = {};
 
-    beforeEach(module('hz.api'));
+    beforeEach(module('horizon.openstack-service-api'));
 
     beforeEach(module(function($provide) {
       window.apiTest.initServices($provide, apiService, toastService);
     }));
 
-    beforeEach(inject(['hz.api.neutron', function(neutronAPI) {
-      service = neutronAPI;
+    beforeEach(inject(['horizon.openstack-service-api.policy', function(policyAPI) {
+      service = policyAPI;
     }]));
 
     it('defines the service', function() {
@@ -37,54 +37,17 @@
     });
 
     var tests = [
-
       {
-        "func": "getNetworks",
-        "method": "get",
-        "path": "/api/neutron/networks/",
-        "error": "Unable to retrieve the networks."
-      },
-      {
-        "func": "createNetwork",
+        "func": "check",
         "method": "post",
-        "path": "/api/neutron/networks/",
-        "data": "new net",
-        "error": "Unable to create the network.",
+        "path": "/api/policy/",
+        "data": "rules",
+        "error": "Policy check failed.",
         "testInput": [
-          "new net"
-        ]
-      },
-      {
-        "func": "getSubnets",
-        "method": "get",
-        "path": "/api/neutron/subnets/",
-        "data": 42,
-        "error": "Unable to retrieve the subnets.",
-        "testInput": [
-          42
-        ]
-      },
-      {
-        "func": "createSubnet",
-        "method": "post",
-        "path": "/api/neutron/subnets/",
-        "data": "new subnet",
-        "error": "Unable to create the subnet.",
-        "testInput": [
-          "new subnet"
-        ]
-      },
-      {
-        "func": "getPorts",
-        "method": "get",
-        "path": "/api/neutron/ports/",
-        "data": 42,
-        "error": "Unable to retrieve the ports.",
-        "testInput": [
-          42
-        ]
+          "rules"
+        ],
+        "messageType": "warning"
       }
-
     ];
 
     // Iterate through the defined tests and apply as Jasmine specs.

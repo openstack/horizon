@@ -36,7 +36,7 @@
           return spec;
         };
 
-        $provide.value('hz.api.serviceCatalog', {});
+        $provide.value('horizon.openstack-service-api.serviceCatalog', {});
         $provide.value('horizon.framework.util.workflow.service', workflow);
       }));
 

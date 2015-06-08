@@ -22,13 +22,13 @@
     var apiService = {};
     var toastService = {};
 
-    beforeEach(module('hz.api'));
+    beforeEach(module('horizon.openstack-service-api'));
 
     beforeEach(module(function($provide) {
       window.apiTest.initServices($provide, apiService, toastService);
     }));
 
-    beforeEach(inject(['hz.api.cinder', function(cinderAPI) {
+    beforeEach(inject(['horizon.openstack-service-api.cinder', function(cinderAPI) {
       service = cinderAPI;
     }]));
 

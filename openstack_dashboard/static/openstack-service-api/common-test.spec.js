@@ -74,7 +74,7 @@
                    patch: angular.noop,
                    delete: angular.noop });
     angular.extend(toastService, { add: angular.noop });
-    $provide.value('hz.api.common.service', apiService);
+    $provide.value('horizon.framework.util.http.service', apiService);
     $provide.value('horizon.framework.widgets.toast.service', toastService);
   }
 

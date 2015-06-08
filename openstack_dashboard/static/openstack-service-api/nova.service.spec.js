@@ -22,13 +22,13 @@
     var apiService = {};
     var toastService = {};
 
-    beforeEach(module('hz.api'));
+    beforeEach(module('horizon.openstack-service-api'));
 
     beforeEach(module(function($provide) {
       window.apiTest.initServices($provide, apiService, toastService);
     }));
 
-    beforeEach(inject(['hz.api.nova', function(novaAPI) {
+    beforeEach(inject(['horizon.openstack-service-api.nova', function(novaAPI) {
       service = novaAPI;
     }]));
 
@@ -247,18 +247,18 @@
   describe("novaExtensions", function() {
     var factory, q, novaAPI;
 
-    beforeEach(module('hz.api'));
+    beforeEach(module('horizon.openstack-service-api'));
 
     beforeEach(module(function($provide) {
       novaAPI = {getExtensions: function() {return {then: angular.noop};}};
       q = {defer: function() { return {resolve: angular.noop}; }};
       $provide.value('$cacheFactory', function() {return "cache";});
       $provide.value('$q', q);
-      $provide.value('hz.api.nova', novaAPI);
+      $provide.value('horizon.openstack-service-api.nova', novaAPI);
     }));
 
     beforeEach(inject(function($injector) {
-      factory = $injector.get('hz.api.novaExtensions');
+      factory = $injector.get('horizon.openstack-service-api.novaExtensions');
     }));
 
     it("is defined", function() {
@@ -304,7 +304,7 @@
 
       deferred.reject.calls.reset();
       func2();
-      expect(deferred.reject).toHaveBeenCalledWith('Cannot get Nova extension list.');
+      expect(deferred.reject).toHaveBeenCalledWith('Cannot get the Nova extension list.');
     });
 
     it("defines .ifEnabled", function() {

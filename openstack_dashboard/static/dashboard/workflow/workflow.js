@@ -34,7 +34,7 @@
      *
      * Injected dependencies:
      * - $q
-     * - serviceCatalog hz.api.serviceCatalog
+     * - serviceCatalog horizon.openstack-service-api.serviceCatalog
      *
      * @param {Object} spec The input workflow specification object.
      * @returns {Object} The decorated workflow specification object, the same
@@ -46,7 +46,7 @@
      *
      */
 
-    .factory('dashboardWorkflowDecorator', ['$q', 'hz.api.serviceCatalog',
+    .factory('dashboardWorkflowDecorator', ['$q', 'horizon.openstack-service-api.serviceCatalog',
 
       function ($q, serviceCatalog) {
 
