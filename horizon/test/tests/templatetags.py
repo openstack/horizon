@@ -104,7 +104,7 @@ class TemplateTagTests(test.TestCase):
         text = ('{{ test.val1|quota:"TB" }}#{{ test.val2|quota }}#'
                 '{{ test.val3|quota }}')
 
-        expected = u' 100 TB Available#1000 Available#No Limit'
+        expected = u' 100 TB Available#1000 Available#(No Limit)'
 
         rendered_str = self.render_template(tag_require='horizon',
                                             template_text=text,

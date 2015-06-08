@@ -240,13 +240,16 @@ class UsageViewTests(test.TestCase):
             .AndReturn(self.neutron_quotas.first())
         self.mox.ReplayAll()
 
-        self._test_usage_with_neutron_check(neutron_sg_enabled)
+        self._test_usage_with_neutron_check(neutron_sg_enabled,
+                                            neutron_fip_enabled)
 
     def _test_usage_with_neutron_check(self, neutron_sg_enabled=True,
+                                       neutron_fip_expected=True,
                                        max_fip_expected=50,
                                        max_sg_expected=20):
         res = self.client.get(reverse('horizon:project:overview:index'))
-        self.assertContains(res, 'Floating IPs')
+        if neutron_fip_expected:
+            self.assertContains(res, 'Floating IPs')
         self.assertContains(res, 'Security Groups')
 
         res_limits = res.context['usage'].limits
@@ -264,7 +267,8 @@ class UsageViewTests(test.TestCase):
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest), 'quotas').AndRaise(self.exceptions.neutron)
         self.mox.ReplayAll()
-        self._test_usage_with_neutron_check(max_fip_expected=float("inf"),
+        self._test_usage_with_neutron_check(neutron_fip_expected=False,
+                                            max_fip_expected=float("inf"),
                                             max_sg_expected=float("inf"))
 
     @test.update_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
@@ -276,7 +280,8 @@ class UsageViewTests(test.TestCase):
             IsA(http.HttpRequest),
             'security-group').AndRaise(self.exceptions.neutron)
         self.mox.ReplayAll()
-        self._test_usage_with_neutron_check(max_fip_expected=float("inf"),
+        self._test_usage_with_neutron_check(neutron_fip_expected=False,
+                                            max_fip_expected=float("inf"),
                                             max_sg_expected=float("inf"))
 
     def test_usage_with_cinder(self):
@@ -309,3 +314,23 @@ class UsageViewTests(test.TestCase):
             self.assertEqual(usages.limits['maxTotalVolumeGigabytes'], 1000)
         else:
             self.assertNotIn('totalVolumesUsed', usages.limits)
+
+    def _test_usage_charts(self):
+        self._stub_nova_api_calls(False)
+        self._stub_neutron_api_calls()
+        self._stub_cinder_api_calls()
+        self.mox.ReplayAll()
+
+        return self.client.get(reverse('horizon:project:overview:index'))
+
+    def test_usage_charts_created(self):
+        res = self._test_usage_charts()
+        self.assertTrue('charts' in res.context)
+
+    def test_usage_charts_infinite_quota(self):
+        res = self._test_usage_charts()
+
+        max_floating_ips = res.context['usage'].limits['maxTotalFloatingIps']
+        self.assertEqual(max_floating_ips, float("inf"))
+
+        self.assertContains(res, '(No Limit)')
