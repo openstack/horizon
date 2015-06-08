@@ -691,7 +691,12 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
     def _subs_from_port(self, port):
         return [ip['subnet_id'] for ip in port['fixed_ips']]
 
-    @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_lb': True})
+    @override_settings(
+        OPENSTACK_NEUTRON_NETWORK={
+            'enable_lb': True,
+            'enable_fip_topology_check': True,
+        }
+    )
     def test_floating_ip_target_list(self):
         ports = self.api_ports.list()
         # Port on the first subnet is connected to a router
