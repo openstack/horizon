@@ -106,11 +106,11 @@
           <tr>
             <th class="reorder"></th>
             <th class="expander"></th>
-            <th st-sort-default class="rsp-p1">{$ ::ctrl.label.network $}</th>
+            <th st-sort="name" st-sort-default class="rsp-p1">{$ ::ctrl.label.network $}</th>
             <th class="rsp-p2">{$ ::ctrl.label.subnet_associated $}</th>
-            <th class="rsp-p1">{$ ::ctrl.label.shared $}</th>
-            <th class="rsp-p1">{$ ::ctrl.label.admin_state $}</th>
-            <th class="rsp-p1">{$ ::ctrl.label.status $}</th>
+            <th st-sort="shared" class="rsp-p1">{$ ::ctrl.label.shared $}</th>
+            <th st-sort="admin_state" class="rsp-p1">{$ ::ctrl.label.admin_state $}</th>
+            <th st-sort="status" class="rsp-p1">{$ ::ctrl.label.status $}</th>
             <th></th>
           </tr>
         </thead>
