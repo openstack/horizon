@@ -62,7 +62,7 @@ WEBROOT = '/'
 #OPENSTACK_KEYSTONE_DEFAULT_DOMAIN = 'Default'
 
 # Set Console type:
-# valid options would be "AUTO"(default), "VNC", "SPICE", "RDP", "SERIAL" or None
+# valid options are "AUTO"(default), "VNC", "SPICE", "RDP", "SERIAL" or None
 # Set to None explicitly if you want to deactivate the console.
 #CONSOLE_TYPE = "AUTO"
 
@@ -108,12 +108,12 @@ LOCAL_PATH = os.path.dirname(os.path.abspath(__file__))
 # Set custom secret key:
 # You can either set it to a specific value or you can let horizon generate a
 # default secret key that is unique on this machine, e.i. regardless of the
-# amount of Python WSGI workers (if used behind Apache+mod_wsgi): However, there
-# may be situations where you would want to set this explicitly, e.g. when
-# multiple dashboard instances are distributed on different machines (usually
-# behind a load-balancer). Either you have to make sure that a session gets all
-# requests routed to the same dashboard instance or you set the same SECRET_KEY
-# for all of them.
+# amount of Python WSGI workers (if used behind Apache+mod_wsgi): However,
+# there may be situations where you would want to set this explicitly, e.g.
+# when multiple dashboard instances are distributed on different machines
+# (usually behind a load-balancer). Either you have to make sure that a session
+# gets all requests routed to the same dashboard instance or you set the same
+# SECRET_KEY for all of them.
 from horizon.utils import secret_key
 SECRET_KEY = secret_key.generate_or_read_from_file(
     os.path.join(LOCAL_PATH, '.secret_key_store'))
