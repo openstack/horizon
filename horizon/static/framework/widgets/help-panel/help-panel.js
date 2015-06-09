@@ -18,12 +18,17 @@
    * </div>
    * ```
    */
-  angular.module('horizon.framework.widgets.help-panel', [])
-    .directive('helpPanel', [ 'horizon.framework.widgets.basePath', function (path) {
-      return {
-        templateUrl: path + 'help-panel/help-panel.html',
-        transclude: true
-      };
-    }]);
+  angular
+    .module('horizon.framework.widgets.help-panel', [])
+    .directive('helpPanel', helpPanel);
+
+  helpPanel.$inject = [ 'horizon.framework.widgets.basePath' ];
+
+  function helpPanel(path) {
+    return {
+      templateUrl: path + 'help-panel/help-panel.html',
+      transclude: true
+    };
+  }
 
 })();
