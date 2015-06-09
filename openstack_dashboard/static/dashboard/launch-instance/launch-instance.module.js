@@ -22,7 +22,7 @@
     ])
     .constant('hz.dashboard.launch-instance.modal-spec', {
       backdrop: 'static',
-      controller: 'ModalContainerCtrl',
+      controller: 'ModalContainerController',
       template: '<wizard ng-controller="LaunchInstanceWizardController"></wizard>',
       windowClass: 'modal-dialog-wizard'
     })
