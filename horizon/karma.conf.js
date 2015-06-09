@@ -79,6 +79,7 @@ module.exports = function(config){
       'framework/widgets/charts/charts.js',
       'framework/widgets/metadata-tree/metadata-tree.js',
       'framework/widgets/table/table.js',
+      'framework/widgets/toast/toast.module.js',
 
       // Catch-all for stuff that isn't required explicitly by others.
       'auth/**/!(*spec).js',
