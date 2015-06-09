@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:00-0500\n"
-"PO-Revision-Date: 2015-05-13 19:11+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"POT-Creation-Date: 2015-06-08 19:20-0500\n"
+"PO-Revision-Date: 2015-06-08 18:55+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Spanish (Mexico) (http://www.transifex.com/projects/p/horizon/"
 "language/es_MX/)\n"
 "MIME-Version: 1.0\n"
@@ -87,9 +87,6 @@ msgstr "Error: "
 msgid "Filter"
 msgstr "Filtro"
 
-msgid "Floating IPs"
-msgstr "IPs Flotantes"
-
 msgid "Help"
 msgstr "Ayuda"
 
@@ -101,9 +98,6 @@ msgstr "Formato de dirección IP incorrecto"
 
 msgid "Info: "
 msgstr "Info:"
-
-msgid "Instances"
-msgstr "Instancias"
 
 msgid "Invalid subnet mask"
 msgstr "Máscara de red no válida"
@@ -132,9 +126,6 @@ msgstr "Ítem de navegación"
 
 msgid "Next"
 msgstr "Siguiente"
-
-msgid "No Limit"
-msgstr "Sin límite"
 
 msgid "No items to display."
 msgstr "No hay ítems que mostrar."
@@ -176,14 +167,8 @@ msgstr "El número de puerto debe ser un número entero"
 msgid "Processing..."
 msgstr "Procesando..."
 
-msgid "RAM"
-msgstr "RAM"
-
 msgid "Save"
 msgstr "Guardar"
-
-msgid "Security Groups"
-msgstr "Grupos de Seguridad"
 
 #, python-format
 msgid "Select a %s to browse."
@@ -230,16 +215,6 @@ msgstr "Actualizar"
 
 msgid "Updated"
 msgstr "Actualizado"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "<span> %(used)s </span> utilizados de <span> %(available)s </span>"
-
-msgid "VCPUs"
-msgstr "VCPUs"
-
-msgid "Volumes"
-msgstr "Volúmenes"
 
 msgid "Warning: "
 msgstr "Advertencia:"

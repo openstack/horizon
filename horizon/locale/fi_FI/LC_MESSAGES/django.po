@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:00-0500\n"
-"PO-Revision-Date: 2015-05-13 19:11+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"POT-Creation-Date: 2015-06-08 19:20-0500\n"
+"PO-Revision-Date: 2015-06-08 18:55+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/"
 "horizon/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
@@ -118,10 +118,6 @@ msgstr "Lisää rivi"
 msgid "All available"
 msgstr "Kaikki saatavilla"
 
-#, python-format
-msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Varattu <span> %(used)s </span> / <span> %(available)s </span>"
-
 msgid "Available"
 msgstr "Saatavilla"
 
@@ -161,9 +157,6 @@ msgstr "Virhe:"
 msgid "Filter"
 msgstr "Suodatin"
 
-msgid "Floating IPs"
-msgstr "Kelluvat IP:t"
-
 msgid "Help"
 msgstr "Apua"
 
@@ -175,9 +168,6 @@ msgstr "Väärä formaatti IP-osoitteelle"
 
 msgid "Info: "
 msgstr "Info:"
-
-msgid "Instances"
-msgstr "Instanssit"
 
 msgid "Invalid subnet mask"
 msgstr "Väärä aliverkon peite"
@@ -226,9 +216,6 @@ msgstr "Edellinen"
 msgid "Next&nbsp;&raquo;"
 msgstr "Seuraava&nbsp;&raquo;"
 
-msgid "No Limit"
-msgstr "Ei rajaa"
-
 msgid "No items to display."
 msgstr "Ei näytettävää."
 
@@ -269,14 +256,8 @@ msgstr "Porttinumero pitää olla kokonaisluku"
 msgid "Processing..."
 msgstr "Käsitellään..."
 
-msgid "RAM"
-msgstr "RAM"
-
 msgid "Save"
 msgstr "Tallenna"
-
-msgid "Security Groups"
-msgstr "Turvaryhmät"
 
 #, python-format
 msgid "Select a %s to browse."
@@ -353,19 +334,6 @@ msgstr "Päivitetty"
 
 msgid "Usage Summary"
 msgstr "Käytön yhteenveto"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Käytetty <span> %(used)s </span> / <span> %(available)s </span>"
-
-msgid "VCPUs"
-msgstr "VCPU:t"
-
-msgid "Volume Storage"
-msgstr "Volume Storage"
-
-msgid "Volumes"
-msgstr "Verkkolevyt"
 
 msgid "Warning: "
 msgstr "Varoitus:"

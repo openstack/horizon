@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:00-0500\n"
-"PO-Revision-Date: 2015-05-13 19:11+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"POT-Creation-Date: 2015-06-08 19:20-0500\n"
+"PO-Revision-Date: 2015-06-08 18:55+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/horizon/"
 "language/hu/)\n"
 "MIME-Version: 1.0\n"
@@ -90,9 +90,6 @@ msgstr "Hiba: "
 msgid "Filter"
 msgstr "Szűrő"
 
-msgid "Floating IPs"
-msgstr "Lebegő IP-k"
-
 msgid "Help"
 msgstr "Súgó"
 
@@ -104,9 +101,6 @@ msgstr "Helytelen IP-cím formátum"
 
 msgid "Info: "
 msgstr "Információ: "
-
-msgid "Instances"
-msgstr "Példányok"
 
 msgid "Invalid subnet mask"
 msgstr "Érvénytelen alhálózati maszk"
@@ -142,9 +136,6 @@ msgstr "Navigációs elem"
 
 msgid "Next"
 msgstr "Tovább"
-
-msgid "No Limit"
-msgstr "Nincs korlát"
 
 msgid "No items to display."
 msgstr "Nincs megjeleníthető elem."
@@ -183,14 +174,8 @@ msgstr "Port számnak egész számnak kell lennie"
 msgid "Processing..."
 msgstr "Feldolgozás…"
 
-msgid "RAM"
-msgstr "RAM"
-
 msgid "Save"
 msgstr "Mentés"
-
-msgid "Security Groups"
-msgstr "Biztonsági csoportok"
 
 #, python-format
 msgid "Select a %s to browse."
@@ -236,17 +221,6 @@ msgstr "Frissítve"
 
 msgid "Usage Summary"
 msgstr "Használati összegzés"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr ""
-"Felhasználva <span> %(used)s </span> a <span> %(available)s </span>-ból"
-
-msgid "VCPUs"
-msgstr "VCPU-k"
-
-msgid "Volumes"
-msgstr "Kötetek"
 
 msgid "Warning: "
 msgstr "Figyelmeztetés: "

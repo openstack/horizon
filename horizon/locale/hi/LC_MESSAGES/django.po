@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:00-0500\n"
-"PO-Revision-Date: 2015-05-13 19:11+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"POT-Creation-Date: 2015-06-08 19:20-0500\n"
+"PO-Revision-Date: 2015-06-08 18:55+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/"
 "hi/)\n"
 "MIME-Version: 1.0\n"
@@ -121,10 +121,6 @@ msgstr "पंक्ति जोड़ें"
 msgid "All available"
 msgstr "सभी उपलब्ध"
 
-#, python-format
-msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "<span> %(available)s </span> का <span> %(used)s </span> आवंटित"
-
 msgid "Available"
 msgstr "उपलब्ध"
 
@@ -167,9 +163,6 @@ msgstr "जाली"
 msgid "Filter"
 msgstr "छानना शुरू..."
 
-msgid "Floating IPs"
-msgstr " उत्प्लावित IP"
-
 msgid "Help"
 msgstr "मदद"
 
@@ -181,9 +174,6 @@ msgstr "IP पता के लिए गलत प्रारूप"
 
 msgid "Info: "
 msgstr "सूचना: "
-
-msgid "Instances"
-msgstr "इंस्टेंस"
 
 msgid "Invalid subnet mask"
 msgstr "अवैध सबनेट मास्क"
@@ -232,9 +222,6 @@ msgstr "अगला"
 msgid "Next&nbsp;&raquo;"
 msgstr "अगला&nbsp;&raquo;"
 
-msgid "No Limit"
-msgstr "कोई सीमा नहीं"
-
 msgid "No items to display."
 msgstr "दिखाने के लिए कोई सामग्रियों नहीं."
 
@@ -275,14 +262,8 @@ msgstr "पोर्ट संख्या में एक पूर्णा�
 msgid "Processing..."
 msgstr "प्रोसेसिंग..."
 
-msgid "RAM"
-msgstr "रैम"
-
 msgid "Save"
 msgstr "सहेजें"
-
-msgid "Security Groups"
-msgstr "सुरक्षा समूह"
 
 #, python-format
 msgid "Select a %s to browse."
@@ -359,19 +340,6 @@ msgstr "अद्यतित"
 
 msgid "Usage Summary"
 msgstr "प्रयोग सार"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "<span> %(available)s </span> का <span> %(used)s </span> उपलब्ध."
-
-msgid "VCPUs"
-msgstr "VCPUs"
-
-msgid "Volume Storage"
-msgstr "खंड भंडारण"
-
-msgid "Volumes"
-msgstr "वॉल्यूम"
 
 msgid "Warning: "
 msgstr "चेतावनी: "

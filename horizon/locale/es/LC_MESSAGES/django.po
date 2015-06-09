@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-01 21:38+0000\n"
+"POT-Creation-Date: 2015-06-08 19:20-0500\n"
+"PO-Revision-Date: 2015-06-08 18:55+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/"
 "es/)\n"
@@ -132,10 +132,6 @@ msgstr "Agregar una fila"
 msgid "All available"
 msgstr "Todos los disponibles"
 
-#, python-format
-msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Asignados <span> %(used)s </span> de <span> %(available)s </span>"
-
 msgid "Available"
 msgstr "Disponible"
 
@@ -181,9 +177,6 @@ msgstr "Falso"
 msgid "Filter"
 msgstr "Filtrar"
 
-msgid "Floating IPs"
-msgstr "IPs flotantes"
-
 msgid "Help"
 msgstr "Ayuda"
 
@@ -195,9 +188,6 @@ msgstr "Formato de dirección IP incorrecto"
 
 msgid "Info: "
 msgstr "Info:"
-
-msgid "Instances"
-msgstr "Instancias"
 
 msgid "Invalid metadata entry. Use comma-separated key=value pairs"
 msgstr "Entrada de metadata invalida, pares clave=valor separado por coma"
@@ -249,9 +239,6 @@ msgstr "Siguiente"
 msgid "Next&nbsp;&raquo;"
 msgstr "Siguiente&nbsp;&raquo;"
 
-msgid "No Limit"
-msgstr "Sin límite"
-
 msgid "No items to display."
 msgstr "No hay ítems que mostrar."
 
@@ -292,14 +279,8 @@ msgstr "El número de puerto debe ser un entero"
 msgid "Processing..."
 msgstr "Procesando..."
 
-msgid "RAM"
-msgstr "RAM"
-
 msgid "Save"
 msgstr "Guardar"
-
-msgid "Security Groups"
-msgstr "Grupos de seguridad"
 
 #, python-format
 msgid "Select a %s to browse."
@@ -379,19 +360,6 @@ msgstr "Actualizada"
 
 msgid "Usage Summary"
 msgstr "Resumen del uso"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "<span> %(used)s </span> usado de <span> %(available)s </span>"
-
-msgid "VCPUs"
-msgstr "VCPU"
-
-msgid "Volume Storage"
-msgstr "Almacenamiento de volúmenes"
-
-msgid "Volumes"
-msgstr "Volúmenes"
 
 msgid "Warning: "
 msgstr "Advertencia:"

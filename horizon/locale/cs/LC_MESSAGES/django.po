@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:00-0500\n"
-"PO-Revision-Date: 2015-05-15 09:43+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"POT-Creation-Date: 2015-06-08 19:20-0500\n"
+"PO-Revision-Date: 2015-06-08 18:55+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/"
 "cs/)\n"
 "MIME-Version: 1.0\n"
@@ -131,10 +131,6 @@ msgstr "Přidat řádek"
 msgid "All available"
 msgstr "Vše dostupné"
 
-#, python-format
-msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Přiděleno <span> %(used)s </span> z <span> %(available)s </span>"
-
 msgid "Available"
 msgstr "Dostupné"
 
@@ -183,9 +179,6 @@ msgstr "Falešné"
 msgid "Filter"
 msgstr "Filtr"
 
-msgid "Floating IPs"
-msgstr "Plovoucí IP adresy"
-
 msgid "Help"
 msgstr "Nápověda"
 
@@ -197,9 +190,6 @@ msgstr "Nesprávný formát IP adresy"
 
 msgid "Info: "
 msgstr "Informace:"
-
-msgid "Instances"
-msgstr "Instance"
 
 msgid "Invalid subnet mask"
 msgstr "Neplatná maska podsítě"
@@ -248,9 +238,6 @@ msgstr "Další"
 msgid "Next&nbsp;&raquo;"
 msgstr "Další&nbsp;&raquo;"
 
-msgid "No Limit"
-msgstr "Bez limitu"
-
 msgid "No items to display."
 msgstr "Žádné položky k zobrazení."
 
@@ -291,14 +278,8 @@ msgstr "Číslo portu musí být celé číslo"
 msgid "Processing..."
 msgstr "Zpracovávaní..."
 
-msgid "RAM"
-msgstr "RAM"
-
 msgid "Save"
 msgstr "Uložit"
-
-msgid "Security Groups"
-msgstr "Bezpečnostní skupiny"
 
 #, python-format
 msgid "Select a %s to browse."
@@ -366,19 +347,6 @@ msgstr "Aktualizováno"
 
 msgid "Usage Summary"
 msgstr "Souhrn využití"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Využito  <span> %(used)s </span> z <span> %(available)s </span>"
-
-msgid "VCPUs"
-msgstr "VCPU"
-
-msgid "Volume Storage"
-msgstr "Úložiště svazků"
-
-msgid "Volumes"
-msgstr "Svazky"
 
 msgid "Warning: "
 msgstr "Varování:"

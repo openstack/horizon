@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:00-0500\n"
-"PO-Revision-Date: 2015-05-13 19:11+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"POT-Creation-Date: 2015-06-08 19:20-0500\n"
+"PO-Revision-Date: 2015-06-08 18:55+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/projects/p/"
 "horizon/language/sl_SI/)\n"
 "MIME-Version: 1.0\n"
@@ -94,9 +94,6 @@ msgstr "Napaka:"
 msgid "Filter"
 msgstr "Filter"
 
-msgid "Floating IPs"
-msgstr "Javni IP-naslovi"
-
 msgid "Help"
 msgstr "Pomoč"
 
@@ -108,9 +105,6 @@ msgstr "Neveljaven zapis IP-naslova"
 
 msgid "Info: "
 msgstr "Informacije:"
-
-msgid "Instances"
-msgstr "Instanca"
 
 msgid "Invalid subnet mask"
 msgstr "Neveljavna maska podomrežja"
@@ -153,9 +147,6 @@ msgstr "Nikoli"
 msgid "Next"
 msgstr "Naprej"
 
-msgid "No Limit"
-msgstr "Ni omejitve"
-
 msgid "No items to display."
 msgstr "Ni zadetkov"
 
@@ -196,14 +187,8 @@ msgstr "Vrata navedite s številko."
 msgid "Processing..."
 msgstr "Obdelava..."
 
-msgid "RAM"
-msgstr "RAM"
-
 msgid "Save"
 msgstr "Shrani"
-
-msgid "Security Groups"
-msgstr "Varnostne skupine"
 
 #, python-format
 msgid "Select a %s to browse."
@@ -253,19 +238,6 @@ msgstr "Posodobljeno"
 
 msgid "Usage Summary"
 msgstr "Povzetek porabe"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Porabljeno <span> %(used)s </span> od <span> %(available)s </span>"
-
-msgid "VCPUs"
-msgstr "VCPU"
-
-msgid "Volume Storage"
-msgstr "Diskovni prostor nosilca"
-
-msgid "Volumes"
-msgstr "Nosilci"
 
 msgid "Warning: "
 msgstr "Opozorilo:"

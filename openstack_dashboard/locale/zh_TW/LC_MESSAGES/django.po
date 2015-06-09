@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-02 01:03+0000\n"
+"POT-Creation-Date: 2015-06-08 19:20-0500\n"
+"PO-Revision-Date: 2015-06-08 18:56+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/"
 "language/zh_TW/)\n"
@@ -1028,6 +1028,9 @@ msgstr "分配 IP 到專案"
 
 msgid "Allocate a floating IP from a given floating IP pool."
 msgstr "從浮動 IP 倉庫分配浮動 IP。"
+
+msgid "Allocated"
+msgstr "已分配"
 
 #, python-format
 msgid "Allocated Floating IP %(ip)s."
@@ -11035,6 +11038,9 @@ msgstr "雲硬碟即時存檔"
 
 msgid "Volume Source"
 msgstr "雲硬碟來源"
+
+msgid "Volume Storage"
+msgstr "雲硬碟儲存空間"
 
 msgid "Volume Transfer"
 msgstr "雲硬碟轉移"

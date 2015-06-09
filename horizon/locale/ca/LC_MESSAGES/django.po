@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:00-0500\n"
-"PO-Revision-Date: 2015-04-20 07:07+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"POT-Creation-Date: 2015-06-08 19:20-0500\n"
+"PO-Revision-Date: 2015-06-08 18:55+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/horizon/language/"
 "ca/)\n"
 "MIME-Version: 1.0\n"
@@ -84,9 +84,6 @@ msgstr "Error: "
 msgid "Filter"
 msgstr "Filtre"
 
-msgid "Floating IPs"
-msgstr "IP flotants"
-
 msgid "Help"
 msgstr "Ajuda"
 
@@ -98,9 +95,6 @@ msgstr "Format incorrecte per l'adreça IP"
 
 msgid "Info: "
 msgstr "Informació:"
-
-msgid "Instances"
-msgstr "Instàncies"
 
 msgid "Invalid subnet mask"
 msgstr "Màscara de subxarxa no vàlida"
@@ -129,9 +123,6 @@ msgstr "N/D"
 
 msgid "Navigation Item"
 msgstr "Article de navegació"
-
-msgid "No Limit"
-msgstr "Sense limit"
 
 msgid "No items to display."
 msgstr "No hi ha articles per mostrar."
@@ -173,14 +164,8 @@ msgstr "El nombre de port ha de ser un nombre enter"
 msgid "Processing..."
 msgstr "Processant..."
 
-msgid "RAM"
-msgstr "RAM"
-
 msgid "Save"
 msgstr "Desa"
-
-msgid "Security Groups"
-msgstr "Grups de Seguretat"
 
 #, python-format
 msgid "Select a %s to browse."
@@ -227,13 +212,6 @@ msgstr "Actualitzada"
 
 msgid "Usage Summary"
 msgstr "Resum de l'ús"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Usat <span> %(used)s </span> de <span> %(available)s </span>"
-
-msgid "VCPUs"
-msgstr "VCPUs"
 
 msgid "Warning: "
 msgstr "Advertiment:"

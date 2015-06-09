@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-01 21:38+0000\n"
+"POT-Creation-Date: 2015-06-08 19:20-0500\n"
+"PO-Revision-Date: 2015-06-08 18:55+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/"
 "language/ko_KR/)\n"
@@ -128,10 +128,6 @@ msgstr "열 추가"
 msgid "All available"
 msgstr "모두 사용가능"
 
-#, python-format
-msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "<span> %(available)s </span> 중에서 <span> %(used)s </span> 할당"
-
 msgid "Available"
 msgstr "사용 가능"
 
@@ -174,9 +170,6 @@ msgstr "페이크"
 msgid "Filter"
 msgstr "필터"
 
-msgid "Floating IPs"
-msgstr "유동 IP"
-
 msgid "Help"
 msgstr "도움말"
 
@@ -188,9 +181,6 @@ msgstr "IP 주소 형식이 잘못 되었습니다."
 
 msgid "Info: "
 msgstr "정보:"
-
-msgid "Instances"
-msgstr "인스턴스"
 
 msgid "Invalid metadata entry. Use comma-separated key=value pairs"
 msgstr ""
@@ -242,9 +232,6 @@ msgstr "다음"
 msgid "Next&nbsp;&raquo;"
 msgstr "다음&nbsp;&raquo;"
 
-msgid "No Limit"
-msgstr "제한 없음"
-
 msgid "No items to display."
 msgstr "표시할 항목이 없습니다."
 
@@ -285,14 +272,8 @@ msgstr "포트 번호는 정수이어야 합니다."
 msgid "Processing..."
 msgstr "작업 중..."
 
-msgid "RAM"
-msgstr "RAM"
-
 msgid "Save"
 msgstr "저장"
-
-msgid "Security Groups"
-msgstr "보안 그룹"
 
 #, python-format
 msgid "Select a %s to browse."
@@ -370,19 +351,6 @@ msgstr "업데이트 완료"
 
 msgid "Usage Summary"
 msgstr "사용량 요약"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "<span> %(available)s </span> 중에서 <span> %(used)s </span> 사용"
-
-msgid "VCPUs"
-msgstr "VCPUs"
-
-msgid "Volume Storage"
-msgstr "볼륨 스토리지"
-
-msgid "Volumes"
-msgstr "볼륨"
 
 msgid "Warning: "
 msgstr "경고:"

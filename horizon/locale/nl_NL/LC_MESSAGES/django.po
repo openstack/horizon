@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:00-0500\n"
-"PO-Revision-Date: 2015-05-13 19:11+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"POT-Creation-Date: 2015-06-08 19:20-0500\n"
+"PO-Revision-Date: 2015-06-08 18:55+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/"
 "horizon/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -93,9 +93,6 @@ msgstr "Fout: "
 msgid "Filter"
 msgstr "Filter"
 
-msgid "Floating IPs"
-msgstr "Vlottende IPs"
-
 msgid "Help"
 msgstr "Help"
 
@@ -107,9 +104,6 @@ msgstr "Onjuist formaat voor IP adres"
 
 msgid "Info: "
 msgstr "Informatie: "
-
-msgid "Instances"
-msgstr "Exemplaren"
 
 msgid "Invalid subnet mask"
 msgstr "Ongeldig subnet masker"
@@ -152,9 +146,6 @@ msgstr "Nooit"
 msgid "Next"
 msgstr "Volgende"
 
-msgid "No Limit"
-msgstr "Geen limiet"
-
 msgid "No items to display."
 msgstr "Geen artikelen om weer te geven."
 
@@ -195,14 +186,8 @@ msgstr "Poortnummer moet een geheel getal zijn"
 msgid "Processing..."
 msgstr "Bezig met verwerken..."
 
-msgid "RAM"
-msgstr "Werkgeheugen"
-
 msgid "Save"
 msgstr "Opslaan"
-
-msgid "Security Groups"
-msgstr "Beveiligingsgroepen"
 
 #, python-format
 msgid "Select a %s to browse."
@@ -252,19 +237,6 @@ msgstr "Bijgewerkt"
 
 msgid "Usage Summary"
 msgstr "Samenvatting van verbruik"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Gebruikt <span> %(used)s </span> van <span> %(available)s </span>"
-
-msgid "VCPUs"
-msgstr "VCPUs"
-
-msgid "Volume Storage"
-msgstr "Volumeopslag"
-
-msgid "Volumes"
-msgstr "Volumen"
 
 msgid "Warning: "
 msgstr "Waarschuwing: "

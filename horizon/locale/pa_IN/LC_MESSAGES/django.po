@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:00-0500\n"
-"PO-Revision-Date: 2015-05-13 19:11+0000\n"
-"Last-Translator: Amandeep Singh Saini <jimidar@gmail.com>\n"
+"POT-Creation-Date: 2015-06-08 19:20-0500\n"
+"PO-Revision-Date: 2015-06-08 18:55+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/projects/"
 "p/horizon/language/pa_IN/)\n"
 "MIME-Version: 1.0\n"
@@ -130,10 +130,6 @@ msgstr "ਇੱਕ ਸਤਰ੍ਹ ਜੋੜੋ"
 msgid "All available"
 msgstr "ਸਾਰੇ ਉਪਲੱਬਧ"
 
-#, python-format
-msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "<span> %(used)s </span> ਵੰਡੇ ਗਏ <span> %(available)s </span> ਵਿੱਚੋਂ"
-
 msgid "Available"
 msgstr "ਉਪਲੱਬਧ"
 
@@ -167,9 +163,6 @@ msgstr "ਨਕਲੀ"
 msgid "Filter"
 msgstr "ਛਾਣਨੀ (ਫਿਲਟਰ)"
 
-msgid "Floating IPs"
-msgstr "ਫਲੋਟਿੰਗ IPs"
-
 msgid "Help"
 msgstr "ਮਦਦ"
 
@@ -181,9 +174,6 @@ msgstr "IP ਪਤੇ ਲਈ ਗਲਤ ਬਣਤਰ"
 
 msgid "Info: "
 msgstr "ਜਾਣਕਾਰੀ: "
-
-msgid "Instances"
-msgstr "ਇੰਸਟਾਂਸਜ਼"
 
 msgid "Invalid subnet mask"
 msgstr "ਅਢੁਕਵਾਂ ਸਬਨੈੱਟ ਮਾਸਕ"
@@ -231,9 +221,6 @@ msgstr "ਅਗਲਾ"
 msgid "Next&nbsp;&raquo;"
 msgstr "Next&nbsp;&raquo;"
 
-msgid "No Limit"
-msgstr "ਕੋਈ ਹੱਦ ਨਹੀਂ"
-
 msgid "No items to display."
 msgstr "ਪਰਦਰਸ਼ਿਤ ਕਰਨ ਲਈ ਕੋਈ ਚੀਜ਼ ਨਹੀਂ।"
 
@@ -274,14 +261,8 @@ msgstr "ਪੋਰਟ ਨੰਬਰ ਦਾ ਅੰਕ ਹੋਣਾ ਲਾਜਮੀ 
 msgid "Processing..."
 msgstr "...ਕਾਰਵਾਈ ਚੱਲ ਰਹੀ ਹੈ"
 
-msgid "RAM"
-msgstr "RAM"
-
 msgid "Save"
 msgstr "ਸੰਭਾਲੋ"
-
-msgid "Security Groups"
-msgstr "ਸੁਰੱਖਿਆ ਸਮੂਹ"
 
 #, python-format
 msgid "Select a %s to browse."
@@ -361,19 +342,6 @@ msgstr "ਅਪਡੇਟ ਹੋਇਆ"
 
 msgid "Usage Summary"
 msgstr "ਵਰਤੋਂ ਸਾਰ"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "<span> %(used)s </span> ਵਰਤੇ <span> %(available)s </span> ਵਿੱਚੋਂ"
-
-msgid "VCPUs"
-msgstr "VCPUs"
-
-msgid "Volume Storage"
-msgstr "ਆਇਤਨ ਭੰਡਾਰਣ"
-
-msgid "Volumes"
-msgstr "ਆਇਤਨ"
 
 msgid "Warning: "
 msgstr "ਚੇਤਾਵਨੀ: "

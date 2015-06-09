@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-02 01:19-0500\n"
+"POT-Creation-Date: 2015-06-09 01:18-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -273,47 +273,16 @@ msgstr ""
 msgid "Limit Summary"
 msgstr ""
 
-#: templates/horizon/common/_limit_summary.html:7
-msgid "Instances"
+#: templates/horizon/common/_limit_summary.html:9
+msgid "Used"
 msgstr ""
 
-#: templates/horizon/common/_limit_summary.html:8
-#: templates/horizon/common/_limit_summary.html:15
-#: templates/horizon/common/_limit_summary.html:22
-#: templates/horizon/common/_limit_summary.html:36
-#: templates/horizon/common/_limit_summary.html:43
-#: templates/horizon/common/_limit_summary.html:50
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
+#: templates/horizon/common/_limit_summary.html:12
+msgid "of"
 msgstr ""
 
-#: templates/horizon/common/_limit_summary.html:14
-msgid "VCPUs"
-msgstr ""
-
-#: templates/horizon/common/_limit_summary.html:21
-msgid "RAM"
-msgstr ""
-
-#: templates/horizon/common/_limit_summary.html:28
-msgid "Floating IPs"
-msgstr ""
-
-#: templates/horizon/common/_limit_summary.html:29
-#, python-format
-msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr ""
-
-#: templates/horizon/common/_limit_summary.html:35
-msgid "Security Groups"
-msgstr ""
-
-#: templates/horizon/common/_limit_summary.html:42
-msgid "Volumes"
-msgstr ""
-
-#: templates/horizon/common/_limit_summary.html:49
-msgid "Volume Storage"
+#: templates/horizon/common/_limit_summary.html:14 templatetags/horizon.py:137
+msgid "(No Limit)"
 msgstr ""
 
 #: templates/horizon/common/_modal_form_update_metadata.html:24
@@ -391,10 +360,6 @@ msgstr ""
 
 #: templatetags/branding.py:34
 msgid "Horizon"
-msgstr ""
-
-#: templatetags/horizon.py:137 templatetags/horizon.py:148
-msgid "No Limit"
 msgstr ""
 
 #: templatetags/horizon.py:140 templatetags/horizon.py:142

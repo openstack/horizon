@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-01 21:38+0000\n"
+"POT-Creation-Date: 2015-06-08 19:20-0500\n"
+"PO-Revision-Date: 2015-06-08 18:55+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/"
 "fr/)\n"
@@ -132,10 +132,6 @@ msgstr "Ajouter une ligne"
 msgid "All available"
 msgstr "Disponibles"
 
-#, python-format
-msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Alloué <span> %(used)s </span> de <span> %(available)s </span>"
-
 msgid "Available"
 msgstr "disponible(s)"
 
@@ -181,9 +177,6 @@ msgstr "Faux"
 msgid "Filter"
 msgstr "Filtrer"
 
-msgid "Floating IPs"
-msgstr "IP flottantes"
-
 msgid "Help"
 msgstr "Aide"
 
@@ -195,9 +188,6 @@ msgstr "Format d'adresse IP incorrect"
 
 msgid "Info: "
 msgstr "Information :"
-
-msgid "Instances"
-msgstr "Instances"
 
 msgid "Invalid metadata entry. Use comma-separated key=value pairs"
 msgstr ""
@@ -251,9 +241,6 @@ msgstr "Suivant"
 msgid "Next&nbsp;&raquo;"
 msgstr "Suivant&nbsp;&raquo;"
 
-msgid "No Limit"
-msgstr "Pas de limite"
-
 msgid "No items to display."
 msgstr "Aucun élément à afficher."
 
@@ -294,14 +281,8 @@ msgstr "Le numéro de port doit être un nombre entier"
 msgid "Processing..."
 msgstr "Traitement en cours..."
 
-msgid "RAM"
-msgstr "RAM"
-
 msgid "Save"
 msgstr "Enregistrer"
-
-msgid "Security Groups"
-msgstr "Groupes de sécurité"
 
 #, python-format
 msgid "Select a %s to browse."
@@ -381,19 +362,6 @@ msgstr "Mis à jour"
 
 msgid "Usage Summary"
 msgstr "Résumé de l'Utilisation"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "<span> %(used)s </span> utilisé(es) sur <span> %(available)s </span>"
-
-msgid "VCPUs"
-msgstr "VCPUs"
-
-msgid "Volume Storage"
-msgstr "Stockage de volumes"
-
-msgid "Volumes"
-msgstr "Volumes"
 
 msgid "Warning: "
 msgstr "Avertissement :"

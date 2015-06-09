@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-01 21:38+0000\n"
+"POT-Creation-Date: 2015-06-08 19:20-0500\n"
+"PO-Revision-Date: 2015-06-08 18:55+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: English (Australia) (http://www.transifex.com/projects/p/"
 "horizon/language/en_AU/)\n"
@@ -130,10 +130,6 @@ msgstr "Add a row"
 msgid "All available"
 msgstr "All available"
 
-#, python-format
-msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-
 msgid "Available"
 msgstr "Available"
 
@@ -179,9 +175,6 @@ msgstr "Fake"
 msgid "Filter"
 msgstr "Filter"
 
-msgid "Floating IPs"
-msgstr "Floating IPs"
-
 msgid "Help"
 msgstr "Help"
 
@@ -193,9 +186,6 @@ msgstr "Incorrect format for IP address"
 
 msgid "Info: "
 msgstr "Info: "
-
-msgid "Instances"
-msgstr "Instances"
 
 msgid "Invalid metadata entry. Use comma-separated key=value pairs"
 msgstr "Invalid metadata entry. Use comma-separated key=value pairs"
@@ -246,9 +236,6 @@ msgstr "Next"
 msgid "Next&nbsp;&raquo;"
 msgstr "Next&nbsp;&raquo;"
 
-msgid "No Limit"
-msgstr "No Limit"
-
 msgid "No items to display."
 msgstr "No items to display."
 
@@ -289,14 +276,8 @@ msgstr "Port number must be integer"
 msgid "Processing..."
 msgstr "Processing..."
 
-msgid "RAM"
-msgstr "RAM"
-
 msgid "Save"
 msgstr "Save"
-
-msgid "Security Groups"
-msgstr "Security Groups"
 
 #, python-format
 msgid "Select a %s to browse."
@@ -376,19 +357,6 @@ msgstr "Updated"
 
 msgid "Usage Summary"
 msgstr "Usage Summary"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Used <span> %(used)s </span> of <span> %(available)s </span>"
-
-msgid "VCPUs"
-msgstr "VCPUs"
-
-msgid "Volume Storage"
-msgstr "Volume Storage"
-
-msgid "Volumes"
-msgstr "Volumes"
 
 msgid "Warning: "
 msgstr "Warning: "

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-01 21:38+0000\n"
+"POT-Creation-Date: 2015-06-08 19:20-0500\n"
+"PO-Revision-Date: 2015-06-08 18:55+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/"
 "language/pl_PL/)\n"
@@ -131,10 +131,6 @@ msgstr "Dodaj wiersz"
 msgid "All available"
 msgstr "Całość dostępna"
 
-#, python-format
-msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Przydzielono  <span> %(used)s </span> z <span> %(available)s </span>"
-
 msgid "Available"
 msgstr "Dostępne"
 
@@ -183,9 +179,6 @@ msgstr "Fałszywe"
 msgid "Filter"
 msgstr "Filtr"
 
-msgid "Floating IPs"
-msgstr "Pływające adresy IP"
-
 msgid "Help"
 msgstr "Pomoc"
 
@@ -197,9 +190,6 @@ msgstr "Błędny format adresu IP"
 
 msgid "Info: "
 msgstr "Informacja:"
-
-msgid "Instances"
-msgstr "Instancje"
 
 msgid "Invalid metadata entry. Use comma-separated key=value pairs"
 msgstr ""
@@ -253,9 +243,6 @@ msgstr "Następny"
 msgid "Next&nbsp;&raquo;"
 msgstr "Następne&nbsp;&raquo;"
 
-msgid "No Limit"
-msgstr "Bez ograniczeń"
-
 msgid "No items to display."
 msgstr "Brak pozycji do wyświetlenia."
 
@@ -296,14 +283,8 @@ msgstr "Numer portu musi być liczbą całkowitą"
 msgid "Processing..."
 msgstr "Przetwarzanie…"
 
-msgid "RAM"
-msgstr "RAM"
-
 msgid "Save"
 msgstr "Zapisz"
-
-msgid "Security Groups"
-msgstr "Grupy zabezpieczeń"
 
 #, python-format
 msgid "Select a %s to browse."
@@ -385,19 +366,6 @@ msgstr "Zaktualizowany"
 
 msgid "Usage Summary"
 msgstr "Podsumowanie wykorzystania"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Wykorzystano <span> %(used)s </span> z <span> %(available)s </span>"
-
-msgid "VCPUs"
-msgstr "VCPU"
-
-msgid "Volume Storage"
-msgstr "Przechowywanie danych"
-
-msgid "Volumes"
-msgstr "Wolumeny"
 
 msgid "Warning: "
 msgstr "Ostrzeżenie:"

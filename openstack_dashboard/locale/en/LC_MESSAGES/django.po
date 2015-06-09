@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-05 01:18-0500\n"
+"POT-Creation-Date: 2015-06-09 01:18-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1068,7 +1068,7 @@ msgstr ""
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:10
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:5
 #: dashboards/project/overview/views.py:32 usage/quotas.py:63
-#: usage/tables.py:33
+#: usage/tables.py:33 usage/views.py:68
 msgid "VCPUs"
 msgstr ""
 
@@ -1090,7 +1090,7 @@ msgstr ""
 #: dashboards/project/instances/templates/instances/index.html:3
 #: dashboards/project/instances/views.py:59
 #: dashboards/project/network_topology/instances/tables.py:23
-#: usage/quotas.py:64
+#: usage/quotas.py:64 usage/views.py:67
 msgid "Instances"
 msgstr ""
 
@@ -1112,6 +1112,7 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/index.html:3
 #: dashboards/project/volumes/views.py:26
 #: dashboards/project/volumes/volumes/tables.py:443 usage/quotas.py:74
+#: usage/views.py:78
 msgid "Volumes"
 msgstr ""
 
@@ -1163,7 +1164,7 @@ msgstr ""
 #: dashboards/project/instances/templates/instances/_detail_overview.html:87
 #: dashboards/project/instances/workflows/create_instance.py:554
 #: dashboards/project/instances/workflows/update_instance.py:80
-#: usage/quotas.py:70 usage/quotas.py:82
+#: usage/quotas.py:70 usage/quotas.py:82 usage/views.py:73
 msgid "Security Groups"
 msgstr ""
 
@@ -1333,7 +1334,7 @@ msgstr ""
 #: dashboards/project/instances/templates/instances/_detail_overview.html:55
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:14
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:6
-#: usage/tables.py:37
+#: usage/tables.py:37 usage/views.py:69
 msgid "RAM"
 msgstr ""
 
@@ -17304,6 +17305,14 @@ msgstr ""
 
 #: usage/tables.py:66 usage/tables.py:96
 msgid "Usage"
+msgstr ""
+
+#: usage/views.py:71
+msgid "Allocated"
+msgstr ""
+
+#: usage/views.py:80
+msgid "Volume Storage"
 msgstr ""
 
 #: utils/metering.py:46

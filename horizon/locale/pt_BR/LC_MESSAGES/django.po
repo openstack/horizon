@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-01 21:38+0000\n"
+"POT-Creation-Date: 2015-06-08 19:20-0500\n"
+"PO-Revision-Date: 2015-06-08 18:56+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
 "horizon/language/pt_BR/)\n"
@@ -132,10 +132,6 @@ msgstr "Adicionar uma linha"
 msgid "All available"
 msgstr "Tudo disponível"
 
-#, python-format
-msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Alocado <span> %(used)s </span> de <span> %(available)s </span>"
-
 msgid "Available"
 msgstr "Disponível"
 
@@ -181,9 +177,6 @@ msgstr "Falso"
 msgid "Filter"
 msgstr "Filtro"
 
-msgid "Floating IPs"
-msgstr "IPs Flutuantes"
-
 msgid "Help"
 msgstr "Ajuda"
 
@@ -195,9 +188,6 @@ msgstr "Formato incorreto para o endereço IP"
 
 msgid "Info: "
 msgstr "Informação:"
-
-msgid "Instances"
-msgstr "Instâncias"
 
 msgid "Invalid metadata entry. Use comma-separated key=value pairs"
 msgstr ""
@@ -251,9 +241,6 @@ msgstr "Próximo"
 msgid "Next&nbsp;&raquo;"
 msgstr "Next&nbsp;&raquo;"
 
-msgid "No Limit"
-msgstr "Sem Limite"
-
 msgid "No items to display."
 msgstr "Sem itens para exibir."
 
@@ -294,14 +281,8 @@ msgstr "Número de porta deve ser inteiro"
 msgid "Processing..."
 msgstr "Processando..."
 
-msgid "RAM"
-msgstr "RAM"
-
 msgid "Save"
 msgstr "Salvar"
-
-msgid "Security Groups"
-msgstr "Grupos de Segurança"
 
 #, python-format
 msgid "Select a %s to browse."
@@ -382,18 +363,8 @@ msgstr "Atualizado"
 msgid "Usage Summary"
 msgstr "Resumo de Utilização"
 
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Utilizado <span> %(used)s </span> de <span> %(available)s </span>"
-
-msgid "VCPUs"
-msgstr "vCPUs"
-
-msgid "Volume Storage"
-msgstr "Armazenamento de volume"
-
-msgid "Volumes"
-msgstr "Volumes"
+msgid "Used"
+msgstr "Utilizado"
 
 msgid "Warning: "
 msgstr "Alerta:"
@@ -408,3 +379,6 @@ msgstr "Você não está autorizado a acessar %s"
 
 msgid "You do not have permission to access the resource:"
 msgstr "Você não tem permissão para acessar o recurso:"
+
+msgid "of"
+msgstr "de"

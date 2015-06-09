@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:00-0500\n"
-"PO-Revision-Date: 2015-05-13 19:11+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"POT-Creation-Date: 2015-06-08 19:20-0500\n"
+"PO-Revision-Date: 2015-06-08 18:55+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/horizon/"
 "language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -118,10 +118,6 @@ msgstr "Tambah baris"
 msgid "All available"
 msgstr "Semua yang tersed1a"
 
-#, python-format
-msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Teralokasi <span> %(used)s </span> of <span> %(available)s </span>"
-
 msgid "Available"
 msgstr "Tersedia"
 
@@ -161,9 +157,6 @@ msgstr "Bohongan"
 msgid "Filter"
 msgstr "Penyaring"
 
-msgid "Floating IPs"
-msgstr "Floating IPs"
-
 msgid "Help"
 msgstr "Bantuan"
 
@@ -175,9 +168,6 @@ msgstr "Format alamat IP salah."
 
 msgid "Info: "
 msgstr "Informasi:"
-
-msgid "Instances"
-msgstr "Instances"
 
 msgid "Invalid subnet mask"
 msgstr "Subnet mask alamat IP tidak benar."
@@ -225,9 +215,6 @@ msgstr "Berikutnya"
 msgid "Next&nbsp;&raquo;"
 msgstr "Berikut&nbsp;&raquo;"
 
-msgid "No Limit"
-msgstr "Tidak Terbatas"
-
 msgid "No items to display."
 msgstr "Tidak ada yang ditampilkan"
 
@@ -268,14 +255,8 @@ msgstr "Nomor port harus bilangan bulat"
 msgid "Processing..."
 msgstr "Sedang di proses..."
 
-msgid "RAM"
-msgstr "RAM"
-
 msgid "Save"
 msgstr "Simpan"
-
-msgid "Security Groups"
-msgstr "Kelompok Keamanan"
 
 #, python-format
 msgid "Select a %s to browse."
@@ -350,19 +331,6 @@ msgstr "Sudah di perbaharui"
 
 msgid "Usage Summary"
 msgstr "Ringkasan Penggunaan"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Digunakan <span> %(used)s </span> dari <span> %(available)s </span>"
-
-msgid "VCPUs"
-msgstr "VCPUs"
-
-msgid "Volume Storage"
-msgstr "Volume Penyimpanan"
-
-msgid "Volumes"
-msgstr "Volumes"
 
 msgid "Warning: "
 msgstr "Peringatan:"

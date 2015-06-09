@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:00-0500\n"
-"PO-Revision-Date: 2015-05-13 19:11+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"POT-Creation-Date: 2015-06-08 19:20-0500\n"
+"PO-Revision-Date: 2015-06-08 18:55+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Filipino (http://www.transifex.com/projects/p/horizon/"
 "language/fil/)\n"
 "MIME-Version: 1.0\n"
@@ -93,9 +93,6 @@ msgstr "May Pagkakamali:"
 msgid "Filter"
 msgstr "Salain"
 
-msgid "Floating IPs"
-msgstr "Floating IPs"
-
 msgid "Help"
 msgstr "Tulong"
 
@@ -107,9 +104,6 @@ msgstr "Maling format para sa mga IP address"
 
 msgid "Info: "
 msgstr "Info:"
-
-msgid "Instances"
-msgstr "Instances"
 
 msgid "Invalid subnet mask"
 msgstr "Maling subnet mask"
@@ -152,9 +146,6 @@ msgstr "Hindi kailanman"
 msgid "Next"
 msgstr "Susunod"
 
-msgid "No Limit"
-msgstr "Walang Limitasyon"
-
 msgid "No items to display."
 msgstr "Walang mga items na ipapakita."
 
@@ -195,14 +186,8 @@ msgstr "Ang Port number ay dapat isang integer"
 msgid "Processing..."
 msgstr "Nagpoproseso..."
 
-msgid "RAM"
-msgstr "RAM"
-
 msgid "Save"
 msgstr "I-Save"
-
-msgid "Security Groups"
-msgstr "Security Groups"
 
 #, python-format
 msgid "Select a %s to browse."
@@ -252,19 +237,6 @@ msgstr "Nai-update"
 
 msgid "Usage Summary"
 msgstr "Buod ng Paggamit"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Ginamit <span> %(used)s </span> ng <span> %(available)s </span>"
-
-msgid "VCPUs"
-msgstr "VCPUs"
-
-msgid "Volume Storage"
-msgstr "Volume Storage"
-
-msgid "Volumes"
-msgstr "Volumes"
 
 msgid "Warning: "
 msgstr "Babala:"

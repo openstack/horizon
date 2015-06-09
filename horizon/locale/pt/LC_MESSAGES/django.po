@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-27 03:00-0500\n"
-"PO-Revision-Date: 2015-05-13 19:11+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"POT-Creation-Date: 2015-06-08 19:20-0500\n"
+"PO-Revision-Date: 2015-06-08 18:55+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/horizon/"
 "language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -108,9 +108,6 @@ msgstr "Erro: "
 msgid "Filter"
 msgstr "Filtro"
 
-msgid "Floating IPs"
-msgstr "IPs Flutuantes"
-
 msgid "Help"
 msgstr "Ajuda"
 
@@ -122,9 +119,6 @@ msgstr "Formato incorreto para o endereço de IP"
 
 msgid "Info: "
 msgstr "Informação: "
-
-msgid "Instances"
-msgstr "Instâncias"
 
 msgid "Invalid subnet mask"
 msgstr "Máscara de sub-rede inválida"
@@ -173,9 +167,6 @@ msgstr "Seguinte"
 msgid "Next&nbsp;&raquo;"
 msgstr "Seguinte&nbsp;&raquo;"
 
-msgid "No Limit"
-msgstr "Sem Limite"
-
 msgid "No items to display."
 msgstr "Não há itens para exibir."
 
@@ -216,14 +207,8 @@ msgstr "O número da porta deve ser um íntegro"
 msgid "Processing..."
 msgstr "A processar ..."
 
-msgid "RAM"
-msgstr "RAM"
-
 msgid "Save"
 msgstr "Guardar"
-
-msgid "Security Groups"
-msgstr "Grupos de Segurança"
 
 #, python-format
 msgid "Select a %s to browse."
@@ -273,19 +258,6 @@ msgstr "Atualizado"
 
 msgid "Usage Summary"
 msgstr "Resumo da Utilização"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "Usado <span> %(used)s </span> de <span> %(available)s </span>"
-
-msgid "VCPUs"
-msgstr "VCPUs"
-
-msgid "Volume Storage"
-msgstr "Volume Armazenamento"
-
-msgid "Volumes"
-msgstr "Volumes"
 
 msgid "Warning: "
 msgstr "Aviso: "

@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-01 21:38+0000\n"
+"POT-Creation-Date: 2015-06-08 19:20-0500\n"
+"PO-Revision-Date: 2015-06-08 18:55+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/"
 "language/zh_CN/)\n"
@@ -130,10 +130,6 @@ msgstr "增加一行"
 msgid "All available"
 msgstr "所有可用成员"
 
-#, python-format
-msgid "Allocated <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "已分配 <span> %(used)s </span> 于 <span> %(available)s </span>"
-
 msgid "Available"
 msgstr "可用配额"
 
@@ -176,9 +172,6 @@ msgstr "伪"
 msgid "Filter"
 msgstr "筛选"
 
-msgid "Floating IPs"
-msgstr "浮动IP"
-
 msgid "Help"
 msgstr "帮助"
 
@@ -190,9 +183,6 @@ msgstr "不正确的IP地址格式"
 
 msgid "Info: "
 msgstr "信息："
-
-msgid "Instances"
-msgstr "实例"
 
 msgid "Invalid metadata entry. Use comma-separated key=value pairs"
 msgstr "无效的元数据实体，使用键=值"
@@ -242,9 +232,6 @@ msgstr "下一步"
 msgid "Next&nbsp;&raquo;"
 msgstr "后页&nbsp;&raquo;"
 
-msgid "No Limit"
-msgstr "无限制"
-
 msgid "No items to display."
 msgstr "没有要显示的条目。"
 
@@ -285,14 +272,8 @@ msgstr "端口号必须为整数"
 msgid "Processing..."
 msgstr "正在处理中, 请稍候..."
 
-msgid "RAM"
-msgstr "内存"
-
 msgid "Save"
 msgstr "保存"
-
-msgid "Security Groups"
-msgstr "安全组"
 
 #, python-format
 msgid "Select a %s to browse."
@@ -370,19 +351,6 @@ msgstr "已更新"
 
 msgid "Usage Summary"
 msgstr "使用情况摘要"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "<span> %(available)s </span>中的<span> %(used)s </span>已使用"
-
-msgid "VCPUs"
-msgstr "虚拟处理器（VCPU）"
-
-msgid "Volume Storage"
-msgstr "卷存储"
-
-msgid "Volumes"
-msgstr "云硬盘"
 
 msgid "Warning: "
 msgstr "警告："
