@@ -145,8 +145,9 @@ horizon.datatables = {
     // Enable or disable table batch action buttons based on row selection.
     $form = $form || $(".table_wrapper > form");
     $form.each(function () {
-      var checkboxes = $(this).find(".table-row-multi-select:checkbox");
-      var action_buttons = $(this).find('.table_actions button[data-batch-action="true"]');
+      var $this = $(this);
+      var checkboxes = $this.find(".table-row-multi-select:checkbox");
+      var action_buttons = $this.find('.table_actions button[data-batch-action="true"]');
       action_buttons.toggleClass("disabled", !checkboxes.filter(":checked").length);
     });
   },
@@ -183,15 +184,16 @@ horizon.datatables = {
     // submit is completed to remove these changes.
     $form = $form || $(".table_wrapper > form");
     $form.on("submit", function () {
+      var $this = $(this);
       // Add the 'submitted' flag to the form so the row update interval knows
       // not to update the row and therefore re-enable the actions that we are
       // disabling here.
-      $(this).attr('data-submitted', 'true');
+      $this.attr('data-submitted', 'true');
       // Disable row action buttons. This prevents multiple form submission.
-      $(this).find('td.actions_column button[type="submit"]').addClass("disabled");
+      $this.find('td.actions_column button[type="submit"]').addClass("disabled");
       // Use CSS to update the cursor so it's very clear that an action is
       // in progress.
-      $(this).addClass('wait');
+      $this.addClass('wait');
     });
   }
 };
