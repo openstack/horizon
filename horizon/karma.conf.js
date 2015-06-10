@@ -77,9 +77,9 @@ module.exports = function(config) {
       'framework/util/util.module.js',
       'framework/util/tech-debt/tech-debt.module.js',
       'framework/widgets/charts/charts.module.js',
-      'framework/widgets/metadata-tree/metadata-tree.js',
       'framework/widgets/modal/modal.module.js',
-      'framework/widgets/table/table.js',
+      'framework/widgets/metadata-tree/metadata-tree.module.js',
+      'framework/widgets/table/table.module.js',
       'framework/widgets/toast/toast.module.js',
 
       // Catch-all for stuff that isn't required explicitly by others.
