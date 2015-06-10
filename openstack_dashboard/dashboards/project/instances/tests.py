@@ -1938,8 +1938,11 @@ class InstanceTests(helpers.TestCase):
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
                            quotas: ('tenant_quota_usages',)})
-    def test_launch_instance_post_boot_from_volume(self,
-                                                   test_with_profile=False):
+    def test_launch_instance_post_boot_from_volume(
+        self,
+        test_with_profile=False,
+        test_with_bdmv2=False
+    ):
         flavor = self.flavors.first()
         keypair = self.keypairs.first()
         server = self.servers.first()
@@ -1949,13 +1952,29 @@ class InstanceTests(helpers.TestCase):
         customization_script = 'user data'
         device_name = u'vda'
         volume_choice = "%s:vol" % volume.id
-        block_device_mapping = {device_name: u"%s::0" % volume_choice}
+        if test_with_bdmv2:
+            volume_source_id = volume.id.split(':')[0]
+            block_device_mapping = None
+            block_device_mapping_2 = [
+                {'device_name': u'vda',
+                 'source_type': 'volume',
+                 'destination_type': 'volume',
+                 'delete_on_termination': 0,
+                 'uuid': volume_source_id,
+                 'boot_index': '0',
+                 'volume_size': 1
+                 }
+            ]
+        else:
+            block_device_mapping = {device_name: u"%s::0" % volume_choice}
+            block_device_mapping_2 = None
+
         nics = [{"net-id": self.networks.first().id, "v4-fixed-ip": ''}]
         quota_usages = self.quota_usages.first()
 
         api.nova.extension_supported('BlockDeviceMappingV2Boot',
                                      IsA(http.HttpRequest)) \
-            .AndReturn(True)
+            .AndReturn(test_with_bdmv2)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         api.nova.keypair_list(IsA(http.HttpRequest)) \
@@ -2007,6 +2026,10 @@ class InstanceTests(helpers.TestCase):
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=SNAPSHOT_SEARCH_OPTS) \
             .AndReturn([])
+        api.nova.extension_supported('BlockDeviceMappingV2Boot',
+                                     IsA(http.HttpRequest)) \
+            .AndReturn(test_with_bdmv2)
+
         api.nova.server_create(IsA(http.HttpRequest),
                                server.name,
                                '',
@@ -2015,7 +2038,7 @@ class InstanceTests(helpers.TestCase):
                                customization_script,
                                [sec_group.name],
                                block_device_mapping=block_device_mapping,
-                               block_device_mapping_v2=None,
+                               block_device_mapping_v2=block_device_mapping_2,
                                nics=nics,
                                availability_zone=avail_zone.zoneName,
                                instance_count=IsA(int),
@@ -2052,6 +2075,9 @@ class InstanceTests(helpers.TestCase):
 
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    def test_launch_instance_post_boot_from_volume_with_bdmv2(self):
+        self.test_launch_instance_post_boot_from_volume(test_with_bdmv2=True)
 
     @helpers.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
@@ -2146,6 +2172,9 @@ class InstanceTests(helpers.TestCase):
         quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
             .AndReturn(quota_usages)
 
+        api.nova.extension_supported('BlockDeviceMappingV2Boot',
+                                     IsA(http.HttpRequest)) \
+            .AndReturn(False)
         api.nova.server_create(IsA(http.HttpRequest),
                                server.name,
                                '',

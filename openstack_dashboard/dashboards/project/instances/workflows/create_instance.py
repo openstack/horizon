@@ -862,10 +862,33 @@ class LaunchInstance(workflows.Workflow):
         if source_type in ['image_id', 'instance_snapshot_id']:
             image_id = context['source_id']
         elif source_type in ['volume_id', 'volume_snapshot_id']:
-            dev_mapping_1 = {context['device_name']:
-                             '%s::%s' %
-                             (context['source_id'],
-                              int(bool(context['delete_on_terminate'])))}
+            try:
+                if api.nova.extension_supported("BlockDeviceMappingV2Boot",
+                                                request):
+                    # Volume source id is extracted from the source
+                    volume_source_id = context['source_id'].split(':')[0]
+                    device_name = context.get('device_name', '') \
+                        .strip() or None
+                    dev_mapping_2 = [
+                        {'device_name': device_name,
+                         'source_type': 'volume',
+                         'destination_type': 'volume',
+                         'delete_on_termination':
+                             int(bool(context['delete_on_terminate'])),
+                         'uuid': volume_source_id,
+                         'boot_index': '0',
+                         'volume_size': context['volume_size']
+                         }
+                    ]
+                else:
+                    dev_mapping_1 = {context['device_name']: '%s::%s' %
+                                     (context['source_id'],
+                                     int(bool(context['delete_on_terminate'])))
+                                     }
+            except Exception:
+                msg = _('Unable to retrieve extensions information')
+                exceptions.handle(request, msg)
+
         elif source_type == 'volume_image_id':
             device_name = context.get('device_name', '').strip() or None
             dev_mapping_2 = [
