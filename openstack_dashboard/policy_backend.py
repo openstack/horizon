@@ -20,7 +20,7 @@ from django.conf import settings
 from openstack_auth import utils as auth_utils
 from oslo_config import cfg
 
-from openstack_dashboard.openstack.common import policy
+from oslo_policy import policy
 
 
 LOG = logging.getLogger(__name__)
@@ -42,15 +42,17 @@ def _get_enforcer():
         _ENFORCER = {}
         policy_files = getattr(settings, 'POLICY_FILES', {})
         for service in policy_files.keys():
-            enforcer = policy.Enforcer()
-            enforcer.policy_path = os.path.join(_BASE_PATH,
-                                                policy_files[service])
-            if os.path.isfile(enforcer.policy_path):
+            policy_path = os.path.join(_BASE_PATH,
+                                       policy_files[service])
+            if os.path.isfile(policy_path):
                 LOG.debug("adding enforcer for service: %s" % service)
+                enforcer = policy.Enforcer(CONF)
+                CONF.oslo_policy.policy_dirs = []
+                enforcer.policy_path = policy_path
                 _ENFORCER[service] = enforcer
             else:
                 LOG.warn("policy file for service: %s not found at %s" %
-                         (service, enforcer.policy_path))
+                         (service, policy_path))
     return _ENFORCER
 
 
