@@ -71,47 +71,48 @@ class BaseTestCase(testtools.TestCase):
     CONFIG = config.get_config()
 
     def setUp(self):
-        if os.environ.get('INTEGRATION_TESTS', False):
-            # Start a virtual display server for running the tests headless.
-            if os.environ.get('SELENIUM_HEADLESS', False):
-                self.vdisplay = xvfbwrapper.Xvfb(width=1920, height=1080)
-                args = []
-
-                # workaround for memory leak in Xvfb taken from:
-                # http://blog.jeffterrace.com/2012/07/xvfb-memory-leak-workaround.html
-                args.append("-noreset")
-
-                # disables X access control
-                args.append("-ac")
-
-                if hasattr(self.vdisplay, 'extra_xvfb_args'):
-                    # xvfbwrapper 0.2.8 or newer
-                    self.vdisplay.extra_xvfb_args.extend(args)
-                else:
-                    self.vdisplay.xvfb_cmd.extend(args)
-                self.vdisplay.start()
-            # Increase the default Python socket timeout from nothing
-            # to something that will cope with slow webdriver startup times.
-            # This *just* affects the communication between this test process
-            # and the webdriver.
-            socket.setdefaulttimeout(60)
-            # Start the Selenium webdriver and setup configuration.
-            desired_capabilities = dict(webdriver.desired_capabilities)
-            desired_capabilities['loggingPrefs'] = {'browser': 'ALL'}
-            self.driver = webdriver.WebDriverWrapper(
-                desired_capabilities=desired_capabilities
-            )
-            if self.CONFIG.selenium.maximize_browser:
-                self.driver.maximize_window()
-            self.driver.implicitly_wait(self.CONFIG.selenium.implicit_wait)
-            self.driver.set_page_load_timeout(
-                self.CONFIG.selenium.page_timeout)
-            self.addOnException(self._dump_page_html_source)
-            self.addOnException(self._dump_browser_log)
-            self.addOnException(self._save_screenshot)
-        else:
+        if not os.environ.get('INTEGRATION_TESTS', False):
             msg = "The INTEGRATION_TESTS env variable is not set."
             raise self.skipException(msg)
+
+        # Start a virtual display server for running the tests headless.
+        if os.environ.get('SELENIUM_HEADLESS', False):
+            self.vdisplay = xvfbwrapper.Xvfb(width=1920, height=1080)
+            args = []
+
+            # workaround for memory leak in Xvfb taken from:
+            # http://blog.jeffterrace.com/2012/07/xvfb-memory-leak-workaround.html
+            args.append("-noreset")
+
+            # disables X access control
+            args.append("-ac")
+
+            if hasattr(self.vdisplay, 'extra_xvfb_args'):
+                # xvfbwrapper 0.2.8 or newer
+                self.vdisplay.extra_xvfb_args.extend(args)
+            else:
+                self.vdisplay.xvfb_cmd.extend(args)
+            self.vdisplay.start()
+        # Increase the default Python socket timeout from nothing
+        # to something that will cope with slow webdriver startup times.
+        # This *just* affects the communication between this test process
+        # and the webdriver.
+        socket.setdefaulttimeout(60)
+        # Start the Selenium webdriver and setup configuration.
+        desired_capabilities = dict(webdriver.desired_capabilities)
+        desired_capabilities['loggingPrefs'] = {'browser': 'ALL'}
+        self.driver = webdriver.WebDriverWrapper(
+            desired_capabilities=desired_capabilities
+        )
+        if self.CONFIG.selenium.maximize_browser:
+            self.driver.maximize_window()
+        self.driver.implicitly_wait(self.CONFIG.selenium.implicit_wait)
+        self.driver.set_page_load_timeout(
+            self.CONFIG.selenium.page_timeout)
+        self.addOnException(self._dump_page_html_source)
+        self.addOnException(self._dump_browser_log)
+        self.addOnException(self._save_screenshot)
+
         super(BaseTestCase, self).setUp()
 
     @contextlib.contextmanager
