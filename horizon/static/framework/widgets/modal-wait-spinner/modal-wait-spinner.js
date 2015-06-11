@@ -17,44 +17,45 @@
 (function () {
   'use strict';
 
-/**
- @ngdoc overview
- @name horizon.framework.widgets.modal-wait-spinner
- @description
- A "global" wait spinner that displays a line of text followed by "...".
-
- Requires {@link http://angular-ui.github.io/bootstrap/ `Angular-bootstrap`}
-
- Used when the user must wait before any additional action is possible. Can be launched from modal dialogs.
-
- @example
- <example>
-   <pre>
-    .controller('MyController', [
-      '$scope',
-      'horizon.framework.widgets.modal.modal-wait-spinner.service',
-      function (modalWaitSpinnerService) {
-        $scope.showSpinner = function () {
-          modalWaitSpinnerService.showModalSpinner(gettext("Loading"));
-        }
-        $scope.hideSpinner = function () {
-          modalWaitSpinnerService.hideModalSpinner();
-         }
-      }
-    ])
-   </pre>
- </example>
-
- In order to provide a seamless transition to a Horizon that uses more Angular
- based pages, the service is currently implemented using the existing
- Spin.js library and the corresponding JQuery plugin (jquery.spin.js). This widget looks and feels
- the same as the existing spinner we are familiar with in Horizon. Over time, uses of the existing
- Horizon spinner ( horizon.modals.modal_spinner() ) can be phased out, or refactored to use this
- component.
- */
+  /*
+   * @ngdoc overview
+   * @name horizon.framework.widgets.modal-wait-spinner
+   * @description
+   * A "global" wait spinner that displays a line of text followed by "...".
+   *
+   * Requires {@link http://angular-ui.github.io/bootstrap/ `Angular-bootstrap`}
+   *
+   * Used when the user must wait before any additional action is possible.  Can be
+   * launched from modal dialogs.
+   *
+   * @example
+   * <example>
+   *   <pre>
+   *    .controller('MyController', [
+   *      '$scope',
+   *      'horizon.framework.widgets.modal.modal-wait-spinner.service',
+   *      function (modalWaitSpinnerService) {
+   *        $scope.showSpinner = function () {
+   *          modalWaitSpinnerService.showModalSpinner(gettext("Loading"));
+   *        }
+   *        $scope.hideSpinner = function () {
+   *          modalWaitSpinnerService.hideModalSpinner();
+   *        }
+   *      }
+   *    ])
+   *   </pre>
+   * </example>
+   *
+   * In order to provide a seamless transition to a Horizon that uses more Angular
+   * based pages, the service is currently implemented using the existing
+   * Spin.js library and the corresponding JQuery plugin (jquery.spin.js). This widget
+   * looks and feels the same as the existing spinner we are familiar with in Horizon.
+   * Over time, uses of the existing Horizon spinner ( horizon.modals.modal_spinner() )
+   * can be phased out, or refactored to use this component.
+   */
 
   angular.module('horizon.framework.widgets.modal-wait-spinner', [
-    'ui.bootstrap',
+    'ui.bootstrap'
   ])
     .factory('horizon.framework.widgets.modal-wait-spinner.service', [
       '$modal',
@@ -63,13 +64,13 @@
         var service = {
           showModalSpinner: function (spinnerText) {
             var modalOptions = {
-              backdrop:    'static',
+              backdrop: 'static',
               /*
-               Using <div> for wait-spinner instead of a wait-spinner element
-               because the existing Horizon spinner CSS styling expects a div
-               for the modal-body
+               * Using <div> for wait-spinner instead of a wait-spinner element
+               * because the existing Horizon spinner CSS styling expects a div
+               * for the modal-body
                */
-              template:    '<div wait-spinner class="modal-body" text="' + spinnerText + '"></div>',
+              template: '<div wait-spinner class="modal-body" text="' + spinnerText + '"></div>',
               windowClass: 'modal-wait-spinner modal_wrapper loading'
             };
             this.modalInstance = $modal.open(modalOptions);
@@ -89,26 +90,26 @@
 
     .directive('waitSpinner', [
       'horizon.framework.conf.spinner_options',
-      function (spinner_options) {
+      function (spinnerOptions) {
 
-      return {
-        scope:    {
-          text: '@text'   // One-direction binding (reads from parent)
-        },
-        restrict: 'A',
-        link:     link,
-        template: '<p><i>{$text$}&hellip;</i></p>'
-      };
+        return {
+          scope:    {
+            text: '@text'   // One-direction binding (reads from parent)
+          },
+          restrict: 'A',
+          link:     link,
+          template: '<p><i>{$text$}&hellip;</i></p>'
+        };
 
-      function link($scope, element) {
-        element.spin(spinner_options.modal);
-        /*
-         At the time link is executed, element may not have been sized by the browser.
-         Spin.js may mistakenly places the spinner at 50% of 0 (left:0, top:0). To work around
-         this, explicitly set 50% left and top to center the spinner in the parent
-         container
-         */
-        element.find('.spinner').css({'left': '50%', 'top': '50%'});
-      }
-    }]);
+        function link($scope, element) {
+          element.spin(spinnerOptions.modal);
+          /*
+           * At the time link is executed, element may not have been sized by the browser.
+           * Spin.js may mistakenly places the spinner at 50% of 0 (left:0, top:0). To work around
+           * this, explicitly set 50% left and top to center the spinner in the parent
+           * container
+           */
+          element.find('.spinner').css({'left': '50%', 'top': '50%'});
+        }
+      }]);
 })();

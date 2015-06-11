@@ -37,8 +37,8 @@
     .controller('simpleModalCtrl', [ '$scope', '$modalInstance', 'context',
       function($scope, $modalInstance, context) {
         $scope.context = context;
-        $scope.submit = function(){ $modalInstance.close(); };
-        $scope.cancel = function(){ $modalInstance.dismiss('cancel'); };
+        $scope.submit = function() { $modalInstance.close(); };
+        $scope.cancel = function() { $modalInstance.dismiss('cancel'); };
       } // end of function
     ]) // end of controller
 
@@ -74,7 +74,7 @@
       'horizon.framework.util.i18n.gettext',
       function($modal, path, gettext) {
         return function(params) {
-          if (params && params.title && params.body){
+          if (params && params.title && params.body) {
             var options = {
               controller: 'simpleModalCtrl',
               templateUrl: path + 'modal/simple-modal.html',

@@ -147,15 +147,17 @@
      * @scope true
      *
      */
-    .directive('toast', ['horizon.framework.widgets.toast.service', 'horizon.framework.widgets.basePath', function(toastService, path) {
-      return {
-        restrict: 'EA',
-        templateUrl: path + 'toast/toast.html',
-        scope: {},
-        link: function(scope) {
-          scope.toast = toastService;
-        }
-      };
-    }]);
+    .directive('toast', ['horizon.framework.widgets.toast.service',
+      'horizon.framework.widgets.basePath',
+      function(toastService, path) {
+        return {
+          restrict: 'EA',
+          templateUrl: path + 'toast/toast.html',
+          scope: {},
+          link: function(scope) {
+            scope.toast = toastService;
+          }
+        };
+      }]);
 
 })();

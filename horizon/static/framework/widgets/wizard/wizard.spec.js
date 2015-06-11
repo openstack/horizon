@@ -172,7 +172,7 @@
         steps: [{}, checkedStep, {}]
       };
 
-      spyOn(checkedStep, 'checkReadiness').and.returnValue({then: function(){}});
+      spyOn(checkedStep, 'checkReadiness').and.returnValue({then: function() {}});
       $scope.$digest();
       expect(checkedStep.checkReadiness).toHaveBeenCalled();
     });

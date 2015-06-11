@@ -1,8 +1,8 @@
 (function () {
   'use strict';
 
-  var extend = angular.extend,
-      forEach = angular.forEach;
+  var extend = angular.extend;
+  var forEach = angular.forEach;
 
   angular.module('horizon.framework.widgets.wizard', ['ui.bootstrap'])
 
@@ -29,8 +29,8 @@
           'horizon.framework.widgets.wizard.labels',
           'horizon.framework.widgets.wizard.events',
           function ($scope, $q, wizardLabels, wizardEvents) {
-            var viewModel = $scope.viewModel = {},
-                initTask = $q.defer();
+            var viewModel = $scope.viewModel = {};
+            var initTask = $q.defer();
 
             $scope.initPromise = initTask.promise;
             $scope.currentIndex = -1;
@@ -176,9 +176,9 @@
 
             checkAllReadiness().then(always, always);
           }],
-          templateUrl: path + 'wizard/wizard.html'
-        };
-      }
+        templateUrl: path + 'wizard/wizard.html'
+      };
+    }
     ])
 
     .controller('ModalContainerCtrl', ['$scope', '$modalInstance', 'launchContext',
