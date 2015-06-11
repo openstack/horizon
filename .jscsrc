@@ -1,7 +1,11 @@
 {
   "excludeFiles": [
+    ".venv/**",
+    "bower_components/**",
+    "horizon/.coverage-karma/**",
+    "lib/**",
     "node_modules/**",
-    "bower_components/**"
+    "openstack_dashboard/.coverage-karma/**"
   ],
   "requireCurlyBraces": [
     "if",
