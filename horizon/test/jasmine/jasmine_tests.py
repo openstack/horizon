@@ -19,7 +19,6 @@ class ServicesTests(test.JasmineTests):
         'horizon/js/horizon.js',
         'horizon/js/angular/hz.api.module.js',
         'horizon/js/angular/services/hz.api.common.js',
-        'horizon/js/angular/services/hz.api.service.js',
         'horizon/js/angular/services/hz.api.cinder.js',
         'horizon/js/angular/services/hz.api.config.js',
         'horizon/js/angular/services/hz.api.glance.js',
@@ -73,8 +72,6 @@ class ServicesTests(test.JasmineTests):
         'framework/widgets/toast/toast.factory.js',
     ]
     specs = [
-        'horizon/tests/jasmine/utils.spec.js',
-
         'horizon/js/angular/services/hz.api.common.spec.js',
         'horizon/js/angular/services/hz.api.common-test.spec.js',
         'horizon/js/angular/services/hz.api.cinder.spec.js',
