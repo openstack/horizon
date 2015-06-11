@@ -78,6 +78,7 @@ module.exports = function(config) {
       'framework/util/tech-debt/tech-debt.module.js',
       'framework/widgets/charts/charts.js',
       'framework/widgets/metadata-tree/metadata-tree.js',
+      'framework/widgets/modal/modal.module.js',
       'framework/widgets/table/table.js',
       'framework/widgets/toast/toast.module.js',
 

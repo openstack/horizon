@@ -20,18 +20,17 @@
 
     beforeEach(module('horizon.framework.widgets.modal'));
 
-    describe('simpleModalCtrl', function() {
-      var scope, modalInstance, context, ctrl;
+    describe('SimpleModalController', function() {
+      var modalInstance, context, ctrl;
 
       beforeEach(inject(function($controller) {
-        scope = {};
         modalInstance = {
           close: function() {},
           dismiss: function() {}
         };
         context = { what: 'is it' };
-        ctrl = $controller('simpleModalCtrl',
-                           {$scope: scope, $modalInstance: modalInstance,
+        ctrl = $controller('SimpleModalController',
+                           {$modalInstance: modalInstance,
                             context: context});
       }));
 
@@ -39,27 +38,27 @@
         expect(ctrl).toBeDefined();
       });
 
-      it('sets context on the scope', function() {
-        expect(scope.context).toBeDefined();
-        expect(scope.context).toEqual({ what: 'is it' });
+      it('sets context on the modalCtrl variable', function() {
+        expect(ctrl.context).toBeDefined();
+        expect(ctrl.context).toEqual({ what: 'is it' });
       });
 
       it('sets action functions', function() {
-        expect(scope.submit).toBeDefined();
-        expect(scope.cancel).toBeDefined();
+        expect(ctrl.submit).toBeDefined();
+        expect(ctrl.cancel).toBeDefined();
       });
 
       it('makes submit close the modal instance', function() {
-        expect(scope.submit).toBeDefined();
+        expect(ctrl.submit).toBeDefined();
         spyOn(modalInstance, 'close');
-        scope.submit();
+        ctrl.submit();
         expect(modalInstance.close.calls.count()).toBe(1);
       });
 
       it('makes cancel close the modal instance', function() {
-        expect(scope.cancel).toBeDefined();
+        expect(ctrl.cancel).toBeDefined();
         spyOn(modalInstance, 'dismiss');
-        scope.cancel();
+        ctrl.cancel();
         expect(modalInstance.dismiss).toHaveBeenCalledWith('cancel');
       });
 
@@ -83,12 +82,12 @@
       });
 
       it('returns undefined if called with no parameters', function() {
-        expect(service()).toBeUndefined();
+        expect(service.modal()).toBeUndefined();
       });
 
       it('returns undefined if called without required parameters', function() {
-        expect(service({title: {}})).toBeUndefined();
-        expect(service({body: {}})).toBeUndefined();
+        expect(service.modal({title: {}})).toBeUndefined();
+        expect(service.modal({body: {}})).toBeUndefined();
       });
 
       describe('Maximal Values Passed to the Modal', function() {
@@ -99,13 +98,13 @@
           var opts = { title: 'my title', body: 'my body', submit: 'Yes',
                        cancel: 'No' };
           spyOn(modal, 'open');
-          returned = service(opts);
+          returned = service.modal(opts);
           passed = modal.open.calls.argsFor(0)[0];
           passedContext = passed.resolve.context();
         });
 
         it('sets the controller', function() {
-          expect(passed.controller).toBe('simpleModalCtrl');
+          expect(passed.controller).toBe('SimpleModalController');
         });
 
         it('sets the template URL', function() {
@@ -137,7 +136,7 @@
         beforeEach(function() {
           var opts = { title: 'my title', body: 'my body' };
           spyOn(modal, 'open');
-          returned = service(opts);
+          returned = service.modal(opts);
           passed = modal.open.calls.argsFor(0)[0];
           passedContext = passed.resolve.context();
         });
@@ -157,11 +156,8 @@
         it('defaults the cancel', function() {
           expect(passedContext.cancel).toBe('Cancel');
         });
-
       });
-
     });
-
   });
 
 })();
