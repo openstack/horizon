@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-09 01:18-0500\n"
+"POT-Creation-Date: 2015-06-11 01:21-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -555,8 +555,8 @@ msgstr ""
 #: dashboards/project/firewalls/forms.py:99
 #: dashboards/project/firewalls/forms.py:126
 #: dashboards/project/firewalls/tables.py:270
-#: dashboards/project/firewalls/tables.py:304
-#: dashboards/project/firewalls/tables.py:346
+#: dashboards/project/firewalls/tables.py:307
+#: dashboards/project/firewalls/tables.py:355
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:7
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:7
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:7
@@ -1777,7 +1777,7 @@ msgstr ""
 #: dashboards/project/databases/tables.py:333
 #: dashboards/project/databases/tables.py:399
 #: dashboards/project/databases/templates/databases/_detail_overview.html:18
-#: dashboards/project/firewalls/tables.py:355
+#: dashboards/project/firewalls/tables.py:364
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
 #: dashboards/project/images/images/tables.py:281
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
@@ -2020,7 +2020,7 @@ msgstr ""
 #: dashboards/admin/instances/tables.py:140
 #: dashboards/project/images/images/tables.py:276
 #: dashboards/project/instances/tables.py:1052
-#: dashboards/project/instances/templates/instances/_detail_overview.html:117
+#: dashboards/project/instances/templates/instances/_detail_overview.html:116
 #: dashboards/project/instances/workflows/create_instance.py:108
 #: dashboards/project/volumes/volumes/forms.py:638
 msgid "Image Name"
@@ -2111,7 +2111,7 @@ msgstr ""
 #: dashboards/identity/users/tables.py:237
 #: dashboards/identity/users/templates/users/_detail_overview.html:23
 #: dashboards/project/firewalls/forms.py:71
-#: dashboards/project/firewalls/tables.py:289
+#: dashboards/project/firewalls/tables.py:292
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:53
 #: dashboards/project/firewalls/workflows.py:67
 #: dashboards/project/routers/templates/routers/_detail_overview.html:48
@@ -2381,7 +2381,7 @@ msgstr ""
 #: dashboards/project/databases/views.py:153
 #: dashboards/project/databases/views.py:193
 #: dashboards/project/instances/views.py:247
-#: dashboards/project/instances/views.py:392
+#: dashboards/project/instances/views.py:396
 msgid "Unable to retrieve instance details."
 msgstr ""
 
@@ -2397,7 +2397,7 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/forms.py:41
 #: dashboards/project/instances/workflows/create_instance.py:621
-#: dashboards/project/stacks/forms.py:62
+#: dashboards/project/stacks/forms.py:63
 msgid "Direct Input"
 msgstr ""
 
@@ -2530,8 +2530,8 @@ msgstr ""
 #: dashboards/project/firewalls/forms.py:101
 #: dashboards/project/firewalls/forms.py:129
 #: dashboards/project/firewalls/tables.py:272
-#: dashboards/project/firewalls/tables.py:306
-#: dashboards/project/firewalls/tables.py:348
+#: dashboards/project/firewalls/tables.py:309
+#: dashboards/project/firewalls/tables.py:357
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:10
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:10
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:10
@@ -2671,7 +2671,7 @@ msgstr ""
 #: dashboards/project/images/templates/images/images/_detail_overview.html:53
 #: dashboards/project/images/templates/images/images/_detail_overview.html:55
 #: dashboards/project/instances/templates/instances/_detail_overview.html:112
-#: dashboards/project/instances/templates/instances/_detail_overview.html:122
+#: dashboards/project/instances/templates/instances/_detail_overview.html:121
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:45
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:51
 #: dashboards/project/networks/templates/networks/_detail_overview.html:8
@@ -3162,7 +3162,7 @@ msgstr ""
 #: dashboards/admin/networks/tables.py:106
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:19
 #: dashboards/project/firewalls/forms.py:134
-#: dashboards/project/firewalls/tables.py:358
+#: dashboards/project/firewalls/tables.py:370
 #: dashboards/project/firewalls/workflows.py:286
 #: dashboards/project/loadbalancers/forms.py:40
 #: dashboards/project/loadbalancers/forms.py:95
@@ -3314,6 +3314,10 @@ msgstr ""
 #: dashboards/admin/networks/tables.py:100
 #: dashboards/project/firewalls/forms.py:70
 #: dashboards/project/firewalls/forms.py:102
+#: dashboards/project/firewalls/tables.py:289
+#: dashboards/project/firewalls/tables.py:313
+#: dashboards/project/firewalls/tables.py:319
+#: dashboards/project/firewalls/tables.py:367
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:31
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:50
 #: dashboards/project/firewalls/workflows.py:65
@@ -4054,7 +4058,7 @@ msgid "Information"
 msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:20
-#: dashboards/project/instances/templates/instances/_detail_overview.html:147
+#: dashboards/project/instances/templates/instances/_detail_overview.html:146
 #: dashboards/project/instances/workflows/create_instance.py:102
 #: dashboards/project/instances/workflows/create_instance.py:425
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:23
@@ -6616,7 +6620,7 @@ msgstr ""
 
 #: dashboards/project/containers/forms.py:84
 #: dashboards/project/instances/workflows/create_instance.py:622
-#: dashboards/project/stacks/forms.py:61
+#: dashboards/project/stacks/forms.py:62
 msgid "File"
 msgstr ""
 
@@ -7798,7 +7802,7 @@ msgstr ""
 #: dashboards/project/loadbalancers/workflows.py:523
 #: dashboards/project/loadbalancers/workflows.py:527
 #: dashboards/project/loadbalancers/workflows.py:528
-#: dashboards/project/stacks/forms.py:63
+#: dashboards/project/stacks/forms.py:64
 msgid "URL"
 msgstr ""
 
@@ -8074,7 +8078,7 @@ msgstr ""
 #: dashboards/project/instances/tables.py:893
 #: dashboards/project/instances/templates/instances/_detail_overview.html:66
 #: dashboards/project/instances/templates/instances/_detail_overview.html:102
-#: dashboards/project/instances/views.py:406
+#: dashboards/project/instances/views.py:410
 msgid "Not available"
 msgstr ""
 
@@ -9689,7 +9693,7 @@ msgid "Unable to retrieve details for database instance: %s"
 msgstr ""
 
 #: dashboards/project/databases/views.py:209
-#: dashboards/project/instances/views.py:417
+#: dashboards/project/instances/views.py:421
 msgid "Unable to retrieve flavors."
 msgstr ""
 
@@ -9945,7 +9949,7 @@ msgid "Failed to update rule %(name)s: %(reason)s"
 msgstr ""
 
 #: dashboards/project/firewalls/forms.py:103
-#: dashboards/project/firewalls/tables.py:310
+#: dashboards/project/firewalls/tables.py:316
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:34
 #: dashboards/project/firewalls/workflows.py:225
 msgid "Audited"
@@ -9962,7 +9966,7 @@ msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr ""
 
 #: dashboards/project/firewalls/forms.py:131
-#: dashboards/project/firewalls/tables.py:351
+#: dashboards/project/firewalls/tables.py:360
 #: dashboards/project/firewalls/workflows.py:280
 msgid "Policy"
 msgstr ""
@@ -10076,7 +10080,7 @@ msgid "Failed to retrieve current routers in firewall %(name)s: %(reason)s"
 msgstr ""
 
 #: dashboards/project/firewalls/panel.py:26
-#: dashboards/project/firewalls/tables.py:363
+#: dashboards/project/firewalls/tables.py:375
 #: dashboards/project/firewalls/tabs.py:69
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
 #: dashboards/project/firewalls/views.py:57
@@ -10177,77 +10181,77 @@ msgstr ""
 msgid "Destination Port"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:293
+#: dashboards/project/firewalls/tables.py:296
 msgid "In Policy"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:297
-#: dashboards/project/firewalls/tables.py:308
+#: dashboards/project/firewalls/tables.py:300
+#: dashboards/project/firewalls/tables.py:311
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:19
 #: dashboards/project/firewalls/workflows.py:131
 #: dashboards/project/firewalls/workflows.py:137
 msgid "Rules"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:315
+#: dashboards/project/firewalls/tables.py:324
 msgid "Policies"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:324
+#: dashboards/project/firewalls/tables.py:333
 msgctxt "Current status of a Firewall"
 msgid "Active"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:326
+#: dashboards/project/firewalls/tables.py:335
 msgctxt "Current status of a Firewall"
 msgid "Down"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:328
+#: dashboards/project/firewalls/tables.py:337
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:330
+#: dashboards/project/firewalls/tables.py:339
 msgctxt "Current status of a Firewall"
 msgid "Created"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:332
+#: dashboards/project/firewalls/tables.py:341
 msgctxt "Current status of a Firewall"
 msgid "Pending Create"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:334
+#: dashboards/project/firewalls/tables.py:343
 msgctxt "Current status of a Firewall"
 msgid "Pending Update"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:336
+#: dashboards/project/firewalls/tables.py:345
 msgctxt "Current status of a Firewall"
 msgid "Pending Delete"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:338
+#: dashboards/project/firewalls/tables.py:347
 msgctxt "Current status of a Firewall"
 msgid "Inactive"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:341
+#: dashboards/project/firewalls/tables.py:350
 msgctxt "Admin state of a Firewall"
 msgid "UP"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:342
+#: dashboards/project/firewalls/tables.py:351
 msgctxt "Admin state of a Firewall"
 msgid "DOWN"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:353
+#: dashboards/project/firewalls/tables.py:362
 msgid "Associated Routers"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:377
+#: dashboards/project/firewalls/tables.py:389
 #, python-format
 msgid "Failed to verify extension support %(reason)s"
 msgstr ""
@@ -11270,7 +11274,7 @@ msgid ""
 msgstr ""
 
 #: dashboards/project/instances/tables.py:677
-#: dashboards/project/instances/views.py:403
+#: dashboards/project/instances/views.py:407
 #, python-format
 msgid "Unable to retrieve flavor information for instance \"%s\"."
 msgstr ""
@@ -11331,15 +11335,15 @@ msgstr[1] ""
 
 #: dashboards/project/instances/tables.py:812
 #: dashboards/project/instances/templates/instances/attach_interface.html:3
-#: dashboards/project/instances/views.py:436
-#: dashboards/project/instances/views.py:438
+#: dashboards/project/instances/views.py:440
+#: dashboards/project/instances/views.py:442
 msgid "Attach Interface"
 msgstr ""
 
 #: dashboards/project/instances/tables.py:832
 #: dashboards/project/instances/templates/instances/detach_interface.html:3
-#: dashboards/project/instances/views.py:456
-#: dashboards/project/instances/views.py:458
+#: dashboards/project/instances/views.py:460
+#: dashboards/project/instances/views.py:462
 msgid "Detach Interface"
 msgstr ""
 
@@ -11837,24 +11841,24 @@ msgstr ""
 msgid "Key Name"
 msgstr ""
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:125
+#: dashboards/project/instances/templates/instances/_detail_overview.html:124
 #: dashboards/project/loadbalancers/tables.py:320
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:27
 msgid "N/A"
 msgstr ""
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:135
+#: dashboards/project/instances/templates/instances/_detail_overview.html:134
 msgid "Volumes Attached"
 msgstr ""
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:139
+#: dashboards/project/instances/templates/instances/_detail_overview.html:138
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:47
 #: dashboards/project/volumes/volumes/tables.py:430
 msgid "Attached To"
 msgstr ""
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:142
+#: dashboards/project/instances/templates/instances/_detail_overview.html:141
 #, python-format
 msgid ""
 "\n"
@@ -11863,7 +11867,7 @@ msgid ""
 "            "
 msgstr ""
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:148
+#: dashboards/project/instances/templates/instances/_detail_overview.html:147
 msgid "No volumes attached."
 msgstr ""
 
@@ -12038,28 +12042,28 @@ msgstr ""
 msgid "Cannot get console for instance %s."
 msgstr ""
 
-#: dashboards/project/instances/views.py:317
+#: dashboards/project/instances/views.py:321
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr ""
 
-#: dashboards/project/instances/views.py:338
+#: dashboards/project/instances/views.py:342
 #, python-format
 msgid "Unable to retrieve volume list for instance \"%(name)s\" (%(id)s)."
 msgstr ""
 
-#: dashboards/project/instances/views.py:347
+#: dashboards/project/instances/views.py:351
 #, python-format
 msgid ""
 "Unable to retrieve flavor information for instance \"%(name)s\" (%(id)s)."
 msgstr ""
 
-#: dashboards/project/instances/views.py:356
+#: dashboards/project/instances/views.py:360
 #, python-format
 msgid "Unable to retrieve security groups for instance \"%(name)s\" (%(id)s)."
 msgstr ""
 
-#: dashboards/project/instances/views.py:364
+#: dashboards/project/instances/views.py:368
 #, python-format
 msgid ""
 "Unable to retrieve IP addresses from Neutron for instance \"%(name)s"
@@ -12346,7 +12350,7 @@ msgid "File exceeds maximum size (16kb)"
 msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:683
-#: dashboards/project/stacks/forms.py:189
+#: dashboards/project/stacks/forms.py:190
 #, python-format
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr ""
@@ -12384,12 +12388,16 @@ msgstr ""
 msgid "%s instances"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:930
+#: dashboards/project/instances/workflows/create_instance.py:889
+msgid "Unable to retrieve extensions information"
+msgstr ""
+
+#: dashboards/project/instances/workflows/create_instance.py:953
 #, python-format
 msgid "Unable to create port for profile \"%(profile_id)s\": %(reason)s"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:940
+#: dashboards/project/instances/workflows/create_instance.py:963
 #, python-format
 msgid " Also failed to delete port %s"
 msgstr ""
@@ -14452,171 +14460,171 @@ msgstr ""
 msgid "Unable to retrieve router details."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:56
+#: dashboards/project/stacks/forms.py:57
 #: dashboards/project/stacks/templates/stacks/select_template.html:3
 #: dashboards/project/stacks/views.py:90 dashboards/project/stacks/views.py:96
 #: dashboards/project/stacks/views.py:106
 msgid "Select Template"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:57
+#: dashboards/project/stacks/forms.py:58
 msgid "Select a template to launch a stack."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:65
+#: dashboards/project/stacks/forms.py:66
 msgid "Template Source"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:72 dashboards/project/stacks/forms.py:74
+#: dashboards/project/stacks/forms.py:73 dashboards/project/stacks/forms.py:75
 msgid "Template File"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:75
+#: dashboards/project/stacks/forms.py:76
 msgid "A local template to upload."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:82 dashboards/project/stacks/forms.py:84
+#: dashboards/project/stacks/forms.py:83 dashboards/project/stacks/forms.py:85
 msgid "Template URL"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:85
+#: dashboards/project/stacks/forms.py:86
 msgid "An external (HTTP) URL to load the template from."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:92 dashboards/project/stacks/forms.py:94
+#: dashboards/project/stacks/forms.py:93 dashboards/project/stacks/forms.py:95
 msgid "Template Data"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:95
+#: dashboards/project/stacks/forms.py:96
 msgid "The raw contents of the template."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:101
+#: dashboards/project/stacks/forms.py:102
 msgid "Environment Source"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:109
-#: dashboards/project/stacks/forms.py:111
+#: dashboards/project/stacks/forms.py:110
+#: dashboards/project/stacks/forms.py:112
 msgid "Environment File"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:112
+#: dashboards/project/stacks/forms.py:113
 msgid "A local environment to upload."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:119
-#: dashboards/project/stacks/forms.py:121
+#: dashboards/project/stacks/forms.py:120
+#: dashboards/project/stacks/forms.py:122
 msgid "Environment Data"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:122
+#: dashboards/project/stacks/forms.py:123
 msgid "The raw contents of the environment file."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:134
+#: dashboards/project/stacks/forms.py:135
 msgid "template"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:135
+#: dashboards/project/stacks/forms.py:136
 msgid "environment"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:197
+#: dashboards/project/stacks/forms.py:198
 #, python-format
 msgid "Please specify a %s using only one source method."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:204
+#: dashboards/project/stacks/forms.py:205
 msgid "You must specify a template via one of the available sources."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:229
+#: dashboards/project/stacks/forms.py:230
 msgid "Edit Template"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:230
+#: dashboards/project/stacks/forms.py:231
 msgid "Select a new template to re-launch a stack."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:231
-#: dashboards/project/stacks/forms.py:406
+#: dashboards/project/stacks/forms.py:232
+#: dashboards/project/stacks/forms.py:407
 msgid "Stack ID"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:233
-#: dashboards/project/stacks/forms.py:264
-#: dashboards/project/stacks/forms.py:409
+#: dashboards/project/stacks/forms.py:234
+#: dashboards/project/stacks/forms.py:265
+#: dashboards/project/stacks/forms.py:410
 #: dashboards/project/stacks/tables.py:259
 msgid "Stack Name"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:240
+#: dashboards/project/stacks/forms.py:241
 #: dashboards/project/stacks/templates/stacks/preview_template.html:3
 #: dashboards/project/stacks/views.py:146
 #: dashboards/project/stacks/views.py:152
 msgid "Preview Template"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:241
+#: dashboards/project/stacks/forms.py:242
 msgid "Select a new template to preview a stack."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:249
+#: dashboards/project/stacks/forms.py:250
 msgid "Create Stack"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:265
+#: dashboards/project/stacks/forms.py:266
 msgid "Name of the stack to create."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:268
+#: dashboards/project/stacks/forms.py:269
 msgid ""
 "Name must start with a letter and may only contain letters, numbers, "
 "underscores, periods and hyphens."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:273
+#: dashboards/project/stacks/forms.py:274
 msgid "Creation Timeout (minutes)"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:274
+#: dashboards/project/stacks/forms.py:275
 msgid "Stack creation timeout in minutes."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:276
+#: dashboards/project/stacks/forms.py:277
 msgid "Rollback On Failure"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:277
+#: dashboards/project/stacks/forms.py:278
 msgid "Enable rollback on create/update failure."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:290
+#: dashboards/project/stacks/forms.py:291
 #, python-format
 msgid "Password for user \"%s\""
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:291
+#: dashboards/project/stacks/forms.py:292
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:383
+#: dashboards/project/stacks/forms.py:384
 msgid "Stack creation started."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:403
+#: dashboards/project/stacks/forms.py:404
 #: dashboards/project/stacks/templates/stacks/update.html:3
 #: dashboards/project/stacks/views.py:198
 msgid "Update Stack Parameters"
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:438
+#: dashboards/project/stacks/forms.py:439
 msgid "Stack update started."
 msgstr ""
 
-#: dashboards/project/stacks/forms.py:447
+#: dashboards/project/stacks/forms.py:448
 msgid "Preview Stack Parameters"
 msgstr ""
 

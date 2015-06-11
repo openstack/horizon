@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-05 01:49-0500\n"
-"PO-Revision-Date: 2015-06-05 22:42+0000\n"
-"Last-Translator: Adriana Chisco Landazábal <achisco94@gmail.com>\n"
+"POT-Creation-Date: 2015-06-10 23:10-0500\n"
+"PO-Revision-Date: 2015-06-10 23:53+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/"
 "es/)\n"
 "MIME-Version: 1.0\n"
@@ -89,6 +89,18 @@ msgstr ""
 "\n"
 "Otros modos IPv6: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode=%(addr_mode)s"
 
+msgid ""
+"\n"
+"        When the volume status is \"in-use\", you can use \"Force\" to "
+"upload the\n"
+"        volume to an image.\n"
+"       "
+msgstr ""
+"\n"
+"Cuando el estado del volumen sea \"en-uso\", puede utilizar \"Force\" para "
+"cargar el\n"
+"volumen a una imagen."
+
 #, python-format
 msgid ""
 "\n"
@@ -109,6 +121,19 @@ msgstr ""
 "      Cambie el tipo de volumen tras su creación.\n"
 "      Esto equivale al comando <tt>cinder retype</tt> .\n"
 "     "
+
+msgid ""
+"\n"
+"      Choose \"Disk Format\" for the image. The volume images are created "
+"with\n"
+"      the QEMU disk image utility.\n"
+"     "
+msgstr ""
+"\n"
+"Seleccione un \"Formato de Disco\" para la imagen. Las imágenes de volumen "
+"son creadas con\n"
+"la utilidad de la imagen de disco de QEMU.\n"
+" "
 
 msgid ""
 "\n"
@@ -138,6 +163,43 @@ msgstr ""
 "\"consumidor\" que indicará el lugar done el administrador quiere que las "
 "polítticas QOS se apliquen obligatoriamente. Este valor puede ser \"front-end"
 "\" (Nova Compute), \"back-end\" (Cinder back-end), o ambos."
+
+msgid ""
+"\n"
+"      The \"Migration Policy\" is only used if the volume retype cannot be\n"
+"      completed. If the \"Migration Policy\" is \"On Demand\", the back end "
+"will\n"
+"      perform volume migration. Note that migration may take a significant\n"
+"      amount of time to complete, in some cases hours.\n"
+"     "
+msgstr ""
+"\n"
+"La \"Política de Migración\" se utiliza únicamente si el cambio de tipo del "
+"volumen no puede completarse. Si la \"Política de Migración\" es \"A Pedido"
+"\", el back end realizará la migración del volumen. Recuerde que la "
+"migración puede tardar bastante tiempo en completarse, en algunos casos toma "
+"varias horas."
+
+msgid ""
+"\n"
+"      The \"Volume Type\" selected must be different from the current volume "
+"type.\n"
+"     "
+msgstr ""
+"\n"
+"      El \"Tipo de Volumen\" seleccionado debe der diferente al tipo de "
+"volumen actual.\n"
+"     "
+
+msgid ""
+"\n"
+"      Upload the volume to the Image Service as an image.\n"
+"      This is equivalent to the <tt>cinder upload-to-image</tt> command.\n"
+"     "
+msgstr ""
+"\n"
+"Sube el volumen al Servicio de Imágenes como una imagen.\n"
+"Esto equivale al comando <tt>cinder upload-to-image</tt>"
 
 msgid ""
 "\n"
@@ -366,6 +428,15 @@ msgstr "%(name)s - %(size)s GB (%(label)s)"
 #, python-format
 msgid "%(name)s | %(RAM)s RAM"
 msgstr "%(name)s | %(RAM)s RAM"
+
+#. Translators:  UTC offset and timezone label
+#, python-format
+msgid "%(offset)s: %(label)s"
+msgstr "%(offset)s: %(label)s"
+
+#, python-format
+msgid "%(resource_status)s: %(resource_status_reason)s"
+msgstr "%(resource_status)s: %(resource_status_reason)s"
 
 #, python-format
 msgid "%(stack_status_title)s: %(stack_status_reason)s"
@@ -606,6 +677,9 @@ msgstr "Compatible con AWS"
 
 msgid "Accept Transfer"
 msgstr "Aceptar Transferencia"
+
+msgid "Accept Volume Transfer"
+msgstr "Aceptar la Transferencia de Volumen"
 
 msgid "Access & Security"
 msgstr "Acceso y seguridad"
@@ -2124,6 +2198,9 @@ msgstr "Crear instantánea de volumen"
 msgid "Create Volume Snapshot (Force)"
 msgstr "Crear una instantánea de volumen (forzar)"
 
+msgid "Create Volume Transfer"
+msgstr " Crear Transferencia de Volumen"
+
 msgid "Create Volume Type"
 msgstr "Crear tipo de volumen"
 
@@ -2383,6 +2460,13 @@ msgstr "Se ha creado la subred \"%s\"."
 
 msgid "Created time"
 msgstr "Fecha de creación"
+
+msgid "Created volume transfer."
+msgstr "Transferencia de volumen creada."
+
+#, python-format
+msgid "Created volume transfer: \"%s\"."
+msgstr "Transferencia de volumen creada: \"%s\"."
 
 msgid "Creates a router with specified parameters."
 msgstr "Crea un enrutador con parámetros especificados."
@@ -3509,6 +3593,10 @@ msgid "Error Downloading RC File: %s"
 msgstr "Error al descargar archivo RC: %s"
 
 msgctxt "Current status of a Volume"
+msgid "Error Extending"
+msgstr "Error al extender"
+
+msgctxt "Current status of a Volume"
 msgid "Error Restoring"
 msgstr "Error al restaurar."
 
@@ -4218,6 +4306,9 @@ msgstr "GB"
 
 msgid "GET"
 msgstr "GET"
+
+msgid "GMT"
+msgstr "GMT"
 
 msgid "GRE"
 msgstr "GRE"
@@ -5245,6 +5336,9 @@ msgstr "Log"
 msgid "Log Length"
 msgstr "Longitud del log"
 
+msgid "Log Lines Per Instance"
+msgstr "Líneas de inicio de sesión por instancia"
+
 msgid "Log length must be a nonnegative integer."
 msgstr "La longitud del log debe ser un entero no negativo."
 
@@ -5286,6 +5380,9 @@ msgstr ""
 
 msgid "Manage"
 msgstr "Gestionar"
+
+msgid "Manage Attachments"
+msgstr "Administrar adjuntos"
 
 msgid "Manage Floating IP Associations"
 msgstr "Gestionar asociaciones de IP flotantes"
@@ -6133,6 +6230,9 @@ msgstr "Número de paquetes entrantes para una interfaz de la MV"
 
 msgid "Number of instances to launch."
 msgstr "Número de instancias a lanzar."
+
+msgid "Number of log lines to be shown per instance"
+msgstr "Número de líneas de inicio de sesión para mostrar por instancia"
 
 msgid "Number of objects"
 msgstr "Numero de objetos"
@@ -6995,6 +7095,9 @@ msgstr "Replicación"
 
 msgid "Request ID"
 msgstr "ID de la petición"
+
+msgid "Requested snapshot would exceed the allowed quota."
+msgstr "Es posible que la instantánea solicitada exceda la capacidad permitida"
 
 msgid ""
 "Requests from a unique source IP address are consistently\n"
@@ -8098,6 +8201,9 @@ msgstr "Vista general de la pila"
 msgid "Stack Parameters"
 msgstr "Parámetros de la pila"
 
+msgid "Stack Preview"
+msgstr "Vista previa de la pila"
+
 msgid "Stack Resource"
 msgstr "Recurso de pila"
 
@@ -8246,6 +8352,10 @@ msgid "Succeeded"
 msgstr "Realizado exitosamente"
 
 #, python-format
+msgid "Successfully accepted volume transfer: \"%s\""
+msgstr "Se ha aceptado correctamente la transferencia e volumen: \"%s\""
+
+#, python-format
 msgid "Successfully added rule: %s"
 msgstr "Se agregó correctamente la regla: %s"
 
@@ -8268,6 +8378,13 @@ msgstr "El grupo de seguridad: %s fue creado correctamente"
 #, python-format
 msgid "Successfully created volume type: %s"
 msgstr "Se ha creado correctamente el tipo de volumen: %s"
+
+msgid "Successfully deleted volume transfer"
+msgstr "La transferencia de volumen se ha eliminado correctamente"
+
+#, python-format
+msgid "Successfully deleted volume transfer \"%s\""
+msgstr "La transferencia de volumen se ha eliminado correctamente : \"%s\""
 
 #, python-format
 msgid "Successfully disassociated Floating IP: %s"
@@ -8472,6 +8589,13 @@ msgstr "Plantilla no especificada"
 msgid "Terminated instances are not recoverable."
 msgstr "Las instancias terminadas no son recuperables."
 
+msgid ""
+"The \"Bootable\" flag specifies that this volume can be used to launch an "
+"instance."
+msgstr ""
+"El indicador de arranque estipula que este volumen puede utilizarse para "
+"ejecutar una instancia."
+
 msgid "The \"from\" port number is invalid."
 msgstr "El puerto \"desde\" no es válido."
 
@@ -8526,6 +8650,14 @@ msgstr ""
 
 msgid "The Aggregate was updated."
 msgstr "El agregado se ha actualizado."
+
+msgid ""
+"The Authorization Key will not be available after closing this page, so you "
+"must capture it now, or else you will be unable to use the transfer."
+msgstr ""
+"La Clave de Autorización no estará disponible luego de cerrar esta página, "
+"así que debe capturarla ahora o de otro modo no podrá realizar la "
+"transferencia."
 
 msgid ""
 "The Cluster Template object may specify a list of processes in anti-affinity "
@@ -8606,6 +8738,15 @@ msgstr ""
 "Cuando se seleccionen los procesos, deberá asignar el alcance de\n"
 "las configuraciones del <b>nodo</b> en las pestañas correspondientes."
 
+msgid ""
+"The Transfer ID and the Authorization Key are needed by the recipient in "
+"order to accept the transfer. Please capture both the Transfer ID and the "
+"Authorization Key and provide them to your transfer recipient."
+msgstr ""
+"El destinatario necesita el ID de Transferencia y la Clave de Autorización "
+"para aceptar la transferencia. Por favor capture el ID de Transferencia y la "
+"Clave de Autorización y proporciónelos a su destinatario de transferencia."
+
 msgid "The VNIC type that is bound to the neutron port"
 msgstr "El tipo VNIC que está unido al puerto de neutrones"
 
@@ -8648,6 +8789,13 @@ msgstr ""
 
 msgid "The container cannot be deleted since it is not empty."
 msgstr "No se puede eliminar el contenedor porque no está vacío."
+
+msgid ""
+"The data will remain in the volume and another instance will be able to "
+"access the data if you attach this volume to it."
+msgstr ""
+"Los datos permanecerán en el volumen y otra instancia podrá acceder a éstos "
+"si les adjunta este volumen."
 
 msgid "The dates haven't been recognized"
 msgstr "Las Fechas no han sido reconocidas"
@@ -8824,6 +8972,10 @@ msgstr "El estado en el que iniciar la red."
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "La subred es demasiado pequeña (/%s)."
 
+msgid "The time delta must be a number representing the time span in days"
+msgstr ""
+"El tiempo delta debe ser un numero que represente el lapso de tiempo en días "
+
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGB)"
 msgstr ""
@@ -8947,6 +9099,9 @@ msgstr "Hasta"
 msgid "To Port"
 msgstr "Hasta puerto"
 
+msgid "To date to must be greater than From date."
+msgstr "La fecha de finalización debe ser mayor a la de inicio."
+
 msgid ""
 "To decrypt your password you will need the private key of your key pair for "
 "this instance. Select the private key file, or copy and paste the content of "
@@ -9012,6 +9167,18 @@ msgstr "Tamaño total de volúmenes y snapshots (GB)"
 msgid "Total VCPU Usage (Hours):"
 msgstr "Uso total VCPU (Horas):"
 
+msgid ""
+"Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
+msgstr ""
+"El uso total de VCPU (Número de VCPU en instancia * Horas Empleadas) para el "
+"proyecto"
+
+msgid "Total disk usage (GB * Hours Used) for the project"
+msgstr "Uso total de disco (GB * Horas Empleadas) para el proyecto"
+
+msgid "Total memory usage (MB * Hours Used) for the project"
+msgstr "Uso total de memoria (MB * Horas Empleadas) para el proyecto"
+
 msgid "Total size of stored objects"
 msgstr "Tamaño total de objetos almacenados"
 
@@ -9070,6 +9237,13 @@ msgstr "Ruta URL"
 
 msgid "USERNAME"
 msgstr "USUARIO"
+
+msgid "UTC"
+msgstr "UTC"
+
+#, python-format
+msgid "UTC %(hour)s:%(min)s"
+msgstr "UTC %(hour)s:%(min)s"
 
 msgid "Unable to accept volume transfer."
 msgstr "No es posible aceptar volumen de transferencia."
@@ -9264,6 +9438,9 @@ msgstr "No ha sido posible obtener la copia de seguridad del volumen."
 
 msgid "Unable to create volume snapshot."
 msgstr "No ha sido posible crear la instantánea del volumen."
+
+msgid "Unable to create volume transfer."
+msgstr "No es posible crear volumen de transferencia"
 
 msgid "Unable to create volume type extra spec."
 msgstr ""
@@ -10255,6 +10432,9 @@ msgstr "No ha sido posible obtener las copias de seguridad del volumen."
 msgid "Unable to retrieve volume details."
 msgstr "No ha sido posible obtener los detalles del volumen."
 
+msgid "Unable to retrieve volume encryption details."
+msgstr "No es posible recuperar los detalles de cifrado del volumen"
+
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
 msgstr ""
@@ -10316,8 +10496,14 @@ msgid "Unable to retrieve volume/instance attachment information"
 msgstr ""
 "No ha sido posible obtener información de la asociación volumen/instancia"
 
+msgid "Unable to retrieve volumes availability zones."
+msgstr "No ha sido posible recuperar las zonas de disponibilidad de volúmenes."
+
 msgid "Unable to set Domain Context."
 msgstr "No ha sido posible definir el dominio de contexto."
+
+msgid "Unable to set bootable flag on volume."
+msgstr "No es posible establecer indicador de arranque en volumen."
 
 msgid "Unable to set cluster type"
 msgstr "No es posible establecer el tipo de clúster"
@@ -10948,6 +11134,19 @@ msgstr ""
 msgid "Volume Details"
 msgstr "Detalles del volumen"
 
+msgid "Volume Details: {{ volume.name }}"
+msgstr "Detalles de volumen: {{ volume.name }}"
+
+msgid "Volume Encryption Details"
+msgstr "Detalles del cifrado de Volumen."
+
+#, python-format
+msgid "Volume Encryption Details: %(volume_name)s"
+msgstr "Detalles de encriptación de volumen: %(volume_name)s"
+
+msgid "Volume Encryption Details: {{ volume.name }}"
+msgstr "Detalles de encriptación de volumen: {{ volume.name }}"
+
 msgid "Volume Encryption Overview"
 msgstr "Vista general del Volumen de Cifrado"
 
@@ -10983,6 +11182,9 @@ msgstr "Origen del volumen"
 
 msgid "Volume Transfer"
 msgstr "Volumen de Transferencia"
+
+msgid "Volume Transfer Details"
+msgstr "Detalles de Transferencia de Volumen"
 
 msgid "Volume Type"
 msgstr "Tipo de volumen"
@@ -11220,6 +11422,15 @@ msgstr ""
 "actualmente inició sesión. Muévase a otro proyecto con privilegios de "
 "administración o elimine el rol de administración manualmente desde la línea "
 "de comandos."
+
+msgid ""
+"You do not have the required\n"
+"          privileges to access this content. If you believe this message to\n"
+"          be in error, please contact your project manager."
+msgstr ""
+"No tiene los privilegios \n"
+"          requeridos para acceder al contenido. Si cree que este mensaje\n"
+"          es un error, por favor contacte a su gerente de proyecto."
 
 msgid "You may also add any custom tag."
 msgstr "También puedes añadir cualquier etiqueta personalizada."
