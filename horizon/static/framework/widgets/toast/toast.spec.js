@@ -85,7 +85,7 @@
     it('should provide a function to clear a specific toast', function() {
       service.add('success', successMsg);
       service.add('info', infoMsg);
-      service.close(1);
+      service.cancel(1);
       expect(service.get().length).toBe(1);
       expect(service.get()[0].type).not.toEqual('info');
     });

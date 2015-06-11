@@ -68,7 +68,9 @@ class ServicesTests(test.JasmineTests):
         'framework/widgets/transfer-table/transfer-table.js',
         'framework/widgets/wizard/wizard.js',
         'framework/widgets/metadata-display/metadata-display.js',
-        'framework/widgets/toast/toast.js',
+        'framework/widgets/toast/toast.module.js',
+        'framework/widgets/toast/toast.directive.js',
+        'framework/widgets/toast/toast.factory.js',
     ]
     specs = [
         'horizon/tests/jasmine/utils.spec.js',
