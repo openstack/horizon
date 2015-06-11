@@ -1,23 +1,24 @@
+'use strict';
 var fs = require('fs');
 var path = require('path');
 
-module.exports = function(config){
+module.exports = function(config) {
   var xstaticPath;
-  var base_paths = [
+  var basePaths = [
     './.venv',
     './.tox/py27'
   ]
 
-  for( var i = 0; i < base_paths.length; i++) {
-    var base_path = path.resolve(base_paths[i]);
+  for (var i = 0; i < basePaths.length; i++) {
+    var basePath = path.resolve(basePaths[i]);
 
-    if( fs.existsSync(base_path) ) {
-      xstaticPath = base_path + '/lib/python2.7/site-packages/xstatic/pkg/';
+    if (fs.existsSync(basePath)) {
+      xstaticPath = basePath + '/lib/python2.7/site-packages/xstatic/pkg/';
       break;
     }
   }
 
-  if( !xstaticPath) {
+  if (!xstaticPath) {
     console.error("xStatic libraries not found, please set up venv");
     process.exit(1);
   }
@@ -71,7 +72,7 @@ module.exports = function(config){
       "dashboard/**/*.js",
 
       // Templates.
-      './**/*.html',
+      './**/*.html'
     ],
 
     autoWatch : true,
