@@ -113,11 +113,10 @@
       {% with formatted_default_key_name="<em>"|add:default_key_name|add:"</em>" %}
         <dd>{{ instance.key_name|default:formatted_default_key_name }}</dd>
       {% endwith %}
-      {% url 'horizon:project:images:images:detail' instance.image.id as image_url %}
       <dt>{% trans "Image Name" %}</dt>
       <dd>
         {% if instance.image %}
-          <a href="{{ image_url }}">{{ instance.image_name }}</a>
+          <a href="{{ instance.image_url }}">{{ instance.image_name }}</a>
         {% else %}
           <em>{% trans "None" %}</em>
         {% endif %}
