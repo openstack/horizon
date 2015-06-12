@@ -23,7 +23,10 @@ from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django import http
 from django.template.defaultfilters import slugify  # noqa
+from django.utils.decorators import method_decorator
 from django.utils.translation import ugettext_lazy as _
+from django.views.decorators.cache import cache_control
+from django.views.decorators.cache import never_cache
 from django.views.generic import View  # noqa
 
 from horizon import exceptions
@@ -101,6 +104,9 @@ class DownloadView(views.HorizonTemplateView):
 
 
 class GenerateView(View):
+    @method_decorator(cache_control(max_age=0, no_cache=True,
+                                    no_store=True, must_revalidate=True))
+    @method_decorator(never_cache)
     def get(self, request, keypair_name=None, optional=None):
         try:
             if optional == "regenerate":
