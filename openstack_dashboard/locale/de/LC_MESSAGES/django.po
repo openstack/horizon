@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-02 01:03+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-06-10 23:10-0500\n"
+"PO-Revision-Date: 2015-06-11 16:48+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/"
 "de/)\n"
 "MIME-Version: 1.0\n"
@@ -633,6 +633,14 @@ msgstr "Erlauben"
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "Erlaube %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
+
+#, python-format
+msgid "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(cidr)s"
+msgstr "%(from)s:%(to)s/%(ip_protocol)s von %(cidr)s ERLAUBEN"
+
+#, python-format
+msgid "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(group)s"
+msgstr "%(from)s:%(to)s/%(ip_protocol)s von %(group)s ERLAUBEN"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Maschinenabbild"
@@ -3462,6 +3470,13 @@ msgid ""
 msgstr ""
 "Verwenden Sie keinen Doppelpunkt ':' mit OS::Glance::Images. Dieser "
 "Ressourcentyp erlaubt nicht die Verwendung von Doppelpunkten."
+
+msgid "Docker"
+msgstr "Docker"
+
+msgctxt "Image format for display in table"
+msgid "Docker"
+msgstr "Docker"
 
 #, python-format
 msgid "Domain \"%s\" must be disabled before it can be deleted."
@@ -6326,6 +6341,9 @@ msgstr "Keine Abbilder verfügbar"
 msgid "No Master Node Group Template Created"
 msgstr "Master-Node Gruppenvorlage erstellt"
 
+msgid "No Ports available"
+msgstr "Keine Ports verfügbar"
+
 msgid "No Session Persistence"
 msgstr "Keine Sitzungspersistenz. "
 
@@ -6421,6 +6439,9 @@ msgstr "Keine Optionen angegeben"
 
 msgid "No other agents available."
 msgstr "Keine weiteren Agenten verfügbar."
+
+msgid "No other hosts available"
+msgstr "Keine weiteren Hosts verfügbar."
 
 msgid "No other hosts available."
 msgstr "Keine weiteren Hosts verfügbar."
@@ -8138,6 +8159,9 @@ msgstr "Instanz-Schattenkopie auswählen"
 
 msgid "Select Network"
 msgstr "Netzwerk auswählen"
+
+msgid "Select Port"
+msgstr "Port auswählen"
 
 msgid "Select Script Source"
 msgstr "Skriptquelle auswählen"

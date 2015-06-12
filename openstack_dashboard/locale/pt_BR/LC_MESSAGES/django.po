@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Andre Campos Bezerra <andrecbezerra@gmail.com>, 2015
 # Dayvidson dos Santos Bezerra <dayvidsonbezerra@gmail.com>, 2015
 # Fernando Pimenta <fernando.c.pimenta@gmail.com>, 2015
 # Gabriel Wainer, 2015
@@ -15,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-02 01:03+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-06-10 23:10-0500\n"
+"PO-Revision-Date: 2015-06-11 20:54+0000\n"
+"Last-Translator: Andre Campos Bezerra <andrecbezerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
 "horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -1243,6 +1244,10 @@ msgstr "Anexando"
 msgctxt "Current status of a Volume"
 msgid "Attaching"
 msgstr "Anexando"
+
+#, python-format
+msgid "Attaching interface for instance %s."
+msgstr "Anexando interface para instância %s."
 
 #, python-format
 msgid "Attaching volume %(vol)s to instance %(inst)s on %(dev)s."
@@ -3449,6 +3454,13 @@ msgstr ""
 "Não utilize dois pontos ':' com OS::Glance::Images. Este tipo de recurso não "
 "suporta o uso de dois pontos."
 
+msgid "Docker"
+msgstr "Docker"
+
+msgctxt "Image format for display in table"
+msgid "Docker"
+msgstr "Docker"
+
 #, python-format
 msgid "Domain \"%s\" must be disabled before it can be deleted."
 msgstr "Domínio \"%s\" deve ser desabilitado antes de poder ser excluído."
@@ -5421,6 +5433,9 @@ msgstr "Escolha o tipo de tarefa"
 msgid "Jobs"
 msgstr "Trabalhos"
 
+msgid "Kernel"
+msgstr "Kernel"
+
 msgid "Kernel ID"
 msgstr "ID do Kernel"
 
@@ -6298,6 +6313,9 @@ msgstr "Nenhuma Imagem Disponível"
 msgid "No Master Node Group Template Created"
 msgstr "Nenhum Modelo de Grupo de Nodo Master Criado"
 
+msgid "No Ports available"
+msgstr "Não há portas disponíveis"
+
 msgid "No Session Persistence"
 msgstr "Sem Persistência de Sessão"
 
@@ -6391,6 +6409,9 @@ msgstr "Nenhuma opção especificada"
 
 msgid "No other agents available."
 msgstr "Nenhum outro agente disponível."
+
+msgid "No other hosts available"
+msgstr "Não há hosts disponível"
 
 msgid "No other hosts available."
 msgstr "Nenhum outro host disponível."
@@ -7157,6 +7178,9 @@ msgstr "Utilização do Projeto"
 
 msgid "Project Usage Overview"
 msgstr "Resumo de Utilização do Projeto"
+
+msgid "Project name is already in use. Please use a different name."
+msgstr "Nome do projeto já está em uso. Por favor use um nome diferente."
 
 msgid "Projects"
 msgstr "Projetos"
@@ -8095,6 +8119,9 @@ msgstr "Selecione o Snapshot de Instância"
 
 msgid "Select Network"
 msgstr "Selecione a Rede"
+
+msgid "Select Port"
+msgstr "Selecione porta"
 
 msgid "Select Script Source"
 msgstr "Selecione a Origem do Script"
@@ -9420,6 +9447,9 @@ msgstr "O nome \"%s\" já está sendo utilizado por outro flavor."
 msgid "The name \"%s\" is already used by another host aggregate."
 msgstr "O nome \"%s\" já está sendo utilizado por outro agregado de host."
 
+msgid "The name is already in use."
+msgstr "O nome já está em uso."
+
 msgid ""
 "The name of the physical network over which the virtual network is "
 "implemented."
@@ -9842,6 +9872,9 @@ msgstr "Não foi possível associar IP flutuante."
 
 msgid "Unable to associate monitor."
 msgstr "Não é possível associar monitor."
+
+msgid "Unable to attach interface."
+msgstr "Não foi possível anexar interface."
 
 msgid "Unable to attach volume."
 msgstr "Não foi possível anexar volume."

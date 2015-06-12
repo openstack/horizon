@@ -8,6 +8,7 @@
 # Corina Roe <croe@redhat.com>, 2015
 # EVEILLARD <stephane.eveillard@gmail.com>, 2015
 # François Bureau, 2015
+# François Bureau, 2015
 # Frédéric <frosmont@free.fr>, 2014
 # JF Taltavull <jftalta@gmail.com>, 2015
 # Maxime COQUEREL <max.coquerel@gmail.com>, 2015
@@ -17,9 +18,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-04 21:20-0500\n"
-"PO-Revision-Date: 2015-06-04 15:51+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-06-10 23:10-0500\n"
+"PO-Revision-Date: 2015-06-11 08:11+0000\n"
+"Last-Translator: François Bureau\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/"
 "fr/)\n"
 "MIME-Version: 1.0\n"
@@ -77,6 +78,9 @@ msgstr "Retour"
 
 msgid "Cancel"
 msgstr "Annuler"
+
+msgid "Cannot get Nova extension list."
+msgstr "Impossible de récupérer la liste des extensions Nova."
 
 msgid "Cannot get service catalog from keystone."
 msgstr "Impossible d'obtenir le catalogue de services Keystone"
@@ -139,8 +143,8 @@ msgstr "Informations détaillées"
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
-msgstr[0] "Affichage de l'item %s"
-msgstr[1] "Affichage des items %s"
+msgstr[0] "Affichage de %s élément"
+msgstr[1] "Affichage de %s éléments"
 
 msgid "Duplicate keys are not allowed"
 msgstr "Les clés dupliquées ne sont pas autorisées"
@@ -254,7 +258,7 @@ msgid "Please confirm your selection. "
 msgstr "Merci de confirmer votre sélection."
 
 msgid "Policy check failed."
-msgstr "Échec de vérification de la politique"
+msgstr "La vérification de la stratégie a échoué."
 
 msgid "Prompt"
 msgstr "Invite de commande"
@@ -403,9 +407,81 @@ msgstr "Impossible d'importer la paire de clés."
 msgid "Unable to retrieve settings."
 msgstr "Impossible de récupérer les paramètres."
 
+msgid "Unable to retrieve the availability zones."
+msgstr "Impossible de récupérer les zones de disponibilité."
+
 msgid "Unable to retrieve the current user session."
 msgstr ""
 "Impossible de récupérer les informations de session de l'utilisateur courant."
+
+msgid "Unable to retrieve the domain."
+msgstr "Impossible de récupérer le domaine."
+
+msgid "Unable to retrieve the domains."
+msgstr "Impossible de récupérer les domaines."
+
+msgid "Unable to retrieve the extensions."
+msgstr "Impossible de récupérer les extensions."
+
+msgid "Unable to retrieve the flavor extra specs."
+msgstr "Impossible de récupérer les paramètres supplémentaires du gabarit."
+
+msgid "Unable to retrieve the flavor."
+msgstr "Impossible de récupérer le gabarit."
+
+msgid "Unable to retrieve the flavors."
+msgstr "Impossible de récupérer les gabarits."
+
+msgid "Unable to retrieve the image."
+msgstr "Impossible de récupérer l'image."
+
+msgid "Unable to retrieve the images."
+msgstr "Impossible de récupérer les images."
+
+msgid "Unable to retrieve the keypairs."
+msgstr "Impossible de récupérer les paires de clés."
+
+msgid "Unable to retrieve the limits."
+msgstr "Impossible de récupérer les limitations."
+
+msgid "Unable to retrieve the namespaces."
+msgstr "Impossible de récupérer les espaces de nommage."
+
+msgid "Unable to retrieve the networks."
+msgstr "Impossible de récupérer les réseaux."
+
+msgid "Unable to retrieve the ports."
+msgstr "Impossible de récupérer les ports."
+
+msgid "Unable to retrieve the project."
+msgstr "Impossible de récupérer le projet."
+
+msgid "Unable to retrieve the projects."
+msgstr "Impossible de récupérer les projets."
+
+msgid "Unable to retrieve the role."
+msgstr "Impossible de récupérer le rôle."
+
+msgid "Unable to retrieve the roles."
+msgstr "Impossible de récupérer les rôles."
+
+msgid "Unable to retrieve the security groups."
+msgstr "Impossible de récupérer les groupes de sécurité."
+
+msgid "Unable to retrieve the server."
+msgstr "Impossible de récupérer le serveur."
+
+msgid "Unable to retrieve the subnets."
+msgstr "Impossible de récupérer les sous-réseaux."
+
+msgid "Unable to retrieve the user."
+msgstr "Impossible de récupérer l'utilisateur."
+
+msgid "Unable to retrieve the volume snapshots."
+msgstr "Impossible de récupérer les instantanés de volume."
+
+msgid "Unable to retrieve the volumes."
+msgstr "Impossible de récupérer les volumes."
 
 msgid "Unable to retrieve users."
 msgstr "Impossible de récupérer les utilisateurs."

@@ -5,9 +5,11 @@
 # Translators:
 # Ambroise Christea <ambroise.christea@cloudwatt.com>, 2014
 # Bruno Cornec <bruno.cornec@hp.com>, 2015
+# zopanix <christophe.vandekerchove-ext@cloudwatt.com>, 2015
 # Combebias <jb.combebias@gmail.com>, 2015
 # Corina Roe <croe@redhat.com>, 2015
 # Damien Grauet, 2015
+# François Bureau, 2015
 # François Bureau, 2015
 # Frédéric <frosmont@free.fr>, 2014
 # Jean Pny, 2015
@@ -20,9 +22,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-04 00:00+0000\n"
-"Last-Translator: Maxime COQUEREL <max.coquerel@gmail.com>\n"
+"POT-Creation-Date: 2015-06-10 23:10-0500\n"
+"PO-Revision-Date: 2015-06-11 12:14+0000\n"
+"Last-Translator: François Bureau\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/"
 "fr/)\n"
 "MIME-Version: 1.0\n"
@@ -158,22 +160,20 @@ msgid ""
 "  "
 msgstr ""
 "\n"
-"Les QoS Specs peuvent être associés aux types de volumes.\n"
-"Ils peuvent être utilisés pour faire correspondre un type de volume à un "
+"Les Specs QoS peuvent être associées aux types de volumes.\n"
+"Elles peuvent être utilisées pour faire correspondre un type de volume à un "
 "groupe de critères de qualité de service requis par le détenteur du volume.  "
 "C'est l'équivalent de la commande \n"
 "      <tt>cinder qos-create</tt>. Une fois qu'une entité QoS Specs est "
 "créé,\n"
-"      cliquer sur le bouton \"Manage Specs\" (gestion des paramètres) pour "
-"gérer les paramètres QoS Specs principaux.\n"
+"      cliquer sur le bouton \"Gérer les Spécifications\" pour gérer les "
+"paramètres Specs QoS principaux.\n"
 "      <br>\n"
 "      <br>\n"
-"      À chaque entité QoS Specs correspondra une valeur de \"Consumer"
-"\" (utilisateur) qui indiquera si l'administrateur souhaite ou non que la "
-"politique QoS soit appliquée. La valeur peut correspondre soit à \"front-end"
-"\"\n"
-"      (Nova Compute), \"back-end\" (Cinder back-end), ou \"both\" (les "
-"deux).\n"
+"      A chaque entité Specs QoS correspondra une valeur \"Consumer\" qui "
+"indiquera si l'administrateur souhaite ou non que la stratégie QoS soit "
+"appliquée. La valeur peut être \"front-end\" (Nova Compute), \"back-end"
+"\" (Cinder back-end), ou \"both\" (les deux).\n"
 "  "
 
 msgid ""
@@ -186,8 +186,8 @@ msgid ""
 "     "
 msgstr ""
 "\n"
-"La \"Politique de migration\" est uniquement utilisée si le volume retapé ne "
-"peut être complété. Si la \"Politique de migration\" est \"Sur Demande\", le "
+"La \"Stratégie de migration\" est uniquement utilisée si le volume retapé ne "
+"peut être complété. Si la \"Stratégie de migration\" est \"Sur Demande\", le "
 "backend\n"
 "réalisera la migration du volume. Noter que cette migration peut demander "
 "une quantité\n"
@@ -266,10 +266,10 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"Chaque entité QOS Specs aura une valeur \"utilisateur\" qui indique où\n"
-"l'administrateur voudra faire exécuter la politique QOS. Cette valeur peut-"
-"être \"frontale\"\n"
-"(Nova Compute), \"sauvegarde\" (Cinder back-end) ou les deux."
+"Chaque entité QoS Specs aura une valeur \"Consumer\" qui indique où\n"
+"l'administrateur voudra faire exécuter la stratégie QoS. Cette valeur peut-"
+"être \"front-end\"\n"
+"(Nova Compute), \"back-end\" (Cinder back-end) ou \"both\" (les deux)."
 
 msgid ""
 "\n"
@@ -381,8 +381,9 @@ msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
 "setting the QoS Spec to \"None\" will remove the current association."
 msgstr ""
-"\"None\" indique qu'aucun QoS Spec n'est actuellement associé. Inversement, "
-"en définissant le QoS Spec à « none », l'association en cours sera supprimée."
+"\"None\" indique qu'aucune Spec QoS n'est actuellement associée. "
+"Inversement, en définissant la Spec QoS à « none », l'association en cours "
+"sera supprimée."
 
 #, python-format
 msgid "%(conf_name)s: %(conf_val)s"
@@ -658,7 +659,7 @@ msgid "AWS compatible"
 msgstr "Compatible AWS"
 
 msgid "Accept Transfer"
-msgstr "Acceptation du transfère"
+msgstr "Accepter le transfert"
 
 msgid "Accept Volume Transfer"
 msgstr "Accepter le transfert de volume"
@@ -756,10 +757,10 @@ msgid "Add Group Assignment"
 msgstr "Ajouter une Assignation de Groupe"
 
 msgid "Add IKE Policy"
-msgstr "Ajouter une politique IKE"
+msgstr "Ajouter une Stratégie IKE"
 
 msgid "Add IPSec Policy"
-msgstr "Ajouter une politique IPSec"
+msgstr "Ajouter une Stratégie IPSec"
 
 msgid "Add IPSec Site Connection"
 msgstr "Ajouter une connexion IPSec de site"
@@ -777,10 +778,10 @@ msgid "Add New Firewall"
 msgstr "Ajouter un nouveau pare-feu"
 
 msgid "Add New IKE Policy"
-msgstr "Ajouter un nouvelle Politique IKE"
+msgstr "Ajouter un nouvelle Stratégie IKE"
 
 msgid "Add New IPSec Policy"
-msgstr "Ajouter une nouvelle politique IPSec"
+msgstr "Ajouter une nouvelle Stratégie IPSec"
 
 msgid "Add New IPSec Site Connection"
 msgstr "Ajouter un nouvelle connexion IPSec de site "
@@ -792,7 +793,7 @@ msgid "Add New Monitor"
 msgstr "Ajouter un nouveau moniteur"
 
 msgid "Add New Policy"
-msgstr "Ajouter une nouvelle politique"
+msgstr "Ajouter une nouvelle Stratégie"
 
 msgid "Add New Pool"
 msgstr "Ajouter un nouveau pool"
@@ -807,13 +808,16 @@ msgid "Add Node Group"
 msgstr "Ajouter un Groupe de Nœud"
 
 msgid "Add Policy"
-msgstr "Ajouter une politique"
+msgstr "Ajouter une stratégie"
 
 msgid "Add Pool"
 msgstr "Ajouter un pool"
 
 msgid "Add Router"
 msgstr "Ajouter un Routeur"
+
+msgid "Add Router Route"
+msgstr "Ajouter la route du routeur"
 
 msgid "Add Router Rule"
 msgstr "Ajouter une règle de routage"
@@ -910,7 +914,7 @@ msgstr "Ajouter le(s) routeur(s) sélectionné(s) au pare-feu."
 
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr ""
-"Ajouter, modifier ou supprimer le QoS Spec associé à ce type de volume."
+"Ajouter, modifier ou supprimer la Spec QoS associée à ce type de volume."
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Ajouter/Enlever des hôtes dans l'agrégat."
@@ -919,7 +923,7 @@ msgid "AddFirewall"
 msgstr "Ajouter un pare-feu"
 
 msgid "AddPolicy"
-msgstr "Ajouter une politique"
+msgstr "Ajouter une stratégie"
 
 msgid "AddRule"
 msgstr "Ajouter une règle"
@@ -930,11 +934,11 @@ msgstr "Pare-feu \"%s\" ajouté."
 
 #, python-format
 msgid "Added IKE Policy \"%s\"."
-msgstr "Politique IKE \"%s\" ajoutée."
+msgstr "Stratégie IKE \"%s\" ajoutée."
 
 #, python-format
 msgid "Added IPSec Policy \"%s\"."
-msgstr "Politique IPSec \"%s\" ajoutée."
+msgstr "Stratégie IPSec \"%s\" ajoutée."
 
 #, python-format
 msgid "Added IPSec Site Connection \"%s\"."
@@ -942,7 +946,7 @@ msgstr "Connexion IPSec de site \"%s\" ajoutée."
 
 #, python-format
 msgid "Added Policy \"%s\"."
-msgstr "Politique \"%s\" ajoutée."
+msgstr "Stratégie \"%s\" ajoutée."
 
 #, python-format
 msgid "Added Rule \"%s\"."
@@ -950,8 +954,8 @@ msgstr "Règle \"%s\" ajoutée."
 
 msgid "Added User"
 msgid_plural "Added Users"
-msgstr[0] "Utilisateur Ajouté"
-msgstr[1] "Utilisateurs Ajoutés"
+msgstr[0] "Utilisateur ajouté"
+msgstr[1] "Utilisateurs ajoutés"
 
 #, python-format
 msgid "Added VIP \"%s\"."
@@ -1056,7 +1060,7 @@ msgid "All Hypervisors"
 msgstr "Tous les Hyperviseurs"
 
 msgid "All ICMP"
-msgstr "All ICMP"
+msgstr "Tout ICMP"
 
 msgid "All Projects"
 msgstr "Tous les projets"
@@ -1087,6 +1091,9 @@ msgstr "Allouer une adresse IP au projet"
 
 msgid "Allocate a floating IP from a given floating IP pool."
 msgstr "Allouer une IP flottante depuis un pool d'IP."
+
+msgid "Allocated"
+msgstr "Alloué(es)"
 
 #, python-format
 msgid "Allocated Floating IP %(ip)s."
@@ -1182,13 +1189,13 @@ msgid "Associate a health monitor with target pool."
 msgstr "Associer un moniteur de santé au pool cible."
 
 msgid "Associated QoS Spec"
-msgstr "Spécification QoS Associé"
+msgstr "Spécification QoS associée"
 
 msgid "Associated Resource Types"
 msgstr "Types de ressources associées"
 
 msgid "Associated Routers"
-msgstr "Routeurs Associés"
+msgstr "Routeurs associés"
 
 msgid "Associated monitor."
 msgstr "Moniteur associé."
@@ -1347,6 +1354,10 @@ msgstr "Volume moyen d'écritures"
 msgid "Avg."
 msgstr "Moy."
 
+msgctxt "Current status of a Volume"
+msgid "Backing Up"
+msgstr "Sauvegarde en cours"
+
 msgid "Backup"
 msgstr "Sauvegarde"
 
@@ -1478,7 +1489,7 @@ msgid "Cancel"
 msgstr "Annuler"
 
 msgid "Cancel Transfer"
-msgstr "Annulation du transfère"
+msgstr "Annuler le transfert"
 
 #, python-format
 msgid "Cannot find instance %s."
@@ -1516,8 +1527,8 @@ msgstr ""
 
 msgid "Change your password. We highly recommend you create a strong one. "
 msgstr ""
-"Changer votre mot de passe. Nous vous recommandons vivement d'en créer un "
-"plus sécurisé."
+"Changer votre mot de passe. Nous vous recommandons vivement d'en choisir un "
+"robuste."
 
 msgid "Changing password is not supported."
 msgstr "Le changement de mot de passe n'est pas supporté."
@@ -1594,7 +1605,7 @@ msgid "Choose associated QoS Spec."
 msgstr "Choisir la Spécification QoS associée."
 
 msgid "Choose consumer for this QoS Spec."
-msgstr "Choisir un utilisateur pour cette Spécification QoS."
+msgstr "Choisir un consommateur pour cette Spécification QoS."
 
 msgid ""
 "Choose from the list of binaries and click \"choose\" to add the library to "
@@ -1694,7 +1705,7 @@ msgid ""
 "Cinder host on which the existing volume resides; takes the form: "
 "host@backend-name#pool"
 msgstr ""
-"Hôte Cinder sur lequel le volume existant réside ; prend la forme : "
+"Hôte Cinder sur lequel le volume existant réside; prend la forme : "
 "host@backend-name#pool"
 
 msgid "Cinder volumes"
@@ -1793,7 +1804,7 @@ msgid "Completed"
 msgstr "Complet"
 
 msgid "Component"
-msgstr "Composant"
+msgstr "Plugin"
 
 msgid "Compute"
 msgstr "Compute"
@@ -1892,16 +1903,16 @@ msgid "Container"
 msgstr "Conteneur"
 
 msgid "Container Access"
-msgstr "Accès Conteneurs"
+msgstr "Accès du conteneur"
 
 msgid "Container Details"
-msgstr "Détails du Conteneur"
+msgstr "Détails du conteneur"
 
 msgid "Container Format"
 msgstr "Format du conteneur"
 
 msgid "Container Name"
-msgstr "Nom du Conteneur"
+msgstr "Nom du conteneur"
 
 msgid "Container created successfully."
 msgstr "Conteneur créé avec succès."
@@ -2018,7 +2029,7 @@ msgid "Create Complete"
 msgstr "Créée"
 
 msgid "Create Container"
-msgstr "Créer un Conteneur"
+msgstr "Créer un conteneur"
 
 msgid "Create Data Source"
 msgstr "Créer une source de données"
@@ -2053,18 +2064,18 @@ msgid ""
 "\n"
 "Assign a name and description for the IKE Policy. "
 msgstr ""
-"Créer une politique IKE pour le projet en cours.\n"
+"Créer une Stratégie IKE pour le projet en cours.\n"
 "\n"
-"Attribuer un nom et une description à la politique IKE."
+"Attribuer un nom et une description à la stratégie IKE."
 
 msgid ""
 "Create IPSec Policy for current project.\n"
 "\n"
 "Assign a name and description for the IPSec Policy. "
 msgstr ""
-"Créer une politique IPSec pour le projet en cours.\n"
+"Créer une Stratégie IPSec pour le projet en cours.\n"
 "\n"
-"Attribuer un nom et une description à la politique IPSec."
+"Attribuer un nom et une description à la stratégie IPSec."
 
 msgid ""
 "Create IPSec Site Connection for current project.\n"
@@ -2151,7 +2162,7 @@ msgid "Create Template"
 msgstr "Créer un modèle"
 
 msgid "Create Transfer"
-msgstr "Création du transfère"
+msgstr "Créer un transfert"
 
 msgid "Create User"
 msgstr "Créer un Utilisateur"
@@ -2180,7 +2191,7 @@ msgid "Create Volume Snapshot (Force)"
 msgstr "Créer un instantané de volume (Forcer)"
 
 msgid "Create Volume Transfer"
-msgstr "Création d'un volume de transfère"
+msgstr "Créer un transfert de Volume"
 
 msgid "Create Volume Type"
 msgstr "Créer un Type de Volume"
@@ -2235,7 +2246,7 @@ msgid "Create a Volume Snapshot"
 msgstr "Création d'un instantané du volume"
 
 msgid "Create a Volume Transfer"
-msgstr "Création d'un volume de transfère"
+msgstr "Créer un transfert de Volume"
 
 msgid "Create a Volume Type"
 msgstr "Créer un Type de Volume"
@@ -2251,9 +2262,9 @@ msgid ""
 "\n"
 "A policy must be selected. Other fields are optional."
 msgstr ""
-"Créer un pare-feu basé sur une politique.\n"
+"Créer un pare-feu basé sur une stratégie.\n"
 "\n"
-"Une politique doit être sélectionnée. Les autres champs sont optionnels."
+"Une stratégie doit être sélectionnée. Les autres champs sont optionnels."
 
 msgid ""
 "Create a firewall policy with an ordered list of firewall rules.\n"
@@ -2261,9 +2272,9 @@ msgid ""
 "A name must be given. Firewall rules are added in the order placed under the "
 "Rules tab."
 msgstr ""
-"Créer une politique de pare-feu avec une liste ordonnée de règles.\n"
+"Créer une stratégie de pare-feu avec une liste ordonnée de règles.\n"
 "\n"
-"Un nom doit être attribué à la politique. Les règles sont ajoutées dans "
+"Un nom doit être attribué à la stratégie. Les règles sont ajoutées dans "
 "l'ordre situé sous l'onglet Règles."
 
 msgid ""
@@ -2292,11 +2303,11 @@ msgid ""
 "by the monitor. Specify method, URL path, and expected HTTP codes upon "
 "success."
 msgstr ""
-"Créer un modèle de supervision.\n"
+"Créer un modèle de monitoring.\n"
 "\n"
-"Sélectionner le type de supervision. Spécifier le délai, le délai d'attente, "
+"Sélectionnez le type de monitoring. Spécifiez le rétard, le délai d'attente "
 "et le nombre de tentatives requises par le moniteur. Spécifiez la méthode, "
-"le chemin URL et les codes de retour HTTP attendus en cas de succès. "
+"l'URL et les codes retour HTTP attendus en cas de succès. "
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr ""
@@ -2333,20 +2344,20 @@ msgstr ""
 "Projet Primaire et le Rôle. "
 
 msgid "Create a policy with selected rules."
-msgstr "Créer une politique avec les règles sélectionnées."
+msgstr "Créer une stratégie avec les règles sélectionnées."
 
 msgid "Create a project to organize users."
 msgstr "Créer un projet pour organiser les utilisateurs."
 
 msgid "Create a script to be uploaded dynamically"
-msgstr "Créer un script qui sera téléverser dynamiquement"
+msgstr "Créer un script qui sera téléchargé dynamiquement"
 
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
 "available by clicking on the \"Subnet Details\" tab."
 msgstr ""
 "Crée un sous-réseau associé à un réseau. Cliquez sur l'onglet \"Détails Sous-"
-"Réseaux\" pour configurer des options avancées"
+"Réseaux\" pour configurer des options avancées."
 
 msgid ""
 "Create a subnet associated with the new network, in which case \"Network "
@@ -2439,15 +2450,18 @@ msgstr "Spécification créée \"%s\"."
 msgid "Created subnet \"%s\"."
 msgstr "Sous-réseau \"%s\" créé."
 
+msgid "Created time"
+msgstr "Heure de création"
+
 msgid "Created volume transfer."
-msgstr "Création d'un volume de transfère."
+msgstr "Transfert de Volume créé."
 
 #, python-format
 msgid "Created volume transfer: \"%s\"."
-msgstr "Création d'un volume de transfère: \"%s\"."
+msgstr "Transfert de Volume créé : \"%s\"."
 
 msgid "Creates a router with specified parameters."
-msgstr "Crée un routeur avec les paramètres spécifiés"
+msgstr "Crée un routeur avec les paramètres spécifiés."
 
 msgid "Creating"
 msgstr "Création en cours"
@@ -2572,23 +2586,23 @@ msgid "DNS name server"
 msgstr "Serveurs DNS"
 
 msgid "DOWN"
-msgstr "BAS"
+msgstr "Inactif"
 
 msgctxt "Admin state of a Firewall"
 msgid "DOWN"
-msgstr "BAS"
+msgstr "Inactif"
 
 msgctxt "Admin state of a Network"
 msgid "DOWN"
-msgstr "BAS"
+msgstr "Inactif"
 
 msgctxt "Admin state of a Port"
 msgid "DOWN"
-msgstr "BAS"
+msgstr "Inactif"
 
 msgctxt "Admin state of a Router"
 msgid "DOWN"
-msgstr "BAS"
+msgstr "Inactif"
 
 msgid "Daily Usage Report"
 msgstr "Rapport d'Utilisation Journalier"
@@ -2600,13 +2614,13 @@ msgid "Data Processing Guides"
 msgstr "Guides de traitement des données"
 
 msgid "Data Processing Plugin Details"
-msgstr "Détails du composant de traitement des données"
+msgstr "Détails du plugin de traitement des données"
 
 msgid "Data Processing Plugin Overview"
-msgstr "Aperçu du composant de traitement des données"
+msgstr "Aperçu du plugin de traitement des données"
 
 msgid "Data Processing Plugins"
-msgstr "Composants de traitement des données"
+msgstr "Plugins de traitement des données"
 
 msgid "Data Processing internal database"
 msgstr "Base de donnée interne du Traitement des Données"
@@ -2733,6 +2747,9 @@ msgstr "Retard"
 msgid "Delay must be greater than or equal to Timeout"
 msgstr "Le délai d'attente doit être supérieur ou égal au Temps d'expiration"
 
+msgid "Delay must be greater than or equal to timeout"
+msgstr "Le délai doit être plus grand ou égal au timeout."
+
 msgid "Delete Backup"
 msgid_plural "Delete Backups"
 msgstr[0] "Supprimer la Sauvegarde"
@@ -2787,8 +2804,8 @@ msgstr[1] "Supprimer les Pares-feu"
 
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
-msgstr[0] "Supprimer le type d'instance"
-msgstr[1] "Supprimer les Types d'Instances"
+msgstr[0] "Supprimer le Gabarit"
+msgstr[1] "Supprimer les Gabarits"
 
 msgid "Delete Group"
 msgid_plural "Delete Groups"
@@ -2802,13 +2819,13 @@ msgstr[1] "Supprimer les Agrégations d'hôtes"
 
 msgid "Delete IKE Policy"
 msgid_plural "Delete IKE Policies"
-msgstr[0] "Supprimer la Politique IKE"
-msgstr[1] "Supprimer les Politiques IKE"
+msgstr[0] "Supprimer la Stratégie IKE"
+msgstr[1] "Supprimer les Stratégies IKE"
 
 msgid "Delete IPSec Policy"
 msgid_plural "Delete IPSec Policies"
-msgstr[0] "Supprimer la Politique IPSec"
-msgstr[1] "Supprimer les Politiques IPSec"
+msgstr[0] "Supprimer la Stratégie IPSec"
+msgstr[1] "Supprimer les Stratégies IPSec"
 
 msgid "Delete IPSec Site Connection"
 msgid_plural "Delete IPSec Site Connections"
@@ -2866,8 +2883,8 @@ msgstr[1] "Supprimer les Profils de Réseau"
 
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
-msgstr[0] "Supprimer la Politique"
-msgstr[1] "Supprimer les Politiques"
+msgstr[0] "Supprimer la Stratégie"
+msgstr[1] "Supprimer les Stratégies"
 
 msgid "Delete Pool"
 msgid_plural "Delete Pools"
@@ -2918,6 +2935,11 @@ msgid "Delete Stack"
 msgid_plural "Delete Stacks"
 msgstr[0] "Supprimer la Stack"
 msgstr[1] "Supprimer les Stacks"
+
+msgid "Delete Static Route"
+msgid_plural "Delete Static Routes"
+msgstr[0] "Supprimer la route statique"
+msgstr[1] "Supprimer les routes statiques"
 
 msgid "Delete Subnet"
 msgid_plural "Delete Subnets"
@@ -3009,8 +3031,8 @@ msgstr[1] "Codifications supprimées"
 
 msgid "Deleted Flavor"
 msgid_plural "Deleted Flavors"
-msgstr[0] "Type d'Instance supprimée"
-msgstr[1] "Types d'Instances supprimées"
+msgstr[0] "Gabarit supprimé"
+msgstr[1] "Gabarits supprimés"
 
 msgid "Deleted Group"
 msgid_plural "Deleted Groups"
@@ -3024,11 +3046,11 @@ msgstr[1] "Agrégations d'hôtes supprimées"
 
 #, python-format
 msgid "Deleted IKE Policy %s"
-msgstr "Politique IKE %s supprimée"
+msgstr "Stratégie IKE %s supprimée"
 
 #, python-format
 msgid "Deleted IPSec Policy %s"
-msgstr "Politique IPSec %s supprimée"
+msgstr "Stratégie IPSec %s supprimée"
 
 #, python-format
 msgid "Deleted IPSec Site Connection %s"
@@ -3081,8 +3103,8 @@ msgstr[1] "Ports Supprimés"
 
 msgid "Deleted Project"
 msgid_plural "Deleted Projects"
-msgstr[0] "Projet Supprimé"
-msgstr[1] "Projets Supprimés"
+msgstr[0] "Projet supprimé"
+msgstr[1] "Projets supprimés"
 
 msgid "Deleted QoS Spec"
 msgid_plural "Deleted QoS Specs"
@@ -3091,8 +3113,8 @@ msgstr[1] "Spécifications QoS Supprimées"
 
 msgid "Deleted Role"
 msgid_plural "Deleted Roles"
-msgstr[0] "Rôle Supprimé"
-msgstr[1] "Rôles Supprimés"
+msgstr[0] "Rôle supprimé"
+msgstr[1] "Rôles supprimés"
 
 msgid "Deleted Router"
 msgid_plural "Deleted Routers"
@@ -3118,6 +3140,11 @@ msgid "Deleted Stack"
 msgid_plural "Deleted Stacks"
 msgstr[0] "Stack Supprimée"
 msgstr[1] "Stacks Supprimées"
+
+msgid "Deleted Static Route"
+msgid_plural "Deleted Static Routes"
+msgstr[0] "Route statique supprimée"
+msgstr[1] "Routes statiques supprimées"
 
 msgid "Deleted Subnet"
 msgid_plural "Deleted Subnets"
@@ -3164,7 +3191,7 @@ msgstr "Moniteur %s supprimé"
 
 #, python-format
 msgid "Deleted policy %s"
-msgstr "Politique %s supprimée"
+msgstr "Stratégie %s supprimée"
 
 #, python-format
 msgid "Deleted pool %s"
@@ -3312,10 +3339,10 @@ msgstr[0] "Désactiver un Utilisateur"
 msgstr[1] "Désactiver des Utilisateurs"
 
 msgid "Disable the compute service."
-msgstr "Désactiver le Service de Calcul."
+msgstr "Désactiver le service compute"
 
 msgid "Disabled"
-msgstr "Désactivé"
+msgstr "Désactivée"
 
 msgctxt "Current status of a Hypervisor"
 msgid "Disabled"
@@ -3328,7 +3355,7 @@ msgstr[1] "Utilisateurs Désactivés"
 
 #, python-format
 msgid "Disabled compute service for host: %s."
-msgstr "Service Compute désactivé pour l'hôte : %s."
+msgstr "Service compute désactivé pour l'hôte : %s."
 
 msgid "Disassociate"
 msgstr "Dissocier"
@@ -3439,7 +3466,7 @@ msgid "Done with Error"
 msgstr "Effectué avec une erreur"
 
 msgid "Down"
-msgstr "Bas"
+msgstr "Inactif"
 
 msgctxt "Current state of a Hypervisor"
 msgid "Down"
@@ -3447,35 +3474,35 @@ msgstr "Inactif"
 
 msgctxt "Current status of a Firewall"
 msgid "Down"
-msgstr "Bas"
+msgstr "Inactif"
 
 msgctxt "Current status of a Floating IP"
 msgid "Down"
-msgstr "Bas"
+msgstr "Inactif"
 
 msgctxt "Current status of a Network"
 msgid "Down"
-msgstr "Bas"
+msgstr "Inactif"
 
 msgctxt "Current status of a Pool"
 msgid "Down"
-msgstr "Bas"
+msgstr "Inactif"
 
 msgctxt "Current status of a VPN Service"
 msgid "Down"
-msgstr "Bas"
+msgstr "Inactif"
 
 msgctxt "Current status of an IPSec Site Connection"
 msgid "Down"
-msgstr "Bas"
+msgstr "Inactif"
 
 msgctxt "current status of port"
 msgid "Down"
-msgstr "Bas"
+msgstr "Inactif"
 
 msgctxt "status of a network port"
 msgid "Down"
-msgstr "Bas"
+msgstr "Inactif"
 
 msgid "Download"
 msgstr "Télécharger"
@@ -3525,10 +3552,10 @@ msgid "Edit Connection"
 msgstr "Editer la connexion"
 
 msgid "Edit Consumer"
-msgstr "Éditer l'Utilisateur"
+msgstr "Éditer le consommateur"
 
 msgid "Edit Consumer of QoS Spec"
-msgstr "Editer les utilisateurs des Spécifications QoS"
+msgstr "Éditer le Consommateur de spécifications QoS"
 
 msgid "Edit Domain"
 msgstr "Editer un Domaine"
@@ -3544,7 +3571,7 @@ msgid "Edit Firewall {{ name }}"
 msgstr "Éditer le pare-feu {{ name }}"
 
 msgid "Edit Flavor"
-msgstr "Editer le gabarit"
+msgstr "Éditer le gabarit"
 
 msgid "Edit Group"
 msgstr "Editer un Groupe"
@@ -3553,10 +3580,10 @@ msgid "Edit Host Aggregate"
 msgstr "Editer l'agrégat d'hôtes"
 
 msgid "Edit IKE Policy"
-msgstr "Editer la politique IKE"
+msgstr "Editer la Stratégie IKE"
 
 msgid "Edit IPSec Policy"
-msgstr "Editer la politique IPSec"
+msgstr "Editer la Stratégie IPSec"
 
 msgid "Edit IPSec Site Connection"
 msgstr "Editer la connexion IPSec de site"
@@ -3586,10 +3613,10 @@ msgid "Edit Object"
 msgstr "Editer l'objet"
 
 msgid "Edit Policy"
-msgstr "Editer la politique"
+msgstr "Éditer la stratégie"
 
 msgid "Edit Policy {{ name }}"
-msgstr "Éditer la politique {{ name }}"
+msgstr "Éditer la stratégie {{ name }}"
 
 msgid "Edit Pool"
 msgstr "Editer le pool"
@@ -3601,7 +3628,7 @@ msgid "Edit Project"
 msgstr "Editer le projet"
 
 msgid "Edit QoS Spec Consumer"
-msgstr "Éditer la spécification QoS de l'utilisateur"
+msgstr "Éditer la Spécification QoS du Consommateur"
 
 msgid "Edit Router"
 msgstr "Editer le routeur"
@@ -3704,7 +3731,7 @@ msgstr ""
 "Permettre le retour arrière en cas d'échec de la création / mise à jour."
 
 msgid "Enabled"
-msgstr "Activé"
+msgstr "Activée"
 
 msgctxt "Current status of a Hypervisor"
 msgid "Enabled"
@@ -3750,11 +3777,11 @@ msgstr "VXLAN amélioré"
 
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr ""
-"Entrer une valeur pour le code ICMP comprise dans l'intervalle (-1:255)"
+"Entrez une valeur pour le code ICMP comprise dans l'intervalle (-1:255)"
 
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr ""
-"Entrer une valeur pour le type ICMP comprise dans l'intervalle (-1:255)"
+"Entrez une valeur pour le type ICMP comprise dans l'intervalle (-1:255)"
 
 msgid "Enter an integer value between 0 and 255 (or -1 which means wildcard)."
 msgstr "Entrer un entier entre 0 et 255 (ou -1 comme caractère générique)."
@@ -3907,7 +3934,7 @@ msgid "Error deleting database user."
 msgstr "Erreur pendant la suppression d'un utilisateur de la base de données."
 
 msgid "Error editing QoS Spec consumer."
-msgstr "Erreur en éditant l'utilisateur de la Spécification QoS."
+msgstr "Erreur lors de l'édition de la Spécification QoS du Consommateur ."
 
 msgid "Error getting database backup list."
 msgstr ""
@@ -4140,7 +4167,7 @@ msgstr "Echec lors de la suppression du sous-réseau %s"
 
 #, python-format
 msgid "Failed to disable compute service for host: %s."
-msgstr "N'a pas pu désactiver le Service Compute pour l'hôte : %s."
+msgstr "Impossible de désactiver le service compute pour l'hôte : %s."
 
 #, python-format
 msgid "Failed to evacuate host: %s."
@@ -4173,7 +4200,7 @@ msgstr "Impossible d'accéder à la ressource : %s"
 #, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr ""
-"Échec de l'insertion de la règle dans la politique %(name)s : %(reason)s"
+"Échec de l'insertion de la règle dans la stratégie %(name)s : %(reason)s"
 
 #, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
@@ -4242,7 +4269,7 @@ msgstr "Echec à retirer routeur(s) du pare-feu %(name)s: %(reason)s"
 #, python-format
 msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr ""
-"Echec de la suppression de la règle de la politique %(name)s : %(reason)s"
+"Échec de la suppression de la règle de la stratégie %(name)s : %(reason)s"
 
 #, python-format
 msgid "Failed to retrieve available routers: %(reason)s"
@@ -4260,7 +4287,7 @@ msgstr ""
 #, python-format
 msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
 msgstr ""
-"Echec de la récupération des règles courantes de la politique %(name)s : "
+"Echec de la récupération des règles courantes de la stratégie %(name)s : "
 "%(reason)s"
 
 msgid "Failed to retrieve health monitors."
@@ -4276,11 +4303,11 @@ msgstr "Echec de définition de la passerelle %s"
 
 #, python-format
 msgid "Failed to update IKE Policy %s"
-msgstr "Impossible de mettre à jour la politique IKE %s."
+msgstr "Impossible de mettre à jour la Stratégie IKE %s."
 
 #, python-format
 msgid "Failed to update IPSec Policy %s"
-msgstr "La mise à jour de la politique IPSec %s a échoué"
+msgstr "Impossible de mettre à jour la Stratégie IPSec %s"
 
 #, python-format
 msgid "Failed to update IPSec Site Connection %s"
@@ -4319,7 +4346,7 @@ msgstr "Echec lors de la mise à jour du profil réseau (%s)."
 
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
-msgstr "Echec de la mise à jour de la politique %(name)s : %(reason)s"
+msgstr "Échec de la mise à jour de la stratégie %(name)s : %(reason)s"
 
 #, python-format
 msgid "Failed to update pool %s"
@@ -4388,10 +4415,10 @@ msgid "Firewall Details"
 msgstr "Détails du pare-feu"
 
 msgid "Firewall Policies"
-msgstr "Politiques de pare-feu"
+msgstr "Stratégies de pare-feu"
 
 msgid "Firewall Policy Details"
-msgstr "Détails de la politique de pare-feu"
+msgstr "Détails de la stratégie de pare-feu"
 
 msgid "Firewall Rule Details"
 msgstr "Détails de la règle de pare-feu"
@@ -4425,7 +4452,7 @@ msgid "Flavor"
 msgstr "Gabarit"
 
 msgid "Flavor Access"
-msgstr "Accès du gabarit"
+msgstr "Accès au gabarit"
 
 msgid "Flavor Choice"
 msgstr "Choix du gabarit"
@@ -4435,7 +4462,7 @@ msgstr "Détails du gabarit"
 
 #, python-format
 msgid "Flavor Details: %(name)s\">%(name)s"
-msgstr "Détails du Type d'Instance : %(name)s\">%(name)s "
+msgstr "Détails du Gabarit : %(name)s\">%(name)s "
 
 msgid "Flavor ID"
 msgstr "ID du gabarit"
@@ -4454,10 +4481,10 @@ msgid "Flavor Information"
 msgstr "Information sur le gabarit"
 
 msgid "Flavor Name"
-msgstr "Nom du gabarit"
+msgstr "Nom du Gabarit"
 
 msgid "Flavor is not specified"
-msgstr "Le gabarit n'est pas précisé"
+msgstr "Le Gabarit n'est pas précisé"
 
 msgid "Flavors"
 msgstr "Gabarits"
@@ -4728,7 +4755,7 @@ msgid "Home"
 msgstr "Accueil"
 
 msgid "Host"
-msgstr "Host"
+msgstr "Hôte"
 
 msgid "Host ="
 msgstr "Hôte ="
@@ -4801,20 +4828,20 @@ msgid "IKE Phase1 negotiation mode"
 msgstr "Mode de négociation IKE Phase 1"
 
 msgid "IKE Policies"
-msgstr "Politiques IKE"
+msgstr "Stratégies IKE"
 
 msgid "IKE Policy"
-msgstr "Politique IKE"
+msgstr "Stratégie IKE"
 
 #, python-format
 msgid "IKE Policy %s was successfully updated."
-msgstr "La politique IKE %s a été mise à jour avec succès."
+msgstr "La Stratégie IKE %s a été mise à jour avec succès."
 
 msgid "IKE Policy Details"
-msgstr "Détails de la politique IKE."
+msgstr "Détails de la Stratégie IKE"
 
 msgid "IKE Policy associated with this connection"
-msgstr "Politique IKE associée à cette connexion"
+msgstr "Stratégie IKE associée à cette connexion"
 
 msgid "IKE version"
 msgstr "Version IKE"
@@ -4883,20 +4910,20 @@ msgid "IPMI"
 msgstr "IPMI"
 
 msgid "IPSec Policies"
-msgstr "Politiques IPSec"
+msgstr "Stratégies IPSec"
 
 msgid "IPSec Policy"
-msgstr "Politique IPSec"
+msgstr "Stratégie IPSec"
 
 #, python-format
 msgid "IPSec Policy %s was successfully updated."
-msgstr "La politique IPSec %s a été mise à jour avec succès."
+msgstr "La Stratégie IPSec %s a été mise à jour avec succès."
 
 msgid "IPSec Policy Details"
-msgstr "Détails de la politique IPSec"
+msgstr "Détails de la Stratégie IPSec"
 
 msgid "IPSec Policy associated with this connection"
-msgstr "Politique IPSec associée à cette connexion"
+msgstr "Stratégie IPSec associée à cette connexion"
 
 #, python-format
 msgid "IPSec Site Connection %s was successfully updated."
@@ -5014,17 +5041,17 @@ msgid "Image Pending Upload"
 msgstr "Image en attente d'upload"
 
 msgid "Image Registry"
-msgstr "Registre Image"
+msgstr "Registre des Images"
 
 msgid ""
 "Image Registry is used to provide additional information about images for "
 "Data Processing."
 msgstr ""
 "Le Registre des Images est utilisé pour fournir des informations "
-"supplémentaires sur les images dédiés au Traitement des Données"
+"supplémentaires sur les images dédiées au Traitement de Données."
 
 msgid "Image Registry tool:"
-msgstr "outil de Registre des Images"
+msgstr "Outil de Registre des Images :"
 
 msgctxt "Task status of an Instance"
 msgid "Image Snapshot Pending"
@@ -5073,7 +5100,7 @@ msgid "Import Namespace"
 msgstr "Importation de l'espace de nom"
 
 msgid "In Policy"
-msgstr "Politique(s) associée(s)"
+msgstr "Stratégies associées"
 
 msgid "In Use"
 msgstr "En cours d'utilisation"
@@ -5171,10 +5198,10 @@ msgid "Insert Rule"
 msgstr "Insérer une règle"
 
 msgid "Insert Rule into Policy"
-msgstr "Insérer une règle dans la politique"
+msgstr "Insérer une règle dans la stratégie"
 
 msgid "Insert Rule to Policy"
-msgstr "Insérer une règle dans la politique"
+msgstr "Insérer une règle dans la Stratégie"
 
 msgid "Instance"
 msgstr "Instance"
@@ -5422,7 +5449,7 @@ msgid ""
 msgstr ""
 "Les paires de clés sont des identifiants SSH injectés dans les images lors "
 "de leur lancement. L'action de créer une nouvelle paire de clés enregistre "
-"la clé publique et télécharge la clé privée (fichier .pem)"
+"la clé publique et télécharge la clé privée (fichier .pem)."
 
 msgid "Key-Value Pairs"
 msgstr "Paires de clé-valeur"
@@ -5485,7 +5512,7 @@ msgid "Launch Database"
 msgstr "Lancer la Base de Données"
 
 msgid "Launch Instance"
-msgstr "Démarrer une instance"
+msgstr "Lancer une instance"
 
 msgid "Launch Instance (Quota exceeded)"
 msgstr "Lancer une Instance (Quota dépassé)"
@@ -5523,7 +5550,7 @@ msgid "Launch instance with these networks"
 msgstr "Démarrer l'instance avec ces réseaux"
 
 msgid "Launch instance with this policy profile"
-msgstr "Démarrez une instance avec cette politique de profil"
+msgstr "Démarrez une instance avec ce profil de stratégie"
 
 msgid "Launch instances in these security groups."
 msgstr "Démarrer ces instances dans ces groupes de sécurité."
@@ -5660,7 +5687,7 @@ msgid "Log Length"
 msgstr "Longueur du journal"
 
 msgid "Log Lines Per Instance"
-msgstr "Lignes de journalisation Par instance"
+msgstr "Lignes de journalisation par instance"
 
 msgid "Log length must be a nonnegative integer."
 msgstr "La longueur du journal doit correspondre à un nombre non négatif."
@@ -5720,7 +5747,7 @@ msgid "Manage Hosts within Aggregate"
 msgstr "Gestion de l'agrégat d'hôtes"
 
 msgid "Manage Members"
-msgstr "Gestion des membres"
+msgstr "Gérer les membres"
 
 msgid "Manage QoS Spec Association"
 msgstr "Gérer l'Association de la Spécification QoS"
@@ -5735,7 +5762,7 @@ msgid ""
 "Manage Security Group Rules: {{ security_group.name }} ({{ security_group."
 "id }})"
 msgstr ""
-"Polices Gestion Groupes de sécurité : {{ security_group.name }} "
+"Gérer les règles du groupe de sécurité : {{ security_group.name }} "
 "({{ security_group.id }})"
 
 msgid "Manage Specs"
@@ -5840,7 +5867,7 @@ msgid "Metadata successfully updated."
 msgstr "Métadonnées mises à jour avec succès."
 
 msgid "Meter"
-msgstr "Compteur"
+msgstr "Métriques"
 
 msgid "Metric:"
 msgstr "Métrique :"
@@ -5886,7 +5913,7 @@ msgstr ""
 "irrattrapables."
 
 msgid "Migration Policy"
-msgstr "Politique de Migration"
+msgstr "Stratégie de Migration"
 
 msgid "Min Disk"
 msgstr "Disque Min"
@@ -5952,7 +5979,7 @@ msgid "Modify Usage Report Parameters"
 msgstr "Modifier les Paramètres du Rapport Utilisateur"
 
 msgid "Modify dashboard settings for your user."
-msgstr "Modify dashboard settings for your user."
+msgstr "Modifier les paramètres du dashboard."
 
 msgid "Modify name and description of a volume."
 msgstr "Modifier le nom et la description du volume."
@@ -6010,7 +6037,7 @@ msgstr ""
 "des chiffres, soulignement, et des traits d'union."
 
 msgid "Name of the stack to create."
-msgstr "Nom de la Stack à créer."
+msgstr "Nom de la stack à créer."
 
 msgid "Name or other identifier for existing volume"
 msgstr "Nom ou autre identifiant du volume existant"
@@ -6138,11 +6165,11 @@ msgid "Network list can not be retrieved."
 msgstr "Impossible de récupérer la liste des réseaux."
 
 msgid "Networking"
-msgstr "Démarrage du réseau"
+msgstr "Réseau"
 
 msgctxt "Task status of an Instance"
 msgid "Networking"
-msgstr "Démarrage du réseau"
+msgstr "Mise en réseau"
 
 msgid "Networks"
 msgstr "Réseaux"
@@ -6642,10 +6669,10 @@ msgid "Oozie Job ID"
 msgstr "ID du job oozie"
 
 msgid "Open Port"
-msgstr "Port ouvert"
+msgstr "Ouvrir"
 
 msgid "Open Port/Port Range:"
-msgstr "Port Ouvert / Plages de Ports :"
+msgstr "Ouvrir Port / Plage de Ports :"
 
 msgid "OpenStack Flavor"
 msgstr "Gabarit OpenStack"
@@ -6912,13 +6939,13 @@ msgid "Please try again later [Error: %s]."
 msgstr "Veuillez essayer à nouveau ultérieurement [Error : %s]."
 
 msgid "Plugin"
-msgstr "Composant enfichable"
+msgstr "Plugin"
 
 msgid "Plugin Name"
-msgstr "Nom du composant"
+msgstr "Nom du plugin"
 
 msgid "Plugin name"
-msgstr "Nom du composant"
+msgstr "Nom du plugin"
 
 msgid "Plugin:"
 msgstr "Plugin :"
@@ -6927,23 +6954,23 @@ msgid "Plugins"
 msgstr "Plugins"
 
 msgid "Policies"
-msgstr "Politiques"
+msgstr "Stratégies"
 
 msgid "Policy"
-msgstr "Politique"
+msgstr "Stratégie"
 
 #, python-format
 msgid "Policy %s was successfully updated."
-msgstr "La politique %s a été mise à jour avec succès."
+msgstr "La stratégie %s a été mise à jour avec succès."
 
 msgid "Policy ID"
-msgstr "ID de politique"
+msgstr "ID de stratégie"
 
 msgid "Policy Profile"
-msgstr "Politique du Profil"
+msgstr "Profil de Stratégie"
 
 msgid "Policy Profiles"
-msgstr "Politique des Profils"
+msgstr "Profils de Stratégie"
 
 msgid "Pool"
 msgstr "Pool"
@@ -6988,7 +7015,7 @@ msgid "Ports"
 msgstr "Ports"
 
 msgid "Position in Policy"
-msgstr "Position dans la politique"
+msgstr "Position dans la stratégie"
 
 msgid "Post-Creation"
 msgstr "Post-création"
@@ -7021,19 +7048,19 @@ msgid "Preparing Resize or Migrate"
 msgstr "Préparation Redimensionnement ou Migration"
 
 msgid "Preview"
-msgstr "Prévisualisation"
+msgstr "Prévisualiser"
 
 msgid "Preview Stack"
-msgstr "Prévisualisation de la Stack"
+msgstr "Prévisualiser la stack"
 
 msgid "Preview Stack Details"
-msgstr "Prévisualisation des détails de la Stack"
+msgstr "Prévisualisation des détails de la stack"
 
 msgid "Preview Stack Parameters"
 msgstr "Prévisualisez les paramètres de la Stack"
 
 msgid "Preview Template"
-msgstr "Prévisualisation du modèle"
+msgstr "Prévisualiser le modèle"
 
 msgid "Preview a new stack with the provided values."
 msgstr "Prévisualisez une nouvelle Stack avec ces nouvelles valeurs"
@@ -7076,7 +7103,7 @@ msgid "Project Groups"
 msgstr "Groupes du projet"
 
 msgid "Project ID"
-msgstr "ID Projet"
+msgstr "ID du Projet"
 
 msgid "Project ID:"
 msgstr "ID du projet:"
@@ -7104,6 +7131,9 @@ msgstr "Utilisation du projet"
 
 msgid "Project Usage Overview"
 msgstr "Aperçu de l'utilisation du projet"
+
+msgid "Project name is already in use. Please use a different name."
+msgstr "Ce nom de project est déjà utilisé. Veuillez utiliser un autre nom."
 
 msgid "Projects"
 msgstr "Projets"
@@ -7171,7 +7201,7 @@ msgid "Pseudo-folder:"
 msgstr "Pseudo-dossier : "
 
 msgid "Public"
-msgstr "Publique"
+msgstr "Publiques"
 
 msgid "Public Key"
 msgstr "Clé publique"
@@ -7183,13 +7213,13 @@ msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - Emulateur QEMU"
 
 msgid "QoS Spec Consumer"
-msgstr "Client de la Spécification QoS"
+msgstr "Spécification QoS du Consommateur"
 
 msgid ""
 "QoS Spec consumer value must be different than the current consumer value."
 msgstr ""
-"La valeur du client de la Spécification QoS doit être différente de la "
-"valeur courante du client."
+"La valeur de la Spécification QoS du consommateur doit être différente de la "
+"valeur courante du consommateur."
 
 msgid "QoS Spec to be associated"
 msgstr "Spécification QoS à associer"
@@ -7414,7 +7444,7 @@ msgid "Remove Rule"
 msgstr "Enlever une règle"
 
 msgid "Remove Rule from Policy"
-msgstr "Enlever une règle de la politique"
+msgstr "Retirer une règle de la stratégie"
 
 msgid "Remove User"
 msgid_plural "Remove Users"
@@ -7549,7 +7579,7 @@ msgid "Resource Types"
 msgstr "Types de ressource"
 
 msgid "Resource Usage"
-msgstr "Usage de la ressource"
+msgstr "Usage des ressources"
 
 #, python-format
 msgid "Resource types updated for namespace %s."
@@ -7605,6 +7635,10 @@ msgstr "Restauration"
 msgctxt "Task status of an Instance"
 msgid "Restoring"
 msgstr "Restauration"
+
+msgctxt "Current status of a Volume"
+msgid "Restoring Backup"
+msgstr "Restauration de la sauvegarde"
 
 msgctxt "Action log of an instance"
 msgid "Resume"
@@ -7771,12 +7805,12 @@ msgstr "Règle"
 #, python-format
 msgid "Rule %(rule)s was successfully inserted to policy %(policy)s."
 msgstr ""
-"La règle %(rule)s a été insérée avec succès dans la politique %(policy)s."
+"La règle %(rule)s a été insérée avec succès dans la stratégie %(policy)s."
 
 #, python-format
 msgid "Rule %(rule)s was successfully removed from policy %(policy)s."
 msgstr ""
-"La règle %(rule)s a été supprimée avec succès de la politique %(policy)s."
+"La règle %(rule)s a été supprimée avec succès de la stratégie %(policy)s."
 
 #, python-format
 msgid "Rule %s was successfully updated."
@@ -7875,13 +7909,13 @@ msgstr[1] "Effacement des Pare-feux planifié"
 
 msgid "Scheduled deletion of IKE Policy"
 msgid_plural "Scheduled deletion of IKE Policies"
-msgstr[0] "Effacement de la Politique IKE planifié"
-msgstr[1] "Effacement des Politiques IKE planifié"
+msgstr[0] "Effacement de la Stratégie IKE planifié"
+msgstr[1] "Effacement des Stratégies IKE planifié"
 
 msgid "Scheduled deletion of IPSec Policy"
 msgid_plural "Scheduled deletion of IPSec Policies"
-msgstr[0] "Effacement de la Politique IPSec"
-msgstr[1] "Effacement des Politiques IPSec planifié"
+msgstr[0] "Effacement de la Stratégie IPSec"
+msgstr[1] "Effacement des Stratégies IPSec planifié"
 
 msgid "Scheduled deletion of IPSec Site Connection"
 msgid_plural "Scheduled deletion of IPSec Site Connections"
@@ -7900,8 +7934,8 @@ msgstr[1] "Suppression des Moniteurs planifiée"
 
 msgid "Scheduled deletion of Policy"
 msgid_plural "Scheduled deletion of Policies"
-msgstr[0] "Effacement de la Politique planifié"
-msgstr[1] "Effacement des Politiques planifié"
+msgstr[0] "Effacement de la Stratégie planifiée"
+msgstr[1] "Effacement des Stratégies planifiées"
 
 msgid "Scheduled deletion of Pool"
 msgid_plural "Scheduled deletion of Pools"
@@ -8015,10 +8049,10 @@ msgid "Select Flavor"
 msgstr "Sélectionner le gabarit"
 
 msgid "Select IKE Policy"
-msgstr "Sélectionner la politique IKE"
+msgstr "Sélectionner la Stratégie IKE"
 
 msgid "Select IPSec Policy"
-msgstr "Sélectionner la politique IPSec"
+msgstr "Sélectionner la Stratégie IPSec"
 
 msgid "Select Image"
 msgstr "Sélectionner une image "
@@ -8063,7 +8097,7 @@ msgid "Select a Node Group Template to add:"
 msgstr "Sélectionner un Modèle de Groupe de Nœud à ajouter :"
 
 msgid "Select a Policy"
-msgstr "Sélectionnez une politique"
+msgstr "Sélectionnez une Stratégie"
 
 msgid "Select a Pool"
 msgstr "Sélectionner un pool"
@@ -8182,13 +8216,13 @@ msgid "Select parent backup"
 msgstr "Sélectionner une sauvegarde totale"
 
 msgid "Select plugin and hadoop version"
-msgstr "Sélection le composant et la version d'Hadoop"
+msgstr "Sélectionnez le plugin et la version d'Hadoop"
 
 msgid "Select plugin and hadoop version for cluster"
-msgstr "Sélectionner les composants et la version d'hadoop pour le cluster"
+msgstr "Sélectionnez le plugin et la version d'Hadoop pour le cluster"
 
 msgid "Select plugin and hadoop version for cluster template"
-msgstr "Sélectionner le composant et la version pour le modèle de cluster"
+msgstr "Sélectionner le plugin et la version pour le modèle de cluster"
 
 msgid "Select property name"
 msgstr "Sélectionner un nom de propriété"
@@ -8197,7 +8231,7 @@ msgid "Select routers for your firewall."
 msgstr "Sélectionner des routeurs pour votre pare-feu."
 
 msgid "Select rules for your policy."
-msgstr "Sélectionner les règles pour votre politique."
+msgstr "Sélectionner les règles pour votre stratégie."
 
 msgid "Select source"
 msgstr "Sélectionner la source"
@@ -8211,6 +8245,9 @@ msgstr ""
 
 msgid "Select the image to rebuild your instance."
 msgstr "Sélectionnez l'image pour reconstruire votre instance."
+
+msgid "Select the network for interface attaching."
+msgstr "Sélectionnez le réseau pour attacher l'interface."
 
 msgid "Select the port to detach."
 msgstr "Sélectionner le port à deconnecter."
@@ -8315,7 +8352,7 @@ msgid "Set Gateway"
 msgstr "Définir la passerelle"
 
 msgid "Set as Active Project"
-msgstr "Positionné comme Projet Actif"
+msgstr "Définir comme projet actif"
 
 msgid "Set maximum quotas for the project."
 msgstr "Positionner les quotas maximum pour le projet."
@@ -8327,7 +8364,7 @@ msgid "Settings saved."
 msgstr "Paramètres sauvegardés."
 
 msgid "Shared"
-msgstr "Partagé"
+msgstr "Partagée"
 
 msgid "Shared Storage"
 msgstr "Stockage partagé"
@@ -8609,10 +8646,10 @@ msgid "Specify member IP address"
 msgstr "Spécifier l'adresse IP du membre"
 
 msgid "Specify the details for launching an instance."
-msgstr "Spécifier les détails de démarrage d'une instance."
+msgstr "Spécifiez les détails de démarrage d'une instance."
 
 msgid "Specify the details for the database backup."
-msgstr "Spécifier les détail pour la sauvegarde de la base de données."
+msgstr "Spécifiez les détails pour la sauvegarde de la base de données."
 
 msgid "Specify the new volume size for the database instance."
 msgstr ""
@@ -8642,7 +8679,7 @@ msgid "Stack ID"
 msgstr "ID Stack"
 
 msgid "Stack Name"
-msgstr "Nom de la Stack"
+msgstr "Nom de la stack"
 
 msgid "Stack Overview"
 msgstr "Vue d'ensemble de la Stack"
@@ -8651,7 +8688,7 @@ msgid "Stack Parameters"
 msgstr "Paramètres de la Stack"
 
 msgid "Stack Preview"
-msgstr "Prévisualisation de la Stack"
+msgstr "Prévisualisation de la stack"
 
 msgid "Stack Resource"
 msgstr "Ressource de la Stack"
@@ -8839,11 +8876,11 @@ msgid "Successfully created volume type: %s"
 msgstr "Type de volume créé avec succès : %s"
 
 msgid "Successfully deleted volume transfer"
-msgstr "Suppression avec succès du volume de transfère"
+msgstr "Suppression avec succès du  transfert de Volume"
 
 #, python-format
 msgid "Successfully deleted volume transfer \"%s\""
-msgstr "Suppression avec succès du volume de transfère \"%s\""
+msgstr "Suppression avec succès du  transfert de Volume \"%s\""
 
 #, python-format
 msgid "Successfully disassociated Floating IP: %s"
@@ -8858,7 +8895,7 @@ msgid "Successfully imported public key: %s"
 msgstr "Clé publique importée avec succès : %s"
 
 msgid "Successfully modified QoS Spec consumer."
-msgstr "Client de la Spécification QoS modifié avec succès."
+msgstr "La Spécification QoS du Consommateur a été modifiée avec succès."
 
 #, python-format
 msgid ""
@@ -8983,7 +9020,7 @@ msgid "Swift"
 msgstr "Swift"
 
 msgid "Swift_meters"
-msgstr "Compteurs_Swift"
+msgstr "Swift_meters"
 
 msgid "System"
 msgstr "Système"
@@ -9144,9 +9181,9 @@ msgid ""
 "    That means these processes may not be launched more than once on a "
 "single host."
 msgstr ""
-"L'objet modèle de cluste doit spécifier la liste des processus dans le group "
-"d'anti-affinité. Ceci signifie que ces processus ne pourront pas être lancés "
-"simultanément sur un même host."
+"L'objet modèle de cluster doit spécifier la liste des processus dans le "
+"groupe d'anti-affinité. Ceci signifie que ces processus ne pourront pas être "
+"lancés simultanément sur un même hôte."
 
 msgid ""
 "The Cluster Template object should specify Node Group Templates that will be "
@@ -9360,6 +9397,9 @@ msgstr "Le nom \"%s\" est déjà utilisé par un autre gabarit."
 msgid "The name \"%s\" is already used by another host aggregate."
 msgstr "Le nom \"%s\" est déjà utilisé par un autre agrégat d'hôtes."
 
+msgid "The name is already in use."
+msgstr "Ce nom est déjà utilisé."
+
 msgid ""
 "The name of the physical network over which the virtual network is "
 "implemented."
@@ -9470,7 +9510,7 @@ msgstr ""
 "volume (%s Go)"
 
 msgid "There are no meters defined yet."
-msgstr "Aucun compteur n'est défini."
+msgstr "Aucune métrique n'est actuellement définie."
 
 msgid "There are no networks, routers, or connected instances to display."
 msgstr "Il n'y a aucun réseau, routeur ou instance connectée à afficher."
@@ -9621,6 +9661,9 @@ msgstr "Utilisation Totale des Disques (en Heures)"
 msgid "Total Gigabytes"
 msgstr "Giga-octets totaux"
 
+msgid "Total Memory Usage (Hours):"
+msgstr "Usage total de mémoire (en heures)"
+
 msgid "Total RAM"
 msgstr "RAM totale"
 
@@ -9629,6 +9672,9 @@ msgstr "Taille totale des volumes et clichés instantanés LUKS (GB)"
 
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "Taille totale des volumes et des instantanés (Go)"
+
+msgid "Total VCPU Usage (Hours):"
+msgstr "Usage Total de VCPU(s) (en heures):"
 
 msgid ""
 "Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
@@ -9647,10 +9693,10 @@ msgid "Total size of stored objects"
 msgstr "Taille totale des objets stockés"
 
 msgid "Transfer ID"
-msgstr "ID du transfère"
+msgstr "ID du transfert"
 
 msgid "Transfer Name"
-msgstr "Nom de transfère"
+msgstr "Nom du transfert"
 
 msgid "Transform Protocol"
 msgstr "Protocole de transformation"
@@ -9675,23 +9721,23 @@ msgid "UDP"
 msgstr "UDP"
 
 msgid "UP"
-msgstr "HAUT"
+msgstr "Actif"
 
 msgctxt "Admin state of a Firewall"
 msgid "UP"
-msgstr "HAUT"
+msgstr "Actif"
 
 msgctxt "Admin state of a Network"
 msgid "UP"
-msgstr "HAUT"
+msgstr "Actif"
 
 msgctxt "Admin state of a Port"
 msgid "UP"
-msgstr "HAUT"
+msgstr "Actif"
 
 msgctxt "Admin state of a Router"
 msgid "UP"
-msgstr "HAUT"
+msgstr "Actif"
 
 msgid "URL"
 msgstr "URL"
@@ -9718,11 +9764,11 @@ msgstr "Impossible d'ajouter le pare-feu \"%s\"."
 
 #, python-format
 msgid "Unable to add IKE Policy \"%s\"."
-msgstr "Impossible d'ajouter la politique IKE \"%s\"."
+msgstr "Impossible d'ajouter la Stratégie IKE \"%s\"."
 
 #, python-format
 msgid "Unable to add IPSec Policy \"%s\"."
-msgstr "Impossible d'ajouter la politique IPSec \"%s\"."
+msgstr "Impossible d'ajouter la Stratégie IPSec \"%s\"."
 
 #, python-format
 msgid "Unable to add IPSec Site Connection \"%s\"."
@@ -9730,7 +9776,7 @@ msgstr "Impossible d'ajouter la connexion IPSec de site \"%s\"."
 
 #, python-format
 msgid "Unable to add Policy \"%s\"."
-msgstr "Impossible d'ajouter la politique \"%s\"."
+msgstr "Impossible d'ajouter la stratégie \"%s\"."
 
 #, python-format
 msgid "Unable to add Rule \"%s\"."
@@ -9903,7 +9949,7 @@ msgid "Unable to create volume snapshot."
 msgstr "Impossible de créer l'instantané du volume."
 
 msgid "Unable to create volume transfer."
-msgstr "Impossible de créer un volume de transfère."
+msgstr "Impossible de créer un transfert de Volume."
 
 msgid "Unable to create volume type extra spec."
 msgstr ""
@@ -9917,11 +9963,11 @@ msgstr "Impossible de créer le volume."
 
 #, python-format
 msgid "Unable to delete IKE Policy: %s"
-msgstr "Impossible de supprimer la stratégie IKE : %s"
+msgstr "Impossible de supprimer la Stratégie IKE : %s"
 
 #, python-format
 msgid "Unable to delete IPSec Policy: %s"
-msgstr "Impossible de supprimer la stratégie IPSec : %s"
+msgstr "Impossible de supprimer la Stratégie IPSec : %s"
 
 #, python-format
 msgid "Unable to delete IPSec Site Connection: %s"
@@ -9952,7 +9998,7 @@ msgstr "Impossible de supprimer le moniteur %s"
 
 #, python-format
 msgid "Unable to delete policy. %s"
-msgstr "Impossible de supprimer la politique %s"
+msgstr "Impossible de supprimer la stratégie %s"
 
 #, python-format
 msgid "Unable to delete pool. %s"
@@ -10032,7 +10078,7 @@ msgid "Unable to fetch data sources."
 msgstr "Impossible de récupérer les sources de données"
 
 msgid "Unable to fetch flavor for template."
-msgstr "Impossible de récupérer le type d’instance pour le modèle."
+msgstr "Impossible de récupérer le gabarit pour le modèle."
 
 msgid "Unable to fetch floating ip pools."
 msgstr "Impossible d'extraire les pools d'IP flottantes."
@@ -10286,17 +10332,17 @@ msgid "Unable to restore backup."
 msgstr "Impossible de restaurer cette sauvegarde."
 
 msgid "Unable to retrieve Ceilometer meter list."
-msgstr "Impossible de récupérer la télémétrie Ceilometer."
+msgstr "Impossible de récupérer la liste des métriques Ceilometer."
 
 msgid "Unable to retrieve IKE Policies list."
-msgstr "Impossible de récupérer la liste des politiques IKE."
+msgstr "Impossible de récupérer la liste des Stratégies IKE."
 
 msgid "Unable to retrieve IKE Policy details."
-msgstr "Impossible de récupérer les détails de la politique IKE."
+msgstr "Impossible de récupérer le détail de la Stratégie IKE."
 
 #, python-format
 msgid "Unable to retrieve IKE Policy details. %s"
-msgstr "Impossible de récupérer les détails de la politique IKE %s"
+msgstr "Impossible de récupérer les détail de la Stratégie IKE %s"
 
 #, python-format
 msgid ""
@@ -10310,14 +10356,14 @@ msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "Impossible de récupérer les adresses IP de Neutron."
 
 msgid "Unable to retrieve IPSec Policies list."
-msgstr "Impossible de récupérer la liste des politiques IPSec."
+msgstr "Impossible de récupérer la liste des Stratégies IPSec."
 
 msgid "Unable to retrieve IPSec Policy details."
-msgstr "Impossible de récupérer les détails de la politique IPSec."
+msgstr "Impossible de récupérer le détail de la Stratégie IPSec."
 
 #, python-format
 msgid "Unable to retrieve IPSec Policy details. %s"
-msgstr "Impossible de récupérer les détails de la politique IPSec %s"
+msgstr "Impossible de récupérer le détail de la Stratégie IPSec %s"
 
 msgid "Unable to retrieve IPSec Site Connection details."
 msgstr "Impossible de récupérer les détails de la connexion IPSec de site."
@@ -10403,7 +10449,8 @@ msgid "Unable to retrieve compute host information."
 msgstr "Impossible de récupérer les informations sur l'hôte Compute."
 
 msgid "Unable to retrieve compute limit information."
-msgstr "Impossible de récupérer les informations sur les limites de compute"
+msgstr ""
+"Impossible de récupérer les informations sur les limitations du compute."
 
 msgid "Unable to retrieve container list."
 msgstr "Impossible de récupérer la liste des conteneurs."
@@ -10467,6 +10514,9 @@ msgstr "Impossible de récupérer les informations du domaine."
 
 msgid "Unable to retrieve domain list."
 msgstr "Impossible de récupérer la liste des domaines."
+
+msgid "Unable to retrieve extensions information"
+msgstr "Impossible de récupérer les informations des extensions"
 
 msgid "Unable to retrieve extensions information."
 msgstr "Impossible de récupérer l'information concernant les extensions."
@@ -10576,7 +10626,7 @@ msgid "Unable to retrieve instance details."
 msgstr "Impossible de récupérer les détails de l'instance."
 
 msgid "Unable to retrieve instance flavors."
-msgstr "Impossible de récupérer les types de l'instance."
+msgstr "Impossible de récupérer les gabarits de l'instance."
 
 msgid "Unable to retrieve instance list."
 msgstr "Impossible de récupérer la liste des instances."
@@ -10673,17 +10723,17 @@ msgid "Unable to retrieve plugin."
 msgstr "Impossible de récupérer le plugin."
 
 msgid "Unable to retrieve policies list."
-msgstr "Impossible de récupérer la liste des politiques."
+msgstr "Impossible de récupérer la liste des Stratégies."
 
 msgid "Unable to retrieve policy details."
-msgstr "Impossible de récupérer les détails de la politique."
+msgstr "Impossible de récupérer les détails de la stratégie."
 
 #, python-format
 msgid "Unable to retrieve policy list (%(error)s)."
-msgstr "Impossible de récupérer la liste des politiques (%(error)s)."
+msgstr "Impossible de récupérer la liste des stratégies (%(error)s)."
 
 msgid "Unable to retrieve policy list."
-msgstr "Impossible de récupérer la liste des politiques."
+msgstr "Impossible de récupérer la liste des stratégies."
 
 msgid "Unable to retrieve pool details."
 msgstr "Impossible de récupérer les détails du pool."
@@ -10802,7 +10852,7 @@ msgid "Unable to retrieve snapshot list."
 msgstr "Impossible de récupérer la liste des snapshot"
 
 msgid "Unable to retrieve stack list."
-msgstr "Impossible d'extraire la liste des Stacks."
+msgstr "Impossible de récupérer la liste des stacks."
 
 msgid "Unable to retrieve stack resource types."
 msgstr "Impossible de récupérer les types de ressource de la stack."
@@ -11043,7 +11093,7 @@ msgid "Unable to update volume."
 msgstr "Impossible de mettre à jour le volume."
 
 msgid "Unable to upload cluster template file"
-msgstr "Impossible de téléverser le fichier modèle de cluster"
+msgstr "Impossible de télécharger le fichier modèle de cluster"
 
 msgid "Unable to upload job binary"
 msgstr "Impossible de transférer la tâche binaire"
@@ -11124,7 +11174,7 @@ msgid "Unshelving"
 msgstr "Déréservation"
 
 msgid "Up"
-msgstr "Haut"
+msgstr "Actif"
 
 msgctxt "Current state of a Hypervisor"
 msgid "Up"
@@ -11222,7 +11272,7 @@ msgid ""
 "available at \"Subnet Details\" tab."
 msgstr ""
 "Mise à jour d'un sous-réseau associé à un réseau. Cliquez sur l'onglet "
-"\"Détails Sous-Réseaux\" pour configurer des options avancées"
+"\"Détails Sous-Réseaux\" pour configurer des options avancées."
 
 msgid "Update requests for this floating ip"
 msgstr "Demandes de mise à jour pour cette IP flottante"
@@ -11273,7 +11323,7 @@ msgid "Upload"
 msgstr "Mettre en ligne"
 
 msgid "Upload File"
-msgstr "Téléverser un fichier"
+msgstr "Télécharger un fichier"
 
 msgid "Upload Object"
 msgstr "Télécharger un Objet"
@@ -11292,7 +11342,7 @@ msgid "Upload Volume to Image"
 msgstr "Télécharger le Volume dans l'Image"
 
 msgid "Upload a new file"
-msgstr "Téléverser un nouveau fichier"
+msgstr "Télécharger un nouveau fichier"
 
 msgid "Upload to Image"
 msgstr "Télécharger dans l'Image"
@@ -11314,6 +11364,9 @@ msgstr "Aperçu de l'Utilisation"
 
 msgid "Usage Report"
 msgstr "Rapport d'utilisation"
+
+msgid "Usage Report For Period:"
+msgstr "Rapport d'utilisation pour la période:"
 
 msgid "Use Server Default"
 msgstr "Utiliser la valeur par défaut du serveur"
@@ -11344,6 +11397,12 @@ msgstr ""
 "Utiliser une des options de modèle source disponibles pour préciser le "
 "modèle à utiliser lors de la prévisualition de cette Stack."
 
+msgid ""
+"Use one of these load balancing methods to distribute incoming requests:"
+msgstr ""
+"Utiliser une de ces métodes de load balancing afin de distribuer les "
+"requêtes entrantes:"
+
 msgid "Use snapshot as a source"
 msgstr "Utiliser un instantané comme source"
 
@@ -11352,7 +11411,7 @@ msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
 msgstr "<span> %(used)s </span> utilisé(es) sur <span> %(available)s </span>"
 
 msgid "Used in Policy"
-msgstr "Utilisée dans la politique"
+msgstr "Utilisée dans la stratégie"
 
 msgid "User"
 msgstr "Utilisateur"
@@ -11517,7 +11576,7 @@ msgstr ""
 "      "
 
 msgid "View Container"
-msgstr "Voir le Conteneur"
+msgstr "Voir le conteneur"
 
 msgid "View Credentials"
 msgstr "Voir les paramètres du compte"
@@ -11632,10 +11691,10 @@ msgid "Volume Source"
 msgstr "Source du volume"
 
 msgid "Volume Transfer"
-msgstr "Volume de transfère"
+msgstr "Transfert de Volume"
 
 msgid "Volume Transfer Details"
-msgstr "Détails du transfère du volume"
+msgstr "Détails du transfert de Volume"
 
 msgid "Volume Type"
 msgstr "Type de Volume"
@@ -11691,7 +11750,7 @@ msgid "Volume of RAM"
 msgstr "Quantité de RAM"
 
 msgid "Volume of RAM used"
-msgstr "Quantité de RAM utilisé"
+msgstr "Quantité de RAM utilisée"
 
 msgid "Volume of reads"
 msgstr "Nombre de lectures"
@@ -11733,6 +11792,9 @@ msgstr "La taille du volume doit être supérieure à 0"
 
 msgid "Volume source must be specified"
 msgstr "La source du volume doit être spécifiée"
+
+msgid "Volume type name can not be empty."
+msgstr "Le nom de type de volume ne peut pas être vide."
 
 msgid "Volumes"
 msgstr "Volumes"
@@ -11933,10 +11995,10 @@ msgstr ""
 "onglets correspondants."
 
 msgid "You may update IKE Policy details here."
-msgstr "Ici, vous pouvez mettre à jour les détails de la politique IKE."
+msgstr "Mettez à jour les détails de la Stratégie IKE ici."
 
 msgid "You may update IPSec Policy details here."
-msgstr "Ici, vous pouvez mettre à jour les détails de la politique IPSec."
+msgstr "Mettez à jour les détails de la Stratégie IPSec ici."
 
 msgid "You may update IPSec Site Connection details here."
 msgstr ""
@@ -11974,9 +12036,8 @@ msgid ""
 "You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
 "instead to insert or remove a rule"
 msgstr ""
-"Ici, vous pouvez mettre à jour les détails de la politique. Utilisez les "
-"liens 'Insérer une règle' ou 'Enlever une règle' pour insérer ou enlever une "
-"règle."
+"Mettez à jour les détails de la stratégie ici. Utilisez les liens 'Insérer "
+"une règle' ou 'Enlever une règle' pour insérer ou enlever une règle."
 
 msgid ""
 "You may update pool attributes here: edit name, description, load balancing "
