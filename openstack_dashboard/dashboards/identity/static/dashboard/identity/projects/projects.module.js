@@ -1,6 +1,4 @@
 /**
- * Copyright 2015 IBM Corp.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
  * a copy of the License at
@@ -18,16 +16,18 @@
   'use strict';
 
   /**
-   * @ngdoc hz.dashboard.identity
-   * @ngModule
-   *
+   * @ngdoc hz.dashboard.identity.projects
+   * @ng-module
    * @description
-   * Dashboard module to host various identity panels.
+   * Provides all of the services and widgets required
+   * to support and display the identity projects.
    */
   angular
-    .module('hz.dashboard.identity', [
-      'hz.dashboard.identity.users',
-      'hz.dashboard.identity.projects'
-    ]);
+    .module('hz.dashboard.identity.projects', [])
+    .constant('hz.dashboard.identity.projects.basePath', basePath());
+
+  function basePath() {
+    return (window.WEBROOT || '') + '/static/dashboard/identity/projects/';
+  }
 
 })();
