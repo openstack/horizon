@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-10 23:10-0500\n"
-"PO-Revision-Date: 2015-06-10 23:53+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"PO-Revision-Date: 2015-06-12 15:52+0000\n"
+"Last-Translator: Adriana Chisco Landazábal <achisco94@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/"
 "es/)\n"
 "MIME-Version: 1.0\n"
@@ -1114,6 +1114,9 @@ msgstr "Asignar IP al proyecto"
 msgid "Allocate a floating IP from a given floating IP pool."
 msgstr "Asignar una IP flotante desde un pool de IPs flotantes."
 
+msgid "Allocated"
+msgstr "Asignado"
+
 #, python-format
 msgid "Allocated Floating IP %(ip)s."
 msgstr "Se asignó la IP flotante %(ip)s."
@@ -1373,6 +1376,10 @@ msgstr "Cantidad promedio de escrituras"
 
 msgid "Avg."
 msgstr "Media"
+
+msgctxt "Current status of a Volume"
+msgid "Backing Up"
+msgstr "Creando copia de seguridad"
 
 msgid "Backup"
 msgstr "Copia de seguridad"
@@ -2613,6 +2620,10 @@ msgctxt "Admin state of a Router"
 msgid "DOWN"
 msgstr "ABAJO"
 
+msgid "DPD Timeout must be greater than DPD Interval"
+msgstr ""
+"La desconexión de Dead Peer Detection debe ser mayor al intervalo de éste"
+
 msgid "Daily Usage Report"
 msgstr "Informe de uso diario"
 
@@ -3610,6 +3621,10 @@ msgstr "Error al añadir Hosts al agregado."
 msgid "Error creating database backup."
 msgstr "Error al crear la copia de seguridad de la base de datos."
 
+msgctxt "Current status of a Volume"
+msgid "Error deleting"
+msgstr "Error al eliminar"
+
 msgid "Error deleting database on instance."
 msgstr "Error al borrar la base de datos en la instancia."
 
@@ -3708,6 +3723,10 @@ msgstr "Extender volumen"
 
 msgid "Extend the size of a volume."
 msgstr "Extender el tamaño de un volumen."
+
+msgctxt "Current status of a Volume"
+msgid "Extending"
+msgstr "Extendiendo"
 
 #, python-format
 msgid "Extending volume: \"%s\""
@@ -6231,6 +6250,13 @@ msgstr "Número de paquetes entrantes para una interfaz de la MV"
 msgid "Number of instances to launch."
 msgstr "Número de instancias a lanzar."
 
+msgid ""
+"Number of items to show per page (applies to the pages that have API "
+"supported pagination)"
+msgstr ""
+"Número de elementos mostrados por página (aplica a las páginas que tienen "
+"paginación soportada por API)"
+
 msgid "Number of log lines to be shown per instance"
 msgstr "Número de líneas de inicio de sesión para mostrar por instancia"
 
@@ -7246,6 +7272,10 @@ msgstr "Restaurando"
 msgctxt "Task status of an Instance"
 msgid "Restoring"
 msgstr "Restaurando"
+
+msgctxt "Current status of a Volume"
+msgid "Restoring Backup"
+msgstr "Restaurando la copia de seguridad"
 
 msgctxt "Action log of an instance"
 msgid "Resume"
@@ -10016,6 +10046,9 @@ msgstr "No ha sido posible obtener la información del dominio."
 msgid "Unable to retrieve domain list."
 msgstr "No ha sido posible obtener la lista de dominios."
 
+msgid "Unable to retrieve extensions information"
+msgstr "No es posible recuperar la información de las extensiones"
+
 msgid "Unable to retrieve extensions information."
 msgstr "No ha sido posible obtener la información de las extensiones."
 
@@ -11040,6 +11073,12 @@ msgstr "VXLAN"
 msgid "Valid integer greater than the DPD interval"
 msgstr "Entero válido mayor al intervalo de Dead Peer Detection"
 
+msgid "Valid integer lesser than DPD timeout"
+msgstr "Entero válido menor a la desconexión de Dead Peer Detection"
+
+msgid "Valid integer lesser than the DPD timeout"
+msgstr "Entero válido menor al intervalo de Dead Peer Detection"
+
 msgid "Value"
 msgstr "Valor"
 
@@ -11179,6 +11218,9 @@ msgstr "Snapshots de volumen"
 
 msgid "Volume Source"
 msgstr "Origen del volumen"
+
+msgid "Volume Storage"
+msgstr "Almacenamiento de volumen"
 
 msgid "Volume Transfer"
 msgstr "Volumen de Transferencia"

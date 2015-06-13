@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-11 01:21-0500\n"
+"POT-Creation-Date: 2015-06-13 01:06-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -681,10 +681,7 @@ msgid "Manage Hosts"
 msgstr ""
 
 #: dashboards/admin/aggregates/tables.py:64
-#: dashboards/admin/aggregates/templates/aggregates/_update_metadata.html:11
-#: dashboards/admin/flavors/tables.py:71
-#: dashboards/admin/flavors/templates/flavors/_update_metadata.html:11
-#: dashboards/admin/images/tables.py:46
+#: dashboards/admin/flavors/tables.py:71 dashboards/admin/images/tables.py:46
 msgid "Update Metadata"
 msgstr ""
 
@@ -891,6 +888,7 @@ msgstr ""
 
 #: dashboards/admin/aggregates/templates/aggregates/_update_metadata.html:4
 #: dashboards/admin/aggregates/templates/aggregates/_update_metadata.html:7
+#: dashboards/admin/aggregates/templates/aggregates/_update_metadata.html:11
 #: dashboards/admin/aggregates/templates/aggregates/update_metadata.html:3
 #: dashboards/admin/aggregates/views.py:108
 msgid "Update Aggregate Metadata"
@@ -1430,6 +1428,7 @@ msgstr ""
 
 #: dashboards/admin/flavors/templates/flavors/_update_metadata.html:4
 #: dashboards/admin/flavors/templates/flavors/_update_metadata.html:7
+#: dashboards/admin/flavors/templates/flavors/_update_metadata.html:11
 #: dashboards/admin/flavors/templates/flavors/update_metadata.html:3
 #: dashboards/admin/flavors/views.py:97
 msgid "Update Flavor Metadata"
@@ -6056,18 +6055,18 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: dashboards/project/access_and_security/keypairs/tables.py:50
-#: dashboards/project/access_and_security/keypairs/views.py:59
-#: dashboards/project/access_and_security/keypairs/views.py:61
-#: dashboards/project/access_and_security/keypairs/views.py:65
+#: dashboards/project/access_and_security/keypairs/views.py:62
+#: dashboards/project/access_and_security/keypairs/views.py:64
+#: dashboards/project/access_and_security/keypairs/views.py:68
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/import.html:3
 msgid "Import Key Pair"
 msgstr ""
 
 #: dashboards/project/access_and_security/keypairs/tables.py:59
 #: dashboards/project/access_and_security/keypairs/tables.py:75
-#: dashboards/project/access_and_security/keypairs/views.py:43
-#: dashboards/project/access_and_security/keypairs/views.py:45
-#: dashboards/project/access_and_security/keypairs/views.py:49
+#: dashboards/project/access_and_security/keypairs/views.py:46
+#: dashboards/project/access_and_security/keypairs/views.py:48
+#: dashboards/project/access_and_security/keypairs/views.py:52
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/create.html:3
 msgid "Create Key Pair"
 msgstr ""
@@ -6077,22 +6076,22 @@ msgstr ""
 msgid "Fingerprint"
 msgstr ""
 
-#: dashboards/project/access_and_security/keypairs/views.py:73
+#: dashboards/project/access_and_security/keypairs/views.py:76
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:4
 msgid "Key Pair Details"
 msgstr ""
 
-#: dashboards/project/access_and_security/keypairs/views.py:82
+#: dashboards/project/access_and_security/keypairs/views.py:85
 #, python-format
 msgid "Unable to retrieve details for keypair \"%s\"."
 msgstr ""
 
-#: dashboards/project/access_and_security/keypairs/views.py:97
+#: dashboards/project/access_and_security/keypairs/views.py:100
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/download.html:4
 msgid "Download Key Pair"
 msgstr ""
 
-#: dashboards/project/access_and_security/keypairs/views.py:113
+#: dashboards/project/access_and_security/keypairs/views.py:119
 #, python-format
 msgid "Unable to create key pair: %(exc)s"
 msgstr ""
@@ -17027,7 +17026,7 @@ msgstr ""
 msgid "Failed to obtain network profile binding"
 msgstr ""
 
-#: dashboards/settings/dashboard.py:22 templates/_header.html:39
+#: dashboards/settings/dashboard.py:22 templates/_header.html:33
 msgid "Settings"
 msgstr ""
 
@@ -17223,15 +17222,11 @@ msgid ""
 "help, contact your local administrator."
 msgstr ""
 
-#: templates/500.html:74 templates/_header.html:46
+#: templates/500.html:74 templates/_header.html:40
 msgid "Help"
 msgstr ""
 
-#: templates/_header.html:21
-msgid "More Projects"
-msgstr ""
-
-#: templates/_header.html:54
+#: templates/_header.html:48
 msgid "Sign Out"
 msgstr ""
 

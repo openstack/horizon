@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-04 21:20-0500\n"
-"PO-Revision-Date: 2015-06-04 15:51+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-06-10 23:10-0500\n"
+"PO-Revision-Date: 2015-06-12 18:17+0000\n"
+"Last-Translator: Andre Campos Bezerra <andrecbezerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
 "horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -303,6 +303,9 @@ msgstr "Sucesso:"
 msgid "Terminate Instance"
 msgstr "Terminar Instância"
 
+msgid "Text"
+msgstr "Texto"
+
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
 "missing information."
@@ -394,6 +397,33 @@ msgstr "Não é possível recuperar as configurações."
 
 msgid "Unable to retrieve the current user session."
 msgstr "Não é possível recuperar a sessão atual do usuário."
+
+msgid "Unable to retrieve the domain."
+msgstr "Não foi possível recuperar o domínio."
+
+msgid "Unable to retrieve the image."
+msgstr "Não foi possível recuperar a imagem."
+
+msgid "Unable to retrieve the images."
+msgstr "Não foi possível recuperar as imagens."
+
+msgid "Unable to retrieve the networks."
+msgstr "Não foi possível recuperar as redes."
+
+msgid "Unable to retrieve the ports."
+msgstr "Não foi possível recuperar as portas."
+
+msgid "Unable to retrieve the roles."
+msgstr "Não foi possível recuperar os papéis."
+
+msgid "Unable to retrieve the server."
+msgstr "Não foi possível recuperar o servidor."
+
+msgid "Unable to retrieve the user."
+msgstr "Não foi possível recuperar usuário."
+
+msgid "Unable to retrieve the volumes."
+msgstr "Não foi possível recuperar volumes."
 
 msgid "Unable to retrieve users."
 msgstr "Não foi possível obter os usuários."

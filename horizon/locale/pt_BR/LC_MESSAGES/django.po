@@ -5,15 +5,16 @@
 # Translators:
 # Fernando F. Rodrigues <rodrigues_fernando@hotmail.com>, 2015
 # Gabriel Wainer, 2015
+# Natan Teixeira Boanafina Sayão <natantb@hotmail.com>, 2015
 # Remulo Carvalho <remulo@gmail.com>, 2015
 # Rodrigo Felix de Almeida <rodrigofelixdealmeida@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-08 19:20-0500\n"
-"PO-Revision-Date: 2015-06-08 18:56+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-06-10 23:10-0500\n"
+"PO-Revision-Date: 2015-06-12 23:10+0000\n"
+"Last-Translator: Natan Teixeira Boanafina Sayão <natantb@hotmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
 "horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -106,6 +107,9 @@ msgstr "%s não completou."
 
 msgid "&laquo;&nbsp;Prev"
 msgstr "&laquo;&nbsp;Prev"
+
+msgid "(No Limit)"
+msgstr "(Sem Limite)"
 
 msgid "-"
 msgstr "-"
