@@ -88,3 +88,13 @@ def show_region_list(context):
                'regions': sorted(request.user.available_services_regions),
                'request': request}
     return context
+
+
+@register.inclusion_tag('context_selection/_anti_clickjack.html',
+                        takes_context=True)
+def iframe_embed_settings(context):
+    disallow_iframe_embed = getattr(settings,
+                                    'DISALLOW_IFRAME_EMBED',
+                                    True)
+    context = {'disallow_iframe_embed': disallow_iframe_embed}
+    return context
