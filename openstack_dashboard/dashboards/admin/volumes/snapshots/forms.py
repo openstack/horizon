@@ -30,8 +30,24 @@ STATUS_CHOICES = (
 )
 
 
+def populate_status_choices(initial, status_choices):
+    current_status = initial.get('status')
+    status_choices = [status for status in status_choices
+                      if status[0] != current_status]
+    status_choices.insert(0, ("", _("Select a new status")))
+
+    return status_choices
+
+
 class UpdateStatus(forms.SelfHandlingForm):
-    status = forms.ChoiceField(label=_("Status"), choices=STATUS_CHOICES)
+    status = forms.ChoiceField(label=_("Status"))
+
+    def __init__(self, request, *args, **kwargs):
+        super(UpdateStatus, self).__init__(request, *args, **kwargs)
+
+        initial = kwargs.get('initial', {})
+        self.fields['status'].choices = populate_status_choices(
+            initial, STATUS_CHOICES)
 
     def handle(self, request, data):
         try:
