@@ -16,8 +16,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import collections
 import logging
 
+import django
 from django.conf import settings
 from django.forms import ValidationError  # noqa
 from django import http
@@ -106,9 +108,15 @@ class CreateUserForm(PasswordMixin, BaseUserForm):
         roles = kwargs.pop('roles')
         super(CreateUserForm, self).__init__(*args, **kwargs)
         # Reorder form fields from multiple inheritance
-        self.fields.keyOrder = ["domain_id", "domain_name", "name",
-                                "email", "password", "confirm_password",
-                                "project", "role_id"]
+        ordering = ["domain_id", "domain_name", "name", "email", "password",
+                    "confirm_password", "project", "role_id"]
+        # Starting from 1.7 Django uses OrderedDict for fields and keyOrder
+        # no longer works for it
+        if django.VERSION >= (1, 7):
+            self.fields = collections.OrderedDict(
+                (key, self.fields[key]) for key in ordering)
+        else:
+            self.fields.keyOrder = ordering
         role_choices = [(role.id, role.name) for role in roles]
         self.fields['role_id'].choices = role_choices
 
