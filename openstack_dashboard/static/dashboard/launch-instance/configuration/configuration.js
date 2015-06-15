@@ -1,10 +1,10 @@
 (function () {
   'use strict';
 
-  var MAX_SCRIPT_SIZE = 16 * 1024,
-      DEFAULT_CONFIG_DRIVE = false,
-      DEFAULT_USER_DATA = '',
-      DEFAULT_DISK_CONFIG = 'AUTO';
+  var MAX_SCRIPT_SIZE = 16 * 1024;
+  var DEFAULT_CONFIG_DRIVE = false;
+  var DEFAULT_USER_DATA = '';
+  var DEFAULT_DISK_CONFIG = 'AUTO';
 
   /**
    * @ngdoc overview
@@ -38,8 +38,8 @@
 
   function LaunchInstanceConfigurationCtrl($scope) {
 
-    var config = this,
-        newInstanceSpec = $scope.model.newInstanceSpec;
+    var config = this;
+    var newInstanceSpec = $scope.model.newInstanceSpec;
 
     newInstanceSpec.user_data = DEFAULT_USER_DATA;
     newInstanceSpec.disk_config = DEFAULT_DISK_CONFIG;
@@ -87,13 +87,17 @@
     ctrl.title = gettext('Configuration Help');
 
     var customScriptMap = { cloutInit: 'cloud-init' };
+    // jscs:disable maximumLineLength
     var customScriptText = gettext('Custom scripts are attached to instances to perform specific actions when the instance is launched. For example, if you are unable to install <samp>%(cloutInit)s</samp> inside a guest operating system, you can use a custom script to get a public key and add it to the user account.');
+    // jscs:enable maximumLineLength
 
     ctrl.paragraphs = [
       interpolate(customScriptText, customScriptMap, true),
+      // jscs:disable maximumLineLength
       gettext('Type your script directly into the Customization Script field. If your browser supports the HTML5 File API, you may choose to load your script from a file. The size of your script should not exceed 16 Kb.'),
       gettext('An advanced option available when launching an instance is disk partitioning. There are two disk partition options. Selecting <b>Automatic</b> resizes the disk and sets it to a single partition. Selecting <b>Manual</b> allows you to create multiple partitions on the disk.'),
       gettext('Check the <b>Configuration Drive</b> box if you want to write metadata to a special configuration drive. When the instance boots, it attaches to the <b>Configuration Drive</b> and accesses the metadata.')
+      // jscs:enable maximumLineLength
     ];
   }
 

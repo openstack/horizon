@@ -1,8 +1,8 @@
 (function () {
   'use strict';
 
-  var push = Array.prototype.push,
-      noop = angular.noop;
+  var push = Array.prototype.push;
+  var noop = angular.noop;
 
   /**
    * @ngdoc overview
@@ -51,11 +51,11 @@
       var initPromise;
 
       // Constants (const in ES6)
-      var NON_BOOTABLE_IMAGE_TYPES = ['aki', 'ari'],
-          SOURCE_TYPE_IMAGE = 'image',
-          SOURCE_TYPE_SNAPSHOT = 'snapshot',
-          SOURCE_TYPE_VOLUME = 'volume',
-          SOURCE_TYPE_VOLUME_SNAPSHOT = 'volume_snapshot';
+      var NON_BOOTABLE_IMAGE_TYPES = ['aki', 'ari'];
+      var SOURCE_TYPE_IMAGE = 'image';
+      var SOURCE_TYPE_SNAPSHOT = 'snapshot';
+      var SOURCE_TYPE_VOLUME = 'volume';
+      var SOURCE_TYPE_VOLUME_SNAPSHOT = 'volume_snapshot';
 
       /**
        * @ngdoc model api object
@@ -64,7 +64,6 @@
 
         initializing: false,
         initialized: false,
-
 
         /**
          * @name newInstanceSpec
@@ -126,7 +125,7 @@
       };
 
       // Local function.
-      function initializeNewInstanceSpec(){
+      function initializeNewInstanceSpec() {
 
         model.newInstanceSpec = {
           availability_zone: null,
@@ -232,7 +231,7 @@
         return novaAPI.createServer(finalSpec);
       }
 
-      function cleanNullProperties(finalSpec){
+      function cleanNullProperties(finalSpec) {
         // Initially clean fields that don't have any value.
         for (var key in finalSpec) {
           if (finalSpec.hasOwnProperty(key)  && finalSpec[key] === null) {
@@ -256,7 +255,7 @@
           })
         );
 
-        if(model.availabilityZones.length > 0) {
+        if (model.availabilityZones.length > 0) {
           model.newInstanceSpec.availability_zone = model.availabilityZones[0];
         }
       }
@@ -291,7 +290,7 @@
 
       function setFinalSpecKeyPairs(finalSpec) {
         // Nova only wants the key name. It is a required field, even if None.
-        if(!finalSpec.key_name && finalSpec.key_pair.length === 1){
+        if (!finalSpec.key_name && finalSpec.key_pair.length === 1) {
           finalSpec.key_name = finalSpec.key_pair[0].name;
         } else if (!finalSpec.key_name) {
           finalSpec.key_name = null;
@@ -318,15 +317,15 @@
 
       function setFinalSpecSecurityGroups(finalSpec) {
         // pull out the ids from the security groups objects
-        var security_group_ids = [];
-        finalSpec.security_groups.forEach(function(securityGroup){
-          if(model.neutronEnabled) {
-            security_group_ids.push(securityGroup.id);
+        var securityGroupIds = [];
+        finalSpec.security_groups.forEach(function(securityGroup) {
+          if (model.neutronEnabled) {
+            securityGroupIds.push(securityGroup.id);
           } else {
-            security_group_ids.push(securityGroup.name);
+            securityGroupIds.push(securityGroup.name);
           }
         });
-        finalSpec.security_groups = security_group_ids;
+        finalSpec.security_groups = securityGroupIds;
       }
 
       // Networks
@@ -355,11 +354,11 @@
 
       // Boot Source
 
-      function getImages(){
+      function getImages() {
         return glanceAPI.getImages({status:'active'}).then(onGetImages);
       }
 
-      function isBootableImageType(image){
+      function isBootableImageType(image) {
         // This is a blacklist of images that can not be booted.
         // If the image container type is in the blacklist
         // The evaluation will result in a 0 or greater index.
@@ -375,26 +374,36 @@
         addAllowedBootSource(model.images, SOURCE_TYPE_IMAGE, gettext('Image'));
 
         model.imageSnapshots.length = 0;
-        push.apply(model.imageSnapshots,data.data.items.filter(function (image) {
+        push.apply(model.imageSnapshots, data.data.items.filter(function (image) {
           return isBootableImageType(image) &&
             (image.properties && image.properties.image_type === 'snapshot');
         }));
 
-        addAllowedBootSource(model.imageSnapshots, SOURCE_TYPE_SNAPSHOT, gettext('Instance Snapshot'));
+        addAllowedBootSource(
+          model.imageSnapshots,
+          SOURCE_TYPE_SNAPSHOT,
+          gettext('Instance Snapshot')
+        );
       }
 
-      function getVolumes(){
+      function getVolumes() {
         var volumePromises = [];
         // Need to check if Volume service is enabled before getting volumes
         model.volumeBootable = true;
         addAllowedBootSource(model.volumes, SOURCE_TYPE_VOLUME, gettext('Volume'));
-        addAllowedBootSource(model.volumeSnapshots, SOURCE_TYPE_VOLUME_SNAPSHOT, gettext('Volume Snapshot'));
-        volumePromises.push(cinderAPI.getVolumes({ status: 'available',  bootable: 1 }).then(onGetVolumes));
-        volumePromises.push(cinderAPI.getVolumeSnapshots({ status: 'available' }).then(onGetVolumeSnapshots));
+        addAllowedBootSource(
+          model.volumeSnapshots,
+          SOURCE_TYPE_VOLUME_SNAPSHOT,
+          gettext('Volume Snapshot')
+        );
+        volumePromises.push(cinderAPI.getVolumes({ status: 'available',  bootable: 1 })
+          .then(onGetVolumes));
+        volumePromises.push(cinderAPI.getVolumeSnapshots({ status: 'available' })
+          .then(onGetVolumeSnapshots));
 
         // Can only boot image to volume if the Nova extension is enabled.
         novaExtensions.ifNameEnabled('BlockDeviceMappingV2Boot')
-          .then(function(){ model.allowCreateVolumeFromImage = true; });
+          .then(function() { model.allowCreateVolumeFromImage = true; });
 
         return $q.all(volumePromises);
       }
@@ -449,14 +458,14 @@
         delete finalSpec.vol_size;
       }
 
-      function setFinalSpecBootImageToVolume(finalSpec){
-        if(finalSpec.vol_create) {
+      function setFinalSpecBootImageToVolume(finalSpec) {
+        if (finalSpec.vol_create) {
           // Specify null to get Autoselection (not empty string)
-          var device_name = finalSpec.vol_device_name ? finalSpec.vol_device_name : null;
+          var deviceName = finalSpec.vol_device_name ? finalSpec.vol_device_name : null;
           finalSpec.block_device_mapping_v2 = [];
           finalSpec.block_device_mapping_v2.push(
             {
-              'device_name': device_name,
+              'device_name': deviceName,
               'source_type': SOURCE_TYPE_IMAGE,
               'destination_type': SOURCE_TYPE_VOLUME,
               'delete_on_termination': finalSpec.vol_delete_on_terminate ? 1 : 0,
@@ -516,7 +525,7 @@
             // unchanged until metadefs are fully loaded. Otherwise,
             // partial results are loaded and can result in some odd
             // display behavior.
-            if(namespaces.length) {
+            if (namespaces.length) {
               model.metadataDefs[key] = namespaces;
             }
           });
@@ -524,7 +533,7 @@
       }
 
       return model;
-     }
+    }
   ]);
 
 })();

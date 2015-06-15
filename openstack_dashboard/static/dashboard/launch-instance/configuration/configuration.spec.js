@@ -19,14 +19,15 @@
   describe('Launch Instance Configuration Step', function() {
 
     describe('LaunchInstanceConfigurationCtrl', function() {
-      var scope, ctrl;
+      var scope;
+      var ctrl;
 
       beforeEach(module('hz.dashboard.launch-instance'));
 
       beforeEach(inject(function($controller) {
         scope = {
           model: {
-            newInstanceSpec: {},
+            newInstanceSpec: {}
           }
         };
 

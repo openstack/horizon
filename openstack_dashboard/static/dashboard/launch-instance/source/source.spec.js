@@ -104,14 +104,17 @@
         var list = [ { id: 'image-1'}, { id: 'image-2' } ]; // Use scope's values.
         var sel = []; // None selected.
 
-        expect(scope.tableData)
-           .toEqual({ available: list, allocated: sel,
-                     displayedAvailable: list, displayedAllocated: sel });
+        expect(scope.tableData).toEqual({
+          available: list,
+          allocated: sel,
+          displayedAvailable: list,
+          displayedAllocated: sel
+        });
       });
 
       it('defaults to first source type if none existing', function() {
-          expect(scope.model.newInstanceSpec.source_type.type).toBe('image');
-          expect(scope.currentBootSource).toBe('image');
+        expect(scope.model.newInstanceSpec.source_type.type).toBe('image');
+        expect(scope.currentBootSource).toBe('image');
       });
 
       it('defaults source to image-2 if launchContext.imageId = image-2', function() {
@@ -197,20 +200,21 @@
             expect(scope.instanceStats.maxLimit).toBeDefined();
           });
 
+          it('instanceStats.overMax should get set to true if instance_count exceeds maxLimit',
+            function() {
+              scope.tableData.allocated.push({ name: 'image-1', size: 0, min_disk: 0 });
+              scope.model.newInstanceSpec.instance_count = 11;
+              scope.$digest();
 
-          it('instanceStats.overMax should get set to true if instance_count exceeds maxLimit', function() {
-            scope.tableData.allocated.push({ name: 'image-1', size: 0, min_disk: 0 });
-            scope.model.newInstanceSpec.instance_count = 11;
-            scope.$digest();
-
-            // check chart data and labels
-            expect(scope.instanceStats.label).toBe('110%');
-            expect(scope.instanceStats.data[0].value).toEqual(0);
-            expect(scope.instanceStats.data[1].value).toEqual(11);
-            expect(scope.instanceStats.data[2].value).toEqual(0);
-            // check to ensure overMax
-            expect(scope.instanceStats.overMax).toBe(true);
-          });
+              // check chart data and labels
+              expect(scope.instanceStats.label).toBe('110%');
+              expect(scope.instanceStats.data[0].value).toEqual(0);
+              expect(scope.instanceStats.data[1].value).toEqual(11);
+              expect(scope.instanceStats.data[2].value).toEqual(0);
+              // check to ensure overMax
+              expect(scope.instanceStats.overMax).toBe(true);
+            }
+          );
         });
 
         describe('instanceCount watcher', function() {
@@ -233,7 +237,7 @@
             scope.model.newInstanceSpec.instance_count = 2;
             scope.$digest();
 
-             // check chart data and labels
+            // check chart data and labels
             expect(scope.instanceStats.label).toBe('20%');
             expect(scope.instanceStats.data[0].value).toEqual(0);
             expect(scope.instanceStats.data[1].value).toEqual(2);
@@ -266,41 +270,51 @@
             expect(scope.instanceStats.data[2].value).toEqual(9);
           });
 
-          it('should set minVolumeSize to 1 if source allocated and size = min_disk = 1GB', function() {
-            scope.tableData.allocated.push({ name: 'image-1', size: 1000000000, min_disk: 1 });
-            scope.$digest();
+          it('should set minVolumeSize to 1 if source allocated and size = min_disk = 1GB',
+            function() {
+              scope.tableData.allocated.push({ name: 'image-1', size: 1000000000, min_disk: 1 });
+              scope.$digest();
 
-            expect(scope.minVolumeSize).toBe(1);
-          });
+              expect(scope.minVolumeSize).toBe(1);
+            }
+          );
 
-          it('should set minVolumeSize to 1 if source allocated and size = 1GB and min_disk = 0GB', function() {
-            scope.tableData.allocated.push({ name: 'image-1', size: 1000000000, min_disk: 0 });
-            scope.$digest();
+          it('should set minVolumeSize to 1 if source allocated and size = 1GB and min_disk = 0GB',
+            function() {
+              scope.tableData.allocated.push({ name: 'image-1', size: 1000000000, min_disk: 0 });
+              scope.$digest();
 
-            expect(scope.minVolumeSize).toBe(1);
-          });
+              expect(scope.minVolumeSize).toBe(1);
+            }
+          );
 
-          it('should set minVolumeSize to 2 if source allocated and size = 1GB and min_disk = 2GB', function() {
-            scope.tableData.allocated.push({ name: 'image-1', size: 1000000000, min_disk: 2 });
-            scope.$digest();
+          it('should set minVolumeSize to 2 if source allocated and size = 1GB and min_disk = 2GB',
+            function() {
+              scope.tableData.allocated.push({ name: 'image-1', size: 1000000000, min_disk: 2 });
+              scope.$digest();
 
-            expect(scope.minVolumeSize).toBe(2);
-          });
+              expect(scope.minVolumeSize).toBe(2);
+            }
+          );
 
-          it('should set minVolumeSize to 0 if source allocated and size = min_disk = 0', function() {
-            scope.tableData.allocated.push({ name: 'image-1', size: 0, min_disk: 0 });
-            scope.$digest();
+          it('should set minVolumeSize to 0 if source allocated and size = min_disk = 0',
+            function() {
+              scope.tableData.allocated.push({ name: 'image-1', size: 0, min_disk: 0 });
+              scope.$digest();
 
-            expect(scope.minVolumeSize).toBe(0);
-          });
+              expect(scope.minVolumeSize).toBe(0);
+            }
+          );
 
-          it('should set minVolumeSize to 2 if source allocated and size = 1.5GB and min_disk = 0', function() {
-            scope.tableData.allocated.push({ name: 'image-1', size: 1500000000, min_disk: 0 });
-            scope.$digest();
+          it('should set minVolumeSize to 2 if source allocated and size = 1.5GB and min_disk = 0',
+            function() {
+              scope.tableData.allocated.push({ name: 'image-1', size: 1500000000, min_disk: 0 });
+              scope.$digest();
 
-            // minVolumeSize should use Math.ceil()
-            expect(scope.minVolumeSize).toBe(2);
-          });
+              // minVolumeSize should use Math.ceil()
+              expect(scope.minVolumeSize).toBe(2);
+            }
+          );
 
           it('should set minVolumeSize to undefined if boot source is not image', function() {
             var selSource = 'volume';
@@ -312,9 +326,7 @@
             expect(scope.minVolumeSize).toBeUndefined();
           });
         });
-
       });
-
     });
 
     describe('LaunchInstanceSourceHelpCtrl', function() {
@@ -367,11 +379,8 @@
         it("returns empty string if given input is empty object", function() {
           expect(diskFormatFilter({})).toBe('');
         });
-
       });
-
     });
-
   });
 
 })();

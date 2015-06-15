@@ -79,11 +79,14 @@
 
     $scope.label = {
       title: gettext('Instance Details'),
+      // jscs:disable maximumLineLength
       subtitle: gettext('Please provide the initial host name for the instance, the availability zone where it will be deployed, and the instance count. Increase the Count to create multiple instances with the same settings.'),
+      // jscs:enable maximumLineLength
       instanceName: gettext('Instance Name'),
       availabilityZone: gettext('Availability Zone'),
       instance_count: gettext('Count'),
       instanceSourceTitle: gettext('Instance Source'),
+      // jscs:disable maximumLineLength
       instanceSourceSubTitle: gettext('Instance source is the template used to create an instance. You can use a snapshot of an existing instance, an image, or a volume (if enabled). You can also choose to use persistent storage by creating a new volume.'),
       bootSource: gettext('Select Boot Source'),
       volumeSize: gettext('Size (GB)'),
@@ -95,13 +98,15 @@
       min_disk: gettext('Min Disk')
     };
 
-
     // Error text for invalid fields
+    // jscs:disable maximumLineLength
     $scope.bootSourceTypeError = gettext('Volumes can only be attached to 1 active instance at a time. Please either set your instance count to 1 or select a different source type.');
+    // jscs:enable maximumLineLength
     $scope.instanceNameError = gettext('A name is required for your instance.');
-    $scope.instanceCountError = gettext('Instance count is required and must be an integer of at least 1');
+    $scope.instanceCountError = gettext(
+      'Instance count is required and must be an integer of at least 1'
+    );
     $scope.volumeSizeError = gettext('Volume size is required and must be an integer');
-
 
     // toggle button label/value defaults
     $scope.toggleButtonOptions = [
@@ -109,9 +114,9 @@
       { label: gettext('No'), value: false }
     ];
 
-    //
-    // Boot Sources
-    //
+    /*
+     * Boot Sources
+     */
 
     $scope.bootSourcesOptions = [
       { type: bootSourceTypes.IMAGE, label: gettext('Image') },
@@ -128,12 +133,12 @@
       validateBootSourceType();
     };
 
-    //
-    // Transfer table
-    //
+    /*
+     * Transfer table
+     */
 
     $scope.tableHeadCells = [];
-    $scope.tableBodyCells= [];
+    $scope.tableBodyCells = [];
     $scope.tableData = {};
     $scope.helpText = {};
     $scope.maxInstanceCount = 1;
@@ -169,7 +174,7 @@
       }
     };
 
-    // mapping for dynamic table headers
+    // Mapping for dynamic table headers
     var tableHeadCellsMap = {
       image: [
         { text: gettext('Name'), style: { width: '30%' }, sortable: true, sortDefault: true },
@@ -201,10 +206,10 @@
       ]
     };
 
-    // map Visibility data so we can decode true/false to Public/Private
+    // Map Visibility data so we can decode true/false to Public/Private
     var _visibilitymap = { true: gettext('Public'), false: gettext('Private') };
 
-    // mapping for dynamic table data
+    // Mapping for dynamic table data
     var tableBodyCellsMap = {
       image: [
         { key: 'name', classList: ['hi-light'] },
@@ -239,7 +244,7 @@
       ]
     };
 
-    // dynamically update page based on boot source selection
+    // Dynamically update page based on boot source selection
     function changeBootSource(key, preSelection) {
       updateDataSource(key, preSelection);
       updateHelpText(key);
@@ -261,7 +266,9 @@
       angular.extend($scope.helpText, {
         noneAllocText: gettext('Select a source from those listed below.'),
         availHelpText: gettext('Select one'),
-        volumeAZHelpText: gettext("When selecting volume as boot source, please ensure the instance's availability zone is compatible with your volume's availability zone.")
+        // jscs:disable maximumLineLength
+        volumeAZHelpText: gettext('When selecting volume as boot source, please ensure the instance\'s availability zone is compatible with your volume\'s availability zone.')
+        // jscs:enable maximumLineLength
       });
     }
 
@@ -278,12 +285,13 @@
       Array.prototype.push.apply(arrayToRefill, contentArray);
     }
 
-    //
-    // Donut chart
-    //
+    /*
+     * Donut chart
+     */
+
     $scope.chartSettings = donutChartSettings;
-    var maxTotalInstances = 1, // Must has default value > 0
-        totalInstancesUsed = 0;
+    var maxTotalInstances = 1; // Must have default value > 0
+    var totalInstancesUsed = 0;
 
     if ($scope.model.novaLimits && $scope.model.novaLimits.maxTotalInstances) {
       maxTotalInstances = $scope.model.novaLimits.maxTotalInstances;
@@ -367,15 +375,13 @@
     );
 
     function updateChart() {
-      // initialize instance_count to 1
+      // Initialize instance_count to 1
       if ($scope.model.newInstanceSpec.instance_count <= 0) {
         $scope.model.newInstanceSpec.instance_count = 1;
       }
 
-      var instance_count = $scope.model.newInstanceSpec.instance_count || 1;
-
       var data = $scope.instanceStats.data;
-      var added = instance_count;
+      var added = $scope.model.newInstanceSpec.instance_count || 1;
       var remaining = Math.max(0, maxTotalInstances - totalInstancesUsed - added);
 
       $scope.instanceStats.maxLimit = maxTotalInstances;
@@ -392,9 +398,10 @@
     // Validations
     //
 
-    // If boot source type is 'image' and 'Create New Volume'
-    // is checked, set the minimum volume size for validating
-    // vol_size field
+    /*
+     * If boot source type is 'image' and 'Create New Volume' is checked, set the minimum volume
+     * size for validating vol_size field
+     */
     function checkVolumeForImage() {
       var source = selection ? selection[0] : undefined;
 
@@ -415,20 +422,22 @@
     function updateMaxInstanceCount() {
       $scope.maxInstanceCount = maxTotalInstances - totalInstancesUsed;
 
-      var instanceCountText = gettext('The instance count must not exceed your quota available of %(maxInstanceCount)s instances');
+      var instanceCountText = gettext(
+        'The instance count must not exceed your quota available of %(maxInstanceCount)s instances'
+      );
       var instanceCountObj = { maxInstanceCount: $scope.maxInstanceCount };
       $scope.instanceCountMaxError = interpolate(instanceCountText, instanceCountObj, true);
     }
 
-    // Validator for boot source type.
-    // Instance count must to be 1 if volume selected
+    // Validator for boot source type. Instance count must to be 1 if volume selected
     function validateBootSourceType() {
       var bootSourceType = $scope.currentBootSource;
       var instanceCount = $scope.model.newInstanceSpec.instance_count;
 
-      // Field is valid if boot source type is not volume,
-      // instance count is blank/undefined (this is an error with instance count)
-      // or instance count is 1
+      /*
+       * Field is valid if boot source type is not volume, instance count is blank/undefined
+       * (this is an error with instance count) or instance count is 1
+       */
       var isValid = bootSourceType !== bootSourceTypes.VOLUME ||
                     !instanceCount ||
                     instanceCount === 1;
@@ -438,8 +447,9 @@
     }
 
     function findSourceById(sources, id) {
-      var i = 0, len = sources.length, source;
-      for (; i < len; i++) {
+      var len = sources.length;
+      var source;
+      for (var i = 0; i < len; i++) {
         source = sources[i];
         if (source.id === id) {
           return source;
@@ -471,9 +481,7 @@
       }
     );
 
-    //
-    // initialize
-    //
+    // Initialize
 
     changeBootSource($scope.bootSourcesOptions[0].type);
 
@@ -490,7 +498,6 @@
    * The `LaunchInstanceSourceHelpCtrl` controller provides functions for
    * configuring the help text used within the source step of the
    * Launch Instance Wizard.
-   *
    */
   module.controller('LaunchInstanceSourceHelpCtrl', [
     LaunchInstanceSourceHelpCtrl
@@ -503,12 +510,15 @@
 
     ctrl.instanceDetailsTitle = gettext('Instance Details');
     ctrl.instanceDetailsParagraphs = [
+      // jscs:disable maximumLineLength
       gettext('An instance name is required and used to help you uniquely identify your instance in the dashboard.'),
       gettext('If you select an availability zone and plan to use the boot from volume option, make sure that the availability zone you select for the instance is the same availability zone where your bootable volume resides.')
+      // jscs:enable maximumLineLength
     ];
 
     ctrl.instanceSourceTitle = gettext('Instance Source');
     ctrl.instanceSourceParagraphs = [
+      // jscs:disable maximumLineLength
       gettext('If you want to create an instance that uses ephemeral storage, meaning the instance data is lost when the instance is deleted, then choose one of the following boot sources:'),
       gettext('<li><b>Image</b>: This option uses an image to boot the instance.</li>'),
       gettext('<li><b>Instance Snapshot</b>: This option uses an instance snapshot to boot the instance.</li>'),
@@ -516,6 +526,7 @@
       gettext('<li><b>Image (with Create New Volume checked)</b>: This options uses an image to boot the instance, and creates a new volume to persist instance data. You can specify volume size and whether to delete the volume on termination of the instance.</li>'),
       gettext('<li><b>Volume</b>: This option uses a volume that already exists. It does not create a new volume. You can choose to delete the volume on termination of the instance. <em>Note: when selecting Volume, you can only launch one instance.</em></li>'),
       gettext('<li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot the instance, and creates a new volume to persist instance data. You can choose to delete the volume on termination of the instance.</li>')
+      // jscs:enable maximumLineLength
     ];
   }
 
