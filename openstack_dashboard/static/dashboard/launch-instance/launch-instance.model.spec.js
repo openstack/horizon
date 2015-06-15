@@ -405,7 +405,7 @@
             { 'net-id': 'private', 'v4-fixed-ip': '' }
           ];
 
-          expect(finalSpec.source_id).toBe('cirros');
+          expect(finalSpec.source_id).toBe(null);
           expect(finalSpec.flavor_id).toBe('m1.tiny');
           expect(finalSpec.nics).toEqual(finalNetworks);
           expect(finalSpec.key_name).toBe('keypair1');
