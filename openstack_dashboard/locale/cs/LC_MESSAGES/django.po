@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-10 23:10-0500\n"
-"PO-Revision-Date: 2015-06-11 08:24+0000\n"
+"PO-Revision-Date: 2015-06-14 18:52+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/"
 "cs/)\n"
@@ -17,6 +17,39 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+msgid ""
+"\n"
+"    The status of a volume is normally managed automatically.  In some "
+"circumstances an\n"
+"    administrator may need to explicitly update the status value.  This is "
+"equivalent to\n"
+"    the <tt>cinder reset-state</tt> command.\n"
+"    "
+msgstr ""
+"\n"
+"    Stav svazku je standardně spravován automaticky. V některých případech\n"
+"    může správce chtít výslovně aktualizovat hodnotu stavu. Toto je stejné "
+"jako\n"
+"    příkaz <tt>cinder reset-state</tt>.\n"
+"    "
+
+msgid ""
+"\n"
+"    The status of a volume snapshot is normally managed automatically.  In "
+"some circumstances\n"
+"    an administrator may need to explicitly update the status value. This is "
+"equivalent to\n"
+"    the <tt>cinder snapshot-reset-state</tt> command.\n"
+"    "
+msgstr ""
+"\n"
+"    Stav snímku svazku je standardně spravován automaticky. V některých "
+"případech\n"
+"    může správce chtít výslovně aktualizovat hodnotu stavu. Toto je stejné "
+"jako\n"
+"    příkaz <tt>cinder snapshot-reset-state</tt>.\n"
+"    "
 
 msgid " - End"
 msgstr "- Konec"
@@ -647,6 +680,13 @@ msgstr "Připojeno k"
 msgid "Attached to %(instance)s on %(dev)s"
 msgstr "Připojen k %(instance)s na %(dev)s"
 
+msgid "Attaching"
+msgstr "Připojování"
+
+msgctxt "Current status of a Volume"
+msgid "Attaching"
+msgstr "Připojování"
+
 #, python-format
 msgid "Attaching volume %(vol)s to instance %(inst)s on %(dev)s."
 msgstr "Připojování svazku %(vol)s k instanci %(inst)s na %(dev)s."
@@ -884,6 +924,9 @@ msgstr "Zvolte svazek"
 msgid "Choose an DHCP Agent to attach to."
 msgstr "Zvolte agenta DHCP pro připojení."
 
+msgid "Choose an existing file"
+msgstr "Zvolte existující soubor"
+
 msgid "Choose an image"
 msgstr "Zvolit obraz"
 
@@ -990,6 +1033,9 @@ msgstr "Konzole"
 msgid "Console type \"%s\" not supported."
 msgstr "Typ konzole \"%s\" není podporován."
 
+msgid "Consumer"
+msgstr "Spotřebitel"
+
 msgid "Container"
 msgstr "Kontejner"
 
@@ -1070,6 +1116,9 @@ msgstr "Vytvořit zálohu"
 
 msgid "Create Container"
 msgstr "Vytvořit kontejner"
+
+msgid "Create Data Source"
+msgstr "Vytvořit zdroj dat"
 
 msgid "Create Domain"
 msgstr "Vytvořit doménu"
@@ -1171,6 +1220,9 @@ msgstr "Vytvořit snímek svazku (Nucený)"
 msgid "Create Volume Type"
 msgstr "Vytvořit typ svazku"
 
+msgid "Create Volume Type Extra Spec"
+msgstr "Vytvořit dodatečnou specifikaci typu svazku"
+
 msgid "Create a Router"
 msgstr "Vytvořit směrovač"
 
@@ -1227,6 +1279,10 @@ msgstr ""
 "Vyberte typ sledování. Zadejte prodlevu, časový limit a počet pokusů "
 "požadované monitorem. Zadejte metodu, URL cestu a očekávané kódy HTTP při "
 "úspěchu."
+
+msgid "Create a new \"extra spec\" key-value pair for a volume type."
+msgstr ""
+"Vytvořit nový pár klíč-hodnota \"dodatečné specifikace\" pro typ svazku."
 
 msgid "Create a new network for any project as you need."
 msgstr "Vytvoře novou síť pro jakýkoliv projekt dle potřeby."
@@ -1286,6 +1342,10 @@ msgstr "Vytvořen nový agregát hostitele \"%s\"."
 #, python-format
 msgid "Created new project \"%s\"."
 msgstr "Vytvořen nový projekt \"%s\"."
+
+#, python-format
+msgid "Created spec \"%s\"."
+msgstr "Vytvořena specifikace \"%s\"."
 
 #, python-format
 msgid "Created subnet \"%s\"."
@@ -1398,6 +1458,9 @@ msgstr "DOLŮ"
 
 msgid "Daily Usage Report"
 msgstr "Denní zpráva o využití"
+
+msgid "Data Sources"
+msgstr "Zdroje dat"
 
 msgid "Database"
 msgstr "Databáze"
@@ -1698,6 +1761,9 @@ msgstr "Doménové skupiny"
 msgid "Domain ID"
 msgstr "ID domény"
 
+msgid "Domain Information"
+msgstr "Informace o doméně"
+
 msgid "Domain Name"
 msgstr "Název domény"
 
@@ -1849,6 +1915,9 @@ msgstr "Upravit specifikaci"
 
 msgid "Edit Subnet"
 msgstr "Upravit podsíť"
+
+msgid "Edit Tags"
+msgstr "Upravit značky"
 
 msgid "Edit Template"
 msgstr "Upravit šablonu"
@@ -2512,6 +2581,9 @@ msgstr "Od"
 msgid "From Port"
 msgstr "Od portu"
 
+msgid "From here you can add a DHCP agent for the network."
+msgstr "Zde můžete přidat agenta DHCP pro síť."
+
 msgid "From here you can update the default quotas (max limits)."
 msgstr "Zde můžete aktualizovat výchozí kvóty (max. limity)."
 
@@ -2834,6 +2906,9 @@ msgstr "Přehled obrazů"
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
 msgstr "Obraz čeká na nahrání"
+
+msgid "Image Registry"
+msgstr "Registr obrazů"
 
 msgctxt "Task status of an Instance"
 msgid "Image Snapshot Pending"
@@ -3325,6 +3400,9 @@ msgstr ""
 
 msgid "Modify Access"
 msgstr "Změnit přístup"
+
+msgid "Modify Consumer"
+msgstr "Změnit spotřebitele"
 
 msgid "Modify Groups"
 msgstr "Změnit skupiny"
@@ -4199,6 +4277,9 @@ msgstr "Znovu sestavování"
 msgid "Rebuilding instance %s."
 msgstr "Znovu sestavování instance %s."
 
+msgid "Register Image"
+msgstr "Registrovat obraz"
+
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr ""
 "Relativní část požadavků, který tento člen zásoby obsluhuje, v porovnání s "
@@ -4799,6 +4880,9 @@ msgstr "Zdrojový port/rozsah portů"
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "Zdrojový port (celé číslo v intervalu [1, 65535] nebo rozsahu a:b)"
 
+msgid "Spec"
+msgstr "Specifikace"
+
 msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
 msgstr "Zadejte \"Síťová adresa\" nebo odškrtněte políčko \"Vytvořit podsíť\"."
 
@@ -4984,6 +5068,9 @@ msgstr "Aktualizace stavu snímku svazku úspěšně dokončena: \"%s\"."
 
 msgid "Sum."
 msgstr "Suma"
+
+msgid "Supported Versions"
+msgstr "Podporované verze"
 
 msgctxt "Action log of an instance"
 msgid "Suspend"
@@ -5525,6 +5612,9 @@ msgstr "Nelze vytvořit roli."
 msgid "Unable to create snapshot."
 msgstr "Nelze vytvořit snímek."
 
+msgid "Unable to create spec."
+msgstr "Nelze vytvořit specifikace."
+
 #, python-format
 msgid "Unable to create subnet \"%s\"."
 msgstr "Nelze vytvořit podsíť \"%s\"."
@@ -5603,6 +5693,9 @@ msgstr "Nelze odloučit plovoucí IP."
 
 msgid "Unable to disassociate monitor."
 msgstr "Nelze odloučit monitor."
+
+msgid "Unable to edit spec."
+msgstr "Nelze upravit specifikaci."
 
 msgid "Unable to extend volume."
 msgstr "Nelze rozšířit svazek."
@@ -6379,6 +6472,9 @@ msgstr "Aktualizovat uživatele"
 msgid "Update Volume Snapshot Status"
 msgstr "Aktualizovat stav snímku svazku"
 
+msgid "Update Volume Status"
+msgstr "Aktualizovat stav svazku"
+
 msgid "Update requests for this floating ip"
 msgstr "Žádosti o aktualizaci pro tuto plovoucí IP"
 
@@ -6425,6 +6521,9 @@ msgstr "Nahrát objekt"
 
 msgid "Upload Objects"
 msgstr "Nahrát objekty"
+
+msgid "Upload a new file"
+msgstr "Nahrát nový soubor"
 
 msgid "Uploaded image size"
 msgstr "Velikost nahraného obrazu"
@@ -6489,6 +6588,9 @@ msgstr "Uživatelská nastavení"
 
 msgid "User has been updated successfully."
 msgstr "Uživatel byl úspěšně aktualizován."
+
+msgid "Username"
+msgstr "Uživatelské jméno"
 
 msgid "Username (required)"
 msgstr "Jméno uživatele (povinné)"
@@ -6569,6 +6671,9 @@ msgstr "Hodnota (Prům)"
 
 msgid "Value:"
 msgstr "Hodnota:"
+
+msgid "Version"
+msgstr "Verze"
 
 #, python-format
 msgid ""
@@ -6816,6 +6921,9 @@ msgstr "Zde můžete aktualizovat upravitelné vlastnosti vaší sítě."
 msgid "You may update the editable properties of your port here."
 msgstr "Zde můžete aktualizovat upravitelné vlastnosti vašeho portu."
 
+msgid "You may update the editable properties of your router here."
+msgstr "Zde můžete aktualizovat upravitelné vlastnosti vašeho směrovače."
+
 msgid "You must select a snapshot."
 msgstr "Musíte zvolit snímek."
 
@@ -6944,6 +7052,9 @@ msgstr "přenos"
 
 msgid "tunnel"
 msgstr "tunel"
+
+msgid "undefined"
+msgstr "neurčeno"
 
 msgid "v1"
 msgstr "v1"
