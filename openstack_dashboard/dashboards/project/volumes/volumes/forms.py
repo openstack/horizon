@@ -756,26 +756,21 @@ class RetypeForm(forms.SelfHandlingForm):
 
         try:
             volume_types = cinder.volume_type_list(request)
-            self.fields['volume_type'].choices = [(t.name, t.name)
-                                                  for t in volume_types]
-            self.fields['volume_type'].initial = self.initial['volume_type']
-
         except Exception:
             redirect_url = reverse("horizon:project:volumes:index")
             error_message = _('Unable to retrieve the volume type list.')
             exceptions.handle(request, error_message, redirect=redirect_url)
 
-    def clean_volume_type(self):
-        cleaned_volume_type = self.cleaned_data['volume_type']
         origin_type = self.initial['volume_type']
+        types_list = [(t.name, t.name)
+                      for t in volume_types
+                      if t.name != origin_type]
 
-        if cleaned_volume_type == origin_type:
-            error_message = _(
-                'New volume type must be different from '
-                'the original volume type "%s".') % cleaned_volume_type
-            raise ValidationError(error_message)
-
-        return cleaned_volume_type
+        if types_list:
+            types_list.insert(0, ("", _("Select a new volume type")))
+        else:
+            types_list.insert(0, ("", _("No other volume types available")))
+        self.fields['volume_type'].choices = sorted(types_list)
 
     def handle(self, request, data):
         volume_id = self.initial['id']
