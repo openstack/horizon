@@ -37,15 +37,17 @@
       <td class="rsp-p1">{$ row.name $}</td>
       <td class="rsp-p1">
         <span class="invalid fa fa-exclamation-circle"
-          ng-show="row.warnings && row.warnings.vcpus"
-          popover="{$ row.warnings | warningText:'vcpus' $}"
+          ng-show="row.errors.vcpus"
+          popover="{$ row.errors.vcpus $}"
+          popover-append-to-body="true"
           popover-trigger="mouseenter mouseleave" popover-placement="top"></span>
         {$ row.vcpus $}
       </td>
       <td class="rsp-p1">
         <span class="invalid fa fa-exclamation-circle"
-          ng-show="row.warnings && row.warnings.ram"
-          popover="{$ row.warnings | warningText:'ram' $}"
+          ng-show="row.errors.ram"
+          popover="{$ row.errors.ram $}"
+          popover-append-to-body="true"
           popover-trigger="mouseenter mouseleave" popover-placement="top"></span>
         {$ row.ram $}
       </td>
