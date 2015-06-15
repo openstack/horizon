@@ -14,7 +14,6 @@
 import json
 import logging
 
-from django.core import urlresolvers
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -90,10 +89,9 @@ class GeneralConfigAction(workflows.Action):
     def __init__(self, request, context, *args, **kwargs):
         super(GeneralConfigAction,
               self).__init__(request, context, *args, **kwargs)
-        resolver_match = urlresolvers.resolve(request.path)
-        if "guide_job_type" in resolver_match.kwargs:
+        if request.REQUEST.get("guide_job_type"):
             self.fields["job_type"].initial = (
-                resolver_match.kwargs["guide_job_type"].lower())
+                request.REQUEST.get("guide_job_type").lower())
 
     def populate_job_type_choices(self, request, context):
         choices = [("pig", _("Pig")), ("hive", _("Hive")),
