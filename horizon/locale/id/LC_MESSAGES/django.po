@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-08 19:20-0500\n"
-"PO-Revision-Date: 2015-06-08 18:55+0000\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 15:01+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/horizon/"
 "language/id/)\n"
@@ -157,9 +157,6 @@ msgstr "Bohongan"
 msgid "Filter"
 msgstr "Penyaring"
 
-msgid "Help"
-msgstr "Bantuan"
-
 msgid "Horizon"
 msgstr "Horizon"
 
@@ -180,10 +177,6 @@ msgstr "Ringkasan Batasan"
 
 msgid "Log In"
 msgstr "Masuk"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "Anda login sebagai: %(username)s"
 
 msgid "Login"
 msgstr "Login"
@@ -275,9 +268,6 @@ msgstr "Sesi sudah berakhir."
 
 msgid "Sign In"
 msgstr "Mendaftar"
-
-msgid "Sign Out"
-msgstr "Keluar"
 
 #. Translators: test code, don't really have to translate
 msgid "Sold Puppy"

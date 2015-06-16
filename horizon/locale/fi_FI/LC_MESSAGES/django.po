@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-08 19:20-0500\n"
-"PO-Revision-Date: 2015-06-08 18:55+0000\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 15:01+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/"
 "horizon/language/fi_FI/)\n"
@@ -157,9 +157,6 @@ msgstr "Virhe:"
 msgid "Filter"
 msgstr "Suodatin"
 
-msgid "Help"
-msgstr "Apua"
-
 msgid "Horizon"
 msgstr "Horizon"
 
@@ -180,10 +177,6 @@ msgstr "Rajoitusten yhteenveto"
 
 msgid "Log In"
 msgstr "Kirjaudu"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "Kirjauduttu sisään käyttäjänä: %(username)s"
 
 msgid "Login"
 msgstr "Kirjaudu"
@@ -277,9 +270,6 @@ msgstr "Yhteys oli käyttämättä liian kauan."
 
 msgid "Sign In"
 msgstr "Kirjaudu"
-
-msgid "Sign Out"
-msgstr "Kirjaudu Ulos"
 
 #. Translators: test code, don't really have to translate
 msgid "Sold Puppy"

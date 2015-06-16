@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-08 19:20-0500\n"
-"PO-Revision-Date: 2015-06-08 18:55+0000\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 15:01+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Filipino (http://www.transifex.com/projects/p/horizon/"
 "language/fil/)\n"
@@ -93,9 +93,6 @@ msgstr "May Pagkakamali:"
 msgid "Filter"
 msgstr "Salain"
 
-msgid "Help"
-msgstr "Tulong"
-
 msgid "Horizon"
 msgstr "Horizon"
 
@@ -116,10 +113,6 @@ msgstr "Buod ng Limitasyon"
 
 msgid "Log In"
 msgstr "Long In"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "Logged in bilang: %(username)s"
 
 msgid "Login"
 msgstr "Login"
@@ -198,9 +191,6 @@ msgstr "Ang sesyon ay nag time out."
 
 msgid "Sign In"
 msgstr "Mag Sign In"
-
-msgid "Sign Out"
-msgstr "Mag Sign Out"
 
 msgid "Submit"
 msgstr "Submit"

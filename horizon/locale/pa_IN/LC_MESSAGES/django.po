@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-08 19:20-0500\n"
-"PO-Revision-Date: 2015-06-08 18:55+0000\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 15:01+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/projects/"
 "p/horizon/language/pa_IN/)\n"
@@ -163,9 +163,6 @@ msgstr "ਨਕਲੀ"
 msgid "Filter"
 msgstr "ਛਾਣਨੀ (ਫਿਲਟਰ)"
 
-msgid "Help"
-msgstr "ਮਦਦ"
-
 msgid "Horizon"
 msgstr "Horizon"
 
@@ -186,10 +183,6 @@ msgstr "ਹੱਦ ਸਾਰ"
 
 msgid "Log In"
 msgstr "ਲਾਗ ਇਨ"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "ਇਸ ਨਾਂ ਤੇ ਲਾਗਇਨ: %(username)s"
 
 msgid "Login"
 msgstr "ਲਾਗਇਨ"
@@ -282,9 +275,6 @@ msgstr "ਸੈਸ਼ਨ ਸਮਾਂ ਮਿਆਦ ਪੁੱਗੀ।"
 
 msgid "Sign In"
 msgstr "ਸਾਈਨ ਇਨ ਕਰੋ"
-
-msgid "Sign Out"
-msgstr "ਸਾਈਨ ਆਊਟ"
 
 #. Translators: test code, don't really have to translate
 msgid "Sold Puppy"

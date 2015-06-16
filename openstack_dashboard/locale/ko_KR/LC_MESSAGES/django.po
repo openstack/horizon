@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-04 21:20-0500\n"
-"PO-Revision-Date: 2015-06-04 20:18+0000\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 20:57+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/"
 "language/ko_KR/)\n"
@@ -5848,9 +5848,6 @@ msgstr "모니터"
 msgid "Month to date"
 msgstr "이번달 오늘까지"
 
-msgid "More Projects"
-msgstr "더 많은 프로젝트"
-
 msgid "Multicast IP Range"
 msgstr "멀티 캐스트 IP 범위"
 
@@ -6056,10 +6053,6 @@ msgstr "볼륨의 새로운 크기는 현재 크기보다 커야합니다."
 
 msgid "New size must be greater than current size."
 msgstr "새로 정하는 크기는 현재 크기보다 커야합니다."
-
-#, python-format
-msgid "New volume type must be different from the original volume type \"%s\"."
-msgstr "새 볼륨 타입은 기존 볼륨 타입 \"%s\"와 달라야 합니다."
 
 msgid "Next"
 msgstr "다음"

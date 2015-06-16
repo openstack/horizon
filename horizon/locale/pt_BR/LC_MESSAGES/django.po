@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-10 23:10-0500\n"
-"PO-Revision-Date: 2015-06-12 23:10+0000\n"
-"Last-Translator: Natan Teixeira Boanafina Sayão <natantb@hotmail.com>\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 15:01+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
 "horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -181,9 +181,6 @@ msgstr "Falso"
 msgid "Filter"
 msgstr "Filtro"
 
-msgid "Help"
-msgstr "Ajuda"
-
 msgid "Horizon"
 msgstr "Horizon"
 
@@ -209,10 +206,6 @@ msgstr "Resumo de Limites"
 
 msgid "Log In"
 msgstr "Entrar"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "Logado como: %(username)s"
 
 msgid "Login"
 msgstr "Logar"
@@ -306,9 +299,6 @@ msgstr "Tempo limite da sessão esgotou."
 
 msgid "Sign In"
 msgstr "Entrar"
-
-msgid "Sign Out"
-msgstr "Sair"
 
 #. Translators: test code, don't really have to translate
 msgid "Sold Puppy"

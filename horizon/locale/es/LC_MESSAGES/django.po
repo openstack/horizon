@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-08 19:20-0500\n"
-"PO-Revision-Date: 2015-06-08 18:55+0000\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 15:01+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/"
 "es/)\n"
@@ -177,9 +177,6 @@ msgstr "Falso"
 msgid "Filter"
 msgstr "Filtrar"
 
-msgid "Help"
-msgstr "Ayuda"
-
 msgid "Horizon"
 msgstr "Horizon"
 
@@ -203,10 +200,6 @@ msgstr "Resumen"
 
 msgid "Log In"
 msgstr "Iniciar sesión"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "Sesión iniciada como: %(username)s"
 
 msgid "Login"
 msgstr "Usuario"
@@ -300,9 +293,6 @@ msgstr "La sesión ha expirado."
 
 msgid "Sign In"
 msgstr "Iniciar sesión"
-
-msgid "Sign Out"
-msgstr "Salir"
 
 #. Translators: test code, don't really have to translate
 msgid "Sold Puppy"

@@ -8,6 +8,7 @@
 # ChangBo Guo(gcb) <glongwave@gmail.com>, 2014
 # johnwoo_lee <lijiangsheng1@gmail.com>, 2015
 # LIU Yulong <dragon889@163.com>, 2015
+# Lucas H. Xu <xuh@bu.edu>, 2015
 # Tom Fifield <tom@openstack.org>, 2014
 # Xiao Xi LIU <liuxx@cn.ibm.com>, 2014
 # Ying Chun Guo <daisy.ycguo@gmail.com>, 2015
@@ -16,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-02 01:03+0000\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 20:57+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/"
 "language/zh_CN/)\n"
@@ -597,6 +598,10 @@ msgstr "允许"
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "允许 %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
+
+#, python-format
+msgid "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(group)s"
+msgstr "允许%(group)s访问%(from)s:%(to)s/%(ip_protocol)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon  Machine 镜像"
@@ -5725,9 +5730,6 @@ msgstr "监控"
 msgid "Month to date"
 msgstr "月累计"
 
-msgid "More Projects"
-msgstr "更多项目"
-
 msgid "Multicast IP Range"
 msgstr "组播IP范围"
 
@@ -5931,10 +5933,6 @@ msgstr "卷的新容量必须大于现在的容量"
 
 msgid "New size must be greater than current size."
 msgstr "新大小必须大于当前设置"
-
-#, python-format
-msgid "New volume type must be different from the original volume type \"%s\"."
-msgstr "新卷类型必须不同于原卷类型\"%s\"."
 
 msgid "Next"
 msgstr "下一步"

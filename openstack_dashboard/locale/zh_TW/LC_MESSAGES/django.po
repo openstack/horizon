@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-08 19:20-0500\n"
-"PO-Revision-Date: 2015-06-08 18:56+0000\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 20:57+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/"
 "language/zh_TW/)\n"
@@ -5657,9 +5657,6 @@ msgstr "監視器"
 msgid "Month to date"
 msgstr "當月"
 
-msgid "More Projects"
-msgstr "更多專案"
-
 msgid "Multicast IP Range"
 msgstr "廣播 IP 範圍"
 
@@ -5862,10 +5859,6 @@ msgstr "雲硬碟的新容量必須大於目前的容量。"
 
 msgid "New size must be greater than current size."
 msgstr "新容量必須大於目前的容量。"
-
-#, python-format
-msgid "New volume type must be different from the original volume type \"%s\"."
-msgstr "新的雲硬碟類型必須不同於原來的雲硬碟類型「%s」。"
 
 msgid "Next"
 msgstr "下一步"

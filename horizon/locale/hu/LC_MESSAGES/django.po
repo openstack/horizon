@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-08 19:20-0500\n"
-"PO-Revision-Date: 2015-06-08 18:55+0000\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 15:01+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/horizon/"
 "language/hu/)\n"
@@ -90,9 +90,6 @@ msgstr "Hiba: "
 msgid "Filter"
 msgstr "Szűrő"
 
-msgid "Help"
-msgstr "Súgó"
-
 msgid "Horizon"
 msgstr "Horizon"
 
@@ -110,10 +107,6 @@ msgstr "Érvénytelen IP-cím változat"
 
 msgid "Log In"
 msgstr "Bejelentkezés"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "Belépve mint: %(username)s"
 
 msgid "Login"
 msgstr "Bejelentkezés"
@@ -186,9 +179,6 @@ msgstr "Munkamenet időtúllépés."
 
 msgid "Sign In"
 msgstr "Bejelentkezés"
-
-msgid "Sign Out"
-msgstr "Kijelentkezés"
 
 msgid "Submit"
 msgstr "Beküldés"

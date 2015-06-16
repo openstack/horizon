@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-02 01:03+0000\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 20:57+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Nepali (http://www.transifex.com/projects/p/horizon/language/"
 "ne/)\n"
@@ -4210,9 +4210,6 @@ msgstr "मनिटरहरू"
 msgid "Month to date"
 msgstr "महिनाबाट तारिक"
 
-msgid "More Projects"
-msgstr "अधिक प्रोजेक्ट"
-
 msgid "Multicast IP Range"
 msgstr "मल्टिकास्ट IP रेन्ज"
 
@@ -4371,10 +4368,6 @@ msgstr "भोल्युमका लागि नयाँ आकार व�
 
 msgid "New size must be greater than current size."
 msgstr "नयाँ आकार वर्तमान आकारभन्दा आवश्यक रूपमा ठुलो हुनुपर्छ।"
-
-#, python-format
-msgid "New volume type must be different from the original volume type \"%s\"."
-msgstr "नयाँ भोल्युम प्रकार आवश्यक रूपमा सकली भोल्युम प्रकार  \"%s\" भन्दा भिन्न हुनुपर्छ।"
 
 msgid "Next"
 msgstr "अर्को"

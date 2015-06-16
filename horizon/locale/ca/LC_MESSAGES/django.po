@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-08 19:20-0500\n"
-"PO-Revision-Date: 2015-06-08 18:55+0000\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 15:01+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/horizon/language/"
 "ca/)\n"
@@ -84,9 +84,6 @@ msgstr "Error: "
 msgid "Filter"
 msgstr "Filtre"
 
-msgid "Help"
-msgstr "Ajuda"
-
 msgid "Horizon"
 msgstr "Horizon"
 
@@ -107,10 +104,6 @@ msgstr "Resum Límit"
 
 msgid "Log In"
 msgstr "Inicia la sessió"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "Connectat com: %(username)s"
 
 msgid "Login"
 msgstr "Login"
@@ -176,9 +169,6 @@ msgstr "S'ha acabat la sessió."
 
 msgid "Sign In"
 msgstr "Entrar"
-
-msgid "Sign Out"
-msgstr "Sortir"
 
 msgid "Submit"
 msgstr "Transmet"

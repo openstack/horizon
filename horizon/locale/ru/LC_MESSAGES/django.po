@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-08 19:20-0500\n"
-"PO-Revision-Date: 2015-06-08 18:55+0000\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 15:01+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/"
 "ru/)\n"
@@ -186,9 +186,6 @@ msgstr "Fake"
 msgid "Filter"
 msgstr "Фильтр"
 
-msgid "Help"
-msgstr "Помощь"
-
 msgid "Horizon"
 msgstr "Horizon"
 
@@ -214,10 +211,6 @@ msgstr "Сводка лимитов"
 
 msgid "Log In"
 msgstr "Войти"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "Пользователь: %(username)s"
 
 msgid "Login"
 msgstr "Имя пользователя"
@@ -305,9 +298,6 @@ msgstr "Время сеанса истекло."
 
 msgid "Sign In"
 msgstr "Вход"
-
-msgid "Sign Out"
-msgstr "Выход"
 
 msgid "Submit"
 msgstr "Отправить"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-08 19:20-0500\n"
-"PO-Revision-Date: 2015-06-08 18:55+0000\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 15:01+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/horizon/language/"
 "it/)\n"
@@ -97,9 +97,6 @@ msgstr "Errore:"
 msgid "Filter"
 msgstr "Filtro"
 
-msgid "Help"
-msgstr "Aiuto"
-
 msgid "Horizon"
 msgstr "Horizon"
 
@@ -120,10 +117,6 @@ msgstr "Riepilogo dei Limiti"
 
 msgid "Log In"
 msgstr "Log In"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "Autenticato come: %(username)s"
 
 msgid "Login"
 msgstr "Login"
@@ -202,9 +195,6 @@ msgstr "Sessione scaduta."
 
 msgid "Sign In"
 msgstr "Accesso"
-
-msgid "Sign Out"
-msgstr "Disconnessione"
 
 msgid "Submit"
 msgstr "Invia"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-02 01:03+0000\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 20:57+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Bodo (http://www.transifex.com/projects/p/horizon/language/"
 "brx/)\n"
@@ -4345,9 +4345,6 @@ msgstr "मनिटरफोर"
 msgid "Month to date"
 msgstr "दान निफ्राय अक्ट'"
 
-msgid "More Projects"
-msgstr "गोबां प्रजेक्ट"
-
 msgid "Multicast IP Range"
 msgstr "माल्टिकास्ट IP सिमासारि"
 
@@ -4507,10 +4504,6 @@ msgstr "भलिउमनि थाखाय गोदान महरआ द�
 
 msgid "New size must be greater than current size."
 msgstr "गोदान महरआ दानि महर निख्रुइ गेदेरसिन जाथारनांगोन।"
-
-#, python-format
-msgid "New volume type must be different from the original volume type \"%s\"."
-msgstr "गोदान भलिउम रोखोमआ गुबै भलिउम रोखोम निफ्राय आलादा जाथारनांगोन \"%s\"."
 
 msgid "Next"
 msgstr "उननि"
