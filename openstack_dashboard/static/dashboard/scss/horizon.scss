@@ -1481,7 +1481,7 @@ label.log-length {
   width: auto !important;
   @include box-sizing(border-box);
   li {
-    width: 80%;
+    width: 95%;
     list-style-type: none;
     margin: 6px auto;
     padding: 3px;
@@ -1489,15 +1489,16 @@ label.log-length {
     border: 1px solid #aaa;
     line-height: 18px;
     border-radius: 3px;
-    cursor: move;
+    cursor: text;
     padding-left: 23px;
     background: $body-bg url(../img/drag.png) no-repeat 11px 50%;
     em {
-      font-size: 0.5em;
+      font-size: 0.75em;
       line-height: 1em;
       color:#999;
       font-style: normal;
       margin-left: 0.8em;
+      margin-left: 0.2em;      
     }
     i {
       margin-right: 5px;
@@ -1932,4 +1933,3 @@ textarea.key_text {
     right: 0px !important;
   }
 }
-
