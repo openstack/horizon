@@ -1,18 +1,18 @@
 (function () {
   'use strict';
 
-  describe('hz.api.common module', function() {
+  describe('horizon.framework.util.http module', function() {
     it('should have been defined', function () {
-      expect(angular.module('hz.api.common')).toBeDefined();
+      expect(angular.module('horizon.framework.util.http')).toBeDefined();
     });
   });
 
   describe('api service', function () {
     var api, $httpBackend;
 
-    beforeEach(module('hz.api.common'));
+    beforeEach(module('horizon.framework.util.http'));
     beforeEach(inject(function ($injector) {
-      api = $injector.get('hz.api.common.service');
+      api = $injector.get('horizon.framework.util.http.service');
       $httpBackend = $injector.get('$httpBackend');
     }));
 

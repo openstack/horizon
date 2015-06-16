@@ -16,6 +16,13 @@ limitations under the License.
 
 (function () {
   'use strict';
+
+  angular
+    .module('horizon.framework.util.http', [])
+    .service('horizon.framework.util.http.service', ApiService);
+
+  ApiService.$inject = ['$http'];
+
   function ApiService($http) {
 
     var httpCall = function (method, url, data, config) {
@@ -49,7 +56,4 @@ limitations under the License.
       return httpCall('DELETE', url, data, config);
     };
   }
-
-  angular.module('hz.api.common', [])
-    .service('hz.api.common.service', ['$http', '$log', ApiService]);
 }());

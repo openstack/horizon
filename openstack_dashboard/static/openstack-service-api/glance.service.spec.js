@@ -22,13 +22,13 @@
     var apiService = {};
     var toastService = {};
 
-    beforeEach(module('hz.api'));
+    beforeEach(module('horizon.openstack-service-api'));
 
     beforeEach(module(function($provide) {
       window.apiTest.initServices($provide, apiService, toastService);
     }));
 
-    beforeEach(inject(['hz.api.glance', function(glanceAPI) {
+    beforeEach(inject(['horizon.openstack-service-api.glance', function(glanceAPI) {
       service = glanceAPI;
     }]));
 

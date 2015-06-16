@@ -16,17 +16,24 @@ limitations under the License.
 (function () {
   'use strict';
 
+  angular
+    .module('horizon.openstack-service-api')
+    .service('horizon.openstack-service-api.glance', GlanceAPI);
+
+  GlanceAPI.$inject = ['horizon.framework.util.http.service',
+                       'horizon.framework.widgets.toast.service'];
+
   /**
    * @ngdoc service
-   * @name hz.api.glanceAPI
+   * @name horizon.openstack-service-api.glance
    * @description Provides direct pass through to Glance with NO abstraction.
    */
   function GlanceAPI(apiService, toastService) {
 
     // Images
 
-     /**
-     * @name hz.api.glanceAPI.getImage
+    /**
+     * @name horizon.openstack-service-api.glance.getImage
      * @description
      * Get a single image by ID
      * @param {string} id
@@ -36,12 +43,11 @@ limitations under the License.
       return apiService.get('/api/glance/images/' + id)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the image.'));
-      });
+        });
     };
 
-
     /**
-     * @name hz.api.glanceAPI.getImages
+     * @name horizon.openstack-service-api.glance.getImages
      * @description
      * Get a list of images.
      *
@@ -79,13 +85,13 @@ limitations under the License.
       return apiService.get('/api/glance/images/', config)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the images.'));
-      });
+        });
     };
 
     // Metadata Definitions - Namespaces
 
     /**
-     * @name hz.api.glanceAPI.getNamespaces
+     * @name horizon.openstack-service-api.glance.getNamespaces
      * @description
      * Get a list of metadata definition namespaces.
      *
@@ -146,11 +152,4 @@ limitations under the License.
     };
 
   }
-
-  // Register it with the API module so that anybody using the
-  // API module will have access to the Glance APIs.
-
-  angular.module('hz.api')
-    .service('hz.api.glance', ['hz.api.common.service', 'horizon.framework.widgets.toast.service', GlanceAPI]);
-
 }());

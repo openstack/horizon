@@ -19,16 +19,15 @@
 <script src="{{ STATIC_URL }}auth/login/login.controller.js"></script>
 <script src="{{ STATIC_URL }}auth/login/login-finder.directive.js"></script>
 
-<script src='{{ STATIC_URL }}horizon/js/angular/hz.api.module.js'></script>
-<script src='{{ STATIC_URL }}horizon/js/angular/services/hz.api.cinder.js'></script>
-<script src='{{ STATIC_URL }}horizon/js/angular/services/hz.api.common.js'></script>
-<script src='{{ STATIC_URL }}horizon/js/angular/services/hz.api.config.js'></script>
-<script src='{{ STATIC_URL }}horizon/js/angular/services/hz.api.glance.js'></script>
-<script src='{{ STATIC_URL }}horizon/js/angular/services/hz.api.keystone.js'></script>
-<script src='{{ STATIC_URL }}horizon/js/angular/services/hz.api.neutron.js'></script>
-<script src='{{ STATIC_URL }}horizon/js/angular/services/hz.api.nova.js'></script>
-<script src='{{ STATIC_URL }}horizon/js/angular/services/hz.api.policy.js'></script>
-<script src='{{ STATIC_URL }}horizon/js/angular/services/hz.api.security-group.js'></script>
+<script src='{{ STATIC_URL }}openstack-service-api/openstack-service-api.module.js'></script>
+<script src='{{ STATIC_URL }}openstack-service-api/cinder.service.js'></script>
+<script src='{{ STATIC_URL }}openstack-service-api/glance.service.js'></script>
+<script src='{{ STATIC_URL }}openstack-service-api/keystone.service.js'></script>
+<script src='{{ STATIC_URL }}openstack-service-api/neutron.service.js'></script>
+<script src='{{ STATIC_URL }}openstack-service-api/nova.service.js'></script>
+<script src='{{ STATIC_URL }}openstack-service-api/policy.service.js'></script>
+<script src='{{ STATIC_URL }}openstack-service-api/security-group.service.js'></script>
+<script src='{{ STATIC_URL }}openstack-service-api/settings.service.js'></script>
 
 <script src="{{ STATIC_URL }}horizon/lib/d3.js"></script>
 
@@ -39,6 +38,7 @@
 <script src='{{ STATIC_URL }}framework/util/util.module.js'></script>
 <script src='{{ STATIC_URL }}framework/util/bind-scope/bind-scope.js'></script>
 <script src='{{ STATIC_URL }}framework/util/filters/filters.js'></script>
+<script src='{{ STATIC_URL }}framework/util/http/http.js'></script>
 <script src='{{ STATIC_URL }}framework/util/i18n/i18n.js'></script>
 <script src='{{ STATIC_URL }}framework/util/validators/validators.js'></script>
 <script src='{{ STATIC_URL }}framework/util/workflow/workflow.js'></script>

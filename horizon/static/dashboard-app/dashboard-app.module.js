@@ -5,7 +5,7 @@
   angular.module('horizon.dashboard-app', [
     'horizon.framework',
     'horizon.auth',
-    'hz.api',
+    'horizon.openstack-service-api',
     'ngCookies'].concat(angularModuleExtension))
 
     .constant('horizon.dashboard-app.conf', {

@@ -42,15 +42,15 @@
    */
 
   .factory('cloudServices', [
-    'hz.api.cinder',
-    'hz.api.glance',
-    'hz.api.keystone',
-    'hz.api.neutron',
-    'hz.api.nova',
-    'hz.api.novaExtensions',
-    'hz.api.security-group',
-    'hz.api.serviceCatalog',
-    'hz.api.settingsService',
+    'horizon.openstack-service-api.cinder',
+    'horizon.openstack-service-api.glance',
+    'horizon.openstack-service-api.keystone',
+    'horizon.openstack-service-api.neutron',
+    'horizon.openstack-service-api.nova',
+    'horizon.openstack-service-api.novaExtensions',
+    'horizon.openstack-service-api.security-group',
+    'horizon.openstack-service-api.serviceCatalog',
+    'horizon.openstack-service-api.settings',
 
     function (cinderAPI,
               glanceAPI,

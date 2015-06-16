@@ -16,15 +16,21 @@ limitations under the License.
 (function () {
   'use strict';
 
+  angular.module('horizon.openstack-service-api')
+    .service('horizon.openstack-service-api.security-group', SecurityGroupAPI);
+
+  SecurityGroupAPI.$inject = ['horizon.framework.util.http.service',
+                              'horizon.framework.widgets.toast.service'];
+
   /**
    * @ngdoc service
-   * @name hz.api.SecurityGroup
+   * @name horizon.openstack-service-api.security-group
    * @description Provides access to Security Groups
    */
-  function SecurityGroup(apiService, toastService) {
+  function SecurityGroupAPI(apiService, toastService) {
 
     /**
-     * @name hz.api.SecurityGroup.list
+     * @name horizon.openstack-service-api.security-group.list
      * @description
      * Get a list of security groups.
      *
@@ -62,14 +68,7 @@ limitations under the License.
       return apiService.get('/api/network/securitygroups/')
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the security groups.'));
-      });
+        });
     };
   }
-
-  // Register it with the API module so that anybody using the
-  // API module will have access to the Security Group APIs.
-
-  angular.module('hz.api')
-    .service('hz.api.security-group', ['hz.api.common.service', 'horizon.framework.widgets.toast.service', SecurityGroup]);
-
 }());

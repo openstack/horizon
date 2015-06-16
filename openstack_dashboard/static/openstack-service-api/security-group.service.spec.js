@@ -17,19 +17,19 @@
 (function() {
   'use strict';
 
-  describe('Policy API', function() {
+  describe('Security Group API', function() {
     var service;
     var apiService = {};
     var toastService = {};
 
-    beforeEach(module('hz.api'));
+    beforeEach(module('horizon.openstack-service-api'));
 
     beforeEach(module(function($provide) {
       window.apiTest.initServices($provide, apiService, toastService);
     }));
 
-    beforeEach(inject(['hz.api.policy', function(policyAPI) {
-      service = policyAPI;
+    beforeEach(inject(['horizon.openstack-service-api.security-group', function(securityGroup) {
+      service = securityGroup;
     }]));
 
     it('defines the service', function() {
@@ -37,17 +37,14 @@
     });
 
     var tests = [
+
       {
-        "func": "check",
-        "method": "post",
-        "path": "/api/policy/",
-        "data": "rules",
-        "error": "Policy check failed.",
-        "testInput": [
-          "rules"
-        ],
-        "messageType": "warning"
+        "func": "query",
+        "method": "get",
+        "path": "/api/network/securitygroups/",
+        "error": "Unable to retrieve the security groups."
       }
+
     ];
 
     // Iterate through the defined tests and apply as Jasmine specs.

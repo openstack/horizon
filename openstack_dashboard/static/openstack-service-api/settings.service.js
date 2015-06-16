@@ -17,9 +17,15 @@
 (function () {
   'use strict';
 
+  angular
+    .module('horizon.openstack-service-api')
+    .factory('horizon.openstack-service-api.settings', settingsService);
+
+  settingsService.$inject = ['$q', 'horizon.framework.util.http.service'];
+
   /**
    * @ngdoc service
-   * @name hz.api.settingsService
+   * @name horizon.openstack-service-api.settings
    * @description
    * Provides utilities to the cached settings data. This helps
    * with asynchronous data loading.
@@ -39,43 +45,43 @@
 
     var service = {};
 
-     /**
-     * @name hz.api.configAPI.getSettings
+    /**
+     * @name horizon.openstack-service-api.config.getSettings
      * @description
      * Gets all the allowed settings
      *
      * Returns an object with settings.
      */
-     service.getSettings = function (suppressError) {
+    service.getSettings = function (suppressError) {
 
-       function onError() {
-         var message = gettext('Unable to retrieve settings.');
-         if (!suppressError && horizon.alert) {
-           horizon.alert('error', message);
-         }
+      function onError() {
+        var message = gettext('Unable to retrieve settings.');
+        if (!suppressError && horizon.alert) {
+          horizon.alert('error', message);
+        }
 
-         return message;
-       }
+        return message;
+      }
 
-       // The below ensures that errors are handled like other
-       // service errors (for better or worse), but when successful
-       // unwraps the success result data for direct consumption.
-       return apiService.get('/api/settings/', {cache: true})
-         .error(onError)
-         .then(function (response) {
-           return response.data;
-         });
-     };
+      // The below ensures that errors are handled like other
+      // service errors (for better or worse), but when successful
+      // unwraps the success result data for direct consumption.
+      return apiService.get('/api/settings/', {cache: true})
+        .error(onError)
+        .then(function (response) {
+          return response.data;
+        });
+    };
 
     /**
-     * @name hz.api.settingsService.getSetting
+     * @name horizon.openstack-service-api.settings.getSetting
      * @description
      * This retrieves a specific setting.
      *
      * If the setting isn't found, it will return undefined unless a default
      * is specified. In that case, the default will be returned.
      *
-     * @param {string} setting The path to the setting to get.
+     * @param {string} path The path to the setting to get.
      *
      * local_settings.py allows you to create settings such as:
      *
@@ -91,7 +97,7 @@
      * OPENSTACK_HYPERVISOR_FEATURES.can_set_mount_point
      * OPENSTACK_HYPERVISOR_FEATURES.can_set_password
      *
-     * @param {object=} defaultSetting If the requested setting does not exist,
+     * @param {Object} defaultSetting If the requested setting does not exist,
      * the defaultSetting will be returned. This is optional.
      *
      * @example
@@ -105,9 +111,9 @@
      ```
      */
     service.getSetting = function (path, defaultSetting) {
-      var deferred = $q.defer(),
-          pathElements = path.split("."),
-          settingAtRequestedPath;
+      var deferred = $q.defer();
+      var pathElements = path.split(".");
+      var settingAtRequestedPath;
 
       function onSettingsLoaded(settings) {
         // This recursively traverses the object hierarchy until either all the
@@ -137,7 +143,7 @@
     };
 
     /**
-     * @name hz.api.settingsService.ifEnabled
+     * @name horizon.openstack-service-api.settings.ifEnabled
      * @description
      * Checks if the desired setting is enabled. This returns a promise.
      * If the setting is enabled, the promise will be resolved.
@@ -159,12 +165,12 @@
      * OPENSTACK_HYPERVISOR_FEATURES.can_set_mount_point
      * OPENSTACK_HYPERVISOR_FEATURES.can_set_password
      *
-     * @param (object=} expected Used to determine if the setting is
+     * @param {Object} [expected=true] Used to determine if the setting is
      * enabled. The actual setting will be evaluated against the expected
      * value using angular.equals(). If they are equal, then it will be
      * considered enabled. This is optional and defaults to True.
      *
-     * @param {object=} defaultSetting If the requested setting does not exist,
+     * @param {Object} [defaultSetting=true] If the requested setting does not exist,
      * the defaultSetting will be used for evaluation. This is optional. If
      * not specified and the setting is not specified, then the setting will
      * not be considered to be enabled.
@@ -253,8 +259,4 @@
 
     return service;
   }
-
-  angular.module('hz.api')
-    .factory('hz.api.settingsService', ['$q', 'hz.api.common.service', settingsService]);
-
 }());
