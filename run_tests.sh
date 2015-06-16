@@ -15,7 +15,7 @@ function usage {
   echo "                           environment. Useful when dependencies have"
   echo "                           been added."
   echo "  -m, --manage             Run a Django management command."
-  echo "  --makemessages           Create/Update English translation files using babel."
+  echo "  --makemessages           Create/Update English translation files."
   echo "  --compilemessages        Compile all translation files."
   echo "  --check-only             Do not update translation files (--makemessages only)."
   echo "  --pseudo                 Pseudo translate a language."
