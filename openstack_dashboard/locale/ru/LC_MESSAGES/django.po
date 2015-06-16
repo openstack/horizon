@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-04 21:20-0500\n"
-"PO-Revision-Date: 2015-06-04 20:18+0000\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 20:57+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/"
 "ru/)\n"
@@ -6099,9 +6099,6 @@ msgstr "Мониторы"
 msgid "Month to date"
 msgstr "Месяц до текущего дня"
 
-msgid "More Projects"
-msgstr "Еще проекты"
-
 msgid "Multicast IP Range"
 msgstr "Multicast диапазон"
 
@@ -6309,10 +6306,6 @@ msgstr "Новый размер диска должен быть больше т
 
 msgid "New size must be greater than current size."
 msgstr "Новый размер должен быть больше текущего размера."
-
-#, python-format
-msgid "New volume type must be different from the original volume type \"%s\"."
-msgstr "Новый тип диска должен отличаться от текущего значения \"%s\"."
 
 msgid "Next"
 msgstr "Следующий"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-02 01:03+0000\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 20:57+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Tamil (http://www.transifex.com/projects/p/horizon/language/"
 "ta/)\n"
@@ -4380,9 +4380,6 @@ msgstr "மானிட்டர்கள்"
 msgid "Month to date"
 msgstr "மாதத்தில் இருந்து தேதி"
 
-msgid "More Projects"
-msgstr "மேலும் பிராஜக்டுகள்"
-
 msgid "Multicast IP Range"
 msgstr "பன்மைவுரு ஐபி வீச்சு"
 
@@ -4544,12 +4541,6 @@ msgstr "தொகுதியின் புதிய அளவு தற்
 
 msgid "New size must be greater than current size."
 msgstr " புதிய அளவு தற்போதைய அளவை விட அதிகமாக இருக்க வேண்டும்."
-
-#, python-format
-msgid "New volume type must be different from the original volume type \"%s\"."
-msgstr ""
-"புதிய தொகுதி வகை தற்போதைய தொகுதி வகை \"%s\" -லிருந்து வேறுபட்டு "
-"இருக்கவேண்டும்.       "
 
 msgid "Next"
 msgstr "அடுத்து"

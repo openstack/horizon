@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-10 23:10-0500\n"
-"PO-Revision-Date: 2015-06-14 18:52+0000\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 21:09+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/"
 "cs/)\n"
@@ -17,6 +17,34 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+msgid ""
+"\n"
+"      Volume type is a type or label that can be selected at volume "
+"creation\n"
+"      time in OpenStack. It usually maps to a set of capabilities of the "
+"storage\n"
+"      back-end driver to be used for this volume. Examples: \"Performance"
+"\",\n"
+"      \"SSD\", \"Backup\", etc. This is equivalent to the\n"
+"      <tt>cinder type-create</tt> command. Once the volume type gets "
+"created,\n"
+"      click the \"View Extra Specs\" button to set up extra specs key-value\n"
+"      pair(s) for that volume type.\n"
+"     "
+msgstr ""
+"\n"
+"      Typ svazku je typ, nebo štítek, které mohou být zvoleny při vytváření "
+"svazku\n"
+"      v OpenStack. Standardně se tímto mapují schopnosti jádra ovladače "
+"úložiště,\n"
+"      který bude v tomto svazku použit. Příklady: \"Výkon\",\n"
+"      \"SSD\", \"Záloha\", atd. Toto je stejné jako příkaz\n"
+"      <tt>cinder type-create</tt>. Jakmile je typ vytvořen, klikněte na "
+"tlačítko\n"
+"      \"Zobrazit dodatečné specifikace\" pro nastavení párů klíč-hodnota\n"
+"      dodatečných specifikací pro tento typ svazku\n"
+"     "
 
 msgid ""
 "\n"
@@ -57,6 +85,9 @@ msgstr "- Konec"
 msgid " : Next hop"
 msgstr ": Další skok"
 
+msgid " Done"
+msgstr "Hotovo"
+
 msgid ""
 " Segment Ranges are 1-4093 for VLAN and above 5000 for Enhanced-VXLAN "
 "Overlay."
@@ -89,6 +120,10 @@ msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
 msgstr "%(field_name)s: Neplatná IP adresa (hodnota=%(network)s)"
 
 #, python-format
+msgid "%(instance_name)s %(fixed_ip)s"
+msgstr "%(instance_name)s %(fixed_ip)s"
+
+#, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
 
@@ -112,6 +147,10 @@ msgid ""
 msgstr ""
 "%(type)s: url:%(url_path)s metoda:%(http_method)s kódy:%(expected_codes)s "
 "zpoždění:%(delay)d pokusů:%(max_retries)d časový limit:%(timeout)d"
+
+#, python-format
+msgid "%(used)s %(key)s used"
+msgstr "%(used)s %(key)s použito"
 
 #, python-format
 msgid "%s (current)"
@@ -976,6 +1015,12 @@ msgstr "Klikněte zde pro zobrazení pouze konzole"
 msgid "Close"
 msgstr "Zavřít"
 
+msgid "Cluster Template Name"
+msgstr "Název šablony clusteru"
+
+msgid "Cluster Templates"
+msgstr "Šablony clusteru"
+
 msgid "Code"
 msgstr "Kód"
 
@@ -993,6 +1038,9 @@ msgstr "Hostitel Compute"
 
 msgid "Compute Services"
 msgstr "Služby Compute"
+
+msgid "Configure Cluster Template"
+msgstr "Nastavit šablonu clusteru"
 
 msgid "Confirm Password"
 msgstr "Potvrdit heslo"
@@ -1085,6 +1133,12 @@ msgstr "Kopírovat"
 
 msgid "Copy Object"
 msgstr "Kopírovat objekt"
+
+msgid "Copy Template"
+msgstr "Kopírovat šablonu"
+
+msgid "Could not create"
+msgstr "Nelze vytvořit"
 
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
@@ -1205,6 +1259,9 @@ msgstr "Vytvořit zásobník"
 msgid "Create Subnet"
 msgstr "Vytvořit podsíť"
 
+msgid "Create Template"
+msgstr "Vytvořit šablonu"
+
 msgid "Create User"
 msgstr "Vytvořit uživatele"
 
@@ -1287,11 +1344,24 @@ msgstr ""
 msgid "Create a new network for any project as you need."
 msgstr "Vytvoře novou síť pro jakýkoliv projekt dle potřeby."
 
+msgid "Create a new role."
+msgstr "Vytvořit novou roli."
+
 msgid "Create a new stack with the provided values."
 msgstr "Vytvořit nový zásobník pomocí zadaných hodnot."
 
+msgid ""
+"Create a new user and set related properties including the Primary Project "
+"and Role."
+msgstr ""
+"Vytvořte nového uživatele a nastavte související vlastnosti, včetně Hlavního "
+"projektu a Role."
+
 msgid "Create a policy with selected rules."
 msgstr "Vytvořit zásadu pomocí zvolených pravidel."
+
+msgid "Create a project to organize users."
+msgstr "Vytvořte projekt pro zorganizování uživatelů."
 
 msgid ""
 "Create an optional initial user.\n"
@@ -1458,6 +1528,9 @@ msgstr "DOLŮ"
 
 msgid "Daily Usage Report"
 msgstr "Denní zpráva o využití"
+
+msgid "Data Processing"
+msgstr "Zpracování dat"
 
 msgid "Data Sources"
 msgstr "Zdroje dat"
@@ -1744,6 +1817,9 @@ msgstr "Oddíl disku"
 msgid "Display Name"
 msgstr "Zobrazovaný název"
 
+msgid "Distributed"
+msgstr "Distribuované"
+
 #, python-format
 msgid "Domain \"%s\" must be disabled before it can be deleted."
 msgstr "Doména \"%s\" musí být před smazáním zakázána."
@@ -1764,11 +1840,33 @@ msgstr "ID domény"
 msgid "Domain Information"
 msgstr "Informace o doméně"
 
+msgid "Domain Members"
+msgstr "Členové domény"
+
 msgid "Domain Name"
 msgstr "Název domény"
 
 msgid "Domains"
 msgstr "Domény"
+
+msgid ""
+"Domains provide separation between users and infrastructure used by "
+"different organizations."
+msgstr ""
+"Domény umožňují oddělit uživatele a infrastrukturu používanou různými "
+"organizacemi."
+
+msgid ""
+"Domains provide separation between users and infrastructure used by "
+"different organizations. Edit the domain details to add or remove groups in "
+"the domain."
+msgstr ""
+"Domény umožňují oddělit uživatele a infrastrukturu používanou různými "
+"organizacemi. Upravte podrobnosti domény pro přidání nebo odstranění skupin "
+"v doméně."
+
+msgid "Done"
+msgstr "Hotovo"
 
 msgid "Down"
 msgstr "Zavřen"
@@ -1840,6 +1938,9 @@ msgstr "Upravit"
 
 msgid "Edit Connection"
 msgstr "Upravit připojení"
+
+msgid "Edit Consumer"
+msgstr "Upravit spotřebitele"
 
 msgid "Edit Domain"
 msgstr "Upravit doménu"
@@ -1943,6 +2044,12 @@ msgstr ""
 
 msgid "Edit the image details."
 msgstr "Upravit podrobnosti obrazu."
+
+msgid "Edit the project details."
+msgstr "Upravit podrobnosti projektu."
+
+msgid "Edit the role's details."
+msgstr "Upravit podrobnosti role."
 
 msgid "Egress"
 msgstr "Výstup"
@@ -2333,6 +2440,10 @@ msgid "Failed to modify %s domain groups."
 msgstr "Nelze změnit doménové skupiny %s"
 
 #, python-format
+msgid "Failed to modify %s project members and update domain groups."
+msgstr "Nelze změnit %s členů skupiny a provést aktualizaci skupin domény."
+
+#, python-format
 msgid ""
 "Failed to modify %s project members, update project groups and update "
 "project quotas."
@@ -2504,6 +2615,9 @@ msgstr "Informace o konfiguraci"
 msgid "Flavor Name"
 msgstr "Název konfigurace"
 
+msgid "Flavor is not specified"
+msgstr "Konfigurace nenalezena."
+
 msgid "Flavors"
 msgstr "Konfigurace"
 
@@ -2608,6 +2722,9 @@ msgstr "IP brány a verze IP jsou v rozporu."
 msgid "Gateway interface is added"
 msgstr "Rozhraní brány přidáno"
 
+msgid "General Info"
+msgstr "Obecné informace"
+
 msgid "Glance"
 msgstr "Glance"
 
@@ -2635,6 +2752,20 @@ msgstr "Skupina byla úspěšně aktualizována."
 
 msgid "Groups"
 msgstr "Skupiny"
+
+msgid ""
+"Groups are used to manage access and assign roles to multiple users at once. "
+"After creating the group, edit the group to add users."
+msgstr ""
+"Skupiny se používají ke správě přístupu a přidělení rolí mnoha uživatelům "
+"najednou. Po vytvoření skupiny ji můžete upravit a přidat uživatele."
+
+msgid ""
+"Groups are used to manage access and assign roles to multiple users at once. "
+"Edit the group to add users."
+msgstr ""
+"Skupiny se používají ke správě přístupu a přidělení rolí mnoha uživatelům "
+"najednou. Pro přidání uživatelů ji upravte."
 
 msgid "HTTP"
 msgstr "HTTP"
@@ -2952,6 +3083,16 @@ msgstr "Importovat jmenný prostor"
 msgid "In Policy"
 msgstr "V zásadě"
 
+msgid "In Use"
+msgstr "Používá se"
+
+msgid ""
+"In addition, you can create an external network or a shared network by "
+"checking the corresponding checkbox."
+msgstr ""
+"Dále můžete, zaškrtnutím odpovídajícího políčka, vytvořit vnější nebo "
+"sdílenou síť."
+
 msgid "Info"
 msgstr "Informace"
 
@@ -2975,6 +3116,9 @@ msgstr "Zavést databáze"
 
 msgid "Initiator state"
 msgstr "Stav iniciátora"
+
+msgid "Injected File Content (Bytes)"
+msgstr "Obsah vloženého souboru (Bajty)"
 
 msgid "Injected File Content Bytes"
 msgstr "Bajty obsahu vloženého souboru"
@@ -3038,6 +3182,21 @@ msgstr "Instance která má být přidružena"
 
 msgid "Instances"
 msgstr "Instance"
+
+msgid "Insufficient privilege level to view domain information."
+msgstr "Nedostatečná úroveň oprávnění pro zobrazení informací o doméně."
+
+msgid "Insufficient privilege level to view group information."
+msgstr "Nedostatečná úroveň oprávnění pro zobrazení informací o skupině."
+
+msgid "Insufficient privilege level to view project information."
+msgstr "Nedostatečná úroveň oprávnění pro zobrazení informací o projektu."
+
+msgid "Insufficient privilege level to view role information."
+msgstr "Nedostatečná úroveň oprávnění pro zobrazení informací o roli."
+
+msgid "Insufficient privilege level to view user information."
+msgstr "Nedostatečná úroveň oprávnění pro zobrazení informací o uživateli."
 
 msgid "Intelligent Platform Management Interface (IPMI)"
 msgstr "Rozhraní inteligentní správy platformy (IPMI)"
@@ -3109,6 +3268,9 @@ msgstr ""
 "spuštění. Vytvořením nového páru klíče je registrován veřejný klíč a stažen "
 "soukromý klíč (soubor .pem)."
 
+msgid "Key-Value Pairs"
+msgstr "Páry klíč-hodnota"
+
 msgid "Keypair"
 msgstr "Pár klíčů"
 
@@ -3151,6 +3313,9 @@ msgstr "Minulý rok"
 
 msgid "Launch"
 msgstr "Spustit"
+
+msgid "Launch Cluster"
+msgstr "Spustit cluster"
 
 msgid "Launch Database"
 msgstr "Spustit databázi"
@@ -3224,6 +3389,10 @@ msgstr "Přesunout instanci za běhu na konkrétního hostitele."
 msgid "Load Balancer"
 msgstr "Vyvažovač zátěže"
 
+#, python-format
+msgid "Load Balancer VIP %s"
+msgstr "Vyvažovač zátěže VIP %s"
+
 msgid "Load Balancers"
 msgstr "Vyvažovač zátěže"
 
@@ -3266,6 +3435,15 @@ msgstr "Utajit"
 msgid "Make Public"
 msgstr "Zveřejnit"
 
+msgid ""
+"Make a new copy of an existing object to store in this or another container. "
+"You may additionally specify the path within the selected container where "
+"the new copy should be stored."
+msgstr ""
+"Vytvořte novou kopii existujícího objektu pro uložení v tomto nebo v jiném "
+"kontejneru. Můžete také dodatečně zadat cestu uvnitř zvoleného kontejneru, "
+"kde by nová kopie měla být umístěna."
+
 msgid "Manage Floating IP Associations"
 msgstr "Správa přidružených plovoucích IP"
 
@@ -3284,11 +3462,17 @@ msgstr "Správa pravidel"
 msgid "Manage Security Group Rules"
 msgstr "Správa pravidel bezpečnostní skupiny"
 
+msgid "Manage Specs"
+msgstr "Správa specifikací"
+
 msgid "Manage Volume Attachments"
 msgstr "Správa připojených svazků"
 
 msgid "Manual"
 msgstr "Ručně"
+
+msgid "Mapped Fixed IP Address"
+msgstr "Mapovaná pevní IP adresa"
 
 msgid "Max Retries"
 msgstr "Max opakování"
@@ -3611,6 +3795,9 @@ msgstr "Žádné dostupné konzole."
 msgid "No available projects"
 msgstr "Žádné dostupné projekty"
 
+msgid "No configurations"
+msgstr "Žádné konfigurace"
+
 msgid "No flavors available"
 msgstr "Konfigurace nejsou dostupné"
 
@@ -3720,6 +3907,15 @@ msgstr "Nepřipojeny žádné svazky."
 
 msgid "No volumes available"
 msgstr "Žádné svazky nejsou dostupné"
+
+msgid "Node Configurations"
+msgstr "Nastavení uzlů"
+
+msgid "Node Groups"
+msgstr "Skupiny uzlů"
+
+msgid "Nodes Count"
+msgstr "Počet uzlů"
 
 msgid "Non-Members"
 msgstr "Nečlenové"
@@ -3916,6 +4112,10 @@ msgstr "Heslo pro uživatele \"%s\""
 msgid "Passwords do not match."
 msgstr "Hesla se neshodují."
 
+msgctxt "Swift pseudo folder path"
+msgid "Path"
+msgstr "Cesta"
+
 msgctxt "Action log of an instance"
 msgid "Pause"
 msgstr "Pozastavit"
@@ -3989,6 +4189,12 @@ msgstr "Zadejte prosím URL"
 #, python-format
 msgid "Please try again later [Error: %s]."
 msgstr "Zkuste to prosím znovu později [Chyba: %s]."
+
+msgid "Plugin"
+msgstr "Zásuvný modul"
+
+msgid "Plugin name"
+msgstr "Název zásuvného modulu"
 
 msgid "Plugins"
 msgstr "Zásuvné moduly"
@@ -4108,6 +4314,9 @@ msgstr "Skupiny projektu"
 msgid "Project ID"
 msgstr "ID projektu"
 
+msgid "Project Information"
+msgstr "Informace o projektu"
+
 msgid "Project Limits"
 msgstr "Limity projektu"
 
@@ -4198,6 +4407,10 @@ msgstr "Název kvóty"
 
 msgid "Quota exceeded for resource router."
 msgstr "Překročena kvóta pro zdrojový směrovač."
+
+#, python-format
+msgid "Quota value(s) cannot be less than the current usage value(s): %s."
+msgstr "Hodnoty kvóty nemohou být menší než hodnoty současného využití: %s."
 
 msgid "Quotas"
 msgstr "Kvóty"
@@ -4535,6 +4748,10 @@ msgid "Saved extra spec \"%s\"."
 msgstr "Uloženy extra specifikace \"%s\"."
 
 #, python-format
+msgid "Saved spec \"%s\"."
+msgstr "Specifikace \"%s\" uložena."
+
+#, python-format
 msgid "Scheduled backup \"%(name)s\"."
 msgstr "Naplánována záloha \"%(name)s\"."
 
@@ -4558,6 +4775,22 @@ msgstr "Pravidla bezpečnostní skupiny"
 
 msgid "Security Groups"
 msgstr "Bezpečnostní skupiny"
+
+msgid ""
+"Security groups are sets of IP filter rules that are applied to the network "
+"settings for the VM. After the security group is created, you can add rules "
+"to the security group."
+msgstr ""
+"Bezpečnostní skupiny jsou sada pravidel filtrů IP adres, která jsou použita "
+"na nastavení sítě pro VM. Po vytvoření bezpečnostní skupiny, můžete do ní "
+"přidat jednotlivá pravidla."
+
+msgid ""
+"Security groups are sets of IP filter rules that are applied to the network "
+"settings for the VM. Edit the security group to add and change the rules."
+msgstr ""
+"Bezpečnostní skupiny jsou sada pravidel filtrů IP adres, která jsou použita "
+"na nastavení sítě pro VM. Upravte ji pro přidání a změnu pravidel."
 
 msgid "Segment Range"
 msgstr "Rozsah částí"
@@ -4741,6 +4974,9 @@ msgstr "Nastavit kontext domény"
 
 msgid "Set Gateway"
 msgstr "Nastavit bránu"
+
+msgid "Set maximum quotas for the project."
+msgstr "Nastavit maximální kvóty pro projekt."
 
 msgid "Settings"
 msgstr "Nastavení"
@@ -5066,6 +5302,10 @@ msgstr "Úspěšně aktualizována bezpečnostní skupina: %s"
 msgid "Successfully updated volume snapshot status: \"%s\"."
 msgstr "Aktualizace stavu snímku svazku úspěšně dokončena: \"%s\"."
 
+#, python-format
+msgid "Successfully updated volume status to \"%s\"."
+msgstr "Stav svazku úspěšně změněn na \"%s\"."
+
 msgid "Sum."
 msgstr "Suma"
 
@@ -5133,17 +5373,29 @@ msgstr "Cílová hostitel"
 msgid "Task"
 msgstr "Úloha"
 
+msgid "Template"
+msgstr "Šablona"
+
 msgid "Template Data"
 msgstr "Data šablony"
 
 msgid "Template File"
 msgstr "Soubor šablony"
 
+msgid "Template Name"
+msgstr "Název šablony"
+
+msgid "Template Overview"
+msgstr "Přehled šablon"
+
 msgid "Template Source"
 msgstr "Zdroj šablony"
 
 msgid "Template URL"
 msgstr "URL šablony"
+
+msgid "Template not specified"
+msgstr "Šablona nezadána"
 
 msgid "The \"from\" port number is invalid."
 msgstr "Číslo portu \"Od\" je neplatné."
@@ -5354,6 +5606,9 @@ msgstr "Při načítání jmenného prostoru došlo k chybě: %s."
 #, python-format
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr "Při zpracování %(prefix)s nastal problém: %(error)s"
+
+msgid "This Cluster Template will be created for:"
+msgstr "Tato šablona clusteru bude vytvořena pro:"
 
 msgid "This action cannot be undone."
 msgstr "Toto nelze vrátit."
@@ -5625,6 +5880,9 @@ msgstr "Nelze vytvořit uživatele."
 msgid "Unable to create volume snapshot."
 msgstr "Nelze vytvořit snímek svazku."
 
+msgid "Unable to create volume type extra spec."
+msgstr "Nelze vytvořit dodatečnou specifikaci typu svazku."
+
 msgid "Unable to create volume type."
 msgstr "Nelze vytvořit typ svazku."
 
@@ -5697,14 +5955,32 @@ msgstr "Nelze odloučit monitor."
 msgid "Unable to edit spec."
 msgstr "Nelze upravit specifikaci."
 
+msgid "Unable to edit volume type extra spec."
+msgstr "Nelze upravit dodatečnou specifikaci typu svazku."
+
 msgid "Unable to extend volume."
 msgstr "Nelze rozšířit svazek."
 
 msgid "Unable to fetch EC2 credentials."
 msgstr "Nelze získat přihlašovací údaje pro EC2."
 
+msgid "Unable to fetch cluster template details."
+msgstr "Nelze získat podrobnosti šablony clusteru."
+
+msgid "Unable to fetch cluster template list"
+msgstr "Nelze získat seznam šablon clusteru"
+
+msgid "Unable to fetch cluster template."
+msgstr "Nelze získat šablonu clusteru."
+
+msgid "Unable to fetch node group details."
+msgstr "Nelze získat podrobnosti skupiny uzlů."
+
 msgid "Unable to find backup!"
 msgstr "Nelze najít zálohu!"
+
+msgid "Unable to find default role."
+msgstr "Nelze najít výchozí roli."
 
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
@@ -5956,6 +6232,9 @@ msgstr "Nelze získat podrobnosti."
 
 msgid "Unable to retrieve domain details."
 msgstr "Nelze získat podrobnosti domény. "
+
+msgid "Unable to retrieve domain information."
+msgstr "Nelze získat informace o doméně."
 
 msgid "Unable to retrieve domain list."
 msgstr "Nelze získat seznam domén."
@@ -6262,6 +6541,12 @@ msgstr "Nelze získat zadanou zásobu. Nelze přidat VIP \"%s\"."
 msgid "Unable to retrieve usage information."
 msgstr "Nelze získat informace o využití."
 
+msgid "Unable to retrieve user domain role assignments."
+msgstr "Nelze získat přidělení rolí uživatelské domény."
+
+msgid "Unable to retrieve user information."
+msgstr "Nelze získat informace o uživateli."
+
 msgid "Unable to retrieve user list."
 msgstr "Nelze získat seznam uživatelů."
 
@@ -6298,8 +6583,14 @@ msgstr "Nelze získat snímek svazku."
 msgid "Unable to retrieve volume snapshots."
 msgstr "Nelze získat svazky snímků."
 
+msgid "Unable to retrieve volume type details."
+msgstr "Nelze získat podrobnosti typu svazku."
+
 msgid "Unable to retrieve volume type encryption information."
 msgstr "Nelze získat informace o šifrování typu svazku."
+
+msgid "Unable to retrieve volume type extra spec details."
+msgstr "Nelze získat podrobnosti dodatečné specifikace typu svazku."
 
 msgid "Unable to retrieve volume types"
 msgstr "Nelze získat typy svazků"
@@ -6373,8 +6664,15 @@ msgstr "Nelze aktualizovat stav snímku svazku."
 msgid "Unable to update volume snapshot."
 msgstr "Nelze aktualizovat snímek svazku."
 
+#, python-format
+msgid "Unable to update volume status to \"%s\"."
+msgstr "Nelze aktualizovat stav svazku na \"%s\"."
+
 msgid "Unable to update volume."
 msgstr "Nelze aktualizovat svazek."
+
+msgid "Unable to upload cluster template file"
+msgstr "Nelze nahrát soubor šablony clusteru"
 
 msgid "Unable to upload object."
 msgstr "Nelze nahrát objekt."
@@ -6491,6 +6789,10 @@ msgid "Update requests for this subnet"
 msgstr "Žádosti o aktualizaci pro tuto podsíť"
 
 #, python-format
+msgid "Update the \"extra spec\" value for \"%(key)s\""
+msgstr "Aktualizovat hodnotu \"dodatečné specifikace\" \"%(key)s\""
+
+#, python-format
 msgid "Update the spec value for \"%(key)s\""
 msgstr "Aktualizovat hodnotu specifikace \"%(key)s\""
 
@@ -6516,11 +6818,17 @@ msgstr "Aktualizace svazku \"%s\""
 msgid "Updating volume snapshot \"%s\""
 msgstr "Aktualizace snímku svazku \"%s\""
 
+msgid "Upload"
+msgstr "Nahrát"
+
 msgid "Upload Object"
 msgstr "Nahrát objekt"
 
 msgid "Upload Objects"
 msgstr "Nahrát objekty"
+
+msgid "Upload Template"
+msgstr "Nahrát šablonu"
 
 msgid "Upload a new file"
 msgstr "Nahrát nový soubor"
@@ -6751,6 +7059,9 @@ msgstr "Zdroj svazku"
 msgid "Volume Type"
 msgstr "Typ svazku"
 
+msgid "Volume Type Extra Specs"
+msgstr "Dodatečné specifikace typu svazku"
+
 msgid "Volume Type is Unencrypted."
 msgstr "Typ svazku není zašifrován"
 
@@ -6854,6 +7165,15 @@ msgstr ""
 
 msgid "You cannot disable the user you are currently logged in as."
 msgstr "Nemůžete zakázat uživatele pod kterým jste zrovna přihlášeni."
+
+msgid ""
+"You cannot revoke your administrative privileges from the domain you are "
+"currently logged into. Please switch to another domain with administrative "
+"privileges or remove the administrative role manually via the CLI."
+msgstr ""
+"Nemůžete si odstranit svá správcovská oprávnění v doméně, do kterého jste "
+"nyní přihlášeni. Prosím přejděte do jiné domény se stejnými oprávněními, "
+"nebo odstraňte roli správce ručně pomocí příkazového řádku."
 
 msgid ""
 "You cannot revoke your administrative privileges from the project you are "
@@ -7025,6 +7345,9 @@ msgstr "podržet"
 
 msgid "instance"
 msgstr "instance"
+
+msgid "no processes"
+msgstr "žádné procesy"
 
 msgid "pseudo-folder"
 msgstr "psuedo složka"

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-08 19:20-0500\n"
-"PO-Revision-Date: 2015-06-08 18:55+0000\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 15:01+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/horizon/"
 "language/tr_TR/)\n"
@@ -152,9 +152,6 @@ msgstr "Sahte"
 msgid "Filter"
 msgstr "Filtre"
 
-msgid "Help"
-msgstr "Yardım"
-
 msgid "Horizon"
 msgstr "Horizon"
 
@@ -175,10 +172,6 @@ msgstr "Özeti Sınırla"
 
 msgid "Log In"
 msgstr "Oturum Aç"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "%(username)s kullanıcısı ile giriş yapıldı"
 
 msgid "Login"
 msgstr "Giriş"
@@ -263,9 +256,6 @@ msgstr "Oturum sona erdi."
 
 msgid "Sign In"
 msgstr "Oturum Aç"
-
-msgid "Sign Out"
-msgstr "Çıkış"
 
 msgid "Submit"
 msgstr "Gönder"

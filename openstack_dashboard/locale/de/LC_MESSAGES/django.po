@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-10 23:10-0500\n"
-"PO-Revision-Date: 2015-06-11 16:48+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 20:57+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/"
 "de/)\n"
 "MIME-Version: 1.0\n"
@@ -6066,9 +6066,6 @@ msgstr "Monitore"
 msgid "Month to date"
 msgstr "Aktueller Monat"
 
-msgid "More Projects"
-msgstr "Weitere Projekte"
-
 msgid "Multicast IP Range"
 msgstr "Multicast IP Bereich"
 
@@ -6279,10 +6276,6 @@ msgstr ""
 
 msgid "New size must be greater than current size."
 msgstr "Neue Größe muss größer als Aktuelle Größe sein."
-
-#, python-format
-msgid "New volume type must be different from the original volume type \"%s\"."
-msgstr "Der neue Datenträgertyp muss sich vom alten Typ \"%s\" unterscheiden."
 
 msgid "Next"
 msgstr "Weiter"

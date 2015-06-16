@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-02 01:03+0000\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 20:57+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Marathi (http://www.transifex.com/projects/p/horizon/language/"
 "mr/)\n"
@@ -4326,9 +4326,6 @@ msgstr "निरीक्षक"
 msgid "Month to date"
 msgstr "महिन्याचा दिवस"
 
-msgid "More Projects"
-msgstr "अधिक प्रकल्प"
-
 msgid "Multicast IP Range"
 msgstr "बहुभूमिका आयपी श्रेणी"
 
@@ -4488,10 +4485,6 @@ msgstr "खंडासाठी नवीन आकार सध्याच्
 
 msgid "New size must be greater than current size."
 msgstr "नवीन आकार सध्याच्या आकारापेक्षा मोठा असला पाहिजे."
-
-#, python-format
-msgid "New volume type must be different from the original volume type \"%s\"."
-msgstr "नवीन खंड प्रकार मूळ खंड प्रकारापेक्षा वेगळा असला पाहिजे \"%s\"."
 
 msgid "Next"
 msgstr "पुढे"

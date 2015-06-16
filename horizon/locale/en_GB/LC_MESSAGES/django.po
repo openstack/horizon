@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-08 19:20-0500\n"
-"PO-Revision-Date: 2015-06-08 18:55+0000\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 15:01+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/"
 "horizon/language/en_GB/)\n"
@@ -176,9 +176,6 @@ msgstr "Fake"
 msgid "Filter"
 msgstr "Filter"
 
-msgid "Help"
-msgstr "Help"
-
 msgid "Horizon"
 msgstr "Horizon"
 
@@ -202,10 +199,6 @@ msgstr "Limit Summary"
 
 msgid "Log In"
 msgstr "Log In"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "Logged in as: %(username)s"
 
 msgid "Login"
 msgstr "Login"
@@ -292,9 +285,6 @@ msgstr "Session timed out."
 
 msgid "Sign In"
 msgstr "Sign In"
-
-msgid "Sign Out"
-msgstr "Sign Out"
 
 msgid "Submit"
 msgstr "Submit"

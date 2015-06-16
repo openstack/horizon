@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-08 19:20-0500\n"
-"PO-Revision-Date: 2015-06-08 18:55+0000\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 15:01+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/"
 "language/zh_TW/)\n"
@@ -172,9 +172,6 @@ msgstr "假冒"
 msgid "Filter"
 msgstr "篩選"
 
-msgid "Help"
-msgstr "幫助"
-
 msgid "Horizon"
 msgstr "Horizon"
 
@@ -198,10 +195,6 @@ msgstr "限制摘要"
 
 msgid "Log In"
 msgstr "登入"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "以此身份登入：%(username)s"
 
 msgid "Login"
 msgstr "登入"
@@ -292,9 +285,6 @@ msgstr "連線階段過期。"
 
 msgid "Sign In"
 msgstr "登入"
-
-msgid "Sign Out"
-msgstr "登出"
 
 #. Translators: test code, don't really have to translate
 msgid "Sold Puppy"

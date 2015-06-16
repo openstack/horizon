@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-13 01:06-0500\n"
+"POT-Creation-Date: 2015-06-16 01:06-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15815,23 +15815,26 @@ msgstr ""
 msgid "Migration Policy"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:765
+#: dashboards/project/volumes/volumes/forms.py:761
 msgid "Unable to retrieve the volume type list."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:774
-#, python-format
-msgid "New volume type must be different from the original volume type \"%s\"."
+#: dashboards/project/volumes/volumes/forms.py:770
+msgid "Select a new volume type"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:790
+#: dashboards/project/volumes/volumes/forms.py:772
+msgid "No other volume types available"
+msgstr ""
+
+#: dashboards/project/volumes/volumes/forms.py:785
 #, python-format
 msgid ""
 "Successfully sent the request to change the volume type to \"%(vtype)s\" for "
 "volume: \"%(name)s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:800
+#: dashboards/project/volumes/volumes/forms.py:795
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr ""
@@ -17228,6 +17231,10 @@ msgstr ""
 
 #: templates/_header.html:48
 msgid "Sign Out"
+msgstr ""
+
+#: templates/base.html:21
+msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr ""
 
 #: templates/context_selection/_domain_list.html:4

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-08 19:20-0500\n"
-"PO-Revision-Date: 2015-06-08 18:55+0000\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 15:01+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/"
 "language/ko_KR/)\n"
@@ -170,9 +170,6 @@ msgstr "페이크"
 msgid "Filter"
 msgstr "필터"
 
-msgid "Help"
-msgstr "도움말"
-
 msgid "Horizon"
 msgstr "Horizon"
 
@@ -197,10 +194,6 @@ msgstr "간략한 요약"
 
 msgid "Log In"
 msgstr "로그인"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "로그인됨: %(username)s"
 
 msgid "Login"
 msgstr "로그인"
@@ -292,9 +285,6 @@ msgstr "세션 타임 아웃."
 
 msgid "Sign In"
 msgstr "등록"
-
-msgid "Sign Out"
-msgstr "로그아웃"
 
 #. Translators: test code, don't really have to translate
 msgid "Sold Puppy"

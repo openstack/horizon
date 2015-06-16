@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-08 19:20-0500\n"
-"PO-Revision-Date: 2015-06-08 18:55+0000\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 15:01+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/horizon/language/"
 "sr/)\n"
@@ -102,9 +102,6 @@ msgstr "Greška:"
 msgid "Filter"
 msgstr "Filter"
 
-msgid "Help"
-msgstr "Pomoć"
-
 msgid "Horizon"
 msgstr "Horizon"
 
@@ -125,10 +122,6 @@ msgstr "Rezime ograničenja"
 
 msgid "Log In"
 msgstr "Log In"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "Pristupili ste sistemu kao: %(username)s"
 
 msgid "Login"
 msgstr "Login"
@@ -207,9 +200,6 @@ msgstr "Seansa istekla."
 
 msgid "Sign In"
 msgstr "Pristup"
-
-msgid "Sign Out"
-msgstr "Odstup od sistema"
 
 msgid "Submit"
 msgstr "Predaj"

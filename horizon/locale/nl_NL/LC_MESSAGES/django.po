@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-08 19:20-0500\n"
-"PO-Revision-Date: 2015-06-08 18:55+0000\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 15:01+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/"
 "horizon/language/nl_NL/)\n"
@@ -93,9 +93,6 @@ msgstr "Fout: "
 msgid "Filter"
 msgstr "Filter"
 
-msgid "Help"
-msgstr "Help"
-
 msgid "Horizon"
 msgstr "Horizon"
 
@@ -116,10 +113,6 @@ msgstr "Beperk samenvatting"
 
 msgid "Log In"
 msgstr "Aanmelden"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "Aangemeld als: %(username)s"
 
 msgid "Login"
 msgstr "Aanmelden"
@@ -198,9 +191,6 @@ msgstr "Sessie verlopen."
 
 msgid "Sign In"
 msgstr "Aanmelden"
-
-msgid "Sign Out"
-msgstr "Afmelden"
 
 msgid "Submit"
 msgstr "Indienen"

@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-10 23:10-0500\n"
-"PO-Revision-Date: 2015-06-11 07:32+0000\n"
-"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 15:01+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/"
 "cs/)\n"
 "MIME-Version: 1.0\n"
@@ -182,9 +182,6 @@ msgstr "Falešné"
 msgid "Filter"
 msgstr "Filtr"
 
-msgid "Help"
-msgstr "Nápověda"
-
 msgid "Horizon"
 msgstr "Horizon"
 
@@ -209,10 +206,6 @@ msgstr "Omezit souhrn"
 
 msgid "Log In"
 msgstr "Přihlásit"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "Přihlášen jako: %(username)s"
 
 msgid "Login"
 msgstr "Přihlášení"
@@ -300,9 +293,6 @@ msgstr "Relace vypršela."
 
 msgid "Sign In"
 msgstr "Přihlásit"
-
-msgid "Sign Out"
-msgstr "Odhlásit"
 
 msgid "Submit"
 msgstr "Odeslat"

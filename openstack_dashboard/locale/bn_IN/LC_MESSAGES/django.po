@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-02 01:03+0000\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 20:57+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Bengali (India) (http://www.transifex.com/projects/p/horizon/"
 "language/bn_IN/)\n"
@@ -4225,9 +4225,6 @@ msgstr "মনিটর"
 msgid "Month to date"
 msgstr "মাস থেকে তারিখ"
 
-msgid "More Projects"
-msgstr "আরও প্রোজেক্ট"
-
 msgid "Multicast IP Range"
 msgstr "মাল্টিকাস্ট IP ব্যপ্তি"
 
@@ -4386,10 +4383,6 @@ msgstr "ভলিয়্যুমের জন্য নতুন আয়তন �
 
 msgid "New size must be greater than current size."
 msgstr "নতুন আয়তন বর্তমান আয়তনের চেয়ে বড় হওয়া চাই."
-
-#, python-format
-msgid "New volume type must be different from the original volume type \"%s\"."
-msgstr "নতুন ভলিয়্যুম প্রকার মূল ভলিয়্যুম প্রকার থেকে  \"%s\" আলাদা হওয়া চাই."
 
 msgid "Next"
 msgstr "পরে"

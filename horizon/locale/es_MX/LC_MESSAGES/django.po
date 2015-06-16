@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-08 19:20-0500\n"
-"PO-Revision-Date: 2015-06-08 18:55+0000\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 15:01+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Spanish (Mexico) (http://www.transifex.com/projects/p/horizon/"
 "language/es_MX/)\n"
@@ -87,9 +87,6 @@ msgstr "Error: "
 msgid "Filter"
 msgstr "Filtro"
 
-msgid "Help"
-msgstr "Ayuda"
-
 msgid "Horizon"
 msgstr "Horizon"
 
@@ -107,10 +104,6 @@ msgstr "Versión de dirección IP no válida"
 
 msgid "Log In"
 msgstr "Ingresar"
-
-#, python-format
-msgid "Logged in as: %(username)s"
-msgstr "Sesión iniciada como: %(username)s"
 
 msgid "Login"
 msgstr "Nombre de usuario"
@@ -179,9 +172,6 @@ msgstr "Sesión ha expirado."
 
 msgid "Sign In"
 msgstr "Darse de alta"
-
-msgid "Sign Out"
-msgstr "Salir"
 
 msgid "Submit"
 msgstr "Enviar"

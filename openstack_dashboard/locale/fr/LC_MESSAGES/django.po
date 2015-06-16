@@ -22,9 +22,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-10 23:10-0500\n"
-"PO-Revision-Date: 2015-06-11 12:14+0000\n"
-"Last-Translator: François Bureau\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 20:57+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/"
 "fr/)\n"
 "MIME-Version: 1.0\n"
@@ -6005,9 +6005,6 @@ msgstr "Moniteurs"
 msgid "Month to date"
 msgstr "Mensuel"
 
-msgid "More Projects"
-msgstr "Plus de Projets"
-
 msgid "Multicast IP Range"
 msgstr "Portée de l'IP multicast"
 
@@ -6217,12 +6214,6 @@ msgstr "La nouvelle taille du volume doit être supérieur à sa taille actuelle
 
 msgid "New size must be greater than current size."
 msgstr "La nouvelle taille doit être supérieure à la taille courante."
-
-#, python-format
-msgid "New volume type must be different from the original volume type \"%s\"."
-msgstr ""
-"Le nouveau type du volume doit être différent du type de volume d'origine "
-"\"%s\"."
 
 msgid "Next"
 msgstr "Suivant"

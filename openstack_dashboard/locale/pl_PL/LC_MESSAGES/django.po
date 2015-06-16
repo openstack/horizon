@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-02 01:03+0000\n"
+"POT-Creation-Date: 2015-06-15 19:53-0500\n"
+"PO-Revision-Date: 2015-06-15 20:57+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/"
 "language/pl_PL/)\n"
@@ -5508,9 +5508,6 @@ msgstr "Monitory"
 msgid "Month to date"
 msgstr "Miesiąc do dziś"
 
-msgid "More Projects"
-msgstr "Więcej projektów"
-
 msgid "Multicast IP Range"
 msgstr "Przedział adresów IP Multicast"
 
@@ -5718,10 +5715,6 @@ msgstr "Nowy rozmiar wolumenu musi być większy od bieżącego wolumenu."
 
 msgid "New size must be greater than current size."
 msgstr "Nowy rozmiar musi być większy niż bieżący."
-
-#, python-format
-msgid "New volume type must be different from the original volume type \"%s\"."
-msgstr "Nowy typ wolumenu musi być inny niż aktualny typ „%s”."
 
 msgid "Next"
 msgstr "Następny"
