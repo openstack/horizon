@@ -41,7 +41,9 @@
       createSubnet: createSubnet,
       getPorts: getPorts,
       getAgents: getAgents,
-      getExtensions: getExtensions
+      getExtensions: getExtensions,
+      getDefaultQuotaSets: getDefaultQuotaSets,
+      updateProjectQuota: updateProjectQuota
     };
 
     return service;
@@ -295,6 +297,43 @@
       return apiService.get('/api/neutron/extensions/')
         .error(function() {
           toastService.add('error', gettext('Unable to retrieve the extensions.'));
+        });
+    }
+
+    // Default Quota Sets
+
+    /**
+     * @name getDefaultQuotaSets
+     * @description
+     * Get default quotasets
+     *
+     * The listing result is an object with property "items." Each item is
+     * a quota.
+     *
+     */
+    function getDefaultQuotaSets() {
+      return apiService.get('/api/neutron/quota-sets/defaults/')
+        .error(function() {
+          toastService.add('error', gettext('Unable to retrieve the default quotas.'));
+        });
+    }
+
+    // Quotas Extension
+
+    /**
+     * @name updateProjectQuota
+     * @description
+     * Update a single project quota data.
+     * @param {application/json} quota
+     * A JSON object with the atributes to set to new quota values.
+     * @param {string} projectId
+     * Specifies the id of the project that'll have the quota data updated.
+     */
+    function updateProjectQuota(quota, projectId) {
+      var url = '/api/neutron/quotas-sets/' + projectId;
+      return apiService.patch(url, quota)
+        .error(function() {
+          toastService.add('error', gettext('Unable to update project quota data.'));
         });
     }
   }

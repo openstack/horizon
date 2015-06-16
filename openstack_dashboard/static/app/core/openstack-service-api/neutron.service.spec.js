@@ -104,6 +104,27 @@
         "method": "get",
         "path": "/api/neutron/extensions/",
         "error": "Unable to retrieve the extensions."
+      },
+      {
+        "func": "getDefaultQuotaSets",
+        "method": "get",
+        "path": "/api/neutron/quota-sets/defaults/",
+        "error": "Unable to retrieve the default quotas."
+      },
+      {
+        "func": "updateProjectQuota",
+        "method": "patch",
+        "path": "/api/neutron/quotas-sets/42",
+        "data": {
+          "network": 42
+        },
+        "error": "Unable to update project quota data.",
+        "testInput": [
+          {
+            "network": 42
+          },
+          42
+        ]
       }
     ];
 
