@@ -23,9 +23,9 @@
 
     ctrl.label = {
       title: gettext('Key Pair'),
-      // jscs:disable maximumLineLength
+      /*eslint-disable max-len */
       subtitle: gettext('A key pair allows you to SSH into your newly created instance. You may select an existing key pair, import a key pair, or generate a new key pair.'),
-      // jscs:enable maximumLineLength
+      /*eslint-enable max-len */
       name: gettext('Name'),
       description: gettext('Description'),
       createKeyPair: gettext('Create Key Pair'),
@@ -124,23 +124,23 @@
     ctrl.title = gettext('Key Pair Help');
 
     var genKeyPairsMap = {genKeyPairCmd: 'ssh-keygen'};
-    // jscs:disable maximumLineLength
+    /*eslint-disable max-len */
     var genKeyPairsText = gettext('There are two ways to generate a key pair. From a Linux system, generate the key pair with the <samp>%(genKeyPairCmd)s</samp> command:');
-    // jscs:enable maximumLineLength
+    /*eslint-enable max-len */
 
     var keyPathsMap = {
       privateKeyPath: 'cloud.key',
       publicKeyPath: 'cloud.key.pub'
     };
 
-    // jscs:disable maximumLineLength
+    /*eslint-disable max-len */
     var keyPathText = gettext('This command generates a pair of keys: a private key (%(privateKeyPath)s) and a public key (%(publicKeyPath)s).');
-    // jscs:enable maximumLineLength
+    /*eslint-enable max-len */
 
     var windowsCmdMap = {authorizeKeysFile: '.ssh/authorized_keys'};
-    // jscs:disable maximumLineLength
+    /*eslint-disable max-len */
     var windowsCmd = gettext('From a Windows system, you can use PuTTYGen to create private/public keys. Use the PuTTY Key Generator to create and save the keys, then copy the public key in the red highlighted box to your <samp>%(authorizeKeysFile)s</samp> file.');
-    // jscs:enable maximumLineLength
+    /*eslint-enable max-len */
 
     ctrl.paragraphs = [
       gettext('The key pair allows you to SSH into the instance.'),
@@ -170,9 +170,9 @@
     ctrl.labels = {
       wizardTitle: gettext('Launch Instance'),
       title: gettext('Create Key Pair'),
-      // jscs:disable maximumLineLength
+      /*eslint-disable max-len */
       help: gettext('Key Pairs are how you login to your instance after it is launched. Choose a key pair name you will recognize.'),
-      // jscs:enable maximumLineLength
+      /*eslint-enable max-len */
       keyPairName: gettext('Key Pair Name'),
       cancel: gettext('Cancel'),
       ok: gettext('Create Key Pair'),
@@ -246,9 +246,9 @@
     ctrl.labels = {
       wizardTitle: gettext('Launch Instance'),
       title: gettext('Import Key Pair'),
-      // jscs:disable maximumLineLength
+      /*eslint-disable max-len */
       help: gettext('Key Pairs are how you login to your instance after it is launched. Choose a key pair name you will recognize and paste your SSH public key into the space provided.'),
-      // jscs:enable maximumLineLength
+      /*eslint-enable max-len */
       keyPairName: gettext('Key Pair Name'),
       publicKey: gettext('Public Key'),
       cancel: gettext('Cancel'),
@@ -289,19 +289,19 @@
     ctrl.title = gettext('Import Key Pair Help');
 
     var genKeyPairsMap = { genKeyPairCmd: 'ssh-keygen' };
-    // jscs:disable maximumLineLength
+    /*eslint-disable max-len */
     var genKeyPairsText = gettext('There are two ways to generate a key pair. From a Linux system, generate the key pair with the <samp>%(genKeyPairCmd)s</samp> command:');
-    // jscs:enable maximumLineLength
+    /*eslint-enable max-len */
 
     var keyPathsMap = { privateKeyPath: 'cloud.key', publicKeyPath: 'cloud.key.pub' };
-    // jscs:disable maximumLineLength
+    /*eslint-disable max-len */
     var keyPathText = gettext('This command generates a pair of keys: a private key (%(privateKeyPath)s) and a public key (%(publicKeyPath)s).');
-    // jscs:enable maximumLineLength
+    /*eslint-enable max-len */
 
     var windowsCmdMap = { authorizeKeysFile: '.ssh/authorized_keys' };
-    // jscs:disable maximumLineLength
+    /*eslint-disable max-len */
     var windowsCmd = gettext('From a Windows system, you can use PuTTYGen to create private/public keys. Use the PuTTY Key Generator to create and save the keys, then copy the public key in the red highlighted box to your <samp>%(authorizeKeysFile)s</samp> file.');
-    // jscs:enable maximumLineLength
+    /*eslint-enable max-len */
 
     ctrl.paragraphs = [
       interpolate(genKeyPairsText, genKeyPairsMap, true),

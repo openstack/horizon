@@ -26,11 +26,11 @@
     ctrl.title = gettext('Flavor Help');
 
     ctrl.paragraphs = [
-      // jscs:disable maximumLineLength
+      /*eslint-disable max-len */
       gettext('The flavor you select for an instance determines the amount of compute, storage and memory resources that will be carved out for the instance.'),
       gettext('The flavor you select must have enough resources allocated to support the type of instance you are trying to create. Flavors that don\'t provide enough resources for your instance are identified on the <b>Available</b> table with a yellow warning icon.'),
       gettext('Administrators are responsible for creating and managing flavors. A custom flavor can be created for you or for a specific project where it is shared with the users assigned to that project. If you need a custom flavor, contact your administrator.')
-      // jscs:enable maximumLineLength
+      /*eslint-enable max-len */
     ];
   }
 

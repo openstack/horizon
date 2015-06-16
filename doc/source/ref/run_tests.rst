@@ -134,20 +134,51 @@ Available options:
   the dashboard module's directory structure. Default: A new directory within
   the current directory.
 
-JavaScript
-----------
+JavaScript Tests
+----------------
 
 You can also run JavaScript unit tests using Karma.  Karma is a test
 environment that allows for multiple test runners and reporters, including
 such features as code coverage.  Karma allows developer to run tests live,
 as it can watch source and test files for changes.
 
-To run the Karma tests for Horizon and Dashboard::
+The default configuration also performs coverage reports, which are saved
+to ``horizon/.coverage-karma/`` and ``openstack_dashboard/.coverage-karma/``.
+
+To run the Karma tests for Horizon and Dashboard using the `run_tests.sh`
+script::
 
     ./run_tests.sh --karma
 
-The default configuration also performs coverage reports, which are saved
-to ``horizon/.coverage-karma/`` and ``openstack_dashboard/.coverage-karma/``.
+To run the Karma tests for Horizon and Dashboard using `npm`::
+
+    npm install # You only need to execute this once.
+    npm test
+
+.. note:: These two methods are equivalent. The former merely executes
+   the latter.
+
+
+JavaScript Code Style Checks
+----------------------------
+
+You can run the JavaScript code style checks, or linting, using eslint.
+ESLint is a permissively licensed, sophisticated language parser and
+linter that confirms both our style guidelines, and checks the code for
+common errors that may create unexpected behavior.
+
+To run eslint for Horizon and Dashboard using the `run_tests.sh`
+script::
+
+    ./run_tests.sh --karma
+
+To run eslint for Horizon and Dashboard using `npm`::
+
+    npm install # You only need to execute this once.
+    npm run lint
+
+.. note:: These two methods are equivalent. The former merely executes
+   the latter.
 
 Give me metrics!
 ================
@@ -155,12 +186,12 @@ Give me metrics!
 You can generate various reports and metrics using command line arguments
 to ``run_tests.sh``.
 
-JSCS
+ESLint
 ----
 
-To run JSCS, a JavaScript code style checker::
+To run ESLint, a JavaScript code style checker::
 
-    ./run_tests.sh --jscs
+    ./run_tests.sh --eslint
 
 Coverage
 --------

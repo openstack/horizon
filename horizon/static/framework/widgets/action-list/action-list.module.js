@@ -45,9 +45,9 @@
   .constant('horizon.framework.widgets.action-list.tooltipConfig', {
     defaultTemplate: '<div>{$ ::message $}</div>',
     defaultMessage: {
-      // jscs:disable maximumLineLength
+      /*eslint-disable max-len */
       message: gettext('The action cannot be performed. The contents of this row have errors or are missing information.')
-      // jscs:enable maximumLineLength
+      /*eslint-enable max-len */
     }
   });
 })();

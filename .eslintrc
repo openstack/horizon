@@ -1,0 +1,833 @@
+# For a detailed list of all options please see here:
+# http://eslint.org/docs/configuring/
+
+# By default, ESLint uses Espree as its parser.
+parser: espree
+
+# Enable eslint-plugin-angular
+plugins:
+  - angular
+
+# Set up globals
+globals:
+  angular: false
+
+# Most environment options are not explicitly enabled or disabled, only
+# included here for completeness' sake. They are commented out, because the
+# global updates.py script would otherwise override them during a global
+# requirements synchronization.
+#
+# Individual projects should choose which platforms they deploy to.
+
+env:
+
+  # browser global variables.
+  browser: true
+
+  # Node.js global variables and Node.js-specific rules.
+  # node: true
+
+  # web workers global variables.
+  # worker: true
+
+  # defines require() and define() as global variables as per the amd spec.
+  # amd: true
+
+  # Adds all of the Jasmine testing global variables for version 1.3 and 2.0.
+  jasmine: true
+
+  # phantomjs global variables.
+  # phantomjs: true
+
+  # jquery global variables.
+  # jquery: true
+
+  # prototypejs global variables.
+  # prototypejs: true
+
+  # shelljs global variables.
+  # shelljs: true
+
+  # meteor global variables.
+  # meteor: true
+
+  # OpenStack uses Jasmine, not Mocha.
+  mocha: false
+
+  # Openstack does not support ES6 at its present level of adoption.
+  es6: false
+
+
+# Below we activate and configure the linting rules for all javascript in
+# OpenStack. These will be synchronized across all projects that make use of
+# them.
+rules:
+
+  #############################################################################
+  # Possible Errors
+  #############################################################################
+
+  # Disallow trailing commas, as those break some browsers.
+  # http://eslint.org/docs/rules/comma-dangle
+  comma-dangle:
+    - 2
+    - "never"
+
+  # Prevent the assignment of a variable in a conditional.
+  # http://eslint.org/docs/rules/no-cond-assign
+  no-cond-assign: 2
+
+  # Do not permit the use of console logging statements.
+  # http://eslint.org/docs/rules/no-console
+  no-console: 2
+
+  # Do not permit if (true) or if(false)
+  # http://eslint.org/docs/rules/no-constant-condition
+  no-constant-condition: 2
+
+  # Do not permit ASCII 0-31 (control characters) in regular expressions.
+  # http://eslint.org/docs/rules/no-control-regex
+  no-control-regex: 2
+
+  # Do not permit debugger; statements.
+  # http://eslint.org/docs/rules/no-debugger
+  no-debugger: 2
+
+  # Do not permit duplicate argument names in function declaration.
+  # http://eslint.org/docs/rules/no-dupe-args
+  no-dupe-args: 2
+
+  # Do not permit duplicate keys in object declarations.
+  # http://eslint.org/docs/rules/no-dupe-keys
+  no-dupe-keys: 2
+
+  # Do not permit duplicate cases in switch statements.
+  # http://eslint.org/docs/rules/no-duplicate-case
+  no-duplicate-case: 2
+
+  # Disallow empty regex character classes. (/[]/)
+  # http://eslint.org/docs/rules/no-empty-character-class
+  no-empty-character-class: 2
+
+  # Disallow empty block statements.
+  # http://eslint.org/docs/rules/no-empty
+  no-empty: 0 # TODO(krotscheck): Activate & Fix
+
+  # Disallow assigning of the exception parameter in a catch block.
+  # http://eslint.org/docs/rules/no-ex-assign
+  no-ex-assign: 2
+
+  # Disallow the use of double negation (!!foo) if already in a boolean context
+  # http://eslint.org/docs/rules/no-extra-boolean-cast
+  no-extra-boolean-cast: 2
+
+  # Disallow extraneous parentheses around functions.
+  # http://eslint.org/docs/rules/no-extra-parens
+  no-extra-parens:
+    - 0 # TODO(krotscheck): Activate & Fix
+    - "functions"
+
+  # Disallow extraneous semicolons.
+  # http://eslint.org/docs/rules/no-extra-semi
+  no-extra-semi: 2
+
+  # Disallow overwriting functions written as function declarations
+  # http://eslint.org/docs/rules/no-func-assign
+  no-func-assign: 2
+
+  # Disallow function or variable declarations in nested blocks
+  # http://eslint.org/docs/rules/no-inner-declarations
+  no-inner-declarations: 2
+
+  # Disallow invalid regular expression strings in the RegExp constructor
+  # http://eslint.org/docs/rules/no-invalid-regexp
+  no-invalid-regexp: 2
+
+  # Disallow irregular whitespace outside of strings and comments
+  # http://eslint.org/docs/rules/no-irregular-whitespace
+  no-irregular-whitespace: 2
+
+  # Disallow negation of the left operand of an in expression
+  # http://eslint.org/docs/rules/no-negated-in-lhs
+  no-negated-in-lhs: 2
+
+  # Disallow the use of object properties of the global object (Math and JSON) as functions
+  # http://eslint.org/docs/rules/no-obj-calls
+  no-obj-calls: 2
+
+  # Disallow multiple spaces in a regular expression literal
+  # http://eslint.org/docs/rules/no-regex-spaces
+  no-regex-spaces: 2
+
+  # Disallow reserved words being used as object literal keys
+  # Disabled- this is for ECMA3 backwards compatibility only.
+  # http://eslint.org/docs/rules/no-reserved-keys
+  no-reserved-keys: 0
+
+  # Disallow sparse arrays
+  # http://eslint.org/docs/rules/no-sparse-arrays
+  no-sparse-arrays: 2
+
+  # Disallow unreachable statements
+  # http://eslint.org/docs/rules/no-unreachable
+  no-unreachable: 2
+
+  # Disallow comparisons with the value NaN
+  # http://eslint.org/docs/rules/use-isnan
+  use-isnan: 2
+
+  # Ensure JSDoc comments are valid
+  # http://eslint.org/docs/rules/valid-jsdoc
+  valid-jsdoc: 0 # TODO(krotscheck): Activate & Fix
+
+  # Ensure that the results of typeof are compared against a valid string
+  # http://eslint.org/docs/rules/valid-typeof
+  valid-typeof: 2
+
+  #############################################################################
+  # Best Practices
+  #############################################################################
+
+  # Enforces getter/setter pairs in objects
+  # http://eslint.org/docs/rules/accessor-pairs
+  accessor-pairs: 2
+
+  # Treat var statements as if they were block scoped
+  # http://eslint.org/docs/rules/block-scoped-var
+  block-scoped-var: 0 # TODO(krotscheck): Activate & Fix
+
+  # Specify the maximum cyclomatic complexity allowed in a program
+  # http://eslint.org/docs/rules/complexity
+  complexity:
+    - 1
+    - 10
+
+  # Require return statements to either always or never specify values
+  # http://eslint.org/docs/rules/consistent-return
+  consistent-return: 0 # TODO(krotscheck): Activate & Fix
+
+  # Specify curly brace conventions for all control statements
+  # http://eslint.org/docs/rules/curly
+  curly: 2
+
+  # Require default case in switch statements
+  # http://eslint.org/docs/rules/default-case
+  default-case: 0 # TODO(krotscheck): Activate & Fix
+
+  # encourages use of dot notation whenever possible
+  # http://eslint.org/docs/rules/dot-notation
+  dot-notation: 2
+
+  # Enforces consistent newlines before or after dots
+  # http://eslint.org/docs/rules/dot-location
+  dot-location: 0
+
+  # Require the use of === and !==
+  # http://eslint.org/docs/rules/eqeqeq
+  eqeqeq: 0 # TODO(krotscheck): Activate & Fix
+
+  # Make sure for-in loops have an if statement
+  # http://eslint.org/docs/rules/guard-for-in
+  guard-for-in: 1
+
+  # Disallow the use of alert, confirm, and prompt
+  # http://eslint.org/docs/rules/no-alert
+  no-alert: 2
+
+  # Disallow use of arguments.caller or arguments.callee
+  # http://eslint.org/docs/rules/no-caller
+  no-caller: 2
+
+  # Disallow division operators explicitly at beginning of regular expression
+  # http://eslint.org/docs/rules/no-div-regex
+  no-div-regex: 2
+
+  # Disallow else after a return in an if
+  # http://eslint.org/docs/rules/no-else-return
+  no-else-return: 0 # TODO(krotscheck): Activate & Fix
+
+  # Disallow use of labels for anything other then loops and switches
+  # http://eslint.org/docs/rules/no-empty-label
+  no-empty-label: 2
+
+  # Disallow comparisons to null without a type-checking operator
+  # http://eslint.org/docs/rules/no-eq-null
+  no-eq-null: 2
+
+  # Disallow use of eval()
+  # http://eslint.org/docs/rules/no-eval
+  no-eval: 2
+
+  # Disallow adding to native types
+  # http://eslint.org/docs/rules/no-extend-native
+  no-extend-native: 2
+
+  # Disallow unnecessary function binding
+  # http://eslint.org/docs/rules/no-extra-bind
+  no-extra-bind: 2
+
+  # Disallow fallthrough of case statements
+  # http://eslint.org/docs/rules/no-fallthrough
+  no-fallthrough: 2
+
+  # Disallow the use of leading or trailing decimal points in numeric literals
+  # http://eslint.org/docs/rules/no-floating-decimal
+  no-floating-decimal: 2
+
+  # Disallow use of eval()-like methods
+  # http://eslint.org/docs/rules/no-implied-eval
+  no-implied-eval: 2
+
+  # Disallow usage of __iterator__ property
+  # http://eslint.org/docs/rules/no-iterator
+  no-iterator: 2
+
+  # Disallow use of labeled statements
+  # http://eslint.org/docs/rules/no-labels
+  no-labels: 2
+
+  # Disallow unnecessary nested blocks
+  # http://eslint.org/docs/rules/no-lone-blocks
+  no-lone-blocks: 2
+
+  # Disallow creation of functions within loops
+  # http://eslint.org/docs/rules/no-loop-func
+  no-loop-func: 2
+
+  # Disallow use of multiple spaces
+  # http://eslint.org/docs/rules/no-multi-spaces
+  no-multi-spaces: 0 # TODO(krotscheck): Activate & Fix
+
+  # Disallow use of multiline strings
+  # http://eslint.org/docs/rules/no-multi-str
+  no-multi-str: 2
+
+  # Disallow reassignments of native objects
+  # http://eslint.org/docs/rules/no-native-reassign
+  no-native-reassign: 2
+
+  # Disallow use of new operator for Function object
+  # http://eslint.org/docs/rules/no-new-func
+  no-new-func: 2
+
+  # Disallows creating new instances of String,Number, and Boolean
+  # http://eslint.org/docs/rules/no-new-wrappers
+  no-new-wrappers: 2
+
+  # Disallow use of new operator when not part of the assignment or comparison
+  # http://eslint.org/docs/rules/no-new
+  no-new: 0 # TODO(krotscheck): Activate & Fix
+
+  # Disallow use of octal escape sequences in string literals, such as var foo = "Copyright \251";
+  # http://eslint.org/docs/rules/no-octal-escape
+  no-octal-escape: 2
+
+  # Disallow use of octal literals
+  # http://eslint.org/docs/rules/no-octal
+  no-octal: 2
+
+  # Disallow reassignment of function parameters
+  # http://eslint.org/docs/rules/no-param-reassign
+  no-param-reassign: 0 # TODO(krotscheck): Activate & Fix
+
+  # Disallow use of process.env
+  #
+  # Please consolidate all your env access to one single file, and apply
+  # by-line exceptions there.
+  #
+  # http://eslint.org/docs/rules/no-process-env
+  no-process-env: 2
+
+  # Disallow usage of __proto__ property
+  # http://eslint.org/docs/rules/no-proto
+  no-proto: 2
+
+  # Disallow declaring the same variable more than once
+  # http://eslint.org/docs/rules/no-redeclare
+  no-redeclare: 0 # TODO(krotscheck): Activate & Fix
+
+  # Disallow use of assignment in return statement
+  # http://eslint.org/docs/rules/no-return-assign
+  no-return-assign: 2
+
+  # Disallow use of javascript: urls.
+  # http://eslint.org/docs/rules/no-script-url
+  no-script-url: 2
+
+  # Disallow comparisons where both sides are exactly the same
+  # http://eslint.org/docs/rules/no-self-compare
+  no-self-compare: 2
+
+  # Disallow use of comma operator
+  # http://eslint.org/docs/rules/no-sequences
+  no-sequences: 2
+
+  # Restrict what can be thrown as an exception
+  # http://eslint.org/docs/rules/no-throw-literal
+  no-throw-literal: 2
+
+  # Disallow usage of expressions in statement position
+  # http://eslint.org/docs/rules/no-unused-expressions
+  no-unused-expressions: 2
+
+  # Disallow use of void operator
+  # http://eslint.org/docs/rules/no-void
+  no-void: 2
+
+  # Disallow usage of configurable warning terms in comments - e.g. TODO
+  # http://eslint.org/docs/rules/no-warning-comments
+  no-warning-comments:
+    - 1
+    - terms:
+      - "todo"
+      - "xxx"
+      - "fixme"
+
+  # Disallow use of the with statement
+  # http://eslint.org/docs/rules/no-with
+  no-with: 2
+
+  # Require use of the second argument for parseInt()
+  # http://eslint.org/docs/rules/radix
+  radix: 0 # TODO(krotscheck): Activate & Fix
+
+  # Requires to declare all vars on top of their containing scope
+  #
+  # http://eslint.org/docs/rules/vars-on-top
+  vars-on-top: 0
+
+  # Require immediate function invocation to be wrapped in parentheses
+  # http://eslint.org/docs/rules/wrap-iife
+  wrap-iife:
+    - 2
+    - "any"
+
+  # Require or disallow Yoda conditions.
+  # http://eslint.org/docs/rules/yoda
+  yoda:
+    - 0 # TODO(krotscheck): Activate & Fix
+    - "never"
+
+
+  #############################################################################
+  # Strict Mode
+  #############################################################################
+  # (Deprecated) require or disallow the "use strict" pragma in global scope
+  # http://eslint.org/docs/rules/global-strict
+  global-strict: 0
+
+  # (Deprecated) disallow unnecessary use of "use strict";
+  # http://eslint.org/docs/rules/no-extra-strict
+  no-extra-strict: 0
+
+  # controls location of Use Strict Directives
+  # http://eslint.org/docs/rules/strict
+  strict:
+    - 0 # TODO(krotscheck): Activate & Fix
+    - "function"
+
+  #############################################################################
+  # Variable declaration rules
+  #############################################################################
+  # Disallow the catch clause parameter name being the same as a variable in
+  # the outer scope
+  # http://eslint.org/docs/rules/no-catch-shadow
+  no-catch-shadow: 2
+
+  # Disallow deletion of variables
+  # http://eslint.org/docs/rules/no-delete-var
+  no-delete-var: 2
+
+  # Disallow labels that share a name with a variable
+  # http://eslint.org/docs/rules/no-label-var
+  no-label-var: 2
+
+  # Disallow shadowing of names such as arguments
+  # http://eslint.org/docs/rules/no-shadow-restricted-names
+  no-shadow-restricted-names: 2
+
+  # Disallow declaration of variables already declared in the outer scope
+  # http://eslint.org/docs/rules/no-shadow
+  no-shadow: 0 # TODO(krotscheck): Activate & Fix
+
+  # Disallow use of undefined when initializing variables
+  # http://eslint.org/docs/rules/no-undef-init
+  no-undef-init: 2
+
+  # Disallow use of undeclared variables unless mentioned in a /*global */ block
+  # http://eslint.org/docs/rules/no-undef
+  no-undef: 0 # TODO(krotscheck): Activate & Fix
+
+  # Disallow use of undefined variable
+  # http://eslint.org/docs/rules/no-undefined
+  no-undefined: 0 # TODO(krotscheck): Activate & Fix
+
+  # Disallow declaration of variables that are not used in the code
+  # http://eslint.org/docs/rules/no-unused-vars
+  no-unused-vars: 0 # TODO(krotscheck): Activate & Fix
+
+  # Disallow use of variables before they are defined
+  # http://eslint.org/docs/rules/no-use-before-define
+  no-use-before-define: 0 # TODO(krotscheck): Activate & Fix
+
+  #############################################################################
+  # Node.js rules
+  #############################################################################
+
+  # Enforces error handling in callbacks
+  # http://eslint.org/docs/rules/handle-callback-err
+  handle-callback-err: 2
+
+  # Disallow mixing regular variable and require declarations
+  # http://eslint.org/docs/rules/no-mixed-requires
+  no-mixed-requires: 2
+
+  # Disallow use of new operator with the require function
+  # http://eslint.org/docs/rules/no-new-require
+  no-new-require: 2
+
+  # Disallow string concatenation with __dirname and __filename
+  # http://eslint.org/docs/rules/no-path-concat
+  no-path-concat: 2
+
+  # Disallow process.exit()
+  # http://eslint.org/docs/rules/no-process-exit
+  no-process-exit: 2
+
+  # Restrict usage of specified node modules
+  # http://eslint.org/docs/rules/no-restricted-modules
+  no-restricted-modules: 0
+
+  # Disallow use of synchronous methods
+  # http://eslint.org/docs/rules/no-sync
+  no-sync: 2
+
+
+  #############################################################################
+  # Stylistic Changes
+  #############################################################################
+
+  # Enforce one true brace style
+  # http://eslint.org/docs/rules/brace-style
+  brace-style: 0 # TODO(krotscheck): Activate & Fix
+
+  # Require camel case names
+  # http://eslint.org/docs/rules/camelcase
+  camelcase:
+   - 2
+   - properties: "never"
+
+  # Enforce spacing before and after comma
+  # http://eslint.org/docs/rules/comma-spacing
+  comma-spacing: 0 # TODO(krotscheck): Activate & Fix
+
+  # Enforce one true comma style
+  # http://eslint.org/docs/rules/comma-style
+  comma-style: 2
+
+  # Enforces consistent naming when capturing the current execution context
+  # http://eslint.org/docs/rules/consistent-this
+  consistent-this:
+    - 0 # TODO(krotscheck): Activate & Fix
+    - "self"
+
+  # Enforce newline at the end of file, with no multiple empty lines
+  # http://eslint.org/docs/rules/eol-last
+  eol-last: 2
+
+  # Require function expressions to have a name
+  # http://eslint.org/docs/rules/func-names
+  func-names: 0 # TODO(krotscheck): Activate & Fix
+
+  # Enforces use of function declarations or expressions
+  # http://eslint.org/docs/rules/func-style
+  func-style: 0
+
+  # This option sets a specific tab width for your code
+  # http://eslint.org/docs/rules/indent
+  indent:
+    - 2 # TODO(krotscheck): Activate & Fix
+    - 2
+
+  # Enforces spacing between keys and values in object literal properties
+  # http://eslint.org/docs/rules/key-spacing
+  key-spacing: 0 # TODO(krotscheck): Activate & Fix
+
+  # Enforces empty lines around comments
+  # http://eslint.org/docs/rules/lines-around-comment
+  lines-around-comment: 0 # TODO(krotscheck): Activate & Fix
+
+  # Disallow mixed 'LF' and 'CRLF' as linebreaks
+  # http://eslint.org/docs/rules/linebreak-style
+  linebreak-style:
+    - 2
+    - "unix"
+
+  # Specify the maximum depth callbacks can be nested
+  # http://eslint.org/docs/rules/max-nested-callbacks
+  max-nested-callbacks:
+    - 0 # TODO(krotscheck): Activate & Fix
+    - 3
+
+  # Require a capital letter for constructors
+  # http://eslint.org/docs/rules/new-cap
+  new-cap: 0 # TODO(krotscheck): Activate & Fix
+
+  # Disallow the omission of parentheses when invoking a constructor
+  # http://eslint.org/docs/rules/new-parens
+  new-parens: 2
+
+  # allow/disallow an empty newline after var statement
+  # http://eslint.org/docs/rules/newline-after-var
+  newline-after-var: 0
+
+  # Disallow use of the Array constructor
+  # http://eslint.org/docs/rules/no-array-constructor
+  no-array-constructor: 0 # TODO(krotscheck): Activate & Fix
+
+  # Disallow use of the continue statement
+  # http://eslint.org/docs/rules/no-continue
+  no-continue: 0
+
+  # Disallow comments inline after code
+  # http://eslint.org/docs/rules/no-inline-comments
+  no-inline-comments: 0
+
+  # disallow if as the only statement in an else block
+  # http://eslint.org/docs/rules/no-lonely-if
+  no-lonely-if: 0
+
+  # Disallow mixed spaces and tabs for indentation
+  # http://eslint.org/docs/rules/no-mixed-spaces-and-tabs
+  no-mixed-spaces-and-tabs: 2
+
+  # Disallow multiple empty lines
+  # http://eslint.org/docs/rules/no-multiple-empty-lines
+  no-multiple-empty-lines:
+    - 2
+    - max: 1
+
+  # Disallow nested ternary expressions
+  # http://eslint.org/docs/rules/no-nested-ternary
+  no-nested-ternary: 0
+
+  # Disallow use of the Object constructor
+  # http://eslint.org/docs/rules/no-new-object
+  no-new-object: 1
+
+  # (Deprecated) Disallow space before semicolon
+  # http://eslint.org/docs/rules/no-space-before-semi
+  no-space-before-semi: 0
+
+  # Disallow space between function identifier and application
+  # http://eslint.org/docs/rules/no-spaced-func
+  no-spaced-func: 0 # TODO(krotscheck): Activate & Fix
+
+  # Disallow the use of ternary operators
+  # http://eslint.org/docs/rules/no-ternary
+  no-ternary: 0
+
+  # Disallow trailing whitespace at the end of lines
+  # http://eslint.org/docs/rules/no-trailing-spaces
+  no-trailing-spaces: 2
+
+  # Disallow dangling underscores in identifiers
+  # http://eslint.org/docs/rules/no-underscore-dangle
+  no-underscore-dangle: 0 # TODO(krotscheck): Activate & Fix
+
+  # Disallow the use of Boolean literals in conditional expressions
+  # http://eslint.org/docs/rules/no-unneeded-ternary
+  no-unneeded-ternary: 0 # TODO(krotscheck): Activate & Fix
+
+  # Disallow wrapping of non-IIFE statements in parens
+  # http://eslint.org/docs/rules/no-wrap-func
+  no-wrap-func: 0 # TODO(krotscheck): Activate & Fix
+
+  # Require or disallow padding inside curly braces
+  # http://eslint.org/docs/rules/object-curly-spacing
+  object-curly-spacing: 0 # TODO(krotscheck): Activate & Fix
+
+  # Allow or disallow one variable declaration per function
+  # http://eslint.org/docs/rules/one-var
+  one-var:
+    - 2
+    - uninitialized: "always"
+      initialized: "never"
+
+  # Prevent assignment operator shorthand where possible
+  # http://eslint.org/docs/rules/operator-assignment
+  operator-assignment:
+    - 0 # TODO(krotscheck): Activate & Fix
+    - "never"
+
+  # Enforce operators to be placed before or after line breaks
+  # http://eslint.org/docs/rules/operator-linebreak
+  operator-linebreak: 2
+
+  # Enforce padding within blocks
+  # http://eslint.org/docs/rules/padded-blocks
+  padded-blocks: 0
+
+  # Require quotes around object literal property names
+  # http://eslint.org/docs/rules/quote-props
+  quote-props: 0 # TODO(krotscheck): Activate & Fix
+
+  # Specify whether backticks, double or single quotes should be used
+  # http://eslint.org/docs/rules/quotes
+  quotes:
+    - 0 # TODO(krotscheck): Activate & Fix
+    - 'single'
+
+  # Enforce spacing before and after semicolons
+  # http://eslint.org/docs/rules/semi-spacing
+  semi-spacing: 0 # TODO(krotscheck): Activate & Fix
+
+  # Require or disallow use of semicolons instead of ASI
+  # http://eslint.org/docs/rules/semi
+  semi:
+    - 2
+    - 'always'
+
+  # Sort variables within the same declaration block
+  # http://eslint.org/docs/rules/sort-vars
+  sort-vars: 0
+
+  # (Deprecated) Require a space after function names
+  # http://eslint.org/docs/rules/space-after-function-name
+  space-after-function-name: 0
+
+  # Require a space after certain keywords
+  # http://eslint.org/docs/rules/space-after-keywords
+  space-after-keywords: 2
+
+  # require or disallow space before blocks
+  # http://eslint.org/docs/rules/space-before-blocks
+  space-before-blocks:
+   - 2
+   - "always"
+
+  # Require or disallow space before function opening parenthesis
+  # http://eslint.org/docs/rules/space-before-function-paren
+  space-before-function-paren:
+    - 0 # TODO(krotscheck): Activate & Fix
+    - "always"
+
+  # (Deprecated) Require or disallow space before function parentheses
+  # http://eslint.org/docs/rules/space-before-function-parentheses
+  space-before-function-parentheses: 0
+
+  # Require or disallow spaces inside brackets
+  # http://eslint.org/docs/rules/space-in-brackets
+  space-in-brackets: 0 # TODO(krotscheck): Activate & Fix
+
+  # require or disallow spaces inside parentheses
+  # http://eslint.org/docs/rules/space-in-parens
+  space-in-parens: 0 # TODO(krotscheck): Activate & Fix
+
+  # Require spaces around operators
+  # http://eslint.org/docs/rules/space-infix-ops
+  space-infix-ops: 2
+
+  # Require a space after return, throw, and case
+  # http://eslint.org/docs/rules/space-return-throw-case
+  space-return-throw-case: 2
+
+  # Require or disallow spaces before/after unary operators (words on by default, nonwords)
+  # http://eslint.org/docs/rules/space-unary-ops
+  space-unary-ops:
+    - 2
+    - words: true
+      nonwords: false
+
+  # (deprecated) Require or disallow spaces before/after unary operators (words on by default, nonwords)
+  # http://eslint.org/docs/rules/space-unary-word-ops
+  space-unary-word-ops: 0
+
+  # Require or disallow a space immediately following the // in a line comment
+  # http://eslint.org/docs/rules/spaced-line-comment
+  spaced-line-comment: 0 # TODO(krotscheck): Activate & Fix
+
+  # require regex literals to be wrapped in parentheses
+  # http://eslint.org/docs/rules/wrap-regex
+  wrap-regex: 0
+
+
+  #############################################################################
+  # ECMAScript 6 (All Off)
+  #############################################################################
+  # enforce the spacing around the * in generator functions
+  # http://eslint.org/docs/rules/generator-star-spacing
+  generator-star-spacing: 0
+
+  # (deprecated) enforce the position of the * in generator functions
+  # http://eslint.org/docs/rules/generator-star
+  generator-star: 0
+
+  # require let or const instead of var
+  # http://eslint.org/docs/rules/no-var
+  no-var: 0
+
+  # require method and property shorthand syntax for object literals
+  # http://eslint.org/docs/rules/object-shorthand
+  object-shorthand: 0
+
+  # suggest using of const declaration for variables that are never modified after declared
+  # http://eslint.org/docs/rules/prefer-const
+  prefer-const: 0
+
+
+  #############################################################################
+  # Legacy
+  #############################################################################
+  # specify the maximum depth that blocks can be nested
+  # http://eslint.org/docs/rules/max-depth
+  max-depth: 0
+
+  # specify the maximum length of a line in your program
+  # http://eslint.org/docs/rules/max-len
+  max-len:
+    - 2 # TODO(krotscheck): Activate & Fix
+    - 100
+
+  # Limits the number of parameters that can be used in function declaration.
+  # http://eslint.org/docs/rules/max-params
+  max-params: 0
+
+  # Specify the maximum number of statements allowed in a function
+  # http://eslint.org/docs/rules/max-statements
+  max-statements: 0
+
+  # Disallow use of bitwise operators
+  # http://eslint.org/docs/rules/no-bitwise
+  no-bitwise: 0
+
+  # Disallow use of unary operators, ++ and --
+  # http://eslint.org/docs/rules/no-plusplus
+  no-plusplus: 0
+
+
+# We only support ECMA5, disable everything else.
+ecmaFeatures:
+  arrowFunctions: false
+  binaryLiterals: false
+  blockBindings: false
+  classes: false
+  defaultParams: false
+  destructuring: false
+  forOf: false
+  generators: false
+  modules: false
+  objectLiteralComputedProperties: false
+  objectLiteralDuplicateProperties: false
+  objectLiteralShorthandMethods: false
+  objectLiteralShorthandProperties: false
+  octalLiterals: false
+  regexUFlag: false
+  regexYFlag: false
+  restParams: false
+  spread: false
+  superInFunctions: false
+  templateStrings: false
+  unicodeCodePointEscapes: false
+  globalReturn: false
+  jsx: false

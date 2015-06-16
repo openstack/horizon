@@ -271,9 +271,9 @@
       var availableRam = maxTotalRam - totalRamUsed;
       var ramRequired = instanceCount * flavor.ram;
       if (ramRequired > availableRam) {
-        // jscs:disable maximumLineLength
+        /*eslint-disable max-len */
         messages.ram = gettext('This flavor requires more RAM than your quota allows. Please select a smaller flavor or decrease the instance count.');
-        // jscs:enable maximumLineLength
+        /*eslint-enable max-len */
       }
 
       // Check VCPU resources
@@ -284,18 +284,18 @@
       var availableCores = maxTotalCores - totalCoresUsed;
       var coresRequired = instanceCount * flavor.vcpus;
       if (coresRequired > availableCores) {
-        // jscs:disable maximumLineLength
+        /*eslint-disable max-len */
         messages.vcpus = gettext('This flavor requires more VCPUs than your quota allows. Please select a smaller flavor or decrease the instance count.');
-        // jscs:enable maximumLineLength
+        /*eslint-enable max-len */
       }
 
       // Check source minimum requirements against this flavor
       var sourceType = launchInstanceModel.newInstanceSpec.source_type;
       if (source && sourceType && sourceType.type === 'image') {
         if (source.min_disk > 0 && source.min_disk > flavor.disk) {
-          // jscs:disable maximumLineLength
+          /*eslint-disable max-len */
           var srcMinDiskMsg = gettext('The selected image source requires a flavor with at least %(minDisk)s GB of root disk. Select a flavor with a larger root disk or use a different image source.');
-          // jscs:enable maximumLineLength
+          /*eslint-enable max-len */
           messages.disk = interpolate(
             srcMinDiskMsg,
             { minDisk: source.min_disk },
@@ -303,9 +303,9 @@
           );
         }
         if (source.min_ram > 0 && source.min_ram > flavor.ram) {
-          // jscs:disable maximumLineLength
+          /*eslint-disable max-len */
           var srcMinRamMsg = gettext('The selected image source requires a flavor with at least %(minRam)s MB of RAM. Select a flavor with more RAM or use a different image source.');
-          // jscs:enable maximumLineLength
+          /*eslint-enable max-len */
           messages.ram = interpolate(
             srcMinRamMsg,
             { minRam: source.min_ram },

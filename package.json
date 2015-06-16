@@ -6,8 +6,9 @@
   "repository": "none",
   "license": "Apache 2.0",
   "devDependencies": {
+    "eslint": "^0.23.0",
+    "eslint-plugin-angular": "0.0.10",
     "jasmine-core": "2.2.0",
-    "jscs": "1.13.1",
     "karma": "0.12.31",
     "karma-chrome-launcher": "0.1.8",
     "karma-cli": "0.0.4",
@@ -20,7 +21,7 @@
   "scripts": {
     "postinstall": "if [ ! -d .venv ]; then tox -epy27 --notest; fi",
     "test": "karma start horizon/karma.conf.js --single-run && karma start openstack_dashboard/karma.conf.js --single-run",
-    "lint": "jscs --no-colors horizon/static/horizon/js horizon/static/horizon/tests horizon/static/framework/ openstack_dashboard/static/dashboard/"
+    "lint": "eslint --no-color horizon/static openstack_dashboard/static"
   },
   "dependencies": {}
 }

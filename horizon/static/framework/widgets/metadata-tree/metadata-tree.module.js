@@ -32,9 +32,9 @@
    */
   .constant('horizon.framework.widgets.metadata-tree.defaults', {
     text: {
-      // jscs:disable maximumLineLength
+      /*eslint-disable max-len */
       help: gettext('You can specify resource metadata by moving items from the left column to the right column. In the left columns there are metadata definitions from the Glance Metadata Catalog. Use the "Other" option to add metadata with the key of your choice.'),
-      // jscs:enable maximumLineLength
+      /*eslint-enable max-len */
       min: gettext('Min'),
       max: gettext('Max'),
       minLength: gettext('Min length'),

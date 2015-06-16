@@ -32,7 +32,7 @@
 
     ctrl.title = gettext('Configuration Help');
 
-    // jscs:disable maximumLineLength
+    /*eslint-disable max-len */
     var customScriptMap = { cloutInit: 'cloud-init' };
     var customScriptText = gettext('Custom scripts are attached to instances to perform specific actions when the instance is launched. For example, if you are unable to install <samp>%(cloutInit)s</samp> inside a guest operating system, you can use a custom script to get a public key and add it to the user account.');
 
@@ -42,6 +42,6 @@
       gettext('An advanced option available when launching an instance is disk partitioning. There are two disk partition options. Selecting <b>Automatic</b> resizes the disk and sets it to a single partition. Selecting <b>Manual</b> allows you to create multiple partitions on the disk.'),
       gettext('Check the <b>Configuration Drive</b> box if you want to write metadata to a special configuration drive. When the instance boots, it attaches to the <b>Configuration Drive</b> and accesses the metadata.')
     ];
-    // jscs:enable maximumLineLength
+    /*eslint-enable max-len */
   }
 })();

@@ -32,22 +32,22 @@
     ctrl.title = gettext('Network Help');
 
     ctrl.paragraphs = [
-      // jscs:disable maximumLineLength
+      /*eslint-disable max-len */
       gettext('Provider networks are created by administrators. These networks map to an existing physical network in the data center.'),
       gettext('Project networks are created by users. These networks are fully isolated and are project-specific.'),
       gettext('An <b>External</b> network is set up by an administrator. If you want an instance to communicate outside of the data center, then attach a router between your <b>Project</b> network and the <b>External</b> network. You can use the <b>Network Topology</b> view to connect the router to the two networks.'),
       gettext('A floating IP allows instances to be addressable from an external network. Floating IPs are not allocated to instances at creation time and may be assigned after the instance is created. To attach a floating IP, go to the <b>Instances</b> view and click the <b>Actions</b> menu to the right of an instance. Then, select the <b>Associate Floating IP</b> option and enter the necessary details.'),
       gettext('Administrators set up the pool of floating IPs that are available to attach to instances.')
-      // jscs:enable maximumLineLength
+      /*eslint-enable max-len */
     ];
 
     ctrl.networkCharTitle = gettext('Network characteristics');
     ctrl.networkCharParagraphs = [
-      // jscs:disable maximumLineLength
+      /*eslint-disable max-len */
       gettext('The subnet identifies a sub-section of a network. A subnet is specified in CIDR format. A typical CIDR format looks like <samp>192.xxx.x.x/24</samp>.'),
       gettext('If a network is shared, then all users in the project can access the network.'),
       gettext('When the <b>Admin State</b> for a network is set to <b>Up</b>, then the network is available for use. You can set the <b>Admin State</b> to <b>Down</b> if you are not ready for other users to access the network.'),
-      // jscs:enable maximumLineLength
+      /*eslint-enable max-len */
       gettext('The status indicates whether the network has an active connection.')
     ];
   }

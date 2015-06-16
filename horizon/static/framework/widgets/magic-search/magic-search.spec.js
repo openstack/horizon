@@ -214,9 +214,9 @@
       expect($magicScope.strings.prompt).toBe('');
     });
 
-    // jscs:disable maximumLineLength
+    /*eslint-disable max-len */
     it('should call resetState, initFacets and emit checkFacets on removeFacet when facet selected',
-    // jscs:enable maximumLineLength
+    /*eslint-enable max-len */
       function () {
         var initialSearch = {
           name: 'name=myname',

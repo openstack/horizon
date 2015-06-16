@@ -55,15 +55,16 @@
     var ctrl = this;
     ctrl.label = {
       title: gettext('Instance Details'),
-      // jscs:disable maximumLineLength
+      /*eslint-disable max-len */
       subtitle: gettext('Please provide the initial host name for the instance, the availability zone where it will be deployed, and the instance count. Increase the Count to create multiple instances with the same settings.'),
-      // jscs:enable maximumLineLength
+      /*eslint-enable max-len */
       instanceName: gettext('Instance Name'),
       availabilityZone: gettext('Availability Zone'),
       instance_count: gettext('Count'),
       instanceSourceTitle: gettext('Instance Source'),
-      // jscs:disable maximumLineLength
+      /*eslint-disable max-len */
       instanceSourceSubTitle: gettext('Instance source is the template used to create an instance. You can use a snapshot of an existing instance, an image, or a volume (if enabled). You can also choose to use persistent storage by creating a new volume.'),
+      /*eslint-enable max-len */
       bootSource: gettext('Select Boot Source'),
       volumeSize: gettext('Size (GB)'),
       volumeCreate: gettext('Create New Volume'),
@@ -75,9 +76,9 @@
     };
 
     // Error text for invalid fields
-    // jscs:disable maximumLineLength
+    /*eslint-disable max-len */
     ctrl.bootSourceTypeError = gettext('Volumes can only be attached to 1 active instance at a time. Please either set your instance count to 1 or select a different source type.');
-    // jscs:enable maximumLineLength
+    /*eslint-enable max-len */
     ctrl.instanceNameError = gettext('A name is required for your instance.');
     ctrl.instanceCountError = gettext(
       'Instance count is required and must be an integer of at least 1'
@@ -355,9 +356,9 @@
       angular.extend(ctrl.helpText, {
         noneAllocText: gettext('Select a source from those listed below.'),
         availHelpText: gettext('Select one'),
-        // jscs:disable maximumLineLength
+        /*eslint-disable max-len */
         volumeAZHelpText: gettext('When selecting volume as boot source, please ensure the instance\'s availability zone is compatible with your volume\'s availability zone.')
-        // jscs:enable maximumLineLength
+        /*eslint-enable max-len */
       });
     }
 

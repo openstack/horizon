@@ -54,7 +54,7 @@
           displayedAllocated: []
         };
 
-        // jscs:disable maximumLineLength
+        /*eslint-disable max-len */
         var markup = '<transfer-table tr-model="tableData">' +
           '<allocated>' +
           '<table st-table="tableData.displayedAllocated" st-safe-src="tableData.allocated" hz-table>' +
@@ -81,7 +81,7 @@
           '</table>' +
           '</available>' +
           '</transfer-table>';
-        // jscs:enable maximumLineLength
+        /*eslint-enable max-len */
 
         $element = angular.element(markup);
         $compile($element)($scope);
@@ -153,7 +153,7 @@
           maxAllocation: 2
         };
 
-        // jscs:disable maximumLineLength
+        /*eslint-disable max-len */
         var markup = '<transfer-table tr-model="tableData" limits="limits">' +
           '<available>' +
           '<table st-table="tableData.available" hz-table>' +
@@ -180,7 +180,7 @@
           '</table>' +
           '</allocated>' +
           '</transfer-table>';
-        // jscs:enable maximumLineLength
+        /*eslint-enable max-len */
 
         $element = angular.element(markup);
         $compile($element)($scope);
