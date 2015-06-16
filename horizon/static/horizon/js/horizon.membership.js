@@ -179,10 +179,6 @@ horizon.membership = {
     var $roles_display = $dropdown.children('.dropdown-toggle').children('.roles_display');
     var roles_to_display = [];
     for (var i = 0; i < role_ids.length; i++) {
-      if (i === 2) {
-        roles_to_display.push('...');
-        break;
-      }
       roles_to_display.push(horizon.membership.roles[step_slug][role_ids[i]]);
     }
     var text = roles_to_display.join(', ');

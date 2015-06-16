@@ -15,7 +15,7 @@ $body-min-width: 900px !default;
 $sidebar-background-color: #f9f9f9 !default;
 $sidebar-width: 220px !default;
 $border-color: #dddddd !default;
-$table-bg-odd: #f9f9f9 !default;
+$table-bg-odd: $table-bg-accent !default;
 $content-body-padding: 15px !default;
 
 
@@ -203,3 +203,13 @@ $magic-search-border-color: #cccccc !default;
 $magic-search-margin-bottom: 0 !default;
 $magic-search-border-radius: 3px !default;
 $magic-search-margin-padding: 2px !default;
+
+/* Member lists */
+$members-list-padding: 3px !default;
+$members-list-border: 1px solid $gray-light !default;
+// TODO: These values are hardcoded lengths but they are actually
+// very dependant on the modal size set in the theme.  We need
+// to eventually readdress these and calculate them dynamically
+$members-list-item-width: 130px !default;
+$members-list-item-max-width: 327px !default;
+$members-list-roles-width: 125px !default;
