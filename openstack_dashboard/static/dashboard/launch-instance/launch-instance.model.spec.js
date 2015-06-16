@@ -392,6 +392,10 @@
           model.newInstanceSpec.key_pair = [ { name: 'keypair1' } ];
           model.newInstanceSpec.security_groups = [ { id: 'adminId', name: 'admin' },
                                                     { id: 'demoId', name: 'demo' } ];
+          model.newInstanceSpec.vol_create = true;
+          model.newInstanceSpec.vol_delete_on_terminate = true;
+          model.newInstanceSpec.vol_device_name = "volTestName";
+          model.newInstanceSpec.vol_size = 10;
         });
 
         it('should set final spec in format required by Nova (Neutron disabled)', function() {
@@ -406,6 +410,21 @@
           expect(finalSpec.nics).toEqual(finalNetworks);
           expect(finalSpec.key_name).toBe('keypair1');
           expect(finalSpec.security_groups).toEqual([ 'admin', 'demo' ]);
+        });
+
+        it('should set final spec in format required for Block Device Mapping v2', function() {
+          var finalSpec = model.createInstance();
+          var expectedBlockDevice = [{
+              device_name: 'volTestName',
+              source_type: 'image',
+              destination_type: 'volume',
+              delete_on_termination: 1,
+              uuid: 'cirros',
+              boot_index: '0',
+              volume_size: 10
+            }];
+
+          expect(finalSpec.block_device_mapping_v2).toEqual(expectedBlockDevice);
         });
 
         it('should set final security groups using name when Neutron enabled', function() {
