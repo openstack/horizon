@@ -69,6 +69,7 @@ class AdminImagesTable(project_tables.ImagesTable):
     name = tables.Column("name",
                          link="horizon:admin:images:detail",
                          verbose_name=_("Image Name"))
+    tenant = tables.Column("tenant_name", verbose_name=_("Project"))
 
     class Meta(object):
         name = "images"
@@ -78,3 +79,5 @@ class AdminImagesTable(project_tables.ImagesTable):
         table_actions = (AdminCreateImage, AdminDeleteImage,
                          AdminImageFilterAction)
         row_actions = (AdminEditImage, UpdateMetadata, AdminDeleteImage)
+        columns = ('tenant', 'name', 'image_type', 'status', 'public',
+                   'protected', 'disk_format', 'size')
