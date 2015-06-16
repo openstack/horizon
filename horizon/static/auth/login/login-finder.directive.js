@@ -16,7 +16,8 @@
 (function() {
   'use strict';
 
-  angular.module('horizon.auth.login')
+  angular
+    .module('horizon.auth.login')
     /**
      * @ngdoc hzLoginFinder
      * @description
@@ -31,29 +32,33 @@
         restrict: 'A',
         link: function(scope, element) {
 
-          // test code does not have access to document
-          // so we are restricted to search through the element
+          /**
+           * Test code does not have access to document,
+           * so we are restricted to search through the element
+           */
           var authType = element.find('#id_auth_type');
           var userInput = element.find("#id_username").parents('.form-group');
           var passwordInput = element.find("#id_password").parents('.form-group');
           var domainInput = element.find('#id_domain').parents('form-group');
           var regionInput = element.find('#id_region').parents('form-group');
 
-          // helptext exists outside of element
-          // we have to traverse one node up
+          /**
+           * `helpText` exists outside of element,
+           * so we have to traverse one node up
+           */
           var helpText = element.parent().find('#help_text');
           helpText.hide();
 
-          // update the visuals
-          // when user selects item from dropdown
+          // Update the visuals when user selects item from dropdown
           function onChange() {
             $timeout(function() {
 
-              // if type is credential
-              // show the username and password fields
-              // and domain and region if applicable
+              /**
+               * If auth_type is 'credential', show the username and password fields,
+               * and domain and region if applicable
+               */
               scope.auth_type = authType.val();
-              switch(scope.auth_type) {
+              switch (scope.auth_type) {
                 case 'credentials':
                   userInput.show();
                   passwordInput.show();
@@ -66,26 +71,24 @@
                   domainInput.hide();
                   regionInput.hide();
               }
-
             }); // end of timeout
           } // end of onChange
 
-          // if authType field exists
-          // then websso was enabled
+          // If authType field exists then websso was enabled
           if (authType.length > 0) {
 
-            // programmatically insert help text after dropdown
-            // this is the only way to do it since template is
-            // generated server side via form_fields
+            /**
+             * Programmatically insert help text after dropdown.
+             * This is the only way to do it since template is generated server side,
+             * via form_fields
+             */
             authType.after(helpText);
             helpText.show();
 
-            // trigger the onChange on first load
-            // so that initial choice is auto-selected
+            // Trigger the onChange on first load so that initial choice is auto-selected
             onChange();
             authType.change(onChange);
           }
-
         } // end of link
       }; // end of return
     }); // end of directive

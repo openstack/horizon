@@ -1,6 +1,8 @@
 (function () {
   'use strict';
-  angular.module('horizon.framework.util.tech-debt')
+
+  angular
+    .module('horizon.framework.util.tech-debt')
     .controller('hzModalFormUpdateMetadataCtrl', [
       '$scope', '$window',
       function ($scope, $window) {

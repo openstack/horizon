@@ -92,7 +92,7 @@
               toBe(string);
           });
 
-          it('should add an ellipsis if needed ', function () {
+          it('should add an ellipsis if needed', function () {
             expect(hzUtils.truncate(string, 15, true)).
               toBe(string.slice(0, 12) + ellipsis);
 
@@ -116,7 +116,7 @@
             spyOn(rootScope, '$apply');
           });
 
-          it('should call a compile and apply ', function () {
+          it('should call a compile and apply', function () {
             hzUtils.loadAngular(element);
             //checks the use of apply function
             expect(rootScope.$apply).toHaveBeenCalled();
