@@ -17,7 +17,7 @@
   'use strict';
 
   describe('Launch Instance Flavor Step', function () {
-    describe('LaunchInstanceFlavorCtrl', function () {
+    describe('LaunchInstanceFlavorController', function () {
       var ctrl, scope, model, defaults;
 
       beforeEach(module('hz.dashboard.launch-instance'));
@@ -45,7 +45,7 @@
                      remainingColorClass: "class3"
                    };
 
-        ctrl = $controller('LaunchInstanceFlavorCtrl as selectFlavorCtrl',
+        ctrl = $controller('LaunchInstanceFlavorController as selectFlavorCtrl',
                            { $scope:scope,
                              'horizon.framework.widgets.charts.quotaChartDefaults': defaults,
                              launchInstanceModel: model });
@@ -412,13 +412,13 @@
 
     });
 
-    describe('LaunchInstanceFlavorHelpCtrl', function () {
+    describe('LaunchInstanceFlavorHelpController', function () {
       var ctrl;
 
       beforeEach(module('hz.dashboard.launch-instance'));
 
       beforeEach(inject(function ($controller) {
-        ctrl = $controller('LaunchInstanceFlavorHelpCtrl', {});
+        ctrl = $controller('LaunchInstanceFlavorHelpController', {});
       }));
 
       it('defines the title', function () {
