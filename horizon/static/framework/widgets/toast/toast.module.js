@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 (function() {
-  'use_strict';
+  'use strict';
 
   /**
    * @ngdoc overview
