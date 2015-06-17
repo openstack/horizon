@@ -36,7 +36,8 @@ class ImagesPage(basepage.BaseNavigationPage):
 
     CREATE_IMAGE_FORM_FIELDS = (
         "name", "description", "image_source", "image_location",
-        "image_file", "format", "architecture", "minimum_disk",
+        "image_file", "kernel", "ramdisk",
+        "format", "architecture", "minimum_disk",
         "minimum_ram", "public", "protected"
     )
 
