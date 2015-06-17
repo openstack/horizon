@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-04 21:20-0500\n"
-"PO-Revision-Date: 2015-06-04 15:51+0000\n"
+"POT-Creation-Date: 2015-06-16 21:47-0500\n"
+"PO-Revision-Date: 2015-06-16 19:14+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/"
 "de/)\n"
@@ -70,9 +70,6 @@ msgstr "Zurück"
 
 msgid "Cancel"
 msgstr "Abbrechen"
-
-msgid "Cannot get service catalog from keystone."
-msgstr "Dienstekatalog kann nicht von Keystone abgerufen werden."
 
 msgid "Click here to expand the row and view the errors."
 msgstr "Klicken Sie hier um die Zeile zu erweitern und die Fehler zu sehen."
@@ -152,9 +149,6 @@ msgstr "Erweitern, um zugewiesene Positionen zu sehen"
 
 msgid "Expand to see available items"
 msgstr "Erweitern, um verfügbare Positionen zu sehen"
-
-msgid "Extension is not enabled: %(extension)s"
-msgstr "Nicht aktivierte Erweiterung: %(extension)s"
 
 msgid "Filter"
 msgstr "Filter"
@@ -246,9 +240,6 @@ msgstr "Muster-Übereinstimmungsfehler"
 msgid "Please confirm your selection. "
 msgstr "Bitte bestätigen Sie Ihre Auswahl."
 
-msgid "Policy check failed."
-msgstr "Richtlinienüberprüfung fehlgeschlagen."
-
 msgid "Prompt"
 msgstr "Eingabeaufforderung"
 
@@ -275,12 +266,6 @@ msgstr "Wählen Sie einen Eintrag aus den verfügbaren Positionen aus"
 
 msgid "Select one"
 msgstr "Eines auswählen"
-
-msgid "Service type is not enabled: %(desiredType)s"
-msgstr "Dienst-Typ ist nicht aktiviert:  %(desiredType)s"
-
-msgid "Setting is not enabled: %(setting)s"
-msgstr "Einstellung ist nicht aktiviert: %(setting)s"
 
 msgid "Shutdown"
 msgstr "Herunterfahren"
@@ -326,84 +311,6 @@ msgstr ""
 
 msgid "Total"
 msgstr "Total"
-
-msgid "Unable to create the domain."
-msgstr "Die Domäne kann nicht erstellt werden."
-
-msgid "Unable to create the keypair."
-msgstr "Das Schlüsselpaar kann nicht erstellt werden."
-
-msgid "Unable to create the network."
-msgstr "Netzwerk kann nicht angelegt werden."
-
-msgid "Unable to create the project."
-msgstr "Das Projekt kann nicht erstellt werden."
-
-msgid "Unable to create the role."
-msgstr "Die Rolle kann nicht erstellt werden."
-
-msgid "Unable to create the server."
-msgstr "Der Server kann nicht erstellt werden."
-
-msgid "Unable to create the subnet."
-msgstr "Subnetz kann nicht erzeugt werden."
-
-msgid "Unable to create the user."
-msgstr "Benutzer kann nicht angelegt werden."
-
-msgid "Unable to delete the domain."
-msgstr "Die Domäne kann nicht gelöscht werden."
-
-msgid "Unable to delete the domains."
-msgstr "Die Domänen können nicht gelöscht werden."
-
-msgid "Unable to delete the project."
-msgstr "Das Projekt kann nicht gelöscht werden."
-
-msgid "Unable to delete the projects."
-msgstr "Die Projekte können nicht gelöscht werden."
-
-msgid "Unable to delete the role."
-msgstr "Die Rolle kann nicht gelöscht werden."
-
-msgid "Unable to delete the roles."
-msgstr "Die Rollen können nicht gelöscht werden."
-
-msgid "Unable to delete the user."
-msgstr "Benutzer kann nicht gelöscht werden."
-
-msgid "Unable to delete the users."
-msgstr "Benutzer können nicht gelöscht werden."
-
-msgid "Unable to edit the domain."
-msgstr "Die Domäne kann nicht bearbeitet werden."
-
-msgid "Unable to edit the project."
-msgstr "Das Projekt kann nicht bearbeitet werden."
-
-msgid "Unable to edit the role."
-msgstr "Die Rolle kann nicht bearbeitet werden."
-
-msgid "Unable to edit the user."
-msgstr "Benutzer kann nicht bearbeitet werden."
-
-msgid "Unable to fetch the service catalog."
-msgstr "Die Dienstekatalog kann nicht abgerufen werden."
-
-msgid "Unable to grant the role."
-msgstr "Die Rolle kann nicht gewährt werden."
-
-msgid "Unable to import the keypair."
-msgstr "Das Schlüsselpaar kann nicht importiert werden."
-
-msgid "Unable to retrieve settings."
-msgstr "Einstellungen können nicht abgerufen werden."
-
-msgid "Unable to retrieve the current user session."
-msgstr "Aktuelle Benutzersitzung kann nicht abgerufen werden."
-
-msgid "Unable to retrieve users."
-msgstr "Benutzer können nicht abgerufen werden."
 
 msgid "View Details"
 msgstr "Details anzeigen"

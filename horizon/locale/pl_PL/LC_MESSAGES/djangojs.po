@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-04 21:20-0500\n"
-"PO-Revision-Date: 2015-06-04 15:51+0000\n"
+"POT-Creation-Date: 2015-06-16 21:47-0500\n"
+"PO-Revision-Date: 2015-06-16 19:14+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/"
 "language/pl_PL/)\n"
@@ -69,9 +69,6 @@ msgstr "Wstecz"
 
 msgid "Cancel"
 msgstr "Anuluj"
-
-msgid "Cannot get service catalog from keystone."
-msgstr "Nie można pobrać katalogu usług z keystone."
 
 msgid "Click here to expand the row and view the errors."
 msgstr "Kliknij tutaj, aby rozszerzyć wiersz i wyświetlić błędy."
@@ -149,9 +146,6 @@ msgstr "Rozszerz, aby zobaczyć przydzielone pozycje"
 
 msgid "Expand to see available items"
 msgstr "Rozszerz, aby zobaczyć dostepne pozycje"
-
-msgid "Extension is not enabled: %(extension)s"
-msgstr "Rozszerzenie nie jest włączone: %(extension)s"
 
 msgid "Filter"
 msgstr "Filtr"
@@ -243,9 +237,6 @@ msgstr "Szablon się nie zgadza"
 msgid "Please confirm your selection. "
 msgstr "Należy potwierdzić wybór."
 
-msgid "Policy check failed."
-msgstr "Sprawdzenie polityki się nie powiodło."
-
 msgid "Re-order items using drag and drop"
 msgstr "Zmień kolejność pozycji poprzez przesuwanie i upuszczanie"
 
@@ -266,12 +257,6 @@ msgstr "Należy wybrać pozycję z listy dostępnych pozycji poniżej"
 
 msgid "Select one"
 msgstr "Wybierz jedno"
-
-msgid "Service type is not enabled: %(desiredType)s"
-msgstr "Typ usługi nie jest włączony: %(desiredType)s"
-
-msgid "Setting is not enabled: %(setting)s"
-msgstr "Ustawienie jest wyłączone: %(setting)s"
 
 msgid "Shutdown"
 msgstr "Wyłącz"
@@ -307,84 +292,6 @@ msgstr "Wystąpił problem w komunikacji z serwerem, proszę spróbować ponowni
 
 msgid "There was an error submitting the form. Please try again."
 msgstr "Wystąpił błąd podczas wysyłania formularza. Proszę spróbować ponownie."
-
-msgid "Unable to create the domain."
-msgstr "Nie można utworzyć domeny."
-
-msgid "Unable to create the keypair."
-msgstr "Nie można utworzyć pary kluczy."
-
-msgid "Unable to create the network."
-msgstr "Nie można utworzyć sieci."
-
-msgid "Unable to create the project."
-msgstr "Nie można utworzyć projektu."
-
-msgid "Unable to create the role."
-msgstr "Nie można utworzyć roli."
-
-msgid "Unable to create the server."
-msgstr "Nie można utworzyć serwera."
-
-msgid "Unable to create the subnet."
-msgstr "Nie można utworzyć podsieci."
-
-msgid "Unable to create the user."
-msgstr "Nie można utworzyć użytkownika."
-
-msgid "Unable to delete the domain."
-msgstr "Nie można usunąć domeny."
-
-msgid "Unable to delete the domains."
-msgstr "Nie można usunąć domen."
-
-msgid "Unable to delete the project."
-msgstr "Nie można usunąć projektu."
-
-msgid "Unable to delete the projects."
-msgstr "Nie można usunąć projektów."
-
-msgid "Unable to delete the role."
-msgstr "Nie można usunąć roli."
-
-msgid "Unable to delete the roles."
-msgstr "Nie mozna usunąć ról."
-
-msgid "Unable to delete the user."
-msgstr "Nie można usunąć użytkownika."
-
-msgid "Unable to delete the users."
-msgstr "Nie mozna usunąć użytkowników."
-
-msgid "Unable to edit the domain."
-msgstr "Nie można edytować domeny."
-
-msgid "Unable to edit the project."
-msgstr "Nie można edytować projektu."
-
-msgid "Unable to edit the role."
-msgstr "Nie można edytować roli."
-
-msgid "Unable to edit the user."
-msgstr "Nie można edytować użytkownika."
-
-msgid "Unable to fetch the service catalog."
-msgstr "Nie można pobrać katalogu usług."
-
-msgid "Unable to grant the role."
-msgstr "Nie można nadać roli."
-
-msgid "Unable to import the keypair."
-msgstr "Nie można zaimportować pary kluczy."
-
-msgid "Unable to retrieve settings."
-msgstr "Nie można pobrać ustawień."
-
-msgid "Unable to retrieve the current user session."
-msgstr "Nie można pobrać bieżącej sesji użytkownika."
-
-msgid "Unable to retrieve users."
-msgstr "Nie można pobrać użytkowników."
 
 msgid "View Details"
 msgstr "Wyświetl szczegóły"

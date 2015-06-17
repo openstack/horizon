@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-04 21:20-0500\n"
-"PO-Revision-Date: 2015-06-04 15:51+0000\n"
+"POT-Creation-Date: 2015-06-16 21:47-0500\n"
+"PO-Revision-Date: 2015-06-16 19:14+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/"
 "ru/)\n"
@@ -73,9 +73,6 @@ msgstr "Назад"
 
 msgid "Cancel"
 msgstr "Отмена"
-
-msgid "Cannot get service catalog from keystone."
-msgstr "Не удалось получить службу каталогов с Keystone."
 
 msgid "Click here to expand the row and view the errors."
 msgstr "Нажмите для показа ошибок."
@@ -154,9 +151,6 @@ msgstr "Показать выделенные элементы"
 
 msgid "Expand to see available items"
 msgstr "Показать все доступные элементы"
-
-msgid "Extension is not enabled: %(extension)s"
-msgstr "Расширение не включено: %(extension)s"
 
 msgid "Filter"
 msgstr "Фильтр"
@@ -248,9 +242,6 @@ msgstr "Несоответствие шаблону"
 msgid "Please confirm your selection. "
 msgstr "Подтвердите свой выбор."
 
-msgid "Policy check failed."
-msgstr "Проверка политики не удалась."
-
 msgid "Re-order items using drag and drop"
 msgstr "Переопределите элементы перемещением"
 
@@ -271,12 +262,6 @@ msgstr "Выберите элемент из доступных элементо
 
 msgid "Select one"
 msgstr "Выберите один"
-
-msgid "Service type is not enabled: %(desiredType)s"
-msgstr "Тип службы не включен: %(desiredType)s"
-
-msgid "Setting is not enabled: %(setting)s"
-msgstr "Настройка не включена: %(setting)s"
 
 msgid "Shutdown"
 msgstr "Выключение"
@@ -312,84 +297,6 @@ msgstr "Обнаружена проблема при соединении с с�
 
 msgid "There was an error submitting the form. Please try again."
 msgstr "При отправке формы произошла ошибка. Повторите попытку."
-
-msgid "Unable to create the domain."
-msgstr "Не удалось создать домен."
-
-msgid "Unable to create the keypair."
-msgstr "Не удалось создать пару ключей."
-
-msgid "Unable to create the network."
-msgstr "Не удалось создать сеть."
-
-msgid "Unable to create the project."
-msgstr "Не удалось создать проект"
-
-msgid "Unable to create the role."
-msgstr "Не удалось создать роль."
-
-msgid "Unable to create the server."
-msgstr "Не удалось создать сервер."
-
-msgid "Unable to create the subnet."
-msgstr "Не удалось создать подсеть."
-
-msgid "Unable to create the user."
-msgstr "Не удалось создать пользователя."
-
-msgid "Unable to delete the domain."
-msgstr "Не удалось удалить домен."
-
-msgid "Unable to delete the domains."
-msgstr "Не удалось удалить домены."
-
-msgid "Unable to delete the project."
-msgstr "Не удалось удалить проект."
-
-msgid "Unable to delete the projects."
-msgstr "Не удалось удалить проекты."
-
-msgid "Unable to delete the role."
-msgstr "Не удалось удалить роль."
-
-msgid "Unable to delete the roles."
-msgstr "Не удалось удалить роли."
-
-msgid "Unable to delete the user."
-msgstr "Не удалось удалить пользователя."
-
-msgid "Unable to delete the users."
-msgstr "Не удалось удалить пользователя."
-
-msgid "Unable to edit the domain."
-msgstr "Не удалось изменить домен."
-
-msgid "Unable to edit the project."
-msgstr "Не удалось изменить проект."
-
-msgid "Unable to edit the role."
-msgstr "Не удалось изменить роль."
-
-msgid "Unable to edit the user."
-msgstr "Не удалось изменить пользователя."
-
-msgid "Unable to fetch the service catalog."
-msgstr "Не удалось получить службу каталогов."
-
-msgid "Unable to grant the role."
-msgstr "Не удалось предоставить роль."
-
-msgid "Unable to import the keypair."
-msgstr "Не удалось импортировать пару ключей."
-
-msgid "Unable to retrieve settings."
-msgstr "Не удалось получить настройки."
-
-msgid "Unable to retrieve the current user session."
-msgstr "Не удалось получить текущую сессию пользователя."
-
-msgid "Unable to retrieve users."
-msgstr "Не удалось получить список пользователей."
 
 msgid "View Details"
 msgstr "Просмотреть детали"

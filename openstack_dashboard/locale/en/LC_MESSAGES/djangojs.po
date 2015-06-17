@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-08 01:19-0500\n"
+"POT-Creation-Date: 2015-06-17 01:05-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,7 +74,7 @@ msgstr ""
 msgid "Configuration Help"
 msgstr ""
 
-#: static/dashboard/launch-instance/configuration/configuration.js:90
+#: static/dashboard/launch-instance/configuration/configuration.js:91
 msgid ""
 "Custom scripts are attached to instances to perform specific actions when "
 "the instance is launched. For example, if you are unable to install <samp>"
@@ -82,14 +82,14 @@ msgid ""
 "script to get a public key and add it to the user account."
 msgstr ""
 
-#: static/dashboard/launch-instance/configuration/configuration.js:94
+#: static/dashboard/launch-instance/configuration/configuration.js:97
 msgid ""
 "Type your script directly into the Customization Script field. If your "
 "browser supports the HTML5 File API, you may choose to load your script from "
 "a file. The size of your script should not exceed 16 Kb."
 msgstr ""
 
-#: static/dashboard/launch-instance/configuration/configuration.js:95
+#: static/dashboard/launch-instance/configuration/configuration.js:98
 msgid ""
 "An advanced option available when launching an instance is disk "
 "partitioning. There are two disk partition options. Selecting <b>Automatic</"
@@ -97,7 +97,7 @@ msgid ""
 "b> allows you to create multiple partitions on the disk."
 msgstr ""
 
-#: static/dashboard/launch-instance/configuration/configuration.js:96
+#: static/dashboard/launch-instance/configuration/configuration.js:99
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to a "
 "special configuration drive. When the instance boots, it attaches to the "
@@ -109,61 +109,61 @@ msgstr ""
 msgid "Flavor"
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:34
+#: static/dashboard/launch-instance/flavor/flavor.js:35
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
 "the instance."
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:37
-#: static/dashboard/launch-instance/source/source.js:297
+#: static/dashboard/launch-instance/flavor/flavor.js:39
+#: static/dashboard/launch-instance/source/source.js:305
 msgid "Total Instances"
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:38
+#: static/dashboard/launch-instance/flavor/flavor.js:40
 msgid "Total VCPUs"
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:39
+#: static/dashboard/launch-instance/flavor/flavor.js:41
 msgid "Total RAM"
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:258
+#: static/dashboard/launch-instance/flavor/flavor.js:262
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:267
+#: static/dashboard/launch-instance/flavor/flavor.js:275
 msgid ""
 "This flavor requires more VCPUs than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:274
+#: static/dashboard/launch-instance/flavor/flavor.js:284
 msgid ""
 "The selected image source requires a flavor with at least %(minDisk)s GB of "
 "root disk. Select a flavor with a larger root disk or use a different image "
 "source."
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:278
+#: static/dashboard/launch-instance/flavor/flavor.js:294
 msgid ""
 "The selected image source requires a flavor with at least %(minRam)s MB of "
 "RAM. Select a flavor with more RAM or use a different image source."
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:294
+#: static/dashboard/launch-instance/flavor/flavor.js:315
 msgid "Flavor Help"
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:297
+#: static/dashboard/launch-instance/flavor/flavor.js:319
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
 "storage and memory resources that will be carved out for the instance."
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:298
+#: static/dashboard/launch-instance/flavor/flavor.js:320
 msgid ""
 "The flavor you select must have enough resources allocated to support the "
 "type of instance you are trying to create. Flavors that don't provide enough "
@@ -171,7 +171,7 @@ msgid ""
 "with a yellow warning icon."
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:299
+#: static/dashboard/launch-instance/flavor/flavor.js:321
 msgid ""
 "Administrators are responsible for creating and managing flavors. A custom "
 "flavor can be created for you or for a specific project where it is shared "
@@ -179,42 +179,42 @@ msgid ""
 "contact your administrator."
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/select-flavor-table.js:95
+#: static/dashboard/launch-instance/flavor/select-flavor-table.js:98
 msgid "Impact on your quota"
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/select-flavor-table.js:96
-#: static/dashboard/launch-instance/keypair/keypair.js:27
+#: static/dashboard/launch-instance/flavor/select-flavor-table.js:99
+#: static/dashboard/launch-instance/keypair/keypair.js:29
 #: static/dashboard/launch-instance/security-groups/security-groups.js:20
-#: static/dashboard/launch-instance/source/source.js:175
-#: static/dashboard/launch-instance/source/source.js:182
-#: static/dashboard/launch-instance/source/source.js:189
-#: static/dashboard/launch-instance/source/source.js:196
+#: static/dashboard/launch-instance/source/source.js:180
+#: static/dashboard/launch-instance/source/source.js:187
+#: static/dashboard/launch-instance/source/source.js:194
+#: static/dashboard/launch-instance/source/source.js:201
 msgid "Name"
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/select-flavor-table.js:97
+#: static/dashboard/launch-instance/flavor/select-flavor-table.js:100
 msgid "VCPUs"
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/select-flavor-table.js:98
+#: static/dashboard/launch-instance/flavor/select-flavor-table.js:101
 msgid "RAM"
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/select-flavor-table.js:99
+#: static/dashboard/launch-instance/flavor/select-flavor-table.js:102
 msgid "Total Disk"
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/select-flavor-table.js:100
+#: static/dashboard/launch-instance/flavor/select-flavor-table.js:103
 msgid "Root Disk"
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/select-flavor-table.js:101
+#: static/dashboard/launch-instance/flavor/select-flavor-table.js:104
 msgid "Ephemeral Disk"
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/select-flavor-table.js:102
-#: static/dashboard/launch-instance/source/source.js:205
+#: static/dashboard/launch-instance/flavor/select-flavor-table.js:105
+#: static/dashboard/launch-instance/source/source.js:210
 msgid "Public"
 msgstr ""
 
@@ -223,66 +223,66 @@ msgstr ""
 msgid "Key Pair"
 msgstr ""
 
-#: static/dashboard/launch-instance/keypair/keypair.js:26
+#: static/dashboard/launch-instance/keypair/keypair.js:27
 msgid ""
 "A key pair allows you to SSH into your newly created instance. You may "
 "select an existing key pair, import a key pair, or generate a new key pair."
 msgstr ""
 
-#: static/dashboard/launch-instance/keypair/keypair.js:28
+#: static/dashboard/launch-instance/keypair/keypair.js:30
 #: static/dashboard/launch-instance/security-groups/security-groups.js:21
-#: static/dashboard/launch-instance/source/source.js:190
-#: static/dashboard/launch-instance/source/source.js:197
+#: static/dashboard/launch-instance/source/source.js:195
+#: static/dashboard/launch-instance/source/source.js:202
 msgid "Description"
 msgstr ""
 
-#: static/dashboard/launch-instance/keypair/keypair.js:29
-#: static/dashboard/launch-instance/keypair/keypair.js:163
-#: static/dashboard/launch-instance/keypair/keypair.js:167
+#: static/dashboard/launch-instance/keypair/keypair.js:31
+#: static/dashboard/launch-instance/keypair/keypair.js:172
+#: static/dashboard/launch-instance/keypair/keypair.js:178
 msgid "Create Key Pair"
 msgstr ""
 
-#: static/dashboard/launch-instance/keypair/keypair.js:30
-#: static/dashboard/launch-instance/keypair/keypair.js:237
-#: static/dashboard/launch-instance/keypair/keypair.js:242
+#: static/dashboard/launch-instance/keypair/keypair.js:32
+#: static/dashboard/launch-instance/keypair/keypair.js:248
+#: static/dashboard/launch-instance/keypair/keypair.js:255
 msgid "Import Key Pair"
 msgstr ""
 
-#: static/dashboard/launch-instance/keypair/keypair.js:34
-#: static/dashboard/launch-instance/keypair/keypair.js:207
+#: static/dashboard/launch-instance/keypair/keypair.js:36
+#: static/dashboard/launch-instance/keypair/keypair.js:218
 msgid "Fingerprint"
 msgstr ""
 
-#: static/dashboard/launch-instance/keypair/keypair.js:35
-#: static/dashboard/launch-instance/keypair/keypair.js:209
-#: static/dashboard/launch-instance/keypair/keypair.js:240
+#: static/dashboard/launch-instance/keypair/keypair.js:37
+#: static/dashboard/launch-instance/keypair/keypair.js:220
+#: static/dashboard/launch-instance/keypair/keypair.js:253
 msgid "Public Key"
 msgstr ""
 
-#: static/dashboard/launch-instance/keypair/keypair.js:48
+#: static/dashboard/launch-instance/keypair/keypair.js:50
 msgid "Select a key pair from the available key pairs below."
 msgstr ""
 
-#: static/dashboard/launch-instance/keypair/keypair.js:122
+#: static/dashboard/launch-instance/keypair/keypair.js:124
 msgid "Key Pair Help"
 msgstr ""
 
-#: static/dashboard/launch-instance/keypair/keypair.js:125
-#: static/dashboard/launch-instance/keypair/keypair.js:279
+#: static/dashboard/launch-instance/keypair/keypair.js:128
+#: static/dashboard/launch-instance/keypair/keypair.js:293
 msgid ""
 "There are two ways to generate a key pair. From a Linux system, generate the "
 "key pair with the <samp>%(genKeyPairCmd)s</samp> command:"
 msgstr ""
 
-#: static/dashboard/launch-instance/keypair/keypair.js:131
-#: static/dashboard/launch-instance/keypair/keypair.js:282
+#: static/dashboard/launch-instance/keypair/keypair.js:137
+#: static/dashboard/launch-instance/keypair/keypair.js:298
 msgid ""
 "This command generates a pair of keys: a private key (%(privateKeyPath)s) "
 "and a public key (%(publicKeyPath)s)."
 msgstr ""
 
-#: static/dashboard/launch-instance/keypair/keypair.js:134
-#: static/dashboard/launch-instance/keypair/keypair.js:285
+#: static/dashboard/launch-instance/keypair/keypair.js:142
+#: static/dashboard/launch-instance/keypair/keypair.js:303
 msgid ""
 "From a Windows system, you can use PuTTYGen to create private/public keys. "
 "Use the PuTTY Key Generator to create and save the keys, then copy the "
@@ -290,69 +290,69 @@ msgid ""
 "samp> file."
 msgstr ""
 
-#: static/dashboard/launch-instance/keypair/keypair.js:137
+#: static/dashboard/launch-instance/keypair/keypair.js:146
 msgid "The key pair allows you to SSH into the instance."
 msgstr ""
 
-#: static/dashboard/launch-instance/keypair/keypair.js:162
-#: static/dashboard/launch-instance/keypair/keypair.js:203
-#: static/dashboard/launch-instance/keypair/keypair.js:236
+#: static/dashboard/launch-instance/keypair/keypair.js:171
+#: static/dashboard/launch-instance/keypair/keypair.js:214
+#: static/dashboard/launch-instance/keypair/keypair.js:247
 #: static/dashboard/launch-instance/launch-instance.js:13
 #: static/dashboard/launch-instance/launch-instance.js:56
 msgid "Launch Instance"
 msgstr ""
 
-#: static/dashboard/launch-instance/keypair/keypair.js:164
+#: static/dashboard/launch-instance/keypair/keypair.js:174
 msgid ""
 "Key Pairs are how you login to your instance after it is launched. Choose a "
 "key pair name you will recognize."
 msgstr ""
 
-#: static/dashboard/launch-instance/keypair/keypair.js:165
-#: static/dashboard/launch-instance/keypair/keypair.js:206
-#: static/dashboard/launch-instance/keypair/keypair.js:239
+#: static/dashboard/launch-instance/keypair/keypair.js:176
+#: static/dashboard/launch-instance/keypair/keypair.js:217
+#: static/dashboard/launch-instance/keypair/keypair.js:252
 msgid "Key Pair Name"
 msgstr ""
 
-#: static/dashboard/launch-instance/keypair/keypair.js:166
-#: static/dashboard/launch-instance/keypair/keypair.js:241
+#: static/dashboard/launch-instance/keypair/keypair.js:177
+#: static/dashboard/launch-instance/keypair/keypair.js:254
 msgid "Cancel"
 msgstr ""
 
-#: static/dashboard/launch-instance/keypair/keypair.js:168
-#: static/dashboard/launch-instance/keypair/keypair.js:243
+#: static/dashboard/launch-instance/keypair/keypair.js:179
+#: static/dashboard/launch-instance/keypair/keypair.js:256
 msgid "Required"
 msgstr ""
 
-#: static/dashboard/launch-instance/keypair/keypair.js:177
+#: static/dashboard/launch-instance/keypair/keypair.js:188
 msgid "Successfully created key pair %(name)s"
 msgstr ""
 
-#: static/dashboard/launch-instance/keypair/keypair.js:204
-#: static/dashboard/launch-instance/keypair/keypair.js:208
+#: static/dashboard/launch-instance/keypair/keypair.js:215
+#: static/dashboard/launch-instance/keypair/keypair.js:219
 msgid "Private Key"
 msgstr ""
 
-#: static/dashboard/launch-instance/keypair/keypair.js:205
+#: static/dashboard/launch-instance/keypair/keypair.js:216
 msgid "This is your new key pair. Copy this information and keep it secure."
 msgstr ""
 
-#: static/dashboard/launch-instance/keypair/keypair.js:210
+#: static/dashboard/launch-instance/keypair/keypair.js:221
 msgid "OK"
 msgstr ""
 
-#: static/dashboard/launch-instance/keypair/keypair.js:238
+#: static/dashboard/launch-instance/keypair/keypair.js:250
 msgid ""
 "Key Pairs are how you login to your instance after it is launched. Choose a "
 "key pair name you will recognize and paste your SSH public key into the "
 "space provided."
 msgstr ""
 
-#: static/dashboard/launch-instance/keypair/keypair.js:252
+#: static/dashboard/launch-instance/keypair/keypair.js:265
 msgid "Successfully imported key pair %(name)s"
 msgstr ""
 
-#: static/dashboard/launch-instance/keypair/keypair.js:276
+#: static/dashboard/launch-instance/keypair/keypair.js:289
 msgid "Import Key Pair Help"
 msgstr ""
 
@@ -361,7 +361,7 @@ msgid "Select Source"
 msgstr ""
 
 #: static/dashboard/launch-instance/launch-instance.js:29
-#: static/dashboard/launch-instance/network/network.js:51
+#: static/dashboard/launch-instance/network/network.js:52
 msgid "Networks"
 msgstr ""
 
@@ -370,129 +370,129 @@ msgstr ""
 msgid "Security Groups"
 msgstr ""
 
-#: static/dashboard/launch-instance/launch-instance.model.js:375
-#: static/dashboard/launch-instance/source/source.js:117
+#: static/dashboard/launch-instance/launch-instance.model.js:374
+#: static/dashboard/launch-instance/source/source.js:122
 msgid "Image"
 msgstr ""
 
-#: static/dashboard/launch-instance/launch-instance.model.js:383
-#: static/dashboard/launch-instance/source/source.js:118
+#: static/dashboard/launch-instance/launch-instance.model.js:385
+#: static/dashboard/launch-instance/source/source.js:123
 msgid "Instance Snapshot"
 msgstr ""
 
-#: static/dashboard/launch-instance/launch-instance.model.js:390
-#: static/dashboard/launch-instance/source/source.js:119
+#: static/dashboard/launch-instance/launch-instance.model.js:393
+#: static/dashboard/launch-instance/source/source.js:124
 msgid "Volume"
 msgstr ""
 
-#: static/dashboard/launch-instance/launch-instance.model.js:391
-#: static/dashboard/launch-instance/source/source.js:120
+#: static/dashboard/launch-instance/launch-instance.model.js:397
+#: static/dashboard/launch-instance/source/source.js:125
 msgid "Volume Snapshot"
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:52
+#: static/dashboard/launch-instance/network/network.js:53
 msgid "Networks provide the communication channels for instances in the cloud."
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:53
+#: static/dashboard/launch-instance/network/network.js:54
 msgid "Network"
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:54
+#: static/dashboard/launch-instance/network/network.js:55
 msgid "Subnets Associated"
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:55
+#: static/dashboard/launch-instance/network/network.js:56
 msgid "Shared"
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:56
+#: static/dashboard/launch-instance/network/network.js:57
 msgid "Admin State"
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:57
-#: static/dashboard/launch-instance/source/source.js:200
+#: static/dashboard/launch-instance/network/network.js:58
+#: static/dashboard/launch-instance/source/source.js:205
 msgid "Status"
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:58
+#: static/dashboard/launch-instance/network/network.js:59
 msgid "Profile"
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:59
+#: static/dashboard/launch-instance/network/network.js:60
 msgid "(None)"
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:60
-#: static/dashboard/launch-instance/source/source.js:93
+#: static/dashboard/launch-instance/network/network.js:61
+#: static/dashboard/launch-instance/source/source.js:96
 msgid "ID"
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:61
+#: static/dashboard/launch-instance/network/network.js:62
 msgid "Project"
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:62
+#: static/dashboard/launch-instance/network/network.js:63
 msgid "External Network"
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:63
+#: static/dashboard/launch-instance/network/network.js:64
 msgid "Provider Network"
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:64
-#: static/dashboard/launch-instance/source/source.js:178
-#: static/dashboard/launch-instance/source/source.js:185
-#: static/dashboard/launch-instance/source/source.js:192
+#: static/dashboard/launch-instance/network/network.js:65
+#: static/dashboard/launch-instance/source/source.js:183
+#: static/dashboard/launch-instance/source/source.js:190
+#: static/dashboard/launch-instance/source/source.js:197
 msgid "Type"
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:65
+#: static/dashboard/launch-instance/network/network.js:66
 msgid "Segmentation ID"
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:66
+#: static/dashboard/launch-instance/network/network.js:67
 msgid "Physical Network"
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:70
+#: static/dashboard/launch-instance/network/network.js:71
 msgid "Active"
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:71
-#: static/dashboard/launch-instance/network/network.js:76
+#: static/dashboard/launch-instance/network/network.js:72
+#: static/dashboard/launch-instance/network/network.js:77
 msgid "Down"
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:75
+#: static/dashboard/launch-instance/network/network.js:76
 msgid "Up"
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:91
+#: static/dashboard/launch-instance/network/network.js:92
 msgid "Select networks from those listed below."
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:92
+#: static/dashboard/launch-instance/network/network.js:93
 msgid "Select at least one network"
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:100
+#: static/dashboard/launch-instance/network/network.js:101
 msgid "Network Help"
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:103
+#: static/dashboard/launch-instance/network/network.js:105
 msgid ""
 "Provider networks are created by administrators. These networks map to an "
 "existing physical network in the data center."
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:104
+#: static/dashboard/launch-instance/network/network.js:106
 msgid ""
 "Project networks are created by users. These networks are fully isolated and "
 "are project-specific."
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:105
+#: static/dashboard/launch-instance/network/network.js:107
 msgid ""
 "An <b>External</b> network is set up by an administrator. If you want an "
 "instance to communicate outside of the data center, then attach a router "
@@ -501,7 +501,7 @@ msgid ""
 "networks."
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:106
+#: static/dashboard/launch-instance/network/network.js:108
 msgid ""
 "A floating IP allows instances to be addressable from an external network. "
 "Floating IPs are not allocated to instances at creation time and may be "
@@ -511,35 +511,35 @@ msgid ""
 "necessary details."
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:107
+#: static/dashboard/launch-instance/network/network.js:109
 msgid ""
 "Administrators set up the pool of floating IPs that are available to attach "
 "to instances."
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:110
+#: static/dashboard/launch-instance/network/network.js:113
 msgid "Network characteristics"
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:112
+#: static/dashboard/launch-instance/network/network.js:116
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "
 "CIDR format. A typical CIDR format looks like <samp>192.xxx.x.x/24</samp>."
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:113
+#: static/dashboard/launch-instance/network/network.js:117
 msgid ""
 "If a network is shared, then all users in the project can access the network."
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:114
+#: static/dashboard/launch-instance/network/network.js:118
 msgid ""
 "When the <b>Admin State</b> for a network is set to <b>Up</b>, then the "
 "network is available for use. You can set the <b>Admin State</b> to <b>Down</"
 "b> if you are not ready for other users to access the network."
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.js:115
+#: static/dashboard/launch-instance/network/network.js:120
 msgid "The status indicates whether the network has an active connection."
 msgstr ""
 
@@ -571,19 +571,19 @@ msgstr ""
 msgid "Remote"
 msgstr ""
 
-#: static/dashboard/launch-instance/security-groups/security-groups.js:44
+#: static/dashboard/launch-instance/security-groups/security-groups.js:45
 msgid "Select one or more security groups from the available groups below."
 msgstr ""
 
-#: static/dashboard/launch-instance/security-groups/security-groups.js:45
+#: static/dashboard/launch-instance/security-groups/security-groups.js:47
 msgid "Select one or more"
 msgstr ""
 
-#: static/dashboard/launch-instance/security-groups/security-groups.js:64
+#: static/dashboard/launch-instance/security-groups/security-groups.js:65
 msgid "Security Groups Help"
 msgstr ""
 
-#: static/dashboard/launch-instance/security-groups/security-groups.js:67
+#: static/dashboard/launch-instance/security-groups/security-groups.js:69
 msgid ""
 "Security groups define a set of IP filter rules that determine how network "
 "traffic flows to and from an instance. Users can add additional rules to an "
@@ -593,12 +593,12 @@ msgid ""
 "b>."
 msgstr ""
 
-#: static/dashboard/launch-instance/security-groups/security-groups.js:68
+#: static/dashboard/launch-instance/security-groups/security-groups.js:71
 msgid ""
 "Security groups are project-specific and cannot be shared across projects."
 msgstr ""
 
-#: static/dashboard/launch-instance/security-groups/security-groups.js:69
+#: static/dashboard/launch-instance/security-groups/security-groups.js:73
 msgid ""
 "If a security group is not associated with an instance before it is "
 "launched, then you will have very limited access to the instance after it is "
@@ -606,187 +606,187 @@ msgid ""
 msgstr ""
 
 #: static/dashboard/launch-instance/source/source.js:81
-#: static/dashboard/launch-instance/source/source.js:504
+#: static/dashboard/launch-instance/source/source.js:511
 msgid "Instance Details"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:82
+#: static/dashboard/launch-instance/source/source.js:83
 msgid ""
 "Please provide the initial host name for the instance, the availability zone "
 "where it will be deployed, and the instance count. Increase the Count to "
 "create multiple instances with the same settings."
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:83
+#: static/dashboard/launch-instance/source/source.js:85
 msgid "Instance Name"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:84
-#: static/dashboard/launch-instance/source/source.js:193
+#: static/dashboard/launch-instance/source/source.js:86
+#: static/dashboard/launch-instance/source/source.js:198
 msgid "Availability Zone"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:85
+#: static/dashboard/launch-instance/source/source.js:87
 msgid "Count"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:86
-#: static/dashboard/launch-instance/source/source.js:510
+#: static/dashboard/launch-instance/source/source.js:88
+#: static/dashboard/launch-instance/source/source.js:519
 msgid "Instance Source"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:87
+#: static/dashboard/launch-instance/source/source.js:90
 msgid ""
 "Instance source is the template used to create an instance. You can use a "
 "snapshot of an existing instance, an image, or a volume (if enabled). You "
 "can also choose to use persistent storage by creating a new volume."
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:88
+#: static/dashboard/launch-instance/source/source.js:91
 msgid "Select Boot Source"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:89
+#: static/dashboard/launch-instance/source/source.js:92
 msgid "Size (GB)"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:90
+#: static/dashboard/launch-instance/source/source.js:93
 msgid "Create New Volume"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:91
+#: static/dashboard/launch-instance/source/source.js:94
 msgid "Device Name"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:92
+#: static/dashboard/launch-instance/source/source.js:95
 msgid "Delete Volume on Terminate"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:94
+#: static/dashboard/launch-instance/source/source.js:97
 msgid "Min Ram"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:95
+#: static/dashboard/launch-instance/source/source.js:98
 msgid "Min Disk"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:100
+#: static/dashboard/launch-instance/source/source.js:103
 msgid ""
 "Volumes can only be attached to 1 active instance at a time. Please either "
 "set your instance count to 1 or select a different source type."
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:101
+#: static/dashboard/launch-instance/source/source.js:105
 msgid "A name is required for your instance."
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:102
+#: static/dashboard/launch-instance/source/source.js:107
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:103
+#: static/dashboard/launch-instance/source/source.js:109
 msgid "Volume size is required and must be an integer"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:108
+#: static/dashboard/launch-instance/source/source.js:113
 msgid "Yes"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:109
+#: static/dashboard/launch-instance/source/source.js:114
 msgid "No"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:176
-#: static/dashboard/launch-instance/source/source.js:183
+#: static/dashboard/launch-instance/source/source.js:181
+#: static/dashboard/launch-instance/source/source.js:188
 msgid "Updated"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:177
-#: static/dashboard/launch-instance/source/source.js:184
-#: static/dashboard/launch-instance/source/source.js:191
-#: static/dashboard/launch-instance/source/source.js:198
+#: static/dashboard/launch-instance/source/source.js:182
+#: static/dashboard/launch-instance/source/source.js:189
+#: static/dashboard/launch-instance/source/source.js:196
+#: static/dashboard/launch-instance/source/source.js:203
 msgid "Size"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:179
-#: static/dashboard/launch-instance/source/source.js:186
+#: static/dashboard/launch-instance/source/source.js:184
+#: static/dashboard/launch-instance/source/source.js:191
 msgid "Visibility"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:199
+#: static/dashboard/launch-instance/source/source.js:204
 msgid "Created"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:205
+#: static/dashboard/launch-instance/source/source.js:210
 msgid "Private"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:262
+#: static/dashboard/launch-instance/source/source.js:267
 msgid "Select a source from those listed below."
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:263
+#: static/dashboard/launch-instance/source/source.js:268
 msgid "Select one"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:264
+#: static/dashboard/launch-instance/source/source.js:270
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "
 "availability zone is compatible with your volume's availability zone."
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:406
+#: static/dashboard/launch-instance/source/source.js:413
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:418
+#: static/dashboard/launch-instance/source/source.js:426
 msgid ""
 "The instance count must not exceed your quota available of "
 "%(maxInstanceCount)s instances"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:502
+#: static/dashboard/launch-instance/source/source.js:509
 msgid "Select Source Help"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:506
+#: static/dashboard/launch-instance/source/source.js:514
 msgid ""
 "An instance name is required and used to help you uniquely identify your "
 "instance in the dashboard."
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:507
+#: static/dashboard/launch-instance/source/source.js:515
 msgid ""
 "If you select an availability zone and plan to use the boot from volume "
 "option, make sure that the availability zone you select for the instance is "
 "the same availability zone where your bootable volume resides."
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:512
+#: static/dashboard/launch-instance/source/source.js:522
 msgid ""
 "If you want to create an instance that uses ephemeral storage, meaning the "
 "instance data is lost when the instance is deleted, then choose one of the "
 "following boot sources:"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:513
+#: static/dashboard/launch-instance/source/source.js:523
 msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:514
+#: static/dashboard/launch-instance/source/source.js:524
 msgid ""
 "<li><b>Instance Snapshot</b>: This option uses an instance snapshot to boot "
 "the instance.</li>"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:515
+#: static/dashboard/launch-instance/source/source.js:525
 msgid ""
 "If you want to create an instance that uses persistent storage, meaning the "
 "instance data is saved when the instance is deleted, then select one of the "
 "following boot options:"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:516
+#: static/dashboard/launch-instance/source/source.js:526
 msgid ""
 "<li><b>Image (with Create New Volume checked)</b>: This options uses an "
 "image to boot the instance, and creates a new volume to persist instance "
@@ -794,7 +794,7 @@ msgid ""
 "termination of the instance.</li>"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:517
+#: static/dashboard/launch-instance/source/source.js:527
 msgid ""
 "<li><b>Volume</b>: This option uses a volume that already exists. It does "
 "not create a new volume. You can choose to delete the volume on termination "
@@ -802,9 +802,234 @@ msgid ""
 "instance.</em></li>"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.js:518
+#: static/dashboard/launch-instance/source/source.js:528
 msgid ""
 "<li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
 "instance, and creates a new volume to persist instance data. You can choose "
 "to delete the volume on termination of the instance.</li>"
+msgstr ""
+
+#: static/openstack-service-api/cinder.service.js:54
+msgid "Unable to retrieve the volumes."
+msgstr ""
+
+#: static/openstack-service-api/cinder.service.js:81
+msgid "Unable to retrieve the volume snapshots."
+msgstr ""
+
+#: static/openstack-service-api/glance.service.js:45
+msgid "Unable to retrieve the image."
+msgstr ""
+
+#: static/openstack-service-api/glance.service.js:87
+msgid "Unable to retrieve the images."
+msgstr ""
+
+#: static/openstack-service-api/glance.service.js:150
+msgid "Unable to retrieve the namespaces."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:32
+msgid "Unable to retrieve the users."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:39
+msgid "Unable to create the user."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:46
+msgid "Unable to delete the users."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:81
+msgid "Unable to retrieve the current user session."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:88
+msgid "Unable to retrieve the user."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:96
+msgid "Unable to edit the user."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:103
+msgid "Unable to delete the user."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:111
+msgid "Unable to retrieve the roles."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:118
+msgid "Unable to create the role."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:125
+msgid "Unable to delete the roles."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:132
+msgid "Unable to retrieve the role."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:140
+msgid "Unable to edit the role."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:147
+msgid "Unable to delete the role."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:155
+msgid "Unable to retrieve the domains."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:162
+msgid "Unable to create the domain."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:169
+msgid "Unable to delete the domains."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:176
+msgid "Unable to retrieve the domain."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:184
+msgid "Unable to edit the domain."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:191
+msgid "Unable to delete the domain."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:200
+msgid "Unable to retrieve the projects."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:207
+msgid "Unable to create the project."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:214
+msgid "Unable to delete the projects."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:221
+msgid "Unable to retrieve the project."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:229
+msgid "Unable to edit the project."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:236
+msgid "Unable to delete the project."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:244
+msgid "Unable to grant the role."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:258
+msgid "Unable to fetch the service catalog."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:402
+msgid "Service type is not enabled: %(desiredType)s"
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:409
+msgid "Cannot get service catalog from keystone."
+msgstr ""
+
+#: static/openstack-service-api/neutron.service.js:46
+msgid "Unable to retrieve the networks."
+msgstr ""
+
+#: static/openstack-service-api/neutron.service.js:95
+msgid "Unable to create the network."
+msgstr ""
+
+#: static/openstack-service-api/neutron.service.js:115
+msgid "Unable to retrieve the subnets."
+msgstr ""
+
+#: static/openstack-service-api/neutron.service.js:179
+msgid "Unable to create the subnet."
+msgstr ""
+
+#: static/openstack-service-api/neutron.service.js:199
+msgid "Unable to retrieve the ports."
+msgstr ""
+
+#: static/openstack-service-api/nova.service.js:46
+msgid "Unable to retrieve the keypairs."
+msgstr ""
+
+#: static/openstack-service-api/nova.service.js:68
+msgid "Unable to import the keypair."
+msgstr ""
+
+#: static/openstack-service-api/nova.service.js:70
+msgid "Unable to create the keypair."
+msgstr ""
+
+#: static/openstack-service-api/nova.service.js:89
+msgid "Unable to retrieve the availability zones."
+msgstr ""
+
+#: static/openstack-service-api/nova.service.js:127
+msgid "Unable to retrieve the limits."
+msgstr ""
+
+#: static/openstack-service-api/nova.service.js:154
+msgid "Unable to create the server."
+msgstr ""
+
+#: static/openstack-service-api/nova.service.js:168
+msgid "Unable to retrieve the server."
+msgstr ""
+
+#: static/openstack-service-api/nova.service.js:198
+msgid "Unable to retrieve the extensions."
+msgstr ""
+
+#: static/openstack-service-api/nova.service.js:243
+msgid "Unable to retrieve the flavors."
+msgstr ""
+
+#: static/openstack-service-api/nova.service.js:261
+msgid "Unable to retrieve the flavor."
+msgstr ""
+
+#: static/openstack-service-api/nova.service.js:275
+msgid "Unable to retrieve the flavor extra specs."
+msgstr ""
+
+#: static/openstack-service-api/nova.service.js:322
+msgid "Extension is not enabled: %(extension)s."
+msgstr ""
+
+#: static/openstack-service-api/nova.service.js:329
+msgid "Cannot get the Nova extension list."
+msgstr ""
+
+#: static/openstack-service-api/policy.service.js:72
+msgid "Policy check failed."
+msgstr ""
+
+#: static/openstack-service-api/security-group.service.js:70
+msgid "Unable to retrieve the security groups."
+msgstr ""
+
+#: static/openstack-service-api/settings.service.js:58
+#: static/openstack-service-api/settings.service.spec.js:77
+msgid "Unable to retrieve settings."
+msgstr ""
+
+#: static/openstack-service-api/settings.service.js:242
+msgid "Setting is not enabled: %(setting)s"
 msgstr ""

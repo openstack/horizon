@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-05 01:18-0500\n"
+"POT-Creation-Date: 2015-06-17 01:05-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,42 +53,42 @@ msgid "%s bytes"
 msgstr ""
 
 #: static/framework/util/filters/filters.js:163
-#: static/horizon/js/horizon.tables.js:421
+#: static/horizon/js/horizon.tables.js:423
 #, c-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: static/framework/widgets/action-list/button-tooltip.js:15
+#: static/framework/widgets/action-list/button-tooltip.js:16
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
 "missing information."
 msgstr ""
 
-#: static/framework/widgets/charts/charts.js:91
+#: static/framework/widgets/charts/charts.module.js:107
 msgid "Current Usage"
 msgstr ""
 
-#: static/framework/widgets/charts/charts.js:93
+#: static/framework/widgets/charts/charts.module.js:109
 msgid "Added"
 msgstr ""
 
-#: static/framework/widgets/charts/charts.js:95
+#: static/framework/widgets/charts/charts.module.js:111
 msgid "Remaining"
 msgstr ""
 
-#: static/framework/widgets/charts/pie-chart.js:125
-#: static/framework/widgets/metadata-tree/metadata-tree.js:37
+#: static/framework/widgets/charts/pie-chart.directive.js:152
+#: static/framework/widgets/metadata-tree/metadata-tree.module.js:39
 msgid "Max"
 msgstr ""
 
-#: static/framework/widgets/charts/pie-chart.js:128
+#: static/framework/widgets/charts/pie-chart.directive.js:155
 msgid "Total"
 msgstr ""
 
 #: static/framework/widgets/magic-search/magic-search.spec.js:50
-#: static/framework/widgets/modal/modal.js:87
+#: static/framework/widgets/modal/modal.factory.js:66
 #: static/framework/widgets/wizard/wizard.js:10
 #: static/horizon/js/horizon.modals.js:33
 msgid "Cancel"
@@ -123,7 +123,7 @@ msgid "Shutdown"
 msgstr ""
 
 #: static/framework/widgets/magic-search/magic-search.spec.js:68
-#: static/framework/widgets/toast/toast.js:81
+#: static/framework/widgets/toast/toast.factory.js:59
 msgid "Error"
 msgstr ""
 
@@ -143,7 +143,7 @@ msgstr ""
 msgid "Detail Information"
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.js:35
+#: static/framework/widgets/metadata-tree/metadata-tree.module.js:36
 msgid ""
 "You can specify resource metadata by moving items from the left column to "
 "the right column. In the left columns there are metadata definitions from "
@@ -151,81 +151,81 @@ msgid ""
 "the key of your choice."
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.js:36
+#: static/framework/widgets/metadata-tree/metadata-tree.module.js:38
 msgid "Min"
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.js:38
+#: static/framework/widgets/metadata-tree/metadata-tree.module.js:40
 msgid "Min length"
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.js:39
+#: static/framework/widgets/metadata-tree/metadata-tree.module.js:41
 msgid "Max length"
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.js:40
+#: static/framework/widgets/metadata-tree/metadata-tree.module.js:42
 msgid "Pattern mismatch"
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.js:41
+#: static/framework/widgets/metadata-tree/metadata-tree.module.js:43
 msgid "Integer required"
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.js:42
+#: static/framework/widgets/metadata-tree/metadata-tree.module.js:44
 msgid "Decimal required"
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.js:43
+#: static/framework/widgets/metadata-tree/metadata-tree.module.js:45
 msgid "Required"
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.js:44
+#: static/framework/widgets/metadata-tree/metadata-tree.module.js:46
 msgid "Duplicate keys are not allowed"
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.js:45
+#: static/framework/widgets/metadata-tree/metadata-tree.module.js:47
 #: static/framework/widgets/table/basic-table.js:6
 #: static/horizon/js/horizon.forms.js:184
 msgid "Filter"
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.js:46
+#: static/framework/widgets/metadata-tree/metadata-tree.module.js:48
 msgid "Available Metadata"
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.js:47
+#: static/framework/widgets/metadata-tree/metadata-tree.module.js:49
 msgid "Existing Metadata"
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.js:48
+#: static/framework/widgets/metadata-tree/metadata-tree.module.js:50
 msgid "Custom"
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.js:49
+#: static/framework/widgets/metadata-tree/metadata-tree.module.js:51
 msgid "No available metadata"
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.js:50
+#: static/framework/widgets/metadata-tree/metadata-tree.module.js:52
 msgid "No existing metadata"
 msgstr ""
 
-#: static/framework/widgets/modal/modal.js:86
+#: static/framework/widgets/modal/modal.factory.js:65
 msgid "Submit"
 msgstr ""
 
-#: static/framework/widgets/toast/toast.js:77
+#: static/framework/widgets/toast/toast.factory.js:55
 msgid "Danger"
 msgstr ""
 
-#: static/framework/widgets/toast/toast.js:78
+#: static/framework/widgets/toast/toast.factory.js:56
 msgid "Warning"
 msgstr ""
 
-#: static/framework/widgets/toast/toast.js:79
+#: static/framework/widgets/toast/toast.factory.js:57
 msgid "Info"
 msgstr ""
 
-#: static/framework/widgets/toast/toast.js:80
+#: static/framework/widgets/toast/toast.factory.js:58
 msgid "Success"
 msgstr ""
 
@@ -310,231 +310,6 @@ msgstr ""
 msgid "Status: %s"
 msgstr ""
 
-#: static/horizon/js/angular/services/hz.api.cinder.js:47
-msgid "Unable to retrieve the volumes."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.cinder.js:74
-msgid "Unable to retrieve the volume snapshots."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.config.js:52
-#: static/horizon/js/angular/services/hz.api.config.spec.js:76
-msgid "Unable to retrieve settings."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.config.js:236
-msgid "Setting is not enabled: %(setting)s"
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.glance.js:38
-msgid "Unable to retrieve the image."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.glance.js:81
-msgid "Unable to retrieve the images."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.glance.js:144
-msgid "Unable to retrieve the namespaces."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:24
-msgid "Unable to retrieve users."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:31
-msgid "Unable to create the user."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:38
-msgid "Unable to delete the users."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:73
-msgid "Unable to retrieve the current user session."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:80
-msgid "Unable to retrieve the user."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:88
-msgid "Unable to edit the user."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:95
-msgid "Unable to delete the user."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:103
-msgid "Unable to retrieve the roles."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:110
-msgid "Unable to create the role."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:117
-msgid "Unable to delete the roles."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:124
-msgid "Unable to retrieve the role."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:132
-msgid "Unable to edit the role."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:139
-msgid "Unable to delete the role."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:147
-msgid "Unable to retrieve the domains."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:154
-msgid "Unable to create the domain."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:161
-msgid "Unable to delete the domains."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:168
-msgid "Unable to retrieve the domain."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:176
-msgid "Unable to edit the domain."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:183
-msgid "Unable to delete the domain."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:192
-msgid "Unable to retrieve the projects."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:199
-msgid "Unable to create the project."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:206
-msgid "Unable to delete the projects."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:213
-msgid "Unable to retrieve the project."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:221
-msgid "Unable to edit the project."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:228
-msgid "Unable to delete the project."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:236
-msgid "Unable to grant the role."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:250
-msgid "Unable to fetch the service catalog."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:385
-msgid "Service type is not enabled: %(desiredType)s"
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.keystone.js:392
-msgid "Cannot get service catalog from keystone."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.neutron.js:39
-msgid "Unable to retrieve the networks."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.neutron.js:88
-msgid "Unable to create the network."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.neutron.js:108
-msgid "Unable to retrieve the subnets."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.neutron.js:172
-msgid "Unable to create the subnet."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.neutron.js:192
-msgid "Unable to retrieve the ports."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.nova.js:39
-msgid "Unable to retrieve the keypairs."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.nova.js:61
-msgid "Unable to import the keypair."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.nova.js:63
-msgid "Unable to create the keypair."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.nova.js:82
-msgid "Unable to retrieve the availability zones."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.nova.js:120
-msgid "Unable to retrieve the limits."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.nova.js:147
-msgid "Unable to create the server."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.nova.js:161
-msgid "Unable to retrieve the server."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.nova.js:191
-msgid "Unable to retrieve the extensions."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.nova.js:236
-msgid "Unable to retrieve the flavors."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.nova.js:254
-msgid "Unable to retrieve the flavor."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.nova.js:268
-msgid "Unable to retrieve the flavor extra specs."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.nova.js:310
-msgid "Extension is not enabled: %(extension)s"
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.nova.js:317
-msgid "Cannot get Nova extension list."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.policy.js:65
-msgid "Policy check failed."
-msgstr ""
-
-#: static/horizon/js/angular/services/hz.api.security-group.js:64
-msgid "Unable to retrieve the security groups."
-msgstr ""
-
 #: static/horizon/js/horizon.accordion_nav.js:80
 #: static/horizon/js/horizon.modals.js:315
 #: static/horizon/js/horizon.tabs.js:21
@@ -596,7 +371,7 @@ msgid "Error: "
 msgstr ""
 
 #: static/horizon/js/horizon.modals.js:229
-#: static/horizon/js/horizon.tables.js:246
+#: static/horizon/js/horizon.tables.js:248
 msgid "Working"
 msgstr ""
 
@@ -658,7 +433,7 @@ msgid "View Instance Details"
 msgstr ""
 
 #: static/horizon/js/horizon.tables.js:46
-#: static/horizon/js/horizon.tables.js:434
+#: static/horizon/js/horizon.tables.js:436
 msgid "No items to display."
 msgstr ""
 
@@ -667,17 +442,17 @@ msgstr ""
 msgid "An error occurred while updating."
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:229
+#: static/horizon/js/horizon.tables.js:231
 #, c-format
 msgid "You have selected %s. "
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:231
+#: static/horizon/js/horizon.tables.js:233
 #, c-format
 msgid "Confirm %s"
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:232
+#: static/horizon/js/horizon.tables.js:234
 msgid "Please confirm your selection. "
 msgstr ""
 

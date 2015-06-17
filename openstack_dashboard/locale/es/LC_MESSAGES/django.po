@@ -10,13 +10,14 @@
 # Guillermo Vitas Gil <gvitgo@gmail.com>, 2015
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2014
 # Sergio Cuellar Valdes <scuellarv@kionetworks.com>, 2015
+# Veruska Perinotto <reaching.out@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-15 19:53-0500\n"
-"PO-Revision-Date: 2015-06-15 20:57+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-06-16 21:47-0500\n"
+"PO-Revision-Date: 2015-06-16 20:46+0000\n"
+"Last-Translator: Veruska Perinotto <reaching.out@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/"
 "es/)\n"
 "MIME-Version: 1.0\n"
@@ -1569,6 +1570,11 @@ msgctxt "current status of stack"
 msgid "Check In Progress"
 msgstr "Verificar en Progreso"
 
+msgid "Checked Stack"
+msgid_plural "Checked Stacks"
+msgstr[0] "Pila Revisada"
+msgstr[1] "Pilas Revisadas"
+
 msgid "Checksum"
 msgstr "Suma de comprobación"
 
@@ -2821,6 +2827,11 @@ msgid_plural "Delete Ports"
 msgstr[0] "Borrar Puerto"
 msgstr[1] "Borrar Puertos"
 
+msgid "Delete Static Route"
+msgid_plural "Delete Static Routes"
+msgstr[0] "Eliminar Ruta Estática"
+msgstr[1] "Eliminar Rutas Estáticas"
+
 msgid "Delete Subnet"
 msgid_plural "Delete Subnets"
 msgstr[0] "Borrar Subred"
@@ -2894,6 +2905,11 @@ msgid "Deleted Port"
 msgid_plural "Deleted Ports"
 msgstr[0] "Puerto Borrado"
 msgstr[1] "Puertos Borrados"
+
+msgid "Deleted Static Route"
+msgid_plural "Deleted Static Routes"
+msgstr[0] "Ruta Estática Eliminada"
+msgstr[1] "Rutas Estáticas Eliminadas"
 
 msgid "Deleted Subnet"
 msgid_plural "Deleted Subnets"
@@ -3003,6 +3019,11 @@ msgstr "Destino:"
 msgid "Detach Interface"
 msgstr "Desconectar interfaz"
 
+msgid "Detach Volume"
+msgid_plural "Detach Volumes"
+msgstr[0] "Desasociar volumen"
+msgstr[1] "Desasociar volúmenes"
+
 msgid "Detached"
 msgstr "Desasociado"
 
@@ -3012,6 +3033,11 @@ msgstr "Interfaz %(port)s desconectada para instancia %(instance)s."
 
 msgid "Detaching"
 msgstr "Desasociando"
+
+msgid "Detaching Volume"
+msgid_plural "Detaching Volumes"
+msgstr[0] "Desasociando volumen"
+msgstr[1] "Desasociando volúmenes"
 
 msgid "Details"
 msgstr "Detalles"
@@ -6033,6 +6059,9 @@ msgstr "No hay otros hosts disponibles."
 msgid "No other hosts available."
 msgstr "No hay otros hosts disponibles."
 
+msgid "No other volume types available"
+msgstr "No hay otros tipos de volumen disponibles"
+
 msgid "No plugin chosen"
 msgstr "No hay plugin seleccionado"
 
@@ -7284,6 +7313,16 @@ msgctxt "current status of stack"
 msgid "Resume In Progress"
 msgstr "Reanudar En Progreso"
 
+msgid "Resume Stack"
+msgid_plural "Resume Stacks"
+msgstr[0] "Reanudar Pila"
+msgstr[1] "Reanudar Pilas"
+
+msgid "Resumed Stack"
+msgid_plural "Resumed Stacks"
+msgstr[0] "Pila Reanudada"
+msgstr[1] "Pilas Reanudadas"
+
 msgctxt "Task status of an Instance"
 msgid "Resuming"
 msgstr "Reanudando"
@@ -7523,6 +7562,11 @@ msgstr "Programada copia de seguridad \"%(name)s\"."
 msgid "Scheduled deletion of %(data_type)s"
 msgstr "Programado el borrado de %(data_type)s"
 
+msgid "Scheduled deletion of Firewall"
+msgid_plural "Scheduled deletion of Firewalls"
+msgstr[0] "Borrado programado de Cortafuego"
+msgstr[1] "Borrado programado de Cortafuegos"
+
 msgid "Scheduled migration (pending confirmation) of Instance"
 msgid_plural "Scheduled migration (pending confirmation) of Instances"
 msgstr[0] "Cronograma de migración de instancia (pendiente de confirmación)"
@@ -7701,6 +7745,9 @@ msgstr "Seleccione una nueva plantilla para una vista preliminar de una pila."
 
 msgid "Select a new template to re-launch a stack."
 msgstr "Seleccione una nueva plantilla para relanzar una pila."
+
+msgid "Select a new volume type"
+msgstr "Seleccione un nuevo tipo de volumen"
 
 msgid "Select a plugin and version for a new Cluster template."
 msgstr "Seleccione un plugin y versión para una nueva plantilla Clúster."
@@ -8505,6 +8552,11 @@ msgctxt "current status of stack"
 msgid "Suspend In Progress"
 msgstr "Suspender En Progreso"
 
+msgid "Suspend Stack"
+msgid_plural "Suspend Stacks"
+msgstr[0] "Suspender Pila"
+msgstr[1] "Suspender Pilas"
+
 msgctxt "Current status of an Instance"
 msgid "Suspended"
 msgstr "Suspendida"
@@ -8512,6 +8564,11 @@ msgstr "Suspendida"
 msgctxt "Power state of an Instance"
 msgid "Suspended"
 msgstr "Suspendida"
+
+msgid "Suspended Stack"
+msgid_plural "Suspended Stacks"
+msgstr[0] "Pila Suspendida"
+msgstr[1] "Pilas Suspendidas"
 
 msgctxt "Task status of an Instance"
 msgid "Suspending"

@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-04 21:20-0500\n"
-"PO-Revision-Date: 2015-06-04 20:54+0000\n"
-"Last-Translator: Adriana Chisco Landazábal <achisco94@gmail.com>\n"
+"POT-Creation-Date: 2015-06-16 21:47-0500\n"
+"PO-Revision-Date: 2015-06-16 19:14+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/"
 "es/)\n"
 "MIME-Version: 1.0\n"
@@ -72,12 +72,6 @@ msgstr "Anterior"
 
 msgid "Cancel"
 msgstr "Cancelar "
-
-msgid "Cannot get Nova extension list."
-msgstr "No se puede obtener la lista de extensiones de Nova."
-
-msgid "Cannot get service catalog from keystone."
-msgstr "No se puede obtener el catálogo de servicios desde keystone."
 
 msgid "Click here to expand the row and view the errors."
 msgstr "Haga click aquí para ver los errores."
@@ -157,9 +151,6 @@ msgstr "Expandir para ver los ítems asociados"
 
 msgid "Expand to see available items"
 msgstr "Expandir para ver los ítems disponibles"
-
-msgid "Extension is not enabled: %(extension)s"
-msgstr "Extensión no habilitada: %(extension)s"
 
 msgid "Filter"
 msgstr "Filtrar"
@@ -251,9 +242,6 @@ msgstr "Discrepancia en el patrón"
 msgid "Please confirm your selection. "
 msgstr "Confirme su selección."
 
-msgid "Policy check failed."
-msgstr "Ha fallado la comprobación de política."
-
 msgid "Prompt"
 msgstr "Inmediato"
 
@@ -280,12 +268,6 @@ msgstr "Seleccione un ítem de los disponibles abajo"
 
 msgid "Select one"
 msgstr "Seleccione uno"
-
-msgid "Service type is not enabled: %(desiredType)s"
-msgstr "Tipo de servicio no habilitado: %(desiredType)s"
-
-msgid "Setting is not enabled: %(setting)s"
-msgstr "Ajuste no habilitado: %(setting)s"
 
 msgid "Shutdown"
 msgstr "Apagar"
@@ -329,157 +311,6 @@ msgstr "Ha ocurrido un error al enviar el formulario. Inténtelo de nuevo."
 
 msgid "Total"
 msgstr "Total"
-
-msgid "Unable to create the domain."
-msgstr "No ha sido posible crear el dominio."
-
-msgid "Unable to create the keypair."
-msgstr "No ha sido posible crear el par de claves."
-
-msgid "Unable to create the network."
-msgstr "No ha sido posible crear la red."
-
-msgid "Unable to create the project."
-msgstr "No ha sido posible crear el proyecto."
-
-msgid "Unable to create the role."
-msgstr "No ha sido posible crear el rol."
-
-msgid "Unable to create the server."
-msgstr "No ha sido posible crear el servidor."
-
-msgid "Unable to create the subnet."
-msgstr "No ha sido posible crear la subred."
-
-msgid "Unable to create the user."
-msgstr "No ha sido posible crear el usuario."
-
-msgid "Unable to delete the domain."
-msgstr "No ha sido posible borrar el dominio."
-
-msgid "Unable to delete the domains."
-msgstr "No ha sido posible borrar los dominios."
-
-msgid "Unable to delete the project."
-msgstr "No ha sido posible borrar el proyecto."
-
-msgid "Unable to delete the projects."
-msgstr "No ha sido posible borrar los proyectos."
-
-msgid "Unable to delete the role."
-msgstr "No ha sido posible borrar el rol."
-
-msgid "Unable to delete the roles."
-msgstr "No ha sido posible borrar los roles."
-
-msgid "Unable to delete the user."
-msgstr "No ha sido posible borrar el usuario."
-
-msgid "Unable to delete the users."
-msgstr "No ha sido posible borrar los usuarios."
-
-msgid "Unable to edit the domain."
-msgstr "No ha sido posible editar el dominio."
-
-msgid "Unable to edit the project."
-msgstr "No ha sido posible editar el proyecto."
-
-msgid "Unable to edit the role."
-msgstr "No ha sido posible editar el rol."
-
-msgid "Unable to edit the user."
-msgstr "No ha sido posible editar el usuario."
-
-msgid "Unable to fetch the service catalog."
-msgstr "No ha sido posible obtener el catálogo de servicios."
-
-msgid "Unable to grant the role."
-msgstr "No ha sido posible asignar el rol."
-
-msgid "Unable to import the keypair."
-msgstr "No ha sido posible importar el par de claves."
-
-msgid "Unable to retrieve settings."
-msgstr "No ha sido posible obtener los ajustes."
-
-msgid "Unable to retrieve the availability zones."
-msgstr "No ha sido posible recuperar las zonas de disponibilidad."
-
-msgid "Unable to retrieve the current user session."
-msgstr "No ha sido posible obtener la sesión de usuario actual."
-
-msgid "Unable to retrieve the domain."
-msgstr "No ha sido posible recuperar el dominio."
-
-msgid "Unable to retrieve the domains."
-msgstr "No ha sido posible recuperar los dominios."
-
-msgid "Unable to retrieve the extensions."
-msgstr "No ha sido posible recuperar las extensiones."
-
-msgid "Unable to retrieve the flavor extra specs."
-msgstr ""
-"No ha sido posible recuperar las especificaciones adicionales del flavor."
-
-msgid "Unable to retrieve the flavor."
-msgstr "No ha sido posible recuperar el flavor."
-
-msgid "Unable to retrieve the flavors."
-msgstr "No ha sido posible recuperar los flavors."
-
-msgid "Unable to retrieve the image."
-msgstr "No ha sido posible restablecer la imagen."
-
-msgid "Unable to retrieve the images."
-msgstr "No ha sido posible restablecer las imágenes."
-
-msgid "Unable to retrieve the keypairs."
-msgstr "No ha sido posible recuperar las claves."
-
-msgid "Unable to retrieve the limits."
-msgstr "No ha sido posible restablecer los límites."
-
-msgid "Unable to retrieve the namespaces."
-msgstr "No ha sido posible recuperar el espacio de nombres."
-
-msgid "Unable to retrieve the networks."
-msgstr "No ha sido posible recuperar las redes."
-
-msgid "Unable to retrieve the ports."
-msgstr "No ha sido posible recuperar los puertos."
-
-msgid "Unable to retrieve the project."
-msgstr "No ha sido posible recuperar el proyecto."
-
-msgid "Unable to retrieve the projects."
-msgstr "No ha sido posible recuperar los proyectos."
-
-msgid "Unable to retrieve the role."
-msgstr "No ha sido posible recuperar el rol."
-
-msgid "Unable to retrieve the roles."
-msgstr "No ha sido posible recuperar los roles."
-
-msgid "Unable to retrieve the security groups."
-msgstr "No ha sido posible recuperar los grupos de seguridad."
-
-msgid "Unable to retrieve the server."
-msgstr "No ha sido posible recuperar el servidor."
-
-msgid "Unable to retrieve the subnets."
-msgstr "No ha sido posible restablecer las subredes."
-
-msgid "Unable to retrieve the user."
-msgstr "No ha sido posible recuperar el usuario."
-
-msgid "Unable to retrieve the volume snapshots."
-msgstr "No ha sido posible recuperar las instantáneas de volumen."
-
-msgid "Unable to retrieve the volumes."
-msgstr "No ha sido posible restablecer los volúmenes."
-
-msgid "Unable to retrieve users."
-msgstr "No ha sido posible obtener los usuarios."
 
 msgid "View Details"
 msgstr "Ver detalles"

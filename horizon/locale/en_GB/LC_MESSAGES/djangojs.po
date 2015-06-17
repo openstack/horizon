@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-04 21:20-0500\n"
-"PO-Revision-Date: 2015-06-04 15:51+0000\n"
+"POT-Creation-Date: 2015-06-16 21:47-0500\n"
+"PO-Revision-Date: 2015-06-16 19:14+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/"
 "horizon/language/en_GB/)\n"
@@ -69,9 +69,6 @@ msgstr "Back"
 
 msgid "Cancel"
 msgstr "Cancel"
-
-msgid "Cannot get service catalog from keystone."
-msgstr "Cannot get service catalogue from keystone."
 
 msgid "Click here to expand the row and view the errors."
 msgstr "Click here to expand the row and view the errors."
@@ -151,9 +148,6 @@ msgstr "Expand to see allocated items"
 
 msgid "Expand to see available items"
 msgstr "Expand to see available items"
-
-msgid "Extension is not enabled: %(extension)s"
-msgstr "Extension is not enabled: %(extension)s"
 
 msgid "Filter"
 msgstr "Filter"
@@ -245,9 +239,6 @@ msgstr "Pattern mismatch"
 msgid "Please confirm your selection. "
 msgstr "Please confirm your selection. "
 
-msgid "Policy check failed."
-msgstr "Policy check failed."
-
 msgid "Re-order items using drag and drop"
 msgstr "Re-order items using drag and drop"
 
@@ -271,12 +262,6 @@ msgstr "Select an item from Available items below"
 
 msgid "Select one"
 msgstr "Select one"
-
-msgid "Service type is not enabled: %(desiredType)s"
-msgstr "Service type is not enabled: %(desiredType)s"
-
-msgid "Setting is not enabled: %(setting)s"
-msgstr "Setting is not enabled: %(setting)s"
 
 msgid "Shutdown"
 msgstr "Shutdown"
@@ -315,84 +300,6 @@ msgstr "There was an error submitting the form. Please try again."
 
 msgid "Total"
 msgstr "Total"
-
-msgid "Unable to create the domain."
-msgstr "Unable to create the domain."
-
-msgid "Unable to create the keypair."
-msgstr "Unable to create the keypair."
-
-msgid "Unable to create the network."
-msgstr "Unable to create the network."
-
-msgid "Unable to create the project."
-msgstr "Unable to create the project."
-
-msgid "Unable to create the role."
-msgstr "Unable to create the role."
-
-msgid "Unable to create the server."
-msgstr "Unable to create the server."
-
-msgid "Unable to create the subnet."
-msgstr "Unable to create the subnet."
-
-msgid "Unable to create the user."
-msgstr "Unable to create the user."
-
-msgid "Unable to delete the domain."
-msgstr "Unable to delete the domain."
-
-msgid "Unable to delete the domains."
-msgstr "Unable to delete the domains."
-
-msgid "Unable to delete the project."
-msgstr "Unable to delete the project."
-
-msgid "Unable to delete the projects."
-msgstr "Unable to delete the projects."
-
-msgid "Unable to delete the role."
-msgstr "Unable to delete the role."
-
-msgid "Unable to delete the roles."
-msgstr "Unable to delete the roles."
-
-msgid "Unable to delete the user."
-msgstr "Unable to delete the user."
-
-msgid "Unable to delete the users."
-msgstr "Unable to delete the users."
-
-msgid "Unable to edit the domain."
-msgstr "Unable to edit the domain."
-
-msgid "Unable to edit the project."
-msgstr "Unable to edit the project."
-
-msgid "Unable to edit the role."
-msgstr "Unable to edit the role."
-
-msgid "Unable to edit the user."
-msgstr "Unable to edit the user."
-
-msgid "Unable to fetch the service catalog."
-msgstr "Unable to fetch the service catalogue."
-
-msgid "Unable to grant the role."
-msgstr "Unable to grant the role."
-
-msgid "Unable to import the keypair."
-msgstr "Unable to import the keypair."
-
-msgid "Unable to retrieve settings."
-msgstr "Unable to retrieve settings."
-
-msgid "Unable to retrieve the current user session."
-msgstr "Unable to retrieve the current user session."
-
-msgid "Unable to retrieve users."
-msgstr "Unable to retrieve users."
 
 msgid "View Details"
 msgstr "View Details"

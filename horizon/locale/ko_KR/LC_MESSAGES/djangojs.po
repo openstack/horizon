@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-05 01:49-0500\n"
-"PO-Revision-Date: 2015-06-07 15:39+0000\n"
-"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
+"POT-Creation-Date: 2015-06-16 21:47-0500\n"
+"PO-Revision-Date: 2015-06-16 19:14+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/"
 "language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -70,9 +70,6 @@ msgstr "뒤로"
 
 msgid "Cancel"
 msgstr "취소"
-
-msgid "Cannot get service catalog from keystone."
-msgstr "Keystone으로부터 서비스 목록을 가져올 수 없습니다."
 
 msgid "Click here to expand the row and view the errors."
 msgstr "클릭하여 열을 확장하고 에러를 확인할 수 있습니다."
@@ -151,9 +148,6 @@ msgstr "할당된 항목을 볼 수 있도록 확장"
 
 msgid "Expand to see available items"
 msgstr "사용 가능한 항목을 볼 수 있도록 확장"
-
-msgid "Extension is not enabled: %(extension)s"
-msgstr "확장을 활성화하지 못 했습니다: %(extension)s"
 
 msgid "Filter"
 msgstr "필터"
@@ -245,9 +239,6 @@ msgstr "패턴 불일치"
 msgid "Please confirm your selection. "
 msgstr "선택 사항을 확인하십시오."
 
-msgid "Policy check failed."
-msgstr "정책 확인 실패함."
-
 msgid "Prompt"
 msgstr "프롬프트"
 
@@ -274,12 +265,6 @@ msgstr "아래의 사용 가능한 항목에서 항목을 선택"
 
 msgid "Select one"
 msgstr "하나 선택"
-
-msgid "Service type is not enabled: %(desiredType)s"
-msgstr "서비스 타입을 활성화하지 못 했습니다: %(desiredType)s"
-
-msgid "Setting is not enabled: %(setting)s"
-msgstr "설정을 활성하지 못했습니다: %(setting)s"
 
 msgid "Shutdown"
 msgstr "Shutdown"
@@ -321,90 +306,6 @@ msgstr "양식을 제출하는 동안 오류가 발생하였습니다. 다시 �
 
 msgid "Total"
 msgstr "총합"
-
-msgid "Unable to create the domain."
-msgstr "도메인을 만들지 못했습니다."
-
-msgid "Unable to create the keypair."
-msgstr "Keypair를 생성하지 못했습니다."
-
-msgid "Unable to create the network."
-msgstr "네트워크를 생성하지 못했습니다."
-
-msgid "Unable to create the project."
-msgstr "프로젝트를 만들지 못했습니다."
-
-msgid "Unable to create the role."
-msgstr "Role을 만들지 못했습니다."
-
-msgid "Unable to create the server."
-msgstr "서버를 생성하지 못했습니다."
-
-msgid "Unable to create the subnet."
-msgstr "서브넷을 생성하지 못했습니다."
-
-msgid "Unable to create the user."
-msgstr "사용자를 만들지 못했습니다."
-
-msgid "Unable to delete the domain."
-msgstr "도메인을 삭제하지 못했습니다."
-
-msgid "Unable to delete the domains."
-msgstr "도메인을 삭제하지 못했습니다."
-
-msgid "Unable to delete the project."
-msgstr "프로젝트를 삭제하지 못했습니다."
-
-msgid "Unable to delete the projects."
-msgstr "프로젝트를 삭제하지 못했습니다."
-
-msgid "Unable to delete the role."
-msgstr "Role을 삭제하지 못했습니다."
-
-msgid "Unable to delete the roles."
-msgstr "Role을 삭제하지 못했습니다."
-
-msgid "Unable to delete the user."
-msgstr "사용자를 삭제하지 못했습니다."
-
-msgid "Unable to delete the users."
-msgstr "사용자를 삭제하지 못했습니다."
-
-msgid "Unable to edit the domain."
-msgstr "도메인을 수정하지 못했습니다."
-
-msgid "Unable to edit the project."
-msgstr "프로젝트를 수정하지 못했습니다."
-
-msgid "Unable to edit the role."
-msgstr "Role을 수정하지 못했습니다."
-
-msgid "Unable to edit the user."
-msgstr "사용자를 수정하지 못했습니다."
-
-msgid "Unable to fetch the service catalog."
-msgstr "서비스 카탈로그를 가져올 수 없습니다."
-
-msgid "Unable to grant the role."
-msgstr "Role을 부여하지 못했습니다."
-
-msgid "Unable to import the keypair."
-msgstr "키페어를 가져올 수 없습니다."
-
-msgid "Unable to retrieve settings."
-msgstr "설정을 찾지 못했습니다."
-
-msgid "Unable to retrieve the current user session."
-msgstr "현재 사용자 섹션을 찾을 수 없습니다."
-
-msgid "Unable to retrieve the volume snapshots."
-msgstr "볼륨 스냅샷을 찾지 못했습니다."
-
-msgid "Unable to retrieve the volumes."
-msgstr "볼륨을 찾지 못했습니다."
-
-msgid "Unable to retrieve users."
-msgstr "사용자를 찾지 못 했습니다."
 
 msgid "View Details"
 msgstr "세부 정보 보기"

@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-15 19:53-0500\n"
-"PO-Revision-Date: 2015-06-15 20:57+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-06-16 21:47-0500\n"
+"PO-Revision-Date: 2015-06-16 09:16+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/"
 "language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -6203,8 +6203,14 @@ msgstr "지정된 옵션 없음"
 msgid "No other agents available."
 msgstr "다른 에이전트가 없습니다."
 
+msgid "No other hosts available"
+msgstr "사용 가능한 다른 호스트가 없습니다"
+
 msgid "No other hosts available."
 msgstr "다른 호스트를 사용할 수 없습니다."
+
+msgid "No other volume types available"
+msgstr "사용 가능한 다른 볼륨 유형이 없습니다"
 
 msgid "No plugin chosen"
 msgstr "선택된 플러그인 없음"
@@ -7946,6 +7952,9 @@ msgstr "스택 미리보기할 새로운 템플릿 선택합니다."
 
 msgid "Select a new template to re-launch a stack."
 msgstr "스택을 다시 시작시 새 템플릿을 선택합니다."
+
+msgid "Select a new volume type"
+msgstr "새로운 볼륨 유형 선택"
 
 msgid "Select a plugin and version for a new Cluster template."
 msgstr "새로운 클러스터 템플릿을 위한 플러그인 및 버전을 선택하세요."
@@ -10262,6 +10271,9 @@ msgstr "도메인 정보를 찾지 못 했습니다."
 msgid "Unable to retrieve domain list."
 msgstr "도메인 목록을 찾지 못 했습니다."
 
+msgid "Unable to retrieve extensions information"
+msgstr "확장 정보를 찾지 못했습니다"
+
 msgid "Unable to retrieve extensions information."
 msgstr "확장 정보를 찾지 못 했습니다."
 
@@ -11408,6 +11420,9 @@ msgstr "볼륨 스냅샷"
 
 msgid "Volume Source"
 msgstr "볼륨 소스"
+
+msgid "Volume Storage"
+msgstr "볼륨 스토리지"
 
 msgid "Volume Transfer"
 msgstr "볼륨 이전"

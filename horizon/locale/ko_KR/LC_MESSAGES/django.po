@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-15 19:53-0500\n"
-"PO-Revision-Date: 2015-06-15 15:01+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-06-16 21:47-0500\n"
+"PO-Revision-Date: 2015-06-16 09:13+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/"
 "language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -102,6 +102,9 @@ msgstr "%s가 완료되지 않았습니다."
 
 msgid "&laquo;&nbsp;Prev"
 msgstr "&laquo;&nbsp;이전"
+
+msgid "(No Limit)"
+msgstr "(제한 없음)"
 
 msgid "-"
 msgstr "-"
@@ -342,6 +345,9 @@ msgstr "업데이트 완료"
 msgid "Usage Summary"
 msgstr "사용량 요약"
 
+msgid "Used"
+msgstr "사용"
+
 msgid "Warning: "
 msgstr "경고:"
 
@@ -355,3 +361,6 @@ msgstr "%s에 접근 권한이 없습니다. "
 
 msgid "You do not have permission to access the resource:"
 msgstr "당신은 리소스에 접근할 권한이 없습니다.:"
+
+msgid "of"
+msgstr "중"

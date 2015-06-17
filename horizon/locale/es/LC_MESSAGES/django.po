@@ -7,13 +7,14 @@
 # cametiope <aldohcasa@hotmail.com>, 2014
 # Marian Tort <marian.tort@gmail.com>, 2015
 # Orizhial <contact@prunier.es>, 2015
+# Veruska Perinotto <reaching.out@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-15 19:53-0500\n"
-"PO-Revision-Date: 2015-06-15 15:01+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-06-16 21:47-0500\n"
+"PO-Revision-Date: 2015-06-16 19:46+0000\n"
+"Last-Translator: Veruska Perinotto <reaching.out@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/"
 "es/)\n"
 "MIME-Version: 1.0\n"
@@ -106,6 +107,9 @@ msgstr "%s no completado."
 
 msgid "&laquo;&nbsp;Prev"
 msgstr "&laquo;&nbsp;Prev"
+
+msgid "(No Limit)"
+msgstr "(Sin Límite)"
 
 msgid "-"
 msgstr "-"
@@ -351,6 +355,9 @@ msgstr "Actualizada"
 msgid "Usage Summary"
 msgstr "Resumen del uso"
 
+msgid "Used"
+msgstr "Usado"
+
 msgid "Warning: "
 msgstr "Advertencia:"
 
@@ -364,3 +371,6 @@ msgstr "No está autorizado para acceder a %s"
 
 msgid "You do not have permission to access the resource:"
 msgstr "No tiene permisos para acceder al recurso:"
+
+msgid "of"
+msgstr "de"

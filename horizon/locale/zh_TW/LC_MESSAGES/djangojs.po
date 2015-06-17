@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-05 01:49-0500\n"
-"PO-Revision-Date: 2015-06-05 16:19+0000\n"
-"Last-Translator: Lucas H. Xu <xuh@bu.edu>\n"
+"POT-Creation-Date: 2015-06-16 21:47-0500\n"
+"PO-Revision-Date: 2015-06-16 19:14+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/"
 "language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -72,9 +72,6 @@ msgstr "上一步"
 
 msgid "Cancel"
 msgstr "取消"
-
-msgid "Cannot get service catalog from keystone."
-msgstr "不能從 Keystone 獲得伺服器類別。"
 
 msgid "Click here to expand the row and view the errors."
 msgstr "展開這列來檢視錯誤。"
@@ -150,9 +147,6 @@ msgstr "展開來顯示已分配的項目"
 
 msgid "Expand to see available items"
 msgstr "展開來顯示可用的項目"
-
-msgid "Extension is not enabled: %(extension)s"
-msgstr "未啟用擴充套件：%(extension)s"
 
 msgid "Filter"
 msgstr "篩選"
@@ -244,9 +238,6 @@ msgstr "不符合的樣式"
 msgid "Please confirm your selection. "
 msgstr "請確認您的選擇。"
 
-msgid "Policy check failed."
-msgstr "檢查政策時失敗。"
-
 msgid "Re-order items using drag and drop"
 msgstr "使用拖拉來重新排列"
 
@@ -270,12 +261,6 @@ msgstr "從下列可用的項目中選擇"
 
 msgid "Select one"
 msgstr "擇一"
-
-msgid "Service type is not enabled: %(desiredType)s"
-msgstr "未啟用伺服器類型：%(desiredType)s"
-
-msgid "Setting is not enabled: %(setting)s"
-msgstr "未啟用設定：%(setting)s"
 
 msgid "Shutdown"
 msgstr "關機中"
@@ -312,96 +297,6 @@ msgstr "提交表單時有錯誤。請再試一次。"
 
 msgid "Total"
 msgstr "總共"
-
-msgid "Unable to create the domain."
-msgstr "無法新增地域。"
-
-msgid "Unable to create the keypair."
-msgstr "無法新增密鑰對。"
-
-msgid "Unable to create the network."
-msgstr "無法新增網路。"
-
-msgid "Unable to create the project."
-msgstr "無法新增專案。"
-
-msgid "Unable to create the role."
-msgstr "無法新增角色。"
-
-msgid "Unable to create the server."
-msgstr "無法新增伺服器。"
-
-msgid "Unable to create the subnet."
-msgstr "無法新增子網路。"
-
-msgid "Unable to create the user."
-msgstr "無法新增用戶。"
-
-msgid "Unable to delete the domain."
-msgstr "無法刪除地域。"
-
-msgid "Unable to delete the domains."
-msgstr "無法刪除地域。"
-
-msgid "Unable to delete the project."
-msgstr "無法刪除專案。"
-
-msgid "Unable to delete the projects."
-msgstr "無法刪除專案。"
-
-msgid "Unable to delete the role."
-msgstr "無法刪除角色"
-
-msgid "Unable to delete the roles."
-msgstr "無法刪除角色"
-
-msgid "Unable to delete the user."
-msgstr "無法刪除用戶。"
-
-msgid "Unable to delete the users."
-msgstr "無法刪除用戶。"
-
-msgid "Unable to edit the domain."
-msgstr "無法編輯地域。"
-
-msgid "Unable to edit the project."
-msgstr "無法編輯專案。"
-
-msgid "Unable to edit the role."
-msgstr "無法編輯角色"
-
-msgid "Unable to edit the user."
-msgstr "無法編輯用戶。"
-
-msgid "Unable to fetch the service catalog."
-msgstr "無法獲得伺服器類別。"
-
-msgid "Unable to grant the role."
-msgstr "無法賦予角色權力。"
-
-msgid "Unable to import the keypair."
-msgstr "無法匯入密鑰對。"
-
-msgid "Unable to retrieve settings."
-msgstr "無法設定。"
-
-msgid "Unable to retrieve the current user session."
-msgstr "無法獲得目前用戶連線階段。"
-
-msgid "Unable to retrieve the keypairs."
-msgstr "無法獲取密鑰對"
-
-msgid "Unable to retrieve the ports."
-msgstr "無法獲取端口"
-
-msgid "Unable to retrieve the security groups."
-msgstr "無法獲取安全組"
-
-msgid "Unable to retrieve the server."
-msgstr "無法獲得端口"
-
-msgid "Unable to retrieve users."
-msgstr "無法獲得用戶。"
 
 msgid "View Details"
 msgstr "檢視詳細資訊"

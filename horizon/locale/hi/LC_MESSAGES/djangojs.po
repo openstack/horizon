@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-04 21:20-0500\n"
-"PO-Revision-Date: 2015-06-04 15:51+0000\n"
+"POT-Creation-Date: 2015-06-16 21:47-0500\n"
+"PO-Revision-Date: 2015-06-16 19:14+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/"
 "hi/)\n"
@@ -173,9 +173,6 @@ msgstr "सर्वर के साथ संवाद स्थापित �
 
 msgid "There was an error submitting the form. Please try again."
 msgstr "फार्म जमा करने में त्रुटि हुई. पुन: प्रयास करें."
-
-msgid "Unable to retrieve users."
-msgstr " उपयोगकर्ता को प्राप्त करने में असमर्थ."
 
 msgid "View Details"
 msgstr "विवरण देखें"

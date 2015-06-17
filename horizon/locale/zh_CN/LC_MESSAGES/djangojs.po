@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-04 21:20-0500\n"
-"PO-Revision-Date: 2015-06-04 15:51+0000\n"
+"POT-Creation-Date: 2015-06-16 21:47-0500\n"
+"PO-Revision-Date: 2015-06-16 19:14+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/"
 "language/zh_CN/)\n"
@@ -73,9 +73,6 @@ msgstr "返回"
 
 msgid "Cancel"
 msgstr "取消"
-
-msgid "Cannot get service catalog from keystone."
-msgstr "无法由keystone获取服务目录。"
 
 msgid "Click here to expand the row and view the errors."
 msgstr "点击此处展开,并可浏览错误。"
@@ -154,9 +151,6 @@ msgstr "展开可见已分配项"
 
 msgid "Expand to see available items"
 msgstr "展开可见可选项"
-
-msgid "Extension is not enabled: %(extension)s"
-msgstr "扩展没有启动: %(extension)s"
 
 msgid "Filter"
 msgstr "筛选"
@@ -248,9 +242,6 @@ msgstr "模式不匹配"
 msgid "Please confirm your selection. "
 msgstr "请确认您的选择。"
 
-msgid "Policy check failed."
-msgstr "策略检查失败"
-
 msgid "Re-order items using drag and drop"
 msgstr "使用拖放重新排序"
 
@@ -274,12 +265,6 @@ msgstr "从以下可选项中选择一项"
 
 msgid "Select one"
 msgstr "选择一个"
-
-msgid "Service type is not enabled: %(desiredType)s"
-msgstr "服务类型未激活：%(desiredType)s"
-
-msgid "Setting is not enabled: %(setting)s"
-msgstr "配置没有启用: %(setting)s"
 
 msgid "Shutdown"
 msgstr "关闭"
@@ -316,84 +301,6 @@ msgstr "在提交表单的时候出现错误，请再次尝试。"
 
 msgid "Total"
 msgstr "总共"
-
-msgid "Unable to create the domain."
-msgstr "无法创建域"
-
-msgid "Unable to create the keypair."
-msgstr "无法创建密匙对"
-
-msgid "Unable to create the network."
-msgstr "无法创建网络"
-
-msgid "Unable to create the project."
-msgstr "无法创建项目"
-
-msgid "Unable to create the role."
-msgstr "无法创建角色。"
-
-msgid "Unable to create the server."
-msgstr "无法创建服务器"
-
-msgid "Unable to create the subnet."
-msgstr "无法创建子网"
-
-msgid "Unable to create the user."
-msgstr "无法创建用户。"
-
-msgid "Unable to delete the domain."
-msgstr "无法删除域"
-
-msgid "Unable to delete the domains."
-msgstr "无法删除域"
-
-msgid "Unable to delete the project."
-msgstr "无法删除项目"
-
-msgid "Unable to delete the projects."
-msgstr "无法删除项目"
-
-msgid "Unable to delete the role."
-msgstr "无法删除角色"
-
-msgid "Unable to delete the roles."
-msgstr "无法删除角色"
-
-msgid "Unable to delete the user."
-msgstr "无法删除用户"
-
-msgid "Unable to delete the users."
-msgstr "无法删除用户"
-
-msgid "Unable to edit the domain."
-msgstr "无法编辑域"
-
-msgid "Unable to edit the project."
-msgstr "无法编辑项目"
-
-msgid "Unable to edit the role."
-msgstr "无法编辑角色"
-
-msgid "Unable to edit the user."
-msgstr "无法编辑用户"
-
-msgid "Unable to fetch the service catalog."
-msgstr "无法取得服务目录"
-
-msgid "Unable to grant the role."
-msgstr "无法授予角色"
-
-msgid "Unable to import the keypair."
-msgstr "无法导入密钥对"
-
-msgid "Unable to retrieve settings."
-msgstr "无法获取配置"
-
-msgid "Unable to retrieve the current user session."
-msgstr "无法获取当前用户会话。"
-
-msgid "Unable to retrieve users."
-msgstr "无法获取用户。"
 
 msgid "View Details"
 msgstr "查看详情"
