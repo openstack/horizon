@@ -312,6 +312,15 @@ STATUS_DISPLAY_CHOICES = (
 
 
 class PoolsTable(tables.DataTable):
+    METHOD_DISPLAY_CHOICES = (
+        ("round_robin", pgettext_lazy("load balancing method",
+                                      u"Round Robin")),
+        ("least_connections", pgettext_lazy("load balancing method",
+                                            u"Least Connections")),
+        ("source_ip", pgettext_lazy("load balancing method",
+                                    u"Source IP")),
+    )
+
     name = tables.Column("name_or_id",
                          verbose_name=_("Name"),
                          link="horizon:project:loadbalancers:pooldetails")
@@ -320,6 +329,9 @@ class PoolsTable(tables.DataTable):
                              filters=(lambda v: filters.default(v, _('N/A')),))
     subnet_name = tables.Column('subnet_name', verbose_name=_("Subnet"))
     protocol = tables.Column('protocol', verbose_name=_("Protocol"))
+    method = tables.Column('lb_method',
+                           verbose_name=_("LB Method"),
+                           display_choices=METHOD_DISPLAY_CHOICES)
     status = tables.Column('status',
                            verbose_name=_("Status"),
                            status=True,
