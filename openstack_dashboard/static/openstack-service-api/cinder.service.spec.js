@@ -65,7 +65,7 @@
 
     // Iterate through the defined tests and apply as Jasmine specs.
     angular.forEach(tests, function(params) {
-      it('defines the ' + params.name + ' call properly', function() {
+      it('defines the ' + params.func + ' call properly', function() {
         var callParams = [apiService, service, toastService, params];
         window.apiTest.testCall.apply(this, callParams);
       });
