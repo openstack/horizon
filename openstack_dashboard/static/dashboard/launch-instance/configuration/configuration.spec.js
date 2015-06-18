@@ -18,7 +18,7 @@
 
   describe('Launch Instance Configuration Step', function() {
 
-    describe('LaunchInstanceConfigurationCtrl', function() {
+    describe('LaunchInstanceConfigurationController', function() {
       var scope;
       var ctrl;
 
@@ -31,7 +31,7 @@
           }
         };
 
-        ctrl = $controller('LaunchInstanceConfigurationCtrl', {
+        ctrl = $controller('LaunchInstanceConfigurationController', {
           $scope: scope
         });
       }));
@@ -63,13 +63,13 @@
 
     });
 
-    describe('LaunchInstanceConfigurationHelpCtrl', function() {
+    describe('LaunchInstanceConfigHelpController', function() {
       var ctrl;
 
       beforeEach(module('hz.dashboard.launch-instance'));
 
       beforeEach(inject(function($controller) {
-        ctrl = $controller('LaunchInstanceConfigurationHelpCtrl');
+        ctrl = $controller('LaunchInstanceConfigHelpController');
       }));
 
       it('defines the title', function() {

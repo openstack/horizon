@@ -38,8 +38,9 @@ ADD_JS_FILES = [
     LAUNCH_INST + 'network/network.js',
     LAUNCH_INST + 'security-groups/security-groups.js',
     LAUNCH_INST + 'keypair/keypair.js',
-    LAUNCH_INST + 'configuration/configuration.js',
-    LAUNCH_INST + 'configuration/load-edit.js',
+    LAUNCH_INST + 'configuration/configuration.controller.js',
+    LAUNCH_INST + 'configuration/configuration-help.controller.js',
+    LAUNCH_INST + 'configuration/load-edit.directive.js',
 
     'dashboard/tech-debt/tech-debt.module.js',
     'dashboard/tech-debt/image-form-ctrl.js',
