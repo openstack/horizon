@@ -18,6 +18,8 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 from horizon import tables
 from horizon import tabs
+from horizon.utils import memoized
+from horizon.utils.urlresolvers import reverse  # noqa
 from horizon import workflows
 
 from openstack_dashboard.api import sahara as saharaclient
@@ -58,9 +60,20 @@ class ClusterDetailsView(tabs.TabView):
     template_name = 'project/data_processing.clusters/details.html'
     page_title = _("Cluster Details")
 
+    @memoized.memoized_method
+    def get_object(self):
+        cl_id = self.kwargs["cluster_id"]
+        try:
+            return saharaclient.cluster_get(self.request, cl_id)
+        except Exception:
+            msg = _('Unable to retrieve details for cluster "%s".') % cl_id
+            redirect = reverse(
+                "horizon:project:data_processing.clusters:clusters")
+            exceptions.handle(self.request, msg, redirect=redirect)
+
     def get_context_data(self, **kwargs):
-        context = super(ClusterDetailsView, self)\
-            .get_context_data(**kwargs)
+        context = super(ClusterDetailsView, self).get_context_data(**kwargs)
+        context['cluster'] = self.get_object()
         return context
 
 
