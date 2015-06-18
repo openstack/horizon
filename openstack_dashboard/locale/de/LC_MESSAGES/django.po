@@ -7,6 +7,7 @@
 # avarx <a.vonarx@frappant.ch>, 2015
 # Christian Berendt <berendt@b1-systems.de>, 2015
 # Ettore Atalan <atalanttore@googlemail.com>, 2015
+# Eva Vo <eva.vonderheidt@gmail.com>, 2015
 # Frank Kloeker <eumel@arcor.de>, 2014
 # Robert Simai, 2015
 # Thorsten Michels, 2014
@@ -15,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-15 19:53-0500\n"
-"PO-Revision-Date: 2015-06-15 20:57+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-06-17 19:41-0500\n"
+"PO-Revision-Date: 2015-06-17 14:44+0000\n"
+"Last-Translator: Eva Vo <eva.vonderheidt@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/"
 "de/)\n"
 "MIME-Version: 1.0\n"
@@ -311,7 +312,7 @@ msgstr ""
 "\n"
 "Fügen Sie einen Namen und eine Beschreibung für den Pool hinzu. Wählen Sie "
 "ein Subnetz, in dem sich alle Mitglieder des Pools befinden. Wählen Sie das "
-"Protokoll und die Lastverteilungsmethode für diesen Pool. Als Admin State "
+"Protokoll und das Lastverteilungsverfahren für diesen Pool. Als Admin State "
 "ist UP vorausgewählt (markiert)."
 
 msgid ""
@@ -440,8 +441,9 @@ msgid ""
 "%(type)s: url:%(url_path)s method:%(http_method)s codes:%(expected_codes)s "
 "delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
 msgstr ""
-"%(type)s: URL:%(url_path)s Methode:%(http_method)s Codes:%(expected_codes)s "
-"Verzögerung:%(delay)d Versuche:%(max_retries)d Zeitüberschreitung:%(timeout)d"
+"%(type)s: URL:%(url_path)s Verfahren:%(http_method)s Codes:"
+"%(expected_codes)s Verzögerung:%(delay)d Versuche:%(max_retries)d "
+"Zeitüberschreitung:%(timeout)d"
 
 #, python-format
 msgid "%(used)s %(key)s used"
@@ -2251,10 +2253,10 @@ msgid ""
 "and maximum connections allowed for the VIP. Choose the protocol and session "
 "persistence method for the VIP. Admin State is UP (checked) by default."
 msgstr ""
-"VIP für den Pool erzeugen. Der VIP Name, Beschreibung, IP Adresse, Port und "
-"maximale Anzahl an erlaubten Verbindungen zuweisen. Protokoll und Methode "
-"für die Sitzungspersistenz auswählen. Der Standartwert für Admin Status ist "
-"UP (checked)."
+"VIP für den Pool erzeugen. Der VIP-Name, Beschreibung, IP-Adresse, Port und "
+"maximale Anzahl an erlaubten Verbindungen zuweisen. Protokoll und Verfahren "
+"für die Sitzungspersistenz auswählen. Der Standartwert für "
+"Administratorstatus ist UP (checked)."
 
 msgid "Create a Volume"
 msgstr "Erzeuge Datenträger"
@@ -2323,11 +2325,12 @@ msgid ""
 "by the monitor. Specify method, URL path, and expected HTTP codes upon "
 "success."
 msgstr ""
-"So erzeugen Sie eine Monitor-Vorlage.\n"
+"So erzeugen Sie eine Überwachungsvorlage.\n"
 "\n"
-"Wählen Sie die Art des Monitors. Geben Sie die erforderliche Verzögerung, "
-"die Zeitüberschreitung und die Anzahl der Neuversuche an. Geben Sie die "
-"Methode,  den URL-Pfad und die erwarteten HTTP-Codes für einen Erfolg an."
+"Wählen Sie die Art der Überwachung aus. Geben Sie die erforderliche "
+"Verzögerung, die Zeitüberschreitung und die Anzahl der Neuversuche an. Geben "
+"Sie das Verfahren, den URL-Pfad und die erwarteten HTTP-Codes für einen "
+"Erfolg an."
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "Neues \"extra spec\" Schlüssel-Wert Paar für Datenträgertyp erzeugen."
@@ -4778,10 +4781,10 @@ msgid "HTTP"
 msgstr "HTTP"
 
 msgid "HTTP Method"
-msgstr "HTTP Methode"
+msgstr "HTTP-Verfahren"
 
 msgid "HTTP method used to check health status of a member"
-msgstr "HTTP Methode, die den Zustand eines Mitglieds überprüfen soll"
+msgstr "HTTP-Verfahren, das den Zustand eines Mitglieds überprüfen soll"
 
 msgid "HTTPS"
 msgstr "HTTPS"
@@ -5531,6 +5534,9 @@ msgstr "Getötet"
 msgid "Kwapi"
 msgstr "Kwapi"
 
+msgid "LB Method"
+msgstr "LB-Verfahren"
+
 msgid "LUKS Volume Snapshots"
 msgstr "LUKS Schattenkopien"
 
@@ -5717,7 +5723,7 @@ msgid "Load Balancers"
 msgstr "Loadbalancer"
 
 msgid "Load Balancing Method"
-msgstr "Lastverteilungs-Methode"
+msgstr "Lastverteilungsverfahren"
 
 msgid "Local"
 msgstr "Local"
@@ -6983,7 +6989,7 @@ msgid "Pig"
 msgstr "Pig"
 
 msgid "Please choose a HTTP method"
-msgstr "Bitte eine HTTP Methode auswaehlen"
+msgstr "Bitte wählen Sie ein HTTP-Verfahren aus"
 
 msgid ""
 "Please enter a single value (e.g. 200), a list of values (e.g. 200, 202), or "
@@ -7822,6 +7828,10 @@ msgstr "Root-Festpplatte (GB)"
 msgid "Rotates requests evenly between multiple instances."
 msgstr "Verteilt Anfragen gleichmäßig auf multiple Instanzen."
 
+msgctxt "load balancing method"
+msgid "Round Robin"
+msgstr "Rundlauf-Verfahren"
+
 msgid "Round robin"
 msgstr "Rundlauf-Verfahren"
 
@@ -8175,7 +8185,7 @@ msgid "Select Volume Snapshot"
 msgstr "Schattenkopie auswählen"
 
 msgid "Select a Method"
-msgstr "Wählen Sie eine Methode"
+msgstr "Wählen Sie ein Verfahren aus"
 
 msgid "Select a Monitor"
 msgstr "Wählen Sie einen Monitor"
@@ -8616,6 +8626,10 @@ msgstr "Quelle"
 msgid "Source CIDR"
 msgstr "Quell-CIDR"
 
+msgid "Source IP"
+msgstr "Quell-IP"
+
+msgctxt "load balancing method"
 msgid "Source IP"
 msgstr "Quell-IP"
 
@@ -9471,6 +9485,14 @@ msgid ""
 msgstr ""
 "Die minimale Größe des Speichers, um das Abbild zu starten. Falls nicht "
 "angegeben, wird der Wert 0 (kein Minimum) verwendet."
+
+msgid ""
+"The minimum time in seconds between regular checks of a member. It must be "
+"greater than or equal to timeout"
+msgstr ""
+"Die minimale Zeit in Sekunden, die zwischen den regulären Überprüfungen des "
+"Mitglieds vergeht. Diese muss länger als oder gleich wie die Timeout-Zeit "
+"sein."
 
 #, python-format
 msgid "The name \"%s\" is already used by another flavor."
@@ -10608,6 +10630,9 @@ msgstr "Domäneninformationen können nicht abgerufen werden."
 msgid "Unable to retrieve domain list."
 msgstr "Domänen-Liste kann nicht abgerufen werden."
 
+msgid "Unable to retrieve extensions information"
+msgstr "Informationen zur Erweiterung konnten nicht abgerufen werden."
+
 msgid "Unable to retrieve extensions information."
 msgstr "Informationen zu Erweiterungen können nicht abgerufen werden."
 
@@ -11496,8 +11521,8 @@ msgstr ""
 msgid ""
 "Use one of these load balancing methods to distribute incoming requests:"
 msgstr ""
-"Verwende einer dieser Methoden zur Lastverteilung um eingehende Anfragen zu "
-"verteilen:"
+"Verwenden Sie eines dieser Lastverteilungsverfahren, um eingehende Anfragen "
+"zu verteilen:"
 
 msgid "Use snapshot as a source"
 msgstr "Benutze Schattenkopie als Quelle"
@@ -11792,6 +11817,9 @@ msgstr "Schattenkopien"
 
 msgid "Volume Source"
 msgstr "Datenträger Quelle"
+
+msgid "Volume Storage"
+msgstr "Datenträger-Speicher"
 
 msgid "Volume Transfer"
 msgstr "Datenträger Transfer"
@@ -12133,8 +12161,8 @@ msgid ""
 "You may update pool attributes here: edit name, description, load balancing "
 "method or admin state."
 msgstr ""
-"Hier können die Pool-Eigenschaften verändert werden: editieren sie Name, "
-"Beschreibung, Load Balancing Methode oder Admin Status."
+"Hier können die Pool-Eigenschaften verändert werden: Bearbeiten Sie Name, "
+"Beschreibung, Lastverteilungsverfahren oder Administratorstatus."
 
 msgid "You may update rule details here."
 msgstr "Hier können Sie die Details der Regeln aktualisieren."

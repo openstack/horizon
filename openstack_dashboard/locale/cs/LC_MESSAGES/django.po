@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-15 19:53-0500\n"
-"PO-Revision-Date: 2015-06-15 21:09+0000\n"
+"POT-Creation-Date: 2015-06-17 19:41-0500\n"
+"PO-Revision-Date: 2015-06-17 15:02+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/"
 "cs/)\n"
@@ -424,6 +424,9 @@ msgstr "Přidat nové pravidlo"
 msgid "Add New VPN Service"
 msgstr "Přidat novou službu VPN"
 
+msgid "Add Node Group"
+msgstr "Přidat skupiny uzlu"
+
 msgid "Add Policy"
 msgstr "Přidat zásadu"
 
@@ -661,6 +664,9 @@ msgstr ""
 "Byla zjištěna neočekávaná chyba. Zkuste obnovit stránku. Pokud to nepomůže, "
 "kontaktujte správce."
 
+msgid "Anti-affinity enabled for"
+msgstr "Proti slučivost povolena pro"
+
 msgid "Any"
 msgstr "Vše"
 
@@ -741,6 +747,9 @@ msgstr "Algoritmus oprávnění"
 
 msgid "Authorization mode"
 msgstr "Režim oprávnění"
+
+msgid "Auto Security Group"
+msgstr "Skupina automatické bezpečnosti"
 
 msgid "Automatic"
 msgstr "Automaticky"
@@ -1020,6 +1029,12 @@ msgstr "Název šablony clusteru"
 
 msgid "Cluster Templates"
 msgstr "Šablony clusteru"
+
+msgid "Cluster configurations are not specified"
+msgstr "Konfigurace clusteru není zadána"
+
+msgid "Clusters"
+msgstr "Clustery"
 
 msgid "Code"
 msgstr "Kód"
@@ -2796,6 +2811,9 @@ msgstr "Monitor funkčnosti %s byl úspěšně aktualizován."
 msgid "Help"
 msgstr "Nápověda"
 
+msgid "High Availability Mode"
+msgstr "Režim vysoké dostupnosti"
+
 msgid "Home"
 msgstr "Domů"
 
@@ -3913,6 +3931,9 @@ msgstr "Nastavení uzlů"
 
 msgid "Node Groups"
 msgstr "Skupiny uzlů"
+
+msgid "Node Processes"
+msgstr "Procesy uzlu"
 
 msgid "Nodes Count"
 msgstr "Počet uzlů"
@@ -5420,6 +5441,17 @@ msgstr ""
 
 msgid "The Aggregate was updated."
 msgstr "Agregát byl aktualizován."
+
+msgid ""
+"The Cluster Template object may specify a list of processes in anti-affinity "
+"group.\n"
+"    That means these processes may not be launched more than once on a "
+"single host."
+msgstr ""
+"Objekt šablony clusteru může udávat seznam procesů ve skupině proti "
+"slučivosti.\n"
+"To znamená, že tyto procesy mohou být na jenom hostiteli spuštěny pouze "
+"jednou."
 
 msgid "The ICMP code is invalid."
 msgstr "Kód ICMP je neplatný."

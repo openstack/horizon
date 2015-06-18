@@ -22,9 +22,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-15 19:53-0500\n"
-"PO-Revision-Date: 2015-06-15 20:57+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-06-17 19:41-0500\n"
+"PO-Revision-Date: 2015-06-17 22:38+0000\n"
+"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/"
 "fr/)\n"
 "MIME-Version: 1.0\n"
@@ -912,6 +912,9 @@ msgstr "Ajouter une règle"
 msgid "Add selected router(s) to the firewall."
 msgstr "Ajouter le(s) routeur(s) sélectionné(s) au pare-feu."
 
+msgid "Add static route to the router."
+msgstr "Ajouter une route statique au routeur."
+
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr ""
 "Ajouter, modifier ou supprimer la Spec QoS associée à ce type de volume."
@@ -1305,7 +1308,7 @@ msgid "Available"
 msgstr "disponible(s)"
 
 msgid "Available Routers"
-msgstr "Routeurs Disponibles"
+msgstr "Routeurs disponibles"
 
 msgid "Available Rules"
 msgstr "Règles disponibles"
@@ -1652,8 +1655,8 @@ msgid ""
 "Choose router(s) from Available Routers to Selected Routers by push button "
 "or drag and drop. "
 msgstr ""
-"Choisir routeur(s) à partir des Routeurs Disponibles vers les Routeurs "
-"Sélectionnés via bouton-poussoir ou glisser-déposer."
+"Choisir les routeur(s) en les déplaçant de Routeurs Disponibles vers les "
+"Routeurs Sélectionnés en cliquant sur le bouton ou par glisser-déposer."
 
 msgid ""
 "Choose rule(s) from Available Rules to Selected Rule by push button or drag "
@@ -2288,7 +2291,7 @@ msgstr ""
 "optionnels."
 
 msgid "Create a firewall with selected routers."
-msgstr "Créer un pare-feu avec des routeurs sélectionnés."
+msgstr "Créer un pare-feu avec les routeurs sélectionnés."
 
 msgid "Create a job template"
 msgstr "Créer un modèle de tâche"
@@ -3119,7 +3122,7 @@ msgstr[1] "Rôles supprimés"
 msgid "Deleted Router"
 msgid_plural "Deleted Routers"
 msgstr[0] "Routeur Supprimé"
-msgstr[1] "Routeurs Supprimés"
+msgstr[1] "Routeurs supprimés"
 
 msgid "Deleted Router Rule"
 msgid_plural "Deleted Router Rules"
@@ -4185,7 +4188,7 @@ msgstr "Impossible d'obtenir la liste des fichiers binaires internes."
 
 #, python-format
 msgid "Failed to get network list %s"
-msgstr "La récupération de la liste des réseaux %s a échoué"
+msgstr "Echec de la récupération de la liste des réseaux %s"
 
 msgid "Failed to get network list {0}"
 msgstr "Impossible d'obtenir la liste des réseaux"
@@ -4273,7 +4276,7 @@ msgstr ""
 
 #, python-format
 msgid "Failed to retrieve available routers: %(reason)s"
-msgstr "N'a pas réussi à récupérer de routeurs disponibles: %(reason)s"
+msgstr "Echec de la récupération des routeurs disponibles: %(reason)s"
 
 #, python-format
 msgid "Failed to retrieve available rules: %s"
@@ -4282,7 +4285,7 @@ msgstr "Impossible de récupérer les règles disponibles : %s"
 #, python-format
 msgid "Failed to retrieve current routers in firewall %(name)s: %(reason)s"
 msgstr ""
-"Echec à récupérer les routeurs actuels dans le pare-feu %(name)s: %(reason)s"
+"Echec de la récupération des routeurs dans le pare-feu %(name)s: %(reason)s"
 
 #, python-format
 msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
@@ -4295,7 +4298,7 @@ msgstr "Echec de la récupération du moniteur de santé"
 
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
-msgstr "Echec lors de la récupération du réseau %s pour un sous-réseau"
+msgstr "Echec de la récupération du réseau %s pour un sous-réseau"
 
 #, python-format
 msgid "Failed to set gateway %s"
@@ -6366,8 +6369,14 @@ msgstr "Aucune option spécifiée"
 msgid "No other agents available."
 msgstr "Aucun autre agent disponible"
 
+msgid "No other hosts available"
+msgstr "Aucun autre hôte disponible"
+
 msgid "No other hosts available."
 msgstr "Pas d'autres hôtes disponibles."
+
+msgid "No other volume types available"
+msgstr "Aucun autre type de volume disponible"
 
 msgid "No plugin chosen"
 msgstr "Aucun plugin sélectionné"
@@ -7733,6 +7742,9 @@ msgstr "Disque racine"
 msgid "Root Disk (GB)"
 msgstr "Disque racine (Go)"
 
+msgid "Round robin"
+msgstr "Round robin"
+
 msgid "Route mode"
 msgstr "mode Route"
 
@@ -8137,6 +8149,9 @@ msgstr "Sélectionnez un nouveau modèle pour prévisualiser la Stack"
 msgid "Select a new template to re-launch a stack."
 msgstr "Sélectionner un nouveau modèle pour relancer une Stack."
 
+msgid "Select a new volume type"
+msgstr "Sélectionner un nouveau type de volume"
+
 msgid "Select a plugin and version for a new Cluster template."
 msgstr ""
 "Sélectionner un greffon et une version pour un nouveau modèle de Cluster."
@@ -8286,7 +8301,7 @@ msgid "Selected Projects"
 msgstr "Projets sélectionnés"
 
 msgid "Selected Routers"
-msgstr "Routeurs Sélectionnés"
+msgstr "Routeurs sélectionnés"
 
 msgid "Selected Rules"
 msgstr "Règles sélectionnées"
@@ -8525,6 +8540,10 @@ msgstr "Source"
 msgid "Source CIDR"
 msgstr "Source CIDR"
 
+msgid "Source IP"
+msgstr "IP source"
+
+msgctxt "load balancing method"
 msgid "Source IP"
 msgstr "IP source"
 
@@ -9535,6 +9554,10 @@ msgstr "Ce modèle de groupe de noeud sera créé pour:"
 msgid "This action cannot be undone."
 msgstr "Cette action ne peut pas être réalisée."
 
+msgid "This application requires JavaScript to be enabled in your web browser."
+msgstr ""
+"Cette application demande que JavaScript soit activé dans votre navigateur."
+
 msgid ""
 "This generates a pair of keys: a key you keep private (cloud.key) and a "
 "public key (cloud.key.pub). Paste the contents of the public key file here."
@@ -10151,7 +10174,7 @@ msgstr "Impossible d'obtenir la console SPICE pour l'instance \"%s\"."
 
 #, python-format
 msgid "Unable to get VIP for pool %(pool)s."
-msgstr "N'a pas pu obtenir adresse IP virtuelle du pool %(pool)s."
+msgstr "Impossible d'obtenir une adresse IP virtuelle pour le pool %(pool)s."
 
 #, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
@@ -10176,7 +10199,8 @@ msgstr "Impossible d'obtenir la liste des gabarits"
 #, python-format
 msgid "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
 msgstr ""
-"N'a pas pu obtenir le moniteur d'intégrité  %(monitor_id)s du pool %(pool)s."
+"Impossible d'obtenir le moniteur de santé  %(monitor_id)s pour le pool "
+"%(pool)s."
 
 msgid "Unable to get host aggregate list"
 msgstr "Impossible d'obtenir la liste des agrégats d'hôtes"
@@ -10188,7 +10212,7 @@ msgstr ""
 
 #, python-format
 msgid "Unable to get members for pool %(pool)s."
-msgstr "N'a pas pu obtenir les membres du pool %(pool)s."
+msgstr "Impossible d'obtenir les membres pour le pool %(pool)s."
 
 msgid "Unable to get network agents info."
 msgstr "Impossible d'obtenir les informations des agents réseau."
@@ -10206,7 +10230,7 @@ msgid "Unable to get openrc credentials"
 msgstr "Impossible d'obtenir les identifiants du compte openrc"
 
 msgid "Unable to get pool detail."
-msgstr "N'a pas pu obtenir les informations sur le pool."
+msgstr "Impossible d'obtenir les informations sur le pool."
 
 msgid "Unable to get quota info."
 msgstr "Impossible d'obtenir les informations de quota."
@@ -10224,7 +10248,7 @@ msgstr "Impossible de récupérer le sous-réseau \"%s\""
 
 #, python-format
 msgid "Unable to get subnet for pool %(pool)s."
-msgstr "N'a pas pu obtenir le sous-réseau du pool %(pool)s."
+msgstr "Impossible d'obtenir le sous-réseau pour le pool %(pool)s."
 
 msgid "Unable to get the available hosts"
 msgstr "Impossible d'obtenir les hôtes disponibles"
@@ -10797,7 +10821,7 @@ msgstr "Impossible de récupérer le routeur."
 
 #, python-format
 msgid "Unable to retrieve routers (%(error)s)."
-msgstr "Incapable de récupérer des routeurs (%(error)s)."
+msgstr "Impossible de récupérer les routeurs (%(error)s)."
 
 msgid "Unable to retrieve routers list."
 msgstr "Impossible de récupérer la liste des routeurs."

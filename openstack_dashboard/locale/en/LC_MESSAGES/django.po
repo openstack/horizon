@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-16 01:06-0500\n"
+"POT-Creation-Date: 2015-06-18 01:05-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -367,17 +367,17 @@ msgstr ""
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr ""
 
-#: api/neutron.py:998
+#: api/neutron.py:1001
 msgid "Unable to connect to Neutron."
 msgstr ""
 
-#: api/neutron.py:1035
+#: api/neutron.py:1038
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr ""
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1164
+#: api/neutron.py:1167
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -385,14 +385,14 @@ msgid ""
 msgstr ""
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: api/neutron.py:1182
+#: api/neutron.py:1185
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
 "invalid. It should be one of %(allowed)s"
 msgstr ""
 
-#: api/neutron.py:1197
+#: api/neutron.py:1200
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr ""
@@ -412,7 +412,7 @@ msgstr ""
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:48
 #: dashboards/project/instances/templates/instances/_detail_overview.html:17
 #: dashboards/project/instances/templates/instances/_detail_overview.html:24
-#: dashboards/project/loadbalancers/tables.py:398
+#: dashboards/project/loadbalancers/tables.py:410
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:10
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:13
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:23
@@ -571,7 +571,7 @@ msgstr ""
 #: dashboards/project/instances/workflows/update_instance.py:105
 #: dashboards/project/loadbalancers/forms.py:31
 #: dashboards/project/loadbalancers/forms.py:73
-#: dashboards/project/loadbalancers/tables.py:316
+#: dashboards/project/loadbalancers/tables.py:325
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:9
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:9
 #: dashboards/project/loadbalancers/workflows.py:36
@@ -1360,7 +1360,7 @@ msgstr ""
 #: dashboards/admin/volumes/volumes/forms.py:75
 #: dashboards/admin/volumes/volumes/forms.py:134
 #: dashboards/identity/roles/forms.py:37
-#: dashboards/identity/users/forms.py:172
+#: dashboards/identity/users/forms.py:180
 #: dashboards/identity/users/templates/users/_detail_overview.html:19
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:14
 #: dashboards/project/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:8
@@ -1782,8 +1782,8 @@ msgstr ""
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
 #: dashboards/project/instances/tables.py:1062
 #: dashboards/project/instances/templates/instances/_detail_overview.html:14
-#: dashboards/project/loadbalancers/tables.py:324
-#: dashboards/project/loadbalancers/tables.py:377
+#: dashboards/project/loadbalancers/tables.py:336
+#: dashboards/project/loadbalancers/tables.py:389
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:28
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:66
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:60
@@ -2310,7 +2310,7 @@ msgstr ""
 #: dashboards/project/access_and_security/floating_ips/workflows.py:33
 #: dashboards/project/access_and_security/floating_ips/workflows.py:40
 #: dashboards/project/instances/tables.py:1054
-#: dashboards/project/loadbalancers/tables.py:367
+#: dashboards/project/loadbalancers/tables.py:379
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:29
 #: dashboards/project/routers/templates/routers/_detail_overview.html:40
 msgid "IP Address"
@@ -2542,7 +2542,7 @@ msgstr ""
 #: dashboards/project/images/templates/images/images/_detail_overview.html:12
 #: dashboards/project/loadbalancers/forms.py:36
 #: dashboards/project/loadbalancers/forms.py:78
-#: dashboards/project/loadbalancers/tables.py:318
+#: dashboards/project/loadbalancers/tables.py:327
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:12
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:12
 #: dashboards/project/loadbalancers/workflows.py:39
@@ -3338,7 +3338,7 @@ msgstr ""
 msgid "External Network"
 msgstr ""
 
-#: dashboards/admin/networks/forms.py:91 dashboards/identity/users/forms.py:80
+#: dashboards/admin/networks/forms.py:91 dashboards/identity/users/forms.py:82
 #: dashboards/router/nexus1000v/forms.py:29
 msgid "Select a project"
 msgstr ""
@@ -4210,7 +4210,7 @@ msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:13
 #: dashboards/admin/volumes/volume_types/forms.py:28
-#: dashboards/project/loadbalancers/tables.py:319
+#: dashboards/project/loadbalancers/tables.py:328
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:26
 #: dashboards/project/loadbalancers/workflows.py:42
 #: dashboards/project/volumes/templates/volumes/volumes/_encryption_detail_overview.html:13
@@ -4939,8 +4939,8 @@ msgstr ""
 
 #: dashboards/identity/domains/tables.py:202
 #: dashboards/identity/projects/workflows.py:141
-#: dashboards/identity/users/forms.py:89
-#: dashboards/identity/users/forms.py:166
+#: dashboards/identity/users/forms.py:91
+#: dashboards/identity/users/forms.py:174
 #: dashboards/identity/users/templates/users/_detail_overview.html:10
 msgid "Domain ID"
 msgstr ""
@@ -5163,9 +5163,9 @@ msgid "Add Users"
 msgstr ""
 
 #: dashboards/identity/groups/tables.py:190
-#: dashboards/identity/users/forms.py:95
-#: dashboards/identity/users/forms.py:173
-#: dashboards/identity/users/forms.py:220
+#: dashboards/identity/users/forms.py:97
+#: dashboards/identity/users/forms.py:181
+#: dashboards/identity/users/forms.py:228
 #: dashboards/identity/users/tables.py:221
 #: dashboards/identity/users/templates/users/_detail_overview.html:17
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:14
@@ -5175,8 +5175,8 @@ msgid "User Name"
 msgstr ""
 
 #: dashboards/identity/groups/tables.py:191
-#: dashboards/identity/users/forms.py:97
-#: dashboards/identity/users/forms.py:175
+#: dashboards/identity/users/forms.py:99
+#: dashboards/identity/users/forms.py:183
 #: dashboards/identity/users/tables.py:224
 #: dashboards/identity/users/templates/users/_detail_overview.html:21
 msgid "Email"
@@ -5387,8 +5387,8 @@ msgid "Set maximum quotas for the project."
 msgstr ""
 
 #: dashboards/identity/projects/workflows.py:144
-#: dashboards/identity/users/forms.py:92
-#: dashboards/identity/users/forms.py:169
+#: dashboards/identity/users/forms.py:94
+#: dashboards/identity/users/forms.py:177
 #: dashboards/identity/users/templates/users/_detail_overview.html:14
 msgid "Domain Name"
 msgstr ""
@@ -5572,7 +5572,7 @@ msgstr ""
 msgid "Insufficient privilege level to view role information."
 msgstr ""
 
-#: dashboards/identity/users/forms.py:42
+#: dashboards/identity/users/forms.py:44
 #: dashboards/project/data_processing/job_binaries/forms.py:121
 #: dashboards/project/data_processing/job_binaries/forms.py:128
 #: dashboards/project/databases/workflows/create_instance.py:196
@@ -5580,75 +5580,75 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: dashboards/identity/users/forms.py:47
+#: dashboards/identity/users/forms.py:49
 msgid "Confirm Password"
 msgstr ""
 
-#: dashboards/identity/users/forms.py:56
+#: dashboards/identity/users/forms.py:58
 #: dashboards/project/instances/forms.py:96
 #: dashboards/project/instances/workflows/create_instance.py:594
 #: dashboards/settings/password/forms.py:50
 msgid "Passwords do not match."
 msgstr ""
 
-#: dashboards/identity/users/forms.py:78
+#: dashboards/identity/users/forms.py:80
 msgid "No available projects"
 msgstr ""
 
-#: dashboards/identity/users/forms.py:99
-#: dashboards/identity/users/forms.py:177
+#: dashboards/identity/users/forms.py:101
+#: dashboards/identity/users/forms.py:185
 msgid "Primary Project"
 msgstr ""
 
-#: dashboards/identity/users/forms.py:102
+#: dashboards/identity/users/forms.py:104
 msgid "Role"
 msgstr ""
 
-#: dashboards/identity/users/forms.py:138
+#: dashboards/identity/users/forms.py:146
 #, python-format
 msgid "User \"%s\" was successfully created."
 msgstr ""
 
-#: dashboards/identity/users/forms.py:154
+#: dashboards/identity/users/forms.py:162
 msgid "Unable to add user to primary project."
 msgstr ""
 
-#: dashboards/identity/users/forms.py:158
-#: dashboards/identity/users/forms.py:204
+#: dashboards/identity/users/forms.py:166
+#: dashboards/identity/users/forms.py:212
 #, python-format
 msgid "User name \"%s\" is already used."
 msgstr ""
 
-#: dashboards/identity/users/forms.py:161
+#: dashboards/identity/users/forms.py:169
 msgid "Unable to create user."
 msgstr ""
 
-#: dashboards/identity/users/forms.py:202
+#: dashboards/identity/users/forms.py:210
 msgid "User has been updated successfully."
 msgstr ""
 
-#: dashboards/identity/users/forms.py:209
+#: dashboards/identity/users/forms.py:217
 msgid "Unable to update the user."
 msgstr ""
 
-#: dashboards/identity/users/forms.py:229
+#: dashboards/identity/users/forms.py:237
 #: dashboards/project/instances/workflows/create_instance.py:545
 msgid "Admin Password"
 msgstr ""
 
-#: dashboards/identity/users/forms.py:249
+#: dashboards/identity/users/forms.py:257
 msgid "The admin password is incorrect."
 msgstr ""
 
-#: dashboards/identity/users/forms.py:258
+#: dashboards/identity/users/forms.py:266
 msgid "Password changed. Please log in to continue."
 msgstr ""
 
-#: dashboards/identity/users/forms.py:261
+#: dashboards/identity/users/forms.py:269
 msgid "User password has been updated successfully."
 msgstr ""
 
-#: dashboards/identity/users/forms.py:264
+#: dashboards/identity/users/forms.py:272
 msgid "Unable to update the user password."
 msgstr ""
 
@@ -5823,7 +5823,7 @@ msgstr ""
 #: dashboards/project/access_and_security/floating_ips/tables.py:200
 #: dashboards/project/loadbalancers/forms.py:79
 #: dashboards/project/loadbalancers/forms.py:172
-#: dashboards/project/loadbalancers/tables.py:375
+#: dashboards/project/loadbalancers/tables.py:387
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:12
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:31
 #: dashboards/project/loadbalancers/workflows.py:297
@@ -7335,7 +7335,7 @@ msgstr ""
 #: dashboards/project/databases/workflows/create_instance.py:47
 #: dashboards/project/instances/templates/instances/_detail_overview.html:38
 #: dashboards/project/instances/workflows/create_instance.py:138
-#: dashboards/project/loadbalancers/tables.py:408
+#: dashboards/project/loadbalancers/tables.py:420
 msgid "Details"
 msgstr ""
 
@@ -9838,7 +9838,7 @@ msgstr ""
 #: dashboards/project/firewalls/tables.py:276
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:22
 #: dashboards/project/firewalls/workflows.py:37
-#: dashboards/project/loadbalancers/tables.py:322
+#: dashboards/project/loadbalancers/tables.py:331
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:33
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:28
 #: dashboards/project/loadbalancers/workflows.py:44
@@ -11841,7 +11841,7 @@ msgid "Key Name"
 msgstr ""
 
 #: dashboards/project/instances/templates/instances/_detail_overview.html:124
-#: dashboards/project/loadbalancers/tables.py:320
+#: dashboards/project/loadbalancers/tables.py:329
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:27
 msgid "N/A"
 msgstr ""
@@ -12540,7 +12540,7 @@ msgid "Failed to update VIP %s"
 msgstr ""
 
 #: dashboards/project/loadbalancers/forms.py:173
-#: dashboards/project/loadbalancers/tables.py:373
+#: dashboards/project/loadbalancers/tables.py:385
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:22
 #: dashboards/project/loadbalancers/workflows.py:328
 msgid "Weight"
@@ -12561,7 +12561,7 @@ msgid "Failed to update member %s"
 msgstr ""
 
 #: dashboards/project/loadbalancers/forms.py:225
-#: dashboards/project/loadbalancers/tables.py:405
+#: dashboards/project/loadbalancers/tables.py:417
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:15
 #: dashboards/project/loadbalancers/workflows.py:493
 msgid "Delay"
@@ -12575,7 +12575,7 @@ msgid ""
 msgstr ""
 
 #: dashboards/project/loadbalancers/forms.py:231
-#: dashboards/project/loadbalancers/tables.py:406
+#: dashboards/project/loadbalancers/tables.py:418
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:18
 #: dashboards/project/loadbalancers/workflows.py:499
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:62
@@ -12769,7 +12769,22 @@ msgctxt "Current status of a Pool"
 msgid "Inactive"
 msgstr ""
 
+#: dashboards/project/loadbalancers/tables.py:317
+msgctxt "load balancing method"
+msgid "Round Robin"
+msgstr ""
+
+#: dashboards/project/loadbalancers/tables.py:319
+msgctxt "load balancing method"
+msgid "Least Connections"
+msgstr ""
+
 #: dashboards/project/loadbalancers/tables.py:321
+msgctxt "load balancing method"
+msgid "Source IP"
+msgstr ""
+
+#: dashboards/project/loadbalancers/tables.py:330
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:29
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:18
 #: dashboards/project/loadbalancers/workflows.py:43
@@ -12782,18 +12797,22 @@ msgstr ""
 msgid "Subnet"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:328
+#: dashboards/project/loadbalancers/tables.py:333
+msgid "LB Method"
+msgstr ""
+
+#: dashboards/project/loadbalancers/tables.py:340
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:18
 msgid "VIP"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:333
+#: dashboards/project/loadbalancers/tables.py:345
 #: dashboards/project/loadbalancers/tabs.py:28
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:38
 msgid "Pools"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:371
+#: dashboards/project/loadbalancers/tables.py:383
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:19
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:25
 #: dashboards/project/loadbalancers/workflows.py:163
@@ -12801,22 +12820,22 @@ msgstr ""
 msgid "Protocol Port"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:384
+#: dashboards/project/loadbalancers/tables.py:396
 #: dashboards/project/loadbalancers/tabs.py:46
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:39
 msgid "Members"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:403
+#: dashboards/project/loadbalancers/tables.py:415
 msgid "Monitor Type"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:407
+#: dashboards/project/loadbalancers/tables.py:419
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:21
 msgid "Max Retries"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:412
+#: dashboards/project/loadbalancers/tables.py:424
 #: dashboards/project/loadbalancers/tabs.py:64
 msgid "Monitors"
 msgstr ""
