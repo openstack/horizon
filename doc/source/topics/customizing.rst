@@ -195,7 +195,7 @@ Custom Stylesheets
 ==================
 
 It is possible to define custom stylesheets for your dashboards. Horizon's base
-template ``horizon/templates/base.html`` defines multiple blocks that
+template ``openstack_dashboard/templates/base.html`` defines multiple blocks that
 can be overridden.
 
 To define custom css files that apply only to a specific dashboard, create
@@ -233,8 +233,9 @@ Custom Javascript
 Similarly to adding custom styling (see above), it is possible to include
 custom javascript files.
 
-All Horizon's javascript files are listed in the ``horizon/_scripts.html``
-partial template, which is included in Horizon's base template in ``block js``.
+All Horizon's javascript files are listed in the ``openstack_dashboard/
+templates/horizon/_scripts.html`` partial template, which is included in
+Horizon's base template in ``block js``.
 
 To add custom javascript files, create an ``_scripts.html`` partial template in
 your dashboard ``openstack_dashboard/dashboards/my_custom_dashboard/
