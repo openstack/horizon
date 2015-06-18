@@ -749,7 +749,8 @@ Default::
             'profile_support': None,
             'supported_provider_types': ["*"],
             'supported_vnic_types': ["*"],
-            'segmentation_id_range': {}
+            'segmentation_id_range': {},
+            'enable_fip_topology_check': True,
         }
 
 A dictionary of settings which can be used to enable optional services provided
@@ -902,6 +903,21 @@ and maximum value will be the default for the provider network type.
 
 Example: ``{'vlan': [1024, 2048], 'gre': [4094, 65536]}``
 
+``enable_fip_topology_check``:
+
+Default: ``True``
+
+The Default Neutron implementation needs a router with a gateway to associate a
+FIP. So by default a topology check will be performed by horizon to list only
+VM ports attached to a network which is itself attached to a router with an
+external gateway. This is to prevent from setting a FIP to a port which will
+fail with an error.
+Some Neutron vendors do not require it. Some can even attach a FIP to any port
+(e.g.: OpenContrail) owned by a tenant.
+Set to False if you want to be able to associate a FIP to an instance on a
+subnet with no router if your Neutron backend allows it.
+
+.. versionadded:: 2015.2(Liberty)
 
 ``OPENSTACK_SSL_CACERT``
 ------------------------

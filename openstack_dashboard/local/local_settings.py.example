@@ -237,6 +237,7 @@ OPENSTACK_NEUTRON_NETWORK = {
     'enable_lb': True,
     'enable_firewall': True,
     'enable_vpn': True,
+    'enable_fip_topology_check': True,
 
     # The profile_support option is used to detect if an external router can be
     # configured via the dashboard. When using specific plugins the
