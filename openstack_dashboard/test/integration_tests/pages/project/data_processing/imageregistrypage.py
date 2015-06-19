@@ -76,3 +76,6 @@ class ImageregistryPage(basepage.BaseNavigationPage):
         self.register_form.user_name.text = user_name
         self.register_form.description.text = description
         self.register_form.submit.click()
+
+    def wait_until_image_registered(self, name):
+        self._wait_until(lambda x: self.is_image_registered(name))
