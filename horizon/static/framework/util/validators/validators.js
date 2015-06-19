@@ -15,6 +15,7 @@
    * |---------------------------------------------------------------------------------|
    * | {@link horizon.framework.util.validators.directive:validateNumberMax `validateNumberMax`} |
    * | {@link horizon.framework.util.validators.directive:validateNumberMin `validateNumberMin`} |
+   * | {@link horizon.framework.util.validators.directive:notBlank `notBlank`} |
    * | {@link horizon.framework.util.validators.directive:hzPasswordMatch `hzPasswordMatch`} |
    *
    */
@@ -47,38 +48,40 @@
    *   validate-number-max="{$ maxNumber $}">
    * ```
    */
-    .directive('validateNumberMax', [function () {
-      return {
-        require:  'ngModel',
-        restrict: 'A',
-        link:     function (scope, element, attrs, ctrl) {
-          if (!ctrl) {
-            return;
+  .directive('validateNumberMax', [function () {
+    return {
+      require:  'ngModel',
+      restrict: 'A',
+      link:     function (scope, element, attrs, ctrl) {
+        if (!ctrl) {
+          return;
+        }
+
+        var maxValidator = function (value) {
+          var max = scope.$eval(attrs.validateNumberMax);
+          if (angular.isDefined(max) && !ctrl.$isEmpty(value) && value > max) {
+            ctrl.$setValidity('validateNumberMax', false);
+          } else {
+            ctrl.$setValidity('validateNumberMax', true);
           }
 
-          var maxValidator = function (value) {
-            var max = scope.$eval(attrs.validateNumberMax);
-            if (angular.isDefined(max) && !ctrl.$isEmpty(value) && value > max) {
-              ctrl.$setValidity('validateNumberMax', false);
-            } else {
-              ctrl.$setValidity('validateNumberMax', true);
-            }
+          // Return the value rather than undefined if invalid
+          return value;
+        };
 
-            // Return the value rather than undefined if invalid
-            return value;
-          };
+        /**
+         * Re-validate if value is changed through the UI
+         * or model (programmatically)
+         */
+        ctrl.$parsers.push(maxValidator);
+        ctrl.$formatters.push(maxValidator);
 
-          // Re-validate if value is changed through the UI
-          // or model (programmatically)
-          ctrl.$parsers.push(maxValidator);
-          ctrl.$formatters.push(maxValidator);
-
-          attrs.$observe('validateNumberMax', function () {
-            maxValidator(ctrl.$modelValue);
-          });
-        }
-      };
-    }])
+        attrs.$observe('validateNumberMax', function () {
+          maxValidator(ctrl.$modelValue);
+        });
+      }
+    };
+  }])
 
   /**
    * @ngdoc directive
@@ -107,107 +110,115 @@
    *   validate-number-min="{$ minNumber $}">
    * ```
    */
-    .directive('validateNumberMin', [function () {
-      return {
-        require:  'ngModel',
-        restrict: 'A',
-        link:     function (scope, element, attrs, ctrl) {
-          if (!ctrl) {
-            return;
+  .directive('validateNumberMin', [function () {
+    return {
+      require:  'ngModel',
+      restrict: 'A',
+      link:     function (scope, element, attrs, ctrl) {
+        if (!ctrl) {
+          return;
+        }
+
+        var minValidator = function (value) {
+          var min = scope.$eval(attrs.validateNumberMin);
+          if (angular.isDefined(min) && !ctrl.$isEmpty(value) && value < min) {
+            ctrl.$setValidity('validateNumberMin', false);
+          } else {
+            ctrl.$setValidity('validateNumberMin', true);
           }
 
-          var minValidator = function (value) {
-            var min = scope.$eval(attrs.validateNumberMin);
-            if (angular.isDefined(min) && !ctrl.$isEmpty(value) && value < min) {
-              ctrl.$setValidity('validateNumberMin', false);
-            } else {
-              ctrl.$setValidity('validateNumberMin', true);
-            }
+          // Return the value rather than undefined if invalid
+          return value;
+        };
 
-            // Return the value rather than undefined if invalid
-            return value;
-          };
+        /**
+         * Re-validate if value is changed through the UI
+         * or model (programmatically)
+         */
+        ctrl.$parsers.push(minValidator);
+        ctrl.$formatters.push(minValidator);
 
-          // Re-validate if value is changed through the UI
-          // or model (programmatically)
-          ctrl.$parsers.push(minValidator);
-          ctrl.$formatters.push(minValidator);
+        attrs.$observe('validateNumberMin', function () {
+          minValidator(ctrl.$modelValue);
+        });
+      }
+    };
+  }])
 
-          attrs.$observe('validateNumberMin', function () {
-            minValidator(ctrl.$modelValue);
-          });
-        }
-      };
-    }])
-
-    .directive('notBlank', function () {
-      return {
-        require: 'ngModel',
-        link:    function (scope, elm, attrs, ctrl) {
-          ctrl.$parsers.unshift(function (viewValue) {
-            if (viewValue.length) {
-              // it is valid
-              ctrl.$setValidity('notBlank', true);
-              return viewValue;
-            }
-            // it is invalid, return undefined (no model update)
-            ctrl.$setValidity('notBlank', false);
-            return undefined;
-          });
-        }
-      };
-    })
-
-    /**
-     * @ngdoc directive
-     * @name hzPasswordMatch
-     * @element ng-model
-     *
-     * @description
-     * A directive to ensure that password matches.
-     * Changing the password or confirmation password triggers a validation check.
-     * However, only the confirmation password will show an error if match is false.
-     * The goal is to check that confirmation password matches the password,
-     * not whether the password matches the confirmation password.
-     * The behavior here is NOT bi-directional.
-     *
-     * @restrict A
-     *
-     * @scope
-     * hzPasswordMatch - form model to validate against
-     *
-     * @example:
-     * <form name="form">
-     *  <input type='password' id="psw" ng-model="user.psw" name="psw">
-     *  <input type='password' ng-model="user.cnf" hz-password-match="form.psw">
-     * </form>
-     *
-     * Note that id and name are required for the password input.
-     * This directive uses the form model and id for validation check.
-     */
-    .directive('hzPasswordMatch', function(){
-      return {
-        restrict: 'A',
-        require: 'ngModel',
-        scope: { pw: '=hzPasswordMatch' },
-        link: function(scope, element, attr, ctrl){
-
-          // helper function to check that password matches
-          function passwordCheck(){
-            scope.$apply(function(){
-              var match = (ctrl.$modelValue === scope.pw.$modelValue);
-              ctrl.$setValidity('match', match);
-            });
+  /**
+   * @ngdoc directive
+   * @name notBlank
+   * @element ng-model
+   * @description Ensure that the value is not blank
+   */
+  .directive('notBlank', function () {
+    return {
+      require: 'ngModel',
+      link:    function (scope, elm, attrs, ctrl) {
+        ctrl.$parsers.unshift(function (viewValue) {
+          if (viewValue.length) {
+            // it is valid
+            ctrl.$setValidity('notBlank', true);
+            return viewValue;
           }
+          // it is invalid, return undefined (no model update)
+          ctrl.$setValidity('notBlank', false);
+          return undefined;
+        });
+      }
+    };
+  })
 
-          // this ensures that typing in either input
-          // will trigger the password match
-          var pwElement = $('#'+scope.pw.$name);
-          pwElement.on('keyup change', passwordCheck);
-          element.on('keyup change', passwordCheck);
+  /**
+   * @ngdoc directive
+   * @name hzPasswordMatch
+   * @element ng-model
+   *
+   * @description
+   * A directive to ensure that password matches.
+   * Changing the password or confirmation password triggers a validation check.
+   * However, only the confirmation password will show an error if match is false.
+   * The goal is to check that confirmation password matches the password,
+   * not whether the password matches the confirmation password.
+   * The behavior here is NOT bi-directional.
+   *
+   * @restrict A
+   *
+   * @scope
+   * hzPasswordMatch - form model to validate against
+   *
+   * @example:
+   * <form name="form">
+   *  <input type='password' id="psw" ng-model="user.psw" name="psw">
+   *  <input type='password' ng-model="user.cnf" hz-password-match="form.psw">
+   * </form>
+   *
+   * Note that id and name are required for the password input.
+   * This directive uses the form model and id for validation check.
+   */
+  .directive('hzPasswordMatch', function () {
+    return {
+      restrict: 'A',
+      require: 'ngModel',
+      scope: { pw: '=hzPasswordMatch' },
+      link: function (scope, element, attr, ctrl) {
 
-        } // end of link
-      }; // end of return
-    }); // end of directive
+        // helper function to check that password matches
+        function passwordCheck() {
+          scope.$apply(function () {
+            var match = (ctrl.$modelValue === scope.pw.$modelValue);
+            ctrl.$setValidity('match', match);
+          });
+        }
 
-}());
+        /**
+         * this ensures that typing in either input
+         * will trigger the password match
+         */
+        var pwElement = $('#' + scope.pw.$name);
+        pwElement.on('keyup change', passwordCheck);
+        element.on('keyup change', passwordCheck);
+      } // end of link
+    }; // end of return
+  }); // end of directive
+})();

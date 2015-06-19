@@ -11,5 +11,4 @@
     'horizon.framework.util.validators'
   ])
     .constant('horizon.framework.util.basePath', '/static/framework/util/');
-
 })();

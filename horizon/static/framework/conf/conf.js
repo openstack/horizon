@@ -1,10 +1,10 @@
-/*global angular*/
 (function () {
   'use strict';
-  angular.module('horizon.framework.conf', [])
 
+  angular
+    .module('horizon.framework.conf', [])
     .constant('horizon.framework.conf.spinner_options', {
-      inline:     {
+      inline: {
         lines:  10,
         length: 5,
         width:  2,
@@ -14,7 +14,7 @@
         trail:  50,
         zIndex: 100
       },
-      modal:      {
+      modal: {
         lines:  10,
         length: 15,
         width:  4,
@@ -33,4 +33,4 @@
         trail:  50
       }
     });
-}());
+})();
