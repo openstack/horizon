@@ -16,6 +16,8 @@ from openstack_dashboard.test.integration_tests.tests import decorators
 IMAGE_NAME = helpers.gen_random_resource_name("image")
 
 
+# TODO(svasheka): Fix test_sahara_image_registry and turn it back on.
+@decorators.skip_because(bugs=["1466744"])
 @decorators.services_required("sahara")
 class TestSaharaImageRegistry(helpers.TestCase):
 
