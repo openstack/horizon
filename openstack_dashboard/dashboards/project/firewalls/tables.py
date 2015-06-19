@@ -315,9 +315,6 @@ class PoliciesTable(tables.DataTable):
     audited = tables.Column("audited",
                             verbose_name=_("Audited"),
                             filters=(filters.yesno, filters.capfirst))
-    shared = tables.Column("shared",
-                           verbose_name=_("Shared"),
-                           filters=(filters.yesno, filters.capfirst))
 
     class Meta(object):
         name = "policiestable"
