@@ -16,7 +16,6 @@ from openstack_dashboard.test.integration_tests.tests import decorators
 IMAGE_NAME = helpers.gen_random_resource_name("image")
 
 
-@decorators.skip_because(bugs=["1467950"])
 @decorators.services_required("sahara")
 class TestSaharaImageRegistry(helpers.TestCase):
 
@@ -31,6 +30,7 @@ class TestSaharaImageRegistry(helpers.TestCase):
         image_reg_pg = self.home_pg.go_to_dataprocessing_imageregistrypage()
         image_reg_pg.register_image(IMAGE_NAME, self.CONFIG.scenario.ssh_user,
                                     "Test description")
+        image_reg_pg.wait_until_image_registered(IMAGE_NAME)
         self.assertTrue(image_reg_pg.is_image_registered(IMAGE_NAME),
                         "Image was not registered.")
         self.assertFalse(image_reg_pg.is_error_message_present(),
