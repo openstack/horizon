@@ -63,11 +63,9 @@ class LaunchImageNG(LaunchImage):
     classes = ("btn-launch")
     ajax = False
 
-    def __init__(self,
-                 attrs={
-                     "ng-controller": "LaunchInstanceModalCtrl"
-                 },
-                 **kwargs):
+    def __init__(self, attrs=None, **kwargs):
+        if attrs is None:
+            attrs = {"ng-controller": "LaunchInstanceModalCtrl"}
         kwargs['preempt'] = True
         super(LaunchImage, self).__init__(attrs, **kwargs)
 
