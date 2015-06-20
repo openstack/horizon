@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-16 21:47-0500\n"
-"PO-Revision-Date: 2015-06-16 19:14+0000\n"
+"POT-Creation-Date: 2015-06-17 19:41-0500\n"
+"PO-Revision-Date: 2015-06-19 10:37+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/"
 "cs/)\n"
@@ -127,6 +127,9 @@ msgstr "Jméno"
 msgid "Next"
 msgstr "Další"
 
+msgid "No"
+msgstr "Ne"
+
 msgid "No available metadata"
 msgstr "Žádná dostupná popisná data"
 
@@ -201,6 +204,9 @@ msgstr "Varování:"
 
 msgid "Working"
 msgstr "Zpracovávání"
+
+msgid "Yes"
+msgstr "Ano"
 
 #, c-format
 msgid "You have selected %s. "

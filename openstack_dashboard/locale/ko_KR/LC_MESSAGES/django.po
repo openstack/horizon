@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-16 21:47-0500\n"
-"PO-Revision-Date: 2015-06-16 09:16+0000\n"
-"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"POT-Creation-Date: 2015-06-17 19:41-0500\n"
+"PO-Revision-Date: 2015-06-19 18:13+0000\n"
+"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/"
 "language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -1071,6 +1071,9 @@ msgstr "프로젝트에  IP 할당"
 
 msgid "Allocate a floating IP from a given floating IP pool."
 msgstr "주어진 유동 IP pool에서 유동 IP를 할당하세요. "
+
+msgid "Allocated"
+msgstr "할당됨"
 
 #, python-format
 msgid "Allocated Floating IP %(ip)s."
@@ -5326,6 +5329,9 @@ msgstr "Killed"
 msgid "Kwapi"
 msgstr "Kwapi"
 
+msgid "LB Method"
+msgstr "LB 메서드"
+
 msgid "LUKS Volume Snapshots"
 msgstr "LUKS 볼륨 스냅샷"
 
@@ -5455,6 +5461,10 @@ msgid ""
 msgstr ""
 "여러 개의 인스턴스를 구동하는 것은 이미지 및 인스턴스 스냅샷에서만 지원됩니"
 "다. "
+
+msgctxt "load balancing method"
+msgid "Least Connections"
+msgstr "최소 연결"
 
 msgid "Least connections"
 msgstr "최소 연결"
@@ -7560,6 +7570,10 @@ msgstr "Root 디스크 (GB)"
 msgid "Rotates requests evenly between multiple instances."
 msgstr "여러 인스턴스들 사이에서 짝수로 요청을 순환합니다."
 
+msgctxt "load balancing method"
+msgid "Round Robin"
+msgstr "라운드 로빈"
+
 msgid "Round robin"
 msgstr "라운드로빈"
 
@@ -8332,6 +8346,10 @@ msgstr "소스"
 msgid "Source CIDR"
 msgstr "소스 CIDR"
 
+msgid "Source IP"
+msgstr "소스 IP"
+
+msgctxt "load balancing method"
 msgid "Source IP"
 msgstr "소스 IP"
 
@@ -9319,6 +9337,9 @@ msgstr "이 노드 그룹의 템플릿이 생성됩니다:"
 
 msgid "This action cannot be undone."
 msgstr "이 작업은 취소할 수 없습니다."
+
+msgid "This application requires JavaScript to be enabled in your web browser."
+msgstr "이 애플리케이션은 웹 브라우져에서 JavaScript를 지원해야합니다."
 
 msgid ""
 "This generates a pair of keys: a key you keep private (cloud.key) and a "
@@ -11284,6 +11305,9 @@ msgstr "VXLAN"
 
 msgid "Valid integer greater than the DPD interval"
 msgstr "DPD 간격을 보다 큰 유효한 정수"
+
+msgid "Valid integer lesser than DPD timeout"
+msgstr "DPD 타임아웃보다 적은 유효한 정수"
 
 msgid "Value"
 msgstr "값"

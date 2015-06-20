@@ -12,6 +12,7 @@
 # François Bureau, 2015
 # François Bureau, 2015
 # Frédéric <frosmont@free.fr>, 2014
+# Gael Rehault <gael_rehault@dell.com>, 2015
 # Jean Pny, 2015
 # JF Taltavull <jftalta@gmail.com>, 2015
 # Maxime COQUEREL <max.coquerel@gmail.com>, 2015
@@ -23,8 +24,8 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-17 19:41-0500\n"
-"PO-Revision-Date: 2015-06-17 22:38+0000\n"
-"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
+"PO-Revision-Date: 2015-06-18 21:02+0000\n"
+"Last-Translator: Gael Rehault <gael_rehault@dell.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/"
 "fr/)\n"
 "MIME-Version: 1.0\n"
@@ -639,6 +640,14 @@ msgstr "ALLOW"
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "AUTORISER %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
+
+#, python-format
+msgid "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(cidr)s"
+msgstr "Autoriser %(from)s:%(to)s/%(ip_protocol)s depuis %(cidr)s"
+
+#, python-format
+msgid "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(group)s"
+msgstr "Autoriser %(from)s:%(to)s/%(ip_protocol)s depuis %(group)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Image"
@@ -2606,6 +2615,11 @@ msgstr "Inactif"
 msgctxt "Admin state of a Router"
 msgid "DOWN"
 msgstr "Inactif"
+
+msgid "DPD Timeout must be greater than DPD Interval"
+msgstr ""
+"La valeur de délai d'expiration DPD doit être supérieur à la valeur "
+"d'intervalle DPD"
 
 msgid "Daily Usage Report"
 msgstr "Rapport d'Utilisation Journalier"
@@ -11322,6 +11336,9 @@ msgstr "Mis à jour à"
 msgid "Updated subnet \"%s\"."
 msgstr "Sous-réseau \"%s\" a été mis à jour."
 
+msgid "Updated time"
+msgstr "Mis à jour"
+
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "Mise à jour du mot de passe"
@@ -11565,7 +11582,13 @@ msgid "VXLAN"
 msgstr "VXLAN"
 
 msgid "Valid integer greater than the DPD interval"
-msgstr "Valeur entière correcte plus grande que l'intervalle DPD"
+msgstr "Valeur entière correcte supérieur à l'intervalle DPD"
+
+msgid "Valid integer lesser than DPD timeout"
+msgstr "Valeur entière inférieur au délai d'expiratio DPD"
+
+msgid "Valid integer lesser than the DPD timeout"
+msgstr "Valeur entière correcte inférieur au délai d'expiratio DPD"
 
 msgid "Value"
 msgstr "Valeur"
@@ -11704,6 +11727,9 @@ msgstr "Instantanés de volumes"
 
 msgid "Volume Source"
 msgstr "Source du volume"
+
+msgid "Volume Storage"
+msgstr "Stockage de volumes"
 
 msgid "Volume Transfer"
 msgstr "Transfert de Volume"
