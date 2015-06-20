@@ -65,6 +65,7 @@ HORIZON_CONFIG = {
     'angular_modules': [],
     'js_files': [],
     'js_spec_files': [],
+    'external_templates': [],
 }
 
 # Set to True to allow users to upload images to glance via Horizon server.
@@ -284,6 +285,29 @@ STATICFILES_DIRS = get_staticfiles_dirs(WEBROOT)
 CUSTOM_THEME = os.path.join(ROOT_PATH, CUSTOM_THEME_PATH)
 STATICFILES_DIRS.append(
     ('custom', CUSTOM_THEME),
+)
+
+# populate HORIZON_CONFIG with auto-discovered JavaScript sources, mock files,
+# specs files and external templates.
+from horizon.utils import file_discovery as fd
+
+# note the path must end in a '/' or the resultant file paths will have a
+# leading "/"
+fd.populate_horizon_config(
+    HORIZON_CONFIG,
+    os.path.join(ROOT_PATH, '..', 'horizon', 'static/')
+)
+
+# filter out non-angular javascript code and lib
+HORIZON_CONFIG['js_files'] = ([f for f in HORIZON_CONFIG['js_files']
+                               if not f.startswith('horizon/')])
+
+# note the path must end in a '/' or the resultant file paths will have a
+# leading "/"
+fd.populate_horizon_config(
+    HORIZON_CONFIG,
+    os.path.join(ROOT_PATH, 'static/'),
+    sub_path='openstack-service-api/'
 )
 
 # Load the pluggable dashboard settings

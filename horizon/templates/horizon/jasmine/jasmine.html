@@ -20,6 +20,7 @@
   <script src="{{ STATIC_URL }}horizon/lib/angular/smart-table.js"></script>
   <script src="{{ STATIC_URL }}horizon/lib/angular/lrdragndrop.js"></script>
   <script src="{{ STATIC_URL }}horizon/lib/d3.js"></script>
+  <script src="{{ STATIC_URL }}horizon/js/horizon.js"></script>
 
   <script type="text/javascript">
     /* Load angular modules extensions list before we include angular/horizon.js */
@@ -27,27 +28,17 @@
   </script>
 
   <!-- source files -->
-  {% for file in sources %}
-    <script src="{{ STATIC_URL }}{{ file }}"></script>
-  {% endfor %}
-
-  <!-- spec files -->
-  {% for file in specs %}
-    <script src="{{ STATIC_URL }}{{ file }}"></script>
-  {% endfor %}
-
-  <!-- plugin source files -->
   {% for file in HORIZON_CONFIG.js_files %}
-    <script src='{{ STATIC_URL }}{{ file }}'></script>
-  {% endfor %}
-
-  <!-- plugin spec files -->
-  {% for file in HORIZON_CONFIG.js_spec_files %}
     <script src='{{ STATIC_URL }}{{ file }}'></script>
   {% endfor %}
 
   <!-- Magic Search library must be after magic-search override widget -->
   <script src="{{ STATIC_URL }}horizon/lib/magic_search/magic_search.js"></script>
+
+  <!-- test files - mock and spec -->
+  {% for file in HORIZON_CONFIG.js_spec_files %}
+    <script src='{{ STATIC_URL }}{{ file }}'></script>
+  {% endfor %}
 
 </head>
 <body>
@@ -62,8 +53,8 @@
       // Caching all external angular templates
 
       var templates = [
-        {% for externalTemplate in externalTemplates %}
-          '{{ STATIC_URL }}{{ externalTemplate }}',
+        {% for external_template in HORIZON_CONFIG.external_templates %}
+          '{{ STATIC_URL }}{{ external_template }}',
         {% endfor %}
       ];
 
