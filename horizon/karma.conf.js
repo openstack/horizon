@@ -66,30 +66,41 @@ module.exports = function(config) {
 
       // from jasmine_tests.py; only those that are deps for others
       'horizon/js/horizon.js',
-      'auth/auth.module.js',
-      'auth/login/login.module.js',
-      'framework/framework.module.js',
-      'framework/util/util.module.js',
-      'framework/util/tech-debt/tech-debt.module.js',
-      'framework/widgets/charts/charts.module.js',
-      'framework/widgets/modal/modal.module.js',
-      'framework/widgets/modal-wait-spinner/modal-wait-spinner.module.js',
-      'framework/widgets/metadata-tree/metadata-tree.module.js',
-      'framework/widgets/table/table.module.js',
-      'framework/widgets/toast/toast.module.js',
 
-      // Catch-all for stuff that isn't required explicitly by others.
-      'auth/**/!(*spec).js',
-      'framework/**/!(*spec).js',
+      /**
+       * First, list all the files that defines application's angular modules.
+       * Those files have extension of `.module.js`. The order among them is
+       * not significant.
+       */
+      '**/*.module.js',
 
-      // Templates.
-      './**/*.html',
+      /**
+       * Followed by other JavaScript files that defines angular providers
+       * on the modules defined in files listed above. And they are not mock
+       * files or spec files defined below. The order among them is not
+       * significant.
+       */
+      '!(horizon)/**/!(*.spec|*.mock).js',
 
       // Magic search requires late ordering due to overriding.
       xstaticPath + 'magic_search/data/magic_search.js',
 
-      // TESTS
-      '**/*.spec.js'
+      /**
+       * Then, list files for mocks with `mock.js` extension. The order
+       * among them should not be significant.
+       */
+      '**/*.mock.js',
+
+      /**
+       * Finally, list files for spec with `spec.js` extension. The order
+       * among them should not be significant.
+       */
+      '**/*.spec.js',
+
+      /**
+       * Angular external templates
+       */
+      '**/*.html'
     ],
 
     autoWatch : true,

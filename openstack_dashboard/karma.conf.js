@@ -64,23 +64,43 @@ module.exports = function(config) {
       xstaticPath + 'spin/data/spin.js',
       xstaticPath + 'spin/data/spin.jquery.js',
 
-      // TODO: Should these be mocked?
+      // TODO: These should be mocked.
       '../../horizon/static/horizon/js/horizon.js',
       '../../horizon/static/framework/util/http/http.js',
 
-      'openstack-service-api/openstack-service-api.module.js',
-      'openstack-service-api/**/*.js',
+      /**
+       * First, list all the files that defines application's angular modules.
+       * Those files have extension of `.module.js`. The order among them is
+       * not significant.
+       */
+      '**/*.module.js',
+      '**/workflow.js',
+      '**/launch-instance.js',
 
-      // first load dependencies in order that matters
-      "app/app.module.js",
-      "dashboard/dashboard.module.js",
-      "dashboard/workflow/workflow.js",
-      "dashboard/launch-instance/launch-instance.js",
-      "dashboard/tech-debt/tech-debt.module.js",
-      "dashboard/**/*.js",
+      /**
+       * Followed by other JavaScript files that defines angular providers
+       * on the modules defined in files listed above. And they are not mock
+       * files or spec files defined below. The order among them is not
+       * significant.
+       */
+      '**/!(*.spec|*.mock).js',
 
-      // Templates.
-      './**/*.html'
+      /**
+       * Then, list files for mocks with `mock.js` extension. The order
+       * among them should not be significant.
+       */
+      '**/*.mock.js',
+
+      /**
+       * Finally, list files for spec with `spec.js` extension. The order
+       * among them should not be significant.
+       */
+      '**/*.spec.js',
+
+      /**
+       * Angular external templates
+       */
+      '**/*.html'
     ],
 
     autoWatch : true,
