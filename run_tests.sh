@@ -15,7 +15,7 @@ function usage {
   echo "                           environment. Useful when dependencies have"
   echo "                           been added."
   echo "  -m, --manage             Run a Django management command."
-  echo "  --makemessages           Create/Update English translation files."
+  echo "  --makemessages           Create/Update English translation files using babel."
   echo "  --compilemessages        Compile all translation files."
   echo "  --check-only             Do not update translation files (--makemessages only)."
   echo "  --pseudo                 Pseudo translate a language."
@@ -319,7 +319,6 @@ function restore_environment {
     fi
 
     cp -r /tmp/.horizon_environment/$JOB_NAME/.venv ./ || true
-
     echo "Environment restored successfully."
   fi
 }
@@ -434,28 +433,56 @@ function run_integration_tests {
   exit 0
 }
 
+function babel_extract {
+  DOMAIN=$1
+  KEYWORDS="-k gettext_noop -k gettext_lazy -k ngettext_lazy:1,2"
+  KEYWORDS+=" -k gettext_noop -k ugettext_lazy -k ungettext_lazy:1,2"
+  KEYWORDS+=" -k npgettext:1c,2,3 -k pgettext_lazy:1c,2 -k npgettext_lazy:1c,2,3"
+
+  ${command_wrapper} pybabel extract -F ../babel-${DOMAIN}.cfg -o locale/${DOMAIN}.pot $KEYWORDS .
+}
+
+function babel_update {
+  DOMAIN=$1
+  UPDATE_OPTS="-l en -d locale"
+
+  ${command_wrapper} pybabel update -D $DOMAIN -i locale/${DOMAIN}.pot $UPDATE_OPTS
+}
+
 function run_makemessages {
-  OPTS="-l en --no-obsolete --settings=openstack_dashboard.test.settings"
-  DASHBOARD_OPTS="--extension=html,txt,csv --ignore=openstack"
+
   echo -n "horizon: "
   cd horizon
-  ${command_wrapper} $root/manage.py makemessages $OPTS
+  babel_extract django
+  babel_update django
   HORIZON_PY_RESULT=$?
+  rm locale/django.pot
+
   echo -n "horizon javascript: "
-  ${command_wrapper} $root/manage.py makemessages -d djangojs $OPTS
+  babel_extract djangojs
+  babel_update djangojs
   HORIZON_JS_RESULT=$?
+  rm locale/djangojs.pot
+
   echo -n "openstack_dashboard: "
   cd ../openstack_dashboard
-  ${command_wrapper} $root/manage.py makemessages $DASHBOARD_OPTS $OPTS
+  babel_extract django
+  babel_update django
   DASHBOARD_RESULT=$?
+  rm locale/django.pot
+
   echo -n "openstack_dashboard javascript: "
-  ${command_wrapper} $root/manage.py makemessages -d djangojs $OPTS
+  babel_extract djangojs
+  babel_update djangojs
   DASHBOARD_JS_RESULT=$?
+  rm locale/djangojs.pot
+
   cd ..
   if [ $check_only -eq 1 ]; then
     git checkout -- horizon/locale/en/LC_MESSAGES/django*.po
-    git checkout -- openstack_dashboard/locale/en/LC_MESSAGES/django.po
+    git checkout -- openstack_dashboard/locale/en/LC_MESSAGES/django*.po
   fi
+
   exit $(($HORIZON_PY_RESULT || $HORIZON_JS_RESULT || $DASHBOARD_RESULT || $DASHBOARD_JS_RESULT))
 }
 
