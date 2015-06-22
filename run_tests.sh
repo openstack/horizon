@@ -478,21 +478,17 @@ function run_compilemessages {
   cd ../openstack_dashboard
   ${command_wrapper} $root/manage.py compilemessages
   DASHBOARD_RESULT=$?
-  cd ..
-  # English is the source language, so compiled catalogs are unnecessary.
-  rm -vf horizon/locale/en/LC_MESSAGES/django*.mo
-  rm -vf openstack_dashboard/locale/en/LC_MESSAGES/django*.mo
   exit $(($HORIZON_PY_RESULT || $DASHBOARD_RESULT))
 }
 
 function run_pseudo {
   for lang in $testargs
-  # Use English po file as the source file/pot file just like real Horizon translations
+  # Use English pot file as the source file/pot file just like real Horizon translations
   do
-      ${command_wrapper} $root/tools/pseudo.py openstack_dashboard/locale/en/LC_MESSAGES/django.po openstack_dashboard/locale/$lang/LC_MESSAGES/django.po $lang
-      ${command_wrapper} $root/tools/pseudo.py openstack_dashboard/locale/en/LC_MESSAGES/djangojs.po openstack_dashboard/locale/$lang/LC_MESSAGES/djangojs.po $lang
-      ${command_wrapper} $root/tools/pseudo.py horizon/locale/en/LC_MESSAGES/django.po horizon/locale/$lang/LC_MESSAGES/django.po $lang
-      ${command_wrapper} $root/tools/pseudo.py horizon/locale/en/LC_MESSAGES/djangojs.po horizon/locale/$lang/LC_MESSAGES/djangojs.po $lang
+      ${command_wrapper} $root/tools/pseudo.py openstack_dashboard/locale/django.pot openstack_dashboard/locale/$lang/LC_MESSAGES/django.po $lang
+      ${command_wrapper} $root/tools/pseudo.py openstack_dashboard/locale/djangojs.pot openstack_dashboard/locale/$lang/LC_MESSAGES/djangojs.po $lang
+      ${command_wrapper} $root/tools/pseudo.py horizon/locale/django.pot horizon/locale/$lang/LC_MESSAGES/django.po $lang
+      ${command_wrapper} $root/tools/pseudo.py horizon/locale/djangojs.pot horizon/locale/$lang/LC_MESSAGES/djangojs.po $lang
   done
   exit $?
 }
