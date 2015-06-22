@@ -7,7 +7,7 @@
 # be installed in a specific order.
 #
 # Hacking should appear first in case something else depends on pep8
-hacking>=0.10.0,<0.11
+hacking<0.11,>=0.10.0
 #
 coverage>=3.6
 django-nose>=1.2
@@ -18,10 +18,10 @@ nose
 nose-exclude
 nosehtmloutput>=0.0.3
 nosexcover
-openstack.nose_plugin>=0.7
-oslosphinx>=2.5.0  # Apache-2.0
+openstack.nose-plugin>=0.7
+oslosphinx>=2.5.0 # Apache-2.0
 selenium
-sphinx>=1.1.2,!=1.2.0,!=1.3b1,<1.3
-testtools>=0.9.36,!=1.2.0
+sphinx!=1.2.0,!=1.3b1,<1.3,>=1.1.2
+testtools>=1.4.0
 # This also needs xvfb library installed on your OS
 xvfbwrapper>=0.1.3 #license: MIT
