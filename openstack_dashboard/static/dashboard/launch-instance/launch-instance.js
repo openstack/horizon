@@ -71,6 +71,36 @@
     windowClass: 'modal-dialog-wizard'
   });
 
+  /**
+   * @name bootSourceTypes
+   * @description Boot source types
+   */
+  module.constant('bootSourceTypes', {
+    IMAGE: 'image',
+    INSTANCE_SNAPSHOT: 'snapshot',
+    VOLUME: 'volume',
+    VOLUME_SNAPSHOT: 'volume_snapshot'
+  });
+
+  /**
+   * @ngdoc filter
+   * @name diskFormat
+   * @description
+   * Expects object and returns disk_format property value.
+   * Returns empty string if input is null or not an object.
+   * Uniquely required for the source step implementation of transfer tables
+   */
+  module.filter('diskFormat', function() {
+    return function(input) {
+      if (input === null || !angular.isObject(input) ||
+        !angular.isDefined(input.disk_format) || input.disk_format === null) {
+        return '';
+      } else {
+        return input.disk_format.toUpperCase();
+      }
+    };
+  });
+
   module.controller('LaunchInstanceWizardCtrl', [
     '$scope',
     'launchInstanceModel',
