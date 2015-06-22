@@ -356,7 +356,7 @@ class AddRouterToFirewall(RouterInsertionFormBase):
 
 class RemoveRouterFromFirewall(RouterInsertionFormBase):
     router_ids = forms.MultipleChoiceField(
-        label=_("Remove Routers"),
+        label=_("Associated Routers"),
         required=False,
         widget=forms.CheckboxSelectMultiple(),
         help_text=_("Unselect the router(s) to be removed from firewall."))
