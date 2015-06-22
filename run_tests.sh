@@ -442,45 +442,30 @@ function babel_extract {
   ${command_wrapper} pybabel extract -F ../babel-${DOMAIN}.cfg -o locale/${DOMAIN}.pot $KEYWORDS .
 }
 
-function babel_update {
-  DOMAIN=$1
-  UPDATE_OPTS="-l en -d locale"
-
-  ${command_wrapper} pybabel update -D $DOMAIN -i locale/${DOMAIN}.pot $UPDATE_OPTS
-}
-
 function run_makemessages {
 
   echo -n "horizon: "
   cd horizon
   babel_extract django
-  babel_update django
   HORIZON_PY_RESULT=$?
-  rm locale/django.pot
 
   echo -n "horizon javascript: "
   babel_extract djangojs
-  babel_update djangojs
   HORIZON_JS_RESULT=$?
-  rm locale/djangojs.pot
 
   echo -n "openstack_dashboard: "
   cd ../openstack_dashboard
   babel_extract django
-  babel_update django
   DASHBOARD_RESULT=$?
-  rm locale/django.pot
 
   echo -n "openstack_dashboard javascript: "
   babel_extract djangojs
-  babel_update djangojs
   DASHBOARD_JS_RESULT=$?
-  rm locale/djangojs.pot
 
   cd ..
   if [ $check_only -eq 1 ]; then
-    git checkout -- horizon/locale/en/LC_MESSAGES/django*.po
-    git checkout -- openstack_dashboard/locale/en/LC_MESSAGES/django*.po
+    git checkout -- horizon/locale/django*.pot
+    git checkout -- openstack_dashboard/locale/django*.pot
   fi
 
   exit $(($HORIZON_PY_RESULT || $HORIZON_JS_RESULT || $DASHBOARD_RESULT || $DASHBOARD_JS_RESULT))
