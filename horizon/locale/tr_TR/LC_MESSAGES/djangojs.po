@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-16 21:47-0500\n"
-"PO-Revision-Date: 2015-06-16 19:14+0000\n"
+"POT-Creation-Date: 2015-06-17 19:41-0500\n"
+"PO-Revision-Date: 2015-06-22 02:34+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/horizon/"
 "language/tr_TR/)\n"
@@ -36,11 +36,18 @@ msgstr "%s MB"
 msgid "%s TB"
 msgstr "%s TB"
 
+#, c-format
+msgid "%s bytes"
+msgstr "%s bytes"
+
 msgid "Add Interface"
 msgstr "Arayüz ekle"
 
 msgid "Added"
 msgstr "Eklendi"
+
+msgid "Allocated"
+msgstr "Ayrılan"
 
 msgid "An error occurred while updating."
 msgstr "Güncelleme sırasında bir hata oluştu."
@@ -51,15 +58,33 @@ msgstr "Bir hata oluştu. Lütfen tekrar deneyin."
 msgid "Available"
 msgstr "Uygun"
 
+msgid "Available Metadata"
+msgstr "Geçerli metaveri"
+
 msgid "Back"
 msgstr "Geri"
 
 msgid "Cancel"
 msgstr "İptal"
 
+msgid "Click to see more details"
+msgstr "Daha fazla detaylar için tıklayın"
+
+msgid "Click to show or hide"
+msgstr "Göstermek ve saklamak için tıklayın"
+
+msgid "Closed"
+msgstr "Kapandı"
+
+msgid "Closing"
+msgstr "Kapatılıyor"
+
 #, c-format
 msgid "Confirm %s"
 msgstr "%s Onayla"
+
+msgid "Connecting"
+msgstr "Bağlanıyor"
 
 msgid "Could not decrypt the password"
 msgstr "Şifre Çözülemedi"
@@ -70,11 +95,20 @@ msgstr "Dosya okunamadı"
 msgid "Danger: "
 msgstr "Tehlike:"
 
+msgid "Decimal required"
+msgstr "Ondalıklı sayı gerekli"
+
 msgid "Delete"
 msgstr "Sil"
 
 msgid "Delete Interface"
 msgstr "Arayüzü Sil"
+
+msgid "Delete Router"
+msgstr "Yönlendiriciyi Sil"
+
+msgid "Detail Information"
+msgstr "Detaylı Bilgi"
 
 #, c-format
 msgid "Displaying %s item"
@@ -90,8 +124,17 @@ msgstr "Hata:"
 msgid "Existing Metadata"
 msgstr "Varolan üstveri"
 
+msgid "Expand to see allocated items"
+msgstr "Öğeleri görmek için genişlet"
+
+msgid "Expand to see available items"
+msgstr "Uygun parçaları görmek için genişlet"
+
 msgid "Filter"
 msgstr "Filtre"
+
+msgid "Finish"
+msgstr "Bitti"
 
 msgid "Flavor"
 msgstr "Şablon"
@@ -99,11 +142,26 @@ msgstr "Şablon"
 msgid "ID"
 msgstr "KİMLİK"
 
+msgid "Integer required"
+msgstr "Tamsayı gerekli"
+
 msgid "Interfaces"
 msgstr "Arayüzler"
 
 msgid "Loading"
 msgstr "Yükleniyor"
+
+msgid "Max"
+msgstr "Maximum"
+
+msgid "Max length"
+msgstr "Maximum Uzunluk"
+
+msgid "Min"
+msgstr "Minimum"
+
+msgid "Min length"
+msgstr "Minimum Uzunluk"
 
 msgid "Name"
 msgstr "Ad"
@@ -111,11 +169,20 @@ msgstr "Ad"
 msgid "Next"
 msgstr "İleri"
 
+msgid "No"
+msgstr "Hayır"
+
+msgid "No available items"
+msgstr "Uygun parça yok"
+
 msgid "No available metadata"
 msgstr "Üstveri mevcut değil"
 
 msgid "No data available."
 msgstr "Veri yok."
+
+msgid "No existing metadata"
+msgstr "Üstveri mevcut değil"
 
 msgid "No items to display."
 msgstr "Görüntülenecek öğe yok."
@@ -132,14 +199,29 @@ msgstr "Bu işlemi yapmak için yetkiniz yok."
 msgid "Notice: "
 msgstr "Dikkat:"
 
+msgid "Open"
+msgstr "Aç"
+
 msgid "Open Console"
 msgstr "Konsol Aç"
 
 msgid "Passwords do not match."
 msgstr "Şifreler uyuşmuyor."
 
+msgid "Pattern mismatch"
+msgstr "Model Uyumsuzluğu"
+
+msgid "Please confirm your selection. "
+msgstr "Lütfen seçiminizi onaylayın"
+
+msgid "Re-order items using drag and drop"
+msgstr "Sürükle ve bırak kullanarak ögeleri yeniden sipariş ver"
+
 msgid "Remove"
 msgstr "Sil"
+
+msgid "Required"
+msgstr "Gereken"
 
 msgid "Roles"
 msgstr "Roller"
@@ -147,14 +229,29 @@ msgstr "Roller"
 msgid "STATUS"
 msgstr "DURUM"
 
+msgid "Select an item from Available items below"
+msgstr "Aşağıdaki kullanılabilir öğelerden birini seçin."
+
+msgid "Select one"
+msgstr "Birini seç"
+
 msgid "Status"
 msgstr "Statü"
+
+#, c-format
+msgid "Status: %s"
+msgstr "Durum: %s"
 
 msgid "Submit"
 msgstr "Gönder"
 
 msgid "Success: "
 msgstr "Başarılı:"
+
+msgid ""
+"The action cannot be performed. The contents of this row have errors or are "
+"missing information."
+msgstr "Eylem yapılamaz. Bu satırın içeriğinde hatalar var veya eksik."
 
 msgid "There was a problem communicating with the server, please try again."
 msgstr "Sunucu ile iletişimde bir sorun var, lütfen tekrar deneyin."
@@ -165,11 +262,27 @@ msgstr "Formu gönderirken bir hata oluştu. Lütfen tekrar deneyin."
 msgid "View Details"
 msgstr "Ayrıntıları Göster"
 
+msgid "View Router Details"
+msgstr "Router Ayrıntıları"
+
 msgid "Warning: "
 msgstr "Uyarı:"
 
 msgid "Working"
 msgstr "Çalışıyor"
+
+msgid "Yes"
+msgstr "Evet"
+
+msgid ""
+"You can specify resource metadata by moving items from the left column to "
+"the right column. In the left columns there are metadata definitions from "
+"the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
+"the key of your choice."
+msgstr ""
+"Doğru sütuna sol sütundaki ögeleri taşıyarak kaynak veriyi belirtebilirsiniz."
+"Sol sütunda Glance Metadata kataloğu'ndaki metaveri tanımları mevcuttur. "
+"Seçtiğiniz metaveriyi eklemek için \"Diğer\" seçeneğini kullanınız."
 
 #, c-format
 msgid "You have selected %s. "

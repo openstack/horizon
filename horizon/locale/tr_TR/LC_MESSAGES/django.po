@@ -4,14 +4,15 @@
 #
 # Translators:
 # Mücahit Büyükyılmaz <mucahit@konya.edu.tr>, 2015
+# Orçun Karaman <ferfeit@gmail.com>, 2015
 # sercanaydogan <sercanaydogan@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-15 19:53-0500\n"
-"PO-Revision-Date: 2015-06-15 15:01+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-06-17 19:41-0500\n"
+"PO-Revision-Date: 2015-06-22 02:05+0000\n"
+"Last-Translator: Orçun Karaman <ferfeit@gmail.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/horizon/"
 "language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -35,6 +36,16 @@ msgid ""
 msgstr ""
 "\n"
 "<label>Bitiş:</label>%(end)s"
+
+msgid ""
+"\n"
+"      If you are not sure which authentication method to use, contact your "
+"administrator.\n"
+"    "
+msgstr ""
+"\n"
+" Eğer hangi kimlik doğrulama yöntemini kullanıcağınızdan emin değilseniz , "
+"yöneticinize başvurunuz."
 
 #, python-format
 msgctxt "past"
@@ -94,6 +105,9 @@ msgstr "%s tamamlanmadı."
 msgid "&laquo;&nbsp;Prev"
 msgstr "&laquo;&nbsp;Geri"
 
+msgid "(No Limit)"
+msgstr "Limitsiz"
+
 msgid "-"
 msgstr "-"
 
@@ -106,6 +120,12 @@ msgstr "\"%(name)s\" isimli bir %(resource)s zaten var."
 
 msgid "Actions"
 msgstr "İşlemler"
+
+msgid "Active Instances:"
+msgstr "Aktif Sunucular"
+
+msgid "Active RAM:"
+msgstr "Aktif RAM:"
 
 msgid "Add a row"
 msgstr "Yeni bir satır ekle"
@@ -121,6 +141,9 @@ msgstr "Geri"
 
 msgid "Cancel"
 msgstr "İptal"
+
+msgid "Connect"
+msgstr "Baglantı"
 
 msgid "Delete"
 msgstr "Sil"
@@ -160,6 +183,9 @@ msgstr "Hatalı IP adres formatı"
 
 msgid "Info: "
 msgstr "Bilgi:"
+
+msgid "Invalid metadata entry. Use comma-separated key=value pairs"
+msgstr "Geçersiz meta veri girişi. Virgül Kulanın."
 
 msgid "Invalid subnet mask"
 msgstr "Geçersiz subnet maskesi"
@@ -251,11 +277,24 @@ msgstr "Kaydet"
 msgid "Select a %s to browse."
 msgstr "Göz atmak için bir %s seçin."
 
+msgid "Select a period of time to query its usage:"
+msgstr "Kullanımı listelemek için zaman aralığı seçin."
+
+#. Translators: test code, don't really have to translate
+msgid "Sell Puppy"
+msgid_plural "Sell Puppies"
+msgstr[0] "Köpek Yavrusu Sat"
+
 msgid "Session timed out."
 msgstr "Oturum sona erdi."
 
 msgid "Sign In"
 msgstr "Oturum Aç"
+
+#. Translators: test code, don't really have to translate
+msgid "Sold Puppy"
+msgid_plural "Sold Puppies"
+msgstr[0] "Satılan Yavru"
 
 msgid "Submit"
 msgstr "Gönder"
@@ -272,6 +311,18 @@ msgstr " %(obj)s objesinde %(attr)s özniteliği yer almıyor."
 
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "Tarih YYYY-AA-GG formatında olmalı."
+
+msgid "The string may only contain ASCII printable characters."
+msgstr "Dizi sadece ASCII karakterleri içerebilir."
+
+msgid "This Period's GB-Hours:"
+msgstr "Bu periyodda kullanılan GB-Saat"
+
+msgid "This Period's RAM-Hours:"
+msgstr "Bu periyodda kullanılan GB-Saat"
+
+msgid "This Period's VCPU-Hours:"
+msgstr "Bu periyodda kullanılan VCPU-Saat"
 
 msgid "This action cannot be undone."
 msgstr "Bu işlem geri alınamaz."
@@ -295,6 +346,9 @@ msgstr "Güncellendi"
 
 msgid "Usage Summary"
 msgstr "Kullanım Özeti"
+
+msgid "Used"
+msgstr "İkinci El"
 
 msgid "Warning: "
 msgstr "Uyarı:"
