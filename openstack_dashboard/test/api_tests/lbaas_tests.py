@@ -201,7 +201,7 @@ class LbaasApiTests(test.APITestCase):
         monitor = self.api_monitors.first()
         for pool_mon in pool.health_monitors:
             neutronclient.show_health_monitor(pool_mon).AndReturn(
-                {'health_monitors': [monitor]})
+                {'health_monitor': monitor})
         self.mox.ReplayAll()
 
         ret_val = api.lbaas.pool_get(self.request, pool.id)
