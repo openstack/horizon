@@ -68,6 +68,9 @@ SeleniumGroup = [
     cfg.IntOpt('page_timeout',
                default=30,
                help="Page load timeout in seconds"),
+    cfg.StrOpt('screenshots_directory',
+               default="integration_tests_screenshots",
+               help="Output screenshot directory"),
 ]
 
 ScenarioGroup = [

@@ -74,11 +74,15 @@ Pros:
 * Catches *many* bugs that unit and functional tests will not.
 * Doesn't rely on assumptions about the inputs and outputs.
 * Will warn you when changes in external components break your code.
+* Will take screenshot of the current page on test fail for easy debug
 
 Cons:
 
 * Difficult and time-consuming to create a repeatable test environment.
 * Did I mention that setting it up is a pain?
+
+Screenshot directory could be set through horizon.conf file, default value:
+ "./integration_tests_screenshots"
 
 So what should I write?
 -----------------------

@@ -10,7 +10,9 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import datetime
 import os
+import sys
 import time
 import traceback
 import uuid
@@ -21,6 +23,11 @@ import xvfbwrapper
 from openstack_dashboard.test.integration_tests import config
 from openstack_dashboard.test.integration_tests.pages import loginpage
 from openstack_dashboard.test.integration_tests import webdriver
+
+ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
+
+if ROOT_PATH not in sys.path:
+    sys.path.append(ROOT_PATH)
 
 
 def gen_random_resource_name(resource="", timestamp=True):
@@ -64,6 +71,7 @@ class BaseTestCase(testtools.TestCase):
             self.driver.set_page_load_timeout(
                 self.CONFIG.selenium.page_timeout)
             self.addOnException(self._dump_page_html_source)
+            self.addOnException(self._save_screenshot)
         else:
             msg = "The INTEGRATION_TESTS env variable is not set."
             raise self.skipException(msg)
@@ -81,6 +89,21 @@ class BaseTestCase(testtools.TestCase):
             content = testtools.content.text_content(exc_traceback)
         finally:
             self.addDetail("PageHTMLSource.html", content)
+
+    def _save_screenshot(self, exc_info):
+        screenshot_dir = os.path.join(
+            ROOT_PATH,
+            self.CONFIG.selenium.screenshots_directory)
+        if not os.path.exists(screenshot_dir):
+            os.makedirs(screenshot_dir)
+        date_string = datetime.datetime.now().strftime(
+            '%Y.%m.%d-%H%M%S')
+        test_name = self._testMethodName
+        name = '%s_%s.png' % (test_name, date_string)
+        filename = os.path.join(screenshot_dir, name)
+        self.driver.get_screenshot_as_file(filename)
+        content = testtools.content.text_content(filename)
+        self.addDetail("Screenshot", content)
 
     def _get_page_html_source(self):
         """Gets html page source.
