@@ -1,6 +1,6 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Translations template for PROJECT.
+# Copyright (C) 2015 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
 #
 # Translators:
 # Ambroise Christea <ambroise.christea@cloudwatt.com>, 2014
@@ -22,377 +22,22 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-17 19:41-0500\n"
-"PO-Revision-Date: 2015-06-18 21:02+0000\n"
-"Last-Translator: Gael Rehault <gael_rehault@dell.com>\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2015-06-23 01:20+0000\n"
+"PO-Revision-Date: 2015-06-23 01:20+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/"
 "fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.3\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-
-msgid ""
-"\n"
-"                  In order to run a Data Processing job, you need to make\n"
-"                  the files for your program available to the\n"
-"                  Data Processing system, define where the input and output\n"
-"                  need to go and create a Job Template that describes\n"
-"                  how to run your job.  Each of those steps can be done\n"
-"                  manually or you can follow this guide to help take you\n"
-"                  through the steps to run a job on an existing cluster.\n"
-"            "
-msgstr ""
-"\n"
-"Afin d'exécuter une tâche de traitement de données, vous devez rendre les "
-"fichiers utilisés par votre programme disponibles pour le système de "
-"Traitement de Données, définir les entrées et les sorties et créer un modèle "
-"décrivant comment exécuter votre tâche. Chacune de ces étapes peut être "
-"réalisée manuellement, mais vous pouvez aussi suivre ce guide qui vous "
-"aidera à exécuter une tâche sur un cluster existant, étape par étape."
-
-msgid ""
-"\n"
-"                 Each of the Data Processing frameworks require a cluster of "
-"machines\n"
-"                 in order to do the work they are assigned.  A cluster is\n"
-"                 formed by creating a set of Node Group Templates, "
-"combining\n"
-"                 those into a Cluster Template and then launching a "
-"Cluster.\n"
-"                 You can do each of those steps manually, or you can follow\n"
-"                 this guide to help take you through the steps of\n"
-"                 Cluster creation.\n"
-"             "
-msgstr ""
-"\n"
-"Chaque framework de traitement de données nécessite un groupement de "
-"machines\n"
-"pour pouvoir réaliser le travail qu'on lui donne. Un cluster se forme \n"
-"quand on crée un ensemble de Modèles de groupes de noeuds, que l'on réunit\n"
-"dans un modèle de cluster et que l'on démarre alors un cluster. \n"
-"Chacune de ces étapes peut être réalisée manuellement, mais vous pouvez "
-"aussi \n"
-"suivre ce guide qui vous aidera à créer un cluster, étape par étape."
-
-#, python-format
-msgid ""
-"\n"
-"            <a href=\"%(volume_url)s\">%(volume_label)s</a> on "
-"%(volume_device)s\n"
-"            "
-msgstr ""
-"\n"
-"<a href=\"%(volume_url)s\">%(volume_label)s</a> sur %(volume_device)s"
-
-#, python-format
-msgid ""
-"\n"
-"        Other IPv6 modes: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode="
-"%(addr_mode)s\n"
-"        "
-msgstr ""
-"\n"
-"Autres modes IPv6 : ipv6_ra_mode = %(ra_mode)s, ipv6_address_mode = "
-"%(addr_mode)s"
-
-msgid ""
-"\n"
-"        When the volume status is \"in-use\", you can use \"Force\" to "
-"upload the\n"
-"        volume to an image.\n"
-"       "
-msgstr ""
-"\n"
-"Quand le statut du volume est \"en cours d'utilisation\", vous pouvez "
-"utiliser \"Force\" pour télécharger le volume dans une image."
-
-#, python-format
-msgid ""
-"\n"
-"      <a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s\n"
-"      "
-msgstr ""
-"\n"
-"\n"
-"<a href=\"%(instance_url)s\">%(instance_name)s</a> sur %(device)s"
-
-msgid ""
-"\n"
-"      Change the volume type of a volume after its creation.\n"
-"      This is equivalent to the <tt>cinder retype</tt> command.\n"
-"     "
-msgstr ""
-"\n"
-"      Changer le type de volume après sa création.\n"
-"      Équivaut à la commande <tt>cinder retype</tt>.\n"
-"     "
-
-msgid ""
-"\n"
-"      Choose \"Disk Format\" for the image. The volume images are created "
-"with\n"
-"      the QEMU disk image utility.\n"
-"     "
-msgstr ""
-"\n"
-"Choisir \"Format de Disque\" pour l'image. Les image de volume sont créées "
-"avec\n"
-"l'utilitaire d'image disque QEMU."
-
-msgid ""
-"\n"
-"      QoS Specs can be associated with volume types.\n"
-"      It is used to map to a set of quality of service capabilities "
-"requested\n"
-"      by the volume owner. This is equivalent to the\n"
-"      <tt>cinder qos-create</tt> command. Once the QoS Spec gets created,\n"
-"      click the \"Manage Specs\" button to manage the key-value specs for "
-"the QoS Spec.\n"
-"      <br>\n"
-"      <br>\n"
-"      Each QoS Specs entity will have a \"Consumer\" value which indicates "
-"where the\n"
-"      administrator would like the QoS policy to be enforced. This value can "
-"be \"front-end\"\n"
-"      (Nova Compute), \"back-end\" (Cinder back-end), or \"both\".\n"
-"  "
-msgstr ""
-"\n"
-"Les Specs QoS peuvent être associées aux types de volumes.\n"
-"Elles peuvent être utilisées pour faire correspondre un type de volume à un "
-"groupe de critères de qualité de service requis par le détenteur du volume.  "
-"C'est l'équivalent de la commande \n"
-"      <tt>cinder qos-create</tt>. Une fois qu'une entité QoS Specs est "
-"créé,\n"
-"      cliquer sur le bouton \"Gérer les Spécifications\" pour gérer les "
-"paramètres Specs QoS principaux.\n"
-"      <br>\n"
-"      <br>\n"
-"      A chaque entité Specs QoS correspondra une valeur \"Consumer\" qui "
-"indiquera si l'administrateur souhaite ou non que la stratégie QoS soit "
-"appliquée. La valeur peut être \"front-end\" (Nova Compute), \"back-end"
-"\" (Cinder back-end), ou \"both\" (les deux).\n"
-"  "
-
-msgid ""
-"\n"
-"      The \"Migration Policy\" is only used if the volume retype cannot be\n"
-"      completed. If the \"Migration Policy\" is \"On Demand\", the back end "
-"will\n"
-"      perform volume migration. Note that migration may take a significant\n"
-"      amount of time to complete, in some cases hours.\n"
-"     "
-msgstr ""
-"\n"
-"La \"Stratégie de migration\" est uniquement utilisée si le volume retapé ne "
-"peut être complété. Si la \"Stratégie de migration\" est \"Sur Demande\", le "
-"backend\n"
-"réalisera la migration du volume. Noter que cette migration peut demander "
-"une quantité\n"
-"importante de temps pour être achevée, plusieurs heures dans certains cas."
-
-msgid ""
-"\n"
-"      The \"Volume Type\" selected must be different from the current volume "
-"type.\n"
-"     "
-msgstr ""
-"\n"
-"Le \"Type Volume\" sélectionné doit être différend du type de volume courant."
-
-msgid ""
-"\n"
-"      Upload the volume to the Image Service as an image.\n"
-"      This is equivalent to the <tt>cinder upload-to-image</tt> command.\n"
-"     "
-msgstr ""
-"\n"
-"Télécharger le volume dans le Service Image comme une image.\n"
-"Ceci est équivalent à la commande <tt>cinder upload-to-image</tt>."
-
-msgid ""
-"\n"
-"      Volume type is a type or label that can be selected at volume "
-"creation\n"
-"      time in OpenStack. It usually maps to a set of capabilities of the "
-"storage\n"
-"      back-end driver to be used for this volume. Examples: \"Performance"
-"\",\n"
-"      \"SSD\", \"Backup\", etc. This is equivalent to the\n"
-"      <tt>cinder type-create</tt> command. Once the volume type gets "
-"created,\n"
-"      click the \"View Extra Specs\" button to set up extra specs key-value\n"
-"      pair(s) for that volume type.\n"
-"     "
-msgstr ""
-"\n"
-"      Type de volume est un type ou un label qui peut être choisit au moment "
-"de la création du volume dans OpenStack. \n"
-"Il correspond habituellement aux fonctionnalités du pilote de stockage qui "
-"sera utilisé pour ce volume. Exemples : \"Performance\", \"SSD\", "
-"\"Sauvegarde\", etc. \n"
-"Ceci est l'équivalent de la commande <tt>cinder type-create</tt>. Une fois "
-"le type de volume créé, cliquez sur le bouton \"Voir les Spécifications "
-"Supplémentaires\" pour mettre en place les spécificités supplémentaires pour "
-"les paires de clés de valeurs ce type de volume."
-
-msgid ""
-"\n"
-"    \"Manage\" an existing volume from a Cinder host. This will make the "
-"volume visible within\n"
-"    OpenStack.\n"
-"    <br>\n"
-"    <br>\n"
-"    This is equivalent to the <tt>cinder manage</tt> command.\n"
-"    "
-msgstr ""
-"\n"
-"    \"Manage\" (gérer) un volume existant à partir d'un hôte Cinder. Cela "
-"rendra le volume visible dans OpenStack.\n"
-"    <br>\n"
-"    <br>\n"
-"   C'est l'équivalent de la commande <tt>cinder manage</tt>.\n"
-"    "
-
-msgid ""
-"\n"
-"    Each QoS Specs entity will have a \"Consumer\" value which indicates "
-"where the\n"
-"    administrator would like the QoS policy to be enforced. This value can "
-"be \"front-end\"\n"
-"    (Nova Compute), \"back-end\" (Cinder back-end), or \"both\".\n"
-"    "
-msgstr ""
-"\n"
-"Chaque entité QoS Specs aura une valeur \"Consumer\" qui indique où\n"
-"l'administrateur voudra faire exécuter la stratégie QoS. Cette valeur peut-"
-"être \"front-end\"\n"
-"(Nova Compute), \"back-end\" (Cinder back-end) ou \"both\" (les deux)."
-
-msgid ""
-"\n"
-"    The status of a volume is normally managed automatically.  In some "
-"circumstances an\n"
-"    administrator may need to explicitly update the status value.  This is "
-"equivalent to\n"
-"    the <tt>cinder reset-state</tt> command.\n"
-"    "
-msgstr ""
-"\n"
-"    L'état d'un volume est normalement géré automatiquement. Dans certaines "
-"circonstances, un administrateur doit forcer la valeur. Ceci est équivalent "
-"à la commande  <tt>cinder reset-state</tt>.\n"
-"    "
-
-msgid ""
-"\n"
-"    The status of a volume snapshot is normally managed automatically.  In "
-"some circumstances\n"
-"    an administrator may need to explicitly update the status value. This is "
-"equivalent to\n"
-"    the <tt>cinder snapshot-reset-state</tt> command.\n"
-"    "
-msgstr ""
-"\n"
-"   L'état d'un volume de snapshot est normallement géré automatiquement. "
-"Dans certaines circonstances, un administrateur doit forcer l'actualisation. "
-"Ceci est équivalent à la commande <tt>cinder snapshot-reset-state</tt>.\n"
-"    "
-
-msgid ""
-"\n"
-"    When a volume is \"unmanaged\", the volume will no longer be visible "
-"within OpenStack. Note that the\n"
-"    volume will not be deleted from the Cinder host.\n"
-"    <br>\n"
-"    <br>\n"
-"    This is equivalent to the <tt>cinder unmanage</tt> command.\n"
-"    "
-msgstr ""
-"\n"
-"Quand le volume est \"non-géré\", le volume n'apparaîtra plus dans "
-"OpenStack. Notez que le\n"
-"volume ne sera pas supprimé de l'hôte Cinder.\n"
-" <br>\n"
-" <br>\n"
-" C'est l'équivalent de la commande <tt>cinder unmanage</tt>.\n"
-"    "
-
-msgid ""
-"\n"
-"  Move networks from 'Available Networks' to 'Selected Networks' by\n"
-"  clicking the button, or dragging and dropping. You can change the\n"
-"  NIC order by dragging and dropping as well.\n"
-"  "
-msgstr ""
-"\n"
-"Déplacer les réseaux depuis \"Réseaux disponibles\" à \"Sélectionner réseaux"
-"\" en \n"
-"cliquant sur le bouton, ou en faisant un glisser-déposer. Vous pouvez "
-"changer l'ordre\n"
-"des NIC en faisant également un glisser-déposer."
-
-msgid " - End"
-msgstr "- Fin"
-
-msgid " : Next hop"
-msgstr ": prochain saut"
 
 #, python-format
 msgid " Also failed to delete port %s"
 msgstr "La suppression du port %s a échoué également"
-
-msgid " Done"
-msgstr "Terminé"
-
-msgid ""
-" Segment Ranges are 1-4093 for VLAN and above 5000 for Enhanced-VXLAN "
-"Overlay."
-msgstr ""
-"L'étendue du Segment est 1-4093 pour les VLAN et au dessus de 5000 pour le "
-"\"enhanced overlay\"."
-
-msgid " Segment types available are VLAN, Overlay and Trunk."
-msgstr "Les types de segment  disponibles sont VLAN, Overlay et Trunk."
-
-msgid " Select a name for your network profile."
-msgstr "Sélectionner un nom pour votre profil réseau."
-
-msgid ""
-" Sub types available are for the Overlay and Trunk segments. Available sub-"
-"types for Overlay are: Native-VXLAN, Enhanced-VXLAN or 'Other' (eg. GRE) "
-"which can be manually inputed as a text parameter for subtype. Available sub-"
-"type for Trunk is: VLAN."
-msgstr ""
-"Les Sous-types disponibles sont pour le segment de Recouvrement. Les sous-"
-"types disponibles pour Recouvrement sont: native_vxlan, enhanced ou "
-"«autre» (par ex. GRE) qui peut être entré manuellement comme un paramètre "
-"texte pour le sous-type."
-
-msgid ""
-"\"Customization Script\" is analogous to \"User Data\" in other systems."
-msgstr ""
-"\"Script Personnalisé\" est analogue à \"Donnée Utilisateur\" pour d'autres "
-"systèmes."
-
-msgid ""
-"\"None\" indicates that no QoS Spec is currently associated. Conversely, "
-"setting the QoS Spec to \"None\" will remove the current association."
-msgstr ""
-"\"None\" indique qu'aucune Spec QoS n'est actuellement associée. "
-"Inversement, en définissant la Spec QoS à « none », l'association en cours "
-"sera supprimée."
-
-#, python-format
-msgid "%(conf_name)s: %(conf_val)s"
-msgstr "%(conf_name)s: %(conf_val)s"
-
-#, python-format
-msgid "%(conf_name)s: %(conf_value)s"
-msgstr "%(conf_name)s : %(conf_value)s"
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -403,16 +48,8 @@ msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
 msgstr "%(field_name)s : adresse IP invalide (value=%(network)s)"
 
 #, python-format
-msgid "%(group)s:"
-msgstr "%(group)s :"
-
-#, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
-
-#, python-format
-msgid "%(key)s: %(val)s"
-msgstr "%(key)s : %(val)s"
 
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
@@ -422,18 +59,9 @@ msgstr "%(name)s - %(size)s Go (%(label)s)"
 msgid "%(name)s | %(RAM)s RAM"
 msgstr "%(name)s | %(RAM)s RAM"
 
-#. Translators:  UTC offset and timezone label
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s : %(label)s"
-
-#, python-format
-msgid "%(resource_status)s: %(resource_status_reason)s"
-msgstr "%(resource_status)s : %(resource_status_reason)s"
-
-#, python-format
-msgid "%(stack_status_title)s: %(stack_status_reason)s"
-msgstr "%(stack_status_title)s : %(stack_status_reason)s"
 
 #, python-format
 msgid "%(type)s (%(backend)s backend)"
@@ -459,7 +87,6 @@ msgstr "%(used)s %(key)s utilisé"
 msgid "%s (Default)"
 msgstr "%s (par défaut)"
 
-#. Translators: The usage is "<UUID of ext_net> (Not Found)"
 #, python-format
 msgctxt "External network not found"
 msgid "%s (Not Found)"
@@ -489,9 +116,6 @@ msgstr "%sGo"
 msgid "%sMB"
 msgstr "%sMo"
 
-msgid "&laquo;&nbsp;Back"
-msgstr "Retour"
-
 msgid "(Quota exceeded)"
 msgstr "(Quota dépassé)"
 
@@ -504,9 +128,6 @@ msgstr ", mise à jour des groupes du projet"
 msgid "-"
 msgstr "-"
 
-msgid "--"
-msgstr "--"
-
 msgid "-- not selected --"
 msgstr "-- aucune selection --"
 
@@ -516,64 +137,8 @@ msgstr "1-4093 pour VLAN; 5000 et au-dessus pour Overlay"
 msgid "3des"
 msgstr "3des"
 
-msgid ""
-"<b>Important</b>:  The name that you give your job binary will be the name "
-"used in your job execution.\n"
-"  If your binary requires a particular name or extension (ie: \".jar\"), be "
-"sure to include it here."
-msgstr ""
-"<b>Important</b> : Le nom que vous donnez à votre tâche binaire sera le nom "
-"utilisé dans l'exécution de votre t.âche\n"
-"Si votre binaire nécessite un nom particulier ou une extension (ie: \".jar"
-"\"), assurez-vous de l'inclure ici."
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s MB Used</p>"
-msgstr "<p>%(used)s sur %(quota)s Mo utilisés</p>"
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s Used</p>"
-msgstr "<p>%(used)s sur %(quota)s utilisés</p>"
-
-msgid ""
-"<strong>Please note:</strong> The new value must be greater than the "
-"existing volume size."
-msgstr ""
-"<strong>Attention :</strong> La nouvelle valeur doit être plus grande que la "
-"taille du volume actuel."
-
-msgid ""
-"<strong>Please note:</strong> The value specified in the Volume Size field "
-"should be greater than 0, however, some configurations do not support "
-"specifying volume size. If specifying the volume size results in an error "
-"stating volume support is not enabled, enter 0."
-msgstr ""
-"<strong> Veuillez noter :</ strong> La valeur spécifiée dans le champ Taille "
-"de volume doit être supérieur à 0, cependant, certaines configurations ne "
-"supportent pas la spécification de la taille du volume. Si la spécification "
-"de la taille du volume génère un message d'erreur indiquant que le volume "
-"n'est pas activé, rentrez 0."
-
 msgid "A backup must be selected!"
 msgstr "Vous devez sélectionner un serveur de backend !"
-
-msgid ""
-"A container is a storage compartment for your data and provides a way for "
-"you to organize your data. You can think of a container as a folder in "
-"Windows &reg; or a directory in UNIX &reg;. The primary difference between a "
-"container and these other file system concepts is that containers cannot be "
-"nested. You can, however, create an unlimited number of containers within "
-"your account. Data must be stored in a container so you must have at least "
-"one container defined in your account prior to uploading data."
-msgstr ""
-"Un conteneur est un compartiment de stockage pour vos données et vous "
-"fournit une façon de les organiser. Vous pouvez imaginer un conteneur comme "
-"un dossier Windows &reg; ou comme un répertoire UNIX &reg;. La différence "
-"principale entre un conteneur et ces concepts de systèmes de fichiers réside "
-"dans l'impossibilité d'imbriquer des conteneurs. Cependant, vous pouvez "
-"créer un nombre illimité de conteneurs dans votre compte. Les données "
-"doivent être stockées dans un conteneur, ainsi vous devez avoir au moins un "
-"conteneur défini dans votre compte avant de télécharger des données."
 
 msgid "A image or external image location must be specified."
 msgstr "Vous devez spécifier une image ou l'emplacement d'une image externe. "
@@ -594,30 +159,11 @@ msgid "A master instance must be selected!"
 msgstr "Vous devez sélectionner une instance Master !"
 
 msgid ""
-"A more specific rule affects a portion of this traffic so a rule cannot be "
-"automatically generated to control the behavior of the entire source/"
-"destination combination."
-msgstr ""
-"Une règle plus spécifique affecte une partie de ce trafic si une règle ne "
-"peut pas être généré automatiquement pour contrôler le comportement de "
-"l'ensemble des combinaisons source/destination."
-
-msgid "A new uploaded file will replace the content of the current object"
-msgstr ""
-"Un nouveau fichier téléchargé va remplacer le contenu de l’objet courant."
-
-msgid ""
 "A script or set of commands to be executed after the instance has been built "
 "(max 16kb)."
 msgstr ""
 "Un script ou une série de commandes à exécuter après la construction de "
 "l'instance (max 16 Ko)."
-
-msgid ""
-"A snapshot is an image which preserves the disk state of a running instance."
-msgstr ""
-"Un instantané est une image qui préserve l'état d'un disque d'une instance "
-"en cours d'exécution."
 
 #, python-format
 msgid ""
@@ -676,12 +222,6 @@ msgstr "Accepter le transfert de volume"
 msgid "Access & Security"
 msgstr "Accès et Sécurité"
 
-msgid "Access &amp; Security"
-msgstr "Accès et Sécurité"
-
-msgid "Access: "
-msgstr "Accès:"
-
 msgid "Action"
 msgstr "Action"
 
@@ -690,9 +230,6 @@ msgstr "Log des Actions"
 
 msgid "Action for the firewall rule"
 msgstr "Action pour la règle de pare-feu"
-
-msgid "Action:"
-msgstr "ACtion :"
 
 msgctxt "Current status of a Database Instance"
 msgid "Active"
@@ -742,9 +279,6 @@ msgctxt "status of a network port"
 msgid "Active"
 msgstr "Active"
 
-msgid "Active Instances:"
-msgstr "Instances Actives :"
-
 msgid ""
 "Actual device name may differ due to hypervisor settings. If not specified, "
 "then hypervisor will select a device name."
@@ -761,9 +295,6 @@ msgstr "Ajouter un agent DHCP"
 
 msgid "Add Firewall"
 msgstr "Ajouter un pare-feu"
-
-msgid "Add Group Assignment"
-msgstr "Ajouter une Assignation de Groupe"
 
 msgid "Add IKE Policy"
 msgstr "Ajouter une Stratégie IKE"
@@ -813,9 +344,6 @@ msgstr "Ajouter une nouvelle règle"
 msgid "Add New VPN Service"
 msgstr "Ajouter un nouveau service VPN"
 
-msgid "Add Node Group"
-msgstr "Ajouter un Groupe de Nœud"
-
 msgid "Add Policy"
 msgstr "Ajouter une stratégie"
 
@@ -824,9 +352,6 @@ msgstr "Ajouter un pool"
 
 msgid "Add Router"
 msgstr "Ajouter un Routeur"
-
-msgid "Add Router Route"
-msgstr "Ajouter la route du routeur"
 
 msgid "Add Router Rule"
 msgstr "Ajouter une règle de routage"
@@ -854,9 +379,6 @@ msgid_plural "Add Users"
 msgstr[0] "Ajouter un Utilisateur"
 msgstr[1] "Ajouter des Utilisateurs"
 
-msgid "Add User to Group"
-msgstr "Ajouter un Utilisateur à un Groupe"
-
 msgid "Add Users"
 msgstr "Ajouter des Utilisateurs"
 
@@ -873,9 +395,6 @@ msgstr ""
 "Ajouter et enlever des groupes de sécurité  à ce projet depuis la liste des "
 "groupes de sécurité disponibles."
 
-msgid "Add custom tag"
-msgstr "Ajouter étiquette personnalisée"
-
 msgid ""
 "Add hosts to this aggregate or remove hosts from it. Hosts can be in "
 "multiple aggregates."
@@ -887,12 +406,6 @@ msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr ""
 "Ajouter des hôtes à cet agrégat. Les hôtes peuvent appartenir à plusieurs "
 "agrégats."
-
-msgid "Add interface"
-msgstr "Ajouter une interface"
-
-msgid "Add libraries to your job template."
-msgstr "Ajouter des bibliothèques à votre modèle de tâche."
 
 msgid ""
 "Add member(s) to the selected pool.\n"
@@ -909,24 +422,8 @@ msgstr ""
 "que membre(s). Attribuer un poids et un numéro de port aux membres à opérer; "
 "e.g. 80. Un seul port peut être associé à chaque instance."
 
-msgid "Add plugin tags"
-msgstr "Ajouter les étiquettes du plugin"
-
-msgid "Add route"
-msgstr "Ajout d'une route"
-
-msgid "Add rule"
-msgstr "Ajouter une règle"
-
 msgid "Add selected router(s) to the firewall."
 msgstr "Ajouter le(s) routeur(s) sélectionné(s) au pare-feu."
-
-msgid "Add static route to the router."
-msgstr "Ajouter une route statique au routeur."
-
-msgid "Add, modify or remove the QoS Spec associated with this volume type."
-msgstr ""
-"Ajouter, modifier ou supprimer la Spec QoS associée à ce type de volume."
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Ajouter/Enlever des hôtes dans l'agrégat."
@@ -987,9 +484,6 @@ msgstr "Moniteur ajouté"
 msgid "Added pool \"%s\"."
 msgstr "Pool \"%s\" ajouté."
 
-msgid "Additional routes"
-msgstr "Routes supplémentaires"
-
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
 "nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry per line."
@@ -997,18 +491,6 @@ msgstr ""
 "Routes additionnelles annoncées aux hôtes. Chaque entrée est de la forme "
 "cidr_destination,saut_suivant (e.g. : 192.168.200.0/24,10.56.1.254). Une "
 "seule entrée par ligne est permise."
-
-msgid ""
-"Additionally, some resource types may require a prefix to be used when "
-"applying the metadata. In certain cases, the prefix may differ between the "
-"resource type (for example, flavor vs image)."
-msgstr ""
-"De plus, certains types de ressources pourraient avoir besoin d'un préfixe à "
-"utiliser pour appliquer les métadonnées. Dans certains cas, le préfixe peut "
-"varier suivant le type de ressource (ex. gabarit vs image)."
-
-msgid "Address"
-msgstr "Adresse"
 
 msgid "Admin"
 msgstr "Admin"
@@ -1018,16 +500,6 @@ msgstr "Mot de Passe Administrateur"
 
 msgid "Admin State"
 msgstr "Etat Administateur"
-
-msgid "Admin State Up"
-msgstr "Admin State activé"
-
-msgid ""
-"Administrator Note: Use the following CLI command to import the default "
-"definitions into Glance: "
-msgstr ""
-"Remarque administrateur : utiliser la commande CLI pour importer les "
-"définitions par défaut dans Glance :"
 
 msgctxt "current status of stack"
 msgid "Adopt Complete"
@@ -1049,14 +521,6 @@ msgstr "Options avancées"
 
 msgid "After"
 msgstr "Après"
-
-msgid ""
-"After launching an instance, you login using the private key (the username "
-"might be different depending on the image you launched):"
-msgstr ""
-"Après le démarrage d'une instance, vous vous connectez à l'aide de la clé "
-"privée (le nom d'utilisateur peut être différent en fonction de l'image que "
-"vous avez lancée) :"
 
 #, python-format
 msgid "Agent %s was successfully added."
@@ -1101,9 +565,6 @@ msgstr "Allocation d'IP"
 msgid "Allocate IP To Project"
 msgstr "Allouer une adresse IP au projet"
 
-msgid "Allocate a floating IP from a given floating IP pool."
-msgstr "Allouer une IP flottante depuis un pool d'IP."
-
 msgid "Allocated"
 msgstr "Alloué(es)"
 
@@ -1113,16 +574,6 @@ msgstr "IP flottante %(ip)s allouée."
 
 msgid "Allocation Pools"
 msgstr "Pools d'allocation"
-
-msgid ""
-"Allow the user to connect from this host\n"
-"    only. If not provided this user will be allowed to connect from "
-"anywhere.\n"
-"    "
-msgstr ""
-"Permettre à l'utilisateur de se connecter depuis cette hôte\n"
-"seulement. Si l'hôte n'est pas précisé, cet utilisateur sera autorisé à se "
-"connecter depuis n'importe où."
 
 msgid "Allowed Host"
 msgstr "Hôte autorisé"
@@ -1140,35 +591,11 @@ msgid "An external (HTTP) URL to load the template from."
 msgstr "Une URL externe à partir de laquelle le modèle est disponible."
 
 msgid ""
-"An instance can be launched with varying types of attached storage. You may "
-"select from those options here."
-msgstr ""
-"Une instance peut être démarrée avec différents types d'espace de stockage "
-"attachés. Vous pouvez les sélectionner ici."
-
-msgid ""
-"An object is the basic storage entity that represents a file you store in "
-"the OpenStack Object Storage system. When you upload data to OpenStack "
-"Object Storage, the data is stored as-is (no compression or encryption) and "
-"consists of a location (container), the object's name, and any metadata "
-"consisting of key/value pairs."
-msgstr ""
-"Un objet est l'entité de stockage de base qui représente un fichier dans le "
-"système de Stockage d'Objet d'OpenStack. Quand vous téléchargez des données "
-"dans le système de Stockage d'Objet, les données sont stockées telles que, "
-"sans compression ni chiffrement, et sont représentées par un emplacement "
-"(conteneur), le nom de l'objet et les métadonnées associées (paires clés/"
-"valeurs)."
-
-msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
 "help, contact your local administrator."
 msgstr ""
 "Une erreur imprévue est survenue. Essayer de rafraichir la page. Si cela "
 "n'aide pas, contacter votre administrateur local."
-
-msgid "Anti-affinity enabled for"
-msgstr "Anti-affinité activée pour"
 
 msgid "Any"
 msgstr "Tous"
@@ -1179,9 +606,6 @@ msgstr "Toutes les zones de disponibilité"
 msgid "Architecture"
 msgstr "Architecture"
 
-msgid "Arguments"
-msgstr "Arguments"
-
 msgid "Associate"
 msgstr "Associer"
 
@@ -1191,9 +615,6 @@ msgstr "Associer une adresse IP flottante"
 msgid "Associate Monitor"
 msgstr "Moniteur associé"
 
-msgid "Associate QoS Spec"
-msgstr "Associer les Spécifications QoS"
-
 msgid "Associate QoS Spec with Volume Type"
 msgstr "Associer les Spécifications QoS avec le Type de Volume"
 
@@ -1202,9 +623,6 @@ msgstr "Associer un moniteur de santé au pool cible."
 
 msgid "Associated QoS Spec"
 msgstr "Spécification QoS associée"
-
-msgid "Associated Resource Types"
-msgstr "Types de ressources associées"
 
 msgid "Associated Routers"
 msgstr "Routeurs associés"
@@ -1223,12 +641,6 @@ msgstr "Au moins un réseau doit être spécifié."
 
 msgid "Attach Interface"
 msgstr "Connexion à l'interface"
-
-msgid "Attach To Instance"
-msgstr "Attacher à l'instance"
-
-msgid "Attach Volume"
-msgstr "Connexion du volume"
 
 msgid "Attach to Instance"
 msgstr "Attacher à l'instance"
@@ -1264,23 +676,14 @@ msgstr "Attachement du volume %(vol)s à l'instance %(inst)s sur %(dev)s."
 msgid "Attachments"
 msgstr "Attachements"
 
-msgid "Attributes"
-msgstr "Attributs"
-
 msgid "Audited"
 msgstr "Auditée"
-
-msgid "Authentication URL"
-msgstr "URL d'authentification"
 
 msgid "Authorization Key"
 msgstr "Clé d’autorisation"
 
 msgid "Authorization algorithm"
 msgstr "Algorithme d'autorisation"
-
-msgid "Authorization mode"
-msgstr "Mode autorisé"
 
 msgid "Auto Security Group"
 msgstr "Groupe de sécurité automatique"
@@ -1315,18 +718,6 @@ msgstr "disponible(s)"
 msgctxt "Current status of a Volume Backup"
 msgid "Available"
 msgstr "disponible(s)"
-
-msgid "Available Routers"
-msgstr "Routeurs disponibles"
-
-msgid "Available Rules"
-msgstr "Règles disponibles"
-
-msgid "Available Types"
-msgstr "Types de disponibilité"
-
-msgid "Available networks"
-msgstr "Réseaux disponibles"
 
 msgid "Average CPU utilization"
 msgstr "Utilisation moyenne du CPU"
@@ -1363,9 +754,6 @@ msgstr ""
 msgid "Average volume of writes"
 msgstr "Volume moyen d'écritures"
 
-msgid "Avg."
-msgstr "Moy."
-
 msgctxt "Current status of a Volume"
 msgid "Backing Up"
 msgstr "Sauvegarde en cours"
@@ -1380,26 +768,14 @@ msgstr "Sauvegarde"
 msgid "Backup Database"
 msgstr "Sauvegarde de Base de Données"
 
-msgid "Backup Details"
-msgstr "Détails de la sauvegarde"
-
 msgid "Backup Details: {{ backup.name }}"
 msgstr "Détails de la sauvegarde: {{ backup.name }}"
-
-msgid "Backup Duration"
-msgstr "Durée de la sauvegarde"
 
 msgid "Backup File"
 msgstr "Fichier de sauvegarde"
 
-msgid "Backup File Location"
-msgstr "Emplacement du fichier de sauvegarde"
-
 msgid "Backup Name"
 msgstr "Nom de la sauvegarde"
-
-msgid "Backup Overview"
-msgstr "Aperçu de la Sauvegarde"
 
 msgid "Backups"
 msgstr "Sauvegardes"
@@ -1409,9 +785,6 @@ msgstr "Image de base"
 
 msgid "Before"
 msgstr "Avant"
-
-msgid "Binding"
-msgstr "Liaison"
 
 msgid "Binding: Host"
 msgstr "Liaison : hôte"
@@ -1497,9 +870,6 @@ msgstr ""
 "Impossible de spécifier à la fois une image et un emplacement d'image "
 "externe."
 
-msgid "Cancel"
-msgstr "Annuler"
-
 msgid "Cancel Transfer"
 msgstr "Annuler le transfert"
 
@@ -1532,16 +902,6 @@ msgstr "Changer un modèle."
 msgid "Change Volume Type"
 msgstr "Changer le Type de Volume"
 
-msgid "Change user's password. We highly recommend you create a strong one."
-msgstr ""
-"Changez votre mot de passe utilisateur. Nous vous conseillons d'en créer un "
-"plus sécurisé."
-
-msgid "Change your password. We highly recommend you create a strong one. "
-msgstr ""
-"Changer votre mot de passe. Nous vous recommandons vivement d'en choisir un "
-"robuste."
-
 msgid "Changing password is not supported."
 msgstr "Le changement de mot de passe n'est pas supporté."
 
@@ -1567,12 +927,6 @@ msgid_plural "Checked Stacks"
 msgstr[0] "Stack vérifiée"
 msgstr[1] "Stacks vérifiées"
 
-msgid "Checksum"
-msgstr "Somme de contrôle"
-
-msgid "Choose"
-msgstr "Choisir"
-
 msgid "Choose Your Boot Source Type."
 msgstr "Choisissez votre type de source de démarrage."
 
@@ -1581,13 +935,6 @@ msgstr "Choisir un hôte pour y évacuer les serveurs."
 
 msgid "Choose a Host to migrate to."
 msgstr "Choisissez un hôte pour la migration."
-
-msgid ""
-"Choose a key pair name you will recognise and paste your SSH public key into "
-"the space provided."
-msgstr ""
-"Choisissez un nom de paire de clés que vous reconnaîtrez et collez votre clé "
-"publique SSH dans le champ Clé publique."
 
 msgid "Choose a main binary"
 msgstr "Choisissez le binaire principal"
@@ -1607,9 +954,6 @@ msgstr "Choisissez un volume"
 msgid "Choose an DHCP Agent to attach to."
 msgstr "Choisir un agent DHCP auquel s'attacher."
 
-msgid "Choose an existing file"
-msgstr "Choisir un fichier existant"
-
 msgid "Choose an image"
 msgstr "Choisir une image"
 
@@ -1618,14 +962,6 @@ msgstr "Choisir la Spécification QoS associée."
 
 msgid "Choose consumer for this QoS Spec."
 msgstr "Choisir un consommateur pour cette Spécification QoS."
-
-msgid ""
-"Choose from the list of binaries and click \"choose\" to add the library to "
-"your job template.  This can be repeated for additional libraries."
-msgstr ""
-"Choisissez dans la liste des binaires et cliquez sur \"choisir\"  pour "
-"ajouter la bibliothèque à votre modèle de tâche. Ceci peut être répété pour "
-"des bibliothèques additionnelles."
 
 msgid "Choose initial state."
 msgstr "Sélectionner un état initial."
@@ -1636,79 +972,17 @@ msgstr "Sélectionner le type de tâche"
 msgid "Choose libraries"
 msgstr "Choisissez les bibliothèques"
 
-msgid ""
-"Choose network from Available networks to Selected networks by push button "
-"or drag and drop, you may change NIC order by drag and drop as well. "
-msgstr ""
-"Sélectionnez des réseaux parmi les réseaux disponibles en cliquant sur le "
-"bouton + ou par glisser/déposer. Vous pouvez aussi changer l'ordre des "
-"interfaces réseau (NIC) par glisser/déposer."
-
-msgid ""
-"Choose or create your main binary.  Additional libraries can be added from "
-"the \"Libs\" tab."
-msgstr ""
-"Choisissez ou créez votre binaire principal. Les bibliothèques "
-"additionnelles peuvent être ajoutées à partir de l'onglet \"Libs\"."
-
-msgid "Choose plugin"
-msgstr "Sélectionner un plugin"
-
 msgid "Choose plugin and version"
 msgstr "Sélectionner un plugin et une version"
 
 msgid "Choose plugin type and version"
 msgstr "Sélectionner un type de plugin et une version"
 
-msgid ""
-"Choose router(s) from Available Routers to Selected Routers by push button "
-"or drag and drop. "
-msgstr ""
-"Choisir les routeur(s) en les déplaçant de Routeurs Disponibles vers les "
-"Routeurs Sélectionnés en cliquant sur le bouton ou par glisser-déposer."
-
-msgid ""
-"Choose rule(s) from Available Rules to Selected Rule by push button or drag "
-"and drop,\n"
-"you may change their order by drag and drop as well. "
-msgstr ""
-"Choisissez une (des) règle(s) par déplacement depuis \"Règles disponibles\" "
-"vers \"Règles sélectionnées\" en cliquant sur le bouton ou par glisser-"
-"déposer. Vous pouvez aussi changer l'ordre des règles par glisser-déposer."
-
-msgid "Choose the Input Data Source (n/a for Java jobs)."
-msgstr "Choisissez la source de données d'entrée (n/a pour les tâches Java)."
-
-msgid "Choose the Output Data Source (n/a for Java jobs)."
-msgstr "Choisissez la source de données de sortie (n/a pour les tâches Java)."
-
 msgid "Choose the binary which should be used in this Job."
 msgstr "Choisissez le binaire qui pourra être utilisé pour cette Tâche."
 
-msgid "Choose the cluster to use for the job."
-msgstr "Sélectionnez le cluster à utiliser pour cette tâche."
-
 msgid "Choose the flavor to launch."
 msgstr "Choisir le gabarit à lancer."
-
-msgid "Choose the router(s) you want to add."
-msgstr "Choisir le(s) routeur(s) que vous voulez ajouter."
-
-msgid ""
-"Choose the rule you want to insert. Specify either the rule you want to "
-"insert immediately before, or the rule to insert immediately after. If both "
-"are specified, the prior takes precedence."
-msgstr ""
-"Choisissez la règle que vous souhaitez insérer. Spécifiez la règle qui doit "
-"précéder immédiatement votre nouvelle règle, ou la règle qui doit suivre "
-"immédiatement votre nouvelle règle. Si vous spécifiez les deux, le premier "
-"critère est prioritaire."
-
-msgid "Choose the rule you want to remove."
-msgstr "Choisissez la règle que vous voulez enlever."
-
-msgid "Chosen Libraries"
-msgstr "Bibliothèques choisies"
 
 msgid "Cinder"
 msgstr "Cinder"
@@ -1720,17 +994,11 @@ msgstr ""
 "Hôte Cinder sur lequel le volume existant réside; prend la forme : "
 "host@backend-name#pool"
 
-msgid "Cinder volumes"
-msgstr "Volumes Cinder"
-
 msgid "Cipher"
 msgstr "Cipher"
 
 msgid "Cisco Nexus 1000V"
 msgstr "Cisco Nexus 1000V"
-
-msgid "Cisco Nexus 1000V Networking"
-msgstr "Réseau Cisco Nexus 1000V "
 
 msgid "Cisco Nexus 1000v"
 msgstr "Cisco Nexus 1000v"
@@ -1740,9 +1008,6 @@ msgstr "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
 
 msgid "Clear Domain Context"
 msgstr "Retirer le contexte du domaine"
-
-msgid "Click here to show only console"
-msgstr "Cliquer ici pour ne voir que la console"
 
 msgid "Close"
 msgstr "Fermer"
@@ -1756,17 +1021,11 @@ msgstr "Guide de création d'un cluster"
 msgid "Cluster Details"
 msgstr "Détails du cluster"
 
-msgid "Cluster Guide"
-msgstr "Guide Cluster"
-
 msgid "Cluster Instances"
 msgstr "Instances de cluster"
 
 msgid "Cluster Name"
 msgstr "Nom du cluster"
-
-msgid "Cluster Overview"
-msgstr "Aperçu du cluster"
 
 msgid "Cluster Template"
 msgstr "Modèle de cluster"
@@ -1783,12 +1042,6 @@ msgstr "Copie du modèle de cluster %s créée"
 
 msgid "Cluster Templates"
 msgstr "Modèles de cluster"
-
-msgid "Cluster can be launched using existing Cluster Templates."
-msgstr "Le cluster peut être démarré en utilisant les modèles de cluster."
-
-msgid "Cluster configurations are not specified"
-msgstr "Les configurations de cluster ne sont pas spécifiées"
 
 msgid "Cluster template creation failed"
 msgstr "Echec de la création du modèle de cluster"
@@ -1821,17 +1074,11 @@ msgstr "Plugin"
 msgid "Compute"
 msgstr "Compute"
 
-msgid "Compute (Nova)"
-msgstr "Compute (Nova)"
-
 msgid "Compute Host"
 msgstr "Hôte Compute"
 
 msgid "Compute Services"
 msgstr "Services Compute"
-
-msgid "Configuration"
-msgstr "Configuration"
 
 msgid "Configuration Drive"
 msgstr "Disque de configuration"
@@ -1889,15 +1136,6 @@ msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "Confirmation du redimensionnement ou de la migration"
 
-msgid "Conflicting Rule"
-msgstr "Régle Contradictoire"
-
-msgid "Connection Examples"
-msgstr "Exemples de connexion"
-
-msgid "Connection Info"
-msgstr "Informations de Connexion"
-
 msgid "Connection Limit"
 msgstr "Limite de connexion"
 
@@ -1920,9 +1158,6 @@ msgstr "Accès du conteneur"
 msgid "Container Details"
 msgstr "Détails du conteneur"
 
-msgid "Container Format"
-msgstr "Format du conteneur"
-
 msgid "Container Name"
 msgstr "Nom du conteneur"
 
@@ -1931,9 +1166,6 @@ msgstr "Conteneur créé avec succès."
 
 msgid "Containers"
 msgstr "Conteneurs"
-
-msgid "Content Type"
-msgstr "Type de Contenu"
 
 msgid "Contents"
 msgstr "Contenu"
@@ -1954,10 +1186,6 @@ msgstr ""
 msgid "Cookie Name"
 msgstr "Nom du cookie"
 
-#, python-format
-msgid "Cookie Name: %(cookie_name)s"
-msgstr "Nom Cookie : %(cookie_name)s"
-
 msgid "Cookie name is required for APP_COOKIE persistence."
 msgstr "Le nom du cookie est obligatoire pour la persistance APP_COOKIE."
 
@@ -1976,10 +1204,6 @@ msgstr "Copier les Données"
 
 msgid "Copy Object"
 msgstr "Copier l'Objet"
-
-#, python-format
-msgid "Copy Object: %(object_name)s"
-msgstr "Copier l'Objet : %(object_name)s "
 
 msgid "Copy Template"
 msgstr "Copier le modèle"
@@ -2048,9 +1272,6 @@ msgstr "Créer une source de données"
 
 msgid "Create Domain"
 msgstr "Créer un Domaine"
-
-msgid "Create Encrypted Volume Type"
-msgstr "Créer un type de volume crypté"
 
 msgid "Create Encryption"
 msgstr "Création d'un chiffrement"
@@ -2199,9 +1420,6 @@ msgstr "Créer un volume de sauvegarde"
 msgid "Create Volume Snapshot"
 msgstr "Création d'un instantané du volume"
 
-msgid "Create Volume Snapshot (Force)"
-msgstr "Créer un instantané de volume (Forcer)"
-
 msgid "Create Volume Transfer"
 msgstr "Créer un transfert de Volume"
 
@@ -2213,15 +1431,6 @@ msgstr "Créer une Codification de type de volume"
 
 msgid "Create Volume Type Extra Spec"
 msgstr "Créer une Spécification Supplémentaire pour le Type de Volume"
-
-msgid "Create a Cluster Template"
-msgstr "Créer un modèle de cluster"
-
-msgid "Create a Data Source with a specified name."
-msgstr "Créer une source de données avec un nom personnalisé."
-
-msgid "Create a Master Node Group Template"
-msgstr "Créer un Modèle de groupe de nœuds Master"
 
 msgid "Create a Metadata Namespace"
 msgstr "Créer un Espace de nom de métadonnées"
@@ -2263,12 +1472,6 @@ msgstr "Créer un transfert de Volume"
 msgid "Create a Volume Type"
 msgstr "Créer un Type de Volume"
 
-msgid "Create a Worker Node Group Template"
-msgstr "Créer un Modèle de groupe de nœud Worker"
-
-msgid "Create a data source"
-msgstr "Créer une source de données"
-
 msgid ""
 "Create a firewall based on a policy.\n"
 "\n"
@@ -2302,12 +1505,6 @@ msgstr ""
 msgid "Create a firewall with selected routers."
 msgstr "Créer un pare-feu avec les routeurs sélectionnés."
 
-msgid "Create a job template"
-msgstr "Créer un modèle de tâche"
-
-msgid "Create a job template with a specified name."
-msgstr "Créer un modèle de tâche avec un nom indiqué."
-
 msgid ""
 "Create a monitor template.\n"
 "\n"
@@ -2321,20 +1518,6 @@ msgstr ""
 "et le nombre de tentatives requises par le moniteur. Spécifiez la méthode, "
 "l'URL et les codes retour HTTP attendus en cas de succès. "
 
-msgid "Create a new \"extra spec\" key-value pair for a volume type."
-msgstr ""
-"Créer une nouvelle \"spécification supplémentaire\" pour la pair de clé du "
-"type de volume."
-
-#, python-format
-msgid "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\""
-msgstr ""
-"Créer une nouvelle paire de clé-valeur \"spécification\" pour la "
-"Spécification QoS \"%(qos_spec_name)s\""
-
-msgid "Create a new network for any project as you need."
-msgstr "Créer un nouveau réseau pour chaque projet selon vos besoins."
-
 msgid ""
 "Create a new network. In addition, a subnet associated with the network can "
 "be created in the next panel."
@@ -2342,27 +1525,11 @@ msgstr ""
 "Créer un nouveau réseau. De plus, un sous réseau associé au réseau peut être "
 "crée dans le nouveau panneau."
 
-msgid "Create a new role."
-msgstr "Créer un nouveau rôle."
-
-msgid "Create a new stack with the provided values."
-msgstr "Créer une nouvelle Stack avec les valeurs fournies."
-
-msgid ""
-"Create a new user and set related properties including the Primary Project "
-"and Role."
-msgstr ""
-"Créer un nouvel utilisateur et définir les propriétés liées en incluant le "
-"Projet Primaire et le Rôle. "
-
 msgid "Create a policy with selected rules."
 msgstr "Créer une stratégie avec les règles sélectionnées."
 
 msgid "Create a project to organize users."
 msgstr "Créer un projet pour organiser les utilisateurs."
-
-msgid "Create a script to be uploaded dynamically"
-msgstr "Créer un script qui sera téléchargé dynamiquement"
 
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
@@ -2383,30 +1550,12 @@ msgstr ""
 msgid "Create an Encrypted Volume Type"
 msgstr "Créer un type de volume crypté"
 
-msgid ""
-"Create an optional initial user.\n"
-"   This user will have access to all databases you create."
-msgstr ""
-"Créer un utilisateur optionnel initial\n"
-"Cet utilisateur aura accès à toutes les bases que vous allez créer."
-
-#, python-format
-msgid "Create pseudo-folder in container %(container_name)s"
-msgstr "Créer un pseudo-dossier dans le conteneur %(container_name)s"
-
 msgid "Create security group for this Node Group."
 msgstr "Créer un groupe de sécurité pour ce Groupe de Nœuds."
-
-msgid "Create time"
-msgstr "Heure de création"
 
 msgid "Create volumes in this availability zone."
 msgstr "Créer des volumes dans cette zone de disponibilité."
 
-msgid "Created"
-msgstr "Créé"
-
-msgctxt "Created time"
 msgid "Created"
 msgstr "Créé"
 
@@ -2462,18 +1611,12 @@ msgstr "Spécification créée \"%s\"."
 msgid "Created subnet \"%s\"."
 msgstr "Sous-réseau \"%s\" créé."
 
-msgid "Created time"
-msgstr "Heure de création"
-
 msgid "Created volume transfer."
 msgstr "Transfert de Volume créé."
 
 #, python-format
 msgid "Created volume transfer: \"%s\"."
 msgstr "Transfert de Volume créé : \"%s\"."
-
-msgid "Creates a router with specified parameters."
-msgstr "Crée un routeur avec les paramètres spécifiés."
 
 msgid "Creating"
 msgstr "Création en cours"
@@ -2485,16 +1628,6 @@ msgstr "Création en cours"
 msgctxt "Current status of a Volume Backup"
 msgid "Creating"
 msgstr "Création en cours"
-
-msgid ""
-"Creating encryption for a volume type causes all volumes with that volume "
-"type to be encrypted.  Encryption information cannot be added to a volume "
-"type if volumes are currently in use with that volume type."
-msgstr ""
-"En créant la codification d'un volume, cela entraîne la codification de tous "
-"les volumes associés à ce volume. Les informations de codification peuvent "
-"être ajoutées à un type de volume si les volumes sont actuellement utilisés "
-"avec ce type de volume."
 
 #, python-format
 msgid "Creating volume \"%s\""
@@ -2532,29 +1665,11 @@ msgstr "Hôte actuel"
 msgid "Current Size (GB)"
 msgstr "Taille courante (GB)"
 
-msgid "Current choice:"
-msgstr "Choix actuel :"
-
 msgid "Current password"
 msgstr "Mot de passe actuel"
 
-msgid "Current type:"
-msgstr "Type actuellement en cours :"
-
-msgid ""
-"Currently only images available via an HTTP URL are supported. The image "
-"location must be accessible to the Image Service. Compressed image binaries "
-"are supported (.zip and .tar.gz.)"
-msgstr ""
-"Actuellement, seules les images disponibles via une URL HTTP sont "
-"supportées. L'emplacement de l'image doit être accessible par le service "
-"d'images. Les images compressées sont acceptées (format .zip et .tar.gz)"
-
 msgid "Custom ICMP Rule"
 msgstr "Règle ICMP personnalisée"
-
-msgid "Custom Properties"
-msgstr "Propriétés personnalisées"
 
 msgid "Custom TCP Rule"
 msgstr "Règle TCP personnalisée"
@@ -2565,9 +1680,6 @@ msgstr "Règle UDP personnalisée"
 msgid "Customization Script Source"
 msgstr "Source de Script personnalisé"
 
-msgid "DATABASE"
-msgstr "BASE DE DONNEES"
-
 msgid "DENY"
 msgstr "DENY"
 
@@ -2577,9 +1689,6 @@ msgstr "DENY"
 
 msgid "DHCP Agents"
 msgstr "Agents DHCP"
-
-msgid "DHCP Enable"
-msgstr "DHCP activé"
 
 msgid "DHCPv6 stateful: Address discovered from OpenStack DHCP"
 msgstr "DHCPv6 stateful: adresse trouvée dans OpenStack DHCP"
@@ -2592,9 +1701,6 @@ msgstr ""
 "l'information par le DHCP Openstack"
 
 msgid "DNS Name Servers"
-msgstr "Serveurs DNS"
-
-msgid "DNS name server"
 msgstr "Serveurs DNS"
 
 msgid "DOWN"
@@ -2633,28 +1739,11 @@ msgstr "Guides de traitement des données"
 msgid "Data Processing Plugin Details"
 msgstr "Détails du plugin de traitement des données"
 
-msgid "Data Processing Plugin Overview"
-msgstr "Aperçu du plugin de traitement des données"
-
 msgid "Data Processing Plugins"
 msgstr "Plugins de traitement des données"
 
-msgid "Data Processing internal database"
-msgstr "Base de donnée interne du Traitement des Données"
-
-msgid ""
-"Data Processing provides different storage location options. You may choose "
-"Ephemeral Drive or a Cinder Volume to be attached to instances."
-msgstr ""
-"Le Traitement des Données propose différentes options d'emplacement de "
-"stockage. Vous pouvez choisir un Disque Éphémère ou un Volume Cinder à "
-"attacher aux instances."
-
 msgid "Data Source Details"
 msgstr "Détails de la source de données"
-
-msgid "Data Source Overview"
-msgstr "Aperçu de la source de données"
 
 msgid "Data Source Type"
 msgstr "Type de la source de données"
@@ -2662,43 +1751,17 @@ msgstr "Type de la source de données"
 msgid "Data Sources"
 msgstr "Sources de données"
 
-msgid ""
-"Data Sources are what your\n"
-"                            job uses for input and output.  Depending on the "
-"type\n"
-"                            of job you will be running, you may need to "
-"define one\n"
-"                            or more data sources.  You can create multiple "
-"data\n"
-"                            sources by repeating this step.\n"
-"                        "
-msgstr ""
-"Les sources de données sont ce que\n"
-"votre tâche utilise pour ses entrées et sorties. Selon le type\n"
-"de tâche que vous exécutez, vous devrez sans doute définir une\n"
-"ou plusieurs sources de données. Vous pouvez créer plusieurs sources\n"
-"de données en répétant cette étape."
-
 msgid "Data source created"
 msgstr "Source de données créée"
 
 msgid "Database"
 msgstr "Base de données"
 
-msgid "Database Backups"
-msgstr "Sauvegardes de Base de Données "
-
-msgid "Database Info"
-msgstr "Informations de la Base de Données"
-
 msgid "Database Instance"
 msgstr "Instance de la base de données"
 
 msgid "Database Name"
 msgstr "Nom de la Base de Données"
-
-msgid "Database Port"
-msgstr "Port de la Base de Données"
 
 msgid "Databases"
 msgstr "Bases de données"
@@ -2718,9 +1781,6 @@ msgstr "Les dates ne peuvent être reconnues."
 msgid "Day"
 msgstr "Jour"
 
-msgid "Dead peer detection action"
-msgstr "Action de Dead peer detection"
-
 msgid "Dead peer detection actions"
 msgstr "Actions de dead peer detection"
 
@@ -2730,9 +1790,6 @@ msgstr "intervalle de dead peer detection"
 msgid "Dead peer detection timeout"
 msgstr "Délai d'expiration de dead peer detection"
 
-msgid "Decrypt Password"
-msgstr "Déchiffrer le mot de passe"
-
 msgid "Default Quotas"
 msgstr "Quotas par défaut"
 
@@ -2741,22 +1798,6 @@ msgstr "Les quotas par défaut ont été mis à jour."
 
 msgid "Defaults"
 msgstr "Valeurs par défaut"
-
-msgid ""
-"Define your Job Template.\n"
-"                        This is where you choose the type of job that you\n"
-"                        want to run (Pig, Java Action, Spark, etc) and "
-"choose\n"
-"                        or upload the files necessary to run it.  The "
-"inputs\n"
-"                        and outputs will be defined later.\n"
-"                    "
-msgstr ""
-"Définir votre Modèle de tâche.\n"
-"C'est là où vous choisissez le type de tâche\n"
-"à exécuter (Pig, Action Java, Spark, etc.) et sélectionner\n"
-"ou télécharger les fichiers nécessaires pour l'exécuter. Les entrées\n"
-"et les sorties seront définies par la suite."
 
 msgid "Delay"
 msgstr "Retard"
@@ -3239,20 +2280,11 @@ msgstr "Refuser"
 msgid "Description"
 msgstr "Description"
 
-msgid "Description:"
-msgstr "Description :"
-
-msgid "Destination"
-msgstr "Destination"
-
 msgid "Destination CIDR"
 msgstr "Destination CIDR"
 
 msgid "Destination IP"
 msgstr "IP de destination"
-
-msgid "Destination IP Address"
-msgstr "Adresse IP de destination"
 
 msgid "Destination IP Address/Subnet"
 msgstr "Adresse IP/Sous-réseau de destination"
@@ -3276,9 +2308,6 @@ msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr ""
 "Port de destination (nombre entier dans l'intervalle  [1, 65535] ou plage a:"
 "b)"
-
-msgid "Destination:"
-msgstr "Destination :"
 
 msgid "Detach Interface"
 msgstr "Déconnexion de l'interface %s"
@@ -3355,9 +2384,6 @@ msgid_plural "Disable Users"
 msgstr[0] "Désactiver un Utilisateur"
 msgstr[1] "Désactiver des Utilisateurs"
 
-msgid "Disable the compute service."
-msgstr "Désactiver le service compute"
-
 msgid "Disabled"
 msgstr "Désactivée"
 
@@ -3407,18 +2433,8 @@ msgstr "Surallocation de disque"
 msgid "Disk Partition"
 msgstr "Partitionnement du disque"
 
-msgid "Display Name"
-msgstr "Nom d'affichage"
-
 msgid "Distributed"
 msgstr "Distribué"
-
-msgid ""
-"Do not use a colon ':' with OS::Glance::Images. This resource type does not "
-"support the use of colons."
-msgstr ""
-"Ne pas utiliser les deux points ':' dans OS::Glance::Images. Ce type de "
-"ressource ne doit pas contenir les deux points."
 
 msgid "Docker"
 msgstr "Docker "
@@ -3474,9 +2490,6 @@ msgstr ""
 
 msgid "Domains:"
 msgstr "Domaines :"
-
-msgid "Done"
-msgstr "Terminé"
 
 msgctxt "Current status of a Job"
 msgid "Done with Error"
@@ -3542,25 +2555,9 @@ msgstr "Téléchargement de la paire de clés."
 msgid "Download OpenStack RC File"
 msgstr "Télécharger le fichier RC d'OpenStack"
 
-msgid "Download job binary"
-msgstr "Télécharger le binaire de tâche"
-
-#, python-format
-msgid "Download key pair &quot;%(keypair_name)s&quot;"
-msgstr "Télécharger la paire de clés &quot;%(keypair_name)s&quot;"
-
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
 msgstr "Durée du gabarit %s (gabarit Openstack)"
-
-msgid "EC2 Access Key"
-msgstr "La clé d'accès EC2"
-
-msgid "EC2 Secret Key"
-msgstr "La clé secrète EC2"
-
-msgid "EC2 URL"
-msgstr "URL EC2"
 
 msgid "Edit"
 msgstr "Editer"
@@ -3626,9 +2623,6 @@ msgstr "Modifier le réseau"
 msgid "Edit Network Profile"
 msgstr "Editer le profil réseau"
 
-msgid "Edit Object"
-msgstr "Editer l'objet"
-
 msgid "Edit Policy"
 msgstr "Éditer la stratégie"
 
@@ -3665,9 +2659,6 @@ msgstr "Editer les groupes de sécurité"
 msgid "Edit Snapshot"
 msgstr "Modifier l'Instantané"
 
-msgid "Edit Spec"
-msgstr "Éditer Spécification"
-
 msgid "Edit Spec Value"
 msgstr "Modifier valeur Spec"
 
@@ -3689,9 +2680,6 @@ msgstr "Editer le service VPN"
 msgid "Edit Volume"
 msgstr "Modifier le volume"
 
-msgid "Edit Volume Type Extra Spec"
-msgstr "Modifier les Spécificités Supplémentaires du Type de Volume"
-
 msgid ""
 "Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
 "cores, and other resources. Flavors are selected when users deploy instances."
@@ -3700,26 +2688,11 @@ msgstr ""
 "et du disque, le nombre de cœurs ainsi que d'autres ressources. Les gabarits "
 "sont sélectionnés quand les utilisateurs déploient des instances."
 
-msgid "Edit the image details."
-msgstr "Éditer les détails de l'image."
-
 msgid "Edit the instance details."
 msgstr "Éditer les détails de l'instance."
 
-msgid ""
-"Edit the network profile to update name, segment range or multicast IP range."
-msgstr ""
-"Editer le profil réseau pour mettre à jour le nom, la plage du segment ou la "
-"plage multicast."
-
 msgid "Edit the project details."
 msgstr "Éditer les détails du projet."
-
-msgid "Edit the role's details."
-msgstr "Éditer les détails du rôle."
-
-msgid "Edit the user's details, including the Primary Project."
-msgstr "Modifier les détails utilisateur, y compris le projet primaire."
 
 msgid "Egress"
 msgstr "Sortie"
@@ -3779,13 +2752,6 @@ msgstr "Chiffrement"
 msgid "Encryption algorithm"
 msgstr "Algorithme de chiffrement"
 
-msgctxt "End time"
-msgid "Ended"
-msgstr "Terminé"
-
-msgid "Energy (Kwapi)"
-msgstr "Energie (Kwapi)"
-
 msgid "Engine Id"
 msgstr "Id Moteur"
 
@@ -3813,21 +2779,8 @@ msgstr ""
 "Entrer un nombre entier compris entre 1 et 65535. Le même port sera utilisé "
 "pour tous les membres sélectionnés et pourra être modifié ultérieurement."
 
-msgid "Enter any custom configuration required for your job's execution."
-msgstr ""
-"Entrer vos configurations personnalisées et requises pour l'exécution de vos "
-"tâches."
-
 msgid "Enter parameter (e.g. GRE)"
 msgstr "Entrer le paramétre (par ex. GRE)"
-
-msgid "Enter the URL for the file"
-msgstr "Entrer l'URL du fichier"
-
-msgid "Enter the username and password required to access that file"
-msgstr ""
-"Entrer le nom de l'utilisateur et son mot de passe requis pour accéder au "
-"fichier"
 
 msgid "Environment Data"
 msgstr "Données d'Environnement"
@@ -3843,9 +2796,6 @@ msgstr "Disque éphémère"
 
 msgid "Ephemeral Disk (GB)"
 msgstr "Disque éphémère (Go) "
-
-msgid "Ephemeral drive"
-msgstr "Disque éphémère"
 
 msgid "Equal to or greater than 60"
 msgstr "Égal ou supérieur à 60"
@@ -3915,9 +2865,6 @@ msgstr "Erreur"
 msgid "Error Deleting"
 msgstr "Erreur lors de la suppression"
 
-msgid "Error Details"
-msgstr "Détails de l'Erreur"
-
 #, python-format
 msgid "Error Downloading RC File: %s"
 msgstr "Erreur pendant le téléchargement du fichier RC : %s"
@@ -3985,22 +2932,8 @@ msgstr "Type de protocole (EtherType)"
 msgid "Evacuate Host"
 msgstr "Hôte Évacué"
 
-msgid ""
-"Evacuate the servers from the selected down host to an active target host."
-msgstr ""
-"Évacuer les serveurs de l'hôte inactif sélectionné vers un hôte cible actif."
-
 msgid "Events"
 msgstr "Événements"
-
-msgid ""
-"Example: The prefix 'hw:' is added to OS::Nova::Flavor for the Virtual CPU "
-"Topology namespace so that the properties will be prefixed with 'hw:' when "
-"applied to flavors."
-msgstr ""
-"Exemple : le préfixe 'hw:' est ajouté à OS::Nova::Flavor pour l'espace nom "
-"de la topologie du CPU virtuel pour que les propriétés puissent être "
-"précédées de « hw: » quand elles s'appliquent aux gabarits."
 
 msgid "Existence of floating ip"
 msgstr "Existence de l'IP flottante"
@@ -4026,9 +2959,6 @@ msgstr "Existence du sous-réseau"
 msgid "Existence of volume"
 msgstr "Existence du volume"
 
-msgid "Expected Codes"
-msgstr "Codes attendus"
-
 msgid "Expected HTTP Status Codes"
 msgstr "Codes d'état HTTP attendus"
 
@@ -4042,15 +2972,9 @@ msgstr ""
 msgid "Extend Volume"
 msgstr "Étendre un volume."
 
-msgid "Extend the size of a volume."
-msgstr "Étendre la taille du volume."
-
 #, python-format
 msgid "Extending volume: \"%s\""
 msgstr "Volume étendu: \"%s\""
-
-msgid "External Fixed IPs"
-msgstr "IPs Fixes Externes"
 
 msgid "External Gateway"
 msgstr "Passerelle externe"
@@ -4395,9 +3319,6 @@ msgstr "Faux"
 msgid "Fan RPM"
 msgstr "RPM du ventilateur"
 
-msgid "Fault"
-msgstr "Défaut"
-
 msgid ""
 "Fields in this tab are optional. You can configure the detail of IPSec site "
 "connection created."
@@ -4410,12 +3331,6 @@ msgstr "Fichier"
 
 msgid "File exceeds maximum size (16kb)"
 msgstr "Le fichier dépasse la taille maximum (16 ko)"
-
-msgid "File:"
-msgstr "Fichier :"
-
-msgid "Filter"
-msgstr "Filtrer"
 
 msgid "Fingerprint"
 msgstr "Empreinte"
@@ -4446,19 +3361,6 @@ msgstr "Règles de pare-feu"
 msgid "Firewalls"
 msgstr "Pare-feux"
 
-msgid ""
-"First, select which type of job that\n"
-"                            you want to run.  This choice will determine "
-"which\n"
-"                            other steps are required\n"
-"                        "
-msgstr ""
-"Tout d'abord, sélectionner le type de tâche que vous souhaitez excécuter. Ce "
-"choix déterminera les autres étapes nécessaires."
-
-msgid "Fixed IP"
-msgstr "IP fixe"
-
 msgid "Fixed IPs"
 msgstr "IP fixes"
 
@@ -4473,16 +3375,6 @@ msgstr "Accès au gabarit"
 
 msgid "Flavor Choice"
 msgstr "Choix du gabarit"
-
-msgid "Flavor Details"
-msgstr "Détails du gabarit"
-
-#, python-format
-msgid "Flavor Details: %(name)s\">%(name)s"
-msgstr "Détails du Gabarit : %(name)s\">%(name)s "
-
-msgid "Flavor ID"
-msgstr "ID du gabarit"
 
 msgid "Flavor ID ="
 msgstr "ID du gabarit ="
@@ -4500,9 +3392,6 @@ msgstr "Information sur le gabarit"
 msgid "Flavor Name"
 msgstr "Nom du Gabarit"
 
-msgid "Flavor is not specified"
-msgstr "Le Gabarit n'est pas précisé"
-
 msgid "Flavors"
 msgstr "Gabarits"
 
@@ -4514,61 +3403,20 @@ msgstr ""
 "cœurs, ainsi que d'autres ressources. Ils peuvent être choisis quand les "
 "utilisateurs déploient des instances."
 
-msgid "Floating IP"
-msgstr "IP flottantes"
-
 msgid "Floating IP Pool"
 msgstr "Pool d'IP flottantes"
 
 msgid "Floating IPs"
 msgstr "IP flottantes"
 
-msgid "Floating IPs:"
-msgstr "IP flottantes :"
-
 msgid "Folder created successfully."
 msgstr "Dossier créé avec succès."
-
-msgid ""
-"For Data Processing internal job binaries, you may choose from the following:"
-msgstr ""
-"Pour les binaires de Traitement de Donnée internes, vous pouvez choisir "
-"parmi les suivants:"
 
 #, python-format
 msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
 msgstr ""
 "Pour les réseaux GRE, les IDs de tunnel valides doivent être compris entre "
 "%(min)s et %(max)s."
-
-msgid ""
-"For MapReduce or Java Action jobs, \"mains\" are not applicable.  You are "
-"required to add one\n"
-"  or more \"libs\" for these jobs."
-msgstr ""
-"Pour MapReduce ou les tâches Action Java, les \"mains\" ne sont pas "
-"applicables. Vous devez en ajouter un\n"
-"ou plusieurs \"libs\" pour ces tâches."
-
-msgid "For Object Store job binaries, you must:"
-msgstr "Pour les binaires de tâche Magasin d'Objets, vous devez:"
-
-msgid "For Spark jobs, only a main is required, \"libs\" are optional."
-msgstr ""
-"Pour les travaux Spark, seulement l'attribut 'main' est nécessaire, 'libs' "
-"est facultatif."
-
-msgid ""
-"For TCP and UDP rules you may choose to open either a single port or a range "
-"of ports. Selecting the \"Port Range\" option will provide you with space to "
-"provide both the starting and ending ports for the range. For ICMP rules you "
-"instead specify an ICMP type and code in the spaces provided."
-msgstr ""
-"Pour les règles TCP et UDP, vous pouvez choisir d'ouvrir soit un seul port, "
-"soit une plage de ports. En sélectionnant l'option \"plage de ports\", vous "
-"aurez l'espace pour fournir le port de début et le port de fin pour la plage "
-"concernée. Pour les règles ICMP, vous devez en revanche fournir un type ICMP "
-"et un code dans les espaces proposés."
 
 #, python-format
 msgid ""
@@ -4620,22 +3468,9 @@ msgstr "De"
 msgid "From Port"
 msgstr "Du Port"
 
-msgid "From here you can add a DHCP agent for the network."
-msgstr "Ici, vous pouvez ajouter un agent DHCP au réseau."
-
-msgid "From here you can create a snapshot of a volume."
-msgstr ""
-"De cet emplacement, vous pouvez créer un cliché instantané d'un volume."
-
 msgid "From here you can update the default quotas (max limits)."
 msgstr ""
 "Ici, vous pouvez mettre à jour les quotas par défaut (limites maximales)."
-
-msgid "From:"
-msgstr "Depuis :"
-
-msgid "GB"
-msgstr "Go"
 
 msgid "GET"
 msgstr "GET"
@@ -4665,9 +3500,6 @@ msgstr "Informations générales"
 msgid "Glance"
 msgstr "Glance"
 
-msgid "Go"
-msgstr "Go"
-
 #, python-format
 msgid "Group \"%s\" was successfully created."
 msgstr "Groupe \"%s\" créé avec succès. "
@@ -4675,39 +3507,17 @@ msgstr "Groupe \"%s\" créé avec succès. "
 msgid "Group ID"
 msgstr "ID du Groupe"
 
-msgid "Group Management"
-msgstr "Gestion de Groupe"
-
 msgid "Group Management: {{ group.name }}"
 msgstr "Gestion de groupe : {{ group.name }}"
 
 msgid "Group Members"
 msgstr "Membres du Groupe"
 
-msgid "Group by:"
-msgstr "Groupe par :"
-
 msgid "Group has been updated successfully."
 msgstr "Le Groupe a été mis à jour avec succès."
 
 msgid "Groups"
 msgstr "Groupes"
-
-msgid ""
-"Groups are used to manage access and assign roles to multiple users at once. "
-"After creating the group, edit the group to add users."
-msgstr ""
-"Les groupes sont utilisés pour gérer les accès et attribuer des rôles à "
-"plusieurs utilisateurs à la fois. Après création du groupe, éditer le groupe "
-"et ajouter les utilisateurs. "
-
-msgid ""
-"Groups are used to manage access and assign roles to multiple users at once. "
-"Edit the group to add users."
-msgstr ""
-"Les groupes sont utilisés pour gérer l'accès et attribuer des rôles à "
-"plusieurs utilisateurs en même temps. Éditer le groupe pour ajouter des "
-"utilisateurs."
 
 msgid "Guided Cluster Creation"
 msgstr "Création de cluster guidée"
@@ -4718,12 +3528,8 @@ msgstr "Exécution de tâche guidée"
 msgid "Guides"
 msgstr "Guides"
 
-#. Translators: High Availability mode of Neutron router
 msgid "HA mode"
 msgstr "Mode HA"
-
-msgid "HDFS placement"
-msgstr "emplacement HDFS"
 
 msgid "HTTP"
 msgstr "HTTP"
@@ -4746,21 +3552,12 @@ msgid_plural "Hard Rebooted Instances"
 msgstr[0] "Instance de Redémarrage Matériel"
 msgstr[1] "Instances de Redémarrage Matériel"
 
-msgid "Hash"
-msgstr "Hash"
-
-msgid "Health Monitors"
-msgstr "Moniteurs de santé"
-
 #, python-format
 msgid "Health monitor %s was successfully updated."
 msgstr "Le moniteur de santé %s a été mis à jour avec succès."
 
 msgid "Help"
 msgstr "Aide"
-
-msgid "Hide full configuration"
-msgstr "Cacher la configuration complète"
 
 msgid "High Availability Mode"
 msgstr "Mode Haute Disponibilté"
@@ -4803,14 +3600,6 @@ msgstr ""
 "disponibilités en regroupant des hôtes. Créez un agrégat d'hôtes puis "
 "sélectionnez les hôtes à y intégrer."
 
-msgid ""
-"Host aggregates divide an availability zone into logical units by grouping "
-"together hosts. Edit the aggregate host to select hosts contained in it."
-msgstr ""
-"Les agrégats d'hôtes permettent de définir des zones logiques au sein des "
-"zones de disponibilités en regroupant des hôtes. Editez l'agrégat pour "
-"sélectionner les hôtes qui le composent."
-
 msgid "Host or IP that the user is allowed to connect through."
 msgstr "Hôte ou IP autorisé pour la connexion de utilisateur."
 
@@ -4828,9 +3617,6 @@ msgstr "Instances de l'hyperviseur"
 
 msgid "Hypervisor Servers"
 msgstr "Serveurs Hyperviseur"
-
-msgid "Hypervisor Summary"
-msgstr "Vue d'ensemble de l'Hyperviseur"
 
 msgid "Hypervisors"
 msgstr "Hyperviseurs"
@@ -4868,9 +3654,6 @@ msgstr "Adresse IP"
 
 msgid "IP Address (optional)"
 msgstr "Adresse IP (facultatif)"
-
-msgid "IP Addresses"
-msgstr "Adresses IP"
 
 msgid "IP Protocol"
 msgstr "Protocole IP"
@@ -4916,12 +3699,6 @@ msgstr ""
 "Adresse IP de la passerelle (e.g. 192.168.0.254). Spécifier une adresse "
 "explicite pour définir la passerelle. Si vous ne voulez pas utiliser une "
 "passerelle, cochez 'Désactiver la passerelle' ci-dessous."
-
-msgid "IP allocation pool"
-msgstr "Pool d'adresses IP"
-
-msgid "IP version"
-msgstr "Version IP"
 
 msgid "IPMI"
 msgstr "IPMI"
@@ -4988,33 +3765,6 @@ msgstr ""
 "Le service d'identité n'autorise pas la modification du mot de passe "
 "utilisateur."
 
-msgid ""
-"If console is not responding to keyboard input: click the grey status bar "
-"below."
-msgstr ""
-"Si la console ne répond plus aux entrées clavier, cliquez sur la barre "
-"d'état grise ci-dessous."
-
-msgid ""
-"If no container name is provided, a default container named volumebackups "
-"will be provisioned for you. Backups will be the same size as the volume "
-"they originate from."
-msgstr ""
-"Si aucun nom de conteneur n'est fourni, un nom par défaut nommé "
-"volumebackups vous sera provisionné. Les sauvegardes auront la même taille "
-"que le volume dont ils sont originaires."
-
-msgid ""
-"If you select an image via an HTTP URL, the Image Location field MUST be a "
-"valid and direct URL to the image binary; it must also be accessible to the "
-"Image Service. URLs that redirect or serve error pages will result in "
-"unusable images."
-msgstr ""
-"Si vous sélectionnez une image via une URL HTTP, le champ contenant la "
-"Location de l'Image DOIT être valide et diriger vers le binaire de l'image; "
-"il doit également être accessible au Service Image. Les URLs qui redirigent "
-"ou renvoie des pages d'erreur auront un résultat d'images inutilisables."
-
 msgid "Image"
 msgstr "Image"
 
@@ -5022,15 +3772,9 @@ msgctxt "Type of an image"
 msgid "Image"
 msgstr "Image"
 
-msgid "Image (Glance)"
-msgstr "Image (Glance)"
-
 msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "Création d'une sauvegarde"
-
-msgid "Image Details"
-msgstr "Détails de l'image"
 
 msgid "Image Details: {{ image.name }}"
 msgstr "Détails de l'image : {{ image.name }}"
@@ -5050,25 +3794,12 @@ msgstr "Nom de l'image"
 msgid "Image Name ="
 msgstr "Nom de l'image ="
 
-msgid "Image Overview"
-msgstr "Aperçu de l'image"
-
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
 msgstr "Image en attente d'upload"
 
 msgid "Image Registry"
 msgstr "Registre des Images"
-
-msgid ""
-"Image Registry is used to provide additional information about images for "
-"Data Processing."
-msgstr ""
-"Le Registre des Images est utilisé pour fournir des informations "
-"supplémentaires sur les images dédiées au Traitement de Données."
-
-msgid "Image Registry tool:"
-msgstr "Outil de Registre des Images :"
 
 msgctxt "Task status of an Instance"
 msgid "Image Snapshot Pending"
@@ -5099,14 +3830,6 @@ msgstr "Image mise à jour avec succès."
 msgid "Images"
 msgstr "Images"
 
-msgid ""
-"Images can be provided via an HTTP URL or be uploaded from your local file "
-"system. Compressed image binaries are supported (.zip and .tar.gz.)"
-msgstr ""
-"Les images peut être fournies via une URL HTTP ou être téléchargées à partir "
-"de votre système de fichiers local. Les images binaires compressés sont "
-"supportées (.zip et .tar.gz.)"
-
 msgid "Implementation"
 msgstr "Implémentation"
 
@@ -5121,13 +3844,6 @@ msgstr "Stratégies associées"
 
 msgid "In Use"
 msgstr "En cours d'utilisation"
-
-msgid ""
-"In addition, you can create an external network or a shared network by "
-"checking the corresponding checkbox."
-msgstr ""
-"En outre, vous pouvez créer un réseau externe ou un réseau partagé en "
-"cochant la case correspondante."
 
 msgctxt "Current status of a Volume"
 msgid "In-use"
@@ -5147,12 +3863,6 @@ msgstr "Inactif"
 
 msgid "Incremental"
 msgstr "Incrémentale"
-
-msgid "Incremental Backup"
-msgstr "Sauvegarde incrémentale"
-
-msgid "Info"
-msgstr "Informations"
 
 msgid "Information"
 msgstr "Information"
@@ -5178,9 +3888,6 @@ msgstr "Utilisateur Admin initial"
 msgid "Initial Databases"
 msgstr "Bases de données initiales"
 
-msgid "Initial Volume Size"
-msgstr "Taille initiale du volume"
-
 msgid "Initial admin user to add"
 msgstr "Utilisateur admin initial à ajouter"
 
@@ -5205,9 +3912,6 @@ msgstr "Fichiers injectés"
 msgid "Input"
 msgstr "Entréé"
 
-msgid "Input Data Source"
-msgstr "Source de données d'entrée"
-
 msgid "Input must be in CIDR format"
 msgstr "L'entrée doit être au format CIDR"
 
@@ -5226,23 +3930,11 @@ msgstr "Instance"
 msgid "Instance Action List"
 msgstr "Liste d'Actions de l'Instance"
 
-msgid "Instance Admin Password"
-msgstr "Mot de passe de l'administrateur de l'instance"
-
 msgid "Instance Boot Source"
 msgstr "Source de démarrage de l'instance"
 
-msgid "Instance Console"
-msgstr "Console de l'instance"
-
-msgid "Instance Console Log"
-msgstr "Journal de la console de l'instance"
-
 msgid "Instance Count"
 msgstr "Nombre d'instances"
-
-msgid "Instance Details"
-msgstr "Détails de l'instance"
 
 msgid "Instance Details: {{ instance.name }}"
 msgstr "Détails de l'instance : {{ instance.name }}"
@@ -5252,9 +3944,6 @@ msgstr "ID de l'instance"
 
 msgid "Instance Name"
 msgstr "Nom de l'instance"
-
-msgid "Instance Overview"
-msgstr "Aperçu de l'instance"
 
 msgid "Instance Password is not set or is not yet available"
 msgstr ""
@@ -5294,9 +3983,6 @@ msgstr ""
 "Niveau de  privilèges insuffisants pour voir les informations de "
 "l'utilisateur."
 
-msgid "Intelligent Platform Management Interface (IPMI)"
-msgstr "IPMI (Intelligent Platform Management Interface)"
-
 msgid "Interface added"
 msgstr "Interface ajoutée"
 
@@ -5334,17 +4020,11 @@ msgstr ""
 "Période de temps invalide. Vous demandez des données dans le futur qui ne "
 "peuvent pas exister."
 
-msgid "Is a Replica Of"
-msgstr "Est un réplica de"
-
 msgid "Items Per Page"
 msgstr "Nombre d'éléments par page"
 
 msgid "Java"
 msgstr "Java"
-
-msgid "Java Action"
-msgstr "Action Java"
 
 msgid "Java Opts"
 msgstr "Java Opts"
@@ -5358,29 +4038,14 @@ msgstr "Binaires de Tâche"
 msgid "Job Binary Details"
 msgstr "Détails du Binaire de Tâche"
 
-msgid "Job Binary Overview"
-msgstr "Vue d'ensemble du Binaire de Tâche"
-
-msgid "Job Configuration"
-msgstr "Configuration de la tâche"
-
-msgid "Job Details"
-msgstr "Détails de la tâche"
-
 msgid "Job Execution Details"
 msgstr "Détails sur l'exécution de la tâche"
-
-msgid "Job Execution Guide"
-msgstr "Guide d'exécution de tâches"
 
 msgid "Job Execution ID"
 msgstr "ID de l'exécution du job"
 
 msgid "Job Guide"
 msgstr "Guide pour une tâche"
-
-msgid "Job Overview"
-msgstr "Aperçu de la tâche"
 
 msgid "Job Template"
 msgstr "Modèle de tâche"
@@ -5409,9 +4074,6 @@ msgstr "Tâche démarrée"
 msgid "Job params"
 msgstr "Paramètres de la tâche"
 
-msgid "Job template:"
-msgstr "Modèle de tâche :"
-
 msgid "Job type chosen"
 msgstr "Type de tâche choisie"
 
@@ -5427,9 +4089,6 @@ msgstr "ID Noyau"
 msgid "Key"
 msgstr "Clé"
 
-msgid "Key Name"
-msgstr "Nom de la clé"
-
 msgid "Key Pair"
 msgstr "Paire de clés"
 
@@ -5441,10 +4100,6 @@ msgstr "Nom de la paire de clés"
 
 msgid "Key Pairs"
 msgstr "Paires de clés"
-
-msgid "Key Pairs are how you login to your instance after it is launched."
-msgstr ""
-"Les paires de clés servent à se connecter à une instance après son lancement."
 
 msgid "Key Size (bits)"
 msgstr "Taille Clé (octets)"
@@ -5458,15 +4113,6 @@ msgstr ""
 
 msgid "Key pair to use for authentication."
 msgstr "Paire de clés à utiliser pour l'authentification."
-
-msgid ""
-"Key pairs are ssh credentials which are injected into images when they are "
-"launched. Creating a new key pair registers the public key and downloads the "
-"private key (a .pem file)."
-msgstr ""
-"Les paires de clés sont des identifiants SSH injectés dans les images lors "
-"de leur lancement. L'action de créer une nouvelle paire de clés enregistre "
-"la clé publique et télécharge la clé privée (fichier .pem)."
 
 msgid "Key-Value Pairs"
 msgstr "Paires de clé-valeur"
@@ -5500,12 +4146,6 @@ msgstr "15 derniers jours"
 msgid "Last 30 days"
 msgstr "30 derniers jours"
 
-msgid "Last Modified"
-msgstr "Dernière Modification"
-
-msgid "Last Updated"
-msgstr "Dernière mise à jour"
-
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "Dernière mise à jour"
@@ -5531,12 +4171,6 @@ msgstr "Lancer la Base de Données"
 msgid "Launch Instance"
 msgstr "Lancer une instance"
 
-msgid "Launch Instance (Quota exceeded)"
-msgstr "Lancer une Instance (Quota dépassé)"
-
-msgid "Launch Instance NG"
-msgstr "Démarrer l'instance NG"
-
 msgid "Launch Job"
 msgid_plural "Launch Jobs"
 msgstr[0] "Démarrer une tâche"
@@ -5548,14 +4182,8 @@ msgstr "Lancer sur le cluster existant"
 msgid "Launch On New Cluster"
 msgstr "Lancer sur un nouveau cluster"
 
-msgid "Launch Parameters"
-msgstr "Paramètres de lancement"
-
 msgid "Launch Stack"
 msgstr "Lancer la Stack"
-
-msgid "Launch a Cluster"
-msgstr "Lancer un Cluster"
 
 msgid "Launch as Instance"
 msgstr "Lancer en tant qu'instance"
@@ -5574,28 +4202,6 @@ msgstr "Démarrer ces instances dans ces groupes de sécurité."
 
 msgid "Launch instances in this availability zone."
 msgstr "Démarrer des instances dans cette zone de disponibilité."
-
-msgid "Launch job"
-msgstr "Démarrer un travail"
-
-msgid "Launch the given job template on a cluster."
-msgstr "Lancer le modèle de tâche sélectionnée sur un cluster."
-
-msgid ""
-"Launch your job.  When\n"
-"                        launching, you may need to choose your input and\n"
-"                        output data sources.  This is where you would also\n"
-"                        add any special configuration values, parameters,\n"
-"                        or arguments that you need to pass along\n"
-"                        to your job.\n"
-"                        "
-msgstr ""
-"Démarrez votre tâche. Au moment du \n"
-"lancement de la tâche, vous devrez choisir vos sources de données\n"
-"d'entrée et de sortie. C'est ici que vous pourrez également\n"
-"ajouter des valeurs de configuration spéciales, des paramètres\n"
-"ou des arguments que vous devez passer à\n"
-"à votre tâche."
 
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
@@ -5617,20 +4223,11 @@ msgstr ""
 "Le lancement d'instances multiples n'est accepté que pour les images et les "
 "instantanés d'instance."
 
-msgid "Least connections"
-msgstr "Dernières connexions"
-
 msgid "Length of Injected File Path"
 msgstr "Longueur du chemin du fichier injecté"
 
 msgid "Libs"
 msgstr "Libs"
-
-msgid "Lifetime Units"
-msgstr "Unités de durée de vie"
-
-msgid "Lifetime Value"
-msgstr "Valeur de durée de vie"
 
 msgid "Lifetime units"
 msgstr "Unités de durée de vie"
@@ -5650,17 +4247,11 @@ msgstr "Valeur de durée de vie pour les clés IKE"
 msgid "Limit"
 msgstr "Limite"
 
-msgid "Links"
-msgstr "Liens"
-
 msgid "Live Migrate"
 msgstr "Migration Dynamique"
 
 msgid "Live Migrate Instance"
 msgstr "Migration dynamique d'instance"
-
-msgid "Live migrate an instance to a specific host."
-msgstr "Migrer directement une instance à un hôte spécifique."
 
 msgid "Load Balancer"
 msgstr "Répartition de charge"
@@ -5677,9 +4268,6 @@ msgstr "Méthode de répartition de charge"
 
 msgid "Local"
 msgstr "Local"
-
-msgid "Local Disk Usage"
-msgstr "Utilisation du Disque Local"
 
 msgid "Local Storage (total)"
 msgstr "Stockage Local (total)"
@@ -5700,26 +4288,14 @@ msgstr[1] "Instances verrouillées "
 msgid "Log"
 msgstr "Journal"
 
-msgid "Log Length"
-msgstr "Longueur du journal"
-
 msgid "Log Lines Per Instance"
 msgstr "Lignes de journalisation par instance"
 
 msgid "Log length must be a nonnegative integer."
 msgstr "La longueur du journal doit correspondre à un nombre non négatif."
 
-msgid "MAC Address"
-msgstr "Adresse MAC"
-
 msgid "MAC Learning State"
 msgstr "État de l'apprentissage des MAC"
-
-msgid "MB"
-msgstr "Mo"
-
-msgid "MTU"
-msgstr "MTU"
 
 msgid "MacVTap"
 msgstr "MacVTap"
@@ -5727,23 +4303,11 @@ msgstr "MacVTap"
 msgid "Main Class"
 msgstr "Classe principale"
 
-msgid "Mains"
-msgstr "Mains"
-
 msgid "Make Private"
 msgstr "Rendre privé"
 
 msgid "Make Public"
 msgstr "Rendre public"
-
-msgid ""
-"Make a new copy of an existing object to store in this or another container. "
-"You may additionally specify the path within the selected container where "
-"the new copy should be stored."
-msgstr ""
-"Faire une nouvelle copie d'un objet existant pour la stocker dans ce "
-"conteneur ou bien dans un autre. Vous pouvez aussi préciser un chemin dans "
-"le conteneur sélectionné où la nouvelle copie sera stockée."
 
 msgid "Manage"
 msgstr "Gérer"
@@ -5771,9 +4335,6 @@ msgstr "Gérer l'Association de la Spécification QoS"
 
 msgid "Manage Rules"
 msgstr "Gérer les Règles"
-
-msgid "Manage Security Group Rules"
-msgstr "Gérer les règles des groupes de sécurité."
 
 msgid ""
 "Manage Security Group Rules: {{ security_group.name }} ({{ security_group."
@@ -5812,17 +4373,11 @@ msgstr "Mapper"
 msgid "Master Instance Name"
 msgstr "Nom de l'instance Master"
 
-msgid "Master Node Group Template:"
-msgstr "Modèle de groupe de nœuds Master :"
-
 msgid "Max Retries"
 msgstr "Max tentatives"
 
 msgid "Max Retries (1~10)"
 msgstr "Max tentatives (1~10)"
-
-msgid "Max."
-msgstr "Max."
 
 msgid "Max. Size (MB)"
 msgstr "Taille maximale (Mo)"
@@ -5862,9 +4417,6 @@ msgstr "Membres"
 msgid "Memory MB Hours"
 msgstr "Mo Mémoire Heures"
 
-msgid "Memory Usage"
-msgstr "Utilisation de la Mémoire"
-
 msgid "Message"
 msgstr "Message"
 
@@ -5886,9 +4438,6 @@ msgstr "Métadonnées mises à jour avec succès."
 msgid "Meter"
 msgstr "Métriques"
 
-msgid "Metric:"
-msgstr "Métrique :"
-
 msgid "Migrate Host"
 msgid_plural "Migrate Hosts"
 msgstr[0] "Migrer Hôte"
@@ -5898,18 +4447,6 @@ msgid "Migrate Instance"
 msgid_plural "Migrate Instances"
 msgstr[0] "Transférer une Instance"
 msgstr[1] "Transférer des Instances"
-
-msgid ""
-"Migrate all instances from a host with disabled nova-compute service. "
-"Optionally you can choose type of migration. All running instances of the "
-"host can be Live Migrated. Cold Migration is trying to use 'nova migrate' on "
-"each instance of migrated host."
-msgstr ""
-"Migre toutes les instances d'un hôte avec le service nova-compute désactivé. "
-"Vous pouvez choisir le type de migration si vous le souhaitez (option). "
-"Toutes les instances en cours de l'hôte peuvent être en Migration Live. La "
-"Migration à froid essaie d'utiliser « nova migrate » sur chaque instance "
-"d'un hôte migré."
 
 msgid "Migrated Host"
 msgid_plural "Migrated Hosts"
@@ -5932,15 +4469,6 @@ msgstr ""
 msgid "Migration Policy"
 msgstr "Stratégie de Migration"
 
-msgid "Min Disk"
-msgstr "Disque Min"
-
-msgid "Min RAM"
-msgstr "RAM Min"
-
-msgid "Min."
-msgstr "Min."
-
 msgid "Min. Size (MB)"
 msgstr "Taille minimale (Mo)"
 
@@ -5949,9 +4477,6 @@ msgstr "Espace disque minimal (Go)"
 
 msgid "Minimum RAM (MB)"
 msgstr "RAM minimale (Mo)"
-
-msgid "Minutes"
-msgstr "Minutes"
 
 #, python-format
 msgid "Modified domain \"%s\"."
@@ -5995,15 +4520,6 @@ msgstr "Editer les Quotas"
 msgid "Modify Usage Report Parameters"
 msgstr "Modifier les Paramètres du Rapport Utilisateur"
 
-msgid "Modify dashboard settings for your user."
-msgstr "Modifier les paramètres du dashboard."
-
-msgid "Modify name and description of a volume."
-msgstr "Modifier le nom et la description du volume."
-
-msgid "Modify the name and description of a snapshot."
-msgstr "Modifier le nom et la description de l'instantané."
-
 msgid "Monitor"
 msgstr "Moniteur"
 
@@ -6012,9 +4528,6 @@ msgstr "Détails du moniteur"
 
 msgid "Monitor Type"
 msgstr "Type de moniteur"
-
-msgid "Monitoring:"
-msgstr "Monitoring :"
 
 msgid "Monitors"
 msgstr "Moniteurs"
@@ -6056,19 +4569,9 @@ msgstr "Nom de la stack à créer."
 msgid "Name or other identifier for existing volume"
 msgstr "Nom ou autre identifiant du volume existant"
 
-msgid "Name:"
-msgstr "Nom :"
-
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr "Nom : %(name)s ID : %(uuid)s"
-
-#, python-format
-msgid "Name: %(node_group_name)s"
-msgstr "Nom : %(node_group_name)s"
-
-msgid "Namespace"
-msgstr "Espace de nom"
 
 #, python-format
 msgid "Namespace %s has been created."
@@ -6076,9 +4579,6 @@ msgstr "L'espace de nom %s a été créé."
 
 msgid "Namespace Definition Source"
 msgstr "Source de la définition de l'espace de nom"
-
-msgid "Namespace Details"
-msgstr "Détails de l'espace de nom"
 
 msgid "Namespace Details: {{ namespace.namespace }}"
 msgstr "Informations sur l'espace de nom : {{ namespace.namespace }}"
@@ -6089,20 +4589,8 @@ msgstr "Espace de nom JSON"
 msgid "Namespace Overview"
 msgstr "L'espace de nom"
 
-msgid "Namespace Resource Type Associations"
-msgstr "Associations de types de ressources d'espaces noms"
-
 msgid "Namespaces"
 msgstr "Espace de noms"
-
-msgid ""
-"Namespaces can be associated to different resource types. This makes the "
-"properties in the namespace visible in the 'Update Metadata' action for that "
-"type of resource."
-msgstr ""
-"Les espaces noms peuvent être associés à différents types de ressources. "
-"Cela rend les propriétés de l'espace nom visibles dans l'action « Mise à "
-"jour des métadonnées » pour ce type de ressource."
 
 msgid "Native VXLAN"
 msgstr "VXLAN Natif"
@@ -6122,9 +4610,6 @@ msgstr "Le réseau %s a été créé avec succès."
 msgid "Network %s was successfully updated."
 msgstr "Le réseau %s a été mis à jour avec succès."
 
-msgid "Network (Neutron)"
-msgstr "Réseau (Neutron)"
-
 msgid "Network Address"
 msgstr "Adresse réseau"
 
@@ -6134,9 +4619,6 @@ msgstr "L'adresse réseau ne correspond pas au type d'adressage utilisé."
 msgid "Network Agents"
 msgstr "Agents réseau."
 
-msgid "Network Details"
-msgstr "Détails du réseau"
-
 msgid "Network Details: {{ network.name }}"
 msgstr "Informations réseau : {{ network.name }}"
 
@@ -6145,9 +4627,6 @@ msgstr "ID Réseau"
 
 msgid "Network Name"
 msgstr "Nom du réseau"
-
-msgid "Network Overview"
-msgstr "Aperçu du réseau"
 
 msgid "Network Profile"
 msgstr "Profil Réseau"
@@ -6165,9 +4644,6 @@ msgstr "Les profils réseaux ne peuvent pas être récupérés."
 
 msgid "Network Topology"
 msgstr "Topologie du réseau"
-
-msgid "Network Type:"
-msgstr "Type de Réseau :"
 
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24)"
 msgstr "Adresse réseau au format CIDR (i.e. 192.168.0.0/24)"
@@ -6196,9 +4672,6 @@ msgstr "Réseau de management de Neutron"
 
 msgid "Never"
 msgstr "Jamais"
-
-msgid "Never updated"
-msgstr "Jamais mis à jour"
 
 msgctxt "Current status of a Database Backup"
 msgid "New"
@@ -6241,37 +4714,8 @@ msgstr "Prochain sauts"
 msgid "Next Hops"
 msgstr "Prochains sauts"
 
-msgid "Next&nbsp;&raquo;"
-msgstr "Suivant&nbsp;&raquo;"
-
-msgid ""
-"Next, you need to define the different\n"
-"                        types of machines in your cluster.  This is done by\n"
-"                        defining a Node Group Template for each type of\n"
-"                        machine.  A very common case is where you\n"
-"                        need to have one or more machines running a \"master"
-"\"\n"
-"                        set of processes while another set of machines need\n"
-"                        to be running the \"worker\" processes.  Here,\n"
-"                        you will define the Node Group Template for your\n"
-"                        \"master\" node(s).\n"
-"                     "
-msgstr ""
-"Ensuite, vous devrez définir les différents\n"
-"types de machines de votre cluster. Cela se fait en\n"
-"définissant un Modèle de groupe de nœuds pour chaque type de\n"
-"machine. Un cas très courant consiste à \n"
-"vouloir qu'une ou plusieurs machines exécutent un certain nombre de \n"
-"processus ou « master » tandis qu'un autre ensemble de machines\n"
-"tentent d'exécuter des processus de « travail ». Vous allez pouvoir \n"
-"définir ici le Modèle de groupe de nœuds de vos noeud(s) \n"
-"« maître »."
-
 msgid "No"
 msgstr "Non"
-
-msgid "No Cluster Template Created"
-msgstr "Aucun modèle de cluster créé"
 
 msgid "No Host selected."
 msgstr "Aucun hôte sélectionné."
@@ -6281,9 +4725,6 @@ msgstr "Aucun hôte trouvé."
 
 msgid "No Images Available"
 msgstr "Pas d'images disponible"
-
-msgid "No Master Node Group Template Created"
-msgstr "Aucun Modèle de groupe de nœuds Master créé"
 
 msgid "No Ports available"
 msgstr "Pas de port disponible"
@@ -6297,15 +4738,6 @@ msgstr "Pas d'état"
 
 msgid "No Templates Available"
 msgstr "Pas de templates disponible"
-
-msgid "No Worker Node Group Template Created"
-msgstr "Aucun Modèle de groupe de nœud Worker créé"
-
-msgid "No associations defined."
-msgstr "Aucune association définie."
-
-msgid "No attached device"
-msgstr "Pas de périphérique attaché"
 
 msgid "No availability zone specified"
 msgstr "Pas de zone de disponibilité spécifiée"
@@ -6322,15 +4754,8 @@ msgstr "Pas de projets disponibles"
 msgid "No backups available"
 msgstr "Aucune sauvegarde disponible"
 
-msgid "No configurations"
-msgstr "Pas de configuration"
-
 msgid "No flavors available"
 msgstr "Pas de gabarits disponibles"
-
-msgid "No flavors meet minimum criteria for selected image."
-msgstr ""
-"Pas de gabarits répondant aux critères minimaux pour l'image sélectionnée."
 
 msgid "No floating IP addresses allocated"
 msgstr "Aucune adresse IP flottante alloué"
@@ -6365,9 +4790,6 @@ msgstr "Aucune saisie de contenu d'espace de nom apparaît."
 msgid "No instances available"
 msgstr "Aucune instance disponible"
 
-msgid "No job template created"
-msgstr "Aucun modèle de tâche n'a été créé"
-
 msgid "No key pairs available"
 msgstr "aucune paire de clés disponible."
 
@@ -6392,9 +4814,6 @@ msgstr "Pas d'autres hôtes disponibles."
 msgid "No other volume types available"
 msgstr "Aucun autre type de volume disponible"
 
-msgid "No plugin chosen"
-msgstr "Aucun plugin sélectionné"
-
 msgid "No ports available"
 msgstr "Pas de port disponible"
 
@@ -6407,9 +4826,6 @@ msgstr ""
 
 msgid "No provider is available"
 msgstr "Pas de fournisseur disponible"
-
-msgid "No rules defined."
-msgstr "Aucune règle définie."
 
 msgid "No security groups available"
 msgstr "Pas de groupe de sécurité disponible"
@@ -6439,9 +4855,6 @@ msgstr "Aucune source, volume vide"
 msgid "No subnets available"
 msgstr "Pas de sous-réseau disponible"
 
-msgid "No type chosen"
-msgstr "Aucun type choisi"
-
 msgid "No users found."
 msgstr "Aucun utilisateur trouvé."
 
@@ -6454,14 +4867,8 @@ msgstr "Pas instantanés de volume disponibles"
 msgid "No volume type"
 msgstr "Pas de type de volume"
 
-msgid "No volumes attached."
-msgstr "Aucun volume attaché."
-
 msgid "No volumes available"
 msgstr "Pas de volumes disponibles"
-
-msgid "Node Configurations"
-msgstr "Configurations des noeuds"
 
 msgid "Node Group Template Details"
 msgstr "Détails du modèle de groupe de noeud"
@@ -6473,30 +4880,14 @@ msgstr "Copie du modèle de groupe de noeud %s créée"
 msgid "Node Group Templates"
 msgstr "Modèles de groupes de noeuds"
 
-#, python-format
-msgid "Node Group: %(node_group_name)s"
-msgstr "Groupe de Nœud : %(node_group_name)s"
-
 msgid "Node Groups"
 msgstr "Groupes de noeud"
 
 msgid "Node Processes"
 msgstr "Processus du noeud"
 
-msgid "Node configurations are not specified"
-msgstr "Les configurations du noeud ne sont pas spécifiées"
-
 msgid "Node group cluster"
 msgstr "Groupe de nœud pour le cluster"
-
-msgid "Node processes are not specified"
-msgstr "Les processus du noeud ne sont pas spécifiés"
-
-msgid "Nodegroup Template Details"
-msgstr "Détails du modèle de groupe de noeud"
-
-msgid "Nodes Count"
-msgstr "Compteur de noeuds"
 
 msgid "Non-Members"
 msgstr "Non-Membres"
@@ -6517,62 +4908,17 @@ msgstr "Non assigné"
 msgid "Not Found"
 msgstr "Non trouvé"
 
-msgid "Not attached"
-msgstr "Non attaché"
-
 msgid "Not available"
 msgstr "Non disponible"
-
-msgid "Note: "
-msgstr "Note: "
-
-msgid ""
-"Note: A Public Container will allow anyone with the Public URL to gain "
-"access to your objects in the container."
-msgstr ""
-"Remarque: Un conteneur publique permettra à quiconque avec l'URL publique "
-"d'accéder à vos objets dans le conteneur."
 
 msgid "Nova"
 msgstr "Nova"
 
-msgid ""
-"Now you need to set the layout of your\n"
-"                        cluster.  By\n"
-"                        creating a Cluster Template, you will be choosing "
-"the\n"
-"                        number of instances of each Node Group Template "
-"that\n"
-"                        will appear in your cluster.  Additionally,\n"
-"                        you will have a chance to set any cluster-specific\n"
-"                        configuration items in the additional tabs on the\n"
-"                        create Cluster Template form."
-msgstr ""
-"Maintenant, vous devez définir la disposition de votre\n"
-"cluster. En créant un modèle de cluster, vous devrez choisir le\n"
-"nombre d'instances de chaque modèle de groupe de nœud \n"
-"qui apparaîtra dans votre cluster. De plus, \n"
-"vous aurez une chance de mettre n'importe quels éléments \n"
-"de configuration spécifiques à votre cluster dans les onglets \n"
-"supplémentaires du formulaire Modèle de cluster."
-
 msgid "Number of API requests against swift"
 msgstr "Nombre de requêtes API vers Swift"
 
-msgid "Number of Instances"
-msgstr "Nombre d'instances"
-
-msgid "Number of Nodes"
-msgstr "Nombre de noeuds"
-
-msgid "Number of Snapshots"
-msgstr "Nombre de clichés instantanés"
-
 msgid "Number of VCPUs"
 msgstr "Nombre de VCPUs"
-
-msgid "Number of Volumes"
-msgstr "Nombre de volumes"
 
 msgid "Number of containers"
 msgstr "Nombre de conteneurs"
@@ -6630,20 +4976,11 @@ msgstr "OU Copier/Coller vote Clé Privée"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - Virtuel Appliance Ouverte"
 
-msgid "Object Count"
-msgstr "Nombre d'Objets"
-
-msgid "Object Count: "
-msgstr "Nombre d'objets:"
-
 msgid "Object Details"
 msgstr "Détails de l'Objet"
 
 msgid "Object Name"
 msgstr "Nom d'Objet"
-
-msgid "Object Storage (Swift)"
-msgstr "Stockage d'objet (Swift)"
 
 msgid "Object Store"
 msgstr "Stockage d'objet"
@@ -6654,17 +4991,11 @@ msgstr "L'objet a été mis à jour avec succès."
 msgid "Object was successfully uploaded."
 msgstr "L'objet a été téléchargé avec succès."
 
-msgid "Object:"
-msgstr "Objet :"
-
 msgid "Objects"
 msgstr "Objets"
 
 msgid "Old Flavor"
 msgstr "Ancien gabarit"
-
-msgid "On"
-msgstr "Sur"
 
 msgid "On Demand"
 msgstr "Sur Demande"
@@ -6676,17 +5007,8 @@ msgstr ""
 "Une fois qu'une IP flottante est mise à disposition, il n'y a aucune "
 "garantie que la même adresse IP ne sera pas allouée à nouveau."
 
-msgid "Only definitions in raw JSON format are supported."
-msgstr "Seules les définitions en format JSON brut sont prises en charge."
-
-msgid "Oozie Job ID"
-msgstr "ID du job oozie"
-
 msgid "Open Port"
 msgstr "Ouvrir"
-
-msgid "Open Port/Port Range:"
-msgstr "Ouvrir Port / Plage de Ports :"
 
 msgid "OpenStack Flavor"
 msgstr "Gabarit OpenStack"
@@ -6702,21 +5024,6 @@ msgstr "Sauvegarde totale optionnelle"
 
 msgid "Optional: Next Hop Addresses (comma delimited)"
 msgstr "Facultatif: adresses saut suivantes (séparés par des virgules)"
-
-msgid ""
-"Optionally choose to create this database using a previous backup, or as a "
-"replica of another database instance."
-msgstr ""
-"A choisi de créer cette base de données en option à l'aide d'une sauvegarde "
-"antérieure, ou en répliqua d'une autre instance de base de données."
-
-msgid "Optionally provide a comma separated list of databases to create:"
-msgstr ""
-"Fournissez, optionnellement, une liste de base de données à créer, séparée "
-"par des virgules."
-
-msgid "Optionally, you may choose to create a new volume."
-msgstr "Optionnel, vous pouvez choisir de créer un nouveau volume."
 
 msgid "Orchestration"
 msgstr "Orchestration"
@@ -6736,45 +5043,11 @@ msgstr "Autre Protocole"
 msgid "Output"
 msgstr "Sortie"
 
-msgid "Output Data Source"
-msgstr "Source de données de sortie"
-
-msgid "Outputs"
-msgstr "Sorties"
-
 msgid "Overlay"
 msgstr "Recouvrement"
 
 msgid "Overview"
 msgstr "Vue d'ensemble"
-
-msgid "Owner"
-msgstr "Propriétaire"
-
-msgid ""
-"Ownership of a volume can be transferred from one project to another.  "
-"Accepting a transfer requires obtaining the Transfer ID and Authorization "
-"Key from the donor.  This is equivalent to the <tt>cinder transfer-accept</"
-"tt> command."
-msgstr ""
-"Les droits de propriétaire d'un volume peuvent être transférés d'un projet à "
-"un autre. Pour accepter un transfert, il faut obtenir l'ID de transfert et "
-"le Code d'Autorisation du donneur. C'est l'équivalent de la commande <tt> "
-"cinder transfer-accept</tt>."
-
-msgid ""
-"Ownership of a volume can be transferred from one project to another. Once a "
-"volume transfer is created in a donor project, it then can be \"accepted\" "
-"by a recipient project. This is equivalent to the <tt>cinder transfer-"
-"create</tt> command."
-msgstr ""
-"Les droits de propriétaire d'un volume peuvent être transférés d'un projet à "
-"un autre. Une fois que le transfert est créé dans le projet du donneur, il "
-"est en mesure de pouvoir être accepté par le projet qui reçoit. C'est "
-"l'équivalent de la commande <tt> cinder transfer-accept<\\tt>."
-
-msgid "PASSWORD"
-msgstr "MOT DE PASSE"
 
 msgid "PFS"
 msgstr "PFS"
@@ -6785,9 +5058,6 @@ msgstr "PING"
 msgid "Page Not Found"
 msgstr "Page non trouvée"
 
-msgid "Parameters"
-msgstr "Paramètres"
-
 msgid "Parent Backup"
 msgstr "Sauvegarde totale"
 
@@ -6797,9 +5067,6 @@ msgstr "Mot de passe"
 msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "Mot de passe"
-
-msgid "Password (required)"
-msgstr "Mot de Passe (obligatoire)"
 
 msgid "Password changed. Please log in again to continue."
 msgstr "Mot de passe modifié. Connectez-vous à nouveau pour poursuivre."
@@ -6907,9 +5174,6 @@ msgstr "Perfect Forward Secrecy"
 msgid "Period"
 msgstr "Période"
 
-msgid "Period:"
-msgstr "Période :"
-
 msgid "Permit"
 msgstr "Permis"
 
@@ -6921,9 +5185,6 @@ msgstr "Réseau physique"
 
 msgid "Physical Network Name"
 msgstr "Nom du réseau physique"
-
-msgid "Physical Network:"
-msgstr "Réseau Physique :"
 
 msgid "Pig"
 msgstr "Pig"
@@ -6937,9 +5198,6 @@ msgid ""
 msgstr ""
 "Veuillez entrer une valeur unique (e.g. 200), une liste de valeurs (e.g. "
 "200, 202) ou une plage de valeurs (e.g. 200-204)"
-
-msgid "Please note: "
-msgstr "Merci de noter :"
 
 #, python-format
 msgid "Please specify a %s using only one source method."
@@ -6961,9 +5219,6 @@ msgstr "Nom du plugin"
 msgid "Plugin name"
 msgstr "Nom du plugin"
 
-msgid "Plugin:"
-msgstr "Plugin :"
-
 msgid "Plugins"
 msgstr "Plugins"
 
@@ -6976,9 +5231,6 @@ msgstr "Stratégie"
 #, python-format
 msgid "Policy %s was successfully updated."
 msgstr "La stratégie %s a été mise à jour avec succès."
-
-msgid "Policy ID"
-msgstr "ID de stratégie"
 
 msgid "Policy Profile"
 msgstr "Profil de Stratégie"
@@ -7013,9 +5265,6 @@ msgstr "Le port %s a été mis à jour avec succès."
 msgid "Port Details"
 msgstr "Détails du port "
 
-msgid "Port ID"
-msgstr "Port ID"
-
 msgid "Port Range"
 msgstr "Plage de ports"
 
@@ -7027,9 +5276,6 @@ msgstr "Port à associer"
 
 msgid "Ports"
 msgstr "Ports"
-
-msgid "Position in Policy"
-msgstr "Position dans la stratégie"
 
 msgid "Post-Creation"
 msgstr "Post-création"
@@ -7051,12 +5297,6 @@ msgstr "Mise sous tension"
 msgid "Pre-Shared Key (PSK) string"
 msgstr "Clé de chiffrement (PSK)"
 
-msgid "Pre-Shared Key string"
-msgstr "Clé de chiffrement (PSK)"
-
-msgid "Prefix: "
-msgstr "Préfixe:"
-
 msgctxt "Task status of an Instance"
 msgid "Preparing Resize or Migrate"
 msgstr "Préparation Redimensionnement ou Migration"
@@ -7076,9 +5316,6 @@ msgstr "Prévisualisez les paramètres de la Stack"
 msgid "Preview Template"
 msgstr "Prévisualiser le modèle"
 
-msgid "Preview a new stack with the provided values."
-msgstr "Prévisualisez une nouvelle Stack avec ces nouvelles valeurs"
-
 msgid "Primary Project"
 msgstr "Projet primaire"
 
@@ -7094,9 +5331,6 @@ msgstr "Processus"
 msgid "Processes to be launched in node group"
 msgstr "Processus à lancer dans le groupe de noeuds"
 
-msgid "Profile"
-msgstr "Profil"
-
 msgid "Project"
 msgstr "Projet"
 
@@ -7105,9 +5339,6 @@ msgstr "Projet & utilisateur"
 
 msgid "Project ="
 msgstr "Projet ="
-
-msgid "Project Details"
-msgstr "Détails du projet"
 
 #, python-format
 msgid "Project Details: %s"
@@ -7119,14 +5350,8 @@ msgstr "Groupes du projet"
 msgid "Project ID"
 msgstr "ID du Projet"
 
-msgid "Project ID:"
-msgstr "ID du projet:"
-
 msgid "Project Information"
 msgstr "Informations du projet"
-
-msgid "Project Limits"
-msgstr "Limites du projet"
 
 msgid "Project Members"
 msgstr "Membres du projet"
@@ -7134,17 +5359,8 @@ msgstr "Membres du projet"
 msgid "Project Name"
 msgstr "Nom de projet"
 
-msgid "Project Overview"
-msgstr "Vue d'ensemble du projet"
-
-msgid "Project Quotas"
-msgstr "Quotas de projet"
-
 msgid "Project Usage"
 msgstr "Utilisation du projet"
-
-msgid "Project Usage Overview"
-msgstr "Aperçu de l'utilisation du projet"
 
 msgid "Project name is already in use. Please use a different name."
 msgstr "Ce nom de project est déjà utilisé. Veuillez utiliser un autre nom."
@@ -7157,17 +5373,6 @@ msgstr "Les projets ne peuvent pas être récupérés."
 
 msgid "Projects:"
 msgstr "Projets :"
-
-msgid "Properties"
-msgstr "Propriétées"
-
-msgid "Properties Target: "
-msgstr "Propriétes cible:"
-
-msgid "Protect and use the key as you would any normal ssh private key."
-msgstr ""
-"Protégez et utilisez la clé comme vous le feriez avec n'importe quelle clé "
-"privée SSH."
 
 msgid "Protected"
 msgstr "Protégée"
@@ -7184,23 +5389,11 @@ msgstr "Protocole pour la règle du pare-feu"
 msgid "Provider"
 msgstr "Fournisseur"
 
-msgid "Provider Network"
-msgstr "Réseau fournisseur"
-
 msgid "Provider Network Type"
 msgstr "Type de réseau fournisseur"
 
 msgid "Provider for Load Balancer is not supported"
 msgstr "Le fournisseur de répartition de charge n'est pas supporté"
-
-msgid ""
-"Provider specified network can be created. You can specify a physical "
-"network type (like Flat, VLAN, GRE, and VXLAN) and its segmentation_id or "
-"physical network name for a new virtual network."
-msgstr ""
-"Le fournisseur spécifie que le réseau peut être crée. Vous pouvez préciser "
-"un type de réseau physique (comme Flat, VLAN, GER et VXLAN) et son "
-"segmentation_id ou un nom de réseau physique pour un nouveau réseau virtuel."
 
 msgid "Proxy Gateway"
 msgstr "Passerelle"
@@ -7211,17 +5404,11 @@ msgstr "Nom du Pseudo-dossier"
 msgid "Pseudo-folder was successfully created."
 msgstr "Le Pseudo-dossier a été créé avec succès."
 
-msgid "Pseudo-folder:"
-msgstr "Pseudo-dossier : "
-
 msgid "Public"
 msgstr "Publiques"
 
 msgid "Public Key"
 msgstr "Clé publique"
-
-msgid "Public URL"
-msgstr "URL publique"
 
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - Emulateur QEMU"
@@ -7237,9 +5424,6 @@ msgstr ""
 
 msgid "QoS Spec to be associated"
 msgstr "Spécification QoS à associer"
-
-msgid "QoS Spec: "
-msgstr "Spécification QoS :"
 
 msgid "QoS Spec: {{ qos_spec_name }}"
 msgstr "Spéc QoS : {{ qos_spec_name }}"
@@ -7300,10 +5484,6 @@ msgstr "Raw"
 
 msgid "Reason"
 msgstr "Raison"
-
-#, python-format
-msgid "Reason: %(disabled_reason)s"
-msgstr "Raison : %(disabled_reason)s"
 
 msgctxt "Action log of an instance"
 msgid "Reboot"
@@ -7380,12 +5560,6 @@ msgstr "Régions :"
 msgid "Register Image"
 msgstr "Inscrire l'image"
 
-msgid ""
-"Register tags required for the Plugin with specified Data Processing Version"
-msgstr ""
-"Enregistrer les étiquettes demandées pour le Plugin avec la Version "
-"spécifiée de Traitement de Données"
-
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr "Part relative de requêtes servie par cet élément du pool"
 
@@ -7414,9 +5588,6 @@ msgid_plural "Released Floating IPs"
 msgstr[0] "IP Flottante libérée"
 msgstr[1] "IP Flottantes libérées"
 
-msgid "Reload"
-msgstr "Recharger"
-
 msgid "Remote"
 msgstr "Distant"
 
@@ -7425,9 +5596,6 @@ msgstr "Préfixe IP distante"
 
 msgid "Remote Security Group"
 msgstr "Groupe de sécurité distant"
-
-msgid "Remote peer subnet"
-msgstr "Sous-réseau du peer distant"
 
 msgid "Remote peer subnet(s)"
 msgstr "Sous-réseau(x) de pairs distant"
@@ -7439,20 +5607,11 @@ msgstr ""
 "Les Sous-réseau(x) de pairs distant avec un masque au format CIDR séparées "
 "par des virgules si nécessaire (e.g. 20.1.0.0/24, 21.1.0.0/24)"
 
-msgid "Remote:"
-msgstr "Distant :"
-
-msgid "Remove"
-msgstr "Supprimer"
-
 msgid "Remove Router"
 msgstr "Supprimer un Routeur"
 
 msgid "Remove Router from Firewall"
 msgstr "Supprimer un Routeur du Pare-feu"
-
-msgid "Remove Routers"
-msgstr "Retirer des Routeurs"
 
 msgid "Remove Rule"
 msgstr "Enlever une règle"
@@ -7470,28 +5629,13 @@ msgid_plural "Removed Users"
 msgstr[0] "Utilisateur Supprimé"
 msgstr[1] "Utilisateurs Supprimés"
 
-msgid ""
-"Repeat the Node Group Template\n"
-"                        creation process, but this time you are creating\n"
-"                        your \"worker\" Node Group Template."
-msgstr ""
-"Répéter le processus de création.\n"
-"mais cette fois-ci, vous créerez votre \n"
-"Modèle de groupe de noeud \"worker\"."
-
 msgid "Replica Detached"
 msgid_plural "Replicas Detached"
 msgstr[0] "Réplica détachée"
 msgstr[1] "Réplicas détachées"
 
-msgid "Replicas"
-msgstr "Réplicas"
-
 msgid "Replicate from Instance"
 msgstr "Réplication depuis l'instance"
-
-msgid "Replication"
-msgstr "Réplication"
 
 msgid "Request ID"
 msgstr "ID de la Requête"
@@ -7509,18 +5653,6 @@ msgstr "Mode Secours"
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "Mode secours"
-
-msgid "Reset Cluster Creation Guide"
-msgstr "Réinitialiser le guide de création de clusters"
-
-msgid "Reset Cluster Guide"
-msgstr "Réinitialiser le guide de cluster"
-
-msgid "Reset Job Execution Guide"
-msgstr "Réinitialiser le guide d'exécution de tâches"
-
-msgid "Reset to Default"
-msgstr "Rétablir les valeurs par défaut"
 
 msgid "Resize"
 msgstr "Redimensionner"
@@ -7568,23 +5700,8 @@ msgstr "Redimensionnement du volume \"%s\" en cours"
 msgid "Resource"
 msgstr "Ressource"
 
-msgid "Resource Details"
-msgstr "Détails de la ressource"
-
 msgid "Resource Details: {{ resource.resource_name }}"
 msgstr "Détails des ressources : {{ resource.resource_name }}"
-
-msgid "Resource ID"
-msgstr "Ressource ID"
-
-msgid "Resource Metadata"
-msgstr "Métadonnées de la ressource"
-
-msgid "Resource Overview"
-msgstr "Aperçu de la Ressource"
-
-msgid "Resource Type"
-msgstr "Type de ressource"
 
 msgid "Resource Type Details"
 msgstr "Détails du type de ressource"
@@ -7629,9 +5746,6 @@ msgstr "Restaurer une Sauvegarde"
 
 msgid "Restore Backup to Volume"
 msgstr "Restaurer la sauvegarde sur le volume"
-
-msgid "Restore Backup:"
-msgstr "Restaurer la Sauvegarde :"
 
 msgid "Restore Volume Backup"
 msgstr "Restaurer le volume de sauvegarde"
@@ -7700,9 +5814,6 @@ msgstr "Récupérer le mot de passe de l'instance"
 msgid "Retrieve Password"
 msgstr "Récupérer le mot de passe"
 
-msgid "Return Code"
-msgstr "Code retour"
-
 msgid "Revert Resize/Migrate"
 msgstr "Annulation Redimensionnement/Migration"
 
@@ -7732,9 +5843,6 @@ msgstr "Rôle mis à jour avec succès."
 msgid "Roles"
 msgstr "Rôles"
 
-msgid "Rollback"
-msgstr "Retour arrière"
-
 msgctxt "current status of stack"
 msgid "Rollback Complete"
 msgstr "Retour arrière terminé"
@@ -7756,12 +5864,6 @@ msgstr "Disque racine"
 msgid "Root Disk (GB)"
 msgstr "Disque racine (Go)"
 
-msgid "Round robin"
-msgstr "Round robin"
-
-msgid "Route mode"
-msgstr "mode Route"
-
 msgid "Router"
 msgstr "Routeur"
 
@@ -7781,9 +5883,6 @@ msgstr "ID du routeur"
 
 msgid "Router Name"
 msgstr "Nom du routeur"
-
-msgid "Router Rule Grid"
-msgstr "Grille de Règle de routage"
 
 msgid "Router Rules"
 msgstr "Règles de routage"
@@ -7808,14 +5907,6 @@ msgstr "Routeur(s) ajouté(s) avec succès au pare-feu %(firewall)s."
 msgid "Routers"
 msgstr "Routeurs"
 
-msgid ""
-"Routing rules to apply to router. Rules are matched by most specific source "
-"first and then by most specific destination."
-msgstr ""
-"Des règles de routage à appliquer au routeur. Les règles sont matché par la "
-"source la plus précise d'abord et ensuite par la destination la plus "
-"spécifique."
-
 msgid "Rule"
 msgstr "Règle"
 
@@ -7833,22 +5924,8 @@ msgstr ""
 msgid "Rule %s was successfully updated."
 msgstr "La règle %s a été mise à jour avec succès."
 
-msgid "Rule Conflict"
-msgstr "Conflit de règle"
-
-msgid "Rule:"
-msgstr "Règle : "
-
 msgid "Rules"
 msgstr "Règles"
-
-msgid ""
-"Rules define which traffic is allowed to instances assigned to the security "
-"group. A security group rule consists of three main parts:"
-msgstr ""
-"Les règles définissent quel trafic est autorisé pour les instances associées "
-"au groupe de sécurité. Un groupe de sécurité se compose de trois parties "
-"principales :"
 
 msgctxt "Power state of an Instance"
 msgid "Running"
@@ -7857,18 +5934,8 @@ msgstr "En fonctionnement"
 msgid "Running Instance Migration Type"
 msgstr "Type en migration d'instance en cours"
 
-msgid "S3 URL"
-msgstr "URL S3"
-
 msgid "SLAAC: Address discovered from OpenStack Router"
 msgstr "SLAAC: Adresse découverte par le routeur OpenStack"
-
-msgid "SNAT"
-msgstr "NAT de source"
-
-msgid "SSH key pairs can be generated with the ssh-keygen command:"
-msgstr ""
-"Les paires de clés SSH peuvent être générées avec la commande ssh-keygen :"
 
 msgid ""
 "Sahara will use instances of this node group to access other cluster "
@@ -8021,46 +6088,14 @@ msgstr "Règles de groupe de sécurité"
 msgid "Security Groups"
 msgstr "Groupes de sécurité"
 
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. After the security group is created, you can add rules "
-"to the security group."
-msgstr ""
-"Les groupes de sécurité sont des ensembles de règles de filtrage IP qui sont "
-"appliqués à la configuration réseau d'une VM. Après sa création, vous pouvez "
-"ajouter des règles à un groupe de sécurité."
-
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. Edit the security group to add and change the rules."
-msgstr ""
-"Les groupes de sécurité sont des ensembles de règles de filtrage IP qui sont "
-"appliqués à la configuration réseau d'une VM. Éditer le groupe de sécurité "
-"pour ajouter ou changer des règles."
-
 msgid "Segment Range"
 msgstr "Étendue du Segment"
-
-msgid "Segment Range:"
-msgstr "Étendue du Segment :"
-
-msgid "Segment Sub Type:"
-msgstr "Type de Sous Segment :"
 
 msgid "Segment Type"
 msgstr "Type de segment"
 
-msgid "Segment Type:"
-msgstr "Type de Segment :"
-
 msgid "Segmentation ID"
 msgstr "ID du segment"
-
-msgid "Segmentation ID:"
-msgstr "ID du segment :"
-
-msgid "Select"
-msgstr "Sélectionner"
 
 msgid "Select Flavor"
 msgstr "Sélectionner le gabarit"
@@ -8110,9 +6145,6 @@ msgstr "Sélectionner un moniteur"
 msgid "Select a New Flavor"
 msgstr "Sélectionner un nouveau gabarit"
 
-msgid "Select a Node Group Template to add:"
-msgstr "Sélectionner un Modèle de Groupe de Nœud à ajouter :"
-
 msgid "Select a Policy"
 msgstr "Sélectionnez une Stratégie"
 
@@ -8145,9 +6177,6 @@ msgstr "Sélectionner une instance Master"
 msgid "Select a monitor template for %s"
 msgstr "Sélectionner un modèle de moniteur pour %s"
 
-msgid "Select a name for your network."
-msgstr "Sélectionner un nom pour votre réseau."
-
 msgid "Select a new agent"
 msgstr "Sélectionnez un nouvel agent"
 
@@ -8166,23 +6195,8 @@ msgstr "Sélectionner un nouveau modèle pour relancer une Stack."
 msgid "Select a new volume type"
 msgstr "Sélectionner un nouveau type de volume"
 
-msgid "Select a plugin and version for a new Cluster template."
-msgstr ""
-"Sélectionner un greffon et une version pour un nouveau modèle de Cluster."
-
-msgid "Select a plugin and version for a new Cluster."
-msgstr "Sélectionner un greffon et une version pour le nouveau Cluster."
-
-msgid "Select a plugin and version for the new Node Group template."
-msgstr ""
-"Sélectionner un plugin et une version avec un nouveau modèle de groupe de "
-"nœud."
-
 msgid "Select a port"
 msgstr "Sélectionner un port"
-
-msgid "Select a pre-defined period or specify date."
-msgstr "Sélectionner une période pré-définie ou spécifier une date."
 
 msgid "Select a profile"
 msgstr "Sélectionner un profil"
@@ -8195,9 +6209,6 @@ msgstr "Sélectionner un hôte cible"
 
 msgid "Select a template to launch a stack."
 msgstr "Sélectionner un modèle pour lancer une Stack."
-
-msgid "Select a volume to restore to."
-msgstr "Sélectionner le volume à restaurer."
 
 msgid "Select an IP address"
 msgstr "Sélectionner une adresse IP"
@@ -8244,9 +6255,6 @@ msgstr "Sélectionnez le plugin et la version d'Hadoop pour le cluster"
 msgid "Select plugin and hadoop version for cluster template"
 msgstr "Sélectionner le plugin et la version pour le modèle de cluster"
 
-msgid "Select property name"
-msgstr "Sélectionner un nom de propriété"
-
 msgid "Select routers for your firewall."
 msgstr "Sélectionner des routeurs pour votre pare-feu."
 
@@ -8263,15 +6271,6 @@ msgstr ""
 "Sélectionner l'adresse IP que vous souhaiter faire correspondre à l'instance "
 "ou au port sélectionné(e)."
 
-msgid "Select the image to rebuild your instance."
-msgstr "Sélectionnez l'image pour reconstruire votre instance."
-
-msgid "Select the network for interface attaching."
-msgstr "Sélectionnez le réseau pour attacher l'interface."
-
-msgid "Select the port to detach."
-msgstr "Sélectionner le port à deconnecter."
-
 msgid ""
 "Select the projects where the flavors will be used. If no projects are "
 "selected, then the flavor will be available in all projects."
@@ -8280,51 +6279,14 @@ msgstr ""
 "aucun projet n'est sélectionné, le gabarit sera disponible pour tous les "
 "projets."
 
-msgid "Select the storage type for your job binary."
-msgstr "Sélectionner le type de stockage pour votre tâche binaire."
-
-msgid "Select the type of your Data Source."
-msgstr "Sélectionner le type de source de données."
-
-msgid "Select the type of your job:"
-msgstr "Sélectionner le type de votre tâche:"
-
-msgid "Select type"
-msgstr "Sélectionner le type"
-
-msgid ""
-"Select which plugin and version that you\n"
-"    want to use to create your cluster."
-msgstr ""
-"Sélectionner la version et le plugin\n"
-"que vous souhaitez utiliser pour créer votre cluster."
-
-msgid ""
-"Select which type of job that you want to run.\n"
-"      This choice will dictate which steps are required to successfully\n"
-"      execute your job.\n"
-"    "
-msgstr ""
-"Sélectionner le type de tâche que vous souhaitez exécuter.\n"
-"Ce choix va dicter les étapes pour pouvoir la réussir."
-
 msgid "Selected Hosts"
 msgstr "Hôtes sélectionnés"
 
 msgid "Selected Projects"
 msgstr "Projets sélectionnés"
 
-msgid "Selected Routers"
-msgstr "Routeurs sélectionnés"
-
-msgid "Selected Rules"
-msgstr "Règles sélectionnées"
-
 msgid "Selected hosts"
 msgstr "Hôtes sélectionnés"
-
-msgid "Selected networks"
-msgstr "Réseaux sélectionnés"
 
 msgid "Sensor Current Reading"
 msgstr "Lecture du courant du capteur"
@@ -8416,9 +6378,6 @@ msgctxt "Task status of an Instance"
 msgid "Shelving Offloading"
 msgstr "Réservation, déchargement"
 
-msgid "Show full configuration"
-msgstr "Afficher la configuration complète"
-
 msgctxt "Power state of an Instance"
 msgid "Shut Down"
 msgstr "Extinction"
@@ -8471,9 +6430,6 @@ msgstr "Taille du volume en Go"
 msgid "Size of volume"
 msgstr "Taille du volume"
 
-msgid "Size: "
-msgstr "Taille:"
-
 msgid "Slash is not an allowed character."
 msgstr "Le caractère Slash ('/')  n'est pas autorisé."
 
@@ -8482,9 +6438,6 @@ msgid ""
 msgstr ""
 "Les caractères Slash ('/') sont autorisées et sont traités comme des pseudo-"
 "dossiers par le Stockage d'Objet."
-
-msgid "Small"
-msgstr "Petit"
 
 msgid "Snapshot"
 msgstr "Instantané"
@@ -8508,9 +6461,6 @@ msgstr "Échec de l'instantané"
 msgctxt "current status of stack"
 msgid "Snapshot In Progress"
 msgstr "Instantané en cours"
-
-msgid "Snapshot Limits"
-msgstr "Limites du cliché instantané"
 
 msgid "Snapshot Name"
 msgstr "Nom de l'instantané"
@@ -8540,16 +6490,8 @@ msgid_plural "Soft Rebooted Instances"
 msgstr[0] "Instance redémarrée logiciellement"
 msgstr[1] "Instances redémarrées logiciellement"
 
-msgid "Some flavors not meeting minimum image requirements have been disabled."
-msgstr ""
-"Certains gabarits qui ne respectent pas les exigences minimales de l'image "
-"ont été désactivés."
-
 msgid "Something went wrong!"
 msgstr "Quelque chose s'est mal passé !"
-
-msgid "Source"
-msgstr "Source"
 
 msgid "Source CIDR"
 msgstr "Source CIDR"
@@ -8560,9 +6502,6 @@ msgstr "IP source"
 msgctxt "load balancing method"
 msgid "Source IP"
 msgstr "IP source"
-
-msgid "Source IP Address"
-msgstr "Adresse IP source"
 
 msgid "Source IP Address/Subnet"
 msgstr "Adresse IP/Sous-réseau source"
@@ -8588,9 +6527,6 @@ msgstr "Port source  (nombre entier dans l'intervalle [1,65535] ou plage a:b)"
 msgid "Source username"
 msgstr "Nom d'utilisateur de la source"
 
-msgid "Source:"
-msgstr "Source :"
-
 msgid "Spark"
 msgstr "Spark"
 
@@ -8603,14 +6539,6 @@ msgstr "Spécification"
 
 msgid "Spec: {{ qos_spec_name }}"
 msgstr "Spéc : {{ qos_spec_name }}"
-
-msgid ""
-"Specified User Name will be used by Data Processing to apply configs and "
-"manage processes on instances."
-msgstr ""
-"Le Nom d'Utilisateur Spécifié sera utilisé par le Traitement de Données afin "
-"d'appliquer les configurations et administrer les processus sur les "
-"instances."
 
 msgid ""
 "Specifies how IPv6 addresses and additional information are configured. We "
@@ -8647,37 +6575,14 @@ msgstr "Préciser la VIP"
 msgid "Specify a free IP address from the selected subnet"
 msgstr "Spécifier une adresse IP libre depuis le sous-réseau sélectionné."
 
-msgid "Specify a metadata definition namespace to import."
-msgstr "Indiquer une définition de métadonnées d'espace nom à importer."
-
-msgid "Specify a new flavor for the database instance."
-msgstr "Spécifier un nouveau gabarit pour l'instance de la base de données."
-
 msgid "Specify additional attributes for the subnet."
 msgstr "Spécifier les attributs additionnels pour le sous-réseau."
-
-msgid "Specify advanced options to use when launching an instance."
-msgstr ""
-"Spécifier les options avancées à utiliser quand vous démarrez une instance."
 
 msgid "Specify an IP address for the interface created (e.g. 192.168.0.254)."
 msgstr "Spécifier une adresse IP pour l'interface créée (e.g. 192.168.0.254)."
 
-msgid "Specify an image to upload to the Image Service."
-msgstr "Spécifier une image à télécharger vers le service d'Images."
-
 msgid "Specify member IP address"
 msgstr "Spécifier l'adresse IP du membre"
-
-msgid "Specify the details for launching an instance."
-msgstr "Spécifiez les détails de démarrage d'une instance."
-
-msgid "Specify the details for the database backup."
-msgstr "Spécifiez les détails pour la sauvegarde de la base de données."
-
-msgid "Specify the new volume size for the database instance."
-msgstr ""
-"Spécifier la nouvelle taille du volume pour l'instance de base de données."
 
 msgid ""
 "Specify this option to copy image data to the image service. If unspecified, "
@@ -8689,9 +6594,6 @@ msgstr ""
 
 msgid "Specs"
 msgstr "Spécifications"
-
-msgid "Stack Details"
-msgstr "Détails de la Stack"
 
 msgid "Stack Details: {{ stack.stack_name }}"
 msgstr "Détails de la Stack : {{ stack.stack_name }}"
@@ -8705,29 +6607,14 @@ msgstr "ID Stack"
 msgid "Stack Name"
 msgstr "Nom de la stack"
 
-msgid "Stack Overview"
-msgstr "Vue d'ensemble de la Stack"
-
-msgid "Stack Parameters"
-msgstr "Paramètres de la Stack"
-
-msgid "Stack Preview"
-msgstr "Prévisualisation de la stack"
-
 msgid "Stack Resource"
 msgstr "Ressource de la Stack"
-
-msgid "Stack Resource ID"
-msgstr "ID de la ressource de Stack"
 
 msgid "Stack Resource Type"
 msgstr "Type de ressource de Stack"
 
 msgid "Stack Resources"
 msgstr "Ressources de la Stack"
-
-msgid "Stack Template"
-msgstr "Modèle de Stack"
 
 msgid "Stack creation started."
 msgstr "Création de Stack commencée"
@@ -8740,9 +6627,6 @@ msgstr "Mise à jour de Stack commencée."
 
 msgid "Stacks"
 msgstr "Stacks"
-
-msgid "Start"
-msgstr "Démarrer"
 
 msgctxt "Action log of an instance"
 msgid "Start"
@@ -8767,10 +6651,6 @@ msgstr "Les adresses de début et de fin doivent être spécifiées (valeur=%s)"
 msgid "Start must be earlier than end of period."
 msgstr "Le départ doit être plus tôt que la fin de la période."
 
-msgctxt "Start time"
-msgid "Started"
-msgstr "Démarré"
-
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "Instance Démarrée"
@@ -8792,9 +6672,6 @@ msgstr "Routes Statiques"
 
 msgid "Static route added"
 msgstr "Route statique ajouté"
-
-msgid "Statistics of all resources"
-msgstr "Statistiques de toutes les ressources"
 
 msgid "Stats"
 msgstr "Statistiques"
@@ -8841,25 +6718,11 @@ msgstr "Le sous-réseau \"%s\" a été mis à jour avec succès."
 msgid "Subnet Details"
 msgstr "Détails du sous-réseau"
 
-msgid "Subnet ID"
-msgstr "ID du sous-réseau"
-
 msgid "Subnet Name"
 msgstr "Nom du sous-réseau"
 
-msgid "Subnet Overview"
-msgstr "Aperçu du sous-réseau"
-
 msgid "Subnet list can not be retrieved."
 msgstr "Impossible de récupérer la liste des sous-réseaux."
-
-#, python-format
-msgid "Subnet: %(dest_subnetname)s"
-msgstr "Sous Réseau : %(dest_subnetname)s"
-
-#, python-format
-msgid "Subnet: %(row_source_subnetname)s"
-msgstr "Sous Réseau : %(row_source_subnetname)s"
 
 msgid "Subnets"
 msgstr "Sous-réseaux"
@@ -8980,9 +6843,6 @@ msgstr "Etat du volume actualisé avec succès à \"%s\"."
 msgid "Successfully updated volume status to \"%s\"."
 msgstr "Etat du volume actualisé avec succès à \"%s\"."
 
-msgid "Sum."
-msgstr "Som."
-
 msgid "Supported Versions"
 msgstr "Versions supportées"
 
@@ -9082,17 +6942,6 @@ msgstr "TCP"
 msgid "Tags"
 msgstr "Etiquettes"
 
-msgid ""
-"Tags are used for filtering images suitable for each plugin and each Data "
-"Processing version.\n"
-"        To add required tags, select a plugin and a Data Processing version "
-"and click &quot;Add plugin tags&quot; button."
-msgstr ""
-"Les balises sont utilisées pour filtrer les images appropriées pour chaque "
-"greffon et chaque version de traitement de données en cours.\n"
-"Pour ajouter les balises requises, sélectionner un greffon et une version de "
-"traitement de données et cliquer sur le bouton &quot;Add plugin tags&quot;."
-
 msgid "Target Host"
 msgstr "Hôte cible"
 
@@ -9111,27 +6960,14 @@ msgstr "Fichier du modèle"
 msgid "Template Name"
 msgstr "Nom du modèle"
 
-msgid "Template Overview"
-msgstr "Aperçu du modèle"
-
 msgid "Template Source"
 msgstr "Source du modèle"
 
 msgid "Template URL"
 msgstr "URL du modèle"
 
-msgid "Template not specified"
-msgstr "Modèle non spécifié"
-
 msgid "Terminated instances are not recoverable."
 msgstr "Les instances révolues ne sont pas récupérables."
-
-msgid ""
-"The \"Bootable\" flag specifies that this volume can be used to launch an "
-"instance."
-msgstr ""
-"Le flag \"Amorçable\" indique que ce volume peut être utilisé pour démarrer "
-"une instance."
 
 msgid "The \"from\" port number is invalid."
 msgstr "Le numéro de port \"origine\" est invalide."
@@ -9146,7 +6982,6 @@ msgstr ""
 "Le numéro de port \"destination\" doit être supérieur ou égal au numéro de "
 "port \"origine\"."
 
-#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
@@ -9155,77 +6990,8 @@ msgstr ""
 "Le paramètre 'operation' pour get_feature_permission '%(feature)s' est "
 "invalide. Il doit être choisi parmi %(allowed)s"
 
-msgid ""
-"The <strong>Cipher</strong> is the encryption algorithm/mode to use (e.g., "
-"aes-xts-plain64). If the field is left empty, the provider default will be "
-"used."
-msgstr ""
-"Le <strong>Cipher</strong> correspond à l'algorithme/mode de codification à "
-"utiliser (par ex., aes-xts-plain64). Si le champ reste vide, la valeur par "
-"défaut de fournisseur sera utilisée."
-
-msgid ""
-"The <strong>Control Location</strong> is the notional service where "
-"encryption is performed (e.g., front-end=Nova). The default value is 'front-"
-"end.'"
-msgstr ""
-"L' <strong>emplacement de contrôle</strong> est le service notionnel où la "
-"codification a lieu (par ex. front-end=Nova). La valeur par défaut est « "
-"front-end »."
-
-msgid ""
-"The <strong>Key Size</strong> is the size of the encryption key, in bits (e."
-"g., 128, 256). If the field is left empty, the provider default will be used."
-msgstr ""
-"La <strong>Taille Clé</strong> est la taille de la clé de codification (par "
-"ex., 128, 256). Si le champ reste vide, la valeur par défaut de fournisseur "
-"sera utilisée."
-
-msgid ""
-"The <strong>Provider</strong> is the class providing encryption support (e."
-"g. LuksEncryptor)."
-msgstr ""
-"La classe <strong>Provider</strong> fournit le support de codification (par "
-"ex. LuksEncryptor)."
-
 msgid "The Aggregate was updated."
 msgstr "L'agrégat a été mis à jour."
-
-msgid ""
-"The Authorization Key will not be available after closing this page, so you "
-"must capture it now, or else you will be unable to use the transfer."
-msgstr ""
-"La clé d'autorisation ne sera plus disponible une fois que cette page sera "
-"fermée. Vous devez donc vous l'approprier dès maintenant, sinon, vous ne "
-"pourrez pas l'utiliser pour le transfert."
-
-msgid ""
-"The Cluster Template object may specify a list of processes in anti-affinity "
-"group.\n"
-"    That means these processes may not be launched more than once on a "
-"single host."
-msgstr ""
-"L'objet modèle de cluster doit spécifier la liste des processus dans le "
-"groupe d'anti-affinité. Ceci signifie que ces processus ne pourront pas être "
-"lancés simultanément sur un même hôte."
-
-msgid ""
-"The Cluster Template object should specify Node Group Templates that will be "
-"used to build a Cluster.\n"
-"    You can add Node Groups using Node Group Templates on a &quot;Node "
-"Groups&quot; tab."
-msgstr ""
-"L'objet Modèle de Cluster doit spécifier les Modèles de Groupe de Nœud qui "
-"seront utilisés pour construire un Cluster.\n"
-"Vous pouvez ajouter des Groupes de Nœud en utilisant les Modèles de Groupe "
-"de Nœud sur l'onglet &quot;Groupes de Noeud&quot."
-
-msgid ""
-"The Cluster object should specify OpenStack Image to boot instances for "
-"Cluster."
-msgstr ""
-"L'objet Cluster doit spécifier une Image OpenStack pour démarrer des "
-"instances pour le Cluster."
 
 msgid "The ICMP code is invalid."
 msgstr "Le code ICMP est invalide."
@@ -9250,40 +7016,11 @@ msgstr ""
 "L'ID de l'hôte où se trouve le port. Dans certains cas, des implémentations "
 "différentes peuvent exécuter sur des hôtes différents."
 
-msgid ""
-"The Image Location field MUST be a valid and direct URL to the image binary. "
-"URLs that redirect or serve error pages will result in unusable images."
-msgstr ""
-"le champ Emplacement de l'image DOIT être une URL valide et pointant "
-"directement vers le binaire de l'image. Si l'URL est une redirection ou "
-"renvoie une page d'erreur, cela résultera en une image inutilisable. "
-
 msgid "The JSON formatted contents of a namespace."
 msgstr "Le contenu JSON formaté d'un espace de nom."
 
 msgid "The Key Pair name that was associated with the instance"
 msgstr "Le nom de la paire de clés associée à l'instance"
-
-msgid ""
-"The Node Group Template object specifies the processes\n"
-"        that will be launched on each instance. Check one or more "
-"processes.\n"
-"        When processes are selected, you may set <b>node</b> scoped\n"
-"        configurations on corresponding tabs."
-msgstr ""
-"L'objet de Modèle de groupe de nœud précise les processus\n"
-"à lancer sur chaque instance. Choisissez un ou plusieurs processus.\n"
-"Quand les processus seront sélectionnés, vous pourrez définir les "
-"configurations de <b>noeud</b> scoped dans les onglets correspondant."
-
-msgid ""
-"The Transfer ID and the Authorization Key are needed by the recipient in "
-"order to accept the transfer. Please capture both the Transfer ID and the "
-"Authorization Key and provide them to your transfer recipient."
-msgstr ""
-"Le receveur a besoin de l'ID de transfert et de la clé d'autorisation pour "
-"pouvoir accepter le transfert. Veuillez donc vous appropriez-vous l'ID de "
-"transfert et la clé d'autorisation, puis transférez les au receveur."
 
 msgid "The VNIC type that is bound to the neutron port"
 msgstr "Le type de VNIC lié au port neutron"
@@ -9299,31 +7036,6 @@ msgstr ""
 msgid "The admin password is incorrect."
 msgstr "Le mot de passe de l'administrateur est incorrect."
 
-msgid ""
-"The chart below shows the resources used by this project in relation to the "
-"project's quotas."
-msgstr ""
-"Le tableau ci-dessous montre les ressources liées aux quotas et utilisées "
-"par ce projet."
-
-msgid ""
-"The color and icon of an intersection indicates whether or not traffic is "
-"permitted from the source (row) to the destination (column).\n"
-"     Clicking the <i class=\"fa fa-random\"></i> button in the intersection "
-"will install a rule to switch the traffic behavior.<br/>\n"
-"\n"
-"     <b>Note:</b> Rules only affect one direction of traffic. The opposite "
-"direction is outlined when hovering over an intersection.\n"
-" "
-msgstr ""
-"La couleur et l'icône d'une intersection indique si oui ou non le trafic est "
-"autorisé à partir de la source (row) à la destination (column).<br/>\n"
-"Cliqué sur le bouton <i class=\"fa fa-random\"></i>  à l'intersection va "
-"installer une règle pour basculer le comportement de la circulation.<br/>\n"
-"<br/>\n"
-"<b>Note:</b> Les règles affecte une direction de la circulation. Le sens "
-"inverse est présentée lors du survol d'une intersection."
-
 msgid "The container cannot be deleted since it is not empty."
 msgstr "Le conteneur ne peut pas être supprimé car il n'est pas vide."
 
@@ -9336,43 +7048,6 @@ msgstr ""
 
 msgid "The dates haven't been recognized"
 msgstr "Les dates n'ont pas été reconnues"
-
-msgid ""
-"The default IP address of the interface created is a gateway of the selected "
-"subnet. You can specify another IP address of the interface here. You must "
-"select a subnet to which the specified IP address belongs to from the above "
-"list."
-msgstr ""
-"L'adresse IP par défaut de l'interface créée est la passerelle du sous-"
-"réseau sélectionné. Vous pouvez attribuer une autre adresse IP à "
-"l'interface. Vous devez sélectionner le sous-réseau auquel l'adresse IP "
-"spécifiée appartient depuis la liste ci-dessus."
-
-msgid ""
-"The first step is to determine which type of\n"
-"                    cluster you want to run.  You may have several choices\n"
-"                    available depending on the configuration of your "
-"system.\n"
-"                    Click on \"choose plugin\" to bring up the list of data\n"
-"                    processing plugins.  There you will be able to choose "
-"the\n"
-"                    data processing plugin along with the version number.\n"
-"                    Choosing this up front will allow the rest of the "
-"cluster\n"
-"                    creation steps to focus only on options that are "
-"pertinent\n"
-"                    to your desired cluster type."
-msgstr ""
-"La première étape consiste à déterminer quel type de\n"
-"cluster exécuter. Vous pouvez avoir plusieurs choix\n"
-"disponibles selon la configuration de votre système.\n"
-"Cliquez sur « choisir le plugin » pour faire apparaître la liste des "
-"plugins\n"
-"de traitement des données. Là, vous serez en mesure de choisir le\n"
-"plugin de traitement des données ainsi que le numéro de version.\n"
-"Ce choix dès le départ permettra au reste des étapes de création\n"
-"de cluster de se concentrer uniquement sur les options qui sont pertinentes\n"
-"au type de cluster que vous souhaitez."
 
 #, python-format
 msgid ""
@@ -9390,14 +7065,6 @@ msgstr ""
 
 msgid "The instance password encrypted with your public key."
 msgstr "Le mot de passe de l'instance chiffré avec votre clé publique."
-
-#, python-format
-msgid ""
-"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
-"not use the link below."
-msgstr ""
-"La paire de clés &quot;%(keypair_name)s&quot; doit se télécharger "
-"automatiquement. Si ce n'est pas le cas, utiliser le lien ci-dessous."
 
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
@@ -9429,24 +7096,11 @@ msgid ""
 "implemented."
 msgstr "Le nom du réseau physique sur lequel le réseau virtuel est implémenté."
 
-msgid ""
-"The next hop addresses can be used to override the router used by the client."
-msgstr ""
-"Les sauts d'adresses suivants peuvent être utilisés pour remplacer le "
-"routeur utilisé par le client."
-
 msgid "The page you were looking for doesn't exist"
 msgstr "La page que vous recherchez n'existe pas"
 
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "Le mécanisme physique par lequel le réseau virtuel est implémenté."
-
-msgid ""
-"The private key will be only used in your browser and will not be sent to "
-"the server"
-msgstr ""
-"La clé privée sera utilisée seulement dans votre navigateur et ne sera pas "
-"envoyée au serveur"
 
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "Le dossier-pseudo ne peut pas être supprimé car il n'est pas vide."
@@ -9457,7 +7111,6 @@ msgstr "Les données brutes du fichier d'environnement"
 msgid "The raw contents of the template."
 msgstr "Les données brutes du modèle"
 
-#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -9536,9 +7189,6 @@ msgstr ""
 msgid "There are no meters defined yet."
 msgstr "Aucune métrique n'est actuellement définie."
 
-msgid "There are no networks, routers, or connected instances to display."
-msgstr "Il n'y a aucun réseau, routeur ou instance connectée à afficher."
-
 msgid ""
 "There is not enough capacity for this flavor in the selected availability "
 "zone. Try again later or select a different availability zone."
@@ -9556,36 +7206,12 @@ msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr ""
 "Il y a eu un problème lors de l'analyse syntaxique de %(prefix)s: %(error)s"
 
-msgid "This Cluster Template will be created for:"
-msgstr "Ce modèle de cluster sera créé pour:"
-
-msgid "This Cluster will be started with:"
-msgstr "Ce cluster sera démarré avec:"
-
-msgid "This Node Group Template will be created for:"
-msgstr "Ce modèle de groupe de noeud sera créé pour:"
-
 msgid "This action cannot be undone."
 msgstr "Cette action ne peut pas être réalisée."
 
 msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr ""
 "Cette application demande que JavaScript soit activé dans votre navigateur."
-
-msgid ""
-"This generates a pair of keys: a key you keep private (cloud.key) and a "
-"public key (cloud.key.pub). Paste the contents of the public key file here."
-msgstr ""
-"Cela génère une paire de clés : une clé que vous gardez privée (cloud.key) "
-"et une clé publique (cloud.key.pub). Collez le contenu du fichier contenant "
-"la clé publique dans le champ Clé publique."
-
-msgid ""
-"This is equivalent to the <tt>cinder qos-associate</tt> and <tt>cinder qos-"
-"disassociate</tt> commands."
-msgstr ""
-"Ce équivaut aux commandes <tt>cinder qos-associate</tt> et <tt>cinder qos-"
-"disassociate</tt>."
 
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
@@ -9597,9 +7223,6 @@ msgstr ""
 msgid "This name is already taken."
 msgstr "Ce nom est déjà pris."
 
-msgid "This pane needs javascript support."
-msgstr "Cette fenêtre nécessite le support du javascript."
-
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
@@ -9609,9 +7232,6 @@ msgstr ""
 
 msgid "Time"
 msgstr "Temps"
-
-msgid "Time Since Created"
-msgstr "Créée depuis"
 
 msgid "Time Since Event"
 msgstr "Temps depuis l’évènement"
@@ -9640,20 +7260,6 @@ msgstr "Au Port"
 msgid "To date to must be greater than From date."
 msgstr "La date Jusqu'à doit être postérieure à la date Depuis."
 
-msgid ""
-"To decrypt your password you will need the private key of your key pair for "
-"this instance. Select the private key file, or copy and paste the content of "
-"your private key file into the text area below, then click Decrypt Password."
-msgstr ""
-"Pour déchiffrer votre mot de passe, vous avez besoin de la clé privée issue "
-"de votre paire de clés pour cette instance. Sélectionnez le fichier "
-"contenant la clé privée ou copiez/collez le contenu de ce fichier dans la "
-"zone de texte ci-dessous, puis cliquez sur Déchiffrer le mot de passe."
-
-msgid "To exit the fullscreen mode, click the browser's back button."
-msgstr ""
-"Pour quitter le mode plein écran, cliquez sur le bouton retour du navigateur."
-
 msgid "To power off a specific instance."
 msgstr "Pour éteindre une instance spécifique."
 
@@ -9665,44 +7271,17 @@ msgstr ""
 "CIDR&quot;. Pour autoriser l'accès à tous les membres d'un autre groupe de "
 "sécurité, sélectionner &quot;Security Group&quot;."
 
-msgid "To:"
-msgstr "Vers :"
-
 msgid "Topic"
 msgstr "Sujet"
 
 msgid "Topology"
 msgstr "Topologie"
 
-msgid "Total Active RAM (MB):"
-msgstr "RAM active totale (Mo)"
-
-msgid "Total Disk"
-msgstr "Disque total"
-
-msgid "Total Disk Size (GB):"
-msgstr "Taille totale du disque (en GB)"
-
-msgid "Total Disk Usage (Hours):"
-msgstr "Utilisation Totale des Disques (en Heures)"
-
-msgid "Total Gigabytes"
-msgstr "Giga-octets totaux"
-
-msgid "Total Memory Usage (Hours):"
-msgstr "Usage total de mémoire (en heures)"
-
-msgid "Total RAM"
-msgstr "RAM totale"
-
 msgid "Total Size of LUKS Volumes and Snapshots (GB)"
 msgstr "Taille totale des volumes et clichés instantanés LUKS (GB)"
 
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "Taille totale des volumes et des instantanés (Go)"
-
-msgid "Total VCPU Usage (Hours):"
-msgstr "Usage Total de VCPU(s) (en heures):"
 
 msgid ""
 "Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
@@ -9741,10 +7320,6 @@ msgstr "Type et version du datastore."
 msgid "Type of backend device identifier provided"
 msgstr "Type d'identifiant du backend fourni"
 
-#, python-format
-msgid "Type: %(persistence_type)s"
-msgstr "Type : %(persistence_type)s"
-
 msgid "UDP"
 msgstr "UDP"
 
@@ -9769,12 +7344,6 @@ msgstr "Actif"
 
 msgid "URL"
 msgstr "URL"
-
-msgid "URL Path"
-msgstr "Chemin d'URL"
-
-msgid "USERNAME"
-msgstr "NOM D'UTILISATEUR"
 
 msgid "UTC"
 msgstr "UTC"
@@ -11135,9 +8704,6 @@ msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr ""
 "Incapable de télécharger le volume dans l'image pour le volume : \"%s\""
 
-msgid "Undefined"
-msgstr "Non défini"
-
 msgid "Unit"
 msgstr "Unité"
 
@@ -11169,11 +8735,6 @@ msgstr "Volume non-géré"
 msgid "Unmanage a Volume"
 msgstr "Volume non-géré"
 
-msgid "Unnecessary tags may be removed by clicking a cross near tag's name."
-msgstr ""
-"Les étiquettes non-obligatoires peuvent être supprimée en cliquant sur le "
-"crois à côté du nom de l'étiquette"
-
 msgctxt "Action log of an instance"
 msgid "Unpause"
 msgstr "Reprendre"
@@ -11194,9 +8755,6 @@ msgstr "Sortie du mode secours"
 
 msgid "Unselect the router(s) to be removed from firewall."
 msgstr "Désélectionner le(s) routeur(s) à retirer du pare-feu."
-
-msgid "Unselect the routers you want to disassociate from the firewall."
-msgstr "Désélectionner les routeurs que vous voulez dissocier du pare-feu."
 
 msgctxt "Task status of an Instance"
 msgid "Unshelving"
@@ -11288,15 +8846,6 @@ msgid "Update Volume Status"
 msgstr "Actualiser l'état du Volume"
 
 msgid ""
-"Update a stack with the provided values. Please note that any encrypted "
-"parameters, such as passwords, will be reset to default if you do not change "
-"them here."
-msgstr ""
-"Mettre à jour la Stack avec les valeurs fournies. Veuillez noter que chaque "
-"paramètres cryptés, comme les mots de passe, sera réinitialisés par défaut "
-"si vous ne les changez pas ici. "
-
-msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
 "available at \"Subnet Details\" tab."
 msgstr ""
@@ -11318,14 +8867,6 @@ msgstr "Demandes de mise à jour pour ce routeur"
 msgid "Update requests for this subnet"
 msgstr "Demandes de mise à jour pour ce sous-réseau"
 
-#, python-format
-msgid "Update the \"extra spec\" value for \"%(key)s\""
-msgstr "Mise à jour de la valeur \"extra spec\" pour \"%(key)s\""
-
-#, python-format
-msgid "Update the spec value for \"%(key)s\""
-msgstr "Mise à jour de la valeur de spécification pour \"%(key)s\""
-
 msgid "Updated"
 msgstr "Mis à jour"
 
@@ -11335,9 +8876,6 @@ msgstr "Mis à jour à"
 #, python-format
 msgid "Updated subnet \"%s\"."
 msgstr "Sous-réseau \"%s\" a été mis à jour."
-
-msgid "Updated time"
-msgstr "Mis à jour"
 
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
@@ -11360,10 +8898,6 @@ msgstr "Télécharger un fichier"
 msgid "Upload Object"
 msgstr "Télécharger un Objet"
 
-#, python-format
-msgid "Upload Object To Container: %(container_name)s"
-msgstr "Charger un Objet dans le Conteneur : %(container_name)s"
-
 msgid "Upload Objects"
 msgstr "Charger des Objets"
 
@@ -11372,9 +8906,6 @@ msgstr "Uploader un modèle"
 
 msgid "Upload Volume to Image"
 msgstr "Télécharger le Volume dans l'Image"
-
-msgid "Upload a new file"
-msgstr "Télécharger un nouveau fichier"
 
 msgid "Upload to Image"
 msgstr "Télécharger dans l'Image"
@@ -11391,14 +8922,8 @@ msgstr "Usage"
 msgid "Usage (Hours)"
 msgstr "Utilisation (Heures)"
 
-msgid "Usage Overview"
-msgstr "Aperçu de l'Utilisation"
-
 msgid "Usage Report"
 msgstr "Rapport d'utilisation"
-
-msgid "Usage Report For Period:"
-msgstr "Rapport d'utilisation pour la période:"
 
 msgid "Use Server Default"
 msgstr "Utiliser la valeur par défaut du serveur"
@@ -11415,35 +8940,8 @@ msgstr "Utiliser les groupes d'anti-affinité pour:"
 msgid "Use image as a source"
 msgstr "Utiliser une image comme source"
 
-msgid ""
-"Use one of the available template source options to specify the template to "
-"be used in creating this stack."
-msgstr ""
-"Utiliser une des options de modèle source disponibles pour préciser le "
-"modèle à utiliser lors de la création de cette Stack."
-
-msgid ""
-"Use one of the available template source options to specify the template to "
-"be used in previewing this stack."
-msgstr ""
-"Utiliser une des options de modèle source disponibles pour préciser le "
-"modèle à utiliser lors de la prévisualition de cette Stack."
-
-msgid ""
-"Use one of these load balancing methods to distribute incoming requests:"
-msgstr ""
-"Utiliser une de ces métodes de load balancing afin de distribuer les "
-"requêtes entrantes:"
-
 msgid "Use snapshot as a source"
 msgstr "Utiliser un instantané comme source"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "<span> %(used)s </span> utilisé(es) sur <span> %(available)s </span>"
-
-msgid "Used in Policy"
-msgstr "Utilisée dans la stratégie"
 
 msgid "User"
 msgstr "Utilisateur"
@@ -11456,14 +8954,8 @@ msgstr "L'utilisateur \"%s\" a été créé avec succès."
 msgid "User %s has no role defined for that project."
 msgstr "L'utilisateur %s n'a pas de rôle défini pour ce projet."
 
-msgid "User Credentials"
-msgstr "Paramètre utilisateur du compte"
-
 msgid "User Credentials Details"
 msgstr "Détails des paramètres du compte utilisateur"
-
-msgid "User Details"
-msgstr "Détails de l'utilisateur"
 
 msgid "User Details: {{ user.name }}"
 msgstr "Détails utilisateur: {{ user.name }}"
@@ -11474,19 +8966,11 @@ msgstr "ID d'Utilisateur"
 msgid "User Name"
 msgstr "Nom d'utilisateur"
 
-msgid "User Overview"
-msgstr "Aperçu Utilisateur"
-
 msgid "User Settings"
 msgstr "Paramètres de l'utilisateur"
 
 msgid "User has been updated successfully."
 msgstr "L'utilisateur a été mis à jour avec succès."
-
-msgid "User has to choose a keypair to have access to clusters instances."
-msgstr ""
-"L'utilisateur doit choisir une paire de clés pour avoir accès aux instances "
-"des clusters."
 
 #, python-format
 msgid "User name \"%s\" is already used."
@@ -11498,20 +8982,11 @@ msgstr "Le mot de passe de l'utilisateur a été mis à jour."
 msgid "Username"
 msgstr "Nom d'utilisateur"
 
-msgid "Username (required)"
-msgstr "Nom d'Utilisateur (obligatoire)"
-
 msgid "Users"
 msgstr "Utilisateurs"
 
-msgid "VCPU"
-msgstr "VCPU"
-
 msgid "VCPU Hours"
 msgstr "VCPU Heures"
-
-msgid "VCPU Usage"
-msgstr "Utilisation VCPU"
 
 msgid "VCPUs"
 msgstr "VCPUs"
@@ -11527,12 +9002,6 @@ msgstr "VDI - Image disque virtuelle"
 
 msgid "VHD - Virtual Hard Disk"
 msgstr "VHD - Disque dur virtuel"
-
-msgid "VIF Details"
-msgstr "Infos VIF"
-
-msgid "VIF Type"
-msgstr "Type VIF"
 
 msgid "VIP"
 msgstr "VIP"
@@ -11553,14 +9022,8 @@ msgstr "VLAN"
 msgid "VMDK - Virtual Machine Disk"
 msgstr "VMDK - Disque de machine virtuelle"
 
-msgid "VNIC Type"
-msgstr "Type de VNIC"
-
 msgid "VPN"
 msgstr "VPN"
-
-msgid "VPN Connections"
-msgstr "Connexions VPN"
 
 msgid "VPN Service"
 msgstr "Service VPN"
@@ -11596,22 +9059,8 @@ msgstr "Valeur"
 msgid "Value (Avg)"
 msgstr "Valeur (moyenne)"
 
-msgid "Value:"
-msgstr "Valeur :"
-
 msgid "Version"
 msgstr "Version"
-
-msgid "Version:"
-msgstr "Version:"
-
-#, python-format
-msgid ""
-"Version: %(version_info)s\n"
-"      "
-msgstr ""
-"Version : %(version_info)s\n"
-"      "
 
 msgid "View Container"
 msgstr "Voir le conteneur"
@@ -11625,23 +9074,14 @@ msgstr "Voir les détails"
 msgid "View Extra Specs"
 msgstr "Voir les spécifications supplémentaires"
 
-msgid "View Full Log"
-msgstr "Voir le journal complet"
-
 msgid "View Log"
 msgstr "Voir le journal"
 
 msgid "View Usage"
 msgstr "Afficher l'utilisation"
 
-msgid "View Usage Report"
-msgstr "Voir le Rapport d'Utilisation"
-
 msgid "Virtual Private Network"
 msgstr "Réseau Privé Virtuel"
-
-msgid "Virtual Size"
-msgstr "Taille virtuelle"
 
 msgid "Volume"
 msgstr "Volume"
@@ -11650,43 +9090,17 @@ msgstr "Volume"
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr "Volume %(volume_name)s sur l'instance %(instance_name)s"
 
-msgid "Volume (Cinder)"
-msgstr "Volume (Cinder)"
-
 msgid "Volume Backup"
 msgstr "Volume de sauvegarde"
-
-msgid "Volume Backup Details"
-msgstr "Détails du volume de sauvegarde"
 
 msgid "Volume Backup Details: {{ backup.name }}"
 msgstr "Détail du volume de sauvegarde: {{ backup.name }}"
 
-#, python-format
-msgid "Volume Backup Overview: %(backup_display_name)s"
-msgstr "Aperçu du volume de sauvegarde : %(backup_display_name)s"
-
-msgid "Volume Backup:"
-msgstr "Sauvegarde d'un Volume :"
-
 msgid "Volume Backups"
 msgstr "Sauvegardes de Volume"
 
-msgid ""
-"Volume Backups are stored using the Object Storage service. You must have "
-"this service activated in order to create a backup."
-msgstr ""
-"Les volumes de sauvegarde sont stockés en utilisant le service Object "
-"Storage. Vous devez avoir ce service activé afin de créer une sauvegarde."
-
-msgid "Volume Details"
-msgstr "Détails du Volume"
-
 msgid "Volume Details: {{ volume.name }}"
 msgstr "Détails du volume: {{ volume.name }}"
-
-msgid "Volume Encryption Details"
-msgstr "Détailsdu chiffrement du volume"
 
 #, python-format
 msgid "Volume Encryption Details: %(volume_name)s"
@@ -11695,17 +9109,8 @@ msgstr "Informations de codification du volume : %(volume_name)s"
 msgid "Volume Encryption Details: {{ volume.name }}"
 msgstr "Détails de Chiffrement du Volume : {{ volume.name }}"
 
-msgid "Volume Encryption Overview"
-msgstr "La codification de volume"
-
-msgid "Volume Limits"
-msgstr "Limites des volumes"
-
 msgid "Volume Name"
 msgstr "Nom du volume"
-
-msgid "Volume Overview"
-msgstr "Vue d'ensemble du volume"
 
 msgid "Volume Size"
 msgstr "Taille du Volume"
@@ -11713,14 +9118,8 @@ msgstr "Taille du Volume"
 msgid "Volume Snapshot"
 msgstr "Instantané du volume"
 
-msgid "Volume Snapshot Details"
-msgstr "Détails de l'instantané du volume"
-
 msgid "Volume Snapshot Details: {{ snapshot.name }}"
 msgstr "Détail de l'instantanée de volume: {{ snapshot.name }}"
-
-msgid "Volume Snapshot Overview"
-msgstr "Aperçu de l'instantané de volume"
 
 msgid "Volume Snapshots"
 msgstr "Instantanés de volumes"
@@ -11743,26 +9142,6 @@ msgstr "Type de Volume"
 msgid "Volume Type Encryption Details"
 msgstr "Informations de codification Type de volume"
 
-msgid "Volume Type Encryption Overview"
-msgstr "Cryptage du type de volume"
-
-msgid "Volume Type Extra Specs"
-msgstr "Spécificités Supplémentaires du Type de Volume"
-
-msgid "Volume Type Name"
-msgstr "Nom du type de volume"
-
-msgid "Volume Type is Unencrypted."
-msgstr "Le type de volume est crypté."
-
-#, python-format
-msgid "Volume Type: %(volume_type_name)s"
-msgstr "Type de Volume : %(volume_type_name)s"
-
-#, python-format
-msgid "Volume Type: %(volume_type_name)s "
-msgstr "Type du Volume : %(volume_type_name)s"
-
 msgid "Volume Types"
 msgstr "Types de Volume"
 
@@ -11773,9 +9152,6 @@ msgid ""
 msgstr ""
 "Le volume ne peut être agrandi à %(req)iGo car vous n'avez que %(avail)iGo "
 "disponibles dans votre quota."
-
-msgid "Volume is Unencrypted"
-msgstr "Volume n'est pas chiffré"
 
 msgid ""
 "Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
@@ -11840,22 +9216,11 @@ msgstr "Le nom de type de volume ne peut pas être vide."
 msgid "Volumes"
 msgstr "Volumes"
 
-msgid "Volumes Attached"
-msgstr "Volumes attachés"
-
 msgid "Volumes Availability Zone"
 msgstr "Zone de disponibilité"
 
-msgid "Volumes are block devices that can be attached to instances."
-msgstr ""
-"Les volumes sont des périphérique en mode bloc qui peuvent être attachés à "
-"des instances."
-
 msgid "Volumes per node"
 msgstr "Volumes par noeud"
-
-msgid "Volumes size"
-msgstr "Taille des volumes"
 
 msgid "Volumes size (GB)"
 msgstr "Taille des volumes (Go)"
@@ -11866,23 +9231,6 @@ msgstr "Poids"
 msgid "Which keypair to use for authentication."
 msgstr "Quelle paire de clés utiliser pour l'authentification."
 
-msgid ""
-"Within a container you can group your objects into pseudo-folders, which "
-"behave similarly to folders in your desktop operating system, with the "
-"exception that they are virtual collections defined by a common prefix on "
-"the object's name. A slash (/) character is used as the delimiter for pseudo-"
-"folders in the Object Store."
-msgstr ""
-"A l'intérieur d'un conteneur vous pouvez grouper des objets dans des pseudo-"
-"dossiers, qui se comportent de manière identique aux dossiers du bureau de "
-"votre système d'exploitation personnel, à l'exception près qu'ils sont des "
-"ensembles virtuels définis par un préfixe commun sur le nom de l'objet. Un "
-"caractère slash (/) est utilisé comme délimiteur pour les pseudo-dossiers "
-"dans le Magasin d'Objets."
-
-msgid "Worker Node Group Template:"
-msgstr "Modèles de groupe de nœuds Worker"
-
 msgid "Yes"
 msgstr "Oui"
 
@@ -11891,68 +9239,6 @@ msgstr "Vous utilisez déjà toutes vos IP flottantes disponibles."
 
 msgid "You are already using all of your available volumes."
 msgstr "Vous utilisez déjà tous vos volumes disponibles."
-
-msgid ""
-"You are now ready to\n"
-"                        launch your cluster.  When you click on the link\n"
-"                        below, you will need to give your cluster a name,\n"
-"                        choose the Cluster Template to use and choose which\n"
-"                        image to use to build your instances.  After you\n"
-"                        click on \"Create\", your instances will begin to\n"
-"                        spawn.  Your cluster should be operational in a few\n"
-"                        minutes."
-msgstr ""
-"Vous êtes maintenant prêt à\n"
-"démarrer votre cluster. Après avoir cliqué sur le link ci-dessous, vous "
-"devrez donner un nom à votre cluster.\n"
-"Choisissez le modèle de cluster à utiliser et choisir l'image à utiliser "
-"pour construire vos instances. Après avoir cliqué sur « Créer », vos "
-"instances commenceront à se multiplier. Votre cluster sera opérationnel dans "
-"les minutes qui suivent."
-
-msgid ""
-"You can connect a specified external network to the router. The external "
-"network is regarded as a default route of the router and the router acts as "
-"a gateway for external connectivity."
-msgstr ""
-"Vous pouvez connecter un réseau externe au routeur. Ce réseau est considéré "
-"comme la route par défaut du routeur et le routeur agit comme une passerelle "
-"pour la connectivité externe. "
-
-msgid "You can connect a specified subnet to the router."
-msgstr "Vous pouvez connecter un sous-réseau spécifique au routeur."
-
-msgid ""
-"You can create a port for the network. If you specify device ID to be "
-"attached, the device specified will be attached to the port created."
-msgstr ""
-"Vous pouvez créer un port pour le réseau. Si vous spécifiez un ID de "
-"périphérique à attacher, ce périphérique sera attaché au port créé."
-
-msgid ""
-"You can customize your instance after it has launched using the options "
-"available here."
-msgstr ""
-"Vous pouvez personnaliser votre instance après l'avoir démarrée en utilisant "
-"les options disponibles ici."
-
-msgid ""
-"You can perform an incremental backup by specifying a parent backup. "
-"<strong>However,</strong> not all databases support incremental backups in "
-"which case this operation will result in an error."
-msgstr ""
-"Vous pouvez effectuer une sauvegarde incrémentale en spécifiant une "
-"sauvegarde totale.\n"
-"<strong>Cependant,</strong> toutes les bases de données ne supportent pas "
-"les sauvegardes incrémentales, dans ce cas, l'opération se termine en erreur."
-
-msgid ""
-"You can specify the desired rule template or use custom rules, the options "
-"are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
-msgstr ""
-"Vous pouvez spécifier le modèle de règle désiré ou utiliser des règles "
-"personnalisées. Les options sont Règle TCP Personnalisée, Règle UDP "
-"Personnalisée ou Règle ICMP personnalisée."
 
 msgid "You cannot disable the user you are currently logged in as."
 msgstr ""
@@ -11991,37 +9277,9 @@ msgstr ""
 "ce message apparaît par erreur, veuillez contacter votre responsable\n"
 "de projet."
 
-msgid "You may also add any custom tag."
-msgstr "Vous pouvez aussi ajouter une étiquette personnalisée."
-
-msgid "You may also enter an optional description for your Data Source."
-msgstr ""
-"Vous pouvez aussi fournir une description optionnelle pour votre source de "
-"données."
-
-msgid "You may also enter an optional description for your job binary."
-msgstr ""
-"Vous pouvez aussi donner une description optionnelle pour votre binaire de "
-"tâche."
-
-msgid "You may also enter an optional description for your job template."
-msgstr ""
-"Vous pouvez également saisir une description en option pour votre modèle de "
-"tâche."
-
 msgid "You may have mistyped the address or the page may have moved."
 msgstr ""
 "Vous avez peut-être mal orthographié l'adresse ou la page a été déplacée."
-
-msgid "You may need to enter the username and password for your Data Source."
-msgstr ""
-"Vous devez peut-être entrer le nom d'utilisateur et le mot de passe pour "
-"votre source de données."
-
-msgid "You may optionally set a password on the rebuilt instance."
-msgstr ""
-"Vous pouvez éventuellement définir un mot de passe sur l'instance "
-"reconstruite."
 
 msgid ""
 "You may reset the gateway later by using the set gateway action, but the "
@@ -12029,85 +9287,6 @@ msgid ""
 msgstr ""
 "Vous pourrez redéfinir la passerelle plus tard en utilisant l'action de "
 "passerelle définie, mais l'IP du gateway risque de changer."
-
-msgid "You may set <b>cluster</b> scoped configurations on corresponding tabs."
-msgstr ""
-"Vous pouvez paramétrer le <b>cluster</b> dédié aux configurations via les "
-"onglets correspondants."
-
-msgid "You may update IKE Policy details here."
-msgstr "Mettez à jour les détails de la Stratégie IKE ici."
-
-msgid "You may update IPSec Policy details here."
-msgstr "Mettez à jour les détails de la Stratégie IPSec ici."
-
-msgid "You may update IPSec Site Connection details here."
-msgstr ""
-"Ici, vous pouvez mettre à jour les détails de la connexion IPSec de site."
-
-msgid ""
-"You may update VIP attributes here: edit name, description, pool, session "
-"persistence, connection limit  or admin state."
-msgstr ""
-"Vous pouvez mettre à jour les attributs de la VIP ici : éditer le nom, la "
-"description, le pool, la persistance des sessions, la limite de connexion ou "
-"l'état d'administration."
-
-msgid "You may update VPN Service details here."
-msgstr "Ici, vous pouvez mettre à jour les détails du service VPN."
-
-msgid "You may update firewall details here."
-msgstr "Ici, vous pouvez mettre à jour les détails du pare-feu."
-
-msgid ""
-"You may update health monitor attributes here: edit delay, timeout, max "
-"retries  or admin state."
-msgstr ""
-"Vous pouvez mettre à jour les attributs du moniteur de santé ici:  éditer le "
-"délai, le timeout, le nombre maximum de tentatives ou l'état "
-"d'administration."
-
-msgid ""
-"You may update member attributes here: edit pool, weight or admin state."
-msgstr ""
-"Ici, vous pouvez mettre à jour les caractéristiques d'un membre : édition du "
-"pool, poids ou Admin State."
-
-msgid ""
-"You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
-"instead to insert or remove a rule"
-msgstr ""
-"Mettez à jour les détails de la stratégie ici. Utilisez les liens 'Insérer "
-"une règle' ou 'Enlever une règle' pour insérer ou enlever une règle."
-
-msgid ""
-"You may update pool attributes here: edit name, description, load balancing "
-"method or admin state."
-msgstr ""
-"Vous pouvez mettre à jour les attributs du pool ici : éditer le nom, la "
-"description, la méthode de répartition de charge ou l'état administrateur."
-
-msgid "You may update rule details here."
-msgstr "Ici, vous pouvez mettre à jour les détails de la règle."
-
-msgid "You may update the editable properties of your network here."
-msgstr ""
-"Ici, vous pouvez mettre à jour les propriétés modifiables de votre réseau."
-
-msgid "You may update the editable properties of your port here."
-msgstr ""
-"Ici, vous pouvez mettre à jour les propriétés modifiables de votre port."
-
-msgid "You may update the editable properties of your router here."
-msgstr ""
-"Ici, vous pouvez mettre à jour les propriétés modifiables de votre routeur."
-
-msgid ""
-"You must choose a flavor to determine the size (VCPUs, memory and storage) "
-"of all launched VMs."
-msgstr ""
-"Vous devez sélectionner un type pour déterminer le gabarit (les vCPU, la "
-"mémoire et le stockage) de toutes les machines virtuelles démarrées."
 
 msgid "You must select a datastore type and version."
 msgstr "Vous devez sélectionne un type et une version de datastore."
@@ -12134,19 +9313,6 @@ msgid "You must specify at least one database if you create a user."
 msgstr ""
 "Vous devez spécifier au moins une base de données si vous créez un "
 "utilisateur."
-
-msgid ""
-"You must specify the source of the traffic to be allowed via this rule. You "
-"may do so either in the form of an IP address block (CIDR) or via a source "
-"group (Security Group). Selecting a security group as the source will allow "
-"any other instance in that security group access to any other instance via "
-"this rule."
-msgstr ""
-"Vous devez spécifier la source du trafic autorisé par cette règle. Vous "
-"pouvez faire cela soit sous la forme d'un bloc d'adresses IP (CIDR), soit "
-"sous la forme d'un groupe source (groupe de sécurité). Choisir un groupe de "
-"sécurité comme source autorise n'importe quelle instance de ce groupe à "
-"accéder à n'importe quelle autre instance au travers de cette règle."
 
 #, python-format
 msgid "Your image %s has been queued for creation."
@@ -12183,11 +9349,6 @@ msgstr "tous les deux"
 msgid "clear"
 msgstr "éffacer"
 
-msgid "console is currently unavailable. Please try again later."
-msgstr ""
-"La console est actuellement indisponible. Veuillez essayer à nouveau "
-"ultérieurement."
-
 msgid "disabled"
 msgstr "désactivé"
 
@@ -12217,9 +9378,6 @@ msgstr "maintenir"
 
 msgid "instance"
 msgstr "instance"
-
-msgid "no processes"
-msgstr "aucun processus"
 
 msgid "pseudo-folder"
 msgstr "pseudo-dossier"

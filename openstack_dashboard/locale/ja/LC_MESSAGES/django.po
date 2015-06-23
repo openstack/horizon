@@ -1,6 +1,6 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Translations template for PROJECT.
+# Copyright (C) 2015 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
 #
 # Translators:
 # Akihiro Motoki <amotoki@gmail.com>, 2015
@@ -10,352 +10,22 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-15 19:53-0500\n"
-"PO-Revision-Date: 2015-06-15 20:57+0000\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2015-06-23 01:20+0000\n"
+"PO-Revision-Date: 2015-06-23 01:20+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/"
 "language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.3\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-msgid ""
-"\n"
-"                  In order to run a Data Processing job, you need to make\n"
-"                  the files for your program available to the\n"
-"                  Data Processing system, define where the input and output\n"
-"                  need to go and create a Job Template that describes\n"
-"                  how to run your job.  Each of those steps can be done\n"
-"                  manually or you can follow this guide to help take you\n"
-"                  through the steps to run a job on an existing cluster.\n"
-"            "
-msgstr ""
-"\n"
-"データ処理のジョブを実行するには、データ処理システムに対して提供することので"
-"きるプログラムのファイルを作成し、入力先/出力先を定義してジョブの実行方法を説"
-"明するジョブテンプレートを作成する必要があります。これらの各ステップは、手動"
-"で実行することができます。もしくは、このガイドに従って既存のクラスターでジョ"
-"ブを実行するステップを段階的に進めることもできます。"
-
-msgid ""
-"\n"
-"                 Each of the Data Processing frameworks require a cluster of "
-"machines\n"
-"                 in order to do the work they are assigned.  A cluster is\n"
-"                 formed by creating a set of Node Group Templates, "
-"combining\n"
-"                 those into a Cluster Template and then launching a "
-"Cluster.\n"
-"                 You can do each of those steps manually, or you can follow\n"
-"                 this guide to help take you through the steps of\n"
-"                 Cluster creation.\n"
-"             "
-msgstr ""
-"\n"
-"各データ処理フレームワークが割り当てられた作業を処理するには、マシンのクラス"
-"ターが必要です。クラスターを編成するには、ノードグループテンプレートのセット"
-"を作成し、それらをクラスターテンプレートに統合してからクラスターを起動しま"
-"す。これらのステップはそれぞれ手動で実行することができます。もしくは、このガ"
-"イドに従ってクラスターの作成ステップを段階的に進めることもできます。\n"
-"             "
-
-#, python-format
-msgid ""
-"\n"
-"            <a href=\"%(volume_url)s\">%(volume_label)s</a> on "
-"%(volume_device)s\n"
-"            "
-msgstr ""
-"\n"
-"<a href=\"%(volume_url)s\">%(volume_label)s</a> の %(volume_device)s\n"
-"            "
-
-#, python-format
-msgid ""
-"\n"
-"        Other IPv6 modes: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode="
-"%(addr_mode)s\n"
-"        "
-msgstr ""
-"\n"
-"その他の IPv6 モード: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode="
-"%(addr_mode)s\n"
-"        "
-
-msgid ""
-"\n"
-"        When the volume status is \"in-use\", you can use \"Force\" to "
-"upload the\n"
-"        volume to an image.\n"
-"       "
-msgstr ""
-"\n"
-"ボリュームの状態が「使用中」の場合、ボリュームをイメージにアップロードするに"
-"は「強制アップロード」をチェックしてください。"
-
-#, python-format
-msgid ""
-"\n"
-"      <a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s\n"
-"      "
-msgstr ""
-"\n"
-"      <a href=\"%(instance_url)s\">%(instance_name)s</a> の %(device)s\n"
-"      "
-
-msgid ""
-"\n"
-"      Change the volume type of a volume after its creation.\n"
-"      This is equivalent to the <tt>cinder retype</tt> command.\n"
-"     "
-msgstr ""
-"\n"
-"ボリューム作成後にボリュームの種別を変更します。\n"
-"<tt>cinder retype</tt> と同じです。"
-
-msgid ""
-"\n"
-"      Choose \"Disk Format\" for the image. The volume images are created "
-"with\n"
-"      the QEMU disk image utility.\n"
-"     "
-msgstr ""
-"\n"
-"イメージの「ディスク形式」を選択してください。ボリュームイメージの作成は "
-"QEMU ディスクイメージツールを使って行われます。"
-
-msgid ""
-"\n"
-"      QoS Specs can be associated with volume types.\n"
-"      It is used to map to a set of quality of service capabilities "
-"requested\n"
-"      by the volume owner. This is equivalent to the\n"
-"      <tt>cinder qos-create</tt> command. Once the QoS Spec gets created,\n"
-"      click the \"Manage Specs\" button to manage the key-value specs for "
-"the QoS Spec.\n"
-"      <br>\n"
-"      <br>\n"
-"      Each QoS Specs entity will have a \"Consumer\" value which indicates "
-"where the\n"
-"      administrator would like the QoS policy to be enforced. This value can "
-"be \"front-end\"\n"
-"      (Nova Compute), \"back-end\" (Cinder back-end), or \"both\".\n"
-"  "
-msgstr ""
-"\n"
-"QoS スペックにより、ボリューム種別と関連付けることができます。これは、ボ"
-"リュームの所有者が要求する QoS 機能セットにマップするために使用され、"
-"<tt>cinder qos-create</tt> コマンドに相当します。QoS スペックが作成されたら、"
-"「スペックの管理」ボタンをクリックして、その QoS スペックのキーと値のスペック"
-"を管理します。各 QoS スペックのエンティティーには「使用者」の値が含まれます。"
-"これは、管理者による QoS ポリシーの適用先を示します。この値は、「フロントエン"
-"ド」(Nova Compute)、「バックエンド」(Cinder back-end)、または「両方」です。\n"
-"  "
-
-msgid ""
-"\n"
-"      The \"Migration Policy\" is only used if the volume retype cannot be\n"
-"      completed. If the \"Migration Policy\" is \"On Demand\", the back end "
-"will\n"
-"      perform volume migration. Note that migration may take a significant\n"
-"      amount of time to complete, in some cases hours.\n"
-"     "
-msgstr ""
-"\n"
-"「移行ポリシー」は、ボリューム種別の変更がすぐに完了できない場合にのみ使用さ"
-"れます。「移行ポリシー」に「要求時」を指定すると、ストレージバックエンドはボ"
-"リュームの移行を実行します。移行には長い時間、ときとして数時間、かかる場合が"
-"ある点に注意してください。"
-
-msgid ""
-"\n"
-"      The \"Volume Type\" selected must be different from the current volume "
-"type.\n"
-"     "
-msgstr ""
-"\n"
-"選択する「ボリューム種別」は現在のボリューム種別とは違うものでなければいけま"
-"せん。"
-
-msgid ""
-"\n"
-"      Upload the volume to the Image Service as an image.\n"
-"      This is equivalent to the <tt>cinder upload-to-image</tt> command.\n"
-"     "
-msgstr ""
-"\n"
-"このボリュームをイメージサービスにイメージとしてアップロードします。\n"
-"<tt>cinder upload-to-image</tt> と同じです。"
-
-msgid ""
-"\n"
-"      Volume type is a type or label that can be selected at volume "
-"creation\n"
-"      time in OpenStack. It usually maps to a set of capabilities of the "
-"storage\n"
-"      back-end driver to be used for this volume. Examples: \"Performance"
-"\",\n"
-"      \"SSD\", \"Backup\", etc. This is equivalent to the\n"
-"      <tt>cinder type-create</tt> command. Once the volume type gets "
-"created,\n"
-"      click the \"View Extra Specs\" button to set up extra specs key-value\n"
-"      pair(s) for that volume type.\n"
-"     "
-msgstr ""
-"\n"
-"ボリューム種別は OpenStack でボリュームを作成する際に選択する種別を示すラベル"
-"です。通常、ボリューム種別は、作成するボリュームが使用する、バックエンドのス"
-"トレージドライバーが持つ機能セットにマッピングされます。例えば「性能」「SSD」"
-"「バックアップ」などです。これは <tt>cinder type-create</tt> と同じです。ボ"
-"リューム種別を作成した後は、「追加スペックの表示」ボタンをクリックして、この"
-"ボリューム種別の追加スペックのキーと値のペアを設定します。"
-
-msgid ""
-"\n"
-"    \"Manage\" an existing volume from a Cinder host. This will make the "
-"volume visible within\n"
-"    OpenStack.\n"
-"    <br>\n"
-"    <br>\n"
-"    This is equivalent to the <tt>cinder manage</tt> command.\n"
-"    "
-msgstr ""
-"\n"
-"Cinder ホストの既存のボリュームを「管理対象」にします。この操作を行うと、その"
-"ボリュームは OpenStack で見えるようになります。\n"
-"この操作は <tt>cinder manage</tt> コマンドに相当します。\n"
-"    "
-
-msgid ""
-"\n"
-"    Each QoS Specs entity will have a \"Consumer\" value which indicates "
-"where the\n"
-"    administrator would like the QoS policy to be enforced. This value can "
-"be \"front-end\"\n"
-"    (Nova Compute), \"back-end\" (Cinder back-end), or \"both\".\n"
-"    "
-msgstr ""
-"\n"
-"各 QoS スペックには「使用者」という設定値があり、\n"
-"これは管理者がこの QoS ポリシーをどこで適用したいかを指定するものです。\n"
-"指定できる値は「フロントエンド」(Nova Compute)、\n"
-"「バックエンド」(Cinder のバックエンド)、「両方」です。"
-
-msgid ""
-"\n"
-"    The status of a volume is normally managed automatically.  In some "
-"circumstances an\n"
-"    administrator may need to explicitly update the status value.  This is "
-"equivalent to\n"
-"    the <tt>cinder reset-state</tt> command.\n"
-"    "
-msgstr ""
-"\n"
-"通常、ボリュームのステータスは自動的に管理されます。状況によっては、管理者が"
-"ステータス値を明示的に変更する必要があることがあります。これは <tt>cinder "
-"reset-state</tt> コマンドと同じです。"
-
-msgid ""
-"\n"
-"    The status of a volume snapshot is normally managed automatically.  In "
-"some circumstances\n"
-"    an administrator may need to explicitly update the status value. This is "
-"equivalent to\n"
-"    the <tt>cinder snapshot-reset-state</tt> command.\n"
-"    "
-msgstr ""
-"\n"
-"通常、ボリュームスナップショットのステータスは自動的に管理されます。状況に"
-"よっては、管理者がステータス値を明示的に変更する必要があることがあります。こ"
-"れは <tt>cinder snapshot-reset-state</tt> コマンドと同じです。"
-
-msgid ""
-"\n"
-"    When a volume is \"unmanaged\", the volume will no longer be visible "
-"within OpenStack. Note that the\n"
-"    volume will not be deleted from the Cinder host.\n"
-"    <br>\n"
-"    <br>\n"
-"    This is equivalent to the <tt>cinder unmanage</tt> command.\n"
-"    "
-msgstr ""
-"\n"
-"ボリュームが「管理解除」されると、そのボリュームは OpenStack 内では見えなくな"
-"ります。ボリュームは Cinder ホストから削除されるわけではない点に注意してくだ"
-"さい。この操作は <tt>cinder unmanage</tt> コマンドに相当します。\n"
-"\n"
-"    "
-
-msgid ""
-"\n"
-"  Move networks from 'Available Networks' to 'Selected Networks' by\n"
-"  clicking the button, or dragging and dropping. You can change the\n"
-"  NIC order by dragging and dropping as well.\n"
-"  "
-msgstr ""
-"\n"
-"ボタンを押すかドラッグアンドドロップで、「利用可能なネットワーク」から「選択"
-"済みネットワーク」にネットワークを移動します。ドラッグアンドドロップにより "
-"NIC の順番を変更できます。"
-
-msgid " - End"
-msgstr " - 末尾"
-
-msgid " : Next hop"
-msgstr " : ネクストホップ"
 
 #, python-format
 msgid " Also failed to delete port %s"
 msgstr "ポート %s の削除にも失敗しました。"
-
-msgid " Done"
-msgstr " 完了"
-
-msgid ""
-" Segment Ranges are 1-4093 for VLAN and above 5000 for Enhanced-VXLAN "
-"Overlay."
-msgstr "セグメント範囲は VLAN では 1-4093 で、拡張 VXLAN では 5000 以上です。"
-
-msgid " Segment types available are VLAN, Overlay and Trunk."
-msgstr "セグメント種別として VLAN、オーバーレイ、トランクが使用できます。"
-
-msgid " Select a name for your network profile."
-msgstr "ネットワークプロファイル名を選択してください。"
-
-msgid ""
-" Sub types available are for the Overlay and Trunk segments. Available sub-"
-"types for Overlay are: Native-VXLAN, Enhanced-VXLAN or 'Other' (eg. GRE) "
-"which can be manually inputed as a text parameter for subtype. Available sub-"
-"type for Trunk is: VLAN."
-msgstr ""
-"サブタイプはオーバーレイセグメントとトランクセグメントの場合に指定します。"
-"オーバーレイセグメントで指定できるサブタイプは、ネイティブ VXLAN、拡張 "
-"VXLAN、「その他」 (GRE など) です。「その他」の場合はサブタイプをテキストパラ"
-"メーターとして入力します。トランクセグメントで指定できるサブタイプは VLAN で"
-"す。"
-
-msgid ""
-"\"Customization Script\" is analogous to \"User Data\" in other systems."
-msgstr ""
-"「カスタマイズスクリプト」は他のシステムの「ユーザーデータ」と同じです。"
-
-msgid ""
-"\"None\" indicates that no QoS Spec is currently associated. Conversely, "
-"setting the QoS Spec to \"None\" will remove the current association."
-msgstr ""
-"「なし」は QoS スペックが現在関連付けられていないことを示します。 また、QoS "
-"スペックを「なし」に設定すると、現在の関連付けが削除されます。 "
-
-#, python-format
-msgid "%(conf_name)s: %(conf_val)s"
-msgstr "%(conf_name)s: %(conf_val)s"
-
-#, python-format
-msgid "%(conf_name)s: %(conf_value)s"
-msgstr "%(conf_name)s: %(conf_value)s"
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -366,16 +36,8 @@ msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
 msgstr "%(field_name)s: 無効な IP アドレス (値=%(network)s)"
 
 #, python-format
-msgid "%(group)s:"
-msgstr "%(group)s:"
-
-#, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
-
-#, python-format
-msgid "%(key)s: %(val)s"
-msgstr "%(key)s: %(val)s"
 
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
@@ -385,18 +47,9 @@ msgstr "%(name)s - %(size)s GB (%(label)s)"
 msgid "%(name)s | %(RAM)s RAM"
 msgstr "%(name)s | %(RAM)s RAM"
 
-#. Translators:  UTC offset and timezone label
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
-
-#, python-format
-msgid "%(resource_status)s: %(resource_status_reason)s"
-msgstr "%(resource_status)s: %(resource_status_reason)s"
-
-#, python-format
-msgid "%(stack_status_title)s: %(stack_status_reason)s"
-msgstr "%(stack_status_title)s: %(stack_status_reason)s"
 
 #, python-format
 msgid "%(type)s (%(backend)s backend)"
@@ -423,7 +76,6 @@ msgstr "%(key)sは %(used)s 使用中"
 msgid "%s (Default)"
 msgstr "%s (デフォルト)"
 
-#. Translators: The usage is "<UUID of ext_net> (Not Found)"
 #, python-format
 msgctxt "External network not found"
 msgid "%s (Not Found)"
@@ -453,9 +105,6 @@ msgstr "%sGB"
 msgid "%sMB"
 msgstr "%sMB"
 
-msgid "&laquo;&nbsp;Back"
-msgstr "&laquo;&nbsp;戻る"
-
 msgid "(Quota exceeded)"
 msgstr "(クォータを超過しました)"
 
@@ -468,9 +117,6 @@ msgstr "、プロジェクトグループの更新"
 msgid "-"
 msgstr "-"
 
-msgid "--"
-msgstr "--"
-
 msgid "-- not selected --"
 msgstr "-- 選択されていません --"
 
@@ -480,61 +126,8 @@ msgstr "VLAN では 1-4093, オーバーレイでは 5000 以上"
 msgid "3des"
 msgstr "3des"
 
-msgid ""
-"<b>Important</b>:  The name that you give your job binary will be the name "
-"used in your job execution.\n"
-"  If your binary requires a particular name or extension (ie: \".jar\"), be "
-"sure to include it here."
-msgstr ""
-"<b>重要</b>:  ジョブバイナリーに付けた名前はジョブ実行の名前として使用されま"
-"す。ジョブバイナリーが特定の拡張子 (つまり \".jar\") や名前を必要とする場合"
-"は、必ずその拡張子または名前を付けてください。"
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s MB Used</p>"
-msgstr "<p>%(used)s MB / %(quota)s MB 使用中</p>"
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s Used</p>"
-msgstr "<p>%(used)s / %(quota)s 使用中</p>"
-
-msgid ""
-"<strong>Please note:</strong> The new value must be greater than the "
-"existing volume size."
-msgstr ""
-"<strong>注意</strong>: 新しいボリュームサイズは現在のサイズよりも大きくなけれ"
-"ばいけません。"
-
-msgid ""
-"<strong>Please note:</strong> The value specified in the Volume Size field "
-"should be greater than 0, however, some configurations do not support "
-"specifying volume size. If specifying the volume size results in an error "
-"stating volume support is not enabled, enter 0."
-msgstr ""
-"<strong>注意:</strong> ボリュームサイズ欄では 0 より大きい値を指定すべきです"
-"が、設定によってはボリュームサイズの指定に対応していない場合があります。ボ"
-"リュームサイズを指定した際に、ボリューム側でのサポートが有効になっていないと"
-"のエラーになる場合は、 0 を入力してください。"
-
 msgid "A backup must be selected!"
 msgstr "バックアップを選択する必要があります。"
-
-msgid ""
-"A container is a storage compartment for your data and provides a way for "
-"you to organize your data. You can think of a container as a folder in "
-"Windows &reg; or a directory in UNIX &reg;. The primary difference between a "
-"container and these other file system concepts is that containers cannot be "
-"nested. You can, however, create an unlimited number of containers within "
-"your account. Data must be stored in a container so you must have at least "
-"one container defined in your account prior to uploading data."
-msgstr ""
-"コンテナーはデータのストレージの区画です。データを整理する手段を提供します。"
-"コンテナーは、Windows &reg; のフォルダーや UNIX &reg; のディレクトリーのよう"
-"に考えることができます。コンテナーとこれらのファイルシステムの概念の主な違い"
-"は、コンテナーは入れ子にできないことです。しかしながら、アカウントの中に無制"
-"限のコンテナーを作成できます。データはコンテナーに保存する必要があります。そ"
-"のため、データをアップロードする前に、少なくとも 1 つのコンテナーをアカウント"
-"に定義する必要があります。"
 
 msgid "A image or external image location must be specified."
 msgstr "イメージまたは外部のイメージの位置を指定する必要があります。"
@@ -555,30 +148,11 @@ msgid "A master instance must be selected!"
 msgstr "マスターインスタンスを選択する必要があります"
 
 msgid ""
-"A more specific rule affects a portion of this traffic so a rule cannot be "
-"automatically generated to control the behavior of the entire source/"
-"destination combination."
-msgstr ""
-"このトラフィックの一部に対して、さらに細かいルールが適用されています。そのた"
-"め、ルールを自動生成して、送信元/宛先全体の挙動を制御することはできません。"
-
-msgid "A new uploaded file will replace the content of the current object"
-msgstr ""
-"新しくファイルをアップロードすると、現在のオブジェクトの内容は置き換えられま"
-"す。"
-
-msgid ""
 "A script or set of commands to be executed after the instance has been built "
 "(max 16kb)."
 msgstr ""
 "インスタンスが構築された後に実行されるスクリプトまたは一組のコマンドです (最"
 "大 16 kb)。"
-
-msgid ""
-"A snapshot is an image which preserves the disk state of a running instance."
-msgstr ""
-"スナップショットは、実行中のインスタンスのディスク状態を保存したイメージで"
-"す。"
 
 #, python-format
 msgid ""
@@ -641,12 +215,6 @@ msgstr "ボリュームの譲渡の受理"
 msgid "Access & Security"
 msgstr "アクセスとセキュリティー"
 
-msgid "Access &amp; Security"
-msgstr "アクセスとセキュリティー"
-
-msgid "Access: "
-msgstr "アクセス："
-
 msgid "Action"
 msgstr "アクション"
 
@@ -655,9 +223,6 @@ msgstr "アクションログ"
 
 msgid "Action for the firewall rule"
 msgstr "ファイアウォールルールのアクション"
-
-msgid "Action:"
-msgstr "アクション:"
 
 msgctxt "Current status of a Database Instance"
 msgid "Active"
@@ -707,9 +272,6 @@ msgctxt "status of a network port"
 msgid "Active"
 msgstr "稼働中"
 
-msgid "Active Instances:"
-msgstr "稼働中のインスタンス:"
-
 msgid ""
 "Actual device name may differ due to hypervisor settings. If not specified, "
 "then hypervisor will select a device name."
@@ -725,9 +287,6 @@ msgstr "DHCP エージェントの追加"
 
 msgid "Add Firewall"
 msgstr "ファイアウォールの追加"
-
-msgid "Add Group Assignment"
-msgstr "グループ割り当ての追加"
 
 msgid "Add IKE Policy"
 msgstr "IKE ポリシーの追加"
@@ -777,9 +336,6 @@ msgstr "ルールの追加"
 msgid "Add New VPN Service"
 msgstr "VPN サービスの追加"
 
-msgid "Add Node Group"
-msgstr "ノードグループの追加"
-
 msgid "Add Policy"
 msgstr "ポリシーの追加"
 
@@ -788,9 +344,6 @@ msgstr "プールの追加"
 
 msgid "Add Router"
 msgstr "ルーターの追加"
-
-msgid "Add Router Route"
-msgstr "ルータールートの追加"
 
 msgid "Add Router Rule"
 msgstr "ルータールールの追加"
@@ -817,9 +370,6 @@ msgid "Add User"
 msgid_plural "Add Users"
 msgstr[0] "ユーザーの追加"
 
-msgid "Add User to Group"
-msgstr "ユーザーのグループへの追加"
-
 msgid "Add Users"
 msgstr "ユーザーの追加"
 
@@ -836,9 +386,6 @@ msgstr ""
 "利用可能なセキュリティーグループの一覧から、このプロジェクトへのセキュリ"
 "ティーグループを追加および削除します。"
 
-msgid "Add custom tag"
-msgstr "カスタムタグの追加"
-
 msgid ""
 "Add hosts to this aggregate or remove hosts from it. Hosts can be in "
 "multiple aggregates."
@@ -850,12 +397,6 @@ msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr ""
 "このアグリゲートにホストを追加します。ホストは複数のアグリゲートに所属させる"
 "ことができます。"
-
-msgid "Add interface"
-msgstr "インターフェースの追加"
-
-msgid "Add libraries to your job template."
-msgstr "ジョブテンプレートにライブラリを追加します。"
 
 msgid ""
 "Add member(s) to the selected pool.\n"
@@ -874,24 +415,8 @@ msgstr ""
 "\n"
 "1 つのインスタンスに関連付けられるポート番号は 1 つだけです。"
 
-msgid "Add plugin tags"
-msgstr "プラグインタグの追加"
-
-msgid "Add route"
-msgstr "ルートの追加"
-
-msgid "Add rule"
-msgstr "ルールの追加"
-
 msgid "Add selected router(s) to the firewall."
 msgstr "選択したルーターをファイアウォールに追加します。"
-
-msgid "Add static route to the router."
-msgstr "静的ルートをルーターに追加します。"
-
-msgid "Add, modify or remove the QoS Spec associated with this volume type."
-msgstr ""
-"このボリューム種別に関連付けられている QoS スペックを追加、変更、削除します。"
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "アグリゲートのホストを追加・削除"
@@ -951,27 +476,12 @@ msgstr "モニターが追加されました。"
 msgid "Added pool \"%s\"."
 msgstr "プール \"%s\" を追加しました。"
 
-msgid "Additional routes"
-msgstr "追加のルート設定"
-
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
 "nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry per line."
 msgstr ""
 "ホストに通知される追加のルート。各項目は destination_cidr,nexthop (例: "
 "192.168.200.0/24,10.56.1.254) 形式で 1 行に 1 項目記入します。"
-
-msgid ""
-"Additionally, some resource types may require a prefix to be used when "
-"applying the metadata. In certain cases, the prefix may differ between the "
-"resource type (for example, flavor vs image)."
-msgstr ""
-"また、リソース種別によっては、メタデータを適用する際にプレフィックスが必要な"
-"ものがあります。（フレーバーとイメージのように）リソース種別によりプレフィッ"
-"クスは異なっている場合もあります。"
-
-msgid "Address"
-msgstr "アドレス"
 
 msgid "Admin"
 msgstr "管理"
@@ -981,16 +491,6 @@ msgstr "管理者パスワード"
 
 msgid "Admin State"
 msgstr "管理状態"
-
-msgid "Admin State Up"
-msgstr "管理状態有効"
-
-msgid ""
-"Administrator Note: Use the following CLI command to import the default "
-"definitions into Glance: "
-msgstr ""
-"管理者向けの注記: Glance にデフォルトの定義をインポートするには以下の CLI コ"
-"マンドを使ってください。"
 
 msgctxt "current status of stack"
 msgid "Adopt Complete"
@@ -1012,13 +512,6 @@ msgstr "高度な設定"
 
 msgid "After"
 msgstr "後に挿入"
-
-msgid ""
-"After launching an instance, you login using the private key (the username "
-"might be different depending on the image you launched):"
-msgstr ""
-"インスタンス起動後に秘密鍵を使ってログインします(ユーザー名は起動したイメージ"
-"によって異なります)"
 
 #, python-format
 msgid "Agent %s was successfully added."
@@ -1063,9 +556,6 @@ msgstr "IP の確保"
 msgid "Allocate IP To Project"
 msgstr "Floating IP の確保"
 
-msgid "Allocate a floating IP from a given floating IP pool."
-msgstr "指定した Floating IP プールから Floating IP を確保します。"
-
 msgid "Allocated"
 msgstr "割り当て済み"
 
@@ -1075,15 +565,6 @@ msgstr "Floating IP %(ip)s を確保しました。"
 
 msgid "Allocation Pools"
 msgstr "IP アドレス割り当てプール"
-
-msgid ""
-"Allow the user to connect from this host\n"
-"    only. If not provided this user will be allowed to connect from "
-"anywhere.\n"
-"    "
-msgstr ""
-"このホストからの接続を許可します。\n"
-"指定しない場合、どこからでも接続できます。"
 
 msgid "Allowed Host"
 msgstr "許可ホスト"
@@ -1101,34 +582,11 @@ msgid "An external (HTTP) URL to load the template from."
 msgstr "テンプレートを読み込む外部 (HTTP) URL"
 
 msgid ""
-"An instance can be launched with varying types of attached storage. You may "
-"select from those options here."
-msgstr ""
-"インスタンスはさまざまな形式のストレージを接続して起動できます。これらのオプ"
-"ションをここから選択できます。"
-
-msgid ""
-"An object is the basic storage entity that represents a file you store in "
-"the OpenStack Object Storage system. When you upload data to OpenStack "
-"Object Storage, the data is stored as-is (no compression or encryption) and "
-"consists of a location (container), the object's name, and any metadata "
-"consisting of key/value pairs."
-msgstr ""
-"オブジェクトは、基本的なストレージエンティティー、および OpenStack Object "
-"Storage システムに保存するファイルを表現するあらゆるオプションのメタデータで"
-"す。OpenStack Object Storage にデータをアップロードするとき、データはそのまま"
-"（圧縮や暗号化はしない）で保存されます。そして、保存場所（コンテナー）、オブ"
-"ジェクトの名前、キーと値のペアである任意のメタデータから構成されます。"
-
-msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
 "help, contact your local administrator."
 msgstr ""
 "予期しないエラーが発生しました。ページの再読み込みを試してください。解決しな"
 "ければ、管理者に連絡してください。"
-
-msgid "Anti-affinity enabled for"
-msgstr "anti-affinity の指定"
 
 msgid "Any"
 msgstr "ANY"
@@ -1139,9 +597,6 @@ msgstr "すべてのアベイラビリティーゾーン"
 msgid "Architecture"
 msgstr "アーキテクチャー"
 
-msgid "Arguments"
-msgstr "引数"
-
 msgid "Associate"
 msgstr "割り当て"
 
@@ -1151,9 +606,6 @@ msgstr "Floating IP の割り当て"
 msgid "Associate Monitor"
 msgstr "モニターの割り当て"
 
-msgid "Associate QoS Spec"
-msgstr "QoS スペックの関連付け"
-
 msgid "Associate QoS Spec with Volume Type"
 msgstr "QoS スペックのボリューム種別との関連付け"
 
@@ -1162,9 +614,6 @@ msgstr "ヘルスモニターを対象のプールに関連付けます。"
 
 msgid "Associated QoS Spec"
 msgstr "QoS スペックの関連付け"
-
-msgid "Associated Resource Types"
-msgstr "関連リソース種別"
 
 msgid "Associated Routers"
 msgstr "適用先ルーター"
@@ -1183,12 +632,6 @@ msgstr "少なくとも 1 つのネットワークを指定する必要があり
 
 msgid "Attach Interface"
 msgstr "インターフェースの接続"
-
-msgid "Attach To Instance"
-msgstr "インスタンスへの接続"
-
-msgid "Attach Volume"
-msgstr "ボリュームの接続"
 
 msgid "Attach to Instance"
 msgstr "インスタンスへの接続"
@@ -1225,23 +668,14 @@ msgstr ""
 msgid "Attachments"
 msgstr "接続状況"
 
-msgid "Attributes"
-msgstr "属性"
-
 msgid "Audited"
 msgstr "監査対象（Audited）"
-
-msgid "Authentication URL"
-msgstr "認証 URL"
 
 msgid "Authorization Key"
 msgstr "認証キー"
 
 msgid "Authorization algorithm"
 msgstr "認可アルゴリズム"
-
-msgid "Authorization mode"
-msgstr "認可モード"
 
 msgid "Auto Security Group"
 msgstr "自動セキュリティーグループ"
@@ -1276,18 +710,6 @@ msgctxt "Current status of a Volume Backup"
 msgid "Available"
 msgstr "利用可能"
 
-msgid "Available Routers"
-msgstr "利用可能なルーター"
-
-msgid "Available Rules"
-msgstr "利用可能なルール"
-
-msgid "Available Types"
-msgstr "利用可能な種別"
-
-msgid "Available networks"
-msgstr "利用可能なネットワーク"
-
 msgid "Average CPU utilization"
 msgstr "平均 CPU 使用率"
 
@@ -1315,9 +737,6 @@ msgstr "VM ネットワークインターフェースの平均パケット送信
 msgid "Average volume of writes"
 msgstr "ボリュームの平均書き込み量"
 
-msgid "Avg."
-msgstr "平均"
-
 msgctxt "Current status of a Volume"
 msgid "Backing Up"
 msgstr "バックアップ中"
@@ -1332,29 +751,17 @@ msgstr "バックアップ"
 msgid "Backup Database"
 msgstr "データベースのバックアップ"
 
-msgid "Backup Details"
-msgstr "バックアップの詳細"
-
 msgid "Backup Details: {{ backup.name }}"
 msgstr "バックアップの詳細: {{ backup.name }}"
 
-msgid "Backup Duration"
-msgstr "バックアップ生存期間"
-
 msgid "Backup File"
 msgstr "バックアップファイル"
-
-msgid "Backup File Location"
-msgstr "バックアップファイルの場所"
 
 msgid "Backup Gigabytes"
 msgstr "バックアップギガバイト"
 
 msgid "Backup Name"
 msgstr "バックアップ名"
-
-msgid "Backup Overview"
-msgstr "バックアップの概要"
 
 msgid "Backups"
 msgstr "バックアップ"
@@ -1364,9 +771,6 @@ msgstr "ベースイメージ"
 
 msgid "Before"
 msgstr "前に挿入"
-
-msgid "Binding"
-msgstr "バインド"
 
 msgid "Binding: Host"
 msgstr "バインド: ホスト"
@@ -1450,9 +854,6 @@ msgstr "使用 CPU 時間"
 msgid "Can not specify both image and external image location."
 msgstr "イメージと外部イメージを同時に指定できません。"
 
-msgid "Cancel"
-msgstr "取り消し"
-
 msgid "Cancel Transfer"
 msgstr "譲渡のキャンセル"
 
@@ -1485,14 +886,6 @@ msgstr "テンプレートの変更"
 msgid "Change Volume Type"
 msgstr "ボリューム種別の変更"
 
-msgid "Change user's password. We highly recommend you create a strong one."
-msgstr ""
-"ユーザーのパスワードを変更します。強力なパスワードにすることを強く推奨しま"
-"す。"
-
-msgid "Change your password. We highly recommend you create a strong one. "
-msgstr "パスワードを変更します。強力なパスワードにすることを強く推奨します。"
-
 msgid "Changing password is not supported."
 msgstr "パスワードの変更はサポートされません。"
 
@@ -1516,12 +909,6 @@ msgid "Checked Stack"
 msgid_plural "Checked Stacks"
 msgstr[0] "チェック済みのスタック"
 
-msgid "Checksum"
-msgstr "チェックサム"
-
-msgid "Choose"
-msgstr "選択"
-
 msgid "Choose Your Boot Source Type."
 msgstr "ブートソース種別を選択してください。"
 
@@ -1530,13 +917,6 @@ msgstr "サーバーの退避先のホストを選択します。"
 
 msgid "Choose a Host to migrate to."
 msgstr "マイグレーション先のホストを選択"
-
-msgid ""
-"Choose a key pair name you will recognise and paste your SSH public key into "
-"the space provided."
-msgstr ""
-"キーペアを区別するための名前を指定して、SSH 公開鍵を入力欄に貼り付けてくださ"
-"い。"
 
 msgid "Choose a main binary"
 msgstr "メインバイナリーを選択してください"
@@ -1556,9 +936,6 @@ msgstr "ボリュームを選択してください"
 msgid "Choose an DHCP Agent to attach to."
 msgstr "追加する DHCP エージェントを選択してください。"
 
-msgid "Choose an existing file"
-msgstr "既存のファイルを選択"
-
 msgid "Choose an image"
 msgstr "イメージを選択してください"
 
@@ -1567,13 +944,6 @@ msgstr "関連付ける QoS スペックを選択してください"
 
 msgid "Choose consumer for this QoS Spec."
 msgstr "この QoS スペックの使用者を選択してください"
-
-msgid ""
-"Choose from the list of binaries and click \"choose\" to add the library to "
-"your job template.  This can be repeated for additional libraries."
-msgstr ""
-"ライブラリーをジョブテンプレートに追加するには、バイナリーの一覧から選択し"
-"「選択」をクリックします。追加するライブラリの分だけ繰り返すことができます。"
 
 msgid "Choose initial state."
 msgstr "初期状態を選択してください"
@@ -1584,78 +954,17 @@ msgstr "ジョブ種別を選択します"
 msgid "Choose libraries"
 msgstr "ライブラリーの選択"
 
-msgid ""
-"Choose network from Available networks to Selected networks by push button "
-"or drag and drop, you may change NIC order by drag and drop as well. "
-msgstr ""
-"ボタンを押すかドラッグアンドドロップで、「利用可能なネットワーク」から「選択"
-"済みネットワーク」にネットワークを移動します。ドラッグアンドドロップにより "
-"NIC の順番を変更できます。"
-
-msgid ""
-"Choose or create your main binary.  Additional libraries can be added from "
-"the \"Libs\" tab."
-msgstr ""
-"メインバイナリーを選択するか、作成してください。追加のライブラリーは「ライブ"
-"ラリー」タブから追加できます。"
-
-msgid "Choose plugin"
-msgstr "プラグインの選択"
-
 msgid "Choose plugin and version"
 msgstr "プラグインとバージョンを選択してください"
 
 msgid "Choose plugin type and version"
 msgstr "プラグイン種別とバージョンを選択します"
 
-msgid ""
-"Choose router(s) from Available Routers to Selected Routers by push button "
-"or drag and drop. "
-msgstr ""
-"ボタンを押すかドラッグアンドドロップで、「利用可能なルーター」から「選択済み"
-"ルーター」にルーターを移動します。"
-
-msgid ""
-"Choose rule(s) from Available Rules to Selected Rule by push button or drag "
-"and drop,\n"
-"you may change their order by drag and drop as well. "
-msgstr ""
-"利用可能なルールから選択済みルールに、ボタンを押すかドラッグアンドドロップす"
-"ることでルールを選択します。ドラッグアンドドロップでルールの順番を変更するこ"
-"ともできます。"
-
-msgid "Choose the Input Data Source (n/a for Java jobs)."
-msgstr "入力データソースを選択してください (Java ジョブでは不要)。"
-
-msgid "Choose the Output Data Source (n/a for Java jobs)."
-msgstr "出力データソースを選択してください (Java ジョブでは不要)。"
-
 msgid "Choose the binary which should be used in this Job."
 msgstr "このジョブで使用するバイナリーを選択してください。"
 
-msgid "Choose the cluster to use for the job."
-msgstr "ジョブで使用するクラスターを選択してください。"
-
 msgid "Choose the flavor to launch."
 msgstr "起動するフレーバーを選択してください。"
-
-msgid "Choose the router(s) you want to add."
-msgstr "追加するルーターを選択してください。"
-
-msgid ""
-"Choose the rule you want to insert. Specify either the rule you want to "
-"insert immediately before, or the rule to insert immediately after. If both "
-"are specified, the prior takes precedence."
-msgstr ""
-"挿入するルールを選択してください。ルールをどのルールの直前、または直後に挿入"
-"するかを指定してください。両方指定した場合は指定したルールの直前に挿入されま"
-"す。"
-
-msgid "Choose the rule you want to remove."
-msgstr "削除するルールを選択してください。"
-
-msgid "Chosen Libraries"
-msgstr "選択ライブラリー"
 
 msgid "Cinder"
 msgstr "Cinder"
@@ -1666,17 +975,11 @@ msgid ""
 msgstr ""
 "既存のボリュームが存在する Cinder ホスト (形式: host@backend-name#pool)"
 
-msgid "Cinder volumes"
-msgstr "Cinder ボリューム"
-
 msgid "Cipher"
 msgstr "暗号"
 
 msgid "Cisco Nexus 1000V"
 msgstr "Cisco Nexus 1000V"
-
-msgid "Cisco Nexus 1000V Networking"
-msgstr "Cisco Nexus 1000V ネットワーク"
 
 msgid "Cisco Nexus 1000v"
 msgstr "Cisco Nexus 1000V"
@@ -1695,9 +998,6 @@ msgid "Cleared Gateway"
 msgid_plural "Cleared Gateways"
 msgstr[0] "ゲートウェイを削除しました"
 
-msgid "Click here to show only console"
-msgstr "コンソールのみを表示するにはここをクリックします"
-
 msgid "Close"
 msgstr "閉じる"
 
@@ -1710,17 +1010,11 @@ msgstr "クラスター作成のガイド"
 msgid "Cluster Details"
 msgstr "クラスターの詳細"
 
-msgid "Cluster Guide"
-msgstr "クラスターのガイド"
-
 msgid "Cluster Instances"
 msgstr "クラスターインスタンス"
 
 msgid "Cluster Name"
 msgstr "クラスター名"
-
-msgid "Cluster Overview"
-msgstr "クラスターの概要"
 
 msgid "Cluster Template"
 msgstr "クラスターテンプレート"
@@ -1737,12 +1031,6 @@ msgstr "クラスターテンプレートのコピー %s が作成されまし�
 
 msgid "Cluster Templates"
 msgstr "クラスターテンプレート"
-
-msgid "Cluster can be launched using existing Cluster Templates."
-msgstr "既存のクラスターテンプレートを使ってクラスターを起動できます。"
-
-msgid "Cluster configurations are not specified"
-msgstr "クラスター設定は指定されていません"
 
 msgid "Cluster template creation failed"
 msgstr "クラスターテンプレートの作成が失敗しました"
@@ -1775,17 +1063,11 @@ msgstr "コンポーネント"
 msgid "Compute"
 msgstr "コンピュート"
 
-msgid "Compute (Nova)"
-msgstr "コンピュート (Nova)"
-
 msgid "Compute Host"
 msgstr "コンピュートホスト"
 
 msgid "Compute Services"
 msgstr "Compute Service"
-
-msgid "Configuration"
-msgstr "設定"
 
 msgid "Configuration Drive"
 msgstr "コンフィグドライブ"
@@ -1838,15 +1120,6 @@ msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "リサイズ/マイグレーションの確定中"
 
-msgid "Conflicting Rule"
-msgstr "衝突しているルール"
-
-msgid "Connection Examples"
-msgstr "コネクションの例"
-
-msgid "Connection Info"
-msgstr "コネクション情報"
-
 msgid "Connection Limit"
 msgstr "最大接続数"
 
@@ -1869,9 +1142,6 @@ msgstr "コンテナーアクセス"
 msgid "Container Details"
 msgstr "コンテナーの詳細"
 
-msgid "Container Format"
-msgstr "格納形式"
-
 msgid "Container Name"
 msgstr "コンテナー名"
 
@@ -1880,9 +1150,6 @@ msgstr "コンテナーが正常に作成されました。"
 
 msgid "Containers"
 msgstr "コンテナー"
-
-msgid "Content Type"
-msgstr "コンテンツ種別"
 
 msgid "Contents"
 msgstr "内容"
@@ -1903,10 +1170,6 @@ msgstr ""
 msgid "Cookie Name"
 msgstr "クッキー名"
 
-#, python-format
-msgid "Cookie Name: %(cookie_name)s"
-msgstr "クッキー名: %(cookie_name)s"
-
 msgid "Cookie name is required for APP_COOKIE persistence."
 msgstr "クッキー名はセッション永続性が APP_COOKIE の場合には必須です。"
 
@@ -1925,10 +1188,6 @@ msgstr "データのコピー"
 
 msgid "Copy Object"
 msgstr "オブジェクトのコピー"
-
-#, python-format
-msgid "Copy Object: %(object_name)s"
-msgstr "オブジェクトのコピー: %(object_name)s"
 
 msgid "Copy Template"
 msgstr "テンプレートのコピー"
@@ -1995,9 +1254,6 @@ msgstr "データソースの作成"
 
 msgid "Create Domain"
 msgstr "ドメインの作成"
-
-msgid "Create Encrypted Volume Type"
-msgstr "ボリューム種別の暗号化設定の作成"
 
 msgid "Create Encryption"
 msgstr "暗号化設定の作成"
@@ -2146,9 +1402,6 @@ msgstr "ボリュームバックアップの作成"
 msgid "Create Volume Snapshot"
 msgstr "ボリュームのスナップショットの作成"
 
-msgid "Create Volume Snapshot (Force)"
-msgstr "ボリュームのスナップショットの作成 (強制)"
-
 msgid "Create Volume Transfer"
 msgstr "ボリュームの譲渡の作成"
 
@@ -2160,15 +1413,6 @@ msgstr "ボリューム種別の暗号化設定の作成"
 
 msgid "Create Volume Type Extra Spec"
 msgstr "ボリューム種別の追加スペックの作成"
-
-msgid "Create a Cluster Template"
-msgstr "クラスターテンプレートの作成"
-
-msgid "Create a Data Source with a specified name."
-msgstr "指定した名前でデータソースを作成します。"
-
-msgid "Create a Master Node Group Template"
-msgstr "マスターノードグループテンプレートの作成"
 
 msgid "Create a Metadata Namespace"
 msgstr "メタデータ名前空間の作成"
@@ -2210,12 +1454,6 @@ msgstr "ボリュームの譲渡の作成"
 msgid "Create a Volume Type"
 msgstr "ボリューム種別の作成"
 
-msgid "Create a Worker Node Group Template"
-msgstr "ワーカーノードグループテンプレートの作成"
-
-msgid "Create a data source"
-msgstr "データソースの作成"
-
 msgid ""
 "Create a firewall based on a policy.\n"
 "\n"
@@ -2250,12 +1488,6 @@ msgstr ""
 msgid "Create a firewall with selected routers."
 msgstr "適用するルーターを指定してファイアウォールを作成します。"
 
-msgid "Create a job template"
-msgstr "ジョブテンプレートの作成"
-
-msgid "Create a job template with a specified name."
-msgstr "指定した名前でジョブテンプレートを作成します。"
-
 msgid ""
 "Create a monitor template.\n"
 "\n"
@@ -2269,18 +1501,6 @@ msgstr ""
 "ト、最大試行回数を指定してください。HTTP 系のモニタリングでは、メソッド、URL "
 "パス、成功時の HTTP コードの期待値を指定します。"
 
-msgid "Create a new \"extra spec\" key-value pair for a volume type."
-msgstr ""
-"ボリューム種別に対する「追加スペック」のキーと値のペアを新規作成します。 "
-
-#, python-format
-msgid "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\""
-msgstr ""
-"QoS スペック \"%(qos_spec_name)s\" に新しいキーと値のペアを作成します。"
-
-msgid "Create a new network for any project as you need."
-msgstr "任意のプロジェクトに新しいネットワークを作成できます。"
-
 msgid ""
 "Create a new network. In addition, a subnet associated with the network can "
 "be created in the next panel."
@@ -2288,26 +1508,11 @@ msgstr ""
 "新しいネットワークを作成できます。合わせて、このネットワークに割り当てるサブ"
 "ネットを次のパネルで作成できます。"
 
-msgid "Create a new role."
-msgstr "新しいロールを作成します。"
-
-msgid "Create a new stack with the provided values."
-msgstr "指定された値を用いて新しいスタックを作成します。"
-
-msgid ""
-"Create a new user and set related properties including the Primary Project "
-"and Role."
-msgstr ""
-"新しいユーザーを作成し、主プロジェクトやロールなどの関連情報を設定します。"
-
 msgid "Create a policy with selected rules."
 msgstr "ルールを選択してポリシーを作成します。"
 
 msgid "Create a project to organize users."
 msgstr "プロジェクトを作成して、ユーザーをまとめることができます。"
-
-msgid "Create a script to be uploaded dynamically"
-msgstr "スクリプトを作成し、その場でアップロードする"
 
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
@@ -2328,30 +1533,12 @@ msgstr ""
 msgid "Create an Encrypted Volume Type"
 msgstr "ボリューム種別の暗号化設定の作成"
 
-msgid ""
-"Create an optional initial user.\n"
-"   This user will have access to all databases you create."
-msgstr ""
-"オプションで、初期ユーザーを作成します。\n"
-"このユーザーは作成するすべてのデータベースへアクセスできます。"
-
-#, python-format
-msgid "Create pseudo-folder in container %(container_name)s"
-msgstr "コンテナー %(container_name)s に疑似フォルダーを作成"
-
 msgid "Create security group for this Node Group."
 msgstr "このノードグループに対してセキュリティーグループを作成します。"
-
-msgid "Create time"
-msgstr "作成日時"
 
 msgid "Create volumes in this availability zone."
 msgstr "このアベイラビリティーゾーンにボリュームを作成します。"
 
-msgid "Created"
-msgstr "作成時刻"
-
-msgctxt "Created time"
 msgid "Created"
 msgstr "作成時刻"
 
@@ -2407,18 +1594,12 @@ msgstr "スペック \"%s\" を作成しました。"
 msgid "Created subnet \"%s\"."
 msgstr "サブネット \"%s\" を作成しました。"
 
-msgid "Created time"
-msgstr "作成日時"
-
 msgid "Created volume transfer."
 msgstr "ボリュームの譲渡を作成しました。"
 
 #, python-format
 msgid "Created volume transfer: \"%s\"."
 msgstr "ボリュームの譲渡 \"%s\" を作成しました。"
-
-msgid "Creates a router with specified parameters."
-msgstr "指定したパラメーターでルーターを作成します。"
 
 msgid "Creating"
 msgstr "作成中"
@@ -2430,15 +1611,6 @@ msgstr "作成中"
 msgctxt "Current status of a Volume Backup"
 msgid "Creating"
 msgstr "作成中"
-
-msgid ""
-"Creating encryption for a volume type causes all volumes with that volume "
-"type to be encrypted.  Encryption information cannot be added to a volume "
-"type if volumes are currently in use with that volume type."
-msgstr ""
-"ボリューム種別の暗号化設定を作成すると、このボリューム種別のボリュームがすべ"
-"て暗号化されます。このボリューム種別を現在使用しているボリュームがある場合"
-"は、暗号化情報はボリューム種別に追加できません。"
 
 #, python-format
 msgid "Creating volume \"%s\""
@@ -2476,29 +1648,11 @@ msgstr "現在のホスト"
 msgid "Current Size (GB)"
 msgstr "現在のサイズ (GB)"
 
-msgid "Current choice:"
-msgstr "現在の選択項目:"
-
 msgid "Current password"
 msgstr "現在のパスワード"
 
-msgid "Current type:"
-msgstr "現在の種別:"
-
-msgid ""
-"Currently only images available via an HTTP URL are supported. The image "
-"location must be accessible to the Image Service. Compressed image binaries "
-"are supported (.zip and .tar.gz.)"
-msgstr ""
-"現在、HTTP URLから取得できるイメージのみがサポートされています。イメージの場"
-"所から Image Service へアクセスできるようにしてください。また、圧縮イメージが"
-"サポートされています(.zip および .tar.gz.)。"
-
 msgid "Custom ICMP Rule"
 msgstr "カスタム ICMP ルール"
-
-msgid "Custom Properties"
-msgstr "カスタム属性"
 
 msgid "Custom TCP Rule"
 msgstr "カスタム TCP ルール"
@@ -2509,9 +1663,6 @@ msgstr "カスタム UDP ルール"
 msgid "Customization Script Source"
 msgstr "カスタマイズスクリプトの入力方法"
 
-msgid "DATABASE"
-msgstr "DATABASE"
-
 msgid "DENY"
 msgstr "DENY"
 
@@ -2521,9 +1672,6 @@ msgstr "DENY"
 
 msgid "DHCP Agents"
 msgstr "DHCP エージェント"
-
-msgid "DHCP Enable"
-msgstr "DHCP 有効"
 
 msgid "DHCPv6 stateful: Address discovered from OpenStack DHCP"
 msgstr "DHCPv6: アドレスを OpenStack DHCP から取得"
@@ -2536,9 +1684,6 @@ msgstr ""
 "DHCP から取得"
 
 msgid "DNS Name Servers"
-msgstr "DNS サーバー"
-
-msgid "DNS name server"
 msgstr "DNS サーバー"
 
 msgid "DOWN"
@@ -2576,27 +1721,11 @@ msgstr "データ処理のガイド"
 msgid "Data Processing Plugin Details"
 msgstr "データ処理プラグインの詳細"
 
-msgid "Data Processing Plugin Overview"
-msgstr "データ処理プラグインの概要"
-
 msgid "Data Processing Plugins"
 msgstr "データ処理プラグイン"
 
-msgid "Data Processing internal database"
-msgstr "データ処理基盤の内部データベース"
-
-msgid ""
-"Data Processing provides different storage location options. You may choose "
-"Ephemeral Drive or a Cinder Volume to be attached to instances."
-msgstr ""
-"データ処理基盤ではストレージの場所を選択できます。一時ドライブか、インスタン"
-"スに接続する Cinder ボリュームを選択できます。"
-
 msgid "Data Source Details"
 msgstr "データソースの詳細"
-
-msgid "Data Source Overview"
-msgstr "データソースの概要"
 
 msgid "Data Source Type"
 msgstr "データソース種別"
@@ -2604,41 +1733,17 @@ msgstr "データソース種別"
 msgid "Data Sources"
 msgstr "データソース"
 
-msgid ""
-"Data Sources are what your\n"
-"                            job uses for input and output.  Depending on the "
-"type\n"
-"                            of job you will be running, you may need to "
-"define one\n"
-"                            or more data sources.  You can create multiple "
-"data\n"
-"                            sources by repeating this step.\n"
-"                        "
-msgstr ""
-"データソースとは、ジョブが出入力に使用するものです。ジョブの種別により、デー"
-"タソースを 1 つ以上定義する必要がある場合があります。このステップを繰り返すこ"
-"とで複数のデータソースを作成できます。"
-
 msgid "Data source created"
 msgstr "データソースが作成されました"
 
 msgid "Database"
 msgstr "データベース"
 
-msgid "Database Backups"
-msgstr "データベースのバックアップ"
-
-msgid "Database Info"
-msgstr "データーベースの情報"
-
 msgid "Database Instance"
 msgstr "データベースインスタンス"
 
 msgid "Database Name"
 msgstr "データベース名"
-
-msgid "Database Port"
-msgstr "データベースのポート番号"
 
 msgid "Databases"
 msgstr "データベース"
@@ -2658,9 +1763,6 @@ msgstr "日付を認識できません"
 msgid "Day"
 msgstr "日"
 
-msgid "Dead peer detection action"
-msgstr "Dead Peer 検出時のアクション"
-
 msgid "Dead peer detection actions"
 msgstr "Dead Peer 検出時のアクション"
 
@@ -2670,9 +1772,6 @@ msgstr "Dead Peer 検出間隔"
 msgid "Dead peer detection timeout"
 msgstr "Dead Peer 検出タイムアウト"
 
-msgid "Decrypt Password"
-msgstr "パスワードの復号"
-
 msgid "Default Quotas"
 msgstr "標準のクォータ"
 
@@ -2681,20 +1780,6 @@ msgstr "標準のクォータを更新しました。"
 
 msgid "Defaults"
 msgstr "デフォルト値"
-
-msgid ""
-"Define your Job Template.\n"
-"                        This is where you choose the type of job that you\n"
-"                        want to run (Pig, Java Action, Spark, etc) and "
-"choose\n"
-"                        or upload the files necessary to run it.  The "
-"inputs\n"
-"                        and outputs will be defined later.\n"
-"                    "
-msgstr ""
-"ジョブテンプレートを定義します。実行するジョブ種別 (Pig、Java Action、Spark "
-"など) の選択およびそれを実行するのに必要なファイルの選択とアップロードはここ"
-"で行います。出入力は後で定義されます。"
 
 msgid "Delay"
 msgstr "遅延"
@@ -3144,19 +2229,10 @@ msgstr "拒否"
 msgid "Description"
 msgstr "説明"
 
-msgid "Description:"
-msgstr "説明:"
-
-msgid "Destination"
-msgstr "宛先"
-
 msgid "Destination CIDR"
 msgstr "宛先 CIDR"
 
 msgid "Destination IP"
-msgstr "宛先 IP アドレス"
-
-msgid "Destination IP Address"
 msgstr "宛先 IP アドレス"
 
 msgid "Destination IP Address/Subnet"
@@ -3179,9 +2255,6 @@ msgstr "宛先オブジェクト名"
 
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "宛先ポート ([1, 65535] の整数か a:b 形式の範囲)"
-
-msgid "Destination:"
-msgstr "宛先:"
 
 msgid "Detach Interface"
 msgstr "インターフェースの切り離し"
@@ -3250,9 +2323,6 @@ msgid "Disable User"
 msgid_plural "Disable Users"
 msgstr[0] "ユーザーの無効化"
 
-msgid "Disable the compute service."
-msgstr "指定したコンピュートサービスを無効にします。"
-
 msgid "Disabled"
 msgstr "無効"
 
@@ -3301,18 +2371,8 @@ msgstr "ディスクのオーバーコミット"
 msgid "Disk Partition"
 msgstr "ディスクパーティション"
 
-msgid "Display Name"
-msgstr "表示名"
-
 msgid "Distributed"
 msgstr "分散ルーター"
-
-msgid ""
-"Do not use a colon ':' with OS::Glance::Images. This resource type does not "
-"support the use of colons."
-msgstr ""
-"OS::Glance::Images ではコロン ':' は使用しないこと。このリソース種別ではコロ"
-"ンは使用できません。"
 
 msgid "Docker"
 msgstr "Docker"
@@ -3367,9 +2427,6 @@ msgstr ""
 
 msgid "Domains:"
 msgstr "ドメイン:"
-
-msgid "Done"
-msgstr "完了"
 
 msgctxt "Current status of a Job"
 msgid "Done with Error"
@@ -3435,25 +2492,9 @@ msgstr "キーペアのダウンロード"
 msgid "Download OpenStack RC File"
 msgstr "OpenStack RC ファイルのダウンロード"
 
-msgid "Download job binary"
-msgstr "ジョブバイナリーのダウンロード"
-
-#, python-format
-msgid "Download key pair &quot;%(keypair_name)s&quot;"
-msgstr "キーペア &quot;%(keypair_name)s&quot; のダウンロード"
-
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
 msgstr "インスタンスタイプ %s (openstack フレーバー) の存在期間"
-
-msgid "EC2 Access Key"
-msgstr "EC2 アクセスキー"
-
-msgid "EC2 Secret Key"
-msgstr "EC2 秘密鍵"
-
-msgid "EC2 URL"
-msgstr "EC2 URL"
 
 msgid "Edit"
 msgstr "編集"
@@ -3519,9 +2560,6 @@ msgstr "ネットワークの編集"
 msgid "Edit Network Profile"
 msgstr "ネットワークプロファイルの編集"
 
-msgid "Edit Object"
-msgstr "オブジェクトの編集"
-
 msgid "Edit Policy"
 msgstr "ポリシーの編集"
 
@@ -3558,9 +2596,6 @@ msgstr "セキュリティーグループの編集"
 msgid "Edit Snapshot"
 msgstr "スナップショットの編集"
 
-msgid "Edit Spec"
-msgstr "スペックの編集"
-
 msgid "Edit Spec Value"
 msgstr "スペック値の編集"
 
@@ -3582,9 +2617,6 @@ msgstr "VPN サービスの編集"
 msgid "Edit Volume"
 msgstr "ボリュームの編集"
 
-msgid "Edit Volume Type Extra Spec"
-msgstr "ボリューム種別の追加スペックの編集"
-
 msgid ""
 "Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
 "cores, and other resources. Flavors are selected when users deploy instances."
@@ -3593,26 +2625,11 @@ msgstr ""
 "数、その他のリソースを定義します。ユーザーがインスタンスを起動する際にはフ"
 "レーバーを選択します。"
 
-msgid "Edit the image details."
-msgstr "イメージ詳細を編集します。"
-
 msgid "Edit the instance details."
 msgstr "インスタンスの詳細を編集します。"
 
-msgid ""
-"Edit the network profile to update name, segment range or multicast IP range."
-msgstr ""
-"ネットワークプロファイルを編集して、名前、セグメント範囲、マルチキャスト IP "
-"アドレス範囲を変更します。"
-
 msgid "Edit the project details."
 msgstr "プロジェクトの詳細を編集します。"
-
-msgid "Edit the role's details."
-msgstr "ロールの詳細を編集します。"
-
-msgid "Edit the user's details, including the Primary Project."
-msgstr "ユーザーの詳細を編集します。主プロジェクトなどが編集できます。"
 
 msgid "Egress"
 msgstr "送信"
@@ -3667,13 +2684,6 @@ msgstr "暗号化"
 msgid "Encryption algorithm"
 msgstr "暗号化アルゴリズム"
 
-msgctxt "End time"
-msgid "Ended"
-msgstr "終了時刻"
-
-msgid "Energy (Kwapi)"
-msgstr "エネルギー (Kwapi)"
-
 msgid "Engine Id"
 msgstr "エンジン ID"
 
@@ -3700,17 +2710,8 @@ msgstr ""
 "1 から 65535 までの整数値を入力してください。同じポート番号が選択した全メン"
 "バーに使用されますが、後から変更できます。"
 
-msgid "Enter any custom configuration required for your job's execution."
-msgstr "ジョブ実行で必要なカスタム設定をここで入力してください。"
-
 msgid "Enter parameter (e.g. GRE)"
 msgstr "パラメーターを入力してください (例: GRE)"
-
-msgid "Enter the URL for the file"
-msgstr "ファイルの URL"
-
-msgid "Enter the username and password required to access that file"
-msgstr "そのファイルにアクセスするのに必要なユーザー名とパスワード"
 
 msgid "Environment Data"
 msgstr "環境設定データ"
@@ -3726,9 +2727,6 @@ msgstr "一時ディスク"
 
 msgid "Ephemeral Disk (GB)"
 msgstr "一時ディスク (GB)"
-
-msgid "Ephemeral drive"
-msgstr "一時ドライブ"
 
 msgid "Equal to or greater than 60"
 msgstr "60 以上"
@@ -3796,9 +2794,6 @@ msgstr "エラー"
 msgid "Error Deleting"
 msgstr "削除中にエラー"
 
-msgid "Error Details"
-msgstr "エラー詳細"
-
 #, python-format
 msgid "Error Downloading RC File: %s"
 msgstr "RC ファイルのダウンロードに失敗しました:  %s"
@@ -3864,22 +2859,8 @@ msgid "Evacuate Host"
 msgstr ""
 "サーバーを選択したダウン中のホストから稼働中の移動先ホストに退避します。"
 
-msgid ""
-"Evacuate the servers from the selected down host to an active target host."
-msgstr ""
-"サーバーを選択したダウン中のホストから稼働中の移動先ホストに退避します。"
-
 msgid "Events"
 msgstr "イベント"
-
-msgid ""
-"Example: The prefix 'hw:' is added to OS::Nova::Flavor for the Virtual CPU "
-"Topology namespace so that the properties will be prefixed with 'hw:' when "
-"applied to flavors."
-msgstr ""
-"例: Virtual CPU Topology 名前空間で、プレフィックス 'hw' を OS::Nova::Flavor "
-"に付与すると、フレーバーへの適用された際に属性に 'hw' というプレフィックスが"
-"付きます。"
 
 msgid "Existence of floating ip"
 msgstr "Floating IP の有無"
@@ -3905,9 +2886,6 @@ msgstr "サブネットの有無"
 msgid "Existence of volume"
 msgstr "ボリュームの有無"
 
-msgid "Expected Codes"
-msgstr "期待されるコード"
-
 msgid "Expected HTTP Status Codes"
 msgstr "HTTP ステータスコードの期待値"
 
@@ -3921,9 +2899,6 @@ msgstr ""
 msgid "Extend Volume"
 msgstr "ボリュームの拡張"
 
-msgid "Extend the size of a volume."
-msgstr "ボリュームサイズを拡張します。"
-
 msgctxt "Current status of a Volume"
 msgid "Extending"
 msgstr "拡張中"
@@ -3931,9 +2906,6 @@ msgstr "拡張中"
 #, python-format
 msgid "Extending volume: \"%s\""
 msgstr "ボリューム %s を拡張しています。"
-
-msgid "External Fixed IPs"
-msgstr "外部 IP アドレス"
 
 msgid "External Gateway"
 msgstr "外部ゲートウェイ"
@@ -4277,9 +3249,6 @@ msgstr "False"
 msgid "Fan RPM"
 msgstr "ファンの RPM"
 
-msgid "Fault"
-msgstr "失敗"
-
 msgid ""
 "Fields in this tab are optional. You can configure the detail of IPSec site "
 "connection created."
@@ -4292,12 +3261,6 @@ msgstr "ファイル"
 
 msgid "File exceeds maximum size (16kb)"
 msgstr "ファイルサイズが最大サイズ (16KB) を超えています"
-
-msgid "File:"
-msgstr "ファイル:"
-
-msgid "Filter"
-msgstr "フィルター"
 
 msgid "Fingerprint"
 msgstr "フィンガープリント"
@@ -4328,19 +3291,6 @@ msgstr "ファイアウォールルール"
 msgid "Firewalls"
 msgstr "ファイアウォール"
 
-msgid ""
-"First, select which type of job that\n"
-"                            you want to run.  This choice will determine "
-"which\n"
-"                            other steps are required\n"
-"                        "
-msgstr ""
-"まず最初に、実行するジョブ種別を選択します。この選択により、他の必要なステッ"
-"プが決定されます。"
-
-msgid "Fixed IP"
-msgstr "Fixed IP"
-
 msgid "Fixed IPs"
 msgstr "Fixed IP"
 
@@ -4355,16 +3305,6 @@ msgstr "フレーバーアクセス権"
 
 msgid "Flavor Choice"
 msgstr "フレーバーの選択"
-
-msgid "Flavor Details"
-msgstr "フレーバーの詳細"
-
-#, python-format
-msgid "Flavor Details: %(name)s\">%(name)s"
-msgstr "フレーバーの詳細: %(name)s\">%(name)s"
-
-msgid "Flavor ID"
-msgstr "フレーバー ID"
 
 msgid "Flavor ID ="
 msgstr "フレーバー ID ="
@@ -4382,9 +3322,6 @@ msgstr "フレーバー情報"
 msgid "Flavor Name"
 msgstr "フレーバー名"
 
-msgid "Flavor is not specified"
-msgstr "フレーバーは指定されていません"
-
 msgid "Flavors"
 msgstr "フレーバー"
 
@@ -4395,56 +3332,19 @@ msgstr ""
 "フレーバーは、メモリーサイズ、ディスク、コア数、その他のリソースを定義しま"
 "す。ユーザーがインスタンスを起動する際にはフレーバーを選択します。"
 
-msgid "Floating IP"
-msgstr "Floating IP"
-
 msgid "Floating IP Pool"
 msgstr "Floating IP プール"
 
 msgid "Floating IPs"
 msgstr "Floating IP"
 
-msgid "Floating IPs:"
-msgstr "Floating IP:"
-
 msgid "Folder created successfully."
 msgstr "フォルダーが正常に作成されました。"
-
-msgid ""
-"For Data Processing internal job binaries, you may choose from the following:"
-msgstr ""
-"データ処理基盤の内部データベース用のジョブバイナリーは、以下から選択する必要"
-"があります。"
 
 #, python-format
 msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
 msgstr ""
 "GRE ネットワークでは、有効なトンネル ID は %(min)s から %(max)s までです。"
-
-msgid ""
-"For MapReduce or Java Action jobs, \"mains\" are not applicable.  You are "
-"required to add one\n"
-"  or more \"libs\" for these jobs."
-msgstr ""
-"MapReduce と Java アクションのジョブでは、「メイン」は利用できません。これら"
-"のジョブで使用するライブラリーを 1 つ以上指定する必要があります。"
-
-msgid "For Object Store job binaries, you must:"
-msgstr ""
-"オブジェクトストア用のジョブバイナリーでは、以下を入力する必要があります。"
-
-msgid "For Spark jobs, only a main is required, \"libs\" are optional."
-msgstr "Spark ジョブでは、メインだけが必要で、ライブラリーはオプションです。"
-
-msgid ""
-"For TCP and UDP rules you may choose to open either a single port or a range "
-"of ports. Selecting the \"Port Range\" option will provide you with space to "
-"provide both the starting and ending ports for the range. For ICMP rules you "
-"instead specify an ICMP type and code in the spaces provided."
-msgstr ""
-"TCP および UDP の場合、ポート番号またはポート範囲を選択できます。「ポート範"
-"囲」オプションを選択すると、範囲の開始ポートおよび終了ポートを空白区切りで指"
-"定できます。ICMP の場合、ICMP タイプおよびコードを空白区切りで指定します。"
 
 #, python-format
 msgid ""
@@ -4494,20 +3394,8 @@ msgstr "開始"
 msgid "From Port"
 msgstr "ポート番号 (下限)"
 
-msgid "From here you can add a DHCP agent for the network."
-msgstr "ここから、ネットワークに DHCP エージェントを追加できます。"
-
-msgid "From here you can create a snapshot of a volume."
-msgstr "ここから、ボリュームスナップショットを作成できます。"
-
 msgid "From here you can update the default quotas (max limits)."
 msgstr "ここから標準のクォータ (上限) を更新できます。"
-
-msgid "From:"
-msgstr "開始:"
-
-msgid "GB"
-msgstr "GB"
 
 msgid "GET"
 msgstr "GET"
@@ -4536,9 +3424,6 @@ msgstr "一般情報"
 msgid "Glance"
 msgstr "Glance"
 
-msgid "Go"
-msgstr "表示"
-
 #, python-format
 msgid "Group \"%s\" was successfully created."
 msgstr "グループ \"%s\" が正常に作成されました。"
@@ -4546,38 +3431,17 @@ msgstr "グループ \"%s\" が正常に作成されました。"
 msgid "Group ID"
 msgstr "グループ ID"
 
-msgid "Group Management"
-msgstr "グループ管理"
-
 msgid "Group Management: {{ group.name }}"
 msgstr "グループの管理: {{ group.name }}"
 
 msgid "Group Members"
 msgstr "グループのメンバー"
 
-msgid "Group by:"
-msgstr "グループ化:"
-
 msgid "Group has been updated successfully."
 msgstr "グループが正常に更新されました。"
 
 msgid "Groups"
 msgstr "グループ"
-
-msgid ""
-"Groups are used to manage access and assign roles to multiple users at once. "
-"After creating the group, edit the group to add users."
-msgstr ""
-"グループを使うと、複数のユーザーに対するアクセス権やロールの割り当てを一度で"
-"行うことができます。グループを作成した後で、グループに追加するユーザーの編集"
-"を行います。"
-
-msgid ""
-"Groups are used to manage access and assign roles to multiple users at once. "
-"Edit the group to add users."
-msgstr ""
-"グループを使うと、複数のユーザーに対するアクセス権やロールの割り当てを一度で"
-"行うことができます。グループに追加するユーザーを編集できます。"
 
 msgid "Guided Cluster Creation"
 msgstr "ガイド付きクラスター作成"
@@ -4588,12 +3452,8 @@ msgstr "ガイド付きジョブ実行"
 msgid "Guides"
 msgstr "ガイド"
 
-#. Translators: High Availability mode of Neutron router
 msgid "HA mode"
 msgstr "HA モード"
-
-msgid "HDFS placement"
-msgstr "HDFS 置き場"
 
 msgid "HTTP"
 msgstr "HTTP"
@@ -4619,21 +3479,12 @@ msgid "Hard Rebooted Instance"
 msgid_plural "Hard Rebooted Instances"
 msgstr[0] "インスタンスのハードリブートを行いました"
 
-msgid "Hash"
-msgstr "ハッシュ"
-
-msgid "Health Monitors"
-msgstr "ヘルスモニター"
-
 #, python-format
 msgid "Health monitor %s was successfully updated."
 msgstr "ヘルスモニター %s が正常に更新されました。"
 
 msgid "Help"
 msgstr "ヘルプ"
-
-msgid "Hide full configuration"
-msgstr "詳細設定を表示しない"
 
 msgid "High Availability Mode"
 msgstr "高可用性（HA）モード"
@@ -4676,14 +3527,6 @@ msgstr ""
 "複数の論理的な単位に分割します。ホストアグリゲートを作成し、そのアグリゲート"
 "に入れるホストを選択してください。"
 
-msgid ""
-"Host aggregates divide an availability zone into logical units by grouping "
-"together hosts. Edit the aggregate host to select hosts contained in it."
-msgstr ""
-"ホストアグリゲートは、ホストをグループ化し、1 つのアベイラビリティーゾーンを"
-"複数の論理的な単位に分割します。そのアグリゲートに入れるホストを選択してくだ"
-"さい。"
-
 msgid "Host or IP that the user is allowed to connect through."
 msgstr "このユーザーで許可される接続元のホスト名または IP アドレス"
 
@@ -4701,9 +3544,6 @@ msgstr "ハイパーバイザーインスタンス"
 
 msgid "Hypervisor Servers"
 msgstr "ハイパーバイザーサーバー"
-
-msgid "Hypervisor Summary"
-msgstr "ハイパーバイザーの概要"
 
 msgid "Hypervisors"
 msgstr "ハイパーバイザー"
@@ -4741,9 +3581,6 @@ msgstr "IP アドレス"
 
 msgid "IP Address (optional)"
 msgstr "IP アドレス (省略可能)"
-
-msgid "IP Addresses"
-msgstr "IP アドレス"
 
 msgid "IP Protocol"
 msgstr "IP プロトコル"
@@ -4786,12 +3623,6 @@ msgstr ""
 "ゲートウェイの IP アドレス (例: 192.168.0.254)。ゲートウェイを設定するには、"
 "具体的なアドレスを指定する必要があります。ゲートウェイを使用する必要がなけれ"
 "ば、下の「ゲートウェイなし」をチェックしてください。"
-
-msgid "IP allocation pool"
-msgstr "IP アドレス割り当てプール"
-
-msgid "IP version"
-msgstr "IP バージョン"
 
 msgid "IPMI"
 msgstr "IPMI"
@@ -4855,33 +3686,6 @@ msgstr "Identity Service ではユーザーデータの編集が許可されて�
 msgid "Identity service does not allow editing user password."
 msgstr "Identity Service ではユーザーパスワードの編集ができません。"
 
-msgid ""
-"If console is not responding to keyboard input: click the grey status bar "
-"below."
-msgstr ""
-"コンソールがキーボード入力に応答していない場合には、以下のグレーのステータス"
-"バーをクリックしてください。"
-
-msgid ""
-"If no container name is provided, a default container named volumebackups "
-"will be provisioned for you. Backups will be the same size as the volume "
-"they originate from."
-msgstr ""
-"コンテナー名が指定されなかった場合、デフォルトのコンテナ名は volumebackups に"
-"なります。バックアップはバックアップ対象のボリュームと同じ大きさになります。"
-
-msgid ""
-"If you select an image via an HTTP URL, the Image Location field MUST be a "
-"valid and direct URL to the image binary; it must also be accessible to the "
-"Image Service. URLs that redirect or serve error pages will result in "
-"unusable images."
-msgstr ""
-"HTTP URL で指定する場合、イメージの場所のフィールドには、イメージ（バイナ"
-"リー）への有効かつ直接の URL を入力する必要があります。イメージの場所へ "
-"Image Service がアクセスできるようにしてください。URL がリダイレクトのページ"
-"の場合や、エラーページが返ってきた場合には、登録されたイメージは使用できない"
-"可能性があります。"
-
 msgid "Image"
 msgstr "イメージ"
 
@@ -4889,15 +3693,9 @@ msgctxt "Type of an image"
 msgid "Image"
 msgstr "イメージ"
 
-msgid "Image (Glance)"
-msgstr "イメージ (Glance)"
-
 msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "イメージバックアップ"
-
-msgid "Image Details"
-msgstr "イメージの詳細"
 
 msgid "Image Details: {{ image.name }}"
 msgstr "イメージの詳細: {{ image.name }}"
@@ -4917,25 +3715,12 @@ msgstr "イメージ名"
 msgid "Image Name ="
 msgstr "イメージ名 ="
 
-msgid "Image Overview"
-msgstr "イメージの概要"
-
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
 msgstr "イメージアップロード待ち"
 
 msgid "Image Registry"
 msgstr "イメージレジストリー"
-
-msgid ""
-"Image Registry is used to provide additional information about images for "
-"Data Processing."
-msgstr ""
-"イメージレジストリーは、データ処理用のイメージに関する追加の情報を提供するの"
-"に使用されます。"
-
-msgid "Image Registry tool:"
-msgstr "イメージレジストリーツール:"
 
 msgctxt "Task status of an Instance"
 msgid "Image Snapshot Pending"
@@ -4966,14 +3751,6 @@ msgstr "イメージが正常に更新されました。"
 msgid "Images"
 msgstr "イメージ"
 
-msgid ""
-"Images can be provided via an HTTP URL or be uploaded from your local file "
-"system. Compressed image binaries are supported (.zip and .tar.gz.)"
-msgstr ""
-"イメージの作成は HTTP URL 経由で指定する方法と、ローカルファイルシステムから"
-"アップロードする方法があります。圧縮イメージがサポートされています (.zip およ"
-"び .tar.gz)。"
-
 msgid "Implementation"
 msgstr "実装"
 
@@ -4988,13 +3765,6 @@ msgstr "利用中のポリシー"
 
 msgid "In Use"
 msgstr "使用中"
-
-msgid ""
-"In addition, you can create an external network or a shared network by "
-"checking the corresponding checkbox."
-msgstr ""
-"外部ネットワークや共有ネットワークを作成することもできます。対応するチェック"
-"ボックスをチェックしてください。"
 
 msgctxt "Current status of a Volume"
 msgid "In-use"
@@ -5014,12 +3784,6 @@ msgstr "非稼働"
 
 msgid "Incremental"
 msgstr "差分"
-
-msgid "Incremental Backup"
-msgstr "差分バックアップ"
-
-msgid "Info"
-msgstr "情報"
 
 msgid "Information"
 msgstr "情報"
@@ -5045,9 +3809,6 @@ msgstr "最初の管理ユーザー"
 msgid "Initial Databases"
 msgstr "初期データベース"
 
-msgid "Initial Volume Size"
-msgstr "初期ボリュームサイズ"
-
 msgid "Initial admin user to add"
 msgstr "追加する初期管理ユーザー"
 
@@ -5072,9 +3833,6 @@ msgstr "注入ファイル"
 msgid "Input"
 msgstr "入力"
 
-msgid "Input Data Source"
-msgstr "入力データソース"
-
 msgid "Input must be in CIDR format"
 msgstr "CIDRフォーマットで入力して下さい。"
 
@@ -5093,23 +3851,11 @@ msgstr "インスタンス"
 msgid "Instance Action List"
 msgstr "インスタンスのアクション一覧"
 
-msgid "Instance Admin Password"
-msgstr "インスタンスの管理パスワード"
-
 msgid "Instance Boot Source"
 msgstr "インスタンスのブートソース"
 
-msgid "Instance Console"
-msgstr "インスタンスのコンソール"
-
-msgid "Instance Console Log"
-msgstr "インスタンスのコンソールログ"
-
 msgid "Instance Count"
 msgstr "インスタンス数"
-
-msgid "Instance Details"
-msgstr "インスタンスの詳細"
 
 msgid "Instance Details: {{ instance.name }}"
 msgstr "インスタンスの詳細: {{ instance.name }}"
@@ -5119,9 +3865,6 @@ msgstr "インスタンス ID"
 
 msgid "Instance Name"
 msgstr "インスタンス名"
-
-msgid "Instance Overview"
-msgstr "インスタンスの概要"
 
 msgid "Instance Password is not set or is not yet available"
 msgstr "インスタンスのパスワードが設定されていないか利用できません"
@@ -5155,9 +3898,6 @@ msgstr "ロール情報を参照する権限がありません。"
 
 msgid "Insufficient privilege level to view user information."
 msgstr "ユーザー情報を参照するのに必要な権限がありません。"
-
-msgid "Intelligent Platform Management Interface (IPMI)"
-msgstr "IPMI (Intelligent Platform Management Interface)"
 
 msgid "Interface added"
 msgstr "インターフェースを追加しました"
@@ -5193,17 +3933,11 @@ msgid ""
 "exist."
 msgstr "指定された期間が不正です。存在しない未来のデータを要求しています。"
 
-msgid "Is a Replica Of"
-msgstr "は次のインスタンスの複製です: "
-
 msgid "Items Per Page"
 msgstr "ページあたりの項目数"
 
 msgid "Java"
 msgstr "Java"
-
-msgid "Java Action"
-msgstr "Java アクション"
 
 msgid "Java Opts"
 msgstr "Java オプション"
@@ -5217,29 +3951,14 @@ msgstr "ジョブバイナリー"
 msgid "Job Binary Details"
 msgstr "ジョブバイナリーの詳細"
 
-msgid "Job Binary Overview"
-msgstr "ジョブバイナリーの概要"
-
-msgid "Job Configuration"
-msgstr "ジョブ設定"
-
-msgid "Job Details"
-msgstr "ジョブ詳細"
-
 msgid "Job Execution Details"
 msgstr "ジョブ実行の詳細"
-
-msgid "Job Execution Guide"
-msgstr "ジョブ実行のガイド"
 
 msgid "Job Execution ID"
 msgstr "ジョブ実行 ID"
 
 msgid "Job Guide"
 msgstr "ジョブのガイド"
-
-msgid "Job Overview"
-msgstr "ジョブの概要"
 
 msgid "Job Template"
 msgstr "ジョブテンプレート"
@@ -5268,9 +3987,6 @@ msgstr "ジョブを起動しました"
 msgid "Job params"
 msgstr "ジョブパラメーター"
 
-msgid "Job template:"
-msgstr "ジョブテンプレート:"
-
 msgid "Job type chosen"
 msgstr "ジョブ種別を選択しました"
 
@@ -5286,9 +4002,6 @@ msgstr "カーネル ID"
 msgid "Key"
 msgstr "キー"
 
-msgid "Key Name"
-msgstr "キー名"
-
 msgid "Key Pair"
 msgstr "キーペア"
 
@@ -5300,10 +4013,6 @@ msgstr "キーペア名"
 
 msgid "Key Pairs"
 msgstr "キーペア"
-
-msgid "Key Pairs are how you login to your instance after it is launched."
-msgstr ""
-"キーペアはインスタンスを起動した後でインスタンスへのログインに使用します。"
 
 msgid "Key Size (bits)"
 msgstr "キーサイズ (ビット)"
@@ -5317,15 +4026,6 @@ msgstr ""
 
 msgid "Key pair to use for authentication."
 msgstr "認証に使用するキーペア。"
-
-msgid ""
-"Key pairs are ssh credentials which are injected into images when they are "
-"launched. Creating a new key pair registers the public key and downloads the "
-"private key (a .pem file)."
-msgstr ""
-"キーペアは、イメージが起動するときに、イメージに挿入される SSH クレデンシャル"
-"です。新しいキーペアを作成することにより、公開鍵を登録し、秘密鍵 (.pem ファイ"
-"ル) をダウンロードできます。"
 
 msgid "Key-Value Pairs"
 msgstr "キーと値のペア"
@@ -5359,12 +4059,6 @@ msgstr "直近 15 日"
 msgid "Last 30 days"
 msgstr "直近 30 日"
 
-msgid "Last Modified"
-msgstr "最終更新時刻"
-
-msgid "Last Updated"
-msgstr "最終更新"
-
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "最終更新"
@@ -5390,12 +4084,6 @@ msgstr "データベースの起動"
 msgid "Launch Instance"
 msgstr "インスタンスの起動"
 
-msgid "Launch Instance (Quota exceeded)"
-msgstr "インスタンスの起動 (クォータを超過しました)"
-
-msgid "Launch Instance NG"
-msgstr "インスタンス起動不可"
-
 msgid "Launch Job"
 msgid_plural "Launch Jobs"
 msgstr[0] "ジョブの起動"
@@ -5406,14 +4094,8 @@ msgstr "既存のクラスターで起動"
 msgid "Launch On New Cluster"
 msgstr "新規のクラスターで起動"
 
-msgid "Launch Parameters"
-msgstr "起動パラメーター"
-
 msgid "Launch Stack"
 msgstr "スタックの起動"
-
-msgid "Launch a Cluster"
-msgstr "クラスターの起動"
 
 msgid "Launch as Instance"
 msgstr "インスタンスとして起動"
@@ -5432,25 +4114,6 @@ msgstr "これらのセキュリティーグループでインスタンスを起
 
 msgid "Launch instances in this availability zone."
 msgstr "指定したアベイラビリティーゾーンでインスタンスを起動します。"
-
-msgid "Launch job"
-msgstr "ジョブの起動"
-
-msgid "Launch the given job template on a cluster."
-msgstr "指定されたジョブテンプレートをクラスターで起動します。"
-
-msgid ""
-"Launch your job.  When\n"
-"                        launching, you may need to choose your input and\n"
-"                        output data sources.  This is where you would also\n"
-"                        add any special configuration values, parameters,\n"
-"                        or arguments that you need to pass along\n"
-"                        to your job.\n"
-"                        "
-msgstr ""
-"ジョブを起動します。起動中には、入力と出力のデータソースを選択する必要がある"
-"場合があります。また、ジョブに渡す必要のある特別な設定値、パラメーター、引数"
-"もここで追加します。 "
 
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
@@ -5477,12 +4140,6 @@ msgstr "注入ファイルのパス長"
 msgid "Libs"
 msgstr "ライブラリー"
 
-msgid "Lifetime Units"
-msgstr "ライフタイムの単位"
-
-msgid "Lifetime Value"
-msgstr "ライフタイムの値"
-
 msgid "Lifetime units"
 msgstr "ライフタイム単位"
 
@@ -5501,17 +4158,11 @@ msgstr "IKE 鍵のライフタイム値"
 msgid "Limit"
 msgstr "上限値"
 
-msgid "Links"
-msgstr "リンク"
-
 msgid "Live Migrate"
 msgstr "ライブマイグレーション"
 
 msgid "Live Migrate Instance"
 msgstr "インスタンスのライブマイグレーション"
-
-msgid "Live migrate an instance to a specific host."
-msgstr "インスタンスを特定のホストにライブマイグレーションします。"
 
 msgid "Load Balancer"
 msgstr "ロードバランサー"
@@ -5528,9 +4179,6 @@ msgstr "負荷分散方式"
 
 msgid "Local"
 msgstr "ローカル"
-
-msgid "Local Disk Usage"
-msgstr "ローカルディスク使用量"
 
 msgid "Local Storage (total)"
 msgstr "ローカルストレージ (総量)"
@@ -5549,26 +4197,14 @@ msgstr[0] "インスタンスをロックしました"
 msgid "Log"
 msgstr "ログ"
 
-msgid "Log Length"
-msgstr "ログの表示行数"
-
 msgid "Log Lines Per Instance"
 msgstr "インスタンスあたりのログ行数"
 
 msgid "Log length must be a nonnegative integer."
 msgstr "ログの表示行数は 0 以上の整数でなければいけません。"
 
-msgid "MAC Address"
-msgstr "MAC アドレス"
-
 msgid "MAC Learning State"
 msgstr "MAC 学習状態"
-
-msgid "MB"
-msgstr "MB"
-
-msgid "MTU"
-msgstr "MTU"
 
 msgid "MacVTap"
 msgstr "MacVTap"
@@ -5576,23 +4212,11 @@ msgstr "MacVTap"
 msgid "Main Class"
 msgstr "Main クラス"
 
-msgid "Mains"
-msgstr "メイン"
-
 msgid "Make Private"
 msgstr "プライベートに変更"
 
 msgid "Make Public"
 msgstr "パブリックに変更"
-
-msgid ""
-"Make a new copy of an existing object to store in this or another container. "
-"You may additionally specify the path within the selected container where "
-"the new copy should be stored."
-msgstr ""
-"既存のオブジェクトのコピーを作成します。コピー先は同じコンテナーも別のコンテ"
-"ナーも使用できます。また、新しいコピーの格納先として選択したコンテナー内のパ"
-"ス（擬似フォルダー）を指定することもできます。"
 
 msgid "Manage"
 msgstr "管理"
@@ -5620,9 +4244,6 @@ msgstr "QoS スペックの関連付けの管理"
 
 msgid "Manage Rules"
 msgstr "ルールの管理"
-
-msgid "Manage Security Group Rules"
-msgstr "セキュリティーグループのルールの管理"
 
 msgid ""
 "Manage Security Group Rules: {{ security_group.name }} ({{ security_group."
@@ -5661,17 +4282,11 @@ msgstr "Mapper"
 msgid "Master Instance Name"
 msgstr "マスターインスタンス名"
 
-msgid "Master Node Group Template:"
-msgstr "マスターノードグループテンプレート:"
-
 msgid "Max Retries"
 msgstr "最大試行回数"
 
 msgid "Max Retries (1~10)"
 msgstr "最大試行回数 (1〜10)"
-
-msgid "Max."
-msgstr "最大値"
 
 msgid "Max. Size (MB)"
 msgstr "最大サイズ (MB)"
@@ -5710,9 +4325,6 @@ msgstr "メンバー"
 msgid "Memory MB Hours"
 msgstr "メモリーの MB 時間"
 
-msgid "Memory Usage"
-msgstr "メモリー使用量"
-
 msgid "Message"
 msgstr "メッセージ"
 
@@ -5734,9 +4346,6 @@ msgstr "メタデータが正常に更新されました。"
 msgid "Meter"
 msgstr "メーター"
 
-msgid "Metric:"
-msgstr "計測項目:"
-
 msgid "Migrate Host"
 msgid_plural "Migrate Hosts"
 msgstr[0] "ホストのマイグレーション"
@@ -5744,18 +4353,6 @@ msgstr[0] "ホストのマイグレーション"
 msgid "Migrate Instance"
 msgid_plural "Migrate Instances"
 msgstr[0] "インスタンスのマイグレーション"
-
-msgid ""
-"Migrate all instances from a host with disabled nova-compute service. "
-"Optionally you can choose type of migration. All running instances of the "
-"host can be Live Migrated. Cold Migration is trying to use 'nova migrate' on "
-"each instance of migrated host."
-msgstr ""
-"nova-compute サービスが無効となったホストから全インスタンスを移行します。オプ"
-"ションで、マイグレーションの種別を選択することができます。ホストで実行中のイ"
-"ンスタンスはすべてライブマイグレーションすることができます。 コールドマイグ"
-"レーションでは、移行するホストの各インスタンスに対して「nova migrate」の使用"
-"を試みます。 "
 
 msgid "Migrated Host"
 msgid_plural "Migrated Hosts"
@@ -5777,15 +4374,6 @@ msgstr ""
 msgid "Migration Policy"
 msgstr "移行ポリシー"
 
-msgid "Min Disk"
-msgstr "最小ディスク"
-
-msgid "Min RAM"
-msgstr "最小メモリー"
-
-msgid "Min."
-msgstr "最小値"
-
 msgid "Min. Size (MB)"
 msgstr "最小サイズ (MB)"
 
@@ -5794,9 +4382,6 @@ msgstr "最小ディスク (GB)"
 
 msgid "Minimum RAM (MB)"
 msgstr "最小メモリー (MB)"
-
-msgid "Minutes"
-msgstr "分"
 
 #, python-format
 msgid "Modified domain \"%s\"."
@@ -5840,15 +4425,6 @@ msgstr "クォータの変更"
 msgid "Modify Usage Report Parameters"
 msgstr "使用状況レポートのパラメーターの変更"
 
-msgid "Modify dashboard settings for your user."
-msgstr "ユーザー毎のダッシュボードの設定を変更できます。"
-
-msgid "Modify name and description of a volume."
-msgstr "ボリュームの名前と説明を変更します。"
-
-msgid "Modify the name and description of a snapshot."
-msgstr "スナップショットの名前と説明を変更します。"
-
 msgid "Monitor"
 msgstr "モニター"
 
@@ -5857,9 +4433,6 @@ msgstr "モニターの詳細"
 
 msgid "Monitor Type"
 msgstr "モニタータイプ"
-
-msgid "Monitoring:"
-msgstr "監視:"
 
 msgid "Monitors"
 msgstr "モニター"
@@ -5899,19 +4472,9 @@ msgstr "作成するスタックの名前。"
 msgid "Name or other identifier for existing volume"
 msgstr "既存のボリュームの名前またはその他の識別子"
 
-msgid "Name:"
-msgstr "名前"
-
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr "名前: %(name)s ID: %(uuid)s"
-
-#, python-format
-msgid "Name: %(node_group_name)s"
-msgstr "名前: %(node_group_name)s"
-
-msgid "Namespace"
-msgstr "名前空間"
 
 #, python-format
 msgid "Namespace %s has been created."
@@ -5919,9 +4482,6 @@ msgstr "名前空間 %s が作成されました。"
 
 msgid "Namespace Definition Source"
 msgstr "名前空間定義の入力方法"
-
-msgid "Namespace Details"
-msgstr "名前空間の詳細"
 
 msgid "Namespace Details: {{ namespace.namespace }}"
 msgstr "名前空間の詳細: {{ namespace.namespace }}"
@@ -5932,20 +4492,8 @@ msgstr "名前空間のJSON"
 msgid "Namespace Overview"
 msgstr "名前空間の概要"
 
-msgid "Namespace Resource Type Associations"
-msgstr "名前空間のリソース種別との関連付け"
-
 msgid "Namespaces"
 msgstr "名前空間"
-
-msgid ""
-"Namespaces can be associated to different resource types. This makes the "
-"properties in the namespace visible in the 'Update Metadata' action for that "
-"type of resource."
-msgstr ""
-"名前空間は様々なリソース種別に関連付けることができます。関連付けを行うと、名"
-"前空間の属性がそのリソース種別の「メタデータの更新」アクションで見えるように"
-"なります。"
 
 msgid "Native VXLAN"
 msgstr "ネイティブ VXLAN"
@@ -5965,9 +4513,6 @@ msgstr "ネットワーク %s が正常に作成されました。"
 msgid "Network %s was successfully updated."
 msgstr "ネットワーク %s が正常に更新されました。"
 
-msgid "Network (Neutron)"
-msgstr "ネットワーク (Neutron)"
-
 msgid "Network Address"
 msgstr "ネットワークアドレス"
 
@@ -5977,9 +4522,6 @@ msgstr "ネットワークアドレスと IP バージョンが一致してい�
 msgid "Network Agents"
 msgstr "ネットワークエージェント"
 
-msgid "Network Details"
-msgstr "ネットワークの詳細"
-
 msgid "Network Details: {{ network.name }}"
 msgstr "ネットワークの詳細: {{ network.name }}"
 
@@ -5988,9 +4530,6 @@ msgstr "ネットワーク ID"
 
 msgid "Network Name"
 msgstr "ネットワーク名"
-
-msgid "Network Overview"
-msgstr "ネットワークの概要"
 
 msgid "Network Profile"
 msgstr "ネットワークプロファイル"
@@ -6008,9 +4547,6 @@ msgstr "ネットワークプロファイルを取得できません。"
 
 msgid "Network Topology"
 msgstr "ネットワークトポロジー"
-
-msgid "Network Type:"
-msgstr "ネットワーク種別:"
 
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24)"
 msgstr "CIDR 形式のネットワークアドレス (例: 192.168.0.0/24)"
@@ -6039,9 +4575,6 @@ msgstr "Neutron 管理ネットワーク"
 
 msgid "Never"
 msgstr "なし"
-
-msgid "Never updated"
-msgstr "更新されていません"
 
 msgctxt "Current status of a Database Backup"
 msgid "New"
@@ -6084,33 +4617,8 @@ msgstr "ネクストホップ"
 msgid "Next Hops"
 msgstr "ネクストホップ"
 
-msgid "Next&nbsp;&raquo;"
-msgstr "次へ&nbsp;&raquo;"
-
-msgid ""
-"Next, you need to define the different\n"
-"                        types of machines in your cluster.  This is done by\n"
-"                        defining a Node Group Template for each type of\n"
-"                        machine.  A very common case is where you\n"
-"                        need to have one or more machines running a \"master"
-"\"\n"
-"                        set of processes while another set of machines need\n"
-"                        to be running the \"worker\" processes.  Here,\n"
-"                        you will define the Node Group Template for your\n"
-"                        \"master\" node(s).\n"
-"                     "
-msgstr ""
-"次にクラスター内のマシンの種別を定義します。これは、マシン種別ごとにノードグ"
-"ループテンプレートを定義することによって行います。ごく一般的なのは、プロセス"
-"の「マスター」セットを実行するマシンが 1 台または複数必要なのに加えて、「ワー"
-"カー」プロセスを実行する他のマシンセットも必要とされるケースです。ここでは、"
-"「マスター」ノード用にノードグループテンプレートを定義します。            "
-
 msgid "No"
 msgstr "いいえ"
-
-msgid "No Cluster Template Created"
-msgstr "クラスターテンプレートが作成されていません"
 
 msgid "No Host selected."
 msgstr "ホストが選択されていません。"
@@ -6121,9 +4629,6 @@ msgstr "ホストが見つかりません。"
 msgid "No Images Available"
 msgstr "利用可能なイメージがありません"
 
-msgid "No Master Node Group Template Created"
-msgstr "マスターノードグループテンプレートが作成されていません"
-
 msgid "No Session Persistence"
 msgstr "セッション永続性なし"
 
@@ -6133,15 +4638,6 @@ msgstr "状態なし"
 
 msgid "No Templates Available"
 msgstr "利用可能なテンプレートがありません"
-
-msgid "No Worker Node Group Template Created"
-msgstr "ワーカーノードグループテンプレートが作成されていません"
-
-msgid "No associations defined."
-msgstr "関連付けは定義されていません。"
-
-msgid "No attached device"
-msgstr "接続中のデバイスはありません"
 
 msgid "No availability zone specified"
 msgstr "アベイラビリティーゾーンの指定なし"
@@ -6158,14 +4654,8 @@ msgstr "使用可能なプロジェクトがありません"
 msgid "No backups available"
 msgstr "バックアップがありません"
 
-msgid "No configurations"
-msgstr "設定なし"
-
 msgid "No flavors available"
 msgstr "利用可能なフレーバーはありません"
-
-msgid "No flavors meet minimum criteria for selected image."
-msgstr "選択したイメージが必要とする条件を満たすフレーバーがありません。"
 
 msgid "No floating IP addresses allocated"
 msgstr "確保済みの Floating IP アドレスはありません"
@@ -6200,9 +4690,6 @@ msgstr "名前空間の内容の入力がありません。"
 msgid "No instances available"
 msgstr "インスタンスがありません"
 
-msgid "No job template created"
-msgstr "ジョブテンプレートが作成されていません"
-
 msgid "No key pairs available"
 msgstr "キーペアがありません"
 
@@ -6224,9 +4711,6 @@ msgstr "他のホストがありません"
 msgid "No other hosts available."
 msgstr "他のホストがありません。"
 
-msgid "No plugin chosen"
-msgstr "プラグインが選択されていません"
-
 msgid "No ports available"
 msgstr "ポートがありません"
 
@@ -6240,9 +4724,6 @@ msgstr ""
 
 msgid "No provider is available"
 msgstr "利用可能なプロバイダーがありません"
-
-msgid "No rules defined."
-msgstr "ルールが定義されていません。"
 
 msgid "No security groups available"
 msgstr "セキュリティーグループがありません。"
@@ -6272,9 +4753,6 @@ msgstr "ソースの指定なし (空のボリューム)"
 msgid "No subnets available"
 msgstr "サブネットがありません"
 
-msgid "No type chosen"
-msgstr "種別が選択されていません"
-
 msgid "No users found."
 msgstr "ユーザーが見つかりませんでした。"
 
@@ -6287,14 +4765,8 @@ msgstr "利用可能なボリュームスナップショットがありません
 msgid "No volume type"
 msgstr "ボリューム種別の指定なし"
 
-msgid "No volumes attached."
-msgstr "ボリュームが接続されていません。"
-
 msgid "No volumes available"
 msgstr "利用可能なボリュームがありません"
-
-msgid "Node Configurations"
-msgstr "ノード設定"
 
 msgid "Node Group Template Details"
 msgstr "ノードグループテンプレートの詳細"
@@ -6306,30 +4778,14 @@ msgstr "ノードグループテンプレートのコピー %s を作成しま�
 msgid "Node Group Templates"
 msgstr "ノードグループテンプレート"
 
-#, python-format
-msgid "Node Group: %(node_group_name)s"
-msgstr "ノードグループ: %(node_group_name)s"
-
 msgid "Node Groups"
 msgstr "ノードグループ"
 
 msgid "Node Processes"
 msgstr "ノードプロセス"
 
-msgid "Node configurations are not specified"
-msgstr "ノード設定は指定されていません"
-
 msgid "Node group cluster"
 msgstr "ノードグループクラスター"
-
-msgid "Node processes are not specified"
-msgstr "ノードプロセスは指定されていません"
-
-msgid "Nodegroup Template Details"
-msgstr "ノードグループテンプレートの詳細"
-
-msgid "Nodes Count"
-msgstr "ノード数"
 
 msgid "Non-Members"
 msgstr "未参加メンバー"
@@ -6350,59 +4806,17 @@ msgstr "割り当てなし"
 msgid "Not Found"
 msgstr "見つかりません"
 
-msgid "Not attached"
-msgstr "未接続"
-
 msgid "Not available"
 msgstr "N/A"
-
-msgid "Note: "
-msgstr "注意: "
-
-msgid ""
-"Note: A Public Container will allow anyone with the Public URL to gain "
-"access to your objects in the container."
-msgstr ""
-"注意：パブリックコンテナーは公開URLを使って誰でもコンテナ内のオブジェクトへア"
-"クセスすることができます。"
 
 msgid "Nova"
 msgstr "Nova"
 
-msgid ""
-"Now you need to set the layout of your\n"
-"                        cluster.  By\n"
-"                        creating a Cluster Template, you will be choosing "
-"the\n"
-"                        number of instances of each Node Group Template "
-"that\n"
-"                        will appear in your cluster.  Additionally,\n"
-"                        you will have a chance to set any cluster-specific\n"
-"                        configuration items in the additional tabs on the\n"
-"                        create Cluster Template form."
-msgstr ""
-"次にクラスターのレイアウトを設定する必要があります。クラスターテンプレートを"
-"作成して、クラスター内に表示される各ノードグループテンプレートのインスタンス"
-"数を選択します。また、クラスターテンプレート作成のフォームの追加のタブで、ク"
-"ラスター固有の設定項目を指定することもできます。"
-
 msgid "Number of API requests against swift"
 msgstr "swift への API 要求数"
 
-msgid "Number of Instances"
-msgstr "インスタンス数"
-
-msgid "Number of Nodes"
-msgstr "ノード数"
-
-msgid "Number of Snapshots"
-msgstr "スナップショット数"
-
 msgid "Number of VCPUs"
 msgstr "仮想 CPU 数"
-
-msgid "Number of Volumes"
-msgstr "ボリューム数"
 
 msgid "Number of containers"
 msgstr "コンテナー数"
@@ -6460,20 +4874,11 @@ msgstr "または、秘密鍵をコピーして貼り付けてください"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - オープン仮想アプライアンス"
 
-msgid "Object Count"
-msgstr "オブジェクト数"
-
-msgid "Object Count: "
-msgstr "オブジェクト数："
-
 msgid "Object Details"
 msgstr "オブジェクトの詳細"
 
 msgid "Object Name"
 msgstr "オブジェクト名"
-
-msgid "Object Storage (Swift)"
-msgstr "オブジェクトストレージ (Swift)"
 
 msgid "Object Store"
 msgstr "オブジェクトストア"
@@ -6484,17 +4889,11 @@ msgstr "オブジェクトが正常に更新されました。"
 msgid "Object was successfully uploaded."
 msgstr "オブジェクトが正常にアップロードされました。"
 
-msgid "Object:"
-msgstr "オブジェクトストレージ:"
-
 msgid "Objects"
 msgstr "オブジェクト"
 
 msgid "Old Flavor"
 msgstr "現在のフレーバー"
-
-msgid "On"
-msgstr "オン"
 
 msgid "On Demand"
 msgstr "要求時"
@@ -6506,17 +4905,8 @@ msgstr ""
 "Floating IP が解放された後には、同じ IP アドレスが再び確保されるという保証は"
 "ありません。"
 
-msgid "Only definitions in raw JSON format are supported."
-msgstr "生の JSON 形式での定義だけがサポートされています。"
-
-msgid "Oozie Job ID"
-msgstr "Oozie ジョブ ID"
-
 msgid "Open Port"
 msgstr "解放するポート"
-
-msgid "Open Port/Port Range:"
-msgstr "解放するポート/ポート範囲:"
 
 msgid "OpenStack Flavor"
 msgstr "OpenStack フレーバー"
@@ -6532,20 +4922,6 @@ msgstr "親バックアップ（省略可）"
 
 msgid "Optional: Next Hop Addresses (comma delimited)"
 msgstr "ネクストホップアドレス (コンマ区切り、省略可)"
-
-msgid ""
-"Optionally choose to create this database using a previous backup, or as a "
-"replica of another database instance."
-msgstr ""
-"オプションで、以前のバックアップまたは他のデータベースインスタンスの複製を使"
-"用してこのデータベースを作成するように選択することもできます。"
-
-msgid "Optionally provide a comma separated list of databases to create:"
-msgstr ""
-"オプションで、作成するデータベースをコンマ区切りのリストで指定できます: "
-
-msgid "Optionally, you may choose to create a new volume."
-msgstr "新規のボリュームを作成することもできます。"
 
 msgid "Orchestration"
 msgstr "オーケストレーション"
@@ -6565,44 +4941,11 @@ msgstr "その他のプロトコル"
 msgid "Output"
 msgstr "出力"
 
-msgid "Output Data Source"
-msgstr "出力データソース"
-
-msgid "Outputs"
-msgstr "出力"
-
 msgid "Overlay"
 msgstr "オーバーレイ"
 
 msgid "Overview"
 msgstr "概要"
-
-msgid "Owner"
-msgstr "オーナー"
-
-msgid ""
-"Ownership of a volume can be transferred from one project to another.  "
-"Accepting a transfer requires obtaining the Transfer ID and Authorization "
-"Key from the donor.  This is equivalent to the <tt>cinder transfer-accept</"
-"tt> command."
-msgstr ""
-"ボリュームの所有権をあるプロジェクトから別のプリジェクトに譲渡することができ"
-"ます。譲渡を受理するには、譲渡元から譲渡 ID と認証キーを得る必要があります。"
-"これは <tt>cinder transfer-accept</tt> コマンドと同じです。"
-
-msgid ""
-"Ownership of a volume can be transferred from one project to another. Once a "
-"volume transfer is created in a donor project, it then can be \"accepted\" "
-"by a recipient project. This is equivalent to the <tt>cinder transfer-"
-"create</tt> command."
-msgstr ""
-"ボリュームの所有権をあるプロジェクトから別のプロジェクトに譲渡することができ"
-"ます。いったんボリュームの譲渡が譲渡元のプロジェクトで作成されると、譲渡先の"
-"プロジェクトで「受理」できるようになります。これは <tt>cinder transfer-"
-"create</tt> コマンドと同じです。"
-
-msgid "PASSWORD"
-msgstr "PASSWORD"
 
 msgid "PFS"
 msgstr "PFS"
@@ -6613,9 +4956,6 @@ msgstr "PING"
 msgid "Page Not Found"
 msgstr "ページが見つかりませんでした"
 
-msgid "Parameters"
-msgstr "パラメーター"
-
 msgid "Parent Backup"
 msgstr "親バックアップ"
 
@@ -6625,9 +4965,6 @@ msgstr "パスワード"
 msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "パスワード設定中"
-
-msgid "Password (required)"
-msgstr "パスワード (必須)"
 
 msgid "Password changed. Please log in again to continue."
 msgstr "パスワードが変更されました。続行するには、再度ログインしてください。"
@@ -6733,9 +5070,6 @@ msgstr "Perfect Forward Secrecy"
 msgid "Period"
 msgstr "期間"
 
-msgid "Period:"
-msgstr "期間:"
-
 msgid "Permit"
 msgstr "許可"
 
@@ -6747,9 +5081,6 @@ msgstr "物理ネットワーク"
 
 msgid "Physical Network Name"
 msgstr "物理ネットワーク名"
-
-msgid "Physical Network:"
-msgstr "物理ネットワーク:"
 
 msgid "Pig"
 msgstr "Pig"
@@ -6763,9 +5094,6 @@ msgid ""
 msgstr ""
 "数値 (例: 200)、数値のリスト (例: 200, 202)、値の範囲 (例: 200-204) のいずれ"
 "かを入力してください"
-
-msgid "Please note: "
-msgstr "注意: "
 
 #, python-format
 msgid "Please specify a %s using only one source method."
@@ -6787,9 +5115,6 @@ msgstr "プラグイン名"
 msgid "Plugin name"
 msgstr "プラグイン名"
 
-msgid "Plugin:"
-msgstr "プラグイン:"
-
 msgid "Plugins"
 msgstr "プラグイン"
 
@@ -6802,9 +5127,6 @@ msgstr "ポリシー"
 #, python-format
 msgid "Policy %s was successfully updated."
 msgstr "ポリシー %s が正常に更新されました。"
-
-msgid "Policy ID"
-msgstr "ポリシー ID"
 
 msgid "Policy Profile"
 msgstr "ポリシープロファイル"
@@ -6839,9 +5161,6 @@ msgstr "ポート %s が正常に更新されました。"
 msgid "Port Details"
 msgstr "ポートの詳細"
 
-msgid "Port ID"
-msgstr "ポート ID"
-
 msgid "Port Range"
 msgstr "ポート範囲"
 
@@ -6853,9 +5172,6 @@ msgstr "IP を割り当てるポート"
 
 msgid "Ports"
 msgstr "ポート"
-
-msgid "Position in Policy"
-msgstr "ポリシー内の位置"
 
 msgid "Post-Creation"
 msgstr "作成後"
@@ -6877,12 +5193,6 @@ msgstr "電源投入中"
 msgid "Pre-Shared Key (PSK) string"
 msgstr "事前共有鍵 (Pre-Shared-Key; PSK)"
 
-msgid "Pre-Shared Key string"
-msgstr "事前共有鍵（Pre-Shared-Key; PSK）"
-
-msgid "Prefix: "
-msgstr "プレフィックス: "
-
 msgctxt "Task status of an Instance"
 msgid "Preparing Resize or Migrate"
 msgstr "リサイズ/マイグレーションの準備中"
@@ -6902,9 +5212,6 @@ msgstr "プレビューするスタックのパラメーター"
 msgid "Preview Template"
 msgstr "テンプレートのプレビュー"
 
-msgid "Preview a new stack with the provided values."
-msgstr "指定された値を用いて新しいスタックをプレビューを行います。"
-
 msgid "Primary Project"
 msgstr "主プロジェクト"
 
@@ -6920,9 +5227,6 @@ msgstr "プロセス"
 msgid "Processes to be launched in node group"
 msgstr "このノードグループで起動するプロセス"
 
-msgid "Profile"
-msgstr "プロファイル"
-
 msgid "Project"
 msgstr "プロジェクト"
 
@@ -6931,9 +5235,6 @@ msgstr "プロジェクトとユーザー"
 
 msgid "Project ="
 msgstr "プロジェクト ="
-
-msgid "Project Details"
-msgstr "プロジェクトの詳細"
 
 #, python-format
 msgid "Project Details: %s"
@@ -6945,14 +5246,8 @@ msgstr "プロジェクトグループ"
 msgid "Project ID"
 msgstr "プロジェクト ID"
 
-msgid "Project ID:"
-msgstr "プロジェクト ID:"
-
 msgid "Project Information"
 msgstr "プロジェクト情報"
-
-msgid "Project Limits"
-msgstr "プロジェクトのリソース上限"
 
 msgid "Project Members"
 msgstr "プロジェクトメンバー"
@@ -6960,17 +5255,8 @@ msgstr "プロジェクトメンバー"
 msgid "Project Name"
 msgstr "プロジェクト名"
 
-msgid "Project Overview"
-msgstr "プロジェクトの概要"
-
-msgid "Project Quotas"
-msgstr "プロジェクトのクォータ"
-
 msgid "Project Usage"
 msgstr "プロジェクトの使用状況"
-
-msgid "Project Usage Overview"
-msgstr "プロジェクトの使用状況の概要"
 
 msgid "Project name is already in use. Please use a different name."
 msgstr "プロジェクト名はすでに使用中です。他の名称を使用してください。"
@@ -6983,15 +5269,6 @@ msgstr "プロジェクトを取得できません。"
 
 msgid "Projects:"
 msgstr "プロジェクト:"
-
-msgid "Properties"
-msgstr "属性"
-
-msgid "Properties Target: "
-msgstr "属性ターゲット: "
-
-msgid "Protect and use the key as you would any normal ssh private key."
-msgstr "通常の SSH 秘密鍵と同じように保護し、使用してください。"
 
 msgid "Protected"
 msgstr "保護"
@@ -7008,23 +5285,11 @@ msgstr "ファイアウォールルールのプロトコル"
 msgid "Provider"
 msgstr "プロバイダー"
 
-msgid "Provider Network"
-msgstr "プロバイダーネットワーク"
-
 msgid "Provider Network Type"
 msgstr "プロバイダーネットワーク種別"
 
 msgid "Provider for Load Balancer is not supported"
 msgstr "ロードバランサーではプロバイダーがサポートされていません"
-
-msgid ""
-"Provider specified network can be created. You can specify a physical "
-"network type (like Flat, VLAN, GRE, and VXLAN) and its segmentation_id or "
-"physical network name for a new virtual network."
-msgstr ""
-"プロバイダーが指定するネットワークを作成することができます。仮想ネットワーク"
-"のプロバイダーネットワーク種別 (フラット、VLAN、GRE、VXLAN など) やセグメン"
-"ト ID、物理ネットワーク名を指定できます。"
 
 msgid "Proxy Gateway"
 msgstr "プロキシーゲートウェイ"
@@ -7035,17 +5300,11 @@ msgstr "疑似フォルダー名"
 msgid "Pseudo-folder was successfully created."
 msgstr "疑似フォルダーの作成に成功しました。"
 
-msgid "Pseudo-folder:"
-msgstr "擬似フォルダー:"
-
 msgid "Public"
 msgstr "パブリック"
 
 msgid "Public Key"
 msgstr "公開鍵"
-
-msgid "Public URL"
-msgstr "公開URL"
 
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU エミュレーター"
@@ -7059,9 +5318,6 @@ msgstr "新しい QOS スペックの使用者は現在と異なる値でなけ�
 
 msgid "QoS Spec to be associated"
 msgstr "関連付ける QoS スペック"
-
-msgid "QoS Spec: "
-msgstr "QoS スペック:"
 
 msgid "QoS Spec: {{ qos_spec_name }}"
 msgstr "QoS スペック: {{ qos_spec_name }}"
@@ -7120,10 +5376,6 @@ msgstr "Raw"
 
 msgid "Reason"
 msgstr "理由"
-
-#, python-format
-msgid "Reason: %(disabled_reason)s"
-msgstr "理由: %(disabled_reason)s"
 
 msgctxt "Action log of an instance"
 msgid "Reboot"
@@ -7200,11 +5452,6 @@ msgstr "リージョン:"
 msgid "Register Image"
 msgstr "イメージの登録"
 
-msgid ""
-"Register tags required for the Plugin with specified Data Processing Version"
-msgstr ""
-"必要なプラグインとデータ処理基盤の特定のバージョンのタグを登録してください"
-
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr ""
 "このプールメンバーが他のメンバーと比較してどの程度リクエストを担当するかの相"
@@ -7234,9 +5481,6 @@ msgid "Released Floating IP"
 msgid_plural "Released Floating IPs"
 msgstr[0] "Floating IP を解放しました"
 
-msgid "Reload"
-msgstr "再読み込み"
-
 msgid "Remote"
 msgstr "接続相手"
 
@@ -7245,9 +5489,6 @@ msgstr "接続相手の IP 範囲"
 
 msgid "Remote Security Group"
 msgstr "接続相手のセキュリティーグループ"
-
-msgid "Remote peer subnet"
-msgstr "接続相手のサブネット"
 
 msgid "Remote peer subnet(s)"
 msgstr "接続相手のサブネット"
@@ -7259,20 +5500,11 @@ msgstr ""
 "接続相手のサブネットアドレスを CIDR 形式で指定します。複数指定する場合はコン"
 "マで区切ります (例: 20.1.0.0/24, 21.1.0.0/24)"
 
-msgid "Remote:"
-msgstr "接続相手:"
-
-msgid "Remove"
-msgstr "削除"
-
 msgid "Remove Router"
 msgstr "ルーターの削除"
 
 msgid "Remove Router from Firewall"
 msgstr "ファイアウォールからのルーターの削除"
-
-msgid "Remove Routers"
-msgstr "ルーターの削除"
 
 msgid "Remove Rule"
 msgstr "ルールの削除"
@@ -7288,26 +5520,12 @@ msgid "Removed User"
 msgid_plural "Removed Users"
 msgstr[0] "ユーザーを削除しました"
 
-msgid ""
-"Repeat the Node Group Template\n"
-"                        creation process, but this time you are creating\n"
-"                        your \"worker\" Node Group Template."
-msgstr ""
-"ノードグループテンプレート作成のプロセスを再度実行しますが、今回は「worker」"
-"ノードグループテンプレートを作成します。"
-
 msgid "Replica Detached"
 msgid_plural "Replicas Detached"
 msgstr[0] "複製が切断されました"
 
-msgid "Replicas"
-msgstr "複製"
-
 msgid "Replicate from Instance"
 msgstr "インスタンスから複製"
-
-msgid "Replication"
-msgstr "レプリケーション"
 
 msgid "Request ID"
 msgstr "リクエスト ID"
@@ -7329,18 +5547,6 @@ msgstr "レスキュー中"
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "レスキュー中"
-
-msgid "Reset Cluster Creation Guide"
-msgstr "クラスター作成のガイドのリセット"
-
-msgid "Reset Cluster Guide"
-msgstr "クラスターのガイドのリセット"
-
-msgid "Reset Job Execution Guide"
-msgstr "ジョブ実行のガイドのリセット"
-
-msgid "Reset to Default"
-msgstr "デフォルトに戻す"
 
 msgid "Resize"
 msgstr "リサイズ"
@@ -7388,23 +5594,8 @@ msgstr "ボリューム \"%s\" をリサイズ中"
 msgid "Resource"
 msgstr "リソース"
 
-msgid "Resource Details"
-msgstr "リソースの詳細"
-
 msgid "Resource Details: {{ resource.resource_name }}"
 msgstr "リソースの詳細: {{ resource.resource_name }}"
-
-msgid "Resource ID"
-msgstr "リソース ID"
-
-msgid "Resource Metadata"
-msgstr "リソースのメタデータ"
-
-msgid "Resource Overview"
-msgstr "リソースの概要"
-
-msgid "Resource Type"
-msgstr "リソース種別"
 
 msgid "Resource Type Details"
 msgstr "リソース種別の詳細"
@@ -7447,9 +5638,6 @@ msgstr "バックアップの復元"
 
 msgid "Restore Backup to Volume"
 msgstr "ボリュームバックアップのリストア"
-
-msgid "Restore Backup:"
-msgstr "バックアップの復元:"
 
 msgid "Restore Volume Backup"
 msgstr "ボリュームバックアップのリストア"
@@ -7514,9 +5702,6 @@ msgstr "インスタンスのパスワードの取得"
 msgid "Retrieve Password"
 msgstr "パスワードの取得"
 
-msgid "Return Code"
-msgstr "終了コード"
-
 msgid "Revert Resize/Migrate"
 msgstr "リサイズ/マイグレーションの取り消し中"
 
@@ -7546,9 +5731,6 @@ msgstr "ロールが正常に更新されました。"
 msgid "Roles"
 msgstr "ロール"
 
-msgid "Rollback"
-msgstr "ロールバック"
-
 msgctxt "current status of stack"
 msgid "Rollback Complete"
 msgstr "ロールバック完了"
@@ -7570,12 +5752,6 @@ msgstr "ルートディスク"
 msgid "Root Disk (GB)"
 msgstr "ルートディスク (GB)"
 
-msgid "Round robin"
-msgstr "ラウンドロビン"
-
-msgid "Route mode"
-msgstr "ルーティングモード"
-
 msgid "Router"
 msgstr "ルーター"
 
@@ -7595,9 +5771,6 @@ msgstr "ルーター ID"
 
 msgid "Router Name"
 msgstr "ルーター名"
-
-msgid "Router Rule Grid"
-msgstr "ルータールールグリッド"
 
 msgid "Router Rules"
 msgstr "ルータールール"
@@ -7622,13 +5795,6 @@ msgstr "ルーターはファイアウォール %(firewall)s に正常に追加�
 msgid "Routers"
 msgstr "ルーター"
 
-msgid ""
-"Routing rules to apply to router. Rules are matched by most specific source "
-"first and then by most specific destination."
-msgstr ""
-"ルーターに適用するルーティングルール。ルールの照合は、まず送信元に対して行わ"
-"れ、それから宛先に対して行われます。"
-
 msgid "Rule"
 msgstr "ルール"
 
@@ -7644,21 +5810,8 @@ msgstr "ルール %(rule)s のポリシー %(policy)s からの削除に成功�
 msgid "Rule %s was successfully updated."
 msgstr "ルール %s が正常に更新されました。"
 
-msgid "Rule Conflict"
-msgstr "ルールの衝突"
-
-msgid "Rule:"
-msgstr "ルール:"
-
 msgid "Rules"
 msgstr "ルール"
-
-msgid ""
-"Rules define which traffic is allowed to instances assigned to the security "
-"group. A security group rule consists of three main parts:"
-msgstr ""
-"ルールは、セキュリティーグループに割り当てられたインスタンスに対して許可する"
-"通信を定義します。セキュリティーグループルールは 3 つの部分から構成されます:"
 
 msgctxt "Power state of an Instance"
 msgid "Running"
@@ -7667,17 +5820,8 @@ msgstr "実行中"
 msgid "Running Instance Migration Type"
 msgstr "実行中のインスタンスのマイグレーション種別"
 
-msgid "S3 URL"
-msgstr "S3 URL"
-
 msgid "SLAAC: Address discovered from OpenStack Router"
 msgstr "SLAAC: アドレスを OpenStack ルーターから取得"
-
-msgid "SNAT"
-msgstr "SNAT"
-
-msgid "SSH key pairs can be generated with the ssh-keygen command:"
-msgstr "SSH キーペアは ssh-keygen コマンドを使って生成できます。"
 
 msgid ""
 "Sahara will use instances of this node group to access other cluster "
@@ -7820,46 +5964,14 @@ msgstr "セキュリティーグループルール"
 msgid "Security Groups"
 msgstr "セキュリティーグループ"
 
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. After the security group is created, you can add rules "
-"to the security group."
-msgstr ""
-"セキュリティーグループは、VM のネットワーク設定に適用される IP フィルタリング"
-"ルールの集合です。セキュリティーグループ作成後に、作成したセキュリティーグ"
-"ループにルールを追加することができます。"
-
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. Edit the security group to add and change the rules."
-msgstr ""
-"セキュリティーグループは、VM のネットワーク設定に適用される IP フィルタリング"
-"ルールの集合です。セキュリティーグループを編集して、このルールの追加、変更を"
-"行うことができます。"
-
 msgid "Segment Range"
 msgstr "セグメント範囲"
-
-msgid "Segment Range:"
-msgstr "セグメント範囲:"
-
-msgid "Segment Sub Type:"
-msgstr "セグメントサブタイプ:"
 
 msgid "Segment Type"
 msgstr "セグメント種別"
 
-msgid "Segment Type:"
-msgstr "セグメント種別:"
-
 msgid "Segmentation ID"
 msgstr "セグメント ID"
-
-msgid "Segmentation ID:"
-msgstr "セグメント ID:"
-
-msgid "Select"
-msgstr "選択"
 
 msgid "Select Flavor"
 msgstr "フレーバーを選択してください"
@@ -7906,9 +6018,6 @@ msgstr "モニターを選択してください"
 msgid "Select a New Flavor"
 msgstr "新しいフレーバーを選択してください"
 
-msgid "Select a Node Group Template to add:"
-msgstr "追加するノードグループテンプレートを選択してください:"
-
 msgid "Select a Policy"
 msgstr "ポリシーの選択"
 
@@ -7941,9 +6050,6 @@ msgstr "マスターインスタンスを選択してください"
 msgid "Select a monitor template for %s"
 msgstr "%s 用のモニターテンプレートの選択"
 
-msgid "Select a name for your network."
-msgstr "ネットワークの名前を選択してください。"
-
 msgid "Select a new agent"
 msgstr "新しいエージェントを選択してください"
 
@@ -7959,22 +6065,8 @@ msgstr "プレビューするスタックのテンプレートを選択してく
 msgid "Select a new template to re-launch a stack."
 msgstr "スタックの再起動に使うテンプレートを選択してください"
 
-msgid "Select a plugin and version for a new Cluster template."
-msgstr ""
-"作成するクラスターテンプレートで使用するプラグインとバージョンを選択してくだ"
-"さい。"
-
-msgid "Select a plugin and version for a new Cluster."
-msgstr "新しいクラスターで使用するプラグインとバージョンを選択してください。"
-
-msgid "Select a plugin and version for the new Node Group template."
-msgstr "新規ノードグループテンプレートのプラグインとバージョンを選択します。"
-
 msgid "Select a port"
 msgstr "ポートを選択してください"
-
-msgid "Select a pre-defined period or specify date."
-msgstr "定義済みの期間を選択するか、日付を指定してください。"
 
 msgid "Select a profile"
 msgstr "プロファイルを選択してください"
@@ -7987,9 +6079,6 @@ msgstr "移動先ホストを選択してください"
 
 msgid "Select a template to launch a stack."
 msgstr "スタックの起動に使うテンプレートを選択してください"
-
-msgid "Select a volume to restore to."
-msgstr "リストア先のボリュームを選択してください。"
 
 msgid "Select an IP address"
 msgstr "IP アドレスを選択してください"
@@ -8037,9 +6126,6 @@ msgid "Select plugin and hadoop version for cluster template"
 msgstr ""
 "クラスターテンプレートのプラグインと Hadoop バージョンを選択してください"
 
-msgid "Select property name"
-msgstr "プロパティー名を選択してください"
-
 msgid "Select routers for your firewall."
 msgstr "ファイアウォールを適用するルーターを選択してください。"
 
@@ -8054,15 +6140,6 @@ msgid ""
 "port."
 msgstr "選択されたインスタンスかポートに割り当てる IP アドレスを選択します。"
 
-msgid "Select the image to rebuild your instance."
-msgstr "インスタンスの再作成に使うフレーバーを選択してください。"
-
-msgid "Select the network for interface attaching."
-msgstr "インターフェースを接続するネットワークを選択してください。"
-
-msgid "Select the port to detach."
-msgstr "切り離すポートを選択してください。"
-
 msgid ""
 "Select the projects where the flavors will be used. If no projects are "
 "selected, then the flavor will be available in all projects."
@@ -8070,49 +6147,14 @@ msgstr ""
 "このフレーバーを使用するプロジェクトを選択してください。どのプロジェクトも選"
 "択されていない場合、すべてのプロジェクトがこのフレーバーを利用できます。"
 
-msgid "Select the storage type for your job binary."
-msgstr "ジョブバイナリーのストレージ種別を選択してください。"
-
-msgid "Select the type of your Data Source."
-msgstr "データソース種別を選択してください。"
-
-msgid "Select the type of your job:"
-msgstr "ジョブの種別を選択してください。"
-
-msgid "Select type"
-msgstr "種別の選択"
-
-msgid ""
-"Select which plugin and version that you\n"
-"    want to use to create your cluster."
-msgstr "クラスターの作成に使用するプラグインとバージョンを選択します。"
-
-msgid ""
-"Select which type of job that you want to run.\n"
-"      This choice will dictate which steps are required to successfully\n"
-"      execute your job.\n"
-"    "
-msgstr ""
-"実行するジョブの種別を選択します。この選択により、ジョブを正常に実行するため"
-"に必要なステップが決定されます。"
-
 msgid "Selected Hosts"
 msgstr "選択されたホスト"
 
 msgid "Selected Projects"
 msgstr "選択済みのプロジェクト"
 
-msgid "Selected Routers"
-msgstr "選択済みルーター"
-
-msgid "Selected Rules"
-msgstr "選択済みのルール"
-
 msgid "Selected hosts"
 msgstr "選択されたホスト"
-
-msgid "Selected networks"
-msgstr "選択済みネットワーク"
 
 msgid "Sensor Current Reading"
 msgstr "センサーの現在の測定値"
@@ -8204,9 +6246,6 @@ msgctxt "Task status of an Instance"
 msgid "Shelving Offloading"
 msgstr "退避インスタンスのオフロード中"
 
-msgid "Show full configuration"
-msgstr "詳細設定を表示する"
-
 msgctxt "Power state of an Instance"
 msgid "Shut Down"
 msgstr "シャットダウン済み"
@@ -8257,9 +6296,6 @@ msgstr "GB 単位のボリュームサイズ"
 msgid "Size of volume"
 msgstr "ボリュームサイズ"
 
-msgid "Size: "
-msgstr "サイズ："
-
 msgid "Slash is not an allowed character."
 msgstr "スラッシュ (/) は使用できません。"
 
@@ -8268,9 +6304,6 @@ msgid ""
 msgstr ""
 "スラッシュを使うことができます。オブジェクトストアにより擬似フォルダーとして"
 "取り扱われます。"
-
-msgid "Small"
-msgstr "コンパクト"
 
 msgid "Snapshot"
 msgstr "スナップショット"
@@ -8295,9 +6328,6 @@ msgstr "スナップショットの作成に失敗"
 msgctxt "current status of stack"
 msgid "Snapshot In Progress"
 msgstr "スナップショット作成中"
-
-msgid "Snapshot Limits"
-msgstr "スナップショット上限"
 
 msgid "Snapshot Name"
 msgstr "スナップショット名"
@@ -8325,23 +6355,13 @@ msgid "Soft Rebooted Instance"
 msgid_plural "Soft Rebooted Instances"
 msgstr[0] "インスタンスのソフトリブートを行いました"
 
-msgid "Some flavors not meeting minimum image requirements have been disabled."
-msgstr ""
-"選択したイメージが必要とする条件を満たさないフレーバーは無効になっています。"
-
 msgid "Something went wrong!"
 msgstr "どこかがおかしくなりました！"
-
-msgid "Source"
-msgstr "送信元"
 
 msgid "Source CIDR"
 msgstr "送信元CIDR"
 
 msgid "Source IP"
-msgstr "送信元 IP アドレス"
-
-msgid "Source IP Address"
 msgstr "送信元 IP アドレス"
 
 msgid "Source IP Address/Subnet"
@@ -8368,9 +6388,6 @@ msgstr "送信元ポート ([1, 65535] の整数か a:b 形式の範囲)"
 msgid "Source username"
 msgstr "データソースのユーザー名"
 
-msgid "Source:"
-msgstr "送信元:"
-
 msgid "Spark"
 msgstr "Spark"
 
@@ -8383,13 +6400,6 @@ msgstr "スペック"
 
 msgid "Spec: {{ qos_spec_name }}"
 msgstr "スペック: {{ qos_spec_name }}"
-
-msgid ""
-"Specified User Name will be used by Data Processing to apply configs and "
-"manage processes on instances."
-msgstr ""
-"指定されたユーザー名は、設定を適用したり、インスタンス上のプロセスを管理した"
-"りするのに使用されます。"
 
 msgid ""
 "Specifies how IPv6 addresses and additional information are configured. We "
@@ -8428,36 +6438,15 @@ msgstr "仮想 IP の指定"
 msgid "Specify a free IP address from the selected subnet"
 msgstr "選択したサブネットの未使用の IP アドレスを指定してください"
 
-msgid "Specify a metadata definition namespace to import."
-msgstr "インポートする名前空間のメタデータ定義を指定します。"
-
-msgid "Specify a new flavor for the database instance."
-msgstr "データベースインスタンスの新しいフレーバーを指定します。"
-
 msgid "Specify additional attributes for the subnet."
 msgstr "サブネットの追加属性を指定します。"
-
-msgid "Specify advanced options to use when launching an instance."
-msgstr "インスタンス起動時に使用する高度な設定を行います。"
 
 msgid "Specify an IP address for the interface created (e.g. 192.168.0.254)."
 msgstr ""
 "作成するインタフェースの IP アドレスを指定できます (例: 192.168.0.254)。"
 
-msgid "Specify an image to upload to the Image Service."
-msgstr "イメージサービスにアップロードするイメージを指定します。"
-
 msgid "Specify member IP address"
 msgstr "メンバーの IP アドレスを指定"
-
-msgid "Specify the details for launching an instance."
-msgstr "インスタンスを起動するために詳細を指定します。"
-
-msgid "Specify the details for the database backup."
-msgstr "データベースバックアップの詳細を指定します。"
-
-msgid "Specify the new volume size for the database instance."
-msgstr "データベースインスタンスのボリュームの新しいサイズを指定します。"
 
 msgid ""
 "Specify this option to copy image data to the image service. If unspecified, "
@@ -8469,9 +6458,6 @@ msgstr ""
 
 msgid "Specs"
 msgstr "スペック"
-
-msgid "Stack Details"
-msgstr "スタックの詳細"
 
 msgid "Stack Details: {{ stack.stack_name }}"
 msgstr "スタックの詳細: {{ stack.stack_name }}"
@@ -8485,29 +6471,14 @@ msgstr "スタック ID"
 msgid "Stack Name"
 msgstr "スタック名"
 
-msgid "Stack Overview"
-msgstr "スタックの概要"
-
-msgid "Stack Parameters"
-msgstr "スタックのパラメーター"
-
-msgid "Stack Preview"
-msgstr "スタックのプレビュー"
-
 msgid "Stack Resource"
 msgstr "スタックリソース"
-
-msgid "Stack Resource ID"
-msgstr "スタックリソース ID"
 
 msgid "Stack Resource Type"
 msgstr "スタックリソース種別"
 
 msgid "Stack Resources"
 msgstr "スタックリソース"
-
-msgid "Stack Template"
-msgstr "スタックテンプレート"
 
 msgid "Stack creation started."
 msgstr "スタックの作成を開始しました。"
@@ -8520,9 +6491,6 @@ msgstr "スタックの更新を開始しました。"
 
 msgid "Stacks"
 msgstr "スタック"
-
-msgid "Start"
-msgstr "開始"
 
 msgctxt "Action log of an instance"
 msgid "Start"
@@ -8546,10 +6514,6 @@ msgstr "開始アドレスと終了アドレスを指定する必要がありま
 msgid "Start must be earlier than end of period."
 msgstr "開始日は終了日より前でなければいけません"
 
-msgctxt "Start time"
-msgid "Started"
-msgstr "開始時刻"
-
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "インスタンスを開始しました"
@@ -8570,9 +6534,6 @@ msgstr "静的ルート設定"
 
 msgid "Static route added"
 msgstr "静的ルートが追加されました"
-
-msgid "Statistics of all resources"
-msgstr "全リソースの統計情報"
 
 msgid "Stats"
 msgstr "統計情報"
@@ -8619,25 +6580,11 @@ msgstr "サブネット \"%s\" が正常に更新できました。"
 msgid "Subnet Details"
 msgstr "サブネットの詳細"
 
-msgid "Subnet ID"
-msgstr "サブネット ID"
-
 msgid "Subnet Name"
 msgstr "サブネット名"
 
-msgid "Subnet Overview"
-msgstr "サブネットの概要"
-
 msgid "Subnet list can not be retrieved."
 msgstr "サブネット一覧を取得できません。"
-
-#, python-format
-msgid "Subnet: %(dest_subnetname)s"
-msgstr "サブネット: %(dest_subnetname)s"
-
-#, python-format
-msgid "Subnet: %(row_source_subnetname)s"
-msgstr "サブネット: %(row_source_subnetname)s"
 
 msgid "Subnets"
 msgstr "サブネット"
@@ -8755,9 +6702,6 @@ msgstr "ボリュームスナップショットのステータスを \"%s\" に�
 msgid "Successfully updated volume status to \"%s\"."
 msgstr "ボリュームのステータスを \"%s\" に変更しました。"
 
-msgid "Sum."
-msgstr "合計値"
-
 msgid "Supported Versions"
 msgstr "対応バージョン"
 
@@ -8853,17 +6797,6 @@ msgstr "TCP"
 msgid "Tags"
 msgstr "タグ"
 
-msgid ""
-"Tags are used for filtering images suitable for each plugin and each Data "
-"Processing version.\n"
-"        To add required tags, select a plugin and a Data Processing version "
-"and click &quot;Add plugin tags&quot; button."
-msgstr ""
-"タグは、各プラグイン、各データ処理基盤のバージョンに適したイメージを絞り込む"
-"のに使用されます。\n"
-"必要なタグを追加するには、プラグインとデータ処理基盤のバージョンを選択して"
-"「プラグインタグの追加」をクリックしてください。"
-
 msgid "Target Host"
 msgstr "移動先ホスト"
 
@@ -8882,17 +6815,11 @@ msgstr "テンプレートファイル"
 msgid "Template Name"
 msgstr "テンプレート名"
 
-msgid "Template Overview"
-msgstr "テンプレートの概要"
-
 msgid "Template Source"
 msgstr "テンプレートの指定方法"
 
 msgid "Template URL"
 msgstr "テンプレート URL"
-
-msgid "Template not specified"
-msgstr "テンプレートは指定されていません"
 
 msgid "Terminate Instance"
 msgid_plural "Terminate Instances"
@@ -8900,13 +6827,6 @@ msgstr[0] "インスタンスの削除"
 
 msgid "Terminated instances are not recoverable."
 msgstr "削除されたインスタンスは元に戻すことはできません。"
-
-msgid ""
-"The \"Bootable\" flag specifies that this volume can be used to launch an "
-"instance."
-msgstr ""
-"「ブート可能」フラグは、このボリュームをインスタンスを起動するのに使用できる"
-"ことを指示するものです。"
 
 msgid "The \"from\" port number is invalid."
 msgstr "「下限」ポート番号が無効です。"
@@ -8919,7 +6839,6 @@ msgid ""
 "number."
 msgstr "「上限」ポート番号は「下限」ポート番号以上でなければいけません。"
 
-#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
@@ -8928,75 +6847,8 @@ msgstr ""
 "get_dvr_permission '%(feature)s' の 'operation' パラメーターが無効です。 "
 "%(allowed)s のいずれかでなければいけません。"
 
-msgid ""
-"The <strong>Cipher</strong> is the encryption algorithm/mode to use (e.g., "
-"aes-xts-plain64). If the field is left empty, the provider default will be "
-"used."
-msgstr ""
-"<strong>暗号</strong>は使用する暗号化アルゴリズムとモードです (例: aes-xts-"
-"plain64)。このフィールドを空欄にすると、プロバイダーのデフォルトが使用されま"
-"す。"
-
-msgid ""
-"The <strong>Control Location</strong> is the notional service where "
-"encryption is performed (e.g., front-end=Nova). The default value is 'front-"
-"end.'"
-msgstr ""
-"<strong>制御場所</strong>は暗号化が実施される場所です (例えば、フロントエンド"
-"は Nova のことです)。デフォルト値は「フロントエンド」です。"
-
-msgid ""
-"The <strong>Key Size</strong> is the size of the encryption key, in bits (e."
-"g., 128, 256). If the field is left empty, the provider default will be used."
-msgstr ""
-"<strong>キーサイズ</strong>は暗号鍵のビット単位のサイズです (例えば 128, "
-"256)。このフィールドを空欄にすると、プロバイダーのデフォルトが使用されます。"
-
-msgid ""
-"The <strong>Provider</strong> is the class providing encryption support (e."
-"g. LuksEncryptor)."
-msgstr ""
-"<strong>プロバイダー</strong>は暗号化対応を提供するクラスです (例: "
-"LuksEncryptor)。"
-
 msgid "The Aggregate was updated."
 msgstr "アグリゲートが更新されました。"
-
-msgid ""
-"The Authorization Key will not be available after closing this page, so you "
-"must capture it now, or else you will be unable to use the transfer."
-msgstr ""
-"認証キーはこのページを閉じると参照できなくなるので、必ず今記録してください。"
-"さもないと、作成した譲渡を使えなくなります。"
-
-msgid ""
-"The Cluster Template object may specify a list of processes in anti-affinity "
-"group.\n"
-"    That means these processes may not be launched more than once on a "
-"single host."
-msgstr ""
-"クラスターテンプレートでは anti-affinity グループでプロセスリストを指定できま"
-"す。\n"
-"これは、これらのプロセスが同時に 1 つのホストでは起動されないことを意味しま"
-"す。"
-
-msgid ""
-"The Cluster Template object should specify Node Group Templates that will be "
-"used to build a Cluster.\n"
-"    You can add Node Groups using Node Group Templates on a &quot;Node "
-"Groups&quot; tab."
-msgstr ""
-"クラスターテンプレートのオブジェクトでは、クラスターの作成に使用するノードグ"
-"ループテンプレートを指定する必要があります。\n"
-"また、「ノードグループ」タブでノードグループテンプレートを使用してノードグ"
-"ループを追加できます。"
-
-msgid ""
-"The Cluster object should specify OpenStack Image to boot instances for "
-"Cluster."
-msgstr ""
-"クラスターオブジェクトでは、クラスター用のインスタンスを起動するのに使う "
-"OpenStack イメージを指定する必要があります。"
 
 msgid "The ICMP code is invalid."
 msgstr "ICMP コードが無効です。"
@@ -9021,38 +6873,11 @@ msgstr ""
 "ポートが割り当てられたホストの ID。場合によっては、ホスト別に異なる実装を実行"
 "している可能性があります。"
 
-msgid ""
-"The Image Location field MUST be a valid and direct URL to the image binary. "
-"URLs that redirect or serve error pages will result in unusable images."
-msgstr ""
-"イメージの場所のフィールドは、イメージ（バイナリー）への有効かつ直接の URL を"
-"入力する必要があります。 URL がリダイレクトのページの場合や、エラーページが"
-"返ってきた場合には、登録されたイメージは使用できない可能性があります。"
-
 msgid "The JSON formatted contents of a namespace."
 msgstr "JSON 形式で書かれた名前空間の内容"
 
 msgid "The Key Pair name that was associated with the instance"
 msgstr "このインスタンスに関連付けられたキーペア名"
-
-msgid ""
-"The Node Group Template object specifies the processes\n"
-"        that will be launched on each instance. Check one or more "
-"processes.\n"
-"        When processes are selected, you may set <b>node</b> scoped\n"
-"        configurations on corresponding tabs."
-msgstr ""
-"ノードグループテンプレートオブジェクトは各インスタンスで起動されるプロセスを"
-"指定します。1 つまたは複数のプロセスをチェックしてください。プロセスが選択さ"
-"れたら、対応するタブで<b>ノード</b>を対象とする構成を設定することができます。"
-
-msgid ""
-"The Transfer ID and the Authorization Key are needed by the recipient in "
-"order to accept the transfer. Please capture both the Transfer ID and the "
-"Authorization Key and provide them to your transfer recipient."
-msgstr ""
-"譲渡を受理するには、譲渡先で譲渡 ID と認証キーが必要です。譲渡 ID と認証キー"
-"を記録し、譲渡を受ける人に伝えてください。"
 
 msgid "The VNIC type that is bound to the neutron port"
 msgstr "neutron ポートにバインドする VNIC の種別"
@@ -9068,31 +6893,6 @@ msgstr ""
 msgid "The admin password is incorrect."
 msgstr "管理者パスワードが正しくありません。"
 
-msgid ""
-"The chart below shows the resources used by this project in relation to the "
-"project's quotas."
-msgstr ""
-"下のグラフは、このプロジェクトで使用しているリソースを、プロジェクトのクォー"
-"タと対比して表示しています。"
-
-msgid ""
-"The color and icon of an intersection indicates whether or not traffic is "
-"permitted from the source (row) to the destination (column).\n"
-"     Clicking the <i class=\"fa fa-random\"></i> button in the intersection "
-"will install a rule to switch the traffic behavior.<br/>\n"
-"\n"
-"     <b>Note:</b> Rules only affect one direction of traffic. The opposite "
-"direction is outlined when hovering over an intersection.\n"
-" "
-msgstr ""
-"交点の色とアイコンは、送信元 (行) から宛先 (列) へのトラフィックが許可される"
-"かどうかを示します。\n"
-"交点の <i class=\"fa fa-random\"></i> ボタンをクリックすると、トラフィックの"
-"挙動を切り替えるルールが設定されます。</br>\n"
-"\n"
-"<b>注意:</b> ルールは一方向のトラフィックにのみ適用されます。交点にカーソルを"
-"合わせると、反対方向の設定の概要が表示されます。"
-
 msgid "The container cannot be deleted since it is not empty."
 msgstr "コンテナーが空ではないため、削除できません。"
 
@@ -9105,39 +6905,6 @@ msgstr ""
 
 msgid "The dates haven't been recognized"
 msgstr "日付が認識されていません"
-
-msgid ""
-"The default IP address of the interface created is a gateway of the selected "
-"subnet. You can specify another IP address of the interface here. You must "
-"select a subnet to which the specified IP address belongs to from the above "
-"list."
-msgstr ""
-"作成するインタフェースのデフォルトの IP アドレスは選択したサブネットのゲート"
-"ウェイアドレスになります。ここで別の IP アドレスを指定できます。また、指定し"
-"た IP アドレスが所属するサブネットを上にあるリストから選択しなければいけませ"
-"ん。"
-
-msgid ""
-"The first step is to determine which type of\n"
-"                    cluster you want to run.  You may have several choices\n"
-"                    available depending on the configuration of your "
-"system.\n"
-"                    Click on \"choose plugin\" to bring up the list of data\n"
-"                    processing plugins.  There you will be able to choose "
-"the\n"
-"                    data processing plugin along with the version number.\n"
-"                    Choosing this up front will allow the rest of the "
-"cluster\n"
-"                    creation steps to focus only on options that are "
-"pertinent\n"
-"                    to your desired cluster type."
-msgstr ""
-"まず最初に、実行するクラスターの種別を決定します。システムの構成に応じて複数"
-"の選択肢がある場合があります。「プラグインの選択」をクリックするとデータ処理"
-"プラグインの一覧が表示され、データ処理プラグインとバージョン番号を選択するこ"
-"とができます。 この設定をあらかじめ行っておくと、以降のクラスターの作成ステッ"
-"プでは、希望するクラスター種別に適切なオプションのみに集中することができま"
-"す。"
 
 #, python-format
 msgid ""
@@ -9154,14 +6921,6 @@ msgstr "インスタンスはホスト \"%s\" へのライブマイグレーシ�
 
 msgid "The instance password encrypted with your public key."
 msgstr "秘密鍵で暗号化されたインスタンスのパスワード"
-
-#, python-format
-msgid ""
-"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
-"not use the link below."
-msgstr ""
-"キーペア &quot;%(keypair_name)s&quot; が自動的にダウンロードされます。始まら"
-"なければ、以下のリンクを使用してください。"
 
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
@@ -9193,20 +6952,11 @@ msgid ""
 "implemented."
 msgstr "仮想ネットワークが作成される物理ネットワーク名。"
 
-msgid ""
-"The next hop addresses can be used to override the router used by the client."
-msgstr "ネクストホップを指定すると、ルーターの値を上書きできます。"
-
 msgid "The page you were looking for doesn't exist"
 msgstr "お探しのページが見つかりません"
 
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "仮想ネットワークを実現する物理方式"
-
-msgid ""
-"The private key will be only used in your browser and will not be sent to "
-"the server"
-msgstr "秘密鍵はブラウザー内でのみ使用され、サーバーには送信されません。"
 
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "擬似フォルダーが空ではないため、削除できません。"
@@ -9217,7 +6967,6 @@ msgstr "環境設定ファイルの生データ"
 msgid "The raw contents of the template."
 msgstr "テンプレートの内容。"
 
-#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -9288,9 +7037,6 @@ msgstr ""
 msgid "There are no meters defined yet."
 msgstr "まだ定義されたメーターがありません。"
 
-msgid "There are no networks, routers, or connected instances to display."
-msgstr "ネットワーク、ルーター、インスタンスがありません。"
-
 msgid ""
 "There is not enough capacity for this flavor in the selected availability "
 "zone. Try again later or select a different availability zone."
@@ -9306,32 +7052,8 @@ msgstr "名前空間の読み込み中に問題が発生しました。 %s"
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr "%(prefix)s の解析中に問題がありました: %(error)s"
 
-msgid "This Cluster Template will be created for:"
-msgstr "以下のプラグイン用のクラスターテンプレートを作成します。"
-
-msgid "This Cluster will be started with:"
-msgstr "このクラスターは以下のプラグインで開始されます。"
-
-msgid "This Node Group Template will be created for:"
-msgstr "以下のプラグイン用のノードグループテンプレートを作成します。"
-
 msgid "This action cannot be undone."
 msgstr "この操作は取り消せません。"
-
-msgid ""
-"This generates a pair of keys: a key you keep private (cloud.key) and a "
-"public key (cloud.key.pub). Paste the contents of the public key file here."
-msgstr ""
-"このコマンドを実行すると、鍵のペアが生成されます。秘密にしておく鍵 (cloud."
-"key) と公開鍵 (cloud.key.pub) です。公開鍵ファイルの内容をここに貼り付けてく"
-"ださい。"
-
-msgid ""
-"This is equivalent to the <tt>cinder qos-associate</tt> and <tt>cinder qos-"
-"disassociate</tt> commands."
-msgstr ""
-"これは <tt>cinder qos-associate</tt> および <tt>cinder qos-disassociate</tt> "
-"のコマンドに相当します。"
 
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
@@ -9340,9 +7062,6 @@ msgstr "スタックの生存期間全体を通して、各種操作の実行に
 
 msgid "This name is already taken."
 msgstr "この名前はすでに使用されています。"
-
-msgid "This pane needs javascript support."
-msgstr "JavaScript が有効になっている必要があります。"
 
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
@@ -9354,9 +7073,6 @@ msgstr ""
 
 msgid "Time"
 msgstr "時刻"
-
-msgid "Time Since Created"
-msgstr "作成後経過時間"
 
 msgid "Time Since Event"
 msgstr "イベントからの時間"
@@ -9385,20 +7101,6 @@ msgstr "ポート番号 (上限)"
 msgid "To date to must be greater than From date."
 msgstr "終了日は開始日より後でなければいけません"
 
-msgid ""
-"To decrypt your password you will need the private key of your key pair for "
-"this instance. Select the private key file, or copy and paste the content of "
-"your private key file into the text area below, then click Decrypt Password."
-msgstr ""
-"パスワードを復号するには、このインスタンスのキーペアの秘密鍵が必要です。秘密"
-"鍵ファイルを選択するか、秘密鍵の内容を下側のテキスト領域にコピーして貼り付け"
-"てから、パスワードの復号をクリックしてください。"
-
-msgid "To exit the fullscreen mode, click the browser's back button."
-msgstr ""
-"フルスクリーンモードを終了するには、ブラウザーの戻るボタンをクリックして下さ"
-"い。"
-
 msgid "To power off a specific instance."
 msgstr "指定したインスタンスの電源を停止します。"
 
@@ -9410,44 +7112,17 @@ msgstr ""
 "ループのすべてのメンバーからアクセスを許可するには、\"セキュリティーグループ"
 "\" を選択してください。"
 
-msgid "To:"
-msgstr "終了:"
-
 msgid "Topic"
 msgstr "トピック"
 
 msgid "Topology"
 msgstr "トポロジー"
 
-msgid "Total Active RAM (MB):"
-msgstr "使用中のメモリー合計量 (MB) :"
-
-msgid "Total Disk"
-msgstr "合計ディスク"
-
-msgid "Total Disk Size (GB):"
-msgstr "合計ディスクサイズ (GB) :"
-
-msgid "Total Disk Usage (Hours):"
-msgstr "合計ディスク使用量 (時間) :"
-
-msgid "Total Gigabytes"
-msgstr "合計ギガバイト"
-
-msgid "Total Memory Usage (Hours):"
-msgstr "合計メモリー使用量 (時間) :"
-
-msgid "Total RAM"
-msgstr "合計メモリー"
-
 msgid "Total Size of LUKS Volumes and Snapshots (GB)"
 msgstr "LUKS ボリュームとスナップショットの合計サイズ (GB)"
 
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "ボリュームとスナップショットの合計サイズ (GB)"
-
-msgid "Total VCPU Usage (Hours):"
-msgstr "合計仮想 CPU 使用量 (時間) :"
 
 msgid ""
 "Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
@@ -9484,10 +7159,6 @@ msgstr "データベースの種別とバージョン"
 msgid "Type of backend device identifier provided"
 msgstr "指定するバックエンドデバイスの識別子の種別"
 
-#, python-format
-msgid "Type: %(persistence_type)s"
-msgstr "種別: %(persistence_type)s"
-
 msgid "UDP"
 msgstr "UDP"
 
@@ -9512,12 +7183,6 @@ msgstr "UP"
 
 msgid "URL"
 msgstr "URL"
-
-msgid "URL Path"
-msgstr "URL パス"
-
-msgid "USERNAME"
-msgstr "USERNAME"
 
 msgid "UTC"
 msgstr "UTC"
@@ -10841,9 +8506,6 @@ msgstr "オブジェクトをアップロードできません。"
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "ボリューム %s をイメージにアップロードできません。"
 
-msgid "Undefined"
-msgstr "未定義"
-
 msgid "Unit"
 msgstr "単位"
 
@@ -10873,9 +8535,6 @@ msgstr "ボリュームの管理解除"
 msgid "Unmanage a Volume"
 msgstr "ボリュームの管理解除"
 
-msgid "Unnecessary tags may be removed by clicking a cross near tag's name."
-msgstr "不要なタグは、タグ名の近くの☓印をクリックすると削除できます。"
-
 msgctxt "Action log of an instance"
 msgid "Unpause"
 msgstr "一時停止解除"
@@ -10893,9 +8552,6 @@ msgid "Unrescuing"
 msgstr "アンレスキュー中"
 
 msgid "Unselect the router(s) to be removed from firewall."
-msgstr "ファイアウォールの適用を解除するルーターの選択を外してください。"
-
-msgid "Unselect the routers you want to disassociate from the firewall."
 msgstr "ファイアウォールの適用を解除するルーターの選択を外してください。"
 
 msgctxt "Task status of an Instance"
@@ -10988,15 +8644,6 @@ msgid "Update Volume Status"
 msgstr "ボリュームのステータスの変更"
 
 msgid ""
-"Update a stack with the provided values. Please note that any encrypted "
-"parameters, such as passwords, will be reset to default if you do not change "
-"them here."
-msgstr ""
-"スタックを指定した値で更新します。パスワードなどの、暗号化されるパラメーター"
-"は、ここで指定しなかった場合、デフォルト値にリセットされる点には注意してくだ"
-"さい。"
-
-msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
 "available at \"Subnet Details\" tab."
 msgstr ""
@@ -11018,14 +8665,6 @@ msgstr "このルーターの更新要求数"
 msgid "Update requests for this subnet"
 msgstr "このサブネットの更新要求数"
 
-#, python-format
-msgid "Update the \"extra spec\" value for \"%(key)s\""
-msgstr "「追加スペック」の \"%(key)s\" の値を更新します。"
-
-#, python-format
-msgid "Update the spec value for \"%(key)s\""
-msgstr "スペック \"%(key)s\" の値を更新します。"
-
 msgid "Updated"
 msgstr "更新日時"
 
@@ -11035,9 +8674,6 @@ msgstr "最終更新"
 #, python-format
 msgid "Updated subnet \"%s\"."
 msgstr "サブネット \"%s\" を更新しました。"
-
-msgid "Updated time"
-msgstr "更新日時"
 
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
@@ -11060,10 +8696,6 @@ msgstr "ファイルのアップロード"
 msgid "Upload Object"
 msgstr "オブジェクトのアップロード"
 
-#, python-format
-msgid "Upload Object To Container: %(container_name)s"
-msgstr "オブジェクトのコンテナー %(container_name)s へのアップロード"
-
 msgid "Upload Objects"
 msgstr "オブジェクトのアップロード"
 
@@ -11072,9 +8704,6 @@ msgstr "テンプレートのアップロード"
 
 msgid "Upload Volume to Image"
 msgstr "ボリュームをイメージにアップロード"
-
-msgid "Upload a new file"
-msgstr "新しいファイルをアップロード"
 
 msgid "Upload to Image"
 msgstr "イメージにアップロード"
@@ -11091,14 +8720,8 @@ msgstr "使用状況"
 msgid "Usage (Hours)"
 msgstr "使用状況 (時間)"
 
-msgid "Usage Overview"
-msgstr "使用状況"
-
 msgid "Usage Report"
 msgstr "使用状況レポート"
-
-msgid "Usage Report For Period:"
-msgstr "指定期間の使用状況 :"
 
 msgid "Use Server Default"
 msgstr "デフォルト設定を使用"
@@ -11115,29 +8738,8 @@ msgstr "anti-affinity グループを使用するプロセス:"
 msgid "Use image as a source"
 msgstr "イメージをソースとして使用する"
 
-msgid ""
-"Use one of the available template source options to specify the template to "
-"be used in creating this stack."
-msgstr ""
-"利用可能なテンプレートの指定方法のオプションから、このスタックの作成に使用す"
-"るテンプレートの指定方法を選択してください。"
-
-msgid ""
-"Use one of the available template source options to specify the template to "
-"be used in previewing this stack."
-msgstr ""
-"利用可能なテンプレートの指定方法のオプションから、このスタックのプレビューに"
-"使用するテンプレートの指定方法を選択してください。"
-
 msgid "Use snapshot as a source"
 msgstr "スナップショットをソースとして使用する"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "<span> %(used)s </span> / <span> %(available)s </span>  使用中"
-
-msgid "Used in Policy"
-msgstr "利用中のポリシー"
 
 msgid "User"
 msgstr "ユーザー"
@@ -11150,14 +8752,8 @@ msgstr "ユーザー \"%s\" を作成しました。"
 msgid "User %s has no role defined for that project."
 msgstr "ユーザー %s はこのプロジェクトではロールが定義されていません。"
 
-msgid "User Credentials"
-msgstr "ユーザー認証情報"
-
 msgid "User Credentials Details"
 msgstr "ユーザー認証情報の詳細"
-
-msgid "User Details"
-msgstr "ユーザーの詳細"
 
 msgid "User Details: {{ user.name }}"
 msgstr "ユーザーの詳細: {{ user.name }}"
@@ -11168,18 +8764,11 @@ msgstr "ユーザー ID"
 msgid "User Name"
 msgstr "ユーザー名"
 
-msgid "User Overview"
-msgstr "ユーザーの概要"
-
 msgid "User Settings"
 msgstr "ユーザー設定"
 
 msgid "User has been updated successfully."
 msgstr "ユーザーが正常に更新されました。"
-
-msgid "User has to choose a keypair to have access to clusters instances."
-msgstr ""
-"クラスターのインスタンスにアクセスするためのキーペアを選択してください。"
 
 #, python-format
 msgid "User name \"%s\" is already used."
@@ -11191,20 +8780,11 @@ msgstr "ユーザーのパスワードが正常に更新されました。"
 msgid "Username"
 msgstr "ユーザー名"
 
-msgid "Username (required)"
-msgstr "ユーザー名 (必須)"
-
 msgid "Users"
 msgstr "ユーザー"
 
-msgid "VCPU"
-msgstr "仮想 CPU"
-
 msgid "VCPU Hours"
 msgstr "仮想 CPU 時間"
-
-msgid "VCPU Usage"
-msgstr "仮想 CPU 使用量"
 
 msgid "VCPUs"
 msgstr "仮想 CPU"
@@ -11220,12 +8800,6 @@ msgstr "VDI - 仮想ディスクイメージ"
 
 msgid "VHD - Virtual Hard Disk"
 msgstr "VHD - 仮想ハードディスク"
-
-msgid "VIF Details"
-msgstr "VIF の詳細"
-
-msgid "VIF Type"
-msgstr "VIF の種別"
 
 msgid "VIP"
 msgstr "仮想 IP"
@@ -11246,14 +8820,8 @@ msgstr "VLAN"
 msgid "VMDK - Virtual Machine Disk"
 msgstr "VMDK - 仮想マシンディスク"
 
-msgid "VNIC Type"
-msgstr "VNIC の種別"
-
 msgid "VPN"
 msgstr "VPN"
-
-msgid "VPN Connections"
-msgstr "VPN 接続"
 
 msgid "VPN Service"
 msgstr "VPN サービス"
@@ -11289,22 +8857,8 @@ msgstr "値"
 msgid "Value (Avg)"
 msgstr "値 (平均)"
 
-msgid "Value:"
-msgstr "値:"
-
 msgid "Version"
 msgstr "バージョン"
-
-msgid "Version:"
-msgstr "バージョン:"
-
-#, python-format
-msgid ""
-"Version: %(version_info)s\n"
-"      "
-msgstr ""
-"バージョン: %(version_info)s\n"
-"      "
 
 msgid "View Container"
 msgstr "コンテナーの表示"
@@ -11318,23 +8872,14 @@ msgstr "詳細の表示"
 msgid "View Extra Specs"
 msgstr "追加スペックの表示"
 
-msgid "View Full Log"
-msgstr "すべてのログの表示"
-
 msgid "View Log"
 msgstr "ログの参照"
 
 msgid "View Usage"
 msgstr "使用状況の表示"
 
-msgid "View Usage Report"
-msgstr "使用状況レポートの表示"
-
 msgid "Virtual Private Network"
 msgstr "仮想プライベートネットワーク"
-
-msgid "Virtual Size"
-msgstr "仮想サイズ"
 
 msgid "Volume"
 msgstr "ボリューム"
@@ -11343,44 +8888,17 @@ msgstr "ボリューム"
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr "インスタンス %(instance_name)s のボリューム %(volume_name)s"
 
-msgid "Volume (Cinder)"
-msgstr "ボリューム (Cinder)"
-
 msgid "Volume Backup"
 msgstr "ボリュームのバックアップ"
-
-msgid "Volume Backup Details"
-msgstr "ボリュームバックアップの詳細"
 
 msgid "Volume Backup Details: {{ backup.name }}"
 msgstr "ボリュームバックアップの詳細: {{ backup.name }}"
 
-#, python-format
-msgid "Volume Backup Overview: %(backup_display_name)s"
-msgstr "ボリュームバックアップの概要: %(backup_display_name)s"
-
-msgid "Volume Backup:"
-msgstr "ボリュームのバックアップ:"
-
 msgid "Volume Backups"
 msgstr "ボリュームバックアップ"
 
-msgid ""
-"Volume Backups are stored using the Object Storage service. You must have "
-"this service activated in order to create a backup."
-msgstr ""
-"ボリュームバックアップはオブジェクトストレージサービスを使って格納されます。"
-"バックアップを作成するには、オブジェクトストレージサービスを有効しなければい"
-"けません。"
-
-msgid "Volume Details"
-msgstr "ボリュームの詳細"
-
 msgid "Volume Details: {{ volume.name }}"
 msgstr "ボリュームの詳細: {{ volume.name }}"
-
-msgid "Volume Encryption Details"
-msgstr "ボリュームの暗号化の詳細"
 
 #, python-format
 msgid "Volume Encryption Details: %(volume_name)s"
@@ -11389,17 +8907,8 @@ msgstr "ボリュームの暗号化の詳細: %(volume_name)s"
 msgid "Volume Encryption Details: {{ volume.name }}"
 msgstr "ボリュームの暗号化の詳細: {{ volume.name }}"
 
-msgid "Volume Encryption Overview"
-msgstr "ボリュームの暗号化の概要"
-
-msgid "Volume Limits"
-msgstr "ボリュームの制限"
-
 msgid "Volume Name"
 msgstr "ボリューム名"
-
-msgid "Volume Overview"
-msgstr "ボリュームの概要"
 
 msgid "Volume Size"
 msgstr "ボリュームサイズ"
@@ -11407,14 +8916,8 @@ msgstr "ボリュームサイズ"
 msgid "Volume Snapshot"
 msgstr "ボリュームのスナップショット"
 
-msgid "Volume Snapshot Details"
-msgstr "ボリュームのスナップショットの詳細"
-
 msgid "Volume Snapshot Details: {{ snapshot.name }}"
 msgstr "ボリュームのスナップショットの詳細: {{ snapshot.name }}"
-
-msgid "Volume Snapshot Overview"
-msgstr "ボリュームのスナップショットの概要"
 
 msgid "Volume Snapshots"
 msgstr "ボリュームのスナップショット"
@@ -11437,26 +8940,6 @@ msgstr "ボリューム種別"
 msgid "Volume Type Encryption Details"
 msgstr "ボリューム種別の暗号化設定の詳細"
 
-msgid "Volume Type Encryption Overview"
-msgstr "ボリューム種別の暗号化設定の概要"
-
-msgid "Volume Type Extra Specs"
-msgstr "ボリューム種別の追加スペック"
-
-msgid "Volume Type Name"
-msgstr "ボリューム種別名"
-
-msgid "Volume Type is Unencrypted."
-msgstr "このボリューム種別は暗号化されません。"
-
-#, python-format
-msgid "Volume Type: %(volume_type_name)s"
-msgstr "ボリューム種別: %(volume_type_name)s"
-
-#, python-format
-msgid "Volume Type: %(volume_type_name)s "
-msgstr "ボリューム種別: %(volume_type_name)s"
-
 msgid "Volume Types"
 msgstr "ボリューム種別"
 
@@ -11467,9 +8950,6 @@ msgid ""
 msgstr ""
 "ボリュームを %(req)iGB に拡張することができません。利用できるクォータは "
 "%(avail)iGB しかありません。"
-
-msgid "Volume is Unencrypted"
-msgstr "ボリュームは暗号化されていません。"
 
 msgid ""
 "Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
@@ -11529,20 +9009,11 @@ msgstr "ボリューム種別名を空にすることはできません"
 msgid "Volumes"
 msgstr "ボリューム"
 
-msgid "Volumes Attached"
-msgstr "接続されているボリューム"
-
 msgid "Volumes Availability Zone"
 msgstr "ボリュームアベイラビリティゾーン"
 
-msgid "Volumes are block devices that can be attached to instances."
-msgstr "ボリュームは、インスタンスに接続できるブロックデバイスです。"
-
 msgid "Volumes per node"
 msgstr "ノード当たりのボリューム数"
-
-msgid "Volumes size"
-msgstr "ボリュームサイズ"
 
 msgid "Volumes size (GB)"
 msgstr "ボリュームサイズ (GB)"
@@ -11553,22 +9024,6 @@ msgstr "重み"
 msgid "Which keypair to use for authentication."
 msgstr "認証に使用するキーペアを選択してください。"
 
-msgid ""
-"Within a container you can group your objects into pseudo-folders, which "
-"behave similarly to folders in your desktop operating system, with the "
-"exception that they are virtual collections defined by a common prefix on "
-"the object's name. A slash (/) character is used as the delimiter for pseudo-"
-"folders in the Object Store."
-msgstr ""
-"コンテナーの中では、オブジェクトを擬似フォルダーの中にまとめることができま"
-"す。これはデスクトップ OS のフォルダーと同じようなものです。オブジェクトの名"
-"前において、共通の接頭辞をつけることにより定義される仮想的なものです。スラッ"
-"シュ (/) 文字がオブジェクトストアにおいて擬似フォルダーの区切り文字として使用"
-"されます。"
-
-msgid "Worker Node Group Template:"
-msgstr "ワーカーノードグループテンプレート:"
-
 msgid "Yes"
 msgstr "はい"
 
@@ -11577,63 +9032,6 @@ msgstr "すでに利用可能な Floating IP 数を使い切っています。"
 
 msgid "You are already using all of your available volumes."
 msgstr "すでに利用可能なボリューム数を使い切っています。"
-
-msgid ""
-"You are now ready to\n"
-"                        launch your cluster.  When you click on the link\n"
-"                        below, you will need to give your cluster a name,\n"
-"                        choose the Cluster Template to use and choose which\n"
-"                        image to use to build your instances.  After you\n"
-"                        click on \"Create\", your instances will begin to\n"
-"                        spawn.  Your cluster should be operational in a few\n"
-"                        minutes."
-msgstr ""
-"これでクラスターを起動できる準備が整いました。以下のリンクをクリックして、ク"
-"ラスターの名前を指定し、使用するクラスターテンプレートとインスタンスのビルド"
-"に使用するイメージを選択する必要があります。「作成」をクリックした後には、イ"
-"ンスタンスの起動が開始します。クラスターは数分後には稼働状態となるはずです。"
-
-msgid ""
-"You can connect a specified external network to the router. The external "
-"network is regarded as a default route of the router and the router acts as "
-"a gateway for external connectivity."
-msgstr ""
-"指定した外部ネットワークをルーターに接続できます。外部ネットワークはルーター"
-"のデフォルトルートとして扱われます。また、ルーターは外部接続用のゲートウェイ"
-"として動作します。"
-
-msgid "You can connect a specified subnet to the router."
-msgstr "指定したサブネットをルーターに接続できます。"
-
-msgid ""
-"You can create a port for the network. If you specify device ID to be "
-"attached, the device specified will be attached to the port created."
-msgstr ""
-"ネットワークのポートを作成できます。接続するデバイス ID を指定すると、指定し"
-"たデバイスが作成されたポートに接続されます。"
-
-msgid ""
-"You can customize your instance after it has launched using the options "
-"available here."
-msgstr ""
-"ここにあるオプションを使って、インスタンス起動後にインスタンスをカスタマイズ"
-"することができます。"
-
-msgid ""
-"You can perform an incremental backup by specifying a parent backup. "
-"<strong>However,</strong> not all databases support incremental backups in "
-"which case this operation will result in an error."
-msgstr ""
-"親バックアップを指定することで差分バックアップを行うことができます。<strong>"
-"ただし</strong>、すべてのデータベースが差分バックアップに対応しているわけでは"
-"なく、その場合にはこのバックアップ操作はエラーになります。"
-
-msgid ""
-"You can specify the desired rule template or use custom rules, the options "
-"are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
-msgstr ""
-"希望のルールテンプレートを指定するか、カスタムルールを設定することができま"
-"す。カスタムルールには TCP、UDP、ICMP  ルールがあります。"
 
 msgid "You cannot disable the user you are currently logged in as."
 msgstr "現在ログインしているユーザーを無効化できません。"
@@ -11668,28 +9066,10 @@ msgstr ""
 "ラーで表示されていると思われる場合には、担当のプロジェクトマネージャーにお問"
 "い合わせください。"
 
-msgid "You may also add any custom tag."
-msgstr "任意のカスタムタグを追加できます。"
-
-msgid "You may also enter an optional description for your Data Source."
-msgstr "またオプションで、データソースの説明を入力することもできます。"
-
-msgid "You may also enter an optional description for your job binary."
-msgstr "またオプションで、ジョブバイナリーの説明を入力することもできます。"
-
-msgid "You may also enter an optional description for your job template."
-msgstr "またオプションで、ジョブテンプレートの説明を入力することもできます。"
-
 msgid "You may have mistyped the address or the page may have moved."
 msgstr ""
 "入力したアドレスが間違っているか、またはそのページが移動された可能性がありま"
 "す。"
-
-msgid "You may need to enter the username and password for your Data Source."
-msgstr "データソースのユーザー名とパスワードを入力する必要があります。"
-
-msgid "You may optionally set a password on the rebuilt instance."
-msgstr "追加で、再作成するインスタンスのパスワードを設定することができます。"
 
 msgid ""
 "You may reset the gateway later by using the set gateway action, but the "
@@ -11697,75 +9077,6 @@ msgid ""
 msgstr ""
 "「ゲートウェイの設定」で再度ゲートウェイを設定することはできますが、ゲート"
 "ウェイ側の IP アドレスが変更される可能性があります。"
-
-msgid "You may set <b>cluster</b> scoped configurations on corresponding tabs."
-msgstr "対応するタブで<b>クラスター</b>毎の設定を行うことができます。"
-
-msgid "You may update IKE Policy details here."
-msgstr "IKE ポリシーの詳細をここから更新できます。"
-
-msgid "You may update IPSec Policy details here."
-msgstr "IPSec ポリシーの詳細をここから更新できます。"
-
-msgid "You may update IPSec Site Connection details here."
-msgstr "IPSec サイト間接続の詳細をここから更新できます。"
-
-msgid ""
-"You may update VIP attributes here: edit name, description, pool, session "
-"persistence, connection limit  or admin state."
-msgstr ""
-"仮想 IP の属性を更新できます。名前、説明、プール、セッション永続性、最大接続"
-"数、管理状態を編集できます。"
-
-msgid "You may update VPN Service details here."
-msgstr "VPN サービスの詳細をここから更新できます。"
-
-msgid "You may update firewall details here."
-msgstr "ファイアウォールの詳細をここから更新できます。"
-
-msgid ""
-"You may update health monitor attributes here: edit delay, timeout, max "
-"retries  or admin state."
-msgstr ""
-"ヘルスモニターの属性をここから更新できます。遅延、タイムアウト、最大試行回"
-"数、管理状態を編集できます。"
-
-msgid ""
-"You may update member attributes here: edit pool, weight or admin state."
-msgstr ""
-"メンバーの属性をここから更新できます。プール、重み、管理状態を編集できます。"
-
-msgid ""
-"You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
-"instead to insert or remove a rule"
-msgstr ""
-"ポリシーの詳細をここから更新できます。ルールの挿入、削除はここではなく「ルー"
-"ルの挿入」「ルールの削除」を使ってください。"
-
-msgid ""
-"You may update pool attributes here: edit name, description, load balancing "
-"method or admin state."
-msgstr ""
-"プールの属性を更新します。名前、説明、負荷分散方式、管理状態を変更できます。"
-
-msgid "You may update rule details here."
-msgstr "ルールの詳細をここから更新できます。"
-
-msgid "You may update the editable properties of your network here."
-msgstr "ネットワークの編集可能なプロパティーをここから更新できます。"
-
-msgid "You may update the editable properties of your port here."
-msgstr "ポートの編集可能なプロパティーをここから更新できます。"
-
-msgid "You may update the editable properties of your router here."
-msgstr "ルーターの変更可能な属性を更新できます。"
-
-msgid ""
-"You must choose a flavor to determine the size (VCPUs, memory and storage) "
-"of all launched VMs."
-msgstr ""
-"起動する全仮想マシンのサイズ (仮想 CPU、メモリー、ストレージ) を決定するため"
-"のフレーバーを選択する必要があります。"
 
 msgid "You must select a datastore type and version."
 msgstr "データベースの種別とバージョンを選択してください。"
@@ -11792,19 +9103,6 @@ msgid "You must specify at least one database if you create a user."
 msgstr ""
 "ユーザーを作成する場合、少なくとも 1 つデータベースを指定しなければいけませ"
 "ん。"
-
-msgid ""
-"You must specify the source of the traffic to be allowed via this rule. You "
-"may do so either in the form of an IP address block (CIDR) or via a source "
-"group (Security Group). Selecting a security group as the source will allow "
-"any other instance in that security group access to any other instance via "
-"this rule."
-msgstr ""
-"このルールにより許可される通信のソースを指定する必要があります。IP アドレスブ"
-"ロック (CIDR) またはソースグループ (セキュリティーグループ) で指定します。接"
-"続元としてセキュリティーグループを選択すると、そのセキュリティーグループに所"
-"属するすべてのインスタンスが、このルールが適用されるすべてのインスタンスにア"
-"クセスできるようになります。"
 
 #, python-format
 msgid "Your image %s has been queued for creation."
@@ -11841,9 +9139,6 @@ msgstr "両方"
 msgid "clear"
 msgstr "clear"
 
-msgid "console is currently unavailable. Please try again later."
-msgstr "コンソールが現在利用できません。後からもう一度お試しください。"
-
 msgid "disabled"
 msgstr "disabled"
 
@@ -11873,9 +9168,6 @@ msgstr "hold"
 
 msgid "instance"
 msgstr "インスタンス"
-
-msgid "no processes"
-msgstr "指定されたプロセスはありません"
 
 msgid "pseudo-folder"
 msgstr "擬似フォルダー"

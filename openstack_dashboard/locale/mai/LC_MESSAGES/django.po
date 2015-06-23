@@ -1,175 +1,23 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Translations template for PROJECT.
+# Copyright (C) 2015 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
 #
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-15 19:53-0500\n"
-"PO-Revision-Date: 2015-06-15 20:57+0000\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2015-06-23 01:20+0000\n"
+"PO-Revision-Date: 2015-06-23 01:20+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Maithili (http://www.transifex.com/projects/p/horizon/"
 "language/mai/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.3\n"
 "Language: mai\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-#, python-format
-msgid ""
-"\n"
-"            <a href=\"%(volume_url)s\">%(volume_label)s</a> on "
-"%(volume_device)s\n"
-"            "
-msgstr ""
-"\n"
-"            %(volume_device)s पर <a href=\"%(volume_url)s\">"
-"%(volume_label)s</a> \n"
-"            "
-
-#, python-format
-msgid ""
-"\n"
-"        Other IPv6 modes: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode="
-"%(addr_mode)s\n"
-"        "
-msgstr ""
-"\n"
-"        आन IPv6 मोड: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode="
-"%(addr_mode)s\n"
-"        "
-
-msgid ""
-"\n"
-"      Volume type is a type or label that can be selected at volume "
-"creation\n"
-"      time in OpenStack. It usually maps to a set of capabilities of the "
-"storage\n"
-"      back-end driver to be used for this volume. Examples: \"Performance"
-"\",\n"
-"      \"SSD\", \"Backup\", etc. This is equivalent to the\n"
-"      <tt>cinder type-create</tt> command. Once the volume type gets "
-"created,\n"
-"      click the \"View Extra Specs\" button to set up extra specs key-value\n"
-"      pair(s) for that volume type.\n"
-"     "
-msgstr ""
-"\n"
-"      वाल्यूम प्रकार एकगोट टाइप या लेबल होइछ जे जकरा वाल्यूम निर्माण समय पर चुनल "
-"जाइछ\n"
-"      ओपनस्टैक मे. ई भंडारणक वैकेंड ड्राइवर क्षमताक सेट करबामे मैप कएल जाइछ\n"
-"      जकरा इ वाल्यूमक लेल प्रयोग कएल जाए. उदाहरण: \"Performance\",\n"
-"      \"SSD\", \"Backup\", etc. This is equivalent to the\n"
-"      <tt>cinder type-create</tt> command. Once the volume type gets "
-"created,\n"
-"      click the \"View Extra Specs\" button to set up extra specs key-value\n"
-"      pair(s) for that volume type.\n"
-"     "
-
-msgid ""
-"\n"
-"    Each QoS Specs entity will have a \"Consumer\" value which indicates "
-"where the\n"
-"    administrator would like the QoS policy to be enforced. This value can "
-"be \"front-end\"\n"
-"    (Nova Compute), \"back-end\" (Cinder back-end), or \"both\".\n"
-"    "
-msgstr ""
-"\n"
-"    प्रत्येक QoS विनिर्देश एकाइ मे एकटा \"Consumer\" मान हाएत जे ई देखाबैत अछि जे\n"
-"    व्यवस्थापक QoS नीति केँ कतए लागू कएनाइ चाहैत अछि. ई मान \"front-end\"\n"
-"    (Nova Compute), \"back-end\" (Cinder back-end), अथवा \"both\" भ' सकैत "
-"अछि.\n"
-"    "
-
-msgid ""
-"\n"
-"    The status of a volume is normally managed automatically.  In some "
-"circumstances an\n"
-"    administrator may need to explicitly update the status value.  This is "
-"equivalent to\n"
-"    the <tt>cinder reset-state</tt> command.\n"
-"    "
-msgstr ""
-"\n"
-"    वाल्यूमक स्थिति अपने प्रबंधित कएल जाइछ सामान्यतः. किछु स्थिति मे\n"
-"    प्रशासककेँ स्थिित मानकेँ विशेष रूपेँ अद्यतन करबाक जरूरत होइछ.  ई\n"
-"    <tt>cinder reset-state</tt> कमांडक बराबर होइछ.\n"
-"    "
-
-msgid ""
-"\n"
-"    The status of a volume snapshot is normally managed automatically.  In "
-"some circumstances\n"
-"    an administrator may need to explicitly update the status value. This is "
-"equivalent to\n"
-"    the <tt>cinder snapshot-reset-state</tt> command.\n"
-"    "
-msgstr ""
-"\n"
-"    वाल्यूम स्नैपशाटक स्थिति अपने प्रबंधित होइछ.  किछु स्थितिमे\n"
-"    प्रशासककेँ स्थिति मानकेँ विशेष रूपेँ अद्यतन करबाक जरूरत होइछ. ई\n"
-"    <tt>cinder snapshot-reset-state</tt> कमांडक बराबर होइछ.\n"
-"    "
-
-msgid ""
-"\n"
-"  Move networks from 'Available Networks' to 'Selected Networks' by\n"
-"  clicking the button, or dragging and dropping. You can change the\n"
-"  NIC order by dragging and dropping as well.\n"
-"  "
-msgstr ""
-"\n"
-"  बटन पर क्लिक कएक अथवा ड्रैग आओर ड्रॉप करब संजाल केँ 'मोजुद संजाल' सँ \n"
-"  'चयनित संजाल' मे स्थानांतरित करू. अहाँ ड्रैग आओर ड्रॉप कएक \n"
-"  NIC ऑर्डर केँ सेहो बदैल सकैत अछि.\n"
-"  "
-
-msgid " - End"
-msgstr " - अंत"
-
-msgid " : Next hop"
-msgstr ": अगिला हॉप"
-
-msgid " Done"
-msgstr "संपन्न"
-
-msgid ""
-" Segment Ranges are 1-4093 for VLAN and above 5000 for Enhanced-VXLAN "
-"Overlay."
-msgstr ""
-"अनुभाग परिसर केँ VLAN क लेल आओर 5000 सँ उप्पर बढ़ाएल  VXLAN ओवरले क लेल 1-4093 अछि."
-
-msgid " Segment types available are VLAN, Overlay and Trunk."
-msgstr "मोजुद अनुभाग प्रकार VLAN, ओवरले आओर धड़ अछि."
-
-msgid " Select a name for your network profile."
-msgstr "अपन संजाल प्रोफाइल क लेल एकटा नाम क चयन करू."
-
-msgid ""
-" Sub types available are for the Overlay and Trunk segments. Available sub-"
-"types for Overlay are: Native-VXLAN, Enhanced-VXLAN or 'Other' (eg. GRE) "
-"which can be manually inputed as a text parameter for subtype. Available sub-"
-"type for Trunk is: VLAN."
-msgstr ""
-"मोजुद उप प्रकार ओवरले आओर धड़ क्षेत्र क लेल कए रहल अछि. ओवरले क लेल मोजुद उप प्रकार अछि: "
-"देशी-VXLAN, बढ़ाएल  VXLAN अथवा मैन्युअल उप क लेल एकटा पाठ पैरामीटर क रूपेँ inputed कएल "
-"जाए सकैत अछि जे 'आन' (जहिना जीआरई). ट्रंक क लेल मोजुद उप प्रकार अछि: VLAN."
-
-msgid ""
-"\"Customization Script\" is analogous to \"User Data\" in other systems."
-msgstr "\"मनपसिन्नकरण स्क्रिप्ट\" आन सिस्टम मे \"प्रयोक्ता डाटा\" क सदृश अछि."
-
-#, python-format
-msgid "%(conf_name)s: %(conf_val)s"
-msgstr "%(conf_name)s: %(conf_val)s"
-
-#, python-format
-msgid "%(conf_name)s: %(conf_value)s"
-msgstr "%(conf_name)s: %(conf_value)s"
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -180,16 +28,8 @@ msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
 msgstr "%(field_name)s: अमान्य आईपी पता (मान=%(network)s)"
 
 #, python-format
-msgid "%(group)s:"
-msgstr "%(group)s:"
-
-#, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
-
-#, python-format
-msgid "%(key)s: %(val)s"
-msgstr "%(key)s: %(val)s"
 
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
@@ -199,18 +39,9 @@ msgstr "%(name)s - %(size)s GB (%(label)s)"
 msgid "%(name)s | %(RAM)s RAM"
 msgstr "%(name)s | %(RAM)s RAM"
 
-#. Translators:  UTC offset and timezone label
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
-
-#, python-format
-msgid "%(resource_status)s: %(resource_status_reason)s"
-msgstr "%(resource_status)s: %(resource_status_reason)s"
-
-#, python-format
-msgid "%(stack_status_title)s: %(stack_status_reason)s"
-msgstr "%(stack_status_title)s: %(stack_status_reason)s"
 
 #, python-format
 msgid "%(type)s (%(backend)s backend)"
@@ -236,7 +67,6 @@ msgstr "%(used)s %(key)s प्रयुक्त"
 msgid "%s (Default)"
 msgstr "%s (पूर्वनिर्धारित)"
 
-#. Translators: The usage is "<UUID of ext_net> (Not Found)"
 #, python-format
 msgctxt "External network not found"
 msgid "%s (Not Found)"
@@ -278,9 +108,6 @@ msgstr ", परियोजना समूह क अद्यतन करू
 msgid "-"
 msgstr "-"
 
-msgid "--"
-msgstr "--"
-
 msgid "-- not selected --"
 msgstr "-- नहि चयनित --"
 
@@ -289,60 +116,6 @@ msgstr "VLAN क लेल 1-4093; ओवरले क लेल 5000 आओर 
 
 msgid "3des"
 msgstr "3des"
-
-msgid ""
-"<b>Important</b>:  The name that you give your job binary will be the name "
-"used in your job execution.\n"
-"  If your binary requires a particular name or extension (ie: \".jar\"), be "
-"sure to include it here."
-msgstr ""
-"<b>महत्वपूर्ण</b>:  जे नाम अहाँ अपन काज द्विपदीय केँ देत छी वोहै नाम क उपयोग अहाँक काज "
-"केर निष्पादन मे कएल जएताह.\n"
-"  जँ अहाँक द्विपदीय केँ एकटा विशेष नाम अथवा विस्तार (यानी: \".jar\") क आवश्यकता अछि "
-"तँ ओकरा एतए अवश्य शामिल करू."
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s MB Used</p>"
-msgstr "<p>%(used)s of %(quota)s MB उपयोग मे</p>"
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s Used</p>"
-msgstr "<p>%(used)s of %(quota)s उपयोग मे</p>"
-
-msgid ""
-"<strong>Please note:</strong> The new value must be greater than the "
-"existing volume size."
-msgstr ""
-"<strong>कृप्या  ध्यान दिअ':</strong> नव मान मोजुदा वाल्यूम आकार क तुलना मे पैघ होनाइ  "
-"चाही."
-
-msgid ""
-"<strong>Please note:</strong> The value specified in the Volume Size field "
-"should be greater than 0, however, some configurations do not support "
-"specifying volume size. If specifying the volume size results in an error "
-"stating volume support is not enabled, enter 0."
-msgstr ""
-"<strong>कृप्या  ध्यान दिअ':</strong> वाल्यूम आकार क्षेत्र मे निर्धारित मूल्य मुदा, किछु "
-"विन्यास मात्रा आकार निर्दिष्ट करबाक समर्थन नहि करैत, 0 सँ बेसी होनाइ चाही. मात्रा क "
-"समर्थन करैत हुए कहलक एकटा त्रुटि मे मात्रा आकार निर्दिष्ट कए रहल अछि सक्षम नहि अछि, तँ "
-"0 दर्ज करू."
-
-msgid ""
-"A container is a storage compartment for your data and provides a way for "
-"you to organize your data. You can think of a container as a folder in "
-"Windows &reg; or a directory in UNIX &reg;. The primary difference between a "
-"container and these other file system concepts is that containers cannot be "
-"nested. You can, however, create an unlimited number of containers within "
-"your account. Data must be stored in a container so you must have at least "
-"one container defined in your account prior to uploading data."
-msgstr ""
-"एकटा कंटेनर अपन डाटा क लेल एकटा भंडारण कम्पार्टमेंट अछि आओर अहाँ अपन डाटा केँ व्यवस्थित "
-"करब क लेल एकटा तरीका प्रदान करैत अछि. अहाँ विंडोज़ &reg; अथवा यूनिक्स &reg; मे एकटा "
-"निर्देशिका मे एकटा  फोल्डरक रूपेँ एकटा कंटेनर क संबंध मे सोच सकैत अछि;. एकटा कंटेनर आओर ई "
-"आन फाइल सिस्टम अवधारणाओं क बीच प्राथमिक अंतर कंटेनर नेस्ट नहि कएल जाए सकैत अछि.मुदा, "
-"अहाँ अपन खाता मे कंटेनर क एकटा असीमित सँख्या मे बनाए सकैत अछि. अहाँ पछिला डाटा अपलोड "
-"करबाक लेल अपन खाता मे परिभाषित कम सँ कम एकटा कंटेनर होनाइ आवश्यक अछि जाहिसँ डाटा "
-"एकटा कंटेनर मे संग्रहित कएल जएनाइ चाही."
 
 msgid "A image or external image location must be specified."
 msgstr "बिंब अथवा बाहरी बिंब स्थान निर्दिष्ट कएल जएनाइ चाही."
@@ -355,18 +128,6 @@ msgstr "अपलोड करबाक लेल स्थानीय बि�
 
 msgid "A local template to upload."
 msgstr "अपलोड करबाक लेल स्थानीय नमूना."
-
-msgid ""
-"A more specific rule affects a portion of this traffic so a rule cannot be "
-"automatically generated to control the behavior of the entire source/"
-"destination combination."
-msgstr ""
-"एकटा बेसी विशिष्ट नियम तँ एकटा नियम अपने पूरे स्रोत / गंतव्य संयोजन क व्यवहार केँ नियंत्रित "
-"करबाक लेल उत्पन्न नहि कएल जाए सकैत अछि एहि यातायात क एकटा हिस्सा केँ प्रभावित करैत "
-"अछि."
-
-msgid "A new uploaded file will replace the content of the current object"
-msgstr "नव अपलोड कएल गेल फाइल वर्तमान वस्तु क सामग्री क जगह लेताह"
 
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
@@ -412,12 +173,6 @@ msgstr "ARI - अमेजन रैमडिस्क बिंब"
 msgid "Access & Security"
 msgstr "पहुँच आओर सुरक्षा"
 
-msgid "Access &amp; Security"
-msgstr "पहुँच &amp;  सुरक्षा"
-
-msgid "Access: "
-msgstr "अभिगम: "
-
 msgid "Action"
 msgstr "क्रिया"
 
@@ -426,9 +181,6 @@ msgstr "कार्रवाई लाग"
 
 msgid "Action for the firewall rule"
 msgstr "फायरवाल नियम क लेल कार्रवाई"
-
-msgid "Action:"
-msgstr "कार्रवाई:"
 
 msgctxt "Current status of a Database Instance"
 msgid "Active"
@@ -494,9 +246,6 @@ msgstr "DHCP प्रतिनिधि जोड़ू"
 msgid "Add Firewall"
 msgstr "फायरवाल जोड़ू"
 
-msgid "Add Group Assignment"
-msgstr "समूह कार्यभार जोड़ू"
-
 msgid "Add IKE Policy"
 msgstr "IKE नीति जोड़ू"
 
@@ -545,9 +294,6 @@ msgstr " नवनियम जोड़ू"
 msgid "Add New VPN Service"
 msgstr " नववीपीएन सेवा जोड़ू"
 
-msgid "Add Node Group"
-msgstr "नोड समूह जोड़ू"
-
 msgid "Add Policy"
 msgstr "नीति जोड़ू"
 
@@ -566,9 +312,6 @@ msgstr "सबनेट जोड़ू"
 msgid "Add Subnet (Quota exceeded)"
 msgstr "सबनेट जोड़ू (कोटा सँ बेसी भ' गेल)"
 
-msgid "Add User to Group"
-msgstr "समूह मे प्रयोक्ता जोड़ू"
-
 msgid "Add Users"
 msgstr "प्रयोक्ता जोड़ू"
 
@@ -583,9 +326,6 @@ msgid ""
 "security groups."
 msgstr "मोजुद सुरक्षा समूह क सूची सँ सुरक्षा समूह केँ एहि प्रोजेक्ट मे जोड़ू आओर निकालू."
 
-msgid "Add custom tag"
-msgstr "पसंदीदा टैग जोड़ू"
-
 msgid ""
 "Add hosts to this aggregate or remove hosts from it. Hosts can be in "
 "multiple aggregates."
@@ -595,9 +335,6 @@ msgstr ""
 
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr "ई समुच्चय मे मेजबान केँ जोड़ू. मेजबान कतेक समुच्चय मे भ' सकैत अछि."
-
-msgid "Add interface"
-msgstr "अंतरफलक जोड़ू"
 
 msgid ""
 "Add member(s) to the selected pool.\n"
@@ -614,12 +351,6 @@ msgstr ""
 "करबाक लेल एकटा सांख्यिक भार आओर पोर्ट सँख्या असाइन करू; जहिना, 80. \n"
 "\n"
 "प्रत्येक दृष्टांत क सँग केवल एकटा पोर्ट जोड़ल जाए सकैत अछि."
-
-msgid "Add plugin tags"
-msgstr "प्लगिन टैग जोड़ू"
-
-msgid "Add rule"
-msgstr "नियम जोड़ू"
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "सकल सँ मेजबान जोड़ू / हटाउ"
@@ -675,9 +406,6 @@ msgstr "जोड़ल गेल मानिटर"
 msgid "Added pool \"%s\"."
 msgstr "जोड़ल गेल पूल \"%s\"."
 
-msgid "Additional routes"
-msgstr "बाइली रूट"
-
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
 "nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry per line."
@@ -685,9 +413,6 @@ msgstr ""
 "मेजबान क घोषणा क बाइली रूट. प्रत्येक प्रविष्टि : destination_cidr,nexthop (e.g., "
 "192.168.200.0/24,10.56.1.254) (उदाहरण क लेल, 192.168.200.0/24, 10.56.1.254) "
 "आओर प्रति पंक्ति एकटा प्रविष्टि."
-
-msgid "Address"
-msgstr "पता"
 
 msgid "Admin"
 msgstr "प्रशासक"
@@ -698,21 +423,11 @@ msgstr "एडमिन गुड़किल्ली"
 msgid "Admin State"
 msgstr "व्यवस्थापक स्थिति"
 
-msgid "Admin State Up"
-msgstr "व्यवस्थापक स्थिति अप"
-
 msgid "Advanced Options"
 msgstr "उन्नत विकल्प"
 
 msgid "After"
 msgstr "बाद"
-
-msgid ""
-"After launching an instance, you login using the private key (the username "
-"might be different depending on the image you launched):"
-msgstr ""
-"इंस्टेंस केँ लान्च करबाक बाद, अहाँ निज कुँजी द्वारा लागिन करैत छी ( प्रयोक्ता लांच कएल गेल "
-"बिंब क आधार पर भिन्न सेहो भ' सकैत छी ):"
 
 #, python-format
 msgid "Agent %s was successfully added."
@@ -757,25 +472,12 @@ msgstr "आईपी आबंटित करू"
 msgid "Allocate IP To Project"
 msgstr "ई परियोजना क लेल आईपी आबंटित करू"
 
-msgid "Allocate a floating IP from a given floating IP pool."
-msgstr "केओ देल गेल अस्थायी आईपी पूल सँ एकटा अस्थायी आईपी आबंटित करू."
-
 #, python-format
 msgid "Allocated Floating IP %(ip)s."
 msgstr "आवंटित अस्थायी आईपी %(ip)s."
 
 msgid "Allocation Pools"
 msgstr "आवंटन पूल"
-
-msgid ""
-"Allow the user to connect from this host\n"
-"    only. If not provided this user will be allowed to connect from "
-"anywhere.\n"
-"    "
-msgstr ""
-"प्रयोक्ता एहि मेजबान सँ कनेक्ट करबाक अनुमति दिअ'\n"
-"    केवल. जँ नहि देब एहि प्रयोक्ता सँ कनेक्ट करबाक लेल अनुमति देब जएताह कतओ सेहो.\n"
-"    "
 
 msgid "Allowed Host"
 msgstr "अनुमत मेजबान"
@@ -793,33 +495,11 @@ msgid "An external (HTTP) URL to load the template from."
 msgstr "बाहरी (एचटीटीपी) यूआरएल सँ नमूना लोड करबाक लेल."
 
 msgid ""
-"An instance can be launched with varying types of attached storage. You may "
-"select from those options here."
-msgstr ""
-"एकटा इंस्टेंस संलग्न भंडारण क अलग प्रकार क सँग शुरू कएल जाए सकैत अछि. अहाँ एतय ओ विकल्प मे "
-"सँ चुन सकैत अछि."
-
-msgid ""
-"An object is the basic storage entity that represents a file you store in "
-"the OpenStack Object Storage system. When you upload data to OpenStack "
-"Object Storage, the data is stored as-is (no compression or encryption) and "
-"consists of a location (container), the object's name, and any metadata "
-"consisting of key/value pairs."
-msgstr ""
-"एकटा वस्तु अहाँ OpenStack वस्तु भंडारण प्रणाली मे दुकान एकटा फाइल क प्रतिनिधित्व करैत "
-"अछि जे बुनियादी भंडारण एकाइ अछि. अहाँ OpenStack वस्तु भंडारण करबाक लेल डाटा अपलोड "
-"करैत छी (कोनो संपीड़न अथवा गोपन) क रूपेँ अछि आओर एकटा स्थान (कंटेनर), वस्तु क नाम, आओर "
-"चाबी / मूल्य जोड़ल सँ मिलकए कोनो मेटाडेटा क होइत अछि, डाटा संग्रहीत कएल जाइत अछि."
-
-msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
 "help, contact your local administrator."
 msgstr ""
 "अप्रत्याशित त्रुटि भेल अछि. पृष्ठ ताजा प्रयास करू. ओ मदति नहि करैत अछि, तँ अपन स्थानीय "
 "व्यवस्थापक सँ संपर्क करू."
-
-msgid "Anti-affinity enabled for"
-msgstr "एकर लेल एंटी एफिनिटी सक्रिय कएल गेल"
 
 msgid "Any"
 msgstr "कोनो"
@@ -830,9 +510,6 @@ msgstr "कोनो उपलब्धता क्षेत्र"
 msgid "Architecture"
 msgstr "आर्किटेक्चर"
 
-msgid "Arguments"
-msgstr "वितर्क"
-
 msgid "Associate"
 msgstr "एसोसियेट"
 
@@ -841,9 +518,6 @@ msgstr "अस्थायी आईपी जोड़ू"
 
 msgid "Associate Monitor"
 msgstr "मानिटर जोड़ू"
-
-msgid "Associate QoS Spec"
-msgstr "संबद्ध QoS विनिर्देश "
 
 msgid "Associate QoS Spec with Volume Type"
 msgstr "QoS विनिर्देश केँ वाल्यूम प्रकार सँ जोड़ू"
@@ -865,12 +539,6 @@ msgstr "कम सँ कम एकटा सदस्य निर्दिष�
 
 msgid "At least one network must be specified."
 msgstr "कम सँ कम एकटा संजाल निर्दिष्ट कएल जएनाइ चाही."
-
-msgid "Attach To Instance"
-msgstr "इंस्टेंस क लेल संलग्न करू"
-
-msgid "Attach Volume"
-msgstr "वाल्यूम संलग्न करू"
 
 msgid "Attach to Instance"
 msgstr "इंस्टेंस क लेल संलग्न करू"
@@ -905,14 +573,8 @@ msgstr "संलग्नक"
 msgid "Audited"
 msgstr "अंकेक्षित"
 
-msgid "Authentication URL"
-msgstr "प्रमाणन URL"
-
 msgid "Authorization algorithm"
 msgstr "प्राधिकरण एल्गोरिथ्म"
-
-msgid "Authorization mode"
-msgstr "प्राधिकरण मोड"
 
 msgid "Auto Security Group"
 msgstr "स्वतः सुरक्षा समूह "
@@ -947,17 +609,8 @@ msgctxt "Current status of a Volume Backup"
 msgid "Available"
 msgstr "मोजुद"
 
-msgid "Available Rules"
-msgstr "मोजुद नियम"
-
-msgid "Available networks"
-msgstr "मोजुद सँजाल "
-
 msgid "Average CPU utilization"
 msgstr "औसत CPU उपयोग"
-
-msgid "Avg."
-msgstr "औसत"
 
 msgid "Backup"
 msgstr "बैकअप"
@@ -969,23 +622,11 @@ msgstr "बैकअप"
 msgid "Backup Database"
 msgstr "बैकअप डाटाबेस"
 
-msgid "Backup Details"
-msgstr "बैकअप विवरण"
-
-msgid "Backup Duration"
-msgstr "बैकअप अवधि"
-
 msgid "Backup File"
 msgstr "बैकअप फाइल"
 
-msgid "Backup File Location"
-msgstr "बैकअप फाइल स्थान"
-
 msgid "Backup Name"
 msgstr "बैकअप नाम"
-
-msgid "Backup Overview"
-msgstr "बैकअप अवलोकन"
 
 msgid "Backups"
 msgstr "बैकअप"
@@ -1072,9 +713,6 @@ msgstr "उपयोग कएल गेल CPU समय"
 msgid "Can not specify both image and external image location."
 msgstr "बिंब आओर बिंब छवि स्थान दुनू निर्दिष्ट नहि कए सकैत."
 
-msgid "Cancel"
-msgstr "रद्द करू"
-
 msgid "Centralized"
 msgstr "केंद्रीकृत"
 
@@ -1093,18 +731,8 @@ msgstr "खाका बदलू"
 msgid "Change Volume Type"
 msgstr "वाल्यूम प्रकार बदलू"
 
-msgid "Change your password. We highly recommend you create a strong one. "
-msgstr ""
-"अपन गुड़किल्ली बदलू. हम दृढ़तापूर्वक अहाँकेँ एकटा मजबूत गुड़किल्ली बनाबै क सुझाव देत अछि."
-
 msgid "Changing password is not supported."
 msgstr "बदल रहल गुड़किल्ली समर्थित नहि अछि."
-
-msgid "Checksum"
-msgstr "चेकसम"
-
-msgid "Choose"
-msgstr "चुनू"
 
 msgid "Choose Your Boot Source Type."
 msgstr "अपन बूट स्रोत प्रकार चुनू."
@@ -1114,12 +742,6 @@ msgstr "सर्वर मे खाली करबाक लेल मेज�
 
 msgid "Choose a Host to migrate to."
 msgstr "उत्प्रवासित हए कलेल मेजबान चुनू :"
-
-msgid ""
-"Choose a key pair name you will recognise and paste your SSH public key into "
-"the space provided."
-msgstr ""
-"कुँजी युग्म नाम चुनू जे अहाँ पहचान लेब आओर अपन SSH सार्वजनिक कुँजी केँ देल गेल स्थान मे साटू "
 
 msgid "Choose a main binary"
 msgstr "एकटा मुख्य द्विपदीय चुनू"
@@ -1136,9 +758,6 @@ msgstr "वाल्यूम चुनू"
 msgid "Choose an DHCP Agent to attach to."
 msgstr "संलग्न करबाक लेल एकटा DHCP प्रतिनिधि चुनू."
 
-msgid "Choose an existing file"
-msgstr "मौज़ूदा फाइल उपयोग करू"
-
 msgid "Choose an image"
 msgstr "कोनो छवि चुनू"
 
@@ -1151,59 +770,20 @@ msgstr "ई QoS विनिर्देश क लेल उपभोक्त�
 msgid "Choose libraries"
 msgstr "लाइब्रेरी चुनू"
 
-msgid ""
-"Choose network from Available networks to Selected networks by push button "
-"or drag and drop, you may change NIC order by drag and drop as well. "
-msgstr ""
-"मोजुद संजाल सँ पुश बटन अथवा खींचू आओर ड्रॉप द्वारा चयनित संजाल क लेल संजाल चुनू, अहाँ केँ "
-"खींच द्वारा एनआईसी क्रम बदैल सकैत छी आओर सँग  सँग छोड़ सकैत अछि."
-
-msgid ""
-"Choose or create your main binary.  Additional libraries can be added from "
-"the \"Libs\" tab."
-msgstr ""
-"अपन मुख्य द्विपदीय चुनू अथवा बनाउ. \"Libs\" टैब सँ बाइली लाइब्रेरी जोड़ी जाए सकैत अछि."
-
-msgid ""
-"Choose rule(s) from Available Rules to Selected Rule by push button or drag "
-"and drop,\n"
-"you may change their order by drag and drop as well. "
-msgstr ""
-"पुश बटन अथवा खींचू आओर ड्रॉप द्वारा चयनित नियम केँ मोजुद नियम सँ नियम चुनू, \n"
-" अहाँ केँ खींच द्वारा ओकर आदेश केँ बदैल सकैत छी आओर सँग  सँग छोड़ देत अछि."
-
-msgid "Choose the Input Data Source (n/a for Java jobs)."
-msgstr "इनपुट डाटा स्रोत चुनू (जावा जॉब्स क लेल लागू नहि)."
-
-msgid "Choose the Output Data Source (n/a for Java jobs)."
-msgstr "आउटपुट डाटा स्रोत चुनू (जावा जॉब्स क लेल लागू नहि)."
-
 msgid "Choose the binary which should be used in this Job."
 msgstr "ओ द्विपदीय चुनू जकरा एहि काज मे प्रयोग कएल जएनाइ चाही."
 
 msgid "Choose the flavor to launch."
 msgstr "लांच करबाक लेल फ्लेवर चुनू."
 
-msgid "Choose the rule you want to remove."
-msgstr "अहाँक द्वारा हटाउ जाए नियम चुनू"
-
-msgid "Chosen Libraries"
-msgstr "चुनिंदा लाइब्रेरी"
-
 msgid "Cinder"
 msgstr "सिंडर"
-
-msgid "Cinder volumes"
-msgstr "सिंडर वाल्यूम"
 
 msgid "Cipher"
 msgstr "सिफर"
 
 msgid "Cisco Nexus 1000V"
 msgstr "सिस्को संबंध 1000v"
-
-msgid "Cisco Nexus 1000V Networking"
-msgstr "सिस्को संबंध 1000V सँजालन"
 
 msgid "Cisco Nexus 1000v"
 msgstr "सिस्को संबंध 1000v"
@@ -1213,9 +793,6 @@ msgstr "वर्गहीन अंतर डोमेन रूटिंग (�
 
 msgid "Clear Domain Context"
 msgstr "डोमेन संदर्भ साफ करू "
-
-msgid "Click here to show only console"
-msgstr "केवल कँसोल देखाबै क लेल एतए क्लिक करू"
 
 msgid "Close"
 msgstr "बन्न करू"
@@ -1231,9 +808,6 @@ msgstr "क्लस्टर इंस्टैंस"
 
 msgid "Cluster Name"
 msgstr "क्लस्टर नाम"
-
-msgid "Cluster Overview"
-msgstr "क्लस्टर सारांश"
 
 msgid "Cluster Template"
 msgstr "क्लस्टर नमूना"
@@ -1251,12 +825,6 @@ msgstr "क्लस्टर नमूना कापी %s बनैलक �
 msgid "Cluster Templates"
 msgstr "क्लस्टर नमूना"
 
-msgid "Cluster can be launched using existing Cluster Templates."
-msgstr "मोजुदा क्लस्टर नमूना क उपयोग सँ क्लस्टर लान्च कएल जाए सकैत अछि."
-
-msgid "Cluster configurations are not specified"
-msgstr "क्लस्टर विन्यास निर्दिष्ट नहि"
-
 msgid "Cluster template creation failed"
 msgstr "क्लस्टर नमूना निर्माण बिफल"
 
@@ -1272,17 +840,11 @@ msgstr "कॉमा बनाबै क लेल डाटाबेस क स
 msgid "Compute"
 msgstr "कंप्यूट"
 
-msgid "Compute (Nova)"
-msgstr "कंप्यूट (नोवा)"
-
 msgid "Compute Host"
 msgstr "मेजबान क गणना करू"
 
 msgid "Compute Services"
 msgstr "कंप्यूट सेवा"
-
-msgid "Configuration"
-msgstr "विन्यास"
 
 msgid "Configuration Drive"
 msgstr "विन्यास ड्राइव"
@@ -1332,15 +894,6 @@ msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "आकार बदलब अथवा माइग्रेट करबाक पुष्टि कए रहल छी "
 
-msgid "Conflicting Rule"
-msgstr "परस्पर विरोधी नियम"
-
-msgid "Connection Examples"
-msgstr "कनेक्शन उदाहरण"
-
-msgid "Connection Info"
-msgstr "कनेक्शन जानकारी"
-
 msgid "Connection Limit"
 msgstr "कनेक्शन सीमा"
 
@@ -1363,9 +916,6 @@ msgstr "कंटेनर पहुँच"
 msgid "Container Details"
 msgstr "कंटेनर विवरण"
 
-msgid "Container Format"
-msgstr "कंटेनर प्रारूप"
-
 msgid "Container Name"
 msgstr "कंटेनर क नाम"
 
@@ -1374,9 +924,6 @@ msgstr "कंटेनर सफलतापूर्वक बनैलक."
 
 msgid "Containers"
 msgstr "कंटेनर"
-
-msgid "Content Type"
-msgstr "विषय प्रकार"
 
 msgid "Control Location"
 msgstr "नियंत्रण स्थान"
@@ -1388,10 +935,6 @@ msgstr "कुँजी जोड़ल, सुरक्षा समूह, आ
 
 msgid "Cookie Name"
 msgstr "कुकी नाम"
-
-#, python-format
-msgid "Cookie Name: %(cookie_name)s"
-msgstr "कुकी नाम: %(cookie_name)s"
 
 msgid "Cookie name is required for APP_COOKIE persistence."
 msgstr "कुकी नाम APP_COOKIE दृढ़ता क लेल आवश्यक अछि."
@@ -1405,10 +948,6 @@ msgstr "नक़ल करू"
 
 msgid "Copy Object"
 msgstr "वस्तु कापी करू"
-
-#, python-format
-msgid "Copy Object: %(object_name)s"
-msgstr "वस्तु केँ कापी करू: %(object_name)s"
 
 msgid "Copy Template"
 msgstr "नमूना कापी करू"
@@ -1468,9 +1007,6 @@ msgstr "डाटा स्रोत बनाउ"
 
 msgid "Create Domain"
 msgstr "डोमेन बनाउ"
-
-msgid "Create Encrypted Volume Type"
-msgstr "एनक्रिप्टेड वाल्यूम प्रकार बनाउ"
 
 msgid "Create Encryption"
 msgstr "गोपन तैआर करू"
@@ -1605,9 +1141,6 @@ msgstr "वाल्यूम बैकअप बनाउ"
 msgid "Create Volume Snapshot"
 msgstr "वाल्यूम स्नैपशाट बनाउ"
 
-msgid "Create Volume Snapshot (Force)"
-msgstr "वाल्यूम स्नैपशॉटबनाउ ( बलपूर्वक)"
-
 msgid "Create Volume Type"
 msgstr "वाल्यूम प्रकार बनाउ"
 
@@ -1616,9 +1149,6 @@ msgstr "वाल्यूम प्रकार गोपन बनाउ"
 
 msgid "Create Volume Type Extra Spec"
 msgstr "वाल्यूम प्रकार बाइली स्पेक बनाउ"
-
-msgid "Create a Data Source with a specified name."
-msgstr "निर्दिष्ट नाम सँ डाटा स्रोत बनाउ."
 
 msgid "Create a New Volume"
 msgstr " नववाल्यूम बनाउ"
@@ -1693,38 +1223,11 @@ msgstr ""
 "निगरानी क प्रकार क चयन. देरी, मध्यांतर निर्दिष्ट करू, आओर मानिटर द्वारा आवश्यक सीमा केँ "
 "फिनु सँ प्रयास. विधि, URL पथ, आओर सफलता पर उम्मीद HTTP कोड निर्दिष्ट करू."
 
-msgid "Create a new \"extra spec\" key-value pair for a volume type."
-msgstr "वाल्यूम प्रकार क लेल नव \"बाइली विनिर्देश \" कुँजी मान बनाउ."
-
-#, python-format
-msgid "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\""
-msgstr ""
-"QoS विनिर्देश \"%(qos_spec_name)s\" क लेल एकटा नव \"spec\" मुख्य-मान युग्म बनाउ"
-
-msgid "Create a new network for any project as you need."
-msgstr "अपन जरूरत क अनुसार ककरो प्रोजेक्ट क लेल एकटा नव संजाल बनाउ. "
-
-msgid "Create a new role."
-msgstr "नव भूमिका बनाउ"
-
-msgid "Create a new stack with the provided values."
-msgstr "मोजुद कराएल मान क सँग नव ढेर बनाउ."
-
-msgid ""
-"Create a new user and set related properties including the Primary Project "
-"and Role."
-msgstr ""
-"एकटा नव प्रयोक्ता बनाउ आओर प्राथमिक प्रोजेक्ट तथा भूमिका सहित संबंधित विशेषता निर्धारित "
-"करू."
-
 msgid "Create a policy with selected rules."
 msgstr "चयनित नियम क सँग एकटा नीति बनाउ."
 
 msgid "Create a project to organize users."
 msgstr "प्रयोक्ता संगठित करबाक लेल परियोजना बनाउ."
-
-msgid "Create a script to be uploaded dynamically"
-msgstr "एकटा स्क्रिप्ट बनाउ जकरा गतिशील तरीके सँ अपलोड कएल जएताह"
 
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
@@ -1745,23 +1248,9 @@ msgstr ""
 msgid "Create an Encrypted Volume Type"
 msgstr "एकटा एनक्रिप्टेड वाल्यूम प्रकार बनाउ"
 
-msgid ""
-"Create an optional initial user.\n"
-"   This user will have access to all databases you create."
-msgstr ""
-"वैकल्पिक प्रारंभिक प्रयोक्ता बनाउ.\n"
-"  एहि प्रयोक्ता अहाँक द्वारा बनाए गेल सबहि डाटाबेस क लेल उपयोग हाएत."
-
 msgid "Create security group for this Node Group."
 msgstr "ई नोड समूह क लेल सुरक्षा समूह बनाउ."
 
-msgid "Create time"
-msgstr "समय बनाउ"
-
-msgid "Created"
-msgstr "निर्मित"
-
-msgctxt "Created time"
 msgid "Created"
 msgstr "निर्मित"
 
@@ -1828,15 +1317,6 @@ msgctxt "Current status of a Volume Backup"
 msgid "Creating"
 msgstr "बनाएल जाए रहल अछि"
 
-msgid ""
-"Creating encryption for a volume type causes all volumes with that volume "
-"type to be encrypted.  Encryption information cannot be added to a volume "
-"type if volumes are currently in use with that volume type."
-msgstr ""
-"केओ वाल्यूम प्रकार क लेल गोपन बनाबै सँ ओ वाल्यूम प्रकार क सँग सबहि वाल्यूम केँ एनक्रिप्ट कए "
-"लेल जाइत अछि. जँ वाल्यूम क उपयोग वर्तमान मे ओ वाल्यूम प्रकार क सँग कएल जाए रहल अछि तँ "
-"गोपन क जानकारी केँ वाल्यूम प्रकार मे जोड़ल नहि जाए सकैत अछि. "
-
 #, python-format
 msgid "Creating volume \"%s\""
 msgstr "\"%s\" वाल्यूम बनाए रहल अछि"
@@ -1876,20 +1356,8 @@ msgstr "वर्तमान आकार (GB)"
 msgid "Current password"
 msgstr "मोजुदा गुड़किल्ली"
 
-msgid ""
-"Currently only images available via an HTTP URL are supported. The image "
-"location must be accessible to the Image Service. Compressed image binaries "
-"are supported (.zip and .tar.gz.)"
-msgstr ""
-"वर्तमान मे एकटा HTTP यूआरएल क माध्यम सँ मोजुद बिंब केर समर्थन कए रहल अछि. बिंब स्थान "
-"बिंब सेवा कलेल सुलभ होनाइ चाही. संकुचित बिंब बायनेरिज़ (. जिप आओर. Tar.gz.) समर्थन कए "
-"रहल अछि"
-
 msgid "Custom ICMP Rule"
 msgstr "मनपसिन्न ICMP नियम"
-
-msgid "Custom Properties"
-msgstr "मनपसिन्न गुण"
 
 msgid "Custom TCP Rule"
 msgstr "मनपसिन्न टीसीपी नियम"
@@ -1899,9 +1367,6 @@ msgstr "मनपसिन्न यूडीपी नियम"
 
 msgid "Customization Script Source"
 msgstr "स्क्रिप्ट स्रोत अनुकूलन"
-
-msgid "DATABASE"
-msgstr "डाटाबेस"
 
 msgid "DENY"
 msgstr "DENY"
@@ -1913,13 +1378,7 @@ msgstr "DENY"
 msgid "DHCP Agents"
 msgstr "DHCP प्रतिनिधि"
 
-msgid "DHCP Enable"
-msgstr "DHCP सक्रिय करू"
-
 msgid "DNS Name Servers"
-msgstr "DNS नाम सर्वर"
-
-msgid "DNS name server"
 msgstr "DNS नाम सर्वर"
 
 msgid "Daily Usage Report"
@@ -1931,27 +1390,11 @@ msgstr "डाटा प्रक्रमित कए रहल अछि"
 msgid "Data Processing Plugin Details"
 msgstr "डाटा प्रक्रमन प्लगिन विवरण"
 
-msgid "Data Processing Plugin Overview"
-msgstr "डाटा प्लगिन सारांश"
-
 msgid "Data Processing Plugins"
 msgstr "डाटा प्रक्रमन प्लगिन"
 
-msgid "Data Processing internal database"
-msgstr "डाटा प्रोसेसिंग आंतरिक डाटाबेस"
-
-msgid ""
-"Data Processing provides different storage location options. You may choose "
-"Ephemeral Drive or a Cinder Volume to be attached to instances."
-msgstr ""
-"डाटा प्रोसेसिंग अलग-अलग भंडारण स्थान क विकल्प प्रदान करैत अछि. अहाँ दृष्टांत मे संलग्न "
-"करबाक लेल एफिमेरल ड्राइव अथवा एकटा सिंडर वाल्यूम क विकल्प चुन सकैत अछि."
-
 msgid "Data Source Details"
 msgstr "डाटा स्रोत विवरण"
-
-msgid "Data Source Overview"
-msgstr "डाटा स्रोत सारांश"
 
 msgid "Data Source Type"
 msgstr "डाटा स्रोत प्रकार"
@@ -1965,20 +1408,11 @@ msgstr "आँकड़ा स्रोत निर्मित"
 msgid "Database"
 msgstr "डाटाबेस"
 
-msgid "Database Backups"
-msgstr "डाटाबेस बैकअप"
-
-msgid "Database Info"
-msgstr "डाटाबेस जानकारी"
-
 msgid "Database Instance"
 msgstr "डाटाबेस  इंस्टेंस "
 
 msgid "Database Name"
 msgstr "डाटाबेस नाम"
-
-msgid "Database Port"
-msgstr " डाटाबेस पोर्ट "
 
 msgid "Databases"
 msgstr "डाटाबेस"
@@ -1998,9 +1432,6 @@ msgstr "तिथि क पहचान नहि कएल जाए सकै
 msgid "Day"
 msgstr "दिन"
 
-msgid "Dead peer detection action"
-msgstr "मृत पीअर पता लगाएब क क्रिया"
-
 msgid "Dead peer detection actions"
 msgstr "मृत पीअर क पता लगाएब क्रिया"
 
@@ -2009,9 +1440,6 @@ msgstr "मृत पीअर क पता लगाएब क अंतरा
 
 msgid "Dead peer detection timeout"
 msgstr "मृत पीअर क पता लगाएब क मध्यांतर"
-
-msgid "Decrypt Password"
-msgstr "गुड़किल्ली डिक्रिप्ट करू"
 
 msgid "Default Quotas"
 msgstr "पूर्वनिर्धारित कोटा"
@@ -2111,20 +1539,11 @@ msgstr "अस्वीकारू"
 msgid "Description"
 msgstr "विवरण"
 
-msgid "Description:"
-msgstr "वर्णनः"
-
-msgid "Destination"
-msgstr "गंतव्य"
-
 msgid "Destination CIDR"
 msgstr "गंतव्य CIDR"
 
 msgid "Destination IP"
 msgstr " गंतव्य आईपी"
-
-msgid "Destination IP Address"
-msgstr "गंतव्य आईपी पता"
 
 msgid "Destination IP Address/Subnet"
 msgstr "गंतव्य आईपी पता / सबनेट"
@@ -2146,9 +1565,6 @@ msgstr "गंतव्य वस्तु क नाम"
 
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "गंतव्य पोर्ट ([1, 65,535] मे पूर्णांक अथवा एकटा मे रेंज: ख)"
-
-msgid "Destination:"
-msgstr "गंतव्य:"
 
 msgid "Detached"
 msgstr "विलग"
@@ -2194,9 +1610,6 @@ msgstr "HA अवस्था निष्क्रिय करू"
 
 msgid "Disable Service"
 msgstr "सेवा अक्षम करू"
-
-msgid "Disable the compute service."
-msgstr "संगणन सेवा अक्षम करू."
 
 msgid "Disabled"
 msgstr "निष्क्रिय"
@@ -2292,9 +1705,6 @@ msgstr ""
 msgid "Domains:"
 msgstr "डोमेन:"
 
-msgid "Done"
-msgstr "संपन्न"
-
 msgid "Down"
 msgstr "नीच्चाँ"
 
@@ -2355,25 +1765,9 @@ msgstr "कुँजी युग्म डाउनलोड करू"
 msgid "Download OpenStack RC File"
 msgstr "ओपेनस्टैक RC फाइल डाउनलोड करू"
 
-msgid "Download job binary"
-msgstr "काज द्विपदीय डाउनलोड करू"
-
-#, python-format
-msgid "Download key pair &quot;%(keypair_name)s&quot;"
-msgstr "&quot;%(keypair_name)s&quot; कुँजी युग्म डाउनलोड करू"
-
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
 msgstr "इंस्टेंस प्रकार क अवधि %s (ओपेनस्टैक फ्लेवर)"
-
-msgid "EC2 Access Key"
-msgstr "EC2 पहुँच कुँजी"
-
-msgid "EC2 Secret Key"
-msgstr "EC2 गुप्त कुँजी"
-
-msgid "EC2 URL"
-msgstr "EC2 URL"
 
 msgid "Edit"
 msgstr "संपादन"
@@ -2429,9 +1823,6 @@ msgstr "सँजाल संपादित करू"
 msgid "Edit Network Profile"
 msgstr "संपादित संजाल प्रोफाइल"
 
-msgid "Edit Object"
-msgstr "वस्तु संपादित करू"
-
 msgid "Edit Policy"
 msgstr "नीति संपादित करू"
 
@@ -2462,9 +1853,6 @@ msgstr "सुरक्षा समूह संपादित करू "
 msgid "Edit Snapshot"
 msgstr "स्नैपशाट संपादित करू"
 
-msgid "Edit Spec"
-msgstr "स्पेक संपादित करू"
-
 msgid "Edit Subnet"
 msgstr " सबनेट संपादित करू"
 
@@ -2483,9 +1871,6 @@ msgstr "VPN सेवा क संपादन करू."
 msgid "Edit Volume"
 msgstr " वाल्यूम संपादित करू"
 
-msgid "Edit Volume Type Extra Spec"
-msgstr "वाल्यूम प्रकार बाइली स्पेक संपादित करू"
-
 msgid ""
 "Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
 "cores, and other resources. Flavors are selected when users deploy instances."
@@ -2494,22 +1879,11 @@ msgstr ""
 "परिभाषित करैत अछि. फ्लेवर चयनित कएल जाए सकैत अछि जखन प्रयोक्ता इंस्टेंस केँ संस्थापित करैत "
 "छी "
 
-msgid "Edit the image details."
-msgstr "छवि विवरण संपादित करू"
-
 msgid "Edit the instance details."
 msgstr "दृष्टांत क विवरणों केँ संपादित करू."
 
-msgid ""
-"Edit the network profile to update name, segment range or multicast IP range."
-msgstr ""
-"नाम, खंड श्रेणी आओर मल्टीकास्ट आईपी श्रेणी केँ अपडेट करबाक लेल संजाल प्रोफाइल संपादित करू."
-
 msgid "Edit the project details."
 msgstr "परियोजना विवरण संपादित करू."
-
-msgid "Edit the role's details."
-msgstr "भूमिका क विवरण संपादित करू."
 
 msgid "Egress"
 msgstr "निकास"
@@ -2548,13 +1922,6 @@ msgstr "गोपन"
 msgid "Encryption algorithm"
 msgstr "गोपन अलगोरिथम"
 
-msgctxt "End time"
-msgid "Ended"
-msgstr "समाप्त"
-
-msgid "Energy (Kwapi)"
-msgstr "ऊर्जा (Kwapi)"
-
 msgid "Enhanced VXLAN"
 msgstr "बढ़ी भेल VXLAN"
 
@@ -2577,17 +1944,8 @@ msgstr ""
 "1 आओर 65535 क बीच एकटा पूर्णांक मान दर्ज करू. इसी पोर्ट क उपयोग सबहि चयनित सदस्य क "
 "लेल कएल जएताह आओर एकरा बाद मे संशोधित कएल जाए सकैत अछि."
 
-msgid "Enter any custom configuration required for your job's execution."
-msgstr "अपन काज क निष्पादन क लेल आवश्यक कोनो मनपसिन्न विन्यास दर्ज करू."
-
 msgid "Enter parameter (e.g. GRE)"
 msgstr "पैरामीटर दर्ज करू (जहिना जीआरई)"
-
-msgid "Enter the URL for the file"
-msgstr "फाइल क लेल यूआरएल डालू"
-
-msgid "Enter the username and password required to access that file"
-msgstr "ओ फाइल तक पहुँच क लेल आवश्यक प्रयोक्तानाम आओर गुड़किल्ली दर्ज कएनाइ"
 
 msgid "Environment Data"
 msgstr "वातावरण डाटा"
@@ -2603,9 +1961,6 @@ msgstr "अस्थायी डिस्क "
 
 msgid "Ephemeral Disk (GB)"
 msgstr "अस्थायी डिस्क  (GB)"
-
-msgid "Ephemeral drive"
-msgstr "एफिमेरल ड्राइव"
 
 msgid "Equal to or greater than 60"
 msgstr "60 सँ पैघ अछि अथवा समान अछि"
@@ -2675,9 +2030,6 @@ msgstr "त्रुटि"
 msgid "Error Deleting"
 msgstr "मिटाबै मे त्रुटि"
 
-msgid "Error Details"
-msgstr "त्रुटि विवरण"
-
 #, python-format
 msgid "Error Downloading RC File: %s"
 msgstr " RC फाइल डाउनलोड करबामे त्रुटि: %s"
@@ -2716,15 +2068,8 @@ msgstr "ईथर प्रकार"
 msgid "Evacuate Host"
 msgstr "संचालक केर मूल्यांकन करू"
 
-msgid ""
-"Evacuate the servers from the selected down host to an active target host."
-msgstr "सक्रिय लक्ष्य मेजबान करबाक लेल नीच्चाँ चयनित मेजबान सँ सर्वर केँ खाली करू."
-
 msgid "Events"
 msgstr "घटना"
-
-msgid "Expected Codes"
-msgstr "अपेक्षित कोड"
 
 msgid "Expected HTTP Status Codes"
 msgstr "अपेक्षित HTTP स्थिति कोड"
@@ -2738,9 +2083,6 @@ msgstr ""
 
 msgid "Extend Volume"
 msgstr "वाल्यूम विस्तार"
-
-msgid "Extend the size of a volume."
-msgstr "एकटा वाल्यूम क आकार बढ़ाउ."
 
 #, python-format
 msgid "Extending volume: \"%s\""
@@ -3020,9 +2362,6 @@ msgstr "%(name)s नियम अद्यतन करबामे असफल
 msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
 msgstr " \"%(sub)s\" सबनेट अपडेट करबामे बिफल:  %(reason)s"
 
-msgid "Fault"
-msgstr "दोष"
-
 msgid ""
 "Fields in this tab are optional. You can configure the detail of IPSec site "
 "connection created."
@@ -3035,12 +2374,6 @@ msgstr "फाइल"
 
 msgid "File exceeds maximum size (16kb)"
 msgstr "फाइल अधिकतम आकार (16kb) सँ बेसी भ' गेल"
-
-msgid "File:"
-msgstr "फाइल:"
-
-msgid "Filter"
-msgstr "छाननाइ शुरू..."
 
 msgid "Fingerprint"
 msgstr "फिंगरप्रिंट"
@@ -3071,9 +2404,6 @@ msgstr "फायरवाल नियम"
 msgid "Firewalls"
 msgstr "फायरवाल"
 
-msgid "Fixed IP"
-msgstr "निर्धारित आईपी"
-
 msgid "Fixed IPs"
 msgstr "स्थिर IP"
 
@@ -3088,13 +2418,6 @@ msgstr "फ्लेवर अभिगम"
 
 msgid "Flavor Choice"
 msgstr "फ्लेवर चुनाव "
-
-msgid "Flavor Details"
-msgstr "फ्लेवर विवरण"
-
-#, python-format
-msgid "Flavor Details: %(name)s\">%(name)s"
-msgstr "फ्लेवर क विवरण: %(name)s\">%(name)s"
 
 msgid "Flavor ID ="
 msgstr "फ्लेवर ID ="
@@ -3112,9 +2435,6 @@ msgstr "फ्लेवर जानकारी"
 msgid "Flavor Name"
 msgstr "फ्लेवर नाम"
 
-msgid "Flavor is not specified"
-msgstr "फ्लैवर निर्दिष्ट नहि"
-
 msgid "Flavors"
 msgstr "फ्लेवर"
 
@@ -3125,9 +2445,6 @@ msgstr ""
 "फ्लेवर रैम, डिस्क, कोर क संख्या, आओर आन संसाधन क लेल आकार केँ परिभाषित करैत छी आओर "
 "चयनित कएल जाए सकैत अछि प्रयोक्ता इंस्टेंस केँ संस्थापित करैत छी "
 
-msgid "Floating IP"
-msgstr "अस्थायी आईपी"
-
 msgid "Floating IP Pool"
 msgstr "अस्थायी आईपी पूल"
 
@@ -3137,40 +2454,9 @@ msgstr "उत्प्लावित IP"
 msgid "Folder created successfully."
 msgstr "फोल्डर सफलतापूर्वक बनैलक."
 
-msgid ""
-"For Data Processing internal job binaries, you may choose from the following:"
-msgstr ""
-"डाटा प्रोसेसिंग आंतरिक काज बाइनरीज क लेल अहाँ निम्नलिखित विकल्प मे सँ चुन सकैत अछि:"
-
 #, python-format
 msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
 msgstr "GRE संजाल क लेल मान्य टनेल IDs %(min)s सँ लेकर %(max)s तक अछि."
-
-msgid ""
-"For MapReduce or Java Action jobs, \"mains\" are not applicable.  You are "
-"required to add one\n"
-"  or more \"libs\" for these jobs."
-msgstr ""
-"MapReduce or जावा कार्रवाई काज क लेल \"mains\" लागू नहि होइत अछि. ई जॉब्स क लेल "
-"अहाँकेँ  एकटा \n"
-"  अथवा बेसी \"libs\" जोड़ब क आवश्यकता अछि."
-
-msgid "For Object Store job binaries, you must:"
-msgstr "वस्तु स्टोर काज बाइनरीज क लेल अहाँकेँ ई कएनाइ चाही:"
-
-msgid "For Spark jobs, only a main is required, \"libs\" are optional."
-msgstr "स्पार्क काज क लेल केवल एकटा मुख्य काज क आवश्यकता अछि, \"libs\" वैकल्पिक अछि."
-
-msgid ""
-"For TCP and UDP rules you may choose to open either a single port or a range "
-"of ports. Selecting the \"Port Range\" option will provide you with space to "
-"provide both the starting and ending ports for the range. For ICMP rules you "
-"instead specify an ICMP type and code in the spaces provided."
-msgstr ""
-"TCP आओर UDP नियम क लेल अहाँ एकटा पोर्ट अथवा पोर्ट मे सँ एकटा सीमा अथवा तँ खोलब क लेल "
-"चुन सकैत अछि. \"पोर्ट सीमा\" विकल्प चुनब श्रृंखला क लेल दुनू प्रारंभिक आओर अंतिम पोर्ट "
-"प्रदान करबाक लेल स्थान प्रदान कएल गेल छी . ICMP नियम क लेल अहाँ क बजाय रिक्त स्थान मे "
-"एकटा ICMP प्रकार आओर कोड निर्दिष्ट करू."
 
 #, python-format
 msgid ""
@@ -3216,20 +2502,8 @@ msgstr "सँ"
 msgid "From Port"
 msgstr "पोर्ट सँ"
 
-msgid "From here you can add a DHCP agent for the network."
-msgstr "एतए सँ अहाँ संजाल क लेल एकटा DHCP एजेंट जोड़ सकैत अछि."
-
-msgid "From here you can create a snapshot of a volume."
-msgstr "एतए सँ अहाँ एकटा वाल्यूम क स्नैपशाट बनाए सकैत अछि."
-
 msgid "From here you can update the default quotas (max limits)."
 msgstr "एतय सँ अहाँ पूर्वनिर्धारित कोटा (अधिकतम सीमा) अपडेट कए सकैत अछि."
-
-msgid "From:"
-msgstr "एतए सँ:"
-
-msgid "GB"
-msgstr "GB"
 
 msgid "GET"
 msgstr "GET"
@@ -3258,9 +2532,6 @@ msgstr "सामान्य जानकारी"
 msgid "Glance"
 msgstr "ग्लांस"
 
-msgid "Go"
-msgstr "जाउ"
-
 #, python-format
 msgid "Group \"%s\" was successfully created."
 msgstr "समूह \"%s\" केँ सफलतापूर्वक बनैलक गेल"
@@ -3268,14 +2539,8 @@ msgstr "समूह \"%s\" केँ सफलतापूर्वक बन�
 msgid "Group ID"
 msgstr "समूह ID"
 
-msgid "Group Management"
-msgstr "समूह प्रबंधन"
-
 msgid "Group Members"
 msgstr "समूह सदस्य"
-
-msgid "Group by:"
-msgstr "एकरा अनुसार वर्गीकृत करू:"
 
 msgid "Group has been updated successfully."
 msgstr "समूह सफलतापूर्वक अद्यतन कएल गेल."
@@ -3283,26 +2548,8 @@ msgstr "समूह सफलतापूर्वक अद्यतन कए
 msgid "Groups"
 msgstr "समूह"
 
-msgid ""
-"Groups are used to manage access and assign roles to multiple users at once. "
-"After creating the group, edit the group to add users."
-msgstr ""
-"समूह क प्रयोग पहुँच केँ प्रबंधित करब आओर एकटा बेर मे एकाधिक प्रयोक्तासभ केँ भूमिका आवंटित "
-"करबामे कएल जाइत अछि. समूह बनाबै क बाद प्रयोक्ता जोड़ब क लेल समूह केँ संपादित करू."
-
-msgid ""
-"Groups are used to manage access and assign roles to multiple users at once. "
-"Edit the group to add users."
-msgstr ""
-"समूह क प्रयोग पहुँच केँ प्रबंधित करब आओर एकटा बेर मे एकाधिक प्रयोक्तासभ केँ भूमिका आवंटित "
-"करबामे कएल जाइत अछि. प्रयोक्ता जोड़ब क लेल समूह केँ संपादित करू."
-
-#. Translators: High Availability mode of Neutron router
 msgid "HA mode"
 msgstr "HA अवस्था"
-
-msgid "HDFS placement"
-msgstr "HDFS स्थापन"
 
 msgid "HTTP"
 msgstr "HTTP"
@@ -3320,21 +2567,12 @@ msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr "हार्ड रिबूट"
 
-msgid "Hash"
-msgstr "हैश"
-
-msgid "Health Monitors"
-msgstr "स्वास्थ्य मानिटर"
-
 #, python-format
 msgid "Health monitor %s was successfully updated."
 msgstr "स्वास्थ्य मानिटर %s सफलतापूर्वक अद्यतन कएल गेल छल."
 
 msgid "Help"
 msgstr "मदति"
-
-msgid "Hide full configuration"
-msgstr "पूर्ण विन्यास नुकाउ"
 
 msgid "High Availability Mode"
 msgstr "उच्च उपलब्धता अवस्था"
@@ -3376,13 +2614,6 @@ msgstr ""
 "मेजबान समुच्चय एकटा उपलब्धि क्षेत्र केँ मेजबान समूह द्वारा तार्किक एकाइ मे विभाजित करैत "
 "अछि. मेजबान समुच्चय बनाउ ओकरा बाद एहिमे निहित मेजबान क चयन करू."
 
-msgid ""
-"Host aggregates divide an availability zone into logical units by grouping "
-"together hosts. Edit the aggregate host to select hosts contained in it."
-msgstr ""
-"मेजबान समुच्चय एकटा उपलब्धि क्षेत्र केँ मेजबान समूह द्वारा तार्किक एकाइ मे विभाजित करैत "
-"अछि. एहिमे निहित मेजबान चुनब क लेल  समुच्चय मेजबान केँ संपादित करू."
-
 msgid "Host or IP that the user is allowed to connect through."
 msgstr "प्रयोक्ता क माध्यम सँ कनेक्ट करबाक लेल अनुमति देब अछि जे मेजबान अथवा आईपी."
 
@@ -3400,9 +2631,6 @@ msgstr "हाइपरविजर इंस्टैंस"
 
 msgid "Hypervisor Servers"
 msgstr "हाइपरविजर सर्वर"
-
-msgid "Hypervisor Summary"
-msgstr "हाइपरविजर विवरण"
 
 msgid "Hypervisors"
 msgstr "हाइपरविजर"
@@ -3440,9 +2668,6 @@ msgstr "IP पता"
 
 msgid "IP Address (optional)"
 msgstr "आईपी ​​पता (वैकल्पिक)"
-
-msgid "IP Addresses"
-msgstr "IP पता"
 
 msgid "IP Protocol"
 msgstr "IP प्रोटोकाल"
@@ -3485,12 +2710,6 @@ msgstr ""
 "गेटवे (जहिना 192.168.0.254) क आईपी पता. प्रवेश द्वार स्थापित करबाक लेल एकटा स्पष्ट "
 "पता निर्दिष्ट करू. अहाँ कोनो प्रवेश द्वार क उपयोग कएनाइ चाहैत अछि, तँ 'अक्षम गेटवे' "
 "नीच्चाँ क जाँच करू."
-
-msgid "IP allocation pool"
-msgstr "आईपी ​​आवंटन पूल"
-
-msgid "IP version"
-msgstr "आईपी ​​संस्करण"
 
 msgid "IPSec Policies"
 msgstr "IPSec नीति "
@@ -3542,30 +2761,6 @@ msgstr "पहचान"
 msgid "Identity service does not allow editing user data."
 msgstr "पहचान सेवा प्रयोक्ता डाटा क संपादन क अनुमति नहि अछि."
 
-msgid ""
-"If console is not responding to keyboard input: click the grey status bar "
-"below."
-msgstr "कँसोल कुँजीपटल इनपुट क लेल जवाब नहि अछि, तँ नीच्चाँ: ग्रे स्थिति पट्टी पर क्लिक करू."
-
-msgid ""
-"If no container name is provided, a default container named volumebackups "
-"will be provisioned for you. Backups will be the same size as the volume "
-"they originate from."
-msgstr ""
-"जँ कोनो कंटेनर नाम नहि देल गेल अछि तँ अहाँक लेल वॉल्यूमबैकअप नामक एकटा पूर्वनिर्धारित कंटेनर "
-"क प्रावधान कएल जएताह. बैकअप वोहै वाल्यूम आकार क होंगे जतए सँ हुनकर उत्पत्ति भेल अछि.  "
-
-msgid ""
-"If you select an image via an HTTP URL, the Image Location field MUST be a "
-"valid and direct URL to the image binary; it must also be accessible to the "
-"Image Service. URLs that redirect or serve error pages will result in "
-"unusable images."
-msgstr ""
-"जँ अहाँ एकटा HTTP URL क माध्यम सँ ककरो छवि क चयन करैत छी तँ छवि स्थान फील्ड छवि "
-"द्विपदीय क लेल एकटा मान्य आओर प्रत्यक्ष URL होनाइ चाही; ई छवि सेवा क लेल सेहो सुलभ "
-"होनाइ चाही. एहिना URLs जे पुनर्निर्देशित करैत छी अथवा त्रुटि पृष्ठ प्रस्तुत करैत अछि, एकर "
-"परिणाम अनुपयोगी छवि क रूपेँ सामना अएताह."
-
 msgid "Image"
 msgstr "बिंब"
 
@@ -3573,15 +2768,9 @@ msgctxt "Type of an image"
 msgid "Image"
 msgstr "बिंब"
 
-msgid "Image (Glance)"
-msgstr "बिंब (ग्लांस) "
-
 msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "छवि बैकअप"
-
-msgid "Image Details"
-msgstr "बिंब विवरण"
 
 msgid "Image File"
 msgstr "बिंब फाइल"
@@ -3598,25 +2787,12 @@ msgstr "बिंब नाम"
 msgid "Image Name ="
 msgstr "बिंब नाम ="
 
-msgid "Image Overview"
-msgstr "बिंब अवलोकन"
-
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
 msgstr "छवि अपलोड लंबित"
 
 msgid "Image Registry"
 msgstr "छवि पंजी"
-
-msgid ""
-"Image Registry is used to provide additional information about images for "
-"Data Processing."
-msgstr ""
-"छवि रजिस्ट्री क उपयोग डाटा प्रोसेसिंग क लेल छवि क संबंध मे बाइली जानकारी प्रदान करै मे "
-"कएल जाइत अछि."
-
-msgid "Image Registry tool:"
-msgstr "छवि पंजी अओजार:"
 
 msgctxt "Task status of an Instance"
 msgid "Image Snapshot Pending"
@@ -3647,13 +2823,6 @@ msgstr "बिंब सफलतापूर्वक अद्यतन कए
 msgid "Images"
 msgstr "बिंब"
 
-msgid ""
-"Images can be provided via an HTTP URL or be uploaded from your local file "
-"system. Compressed image binaries are supported (.zip and .tar.gz.)"
-msgstr ""
-"छवि एकटा HTTP URL क माध्यम सँ मोजुद करायी जाए सकैत छी अथवा अहाँक स्थानीय फाइल "
-"सिस्टम सँ अपलोड क जाए सकैत अछि. संपीडित छवि बाइनरीज समर्थित छी (.zip आओर .tar.gz.)"
-
 msgid "Import Key Pair"
 msgstr "आयात कुँजी जोड़ल"
 
@@ -3663,21 +2832,8 @@ msgstr "नीति मे"
 msgid "In Use"
 msgstr "उपयोग मे"
 
-msgid ""
-"In addition, you can create an external network or a shared network by "
-"checking the corresponding checkbox."
-msgstr ""
-"एकर अलावा, अहाँ संबंधित चेकबाक्स केँ चिह्नित कएक एकटा बाहरी संजाल अथवा एकटा साझा संजाल "
-"बनाए सकैत अछि."
-
 msgid "Incremental"
 msgstr "संवर्द्धन"
-
-msgid "Incremental Backup"
-msgstr "वृद्धि संबंधी बैकअप"
-
-msgid "Info"
-msgstr "सूचना"
 
 msgid "Information"
 msgstr "सूचना"
@@ -3690,9 +2846,6 @@ msgstr "प्रारंभिक व्यवस्थापन प्रय�
 
 msgid "Initial Databases"
 msgstr "प्रारंभिक डाटाबेस"
-
-msgid "Initial Volume Size"
-msgstr "प्रारंभिक मात्रा आकार"
 
 msgid "Initial admin user to add"
 msgstr "जोड़बा क लेल प्रारंभिक व्यवस्थापक प्रयोक्ता"
@@ -3718,9 +2871,6 @@ msgstr "इंजेक्ट फाइल"
 msgid "Input"
 msgstr "इनपुट"
 
-msgid "Input Data Source"
-msgstr "इनपुट डाटा स्रोत"
-
 msgid "Input must be in CIDR format"
 msgstr "इनपुट सीआईडीआर प्रारूप मे होनाइ चाही"
 
@@ -3736,32 +2886,17 @@ msgstr "इंस्टेंस"
 msgid "Instance Action List"
 msgstr "दृष्टांत कार्रवाई सूची"
 
-msgid "Instance Admin Password"
-msgstr "इंस्टांस व्यवस्थापक गुड़किल्ली"
-
 msgid "Instance Boot Source"
 msgstr "इंस्टांस बूट स्रोत"
 
-msgid "Instance Console"
-msgstr "इंस्टांस कँसोल"
-
-msgid "Instance Console Log"
-msgstr "इंस्टांस कँसोल लाग"
-
 msgid "Instance Count"
 msgstr "इंस्टांस गणना"
-
-msgid "Instance Details"
-msgstr "इंस्टांस विवरण"
 
 msgid "Instance ID"
 msgstr "इंस्टैंस आईडी"
 
 msgid "Instance Name"
 msgstr "इंस्टैंस नाम"
-
-msgid "Instance Overview"
-msgstr "इंस्टेंस सारांश"
 
 msgid "Instance Password is not set or is not yet available"
 msgstr "इंस्टांस गुड़किल्ली सेट नहि अथवा अखन तक मोजुद नहि अछि"
@@ -3827,9 +2962,6 @@ msgstr ""
 msgid "Items Per Page"
 msgstr "मद प्रति पृष्ठ"
 
-msgid "Java Action"
-msgstr "जावा कार्रवाई"
-
 msgid "Java Opts"
 msgstr "जावा विकल्प"
 
@@ -3841,15 +2973,6 @@ msgstr "काज बाइनरीज़"
 
 msgid "Job Binary Details"
 msgstr "काज द्विपदीय विवरण"
-
-msgid "Job Binary Overview"
-msgstr "काज द्विपदीय सारांश"
-
-msgid "Job Configuration"
-msgstr "काज विन्यास"
-
-msgid "Job Details"
-msgstr "काज विवरण"
 
 msgid "Job Execution Details"
 msgstr "काज निष्पादन क विवरण"
@@ -3884,9 +3007,6 @@ msgstr "कर्नेल आईडी"
 msgid "Key"
 msgstr "कुँजी"
 
-msgid "Key Name"
-msgstr "कुँजी नाम"
-
 msgid "Key Pair"
 msgstr "कुँजी युग्म"
 
@@ -3895,9 +3015,6 @@ msgstr "कुँजी युग्म नाम"
 
 msgid "Key Pairs"
 msgstr "कुँजी जोड़ल"
-
-msgid "Key Pairs are how you login to your instance after it is launched."
-msgstr "कुँजी युग्म क द्वारा अहाँ अपन इंस्टेंस मे प्रवेश करैत छी जखन ई लान्च हाएत छी "
 
 msgid "Key Size (bits)"
 msgstr "बटन आकार (बिट्स)"
@@ -3909,15 +3026,6 @@ msgstr "कुँजी युग्म नाम मे सिर्फ एक�
 
 msgid "Key pair to use for authentication."
 msgstr "प्रमाणन क लेल उपयोग कएल जाए बला मुख्य युग्म."
-
-msgid ""
-"Key pairs are ssh credentials which are injected into images when they are "
-"launched. Creating a new key pair registers the public key and downloads the "
-"private key (a .pem file)."
-msgstr ""
-"कुँजी युग्म एसएसएच पहचान छी जे बिंब क शुरूआत हए पर अंतःक्षिप्त कएल जाइत अछि. नव कुँजी युग्म "
-"बनाना सार्वजनिक कुँजी केँ पंजीकृत करैत अछि आओर निज कुँजी (एक. पीईएम फाइल) डाउनलोड करैत "
-"अछि"
 
 msgid "Key-Value Pairs"
 msgstr "कुँजीमान युग्म"
@@ -3942,12 +3050,6 @@ msgstr "आखरी 15 दिन"
 
 msgid "Last 30 days"
 msgstr "आखरी 30 दिन"
-
-msgid "Last Modified"
-msgstr "अंतिम रूपांतरित"
-
-msgid "Last Updated"
-msgstr "अंतिम बेर अद्यतन"
 
 msgctxt "Time since the last update"
 msgid "Last Updated"
@@ -3974,17 +3076,11 @@ msgstr "डाटाबेस लान्च करू "
 msgid "Launch Instance"
 msgstr "इंस्टांस लान्च करू"
 
-msgid "Launch Instance (Quota exceeded)"
-msgstr "दृष्टांत लान्च करू (कोटा सँ बेसी भ' गेल)"
-
 msgid "Launch On Existing Cluster"
 msgstr "मोजुदा क्लस्टर पर लान्च करू"
 
 msgid "Launch On New Cluster"
 msgstr "नव क्लस्टर पर लान्च करू"
-
-msgid "Launch Parameters"
-msgstr "पैरामीटर्स लान्च करू "
 
 msgid "Launch Stack"
 msgstr "ढेर लान्च करू"
@@ -4022,12 +3118,6 @@ msgstr "इंजेक्ट फाइल पथ क नमाइ"
 msgid "Libs"
 msgstr "लाइब्रेरीज"
 
-msgid "Lifetime Units"
-msgstr "जीवनकाल एकाइ"
-
-msgid "Lifetime Value"
-msgstr "जीवन मूल्य"
-
 msgid "Lifetime units"
 msgstr "जीवनकाल एकाइ"
 
@@ -4052,9 +3142,6 @@ msgstr "लाइव पलायन"
 msgid "Live Migrate Instance"
 msgstr "लाइव पलायन इंस्टेंस"
 
-msgid "Live migrate an instance to a specific host."
-msgstr "विशिष्ट मेजबान क लेल इंस्टेंस विस्थापित कए सकैत अछि."
-
 msgid "Load Balancer"
 msgstr "लोड बैलेंसर "
 
@@ -4071,9 +3158,6 @@ msgstr "लोड संतुलन विधि "
 msgid "Local"
 msgstr "स्थानीय"
 
-msgid "Local Disk Usage"
-msgstr "स्थानीय डिस्क क उपयोग"
-
 msgid "Local Storage (total)"
 msgstr "स्थानीय भंडारण (कुल)"
 
@@ -4083,38 +3167,17 @@ msgstr "स्थानीय भंडारण (प्रयुक्त)"
 msgid "Log"
 msgstr "लाग"
 
-msgid "Log Length"
-msgstr "लाग क नमाइ "
-
 msgid "MAC Learning State"
 msgstr "मैक लर्निंग कोर्स"
 
-msgid "MB"
-msgstr "मे.बा."
-
-msgid "MTU"
-msgstr "MTU"
-
 msgid "Main Class"
 msgstr "मुख्य वर्ग"
-
-msgid "Mains"
-msgstr "मुख्य"
 
 msgid "Make Private"
 msgstr "निज बनाउ"
 
 msgid "Make Public"
 msgstr "सार्वजनिक बनाउ"
-
-msgid ""
-"Make a new copy of an existing object to store in this or another container. "
-"You may additionally specify the path within the selected container where "
-"the new copy should be stored."
-msgstr ""
-"एकटा मोजुदा वस्तु क एकटा नव प्रति बनाउ जकरा एहि कंटेनर अथवा आन कंटेनर मे संग्रहित कएल "
-"जएताह. एकर अलावा अहाँ चयनित कंटेनर क भीतर ओ पथ निर्धारित कए सकैत छी जतए नव प्रति केँ "
-"संग्रहित कएल जएनाइ चाही.  "
 
 msgid "Manage Attachments"
 msgstr "अनुलग्नकों केँ प्रबंधित करू"
@@ -4139,9 +3202,6 @@ msgstr "QoS विनिर्देश संबद्धता प्रबं
 
 msgid "Manage Rules"
 msgstr "नियम प्रबंधित करू"
-
-msgid "Manage Security Group Rules"
-msgstr "सुरक्षा समूह नियम प्रबंधित करू"
 
 msgid "Manage Specs"
 msgstr "स्पेक प्रबंधित करू"
@@ -4169,9 +3229,6 @@ msgstr "अधिकतम कोशिश"
 
 msgid "Max Retries (1~10)"
 msgstr "अधिकतम कोशिश (1 ~ 10)"
-
-msgid "Max."
-msgstr "अधि."
 
 msgid "Max. Size (MB)"
 msgstr "अधिकतम आकार (MB)"
@@ -4208,9 +3265,6 @@ msgstr "सदस्य "
 msgid "Members"
 msgstr "सदस्य"
 
-msgid "Memory Usage"
-msgstr "मेमोरी उपयोग"
-
 msgid "Message"
 msgstr "संदेश"
 
@@ -4226,9 +3280,6 @@ msgstr "मेटाडेटा क सफलतापूर्वक अद्
 msgid "Meter"
 msgstr "मीटर"
 
-msgid "Metric:"
-msgstr "मेट्रिक:"
-
 msgctxt "Current status of an Instance"
 msgid "Migrating"
 msgstr "उत्प्रवासित भ' रहल अछि"
@@ -4240,15 +3291,6 @@ msgstr "उत्प्रवासित भ' रहल अछि"
 msgid "Migration Policy"
 msgstr "उत्प्रवासन नीति"
 
-msgid "Min Disk"
-msgstr "कम डिस्क"
-
-msgid "Min RAM"
-msgstr "न्यूनतम रैम"
-
-msgid "Min."
-msgstr "न्यून."
-
 msgid "Min. Size (MB)"
 msgstr "न्यूनतम आकार (MB)"
 
@@ -4257,9 +3299,6 @@ msgstr "न्यूनतम डिस्क (जीबी)"
 
 msgid "Minimum RAM (MB)"
 msgstr "न्यूनतम रैम (एमबी)"
-
-msgid "Minutes"
-msgstr "मिनट"
 
 #, python-format
 msgid "Modified domain \"%s\"."
@@ -4301,15 +3340,6 @@ msgstr "कोटा सुधारू"
 msgid "Modify Usage Report Parameters"
 msgstr "उपयोग रिपोर्ट क मानक केँ संशोधित करू"
 
-msgid "Modify dashboard settings for your user."
-msgstr "अपन प्रयोक्ता क लेल डैशबोर्ड सेटिंग्स संशोधित करू."
-
-msgid "Modify name and description of a volume."
-msgstr "एकटा वाल्यूम क नाम आओर विवरण संशोधित करू."
-
-msgid "Modify the name and description of a snapshot."
-msgstr "एकटा स्नैपशाट क नाम आओर विवरण संशोधित करू."
-
 msgid "Monitor"
 msgstr "मानिटर"
 
@@ -4318,9 +3348,6 @@ msgstr "मानिटर विवरण "
 
 msgid "Monitor Type"
 msgstr "मानिटर प्रकार"
-
-msgid "Monitoring:"
-msgstr "निगरानी:"
 
 msgid "Monitors"
 msgstr "मानिटर"
@@ -4357,16 +3384,9 @@ msgstr ""
 msgid "Name of the stack to create."
 msgstr "बनाने क लेल ढेर क नाम."
 
-msgid "Name:"
-msgstr "नाम:"
-
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr "नाम: %(name)s ID: %(uuid)s"
-
-#, python-format
-msgid "Name: %(node_group_name)s"
-msgstr "नाम: %(node_group_name)s"
 
 msgid "Native VXLAN"
 msgstr "मूल VXLAN"
@@ -4386,9 +3406,6 @@ msgstr "संजाल %s केँ सफलतापूर्वक बना
 msgid "Network %s was successfully updated."
 msgstr "सँजाल %s सफलतापूर्वक अद्यतन कएल गेल छल."
 
-msgid "Network (Neutron)"
-msgstr "सँजाल (न्यूट्रान)"
-
 msgid "Network Address"
 msgstr "सँजाल पता"
 
@@ -4398,17 +3415,11 @@ msgstr "सँजाल पता आओर आईपी संस्करण �
 msgid "Network Agents"
 msgstr "सँजाल एजेंट"
 
-msgid "Network Details"
-msgstr "संजाल क विवरण"
-
 msgid "Network ID"
 msgstr "सँजाल ID"
 
 msgid "Network Name"
 msgstr "सँजाल नाम"
-
-msgid "Network Overview"
-msgstr "संजाल अवलोकन"
 
 msgid "Network Profile"
 msgstr "संजाल प्रोफाइल"
@@ -4426,9 +3437,6 @@ msgstr "संजाल प्रोफाइल प्राप्त नहि
 
 msgid "Network Topology"
 msgstr "सँजाल टोपोलॉजी"
-
-msgid "Network Type:"
-msgstr "संजाल प्रकार:"
 
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24)"
 msgstr "सीआईडीआर प्रारूप मे सँजाल पता (जहिना 192.168.0.0/24)"
@@ -4457,9 +3465,6 @@ msgstr "न्यूट्रान फाइल प्रबंधन"
 
 msgid "Never"
 msgstr "कखनो नहि"
-
-msgid "Never updated"
-msgstr "कखनो अद्यतन नहि"
 
 msgid "New DHCP Agent"
 msgstr " नव DHCP प्रतिनिधि"
@@ -4516,9 +3521,6 @@ msgstr "कोनो स्थिति नहि"
 msgid "No Templates Available"
 msgstr "कोनो नमूना मोजुद नहि"
 
-msgid "No attached device"
-msgstr "संलग्न युक्ति कोनो नहि"
-
 msgid "No availability zone specified"
 msgstr "कोनो उपलब्धता क्षेत्र निर्दिष्ट नहि."
 
@@ -4534,14 +3536,8 @@ msgstr "कोनो मोजुद परियोजना नहि "
 msgid "No backups available"
 msgstr "कोनो बैकअप मोजुद नहि"
 
-msgid "No configurations"
-msgstr "कोनो विन्यास नहि"
-
 msgid "No flavors available"
 msgstr "कोनो फ्लेवर मोजुद नहि"
-
-msgid "No flavors meet minimum criteria for selected image."
-msgstr "कोनो फ्लेवर चयनित बिंब क लेल न्यूनतम मापदंड केँ पूरा नहि करैत अछि."
 
 msgid "No floating IP addresses allocated"
 msgstr "कोनो अस्थायी आईपी पता आबंटित नहि"
@@ -4603,9 +3599,6 @@ msgstr "कोनो परियोजना चयनित नहि. सब�
 msgid "No provider is available"
 msgstr "कोनो प्रदाता मोजुद नहि अछि"
 
-msgid "No rules defined."
-msgstr "कोनो नियम परिभाषित नहि अछि."
-
 msgid "No security groups available"
 msgstr "कोनो सुरक्षा समूह मोजुद नहि"
 
@@ -4646,14 +3639,8 @@ msgstr "कोनो वाल्यूम स्नैपशाट मोजु
 msgid "No volume type"
 msgstr "कोनो वाल्यूम प्रकार नहि"
 
-msgid "No volumes attached."
-msgstr "कोनो वाल्यूम जुड़ल भेलहुँ नहि अछि."
-
 msgid "No volumes available"
 msgstr "कोनो वाल्यूम मोजुद नहि"
-
-msgid "Node Configurations"
-msgstr "नोड विन्यास"
 
 msgid "Node Group Template Details"
 msgstr "नोड समूह नमूना क विवरण"
@@ -4665,30 +3652,14 @@ msgstr "नोड समूह नमूना प्रति %s बनाय�
 msgid "Node Group Templates"
 msgstr "नोड समूह नमूना."
 
-#, python-format
-msgid "Node Group: %(node_group_name)s"
-msgstr "नोड समूह: %(node_group_name)s"
-
 msgid "Node Groups"
 msgstr "नोड समूह"
 
 msgid "Node Processes"
 msgstr "नोड प्रक्रिया"
 
-msgid "Node configurations are not specified"
-msgstr "नोड विन्यास निर्दिष्ट नहि"
-
 msgid "Node group cluster"
 msgstr "नोड समूह क्लस्टर"
-
-msgid "Node processes are not specified"
-msgstr "नोड प्रक्रिया निर्दिष्ट नहि"
-
-msgid "Nodegroup Template Details"
-msgstr "नोडसमूह नमूना क विवरण"
-
-msgid "Nodes Count"
-msgstr "नोड गिनती"
 
 msgid "Non-Members"
 msgstr "आन सदस्य"
@@ -4709,21 +3680,8 @@ msgstr "आवंटित नहि"
 msgid "Not Found"
 msgstr "नहि भेटल"
 
-msgid "Not attached"
-msgstr "संलग्न नहि"
-
 msgid "Not available"
 msgstr "मोजुद नहि"
-
-msgid "Note: "
-msgstr "टिप्पणी: "
-
-msgid ""
-"Note: A Public Container will allow anyone with the Public URL to gain "
-"access to your objects in the container."
-msgstr ""
-"नोट: एकटा लोक कंटेनर लोक यूआरएल क सँग ककरो कंटेनर मे अपन वस्तु क लेल पहुँच प्राप्त करब क "
-"अनुमति देताह."
 
 msgid "Nova"
 msgstr "नोवा"
@@ -4731,20 +3689,8 @@ msgstr "नोवा"
 msgid "Number of API requests against swift"
 msgstr "स्विफ्ट क खिलाफ एपीआई अनुरोध क संख्या"
 
-msgid "Number of Instances"
-msgstr "स्टैंसेज़ क सँख्या "
-
-msgid "Number of Nodes"
-msgstr "नोड्स क संख्या"
-
-msgid "Number of Snapshots"
-msgstr "स्नैपशाट क संख्या"
-
 msgid "Number of VCPUs"
 msgstr "VCPU क संख्या"
-
-msgid "Number of Volumes"
-msgstr "वाल्यूम क संख्या"
 
 msgid "Number of containers"
 msgstr "कंटेनर क संख्या"
@@ -4787,20 +3733,11 @@ msgstr "लेखन अनुरोध क संख्या"
 msgid "OR Copy/Paste your Private Key"
 msgstr "अथवा कापी / अपन निज कुँजी साटू "
 
-msgid "Object Count"
-msgstr "वस्तु गणना"
-
-msgid "Object Count: "
-msgstr "वस्तु गणना: "
-
 msgid "Object Details"
 msgstr "वस्तु विवरण"
 
 msgid "Object Name"
 msgstr "वस्तु क नाम"
-
-msgid "Object Storage (Swift)"
-msgstr "वस्तु भंडारण (स्विफ्ट)"
 
 msgid "Object Store"
 msgstr "वस्तु भंडारण"
@@ -4811,9 +3748,6 @@ msgstr "वस्तु केँ सफलतापूर्वक अद्य
 msgid "Object was successfully uploaded."
 msgstr "वस्तु सफलतापूर्वक अपलोड कएल गेल छल."
 
-msgid "Object:"
-msgstr "वस्तु:"
-
 msgid "Objects"
 msgstr "वस्तु"
 
@@ -4823,14 +3757,8 @@ msgstr "पुराना फ्लेवर"
 msgid "On Demand"
 msgstr "मांग पर"
 
-msgid "Oozie Job ID"
-msgstr "Oozie काज ID"
-
 msgid "Open Port"
 msgstr "खुलल भेलहुँ पोर्ट"
-
-msgid "Open Port/Port Range:"
-msgstr "पोर्ट/पोर्ट श्रेणी खोलू:"
 
 msgid "OpenStack Flavor"
 msgstr "OpenStack फ्लेवर"
@@ -4847,12 +3775,6 @@ msgstr "वैकल्पिक पैरेंट बैकअप"
 msgid "Optional: Next Hop Addresses (comma delimited)"
 msgstr "वैकल्पिक: अगिला हॉप पता (अल्पविराम सीमांकित)"
 
-msgid "Optionally provide a comma separated list of databases to create:"
-msgstr "वैकल्पिक रूप सँ बनाबै क लेल डाटाबेस क एकटा अल्पविराम सँ अलग सूची मोजुद कराबै:"
-
-msgid "Optionally, you may choose to create a new volume."
-msgstr "वैकल्पिक रूप सँ, अहाँ एकटा नव वाल्यूम बनाबै क विकल्प चुन सकैत अछि."
-
 msgid "Orchestration"
 msgstr "वाद्य-स्थान"
 
@@ -4865,23 +3787,11 @@ msgstr "आन प्रोटोकाल"
 msgid "Output"
 msgstr "आउटपुट"
 
-msgid "Output Data Source"
-msgstr "आउटपुट डाटा स्रोत"
-
-msgid "Outputs"
-msgstr "आउटपुट"
-
 msgid "Overlay"
 msgstr "ओवरले"
 
 msgid "Overview"
 msgstr "सारांश"
-
-msgid "Owner"
-msgstr "मालिक"
-
-msgid "PASSWORD"
-msgstr "गुड़किल्ली"
 
 msgid "PFS"
 msgstr "PFS"
@@ -4892,9 +3802,6 @@ msgstr "PING"
 msgid "Page Not Found"
 msgstr "पृष्ठ नहि भेटल"
 
-msgid "Parameters"
-msgstr "पैरामीटर्स"
-
 msgid "Parent Backup"
 msgstr "पैरेंट बैकअप"
 
@@ -4904,9 +3811,6 @@ msgstr "गुड़किल्ली"
 msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "गुड़किल्ली"
-
-msgid "Password (required)"
-msgstr "गुड़किल्ली (जरूरी)"
 
 msgid "Password changed. Please log in again to continue."
 msgstr "गुड़किल्ली बदैल गेल. जारी राखबा क लेल फिनु सँ लाग ई करू."
@@ -4956,9 +3860,6 @@ msgstr "बढ़िया अग्रेषित गोपनीयता"
 msgid "Period"
 msgstr "अवधि"
 
-msgid "Period:"
-msgstr "अवधि:"
-
 msgid "Permit"
 msgstr "अनुमति दिअ"
 
@@ -4970,9 +3871,6 @@ msgstr "भौतिक सँजाल"
 
 msgid "Physical Network Name"
 msgstr "भौतिक संजाल नाम"
-
-msgid "Physical Network:"
-msgstr "प्रत्यक्ष संजाल:"
 
 msgid "Pig"
 msgstr "शूकर"
@@ -4986,9 +3884,6 @@ msgid ""
 msgstr ""
 "एकल मान (उदाहरण क लेल 200), मान क सूची (उदाहरण क लेल 200, 202), अथवा मान क श्रेणी "
 "(जहिना 200-204) दर्ज करू"
-
-msgid "Please note: "
-msgstr "कृपया  नोट करू:"
 
 #, python-format
 msgid "Please specify a %s using only one source method."
@@ -5023,9 +3918,6 @@ msgstr "नीति"
 msgid "Policy %s was successfully updated."
 msgstr "नीति %s सफलतापूर्वक अपडेट कएल गेल छल."
 
-msgid "Policy ID"
-msgstr "नीति आईडी"
-
 msgid "Policy Profile"
 msgstr "नीति प्रोफाइल"
 
@@ -5059,9 +3951,6 @@ msgstr "पोर्ट %s सफलतापूर्वक अद्यतन 
 msgid "Port Details"
 msgstr "पोर्ट क विवरण"
 
-msgid "Port ID"
-msgstr "पोर्ट आईडी"
-
 msgid "Port Range"
 msgstr "पोर्ट सीमा"
 
@@ -5073,9 +3962,6 @@ msgstr "जुड़बाक लेल पोर्ट"
 
 msgid "Ports"
 msgstr "पोर्ट"
-
-msgid "Position in Policy"
-msgstr "नीति मे स्थिति"
 
 msgid "Post-Creation"
 msgstr "पोस्ट निर्माण"
@@ -5096,9 +3982,6 @@ msgstr "पावर आन कएल जाए रहल अछि"
 
 msgid "Pre-Shared Key (PSK) string"
 msgstr "पूर्व साझा कुँजी (पीएसके) स्ट्रिंग"
-
-msgid "Pre-Shared Key string"
-msgstr "पूर्व साझा कुँजी स्ट्रिंग"
 
 msgctxt "Task status of an Instance"
 msgid "Preparing Resize or Migrate"
@@ -5134,23 +4017,14 @@ msgstr "परियोजना आईडी"
 msgid "Project Information"
 msgstr "परियोजना सूचना"
 
-msgid "Project Limits"
-msgstr "परियोजना सीमा"
-
 msgid "Project Members"
 msgstr "परियोजना क सदस्य"
 
 msgid "Project Name"
 msgstr "परियोजना नाम"
 
-msgid "Project Quotas"
-msgstr "परियोजना कोटा"
-
 msgid "Project Usage"
 msgstr "परियोजना उपयोग"
-
-msgid "Project Usage Overview"
-msgstr "परियोजना उपयोग अवलोकन"
 
 msgid "Projects"
 msgstr "परियोजना"
@@ -5160,9 +4034,6 @@ msgstr "परियोजना प्राप्त नहि कएल ज�
 
 msgid "Projects:"
 msgstr "परियोजना:"
-
-msgid "Protect and use the key as you would any normal ssh private key."
-msgstr "कुँजी जे अहाँ सामान्य ssh निज कुँजी क रूपेँ उपयोग करैत छी केँ सुरक्षित राखू"
 
 msgid "Protected"
 msgstr "सुरक्षित"
@@ -5179,23 +4050,11 @@ msgstr "फायरवाल नियम क लेल प्रोटोक�
 msgid "Provider"
 msgstr "प्रदाता"
 
-msgid "Provider Network"
-msgstr "प्रदाता संजाल"
-
 msgid "Provider Network Type"
 msgstr "प्रदाता संजाल किस्म"
 
 msgid "Provider for Load Balancer is not supported"
 msgstr "भार संतुलक क लेल प्रदाता समर्थित नहि अछि"
-
-msgid ""
-"Provider specified network can be created. You can specify a physical "
-"network type (like Flat, VLAN, GRE, and VXLAN) and its segmentation_id or "
-"physical network name for a new virtual network."
-msgstr ""
-"प्रदाता द्वारा निर्दिष्ट संजाल बनैलक जाए सकैत अछि. अहाँ एकटा प्रत्यक्ष संजाल प्रकार "
-"(जहिना Flat, VLAN, GRE, आओर VXLAN) आओरएकर  segmentation_id अथवा एकटा नव "
-"आभाषी संजाल क लेल प्रत्यक्ष संजाल नाम निर्दिष्ट कए सकैत अछि."
 
 msgid "Pseudo-folder Name"
 msgstr "छद्म फोल्डर नाम"
@@ -5203,17 +4062,11 @@ msgstr "छद्म फोल्डर नाम"
 msgid "Pseudo-folder was successfully created."
 msgstr "छद्म फोल्डर सफलतापूर्वक बनाएल गेल छल."
 
-msgid "Pseudo-folder:"
-msgstr "छद्म-फोल्डर:"
-
 msgid "Public"
 msgstr "सार्वजनिक"
 
 msgid "Public Key"
 msgstr "सार्वजनिक कुँजी"
-
-msgid "Public URL"
-msgstr "सार्वजनिक यूआरएल"
 
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU एमुलेटर"
@@ -5227,9 +4080,6 @@ msgstr "QoS विनिर्देश उपभोक्ता मूल्य
 
 msgid "QoS Spec to be associated"
 msgstr "जोड़े जाए बला QoS विनिर्देश"
-
-msgid "QoS Spec: "
-msgstr "QoS विनिर्देश: "
 
 msgid "QoS Specs"
 msgstr "QoS विनिर्देश"
@@ -5278,10 +4128,6 @@ msgstr "कच्चा"
 
 msgid "Reason"
 msgstr "कारण"
-
-#, python-format
-msgid "Reason: %(disabled_reason)s"
-msgstr "कारण: %(disabled_reason)s"
 
 msgctxt "Action log of an instance"
 msgid "Reboot"
@@ -5342,10 +4188,6 @@ msgstr "क्षेत्र:"
 msgid "Register Image"
 msgstr "बिंब पंजीयन करू"
 
-msgid ""
-"Register tags required for the Plugin with specified Data Processing Version"
-msgstr "निर्दिष्ट डाटा प्रोसेसिंग संस्करण क सँग प्लगइन क लेल आवश्यक टैगों केँ पंजीकृत करू"
-
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr "अनुरोध क सापेक्ष हिस्सा एहि पूल सदस्य दोसर क तुलना मे काज करैत अछि"
 
@@ -5364,14 +4206,8 @@ msgstr "मोजुदा क्लस्टर पर फिनु सँ ल�
 msgid "Relaunch On New Cluster"
 msgstr "नव क्लस्टर पर फिनु सँ लान्च करू"
 
-msgid "Reload"
-msgstr "फिनु लोड करू"
-
 msgid "Remote"
 msgstr "दूरस्थ"
-
-msgid "Remote peer subnet"
-msgstr "दूरस्थ सहकर्मी सबनेट"
 
 msgid "Remote peer subnet(s)"
 msgstr "दूरस्थ सहकर्मी सबनेट "
@@ -5382,12 +4218,6 @@ msgid ""
 msgstr ""
 "जँ जरूरत सीआईडीआर प्रारूप मे मुखौटा (एस) क सँग दूरस्थ सहकर्मी सबनेट  पता (ते) कॉमा सँ अलग "
 "भ' (जहिना 20.1.0.0/24, 21.1.0.0/24)"
-
-msgid "Remote:"
-msgstr "दूरस्थ:"
-
-msgid "Remove"
-msgstr "हटाउ"
 
 msgid "Remove Rule"
 msgstr "नियम केँ हटाउ"
@@ -5408,9 +4238,6 @@ msgstr "बचाव"
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "बचाएल जाए रहल अछि"
-
-msgid "Reset to Default"
-msgstr "पूर्वनिर्धारित पर रीसेट करू"
 
 msgid "Resize"
 msgstr "आकार बदलू"
@@ -5451,18 +4278,6 @@ msgstr "वाल्यूम \"%s\" क आकार बदलल जाए र
 msgid "Resource"
 msgstr "साधन"
 
-msgid "Resource Details"
-msgstr "संसाधन क विवरण"
-
-msgid "Resource ID"
-msgstr "संसाधन ID"
-
-msgid "Resource Metadata"
-msgstr "संसाधन मेटाडाटा"
-
-msgid "Resource Overview"
-msgstr "संसाधन अवलोकन"
-
 msgid "Resource Usage"
 msgstr "संसाधन प्रयोग"
 
@@ -5477,9 +4292,6 @@ msgstr "बैकअप बहाल करू"
 
 msgid "Restore Backup to Volume"
 msgstr "बैकअप केँ वाल्यूम मे रीस्टोर करू"
-
-msgid "Restore Backup:"
-msgstr "रीस्टोर बैकअप:"
 
 msgid "Restore Volume Backup"
 msgstr "वाल्यूम बैकअप बहाल करू"
@@ -5504,9 +4316,6 @@ msgstr "इंस्टांस गुड़किल्ली क पनःप
 
 msgid "Retrieve Password"
 msgstr "गुड़किल्ली क पनःप्राप्ति"
-
-msgid "Return Code"
-msgstr "वापसी कोड"
 
 msgid "Revert Resize/Migrate"
 msgstr "आकार बदलू / माइग्रेट वापस आनू"
@@ -5537,9 +4346,6 @@ msgstr "भूमिका सफलतापूर्वक अद्यतन.
 msgid "Roles"
 msgstr "भूमिका"
 
-msgid "Rollback"
-msgstr "वापस करू"
-
 msgid "Rollback On Failure"
 msgstr "बिफलता पर रोलबैक"
 
@@ -5548,9 +4354,6 @@ msgstr "रूट डिस्क"
 
 msgid "Root Disk (GB)"
 msgstr "मुख्य डिस्क (GB)"
-
-msgid "Route mode"
-msgstr "रूट मोड "
 
 msgid "Router"
 msgstr "रूटर"
@@ -5572,9 +4375,6 @@ msgstr "रूटर आईडी"
 msgid "Router Name"
 msgstr "रूटर नाम"
 
-msgid "Router Rule Grid"
-msgstr "रूटर नियम ग्रिड"
-
 msgid "Router Rules"
 msgstr "रूटर नियम"
 
@@ -5589,13 +4389,6 @@ msgstr "जोडी गेल रूटर नियम"
 
 msgid "Routers"
 msgstr "रूटर"
-
-msgid ""
-"Routing rules to apply to router. Rules are matched by most specific source "
-"first and then by most specific destination."
-msgstr ""
-"रूटर केँ लागू करबाक लेल नियम रूटिंग. नियम सबसँ विशिष्ट गंतव्य सँ पहिने आओर ओकरा बाद सबसँ "
-"विशिष्ट स्रोत सँ मिलान कए रहल अछि."
 
 msgid "Rule"
 msgstr "नियम"
@@ -5612,31 +4405,12 @@ msgstr "नियम  %(rule)s सफलतापूर्वक %(policy)s न�
 msgid "Rule %s was successfully updated."
 msgstr "नियम %s सफलतापूर्वक अद्यतन कएल गेल छल."
 
-msgid "Rule Conflict"
-msgstr " नियम क विरोध"
-
-msgid "Rule:"
-msgstr "नियम:"
-
 msgid "Rules"
 msgstr "नियम "
-
-msgid ""
-"Rules define which traffic is allowed to instances assigned to the security "
-"group. A security group rule consists of three main parts:"
-msgstr ""
-"नियम ट्रैफ़िक सुरक्षा समूह केँ सौंपल इंस्टेंस क अनुमति देब अछि केँ परिभाषित करैत अछि. सुरक्षा "
-"समूह नियम मे तीन मुख्य हिस्सा होइत अछि:"
 
 msgctxt "Power state of an Instance"
 msgid "Running"
 msgstr "चल रहल अछि"
-
-msgid "S3 URL"
-msgstr "S3 URL"
-
-msgid "SSH key pairs can be generated with the ssh-keygen command:"
-msgstr "SSH कुँजी जोड़ल ssh-keygen कमांड क सँग उत्पन्न कएल जाए सकैत अछि:"
 
 msgid "Save"
 msgstr "सहेजू"
@@ -5701,41 +4475,14 @@ msgstr "सुरक्षा समूह नियम"
 msgid "Security Groups"
 msgstr "सुरक्षा समूह"
 
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. After the security group is created, you can add rules "
-"to the security group."
-msgstr ""
-"सुरक्षा समूह IP फ़िल्टर नियम क सेट छी जे VM क लेल संजाल सेटिंग्स मे लागू होइत अछि. सुरक्षा "
-"समूह बनाए जाए क बाद अहाँ नियम केँ सुरक्षा समूह मे जोड़ सकैत अछि."
-
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. Edit the security group to add and change the rules."
-msgstr ""
-"सुरक्षा समूह IP फ़िल्टर नियम क सेट छी जे VM क लेल संजाल सेटिंग्स मे लागू होइत अछि. नियम केँ "
-"जोड़ब आओर बदलब क लेल सुरक्षा समूह केँ संपादित करू."
-
 msgid "Segment Range"
 msgstr "अनुभाग रेंज"
-
-msgid "Segment Range:"
-msgstr "खंड श्रेणी:"
-
-msgid "Segment Sub Type:"
-msgstr "खंड उप-प्रकार:"
 
 msgid "Segment Type"
 msgstr "अनुभाग प्रकार"
 
-msgid "Segment Type:"
-msgstr "खंड प्रकार:"
-
 msgid "Segmentation ID"
 msgstr "विभाजन आईडी"
-
-msgid "Segmentation ID:"
-msgstr "विभाजन ID:"
 
 msgid "Select IKE Policy"
 msgstr "IKE नीति क चयन करू"
@@ -5776,9 +4523,6 @@ msgstr "मानिटर चुनू"
 msgid "Select a New Flavor"
 msgstr " नवफ्लेवर चुनू"
 
-msgid "Select a Node Group Template to add:"
-msgstr "जोड़ब क लेल एकटा नोड समूह नमूना क चयन करू:"
-
 msgid "Select a Policy"
 msgstr "नीति क चयन करू"
 
@@ -5808,9 +4552,6 @@ msgstr "कुँजी युग्म चुनू"
 msgid "Select a monitor template for %s"
 msgstr " %s क लेल एकटा निगरानी नमूना क चयन करू"
 
-msgid "Select a name for your network."
-msgstr "अपन संजाल क लेल नाम क चयन करू."
-
 msgid "Select a new agent"
 msgstr " नवएजेंट चयन करू"
 
@@ -5820,17 +4561,8 @@ msgstr " नव मेजबान चयन करू"
 msgid "Select a new template to re-launch a stack."
 msgstr "स्टैक केँ फिनु सँ लान्च करबाक लेल एकटा नव नमूना क चयन करू."
 
-msgid "Select a plugin and version for a new Cluster template."
-msgstr "एकटा नव क्लस्टर नमूना क लेल एकटा प्लगइन आओर संस्करण क चयन करू."
-
-msgid "Select a plugin and version for a new Cluster."
-msgstr "एकटा नव क्लस्टर क लेल प्लगइन आओर संस्करण क चयन करू."
-
 msgid "Select a port"
 msgstr "पोर्ट चुनू."
-
-msgid "Select a pre-defined period or specify date."
-msgstr "एकटा पूर्व-निर्धारित अवधि अथवा निर्दिष्ट दिनांक क चयन करू."
 
 msgid "Select a profile"
 msgstr "एकटा प्रोफाइल चुनू"
@@ -5843,9 +4575,6 @@ msgstr "लक्ष्य मेजबान चयन करू"
 
 msgid "Select a template to launch a stack."
 msgstr "एकटा स्टैक लान्च करबाक लेल नमूना क चयन करू."
-
-msgid "Select a volume to restore to."
-msgstr "रीस्टोर करबाक लेल एकटा वाल्यूम क चयन करू."
 
 msgid "Select an IP address"
 msgstr "आईपी पता क चयन करू"
@@ -5889,17 +4618,11 @@ msgstr "क्लस्टर क लेल प्लगिन आओर हड�
 msgid "Select plugin and hadoop version for cluster template"
 msgstr "क्लस्टर नमूना क लेल प्लगइन आओर hadoop संस्करण क चयन करू"
 
-msgid "Select property name"
-msgstr "विशेषता नाम क चयन करू"
-
 msgid "Select rules for your policy."
 msgstr "अपन नीति क लेल नियम क चयन करू."
 
 msgid "Select source"
 msgstr "स्रोत चुनू"
-
-msgid "Select the image to rebuild your instance."
-msgstr "अपन इंस्टेंस क पुनर्निर्माण क लेल बिंब क चयन करू."
 
 msgid ""
 "Select the projects where the flavors will be used. If no projects are "
@@ -5908,29 +4631,14 @@ msgstr ""
 "परियोजना क चयन करू जतए फ्लैबर क उपयोग कएल गेल अछि। जँ कोनो परियोजना क चयन नहि कएल "
 "गेल अछि तँ सबहि परियोजना मे फ्लैबर मोजुद भ' जएताह."
 
-msgid "Select the storage type for your job binary."
-msgstr "अपन काज द्विपदीय क लेल संग्रहण प्रकार क चयन करू."
-
-msgid "Select the type of your Data Source."
-msgstr "अपन डाटा स्रोत क किस्म चुनू."
-
-msgid "Select the type of your job:"
-msgstr "अपन काज क प्रकार क चयन करू:"
-
 msgid "Selected Hosts"
 msgstr "चयनित मेजबान"
 
 msgid "Selected Projects"
 msgstr "चयनित परियोजना"
 
-msgid "Selected Rules"
-msgstr "चयनित नियम"
-
 msgid "Selected hosts"
 msgstr "चयनित मेजबान"
-
-msgid "Selected networks"
-msgstr "चयनित सँजाल"
 
 msgid "Server error"
 msgstr "सर्वर त्रुटि"
@@ -6007,9 +4715,6 @@ msgctxt "Task status of an Instance"
 msgid "Shelving Offloading"
 msgstr "शेल्फ़ केँ खाली कएल जाए रहल अछि"
 
-msgid "Show full configuration"
-msgstr "पूर्ण विन्यास देखाउ"
-
 msgctxt "Power state of an Instance"
 msgid "Shut Down"
 msgstr "बन्न करू"
@@ -6040,18 +4745,12 @@ msgstr "GB मे वाल्यूम क आकार."
 msgid "Size of volume"
 msgstr "खंड क आकार "
 
-msgid "Size: "
-msgstr "आकार: "
-
 msgid "Slash is not an allowed character."
 msgstr "स्लैश एकटा अनुमत वर्ण नहि अछि."
 
 msgid ""
 "Slashes are allowed, and are treated as pseudo-folders by the Object Store."
 msgstr "स्लैश अनुमति देल जाइछ, आओर वस्तु संग्रह सँ छद्म फोल्डर क रूपेँ व्यवहार कए रहल अछि."
-
-msgid "Small"
-msgstr "छोट"
 
 msgid "Snapshot"
 msgstr "स्नेपशाट"
@@ -6063,9 +4762,6 @@ msgstr "स्नेपशाट"
 #, python-format
 msgid "Snapshot \"%(name)s\" created for instance \"%(inst)s\""
 msgstr " \"%(inst)s\" इंस्टेंस क लेल बनाएल गेल स्नैपशाट t \"%(name)s\""
-
-msgid "Snapshot Limits"
-msgstr "स्नैपशाट क सीमा"
 
 msgid "Snapshot Name"
 msgstr "स्नेपशाट नाम"
@@ -6085,23 +4781,14 @@ msgctxt "Task status of an Instance"
 msgid "Soft Deleting"
 msgstr "साफ्ट केँ हटाएल जाए रहल अछि"
 
-msgid "Some flavors not meeting minimum image requirements have been disabled."
-msgstr "न्यूनतम बिंब जरूरतों केँ पूरा नहि किछु फ्लेवर निष्क्रिय कए देल गेल अछि."
-
 msgid "Something went wrong!"
 msgstr "किछु गलत भ' गेल.!"
-
-msgid "Source"
-msgstr "स्रोत"
 
 msgid "Source CIDR"
 msgstr "स्रोत CIDR"
 
 msgid "Source IP"
 msgstr "स्रोत आईपी"
-
-msgid "Source IP Address"
-msgstr "स्रोत IP पता"
 
 msgid "Source IP Address/Subnet"
 msgstr "स्रोत आईपी पता / सबनेट"
@@ -6124,9 +4811,6 @@ msgstr "स्रोत पोर्ट ([1, 65,535] मे पूर्णा�
 msgid "Source username"
 msgstr "स्रोत प्रयोक्तानाम"
 
-msgid "Source:"
-msgstr "स्रोत:"
-
 msgid "Spark"
 msgstr "स्पार्क"
 
@@ -6136,13 +4820,6 @@ msgstr "परिणाम देब जाए रहल अछि"
 
 msgid "Spec"
 msgstr "Spec"
-
-msgid ""
-"Specified User Name will be used by Data Processing to apply configs and "
-"manage processes on instances."
-msgstr ""
-"निर्दिष्ट प्रयोक्ता नाम क प्रयोग डाटा प्रोसेसिंग द्वारा दृष्टान्त पर विन्यास लागू करै आओर "
-"प्रक्रिया केँ प्रबंधित करबामे कएल जएताह. "
 
 msgid ""
 "Specifies how IPv6 addresses and additional information are configured. We "
@@ -6174,34 +4851,16 @@ msgstr "चयनित सबनेट सँ एकटा स्वतंत�
 msgid "Specify additional attributes for the subnet."
 msgstr "सबनेट क लेल बाइली विशेषता निर्दिष्ट करू."
 
-msgid "Specify advanced options to use when launching an instance."
-msgstr "एकटा दृष्टांत केँ लान्च करैत समय प्रयोग कएल जाए बला उन्नत विकल्प निर्दिष्ट करू."
-
 msgid "Specify an IP address for the interface created (e.g. 192.168.0.254)."
 msgstr ""
 "जँ अहाँ चाहैत छी बनैलक अंतरफलक क एकटा आईपी पता निर्दिष्ट कए सकैत अछि. (e.g. "
 "192.168.0.254)."
 
-msgid "Specify an image to upload to the Image Service."
-msgstr "बिंब सेवा पर अपलोड करबाक लेल एकटा बिंब निर्दिष्ट करू."
-
 msgid "Specify member IP address"
 msgstr "सदस्य IP पता निर्दिष्ट करू"
 
-msgid "Specify the details for launching an instance."
-msgstr "इंस्टेंस शुरू करबाक लेल विवरण निर्दिष्ट करू."
-
-msgid "Specify the details for the database backup."
-msgstr "डाटाबेस बैकअप क लेल विवरण निर्दिष्ट करू."
-
-msgid "Specify the new volume size for the database instance."
-msgstr "डाटाबेस दृष्टांत क लेल नव वाल्यूम आकार निर्दिष्ट करू."
-
 msgid "Specs"
 msgstr "विशिष्टता"
-
-msgid "Stack Details"
-msgstr "स्टैक क विवरण"
 
 msgid "Stack Events"
 msgstr "ढेर घटनाक्रम"
@@ -6212,26 +4871,14 @@ msgstr "ढेर आईडी"
 msgid "Stack Name"
 msgstr " ढेर नाम"
 
-msgid "Stack Overview"
-msgstr "ढेर अवलोकन"
-
-msgid "Stack Parameters"
-msgstr "ढेर पैरामीटर्स"
-
 msgid "Stack Resource"
 msgstr "ढेर संसाधन"
-
-msgid "Stack Resource ID"
-msgstr "ढेर संसाधन ID"
 
 msgid "Stack Resource Type"
 msgstr "ढेर संसाधन प्रकार"
 
 msgid "Stack Resources"
 msgstr "ढेर संसाधन"
-
-msgid "Stack Template"
-msgstr "स्टैक नमूना"
 
 msgid "Stack creation started."
 msgstr "ढेर निर्माण शुरू कए देलक."
@@ -6244,9 +4891,6 @@ msgstr "ढेर अद्यतन शुरू कए देलक."
 
 msgid "Stacks"
 msgstr "ढेर"
-
-msgid "Start"
-msgstr "प्रारंभ"
 
 msgctxt "Action log of an instance"
 msgid "Start"
@@ -6266,19 +4910,12 @@ msgstr "आरंभ आओर अंत पता निर्दिष्ट �
 msgid "Start must be earlier than end of period."
 msgstr "प्रारंभ अवधि क समाप्ति सँ पहिने होनाइ चाही."
 
-msgctxt "Start time"
-msgid "Started"
-msgstr "प्रारंभ"
-
 #, python-format
 msgid "Starting evacuation from %(current)s to %(target)s."
 msgstr "%(current)s सँ %(target)s तक निकासी शुरू अछि"
 
 msgid "State"
 msgstr "स्थिति"
-
-msgid "Statistics of all resources"
-msgstr "सभटा संसाधन क आंकड़ा"
 
 msgid "Stats"
 msgstr "आँकड़ा"
@@ -6321,25 +4958,11 @@ msgstr "सबनेट \"%s\" सफलतापूर्वक अद्यत
 msgid "Subnet Details"
 msgstr "सबनेट क विवरण"
 
-msgid "Subnet ID"
-msgstr "सबनेट  आईडी "
-
 msgid "Subnet Name"
 msgstr "सबनेट नाम"
 
-msgid "Subnet Overview"
-msgstr "सबनेट अवलोकन"
-
 msgid "Subnet list can not be retrieved."
 msgstr "सबनेट सूची प्राप्त नहि कएल जाए सकैत अछि."
-
-#, python-format
-msgid "Subnet: %(dest_subnetname)s"
-msgstr "सबनेट: %(dest_subnetname)s"
-
-#, python-format
-msgid "Subnet: %(row_source_subnetname)s"
-msgstr "सबनेट: %(row_source_subnetname)s"
 
 msgid "Subnets"
 msgstr "सबनेट"
@@ -6434,9 +5057,6 @@ msgstr "वाल्यूम स्नैपशाट स्थिति सफ
 msgid "Successfully updated volume status to \"%s\"."
 msgstr "\"%s\" मे वाल्यूम स्थिति केँ सफलतापूर्वक अद्यतन कएल गेल."
 
-msgid "Sum."
-msgstr "योग."
-
 msgid "Supported Versions"
 msgstr "समर्थित संस्करण"
 
@@ -6476,16 +5096,6 @@ msgstr "TCP"
 msgid "Tags"
 msgstr "टैग"
 
-msgid ""
-"Tags are used for filtering images suitable for each plugin and each Data "
-"Processing version.\n"
-"        To add required tags, select a plugin and a Data Processing version "
-"and click &quot;Add plugin tags&quot; button."
-msgstr ""
-"टैगकेँ हर प्लगिन आओर हर डाटा प्रोसेसिंग संस्करणक लेल प्रयोग कएल जाइछ.\n"
-"        जरूरी टैग जोड़बाक लेल, प्लगिन चुनू आओर डाटा प्रोसेसिंग संस्करण चुनू आओर &quot;Add "
-"plugin tags&quot; बटन क्लिक करू."
-
 msgid "Target Host"
 msgstr "लक्ष्य मेजबान"
 
@@ -6504,17 +5114,11 @@ msgstr "नमूना फाइल"
 msgid "Template Name"
 msgstr "नमूना नाम"
 
-msgid "Template Overview"
-msgstr "नमूना सारांश"
-
 msgid "Template Source"
 msgstr "नमूना स्रोत"
 
 msgid "Template URL"
 msgstr "नमूना यूआरएल"
-
-msgid "Template not specified"
-msgstr "नमूना केँ निर्दिष्ट नहि कएल गेल अछि"
 
 msgid "The \"from\" port number is invalid."
 msgstr "\"सँ\" पोर्ट सँख्या अमान्य अछि."
@@ -6527,7 +5131,6 @@ msgid ""
 "number."
 msgstr "पोर्ट सँख्या सँ बेसी अछि अथवा \"सँ\" पोर्ट सँख्या क बराबर होनाइ चाही \"केर लेल\"."
 
-#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
@@ -6536,65 +5139,8 @@ msgstr ""
 "get_feature_permission '%(feature)s' क लेल 'संचालन' पैरामीटर अवैध अछि.  ई "
 "%(allowed)s मे सँ एकटा होनाइ चाही."
 
-msgid ""
-"The <strong>Cipher</strong> is the encryption algorithm/mode to use (e.g., "
-"aes-xts-plain64). If the field is left empty, the provider default will be "
-"used."
-msgstr ""
-"<strong>Cipher</strong> गोपन एल्गोरिदम/उपयोग क विधि (जहिना, aes-xts-plain64) "
-"अछि. जँ एहि फील्ड केँ खाली छोड़ा जाइत अछि तँ प्रदाता पूर्वनिर्धारित क उपयोग कएल जएताह."
-
-msgid ""
-"The <strong>Control Location</strong> is the notional service where "
-"encryption is performed (e.g., front-end=Nova). The default value is 'front-"
-"end.'"
-msgstr ""
-"<strong>नियंत्रण स्थान</strong> ओ अनुमानित सेवा अछि जतए गोपन पूरा कएल जाइत अछि"
-"(जहिना, फ्रंट-एंड=नोवा). पूर्वनिर्धारित मान 'फ्रंट-एंड' अछि."
-
-msgid ""
-"The <strong>Key Size</strong> is the size of the encryption key, in bits (e."
-"g., 128, 256). If the field is left empty, the provider default will be used."
-msgstr ""
-"<strong>बटन आकार</strong> बिट्स मे गोपन बटन क आकार अछि (जहिना, 128, 256 बिट्स). "
-"जँ एहि फील्ड केँ खाली छोड़ा जाइत अछि तँ प्रदाता पूर्वनिर्धारित क उपयोग कएल जएताह."
-
-msgid ""
-"The <strong>Provider</strong> is the class providing encryption support (e."
-"g. LuksEncryptor)."
-msgstr ""
-"<strong>प्रदाता</strong> गोपन सहयोग प्रदान करब बला वर्ग अछि (जहिना "
-"LuksEncryptor)."
-
 msgid "The Aggregate was updated."
 msgstr "सकल अद्यतन कएल गेल छल."
-
-msgid ""
-"The Cluster Template object may specify a list of processes in anti-affinity "
-"group.\n"
-"    That means these processes may not be launched more than once on a "
-"single host."
-msgstr ""
-"क्लस्टर नमूना वस्तु सदृश्यता-विरोधी समूह मे प्रक्रिया क एकटा सूची निर्दिष्ट कए सकैत अछि.\n"
-"    एकर मतलब अछि जे ई प्रक्रिया केँ एकटा एकल मेजबान पर एकटा सँ बेसी बेर लान्च नहि कएल "
-"जाए सकैत अछि."
-
-msgid ""
-"The Cluster Template object should specify Node Group Templates that will be "
-"used to build a Cluster.\n"
-"    You can add Node Groups using Node Group Templates on a &quot;Node "
-"Groups&quot; tab."
-msgstr ""
-"क्लस्टर नमूना वस्तु केँ नोड समूह नमूना निर्दिष्ट कएनाइ चाही जकरा एकटा क्लस्टर बनाबै क लेल "
-"उपयोग कएल जएताह.\n"
-"    अहाँ एकटा &quot;Node Groups&quot; टैब पर नोड समूह क उपयोग कएक नोड समूह जोड़ "
-"सकैत अछि."
-
-msgid ""
-"The Cluster object should specify OpenStack Image to boot instances for "
-"Cluster."
-msgstr ""
-"क्लस्टर क दृष्टांत बूट करबाक लेल क्लस्टर वस्तु केँ OpenStack छवि निर्दिष्ट कएनाइ चाही."
 
 msgid "The ICMP code is invalid."
 msgstr "ICMP कोड अमान्य अछि."
@@ -6612,13 +5158,6 @@ msgstr "श्रृंखला मे ICMP प्रकार नहि (-1, 2
 msgid "The ID \"%s\" is already used by another flavor."
 msgstr "आईडी \"%s\" आन फ्लेवर क द्वारा पहिने सँ उपयोग मे अछि."
 
-msgid ""
-"The Image Location field MUST be a valid and direct URL to the image binary. "
-"URLs that redirect or serve error pages will result in unusable images."
-msgstr ""
-"बिंब स्थान क्षेत्र बिंब द्विआधारी कलेल एकटा वैध आओर प्रत्यक्ष URL होनाइ चाही.पुनर्निर्देशित "
-"करै बला URL अथवा त्रुटि पृष्ठसभ व्यर्थ बिंब मे परिणाम हाएत."
-
 msgid "The Key Pair name that was associated with the instance"
 msgstr "इंस्टेंस क सँग जुड़े हुए कुँजी युग्म नाम"
 
@@ -6630,44 +5169,8 @@ msgstr ""
 "वाल्यूम आकार '%(image_name)s' छवि क लेल बहुत छोट अछि आओर बेसी सँ बेसी अथवा "
 "'%(smallest_size)d' जीबी क बराबर होगेल अछि."
 
-msgid ""
-"The chart below shows the resources used by this project in relation to the "
-"project's quotas."
-msgstr ""
-"नीच्चाँ देल गेल चार्ट परियोजना क लेल कोटा क संबंध मे एहि प्रोजेक्ट क द्वारा प्रयुक्त संसाधन सँ "
-"पता चलैत अछि."
-
-msgid ""
-"The color and icon of an intersection indicates whether or not traffic is "
-"permitted from the source (row) to the destination (column).\n"
-"     Clicking the <i class=\"fa fa-random\"></i> button in the intersection "
-"will install a rule to switch the traffic behavior.<br/>\n"
-"\n"
-"     <b>Note:</b> Rules only affect one direction of traffic. The opposite "
-"direction is outlined when hovering over an intersection.\n"
-" "
-msgstr ""
-"एकटा प्रतिच्छेदन क रँग आओर आइकन सँ पता चलैत अछि जे क स्रोत (पंक्ति) सँ गंतव्य (स्तंभ) मे "
-"ट्रैफिक क अनुमति अछि अथवा नहि.\n"
-"     प्रतिच्छेदन मे <i class=\"fa fa-random\"></i> बटन केँ क्लिक करब सँ ट्रैफिक क "
-"व्यवहार केँ स्विच करबाक लेल एकटा नियम इंस्टॉल भ' जएताह.<br/>\n"
-"\n"
-"     <b>नोट:</b> नियम ट्रैफिक क केवल एकटा दिशा केँ प्रभावित करैत अछि. विपरीत दिशा केँ "
-"एकटा प्रतिच्छेदन पर हाथ घुमाबैत समय दर्शाया जाइत अछि.\n"
-" "
-
 msgid "The container cannot be deleted since it is not empty."
 msgstr "ई कंटेनर केँ हटाएल नहि जाए सकैत अछि किएक ई खाली नहि अछि."
-
-msgid ""
-"The default IP address of the interface created is a gateway of the selected "
-"subnet. You can specify another IP address of the interface here. You must "
-"select a subnet to which the specified IP address belongs to from the above "
-"list."
-msgstr ""
-"बनैलक अंतरफलक क पूर्वनिर्धारित आईपी पता चयनित सबनेट क लेल प्रवेश द्वार अछि. अहाँ एतय "
-"अंतरफलक क एकटा आओर आईपी पता निर्दिष्ट कए सकैत अछि. अहाँ निर्दिष्ट आईपी पता उपरोक्त "
-"सूची सँ संबंध राखैत अछि जे करबाक लेल एकटा सबनेट क चयन कएनाइ हाएत."
 
 #, python-format
 msgid ""
@@ -6683,14 +5186,6 @@ msgstr "इंस्टेंस मेजबान \"%s\" कलेल ला�
 
 msgid "The instance password encrypted with your public key."
 msgstr "अहाँक सार्वजनिक कुँजी क सँग एन्क्रिप्टेड इंस्टेंस गुड़किल्ली."
-
-#, python-format
-msgid ""
-"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
-"not use the link below."
-msgstr ""
-"कुँजी युग्म &quot;%(keypair_name)s&quot; स्वतः डाउनलोड भ' जएताह. जँ नहि, तँ नीच्चाँ "
-"देल गेल लिंक क उपयोग करू."
 
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
@@ -6717,22 +5212,11 @@ msgid ""
 "implemented."
 msgstr "प्रत्यक्ष संजाल क नाम जकरा पर आभाषी संजाल केँ क्रियान्वित कएल जाइत अछि."
 
-msgid ""
-"The next hop addresses can be used to override the router used by the client."
-msgstr ""
-"अगिला हॉप पता ग्राहक द्वारा प्रयोग कएल जाइत रूटर अधिरोहित करबाक लेल इस्तेमाल कएल "
-"जाए सकैत अछि."
-
 msgid "The page you were looking for doesn't exist"
 msgstr "अहाँक द्वारा खोजागेल पृष्ठ मोजुद नहि अछि"
 
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "प्रत्यक्ष प्रणाली जकरा द्वारा आभाषी संजाल केँ क्रियान्वित कएल जाइत अछि."
-
-msgid ""
-"The private key will be only used in your browser and will not be sent to "
-"the server"
-msgstr "निज कुँजी अपन ब्राउजर मे इस्तेमाल कएल जएताह आओर सर्वर केँ नहि भेजल जएताह"
 
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "ई छद्म फोल्डर केँ हटाएल नहि जाए सकैत अछि किएक ई खाली नहि अछि."
@@ -6743,7 +5227,6 @@ msgstr "वातावरण फाइल क कच्ची सामग्�
 msgid "The raw contents of the template."
 msgstr "नमूना क कच्चा सामग्री."
 
-#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -6796,9 +5279,6 @@ msgstr "वाल्यूम आकार स्रोत वाल्यूम
 msgid "There are no meters defined yet."
 msgstr "अखन तक परिभाषित मीटर नहि अछि."
 
-msgid "There are no networks, routers, or connected instances to display."
-msgstr "कोनो संजाल, रूटर अथवा प्रदर्शित करबाक लेल जुड़ल इंस्टेंस अछि."
-
 msgid ""
 "There is not enough capacity for this flavor in the selected availability "
 "zone. Try again later or select a different availability zone."
@@ -6810,22 +5290,6 @@ msgstr ""
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr " %(prefix)s पार्स करबामे कोनो समस्या भेल छल: %(error)s"
 
-msgid "This Cluster Template will be created for:"
-msgstr "ई क्लस्टर नमूना एकर लेल बनैलक जएताह:"
-
-msgid "This Cluster will be started with:"
-msgstr "क्लस्टर एकरासँ आरंभ हाएत:"
-
-msgid "This Node Group Template will be created for:"
-msgstr "ई नोड समूह नमूना एकर लेल बनैलक जएताह:"
-
-msgid ""
-"This generates a pair of keys: a key you keep private (cloud.key) and a "
-"public key (cloud.key.pub). Paste the contents of the public key file here."
-msgstr ""
-"ई कुँजी क युग्म उत्पन करैत छी : कुँजी जे निज  (cloud.key) आओर सार्वजानिक (cloud.key."
-"pub) कुँजी अछि. एतय सार्वजानिक कुँजी क सामग्री साटू "
-
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
@@ -6833,9 +5297,6 @@ msgstr "आपरेशन ढेर क जीवन चक्र क दौर
 
 msgid "This name is already taken."
 msgstr "ई नाम पहिने  ले लेल गेल अछि."
-
-msgid "This pane needs javascript support."
-msgstr "ई पृष्ठ JavaScript समर्थन क जरूरत अछि."
 
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
@@ -6872,38 +5333,14 @@ msgid "To date to must be greater than From date."
 msgstr "समाप्ति दिनांक प्रारंभ दिनांक सँ पैघ होनाइ चाही."
 
 msgid ""
-"To decrypt your password you will need the private key of your key pair for "
-"this instance. Select the private key file, or copy and paste the content of "
-"your private key file into the text area below, then click Decrypt Password."
-msgstr ""
-"अपन गुड़किल्ली डिक्रिप्ट करबाक लेल अहाँ एहि इंस्टेंस क लेल अपन कुँजी युग्म क निज कुँजी क "
-"आवश्यकता हएताह. निज कुँजी फाइल क चयन करू, अथवा नीच्चाँ पाठ क्षेत्र मे अपन निज कुँजी फाइल "
-"क सामग्री केँ कापी आओर पेस्ट, तँ डिक्रिप्ट गुड़किल्ली पर क्लिक करू."
-
-msgid "To exit the fullscreen mode, click the browser's back button."
-msgstr "फुल स्क्रीन मोड सँ बाहर निकलब क लेल, ब्राउजर क वापस बटन पर क्लिक करू."
-
-msgid ""
 "To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
 "from all members of another security group select &quot;Security Group&quot;."
 msgstr ""
 "एकटा अनुमत IP श्रेणी निर्दिष्ट करबाक लेल, &quot;CIDR&quot; क चयन करू. आन सुरक्षा समूह "
 "केर सबहि सदस्य सँ पहुँच क अनुमति देब क लेल &quot;Security Group&quot; क चयन करू."
 
-msgid "To:"
-msgstr "एतए तक:"
-
 msgid "Topology"
 msgstr "टोपोलॉजी"
-
-msgid "Total Disk"
-msgstr "कुल डिस्क"
-
-msgid "Total Gigabytes"
-msgstr "कुल गीगाबाइट"
-
-msgid "Total RAM"
-msgstr "कुल रैम"
 
 msgid "Total Size of LUKS Volumes and Snapshots (GB)"
 msgstr "LUKS वाल्यूम आओर स्नैपशाटक कुल आकार (GB)"
@@ -6929,21 +5366,11 @@ msgstr "प्रकार"
 msgid "Type and version of datastore."
 msgstr "डेटास्टोर क प्रकार आओर संस्करण."
 
-#, python-format
-msgid "Type: %(persistence_type)s"
-msgstr "प्रकार: %(persistence_type)s"
-
 msgid "UDP"
 msgstr "UDP"
 
 msgid "URL"
 msgstr "URL"
-
-msgid "URL Path"
-msgstr "URL पथ"
-
-msgid "USERNAME"
-msgstr "प्रयोक्तानाम"
 
 msgid "UTC"
 msgstr "UTC"
@@ -8126,9 +6553,6 @@ msgstr "अज्ञात इंस्टेंस"
 msgid "Unknown instance (None)"
 msgstr "अज्ञात इंस्टेंस (कोनो सेहो)"
 
-msgid "Unnecessary tags may be removed by clicking a cross near tag's name."
-msgstr "टैग नाम क पास एकटा क्रॉस पर क्लिक कएक अनावश्यक टैगों केँ निकाला जाए सकैत अछि."
-
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "बचाएल नहि जाए रहल अछि"
@@ -8208,15 +6632,6 @@ msgid "Update Volume Status"
 msgstr "वाल्यूम स्थिति केँ अद्यतन करू"
 
 msgid ""
-"Update a stack with the provided values. Please note that any encrypted "
-"parameters, such as passwords, will be reset to default if you do not change "
-"them here."
-msgstr ""
-"मोजुद कराएल मान क सँग ढेर केँ अद्यतन करू. एहि तरह क गुड़किल्ली क रूपेँ ककरो सेहो एन्क्रिप्टेड "
-"पैरामीटर, अहाँ ओकरा एतय परिवर्तन नहि करैत अछि, तँ पूर्वनिर्धारित पर रीसेट भ' जएताह "
-"कृप्या  ध्यान दिअ'."
-
-msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
 "available at \"Subnet Details\" tab."
 msgstr ""
@@ -8237,14 +6652,6 @@ msgstr "ई रूटर क लेल अद्यतन अनुरोध"
 
 msgid "Update requests for this subnet"
 msgstr "ई सबनेट क लेल अद्यतन अनुरोध"
-
-#, python-format
-msgid "Update the \"extra spec\" value for \"%(key)s\""
-msgstr "\"%(key)s\" क लेल \"बाइली विनिर्देश\" मान अद्यतन करू"
-
-#, python-format
-msgid "Update the spec value for \"%(key)s\""
-msgstr "\"%(key)s\" क लेल स्पेक मान अद्यतन करू"
 
 msgid "Updated"
 msgstr "अद्यतित"
@@ -8277,10 +6684,6 @@ msgstr "फाइल अपलोड करू"
 msgid "Upload Object"
 msgstr "वस्तु अपलोड करू"
 
-#, python-format
-msgid "Upload Object To Container: %(container_name)s"
-msgstr "वस्तु केँ कंटेनर मे अपलोड करू: %(container_name)s"
-
 msgid "Upload Objects"
 msgstr "वस्तुएँ अपलोड करू"
 
@@ -8289,9 +6692,6 @@ msgstr "नमूना अपलोड करू"
 
 msgid "Upload Volume to Image"
 msgstr "छवि मे वाल्यूम अपलोड करू"
-
-msgid "Upload a new file"
-msgstr "नव फाइल अपलोड करू"
 
 msgid "Upload to Image"
 msgstr "छवि मे अपलोड करू"
@@ -8307,9 +6707,6 @@ msgstr "प्रयोग"
 
 msgid "Usage (Hours)"
 msgstr "उपयोग (घंटा)"
-
-msgid "Usage Overview"
-msgstr "उपयोग अवलोकन"
 
 msgid "Usage Report"
 msgstr "उपयोग रिपोर्ट"
@@ -8329,22 +6726,8 @@ msgstr "एकर लेल सदृश्यता-रोधी समूह �
 msgid "Use image as a source"
 msgstr "स्रोत क रूपेँ छवि क उपयोग करू"
 
-msgid ""
-"Use one of the available template source options to specify the template to "
-"be used in creating this stack."
-msgstr ""
-"ई ढेर केँ बनाबै मे प्रयोग क जाएबला नमूना निर्दिष्ट करबाक लेल मोजुद नमूना स्रोत विकल्प मे सँ "
-"एकटा क प्रयोग करू."
-
 msgid "Use snapshot as a source"
 msgstr "स्रोत क रूपेँ स्नैपशाट क उपयोग"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "<span> %(available)s </span> क <span> %(used)s </span> मोजुद."
-
-msgid "Used in Policy"
-msgstr "नीति मे प्रयुक्त"
 
 msgid "User"
 msgstr "प्रयोक्ता"
@@ -8356,9 +6739,6 @@ msgstr "प्रयोक्ता \"%s\" सफलतापूर्वक ब
 #, python-format
 msgid "User %s has no role defined for that project."
 msgstr " एहि परियोजना क लेल प्रयोक्ता %s क कोनो परिभाषित भूमिका नहि अछि."
-
-msgid "User Credentials"
-msgstr "प्रयोक्ता क्रेडेंशियल"
 
 msgid "User Credentials Details"
 msgstr "प्रयोक्ता क्रेडेंशियल क विवरण"
@@ -8375,9 +6755,6 @@ msgstr "प्रयोक्ता निर्धारण"
 msgid "User has been updated successfully."
 msgstr "प्रयोक्ता क सफलतापूर्वक अद्यतन कएल गेल अछि."
 
-msgid "User has to choose a keypair to have access to clusters instances."
-msgstr "प्रयोक्ता केँ क्लस्टर दृष्टान्त मे पहुँच क लेल एकटा क-पेयर चुननाइ हाएत. "
-
 #, python-format
 msgid "User name \"%s\" is already used."
 msgstr "प्रयोक्ता नाम \"%s\" पहिने सँ प्रयोग कएल जाए रहल अछि."
@@ -8385,20 +6762,11 @@ msgstr "प्रयोक्ता नाम \"%s\" पहिने सँ प�
 msgid "Username"
 msgstr "प्रयोक्तानाम"
 
-msgid "Username (required)"
-msgstr "प्रयोक्ता नाम (आवश्यक)"
-
 msgid "Users"
 msgstr "प्रयोक्ता"
 
-msgid "VCPU"
-msgstr "VCPU"
-
 msgid "VCPU Hours"
 msgstr "vCPU घंटेCPU घंटा"
-
-msgid "VCPU Usage"
-msgstr "VCPU प्रयोग"
 
 msgid "VCPUs"
 msgstr "VCPUs"
@@ -8428,9 +6796,6 @@ msgstr "VLAN"
 msgid "VPN"
 msgstr "VPN"
 
-msgid "VPN Connections"
-msgstr "वीपीएन कनेक्शन्स"
-
 msgid "VPN Service"
 msgstr "VPN V"
 
@@ -8459,19 +6824,8 @@ msgstr "मान"
 msgid "Value (Avg)"
 msgstr "मान (औसत)"
 
-msgid "Value:"
-msgstr "मूल्य:"
-
 msgid "Version"
 msgstr "संस्करण"
-
-#, python-format
-msgid ""
-"Version: %(version_info)s\n"
-"      "
-msgstr ""
-"संस्करण: %(version_info)s\n"
-"      "
 
 msgid "View Container"
 msgstr "कंटेनर देखू "
@@ -8485,17 +6839,11 @@ msgstr "विवरण देखू"
 msgid "View Extra Specs"
 msgstr "बाइली विशिष्टता देखू"
 
-msgid "View Full Log"
-msgstr "पूर्ण लाग देखू "
-
 msgid "View Log"
 msgstr "लाग देखू"
 
 msgid "View Usage"
 msgstr "उपयोग देखू "
-
-msgid "View Usage Report"
-msgstr "उपयोग क रिपोर्ट देखू"
 
 msgid "Virtual Private Network"
 msgstr "आभासी निज सँजाल"
@@ -8507,55 +6855,20 @@ msgstr "आयतन"
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr "दृष्टांत %(instance_name)s पर वाल्यूम %(volume_name)s"
 
-msgid "Volume (Cinder)"
-msgstr "वाल्यूम (सिंडर)"
-
 msgid "Volume Backup"
 msgstr "वाल्यूम बैकअप"
-
-msgid "Volume Backup Details"
-msgstr "वाल्यूम बैकअप क विवरण"
-
-#, python-format
-msgid "Volume Backup Overview: %(backup_display_name)s"
-msgstr "वाल्यूम बैकअप सारांश: %(backup_display_name)s"
-
-msgid "Volume Backup:"
-msgstr "वाल्यूम बैकअप:"
 
 msgid "Volume Backups"
 msgstr "वाल्यूम बैकअप"
 
-msgid ""
-"Volume Backups are stored using the Object Storage service. You must have "
-"this service activated in order to create a backup."
-msgstr ""
-"वस्तु भंडारण सेवा क उपयोग कएक वाल्यूम बैकअप केँ संग्रहित कएल गेल. एकटा बैकअप बनाबै क लेल "
-"अहाँकेँ ई सेवा सक्रिय अवश्य सक्रिय कएनाइ हएताह. "
-
-msgid "Volume Details"
-msgstr "वाल्यूम विवरण"
-
-msgid "Volume Limits"
-msgstr "वाल्यूम सीमा"
-
 msgid "Volume Name"
 msgstr "वाल्यूम नाम"
-
-msgid "Volume Overview"
-msgstr "वाल्यूम अवलोकन"
 
 msgid "Volume Size"
 msgstr "वाल्यूम आकार"
 
 msgid "Volume Snapshot"
 msgstr "वाल्यूम स्नैपशाट"
-
-msgid "Volume Snapshot Details"
-msgstr "वाल्यूम स्नैपशाट विवरण"
-
-msgid "Volume Snapshot Overview"
-msgstr "वाल्यूम स्नैपशाट अवलोकन"
 
 msgid "Volume Snapshots"
 msgstr "वाल्यूम स्नैपशाट"
@@ -8565,23 +6878,6 @@ msgstr "वाल्यूम स्रोत"
 
 msgid "Volume Type Encryption Details"
 msgstr "वाल्यूम प्रकार गोपन क विवरण"
-
-msgid "Volume Type Encryption Overview"
-msgstr "वाल्यूम प्रकार गोपन सारांश"
-
-msgid "Volume Type Extra Specs"
-msgstr "वाल्यूम प्रकार बाइली स्पेक"
-
-msgid "Volume Type is Unencrypted."
-msgstr "वाल्यूम प्रकार एनक्रिप्टेड नहि अछि."
-
-#, python-format
-msgid "Volume Type: %(volume_type_name)s"
-msgstr "वाल्यूम प्रकार: %(volume_type_name)s"
-
-#, python-format
-msgid "Volume Type: %(volume_type_name)s "
-msgstr "वाल्यूम प्रकार: %(volume_type_name)s "
 
 msgid "Volume Types"
 msgstr "वाल्यूम प्रकार"
@@ -8632,17 +6928,8 @@ msgstr "वाल्यूम स्रोत निर्दिष्ट हो
 msgid "Volumes"
 msgstr "वाल्यूम"
 
-msgid "Volumes Attached"
-msgstr "वाल्यूम संलग्न "
-
-msgid "Volumes are block devices that can be attached to instances."
-msgstr "वाल्यूम इंस्टेंस सँ जुड़ल जाए सकैत अछि जे ब्लाक अओजार रहल अछि."
-
 msgid "Volumes per node"
 msgstr "वाल्यूम प्रति नोड"
-
-msgid "Volumes size"
-msgstr "वाल्यूम क आकार"
 
 msgid "Volumes size (GB)"
 msgstr "वाल्यूम क आकार (GB)"
@@ -8653,18 +6940,6 @@ msgstr "भार"
 msgid "Which keypair to use for authentication."
 msgstr "कओन सी कुँजीयुग्म प्रमाणीकरण क लेल उपयोग करू"
 
-msgid ""
-"Within a container you can group your objects into pseudo-folders, which "
-"behave similarly to folders in your desktop operating system, with the "
-"exception that they are virtual collections defined by a common prefix on "
-"the object's name. A slash (/) character is used as the delimiter for pseudo-"
-"folders in the Object Store."
-msgstr ""
-"अहाँ ओ वस्तु क नाम पर एकटा आम उपसर्ग द्वारा परिभाषित आभासी संग्रह कए रहल छी जे अपवाद "
-"क साथ, अपन डेस्कटाप आपरेटिंग सिस्टम मे फोल्डर क लेल इसी तरह व्यवहार जे छद्म फोल्डर मे समूह "
-"अपन वस्तु कए सकैत छी एकटा कंटेनर क भीतर. एकटा स्लैश (/) वर्ण वस्तु संग्रह मे छद्म फोल्डर क "
-"लेल सीमांकक क रूपेँ प्रयोग कएल जाइत अछि."
-
 msgid "Yes"
 msgstr "हाँ"
 
@@ -8673,48 +6948,6 @@ msgstr "अहाँ पहिने सँ अपन मोजुद अस्�
 
 msgid "You are already using all of your available volumes."
 msgstr "अहाँ पहिने सँ अपन मोजुद संस्करण क सबहि प्रयोग कए रहल अछि."
-
-msgid ""
-"You can connect a specified external network to the router. The external "
-"network is regarded as a default route of the router and the router acts as "
-"a gateway for external connectivity."
-msgstr ""
-"अहाँ रूटर करबाक लेल एकटा निर्दिष्ट बाह्य संजाल सँ कनेक्ट कए सकैत अछि. बाह्य संजाल रूटर क "
-"पूर्वनिर्धारित मार्ग क रूपेँ मानल जाइत अछि आओर रूटर बाहरी कनेक्टिविटी क लेल एकटा प्रवेश "
-"द्वार क रूप मे काज करैत अछि."
-
-msgid "You can connect a specified subnet to the router."
-msgstr "अहाँ रूटर करबाक लेल एकटा निर्दिष्ट सबनेट कनेक्ट कए सकैत अछि."
-
-msgid ""
-"You can create a port for the network. If you specify device ID to be "
-"attached, the device specified will be attached to the port created."
-msgstr ""
-"अहाँ सँजाल क लेल एकटा पोर्ट बनाए सकैत अछि. अहाँ संलग्न कएल जाए बला डिवाइस आईडी "
-"निर्दिष्ट करैत अछि, निर्दिष्ट डिवाइस बनैलक पोर्ट सँ जुड़ल हएताह."
-
-msgid ""
-"You can customize your instance after it has launched using the options "
-"available here."
-msgstr ""
-"अहाँ एतए मोजुद विकल्प क प्रयोग कएक अपन दृष्टांत केँ लान्च करबाक बाद एकरा अनुकूलित कए सकैत "
-"अछि. "
-
-msgid ""
-"You can perform an incremental backup by specifying a parent backup. "
-"<strong>However,</strong> not all databases support incremental backups in "
-"which case this operation will result in an error."
-msgstr ""
-"अहाँ एकटा पैरेंट बैकअप निर्दिष्ट कएक एकटा वृद्धि संबंधी बैकअप निष्पादित कए सकैत अछि. "
-"<strong>मुदा,</strong> सबहि डाटाबेस वृद्धि संबंधी बैकअप क समर्थन नहि करैत छी जकरा "
-"स्थिति मे एहि कार्रवाई क परिणाम एकटा त्रुटि हएताह."
-
-msgid ""
-"You can specify the desired rule template or use custom rules, the options "
-"are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
-msgstr ""
-"अहाँ वांछित नियम नमूना निर्दिष्ट अथवा मनपसिन्न नियम क उपयोग कए सकैत अछि, विकल्प "
-"मनपसिन्न टीसीपी नियम, मनपसिन्न यूडीपी नियम, अथवा मनपसिन्न ICMP नियम अछि."
 
 msgid "You cannot disable the user you are currently logged in as."
 msgstr "अहाँ वर्तमान क रूपेँ लाग ई कए रहल प्रयोक्ता केँ निष्क्रिय नहि कएल जाए सकैत अछि."
@@ -8737,86 +6970,8 @@ msgstr ""
 "सकैत अछि. प्रशासनिक विशेषाधिकार क सँग एकटा आन परियोजना क लेल स्विच अथवा सीएलआई क "
 "माध्यम सँ मैन्युअल रूप सँ प्रशासनिक भूमिका निकाल दिअ'."
 
-msgid "You may also add any custom tag."
-msgstr "अहाँ ककरो पसंदीदा टैग केँ जोड़ सकैत अछि."
-
-msgid "You may also enter an optional description for your Data Source."
-msgstr "अहाँ अपन डाटा स्रोत क लेल एकटा वैकल्पिक विवरण सेहो दर्ज कए सकैत अछि."
-
-msgid "You may also enter an optional description for your job binary."
-msgstr "अहाँ अपन काज द्विपदीय क लेल एकटा वैकल्पिक विवरण सेहो दर्ज कए सकैत अछि."
-
 msgid "You may have mistyped the address or the page may have moved."
 msgstr "अहाँ साइत पता केँ गलत टाइप कए देब अछि अथवा ई पृष्ठ खिसका देल गेल अछि."
-
-msgid "You may need to enter the username and password for your Data Source."
-msgstr "अहाँ प्रयोक्ता नाम आओर गुड़किल्ली अपन डाटा स्रोत क चुन सकैत अछि."
-
-msgid "You may optionally set a password on the rebuilt instance."
-msgstr "अहाँ वैकल्पिक पुनर्निर्माण इंस्टेंस पर एकटा गुड़किल्ली सेट कए सकैत अछि."
-
-msgid "You may set <b>cluster</b> scoped configurations on corresponding tabs."
-msgstr "अहाँ संबंधित टैब पर <b>cluster</b> स्कोप्ड विन्यास सेट कए सकैत अछि."
-
-msgid "You may update IKE Policy details here."
-msgstr "अहाँ एतय IKE नीति विवरण अपडेट कए सकैत अछि."
-
-msgid "You may update IPSec Policy details here."
-msgstr "अहाँ एतय IPSec नीति विवरण अपडेट कए सकैत अछि."
-
-msgid "You may update IPSec Site Connection details here."
-msgstr "अहाँ एतय IPSec साइट कनेक्शन विवरण केँ अपडेट कए सकैत अछि."
-
-msgid ""
-"You may update VIP attributes here: edit name, description, pool, session "
-"persistence, connection limit  or admin state."
-msgstr ""
-"संपादित नाम, विवरण, पूल, सत्र हठ, कनेक्शन सीमा अथवा व्यवस्थापक स्तिथि: अहाँ वीआईपी "
-"एतय विशेषता केँ अपडेट कए सकैत अछि."
-
-msgid "You may update VPN Service details here."
-msgstr "अहाँ एतय वीपीएन सेवा क विवरण अद्यतन कए सकैत अछि."
-
-msgid "You may update firewall details here."
-msgstr "अहाँ एतय फायरवाल विवरण अपडेट कए सकैत अछि."
-
-msgid ""
-"You may update health monitor attributes here: edit delay, timeout, max "
-"retries  or admin state."
-msgstr ""
-"संपादित देरी, मध्यांतर, अधिकतम कोशिश अथवा व्यवस्थापक स्थिति: अहाँ स्वास्थ्य क निगरानी "
-"एतय विशेषता केँ अपडेट कए सकैत अछि."
-
-msgid ""
-"You may update member attributes here: edit pool, weight or admin state."
-msgstr ""
-"संपादित पूल, वजन अथवा व्यवस्थापक स्थिति: अहाँ सदस्य एतय विशेषता केँ अपडेट कए सकैत अछि."
-
-msgid ""
-"You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
-"instead to insert or remove a rule"
-msgstr ""
-"अहाँ एतय नीति विवरण अपडेट कए सकैत अछि. 'सम्मिलित करू' नियम अथवा एकटा नियम डालब "
-"अथवा निकालब केर लेल बजाय लिंक 'नियम केँ हटाउ' क प्रयोग करू"
-
-msgid ""
-"You may update pool attributes here: edit name, description, load balancing "
-"method or admin state."
-msgstr ""
-"अहाँ एतय विशेषता क लेल पूल अद्यतन कए सकैत अछि: संपादित नाम, विवरण, भार संतुलन विधि "
-"अथवा व्यवस्थापक स्तिथि."
-
-msgid "You may update rule details here."
-msgstr "अहाँ एतय नियम विवरण अपडेट कए सकैत अछि."
-
-msgid "You may update the editable properties of your network here."
-msgstr "अहाँ एतय अपन संजाल क संपादन योग्य गुण अद्यतन कए सकैत अछि."
-
-msgid "You may update the editable properties of your port here."
-msgstr "अहाँ एतय अपन पोर्ट क संपादन योग्य गुण अद्यतन कए सकैत अछि."
-
-msgid "You may update the editable properties of your router here."
-msgstr "अहाँ एतय अपन राटर क संपादन योग्य गुण अद्यतन कए सकैत अछि."
 
 msgid "You must select a datastore type and version."
 msgstr "अहाँकेँ एकटा डाटाबेस प्रकार आओर संस्करण क चयन कएनाइ हाएत."
@@ -8842,18 +6997,6 @@ msgstr "अहाँक मोजुद स्रोतक एकसँ नम�
 msgid "You must specify at least one database if you create a user."
 msgstr ""
 "अहाँ एकटा प्रयोक्ता बनाबैत अछि, तँ अहाँकेँ कम सँ कम एकटा डाटाबेस निर्दिष्ट कएनाइ हाएत."
-
-msgid ""
-"You must specify the source of the traffic to be allowed via this rule. You "
-"may do so either in the form of an IP address block (CIDR) or via a source "
-"group (Security Group). Selecting a security group as the source will allow "
-"any other instance in that security group access to any other instance via "
-"this rule."
-msgstr ""
-"जँ अहाँ एहि नियम क द्वारा क अनुमति देब जाए ट्रैफ़िक क स्रोत निर्दिष्ट कएनाइ हाएत.अहाँ "
-"एकटा आईपी पता ब्लाक (सीआईडीआर) क रूपेँ अथवा एकटा स्रोत समूह (सुरक्षा समूह) क माध्यम सँ "
-"अथवा तँ एहिन कए सकैत अछि. स्रोत क रूपेँ एकटा सुरक्षा समूह क चयन एहि नियम क माध्यम सँ "
-"ककरो सेहो आन उदाहरण क लेल जे सुरक्षा समूह क उपयोग मे ककरो सेहो आन उदाहरण अनुमति देताह."
 
 #, python-format
 msgid "Your image %s has been queued for creation."
@@ -8890,9 +7033,6 @@ msgstr "दुनू"
 msgid "clear"
 msgstr "साफ करू"
 
-msgid "console is currently unavailable. Please try again later."
-msgstr "कँसोल वर्तमान मे अनुपलब्ध अछि. बाद मे फिनु प्रयास करू."
-
 msgid "disabled"
 msgstr "निष्क्रिय"
 
@@ -8922,9 +7062,6 @@ msgstr "पकड़ू"
 
 msgid "instance"
 msgstr "इंस्टेंस"
-
-msgid "no processes"
-msgstr "कोनो प्रक्रियाएँ नहि"
 
 msgid "pseudo-folder"
 msgstr "छद्म फ़ोल्डर"

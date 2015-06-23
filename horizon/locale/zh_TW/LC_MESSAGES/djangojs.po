@@ -1,6 +1,6 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Translations template for PROJECT.
+# Copyright (C) 2015 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
 #
 # Translators:
 # Chen, Shang-Pin <dreamerwolf.tw@gmail.com>, 2015
@@ -11,8 +11,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-16 21:47-0500\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2015-06-23 01:20+0000\n"
 "PO-Revision-Date: 2015-06-16 19:14+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/"
@@ -20,26 +20,27 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.3\n"
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#, c-format
+#, python-format
 msgid "%s GB"
 msgstr "%s GB"
 
-#, c-format
+#, python-format
 msgid "%s KB"
 msgstr "%s KB"
 
-#, c-format
+#, python-format
 msgid "%s MB"
 msgstr "%s MB"
 
-#, c-format
+#, python-format
 msgid "%s TB"
 msgstr "%s TB"
 
-#, c-format
+#, python-format
 msgid "%s bytes"
 msgstr "%s 位元組"
 
@@ -88,7 +89,7 @@ msgstr "已關閉"
 msgid "Closing"
 msgstr "關閉中"
 
-#, c-format
+#, python-format
 msgid "Confirm %s"
 msgstr "確認 %s"
 
@@ -125,7 +126,7 @@ msgstr "刪除路由器"
 msgid "Detail Information"
 msgstr "詳細的資訊"
 
-#, c-format
+#, python-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
 msgstr[0] "顯示 %s 項"
@@ -157,6 +158,7 @@ msgstr "完成"
 msgid "Flavor"
 msgstr "虛擬硬體樣板"
 
+#, python-format
 msgid "Found %(found)s of %(total)s"
 msgstr "已找到 %(total)s 中的 %(found)s 個"
 
@@ -268,7 +270,7 @@ msgstr "關機中"
 msgid "Status"
 msgstr "狀態"
 
-#, c-format
+#, python-format
 msgid "Status: %s"
 msgstr "狀態：%s"
 
@@ -328,6 +330,6 @@ msgstr ""
 "您可以從左欄移動項目到右欄來指定資源詮釋資料。左欄是來自 Glance 詮釋資料類別"
 "的詮釋檔定義。使用「其他」選項來加入您的選擇到詮釋資料裡。"
 
-#, c-format
+#, python-format
 msgid "You have selected %s. "
 msgstr "您選擇了 %s。"

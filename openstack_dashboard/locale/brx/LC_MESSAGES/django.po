@@ -1,176 +1,23 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Translations template for PROJECT.
+# Copyright (C) 2015 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
 #
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-15 19:53-0500\n"
-"PO-Revision-Date: 2015-06-15 20:57+0000\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2015-06-23 01:20+0000\n"
+"PO-Revision-Date: 2015-06-23 01:20+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Bodo (http://www.transifex.com/projects/p/horizon/language/"
 "brx/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.3\n"
 "Language: brx\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-#, python-format
-msgid ""
-"\n"
-"            <a href=\"%(volume_url)s\">%(volume_label)s</a> on "
-"%(volume_device)s\n"
-"            "
-msgstr ""
-"\n"
-"            <a href=\"%(volume_url)s\">%(volume_label)s</a> on "
-"%(volume_device)s\n"
-"            "
-
-#, python-format
-msgid ""
-"\n"
-"        Other IPv6 modes: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode="
-"%(addr_mode)s\n"
-"        "
-msgstr ""
-"\n"
-"        Other IPv6 modes: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode="
-"%(addr_mode)s\n"
-"        "
-
-msgid ""
-"\n"
-"      Volume type is a type or label that can be selected at volume "
-"creation\n"
-"      time in OpenStack. It usually maps to a set of capabilities of the "
-"storage\n"
-"      back-end driver to be used for this volume. Examples: \"Performance"
-"\",\n"
-"      \"SSD\", \"Backup\", etc. This is equivalent to the\n"
-"      <tt>cinder type-create</tt> command. Once the volume type gets "
-"created,\n"
-"      click the \"View Extra Specs\" button to set up extra specs key-value\n"
-"      pair(s) for that volume type.\n"
-"     "
-msgstr ""
-"\n"
-"       भलिउम रोखोमआ मोनसे रोखोम एबा लेबेल जायखौ OpenStack आव थानाय भलिउम "
-"सोरजिनाय समआव सायखनो हायो।\n"
-"       बे भलिउमनि थाखाय बाहायनो गोनां दोनथुमग्रा बेक-एन्ड ड्राइभारनि जाथावनि\n"
-" जथायखौ सरासनस्रायै मेप खालामो। बिदिन्थि: \"मावफुंनाय\",\n"
-"      \"SSD\", \"बेकआप\", बाइदि बाइदि। बेयो\n"
-"      <tt>सिन्डार रोखोम-सोरजि</tt> बिथोनजों एखे। खेबसे भलिउम रोखोमखौ सोरजियोब्ला,\n"
-"        बै भलिउम रोखोमनि थाखाय बांद्राय specs साबि-बेसेन जराखौ गाइसननो \n"
-"        \"बांद्राय Specs खौ नाय\" बुथामखौ क्लिक खालाम।\n"
-"     "
-
-msgid ""
-"\n"
-"    Each QoS Specs entity will have a \"Consumer\" value which indicates "
-"where the\n"
-"    administrator would like the QoS policy to be enforced. This value can "
-"be \"front-end\"\n"
-"    (Nova Compute), \"back-end\" (Cinder back-end), or \"both\".\n"
-"    "
-msgstr ""
-"\n"
-"    मोनफ्रोम QoS Specs सिनायथिहा मोनसे \"ग्राहक\" बेसेन थागोन जाय दिन्थियो- जेराव\n"
-"    खुंगिरिआ QoS पलिसिखौ मावफुंनो लुबैयो। बे बेसेनआ \"मोखांथिं-जोबथा\" (नभा कम्पिउट),\n"
-"    \"उनथिं-जोबथा\" (सिन्डार उनथिं-जोबथा), एबा \"मोननैबो\"।\n"
-"    "
-
-msgid ""
-"\n"
-"    The status of a volume is normally managed automatically.  In some "
-"circumstances an\n"
-"    administrator may need to explicitly update the status value.  This is "
-"equivalent to\n"
-"    the <tt>cinder reset-state</tt> command.\n"
-"    "
-msgstr ""
-"\n"
-"    मोनसे भलिउमनि थाथाइआ सरासनस्रायै गावनो गाव महरै मेनेज खालामजायो। माखासे "
-"थासारियाव\n"
-"    सासे खुंगिरिया थाथाइ बेसेनखौ रोखायै आपडेट खालामनांगौ जायो। बेयो\n"
-"    <tt>सिन्डार reset-state</tt> बिथोनजों समान।\n"
-"    "
-
-msgid ""
-"\n"
-"    The status of a volume snapshot is normally managed automatically.  In "
-"some circumstances\n"
-"    an administrator may need to explicitly update the status value. This is "
-"equivalent to\n"
-"    the <tt>cinder snapshot-reset-state</tt> command.\n"
-"    "
-msgstr ""
-"\n"
-"    मोनसे भलिउम स्नेपसटनि थाथाइआ सरासनस्रायै गावनो गाव महरै मेनेज खालामजायो। माखासे "
-"थासारियाव\n"
-"    सासे खुंगिरिया थाथाइ बेसेनखौ रोखायै आपडेट खालामनांगौ जायो। बेयो\n"
-"    <tt>सिन्डार snapshot-reset-state</tt> बिथोनजों समान।\n"
-"    "
-
-msgid ""
-"\n"
-"  Move networks from 'Available Networks' to 'Selected Networks' by\n"
-"  clicking the button, or dragging and dropping. You can change the\n"
-"  NIC order by dragging and dropping as well.\n"
-"  "
-msgstr ""
-"\n"
-"      बुथामखौ क्लिक खालामनानै, एबा बोबोनानै आरो दोननानै नेटवार्कखौ\n"
-"     'मोननो हाथाव नेटवार्क' निफ्राय 'सायखखानाय नेटवार्क' सिम लां। बोबोनानै\n"
-"       आरो दोननानै नोंथाङा NIC अर्डारखौ सोलायनो हायो। \n"
-"  "
-
-msgid " - End"
-msgstr " - जोबनाय"
-
-msgid " : Next hop"
-msgstr " : उननि हप"
-
-msgid " Done"
-msgstr "मावखांबाय"
-
-msgid ""
-" Segment Ranges are 1-4093 for VLAN and above 5000 for Enhanced-VXLAN "
-"Overlay."
-msgstr ""
-"VLAN नि थाखाय खोन्दो सिमासारिआ 1-4093 आरो बांहोनाय-VXLAN नि थाखाय गोजौनि 5000"
-
-msgid " Segment types available are VLAN, Overlay and Trunk."
-msgstr "मोननो हाथाव खोन्दो रोखोमआ VLAN, अभारले आरो ट्रान्स।"
-
-msgid " Select a name for your network profile."
-msgstr "नोंथांनि नेटवार्क प्रफाइलनि थाखाय मोनसे मुं सायख"
-
-msgid ""
-" Sub types available are for the Overlay and Trunk segments. Available sub-"
-"types for Overlay are: Native-VXLAN, Enhanced-VXLAN or 'Other' (eg. GRE) "
-"which can be manually inputed as a text parameter for subtype. Available sub-"
-"type for Trunk is: VLAN."
-msgstr ""
-"मोननो हाथाव दालाय रोखोमआ अभारले आरो ट्रान्क खोन्दोनि थाखाय। अभारलेनि मोननो हाथाव "
-"दालाय-रोखोमआ: नेटिभ-VXLAN, जौगानाय-VXLAN एबा 'गुबुन' (जेरै- GRE) जायखौ दालाय-"
-"रोखोमनि थाखाय फरा पेरामिटार महरै इनपुट खालामनो हायो। ट्रान्कनि थाखाय मोननो हाथाव "
-"दालाय-रोखोमआ: VLAN."
-
-msgid ""
-"\"Customization Script\" is analogous to \"User Data\" in other systems."
-msgstr "गुबुन सिस्टेमआव \"गावनि गोसोबादि खालामनाय\" आ \"बाहायग्रा डाटा\"जों एखे।"
-
-#, python-format
-msgid "%(conf_name)s: %(conf_val)s"
-msgstr "%(conf_name)s: %(conf_val)s"
-
-#, python-format
-msgid "%(conf_name)s: %(conf_value)s"
-msgstr "%(conf_name)s: %(conf_value)s"
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -181,16 +28,8 @@ msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
 msgstr "%(field_name)s: बाहायजायै IP थं (value=%(network)s)"
 
 #, python-format
-msgid "%(group)s:"
-msgstr "%(group)s:"
-
-#, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
-
-#, python-format
-msgid "%(key)s: %(val)s"
-msgstr "%(key)s: %(val)s"
 
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
@@ -200,18 +39,9 @@ msgstr "%(name)s - %(size)s GB (%(label)s)"
 msgid "%(name)s | %(RAM)s RAM"
 msgstr "%(name)s | %(RAM)s RAM"
 
-#. Translators:  UTC offset and timezone label
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
-
-#, python-format
-msgid "%(resource_status)s: %(resource_status_reason)s"
-msgstr "%(resource_status)s: %(resource_status_reason)s"
-
-#, python-format
-msgid "%(stack_status_title)s: %(stack_status_reason)s"
-msgstr "%(stack_status_title)s: %(stack_status_reason)s"
 
 #, python-format
 msgid "%(type)s (%(backend)s backend)"
@@ -238,7 +68,6 @@ msgstr "%(used)s %(key)s बाहायबाय"
 msgid "%s (Default)"
 msgstr "%s (डिफल्ट)"
 
-#. Translators: The usage is "<UUID of ext_net> (Not Found)"
 #, python-format
 msgctxt "External network not found"
 msgid "%s (Not Found)"
@@ -280,9 +109,6 @@ msgstr ", प्रजेक्ट हानजाखौ आपडेट खा�
 msgid "-"
 msgstr "-"
 
-msgid "--"
-msgstr "--"
-
 msgid "-- not selected --"
 msgstr "-- सायखआखै --"
 
@@ -291,60 +117,6 @@ msgstr "VLAN नि थाखाय 1-4093; अभारलेनि थाख�
 
 msgid "3des"
 msgstr "3des"
-
-msgid ""
-"<b>Important</b>:  The name that you give your job binary will be the name "
-"used in your job execution.\n"
-"  If your binary requires a particular name or extension (ie: \".jar\"), be "
-"sure to include it here."
-msgstr ""
-"<b>गोनांथार</b>: नोंथाङा नोंथांनि खामानि बाइनारिखौ होनाय मुंआ नोंथांनि खामानि "
-"मावफुंनायाव बाहायनाय मुं जागोन।\n"
-"  नोंथांनि बाइनारिनो मोनसे जरखा मुं एबा फेहेरनाय (जेरै: \".jar\") नांगौब्ला, बेखौ बेयाव "
-"सोफादेर।"
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s MB Used</p>"
-msgstr "<p>%(quota)s नि %(used)s MB बाहायबाय</p>"
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s Used</p>"
-msgstr "<p>%(quota)s नि %(used)s बाहायबाय</p>"
-
-msgid ""
-"<strong>Please note:</strong> The new value must be greater than the "
-"existing volume size."
-msgstr ""
-"<strong>नायनो गोनां:</strong> गोदान बेसेनआ थाखानाय भलिउम महरनि गेदेरसिन "
-"जाथारनांगोन।"
-
-msgid ""
-"<strong>Please note:</strong> The value specified in the Volume Size field "
-"should be greater than 0, however, some configurations do not support "
-"specifying volume size. If specifying the volume size results in an error "
-"stating volume support is not enabled, enter 0."
-msgstr ""
-"<strong>नायनो गोनां:</strong> भलिउम महर फोथाराव थि खालामखानाय बेसेनआ 0 निख्रुइ "
-"गेदेरसिन जानांगोन, अदेबानि, माखासे बाइजोमहरआ भलिउम महर थि खालामनायखौ हेफाजाब होआ। "
-"भलिउम महरखौ भलिउम हेफाजाब दिन्थिनाय गोरोन्थियाव थिक खालामाब्ला 0 खौ हाबहो।"
-
-msgid ""
-"A container is a storage compartment for your data and provides a way for "
-"you to organize your data. You can think of a container as a folder in "
-"Windows &reg; or a directory in UNIX &reg;. The primary difference between a "
-"container and these other file system concepts is that containers cannot be "
-"nested. You can, however, create an unlimited number of containers within "
-"your account. Data must be stored in a container so you must have at least "
-"one container defined in your account prior to uploading data."
-msgstr ""
-"मोनसे कन्टेनारआ नोंथांनि डाटानि थाखाय दोनथुमग्रा खथा आरो नोंथांनि डाटाखौ थियारि "
-"खालामनो नोंथांनि थाखाय मोनसे राहा होयो। नोंथाङा कन्टेनारखौ उइन्ड'स&reg; आव एबा "
-"फल्डार महरै साननो हायो container as a folder in Windows &reg; or a directory "
-"in UNIX &reg;. The primary difference between a container and these other "
-"file system concepts is that containers cannot be nested. You can, however, "
-"create an unlimited number of containers within your account. Data must be "
-"stored in a container so you must have at least one container defined in "
-"your account prior to uploading data."
 
 msgid "A image or external image location must be specified."
 msgstr "मोनसे मुसुखा एबा बाइजोनि मुसुखा जायगाखौ थि खालामथारनांगोन।"
@@ -357,17 +129,6 @@ msgstr "आपल'ड खालामनो मोनसे जायगान�
 
 msgid "A local template to upload."
 msgstr "आपल'ड खालामनो जायगानि टेमप्लेट"
-
-msgid ""
-"A more specific rule affects a portion of this traffic so a rule cannot be "
-"automatically generated to control the behavior of the entire source/"
-"destination combination."
-msgstr ""
-"मोनसे जोबोद थिक रुलआ बे ट्रेफिकनि बाहागोखौ गोहोम खोख्लैयो, बेखायनो गासै फुंखा/थांखि "
-"जरायनायनि बेब'हारखौ दबथायनो मोनसे नियमखौ गावनो गाव महरै दिहुननो हाया।"
-
-msgid "A new uploaded file will replace the content of the current object"
-msgstr "गोदान आपल'ड खालामखानाय फाइलआ दानि बेसादनि आयदाखौ सोलायना फजफिनगोन।"
 
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
@@ -416,12 +177,6 @@ msgstr "ARI - एमेजन रेमडिस्क मुसुखा"
 msgid "Access & Security"
 msgstr "हाबनाय आरो रैखाथि"
 
-msgid "Access &amp; Security"
-msgstr "हाबनाय &amp; रैखाथि"
-
-msgid "Access: "
-msgstr "हाबनाय: "
-
 msgid "Action"
 msgstr "हाबा"
 
@@ -430,9 +185,6 @@ msgstr "हाबा लग"
 
 msgid "Action for the firewall rule"
 msgstr "फायारवाल नियमनि थाखाय हाबा"
-
-msgid "Action:"
-msgstr "हाबा:"
 
 msgctxt "Current status of a Database Instance"
 msgid "Active"
@@ -498,9 +250,6 @@ msgstr "DHCP थान्दै दाजाबदेर"
 msgid "Add Firewall"
 msgstr "फायारवाल दाजाबदेर"
 
-msgid "Add Group Assignment"
-msgstr "हानजा मावबिफान दाजाबदेर"
-
 msgid "Add IKE Policy"
 msgstr "IKE पलिसि दाजाबदेर"
 
@@ -549,9 +298,6 @@ msgstr "गोदान नियमखौ दाजाबदेर"
 msgid "Add New VPN Service"
 msgstr "गोदान VPN सिबिथायखौ दाजाबदेर"
 
-msgid "Add Node Group"
-msgstr "नड हानजाखौ दाजाबदेर"
-
 msgid "Add Policy"
 msgstr "पलिसि दाजाबदेर"
 
@@ -570,9 +316,6 @@ msgstr "साबनेट दाजाबदेर"
 msgid "Add Subnet (Quota exceeded)"
 msgstr "साबनेट दाजाबदेर (क'टा बारबाय)"
 
-msgid "Add User to Group"
-msgstr "बाहायग्राखौ हानजाजों दाजाबदेर"
-
 msgid "Add Users"
 msgstr "बाहायग्राफोर दाजाबदेर"
 
@@ -589,9 +332,6 @@ msgstr ""
 "मोननो हाथाव रैखाथि हानजानि लिस्ट निफ्राय बे प्रजेक्टआव रैखाथि हानजाखौ दाजाबदेर आरो "
 "बोखार।"
 
-msgid "Add custom tag"
-msgstr "कास्टम टेगखौ दाजाबदेर"
-
 msgid ""
 "Add hosts to this aggregate or remove hosts from it. Hosts can be in "
 "multiple aggregates."
@@ -601,9 +341,6 @@ msgstr ""
 
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr "हस्टखौ बे एग्रिगेटजों दाजाबदेर। हस्टआ गोबां एग्रिगेटआव थानो हायो।"
-
-msgid "Add interface"
-msgstr "इन्टारफेस दाजाबदेर"
 
 msgid ""
 "Add member(s) to the selected pool.\n"
@@ -621,12 +358,6 @@ msgstr ""
 "अनजिमाखौ रानना हो; जेरै, 80। \n"
 "\n"
 "मोनफ्रोम बिदिन्थिजों मोनसेल' पर्ट थाफानो हायो।"
-
-msgid "Add plugin tags"
-msgstr "प्लागिन टेगखौ दाजाबदेर"
-
-msgid "Add rule"
-msgstr "नियमखौ दाजाबदेर"
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "हस्टखौ एग्रिगेटजों दाजाबदेर/बोखार"
@@ -682,18 +413,12 @@ msgstr "दाजाबदेरखानाय मनिटर"
 msgid "Added pool \"%s\"."
 msgstr "दाजाबदेरखानाय पुल \"%s\""
 
-msgid "Additional routes"
-msgstr "बांद्राय रुट"
-
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
 "nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry per line."
 msgstr ""
 "बांद्राय रुटआ हस्टआव फोसावबाय। मोनफा हाबहोनाया: destination_cidr,nexthop (जेरै-, "
 "192.168.200.0/24,10.56.1.254) आरो मोनफा सारियाव मोनसे हाबहोनाय।"
-
-msgid "Address"
-msgstr "थं"
 
 msgid "Admin"
 msgstr "एडमिन"
@@ -704,21 +429,11 @@ msgstr "एडमिन पासवार्ड"
 msgid "Admin State"
 msgstr "एडमिन राइजो"
 
-msgid "Admin State Up"
-msgstr "एडमिन राइजो गोजौ"
-
 msgid "Advanced Options"
 msgstr "जौगानाय उफ्राय"
 
 msgid "After"
 msgstr "उनाव"
-
-msgid ""
-"After launching an instance, you login using the private key (the username "
-"might be different depending on the image you launched):"
-msgstr ""
-"मोनसे बिदिन्थिखौ जागायनायनि उनाव, नोंथाङा प्राइभेट साबिखौ बाहायनानै लगिन खालामो "
-"(नोंथाङा जागायनाय मुसुखायाव सोनारनानै बाहायग्रामुंआ आलादा जानो हागौ):"
 
 #, python-format
 msgid "Agent %s was successfully added."
@@ -763,26 +478,12 @@ msgstr "IP खौ रानना हो"
 msgid "Allocate IP To Project"
 msgstr "IP खौ प्रजेक्टआव रानना हो"
 
-msgid "Allocate a floating IP from a given floating IP pool."
-msgstr "मोनसे फ्ल'टिं IP पुल निफ्राय फ्ल'टिं IP खौ रानना हो।"
-
 #, python-format
 msgid "Allocated Floating IP %(ip)s."
 msgstr "रानना होखानाय फ्ल'टिं IP %(ip)s"
 
 msgid "Allocation Pools"
 msgstr "रानना होनाय पुल"
-
-msgid ""
-"Allow the user to connect from this host\n"
-"    only. If not provided this user will be allowed to connect from "
-"anywhere.\n"
-"    "
-msgstr ""
-"बे हस्ट निफ्रायल' फोनांजाब खालामनो बाहायग्राखौ गनायथि हो।\n"
-"    जगायना होयाखैब्ला बे बाहायग्राखौ जेराव निफ्रायबो फोनांजाब खालामनो गनायथि "
-"होगोन।\n"
-"    "
 
 msgid "Allowed Host"
 msgstr "गनायथि होखानाय हस्ट"
@@ -800,31 +501,11 @@ msgid "An external (HTTP) URL to load the template from."
 msgstr "निफ्राय टेमप्लेटखौ ल'ड खालामनो बाइजोनि (HTTP) URL"
 
 msgid ""
-"An instance can be launched with varying types of attached storage. You may "
-"select from those options here."
-msgstr "नांजाब होखानाय दोनथुमग्रानि रोखोमखौ सोलायनानै मोनसे बिदिन्थिखौ जागायनो हायो।"
-
-msgid ""
-"An object is the basic storage entity that represents a file you store in "
-"the OpenStack Object Storage system. When you upload data to OpenStack "
-"Object Storage, the data is stored as-is (no compression or encryption) and "
-"consists of a location (container), the object's name, and any metadata "
-"consisting of key/value pairs."
-msgstr ""
-"मोनसे बेसादआ गुदि दोनथुमग्रा सिनायथि जाय OpenStack बेसाद दोनथुमग्रा सिस्टेमआव दोनथुमनाय "
-"फाइलखौ दिन्थियो। नोंथाङा डाटाखौ OpenStack बेसाद दोनथुमग्रायाव आपल'ड खालामनाय "
-"समाव, डाटाखौ (जेबो नारसिननाय एबा एनक्रिपसन गैया) दोनथुमनाय जायो आरो बेयाव जायगा "
-"(कन्टेनार), बेसादनि मुं दं आरो जायखि जाया मेटाडाटायाव साबि/बेसेन जरा दं।"
-
-msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
 "help, contact your local administrator."
 msgstr ""
 "मोनसे मिजिंथियै गोरोन्थि जादों। बिलाइखौ थाजा खालामनो नाजा। बेयो मदद खालामाब्ला "
 "नोंथांनि जायगानि खुंगिरिजों जगाजग खालाम।"
-
-msgid "Anti-affinity enabled for"
-msgstr "नि थाखाय गोरोबथि-नङै"
 
 msgid "Any"
 msgstr "जायखि जाया"
@@ -835,9 +516,6 @@ msgstr "जायखि जाया मोननो हाथाव ओनस�
 msgid "Architecture"
 msgstr "न' बानायनाय बिद्या"
 
-msgid "Arguments"
-msgstr "बाथ्राबान"
-
 msgid "Associate"
 msgstr "लोगो जा"
 
@@ -846,9 +524,6 @@ msgstr "थाफानाय फ्ल'टिं IP"
 
 msgid "Associate Monitor"
 msgstr "मनिटरखौ लाफादेर"
-
-msgid "Associate QoS Spec"
-msgstr "QoS Spec जों लोगो जा"
 
 msgid "Associate QoS Spec with Volume Type"
 msgstr "QoS Spec खौ भलिउम रोखोमजों लोगो लाहो"
@@ -870,12 +545,6 @@ msgstr "खमैबो सासे सोद्रोमा थि खाल�
 
 msgid "At least one network must be specified."
 msgstr "खमैबो मोनसे नेटवार्क थि खालामथारनांगोन।"
-
-msgid "Attach To Instance"
-msgstr "बिदिन्थिआव नांजाब हो"
-
-msgid "Attach Volume"
-msgstr "भलिउमखौ नांजाब हो"
 
 msgid "Attach to Instance"
 msgstr "बिदिन्थिजों नांजाब हो"
@@ -910,14 +579,8 @@ msgstr "नांजाब होनाय"
 msgid "Audited"
 msgstr "अडिट खालामबाय"
 
-msgid "Authentication URL"
-msgstr "थारफोरमान URL"
-
 msgid "Authorization algorithm"
 msgstr "मोनथायगोहो एलगरिडम"
-
-msgid "Authorization mode"
-msgstr "मोनथायगोहो म'ड"
 
 msgid "Auto Security Group"
 msgstr "अट' रैखाथि हानजा"
@@ -952,17 +615,8 @@ msgctxt "Current status of a Volume Backup"
 msgid "Available"
 msgstr "मोननो हाथाव"
 
-msgid "Available Rules"
-msgstr "मोननो हाथाव नियम"
-
-msgid "Available networks"
-msgstr "मोननो हाथाव नेटवार्क"
-
 msgid "Average CPU utilization"
 msgstr "गड़ CPU इउटिलाइजेसन"
-
-msgid "Avg."
-msgstr "गड़"
 
 msgid "Backup"
 msgstr "बेकआप"
@@ -974,23 +628,11 @@ msgstr "बेकआप"
 msgid "Backup Database"
 msgstr "बेकआप डाटाबेस"
 
-msgid "Backup Details"
-msgstr "बेकआप गुवारै"
-
-msgid "Backup Duration"
-msgstr "बेकआप समसिमा"
-
 msgid "Backup File"
 msgstr "बेकआप फाइल"
 
-msgid "Backup File Location"
-msgstr "बेकआप फाइल जायगा"
-
 msgid "Backup Name"
 msgstr "बेकआप मुं"
-
-msgid "Backup Overview"
-msgstr "बेकआप अभारभिउ"
 
 msgid "Backups"
 msgstr "बेकआप"
@@ -1077,9 +719,6 @@ msgstr "CPU बाहायनाय सम"
 msgid "Can not specify both image and external image location."
 msgstr "मुसुखा एबा बाइजोनि मुसुखा जायगा मोननैखौबो थिक खालामनो हाया।"
 
-msgid "Cancel"
-msgstr "बातिल खालाम"
-
 msgid "Centralized"
 msgstr "मिरुआरि खालामबाय"
 
@@ -1098,18 +737,8 @@ msgstr "टेमप्लेटखौ सोलाय"
 msgid "Change Volume Type"
 msgstr "भलिउम रोखोमखौ सोलाय"
 
-msgid "Change your password. We highly recommend you create a strong one. "
-msgstr ""
-"नोंथांनि पासवार्डखौ सोलाय। जों नोंथांखौ मोनसे गोरा पासवार्ड सोरजिनो थिननाय जायो।"
-
 msgid "Changing password is not supported."
 msgstr "पासवार्ड सोलायनाया हेफाजाब होजाया।"
-
-msgid "Checksum"
-msgstr "आनजाद गासै"
-
-msgid "Choose"
-msgstr "बासिख"
 
 msgid "Choose Your Boot Source Type."
 msgstr "नोंथांनि बुट फुंखा रोखोमखौ बासिख"
@@ -1119,13 +748,6 @@ msgstr "सार्भार लांदां खालामनो मोन
 
 msgid "Choose a Host to migrate to."
 msgstr "जायगा सोलायहोनो हस्टखौ बासिख।"
-
-msgid ""
-"Choose a key pair name you will recognise and paste your SSH public key into "
-"the space provided."
-msgstr ""
-"साबि जरा मुंखौ बासिख, नोंथाङा नोंथांनि SSH राइजो-राजा साबिखौ होखानाय जायगायाव "
-"सिनायथिगोन आरो फोनांजाब होगोन।"
 
 msgid "Choose a main binary"
 msgstr "गाहाय बाइनारि"
@@ -1142,9 +764,6 @@ msgstr "मोनसे भलिउमखौ बासिख"
 msgid "Choose an DHCP Agent to attach to."
 msgstr "नांजाब होनो DHCP थान्दैखौ बासिख।"
 
-msgid "Choose an existing file"
-msgstr "थाफानाय फाइलखौ बासिख"
-
 msgid "Choose an image"
 msgstr "मोनसे मुसुखा बासिख"
 
@@ -1157,60 +776,20 @@ msgstr "बे QoS Spec नि थाखाय ग्राहकखौ बा�
 msgid "Choose libraries"
 msgstr "बिजाब बाख्रिखौ बासिख"
 
-msgid ""
-"Choose network from Available networks to Selected networks by push button "
-"or drag and drop, you may change NIC order by drag and drop as well. "
-msgstr ""
-"बुथामखौ नारसिननानै एबा बोबोनानै आरो दोननानै सायखखानाय नेटवार्कआव मोननो हाथाव "
-"नेटवार्क निफ्राय नेटवार्कखौ सायख, नोंथाङा बोबोनानै एबा दोननानै NIC खौ सोलायनो हागौ।"
-
-msgid ""
-"Choose or create your main binary.  Additional libraries can be added from "
-"the \"Libs\" tab."
-msgstr ""
-"नोंथांनि गाहाय बाइनारिखौ बासिख एबा सोरजि। बांद्राय बिजाब बाख्रिखौ \"Libs\" टेब "
-"निफ्राय दाजाबदेरनो हायो।"
-
-msgid ""
-"Choose rule(s) from Available Rules to Selected Rule by push button or drag "
-"and drop,\n"
-"you may change their order by drag and drop as well. "
-msgstr ""
-"बुथामखौ नारसिननानै एबा बोबोनानै आरो दोननानै नियमखौ थाखानाय नियम निफ्राय सायखखानाय "
-"नियम सिम बासिख।"
-
-msgid "Choose the Input Data Source (n/a for Java jobs)."
-msgstr "इनपुट डाटा फुंखाखौ बासिख (जाभा खामानिनि थाखाय n/a)।"
-
-msgid "Choose the Output Data Source (n/a for Java jobs)."
-msgstr "आउटपुट डाटा फुंखाखौ बासिख (जाभा खामानिनि थाखाय n/a)।"
-
 msgid "Choose the binary which should be used in this Job."
 msgstr "बाइनारिखौ बासिख जायखौ बे खामानिआव बाहायनांगोन।"
 
 msgid "Choose the flavor to launch."
 msgstr "जागायनो थाखाय फ्लेभार बासिख"
 
-msgid "Choose the rule you want to remove."
-msgstr "नोंथाङा बोखारनो लुबैनाय नियमखौ बासिख"
-
-msgid "Chosen Libraries"
-msgstr "बासिखखानाय बिजाब बाख्रि"
-
 msgid "Cinder"
 msgstr "सिन्डार"
-
-msgid "Cinder volumes"
-msgstr "सिन्डार भलिउम"
 
 msgid "Cipher"
 msgstr "सिपार"
 
 msgid "Cisco Nexus 1000V"
 msgstr "सिसक' नेक्सास 1000V"
-
-msgid "Cisco Nexus 1000V Networking"
-msgstr "सिसक' नेक्सास 1000V नेटवार्किं"
 
 msgid "Cisco Nexus 1000v"
 msgstr "सिसक' नेक्सास 1000v"
@@ -1220,9 +799,6 @@ msgstr "थाखोगैयै इसिं-डमेइन रुटिं (�
 
 msgid "Clear Domain Context"
 msgstr "डमेइन लोब्बागोनांखौ खोमोर"
-
-msgid "Click here to show only console"
-msgstr "खालि कनस'लखौल' दिन्थिनो बेयाव क्लिक खालाम"
 
 msgid "Close"
 msgstr "बन्द खालाम"
@@ -1238,9 +814,6 @@ msgstr "क्लास्टार बिदिन्थि"
 
 msgid "Cluster Name"
 msgstr "क्लास्टार मुं"
-
-msgid "Cluster Overview"
-msgstr "क्लास्टार अभारभिउ"
 
 msgid "Cluster Template"
 msgstr "क्लास्टार टेमप्लेट"
@@ -1258,12 +831,6 @@ msgstr "क्लास्टार टेमप्लेट कपि %s खौ
 msgid "Cluster Templates"
 msgstr "क्लास्टार टेमप्लेट"
 
-msgid "Cluster can be launched using existing Cluster Templates."
-msgstr "थाखानाय क्लास्टार टेमप्लेटनि हेफाजाबजों क्लास्टारखौ जागायगोन।"
-
-msgid "Cluster configurations are not specified"
-msgstr "क्लास्टार बाइजोमहरखौ थि खालामनाय जाया"
-
 msgid "Cluster template creation failed"
 msgstr "क्लास्टार टेमप्लेट सोरजिनाया फेलें जाबाय"
 
@@ -1279,17 +846,11 @@ msgstr "सोरजिनो थाखाय डाटाबेसनि कम
 msgid "Compute"
 msgstr "कम्पिउट"
 
-msgid "Compute (Nova)"
-msgstr "कम्पिउट (नभा)"
-
 msgid "Compute Host"
 msgstr "कम्पिउट हस्ट"
 
 msgid "Compute Services"
 msgstr "कम्पिउट सिबिथाय"
-
-msgid "Configuration"
-msgstr "बाइजोमहर"
 
 msgid "Configuration Drive"
 msgstr "बाइजोमहर ड्राइभ"
@@ -1339,15 +900,6 @@ msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "फिन महर एबा माइग्रेटखौ रोखा खालामगासिनो दं"
 
-msgid "Conflicting Rule"
-msgstr "नियमआ बेरेखा जागासिनो दं"
-
-msgid "Connection Examples"
-msgstr "फोनांजाब बिदिन्थि"
-
-msgid "Connection Info"
-msgstr "फोनांजाब फोरमायथिहोग्रा"
-
 msgid "Connection Limit"
 msgstr "फोनांजाब सिमा"
 
@@ -1370,9 +922,6 @@ msgstr "कन्टेनार हाबनाय"
 msgid "Container Details"
 msgstr "कन्टेनार गुवारै"
 
-msgid "Container Format"
-msgstr "कन्टेनार फरमेट"
-
 msgid "Container Name"
 msgstr "कन्टेनारनि मुं"
 
@@ -1381,9 +930,6 @@ msgstr "कन्टेनारखौ जाफुंसारै सोरज�
 
 msgid "Containers"
 msgstr "कन्टेनारफोर"
-
-msgid "Content Type"
-msgstr "थानाय-आयदानि रोखोम"
 
 msgid "Control Location"
 msgstr "दबथायनाय जायगा"
@@ -1398,10 +944,6 @@ msgstr ""
 msgid "Cookie Name"
 msgstr "कुकि मुं"
 
-#, python-format
-msgid "Cookie Name: %(cookie_name)s"
-msgstr "कुकि मुं: %(cookie_name)s"
-
 msgid "Cookie name is required for APP_COOKIE persistence."
 msgstr "कुकि मुंखौ APP_COOKIE दिदोमनि थाखाय गोनांथि जायो।"
 
@@ -1414,10 +956,6 @@ msgstr "कपि खालाम"
 
 msgid "Copy Object"
 msgstr "बेसादखौ कपि खालाम"
-
-#, python-format
-msgid "Copy Object: %(object_name)s"
-msgstr "बेसादखौ कपि खालाम: %(object_name)s"
 
 msgid "Copy Template"
 msgstr "टेमप्लेटखौ कपि खालाम"
@@ -1477,9 +1015,6 @@ msgstr "डाटा फुंखाखौ सोरजि"
 
 msgid "Create Domain"
 msgstr "डमेइन सोरजि"
-
-msgid "Create Encrypted Volume Type"
-msgstr "एक्रिप्ट खालामखानाय भलिउम रोखोमखौ सोरजि"
 
 msgid "Create Encryption"
 msgstr "एनक्रिप्सन सोरजि"
@@ -1613,9 +1148,6 @@ msgstr "भलिउम बेकआप सोरजि"
 msgid "Create Volume Snapshot"
 msgstr "भलिउम स्नेपसटखौ सोरजि"
 
-msgid "Create Volume Snapshot (Force)"
-msgstr "भलिउम स्नेपसट (गोहो)खौ सोरजि"
-
 msgid "Create Volume Type"
 msgstr "भलिउम रोखोमखौ सुजु"
 
@@ -1624,9 +1156,6 @@ msgstr "भलिउम रोखोम एनक्रिपसनखौ सु
 
 msgid "Create Volume Type Extra Spec"
 msgstr "भलिउम रोखोम बांद्राय Spec खौ सोरजि"
-
-msgid "Create a Data Source with a specified name."
-msgstr "डाटा फुंखाखौ थि मुंजों सोरजि"
 
 msgid "Create a New Volume"
 msgstr "गोदान भलिउम सोरजि"
@@ -1703,38 +1232,11 @@ msgstr ""
 "सिमाखौ फिन नाजा। खान्थि, URL लामा, आरो जाफुंसारनायाव मिजिंथिनाय HTTP क'डखौ थिक "
 "खालाम।"
 
-msgid "Create a new \"extra spec\" key-value pair for a volume type."
-msgstr "भलिउम रोखोमनि थाखाय \"बांद्राय spec\" साबि-बेसेन जराखौ सोरजि।"
-
-#, python-format
-msgid "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\""
-msgstr ""
-"QoS Spec \"%(qos_spec_name)s\" नि थाखाय गोदान \"spec\" साबि-बेसेनखौ सोरजि"
-
-msgid "Create a new network for any project as you need."
-msgstr "नोंथांनि गोनांथि मथे जायखि जाया प्रजेक्टनि थाखाय गोदान नेटवार्क सोरजि"
-
-msgid "Create a new role."
-msgstr "गोदान बिफाव सोरजि"
-
-msgid "Create a new stack with the provided values."
-msgstr "होखानाय बेसेनजों गोदान स्टेक सोरजि"
-
-msgid ""
-"Create a new user and set related properties including the Primary Project "
-"and Role."
-msgstr ""
-"गोदान बाहायग्रा सोरजि आरो गुदि प्रजेक्ट आरो बिफावखौ लाफानानै सोमोन्दोगोनां आखुथायखौ "
-"फज।"
-
 msgid "Create a policy with selected rules."
 msgstr "सायखखानाय नियमजों पलिसिखौ सोरजि"
 
 msgid "Create a project to organize users."
 msgstr "बाहायग्राखौ साजायनो मोनसे प्रजेक्ट सोरजि"
-
-msgid "Create a script to be uploaded dynamically"
-msgstr "गोसो गुदुङै आपल'ड खालामनो गोनां स्क्रिप्टखौ सोरजि"
 
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
@@ -1755,23 +1257,9 @@ msgstr ""
 msgid "Create an Encrypted Volume Type"
 msgstr "मोनसे एक्रिप्ट खालामखानाय भलिउम रोखोमखौ सोरजि"
 
-msgid ""
-"Create an optional initial user.\n"
-"   This user will have access to all databases you create."
-msgstr ""
-"उफ्रायारि गुदि बाहायग्रा सोरजि।\n"
-"   बे बाहायग्राया नोंथाङा सोरजिनाय गासै डाटाबेसआव हाबगोन।"
-
 msgid "Create security group for this Node Group."
 msgstr "बे नड हानजानि थाखाय रैखाथि हानजा सोरजि।"
 
-msgid "Create time"
-msgstr "सम सोरजि"
-
-msgid "Created"
-msgstr "सोरजिबाय"
-
-msgctxt "Created time"
 msgid "Created"
 msgstr "सोरजिबाय"
 
@@ -1838,15 +1326,6 @@ msgctxt "Current status of a Volume Backup"
 msgid "Creating"
 msgstr "सोरजिगासिनो दं"
 
-msgid ""
-"Creating encryption for a volume type causes all volumes with that volume "
-"type to be encrypted.  Encryption information cannot be added to a volume "
-"type if volumes are currently in use with that volume type."
-msgstr ""
-"भलिउम रोखोमनि थाखाय एनक्रिपसन सोरजियोब्ला बै भलिउम रोखोमजों गासै भलिउमखौ एनक्राइप्ट "
-"खालामगोन। भलिउमआ दासान्दि बै भलिउम रोखोमजों बाहायजागासिनो दंब्ला एनक्रिपसन "
-"फोरमायथिहोग्राखौ भलिउम रोखोमजों दाजाबदेरनो हाया।"
-
 #, python-format
 msgid "Creating volume \"%s\""
 msgstr "भलिउम \"%s\" खौ सोरजिगासिनो दं"
@@ -1886,20 +1365,8 @@ msgstr "दानि महर (GB)"
 msgid "Current password"
 msgstr "दानि पासवार्ड"
 
-msgid ""
-"Currently only images available via an HTTP URL are supported. The image "
-"location must be accessible to the Image Service. Compressed image binaries "
-"are supported (.zip and .tar.gz.)"
-msgstr ""
-"दासान्दि खालि HTTP URL नि गेजेरजों फैनाय मुसुखायाल'नो हेफाजाब खालामजायो। मुसुखा "
-"जायगाया मुसुखा सिबिथायजों हाबनो हाथाव जानांगोन। नारसिनजानाय मुसुखा बाइनारिआ हेफाजाब "
-"होजायो (.zip आरो .tar.gz.)"
-
 msgid "Custom ICMP Rule"
 msgstr "कास्टम ICMP नियम"
-
-msgid "Custom Properties"
-msgstr "कास्टम आखुथाय"
 
 msgid "Custom TCP Rule"
 msgstr "कास्टम TCP नियम"
@@ -1909,9 +1376,6 @@ msgstr "कास्टम UDP नियम"
 
 msgid "Customization Script Source"
 msgstr "गावनि गोसोबादि खालामनाय स्क्रिप्ट फुंखा"
-
-msgid "DATABASE"
-msgstr "डाटाबेस"
 
 msgid "DENY"
 msgstr "नेवसि"
@@ -1923,13 +1387,7 @@ msgstr "नेवसि"
 msgid "DHCP Agents"
 msgstr "DHCP थान्दै"
 
-msgid "DHCP Enable"
-msgstr "DHCP हाहोनाय"
-
 msgid "DNS Name Servers"
-msgstr "DNS मुं सार्भार"
-
-msgid "DNS name server"
 msgstr "DNS मुं सार्भार"
 
 msgid "Daily Usage Report"
@@ -1941,27 +1399,11 @@ msgstr "डाटा प्रसेसिं"
 msgid "Data Processing Plugin Details"
 msgstr "डाटा प्रसेसिं प्लागिन गुवारै"
 
-msgid "Data Processing Plugin Overview"
-msgstr "डाटा प्रसेसिं प्लागिन अभारभिउ"
-
 msgid "Data Processing Plugins"
 msgstr "डाटा प्रसेसिं प्लागिन"
 
-msgid "Data Processing internal database"
-msgstr "डाटा प्रसेसिं इसिं डाटाबेस"
-
-msgid ""
-"Data Processing provides different storage location options. You may choose "
-"Ephemeral Drive or a Cinder Volume to be attached to instances."
-msgstr ""
-"डाटा प्रसेसिंआ गुबुन दोनथुमग्रा जायगा उफ्राखौ होयो। नोंथाङा बिदिन्थियाव नांजाब होनो "
-"गोनां सानसेनि ड्राइभखौ एबा सिन्डार भलिउमखौ बासिखनो लुबैनो हागौ।"
-
 msgid "Data Source Details"
 msgstr "डाटा फुंखा गुवारै"
-
-msgid "Data Source Overview"
-msgstr "डाटा फुंखा अभारभिउ"
 
 msgid "Data Source Type"
 msgstr "डाटा फुंखा रोखोम"
@@ -1975,20 +1417,11 @@ msgstr "डाटा फुंखा सोरजिबाय"
 msgid "Database"
 msgstr "डाटाबेस"
 
-msgid "Database Backups"
-msgstr "डाटाबेस बेकआप"
-
-msgid "Database Info"
-msgstr "डाटाबेस फोरमायथिहोग्रा"
-
 msgid "Database Instance"
 msgstr "डाटाबेस बिदिन्थि"
 
 msgid "Database Name"
 msgstr "डाटाबेस मुं"
-
-msgid "Database Port"
-msgstr "डाटाबेस पर्ट"
 
 msgid "Databases"
 msgstr "डाटाबेस"
@@ -2008,9 +1441,6 @@ msgstr "अक्ट'खौ सिनायथि जायाखै।"
 msgid "Day"
 msgstr "सान"
 
-msgid "Dead peer detection action"
-msgstr "डेड पियार संना दिहुननाय हाबा"
-
 msgid "Dead peer detection actions"
 msgstr "डेड पियार संना दिहुननाय हाबा"
 
@@ -2019,9 +1449,6 @@ msgstr "डेड पियार संना दिहुननाय था�
 
 msgid "Dead peer detection timeout"
 msgstr "डेड पियार संना दिहुननाय सम-जोबनाय"
-
-msgid "Decrypt Password"
-msgstr "पासवार्डखौ डिक्राइप्ट खालाम"
 
 msgid "Default Quotas"
 msgstr "डिफल्ट क'टा"
@@ -2121,20 +1548,11 @@ msgstr "नेवसि"
 msgid "Description"
 msgstr "बेखेवथि"
 
-msgid "Description:"
-msgstr "बेखेवथि:"
-
-msgid "Destination"
-msgstr "थांखि"
-
 msgid "Destination CIDR"
 msgstr "थांखिCIDR"
 
 msgid "Destination IP"
 msgstr "थांखि IP"
-
-msgid "Destination IP Address"
-msgstr "थांखि IP थं"
 
 msgid "Destination IP Address/Subnet"
 msgstr "थांखि IP थं/साबनेट"
@@ -2156,9 +1574,6 @@ msgstr "थांखि बेसाद मुं"
 
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "थांखि पर्ट ([1, 65535] आव आबुं अनजिमा एबा a:b आव सिमासारि)"
-
-msgid "Destination:"
-msgstr "थांखि:"
 
 msgid "Detached"
 msgstr "आलादा खालामबाय"
@@ -2204,9 +1619,6 @@ msgstr "HA म'डखौ लोरबां खालाम"
 
 msgid "Disable Service"
 msgstr "सिबिथायखौ लोरबां खालाम"
-
-msgid "Disable the compute service."
-msgstr "कम्पिउट सिबिथायखौ लोरबां खालाम।"
 
 msgid "Disabled"
 msgstr "लोरबां खालामबाय"
@@ -2300,9 +1712,6 @@ msgstr ""
 msgid "Domains:"
 msgstr "डमेइन:"
 
-msgid "Done"
-msgstr "मावखांबाय"
-
 msgid "Down"
 msgstr "गाहाय"
 
@@ -2363,25 +1772,9 @@ msgstr "साबि जराखौ डाउनल'ड खालाम"
 msgid "Download OpenStack RC File"
 msgstr "OpenStack RC फाइलखौ डाउनल'ड खालाम"
 
-msgid "Download job binary"
-msgstr "खामानि बाइनारिखौ डाउनल'ड खालाम"
-
-#, python-format
-msgid "Download key pair &quot;%(keypair_name)s&quot;"
-msgstr "साबि जरा &quot;%(keypair_name)s&quot; खौ डाउनल'ड खालाम"
-
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
 msgstr "%s बिदिन्थि रोखोमनि समसिमा (openstack फ्लेभार)"
-
-msgid "EC2 Access Key"
-msgstr "EC2 हाबनाय साबि"
-
-msgid "EC2 Secret Key"
-msgstr "EC2 गुमुर साबि"
-
-msgid "EC2 URL"
-msgstr "EC2 URL"
 
 msgid "Edit"
 msgstr "सुजु"
@@ -2437,9 +1830,6 @@ msgstr "नेटवार्क सुजु"
 msgid "Edit Network Profile"
 msgstr "नेटवार्क प्रफाइलखौ सुजु"
 
-msgid "Edit Object"
-msgstr "बेसादखौ सुजु"
-
 msgid "Edit Policy"
 msgstr "पलिसिखौ सुजु"
 
@@ -2470,9 +1860,6 @@ msgstr "रैखाथि हानजाखौ सुजु"
 msgid "Edit Snapshot"
 msgstr "स्नेपसटखौ सुजु"
 
-msgid "Edit Spec"
-msgstr "Spec खौ सुजु"
-
 msgid "Edit Subnet"
 msgstr "साबनेट सुजु"
 
@@ -2491,9 +1878,6 @@ msgstr "VPN सिबिथाय"
 msgid "Edit Volume"
 msgstr "भलिउमखौ सुजु"
 
-msgid "Edit Volume Type Extra Spec"
-msgstr "भलिउम रोखोम बांद्राय Spec खौ सुजु"
-
 msgid ""
 "Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
 "cores, and other resources. Flavors are selected when users deploy instances."
@@ -2501,23 +1885,11 @@ msgstr ""
 "फ्लेभार गुवारैखौ सुजु। फ्लेभारआ RAM, डिस्कनि थाखाय महर, करनि अनजिमा आरो गुबुन सम्पदखौ थि "
 "खालामो। बाहायग्राया बिदिन्थिखौ फेहेरनाय समाव फ्लेभारखौ सायखनो हायो।"
 
-msgid "Edit the image details."
-msgstr "मुसुखा गुवारैखौ सुजु"
-
 msgid "Edit the instance details."
 msgstr "बिदिन्थि गुवारैखौ सुजु"
 
-msgid ""
-"Edit the network profile to update name, segment range or multicast IP range."
-msgstr ""
-"मुं, खोन्दो सिमासारि एबा माल्टिकास्ट IP सिमासारिखौ आपडेट खालामनो नेटवार्क प्रफाइलखौ "
-"सुजु।"
-
 msgid "Edit the project details."
 msgstr "प्रजेक्ट गुवारैखौ सुजु"
-
-msgid "Edit the role's details."
-msgstr "बिफावनि गुवारैखौ सुजु"
 
 msgid "Egress"
 msgstr "ओंखारनाय"
@@ -2556,13 +1928,6 @@ msgstr "एक्रिपसन"
 msgid "Encryption algorithm"
 msgstr "एनक्रिपसन एलगरिडम"
 
-msgctxt "End time"
-msgid "Ended"
-msgstr "जोबबाय"
-
-msgid "Energy (Kwapi)"
-msgstr "गोहो (क्वापि)"
-
 msgid "Enhanced VXLAN"
 msgstr "बांहोखानाय VXLAN"
 
@@ -2587,19 +1952,8 @@ msgstr ""
 "1 आरो 65535 नि गेजेराव थानाय मोनसे आबुं बेसेनखौ हाबहो। एखे पर्टखौ गासै सायखखानाय "
 "सोद्रोमानि थाखाय बाहायगोन आरो बेखौ उनाव सुद्रायनो हायो।"
 
-msgid "Enter any custom configuration required for your job's execution."
-msgstr ""
-"नोंथांनि खामानिनि मावफुंनायनि थाखाय गोनांथि जानाय जायखि जाया कास्टम बाइजोमहरखौ "
-"हाबहो।"
-
 msgid "Enter parameter (e.g. GRE)"
 msgstr "पेरामिटारखौ हाबहो (जेरै- GRE)"
-
-msgid "Enter the URL for the file"
-msgstr "फाइलनि थाखाय URL खौ हाबहो"
-
-msgid "Enter the username and password required to access that file"
-msgstr "बै फाइलखौ हाबहोनो गोनांथि जानाय बाहायग्रामुं आरो पासवार्डखौ हाबहो"
 
 msgid "Environment Data"
 msgstr "आबहावा डाटा"
@@ -2615,9 +1969,6 @@ msgstr "सानसेनि डिस्क"
 
 msgid "Ephemeral Disk (GB)"
 msgstr "सानसेनि डिस्क (GB)"
-
-msgid "Ephemeral drive"
-msgstr "सानसेयारि ड्राइभ"
 
 msgid "Equal to or greater than 60"
 msgstr "समान एबा 60 निख्रुइ गेदेरसिन"
@@ -2687,9 +2038,6 @@ msgstr "गोरोन्थि"
 msgid "Error Deleting"
 msgstr "खोमोरनायाव गोरोन्थि"
 
-msgid "Error Details"
-msgstr "गोरोन्थि गुवारै"
-
 #, python-format
 msgid "Error Downloading RC File: %s"
 msgstr "RC फाइलखौ डाउनल'ड खालामनायाव जानाय गोरोन्थि: %s"
@@ -2728,15 +2076,8 @@ msgstr "इथार रोखोम"
 msgid "Evacuate Host"
 msgstr "हस्टखौ लांदां खालाम"
 
-msgid ""
-"Evacuate the servers from the selected down host to an active target host."
-msgstr "सायखखानाय गाहायनि हस्ट निफ्राय मावथि थांखि हस्ट सिम सार्भारखौ लांदां खालाम।"
-
 msgid "Events"
 msgstr "जाथाय"
-
-msgid "Expected Codes"
-msgstr "मिजिंथिनाय क'ड"
 
 msgid "Expected HTTP Status Codes"
 msgstr "मिजिंथिखानाय HTTP थाथाइ क'ड"
@@ -2750,9 +2091,6 @@ msgstr ""
 
 msgid "Extend Volume"
 msgstr "भलिउमखौ फेहेर"
-
-msgid "Extend the size of a volume."
-msgstr "भलिउमनि महरखौ फेहेर"
 
 #, python-format
 msgid "Extending volume: \"%s\""
@@ -3035,9 +2373,6 @@ msgstr "नियम %(name)s: %(reason)s खौ आपडेट खालाम
 msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
 msgstr "साबनेट \"%(sub)s\":  %(reason)s खौ आपडेट खालामनो फेलें जाबाय"
 
-msgid "Fault"
-msgstr "गोरोन्थि"
-
 msgid ""
 "Fields in this tab are optional. You can configure the detail of IPSec site "
 "connection created."
@@ -3050,12 +2385,6 @@ msgstr "फाइल"
 
 msgid "File exceeds maximum size (16kb)"
 msgstr "फाइलआ बांसिन महर बारो (16kb)"
-
-msgid "File:"
-msgstr "फाइल:"
-
-msgid "Filter"
-msgstr "फिल्टार"
 
 msgid "Fingerprint"
 msgstr "आसिनि दाग"
@@ -3086,9 +2415,6 @@ msgstr "फायारवाल नियम"
 msgid "Firewalls"
 msgstr "फायारवाल"
 
-msgid "Fixed IP"
-msgstr "थि IP"
-
 msgid "Fixed IPs"
 msgstr "थि IP"
 
@@ -3103,13 +2429,6 @@ msgstr "फ्लेभार हाबनाय"
 
 msgid "Flavor Choice"
 msgstr "फ्लेभार पसायनाय"
-
-msgid "Flavor Details"
-msgstr "फ्लेभार गुवारै"
-
-#, python-format
-msgid "Flavor Details: %(name)s\">%(name)s"
-msgstr "फ्लेभार गुवारै: %(name)s\">%(name)s"
 
 msgid "Flavor ID ="
 msgstr "फ्लेभार ID ="
@@ -3127,9 +2446,6 @@ msgstr "फ्लेभार फोरमायथिहोग्रा"
 msgid "Flavor Name"
 msgstr "फ्लेभार मुं"
 
-msgid "Flavor is not specified"
-msgstr "फ्लेभारखौ थि खालामनाय जाया"
-
 msgid "Flavors"
 msgstr "फ्लेभार"
 
@@ -3140,9 +2456,6 @@ msgstr ""
 "फ्लेभारआ RAM, डिस्कनि थाखाय महर, करनि अनजिमा आरो गुबुन सम्पदखौ थि खालामो आरो "
 "बाहायग्राया बिदिन्थिखौ फेहेरनाय समाव सायखनो हायो।"
 
-msgid "Floating IP"
-msgstr "फ्ल'टिं IP"
-
 msgid "Floating IP Pool"
 msgstr "फ्ल'टिं IP पुल"
 
@@ -3152,39 +2465,9 @@ msgstr "फ्ल'टिं IP"
 msgid "Folder created successfully."
 msgstr "फल्डारखौ जाफुंसारै सोरजिबाय।"
 
-msgid ""
-"For Data Processing internal job binaries, you may choose from the following:"
-msgstr ""
-"डाटा प्रसेसिं इसिं खामानि बाइनारिनि थाखाय, नोंथाङा गाहाय निफ्राय बासिखनो हागौ:"
-
 #, python-format
 msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
 msgstr "GRE नेटवार्कनि थाखाय, बाहाय जाथाव टानेल IDs आ %(max)s नि गेजेरजों %(min)s"
-
-msgid ""
-"For MapReduce or Java Action jobs, \"mains\" are not applicable.  You are "
-"required to add one\n"
-"  or more \"libs\" for these jobs."
-msgstr ""
-"MapReduce एबा जाभा हाबा खामानिनि थाखाय, \"गाहाइ\"आ बाहायथाव नङा। नोंथांनो\n"
-"     बेफोर खामानिनि थाखाय मोनसे एबा गोबां \"बिजाब बाख्रि\" नांगोन।"
-
-msgid "For Object Store job binaries, you must:"
-msgstr "बेसाद दोनथुमनाय खामानि बाइनारिनि थाखाय, नोंथाङा:"
-
-msgid "For Spark jobs, only a main is required, \"libs\" are optional."
-msgstr "अर सालाय खामानिनि थाखाय, खालि गाहायखौल' नांगौ, \"libs\" आ उफ्रायारि।"
-
-msgid ""
-"For TCP and UDP rules you may choose to open either a single port or a range "
-"of ports. Selecting the \"Port Range\" option will provide you with space to "
-"provide both the starting and ending ports for the range. For ICMP rules you "
-"instead specify an ICMP type and code in the spaces provided."
-msgstr ""
-"TCP आरो UDP नियमनि थाखाय, नोंथाङा मोनसेल' पर्ट एबा पर्टनि सारिसिमाखौ बासिखनो "
-"हागौ। \"पर्ट सिमासारि\" उफ्राखौ सायखयोब्ला सिमासारिनि थाखाय जागायनाय आरो जोबनाय "
-"पर्ट मोननैबो होनो नोंथांनो स्पेस (जायगा) होगोन। ICMP नियमनि थाखाय, बेनि सोलायै "
-"नोंथाङा मोनसे ICMP रोखोम आरो क'डखौ होखानाय स्पेस (जायगा)खौ थिक खालामो।"
 
 #, python-format
 msgid ""
@@ -3231,20 +2514,8 @@ msgstr "निफ्राय"
 msgid "From Port"
 msgstr "पर्ट निफ्राय"
 
-msgid "From here you can add a DHCP agent for the network."
-msgstr "बेनिफ्राय नोंथाङा नेटवार्कनि थाखाय DHCP थान्दैखौ दाजाबदेरनो हायो"
-
-msgid "From here you can create a snapshot of a volume."
-msgstr "बेनिफ्राय नोंथाङा भलिउमनि स्नेपसटखौ सोरजिनो हायो।"
-
 msgid "From here you can update the default quotas (max limits)."
 msgstr "बेनिफ्राय नोंथाङा डिफल्ट क'टाखौ आपडेट खालामनो हायो (बांसिन सिमा)।"
-
-msgid "From:"
-msgstr "निफ्राय:"
-
-msgid "GB"
-msgstr "GB"
 
 msgid "GET"
 msgstr "GET"
@@ -3273,9 +2544,6 @@ msgstr "सरासनस्रा फोरमायथिहोग्रा"
 msgid "Glance"
 msgstr "ग्लेन्स"
 
-msgid "Go"
-msgstr "थां"
-
 #, python-format
 msgid "Group \"%s\" was successfully created."
 msgstr "हानजा \"%s\" खौ जाफुंसारै सोरजिबाय।"
@@ -3283,14 +2551,8 @@ msgstr "हानजा \"%s\" खौ जाफुंसारै सोरज�
 msgid "Group ID"
 msgstr "हानजा ID"
 
-msgid "Group Management"
-msgstr "हानजा सामलायनाय"
-
 msgid "Group Members"
 msgstr "हानजा सोद्रोमा"
-
-msgid "Group by:"
-msgstr "जों हानजा खालाम:"
 
 msgid "Group has been updated successfully."
 msgstr "हानजाखौ जाफुंसारै आपडेट खालामबाय।"
@@ -3298,27 +2560,8 @@ msgstr "हानजाखौ जाफुंसारै आपडेट खा
 msgid "Groups"
 msgstr "हानजा"
 
-msgid ""
-"Groups are used to manage access and assign roles to multiple users at once. "
-"After creating the group, edit the group to add users."
-msgstr ""
-"हाबनाय आरो रानना होनाय बिफावखौ खेबसेयावनो गोबां बाहायग्रायाव मेनेज खालामनो "
-"हानजाफोरखौ बाहायनाय जायो। हानजाखौ सोरजिनायनि उनाव बाहायग्राखौ दाजाबदेरनो "
-"हानजाखौ सुजु।"
-
-msgid ""
-"Groups are used to manage access and assign roles to multiple users at once. "
-"Edit the group to add users."
-msgstr ""
-"हाबनाय आरो रानना होनाय बिफावखौ खेबसेयावनो गोबां बाहायग्रायाव मेनेज खालामनो "
-"हानजाफोरखौ बाहायनाय जायो। बाहायग्राखौ दाजाबदेरनो हानजाखौ सुजु।"
-
-#. Translators: High Availability mode of Neutron router
 msgid "HA mode"
 msgstr "HA म'ड"
-
-msgid "HDFS placement"
-msgstr "HDFS दोननाय"
 
 msgid "HTTP"
 msgstr "HTTP"
@@ -3336,21 +2579,12 @@ msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr "गोरा फिन बुट"
 
-msgid "Hash"
-msgstr "हेस"
-
-msgid "Health Monitors"
-msgstr "सावस्रि मनिटर"
-
 #, python-format
 msgid "Health monitor %s was successfully updated."
 msgstr "सावस्रि मनिटर %s खौ जाफुंसारै आपडेट खालामबाय।"
 
 msgid "Help"
 msgstr "मदद"
-
-msgid "Hide full configuration"
-msgstr "आबुं बाइजोमहरखौ दोनखोमा"
 
 msgid "High Availability Mode"
 msgstr "गोजौ मोननो हाथाव म'ड"
@@ -3391,13 +2625,6 @@ msgstr ""
 "हस्टखौ जयै हानजा खालामनानै हस्ट एग्रिगेटआ मोननो हाथाव ओनसोलखौ जुक्टिगोनां सानगुदिआव "
 "बोखावयो। हस्ट एग्रिगेट सोरजि, बेनि उनाव बेयाव थानाय हस्टखौ सायख।"
 
-msgid ""
-"Host aggregates divide an availability zone into logical units by grouping "
-"together hosts. Edit the aggregate host to select hosts contained in it."
-msgstr ""
-"हस्ट एग्रिगेटआ मोननो हाथाव ओनसोलखौ खौसे हस्टखौ ज' खालामनानै जुक्टिगोनां सानगुदिआव "
-"बोखावो। हस्टखौ सायखनो एग्रिगेट हस्टखौ सुजु।"
-
 msgid "Host or IP that the user is allowed to connect through."
 msgstr "हस्ट एबा IP जायजों फोनांजाब खालामनो थाखाय बाहायग्राखौ गनायथि होनाय जायो।"
 
@@ -3415,9 +2642,6 @@ msgstr "हाइपारभाइजर बिदिन्थि"
 
 msgid "Hypervisor Servers"
 msgstr "हाइपारभाइजर सार्भार"
-
-msgid "Hypervisor Summary"
-msgstr "हाइपारभाइजर सारबाहागो"
 
 msgid "Hypervisors"
 msgstr "हाइपारभाइजर"
@@ -3455,9 +2679,6 @@ msgstr "IP थं"
 
 msgid "IP Address (optional)"
 msgstr "IP थं (उफ्रायारि)"
-
-msgid "IP Addresses"
-msgstr "IP थंफोर"
 
 msgid "IP Protocol"
 msgstr "IP प्र'ट'कल"
@@ -3498,12 +2719,6 @@ msgid ""
 msgstr ""
 "गेटवेनि IP थं (जेरै- 192.168.0.254)। गेटवेखौ फजनो रोखो रोखा थंखौ थिक खालाम। नोंथाङा "
 "गेटवेखौ बाहायनो लुबैयाब्ला, गाहायनि 'गेटवेखौ लोरबां खालाम'खौ आनजाद खालाम।"
-
-msgid "IP allocation pool"
-msgstr "IP रानना होनाय पुल"
-
-msgid "IP version"
-msgstr "IP बिसान"
 
 msgid "IPSec Policies"
 msgstr "IPSec पलिसि"
@@ -3555,30 +2770,6 @@ msgstr "सिनायथि"
 msgid "Identity service does not allow editing user data."
 msgstr "सिनायथि सिबिथाया बाहायग्रा डाटा सुजुनायखौ गनायथि होआ।"
 
-msgid ""
-"If console is not responding to keyboard input: click the grey status bar "
-"below."
-msgstr "कनस'लआ किबर्ड इनपुटनो फिन होआब्ला: गाहायनि फुरगेव थाथाइ बारखौ क्लिक खालाम।"
-
-msgid ""
-"If no container name is provided, a default container named volumebackups "
-"will be provisioned for you. Backups will be the same size as the volume "
-"they originate from."
-msgstr ""
-"जेबो कन्टेनार मुं होयाखैब्ला, भलिउमबेकआप मुंनि डिफल्ट कन्टेनारखौ नोंथांनि थाखाय होगोन। "
-"बेकआपआ भलिउम बादि एखे महरनि जागोन।"
-
-msgid ""
-"If you select an image via an HTTP URL, the Image Location field MUST be a "
-"valid and direct URL to the image binary; it must also be accessible to the "
-"Image Service. URLs that redirect or serve error pages will result in "
-"unusable images."
-msgstr ""
-"नोंथाङा HTTP URL नि गेजेरजों मोनसे मुसुखाखौ सायखयोब्ला, मुसुखा जायगा फोथारआ बाहाय "
-"जाथाव जाथारनांगोन आरो मुसुखा बाइनारियाव थोंजों URL जाथारनांगोन; बेयो मुसुखा सिबिथायाव "
-"हाबनो हाथाव जाथारनांगोन। गोरोन्थि बिलाइखौ फिन-बिथोन होनाय एबा मावनाय URL आ "
-"खामानिआव नाङै मुसुखा जागोन।"
-
 msgid "Image"
 msgstr "मुसुखा"
 
@@ -3586,15 +2777,9 @@ msgctxt "Type of an image"
 msgid "Image"
 msgstr "मुसुखा"
 
-msgid "Image (Glance)"
-msgstr "मुसुखा (ग्लेन्स)"
-
 msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "मुसुखा बेकआप"
-
-msgid "Image Details"
-msgstr "मुसुखा गुवारै"
 
 msgid "Image File"
 msgstr "मुसुखा फाइल"
@@ -3611,25 +2796,12 @@ msgstr "मुसुखानि मुं"
 msgid "Image Name ="
 msgstr "मुसुखानि मुं ="
 
-msgid "Image Overview"
-msgstr "मुसुखा अभारभिउ"
-
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
 msgstr "मुसुखा थाबथानाय आपल'ड"
 
 msgid "Image Registry"
 msgstr "मुसुखा रेजिस्ट्रि"
-
-msgid ""
-"Image Registry is used to provide additional information about images for "
-"Data Processing."
-msgstr ""
-"डाटा प्रसेसिंनि थाखाय मुसुखानि सोमोन्दै बांद्राय फोरमायथिहोग्रा होनो थाखाय मुसुखा "
-"रेजिस्ट्रिखौ बाहायनाय जायो।"
-
-msgid "Image Registry tool:"
-msgstr "मुसुखा रेजिस्ट्रि टुल:"
 
 msgctxt "Task status of an Instance"
 msgid "Image Snapshot Pending"
@@ -3660,14 +2832,6 @@ msgstr "मुसुखाखौ जाफुंसारै आपडेट ख
 msgid "Images"
 msgstr "मुसुखा"
 
-msgid ""
-"Images can be provided via an HTTP URL or be uploaded from your local file "
-"system. Compressed image binaries are supported (.zip and .tar.gz.)"
-msgstr ""
-"HTTP URL नि गेजेरजों मुसुखाखौ होनो हायो एबा नोंथांनि जायगानि फाइल सिस्टेम निफ्राय "
-"आपल'ड खालामनो हायो। नारसिनखानाय मुसुखा बाइनारिआ हेफाजाब होजायो (.zip आरो .tar."
-"gz.)"
-
 msgid "Import Key Pair"
 msgstr "साबि जराखौ लाबो"
 
@@ -3677,21 +2841,8 @@ msgstr "पलिसिआव"
 msgid "In Use"
 msgstr "बाहायगासिनो दं"
 
-msgid ""
-"In addition, you can create an external network or a shared network by "
-"checking the corresponding checkbox."
-msgstr ""
-"बेनि बादैबो, एखे आनजाद-बाक्सुखौ आनजाद खालामनानै बाइजोनि नेटवार्क एबा शेयार खालामखानाय "
-"नेटवार्कखौ सोरजिनो हायो।"
-
 msgid "Incremental"
 msgstr "बांनाय"
-
-msgid "Incremental Backup"
-msgstr "बांनाय बेकआप"
-
-msgid "Info"
-msgstr "फोरमायथिहोग्रा"
 
 msgid "Information"
 msgstr "फोरमायथिहोग्रा"
@@ -3704,9 +2855,6 @@ msgstr "गुदि एडमिन बाहायग्रा"
 
 msgid "Initial Databases"
 msgstr "गुदि डाटाबेस"
-
-msgid "Initial Volume Size"
-msgstr "गुदि भलिउम महर"
 
 msgid "Initial admin user to add"
 msgstr "दाजाबदेरनो थाखाय गुदि एडमिन बाहायग्रा"
@@ -3732,9 +2880,6 @@ msgstr "इन्जेक्ट खालामखानाय फाइलफ�
 msgid "Input"
 msgstr "इनपुट"
 
-msgid "Input Data Source"
-msgstr "इनपुट डाटा फुंखा"
-
 msgid "Input must be in CIDR format"
 msgstr "इनपुटआ CIDR फरमेटआव थाथारनांगोन"
 
@@ -3750,32 +2895,17 @@ msgstr "बिदिन्थि"
 msgid "Instance Action List"
 msgstr "बिदिन्थि हाबा लिस्ट"
 
-msgid "Instance Admin Password"
-msgstr "बिदिन्थि एडमिन पासवार्ड"
-
 msgid "Instance Boot Source"
 msgstr "बिदिन्थि बुट फुंखा"
 
-msgid "Instance Console"
-msgstr "बिदिन्थि कनस'ल"
-
-msgid "Instance Console Log"
-msgstr "बिदिन्थि कनस'ल लग"
-
 msgid "Instance Count"
 msgstr "बिदिन्थि हिसाब"
-
-msgid "Instance Details"
-msgstr "बिदिन्थि गुवारै"
 
 msgid "Instance ID"
 msgstr "बिदिन्थि ID"
 
 msgid "Instance Name"
 msgstr "बिदिन्थि मुं"
-
-msgid "Instance Overview"
-msgstr "बिदिन्थि अभारभिउ"
 
 msgid "Instance Password is not set or is not yet available"
 msgstr "बिदिन्थि पासवार्डखौ फजआखै एबा दासिमबो मोननो हाथाव नङा"
@@ -3843,9 +2973,6 @@ msgstr ""
 msgid "Items Per Page"
 msgstr "मोनफा बिलाइआव आइटेम"
 
-msgid "Java Action"
-msgstr "जाभा हाबा"
-
 msgid "Java Opts"
 msgstr "जाभा अप्ट"
 
@@ -3857,15 +2984,6 @@ msgstr "खामानि बाइनारि"
 
 msgid "Job Binary Details"
 msgstr "खामानि बाइनारि गुवारै"
-
-msgid "Job Binary Overview"
-msgstr "खामानि बाइनारि अभारभिउ"
-
-msgid "Job Configuration"
-msgstr "खामानि बाइजोमहर"
-
-msgid "Job Details"
-msgstr "खामानि गुवारै"
 
 msgid "Job Execution Details"
 msgstr "खामानि मावफुंनाय गुवारै"
@@ -3900,9 +3018,6 @@ msgstr "कार्नेल ID"
 msgid "Key"
 msgstr "साबि"
 
-msgid "Key Name"
-msgstr "साबि मुं"
-
 msgid "Key Pair"
 msgstr "साबि जरा"
 
@@ -3911,9 +3026,6 @@ msgstr "साबि जरा मुं"
 
 msgid "Key Pairs"
 msgstr "साबि जरा"
-
-msgid "Key Pairs are how you login to your instance after it is launched."
-msgstr "जागायनायनि उनाव नोंथाङा साबि जराखौ नोंथांनि बिदिन्थिआव माबोरै लगिन खालामो।"
 
 msgid "Key Size (bits)"
 msgstr "साबि महर (बिट)"
@@ -3925,15 +3037,6 @@ msgstr "साबि जरा मुंआव खालि हांखो, अ
 
 msgid "Key pair to use for authentication."
 msgstr "थारफोरमाननि थाखाय बाहायनो थाखाय साबि जरा"
-
-msgid ""
-"Key pairs are ssh credentials which are injected into images when they are "
-"launched. Creating a new key pair registers the public key and downloads the "
-"private key (a .pem file)."
-msgstr ""
-"साबि जराया ssh फोथायथाव जायखौ जागायनाय समाव मुसुखायाव इनजेक्ट खालामनाय जायो। "
-"गोदान साबि जरा सोरजियोब्ला राइजो-राजा साबिखौ रेजिस्टार खालामो आरो प्राइभेट साबिखौ "
-"डाउनल'ड खालामो (मोनसे .pem file)."
 
 msgid "Key-Value Pairs"
 msgstr "साबि-बेसेन जरा"
@@ -3958,12 +3061,6 @@ msgstr "जोबथा 15 सान"
 
 msgid "Last 30 days"
 msgstr "जोबथा 10 सान"
-
-msgid "Last Modified"
-msgstr "जोबथा सुद्रायनाय"
-
-msgid "Last Updated"
-msgstr "जोबथा आपडेट"
 
 msgctxt "Time since the last update"
 msgid "Last Updated"
@@ -3990,17 +3087,11 @@ msgstr "डाटाबेसखौ जागाय"
 msgid "Launch Instance"
 msgstr "बिदिन्थिखौ जागाय"
 
-msgid "Launch Instance (Quota exceeded)"
-msgstr "बिदिन्थिखौ जागाय (क'टा बारबाय)"
-
 msgid "Launch On Existing Cluster"
 msgstr "थाखानाय क्लास्टारआव जागाय"
 
 msgid "Launch On New Cluster"
 msgstr "गोदान क्लास्टारआव जागाय"
-
-msgid "Launch Parameters"
-msgstr "पेरामिटारखौ जागाय"
 
 msgid "Launch Stack"
 msgstr "स्टेकखौ जागाय"
@@ -4039,12 +3130,6 @@ msgstr "इन्जेक्ट खालामखानाय फाइल ल
 msgid "Libs"
 msgstr "Libs"
 
-msgid "Lifetime Units"
-msgstr "जीउसम सानगुदि"
-
-msgid "Lifetime Value"
-msgstr "जीउसम बेसेन"
-
 msgid "Lifetime units"
 msgstr "जीउसम सानगुदि"
 
@@ -4069,9 +3154,6 @@ msgstr "लाइभ माइग्रेट"
 msgid "Live Migrate Instance"
 msgstr "लाइभ माइग्रेट बिदिन्थि"
 
-msgid "Live migrate an instance to a specific host."
-msgstr "बिदिन्थिखौ जरखा हस्टआव लाइभ माइग्रेट खालाम"
-
 msgid "Load Balancer"
 msgstr "बेलेन्सारखौ ल'ड खालाम"
 
@@ -4088,9 +3170,6 @@ msgstr "ल'ड बेलेन्सिं खान्थि"
 msgid "Local"
 msgstr "जायगानि"
 
-msgid "Local Disk Usage"
-msgstr "जायगानि डिस्क बाहायथि"
-
 msgid "Local Storage (total)"
 msgstr "जायगानि दोनथुमग्रा (गासै)"
 
@@ -4100,38 +3179,17 @@ msgstr "जायगानि दोनथुमग्रा (बाहायब
 msgid "Log"
 msgstr "लग"
 
-msgid "Log Length"
-msgstr "लग गोलाव"
-
 msgid "MAC Learning State"
 msgstr "MAC सोलोंनाय राइजो"
 
-msgid "MB"
-msgstr "MB"
-
-msgid "MTU"
-msgstr "MTU"
-
 msgid "Main Class"
 msgstr "गाहाय थाखो"
-
-msgid "Mains"
-msgstr "गाहाय"
 
 msgid "Make Private"
 msgstr "प्राइभेट खालाम"
 
 msgid "Make Public"
 msgstr "राइजो-राजानि खालाम"
-
-msgid ""
-"Make a new copy of an existing object to store in this or another container. "
-"You may additionally specify the path within the selected container where "
-"the new copy should be stored."
-msgstr ""
-"थाखानाय बेसादखौ बेयाव एबा गुबुन मोनसे कन्टेनारआव दोनथुमनो बेनि गोदान कपि बानाय। "
-"नोंथाङा गोदान कपिखौ दोनथुमनो गोनां सायखखानाय कन्टेनारनि सिङाव लामाखौ थिक "
-"खालामनांगौ जायो।"
 
 msgid "Manage Attachments"
 msgstr "नांजाब होनायखौ मेनेज खालाम"
@@ -4156,9 +3214,6 @@ msgstr "QoS Spec गौथुमखौ मेनेज खालाम"
 
 msgid "Manage Rules"
 msgstr "नियमखौ मेनेज खालाम"
-
-msgid "Manage Security Group Rules"
-msgstr "रैखाथि हानजा नियमखौ मेनेज खालाम"
 
 msgid "Manage Specs"
 msgstr "Specs खौ मेनेज खालाम"
@@ -4186,9 +3241,6 @@ msgstr "बांसिन फिन-नाजानाय"
 
 msgid "Max Retries (1~10)"
 msgstr "बांसिन फिन-नाजानाय (1~10)"
-
-msgid "Max."
-msgstr "बांसिन"
 
 msgid "Max. Size (MB)"
 msgstr "बांसिन महर (MB)"
@@ -4225,9 +3277,6 @@ msgstr "सोद्रोमा(फोर)"
 msgid "Members"
 msgstr "सोद्रोमाफोर"
 
-msgid "Memory Usage"
-msgstr "मेमरि बाहायथि"
-
 msgid "Message"
 msgstr "खौरां"
 
@@ -4243,9 +3292,6 @@ msgstr "मेटाडाटाखौ जाफुंसारै आपडे�
 msgid "Meter"
 msgstr "मिटार"
 
-msgid "Metric:"
-msgstr "मेट्रिक:"
-
 msgctxt "Current status of an Instance"
 msgid "Migrating"
 msgstr "जायगा सोलायगासिनो दं"
@@ -4257,15 +3303,6 @@ msgstr "जायगा सोलायगासिनो दं"
 msgid "Migration Policy"
 msgstr "जायगा सोलायहोनाय पलिसि"
 
-msgid "Min Disk"
-msgstr "खमसिन डिस्क"
-
-msgid "Min RAM"
-msgstr "खमसिन रेम"
-
-msgid "Min."
-msgstr "खमसिन"
-
 msgid "Min. Size (MB)"
 msgstr "खमसिन महर (MB)"
 
@@ -4274,9 +3311,6 @@ msgstr "खमसिन डिस्क (GB)"
 
 msgid "Minimum RAM (MB)"
 msgstr "खमसिन RAM (MB)"
-
-msgid "Minutes"
-msgstr "मिनिट"
 
 #, python-format
 msgid "Modified domain \"%s\"."
@@ -4318,15 +3352,6 @@ msgstr "क'टाखौ सुद्राय"
 msgid "Modify Usage Report Parameters"
 msgstr "बाहायथि रिपर्ट पेरामिटारखौ सुद्राय"
 
-msgid "Modify dashboard settings for your user."
-msgstr "नोंथांनि बाहायग्रानि थाखाय डेशबर्ड सेटिंखौ सुद्राय।"
-
-msgid "Modify name and description of a volume."
-msgstr "भलिउमनि मुं आरो बेखेवथिखौ सुद्राय।"
-
-msgid "Modify the name and description of a snapshot."
-msgstr "स्नेपसटनि मुं आरो बेखेवथिखौ सुद्राय।"
-
 msgid "Monitor"
 msgstr "मनिटर"
 
@@ -4335,9 +3360,6 @@ msgstr "मनिटर गुवारै"
 
 msgid "Monitor Type"
 msgstr "मनिटर रोखोम"
-
-msgid "Monitoring:"
-msgstr "मनिटर खालामगासिनो दं:"
 
 msgid "Monitors"
 msgstr "मनिटरफोर"
@@ -4374,16 +3396,9 @@ msgstr ""
 msgid "Name of the stack to create."
 msgstr "सोरजिनो थाखाय स्टेकनि मुं"
 
-msgid "Name:"
-msgstr "मुं:"
-
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr "Name: %(name)s ID: %(uuid)s"
-
-#, python-format
-msgid "Name: %(node_group_name)s"
-msgstr "मुं: %(node_group_name)s"
 
 msgid "Native VXLAN"
 msgstr "नेटिभ VXLAN"
@@ -4403,9 +3418,6 @@ msgstr "%s नेटवार्कखौ जाफुंसारै सोर�
 msgid "Network %s was successfully updated."
 msgstr "%s नेटवार्कखौ जाफुंसारै आपडेट खालामबाय।"
 
-msgid "Network (Neutron)"
-msgstr "नेटवार्क (निउट्रन)"
-
 msgid "Network Address"
 msgstr "नेटवार्क थं"
 
@@ -4415,17 +3427,11 @@ msgstr "नेटवार्क थं आरो IP बिसानआ दि�
 msgid "Network Agents"
 msgstr "नेटवार्क थान्दै"
 
-msgid "Network Details"
-msgstr "नेटवार्क गुवारै"
-
 msgid "Network ID"
 msgstr "नेटवार्क ID"
 
 msgid "Network Name"
 msgstr "नेटवार्क मुं"
-
-msgid "Network Overview"
-msgstr "नेटवार्क अभारभिउ"
 
 msgid "Network Profile"
 msgstr "नेटवार्क प्रफाइल"
@@ -4443,9 +3449,6 @@ msgstr "नेटवार्क प्रफाइलखौ मोनफिन�
 
 msgid "Network Topology"
 msgstr "नेटवार्क ट'प'लजि"
-
-msgid "Network Type:"
-msgstr "नेटवार्क रोखोम:"
 
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24)"
 msgstr "CIDR फरमेट (जेरै 192.168.0.0/24) आव नेटवार्क थं"
@@ -4474,9 +3477,6 @@ msgstr "निउट्रन सामलायनाय नेटवार्�
 
 msgid "Never"
 msgstr "माब्लाबाबो"
-
-msgid "Never updated"
-msgstr "माब्लाबाबो आपडेट खालामाखै"
 
 msgid "New DHCP Agent"
 msgstr "गोदान DHCP थान्दै"
@@ -4533,9 +3533,6 @@ msgstr "जेबो राइजो गैया"
 msgid "No Templates Available"
 msgstr "जेबो टेमप्लेट गैया"
 
-msgid "No attached device"
-msgstr "नांजाब होखानाय डिभाइस गैया"
-
 msgid "No availability zone specified"
 msgstr "जेबो मोननो हाथाव ओनसोल थि खालामाखै"
 
@@ -4551,14 +3548,8 @@ msgstr "जेबो प्रजेक्ट गैया"
 msgid "No backups available"
 msgstr "जेबो बेकआप गैया"
 
-msgid "No configurations"
-msgstr "जेबो बाइजोमहर गैया"
-
 msgid "No flavors available"
 msgstr "जेबो फ्लेभार मोननो हाथाव नङा"
-
-msgid "No flavors meet minimum criteria for selected image."
-msgstr "सायखखानाय मुसुखानि थाखाय जेबो फ्लेभारआ खमसिन खान्थिखौ सुफुङा।"
 
 msgid "No floating IP addresses allocated"
 msgstr "जेबो फ्ल'टिं IP थंखौ रानना होयाखै।"
@@ -4620,9 +3611,6 @@ msgstr "जेबो प्रजेक्ट सायखआखै। गास
 msgid "No provider is available"
 msgstr "जेबो होग्रा मोननो हाथाव नङा"
 
-msgid "No rules defined."
-msgstr "जेबो नियम थि खालामाखै"
-
 msgid "No security groups available"
 msgstr "जेबो रैखाथि हानजा गैया"
 
@@ -4663,14 +3651,8 @@ msgstr "जेबो भलिउम स्नेपसट मोननो ह�
 msgid "No volume type"
 msgstr "जेबो भलिउम रोखोम गैया"
 
-msgid "No volumes attached."
-msgstr "जेबो भलिउम नांजाब होआखै"
-
 msgid "No volumes available"
 msgstr "जेबो भलिउम मोननो हाथाव नङा"
-
-msgid "Node Configurations"
-msgstr "नड बाइजोमहर"
 
 msgid "Node Group Template Details"
 msgstr "नड हानजा टेमप्लेट गुवारै"
@@ -4682,30 +3664,14 @@ msgstr "नड हानजा टेमप्लेट कपि %s खौ स�
 msgid "Node Group Templates"
 msgstr "नड हानजा टेमप्लेट"
 
-#, python-format
-msgid "Node Group: %(node_group_name)s"
-msgstr "नड हानजा: %(node_group_name)s"
-
 msgid "Node Groups"
 msgstr "नड हानजा"
 
 msgid "Node Processes"
 msgstr "नड प्रसेस"
 
-msgid "Node configurations are not specified"
-msgstr "नड बाइजोमहरखौ थि खालामाखै"
-
 msgid "Node group cluster"
 msgstr "नड हानजा क्लास्टार"
-
-msgid "Node processes are not specified"
-msgstr "नड प्रसेसखौ थि खालामनाय जाया"
-
-msgid "Nodegroup Template Details"
-msgstr "नडहानजा टेमप्लेट गुवारै"
-
-msgid "Nodes Count"
-msgstr "नडनि हिसाब"
 
 msgid "Non-Members"
 msgstr "सोद्रोमा-नङा"
@@ -4726,21 +3692,8 @@ msgstr "रानना होआखै"
 msgid "Not Found"
 msgstr "मोनाखै"
 
-msgid "Not attached"
-msgstr "नांजाब होआखै"
-
 msgid "Not available"
 msgstr "मोननो हाथाव नङा"
-
-msgid "Note: "
-msgstr "नायनो गोनां: "
-
-msgid ""
-"Note: A Public Container will allow anyone with the Public URL to gain "
-"access to your objects in the container."
-msgstr ""
-"नायनो गोनां: नोंथांनि बेसादखौ कन्टेनारआव हाबहोनो राइजो-राजा URLजों मोनसे राइजो-राजा "
-"कन्टेनारआ बायखौबो गनायथि होगोन।"
 
 msgid "Nova"
 msgstr "नभा"
@@ -4748,20 +3701,8 @@ msgstr "नभा"
 msgid "Number of API requests against swift"
 msgstr "सुइफ्टनि बेरेखायै API खावलायनायनि अनजिमा"
 
-msgid "Number of Instances"
-msgstr "बिदिन्थिनि अनजिमा"
-
-msgid "Number of Nodes"
-msgstr "नडनि अनजिमा"
-
-msgid "Number of Snapshots"
-msgstr "स्नेपसटनि अनजिमा"
-
 msgid "Number of VCPUs"
 msgstr "VCPU नि अनजिमा"
-
-msgid "Number of Volumes"
-msgstr "भलिउमनि अनजिमा"
 
 msgid "Number of containers"
 msgstr "कन्टेनारनि अनजिमा"
@@ -4804,20 +3745,11 @@ msgstr "लिरनाय खावलायनायनि अनजिमा"
 msgid "OR Copy/Paste your Private Key"
 msgstr "एबा नोंथांनि प्राइभेट साबिखौ कपि खालाम/फोनांजाब हो"
 
-msgid "Object Count"
-msgstr "बेसादनि हिसाब"
-
-msgid "Object Count: "
-msgstr "बेसादनि हिसाब: "
-
 msgid "Object Details"
 msgstr "बेसादनि गुवारै"
 
 msgid "Object Name"
 msgstr "बेसादनि मुं"
-
-msgid "Object Storage (Swift)"
-msgstr "बेसाद दोनथुमसालि (सुइफ्ट)"
 
 msgid "Object Store"
 msgstr "बेसाद दोनथुमनाय"
@@ -4828,9 +3760,6 @@ msgstr "बेसादखौ जाफुंसारै आपडेट खा
 msgid "Object was successfully uploaded."
 msgstr "बेसादखौ जाफुंसारै आपल'ड खालामबाय।"
 
-msgid "Object:"
-msgstr "बेसाद:"
-
 msgid "Objects"
 msgstr "बेसाद"
 
@@ -4840,14 +3769,8 @@ msgstr "गोजाम फ्लेभार"
 msgid "On Demand"
 msgstr "दाबिआव"
 
-msgid "Oozie Job ID"
-msgstr "Oozie खामानि ID"
-
 msgid "Open Port"
 msgstr "पर्टखौ खेव"
-
-msgid "Open Port/Port Range:"
-msgstr "पर्ट/पर्ट सिमासारिखौ खेव:"
 
 msgid "OpenStack Flavor"
 msgstr "OpenStack फ्लेभार"
@@ -4864,12 +3787,6 @@ msgstr "उफ्रायारि पेरेन्ट बेकआप"
 msgid "Optional: Next Hop Addresses (comma delimited)"
 msgstr "उफ्रायारि: उननि हप थं (कमाजों सिमा खालामबाय)"
 
-msgid "Optionally provide a comma separated list of databases to create:"
-msgstr "सोरजिनो थाखाय डाटाबेसनि कमाजों आलादा खालामनाय लिस्टखौ गावनि गोसोजों हो:"
-
-msgid "Optionally, you may choose to create a new volume."
-msgstr "गावनि गोसो बादियै, नोंथाङा गोदान भलिउम सोरजिनो बासिखनो हागौ।"
-
 msgid "Orchestration"
 msgstr "अर्केस्टेसन"
 
@@ -4882,23 +3799,11 @@ msgstr "गुबुन प्र'ट'कल"
 msgid "Output"
 msgstr "आउटपुट"
 
-msgid "Output Data Source"
-msgstr "आउटपुट डाटा फुंखा"
-
-msgid "Outputs"
-msgstr "आउटपुट"
-
 msgid "Overlay"
 msgstr "अभारले"
 
 msgid "Overview"
 msgstr "अभारभिउ"
-
-msgid "Owner"
-msgstr "बिगोमा"
-
-msgid "PASSWORD"
-msgstr "पासवार्ड"
 
 msgid "PFS"
 msgstr "PFS"
@@ -4909,9 +3814,6 @@ msgstr "PING"
 msgid "Page Not Found"
 msgstr "बिलाइखौ मोनाखै"
 
-msgid "Parameters"
-msgstr "पेरामिटार"
-
 msgid "Parent Backup"
 msgstr "पेरेन्ट बेकआप"
 
@@ -4921,9 +3823,6 @@ msgstr "पासवार्ड"
 msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "पासवार्ड"
-
-msgid "Password (required)"
-msgstr "पासवार्ड (गोनां जाबाय)"
 
 msgid "Password changed. Please log in again to continue."
 msgstr "पासवार्डआ सोलायबाय। सालाय लांबाय थानो आरोबाव लग-इन खालाम।"
@@ -4973,9 +3872,6 @@ msgstr "पारफेक्ट फरवार्ड सिक्रेसि"
 msgid "Period"
 msgstr "समफारि"
 
-msgid "Period:"
-msgstr "समफारि:"
-
 msgid "Permit"
 msgstr "गनायथि"
 
@@ -4987,9 +3883,6 @@ msgstr "फिजिकेल नेटवार्क"
 
 msgid "Physical Network Name"
 msgstr "फिजिकेल नेटवार्क मुं"
-
-msgid "Physical Network:"
-msgstr "फिजिकेल नेटवार्क:"
 
 msgid "Pig"
 msgstr "पिग"
@@ -5003,9 +3896,6 @@ msgid ""
 msgstr ""
 "मोनसेल' बेसेन (जेरै- 200), बेसेननि लिस्ट (जेरै- 200, 202), एबा बेसेननि सारिसिमा (जेरै- "
 "200-204) खौ हाबहो"
-
-msgid "Please note: "
-msgstr "नायनो गोनांदि: "
 
 #, python-format
 msgid "Please specify a %s using only one source method."
@@ -5040,9 +3930,6 @@ msgstr "पलिसि"
 msgid "Policy %s was successfully updated."
 msgstr "पलिसि %s खौ जाफुंसारै आपडेट खालामबाय।"
 
-msgid "Policy ID"
-msgstr "पलिसि ID"
-
 msgid "Policy Profile"
 msgstr "पलिसि प्रफाइल"
 
@@ -5076,9 +3963,6 @@ msgstr "%s पर्टखौ जाफुंसारै आपडेट खा
 msgid "Port Details"
 msgstr "पर्टनि गुवारै"
 
-msgid "Port ID"
-msgstr "पर्ट ID"
-
 msgid "Port Range"
 msgstr "पर्ट सिमासारि"
 
@@ -5090,9 +3974,6 @@ msgstr "लोगो खालामनो गोनां पर्ट"
 
 msgid "Ports"
 msgstr "पर्ट"
-
-msgid "Position in Policy"
-msgstr "पलिसिआव जायगा"
 
 msgid "Post-Creation"
 msgstr "उनाव-सोरजिनाय"
@@ -5113,9 +3994,6 @@ msgstr "पावार अन जागासिनो दं"
 
 msgid "Pre-Shared Key (PSK) string"
 msgstr "आगु-शेयार खालामखानाय साबि (PSK) स्ट्रिं"
-
-msgid "Pre-Shared Key string"
-msgstr "आगु-शेयार खालामनाय साबि स्ट्रिं"
 
 msgctxt "Task status of an Instance"
 msgid "Preparing Resize or Migrate"
@@ -5151,23 +4029,14 @@ msgstr "प्रजेक्ट ID"
 msgid "Project Information"
 msgstr "प्रजेक्ट फोरमायथिहोग्रा"
 
-msgid "Project Limits"
-msgstr "प्रजेक्ट सिमा"
-
 msgid "Project Members"
 msgstr "प्रजेक्ट सोद्रोमा"
 
 msgid "Project Name"
 msgstr "प्रजेक्ट मुं"
 
-msgid "Project Quotas"
-msgstr "प्रजेक्ट क'टा"
-
 msgid "Project Usage"
 msgstr "प्रजेक्ट बाहायथि"
-
-msgid "Project Usage Overview"
-msgstr "प्रजेक्ट बाहायथि अभारभिउ"
 
 msgid "Projects"
 msgstr "प्रजेक्ट"
@@ -5177,11 +4046,6 @@ msgstr "प्रजेक्टखौ मोनफिननो हायाख�
 
 msgid "Projects:"
 msgstr "प्रजेक्ट:"
-
-msgid "Protect and use the key as you would any normal ssh private key."
-msgstr ""
-"साबिखौ रैखाथि खालाम आरो बाहाय मानोना नोंथाङा जायखि जाया सरासनस्रा ssh प्राइभेट "
-"साबिखौ लुबैनो हागौ।"
 
 msgid "Protected"
 msgstr "रैखाथि खालामबाय"
@@ -5198,23 +4062,11 @@ msgstr "फायारवाल नियमनि थाखाय प्र'�
 msgid "Provider"
 msgstr "होग्रा"
 
-msgid "Provider Network"
-msgstr "होग्रा नेटवार्क"
-
 msgid "Provider Network Type"
 msgstr "होग्रा नेटवार्क रोखोम"
 
 msgid "Provider for Load Balancer is not supported"
 msgstr "ल'ड बेलेन्सनि थाखाय होग्राया हेफाजाब होजाया।"
-
-msgid ""
-"Provider specified network can be created. You can specify a physical "
-"network type (like Flat, VLAN, GRE, and VXLAN) and its segmentation_id or "
-"physical network name for a new virtual network."
-msgstr ""
-"होग्रा थि नेटवार्कखौ सोरजिनो हायो। नोंथाङा मोनसे देहायारि नेटवार्क रोखोम (जेरै- फ्लेट, "
-"VLAN, GRE, आरो VXLAN) आरो बेनि खोन्दो_id एबा गोदान नुथाव नेटवार्कनि थाखाय देहायारि "
-"नेटवार्कखौ थिक खालामनो हायो।"
 
 msgid "Pseudo-folder Name"
 msgstr "नंखाय-फल्डार मुं"
@@ -5222,17 +4074,11 @@ msgstr "नंखाय-फल्डार मुं"
 msgid "Pseudo-folder was successfully created."
 msgstr "नंखाय-फल्डारखौ जाफुंसारै सोरजिबाय।"
 
-msgid "Pseudo-folder:"
-msgstr "नंखाय-फल्डार"
-
 msgid "Public"
 msgstr "रायजो-राजा"
 
 msgid "Public Key"
 msgstr "राइजो-राजा साबि"
-
-msgid "Public URL"
-msgstr "राइजो-राजा URL"
 
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU एमिउलेटर"
@@ -5246,9 +4092,6 @@ msgstr "QoS Spec ग्राहकआ दानि ग्राहक बेस
 
 msgid "QoS Spec to be associated"
 msgstr "थाफाहोनो गोनां QoS Spec"
-
-msgid "QoS Spec: "
-msgstr "QoS Spec: "
 
 msgid "QoS Specs"
 msgstr "QoS Specs"
@@ -5297,10 +4140,6 @@ msgstr "गोथां"
 
 msgid "Reason"
 msgstr "जाहोन"
-
-#, python-format
-msgid "Reason: %(disabled_reason)s"
-msgstr "जाहोन: %(disabled_reason)s"
 
 msgctxt "Action log of an instance"
 msgid "Reboot"
@@ -5361,10 +4200,6 @@ msgstr "ओनसोल:"
 msgid "Register Image"
 msgstr "मुसुखाखौ रेजिस्टार खालाम"
 
-msgid ""
-"Register tags required for the Plugin with specified Data Processing Version"
-msgstr "रेजिस्टार टेगखौ थि डाटा प्रसेसिं बिसानजों प्लागिननि थाखाय गोनांथि जाबाय"
-
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr ""
 "खावलायनायनि सोमोन्दोगोनां बाहागो, बे पुल सोद्रोमाया गुबुनजों रुजुनानै खामानि मावयो।"
@@ -5384,14 +4219,8 @@ msgstr "थाखानाय क्लास्टारआव फिन जा
 msgid "Relaunch On New Cluster"
 msgstr "गोदान क्लास्टारआव फिन जागाय"
 
-msgid "Reload"
-msgstr "फिन ल'ड खालाम"
-
 msgid "Remote"
 msgstr "रिमट"
-
-msgid "Remote peer subnet"
-msgstr "रिमट पियार साबनेट"
 
 msgid "Remote peer subnet(s)"
 msgstr "रिमट पियार साबनेट(फोर)"
@@ -5402,12 +4231,6 @@ msgid ""
 msgstr ""
 "गोनांथि जायोब्ला कमाजों आलादा खालामखानाय CIDR फरमेटआव मास्कजों रिमट पियार साबनेट"
 "(फोर) थं (जेरै- 20.1.0.0/24, 21.1.0.0/24)"
-
-msgid "Remote:"
-msgstr "रिमट:"
-
-msgid "Remove"
-msgstr "बोखार"
 
 msgid "Remove Rule"
 msgstr "नियमखौ बोखार"
@@ -5428,9 +4251,6 @@ msgstr "उदा खालाम"
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "उदां खालामगासिनो दं"
-
-msgid "Reset to Default"
-msgstr "डिफल्टआव फिन फज"
 
 msgid "Resize"
 msgstr "फिन महर हो"
@@ -5471,18 +4291,6 @@ msgstr "भलिउम \"%s\" खौ फिन महर होगासिन�
 msgid "Resource"
 msgstr "सम्पद"
 
-msgid "Resource Details"
-msgstr "सम्पद गुवारै"
-
-msgid "Resource ID"
-msgstr "सम्पद ID"
-
-msgid "Resource Metadata"
-msgstr "सम्पद मेटाडाटा"
-
-msgid "Resource Overview"
-msgstr "सम्पद अभारभिउ"
-
 msgid "Resource Usage"
 msgstr "सम्पद बाहायथि"
 
@@ -5497,9 +4305,6 @@ msgstr "बेकआपखौ लाबोफिन"
 
 msgid "Restore Backup to Volume"
 msgstr "बेकआपखौ भलिउमआव लाबोफिन"
-
-msgid "Restore Backup:"
-msgstr "बेकआपखौ लाबोफिन:"
 
 msgid "Restore Volume Backup"
 msgstr "भलिउम बेकआपखौ लाबोफिन"
@@ -5524,9 +4329,6 @@ msgstr "बिदिन्थि पासवार्डखौ मोनफि�
 
 msgid "Retrieve Password"
 msgstr "पासवार्डखौ मोनफिन"
-
-msgid "Return Code"
-msgstr "फैफिननाय क'ड"
 
 msgid "Revert Resize/Migrate"
 msgstr "फिन महर/माइग्रेटखौ उल्था खालाम"
@@ -5557,9 +4359,6 @@ msgstr "बिफावखौ जाफुंसारै आपडेट खा
 msgid "Roles"
 msgstr "बिफाव"
 
-msgid "Rollback"
-msgstr "रलबेक"
-
 msgid "Rollback On Failure"
 msgstr "फेलेंआव रलबेक"
 
@@ -5568,9 +4367,6 @@ msgstr "रुट डिस्क"
 
 msgid "Root Disk (GB)"
 msgstr "रुट डिस्क (GB)"
-
-msgid "Route mode"
-msgstr "रुट म'ड"
 
 msgid "Router"
 msgstr "रुटार"
@@ -5592,9 +4388,6 @@ msgstr "रुटार ID"
 msgid "Router Name"
 msgstr "रुटार मुं"
 
-msgid "Router Rule Grid"
-msgstr "रुटार नियम ग्रिड"
-
 msgid "Router Rules"
 msgstr "रुटार नियम"
 
@@ -5609,13 +4402,6 @@ msgstr "रुटार नियमखौ दाजाबदेरबाय"
 
 msgid "Routers"
 msgstr "रुटार"
-
-msgid ""
-"Routing rules to apply to router. Rules are matched by most specific source "
-"first and then by most specific destination."
-msgstr ""
-"रुटारआव बाहायनो थाखाय रुटिं नियम। नियमआ गिबियाव जोबोद जरखा फुंखाजों आरो बेनि उनाव "
-"जोबोद जरखा थांखिजों गोरोबहोजानांगौ।"
 
 msgid "Rule"
 msgstr "नियम"
@@ -5632,31 +4418,12 @@ msgstr "नियम %(rule)s खौ पलिसि %(policy)s निफ्र�
 msgid "Rule %s was successfully updated."
 msgstr "नियम %s खौ जाफुंसारै आपडेट खालामगासिनो दं।"
 
-msgid "Rule Conflict"
-msgstr "नियम जेंना"
-
-msgid "Rule:"
-msgstr "नियम:"
-
 msgid "Rules"
 msgstr "नियम"
-
-msgid ""
-"Rules define which traffic is allowed to instances assigned to the security "
-"group. A security group rule consists of three main parts:"
-msgstr ""
-"नियमआ थि खालामो- मबे ट्रेफिकखौ रैखाथि हानजायाव रानना होखानाय बिदिन्थियाव गनायथि "
-"होनाय जायो। मोनसे रैखाथि हानजा नियमआव मोनथाम गाहाय बाहागो दं:"
 
 msgctxt "Power state of an Instance"
 msgid "Running"
 msgstr "सालायगासिनो दं"
-
-msgid "S3 URL"
-msgstr "S3 URL"
-
-msgid "SSH key pairs can be generated with the ssh-keygen command:"
-msgstr "SSH साबि जराखौ ssh-keygen बिथोनजों दिहुननो हायो:"
 
 msgid "Save"
 msgstr "थिना दोन"
@@ -5721,42 +4488,14 @@ msgstr "रैखाथि हानजा नियम"
 msgid "Security Groups"
 msgstr "रैखाथि हानजा"
 
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. After the security group is created, you can add rules "
-"to the security group."
-msgstr ""
-"रैखाथि हानजाफोरा IP फिल्टार नियमनि जथाय जायखौ VM नि थाखाय नेटवार्क सेटिंआव "
-"बाहायनाय जायो। रैखाथि हानजाखौ सोरजिनायनि उनाव नोंथाङा नियमखौ रैखाथि हानजायाव "
-"दाजाबदेरनो हायो।"
-
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. Edit the security group to add and change the rules."
-msgstr ""
-"रैखाथि हानजाफोरा IP फिल्टार नियमनि जथाय जायखौ VM नि थाखाय नेटवार्क सेटिंआव "
-"बाहायनाय जायो। नियमखौ दाजाबदेरनो आरो सोलायनो रैखाथि हानजाखौ सुजु।"
-
 msgid "Segment Range"
 msgstr "खोन्दो सिमासारि"
-
-msgid "Segment Range:"
-msgstr "खोन्दो सिमासारि:"
-
-msgid "Segment Sub Type:"
-msgstr "खोन्दो दालाय रोखोम:"
 
 msgid "Segment Type"
 msgstr "खोन्दो रोखोम"
 
-msgid "Segment Type:"
-msgstr "खोन्दो रोखोम:"
-
 msgid "Segmentation ID"
 msgstr "बेंखन खोन्दो ID"
-
-msgid "Segmentation ID:"
-msgstr "बेंखन खोन्दो ID:"
 
 msgid "Select IKE Policy"
 msgstr "IKE पलिसिखौ सायख"
@@ -5797,9 +4536,6 @@ msgstr "मनिटर सायख"
 msgid "Select a New Flavor"
 msgstr "मोनसे गोदान फ्लेभार सायख"
 
-msgid "Select a Node Group Template to add:"
-msgstr "दाजाबदेरनो नड हानजा टेमप्लेटखौ सायख:"
-
 msgid "Select a Policy"
 msgstr "पलिसिखौ सायख"
 
@@ -5829,9 +4565,6 @@ msgstr "जरा साबिखौ सायख"
 msgid "Select a monitor template for %s"
 msgstr "%s नि थाखाय मनिटर टेमप्लेट सायख"
 
-msgid "Select a name for your network."
-msgstr "नोंथांनि नेटवार्कनि थाखाय मोनसे मुंखौ सायख।"
-
 msgid "Select a new agent"
 msgstr "गोदान थान्दै सायख"
 
@@ -5841,17 +4574,8 @@ msgstr "गोदान हस्ट सायख"
 msgid "Select a new template to re-launch a stack."
 msgstr "स्टेकखौ फिन-जागायनो गोदान टेमप्लेटखौ सायख"
 
-msgid "Select a plugin and version for a new Cluster template."
-msgstr "गोदान क्लास्टार टेमप्लेटनि थाखाय प्लागिन आरो बिसानखौ सायख।"
-
-msgid "Select a plugin and version for a new Cluster."
-msgstr "गोदान क्लास्टारनि थाखाय प्लागिन आरो बिसानखौ सायख।"
-
 msgid "Select a port"
 msgstr "मोनसे पर्टखौ सायख"
-
-msgid "Select a pre-defined period or specify date."
-msgstr "आगु-थि समखौ सायख एबा अक्ट'खौ थि खालाम।"
 
 msgid "Select a profile"
 msgstr "प्रफाइल सायख"
@@ -5864,9 +4588,6 @@ msgstr "थांखि हस्टखौ सायख"
 
 msgid "Select a template to launch a stack."
 msgstr "स्टेकखौ जागायनो टेमप्लेटखौ सायख"
-
-msgid "Select a volume to restore to."
-msgstr "लाबोफिननो भलिउमखौ सायख।"
 
 msgid "Select an IP address"
 msgstr "मोनसे IP थं सायख"
@@ -5910,17 +4631,11 @@ msgstr "क्लास्टारनि थाखाय प्लागिन 
 msgid "Select plugin and hadoop version for cluster template"
 msgstr "क्लास्टार टेमप्लेटनि थाखाय प्लागिन आरो hadoop बिसानखौ सायख।"
 
-msgid "Select property name"
-msgstr "आखुथाय मुंखौ सायख"
-
 msgid "Select rules for your policy."
 msgstr "नोंथांनि पलिसिनि थाखाय नियमखौ सायख।"
 
 msgid "Select source"
 msgstr "फुंखाखौ सायख"
-
-msgid "Select the image to rebuild your instance."
-msgstr "नोंथांनि बिदिन्थिखौ फिन बानायनो मुसुखाखौ सायख"
 
 msgid ""
 "Select the projects where the flavors will be used. If no projects are "
@@ -5929,29 +4644,14 @@ msgstr ""
 "प्रजेक्टखौ सायख जेराव फ्लेभारखौ बाहायगोन। जेबो प्रजेक्ट सायखआब्ला फ्लेभारआ गासै प्रजेक्टआवनो "
 "मोननो हाथाव जागोन।"
 
-msgid "Select the storage type for your job binary."
-msgstr "नोंथांनि खामानि बाइनारिनि थाखाय दोनथुमनाय रोखोमखौ सायख।"
-
-msgid "Select the type of your Data Source."
-msgstr "नोंथांनि डाटा फुंखानि रोखोमखौ सायख।"
-
-msgid "Select the type of your job:"
-msgstr "नोंथांनि खामानिनि रोखोमखौ सायख:"
-
 msgid "Selected Hosts"
 msgstr "सायखखानाय हस्ट"
 
 msgid "Selected Projects"
 msgstr "सायखखानाय प्रजेक्ट"
 
-msgid "Selected Rules"
-msgstr "सायखखानाय नियम"
-
 msgid "Selected hosts"
 msgstr "सायखखानाय हस्ट"
-
-msgid "Selected networks"
-msgstr "सायखखानाय नेटवार्क"
 
 msgid "Server error"
 msgstr "सार्भार गोरोन्थि"
@@ -6028,9 +4728,6 @@ msgctxt "Task status of an Instance"
 msgid "Shelving Offloading"
 msgstr "अफल'डिंखौ बोखारगासिनो दं"
 
-msgid "Show full configuration"
-msgstr "आबुं बाइजोमहरखौ दिन्थि"
-
 msgctxt "Power state of an Instance"
 msgid "Shut Down"
 msgstr "साट डाउन खालाम"
@@ -6061,18 +4758,12 @@ msgstr "GB आव भलिउमनि महर"
 msgid "Size of volume"
 msgstr "भलिउमनि महर"
 
-msgid "Size: "
-msgstr "महर: "
-
 msgid "Slash is not an allowed character."
 msgstr "स्लेसआ हांखोखौ गनायथि होआ।"
 
 msgid ""
 "Slashes are allowed, and are treated as pseudo-folders by the Object Store."
 msgstr "स्लेसखौ गनायथि होयो, आरो बेखौ बेसाद दोनथुमनायजों नंखाय-फल्डार महरै साननाय जायो।"
-
-msgid "Small"
-msgstr "फिसा"
 
 msgid "Snapshot"
 msgstr "स्नेपसट"
@@ -6084,9 +4775,6 @@ msgstr "स्नेपसट"
 #, python-format
 msgid "Snapshot \"%(name)s\" created for instance \"%(inst)s\""
 msgstr "बिदिन्थि \"%(inst)s\" नि थाखाय सोरजिबाय स्नेपसट \"%(name)s\""
-
-msgid "Snapshot Limits"
-msgstr "स्नेपसट सिमा"
 
 msgid "Snapshot Name"
 msgstr "स्नेपसट मुं"
@@ -6106,23 +4794,14 @@ msgctxt "Task status of an Instance"
 msgid "Soft Deleting"
 msgstr "गुरै खोमोरगासिनो दं"
 
-msgid "Some flavors not meeting minimum image requirements have been disabled."
-msgstr "खमसिन मुसुखा गोनांथिखौ सुफुङै माखासे फ्लेभारखौ लोरबां खालामबाय।"
-
 msgid "Something went wrong!"
 msgstr "माबा गोरोन्थि जादों!"
-
-msgid "Source"
-msgstr "फुंखा"
 
 msgid "Source CIDR"
 msgstr "फुंखा CIDR"
 
 msgid "Source IP"
 msgstr "फुंखा IP"
-
-msgid "Source IP Address"
-msgstr "फुंखा IP थं"
 
 msgid "Source IP Address/Subnet"
 msgstr "फुंखा IP थं/साबनेट"
@@ -6145,9 +4824,6 @@ msgstr "फुंखा पर्ट ([1, 65535] आव आबुं अनज�
 msgid "Source username"
 msgstr "फुंखा बाहायग्रामुं"
 
-msgid "Source:"
-msgstr "फुंखा:"
-
 msgid "Spark"
 msgstr "अर सालाय"
 
@@ -6157,13 +4833,6 @@ msgstr "दिहुनगासिनो दं"
 
 msgid "Spec"
 msgstr "Spec"
-
-msgid ""
-"Specified User Name will be used by Data Processing to apply configs and "
-"manage processes on instances."
-msgstr ""
-"बिदिन्थियाव बाइजोमहरखौ बाहायनो आरो प्रसेसखौ मेनेज खालामनो थि बाहायग्रा मुंआ डाटा "
-"प्रसेसिंजों बाहायजागोन।"
 
 msgid ""
 "Specifies how IPv6 addresses and additional information are configured. We "
@@ -6194,32 +4863,14 @@ msgstr "सायखखानाय साबनेट निफ्राय फ
 msgid "Specify additional attributes for the subnet."
 msgstr "साबनेटनि थाखाय बांद्राय एट्‌ट्रिबिउटखौ थिक खालाम।"
 
-msgid "Specify advanced options to use when launching an instance."
-msgstr "बिदिन्थिखौ जागायनाय समाव बाहायनो जौगानाय उफ्राखौ थिक खालाम।"
-
 msgid "Specify an IP address for the interface created (e.g. 192.168.0.254)."
 msgstr "सोरजिखानाय इन्टारफेसनि थाखाय IP थंखौ थिक खालाम (जेरै- 192.168.0.254)."
-
-msgid "Specify an image to upload to the Image Service."
-msgstr "मुसुखा सिबिथायखौ आपल'ड खालामनो मुसुखा थि खालाम।"
 
 msgid "Specify member IP address"
 msgstr "सोद्रोमा IP थंखौ थिक खालाम"
 
-msgid "Specify the details for launching an instance."
-msgstr "बिदिन्थि जागायनायनि थाखाय गुवारैखौ थि खालाम।"
-
-msgid "Specify the details for the database backup."
-msgstr "डाटाबेस बेकआपनि थाखाय गुवारैखौ थि खालाम।"
-
-msgid "Specify the new volume size for the database instance."
-msgstr "डाटाबेस बिदिन्थिनि थाखाय गोदान भलिउम महरखौ थि खालाम।"
-
 msgid "Specs"
 msgstr "स्पेस"
-
-msgid "Stack Details"
-msgstr "स्टेक गुवारै"
 
 msgid "Stack Events"
 msgstr "स्टेक जाथाय"
@@ -6230,26 +4881,14 @@ msgstr "स्टेक ID"
 msgid "Stack Name"
 msgstr "स्टेक मुं"
 
-msgid "Stack Overview"
-msgstr "स्टेक अभारभिउ"
-
-msgid "Stack Parameters"
-msgstr "स्टेक पेरामिटार"
-
 msgid "Stack Resource"
 msgstr "स्टेक सम्पद"
-
-msgid "Stack Resource ID"
-msgstr "स्टेक सम्पद ID"
 
 msgid "Stack Resource Type"
 msgstr "स्टेक सम्पद रोखोम"
 
 msgid "Stack Resources"
 msgstr "स्टेक सम्पद"
-
-msgid "Stack Template"
-msgstr "स्टेक टेमप्लेट"
 
 msgid "Stack creation started."
 msgstr "स्टेक सोरजिनाया जागायबाय"
@@ -6262,9 +4901,6 @@ msgstr "स्टेक आपडेटआ जागायबाय"
 
 msgid "Stacks"
 msgstr "स्टेक"
-
-msgid "Start"
-msgstr "जागाय"
 
 msgctxt "Action log of an instance"
 msgid "Start"
@@ -6284,19 +4920,12 @@ msgstr "जागायनाय आरो जोबनाय थंखौ थ�
 msgid "Start must be earlier than end of period."
 msgstr "जागायनाया समफारि जोबनायनि आगोल जाथारनांगोन।"
 
-msgctxt "Start time"
-msgid "Started"
-msgstr "जागायबाय"
-
 #, python-format
 msgid "Starting evacuation from %(current)s to %(target)s."
 msgstr "%(target)s निफ्राय %(current)s सिम लांदां खालामनायखौ जागायगासिनो दं।"
 
 msgid "State"
 msgstr "राइजो"
-
-msgid "Statistics of all resources"
-msgstr "गासै सम्पदनि अनजिमा सानथाय"
 
 msgid "Stats"
 msgstr "अनजिमा सानथाय"
@@ -6339,25 +4968,11 @@ msgstr "साबनेट \"%s\" खौ जाफुंसारै आपड�
 msgid "Subnet Details"
 msgstr "साबनेट गुवारै"
 
-msgid "Subnet ID"
-msgstr "साबनेट ID"
-
 msgid "Subnet Name"
 msgstr "साबनेट मुं"
 
-msgid "Subnet Overview"
-msgstr "साबनेट अभारभिउ"
-
 msgid "Subnet list can not be retrieved."
 msgstr "साबनेट लिस्टखौ मोनफिननो हाया।"
-
-#, python-format
-msgid "Subnet: %(dest_subnetname)s"
-msgstr "साबनेट: %(dest_subnetname)s"
-
-#, python-format
-msgid "Subnet: %(row_source_subnetname)s"
-msgstr "साबनेट: %(row_source_subnetname)s"
 
 msgid "Subnets"
 msgstr "साबनेटफोर"
@@ -6452,9 +5067,6 @@ msgstr "भलिउम स्नेपसट थाथाइखौ जाफु
 msgid "Successfully updated volume status to \"%s\"."
 msgstr "भलिउम थाथाइखौ \"%s\" आव जाफुंसारै आपडेट खालामबाय।"
 
-msgid "Sum."
-msgstr "सारबाहागो"
-
 msgid "Supported Versions"
 msgstr "हेफाजाब होजानाय बिसान"
 
@@ -6494,17 +5106,6 @@ msgstr "TCP"
 msgid "Tags"
 msgstr "टेग"
 
-msgid ""
-"Tags are used for filtering images suitable for each plugin and each Data "
-"Processing version.\n"
-"        To add required tags, select a plugin and a Data Processing version "
-"and click &quot;Add plugin tags&quot; button."
-msgstr ""
-"मोनफ्रोम प्लागिन आरो मोनफ्रोम डाटा प्रसेसिं बिसाननि थाखाय गोरोबथाव मुसुखाखौ फिल्टार "
-"खालामनो थाखाय टेगखौ बाहायनाय जायो।\n"
-"        गोनांथि जानाय टेगखौ दाजाबदेरनो, मोनसे प्लागिन आरो मोनसे डाटा प्रसेसिं बिसानखौ "
-"सायख आरो &quot;प्लागिन टेग दाजाबदेर&quot; बुथामखौ क्लिक खालाम।"
-
 msgid "Target Host"
 msgstr "थांखि हस्ट"
 
@@ -6523,17 +5124,11 @@ msgstr "टेमप्लेट फाइल"
 msgid "Template Name"
 msgstr "टेमप्लेट मुं"
 
-msgid "Template Overview"
-msgstr "टेमप्लेट अभारभिउ"
-
 msgid "Template Source"
 msgstr "टेमप्लेट फुंखा"
 
 msgid "Template URL"
 msgstr "टेमप्लेट URL"
-
-msgid "Template not specified"
-msgstr "टेमप्लेटखौ थि खालामाखै"
 
 msgid "The \"from\" port number is invalid."
 msgstr "\"निफ्राय\" पर्ट अनजिमाया बाहायजायै।"
@@ -6547,7 +5142,6 @@ msgid ""
 msgstr ""
 "\"सिम\" पर्ट अनजिमाया \"निफ्राय\" पर्ट अनजिमा निख्रुइ गेदेरसिन एबा बेजों समान जानांगोन।"
 
-#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
@@ -6556,65 +5150,8 @@ msgstr ""
 "get_feature_permission '%(feature)s' नि थाखाय 'अपारेसन' पेरामिटारआ बाहायजायै। "
 "बेयो %(allowed)s नि मोनसे जाथारनांगोन।"
 
-msgid ""
-"The <strong>Cipher</strong> is the encryption algorithm/mode to use (e.g., "
-"aes-xts-plain64). If the field is left empty, the provider default will be "
-"used."
-msgstr ""
-"<strong>सिपार</strong> आ (जेरै-, aes-xts-plain64)खौ बाहायनो एनक्रिपसन एलग'रिडम/"
-"म'ड। फोथारखौ लांदाङै दोनोब्ला, होग्रा डिफल्टखौ बाहायगोन।"
-
-msgid ""
-"The <strong>Control Location</strong> is the notional service where "
-"encryption is performed (e.g., front-end=Nova). The default value is 'front-"
-"end.'"
-msgstr ""
-"<strong>दबथायनाय जायगा</strong> आ सानबोलावरि सिबिथाय जेराव एनक्रिपसनखौ "
-"खामानिआव फोनाङो (जेरै, front-end=Nova)। डिफल्ट बेसेनआ 'मोखां-जोबनाय'।"
-
-msgid ""
-"The <strong>Key Size</strong> is the size of the encryption key, in bits (e."
-"g., 128, 256). If the field is left empty, the provider default will be used."
-msgstr ""
-"<strong>साबि महर</strong> आ एनक्रिपसन साबिनि महर, बिट (जेरै, 128, 256) आव। "
-"फोथारखौ लांदाङै दोनोब्ला, होग्रा डिफल्टखौ बाहायगोन।"
-
-msgid ""
-"The <strong>Provider</strong> is the class providing encryption support (e."
-"g. LuksEncryptor)."
-msgstr ""
-"<strong>होग्रा</strong> आ थाखो जाय एनक्रिपसन हेफाजाबखौ होयो (जेरै- LuksEncryptor)."
-
 msgid "The Aggregate was updated."
 msgstr "एग्रिगेटखौ आपडेट खालामबाय।"
-
-msgid ""
-"The Cluster Template object may specify a list of processes in anti-affinity "
-"group.\n"
-"    That means these processes may not be launched more than once on a "
-"single host."
-msgstr ""
-"क्लास्टार टेमप्लेट बेसादआ गोरोबथि-नङै हानजायाव प्रसेसनि लिस्टखौ थिक खालामनो हागौ।\n"
-"    बेनि ओंथिया जाबाय बैफोर प्रसेसखौ मोनसेल' हस्टनि बादै गुबुनाव जागायनाय नङा जानो "
-"हागौ।"
-
-msgid ""
-"The Cluster Template object should specify Node Group Templates that will be "
-"used to build a Cluster.\n"
-"    You can add Node Groups using Node Group Templates on a &quot;Node "
-"Groups&quot; tab."
-msgstr ""
-"क्लास्टार टेमप्लेट बेसादआ नड हानजा टेमप्लेटखौ थिक खालामनांगोन जायखौ क्लास्टार बानायनो "
-"बाहायगोन।\n"
-"      नोंथाङा &quot;नड हानजा&quot; टेबआव नड हानजा टेमप्लेटनि हेफाजाबजों नड हानजाखौ "
-"दाजाबदेरनो हायो।"
-
-msgid ""
-"The Cluster object should specify OpenStack Image to boot instances for "
-"Cluster."
-msgstr ""
-"क्लास्टार बेसादआ क्लास्टारनि थाखाय बिदिन्थिखौ बुट खालामनो OpenStack मुसुखाखौ थि "
-"खालामनांगोन।"
 
 msgid "The ICMP code is invalid."
 msgstr "ICMP क'डआ बाहायजायै"
@@ -6632,13 +5169,6 @@ msgstr "ICMP रोखोमआ सिमासारिआव गैया (-1,
 msgid "The ID \"%s\" is already used by another flavor."
 msgstr "\"%s\" IDआ गुबुन मोनसे फ्लेभारजों सिगाङावनो बाहायजादों"
 
-msgid ""
-"The Image Location field MUST be a valid and direct URL to the image binary. "
-"URLs that redirect or serve error pages will result in unusable images."
-msgstr ""
-"मुसुखा जायगा फोथारआ बाहाय जाथाव आरो मुसुखा बाइनारिआव बिथोन URL जाथारनांगोन। "
-"गोरोन्थि बिलाइखौ फिन-बिथोन होनाय एबा मावनाय URL आ खामानिआव नाङै मुसुखा जागोन।"
-
 msgid "The Key Pair name that was associated with the instance"
 msgstr "बिदिन्थिजों थाफाखानाय साबि जरा मुं"
 
@@ -6650,42 +5180,8 @@ msgstr ""
 "भलिउम महरआ '%(image_name)s नि मुसुखानि थाखाय जोबोद फिसा आरो बेयो "
 "'%(smallest_size)d' GB निख्रुइ गेदेरसिन एबा समान जाथारनांगोन।"
 
-msgid ""
-"The chart below shows the resources used by this project in relation to the "
-"project's quotas."
-msgstr "गाहायनि सार्टआ बे प्रजेक्ट आरो प्रजेक्टनि क'टाजों बाहायजानाय सम्पदखौ दिन्थियो।"
-
-msgid ""
-"The color and icon of an intersection indicates whether or not traffic is "
-"permitted from the source (row) to the destination (column).\n"
-"     Clicking the <i class=\"fa fa-random\"></i> button in the intersection "
-"will install a rule to switch the traffic behavior.<br/>\n"
-"\n"
-"     <b>Note:</b> Rules only affect one direction of traffic. The opposite "
-"direction is outlined when hovering over an intersection.\n"
-" "
-msgstr ""
-"ट्राफिकखौ फुंखा (सारि) निफ्राय थांखि (खाम्फा) सिम गनायथि होनाय जायो ना जाया "
-"दानलायनाय (intersection)नि गाब आरो आइकनआ दिन्थियो।\n"
-"      दानलायनाय (intersection)आव <i class=\"fa fa-random\"></i> बुथामखौ क्लिक "
-"खालामोब्ला ट्राफिक बेब'हारआव थांनो नियमखौ इनष्टल खालामगोन।<br/>\n"
-"\n"
-"     <b>नायनो गोनां:</b>नियमआ ट्राफिकनि मोनसे दिकखौल' गोहोम खोख्लैयो। दानलायनाय "
-"(intersection) आव थांनाय समाव उल्था दिकखौ दिन्थियो।\n"
-" "
-
 msgid "The container cannot be deleted since it is not empty."
 msgstr "कन्टेनारखौ खोमोरनो हाया मानोना बेयो लांदां नङा।"
-
-msgid ""
-"The default IP address of the interface created is a gateway of the selected "
-"subnet. You can specify another IP address of the interface here. You must "
-"select a subnet to which the specified IP address belongs to from the above "
-"list."
-msgstr ""
-"सोरजिखानाय इन्टारफेसनि डिफल्ट IP थंआ सायखखानाय साबनेटनि मोनसे गेटवे। बेयाव नोंथाङा "
-"इन्टारफेसनि गुबुन मोनसे IP थंखौ थिक खालामनो हायो। नोंथाङा साबनेटखौ सायखथारनांगोन जेराव "
-"थि IP थंआ गोजौनि लिस्ट निफ्राय फैनायाव थायो।"
 
 #, python-format
 msgid ""
@@ -6701,14 +5197,6 @@ msgstr "बिदिन्थिआ लाइभ माइग्रेसनख�
 
 msgid "The instance password encrypted with your public key."
 msgstr "बिदिन्थि पासवार्डआ नोंथांनि राइजो-राजा साबिजों एनक्राइप्ट खालामबाय।"
-
-#, python-format
-msgid ""
-"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
-"not use the link below."
-msgstr ""
-"साबि जरा &quot;%(keypair_name)s&quot; आ गावनो गाव महरै डाउनल'ड खालामनांगोन। "
-"नङाब्ला गाहायनि लिंकखौ बाहाय।"
 
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
@@ -6737,20 +5225,11 @@ msgid ""
 "implemented."
 msgstr "फिजिकेल नेटवार्कनि मुं जायनि सायाव नुथाव नेटवार्कखौ मावफुंनाय जायो।"
 
-msgid ""
-"The next hop addresses can be used to override the router used by the client."
-msgstr "क्लाइन्टजों बाहायजानाय रुटारखौ नेवसिनो थाखाय उननि हप थंखौ बाहायनो हायो।"
-
 msgid "The page you were looking for doesn't exist"
 msgstr "नोंथाङा नागिरबाय थानाय बिलाइआ गैया"
 
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "देहायारि खान्थि जायजों नुथाव नेटवार्कखौ मावफुंनाय जायो।"
-
-msgid ""
-"The private key will be only used in your browser and will not be sent to "
-"the server"
-msgstr "प्राइभेट साबिखौल' नोंथांनि ब्राउजारआव बाहायगोन आरो सार्भारआव दैथाय हरनाय नङा"
 
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "नंखाय फल्डारखौ खोमोरनो हाया मानोना बेयो लांदां नङा।"
@@ -6761,7 +5240,6 @@ msgstr "आबहावा फाइलनि गोथां आयदा"
 msgid "The raw contents of the template."
 msgstr "टेमप्लेटनि थाखाय गोथां आयदा"
 
-#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -6813,9 +5291,6 @@ msgstr "भलिउम महरआ फुंखा भलिउम महर (
 msgid "There are no meters defined yet."
 msgstr "दासिमबो थि खालामनाय जेबो मिटार गैया।"
 
-msgid "There are no networks, routers, or connected instances to display."
-msgstr "दिन्थिफुंनो जेबो नेटवार्क, रुटार एबा फोनांजाबखानाय बिदिन्थि गैया।"
-
 msgid ""
 "There is not enough capacity for this flavor in the selected availability "
 "zone. Try again later or select a different availability zone."
@@ -6827,22 +5302,6 @@ msgstr ""
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr "%(prefix)s: %(error)s खौ पार्स खालामनायाव मोनसे गोरोन्थि दं"
 
-msgid "This Cluster Template will be created for:"
-msgstr "बे क्लास्टार टेमप्लेटखौ सोरजिगोन:"
-
-msgid "This Cluster will be started with:"
-msgstr "बे क्लास्टारखौ जागायगोन:"
-
-msgid "This Node Group Template will be created for:"
-msgstr "नि थाखाय बे नड हानजा टेमप्लेटखौ सोरजिगोन:"
-
-msgid ""
-"This generates a pair of keys: a key you keep private (cloud.key) and a "
-"public key (cloud.key.pub). Paste the contents of the public key file here."
-msgstr ""
-"बेयो साबिनि जराखौ दिहुनो: नोंथाङा प्राभेट (cloud.key) आरो राइजो-राजानि साबिखौ "
-"दोनो (cloud.key.pub). बेयाव राइजो-राजा साबि फाइलनि आयदाखौ फोनांजाब हो।"
-
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
@@ -6850,9 +5309,6 @@ msgstr "स्टेकनि जीउ-जारिमिननि गेजे
 
 msgid "This name is already taken."
 msgstr "बे मुंखौ सिगाङावनो लाबाय"
-
-msgid "This pane needs javascript support."
-msgstr "बे पेननो जाभास्क्रिप्ट हेफाजाब नांगौ।"
 
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
@@ -6889,19 +5345,6 @@ msgid "To date to must be greater than From date."
 msgstr "सिम-अक्ट'आ निफ्राय-अक्ट' निख्रुइ गेदेरसिन जाथारनांगोन।"
 
 msgid ""
-"To decrypt your password you will need the private key of your key pair for "
-"this instance. Select the private key file, or copy and paste the content of "
-"your private key file into the text area below, then click Decrypt Password."
-msgstr ""
-"नोंथांनि पासवार्डखौ डिक्राइप्ट खालामनो, नोंथांनो बे बिदिन्थिनि थाखाय नोंथांनि साबि "
-"जरानि प्राइभेट साबिखौ नांगोन। प्राइभेट साबि फाइलखौ सायख, एबा गाहायनि फरा ओनसोलआव "
-"नोंथांनि प्राइभेट साबि फाइलनि आयदाखौ कपि खालाम आरो फोनांजाब हो, बेनि उनाव डिक्राइप्ट "
-"पासवार्डखौ क्लिक खालाम।"
-
-msgid "To exit the fullscreen mode, click the browser's back button."
-msgstr "आबुं स्क्रिन म'डखौ ओंखार लांनो, ब्राउजारनि उनथिं बुथामखौ क्लिक खालाम।"
-
-msgid ""
 "To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
 "from all members of another security group select &quot;Security Group&quot;."
 msgstr ""
@@ -6909,20 +5352,8 @@ msgstr ""
 "रैखाथि हानजानि गासै सोद्रोमा निफ्राय हाबनायखौ गनायथि होनो &quot;रैखाथि "
 "हानजा&quot; खौ सायख।"
 
-msgid "To:"
-msgstr "सिम:"
-
 msgid "Topology"
 msgstr "ट'प'लजि"
-
-msgid "Total Disk"
-msgstr "गासै डिस्क"
-
-msgid "Total Gigabytes"
-msgstr "गासै जिगाबाइट"
-
-msgid "Total RAM"
-msgstr "गासै RAM"
 
 msgid "Total Size of LUKS Volumes and Snapshots (GB)"
 msgstr "LUKS भलिउम आरो स्नेपसट (GB) नि गासै महर"
@@ -6948,21 +5379,11 @@ msgstr "रोखोम"
 msgid "Type and version of datastore."
 msgstr "डाटास्टरनि रोखोम आरो बिसान"
 
-#, python-format
-msgid "Type: %(persistence_type)s"
-msgstr "रोखोम: %(persistence_type)s"
-
 msgid "UDP"
 msgstr "UDP"
 
 msgid "URL"
 msgstr "URL"
-
-msgid "URL Path"
-msgstr "URL लामा"
-
-msgid "USERNAME"
-msgstr "बाहायग्रामुं"
 
 msgid "UTC"
 msgstr "UTC"
@@ -8145,10 +6566,6 @@ msgstr "मोनथिमोनै बिदिन्थि"
 msgid "Unknown instance (None)"
 msgstr "मोनथिमोनै बिदिन्थि (मोनसेबो नङा)"
 
-msgid "Unnecessary tags may be removed by clicking a cross near tag's name."
-msgstr ""
-"टेगनि मुंनि खाथियाव सानजाब सिनखौ क्लिक खालामनानै गोनांथिगैयै टेगखौ बोखारगोन जानांगौ।"
-
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "उदां-नङै खालामगासिनो दं"
@@ -8228,15 +6645,6 @@ msgid "Update Volume Status"
 msgstr "भलिउम थाथाइखौ आपडेट खालाम"
 
 msgid ""
-"Update a stack with the provided values. Please note that any encrypted "
-"parameters, such as passwords, will be reset to default if you do not change "
-"them here."
-msgstr ""
-"होखानाय बेसेनजों स्टेकखौ आपडेट खालाम। नायनो गोनांदि पासवार्ड बादि जायखि जाया "
-"एनक्राइप्ट खालामखानाय पेरामिटारखौ डिफल्टआव फिन फजगोन जदि बेयाव नोंथाङा बेफोरखौ "
-"सोलायो।"
-
-msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
 "available at \"Subnet Details\" tab."
 msgstr ""
@@ -8257,14 +6665,6 @@ msgstr "बे रुटारनि थाखाय आपडेट खाव�
 
 msgid "Update requests for this subnet"
 msgstr "बे साबनेटनि थाखाय आपडेट खावलायनाय"
-
-#, python-format
-msgid "Update the \"extra spec\" value for \"%(key)s\""
-msgstr "\"%(key)s\" नि थाखाय \"बांद्राय spec\" खौ आपडेट खालाम"
-
-#, python-format
-msgid "Update the spec value for \"%(key)s\""
-msgstr "\"%(key)s\" नि थाखाय spec खौ आपडेट खालाम"
 
 msgid "Updated"
 msgstr "आपडेट खालामबाय"
@@ -8297,10 +6697,6 @@ msgstr "फाइलखौ आपल'ड खालाम"
 msgid "Upload Object"
 msgstr "बेसादखौ आपल'ड खालाम"
 
-#, python-format
-msgid "Upload Object To Container: %(container_name)s"
-msgstr "बेसादखौ कन्टेनारआव आपल'ड खालाम: %(container_name)s"
-
 msgid "Upload Objects"
 msgstr "बेसादखौ आपल'ड खालाम"
 
@@ -8309,9 +6705,6 @@ msgstr "टेमप्लेटखौ आपल'ड खालाम"
 
 msgid "Upload Volume to Image"
 msgstr "भलिउमखौ मुसुखायाव आपल'ड खालाम"
-
-msgid "Upload a new file"
-msgstr "गोदान फाइलखौआपल'ड खालाम"
 
 msgid "Upload to Image"
 msgstr "मुसुखायाव आपल'ड खालाम"
@@ -8327,9 +6720,6 @@ msgstr "बाहायथि"
 
 msgid "Usage (Hours)"
 msgstr "बाहायथि (घन्टा)"
-
-msgid "Usage Overview"
-msgstr "बाहायथिनि अभारभिउ"
 
 msgid "Usage Report"
 msgstr "बाहायथि रिपर्ट"
@@ -8349,22 +6739,8 @@ msgstr "नि थाखाय गोरोबथि-नङै हानजा�
 msgid "Use image as a source"
 msgstr "मुसुखाखौ फुंखा महरै बाहाय"
 
-msgid ""
-"Use one of the available template source options to specify the template to "
-"be used in creating this stack."
-msgstr ""
-"बे स्टेकखौ सोरजिनायाव बाहायनो गोनां टेमप्लेटखौ थिक खालामनो थाखाय मोननो हाथाव मोनसे "
-"टेमप्लेट फुंखा उफ्राखौ बाहाय"
-
 msgid "Use snapshot as a source"
 msgstr "स्नेपसटखौ फुंखा महरै बाहाय"
-
-#, python-format
-msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
-msgstr "<span> %(available)s </span> नि <span> %(used)s </span> बाहायबाय"
-
-msgid "Used in Policy"
-msgstr "पलिसिआव बाहायबाय"
 
 msgid "User"
 msgstr "बाहायग्रा"
@@ -8376,9 +6752,6 @@ msgstr "बाहायग्रा \"%s\" खौ जाफुंसारै �
 #, python-format
 msgid "User %s has no role defined for that project."
 msgstr "%s बाहायग्राहा बै प्रजेक्टनि थाखाय जेबो बिफाव थि खालामाखै।"
-
-msgid "User Credentials"
-msgstr "बाहायग्रा फोथायथाव"
 
 msgid "User Credentials Details"
 msgstr "बाहायग्रा फोथायथाव गुवारै"
@@ -8395,9 +6768,6 @@ msgstr "बाहायग्रा सेटिं"
 msgid "User has been updated successfully."
 msgstr "बाहायग्राखौ जाफुंसारै आपडेट खालामबाय।"
 
-msgid "User has to choose a keypair to have access to clusters instances."
-msgstr "क्लास्टार बिदिन्थिआव हाबनो बाहायग्राया साबि जराखौ बासिखनांगोन।"
-
 #, python-format
 msgid "User name \"%s\" is already used."
 msgstr "बाहायग्रा मुं \"%s\" खौ सिगाङावनो बाहायबाय।"
@@ -8405,20 +6775,11 @@ msgstr "बाहायग्रा मुं \"%s\" खौ सिगाङा�
 msgid "Username"
 msgstr "बाहायग्रामुं"
 
-msgid "Username (required)"
-msgstr "बाहायग्रामुं (गोनां जाबाय)"
-
 msgid "Users"
 msgstr "बाहायग्राफोर"
 
-msgid "VCPU"
-msgstr "VCPU"
-
 msgid "VCPU Hours"
 msgstr "VCPU घन्टा"
-
-msgid "VCPU Usage"
-msgstr "VCPU बाहायथि"
 
 msgid "VCPUs"
 msgstr "VCPUs"
@@ -8448,9 +6809,6 @@ msgstr "VLAN"
 msgid "VPN"
 msgstr "VPN"
 
-msgid "VPN Connections"
-msgstr "VPN फोनांजाब"
-
 msgid "VPN Service"
 msgstr "VPN सिबिथाय"
 
@@ -8479,19 +6837,8 @@ msgstr "बेसेन"
 msgid "Value (Avg)"
 msgstr "बेसेन (गड़)"
 
-msgid "Value:"
-msgstr "बेसेन:"
-
 msgid "Version"
 msgstr "बिसान"
-
-#, python-format
-msgid ""
-"Version: %(version_info)s\n"
-"      "
-msgstr ""
-"बिसान: %(version_info)s\n"
-"      "
 
 msgid "View Container"
 msgstr "कन्टेनारखौ नाय"
@@ -8505,17 +6852,11 @@ msgstr "गुवारैखौ नाय"
 msgid "View Extra Specs"
 msgstr "बांद्राय Specs खौ नाय"
 
-msgid "View Full Log"
-msgstr "आबुं लगखौ नाय"
-
 msgid "View Log"
 msgstr "लगखौ नाय"
 
 msgid "View Usage"
 msgstr "बाहायथिखौ नाय"
-
-msgid "View Usage Report"
-msgstr "बाहायथि रिपर्टखौ नाय"
 
 msgid "Virtual Private Network"
 msgstr "नुथाव प्राइभेट नेटवार्क"
@@ -8527,55 +6868,20 @@ msgstr "भलिउम"
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr "बिदिन्थि %(instance_name)s आव भलिउम %(volume_name)s"
 
-msgid "Volume (Cinder)"
-msgstr "भलिउम (सिन्डार)"
-
 msgid "Volume Backup"
 msgstr "भलिउम बेकआप"
-
-msgid "Volume Backup Details"
-msgstr "भलिउम बेकआप गुवारै"
-
-#, python-format
-msgid "Volume Backup Overview: %(backup_display_name)s"
-msgstr "भलिउम बेकआप अभारभिउ: %(backup_display_name)s"
-
-msgid "Volume Backup:"
-msgstr "भलिउम बेकआप:"
 
 msgid "Volume Backups"
 msgstr "भलिउम बेकआप"
 
-msgid ""
-"Volume Backups are stored using the Object Storage service. You must have "
-"this service activated in order to create a backup."
-msgstr ""
-"बेसाद दोनथुमग्रा सिबिथायनि हेफाजाबजों भलिउम बेकआपखौ दोनथुमनाय जायो। नोंथांनो मोनसे "
-"बेकआप सोरजिनो थाखाय मावथि खालामखानाय बे सिबिथायखौ नांथारगोन।"
-
-msgid "Volume Details"
-msgstr "भलिउम गुवारै"
-
-msgid "Volume Limits"
-msgstr "भलिउमनि सिम"
-
 msgid "Volume Name"
 msgstr "भलिउम मुं"
-
-msgid "Volume Overview"
-msgstr "भलिउम अभारभिउ"
 
 msgid "Volume Size"
 msgstr "भलिउम महर"
 
 msgid "Volume Snapshot"
 msgstr "भलिउम स्नेपसट"
-
-msgid "Volume Snapshot Details"
-msgstr "भलिउम स्नेपसट गुवारै"
-
-msgid "Volume Snapshot Overview"
-msgstr "भलिउम स्नेपसट अभारभिउ"
 
 msgid "Volume Snapshots"
 msgstr "भलिउम स्नेपसट"
@@ -8585,23 +6891,6 @@ msgstr "भलिउम फुंखा"
 
 msgid "Volume Type Encryption Details"
 msgstr "भलिउम रोखोम एनक्रिपसन गुवारै"
-
-msgid "Volume Type Encryption Overview"
-msgstr "भलिउम रोखोम एनक्रिपसन अभारभिउ"
-
-msgid "Volume Type Extra Specs"
-msgstr "भलिउम रोखोम बांद्राय Specs"
-
-msgid "Volume Type is Unencrypted."
-msgstr "भलिउम रोखोमखौ आनएनक्रिप्ट खालामबाय"
-
-#, python-format
-msgid "Volume Type: %(volume_type_name)s"
-msgstr "भलिउम रोखोम: %(volume_type_name)s"
-
-#, python-format
-msgid "Volume Type: %(volume_type_name)s "
-msgstr "भलिउम रोखोम: %(volume_type_name)s "
 
 msgid "Volume Types"
 msgstr "भलिउम रोखोम"
@@ -8653,17 +6942,8 @@ msgstr "भलिउम फुंखाखौ थिक खालामथार
 msgid "Volumes"
 msgstr "भलिउम"
 
-msgid "Volumes Attached"
-msgstr "भलिउम नांजाब होबाय"
-
-msgid "Volumes are block devices that can be attached to instances."
-msgstr "भलिउमआ ब्लक डिभाइस, जायखौ बिदिन्थिआव नांजाब होनो हायो।"
-
 msgid "Volumes per node"
 msgstr "भलिउम मोनफा नड"
-
-msgid "Volumes size"
-msgstr "भलिउम महर"
 
 msgid "Volumes size (GB)"
 msgstr "भलिउम महर (GB)"
@@ -8674,18 +6954,6 @@ msgstr "गिलिर"
 msgid "Which keypair to use for authentication."
 msgstr "थारफोरमाननि थाखाय मबे साबि जराखौ बाहायनो"
 
-msgid ""
-"Within a container you can group your objects into pseudo-folders, which "
-"behave similarly to folders in your desktop operating system, with the "
-"exception that they are virtual collections defined by a common prefix on "
-"the object's name. A slash (/) character is used as the delimiter for pseudo-"
-"folders in the Object Store."
-msgstr ""
-"मोनसे कन्टेनारनि सिङाव, नोंथाङा नोंथांनि बेसादखौ नंखाय-फल्डारआव हानजा खालामनो हायो, "
-"जाय नोंथांनि डिस्कटप अपारेटिं सिस्टेमआव थानाय फल्डारआव एखे बेब'हार खालामो, बिफोरो "
-"बेसादनि मुंआव सरासनस्रा प्रिफिक्सजों थि खालामजानाय नुथाव बुथुमनाय। मोनसे स्लेस (/) हांखोखौ "
-"बेसाद दोनथुमग्रायाव नंखाय-फल्डारनि थाखाय सिमा खालामग्रा महरै बाहायनाय जायो।"
-
 msgid "Yes"
 msgstr "नंगौ"
 
@@ -8694,48 +6962,6 @@ msgstr "नोंथाङा नोंथांनि गासै मोनन
 
 msgid "You are already using all of your available volumes."
 msgstr "नोंथाङा नोंथांनि गासै थाखानाय भलिउमखौ सिगाङावनो बाहायगासिनो दं।"
-
-msgid ""
-"You can connect a specified external network to the router. The external "
-"network is regarded as a default route of the router and the router acts as "
-"a gateway for external connectivity."
-msgstr ""
-"नोंथाङा थि बाइजोनि नेटवार्कखौ रुटारजों फोनांजाब होनो हायो। बाइजोनि नेटवार्कखौ रुटारनि "
-"डिफल्ट रुट महरै साननाय जायो आरो रुटारआ बाइजोनि फोनांजाबनायनि थाखाय गेटवे महरै खामानि "
-"मावयो।"
-
-msgid "You can connect a specified subnet to the router."
-msgstr "नोंथाङा थिक साबनेटखौ रुटारजों फोनांजाबनो हायो।"
-
-msgid ""
-"You can create a port for the network. If you specify device ID to be "
-"attached, the device specified will be attached to the port created."
-msgstr ""
-"नोंथाङा नेटवार्कनि थाखाय मोनसे पर्ट सोरजिनो हायो। नोंथाङा नांजाब होनो गोनां डिभाइस "
-"ID खौ थि खालामोब्ला थि खालामखानाय डिभाइसखौ पर्टजों नांजाब होजागोन।"
-
-msgid ""
-"You can customize your instance after it has launched using the options "
-"available here."
-msgstr ""
-"बेयाव थाखानाय उफ्रानि हेफाजाबजों जागायनायनि उनाव नोंथाङा नोंथांनि बिदिन्थिखौ गावनि "
-"गोसोबादि खालामनो हायो।"
-
-msgid ""
-"You can perform an incremental backup by specifying a parent backup. "
-"<strong>However,</strong> not all databases support incremental backups in "
-"which case this operation will result in an error."
-msgstr ""
-"नोंथाङा पेरेन्ट बेकआपखौ थिक खालामनानै मोनसे बांनाय बेकआपखौ मावफुंनो होयो।<strong>अदेबानि,"
-"</strong> गासै डाटाबेसआ बांनाय बेकआपखौ हेफाजाब होआ जाय बुब्लिआव बे अपारेसनाआगोरोन्थि "
-"जागोन।"
-
-msgid ""
-"You can specify the desired rule template or use custom rules, the options "
-"are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
-msgstr ""
-"नोंथाङा लुबैनाय नियम टेमप्लेटखौ थिक खालामनो एबा कास्टम नियमखौ बाहायनो हायो, उफ्राया "
-"कास्टम TCP नियम, कास्टम UDP नियम, एबा कास्टम ICMP नियम।"
 
 msgid "You cannot disable the user you are currently logged in as."
 msgstr "नोंथाङा दासान्दि लग-इन खालामनाय बाहायग्राखौ लोरबां खालामनो हाया।"
@@ -8758,89 +6984,8 @@ msgstr ""
 "हाया। अननानै खुंथाय सुबिधाजों गुबुन मोनसे प्रजेक्टआव थां एबा CLI नि गेजेरजों खुंथाय बिफावखौ "
 "मेनुयेलि बोखार।"
 
-msgid "You may also add any custom tag."
-msgstr "नोंथाङा जायखि जाया कास्टम टेगखौबो दाजाबदेरनो हागौ।"
-
-msgid "You may also enter an optional description for your Data Source."
-msgstr "नोंथाङा नोंथांनि डाटा फुंखानि थाखाय उफ्रायारि बेखेवथिखौ हाबहोनांगोन जानो हागौ।"
-
-msgid "You may also enter an optional description for your job binary."
-msgstr ""
-"नोंथाङा नोंथांनि खामानि बाइनारिनि थाखाय उफ्रायारि बेखेवथिखौ हाबहोनो लुबैनो हागौ।"
-
 msgid "You may have mistyped the address or the page may have moved."
 msgstr "नोंथाङा थांनाय थं एबा बिलाइखौ गोरोन्थियै टाइप खालामबाय जानांगौ।"
-
-msgid "You may need to enter the username and password for your Data Source."
-msgstr ""
-"नोंथाङा नोंथांनि डाटा फुंखानि थाखाय बाहायग्रामुं आरो पासवार्डखौ हाबहोनांगोन जानो हागौ।"
-
-msgid "You may optionally set a password on the rebuilt instance."
-msgstr "नोंथाङा मोनसे पासवार्डखौ फिन बानायनाय बिदिन्थियाव गावनि गोसोजों फजनो हागौ।"
-
-msgid "You may set <b>cluster</b> scoped configurations on corresponding tabs."
-msgstr "नोंथाङा <b>रोखोमसे टेबआव</b> बाइजोमहरखौ खाबु होनाय क्लास्टारखौ फजनो हागौ।"
-
-msgid "You may update IKE Policy details here."
-msgstr "बेयाव नोंथाङा IKE पलिसि गुवारैखौ आपडेट खालामनो लुबैनो हागौ।"
-
-msgid "You may update IPSec Policy details here."
-msgstr "बेयाव नोंथाङा IPSec पलिसि गुवारैखौ आपडेट खालामनो लुबैनो हागौ।"
-
-msgid "You may update IPSec Site Connection details here."
-msgstr "बेयाव नोंथाङा IPSec साइट फोनांजाबखौ आपडेट खालामनो लुबैनो हागौ।"
-
-msgid ""
-"You may update VIP attributes here: edit name, description, pool, session "
-"persistence, connection limit  or admin state."
-msgstr ""
-"बेयाव नोंथाङा VIP एट्‌ट्रिबिउटखौ आपडेट खालामनो हागौ: मुं, बेखेवथि, पुल, जथुम्मा दिदोम, "
-"फोनांजाब सिमा एबा एडमिन राइजोखौ सुजु।"
-
-msgid "You may update VPN Service details here."
-msgstr "बेयाव नोंथाङा VPN सिबिथाय गुवारैखौ आपडेट खालामनो लुबैनो हागौ।"
-
-msgid "You may update firewall details here."
-msgstr "बेयाव नोंथाङा फायारवाल गुवारैखौ आपडेट खालामनो लुबैनो हागौ।"
-
-msgid ""
-"You may update health monitor attributes here: edit delay, timeout, max "
-"retries  or admin state."
-msgstr ""
-"बेयाव नोंथाङा :सावस्रि मनिटर एट्‌ट्रिबिउटखौ आपडेट खालामनो हागौ: गोबाव, समजोबनाय, "
-"बांसिन फिन-नाजानाय एबा एडमिन राइजोखौ सुजु।"
-
-msgid ""
-"You may update member attributes here: edit pool, weight or admin state."
-msgstr ""
-"बेयाव नोंथाङा सोद्रोमा एट्‌ट्रिबिउटखौ आपडेट खालामनो हागौ: पुल, गिलिर एबा एडमिन "
-"राइजोखौ सुजु।"
-
-msgid ""
-"You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
-"instead to insert or remove a rule"
-msgstr ""
-"बेयाव नोंथाङा पलिसि गुवारैखौ आपडेट खालामनो हागौ। नियमखौ सोसननाय एबा बोखारनायनि "
-"सोलायै 'नियमखौ सोसन' एबा 'नियमखौ बोखार' लिंकखौ बाहाय।"
-
-msgid ""
-"You may update pool attributes here: edit name, description, load balancing "
-"method or admin state."
-msgstr ""
-"बेयाव नोंथाङा पुल एट्‌ट्रिबिउटखौ आपडेट खालामनो हागौ: मुं, बेखेवथि, ल'ड बेलेन्सिं खान्थि एबा "
-"एडमिन राइजोखौ सुजु।"
-
-msgid "You may update rule details here."
-msgstr "बेयाव नोंथाङा नियम गुवारैखौ आपडेट खालामनो लुबैनो हागौ।"
-
-msgid "You may update the editable properties of your network here."
-msgstr "बेयाव नोंथाङा नोंथांनि नेटवार्कनि सुजुजाथाव आखुथायखौ आपडेट खालामनो लुबैनो हागौ।"
-
-msgid "You may update the editable properties of your port here."
-msgstr "बेयाव नोंथाङा नोंथांनि पर्टनि सुजुजाथाव आखुथायखौ आपडेट खालामनो लुबैनो हागौ।"
-
-msgid "You may update the editable properties of your router here."
-msgstr "बेयाव नोंथाङा नोंथांनि रुटारनि सुजुजाथाव आखुथायखौ आपडेट खालामनो लुबैनो हागौ।"
 
 msgid "You must select a datastore type and version."
 msgstr "नोंथाङा डाटास्टर रोखोम आरो बिसानखौ सायखथारनांगोन।"
@@ -8865,18 +7010,6 @@ msgstr "मोनसे मोननो फुंखानि गेजेरज
 
 msgid "You must specify at least one database if you create a user."
 msgstr "नोंथाङा बाहायग्रा सोरजिनोब्ला खमैबो मोनसे डाटाबेस थि खालामथारनांगोन।"
-
-msgid ""
-"You must specify the source of the traffic to be allowed via this rule. You "
-"may do so either in the form of an IP address block (CIDR) or via a source "
-"group (Security Group). Selecting a security group as the source will allow "
-"any other instance in that security group access to any other instance via "
-"this rule."
-msgstr ""
-"नोंथाङा बे नियमनि गेजेरजों गनायथि होनोगोनां ट्रेफिकनि फुंखाखौ थिक खालामथारनांगोन। "
-"नोंथाङा IP थं ब्लक (CIDR) नि फर्मआव एबा फुंखा रैखाथि (रैखाथि हानजा)नि गेजेरजों बेबाइदि "
-"खालामनो हागौ। रैखाथि हानजाखौ फुंखा महरै सायखयोब्ला जायखि जाया गुबुन बिदिन्थिखौ बे "
-"फाइलनि गेजेरजों बै रैखाथि हानजायाव हाबहोगोन।"
 
 #, python-format
 msgid "Your image %s has been queued for creation."
@@ -8913,9 +7046,6 @@ msgstr "मोननैबो"
 msgid "clear"
 msgstr "खोमोर"
 
-msgid "console is currently unavailable. Please try again later."
-msgstr "कनस'लआ दासान्दि मोननो हाथावै। अननानै उनाव फिन नाजा।"
-
 msgid "disabled"
 msgstr "लोरबां खालामबाय"
 
@@ -8945,9 +7075,6 @@ msgstr "हम"
 
 msgid "instance"
 msgstr "बिदिन्थि"
-
-msgid "no processes"
-msgstr "जेबो प्रसेस गैया"
 
 msgid "pseudo-folder"
 msgstr "नंखाय-फल्डार"
