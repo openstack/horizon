@@ -1,6 +1,6 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Translations template for PROJECT.
+# Copyright (C) 2015 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
 #
 # Translators:
 # Ainur Shakirov <ainur.shakirov.tt@gmail.com>, 2015
@@ -10,8 +10,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-16 21:47-0500\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2015-06-23 01:20+0000\n"
 "PO-Revision-Date: 2015-06-16 19:14+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/"
@@ -19,28 +19,29 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.3\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#, c-format
+#, python-format
 msgid "%s GB"
 msgstr "%s ГБ"
 
-#, c-format
+#, python-format
 msgid "%s KB"
 msgstr "%s кБ"
 
-#, c-format
+#, python-format
 msgid "%s MB"
 msgstr "%s МБ"
 
-#, c-format
+#, python-format
 msgid "%s TB"
 msgstr "%s ТБ"
 
-#, c-format
+#, python-format
 msgid "%s bytes"
 msgstr "%s байт"
 
@@ -89,7 +90,7 @@ msgstr "Закрыт"
 msgid "Closing"
 msgstr "Закрытие"
 
-#, c-format
+#, python-format
 msgid "Confirm %s"
 msgstr "Подтвердите %s"
 
@@ -126,12 +127,12 @@ msgstr "Удалить маршрутизатор"
 msgid "Detail Information"
 msgstr "Подробная информация"
 
-#, c-format
+#, python-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
 msgstr[0] "Отображено %s значение"
 msgstr[1] "Отображено %s значений"
-msgstr[2] ""
+msgstr[2] "Отображено %s значений"
 msgstr[3] "Отображено %s значений"
 
 msgid "Duplicate keys are not allowed"
@@ -161,6 +162,7 @@ msgstr "Закончить"
 msgid "Flavor"
 msgstr "Тип инстанса"
 
+#, python-format
 msgid "Found %(found)s of %(total)s"
 msgstr "Найдено %(found)s из %(total)s"
 
@@ -269,7 +271,7 @@ msgstr "Выключение"
 msgid "Status"
 msgstr "Статус"
 
-#, c-format
+#, python-format
 msgid "Status: %s"
 msgstr "Статус: %s"
 
@@ -330,6 +332,6 @@ msgstr ""
 "метаданных Glance. Используйте опцию \"Другой\" для добавления выбранных "
 "вами ключей."
 
-#, c-format
+#, python-format
 msgid "You have selected %s. "
 msgstr "Выбрано %s."

@@ -1,37 +1,38 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Translations template for PROJECT.
+# Copyright (C) 2015 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
 #
 # Translators:
 # George Machitidze <giomac@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 19:48-0500\n"
-"PO-Revision-Date: 2015-06-02 01:03+0000\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2015-06-23 01:20+0000\n"
+"PO-Revision-Date: 2015-06-16 19:14+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Georgian (Georgia) (http://www.transifex.com/projects/p/"
 "horizon/language/ka_GE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.3\n"
 "Language: ka_GE\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#, c-format
+#, python-format
 msgid "%s GB"
 msgstr "%s გბ"
 
-#, c-format
+#, python-format
 msgid "%s KB"
 msgstr "%s კბ"
 
-#, c-format
+#, python-format
 msgid "%s MB"
 msgstr "%s მბ"
 
-#, c-format
+#, python-format
 msgid "%s TB"
 msgstr "%s ტბ"
 
@@ -53,7 +54,7 @@ msgstr "უკან"
 msgid "Cancel"
 msgstr "გაუქმება"
 
-#, c-format
+#, python-format
 msgid "Confirm %s"
 msgstr "%s-ის დადასტურება"
 
@@ -69,7 +70,7 @@ msgstr "საშიშროება:"
 msgid "Delete"
 msgstr "წაშლა"
 
-#, c-format
+#, python-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
 msgstr[0] "%s ელემენტის ჩვენება"
@@ -146,6 +147,6 @@ msgstr "გაფრთხილება:"
 msgid "Working"
 msgstr "ვმუშაობ"
 
-#, c-format
+#, python-format
 msgid "You have selected %s. "
 msgstr "თქვენ აირჩიეთ %s. "

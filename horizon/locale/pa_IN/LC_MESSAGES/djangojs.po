@@ -1,14 +1,14 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Translations template for PROJECT.
+# Copyright (C) 2015 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
 #
 # Translators:
 # Amandeep Singh Saini <jimidar@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-16 21:47-0500\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2015-06-23 01:20+0000\n"
 "PO-Revision-Date: 2015-06-16 19:14+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/projects/"
@@ -16,26 +16,27 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.3\n"
 "Language: pa_IN\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#, c-format
+#, python-format
 msgid "%s GB"
 msgstr "%s GB"
 
-#, c-format
+#, python-format
 msgid "%s KB"
 msgstr "%s KB"
 
-#, c-format
+#, python-format
 msgid "%s MB"
 msgstr "%s MB"
 
-#, c-format
+#, python-format
 msgid "%s TB"
 msgstr "%s TB"
 
-#, c-format
+#, python-format
 msgid "%s bytes"
 msgstr "%s ਬਾਈਟਾਂ"
 
@@ -78,7 +79,7 @@ msgstr "ਬੰਦ ਹੋਇਆ"
 msgid "Closing"
 msgstr "ਬੰਦ ਕਰ ਰਿਹਾ"
 
-#, c-format
+#, python-format
 msgid "Confirm %s"
 msgstr "%s ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ"
 
@@ -139,6 +140,7 @@ msgstr "ਛਾਣਨੀ (ਫਿਲਟਰ)"
 msgid "Finish"
 msgstr "ਮੁਕੰਮਲ"
 
+#, python-format
 msgid "Found %(found)s of %(total)s"
 msgstr "%(found)s ਲੱਭੇ %(total)s ਵਿੱਚੋਂ"
 
@@ -241,7 +243,7 @@ msgstr "ਇੱਕ ਚੁਣੋ"
 msgid "Status"
 msgstr "ਹਾਲਾਤ"
 
-#, c-format
+#, python-format
 msgid "Status: %s"
 msgstr "ਹਾਲਾਤ: %s"
 
@@ -299,6 +301,6 @@ msgstr ""
 "ਪੱਟੀਆਂ ਵਿੱਚ ਗਲਾਂਸ ਮੈਟਾਡਾਟਾ ਕੈਟਾਲੌਗ ਤੋਂ ਮੈਟਾਡਾਟਾ ਪਰਿਭਾਸ਼ਾਵਾਂ ਦਿੱਤੀਆਂ ਹੋਈਆਂ ਹਨ। ਆਪਣੀ ਪਸੰਦ ਦੀ "
 "ਚਾਬੀ ਦੇ ਨਾਲ ਮੈਟਾਡਾਟਾ ਜੋੜਨ ਲਈ \"ਹੋਰ\" ਚੋਣ ਨੂੰ ਵਰਤੋ।"
 
-#, c-format
+#, python-format
 msgid "You have selected %s. "
 msgstr "ਤੁਸੀਂ %s ਦੀ ਚੋਣ ਕੀਤੀ ਹੈ।"

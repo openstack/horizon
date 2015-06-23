@@ -1,6 +1,6 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Translations template for PROJECT.
+# Copyright (C) 2015 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
 #
 # Translators:
 # Mücahit Büyükyılmaz <mucahit@konya.edu.tr>, 2015
@@ -8,35 +8,36 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-17 19:41-0500\n"
-"PO-Revision-Date: 2015-06-22 02:34+0000\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2015-06-23 01:20+0000\n"
+"PO-Revision-Date: 2015-06-22 14:40+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/horizon/"
 "language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.3\n"
 "Language: tr_TR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#, c-format
+#, python-format
 msgid "%s GB"
 msgstr "%s GB"
 
-#, c-format
+#, python-format
 msgid "%s KB"
 msgstr "%s KB"
 
-#, c-format
+#, python-format
 msgid "%s MB"
 msgstr "%s MB"
 
-#, c-format
+#, python-format
 msgid "%s TB"
 msgstr "%s TB"
 
-#, c-format
+#, python-format
 msgid "%s bytes"
 msgstr "%s bytes"
 
@@ -67,6 +68,9 @@ msgstr "Geri"
 msgid "Cancel"
 msgstr "İptal"
 
+msgid "Click here to expand the row and view the errors."
+msgstr "Satırı genişletmek ve hataları görüntülemek için burayı tıklayın."
+
 msgid "Click to see more details"
 msgstr "Daha fazla detaylar için tıklayın"
 
@@ -79,7 +83,7 @@ msgstr "Kapandı"
 msgid "Closing"
 msgstr "Kapatılıyor"
 
-#, c-format
+#, python-format
 msgid "Confirm %s"
 msgstr "%s Onayla"
 
@@ -91,6 +95,9 @@ msgstr "Şifre Çözülemedi"
 
 msgid "Could not read the file"
 msgstr "Dosya okunamadı"
+
+msgid "Custom"
+msgstr "Özel"
 
 msgid "Danger: "
 msgstr "Tehlike:"
@@ -110,7 +117,7 @@ msgstr "Yönlendiriciyi Sil"
 msgid "Detail Information"
 msgstr "Detaylı Bilgi"
 
-#, c-format
+#, python-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
 msgstr[0] "%s adet gösteriliyor"
@@ -238,7 +245,7 @@ msgstr "Birini seç"
 msgid "Status"
 msgstr "Statü"
 
-#, c-format
+#, python-format
 msgid "Status: %s"
 msgstr "Durum: %s"
 
@@ -262,6 +269,9 @@ msgstr "Formu gönderirken bir hata oluştu. Lütfen tekrar deneyin."
 msgid "View Details"
 msgstr "Ayrıntıları Göster"
 
+msgid "View Instance Details"
+msgstr "Örnek detayları görüntüleme"
+
 msgid "View Router Details"
 msgstr "Router Ayrıntıları"
 
@@ -284,6 +294,6 @@ msgstr ""
 "Sol sütunda Glance Metadata kataloğu'ndaki metaveri tanımları mevcuttur. "
 "Seçtiğiniz metaveriyi eklemek için \"Diğer\" seçeneğini kullanınız."
 
-#, c-format
+#, python-format
 msgid "You have selected %s. "
 msgstr "Seçili %s var."
