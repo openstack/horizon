@@ -2,15 +2,15 @@
 (function () {
   'use strict';
 
-  angular.module('horizon.dashboard-app', [
-    'horizon.framework',
+  angular.module('horizon.app', [
     'horizon.auth',
     'horizon.openstack-service-api',
+    'horizon.framework',
+    'hz.dashboard',
     'ngCookies'].concat(angularModuleExtension))
 
-    .constant('horizon.dashboard-app.conf', {
+    .constant('horizon.app.conf', {
       // Placeholders; updated by Django.
-      debug: null,  //
       static_url: null,
       ajax: {
         queue_limit: null
@@ -19,7 +19,7 @@
 
     .run([
       'horizon.framework.conf.spinner_options',
-      'horizon.dashboard-app.conf',
+      'horizon.app.conf',
       'horizon.framework.util.tech-debt.helper-functions',
       '$cookieStore',
       '$http',

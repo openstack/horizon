@@ -1,4 +1,4 @@
-/* global STATIC_URL */
+/* global STATIC_URL, console */
 /* Namespace for core functionality related to DataTables. */
 horizon.datatables = {
   update: function () {
@@ -56,7 +56,7 @@ horizon.datatables = {
                 horizon.datatables.update_actions();
                 break;
               default:
-                horizon.utils.log(gettext("An error occurred while updating."));
+                console.log(gettext("An error occurred while updating."));
                 $row.removeClass("ajax-update");
                 $row.find("i.ajax-updating").remove();
                 break;
@@ -127,7 +127,7 @@ horizon.datatables = {
       horizon.ajax.queue({
         url: $action.attr('data-update-url'),
         error: function () {
-          horizon.utils.log(gettext("An error occurred while updating."));
+          console.log(gettext("An error occurred while updating."));
         },
         success: function (data) {
           var $new_action = $(data);
