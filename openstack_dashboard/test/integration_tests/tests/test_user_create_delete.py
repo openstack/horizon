@@ -12,8 +12,10 @@
 import uuid
 
 from openstack_dashboard.test.integration_tests import helpers
+from openstack_dashboard.test.integration_tests.tests import decorators
 
 
+@decorators.skip_because(bugs=["1467950"])
 class TestUser(helpers.AdminTestCase):
 
     USER_NAME = "user_" + str(uuid.uuid4())

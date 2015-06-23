@@ -14,8 +14,10 @@
 #    under the License.
 
 from openstack_dashboard.test.integration_tests import helpers
+from openstack_dashboard.test.integration_tests.tests import decorators
 
 
+@decorators.skip_because(bugs=["1467950"])
 class TestFloatingip(helpers.TestCase):
     """Checks that the user is able to allocate/release floatingip."""
 
