@@ -360,9 +360,6 @@ class FirewallsTable(tables.DataTable):
     status = tables.Column("status",
                            verbose_name=_("Status"),
                            display_choices=STATUS_DISPLAY_CHOICES)
-    shared = tables.Column("shared",
-                           verbose_name=_("Shared"),
-                           filters=(filters.yesno, filters.capfirst))
     admin_state = tables.Column("admin_state",
                                 verbose_name=_("Admin State"),
                                 display_choices=ADMIN_STATE_DISPLAY_CHOICES)
