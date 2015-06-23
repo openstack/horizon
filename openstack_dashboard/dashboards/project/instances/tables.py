@@ -557,6 +557,10 @@ class AssociateIP(policy.PolicyTargetMixin, tables.LinkAction):
             return False
         if instance.status == "ERROR":
             return False
+        for addresses in instance.addresses.values():
+            for address in addresses:
+                if address.get('OS-EXT-IPS:type') == "floating":
+                    return False
         return not is_deleting(instance)
 
     def get_link_url(self, datum):
