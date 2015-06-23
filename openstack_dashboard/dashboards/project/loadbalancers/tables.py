@@ -304,6 +304,12 @@ STATUS_DISPLAY_CHOICES = (
 )
 
 
+ADMIN_STATE_DISPLAY_CHOICES = (
+    ("UP", pgettext_lazy("Admin state of a Load balancer", u"UP")),
+    ("DOWN", pgettext_lazy("Admin state of a Load balancer", u"DOWN")),
+)
+
+
 def get_vip_name(pool):
     if hasattr(pool, "vip") and pool.vip:
         template_name = 'project/loadbalancers/_pool_table_vip_cell.html'
@@ -340,6 +346,9 @@ class PoolsTable(tables.DataTable):
                            status_choices=STATUS_CHOICES,
                            display_choices=STATUS_DISPLAY_CHOICES)
     vip_name = tables.Column(get_vip_name, verbose_name=_("VIP"))
+    admin_state = tables.Column("admin_state",
+                                verbose_name=_("Admin State"),
+                                display_choices=ADMIN_STATE_DISPLAY_CHOICES)
 
     class Meta(object):
         name = "poolstable"
@@ -391,6 +400,9 @@ class MembersTable(tables.DataTable):
                            status=True,
                            status_choices=STATUS_CHOICES,
                            display_choices=STATUS_DISPLAY_CHOICES)
+    admin_state = tables.Column("admin_state",
+                                verbose_name=_("Admin State"),
+                                display_choices=ADMIN_STATE_DISPLAY_CHOICES)
 
     class Meta(object):
         name = "memberstable"
@@ -419,6 +431,9 @@ class MonitorsTable(tables.DataTable):
     timeout = tables.Column("timeout", verbose_name=_("Timeout"))
     max_retries = tables.Column("max_retries", verbose_name=_("Max Retries"))
     details = tables.Column(get_monitor_details, verbose_name=_("Details"))
+    admin_state = tables.Column("admin_state",
+                                verbose_name=_("Admin State"),
+                                display_choices=ADMIN_STATE_DISPLAY_CHOICES)
 
     class Meta(object):
         name = "monitorstable"
