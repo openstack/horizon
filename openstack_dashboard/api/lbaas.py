@@ -141,7 +141,7 @@ def pool_create(request, **kwargs):
     return Pool(pool)
 
 
-def _get_vip(request, pool, vip_dict, expand_name_only=False):
+def _get_vip(request, pool, vip_dict):
     if pool['vip_id'] is not None:
         try:
             if vip_dict:
@@ -152,8 +152,6 @@ def _get_vip(request, pool, vip_dict, expand_name_only=False):
             messages.warning(request, _("Unable to get VIP for pool "
                                         "%(pool)s.") % {"pool": pool["id"]})
             vip = Vip({'id': pool['vip_id'], 'name': ''})
-        if expand_name_only:
-            vip = vip.name_or_id
         return vip
     else:
         return None
@@ -175,8 +173,7 @@ def _pool_list(request, expand_subnet=False, expand_vip=False, **kwargs):
         vips = vip_list(request)
         vip_dict = SortedDict((v.id, v) for v in vips)
         for p in pools:
-            p['vip_name'] = _get_vip(request, p, vip_dict,
-                                     expand_name_only=True)
+            p['vip'] = _get_vip(request, p, vip_dict)
     return [Pool(p) for p in pools]
 
 
@@ -202,8 +199,7 @@ def _pool_get(request, pool_id, expand_resource=False):
         except Exception:
             messages.warning(request, _("Unable to get subnet for pool "
                                         "%(pool)s.") % {"pool": pool_id})
-        pool['vip'] = _get_vip(request, pool, vip_dict=None,
-                               expand_name_only=False)
+        pool['vip'] = _get_vip(request, pool, vip_dict=None)
         try:
             pool['members'] = _member_list(request, expand_pool=False,
                                            pool_id=pool_id)

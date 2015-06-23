@@ -1,0 +1,9 @@
+ {% load i18n %}
+ {% url 'horizon:project:loadbalancers:vipdetails' vip.id as vip_url %}
+ <a href="{{ vip_url }}">{{ vip.name }}</a>
+ <br/>
+ {% trans "Address:" %} {{ vip.address }}
+ {% if vip.fip %}
+ <br/>
+ {% trans "Floating IP:" %} {{ vip.fip.floating_ip_address }}
+ {% endif %}

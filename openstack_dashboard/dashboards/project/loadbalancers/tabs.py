@@ -30,12 +30,22 @@ class PoolsTab(tabs.TableTab):
     template_name = "horizon/common/_detail_table.html"
 
     def get_poolstable_data(self):
+        pools = []
         try:
+            request = self.tab_group.request
             tenant_id = self.request.user.tenant_id
-            pools = api.lbaas.pool_list(self.tab_group.request,
+            pools = api.lbaas.pool_list(request,
                                         tenant_id=tenant_id)
+            fips = None
+            for pool in pools:
+                if hasattr(pool, "vip") and pool.vip:
+                    if not fips:
+                        fips = api.network.tenant_floating_ip_list(request)
+                    vip_fip = [fip for fip in fips
+                               if fip.port_id == pool.vip.port_id]
+                    if vip_fip:
+                        pool.vip.fip = vip_fip[0]
         except Exception:
-            pools = []
             exceptions.handle(self.tab_group.request,
                               _('Unable to retrieve pools list.'))
         return pools
@@ -100,10 +110,15 @@ class VipDetailsTab(tabs.Tab):
 
     def get_context_data(self, request):
         vid = self.tab_group.kwargs['vip_id']
+        vip = []
         try:
             vip = api.lbaas.vip_get(request, vid)
+            fips = api.network.tenant_floating_ip_list(self.tab_group.request)
+            vip_fip = [fip for fip in fips
+                       if fip.port_id == vip.port.id]
+            if vip_fip:
+                vip.fip = vip_fip[0]
         except Exception:
-            vip = []
             exceptions.handle(self.tab_group.request,
                               _('Unable to retrieve VIP details.'))
         return {'vip': vip}
