@@ -120,6 +120,7 @@ class UsersViewTests(test.BaseAdminViewTests):
                     'password': user.password,
                     'project': self.tenant.id,
                     'role_id': self.roles.first().id,
+                    'enabled': True,
                     'confirm_password': user.password}
         res = self.client.post(USER_CREATE_URL, formData)
 
@@ -170,6 +171,7 @@ class UsersViewTests(test.BaseAdminViewTests):
                     'name': user.name,
                     'description': user.description,
                     'email': "",
+                    'enabled': True,
                     'password': user.password,
                     'project': self.tenant.id,
                     'role_id': self.roles.first().id,
