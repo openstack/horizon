@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-06-23 01:20+0000\n"
-"PO-Revision-Date: 2015-06-23 04:55+0000\n"
+"POT-Creation-Date: 2015-06-24 04:35+0000\n"
+"PO-Revision-Date: 2015-06-24 04:35+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/"
 "de/)\n"
@@ -1717,6 +1717,10 @@ msgid "DOWN"
 msgstr "RUNTER"
 
 msgctxt "Admin state of a Firewall"
+msgid "DOWN"
+msgstr "RUNTER"
+
+msgctxt "Admin state of a Load balancer"
 msgid "DOWN"
 msgstr "RUNTER"
 
@@ -7455,6 +7459,10 @@ msgid "UP"
 msgstr "HOCH"
 
 msgctxt "Admin state of a Firewall"
+msgid "UP"
+msgstr "HOCH"
+
+msgctxt "Admin state of a Load balancer"
 msgid "UP"
 msgstr "HOCH"
 

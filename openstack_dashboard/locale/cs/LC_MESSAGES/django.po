@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-06-23 01:20+0000\n"
-"PO-Revision-Date: 2015-06-23 01:20+0000\n"
+"POT-Creation-Date: 2015-06-24 04:35+0000\n"
+"PO-Revision-Date: 2015-06-24 04:35+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/"
 "cs/)\n"
@@ -107,6 +107,9 @@ msgstr "-"
 
 msgid "-- not selected --"
 msgstr "-- nezvoleno --"
+
+msgid "1-4093 for VLAN; 5000 and above for Overlay"
+msgstr "1-4093 pro VLAN; 5000 a výše pro Overlay"
 
 msgid "3des"
 msgstr "3des"
@@ -311,6 +314,13 @@ msgstr "Přidat VIP"
 
 msgid "Add VPN Service"
 msgstr "Přidat službu VPN"
+
+msgid ""
+"Add and remove security groups to this project from the list of available "
+"security groups."
+msgstr ""
+"Přidejte nebo odeberte bezpečnostní skupiny v tomto projektu ze seznamu "
+"dostupných bezpečnostních skupin."
 
 msgid ""
 "Add hosts to this aggregate or remove hosts from it. Hosts can be in "
@@ -560,6 +570,14 @@ msgstr "Skupina automatické bezpečnosti"
 msgid "Automatic"
 msgstr "Automaticky"
 
+msgid ""
+"Automatic: The entire disk is a single partition and automatically resizes. "
+"Manual: Results in faster build times but requires manual partitioning."
+msgstr ""
+"Automatické: Celý disk je jeden oddíl automaticky měnící svoji velikost. "
+"Ručně: Má za následek rychlejší dobu sestavení ale vyžaduje ruční nastavení "
+"oddílů."
+
 msgid "Availability Zone"
 msgstr "Zóna dostupnosti"
 
@@ -714,6 +732,9 @@ msgstr "Využitého času procesoru"
 msgid "Can not specify both image and external image location."
 msgstr "Nelze zadat umístění jak externího obrazu a obrazu najednou."
 
+msgid "Centralized"
+msgstr "Centralizované"
+
 msgid "Change"
 msgstr "Změnit"
 
@@ -835,6 +856,9 @@ msgstr "Hostitel Compute"
 msgid "Compute Services"
 msgstr "Služby Compute"
 
+msgid "Configuration Drive"
+msgstr "Konfigurační jednotka"
+
 msgid "Configure"
 msgstr "Nastavit"
 
@@ -843,6 +867,16 @@ msgstr "Nastavit cluster"
 
 msgid "Configure Cluster Template"
 msgstr "Nastavit šablonu clusteru"
+
+msgid "Configure Node Group Template"
+msgstr "Nastavit šablonu skupiny uzlu"
+
+msgid ""
+"Configure OpenStack to write metadata to a special configuration drive that "
+"attaches to the instance when it boots."
+msgstr ""
+"Nastaví OpenStack, aby zapsal popisná data do zvláštní konfigurační "
+"jednotky, která bude připojena k instanci při jejím spuštění."
 
 msgid "Configure Template"
 msgstr "Nastavit šablonu"
@@ -1076,6 +1110,17 @@ msgstr "Vytvořit šablonu"
 
 msgid "Create User"
 msgstr "Vytvořit uživatele"
+
+msgid ""
+"Create VPN Service for current project.\n"
+"\n"
+"Specify a name, description, router, and subnet for the VPN Service. Admin "
+"State is Up (checked) by default."
+msgstr ""
+"Vytvořte službu VPN pro současný projekt.\n"
+"\n"
+"Zvolte název, popis, směrovač a podsíť pro službu VPN. Stav správce je "
+"standardně Zapnut (zaškrtnut)."
 
 msgid "Create Volume"
 msgstr "Vytvořit svazek"
@@ -1566,6 +1611,9 @@ msgstr "Směr"
 msgid "Disable Gateway"
 msgstr "Zakázat bránu"
 
+msgid "Disable HA mode"
+msgstr "Zakázat režim HA"
+
 msgid "Disable Service"
 msgstr "Zakázat službu"
 
@@ -1846,6 +1894,9 @@ msgstr "E-mail"
 msgid "Enable DHCP"
 msgstr "Povolit DHCP"
 
+msgid "Enable HA mode"
+msgstr "Povolit režim HA"
+
 msgid "Enable rollback on create/update failure."
 msgstr "Povolit zpětné vrácení při chybě ve vytváření/aktualizaci."
 
@@ -2065,6 +2116,14 @@ msgstr "Vnější brána"
 
 msgid "External Network"
 msgstr "Vnější síť"
+
+#, python-format
+msgid ""
+"External network \"%(ext_net_id)s\" expected but not found for router "
+"\"%(router_id)s\"."
+msgstr ""
+"Pro směrovač \"%(router_id)s\" nemohla být nalezena očekávaná vnější síť "
+"\"%(ext_net_id)s\"."
 
 msgid "Extra Specs"
 msgstr "Dodatečné specifikace"
@@ -2324,6 +2383,10 @@ msgid "Failed to update port %s"
 msgstr "Aktualizace portu %s selhala"
 
 #, python-format
+msgid "Failed to update router %s"
+msgstr "Aktualizace směrovače %s selhala"
+
+#, python-format
 msgid "Failed to update rule %(name)s: %(reason)s"
 msgstr "Nelze aktualizovat pravidlo %(name)s: %(reason)s"
 
@@ -2454,6 +2517,10 @@ msgstr "Platné ID tunelu pro sítě VXLAN jsou %(min)s až %(max)s."
 msgid "Forbidden"
 msgstr "Zakázáno"
 
+msgctxt "Force upload volume in in-use status to image"
+msgid "Force"
+msgstr "Vynutit"
+
 #, python-format
 msgid "Forcing to create snapshot \"%s\" from attached volume."
 msgstr "Vynucení vytvoření snímku \"%s\" z připojeného svazku."
@@ -2509,6 +2576,9 @@ msgstr "Skupina byla úspěšně aktualizována."
 
 msgid "Groups"
 msgstr "Skupiny"
+
+msgid "HA mode"
+msgstr "Režim HA"
 
 msgid "HTTP"
 msgstr "HTTP"
@@ -2851,6 +2921,9 @@ msgstr "Vložit pravidlo do zásady"
 msgid "Instance"
 msgstr "Instance"
 
+msgid "Instance Action List"
+msgstr "Seznam činností instance"
+
 msgid "Instance Boot Source"
 msgstr "Zdroj zavedení instance"
 
@@ -3075,6 +3148,9 @@ msgstr "Spouštění více instancí je podporováno pouze obrazy a snímky inst
 msgid "Length of Injected File Path"
 msgstr "Délka vložené cesty souboru"
 
+msgid "Libs"
+msgstr "Knihovny"
+
 msgid "Lifetime units"
 msgstr "Jednotky životnosti"
 
@@ -3194,6 +3270,15 @@ msgstr "Člen %s byl úspěšně aktualizován."
 
 msgid "Member Details"
 msgstr "Podrobnosti člena"
+
+msgid "Member IP address must be specified"
+msgstr "IP adresa člena musí být zadána"
+
+msgid "Member Source"
+msgstr "Zdroj člena"
+
+msgid "Member address"
+msgstr "Adresa člena"
 
 msgid "Member(s)"
 msgstr "Člen(ové)"
@@ -3511,6 +3596,9 @@ msgstr "Žádný pár klíčů"
 msgid "No networks available"
 msgstr "Žádné dostupné sítě"
 
+msgid "No options specified"
+msgstr "Nezadány žádné volby"
+
 msgid "No other agents available."
 msgstr "Žádní další agenti nejsou dostupní."
 
@@ -3709,6 +3797,9 @@ msgstr "Nepovinný popis zálohy"
 msgid "Optional Parameters"
 msgstr "Volitelné parametry"
 
+msgid "Optional parent backup"
+msgstr "Nepovinná nadřazená záloha"
+
 msgid "Optional: Next Hop Addresses (comma delimited)"
 msgstr "Nepovinné: Adresa dalšího skoku (oddělená čárkami)"
 
@@ -3738,6 +3829,9 @@ msgstr "PING"
 
 msgid "Page Not Found"
 msgstr "Stránka nenalezena"
+
+msgid "Parent Backup"
+msgstr "Nadřazená záloha"
 
 msgid "Password"
 msgstr "Heslo"
@@ -3931,6 +4025,9 @@ msgstr "Soubor soukromého klíče"
 msgid "Processes"
 msgstr "Procesy"
 
+msgid "Processes to be launched in node group"
+msgstr "Procesy které budou spuštěny ve skupině uzlu"
+
 msgid "Project"
 msgstr "Projekt"
 
@@ -4087,6 +4184,10 @@ msgid "Rebuild Password"
 msgstr "Znovu sestavit heslo"
 
 msgctxt "Task status of an Instance"
+msgid "Rebuild Spawning"
+msgstr "Znovu sestavování spuštění"
+
+msgctxt "Task status of an Instance"
 msgid "Rebuilding"
 msgstr "Znovu sestavování"
 
@@ -4104,6 +4205,16 @@ msgid "Relative part of requests this pool member serves compared to others"
 msgstr ""
 "Relativní část požadavků, který tento člen zásoby obsluhuje, v porovnání s "
 "ostatními"
+
+msgid ""
+"Relative part of requests this pool member serves compared to others. \n"
+"The same weight will be applied to all the selected members and can be "
+"modified later. Weight must be in the range 1 to 256."
+msgstr ""
+"Relativní část žádostí, která tato zásoba členů obsluhuje ve srovnání s "
+"ostatními.\n"
+"Stejná váha bude použita na všechny zvolené členy a může být upravena "
+"později. Váhy musí být v rozsahu od 1 do 256."
 
 msgid "Relaunch On Existing Cluster"
 msgstr "Znovu spustit na existujícím clusteru"
@@ -4197,6 +4308,9 @@ msgstr "Přehled využití zdrojů"
 
 msgid "Restore Backup"
 msgstr "Obnovit zálohu"
+
+msgid "Restore Backup to Volume"
+msgstr "Obnovit zálohu do svazku"
 
 msgid "Restore Volume Backup"
 msgstr "Obnovit zálohu svazku"
@@ -4515,6 +4629,9 @@ msgstr "Vyberte síť"
 msgid "Select networks for your instance."
 msgstr "Vyberte sítě pro vaší instanci."
 
+msgid "Select parent backup"
+msgstr "Vyberte nadřazenou zálohu"
+
 msgid "Select plugin and hadoop version"
 msgstr "Vyberte zásuvný modul a verzi hadoop"
 
@@ -4614,6 +4731,10 @@ msgstr "Uskladňování"
 msgctxt "Task status of an Instance"
 msgid "Shelving Image Pending Upload"
 msgstr "Uskladňování obrazu čekajícího na nahrání"
+
+msgctxt "Task status of an Instance"
+msgid "Shelving Image Uploading"
+msgstr "Uskladňování nahrávání obrazu"
 
 msgctxt "Power state of an Instance"
 msgid "Shut Down"
@@ -4748,6 +4869,9 @@ msgstr "Zadejte dodatečné vlastnosti podsítě."
 
 msgid "Specify an IP address for the interface created (e.g. 192.168.0.254)."
 msgstr "Zadejte IP adresu vytvořeného rozhraní (např. 192.168.0.254)."
+
+msgid "Specify member IP address"
+msgstr "Zadejte IP adresu člena"
 
 msgid "Specs"
 msgstr "Specifikace"
@@ -5129,8 +5253,22 @@ msgstr ""
 "Vyžadovaná funkce '%(feature)s' je neznámá. Ujistěte se, že je zadána ve "
 "FEATURE_MAP."
 
+#, python-format
+msgid ""
+"The requested instance cannot be launched. The following requested resource"
+"(s) exceed quota(s): %s."
+msgstr ""
+"Požadovanou instanci nelze spustit. Následující požadované zdroje překročily "
+"kvóty: %s."
+
 msgid "The specified port is invalid."
 msgstr "Zadaný port je neplatný."
+
+msgid "The state to start in."
+msgstr "Stav v kterém spustit."
+
+msgid "The state to start the network in."
+msgstr "Stav v kterém sít spustit."
 
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
@@ -5528,8 +5666,14 @@ msgstr "Nelze získat cluster pro škálování"
 msgid "Unable to fetch cluster to scale."
 msgstr "Nelze získat cluster pro škálování."
 
+msgid "Unable to fetch clusters."
+msgstr "Nelze získat clustery."
+
 msgid "Unable to fetch data sources."
 msgstr "Nelze získat zdroje dat."
+
+msgid "Unable to fetch flavor for template."
+msgstr "Nelze získat konfiguraci pro šablonu."
 
 msgid "Unable to fetch floating ip pools."
 msgstr "Nelze získat zásoby plovoucích ip adres."
@@ -5565,6 +5709,9 @@ msgstr "Nelze získat podrobnosti skupiny uzlů."
 msgid "Unable to fetch node group template list."
 msgstr "Nelze získat seznam šablon skupiny uzlu."
 
+msgid "Unable to fetch node group template."
+msgstr "Nelze získat šablonu skupiny uzlu."
+
 msgid "Unable to fetch plugin details."
 msgstr "Nelze získat podrobnosti zásuvného modulu."
 
@@ -5585,6 +5732,9 @@ msgstr "Nelze najít zálohu!"
 
 msgid "Unable to find default role."
 msgstr "Nelze najít výchozí roli."
+
+msgid "Unable to generate process choices."
+msgstr "Nelze vytvořit možnosti procesu."
 
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
@@ -5678,6 +5828,9 @@ msgstr "Nelze spustit úkol."
 msgid "Unable to list containers."
 msgstr "Nelze vypsat kontejnery."
 
+msgid "Unable to list database backups for parent."
+msgstr "Nelze vypsat zálohy databáze pro nadřazenou."
+
 msgid "Unable to list database instances to backup."
 msgstr "Nelze vypsat instance databáze k zálohování."
 
@@ -5724,6 +5877,9 @@ msgstr "Nelze získat konfigurace."
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "Nelze zpracovat IP adresu %s."
+
+msgid "Unable to populate anti-affinity processes."
+msgstr "Nelze zaplnit procesy proti slučivosti."
 
 msgid "Unable to process plugin tags"
 msgstr "Nelze zpracovat značky zásuvného modulu"
@@ -5970,6 +6126,9 @@ msgstr "Nelze získat obrazy pomocí filtru %s."
 msgid "Unable to retrieve images."
 msgstr "Nelze získat obrazy."
 
+msgid "Unable to retrieve instance action list."
+msgstr "Nelze získat seznam činností instance."
+
 msgid "Unable to retrieve instance details."
 msgstr "Nelze získat podrobnosti instance."
 
@@ -6201,6 +6360,9 @@ msgstr "Nelze získat zadanou zásobu"
 #, python-format
 msgid "Unable to retrieve the specified pool. Unable to add VIP \"%s\"."
 msgstr "Nelze získat zadanou zásobu. Nelze přidat VIP \"%s\"."
+
+msgid "Unable to retrieve the volume type list."
+msgstr "Nelze získat seznam typů svazku"
 
 msgid "Unable to retrieve usage information."
 msgstr "Nelze získat informace o využití."

@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-06-23 01:20+0000\n"
-"PO-Revision-Date: 2015-06-23 01:20+0000\n"
+"POT-Creation-Date: 2015-06-24 04:35+0000\n"
+"PO-Revision-Date: 2015-06-24 04:35+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/horizon/"
 "language/zh_TW/)\n"
@@ -1632,6 +1632,10 @@ msgid "DOWN"
 msgstr "離線"
 
 msgctxt "Admin state of a Firewall"
+msgid "DOWN"
+msgstr "離線"
+
+msgctxt "Admin state of a Load balancer"
 msgid "DOWN"
 msgstr "離線"
 
@@ -6919,6 +6923,10 @@ msgid "UP"
 msgstr "上線"
 
 msgctxt "Admin state of a Firewall"
+msgid "UP"
+msgstr "上線"
+
+msgctxt "Admin state of a Load balancer"
 msgid "UP"
 msgstr "上線"
 
