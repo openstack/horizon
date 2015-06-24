@@ -34,6 +34,10 @@ class CreateSubnetInfoAction(network_workflows.CreateSubnetInfoAction):
                                      widget=forms.HiddenInput())
     msg = _('Specify "Network Address"')
 
+    def __init__(self, request, *args, **kwargs):
+        super(CreateSubnetInfoAction, self).__init__(request, *args, **kwargs)
+        self.fields['cidr'].required = True
+
     class Meta(object):
         name = _("Subnet")
         help_text = _('Create a subnet associated with the network. '
