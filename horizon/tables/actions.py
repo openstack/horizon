@@ -763,9 +763,9 @@ class BatchAction(Action):
             msgstr = action
         else:
             if action_type == "past":
-                msgstr = pgettext_lazy("past", "%(action)s %(data_type)s")
+                msgstr = pgettext_lazy(u"past", "%(action)s %(data_type)s")
             else:
-                msgstr = pgettext_lazy("present", "%(action)s %(data_type)s")
+                msgstr = pgettext_lazy(u"present", "%(action)s %(data_type)s")
         return msgstr % {'action': action, 'data_type': data_type}
 
     def action(self, request, datum_id):
