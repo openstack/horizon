@@ -52,6 +52,13 @@ class DeleteDataSource(tables.DeleteAction):
         saharaclient.data_source_delete(request, obj_id)
 
 
+class EditDataSource(tables.LinkAction):
+    name = "edit data source"
+    verbose_name = _("Edit Data Source")
+    url = "horizon:project:data_processing.data_sources:edit-data-source"
+    classes = ("ajax-modal",)
+
+
 class DataSourcesTable(tables.DataTable):
     name = tables.Column("name",
                          verbose_name=_("Name"),
@@ -67,4 +74,5 @@ class DataSourcesTable(tables.DataTable):
         verbose_name = _("Data Sources")
         table_actions = (CreateDataSource,
                          DeleteDataSource)
-        row_actions = (DeleteDataSource,)
+        row_actions = (DeleteDataSource,
+                       EditDataSource,)

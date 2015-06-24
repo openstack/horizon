@@ -22,6 +22,11 @@ from openstack_dashboard.test import helpers as test
 INDEX_URL = reverse('horizon:project:data_processing.data_sources:index')
 DETAILS_URL = reverse(
     'horizon:project:data_processing.data_sources:details', args=['id'])
+CREATE_URL = reverse(
+    'horizon:project:data_processing.data_sources:create-data-source')
+EDIT_URL = reverse(
+    'horizon:project:data_processing.data_sources:edit-data-source',
+    args=['id'])
 
 
 class DataProcessingDataSourceTests(test.TestCase):
@@ -60,6 +65,61 @@ class DataProcessingDataSourceTests(test.TestCase):
 
         form_data = {'action': 'data_sources__delete__%s' % data_source.id}
         res = self.client.post(INDEX_URL, form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+        self.assertMessageCount(success=1)
+
+    @test.create_stubs({api.sahara: ('data_source_create',)})
+    def test_create(self):
+        data_source = self.data_sources.first()
+        api.sahara.data_source_create(IsA(http.HttpRequest),
+                                      data_source.name,
+                                      data_source.description,
+                                      data_source.type,
+                                      data_source.url,
+                                      "",
+                                      "") \
+            .AndReturn(self.data_sources.first())
+        self.mox.ReplayAll()
+        form_data = {
+            'data_source_url': data_source.url,
+            'data_source_name': data_source.name,
+            'data_source_description': data_source.description,
+            'data_source_type': data_source.type
+        }
+        res = self.client.post(CREATE_URL, form_data)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+        self.assertMessageCount(success=1)
+
+    @test.create_stubs({api.sahara: ('data_source_update',
+                                     'data_source_get',)})
+    def test_edit(self):
+        data_source = self.data_sources.first()
+        api_data = {
+            'url': data_source.url,
+            'credentials': {'user': '', 'pass': ''},
+            'type': data_source.type,
+            'name': data_source.name,
+            'description': data_source.description
+        }
+        api.sahara.data_source_get(IsA(http.HttpRequest),
+                                   IsA(unicode)) \
+            .AndReturn(self.data_sources.first())
+        api.sahara.data_source_update(IsA(http.HttpRequest),
+                                      IsA(unicode),
+                                      api_data) \
+            .AndReturn(self.data_sources.first())
+        self.mox.ReplayAll()
+
+        form_data = {
+            'data_source_url': data_source.url,
+            'data_source_name': data_source.name,
+            'data_source_description': data_source.description,
+            'data_source_type': data_source.type
+        }
+        res = self.client.post(EDIT_URL, form_data)
 
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)

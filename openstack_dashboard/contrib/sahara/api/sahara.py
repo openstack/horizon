@@ -306,6 +306,10 @@ def data_source_delete(request, ds_id):
     client(request).data_sources.delete(data_source_id=ds_id)
 
 
+def data_source_update(request, ds_id, data):
+    return client(request).data_sources.update(ds_id, data)
+
+
 def job_binary_create(request, name, url, description, extra):
     return client(request).job_binaries.create(
         name=name,
