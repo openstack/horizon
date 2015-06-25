@@ -1,13 +1,30 @@
+/*
+ *    (c) Copyright 2015 Hewlett-Packard Development Company, L.P.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 'use strict';
+
 var fs = require('fs');
 var path = require('path');
 
-module.exports = function(config) {
+module.exports = function (config) {
   var xstaticPath;
   var basePaths = [
     './.venv',
     './.tox/py27'
-  ]
+  ];
 
   for (var i = 0; i < basePaths.length; i++) {
     var basePath = path.resolve(basePaths[i]);
@@ -19,18 +36,17 @@ module.exports = function(config) {
   }
 
   if (!xstaticPath) {
-    console.error("xStatic libraries not found, please set up venv");
+    console.error('xStatic libraries not found, please set up venv');
     process.exit(1);
   }
 
   config.set({
-
     preprocessors: {
       // Used to collect templates for preprocessing.
       // NOTE: the templates must also be listed in the files section below.
       './**/*.html': ['ng-html2js'],
       // Used to indicate files requiring coverage reports.
-      './**/!(*spec).js': ['coverage']
+      './**/!(*.spec).js': ['coverage']
     },
 
     // Sets up module to process templates.
@@ -40,14 +56,15 @@ module.exports = function(config) {
     },
 
     // Assumes you're in the top-level horizon directory.
-    basePath : './static/',
+    basePath: './static/',
 
     // Contains both source and test files.
-    files : [
-
-      // shim, partly stolen from /i18n/js/horizon/
-      // Contains expected items not provided elsewhere (dynamically by
-      // Django or via jasmine template.
+    files: [
+      /*
+       * shim, partly stolen from /i18n/js/horizon/
+       * Contains expected items not provided elsewhere (dynamically by
+       * Django or via jasmine template.
+       */
       '../../test-shim.js',
 
       // from jasmine.html
@@ -103,11 +120,11 @@ module.exports = function(config) {
       '**/*.html'
     ],
 
-    autoWatch : true,
+    autoWatch: true,
 
     frameworks: ['jasmine'],
 
-    browsers : ['PhantomJS'],
+    browsers: ['PhantomJS'],
 
     phantomjsLauncher: {
       // Have phantomjs exit if a ResourceError is encountered
@@ -115,9 +132,9 @@ module.exports = function(config) {
       exitOnResourceError: true
     },
 
-    reporters : [ 'progress', 'coverage' ],
+    reporters: ['progress', 'coverage'],
 
-    plugins : [
+    plugins: [
       'karma-phantomjs-launcher',
       'karma-jasmine',
       'karma-ng-html2js-preprocessor',
@@ -125,10 +142,8 @@ module.exports = function(config) {
     ],
 
     coverageReporter: {
-      type : 'html',
-      dir : '../.coverage-karma/'
+      type: 'html',
+      dir: '../.coverage-karma/'
     }
-
   });
 };
-
