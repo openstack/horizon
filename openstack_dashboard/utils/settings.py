@@ -103,6 +103,7 @@ def update_dashboards(modules, horizon_config, installed_apps):
     angular_modules = []
     js_files = []
     js_spec_files = []
+    scss_files = []
     panel_customization = []
     update_horizon_config = {}
     for key, config in import_dashboard_config(modules):
@@ -121,6 +122,7 @@ def update_dashboards(modules, horizon_config, installed_apps):
         js_files.extend([f for f in config.get('ADD_JS_FILES', [])
                          if f not in existing])
         js_spec_files.extend(config.get('ADD_JS_SPEC_FILES', []))
+        scss_files.extend(config.get('ADD_SCSS_FILES', []))
         update_horizon_config.update(
             config.get('UPDATE_HORIZON_CONFIG', {}))
         if config.get('DASHBOARD'):
@@ -144,4 +146,5 @@ def update_dashboards(modules, horizon_config, installed_apps):
     horizon_config.setdefault('angular_modules', []).extend(angular_modules)
     horizon_config.setdefault('js_files', []).extend(js_files)
     horizon_config.setdefault('js_spec_files', []).extend(js_spec_files)
+    horizon_config.setdefault('scss_files', []).extend(scss_files)
     installed_apps[0:0] = apps
