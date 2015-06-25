@@ -32,7 +32,7 @@ IdentityGroup = [
                default='demo',
                help="Username to use for non-admin API requests."),
     cfg.StrOpt('password',
-               default='pass',
+               default='secretadmin',
                help="API key to use when authenticating.",
                secret=True),
     cfg.StrOpt('admin_username',
@@ -40,7 +40,7 @@ IdentityGroup = [
                help="Administrative Username to use for admin API "
                "requests."),
     cfg.StrOpt('admin_password',
-               default='pass',
+               default='secretadmin',
                help="API key to use when authenticating as admin.",
                secret=True),
 ]
@@ -54,7 +54,8 @@ ImageGroup = [
 
 AvailableServiceGroup = [
     cfg.BoolOpt('sahara',
-                default=False)
+                default=True,
+                help='Whether is Sahara expected to be available')
 ]
 
 SeleniumGroup = [
@@ -62,7 +63,7 @@ SeleniumGroup = [
                default=10,
                help="Implicit wait timeout in seconds"),
     cfg.IntOpt('explicit_wait',
-               default=10,
+               default=300,
                help="Explicit wait timeout in seconds"),
     cfg.IntOpt('page_timeout',
                default=30,
