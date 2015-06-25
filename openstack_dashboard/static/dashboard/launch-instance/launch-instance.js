@@ -5,7 +5,7 @@
 
   module.factory('launchInstanceWorkflow', [
     'dashboardBasePath',
-    'dashboardWorkflow',
+    'hz.dashboard.workflow.factory',
 
     function (path, dashboardWorkflow) {
 
