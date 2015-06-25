@@ -9,7 +9,6 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-import uuid
 
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.tests import decorators
@@ -18,7 +17,7 @@ from openstack_dashboard.test.integration_tests.tests import decorators
 @decorators.skip_because(bugs=["1467950"])
 class TestUser(helpers.AdminTestCase):
 
-    USER_NAME = "user_" + str(uuid.uuid4())
+    USER_NAME = helpers.gen_random_resource_name("user")
 
     def test_create_delete_user(self):
         users_page = self.home_pg.go_to_identity_userspage()
