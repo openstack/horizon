@@ -114,7 +114,7 @@
 
       it('should have one caret button', function () {
         expect($element.find('.split-caret').length).toBe(1);
-        expect($element.find('.caret').length).toBe(1);
+        expect($element.find('.fa-caret-down').length).toBe(1);
       });
 
       it('should have 2 menu items', function () {
