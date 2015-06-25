@@ -1353,30 +1353,53 @@ label.log-length {
       display: block;
     }
     ul.btn-group {
-      margin-left:0px;
-      padding: 3px;
-      margin-bottom: 0px;
-      border: 1px solid $gray-light;
+      margin-left:0;
+      padding: $members-list-padding;
+      margin-bottom: 0;
+      border: $members-list-border;
       border-bottom: none;
       &.last_stripe {
         border-bottom: 1px solid $table-border-color;
       }
       &.light_stripe {
-        background-color: white;
+        background-color: $table-bg;
       }
       &.dark_stripe {
-        background-color: $table-bg-odd;
+        background-color: $table-bg-accent;
       }
       &:hover {
         background-color: $border-color;
-      }
-      li.member {
-        padding: 6px 10px 5px 10px;
       }
       li.active {
         float: right;
         a:hover {
           background-color: $link-hover-color;
+        }
+      }
+      .member,
+      .role_options .roles_display {
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .member {
+        padding: $nav-link-padding;
+        padding-right: 0;
+        padding-left: $padding-base-vertical;
+        max-width: $members-list-item-width;
+      }
+      .role_options {
+        margin-left: 0;
+        & > a {
+          padding: nth($nav-link-padding, 1) $padding-small-horizontal;
+          .roles_display {
+            display: inline-block;
+            max-width: $members-list-roles-width;
+            line-height: 1;
+            padding-right: $padding-base-vertical;
+          }
+        }
+        .role_dropdown > li {
+          word-break: break-all;
         }
       }
     }
