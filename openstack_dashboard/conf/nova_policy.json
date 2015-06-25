@@ -11,7 +11,7 @@
     "compute:create:forced_host": "is_admin:True",
     "compute:delete": "rule:default",
     "compute:get_all": "",
-    "compute:get_all_tenants": "",
+    "compute:get_all_tenants": "is_admin:True",
     "compute:reboot": "rule:default",
     "compute:rebuild": "rule:default",
     "compute:snapshot": "rule:default",
