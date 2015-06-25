@@ -48,8 +48,11 @@ class ServicesTests(test.JasmineTests):
         'framework/util/tech-debt/image-file-on-change.js',
 
         'framework/widgets/widgets.module.js',
-        'framework/widgets/action-list/action-list.js',
-        'framework/widgets/action-list/button-tooltip.js',
+        'framework/widgets/action-list/action-list.module.js',
+        'framework/widgets/action-list/action.directive.js',
+        'framework/widgets/action-list/action-list.directive.js',
+        'framework/widgets/action-list/button-tooltip.directive.js',
+        'framework/widgets/action-list/menu.directive.js',
         'framework/widgets/charts/charts.module.js',
         'framework/widgets/charts/chart-tooltip.directive.js',
         'framework/widgets/charts/pie-chart.directive.js',
