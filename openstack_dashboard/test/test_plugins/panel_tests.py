@@ -21,7 +21,7 @@ from openstack_dashboard.dashboards.admin.info import panel as info_panel
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.test.test_panels.plugin_panel \
     import panel as plugin_panel
-import openstack_dashboard.test.test_plugins.panel_config
+from openstack_dashboard.test.test_plugins import panel_config
 from openstack_dashboard.utils import settings as util_settings
 
 
@@ -33,9 +33,7 @@ INSTALLED_APPS = list(settings.INSTALLED_APPS)
 HORIZON_CONFIG.pop('dashboards', None)
 HORIZON_CONFIG.pop('default_dashboard', None)
 
-util_settings.update_dashboards([
-    openstack_dashboard.test.test_plugins.panel_config,
-], HORIZON_CONFIG, INSTALLED_APPS)
+util_settings.update_dashboards([panel_config,], HORIZON_CONFIG, INSTALLED_APPS)
 
 
 @override_settings(HORIZON_CONFIG=HORIZON_CONFIG,
@@ -50,6 +48,11 @@ class PanelPluginTests(test.PluginTestCase):
         # Check that the panel is in its configured panel group.
         self.assertIn(plugin_panel.PluginPanel,
                       [p.__class__ for p in panel_group])
+        # Ensure that static resources are properly injected
+        pc = panel_config._10_admin_add_panel
+        self.assertEquals(pc.ADD_JS_FILES, HORIZON_CONFIG['js_files'])
+        self.assertEquals(pc.ADD_JS_SPEC_FILES, HORIZON_CONFIG['js_spec_files'])
+        self.assertEquals(pc.ADD_SCSS_FILES, HORIZON_CONFIG['scss_files'])
 
     def test_remove_panel(self):
         dashboard = horizon.get_dashboard("admin")
