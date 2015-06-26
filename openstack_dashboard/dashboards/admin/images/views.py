@@ -38,6 +38,7 @@ from openstack_dashboard.dashboards.admin.images import forms as project_forms
 from openstack_dashboard.dashboards.admin.images \
     import tables as project_tables
 
+
 LOG = logging.getLogger(__name__)
 
 
@@ -82,6 +83,18 @@ class IndexView(tables.DataTableView):
             self._more = False
             msg = _('Unable to retrieve image list.')
             exceptions.handle(self.request, msg)
+        if images:
+            try:
+                tenants, more = api.keystone.tenant_list(self.request)
+            except Exception:
+                tenants = []
+                msg = _('Unable to retrieve project list.')
+                exceptions.handle(self.request, msg)
+
+            tenant_dict = dict([(t.id, t.name) for t in tenants])
+
+            for image in images:
+                image.tenant_name = tenant_dict.get(image.owner)
         return images
 
     def get_filters(self):
