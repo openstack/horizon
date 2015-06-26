@@ -88,7 +88,6 @@
     function add(type, msg) {
       var toast = {
         type: type === 'error' ? 'danger' : type,
-        /* jshint validthis:true */
         typeMsg: this.types[type],
         msg: msg,
         cancel: cancel

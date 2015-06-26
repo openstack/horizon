@@ -26,7 +26,6 @@ function usage {
   echo "  -P, --no-pep8            Don't run pep8 by default"
   echo "  -t, --tabs               Check for tab characters in files."
   echo "  -y, --pylint             Just run pylint"
-  echo "  -j, --jshint             Just run jshint"
   echo "  -e, --eslint             Just run eslint"
   echo "  -k, --karma              Just run karma"
   echo "  -q, --quiet              Run non-interactively. (Relatively) quiet."
@@ -72,7 +71,6 @@ just_pylint=0
 just_docs=0
 just_tabs=0
 just_eslint=0
-just_jshint=0
 just_karma=0
 never_venv=0
 quiet=0
@@ -109,7 +107,6 @@ function process_option {
     -8|--pep8-changed) just_pep8_changed=1;;
     -P|--no-pep8) no_pep8=1;;
     -y|--pylint) just_pylint=1;;
-    -j|--jshint) just_jshint=1;;
     -e|--eslint) just_eslint=1;;
     -k|--karma) just_karma=1;;
     -f|--force) force=1;;
@@ -157,14 +154,6 @@ function run_pylint {
       echo "Completed with problems."
       exit $CODE
   fi
-}
-
-function run_jshint {
-  echo "Running jshint ..."
-  jshint horizon/static/horizon/js
-  jshint horizon/static/horizon/tests
-  jshint horizon/static/framework/
-  jshint openstack_dashboard/static/dashboard/
 }
 
 function run_eslint {
@@ -580,12 +569,6 @@ fi
 # Pylint
 if [ $just_pylint -eq 1 ]; then
     run_pylint
-    exit $?
-fi
-
-# Jshint
-if [ $just_jshint -eq 1 ]; then
-    run_jshint
     exit $?
 fi
 
