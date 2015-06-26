@@ -18,16 +18,16 @@
 
   describe('Launch Instance Network Step', function() {
 
-    describe('LaunchInstanceNetworkCtrl', function() {
-      var scope, ctrl;
+    beforeEach(module('hz.dashboard.launch-instance'));
 
-      beforeEach(module('hz.dashboard.launch-instance'));
+    describe('LaunchInstanceNetworkController', function() {
+      var scope, ctrl;
 
       beforeEach(inject(function($controller) {
         scope = {model: {
                   newInstanceSpec: {networks: ['net-a']},
                   networks: ['net-a', 'net-b']}};
-        ctrl = $controller('LaunchInstanceNetworkCtrl', {$scope:scope});
+        ctrl = $controller('LaunchInstanceNetworkController', {$scope:scope});
       }));
 
       it('has correct network statuses', function() {
@@ -69,13 +69,11 @@
       });
     });
 
-    describe('LaunchInstanceNetworkHelpCtrl', function() {
+    describe('LaunchInstanceNetworkHelpController', function() {
       var ctrl;
 
-      beforeEach(module('hz.dashboard.launch-instance'));
-
       beforeEach(inject(function($controller) {
-        ctrl = $controller('LaunchInstanceNetworkHelpCtrl', {});
+        ctrl = $controller('LaunchInstanceNetworkHelpController', {});
       }));
 
       it('defines the title', function() {

@@ -17,85 +17,16 @@
   'use strict';
 
   /**
-   * @ngdoc module
-   * @name hz.dashboard.launch-instance
-   * @description
-   * Module containing functionality for Launch Instance - Network Step.
-   */
-  var module = angular.module('hz.dashboard.launch-instance');
-
-  /**
    * @ngdoc controller
-   * @name LaunchInstanceNetworkCtrl
-   * @description
-   * Controller for the Launch Instance - Network Step.
-   */
-  module.controller('LaunchInstanceNetworkCtrl', [
-    '$scope',
-    LaunchInstanceNetworkCtrl
-  ]);
-
-  /**
-   * @ngdoc controller
-   * @name LaunchInstanceNetworkHelpCtrl
+   * @name LaunchInstanceNetworkHelpController
    * @description
    * Controller for the Launch Instance - Network Step Help.
    */
-  module.controller('LaunchInstanceNetworkHelpCtrl', [
-    LaunchInstanceNetworkHelpCtrl
-  ]);
+  angular
+    .module('hz.dashboard.launch-instance')
+    .controller('LaunchInstanceNetworkHelpController', LaunchInstanceNetworkHelpController);
 
-  function LaunchInstanceNetworkCtrl($scope) {
-    var ctrl = this;
-
-    ctrl.label = {
-      title: gettext('Networks'),
-      subtitle: gettext('Networks provide the communication channels for instances in the cloud.'),
-      network: gettext('Network'),
-      subnet_associated: gettext('Subnets Associated'),
-      shared: gettext('Shared'),
-      admin_state: gettext('Admin State'),
-      status: gettext('Status'),
-      profile: gettext('Profile'),
-      none_option: gettext('(None)'),
-      id: gettext('ID'),
-      project_id: gettext('Project'),
-      external_network: gettext('External Network'),
-      provider_network: gettext('Provider Network'),
-      provider_network_type: gettext('Type'),
-      provider_segmentation_id: gettext('Segmentation ID'),
-      provider_physical_network: gettext('Physical Network')
-    };
-
-    ctrl.networkStatuses = {
-      'ACTIVE': gettext('Active'),
-      'DOWN': gettext('Down')
-    };
-
-    ctrl.networkAdminStates = {
-      'UP': gettext('Up'),
-      'DOWN': gettext('Down')
-    };
-
-    ctrl.tableDataMulti = {
-      available: $scope.model.networks,
-      allocated: $scope.model.newInstanceSpec.networks,
-      displayedAvailable: [],
-      displayedAllocated: []
-    };
-
-    ctrl.tableLimits = {
-      maxAllocation: -1
-    };
-
-    ctrl.tableHelpText = {
-      allocHelpText: gettext('Select networks from those listed below.'),
-      availHelpText: gettext('Select at least one network')
-    };
-
-  }
-
-  function LaunchInstanceNetworkHelpCtrl() {
+  function LaunchInstanceNetworkHelpController() {
     var ctrl = this;
 
     ctrl.title = gettext('Network Help');
@@ -120,5 +51,4 @@
       gettext('The status indicates whether the network has an active connection.')
     ];
   }
-
 })();
