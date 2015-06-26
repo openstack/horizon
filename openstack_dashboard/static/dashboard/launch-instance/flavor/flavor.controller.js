@@ -16,58 +16,67 @@
 (function () {
   'use strict';
 
-  var module = angular.module('hz.dashboard.launch-instance');
+  angular
+    .module('hz.dashboard.launch-instance')
+    .controller('LaunchInstanceFlavorController', LaunchInstanceFlavorController);
 
-  module.controller('LaunchInstanceFlavorCtrl', [
+  LaunchInstanceFlavorController.$inject = [
     '$scope',
     'horizon.framework.widgets.charts.quotaChartDefaults',
-    'launchInstanceModel',
-    LaunchInstanceFlavorCtrl
-  ]);
+    'launchInstanceModel'
+  ];
 
-  function LaunchInstanceFlavorCtrl($scope,
-                                    quotaChartDefaults,
-                                    launchInstanceModel) {
+  function LaunchInstanceFlavorController($scope, quotaChartDefaults, launchInstanceModel) {
+    var ctrl = this;
+
+    ctrl.defaultIfUndefined = defaultIfUndefined;
+    ctrl.validateFlavor = validateFlavor;
+    ctrl.buildFlavorFacades = buildFlavorFacades;
+    ctrl.updateFlavorFacades = updateFlavorFacades;
+    ctrl.getChartData = getChartData;
+    ctrl.getErrors = getErrors;
 
     // Labels for the flavor step
-    this.title = gettext('Flavor');
-    this.subtitle = gettext(
+    ctrl.title = gettext('Flavor');
+    ctrl.subtitle = gettext(
       'Flavors manage the sizing for the compute, memory and storage capacity of the instance.'
     );
 
     // Labels used by quota charts
-    this.chartTotalInstancesLabel = gettext('Total Instances');
-    this.chartTotalVcpusLabel = gettext('Total VCPUs');
-    this.chartTotalRamLabel = gettext('Total RAM');
+    ctrl.chartTotalInstancesLabel = gettext('Total Instances');
+    ctrl.chartTotalVcpusLabel = gettext('Total VCPUs');
+    ctrl.chartTotalRamLabel = gettext('Total RAM');
 
-    // Flavor "facades" are used instead of just flavors because per-flavor
-    // data needs to be associated with each flavor to support the quota chart
-    // in the flavor details. A facade simply wraps an underlying data object,
-    // exposing only the data needed by this specific view.
-    this.availableFlavorFacades = [];
-    this.displayedAvailableFlavorFacades = [];
-    this.allocatedFlavorFacades = [];
-    this.displayedAllocatedFlavorFacades = [];
+    /*
+     * Flavor "facades" are used instead of just flavors because per-flavor
+     * data needs to be associated with each flavor to support the quota chart
+     * in the flavor details. A facade simply wraps an underlying data object,
+     * exposing only the data needed by this specific view.
+     */
+    ctrl.availableFlavorFacades = [];
+    ctrl.displayedAvailableFlavorFacades = [];
+    ctrl.allocatedFlavorFacades = [];
+    ctrl.displayedAllocatedFlavorFacades = [];
 
     // Convenience references to launch instance model elements
-    this.flavors = [];
-    this.metadataDefs = launchInstanceModel.metadataDefs;
-    this.novaLimits = {};
-    this.instanceCount = 1;
+    ctrl.flavors = [];
+    ctrl.metadataDefs = launchInstanceModel.metadataDefs;
+    ctrl.novaLimits = {};
+    ctrl.instanceCount = 1;
 
     // Data that drives the transfer table for flavors
-    this.transferTableModel = {
-      allocated:          this.allocatedFlavorFacades,
-      displayedAllocated: this.displayedAllocatedFlavorFacades,
-      available:          this.availableFlavorFacades,
-      displayedAvailable: this.displayedAvailableFlavorFacades
+    ctrl.transferTableModel = {
+      allocated:          ctrl.allocatedFlavorFacades,
+      displayedAllocated: ctrl.displayedAllocatedFlavorFacades,
+      available:          ctrl.availableFlavorFacades,
+      displayedAvailable: ctrl.displayedAvailableFlavorFacades
     };
 
     // Each flavor has an instances chart...but it is the same for all flavors
-    this.instancesChartData = {};
+    ctrl.instancesChartData = {};
 
     // We can pick at most, 1 flavor at a time
-    this.allocationLimits = {
+    ctrl.allocationLimits = {
       maxAllocation: 1
     };
 
@@ -123,35 +132,38 @@
       ctrl.validateFlavor();
     });
 
-    // Convenience function to return a sensible value instead of
-    // undefined
-    this.defaultIfUndefined = function (value, defaultValue) {
-      return (value === undefined) ? defaultValue : value;
-    };
+    //////////
 
-    // Validator for flavor selected. Checks if this flavor is
-    // valid based on instance count and source selected.
-    // If flavor is invalid, enabled is false.
-    this.validateFlavor = function() {
-      var allocatedFlavors = this.allocatedFlavorFacades;
+    // Convenience function to return a sensible value instead of undefined
+    function defaultIfUndefined(value, defaultValue) {
+      return (value === undefined) ? defaultValue : value;
+    }
+
+    /*
+     * Validator for flavor selected. Checks if this flavor is
+     * valid based on instance count and source selected.
+     * If flavor is invalid, enabled is false.
+     */
+    function validateFlavor() {
+      var allocatedFlavors = ctrl.allocatedFlavorFacades;
       if (allocatedFlavors && allocatedFlavors.length > 0) {
         var allocatedFlavorFacade = allocatedFlavors[0];
         var isValid = allocatedFlavorFacade.enabled;
         $scope.launchInstanceFlavorForm['allocated-flavor']
               .$setValidity('flavor', isValid);
       }
-    };
+    }
 
     /*
      * Given flavor data, build facades that expose the specific attributes
      * needed by this view. These facades will be updated to include per-flavor
      * data, such as charts, as that per-flavor data is modified.
      */
-    this.buildFlavorFacades = function () {
+    function buildFlavorFacades() {
       var facade;
       var flavor;
-      for (var i = 0; i < this.flavors.length; i++) {
-        flavor = this.flavors[i];
+      for (var i = 0; i < ctrl.flavors.length; i++) {
+        flavor = ctrl.flavors[i];
         facade = {
           flavor:        flavor,
           id:            flavor.id,
@@ -164,56 +176,58 @@
           isPublic:      flavor['os-flavor-access:is_public'],
           extras:        flavor.extras
         };
-        this.availableFlavorFacades.push(facade);
+        ctrl.availableFlavorFacades.push(facade);
       }
-    };
+    }
 
     /*
      * Some change in the underlying data requires we update our facades
      * primarily the per-flavor chart data.
      */
-    this.updateFlavorFacades = function () {
-      if (this.availableFlavorFacades.length !== this.flavors.length) {
+    function updateFlavorFacades() {
+      if (ctrl.availableFlavorFacades.length !== ctrl.flavors.length) {
         // Build the facades to match the flavors
-        this.buildFlavorFacades();
+        ctrl.buildFlavorFacades();
       }
 
       // The instance chart is the same for all flavors, create it once
-      var instancesChartData = this.getChartData(
-        this.chartTotalInstancesLabel,
-        this.instanceCount,
+      var instancesChartData = ctrl.getChartData(
+        ctrl.chartTotalInstancesLabel,
+        ctrl.instanceCount,
         launchInstanceModel.novaLimits.totalInstancesUsed,
         launchInstanceModel.novaLimits.maxTotalInstances);
 
-      // Each flavor has a different cpu and ram chart, create them here and
-      // add that data to the flavor facade
-      for (var i = 0; i < this.availableFlavorFacades.length; i++) {
-        var facade = this.availableFlavorFacades[i];
+      /*
+       * Each flavor has a different cpu and ram chart, create them here and
+       * add that data to the flavor facade
+       */
+      for (var i = 0; i < ctrl.availableFlavorFacades.length; i++) {
+        var facade = ctrl.availableFlavorFacades[i];
 
         facade.instancesChartData = instancesChartData;
 
-        facade.vcpusChartData = this.getChartData(
-          this.chartTotalVcpusLabel,
-          this.instanceCount * facade.vcpus,
+        facade.vcpusChartData = ctrl.getChartData(
+          ctrl.chartTotalVcpusLabel,
+          ctrl.instanceCount * facade.vcpus,
           launchInstanceModel.novaLimits.totalCoresUsed,
           launchInstanceModel.novaLimits.maxTotalCores);
 
-        facade.ramChartData = this.getChartData(
-          this.chartTotalRamLabel,
-          this.instanceCount * facade.ram,
+        facade.ramChartData = ctrl.getChartData(
+          ctrl.chartTotalRamLabel,
+          ctrl.instanceCount * facade.ram,
           launchInstanceModel.novaLimits.totalRAMUsed,
           launchInstanceModel.novaLimits.maxTotalRAMSize);
 
-        var errors = this.getErrors(facade.flavor);
+        var errors = ctrl.getErrors(facade.flavor);
         facade.errors = errors;
         facade.enabled = Object.keys(errors).length === 0;
       }
-    };
+    }
 
-    this.getChartData = function (title, added, totalUsed, maxAllowed) {
+    function getChartData(title, added, totalUsed, maxAllowed) {
 
-      var used = this.defaultIfUndefined(totalUsed, 0);
-      var allowed = this.defaultIfUndefined(maxAllowed, 1);
+      var used = ctrl.defaultIfUndefined(totalUsed, 0);
+      var allowed = ctrl.defaultIfUndefined(maxAllowed, 1);
       var quotaCalc = Math.round((used + added) / allowed * 100);
       var overMax = quotaCalc > 100 ? true : false;
 
@@ -241,20 +255,19 @@
       };
 
       return chartData;
-    };
+    }
 
-    // Generate error messages for flavor based on
-    // source (if selected) and instance count
-    this.getErrors = function(flavor) {
+    // Generate error messages for flavor based on source (if selected) and instance count
+    function getErrors(flavor) {
       var messages = {};
-      var source = this.source;
-      var instanceCount = this.instanceCount;
+      var source = ctrl.source;
+      var instanceCount = ctrl.instanceCount;
 
       // Check RAM resources
-      var totalRamUsed = this.defaultIfUndefined(
-        this.novaLimits.totalRAMUsed, 0);
-      var maxTotalRam = this.defaultIfUndefined(
-        this.novaLimits.maxTotalRAMSize, 0);
+      var totalRamUsed = ctrl.defaultIfUndefined(
+        ctrl.novaLimits.totalRAMUsed, 0);
+      var maxTotalRam = ctrl.defaultIfUndefined(
+        ctrl.novaLimits.maxTotalRAMSize, 0);
       var availableRam = maxTotalRam - totalRamUsed;
       var ramRequired = instanceCount * flavor.ram;
       if (ramRequired > availableRam) {
@@ -264,10 +277,10 @@
       }
 
       // Check VCPU resources
-      var totalCoresUsed = this.defaultIfUndefined(
-        this.novaLimits.totalCoresUsed, 0);
-      var maxTotalCores = this.defaultIfUndefined(
-        this.novaLimits.maxTotalCores, 0);
+      var totalCoresUsed = ctrl.defaultIfUndefined(
+        ctrl.novaLimits.totalCoresUsed, 0);
+      var maxTotalCores = ctrl.defaultIfUndefined(
+        ctrl.novaLimits.maxTotalCores, 0);
       var availableCores = maxTotalCores - totalCoresUsed;
       var coresRequired = instanceCount * flavor.vcpus;
       if (coresRequired > availableCores) {
@@ -302,25 +315,6 @@
       }
 
       return messages;
-    };
+    }
   }
-
-  module.controller('LaunchInstanceFlavorHelpCtrl', [
-    LaunchInstanceFlavorHelpCtrl
-  ]);
-
-  function LaunchInstanceFlavorHelpCtrl() {
-    var ctrl = this;
-
-    ctrl.title = gettext('Flavor Help');
-
-    ctrl.paragraphs = [
-      // jscs:disable maximumLineLength
-      gettext('The flavor you select for an instance determines the amount of compute, storage and memory resources that will be carved out for the instance.'),
-      gettext('The flavor you select must have enough resources allocated to support the type of instance you are trying to create. Flavors that don\'t provide enough resources for your instance are identified on the <b>Available</b> table with a yellow warning icon.'),
-      gettext('Administrators are responsible for creating and managing flavors. A custom flavor can be created for you or for a specific project where it is shared with the users assigned to that project. If you need a custom flavor, contact your administrator.')
-      // jscs:disable maximumLineLength
-    ];
-  }
-
 })();
