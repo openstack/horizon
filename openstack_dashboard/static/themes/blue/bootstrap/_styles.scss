@@ -1,0 +1,20 @@
+// Blue
+// ----
+
+@mixin btn-shadow($color) {
+  @include gradient-vertical-three-colors(lighten($color, 3%), $color, 6%, darken($color, 3%));
+  filter: none;
+  border: 1px solid darken($color, 10%);
+}
+
+// Buttons ====================================================================
+
+.btn-default,
+.btn-default:hover {
+  @include btn-shadow($btn-default-bg);
+}
+
+.btn-primary,
+.btn-primary:hover {
+  @include btn-shadow($btn-primary-bg);
+}
