@@ -1209,6 +1209,14 @@ loaded on every page. This is needed for AngularJS modules that are referenced i
 A list of javascript spec files to include for integration with the Jasmine spec runner.
 Jasmine is a behavior-driven development framework for testing JavaScript code.
 
+``ADD_SCSS_FILES``
+----------------------
+
+.. versionadded:: 2015.2(Liberty)
+
+A list of scss files to be included in the compressed set of files that are
+loaded on every page. We recommend one scss file per dashboard, use @import if
+you need to include additional scss files for panels.
 
 ``DISABLED``
 ------------
