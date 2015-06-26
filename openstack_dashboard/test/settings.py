@@ -34,6 +34,8 @@ TEMPLATE_CONTEXT_PROCESSORS += (
     'openstack_dashboard.context_processors.openstack',
 )
 
+COMPRESS_OFFLINE = False
+
 INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.auth',
