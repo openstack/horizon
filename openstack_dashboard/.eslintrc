@@ -1,0 +1,6 @@
+# ESLint styles for this section of horizon's codebase. It activates the John Papa
+# Style plugin for all javascript files in this directory or below.
+
+# Enable eslint-plugin-angular
+plugins:
+  - angular
