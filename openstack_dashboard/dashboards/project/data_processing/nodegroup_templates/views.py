@@ -30,6 +30,8 @@ import openstack_dashboard.dashboards.project.data_processing. \
     nodegroup_templates.workflows.copy as copy_flow
 import openstack_dashboard.dashboards.project.data_processing. \
     nodegroup_templates.workflows.create as create_flow
+import openstack_dashboard.dashboards.project.data_processing. \
+    nodegroup_templates.workflows.edit as edit_flow
 
 LOG = logging.getLogger(__name__)
 
@@ -122,3 +124,10 @@ class CopyNodegroupTemplateView(workflows.WorkflowView):
         initial = super(CopyNodegroupTemplateView, self).get_initial()
         initial['template_id'] = self.kwargs['template_id']
         return initial
+
+
+class EditNodegroupTemplateView(CopyNodegroupTemplateView):
+    workflow_class = edit_flow.EditNodegroupTemplate
+    success_url = "horizon:project:data_processing.nodegroup_templates"
+    template_name = (
+        "project/data_processing.nodegroup_templates/configure.html")

@@ -36,5 +36,8 @@ urlpatterns = patterns('sahara.nodegroup_templates.views',
                            name='details'),
                        url(r'^(?P<template_id>[^/]+)/copy$',
                            views.CopyNodegroupTemplateView.as_view(),
-                           name='copy')
+                           name='copy'),
+                       url(r'^(?P<template_id>[^/]+)/edit$',
+                           views.EditNodegroupTemplateView.as_view(),
+                           name='edit')
                        )
