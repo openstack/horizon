@@ -24,6 +24,7 @@ from openstack_dashboard import policy
 
 ENABLE = 0
 DISABLE = 1
+KEYSTONE_V2_ENABLED = api.keystone.VERSIONS.active < 3
 
 
 class CreateUserLink(tables.LinkAction):
@@ -196,6 +197,7 @@ class UpdateCell(tables.UpdateAction):
                 request,
                 user_obj,
                 name=user_obj.name,
+                description=user_obj.description,
                 email=user_obj.email,
                 enabled=user_obj.enabled,
                 project=user_obj.project_id,
@@ -221,6 +223,13 @@ class UsersTable(tables.DataTable):
                          verbose_name=_('User Name'),
                          form_field=forms.CharField(),
                          update_action=UpdateCell)
+    description = tables.Column(lambda obj: getattr(obj, 'description', None),
+                                verbose_name=_('Description'),
+                                hidden=KEYSTONE_V2_ENABLED,
+                                form_field=forms.CharField(
+                                    widget=forms.Textarea(attrs={'rows': 4}),
+                                    required=False),
+                                update_action=UpdateCell)
     email = tables.Column('email', verbose_name=_('Email'),
                           form_field=forms.CharField(required=False),
                           update_action=UpdateCell,

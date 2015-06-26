@@ -312,7 +312,7 @@ def user_list(request, project=None, domain=None, group=None, filters=None):
 
 
 def user_create(request, name=None, email=None, password=None, project=None,
-                enabled=None, domain=None):
+                enabled=None, domain=None, description=None):
     manager = keystoneclient(request, admin=True).users
     try:
         if VERSIONS.active < 3:
@@ -321,7 +321,7 @@ def user_create(request, name=None, email=None, password=None, project=None,
         else:
             return manager.create(name, password=password, email=email,
                                   project=project, enabled=enabled,
-                                  domain=domain)
+                                  domain=domain, description=description)
     except keystone_exceptions.Conflict:
         raise exceptions.Conflict()
 

@@ -185,6 +185,7 @@ def data(TEST):
 
     user_dict = {'id': "1",
                  'name': 'test_user',
+                 'description': 'test_decription',
                  'email': 'test@example.com',
                  'password': 'password',
                  'token': 'test_token',
@@ -194,6 +195,7 @@ def data(TEST):
     user = users.User(None, user_dict)
     user_dict = {'id': "2",
                  'name': 'user_two',
+                 'description': 'test_decription',
                  'email': 'two@example.com',
                  'password': 'password',
                  'token': 'test_token',
@@ -203,6 +205,7 @@ def data(TEST):
     user2 = users.User(None, user_dict)
     user_dict = {'id': "3",
                  'name': 'user_three',
+                 'description': 'test_decription',
                  'email': 'three@example.com',
                  'password': 'password',
                  'token': 'test_token',
@@ -212,6 +215,7 @@ def data(TEST):
     user3 = users.User(None, user_dict)
     user_dict = {'id': "4",
                  'name': 'user_four',
+                 'description': 'test_decription',
                  'email': 'four@example.com',
                  'password': 'password',
                  'token': 'test_token',
@@ -221,6 +225,7 @@ def data(TEST):
     user4 = users.User(None, user_dict)
     user_dict = {'id': "5",
                  'name': 'user_five',
+                 'description': 'test_decription',
                  'email': None,
                  'password': 'password',
                  'token': 'test_token',

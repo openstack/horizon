@@ -98,6 +98,7 @@ class UsersViewTests(test.BaseAdminViewTests):
             .AndReturn([self.tenants.list(), False])
         api.keystone.user_create(IgnoreArg(),
                                  name=user.name,
+                                 description=user.description,
                                  email=user.email,
                                  password=user.password,
                                  project=self.tenant.id,
@@ -114,6 +115,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         formData = {'method': 'CreateUserForm',
                     'domain_id': domain_id,
                     'name': user.name,
+                    'description': user.description,
                     'email': user.email,
                     'password': user.password,
                     'project': self.tenant.id,
@@ -150,6 +152,7 @@ class UsersViewTests(test.BaseAdminViewTests):
             .AndReturn([self.tenants.list(), False])
         api.keystone.user_create(IgnoreArg(),
                                  name=user.name,
+                                 description=user.description,
                                  email=user.email,
                                  password=user.password,
                                  project=self.tenant.id,
@@ -165,6 +168,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         formData = {'method': 'CreateUserForm',
                     'domain_id': domain_id,
                     'name': user.name,
+                    'description': user.description,
                     'email': "",
                     'password': user.password,
                     'project': self.tenant.id,
@@ -288,7 +292,6 @@ class UsersViewTests(test.BaseAdminViewTests):
         user = self.users.get(id="1")
         domain_id = user.domain_id
         domain = self.domains.get(id=domain_id)
-        email = getattr(user, 'email', '')
 
         api.keystone.user_get(IsA(http.HttpRequest), '1',
                               admin=True).AndReturn(user)
@@ -300,16 +303,18 @@ class UsersViewTests(test.BaseAdminViewTests):
             .AndReturn([self.tenants.list(), False])
         api.keystone.user_update(IsA(http.HttpRequest),
                                  user.id,
-                                 email=email,
-                                 name=u'test_user',
-                                 project=self.tenant.id).AndReturn(None)
+                                 email=user.email,
+                                 name=user.name,
+                                 project=self.tenant.id,
+                                 description=user.description).AndReturn(None)
 
         self.mox.ReplayAll()
 
         formData = {'method': 'UpdateUserForm',
                     'id': user.id,
                     'name': user.name,
-                    'email': email,
+                    'description': user.description,
+                    'email': user.email,
                     'project': self.tenant.id}
 
         res = self.client.post(USER_UPDATE_URL, formData)
@@ -339,13 +344,15 @@ class UsersViewTests(test.BaseAdminViewTests):
                                  user.id,
                                  email=user.email,
                                  name=user.name,
-                                 project=self.tenant.id).AndReturn(None)
+                                 project=self.tenant.id,
+                                 description=user.description).AndReturn(None)
 
         self.mox.ReplayAll()
 
         formData = {'method': 'UpdateUserForm',
                     'id': user.id,
                     'name': user.name,
+                    'description': user.description,
                     'email': "",
                     'project': self.tenant.id}
 

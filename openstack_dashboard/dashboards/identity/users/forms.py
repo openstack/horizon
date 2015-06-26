@@ -34,7 +34,6 @@ from horizon.utils import validators
 
 from openstack_dashboard import api
 
-
 LOG = logging.getLogger(__name__)
 PROJECT_REQUIRED = api.keystone.VERSIONS.active < 3
 
@@ -95,6 +94,10 @@ class CreateUserForm(PasswordMixin, BaseUserForm):
                                   required=False,
                                   widget=forms.HiddenInput())
     name = forms.CharField(max_length=255, label=_("User Name"))
+    description = forms.CharField(widget=forms.widgets.Textarea(
+                                  attrs={'rows': 4}),
+                                  label=_("Description"),
+                                  required=False)
     email = forms.EmailField(
         label=_("Email"),
         required=False)
@@ -108,7 +111,8 @@ class CreateUserForm(PasswordMixin, BaseUserForm):
         roles = kwargs.pop('roles')
         super(CreateUserForm, self).__init__(*args, **kwargs)
         # Reorder form fields from multiple inheritance
-        ordering = ["domain_id", "domain_name", "name", "email", "password",
+        ordering = ["domain_id", "domain_name", "name",
+                    "description", "email", "password",
                     "confirm_password", "project", "role_id"]
         # Starting from 1.7 Django uses OrderedDict for fields and keyOrder
         # no longer works for it
@@ -125,6 +129,9 @@ class CreateUserForm(PasswordMixin, BaseUserForm):
             readonlyInput = forms.TextInput(attrs={'readonly': 'readonly'})
             self.fields["domain_id"].widget = readonlyInput
             self.fields["domain_name"].widget = readonlyInput
+        # For keystone V2.0, hide description field
+        else:
+            self.fields["description"].widget = forms.HiddenInput()
 
     # We have to protect the entire "data" dict because it contains the
     # password and confirm_password strings.
@@ -133,11 +140,13 @@ class CreateUserForm(PasswordMixin, BaseUserForm):
         domain = api.keystone.get_default_domain(self.request)
         try:
             LOG.info('Creating user with name "%s"' % data['name'])
+            desc = data["description"]
             if "email" in data:
                 data['email'] = data['email'] or None
             new_user = api.keystone.user_create(request,
                                                 name=data['name'],
                                                 email=data['email'],
+                                                description=desc,
                                                 password=data['password'],
                                                 project=data['project'],
                                                 enabled=True,
@@ -179,6 +188,10 @@ class UpdateUserForm(BaseUserForm):
                                   widget=forms.HiddenInput())
     id = forms.CharField(label=_("ID"), widget=forms.HiddenInput)
     name = forms.CharField(max_length=255, label=_("User Name"))
+    description = forms.CharField(widget=forms.widgets.Textarea(
+                                  attrs={'rows': 4}),
+                                  label=_("Description"),
+                                  required=False)
     email = forms.EmailField(
         label=_("Email"),
         required=False)
@@ -196,6 +209,9 @@ class UpdateUserForm(BaseUserForm):
             readonlyInput = forms.TextInput(attrs={'readonly': 'readonly'})
             self.fields["domain_id"].widget = readonlyInput
             self.fields["domain_name"].widget = readonlyInput
+        # For keystone V2.0, hide description field
+        else:
+            self.fields["description"].widget = forms.HiddenInput()
 
     def handle(self, request, data):
         user = data.pop('id')
