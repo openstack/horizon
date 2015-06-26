@@ -12,14 +12,15 @@
 # Tom Fifield <tom@openstack.org>, 2014
 # Xiao Xi LIU <liuxx@cn.ibm.com>, 2014
 # Ying Chun Guo <daisy.ycguo@gmail.com>, 2015
+# 刘俊朋 <liujunpeng@inspur.com>, 2015
 # 颜海峰 <yanheven@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-06-23 01:20+0000\n"
-"PO-Revision-Date: 2015-06-23 01:20+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-06-26 02:42+0000\n"
+"PO-Revision-Date: 2015-06-26 03:52+0000\n"
+"Last-Translator: 刘俊朋 <liujunpeng@inspur.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/"
 "language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -176,6 +177,10 @@ msgstr "允许"
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "允许 %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
+
+#, python-format
+msgid "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(cidr)s"
+msgstr "允许 %(from)s:%(to)s/%(ip_protocol)s 访问 %(cidr)s"
 
 #, python-format
 msgid "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(group)s"
@@ -542,6 +547,9 @@ msgstr "分配IP"
 msgid "Allocate IP To Project"
 msgstr "分配IP给项目"
 
+msgid "Allocated"
+msgstr "已分配"
+
 #, python-format
 msgid "Allocated Floating IP %(ip)s."
 msgstr "分配到的浮动IP %(ip)s。"
@@ -611,6 +619,9 @@ msgstr "至少指定一个成员。"
 msgid "At least one network must be specified."
 msgstr "至少选择一个网络"
 
+msgid "Attach Interface"
+msgstr "绑定接口"
+
 msgid "Attach to Instance"
 msgstr "连接到云主机"
 
@@ -633,6 +644,10 @@ msgstr "挂载中"
 msgctxt "Current status of a Volume"
 msgid "Attaching"
 msgstr "挂载中"
+
+#, python-format
+msgid "Attaching interface for instance %s."
+msgstr "为实例%s附加端口。"
 
 #, python-format
 msgid "Attaching volume %(vol)s to instance %(inst)s on %(dev)s."
@@ -1652,6 +1667,10 @@ msgctxt "Admin state of a Firewall"
 msgid "DOWN"
 msgstr "下"
 
+msgctxt "Admin state of a Load balancer"
+msgid "DOWN"
+msgstr "禁用"
+
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "下"
@@ -2216,6 +2235,9 @@ msgstr "目标对象名称"
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "目的端口 ([1, 65535]区间内的整数或者以a:b形式表示的范围)"
 
+msgid "Detach Interface"
+msgstr "解绑接口"
+
 msgid "Detach Replica"
 msgid_plural "Detach Replicas"
 msgstr[0] "分离镜像"
@@ -2226,6 +2248,10 @@ msgstr[0] "卸载云硬盘"
 
 msgid "Detached"
 msgstr "断开"
+
+#, python-format
+msgid "Detached interface %(port)s for instance %(instance)s."
+msgstr "为实例 %(instance)s解绑接口%(port)s。"
 
 msgid "Detaching"
 msgstr "断开zhong"
@@ -3961,6 +3987,9 @@ msgstr "已杀死"
 msgid "Kwapi"
 msgstr "Kwapi"
 
+msgid "LB Method"
+msgstr "LB方式"
+
 msgid "LUKS Volume Snapshots"
 msgstr "LUKS 卷快照"
 
@@ -4048,6 +4077,10 @@ msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
 msgstr "只支持从镜像和云主机快照同时创建多个云主机"
+
+msgctxt "load balancing method"
+msgid "Least Connections"
+msgstr "最少连接"
 
 msgid "Length of Injected File Path"
 msgstr "注入文件路径的长度"
@@ -4533,6 +4566,9 @@ msgstr "没有找到主机。"
 msgid "No Images Available"
 msgstr "没有可用的镜像"
 
+msgid "No Ports available"
+msgstr "无可用端口"
+
 msgid "No Session Persistence"
 msgstr "无会话持久性"
 
@@ -4609,8 +4645,14 @@ msgstr "无选项指定"
 msgid "No other agents available."
 msgstr "没用可用的agents。"
 
+msgid "No other hosts available"
+msgstr "没有其他可用的主机"
+
 msgid "No other hosts available."
 msgstr "没有其他可用的主机"
+
+msgid "No other volume types available"
+msgstr "没有其它卷类型可用"
 
 msgid "No ports available"
 msgstr "无可用端口"
@@ -5155,6 +5197,9 @@ msgstr "项目名称"
 msgid "Project Usage"
 msgstr "项目使用"
 
+msgid "Project name is already in use. Please use a different name."
+msgstr "项目名已使用。请使用一个不同的名字。"
+
 msgid "Projects"
 msgstr "项目"
 
@@ -5636,6 +5681,10 @@ msgstr "根磁盘"
 msgid "Root Disk (GB)"
 msgstr "根磁盘(GB)"
 
+msgctxt "load balancing method"
+msgid "Round Robin"
+msgstr "轮循"
+
 msgid "Router"
 msgstr "路由"
 
@@ -5876,6 +5925,9 @@ msgstr "选择云主机快照"
 msgid "Select Network"
 msgstr "选择网络"
 
+msgid "Select Port"
+msgstr "选择端口"
+
 msgid "Select Script Source"
 msgstr "选择脚本来源"
 
@@ -5949,6 +6001,9 @@ msgstr "重新选择模板来预览stack"
 
 msgid "Select a new template to re-launch a stack."
 msgstr "重新选择模板来启动stack"
+
+msgid "Select a new volume type"
+msgstr "选择一个新卷类型"
 
 msgid "Select a port"
 msgstr "选择端口"
@@ -6242,6 +6297,10 @@ msgstr "报错"
 msgid "Source CIDR"
 msgstr "源CIDR"
 
+msgid "Source IP"
+msgstr "源IP"
+
+msgctxt "load balancing method"
 msgid "Source IP"
 msgstr "源IP"
 
@@ -6925,6 +6984,9 @@ msgstr "解析%(prefix)s遇到问题: %(error)s"
 msgid "This action cannot be undone."
 msgstr "这个动作不能撤消。"
 
+msgid "This application requires JavaScript to be enabled in your web browser."
+msgstr "应用请求在您的浏览器中启用JavaScript。"
+
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
@@ -7036,6 +7098,10 @@ msgctxt "Admin state of a Firewall"
 msgid "UP"
 msgstr "上"
 
+msgctxt "Admin state of a Load balancer"
+msgid "UP"
+msgstr "启用"
+
 msgctxt "Admin state of a Network"
 msgid "UP"
 msgstr "上"
@@ -7124,6 +7190,9 @@ msgstr "无法绑定浮动ip"
 
 msgid "Unable to associate monitor."
 msgstr "无法关联监控。"
+
+msgid "Unable to attach interface."
+msgstr "未能附加接口。"
 
 msgid "Unable to attach volume."
 msgstr "无法连接云硬盘"
@@ -7311,6 +7380,9 @@ msgstr "无法删除规则  %s"
 
 msgid "Unable to delete volume transfer."
 msgstr "无法删除卷传送。"
+
+msgid "Unable to detach interface."
+msgstr "未能解绑接口。"
 
 msgid "Unable to determine if availability zones extension is supported."
 msgstr "无法确定可用域是否支持扩展"
@@ -7759,6 +7831,10 @@ msgid "Unable to retrieve details for backup: %s"
 msgstr "无法获取备份%s的详细信息"
 
 #, python-format
+msgid "Unable to retrieve details for cluster \"%s\"."
+msgstr "无法获取集群 \"%s\".详情。"
+
+#, python-format
 msgid "Unable to retrieve details for database instance: %s"
 msgstr "无法获取数据库实例%s的详细信息。"
 
@@ -7793,6 +7869,9 @@ msgstr "无法获取域信息。"
 
 msgid "Unable to retrieve domain list."
 msgstr "无法获取域列表。"
+
+msgid "Unable to retrieve extensions information"
+msgstr "无法获取扩展信息"
 
 msgid "Unable to retrieve extensions information."
 msgstr "无法获取扩展信息"
@@ -8028,6 +8107,9 @@ msgstr "无法获取端口详情"
 
 msgid "Unable to retrieve port details."
 msgstr "无法获取端口详情"
+
+msgid "Unable to retrieve ports information."
+msgstr "无法获取端口信息。"
 
 msgid "Unable to retrieve project details."
 msgstr "无法获取项目详情"
@@ -8776,6 +8858,9 @@ msgstr "云硬盘快照"
 
 msgid "Volume Source"
 msgstr "云硬盘源自"
+
+msgid "Volume Storage"
+msgstr "卷存储"
 
 msgid "Volume Transfer"
 msgstr "存储卷迁移"

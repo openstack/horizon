@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-06-23 06:05+0000\n"
+"POT-Creation-Date: 2015-06-26 06:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,7 +30,7 @@ msgid "Select Source"
 msgstr ""
 
 #: static/dashboard/launch-instance/launch-instance.js:23
-#: static/dashboard/launch-instance/flavor/flavor.js:33
+#: static/dashboard/launch-instance/flavor/flavor.controller.js:40
 msgid "Flavor"
 msgstr ""
 
@@ -158,63 +158,17 @@ msgid ""
 "the <b>Configuration Drive</b> and accesses the metadata."
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:34
-msgid ""
-"Flavors manage the sizing for the compute, memory and storage capacity of"
-" the instance."
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/flavor.js:39
-#: static/dashboard/launch-instance/source/source.js:305
-msgid "Total Instances"
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/flavor.js:40
-msgid "Total VCPUs"
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/flavor.js:41
-msgid "Total RAM"
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/flavor.js:262
-msgid ""
-"This flavor requires more RAM than your quota allows. Please select a "
-"smaller flavor or decrease the instance count."
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/flavor.js:275
-msgid ""
-"This flavor requires more VCPUs than your quota allows. Please select a "
-"smaller flavor or decrease the instance count."
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/flavor.js:284
-#, python-format
-msgid ""
-"The selected image source requires a flavor with at least %(minDisk)s GB "
-"of root disk. Select a flavor with a larger root disk or use a different "
-"image source."
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/flavor.js:294
-#, python-format
-msgid ""
-"The selected image source requires a flavor with at least %(minRam)s MB "
-"of RAM. Select a flavor with more RAM or use a different image source."
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/flavor.js:315
+#: static/dashboard/launch-instance/flavor/flavor-help.controller.js:26
 msgid "Flavor Help"
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:319
+#: static/dashboard/launch-instance/flavor/flavor-help.controller.js:30
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
 "storage and memory resources that will be carved out for the instance."
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:320
+#: static/dashboard/launch-instance/flavor/flavor-help.controller.js:31
 msgid ""
 "The flavor you select must have enough resources allocated to support the"
 " type of instance you are trying to create. Flavors that don't provide "
@@ -222,7 +176,7 @@ msgid ""
 " table with a yellow warning icon."
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/flavor.js:321
+#: static/dashboard/launch-instance/flavor/flavor-help.controller.js:32
 msgid ""
 "Administrators are responsible for creating and managing flavors. A "
 "custom flavor can be created for you or for a specific project where it "
@@ -230,11 +184,57 @@ msgid ""
 "flavor, contact your administrator."
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/select-flavor-table.js:98
+#: static/dashboard/launch-instance/flavor/flavor.controller.js:41
+msgid ""
+"Flavors manage the sizing for the compute, memory and storage capacity of"
+" the instance."
+msgstr ""
+
+#: static/dashboard/launch-instance/flavor/flavor.controller.js:46
+#: static/dashboard/launch-instance/source/source.js:305
+msgid "Total Instances"
+msgstr ""
+
+#: static/dashboard/launch-instance/flavor/flavor.controller.js:47
+msgid "Total VCPUs"
+msgstr ""
+
+#: static/dashboard/launch-instance/flavor/flavor.controller.js:48
+msgid "Total RAM"
+msgstr ""
+
+#: static/dashboard/launch-instance/flavor/flavor.controller.js:275
+msgid ""
+"This flavor requires more RAM than your quota allows. Please select a "
+"smaller flavor or decrease the instance count."
+msgstr ""
+
+#: static/dashboard/launch-instance/flavor/flavor.controller.js:288
+msgid ""
+"This flavor requires more VCPUs than your quota allows. Please select a "
+"smaller flavor or decrease the instance count."
+msgstr ""
+
+#: static/dashboard/launch-instance/flavor/flavor.controller.js:297
+#, python-format
+msgid ""
+"The selected image source requires a flavor with at least %(minDisk)s GB "
+"of root disk. Select a flavor with a larger root disk or use a different "
+"image source."
+msgstr ""
+
+#: static/dashboard/launch-instance/flavor/flavor.controller.js:307
+#, python-format
+msgid ""
+"The selected image source requires a flavor with at least %(minRam)s MB "
+"of RAM. Select a flavor with more RAM or use a different image source."
+msgstr ""
+
+#: static/dashboard/launch-instance/flavor/select-flavor-table.directive.js:117
 msgid "Impact on your quota"
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/select-flavor-table.js:99
+#: static/dashboard/launch-instance/flavor/select-flavor-table.directive.js:118
 #: static/dashboard/launch-instance/keypair/keypair.js:29
 #: static/dashboard/launch-instance/security-groups/security-groups.js:20
 #: static/dashboard/launch-instance/source/source.js:180
@@ -244,27 +244,27 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/select-flavor-table.js:100
+#: static/dashboard/launch-instance/flavor/select-flavor-table.directive.js:119
 msgid "VCPUs"
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/select-flavor-table.js:101
+#: static/dashboard/launch-instance/flavor/select-flavor-table.directive.js:120
 msgid "RAM"
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/select-flavor-table.js:102
+#: static/dashboard/launch-instance/flavor/select-flavor-table.directive.js:121
 msgid "Total Disk"
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/select-flavor-table.js:103
+#: static/dashboard/launch-instance/flavor/select-flavor-table.directive.js:122
 msgid "Root Disk"
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/select-flavor-table.js:104
+#: static/dashboard/launch-instance/flavor/select-flavor-table.directive.js:123
 msgid "Ephemeral Disk"
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/select-flavor-table.js:105
+#: static/dashboard/launch-instance/flavor/select-flavor-table.directive.js:124
 #: static/dashboard/launch-instance/source/source.js:210
 msgid "Public"
 msgstr ""

@@ -16,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-06-24 04:35+0000\n"
-"PO-Revision-Date: 2015-06-24 04:35+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-06-26 02:42+0000\n"
+"PO-Revision-Date: 2015-06-24 14:37+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/"
 "de/)\n"
 "MIME-Version: 1.0\n"
@@ -7987,7 +7987,7 @@ msgid "Unable to list containers."
 msgstr "Container können nicht aufgelistet werden. "
 
 msgid "Unable to list database backups for parent."
-msgstr "Eltern-Datenbank-Sicherungskopien können nicht angezeigt werden."
+msgstr "Eltern-Datenbank-Sicherungskopien können nicht aufgelistet werden."
 
 msgid "Unable to list database instances to backup."
 msgstr "Die zu sichernden Datenbankinstanzen können nicht aufgelistet werden."
@@ -8209,6 +8209,10 @@ msgstr "Standardkontingentswerte können nicht abgerufen werden."
 #, python-format
 msgid "Unable to retrieve details for backup: %s"
 msgstr "Details zur Sicherungskopie können nicht abgerufen werden: %s"
+
+#, python-format
+msgid "Unable to retrieve details for cluster \"%s\"."
+msgstr "Details für Cluster \"%s\" konnten nicht abgerufen werden."
 
 #, python-format
 msgid "Unable to retrieve details for database instance: %s"
