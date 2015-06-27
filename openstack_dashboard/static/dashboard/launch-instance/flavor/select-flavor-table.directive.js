@@ -71,19 +71,19 @@
 
     //////////
 
-    function link(scope, element, attrs, transferTableCtrl) {
+    function link(scope, element, attrs, transferTableController) {
       /*
-       * Unfortunately, the transferTableCtrl does not remove items from the data
+       * Unfortunately, the transferTableController does not remove items from the data
        * when they are moved from the available to the allocated. Instead it simply
        * adds that id to its "allocatedIds" array. Tables used within the
        * transfer table directive (like this one) are required to have internal
        * knowledge about the allocatedIds and use it to determine which items
        * are currently visible.
        *
-       * Also, the transferTableCtrl item click function is different for
+       * Also, the transferTableController item click function is different for
        * allocated items vs available items.
        *
-       * Finally, the transferTableCtrl provides default text to show when
+       * Finally, the transferTableController provides default text to show when
        * the tables are empty,
        *
        * Contain all of this "parent" knowledge within "isAvailableTable"
@@ -95,20 +95,20 @@
         scope.showSearchBar = true;
         // Hide items that have been allocated
         scope.showItemFunc = function (item) {
-          return !transferTableCtrl.allocatedIds[item.id];
+          return !transferTableController.allocatedIds[item.id];
         };
-        scope.itemClickAction = transferTableCtrl.allocate;
+        scope.itemClickAction = transferTableController.allocate;
         scope.noneAvailableText = transferTableHelpText.noneAvailText;
         scope.rowExpandText = transferTableHelpText.expandDetailsText;
         scope.itemButtonClasses = "fa fa-plus";
 
-        scope.tooltipModel = transferTableCtrl.tooltipModel;
+        scope.tooltipModel = transferTableController.tooltipModel;
       } else {
         // This table used in "allocated" portion of transfer table
         scope.showSearchBar = false;
         // Always show items
         scope.showItemFunc = function () { return true; };
-        scope.itemClickAction = transferTableCtrl.deallocate;
+        scope.itemClickAction = transferTableController.deallocate;
         scope.noneAvailableText = transferTableHelpText.noneAllocText;
         scope.itemButtonClasses = "fa fa-minus";
       }
