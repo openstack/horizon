@@ -1,6 +1,6 @@
 horizon.metering = {
   init_create_usage_report_form: function() {
-    horizon.datepickers.add('input[data-date-picker="True"]');
+    horizon.datepickers.add('input[data-date-picker]');
     horizon.metering.add_change_event_to_period_dropdown();
     horizon.metering.show_or_hide_date_fields();
   },
