@@ -84,7 +84,6 @@ class CreateImageForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255, label=_("Name"))
     description = forms.CharField(max_length=255, label=_("Description"),
                                   required=False)
-
     source_type = forms.ChoiceField(
         label=_('Image Source'),
         required=False,
@@ -93,19 +92,17 @@ class CreateImageForm(forms.SelfHandlingForm):
         widget=forms.Select(attrs={
             'class': 'switchable',
             'data-slug': 'source'}))
-
-    image_url = forms.CharField(max_length=255,
-                                label=_("Image Location"),
-                                help_text=_("An external (HTTP) URL to load "
-                                            "the image from."),
-                                widget=forms.TextInput(attrs={
-                                    'class': 'switched',
-                                    'data-switch-on': 'source',
-                                    'data-source-url': _('Image Location'),
-                                    'ng-model': 'copyFrom',
-                                    'ng-change':
-                                    'selectImageFormat(copyFrom)'}),
-                                required=False)
+    image_url = forms.URLField(label=_("Image Location"),
+                               help_text=_("An external (HTTP) URL to load "
+                                           "the image from."),
+                               widget=forms.TextInput(attrs={
+                                   'class': 'switched',
+                                   'data-switch-on': 'source',
+                                   'data-source-url': _('Image Location'),
+                                   'ng-model': 'copyFrom',
+                                   'ng-change':
+                                   'selectImageFormat(copyFrom)'}),
+                               required=False)
     image_file = forms.FileField(label=_("Image File"),
                                  help_text=_("A local image to upload."),
                                  widget=forms.FileInput(attrs={
