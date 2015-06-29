@@ -87,7 +87,7 @@ class MappingsTests(test.TestCase):
             'aaa')
 
     def test_stack_output(self):
-        self.assertEqual(u'foo', mappings.stack_output('foo'))
+        self.assertEqual(u'<pre>foo</pre>', mappings.stack_output('foo'))
         self.assertEqual(u'', mappings.stack_output(None))
 
         outputs = ['one', 'two', 'three']

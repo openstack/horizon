@@ -135,18 +135,15 @@ def resource_to_url(resource):
 def stack_output(output):
     if not output:
         return u''
-    if isinstance(output, dict) or isinstance(output, list):
-        json_string = json.dumps(output, indent=2)
-        safe_output = u'<pre>%s</pre>' % html.escape(json_string)
-        return safestring.mark_safe(safe_output)
     if isinstance(output, basestring):
         parts = urlparse.urlsplit(output)
         if parts.netloc and parts.scheme in ('http', 'https'):
             url = html.escape(output)
             safe_link = u'<a href="%s" target="_blank">%s</a>' % (url, url)
             return safestring.mark_safe(safe_link)
-    return unicode(output)
-
+    if isinstance(output, dict) or isinstance(output, list):
+        output = json.dumps(output, indent=2)
+    return safestring.mark_safe(u'<pre>%s</pre>' % html.escape(output))
 
 resource_images = {
     'LB_FAILED': '/static/dashboard/img/lb-red.svg',
