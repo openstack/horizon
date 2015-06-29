@@ -200,8 +200,7 @@ class UpdateCell(tables.UpdateAction):
                 description=user_obj.description,
                 email=user_obj.email,
                 enabled=user_obj.enabled,
-                project=user_obj.project_id,
-                password=None)
+                project=user_obj.project_id)
 
         except horizon_exceptions.Conflict:
             message = _("This name is already taken.")
