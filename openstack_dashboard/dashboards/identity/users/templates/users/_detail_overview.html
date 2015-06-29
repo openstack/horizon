@@ -24,6 +24,10 @@
     <dd>{{ user.enabled|yesno|capfirst }}</dd>
     <dt>{% trans "Project ID" %}</dt>
     <dd>{{ user.project_id }}</dd>
+    {% if tenant_name %}
+      <dt>{% trans "Project Name" %}</dt>
+      <dd>{{ tenant_name }}</dd>
+    {% endif %}
   </dl>
 </div>
 
