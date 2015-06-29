@@ -11,7 +11,7 @@
     <dt>{% trans "Project ID" %}</dt>
     <dd>{{ project.id }}</dd>
     <dt>{% trans "Enabled" %}</dt>
-    <dd>{{ project.enabled }}</dd>
+    <dd>{{ project.enabled|yesno|capfirst }}</dd>
     <dt>{% trans "Description" %}</dt>
     <dd>{{ project.description|default:_("None") }}</dd>
   </dl>
