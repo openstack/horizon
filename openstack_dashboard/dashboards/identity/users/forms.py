@@ -106,6 +106,9 @@ class CreateUserForm(PasswordMixin, BaseUserForm):
                                        add_item_link=ADD_PROJECT_URL)
     role_id = forms.ChoiceField(label=_("Role"),
                                 required=PROJECT_REQUIRED)
+    enabled = forms.BooleanField(label=_("Enabled"),
+                                 required=False,
+                                 initial=True)
 
     def __init__(self, *args, **kwargs):
         roles = kwargs.pop('roles')
@@ -113,7 +116,8 @@ class CreateUserForm(PasswordMixin, BaseUserForm):
         # Reorder form fields from multiple inheritance
         ordering = ["domain_id", "domain_name", "name",
                     "description", "email", "password",
-                    "confirm_password", "project", "role_id"]
+                    "confirm_password", "project", "role_id",
+                    "enabled"]
         # Starting from 1.7 Django uses OrderedDict for fields and keyOrder
         # no longer works for it
         if django.VERSION >= (1, 7):
@@ -149,7 +153,7 @@ class CreateUserForm(PasswordMixin, BaseUserForm):
                                                 description=desc,
                                                 password=data['password'],
                                                 project=data['project'],
-                                                enabled=True,
+                                                enabled=data['enabled'],
                                                 domain=domain.id)
             messages.success(request,
                              _('User "%s" was successfully created.')
