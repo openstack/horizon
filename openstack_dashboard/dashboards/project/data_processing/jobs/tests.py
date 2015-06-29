@@ -39,7 +39,7 @@ class DataProcessingJobTests(test.TestCase):
     @test.create_stubs({api.sahara: ('job_get',)})
     def test_details(self):
         api.sahara.job_get(IsA(http.HttpRequest), IsA(unicode)) \
-            .AndReturn(self.jobs.list()[0])
+            .MultipleTimes().AndReturn(self.jobs.first())
         self.mox.ReplayAll()
         res = self.client.get(DETAILS_URL)
         self.assertTemplateUsed(res,

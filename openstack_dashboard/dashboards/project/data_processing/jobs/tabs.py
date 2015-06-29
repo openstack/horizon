@@ -29,7 +29,11 @@ class GeneralTab(tabs.Tab):
 
     def get_context_data(self, request):
         job_id = self.tab_group.kwargs['job_id']
-        job = saharaclient.job_get(request, job_id)
+        try:
+            job = saharaclient.job_get(request, job_id)
+        except Exception as e:
+            job = {}
+            LOG.error("Unable to fetch job template details: %s" % str(e))
         return {"job": job}
 
 
