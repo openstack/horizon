@@ -40,10 +40,12 @@ class GeneralTab(tabs.Tab):
         try:
             template = saharaclient.nodegroup_template_get(
                 request, template_id)
-        except Exception:
+        except Exception as e:
             template = {}
-            exceptions.handle(request,
-                              _("Unable to fetch node group template."))
+            LOG.error(
+                "Unable to fetch node group template details: %s" % str(e))
+            return {"template": template}
+
         try:
             flavor = nova.flavor_get(request, template.flavor_id)
         except Exception:
@@ -85,10 +87,10 @@ class ConfigsTab(tabs.Tab):
         try:
             template = saharaclient.nodegroup_template_get(
                 request, template_id)
-        except Exception:
+        except Exception as e:
             template = {}
-            exceptions.handle(request,
-                              _("Unable to fetch node group template."))
+            LOG.error(
+                "Unable to fetch node group template details: %s" % str(e))
         return {"template": template}
 
 

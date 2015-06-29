@@ -18,6 +18,8 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 from horizon import tables
 from horizon import tabs
+from horizon.utils import memoized
+from horizon.utils.urlresolvers import reverse  # noqa
 from horizon import workflows
 
 from openstack_dashboard.api import sahara as saharaclient
@@ -62,13 +64,23 @@ class NodegroupTemplateDetailsView(tabs.TabView):
     template_name = 'project/data_processing.nodegroup_templates/details.html'
     page_title = _("Node Group Template Details")
 
+    @memoized.memoized_method
+    def get_object(self):
+        ngt_id = self.kwargs["template_id"]
+        try:
+            return saharaclient.nodegroup_template_get(self.request, ngt_id)
+        except Exception:
+            msg = _('Unable to retrieve details for '
+                    'node group template "%s".') % ngt_id
+            redirect = reverse("horizon:project:data_processing."
+                               "nodegroup_templates:nodegroup-templates")
+            exceptions.handle(self.request, msg, redirect=redirect)
+
     def get_context_data(self, **kwargs):
         context = super(NodegroupTemplateDetailsView, self)\
             .get_context_data(**kwargs)
+        context['template'] = self.get_object()
         return context
-
-    def get_data(self):
-        pass
 
 
 class CreateNodegroupTemplateView(workflows.WorkflowView):
