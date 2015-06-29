@@ -25,7 +25,7 @@
       var scope, ctrl, $browser, deferred;
 
       beforeEach(module(function($provide) {
-        $provide.value('bootSourceTypes', noop);
+        $provide.value('hz.dashboard.launch-instance.boot-source-types', noop);
         $provide.value('bytesFilter', noop);
         $provide.value('horizon.framework.widgets.charts.donutChartSettings', noop);
         $provide.value('dateFilter', noop);

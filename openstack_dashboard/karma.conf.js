@@ -91,7 +91,6 @@ module.exports = function (config) {
        * not significant.
        */
       '**/*.module.js',
-      '**/launch-instance.js',
 
       /**
        * Followed by other JavaScript files that defines angular providers
