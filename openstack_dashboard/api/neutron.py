@@ -478,6 +478,7 @@ class FloatingIpManager(network_base.FloatingIpManager):
                     continue
                 target = {'name': '%s: %s' % (server_name, ip['ip_address']),
                           'id': '%s_%s' % (port_id, ip['ip_address']),
+                          'port_id': port_id,
                           'instance_id': p.device_id}
                 targets.append(FloatingIpTarget(target))
         return targets
