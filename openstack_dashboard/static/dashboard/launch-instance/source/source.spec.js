@@ -21,7 +21,7 @@
 
     beforeEach(module('hz.dashboard.launch-instance'));
 
-    describe('LaunchInstanceSourceCtrl', function() {
+    describe('LaunchInstanceSourceController', function() {
       var scope, ctrl, $browser, deferred;
 
       beforeEach(module(function($provide) {
@@ -56,55 +56,55 @@
           'boot-source-type': { $setValidity: noop }
         };
 
-        ctrl = $controller('LaunchInstanceSourceCtrl', { $scope: scope });
+        ctrl = $controller('LaunchInstanceSourceController', { $scope: scope });
 
         scope.$digest();
       }));
 
       it('has its own labels', function() {
-        expect(scope.label).toBeDefined();
-        expect(Object.keys(scope.label).length).toBeGreaterThan(0);
+        expect(ctrl.label).toBeDefined();
+        expect(Object.keys(ctrl.label).length).toBeGreaterThan(0);
       });
 
       it('has defined error messages for invalid fields', function() {
-        expect(scope.bootSourceTypeError).toBeDefined();
-        expect(scope.instanceNameError).toBeDefined();
-        expect(scope.instanceCountError).toBeDefined();
-        expect(scope.volumeSizeError).toBeDefined();
+        expect(ctrl.bootSourceTypeError).toBeDefined();
+        expect(ctrl.instanceNameError).toBeDefined();
+        expect(ctrl.instanceCountError).toBeDefined();
+        expect(ctrl.volumeSizeError).toBeDefined();
       });
 
       it('defines the correct boot source options', function() {
-        expect(scope.bootSourcesOptions).toBeDefined();
+        expect(ctrl.bootSourcesOptions).toBeDefined();
         var types = ['image', 'snapshot', 'volume', 'volume_snapshot'];
-        var opts = scope.bootSourcesOptions.map(function(x) { return x.type; });
+        var opts = ctrl.bootSourcesOptions.map(function(x) { return x.type; });
         types.forEach(function(key) {
           expect(opts).toContain(key);
         });
-        expect(scope.bootSourcesOptions.length).toBe(types.length);
+        expect(ctrl.bootSourcesOptions.length).toBe(types.length);
       });
 
       it('initializes transfer table variables', function() {
         // NOTE: these are set by the default, not the initial values.
         // Arguably we shouldn't even set the original values.
-        expect(scope.tableHeadCells).toBeDefined();
-        expect(scope.tableHeadCells.length).toEqual(5);
-        expect(scope.tableBodyCells).toBeDefined();
-        expect(scope.tableBodyCells.length).toEqual(5);
-        expect(scope.tableData).toBeDefined();
-        expect(Object.keys(scope.tableData).length).toEqual(4);
+        expect(ctrl.tableHeadCells).toBeDefined();
+        expect(ctrl.tableHeadCells.length).toEqual(5);
+        expect(ctrl.tableBodyCells).toBeDefined();
+        expect(ctrl.tableBodyCells.length).toEqual(5);
+        expect(ctrl.tableData).toBeDefined();
+        expect(Object.keys(ctrl.tableData).length).toEqual(4);
         // TODO really confused but the use of this helpText variable
         // in the code, esp. the use of extend, rather than just setting it
         // once.
-        expect(scope.helpText).toBeDefined();
-        expect(scope.helpText.noneAllocText).toBeDefined();
-        expect(scope.helpText.availHelpText).toBeDefined();
+        expect(ctrl.helpText).toBeDefined();
+        expect(ctrl.helpText.noneAllocText).toBeDefined();
+        expect(ctrl.helpText.availHelpText).toBeDefined();
       });
 
       it('initializes table data to reflect "image" selection', function() {
         var list = [ { id: 'image-1'}, { id: 'image-2' } ]; // Use scope's values.
         var sel = []; // None selected.
 
-        expect(scope.tableData).toEqual({
+        expect(ctrl.tableData).toEqual({
           available: list,
           allocated: sel,
           displayedAvailable: list,
@@ -114,7 +114,7 @@
 
       it('defaults to first source type if none existing', function() {
         expect(scope.model.newInstanceSpec.source_type.type).toBe('image');
-        expect(scope.currentBootSource).toBe('image');
+        expect(ctrl.currentBootSource).toBe('image');
       });
 
       it('defaults source to image-2 if launchContext.imageId = image-2', function() {
@@ -123,9 +123,9 @@
 
         $browser.defer.flush();
 
-        expect(scope.tableData.allocated[0]).toEqual({ id: 'image-2' });
+        expect(ctrl.tableData.allocated[0]).toEqual({ id: 'image-2' });
         expect(scope.model.newInstanceSpec.source_type.type).toBe('image');
-        expect(scope.currentBootSource).toBe('image');
+        expect(ctrl.currentBootSource).toBe('image');
       });
 
       describe('Scope Functions', function() {
@@ -136,25 +136,25 @@
 
           it('updates the scope appropriately', function() {
             var selSource = 'image';
-            scope.updateBootSourceSelection(selSource);
+            ctrl.updateBootSourceSelection(selSource);
 
-            expect(scope.currentBootSource).toEqual('image');
+            expect(ctrl.currentBootSource).toEqual('image');
             expect(scope.model.newInstanceSpec.vol_create).toBe(false);
             expect(scope.model.newInstanceSpec.vol_delete_on_terminate).toBe(false);
 
             // check table data
-            expect(scope.tableData).toBeDefined();
-            expect(Object.keys(scope.tableData)).toEqual(tableKeys);
-            expect(scope.tableHeadCells.length).toBeGreaterThan(0);
-            expect(scope.tableBodyCells.length).toBeGreaterThan(0);
+            expect(ctrl.tableData).toBeDefined();
+            expect(Object.keys(ctrl.tableData)).toEqual(tableKeys);
+            expect(ctrl.tableHeadCells.length).toBeGreaterThan(0);
+            expect(ctrl.tableBodyCells.length).toBeGreaterThan(0);
 
-            expect(scope.maxInstanceCount).toBe(10);
+            expect(ctrl.maxInstanceCount).toBe(10);
 
             // check chart data and labels
-            expect(scope.instanceStats.label).toBe('10%');
-            expect(scope.instanceStats.data[0].value).toEqual(0);
-            expect(scope.instanceStats.data[1].value).toEqual(1);
-            expect(scope.instanceStats.data[2].value).toEqual(9);
+            expect(ctrl.instanceStats.label).toBe('10%');
+            expect(ctrl.instanceStats.data[0].value).toEqual(0);
+            expect(ctrl.instanceStats.data[1].value).toEqual(1);
+            expect(ctrl.instanceStats.data[2].value).toEqual(9);
           });
         });
 
@@ -164,13 +164,13 @@
             scope.model.novaLimits.maxTotalInstances = 9;
             scope.$digest();
 
-            expect(scope.maxInstanceCount).toBe(9);
+            expect(ctrl.maxInstanceCount).toBe(9);
 
             // check chart data and labels
-            expect(scope.instanceStats.label).toBe('11%');
-            expect(scope.instanceStats.data[0].value).toEqual(0);
-            expect(scope.instanceStats.data[1].value).toEqual(1);
-            expect(scope.instanceStats.data[2].value).toEqual(8);
+            expect(ctrl.instanceStats.label).toBe('11%');
+            expect(ctrl.instanceStats.data[0].value).toEqual(0);
+            expect(ctrl.instanceStats.data[1].value).toEqual(1);
+            expect(ctrl.instanceStats.data[2].value).toEqual(8);
           });
         });
 
@@ -180,39 +180,39 @@
             scope.model.novaLimits.totalInstancesUsed = 1;
             scope.$digest();
 
-            expect(scope.maxInstanceCount).toBe(9);
+            expect(ctrl.maxInstanceCount).toBe(9);
 
             // check chart data and labels
-            expect(scope.instanceStats.label).toBe('20%');
-            expect(scope.instanceStats.data[0].value).toEqual(1);
-            expect(scope.instanceStats.data[1].value).toEqual(1);
-            expect(scope.instanceStats.data[2].value).toEqual(8);
+            expect(ctrl.instanceStats.label).toBe('20%');
+            expect(ctrl.instanceStats.data[0].value).toEqual(1);
+            expect(ctrl.instanceStats.data[1].value).toEqual(1);
+            expect(ctrl.instanceStats.data[2].value).toEqual(8);
           });
         });
 
         describe('the instanceStats chart is set up correctly', function() {
 
           it('chart should have a title of "Total Instances"', function() {
-            expect(scope.instanceStats.title).toBe('Total Instances');
+            expect(ctrl.instanceStats.title).toBe('Total Instances');
           });
 
           it('chart should have a maxLimit value defined', function() {
-            expect(scope.instanceStats.maxLimit).toBeDefined();
+            expect(ctrl.instanceStats.maxLimit).toBeDefined();
           });
 
           it('instanceStats.overMax should get set to true if instance_count exceeds maxLimit',
             function() {
-              scope.tableData.allocated.push({ name: 'image-1', size: 0, min_disk: 0 });
+              ctrl.tableData.allocated.push({ name: 'image-1', size: 0, min_disk: 0 });
               scope.model.newInstanceSpec.instance_count = 11;
               scope.$digest();
 
               // check chart data and labels
-              expect(scope.instanceStats.label).toBe('110%');
-              expect(scope.instanceStats.data[0].value).toEqual(0);
-              expect(scope.instanceStats.data[1].value).toEqual(11);
-              expect(scope.instanceStats.data[2].value).toEqual(0);
+              expect(ctrl.instanceStats.label).toBe('110%');
+              expect(ctrl.instanceStats.data[0].value).toEqual(0);
+              expect(ctrl.instanceStats.data[1].value).toEqual(11);
+              expect(ctrl.instanceStats.data[2].value).toEqual(0);
               // check to ensure overMax
-              expect(scope.instanceStats.overMax).toBe(true);
+              expect(ctrl.instanceStats.overMax).toBe(true);
             }
           );
         });
@@ -238,102 +238,102 @@
             scope.$digest();
 
             // check chart data and labels
-            expect(scope.instanceStats.label).toBe('20%');
-            expect(scope.instanceStats.data[0].value).toEqual(0);
-            expect(scope.instanceStats.data[1].value).toEqual(2);
-            expect(scope.instanceStats.data[2].value).toEqual(8);
+            expect(ctrl.instanceStats.label).toBe('20%');
+            expect(ctrl.instanceStats.data[0].value).toEqual(0);
+            expect(ctrl.instanceStats.data[1].value).toEqual(2);
+            expect(ctrl.instanceStats.data[2].value).toEqual(8);
           });
 
           it('should update chart stats if instance count = 2 and source selected', function() {
-            scope.tableData.allocated.push({ name: 'image-1', size: 0, min_disk: 0 });
+            ctrl.tableData.allocated.push({ name: 'image-1', size: 0, min_disk: 0 });
             scope.model.newInstanceSpec.instance_count = 2;
             scope.$digest();
 
             // check chart data and labels
-            expect(scope.instanceStats.label).toBe('20%');
-            expect(scope.instanceStats.data[0].value).toEqual(0);
-            expect(scope.instanceStats.data[1].value).toEqual(2);
-            expect(scope.instanceStats.data[2].value).toEqual(8);
+            expect(ctrl.instanceStats.label).toBe('20%');
+            expect(ctrl.instanceStats.data[0].value).toEqual(0);
+            expect(ctrl.instanceStats.data[1].value).toEqual(2);
+            expect(ctrl.instanceStats.data[2].value).toEqual(8);
           });
         });
 
         describe('source allocation', function() {
 
           it('should update chart stats if source allocated', function() {
-            scope.tableData.allocated.push({ name: 'image-1', size: 0, min_disk: 0 });
+            ctrl.tableData.allocated.push({ name: 'image-1', size: 0, min_disk: 0 });
             scope.$digest();
 
             // check chart data and labels
-            expect(scope.instanceStats.label).toBe('10%');
-            expect(scope.instanceStats.data[0].value).toEqual(0);
-            expect(scope.instanceStats.data[1].value).toEqual(1);
-            expect(scope.instanceStats.data[2].value).toEqual(9);
+            expect(ctrl.instanceStats.label).toBe('10%');
+            expect(ctrl.instanceStats.data[0].value).toEqual(0);
+            expect(ctrl.instanceStats.data[1].value).toEqual(1);
+            expect(ctrl.instanceStats.data[2].value).toEqual(9);
           });
 
           it('should set minVolumeSize to 1 if source allocated and size = min_disk = 1GB',
             function() {
-              scope.tableData.allocated.push({ name: 'image-1', size: 1000000000, min_disk: 1 });
+              ctrl.tableData.allocated.push({ name: 'image-1', size: 1000000000, min_disk: 1 });
               scope.$digest();
 
-              expect(scope.minVolumeSize).toBe(1);
+              expect(ctrl.minVolumeSize).toBe(1);
             }
           );
 
           it('should set minVolumeSize to 1 if source allocated and size = 1GB and min_disk = 0GB',
             function() {
-              scope.tableData.allocated.push({ name: 'image-1', size: 1000000000, min_disk: 0 });
+              ctrl.tableData.allocated.push({ name: 'image-1', size: 1000000000, min_disk: 0 });
               scope.$digest();
 
-              expect(scope.minVolumeSize).toBe(1);
+              expect(ctrl.minVolumeSize).toBe(1);
             }
           );
 
           it('should set minVolumeSize to 2 if source allocated and size = 1GB and min_disk = 2GB',
             function() {
-              scope.tableData.allocated.push({ name: 'image-1', size: 1000000000, min_disk: 2 });
+              ctrl.tableData.allocated.push({ name: 'image-1', size: 1000000000, min_disk: 2 });
               scope.$digest();
 
-              expect(scope.minVolumeSize).toBe(2);
+              expect(ctrl.minVolumeSize).toBe(2);
             }
           );
 
           it('should set minVolumeSize to 0 if source allocated and size = min_disk = 0',
             function() {
-              scope.tableData.allocated.push({ name: 'image-1', size: 0, min_disk: 0 });
+              ctrl.tableData.allocated.push({ name: 'image-1', size: 0, min_disk: 0 });
               scope.$digest();
 
-              expect(scope.minVolumeSize).toBe(0);
+              expect(ctrl.minVolumeSize).toBe(0);
             }
           );
 
           it('should set minVolumeSize to 2 if source allocated and size = 1.5GB and min_disk = 0',
             function() {
-              scope.tableData.allocated.push({ name: 'image-1', size: 1500000000, min_disk: 0 });
+              ctrl.tableData.allocated.push({ name: 'image-1', size: 1500000000, min_disk: 0 });
               scope.$digest();
 
               // minVolumeSize should use Math.ceil()
-              expect(scope.minVolumeSize).toBe(2);
+              expect(ctrl.minVolumeSize).toBe(2);
             }
           );
 
           it('should set minVolumeSize to undefined if boot source is not image', function() {
             var selSource = 'volume';
-            scope.updateBootSourceSelection(selSource);
+            ctrl.updateBootSourceSelection(selSource);
 
-            expect(scope.currentBootSource).toEqual('volume');
+            expect(ctrl.currentBootSource).toEqual('volume');
             scope.$digest();
 
-            expect(scope.minVolumeSize).toBeUndefined();
+            expect(ctrl.minVolumeSize).toBeUndefined();
           });
         });
       });
     });
 
-    describe('LaunchInstanceSourceHelpCtrl', function() {
+    describe('LaunchInstanceSourceHelpController', function() {
       var ctrl;
 
       beforeEach(inject(function($controller) {
-        ctrl = $controller('LaunchInstanceSourceHelpCtrl', {});
+        ctrl = $controller('LaunchInstanceSourceHelpController', {});
       }));
 
       it('defines the title', function() {

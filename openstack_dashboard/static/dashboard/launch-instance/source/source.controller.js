@@ -1,83 +1,59 @@
+/*
+ * Copyright 2015 IBM Corp.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 (function () {
   'use strict';
 
-  var push = [].push;
-
-  /**
-   * @ngdoc overview
-   * @name hz.dashboard.launch-instance
-   * @description
-   *
-   * # hz.dashboard.launch-instance
-   *
-   * The `hz.dashboard.launch-instance` module allows a user
-   * to launch an instance via the multi-step wizard framework
-   *
-   */
-  var module = angular.module('hz.dashboard.launch-instance');
-
-  /**
-   * @name bootSourceTypes
-   * @description Boot source types
-   */
-  module.constant('bootSourceTypes', {
-    IMAGE: 'image',
-    INSTANCE_SNAPSHOT: 'snapshot',
-    VOLUME: 'volume',
-    VOLUME_SNAPSHOT: 'volume_snapshot'
-  });
-
-  /**
-   * @ngdoc filter
-   * @name diskFormat
-   * @description
-   * Expects object and returns disk_format property value.
-   * Returns empty string if input is null or not an object.
-   * Uniquely required for the source step implementation of transfer tables
-   */
-  module.filter('diskFormat', function() {
-    return function(input) {
-      if (input === null || !angular.isObject(input) ||
-        !angular.isDefined(input.disk_format) || input.disk_format === null) {
-        return '';
-      } else {
-        return input.disk_format.toUpperCase();
-      }
-    };
-  });
-
   /**
    * @ngdoc controller
-   * @name LaunchInstanceSourceCtrl
+   * @name LaunchInstanceSourceController
    * @description
-   * The `LaunchInstanceSourceCtrl` controller provides functions for
+   * The `LaunchInstanceSourceController` controller provides functions for
    * configuring the source step of the Launch Instance Wizard.
    *
    */
-  module.controller('LaunchInstanceSourceCtrl', [
-    '$scope',
-    'bootSourceTypes',
-    'bytesFilter',
-    'horizon.framework.widgets.charts.donutChartSettings',
-    'dateFilter',
-    'decodeFilter',
-    'diskFormatFilter',
-    'gbFilter',
-    'horizon.framework.widgets.charts.quotaChartDefaults',
-    LaunchInstanceSourceCtrl
-  ]);
+  var push = [].push;
 
-  function LaunchInstanceSourceCtrl($scope,
-                                    bootSourceTypes,
-                                    bytesFilter,
-                                    donutChartSettings,
-                                    dateFilter,
-                                    decodeFilter,
-                                    diskFormatFilter,
-                                    gbFilter,
-                                    quotaChartDefaults) {
+  angular
+    .module('hz.dashboard.launch-instance')
+    .controller('LaunchInstanceSourceController', LaunchInstanceSourceController);
 
-    $scope.label = {
+  LaunchInstanceSourceController.$inject = [
+   '$scope',
+   'bootSourceTypes',
+   'bytesFilter',
+   'horizon.framework.widgets.charts.donutChartSettings',
+   'dateFilter',
+   'decodeFilter',
+   'diskFormatFilter',
+   'gbFilter',
+   'horizon.framework.widgets.charts.quotaChartDefaults'
+  ];
+
+  function LaunchInstanceSourceController($scope,
+    bootSourceTypes,
+    bytesFilter,
+    donutChartSettings,
+    dateFilter,
+    decodeFilter,
+    diskFormatFilter,
+    gbFilter,
+    quotaChartDefaults) {
+
+    var ctrl = this;
+    ctrl.label = {
       title: gettext('Instance Details'),
       // jscs:disable maximumLineLength
       subtitle: gettext('Please provide the initial host name for the instance, the availability zone where it will be deployed, and the instance count. Increase the Count to create multiple instances with the same settings.'),
@@ -100,16 +76,16 @@
 
     // Error text for invalid fields
     // jscs:disable maximumLineLength
-    $scope.bootSourceTypeError = gettext('Volumes can only be attached to 1 active instance at a time. Please either set your instance count to 1 or select a different source type.');
+    ctrl.bootSourceTypeError = gettext('Volumes can only be attached to 1 active instance at a time. Please either set your instance count to 1 or select a different source type.');
     // jscs:enable maximumLineLength
-    $scope.instanceNameError = gettext('A name is required for your instance.');
-    $scope.instanceCountError = gettext(
+    ctrl.instanceNameError = gettext('A name is required for your instance.');
+    ctrl.instanceCountError = gettext(
       'Instance count is required and must be an integer of at least 1'
     );
-    $scope.volumeSizeError = gettext('Volume size is required and must be an integer');
+    ctrl.volumeSizeError = gettext('Volume size is required and must be an integer');
 
     // toggle button label/value defaults
-    $scope.toggleButtonOptions = [
+    ctrl.toggleButtonOptions = [
       { label: gettext('Yes'), value: true },
       { label: gettext('No'), value: false }
     ];
@@ -117,35 +93,27 @@
     /*
      * Boot Sources
      */
-
-    $scope.bootSourcesOptions = [
+    ctrl.bootSourcesOptions = [
       { type: bootSourceTypes.IMAGE, label: gettext('Image') },
       { type: bootSourceTypes.INSTANCE_SNAPSHOT, label: gettext('Instance Snapshot') },
       { type: bootSourceTypes.VOLUME, label: gettext('Volume') },
       { type: bootSourceTypes.VOLUME_SNAPSHOT, label: gettext('Volume Snapshot') }
     ];
 
-    $scope.updateBootSourceSelection = function (selectedSource) {
-      $scope.currentBootSource = selectedSource;
-      $scope.model.newInstanceSpec.vol_create = false;
-      $scope.model.newInstanceSpec.vol_delete_on_terminate = false;
-      changeBootSource(selectedSource);
-      validateBootSourceType();
-    };
+    ctrl.updateBootSourceSelection = updateBootSourceSelection;
 
     /*
      * Transfer table
      */
-
-    $scope.tableHeadCells = [];
-    $scope.tableBodyCells = [];
-    $scope.tableData = {};
-    $scope.helpText = {};
-    $scope.maxInstanceCount = 1;
-    $scope.sourceDetails =
+    ctrl.tableHeadCells = [];
+    ctrl.tableBodyCells = [];
+    ctrl.tableData = {};
+    ctrl.helpText = {};
+    ctrl.maxInstanceCount = 1;
+    ctrl.sourceDetails =
         '/static/dashboard/launch-instance/source/source-details.html';
 
-    var selection = $scope.selection = $scope.model.newInstanceSpec.source;
+    var selection = ctrl.selection = $scope.model.newInstanceSpec.source;
 
     var bootSources = {
       image: {
@@ -244,52 +212,10 @@
       ]
     };
 
-    // Dynamically update page based on boot source selection
-    function changeBootSource(key, preSelection) {
-      updateDataSource(key, preSelection);
-      updateHelpText(key);
-      updateTableHeadCells(key);
-      updateTableBodyCells(key);
-      updateChart();
-      updateMaxInstanceCount();
-    }
-
-    function updateDataSource(key, preSelection) {
-      selection.length = 0;
-      if (preSelection) {
-        push.apply(selection, preSelection);
-      }
-      angular.extend($scope.tableData, bootSources[key]);
-    }
-
-    function updateHelpText() {
-      angular.extend($scope.helpText, {
-        noneAllocText: gettext('Select a source from those listed below.'),
-        availHelpText: gettext('Select one'),
-        // jscs:disable maximumLineLength
-        volumeAZHelpText: gettext('When selecting volume as boot source, please ensure the instance\'s availability zone is compatible with your volume\'s availability zone.')
-        // jscs:enable maximumLineLength
-      });
-    }
-
-    function updateTableHeadCells(key) {
-      refillArray($scope.tableHeadCells,  tableHeadCellsMap[key]);
-    }
-
-    function updateTableBodyCells(key) {
-      refillArray($scope.tableBodyCells, tableBodyCellsMap[key]);
-    }
-
-    function refillArray(arrayToRefill, contentArray) {
-      arrayToRefill.length = 0;
-      Array.prototype.push.apply(arrayToRefill, contentArray);
-    }
-
     /*
      * Donut chart
      */
-
-    $scope.chartSettings = donutChartSettings;
+    ctrl.chartSettings = donutChartSettings;
     var maxTotalInstances = 1; // Must have default value > 0
     var totalInstancesUsed = 0;
 
@@ -301,7 +227,7 @@
       totalInstancesUsed = $scope.model.novaLimits.totalInstancesUsed;
     }
 
-    $scope.instanceStats = {
+    ctrl.instanceStats = {
       title: gettext('Total Instances'),
       maxLimit: maxTotalInstances,
       label: '100%',
@@ -364,7 +290,7 @@
 
     $scope.$watch(
       function () {
-        return $scope.tableData.allocated.length;
+        return ctrl.tableData.allocated.length;
       },
       function (newValue, oldValue) {
         if (newValue !== oldValue) {
@@ -374,29 +300,103 @@
       }
     );
 
+    $scope.$watchCollection(
+      function () {
+        return $scope.model.images;
+      },
+      function () {
+        $scope.initPromise.then(function () {
+          $scope.$applyAsync(function () {
+            if ($scope.launchContext.imageId) {
+              setSourceImageWithId($scope.launchContext.imageId);
+            }
+          });
+        });
+      }
+    );
+
+    // Initialize
+    changeBootSource(ctrl.bootSourcesOptions[0].type);
+
+    if (!$scope.model.newInstanceSpec.source_type) {
+      $scope.model.newInstanceSpec.source_type = ctrl.bootSourcesOptions[0];
+      ctrl.currentBootSource = ctrl.bootSourcesOptions[0].type;
+    }
+
+    ////////////////////
+
+    function updateBootSourceSelection(selectedSource) {
+      ctrl.currentBootSource = selectedSource;
+      $scope.model.newInstanceSpec.vol_create = false;
+      $scope.model.newInstanceSpec.vol_delete_on_terminate = false;
+      changeBootSource(selectedSource);
+      validateBootSourceType();
+    }
+
+    // Dynamically update page based on boot source selection
+    function changeBootSource(key, preSelection) {
+      updateDataSource(key, preSelection);
+      updateHelpText(key);
+      updateTableHeadCells(key);
+      updateTableBodyCells(key);
+      updateChart();
+      updateMaxInstanceCount();
+    }
+
+    function updateDataSource(key, preSelection) {
+      selection.length = 0;
+      if (preSelection) {
+        push.apply(selection, preSelection);
+      }
+      angular.extend(ctrl.tableData, bootSources[key]);
+    }
+
+    function updateHelpText() {
+      angular.extend(ctrl.helpText, {
+        noneAllocText: gettext('Select a source from those listed below.'),
+        availHelpText: gettext('Select one'),
+        // jscs:disable maximumLineLength
+        volumeAZHelpText: gettext('When selecting volume as boot source, please ensure the instance\'s availability zone is compatible with your volume\'s availability zone.')
+        // jscs:enable maximumLineLength
+      });
+    }
+
+    function updateTableHeadCells(key) {
+      refillArray(ctrl.tableHeadCells,  tableHeadCellsMap[key]);
+    }
+
+    function updateTableBodyCells(key) {
+      refillArray(ctrl.tableBodyCells, tableBodyCellsMap[key]);
+    }
+
+    function refillArray(arrayToRefill, contentArray) {
+      arrayToRefill.length = 0;
+      Array.prototype.push.apply(arrayToRefill, contentArray);
+    }
+
     function updateChart() {
       // Initialize instance_count to 1
       if ($scope.model.newInstanceSpec.instance_count <= 0) {
         $scope.model.newInstanceSpec.instance_count = 1;
       }
 
-      var data = $scope.instanceStats.data;
+      var data = ctrl.instanceStats.data;
       var added = $scope.model.newInstanceSpec.instance_count || 1;
       var remaining = Math.max(0, maxTotalInstances - totalInstancesUsed - added);
 
-      $scope.instanceStats.maxLimit = maxTotalInstances;
+      ctrl.instanceStats.maxLimit = maxTotalInstances;
       data[0].value = totalInstancesUsed;
       data[1].value = added;
       data[2].value = remaining;
       var quotaCalc = Math.round((totalInstancesUsed + added) / maxTotalInstances * 100);
-      $scope.instanceStats.overMax = quotaCalc > 100 ? true : false;
-      $scope.instanceStats.label = quotaCalc + '%';
-      $scope.instanceStats = angular.extend({}, $scope.instanceStats);
+      ctrl.instanceStats.overMax = quotaCalc > 100 ? true : false;
+      ctrl.instanceStats.label = quotaCalc + '%';
+      ctrl.instanceStats = angular.extend({}, ctrl.instanceStats);
     }
 
-    //
-    // Validations
-    //
+    /*
+     * Validation
+     */
 
     /*
      * If boot source type is 'image' and 'Create New Volume' is checked, set the minimum volume
@@ -405,33 +405,33 @@
     function checkVolumeForImage() {
       var source = selection ? selection[0] : undefined;
 
-      if (source && $scope.currentBootSource === bootSourceTypes.IMAGE) {
+      if (source && ctrl.currentBootSource === bootSourceTypes.IMAGE) {
         var imageGb = source.size * 1e-9;
         var imageDisk = source.min_disk;
-        $scope.minVolumeSize = Math.ceil(Math.max(imageGb, imageDisk));
+        ctrl.minVolumeSize = Math.ceil(Math.max(imageGb, imageDisk));
 
         var volumeSizeText = gettext('The volume size must be at least %(minVolumeSize)s GB');
-        var volumeSizeObj = { minVolumeSize: $scope.minVolumeSize };
-        $scope.minVolumeSizeError = interpolate(volumeSizeText, volumeSizeObj, true);
+        var volumeSizeObj = { minVolumeSize: ctrl.minVolumeSize };
+        ctrl.minVolumeSizeError = interpolate(volumeSizeText, volumeSizeObj, true);
       } else {
-        $scope.minVolumeSize = undefined;
+        ctrl.minVolumeSize = undefined;
       }
     }
 
     // Update the maximum instance count based on nova limits
     function updateMaxInstanceCount() {
-      $scope.maxInstanceCount = maxTotalInstances - totalInstancesUsed;
+      ctrl.maxInstanceCount = maxTotalInstances - totalInstancesUsed;
 
       var instanceCountText = gettext(
         'The instance count must not exceed your quota available of %(maxInstanceCount)s instances'
       );
-      var instanceCountObj = { maxInstanceCount: $scope.maxInstanceCount };
-      $scope.instanceCountMaxError = interpolate(instanceCountText, instanceCountObj, true);
+      var instanceCountObj = { maxInstanceCount: ctrl.maxInstanceCount };
+      ctrl.instanceCountMaxError = interpolate(instanceCountText, instanceCountObj, true);
     }
 
     // Validator for boot source type. Instance count must to be 1 if volume selected
     function validateBootSourceType() {
-      var bootSourceType = $scope.currentBootSource;
+      var bootSourceType = ctrl.currentBootSource;
       var instanceCount = $scope.model.newInstanceSpec.instance_count;
 
       /*
@@ -461,73 +461,9 @@
       var pre = findSourceById($scope.model.images, id);
       if (pre) {
         changeBootSource(bootSourceTypes.IMAGE, [pre]);
-        $scope.model.newInstanceSpec.source_type = $scope.bootSourcesOptions[0];
-        $scope.currentBootSource = $scope.bootSourcesOptions[0].type;
+        $scope.model.newInstanceSpec.source_type = ctrl.bootSourcesOptions[0];
+        ctrl.currentBootSource = ctrl.bootSourcesOptions[0].type;
       }
     }
-
-    $scope.$watchCollection(
-      function () {
-        return $scope.model.images;
-      },
-      function () {
-        $scope.initPromise.then(function () {
-          $scope.$applyAsync(function () {
-            if ($scope.launchContext.imageId) {
-              setSourceImageWithId($scope.launchContext.imageId);
-            }
-          });
-        });
-      }
-    );
-
-    // Initialize
-
-    changeBootSource($scope.bootSourcesOptions[0].type);
-
-    if (!$scope.model.newInstanceSpec.source_type) {
-      $scope.model.newInstanceSpec.source_type = $scope.bootSourcesOptions[0];
-      $scope.currentBootSource = $scope.bootSourcesOptions[0].type;
-    }
   }
-
-  /**
-   * @ngdoc controller
-   * @name LaunchInstanceSourceHelpCtrl
-   * @description
-   * The `LaunchInstanceSourceHelpCtrl` controller provides functions for
-   * configuring the help text used within the source step of the
-   * Launch Instance Wizard.
-   */
-  module.controller('LaunchInstanceSourceHelpCtrl', [
-    LaunchInstanceSourceHelpCtrl
-  ]);
-
-  function LaunchInstanceSourceHelpCtrl() {
-    var ctrl = this;
-
-    ctrl.title = gettext('Select Source Help');
-
-    ctrl.instanceDetailsTitle = gettext('Instance Details');
-    ctrl.instanceDetailsParagraphs = [
-      // jscs:disable maximumLineLength
-      gettext('An instance name is required and used to help you uniquely identify your instance in the dashboard.'),
-      gettext('If you select an availability zone and plan to use the boot from volume option, make sure that the availability zone you select for the instance is the same availability zone where your bootable volume resides.')
-      // jscs:enable maximumLineLength
-    ];
-
-    ctrl.instanceSourceTitle = gettext('Instance Source');
-    ctrl.instanceSourceParagraphs = [
-      // jscs:disable maximumLineLength
-      gettext('If you want to create an instance that uses ephemeral storage, meaning the instance data is lost when the instance is deleted, then choose one of the following boot sources:'),
-      gettext('<li><b>Image</b>: This option uses an image to boot the instance.</li>'),
-      gettext('<li><b>Instance Snapshot</b>: This option uses an instance snapshot to boot the instance.</li>'),
-      gettext('If you want to create an instance that uses persistent storage, meaning the instance data is saved when the instance is deleted, then select one of the following boot options:'),
-      gettext('<li><b>Image (with Create New Volume checked)</b>: This options uses an image to boot the instance, and creates a new volume to persist instance data. You can specify volume size and whether to delete the volume on termination of the instance.</li>'),
-      gettext('<li><b>Volume</b>: This option uses a volume that already exists. It does not create a new volume. You can choose to delete the volume on termination of the instance. <em>Note: when selecting Volume, you can only launch one instance.</em></li>'),
-      gettext('<li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot the instance, and creates a new volume to persist instance data. You can choose to delete the volume on termination of the instance.</li>')
-      // jscs:enable maximumLineLength
-    ];
-  }
-
 })();
