@@ -78,6 +78,8 @@ the following topic guides.
    topics/policy
    topics/testing
    topics/table_actions
+   topics/angularjs
+   topics/javascript_testing
 
 API Reference
 -------------
