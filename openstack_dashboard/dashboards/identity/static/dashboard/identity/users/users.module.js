@@ -18,15 +18,14 @@
   'use strict';
 
   /**
-   * @ngdoc hz.dashboard.identity
+   * @ngdoc hz.dashboard.identity.users
    * @ngModule
    *
    * @description
-   * Dashboard module to host various identity panels.
+   * Provides all of the services and widgets required
+   * to support and display the identity users panel.
    */
   angular
-    .module('hz.dashboard.identity', [
-      'hz.dashboard.identity.users'
-    ]);
+    .module('hz.dashboard.identity.users', []);
 
 })();

@@ -26,10 +26,12 @@ ADD_ANGULAR_MODULES = [
 
 ADD_JS_FILES = [
     'dashboard/identity/identity.module.js',
+    'dashboard/identity/users/users.module.js',
 ]
 
 ADD_JS_SPEC_FILES = [
     'dashboard/identity/identity.module.spec.js',
+    'dashboard/identity/users/users.module.spec.js',
 ]
 
 ADD_SCSS_FILES = [

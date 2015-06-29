@@ -13,20 +13,13 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-
 (function() {
   'use strict';
 
-  /**
-   * @ngdoc hz.dashboard.identity
-   * @ngModule
-   *
-   * @description
-   * Dashboard module to host various identity panels.
-   */
-  angular
-    .module('hz.dashboard.identity', [
-      'hz.dashboard.identity.users'
-    ]);
+  describe('hz.dashboard.identity.users', function() {
+    it('should exist', function() {
+      expect(angular.module('hz.dashboard.identity.users')).toBeDefined();
+    });
+  });
 
 })();
