@@ -20,6 +20,8 @@ from horizon import exceptions
 from horizon import forms
 from horizon import tables
 from horizon import tabs
+from horizon.utils import memoized
+from horizon.utils.urlresolvers import reverse  # noqa
 from horizon import workflows
 
 from openstack_dashboard.api import sahara as saharaclient
@@ -63,13 +65,23 @@ class ClusterTemplateDetailsView(tabs.TabView):
     template_name = 'project/data_processing.cluster_templates/details.html'
     page_title = _("Cluster Template Details")
 
+    @memoized.memoized_method
+    def get_object(self):
+        ct_id = self.kwargs["template_id"]
+        try:
+            return saharaclient.cluster_template_get(self.request, ct_id)
+        except Exception:
+            msg = _('Unable to retrieve details for '
+                    'cluster template "%s".') % ct_id
+            redirect = reverse("horizon:project:data_processing."
+                               "cluster_templates:cluster-templates")
+            exceptions.handle(self.request, msg, redirect=redirect)
+
     def get_context_data(self, **kwargs):
         context = super(ClusterTemplateDetailsView, self)\
             .get_context_data(**kwargs)
+        context['template'] = self.get_object()
         return context
-
-    def get_data(self):
-        pass
 
 
 class UploadFileView(forms.ModalFormView):
