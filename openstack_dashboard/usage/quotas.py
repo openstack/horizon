@@ -321,7 +321,7 @@ def _get_tenant_network_usages(request, usages, disabled_quotas, tenant_id):
 def _get_tenant_volume_usages(request, usages, disabled_quotas, tenant_id):
     if 'volumes' not in disabled_quotas:
         if tenant_id:
-            opts = {'alltenants': 1, 'tenant_id': tenant_id}
+            opts = {'all_tenants': 1, 'project_id': tenant_id}
             volumes = cinder.volume_list(request, opts)
             snapshots = cinder.volume_snapshot_list(request, opts)
         else:
