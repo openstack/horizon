@@ -91,7 +91,6 @@ module.exports = function (config) {
        * not significant.
        */
       '**/*.module.js',
-      '**/workflow.js',
       '**/launch-instance.js',
 
       /**
