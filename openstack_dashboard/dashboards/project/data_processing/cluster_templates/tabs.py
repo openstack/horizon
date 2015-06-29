@@ -37,10 +37,9 @@ class GeneralTab(tabs.Tab):
         template_id = self.tab_group.kwargs['template_id']
         try:
             template = saharaclient.cluster_template_get(request, template_id)
-        except Exception:
+        except Exception as e:
             template = {}
-            exceptions.handle(request,
-                              _("Unable to fetch cluster template details."))
+            LOG.error("Unable to fetch cluster template details: %s" % str(e))
         return {"template": template}
 
 
