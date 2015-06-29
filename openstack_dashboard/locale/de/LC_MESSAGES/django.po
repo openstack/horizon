@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-06-26 02:42+0000\n"
-"PO-Revision-Date: 2015-06-24 14:37+0000\n"
+"POT-Creation-Date: 2015-06-27 14:09+0000\n"
+"PO-Revision-Date: 2015-06-27 14:51+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/"
 "de/)\n"
@@ -171,7 +171,7 @@ msgstr ""
 "%(avail)i GB als Kontingent zur Verfügung haben."
 
 msgid "AKI - Amazon Kernel Image"
-msgstr "AKI - Amazon Kernelabbild"
+msgstr "AKI - Amazon-Kernelabbild"
 
 msgid "ALLOW"
 msgstr "Erlauben"
@@ -193,7 +193,7 @@ msgid "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(group)s"
 msgstr "%(from)s:%(to)s/%(ip_protocol)s von %(group)s ERLAUBEN"
 
 msgid "AMI - Amazon Machine Image"
-msgstr "AMI - Amazon Maschinenabbild"
+msgstr "AMI - Amazon-Maschinenabbild"
 
 msgid "ANY"
 msgstr "Irgendein"
@@ -1101,7 +1101,7 @@ msgid "Configure Cluster Template"
 msgstr "Clustervorlage konfigurieren"
 
 msgid "Configure Node Group Template"
-msgstr "Node Gruppen Vorlage konfigurieren"
+msgstr "Knotengruppenvorlage konfigurieren"
 
 msgid ""
 "Configure OpenStack to write metadata to a special configuration drive that "
@@ -1182,7 +1182,7 @@ msgid "Control Location"
 msgstr "Steuerungsort"
 
 msgid "Control access to instances of the node group."
-msgstr "Kontrolle des Zugriffs auf Instanzen in der Node-Gruppe."
+msgstr "Kontrolle des Zugriffs auf Instanzen in der Knotengruppe."
 
 msgid ""
 "Control access to your instance via key pairs, security groups, and other "
@@ -1354,7 +1354,7 @@ msgid "Create Network Profile"
 msgstr "Netzwerkprofil erstellen."
 
 msgid "Create Node Group Template"
-msgstr "Erzeuge Node Gruppen Vorlage"
+msgstr "Knotengruppenvorlagen erstellen"
 
 msgid "Create Port"
 msgstr "Port erstellen"
@@ -1561,7 +1561,7 @@ msgid "Create an Encrypted Volume Type"
 msgstr "Einen verschlüsselten Volumentyp erstellen"
 
 msgid "Create security group for this Node Group."
-msgstr "Erstelle Sicherheitsgruppe für diese Node Gruppe"
+msgstr "Sicherheitsgruppe für diese Knotengruppe erstellen."
 
 msgid "Create volumes in this availability zone."
 msgstr "Erstelle Datenträger in dieser Verfügbarkeitszone."
@@ -1587,7 +1587,7 @@ msgstr "Clustervorlage %s erstellt"
 
 #, python-format
 msgid "Created Node Group Template %s"
-msgstr "Node Gruppen Vorlage %s erzeugt"
+msgstr "Knotengruppenvorlage %s erstellt"
 
 #, python-format
 msgid "Created extra spec \"%s\"."
@@ -2688,6 +2688,9 @@ msgstr "Netzwerk bearbeiten"
 
 msgid "Edit Network Profile"
 msgstr "Netzwerkprofil bearbeiten"
+
+msgid "Edit Node Group Template"
+msgstr "Knotengruppenvorlage bearbeiten"
 
 msgid "Edit Policy"
 msgstr "Richtlinie bearbeiten"
@@ -4941,24 +4944,28 @@ msgstr "Kein Datenträgertyp"
 msgid "No volumes available"
 msgstr "Keine Datenträger verfügbar"
 
+#, python-format
+msgid "Node Group Template %s updated"
+msgstr "Knotengruppenvorlage %s aktualisiert"
+
 msgid "Node Group Template Details"
-msgstr "Node Gruppen Vorlagen Details"
+msgstr "Knotengruppenvorlagendetails"
 
 #, python-format
 msgid "Node Group Template copy %s created"
-msgstr "Node Gruppen Vorlagenkopie %s erzeugt"
+msgstr "Knotengruppenvorlagenkopie %s erstellt"
 
 msgid "Node Group Templates"
-msgstr "Node Gruppen Vorlagen"
+msgstr "Knotengruppenvorlagen"
 
 msgid "Node Groups"
-msgstr "Node Gruppen"
+msgstr "Knotengruppen"
 
 msgid "Node Processes"
-msgstr "Node Prozesse"
+msgstr "Knotenprozesse"
 
 msgid "Node group cluster"
-msgstr "Node Gruppen Cluster"
+msgstr "Knotengruppencluster"
 
 msgid "Non-Members"
 msgstr "Nichtmitglieder"
@@ -5411,7 +5418,7 @@ msgid "Processes"
 msgstr "Prozesse"
 
 msgid "Processes to be launched in node group"
-msgstr "In der Node Gruppe zu startende Prozesse"
+msgstr "In der Knotengruppe zu startende Prozesse"
 
 msgid "Project"
 msgstr "Projekt"
@@ -6035,7 +6042,7 @@ msgid ""
 "Sahara will use instances of this node group to access other cluster "
 "instances."
 msgstr ""
-"Sahara wird Instanzen dieser Node-Gruppe verwenden, um auf andere "
+"Sahara wird Instanzen dieser Knotengruppe verwenden, um auf andere "
 "Clusterinstanzen zuzugreifen."
 
 msgid "Save"
@@ -7841,13 +7848,13 @@ msgid "Unable to fetch keypair choices."
 msgstr "Abrufen der Schlüsselpaar Auswahlmöglichkeiten fehlgeschlagen."
 
 msgid "Unable to fetch node group details."
-msgstr "Nodegruppendetails können nicht abgerufen werden."
+msgstr "Knotengruppendetails können nicht abgerufen werden."
 
 msgid "Unable to fetch node group template list."
-msgstr "Liste der Node Gruppen Vorlagen kann nicht abgerufen werden."
+msgstr "Liste der Knotengruppenvorlagen kann nicht abgerufen werden."
 
 msgid "Unable to fetch node group template."
-msgstr "Node Gruppen Vorlage kann nicht abgerufen werden."
+msgstr "Knotengruppenvorlage kann nicht abgerufen werden."
 
 msgid "Unable to fetch plugin details."
 msgstr "Plugin Details können nicht abgerufen werden."
@@ -7938,7 +7945,7 @@ msgid "Unable to get network agents list."
 msgstr "Netzwerk Agentenliste kann nicht abgerufen werden."
 
 msgid "Unable to get node group details."
-msgstr "Node Gruppen Details können nicht abgerufen werden."
+msgstr "Knotengruppendetails können nicht abgerufen werden."
 
 msgid "Unable to get nova services list."
 msgstr "Nova Serviceliste kann nicht abgerufen werden."
@@ -9143,7 +9150,7 @@ msgid "VDI - Virtual Disk Image"
 msgstr "VDI - Virtuelles Festplattenabbild"
 
 msgid "VHD - Virtual Hard Disk"
-msgstr "VHD - Virtual Hard Disk"
+msgstr "VHD - Virtuelle Festplatte"
 
 msgid "VIP"
 msgstr "VIP"
@@ -9162,7 +9169,7 @@ msgid "VLAN"
 msgstr "VLAN"
 
 msgid "VMDK - Virtual Machine Disk"
-msgstr "VMDK - Virtual Machine Disk"
+msgstr "VMDK - Virtuelle Maschinen-Festplatte"
 
 msgid "VPN"
 msgstr "VPN"
@@ -9361,7 +9368,7 @@ msgid "Volumes Availability Zone"
 msgstr "Datenträger Verfügbarkeitszone"
 
 msgid "Volumes per node"
-msgstr "Datenträger pro Node"
+msgstr "Datenträger pro Knoten"
 
 msgid "Volumes size (GB)"
 msgstr "Größe der Datenträger (GB)"

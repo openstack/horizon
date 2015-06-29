@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-06-26 02:42+0000\n"
-"PO-Revision-Date: 2015-06-26 05:07+0000\n"
-"Last-Translator: 刘俊朋 <liujunpeng@inspur.com>\n"
+"POT-Creation-Date: 2015-06-27 14:09+0000\n"
+"PO-Revision-Date: 2015-06-27 11:57+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/"
 "language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -162,10 +162,6 @@ msgstr "结束"
 
 msgid "Flavor"
 msgstr "云主机类型"
-
-#, python-format
-msgid "Found %(found)s of %(total)s"
-msgstr "共有%(total)s已找到%(found)s"
 
 msgid "ID"
 msgstr "ID"

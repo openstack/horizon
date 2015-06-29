@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-06-23 01:20+0000\n"
-"PO-Revision-Date: 2015-06-16 19:14+0000\n"
+"POT-Creation-Date: 2015-06-27 14:09+0000\n"
+"PO-Revision-Date: 2015-06-27 11:57+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/projects/"
 "p/horizon/language/pa_IN/)\n"
@@ -139,10 +139,6 @@ msgstr "ਛਾਣਨੀ (ਫਿਲਟਰ)"
 
 msgid "Finish"
 msgstr "ਮੁਕੰਮਲ"
-
-#, python-format
-msgid "Found %(found)s of %(total)s"
-msgstr "%(found)s ਲੱਭੇ %(total)s ਵਿੱਚੋਂ"
 
 msgid "ID"
 msgstr "ID"

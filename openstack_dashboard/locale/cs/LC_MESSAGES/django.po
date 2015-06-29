@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-06-24 04:35+0000\n"
-"PO-Revision-Date: 2015-06-24 04:35+0000\n"
+"POT-Creation-Date: 2015-06-27 14:09+0000\n"
+"PO-Revision-Date: 2015-06-28 10:16+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/"
 "cs/)\n"
@@ -2975,6 +2975,9 @@ msgstr "Rozhraní přidáno"
 msgid "Interfaces"
 msgstr "Rozhraní"
 
+msgid "Internal IP"
+msgstr "Interní IP adresa"
+
 msgid "Internal Interface"
 msgstr "Vnitřní rozhraní"
 
@@ -2998,6 +3001,9 @@ msgstr ""
 
 msgid "Items Per Page"
 msgstr "Položek na stránku"
+
+msgid "Java Opts"
+msgstr "Operace Java"
 
 msgid "Job"
 msgstr "Úkol"
@@ -3244,6 +3250,9 @@ msgstr "MapReduce"
 
 msgid "Mapped Fixed IP Address"
 msgstr "Mapovaná pevní IP adresa"
+
+msgid "Mapper"
+msgstr "Mapovač"
 
 msgid "Max Retries"
 msgstr "Max opakování"
@@ -3895,6 +3904,9 @@ msgstr "Období"
 msgid "Permit"
 msgstr "Povolit"
 
+msgid "Persist cluster after job exit"
+msgstr "Cluster nebude zrušen po dokončení úkolu"
+
 msgid "Physical Network"
 msgstr "Fyzická síť"
 
@@ -4194,6 +4206,9 @@ msgstr "Znovu sestavování"
 #, python-format
 msgid "Rebuilding instance %s."
 msgstr "Znovu sestavování instance %s."
+
+msgid "Reducer"
+msgstr "Reduktor"
 
 msgid "Regions:"
 msgstr "Oblasti:"
@@ -4724,6 +4739,10 @@ msgctxt "Current status of an Instance"
 msgid "Shelved"
 msgstr "Uskladněno"
 
+msgctxt "Current status of an Instance"
+msgid "Shelved Offloaded"
+msgstr "Uskladněno Zátěž převedena"
+
 msgctxt "Task status of an Instance"
 msgid "Shelving"
 msgstr "Uskladňování"
@@ -4735,6 +4754,10 @@ msgstr "Uskladňování obrazu čekajícího na nahrání"
 msgctxt "Task status of an Instance"
 msgid "Shelving Image Uploading"
 msgstr "Uskladňování nahrávání obrazu"
+
+msgctxt "Task status of an Instance"
+msgid "Shelving Offloading"
+msgstr "Uskladňování Převádění zátěže"
 
 msgctxt "Power state of an Instance"
 msgid "Shut Down"
