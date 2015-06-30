@@ -11,8 +11,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import itertools
 import logging
+import uuid
 
+from django.utils import encoding
+from django.utils import html
+from django.utils import safestring
 from django.utils.translation import ugettext_lazy as _
 
 from saharaclient.api import base as api_base
@@ -129,17 +134,6 @@ class GeneralConfigAction(workflows.Action):
 
         plugin, hadoop_version = (
             workflow_helpers.get_plugin_and_hadoop_version(request))
-        process_choices = []
-        try:
-            version_details = saharaclient.plugin_get_version_details(
-                request, plugin, hadoop_version)
-            for service, processes in version_details.node_processes.items():
-                for process in processes:
-                    process_choices.append(
-                        (str(service) + ":" + str(process), process))
-        except Exception:
-            exceptions.handle(request,
-                              _("Unable to generate process choices."))
 
         if not saharaclient.SAHARA_AUTO_IP_ALLOCATION_ENABLED:
             pools = network.floating_ip_pools_list(request)
@@ -157,12 +151,6 @@ class GeneralConfigAction(workflows.Action):
             help_text=_("Sahara will use instances of this node group to "
                         "access other cluster instances."),
             required=False)
-
-        self.fields["processes"] = forms.MultipleChoiceField(
-            label=_("Processes"),
-            widget=forms.CheckboxSelectMultiple(),
-            help_text=_("Processes to be launched in node group"),
-            choices=process_choices)
 
         self.fields["plugin_name"] = forms.CharField(
             widget=forms.HiddenInput(),
@@ -261,6 +249,79 @@ class SecurityConfigAction(workflows.Action):
         help_text = _("Control access to instances of the node group.")
 
 
+class CheckboxSelectMultiple(forms.CheckboxSelectMultiple):
+    def render(self, name, value, attrs=None, choices=()):
+        if value is None:
+            value = []
+        has_id = attrs and 'id' in attrs
+        final_attrs = self.build_attrs(attrs, name=name)
+        output = []
+        initial_service = uuid.uuid4()
+        str_values = set([encoding.force_text(v) for v in value])
+        for i, (option_value, option_label) in enumerate(
+                itertools.chain(self.choices, choices)):
+            current_service = option_value.split(':')[0]
+            if current_service != initial_service:
+                if i > 0:
+                    output.append("</ul>")
+                service_description = _("%s processes: ") % current_service
+                service_description = html.conditional_escape(
+                    encoding.force_text(service_description))
+                output.append(
+                    "<label>{0}</label>".format(service_description))
+                initial_service = current_service
+                output.append(encoding.force_text("<ul>"))
+            if has_id:
+                final_attrs = dict(final_attrs, id='%s_%s' % (attrs['id'], i))
+                label_for = ' for="%s"' % final_attrs['id']
+            else:
+                label_for = ''
+
+            cb = forms.CheckboxInput(
+                final_attrs, check_test=lambda value: value in str_values)
+            option_value = encoding.force_text(option_value)
+            rendered_cb = cb.render(name, option_value)
+            option_label = html.conditional_escape(
+                encoding.force_text(option_label))
+            output.append(
+                '<li><label{0}>{1} {2}</label></li>'.format(
+                    label_for, rendered_cb, option_label))
+        output.append('</ul>')
+        return safestring.mark_safe('\n'.join(output))
+
+
+class SelectNodeProcessesAction(workflows.Action):
+    def __init__(self, request, *args, **kwargs):
+        super(SelectNodeProcessesAction, self).__init__(
+            request, *args, **kwargs)
+
+        plugin, hadoop_version = (
+            workflow_helpers.get_plugin_and_hadoop_version(request))
+        node_processes = {}
+        try:
+            version_details = saharaclient.plugin_get_version_details(
+                request, plugin, hadoop_version)
+            node_processes = version_details.node_processes
+        except Exception:
+            exceptions.handle(request,
+                              _("Unable to generate process choices."))
+        process_choices = []
+        for service, processes in node_processes.items():
+            for process in processes:
+                choice_label = str(service) + ":" + str(process)
+                process_choices.append((choice_label, process))
+
+        self.fields["processes"] = forms.MultipleChoiceField(
+            label=_("Select Node Group Processes"),
+            widget=CheckboxSelectMultiple(),
+            choices=process_choices,
+            required=True)
+
+    class Meta(object):
+        name = _("Node Processes")
+        help_text = _("Select node processes for the node group")
+
+
 class GeneralConfig(workflows.Step):
     action_class = GeneralConfigAction
     contributes = ("general_nodegroup_name", )
@@ -270,15 +331,21 @@ class GeneralConfig(workflows.Step):
             if "hidden" in k:
                 continue
             context["general_" + k] = v if v != "None" else None
-
-        post = self.workflow.request.POST
-        context['general_processes'] = post.getlist("processes")
         return context
 
 
 class SecurityConfig(workflows.Step):
     action_class = SecurityConfigAction
     contributes = ("security_autogroup", "security_groups")
+
+
+class SelectNodeProcesses(workflows.Step):
+    action_class = SelectNodeProcessesAction
+
+    def contribute(self, data, context):
+        post = self.workflow.request.POST
+        context['general_processes'] = post.getlist('processes')
+        return context
 
 
 class ConfigureNodegroupTemplate(workflow_helpers.ServiceParametersWorkflow,
@@ -289,7 +356,7 @@ class ConfigureNodegroupTemplate(workflow_helpers.ServiceParametersWorkflow,
     success_message = _("Created Node Group Template %s")
     name_property = "general_nodegroup_name"
     success_url = "horizon:project:data_processing.nodegroup_templates:index"
-    default_steps = (GeneralConfig, SecurityConfig)
+    default_steps = (GeneralConfig, SelectNodeProcesses, SecurityConfig)
 
     def __init__(self, request, context_seed, entry_point, *args, **kwargs):
         hlps = helpers.Helpers(request)

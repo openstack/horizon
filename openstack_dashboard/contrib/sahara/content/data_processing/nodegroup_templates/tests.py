@@ -21,6 +21,8 @@ from openstack_dashboard import api as dash_api
 from openstack_dashboard.contrib.sahara import api
 from openstack_dashboard.contrib.sahara.content.data_processing.utils \
     import workflow_helpers
+from openstack_dashboard.contrib.sahara.content.data_processing.\
+    nodegroup_templates.workflows import create as create_workflow
 from openstack_dashboard.test import helpers as test
 
 
@@ -35,6 +37,37 @@ CREATE_URL = reverse(
 
 
 class DataProcessingNodeGroupTests(test.TestCase):
+    def _setup_copy_test(self):
+        ngt = self.nodegroup_templates.first()
+        configs = self.plugins_configs.first()
+        dash_api.cinder.extension_supported(IsA(http.HttpRequest),
+                                            'AvailabilityZones') \
+            .AndReturn(True)
+        dash_api.cinder.availability_zone_list(IsA(http.HttpRequest))\
+            .AndReturn(self.availability_zones.list())
+        dash_api.cinder.volume_type_list(IsA(http.HttpRequest))\
+            .AndReturn([])
+        api.sahara.nodegroup_template_get(IsA(http.HttpRequest),
+                                          ngt.id) \
+            .AndReturn(ngt)
+        api.sahara.plugin_get_version_details(IsA(http.HttpRequest),
+                                              ngt.plugin_name,
+                                              ngt.hadoop_version) \
+            .MultipleTimes().AndReturn(configs)
+        dash_api.network.floating_ip_pools_list(IsA(http.HttpRequest)) \
+            .AndReturn([])
+        dash_api.network.security_group_list(IsA(http.HttpRequest)) \
+            .AndReturn([])
+
+        self.mox.ReplayAll()
+
+        url = reverse(
+            'horizon:project:data_processing.nodegroup_templates:copy',
+            args=[ngt.id])
+        res = self.client.get(url)
+
+        return ngt, configs, res
+
     @test.create_stubs({api.sahara: ('nodegroup_template_list',)})
     def test_index(self):
         api.sahara.nodegroup_template_list(IsA(http.HttpRequest), {}) \
@@ -90,33 +123,7 @@ class DataProcessingNodeGroupTests(test.TestCase):
                                           'availability_zone_list',
                                           'volume_type_list')})
     def test_copy(self):
-        ngt = self.nodegroup_templates.first()
-        configs = self.plugins_configs.first()
-        dash_api.cinder.extension_supported(IsA(http.HttpRequest),
-                                            'AvailabilityZones') \
-            .AndReturn(True)
-        dash_api.cinder.availability_zone_list(IsA(http.HttpRequest))\
-            .AndReturn(self.availability_zones.list())
-        dash_api.cinder.volume_type_list(IsA(http.HttpRequest))\
-            .AndReturn([])
-        api.sahara.nodegroup_template_get(IsA(http.HttpRequest),
-                                          ngt.id) \
-            .AndReturn(ngt)
-        api.sahara.plugin_get_version_details(IsA(http.HttpRequest),
-                                              ngt.plugin_name,
-                                              ngt.hadoop_version) \
-            .MultipleTimes().AndReturn(configs)
-        dash_api.network.floating_ip_pools_list(IsA(http.HttpRequest)) \
-            .AndReturn([])
-        dash_api.network.security_group_list(IsA(http.HttpRequest)) \
-            .AndReturn([])
-
-        self.mox.ReplayAll()
-
-        url = reverse(
-            'horizon:project:data_processing.nodegroup_templates:copy',
-            args=[ngt.id])
-        res = self.client.get(url)
+        ngt, configs, res = self._setup_copy_test()
         workflow = res.context['workflow']
         step = workflow.get_step("generalconfigaction")
         self.assertEqual(step.action['nodegroup_name'].field.initial,
@@ -291,3 +298,23 @@ class DataProcessingNodeGroupTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
         self.assertMessageCount(success=1)
+
+    @test.create_stubs({api.sahara: ('nodegroup_template_get',
+                                     'plugin_get_version_details'),
+                        dash_api.network: ('floating_ip_pools_list',
+                                           'security_group_list'),
+                        dash_api.cinder: ('extension_supported',
+                                          'availability_zone_list',
+                                          'volume_type_list')})
+    def test_workflow_steps(self):
+        # since the copy workflow is the child of create workflow
+        # it's better to test create workflow through copy workflow
+        ngt, configs, res = self._setup_copy_test()
+        workflow = res.context['workflow']
+        expected_instances = [
+            create_workflow.GeneralConfig,
+            create_workflow.SelectNodeProcesses,
+            create_workflow.SecurityConfig
+        ]
+        for expected, observed in zip(expected_instances, workflow.steps):
+            self.assertIsInstance(observed, expected)

@@ -46,12 +46,15 @@ class CopyNodegroupTemplate(create_flow.ConfigureNodegroupTemplate):
                                                     **kwargs)
 
         g_fields = None
+        snp_fields = None
         s_fields = None
         for step in self.steps:
             if isinstance(step, create_flow.GeneralConfig):
                 g_fields = step.action.fields
             if isinstance(step, create_flow.SecurityConfig):
                 s_fields = step.action.fields
+            if isinstance(step, create_flow.SelectNodeProcesses):
+                snp_fields = step.action.fields
 
         g_fields["nodegroup_name"].initial = self.template.name + "-copy"
         g_fields["description"].initial = self.template.description
@@ -109,4 +112,4 @@ class CopyNodegroupTemplate(create_flow.ConfigureNodegroupTemplate):
                     _service = service
                     break
             processes_dict["%s:%s" % (_service, process)] = process
-        g_fields["processes"].initial = processes_dict
+        snp_fields["processes"].initial = processes_dict
