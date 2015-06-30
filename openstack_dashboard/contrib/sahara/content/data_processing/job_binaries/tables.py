@@ -73,6 +73,13 @@ class DownloadJobBinary(tables.LinkAction):
     classes = ("btn-edit",)
 
 
+class EditJobBinary(tables.LinkAction):
+    name = "edit job binary"
+    verbose_name = _("Edit Job Binary")
+    url = "horizon:project:data_processing.job_binaries:edit-job-binary"
+    classes = ("btn-edit", "ajax-modal",)
+
+
 class JobBinariesTable(tables.DataTable):
     name = tables.Column(
         "name",
@@ -88,4 +95,4 @@ class JobBinariesTable(tables.DataTable):
         verbose_name = _("Job Binaries")
         table_actions = (CreateJobBinary,
                          DeleteJobBinary)
-        row_actions = (DeleteJobBinary, DownloadJobBinary)
+        row_actions = (DeleteJobBinary, DownloadJobBinary, EditJobBinary)
