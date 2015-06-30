@@ -22,9 +22,9 @@
                      '<thead>' +
                      ' <tr>' +
                      '   <th>' +
-                     '     <search-bar group-classes="input-group-sm" ' +
+                     '     <hz-search-bar group-classes="input-group-sm" ' +
                      '       icon-classes="fa-search">' +
-                     '     </search-bar>' +
+                     '     </hz-search-bar>' +
                      '   </th>' +
                      ' </tr>' +
                      '</thead>' +

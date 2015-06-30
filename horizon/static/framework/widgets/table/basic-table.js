@@ -6,14 +6,14 @@
     .constant('horizon.framework.widgets.table.filterPlaceholderText', gettext('Filter'))
     /**
      * @ngdoc directive
-     * @name horizon.framework.widgets.table.directive:searchBar
+     * @name horizon.framework.widgets.table.directive:hzSearchBar
      * @element
      * @param {string} {array} groupClasses Input group classes (optional)
      * @param {string} {array} iconClasses Icon classes (optional)
      * @param {string} {array} inputClasses Search field classes (optional)
      * @param {string} placeholder input field placeholder text (optional)
      * @description
-     * The `searchBar` directive generates a search field that will
+     * The `hzSearchBar` directive generates a search field that will
      * trigger filtering of the associated Smart-Table.
      *
      * groupClasses - classes that should be applied to input group element
@@ -25,12 +25,12 @@
      *
      * @example
      * ```
-     * <search-bar group-classes="input-group-sm"
+     * <hz-search-bar group-classes="input-group-sm"
      *   icon-classes="fa-search" input-classes="..." placeholder="Filter">
-     * </search-bar>
+     * </hz-search-bar>
      * ```
      */
-    .directive('searchBar', ['horizon.framework.widgets.table.filterPlaceholderText',
+    .directive('hzSearchBar', ['horizon.framework.widgets.table.filterPlaceholderText',
       'horizon.framework.widgets.basePath',
       function(FILTER_PLACEHOLDER_TEXT, path) {
         return {
