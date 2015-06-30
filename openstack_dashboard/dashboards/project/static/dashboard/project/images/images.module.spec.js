@@ -26,7 +26,7 @@
     var imagesBasePath, staticUrl;
 
     beforeEach(module('hz.dashboard'));
-    beforeEach(module('hz.dashboard.project'));
+    beforeEach(module('horizon.dashboard.project'));
     beforeEach(module('hz.dashboard.project.images'));
     beforeEach(inject(function ($injector) {
       imagesBasePath = $injector.get('hz.dashboard.project.images.basePath');

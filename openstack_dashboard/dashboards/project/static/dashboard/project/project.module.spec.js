@@ -16,19 +16,19 @@
 (function () {
   'use strict';
 
-  describe('hz.dashboard.project', function () {
+  describe('horizon.dashboard.project', function () {
     it('should be defined', function () {
-      expect(angular.module('hz.dashboard.project')).toBeDefined();
+      expect(angular.module('horizon.dashboard.project')).toBeDefined();
     });
   });
 
-  describe('hz.dashboard.project.basePath constant', function () {
+  describe('horizon.dashboard.project.basePath constant', function () {
     var projectBasePath, staticUrl;
 
     beforeEach(module('hz.dashboard'));
-    beforeEach(module('hz.dashboard.project'));
+    beforeEach(module('horizon.dashboard.project'));
     beforeEach(inject(function ($injector) {
-      projectBasePath = $injector.get('hz.dashboard.project.basePath');
+      projectBasePath = $injector.get('horizon.dashboard.project.basePath');
       staticUrl = $injector.get('$window').STATIC_URL;
     }));
 
