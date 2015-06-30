@@ -15,7 +15,6 @@ import logging
 
 from django.utils.translation import ugettext_lazy as _
 
-from horizon import exceptions
 from horizon import tabs
 
 from openstack_dashboard.api import sahara as saharaclient
@@ -31,12 +30,10 @@ class GeneralTab(tabs.Tab):
     def get_context_data(self, request):
         data_source_id = self.tab_group.kwargs['data_source_id']
         try:
-            data_source = saharaclient.data_source_get(request,
-                                                       data_source_id)
-        except Exception:
-            exceptions.handle(self.tab_group.request,
-                              _("Unable to retrieve data source details"))
+            data_source = saharaclient.data_source_get(request, data_source_id)
+        except Exception as e:
             data_source = {}
+            LOG.error("Unable to fetch data source details: %s" % str(e))
 
         return {"data_source": data_source}
 

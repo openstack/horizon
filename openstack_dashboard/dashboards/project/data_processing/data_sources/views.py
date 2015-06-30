@@ -18,6 +18,8 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 from horizon import tables
 from horizon import tabs
+from horizon.utils import memoized
+from horizon.utils.urlresolvers import reverse  # noqa
 from horizon import workflows
 
 from openstack_dashboard.api import sahara as saharaclient
@@ -60,3 +62,19 @@ class DataSourceDetailsView(tabs.TabView):
     tab_group_class = _tabs.DataSourceDetailsTabs
     template_name = 'project/data_processing.data_sources/details.html'
     page_title = _("Data Source Details")
+
+    @memoized.memoized_method
+    def get_object(self):
+        ds_id = self.kwargs["data_source_id"]
+        try:
+            return saharaclient.data_source_get(self.request, ds_id)
+        except Exception:
+            msg = _('Unable to retrieve details for data source "%s".') % ds_id
+            redirect = reverse(
+                "horizon:project:data_processing.data_sources:data-sources")
+            exceptions.handle(self.request, msg, redirect=redirect)
+
+    def get_context_data(self, **kwargs):
+        context = super(DataSourceDetailsView, self).get_context_data(**kwargs)
+        context['data_source'] = self.get_object()
+        return context
