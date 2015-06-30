@@ -72,44 +72,22 @@ class ManageQosSpecAssociation(forms.SelfHandlingForm):
         qos_spec_field.choices = \
             self.populate_qos_spec_choices()
 
-        # pre-select the current qos spec, if exists
-        # if no association exists, the selected entry will be "None"
-        # since it is index 0 of the choice box
-        current_qos_spec = self.initial["cur_qos_spec_id"]
-        if current_qos_spec:
-            qos_spec_field.initial = current_qos_spec
-
     def populate_qos_spec_choices(self):
         # populate qos spec list box
         qos_specs = self.initial["qos_specs"]
+        current_qos_spec = self.initial["cur_qos_spec_id"]
         qos_spec_list = [(qos_spec.id, qos_spec.name)
-                         for qos_spec in qos_specs]
+                         for qos_spec in qos_specs
+                         if qos_spec.id != current_qos_spec]
 
-        # 'none' is always listed first
-        qos_spec_list.insert(0, ("-1", _("None")))
-        return qos_spec_list
-
-    def clean_qos_spec_choice(self):
-        # ensure that new association isn't the same as current association
-        cleaned_new_spec_id = self.cleaned_data.get('qos_spec_choice')
-        cur_spec_id = self.initial['cur_qos_spec_id']
-
-        found_error = False
-        if cur_spec_id:
-            # new = current
-            if cur_spec_id == cleaned_new_spec_id:
-                found_error = True
+        if current_qos_spec:
+            # used to remove the current spec
+            qos_spec_list.insert(0, ("-1", _("None (removes spec)")))
+        if qos_spec_list:
+            qos_spec_list.insert(0, ("", _("Select a new QoS spec")))
         else:
-            # no current association
-            if cleaned_new_spec_id == '-1':
-                # new = current
-                found_error = True
-
-        if found_error:
-            raise forms.ValidationError(
-                _('New associated QoS Spec must be different than '
-                  'the current associated QoS Spec.'))
-        return cleaned_new_spec_id
+            qos_spec_list.insert(0, ("", _("No new QoS spec available")))
+        return qos_spec_list
 
     def handle(self, request, data):
         vol_type_id = self.initial['type_id']
