@@ -58,21 +58,6 @@ class DatabasePanels(horizon.PanelGroup):
               'database_backups',)
 
 
-class DataProcessingPanels(horizon.PanelGroup):
-    slug = "data_processing"
-    name = _("Data Processing")
-    panels = ('data_processing.wizard',
-              'data_processing.clusters',
-              'data_processing.job_executions',
-              'data_processing.cluster_templates',
-              'data_processing.nodegroup_templates',
-              'data_processing.jobs',
-              'data_processing.job_binaries',
-              'data_processing.data_sources',
-              'data_processing.data_image_registry',
-              'data_processing.data_plugins',)
-
-
 class Project(horizon.Dashboard):
     name = _("Project")
     slug = "project"
@@ -81,8 +66,7 @@ class Project(horizon.Dashboard):
         NetworkPanels,
         ObjectStorePanels,
         OrchestrationPanels,
-        DatabasePanels,
-        DataProcessingPanels,)
+        DatabasePanels,)
     default_panel = 'overview'
 
 

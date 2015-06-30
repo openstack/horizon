@@ -32,6 +32,9 @@ INSTALLED_APPS = list(settings.INSTALLED_APPS)
 # HORIZON_CONFIG to ensure warning messages from update_dashboards below.
 HORIZON_CONFIG.pop('dashboards', None)
 HORIZON_CONFIG.pop('default_dashboard', None)
+HORIZON_CONFIG.pop('js_files', None)
+HORIZON_CONFIG.pop('js_spec_files', None)
+HORIZON_CONFIG.pop('scss_files', None)
 
 util_settings.update_dashboards([panel_config,], HORIZON_CONFIG, INSTALLED_APPS)
 
