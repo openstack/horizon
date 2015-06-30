@@ -15,7 +15,6 @@ import logging
 
 from django.utils.translation import ugettext_lazy as _
 
-from horizon import exceptions
 from horizon import tabs
 
 from openstack_dashboard.api import sahara as saharaclient
@@ -32,10 +31,9 @@ class JobBinaryDetailsTab(tabs.Tab):
         job_binary_id = self.tab_group.kwargs['job_binary_id']
         try:
             job_binary = saharaclient.job_binary_get(request, job_binary_id)
-        except Exception:
+        except Exception as e:
             job_binary = {}
-            exceptions.handle(request,
-                              _("Unable to fetch job binary."))
+            LOG.error("Unable to fetch job binary details: %s" % str(e))
         return {"job_binary": job_binary}
 
 

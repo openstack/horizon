@@ -23,6 +23,8 @@ from horizon import exceptions
 from horizon import forms
 from horizon import tables
 from horizon import tabs
+from horizon.utils import memoized
+from horizon.utils.urlresolvers import reverse  # noqa
 
 from openstack_dashboard.api import sahara as saharaclient
 from openstack_dashboard.dashboards.project.data_processing.utils \
@@ -75,13 +77,21 @@ class JobBinaryDetailsView(tabs.TabView):
     template_name = 'project/data_processing.job_binaries/details.html'
     page_title = _("Job Binary Details")
 
-    def get_context_data(self, **kwargs):
-        context = super(JobBinaryDetailsView, self)\
-            .get_context_data(**kwargs)
-        return context
+    @memoized.memoized_method
+    def get_object(self):
+        jb_id = self.kwargs["job_binary_id"]
+        try:
+            return saharaclient.job_binary_get(self.request, jb_id)
+        except Exception:
+            msg = _('Unable to retrieve details for job binary "%s".') % jb_id
+            redirect = reverse(
+                "horizon:project:data_processing.job_binaries:job-binaries")
+            exceptions.handle(self.request, msg, redirect=redirect)
 
-    def get_data(self):
-        pass
+    def get_context_data(self, **kwargs):
+        context = super(JobBinaryDetailsView, self).get_context_data(**kwargs)
+        context['job_binary'] = self.get_object()
+        return context
 
 
 class DownloadJobBinaryView(django.views.generic.View):
