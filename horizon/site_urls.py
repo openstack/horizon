@@ -47,4 +47,4 @@ if settings.DEBUG:
         url(r'^qunit/$',
             TemplateView.as_view(template_name="horizon/qunit.html"),
             name='qunit_tests'),
-        url(r'^jasmine/(.*?)$', jasmine.dispatcher))
+        url(r'^jasmine/.*?$', jasmine.dispatcher))
