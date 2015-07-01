@@ -30,7 +30,7 @@ Running Tests
 
 Tests can be run in two ways:
 
-  1. Open <dev_server_ip>/jasmine in a browser. The development server can be
+  1. Open <dev_server_ip:port>/jasmine in a browser. The development server can be
      run with ``./run_tests.sh --runserver`` from the horizon root directory.
   2. ``npm run test`` from the horizon root directory. This runs Karma,
      so it will run all the tests against PhantomJS and generate coverage
@@ -53,11 +53,6 @@ found at ``horizon/.coverage-karma/`` (framework tests) and
 Writing Tests
 =============
 
-.. Note::
-  File inclusion is likely to be automated soon, after this
-  `blueprint <https://blueprints.launchpad.net/horizon/+spec/auto-js-file-finding>`_
-  is completed.
-
 Jasmine uses suites and specs:
   * Suites begin with a call to ``describe``, which takes two parameters; a
     string and a function. The string is a name or title for the spec suite,
@@ -68,25 +63,24 @@ Jasmine uses suites and specs:
     the code. An expectation in Jasmine is an assertion that is either true or
     false; every expectation in a spec must be true for the spec to pass.
 
-Horizon Tests
--------------
+``.spec.js`` files can be handled manually or automatically. To use the
+automatic file discovery add::
+  AUTO_DISCOVER_STATIC_FILES = True
+to your enabled file. JS code for testing should use the extensions
+``.mock.js`` and ``.spec.js``.
 
-Horizon tests are included in
-``horizon/test/jasmine/jasmine_tests.py``.
+You can read more about the functionality in the
+:ref:`auto_discover_static_files` section of the settings documentation.
 
-Add your test to the ``specs`` array, code sources to the ``dashboard_sources``
-array, and any templates to the ``externalTemplates`` array. Horizon tests
-cover reusable components, as well as api functionality, whilst dashboard
-tests cover specific panels and their logic. The tests themselves are kept in
-the same directory as the implementation they are testing.
+To manually add specs, add the following array and relevant file paths to your
+enabled file:
+::
 
-OpenStack Dashboard Tests
--------------------------
-
-Dashboard tests are included in the relevant dashboard enabled file, such as
-``openstack_dashboard/enabled/_10_project.py``.
-
-Add your tests to the ``ADD_JS_SPEC_FILES`` array.
+  ADD_JS_SPEC_FILES = [
+    ...
+    'path_to/my_angular_code.spec.js',
+    ...
+  ]
 
 Examples
 ========
@@ -104,8 +98,8 @@ File tree:
 
   horizon/static/framework/widgets/modal
   ├── modal.controller.js
-  ├── modal.service.js
   ├── modal.module.js
+  ├── modal.service.js
   └── modal.spec.js
 
 Lines added to ``horizon/test/jasmine/jasmine_tests.py``:

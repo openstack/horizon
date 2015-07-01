@@ -64,18 +64,25 @@ is likely to be used across many parts of horizon.
 When adding code to horizon, consider whether it is panel-specific or should be
 broken out as a reusable utility or widget.
 
-Panel-specific code is in ``openstack_dashboard/static/dashboard/``.
-
 The modal directive is a good example of the file structure. This is a reusable
 component:
 ::
 
   horizon/static/framework/widgets/modal/
   ├── modal.controller.js
-  ├── modal.service.js
   ├── modal.module.js
+  ├── modal.service.js
   ├── modal.spec.js
   └── simple-modal.html
+
+Panel-specific code is in ``openstack_dashboard/static/dashboard/``. For example:
+::
+
+  openstack_dashboard/static/dashboard/workflow/
+  ├── decorator.service.js
+  ├── workflow.module.js
+  ├── workflow.module.spec.js
+  └── workflow.service.js
 
 For larger components, such as workflows with multiple steps, consider breaking
 the code down further. The Angular **Launch Instance** workflow,
@@ -85,9 +92,11 @@ for example, has one directory per step
 Testing
 =======
 
-1. Open <dev_server_ip>/jasmine in a browser. The development server can be run
+1. Open <dev_server_ip:port>/jasmine in a browser. The development server can be run
    with``./run_tests.sh --runserver`` from the horizon root directory.
 2. ``npm run test`` from the horizon root directory.
+
+The code linting job can be run with ``npm run lint``.
 
 For more detailed information, see :doc:`javascript_testing`.
 
@@ -124,9 +133,8 @@ Creating your own panel
   as an example.
 
 .. Note::
-  File inclusion is likely to be automated soon, after this
-  `blueprint <https://blueprints.launchpad.net/horizon/+spec/auto-js-file-finding>`_
-  is completed.
+  Currently, Angular module names must still be manually declared with
+  ``ADD_ANGULAR_MODULES``, even when using automatic file discovery.
 
 This section serves as a basic introduction to writing your own panel for
 horizon, using AngularJS. A panel may be included with the plugin system, or it may be
@@ -135,36 +143,23 @@ part of the upstream horizon project.
 Upstream
 --------
 
-If you are adding a panel to horizon, add the relevant ``.js`` and ``.spec.js``
-files to one of the dashboards in ``openstack_dashboard/enabled/``.
-An example can be found at ``openstack_dashboard/enabled/_10_project.py``:
-::
+JavaScript files can be discovered automatically, handled manually, or a mix of
+the two. Where possible, use the automated mechanism.
+To use the automatic functionality, add::
+  AUTO_DISCOVER_STATIC_FILES = True
+to your ``enabled/___.py``. To make this possible, you need to follow some
+structural conventions:
 
-  LAUNCH_INST = 'dashboard/launch-instance/'
+  - Static files should be put in a ``static/`` folder, which should be found directly under
+    the folder for the dashboard/panel/panel groups Python package.
+  - JS code that defines an Angular module should be in a file with extension of ``.module.js``.
+  - JS code for testing should be named with extension of ``.mock.js`` and of ``.spec.js``.
+  - Angular templates should have extension of ``.html``.
 
-  ADD_JS_FILES = [
-    ...
-    LAUNCH_INST + 'launch-instance.js',
-    LAUNCH_INST + 'launch-instance.model.js',
-    LAUNCH_INST + 'source/source.js',
-    LAUNCH_INST + 'flavor/flavor.js',
-    ...
-  ]
+You can read more about the functionality in the
+:ref:`auto_discover_static_files` section of the settings documentation.
 
-  ADD_JS_SPEC_FILES = [
-    ...
-    LAUNCH_INST + 'launch-instance.spec.js',
-    LAUNCH_INST + 'launch-instance.model.spec.js',
-    LAUNCH_INST + 'source/source.spec.js',
-    LAUNCH_INST + 'flavor/flavor.spec.js',
-    ...
-  ]
-
-Plugins
--------
-
-Add a new panel/ panel group/ dashboard (See :doc:`tutorial`). Add your files
-to the relevant arrays in your new enabled files:
+To manually add files, add the following arrays and file paths to the enabled file:
 ::
 
   ADD_JS_FILES = [
@@ -178,3 +173,33 @@ to the relevant arrays in your new enabled files:
     'path_to/my_angular_code.spec.js',
     ...
   ]
+
+  ADD_ANGULAR_MODULES = [
+    ...
+    'angular.module',
+    ...
+  ]
+
+Plugins
+-------
+
+Add a new panel/ panel group/ dashboard (See :doc:`tutorial`). JavaScript file
+inclusion is the same as the Upstream process.
+
+To include external stylesheets, you must ensure that ``ADD_SCSS_FILES`` is
+defined in your enabled file, and add the relevant filepath, as below:
+::
+
+  ADD_SCSS_FILES = [
+    ...
+    'path_to/my_styles.scss',
+    ...
+  ]
+
+.. warning::
+  We highly recommend using a single SCSS file for your plugin. SCSS supports
+  nesting with @import, so if you have multiple files (i.e. per panel styling)
+  it is best to import them all into one, and include that single file. You can
+  read more in the `SASS documentation`_.
+
+.. _SASS documentation: http://sass-lang.com/documentation/file.SASS_REFERENCE.html#import
