@@ -50,6 +50,8 @@ class CreateView(forms.ModalFormView):
         "horizon:project:access_and_security:keypairs:create")
     success_url = 'horizon:project:access_and_security:keypairs:download'
     page_title = _("Create Key Pair")
+    cancel_url = reverse_lazy(
+        "horizon:project:access_and_security:index")
 
     def get_success_url(self):
         return reverse(self.success_url,
