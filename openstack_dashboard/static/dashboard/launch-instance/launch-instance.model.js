@@ -474,6 +474,7 @@
               'volume_size': finalSpec.vol_size
             }
           );
+          finalSpec.source_id = null;
         }
       }
 
