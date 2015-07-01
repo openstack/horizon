@@ -21,7 +21,7 @@
     <dt>{% trans "Email" %}</dt>
     <dd>{{ user.email|default:_("None") }}</dd>
     <dt>{% trans "Enabled" %}</dt>
-    <dd>{{ user.enabled }}</dd>
+    <dd>{{ user.enabled|yesno|capfirst }}</dd>
     <dt>{% trans "Project ID" %}</dt>
     <dd>{{ user.project_id }}</dd>
   </dl>
