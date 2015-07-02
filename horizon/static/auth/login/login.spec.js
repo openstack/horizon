@@ -17,22 +17,6 @@
 (function() {
   'use strict';
 
-  describe('hzLoginCtrl', function() {
-    var $controller;
-    beforeEach(module('horizon.auth.login'));
-    beforeEach(inject(function(_$controller_) {
-      $controller = _$controller_;
-    }));
-
-    describe('$scope.auth_type', function() {
-      it('should initialize to credentials', function() {
-        var scope = {};
-        $controller('hzLoginCtrl', { $scope: scope });
-        expect(scope.auth_type).toEqual('credentials');
-      });
-    });
-  });
-
   describe('hzLoginFinder', function() {
 
     var $compile, $rootScope, $timeout;
@@ -99,7 +83,7 @@
         userInput = element.find("#id_username").parents('.form-group');
         passwordInput = element.find("#id_password").parents('.form-group');
         helpText = element.find('#help_text');
-        $rootScope.$digest();
+        $rootScope.$apply();
       });
 
       it('should not contain auth_type select input', function() {
@@ -128,7 +112,7 @@
         userInput = element.find("#id_username").parents('.form-group');
         passwordInput = element.find("#id_password").parents('.form-group');
         helpText = element.find('#help_text');
-        $rootScope.$digest();
+        $rootScope.$apply();
       });
 
       it('should contain auth_type select input', function() {
