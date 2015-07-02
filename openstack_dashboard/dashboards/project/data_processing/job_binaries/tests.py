@@ -40,7 +40,7 @@ class DataProcessingJobBinaryTests(test.TestCase):
     @test.create_stubs({api.sahara: ('job_binary_get',)})
     def test_details(self):
         api.sahara.job_binary_get(IsA(http.HttpRequest), IsA(unicode)) \
-            .AndReturn(self.job_binaries.list()[0])
+            .MultipleTimes().AndReturn(self.job_binaries.first())
         self.mox.ReplayAll()
         res = self.client.get(DETAILS_URL)
         self.assertTemplateUsed(
