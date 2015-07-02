@@ -18,6 +18,8 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 from horizon import tables
 from horizon import tabs
+from horizon.utils import memoized
+from horizon.utils.urlresolvers import reverse  # noqa
 
 from openstack_dashboard.api import sahara as saharaclient
 
@@ -62,3 +64,20 @@ class JobExecutionDetailsView(tabs.TabView):
     tab_group_class = _tabs.JobExecutionDetailsTabs
     template_name = 'project/data_processing.job_executions/details.html'
     page_title = _("Job Execution Details")
+
+    @memoized.memoized_method
+    def get_object(self):
+        jex_id = self.kwargs["job_execution_id"]
+        try:
+            return saharaclient.job_execution_get(self.request, jex_id)
+        except Exception:
+            msg = _('Unable to retrieve details for job "%s".') % jex_id
+            redirect = reverse("horizon:project:data_processing."
+                               "job_executions:job-executions")
+            exceptions.handle(self.request, msg, redirect=redirect)
+
+    def get_context_data(self, **kwargs):
+        context = super(JobExecutionDetailsView, self)\
+            .get_context_data(**kwargs)
+        context['job_execution'] = self.get_object()
+        return context

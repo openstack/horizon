@@ -28,9 +28,13 @@ class GeneralTab(tabs.Tab):
     template_name = ("project/data_processing.job_executions/_details.html")
 
     def get_context_data(self, request):
-        job_execution_id = self.tab_group.kwargs['job_execution_id']
-        job_execution = saharaclient.job_execution_get(request,
-                                                       job_execution_id)
+        jex_id = self.tab_group.kwargs['job_execution_id']
+        try:
+            job_execution = saharaclient.job_execution_get(request, jex_id)
+        except Exception as e:
+            job_execution = {}
+            LOG.error("Unable to fetch job details: %s" % str(e))
+            return {"job_execution": job_execution}
         object_names = self.get_object_names(job_execution,
                                              request)
 
