@@ -499,7 +499,7 @@ class CreateProject(CommonQuotaWorkflow):
                               % {'users_to_add': users_to_add,
                                  'group_msg': group_msg})
         finally:
-            auth_utils.remove_project_cache(request.user.token.id)
+            auth_utils.remove_project_cache(request.user.token.unscoped_token)
 
     def _update_project_groups(self, request, data, project_id):
         # update project groups
@@ -762,7 +762,7 @@ class UpdateProject(CommonQuotaWorkflow):
                                  'group_msg': group_msg})
             return False
         finally:
-            auth_utils.remove_project_cache(request.user.token.id)
+            auth_utils.remove_project_cache(request.user.token.unscoped_token)
 
     def _update_project_groups(self, request, data, project_id, domain_id):
         # update project groups
