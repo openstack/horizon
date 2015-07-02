@@ -91,6 +91,7 @@ module.exports = function (config) {
        * not significant.
        */
       '**/*.module.js',
+      '../dashboards/**/static/**/*.module.js',
 
       /**
        * Followed by other JavaScript files that defines angular providers
@@ -99,23 +100,27 @@ module.exports = function (config) {
        * significant.
        */
       '**/!(*.spec|*.mock).js',
+      '../dashboards/**/static/**/!(*.spec|*.mock).js',
 
       /**
        * Then, list files for mocks with `mock.js` extension. The order
        * among them should not be significant.
        */
       '**/*.mock.js',
+      '../dashboards/**/static/**/*.mock.js',
 
       /**
        * Finally, list files for spec with `spec.js` extension. The order
        * among them should not be significant.
        */
       '**/*.spec.js',
+      '../dashboards/**/static/**/*.spec.js',
 
       /**
        * Angular external templates
        */
-      '**/*.html'
+      '**/*.html',
+      '../dashboards/**/static/**/*.html'
     ],
 
     autoWatch: true,
