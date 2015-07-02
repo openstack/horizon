@@ -179,8 +179,8 @@ The complete ``urls.py`` file should look like this::
 
 
     urlpatterns = patterns('',
-        url(r'^\?tab=mypanel_tabs_tab$',
-            views.IndexView.as_view(), name='mypanel_tabs'),
+        url(r'^$',
+            views.IndexView.as_view(), name='index'),
         url(r'^(?P<instance_id>[^/]+)/create_snapshot/$',
             views.CreateSnapshotView.as_view(),
             name='create_snapshot'),
