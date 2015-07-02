@@ -293,6 +293,7 @@ class DetailView(tabs.TabView):
     redirect_url = 'horizon:project:instances:index'
     page_title = _("Instance Details: {{ instance.name }}")
     image_url = 'horizon:project:images:images:detail'
+    volume_url = 'horizon:project:volumes:volumes:detail'
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
@@ -300,6 +301,7 @@ class DetailView(tabs.TabView):
         if instance.image:
             instance.image_url = reverse(self.image_url,
                                          args=[instance.image['id']])
+        instance.volume_url = self.volume_url
         context["instance"] = instance
         context["url"] = reverse(self.redirect_url)
         context["actions"] = self._get_actions(instance)
