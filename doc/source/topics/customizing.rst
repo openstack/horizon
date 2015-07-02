@@ -12,7 +12,7 @@ and a ``_styles.scss`` file with additional styles to load after dashboard
 styles have loaded.
 
 To use a custom theme, set ``CUSTOM_THEME_PATH`` in ``local_settings.py`` to
-the directory location for the theme (e.g., ``"themes/blue"``). The
+the directory location for the theme (e.g., ``"themes/material"``). The
 path can either be relative to the ``openstack_dashboard`` directory or an
 absolute path to an accessible location on the file system. The default
 ``CUSTOM_THEME_PATH`` is ``themes/default``.

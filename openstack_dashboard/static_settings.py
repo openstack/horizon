@@ -27,6 +27,7 @@ import xstatic.pkg.angular_lrdragndrop
 import xstatic.pkg.angular_smart_table
 import xstatic.pkg.bootstrap_datepicker
 import xstatic.pkg.bootstrap_scss
+import xstatic.pkg.bootswatch
 import xstatic.pkg.d3
 import xstatic.pkg.font_awesome
 import xstatic.pkg.hogan
@@ -38,7 +39,9 @@ import xstatic.pkg.jquery_tablesorter
 import xstatic.pkg.jquery_ui
 import xstatic.pkg.jsencrypt
 import xstatic.pkg.magic_search
+import xstatic.pkg.mdi
 import xstatic.pkg.rickshaw
+import xstatic.pkg.roboto_fontface
 import xstatic.pkg.spin
 import xstatic.pkg.termjs
 
@@ -68,6 +71,9 @@ def get_staticfiles_dirs(webroot='/'):
         ('bootstrap',
             xstatic.main.XStatic(xstatic.pkg.bootstrap_scss,
                                  root_url=webroot).base_dir),
+        ('horizon/lib/bootswatch',
+         xstatic.main.XStatic(xstatic.pkg.bootswatch,
+                              root_url=webroot).base_dir),
         ('horizon/lib',
             xstatic.main.XStatic(xstatic.pkg.d3,
                                  root_url=webroot).base_dir),
@@ -98,15 +104,21 @@ def get_staticfiles_dirs(webroot='/'):
         ('horizon/lib/magic_search',
             xstatic.main.XStatic(xstatic.pkg.magic_search,
                                  root_url=webroot).base_dir),
+        ('horizon/lib/mdi',
+         xstatic.main.XStatic(xstatic.pkg.mdi,
+                              root_url=webroot).base_dir),
         ('horizon/lib',
             xstatic.main.XStatic(xstatic.pkg.rickshaw,
                                  root_url=webroot).base_dir),
+        ('horizon/lib/roboto_fontface',
+         xstatic.main.XStatic(xstatic.pkg.roboto_fontface,
+                              root_url=webroot).base_dir),
         ('horizon/lib',
             xstatic.main.XStatic(xstatic.pkg.spin,
                                  root_url=webroot).base_dir),
         ('horizon/lib',
-            xstatic.main.XStatic(xstatic.pkg.termjs,
-                                 root_url=webroot).base_dir),
+         xstatic.main.XStatic(xstatic.pkg.termjs,
+                              root_url=webroot).base_dir),
     ]
 
     if xstatic.main.XStatic(xstatic.pkg.jquery_ui,

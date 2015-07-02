@@ -1,0 +1,79 @@
+#sidebar {
+  border-right: 1px solid rgba(0, 0, 0, 0.14);
+  bottom: 0;
+  display: block;
+  left: 0;
+  position: fixed;
+  top: $navbar-height;
+  /* No mixin for this yet */
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  @include translate(0, 0);
+  @include transition(transform $sidebar-animation);
+  width: $sidebar-width;
+  z-index: 3;
+  margin-left: 0;
+  overflow-x: scroll;
+
+  .sidebar-wrapper {
+    background: $body-bg;
+    height: 100%;
+  }
+
+  .openstack-dashboard {
+    & > a {
+      font-weight: bold;
+    }
+
+    &.active > a {
+      background-color: transparent;
+
+      &:focus {
+        background-color: $gray-lighter;
+      }
+    }
+  }
+
+  .openstack-dashboard > a,
+  .openstack-panel > a,
+  .nav-header > a {
+    &:focus {
+      background-color: $gray-lighter;
+      outline: 0;
+    }
+  }
+
+  .openstack-dashboard > a,
+  .openstack-panel > a,
+  .nav-header > a {
+    color: $list-group-link-heading-color;
+  }
+
+  .openstack-panel > a {
+    padding: $padding-small-horizontal $font-size-h4 $padding-small-horizontal ($font-size-h1 - $padding-small-horizontal);
+    text-align: left;
+  }
+
+  .openstack-toggle {
+    display: none;
+  }
+
+  .nav-header-title {
+    text-align: left;
+    padding-left: $padding-small-horizontal;
+  }
+
+  // Specialness for smaller screens!
+  @media (max-width: $screen-lg) {
+    @include translate(-$sidebar-width, 0);
+    border: none;
+
+    &.active {
+      @include translate(0, 0);
+    }
+
+    .sidebar-wrapper {
+      height: auto;
+    }
+  }
+}

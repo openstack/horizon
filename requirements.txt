@@ -48,6 +48,7 @@ XStatic-Angular-Gettext>=2.1.0.2 # MIT License
 XStatic-Angular-lrdragndrop>=1.0.2.2 # MIT License
 XStatic-Bootstrap-Datepicker>=1.3.1.0 # Apache 2.0 License
 XStatic-Bootstrap-SCSS>=3 # Apache 2.0 License
+XStatic-bootswatch>=3.3.5.2 # MIT License
 XStatic-D3>=3.1.6.2 # BSD License (3 clause)
 XStatic-Hogan>=2.0.0.2 # Apache 2.0 License
 XStatic-Font-Awesome>=4.3.0 # SIL OFL 1.1 License, MIT License
@@ -59,7 +60,9 @@ XStatic-JQuery.TableSorter>=2.14.5.1 # MIT License
 XStatic-jquery-ui>=1.10.1 # MIT License
 XStatic-JSEncrypt>=2.0.0.2 # MIT License
 XStatic-Magic-Search>=0.2.5.1 # Apache 2.0 License
+XStatic-mdi==1.1.70.1 # SIL OPEN FONT LICENSE Version 1.1
 XStatic-Rickshaw>=1.5.0 # BSD License (prior)
+XStatic-roboto-fontface>=0.4.3.2 # Apache 2.0 License
 XStatic-smart-table>=1.4.5.3 # MIT License
 XStatic-Spin>=1.2.5.2 # MIT License
 XStatic-term.js>=0.0.4 # MIT License

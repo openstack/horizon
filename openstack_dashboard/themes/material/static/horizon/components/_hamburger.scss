@@ -1,0 +1,147 @@
+// HAMBURGLER!!!!
+// Adapted with <3 from http://codepen.io/swirlycheetah/pen/cFtzb
+
+// keyframes mixin
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+.md-hamburger-trigger {
+  display: block;
+  border: none;
+  background: none;
+  outline: 0;
+}
+
+.md-hamburger-layer {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: $gray;
+  position: relative;
+  @include animation-duration(300ms);
+  @include animation-timing-function(ease-in-out);
+
+  &:before,
+  &:after {
+    display: block;
+    width: inherit;
+    height: 3px;
+    position: absolute;
+    background: inherit;
+    left: 0;
+    content: '';
+    @include animation-duration(300ms);
+    @include animation-timing-function(ease-in-out);
+  }
+
+  &:before {
+    bottom: 200%;
+  }
+
+  &:after {
+    top: 200%;
+  }
+}
+
+// Specialness for a nav-bar
+.navbar .md-hamburger-layer {
+  background: $navbar-default-toggle-icon-bar-bg;
+}
+
+.md-hamburger-arrow {
+  @include animation-name(md-hamburger-icon--slide);
+  @include animation-fill-mode(forwards);
+
+  &:before {
+    @include animation-name(md-hamburger-icon--slide-before);
+    @include animation-fill-mode(forwards);
+  }
+
+  &:after {
+    @include animation-name(md-hamburger-icon--slide-after);
+    @include animation-fill-mode(forwards);
+  }
+
+}
+
+.md-hamburger-menu {
+  @include animation-name(md-hamburger-icon--slide-from);
+
+  &:before {
+    @include animation-name(md-hamburger-icon--slide-before-from);
+  }
+
+  &:after {
+    @include animation-name(md-hamburger-icon--slide-after-from);
+  }
+}
+
+
+@include keyframes(md-hamburger-icon--slide) {
+  0% {
+  }
+  100% {
+    @include rotate(180deg);
+  }
+}
+
+@include keyframes(md-hamburger-icon--slide-before) {
+  0% {
+  }
+  100% {
+    @include rotate(45deg);
+    margin: 3% 37%;
+    width: 75%;
+  }
+}
+
+@include keyframes(md-hamburger-icon--slide-after) {
+  0% {
+  }
+  100% {
+    @include rotate(-45deg);
+    margin: 3% 37%;
+    width: 75%;
+  }
+}
+
+@include keyframes(md-hamburger-icon--slide-from) {
+  0% {
+    @include rotate(-180deg);
+  }
+  100% {
+  }
+}
+
+@include keyframes(md-hamburger-icon--slide-before-from) {
+  0% {
+    @include rotate(45deg);
+    margin: 3% 37%;
+    width: 75%;
+  }
+  100% {
+  }
+}
+
+@include keyframes(md-hamburger-icon--slide-after-from) {
+  0% {
+    @include rotate(-45deg);
+    margin: 3% 37%;
+    width: 75%;
+  }
+  100% {
+  }
+}
+
