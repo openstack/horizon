@@ -1218,6 +1218,23 @@ A list of scss files to be included in the compressed set of files that are
 loaded on every page. We recommend one scss file per dashboard, use @import if
 you need to include additional scss files for panels.
 
+``AUTO_DISCOVER_STATIC_FILES``
+------------------------------
+
+.. versionadded:: 2015.2(Liberty)
+
+If set to ``True``, JavaScript files and static angular html template files will be
+automatically discovered from the `static` folder in each apps listed in ADD_INSTALLED_APPS.
+
+JavaScript source files will be ordered based on naming convention: files with extension
+`.module.js` listed first, followed by other JavaScript source files.
+
+JavaScript files for testing will also be ordered based on naming convention: files with extension
+`.mock.js` listed first, followed by files with extension `.spec.js`.
+
+If ADD_JS_FILES and/or ADD_JS_SPEC_FILES are also specified, files manually listed there will be
+appended to the auto-discovered files.
+
 ``DISABLED``
 ------------
 

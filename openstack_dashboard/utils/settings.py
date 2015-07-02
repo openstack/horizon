@@ -18,6 +18,8 @@ import pkgutil
 from django.utils import importlib
 import six
 
+from horizon.utils import file_discovery as fd
+
 
 def import_submodules(module):
     """Import all submodules and make them available in a dict."""
@@ -111,7 +113,16 @@ def update_dashboards(modules, horizon_config, installed_apps):
             if config.get('DASHBOARD'):
                 disabled_dashboards.append(config.get('DASHBOARD'))
             continue
-        apps.extend(config.get('ADD_INSTALLED_APPS', []))
+
+        _apps = config.get('ADD_INSTALLED_APPS', [])
+        apps.extend(_apps)
+
+        if config.get('AUTO_DISCOVER_STATIC_FILES', False):
+            for _app in _apps:
+                module = importlib.import_module(_app)
+                base_path = os.path.join(module.__path__[0], 'static/')
+                fd.populate_horizon_config(horizon_config, base_path)
+
         for category, exc_list in config.get('ADD_EXCEPTIONS', {}).iteritems():
             exceptions[category] = tuple(set(exceptions.get(category, ())
                                              + exc_list))
