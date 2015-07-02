@@ -65,7 +65,7 @@ class LaunchImageNG(LaunchImage):
 
     def __init__(self, attrs=None, **kwargs):
         if attrs is None:
-            attrs = {"ng-controller": "LaunchInstanceModalCtrl"}
+            attrs = {"ng-controller": "LaunchInstanceModalController"}
         kwargs['preempt'] = True
         super(LaunchImage, self).__init__(attrs, **kwargs)
 

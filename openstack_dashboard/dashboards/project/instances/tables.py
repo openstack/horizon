@@ -354,7 +354,7 @@ class LaunchLinkNG(LaunchLink):
 
     def __init__(self,
                  attrs={
-                     "ng-controller": "LaunchInstanceModalCtrl",
+                     "ng-controller": "LaunchInstanceModalController",
                      "ng-click": "openLaunchInstanceWizard(" +
                                  "{successUrl: '/project/instances/'})"
                  },

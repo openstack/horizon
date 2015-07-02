@@ -32,7 +32,7 @@
 
   LaunchInstanceSourceController.$inject = [
    '$scope',
-   'bootSourceTypes',
+   'hz.dashboard.launch-instance.boot-source-types',
    'bytesFilter',
    'horizon.framework.widgets.charts.donutChartSettings',
    'dateFilter',
