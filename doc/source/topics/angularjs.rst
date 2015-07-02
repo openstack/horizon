@@ -72,7 +72,7 @@ component:
 
   horizon/static/framework/widgets/modal/
   ├── modal.controller.js
-  ├── modal.factory.js
+  ├── modal.service.js
   ├── modal.module.js
   ├── modal.spec.js
   └── simple-modal.html

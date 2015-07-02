@@ -104,7 +104,7 @@ File tree:
 
   horizon/static/framework/widgets/modal
   ├── modal.controller.js
-  ├── modal.factory.js
+  ├── modal.service.js
   ├── modal.module.js
   └── modal.spec.js
 
@@ -116,7 +116,7 @@ Lines added to ``horizon/test/jasmine/jasmine_tests.py``:
       ...
       'framework/widgets/modal/modal.module.js',
       'framework/widgets/modal/modal.controller.js',
-      'framework/widgets/modal/modal.factory.js',
+      'framework/widgets/modal/modal.service.js',
       ...
     ]
 
