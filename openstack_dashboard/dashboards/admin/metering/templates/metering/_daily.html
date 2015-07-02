@@ -27,31 +27,12 @@
 
 {% block modal-js %}
 <script type="text/javascript">
-  if (typeof $ !== 'undefined') {
-    show_hide_datepickers();
+  if (typeof horizon.metering !== 'undefined') {
+    horizon.metering.init_create_usage_report_form();
   } else {
     addHorizonLoadEvent(function() {
-      show_hide_datepickers();
+      horizon.metering.init_create_usage_report_form();
     });
-  }
-
-  function show_hide_datepickers() {
-    $("#id_period").change(function(evt) {
-        // Enhancing behaviour of selectbox, on 'other' value selected, I don't
-        // want to refresh, but show hide the date fields
-        if ($(this).find("option:selected").val() === "other"){
-          evt.stopPropagation();
-          $("#date_from .controls input, #date_to .controls input").val('');
-          $("#id_date_from, #id_date_to").parent().parent().show();
-        } else {
-          $("#id_date_from, #id_date_to").parent().parent().hide();
-        }
-    });
-    if ($("#id_period").find("option:selected").val() === "other"){
-      $("#id_date_from, #id_date_to").parent().parent().show();
-    } else {
-      $("#id_date_from, #id_date_to").parent().parent().hide();
-    }
   }
 </script>
 {% endblock %}
