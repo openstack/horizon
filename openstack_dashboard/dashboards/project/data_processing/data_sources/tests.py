@@ -41,7 +41,7 @@ class DataProcessingDataSourceTests(test.TestCase):
     @test.create_stubs({api.sahara: ('data_source_get',)})
     def test_details(self):
         api.sahara.data_source_get(IsA(http.HttpRequest), IsA(unicode)) \
-            .AndReturn(self.data_sources.list()[0])
+            .MultipleTimes().AndReturn(self.data_sources.first())
         self.mox.ReplayAll()
         res = self.client.get(DETAILS_URL)
         self.assertTemplateUsed(
