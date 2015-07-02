@@ -278,9 +278,6 @@ class AddFirewallAction(workflows.Action):
                                   label=_("Description"),
                                   required=False)
     firewall_policy_id = forms.ChoiceField(label=_("Policy"))
-    shared = forms.BooleanField(label=_("Shared"),
-                                initial=False,
-                                required=False)
     admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
                                                 (False, _('DOWN'))],
                                        label=_("Admin State"))
@@ -302,9 +299,6 @@ class AddFirewallAction(workflows.Action):
         for p in policies:
             firewall_policy_id_choices.append((p.id, p.name_or_id))
         self.fields['firewall_policy_id'].choices = firewall_policy_id_choices
-        # only admin can set 'shared' attribute to True
-        if not request.user.is_superuser:
-            self.fields['shared'].widget.attrs['disabled'] = 'disabled'
 
     class Meta(object):
         name = _("AddFirewall")
@@ -317,7 +311,7 @@ class AddFirewallAction(workflows.Action):
 class AddFirewallStep(workflows.Step):
     action_class = AddFirewallAction
     contributes = ("name", "firewall_policy_id", "description",
-                   "shared", "admin_state_up")
+                   "admin_state_up")
 
     def contribute(self, data, context):
         context = super(AddFirewallStep, self).contribute(data, context)
