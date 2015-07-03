@@ -877,6 +877,14 @@ class DataTableTests(test.TestCase):
         self.assertEqual(u"Upped Item: object_2",
                          list(req._messages)[0].message)
 
+        # there are underscore in object-id.
+        # (because swift support custom object id)
+        action_string = "my_table__toggle__2__33__$$"
+        req = self.factory.post('/my_url/', {'action': action_string})
+        self.table = MyTable(req, TEST_DATA)
+        self.assertEqual(('my_table', 'toggle', '2__33__$$'),
+                         self.table.parse_action(action_string))
+
         # Multiple object action
         action_string = "my_table__delete"
         req = self.factory.post('/my_url/', {'action': action_string,

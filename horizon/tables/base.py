@@ -1442,11 +1442,12 @@ class DataTable(object):
         """
         if action_string:
             bits = action_string.split(STRING_SEPARATOR)
-            bits.reverse()
-            table = bits.pop()
-            action = bits.pop()
+            table = bits[0]
+            action = bits[1]
             try:
-                object_id = bits.pop()
+                object_id = STRING_SEPARATOR.join(bits[2:])
+                if object_id == '':
+                    object_id = None
             except IndexError:
                 object_id = None
             return table, action, object_id
