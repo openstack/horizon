@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-06-23 01:20+0000\n"
-"PO-Revision-Date: 2015-06-23 01:20+0000\n"
+"POT-Creation-Date: 2015-07-03 03:01+0000\n"
+"PO-Revision-Date: 2015-07-02 07:07+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Marathi (http://www.transifex.com/projects/p/horizon/language/"
 "mr/)\n"
@@ -341,8 +341,8 @@ msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
 "Choose one or more listed instances to be added to the pool as member(s). "
-"Assign a numeric weight and port number for the selected member(s) to operate"
-"(s) on; e.g., 80. \n"
+"Assign a numeric weight and port number for the selected member(s) to "
+"operate(s) on; e.g., 80. \n"
 "\n"
 "Only one port can be associated with each instance."
 msgstr ""
@@ -3479,12 +3479,6 @@ msgstr "नवीन होस्ट"
 msgid "New Size (GB)"
 msgstr "नवीन आकार (जीबी)"
 
-msgid ""
-"New associated QoS Spec must be different than the current associated QoS "
-"Spec."
-msgstr ""
-"नवीन जोडलेला क्यूओएस निर्देश सध्याच्या जोडलेल्या क्यूओएस निर्देशापेक्षा वेगळा असला पाहिजे."
-
 msgid "New password"
 msgstr "नवीन पासवर्ड"
 
@@ -5241,8 +5235,8 @@ msgstr ""
 
 #, python-format
 msgid ""
-"The requested instance cannot be launched. The following requested resource"
-"(s) exceed quota(s): %s."
+"The requested instance cannot be launched. The following requested "
+"resource(s) exceed quota(s): %s."
 msgstr ""
 "विनंती करण्यात आलेले घटक सुरु करता येत नाहीत. पुढील विनंती करण्यात आलेले संसाधन (संसाधने) "
 "वाट्यापेक्षा अधिक आहे (आहेत): %s."
@@ -5637,9 +5631,6 @@ msgstr "उपलब्ध चित्रे मिळविण्यास अ
 msgid "Unable to fetch cluster list"
 msgstr "समूह यादी मिळविण्यास असमर्थ"
 
-msgid "Unable to fetch cluster template details."
-msgstr "समूह साचा तपशील मिळविण्यास असमर्थ."
-
 msgid "Unable to fetch cluster template list"
 msgstr "समूह साचा यादी मिळविण्यास असमर्थ"
 
@@ -5673,9 +5664,6 @@ msgstr "घटक तपशील मिळविण्यास असमर्
 msgid "Unable to fetch job binary list."
 msgstr "कार्य द्विअंकी यादी मिळविण्यास असमर्थ."
 
-msgid "Unable to fetch job binary."
-msgstr "कार्य द्विअंकी मिळिविण्यास असमर्थ."
-
 #, python-format
 msgid "Unable to fetch job binary: %(exc)s"
 msgstr "कार्य द्विअंकी मिळविण्यास असमर्थ: %(exc)s"
@@ -5694,9 +5682,6 @@ msgstr "नोड गट तपशील मिळविण्यास अस�
 
 msgid "Unable to fetch node group template list."
 msgstr "नोड गट साचा यादी मिळविण्यास असमर्थ."
-
-msgid "Unable to fetch node group template."
-msgstr "नोड समूह साचे मिळविण्यास असमर्थ."
 
 msgid "Unable to fetch plugin details."
 msgstr "प्लगइन तपशील मिळविण्यास असमर्थ."
@@ -5995,9 +5980,6 @@ msgstr "धारक यादी मिळविण्यास असमर्
 
 msgid "Unable to retrieve data processing plugins."
 msgstr "डाटा प्रक्रिया प्लगइन मिळविण्यास असमर्थ."
-
-msgid "Unable to retrieve data source details"
-msgstr "डाटा स्रोत मिळविण्यास असमर्थ"
 
 msgid "Unable to retrieve database instances."
 msgstr "डाटाबेस घटक मिळविण्यास असमर्थ."

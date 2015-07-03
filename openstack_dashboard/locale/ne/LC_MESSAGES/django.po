@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-06-23 01:20+0000\n"
-"PO-Revision-Date: 2015-06-23 01:20+0000\n"
+"POT-Creation-Date: 2015-07-03 03:01+0000\n"
+"PO-Revision-Date: 2015-07-02 07:07+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Nepali (http://www.transifex.com/projects/p/horizon/language/"
 "ne/)\n"
@@ -335,8 +335,8 @@ msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
 "Choose one or more listed instances to be added to the pool as member(s). "
-"Assign a numeric weight and port number for the selected member(s) to operate"
-"(s) on; e.g., 80. \n"
+"Assign a numeric weight and port number for the selected member(s) to "
+"operate(s) on; e.g., 80. \n"
 "\n"
 "Only one port can be associated with each instance."
 msgstr ""
@@ -3373,11 +3373,6 @@ msgstr "नयाँ होस्ट"
 msgid "New Size (GB)"
 msgstr "नयाँ आकार(GB)"
 
-msgid ""
-"New associated QoS Spec must be different than the current associated QoS "
-"Spec."
-msgstr "नयाँ सम्बन्धित QoS स्पेक वर्तमान सम्बन्धित QoS स्पेकभन्दा नितान्त भिन्न हुनुपर्छ"
-
 msgid "New password"
 msgstr "नयाँ पासवर्ड"
 
@@ -4965,8 +4960,8 @@ msgstr ""
 
 #, python-format
 msgid ""
-"The requested instance cannot be launched. The following requested resource"
-"(s) exceed quota(s): %s."
+"The requested instance cannot be launched. The following requested "
+"resource(s) exceed quota(s): %s."
 msgstr ""
 "अनुरोध गरिएको इन्सटेन्स आरम्भ गर्न सकिएन। निम्न अनुरोध गरिएका सामग्रीहरूले कोटा: %sको "
 "सिमा पार गरेको छ"
@@ -5360,9 +5355,6 @@ msgstr "उपलब्ध चित्रहरू प्राप्त गर
 msgid "Unable to fetch cluster list"
 msgstr "बगाल सूची प्राप्त गर्न असमर्थ"
 
-msgid "Unable to fetch cluster template details."
-msgstr "क्लस्टर टेम्प्लेट विवरण प्राप्त गर्न असमर्थ।"
-
 msgid "Unable to fetch cluster template list"
 msgstr "क्लस्टर टेम्प्लेट सूची प्राप्त गर्न असमर्थ।"
 
@@ -5396,9 +5388,6 @@ msgstr "इन्सटेन्स जानकारी प्राप्त 
 msgid "Unable to fetch job binary list."
 msgstr "कार्य विभाजन सूची प्राप्त गर्न असमर्थ।"
 
-msgid "Unable to fetch job binary."
-msgstr "कार्य विभाजन  प्राप्त गर्न असमर्थ"
-
 #, python-format
 msgid "Unable to fetch job binary: %(exc)s"
 msgstr "कार्य विभाजन: %(exc)s सूची प्राप्त गर्न असमर्थ।"
@@ -5417,9 +5406,6 @@ msgstr "नोड दल विवरण प्राप्त गर्न अ�
 
 msgid "Unable to fetch node group template list."
 msgstr "नोज दल टेम्प्लेट सूची  प्राप्त गर्न असमर्थ।"
-
-msgid "Unable to fetch node group template."
-msgstr "नोड दल टेम्प्लेट प्राप्त गर्न असमर्थ।"
 
 msgid "Unable to fetch plugin details."
 msgstr "प्लगइन विवरणहरू प्राप्त गर्न असमर्थ।"
@@ -5719,9 +5705,6 @@ msgstr "कन्टेनर सूची प्राप्त गर्न �
 
 msgid "Unable to retrieve data processing plugins."
 msgstr "डाटा प्रोसेसिङ प्लगइनहरू प्राप्त गर्न असमर्थ।"
-
-msgid "Unable to retrieve data source details"
-msgstr "डाटा स्रोत जानकारीहरू प्राप्त गर्न असमर्थ"
 
 msgid "Unable to retrieve database instances."
 msgstr "डाटावेस इन्सटेन्स प्राप्त गर्न असमर्थ"

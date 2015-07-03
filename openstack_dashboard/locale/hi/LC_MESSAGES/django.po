@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-06-23 01:20+0000\n"
-"PO-Revision-Date: 2015-06-23 01:20+0000\n"
+"POT-Creation-Date: 2015-07-03 03:01+0000\n"
+"PO-Revision-Date: 2015-07-02 07:07+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/"
 "hi/)\n"
@@ -5169,9 +5169,6 @@ msgstr "उपलब्ध छवि पाने में असमर्थ."
 msgid "Unable to fetch cluster list"
 msgstr "क्लस्टर सूची विवरण पाने में अक्षम"
 
-msgid "Unable to fetch cluster template details."
-msgstr "क्लस्टर टैम्प्लेट विवरण पाने में अक्षम."
-
 msgid "Unable to fetch cluster template list"
 msgstr "नमूना सूची विवरण पाने में अक्षम"
 
@@ -5195,9 +5192,6 @@ msgstr "इंस्टेंस विवरण को पाने में �
 
 msgid "Unable to fetch job binary list."
 msgstr "कार्य द्विपदीय सूची लाने में असमर्थ."
-
-msgid "Unable to fetch job binary."
-msgstr "कार्य द्विपदीय लाने में असमर्थ."
 
 #, python-format
 msgid "Unable to fetch job binary: %(exc)s"
@@ -5433,9 +5427,6 @@ msgstr "गणना सीमा में सूचना को प्रा�
 
 msgid "Unable to retrieve container list."
 msgstr "कंटेनर सूची को प्राप्त करने में असमर्थ."
-
-msgid "Unable to retrieve data source details"
-msgstr "डाटा स्रोत विवरण को पुनः प्राप्त करने में असमर्थ"
 
 msgid "Unable to retrieve database instances."
 msgstr "डेटाबेसइंस्टेंस को पुनः प्राप्त करने में असमर्थ."

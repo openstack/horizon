@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-06-23 01:20+0000\n"
-"PO-Revision-Date: 2015-06-23 01:20+0000\n"
+"POT-Creation-Date: 2015-07-03 03:01+0000\n"
+"PO-Revision-Date: 2015-07-02 07:07+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/horizon/"
 "language/pl_PL/)\n"
@@ -383,8 +383,8 @@ msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
 "Choose one or more listed instances to be added to the pool as member(s). "
-"Assign a numeric weight and port number for the selected member(s) to operate"
-"(s) on; e.g., 80. \n"
+"Assign a numeric weight and port number for the selected member(s) to "
+"operate(s) on; e.g., 80. \n"
 "\n"
 "Only one port can be associated with each instance."
 msgstr ""
@@ -4231,11 +4231,6 @@ msgstr "Nowy host"
 msgid "New Size (GB)"
 msgstr "Nowy rozmiar (GB)"
 
-msgid ""
-"New associated QoS Spec must be different than the current associated QoS "
-"Spec."
-msgstr "Nowe powiązanie specyfikacji QoS musi być inne niż obecne powiązanie."
-
 msgid "New password"
 msgstr "Nowe hasło"
 
@@ -6426,8 +6421,8 @@ msgstr ""
 
 #, python-format
 msgid ""
-"The requested instance cannot be launched. The following requested resource"
-"(s) exceed quota(s): %s."
+"The requested instance cannot be launched. The following requested "
+"resource(s) exceed quota(s): %s."
 msgstr ""
 "Nie można uruchomić żądanej instancji. Następujące limit/y zostały "
 "przekroczony/e: %s."
@@ -6921,9 +6916,6 @@ msgstr "Nie można pobrać dostępnych obrazów."
 msgid "Unable to fetch cluster list"
 msgstr "Nie można pobrać listy klastrów"
 
-msgid "Unable to fetch cluster template details."
-msgstr "Nie można pobrać szczegółów szablonu klastra."
-
 msgid "Unable to fetch cluster template list"
 msgstr "Nie można pobrać listy szablonów klastra."
 
@@ -6957,9 +6949,6 @@ msgstr "Nie można pobrać szczegółów instancji."
 msgid "Unable to fetch job binary list."
 msgstr "Nie można pobrać listy plików binarnych zadania."
 
-msgid "Unable to fetch job binary."
-msgstr "Nie można pobrać pliku binarnego zadania."
-
 #, python-format
 msgid "Unable to fetch job binary: %(exc)s"
 msgstr "Nie można pobrać pliku binarnego zadania: %(exc)s"
@@ -6978,9 +6967,6 @@ msgstr "Nie można pobrać szczegółów grupy węzłów."
 
 msgid "Unable to fetch node group template list."
 msgstr "Nie można pobrać listy szablonów grup węzłów."
-
-msgid "Unable to fetch node group template."
-msgstr "Nie można pobrać szablonu grupy węzłów."
 
 msgid "Unable to fetch plugin details."
 msgstr "Nie można pobrać szczegółów wtyczki."
@@ -7316,9 +7302,6 @@ msgstr "Nie można pobrać listy kontenerów."
 
 msgid "Unable to retrieve data processing plugins."
 msgstr "Nie można pobrać wtyczek przetwarzania danych."
-
-msgid "Unable to retrieve data source details"
-msgstr "Nie można pobrać szczegółów źródła danych"
 
 msgid "Unable to retrieve database instances."
 msgstr "Nie można pobrać instancji baz danych."
