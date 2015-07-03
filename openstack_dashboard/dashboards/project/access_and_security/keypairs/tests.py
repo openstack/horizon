@@ -253,4 +253,4 @@ class KeyPairViewTests(test.TestCase):
         form = CreateKeypair(self.request, data={'name': keypair_name})
         self.assertFalse(form.is_valid())
         self.assertIn('The name is already in use.',
-                      form.errors['__all__'][0])
+                      form.errors['name'][0])
