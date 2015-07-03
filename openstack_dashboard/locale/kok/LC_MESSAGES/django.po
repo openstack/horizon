@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-06-23 01:20+0000\n"
-"PO-Revision-Date: 2015-06-23 01:20+0000\n"
+"POT-Creation-Date: 2015-07-03 03:01+0000\n"
+"PO-Revision-Date: 2015-07-02 07:07+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Konkani (http://www.transifex.com/projects/p/horizon/language/"
 "kok/)\n"
@@ -342,8 +342,8 @@ msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
 "Choose one or more listed instances to be added to the pool as member(s). "
-"Assign a numeric weight and port number for the selected member(s) to operate"
-"(s) on; e.g., 80. \n"
+"Assign a numeric weight and port number for the selected member(s) to "
+"operate(s) on; e.g., 80. \n"
 "\n"
 "Only one port can be associated with each instance."
 msgstr ""
@@ -3467,11 +3467,6 @@ msgstr "नवो येजमान"
 msgid "New Size (GB)"
 msgstr "नवो आकार (GB)"
 
-msgid ""
-"New associated QoS Spec must be different than the current associated QoS "
-"Spec."
-msgstr "नवे जोडील्ले QoS Spec सद्याच्या जोडील्ल्या QoS Spec परस वेगळे आसपाक जाय."
-
 msgid "New password"
 msgstr "नवो पासवर्ड"
 
@@ -4202,8 +4197,8 @@ msgid ""
 "Remote peer subnet(s) address(es) with mask(s) in CIDR format separated with "
 "commas if needed (e.g. 20.1.0.0/24, 21.1.0.0/24)"
 msgstr ""
-"गरज आसल्यार CIDR स्वरूपान स्वल्पविरामान वेगळे केल्ले म्होवाळे(ळ्यां)संयत रिमोट पीयर उपनेट"
-"(ट्स) नामो(मे) (देखीक. 20.1.0.0/24, 21.1.0.0/24)"
+"गरज आसल्यार CIDR स्वरूपान स्वल्पविरामान वेगळे केल्ले म्होवाळे(ळ्यां)संयत रिमोट पीयर "
+"उपनेट(ट्स) नामो(मे) (देखीक. 20.1.0.0/24, 21.1.0.0/24)"
 
 msgid "Remove Rule"
 msgstr "नियम काडात"
@@ -5222,8 +5217,8 @@ msgstr ""
 
 #, python-format
 msgid ""
-"The requested instance cannot be launched. The following requested resource"
-"(s) exceed quota(s): %s."
+"The requested instance cannot be launched. The following requested "
+"resource(s) exceed quota(s): %s."
 msgstr ""
 "विनंती केल्लो इंस्टंस चालू करपाक शकना. मुखावयले विनंती केल्ले संसाधन(नां) कोटा(ज) परस चड "
 "आसा: %s."
@@ -5617,9 +5612,6 @@ msgstr "उपलब्ध प्रतिमा मेळोवपाक शक
 msgid "Unable to fetch cluster list"
 msgstr "क्लस्टर वळेरी मेळोवपाक शकना."
 
-msgid "Unable to fetch cluster template details."
-msgstr "क्लस्टर टेंप्लेटाचो तपशील मेळोवपाक असफळ."
-
 msgid "Unable to fetch cluster template list"
 msgstr "क्लस्टर टेंप्लेटाची वळेरी मेळोवपाक असफळ."
 
@@ -5653,9 +5645,6 @@ msgstr "इंस्टंसिसाचो तपशील मेळोवप�
 msgid "Unable to fetch job binary list."
 msgstr " काम बायनरी वळेरी मेळोवपाक शकना."
 
-msgid "Unable to fetch job binary."
-msgstr " काम बायनरी मेळोवपाक शकना."
-
 #, python-format
 msgid "Unable to fetch job binary: %(exc)s"
 msgstr " काम बायनरी वळेरी मेळोवपाक शकना: %(exc)s"
@@ -5674,9 +5663,6 @@ msgstr "नोड गटाचो तपशील मेळोवपाक अ�
 
 msgid "Unable to fetch node group template list."
 msgstr "नोड गट टेंप्लेट वळेरी मेळोवपाक शकना."
-
-msgid "Unable to fetch node group template."
-msgstr "नोड गट टेंप्लेट मेळोवपाक शकना."
 
 msgid "Unable to fetch plugin details."
 msgstr "प्लगईन तपशील मेळोवपाक शकना."
@@ -5975,9 +5961,6 @@ msgstr "कंटेनर वळेरी परत मेळोवपाक �
 
 msgid "Unable to retrieve data processing plugins."
 msgstr "डेटा प्रक्रिया प्लगईन्स परत मेळोवपाक शकना."
-
-msgid "Unable to retrieve data source details"
-msgstr "डेटा स्त्रोत तपशील परत मेळोवपाक शकना"
 
 msgid "Unable to retrieve database instances."
 msgstr "डेटाबेस इंस्टंसिस परत मेळोवपाक शकना."

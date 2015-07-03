@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-06-23 01:20+0000\n"
-"PO-Revision-Date: 2015-06-23 01:20+0000\n"
+"POT-Creation-Date: 2015-07-03 03:01+0000\n"
+"PO-Revision-Date: 2015-07-02 07:07+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Bodo (http://www.transifex.com/projects/p/horizon/language/"
 "brx/)\n"
@@ -346,8 +346,8 @@ msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
 "Choose one or more listed instances to be added to the pool as member(s). "
-"Assign a numeric weight and port number for the selected member(s) to operate"
-"(s) on; e.g., 80. \n"
+"Assign a numeric weight and port number for the selected member(s) to "
+"operate(s) on; e.g., 80. \n"
 "\n"
 "Only one port can be associated with each instance."
 msgstr ""
@@ -3490,12 +3490,6 @@ msgstr "गोदान हस्ट"
 msgid "New Size (GB)"
 msgstr "गोदान महर (GB)"
 
-msgid ""
-"New associated QoS Spec must be different than the current associated QoS "
-"Spec."
-msgstr ""
-"गोदान थाफाखानाय QoS Spec आ दानि थाफाखानाय QoS Spec निफ्राय आलादा जाथारनांगोन।"
-
 msgid "New password"
 msgstr "गोदान पासवार्ड"
 
@@ -4229,8 +4223,8 @@ msgid ""
 "Remote peer subnet(s) address(es) with mask(s) in CIDR format separated with "
 "commas if needed (e.g. 20.1.0.0/24, 21.1.0.0/24)"
 msgstr ""
-"गोनांथि जायोब्ला कमाजों आलादा खालामखानाय CIDR फरमेटआव मास्कजों रिमट पियार साबनेट"
-"(फोर) थं (जेरै- 20.1.0.0/24, 21.1.0.0/24)"
+"गोनांथि जायोब्ला कमाजों आलादा खालामखानाय CIDR फरमेटआव मास्कजों रिमट पियार "
+"साबनेट(फोर) थं (जेरै- 20.1.0.0/24, 21.1.0.0/24)"
 
 msgid "Remove Rule"
 msgstr "नियमखौ बोखार"
@@ -5250,8 +5244,8 @@ msgstr ""
 
 #, python-format
 msgid ""
-"The requested instance cannot be launched. The following requested resource"
-"(s) exceed quota(s): %s."
+"The requested instance cannot be launched. The following requested "
+"resource(s) exceed quota(s): %s."
 msgstr ""
 "खावलायखानाय बिदिन्थिखौ जागायनो हाया। गाहायनि खावलायखानाय सम्पदआ क'टा बारो: %s."
 
@@ -5645,9 +5639,6 @@ msgstr "मोननो हाथाव मुसुखाखौ लाबोन
 msgid "Unable to fetch cluster list"
 msgstr "बिदिन्थि लिस्टखौ लाबोनो हायाखै।"
 
-msgid "Unable to fetch cluster template details."
-msgstr "क्लास्टार टेमप्लेट गुवारैखौ लाबोनो हायाखै।"
-
 msgid "Unable to fetch cluster template list"
 msgstr "क्लास्टार टेमप्लेट लिस्टखौ लाबोनो हायाखै।"
 
@@ -5681,9 +5672,6 @@ msgstr "बिदिन्थि गुवारैखौ लाबोनो ह
 msgid "Unable to fetch job binary list."
 msgstr "खामानि बाइनारि लिस्टखौ लाबोनो हायाखै।"
 
-msgid "Unable to fetch job binary."
-msgstr "खामानि बाइनारिखौ लाबोनो हायाखै"
-
 #, python-format
 msgid "Unable to fetch job binary: %(exc)s"
 msgstr "खामानि बाइनारिखौ लाबोनो हायाखै: %(exc)s"
@@ -5702,9 +5690,6 @@ msgstr "नड हानजा गुवारैखौ लाबोनो ह�
 
 msgid "Unable to fetch node group template list."
 msgstr "नड हानजा टेमप्लेट लिस्टखौ लाबोनो हायाखै।"
-
-msgid "Unable to fetch node group template."
-msgstr "नड हानजा टेमप्लेटखौ लाबोनो हायाखै।"
 
 msgid "Unable to fetch plugin details."
 msgstr "प्लागिन गुवारैखौ लाबोनो हायाखै।"
@@ -6004,9 +5989,6 @@ msgstr "कन्टेनार लिस्टखौ मोनफिननो 
 
 msgid "Unable to retrieve data processing plugins."
 msgstr "डाटा प्रसेसिं प्लागिनखौ मोनफिननो हायाखै।"
-
-msgid "Unable to retrieve data source details"
-msgstr "डाटा फुंखा गुवारैखौ मोनफिननो हायाखै"
 
 msgid "Unable to retrieve database instances."
 msgstr "डाटाबेस बिदिन्थि मोनफिननो हायाखै"

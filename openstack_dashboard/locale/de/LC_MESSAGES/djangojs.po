@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-06-27 05:19+0000\n"
-"PO-Revision-Date: 2015-06-26 13:58+0000\n"
+"POT-Creation-Date: 2015-07-03 03:01+0000\n"
+"PO-Revision-Date: 2015-07-01 08:23+0000\n"
 "Last-Translator: Robert Simai\n"
 "Language-Team: German (http://www.transifex.com/projects/p/horizon/language/"
 "de/)\n"
@@ -450,6 +450,13 @@ msgstr "Schlüsselpaar %(name)s erfolgreich erstellt"
 msgid "Successfully imported key pair %(name)s"
 msgstr "Schlüsselpaar %(name)s erfolgreich importiert"
 
+msgid ""
+"The flavor you select for an instance determines the amount of compute, "
+"storage and memory resources that will be carved out for the instance."
+msgstr ""
+"Die ausgewählte Variante einer Instanz bestimmt die Menge der Compute-, "
+"Storage- und Speicherressourcen, die für die Instanz bereit gestellt werden."
+
 #, python-format
 msgid ""
 "The instance count must not exceed your quota available of "
@@ -497,6 +504,15 @@ msgstr ""
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr "Die Datenträgergröße muss mindestens %(minVolumeSize)s GB betragen"
+
+#, python-format
+msgid ""
+"There are two ways to generate a key pair. From a Linux system, generate the "
+"key pair with the <samp>%(genKeyPairCmd)s</samp> command:"
+msgstr ""
+"Es gibt zwei Wege ein Schlüsselpaar zu erzeugen. Auf einem Linux System "
+"erzeugen Sie das Schlüsselpaar mit dem <samp>%(genKeyPairCmd)s</samp> "
+"Kommando:"
 
 #, python-format
 msgid ""

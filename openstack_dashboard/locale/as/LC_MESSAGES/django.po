@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-06-23 01:20+0000\n"
-"PO-Revision-Date: 2015-06-23 01:20+0000\n"
+"POT-Creation-Date: 2015-07-03 03:01+0000\n"
+"PO-Revision-Date: 2015-07-02 07:07+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Assamese (http://www.transifex.com/projects/p/horizon/"
 "language/as/)\n"
@@ -346,8 +346,8 @@ msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
 "Choose one or more listed instances to be added to the pool as member(s). "
-"Assign a numeric weight and port number for the selected member(s) to operate"
-"(s) on; e.g., 80. \n"
+"Assign a numeric weight and port number for the selected member(s) to "
+"operate(s) on; e.g., 80. \n"
 "\n"
 "Only one port can be associated with each instance."
 msgstr ""
@@ -3502,12 +3502,6 @@ msgstr "নতুন হষ্ট"
 msgid "New Size (GB)"
 msgstr "নতুন আকাৰ (GB)"
 
-msgid ""
-"New associated QoS Spec must be different than the current associated QoS "
-"Spec."
-msgstr ""
-"নতুনকৈ জড়িত হোৱা QoS স্পেকটো বৰ্তমানে জড়িত QoS স্পেকটোতকৈ পৃথক হোৱাটো অপৰিহাৰ্য."
-
 msgid "New password"
 msgstr "নতুন পাছৱৰ্ড"
 
@@ -5265,11 +5259,11 @@ msgstr ""
 
 #, python-format
 msgid ""
-"The requested instance cannot be launched. The following requested resource"
-"(s) exceed quota(s): %s."
+"The requested instance cannot be launched. The following requested "
+"resource(s) exceed quota(s): %s."
 msgstr ""
-"দাবী কৰা উদাহৰণটো আৰম্ভ কৰিব পৰা নগল. নিম্নোক্ত দাবী কৰা সম্পদটোৱে (বোৰ) কোটা"
-"(বোৰ) অতিক্ৰম কৰিছে: %s."
+"দাবী কৰা উদাহৰণটো আৰম্ভ কৰিব পৰা নগল. নিম্নোক্ত দাবী কৰা সম্পদটোৱে (বোৰ) "
+"কোটা(বোৰ) অতিক্ৰম কৰিছে: %s."
 
 msgid ""
 "The requested instance port is already associated with another floating IP."
@@ -5662,9 +5656,6 @@ msgstr "উপলব্ধ ছবিবোৰ আহৰণ কৰিবলৈ �
 msgid "Unable to fetch cluster list"
 msgstr "ক্লাষ্টাৰ তালিকা আহৰণ কৰিবলৈ অক্ষম"
 
-msgid "Unable to fetch cluster template details."
-msgstr "ক্লাষ্টাৰ নমুনাৰ বিৱৰণ আহৰণ কৰিবলৈ অক্ষম."
-
 msgid "Unable to fetch cluster template list"
 msgstr "ক্লাষ্টাৰ নমুনাৰ তালিকা আহৰণ কৰিবলৈ অক্ষম"
 
@@ -5698,9 +5689,6 @@ msgstr "উদাহৰণৰ পূংখানুপূংখ বিৱৰণ�
 msgid "Unable to fetch job binary list."
 msgstr "কাৰ্য বাইনেৰীৰ তালিকা আহৰণ কৰিবলৈ অক্ষম."
 
-msgid "Unable to fetch job binary."
-msgstr "কাৰ্য বাইনেৰী আহৰণ কৰিবলৈ অক্ষম."
-
 #, python-format
 msgid "Unable to fetch job binary: %(exc)s"
 msgstr "কাৰ্য বাইনেৰী আহৰণ কৰিবলৈ অক্ষম: %(exc)s"
@@ -5719,9 +5707,6 @@ msgstr "নোড গোটৰ বিৱৰণ আহৰণ কৰিবলৈ �
 
 msgid "Unable to fetch node group template list."
 msgstr "নোড গোট নমুনাৰ তালিকা আহৰণ কৰিবলৈ অক্ষম."
-
-msgid "Unable to fetch node group template."
-msgstr "নোড গোট নমুনা আহৰণ কৰিবলৈ অক্ষম."
 
 msgid "Unable to fetch plugin details."
 msgstr "প্লাগইনৰ পূংখানুপূংখ বিৱৰণ আহৰণ কৰিবলৈ অক্ষম."
@@ -6021,9 +6006,6 @@ msgstr "ধাৰক তালিকা উদ্ধাৰ কৰিবলৈ �
 
 msgid "Unable to retrieve data processing plugins."
 msgstr "ডাটা প্ৰক্ৰিয়া কৰা প্লাগইনবোৰ উদ্ধাৰ কৰিবলৈ অক্ষম."
-
-msgid "Unable to retrieve data source details"
-msgstr "ডাটা উত্সৰ পূংখানুপূংখ বিৱৰণ উদ্ধাৰ কৰিবলৈ অক্ষম"
 
 msgid "Unable to retrieve database instances."
 msgstr "ডাটাবেছ উদাহৰণবোৰ উদ্ধাৰ কৰিবলৈ অক্ষম."
