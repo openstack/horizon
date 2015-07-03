@@ -493,7 +493,6 @@ OpenStack dashboard to use a specific API version for a given service API.
         "volume": 2
     }
 
-
 ``OPENSTACK_ENABLE_PASSWORD_RETRIEVE``
 --------------------------------------
 
@@ -1045,6 +1044,29 @@ provided see: ``"/horizon/openstack_dashboard/static/themes/webroot"``
         Alias /dashboard/static %HORIZON_DIR%/static
 
         Alias /dashboard/media %HORIZON_DIR%/openstack_dashboard/static
+
+
+``DISALLOW_IFRAME_EMBED``
+-------------------------
+
+.. versionadded:: 8.0.0(Liberty)
+
+Default: ``True``
+
+This setting can be used to defend against Clickjacking and prevent Horizon from
+being embedded within an iframe. Legacy browsers are still vulnerable to a
+Cross-Frame Scripting (XFS) vulnerability, so this option allows extra security
+hardening where iframes are not used in deployment. When set to true, a
+``"frame-buster"`` script is inserted into the template header that prevents the
+web page from being framed and therefore defends against clickjacking.
+
+For more information see:
+http://tinyurl.com/anticlickjack
+
+.. note::
+
+  If your deployment requires the use of iframes, you can set this setting to
+  ``False`` to exclude the frame-busting code and allow iframe embedding.
 
 
 Django Settings (Partial)

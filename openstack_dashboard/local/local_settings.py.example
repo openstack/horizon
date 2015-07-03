@@ -19,7 +19,6 @@ WEBROOT = '/'
 # Do not set it to '/home/', as this will cause circular redirect loop
 # LOGIN_REDIRECT_URL = WEBROOT
 
-
 # Required for Django 1.5.
 # If horizon is running in production (DEBUG is False), set this
 # with the list of host/domain names that the application can serve.
@@ -640,3 +639,11 @@ REST_API_REQUIRED_SETTINGS = ['OPENSTACK_HYPERVISOR_FEATURES']
 # and are not encrypted on the browser. This is an experimental API and
 # may be deprecated in the future without notice.
 #REST_API_ADDITIONAL_SETTINGS = []
+
+# DISALLOW_IFRAME_EMBED can be used to prevent Horizon from being embedded
+# within an iframe. Legacy browsers are still vulnerable to a Cross-Frame
+# Scripting (XFS) vulnerability, so this option allows extra security hardening
+# where iframes are not used in deployment. Default setting is True.
+# For more information see:
+# http://tinyurl.com/anticlickjack
+# DISALLOW_IFRAME_EMBED = True

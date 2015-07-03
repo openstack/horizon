@@ -1,0 +1,12 @@
+{% if disallow_iframe_embed %}
+  <style id="anti-clickjack">body{display:none !important;}</style>
+
+  <script type='text/javascript' charset="utf-8">
+    if (self === top) {
+      var antiClickjack = document.getElementById("anti-clickjack");
+      antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+      top.location = self.location;
+    }
+  </script>
+{% endif %}
