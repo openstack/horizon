@@ -1027,9 +1027,12 @@ https://<your server>/dashboard, you would set this to ``"/dashboard/"``.
 
 Additionally, setting the ``"$webroot"`` SCSS variable is required. You
 can change this directly in
-``"openstack_dasbboard/static/dashboard/scss/_variables.scss"`` or in the
+``"openstack_dashboard/static/dashboard/scss/_variables.scss"`` or in the
 ``"_variables.scss"`` file in your custom theme. For more information on
 custom themes, see: ``"CUSTOM_THEME_PATH"``.
+
+Make sure you run ``python manage.py collectstatic`` and
+``python manage.py compress`` after you change the ``_variables.scss`` file.
 
 For your convenience, a custom theme for only setting the web root has been
 provided see: ``"/horizon/openstack_dashboard/static/themes/webroot"``
@@ -1037,13 +1040,17 @@ provided see: ``"/horizon/openstack_dashboard/static/themes/webroot"``
 .. note::
 
     Additional settings may be required in the config files of your webserver
-    of choice. For example to make ``"/dashboard/"`` the web root in apache,
+    of choice. For example to make ``"/dashboard/"`` the web root in Apache,
     the ``"sites-available/horizon.conf"`` requires a couple of additional
     aliases set::
 
         Alias /dashboard/static %HORIZON_DIR%/static
 
         Alias /dashboard/media %HORIZON_DIR%/openstack_dashboard/static
+
+    Apache also requires changing your WSGIScriptAlias to reflect the desired
+    path.  For example, you'd replace ``/`` with ``/dashboard`` for the
+    alias.
 
 
 ``DISALLOW_IFRAME_EMBED``
