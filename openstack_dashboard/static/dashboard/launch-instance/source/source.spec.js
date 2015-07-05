@@ -32,6 +32,7 @@
         $provide.value('decodeFilter', noop);
         $provide.value('gbFilter', noop);
         $provide.value('horizon.framework.widgets.charts.quotaChartDefaults', noop);
+        $provide.value('dashboardBasePath', '');
       }));
 
       beforeEach(inject(function($controller, $rootScope, _$browser_, $q) {

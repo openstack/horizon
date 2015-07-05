@@ -31,15 +31,16 @@
     .controller('LaunchInstanceSourceController', LaunchInstanceSourceController);
 
   LaunchInstanceSourceController.$inject = [
-   '$scope',
-   'hz.dashboard.launch-instance.boot-source-types',
-   'bytesFilter',
-   'horizon.framework.widgets.charts.donutChartSettings',
-   'dateFilter',
-   'decodeFilter',
-   'diskFormatFilter',
-   'gbFilter',
-   'horizon.framework.widgets.charts.quotaChartDefaults'
+    '$scope',
+    'hz.dashboard.launch-instance.boot-source-types',
+    'bytesFilter',
+    'horizon.framework.widgets.charts.donutChartSettings',
+    'dateFilter',
+    'decodeFilter',
+    'diskFormatFilter',
+    'gbFilter',
+    'horizon.framework.widgets.charts.quotaChartDefaults',
+    'dashboardBasePath'
   ];
 
   function LaunchInstanceSourceController($scope,
@@ -50,7 +51,8 @@
     decodeFilter,
     diskFormatFilter,
     gbFilter,
-    quotaChartDefaults) {
+    quotaChartDefaults,
+    basePath) {
 
     var ctrl = this;
     ctrl.label = {
@@ -111,8 +113,7 @@
     ctrl.tableData = {};
     ctrl.helpText = {};
     ctrl.maxInstanceCount = 1;
-    ctrl.sourceDetails =
-        '/static/dashboard/launch-instance/source/source-details.html';
+    ctrl.sourceDetails = basePath + 'launch-instance/source/source-details.html';
 
     var selection = ctrl.selection = $scope.model.newInstanceSpec.source;
 

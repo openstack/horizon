@@ -25,10 +25,11 @@
     .controller('LaunchInstanceSecurityGroupsController', LaunchInstanceSecurityGroupsController);
 
   LaunchInstanceSecurityGroupsController.$inject = [
-    'launchInstanceModel'
+    'launchInstanceModel',
+    'dashboardBasePath'
   ];
 
-  function LaunchInstanceSecurityGroupsController(launchInstanceModel) {
+  function LaunchInstanceSecurityGroupsController(launchInstanceModel, basePath) {
     var vm = this;
 
     vm.label = {
@@ -54,8 +55,7 @@
       displayedAllocated: []
     };
 
-    vm.tableDetails =
-      '/static/dashboard/launch-instance/security-groups/security-group-details.html';
+    vm.tableDetails = basePath + 'launch-instance/security-groups/security-group-details.html';
 
     vm.tableHelp = {
       /*eslint-disable max-len */

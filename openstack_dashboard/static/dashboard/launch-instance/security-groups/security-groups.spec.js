@@ -31,7 +31,7 @@
           securityGroups: [ 'group 1', 'group 2' ]
         };
         ctrl = $controller('LaunchInstanceSecurityGroupsController',
-                          { launchInstanceModel: model });
+                          { launchInstanceModel: model, dashboardBasePath: '' });
       }));
 
       it('contains its general labels', function() {
