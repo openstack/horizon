@@ -8,6 +8,7 @@
 # cametiope <aldohcasa@hotmail.com>, 2014
 # egongu90 <dabarren@gmail.com>, 2014
 # Guillermo Vitas Gil <gvitgo@gmail.com>, 2015
+# Heleno Jimenez de la Cruz <heleno.jimenez@gmail.com>, 2015
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2014
 # Sergio Cuellar Valdes <scuellarv@kionetworks.com>, 2015
 # Veruska Perinotto <reaching.out@gmail.com>, 2015
@@ -15,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-03 03:01+0000\n"
-"PO-Revision-Date: 2015-07-02 07:07+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-07-03 09:12+0000\n"
+"PO-Revision-Date: 2015-07-03 20:19+0000\n"
+"Last-Translator: Heleno Jimenez de la Cruz <heleno.jimenez@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/"
 "es/)\n"
 "MIME-Version: 1.0\n"
@@ -1699,6 +1700,10 @@ msgctxt "Admin state of a Firewall"
 msgid "DOWN"
 msgstr "ABAJO"
 
+msgctxt "Admin state of a Load balancer"
+msgid "DOWN"
+msgstr "ABAJO"
+
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "ABAJO"
@@ -2322,6 +2327,9 @@ msgstr "Editar red"
 
 msgid "Edit Network Profile"
 msgstr "Editar perfil de red"
+
+msgid "Edit Node Group Template"
+msgstr "Editar Plantilla del Grupo de Nodo"
 
 msgid "Edit Policy"
 msgstr "Editar política"
@@ -3239,6 +3247,16 @@ msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr "Reinicio brusco"
 
+msgid "Hard Reboot Instance"
+msgid_plural "Hard Reboot Instances"
+msgstr[0] "Instancia de Reinicio Duro"
+msgstr[1] "Instancias de Reinicio Duro"
+
+msgid "Hard Rebooted Instance"
+msgid_plural "Hard Rebooted Instances"
+msgstr[0] "Instancia de Reiniciado Duro"
+msgstr[1] "Instancias de Reiniciado Duro"
+
 #, python-format
 msgid "Health monitor %s was successfully updated."
 msgstr "El monitor de salud %s fue actualizado correctamente."
@@ -3811,6 +3829,9 @@ msgstr "Terminado forzosamente"
 msgid "Kwapi"
 msgstr "Kwapi"
 
+msgid "LB Method"
+msgstr "Método LB"
+
 msgid "LUKS Volume Snapshots"
 msgstr "Snapshots de volumen LUKS"
 
@@ -3892,6 +3913,10 @@ msgid ""
 msgstr ""
 "Lanzar múltiples instancias es posible solo para imágenes e instantáneas de "
 "instancias."
+
+msgctxt "load balancing method"
+msgid "Least Connections"
+msgstr "Conexiones Mínimas"
 
 msgid "Length of Injected File Path"
 msgstr "Longitud de la ruta del archivo inyectada"
@@ -4442,6 +4467,9 @@ msgstr "Sin pareja de claves"
 msgid "No networks available"
 msgstr "No hay redes disponibles"
 
+msgid "No new QoS spec available"
+msgstr "No existe nueva especificación QoS disponible"
+
 msgid "No options specified"
 msgstr "No se especificaron opciones"
 
@@ -4513,6 +4541,10 @@ msgstr "Sin tipo de volumen"
 msgid "No volumes available"
 msgstr "No hay volúmenes disponibles"
 
+#, python-format
+msgid "Node Group Template %s updated"
+msgstr "Plantilla del Grupo de Nodo %s actualizada"
+
 msgid "Node Group Template Details"
 msgstr "Detalle de Plantilla de Agrupación de Nodos"
 
@@ -4541,6 +4573,9 @@ msgstr "Ninguno"
 msgctxt "Task status of an Instance"
 msgid "None"
 msgstr "Ninguno"
+
+msgid "None (removes spec)"
+msgstr "Nada (remueve especificación)"
 
 msgid "Normal"
 msgstr "Normal"
@@ -5464,6 +5499,10 @@ msgstr "Disco raíz"
 msgid "Root Disk (GB)"
 msgstr "Disco raíz (GB)"
 
+msgctxt "load balancing method"
+msgid "Round Robin"
+msgstr "Round Robin"
+
 msgid "Router"
 msgstr "Router"
 
@@ -5598,6 +5637,16 @@ msgid_plural "Scheduled deletion of Firewalls"
 msgstr[0] "Borrado programado de Cortafuego"
 msgstr[1] "Borrado programado de Cortafuegos"
 
+msgid "Scheduled deletion of IPSec Policy"
+msgid_plural "Scheduled deletion of IPSec Policies"
+msgstr[0] "Borrado programado para Política de IPSec"
+msgstr[1] "Borrado programado para Políticas de IPSec"
+
+msgid "Scheduled deletion of IPSec Site Connection"
+msgid_plural "Scheduled deletion of IPSec Site Connections"
+msgstr[0] "Borrado programado para Conexion de Sitio de IPSec"
+msgstr[1] "Borrado programado para Conexiones de Sitio de IPSec"
+
 msgid "Scheduled migration (pending confirmation) of Instance"
 msgid_plural "Scheduled migration (pending confirmation) of Instances"
 msgstr[0] "Cronograma de migración de instancia (pendiente de confirmación)"
@@ -5723,6 +5772,9 @@ msgstr "Seleccione una instancia maestra"
 #, python-format
 msgid "Select a monitor template for %s"
 msgstr "Seleccionar una plantilla de monitor para %s"
+
+msgid "Select a new QoS spec"
+msgstr "Seleccionar una nueva especificación QoS"
 
 msgid "Select a new agent"
 msgstr "Seleccionar nuevo agente"
@@ -6015,6 +6067,16 @@ msgctxt "Task status of an Instance"
 msgid "Soft Deleting"
 msgstr "Borrado no definitivo"
 
+msgid "Soft Reboot Instance"
+msgid_plural "Soft Reboot Instances"
+msgstr[0] "Instancia de Reinicio Suave"
+msgstr[1] "Instancias de Reinicio Suave"
+
+msgid "Soft Rebooted Instance"
+msgid_plural "Soft Rebooted Instances"
+msgstr[0] "Instancia de Reiniciado Suave"
+msgstr[1] "Instancias de Reiniciado Suave"
+
 msgid "Something went wrong!"
 msgstr "¡Algo ha ido mal!"
 
@@ -6023,6 +6085,10 @@ msgstr "CIDR origen"
 
 msgid "Source IP"
 msgstr "IP origen"
+
+msgctxt "load balancing method"
+msgid "Source IP"
+msgstr "IP Origen"
 
 msgid "Source IP Address/Subnet"
 msgstr "Dirección IP origen/Subred"
@@ -6719,6 +6785,10 @@ msgstr "Hubo un problema analizando el %(prefix)s:%(error)s "
 msgid "This action cannot be undone."
 msgstr "No se puede deshacer esta acción."
 
+msgid "This application requires JavaScript to be enabled in your web browser."
+msgstr ""
+"Esta aplicación requiere JavaScript para ser habilitada en su navegador web. "
+
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
@@ -6833,6 +6903,10 @@ msgid "UP"
 msgstr "ARRIBA"
 
 msgctxt "Admin state of a Firewall"
+msgid "UP"
+msgstr "ARRIBA"
+
+msgctxt "Admin state of a Load balancer"
 msgid "UP"
 msgstr "ARRIBA"
 
@@ -7580,6 +7654,19 @@ msgid "Unable to retrieve details for backup: %s"
 msgstr "No ha sido posible obtener los detalles de la copia de seguridad «%s»"
 
 #, python-format
+msgid "Unable to retrieve details for cluster \"%s\"."
+msgstr "No ha sido posible obtener detalles para el clúster \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for cluster template \"%s\"."
+msgstr ""
+"No ha sido posible obtener detalles para la plantilla del clúster \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for data source \"%s\"."
+msgstr "No ha sido posible obtener detalles para la fuente de datos \"%s\"."
+
+#, python-format
 msgid "Unable to retrieve details for database instance: %s"
 msgstr ""
 "No ha sido posible obtener los detalles de la instancia de la base de datos: "
@@ -7590,12 +7677,31 @@ msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "No ha sido posible obtener los detalles de la instancia \"%s\"."
 
 #, python-format
+msgid "Unable to retrieve details for job \"%s\"."
+msgstr "No ha sido posible obtener detalles para el trabajo \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for job binary \"%s\"."
+msgstr "No ha sido posible obtener detalles para el trabajo binario \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for job template \"%s\"."
+msgstr ""
+"No ha sido posible obtener detalles para la plantilla del trabajo \"%s\"."
+
+#, python-format
 msgid "Unable to retrieve details for keypair \"%s\"."
 msgstr "No ha sido posible obtener los pares de claves \"%s\"."
 
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "No ha sido posible obtener los detalles de la red \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for node group template \"%s\"."
+msgstr ""
+"No ha sido posible obtener detalles para la plantilla del grupo de node \"%s"
+"\""
 
 #, python-format
 msgid "Unable to retrieve details for parent backup: %s"

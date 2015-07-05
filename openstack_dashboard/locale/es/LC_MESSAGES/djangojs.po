@@ -1,0 +1,638 @@
+# Translations template for PROJECT.
+# Copyright (C) 2015 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+#
+# Translators:
+# Heleno Jimenez de la Cruz <heleno.jimenez@gmail.com>, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version: Horizon\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2015-07-03 09:12+0000\n"
+"PO-Revision-Date: 2015-07-03 21:57+0000\n"
+"Last-Translator: Heleno Jimenez de la Cruz <heleno.jimenez@gmail.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/"
+"es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.3\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "(Max: 16Kb)"
+msgstr "(Máximo: 16Kb)"
+
+msgid "(None)"
+msgstr "(Ninguno)"
+
+msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
+msgstr ""
+"<li><b>Imagen</b>: Esta opción usa una imagen para la instancia de arranque."
+"</li>"
+
+msgid ""
+"<li><b>Instance Snapshot</b>: This option uses an instance snapshot to boot "
+"the instance.</li>"
+msgstr ""
+"<li><b>Instantánea de la  Instancia</b>: Esta opción usa una instantánea de "
+"la instancia para arrancar la instancia.</li>"
+
+msgid ""
+"A key pair allows you to SSH into your newly created instance. You may "
+"select an existing key pair, import a key pair, or generate a new key pair."
+msgstr ""
+"Un Par de claves le permite SSH dentro de su instancia cread más "
+"recientemente. Debe seleccionar un par de claves existente, importar un par "
+"de claves, o generar un nuevo par de claves."
+
+msgid "A name is required for your instance."
+msgstr "Un nombre es necesario para su instancia. "
+
+msgid "Active"
+msgstr "Activo"
+
+msgid "Admin State"
+msgstr "Estado del Administrador"
+
+msgid ""
+"An advanced option available when launching an instance is disk "
+"partitioning. There are two disk partition options. Selecting <b>Automatic</"
+"b> resizes the disk and sets it to a single partition. Selecting <b>Manual</"
+"b> allows you to create multiple partitions on the disk."
+msgstr ""
+"Una opción avanzada disponible cuando ejecutas una instancia es la de "
+"particionar de disco. Hay dos opciones de partición de disco. Seleccionando "
+"<b>Automatic</b> cambia el tamaño del disco y lo configura a una partición "
+"única. Seleccionando <b>Manual</b> le permite crear múltiples particiones en "
+"el disco. "
+
+msgid ""
+"An instance name is required and used to help you uniquely identify your "
+"instance in the dashboard."
+msgstr ""
+"Un nombre de instancia es requerido y usado para ayudarle unicamente para "
+"identificar su instancia en el panel. "
+
+msgid "Automatic"
+msgstr "Automático"
+
+msgid "Availability Zone"
+msgstr "Zona de Disponibilidad"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Cannot get the Nova extension list."
+msgstr "No se puede obtener la lista de extensiones de Nova."
+
+msgid ""
+"Check the <b>Configuration Drive</b> box if you want to write metadata to a "
+"special configuration drive. When the instance boots, it attaches to the "
+"<b>Configuration Drive</b> and accesses the metadata."
+msgstr ""
+"Marcar la opción <b>Configuration Drive</b> si se desea escribir metadatos a "
+"una unidad de configuración especial. Cuando la instancia arranca, se "
+"adjunta a la <b>Configuration Drive</b> y accesa a los metadatos. "
+
+msgid "Configuration"
+msgstr "Configuración"
+
+msgid "Configuration Drive"
+msgstr "Unidad de Configuración"
+
+msgid "Configuration Help"
+msgstr "Ayuda de Configuración"
+
+msgid "Create Key Pair"
+msgstr "Crear Par de Claves"
+
+msgid "Create New Volume"
+msgstr "Crear nuevo volumen"
+
+msgid "Created"
+msgstr "Creado"
+
+#, python-format
+msgid ""
+"Custom scripts are attached to instances to perform specific actions when "
+"the instance is launched. For example, if you are unable to install <samp>"
+"%(cloutInit)s</samp> inside a guest operating system, you can use a custom "
+"script to get a public key and add it to the user account."
+msgstr ""
+"Scripts Personalizados están adjuntos a instancias para realizar acciones "
+"específicas cuando la instancia es ejecutada. Por ejemplo, si no le ha sido "
+"posible instalar <samp>%(cloutInit)s</samp> dentro de un sistema operativo "
+"huésped, puede usar un script personalizado para obtener una llave pública y "
+"agregarla a la cuenta del usuario. "
+
+msgid "Customization Script"
+msgstr "Script de Personalización"
+
+msgid "Delete Volume on Terminate"
+msgstr "Borrar volumen al terminar"
+
+msgid "Description"
+msgstr "Descripción"
+
+msgid "Device Name"
+msgstr "Nombre del dispositivo"
+
+msgid "Direction"
+msgstr "Dirección"
+
+msgid "Disk Partition"
+msgstr "Partición de Disco"
+
+msgid "Down"
+msgstr "Abajo"
+
+msgid "Ephemeral Disk"
+msgstr "Disco efímero"
+
+#, python-format
+msgid "Extension is not enabled: %(extension)s."
+msgstr "Extensión no habilitada: %(extension)s"
+
+msgid "External Network"
+msgstr "Red Externa"
+
+msgid "Fingerprint"
+msgstr "Fingerprint"
+
+msgid "Flavor"
+msgstr "Sabor"
+
+msgid "Flavor Help"
+msgstr "Ayuda de Sabor"
+
+msgid "ID"
+msgstr "ID"
+
+msgid ""
+"If a network is shared, then all users in the project can access the network."
+msgstr ""
+"Si una red es compartida. entonces todos los usuarios en el proyecto pueden "
+"acceder a la red."
+
+msgid ""
+"If you want to create an instance that uses ephemeral storage, meaning the "
+"instance data is lost when the instance is deleted, then choose one of the "
+"following boot sources:"
+msgstr ""
+"Si se desea crear una instancia que use almacenamiento volátil, significa "
+"que los datos de la instancia se perderán cuando la instacia es borrada, "
+"entonces elegir uno de los siguientes fuentes de arranque:"
+
+msgid "Image"
+msgstr "Imagen"
+
+msgid "Impact on your quota"
+msgstr "Impacto en tu capacidad"
+
+msgid "Import Key Pair"
+msgstr "Importar Par de Claves"
+
+msgid "Import Key Pair Help"
+msgstr "Ayuda para Importar Par de Claves"
+
+msgid "Instance Details"
+msgstr "Detalles de la Instancia"
+
+msgid "Instance Name"
+msgstr "Nombre de la instancia"
+
+msgid "Instance Snapshot"
+msgstr "Instantánea de Instancia"
+
+msgid "Instance Source"
+msgstr "Origen de la Instancia"
+
+msgid "Instance count is required and must be an integer of at least 1"
+msgstr ""
+"Contador de la instancia es necesario y debe ser un entero de la menos 1"
+
+msgid "Key Pair"
+msgstr "Par de Claves"
+
+msgid "Key Pair Help"
+msgstr "Ayuda de Par de Claves"
+
+msgid "Key Pair Name"
+msgstr "Nombre de Par de Claves"
+
+msgid "Launch Instance"
+msgstr "Ejecutar Instancia"
+
+msgid "Load script from a file"
+msgstr "Cargar script desde un archivo"
+
+msgid "Manual"
+msgstr "Manual"
+
+msgid "Modified"
+msgstr "Modificado"
+
+msgid "Name"
+msgstr "Nombre"
+
+msgid "Network"
+msgstr "Red"
+
+msgid "Network Help"
+msgstr "Ayuda de Redes"
+
+msgid "Network characteristics"
+msgstr "Características de Red"
+
+msgid "Networks"
+msgstr "Redes"
+
+msgid "Networks provide the communication channels for instances in the cloud."
+msgstr ""
+"Las Redes proveen los canales de comunicación para las instancias en la nube."
+
+msgid "No"
+msgstr "No"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Physical Network"
+msgstr "Red Física"
+
+msgid "Policy check failed."
+msgstr "Comprobación de política fallada."
+
+msgid "Private"
+msgstr "Privado"
+
+msgid "Private Key"
+msgstr "Clave Privada"
+
+msgid "Profile"
+msgstr "Perfil"
+
+msgid "Project"
+msgstr "Proyecto"
+
+msgid "Protocol"
+msgstr "Protocolo"
+
+msgid "Provider Network"
+msgstr "Red de Proveedor"
+
+msgid "Public"
+msgstr "Público"
+
+msgid "Public Key"
+msgstr "Clave Pública"
+
+msgid "RAM"
+msgstr "RAM"
+
+msgid "Remote"
+msgstr "Remoto"
+
+msgid "Required"
+msgstr "Obligatorio"
+
+msgid "Root Disk"
+msgstr "Disco raíz"
+
+msgid "Script size"
+msgstr "Tamaño del script"
+
+msgid "Script size > 16Kb"
+msgstr "Tamaño del script > 16kb"
+
+msgid "Security Groups"
+msgstr "Grupos de Seguridad"
+
+msgid "Security Groups Help"
+msgstr "Ayuda de Grupos de Seguridad"
+
+msgid "Segmentation ID"
+msgstr "ID de Segmentación"
+
+msgid "Select Boot Source"
+msgstr "Seleccionar Origen de arranque"
+
+msgid "Select Source"
+msgstr "Seleccionar Origen"
+
+msgid "Select Source Help"
+msgstr "Seleccionar Origen de Ayuda"
+
+msgid "Select a key pair from the available key pairs below."
+msgstr "Seleccionar un Par de Claves de las pares de clave disponible abajo"
+
+msgid "Select a source from those listed below."
+msgstr "Seleccionar un origen de los listados abajo,"
+
+msgid "Select at least one network"
+msgstr "Seleccionar al menos una red"
+
+msgid "Select networks from those listed below."
+msgstr "Seleccionar redes de las listadas abajo."
+
+msgid "Select one"
+msgstr "Seleccionar uno"
+
+msgid "Select one or more"
+msgstr "Seleccionar uno o más"
+
+msgid "Select one or more security groups from the available groups below."
+msgstr ""
+"Seleccionar uno o más grupos de seguridad de los grupos disponibles abajo."
+
+msgid "Select the security groups."
+msgstr "Seleccionar los grupos de seguridad."
+
+#, python-format
+msgid "Service type is not enabled: %(desiredType)s"
+msgstr "Tipo de servicio no está habilitado: %(desiredType)s"
+
+#, python-format
+msgid "Setting is not enabled: %(setting)s"
+msgstr "Ajuste no habilitado: %(setting)s"
+
+msgid "Shared"
+msgstr "Compartido"
+
+msgid "Size"
+msgstr "Tamaño"
+
+msgid "Size (GB)"
+msgstr "Tamaño (GB)"
+
+msgid "Status"
+msgstr "Estado"
+
+msgid "Subnets Associated"
+msgstr "Subredes Asociadas"
+
+#, python-format
+msgid "Successfully created key pair %(name)s"
+msgstr "Par de claves %(name)s creadas satisfactoriamente"
+
+#, python-format
+msgid "Successfully imported key pair %(name)s"
+msgstr "Par de claves %(name)s importada satisfactoriamente"
+
+msgid ""
+"The flavor you select for an instance determines the amount of compute, "
+"storage and memory resources that will be carved out for the instance."
+msgstr ""
+"El sabor que selecciona para una instancia determina la cantidad de computo, "
+"almacenamiento y recursos de memoria que serán reservados para la instancia."
+
+msgid "The key pair allows you to SSH into the instance."
+msgstr "El par de claves te permite SSH dentro de la instancia."
+
+msgid "The maximum script size is 16Kb."
+msgstr "El tamaño máximo del script es 16Kb."
+
+msgid "The status indicates whether the network has an active connection."
+msgstr "El estado indica si la red tiene una conexión activa"
+
+#, python-format
+msgid "The volume size must be at least %(minVolumeSize)s GB"
+msgstr "El tamaño del volumen debe ser al menos %(minVolumeSize)s GB"
+
+#, python-format
+msgid ""
+"There are two ways to generate a key pair. From a Linux system, generate the "
+"key pair with the <samp>%(genKeyPairCmd)s</samp> command:"
+msgstr ""
+"Existen dos maneras de generar un par de claves. Desde un sistema Linux, "
+"generar el par de claves con el comando <samp>%(genKeyPairCmd)s</samp>:"
+
+#, python-format
+msgid ""
+"This command generates a pair of keys: a private key (%(privateKeyPath)s) "
+"and a public key (%(publicKeyPath)s)."
+msgstr ""
+"Este comando genera un par de claves: una clave privada  "
+"(%(privateKeyPath)s) y una clave pública (%(publicKeyPath)s)."
+
+msgid "This is your new key pair. Copy this information and keep it secure."
+msgstr ""
+"Esta es su nueva par de claves. Copiar esta información y mantenerla segura."
+
+msgid "Total Disk"
+msgstr "Total de Disco"
+
+msgid "Total Instances"
+msgstr "Total de Instancias"
+
+msgid "Total RAM"
+msgstr "Total RAM"
+
+msgid "Total VCPUs"
+msgstr "Total de VCPUs"
+
+msgid "Type"
+msgstr "Tipo"
+
+msgid ""
+"Type your script directly into the Customization Script field. If your "
+"browser supports the HTML5 File API, you may choose to load your script from "
+"a file. The size of your script should not exceed 16 Kb."
+msgstr ""
+"Escribe tu script directamente en el campo Script Personalizado. Si tu "
+"navegador soporta el archivo API HTML5, puedes elegir cargar tu script desde "
+"un archivo. El tamaño de tu script no debe exceder 16 Kb."
+
+msgid "Unable to create the domain."
+msgstr "No ha sido posible crear el dominio."
+
+msgid "Unable to create the keypair."
+msgstr "No ha sido posible crear el par de claves."
+
+msgid "Unable to create the network."
+msgstr "No ha sido posible crear la red."
+
+msgid "Unable to create the project."
+msgstr "No ha sido posible crear el proyecto."
+
+msgid "Unable to create the role."
+msgstr "No ha sido posible crear el rol."
+
+msgid "Unable to create the server."
+msgstr "No ha sido posible crear el servidor."
+
+msgid "Unable to create the subnet."
+msgstr "No ha sido posible crear la subred."
+
+msgid "Unable to create the user."
+msgstr "No ha sido posible crear el usuario."
+
+msgid "Unable to delete the domain."
+msgstr "No ha sido posible borrar el dominio."
+
+msgid "Unable to delete the domains."
+msgstr "No ha sido posible borrar los dominios."
+
+msgid "Unable to delete the project."
+msgstr "No ha sido posible borrar el proyecto."
+
+msgid "Unable to delete the projects."
+msgstr "No ha sido posible borrar los proyectos."
+
+msgid "Unable to delete the role."
+msgstr "No ha sido posible borrar el rol."
+
+msgid "Unable to delete the roles."
+msgstr "No ha sido posible borrar los roles."
+
+msgid "Unable to delete the user."
+msgstr "No ha sido posible borrar el usuario."
+
+msgid "Unable to delete the users."
+msgstr "No ha sido posible borrar los usuarios."
+
+msgid "Unable to edit the domain."
+msgstr "No ha sido posible editar el dominio."
+
+msgid "Unable to edit the project."
+msgstr "No ha sido posible editar el proyecto."
+
+msgid "Unable to edit the role."
+msgstr "No ha sido posible editar el rol."
+
+msgid "Unable to edit the user."
+msgstr "No ha sido posible editar el usuario."
+
+msgid "Unable to fetch the service catalog."
+msgstr "No ha sido posible obtener el catálogo de servicio."
+
+msgid "Unable to grant the role."
+msgstr "No ha sido posible asignar el rol."
+
+msgid "Unable to import the keypair."
+msgstr "No ha sido posible importar el par de claves."
+
+msgid "Unable to retrieve settings."
+msgstr "No ha sido posible obtener los ajustes."
+
+msgid "Unable to retrieve the availability zones."
+msgstr "No ha sido posible obtener las zonas de disponibilidad."
+
+msgid "Unable to retrieve the current user session."
+msgstr "No ha sido posible obtener la sesión de usuario actual."
+
+msgid "Unable to retrieve the domain."
+msgstr "No ha sido posible obtener el dominio."
+
+msgid "Unable to retrieve the domains."
+msgstr "No ha sido posible obtener los dominios."
+
+msgid "Unable to retrieve the extensions."
+msgstr "No ha sido posible obtener las extensiones."
+
+msgid "Unable to retrieve the flavor extra specs."
+msgstr "No ha sido posible obtener las especificaciones adicionales del sabor."
+
+msgid "Unable to retrieve the flavor."
+msgstr "No ha sido posible obtener el sabor."
+
+msgid "Unable to retrieve the flavors."
+msgstr "No ha sido posible obtener los sabores."
+
+msgid "Unable to retrieve the image."
+msgstr "No ha sido posible obtener la imagen."
+
+msgid "Unable to retrieve the images."
+msgstr "No ha sido posible obtener las imágenes."
+
+msgid "Unable to retrieve the keypairs."
+msgstr "No ha sido posible obtener los pares de claves."
+
+msgid "Unable to retrieve the limits."
+msgstr "No ha sido posible obtener los límites."
+
+msgid "Unable to retrieve the namespaces."
+msgstr "No ha sido posible obtener los espacios de nombres."
+
+msgid "Unable to retrieve the networks."
+msgstr "No ha sido posible recuperar las redes."
+
+msgid "Unable to retrieve the ports."
+msgstr "No ha sido posible obtener los puertos."
+
+msgid "Unable to retrieve the project."
+msgstr "No ha sido posible obtener el proyecto."
+
+msgid "Unable to retrieve the projects."
+msgstr "No ha sido posible obtener los proyectos."
+
+msgid "Unable to retrieve the role."
+msgstr "No ha sido posible obtener el rol."
+
+msgid "Unable to retrieve the roles."
+msgstr "No ha sido posible obtener los roles."
+
+msgid "Unable to retrieve the security groups."
+msgstr "No ha sido posible obtener los grupos de seguridad."
+
+msgid "Unable to retrieve the server."
+msgstr "No ha sido posible obtener el servidor."
+
+msgid "Unable to retrieve the subnets."
+msgstr "No ha sido posible obtener las subredes."
+
+msgid "Unable to retrieve the user."
+msgstr "No ha sido posible obtener el usuario."
+
+msgid "Unable to retrieve the users."
+msgstr "No ha sido posible obtener los usuarios."
+
+msgid "Unable to retrieve the volume snapshots."
+msgstr "No ha sido posible obtener las instantáneas de volumen."
+
+msgid "Unable to retrieve the volumes."
+msgstr "No ha sido posible obtener los volúmenes."
+
+msgid "Up"
+msgstr "Arriba"
+
+msgid "Updated"
+msgstr "Actualizado"
+
+msgid "VCPUs"
+msgstr "VCPUs"
+
+msgid "Visibility"
+msgstr "Visibilidad"
+
+msgid "Volume"
+msgstr "Volumen"
+
+msgid "Volume Snapshot"
+msgstr "Instantánea de Volumen"
+
+msgid "Volume size is required and must be an integer"
+msgstr "Tamaño del volumen es necesario y debe ser un entero"
+
+msgid ""
+"Volumes can only be attached to 1 active instance at a time. Please either "
+"set your instance count to 1 or select a different source type."
+msgstr ""
+"Volúmenes pueden ser adjuntados a una instancia activa a la vez. Por favor "
+"configurar el contador de la instancia a 1 o seleccionar un tipo de origen "
+"diferente. "
+
+msgid ""
+"When selecting volume as boot source, please ensure the instance's "
+"availability zone is compatible with your volume's availability zone."
+msgstr ""
+"Cuando se selecciona un volumen como origen de arranque, por favor asegurar "
+"que la zona de disponibilidad de la instanciaes compatible con sus zonas de "
+"disponibilidad del volumen."
+
+msgid "Yes"
+msgstr "Sí"
+
+msgid "bytes"
+msgstr "bytes"
