@@ -1,13 +1,29 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the 'License');
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an 'AS IS' BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 /*global angularModuleExtension*/
+
 (function () {
   'use strict';
 
-  angular.module('horizon.app', [
-    'horizon.auth',
-    'horizon.openstack-service-api',
-    'horizon.framework',
-    'hz.dashboard',
-    'ngCookies'].concat(angularModuleExtension))
+  angular
+    .module('horizon.app', [
+      'horizon.auth',
+      'horizon.openstack-service-api',
+      'horizon.framework',
+      'hz.dashboard',
+      'ngCookies'].concat(angularModuleExtension))
 
     .constant('horizon.app.conf', {
       // Placeholders; updated by Django.
@@ -17,28 +33,45 @@
       }
     })
 
-    .run([
-      'horizon.framework.conf.spinner_options',
-      'horizon.app.conf',
-      'horizon.framework.util.tech-debt.helper-functions',
-      '$cookieStore',
-      '$http',
-      '$cookies',
-      function (spinnerOptions, hzConfig, hzUtils, $cookieStore, $http, $cookies) {
-        $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
-        //expose the configuration for horizon legacy variable
-        horizon.conf = angular.extend({spinner_options: spinnerOptions}, hzConfig);
-        horizon.utils = hzUtils;
-        angular.extend(horizon.cookies = {}, $cookieStore);
-        horizon.cookies.put = function (key, value) {
-          //cookies are updated at the end of current $eval, so for the horizon
-          //namespace we need to wrap it in a $apply function.
-          angular.element('body').scope().$apply(function () {
-            $cookieStore.put(key, value);
-          });
-        };
-        horizon.cookies.getRaw = function (key) {
-          return $cookies[key];
-        };
-      }]);
+    .run(updateHorizon);
+
+  updateHorizon.$inject = [
+    'horizon.framework.conf.spinner_options',
+    'horizon.app.conf',
+    'horizon.framework.util.tech-debt.helper-functions',
+    '$cookieStore',
+    '$http',
+    '$cookies'
+  ];
+
+  function updateHorizon(spinnerOptions, hzConfig, hzUtils, $cookieStore, $http, $cookies) {
+    $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
+
+    //expose the configuration for horizon legacy variable
+    horizon.utils = hzUtils;
+
+    horizon.conf = angular.extend({
+      spinner_options: spinnerOptions
+    }, hzConfig);
+
+    horizon.cookies = angular.extend({}, $cookieStore, {
+      put: put,
+      getRaw: getRaw
+    });
+
+    /*
+     * cookies are updated at the end of current $eval, so for the horizon
+     * namespace we need to wrap it in a $apply function.
+     */
+    function put(key, value) {
+      angular.element('body').scope().$apply(function () {
+        $cookieStore.put(key, value);
+      });
+    }
+
+    function getRaw(key) {
+      return $cookies[key];
+    }
+  }
+
 }());
