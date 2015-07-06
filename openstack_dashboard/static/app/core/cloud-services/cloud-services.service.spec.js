@@ -1,0 +1,75 @@
+/*
+ *    (c) Copyright 2015 Hewlett-Packard Development Company, L.P.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+(function () {
+  'use strict';
+
+  describe('horizon.app.core.cloud-services', function () {
+
+    describe('factory:cloudServices', function () {
+      var cloudServices;
+
+      beforeEach(module('horizon.app.core.cloud-services', function ($provide) {
+        $provide.value('horizon.app.core.openstack-service-api.cinder', {});
+        $provide.value('horizon.app.core.openstack-service-api.glance', {});
+        $provide.value('horizon.app.core.openstack-service-api.keystone', {});
+        $provide.value('horizon.app.core.openstack-service-api.neutron', {});
+        $provide.value('horizon.app.core.openstack-service-api.nova', {});
+        $provide.value('horizon.app.core.openstack-service-api.novaExtensions', {});
+        $provide.value('horizon.app.core.openstack-service-api.security-group', {});
+        $provide.value('horizon.app.core.openstack-service-api.serviceCatalog', {});
+        $provide.value('horizon.app.core.openstack-service-api.settings', {});
+      }));
+
+      beforeEach(inject(function ($injector) {
+        cloudServices = $injector.get('horizon.app.core.cloud-services.cloudServices');
+      }));
+
+      it('should have `cloudServices` defined', function () {
+        expect(cloudServices).toBeDefined();
+      });
+
+      it('should have `cloudServices.cinder` defined', function () {
+        expect(cloudServices.cinder).toBeDefined();
+      });
+
+      it('should have `cloudServices.glance` defined', function () {
+        expect(cloudServices.glance).toBeDefined();
+      });
+
+      it('should have `cloudServices.keystone` defined', function () {
+        expect(cloudServices.keystone).toBeDefined();
+      });
+
+      it('should have `cloudServices.neutron` defined', function () {
+        expect(cloudServices.neutron).toBeDefined();
+      });
+
+      it('should have `cloudServices.nova` defined', function () {
+        expect(cloudServices.nova).toBeDefined();
+      });
+
+      it('should have `cloudServices.novaExtensions` defined', function () {
+        expect(cloudServices.novaExtensions).toBeDefined();
+      });
+
+      it('should have `cloudServices.settingsService` defined', function () {
+        expect(cloudServices.settingsService).toBeDefined();
+      });
+    });
+  });
+
+})();

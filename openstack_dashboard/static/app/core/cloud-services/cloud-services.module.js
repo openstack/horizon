@@ -1,5 +1,4 @@
 /*
- *    (c) Copyright 2015 Hewlett-Packard Development Company, L.P.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,22 +15,6 @@
 (function () {
   'use strict';
 
-  /**
-   * @ngdoc overview
-   * @name horizon.app.core
-   * @description
-   *
-   * # horizon.app.core
-   *
-   * This module hosts modules of core functionality and services that supports
-   * components added to Horizon via its plugin mechanism.
-   */
   angular
-    .module('horizon.app.core', [
-      'horizon.app.core.images',
-      'horizon.app.core.workflow',
-      'horizon.app.core.openstack-service-api',
-      'horizon.app.core.cloud-services'
-    ]);
-
-})();
+    .module('horizon.app.core.cloud-services', []);
+}());
