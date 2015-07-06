@@ -12,18 +12,50 @@
  * limitations under the License.
  */
 
-/*global angularModuleExtension*/
+/*global horizonPlugInModules*/
 
 (function () {
   'use strict';
 
+  /**
+   * Library modules - modules defined in third-party libraries, including
+   * angular's extensions.
+   */
+  var libraryModules = [
+    'ngCookies'
+  ];
+
+  /**
+   * Horizon's built-in modules, including modules from `framework` components
+   * and modules from `openstack_dashboard` application core components.
+   */
+  var horizonBuiltInModules = [
+    'horizon.auth',
+    'hz.dashboard',
+    'horizon.framework',
+    'horizon.openstack-service-api'
+  ];
+
+  /**
+   * @ngdoc overview
+   * @name horizon.app
+   * @description
+   *
+   * # horizon.app
+   *
+   * Horizon's application level module depends on modules from three
+   * sources:
+   *
+   * 1) Library modules.
+   * 2) Horizon's built-in modules.
+   * 3) Horizon's plug-in modules.
+   */
   angular
-    .module('horizon.app', [
-      'horizon.auth',
-      'horizon.openstack-service-api',
-      'horizon.framework',
-      'hz.dashboard',
-      'ngCookies'].concat(angularModuleExtension))
+    .module('horizon.app', []
+      .concat(libraryModules)
+      .concat(horizonBuiltInModules)
+      .concat(horizonPlugInModules)
+    )
 
     .constant('horizon.app.conf', {
       // Placeholders; updated by Django.
