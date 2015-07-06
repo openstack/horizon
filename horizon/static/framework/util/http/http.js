@@ -26,7 +26,7 @@ limitations under the License.
   function ApiService($http) {
 
     var httpCall = function (method, url, data, config) {
-      if (!angular.isDefined(config)) {
+      if (angular.isUndefined(config)) {
         config = {};
       }
       // url and method are always provided
