@@ -170,6 +170,11 @@ class APIDictWrapper(object):
     def __repr__(self):
         return "<%s: %s>" % (self.__class__.__name__, self._apidict)
 
+    def __cmp__(self, other):
+        if hasattr(other, '_apidict'):
+            return cmp(self._apidict, other._apidict)
+        return cmp(self._apidict, other)
+
     def to_dict(self):
         return self._apidict
 
