@@ -4,13 +4,14 @@
 #
 # Translators:
 # Heleno Jimenez de la Cruz <heleno.jimenez@gmail.com>, 2015
+# Marian Tort <marian.tort@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2015-07-03 09:12+0000\n"
-"PO-Revision-Date: 2015-07-03 21:57+0000\n"
-"Last-Translator: Heleno Jimenez de la Cruz <heleno.jimenez@gmail.com>\n"
+"PO-Revision-Date: 2015-07-06 10:11+0000\n"
+"Last-Translator: Marian Tort <marian.tort@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/"
 "es/)\n"
 "MIME-Version: 1.0\n"
@@ -149,6 +150,9 @@ msgstr "Abajo"
 
 msgid "Ephemeral Disk"
 msgstr "Disco efímero"
+
+msgid "Ether Type"
+msgstr "Tipo Ethernet"
 
 #, python-format
 msgid "Extension is not enabled: %(extension)s."

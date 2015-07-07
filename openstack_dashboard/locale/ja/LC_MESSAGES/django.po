@@ -4,6 +4,7 @@
 #
 # Translators:
 # Akihiro Motoki <amotoki@gmail.com>, 2015
+# myamamot <myamamot@redhat.com>, 2015
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2015
 # Tom Fifield <tom@openstack.org>, 2014
 # Tomoyuki KATO <tomo@dream.daynight.jp>, 2015
@@ -11,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-03 03:01+0000\n"
-"PO-Revision-Date: 2015-07-02 07:07+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-07-03 09:12+0000\n"
+"PO-Revision-Date: 2015-07-06 22:54+0000\n"
+"Last-Translator: myamamot <myamamot@redhat.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/horizon/"
 "language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -7882,12 +7883,36 @@ msgid "Unable to retrieve details for backup: %s"
 msgstr "バックアップの詳細を取得できません: %s"
 
 #, python-format
+msgid "Unable to retrieve details for cluster \"%s\"."
+msgstr "クラスター \"%s\" の詳細を取得できません。"
+
+#, python-format
+msgid "Unable to retrieve details for cluster template \"%s\"."
+msgstr "クラスターテンプレート \"%s\" の詳細を取得できません。"
+
+#, python-format
+msgid "Unable to retrieve details for data source \"%s\"."
+msgstr "データソース \"%s\" の詳細を取得できません。"
+
+#, python-format
 msgid "Unable to retrieve details for database instance: %s"
 msgstr "データベースインスタンスの詳細を取得できません: %s"
 
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "インスタンス \"%s\" の詳細を取り出せません。"
+
+#, python-format
+msgid "Unable to retrieve details for job \"%s\"."
+msgstr "ジョブ \"%s\" の詳細を取得できません。"
+
+#, python-format
+msgid "Unable to retrieve details for job binary \"%s\"."
+msgstr "ジョブバイナリー \"%s\" の詳細を取得できません。"
+
+#, python-format
+msgid "Unable to retrieve details for job template \"%s\"."
+msgstr "ジョブテンプレート \"%s\" の詳細を取得できません。"
 
 #, python-format
 msgid "Unable to retrieve details for keypair \"%s\"."
