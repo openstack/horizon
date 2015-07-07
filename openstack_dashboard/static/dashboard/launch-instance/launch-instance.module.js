@@ -53,7 +53,7 @@
 
     function filter(input) {
       if (input === null || !angular.isObject(input) ||
-        !angular.isDefined(input.disk_format) || input.disk_format === null) {
+        angular.isUndefined(input.disk_format) || input.disk_format === null) {
         return '';
       } else {
         return input.disk_format.toUpperCase();
