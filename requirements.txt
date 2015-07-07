@@ -59,7 +59,6 @@ XStatic-JQuery.TableSorter>=2.14.5.1 # MIT License
 XStatic-jquery-ui>=1.10.1 # MIT License
 XStatic-JSEncrypt>=2.0.0.2 # MIT License
 XStatic-Magic-Search>=0.2.5.1 # Apache 2.0 License
-XStatic-QUnit>=1.14.0.2 # MIT License
 XStatic-Rickshaw>=1.5.0 # BSD License (prior)
 XStatic-smart-table>=1.4.5.3 # MIT License
 XStatic-Spin>=1.2.5.2 # MIT License

@@ -40,10 +40,15 @@
   <!-- Magic Search library must be after magic-search override widget -->
   <script src="{{ STATIC_URL }}horizon/lib/magic_search/magic_search.js"></script>
 
+  {% block source %}
+  {% endblock %}
+
   <!-- test files - mock and spec -->
-  {% for file in HORIZON_CONFIG.js_spec_files %}
-    <script src='{{ STATIC_URL }}{{ file }}'></script>
-  {% endfor %}
+  {% block spec %}
+    {% for file in HORIZON_CONFIG.js_spec_files %}
+      <script src='{{ STATIC_URL }}{{ file }}'></script>
+    {% endfor %}
+  {% endblock %}
 
 </head>
 <body>
