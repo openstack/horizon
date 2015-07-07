@@ -137,7 +137,7 @@
     {% for volume in instance.volumes %}
         <dt>{% trans "Attached To" %}</dt>
         <dd>
-            {% url 'horizon:project:volumes:volumes:detail' volume.id as volume_url %}
+            {% url instance.volume_url volume.id as volume_url %}
             {% blocktrans with volume_label=volume.name|default:volume.id volume_device=volume.device %}
             <a href="{{ volume_url }}">{{ volume_label }}</a> on {{ volume_device }}
             {% endblocktrans %}
