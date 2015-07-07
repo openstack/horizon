@@ -819,9 +819,11 @@ class BatchAction(Action):
                 # an aggregate error message later. Otherwise we'd get
                 # multiple error messages displayed to the user.
                 action_failure.append(datum_display)
-                LOG.warning('Action %s Failed for %s' %
-                            (self._get_action_name(past=True).lower(),
-                             datum_display), ex)
+                action_description = (
+                    self._get_action_name(past=True).lower(), datum_display)
+                LOG.warning(
+                    'Action %(action)s Failed for %(reason)s', {
+                        'action': action_description, 'reason': ex})
 
         # Begin with success message class, downgrade to info if problems.
         success_message_level = messages.success
