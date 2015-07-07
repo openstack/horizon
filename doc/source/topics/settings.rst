@@ -1247,6 +1247,8 @@ A list of scss files to be included in the compressed set of files that are
 loaded on every page. We recommend one scss file per dashboard, use @import if
 you need to include additional scss files for panels.
 
+.. _auto_discover_static_files:
+
 ``AUTO_DISCOVER_STATIC_FILES``
 ------------------------------
 
