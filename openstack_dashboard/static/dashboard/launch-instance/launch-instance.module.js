@@ -17,9 +17,8 @@
   'use strict';
 
   angular
-    .module('hz.dashboard.launch-instance', [
-      'ngSanitize'
-    ])
+    .module('hz.dashboard.launch-instance', [])
+
     .constant('hz.dashboard.launch-instance.modal-spec', {
       backdrop: 'static',
       controller: 'ModalContainerController',

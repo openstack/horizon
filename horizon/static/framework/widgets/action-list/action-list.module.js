@@ -34,7 +34,7 @@
    *
    */
   angular
-    .module('horizon.framework.widgets.action-list', ['ui.bootstrap'])
+    .module('horizon.framework.widgets.action-list', [])
 
   /**
    * @ngdoc parameters

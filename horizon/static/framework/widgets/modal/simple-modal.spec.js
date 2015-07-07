@@ -18,7 +18,7 @@
 
   describe('horizon.framework.widgets.simple-modal', function() {
 
-    beforeEach(module('horizon.framework.widgets.modal'));
+    beforeEach(module('horizon.framework'));
 
     describe('SimpleModalController', function() {
       var modalInstance, context, ctrl;
@@ -69,7 +69,6 @@
 
       beforeEach(module(function($provide) {
         modal = { open: function() {return 'val';} };
-        $provide.value('horizon.framework.widgets.basePath', '/this/path/');
         $provide.value('$modal', modal);
       }));
 
@@ -108,7 +107,7 @@
         });
 
         it('sets the template URL', function() {
-          expect(passed.templateUrl).toBe('/this/path/modal/simple-modal.html');
+          expect(passed.templateUrl).toBe('/static/framework/widgets/modal/simple-modal.html');
         });
 
         it('sets the title', function() {

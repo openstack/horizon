@@ -41,7 +41,7 @@
    */
 /*eslint-enable max-len */
   angular
-    .module('horizon.framework.widgets.wizard', ['ui.bootstrap'])
+    .module('horizon.framework.widgets.wizard', [])
 
     .constant('horizon.framework.widgets.wizard.labels', {
       cancel: gettext('Cancel'),
