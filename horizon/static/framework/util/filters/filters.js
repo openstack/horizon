@@ -163,18 +163,6 @@
       var format = ngettext('Displaying %s item', 'Displaying %s items', count);
       return interpolate(format, [count]);
     };
-  })
+  });
 
-  /**
-   * @ngdoc filter
-   * @name trans
-   * @description
-   * Returns translated text.
-   */
-  .filter('trans', ['horizon.framework.util.i18n.gettext', function (gettextFunc) {
-    return function (input) {
-      // NOTE: uses 'gettextFunc' to avoid message collection.
-      return gettextFunc(input);
-    };
-  }]);
 }());
