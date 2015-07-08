@@ -4,7 +4,7 @@
  *  Taken from default i18n file provided by Django.
  */
 
-var angularModuleExtension = [];
+var horizonPlugInModules = [];
 
 
 (function (globals) {
