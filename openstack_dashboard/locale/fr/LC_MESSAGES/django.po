@@ -23,9 +23,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-03 03:01+0000\n"
-"PO-Revision-Date: 2015-07-02 07:07+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-07-03 09:12+0000\n"
+"PO-Revision-Date: 2015-07-07 16:13+0000\n"
+"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/"
 "fr/)\n"
 "MIME-Version: 1.0\n"
@@ -2623,6 +2623,9 @@ msgstr "Modifier le réseau"
 msgid "Edit Network Profile"
 msgstr "Editer le profil réseau"
 
+msgid "Edit Node Group Template"
+msgstr "Editer le modèle de groupe de noeuds"
+
 msgid "Edit Policy"
 msgstr "Éditer la stratégie"
 
@@ -4223,6 +4226,10 @@ msgstr ""
 "Le lancement d'instances multiples n'est accepté que pour les images et les "
 "instantanés d'instance."
 
+msgctxt "load balancing method"
+msgid "Least Connections"
+msgstr "Least Connections"
+
 msgid "Length of Injected File Path"
 msgstr "Longueur du chemin du fichier injecté"
 
@@ -4863,6 +4870,10 @@ msgstr "Pas de type de volume"
 msgid "No volumes available"
 msgstr "Pas de volumes disponibles"
 
+#, python-format
+msgid "Node Group Template %s updated"
+msgstr "Le modèle de groupe de noeuds \"%s\" a été mis à jour"
+
 msgid "Node Group Template Details"
 msgstr "Détails du modèle de groupe de noeud"
 
@@ -4967,7 +4978,7 @@ msgid "OR Copy/Paste your Private Key"
 msgstr "OU Copier/Coller vote Clé Privée"
 
 msgid "OVA - Open Virtual Appliance"
-msgstr "OVA - Virtuel Appliance Ouverte"
+msgstr "OVA - Open Virtual Appliance"
 
 msgid "Object Details"
 msgstr "Détails de l'Objet"
@@ -5856,6 +5867,10 @@ msgstr "Disque racine"
 
 msgid "Root Disk (GB)"
 msgstr "Disque racine (Go)"
+
+msgctxt "load balancing method"
+msgid "Round Robin"
+msgstr "Round Robin"
 
 msgid "Router"
 msgstr "Routeur"
@@ -7073,6 +7088,13 @@ msgstr ""
 "La taille minimale de mémoire vive nécessaire pour démarrer l'image. Si non "
 "spécifiée, la valeur par défaut est 0 (pas de minimum)."
 
+msgid ""
+"The minimum time in seconds between regular checks of a member. It must be "
+"greater than or equal to timeout"
+msgstr ""
+"Délai minimal en secondes entre deux vérifications d'un membre. Doit être au "
+"moins égal à la valeur du timeout."
+
 #, python-format
 msgid "The name \"%s\" is already used by another flavor."
 msgstr "Le nom \"%s\" est déjà utilisé par un autre gabarit."
@@ -7125,6 +7147,14 @@ msgstr[0] ""
 msgstr[1] ""
 "Les instances requises %(req)i ne peuvent pas être lancées car vous avez "
 "seulement %(avail)i de votre quota disponible."
+
+#, python-format
+msgid ""
+"The requested instance cannot be launched. Requested volume exceeds quota: "
+"Available: %(avail)s, Requested: %(req)s."
+msgstr ""
+"L'instance demandée ne peut être lancée car le volume dépasse le quota. "
+"Disponible : %(avail)s, demandé : %(req)s."
 
 #, python-format
 msgid ""
@@ -8058,6 +8088,18 @@ msgid "Unable to retrieve details for backup: %s"
 msgstr "Impossible de récupérer les détails pour la sauvegarde : %s"
 
 #, python-format
+msgid "Unable to retrieve details for cluster \"%s\"."
+msgstr "Impossible de récupérer les détails du cluster  \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for cluster template \"%s\"."
+msgstr "Impossible de récupérer les détails du modèle de cluster \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for data source \"%s\"."
+msgstr "Impossible de récupérer les détails de la source de données \"%s\"."
+
+#, python-format
 msgid "Unable to retrieve details for database instance: %s"
 msgstr ""
 "Impossible de récupérer les détails pour l'instance %s de base de données"
@@ -8067,12 +8109,29 @@ msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "Impossible de récupérer les détails de l'instance \"%s\"."
 
 #, python-format
+msgid "Unable to retrieve details for job \"%s\"."
+msgstr "Impossible de récupérer les détails de la tâche \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for job binary \"%s\"."
+msgstr "Impossible de récupérer les détails du binaire de tâche \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for job template \"%s\"."
+msgstr "Impossible de récupérer les détails du modèle de tâche \"%s\"."
+
+#, python-format
 msgid "Unable to retrieve details for keypair \"%s\"."
 msgstr "Impossible de récupérer les paires de clés \"%s\"."
 
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "Impossible de récupérer les détails du réseau \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for node group template \"%s\"."
+msgstr ""
+"Impossible de retrouver les détails du modèle de groupe de noeuds \"%s\"."
 
 #, python-format
 msgid "Unable to retrieve details for parent backup: %s"

@@ -5,13 +5,14 @@
 # Translators:
 # Heleno Jimenez de la Cruz <heleno.jimenez@gmail.com>, 2015
 # Marian Tort <marian.tort@gmail.com>, 2015
+# Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2015-07-03 09:12+0000\n"
-"PO-Revision-Date: 2015-07-06 10:11+0000\n"
-"Last-Translator: Marian Tort <marian.tort@gmail.com>\n"
+"PO-Revision-Date: 2015-07-07 11:28+0000\n"
+"Last-Translator: Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/"
 "es/)\n"
 "MIME-Version: 1.0\n"
@@ -57,6 +58,24 @@ msgid "Admin State"
 msgstr "Estado del Administrador"
 
 msgid ""
+"Administrators are responsible for creating and managing flavors. A custom "
+"flavor can be created for you or for a specific project where it is shared "
+"with the users assigned to that project. If you need a custom flavor, "
+"contact your administrator."
+msgstr ""
+"Los administradores son los responsables de crear y gestionar sabores. Un "
+"sabor personalizado puede crearse para usted o un proyecto específico donde "
+"se podrá compartir con los usuarios asignados a dicho proyecto. Si necesita "
+"un sabor personalizado, contacte con su administrador."
+
+msgid ""
+"Administrators set up the pool of floating IPs that are available to attach "
+"to instances."
+msgstr ""
+"Los administradores definen un conjunto de IP's flotantes que pueden "
+"asociarse a las instancias."
+
+msgid ""
 "An advanced option available when launching an instance is disk "
 "partitioning. There are two disk partition options. Selecting <b>Automatic</"
 "b> resizes the disk and sets it to a single partition. Selecting <b>Manual</"
@@ -84,6 +103,9 @@ msgstr "Zona de Disponibilidad"
 msgid "Cancel"
 msgstr "Cancelar"
 
+msgid "Cannot get service catalog from keystone."
+msgstr "No puedo obtener el catálogo de servicios de keystone."
+
 msgid "Cannot get the Nova extension list."
 msgstr "No se puede obtener la lista de extensiones de Nova."
 
@@ -104,6 +126,9 @@ msgstr "Unidad de Configuración"
 
 msgid "Configuration Help"
 msgstr "Ayuda de Configuración"
+
+msgid "Count"
+msgstr "Número"
 
 msgid "Create Key Pair"
 msgstr "Crear Par de Claves"
@@ -170,6 +195,13 @@ msgstr "Sabor"
 msgid "Flavor Help"
 msgstr "Ayuda de Sabor"
 
+msgid ""
+"Flavors manage the sizing for the compute, memory and storage capacity of "
+"the instance."
+msgstr ""
+"Los sabores definen el tamaño que tendrá la instancia respecto a CPU, "
+"memoria y almacenamiento."
+
 msgid "ID"
 msgstr "ID"
 
@@ -216,6 +248,16 @@ msgid "Instance count is required and must be an integer of at least 1"
 msgstr ""
 "Contador de la instancia es necesario y debe ser un entero de la menos 1"
 
+msgid ""
+"Instance source is the template used to create an instance. You can use a "
+"snapshot of an existing instance, an image, or a volume (if enabled). You "
+"can also choose to use persistent storage by creating a new volume."
+msgstr ""
+"El origen de la instancia es la plantilla usada para crear una instancia. "
+"Puede utilizar una instantánea de una instancia existente, una imagen o un "
+"volumen (si habilitado). También puede escoger el crear almacenamiento "
+"persistente creando un nuevo volumen."
+
 msgid "Key Pair"
 msgstr "Par de Claves"
 
@@ -233,6 +275,18 @@ msgstr "Cargar script desde un archivo"
 
 msgid "Manual"
 msgstr "Manual"
+
+msgid "Max Port"
+msgstr "Puerto máximo"
+
+msgid "Min Disk"
+msgstr "Disco mínimo"
+
+msgid "Min Port"
+msgstr "Puerto mínimo"
+
+msgid "Min Ram"
+msgstr "RAM mínima"
 
 msgid "Modified"
 msgstr "Modificado"
@@ -280,11 +334,25 @@ msgstr "Perfil"
 msgid "Project"
 msgstr "Proyecto"
 
+msgid ""
+"Project networks are created by users. These networks are fully isolated and "
+"are project-specific."
+msgstr ""
+"Las redes de projectos se crean por los usuarios. Estas redes están "
+"completamente aisladas y son específicas del proyecto."
+
 msgid "Protocol"
 msgstr "Protocolo"
 
 msgid "Provider Network"
 msgstr "Red de Proveedor"
+
+msgid ""
+"Provider networks are created by administrators. These networks map to an "
+"existing physical network in the data center."
+msgstr ""
+"Las redes de proveedores son creadas por administradores. Estas redes van "
+"asociadas a redes físicas existentes en el centro de datos."
 
 msgid "Public"
 msgstr "Público"
@@ -391,6 +459,14 @@ msgstr ""
 "El sabor que selecciona para una instancia determina la cantidad de computo, "
 "almacenamiento y recursos de memoria que serán reservados para la instancia."
 
+#, python-format
+msgid ""
+"The instance count must not exceed your quota available of "
+"%(maxInstanceCount)s instances"
+msgstr ""
+"El número de instancias no debe exceder su quota disponible de "
+"%(maxInstanceCount)s instancias."
+
 msgid "The key pair allows you to SSH into the instance."
 msgstr "El par de claves te permite SSH dentro de la instancia."
 
@@ -419,6 +495,20 @@ msgid ""
 msgstr ""
 "Este comando genera un par de claves: una clave privada  "
 "(%(privateKeyPath)s) y una clave pública (%(publicKeyPath)s)."
+
+msgid ""
+"This flavor requires more RAM than your quota allows. Please select a "
+"smaller flavor or decrease the instance count."
+msgstr ""
+"Este sabor necesita más RAM de la que su quota permite. Por favor, escoja un "
+"sabor más pequeño o reduzca el número de instancias."
+
+msgid ""
+"This flavor requires more VCPUs than your quota allows. Please select a "
+"smaller flavor or decrease the instance count."
+msgstr ""
+"Este sabor necesita más CPU's virtuales que las que su quota permite. Por "
+"favor, escoja un sabor más pequeño o reduzca el número de instancias."
 
 msgid "This is your new key pair. Copy this information and keep it secure."
 msgstr ""

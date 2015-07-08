@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2015-07-03 09:12+0000\n"
-"PO-Revision-Date: 2015-07-04 16:09+0000\n"
+"PO-Revision-Date: 2015-07-07 07:22+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/"
 "cs/)\n"
@@ -701,6 +701,9 @@ msgstr "Záloha"
 msgid "Backup Database"
 msgstr "Zálohovat databázi"
 
+msgid "Backup Details: {{ backup.name }}"
+msgstr "Podrobnosti zálohy: {{ backup.name }}"
+
 msgid "Backup File"
 msgstr "Zálohovat soubor"
 
@@ -853,6 +856,9 @@ msgstr "Zvolte hostitele pro přesunutí."
 
 msgid "Choose a main binary"
 msgstr "Zvolte hlavní binární soubor"
+
+msgid "Choose a new instance flavor."
+msgstr "Zvolte novou konfiguraci instance."
 
 msgid "Choose a snapshot"
 msgstr "Zvolte snímek"
@@ -1589,6 +1595,9 @@ msgstr "Denní zpráva o využití"
 
 msgid "Data Processing"
 msgstr "Zpracování dat"
+
+msgid "Data Processing Guides"
+msgstr "Průvodce zpracováním dat"
 
 msgid "Data Processing Plugin Details"
 msgstr "Podrobnosti zásuvného modulu zpracování dat"
@@ -4813,6 +4822,9 @@ msgctxt "Current status of a Database Instance"
 msgid "Resize"
 msgstr "Změnit velikost"
 
+msgid "Resize Database Instance"
+msgstr "Změnit velikost instance databáze"
+
 msgid "Resize Database Volume"
 msgstr "Změnit velikost svazku databáze"
 
@@ -4829,6 +4841,10 @@ msgstr "Změnit velikost/Přesunout"
 msgctxt "Task status of an Instance"
 msgid "Resized or Migrated"
 msgstr "Velikost změněna nebo Přesunuto"
+
+#, python-format
+msgid "Resizing instance \"%s\""
+msgstr "Měnění velikosti instance \"%s\""
 
 msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
@@ -4874,6 +4890,9 @@ msgstr "Obnovit zálohu svazku"
 
 msgid "Restore a Volume Backup"
 msgstr "Obnovit zálohu svazku"
+
+msgid "Restore from Backup"
+msgstr "Obnovit ze zálohy"
 
 msgctxt "Current status of a Volume Backup"
 msgid "Restoring"
@@ -5189,6 +5208,9 @@ msgstr "Vyberte šablonu monitoru pro %s"
 
 msgid "Select a new agent"
 msgstr "Vyberte nového agenta"
+
+msgid "Select a new flavor"
+msgstr "Zvolte novou konfiguraci"
 
 msgid "Select a new host"
 msgstr "Vyberte nového hostitele"
@@ -6667,6 +6689,10 @@ msgid "Unable to resize instance \"%s\"."
 msgstr "Nelze změnit velikost instance \"%s\"."
 
 #, python-format
+msgid "Unable to resize instance. %s"
+msgstr "Nelze změnit velikost instance. %s"
+
+#, python-format
 msgid "Unable to resize volume. %s"
 msgstr "Nelze změnit velikost svazku. %s"
 
@@ -7288,6 +7314,9 @@ msgstr "Nelze nastavit bránu."
 
 msgid "Unable to set project quotas."
 msgstr "Nelze nastavit kvótu projektu."
+
+msgid "Unable to show guides"
+msgstr "Průvodce nelze zobrazit"
 
 msgid "Unable to sort instance flavors."
 msgstr "Nelze seřadit konfigurace instance"

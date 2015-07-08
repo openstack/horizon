@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-03 03:01+0000\n"
-"PO-Revision-Date: 2015-07-02 07:07+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-07-03 09:12+0000\n"
+"PO-Revision-Date: 2015-07-07 16:17+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/"
 "language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -1688,6 +1688,10 @@ msgctxt "Admin state of a Firewall"
 msgid "DOWN"
 msgstr "DOWN"
 
+msgctxt "Admin state of a Load balancer"
+msgid "DOWN"
+msgstr "DOWN"
+
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "DOWN"
@@ -1699,6 +1703,9 @@ msgstr "DOWN"
 msgctxt "Admin state of a Router"
 msgid "DOWN"
 msgstr "DOWN"
+
+msgid "DPD Timeout must be greater than DPD Interval"
+msgstr "DPD 타임아웃은 DPD Interval보다 커야 합니다."
 
 msgid "Daily Usage Report"
 msgstr "일일 사용량 보고서"
@@ -2557,6 +2564,9 @@ msgstr "네트워크 편집"
 msgid "Edit Network Profile"
 msgstr "네트워크 프로필 수정"
 
+msgid "Edit Node Group Template"
+msgstr "노드 그룹 템플릿 편집"
+
 msgid "Edit Policy"
 msgstr "정책 편집"
 
@@ -2669,10 +2679,10 @@ msgid "Encapsulation mode"
 msgstr "캡슐화 모드"
 
 msgid "Encrypted"
-msgstr "암호화된"
+msgstr "암호화"
 
 msgid "Encrypted Password"
-msgstr "암호화된 비밀번호"
+msgstr "암호화한 암호"
 
 msgid "Encryption"
 msgstr "암호화"
@@ -2973,6 +2983,9 @@ msgstr "add_interface 실패: %s"
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr "Neutron '%s' 확장을 실패에대해 확인을 지원하지 않습니다."
+
+msgid "Failed to check if Neutron extraroute extension is supported"
+msgstr "Neutron extraroute 확장을 지원하는지에 대한 확인 실패"
 
 #, python-format
 msgid "Failed to create a port for network %s"
@@ -4684,6 +4697,9 @@ msgstr "키패어 없음"
 msgid "No networks available"
 msgstr "사용 가능한 네트워크가 없습니다"
 
+msgid "No new QoS spec available"
+msgstr "사용 가능한 새로운 QoS 스펙 없음"
+
 msgid "No options specified"
 msgstr "지정된 옵션 없음"
 
@@ -4755,6 +4771,10 @@ msgstr "볼륨 타입이 없음"
 msgid "No volumes available"
 msgstr "사용 가능한 볼륨이 없습니다."
 
+#, python-format
+msgid "Node Group Template %s updated"
+msgstr "업데이트된 노드 그룹 템플릿 %s"
+
 msgid "Node Group Template Details"
 msgstr "노드 그룹 템플릿에 대한 자세한 정보"
 
@@ -4783,6 +4803,9 @@ msgstr "None"
 msgctxt "Task status of an Instance"
 msgid "None"
 msgstr "None"
+
+msgid "None (removes spec)"
+msgstr "없음 (스펙 제거)"
 
 msgid "Normal"
 msgstr "기본"
@@ -4828,6 +4851,13 @@ msgstr "VM 인터페이스에 대해서 들어오는 패킷 수"
 
 msgid "Number of instances to launch."
 msgstr "구동시 인스턴스 수"
+
+msgid ""
+"Number of items to show per page (applies to the pages that have API "
+"supported pagination)"
+msgstr ""
+"페이지 당 보이는 항목 개수 (페이지화를 지원하는 API를 가진 페이지에 적용됩니"
+"다)"
 
 msgid "Number of log lines to be shown per instance"
 msgstr "인스턴스 별 보여지는 로그 라인 수"
@@ -6038,6 +6068,9 @@ msgstr "마스터 인스턴스 선택"
 msgid "Select a monitor template for %s"
 msgstr "%s에 대한 모니터 템플릿 선택"
 
+msgid "Select a new QoS spec"
+msgstr "새로운 QoS 스펙 선택"
+
 msgid "Select a new agent"
 msgstr "새로운 에이전트 선택"
 
@@ -7171,6 +7204,10 @@ msgctxt "Admin state of a Firewall"
 msgid "UP"
 msgstr "UP"
 
+msgctxt "Admin state of a Load balancer"
+msgid "UP"
+msgstr "UP"
+
 msgctxt "Admin state of a Network"
 msgid "UP"
 msgstr "UP"
@@ -7890,6 +7927,18 @@ msgid "Unable to retrieve details for backup: %s"
 msgstr "백업에 대한 세부 정보를 찾지 못했습니다: %s"
 
 #, python-format
+msgid "Unable to retrieve details for cluster \"%s\"."
+msgstr "클러스터 \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
+
+#, python-format
+msgid "Unable to retrieve details for cluster template \"%s\"."
+msgstr "클러스터 템플릿 \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
+
+#, python-format
+msgid "Unable to retrieve details for data source \"%s\"."
+msgstr "데이터 소스 \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
+
+#, python-format
 msgid "Unable to retrieve details for database instance: %s"
 msgstr "인스턴스 데이터베이스에 대한 세부 정보를 찾지 못했습니다: %s"
 
@@ -7898,12 +7947,28 @@ msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "인스턴스 \"%s\"에 대한 세부 정보를 찾지 못 했습니다."
 
 #, python-format
+msgid "Unable to retrieve details for job \"%s\"."
+msgstr "작업 \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
+
+#, python-format
+msgid "Unable to retrieve details for job binary \"%s\"."
+msgstr "작업 바이너리 \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
+
+#, python-format
+msgid "Unable to retrieve details for job template \"%s\"."
+msgstr "작업 템플릿 \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
+
+#, python-format
 msgid "Unable to retrieve details for keypair \"%s\"."
 msgstr "키페어 \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
 
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "네트워크 \"%s\"의 세부 정보를 찾지 못했습니다."
+
+#, python-format
+msgid "Unable to retrieve details for node group template \"%s\"."
+msgstr "노드 그룹 템플릿 \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
 
 #, python-format
 msgid "Unable to retrieve details for parent backup: %s"
@@ -8841,6 +8906,9 @@ msgstr "DPD 간격을 보다 큰 유효한 정수"
 
 msgid "Valid integer lesser than DPD timeout"
 msgstr "DPD 타임아웃보다 적은 유효한 정수"
+
+msgid "Valid integer lesser than the DPD timeout"
+msgstr "DPD 타임아웃보다 작은 유효한 정수"
 
 msgid "Value"
 msgstr "값"
