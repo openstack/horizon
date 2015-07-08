@@ -202,10 +202,5 @@
       );
     });
 
-    describe('trans', function () {
-      it('should return translated text', inject(function (transFilter) {
-        expect(transFilter("Howdy")).toBe("Howdy");
-      }));
-    });
-  });
-})();
+  }); // end of horizon.framework.util.filters
+})(); // end of IIFE
