@@ -875,9 +875,13 @@ class LaunchInstance(workflows.Workflow):
                     volume_source_id = context['source_id'].split(':')[0]
                     device_name = context.get('device_name', '') \
                         .strip() or None
+                    dev_source_type_mapping = {
+                        'volume_id': 'volume',
+                        'volume_snapshot_id': 'snapshot'
+                    }
                     dev_mapping_2 = [
                         {'device_name': device_name,
-                         'source_type': 'volume',
+                         'source_type': dev_source_type_mapping[source_type],
                          'destination_type': 'volume',
                          'delete_on_termination':
                              bool(context['delete_on_terminate']),
