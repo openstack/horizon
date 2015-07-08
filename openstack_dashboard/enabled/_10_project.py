@@ -23,6 +23,8 @@ ADD_INSTALLED_APPS = ['openstack_dashboard.dashboards.project']
 
 ADD_ANGULAR_MODULES = ['hz.dashboard']
 
+AUTO_DISCOVER_STATIC_FILES = True
+
 LAUNCH_INST = 'dashboard/launch-instance/'
 
 ADD_JS_FILES = [
@@ -69,4 +71,8 @@ ADD_JS_SPEC_FILES = [
     LAUNCH_INST + 'security-groups/security-groups.spec.js',
     LAUNCH_INST + 'keypair/keypair.spec.js',
     LAUNCH_INST + 'configuration/configuration.spec.js',
+]
+
+ADD_SCSS_FILES = [
+    'dashboard/project/project.scss'
 ]
