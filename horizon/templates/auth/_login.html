@@ -6,7 +6,7 @@
 {% block modal_class %}login {% if hide %}modal{% endif %}{% endblock %}
 
 {% block form_action %}{% url 'login' %}{% endblock %}
-{% block ng_controller %}hzLoginCtrl{% endblock %}
+{% block ng_controller %}hzLoginController{% endblock %}
 {% block autocomplete %}{{ HORIZON_CONFIG.password_autocomplete }}{% endblock %}
 
 {% block modal-body %}

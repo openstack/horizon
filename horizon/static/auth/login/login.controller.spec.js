@@ -1,5 +1,5 @@
 /**
- * Copyright 2015 IBM Corp.
+ * Copyright 2015 ThoughtWorks Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -13,21 +13,22 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+
 (function() {
   'use strict';
 
-  angular
-    .module('horizon.auth.login')
+  describe('hzLoginController', function() {
+    var $controller;
+    beforeEach(module('horizon.auth.login'));
+    beforeEach(inject(function(_$controller_) {
+      $controller = _$controller_;
+    }));
 
-    /**
-     * @ngdoc hzLoginController
-     * @description
-     * controller for determining which
-     * authentication method user picked.
-     */
-    .controller('hzLoginController', function() {
-      var vm = this;
-      vm.auth_type = 'credentials';
+    describe('should set auth_type', function() {
+      it('should initialize to credentials', function() {
+        var controller = $controller('hzLoginController');
+        expect(controller.auth_type).toEqual('credentials');
+      });
     });
-
+  });
 })();
