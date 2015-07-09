@@ -20,12 +20,12 @@
   var fromJson = angular.fromJson;
   var isArray = angular.isArray;
 
-  angular.module('hz.dashboard')
+  angular.module('horizon.app.core')
 
   /**
    * @ngdoc factory
-   * @name hz.dashboard:factory:cloudServices
-   * @module hz.dashboard
+   * @name horizon.app.core:factory:cloudServices
+   * @module horizon.app.core
    * @kind hash table
    * @description
    *
@@ -78,8 +78,8 @@
 
   /**
    * @ngdoc factory
-   * @name hz.dashboard:factory:ifFeaturesEnabled
-   * @module hz.dashboard
+   * @name horizon.app.core:factory:ifFeaturesEnabled
+   * @module horizon.app.core
    * @kind function
    * @description
    *
@@ -111,8 +111,8 @@
 
   /**
    * @ngdoc factory
-   * @name hz.dashboard:factory:createDirectiveSpec
-   * @module hz.dashboard
+   * @name horizon.app.core:factory:createDirectiveSpec
+   * @module horizon.app.core
    * @kind function
    * @description
    *
@@ -160,8 +160,8 @@
 
   /**
    * @ngdoc directive
-   * @name hz.dashboard:directive:novaExtension
-   * @module hz.dashboard
+   * @name horizon.app.core:directive:novaExtension
+   * @module horizon.app.core
    * @description
    *
    * This is to enable specifying conditional UI in a declarative way.
@@ -204,8 +204,8 @@
 
   /**
    * @ngdoc directive
-   * @name hz.dashboard:directive:settingsService
-   * @module hz.dashboard
+   * @name horizon.app.core:directive:settingsService
+   * @module horizon.app.core
    * @description
    *
    * This is to enable specifying conditional UI in a declarative way.
