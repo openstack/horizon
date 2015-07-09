@@ -147,8 +147,8 @@ JavaScript files can be discovered automatically, handled manually, or a mix of
 the two. Where possible, use the automated mechanism.
 To use the automatic functionality, add::
   AUTO_DISCOVER_STATIC_FILES = True
-to your ``enabled/___.py``. To make this possible, you need to follow some
-structural conventions:
+to your enabled file (``enabled/<plugin_name>.py``). To make this possible,
+you need to follow some structural conventions:
 
   - Static files should be put in a ``static/`` folder, which should be found directly under
     the folder for the dashboard/panel/panel groups Python package.
@@ -196,7 +196,7 @@ defined in your enabled file, and add the relevant filepath, as below:
     ...
   ]
 
-.. warning::
+.. Note::
   We highly recommend using a single SCSS file for your plugin. SCSS supports
   nesting with @import, so if you have multiple files (i.e. per panel styling)
   it is best to import them all into one, and include that single file. You can
