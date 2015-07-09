@@ -9,10 +9,9 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2015-07-03 09:12+0000\n"
-"PO-Revision-Date: 2015-07-07 07:22+0000\n"
+"PO-Revision-Date: 2015-07-08 07:42+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
-"Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/"
-"cs/)\n"
+"Language-Team: Czech (http://www.transifex.com/p/horizon/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -137,6 +136,9 @@ msgstr "Místní obraz pro nahrání."
 
 msgid "A local template to upload."
 msgstr "Místní šablona pro nahrání."
+
+msgid "A master instance must be selected!"
+msgstr "Musíte zvolit hlavní instanci!"
 
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
@@ -884,8 +886,17 @@ msgstr "Zvolte spotřebitele pro tuto specifikaci QoS."
 msgid "Choose initial state."
 msgstr "Zvolte počáteční stav"
 
+msgid "Choose job type"
+msgstr "Zvolte typ úkolu"
+
 msgid "Choose libraries"
 msgstr "Zvolte knihovny"
+
+msgid "Choose plugin and version"
+msgstr "Vyberte zásuvný modul a verzi"
+
+msgid "Choose plugin type and version"
+msgstr "Vyberte zásuvný modul a verzi"
 
 msgid "Choose the binary which should be used in this Job."
 msgstr "Zvolte binární soubor, který má být použit v tomto úkolu."
@@ -1001,6 +1012,9 @@ msgstr ""
 msgid "Configure Template"
 msgstr "Nastavit šablonu"
 
+msgid "Confirm Admin Password"
+msgstr "Potvrďte heslo správce"
+
 msgid "Confirm Password"
 msgstr "Potvrdit heslo"
 
@@ -1099,6 +1113,9 @@ msgstr "Nelze vytvořit"
 
 msgid "Could not create data source"
 msgstr "Nelze vytvořit zdroj dat"
+
+msgid "Could not create job template"
+msgstr "Nelze vytvořit šablonu úkolu"
 
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
@@ -1970,6 +1987,10 @@ msgstr ""
 msgid "Domains:"
 msgstr "Domény:"
 
+msgctxt "Current status of a Job"
+msgid "Done with Error"
+msgstr "Dokončeno s chybou"
+
 msgid "Down"
 msgstr "Zavřen"
 
@@ -2322,6 +2343,10 @@ msgstr "Chyba při mazání"
 msgid "Error Downloading RC File: %s"
 msgstr "Chyba při stahování souboru RC: %s"
 
+msgctxt "Current status of a Volume"
+msgid "Error Extending"
+msgstr "Chyba při rozšiřování"
+
 msgid "Error adding Hosts to the aggregate."
 msgstr "Chyba při přidávání hostitelů do agregátu."
 
@@ -2455,6 +2480,10 @@ msgstr "Nelze přidat agenta %(agent_name)s do sítě %(network)s."
 #, python-format
 msgid "Failed to add router rule %s"
 msgstr "Nelze přidat pravidlo směrovače %s"
+
+#, python-format
+msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
+msgstr "Nelze přidat směrovače do brány firewall %(name)s: %(reason)s"
 
 #, python-format
 msgid "Failed to add_interface: %s"
@@ -2605,6 +2634,10 @@ msgstr ""
 
 msgid "Failed to obtain network profile binding"
 msgstr "Nelze získat svázání síťového profilu"
+
+#, python-format
+msgid "Failed to remove router(s) from firewall %(name)s: %(reason)s"
+msgstr "Nelze odstranit směrovače z brány firewall %(name)s: %(reason)s"
 
 #, python-format
 msgid "Failed to remove rule from policy %(name)s: %(reason)s"
@@ -2896,6 +2929,9 @@ msgstr "Skupina byla úspěšně aktualizována."
 
 msgid "Groups"
 msgstr "Skupiny"
+
+msgid "Guides"
+msgstr "Průvodci"
 
 msgid "HA mode"
 msgstr "Režim HA"
@@ -3199,6 +3235,10 @@ msgstr "V zásadě"
 msgid "In Use"
 msgstr "Používá se"
 
+msgctxt "Current status of a Volume"
+msgid "In-use"
+msgstr "Používá se"
+
 msgctxt "Current status of a Firewall"
 msgid "Inactive"
 msgstr "Neaktivní"
@@ -3364,6 +3404,9 @@ msgstr ""
 msgid "Items Per Page"
 msgstr "Položek na stránku"
 
+msgid "Java"
+msgstr "Java"
+
 msgid "Java Opts"
 msgstr "Operace Java"
 
@@ -3385,6 +3428,15 @@ msgstr "ID spuštění úkolu"
 msgid "Job Guide"
 msgstr "Průvodce úkolem"
 
+msgid "Job Template"
+msgstr "Šablona úkolu"
+
+msgid "Job Template Details"
+msgstr "Podrobnosti šablony úkolu"
+
+msgid "Job Templates"
+msgstr "Šablony úkolu"
+
 msgid "Job Type"
 msgstr "Typ úkolu"
 
@@ -3402,6 +3454,9 @@ msgstr "Úkol spuštěn"
 
 msgid "Job params"
 msgstr "Parametry úkolu"
+
+msgid "Job type chosen"
+msgstr "Zvolen typ úkolu"
 
 msgid "Jobs"
 msgstr "Úkoly"
@@ -4170,6 +4225,9 @@ msgstr "Počet příchozích paketů pro rozhraní VM"
 msgid "Number of instances to launch."
 msgstr "Počet instancí ke spuštění."
 
+msgid "Number of log lines to be shown per instance"
+msgstr "Počet řádků záznamu zobrazených na instanci"
+
 msgid "Number of objects"
 msgstr "Počet objektů"
 
@@ -4195,6 +4253,9 @@ msgstr "Počet žádostí o zápis"
 
 msgid "OR Copy/Paste your Private Key"
 msgstr "NEBO Zkopírujte/Vložte váš soukromý klíč"
+
+msgid "OVA - Open Virtual Appliance"
+msgstr "OVA - Otevřené virtuální zařízení"
 
 msgid "Object Details"
 msgstr "Podrobnosti objektu"
@@ -4692,8 +4753,16 @@ msgid "Reboot Pending"
 msgstr "Čeká na restartování"
 
 msgctxt "Task status of an Instance"
+msgid "Reboot Pending Hard"
+msgstr "Čeká na tvrdé restartování"
+
+msgctxt "Task status of an Instance"
 msgid "Reboot Started"
 msgstr "Restartování zahájeno"
+
+msgctxt "Task status of an Instance"
+msgid "Reboot Started Hard"
+msgstr "Tvrdé restartování zahájeno"
 
 msgctxt "Task status of an Instance"
 msgid "Rebooting"
@@ -4796,6 +4865,9 @@ msgid_plural "Remove Users"
 msgstr[0] "Odstranit uživatele"
 msgstr[1] "Odstranit uživatele"
 msgstr[2] "Odstranit uživatele"
+
+msgid "Replicate from Instance"
+msgstr "Replikovat z instance"
 
 msgid "Request ID"
 msgstr "ID požadavku"
@@ -5110,6 +5182,9 @@ msgstr "Název skriptu"
 
 msgid "Script text"
 msgstr "Text skriptu"
+
+msgid "Security"
+msgstr "Bezpečnost"
 
 msgid "Security Group"
 msgstr "Bezpečnostní skupina"
@@ -5935,6 +6010,9 @@ msgstr "Heslo správce není správné."
 msgid "The container cannot be deleted since it is not empty."
 msgstr "Kontejner nelze smazat protože není prázdný."
 
+msgid "The dates haven't been recognized"
+msgstr "Data nebyla rozeznána"
+
 #, python-format
 msgid ""
 "The flavor '%(flavor)s' is too small for requested image.\n"
@@ -6307,6 +6385,16 @@ msgstr "Nelze vytvořit síť \"%s\"."
 
 msgid "Unable to create new cluster for job."
 msgstr "Nelze vytvořit nový cluster pro úkol."
+
+msgid "Unable to create new image"
+msgstr "Nelze vytvořit nový obraz"
+
+msgid "Unable to create new image: Image name too long."
+msgstr "Nelze vytvořit nový obraz: Název obrazu je příliš dlouhý."
+
+#, python-format
+msgid "Unable to create new image: Invalid disk format %s for image."
+msgstr "Nelze vytvořit nový obraz: Obraz má neplatný formát disku %s."
 
 #, python-format
 msgid "Unable to create new namespace. %s"
@@ -6889,6 +6977,12 @@ msgstr "Nelze získat seznam přístupu konfigurací. Zkuste to prosím později
 msgid "Unable to retrieve flavor details."
 msgstr "Nelze získat podrobnosti konfigurace.."
 
+#, python-format
+msgid ""
+"Unable to retrieve flavor information for instance \"%(name)s\" (%(id)s)."
+msgstr ""
+"Nelze získat informace o konfiguraci pro instanci \"%(name)s\" (%(id)s)."
+
 msgid "Unable to retrieve flavor list."
 msgstr "Nelze získat seznam konfigurací."
 
@@ -6940,6 +7034,9 @@ msgstr "Nele získat seznam obrazů."
 
 msgid "Unable to retrieve image."
 msgstr "Nelze získat obraz."
+
+msgid "Unable to retrieve images"
+msgstr "Nelze získat obrazy"
 
 msgid "Unable to retrieve images for the current project."
 msgstr "Nelze získatt obrazy pro současný projekt."
@@ -7159,6 +7256,10 @@ msgstr "Nelze získat seznam bezpečnostních skupin. Prosím zkuste to později
 msgid "Unable to retrieve security group."
 msgstr "Nelze získat bezpečnostní skupinu."
 
+#, python-format
+msgid "Unable to retrieve security groups for instance \"%(name)s\" (%(id)s)."
+msgstr "Nelze získat bezpečnostní skupiny pro instanci \"%(name)s\" (%(id)s)."
+
 msgid "Unable to retrieve security groups."
 msgstr "Nelze získat bezpečnostní skupiny."
 
@@ -7260,6 +7361,10 @@ msgstr "Nelze získat informace o svazku."
 msgid "Unable to retrieve volume limit information."
 msgstr "Nelze získat informace o omezení velikosti svazku."
 
+#, python-format
+msgid "Unable to retrieve volume list for instance \"%(name)s\" (%(id)s)."
+msgstr "Nelze získat seznam svazků pro instanci \"%(name)s\" (%(id)s)."
+
 msgid "Unable to retrieve volume list."
 msgstr "Nelze získat seznam svazků."
 
@@ -7305,12 +7410,18 @@ msgstr "Nelze získat zóny dostupnosti svazků."
 msgid "Unable to set Domain Context."
 msgstr "Nelze nastavit kontext domény."
 
+msgid "Unable to set bootable flag on volume."
+msgstr "Nelze nastavit příznak pro zavedení ve svazku"
+
 #, python-format
 msgid "Unable to set flavor access for project %s."
 msgstr "Nelze nastavit přístup konfigurace pro projekt %s."
 
 msgid "Unable to set gateway."
 msgstr "Nelze nastavit bránu."
+
+msgid "Unable to set job type"
+msgstr "Nelze nastavit typ úkolu"
 
 msgid "Unable to set project quotas."
 msgstr "Nelze nastavit kvótu projektu."
@@ -7664,6 +7775,12 @@ msgstr "VCPU (Celkem)"
 msgid "VCPUs (used)"
 msgstr "VCPU (Používané)"
 
+msgid "VDI - Virtual Disk Image"
+msgstr "VDI - Obraz virtuálního disku"
+
+msgid "VHD - Virtual Hard Disk"
+msgstr "VHD - Virtuální pevný disk"
+
 msgid "VIP"
 msgstr "VIP"
 
@@ -7679,6 +7796,9 @@ msgstr "VIP podsíť"
 
 msgid "VLAN"
 msgstr "VLAN"
+
+msgid "VMDK - Virtual Machine Disk"
+msgstr "VMDK - Disk virtuálního stroje"
 
 msgid "VPN"
 msgstr "VPN"
