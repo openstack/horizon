@@ -20,7 +20,6 @@ ADD_EXCEPTIONS = {}
 ADD_INSTALLED_APPS = ['openstack_dashboard.dashboards.identity']
 
 ADD_ANGULAR_MODULES = [
-    'hz.dashboard',
     'hz.dashboard.identity',
 ]
 
