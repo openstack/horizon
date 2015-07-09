@@ -20,6 +20,7 @@
     var launchInstanceWorkflow;
 
     beforeEach(module('hz.dashboard'));
+    beforeEach(module('horizon.app.core'));
     beforeEach(module(function($provide) {
       // Need to mock hz.framework.workflow from 'horizon'
       var workflow = function(spec, decorators) {

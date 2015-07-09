@@ -20,8 +20,8 @@
 
   /**
    * @ngdoc factory
-   * @name hz.dashboard.workflow.factory:hz.dashboard.workflow.decorator
-   * @module hz.dashboard.workflow
+   * @name horizon.app.core.workflow.factory:horizon.app.core.workflow.decorator
+   * @module horizon.app.core.workflow
    * @kind function
    * @description
    *
@@ -40,12 +40,12 @@
    *
    * | Factories                                                                                                |
    * |----------------------------------------------------------------------------------------------------------|
-   * | {@link hz.dashboard.workflow.factory:hz.dashboard.workflow.decorator `hz.dashboard.workflow.decorator`}  |
+   * | {@link horizon.app.core.workflow.factory:horizon.app.core.workflow.decorator `horizon.app.core.workflow.decorator`}  |
    *
    */
   angular
-    .module('hz.dashboard.workflow')
-    .factory('hz.dashboard.workflow.decorator', dashboardWorkflowDecorator);
+    .module('horizon.app.core.workflow')
+    .factory('horizon.app.core.workflow.decorator', dashboardWorkflowDecorator);
 
   dashboardWorkflowDecorator.$inject = [
     '$q',
