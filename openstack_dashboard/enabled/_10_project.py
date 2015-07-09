@@ -21,7 +21,7 @@ ADD_EXCEPTIONS = {}
 # A list of applications to be added to INSTALLED_APPS.
 ADD_INSTALLED_APPS = ['openstack_dashboard.dashboards.project']
 
-ADD_ANGULAR_MODULES = ['hz.dashboard']
+ADD_ANGULAR_MODULES = []
 
 AUTO_DISCOVER_STATIC_FILES = True
 
