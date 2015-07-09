@@ -38,6 +38,12 @@
 
     var tests = [
       {
+        "func": "getVersion",
+        "method": "get",
+        "path": "/api/keystone/version/",
+        "error": "Unable to get the Keystone service version."
+      },
+      {
         "func": "getUsers",
         "method": "get",
         "path": "/api/keystone/users/",
