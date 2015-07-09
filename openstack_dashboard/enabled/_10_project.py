@@ -49,9 +49,6 @@ ADD_JS_FILES = [
     LAUNCH_INST + 'configuration/configuration.controller.js',
     LAUNCH_INST + 'configuration/configuration-help.controller.js',
     LAUNCH_INST + 'configuration/load-edit.directive.js',
-
-    'dashboard/tech-debt/tech-debt.module.js',
-    'dashboard/tech-debt/image-form-ctrl.js',
 ]
 
 ADD_JS_SPEC_FILES = [

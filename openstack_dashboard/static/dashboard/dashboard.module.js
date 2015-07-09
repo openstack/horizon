@@ -3,8 +3,7 @@
 
   angular
     .module('hz.dashboard', [
-      'hz.dashboard.launch-instance',
-      'hz.dashboard.tech-debt'
+      'hz.dashboard.launch-instance'
     ])
     .config(config);
 

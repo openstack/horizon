@@ -31,8 +31,9 @@
    * and modules from `openstack_dashboard` application core components.
    */
   var horizonBuiltInModules = [
-    'horizon.auth',
     'horizon.app.core',
+    'horizon.app.tech-debt',
+    'horizon.auth',
     'hz.dashboard',
     'horizon.framework',
     'horizon.openstack-service-api'
