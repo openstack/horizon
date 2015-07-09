@@ -83,7 +83,14 @@ module.exports = function (config) {
 
       // TODO: These should be mocked.
       '../../horizon/static/horizon/js/horizon.js',
-      '../../horizon/static/framework/util/http/http.js',
+
+      /**
+       * Include framework source code from horizon that we need.
+       * Otherwise, karma will not be able to find them when testing.
+       * These files should be mocked in the foreseeable future.
+       */
+      '../../horizon/static/framework/**/*.module.js',
+      '../../horizon/static/framework/**/!(*.spec|*.mock).js',
 
       /**
        * First, list all the files that defines application's angular modules.
