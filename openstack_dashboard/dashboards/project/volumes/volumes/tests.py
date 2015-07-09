@@ -1345,9 +1345,9 @@ class VolumeViewTests(test.TestCase):
         url = reverse('horizon:project:volumes:volumes:extend',
                       args=[volume.id])
         res = self.client.post(url, formData)
-        self.assertFormError(res, 'form', None,
-                             "New size must be greater than "
-                             "current size.")
+        self.assertFormErrors(res, 1,
+                              "New size must be greater than "
+                              "current size.")
 
     @test.create_stubs({cinder: ('volume_get',
                                  'tenant_absolute_limits')})

@@ -707,8 +707,9 @@ class ExtendForm(forms.SelfHandlingForm):
         new_size = cleaned_data.get('new_size')
         orig_size = self.initial['orig_size']
         if new_size <= orig_size:
-            raise ValidationError(
-                _("New size must be greater than current size."))
+            error_msg = _("New size must be greater than current size.")
+            self._errors['new_size'] = self.error_class([error_msg])
+            return cleaned_data
 
         usages = quotas.tenant_limit_usages(self.request)
         availableGB = usages['maxTotalVolumeGigabytes'] - \
