@@ -32,7 +32,7 @@
    *
    * Injected dependencies:
    * - $q
-   * - serviceCatalog horizon.openstack-service-api.serviceCatalog
+   * - serviceCatalog horizon.app.core.openstack-service-api.serviceCatalog
    *
    * @param {Object} spec The input workflow specification object.
    * @returns {Object} The decorated workflow specification object, the same
@@ -49,7 +49,7 @@
 
   dashboardWorkflowDecorator.$inject = [
     '$q',
-    'horizon.openstack-service-api.serviceCatalog'
+    'horizon.app.core.openstack-service-api.serviceCatalog'
   ];
 
   /////////////

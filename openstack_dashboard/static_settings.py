@@ -148,10 +148,5 @@ def find_static_files(ROOT_PATH, HORIZON_CONFIG):
     file_discovery.populate_horizon_config(
         HORIZON_CONFIG,
         os.path.join(ROOT_PATH, 'static/'),
-        sub_path='openstack-service-api/'
-    )
-    file_discovery.populate_horizon_config(
-        HORIZON_CONFIG,
-        os.path.join(ROOT_PATH, 'static/'),
         sub_path='app/'
     )

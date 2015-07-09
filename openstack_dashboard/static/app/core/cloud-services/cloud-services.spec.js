@@ -25,15 +25,15 @@
       var cloudServices;
 
       beforeEach(module('horizon.app.core', function ($provide) {
-        $provide.value('horizon.openstack-service-api.cinder', {});
-        $provide.value('horizon.openstack-service-api.glance', {});
-        $provide.value('horizon.openstack-service-api.keystone', {});
-        $provide.value('horizon.openstack-service-api.neutron', {});
-        $provide.value('horizon.openstack-service-api.nova', {});
-        $provide.value('horizon.openstack-service-api.novaExtensions', {});
-        $provide.value('horizon.openstack-service-api.security-group', {});
-        $provide.value('horizon.openstack-service-api.serviceCatalog', {});
-        $provide.value('horizon.openstack-service-api.settings', {});
+        $provide.value('horizon.app.core.openstack-service-api.cinder', {});
+        $provide.value('horizon.app.core.openstack-service-api.glance', {});
+        $provide.value('horizon.app.core.openstack-service-api.keystone', {});
+        $provide.value('horizon.app.core.openstack-service-api.neutron', {});
+        $provide.value('horizon.app.core.openstack-service-api.nova', {});
+        $provide.value('horizon.app.core.openstack-service-api.novaExtensions', {});
+        $provide.value('horizon.app.core.openstack-service-api.security-group', {});
+        $provide.value('horizon.app.core.openstack-service-api.serviceCatalog', {});
+        $provide.value('horizon.app.core.openstack-service-api.settings', {});
       }));
 
       beforeEach(inject(function ($injector) {

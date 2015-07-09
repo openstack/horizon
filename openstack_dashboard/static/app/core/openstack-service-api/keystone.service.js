@@ -17,8 +17,8 @@ limitations under the License.
   'use strict';
 
   angular
-    .module('horizon.openstack-service-api')
-    .service('horizon.openstack-service-api.keystone', KeystoneAPI);
+    .module('horizon.app.core.openstack-service-api')
+    .service('horizon.app.core.openstack-service-api.keystone', KeystoneAPI);
 
   KeystoneAPI.$inject = ['horizon.framework.util.http.service',
                          'horizon.framework.widgets.toast.service'];
@@ -56,7 +56,7 @@ limitations under the License.
     };
 
     /**
-    * @name horizon.openstack-service-api.keystone.getCurrentUserSession
+    * @name horizon.app.core.openstack-service-api.keystone.getCurrentUserSession
     * @description
     * Gets the current User Session Information
     * @example
@@ -254,7 +254,7 @@ limitations under the License.
     };
 
     /**
-     * @name horizon.openstack-service-api.keystone.serviceCatalog
+     * @name horizon.app.core.openstack-service-api.keystone.serviceCatalog
      * @description
      * Returns the service catalog.
      * @param {Object} config
@@ -270,7 +270,7 @@ limitations under the License.
 
   /**
    * @ngdoc service
-   * @name horizon.openstack-service-api.userSession
+   * @name horizon.app.core.openstack-service-api.userSession
    * @description
    * Provides cached access to the user session. The cache may be reset
    * at any time by accessing the cache and calling removeAll, which means
@@ -290,16 +290,16 @@ limitations under the License.
    * pass it through as an argument.
    */
   angular
-    .module('horizon.openstack-service-api')
-    .factory('horizon.openstack-service-api.userSession', userSession);
+    .module('horizon.app.core.openstack-service-api')
+    .factory('horizon.app.core.openstack-service-api.userSession', userSession);
 
-  userSession.$inject = ['$cacheFactory', 'horizon.openstack-service-api.keystone'];
+  userSession.$inject = ['$cacheFactory', 'horizon.app.core.openstack-service-api.keystone'];
 
   function userSession($cacheFactory, keystoneAPI) {
 
     var service = {};
 
-    service.cache = $cacheFactory('horizon.openstack-service-api.userSession', {capacity: 1});
+    service.cache = $cacheFactory('horizon.app.core.openstack-service-api.userSession', {capacity: 1});
 
     service.get = function () {
       return keystoneAPI.getCurrentUserSession({cache: service.cache})
@@ -314,7 +314,7 @@ limitations under the License.
 
   /**
    * @ngdoc service
-   * @name horizon.openstack-service-api.serviceCatalog
+   * @name horizon.app.core.openstack-service-api.serviceCatalog
    * @description
    * Provides cached access to the Service Catalog with utilities to help
    * with asynchronous data loading. The cache may be reset at any time
@@ -333,21 +333,21 @@ limitations under the License.
    * pass it through as an argument.
    */
   angular
-    .module('horizon.openstack-service-api')
-    .factory('horizon.openstack-service-api.serviceCatalog', serviceCatalog);
+    .module('horizon.app.core.openstack-service-api')
+    .factory('horizon.app.core.openstack-service-api.serviceCatalog', serviceCatalog);
 
   serviceCatalog.$inject = ['$cacheFactory',
                             '$q',
-                            'horizon.openstack-service-api.keystone',
-                            'horizon.openstack-service-api.userSession'];
+                            'horizon.app.core.openstack-service-api.keystone',
+                            'horizon.app.core.openstack-service-api.userSession'];
 
   function serviceCatalog($cacheFactory, $q, keystoneAPI, userSession) {
 
     var service = {};
-    service.cache = $cacheFactory('horizon.openstack-service-api.serviceCatalog', {capacity: 1});
+    service.cache = $cacheFactory('horizon.app.core.openstack-service-api.serviceCatalog', {capacity: 1});
 
     /**
-     * @name horizon.openstack-service-api.serviceCatalog.get
+     * @name horizon.app.core.openstack-service-api.serviceCatalog.get
      * @description
      * Returns the service catalog. This is cached.
      *
@@ -367,7 +367,7 @@ limitations under the License.
     };
 
     /**
-     * @name horizon.openstack-service-api.serviceCatalog.ifTypeEnabled
+     * @name horizon.app.core.openstack-service-api.serviceCatalog.ifTypeEnabled
      * @description
      * Checks if the desired service is enabled.  If it is enabled, use the
      * promise returned to execute the desired function.  If it is not enabled,

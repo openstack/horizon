@@ -35,8 +35,7 @@
     'horizon.app.tech-debt',
     'horizon.auth',
     'hz.dashboard',
-    'horizon.framework',
-    'horizon.openstack-service-api'
+    'horizon.framework'
   ];
 
   /**

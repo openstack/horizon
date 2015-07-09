@@ -159,7 +159,7 @@
    */
   module.controller('LaunchInstanceCreateKeyPairCtrl', [
     '$modalInstance',
-    'horizon.openstack-service-api.nova',
+    'horizon.app.core.openstack-service-api.nova',
     'horizon.framework.widgets.toast.service',
     LaunchInstanceCreateKeyPairCtrl
   ]);
@@ -235,7 +235,7 @@
    */
   module.controller('LaunchInstanceImportKeyPairCtrl', [
     '$modalInstance',
-    'horizon.openstack-service-api.nova',
+    'horizon.app.core.openstack-service-api.nova',
     'horizon.framework.widgets.toast.service',
     LaunchInstanceImportKeyPairCtrl
   ]);

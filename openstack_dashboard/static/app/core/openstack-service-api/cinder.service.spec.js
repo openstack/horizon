@@ -17,19 +17,19 @@
 (function() {
   'use strict';
 
-  describe('Security Group API', function() {
+  describe('Cinder API', function() {
     var service;
     var apiService = {};
     var toastService = {};
 
-    beforeEach(module('horizon.openstack-service-api'));
+    beforeEach(module('horizon.app.core.openstack-service-api'));
 
     beforeEach(module(function($provide) {
       window.apiTest.initServices($provide, apiService, toastService);
     }));
 
-    beforeEach(inject(['horizon.openstack-service-api.security-group', function(securityGroup) {
-      service = securityGroup;
+    beforeEach(inject(['horizon.app.core.openstack-service-api.cinder', function(cinderAPI) {
+      service = cinderAPI;
     }]));
 
     it('defines the service', function() {
@@ -37,15 +37,31 @@
     });
 
     var tests = [
+      { func: 'getVolumes',
+        method: 'get',
+        path: '/api/cinder/volumes/',
+        data: { params: 'config' },
+        error: 'Unable to retrieve the volumes.',
+        testInput: [ 'config' ] },
 
-      {
-        "func": "query",
-        "method": "get",
-        "path": "/api/network/securitygroups/",
-        "error": "Unable to retrieve the security groups."
-      }
+      { func: 'getVolumes',
+        method: 'get',
+        path: '/api/cinder/volumes/',
+        data: {},
+        error: 'Unable to retrieve the volumes.' },
 
-    ];
+      { func: 'getVolumeSnapshots',
+        method: 'get',
+        path: '/api/cinder/volumesnapshots/',
+        data: {},
+        error: 'Unable to retrieve the volume snapshots.' },
+
+      { func: 'getVolumeSnapshots',
+        method: 'get',
+        path: '/api/cinder/volumesnapshots/',
+        data: { params: 'config' },
+        error: 'Unable to retrieve the volume snapshots.',
+        testInput: [ 'config' ] } ] ;
 
     // Iterate through the defined tests and apply as Jasmine specs.
     angular.forEach(tests, function(params) {

@@ -17,15 +17,15 @@ limitations under the License.
   'use strict';
 
   angular
-    .module('horizon.openstack-service-api')
-    .service('horizon.openstack-service-api.cinder', CinderAPI);
+    .module('horizon.app.core.openstack-service-api')
+    .service('horizon.app.core.openstack-service-api.cinder', CinderAPI);
 
   CinderAPI.$inject = ['horizon.framework.util.http.service',
                        'horizon.framework.widgets.toast.service'];
 
   /**
    * @ngdoc service
-   * @name horizon.openstack-service-api.cinder
+   * @name horizon.app.core.openstack-service-api.cinder
    * @description Provides direct access to Cinder APIs.
    */
   function CinderAPI(apiService, toastService) {
@@ -33,7 +33,7 @@ limitations under the License.
     // Volumes
 
     /**
-     * @name horizon.openstack-service-api.cinder.getVolumes
+     * @name horizon.app.core.openstack-service-api.cinder.getVolumes
      * @description
      * Get a list of volumes.
      *
@@ -58,7 +58,7 @@ limitations under the License.
     // Volume Snapshots
 
     /**
-     * @name horizon.openstack-service-api.cinder.getVolumeSnapshots
+     * @name horizon.app.core.openstack-service-api.cinder.getVolumeSnapshots
      * @description
      * Get a list of volume snapshots.
      *

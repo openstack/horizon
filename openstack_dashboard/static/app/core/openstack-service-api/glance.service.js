@@ -17,15 +17,15 @@ limitations under the License.
   'use strict';
 
   angular
-    .module('horizon.openstack-service-api')
-    .service('horizon.openstack-service-api.glance', GlanceAPI);
+    .module('horizon.app.core.openstack-service-api')
+    .service('horizon.app.core.openstack-service-api.glance', GlanceAPI);
 
   GlanceAPI.$inject = ['horizon.framework.util.http.service',
                        'horizon.framework.widgets.toast.service'];
 
   /**
    * @ngdoc service
-   * @name horizon.openstack-service-api.glance
+   * @name horizon.app.core.openstack-service-api.glance
    * @description Provides direct pass through to Glance with NO abstraction.
    */
   function GlanceAPI(apiService, toastService) {
@@ -33,7 +33,7 @@ limitations under the License.
     // Images
 
     /**
-     * @name horizon.openstack-service-api.glance.getImage
+     * @name horizon.app.core.openstack-service-api.glance.getImage
      * @description
      * Get a single image by ID
      * @param {string} id
@@ -47,7 +47,7 @@ limitations under the License.
     };
 
     /**
-     * @name horizon.openstack-service-api.glance.getImages
+     * @name horizon.app.core.openstack-service-api.glance.getImages
      * @description
      * Get a list of images.
      *
@@ -91,7 +91,7 @@ limitations under the License.
     // Metadata Definitions - Namespaces
 
     /**
-     * @name horizon.openstack-service-api.glance.getNamespaces
+     * @name horizon.app.core.openstack-service-api.glance.getNamespaces
      * @description
      * Get a list of metadata definition namespaces.
      *

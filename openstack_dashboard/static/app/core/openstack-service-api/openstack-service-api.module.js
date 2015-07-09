@@ -17,5 +17,5 @@ limitations under the License.
   'use strict';
 
   angular
-    .module('horizon.openstack-service-api', []);
+    .module('horizon.app.core.openstack-service-api', []);
 }());
