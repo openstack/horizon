@@ -28,6 +28,7 @@
    */
   angular
     .module('horizon.app.core', [
+      'horizon.app.core.images',
       'horizon.app.core.workflow'
     ]);
 

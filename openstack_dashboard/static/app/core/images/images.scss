@@ -1,0 +1,11 @@
+table[ng-controller="imagesTableController as table"] {
+
+  .detail-expanded .row {
+    background: none;
+    padding-left: 2em;
+  }
+
+  &.table-rsp .action-col {
+    min-width: 12em;
+  }
+}
