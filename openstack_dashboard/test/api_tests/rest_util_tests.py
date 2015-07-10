@@ -22,7 +22,7 @@ class RestUtilsTestCase(test.TestCase):
             return 'ok'
         request = self.mock_rest_request()
         response = f(None, request)
-        request.is_authenticated.assert_called_once()
+        request.user.is_authenticated.assert_called_once_with()
         self.assertStatusCode(response, 200)
         self.assertEqual(response.content, '"ok"')
 
@@ -32,7 +32,7 @@ class RestUtilsTestCase(test.TestCase):
             return 'ok'
         request = self.mock_rest_request()
         response = f(None, request)
-        request.is_authenticated.assert_not_called_once()
+        request.user.is_authenticated.assert_not_called()
         self.assertStatusCode(response, 200)
         self.assertEqual(response.content, '"ok"')
 
@@ -44,7 +44,7 @@ class RestUtilsTestCase(test.TestCase):
             'user.is_authenticated.return_value': False
         })
         response = f(None, request)
-        request.is_authenticated.assert_called_once()
+        request.user.is_authenticated.assert_called_once_with()
         self.assertStatusCode(response, 401)
         self.assertEqual(response.content, '"not logged in"')
 
@@ -111,7 +111,7 @@ class RestUtilsTestCase(test.TestCase):
             return utils.CreatedResponse('/api/spam/spam123')
         request = self.mock_rest_request()
         response = f(None, request)
-        request.is_authenticated.assert_called_once()
+        request.user.is_authenticated.assert_called_once_with()
         self.assertStatusCode(response, 201)
         self.assertEqual(response['location'], '/api/spam/spam123')
         self.assertEqual(response.content, '')
@@ -122,7 +122,7 @@ class RestUtilsTestCase(test.TestCase):
             return utils.CreatedResponse('/api/spam/spam123', 'spam!')
         request = self.mock_rest_request()
         response = f(None, request)
-        request.is_authenticated.assert_called_once()
+        request.user.is_authenticated.assert_called_once_with()
         self.assertStatusCode(response, 201)
         self.assertEqual(response['location'], '/api/spam/spam123')
         self.assertEqual(response.content, '"spam!"')
