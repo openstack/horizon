@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2015-07-03 09:12+0000\n"
-"PO-Revision-Date: 2015-06-27 11:57+0000\n"
+"PO-Revision-Date: 2015-07-09 06:23+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/p/horizon/"
 "language/pa_IN/)\n"
@@ -39,6 +39,9 @@ msgstr "%s TB"
 #, python-format
 msgid "%s bytes"
 msgstr "%s ਬਾਈਟਾਂ"
+
+msgid "Active"
+msgstr "فعال كریں"
 
 msgid "Add Interface"
 msgstr "ਇੰਟਰਫੇਸ ਜੋੜ੍ਹੋ"
@@ -140,6 +143,9 @@ msgstr "ਛਾਣਨੀ (ਫਿਲਟਰ)"
 msgid "Finish"
 msgstr "ਮੁਕੰਮਲ"
 
+msgid "Flavor"
+msgstr "فلیور"
+
 msgid "ID"
 msgstr "ID"
 
@@ -220,6 +226,9 @@ msgstr "ਕਿਰਪਾ ਕਰ ਕੇ ਆਪਣੀ ਚੋਣ ਦੀ ਪੁਸ਼ਟ
 
 msgid "Re-order items using drag and drop"
 msgstr "ਧੂਹ ਕੇ ਸੁੱਟਣ (ਡਰੈਗ ਐੰਡ ਡਰੌਪ) ਨਾਲ ਚੀਜ਼ਾਂ ਨੂੰ ਮੁੜ ਤਰਤੀਬ ਦਿਉ"
+
+msgid "Remove"
+msgstr "نكالیں"
 
 msgid "Required"
 msgstr "ਲੋੜੀਂਦਾ"
