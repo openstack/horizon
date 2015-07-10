@@ -57,7 +57,7 @@ class AddInterfaceView(forms.ModalFormView):
     def get_initial(self):
         router = self.get_object()
         return {"router_id": self.kwargs['router_id'],
-                "router_name": router.name}
+                "router_name": router.name_or_id}
 
 
 class SetGatewayView(forms.ModalFormView):
