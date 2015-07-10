@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2015-07-03 09:12+0000\n"
-"PO-Revision-Date: 2015-07-08 07:42+0000\n"
+"PO-Revision-Date: 2015-07-09 15:27+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/p/horizon/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -958,6 +958,9 @@ msgstr "Šablony clusteru"
 
 msgid "Cluster template creation failed"
 msgstr "Vytvoření šablony clusteru selhalo"
+
+msgid "Cluster type chosen"
+msgstr "Typ clusteru zvolen"
 
 msgid "Clusters"
 msgstr "Clustery"
@@ -3641,6 +3644,9 @@ msgstr "Místní kapacita (použitá)"
 msgid "Log"
 msgstr "Protokol"
 
+msgid "Log Lines Per Instance"
+msgstr "Řádky záznamu na instanci"
+
 msgid "MAC Learning State"
 msgstr "Stav naučení adres MAC"
 
@@ -4031,6 +4037,9 @@ msgstr "Žádný stav"
 
 msgid "No Templates Available"
 msgstr "Žádné šablony nejsou dostupné."
+
+msgid "No availability zone specified"
+msgstr "Žádné zóny dostupnost nezadányi"
 
 msgid "No availability zones found"
 msgstr "Žádné zóny dostupnosti nenalezeny"
@@ -6202,6 +6211,9 @@ msgstr "Celková velikost Svazků LUKS a Snímků (GB)"
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "Celková velikost Svazků a Snímků (GB)"
 
+msgid "Total disk usage (GB * Hours Used) for the project"
+msgstr "Celkové využití disku (GB * Počet hodin provozu) pro projekt"
+
 msgid "Total size of stored objects"
 msgstr "Celková velikost uložených objetků"
 
@@ -6673,6 +6685,9 @@ msgstr "Nelze získat podrobnosti skupiny uzlů."
 msgid "Unable to get nova services list."
 msgstr "Nelze získat seznam služeb nova."
 
+msgid "Unable to get openrc credentials"
+msgstr "Nelze získat přihlašovací údaje pro openrc."
+
 msgid "Unable to get pool detail."
 msgstr "Nelze získat podrobnosti zásoby,"
 
@@ -6682,6 +6697,9 @@ msgstr "Nelze získat informace o kvótě."
 #, python-format
 msgid "Unable to get resources for stack \"%s\"."
 msgstr "Nelze získat zdroje zásobníku \"%s\"."
+
+msgid "Unable to get security group list."
+msgstr "Nelze získat seznam bezpečnostních skupin."
 
 #, python-format
 msgid "Unable to get subnet \"%s\""
@@ -7250,6 +7268,10 @@ msgstr "Nelze získat pravidla (%(error)s)."
 msgid "Unable to retrieve rules list."
 msgstr "Nelze získat seznam pravidel."
 
+#, python-format
+msgid "Unable to retrieve security group %(group)s."
+msgstr "Nelze získat bezpečnostní skupinu %(group)s."
+
 msgid "Unable to retrieve security group list. Please try again later."
 msgstr "Nelze získat seznam bezpečnostních skupin. Prosím zkuste to později."
 
@@ -7412,6 +7434,9 @@ msgstr "Nelze nastavit kontext domény."
 
 msgid "Unable to set bootable flag on volume."
 msgstr "Nelze nastavit příznak pro zavedení ve svazku"
+
+msgid "Unable to set cluster type"
+msgstr "Nelze nastavit typ clusteru"
 
 #, python-format
 msgid "Unable to set flavor access for project %s."
@@ -7735,6 +7760,9 @@ msgstr "Uživatel \"%s\" byl úspěšně vytvořen."
 msgid "User %s has no role defined for that project."
 msgstr "Uživatel %s nemá pro tento projekt určenu roli."
 
+msgid "User Credentials Details"
+msgstr "Ověřovací údaje uživatele."
+
 msgid "User Details: {{ user.name }}"
 msgstr "Podrobnosti uživatele: {{ user.name }}"
 
@@ -7969,6 +7997,9 @@ msgstr "Název typu svazku nemůže být prázdný."
 
 msgid "Volumes"
 msgstr "Svazky"
+
+msgid "Volumes Availability Zone"
+msgstr "Zóna dostupnosti svazků"
 
 msgid "Volumes per node"
 msgstr "Svazky v uzlu"
