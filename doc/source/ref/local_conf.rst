@@ -23,19 +23,26 @@ that Horizon supports in DevStack when `stack.sh` is run.
     # The default is no.
     #RECLONE=yes
 
+    # Set ``OFFLINE`` to ``True`` to configure ``stack.sh`` to run cleanly without
+    # Internet access. ``stack.sh`` must have been previously run with Internet
+    # access to install prerequisites and fetch repositories.
+    # OFFLINE=True
+
     # Note: there are several network setting changes that may be
     # required to get networking properly configured in your environment.
     # This file is just using the defaults set up by devstack.
     # For a more detailed treatment of devstack network configuration
     # options, please see: http://devstack.org/guides/single-machine.html
 
-    # Enable Swift (object-store) Service without replication
+    ### SERVICES
+
+    # Enable Swift (Object Store) without replication
     enable_service s-proxy s-object s-container s-account
     SWIFT_HASH=66a3d6b56c1f479c8b4e70ab5c2000f5
     SWIFT_REPLICAS=1
     SWIFT_DATA_DIR=$DEST/data/swift
 
-    # enabling Neutron (network) Service
+    # Enable Neutron (Networking)
     # to use nova net rather than neutron, comment out the following group
     disable_service n-net
     enable_service q-svc
@@ -50,20 +57,16 @@ that Horizon supports in DevStack when `stack.sh` is run.
     enable_service q-vpn
     # end group
 
-    # enable Sahara (data-processing) Service
-    enable_service sahara
-
-    # enable Trove (database) Service
-    enable_service trove tr-api tr-tmgr tr-cond
-
-    # enable Ceilometer (metering) Service
+    # Enable Ceilometer (Metering)
     enable_service ceilometer-acompute ceilometer-acentral ceilometer-anotification ceilometer-collector ceilometer-api
 
+    ### PLUGINS
 
-    # Set ``OFFLINE`` to ``True`` to configure ``stack.sh`` to run cleanly without
-    # Internet access. ``stack.sh`` must have been previously run with Internet
-    # access to install prerequisites and fetch repositories.
-    # OFFLINE=True
+    # Enable Sahara (Data Processing)
+    enable_plugin sahara git://git.openstack.org/openstack/sahara
+
+    # Enable Trove (Database)
+    enable_plugin trove git://git.openstack.org/openstack/trove
 
     [[post-config|$GLANCE_API_CONF]]
     [DEFAULT]
